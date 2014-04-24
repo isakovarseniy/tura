@@ -17,6 +17,8 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link domain.Application#getApplicationMappers <em>Application Mappers</em>}</li>
  *   <li>{@link domain.Application#getApplicationUILayer <em>Application UI Layer</em>}</li>
  *   <li>{@link domain.Application#getApplicationInfrastructureLayer <em>Application Infrastructure Layer</em>}</li>
+ *   <li>{@link domain.Application#getApplicationStyle <em>Application Style</em>}</li>
+ *   <li>{@link domain.Application#getApplicationRole <em>Application Role</em>}</li>
  *   <li>{@link domain.Application#getParent <em>Parent</em>}</li>
  * </ul>
  * </p>
@@ -164,6 +166,62 @@ public interface Application extends EObject
    * @generated
    */
   void setApplicationInfrastructureLayer(ApplicationInfrastructureLayer value);
+
+  /**
+   * Returns the value of the '<em><b>Application Style</b></em>' containment reference.
+   * It is bidirectional and its opposite is '{@link domain.ApplicationStyle#getParent <em>Parent</em>}'.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Application Style</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Application Style</em>' containment reference.
+   * @see #setApplicationStyle(ApplicationStyle)
+   * @see domain.DomainPackage#getApplication_ApplicationStyle()
+   * @see domain.ApplicationStyle#getParent
+   * @model opposite="parent" containment="true"
+   * @generated
+   */
+  ApplicationStyle getApplicationStyle();
+
+  /**
+   * Sets the value of the '{@link domain.Application#getApplicationStyle <em>Application Style</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Application Style</em>' containment reference.
+   * @see #getApplicationStyle()
+   * @generated
+   */
+  void setApplicationStyle(ApplicationStyle value);
+
+  /**
+   * Returns the value of the '<em><b>Application Role</b></em>' containment reference.
+   * It is bidirectional and its opposite is '{@link domain.ApplicationRole#getParent <em>Parent</em>}'.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Application Role</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Application Role</em>' containment reference.
+   * @see #setApplicationRole(ApplicationRole)
+   * @see domain.DomainPackage#getApplication_ApplicationRole()
+   * @see domain.ApplicationRole#getParent
+   * @model opposite="parent" containment="true"
+   * @generated
+   */
+  ApplicationRole getApplicationRole();
+
+  /**
+   * Sets the value of the '{@link domain.Application#getApplicationRole <em>Application Role</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Application Role</em>' containment reference.
+   * @see #getApplicationRole()
+   * @generated
+   */
+  void setApplicationRole(ApplicationRole value);
 
   /**
    * Returns the value of the '<em><b>Parent</b></em>' reference.

@@ -36,21 +36,47 @@ public class DomainPaletteFactory {
 		PaletteDrawer paletteContainer = new PaletteDrawer(
 				Messages.Objects1Group_title);
 		paletteContainer.setId("createObjects1Group"); //$NON-NLS-1$
-		paletteContainer.add(createForm1CreationTool());
-		paletteContainer.add(createFormDataControls2CreationTool());
-		paletteContainer.add(createFormView3CreationTool());
+		paletteContainer.add(createApplicationRole1CreationTool());
+		paletteContainer.add(createApplicationStyle2CreationTool());
+		paletteContainer.add(createForm3CreationTool());
+		paletteContainer.add(createFormDataControls4CreationTool());
+		paletteContainer.add(createFormView5CreationTool());
 		return paletteContainer;
 	}
 
 	/**
 	 * @generated
 	 */
-	private ToolEntry createForm1CreationTool() {
+	private ToolEntry createApplicationRole1CreationTool() {
+		ToolEntry entry = new ToolEntry(
+				Messages.ApplicationRole1CreationTool_title,
+				Messages.ApplicationRole1CreationTool_desc, null, null) {
+		};
+		entry.setId("createApplicationRole1CreationTool"); //$NON-NLS-1$
+		return entry;
+	}
+
+	/**
+	 * @generated
+	 */
+	private ToolEntry createApplicationStyle2CreationTool() {
+		ToolEntry entry = new ToolEntry(
+				Messages.ApplicationStyle2CreationTool_title,
+				Messages.ApplicationStyle2CreationTool_desc, null, null) {
+		};
+		entry.setId("createApplicationStyle2CreationTool"); //$NON-NLS-1$
+		return entry;
+	}
+
+	/**
+	 * @generated
+	 */
+	private ToolEntry createForm3CreationTool() {
 		NodeToolEntry entry = new NodeToolEntry(
-				Messages.Form1CreationTool_title,
-				Messages.Form1CreationTool_desc,
+				Messages.Form3CreationTool_title,
+				Messages.Form3CreationTool_desc,
 				Collections.singletonList(DomainElementTypes.Form_1002002));
-		entry.setId("createForm1CreationTool"); //$NON-NLS-1$
+		entry.setId("createForm3CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(DomainElementTypes
 				.getImageDescriptor(DomainElementTypes.Form_1002002));
 		entry.setLargeIcon(entry.getSmallIcon());
@@ -60,13 +86,13 @@ public class DomainPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createFormDataControls2CreationTool() {
+	private ToolEntry createFormDataControls4CreationTool() {
 		NodeToolEntry entry = new NodeToolEntry(
-				Messages.FormDataControls2CreationTool_title,
-				Messages.FormDataControls2CreationTool_desc,
+				Messages.FormDataControls4CreationTool_title,
+				Messages.FormDataControls4CreationTool_desc,
 				Collections
 						.singletonList(DomainElementTypes.FormDataControls_1003002));
-		entry.setId("createFormDataControls2CreationTool"); //$NON-NLS-1$
+		entry.setId("createFormDataControls4CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(DomainElementTypes
 				.getImageDescriptor(DomainElementTypes.FormDataControls_1003002));
 		entry.setLargeIcon(entry.getSmallIcon());
@@ -76,12 +102,12 @@ public class DomainPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createFormView3CreationTool() {
+	private ToolEntry createFormView5CreationTool() {
 		NodeToolEntry entry = new NodeToolEntry(
-				Messages.FormView3CreationTool_title,
-				Messages.FormView3CreationTool_desc,
+				Messages.FormView5CreationTool_title,
+				Messages.FormView5CreationTool_desc,
 				Collections.singletonList(DomainElementTypes.FormView_1003001));
-		entry.setId("createFormView3CreationTool"); //$NON-NLS-1$
+		entry.setId("createFormView5CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(DomainElementTypes
 				.getImageDescriptor(DomainElementTypes.FormView_1003001));
 		entry.setLargeIcon(entry.getSmallIcon());

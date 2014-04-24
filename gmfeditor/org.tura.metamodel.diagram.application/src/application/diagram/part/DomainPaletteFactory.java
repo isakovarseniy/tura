@@ -42,8 +42,11 @@ public class DomainPaletteFactory {
 		paletteContainer.add(createApplicationMappers3CreationTool());
 		paletteContainer.add(createApplicationRecipe4CreationTool());
 		paletteContainer.add(createApplicationRecipes5CreationTool());
-		paletteContainer.add(createApplicationUILayer6CreationTool());
-		paletteContainer.add(createApplicationUIPackage7CreationTool());
+		paletteContainer.add(createApplicationRole6CreationTool());
+		paletteContainer.add(createApplicationStyle7CreationTool());
+		paletteContainer.add(createApplicationUILayer8CreationTool());
+		paletteContainer.add(createApplicationUIPackage9CreationTool());
+		paletteContainer.add(createStylesPackage10CreationTool());
 		return paletteContainer;
 	}
 
@@ -130,13 +133,45 @@ public class DomainPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createApplicationUILayer6CreationTool() {
+	private ToolEntry createApplicationRole6CreationTool() {
 		NodeToolEntry entry = new NodeToolEntry(
-				Messages.ApplicationUILayer6CreationTool_title,
-				Messages.ApplicationUILayer6CreationTool_desc,
+				Messages.ApplicationRole6CreationTool_title,
+				Messages.ApplicationRole6CreationTool_desc,
+				Collections
+						.singletonList(DomainElementTypes.ApplicationRole_802006));
+		entry.setId("createApplicationRole6CreationTool"); //$NON-NLS-1$
+		entry.setSmallIcon(DomainElementTypes
+				.getImageDescriptor(DomainElementTypes.ApplicationRole_802006));
+		entry.setLargeIcon(entry.getSmallIcon());
+		return entry;
+	}
+
+	/**
+	 * @generated
+	 */
+	private ToolEntry createApplicationStyle7CreationTool() {
+		NodeToolEntry entry = new NodeToolEntry(
+				Messages.ApplicationStyle7CreationTool_title,
+				Messages.ApplicationStyle7CreationTool_desc,
+				Collections
+						.singletonList(DomainElementTypes.ApplicationStyle_802005));
+		entry.setId("createApplicationStyle7CreationTool"); //$NON-NLS-1$
+		entry.setSmallIcon(DomainElementTypes
+				.getImageDescriptor(DomainElementTypes.ApplicationStyle_802005));
+		entry.setLargeIcon(entry.getSmallIcon());
+		return entry;
+	}
+
+	/**
+	 * @generated
+	 */
+	private ToolEntry createApplicationUILayer8CreationTool() {
+		NodeToolEntry entry = new NodeToolEntry(
+				Messages.ApplicationUILayer8CreationTool_title,
+				Messages.ApplicationUILayer8CreationTool_desc,
 				Collections
 						.singletonList(DomainElementTypes.ApplicationUILayer_802003));
-		entry.setId("createApplicationUILayer6CreationTool"); //$NON-NLS-1$
+		entry.setId("createApplicationUILayer8CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(DomainElementTypes
 				.getImageDescriptor(DomainElementTypes.ApplicationUILayer_802003));
 		entry.setLargeIcon(entry.getSmallIcon());
@@ -146,15 +181,31 @@ public class DomainPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createApplicationUIPackage7CreationTool() {
+	private ToolEntry createApplicationUIPackage9CreationTool() {
 		NodeToolEntry entry = new NodeToolEntry(
-				Messages.ApplicationUIPackage7CreationTool_title,
-				Messages.ApplicationUIPackage7CreationTool_desc,
+				Messages.ApplicationUIPackage9CreationTool_title,
+				Messages.ApplicationUIPackage9CreationTool_desc,
 				Collections
 						.singletonList(DomainElementTypes.ApplicationUIPackage_803003));
-		entry.setId("createApplicationUIPackage7CreationTool"); //$NON-NLS-1$
+		entry.setId("createApplicationUIPackage9CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(DomainElementTypes
 				.getImageDescriptor(DomainElementTypes.ApplicationUIPackage_803003));
+		entry.setLargeIcon(entry.getSmallIcon());
+		return entry;
+	}
+
+	/**
+	 * @generated
+	 */
+	private ToolEntry createStylesPackage10CreationTool() {
+		NodeToolEntry entry = new NodeToolEntry(
+				Messages.StylesPackage10CreationTool_title,
+				Messages.StylesPackage10CreationTool_desc,
+				Collections
+						.singletonList(DomainElementTypes.StylesPackage_803004));
+		entry.setId("createStylesPackage10CreationTool"); //$NON-NLS-1$
+		entry.setSmallIcon(DomainElementTypes
+				.getImageDescriptor(DomainElementTypes.StylesPackage_803004));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}

@@ -1103,13 +1103,31 @@ public interface DomainPackage extends EPackage
   int APPLICATION__APPLICATION_INFRASTRUCTURE_LAYER = 4;
 
   /**
+   * The feature id for the '<em><b>Application Style</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int APPLICATION__APPLICATION_STYLE = 5;
+
+  /**
+   * The feature id for the '<em><b>Application Role</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int APPLICATION__APPLICATION_ROLE = 6;
+
+  /**
    * The feature id for the '<em><b>Parent</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int APPLICATION__PARENT = 5;
+  int APPLICATION__PARENT = 7;
 
   /**
    * The number of structural features of the '<em>Application</em>' class.
@@ -1118,7 +1136,172 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int APPLICATION_FEATURE_COUNT = 6;
+  int APPLICATION_FEATURE_COUNT = 8;
+
+  /**
+   * The meta object id for the '{@link domain.impl.ApplicationRoleImpl <em>Application Role</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see domain.impl.ApplicationRoleImpl
+   * @see domain.impl.DomainPackageImpl#getApplicationRole()
+   * @generated
+   */
+  int APPLICATION_ROLE = 19;
+
+  /**
+   * The feature id for the '<em><b>Uid</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int APPLICATION_ROLE__UID = 0;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int APPLICATION_ROLE__NAME = 1;
+
+  /**
+   * The feature id for the '<em><b>Parent</b></em>' container reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int APPLICATION_ROLE__PARENT = 2;
+
+  /**
+   * The feature id for the '<em><b>Roles</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int APPLICATION_ROLE__ROLES = 3;
+
+  /**
+   * The number of structural features of the '<em>Application Role</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int APPLICATION_ROLE_FEATURE_COUNT = 4;
+
+  /**
+   * The meta object id for the '{@link domain.impl.ApplicationStyleImpl <em>Application Style</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see domain.impl.ApplicationStyleImpl
+   * @see domain.impl.DomainPackageImpl#getApplicationStyle()
+   * @generated
+   */
+  int APPLICATION_STYLE = 20;
+
+  /**
+   * The feature id for the '<em><b>Uid</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int APPLICATION_STYLE__UID = 0;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int APPLICATION_STYLE__NAME = 1;
+
+  /**
+   * The feature id for the '<em><b>Parent</b></em>' container reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int APPLICATION_STYLE__PARENT = 2;
+
+  /**
+   * The feature id for the '<em><b>Styles Package</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int APPLICATION_STYLE__STYLES_PACKAGE = 3;
+
+  /**
+   * The number of structural features of the '<em>Application Style</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int APPLICATION_STYLE_FEATURE_COUNT = 4;
+
+  /**
+   * The meta object id for the '{@link domain.impl.StylesPackageImpl <em>Styles Package</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see domain.impl.StylesPackageImpl
+   * @see domain.impl.DomainPackageImpl#getStylesPackage()
+   * @generated
+   */
+  int STYLES_PACKAGE = 21;
+
+  /**
+   * The feature id for the '<em><b>Uid</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STYLES_PACKAGE__UID = 0;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STYLES_PACKAGE__NAME = 1;
+
+  /**
+   * The feature id for the '<em><b>Parent</b></em>' container reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STYLES_PACKAGE__PARENT = 2;
+
+  /**
+   * The feature id for the '<em><b>Styles</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STYLES_PACKAGE__STYLES = 3;
+
+  /**
+   * The number of structural features of the '<em>Styles Package</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STYLES_PACKAGE_FEATURE_COUNT = 4;
 
   /**
    * The meta object id for the '{@link domain.impl.ApplicationUILayerImpl <em>Application UI Layer</em>}' class.
@@ -1128,7 +1311,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getApplicationUILayer()
    * @generated
    */
-  int APPLICATION_UI_LAYER = 19;
+  int APPLICATION_UI_LAYER = 22;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -1183,7 +1366,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getApplicationUIPackage()
    * @generated
    */
-  int APPLICATION_UI_PACKAGE = 20;
+  int APPLICATION_UI_PACKAGE = 23;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -1238,7 +1421,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getApplicationRecipes()
    * @generated
    */
-  int APPLICATION_RECIPES = 21;
+  int APPLICATION_RECIPES = 24;
 
   /**
    * The feature id for the '<em><b>Columns</b></em>' attribute.
@@ -1302,7 +1485,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getApplicationRecipe()
    * @generated
    */
-  int APPLICATION_RECIPE = 22;
+  int APPLICATION_RECIPE = 25;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -1357,7 +1540,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getApplicationMappers()
    * @generated
    */
-  int APPLICATION_MAPPERS = 23;
+  int APPLICATION_MAPPERS = 26;
 
   /**
    * The feature id for the '<em><b>Columns</b></em>' attribute.
@@ -1421,7 +1604,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getApplicationMapper()
    * @generated
    */
-  int APPLICATION_MAPPER = 24;
+  int APPLICATION_MAPPER = 27;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -1476,7 +1659,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getTypePointer()
    * @generated
    */
-  int TYPE_POINTER = 47;
+  int TYPE_POINTER = 56;
 
   /**
    * The feature id for the '<em><b>Package Ref</b></em>' reference.
@@ -1531,7 +1714,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getMethodPointer()
    * @generated
    */
-  int METHOD_POINTER = 25;
+  int METHOD_POINTER = 28;
 
   /**
    * The feature id for the '<em><b>Package Ref</b></em>' reference.
@@ -1597,6 +1780,282 @@ public interface DomainPackage extends EPackage
   int METHOD_POINTER_FEATURE_COUNT = TYPE_POINTER_FEATURE_COUNT + 2;
 
   /**
+   * The meta object id for the '{@link domain.impl.RolesImpl <em>Roles</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see domain.impl.RolesImpl
+   * @see domain.impl.DomainPackageImpl#getRoles()
+   * @generated
+   */
+  int ROLES = 29;
+
+  /**
+   * The feature id for the '<em><b>Uid</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ROLES__UID = 0;
+
+  /**
+   * The feature id for the '<em><b>Parent</b></em>' container reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ROLES__PARENT = 1;
+
+  /**
+   * The feature id for the '<em><b>Roles</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ROLES__ROLES = 2;
+
+  /**
+   * The feature id for the '<em><b>Groups</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ROLES__GROUPS = 3;
+
+  /**
+   * The number of structural features of the '<em>Roles</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ROLES_FEATURE_COUNT = 4;
+
+  /**
+   * The meta object id for the '{@link domain.impl.RoleImpl <em>Role</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see domain.impl.RoleImpl
+   * @see domain.impl.DomainPackageImpl#getRole()
+   * @generated
+   */
+  int ROLE = 30;
+
+  /**
+   * The feature id for the '<em><b>Uid</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ROLE__UID = 0;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ROLE__NAME = 1;
+
+  /**
+   * The number of structural features of the '<em>Role</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ROLE_FEATURE_COUNT = 2;
+
+  /**
+   * The meta object id for the '{@link domain.impl.GroupImpl <em>Group</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see domain.impl.GroupImpl
+   * @see domain.impl.DomainPackageImpl#getGroup()
+   * @generated
+   */
+  int GROUP = 31;
+
+  /**
+   * The feature id for the '<em><b>Uid</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int GROUP__UID = 0;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int GROUP__NAME = 1;
+
+  /**
+   * The feature id for the '<em><b>Group2 Group</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int GROUP__GROUP2_GROUP = 2;
+
+  /**
+   * The feature id for the '<em><b>Group2 Role</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int GROUP__GROUP2_ROLE = 3;
+
+  /**
+   * The number of structural features of the '<em>Group</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int GROUP_FEATURE_COUNT = 4;
+
+  /**
+   * The meta object id for the '{@link domain.impl.StylesImpl <em>Styles</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see domain.impl.StylesImpl
+   * @see domain.impl.DomainPackageImpl#getStyles()
+   * @generated
+   */
+  int STYLES = 32;
+
+  /**
+   * The feature id for the '<em><b>Uid</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STYLES__UID = 0;
+
+  /**
+   * The feature id for the '<em><b>Parent</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STYLES__PARENT = 1;
+
+  /**
+   * The feature id for the '<em><b>Libraries</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STYLES__LIBRARIES = 2;
+
+  /**
+   * The number of structural features of the '<em>Styles</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STYLES_FEATURE_COUNT = 3;
+
+  /**
+   * The meta object id for the '{@link domain.impl.StyleLibraryImpl <em>Style Library</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see domain.impl.StyleLibraryImpl
+   * @see domain.impl.DomainPackageImpl#getStyleLibrary()
+   * @generated
+   */
+  int STYLE_LIBRARY = 33;
+
+  /**
+   * The feature id for the '<em><b>Uid</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STYLE_LIBRARY__UID = 0;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STYLE_LIBRARY__NAME = 1;
+
+  /**
+   * The feature id for the '<em><b>Styles</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STYLE_LIBRARY__STYLES = 2;
+
+  /**
+   * The number of structural features of the '<em>Style Library</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STYLE_LIBRARY_FEATURE_COUNT = 3;
+
+  /**
+   * The meta object id for the '{@link domain.impl.StyleSetImpl <em>Style Set</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see domain.impl.StyleSetImpl
+   * @see domain.impl.DomainPackageImpl#getStyleSet()
+   * @generated
+   */
+  int STYLE_SET = 34;
+
+  /**
+   * The feature id for the '<em><b>Uid</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STYLE_SET__UID = 0;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STYLE_SET__NAME = 1;
+
+  /**
+   * The number of structural features of the '<em>Style Set</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STYLE_SET_FEATURE_COUNT = 2;
+
+  /**
    * The meta object id for the '{@link domain.impl.MappersImpl <em>Mappers</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1604,7 +2063,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getMappers()
    * @generated
    */
-  int MAPPERS = 26;
+  int MAPPERS = 35;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -1650,7 +2109,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getMapper()
    * @generated
    */
-  int MAPPER = 27;
+  int MAPPER = 36;
 
   /**
    * The feature id for the '<em><b>Package Ref</b></em>' reference.
@@ -1741,7 +2200,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getJavaMapper()
    * @generated
    */
-  int JAVA_MAPPER = 28;
+  int JAVA_MAPPER = 37;
 
   /**
    * The feature id for the '<em><b>Package Ref</b></em>' reference.
@@ -1886,7 +2345,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getRecipes()
    * @generated
    */
-  int RECIPES = 29;
+  int RECIPES = 38;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -1959,7 +2418,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getDeploymentSequence()
    * @generated
    */
-  int DEPLOYMENT_SEQUENCE = 30;
+  int DEPLOYMENT_SEQUENCE = 39;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -2005,7 +2464,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getDeploymentComponents()
    * @generated
    */
-  int DEPLOYMENT_COMPONENTS = 31;
+  int DEPLOYMENT_COMPONENTS = 40;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -2051,7 +2510,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getDeploymentComponent()
    * @generated
    */
-  int DEPLOYMENT_COMPONENT = 32;
+  int DEPLOYMENT_COMPONENT = 41;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -2106,7 +2565,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getDeploymentStarStep()
    * @generated
    */
-  int DEPLOYMENT_STAR_STEP = 33;
+  int DEPLOYMENT_STAR_STEP = 42;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -2152,7 +2611,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getUsingMappers()
    * @generated
    */
-  int USING_MAPPERS = 34;
+  int USING_MAPPERS = 43;
 
   /**
    * The feature id for the '<em><b>Mappers</b></em>' reference list.
@@ -2180,7 +2639,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getRecipe()
    * @generated
    */
-  int RECIPE = 35;
+  int RECIPE = 44;
 
   /**
    * The feature id for the '<em><b>Mappers</b></em>' reference list.
@@ -2262,7 +2721,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getIngredient()
    * @generated
    */
-  int INGREDIENT = 36;
+  int INGREDIENT = 45;
 
   /**
    * The feature id for the '<em><b>Mappers</b></em>' reference list.
@@ -2344,7 +2803,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getComponent()
    * @generated
    */
-  int COMPONENT = 37;
+  int COMPONENT = 46;
 
   /**
    * The feature id for the '<em><b>Columns</b></em>' attribute.
@@ -2417,7 +2876,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getJavaComponent()
    * @generated
    */
-  int JAVA_COMPONENT = 38;
+  int JAVA_COMPONENT = 47;
 
   /**
    * The feature id for the '<em><b>Columns</b></em>' attribute.
@@ -2526,7 +2985,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getInfrastructure()
    * @generated
    */
-  int INFRASTRUCTURE = 39;
+  int INFRASTRUCTURE = 48;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -2581,7 +3040,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getConfiguration()
    * @generated
    */
-  int CONFIGURATION = 40;
+  int CONFIGURATION = 49;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -2654,7 +3113,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getArtifactRef()
    * @generated
    */
-  int ARTIFACT_REF = 46;
+  int ARTIFACT_REF = 55;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -2700,7 +3159,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getModelMapper()
    * @generated
    */
-  int MODEL_MAPPER = 41;
+  int MODEL_MAPPER = 50;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -2791,7 +3250,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getProperty()
    * @generated
    */
-  int PROPERTY = 42;
+  int PROPERTY = 51;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -2846,7 +3305,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getMappingSpecifier()
    * @generated
    */
-  int MAPPING_SPECIFIER = 43;
+  int MAPPING_SPECIFIER = 52;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -2892,7 +3351,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getQuery()
    * @generated
    */
-  int QUERY = 44;
+  int QUERY = 53;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -2965,7 +3424,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getQueryVariable()
    * @generated
    */
-  int QUERY_VARIABLE = 45;
+  int QUERY_VARIABLE = 54;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -3011,7 +3470,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getTypeDefinition()
    * @generated
    */
-  int TYPE_DEFINITION = 48;
+  int TYPE_DEFINITION = 57;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -3057,7 +3516,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getTypeElement()
    * @generated
    */
-  int TYPE_ELEMENT = 49;
+  int TYPE_ELEMENT = 58;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -3103,7 +3562,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getPrimitive()
    * @generated
    */
-  int PRIMITIVE = 50;
+  int PRIMITIVE = 59;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -3149,7 +3608,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getType()
    * @generated
    */
-  int TYPE = 51;
+  int TYPE = 60;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -3222,7 +3681,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getTypeReference()
    * @generated
    */
-  int TYPE_REFERENCE = 52;
+  int TYPE_REFERENCE = 61;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -3304,7 +3763,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getTypeExtension()
    * @generated
    */
-  int TYPE_EXTENSION = 53;
+  int TYPE_EXTENSION = 62;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -3350,7 +3809,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getAttribute()
    * @generated
    */
-  int ATTRIBUTE = 54;
+  int ATTRIBUTE = 63;
 
   /**
    * The feature id for the '<em><b>Package Ref</b></em>' reference.
@@ -3441,7 +3900,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getOperation()
    * @generated
    */
-  int OPERATION = 55;
+  int OPERATION = 64;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -3505,7 +3964,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getParameter()
    * @generated
    */
-  int PARAMETER = 56;
+  int PARAMETER = 65;
 
   /**
    * The feature id for the '<em><b>Package Ref</b></em>' reference.
@@ -3596,7 +4055,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getReturnValue()
    * @generated
    */
-  int RETURN_VALUE = 57;
+  int RETURN_VALUE = 66;
 
   /**
    * The feature id for the '<em><b>Package Ref</b></em>' reference.
@@ -3660,7 +4119,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getEnumarator()
    * @generated
    */
-  int ENUMARATOR = 58;
+  int ENUMARATOR = 67;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -3715,7 +4174,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getEnumAttribute()
    * @generated
    */
-  int ENUM_ATTRIBUTE = 59;
+  int ENUM_ATTRIBUTE = 68;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -3770,7 +4229,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getTypesRepository()
    * @generated
    */
-  int TYPES_REPOSITORY = 60;
+  int TYPES_REPOSITORY = 69;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -3816,7 +4275,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getTypes()
    * @generated
    */
-  int TYPES = 61;
+  int TYPES = 70;
 
   /**
    * The feature id for the '<em><b>Columns</b></em>' attribute.
@@ -3880,7 +4339,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getPackage()
    * @generated
    */
-  int PACKAGE = 62;
+  int PACKAGE = 71;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -3935,7 +4394,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getUIPackage()
    * @generated
    */
-  int UI_PACKAGE = 63;
+  int UI_PACKAGE = 72;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -3981,7 +4440,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getForm()
    * @generated
    */
-  int FORM = 64;
+  int FORM = 73;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -4036,7 +4495,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getFormView()
    * @generated
    */
-  int FORM_VIEW = 65;
+  int FORM_VIEW = 74;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -4082,7 +4541,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getViews()
    * @generated
    */
-  int VIEWS = 66;
+  int VIEWS = 75;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -4146,7 +4605,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getCanvasFrame()
    * @generated
    */
-  int CANVAS_FRAME = 67;
+  int CANVAS_FRAME = 76;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -4167,13 +4626,22 @@ public interface DomainPackage extends EPackage
   int CANVAS_FRAME__NAME = 1;
 
   /**
+   * The feature id for the '<em><b>Canvas View</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CANVAS_FRAME__CANVAS_VIEW = 2;
+
+  /**
    * The number of structural features of the '<em>Canvas Frame</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CANVAS_FRAME_FEATURE_COUNT = 2;
+  int CANVAS_FRAME_FEATURE_COUNT = 3;
 
   /**
    * The meta object id for the '{@link domain.impl.ViewPortHolderImpl <em>View Port Holder</em>}' class.
@@ -4183,7 +4651,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getViewPortHolder()
    * @generated
    */
-  int VIEW_PORT_HOLDER = 68;
+  int VIEW_PORT_HOLDER = 77;
 
   /**
    * The feature id for the '<em><b>Columns</b></em>' attribute.
@@ -4220,7 +4688,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getDefaultCavas()
    * @generated
    */
-  int DEFAULT_CAVAS = 69;
+  int DEFAULT_CAVAS = 78;
 
   /**
    * The feature id for the '<em><b>Default Canvas</b></em>' attribute.
@@ -4248,7 +4716,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getCanvas()
    * @generated
    */
-  int CANVAS = 70;
+  int CANVAS = 79;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -4267,6 +4735,15 @@ public interface DomainPackage extends EPackage
    * @ordered
    */
   int CANVAS__NAME = CANVAS_FRAME__NAME;
+
+  /**
+   * The feature id for the '<em><b>Canvas View</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CANVAS__CANVAS_VIEW = CANVAS_FRAME__CANVAS_VIEW;
 
   /**
    * The feature id for the '<em><b>Columns</b></em>' attribute.
@@ -4312,7 +4789,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getWindow()
    * @generated
    */
-  int WINDOW = 71;
+  int WINDOW = 80;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -4331,6 +4808,15 @@ public interface DomainPackage extends EPackage
    * @ordered
    */
   int WINDOW__NAME = CANVAS_FRAME__NAME;
+
+  /**
+   * The feature id for the '<em><b>Canvas View</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int WINDOW__CANVAS_VIEW = CANVAS_FRAME__CANVAS_VIEW;
 
   /**
    * The feature id for the '<em><b>Columns</b></em>' attribute.
@@ -4367,7 +4853,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getTabCanvas()
    * @generated
    */
-  int TAB_CANVAS = 72;
+  int TAB_CANVAS = 81;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -4386,6 +4872,15 @@ public interface DomainPackage extends EPackage
    * @ordered
    */
   int TAB_CANVAS__NAME = CANVAS_FRAME__NAME;
+
+  /**
+   * The feature id for the '<em><b>Canvas View</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TAB_CANVAS__CANVAS_VIEW = CANVAS_FRAME__CANVAS_VIEW;
 
   /**
    * The feature id for the '<em><b>Default Canvas</b></em>' attribute.
@@ -4413,7 +4908,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getTabPage()
    * @generated
    */
-  int TAB_PAGE = 73;
+  int TAB_PAGE = 82;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -4432,6 +4927,15 @@ public interface DomainPackage extends EPackage
    * @ordered
    */
   int TAB_PAGE__NAME = CANVAS_FRAME__NAME;
+
+  /**
+   * The feature id for the '<em><b>Canvas View</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TAB_PAGE__CANVAS_VIEW = CANVAS_FRAME__CANVAS_VIEW;
 
   /**
    * The feature id for the '<em><b>Columns</b></em>' attribute.
@@ -4468,7 +4972,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getViewPort()
    * @generated
    */
-  int VIEW_PORT = 74;
+  int VIEW_PORT = 83;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -4507,106 +5011,6 @@ public interface DomainPackage extends EPackage
   int VIEW_PORT_FEATURE_COUNT = 3;
 
   /**
-   * The meta object id for the '{@link domain.impl.TriggerImpl <em>Trigger</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see domain.impl.TriggerImpl
-   * @see domain.impl.DomainPackageImpl#getTrigger()
-   * @generated
-   */
-  int TRIGGER = 80;
-
-  /**
-   * The feature id for the '<em><b>Package Ref</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int TRIGGER__PACKAGE_REF = METHOD_POINTER__PACKAGE_REF;
-
-  /**
-   * The feature id for the '<em><b>Type Ref</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int TRIGGER__TYPE_REF = METHOD_POINTER__TYPE_REF;
-
-  /**
-   * The feature id for the '<em><b>Fake Package Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int TRIGGER__FAKE_PACKAGE_NAME = METHOD_POINTER__FAKE_PACKAGE_NAME;
-
-  /**
-   * The feature id for the '<em><b>Fake Type Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int TRIGGER__FAKE_TYPE_NAME = METHOD_POINTER__FAKE_TYPE_NAME;
-
-  /**
-   * The feature id for the '<em><b>Method Ref</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int TRIGGER__METHOD_REF = METHOD_POINTER__METHOD_REF;
-
-  /**
-   * The feature id for the '<em><b>Fake Method</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int TRIGGER__FAKE_METHOD = METHOD_POINTER__FAKE_METHOD;
-
-  /**
-   * The feature id for the '<em><b>Uid</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int TRIGGER__UID = METHOD_POINTER_FEATURE_COUNT + 0;
-
-  /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int TRIGGER__NAME = METHOD_POINTER_FEATURE_COUNT + 1;
-
-  /**
-   * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int TRIGGER__PARAMETERS = METHOD_POINTER_FEATURE_COUNT + 2;
-
-  /**
-   * The number of structural features of the '<em>Trigger</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int TRIGGER_FEATURE_COUNT = METHOD_POINTER_FEATURE_COUNT + 3;
-
-  /**
    * The meta object id for the '{@link domain.impl.ViewPortTriggerImpl <em>View Port Trigger</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -4614,61 +5018,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getViewPortTrigger()
    * @generated
    */
-  int VIEW_PORT_TRIGGER = 75;
-
-  /**
-   * The feature id for the '<em><b>Package Ref</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int VIEW_PORT_TRIGGER__PACKAGE_REF = TRIGGER__PACKAGE_REF;
-
-  /**
-   * The feature id for the '<em><b>Type Ref</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int VIEW_PORT_TRIGGER__TYPE_REF = TRIGGER__TYPE_REF;
-
-  /**
-   * The feature id for the '<em><b>Fake Package Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int VIEW_PORT_TRIGGER__FAKE_PACKAGE_NAME = TRIGGER__FAKE_PACKAGE_NAME;
-
-  /**
-   * The feature id for the '<em><b>Fake Type Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int VIEW_PORT_TRIGGER__FAKE_TYPE_NAME = TRIGGER__FAKE_TYPE_NAME;
-
-  /**
-   * The feature id for the '<em><b>Method Ref</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int VIEW_PORT_TRIGGER__METHOD_REF = TRIGGER__METHOD_REF;
-
-  /**
-   * The feature id for the '<em><b>Fake Method</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int VIEW_PORT_TRIGGER__FAKE_METHOD = TRIGGER__FAKE_METHOD;
+  int VIEW_PORT_TRIGGER = 84;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -4677,25 +5027,25 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int VIEW_PORT_TRIGGER__UID = TRIGGER__UID;
+  int VIEW_PORT_TRIGGER__UID = 0;
 
   /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * The feature id for the '<em><b>Trigger</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int VIEW_PORT_TRIGGER__NAME = TRIGGER__NAME;
+  int VIEW_PORT_TRIGGER__TRIGGER = 1;
 
   /**
-   * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
+   * The feature id for the '<em><b>Fake Method</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int VIEW_PORT_TRIGGER__PARAMETERS = TRIGGER__PARAMETERS;
+  int VIEW_PORT_TRIGGER__FAKE_METHOD = 2;
 
   /**
    * The number of structural features of the '<em>View Port Trigger</em>' class.
@@ -4704,7 +5054,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int VIEW_PORT_TRIGGER_FEATURE_COUNT = TRIGGER_FEATURE_COUNT + 0;
+  int VIEW_PORT_TRIGGER_FEATURE_COUNT = 3;
 
   /**
    * The meta object id for the '{@link domain.impl.ViewInheritanceImpl <em>View Inheritance</em>}' class.
@@ -4714,7 +5064,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getViewInheritance()
    * @generated
    */
-  int VIEW_INHERITANCE = 76;
+  int VIEW_INHERITANCE = 85;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -4760,7 +5110,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getTabPagesInheritance()
    * @generated
    */
-  int TAB_PAGES_INHERITANCE = 77;
+  int TAB_PAGES_INHERITANCE = 86;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -4806,7 +5156,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getFormDataControls()
    * @generated
    */
-  int FORM_DATA_CONTROLS = 78;
+  int FORM_DATA_CONTROLS = 87;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -4845,6 +5195,2000 @@ public interface DomainPackage extends EPackage
   int FORM_DATA_CONTROLS_FEATURE_COUNT = 3;
 
   /**
+   * The meta object id for the '{@link domain.impl.CanvasViewImpl <em>Canvas View</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see domain.impl.CanvasViewImpl
+   * @see domain.impl.DomainPackageImpl#getCanvasView()
+   * @generated
+   */
+  int CANVAS_VIEW = 88;
+
+  /**
+   * The feature id for the '<em><b>Uid</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CANVAS_VIEW__UID = 0;
+
+  /**
+   * The feature id for the '<em><b>Parent</b></em>' container reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CANVAS_VIEW__PARENT = 1;
+
+  /**
+   * The number of structural features of the '<em>Canvas View</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CANVAS_VIEW_FEATURE_COUNT = 2;
+
+  /**
+   * The meta object id for the '{@link domain.impl.StyleImpl <em>Style</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see domain.impl.StyleImpl
+   * @see domain.impl.DomainPackageImpl#getStyle()
+   * @generated
+   */
+  int STYLE = 89;
+
+  /**
+   * The feature id for the '<em><b>Uid</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STYLE__UID = 0;
+
+  /**
+   * The feature id for the '<em><b>Style</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STYLE__STYLE = 1;
+
+  /**
+   * The number of structural features of the '<em>Style</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STYLE_FEATURE_COUNT = 2;
+
+  /**
+   * The meta object id for the '{@link domain.impl.StyleClassImpl <em>Style Class</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see domain.impl.StyleClassImpl
+   * @see domain.impl.DomainPackageImpl#getStyleClass()
+   * @generated
+   */
+  int STYLE_CLASS = 90;
+
+  /**
+   * The feature id for the '<em><b>Uid</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STYLE_CLASS__UID = 0;
+
+  /**
+   * The feature id for the '<em><b>Styles Package</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STYLE_CLASS__STYLES_PACKAGE = 1;
+
+  /**
+   * The feature id for the '<em><b>Library</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STYLE_CLASS__LIBRARY = 2;
+
+  /**
+   * The feature id for the '<em><b>Style Set</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STYLE_CLASS__STYLE_SET = 3;
+
+  /**
+   * The number of structural features of the '<em>Style Class</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STYLE_CLASS_FEATURE_COUNT = 4;
+
+  /**
+   * The meta object id for the '{@link domain.impl.ContextParameterImpl <em>Context Parameter</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see domain.impl.ContextParameterImpl
+   * @see domain.impl.DomainPackageImpl#getContextParameter()
+   * @generated
+   */
+  int CONTEXT_PARAMETER = 91;
+
+  /**
+   * The feature id for the '<em><b>Uid</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONTEXT_PARAMETER__UID = 0;
+
+  /**
+   * The feature id for the '<em><b>Parameter</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONTEXT_PARAMETER__PARAMETER = 1;
+
+  /**
+   * The feature id for the '<em><b>Value</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONTEXT_PARAMETER__VALUE = 2;
+
+  /**
+   * The number of structural features of the '<em>Context Parameter</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONTEXT_PARAMETER_FEATURE_COUNT = 3;
+
+  /**
+   * The meta object id for the '{@link domain.impl.ContextValueImpl <em>Context Value</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see domain.impl.ContextValueImpl
+   * @see domain.impl.DomainPackageImpl#getContextValue()
+   * @generated
+   */
+  int CONTEXT_VALUE = 92;
+
+  /**
+   * The feature id for the '<em><b>Uid</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONTEXT_VALUE__UID = 0;
+
+  /**
+   * The feature id for the '<em><b>Is Expression</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONTEXT_VALUE__IS_EXPRESSION = 1;
+
+  /**
+   * The feature id for the '<em><b>Value</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONTEXT_VALUE__VALUE = 2;
+
+  /**
+   * The feature id for the '<em><b>Expression</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONTEXT_VALUE__EXPRESSION = 3;
+
+  /**
+   * The number of structural features of the '<em>Context Value</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONTEXT_VALUE_FEATURE_COUNT = 4;
+
+  /**
+   * The meta object id for the '{@link domain.impl.ExpressionPartImpl <em>Expression Part</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see domain.impl.ExpressionPartImpl
+   * @see domain.impl.DomainPackageImpl#getExpressionPart()
+   * @generated
+   */
+  int EXPRESSION_PART = 93;
+
+  /**
+   * The feature id for the '<em><b>Uid</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXPRESSION_PART__UID = 0;
+
+  /**
+   * The feature id for the '<em><b>Obj Ref</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXPRESSION_PART__OBJ_REF = 1;
+
+  /**
+   * The feature id for the '<em><b>Order</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXPRESSION_PART__ORDER = 2;
+
+  /**
+   * The number of structural features of the '<em>Expression Part</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXPRESSION_PART_FEATURE_COUNT = 3;
+
+  /**
+   * The meta object id for the '{@link domain.impl.ContextImpl <em>Context</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see domain.impl.ContextImpl
+   * @see domain.impl.DomainPackageImpl#getContext()
+   * @generated
+   */
+  int CONTEXT = 94;
+
+  /**
+   * The feature id for the '<em><b>Uid</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONTEXT__UID = 0;
+
+  /**
+   * The feature id for the '<em><b>Value</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONTEXT__VALUE = 1;
+
+  /**
+   * The feature id for the '<em><b>Expression</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONTEXT__EXPRESSION = 2;
+
+  /**
+   * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONTEXT__PARAMETERS = 3;
+
+  /**
+   * The number of structural features of the '<em>Context</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONTEXT_FEATURE_COUNT = 4;
+
+  /**
+   * The meta object id for the '{@link domain.impl.StyleElementImpl <em>Style Element</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see domain.impl.StyleElementImpl
+   * @see domain.impl.DomainPackageImpl#getStyleElement()
+   * @generated
+   */
+  int STYLE_ELEMENT = 95;
+
+  /**
+   * The feature id for the '<em><b>Style</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STYLE_ELEMENT__STYLE = 0;
+
+  /**
+   * The feature id for the '<em><b>Style Class</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STYLE_ELEMENT__STYLE_CLASS = 1;
+
+  /**
+   * The number of structural features of the '<em>Style Element</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STYLE_ELEMENT_FEATURE_COUNT = 2;
+
+  /**
+   * The meta object id for the '{@link domain.impl.UielementImpl <em>Uielement</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see domain.impl.UielementImpl
+   * @see domain.impl.DomainPackageImpl#getUielement()
+   * @generated
+   */
+  int UIELEMENT = 96;
+
+  /**
+   * The feature id for the '<em><b>Style</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int UIELEMENT__STYLE = STYLE_ELEMENT__STYLE;
+
+  /**
+   * The feature id for the '<em><b>Style Class</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int UIELEMENT__STYLE_CLASS = STYLE_ELEMENT__STYLE_CLASS;
+
+  /**
+   * The feature id for the '<em><b>Uid</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int UIELEMENT__UID = STYLE_ELEMENT_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Enabled</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int UIELEMENT__ENABLED = STYLE_ELEMENT_FEATURE_COUNT + 1;
+
+  /**
+   * The feature id for the '<em><b>Enabled Context</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int UIELEMENT__ENABLED_CONTEXT = STYLE_ELEMENT_FEATURE_COUNT + 2;
+
+  /**
+   * The feature id for the '<em><b>Required</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int UIELEMENT__REQUIRED = STYLE_ELEMENT_FEATURE_COUNT + 3;
+
+  /**
+   * The feature id for the '<em><b>Required Context</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int UIELEMENT__REQUIRED_CONTEXT = STYLE_ELEMENT_FEATURE_COUNT + 4;
+
+  /**
+   * The feature id for the '<em><b>Read Only</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int UIELEMENT__READ_ONLY = STYLE_ELEMENT_FEATURE_COUNT + 5;
+
+  /**
+   * The feature id for the '<em><b>Read Only Context</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int UIELEMENT__READ_ONLY_CONTEXT = STYLE_ELEMENT_FEATURE_COUNT + 6;
+
+  /**
+   * The number of structural features of the '<em>Uielement</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int UIELEMENT_FEATURE_COUNT = STYLE_ELEMENT_FEATURE_COUNT + 7;
+
+  /**
+   * The meta object id for the '{@link domain.impl.SourcesPointerImpl <em>Sources Pointer</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see domain.impl.SourcesPointerImpl
+   * @see domain.impl.DomainPackageImpl#getSourcesPointer()
+   * @generated
+   */
+  int SOURCES_POINTER = 97;
+
+  /**
+   * The feature id for the '<em><b>Style</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SOURCES_POINTER__STYLE = UIELEMENT__STYLE;
+
+  /**
+   * The feature id for the '<em><b>Style Class</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SOURCES_POINTER__STYLE_CLASS = UIELEMENT__STYLE_CLASS;
+
+  /**
+   * The feature id for the '<em><b>Uid</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SOURCES_POINTER__UID = UIELEMENT__UID;
+
+  /**
+   * The feature id for the '<em><b>Enabled</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SOURCES_POINTER__ENABLED = UIELEMENT__ENABLED;
+
+  /**
+   * The feature id for the '<em><b>Enabled Context</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SOURCES_POINTER__ENABLED_CONTEXT = UIELEMENT__ENABLED_CONTEXT;
+
+  /**
+   * The feature id for the '<em><b>Required</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SOURCES_POINTER__REQUIRED = UIELEMENT__REQUIRED;
+
+  /**
+   * The feature id for the '<em><b>Required Context</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SOURCES_POINTER__REQUIRED_CONTEXT = UIELEMENT__REQUIRED_CONTEXT;
+
+  /**
+   * The feature id for the '<em><b>Read Only</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SOURCES_POINTER__READ_ONLY = UIELEMENT__READ_ONLY;
+
+  /**
+   * The feature id for the '<em><b>Read Only Context</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SOURCES_POINTER__READ_ONLY_CONTEXT = UIELEMENT__READ_ONLY_CONTEXT;
+
+  /**
+   * The feature id for the '<em><b>Source Pointer</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SOURCES_POINTER__SOURCE_POINTER = UIELEMENT_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Value Pointer</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SOURCES_POINTER__VALUE_POINTER = UIELEMENT_FEATURE_COUNT + 1;
+
+  /**
+   * The feature id for the '<em><b>Source Cast</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SOURCES_POINTER__SOURCE_CAST = UIELEMENT_FEATURE_COUNT + 2;
+
+  /**
+   * The number of structural features of the '<em>Sources Pointer</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SOURCES_POINTER_FEATURE_COUNT = UIELEMENT_FEATURE_COUNT + 3;
+
+  /**
+   * The meta object id for the '{@link domain.impl.InputElementImpl <em>Input Element</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see domain.impl.InputElementImpl
+   * @see domain.impl.DomainPackageImpl#getInputElement()
+   * @generated
+   */
+  int INPUT_ELEMENT = 98;
+
+  /**
+   * The feature id for the '<em><b>Style</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INPUT_ELEMENT__STYLE = UIELEMENT__STYLE;
+
+  /**
+   * The feature id for the '<em><b>Style Class</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INPUT_ELEMENT__STYLE_CLASS = UIELEMENT__STYLE_CLASS;
+
+  /**
+   * The feature id for the '<em><b>Uid</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INPUT_ELEMENT__UID = UIELEMENT__UID;
+
+  /**
+   * The feature id for the '<em><b>Enabled</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INPUT_ELEMENT__ENABLED = UIELEMENT__ENABLED;
+
+  /**
+   * The feature id for the '<em><b>Enabled Context</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INPUT_ELEMENT__ENABLED_CONTEXT = UIELEMENT__ENABLED_CONTEXT;
+
+  /**
+   * The feature id for the '<em><b>Required</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INPUT_ELEMENT__REQUIRED = UIELEMENT__REQUIRED;
+
+  /**
+   * The feature id for the '<em><b>Required Context</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INPUT_ELEMENT__REQUIRED_CONTEXT = UIELEMENT__REQUIRED_CONTEXT;
+
+  /**
+   * The feature id for the '<em><b>Read Only</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INPUT_ELEMENT__READ_ONLY = UIELEMENT__READ_ONLY;
+
+  /**
+   * The feature id for the '<em><b>Read Only Context</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INPUT_ELEMENT__READ_ONLY_CONTEXT = UIELEMENT__READ_ONLY_CONTEXT;
+
+  /**
+   * The feature id for the '<em><b>Label</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INPUT_ELEMENT__LABEL = UIELEMENT_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Input Element</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INPUT_ELEMENT_FEATURE_COUNT = UIELEMENT_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link domain.impl.SelectionImpl <em>Selection</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see domain.impl.SelectionImpl
+   * @see domain.impl.DomainPackageImpl#getSelection()
+   * @generated
+   */
+  int SELECTION = 99;
+
+  /**
+   * The feature id for the '<em><b>Style</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SELECTION__STYLE = STYLE_ELEMENT__STYLE;
+
+  /**
+   * The feature id for the '<em><b>Style Class</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SELECTION__STYLE_CLASS = STYLE_ELEMENT__STYLE_CLASS;
+
+  /**
+   * The feature id for the '<em><b>Display Option Pointer</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SELECTION__DISPLAY_OPTION_POINTER = STYLE_ELEMENT_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Value Option Pointer</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SELECTION__VALUE_OPTION_POINTER = STYLE_ELEMENT_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>Selection</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SELECTION_FEATURE_COUNT = STYLE_ELEMENT_FEATURE_COUNT + 2;
+
+  /**
+   * The meta object id for the '{@link domain.impl.OptionSelectionImpl <em>Option Selection</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see domain.impl.OptionSelectionImpl
+   * @see domain.impl.DomainPackageImpl#getOptionSelection()
+   * @generated
+   */
+  int OPTION_SELECTION = 100;
+
+  /**
+   * The feature id for the '<em><b>Style</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OPTION_SELECTION__STYLE = INPUT_ELEMENT__STYLE;
+
+  /**
+   * The feature id for the '<em><b>Style Class</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OPTION_SELECTION__STYLE_CLASS = INPUT_ELEMENT__STYLE_CLASS;
+
+  /**
+   * The feature id for the '<em><b>Uid</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OPTION_SELECTION__UID = INPUT_ELEMENT__UID;
+
+  /**
+   * The feature id for the '<em><b>Enabled</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OPTION_SELECTION__ENABLED = INPUT_ELEMENT__ENABLED;
+
+  /**
+   * The feature id for the '<em><b>Enabled Context</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OPTION_SELECTION__ENABLED_CONTEXT = INPUT_ELEMENT__ENABLED_CONTEXT;
+
+  /**
+   * The feature id for the '<em><b>Required</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OPTION_SELECTION__REQUIRED = INPUT_ELEMENT__REQUIRED;
+
+  /**
+   * The feature id for the '<em><b>Required Context</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OPTION_SELECTION__REQUIRED_CONTEXT = INPUT_ELEMENT__REQUIRED_CONTEXT;
+
+  /**
+   * The feature id for the '<em><b>Read Only</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OPTION_SELECTION__READ_ONLY = INPUT_ELEMENT__READ_ONLY;
+
+  /**
+   * The feature id for the '<em><b>Read Only Context</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OPTION_SELECTION__READ_ONLY_CONTEXT = INPUT_ELEMENT__READ_ONLY_CONTEXT;
+
+  /**
+   * The feature id for the '<em><b>Label</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OPTION_SELECTION__LABEL = INPUT_ELEMENT__LABEL;
+
+  /**
+   * The feature id for the '<em><b>Option Pointer</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OPTION_SELECTION__OPTION_POINTER = INPUT_ELEMENT_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Option Cast</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OPTION_SELECTION__OPTION_CAST = INPUT_ELEMENT_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>Option Selection</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OPTION_SELECTION_FEATURE_COUNT = INPUT_ELEMENT_FEATURE_COUNT + 2;
+
+  /**
+   * The meta object id for the '{@link domain.impl.ActionElementImpl <em>Action Element</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see domain.impl.ActionElementImpl
+   * @see domain.impl.DomainPackageImpl#getActionElement()
+   * @generated
+   */
+  int ACTION_ELEMENT = 101;
+
+  /**
+   * The feature id for the '<em><b>Style</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ACTION_ELEMENT__STYLE = UIELEMENT__STYLE;
+
+  /**
+   * The feature id for the '<em><b>Style Class</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ACTION_ELEMENT__STYLE_CLASS = UIELEMENT__STYLE_CLASS;
+
+  /**
+   * The feature id for the '<em><b>Uid</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ACTION_ELEMENT__UID = UIELEMENT__UID;
+
+  /**
+   * The feature id for the '<em><b>Enabled</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ACTION_ELEMENT__ENABLED = UIELEMENT__ENABLED;
+
+  /**
+   * The feature id for the '<em><b>Enabled Context</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ACTION_ELEMENT__ENABLED_CONTEXT = UIELEMENT__ENABLED_CONTEXT;
+
+  /**
+   * The feature id for the '<em><b>Required</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ACTION_ELEMENT__REQUIRED = UIELEMENT__REQUIRED;
+
+  /**
+   * The feature id for the '<em><b>Required Context</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ACTION_ELEMENT__REQUIRED_CONTEXT = UIELEMENT__REQUIRED_CONTEXT;
+
+  /**
+   * The feature id for the '<em><b>Read Only</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ACTION_ELEMENT__READ_ONLY = UIELEMENT__READ_ONLY;
+
+  /**
+   * The feature id for the '<em><b>Read Only Context</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ACTION_ELEMENT__READ_ONLY_CONTEXT = UIELEMENT__READ_ONLY_CONTEXT;
+
+  /**
+   * The feature id for the '<em><b>Trigger</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ACTION_ELEMENT__TRIGGER = UIELEMENT_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Action Element</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ACTION_ELEMENT_FEATURE_COUNT = UIELEMENT_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link domain.impl.InputTextImpl <em>Input Text</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see domain.impl.InputTextImpl
+   * @see domain.impl.DomainPackageImpl#getInputText()
+   * @generated
+   */
+  int INPUT_TEXT = 102;
+
+  /**
+   * The feature id for the '<em><b>Style</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INPUT_TEXT__STYLE = INPUT_ELEMENT__STYLE;
+
+  /**
+   * The feature id for the '<em><b>Style Class</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INPUT_TEXT__STYLE_CLASS = INPUT_ELEMENT__STYLE_CLASS;
+
+  /**
+   * The feature id for the '<em><b>Uid</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INPUT_TEXT__UID = INPUT_ELEMENT__UID;
+
+  /**
+   * The feature id for the '<em><b>Enabled</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INPUT_TEXT__ENABLED = INPUT_ELEMENT__ENABLED;
+
+  /**
+   * The feature id for the '<em><b>Enabled Context</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INPUT_TEXT__ENABLED_CONTEXT = INPUT_ELEMENT__ENABLED_CONTEXT;
+
+  /**
+   * The feature id for the '<em><b>Required</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INPUT_TEXT__REQUIRED = INPUT_ELEMENT__REQUIRED;
+
+  /**
+   * The feature id for the '<em><b>Required Context</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INPUT_TEXT__REQUIRED_CONTEXT = INPUT_ELEMENT__REQUIRED_CONTEXT;
+
+  /**
+   * The feature id for the '<em><b>Read Only</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INPUT_TEXT__READ_ONLY = INPUT_ELEMENT__READ_ONLY;
+
+  /**
+   * The feature id for the '<em><b>Read Only Context</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INPUT_TEXT__READ_ONLY_CONTEXT = INPUT_ELEMENT__READ_ONLY_CONTEXT;
+
+  /**
+   * The feature id for the '<em><b>Label</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INPUT_TEXT__LABEL = INPUT_ELEMENT__LABEL;
+
+  /**
+   * The number of structural features of the '<em>Input Text</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INPUT_TEXT_FEATURE_COUNT = INPUT_ELEMENT_FEATURE_COUNT + 0;
+
+  /**
+   * The meta object id for the '{@link domain.impl.LabelImpl <em>Label</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see domain.impl.LabelImpl
+   * @see domain.impl.DomainPackageImpl#getLabel()
+   * @generated
+   */
+  int LABEL = 103;
+
+  /**
+   * The feature id for the '<em><b>Style</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LABEL__STYLE = INPUT_ELEMENT__STYLE;
+
+  /**
+   * The feature id for the '<em><b>Style Class</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LABEL__STYLE_CLASS = INPUT_ELEMENT__STYLE_CLASS;
+
+  /**
+   * The feature id for the '<em><b>Uid</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LABEL__UID = INPUT_ELEMENT__UID;
+
+  /**
+   * The feature id for the '<em><b>Enabled</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LABEL__ENABLED = INPUT_ELEMENT__ENABLED;
+
+  /**
+   * The feature id for the '<em><b>Enabled Context</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LABEL__ENABLED_CONTEXT = INPUT_ELEMENT__ENABLED_CONTEXT;
+
+  /**
+   * The feature id for the '<em><b>Required</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LABEL__REQUIRED = INPUT_ELEMENT__REQUIRED;
+
+  /**
+   * The feature id for the '<em><b>Required Context</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LABEL__REQUIRED_CONTEXT = INPUT_ELEMENT__REQUIRED_CONTEXT;
+
+  /**
+   * The feature id for the '<em><b>Read Only</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LABEL__READ_ONLY = INPUT_ELEMENT__READ_ONLY;
+
+  /**
+   * The feature id for the '<em><b>Read Only Context</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LABEL__READ_ONLY_CONTEXT = INPUT_ELEMENT__READ_ONLY_CONTEXT;
+
+  /**
+   * The feature id for the '<em><b>Label</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LABEL__LABEL = INPUT_ELEMENT__LABEL;
+
+  /**
+   * The number of structural features of the '<em>Label</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LABEL_FEATURE_COUNT = INPUT_ELEMENT_FEATURE_COUNT + 0;
+
+  /**
+   * The meta object id for the '{@link domain.impl.OutputTextImpl <em>Output Text</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see domain.impl.OutputTextImpl
+   * @see domain.impl.DomainPackageImpl#getOutputText()
+   * @generated
+   */
+  int OUTPUT_TEXT = 104;
+
+  /**
+   * The feature id for the '<em><b>Style</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OUTPUT_TEXT__STYLE = INPUT_ELEMENT__STYLE;
+
+  /**
+   * The feature id for the '<em><b>Style Class</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OUTPUT_TEXT__STYLE_CLASS = INPUT_ELEMENT__STYLE_CLASS;
+
+  /**
+   * The feature id for the '<em><b>Uid</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OUTPUT_TEXT__UID = INPUT_ELEMENT__UID;
+
+  /**
+   * The feature id for the '<em><b>Enabled</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OUTPUT_TEXT__ENABLED = INPUT_ELEMENT__ENABLED;
+
+  /**
+   * The feature id for the '<em><b>Enabled Context</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OUTPUT_TEXT__ENABLED_CONTEXT = INPUT_ELEMENT__ENABLED_CONTEXT;
+
+  /**
+   * The feature id for the '<em><b>Required</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OUTPUT_TEXT__REQUIRED = INPUT_ELEMENT__REQUIRED;
+
+  /**
+   * The feature id for the '<em><b>Required Context</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OUTPUT_TEXT__REQUIRED_CONTEXT = INPUT_ELEMENT__REQUIRED_CONTEXT;
+
+  /**
+   * The feature id for the '<em><b>Read Only</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OUTPUT_TEXT__READ_ONLY = INPUT_ELEMENT__READ_ONLY;
+
+  /**
+   * The feature id for the '<em><b>Read Only Context</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OUTPUT_TEXT__READ_ONLY_CONTEXT = INPUT_ELEMENT__READ_ONLY_CONTEXT;
+
+  /**
+   * The feature id for the '<em><b>Label</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OUTPUT_TEXT__LABEL = INPUT_ELEMENT__LABEL;
+
+  /**
+   * The number of structural features of the '<em>Output Text</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OUTPUT_TEXT_FEATURE_COUNT = INPUT_ELEMENT_FEATURE_COUNT + 0;
+
+  /**
+   * The meta object id for the '{@link domain.impl.CheckBoxImpl <em>Check Box</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see domain.impl.CheckBoxImpl
+   * @see domain.impl.DomainPackageImpl#getCheckBox()
+   * @generated
+   */
+  int CHECK_BOX = 105;
+
+  /**
+   * The feature id for the '<em><b>Style</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CHECK_BOX__STYLE = INPUT_ELEMENT__STYLE;
+
+  /**
+   * The feature id for the '<em><b>Style Class</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CHECK_BOX__STYLE_CLASS = INPUT_ELEMENT__STYLE_CLASS;
+
+  /**
+   * The feature id for the '<em><b>Uid</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CHECK_BOX__UID = INPUT_ELEMENT__UID;
+
+  /**
+   * The feature id for the '<em><b>Enabled</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CHECK_BOX__ENABLED = INPUT_ELEMENT__ENABLED;
+
+  /**
+   * The feature id for the '<em><b>Enabled Context</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CHECK_BOX__ENABLED_CONTEXT = INPUT_ELEMENT__ENABLED_CONTEXT;
+
+  /**
+   * The feature id for the '<em><b>Required</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CHECK_BOX__REQUIRED = INPUT_ELEMENT__REQUIRED;
+
+  /**
+   * The feature id for the '<em><b>Required Context</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CHECK_BOX__REQUIRED_CONTEXT = INPUT_ELEMENT__REQUIRED_CONTEXT;
+
+  /**
+   * The feature id for the '<em><b>Read Only</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CHECK_BOX__READ_ONLY = INPUT_ELEMENT__READ_ONLY;
+
+  /**
+   * The feature id for the '<em><b>Read Only Context</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CHECK_BOX__READ_ONLY_CONTEXT = INPUT_ELEMENT__READ_ONLY_CONTEXT;
+
+  /**
+   * The feature id for the '<em><b>Label</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CHECK_BOX__LABEL = INPUT_ELEMENT__LABEL;
+
+  /**
+   * The number of structural features of the '<em>Check Box</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CHECK_BOX_FEATURE_COUNT = INPUT_ELEMENT_FEATURE_COUNT + 0;
+
+  /**
+   * The meta object id for the '{@link domain.impl.DropDownSelectionImpl <em>Drop Down Selection</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see domain.impl.DropDownSelectionImpl
+   * @see domain.impl.DomainPackageImpl#getDropDownSelection()
+   * @generated
+   */
+  int DROP_DOWN_SELECTION = 106;
+
+  /**
+   * The feature id for the '<em><b>Style</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DROP_DOWN_SELECTION__STYLE = OPTION_SELECTION__STYLE;
+
+  /**
+   * The feature id for the '<em><b>Style Class</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DROP_DOWN_SELECTION__STYLE_CLASS = OPTION_SELECTION__STYLE_CLASS;
+
+  /**
+   * The feature id for the '<em><b>Uid</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DROP_DOWN_SELECTION__UID = OPTION_SELECTION__UID;
+
+  /**
+   * The feature id for the '<em><b>Enabled</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DROP_DOWN_SELECTION__ENABLED = OPTION_SELECTION__ENABLED;
+
+  /**
+   * The feature id for the '<em><b>Enabled Context</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DROP_DOWN_SELECTION__ENABLED_CONTEXT = OPTION_SELECTION__ENABLED_CONTEXT;
+
+  /**
+   * The feature id for the '<em><b>Required</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DROP_DOWN_SELECTION__REQUIRED = OPTION_SELECTION__REQUIRED;
+
+  /**
+   * The feature id for the '<em><b>Required Context</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DROP_DOWN_SELECTION__REQUIRED_CONTEXT = OPTION_SELECTION__REQUIRED_CONTEXT;
+
+  /**
+   * The feature id for the '<em><b>Read Only</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DROP_DOWN_SELECTION__READ_ONLY = OPTION_SELECTION__READ_ONLY;
+
+  /**
+   * The feature id for the '<em><b>Read Only Context</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DROP_DOWN_SELECTION__READ_ONLY_CONTEXT = OPTION_SELECTION__READ_ONLY_CONTEXT;
+
+  /**
+   * The feature id for the '<em><b>Label</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DROP_DOWN_SELECTION__LABEL = OPTION_SELECTION__LABEL;
+
+  /**
+   * The feature id for the '<em><b>Option Pointer</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DROP_DOWN_SELECTION__OPTION_POINTER = OPTION_SELECTION__OPTION_POINTER;
+
+  /**
+   * The feature id for the '<em><b>Option Cast</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DROP_DOWN_SELECTION__OPTION_CAST = OPTION_SELECTION__OPTION_CAST;
+
+  /**
+   * The feature id for the '<em><b>Selection</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DROP_DOWN_SELECTION__SELECTION = OPTION_SELECTION_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Drop Down Selection</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DROP_DOWN_SELECTION_FEATURE_COUNT = OPTION_SELECTION_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link domain.impl.ColumnImpl <em>Column</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see domain.impl.ColumnImpl
+   * @see domain.impl.DomainPackageImpl#getColumn()
+   * @generated
+   */
+  int COLUMN = 107;
+
+  /**
+   * The feature id for the '<em><b>Style</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COLUMN__STYLE = STYLE_ELEMENT__STYLE;
+
+  /**
+   * The feature id for the '<em><b>Style Class</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COLUMN__STYLE_CLASS = STYLE_ELEMENT__STYLE_CLASS;
+
+  /**
+   * The feature id for the '<em><b>Element</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COLUMN__ELEMENT = STYLE_ELEMENT_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Column</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COLUMN_FEATURE_COUNT = STYLE_ELEMENT_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link domain.impl.TableImpl <em>Table</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see domain.impl.TableImpl
+   * @see domain.impl.DomainPackageImpl#getTable()
+   * @generated
+   */
+  int TABLE = 108;
+
+  /**
+   * The feature id for the '<em><b>Style</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TABLE__STYLE = SOURCES_POINTER__STYLE;
+
+  /**
+   * The feature id for the '<em><b>Style Class</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TABLE__STYLE_CLASS = SOURCES_POINTER__STYLE_CLASS;
+
+  /**
+   * The feature id for the '<em><b>Uid</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TABLE__UID = SOURCES_POINTER__UID;
+
+  /**
+   * The feature id for the '<em><b>Enabled</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TABLE__ENABLED = SOURCES_POINTER__ENABLED;
+
+  /**
+   * The feature id for the '<em><b>Enabled Context</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TABLE__ENABLED_CONTEXT = SOURCES_POINTER__ENABLED_CONTEXT;
+
+  /**
+   * The feature id for the '<em><b>Required</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TABLE__REQUIRED = SOURCES_POINTER__REQUIRED;
+
+  /**
+   * The feature id for the '<em><b>Required Context</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TABLE__REQUIRED_CONTEXT = SOURCES_POINTER__REQUIRED_CONTEXT;
+
+  /**
+   * The feature id for the '<em><b>Read Only</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TABLE__READ_ONLY = SOURCES_POINTER__READ_ONLY;
+
+  /**
+   * The feature id for the '<em><b>Read Only Context</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TABLE__READ_ONLY_CONTEXT = SOURCES_POINTER__READ_ONLY_CONTEXT;
+
+  /**
+   * The feature id for the '<em><b>Source Pointer</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TABLE__SOURCE_POINTER = SOURCES_POINTER__SOURCE_POINTER;
+
+  /**
+   * The feature id for the '<em><b>Value Pointer</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TABLE__VALUE_POINTER = SOURCES_POINTER__VALUE_POINTER;
+
+  /**
+   * The feature id for the '<em><b>Source Cast</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TABLE__SOURCE_CAST = SOURCES_POINTER__SOURCE_CAST;
+
+  /**
+   * The feature id for the '<em><b>Columns</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TABLE__COLUMNS = SOURCES_POINTER_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Table</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TABLE_FEATURE_COUNT = SOURCES_POINTER_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link domain.impl.TreeImpl <em>Tree</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see domain.impl.TreeImpl
+   * @see domain.impl.DomainPackageImpl#getTree()
+   * @generated
+   */
+  int TREE = 109;
+
+  /**
+   * The feature id for the '<em><b>Style</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TREE__STYLE = SOURCES_POINTER__STYLE;
+
+  /**
+   * The feature id for the '<em><b>Style Class</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TREE__STYLE_CLASS = SOURCES_POINTER__STYLE_CLASS;
+
+  /**
+   * The feature id for the '<em><b>Uid</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TREE__UID = SOURCES_POINTER__UID;
+
+  /**
+   * The feature id for the '<em><b>Enabled</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TREE__ENABLED = SOURCES_POINTER__ENABLED;
+
+  /**
+   * The feature id for the '<em><b>Enabled Context</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TREE__ENABLED_CONTEXT = SOURCES_POINTER__ENABLED_CONTEXT;
+
+  /**
+   * The feature id for the '<em><b>Required</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TREE__REQUIRED = SOURCES_POINTER__REQUIRED;
+
+  /**
+   * The feature id for the '<em><b>Required Context</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TREE__REQUIRED_CONTEXT = SOURCES_POINTER__REQUIRED_CONTEXT;
+
+  /**
+   * The feature id for the '<em><b>Read Only</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TREE__READ_ONLY = SOURCES_POINTER__READ_ONLY;
+
+  /**
+   * The feature id for the '<em><b>Read Only Context</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TREE__READ_ONLY_CONTEXT = SOURCES_POINTER__READ_ONLY_CONTEXT;
+
+  /**
+   * The feature id for the '<em><b>Source Pointer</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TREE__SOURCE_POINTER = SOURCES_POINTER__SOURCE_POINTER;
+
+  /**
+   * The feature id for the '<em><b>Value Pointer</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TREE__VALUE_POINTER = SOURCES_POINTER__VALUE_POINTER;
+
+  /**
+   * The feature id for the '<em><b>Source Cast</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TREE__SOURCE_CAST = SOURCES_POINTER__SOURCE_CAST;
+
+  /**
+   * The feature id for the '<em><b>Image</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TREE__IMAGE = SOURCES_POINTER_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Tree</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TREE_FEATURE_COUNT = SOURCES_POINTER_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link domain.impl.ButtonImpl <em>Button</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see domain.impl.ButtonImpl
+   * @see domain.impl.DomainPackageImpl#getButton()
+   * @generated
+   */
+  int BUTTON = 110;
+
+  /**
+   * The feature id for the '<em><b>Style</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BUTTON__STYLE = ACTION_ELEMENT__STYLE;
+
+  /**
+   * The feature id for the '<em><b>Style Class</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BUTTON__STYLE_CLASS = ACTION_ELEMENT__STYLE_CLASS;
+
+  /**
+   * The feature id for the '<em><b>Uid</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BUTTON__UID = ACTION_ELEMENT__UID;
+
+  /**
+   * The feature id for the '<em><b>Enabled</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BUTTON__ENABLED = ACTION_ELEMENT__ENABLED;
+
+  /**
+   * The feature id for the '<em><b>Enabled Context</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BUTTON__ENABLED_CONTEXT = ACTION_ELEMENT__ENABLED_CONTEXT;
+
+  /**
+   * The feature id for the '<em><b>Required</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BUTTON__REQUIRED = ACTION_ELEMENT__REQUIRED;
+
+  /**
+   * The feature id for the '<em><b>Required Context</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BUTTON__REQUIRED_CONTEXT = ACTION_ELEMENT__REQUIRED_CONTEXT;
+
+  /**
+   * The feature id for the '<em><b>Read Only</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BUTTON__READ_ONLY = ACTION_ELEMENT__READ_ONLY;
+
+  /**
+   * The feature id for the '<em><b>Read Only Context</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BUTTON__READ_ONLY_CONTEXT = ACTION_ELEMENT__READ_ONLY_CONTEXT;
+
+  /**
+   * The feature id for the '<em><b>Trigger</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BUTTON__TRIGGER = ACTION_ELEMENT__TRIGGER;
+
+  /**
+   * The number of structural features of the '<em>Button</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BUTTON_FEATURE_COUNT = ACTION_ELEMENT_FEATURE_COUNT + 0;
+
+  /**
    * The meta object id for the '{@link domain.impl.ControlsImpl <em>Controls</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -4852,7 +7196,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getControls()
    * @generated
    */
-  int CONTROLS = 79;
+  int CONTROLS = 111;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -4909,153 +7253,6 @@ public interface DomainPackage extends EPackage
   int CONTROLS_FEATURE_COUNT = 5;
 
   /**
-   * The meta object id for the '{@link domain.impl.TriggerParameterImpl <em>Trigger Parameter</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see domain.impl.TriggerParameterImpl
-   * @see domain.impl.DomainPackageImpl#getTriggerParameter()
-   * @generated
-   */
-  int TRIGGER_PARAMETER = 81;
-
-  /**
-   * The feature id for the '<em><b>Uid</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int TRIGGER_PARAMETER__UID = 0;
-
-  /**
-   * The feature id for the '<em><b>Parameter</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int TRIGGER_PARAMETER__PARAMETER = 1;
-
-  /**
-   * The feature id for the '<em><b>Value</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int TRIGGER_PARAMETER__VALUE = 2;
-
-  /**
-   * The number of structural features of the '<em>Trigger Parameter</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int TRIGGER_PARAMETER_FEATURE_COUNT = 3;
-
-  /**
-   * The meta object id for the '{@link domain.impl.ContextValueImpl <em>Context Value</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see domain.impl.ContextValueImpl
-   * @see domain.impl.DomainPackageImpl#getContextValue()
-   * @generated
-   */
-  int CONTEXT_VALUE = 82;
-
-  /**
-   * The feature id for the '<em><b>Uid</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CONTEXT_VALUE__UID = 0;
-
-  /**
-   * The feature id for the '<em><b>Is Expression</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CONTEXT_VALUE__IS_EXPRESSION = 1;
-
-  /**
-   * The feature id for the '<em><b>Value</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CONTEXT_VALUE__VALUE = 2;
-
-  /**
-   * The feature id for the '<em><b>Expression</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CONTEXT_VALUE__EXPRESSION = 3;
-
-  /**
-   * The number of structural features of the '<em>Context Value</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CONTEXT_VALUE_FEATURE_COUNT = 4;
-
-  /**
-   * The meta object id for the '{@link domain.impl.ExpressionPartImpl <em>Expression Part</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see domain.impl.ExpressionPartImpl
-   * @see domain.impl.DomainPackageImpl#getExpressionPart()
-   * @generated
-   */
-  int EXPRESSION_PART = 83;
-
-  /**
-   * The feature id for the '<em><b>Uid</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EXPRESSION_PART__UID = 0;
-
-  /**
-   * The feature id for the '<em><b>Obj Ref</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EXPRESSION_PART__OBJ_REF = 1;
-
-  /**
-   * The feature id for the '<em><b>Order</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EXPRESSION_PART__ORDER = 2;
-
-  /**
-   * The number of structural features of the '<em>Expression Part</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EXPRESSION_PART_FEATURE_COUNT = 3;
-
-  /**
    * The meta object id for the '{@link domain.impl.PREFormTriggerImpl <em>PRE Form Trigger</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -5063,52 +7260,25 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getPREFormTrigger()
    * @generated
    */
-  int PRE_FORM_TRIGGER = 84;
+  int PRE_FORM_TRIGGER = 112;
 
   /**
-   * The feature id for the '<em><b>Package Ref</b></em>' reference.
+   * The feature id for the '<em><b>Uid</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PRE_FORM_TRIGGER__PACKAGE_REF = TRIGGER__PACKAGE_REF;
+  int PRE_FORM_TRIGGER__UID = 0;
 
   /**
-   * The feature id for the '<em><b>Type Ref</b></em>' reference.
+   * The feature id for the '<em><b>Trigger</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PRE_FORM_TRIGGER__TYPE_REF = TRIGGER__TYPE_REF;
-
-  /**
-   * The feature id for the '<em><b>Fake Package Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PRE_FORM_TRIGGER__FAKE_PACKAGE_NAME = TRIGGER__FAKE_PACKAGE_NAME;
-
-  /**
-   * The feature id for the '<em><b>Fake Type Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PRE_FORM_TRIGGER__FAKE_TYPE_NAME = TRIGGER__FAKE_TYPE_NAME;
-
-  /**
-   * The feature id for the '<em><b>Method Ref</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PRE_FORM_TRIGGER__METHOD_REF = TRIGGER__METHOD_REF;
+  int PRE_FORM_TRIGGER__TRIGGER = 1;
 
   /**
    * The feature id for the '<em><b>Fake Method</b></em>' attribute.
@@ -5117,34 +7287,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PRE_FORM_TRIGGER__FAKE_METHOD = TRIGGER__FAKE_METHOD;
-
-  /**
-   * The feature id for the '<em><b>Uid</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PRE_FORM_TRIGGER__UID = TRIGGER__UID;
-
-  /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PRE_FORM_TRIGGER__NAME = TRIGGER__NAME;
-
-  /**
-   * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PRE_FORM_TRIGGER__PARAMETERS = TRIGGER__PARAMETERS;
+  int PRE_FORM_TRIGGER__FAKE_METHOD = 2;
 
   /**
    * The number of structural features of the '<em>PRE Form Trigger</em>' class.
@@ -5153,7 +7296,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PRE_FORM_TRIGGER_FEATURE_COUNT = TRIGGER_FEATURE_COUNT + 0;
+  int PRE_FORM_TRIGGER_FEATURE_COUNT = 3;
 
   /**
    * The meta object id for the '{@link domain.impl.PREQueryTriggerImpl <em>PRE Query Trigger</em>}' class.
@@ -5163,61 +7306,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getPREQueryTrigger()
    * @generated
    */
-  int PRE_QUERY_TRIGGER = 85;
-
-  /**
-   * The feature id for the '<em><b>Package Ref</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PRE_QUERY_TRIGGER__PACKAGE_REF = TRIGGER__PACKAGE_REF;
-
-  /**
-   * The feature id for the '<em><b>Type Ref</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PRE_QUERY_TRIGGER__TYPE_REF = TRIGGER__TYPE_REF;
-
-  /**
-   * The feature id for the '<em><b>Fake Package Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PRE_QUERY_TRIGGER__FAKE_PACKAGE_NAME = TRIGGER__FAKE_PACKAGE_NAME;
-
-  /**
-   * The feature id for the '<em><b>Fake Type Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PRE_QUERY_TRIGGER__FAKE_TYPE_NAME = TRIGGER__FAKE_TYPE_NAME;
-
-  /**
-   * The feature id for the '<em><b>Method Ref</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PRE_QUERY_TRIGGER__METHOD_REF = TRIGGER__METHOD_REF;
-
-  /**
-   * The feature id for the '<em><b>Fake Method</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PRE_QUERY_TRIGGER__FAKE_METHOD = TRIGGER__FAKE_METHOD;
+  int PRE_QUERY_TRIGGER = 113;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -5226,25 +7315,25 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PRE_QUERY_TRIGGER__UID = TRIGGER__UID;
+  int PRE_QUERY_TRIGGER__UID = 0;
 
   /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * The feature id for the '<em><b>Trigger</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PRE_QUERY_TRIGGER__NAME = TRIGGER__NAME;
+  int PRE_QUERY_TRIGGER__TRIGGER = 1;
 
   /**
-   * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
+   * The feature id for the '<em><b>Fake Method</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PRE_QUERY_TRIGGER__PARAMETERS = TRIGGER__PARAMETERS;
+  int PRE_QUERY_TRIGGER__FAKE_METHOD = 2;
 
   /**
    * The number of structural features of the '<em>PRE Query Trigger</em>' class.
@@ -5253,7 +7342,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PRE_QUERY_TRIGGER_FEATURE_COUNT = TRIGGER_FEATURE_COUNT + 0;
+  int PRE_QUERY_TRIGGER_FEATURE_COUNT = 3;
 
   /**
    * The meta object id for the '{@link domain.impl.POSTQueryTriggerImpl <em>POST Query Trigger</em>}' class.
@@ -5263,61 +7352,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getPOSTQueryTrigger()
    * @generated
    */
-  int POST_QUERY_TRIGGER = 86;
-
-  /**
-   * The feature id for the '<em><b>Package Ref</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int POST_QUERY_TRIGGER__PACKAGE_REF = TRIGGER__PACKAGE_REF;
-
-  /**
-   * The feature id for the '<em><b>Type Ref</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int POST_QUERY_TRIGGER__TYPE_REF = TRIGGER__TYPE_REF;
-
-  /**
-   * The feature id for the '<em><b>Fake Package Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int POST_QUERY_TRIGGER__FAKE_PACKAGE_NAME = TRIGGER__FAKE_PACKAGE_NAME;
-
-  /**
-   * The feature id for the '<em><b>Fake Type Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int POST_QUERY_TRIGGER__FAKE_TYPE_NAME = TRIGGER__FAKE_TYPE_NAME;
-
-  /**
-   * The feature id for the '<em><b>Method Ref</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int POST_QUERY_TRIGGER__METHOD_REF = TRIGGER__METHOD_REF;
-
-  /**
-   * The feature id for the '<em><b>Fake Method</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int POST_QUERY_TRIGGER__FAKE_METHOD = TRIGGER__FAKE_METHOD;
+  int POST_QUERY_TRIGGER = 114;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -5326,25 +7361,25 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int POST_QUERY_TRIGGER__UID = TRIGGER__UID;
+  int POST_QUERY_TRIGGER__UID = 0;
 
   /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * The feature id for the '<em><b>Trigger</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int POST_QUERY_TRIGGER__NAME = TRIGGER__NAME;
+  int POST_QUERY_TRIGGER__TRIGGER = 1;
 
   /**
-   * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
+   * The feature id for the '<em><b>Fake Method</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int POST_QUERY_TRIGGER__PARAMETERS = TRIGGER__PARAMETERS;
+  int POST_QUERY_TRIGGER__FAKE_METHOD = 2;
 
   /**
    * The number of structural features of the '<em>POST Query Trigger</em>' class.
@@ -5353,7 +7388,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int POST_QUERY_TRIGGER_FEATURE_COUNT = TRIGGER_FEATURE_COUNT + 0;
+  int POST_QUERY_TRIGGER_FEATURE_COUNT = 3;
 
   /**
    * The meta object id for the '{@link domain.impl.PREInsertTriggerImpl <em>PRE Insert Trigger</em>}' class.
@@ -5363,61 +7398,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getPREInsertTrigger()
    * @generated
    */
-  int PRE_INSERT_TRIGGER = 87;
-
-  /**
-   * The feature id for the '<em><b>Package Ref</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PRE_INSERT_TRIGGER__PACKAGE_REF = TRIGGER__PACKAGE_REF;
-
-  /**
-   * The feature id for the '<em><b>Type Ref</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PRE_INSERT_TRIGGER__TYPE_REF = TRIGGER__TYPE_REF;
-
-  /**
-   * The feature id for the '<em><b>Fake Package Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PRE_INSERT_TRIGGER__FAKE_PACKAGE_NAME = TRIGGER__FAKE_PACKAGE_NAME;
-
-  /**
-   * The feature id for the '<em><b>Fake Type Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PRE_INSERT_TRIGGER__FAKE_TYPE_NAME = TRIGGER__FAKE_TYPE_NAME;
-
-  /**
-   * The feature id for the '<em><b>Method Ref</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PRE_INSERT_TRIGGER__METHOD_REF = TRIGGER__METHOD_REF;
-
-  /**
-   * The feature id for the '<em><b>Fake Method</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PRE_INSERT_TRIGGER__FAKE_METHOD = TRIGGER__FAKE_METHOD;
+  int PRE_INSERT_TRIGGER = 115;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -5426,25 +7407,25 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PRE_INSERT_TRIGGER__UID = TRIGGER__UID;
+  int PRE_INSERT_TRIGGER__UID = 0;
 
   /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * The feature id for the '<em><b>Trigger</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PRE_INSERT_TRIGGER__NAME = TRIGGER__NAME;
+  int PRE_INSERT_TRIGGER__TRIGGER = 1;
 
   /**
-   * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
+   * The feature id for the '<em><b>Fake Method</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PRE_INSERT_TRIGGER__PARAMETERS = TRIGGER__PARAMETERS;
+  int PRE_INSERT_TRIGGER__FAKE_METHOD = 2;
 
   /**
    * The number of structural features of the '<em>PRE Insert Trigger</em>' class.
@@ -5453,7 +7434,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PRE_INSERT_TRIGGER_FEATURE_COUNT = TRIGGER_FEATURE_COUNT + 0;
+  int PRE_INSERT_TRIGGER_FEATURE_COUNT = 3;
 
   /**
    * The meta object id for the '{@link domain.impl.PREDeleteTriggerImpl <em>PRE Delete Trigger</em>}' class.
@@ -5463,61 +7444,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getPREDeleteTrigger()
    * @generated
    */
-  int PRE_DELETE_TRIGGER = 88;
-
-  /**
-   * The feature id for the '<em><b>Package Ref</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PRE_DELETE_TRIGGER__PACKAGE_REF = TRIGGER__PACKAGE_REF;
-
-  /**
-   * The feature id for the '<em><b>Type Ref</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PRE_DELETE_TRIGGER__TYPE_REF = TRIGGER__TYPE_REF;
-
-  /**
-   * The feature id for the '<em><b>Fake Package Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PRE_DELETE_TRIGGER__FAKE_PACKAGE_NAME = TRIGGER__FAKE_PACKAGE_NAME;
-
-  /**
-   * The feature id for the '<em><b>Fake Type Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PRE_DELETE_TRIGGER__FAKE_TYPE_NAME = TRIGGER__FAKE_TYPE_NAME;
-
-  /**
-   * The feature id for the '<em><b>Method Ref</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PRE_DELETE_TRIGGER__METHOD_REF = TRIGGER__METHOD_REF;
-
-  /**
-   * The feature id for the '<em><b>Fake Method</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PRE_DELETE_TRIGGER__FAKE_METHOD = TRIGGER__FAKE_METHOD;
+  int PRE_DELETE_TRIGGER = 116;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -5526,25 +7453,25 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PRE_DELETE_TRIGGER__UID = TRIGGER__UID;
+  int PRE_DELETE_TRIGGER__UID = 0;
 
   /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * The feature id for the '<em><b>Trigger</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PRE_DELETE_TRIGGER__NAME = TRIGGER__NAME;
+  int PRE_DELETE_TRIGGER__TRIGGER = 1;
 
   /**
-   * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
+   * The feature id for the '<em><b>Fake Method</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PRE_DELETE_TRIGGER__PARAMETERS = TRIGGER__PARAMETERS;
+  int PRE_DELETE_TRIGGER__FAKE_METHOD = 2;
 
   /**
    * The number of structural features of the '<em>PRE Delete Trigger</em>' class.
@@ -5553,7 +7480,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PRE_DELETE_TRIGGER_FEATURE_COUNT = TRIGGER_FEATURE_COUNT + 0;
+  int PRE_DELETE_TRIGGER_FEATURE_COUNT = 3;
 
   /**
    * The meta object id for the '{@link domain.impl.POSTCreateTriggerImpl <em>POST Create Trigger</em>}' class.
@@ -5563,61 +7490,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getPOSTCreateTrigger()
    * @generated
    */
-  int POST_CREATE_TRIGGER = 89;
-
-  /**
-   * The feature id for the '<em><b>Package Ref</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int POST_CREATE_TRIGGER__PACKAGE_REF = TRIGGER__PACKAGE_REF;
-
-  /**
-   * The feature id for the '<em><b>Type Ref</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int POST_CREATE_TRIGGER__TYPE_REF = TRIGGER__TYPE_REF;
-
-  /**
-   * The feature id for the '<em><b>Fake Package Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int POST_CREATE_TRIGGER__FAKE_PACKAGE_NAME = TRIGGER__FAKE_PACKAGE_NAME;
-
-  /**
-   * The feature id for the '<em><b>Fake Type Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int POST_CREATE_TRIGGER__FAKE_TYPE_NAME = TRIGGER__FAKE_TYPE_NAME;
-
-  /**
-   * The feature id for the '<em><b>Method Ref</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int POST_CREATE_TRIGGER__METHOD_REF = TRIGGER__METHOD_REF;
-
-  /**
-   * The feature id for the '<em><b>Fake Method</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int POST_CREATE_TRIGGER__FAKE_METHOD = TRIGGER__FAKE_METHOD;
+  int POST_CREATE_TRIGGER = 117;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -5626,25 +7499,25 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int POST_CREATE_TRIGGER__UID = TRIGGER__UID;
+  int POST_CREATE_TRIGGER__UID = 0;
 
   /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * The feature id for the '<em><b>Trigger</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int POST_CREATE_TRIGGER__NAME = TRIGGER__NAME;
+  int POST_CREATE_TRIGGER__TRIGGER = 1;
 
   /**
-   * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
+   * The feature id for the '<em><b>Fake Method</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int POST_CREATE_TRIGGER__PARAMETERS = TRIGGER__PARAMETERS;
+  int POST_CREATE_TRIGGER__FAKE_METHOD = 2;
 
   /**
    * The number of structural features of the '<em>POST Create Trigger</em>' class.
@@ -5653,7 +7526,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int POST_CREATE_TRIGGER_FEATURE_COUNT = TRIGGER_FEATURE_COUNT + 0;
+  int POST_CREATE_TRIGGER_FEATURE_COUNT = 3;
 
   /**
    * The meta object id for the '{@link domain.impl.PREUpdateTriggerImpl <em>PRE Update Trigger</em>}' class.
@@ -5663,61 +7536,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getPREUpdateTrigger()
    * @generated
    */
-  int PRE_UPDATE_TRIGGER = 90;
-
-  /**
-   * The feature id for the '<em><b>Package Ref</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PRE_UPDATE_TRIGGER__PACKAGE_REF = TRIGGER__PACKAGE_REF;
-
-  /**
-   * The feature id for the '<em><b>Type Ref</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PRE_UPDATE_TRIGGER__TYPE_REF = TRIGGER__TYPE_REF;
-
-  /**
-   * The feature id for the '<em><b>Fake Package Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PRE_UPDATE_TRIGGER__FAKE_PACKAGE_NAME = TRIGGER__FAKE_PACKAGE_NAME;
-
-  /**
-   * The feature id for the '<em><b>Fake Type Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PRE_UPDATE_TRIGGER__FAKE_TYPE_NAME = TRIGGER__FAKE_TYPE_NAME;
-
-  /**
-   * The feature id for the '<em><b>Method Ref</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PRE_UPDATE_TRIGGER__METHOD_REF = TRIGGER__METHOD_REF;
-
-  /**
-   * The feature id for the '<em><b>Fake Method</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PRE_UPDATE_TRIGGER__FAKE_METHOD = TRIGGER__FAKE_METHOD;
+  int PRE_UPDATE_TRIGGER = 118;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -5726,25 +7545,25 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PRE_UPDATE_TRIGGER__UID = TRIGGER__UID;
+  int PRE_UPDATE_TRIGGER__UID = 0;
 
   /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * The feature id for the '<em><b>Trigger</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PRE_UPDATE_TRIGGER__NAME = TRIGGER__NAME;
+  int PRE_UPDATE_TRIGGER__TRIGGER = 1;
 
   /**
-   * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
+   * The feature id for the '<em><b>Fake Method</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PRE_UPDATE_TRIGGER__PARAMETERS = TRIGGER__PARAMETERS;
+  int PRE_UPDATE_TRIGGER__FAKE_METHOD = 2;
 
   /**
    * The number of structural features of the '<em>PRE Update Trigger</em>' class.
@@ -5753,7 +7572,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PRE_UPDATE_TRIGGER_FEATURE_COUNT = TRIGGER_FEATURE_COUNT + 0;
+  int PRE_UPDATE_TRIGGER_FEATURE_COUNT = 3;
 
   /**
    * The meta object id for the '{@link domain.impl.CreateTriggerImpl <em>Create Trigger</em>}' class.
@@ -5763,61 +7582,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getCreateTrigger()
    * @generated
    */
-  int CREATE_TRIGGER = 91;
-
-  /**
-   * The feature id for the '<em><b>Package Ref</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CREATE_TRIGGER__PACKAGE_REF = TRIGGER__PACKAGE_REF;
-
-  /**
-   * The feature id for the '<em><b>Type Ref</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CREATE_TRIGGER__TYPE_REF = TRIGGER__TYPE_REF;
-
-  /**
-   * The feature id for the '<em><b>Fake Package Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CREATE_TRIGGER__FAKE_PACKAGE_NAME = TRIGGER__FAKE_PACKAGE_NAME;
-
-  /**
-   * The feature id for the '<em><b>Fake Type Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CREATE_TRIGGER__FAKE_TYPE_NAME = TRIGGER__FAKE_TYPE_NAME;
-
-  /**
-   * The feature id for the '<em><b>Method Ref</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CREATE_TRIGGER__METHOD_REF = TRIGGER__METHOD_REF;
-
-  /**
-   * The feature id for the '<em><b>Fake Method</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CREATE_TRIGGER__FAKE_METHOD = TRIGGER__FAKE_METHOD;
+  int CREATE_TRIGGER = 119;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -5826,25 +7591,25 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int CREATE_TRIGGER__UID = TRIGGER__UID;
+  int CREATE_TRIGGER__UID = 0;
 
   /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * The feature id for the '<em><b>Trigger</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CREATE_TRIGGER__NAME = TRIGGER__NAME;
+  int CREATE_TRIGGER__TRIGGER = 1;
 
   /**
-   * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
+   * The feature id for the '<em><b>Fake Method</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CREATE_TRIGGER__PARAMETERS = TRIGGER__PARAMETERS;
+  int CREATE_TRIGGER__FAKE_METHOD = 2;
 
   /**
    * The number of structural features of the '<em>Create Trigger</em>' class.
@@ -5853,7 +7618,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int CREATE_TRIGGER_FEATURE_COUNT = TRIGGER_FEATURE_COUNT + 0;
+  int CREATE_TRIGGER_FEATURE_COUNT = 3;
 
   /**
    * The meta object id for the '{@link domain.impl.InsertTriggerImpl <em>Insert Trigger</em>}' class.
@@ -5863,61 +7628,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getInsertTrigger()
    * @generated
    */
-  int INSERT_TRIGGER = 92;
-
-  /**
-   * The feature id for the '<em><b>Package Ref</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int INSERT_TRIGGER__PACKAGE_REF = TRIGGER__PACKAGE_REF;
-
-  /**
-   * The feature id for the '<em><b>Type Ref</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int INSERT_TRIGGER__TYPE_REF = TRIGGER__TYPE_REF;
-
-  /**
-   * The feature id for the '<em><b>Fake Package Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int INSERT_TRIGGER__FAKE_PACKAGE_NAME = TRIGGER__FAKE_PACKAGE_NAME;
-
-  /**
-   * The feature id for the '<em><b>Fake Type Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int INSERT_TRIGGER__FAKE_TYPE_NAME = TRIGGER__FAKE_TYPE_NAME;
-
-  /**
-   * The feature id for the '<em><b>Method Ref</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int INSERT_TRIGGER__METHOD_REF = TRIGGER__METHOD_REF;
-
-  /**
-   * The feature id for the '<em><b>Fake Method</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int INSERT_TRIGGER__FAKE_METHOD = TRIGGER__FAKE_METHOD;
+  int INSERT_TRIGGER = 120;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -5926,25 +7637,25 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int INSERT_TRIGGER__UID = TRIGGER__UID;
+  int INSERT_TRIGGER__UID = 0;
 
   /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * The feature id for the '<em><b>Trigger</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int INSERT_TRIGGER__NAME = TRIGGER__NAME;
+  int INSERT_TRIGGER__TRIGGER = 1;
 
   /**
-   * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
+   * The feature id for the '<em><b>Fake Method</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int INSERT_TRIGGER__PARAMETERS = TRIGGER__PARAMETERS;
+  int INSERT_TRIGGER__FAKE_METHOD = 2;
 
   /**
    * The number of structural features of the '<em>Insert Trigger</em>' class.
@@ -5953,7 +7664,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int INSERT_TRIGGER_FEATURE_COUNT = TRIGGER_FEATURE_COUNT + 0;
+  int INSERT_TRIGGER_FEATURE_COUNT = 3;
 
   /**
    * The meta object id for the '{@link domain.impl.UpdateTriggerImpl <em>Update Trigger</em>}' class.
@@ -5963,61 +7674,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getUpdateTrigger()
    * @generated
    */
-  int UPDATE_TRIGGER = 93;
-
-  /**
-   * The feature id for the '<em><b>Package Ref</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int UPDATE_TRIGGER__PACKAGE_REF = TRIGGER__PACKAGE_REF;
-
-  /**
-   * The feature id for the '<em><b>Type Ref</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int UPDATE_TRIGGER__TYPE_REF = TRIGGER__TYPE_REF;
-
-  /**
-   * The feature id for the '<em><b>Fake Package Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int UPDATE_TRIGGER__FAKE_PACKAGE_NAME = TRIGGER__FAKE_PACKAGE_NAME;
-
-  /**
-   * The feature id for the '<em><b>Fake Type Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int UPDATE_TRIGGER__FAKE_TYPE_NAME = TRIGGER__FAKE_TYPE_NAME;
-
-  /**
-   * The feature id for the '<em><b>Method Ref</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int UPDATE_TRIGGER__METHOD_REF = TRIGGER__METHOD_REF;
-
-  /**
-   * The feature id for the '<em><b>Fake Method</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int UPDATE_TRIGGER__FAKE_METHOD = TRIGGER__FAKE_METHOD;
+  int UPDATE_TRIGGER = 121;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -6026,25 +7683,25 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int UPDATE_TRIGGER__UID = TRIGGER__UID;
+  int UPDATE_TRIGGER__UID = 0;
 
   /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * The feature id for the '<em><b>Trigger</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int UPDATE_TRIGGER__NAME = TRIGGER__NAME;
+  int UPDATE_TRIGGER__TRIGGER = 1;
 
   /**
-   * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
+   * The feature id for the '<em><b>Fake Method</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int UPDATE_TRIGGER__PARAMETERS = TRIGGER__PARAMETERS;
+  int UPDATE_TRIGGER__FAKE_METHOD = 2;
 
   /**
    * The number of structural features of the '<em>Update Trigger</em>' class.
@@ -6053,7 +7710,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int UPDATE_TRIGGER_FEATURE_COUNT = TRIGGER_FEATURE_COUNT + 0;
+  int UPDATE_TRIGGER_FEATURE_COUNT = 3;
 
   /**
    * The meta object id for the '{@link domain.impl.DeleteTriggerImpl <em>Delete Trigger</em>}' class.
@@ -6063,61 +7720,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getDeleteTrigger()
    * @generated
    */
-  int DELETE_TRIGGER = 94;
-
-  /**
-   * The feature id for the '<em><b>Package Ref</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DELETE_TRIGGER__PACKAGE_REF = TRIGGER__PACKAGE_REF;
-
-  /**
-   * The feature id for the '<em><b>Type Ref</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DELETE_TRIGGER__TYPE_REF = TRIGGER__TYPE_REF;
-
-  /**
-   * The feature id for the '<em><b>Fake Package Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DELETE_TRIGGER__FAKE_PACKAGE_NAME = TRIGGER__FAKE_PACKAGE_NAME;
-
-  /**
-   * The feature id for the '<em><b>Fake Type Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DELETE_TRIGGER__FAKE_TYPE_NAME = TRIGGER__FAKE_TYPE_NAME;
-
-  /**
-   * The feature id for the '<em><b>Method Ref</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DELETE_TRIGGER__METHOD_REF = TRIGGER__METHOD_REF;
-
-  /**
-   * The feature id for the '<em><b>Fake Method</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DELETE_TRIGGER__FAKE_METHOD = TRIGGER__FAKE_METHOD;
+  int DELETE_TRIGGER = 122;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -6126,25 +7729,25 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DELETE_TRIGGER__UID = TRIGGER__UID;
+  int DELETE_TRIGGER__UID = 0;
 
   /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * The feature id for the '<em><b>Trigger</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int DELETE_TRIGGER__NAME = TRIGGER__NAME;
+  int DELETE_TRIGGER__TRIGGER = 1;
 
   /**
-   * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
+   * The feature id for the '<em><b>Fake Method</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int DELETE_TRIGGER__PARAMETERS = TRIGGER__PARAMETERS;
+  int DELETE_TRIGGER__FAKE_METHOD = 2;
 
   /**
    * The number of structural features of the '<em>Delete Trigger</em>' class.
@@ -6153,7 +7756,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DELETE_TRIGGER_FEATURE_COUNT = TRIGGER_FEATURE_COUNT + 0;
+  int DELETE_TRIGGER_FEATURE_COUNT = 3;
 
   /**
    * The meta object id for the '{@link domain.impl.SearchTriggerImpl <em>Search Trigger</em>}' class.
@@ -6163,61 +7766,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getSearchTrigger()
    * @generated
    */
-  int SEARCH_TRIGGER = 95;
-
-  /**
-   * The feature id for the '<em><b>Package Ref</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SEARCH_TRIGGER__PACKAGE_REF = TRIGGER__PACKAGE_REF;
-
-  /**
-   * The feature id for the '<em><b>Type Ref</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SEARCH_TRIGGER__TYPE_REF = TRIGGER__TYPE_REF;
-
-  /**
-   * The feature id for the '<em><b>Fake Package Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SEARCH_TRIGGER__FAKE_PACKAGE_NAME = TRIGGER__FAKE_PACKAGE_NAME;
-
-  /**
-   * The feature id for the '<em><b>Fake Type Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SEARCH_TRIGGER__FAKE_TYPE_NAME = TRIGGER__FAKE_TYPE_NAME;
-
-  /**
-   * The feature id for the '<em><b>Method Ref</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SEARCH_TRIGGER__METHOD_REF = TRIGGER__METHOD_REF;
-
-  /**
-   * The feature id for the '<em><b>Fake Method</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SEARCH_TRIGGER__FAKE_METHOD = TRIGGER__FAKE_METHOD;
+  int SEARCH_TRIGGER = 123;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -6226,25 +7775,25 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int SEARCH_TRIGGER__UID = TRIGGER__UID;
+  int SEARCH_TRIGGER__UID = 0;
 
   /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * The feature id for the '<em><b>Trigger</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int SEARCH_TRIGGER__NAME = TRIGGER__NAME;
+  int SEARCH_TRIGGER__TRIGGER = 1;
 
   /**
-   * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
+   * The feature id for the '<em><b>Fake Method</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int SEARCH_TRIGGER__PARAMETERS = TRIGGER__PARAMETERS;
+  int SEARCH_TRIGGER__FAKE_METHOD = 2;
 
   /**
    * The number of structural features of the '<em>Search Trigger</em>' class.
@@ -6253,7 +7802,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int SEARCH_TRIGGER_FEATURE_COUNT = TRIGGER_FEATURE_COUNT + 0;
+  int SEARCH_TRIGGER_FEATURE_COUNT = 3;
 
   /**
    * The meta object id for the '{@link domain.impl.RootImpl <em>Root</em>}' class.
@@ -6263,7 +7812,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getRoot()
    * @generated
    */
-  int ROOT = 96;
+  int ROOT = 124;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -6309,7 +7858,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getDataControl()
    * @generated
    */
-  int DATA_CONTROL = 97;
+  int DATA_CONTROL = 125;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -6463,7 +8012,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getRelation()
    * @generated
    */
-  int RELATION = 98;
+  int RELATION = 126;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -6536,7 +8085,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getArtificialField()
    * @generated
    */
-  int ARTIFICIAL_FIELD = 99;
+  int ARTIFICIAL_FIELD = 127;
 
   /**
    * The feature id for the '<em><b>Package Ref</b></em>' reference.
@@ -6618,7 +8167,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getLink()
    * @generated
    */
-  int LINK = 100;
+  int LINK = 128;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -6673,7 +8222,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getApplicationInfrastructureLayer()
    * @generated
    */
-  int APPLICATION_INFRASTRUCTURE_LAYER = 101;
+  int APPLICATION_INFRASTRUCTURE_LAYER = 129;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -6728,7 +8277,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getEnterpriseInfrastructure()
    * @generated
    */
-  int ENTERPRISE_INFRASTRUCTURE = 102;
+  int ENTERPRISE_INFRASTRUCTURE = 130;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -6783,7 +8332,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getDatacenter()
    * @generated
    */
-  int DATACENTER = 103;
+  int DATACENTER = 131;
 
   /**
    * The feature id for the '<em><b>Columns</b></em>' attribute.
@@ -6847,7 +8396,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getSubsystem()
    * @generated
    */
-  int SUBSYSTEM = 104;
+  int SUBSYSTEM = 132;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -6902,7 +8451,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getInfrastructureLayer()
    * @generated
    */
-  int INFRASTRUCTURE_LAYER = 105;
+  int INFRASTRUCTURE_LAYER = 133;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -6957,7 +8506,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getInfrastructureConnection()
    * @generated
    */
-  int INFRASTRUCTURE_CONNECTION = 106;
+  int INFRASTRUCTURE_CONNECTION = 134;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -7003,7 +8552,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getInfrastructureComponent()
    * @generated
    */
-  int INFRASTRUCTURE_COMPONENT = 107;
+  int INFRASTRUCTURE_COMPONENT = 135;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -7049,7 +8598,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getServer()
    * @generated
    */
-  int SERVER = 108;
+  int SERVER = 136;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -7095,7 +8644,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getRouter()
    * @generated
    */
-  int ROUTER = 109;
+  int ROUTER = 137;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -7141,7 +8690,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getHub()
    * @generated
    */
-  int HUB = 110;
+  int HUB = 138;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -7187,7 +8736,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getStorage()
    * @generated
    */
-  int STORAGE = 111;
+  int STORAGE = 139;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -7233,7 +8782,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getServerClaster()
    * @generated
    */
-  int SERVER_CLASTER = 112;
+  int SERVER_CLASTER = 140;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -7288,7 +8837,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getPlatformLayers()
    * @generated
    */
-  int PLATFORM_LAYERS = 113;
+  int PLATFORM_LAYERS = 141;
 
 
   /**
@@ -8131,6 +9680,28 @@ public interface DomainPackage extends EPackage
   EReference getApplication_ApplicationInfrastructureLayer();
 
   /**
+   * Returns the meta object for the containment reference '{@link domain.Application#getApplicationStyle <em>Application Style</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Application Style</em>'.
+   * @see domain.Application#getApplicationStyle()
+   * @see #getApplication()
+   * @generated
+   */
+  EReference getApplication_ApplicationStyle();
+
+  /**
+   * Returns the meta object for the containment reference '{@link domain.Application#getApplicationRole <em>Application Role</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Application Role</em>'.
+   * @see domain.Application#getApplicationRole()
+   * @see #getApplication()
+   * @generated
+   */
+  EReference getApplication_ApplicationRole();
+
+  /**
    * Returns the meta object for the reference '{@link domain.Application#getParent <em>Parent</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -8140,6 +9711,168 @@ public interface DomainPackage extends EPackage
    * @generated
    */
   EReference getApplication_Parent();
+
+  /**
+   * Returns the meta object for class '{@link domain.ApplicationRole <em>Application Role</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Application Role</em>'.
+   * @see domain.ApplicationRole
+   * @generated
+   */
+  EClass getApplicationRole();
+
+  /**
+   * Returns the meta object for the attribute '{@link domain.ApplicationRole#getUid <em>Uid</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Uid</em>'.
+   * @see domain.ApplicationRole#getUid()
+   * @see #getApplicationRole()
+   * @generated
+   */
+  EAttribute getApplicationRole_Uid();
+
+  /**
+   * Returns the meta object for the attribute '{@link domain.ApplicationRole#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see domain.ApplicationRole#getName()
+   * @see #getApplicationRole()
+   * @generated
+   */
+  EAttribute getApplicationRole_Name();
+
+  /**
+   * Returns the meta object for the container reference '{@link domain.ApplicationRole#getParent <em>Parent</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the container reference '<em>Parent</em>'.
+   * @see domain.ApplicationRole#getParent()
+   * @see #getApplicationRole()
+   * @generated
+   */
+  EReference getApplicationRole_Parent();
+
+  /**
+   * Returns the meta object for the containment reference '{@link domain.ApplicationRole#getRoles <em>Roles</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Roles</em>'.
+   * @see domain.ApplicationRole#getRoles()
+   * @see #getApplicationRole()
+   * @generated
+   */
+  EReference getApplicationRole_Roles();
+
+  /**
+   * Returns the meta object for class '{@link domain.ApplicationStyle <em>Application Style</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Application Style</em>'.
+   * @see domain.ApplicationStyle
+   * @generated
+   */
+  EClass getApplicationStyle();
+
+  /**
+   * Returns the meta object for the attribute '{@link domain.ApplicationStyle#getUid <em>Uid</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Uid</em>'.
+   * @see domain.ApplicationStyle#getUid()
+   * @see #getApplicationStyle()
+   * @generated
+   */
+  EAttribute getApplicationStyle_Uid();
+
+  /**
+   * Returns the meta object for the attribute '{@link domain.ApplicationStyle#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see domain.ApplicationStyle#getName()
+   * @see #getApplicationStyle()
+   * @generated
+   */
+  EAttribute getApplicationStyle_Name();
+
+  /**
+   * Returns the meta object for the container reference '{@link domain.ApplicationStyle#getParent <em>Parent</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the container reference '<em>Parent</em>'.
+   * @see domain.ApplicationStyle#getParent()
+   * @see #getApplicationStyle()
+   * @generated
+   */
+  EReference getApplicationStyle_Parent();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link domain.ApplicationStyle#getStylesPackage <em>Styles Package</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Styles Package</em>'.
+   * @see domain.ApplicationStyle#getStylesPackage()
+   * @see #getApplicationStyle()
+   * @generated
+   */
+  EReference getApplicationStyle_StylesPackage();
+
+  /**
+   * Returns the meta object for class '{@link domain.StylesPackage <em>Styles Package</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Styles Package</em>'.
+   * @see domain.StylesPackage
+   * @generated
+   */
+  EClass getStylesPackage();
+
+  /**
+   * Returns the meta object for the attribute '{@link domain.StylesPackage#getUid <em>Uid</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Uid</em>'.
+   * @see domain.StylesPackage#getUid()
+   * @see #getStylesPackage()
+   * @generated
+   */
+  EAttribute getStylesPackage_Uid();
+
+  /**
+   * Returns the meta object for the attribute '{@link domain.StylesPackage#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see domain.StylesPackage#getName()
+   * @see #getStylesPackage()
+   * @generated
+   */
+  EAttribute getStylesPackage_Name();
+
+  /**
+   * Returns the meta object for the container reference '{@link domain.StylesPackage#getParent <em>Parent</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the container reference '<em>Parent</em>'.
+   * @see domain.StylesPackage#getParent()
+   * @see #getStylesPackage()
+   * @generated
+   */
+  EReference getStylesPackage_Parent();
+
+  /**
+   * Returns the meta object for the reference '{@link domain.StylesPackage#getStyles <em>Styles</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Styles</em>'.
+   * @see domain.StylesPackage#getStyles()
+   * @see #getStylesPackage()
+   * @generated
+   */
+  EReference getStylesPackage_Styles();
 
   /**
    * Returns the meta object for class '{@link domain.ApplicationUILayer <em>Application UI Layer</em>}'.
@@ -8496,6 +10229,264 @@ public interface DomainPackage extends EPackage
    * @generated
    */
   EAttribute getMethodPointer_FakeMethod();
+
+  /**
+   * Returns the meta object for class '{@link domain.Roles <em>Roles</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Roles</em>'.
+   * @see domain.Roles
+   * @generated
+   */
+  EClass getRoles();
+
+  /**
+   * Returns the meta object for the attribute '{@link domain.Roles#getUid <em>Uid</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Uid</em>'.
+   * @see domain.Roles#getUid()
+   * @see #getRoles()
+   * @generated
+   */
+  EAttribute getRoles_Uid();
+
+  /**
+   * Returns the meta object for the container reference '{@link domain.Roles#getParent <em>Parent</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the container reference '<em>Parent</em>'.
+   * @see domain.Roles#getParent()
+   * @see #getRoles()
+   * @generated
+   */
+  EReference getRoles_Parent();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link domain.Roles#getRoles <em>Roles</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Roles</em>'.
+   * @see domain.Roles#getRoles()
+   * @see #getRoles()
+   * @generated
+   */
+  EReference getRoles_Roles();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link domain.Roles#getGroups <em>Groups</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Groups</em>'.
+   * @see domain.Roles#getGroups()
+   * @see #getRoles()
+   * @generated
+   */
+  EReference getRoles_Groups();
+
+  /**
+   * Returns the meta object for class '{@link domain.Role <em>Role</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Role</em>'.
+   * @see domain.Role
+   * @generated
+   */
+  EClass getRole();
+
+  /**
+   * Returns the meta object for the attribute '{@link domain.Role#getUid <em>Uid</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Uid</em>'.
+   * @see domain.Role#getUid()
+   * @see #getRole()
+   * @generated
+   */
+  EAttribute getRole_Uid();
+
+  /**
+   * Returns the meta object for the attribute '{@link domain.Role#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see domain.Role#getName()
+   * @see #getRole()
+   * @generated
+   */
+  EAttribute getRole_Name();
+
+  /**
+   * Returns the meta object for class '{@link domain.Group <em>Group</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Group</em>'.
+   * @see domain.Group
+   * @generated
+   */
+  EClass getGroup();
+
+  /**
+   * Returns the meta object for the attribute '{@link domain.Group#getUid <em>Uid</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Uid</em>'.
+   * @see domain.Group#getUid()
+   * @see #getGroup()
+   * @generated
+   */
+  EAttribute getGroup_Uid();
+
+  /**
+   * Returns the meta object for the attribute '{@link domain.Group#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see domain.Group#getName()
+   * @see #getGroup()
+   * @generated
+   */
+  EAttribute getGroup_Name();
+
+  /**
+   * Returns the meta object for the reference list '{@link domain.Group#getGroup2Group <em>Group2 Group</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference list '<em>Group2 Group</em>'.
+   * @see domain.Group#getGroup2Group()
+   * @see #getGroup()
+   * @generated
+   */
+  EReference getGroup_Group2Group();
+
+  /**
+   * Returns the meta object for the reference list '{@link domain.Group#getGroup2Role <em>Group2 Role</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference list '<em>Group2 Role</em>'.
+   * @see domain.Group#getGroup2Role()
+   * @see #getGroup()
+   * @generated
+   */
+  EReference getGroup_Group2Role();
+
+  /**
+   * Returns the meta object for class '{@link domain.Styles <em>Styles</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Styles</em>'.
+   * @see domain.Styles
+   * @generated
+   */
+  EClass getStyles();
+
+  /**
+   * Returns the meta object for the attribute '{@link domain.Styles#getUid <em>Uid</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Uid</em>'.
+   * @see domain.Styles#getUid()
+   * @see #getStyles()
+   * @generated
+   */
+  EAttribute getStyles_Uid();
+
+  /**
+   * Returns the meta object for the reference '{@link domain.Styles#getParent <em>Parent</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Parent</em>'.
+   * @see domain.Styles#getParent()
+   * @see #getStyles()
+   * @generated
+   */
+  EReference getStyles_Parent();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link domain.Styles#getLibraries <em>Libraries</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Libraries</em>'.
+   * @see domain.Styles#getLibraries()
+   * @see #getStyles()
+   * @generated
+   */
+  EReference getStyles_Libraries();
+
+  /**
+   * Returns the meta object for class '{@link domain.StyleLibrary <em>Style Library</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Style Library</em>'.
+   * @see domain.StyleLibrary
+   * @generated
+   */
+  EClass getStyleLibrary();
+
+  /**
+   * Returns the meta object for the attribute '{@link domain.StyleLibrary#getUid <em>Uid</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Uid</em>'.
+   * @see domain.StyleLibrary#getUid()
+   * @see #getStyleLibrary()
+   * @generated
+   */
+  EAttribute getStyleLibrary_Uid();
+
+  /**
+   * Returns the meta object for the attribute '{@link domain.StyleLibrary#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see domain.StyleLibrary#getName()
+   * @see #getStyleLibrary()
+   * @generated
+   */
+  EAttribute getStyleLibrary_Name();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link domain.StyleLibrary#getStyles <em>Styles</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Styles</em>'.
+   * @see domain.StyleLibrary#getStyles()
+   * @see #getStyleLibrary()
+   * @generated
+   */
+  EReference getStyleLibrary_Styles();
+
+  /**
+   * Returns the meta object for class '{@link domain.StyleSet <em>Style Set</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Style Set</em>'.
+   * @see domain.StyleSet
+   * @generated
+   */
+  EClass getStyleSet();
+
+  /**
+   * Returns the meta object for the attribute '{@link domain.StyleSet#getUid <em>Uid</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Uid</em>'.
+   * @see domain.StyleSet#getUid()
+   * @see #getStyleSet()
+   * @generated
+   */
+  EAttribute getStyleSet_Uid();
+
+  /**
+   * Returns the meta object for the attribute '{@link domain.StyleSet#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see domain.StyleSet#getName()
+   * @see #getStyleSet()
+   * @generated
+   */
+  EAttribute getStyleSet_Name();
 
   /**
    * Returns the meta object for class '{@link domain.Mappers <em>Mappers</em>}'.
@@ -10568,6 +12559,17 @@ public interface DomainPackage extends EPackage
   EAttribute getCanvasFrame_Name();
 
   /**
+   * Returns the meta object for the containment reference '{@link domain.CanvasFrame#getCanvasView <em>Canvas View</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Canvas View</em>'.
+   * @see domain.CanvasFrame#getCanvasView()
+   * @see #getCanvasFrame()
+   * @generated
+   */
+  EReference getCanvasFrame_CanvasView();
+
+  /**
    * Returns the meta object for class '{@link domain.ViewPortHolder <em>View Port Holder</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -10703,6 +12705,39 @@ public interface DomainPackage extends EPackage
   EClass getViewPortTrigger();
 
   /**
+   * Returns the meta object for the attribute '{@link domain.ViewPortTrigger#getUid <em>Uid</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Uid</em>'.
+   * @see domain.ViewPortTrigger#getUid()
+   * @see #getViewPortTrigger()
+   * @generated
+   */
+  EAttribute getViewPortTrigger_Uid();
+
+  /**
+   * Returns the meta object for the containment reference '{@link domain.ViewPortTrigger#getTrigger <em>Trigger</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Trigger</em>'.
+   * @see domain.ViewPortTrigger#getTrigger()
+   * @see #getViewPortTrigger()
+   * @generated
+   */
+  EReference getViewPortTrigger_Trigger();
+
+  /**
+   * Returns the meta object for the attribute '{@link domain.ViewPortTrigger#getFakeMethod <em>Fake Method</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Fake Method</em>'.
+   * @see domain.ViewPortTrigger#getFakeMethod()
+   * @see #getViewPortTrigger()
+   * @generated
+   */
+  EAttribute getViewPortTrigger_FakeMethod();
+
+  /**
    * Returns the meta object for class '{@link domain.ViewInheritance <em>View Inheritance</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -10832,155 +12867,165 @@ public interface DomainPackage extends EPackage
   EReference getFormDataControls_FormControl();
 
   /**
-   * Returns the meta object for class '{@link domain.Controls <em>Controls</em>}'.
+   * Returns the meta object for class '{@link domain.CanvasView <em>Canvas View</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Controls</em>'.
-   * @see domain.Controls
+   * @return the meta object for class '<em>Canvas View</em>'.
+   * @see domain.CanvasView
    * @generated
    */
-  EClass getControls();
+  EClass getCanvasView();
 
   /**
-   * Returns the meta object for the attribute '{@link domain.Controls#getUid <em>Uid</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Uid</em>'.
-   * @see domain.Controls#getUid()
-   * @see #getControls()
-   * @generated
-   */
-  EAttribute getControls_Uid();
-
-  /**
-   * Returns the meta object for the reference '{@link domain.Controls#getParent <em>Parent</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Parent</em>'.
-   * @see domain.Controls#getParent()
-   * @see #getControls()
-   * @generated
-   */
-  EReference getControls_Parent();
-
-  /**
-   * Returns the meta object for the containment reference '{@link domain.Controls#getRoot <em>Root</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Root</em>'.
-   * @see domain.Controls#getRoot()
-   * @see #getControls()
-   * @generated
-   */
-  EReference getControls_Root();
-
-  /**
-   * Returns the meta object for the containment reference list '{@link domain.Controls#getControls <em>Controls</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Controls</em>'.
-   * @see domain.Controls#getControls()
-   * @see #getControls()
-   * @generated
-   */
-  EReference getControls_Controls();
-
-  /**
-   * Returns the meta object for the containment reference list '{@link domain.Controls#getRelations <em>Relations</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Relations</em>'.
-   * @see domain.Controls#getRelations()
-   * @see #getControls()
-   * @generated
-   */
-  EReference getControls_Relations();
-
-  /**
-   * Returns the meta object for class '{@link domain.Trigger <em>Trigger</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Trigger</em>'.
-   * @see domain.Trigger
-   * @generated
-   */
-  EClass getTrigger();
-
-  /**
-   * Returns the meta object for the attribute '{@link domain.Trigger#getUid <em>Uid</em>}'.
+   * Returns the meta object for the attribute '{@link domain.CanvasView#getUid <em>Uid</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute '<em>Uid</em>'.
-   * @see domain.Trigger#getUid()
-   * @see #getTrigger()
+   * @see domain.CanvasView#getUid()
+   * @see #getCanvasView()
    * @generated
    */
-  EAttribute getTrigger_Uid();
+  EAttribute getCanvasView_Uid();
 
   /**
-   * Returns the meta object for the attribute '{@link domain.Trigger#getName <em>Name</em>}'.
+   * Returns the meta object for the container reference '{@link domain.CanvasView#getParent <em>Parent</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Name</em>'.
-   * @see domain.Trigger#getName()
-   * @see #getTrigger()
+   * @return the meta object for the container reference '<em>Parent</em>'.
+   * @see domain.CanvasView#getParent()
+   * @see #getCanvasView()
    * @generated
    */
-  EAttribute getTrigger_Name();
+  EReference getCanvasView_Parent();
 
   /**
-   * Returns the meta object for the containment reference list '{@link domain.Trigger#getParameters <em>Parameters</em>}'.
+   * Returns the meta object for class '{@link domain.Style <em>Style</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Parameters</em>'.
-   * @see domain.Trigger#getParameters()
-   * @see #getTrigger()
+   * @return the meta object for class '<em>Style</em>'.
+   * @see domain.Style
    * @generated
    */
-  EReference getTrigger_Parameters();
+  EClass getStyle();
 
   /**
-   * Returns the meta object for class '{@link domain.TriggerParameter <em>Trigger Parameter</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Trigger Parameter</em>'.
-   * @see domain.TriggerParameter
-   * @generated
-   */
-  EClass getTriggerParameter();
-
-  /**
-   * Returns the meta object for the attribute '{@link domain.TriggerParameter#getUid <em>Uid</em>}'.
+   * Returns the meta object for the attribute '{@link domain.Style#getUid <em>Uid</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute '<em>Uid</em>'.
-   * @see domain.TriggerParameter#getUid()
-   * @see #getTriggerParameter()
+   * @see domain.Style#getUid()
+   * @see #getStyle()
    * @generated
    */
-  EAttribute getTriggerParameter_Uid();
+  EAttribute getStyle_Uid();
 
   /**
-   * Returns the meta object for the reference '{@link domain.TriggerParameter#getParameter <em>Parameter</em>}'.
+   * Returns the meta object for the attribute '{@link domain.Style#getStyle <em>Style</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Style</em>'.
+   * @see domain.Style#getStyle()
+   * @see #getStyle()
+   * @generated
+   */
+  EAttribute getStyle_Style();
+
+  /**
+   * Returns the meta object for class '{@link domain.StyleClass <em>Style Class</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Style Class</em>'.
+   * @see domain.StyleClass
+   * @generated
+   */
+  EClass getStyleClass();
+
+  /**
+   * Returns the meta object for the attribute '{@link domain.StyleClass#getUid <em>Uid</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Uid</em>'.
+   * @see domain.StyleClass#getUid()
+   * @see #getStyleClass()
+   * @generated
+   */
+  EAttribute getStyleClass_Uid();
+
+  /**
+   * Returns the meta object for the reference '{@link domain.StyleClass#getStylesPackage <em>Styles Package</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Styles Package</em>'.
+   * @see domain.StyleClass#getStylesPackage()
+   * @see #getStyleClass()
+   * @generated
+   */
+  EReference getStyleClass_StylesPackage();
+
+  /**
+   * Returns the meta object for the reference '{@link domain.StyleClass#getLibrary <em>Library</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Library</em>'.
+   * @see domain.StyleClass#getLibrary()
+   * @see #getStyleClass()
+   * @generated
+   */
+  EReference getStyleClass_Library();
+
+  /**
+   * Returns the meta object for the reference '{@link domain.StyleClass#getStyleSet <em>Style Set</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Style Set</em>'.
+   * @see domain.StyleClass#getStyleSet()
+   * @see #getStyleClass()
+   * @generated
+   */
+  EReference getStyleClass_StyleSet();
+
+  /**
+   * Returns the meta object for class '{@link domain.ContextParameter <em>Context Parameter</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Context Parameter</em>'.
+   * @see domain.ContextParameter
+   * @generated
+   */
+  EClass getContextParameter();
+
+  /**
+   * Returns the meta object for the attribute '{@link domain.ContextParameter#getUid <em>Uid</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Uid</em>'.
+   * @see domain.ContextParameter#getUid()
+   * @see #getContextParameter()
+   * @generated
+   */
+  EAttribute getContextParameter_Uid();
+
+  /**
+   * Returns the meta object for the reference '{@link domain.ContextParameter#getParameter <em>Parameter</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the reference '<em>Parameter</em>'.
-   * @see domain.TriggerParameter#getParameter()
-   * @see #getTriggerParameter()
+   * @see domain.ContextParameter#getParameter()
+   * @see #getContextParameter()
    * @generated
    */
-  EReference getTriggerParameter_Parameter();
+  EReference getContextParameter_Parameter();
 
   /**
-   * Returns the meta object for the containment reference '{@link domain.TriggerParameter#getValue <em>Value</em>}'.
+   * Returns the meta object for the containment reference '{@link domain.ContextParameter#getValue <em>Value</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference '<em>Value</em>'.
-   * @see domain.TriggerParameter#getValue()
-   * @see #getTriggerParameter()
+   * @see domain.ContextParameter#getValue()
+   * @see #getContextParameter()
    * @generated
    */
-  EReference getTriggerParameter_Value();
+  EReference getContextParameter_Value();
 
   /**
    * Returns the meta object for class '{@link domain.ContextValue <em>Context Value</em>}'.
@@ -11080,6 +13125,527 @@ public interface DomainPackage extends EPackage
   EAttribute getExpressionPart_Order();
 
   /**
+   * Returns the meta object for class '{@link domain.Context <em>Context</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Context</em>'.
+   * @see domain.Context
+   * @generated
+   */
+  EClass getContext();
+
+  /**
+   * Returns the meta object for the attribute '{@link domain.Context#getUid <em>Uid</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Uid</em>'.
+   * @see domain.Context#getUid()
+   * @see #getContext()
+   * @generated
+   */
+  EAttribute getContext_Uid();
+
+  /**
+   * Returns the meta object for the attribute '{@link domain.Context#getValue <em>Value</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Value</em>'.
+   * @see domain.Context#getValue()
+   * @see #getContext()
+   * @generated
+   */
+  EAttribute getContext_Value();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link domain.Context#getExpression <em>Expression</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Expression</em>'.
+   * @see domain.Context#getExpression()
+   * @see #getContext()
+   * @generated
+   */
+  EReference getContext_Expression();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link domain.Context#getParameters <em>Parameters</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Parameters</em>'.
+   * @see domain.Context#getParameters()
+   * @see #getContext()
+   * @generated
+   */
+  EReference getContext_Parameters();
+
+  /**
+   * Returns the meta object for class '{@link domain.StyleElement <em>Style Element</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Style Element</em>'.
+   * @see domain.StyleElement
+   * @generated
+   */
+  EClass getStyleElement();
+
+  /**
+   * Returns the meta object for the containment reference '{@link domain.StyleElement#getStyle <em>Style</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Style</em>'.
+   * @see domain.StyleElement#getStyle()
+   * @see #getStyleElement()
+   * @generated
+   */
+  EReference getStyleElement_Style();
+
+  /**
+   * Returns the meta object for the containment reference '{@link domain.StyleElement#getStyleClass <em>Style Class</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Style Class</em>'.
+   * @see domain.StyleElement#getStyleClass()
+   * @see #getStyleElement()
+   * @generated
+   */
+  EReference getStyleElement_StyleClass();
+
+  /**
+   * Returns the meta object for class '{@link domain.Uielement <em>Uielement</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Uielement</em>'.
+   * @see domain.Uielement
+   * @generated
+   */
+  EClass getUielement();
+
+  /**
+   * Returns the meta object for the attribute '{@link domain.Uielement#getUid <em>Uid</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Uid</em>'.
+   * @see domain.Uielement#getUid()
+   * @see #getUielement()
+   * @generated
+   */
+  EAttribute getUielement_Uid();
+
+  /**
+   * Returns the meta object for the attribute '{@link domain.Uielement#getEnabled <em>Enabled</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Enabled</em>'.
+   * @see domain.Uielement#getEnabled()
+   * @see #getUielement()
+   * @generated
+   */
+  EAttribute getUielement_Enabled();
+
+  /**
+   * Returns the meta object for the containment reference '{@link domain.Uielement#getEnabledContext <em>Enabled Context</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Enabled Context</em>'.
+   * @see domain.Uielement#getEnabledContext()
+   * @see #getUielement()
+   * @generated
+   */
+  EReference getUielement_EnabledContext();
+
+  /**
+   * Returns the meta object for the attribute '{@link domain.Uielement#getRequired <em>Required</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Required</em>'.
+   * @see domain.Uielement#getRequired()
+   * @see #getUielement()
+   * @generated
+   */
+  EAttribute getUielement_Required();
+
+  /**
+   * Returns the meta object for the containment reference '{@link domain.Uielement#getRequiredContext <em>Required Context</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Required Context</em>'.
+   * @see domain.Uielement#getRequiredContext()
+   * @see #getUielement()
+   * @generated
+   */
+  EReference getUielement_RequiredContext();
+
+  /**
+   * Returns the meta object for the attribute '{@link domain.Uielement#getReadOnly <em>Read Only</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Read Only</em>'.
+   * @see domain.Uielement#getReadOnly()
+   * @see #getUielement()
+   * @generated
+   */
+  EAttribute getUielement_ReadOnly();
+
+  /**
+   * Returns the meta object for the containment reference '{@link domain.Uielement#getReadOnlyContext <em>Read Only Context</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Read Only Context</em>'.
+   * @see domain.Uielement#getReadOnlyContext()
+   * @see #getUielement()
+   * @generated
+   */
+  EReference getUielement_ReadOnlyContext();
+
+  /**
+   * Returns the meta object for class '{@link domain.SourcesPointer <em>Sources Pointer</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Sources Pointer</em>'.
+   * @see domain.SourcesPointer
+   * @generated
+   */
+  EClass getSourcesPointer();
+
+  /**
+   * Returns the meta object for the containment reference '{@link domain.SourcesPointer#getSourcePointer <em>Source Pointer</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Source Pointer</em>'.
+   * @see domain.SourcesPointer#getSourcePointer()
+   * @see #getSourcesPointer()
+   * @generated
+   */
+  EReference getSourcesPointer_SourcePointer();
+
+  /**
+   * Returns the meta object for the containment reference '{@link domain.SourcesPointer#getValuePointer <em>Value Pointer</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Value Pointer</em>'.
+   * @see domain.SourcesPointer#getValuePointer()
+   * @see #getSourcesPointer()
+   * @generated
+   */
+  EReference getSourcesPointer_ValuePointer();
+
+  /**
+   * Returns the meta object for the containment reference '{@link domain.SourcesPointer#getSourceCast <em>Source Cast</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Source Cast</em>'.
+   * @see domain.SourcesPointer#getSourceCast()
+   * @see #getSourcesPointer()
+   * @generated
+   */
+  EReference getSourcesPointer_SourceCast();
+
+  /**
+   * Returns the meta object for class '{@link domain.InputElement <em>Input Element</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Input Element</em>'.
+   * @see domain.InputElement
+   * @generated
+   */
+  EClass getInputElement();
+
+  /**
+   * Returns the meta object for the attribute '{@link domain.InputElement#getLabel <em>Label</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Label</em>'.
+   * @see domain.InputElement#getLabel()
+   * @see #getInputElement()
+   * @generated
+   */
+  EAttribute getInputElement_Label();
+
+  /**
+   * Returns the meta object for class '{@link domain.Selection <em>Selection</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Selection</em>'.
+   * @see domain.Selection
+   * @generated
+   */
+  EClass getSelection();
+
+  /**
+   * Returns the meta object for the containment reference '{@link domain.Selection#getDisplayOptionPointer <em>Display Option Pointer</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Display Option Pointer</em>'.
+   * @see domain.Selection#getDisplayOptionPointer()
+   * @see #getSelection()
+   * @generated
+   */
+  EReference getSelection_DisplayOptionPointer();
+
+  /**
+   * Returns the meta object for the containment reference '{@link domain.Selection#getValueOptionPointer <em>Value Option Pointer</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Value Option Pointer</em>'.
+   * @see domain.Selection#getValueOptionPointer()
+   * @see #getSelection()
+   * @generated
+   */
+  EReference getSelection_ValueOptionPointer();
+
+  /**
+   * Returns the meta object for class '{@link domain.OptionSelection <em>Option Selection</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Option Selection</em>'.
+   * @see domain.OptionSelection
+   * @generated
+   */
+  EClass getOptionSelection();
+
+  /**
+   * Returns the meta object for the containment reference '{@link domain.OptionSelection#getOptionPointer <em>Option Pointer</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Option Pointer</em>'.
+   * @see domain.OptionSelection#getOptionPointer()
+   * @see #getOptionSelection()
+   * @generated
+   */
+  EReference getOptionSelection_OptionPointer();
+
+  /**
+   * Returns the meta object for the containment reference '{@link domain.OptionSelection#getOptionCast <em>Option Cast</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Option Cast</em>'.
+   * @see domain.OptionSelection#getOptionCast()
+   * @see #getOptionSelection()
+   * @generated
+   */
+  EReference getOptionSelection_OptionCast();
+
+  /**
+   * Returns the meta object for class '{@link domain.ActionElement <em>Action Element</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Action Element</em>'.
+   * @see domain.ActionElement
+   * @generated
+   */
+  EClass getActionElement();
+
+  /**
+   * Returns the meta object for the containment reference '{@link domain.ActionElement#getTrigger <em>Trigger</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Trigger</em>'.
+   * @see domain.ActionElement#getTrigger()
+   * @see #getActionElement()
+   * @generated
+   */
+  EReference getActionElement_Trigger();
+
+  /**
+   * Returns the meta object for class '{@link domain.InputText <em>Input Text</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Input Text</em>'.
+   * @see domain.InputText
+   * @generated
+   */
+  EClass getInputText();
+
+  /**
+   * Returns the meta object for class '{@link domain.Label <em>Label</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Label</em>'.
+   * @see domain.Label
+   * @generated
+   */
+  EClass getLabel();
+
+  /**
+   * Returns the meta object for class '{@link domain.OutputText <em>Output Text</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Output Text</em>'.
+   * @see domain.OutputText
+   * @generated
+   */
+  EClass getOutputText();
+
+  /**
+   * Returns the meta object for class '{@link domain.CheckBox <em>Check Box</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Check Box</em>'.
+   * @see domain.CheckBox
+   * @generated
+   */
+  EClass getCheckBox();
+
+  /**
+   * Returns the meta object for class '{@link domain.DropDownSelection <em>Drop Down Selection</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Drop Down Selection</em>'.
+   * @see domain.DropDownSelection
+   * @generated
+   */
+  EClass getDropDownSelection();
+
+  /**
+   * Returns the meta object for the containment reference '{@link domain.DropDownSelection#getSelection <em>Selection</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Selection</em>'.
+   * @see domain.DropDownSelection#getSelection()
+   * @see #getDropDownSelection()
+   * @generated
+   */
+  EReference getDropDownSelection_Selection();
+
+  /**
+   * Returns the meta object for class '{@link domain.Column <em>Column</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Column</em>'.
+   * @see domain.Column
+   * @generated
+   */
+  EClass getColumn();
+
+  /**
+   * Returns the meta object for the containment reference '{@link domain.Column#getElement <em>Element</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Element</em>'.
+   * @see domain.Column#getElement()
+   * @see #getColumn()
+   * @generated
+   */
+  EReference getColumn_Element();
+
+  /**
+   * Returns the meta object for class '{@link domain.Table <em>Table</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Table</em>'.
+   * @see domain.Table
+   * @generated
+   */
+  EClass getTable();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link domain.Table#getColumns <em>Columns</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Columns</em>'.
+   * @see domain.Table#getColumns()
+   * @see #getTable()
+   * @generated
+   */
+  EReference getTable_Columns();
+
+  /**
+   * Returns the meta object for class '{@link domain.Tree <em>Tree</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Tree</em>'.
+   * @see domain.Tree
+   * @generated
+   */
+  EClass getTree();
+
+  /**
+   * Returns the meta object for the containment reference '{@link domain.Tree#getImage <em>Image</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Image</em>'.
+   * @see domain.Tree#getImage()
+   * @see #getTree()
+   * @generated
+   */
+  EReference getTree_Image();
+
+  /**
+   * Returns the meta object for class '{@link domain.Button <em>Button</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Button</em>'.
+   * @see domain.Button
+   * @generated
+   */
+  EClass getButton();
+
+  /**
+   * Returns the meta object for class '{@link domain.Controls <em>Controls</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Controls</em>'.
+   * @see domain.Controls
+   * @generated
+   */
+  EClass getControls();
+
+  /**
+   * Returns the meta object for the attribute '{@link domain.Controls#getUid <em>Uid</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Uid</em>'.
+   * @see domain.Controls#getUid()
+   * @see #getControls()
+   * @generated
+   */
+  EAttribute getControls_Uid();
+
+  /**
+   * Returns the meta object for the reference '{@link domain.Controls#getParent <em>Parent</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Parent</em>'.
+   * @see domain.Controls#getParent()
+   * @see #getControls()
+   * @generated
+   */
+  EReference getControls_Parent();
+
+  /**
+   * Returns the meta object for the containment reference '{@link domain.Controls#getRoot <em>Root</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Root</em>'.
+   * @see domain.Controls#getRoot()
+   * @see #getControls()
+   * @generated
+   */
+  EReference getControls_Root();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link domain.Controls#getControls <em>Controls</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Controls</em>'.
+   * @see domain.Controls#getControls()
+   * @see #getControls()
+   * @generated
+   */
+  EReference getControls_Controls();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link domain.Controls#getRelations <em>Relations</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Relations</em>'.
+   * @see domain.Controls#getRelations()
+   * @see #getControls()
+   * @generated
+   */
+  EReference getControls_Relations();
+
+  /**
    * Returns the meta object for class '{@link domain.PREFormTrigger <em>PRE Form Trigger</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -11088,6 +13654,39 @@ public interface DomainPackage extends EPackage
    * @generated
    */
   EClass getPREFormTrigger();
+
+  /**
+   * Returns the meta object for the attribute '{@link domain.PREFormTrigger#getUid <em>Uid</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Uid</em>'.
+   * @see domain.PREFormTrigger#getUid()
+   * @see #getPREFormTrigger()
+   * @generated
+   */
+  EAttribute getPREFormTrigger_Uid();
+
+  /**
+   * Returns the meta object for the containment reference '{@link domain.PREFormTrigger#getTrigger <em>Trigger</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Trigger</em>'.
+   * @see domain.PREFormTrigger#getTrigger()
+   * @see #getPREFormTrigger()
+   * @generated
+   */
+  EReference getPREFormTrigger_Trigger();
+
+  /**
+   * Returns the meta object for the attribute '{@link domain.PREFormTrigger#getFakeMethod <em>Fake Method</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Fake Method</em>'.
+   * @see domain.PREFormTrigger#getFakeMethod()
+   * @see #getPREFormTrigger()
+   * @generated
+   */
+  EAttribute getPREFormTrigger_FakeMethod();
 
   /**
    * Returns the meta object for class '{@link domain.PREQueryTrigger <em>PRE Query Trigger</em>}'.
@@ -11100,6 +13699,39 @@ public interface DomainPackage extends EPackage
   EClass getPREQueryTrigger();
 
   /**
+   * Returns the meta object for the attribute '{@link domain.PREQueryTrigger#getUid <em>Uid</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Uid</em>'.
+   * @see domain.PREQueryTrigger#getUid()
+   * @see #getPREQueryTrigger()
+   * @generated
+   */
+  EAttribute getPREQueryTrigger_Uid();
+
+  /**
+   * Returns the meta object for the containment reference '{@link domain.PREQueryTrigger#getTrigger <em>Trigger</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Trigger</em>'.
+   * @see domain.PREQueryTrigger#getTrigger()
+   * @see #getPREQueryTrigger()
+   * @generated
+   */
+  EReference getPREQueryTrigger_Trigger();
+
+  /**
+   * Returns the meta object for the attribute '{@link domain.PREQueryTrigger#getFakeMethod <em>Fake Method</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Fake Method</em>'.
+   * @see domain.PREQueryTrigger#getFakeMethod()
+   * @see #getPREQueryTrigger()
+   * @generated
+   */
+  EAttribute getPREQueryTrigger_FakeMethod();
+
+  /**
    * Returns the meta object for class '{@link domain.POSTQueryTrigger <em>POST Query Trigger</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -11108,6 +13740,39 @@ public interface DomainPackage extends EPackage
    * @generated
    */
   EClass getPOSTQueryTrigger();
+
+  /**
+   * Returns the meta object for the attribute '{@link domain.POSTQueryTrigger#getUid <em>Uid</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Uid</em>'.
+   * @see domain.POSTQueryTrigger#getUid()
+   * @see #getPOSTQueryTrigger()
+   * @generated
+   */
+  EAttribute getPOSTQueryTrigger_Uid();
+
+  /**
+   * Returns the meta object for the containment reference '{@link domain.POSTQueryTrigger#getTrigger <em>Trigger</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Trigger</em>'.
+   * @see domain.POSTQueryTrigger#getTrigger()
+   * @see #getPOSTQueryTrigger()
+   * @generated
+   */
+  EReference getPOSTQueryTrigger_Trigger();
+
+  /**
+   * Returns the meta object for the attribute '{@link domain.POSTQueryTrigger#getFakeMethod <em>Fake Method</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Fake Method</em>'.
+   * @see domain.POSTQueryTrigger#getFakeMethod()
+   * @see #getPOSTQueryTrigger()
+   * @generated
+   */
+  EAttribute getPOSTQueryTrigger_FakeMethod();
 
   /**
    * Returns the meta object for class '{@link domain.PREInsertTrigger <em>PRE Insert Trigger</em>}'.
@@ -11120,6 +13785,39 @@ public interface DomainPackage extends EPackage
   EClass getPREInsertTrigger();
 
   /**
+   * Returns the meta object for the attribute '{@link domain.PREInsertTrigger#getUid <em>Uid</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Uid</em>'.
+   * @see domain.PREInsertTrigger#getUid()
+   * @see #getPREInsertTrigger()
+   * @generated
+   */
+  EAttribute getPREInsertTrigger_Uid();
+
+  /**
+   * Returns the meta object for the containment reference '{@link domain.PREInsertTrigger#getTrigger <em>Trigger</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Trigger</em>'.
+   * @see domain.PREInsertTrigger#getTrigger()
+   * @see #getPREInsertTrigger()
+   * @generated
+   */
+  EReference getPREInsertTrigger_Trigger();
+
+  /**
+   * Returns the meta object for the attribute '{@link domain.PREInsertTrigger#getFakeMethod <em>Fake Method</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Fake Method</em>'.
+   * @see domain.PREInsertTrigger#getFakeMethod()
+   * @see #getPREInsertTrigger()
+   * @generated
+   */
+  EAttribute getPREInsertTrigger_FakeMethod();
+
+  /**
    * Returns the meta object for class '{@link domain.PREDeleteTrigger <em>PRE Delete Trigger</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -11128,6 +13826,39 @@ public interface DomainPackage extends EPackage
    * @generated
    */
   EClass getPREDeleteTrigger();
+
+  /**
+   * Returns the meta object for the attribute '{@link domain.PREDeleteTrigger#getUid <em>Uid</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Uid</em>'.
+   * @see domain.PREDeleteTrigger#getUid()
+   * @see #getPREDeleteTrigger()
+   * @generated
+   */
+  EAttribute getPREDeleteTrigger_Uid();
+
+  /**
+   * Returns the meta object for the containment reference '{@link domain.PREDeleteTrigger#getTrigger <em>Trigger</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Trigger</em>'.
+   * @see domain.PREDeleteTrigger#getTrigger()
+   * @see #getPREDeleteTrigger()
+   * @generated
+   */
+  EReference getPREDeleteTrigger_Trigger();
+
+  /**
+   * Returns the meta object for the attribute '{@link domain.PREDeleteTrigger#getFakeMethod <em>Fake Method</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Fake Method</em>'.
+   * @see domain.PREDeleteTrigger#getFakeMethod()
+   * @see #getPREDeleteTrigger()
+   * @generated
+   */
+  EAttribute getPREDeleteTrigger_FakeMethod();
 
   /**
    * Returns the meta object for class '{@link domain.POSTCreateTrigger <em>POST Create Trigger</em>}'.
@@ -11140,6 +13871,39 @@ public interface DomainPackage extends EPackage
   EClass getPOSTCreateTrigger();
 
   /**
+   * Returns the meta object for the attribute '{@link domain.POSTCreateTrigger#getUid <em>Uid</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Uid</em>'.
+   * @see domain.POSTCreateTrigger#getUid()
+   * @see #getPOSTCreateTrigger()
+   * @generated
+   */
+  EAttribute getPOSTCreateTrigger_Uid();
+
+  /**
+   * Returns the meta object for the containment reference '{@link domain.POSTCreateTrigger#getTrigger <em>Trigger</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Trigger</em>'.
+   * @see domain.POSTCreateTrigger#getTrigger()
+   * @see #getPOSTCreateTrigger()
+   * @generated
+   */
+  EReference getPOSTCreateTrigger_Trigger();
+
+  /**
+   * Returns the meta object for the attribute '{@link domain.POSTCreateTrigger#getFakeMethod <em>Fake Method</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Fake Method</em>'.
+   * @see domain.POSTCreateTrigger#getFakeMethod()
+   * @see #getPOSTCreateTrigger()
+   * @generated
+   */
+  EAttribute getPOSTCreateTrigger_FakeMethod();
+
+  /**
    * Returns the meta object for class '{@link domain.PREUpdateTrigger <em>PRE Update Trigger</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -11148,6 +13912,39 @@ public interface DomainPackage extends EPackage
    * @generated
    */
   EClass getPREUpdateTrigger();
+
+  /**
+   * Returns the meta object for the attribute '{@link domain.PREUpdateTrigger#getUid <em>Uid</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Uid</em>'.
+   * @see domain.PREUpdateTrigger#getUid()
+   * @see #getPREUpdateTrigger()
+   * @generated
+   */
+  EAttribute getPREUpdateTrigger_Uid();
+
+  /**
+   * Returns the meta object for the containment reference '{@link domain.PREUpdateTrigger#getTrigger <em>Trigger</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Trigger</em>'.
+   * @see domain.PREUpdateTrigger#getTrigger()
+   * @see #getPREUpdateTrigger()
+   * @generated
+   */
+  EReference getPREUpdateTrigger_Trigger();
+
+  /**
+   * Returns the meta object for the attribute '{@link domain.PREUpdateTrigger#getFakeMethod <em>Fake Method</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Fake Method</em>'.
+   * @see domain.PREUpdateTrigger#getFakeMethod()
+   * @see #getPREUpdateTrigger()
+   * @generated
+   */
+  EAttribute getPREUpdateTrigger_FakeMethod();
 
   /**
    * Returns the meta object for class '{@link domain.CreateTrigger <em>Create Trigger</em>}'.
@@ -11160,6 +13957,39 @@ public interface DomainPackage extends EPackage
   EClass getCreateTrigger();
 
   /**
+   * Returns the meta object for the attribute '{@link domain.CreateTrigger#getUid <em>Uid</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Uid</em>'.
+   * @see domain.CreateTrigger#getUid()
+   * @see #getCreateTrigger()
+   * @generated
+   */
+  EAttribute getCreateTrigger_Uid();
+
+  /**
+   * Returns the meta object for the containment reference '{@link domain.CreateTrigger#getTrigger <em>Trigger</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Trigger</em>'.
+   * @see domain.CreateTrigger#getTrigger()
+   * @see #getCreateTrigger()
+   * @generated
+   */
+  EReference getCreateTrigger_Trigger();
+
+  /**
+   * Returns the meta object for the attribute '{@link domain.CreateTrigger#getFakeMethod <em>Fake Method</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Fake Method</em>'.
+   * @see domain.CreateTrigger#getFakeMethod()
+   * @see #getCreateTrigger()
+   * @generated
+   */
+  EAttribute getCreateTrigger_FakeMethod();
+
+  /**
    * Returns the meta object for class '{@link domain.InsertTrigger <em>Insert Trigger</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -11168,6 +13998,39 @@ public interface DomainPackage extends EPackage
    * @generated
    */
   EClass getInsertTrigger();
+
+  /**
+   * Returns the meta object for the attribute '{@link domain.InsertTrigger#getUid <em>Uid</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Uid</em>'.
+   * @see domain.InsertTrigger#getUid()
+   * @see #getInsertTrigger()
+   * @generated
+   */
+  EAttribute getInsertTrigger_Uid();
+
+  /**
+   * Returns the meta object for the containment reference '{@link domain.InsertTrigger#getTrigger <em>Trigger</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Trigger</em>'.
+   * @see domain.InsertTrigger#getTrigger()
+   * @see #getInsertTrigger()
+   * @generated
+   */
+  EReference getInsertTrigger_Trigger();
+
+  /**
+   * Returns the meta object for the attribute '{@link domain.InsertTrigger#getFakeMethod <em>Fake Method</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Fake Method</em>'.
+   * @see domain.InsertTrigger#getFakeMethod()
+   * @see #getInsertTrigger()
+   * @generated
+   */
+  EAttribute getInsertTrigger_FakeMethod();
 
   /**
    * Returns the meta object for class '{@link domain.UpdateTrigger <em>Update Trigger</em>}'.
@@ -11180,6 +14043,39 @@ public interface DomainPackage extends EPackage
   EClass getUpdateTrigger();
 
   /**
+   * Returns the meta object for the attribute '{@link domain.UpdateTrigger#getUid <em>Uid</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Uid</em>'.
+   * @see domain.UpdateTrigger#getUid()
+   * @see #getUpdateTrigger()
+   * @generated
+   */
+  EAttribute getUpdateTrigger_Uid();
+
+  /**
+   * Returns the meta object for the containment reference '{@link domain.UpdateTrigger#getTrigger <em>Trigger</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Trigger</em>'.
+   * @see domain.UpdateTrigger#getTrigger()
+   * @see #getUpdateTrigger()
+   * @generated
+   */
+  EReference getUpdateTrigger_Trigger();
+
+  /**
+   * Returns the meta object for the attribute '{@link domain.UpdateTrigger#getFakeMethod <em>Fake Method</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Fake Method</em>'.
+   * @see domain.UpdateTrigger#getFakeMethod()
+   * @see #getUpdateTrigger()
+   * @generated
+   */
+  EAttribute getUpdateTrigger_FakeMethod();
+
+  /**
    * Returns the meta object for class '{@link domain.DeleteTrigger <em>Delete Trigger</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -11190,6 +14086,39 @@ public interface DomainPackage extends EPackage
   EClass getDeleteTrigger();
 
   /**
+   * Returns the meta object for the attribute '{@link domain.DeleteTrigger#getUid <em>Uid</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Uid</em>'.
+   * @see domain.DeleteTrigger#getUid()
+   * @see #getDeleteTrigger()
+   * @generated
+   */
+  EAttribute getDeleteTrigger_Uid();
+
+  /**
+   * Returns the meta object for the containment reference '{@link domain.DeleteTrigger#getTrigger <em>Trigger</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Trigger</em>'.
+   * @see domain.DeleteTrigger#getTrigger()
+   * @see #getDeleteTrigger()
+   * @generated
+   */
+  EReference getDeleteTrigger_Trigger();
+
+  /**
+   * Returns the meta object for the attribute '{@link domain.DeleteTrigger#getFakeMethod <em>Fake Method</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Fake Method</em>'.
+   * @see domain.DeleteTrigger#getFakeMethod()
+   * @see #getDeleteTrigger()
+   * @generated
+   */
+  EAttribute getDeleteTrigger_FakeMethod();
+
+  /**
    * Returns the meta object for class '{@link domain.SearchTrigger <em>Search Trigger</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -11198,6 +14127,39 @@ public interface DomainPackage extends EPackage
    * @generated
    */
   EClass getSearchTrigger();
+
+  /**
+   * Returns the meta object for the attribute '{@link domain.SearchTrigger#getUid <em>Uid</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Uid</em>'.
+   * @see domain.SearchTrigger#getUid()
+   * @see #getSearchTrigger()
+   * @generated
+   */
+  EAttribute getSearchTrigger_Uid();
+
+  /**
+   * Returns the meta object for the containment reference '{@link domain.SearchTrigger#getTrigger <em>Trigger</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Trigger</em>'.
+   * @see domain.SearchTrigger#getTrigger()
+   * @see #getSearchTrigger()
+   * @generated
+   */
+  EReference getSearchTrigger_Trigger();
+
+  /**
+   * Returns the meta object for the attribute '{@link domain.SearchTrigger#getFakeMethod <em>Fake Method</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Fake Method</em>'.
+   * @see domain.SearchTrigger#getFakeMethod()
+   * @see #getSearchTrigger()
+   * @generated
+   */
+  EAttribute getSearchTrigger_FakeMethod();
 
   /**
    * Returns the meta object for class '{@link domain.Root <em>Root</em>}'.
@@ -12703,12 +15665,154 @@ public interface DomainPackage extends EPackage
     EReference APPLICATION__APPLICATION_INFRASTRUCTURE_LAYER = eINSTANCE.getApplication_ApplicationInfrastructureLayer();
 
     /**
+     * The meta object literal for the '<em><b>Application Style</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference APPLICATION__APPLICATION_STYLE = eINSTANCE.getApplication_ApplicationStyle();
+
+    /**
+     * The meta object literal for the '<em><b>Application Role</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference APPLICATION__APPLICATION_ROLE = eINSTANCE.getApplication_ApplicationRole();
+
+    /**
      * The meta object literal for the '<em><b>Parent</b></em>' reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
     EReference APPLICATION__PARENT = eINSTANCE.getApplication_Parent();
+
+    /**
+     * The meta object literal for the '{@link domain.impl.ApplicationRoleImpl <em>Application Role</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see domain.impl.ApplicationRoleImpl
+     * @see domain.impl.DomainPackageImpl#getApplicationRole()
+     * @generated
+     */
+    EClass APPLICATION_ROLE = eINSTANCE.getApplicationRole();
+
+    /**
+     * The meta object literal for the '<em><b>Uid</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute APPLICATION_ROLE__UID = eINSTANCE.getApplicationRole_Uid();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute APPLICATION_ROLE__NAME = eINSTANCE.getApplicationRole_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Parent</b></em>' container reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference APPLICATION_ROLE__PARENT = eINSTANCE.getApplicationRole_Parent();
+
+    /**
+     * The meta object literal for the '<em><b>Roles</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference APPLICATION_ROLE__ROLES = eINSTANCE.getApplicationRole_Roles();
+
+    /**
+     * The meta object literal for the '{@link domain.impl.ApplicationStyleImpl <em>Application Style</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see domain.impl.ApplicationStyleImpl
+     * @see domain.impl.DomainPackageImpl#getApplicationStyle()
+     * @generated
+     */
+    EClass APPLICATION_STYLE = eINSTANCE.getApplicationStyle();
+
+    /**
+     * The meta object literal for the '<em><b>Uid</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute APPLICATION_STYLE__UID = eINSTANCE.getApplicationStyle_Uid();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute APPLICATION_STYLE__NAME = eINSTANCE.getApplicationStyle_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Parent</b></em>' container reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference APPLICATION_STYLE__PARENT = eINSTANCE.getApplicationStyle_Parent();
+
+    /**
+     * The meta object literal for the '<em><b>Styles Package</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference APPLICATION_STYLE__STYLES_PACKAGE = eINSTANCE.getApplicationStyle_StylesPackage();
+
+    /**
+     * The meta object literal for the '{@link domain.impl.StylesPackageImpl <em>Styles Package</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see domain.impl.StylesPackageImpl
+     * @see domain.impl.DomainPackageImpl#getStylesPackage()
+     * @generated
+     */
+    EClass STYLES_PACKAGE = eINSTANCE.getStylesPackage();
+
+    /**
+     * The meta object literal for the '<em><b>Uid</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute STYLES_PACKAGE__UID = eINSTANCE.getStylesPackage_Uid();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute STYLES_PACKAGE__NAME = eINSTANCE.getStylesPackage_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Parent</b></em>' container reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference STYLES_PACKAGE__PARENT = eINSTANCE.getStylesPackage_Parent();
+
+    /**
+     * The meta object literal for the '<em><b>Styles</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference STYLES_PACKAGE__STYLES = eINSTANCE.getStylesPackage_Styles();
 
     /**
      * The meta object literal for the '{@link domain.impl.ApplicationUILayerImpl <em>Application UI Layer</em>}' class.
@@ -12987,6 +16091,210 @@ public interface DomainPackage extends EPackage
      * @generated
      */
     EAttribute METHOD_POINTER__FAKE_METHOD = eINSTANCE.getMethodPointer_FakeMethod();
+
+    /**
+     * The meta object literal for the '{@link domain.impl.RolesImpl <em>Roles</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see domain.impl.RolesImpl
+     * @see domain.impl.DomainPackageImpl#getRoles()
+     * @generated
+     */
+    EClass ROLES = eINSTANCE.getRoles();
+
+    /**
+     * The meta object literal for the '<em><b>Uid</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ROLES__UID = eINSTANCE.getRoles_Uid();
+
+    /**
+     * The meta object literal for the '<em><b>Parent</b></em>' container reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ROLES__PARENT = eINSTANCE.getRoles_Parent();
+
+    /**
+     * The meta object literal for the '<em><b>Roles</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ROLES__ROLES = eINSTANCE.getRoles_Roles();
+
+    /**
+     * The meta object literal for the '<em><b>Groups</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ROLES__GROUPS = eINSTANCE.getRoles_Groups();
+
+    /**
+     * The meta object literal for the '{@link domain.impl.RoleImpl <em>Role</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see domain.impl.RoleImpl
+     * @see domain.impl.DomainPackageImpl#getRole()
+     * @generated
+     */
+    EClass ROLE = eINSTANCE.getRole();
+
+    /**
+     * The meta object literal for the '<em><b>Uid</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ROLE__UID = eINSTANCE.getRole_Uid();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ROLE__NAME = eINSTANCE.getRole_Name();
+
+    /**
+     * The meta object literal for the '{@link domain.impl.GroupImpl <em>Group</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see domain.impl.GroupImpl
+     * @see domain.impl.DomainPackageImpl#getGroup()
+     * @generated
+     */
+    EClass GROUP = eINSTANCE.getGroup();
+
+    /**
+     * The meta object literal for the '<em><b>Uid</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute GROUP__UID = eINSTANCE.getGroup_Uid();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute GROUP__NAME = eINSTANCE.getGroup_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Group2 Group</b></em>' reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference GROUP__GROUP2_GROUP = eINSTANCE.getGroup_Group2Group();
+
+    /**
+     * The meta object literal for the '<em><b>Group2 Role</b></em>' reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference GROUP__GROUP2_ROLE = eINSTANCE.getGroup_Group2Role();
+
+    /**
+     * The meta object literal for the '{@link domain.impl.StylesImpl <em>Styles</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see domain.impl.StylesImpl
+     * @see domain.impl.DomainPackageImpl#getStyles()
+     * @generated
+     */
+    EClass STYLES = eINSTANCE.getStyles();
+
+    /**
+     * The meta object literal for the '<em><b>Uid</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute STYLES__UID = eINSTANCE.getStyles_Uid();
+
+    /**
+     * The meta object literal for the '<em><b>Parent</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference STYLES__PARENT = eINSTANCE.getStyles_Parent();
+
+    /**
+     * The meta object literal for the '<em><b>Libraries</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference STYLES__LIBRARIES = eINSTANCE.getStyles_Libraries();
+
+    /**
+     * The meta object literal for the '{@link domain.impl.StyleLibraryImpl <em>Style Library</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see domain.impl.StyleLibraryImpl
+     * @see domain.impl.DomainPackageImpl#getStyleLibrary()
+     * @generated
+     */
+    EClass STYLE_LIBRARY = eINSTANCE.getStyleLibrary();
+
+    /**
+     * The meta object literal for the '<em><b>Uid</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute STYLE_LIBRARY__UID = eINSTANCE.getStyleLibrary_Uid();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute STYLE_LIBRARY__NAME = eINSTANCE.getStyleLibrary_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Styles</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference STYLE_LIBRARY__STYLES = eINSTANCE.getStyleLibrary_Styles();
+
+    /**
+     * The meta object literal for the '{@link domain.impl.StyleSetImpl <em>Style Set</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see domain.impl.StyleSetImpl
+     * @see domain.impl.DomainPackageImpl#getStyleSet()
+     * @generated
+     */
+    EClass STYLE_SET = eINSTANCE.getStyleSet();
+
+    /**
+     * The meta object literal for the '<em><b>Uid</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute STYLE_SET__UID = eINSTANCE.getStyleSet_Uid();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute STYLE_SET__NAME = eINSTANCE.getStyleSet_Name();
 
     /**
      * The meta object literal for the '{@link domain.impl.MappersImpl <em>Mappers</em>}' class.
@@ -14609,6 +17917,14 @@ public interface DomainPackage extends EPackage
     EAttribute CANVAS_FRAME__NAME = eINSTANCE.getCanvasFrame_Name();
 
     /**
+     * The meta object literal for the '<em><b>Canvas View</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference CANVAS_FRAME__CANVAS_VIEW = eINSTANCE.getCanvasFrame_CanvasView();
+
+    /**
      * The meta object literal for the '{@link domain.impl.ViewPortHolderImpl <em>View Port Holder</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -14729,6 +18045,30 @@ public interface DomainPackage extends EPackage
     EClass VIEW_PORT_TRIGGER = eINSTANCE.getViewPortTrigger();
 
     /**
+     * The meta object literal for the '<em><b>Uid</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute VIEW_PORT_TRIGGER__UID = eINSTANCE.getViewPortTrigger_Uid();
+
+    /**
+     * The meta object literal for the '<em><b>Trigger</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference VIEW_PORT_TRIGGER__TRIGGER = eINSTANCE.getViewPortTrigger_Trigger();
+
+    /**
+     * The meta object literal for the '<em><b>Fake Method</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute VIEW_PORT_TRIGGER__FAKE_METHOD = eINSTANCE.getViewPortTrigger_FakeMethod();
+
+    /**
      * The meta object literal for the '{@link domain.impl.ViewInheritanceImpl <em>View Inheritance</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -14831,14 +18171,14 @@ public interface DomainPackage extends EPackage
     EReference FORM_DATA_CONTROLS__FORM_CONTROL = eINSTANCE.getFormDataControls_FormControl();
 
     /**
-     * The meta object literal for the '{@link domain.impl.ControlsImpl <em>Controls</em>}' class.
+     * The meta object literal for the '{@link domain.impl.CanvasViewImpl <em>Canvas View</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see domain.impl.ControlsImpl
-     * @see domain.impl.DomainPackageImpl#getControls()
+     * @see domain.impl.CanvasViewImpl
+     * @see domain.impl.DomainPackageImpl#getCanvasView()
      * @generated
      */
-    EClass CONTROLS = eINSTANCE.getControls();
+    EClass CANVAS_VIEW = eINSTANCE.getCanvasView();
 
     /**
      * The meta object literal for the '<em><b>Uid</b></em>' attribute feature.
@@ -14846,49 +18186,25 @@ public interface DomainPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute CONTROLS__UID = eINSTANCE.getControls_Uid();
+    EAttribute CANVAS_VIEW__UID = eINSTANCE.getCanvasView_Uid();
 
     /**
-     * The meta object literal for the '<em><b>Parent</b></em>' reference feature.
+     * The meta object literal for the '<em><b>Parent</b></em>' container reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference CONTROLS__PARENT = eINSTANCE.getControls_Parent();
+    EReference CANVAS_VIEW__PARENT = eINSTANCE.getCanvasView_Parent();
 
     /**
-     * The meta object literal for the '<em><b>Root</b></em>' containment reference feature.
+     * The meta object literal for the '{@link domain.impl.StyleImpl <em>Style</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * @see domain.impl.StyleImpl
+     * @see domain.impl.DomainPackageImpl#getStyle()
      * @generated
      */
-    EReference CONTROLS__ROOT = eINSTANCE.getControls_Root();
-
-    /**
-     * The meta object literal for the '<em><b>Controls</b></em>' containment reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference CONTROLS__CONTROLS = eINSTANCE.getControls_Controls();
-
-    /**
-     * The meta object literal for the '<em><b>Relations</b></em>' containment reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference CONTROLS__RELATIONS = eINSTANCE.getControls_Relations();
-
-    /**
-     * The meta object literal for the '{@link domain.impl.TriggerImpl <em>Trigger</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see domain.impl.TriggerImpl
-     * @see domain.impl.DomainPackageImpl#getTrigger()
-     * @generated
-     */
-    EClass TRIGGER = eINSTANCE.getTrigger();
+    EClass STYLE = eINSTANCE.getStyle();
 
     /**
      * The meta object literal for the '<em><b>Uid</b></em>' attribute feature.
@@ -14896,33 +18212,25 @@ public interface DomainPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute TRIGGER__UID = eINSTANCE.getTrigger_Uid();
+    EAttribute STYLE__UID = eINSTANCE.getStyle_Uid();
 
     /**
-     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Style</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute TRIGGER__NAME = eINSTANCE.getTrigger_Name();
+    EAttribute STYLE__STYLE = eINSTANCE.getStyle_Style();
 
     /**
-     * The meta object literal for the '<em><b>Parameters</b></em>' containment reference list feature.
+     * The meta object literal for the '{@link domain.impl.StyleClassImpl <em>Style Class</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * @see domain.impl.StyleClassImpl
+     * @see domain.impl.DomainPackageImpl#getStyleClass()
      * @generated
      */
-    EReference TRIGGER__PARAMETERS = eINSTANCE.getTrigger_Parameters();
-
-    /**
-     * The meta object literal for the '{@link domain.impl.TriggerParameterImpl <em>Trigger Parameter</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see domain.impl.TriggerParameterImpl
-     * @see domain.impl.DomainPackageImpl#getTriggerParameter()
-     * @generated
-     */
-    EClass TRIGGER_PARAMETER = eINSTANCE.getTriggerParameter();
+    EClass STYLE_CLASS = eINSTANCE.getStyleClass();
 
     /**
      * The meta object literal for the '<em><b>Uid</b></em>' attribute feature.
@@ -14930,7 +18238,49 @@ public interface DomainPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute TRIGGER_PARAMETER__UID = eINSTANCE.getTriggerParameter_Uid();
+    EAttribute STYLE_CLASS__UID = eINSTANCE.getStyleClass_Uid();
+
+    /**
+     * The meta object literal for the '<em><b>Styles Package</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference STYLE_CLASS__STYLES_PACKAGE = eINSTANCE.getStyleClass_StylesPackage();
+
+    /**
+     * The meta object literal for the '<em><b>Library</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference STYLE_CLASS__LIBRARY = eINSTANCE.getStyleClass_Library();
+
+    /**
+     * The meta object literal for the '<em><b>Style Set</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference STYLE_CLASS__STYLE_SET = eINSTANCE.getStyleClass_StyleSet();
+
+    /**
+     * The meta object literal for the '{@link domain.impl.ContextParameterImpl <em>Context Parameter</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see domain.impl.ContextParameterImpl
+     * @see domain.impl.DomainPackageImpl#getContextParameter()
+     * @generated
+     */
+    EClass CONTEXT_PARAMETER = eINSTANCE.getContextParameter();
+
+    /**
+     * The meta object literal for the '<em><b>Uid</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute CONTEXT_PARAMETER__UID = eINSTANCE.getContextParameter_Uid();
 
     /**
      * The meta object literal for the '<em><b>Parameter</b></em>' reference feature.
@@ -14938,7 +18288,7 @@ public interface DomainPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference TRIGGER_PARAMETER__PARAMETER = eINSTANCE.getTriggerParameter_Parameter();
+    EReference CONTEXT_PARAMETER__PARAMETER = eINSTANCE.getContextParameter_Parameter();
 
     /**
      * The meta object literal for the '<em><b>Value</b></em>' containment reference feature.
@@ -14946,7 +18296,7 @@ public interface DomainPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference TRIGGER_PARAMETER__VALUE = eINSTANCE.getTriggerParameter_Value();
+    EReference CONTEXT_PARAMETER__VALUE = eINSTANCE.getContextParameter_Value();
 
     /**
      * The meta object literal for the '{@link domain.impl.ContextValueImpl <em>Context Value</em>}' class.
@@ -15025,6 +18375,434 @@ public interface DomainPackage extends EPackage
     EAttribute EXPRESSION_PART__ORDER = eINSTANCE.getExpressionPart_Order();
 
     /**
+     * The meta object literal for the '{@link domain.impl.ContextImpl <em>Context</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see domain.impl.ContextImpl
+     * @see domain.impl.DomainPackageImpl#getContext()
+     * @generated
+     */
+    EClass CONTEXT = eINSTANCE.getContext();
+
+    /**
+     * The meta object literal for the '<em><b>Uid</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute CONTEXT__UID = eINSTANCE.getContext_Uid();
+
+    /**
+     * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute CONTEXT__VALUE = eINSTANCE.getContext_Value();
+
+    /**
+     * The meta object literal for the '<em><b>Expression</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference CONTEXT__EXPRESSION = eINSTANCE.getContext_Expression();
+
+    /**
+     * The meta object literal for the '<em><b>Parameters</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference CONTEXT__PARAMETERS = eINSTANCE.getContext_Parameters();
+
+    /**
+     * The meta object literal for the '{@link domain.impl.StyleElementImpl <em>Style Element</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see domain.impl.StyleElementImpl
+     * @see domain.impl.DomainPackageImpl#getStyleElement()
+     * @generated
+     */
+    EClass STYLE_ELEMENT = eINSTANCE.getStyleElement();
+
+    /**
+     * The meta object literal for the '<em><b>Style</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference STYLE_ELEMENT__STYLE = eINSTANCE.getStyleElement_Style();
+
+    /**
+     * The meta object literal for the '<em><b>Style Class</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference STYLE_ELEMENT__STYLE_CLASS = eINSTANCE.getStyleElement_StyleClass();
+
+    /**
+     * The meta object literal for the '{@link domain.impl.UielementImpl <em>Uielement</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see domain.impl.UielementImpl
+     * @see domain.impl.DomainPackageImpl#getUielement()
+     * @generated
+     */
+    EClass UIELEMENT = eINSTANCE.getUielement();
+
+    /**
+     * The meta object literal for the '<em><b>Uid</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute UIELEMENT__UID = eINSTANCE.getUielement_Uid();
+
+    /**
+     * The meta object literal for the '<em><b>Enabled</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute UIELEMENT__ENABLED = eINSTANCE.getUielement_Enabled();
+
+    /**
+     * The meta object literal for the '<em><b>Enabled Context</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference UIELEMENT__ENABLED_CONTEXT = eINSTANCE.getUielement_EnabledContext();
+
+    /**
+     * The meta object literal for the '<em><b>Required</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute UIELEMENT__REQUIRED = eINSTANCE.getUielement_Required();
+
+    /**
+     * The meta object literal for the '<em><b>Required Context</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference UIELEMENT__REQUIRED_CONTEXT = eINSTANCE.getUielement_RequiredContext();
+
+    /**
+     * The meta object literal for the '<em><b>Read Only</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute UIELEMENT__READ_ONLY = eINSTANCE.getUielement_ReadOnly();
+
+    /**
+     * The meta object literal for the '<em><b>Read Only Context</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference UIELEMENT__READ_ONLY_CONTEXT = eINSTANCE.getUielement_ReadOnlyContext();
+
+    /**
+     * The meta object literal for the '{@link domain.impl.SourcesPointerImpl <em>Sources Pointer</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see domain.impl.SourcesPointerImpl
+     * @see domain.impl.DomainPackageImpl#getSourcesPointer()
+     * @generated
+     */
+    EClass SOURCES_POINTER = eINSTANCE.getSourcesPointer();
+
+    /**
+     * The meta object literal for the '<em><b>Source Pointer</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SOURCES_POINTER__SOURCE_POINTER = eINSTANCE.getSourcesPointer_SourcePointer();
+
+    /**
+     * The meta object literal for the '<em><b>Value Pointer</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SOURCES_POINTER__VALUE_POINTER = eINSTANCE.getSourcesPointer_ValuePointer();
+
+    /**
+     * The meta object literal for the '<em><b>Source Cast</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SOURCES_POINTER__SOURCE_CAST = eINSTANCE.getSourcesPointer_SourceCast();
+
+    /**
+     * The meta object literal for the '{@link domain.impl.InputElementImpl <em>Input Element</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see domain.impl.InputElementImpl
+     * @see domain.impl.DomainPackageImpl#getInputElement()
+     * @generated
+     */
+    EClass INPUT_ELEMENT = eINSTANCE.getInputElement();
+
+    /**
+     * The meta object literal for the '<em><b>Label</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute INPUT_ELEMENT__LABEL = eINSTANCE.getInputElement_Label();
+
+    /**
+     * The meta object literal for the '{@link domain.impl.SelectionImpl <em>Selection</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see domain.impl.SelectionImpl
+     * @see domain.impl.DomainPackageImpl#getSelection()
+     * @generated
+     */
+    EClass SELECTION = eINSTANCE.getSelection();
+
+    /**
+     * The meta object literal for the '<em><b>Display Option Pointer</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SELECTION__DISPLAY_OPTION_POINTER = eINSTANCE.getSelection_DisplayOptionPointer();
+
+    /**
+     * The meta object literal for the '<em><b>Value Option Pointer</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SELECTION__VALUE_OPTION_POINTER = eINSTANCE.getSelection_ValueOptionPointer();
+
+    /**
+     * The meta object literal for the '{@link domain.impl.OptionSelectionImpl <em>Option Selection</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see domain.impl.OptionSelectionImpl
+     * @see domain.impl.DomainPackageImpl#getOptionSelection()
+     * @generated
+     */
+    EClass OPTION_SELECTION = eINSTANCE.getOptionSelection();
+
+    /**
+     * The meta object literal for the '<em><b>Option Pointer</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference OPTION_SELECTION__OPTION_POINTER = eINSTANCE.getOptionSelection_OptionPointer();
+
+    /**
+     * The meta object literal for the '<em><b>Option Cast</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference OPTION_SELECTION__OPTION_CAST = eINSTANCE.getOptionSelection_OptionCast();
+
+    /**
+     * The meta object literal for the '{@link domain.impl.ActionElementImpl <em>Action Element</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see domain.impl.ActionElementImpl
+     * @see domain.impl.DomainPackageImpl#getActionElement()
+     * @generated
+     */
+    EClass ACTION_ELEMENT = eINSTANCE.getActionElement();
+
+    /**
+     * The meta object literal for the '<em><b>Trigger</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ACTION_ELEMENT__TRIGGER = eINSTANCE.getActionElement_Trigger();
+
+    /**
+     * The meta object literal for the '{@link domain.impl.InputTextImpl <em>Input Text</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see domain.impl.InputTextImpl
+     * @see domain.impl.DomainPackageImpl#getInputText()
+     * @generated
+     */
+    EClass INPUT_TEXT = eINSTANCE.getInputText();
+
+    /**
+     * The meta object literal for the '{@link domain.impl.LabelImpl <em>Label</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see domain.impl.LabelImpl
+     * @see domain.impl.DomainPackageImpl#getLabel()
+     * @generated
+     */
+    EClass LABEL = eINSTANCE.getLabel();
+
+    /**
+     * The meta object literal for the '{@link domain.impl.OutputTextImpl <em>Output Text</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see domain.impl.OutputTextImpl
+     * @see domain.impl.DomainPackageImpl#getOutputText()
+     * @generated
+     */
+    EClass OUTPUT_TEXT = eINSTANCE.getOutputText();
+
+    /**
+     * The meta object literal for the '{@link domain.impl.CheckBoxImpl <em>Check Box</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see domain.impl.CheckBoxImpl
+     * @see domain.impl.DomainPackageImpl#getCheckBox()
+     * @generated
+     */
+    EClass CHECK_BOX = eINSTANCE.getCheckBox();
+
+    /**
+     * The meta object literal for the '{@link domain.impl.DropDownSelectionImpl <em>Drop Down Selection</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see domain.impl.DropDownSelectionImpl
+     * @see domain.impl.DomainPackageImpl#getDropDownSelection()
+     * @generated
+     */
+    EClass DROP_DOWN_SELECTION = eINSTANCE.getDropDownSelection();
+
+    /**
+     * The meta object literal for the '<em><b>Selection</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference DROP_DOWN_SELECTION__SELECTION = eINSTANCE.getDropDownSelection_Selection();
+
+    /**
+     * The meta object literal for the '{@link domain.impl.ColumnImpl <em>Column</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see domain.impl.ColumnImpl
+     * @see domain.impl.DomainPackageImpl#getColumn()
+     * @generated
+     */
+    EClass COLUMN = eINSTANCE.getColumn();
+
+    /**
+     * The meta object literal for the '<em><b>Element</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference COLUMN__ELEMENT = eINSTANCE.getColumn_Element();
+
+    /**
+     * The meta object literal for the '{@link domain.impl.TableImpl <em>Table</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see domain.impl.TableImpl
+     * @see domain.impl.DomainPackageImpl#getTable()
+     * @generated
+     */
+    EClass TABLE = eINSTANCE.getTable();
+
+    /**
+     * The meta object literal for the '<em><b>Columns</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference TABLE__COLUMNS = eINSTANCE.getTable_Columns();
+
+    /**
+     * The meta object literal for the '{@link domain.impl.TreeImpl <em>Tree</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see domain.impl.TreeImpl
+     * @see domain.impl.DomainPackageImpl#getTree()
+     * @generated
+     */
+    EClass TREE = eINSTANCE.getTree();
+
+    /**
+     * The meta object literal for the '<em><b>Image</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference TREE__IMAGE = eINSTANCE.getTree_Image();
+
+    /**
+     * The meta object literal for the '{@link domain.impl.ButtonImpl <em>Button</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see domain.impl.ButtonImpl
+     * @see domain.impl.DomainPackageImpl#getButton()
+     * @generated
+     */
+    EClass BUTTON = eINSTANCE.getButton();
+
+    /**
+     * The meta object literal for the '{@link domain.impl.ControlsImpl <em>Controls</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see domain.impl.ControlsImpl
+     * @see domain.impl.DomainPackageImpl#getControls()
+     * @generated
+     */
+    EClass CONTROLS = eINSTANCE.getControls();
+
+    /**
+     * The meta object literal for the '<em><b>Uid</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute CONTROLS__UID = eINSTANCE.getControls_Uid();
+
+    /**
+     * The meta object literal for the '<em><b>Parent</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference CONTROLS__PARENT = eINSTANCE.getControls_Parent();
+
+    /**
+     * The meta object literal for the '<em><b>Root</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference CONTROLS__ROOT = eINSTANCE.getControls_Root();
+
+    /**
+     * The meta object literal for the '<em><b>Controls</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference CONTROLS__CONTROLS = eINSTANCE.getControls_Controls();
+
+    /**
+     * The meta object literal for the '<em><b>Relations</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference CONTROLS__RELATIONS = eINSTANCE.getControls_Relations();
+
+    /**
      * The meta object literal for the '{@link domain.impl.PREFormTriggerImpl <em>PRE Form Trigger</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -15033,6 +18811,30 @@ public interface DomainPackage extends EPackage
      * @generated
      */
     EClass PRE_FORM_TRIGGER = eINSTANCE.getPREFormTrigger();
+
+    /**
+     * The meta object literal for the '<em><b>Uid</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute PRE_FORM_TRIGGER__UID = eINSTANCE.getPREFormTrigger_Uid();
+
+    /**
+     * The meta object literal for the '<em><b>Trigger</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference PRE_FORM_TRIGGER__TRIGGER = eINSTANCE.getPREFormTrigger_Trigger();
+
+    /**
+     * The meta object literal for the '<em><b>Fake Method</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute PRE_FORM_TRIGGER__FAKE_METHOD = eINSTANCE.getPREFormTrigger_FakeMethod();
 
     /**
      * The meta object literal for the '{@link domain.impl.PREQueryTriggerImpl <em>PRE Query Trigger</em>}' class.
@@ -15045,6 +18847,30 @@ public interface DomainPackage extends EPackage
     EClass PRE_QUERY_TRIGGER = eINSTANCE.getPREQueryTrigger();
 
     /**
+     * The meta object literal for the '<em><b>Uid</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute PRE_QUERY_TRIGGER__UID = eINSTANCE.getPREQueryTrigger_Uid();
+
+    /**
+     * The meta object literal for the '<em><b>Trigger</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference PRE_QUERY_TRIGGER__TRIGGER = eINSTANCE.getPREQueryTrigger_Trigger();
+
+    /**
+     * The meta object literal for the '<em><b>Fake Method</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute PRE_QUERY_TRIGGER__FAKE_METHOD = eINSTANCE.getPREQueryTrigger_FakeMethod();
+
+    /**
      * The meta object literal for the '{@link domain.impl.POSTQueryTriggerImpl <em>POST Query Trigger</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -15053,6 +18879,30 @@ public interface DomainPackage extends EPackage
      * @generated
      */
     EClass POST_QUERY_TRIGGER = eINSTANCE.getPOSTQueryTrigger();
+
+    /**
+     * The meta object literal for the '<em><b>Uid</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute POST_QUERY_TRIGGER__UID = eINSTANCE.getPOSTQueryTrigger_Uid();
+
+    /**
+     * The meta object literal for the '<em><b>Trigger</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference POST_QUERY_TRIGGER__TRIGGER = eINSTANCE.getPOSTQueryTrigger_Trigger();
+
+    /**
+     * The meta object literal for the '<em><b>Fake Method</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute POST_QUERY_TRIGGER__FAKE_METHOD = eINSTANCE.getPOSTQueryTrigger_FakeMethod();
 
     /**
      * The meta object literal for the '{@link domain.impl.PREInsertTriggerImpl <em>PRE Insert Trigger</em>}' class.
@@ -15065,6 +18915,30 @@ public interface DomainPackage extends EPackage
     EClass PRE_INSERT_TRIGGER = eINSTANCE.getPREInsertTrigger();
 
     /**
+     * The meta object literal for the '<em><b>Uid</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute PRE_INSERT_TRIGGER__UID = eINSTANCE.getPREInsertTrigger_Uid();
+
+    /**
+     * The meta object literal for the '<em><b>Trigger</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference PRE_INSERT_TRIGGER__TRIGGER = eINSTANCE.getPREInsertTrigger_Trigger();
+
+    /**
+     * The meta object literal for the '<em><b>Fake Method</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute PRE_INSERT_TRIGGER__FAKE_METHOD = eINSTANCE.getPREInsertTrigger_FakeMethod();
+
+    /**
      * The meta object literal for the '{@link domain.impl.PREDeleteTriggerImpl <em>PRE Delete Trigger</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -15073,6 +18947,30 @@ public interface DomainPackage extends EPackage
      * @generated
      */
     EClass PRE_DELETE_TRIGGER = eINSTANCE.getPREDeleteTrigger();
+
+    /**
+     * The meta object literal for the '<em><b>Uid</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute PRE_DELETE_TRIGGER__UID = eINSTANCE.getPREDeleteTrigger_Uid();
+
+    /**
+     * The meta object literal for the '<em><b>Trigger</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference PRE_DELETE_TRIGGER__TRIGGER = eINSTANCE.getPREDeleteTrigger_Trigger();
+
+    /**
+     * The meta object literal for the '<em><b>Fake Method</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute PRE_DELETE_TRIGGER__FAKE_METHOD = eINSTANCE.getPREDeleteTrigger_FakeMethod();
 
     /**
      * The meta object literal for the '{@link domain.impl.POSTCreateTriggerImpl <em>POST Create Trigger</em>}' class.
@@ -15085,6 +18983,30 @@ public interface DomainPackage extends EPackage
     EClass POST_CREATE_TRIGGER = eINSTANCE.getPOSTCreateTrigger();
 
     /**
+     * The meta object literal for the '<em><b>Uid</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute POST_CREATE_TRIGGER__UID = eINSTANCE.getPOSTCreateTrigger_Uid();
+
+    /**
+     * The meta object literal for the '<em><b>Trigger</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference POST_CREATE_TRIGGER__TRIGGER = eINSTANCE.getPOSTCreateTrigger_Trigger();
+
+    /**
+     * The meta object literal for the '<em><b>Fake Method</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute POST_CREATE_TRIGGER__FAKE_METHOD = eINSTANCE.getPOSTCreateTrigger_FakeMethod();
+
+    /**
      * The meta object literal for the '{@link domain.impl.PREUpdateTriggerImpl <em>PRE Update Trigger</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -15093,6 +19015,30 @@ public interface DomainPackage extends EPackage
      * @generated
      */
     EClass PRE_UPDATE_TRIGGER = eINSTANCE.getPREUpdateTrigger();
+
+    /**
+     * The meta object literal for the '<em><b>Uid</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute PRE_UPDATE_TRIGGER__UID = eINSTANCE.getPREUpdateTrigger_Uid();
+
+    /**
+     * The meta object literal for the '<em><b>Trigger</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference PRE_UPDATE_TRIGGER__TRIGGER = eINSTANCE.getPREUpdateTrigger_Trigger();
+
+    /**
+     * The meta object literal for the '<em><b>Fake Method</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute PRE_UPDATE_TRIGGER__FAKE_METHOD = eINSTANCE.getPREUpdateTrigger_FakeMethod();
 
     /**
      * The meta object literal for the '{@link domain.impl.CreateTriggerImpl <em>Create Trigger</em>}' class.
@@ -15105,6 +19051,30 @@ public interface DomainPackage extends EPackage
     EClass CREATE_TRIGGER = eINSTANCE.getCreateTrigger();
 
     /**
+     * The meta object literal for the '<em><b>Uid</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute CREATE_TRIGGER__UID = eINSTANCE.getCreateTrigger_Uid();
+
+    /**
+     * The meta object literal for the '<em><b>Trigger</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference CREATE_TRIGGER__TRIGGER = eINSTANCE.getCreateTrigger_Trigger();
+
+    /**
+     * The meta object literal for the '<em><b>Fake Method</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute CREATE_TRIGGER__FAKE_METHOD = eINSTANCE.getCreateTrigger_FakeMethod();
+
+    /**
      * The meta object literal for the '{@link domain.impl.InsertTriggerImpl <em>Insert Trigger</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -15113,6 +19083,30 @@ public interface DomainPackage extends EPackage
      * @generated
      */
     EClass INSERT_TRIGGER = eINSTANCE.getInsertTrigger();
+
+    /**
+     * The meta object literal for the '<em><b>Uid</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute INSERT_TRIGGER__UID = eINSTANCE.getInsertTrigger_Uid();
+
+    /**
+     * The meta object literal for the '<em><b>Trigger</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference INSERT_TRIGGER__TRIGGER = eINSTANCE.getInsertTrigger_Trigger();
+
+    /**
+     * The meta object literal for the '<em><b>Fake Method</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute INSERT_TRIGGER__FAKE_METHOD = eINSTANCE.getInsertTrigger_FakeMethod();
 
     /**
      * The meta object literal for the '{@link domain.impl.UpdateTriggerImpl <em>Update Trigger</em>}' class.
@@ -15125,6 +19119,30 @@ public interface DomainPackage extends EPackage
     EClass UPDATE_TRIGGER = eINSTANCE.getUpdateTrigger();
 
     /**
+     * The meta object literal for the '<em><b>Uid</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute UPDATE_TRIGGER__UID = eINSTANCE.getUpdateTrigger_Uid();
+
+    /**
+     * The meta object literal for the '<em><b>Trigger</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference UPDATE_TRIGGER__TRIGGER = eINSTANCE.getUpdateTrigger_Trigger();
+
+    /**
+     * The meta object literal for the '<em><b>Fake Method</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute UPDATE_TRIGGER__FAKE_METHOD = eINSTANCE.getUpdateTrigger_FakeMethod();
+
+    /**
      * The meta object literal for the '{@link domain.impl.DeleteTriggerImpl <em>Delete Trigger</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -15135,6 +19153,30 @@ public interface DomainPackage extends EPackage
     EClass DELETE_TRIGGER = eINSTANCE.getDeleteTrigger();
 
     /**
+     * The meta object literal for the '<em><b>Uid</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute DELETE_TRIGGER__UID = eINSTANCE.getDeleteTrigger_Uid();
+
+    /**
+     * The meta object literal for the '<em><b>Trigger</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference DELETE_TRIGGER__TRIGGER = eINSTANCE.getDeleteTrigger_Trigger();
+
+    /**
+     * The meta object literal for the '<em><b>Fake Method</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute DELETE_TRIGGER__FAKE_METHOD = eINSTANCE.getDeleteTrigger_FakeMethod();
+
+    /**
      * The meta object literal for the '{@link domain.impl.SearchTriggerImpl <em>Search Trigger</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -15143,6 +19185,30 @@ public interface DomainPackage extends EPackage
      * @generated
      */
     EClass SEARCH_TRIGGER = eINSTANCE.getSearchTrigger();
+
+    /**
+     * The meta object literal for the '<em><b>Uid</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute SEARCH_TRIGGER__UID = eINSTANCE.getSearchTrigger_Uid();
+
+    /**
+     * The meta object literal for the '<em><b>Trigger</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SEARCH_TRIGGER__TRIGGER = eINSTANCE.getSearchTrigger_Trigger();
+
+    /**
+     * The meta object literal for the '<em><b>Fake Method</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute SEARCH_TRIGGER__FAKE_METHOD = eINSTANCE.getSearchTrigger_FakeMethod();
 
     /**
      * The meta object literal for the '{@link domain.impl.RootImpl <em>Root</em>}' class.

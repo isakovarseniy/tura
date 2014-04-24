@@ -6,6 +6,22 @@ for (  label in GmfGraph!Label.all ){
   label.font.height	 = 12;
 }
 -- remove unavailabels tools
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='StyleLibrary');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='StyleSet');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='StylesPackage');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='TabCanvas');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='TabPage');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='ViewPort');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='ViewPortTrigger');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='Window');
+delete tool;
 var tool = GmfTool!CreationTool.all.selectOne(r|r.title='ModelQuery');
 delete tool;
 var tool = GmfTool!CreationTool.all.selectOne(r|r.title='Query');
@@ -71,6 +87,12 @@ delete tool;
 var tool = GmfTool!CreationTool.all.selectOne(r|r.title='DeploymentSequence');
 delete tool;
 var tool = GmfTool!CreationTool.all.selectOne(r|r.title='ApplicationUILayer');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='ApplicationRole');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='ApplicationStyle');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='StylesPackage');
 delete tool;
 var tool = GmfTool!CreationTool.all.selectOne(r|r.title='ApplicationUIPackage');
 delete tool;
@@ -141,6 +163,22 @@ delete tool;
 var tool = GmfTool!CreationTool.all.selectOne(r|r.title='ViewPortTrigger');
 delete tool;
 var tool = GmfTool!CreationTool.all.selectOne(r|r.title='Window');
+delete tool;
+
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='Role');
+delete tool;
+
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='Group');
+delete tool;
+
+var tool = GmfMap!LinkMapping.all.selectOne(r|r.tool.title='Group2Group');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='Group2Group');
+delete tool;
+
+var tool = GmfMap!LinkMapping.all.selectOne(r|r.tool.title='Group2Role');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='Group2Role');
 delete tool;
 
 var tool = GmfMap!LinkMapping.all.selectOne(r|r.tool.title='RecipeConfig');

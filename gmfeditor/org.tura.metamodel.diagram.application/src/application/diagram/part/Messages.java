@@ -301,22 +301,52 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String ApplicationUILayer6CreationTool_title;
+	public static String ApplicationRole6CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String ApplicationUILayer6CreationTool_desc;
+	public static String ApplicationRole6CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String ApplicationUIPackage7CreationTool_title;
+	public static String ApplicationStyle7CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String ApplicationUIPackage7CreationTool_desc;
+	public static String ApplicationStyle7CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String ApplicationUILayer8CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String ApplicationUILayer8CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String ApplicationUIPackage9CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String ApplicationUIPackage9CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String StylesPackage10CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String StylesPackage10CreationTool_desc;
 
 	/**
 	 * @generated
@@ -332,6 +362,11 @@ public class Messages extends NLS {
 	 * @generated
 	 */
 	public static String ApplicationUILayerApplicationUILayerApplicationUIPackagesCompartmentEditPart_title;
+
+	/**
+	 * @generated
+	 */
+	public static String ApplicationStyleApplicationStyleStylesPackageCompartmentEditPart_title;
 
 	/**
 	 * @generated

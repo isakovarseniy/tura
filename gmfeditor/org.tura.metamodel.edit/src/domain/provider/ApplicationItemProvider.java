@@ -137,6 +137,8 @@ public class ApplicationItemProvider
       childrenFeatures.add(DomainPackage.Literals.APPLICATION__APPLICATION_MAPPERS);
       childrenFeatures.add(DomainPackage.Literals.APPLICATION__APPLICATION_UI_LAYER);
       childrenFeatures.add(DomainPackage.Literals.APPLICATION__APPLICATION_INFRASTRUCTURE_LAYER);
+      childrenFeatures.add(DomainPackage.Literals.APPLICATION__APPLICATION_STYLE);
+      childrenFeatures.add(DomainPackage.Literals.APPLICATION__APPLICATION_ROLE);
     }
     return childrenFeatures;
   }
@@ -203,6 +205,8 @@ public class ApplicationItemProvider
       case DomainPackage.APPLICATION__APPLICATION_MAPPERS:
       case DomainPackage.APPLICATION__APPLICATION_UI_LAYER:
       case DomainPackage.APPLICATION__APPLICATION_INFRASTRUCTURE_LAYER:
+      case DomainPackage.APPLICATION__APPLICATION_STYLE:
+      case DomainPackage.APPLICATION__APPLICATION_ROLE:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
         return;
     }
@@ -240,6 +244,16 @@ public class ApplicationItemProvider
       (createChildParameter
         (DomainPackage.Literals.APPLICATION__APPLICATION_INFRASTRUCTURE_LAYER,
          DomainFactory.eINSTANCE.createApplicationInfrastructureLayer()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (DomainPackage.Literals.APPLICATION__APPLICATION_STYLE,
+         DomainFactory.eINSTANCE.createApplicationStyle()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (DomainPackage.Literals.APPLICATION__APPLICATION_ROLE,
+         DomainFactory.eINSTANCE.createApplicationRole()));
   }
 
   /**

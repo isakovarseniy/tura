@@ -342,6 +342,11 @@ public class DomainVisualIDRegistry {
 				return true;
 			}
 			break;
+		case ArtificialFieldEditPart.VISUAL_ID:
+			if (ArtificialFieldNameEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
 		case PREQueryTriggerEditPart.VISUAL_ID:
 			if (PREQueryTriggerFakeMethodEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
@@ -394,11 +399,6 @@ public class DomainVisualIDRegistry {
 			break;
 		case SearchTriggerEditPart.VISUAL_ID:
 			if (SearchTriggerFakeMethodEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			break;
-		case ArtificialFieldEditPart.VISUAL_ID:
-			if (ArtificialFieldNameEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;

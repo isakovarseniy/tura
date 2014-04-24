@@ -5,16 +5,21 @@ package domain.impl;
 import domain.DomainPackage;
 import domain.HTMLLayerHolder;
 import domain.TabPage;
-
 import domain.ViewPort;
 import domain.ViewPortHolder;
+
 import java.util.Collection;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+
 import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
+
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -43,6 +48,7 @@ public class TabPageImpl extends CanvasFrameImpl implements TabPage
    * @ordered
    */
   protected static final int COLUMNS_EDEFAULT = 1;
+
   /**
    * The cached value of the '{@link #getColumns() <em>Columns</em>}' attribute.
    * <!-- begin-user-doc -->
@@ -52,6 +58,7 @@ public class TabPageImpl extends CanvasFrameImpl implements TabPage
    * @ordered
    */
   protected int columns = COLUMNS_EDEFAULT;
+
   /**
    * The cached value of the '{@link #getViewPorts() <em>View Ports</em>}' containment reference list.
    * <!-- begin-user-doc -->

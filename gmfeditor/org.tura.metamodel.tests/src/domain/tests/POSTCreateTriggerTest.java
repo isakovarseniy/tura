@@ -5,6 +5,8 @@ package domain.tests;
 import domain.DomainFactory;
 import domain.POSTCreateTrigger;
 
+import junit.framework.TestCase;
+
 import junit.textui.TestRunner;
 
 /**
@@ -13,8 +15,16 @@ import junit.textui.TestRunner;
  * <!-- end-user-doc -->
  * @generated
  */
-public class POSTCreateTriggerTest extends TriggerTest
+public class POSTCreateTriggerTest extends TestCase
 {
+
+  /**
+   * The fixture for this POST Create Trigger test case.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected POSTCreateTrigger fixture = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -38,15 +48,25 @@ public class POSTCreateTriggerTest extends TriggerTest
   }
 
   /**
+   * Sets the fixture for this POST Create Trigger test case.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected void setFixture(POSTCreateTrigger fixture)
+  {
+    this.fixture = fixture;
+  }
+
+  /**
    * Returns the fixture for this POST Create Trigger test case.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   protected POSTCreateTrigger getFixture()
   {
-    return (POSTCreateTrigger)fixture;
+    return fixture;
   }
 
   /**

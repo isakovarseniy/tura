@@ -2,12 +2,15 @@
  */
 package domain.util;
 
+import domain.ActionElement;
 import domain.Application;
 import domain.ApplicationInfrastructureLayer;
 import domain.ApplicationMapper;
 import domain.ApplicationMappers;
 import domain.ApplicationRecipe;
 import domain.ApplicationRecipes;
+import domain.ApplicationRole;
+import domain.ApplicationStyle;
 import domain.ApplicationUILayer;
 import domain.ApplicationUIPackage;
 import domain.Artifact;
@@ -15,11 +18,17 @@ import domain.ArtifactRef;
 import domain.Artifacts;
 import domain.ArtificialField;
 import domain.Attribute;
+import domain.Button;
 import domain.Canvas;
 import domain.CanvasFrame;
+import domain.CanvasView;
+import domain.CheckBox;
+import domain.Column;
 import domain.Component;
 import domain.ConfigVariable;
 import domain.Configuration;
+import domain.Context;
+import domain.ContextParameter;
 import domain.ContextValue;
 import domain.ContinuousIintegration;
 import domain.Controls;
@@ -39,6 +48,7 @@ import domain.DomainArtifact;
 import domain.DomainArtifacts;
 import domain.DomainPackage;
 import domain.DomainTypes;
+import domain.DropDownSelection;
 import domain.EJBService;
 import domain.EnterpriseInfrastructure;
 import domain.EnumAttribute;
@@ -47,6 +57,7 @@ import domain.ExpressionPart;
 import domain.Form;
 import domain.FormDataControls;
 import domain.FormView;
+import domain.Group;
 import domain.HTMLLayerHolder;
 import domain.Hub;
 import domain.Infrastructure;
@@ -54,10 +65,13 @@ import domain.InfrastructureComponent;
 import domain.InfrastructureConnection;
 import domain.InfrastructureLayer;
 import domain.Ingredient;
+import domain.InputElement;
+import domain.InputText;
 import domain.InsertTrigger;
 import domain.JPAService;
 import domain.JavaComponent;
 import domain.JavaMapper;
+import domain.Label;
 import domain.Link;
 import domain.Mapper;
 import domain.Mappers;
@@ -68,6 +82,8 @@ import domain.ModelQuery;
 import domain.ORMEntity;
 import domain.Operation;
 import domain.Option;
+import domain.OptionSelection;
+import domain.OutputText;
 import domain.POSTCreateTrigger;
 import domain.POSTQueryTrigger;
 import domain.PREDeleteTrigger;
@@ -85,19 +101,30 @@ import domain.Recipe;
 import domain.Recipes;
 import domain.Relation;
 import domain.ReturnValue;
+import domain.Role;
+import domain.Roles;
 import domain.Root;
 import domain.Router;
 import domain.SearchTrigger;
+import domain.Selection;
 import domain.Server;
 import domain.ServerClaster;
+import domain.SourcesPointer;
 import domain.Specifier;
 import domain.Storage;
+import domain.Style;
+import domain.StyleClass;
+import domain.StyleElement;
+import domain.StyleLibrary;
+import domain.StyleSet;
+import domain.Styles;
+import domain.StylesPackage;
 import domain.Subsystem;
 import domain.TabCanvas;
 import domain.TabPage;
 import domain.TabPagesInheritance;
-import domain.Trigger;
-import domain.TriggerParameter;
+import domain.Table;
+import domain.Tree;
 import domain.Type;
 import domain.TypeDefinition;
 import domain.TypeElement;
@@ -107,6 +134,7 @@ import domain.TypeReference;
 import domain.Types;
 import domain.TypesRepository;
 import domain.UIPackage;
+import domain.Uielement;
 import domain.UpdateTrigger;
 import domain.UsingMappers;
 import domain.ViewInheritance;
@@ -323,6 +351,27 @@ public class DomainSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case DomainPackage.APPLICATION_ROLE:
+      {
+        ApplicationRole applicationRole = (ApplicationRole)theEObject;
+        T result = caseApplicationRole(applicationRole);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DomainPackage.APPLICATION_STYLE:
+      {
+        ApplicationStyle applicationStyle = (ApplicationStyle)theEObject;
+        T result = caseApplicationStyle(applicationStyle);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DomainPackage.STYLES_PACKAGE:
+      {
+        StylesPackage stylesPackage = (StylesPackage)theEObject;
+        T result = caseStylesPackage(stylesPackage);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case DomainPackage.APPLICATION_UI_LAYER:
       {
         ApplicationUILayer applicationUILayer = (ApplicationUILayer)theEObject;
@@ -372,6 +421,48 @@ public class DomainSwitch<T> extends Switch<T>
         MethodPointer methodPointer = (MethodPointer)theEObject;
         T result = caseMethodPointer(methodPointer);
         if (result == null) result = caseTypePointer(methodPointer);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DomainPackage.ROLES:
+      {
+        Roles roles = (Roles)theEObject;
+        T result = caseRoles(roles);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DomainPackage.ROLE:
+      {
+        Role role = (Role)theEObject;
+        T result = caseRole(role);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DomainPackage.GROUP:
+      {
+        Group group = (Group)theEObject;
+        T result = caseGroup(group);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DomainPackage.STYLES:
+      {
+        Styles styles = (Styles)theEObject;
+        T result = caseStyles(styles);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DomainPackage.STYLE_LIBRARY:
+      {
+        StyleLibrary styleLibrary = (StyleLibrary)theEObject;
+        T result = caseStyleLibrary(styleLibrary);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DomainPackage.STYLE_SET:
+      {
+        StyleSet styleSet = (StyleSet)theEObject;
+        T result = caseStyleSet(styleSet);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -754,9 +845,6 @@ public class DomainSwitch<T> extends Switch<T>
       {
         ViewPortTrigger viewPortTrigger = (ViewPortTrigger)theEObject;
         T result = caseViewPortTrigger(viewPortTrigger);
-        if (result == null) result = caseTrigger(viewPortTrigger);
-        if (result == null) result = caseMethodPointer(viewPortTrigger);
-        if (result == null) result = caseTypePointer(viewPortTrigger);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -781,26 +869,31 @@ public class DomainSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case DomainPackage.CONTROLS:
+      case DomainPackage.CANVAS_VIEW:
       {
-        Controls controls = (Controls)theEObject;
-        T result = caseControls(controls);
+        CanvasView canvasView = (CanvasView)theEObject;
+        T result = caseCanvasView(canvasView);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case DomainPackage.TRIGGER:
+      case DomainPackage.STYLE:
       {
-        Trigger trigger = (Trigger)theEObject;
-        T result = caseTrigger(trigger);
-        if (result == null) result = caseMethodPointer(trigger);
-        if (result == null) result = caseTypePointer(trigger);
+        Style style = (Style)theEObject;
+        T result = caseStyle(style);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case DomainPackage.TRIGGER_PARAMETER:
+      case DomainPackage.STYLE_CLASS:
       {
-        TriggerParameter triggerParameter = (TriggerParameter)theEObject;
-        T result = caseTriggerParameter(triggerParameter);
+        StyleClass styleClass = (StyleClass)theEObject;
+        T result = caseStyleClass(styleClass);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DomainPackage.CONTEXT_PARAMETER:
+      {
+        ContextParameter contextParameter = (ContextParameter)theEObject;
+        T result = caseContextParameter(contextParameter);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -818,13 +911,173 @@ public class DomainSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case DomainPackage.CONTEXT:
+      {
+        Context context = (Context)theEObject;
+        T result = caseContext(context);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DomainPackage.STYLE_ELEMENT:
+      {
+        StyleElement styleElement = (StyleElement)theEObject;
+        T result = caseStyleElement(styleElement);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DomainPackage.UIELEMENT:
+      {
+        Uielement uielement = (Uielement)theEObject;
+        T result = caseUielement(uielement);
+        if (result == null) result = caseStyleElement(uielement);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DomainPackage.SOURCES_POINTER:
+      {
+        SourcesPointer sourcesPointer = (SourcesPointer)theEObject;
+        T result = caseSourcesPointer(sourcesPointer);
+        if (result == null) result = caseUielement(sourcesPointer);
+        if (result == null) result = caseStyleElement(sourcesPointer);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DomainPackage.INPUT_ELEMENT:
+      {
+        InputElement inputElement = (InputElement)theEObject;
+        T result = caseInputElement(inputElement);
+        if (result == null) result = caseUielement(inputElement);
+        if (result == null) result = caseStyleElement(inputElement);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DomainPackage.SELECTION:
+      {
+        Selection selection = (Selection)theEObject;
+        T result = caseSelection(selection);
+        if (result == null) result = caseStyleElement(selection);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DomainPackage.OPTION_SELECTION:
+      {
+        OptionSelection optionSelection = (OptionSelection)theEObject;
+        T result = caseOptionSelection(optionSelection);
+        if (result == null) result = caseInputElement(optionSelection);
+        if (result == null) result = caseUielement(optionSelection);
+        if (result == null) result = caseStyleElement(optionSelection);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DomainPackage.ACTION_ELEMENT:
+      {
+        ActionElement actionElement = (ActionElement)theEObject;
+        T result = caseActionElement(actionElement);
+        if (result == null) result = caseUielement(actionElement);
+        if (result == null) result = caseStyleElement(actionElement);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DomainPackage.INPUT_TEXT:
+      {
+        InputText inputText = (InputText)theEObject;
+        T result = caseInputText(inputText);
+        if (result == null) result = caseInputElement(inputText);
+        if (result == null) result = caseUielement(inputText);
+        if (result == null) result = caseStyleElement(inputText);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DomainPackage.LABEL:
+      {
+        Label label = (Label)theEObject;
+        T result = caseLabel(label);
+        if (result == null) result = caseInputElement(label);
+        if (result == null) result = caseUielement(label);
+        if (result == null) result = caseStyleElement(label);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DomainPackage.OUTPUT_TEXT:
+      {
+        OutputText outputText = (OutputText)theEObject;
+        T result = caseOutputText(outputText);
+        if (result == null) result = caseInputElement(outputText);
+        if (result == null) result = caseUielement(outputText);
+        if (result == null) result = caseStyleElement(outputText);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DomainPackage.CHECK_BOX:
+      {
+        CheckBox checkBox = (CheckBox)theEObject;
+        T result = caseCheckBox(checkBox);
+        if (result == null) result = caseInputElement(checkBox);
+        if (result == null) result = caseUielement(checkBox);
+        if (result == null) result = caseStyleElement(checkBox);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DomainPackage.DROP_DOWN_SELECTION:
+      {
+        DropDownSelection dropDownSelection = (DropDownSelection)theEObject;
+        T result = caseDropDownSelection(dropDownSelection);
+        if (result == null) result = caseOptionSelection(dropDownSelection);
+        if (result == null) result = caseInputElement(dropDownSelection);
+        if (result == null) result = caseUielement(dropDownSelection);
+        if (result == null) result = caseStyleElement(dropDownSelection);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DomainPackage.COLUMN:
+      {
+        Column column = (Column)theEObject;
+        T result = caseColumn(column);
+        if (result == null) result = caseStyleElement(column);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DomainPackage.TABLE:
+      {
+        Table table = (Table)theEObject;
+        T result = caseTable(table);
+        if (result == null) result = caseSourcesPointer(table);
+        if (result == null) result = caseUielement(table);
+        if (result == null) result = caseStyleElement(table);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DomainPackage.TREE:
+      {
+        Tree tree = (Tree)theEObject;
+        T result = caseTree(tree);
+        if (result == null) result = caseSourcesPointer(tree);
+        if (result == null) result = caseUielement(tree);
+        if (result == null) result = caseStyleElement(tree);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DomainPackage.BUTTON:
+      {
+        Button button = (Button)theEObject;
+        T result = caseButton(button);
+        if (result == null) result = caseActionElement(button);
+        if (result == null) result = caseUielement(button);
+        if (result == null) result = caseStyleElement(button);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DomainPackage.CONTROLS:
+      {
+        Controls controls = (Controls)theEObject;
+        T result = caseControls(controls);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case DomainPackage.PRE_FORM_TRIGGER:
       {
         PREFormTrigger preFormTrigger = (PREFormTrigger)theEObject;
         T result = casePREFormTrigger(preFormTrigger);
-        if (result == null) result = caseTrigger(preFormTrigger);
-        if (result == null) result = caseMethodPointer(preFormTrigger);
-        if (result == null) result = caseTypePointer(preFormTrigger);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -832,9 +1085,6 @@ public class DomainSwitch<T> extends Switch<T>
       {
         PREQueryTrigger preQueryTrigger = (PREQueryTrigger)theEObject;
         T result = casePREQueryTrigger(preQueryTrigger);
-        if (result == null) result = caseTrigger(preQueryTrigger);
-        if (result == null) result = caseMethodPointer(preQueryTrigger);
-        if (result == null) result = caseTypePointer(preQueryTrigger);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -842,9 +1092,6 @@ public class DomainSwitch<T> extends Switch<T>
       {
         POSTQueryTrigger postQueryTrigger = (POSTQueryTrigger)theEObject;
         T result = casePOSTQueryTrigger(postQueryTrigger);
-        if (result == null) result = caseTrigger(postQueryTrigger);
-        if (result == null) result = caseMethodPointer(postQueryTrigger);
-        if (result == null) result = caseTypePointer(postQueryTrigger);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -852,9 +1099,6 @@ public class DomainSwitch<T> extends Switch<T>
       {
         PREInsertTrigger preInsertTrigger = (PREInsertTrigger)theEObject;
         T result = casePREInsertTrigger(preInsertTrigger);
-        if (result == null) result = caseTrigger(preInsertTrigger);
-        if (result == null) result = caseMethodPointer(preInsertTrigger);
-        if (result == null) result = caseTypePointer(preInsertTrigger);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -862,9 +1106,6 @@ public class DomainSwitch<T> extends Switch<T>
       {
         PREDeleteTrigger preDeleteTrigger = (PREDeleteTrigger)theEObject;
         T result = casePREDeleteTrigger(preDeleteTrigger);
-        if (result == null) result = caseTrigger(preDeleteTrigger);
-        if (result == null) result = caseMethodPointer(preDeleteTrigger);
-        if (result == null) result = caseTypePointer(preDeleteTrigger);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -872,9 +1113,6 @@ public class DomainSwitch<T> extends Switch<T>
       {
         POSTCreateTrigger postCreateTrigger = (POSTCreateTrigger)theEObject;
         T result = casePOSTCreateTrigger(postCreateTrigger);
-        if (result == null) result = caseTrigger(postCreateTrigger);
-        if (result == null) result = caseMethodPointer(postCreateTrigger);
-        if (result == null) result = caseTypePointer(postCreateTrigger);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -882,9 +1120,6 @@ public class DomainSwitch<T> extends Switch<T>
       {
         PREUpdateTrigger preUpdateTrigger = (PREUpdateTrigger)theEObject;
         T result = casePREUpdateTrigger(preUpdateTrigger);
-        if (result == null) result = caseTrigger(preUpdateTrigger);
-        if (result == null) result = caseMethodPointer(preUpdateTrigger);
-        if (result == null) result = caseTypePointer(preUpdateTrigger);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -892,9 +1127,6 @@ public class DomainSwitch<T> extends Switch<T>
       {
         CreateTrigger createTrigger = (CreateTrigger)theEObject;
         T result = caseCreateTrigger(createTrigger);
-        if (result == null) result = caseTrigger(createTrigger);
-        if (result == null) result = caseMethodPointer(createTrigger);
-        if (result == null) result = caseTypePointer(createTrigger);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -902,9 +1134,6 @@ public class DomainSwitch<T> extends Switch<T>
       {
         InsertTrigger insertTrigger = (InsertTrigger)theEObject;
         T result = caseInsertTrigger(insertTrigger);
-        if (result == null) result = caseTrigger(insertTrigger);
-        if (result == null) result = caseMethodPointer(insertTrigger);
-        if (result == null) result = caseTypePointer(insertTrigger);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -912,9 +1141,6 @@ public class DomainSwitch<T> extends Switch<T>
       {
         UpdateTrigger updateTrigger = (UpdateTrigger)theEObject;
         T result = caseUpdateTrigger(updateTrigger);
-        if (result == null) result = caseTrigger(updateTrigger);
-        if (result == null) result = caseMethodPointer(updateTrigger);
-        if (result == null) result = caseTypePointer(updateTrigger);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -922,9 +1148,6 @@ public class DomainSwitch<T> extends Switch<T>
       {
         DeleteTrigger deleteTrigger = (DeleteTrigger)theEObject;
         T result = caseDeleteTrigger(deleteTrigger);
-        if (result == null) result = caseTrigger(deleteTrigger);
-        if (result == null) result = caseMethodPointer(deleteTrigger);
-        if (result == null) result = caseTypePointer(deleteTrigger);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -932,9 +1155,6 @@ public class DomainSwitch<T> extends Switch<T>
       {
         SearchTrigger searchTrigger = (SearchTrigger)theEObject;
         T result = caseSearchTrigger(searchTrigger);
-        if (result == null) result = caseTrigger(searchTrigger);
-        if (result == null) result = caseMethodPointer(searchTrigger);
-        if (result == null) result = caseTypePointer(searchTrigger);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -1373,6 +1593,54 @@ public class DomainSwitch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>Application Role</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Application Role</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseApplicationRole(ApplicationRole object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Application Style</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Application Style</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseApplicationStyle(ApplicationStyle object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Styles Package</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Styles Package</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseStylesPackage(StylesPackage object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>Application UI Layer</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -1480,6 +1748,102 @@ public class DomainSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseMethodPointer(MethodPointer object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Roles</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Roles</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseRoles(Roles object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Role</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Role</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseRole(Role object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Group</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Group</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseGroup(Group object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Styles</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Styles</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseStyles(Styles object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Style Library</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Style Library</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseStyleLibrary(StyleLibrary object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Style Set</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Style Set</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseStyleSet(StyleSet object)
   {
     return null;
   }
@@ -2333,49 +2697,65 @@ public class DomainSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Controls</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Canvas View</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Controls</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Canvas View</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseControls(Controls object)
+  public T caseCanvasView(CanvasView object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Trigger</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Style</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Trigger</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Style</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseTrigger(Trigger object)
+  public T caseStyle(Style object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Trigger Parameter</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Style Class</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Trigger Parameter</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Style Class</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseTriggerParameter(TriggerParameter object)
+  public T caseStyleClass(StyleClass object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Context Parameter</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Context Parameter</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseContextParameter(ContextParameter object)
   {
     return null;
   }
@@ -2408,6 +2788,294 @@ public class DomainSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseExpressionPart(ExpressionPart object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Context</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Context</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseContext(Context object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Style Element</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Style Element</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseStyleElement(StyleElement object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Uielement</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Uielement</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseUielement(Uielement object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Sources Pointer</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Sources Pointer</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseSourcesPointer(SourcesPointer object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Input Element</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Input Element</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseInputElement(InputElement object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Selection</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Selection</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseSelection(Selection object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Option Selection</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Option Selection</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseOptionSelection(OptionSelection object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Action Element</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Action Element</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseActionElement(ActionElement object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Input Text</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Input Text</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseInputText(InputText object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Label</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Label</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseLabel(Label object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Output Text</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Output Text</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseOutputText(OutputText object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Check Box</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Check Box</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseCheckBox(CheckBox object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Drop Down Selection</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Drop Down Selection</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseDropDownSelection(DropDownSelection object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Column</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Column</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseColumn(Column object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Table</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Table</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseTable(Table object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Tree</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Tree</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseTree(Tree object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Button</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Button</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseButton(Button object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Controls</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Controls</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseControls(Controls object)
   {
     return null;
   }

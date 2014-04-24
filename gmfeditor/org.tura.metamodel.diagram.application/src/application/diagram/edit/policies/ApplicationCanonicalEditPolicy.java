@@ -30,6 +30,8 @@ import org.eclipse.gmf.runtime.notation.View;
 import application.diagram.edit.parts.ApplicationInfrastructureLayerEditPart;
 import application.diagram.edit.parts.ApplicationMappersEditPart;
 import application.diagram.edit.parts.ApplicationRecipesEditPart;
+import application.diagram.edit.parts.ApplicationRoleEditPart;
+import application.diagram.edit.parts.ApplicationStyleEditPart;
 import application.diagram.edit.parts.ApplicationUILayerEditPart;
 import application.diagram.part.DomainDiagramUpdater;
 import application.diagram.part.DomainNodeDescriptor;
@@ -72,6 +74,10 @@ public class ApplicationCanonicalEditPolicy extends CanonicalEditPolicy {
 					.getApplication_ApplicationUILayer());
 			myFeaturesToSynchronize.add(DomainPackage.eINSTANCE
 					.getApplication_ApplicationInfrastructureLayer());
+			myFeaturesToSynchronize.add(DomainPackage.eINSTANCE
+					.getApplication_ApplicationStyle());
+			myFeaturesToSynchronize.add(DomainPackage.eINSTANCE
+					.getApplication_ApplicationRole());
 		}
 		return myFeaturesToSynchronize;
 	}
@@ -113,6 +119,8 @@ public class ApplicationCanonicalEditPolicy extends CanonicalEditPolicy {
 		case ApplicationMappersEditPart.VISUAL_ID:
 		case ApplicationUILayerEditPart.VISUAL_ID:
 		case ApplicationInfrastructureLayerEditPart.VISUAL_ID:
+		case ApplicationStyleEditPart.VISUAL_ID:
+		case ApplicationRoleEditPart.VISUAL_ID:
 			return true;
 		}
 		return false;

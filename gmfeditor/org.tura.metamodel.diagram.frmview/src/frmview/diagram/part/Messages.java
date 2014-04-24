@@ -256,62 +256,82 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String Canvas1CreationTool_title;
+	public static String ApplicationRole1CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Canvas1CreationTool_desc;
+	public static String ApplicationRole1CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String TabCanvas2CreationTool_title;
+	public static String ApplicationStyle2CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String TabCanvas2CreationTool_desc;
+	public static String ApplicationStyle2CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String TabPage3CreationTool_title;
+	public static String Canvas3CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String TabPage3CreationTool_desc;
+	public static String Canvas3CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String ViewPort4CreationTool_title;
+	public static String TabCanvas4CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String ViewPort4CreationTool_desc;
+	public static String TabCanvas4CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String ViewPortTrigger5CreationTool_title;
+	public static String TabPage5CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String ViewPortTrigger5CreationTool_desc;
+	public static String TabPage5CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String Window6CreationTool_title;
+	public static String ViewPort6CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Window6CreationTool_desc;
+	public static String ViewPort6CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String ViewPortTrigger7CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String ViewPortTrigger7CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String Window8CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String Window8CreationTool_desc;
 
 	/**
 	 * @generated
@@ -336,7 +356,7 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String TabPageTabPageViewPortsCompartmentEditPart_title;
+	public static String CanvasCanvasViewPortsCompartmentEditPart_title;
 
 	/**
 	 * @generated
@@ -346,37 +366,17 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String CanvasCanvasViewPortsCompartmentEditPart_title;
-
-	/**
-	 * @generated
-	 */
 	public static String WindowWindowViewPortsCompartmentEditPart_title;
 
 	/**
 	 * @generated
 	 */
+	public static String TabPageTabPageViewPortsCompartmentEditPart_title;
+
+	/**
+	 * @generated
+	 */
 	public static String CommandName_OpenDiagram;
-
-	/**
-	 * @generated
-	 */
-	public static String NavigatorGroupName_TabPagesInheritance_1304002_target;
-
-	/**
-	 * @generated
-	 */
-	public static String NavigatorGroupName_TabPagesInheritance_1304002_source;
-
-	/**
-	 * @generated
-	 */
-	public static String NavigatorGroupName_Window_1302007_incominglinks;
-
-	/**
-	 * @generated
-	 */
-	public static String NavigatorGroupName_Canvas_1302003_incominglinks;
 
 	/**
 	 * @generated
@@ -391,6 +391,21 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
+	public static String NavigatorGroupName_TabPage_1302002_incominglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_Canvas_1302003_incominglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_ViewPort_1303003_outgoinglinks;
+
+	/**
+	 * @generated
+	 */
 	public static String NavigatorGroupName_ViewInheritance_1304001_target;
 
 	/**
@@ -401,12 +416,17 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_ViewPort_1303003_outgoinglinks;
+	public static String NavigatorGroupName_Window_1302007_incominglinks;
 
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_TabPage_1302002_incominglinks;
+	public static String NavigatorGroupName_TabPagesInheritance_1304002_target;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_TabPagesInheritance_1304002_source;
 
 	/**
 	 * @generated

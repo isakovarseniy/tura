@@ -22,7 +22,7 @@
       </labelMappings>
       <tool
           xsi:type="gmftool:CreationTool"
-          href="domain.gmftool#//@palette/@tools.0/@tools.12"/>
+          href="domain.gmftool#//@palette/@tools.0/@tools.14"/>
       <diagramNode
           href="domain.gmfgraph#Root"/>
       <children
@@ -37,11 +37,11 @@
             <diagramLabel
                 href="domain.gmfgraph#PREFormTriggerLabel"/>
             <features
-                href="domain.ecore#//MethodPointer/fakeMethod"/>
+                href="domain.ecore#//PREFormTrigger/fakeMethod"/>
           </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
-              href="domain.gmftool#//@palette/@tools.0/@tools.8"/>
+              href="domain.gmftool#//@palette/@tools.0/@tools.10"/>
           <diagramNode
               href="domain.gmfgraph#PREFormTrigger"/>
         </ownedChild>
@@ -69,240 +69,9 @@
       </labelMappings>
       <tool
           xsi:type="gmftool:CreationTool"
-          href="domain.gmftool#//@palette/@tools.0/@tools.2"/>
+          href="domain.gmftool#//@palette/@tools.0/@tools.4"/>
       <diagramNode
           href="domain.gmfgraph#DataControl"/>
-      <children
-          compartment="//@nodes.1/@ownedChild/@compartments.0">
-        <containmentFeature
-            href="domain.ecore#//DataControl/preQueryTrigger"/>
-        <ownedChild>
-          <domainMetaElement
-              href="domain.ecore#//PREQueryTrigger"/>
-          <labelMappings
-              xsi:type="gmfmap:FeatureLabelMapping">
-            <diagramLabel
-                href="domain.gmfgraph#PREQueryTriggerLabel"/>
-            <features
-                href="domain.ecore#//MethodPointer/fakeMethod"/>
-          </labelMappings>
-          <tool
-              xsi:type="gmftool:CreationTool"
-              href="domain.gmftool#//@palette/@tools.0/@tools.10"/>
-          <diagramNode
-              href="domain.gmfgraph#PREQueryTrigger"/>
-        </ownedChild>
-      </children>
-      <children
-          compartment="//@nodes.1/@ownedChild/@compartments.1">
-        <containmentFeature
-            href="domain.ecore#//DataControl/postQueryTrigger"/>
-        <ownedChild>
-          <domainMetaElement
-              href="domain.ecore#//POSTQueryTrigger"/>
-          <labelMappings
-              xsi:type="gmfmap:FeatureLabelMapping">
-            <diagramLabel
-                href="domain.gmfgraph#POSTQueryTriggerLabel"/>
-            <features
-                href="domain.ecore#//MethodPointer/fakeMethod"/>
-          </labelMappings>
-          <tool
-              xsi:type="gmftool:CreationTool"
-              href="domain.gmftool#//@palette/@tools.0/@tools.6"/>
-          <diagramNode
-              href="domain.gmfgraph#POSTQueryTrigger"/>
-        </ownedChild>
-      </children>
-      <children
-          compartment="//@nodes.1/@ownedChild/@compartments.2">
-        <containmentFeature
-            href="domain.ecore#//DataControl/preInsertTrigger"/>
-        <ownedChild>
-          <domainMetaElement
-              href="domain.ecore#//PREInsertTrigger"/>
-          <labelMappings
-              xsi:type="gmfmap:FeatureLabelMapping">
-            <diagramLabel
-                href="domain.gmfgraph#PREInsertTriggerLabel"/>
-            <features
-                href="domain.ecore#//MethodPointer/fakeMethod"/>
-          </labelMappings>
-          <tool
-              xsi:type="gmftool:CreationTool"
-              href="domain.gmftool#//@palette/@tools.0/@tools.9"/>
-          <diagramNode
-              href="domain.gmfgraph#PREInsertTrigger"/>
-        </ownedChild>
-      </children>
-      <children
-          compartment="//@nodes.1/@ownedChild/@compartments.3">
-        <containmentFeature
-            href="domain.ecore#//DataControl/preDeleteTrigger"/>
-        <ownedChild>
-          <domainMetaElement
-              href="domain.ecore#//PREDeleteTrigger"/>
-          <labelMappings
-              xsi:type="gmfmap:FeatureLabelMapping">
-            <diagramLabel
-                href="domain.gmfgraph#PREDeleteTriggerLabel"/>
-            <features
-                href="domain.ecore#//MethodPointer/fakeMethod"/>
-          </labelMappings>
-          <tool
-              xsi:type="gmftool:CreationTool"
-              href="domain.gmftool#//@palette/@tools.0/@tools.7"/>
-          <diagramNode
-              href="domain.gmfgraph#PREDeleteTrigger"/>
-        </ownedChild>
-      </children>
-      <children
-          compartment="//@nodes.1/@ownedChild/@compartments.4">
-        <containmentFeature
-            href="domain.ecore#//DataControl/postCreateTrigger"/>
-        <ownedChild>
-          <domainMetaElement
-              href="domain.ecore#//POSTCreateTrigger"/>
-          <labelMappings
-              xsi:type="gmfmap:FeatureLabelMapping">
-            <diagramLabel
-                href="domain.gmfgraph#POSTCreateTriggerLabel"/>
-            <features
-                href="domain.ecore#//MethodPointer/fakeMethod"/>
-          </labelMappings>
-          <tool
-              xsi:type="gmftool:CreationTool"
-              href="domain.gmftool#//@palette/@tools.0/@tools.5"/>
-          <diagramNode
-              href="domain.gmfgraph#POSTCreateTrigger"/>
-        </ownedChild>
-      </children>
-      <children
-          compartment="//@nodes.1/@ownedChild/@compartments.5">
-        <containmentFeature
-            href="domain.ecore#//DataControl/preUpdateTrigger"/>
-        <ownedChild>
-          <domainMetaElement
-              href="domain.ecore#//PREUpdateTrigger"/>
-          <labelMappings
-              xsi:type="gmfmap:FeatureLabelMapping">
-            <diagramLabel
-                href="domain.gmfgraph#PREUpdateTriggerLabel"/>
-            <features
-                href="domain.ecore#//MethodPointer/fakeMethod"/>
-          </labelMappings>
-          <tool
-              xsi:type="gmftool:CreationTool"
-              href="domain.gmftool#//@palette/@tools.0/@tools.11"/>
-          <diagramNode
-              href="domain.gmfgraph#PREUpdateTrigger"/>
-        </ownedChild>
-      </children>
-      <children
-          compartment="//@nodes.1/@ownedChild/@compartments.6">
-        <containmentFeature
-            href="domain.ecore#//DataControl/create"/>
-        <ownedChild>
-          <domainMetaElement
-              href="domain.ecore#//CreateTrigger"/>
-          <labelMappings
-              xsi:type="gmfmap:FeatureLabelMapping">
-            <diagramLabel
-                href="domain.gmfgraph#CreateTriggerLabel"/>
-            <features
-                href="domain.ecore#//MethodPointer/fakeMethod"/>
-          </labelMappings>
-          <tool
-              xsi:type="gmftool:CreationTool"
-              href="domain.gmftool#//@palette/@tools.0/@tools.1"/>
-          <diagramNode
-              href="domain.gmfgraph#CreateTrigger"/>
-        </ownedChild>
-      </children>
-      <children
-          compartment="//@nodes.1/@ownedChild/@compartments.7">
-        <containmentFeature
-            href="domain.ecore#//DataControl/insert"/>
-        <ownedChild>
-          <domainMetaElement
-              href="domain.ecore#//InsertTrigger"/>
-          <labelMappings
-              xsi:type="gmfmap:FeatureLabelMapping">
-            <diagramLabel
-                href="domain.gmfgraph#InsertTriggerLabel"/>
-            <features
-                href="domain.ecore#//MethodPointer/fakeMethod"/>
-          </labelMappings>
-          <tool
-              xsi:type="gmftool:CreationTool"
-              href="domain.gmftool#//@palette/@tools.0/@tools.4"/>
-          <diagramNode
-              href="domain.gmfgraph#InsertTrigger"/>
-        </ownedChild>
-      </children>
-      <children
-          compartment="//@nodes.1/@ownedChild/@compartments.8">
-        <containmentFeature
-            href="domain.ecore#//DataControl/update"/>
-        <ownedChild>
-          <domainMetaElement
-              href="domain.ecore#//UpdateTrigger"/>
-          <labelMappings
-              xsi:type="gmfmap:FeatureLabelMapping">
-            <diagramLabel
-                href="domain.gmfgraph#UpdateTriggerLabel"/>
-            <features
-                href="domain.ecore#//MethodPointer/fakeMethod"/>
-          </labelMappings>
-          <tool
-              xsi:type="gmftool:CreationTool"
-              href="domain.gmftool#//@palette/@tools.0/@tools.14"/>
-          <diagramNode
-              href="domain.gmfgraph#UpdateTrigger"/>
-        </ownedChild>
-      </children>
-      <children
-          compartment="//@nodes.1/@ownedChild/@compartments.9">
-        <containmentFeature
-            href="domain.ecore#//DataControl/remove"/>
-        <ownedChild>
-          <domainMetaElement
-              href="domain.ecore#//DeleteTrigger"/>
-          <labelMappings
-              xsi:type="gmfmap:FeatureLabelMapping">
-            <diagramLabel
-                href="domain.gmfgraph#DeleteTriggerLabel"/>
-            <features
-                href="domain.ecore#//MethodPointer/fakeMethod"/>
-          </labelMappings>
-          <tool
-              xsi:type="gmftool:CreationTool"
-              href="domain.gmftool#//@palette/@tools.0/@tools.3"/>
-          <diagramNode
-              href="domain.gmfgraph#DeleteTrigger"/>
-        </ownedChild>
-      </children>
-      <children
-          compartment="//@nodes.1/@ownedChild/@compartments.10">
-        <containmentFeature
-            href="domain.ecore#//DataControl/search"/>
-        <ownedChild>
-          <domainMetaElement
-              href="domain.ecore#//SearchTrigger"/>
-          <labelMappings
-              xsi:type="gmfmap:FeatureLabelMapping">
-            <diagramLabel
-                href="domain.gmfgraph#SearchTriggerLabel"/>
-            <features
-                href="domain.ecore#//MethodPointer/fakeMethod"/>
-          </labelMappings>
-          <tool
-              xsi:type="gmftool:CreationTool"
-              href="domain.gmftool#//@palette/@tools.0/@tools.13"/>
-          <diagramNode
-              href="domain.gmfgraph#SearchTrigger"/>
-        </ownedChild>
-      </children>
       <children
           compartment="//@nodes.1/@ownedChild/@compartments.11">
         <containmentFeature
@@ -319,68 +88,299 @@
           </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
-              href="domain.gmftool#//@palette/@tools.0/@tools.0"/>
+              href="domain.gmftool#//@palette/@tools.0/@tools.2"/>
           <diagramNode
               href="domain.gmfgraph#ArtificialField"/>
         </ownedChild>
       </children>
+      <children
+          compartment="//@nodes.1/@ownedChild/@compartments.0">
+        <containmentFeature
+            href="domain.ecore#//DataControl/preQueryTrigger"/>
+        <ownedChild>
+          <domainMetaElement
+              href="domain.ecore#//PREQueryTrigger"/>
+          <labelMappings
+              xsi:type="gmfmap:FeatureLabelMapping">
+            <diagramLabel
+                href="domain.gmfgraph#PREQueryTriggerLabel"/>
+            <features
+                href="domain.ecore#//PREQueryTrigger/fakeMethod"/>
+          </labelMappings>
+          <tool
+              xsi:type="gmftool:CreationTool"
+              href="domain.gmftool#//@palette/@tools.0/@tools.12"/>
+          <diagramNode
+              href="domain.gmfgraph#PREQueryTrigger"/>
+        </ownedChild>
+      </children>
+      <children
+          compartment="//@nodes.1/@ownedChild/@compartments.1">
+        <containmentFeature
+            href="domain.ecore#//DataControl/postQueryTrigger"/>
+        <ownedChild>
+          <domainMetaElement
+              href="domain.ecore#//POSTQueryTrigger"/>
+          <labelMappings
+              xsi:type="gmfmap:FeatureLabelMapping">
+            <diagramLabel
+                href="domain.gmfgraph#POSTQueryTriggerLabel"/>
+            <features
+                href="domain.ecore#//POSTQueryTrigger/fakeMethod"/>
+          </labelMappings>
+          <tool
+              xsi:type="gmftool:CreationTool"
+              href="domain.gmftool#//@palette/@tools.0/@tools.8"/>
+          <diagramNode
+              href="domain.gmfgraph#POSTQueryTrigger"/>
+        </ownedChild>
+      </children>
+      <children
+          compartment="//@nodes.1/@ownedChild/@compartments.2">
+        <containmentFeature
+            href="domain.ecore#//DataControl/preInsertTrigger"/>
+        <ownedChild>
+          <domainMetaElement
+              href="domain.ecore#//PREInsertTrigger"/>
+          <labelMappings
+              xsi:type="gmfmap:FeatureLabelMapping">
+            <diagramLabel
+                href="domain.gmfgraph#PREInsertTriggerLabel"/>
+            <features
+                href="domain.ecore#//PREInsertTrigger/fakeMethod"/>
+          </labelMappings>
+          <tool
+              xsi:type="gmftool:CreationTool"
+              href="domain.gmftool#//@palette/@tools.0/@tools.11"/>
+          <diagramNode
+              href="domain.gmfgraph#PREInsertTrigger"/>
+        </ownedChild>
+      </children>
+      <children
+          compartment="//@nodes.1/@ownedChild/@compartments.3">
+        <containmentFeature
+            href="domain.ecore#//DataControl/preDeleteTrigger"/>
+        <ownedChild>
+          <domainMetaElement
+              href="domain.ecore#//PREDeleteTrigger"/>
+          <labelMappings
+              xsi:type="gmfmap:FeatureLabelMapping">
+            <diagramLabel
+                href="domain.gmfgraph#PREDeleteTriggerLabel"/>
+            <features
+                href="domain.ecore#//PREDeleteTrigger/fakeMethod"/>
+          </labelMappings>
+          <tool
+              xsi:type="gmftool:CreationTool"
+              href="domain.gmftool#//@palette/@tools.0/@tools.9"/>
+          <diagramNode
+              href="domain.gmfgraph#PREDeleteTrigger"/>
+        </ownedChild>
+      </children>
+      <children
+          compartment="//@nodes.1/@ownedChild/@compartments.4">
+        <containmentFeature
+            href="domain.ecore#//DataControl/postCreateTrigger"/>
+        <ownedChild>
+          <domainMetaElement
+              href="domain.ecore#//POSTCreateTrigger"/>
+          <labelMappings
+              xsi:type="gmfmap:FeatureLabelMapping">
+            <diagramLabel
+                href="domain.gmfgraph#POSTCreateTriggerLabel"/>
+            <features
+                href="domain.ecore#//POSTCreateTrigger/fakeMethod"/>
+          </labelMappings>
+          <tool
+              xsi:type="gmftool:CreationTool"
+              href="domain.gmftool#//@palette/@tools.0/@tools.7"/>
+          <diagramNode
+              href="domain.gmfgraph#POSTCreateTrigger"/>
+        </ownedChild>
+      </children>
+      <children
+          compartment="//@nodes.1/@ownedChild/@compartments.5">
+        <containmentFeature
+            href="domain.ecore#//DataControl/preUpdateTrigger"/>
+        <ownedChild>
+          <domainMetaElement
+              href="domain.ecore#//PREUpdateTrigger"/>
+          <labelMappings
+              xsi:type="gmfmap:FeatureLabelMapping">
+            <diagramLabel
+                href="domain.gmfgraph#PREUpdateTriggerLabel"/>
+            <features
+                href="domain.ecore#//PREUpdateTrigger/fakeMethod"/>
+          </labelMappings>
+          <tool
+              xsi:type="gmftool:CreationTool"
+              href="domain.gmftool#//@palette/@tools.0/@tools.13"/>
+          <diagramNode
+              href="domain.gmfgraph#PREUpdateTrigger"/>
+        </ownedChild>
+      </children>
+      <children
+          compartment="//@nodes.1/@ownedChild/@compartments.6">
+        <containmentFeature
+            href="domain.ecore#//DataControl/create"/>
+        <ownedChild>
+          <domainMetaElement
+              href="domain.ecore#//CreateTrigger"/>
+          <labelMappings
+              xsi:type="gmfmap:FeatureLabelMapping">
+            <diagramLabel
+                href="domain.gmfgraph#CreateTriggerLabel"/>
+            <features
+                href="domain.ecore#//CreateTrigger/fakeMethod"/>
+          </labelMappings>
+          <tool
+              xsi:type="gmftool:CreationTool"
+              href="domain.gmftool#//@palette/@tools.0/@tools.3"/>
+          <diagramNode
+              href="domain.gmfgraph#CreateTrigger"/>
+        </ownedChild>
+      </children>
+      <children
+          compartment="//@nodes.1/@ownedChild/@compartments.7">
+        <containmentFeature
+            href="domain.ecore#//DataControl/insert"/>
+        <ownedChild>
+          <domainMetaElement
+              href="domain.ecore#//InsertTrigger"/>
+          <labelMappings
+              xsi:type="gmfmap:FeatureLabelMapping">
+            <diagramLabel
+                href="domain.gmfgraph#InsertTriggerLabel"/>
+            <features
+                href="domain.ecore#//InsertTrigger/fakeMethod"/>
+          </labelMappings>
+          <tool
+              xsi:type="gmftool:CreationTool"
+              href="domain.gmftool#//@palette/@tools.0/@tools.6"/>
+          <diagramNode
+              href="domain.gmfgraph#InsertTrigger"/>
+        </ownedChild>
+      </children>
+      <children
+          compartment="//@nodes.1/@ownedChild/@compartments.8">
+        <containmentFeature
+            href="domain.ecore#//DataControl/update"/>
+        <ownedChild>
+          <domainMetaElement
+              href="domain.ecore#//UpdateTrigger"/>
+          <labelMappings
+              xsi:type="gmfmap:FeatureLabelMapping">
+            <diagramLabel
+                href="domain.gmfgraph#UpdateTriggerLabel"/>
+            <features
+                href="domain.ecore#//UpdateTrigger/fakeMethod"/>
+          </labelMappings>
+          <tool
+              xsi:type="gmftool:CreationTool"
+              href="domain.gmftool#//@palette/@tools.0/@tools.16"/>
+          <diagramNode
+              href="domain.gmfgraph#UpdateTrigger"/>
+        </ownedChild>
+      </children>
+      <children
+          compartment="//@nodes.1/@ownedChild/@compartments.9">
+        <containmentFeature
+            href="domain.ecore#//DataControl/remove"/>
+        <ownedChild>
+          <domainMetaElement
+              href="domain.ecore#//DeleteTrigger"/>
+          <labelMappings
+              xsi:type="gmfmap:FeatureLabelMapping">
+            <diagramLabel
+                href="domain.gmfgraph#DeleteTriggerLabel"/>
+            <features
+                href="domain.ecore#//DeleteTrigger/fakeMethod"/>
+          </labelMappings>
+          <tool
+              xsi:type="gmftool:CreationTool"
+              href="domain.gmftool#//@palette/@tools.0/@tools.5"/>
+          <diagramNode
+              href="domain.gmfgraph#DeleteTrigger"/>
+        </ownedChild>
+      </children>
+      <children
+          compartment="//@nodes.1/@ownedChild/@compartments.10">
+        <containmentFeature
+            href="domain.ecore#//DataControl/search"/>
+        <ownedChild>
+          <domainMetaElement
+              href="domain.ecore#//SearchTrigger"/>
+          <labelMappings
+              xsi:type="gmfmap:FeatureLabelMapping">
+            <diagramLabel
+                href="domain.gmfgraph#SearchTriggerLabel"/>
+            <features
+                href="domain.ecore#//SearchTrigger/fakeMethod"/>
+          </labelMappings>
+          <tool
+              xsi:type="gmftool:CreationTool"
+              href="domain.gmftool#//@palette/@tools.0/@tools.15"/>
+          <diagramNode
+              href="domain.gmfgraph#SearchTrigger"/>
+        </ownedChild>
+      </children>
       <compartments
-          children="//@nodes.1/@ownedChild/@children.0">
+          children="//@nodes.1/@ownedChild/@children.1">
         <compartment
             href="domain.gmfgraph#DataControlPreQueryTriggerCompartment"/>
       </compartments>
       <compartments
-          children="//@nodes.1/@ownedChild/@children.1">
+          children="//@nodes.1/@ownedChild/@children.2">
         <compartment
             href="domain.gmfgraph#DataControlPostQueryTriggerCompartment"/>
       </compartments>
       <compartments
-          children="//@nodes.1/@ownedChild/@children.2">
+          children="//@nodes.1/@ownedChild/@children.3">
         <compartment
             href="domain.gmfgraph#DataControlPreInsertTriggerCompartment"/>
       </compartments>
       <compartments
-          children="//@nodes.1/@ownedChild/@children.3">
+          children="//@nodes.1/@ownedChild/@children.4">
         <compartment
             href="domain.gmfgraph#DataControlPreDeleteTriggerCompartment"/>
       </compartments>
       <compartments
-          children="//@nodes.1/@ownedChild/@children.4">
+          children="//@nodes.1/@ownedChild/@children.5">
         <compartment
             href="domain.gmfgraph#DataControlPostCreateTriggerCompartment"/>
       </compartments>
       <compartments
-          children="//@nodes.1/@ownedChild/@children.5">
+          children="//@nodes.1/@ownedChild/@children.6">
         <compartment
             href="domain.gmfgraph#DataControlPreUpdateTriggerCompartment"/>
       </compartments>
       <compartments
-          children="//@nodes.1/@ownedChild/@children.6">
+          children="//@nodes.1/@ownedChild/@children.7">
         <compartment
             href="domain.gmfgraph#DataControlCreateCompartment"/>
       </compartments>
       <compartments
-          children="//@nodes.1/@ownedChild/@children.7">
+          children="//@nodes.1/@ownedChild/@children.8">
         <compartment
             href="domain.gmfgraph#DataControlInsertCompartment"/>
       </compartments>
       <compartments
-          children="//@nodes.1/@ownedChild/@children.8">
+          children="//@nodes.1/@ownedChild/@children.9">
         <compartment
             href="domain.gmfgraph#DataControlUpdateCompartment"/>
       </compartments>
       <compartments
-          children="//@nodes.1/@ownedChild/@children.9">
+          children="//@nodes.1/@ownedChild/@children.10">
         <compartment
             href="domain.gmfgraph#DataControlRemoveCompartment"/>
       </compartments>
       <compartments
-          children="//@nodes.1/@ownedChild/@children.10">
+          children="//@nodes.1/@ownedChild/@children.11">
         <compartment
             href="domain.gmfgraph#DataControlSearchCompartment"/>
       </compartments>
       <compartments
-          children="//@nodes.1/@ownedChild/@children.11">
+          children="//@nodes.1/@ownedChild/@children.0">
         <compartment
             href="domain.gmfgraph#DataControlArtificialFieldsCompartment"/>
       </compartments>

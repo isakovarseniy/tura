@@ -7,6 +7,12 @@ for (  label in GmfGraph!Label.all ){
 }
 
 -- remove unavailabels tools
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='StyleLibrary');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='StyleSet');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='StylesPackage');
+delete tool;
 var tool = GmfTool!CreationTool.all.selectOne(r|r.title='ModelQuery');
 delete tool;
 var tool = GmfTool!CreationTool.all.selectOne(r|r.title='ContinuousIintegration');
@@ -163,6 +169,21 @@ delete tool;
 var tool = GmfTool!CreationTool.all.selectOne(r|r.title='ArtificialField');
 delete tool;
 
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='Role');
+delete tool;
+
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='Group');
+delete tool;
+
+var tool = GmfMap!LinkMapping.all.selectOne(r|r.tool.title='Group2Group');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='Group2Group');
+delete tool;
+
+var tool = GmfMap!LinkMapping.all.selectOne(r|r.tool.title='Group2Role');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='Group2Role');
+delete tool;
 
 var tool = GmfMap!LinkMapping.all.selectOne(r|r.tool.title='RecipeConfig');
 delete tool;

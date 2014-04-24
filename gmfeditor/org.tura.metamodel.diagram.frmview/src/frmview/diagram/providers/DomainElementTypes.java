@@ -64,21 +64,19 @@ public class DomainElementTypes {
 	/**
 	 * @generated
 	 */
-	public static final IElementType TabPage_1302002 = getElementType("org.tura.metamodel.diagram.frmview.TabPage_1302002"); //$NON-NLS-1$
-	/**
-	 * @generated
-	 */
 	public static final IElementType Canvas_1302003 = getElementType("org.tura.metamodel.diagram.frmview.Canvas_1302003"); //$NON-NLS-1$
 	/**
 	 * @generated
 	 */
 	public static final IElementType Window_1302007 = getElementType("org.tura.metamodel.diagram.frmview.Window_1302007"); //$NON-NLS-1$
-
+	/**
+	 * @generated
+	 */
+	public static final IElementType TabPage_1302002 = getElementType("org.tura.metamodel.diagram.frmview.TabPage_1302002"); //$NON-NLS-1$
 	/**
 	 * @generated
 	 */
 	public static final IElementType TabCanvas_1302008 = getElementType("org.tura.metamodel.diagram.frmview.TabCanvas_1302008"); //$NON-NLS-1$
-
 	/**
 	 * @generated
 	 */

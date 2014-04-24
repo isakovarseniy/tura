@@ -2,12 +2,15 @@
  */
 package domain.impl;
 
+import domain.ActionElement;
 import domain.Application;
 import domain.ApplicationInfrastructureLayer;
 import domain.ApplicationMapper;
 import domain.ApplicationMappers;
 import domain.ApplicationRecipe;
 import domain.ApplicationRecipes;
+import domain.ApplicationRole;
+import domain.ApplicationStyle;
 import domain.ApplicationUILayer;
 import domain.ApplicationUIPackage;
 import domain.Artifact;
@@ -15,11 +18,17 @@ import domain.ArtifactRef;
 import domain.Artifacts;
 import domain.ArtificialField;
 import domain.Attribute;
+import domain.Button;
 import domain.Canvas;
 import domain.CanvasFrame;
+import domain.CanvasView;
+import domain.CheckBox;
+import domain.Column;
 import domain.Component;
 import domain.ConfigVariable;
 import domain.Configuration;
+import domain.Context;
+import domain.ContextParameter;
 import domain.ContextValue;
 import domain.ContinuousIintegration;
 import domain.Controls;
@@ -40,6 +49,7 @@ import domain.DomainArtifacts;
 import domain.DomainFactory;
 import domain.DomainPackage;
 import domain.DomainTypes;
+import domain.DropDownSelection;
 import domain.EJBService;
 import domain.EnterpriseInfrastructure;
 import domain.EnumAttribute;
@@ -48,6 +58,7 @@ import domain.ExpressionPart;
 import domain.Form;
 import domain.FormDataControls;
 import domain.FormView;
+import domain.Group;
 import domain.HTMLLayerHolder;
 import domain.Hub;
 import domain.Infrastructure;
@@ -55,10 +66,13 @@ import domain.InfrastructureComponent;
 import domain.InfrastructureConnection;
 import domain.InfrastructureLayer;
 import domain.Ingredient;
+import domain.InputElement;
+import domain.InputText;
 import domain.InsertTrigger;
 import domain.JPAService;
 import domain.JavaComponent;
 import domain.JavaMapper;
+import domain.Label;
 import domain.Link;
 import domain.Mapper;
 import domain.Mappers;
@@ -69,6 +83,8 @@ import domain.ModelQuery;
 import domain.ORMEntity;
 import domain.Operation;
 import domain.Option;
+import domain.OptionSelection;
+import domain.OutputText;
 import domain.POSTCreateTrigger;
 import domain.POSTQueryTrigger;
 import domain.PREDeleteTrigger;
@@ -87,19 +103,30 @@ import domain.Recipe;
 import domain.Recipes;
 import domain.Relation;
 import domain.ReturnValue;
+import domain.Role;
+import domain.Roles;
 import domain.Root;
 import domain.Router;
 import domain.SearchTrigger;
+import domain.Selection;
 import domain.Server;
 import domain.ServerClaster;
+import domain.SourcesPointer;
 import domain.Specifier;
 import domain.Storage;
+import domain.Style;
+import domain.StyleClass;
+import domain.StyleElement;
+import domain.StyleLibrary;
+import domain.StyleSet;
+import domain.Styles;
+import domain.StylesPackage;
 import domain.Subsystem;
 import domain.TabCanvas;
 import domain.TabPage;
 import domain.TabPagesInheritance;
-import domain.Trigger;
-import domain.TriggerParameter;
+import domain.Table;
+import domain.Tree;
 import domain.Type;
 import domain.TypeDefinition;
 import domain.TypeElement;
@@ -109,6 +136,7 @@ import domain.TypeReference;
 import domain.Types;
 import domain.TypesRepository;
 import domain.UIPackage;
+import domain.Uielement;
 import domain.UpdateTrigger;
 import domain.UsingMappers;
 import domain.ViewInheritance;
@@ -198,6 +226,9 @@ public class DomainFactoryImpl extends EFactoryImpl implements DomainFactory
       case DomainPackage.SPECIFIER: return createSpecifier();
       case DomainPackage.OPTION: return createOption();
       case DomainPackage.APPLICATION: return createApplication();
+      case DomainPackage.APPLICATION_ROLE: return createApplicationRole();
+      case DomainPackage.APPLICATION_STYLE: return createApplicationStyle();
+      case DomainPackage.STYLES_PACKAGE: return createStylesPackage();
       case DomainPackage.APPLICATION_UI_LAYER: return createApplicationUILayer();
       case DomainPackage.APPLICATION_UI_PACKAGE: return createApplicationUIPackage();
       case DomainPackage.APPLICATION_RECIPES: return createApplicationRecipes();
@@ -205,6 +236,12 @@ public class DomainFactoryImpl extends EFactoryImpl implements DomainFactory
       case DomainPackage.APPLICATION_MAPPERS: return createApplicationMappers();
       case DomainPackage.APPLICATION_MAPPER: return createApplicationMapper();
       case DomainPackage.METHOD_POINTER: return createMethodPointer();
+      case DomainPackage.ROLES: return createRoles();
+      case DomainPackage.ROLE: return createRole();
+      case DomainPackage.GROUP: return createGroup();
+      case DomainPackage.STYLES: return createStyles();
+      case DomainPackage.STYLE_LIBRARY: return createStyleLibrary();
+      case DomainPackage.STYLE_SET: return createStyleSet();
       case DomainPackage.MAPPERS: return createMappers();
       case DomainPackage.MAPPER: return createMapper();
       case DomainPackage.JAVA_MAPPER: return createJavaMapper();
@@ -258,11 +295,30 @@ public class DomainFactoryImpl extends EFactoryImpl implements DomainFactory
       case DomainPackage.VIEW_INHERITANCE: return createViewInheritance();
       case DomainPackage.TAB_PAGES_INHERITANCE: return createTabPagesInheritance();
       case DomainPackage.FORM_DATA_CONTROLS: return createFormDataControls();
-      case DomainPackage.CONTROLS: return createControls();
-      case DomainPackage.TRIGGER: return createTrigger();
-      case DomainPackage.TRIGGER_PARAMETER: return createTriggerParameter();
+      case DomainPackage.CANVAS_VIEW: return createCanvasView();
+      case DomainPackage.STYLE: return createStyle();
+      case DomainPackage.STYLE_CLASS: return createStyleClass();
+      case DomainPackage.CONTEXT_PARAMETER: return createContextParameter();
       case DomainPackage.CONTEXT_VALUE: return createContextValue();
       case DomainPackage.EXPRESSION_PART: return createExpressionPart();
+      case DomainPackage.CONTEXT: return createContext();
+      case DomainPackage.STYLE_ELEMENT: return createStyleElement();
+      case DomainPackage.UIELEMENT: return createUielement();
+      case DomainPackage.SOURCES_POINTER: return createSourcesPointer();
+      case DomainPackage.INPUT_ELEMENT: return createInputElement();
+      case DomainPackage.SELECTION: return createSelection();
+      case DomainPackage.OPTION_SELECTION: return createOptionSelection();
+      case DomainPackage.ACTION_ELEMENT: return createActionElement();
+      case DomainPackage.INPUT_TEXT: return createInputText();
+      case DomainPackage.LABEL: return createLabel();
+      case DomainPackage.OUTPUT_TEXT: return createOutputText();
+      case DomainPackage.CHECK_BOX: return createCheckBox();
+      case DomainPackage.DROP_DOWN_SELECTION: return createDropDownSelection();
+      case DomainPackage.COLUMN: return createColumn();
+      case DomainPackage.TABLE: return createTable();
+      case DomainPackage.TREE: return createTree();
+      case DomainPackage.BUTTON: return createButton();
+      case DomainPackage.CONTROLS: return createControls();
       case DomainPackage.PRE_FORM_TRIGGER: return createPREFormTrigger();
       case DomainPackage.PRE_QUERY_TRIGGER: return createPREQueryTrigger();
       case DomainPackage.POST_QUERY_TRIGGER: return createPOSTQueryTrigger();
@@ -545,6 +601,39 @@ public class DomainFactoryImpl extends EFactoryImpl implements DomainFactory
    * <!-- end-user-doc -->
    * @generated
    */
+  public ApplicationRole createApplicationRole()
+  {
+    ApplicationRoleImpl applicationRole = new ApplicationRoleImpl();
+    return applicationRole;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ApplicationStyle createApplicationStyle()
+  {
+    ApplicationStyleImpl applicationStyle = new ApplicationStyleImpl();
+    return applicationStyle;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public StylesPackage createStylesPackage()
+  {
+    StylesPackageImpl stylesPackage = new StylesPackageImpl();
+    return stylesPackage;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public ApplicationUILayer createApplicationUILayer()
   {
     ApplicationUILayerImpl applicationUILayer = new ApplicationUILayerImpl();
@@ -615,6 +704,72 @@ public class DomainFactoryImpl extends EFactoryImpl implements DomainFactory
   {
     MethodPointerImpl methodPointer = new MethodPointerImpl();
     return methodPointer;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Roles createRoles()
+  {
+    RolesImpl roles = new RolesImpl();
+    return roles;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Role createRole()
+  {
+    RoleImpl role = new RoleImpl();
+    return role;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Group createGroup()
+  {
+    GroupImpl group = new GroupImpl();
+    return group;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Styles createStyles()
+  {
+    StylesImpl styles = new StylesImpl();
+    return styles;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public StyleLibrary createStyleLibrary()
+  {
+    StyleLibraryImpl styleLibrary = new StyleLibraryImpl();
+    return styleLibrary;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public StyleSet createStyleSet()
+  {
+    StyleSetImpl styleSet = new StyleSetImpl();
+    return styleSet;
   }
 
   /**
@@ -1205,10 +1360,10 @@ public class DomainFactoryImpl extends EFactoryImpl implements DomainFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public Controls createControls()
+  public CanvasView createCanvasView()
   {
-    ControlsImpl controls = new ControlsImpl();
-    return controls;
+    CanvasViewImpl canvasView = new CanvasViewImpl();
+    return canvasView;
   }
 
   /**
@@ -1216,10 +1371,10 @@ public class DomainFactoryImpl extends EFactoryImpl implements DomainFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public Trigger createTrigger()
+  public Style createStyle()
   {
-    TriggerImpl trigger = new TriggerImpl();
-    return trigger;
+    StyleImpl style = new StyleImpl();
+    return style;
   }
 
   /**
@@ -1227,10 +1382,21 @@ public class DomainFactoryImpl extends EFactoryImpl implements DomainFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public TriggerParameter createTriggerParameter()
+  public StyleClass createStyleClass()
   {
-    TriggerParameterImpl triggerParameter = new TriggerParameterImpl();
-    return triggerParameter;
+    StyleClassImpl styleClass = new StyleClassImpl();
+    return styleClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ContextParameter createContextParameter()
+  {
+    ContextParameterImpl contextParameter = new ContextParameterImpl();
+    return contextParameter;
   }
 
   /**
@@ -1253,6 +1419,204 @@ public class DomainFactoryImpl extends EFactoryImpl implements DomainFactory
   {
     ExpressionPartImpl expressionPart = new ExpressionPartImpl();
     return expressionPart;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Context createContext()
+  {
+    ContextImpl context = new ContextImpl();
+    return context;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public StyleElement createStyleElement()
+  {
+    StyleElementImpl styleElement = new StyleElementImpl();
+    return styleElement;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Uielement createUielement()
+  {
+    UielementImpl uielement = new UielementImpl();
+    return uielement;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public SourcesPointer createSourcesPointer()
+  {
+    SourcesPointerImpl sourcesPointer = new SourcesPointerImpl();
+    return sourcesPointer;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public InputElement createInputElement()
+  {
+    InputElementImpl inputElement = new InputElementImpl();
+    return inputElement;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Selection createSelection()
+  {
+    SelectionImpl selection = new SelectionImpl();
+    return selection;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public OptionSelection createOptionSelection()
+  {
+    OptionSelectionImpl optionSelection = new OptionSelectionImpl();
+    return optionSelection;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ActionElement createActionElement()
+  {
+    ActionElementImpl actionElement = new ActionElementImpl();
+    return actionElement;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public InputText createInputText()
+  {
+    InputTextImpl inputText = new InputTextImpl();
+    return inputText;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Label createLabel()
+  {
+    LabelImpl label = new LabelImpl();
+    return label;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public OutputText createOutputText()
+  {
+    OutputTextImpl outputText = new OutputTextImpl();
+    return outputText;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public CheckBox createCheckBox()
+  {
+    CheckBoxImpl checkBox = new CheckBoxImpl();
+    return checkBox;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public DropDownSelection createDropDownSelection()
+  {
+    DropDownSelectionImpl dropDownSelection = new DropDownSelectionImpl();
+    return dropDownSelection;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Column createColumn()
+  {
+    ColumnImpl column = new ColumnImpl();
+    return column;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Table createTable()
+  {
+    TableImpl table = new TableImpl();
+    return table;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Tree createTree()
+  {
+    TreeImpl tree = new TreeImpl();
+    return tree;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Button createButton()
+  {
+    ButtonImpl button = new ButtonImpl();
+    return button;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Controls createControls()
+  {
+    ControlsImpl controls = new ControlsImpl();
+    return controls;
   }
 
   /**

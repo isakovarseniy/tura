@@ -1,0 +1,26 @@
+//Enable dynamic templates
+var genEditorGenerator = GmfGen!GenEditorGenerator.all.first;
+genEditorGenerator.setDynamicTemplates(true);
+genEditorGenerator.setTemplateDirectory('/org.tura.metamodel/templates/');
+
+var plugin = GmfGen!GenPlugin.all.first;
+plugin.id = 'org.tura.metamodel.diagram.roles';
+
+
+-- distinct visual ID
+for (c in GmfGen!GenCommonBase.allInstances) {
+  c.setVisualID (c.getVisualID()+1400000);
+}
+
+
+-- distinct model IDs
+genEditorGenerator.setModelID('Roles');
+-- distinct package prefix
+genEditorGenerator.setPackageNamePrefix('roles.diagram');
+-- distinct diagram file extension
+genEditorGenerator.setDiagramFileExtension('roles_diagram');
+-- set ID model editor
+var genEditorView = GmfGen!GenEditorView.all.first;
+genEditorView.setID('roles.diagram.part.RolesDiagramEditorID');
+
+

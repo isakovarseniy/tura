@@ -228,8 +228,56 @@
         containment="true" eOpposite="#//ApplicationUILayer/parent"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="applicationInfrastructureLayer"
         eType="#//ApplicationInfrastructureLayer" containment="true" eOpposite="#//ApplicationInfrastructureLayer/parent"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="applicationStyle" eType="#//ApplicationStyle"
+        containment="true" eOpposite="#//ApplicationStyle/parent"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="applicationRole" eType="#//ApplicationRole"
+        containment="true" eOpposite="#//ApplicationRole/parent"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//DomainApplication"
         eOpposite="#//DomainApplication/application"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ApplicationRole">
+    <eAnnotations source="gmf.node">
+      <details key="label" value="name"/>
+      <details key="border.color" value="0,0,0"/>
+      <details key="color" value="192,192,192"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//Application"
+        eOpposite="#//Application/applicationRole"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="roles" eType="#//Roles"
+        containment="true" eOpposite="#//Roles/parent"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ApplicationStyle">
+    <eAnnotations source="gmf.node">
+      <details key="label" value="name"/>
+      <details key="border.color" value="0,0,0"/>
+      <details key="color" value="192,192,192"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//Application"
+        eOpposite="#//Application/applicationStyle"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="stylesPackage" upperBound="-1"
+        eType="#//StylesPackage" containment="true" eOpposite="#//StylesPackage/parent">
+      <eAnnotations source="gmf.compartment"/>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="StylesPackage">
+    <eAnnotations source="gmf.node">
+      <details key="label" value="name"/>
+      <details key="border.color" value="0,0,0"/>
+      <details key="color" value="255,196,176"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//ApplicationStyle"
+        eOpposite="#//ApplicationStyle/stylesPackage"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="styles" eType="#//Styles"
+        eOpposite="#//Styles/parent"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ApplicationUILayer">
     <eAnnotations source="gmf.node">
@@ -324,6 +372,84 @@
   <eClassifiers xsi:type="ecore:EClass" name="MethodPointer" eSuperTypes="#//TypePointer">
     <eStructuralFeatures xsi:type="ecore:EReference" name="methodRef" eType="#//Operation"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="fakeMethod" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Roles">
+    <eAnnotations source="gmf.diagram.roles"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//ApplicationRole"
+        eOpposite="#//ApplicationRole/roles"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="roles" upperBound="-1"
+        eType="#//Role" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="groups" upperBound="-1"
+        eType="#//Group" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Role">
+    <eAnnotations source="gmf.node">
+      <details key="label" value="name"/>
+      <details key="border.color" value="0,0,0"/>
+      <details key="color" value="255,237,85"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Group">
+    <eAnnotations source="gmf.node">
+      <details key="label" value="name"/>
+      <details key="border.color" value="0,0,0"/>
+      <details key="color" value="255,237,85"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="group2Group" upperBound="-1"
+        eType="#//Group">
+      <eAnnotations source="gmf.link">
+        <details key="target.decoration" value="arrow"/>
+        <details key="style" value="dash"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="group2Role" upperBound="-1"
+        eType="#//Role">
+      <eAnnotations source="gmf.link">
+        <details key="target.decoration" value="arrow"/>
+        <details key="style" value="dash"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Styles">
+    <eAnnotations source="gmf.diagram.style"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//StylesPackage"
+        eOpposite="#//StylesPackage/styles"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="libraries" upperBound="-1"
+        eType="#//StyleLibrary" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="StyleLibrary">
+    <eAnnotations source="gmf.node">
+      <details key="label" value="name"/>
+      <details key="border.color" value="0,0,0"/>
+      <details key="color" value="255,237,85"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="styles" upperBound="-1"
+        eType="#//StyleSet" containment="true">
+      <eAnnotations source="gmf.compartment"/>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="StyleSet">
+    <eAnnotations source="gmf.node">
+      <details key="label" value="name"/>
+      <details key="border.color" value="0,0,0"/>
+      <details key="color" value="255,237,85"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Mappers">
     <eAnnotations source="gmf.diagram"/>
@@ -852,6 +978,8 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="canvasView" eType="#//CanvasView"
+        containment="true" eOpposite="#//CanvasView/parent"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ViewPortHolder" eSuperTypes="#//HTMLLayerHolder">
     <eStructuralFeatures xsi:type="ecore:EReference" name="viewPorts" upperBound="-1"
@@ -906,12 +1034,17 @@
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ViewPortTrigger" eSuperTypes="#//Trigger">
+  <eClassifiers xsi:type="ecore:EClass" name="ViewPortTrigger">
     <eAnnotations source="gmf.node">
       <details key="label" value="fakeMethod"/>
       <details key="border.color" value="0,0,0"/>
       <details key="color" value="241,238,203"/>
     </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="trigger" eType="#//Context"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="fakeMethod" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ViewInheritance">
     <eAnnotations source="gmf.link">
@@ -953,26 +1086,26 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="formControl" eType="#//Controls"
         eOpposite="#//Controls/parent"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Controls">
-    <eAnnotations source="gmf.diagram.control"/>
+  <eClassifiers xsi:type="ecore:EClass" name="CanvasView">
+    <eAnnotations source="gmf.diagram.canvasview"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//FormDataControls"
-        eOpposite="#//FormDataControls/formControl"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="root" eType="#//Root" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="controls" upperBound="-1"
-        eType="#//DataControl" containment="true" eOpposite="#//DataControl/parent"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="relations" upperBound="-1"
-        eType="#//Relation" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//CanvasFrame"
+        eOpposite="#//CanvasFrame/canvasView"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Trigger" eSuperTypes="#//MethodPointer">
+  <eClassifiers xsi:type="ecore:EClass" name="Style">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="parameters" upperBound="-1"
-        eType="#//TriggerParameter" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="style" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="TriggerParameter">
+  <eClassifiers xsi:type="ecore:EClass" name="StyleClass">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="stylesPackage" eType="#//StylesPackage"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="library" eType="#//StyleLibrary"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="styleSet" eType="#//StyleSet"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ContextParameter">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="parameter" eType="#//Parameter"/>
@@ -993,89 +1126,237 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="objRef" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="order" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="PREFormTrigger" eSuperTypes="#//Trigger">
-    <eAnnotations source="gmf.node">
-      <details key="label" value="fakeMethod"/>
-      <details key="border.color" value="0,0,0"/>
-      <details key="color" value="241,238,203"/>
-    </eAnnotations>
+  <eClassifiers xsi:type="ecore:EClass" name="Context">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="expression" upperBound="-1"
+        eType="#//ExpressionPart" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parameters" upperBound="-1"
+        eType="#//ContextParameter" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="PREQueryTrigger" eSuperTypes="#//Trigger">
-    <eAnnotations source="gmf.node">
-      <details key="label" value="fakeMethod"/>
-      <details key="border.color" value="0,0,0"/>
-      <details key="color" value="241,238,203"/>
-    </eAnnotations>
+  <eClassifiers xsi:type="ecore:EClass" name="StyleElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="style" eType="#//Style"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="styleClass" eType="#//StyleClass"
+        containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="POSTQueryTrigger" eSuperTypes="#//Trigger">
-    <eAnnotations source="gmf.node">
-      <details key="label" value="fakeMethod"/>
-      <details key="border.color" value="0,0,0"/>
-      <details key="color" value="241,238,203"/>
-    </eAnnotations>
+  <eClassifiers xsi:type="ecore:EClass" name="Uielement" eSuperTypes="#//StyleElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="enabled" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="enabledContext" eType="#//Context"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="required" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="requiredContext" eType="#//Context"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="readOnly" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="readOnlyContext" eType="#//Context"
+        containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="PREInsertTrigger" eSuperTypes="#//Trigger">
-    <eAnnotations source="gmf.node">
-      <details key="label" value="fakeMethod"/>
-      <details key="border.color" value="0,0,0"/>
-      <details key="color" value="241,238,203"/>
-    </eAnnotations>
+  <eClassifiers xsi:type="ecore:EClass" name="SourcesPointer" eSuperTypes="#//Uielement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sourcePointer" eType="#//Context"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="valuePointer" eType="#//Context"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sourceCast" eType="#//Context"
+        containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="PREDeleteTrigger" eSuperTypes="#//Trigger">
-    <eAnnotations source="gmf.node">
-      <details key="label" value="fakeMethod"/>
-      <details key="border.color" value="0,0,0"/>
-      <details key="color" value="241,238,203"/>
-    </eAnnotations>
+  <eClassifiers xsi:type="ecore:EClass" name="InputElement" eSuperTypes="#//Uielement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="label" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="POSTCreateTrigger" eSuperTypes="#//Trigger">
-    <eAnnotations source="gmf.node">
-      <details key="label" value="fakeMethod"/>
-      <details key="border.color" value="0,0,0"/>
-      <details key="color" value="241,238,203"/>
-    </eAnnotations>
+  <eClassifiers xsi:type="ecore:EClass" name="Selection" eSuperTypes="#//StyleElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="displayOptionPointer" eType="#//Context"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="valueOptionPointer" eType="#//Context"
+        containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="PREUpdateTrigger" eSuperTypes="#//Trigger">
-    <eAnnotations source="gmf.node">
-      <details key="label" value="fakeMethod"/>
-      <details key="border.color" value="0,0,0"/>
-      <details key="color" value="241,238,203"/>
-    </eAnnotations>
+  <eClassifiers xsi:type="ecore:EClass" name="OptionSelection" eSuperTypes="#//InputElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="optionPointer" eType="#//Context"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="optionCast" eType="#//Context"
+        containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="CreateTrigger" eSuperTypes="#//Trigger">
-    <eAnnotations source="gmf.node">
-      <details key="label" value="fakeMethod"/>
-      <details key="border.color" value="0,0,0"/>
-      <details key="color" value="241,238,203"/>
-    </eAnnotations>
+  <eClassifiers xsi:type="ecore:EClass" name="ActionElement" eSuperTypes="#//Uielement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="trigger" eType="#//Context"
+        containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="InsertTrigger" eSuperTypes="#//Trigger">
-    <eAnnotations source="gmf.node">
-      <details key="label" value="fakeMethod"/>
-      <details key="border.color" value="0,0,0"/>
-      <details key="color" value="241,238,203"/>
-    </eAnnotations>
+  <eClassifiers xsi:type="ecore:EClass" name="InputText" eSuperTypes="#//InputElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Label" eSuperTypes="#//InputElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="OutputText" eSuperTypes="#//InputElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="CheckBox" eSuperTypes="#//InputElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DropDownSelection" eSuperTypes="#//OptionSelection">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="selection" eType="#//Selection"
+        containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="UpdateTrigger" eSuperTypes="#//Trigger">
-    <eAnnotations source="gmf.node">
-      <details key="label" value="fakeMethod"/>
-      <details key="border.color" value="0,0,0"/>
-      <details key="color" value="241,238,203"/>
-    </eAnnotations>
+  <eClassifiers xsi:type="ecore:EClass" name="Column" eSuperTypes="#//StyleElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="element" eType="#//InputElement"
+        containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DeleteTrigger" eSuperTypes="#//Trigger">
-    <eAnnotations source="gmf.node">
-      <details key="label" value="fakeMethod"/>
-      <details key="border.color" value="0,0,0"/>
-      <details key="color" value="241,238,203"/>
-    </eAnnotations>
+  <eClassifiers xsi:type="ecore:EClass" name="Table" eSuperTypes="#//SourcesPointer">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="columns" upperBound="-1"
+        eType="#//Column" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="SearchTrigger" eSuperTypes="#//Trigger">
+  <eClassifiers xsi:type="ecore:EClass" name="Tree" eSuperTypes="#//SourcesPointer">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="image" eType="#//Context"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Button" eSuperTypes="#//ActionElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Controls">
+    <eAnnotations source="gmf.diagram.control"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//FormDataControls"
+        eOpposite="#//FormDataControls/formControl"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="root" eType="#//Root" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="controls" upperBound="-1"
+        eType="#//DataControl" containment="true" eOpposite="#//DataControl/parent"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="relations" upperBound="-1"
+        eType="#//Relation" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PREFormTrigger">
     <eAnnotations source="gmf.node">
       <details key="label" value="fakeMethod"/>
       <details key="border.color" value="0,0,0"/>
       <details key="color" value="241,238,203"/>
     </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="trigger" eType="#//Context"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="fakeMethod" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PREQueryTrigger">
+    <eAnnotations source="gmf.node">
+      <details key="label" value="fakeMethod"/>
+      <details key="border.color" value="0,0,0"/>
+      <details key="color" value="241,238,203"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="trigger" eType="#//Context"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="fakeMethod" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="POSTQueryTrigger">
+    <eAnnotations source="gmf.node">
+      <details key="label" value="fakeMethod"/>
+      <details key="border.color" value="0,0,0"/>
+      <details key="color" value="241,238,203"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="trigger" eType="#//Context"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="fakeMethod" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PREInsertTrigger">
+    <eAnnotations source="gmf.node">
+      <details key="label" value="fakeMethod"/>
+      <details key="border.color" value="0,0,0"/>
+      <details key="color" value="241,238,203"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="trigger" eType="#//Context"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="fakeMethod" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PREDeleteTrigger">
+    <eAnnotations source="gmf.node">
+      <details key="label" value="fakeMethod"/>
+      <details key="border.color" value="0,0,0"/>
+      <details key="color" value="241,238,203"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="trigger" eType="#//Context"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="fakeMethod" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="POSTCreateTrigger">
+    <eAnnotations source="gmf.node">
+      <details key="label" value="fakeMethod"/>
+      <details key="border.color" value="0,0,0"/>
+      <details key="color" value="241,238,203"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="trigger" eType="#//Context"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="fakeMethod" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PREUpdateTrigger">
+    <eAnnotations source="gmf.node">
+      <details key="label" value="fakeMethod"/>
+      <details key="border.color" value="0,0,0"/>
+      <details key="color" value="241,238,203"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="trigger" eType="#//Context"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="fakeMethod" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CreateTrigger">
+    <eAnnotations source="gmf.node">
+      <details key="label" value="fakeMethod"/>
+      <details key="border.color" value="0,0,0"/>
+      <details key="color" value="241,238,203"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="trigger" eType="#//Context"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="fakeMethod" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="InsertTrigger">
+    <eAnnotations source="gmf.node">
+      <details key="label" value="fakeMethod"/>
+      <details key="border.color" value="0,0,0"/>
+      <details key="color" value="241,238,203"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="trigger" eType="#//Context"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="fakeMethod" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="UpdateTrigger">
+    <eAnnotations source="gmf.node">
+      <details key="label" value="fakeMethod"/>
+      <details key="border.color" value="0,0,0"/>
+      <details key="color" value="241,238,203"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="trigger" eType="#//Context"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="fakeMethod" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DeleteTrigger">
+    <eAnnotations source="gmf.node">
+      <details key="label" value="fakeMethod"/>
+      <details key="border.color" value="0,0,0"/>
+      <details key="color" value="241,238,203"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="trigger" eType="#//Context"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="fakeMethod" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SearchTrigger">
+    <eAnnotations source="gmf.node">
+      <details key="label" value="fakeMethod"/>
+      <details key="border.color" value="0,0,0"/>
+      <details key="color" value="241,238,203"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="trigger" eType="#//Context"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="fakeMethod" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Root">
     <eAnnotations source="gmf.node">

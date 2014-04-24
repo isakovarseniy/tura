@@ -6,6 +6,8 @@ import domain.Application;
 import domain.ApplicationInfrastructureLayer;
 import domain.ApplicationMappers;
 import domain.ApplicationRecipes;
+import domain.ApplicationRole;
+import domain.ApplicationStyle;
 import domain.ApplicationUILayer;
 import domain.DomainApplication;
 import domain.DomainPackage;
@@ -31,6 +33,8 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  *   <li>{@link domain.impl.ApplicationImpl#getApplicationMappers <em>Application Mappers</em>}</li>
  *   <li>{@link domain.impl.ApplicationImpl#getApplicationUILayer <em>Application UI Layer</em>}</li>
  *   <li>{@link domain.impl.ApplicationImpl#getApplicationInfrastructureLayer <em>Application Infrastructure Layer</em>}</li>
+ *   <li>{@link domain.impl.ApplicationImpl#getApplicationStyle <em>Application Style</em>}</li>
+ *   <li>{@link domain.impl.ApplicationImpl#getApplicationRole <em>Application Role</em>}</li>
  *   <li>{@link domain.impl.ApplicationImpl#getParent <em>Parent</em>}</li>
  * </ul>
  * </p>
@@ -98,6 +102,26 @@ public class ApplicationImpl extends EObjectImpl implements Application
    * @ordered
    */
   protected ApplicationInfrastructureLayer applicationInfrastructureLayer;
+
+  /**
+   * The cached value of the '{@link #getApplicationStyle() <em>Application Style</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getApplicationStyle()
+   * @generated
+   * @ordered
+   */
+  protected ApplicationStyle applicationStyle;
+
+  /**
+   * The cached value of the '{@link #getApplicationRole() <em>Application Role</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getApplicationRole()
+   * @generated
+   * @ordered
+   */
+  protected ApplicationRole applicationRole;
 
   /**
    * The cached value of the '{@link #getParent() <em>Parent</em>}' reference.
@@ -350,6 +374,102 @@ public class ApplicationImpl extends EObjectImpl implements Application
    * <!-- end-user-doc -->
    * @generated
    */
+  public ApplicationStyle getApplicationStyle()
+  {
+    return applicationStyle;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetApplicationStyle(ApplicationStyle newApplicationStyle, NotificationChain msgs)
+  {
+    ApplicationStyle oldApplicationStyle = applicationStyle;
+    applicationStyle = newApplicationStyle;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DomainPackage.APPLICATION__APPLICATION_STYLE, oldApplicationStyle, newApplicationStyle);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setApplicationStyle(ApplicationStyle newApplicationStyle)
+  {
+    if (newApplicationStyle != applicationStyle)
+    {
+      NotificationChain msgs = null;
+      if (applicationStyle != null)
+        msgs = ((InternalEObject)applicationStyle).eInverseRemove(this, DomainPackage.APPLICATION_STYLE__PARENT, ApplicationStyle.class, msgs);
+      if (newApplicationStyle != null)
+        msgs = ((InternalEObject)newApplicationStyle).eInverseAdd(this, DomainPackage.APPLICATION_STYLE__PARENT, ApplicationStyle.class, msgs);
+      msgs = basicSetApplicationStyle(newApplicationStyle, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.APPLICATION__APPLICATION_STYLE, newApplicationStyle, newApplicationStyle));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ApplicationRole getApplicationRole()
+  {
+    return applicationRole;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetApplicationRole(ApplicationRole newApplicationRole, NotificationChain msgs)
+  {
+    ApplicationRole oldApplicationRole = applicationRole;
+    applicationRole = newApplicationRole;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DomainPackage.APPLICATION__APPLICATION_ROLE, oldApplicationRole, newApplicationRole);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setApplicationRole(ApplicationRole newApplicationRole)
+  {
+    if (newApplicationRole != applicationRole)
+    {
+      NotificationChain msgs = null;
+      if (applicationRole != null)
+        msgs = ((InternalEObject)applicationRole).eInverseRemove(this, DomainPackage.APPLICATION_ROLE__PARENT, ApplicationRole.class, msgs);
+      if (newApplicationRole != null)
+        msgs = ((InternalEObject)newApplicationRole).eInverseAdd(this, DomainPackage.APPLICATION_ROLE__PARENT, ApplicationRole.class, msgs);
+      msgs = basicSetApplicationRole(newApplicationRole, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.APPLICATION__APPLICATION_ROLE, newApplicationRole, newApplicationRole));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public DomainApplication getParent()
   {
     if (parent != null && parent.eIsProxy())
@@ -439,6 +559,14 @@ public class ApplicationImpl extends EObjectImpl implements Application
         if (applicationInfrastructureLayer != null)
           msgs = ((InternalEObject)applicationInfrastructureLayer).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DomainPackage.APPLICATION__APPLICATION_INFRASTRUCTURE_LAYER, null, msgs);
         return basicSetApplicationInfrastructureLayer((ApplicationInfrastructureLayer)otherEnd, msgs);
+      case DomainPackage.APPLICATION__APPLICATION_STYLE:
+        if (applicationStyle != null)
+          msgs = ((InternalEObject)applicationStyle).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DomainPackage.APPLICATION__APPLICATION_STYLE, null, msgs);
+        return basicSetApplicationStyle((ApplicationStyle)otherEnd, msgs);
+      case DomainPackage.APPLICATION__APPLICATION_ROLE:
+        if (applicationRole != null)
+          msgs = ((InternalEObject)applicationRole).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DomainPackage.APPLICATION__APPLICATION_ROLE, null, msgs);
+        return basicSetApplicationRole((ApplicationRole)otherEnd, msgs);
       case DomainPackage.APPLICATION__PARENT:
         if (parent != null)
           msgs = ((InternalEObject)parent).eInverseRemove(this, DomainPackage.DOMAIN_APPLICATION__APPLICATION, DomainApplication.class, msgs);
@@ -465,6 +593,10 @@ public class ApplicationImpl extends EObjectImpl implements Application
         return basicSetApplicationUILayer(null, msgs);
       case DomainPackage.APPLICATION__APPLICATION_INFRASTRUCTURE_LAYER:
         return basicSetApplicationInfrastructureLayer(null, msgs);
+      case DomainPackage.APPLICATION__APPLICATION_STYLE:
+        return basicSetApplicationStyle(null, msgs);
+      case DomainPackage.APPLICATION__APPLICATION_ROLE:
+        return basicSetApplicationRole(null, msgs);
       case DomainPackage.APPLICATION__PARENT:
         return basicSetParent(null, msgs);
     }
@@ -491,6 +623,10 @@ public class ApplicationImpl extends EObjectImpl implements Application
         return getApplicationUILayer();
       case DomainPackage.APPLICATION__APPLICATION_INFRASTRUCTURE_LAYER:
         return getApplicationInfrastructureLayer();
+      case DomainPackage.APPLICATION__APPLICATION_STYLE:
+        return getApplicationStyle();
+      case DomainPackage.APPLICATION__APPLICATION_ROLE:
+        return getApplicationRole();
       case DomainPackage.APPLICATION__PARENT:
         if (resolve) return getParent();
         return basicGetParent();
@@ -522,6 +658,12 @@ public class ApplicationImpl extends EObjectImpl implements Application
         return;
       case DomainPackage.APPLICATION__APPLICATION_INFRASTRUCTURE_LAYER:
         setApplicationInfrastructureLayer((ApplicationInfrastructureLayer)newValue);
+        return;
+      case DomainPackage.APPLICATION__APPLICATION_STYLE:
+        setApplicationStyle((ApplicationStyle)newValue);
+        return;
+      case DomainPackage.APPLICATION__APPLICATION_ROLE:
+        setApplicationRole((ApplicationRole)newValue);
         return;
       case DomainPackage.APPLICATION__PARENT:
         setParent((DomainApplication)newValue);
@@ -555,6 +697,12 @@ public class ApplicationImpl extends EObjectImpl implements Application
       case DomainPackage.APPLICATION__APPLICATION_INFRASTRUCTURE_LAYER:
         setApplicationInfrastructureLayer((ApplicationInfrastructureLayer)null);
         return;
+      case DomainPackage.APPLICATION__APPLICATION_STYLE:
+        setApplicationStyle((ApplicationStyle)null);
+        return;
+      case DomainPackage.APPLICATION__APPLICATION_ROLE:
+        setApplicationRole((ApplicationRole)null);
+        return;
       case DomainPackage.APPLICATION__PARENT:
         setParent((DomainApplication)null);
         return;
@@ -582,6 +730,10 @@ public class ApplicationImpl extends EObjectImpl implements Application
         return applicationUILayer != null;
       case DomainPackage.APPLICATION__APPLICATION_INFRASTRUCTURE_LAYER:
         return applicationInfrastructureLayer != null;
+      case DomainPackage.APPLICATION__APPLICATION_STYLE:
+        return applicationStyle != null;
+      case DomainPackage.APPLICATION__APPLICATION_ROLE:
+        return applicationRole != null;
       case DomainPackage.APPLICATION__PARENT:
         return parent != null;
     }

@@ -52,11 +52,18 @@ import application.diagram.edit.parts.ApplicationRecipeNameEditPart;
 import application.diagram.edit.parts.ApplicationRecipesApplicationRecipesRecipesCompartmentEditPart;
 import application.diagram.edit.parts.ApplicationRecipesEditPart;
 import application.diagram.edit.parts.ApplicationRecipesNameEditPart;
+import application.diagram.edit.parts.ApplicationRoleEditPart;
+import application.diagram.edit.parts.ApplicationRoleNameEditPart;
+import application.diagram.edit.parts.ApplicationStyleApplicationStyleStylesPackageCompartmentEditPart;
+import application.diagram.edit.parts.ApplicationStyleEditPart;
+import application.diagram.edit.parts.ApplicationStyleNameEditPart;
 import application.diagram.edit.parts.ApplicationUILayerApplicationUILayerApplicationUIPackagesCompartmentEditPart;
 import application.diagram.edit.parts.ApplicationUILayerEditPart;
 import application.diagram.edit.parts.ApplicationUILayerNameEditPart;
 import application.diagram.edit.parts.ApplicationUIPackageEditPart;
 import application.diagram.edit.parts.ApplicationUIPackageNameEditPart;
+import application.diagram.edit.parts.StylesPackageEditPart;
+import application.diagram.edit.parts.StylesPackageNameEditPart;
 import application.diagram.part.DomainVisualIDRegistry;
 
 /**
@@ -153,9 +160,12 @@ public class DomainViewProvider extends AbstractProvider implements
 				case ApplicationMappersEditPart.VISUAL_ID:
 				case ApplicationUILayerEditPart.VISUAL_ID:
 				case ApplicationInfrastructureLayerEditPart.VISUAL_ID:
+				case ApplicationStyleEditPart.VISUAL_ID:
+				case ApplicationRoleEditPart.VISUAL_ID:
 				case ApplicationRecipeEditPart.VISUAL_ID:
 				case ApplicationMapperEditPart.VISUAL_ID:
 				case ApplicationUIPackageEditPart.VISUAL_ID:
+				case StylesPackageEditPart.VISUAL_ID:
 					if (domainElement == null
 							|| visualID != DomainVisualIDRegistry
 									.getNodeVisualID(op.getContainerView(),
@@ -172,9 +182,12 @@ public class DomainViewProvider extends AbstractProvider implements
 				|| ApplicationMappersEditPart.VISUAL_ID == visualID
 				|| ApplicationUILayerEditPart.VISUAL_ID == visualID
 				|| ApplicationInfrastructureLayerEditPart.VISUAL_ID == visualID
+				|| ApplicationStyleEditPart.VISUAL_ID == visualID
+				|| ApplicationRoleEditPart.VISUAL_ID == visualID
 				|| ApplicationRecipeEditPart.VISUAL_ID == visualID
 				|| ApplicationMapperEditPart.VISUAL_ID == visualID
-				|| ApplicationUIPackageEditPart.VISUAL_ID == visualID;
+				|| ApplicationUIPackageEditPart.VISUAL_ID == visualID
+				|| StylesPackageEditPart.VISUAL_ID == visualID;
 	}
 
 	/**
@@ -243,6 +256,12 @@ public class DomainViewProvider extends AbstractProvider implements
 		case ApplicationInfrastructureLayerEditPart.VISUAL_ID:
 			return createApplicationInfrastructureLayer_802004(domainElement,
 					containerView, index, persisted, preferencesHint);
+		case ApplicationStyleEditPart.VISUAL_ID:
+			return createApplicationStyle_802005(domainElement, containerView,
+					index, persisted, preferencesHint);
+		case ApplicationRoleEditPart.VISUAL_ID:
+			return createApplicationRole_802006(domainElement, containerView,
+					index, persisted, preferencesHint);
 		case ApplicationRecipeEditPart.VISUAL_ID:
 			return createApplicationRecipe_803001(domainElement, containerView,
 					index, persisted, preferencesHint);
@@ -252,6 +271,9 @@ public class DomainViewProvider extends AbstractProvider implements
 		case ApplicationUIPackageEditPart.VISUAL_ID:
 			return createApplicationUIPackage_803003(domainElement,
 					containerView, index, persisted, preferencesHint);
+		case StylesPackageEditPart.VISUAL_ID:
+			return createStylesPackage_803004(domainElement, containerView,
+					index, persisted, preferencesHint);
 		}
 		// can't happen, provided #provides(CreateNodeViewOperation) is correct
 		return null;
@@ -458,6 +480,97 @@ public class DomainViewProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
+	public Node createApplicationStyle_802005(EObject domainElement,
+			View containerView, int index, boolean persisted,
+			PreferencesHint preferencesHint) {
+		Node node = NotationFactory.eINSTANCE.createNode();
+		node.getStyles()
+				.add(NotationFactory.eINSTANCE.createDescriptionStyle());
+		node.getStyles().add(NotationFactory.eINSTANCE.createFontStyle());
+		node.getStyles().add(
+				NotationFactory.eINSTANCE.createHintedDiagramLinkStyle());
+		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
+		node.setType(DomainVisualIDRegistry
+				.getType(ApplicationStyleEditPart.VISUAL_ID));
+		ViewUtil.insertChildView(containerView, node, index, persisted);
+		node.setElement(domainElement);
+		stampShortcut(containerView, node);
+		// initializeFromPreferences 
+		final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint
+				.getPreferenceStore();
+		FontStyle nodeFontStyle = (FontStyle) node
+				.getStyle(NotationPackage.Literals.FONT_STYLE);
+		if (nodeFontStyle != null) {
+			FontData fontData = PreferenceConverter.getFontData(prefStore,
+					IPreferenceConstants.PREF_DEFAULT_FONT);
+			nodeFontStyle.setFontName(fontData.getName());
+			nodeFontStyle.setFontHeight(fontData.getHeight());
+			nodeFontStyle.setBold((fontData.getStyle() & SWT.BOLD) != 0);
+			nodeFontStyle.setItalic((fontData.getStyle() & SWT.ITALIC) != 0);
+			org.eclipse.swt.graphics.RGB fontRGB = PreferenceConverter
+					.getColor(prefStore, IPreferenceConstants.PREF_FONT_COLOR);
+			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB)
+					.intValue());
+		}
+		Node label805009 = createLabel(node,
+				DomainVisualIDRegistry
+						.getType(ApplicationStyleNameEditPart.VISUAL_ID));
+		createCompartment(
+				node,
+				DomainVisualIDRegistry
+						.getType(ApplicationStyleApplicationStyleStylesPackageCompartmentEditPart.VISUAL_ID),
+				true, false, false, false);
+		return node;
+	}
+
+	/**
+	 * @generated
+	 */
+	public Node createApplicationRole_802006(EObject domainElement,
+			View containerView, int index, boolean persisted,
+			PreferencesHint preferencesHint) {
+		Node node = NotationFactory.eINSTANCE.createNode();
+		node.getStyles()
+				.add(NotationFactory.eINSTANCE.createDescriptionStyle());
+		node.getStyles().add(NotationFactory.eINSTANCE.createFontStyle());
+		{
+			HintedDiagramLinkStyle diagramFacet = NotationFactory.eINSTANCE
+					.createHintedDiagramLinkStyle();
+			diagramFacet.setHint("Roles"); //$NON-NLS-1$
+			node.getStyles().add(diagramFacet);
+		}
+		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
+		node.setType(DomainVisualIDRegistry
+				.getType(ApplicationRoleEditPart.VISUAL_ID));
+		ViewUtil.insertChildView(containerView, node, index, persisted);
+		node.setElement(domainElement);
+		stampShortcut(containerView, node);
+		// initializeFromPreferences 
+		final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint
+				.getPreferenceStore();
+		FontStyle nodeFontStyle = (FontStyle) node
+				.getStyle(NotationPackage.Literals.FONT_STYLE);
+		if (nodeFontStyle != null) {
+			FontData fontData = PreferenceConverter.getFontData(prefStore,
+					IPreferenceConstants.PREF_DEFAULT_FONT);
+			nodeFontStyle.setFontName(fontData.getName());
+			nodeFontStyle.setFontHeight(fontData.getHeight());
+			nodeFontStyle.setBold((fontData.getStyle() & SWT.BOLD) != 0);
+			nodeFontStyle.setItalic((fontData.getStyle() & SWT.ITALIC) != 0);
+			org.eclipse.swt.graphics.RGB fontRGB = PreferenceConverter
+					.getColor(prefStore, IPreferenceConstants.PREF_FONT_COLOR);
+			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB)
+					.intValue());
+		}
+		Node label805010 = createLabel(node,
+				DomainVisualIDRegistry
+						.getType(ApplicationRoleNameEditPart.VISUAL_ID));
+		return node;
+	}
+
+	/**
+	 * @generated
+	 */
 	public Node createApplicationRecipe_803001(EObject domainElement,
 			View containerView, int index, boolean persisted,
 			PreferencesHint preferencesHint) {
@@ -584,6 +697,50 @@ public class DomainViewProvider extends AbstractProvider implements
 		Node label805005 = createLabel(node,
 				DomainVisualIDRegistry
 						.getType(ApplicationUIPackageNameEditPart.VISUAL_ID));
+		return node;
+	}
+
+	/**
+	 * @generated
+	 */
+	public Node createStylesPackage_803004(EObject domainElement,
+			View containerView, int index, boolean persisted,
+			PreferencesHint preferencesHint) {
+		Node node = NotationFactory.eINSTANCE.createNode();
+		node.getStyles()
+				.add(NotationFactory.eINSTANCE.createDescriptionStyle());
+		node.getStyles().add(NotationFactory.eINSTANCE.createFontStyle());
+		{
+			HintedDiagramLinkStyle diagramFacet = NotationFactory.eINSTANCE
+					.createHintedDiagramLinkStyle();
+			diagramFacet.setHint("Style"); //$NON-NLS-1$
+			node.getStyles().add(diagramFacet);
+		}
+		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
+		node.setType(DomainVisualIDRegistry
+				.getType(StylesPackageEditPart.VISUAL_ID));
+		ViewUtil.insertChildView(containerView, node, index, persisted);
+		node.setElement(domainElement);
+		// initializeFromPreferences 
+		final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint
+				.getPreferenceStore();
+		FontStyle nodeFontStyle = (FontStyle) node
+				.getStyle(NotationPackage.Literals.FONT_STYLE);
+		if (nodeFontStyle != null) {
+			FontData fontData = PreferenceConverter.getFontData(prefStore,
+					IPreferenceConstants.PREF_DEFAULT_FONT);
+			nodeFontStyle.setFontName(fontData.getName());
+			nodeFontStyle.setFontHeight(fontData.getHeight());
+			nodeFontStyle.setBold((fontData.getStyle() & SWT.BOLD) != 0);
+			nodeFontStyle.setItalic((fontData.getStyle() & SWT.ITALIC) != 0);
+			org.eclipse.swt.graphics.RGB fontRGB = PreferenceConverter
+					.getColor(prefStore, IPreferenceConstants.PREF_FONT_COLOR);
+			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB)
+					.intValue());
+		}
+		Node label805008 = createLabel(node,
+				DomainVisualIDRegistry
+						.getType(StylesPackageNameEditPart.VISUAL_ID));
 		return node;
 	}
 

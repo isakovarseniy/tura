@@ -22,7 +22,7 @@
       </labelMappings>
       <tool
           xsi:type="gmftool:CreationTool"
-          href="domain.gmftool#//@palette/@tools.0/@tools.0"/>
+          href="domain.gmftool#//@palette/@tools.0/@tools.2"/>
       <diagramNode
           href="domain.gmfgraph#Canvas"/>
       <children
@@ -42,7 +42,7 @@
           </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
-              href="domain.gmftool#//@palette/@tools.0/@tools.3"/>
+              href="domain.gmftool#//@palette/@tools.0/@tools.5"/>
           <diagramNode
               href="domain.gmfgraph#ViewPort"/>
           <children
@@ -57,11 +57,11 @@
                 <diagramLabel
                     href="domain.gmfgraph#ViewPortTriggerLabel"/>
                 <features
-                    href="domain.ecore#//MethodPointer/fakeMethod"/>
+                    href="domain.ecore#//ViewPortTrigger/fakeMethod"/>
               </labelMappings>
               <tool
                   xsi:type="gmftool:CreationTool"
-                  href="domain.gmftool#//@palette/@tools.0/@tools.4"/>
+                  href="domain.gmftool#//@palette/@tools.0/@tools.6"/>
               <diagramNode
                   href="domain.gmfgraph#ViewPortTrigger"/>
             </ownedChild>
@@ -96,7 +96,7 @@
       </labelMappings>
       <tool
           xsi:type="gmftool:CreationTool"
-          href="domain.gmftool#//@palette/@tools.0/@tools.5"/>
+          href="domain.gmftool#//@palette/@tools.0/@tools.7"/>
       <diagramNode
           href="domain.gmfgraph#Window"/>
       <children
@@ -128,7 +128,7 @@
       </labelMappings>
       <tool
           xsi:type="gmftool:CreationTool"
-          href="domain.gmftool#//@palette/@tools.0/@tools.2"/>
+          href="domain.gmftool#//@palette/@tools.0/@tools.4"/>
       <diagramNode
           href="domain.gmfgraph#TabPage"/>
       <children
@@ -159,7 +159,7 @@
       </labelMappings>
       <tool
           xsi:type="gmftool:CreationTool"
-          href="domain.gmftool#//@palette/@tools.0/@tools.1"/>
+          href="domain.gmftool#//@palette/@tools.0/@tools.3"/>
       <diagramNode
           href="domain.gmfgraph#TabCanvas"/>
     </ownedChild>

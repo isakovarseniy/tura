@@ -194,6 +194,33 @@ public interface DomainFactory extends EFactory
   Application createApplication();
 
   /**
+   * Returns a new object of class '<em>Application Role</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Application Role</em>'.
+   * @generated
+   */
+  ApplicationRole createApplicationRole();
+
+  /**
+   * Returns a new object of class '<em>Application Style</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Application Style</em>'.
+   * @generated
+   */
+  ApplicationStyle createApplicationStyle();
+
+  /**
+   * Returns a new object of class '<em>Styles Package</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Styles Package</em>'.
+   * @generated
+   */
+  StylesPackage createStylesPackage();
+
+  /**
    * Returns a new object of class '<em>Application UI Layer</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -255,6 +282,60 @@ public interface DomainFactory extends EFactory
    * @generated
    */
   MethodPointer createMethodPointer();
+
+  /**
+   * Returns a new object of class '<em>Roles</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Roles</em>'.
+   * @generated
+   */
+  Roles createRoles();
+
+  /**
+   * Returns a new object of class '<em>Role</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Role</em>'.
+   * @generated
+   */
+  Role createRole();
+
+  /**
+   * Returns a new object of class '<em>Group</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Group</em>'.
+   * @generated
+   */
+  Group createGroup();
+
+  /**
+   * Returns a new object of class '<em>Styles</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Styles</em>'.
+   * @generated
+   */
+  Styles createStyles();
+
+  /**
+   * Returns a new object of class '<em>Style Library</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Style Library</em>'.
+   * @generated
+   */
+  StyleLibrary createStyleLibrary();
+
+  /**
+   * Returns a new object of class '<em>Style Set</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Style Set</em>'.
+   * @generated
+   */
+  StyleSet createStyleSet();
 
   /**
    * Returns a new object of class '<em>Mappers</em>'.
@@ -734,31 +815,40 @@ public interface DomainFactory extends EFactory
   FormDataControls createFormDataControls();
 
   /**
-   * Returns a new object of class '<em>Controls</em>'.
+   * Returns a new object of class '<em>Canvas View</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Controls</em>'.
+   * @return a new object of class '<em>Canvas View</em>'.
    * @generated
    */
-  Controls createControls();
+  CanvasView createCanvasView();
 
   /**
-   * Returns a new object of class '<em>Trigger</em>'.
+   * Returns a new object of class '<em>Style</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Trigger</em>'.
+   * @return a new object of class '<em>Style</em>'.
    * @generated
    */
-  Trigger createTrigger();
+  Style createStyle();
 
   /**
-   * Returns a new object of class '<em>Trigger Parameter</em>'.
+   * Returns a new object of class '<em>Style Class</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Trigger Parameter</em>'.
+   * @return a new object of class '<em>Style Class</em>'.
    * @generated
    */
-  TriggerParameter createTriggerParameter();
+  StyleClass createStyleClass();
+
+  /**
+   * Returns a new object of class '<em>Context Parameter</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Context Parameter</em>'.
+   * @generated
+   */
+  ContextParameter createContextParameter();
 
   /**
    * Returns a new object of class '<em>Context Value</em>'.
@@ -777,6 +867,168 @@ public interface DomainFactory extends EFactory
    * @generated
    */
   ExpressionPart createExpressionPart();
+
+  /**
+   * Returns a new object of class '<em>Context</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Context</em>'.
+   * @generated
+   */
+  Context createContext();
+
+  /**
+   * Returns a new object of class '<em>Style Element</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Style Element</em>'.
+   * @generated
+   */
+  StyleElement createStyleElement();
+
+  /**
+   * Returns a new object of class '<em>Uielement</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Uielement</em>'.
+   * @generated
+   */
+  Uielement createUielement();
+
+  /**
+   * Returns a new object of class '<em>Sources Pointer</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Sources Pointer</em>'.
+   * @generated
+   */
+  SourcesPointer createSourcesPointer();
+
+  /**
+   * Returns a new object of class '<em>Input Element</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Input Element</em>'.
+   * @generated
+   */
+  InputElement createInputElement();
+
+  /**
+   * Returns a new object of class '<em>Selection</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Selection</em>'.
+   * @generated
+   */
+  Selection createSelection();
+
+  /**
+   * Returns a new object of class '<em>Option Selection</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Option Selection</em>'.
+   * @generated
+   */
+  OptionSelection createOptionSelection();
+
+  /**
+   * Returns a new object of class '<em>Action Element</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Action Element</em>'.
+   * @generated
+   */
+  ActionElement createActionElement();
+
+  /**
+   * Returns a new object of class '<em>Input Text</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Input Text</em>'.
+   * @generated
+   */
+  InputText createInputText();
+
+  /**
+   * Returns a new object of class '<em>Label</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Label</em>'.
+   * @generated
+   */
+  Label createLabel();
+
+  /**
+   * Returns a new object of class '<em>Output Text</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Output Text</em>'.
+   * @generated
+   */
+  OutputText createOutputText();
+
+  /**
+   * Returns a new object of class '<em>Check Box</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Check Box</em>'.
+   * @generated
+   */
+  CheckBox createCheckBox();
+
+  /**
+   * Returns a new object of class '<em>Drop Down Selection</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Drop Down Selection</em>'.
+   * @generated
+   */
+  DropDownSelection createDropDownSelection();
+
+  /**
+   * Returns a new object of class '<em>Column</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Column</em>'.
+   * @generated
+   */
+  Column createColumn();
+
+  /**
+   * Returns a new object of class '<em>Table</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Table</em>'.
+   * @generated
+   */
+  Table createTable();
+
+  /**
+   * Returns a new object of class '<em>Tree</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Tree</em>'.
+   * @generated
+   */
+  Tree createTree();
+
+  /**
+   * Returns a new object of class '<em>Button</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Button</em>'.
+   * @generated
+   */
+  Button createButton();
+
+  /**
+   * Returns a new object of class '<em>Controls</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Controls</em>'.
+   * @generated
+   */
+  Controls createControls();
 
   /**
    * Returns a new object of class '<em>PRE Form Trigger</em>'.

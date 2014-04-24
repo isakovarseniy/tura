@@ -52,6 +52,18 @@ public class DomainEditPartFactory implements EditPartFactory {
 			case ApplicationInfrastructureLayerNameEditPart.VISUAL_ID:
 				return new ApplicationInfrastructureLayerNameEditPart(view);
 
+			case ApplicationStyleEditPart.VISUAL_ID:
+				return new ApplicationStyleEditPart(view);
+
+			case ApplicationStyleNameEditPart.VISUAL_ID:
+				return new ApplicationStyleNameEditPart(view);
+
+			case ApplicationRoleEditPart.VISUAL_ID:
+				return new ApplicationRoleEditPart(view);
+
+			case ApplicationRoleNameEditPart.VISUAL_ID:
+				return new ApplicationRoleNameEditPart(view);
+
 			case ApplicationRecipeEditPart.VISUAL_ID:
 				return new ApplicationRecipeEditPart(view);
 
@@ -70,6 +82,12 @@ public class DomainEditPartFactory implements EditPartFactory {
 			case ApplicationUIPackageNameEditPart.VISUAL_ID:
 				return new ApplicationUIPackageNameEditPart(view);
 
+			case StylesPackageEditPart.VISUAL_ID:
+				return new StylesPackageEditPart(view);
+
+			case StylesPackageNameEditPart.VISUAL_ID:
+				return new StylesPackageNameEditPart(view);
+
 			case ApplicationRecipesApplicationRecipesRecipesCompartmentEditPart.VISUAL_ID:
 				return new ApplicationRecipesApplicationRecipesRecipesCompartmentEditPart(
 						view);
@@ -80,6 +98,10 @@ public class DomainEditPartFactory implements EditPartFactory {
 
 			case ApplicationUILayerApplicationUILayerApplicationUIPackagesCompartmentEditPart.VISUAL_ID:
 				return new ApplicationUILayerApplicationUILayerApplicationUIPackagesCompartmentEditPart(
+						view);
+
+			case ApplicationStyleApplicationStyleStylesPackageCompartmentEditPart.VISUAL_ID:
+				return new ApplicationStyleApplicationStyleStylesPackageCompartmentEditPart(
 						view);
 			}
 		}

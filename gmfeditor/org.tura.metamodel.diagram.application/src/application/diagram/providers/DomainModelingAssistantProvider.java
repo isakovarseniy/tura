@@ -27,6 +27,7 @@ import org.eclipse.ui.dialogs.ElementListSelectionDialog;
 import application.diagram.edit.parts.ApplicationEditPart;
 import application.diagram.edit.parts.ApplicationMappersApplicationMappersMappersCompartmentEditPart;
 import application.diagram.edit.parts.ApplicationRecipesApplicationRecipesRecipesCompartmentEditPart;
+import application.diagram.edit.parts.ApplicationStyleApplicationStyleStylesPackageCompartmentEditPart;
 import application.diagram.edit.parts.ApplicationUILayerApplicationUILayerApplicationUIPackagesCompartmentEditPart;
 import application.diagram.part.DomainDiagramEditorPlugin;
 import application.diagram.part.Messages;
@@ -43,11 +44,13 @@ public class DomainModelingAssistantProvider extends ModelingAssistantProvider {
 		IGraphicalEditPart editPart = (IGraphicalEditPart) host
 				.getAdapter(IGraphicalEditPart.class);
 		if (editPart instanceof ApplicationEditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(4);
+			ArrayList<IElementType> types = new ArrayList<IElementType>(6);
 			types.add(DomainElementTypes.ApplicationRecipes_802001);
 			types.add(DomainElementTypes.ApplicationMappers_802002);
 			types.add(DomainElementTypes.ApplicationUILayer_802003);
 			types.add(DomainElementTypes.ApplicationInfrastructureLayer_802004);
+			types.add(DomainElementTypes.ApplicationStyle_802005);
+			types.add(DomainElementTypes.ApplicationRole_802006);
 			return types;
 		}
 		if (editPart instanceof ApplicationRecipesApplicationRecipesRecipesCompartmentEditPart) {
@@ -63,6 +66,11 @@ public class DomainModelingAssistantProvider extends ModelingAssistantProvider {
 		if (editPart instanceof ApplicationUILayerApplicationUILayerApplicationUIPackagesCompartmentEditPart) {
 			ArrayList<IElementType> types = new ArrayList<IElementType>(1);
 			types.add(DomainElementTypes.ApplicationUIPackage_803003);
+			return types;
+		}
+		if (editPart instanceof ApplicationStyleApplicationStyleStylesPackageCompartmentEditPart) {
+			ArrayList<IElementType> types = new ArrayList<IElementType>(1);
+			types.add(DomainElementTypes.StylesPackage_803004);
 			return types;
 		}
 		return Collections.EMPTY_LIST;

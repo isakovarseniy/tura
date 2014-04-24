@@ -241,6 +241,14 @@
           collapse="true">
         <entries
             xsi:type="gmfgen:ToolEntry"
+            title="ApplicationRole"
+            description="Create new ApplicationRole"/>
+        <entries
+            xsi:type="gmfgen:ToolEntry"
+            title="ApplicationStyle"
+            description="Create new ApplicationStyle"/>
+        <entries
+            xsi:type="gmfgen:ToolEntry"
             title="Form"
             description="Create new Form"
             genNodes="//@diagram/@topLevelNodes.0"/>

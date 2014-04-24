@@ -12,6 +12,24 @@
         collapsible="true">
       <tools
           xsi:type="gmftool:CreationTool"
+          title="ApplicationRole"
+          description="Create new ApplicationRole">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="ApplicationStyle"
+          description="Create new ApplicationStyle">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
           title="ArtificialField"
           description="Create new ArtificialField">
         <smallIcon

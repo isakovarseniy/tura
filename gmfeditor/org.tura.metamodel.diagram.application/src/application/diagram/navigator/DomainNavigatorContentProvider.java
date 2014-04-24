@@ -36,9 +36,13 @@ import application.diagram.edit.parts.ApplicationMappersEditPart;
 import application.diagram.edit.parts.ApplicationRecipeEditPart;
 import application.diagram.edit.parts.ApplicationRecipesApplicationRecipesRecipesCompartmentEditPart;
 import application.diagram.edit.parts.ApplicationRecipesEditPart;
+import application.diagram.edit.parts.ApplicationRoleEditPart;
+import application.diagram.edit.parts.ApplicationStyleApplicationStyleStylesPackageCompartmentEditPart;
+import application.diagram.edit.parts.ApplicationStyleEditPart;
 import application.diagram.edit.parts.ApplicationUILayerApplicationUILayerApplicationUIPackagesCompartmentEditPart;
 import application.diagram.edit.parts.ApplicationUILayerEditPart;
 import application.diagram.edit.parts.ApplicationUIPackageEditPart;
+import application.diagram.edit.parts.StylesPackageEditPart;
 import application.diagram.part.DomainVisualIDRegistry;
 
 /**
@@ -269,6 +273,16 @@ public class DomainNavigatorContentProvider implements ICommonContentProvider {
 							.getType(ApplicationInfrastructureLayerEditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
+			connectedViews = getChildrenByType(Collections.singleton(sv),
+					DomainVisualIDRegistry
+							.getType(ApplicationStyleEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(Collections.singleton(sv),
+					DomainVisualIDRegistry
+							.getType(ApplicationRoleEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
 			return result.toArray();
 		}
 
@@ -315,6 +329,22 @@ public class DomainNavigatorContentProvider implements ICommonContentProvider {
 			connectedViews = getChildrenByType(connectedViews,
 					DomainVisualIDRegistry
 							.getType(ApplicationUIPackageEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			return result.toArray();
+		}
+
+		case ApplicationStyleEditPart.VISUAL_ID: {
+			LinkedList<DomainAbstractNavigatorItem> result = new LinkedList<DomainAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			Collection<View> connectedViews;
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					DomainVisualIDRegistry
+							.getType(ApplicationStyleApplicationStyleStylesPackageCompartmentEditPart.VISUAL_ID));
+			connectedViews = getChildrenByType(connectedViews,
+					DomainVisualIDRegistry
+							.getType(StylesPackageEditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
 			return result.toArray();

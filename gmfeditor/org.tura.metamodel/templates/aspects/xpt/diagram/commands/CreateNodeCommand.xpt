@@ -22,6 +22,9 @@
   «IF self.createCommandClassName.indexOf('FormDataControlsCreateCommand') > 0-»
         newElement.setName("Data control");
   «ENDIF-»
+  «IF self.createCommandClassName.indexOf('ApplicationRoleCreateCommand') > 0-»
+        newElement.setName("Application Role");
+  «ENDIF-»
 		
 «IF true/*FIXME boolean needsExternalConfiguration*/»
 		doConfigure(newElement, monitor, info);

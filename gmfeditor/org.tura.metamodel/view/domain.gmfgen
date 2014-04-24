@@ -137,7 +137,7 @@
             xsi:type="gmfgen:FeatureLabelModelFacet"
             parser="//@labelParsers/@implementations.0">
           <metaFeatures
-              href="domain.genmodel#//domain/MethodPointer/fakeMethod"/>
+              href="domain.genmodel#//domain/ViewPortTrigger/fakeMethod"/>
         </modelFacet>
       </labels>
     </childNodes>
@@ -495,6 +495,14 @@
       <groups
           title="Objects"
           collapse="true">
+        <entries
+            xsi:type="gmfgen:ToolEntry"
+            title="ApplicationRole"
+            description="Create new ApplicationRole"/>
+        <entries
+            xsi:type="gmfgen:ToolEntry"
+            title="ApplicationStyle"
+            description="Create new ApplicationStyle"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
             title="Canvas"

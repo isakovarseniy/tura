@@ -3,13 +3,11 @@
 package domain.impl;
 
 import domain.CanvasFrame;
-import domain.Canvas;
 import domain.DomainPackage;
 import domain.FormView;
 import domain.TabPagesInheritance;
 import domain.ViewInheritance;
 import domain.Views;
-import domain.Window;
 
 import java.util.Collection;
 

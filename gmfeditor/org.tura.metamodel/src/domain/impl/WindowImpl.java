@@ -19,6 +19,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -47,6 +48,7 @@ public class WindowImpl extends CanvasFrameImpl implements Window
    * @ordered
    */
   protected static final int COLUMNS_EDEFAULT = 1;
+
   /**
    * The cached value of the '{@link #getColumns() <em>Columns</em>}' attribute.
    * <!-- begin-user-doc -->
@@ -56,6 +58,7 @@ public class WindowImpl extends CanvasFrameImpl implements Window
    * @ordered
    */
   protected int columns = COLUMNS_EDEFAULT;
+
   /**
    * The cached value of the '{@link #getViewPorts() <em>View Ports</em>}' containment reference list.
    * <!-- begin-user-doc -->

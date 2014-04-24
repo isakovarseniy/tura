@@ -282,50 +282,6 @@ public class DomainViewProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	public Node createTabPage_1302002(EObject domainElement,
-			View containerView, int index, boolean persisted,
-			PreferencesHint preferencesHint) {
-		Node node = NotationFactory.eINSTANCE.createNode();
-		node.getStyles()
-				.add(NotationFactory.eINSTANCE.createDescriptionStyle());
-		node.getStyles().add(NotationFactory.eINSTANCE.createFontStyle());
-		node.getStyles().add(
-				NotationFactory.eINSTANCE.createHintedDiagramLinkStyle());
-		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
-		node.setType(DomainVisualIDRegistry.getType(TabPageEditPart.VISUAL_ID));
-		ViewUtil.insertChildView(containerView, node, index, persisted);
-		node.setElement(domainElement);
-		stampShortcut(containerView, node);
-		// initializeFromPreferences 
-		final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint
-				.getPreferenceStore();
-		FontStyle nodeFontStyle = (FontStyle) node
-				.getStyle(NotationPackage.Literals.FONT_STYLE);
-		if (nodeFontStyle != null) {
-			FontData fontData = PreferenceConverter.getFontData(prefStore,
-					IPreferenceConstants.PREF_DEFAULT_FONT);
-			nodeFontStyle.setFontName(fontData.getName());
-			nodeFontStyle.setFontHeight(fontData.getHeight());
-			nodeFontStyle.setBold((fontData.getStyle() & SWT.BOLD) != 0);
-			nodeFontStyle.setItalic((fontData.getStyle() & SWT.ITALIC) != 0);
-			org.eclipse.swt.graphics.RGB fontRGB = PreferenceConverter
-					.getColor(prefStore, IPreferenceConstants.PREF_FONT_COLOR);
-			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB)
-					.intValue());
-		}
-		Node label1305002 = createLabel(node,
-				DomainVisualIDRegistry.getType(TabPageNameEditPart.VISUAL_ID));
-		createCompartment(
-				node,
-				DomainVisualIDRegistry
-						.getType(TabPageTabPageViewPortsCompartmentEditPart.VISUAL_ID),
-				true, false, false, false);
-		return node;
-	}
-
-	/**
-	 * @generated
-	 */
 	public Node createCanvas_1302003(EObject domainElement, View containerView,
 			int index, boolean persisted, PreferencesHint preferencesHint) {
 		Node node = NotationFactory.eINSTANCE.createNode();
@@ -405,6 +361,50 @@ public class DomainViewProvider extends AbstractProvider implements
 				node,
 				DomainVisualIDRegistry
 						.getType(WindowWindowViewPortsCompartmentEditPart.VISUAL_ID),
+				true, false, false, false);
+		return node;
+	}
+
+	/**
+	 * @generated
+	 */
+	public Node createTabPage_1302002(EObject domainElement,
+			View containerView, int index, boolean persisted,
+			PreferencesHint preferencesHint) {
+		Node node = NotationFactory.eINSTANCE.createNode();
+		node.getStyles()
+				.add(NotationFactory.eINSTANCE.createDescriptionStyle());
+		node.getStyles().add(NotationFactory.eINSTANCE.createFontStyle());
+		node.getStyles().add(
+				NotationFactory.eINSTANCE.createHintedDiagramLinkStyle());
+		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
+		node.setType(DomainVisualIDRegistry.getType(TabPageEditPart.VISUAL_ID));
+		ViewUtil.insertChildView(containerView, node, index, persisted);
+		node.setElement(domainElement);
+		stampShortcut(containerView, node);
+		// initializeFromPreferences 
+		final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint
+				.getPreferenceStore();
+		FontStyle nodeFontStyle = (FontStyle) node
+				.getStyle(NotationPackage.Literals.FONT_STYLE);
+		if (nodeFontStyle != null) {
+			FontData fontData = PreferenceConverter.getFontData(prefStore,
+					IPreferenceConstants.PREF_DEFAULT_FONT);
+			nodeFontStyle.setFontName(fontData.getName());
+			nodeFontStyle.setFontHeight(fontData.getHeight());
+			nodeFontStyle.setBold((fontData.getStyle() & SWT.BOLD) != 0);
+			nodeFontStyle.setItalic((fontData.getStyle() & SWT.ITALIC) != 0);
+			org.eclipse.swt.graphics.RGB fontRGB = PreferenceConverter
+					.getColor(prefStore, IPreferenceConstants.PREF_FONT_COLOR);
+			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB)
+					.intValue());
+		}
+		Node label1305002 = createLabel(node,
+				DomainVisualIDRegistry.getType(TabPageNameEditPart.VISUAL_ID));
+		createCompartment(
+				node,
+				DomainVisualIDRegistry
+						.getType(TabPageTabPageViewPortsCompartmentEditPart.VISUAL_ID),
 				true, false, false, false);
 		return node;
 	}

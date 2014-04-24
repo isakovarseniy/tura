@@ -152,7 +152,35 @@ class Application{
    val ApplicationMappers#parent applicationMappers;
    val ApplicationUILayer#parent applicationUILayer;
    val ApplicationInfrastructureLayer#parent  applicationInfrastructureLayer;
+   val ApplicationStyle#parent applicationStyle;
+   val ApplicationRole#parent applicationRole;
    ref DomainApplication#application parent;
+}
+
+@gmf.node(label="name",border.color="0,0,0",color="192,192,192")
+class ApplicationRole{
+    id attr EString uid;
+   attr EString name;
+   ref Application#applicationRole parent;
+   val Roles#parent roles; 
+}
+
+
+@gmf.node(label="name",border.color="0,0,0",color="192,192,192")
+class ApplicationStyle{
+    id attr EString uid;
+   attr EString name;
+   ref Application#applicationStyle parent;
+   @gmf.compartment
+   val StylesPackage[*]#parent stylesPackage;
+}
+
+@gmf.node(label="name",border.color="0,0,0",color="255,196,176")
+class StylesPackage{
+    id attr EString uid;
+   attr EString name;
+   ref ApplicationStyle#stylesPackage parent;
+   ref Styles#parent styles;
 }
 
 @gmf.node(label="name",border.color="0,0,0",color="192,192,192")
@@ -214,6 +242,53 @@ class MethodPointer extends TypePointer{
     attr EString fakeMethod;
 }
 
+@gmf.diagram.roles
+class Roles{
+    id attr EString uid;
+    ref ApplicationRole#roles parent;
+    val Role[*] roles;
+    val Group[*] groups;
+}
+
+@gmf.node(label="name",border.color="0,0,0",color="255,237,85")
+class Role{
+    id attr EString uid;
+    attr EString name;
+}
+
+@gmf.node(label="name",border.color="0,0,0",color="255,237,85")
+class Group{
+    id attr EString uid;
+    attr EString name;
+    
+  @gmf.link(target.decoration="arrow", style="dash")
+   ref Group[*] group2Group;
+    
+  @gmf.link(target.decoration="arrow", style="dash")
+   ref Role[*] group2Role;
+    
+}
+
+@gmf.diagram.style
+class Styles{
+    id attr EString uid;
+    ref StylesPackage#styles parent;
+    val StyleLibrary[*] libraries;
+}
+
+@gmf.node(label="name",border.color="0,0,0",color="255,237,85")
+class StyleLibrary{
+    id attr EString uid;
+    attr EString name;
+    @gmf.compartment
+    val StyleSet[*] styles;    
+}
+
+@gmf.node(label="name",border.color="0,0,0",color="255,237,85")
+class StyleSet{
+    id attr EString uid;
+   attr EString name;
+}
 
 @gmf.diagram.mapper
 class Mappers{
@@ -554,6 +629,7 @@ class Views{
 class CanvasFrame{
     id attr EString uid;
    attr EString name;
+   val CanvasView#parent canvasView;
 }
 
 class ViewPortHolder extends HTMLLayerHolder{
@@ -591,7 +667,12 @@ class ViewPort{
 }
 
 @gmf.node(label="fakeMethod",border.color="0,0,0",color="241,238,203")
-class ViewPortTrigger extends Trigger {
+class ViewPortTrigger  {
+   id attr EString uid;
+
+  val Context trigger;
+
+  attr EString fakeMethod;
  }
 
 @gmf.link(source="source", target="target", color = "80,195,63" ,style="dot", width="2" , target.decoration="closedarrow")
@@ -617,29 +698,31 @@ class FormDataControls{
    ref Controls#parent formControl;
 }
 
-@gmf.diagram
-class Controls{
+
+@gmf.diagram.canvasview
+class CanvasView{
     id attr EString uid;
-    ref FormDataControls#formControl parent; 
-    val Root root;
-    val DataControl [*]#parent controls;
-    val Relation[*] relations;
+   ref CanvasFrame#canvasView parent;
+   
 }
 
-class Trigger extends MethodPointer {
+class Style{
     id attr EString uid;
-    attr EString name;
-    val TriggerParameter[*] parameters;
-
+    attr EString style;
 }
 
-class TriggerParameter{
+class StyleClass{
+    id attr EString uid;
+    ref StylesPackage stylesPackage;
+    ref StyleLibrary library;
+    ref StyleSet styleSet;
+}
+
+class ContextParameter{
     id attr EString uid;
    ref Parameter parameter;
    val ContextValue value;
 }
-
-
 
 class ContextValue{
    id attr EString uid;
@@ -654,52 +737,195 @@ class ExpressionPart{
    attr EInt order;   
 }
 
+class Context{
+    id attr EString uid;
+    attr EString value;
+    val ExpressionPart[*] expression;
+    val ContextParameter[*] parameters;
+   
+}
+
+class StyleElement{
+    val Style style;
+    val StyleClass styleClass;
+}
+
+class Uielement extends StyleElement{
+    id attr EString uid;
+    attr EString enabled;
+    val Context enabledContext;
+    attr EString required;
+    val Context requiredContext;
+    attr EString readOnly;
+    val Context readOnlyContext;
+    
+}
+
+class SourcesPointer extends Uielement{
+   val Context sourcePointer;
+   val Context valuePointer;
+   val Context sourceCast;
+}
+
+class InputElement extends Uielement {
+   attr EString label;
+}
+
+class Selection extends StyleElement{
+   val Context displayOptionPointer;
+   val Context valueOptionPointer;
+}
+
+class OptionSelection extends InputElement {
+   val Context optionPointer;
+   val Context optionCast;
+}
+
+class ActionElement extends Uielement{
+  val Context trigger;
+}
+
+class InputText extends InputElement {
+   
+}
+
+class Label extends InputElement {
+   
+}
+
+class OutputText extends InputElement {
+   
+}
+
+class CheckBox extends InputElement {
+   
+}
+
+class DropDownSelection extends OptionSelection {
+   val Selection selection;
+}
+
+class Column extends StyleElement{
+   val InputElement element;   
+}
+
+class Table extends SourcesPointer{
+    val Column[*] columns;
+}
+
+class Tree extends SourcesPointer{
+   val Context image;
+}
+
+class Button extends ActionElement{
+   
+}
+
+@gmf.diagram
+class Controls{
+    id attr EString uid;
+    ref FormDataControls#formControl parent; 
+    val Root root;
+    val DataControl [*]#parent controls;
+    val Relation[*] relations;
+}
+
+
+
 @gmf.node(label="fakeMethod",border.color="0,0,0",color="241,238,203")
-class PREFormTrigger extends Trigger {
+class PREFormTrigger  {
+    id attr EString uid;
+  val Context trigger;
+  
+  attr EString fakeMethod;
  }
 
 @gmf.node(label="fakeMethod",border.color="0,0,0",color="241,238,203")
-class PREQueryTrigger extends Trigger {
+class PREQueryTrigger  {
+    id attr EString uid;
+  val Context trigger;
+
+  attr EString fakeMethod;
  }
 
 @gmf.node(label="fakeMethod",border.color="0,0,0",color="241,238,203")
-class POSTQueryTrigger extends Trigger {
+class POSTQueryTrigger  {
+    id attr EString uid;
+  val Context trigger;
+
+  attr EString fakeMethod;
  }
 
 @gmf.node(label="fakeMethod",border.color="0,0,0",color="241,238,203")
-class PREInsertTrigger extends Trigger {
+class PREInsertTrigger  {
+    id attr EString uid;
+  val Context trigger;
+
+  attr EString fakeMethod;
  }
 
 @gmf.node(label="fakeMethod",border.color="0,0,0",color="241,238,203")
-class PREDeleteTrigger extends Trigger {
+class PREDeleteTrigger  {
+    id attr EString uid;
+  val Context trigger;
+
+  attr EString fakeMethod;
  }
 
 @gmf.node(label="fakeMethod",border.color="0,0,0",color="241,238,203")
-class POSTCreateTrigger extends Trigger {
+class POSTCreateTrigger  {
+    id attr EString uid;
+  val Context trigger;
+
+  attr EString fakeMethod;
  }
 
 @gmf.node(label="fakeMethod",border.color="0,0,0",color="241,238,203")
-class PREUpdateTrigger extends Trigger {
+class PREUpdateTrigger  {
+    id attr EString uid;
+  val Context trigger;
+
+  attr EString fakeMethod;
  }
 
 @gmf.node(label="fakeMethod",border.color="0,0,0",color="241,238,203")
-class CreateTrigger extends Trigger {
+class CreateTrigger  {
+    id attr EString uid;
+  val Context trigger;
+
+  attr EString fakeMethod;
  }
 
 @gmf.node(label="fakeMethod",border.color="0,0,0",color="241,238,203")
-class InsertTrigger extends Trigger {
+class InsertTrigger {
+    id attr EString uid;
+  val Context trigger;
+
+  attr EString fakeMethod;
  }
 
 @gmf.node(label="fakeMethod",border.color="0,0,0",color="241,238,203")
-class UpdateTrigger extends Trigger {
+class UpdateTrigger  {
+    id attr EString uid;
+  val Context trigger;
+
+  attr EString fakeMethod;
  }
 
 @gmf.node(label="fakeMethod",border.color="0,0,0",color="241,238,203")
-class DeleteTrigger extends Trigger {
+class DeleteTrigger  {
+    id attr EString uid;
+  val Context trigger;
+
+  attr EString fakeMethod;
  }
 
 @gmf.node(label="fakeMethod",border.color="0,0,0",color="241,238,203")
-class SearchTrigger extends Trigger {
+class SearchTrigger  {
+    id attr EString uid;
+  val Context trigger;
+
+  attr EString fakeMethod;
  }
 
 

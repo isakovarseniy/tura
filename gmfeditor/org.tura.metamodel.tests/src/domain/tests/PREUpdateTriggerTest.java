@@ -5,6 +5,8 @@ package domain.tests;
 import domain.DomainFactory;
 import domain.PREUpdateTrigger;
 
+import junit.framework.TestCase;
+
 import junit.textui.TestRunner;
 
 /**
@@ -13,8 +15,16 @@ import junit.textui.TestRunner;
  * <!-- end-user-doc -->
  * @generated
  */
-public class PREUpdateTriggerTest extends TriggerTest
+public class PREUpdateTriggerTest extends TestCase
 {
+
+  /**
+   * The fixture for this PRE Update Trigger test case.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected PREUpdateTrigger fixture = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -38,15 +48,25 @@ public class PREUpdateTriggerTest extends TriggerTest
   }
 
   /**
+   * Sets the fixture for this PRE Update Trigger test case.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected void setFixture(PREUpdateTrigger fixture)
+  {
+    this.fixture = fixture;
+  }
+
+  /**
    * Returns the fixture for this PRE Update Trigger test case.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   protected PREUpdateTrigger getFixture()
   {
-    return (PREUpdateTrigger)fixture;
+    return fixture;
   }
 
   /**

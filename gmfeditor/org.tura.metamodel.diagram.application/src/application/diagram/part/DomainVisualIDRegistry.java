@@ -23,11 +23,18 @@ import application.diagram.edit.parts.ApplicationRecipeNameEditPart;
 import application.diagram.edit.parts.ApplicationRecipesApplicationRecipesRecipesCompartmentEditPart;
 import application.diagram.edit.parts.ApplicationRecipesEditPart;
 import application.diagram.edit.parts.ApplicationRecipesNameEditPart;
+import application.diagram.edit.parts.ApplicationRoleEditPart;
+import application.diagram.edit.parts.ApplicationRoleNameEditPart;
+import application.diagram.edit.parts.ApplicationStyleApplicationStyleStylesPackageCompartmentEditPart;
+import application.diagram.edit.parts.ApplicationStyleEditPart;
+import application.diagram.edit.parts.ApplicationStyleNameEditPart;
 import application.diagram.edit.parts.ApplicationUILayerApplicationUILayerApplicationUIPackagesCompartmentEditPart;
 import application.diagram.edit.parts.ApplicationUILayerEditPart;
 import application.diagram.edit.parts.ApplicationUILayerNameEditPart;
 import application.diagram.edit.parts.ApplicationUIPackageEditPart;
 import application.diagram.edit.parts.ApplicationUIPackageNameEditPart;
+import application.diagram.edit.parts.StylesPackageEditPart;
+import application.diagram.edit.parts.StylesPackageNameEditPart;
 import domain.Application;
 import domain.DomainPackage;
 
@@ -156,6 +163,14 @@ public class DomainVisualIDRegistry {
 					.isSuperTypeOf(domainElement.eClass())) {
 				return ApplicationInfrastructureLayerEditPart.VISUAL_ID;
 			}
+			if (DomainPackage.eINSTANCE.getApplicationStyle().isSuperTypeOf(
+					domainElement.eClass())) {
+				return ApplicationStyleEditPart.VISUAL_ID;
+			}
+			if (DomainPackage.eINSTANCE.getApplicationRole().isSuperTypeOf(
+					domainElement.eClass())) {
+				return ApplicationRoleEditPart.VISUAL_ID;
+			}
 			break;
 		case ApplicationRecipesApplicationRecipesRecipesCompartmentEditPart.VISUAL_ID:
 			if (DomainPackage.eINSTANCE.getApplicationRecipe().isSuperTypeOf(
@@ -173,6 +188,12 @@ public class DomainVisualIDRegistry {
 			if (DomainPackage.eINSTANCE.getApplicationUIPackage()
 					.isSuperTypeOf(domainElement.eClass())) {
 				return ApplicationUIPackageEditPart.VISUAL_ID;
+			}
+			break;
+		case ApplicationStyleApplicationStyleStylesPackageCompartmentEditPart.VISUAL_ID:
+			if (DomainPackage.eINSTANCE.getStylesPackage().isSuperTypeOf(
+					domainElement.eClass())) {
+				return StylesPackageEditPart.VISUAL_ID;
 			}
 			break;
 		}
@@ -214,6 +235,12 @@ public class DomainVisualIDRegistry {
 			if (ApplicationInfrastructureLayerEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
+			if (ApplicationStyleEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (ApplicationRoleEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
 			break;
 		case ApplicationRecipesEditPart.VISUAL_ID:
 			if (ApplicationRecipesNameEditPart.VISUAL_ID == nodeVisualID) {
@@ -244,6 +271,19 @@ public class DomainVisualIDRegistry {
 				return true;
 			}
 			break;
+		case ApplicationStyleEditPart.VISUAL_ID:
+			if (ApplicationStyleNameEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (ApplicationStyleApplicationStyleStylesPackageCompartmentEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case ApplicationRoleEditPart.VISUAL_ID:
+			if (ApplicationRoleNameEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
 		case ApplicationRecipeEditPart.VISUAL_ID:
 			if (ApplicationRecipeNameEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
@@ -259,6 +299,11 @@ public class DomainVisualIDRegistry {
 				return true;
 			}
 			break;
+		case StylesPackageEditPart.VISUAL_ID:
+			if (StylesPackageNameEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
 		case ApplicationRecipesApplicationRecipesRecipesCompartmentEditPart.VISUAL_ID:
 			if (ApplicationRecipeEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
@@ -271,6 +316,11 @@ public class DomainVisualIDRegistry {
 			break;
 		case ApplicationUILayerApplicationUILayerApplicationUIPackagesCompartmentEditPart.VISUAL_ID:
 			if (ApplicationUIPackageEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case ApplicationStyleApplicationStyleStylesPackageCompartmentEditPart.VISUAL_ID:
+			if (StylesPackageEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -319,6 +369,7 @@ public class DomainVisualIDRegistry {
 		case ApplicationRecipesApplicationRecipesRecipesCompartmentEditPart.VISUAL_ID:
 		case ApplicationMappersApplicationMappersMappersCompartmentEditPart.VISUAL_ID:
 		case ApplicationUILayerApplicationUILayerApplicationUIPackagesCompartmentEditPart.VISUAL_ID:
+		case ApplicationStyleApplicationStyleStylesPackageCompartmentEditPart.VISUAL_ID:
 			return true;
 		default:
 			break;
@@ -334,9 +385,11 @@ public class DomainVisualIDRegistry {
 		case ApplicationEditPart.VISUAL_ID:
 			return false;
 		case ApplicationInfrastructureLayerEditPart.VISUAL_ID:
+		case ApplicationRoleEditPart.VISUAL_ID:
 		case ApplicationRecipeEditPart.VISUAL_ID:
 		case ApplicationMapperEditPart.VISUAL_ID:
 		case ApplicationUIPackageEditPart.VISUAL_ID:
+		case StylesPackageEditPart.VISUAL_ID:
 			return true;
 		default:
 			break;

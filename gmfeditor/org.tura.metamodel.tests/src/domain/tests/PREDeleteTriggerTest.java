@@ -5,6 +5,8 @@ package domain.tests;
 import domain.DomainFactory;
 import domain.PREDeleteTrigger;
 
+import junit.framework.TestCase;
+
 import junit.textui.TestRunner;
 
 /**
@@ -13,8 +15,16 @@ import junit.textui.TestRunner;
  * <!-- end-user-doc -->
  * @generated
  */
-public class PREDeleteTriggerTest extends TriggerTest
+public class PREDeleteTriggerTest extends TestCase
 {
+
+  /**
+   * The fixture for this PRE Delete Trigger test case.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected PREDeleteTrigger fixture = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -38,15 +48,25 @@ public class PREDeleteTriggerTest extends TriggerTest
   }
 
   /**
+   * Sets the fixture for this PRE Delete Trigger test case.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected void setFixture(PREDeleteTrigger fixture)
+  {
+    this.fixture = fixture;
+  }
+
+  /**
    * Returns the fixture for this PRE Delete Trigger test case.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   protected PREDeleteTrigger getFixture()
   {
-    return (PREDeleteTrigger)fixture;
+    return fixture;
   }
 
   /**

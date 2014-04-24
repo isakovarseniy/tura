@@ -21,8 +21,11 @@ import application.diagram.edit.parts.ApplicationMapperNameEditPart;
 import application.diagram.edit.parts.ApplicationMappersNameEditPart;
 import application.diagram.edit.parts.ApplicationRecipeNameEditPart;
 import application.diagram.edit.parts.ApplicationRecipesNameEditPart;
+import application.diagram.edit.parts.ApplicationRoleNameEditPart;
+import application.diagram.edit.parts.ApplicationStyleNameEditPart;
 import application.diagram.edit.parts.ApplicationUILayerNameEditPart;
 import application.diagram.edit.parts.ApplicationUIPackageNameEditPart;
+import application.diagram.edit.parts.StylesPackageNameEditPart;
 import application.diagram.parsers.MessageFormatParser;
 import application.diagram.part.DomainVisualIDRegistry;
 import domain.DomainPackage;
@@ -108,6 +111,42 @@ public class DomainParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
+	private IParser applicationStyleName_805009Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getApplicationStyleName_805009Parser() {
+		if (applicationStyleName_805009Parser == null) {
+			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE
+					.getApplicationStyle_Name() };
+			MessageFormatParser parser = new MessageFormatParser(features);
+			applicationStyleName_805009Parser = parser;
+		}
+		return applicationStyleName_805009Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	private IParser applicationRoleName_805010Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getApplicationRoleName_805010Parser() {
+		if (applicationRoleName_805010Parser == null) {
+			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE
+					.getApplicationRole_Name() };
+			MessageFormatParser parser = new MessageFormatParser(features);
+			applicationRoleName_805010Parser = parser;
+		}
+		return applicationRoleName_805010Parser;
+	}
+
+	/**
+	 * @generated
+	 */
 	private IParser applicationRecipeName_805001Parser;
 
 	/**
@@ -162,6 +201,24 @@ public class DomainParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
+	private IParser stylesPackageName_805008Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getStylesPackageName_805008Parser() {
+		if (stylesPackageName_805008Parser == null) {
+			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE
+					.getStylesPackage_Name() };
+			MessageFormatParser parser = new MessageFormatParser(features);
+			stylesPackageName_805008Parser = parser;
+		}
+		return stylesPackageName_805008Parser;
+	}
+
+	/**
+	 * @generated
+	 */
 	protected IParser getParser(int visualID) {
 		switch (visualID) {
 		case ApplicationRecipesNameEditPart.VISUAL_ID:
@@ -172,12 +229,18 @@ public class DomainParserProvider extends AbstractProvider implements
 			return getApplicationUILayerName_805006Parser();
 		case ApplicationInfrastructureLayerNameEditPart.VISUAL_ID:
 			return getApplicationInfrastructureLayerName_805007Parser();
+		case ApplicationStyleNameEditPart.VISUAL_ID:
+			return getApplicationStyleName_805009Parser();
+		case ApplicationRoleNameEditPart.VISUAL_ID:
+			return getApplicationRoleName_805010Parser();
 		case ApplicationRecipeNameEditPart.VISUAL_ID:
 			return getApplicationRecipeName_805001Parser();
 		case ApplicationMapperNameEditPart.VISUAL_ID:
 			return getApplicationMapperName_805003Parser();
 		case ApplicationUIPackageNameEditPart.VISUAL_ID:
 			return getApplicationUIPackageName_805005Parser();
+		case StylesPackageNameEditPart.VISUAL_ID:
+			return getStylesPackageName_805008Parser();
 		}
 		return null;
 	}

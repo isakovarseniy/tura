@@ -5,6 +5,8 @@ package domain.tests;
 import domain.DomainFactory;
 import domain.ViewPortTrigger;
 
+import junit.framework.TestCase;
+
 import junit.textui.TestRunner;
 
 /**
@@ -13,8 +15,16 @@ import junit.textui.TestRunner;
  * <!-- end-user-doc -->
  * @generated
  */
-public class ViewPortTriggerTest extends TriggerTest
+public class ViewPortTriggerTest extends TestCase
 {
+
+  /**
+   * The fixture for this View Port Trigger test case.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected ViewPortTrigger fixture = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -38,15 +48,25 @@ public class ViewPortTriggerTest extends TriggerTest
   }
 
   /**
+   * Sets the fixture for this View Port Trigger test case.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected void setFixture(ViewPortTrigger fixture)
+  {
+    this.fixture = fixture;
+  }
+
+  /**
    * Returns the fixture for this View Port Trigger test case.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   protected ViewPortTrigger getFixture()
   {
-    return (ViewPortTrigger)fixture;
+    return fixture;
   }
 
   /**

@@ -1,0 +1,116 @@
+/**
+ */
+package domain;
+
+import org.eclipse.emf.common.util.EList;
+
+import org.eclipse.emf.ecore.EObject;
+
+/**
+ * <!-- begin-user-doc -->
+ * A representation of the model object '<em><b>Roles</b></em>'.
+ * <!-- end-user-doc -->
+ *
+ * <p>
+ * The following features are supported:
+ * <ul>
+ *   <li>{@link domain.Roles#getUid <em>Uid</em>}</li>
+ *   <li>{@link domain.Roles#getParent <em>Parent</em>}</li>
+ *   <li>{@link domain.Roles#getRoles <em>Roles</em>}</li>
+ *   <li>{@link domain.Roles#getGroups <em>Groups</em>}</li>
+ * </ul>
+ * </p>
+ *
+ * @see domain.DomainPackage#getRoles()
+ * @model
+ * @generated
+ */
+public interface Roles extends EObject
+{
+  /**
+   * Returns the value of the '<em><b>Uid</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Uid</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Uid</em>' attribute.
+   * @see #setUid(String)
+   * @see domain.DomainPackage#getRoles_Uid()
+   * @model id="true"
+   * @generated
+   */
+  String getUid();
+
+  /**
+   * Sets the value of the '{@link domain.Roles#getUid <em>Uid</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Uid</em>' attribute.
+   * @see #getUid()
+   * @generated
+   */
+  void setUid(String value);
+
+  /**
+   * Returns the value of the '<em><b>Parent</b></em>' container reference.
+   * It is bidirectional and its opposite is '{@link domain.ApplicationRole#getRoles <em>Roles</em>}'.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Parent</em>' container reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Parent</em>' container reference.
+   * @see #setParent(ApplicationRole)
+   * @see domain.DomainPackage#getRoles_Parent()
+   * @see domain.ApplicationRole#getRoles
+   * @model opposite="roles" transient="false"
+   * @generated
+   */
+  ApplicationRole getParent();
+
+  /**
+   * Sets the value of the '{@link domain.Roles#getParent <em>Parent</em>}' container reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Parent</em>' container reference.
+   * @see #getParent()
+   * @generated
+   */
+  void setParent(ApplicationRole value);
+
+  /**
+   * Returns the value of the '<em><b>Roles</b></em>' containment reference list.
+   * The list contents are of type {@link domain.Role}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Roles</em>' containment reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Roles</em>' containment reference list.
+   * @see domain.DomainPackage#getRoles_Roles()
+   * @model containment="true"
+   * @generated
+   */
+  EList<Role> getRoles();
+
+  /**
+   * Returns the value of the '<em><b>Groups</b></em>' containment reference list.
+   * The list contents are of type {@link domain.Group}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Groups</em>' containment reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Groups</em>' containment reference list.
+   * @see domain.DomainPackage#getRoles_Groups()
+   * @model containment="true"
+   * @generated
+   */
+  EList<Group> getGroups();
+
+} // Roles

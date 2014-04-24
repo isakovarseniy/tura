@@ -25,8 +25,11 @@ import application.diagram.edit.parts.ApplicationMapperEditPart;
 import application.diagram.edit.parts.ApplicationMappersEditPart;
 import application.diagram.edit.parts.ApplicationRecipeEditPart;
 import application.diagram.edit.parts.ApplicationRecipesEditPart;
+import application.diagram.edit.parts.ApplicationRoleEditPart;
+import application.diagram.edit.parts.ApplicationStyleEditPart;
 import application.diagram.edit.parts.ApplicationUILayerEditPart;
 import application.diagram.edit.parts.ApplicationUIPackageEditPart;
+import application.diagram.edit.parts.StylesPackageEditPart;
 import application.diagram.part.DomainDiagramEditorPlugin;
 import domain.DomainPackage;
 
@@ -79,6 +82,16 @@ public class DomainElementTypes {
 	/**
 	 * @generated
 	 */
+	public static final IElementType ApplicationStyle_802005 = getElementType("org.tura.metamodel.diagram.application.ApplicationStyle_802005"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType ApplicationRole_802006 = getElementType("org.tura.metamodel.diagram.application.ApplicationRole_802006"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
 	public static final IElementType ApplicationRecipe_803001 = getElementType("org.tura.metamodel.diagram.application.ApplicationRecipe_803001"); //$NON-NLS-1$
 	/**
 	 * @generated
@@ -88,6 +101,11 @@ public class DomainElementTypes {
 	 * @generated
 	 */
 	public static final IElementType ApplicationUIPackage_803003 = getElementType("org.tura.metamodel.diagram.application.ApplicationUIPackage_803003"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType StylesPackage_803004 = getElementType("org.tura.metamodel.diagram.application.StylesPackage_803004"); //$NON-NLS-1$
 
 	/**
 	 * @generated
@@ -215,6 +233,12 @@ public class DomainElementTypes {
 			elements.put(ApplicationInfrastructureLayer_802004,
 					DomainPackage.eINSTANCE.getApplicationInfrastructureLayer());
 
+			elements.put(ApplicationStyle_802005,
+					DomainPackage.eINSTANCE.getApplicationStyle());
+
+			elements.put(ApplicationRole_802006,
+					DomainPackage.eINSTANCE.getApplicationRole());
+
 			elements.put(ApplicationRecipe_803001,
 					DomainPackage.eINSTANCE.getApplicationRecipe());
 
@@ -223,6 +247,9 @@ public class DomainElementTypes {
 
 			elements.put(ApplicationUIPackage_803003,
 					DomainPackage.eINSTANCE.getApplicationUIPackage());
+
+			elements.put(StylesPackage_803004,
+					DomainPackage.eINSTANCE.getStylesPackage());
 		}
 		return (ENamedElement) elements.get(type);
 	}
@@ -245,9 +272,12 @@ public class DomainElementTypes {
 			KNOWN_ELEMENT_TYPES.add(ApplicationMappers_802002);
 			KNOWN_ELEMENT_TYPES.add(ApplicationUILayer_802003);
 			KNOWN_ELEMENT_TYPES.add(ApplicationInfrastructureLayer_802004);
+			KNOWN_ELEMENT_TYPES.add(ApplicationStyle_802005);
+			KNOWN_ELEMENT_TYPES.add(ApplicationRole_802006);
 			KNOWN_ELEMENT_TYPES.add(ApplicationRecipe_803001);
 			KNOWN_ELEMENT_TYPES.add(ApplicationMapper_803002);
 			KNOWN_ELEMENT_TYPES.add(ApplicationUIPackage_803003);
+			KNOWN_ELEMENT_TYPES.add(StylesPackage_803004);
 		}
 		return KNOWN_ELEMENT_TYPES.contains(elementType);
 	}
@@ -267,12 +297,18 @@ public class DomainElementTypes {
 			return ApplicationUILayer_802003;
 		case ApplicationInfrastructureLayerEditPart.VISUAL_ID:
 			return ApplicationInfrastructureLayer_802004;
+		case ApplicationStyleEditPart.VISUAL_ID:
+			return ApplicationStyle_802005;
+		case ApplicationRoleEditPart.VISUAL_ID:
+			return ApplicationRole_802006;
 		case ApplicationRecipeEditPart.VISUAL_ID:
 			return ApplicationRecipe_803001;
 		case ApplicationMapperEditPart.VISUAL_ID:
 			return ApplicationMapper_803002;
 		case ApplicationUIPackageEditPart.VISUAL_ID:
 			return ApplicationUIPackage_803003;
+		case StylesPackageEditPart.VISUAL_ID:
+			return StylesPackage_803004;
 		}
 		return null;
 	}

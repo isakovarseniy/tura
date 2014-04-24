@@ -63,6 +63,36 @@ innerClass.classBody=innerClass.classBody.replace('org.eclipse.gmf.runtime.draw2
 
 
 
+//Enable diagram partition for ApplicationRole element
+var genTopLevelNode = GmfGen!GenTopLevelNode.all.select(n|n.createCommandClassName = 'ApplicationRoleCreateCommand').first;
+var behaviour = new GmfGen!OpenDiagramBehaviour;
+behaviour.editorID = 'roles.diagram.part.RolesDiagramEditorID';
+behaviour.diagramKind='Roles';
+behaviour.editPolicyClassName= 'OpenDiagramApplicationRoleEditPolicy';
+genTopLevelNode.behaviour.add(behaviour);
+
+
+// Change figure for ApplicationRole element 
+var innerClass = GmfGen!InnerClassViewmap.all.select(n|n.ClassName = 'ApplicationRoleFigure').first;
+innerClass.classBody=innerClass.classBody.replace('org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel','org.tura.metamodel.commons.editparts.SizeLimitedLabel');
+
+
+//Enable diagram partition for StylesPackage element
+var genTopLevelNode = GmfGen!GenChildNode.all.select(n|n.createCommandClassName = 'StylesPackageCreateCommand').first;
+var behaviour = new GmfGen!OpenDiagramBehaviour;
+behaviour.editorID = 'style.diagram.part.StyleDiagramEditorID';
+behaviour.diagramKind='Style';
+behaviour.editPolicyClassName= 'OpenDiagramStylesPackageEditPolicy';
+genTopLevelNode.behaviour.add(behaviour);
+
+
+// Change figure for ApplicationRole element 
+var innerClass = GmfGen!InnerClassViewmap.all.select(n|n.ClassName = 'StylesPackageFigure').first;
+innerClass.classBody=innerClass.classBody.replace('org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel','org.tura.metamodel.commons.editparts.SizeLimitedLabel');
+
+
+
+
  -- distinct visual ID
 for (c in GmfGen!GenCommonBase.allInstances) {
   c.setVisualID (c.getVisualID()+800000);

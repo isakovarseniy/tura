@@ -549,6 +549,81 @@ public class DomainItemProviderAdapterFactory extends DomainAdapterFactory imple
   }
 
   /**
+   * This keeps track of the one adapter used for all {@link domain.ApplicationRole} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected ApplicationRoleItemProvider applicationRoleItemProvider;
+
+  /**
+   * This creates an adapter for a {@link domain.ApplicationRole}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createApplicationRoleAdapter()
+  {
+    if (applicationRoleItemProvider == null)
+    {
+      applicationRoleItemProvider = new ApplicationRoleItemProvider(this);
+    }
+
+    return applicationRoleItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link domain.ApplicationStyle} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected ApplicationStyleItemProvider applicationStyleItemProvider;
+
+  /**
+   * This creates an adapter for a {@link domain.ApplicationStyle}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createApplicationStyleAdapter()
+  {
+    if (applicationStyleItemProvider == null)
+    {
+      applicationStyleItemProvider = new ApplicationStyleItemProvider(this);
+    }
+
+    return applicationStyleItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link domain.StylesPackage} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected StylesPackageItemProvider stylesPackageItemProvider;
+
+  /**
+   * This creates an adapter for a {@link domain.StylesPackage}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createStylesPackageAdapter()
+  {
+    if (stylesPackageItemProvider == null)
+    {
+      stylesPackageItemProvider = new StylesPackageItemProvider(this);
+    }
+
+    return stylesPackageItemProvider;
+  }
+
+  /**
    * This keeps track of the one adapter used for all {@link domain.ApplicationUILayer} instances.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -721,6 +796,156 @@ public class DomainItemProviderAdapterFactory extends DomainAdapterFactory imple
     }
 
     return methodPointerItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link domain.Roles} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected RolesItemProvider rolesItemProvider;
+
+  /**
+   * This creates an adapter for a {@link domain.Roles}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createRolesAdapter()
+  {
+    if (rolesItemProvider == null)
+    {
+      rolesItemProvider = new RolesItemProvider(this);
+    }
+
+    return rolesItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link domain.Role} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected RoleItemProvider roleItemProvider;
+
+  /**
+   * This creates an adapter for a {@link domain.Role}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createRoleAdapter()
+  {
+    if (roleItemProvider == null)
+    {
+      roleItemProvider = new RoleItemProvider(this);
+    }
+
+    return roleItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link domain.Group} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected GroupItemProvider groupItemProvider;
+
+  /**
+   * This creates an adapter for a {@link domain.Group}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createGroupAdapter()
+  {
+    if (groupItemProvider == null)
+    {
+      groupItemProvider = new GroupItemProvider(this);
+    }
+
+    return groupItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link domain.Styles} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected StylesItemProvider stylesItemProvider;
+
+  /**
+   * This creates an adapter for a {@link domain.Styles}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createStylesAdapter()
+  {
+    if (stylesItemProvider == null)
+    {
+      stylesItemProvider = new StylesItemProvider(this);
+    }
+
+    return stylesItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link domain.StyleLibrary} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected StyleLibraryItemProvider styleLibraryItemProvider;
+
+  /**
+   * This creates an adapter for a {@link domain.StyleLibrary}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createStyleLibraryAdapter()
+  {
+    if (styleLibraryItemProvider == null)
+    {
+      styleLibraryItemProvider = new StyleLibraryItemProvider(this);
+    }
+
+    return styleLibraryItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link domain.StyleSet} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected StyleSetItemProvider styleSetItemProvider;
+
+  /**
+   * This creates an adapter for a {@link domain.StyleSet}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createStyleSetAdapter()
+  {
+    if (styleSetItemProvider == null)
+    {
+      styleSetItemProvider = new StyleSetItemProvider(this);
+    }
+
+    return styleSetItemProvider;
   }
 
   /**
@@ -2049,78 +2274,103 @@ public class DomainItemProviderAdapterFactory extends DomainAdapterFactory imple
   }
 
   /**
-   * This keeps track of the one adapter used for all {@link domain.Controls} instances.
+   * This keeps track of the one adapter used for all {@link domain.CanvasView} instances.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected ControlsItemProvider controlsItemProvider;
+  protected CanvasViewItemProvider canvasViewItemProvider;
 
   /**
-   * This creates an adapter for a {@link domain.Controls}.
+   * This creates an adapter for a {@link domain.CanvasView}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
   @Override
-  public Adapter createControlsAdapter()
+  public Adapter createCanvasViewAdapter()
   {
-    if (controlsItemProvider == null)
+    if (canvasViewItemProvider == null)
     {
-      controlsItemProvider = new ControlsItemProvider(this);
+      canvasViewItemProvider = new CanvasViewItemProvider(this);
     }
 
-    return controlsItemProvider;
+    return canvasViewItemProvider;
   }
 
   /**
-   * This keeps track of the one adapter used for all {@link domain.Trigger} instances.
+   * This keeps track of the one adapter used for all {@link domain.Style} instances.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected TriggerItemProvider triggerItemProvider;
+  protected StyleItemProvider styleItemProvider;
 
   /**
-   * This creates an adapter for a {@link domain.Trigger}.
+   * This creates an adapter for a {@link domain.Style}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
   @Override
-  public Adapter createTriggerAdapter()
+  public Adapter createStyleAdapter()
   {
-    if (triggerItemProvider == null)
+    if (styleItemProvider == null)
     {
-      triggerItemProvider = new TriggerItemProvider(this);
+      styleItemProvider = new StyleItemProvider(this);
     }
 
-    return triggerItemProvider;
+    return styleItemProvider;
   }
 
   /**
-   * This keeps track of the one adapter used for all {@link domain.TriggerParameter} instances.
+   * This keeps track of the one adapter used for all {@link domain.StyleClass} instances.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected TriggerParameterItemProvider triggerParameterItemProvider;
+  protected StyleClassItemProvider styleClassItemProvider;
 
   /**
-   * This creates an adapter for a {@link domain.TriggerParameter}.
+   * This creates an adapter for a {@link domain.StyleClass}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
   @Override
-  public Adapter createTriggerParameterAdapter()
+  public Adapter createStyleClassAdapter()
   {
-    if (triggerParameterItemProvider == null)
+    if (styleClassItemProvider == null)
     {
-      triggerParameterItemProvider = new TriggerParameterItemProvider(this);
+      styleClassItemProvider = new StyleClassItemProvider(this);
     }
 
-    return triggerParameterItemProvider;
+    return styleClassItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link domain.ContextParameter} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected ContextParameterItemProvider contextParameterItemProvider;
+
+  /**
+   * This creates an adapter for a {@link domain.ContextParameter}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createContextParameterAdapter()
+  {
+    if (contextParameterItemProvider == null)
+    {
+      contextParameterItemProvider = new ContextParameterItemProvider(this);
+    }
+
+    return contextParameterItemProvider;
   }
 
   /**
@@ -2171,6 +2421,456 @@ public class DomainItemProviderAdapterFactory extends DomainAdapterFactory imple
     }
 
     return expressionPartItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link domain.Context} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected ContextItemProvider contextItemProvider;
+
+  /**
+   * This creates an adapter for a {@link domain.Context}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createContextAdapter()
+  {
+    if (contextItemProvider == null)
+    {
+      contextItemProvider = new ContextItemProvider(this);
+    }
+
+    return contextItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link domain.StyleElement} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected StyleElementItemProvider styleElementItemProvider;
+
+  /**
+   * This creates an adapter for a {@link domain.StyleElement}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createStyleElementAdapter()
+  {
+    if (styleElementItemProvider == null)
+    {
+      styleElementItemProvider = new StyleElementItemProvider(this);
+    }
+
+    return styleElementItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link domain.Uielement} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected UielementItemProvider uielementItemProvider;
+
+  /**
+   * This creates an adapter for a {@link domain.Uielement}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createUielementAdapter()
+  {
+    if (uielementItemProvider == null)
+    {
+      uielementItemProvider = new UielementItemProvider(this);
+    }
+
+    return uielementItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link domain.SourcesPointer} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected SourcesPointerItemProvider sourcesPointerItemProvider;
+
+  /**
+   * This creates an adapter for a {@link domain.SourcesPointer}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createSourcesPointerAdapter()
+  {
+    if (sourcesPointerItemProvider == null)
+    {
+      sourcesPointerItemProvider = new SourcesPointerItemProvider(this);
+    }
+
+    return sourcesPointerItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link domain.InputElement} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected InputElementItemProvider inputElementItemProvider;
+
+  /**
+   * This creates an adapter for a {@link domain.InputElement}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createInputElementAdapter()
+  {
+    if (inputElementItemProvider == null)
+    {
+      inputElementItemProvider = new InputElementItemProvider(this);
+    }
+
+    return inputElementItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link domain.Selection} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected SelectionItemProvider selectionItemProvider;
+
+  /**
+   * This creates an adapter for a {@link domain.Selection}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createSelectionAdapter()
+  {
+    if (selectionItemProvider == null)
+    {
+      selectionItemProvider = new SelectionItemProvider(this);
+    }
+
+    return selectionItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link domain.OptionSelection} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected OptionSelectionItemProvider optionSelectionItemProvider;
+
+  /**
+   * This creates an adapter for a {@link domain.OptionSelection}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createOptionSelectionAdapter()
+  {
+    if (optionSelectionItemProvider == null)
+    {
+      optionSelectionItemProvider = new OptionSelectionItemProvider(this);
+    }
+
+    return optionSelectionItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link domain.ActionElement} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected ActionElementItemProvider actionElementItemProvider;
+
+  /**
+   * This creates an adapter for a {@link domain.ActionElement}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createActionElementAdapter()
+  {
+    if (actionElementItemProvider == null)
+    {
+      actionElementItemProvider = new ActionElementItemProvider(this);
+    }
+
+    return actionElementItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link domain.InputText} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected InputTextItemProvider inputTextItemProvider;
+
+  /**
+   * This creates an adapter for a {@link domain.InputText}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createInputTextAdapter()
+  {
+    if (inputTextItemProvider == null)
+    {
+      inputTextItemProvider = new InputTextItemProvider(this);
+    }
+
+    return inputTextItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link domain.Label} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected LabelItemProvider labelItemProvider;
+
+  /**
+   * This creates an adapter for a {@link domain.Label}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createLabelAdapter()
+  {
+    if (labelItemProvider == null)
+    {
+      labelItemProvider = new LabelItemProvider(this);
+    }
+
+    return labelItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link domain.OutputText} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected OutputTextItemProvider outputTextItemProvider;
+
+  /**
+   * This creates an adapter for a {@link domain.OutputText}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createOutputTextAdapter()
+  {
+    if (outputTextItemProvider == null)
+    {
+      outputTextItemProvider = new OutputTextItemProvider(this);
+    }
+
+    return outputTextItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link domain.CheckBox} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected CheckBoxItemProvider checkBoxItemProvider;
+
+  /**
+   * This creates an adapter for a {@link domain.CheckBox}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createCheckBoxAdapter()
+  {
+    if (checkBoxItemProvider == null)
+    {
+      checkBoxItemProvider = new CheckBoxItemProvider(this);
+    }
+
+    return checkBoxItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link domain.DropDownSelection} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected DropDownSelectionItemProvider dropDownSelectionItemProvider;
+
+  /**
+   * This creates an adapter for a {@link domain.DropDownSelection}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createDropDownSelectionAdapter()
+  {
+    if (dropDownSelectionItemProvider == null)
+    {
+      dropDownSelectionItemProvider = new DropDownSelectionItemProvider(this);
+    }
+
+    return dropDownSelectionItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link domain.Column} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected ColumnItemProvider columnItemProvider;
+
+  /**
+   * This creates an adapter for a {@link domain.Column}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createColumnAdapter()
+  {
+    if (columnItemProvider == null)
+    {
+      columnItemProvider = new ColumnItemProvider(this);
+    }
+
+    return columnItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link domain.Table} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected TableItemProvider tableItemProvider;
+
+  /**
+   * This creates an adapter for a {@link domain.Table}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createTableAdapter()
+  {
+    if (tableItemProvider == null)
+    {
+      tableItemProvider = new TableItemProvider(this);
+    }
+
+    return tableItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link domain.Tree} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected TreeItemProvider treeItemProvider;
+
+  /**
+   * This creates an adapter for a {@link domain.Tree}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createTreeAdapter()
+  {
+    if (treeItemProvider == null)
+    {
+      treeItemProvider = new TreeItemProvider(this);
+    }
+
+    return treeItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link domain.Button} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected ButtonItemProvider buttonItemProvider;
+
+  /**
+   * This creates an adapter for a {@link domain.Button}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createButtonAdapter()
+  {
+    if (buttonItemProvider == null)
+    {
+      buttonItemProvider = new ButtonItemProvider(this);
+    }
+
+    return buttonItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link domain.Controls} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected ControlsItemProvider controlsItemProvider;
+
+  /**
+   * This creates an adapter for a {@link domain.Controls}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createControlsAdapter()
+  {
+    if (controlsItemProvider == null)
+    {
+      controlsItemProvider = new ControlsItemProvider(this);
+    }
+
+    return controlsItemProvider;
   }
 
   /**
@@ -3028,6 +3728,9 @@ public class DomainItemProviderAdapterFactory extends DomainAdapterFactory imple
     if (specifierItemProvider != null) specifierItemProvider.dispose();
     if (optionItemProvider != null) optionItemProvider.dispose();
     if (applicationItemProvider != null) applicationItemProvider.dispose();
+    if (applicationRoleItemProvider != null) applicationRoleItemProvider.dispose();
+    if (applicationStyleItemProvider != null) applicationStyleItemProvider.dispose();
+    if (stylesPackageItemProvider != null) stylesPackageItemProvider.dispose();
     if (applicationUILayerItemProvider != null) applicationUILayerItemProvider.dispose();
     if (applicationUIPackageItemProvider != null) applicationUIPackageItemProvider.dispose();
     if (applicationRecipesItemProvider != null) applicationRecipesItemProvider.dispose();
@@ -3035,6 +3738,12 @@ public class DomainItemProviderAdapterFactory extends DomainAdapterFactory imple
     if (applicationMappersItemProvider != null) applicationMappersItemProvider.dispose();
     if (applicationMapperItemProvider != null) applicationMapperItemProvider.dispose();
     if (methodPointerItemProvider != null) methodPointerItemProvider.dispose();
+    if (rolesItemProvider != null) rolesItemProvider.dispose();
+    if (roleItemProvider != null) roleItemProvider.dispose();
+    if (groupItemProvider != null) groupItemProvider.dispose();
+    if (stylesItemProvider != null) stylesItemProvider.dispose();
+    if (styleLibraryItemProvider != null) styleLibraryItemProvider.dispose();
+    if (styleSetItemProvider != null) styleSetItemProvider.dispose();
     if (mappersItemProvider != null) mappersItemProvider.dispose();
     if (mapperItemProvider != null) mapperItemProvider.dispose();
     if (javaMapperItemProvider != null) javaMapperItemProvider.dispose();
@@ -3088,11 +3797,30 @@ public class DomainItemProviderAdapterFactory extends DomainAdapterFactory imple
     if (viewInheritanceItemProvider != null) viewInheritanceItemProvider.dispose();
     if (tabPagesInheritanceItemProvider != null) tabPagesInheritanceItemProvider.dispose();
     if (formDataControlsItemProvider != null) formDataControlsItemProvider.dispose();
-    if (controlsItemProvider != null) controlsItemProvider.dispose();
-    if (triggerItemProvider != null) triggerItemProvider.dispose();
-    if (triggerParameterItemProvider != null) triggerParameterItemProvider.dispose();
+    if (canvasViewItemProvider != null) canvasViewItemProvider.dispose();
+    if (styleItemProvider != null) styleItemProvider.dispose();
+    if (styleClassItemProvider != null) styleClassItemProvider.dispose();
+    if (contextParameterItemProvider != null) contextParameterItemProvider.dispose();
     if (contextValueItemProvider != null) contextValueItemProvider.dispose();
     if (expressionPartItemProvider != null) expressionPartItemProvider.dispose();
+    if (contextItemProvider != null) contextItemProvider.dispose();
+    if (styleElementItemProvider != null) styleElementItemProvider.dispose();
+    if (uielementItemProvider != null) uielementItemProvider.dispose();
+    if (sourcesPointerItemProvider != null) sourcesPointerItemProvider.dispose();
+    if (inputElementItemProvider != null) inputElementItemProvider.dispose();
+    if (selectionItemProvider != null) selectionItemProvider.dispose();
+    if (optionSelectionItemProvider != null) optionSelectionItemProvider.dispose();
+    if (actionElementItemProvider != null) actionElementItemProvider.dispose();
+    if (inputTextItemProvider != null) inputTextItemProvider.dispose();
+    if (labelItemProvider != null) labelItemProvider.dispose();
+    if (outputTextItemProvider != null) outputTextItemProvider.dispose();
+    if (checkBoxItemProvider != null) checkBoxItemProvider.dispose();
+    if (dropDownSelectionItemProvider != null) dropDownSelectionItemProvider.dispose();
+    if (columnItemProvider != null) columnItemProvider.dispose();
+    if (tableItemProvider != null) tableItemProvider.dispose();
+    if (treeItemProvider != null) treeItemProvider.dispose();
+    if (buttonItemProvider != null) buttonItemProvider.dispose();
+    if (controlsItemProvider != null) controlsItemProvider.dispose();
     if (preFormTriggerItemProvider != null) preFormTriggerItemProvider.dispose();
     if (preQueryTriggerItemProvider != null) preQueryTriggerItemProvider.dispose();
     if (postQueryTriggerItemProvider != null) postQueryTriggerItemProvider.dispose();

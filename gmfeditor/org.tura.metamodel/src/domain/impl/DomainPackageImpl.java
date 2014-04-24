@@ -2,12 +2,15 @@
  */
 package domain.impl;
 
+import domain.ActionElement;
 import domain.Application;
 import domain.ApplicationInfrastructureLayer;
 import domain.ApplicationMapper;
 import domain.ApplicationMappers;
 import domain.ApplicationRecipe;
 import domain.ApplicationRecipes;
+import domain.ApplicationRole;
+import domain.ApplicationStyle;
 import domain.ApplicationUILayer;
 import domain.ApplicationUIPackage;
 import domain.Artifact;
@@ -15,11 +18,17 @@ import domain.ArtifactRef;
 import domain.Artifacts;
 import domain.ArtificialField;
 import domain.Attribute;
+import domain.Button;
 import domain.Canvas;
 import domain.CanvasFrame;
+import domain.CanvasView;
+import domain.CheckBox;
+import domain.Column;
 import domain.Component;
 import domain.ConfigVariable;
 import domain.Configuration;
+import domain.Context;
+import domain.ContextParameter;
 import domain.ContextValue;
 import domain.ContinuousIintegration;
 import domain.Controls;
@@ -40,6 +49,7 @@ import domain.DomainArtifacts;
 import domain.DomainFactory;
 import domain.DomainPackage;
 import domain.DomainTypes;
+import domain.DropDownSelection;
 import domain.EJBService;
 import domain.EnterpriseInfrastructure;
 import domain.EnumAttribute;
@@ -48,6 +58,7 @@ import domain.ExpressionPart;
 import domain.Form;
 import domain.FormDataControls;
 import domain.FormView;
+import domain.Group;
 import domain.HTMLLayerHolder;
 import domain.Hub;
 import domain.Infrastructure;
@@ -55,10 +66,13 @@ import domain.InfrastructureComponent;
 import domain.InfrastructureConnection;
 import domain.InfrastructureLayer;
 import domain.Ingredient;
+import domain.InputElement;
+import domain.InputText;
 import domain.InsertTrigger;
 import domain.JPAService;
 import domain.JavaComponent;
 import domain.JavaMapper;
+import domain.Label;
 import domain.Link;
 import domain.Mapper;
 import domain.Mappers;
@@ -69,6 +83,8 @@ import domain.ModelQuery;
 import domain.ORMEntity;
 import domain.Operation;
 import domain.Option;
+import domain.OptionSelection;
+import domain.OutputText;
 import domain.POSTCreateTrigger;
 import domain.POSTQueryTrigger;
 import domain.PREDeleteTrigger;
@@ -87,19 +103,30 @@ import domain.Recipe;
 import domain.Recipes;
 import domain.Relation;
 import domain.ReturnValue;
+import domain.Role;
+import domain.Roles;
 import domain.Root;
 import domain.Router;
 import domain.SearchTrigger;
+import domain.Selection;
 import domain.Server;
 import domain.ServerClaster;
+import domain.SourcesPointer;
 import domain.Specifier;
 import domain.Storage;
+import domain.Style;
+import domain.StyleClass;
+import domain.StyleElement;
+import domain.StyleLibrary;
+import domain.StyleSet;
+import domain.Styles;
+import domain.StylesPackage;
 import domain.Subsystem;
 import domain.TabCanvas;
 import domain.TabPage;
 import domain.TabPagesInheritance;
-import domain.Trigger;
-import domain.TriggerParameter;
+import domain.Table;
+import domain.Tree;
 import domain.Type;
 import domain.TypeDefinition;
 import domain.TypeElement;
@@ -109,6 +136,7 @@ import domain.TypeReference;
 import domain.Types;
 import domain.TypesRepository;
 import domain.UIPackage;
+import domain.Uielement;
 import domain.UpdateTrigger;
 import domain.UsingMappers;
 import domain.ViewInheritance;
@@ -272,6 +300,27 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  private EClass applicationRoleEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass applicationStyleEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass stylesPackageEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   private EClass applicationUILayerEClass = null;
 
   /**
@@ -315,6 +364,48 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * @generated
    */
   private EClass methodPointerEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass rolesEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass roleEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass groupEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass stylesEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass styleLibraryEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass styleSetEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -692,21 +783,28 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass controlsEClass = null;
+  private EClass canvasViewEClass = null;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass triggerEClass = null;
+  private EClass styleEClass = null;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass triggerParameterEClass = null;
+  private EClass styleClassEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass contextParameterEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -721,6 +819,132 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * @generated
    */
   private EClass expressionPartEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass contextEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass styleElementEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass uielementEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass sourcesPointerEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass inputElementEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass selectionEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass optionSelectionEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass actionElementEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass inputTextEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass labelEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass outputTextEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass checkBoxEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass dropDownSelectionEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass columnEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass tableEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass treeEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass buttonEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass controlsEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -1780,9 +2004,179 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getApplication_Parent()
+  public EReference getApplication_ApplicationStyle()
   {
     return (EReference)applicationEClass.getEStructuralFeatures().get(5);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getApplication_ApplicationRole()
+  {
+    return (EReference)applicationEClass.getEStructuralFeatures().get(6);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getApplication_Parent()
+  {
+    return (EReference)applicationEClass.getEStructuralFeatures().get(7);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getApplicationRole()
+  {
+    return applicationRoleEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getApplicationRole_Uid()
+  {
+    return (EAttribute)applicationRoleEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getApplicationRole_Name()
+  {
+    return (EAttribute)applicationRoleEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getApplicationRole_Parent()
+  {
+    return (EReference)applicationRoleEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getApplicationRole_Roles()
+  {
+    return (EReference)applicationRoleEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getApplicationStyle()
+  {
+    return applicationStyleEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getApplicationStyle_Uid()
+  {
+    return (EAttribute)applicationStyleEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getApplicationStyle_Name()
+  {
+    return (EAttribute)applicationStyleEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getApplicationStyle_Parent()
+  {
+    return (EReference)applicationStyleEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getApplicationStyle_StylesPackage()
+  {
+    return (EReference)applicationStyleEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getStylesPackage()
+  {
+    return stylesPackageEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getStylesPackage_Uid()
+  {
+    return (EAttribute)stylesPackageEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getStylesPackage_Name()
+  {
+    return (EAttribute)stylesPackageEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getStylesPackage_Parent()
+  {
+    return (EReference)stylesPackageEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getStylesPackage_Styles()
+  {
+    return (EReference)stylesPackageEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -2113,6 +2507,246 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
   public EAttribute getMethodPointer_FakeMethod()
   {
     return (EAttribute)methodPointerEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getRoles()
+  {
+    return rolesEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getRoles_Uid()
+  {
+    return (EAttribute)rolesEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getRoles_Parent()
+  {
+    return (EReference)rolesEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getRoles_Roles()
+  {
+    return (EReference)rolesEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getRoles_Groups()
+  {
+    return (EReference)rolesEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getRole()
+  {
+    return roleEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getRole_Uid()
+  {
+    return (EAttribute)roleEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getRole_Name()
+  {
+    return (EAttribute)roleEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getGroup()
+  {
+    return groupEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getGroup_Uid()
+  {
+    return (EAttribute)groupEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getGroup_Name()
+  {
+    return (EAttribute)groupEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getGroup_Group2Group()
+  {
+    return (EReference)groupEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getGroup_Group2Role()
+  {
+    return (EReference)groupEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getStyles()
+  {
+    return stylesEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getStyles_Uid()
+  {
+    return (EAttribute)stylesEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getStyles_Parent()
+  {
+    return (EReference)stylesEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getStyles_Libraries()
+  {
+    return (EReference)stylesEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getStyleLibrary()
+  {
+    return styleLibraryEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getStyleLibrary_Uid()
+  {
+    return (EAttribute)styleLibraryEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getStyleLibrary_Name()
+  {
+    return (EAttribute)styleLibraryEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getStyleLibrary_Styles()
+  {
+    return (EReference)styleLibraryEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getStyleSet()
+  {
+    return styleSetEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getStyleSet_Uid()
+  {
+    return (EAttribute)styleSetEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getStyleSet_Name()
+  {
+    return (EAttribute)styleSetEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -4040,6 +4674,16 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EReference getCanvasFrame_CanvasView()
+  {
+    return (EReference)canvasFrameEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getViewPortHolder()
   {
     return viewPortHolderEClass;
@@ -4170,6 +4814,36 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EAttribute getViewPortTrigger_Uid()
+  {
+    return (EAttribute)viewPortTriggerEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getViewPortTrigger_Trigger()
+  {
+    return (EReference)viewPortTriggerEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getViewPortTrigger_FakeMethod()
+  {
+    return (EAttribute)viewPortTriggerEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getViewInheritance()
   {
     return viewInheritanceEClass;
@@ -4290,9 +4964,9 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getControls()
+  public EClass getCanvasView()
   {
-    return controlsEClass;
+    return canvasViewEClass;
   }
 
   /**
@@ -4300,9 +4974,9 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getControls_Uid()
+  public EAttribute getCanvasView_Uid()
   {
-    return (EAttribute)controlsEClass.getEStructuralFeatures().get(0);
+    return (EAttribute)canvasViewEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -4310,9 +4984,9 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getControls_Parent()
+  public EReference getCanvasView_Parent()
   {
-    return (EReference)controlsEClass.getEStructuralFeatures().get(1);
+    return (EReference)canvasViewEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -4320,9 +4994,9 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getControls_Root()
+  public EClass getStyle()
   {
-    return (EReference)controlsEClass.getEStructuralFeatures().get(2);
+    return styleEClass;
   }
 
   /**
@@ -4330,9 +5004,9 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getControls_Controls()
+  public EAttribute getStyle_Uid()
   {
-    return (EReference)controlsEClass.getEStructuralFeatures().get(3);
+    return (EAttribute)styleEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -4340,9 +5014,9 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getControls_Relations()
+  public EAttribute getStyle_Style()
   {
-    return (EReference)controlsEClass.getEStructuralFeatures().get(4);
+    return (EAttribute)styleEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -4350,9 +5024,9 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getTrigger()
+  public EClass getStyleClass()
   {
-    return triggerEClass;
+    return styleClassEClass;
   }
 
   /**
@@ -4360,9 +5034,9 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getTrigger_Uid()
+  public EAttribute getStyleClass_Uid()
   {
-    return (EAttribute)triggerEClass.getEStructuralFeatures().get(0);
+    return (EAttribute)styleClassEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -4370,9 +5044,9 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getTrigger_Name()
+  public EReference getStyleClass_StylesPackage()
   {
-    return (EAttribute)triggerEClass.getEStructuralFeatures().get(1);
+    return (EReference)styleClassEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -4380,9 +5054,9 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getTrigger_Parameters()
+  public EReference getStyleClass_Library()
   {
-    return (EReference)triggerEClass.getEStructuralFeatures().get(2);
+    return (EReference)styleClassEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -4390,9 +5064,9 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getTriggerParameter()
+  public EReference getStyleClass_StyleSet()
   {
-    return triggerParameterEClass;
+    return (EReference)styleClassEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -4400,9 +5074,9 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getTriggerParameter_Uid()
+  public EClass getContextParameter()
   {
-    return (EAttribute)triggerParameterEClass.getEStructuralFeatures().get(0);
+    return contextParameterEClass;
   }
 
   /**
@@ -4410,9 +5084,9 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getTriggerParameter_Parameter()
+  public EAttribute getContextParameter_Uid()
   {
-    return (EReference)triggerParameterEClass.getEStructuralFeatures().get(1);
+    return (EAttribute)contextParameterEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -4420,9 +5094,19 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getTriggerParameter_Value()
+  public EReference getContextParameter_Parameter()
   {
-    return (EReference)triggerParameterEClass.getEStructuralFeatures().get(2);
+    return (EReference)contextParameterEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getContextParameter_Value()
+  {
+    return (EReference)contextParameterEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -4520,9 +5204,529 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EClass getContext()
+  {
+    return contextEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getContext_Uid()
+  {
+    return (EAttribute)contextEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getContext_Value()
+  {
+    return (EAttribute)contextEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getContext_Expression()
+  {
+    return (EReference)contextEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getContext_Parameters()
+  {
+    return (EReference)contextEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getStyleElement()
+  {
+    return styleElementEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getStyleElement_Style()
+  {
+    return (EReference)styleElementEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getStyleElement_StyleClass()
+  {
+    return (EReference)styleElementEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getUielement()
+  {
+    return uielementEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getUielement_Uid()
+  {
+    return (EAttribute)uielementEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getUielement_Enabled()
+  {
+    return (EAttribute)uielementEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getUielement_EnabledContext()
+  {
+    return (EReference)uielementEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getUielement_Required()
+  {
+    return (EAttribute)uielementEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getUielement_RequiredContext()
+  {
+    return (EReference)uielementEClass.getEStructuralFeatures().get(4);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getUielement_ReadOnly()
+  {
+    return (EAttribute)uielementEClass.getEStructuralFeatures().get(5);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getUielement_ReadOnlyContext()
+  {
+    return (EReference)uielementEClass.getEStructuralFeatures().get(6);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getSourcesPointer()
+  {
+    return sourcesPointerEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getSourcesPointer_SourcePointer()
+  {
+    return (EReference)sourcesPointerEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getSourcesPointer_ValuePointer()
+  {
+    return (EReference)sourcesPointerEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getSourcesPointer_SourceCast()
+  {
+    return (EReference)sourcesPointerEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getInputElement()
+  {
+    return inputElementEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getInputElement_Label()
+  {
+    return (EAttribute)inputElementEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getSelection()
+  {
+    return selectionEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getSelection_DisplayOptionPointer()
+  {
+    return (EReference)selectionEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getSelection_ValueOptionPointer()
+  {
+    return (EReference)selectionEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getOptionSelection()
+  {
+    return optionSelectionEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getOptionSelection_OptionPointer()
+  {
+    return (EReference)optionSelectionEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getOptionSelection_OptionCast()
+  {
+    return (EReference)optionSelectionEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getActionElement()
+  {
+    return actionElementEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getActionElement_Trigger()
+  {
+    return (EReference)actionElementEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getInputText()
+  {
+    return inputTextEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getLabel()
+  {
+    return labelEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getOutputText()
+  {
+    return outputTextEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getCheckBox()
+  {
+    return checkBoxEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getDropDownSelection()
+  {
+    return dropDownSelectionEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getDropDownSelection_Selection()
+  {
+    return (EReference)dropDownSelectionEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getColumn()
+  {
+    return columnEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getColumn_Element()
+  {
+    return (EReference)columnEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getTable()
+  {
+    return tableEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getTable_Columns()
+  {
+    return (EReference)tableEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getTree()
+  {
+    return treeEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getTree_Image()
+  {
+    return (EReference)treeEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getButton()
+  {
+    return buttonEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getControls()
+  {
+    return controlsEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getControls_Uid()
+  {
+    return (EAttribute)controlsEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getControls_Parent()
+  {
+    return (EReference)controlsEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getControls_Root()
+  {
+    return (EReference)controlsEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getControls_Controls()
+  {
+    return (EReference)controlsEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getControls_Relations()
+  {
+    return (EReference)controlsEClass.getEStructuralFeatures().get(4);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getPREFormTrigger()
   {
     return preFormTriggerEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getPREFormTrigger_Uid()
+  {
+    return (EAttribute)preFormTriggerEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getPREFormTrigger_Trigger()
+  {
+    return (EReference)preFormTriggerEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getPREFormTrigger_FakeMethod()
+  {
+    return (EAttribute)preFormTriggerEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -4540,9 +5744,69 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EAttribute getPREQueryTrigger_Uid()
+  {
+    return (EAttribute)preQueryTriggerEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getPREQueryTrigger_Trigger()
+  {
+    return (EReference)preQueryTriggerEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getPREQueryTrigger_FakeMethod()
+  {
+    return (EAttribute)preQueryTriggerEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getPOSTQueryTrigger()
   {
     return postQueryTriggerEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getPOSTQueryTrigger_Uid()
+  {
+    return (EAttribute)postQueryTriggerEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getPOSTQueryTrigger_Trigger()
+  {
+    return (EReference)postQueryTriggerEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getPOSTQueryTrigger_FakeMethod()
+  {
+    return (EAttribute)postQueryTriggerEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -4560,9 +5824,69 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EAttribute getPREInsertTrigger_Uid()
+  {
+    return (EAttribute)preInsertTriggerEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getPREInsertTrigger_Trigger()
+  {
+    return (EReference)preInsertTriggerEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getPREInsertTrigger_FakeMethod()
+  {
+    return (EAttribute)preInsertTriggerEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getPREDeleteTrigger()
   {
     return preDeleteTriggerEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getPREDeleteTrigger_Uid()
+  {
+    return (EAttribute)preDeleteTriggerEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getPREDeleteTrigger_Trigger()
+  {
+    return (EReference)preDeleteTriggerEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getPREDeleteTrigger_FakeMethod()
+  {
+    return (EAttribute)preDeleteTriggerEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -4580,9 +5904,69 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EAttribute getPOSTCreateTrigger_Uid()
+  {
+    return (EAttribute)postCreateTriggerEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getPOSTCreateTrigger_Trigger()
+  {
+    return (EReference)postCreateTriggerEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getPOSTCreateTrigger_FakeMethod()
+  {
+    return (EAttribute)postCreateTriggerEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getPREUpdateTrigger()
   {
     return preUpdateTriggerEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getPREUpdateTrigger_Uid()
+  {
+    return (EAttribute)preUpdateTriggerEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getPREUpdateTrigger_Trigger()
+  {
+    return (EReference)preUpdateTriggerEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getPREUpdateTrigger_FakeMethod()
+  {
+    return (EAttribute)preUpdateTriggerEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -4600,9 +5984,69 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EAttribute getCreateTrigger_Uid()
+  {
+    return (EAttribute)createTriggerEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getCreateTrigger_Trigger()
+  {
+    return (EReference)createTriggerEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getCreateTrigger_FakeMethod()
+  {
+    return (EAttribute)createTriggerEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getInsertTrigger()
   {
     return insertTriggerEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getInsertTrigger_Uid()
+  {
+    return (EAttribute)insertTriggerEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getInsertTrigger_Trigger()
+  {
+    return (EReference)insertTriggerEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getInsertTrigger_FakeMethod()
+  {
+    return (EAttribute)insertTriggerEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -4620,6 +6064,36 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EAttribute getUpdateTrigger_Uid()
+  {
+    return (EAttribute)updateTriggerEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getUpdateTrigger_Trigger()
+  {
+    return (EReference)updateTriggerEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getUpdateTrigger_FakeMethod()
+  {
+    return (EAttribute)updateTriggerEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getDeleteTrigger()
   {
     return deleteTriggerEClass;
@@ -4630,9 +6104,69 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EAttribute getDeleteTrigger_Uid()
+  {
+    return (EAttribute)deleteTriggerEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getDeleteTrigger_Trigger()
+  {
+    return (EReference)deleteTriggerEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getDeleteTrigger_FakeMethod()
+  {
+    return (EAttribute)deleteTriggerEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getSearchTrigger()
   {
     return searchTriggerEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getSearchTrigger_Uid()
+  {
+    return (EAttribute)searchTriggerEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getSearchTrigger_Trigger()
+  {
+    return (EReference)searchTriggerEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getSearchTrigger_FakeMethod()
+  {
+    return (EAttribute)searchTriggerEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -5521,7 +7055,27 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     createEReference(applicationEClass, APPLICATION__APPLICATION_MAPPERS);
     createEReference(applicationEClass, APPLICATION__APPLICATION_UI_LAYER);
     createEReference(applicationEClass, APPLICATION__APPLICATION_INFRASTRUCTURE_LAYER);
+    createEReference(applicationEClass, APPLICATION__APPLICATION_STYLE);
+    createEReference(applicationEClass, APPLICATION__APPLICATION_ROLE);
     createEReference(applicationEClass, APPLICATION__PARENT);
+
+    applicationRoleEClass = createEClass(APPLICATION_ROLE);
+    createEAttribute(applicationRoleEClass, APPLICATION_ROLE__UID);
+    createEAttribute(applicationRoleEClass, APPLICATION_ROLE__NAME);
+    createEReference(applicationRoleEClass, APPLICATION_ROLE__PARENT);
+    createEReference(applicationRoleEClass, APPLICATION_ROLE__ROLES);
+
+    applicationStyleEClass = createEClass(APPLICATION_STYLE);
+    createEAttribute(applicationStyleEClass, APPLICATION_STYLE__UID);
+    createEAttribute(applicationStyleEClass, APPLICATION_STYLE__NAME);
+    createEReference(applicationStyleEClass, APPLICATION_STYLE__PARENT);
+    createEReference(applicationStyleEClass, APPLICATION_STYLE__STYLES_PACKAGE);
+
+    stylesPackageEClass = createEClass(STYLES_PACKAGE);
+    createEAttribute(stylesPackageEClass, STYLES_PACKAGE__UID);
+    createEAttribute(stylesPackageEClass, STYLES_PACKAGE__NAME);
+    createEReference(stylesPackageEClass, STYLES_PACKAGE__PARENT);
+    createEReference(stylesPackageEClass, STYLES_PACKAGE__STYLES);
 
     applicationUILayerEClass = createEClass(APPLICATION_UI_LAYER);
     createEAttribute(applicationUILayerEClass, APPLICATION_UI_LAYER__UID);
@@ -5562,6 +7116,36 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     methodPointerEClass = createEClass(METHOD_POINTER);
     createEReference(methodPointerEClass, METHOD_POINTER__METHOD_REF);
     createEAttribute(methodPointerEClass, METHOD_POINTER__FAKE_METHOD);
+
+    rolesEClass = createEClass(ROLES);
+    createEAttribute(rolesEClass, ROLES__UID);
+    createEReference(rolesEClass, ROLES__PARENT);
+    createEReference(rolesEClass, ROLES__ROLES);
+    createEReference(rolesEClass, ROLES__GROUPS);
+
+    roleEClass = createEClass(ROLE);
+    createEAttribute(roleEClass, ROLE__UID);
+    createEAttribute(roleEClass, ROLE__NAME);
+
+    groupEClass = createEClass(GROUP);
+    createEAttribute(groupEClass, GROUP__UID);
+    createEAttribute(groupEClass, GROUP__NAME);
+    createEReference(groupEClass, GROUP__GROUP2_GROUP);
+    createEReference(groupEClass, GROUP__GROUP2_ROLE);
+
+    stylesEClass = createEClass(STYLES);
+    createEAttribute(stylesEClass, STYLES__UID);
+    createEReference(stylesEClass, STYLES__PARENT);
+    createEReference(stylesEClass, STYLES__LIBRARIES);
+
+    styleLibraryEClass = createEClass(STYLE_LIBRARY);
+    createEAttribute(styleLibraryEClass, STYLE_LIBRARY__UID);
+    createEAttribute(styleLibraryEClass, STYLE_LIBRARY__NAME);
+    createEReference(styleLibraryEClass, STYLE_LIBRARY__STYLES);
+
+    styleSetEClass = createEClass(STYLE_SET);
+    createEAttribute(styleSetEClass, STYLE_SET__UID);
+    createEAttribute(styleSetEClass, STYLE_SET__NAME);
 
     mappersEClass = createEClass(MAPPERS);
     createEAttribute(mappersEClass, MAPPERS__UID);
@@ -5796,6 +7380,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     canvasFrameEClass = createEClass(CANVAS_FRAME);
     createEAttribute(canvasFrameEClass, CANVAS_FRAME__UID);
     createEAttribute(canvasFrameEClass, CANVAS_FRAME__NAME);
+    createEReference(canvasFrameEClass, CANVAS_FRAME__CANVAS_VIEW);
 
     viewPortHolderEClass = createEClass(VIEW_PORT_HOLDER);
     createEReference(viewPortHolderEClass, VIEW_PORT_HOLDER__VIEW_PORTS);
@@ -5817,6 +7402,9 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     createEReference(viewPortEClass, VIEW_PORT__VIEW_PORT_TRIGGER);
 
     viewPortTriggerEClass = createEClass(VIEW_PORT_TRIGGER);
+    createEAttribute(viewPortTriggerEClass, VIEW_PORT_TRIGGER__UID);
+    createEReference(viewPortTriggerEClass, VIEW_PORT_TRIGGER__TRIGGER);
+    createEAttribute(viewPortTriggerEClass, VIEW_PORT_TRIGGER__FAKE_METHOD);
 
     viewInheritanceEClass = createEClass(VIEW_INHERITANCE);
     createEAttribute(viewInheritanceEClass, VIEW_INHERITANCE__UID);
@@ -5833,22 +7421,24 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     createEAttribute(formDataControlsEClass, FORM_DATA_CONTROLS__NAME);
     createEReference(formDataControlsEClass, FORM_DATA_CONTROLS__FORM_CONTROL);
 
-    controlsEClass = createEClass(CONTROLS);
-    createEAttribute(controlsEClass, CONTROLS__UID);
-    createEReference(controlsEClass, CONTROLS__PARENT);
-    createEReference(controlsEClass, CONTROLS__ROOT);
-    createEReference(controlsEClass, CONTROLS__CONTROLS);
-    createEReference(controlsEClass, CONTROLS__RELATIONS);
+    canvasViewEClass = createEClass(CANVAS_VIEW);
+    createEAttribute(canvasViewEClass, CANVAS_VIEW__UID);
+    createEReference(canvasViewEClass, CANVAS_VIEW__PARENT);
 
-    triggerEClass = createEClass(TRIGGER);
-    createEAttribute(triggerEClass, TRIGGER__UID);
-    createEAttribute(triggerEClass, TRIGGER__NAME);
-    createEReference(triggerEClass, TRIGGER__PARAMETERS);
+    styleEClass = createEClass(STYLE);
+    createEAttribute(styleEClass, STYLE__UID);
+    createEAttribute(styleEClass, STYLE__STYLE);
 
-    triggerParameterEClass = createEClass(TRIGGER_PARAMETER);
-    createEAttribute(triggerParameterEClass, TRIGGER_PARAMETER__UID);
-    createEReference(triggerParameterEClass, TRIGGER_PARAMETER__PARAMETER);
-    createEReference(triggerParameterEClass, TRIGGER_PARAMETER__VALUE);
+    styleClassEClass = createEClass(STYLE_CLASS);
+    createEAttribute(styleClassEClass, STYLE_CLASS__UID);
+    createEReference(styleClassEClass, STYLE_CLASS__STYLES_PACKAGE);
+    createEReference(styleClassEClass, STYLE_CLASS__LIBRARY);
+    createEReference(styleClassEClass, STYLE_CLASS__STYLE_SET);
+
+    contextParameterEClass = createEClass(CONTEXT_PARAMETER);
+    createEAttribute(contextParameterEClass, CONTEXT_PARAMETER__UID);
+    createEReference(contextParameterEClass, CONTEXT_PARAMETER__PARAMETER);
+    createEReference(contextParameterEClass, CONTEXT_PARAMETER__VALUE);
 
     contextValueEClass = createEClass(CONTEXT_VALUE);
     createEAttribute(contextValueEClass, CONTEXT_VALUE__UID);
@@ -5861,29 +7451,132 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     createEReference(expressionPartEClass, EXPRESSION_PART__OBJ_REF);
     createEAttribute(expressionPartEClass, EXPRESSION_PART__ORDER);
 
+    contextEClass = createEClass(CONTEXT);
+    createEAttribute(contextEClass, CONTEXT__UID);
+    createEAttribute(contextEClass, CONTEXT__VALUE);
+    createEReference(contextEClass, CONTEXT__EXPRESSION);
+    createEReference(contextEClass, CONTEXT__PARAMETERS);
+
+    styleElementEClass = createEClass(STYLE_ELEMENT);
+    createEReference(styleElementEClass, STYLE_ELEMENT__STYLE);
+    createEReference(styleElementEClass, STYLE_ELEMENT__STYLE_CLASS);
+
+    uielementEClass = createEClass(UIELEMENT);
+    createEAttribute(uielementEClass, UIELEMENT__UID);
+    createEAttribute(uielementEClass, UIELEMENT__ENABLED);
+    createEReference(uielementEClass, UIELEMENT__ENABLED_CONTEXT);
+    createEAttribute(uielementEClass, UIELEMENT__REQUIRED);
+    createEReference(uielementEClass, UIELEMENT__REQUIRED_CONTEXT);
+    createEAttribute(uielementEClass, UIELEMENT__READ_ONLY);
+    createEReference(uielementEClass, UIELEMENT__READ_ONLY_CONTEXT);
+
+    sourcesPointerEClass = createEClass(SOURCES_POINTER);
+    createEReference(sourcesPointerEClass, SOURCES_POINTER__SOURCE_POINTER);
+    createEReference(sourcesPointerEClass, SOURCES_POINTER__VALUE_POINTER);
+    createEReference(sourcesPointerEClass, SOURCES_POINTER__SOURCE_CAST);
+
+    inputElementEClass = createEClass(INPUT_ELEMENT);
+    createEAttribute(inputElementEClass, INPUT_ELEMENT__LABEL);
+
+    selectionEClass = createEClass(SELECTION);
+    createEReference(selectionEClass, SELECTION__DISPLAY_OPTION_POINTER);
+    createEReference(selectionEClass, SELECTION__VALUE_OPTION_POINTER);
+
+    optionSelectionEClass = createEClass(OPTION_SELECTION);
+    createEReference(optionSelectionEClass, OPTION_SELECTION__OPTION_POINTER);
+    createEReference(optionSelectionEClass, OPTION_SELECTION__OPTION_CAST);
+
+    actionElementEClass = createEClass(ACTION_ELEMENT);
+    createEReference(actionElementEClass, ACTION_ELEMENT__TRIGGER);
+
+    inputTextEClass = createEClass(INPUT_TEXT);
+
+    labelEClass = createEClass(LABEL);
+
+    outputTextEClass = createEClass(OUTPUT_TEXT);
+
+    checkBoxEClass = createEClass(CHECK_BOX);
+
+    dropDownSelectionEClass = createEClass(DROP_DOWN_SELECTION);
+    createEReference(dropDownSelectionEClass, DROP_DOWN_SELECTION__SELECTION);
+
+    columnEClass = createEClass(COLUMN);
+    createEReference(columnEClass, COLUMN__ELEMENT);
+
+    tableEClass = createEClass(TABLE);
+    createEReference(tableEClass, TABLE__COLUMNS);
+
+    treeEClass = createEClass(TREE);
+    createEReference(treeEClass, TREE__IMAGE);
+
+    buttonEClass = createEClass(BUTTON);
+
+    controlsEClass = createEClass(CONTROLS);
+    createEAttribute(controlsEClass, CONTROLS__UID);
+    createEReference(controlsEClass, CONTROLS__PARENT);
+    createEReference(controlsEClass, CONTROLS__ROOT);
+    createEReference(controlsEClass, CONTROLS__CONTROLS);
+    createEReference(controlsEClass, CONTROLS__RELATIONS);
+
     preFormTriggerEClass = createEClass(PRE_FORM_TRIGGER);
+    createEAttribute(preFormTriggerEClass, PRE_FORM_TRIGGER__UID);
+    createEReference(preFormTriggerEClass, PRE_FORM_TRIGGER__TRIGGER);
+    createEAttribute(preFormTriggerEClass, PRE_FORM_TRIGGER__FAKE_METHOD);
 
     preQueryTriggerEClass = createEClass(PRE_QUERY_TRIGGER);
+    createEAttribute(preQueryTriggerEClass, PRE_QUERY_TRIGGER__UID);
+    createEReference(preQueryTriggerEClass, PRE_QUERY_TRIGGER__TRIGGER);
+    createEAttribute(preQueryTriggerEClass, PRE_QUERY_TRIGGER__FAKE_METHOD);
 
     postQueryTriggerEClass = createEClass(POST_QUERY_TRIGGER);
+    createEAttribute(postQueryTriggerEClass, POST_QUERY_TRIGGER__UID);
+    createEReference(postQueryTriggerEClass, POST_QUERY_TRIGGER__TRIGGER);
+    createEAttribute(postQueryTriggerEClass, POST_QUERY_TRIGGER__FAKE_METHOD);
 
     preInsertTriggerEClass = createEClass(PRE_INSERT_TRIGGER);
+    createEAttribute(preInsertTriggerEClass, PRE_INSERT_TRIGGER__UID);
+    createEReference(preInsertTriggerEClass, PRE_INSERT_TRIGGER__TRIGGER);
+    createEAttribute(preInsertTriggerEClass, PRE_INSERT_TRIGGER__FAKE_METHOD);
 
     preDeleteTriggerEClass = createEClass(PRE_DELETE_TRIGGER);
+    createEAttribute(preDeleteTriggerEClass, PRE_DELETE_TRIGGER__UID);
+    createEReference(preDeleteTriggerEClass, PRE_DELETE_TRIGGER__TRIGGER);
+    createEAttribute(preDeleteTriggerEClass, PRE_DELETE_TRIGGER__FAKE_METHOD);
 
     postCreateTriggerEClass = createEClass(POST_CREATE_TRIGGER);
+    createEAttribute(postCreateTriggerEClass, POST_CREATE_TRIGGER__UID);
+    createEReference(postCreateTriggerEClass, POST_CREATE_TRIGGER__TRIGGER);
+    createEAttribute(postCreateTriggerEClass, POST_CREATE_TRIGGER__FAKE_METHOD);
 
     preUpdateTriggerEClass = createEClass(PRE_UPDATE_TRIGGER);
+    createEAttribute(preUpdateTriggerEClass, PRE_UPDATE_TRIGGER__UID);
+    createEReference(preUpdateTriggerEClass, PRE_UPDATE_TRIGGER__TRIGGER);
+    createEAttribute(preUpdateTriggerEClass, PRE_UPDATE_TRIGGER__FAKE_METHOD);
 
     createTriggerEClass = createEClass(CREATE_TRIGGER);
+    createEAttribute(createTriggerEClass, CREATE_TRIGGER__UID);
+    createEReference(createTriggerEClass, CREATE_TRIGGER__TRIGGER);
+    createEAttribute(createTriggerEClass, CREATE_TRIGGER__FAKE_METHOD);
 
     insertTriggerEClass = createEClass(INSERT_TRIGGER);
+    createEAttribute(insertTriggerEClass, INSERT_TRIGGER__UID);
+    createEReference(insertTriggerEClass, INSERT_TRIGGER__TRIGGER);
+    createEAttribute(insertTriggerEClass, INSERT_TRIGGER__FAKE_METHOD);
 
     updateTriggerEClass = createEClass(UPDATE_TRIGGER);
+    createEAttribute(updateTriggerEClass, UPDATE_TRIGGER__UID);
+    createEReference(updateTriggerEClass, UPDATE_TRIGGER__TRIGGER);
+    createEAttribute(updateTriggerEClass, UPDATE_TRIGGER__FAKE_METHOD);
 
     deleteTriggerEClass = createEClass(DELETE_TRIGGER);
+    createEAttribute(deleteTriggerEClass, DELETE_TRIGGER__UID);
+    createEReference(deleteTriggerEClass, DELETE_TRIGGER__TRIGGER);
+    createEAttribute(deleteTriggerEClass, DELETE_TRIGGER__FAKE_METHOD);
 
     searchTriggerEClass = createEClass(SEARCH_TRIGGER);
+    createEAttribute(searchTriggerEClass, SEARCH_TRIGGER__UID);
+    createEReference(searchTriggerEClass, SEARCH_TRIGGER__TRIGGER);
+    createEAttribute(searchTriggerEClass, SEARCH_TRIGGER__FAKE_METHOD);
 
     rootEClass = createEClass(ROOT);
     createEAttribute(rootEClass, ROOT__UID);
@@ -6046,20 +7739,21 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     tabCanvasEClass.getESuperTypes().add(this.getDefaultCavas());
     tabPageEClass.getESuperTypes().add(this.getCanvasFrame());
     tabPageEClass.getESuperTypes().add(this.getViewPortHolder());
-    viewPortTriggerEClass.getESuperTypes().add(this.getTrigger());
-    triggerEClass.getESuperTypes().add(this.getMethodPointer());
-    preFormTriggerEClass.getESuperTypes().add(this.getTrigger());
-    preQueryTriggerEClass.getESuperTypes().add(this.getTrigger());
-    postQueryTriggerEClass.getESuperTypes().add(this.getTrigger());
-    preInsertTriggerEClass.getESuperTypes().add(this.getTrigger());
-    preDeleteTriggerEClass.getESuperTypes().add(this.getTrigger());
-    postCreateTriggerEClass.getESuperTypes().add(this.getTrigger());
-    preUpdateTriggerEClass.getESuperTypes().add(this.getTrigger());
-    createTriggerEClass.getESuperTypes().add(this.getTrigger());
-    insertTriggerEClass.getESuperTypes().add(this.getTrigger());
-    updateTriggerEClass.getESuperTypes().add(this.getTrigger());
-    deleteTriggerEClass.getESuperTypes().add(this.getTrigger());
-    searchTriggerEClass.getESuperTypes().add(this.getTrigger());
+    uielementEClass.getESuperTypes().add(this.getStyleElement());
+    sourcesPointerEClass.getESuperTypes().add(this.getUielement());
+    inputElementEClass.getESuperTypes().add(this.getUielement());
+    selectionEClass.getESuperTypes().add(this.getStyleElement());
+    optionSelectionEClass.getESuperTypes().add(this.getInputElement());
+    actionElementEClass.getESuperTypes().add(this.getUielement());
+    inputTextEClass.getESuperTypes().add(this.getInputElement());
+    labelEClass.getESuperTypes().add(this.getInputElement());
+    outputTextEClass.getESuperTypes().add(this.getInputElement());
+    checkBoxEClass.getESuperTypes().add(this.getInputElement());
+    dropDownSelectionEClass.getESuperTypes().add(this.getOptionSelection());
+    columnEClass.getESuperTypes().add(this.getStyleElement());
+    tableEClass.getESuperTypes().add(this.getSourcesPointer());
+    treeEClass.getESuperTypes().add(this.getSourcesPointer());
+    buttonEClass.getESuperTypes().add(this.getActionElement());
     artificialFieldEClass.getESuperTypes().add(this.getTypePointer());
     datacenterEClass.getESuperTypes().add(this.getHTMLLayerHolder());
     serverEClass.getESuperTypes().add(this.getInfrastructureComponent());
@@ -6165,7 +7859,27 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     initEReference(getApplication_ApplicationMappers(), this.getApplicationMappers(), this.getApplicationMappers_Parent(), "applicationMappers", null, 0, 1, Application.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getApplication_ApplicationUILayer(), this.getApplicationUILayer(), this.getApplicationUILayer_Parent(), "applicationUILayer", null, 0, 1, Application.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getApplication_ApplicationInfrastructureLayer(), this.getApplicationInfrastructureLayer(), this.getApplicationInfrastructureLayer_Parent(), "applicationInfrastructureLayer", null, 0, 1, Application.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getApplication_ApplicationStyle(), this.getApplicationStyle(), this.getApplicationStyle_Parent(), "applicationStyle", null, 0, 1, Application.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getApplication_ApplicationRole(), this.getApplicationRole(), this.getApplicationRole_Parent(), "applicationRole", null, 0, 1, Application.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getApplication_Parent(), this.getDomainApplication(), this.getDomainApplication_Application(), "parent", null, 0, 1, Application.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(applicationRoleEClass, ApplicationRole.class, "ApplicationRole", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getApplicationRole_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, ApplicationRole.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getApplicationRole_Name(), ecorePackage.getEString(), "name", null, 0, 1, ApplicationRole.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getApplicationRole_Parent(), this.getApplication(), this.getApplication_ApplicationRole(), "parent", null, 0, 1, ApplicationRole.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getApplicationRole_Roles(), this.getRoles(), this.getRoles_Parent(), "roles", null, 0, 1, ApplicationRole.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(applicationStyleEClass, ApplicationStyle.class, "ApplicationStyle", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getApplicationStyle_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, ApplicationStyle.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getApplicationStyle_Name(), ecorePackage.getEString(), "name", null, 0, 1, ApplicationStyle.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getApplicationStyle_Parent(), this.getApplication(), this.getApplication_ApplicationStyle(), "parent", null, 0, 1, ApplicationStyle.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getApplicationStyle_StylesPackage(), this.getStylesPackage(), this.getStylesPackage_Parent(), "stylesPackage", null, 0, -1, ApplicationStyle.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(stylesPackageEClass, StylesPackage.class, "StylesPackage", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getStylesPackage_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, StylesPackage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getStylesPackage_Name(), ecorePackage.getEString(), "name", null, 0, 1, StylesPackage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getStylesPackage_Parent(), this.getApplicationStyle(), this.getApplicationStyle_StylesPackage(), "parent", null, 0, 1, StylesPackage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getStylesPackage_Styles(), this.getStyles(), this.getStyles_Parent(), "styles", null, 0, 1, StylesPackage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(applicationUILayerEClass, ApplicationUILayer.class, "ApplicationUILayer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getApplicationUILayer_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, ApplicationUILayer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -6206,6 +7920,36 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     initEClass(methodPointerEClass, MethodPointer.class, "MethodPointer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getMethodPointer_MethodRef(), this.getOperation(), null, "methodRef", null, 0, 1, MethodPointer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getMethodPointer_FakeMethod(), ecorePackage.getEString(), "fakeMethod", null, 0, 1, MethodPointer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(rolesEClass, Roles.class, "Roles", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getRoles_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, Roles.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getRoles_Parent(), this.getApplicationRole(), this.getApplicationRole_Roles(), "parent", null, 0, 1, Roles.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getRoles_Roles(), this.getRole(), null, "roles", null, 0, -1, Roles.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getRoles_Groups(), this.getGroup(), null, "groups", null, 0, -1, Roles.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(roleEClass, Role.class, "Role", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getRole_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, Role.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getRole_Name(), ecorePackage.getEString(), "name", null, 0, 1, Role.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(groupEClass, Group.class, "Group", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getGroup_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, Group.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getGroup_Name(), ecorePackage.getEString(), "name", null, 0, 1, Group.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getGroup_Group2Group(), this.getGroup(), null, "group2Group", null, 0, -1, Group.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getGroup_Group2Role(), this.getRole(), null, "group2Role", null, 0, -1, Group.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(stylesEClass, Styles.class, "Styles", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getStyles_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, Styles.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getStyles_Parent(), this.getStylesPackage(), this.getStylesPackage_Styles(), "parent", null, 0, 1, Styles.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getStyles_Libraries(), this.getStyleLibrary(), null, "libraries", null, 0, -1, Styles.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(styleLibraryEClass, StyleLibrary.class, "StyleLibrary", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getStyleLibrary_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, StyleLibrary.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getStyleLibrary_Name(), ecorePackage.getEString(), "name", null, 0, 1, StyleLibrary.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getStyleLibrary_Styles(), this.getStyleSet(), null, "styles", null, 0, -1, StyleLibrary.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(styleSetEClass, StyleSet.class, "StyleSet", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getStyleSet_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, StyleSet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getStyleSet_Name(), ecorePackage.getEString(), "name", null, 0, 1, StyleSet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(mappersEClass, Mappers.class, "Mappers", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getMappers_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, Mappers.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -6440,6 +8184,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     initEClass(canvasFrameEClass, CanvasFrame.class, "CanvasFrame", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getCanvasFrame_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, CanvasFrame.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getCanvasFrame_Name(), ecorePackage.getEString(), "name", null, 0, 1, CanvasFrame.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getCanvasFrame_CanvasView(), this.getCanvasView(), this.getCanvasView_Parent(), "canvasView", null, 0, 1, CanvasFrame.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(viewPortHolderEClass, ViewPortHolder.class, "ViewPortHolder", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getViewPortHolder_ViewPorts(), this.getViewPort(), null, "viewPorts", null, 0, -1, ViewPortHolder.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -6461,6 +8206,9 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     initEReference(getViewPort_ViewPortTrigger(), this.getViewPortTrigger(), null, "viewPortTrigger", null, 0, 1, ViewPort.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(viewPortTriggerEClass, ViewPortTrigger.class, "ViewPortTrigger", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getViewPortTrigger_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, ViewPortTrigger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getViewPortTrigger_Trigger(), this.getContext(), null, "trigger", null, 0, 1, ViewPortTrigger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getViewPortTrigger_FakeMethod(), ecorePackage.getEString(), "fakeMethod", null, 0, 1, ViewPortTrigger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(viewInheritanceEClass, ViewInheritance.class, "ViewInheritance", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getViewInheritance_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, ViewInheritance.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -6477,22 +8225,24 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     initEAttribute(getFormDataControls_Name(), ecorePackage.getEString(), "name", null, 0, 1, FormDataControls.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getFormDataControls_FormControl(), this.getControls(), this.getControls_Parent(), "formControl", null, 0, 1, FormDataControls.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(controlsEClass, Controls.class, "Controls", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getControls_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, Controls.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getControls_Parent(), this.getFormDataControls(), this.getFormDataControls_FormControl(), "parent", null, 0, 1, Controls.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getControls_Root(), this.getRoot(), null, "root", null, 0, 1, Controls.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getControls_Controls(), this.getDataControl(), this.getDataControl_Parent(), "controls", null, 0, -1, Controls.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getControls_Relations(), this.getRelation(), null, "relations", null, 0, -1, Controls.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(canvasViewEClass, CanvasView.class, "CanvasView", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getCanvasView_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, CanvasView.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getCanvasView_Parent(), this.getCanvasFrame(), this.getCanvasFrame_CanvasView(), "parent", null, 0, 1, CanvasView.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(triggerEClass, Trigger.class, "Trigger", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getTrigger_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, Trigger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getTrigger_Name(), ecorePackage.getEString(), "name", null, 0, 1, Trigger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getTrigger_Parameters(), this.getTriggerParameter(), null, "parameters", null, 0, -1, Trigger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(styleEClass, Style.class, "Style", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getStyle_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, Style.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getStyle_Style(), ecorePackage.getEString(), "style", null, 0, 1, Style.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(triggerParameterEClass, TriggerParameter.class, "TriggerParameter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getTriggerParameter_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, TriggerParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getTriggerParameter_Parameter(), this.getParameter(), null, "parameter", null, 0, 1, TriggerParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getTriggerParameter_Value(), this.getContextValue(), null, "value", null, 0, 1, TriggerParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(styleClassEClass, StyleClass.class, "StyleClass", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getStyleClass_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, StyleClass.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getStyleClass_StylesPackage(), this.getStylesPackage(), null, "stylesPackage", null, 0, 1, StyleClass.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getStyleClass_Library(), this.getStyleLibrary(), null, "library", null, 0, 1, StyleClass.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getStyleClass_StyleSet(), this.getStyleSet(), null, "styleSet", null, 0, 1, StyleClass.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(contextParameterEClass, ContextParameter.class, "ContextParameter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getContextParameter_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, ContextParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getContextParameter_Parameter(), this.getParameter(), null, "parameter", null, 0, 1, ContextParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getContextParameter_Value(), this.getContextValue(), null, "value", null, 0, 1, ContextParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(contextValueEClass, ContextValue.class, "ContextValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getContextValue_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, ContextValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -6505,29 +8255,132 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     initEReference(getExpressionPart_ObjRef(), ecorePackage.getEObject(), null, "objRef", null, 0, 1, ExpressionPart.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getExpressionPart_Order(), ecorePackage.getEInt(), "order", null, 0, 1, ExpressionPart.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+    initEClass(contextEClass, Context.class, "Context", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getContext_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, Context.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getContext_Value(), ecorePackage.getEString(), "value", null, 0, 1, Context.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getContext_Expression(), this.getExpressionPart(), null, "expression", null, 0, -1, Context.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getContext_Parameters(), this.getContextParameter(), null, "parameters", null, 0, -1, Context.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(styleElementEClass, StyleElement.class, "StyleElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getStyleElement_Style(), this.getStyle(), null, "style", null, 0, 1, StyleElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getStyleElement_StyleClass(), this.getStyleClass(), null, "styleClass", null, 0, 1, StyleElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(uielementEClass, Uielement.class, "Uielement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getUielement_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, Uielement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getUielement_Enabled(), ecorePackage.getEString(), "enabled", null, 0, 1, Uielement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getUielement_EnabledContext(), this.getContext(), null, "enabledContext", null, 0, 1, Uielement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getUielement_Required(), ecorePackage.getEString(), "required", null, 0, 1, Uielement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getUielement_RequiredContext(), this.getContext(), null, "requiredContext", null, 0, 1, Uielement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getUielement_ReadOnly(), ecorePackage.getEString(), "readOnly", null, 0, 1, Uielement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getUielement_ReadOnlyContext(), this.getContext(), null, "readOnlyContext", null, 0, 1, Uielement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(sourcesPointerEClass, SourcesPointer.class, "SourcesPointer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getSourcesPointer_SourcePointer(), this.getContext(), null, "sourcePointer", null, 0, 1, SourcesPointer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getSourcesPointer_ValuePointer(), this.getContext(), null, "valuePointer", null, 0, 1, SourcesPointer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getSourcesPointer_SourceCast(), this.getContext(), null, "sourceCast", null, 0, 1, SourcesPointer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(inputElementEClass, InputElement.class, "InputElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getInputElement_Label(), ecorePackage.getEString(), "label", null, 0, 1, InputElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(selectionEClass, Selection.class, "Selection", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getSelection_DisplayOptionPointer(), this.getContext(), null, "displayOptionPointer", null, 0, 1, Selection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getSelection_ValueOptionPointer(), this.getContext(), null, "valueOptionPointer", null, 0, 1, Selection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(optionSelectionEClass, OptionSelection.class, "OptionSelection", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getOptionSelection_OptionPointer(), this.getContext(), null, "optionPointer", null, 0, 1, OptionSelection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getOptionSelection_OptionCast(), this.getContext(), null, "optionCast", null, 0, 1, OptionSelection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(actionElementEClass, ActionElement.class, "ActionElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getActionElement_Trigger(), this.getContext(), null, "trigger", null, 0, 1, ActionElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(inputTextEClass, InputText.class, "InputText", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(labelEClass, Label.class, "Label", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(outputTextEClass, OutputText.class, "OutputText", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(checkBoxEClass, CheckBox.class, "CheckBox", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(dropDownSelectionEClass, DropDownSelection.class, "DropDownSelection", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getDropDownSelection_Selection(), this.getSelection(), null, "selection", null, 0, 1, DropDownSelection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(columnEClass, Column.class, "Column", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getColumn_Element(), this.getInputElement(), null, "element", null, 0, 1, Column.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(tableEClass, Table.class, "Table", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getTable_Columns(), this.getColumn(), null, "columns", null, 0, -1, Table.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(treeEClass, Tree.class, "Tree", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getTree_Image(), this.getContext(), null, "image", null, 0, 1, Tree.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(buttonEClass, Button.class, "Button", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(controlsEClass, Controls.class, "Controls", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getControls_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, Controls.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getControls_Parent(), this.getFormDataControls(), this.getFormDataControls_FormControl(), "parent", null, 0, 1, Controls.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getControls_Root(), this.getRoot(), null, "root", null, 0, 1, Controls.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getControls_Controls(), this.getDataControl(), this.getDataControl_Parent(), "controls", null, 0, -1, Controls.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getControls_Relations(), this.getRelation(), null, "relations", null, 0, -1, Controls.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
     initEClass(preFormTriggerEClass, PREFormTrigger.class, "PREFormTrigger", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getPREFormTrigger_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, PREFormTrigger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getPREFormTrigger_Trigger(), this.getContext(), null, "trigger", null, 0, 1, PREFormTrigger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getPREFormTrigger_FakeMethod(), ecorePackage.getEString(), "fakeMethod", null, 0, 1, PREFormTrigger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(preQueryTriggerEClass, PREQueryTrigger.class, "PREQueryTrigger", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getPREQueryTrigger_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, PREQueryTrigger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getPREQueryTrigger_Trigger(), this.getContext(), null, "trigger", null, 0, 1, PREQueryTrigger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getPREQueryTrigger_FakeMethod(), ecorePackage.getEString(), "fakeMethod", null, 0, 1, PREQueryTrigger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(postQueryTriggerEClass, POSTQueryTrigger.class, "POSTQueryTrigger", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getPOSTQueryTrigger_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, POSTQueryTrigger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getPOSTQueryTrigger_Trigger(), this.getContext(), null, "trigger", null, 0, 1, POSTQueryTrigger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getPOSTQueryTrigger_FakeMethod(), ecorePackage.getEString(), "fakeMethod", null, 0, 1, POSTQueryTrigger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(preInsertTriggerEClass, PREInsertTrigger.class, "PREInsertTrigger", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getPREInsertTrigger_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, PREInsertTrigger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getPREInsertTrigger_Trigger(), this.getContext(), null, "trigger", null, 0, 1, PREInsertTrigger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getPREInsertTrigger_FakeMethod(), ecorePackage.getEString(), "fakeMethod", null, 0, 1, PREInsertTrigger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(preDeleteTriggerEClass, PREDeleteTrigger.class, "PREDeleteTrigger", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getPREDeleteTrigger_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, PREDeleteTrigger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getPREDeleteTrigger_Trigger(), this.getContext(), null, "trigger", null, 0, 1, PREDeleteTrigger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getPREDeleteTrigger_FakeMethod(), ecorePackage.getEString(), "fakeMethod", null, 0, 1, PREDeleteTrigger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(postCreateTriggerEClass, POSTCreateTrigger.class, "POSTCreateTrigger", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getPOSTCreateTrigger_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, POSTCreateTrigger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getPOSTCreateTrigger_Trigger(), this.getContext(), null, "trigger", null, 0, 1, POSTCreateTrigger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getPOSTCreateTrigger_FakeMethod(), ecorePackage.getEString(), "fakeMethod", null, 0, 1, POSTCreateTrigger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(preUpdateTriggerEClass, PREUpdateTrigger.class, "PREUpdateTrigger", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getPREUpdateTrigger_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, PREUpdateTrigger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getPREUpdateTrigger_Trigger(), this.getContext(), null, "trigger", null, 0, 1, PREUpdateTrigger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getPREUpdateTrigger_FakeMethod(), ecorePackage.getEString(), "fakeMethod", null, 0, 1, PREUpdateTrigger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(createTriggerEClass, CreateTrigger.class, "CreateTrigger", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getCreateTrigger_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, CreateTrigger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getCreateTrigger_Trigger(), this.getContext(), null, "trigger", null, 0, 1, CreateTrigger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getCreateTrigger_FakeMethod(), ecorePackage.getEString(), "fakeMethod", null, 0, 1, CreateTrigger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(insertTriggerEClass, InsertTrigger.class, "InsertTrigger", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getInsertTrigger_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, InsertTrigger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getInsertTrigger_Trigger(), this.getContext(), null, "trigger", null, 0, 1, InsertTrigger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getInsertTrigger_FakeMethod(), ecorePackage.getEString(), "fakeMethod", null, 0, 1, InsertTrigger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(updateTriggerEClass, UpdateTrigger.class, "UpdateTrigger", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getUpdateTrigger_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, UpdateTrigger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getUpdateTrigger_Trigger(), this.getContext(), null, "trigger", null, 0, 1, UpdateTrigger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getUpdateTrigger_FakeMethod(), ecorePackage.getEString(), "fakeMethod", null, 0, 1, UpdateTrigger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(deleteTriggerEClass, DeleteTrigger.class, "DeleteTrigger", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getDeleteTrigger_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, DeleteTrigger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDeleteTrigger_Trigger(), this.getContext(), null, "trigger", null, 0, 1, DeleteTrigger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getDeleteTrigger_FakeMethod(), ecorePackage.getEString(), "fakeMethod", null, 0, 1, DeleteTrigger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(searchTriggerEClass, SearchTrigger.class, "SearchTrigger", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getSearchTrigger_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, SearchTrigger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getSearchTrigger_Trigger(), this.getContext(), null, "trigger", null, 0, 1, SearchTrigger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getSearchTrigger_FakeMethod(), ecorePackage.getEString(), "fakeMethod", null, 0, 1, SearchTrigger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(rootEClass, Root.class, "Root", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getRoot_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, Root.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -6642,26 +8495,32 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     createGmf_4Annotations();
     // gmf.diagram.application
     createGmf_5Annotations();
-    // gmf.diagram.mapper
+    // gmf.diagram.roles
     createGmf_6Annotations();
-    // gmf.diagram.recipe
-    createGmf_7Annotations();
-    // gmf.diagram.deployment
-    createGmf_8Annotations();
     // gmf.link
+    createGmf_7Annotations();
+    // gmf.diagram.style
+    createGmf_8Annotations();
+    // gmf.diagram.mapper
     createGmf_9Annotations();
-    // gmf.diagram.typedefinition
+    // gmf.diagram.recipe
     createGmf_10Annotations();
-    // gmf.diagram.typesrepository
+    // gmf.diagram.deployment
     createGmf_11Annotations();
-    // gmf.diagram.uipackage
+    // gmf.diagram.typedefinition
     createGmf_12Annotations();
-    // gmf.diagram.view
+    // gmf.diagram.typesrepository
     createGmf_13Annotations();
-    // gmf.diagram.control
+    // gmf.diagram.uipackage
     createGmf_14Annotations();
-    // gmf.diagram.infarastructure
+    // gmf.diagram.view
     createGmf_15Annotations();
+    // gmf.diagram.canvasview
+    createGmf_16Annotations();
+    // gmf.diagram.control
+    createGmf_17Annotations();
+    // gmf.diagram.infarastructure
+    createGmf_18Annotations();
   }
 
   /**
@@ -6678,7 +8537,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
-       });																																																																																																																																							
+       });																																																																																																																																																					
   }
 
   /**
@@ -6695,7 +8554,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
-       });																																																																																																																																						
+       });																																																																																																																																																				
   }
 
   /**
@@ -6830,6 +8689,33 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        "label", "name"
        });			
     addAnnotation
+      (applicationRoleEClass, 
+       source, 
+       new String[] 
+       {
+       "label", "name",
+       "border.color", "0,0,0",
+       "color", "192,192,192"
+       });		
+    addAnnotation
+      (applicationStyleEClass, 
+       source, 
+       new String[] 
+       {
+       "label", "name",
+       "border.color", "0,0,0",
+       "color", "192,192,192"
+       });			
+    addAnnotation
+      (stylesPackageEClass, 
+       source, 
+       new String[] 
+       {
+       "label", "name",
+       "border.color", "0,0,0",
+       "color", "255,196,176"
+       });		
+    addAnnotation
       (applicationUILayerEClass, 
        source, 
        new String[] 
@@ -6876,6 +8762,42 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        });			
     addAnnotation
       (applicationMapperEClass, 
+       source, 
+       new String[] 
+       {
+       "label", "name",
+       "border.color", "0,0,0",
+       "color", "255,237,85"
+       });			
+    addAnnotation
+      (roleEClass, 
+       source, 
+       new String[] 
+       {
+       "label", "name",
+       "border.color", "0,0,0",
+       "color", "255,237,85"
+       });		
+    addAnnotation
+      (groupEClass, 
+       source, 
+       new String[] 
+       {
+       "label", "name",
+       "border.color", "0,0,0",
+       "color", "255,237,85"
+       });					
+    addAnnotation
+      (styleLibraryEClass, 
+       source, 
+       new String[] 
+       {
+       "label", "name",
+       "border.color", "0,0,0",
+       "color", "255,237,85"
+       });			
+    addAnnotation
+      (styleSetEClass, 
        source, 
        new String[] 
        {
@@ -7152,7 +9074,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        "label", "name",
        "border.color", "0,0,0",
        "color", "241,238,203"
-       });			
+       });				
     addAnnotation
       (preFormTriggerEClass, 
        source, 
@@ -7424,7 +9346,13 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        new String[] 
        {
        "layout", "list"
-       });								
+       });									
+    addAnnotation
+      (getApplicationStyle_StylesPackage(), 
+       source, 
+       new String[] 
+       {
+       });				
     addAnnotation
       (getApplicationUILayer_ApplicationUIPackages(), 
        source, 
@@ -7439,6 +9367,12 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        });				
     addAnnotation
       (getApplicationMappers_Mappers(), 
+       source, 
+       new String[] 
+       {
+       });										
+    addAnnotation
+      (getStyleLibrary_Styles(), 
        source, 
        new String[] 
        {
@@ -7529,7 +9463,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        new String[] 
        {
        "layout", "list"
-       });																				
+       });																					
     addAnnotation
       (getRoot_PreFormTrigger(), 
        source, 
@@ -7662,7 +9596,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
-       });																																																																																																																										
+       });																																																																																																																																								
   }
 
   /**
@@ -7679,58 +9613,24 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
-       });																																																																																																																	
+       });																																																																																																																															
   }
 
   /**
-   * Initializes the annotations for <b>gmf.diagram.mapper</b>.
+   * Initializes the annotations for <b>gmf.diagram.roles</b>.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
   protected void createGmf_6Annotations()
   {
-    String source = "gmf.diagram.mapper";																																		
+    String source = "gmf.diagram.roles";																																						
     addAnnotation
-      (mappersEClass, 
+      (rolesEClass, 
        source, 
        new String[] 
        {
-       });																																																																																																							
-  }
-
-  /**
-   * Initializes the annotations for <b>gmf.diagram.recipe</b>.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected void createGmf_7Annotations()
-  {
-    String source = "gmf.diagram.recipe";																																				
-    addAnnotation
-      (recipesEClass, 
-       source, 
-       new String[] 
-       {
-       });																																																																																																					
-  }
-
-  /**
-   * Initializes the annotations for <b>gmf.diagram.deployment</b>.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected void createGmf_8Annotations()
-  {
-    String source = "gmf.diagram.deployment";																																						
-    addAnnotation
-      (deploymentComponentsEClass, 
-       source, 
-       new String[] 
-       {
-       });																																																																																																			
+       });																																																																																																																	
   }
 
   /**
@@ -7739,9 +9639,25 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  protected void createGmf_9Annotations()
+  protected void createGmf_7Annotations()
   {
-    String source = "gmf.link";																																								
+    String source = "gmf.link";																																									
+    addAnnotation
+      (getGroup_Group2Group(), 
+       source, 
+       new String[] 
+       {
+       "target.decoration", "arrow",
+       "style", "dash"
+       });		
+    addAnnotation
+      (getGroup_Group2Role(), 
+       source, 
+       new String[] 
+       {
+       "target.decoration", "arrow",
+       "style", "dash"
+       });												
     addAnnotation
       (getDeploymentComponent_DeploymentComponentLink(), 
        source, 
@@ -7825,7 +9741,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        "color", "238,16,16",
        "width", "2",
        "target.decoration", "arrow"
-       });																															
+       });																																
     addAnnotation
       (relationEClass, 
        source, 
@@ -7848,20 +9764,88 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
   }
 
   /**
-   * Initializes the annotations for <b>gmf.diagram.typedefinition</b>.
+   * Initializes the annotations for <b>gmf.diagram.style</b>.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected void createGmf_8Annotations()
+  {
+    String source = "gmf.diagram.style";																																											
+    addAnnotation
+      (stylesEClass, 
+       source, 
+       new String[] 
+       {
+       });																																																																																																												
+  }
+
+  /**
+   * Initializes the annotations for <b>gmf.diagram.mapper</b>.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected void createGmf_9Annotations()
+  {
+    String source = "gmf.diagram.mapper";																																															
+    addAnnotation
+      (mappersEClass, 
+       source, 
+       new String[] 
+       {
+       });																																																																																																								
+  }
+
+  /**
+   * Initializes the annotations for <b>gmf.diagram.recipe</b>.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
   protected void createGmf_10Annotations()
   {
-    String source = "gmf.diagram.typedefinition";																																																												
+    String source = "gmf.diagram.recipe";																																																	
+    addAnnotation
+      (recipesEClass, 
+       source, 
+       new String[] 
+       {
+       });																																																																																																						
+  }
+
+  /**
+   * Initializes the annotations for <b>gmf.diagram.deployment</b>.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected void createGmf_11Annotations()
+  {
+    String source = "gmf.diagram.deployment";																																																			
+    addAnnotation
+      (deploymentComponentsEClass, 
+       source, 
+       new String[] 
+       {
+       });																																																																																																				
+  }
+
+  /**
+   * Initializes the annotations for <b>gmf.diagram.typedefinition</b>.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected void createGmf_12Annotations()
+  {
+    String source = "gmf.diagram.typedefinition";																																																																									
     addAnnotation
       (typeDefinitionEClass, 
        source, 
        new String[] 
        {
-       });																																																																													
+       });																																																																														
   }
 
   /**
@@ -7870,15 +9854,15 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  protected void createGmf_11Annotations()
+  protected void createGmf_13Annotations()
   {
-    String source = "gmf.diagram.typesrepository";																																																																								
+    String source = "gmf.diagram.typesrepository";																																																																																					
     addAnnotation
       (typesRepositoryEClass, 
        source, 
        new String[] 
        {
-       });																																																																	
+       });																																																																		
   }
 
   /**
@@ -7887,15 +9871,15 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  protected void createGmf_12Annotations()
+  protected void createGmf_14Annotations()
   {
-    String source = "gmf.diagram.uipackage";																																																																												
+    String source = "gmf.diagram.uipackage";																																																																																									
     addAnnotation
       (uiPackageEClass, 
        source, 
        new String[] 
        {
-       });																																																													
+       });																																																														
   }
 
   /**
@@ -7904,15 +9888,32 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  protected void createGmf_13Annotations()
+  protected void createGmf_15Annotations()
   {
-    String source = "gmf.diagram.view";																																																																																	
+    String source = "gmf.diagram.view";																																																																																														
     addAnnotation
       (viewsEClass, 
        source, 
        new String[] 
        {
-       });																																																								
+       });																																																									
+  }
+
+  /**
+   * Initializes the annotations for <b>gmf.diagram.canvasview</b>.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected void createGmf_16Annotations()
+  {
+    String source = "gmf.diagram.canvasview";																																																																																																										
+    addAnnotation
+      (canvasViewEClass, 
+       source, 
+       new String[] 
+       {
+       });																																													
   }
 
   /**
@@ -7921,9 +9922,9 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  protected void createGmf_14Annotations()
+  protected void createGmf_17Annotations()
   {
-    String source = "gmf.diagram.control";																																																																																													
+    String source = "gmf.diagram.control";																																																																																																											
     addAnnotation
       (controlsEClass, 
        source, 
@@ -7938,9 +9939,9 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  protected void createGmf_15Annotations()
+  protected void createGmf_18Annotations()
   {
-    String source = "gmf.diagram.infarastructure";																																																																																																																												
+    String source = "gmf.diagram.infarastructure";																																																																																																																																										
     addAnnotation
       (enterpriseInfrastructureEClass, 
        source, 

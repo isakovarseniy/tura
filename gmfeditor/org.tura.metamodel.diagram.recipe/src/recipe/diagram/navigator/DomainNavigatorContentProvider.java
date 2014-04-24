@@ -251,81 +251,64 @@ public class DomainNavigatorContentProvider implements ICommonContentProvider {
 	private Object[] getViewChildren(View view, Object parentElement) {
 		switch (DomainVisualIDRegistry.getVisualID(view)) {
 
-		case IngredientEditPart.VISUAL_ID: {
+		case DeploymentSequenceEditPart.VISUAL_ID: {
 			LinkedList<DomainAbstractNavigatorItem> result = new LinkedList<DomainAbstractNavigatorItem>();
 			Node sv = (Node) view;
+			DomainNavigatorGroup incominglinks = new DomainNavigatorGroup(
+					Messages.NavigatorGroupName_DeploymentSequence_302004_incominglinks,
+					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
 			Collection<View> connectedViews;
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					DomainVisualIDRegistry
-							.getType(IngredientIngredientComponentsCompartmentEditPart.VISUAL_ID));
-			connectedViews = getChildrenByType(connectedViews,
-					DomainVisualIDRegistry
-							.getType(JavaComponentEditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			return result.toArray();
-		}
-
-		case RecipesEditPart.VISUAL_ID: {
-			LinkedList<DomainAbstractNavigatorItem> result = new LinkedList<DomainAbstractNavigatorItem>();
-			result.addAll(getForeignShortcuts((Diagram) view, parentElement));
-			Diagram sv = (Diagram) view;
-			DomainNavigatorGroup links = new DomainNavigatorGroup(
-					Messages.NavigatorGroupName_Recipes_301000_links,
-					"icons/linksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection<View> connectedViews;
-			connectedViews = getChildrenByType(Collections.singleton(sv),
-					DomainVisualIDRegistry.getType(RecipeEditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getChildrenByType(Collections.singleton(sv),
-					DomainVisualIDRegistry
-							.getType(ConfigurationEditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getChildrenByType(Collections.singleton(sv),
-					DomainVisualIDRegistry
-							.getType(InfrastructureEditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getChildrenByType(Collections.singleton(sv),
-					DomainVisualIDRegistry
-							.getType(DeploymentSequenceEditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getDiagramLinksByType(Collections.singleton(sv),
-					DomainVisualIDRegistry
-							.getType(RecipeInfrastructuresEditPart.VISUAL_ID));
-			links.addChildren(createNavigatorItems(connectedViews, links, false));
-			connectedViews = getDiagramLinksByType(Collections.singleton(sv),
+			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
 					DomainVisualIDRegistry
 							.getType(RecipeDeploymentEditPart.VISUAL_ID));
-			links.addChildren(createNavigatorItems(connectedViews, links, false));
-			connectedViews = getDiagramLinksByType(
-					Collections.singleton(sv),
-					DomainVisualIDRegistry
-							.getType(InfrastructureRecipeConfigEditPart.VISUAL_ID));
-			links.addChildren(createNavigatorItems(connectedViews, links, false));
-			if (!links.isEmpty()) {
-				result.add(links);
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			if (!incominglinks.isEmpty()) {
+				result.add(incominglinks);
 			}
 			return result.toArray();
 		}
 
-		case JavaComponentEditPart.VISUAL_ID: {
+		case ModelMapperEditPart.VISUAL_ID: {
 			LinkedList<DomainAbstractNavigatorItem> result = new LinkedList<DomainAbstractNavigatorItem>();
 			Node sv = (Node) view;
 			Collection<View> connectedViews;
 			connectedViews = getChildrenByType(
 					Collections.singleton(sv),
 					DomainVisualIDRegistry
-							.getType(JavaComponentJavaComponentMappersCompartmentEditPart.VISUAL_ID));
+							.getType(ModelMapperModelMapperQueriesCompartmentEditPart.VISUAL_ID));
 			connectedViews = getChildrenByType(connectedViews,
-					DomainVisualIDRegistry
-							.getType(ModelMapperEditPart.VISUAL_ID));
+					DomainVisualIDRegistry.getType(QueryEditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
+			return result.toArray();
+		}
+
+		case RecipeInfrastructuresEditPart.VISUAL_ID: {
+			LinkedList<DomainAbstractNavigatorItem> result = new LinkedList<DomainAbstractNavigatorItem>();
+			Edge sv = (Edge) view;
+			DomainNavigatorGroup target = new DomainNavigatorGroup(
+					Messages.NavigatorGroupName_RecipeInfrastructures_304004_target,
+					"icons/linkTargetNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			DomainNavigatorGroup source = new DomainNavigatorGroup(
+					Messages.NavigatorGroupName_RecipeInfrastructures_304004_source,
+					"icons/linkSourceNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getLinksTargetByType(Collections.singleton(sv),
+					DomainVisualIDRegistry
+							.getType(InfrastructureEditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksSourceByType(Collections.singleton(sv),
+					DomainVisualIDRegistry.getType(RecipeEditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			if (!target.isEmpty()) {
+				result.add(target);
+			}
+			if (!source.isEmpty()) {
+				result.add(source);
+			}
 			return result.toArray();
 		}
 
@@ -356,6 +339,67 @@ public class DomainNavigatorContentProvider implements ICommonContentProvider {
 			if (!outgoinglinks.isEmpty()) {
 				result.add(outgoinglinks);
 			}
+			return result.toArray();
+		}
+
+		case JavaComponentEditPart.VISUAL_ID: {
+			LinkedList<DomainAbstractNavigatorItem> result = new LinkedList<DomainAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			Collection<View> connectedViews;
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					DomainVisualIDRegistry
+							.getType(JavaComponentJavaComponentMappersCompartmentEditPart.VISUAL_ID));
+			connectedViews = getChildrenByType(connectedViews,
+					DomainVisualIDRegistry
+							.getType(ModelMapperEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			return result.toArray();
+		}
+
+		case InfrastructureRecipeConfigEditPart.VISUAL_ID: {
+			LinkedList<DomainAbstractNavigatorItem> result = new LinkedList<DomainAbstractNavigatorItem>();
+			Edge sv = (Edge) view;
+			DomainNavigatorGroup target = new DomainNavigatorGroup(
+					Messages.NavigatorGroupName_InfrastructureRecipeConfig_304006_target,
+					"icons/linkTargetNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			DomainNavigatorGroup source = new DomainNavigatorGroup(
+					Messages.NavigatorGroupName_InfrastructureRecipeConfig_304006_source,
+					"icons/linkSourceNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getLinksTargetByType(Collections.singleton(sv),
+					DomainVisualIDRegistry
+							.getType(ConfigurationEditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksSourceByType(Collections.singleton(sv),
+					DomainVisualIDRegistry
+							.getType(InfrastructureEditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			if (!target.isEmpty()) {
+				result.add(target);
+			}
+			if (!source.isEmpty()) {
+				result.add(source);
+			}
+			return result.toArray();
+		}
+
+		case IngredientEditPart.VISUAL_ID: {
+			LinkedList<DomainAbstractNavigatorItem> result = new LinkedList<DomainAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			Collection<View> connectedViews;
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					DomainVisualIDRegistry
+							.getType(IngredientIngredientComponentsCompartmentEditPart.VISUAL_ID));
+			connectedViews = getChildrenByType(connectedViews,
+					DomainVisualIDRegistry
+							.getType(JavaComponentEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
 			return result.toArray();
 		}
 
@@ -418,18 +462,49 @@ public class DomainNavigatorContentProvider implements ICommonContentProvider {
 			return result.toArray();
 		}
 
-		case ModelMapperEditPart.VISUAL_ID: {
+		case RecipesEditPart.VISUAL_ID: {
 			LinkedList<DomainAbstractNavigatorItem> result = new LinkedList<DomainAbstractNavigatorItem>();
-			Node sv = (Node) view;
+			result.addAll(getForeignShortcuts((Diagram) view, parentElement));
+			Diagram sv = (Diagram) view;
+			DomainNavigatorGroup links = new DomainNavigatorGroup(
+					Messages.NavigatorGroupName_Recipes_301000_links,
+					"icons/linksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
 			Collection<View> connectedViews;
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					DomainVisualIDRegistry
-							.getType(ModelMapperModelMapperQueriesCompartmentEditPart.VISUAL_ID));
-			connectedViews = getChildrenByType(connectedViews,
-					DomainVisualIDRegistry.getType(QueryEditPart.VISUAL_ID));
+			connectedViews = getChildrenByType(Collections.singleton(sv),
+					DomainVisualIDRegistry.getType(RecipeEditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
+			connectedViews = getChildrenByType(Collections.singleton(sv),
+					DomainVisualIDRegistry
+							.getType(ConfigurationEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(Collections.singleton(sv),
+					DomainVisualIDRegistry
+							.getType(InfrastructureEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(Collections.singleton(sv),
+					DomainVisualIDRegistry
+							.getType(DeploymentSequenceEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getDiagramLinksByType(Collections.singleton(sv),
+					DomainVisualIDRegistry
+							.getType(RecipeInfrastructuresEditPart.VISUAL_ID));
+			links.addChildren(createNavigatorItems(connectedViews, links, false));
+			connectedViews = getDiagramLinksByType(Collections.singleton(sv),
+					DomainVisualIDRegistry
+							.getType(RecipeDeploymentEditPart.VISUAL_ID));
+			links.addChildren(createNavigatorItems(connectedViews, links, false));
+			connectedViews = getDiagramLinksByType(
+					Collections.singleton(sv),
+					DomainVisualIDRegistry
+							.getType(InfrastructureRecipeConfigEditPart.VISUAL_ID));
+			links.addChildren(createNavigatorItems(connectedViews, links, false));
+			if (!links.isEmpty()) {
+				result.add(links);
+			}
 			return result.toArray();
 		}
 
@@ -457,81 +532,6 @@ public class DomainNavigatorContentProvider implements ICommonContentProvider {
 			}
 			if (!source.isEmpty()) {
 				result.add(source);
-			}
-			return result.toArray();
-		}
-
-		case RecipeInfrastructuresEditPart.VISUAL_ID: {
-			LinkedList<DomainAbstractNavigatorItem> result = new LinkedList<DomainAbstractNavigatorItem>();
-			Edge sv = (Edge) view;
-			DomainNavigatorGroup target = new DomainNavigatorGroup(
-					Messages.NavigatorGroupName_RecipeInfrastructures_304004_target,
-					"icons/linkTargetNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			DomainNavigatorGroup source = new DomainNavigatorGroup(
-					Messages.NavigatorGroupName_RecipeInfrastructures_304004_source,
-					"icons/linkSourceNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection<View> connectedViews;
-			connectedViews = getLinksTargetByType(Collections.singleton(sv),
-					DomainVisualIDRegistry
-							.getType(InfrastructureEditPart.VISUAL_ID));
-			target.addChildren(createNavigatorItems(connectedViews, target,
-					true));
-			connectedViews = getLinksSourceByType(Collections.singleton(sv),
-					DomainVisualIDRegistry.getType(RecipeEditPart.VISUAL_ID));
-			source.addChildren(createNavigatorItems(connectedViews, source,
-					true));
-			if (!target.isEmpty()) {
-				result.add(target);
-			}
-			if (!source.isEmpty()) {
-				result.add(source);
-			}
-			return result.toArray();
-		}
-
-		case InfrastructureRecipeConfigEditPart.VISUAL_ID: {
-			LinkedList<DomainAbstractNavigatorItem> result = new LinkedList<DomainAbstractNavigatorItem>();
-			Edge sv = (Edge) view;
-			DomainNavigatorGroup target = new DomainNavigatorGroup(
-					Messages.NavigatorGroupName_InfrastructureRecipeConfig_304006_target,
-					"icons/linkTargetNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			DomainNavigatorGroup source = new DomainNavigatorGroup(
-					Messages.NavigatorGroupName_InfrastructureRecipeConfig_304006_source,
-					"icons/linkSourceNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection<View> connectedViews;
-			connectedViews = getLinksTargetByType(Collections.singleton(sv),
-					DomainVisualIDRegistry
-							.getType(ConfigurationEditPart.VISUAL_ID));
-			target.addChildren(createNavigatorItems(connectedViews, target,
-					true));
-			connectedViews = getLinksSourceByType(Collections.singleton(sv),
-					DomainVisualIDRegistry
-							.getType(InfrastructureEditPart.VISUAL_ID));
-			source.addChildren(createNavigatorItems(connectedViews, source,
-					true));
-			if (!target.isEmpty()) {
-				result.add(target);
-			}
-			if (!source.isEmpty()) {
-				result.add(source);
-			}
-			return result.toArray();
-		}
-
-		case DeploymentSequenceEditPart.VISUAL_ID: {
-			LinkedList<DomainAbstractNavigatorItem> result = new LinkedList<DomainAbstractNavigatorItem>();
-			Node sv = (Node) view;
-			DomainNavigatorGroup incominglinks = new DomainNavigatorGroup(
-					Messages.NavigatorGroupName_DeploymentSequence_302004_incominglinks,
-					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection<View> connectedViews;
-			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
-					DomainVisualIDRegistry
-							.getType(RecipeDeploymentEditPart.VISUAL_ID));
-			incominglinks.addChildren(createNavigatorItems(connectedViews,
-					incominglinks, true));
-			if (!incominglinks.isEmpty()) {
-				result.add(incominglinks);
 			}
 			return result.toArray();
 		}
