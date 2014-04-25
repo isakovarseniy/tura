@@ -65,8 +65,8 @@ public class DomainPaletteFactory {
 				Messages.Group1CreationTool_desc,
 				Collections.singletonList(DomainElementTypes.Group_1402002));
 		entry.setId("createGroup1CreationTool"); //$NON-NLS-1$
-		entry.setSmallIcon(DomainElementTypes
-				.getImageDescriptor(DomainElementTypes.Group_1402002));
+		entry.setSmallIcon(DomainDiagramEditorPlugin
+				.findImageDescriptor("/org.tura.metamodel.commons/icons/group.png")); //$NON-NLS-1$
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
@@ -80,8 +80,8 @@ public class DomainPaletteFactory {
 				Messages.Role2CreationTool_desc,
 				Collections.singletonList(DomainElementTypes.Role_1402001));
 		entry.setId("createRole2CreationTool"); //$NON-NLS-1$
-		entry.setSmallIcon(DomainElementTypes
-				.getImageDescriptor(DomainElementTypes.Role_1402001));
+		entry.setSmallIcon(DomainDiagramEditorPlugin
+				.findImageDescriptor("/org.tura.metamodel.commons/icons/role.png")); //$NON-NLS-1$
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}

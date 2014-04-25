@@ -109,37 +109,6 @@ public class RolesEditPart extends DiagramEditPart {
 	/**
 	 * @generated
 	 */
-	/*package-local*/static class NodeLabelDragPolicy extends
-			NonResizableEditPolicy {
-
-		/**
-		 * @generated
-		 */
-		@SuppressWarnings("rawtypes")
-		protected List createSelectionHandles() {
-			MoveHandle h = new MoveHandle((GraphicalEditPart) getHost());
-			h.setBorder(null);
-			return Collections.singletonList(h);
-		}
-
-		/**
-		 * @generated
-		 */
-		public Command getCommand(Request request) {
-			return null;
-		}
-
-		/**
-		 * @generated
-		 */
-		public boolean understandsRequest(Request request) {
-			return false;
-		}
-	}
-
-	/**
-	 * @generated
-	 */
 	/*package-local*/static class LinkLabelDragPolicy extends
 			NonResizableLabelEditPolicy {
 

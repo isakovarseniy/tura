@@ -4,11 +4,13 @@
 package roles.diagram.edit.parts;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.MarginBorder;
+import org.eclipse.draw2d.PositionConstants;
 import org.eclipse.draw2d.RoundedRectangle;
 import org.eclipse.draw2d.Shape;
 import org.eclipse.draw2d.StackLayout;
@@ -17,14 +19,20 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPolicy;
+import org.eclipse.gef.GraphicalEditPart;
 import org.eclipse.gef.Request;
 import org.eclipse.gef.commands.Command;
 import org.eclipse.gef.editpolicies.LayoutEditPolicy;
 import org.eclipse.gef.editpolicies.NonResizableEditPolicy;
+import org.eclipse.gef.handles.MoveHandle;
 import org.eclipse.gef.requests.CreateRequest;
+import org.eclipse.gmf.runtime.diagram.ui.editparts.AbstractBorderedShapeEditPart;
+import org.eclipse.gmf.runtime.diagram.ui.editparts.IBorderItemEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeNodeEditPart;
+import org.eclipse.gmf.runtime.diagram.ui.editpolicies.BorderItemSelectionEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
+import org.eclipse.gmf.runtime.diagram.ui.figures.BorderItemLocator;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel;
 import org.eclipse.gmf.runtime.emf.type.core.IElementType;
@@ -36,6 +44,7 @@ import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.Font;
 import org.eclipse.swt.widgets.Display;
 
+import org.tura.metamodel.commons.figures.RoleFigure;
 import roles.diagram.edit.policies.RoleItemSemanticEditPolicy;
 import roles.diagram.part.DomainVisualIDRegistry;
 import roles.diagram.providers.DomainElementTypes;
@@ -43,7 +52,7 @@ import roles.diagram.providers.DomainElementTypes;
 /**
  * @generated
  */
-public class RoleEditPart extends ShapeNodeEditPart {
+public class RoleEditPart extends AbstractBorderedShapeEditPart {
 
 	/**
 	 * @generated
@@ -86,6 +95,19 @@ public class RoleEditPart extends ShapeNodeEditPart {
 		org.eclipse.gmf.runtime.diagram.ui.editpolicies.LayoutEditPolicy lep = new org.eclipse.gmf.runtime.diagram.ui.editpolicies.LayoutEditPolicy() {
 
 			protected EditPolicy createChildEditPolicy(EditPart child) {
+				View childView = (View) child.getModel();
+				switch (DomainVisualIDRegistry.getVisualID(childView)) {
+				case RoleNameEditPart.VISUAL_ID:
+					return new BorderItemSelectionEditPolicy() {
+
+						protected List createSelectionHandles() {
+							MoveHandle mh = new MoveHandle(
+									(GraphicalEditPart) getHost());
+							mh.setBorder(null);
+							return Collections.singletonList(mh);
+						}
+					};
+				}
 				EditPolicy result = child
 						.getEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE);
 				if (result == null) {
@@ -122,50 +144,16 @@ public class RoleEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	protected boolean addFixedChild(EditPart childEditPart) {
-		if (childEditPart instanceof RoleNameEditPart) {
-			((RoleNameEditPart) childEditPart).setLabel(getPrimaryShape()
-					.getFigureRoleLabelFigure());
-			return true;
+	protected void addBorderItem(IFigure borderItemContainer,
+			IBorderItemEditPart borderItemEditPart) {
+		if (borderItemEditPart instanceof RoleNameEditPart) {
+			BorderItemLocator locator = new BorderItemLocator(getMainFigure(),
+					PositionConstants.SOUTH);
+			locator.setBorderItemOffset(new Dimension(-20, -20));
+			borderItemContainer.add(borderItemEditPart.getFigure(), locator);
+		} else {
+			super.addBorderItem(borderItemContainer, borderItemEditPart);
 		}
-		return false;
-	}
-
-	/**
-	 * @generated
-	 */
-	protected boolean removeFixedChild(EditPart childEditPart) {
-		if (childEditPart instanceof RoleNameEditPart) {
-			return true;
-		}
-		return false;
-	}
-
-	/**
-	 * @generated
-	 */
-	protected void addChildVisual(EditPart childEditPart, int index) {
-		if (addFixedChild(childEditPart)) {
-			return;
-		}
-		super.addChildVisual(childEditPart, -1);
-	}
-
-	/**
-	 * @generated
-	 */
-	protected void removeChildVisual(EditPart childEditPart) {
-		if (removeFixedChild(childEditPart)) {
-			return;
-		}
-		super.removeChildVisual(childEditPart);
-	}
-
-	/**
-	 * @generated
-	 */
-	protected IFigure getContentPaneFor(IGraphicalEditPart editPart) {
-		return getContentPane();
 	}
 
 	/**
@@ -184,7 +172,7 @@ public class RoleEditPart extends ShapeNodeEditPart {
 	 * 
 	 * @generated
 	 */
-	protected NodeFigure createNodeFigure() {
+	protected NodeFigure createMainFigure() {
 		NodeFigure figure = createNodePlate();
 		figure.setLayoutManager(new StackLayout());
 		IFigure shape = createNodeShape();
@@ -200,11 +188,6 @@ public class RoleEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected IFigure setupContentPane(IFigure nodeShape) {
-		if (nodeShape.getLayoutManager() == null) {
-			ConstrainedToolbarLayout layout = new ConstrainedToolbarLayout();
-			layout.setSpacing(5);
-			nodeShape.setLayoutManager(layout);
-		}
 		return nodeShape; // use nodeShape itself as contentPane
 	}
 
@@ -294,69 +277,5 @@ public class RoleEditPart extends ShapeNodeEditPart {
 			super.handleNotificationEvent(event);
 		}
 	}
-
-	/**
-	 * @generated
-	 */
-	public class RoleFigure extends RoundedRectangle {
-
-		/**
-		 * @generated
-		 */
-		private WrappingLabel fFigureRoleLabelFigure;
-
-		/**
-		 * @generated
-		 */
-		public RoleFigure() {
-			this.setCornerDimensions(new Dimension(getMapMode().DPtoLP(8),
-					getMapMode().DPtoLP(8)));
-			this.setForegroundColor(THIS_FORE);
-			this.setBackgroundColor(THIS_BACK);
-			this.setBorder(new MarginBorder(getMapMode().DPtoLP(5),
-					getMapMode().DPtoLP(5), getMapMode().DPtoLP(5),
-					getMapMode().DPtoLP(5)));
-			createContents();
-		}
-
-		/**
-		 * @generated
-		 */
-		private void createContents() {
-
-			fFigureRoleLabelFigure = new WrappingLabel();
-
-			fFigureRoleLabelFigure.setText("Role");
-
-			fFigureRoleLabelFigure.setFont(FFIGUREROLELABELFIGURE_FONT);
-
-			this.add(fFigureRoleLabelFigure);
-
-		}
-
-		/**
-		 * @generated
-		 */
-		public WrappingLabel getFigureRoleLabelFigure() {
-			return fFigureRoleLabelFigure;
-		}
-
-	}
-
-	/**
-	 * @generated
-	 */
-	static final Color THIS_FORE = new Color(null, 0, 0, 0);
-
-	/**
-	 * @generated
-	 */
-	static final Color THIS_BACK = new Color(null, 255, 237, 85);
-
-	/**
-	 * @generated
-	 */
-	static final Font FFIGUREROLELABELFIGURE_FONT = new Font(
-			Display.getCurrent(), "Palatino", 12, SWT.ITALIC);
 
 }

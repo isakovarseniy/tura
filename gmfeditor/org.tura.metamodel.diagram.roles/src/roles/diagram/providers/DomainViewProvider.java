@@ -37,6 +37,7 @@ import org.eclipse.gmf.runtime.notation.NotationFactory;
 import org.eclipse.gmf.runtime.notation.NotationPackage;
 import org.eclipse.gmf.runtime.notation.RelativeBendpoints;
 import org.eclipse.gmf.runtime.notation.Routing;
+import org.eclipse.gmf.runtime.notation.Shape;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.gmf.runtime.notation.datatype.RelativeBendpoint;
 import org.eclipse.jface.preference.IPreferenceStore;
@@ -253,10 +254,7 @@ public class DomainViewProvider extends AbstractProvider implements
 	 */
 	public Node createRole_1402001(EObject domainElement, View containerView,
 			int index, boolean persisted, PreferencesHint preferencesHint) {
-		Node node = NotationFactory.eINSTANCE.createNode();
-		node.getStyles()
-				.add(NotationFactory.eINSTANCE.createDescriptionStyle());
-		node.getStyles().add(NotationFactory.eINSTANCE.createFontStyle());
+		Shape node = NotationFactory.eINSTANCE.createShape();
 		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
 		node.setType(DomainVisualIDRegistry.getType(RoleEditPart.VISUAL_ID));
 		ViewUtil.insertChildView(containerView, node, index, persisted);
@@ -265,6 +263,12 @@ public class DomainViewProvider extends AbstractProvider implements
 		// initializeFromPreferences 
 		final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint
 				.getPreferenceStore();
+
+		org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(
+				prefStore, IPreferenceConstants.PREF_LINE_COLOR);
+		ViewUtil.setStructuralFeatureValue(node,
+				NotationPackage.eINSTANCE.getLineStyle_LineColor(),
+				FigureUtilities.RGBToInteger(lineRGB));
 		FontStyle nodeFontStyle = (FontStyle) node
 				.getStyle(NotationPackage.Literals.FONT_STYLE);
 		if (nodeFontStyle != null) {
@@ -279,8 +283,19 @@ public class DomainViewProvider extends AbstractProvider implements
 			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB)
 					.intValue());
 		}
+		org.eclipse.swt.graphics.RGB fillRGB = PreferenceConverter.getColor(
+				prefStore, IPreferenceConstants.PREF_FILL_COLOR);
+		ViewUtil.setStructuralFeatureValue(node,
+				NotationPackage.eINSTANCE.getFillStyle_FillColor(),
+				FigureUtilities.RGBToInteger(fillRGB));
 		Node label1405001 = createLabel(node,
 				DomainVisualIDRegistry.getType(RoleNameEditPart.VISUAL_ID));
+		label1405001.setLayoutConstraint(NotationFactory.eINSTANCE
+				.createLocation());
+		Location location1405001 = (Location) label1405001
+				.getLayoutConstraint();
+		location1405001.setX(0);
+		location1405001.setY(5);
 		return node;
 	}
 
@@ -289,10 +304,7 @@ public class DomainViewProvider extends AbstractProvider implements
 	 */
 	public Node createGroup_1402002(EObject domainElement, View containerView,
 			int index, boolean persisted, PreferencesHint preferencesHint) {
-		Node node = NotationFactory.eINSTANCE.createNode();
-		node.getStyles()
-				.add(NotationFactory.eINSTANCE.createDescriptionStyle());
-		node.getStyles().add(NotationFactory.eINSTANCE.createFontStyle());
+		Shape node = NotationFactory.eINSTANCE.createShape();
 		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
 		node.setType(DomainVisualIDRegistry.getType(GroupEditPart.VISUAL_ID));
 		ViewUtil.insertChildView(containerView, node, index, persisted);
@@ -301,6 +313,12 @@ public class DomainViewProvider extends AbstractProvider implements
 		// initializeFromPreferences 
 		final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint
 				.getPreferenceStore();
+
+		org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(
+				prefStore, IPreferenceConstants.PREF_LINE_COLOR);
+		ViewUtil.setStructuralFeatureValue(node,
+				NotationPackage.eINSTANCE.getLineStyle_LineColor(),
+				FigureUtilities.RGBToInteger(lineRGB));
 		FontStyle nodeFontStyle = (FontStyle) node
 				.getStyle(NotationPackage.Literals.FONT_STYLE);
 		if (nodeFontStyle != null) {
@@ -315,8 +333,19 @@ public class DomainViewProvider extends AbstractProvider implements
 			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB)
 					.intValue());
 		}
+		org.eclipse.swt.graphics.RGB fillRGB = PreferenceConverter.getColor(
+				prefStore, IPreferenceConstants.PREF_FILL_COLOR);
+		ViewUtil.setStructuralFeatureValue(node,
+				NotationPackage.eINSTANCE.getFillStyle_FillColor(),
+				FigureUtilities.RGBToInteger(fillRGB));
 		Node label1405002 = createLabel(node,
 				DomainVisualIDRegistry.getType(GroupNameEditPart.VISUAL_ID));
+		label1405002.setLayoutConstraint(NotationFactory.eINSTANCE
+				.createLocation());
+		Location location1405002 = (Location) label1405002
+				.getLayoutConstraint();
+		location1405002.setX(0);
+		location1405002.setY(5);
 		return node;
 	}
 
