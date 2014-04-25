@@ -24,6 +24,7 @@ import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.dialogs.ElementListSelectionDialog;
 
+import style.diagram.edit.parts.StyleLibraryEditPart;
 import style.diagram.edit.parts.StyleLibraryStyleLibraryStylesCompartmentEditPart;
 import style.diagram.edit.parts.StylesEditPart;
 import style.diagram.part.DomainDiagramEditorPlugin;
@@ -45,7 +46,7 @@ public class DomainModelingAssistantProvider extends ModelingAssistantProvider {
 			types.add(DomainElementTypes.StyleLibrary_1502001);
 			return types;
 		}
-		if (editPart instanceof StyleLibraryStyleLibraryStylesCompartmentEditPart) {
+		if (editPart instanceof StyleLibraryEditPart) {
 			ArrayList<IElementType> types = new ArrayList<IElementType>(1);
 			types.add(DomainElementTypes.StyleSet_1503001);
 			return types;

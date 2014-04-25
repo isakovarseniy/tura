@@ -275,7 +275,7 @@ public class DomainViewProvider extends AbstractProvider implements
 				node,
 				DomainVisualIDRegistry
 						.getType(StyleLibraryStyleLibraryStylesCompartmentEditPart.VISUAL_ID),
-				true, false, false, false);
+				true, false, true, true);
 		return node;
 	}
 
