@@ -18,7 +18,7 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  *
  * @see domain.DomainPackage#getRole()
- * @model annotation="gmf.node label='name' border.color='0,0,0' color='255,237,85'"
+ * @model annotation="gmf.node figure='org.tura.metamodel.commons.figures.RoleFigure' label.icon='false' label='name' label.placement='external' tool.small.bundle='org.tura.metamodel.commons' tool.small.path='icons/role.png'"
  * @generated
  */
 public interface Role extends EObject

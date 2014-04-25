@@ -954,72 +954,42 @@
     <descriptors
         name="RoleFigure">
       <actualFigure
-          xsi:type="gmfgraph:RoundedRectangle"
-          name="RoleFigure">
-        <foregroundColor
-            xsi:type="gmfgraph:RGBColor"/>
-        <backgroundColor
-            xsi:type="gmfgraph:RGBColor"
-            red="255"
-            green="237"
-            blue="85"/>
-        <border
-            xsi:type="gmfgraph:MarginBorder">
-          <insets
-              top="5"
-              left="5"
-              bottom="5"
-              right="5"/>
-        </border>
-        <children
-            xsi:type="gmfgraph:Label"
-            name="RoleLabelFigure"
-            text="Role">
-          <font
-              xsi:type="gmfgraph:BasicFont"
-              faceName="Palatino"
-              height="12"
-              style="ITALIC"/>
-        </children>
+          xsi:type="gmfgraph:CustomFigure"
+          name="RoleFigure"
+          qualifiedClassName="org.tura.metamodel.commons.figures.RoleFigure"/>
+    </descriptors>
+    <descriptors
+        name="RoleLabelFigure">
+      <actualFigure
+          xsi:type="gmfgraph:Label"
+          name="RoleLabelFigure"
+          text="Role">
+        <font
+            xsi:type="gmfgraph:BasicFont"
+            faceName="Palatino"
+            height="12"
+            style="ITALIC"/>
       </actualFigure>
-      <accessors
-          accessor="getFigureRoleLabelFigure"
-          figure="//@figures.0/@descriptors.23/@actualFigure/@children.0"/>
     </descriptors>
     <descriptors
         name="GroupFigure">
       <actualFigure
-          xsi:type="gmfgraph:RoundedRectangle"
-          name="GroupFigure">
-        <foregroundColor
-            xsi:type="gmfgraph:RGBColor"/>
-        <backgroundColor
-            xsi:type="gmfgraph:RGBColor"
-            red="255"
-            green="237"
-            blue="85"/>
-        <border
-            xsi:type="gmfgraph:MarginBorder">
-          <insets
-              top="5"
-              left="5"
-              bottom="5"
-              right="5"/>
-        </border>
-        <children
-            xsi:type="gmfgraph:Label"
-            name="GroupLabelFigure"
-            text="Group">
-          <font
-              xsi:type="gmfgraph:BasicFont"
-              faceName="Palatino"
-              height="12"
-              style="ITALIC"/>
-        </children>
+          xsi:type="gmfgraph:CustomFigure"
+          name="GroupFigure"
+          qualifiedClassName="org.tura.metamodel.commons.figures.GroupFigure"/>
+    </descriptors>
+    <descriptors
+        name="GroupLabelFigure">
+      <actualFigure
+          xsi:type="gmfgraph:Label"
+          name="GroupLabelFigure"
+          text="Group">
+        <font
+            xsi:type="gmfgraph:BasicFont"
+            faceName="Palatino"
+            height="12"
+            style="ITALIC"/>
       </actualFigure>
-      <accessors
-          accessor="getFigureGroupLabelFigure"
-          figure="//@figures.0/@descriptors.24/@actualFigure/@children.0"/>
     </descriptors>
     <descriptors
         name="StyleLibraryFigure">
@@ -1061,10 +1031,10 @@
       </actualFigure>
       <accessors
           accessor="getFigureStyleLibraryLabelFigure"
-          figure="//@figures.0/@descriptors.25/@actualFigure/@children.0"/>
+          figure="//@figures.0/@descriptors.27/@actualFigure/@children.0"/>
       <accessors
           accessor="getStyleLibraryStylesCompartmentFigure"
-          figure="//@figures.0/@descriptors.25/@actualFigure/@children.1"/>
+          figure="//@figures.0/@descriptors.27/@actualFigure/@children.1"/>
     </descriptors>
     <descriptors
         name="StyleSetFigure">
@@ -1099,7 +1069,7 @@
       </actualFigure>
       <accessors
           accessor="getFigureStyleSetLabelFigure"
-          figure="//@figures.0/@descriptors.26/@actualFigure/@children.0"/>
+          figure="//@figures.0/@descriptors.28/@actualFigure/@children.0"/>
     </descriptors>
     <descriptors
         name="JavaMapperFigure">
@@ -1134,7 +1104,7 @@
       </actualFigure>
       <accessors
           accessor="getFigureJavaMapperLabelFigure"
-          figure="//@figures.0/@descriptors.27/@actualFigure/@children.0"/>
+          figure="//@figures.0/@descriptors.29/@actualFigure/@children.0"/>
     </descriptors>
     <descriptors
         name="DeploymentSequenceFigure">
@@ -1169,7 +1139,7 @@
       </actualFigure>
       <accessors
           accessor="getFigureDeploymentSequenceLabelFigure"
-          figure="//@figures.0/@descriptors.28/@actualFigure/@children.0"/>
+          figure="//@figures.0/@descriptors.30/@actualFigure/@children.0"/>
     </descriptors>
     <descriptors
         name="DeploymentComponentFigure">
@@ -1204,7 +1174,7 @@
       </actualFigure>
       <accessors
           accessor="getFigureDeploymentComponentLabelFigure"
-          figure="//@figures.0/@descriptors.29/@actualFigure/@children.0"/>
+          figure="//@figures.0/@descriptors.31/@actualFigure/@children.0"/>
     </descriptors>
     <descriptors
         name="DeploymentStarStepFigure">
@@ -1238,7 +1208,7 @@
       </actualFigure>
       <accessors
           accessor="getFigureDeploymentStarStepLabelFigure"
-          figure="//@figures.0/@descriptors.30/@actualFigure/@children.0"/>
+          figure="//@figures.0/@descriptors.32/@actualFigure/@children.0"/>
     </descriptors>
     <descriptors
         name="RecipeFigure">
@@ -1280,10 +1250,10 @@
       </actualFigure>
       <accessors
           accessor="getFigureRecipeLabelFigure"
-          figure="//@figures.0/@descriptors.31/@actualFigure/@children.0"/>
+          figure="//@figures.0/@descriptors.33/@actualFigure/@children.0"/>
       <accessors
           accessor="getRecipeIngredientsCompartmentFigure"
-          figure="//@figures.0/@descriptors.31/@actualFigure/@children.1"/>
+          figure="//@figures.0/@descriptors.33/@actualFigure/@children.1"/>
     </descriptors>
     <descriptors
         name="IngredientFigure">
@@ -1325,10 +1295,10 @@
       </actualFigure>
       <accessors
           accessor="getFigureIngredientLabelFigure"
-          figure="//@figures.0/@descriptors.32/@actualFigure/@children.0"/>
+          figure="//@figures.0/@descriptors.34/@actualFigure/@children.0"/>
       <accessors
           accessor="getIngredientComponentsCompartmentFigure"
-          figure="//@figures.0/@descriptors.32/@actualFigure/@children.1"/>
+          figure="//@figures.0/@descriptors.34/@actualFigure/@children.1"/>
     </descriptors>
     <descriptors
         name="JavaComponentFigure">
@@ -1370,10 +1340,10 @@
       </actualFigure>
       <accessors
           accessor="getFigureJavaComponentLabelFigure"
-          figure="//@figures.0/@descriptors.33/@actualFigure/@children.0"/>
+          figure="//@figures.0/@descriptors.35/@actualFigure/@children.0"/>
       <accessors
           accessor="getJavaComponentMappersCompartmentFigure"
-          figure="//@figures.0/@descriptors.33/@actualFigure/@children.1"/>
+          figure="//@figures.0/@descriptors.35/@actualFigure/@children.1"/>
     </descriptors>
     <descriptors
         name="InfrastructureFigure">
@@ -1408,7 +1378,7 @@
       </actualFigure>
       <accessors
           accessor="getFigureInfrastructureLabelFigure"
-          figure="//@figures.0/@descriptors.34/@actualFigure/@children.0"/>
+          figure="//@figures.0/@descriptors.36/@actualFigure/@children.0"/>
     </descriptors>
     <descriptors
         name="ConfigurationFigure">
@@ -1450,10 +1420,10 @@
       </actualFigure>
       <accessors
           accessor="getFigureConfigurationLabelFigure"
-          figure="//@figures.0/@descriptors.35/@actualFigure/@children.0"/>
+          figure="//@figures.0/@descriptors.37/@actualFigure/@children.0"/>
       <accessors
           accessor="getConfigurationPropertiesCompartmentFigure"
-          figure="//@figures.0/@descriptors.35/@actualFigure/@children.1"/>
+          figure="//@figures.0/@descriptors.37/@actualFigure/@children.1"/>
     </descriptors>
     <descriptors
         name="ModelMapperFigure">
@@ -1495,10 +1465,10 @@
       </actualFigure>
       <accessors
           accessor="getFigureModelMapperLabelFigure"
-          figure="//@figures.0/@descriptors.36/@actualFigure/@children.0"/>
+          figure="//@figures.0/@descriptors.38/@actualFigure/@children.0"/>
       <accessors
           accessor="getModelMapperQueriesCompartmentFigure"
-          figure="//@figures.0/@descriptors.36/@actualFigure/@children.1"/>
+          figure="//@figures.0/@descriptors.38/@actualFigure/@children.1"/>
     </descriptors>
     <descriptors
         name="PropertyFigure">
@@ -1533,7 +1503,7 @@
       </actualFigure>
       <accessors
           accessor="getFigurePropertyLabelFigure"
-          figure="//@figures.0/@descriptors.37/@actualFigure/@children.0"/>
+          figure="//@figures.0/@descriptors.39/@actualFigure/@children.0"/>
     </descriptors>
     <descriptors
         name="QueryFigure">
@@ -1568,7 +1538,7 @@
       </actualFigure>
       <accessors
           accessor="getFigureQueryLabelFigure"
-          figure="//@figures.0/@descriptors.38/@actualFigure/@children.0"/>
+          figure="//@figures.0/@descriptors.40/@actualFigure/@children.0"/>
     </descriptors>
     <descriptors
         name="PrimitiveFigure">
@@ -1603,7 +1573,7 @@
       </actualFigure>
       <accessors
           accessor="getFigurePrimitiveLabelFigure"
-          figure="//@figures.0/@descriptors.39/@actualFigure/@children.0"/>
+          figure="//@figures.0/@descriptors.41/@actualFigure/@children.0"/>
     </descriptors>
     <descriptors
         name="TypeFigure">
@@ -1649,13 +1619,13 @@
       </actualFigure>
       <accessors
           accessor="getFigureTypeLabelFigure"
-          figure="//@figures.0/@descriptors.40/@actualFigure/@children.0"/>
+          figure="//@figures.0/@descriptors.42/@actualFigure/@children.0"/>
       <accessors
           accessor="getTypeAttributesCompartmentFigure"
-          figure="//@figures.0/@descriptors.40/@actualFigure/@children.1"/>
+          figure="//@figures.0/@descriptors.42/@actualFigure/@children.1"/>
       <accessors
           accessor="getTypeOperationsCompartmentFigure"
-          figure="//@figures.0/@descriptors.40/@actualFigure/@children.2"/>
+          figure="//@figures.0/@descriptors.42/@actualFigure/@children.2"/>
     </descriptors>
     <descriptors
         name="TypeReferenceFigure">
@@ -1690,7 +1660,7 @@
       </actualFigure>
       <accessors
           accessor="getFigureTypeReferenceLabelFigure"
-          figure="//@figures.0/@descriptors.41/@actualFigure/@children.0"/>
+          figure="//@figures.0/@descriptors.43/@actualFigure/@children.0"/>
     </descriptors>
     <descriptors
         name="AttributeFigure">
@@ -1721,7 +1691,7 @@
       </actualFigure>
       <accessors
           accessor="getFigureAttributeLabelFigure"
-          figure="//@figures.0/@descriptors.42/@actualFigure/@children.0"/>
+          figure="//@figures.0/@descriptors.44/@actualFigure/@children.0"/>
     </descriptors>
     <descriptors
         name="OperationFigure">
@@ -1752,7 +1722,7 @@
       </actualFigure>
       <accessors
           accessor="getFigureOperationLabelFigure"
-          figure="//@figures.0/@descriptors.43/@actualFigure/@children.0"/>
+          figure="//@figures.0/@descriptors.45/@actualFigure/@children.0"/>
     </descriptors>
     <descriptors
         name="EnumaratorFigure">
@@ -1794,10 +1764,10 @@
       </actualFigure>
       <accessors
           accessor="getFigureEnumaratorLabelFigure"
-          figure="//@figures.0/@descriptors.44/@actualFigure/@children.0"/>
+          figure="//@figures.0/@descriptors.46/@actualFigure/@children.0"/>
       <accessors
           accessor="getEnumaratorValuesCompartmentFigure"
-          figure="//@figures.0/@descriptors.44/@actualFigure/@children.1"/>
+          figure="//@figures.0/@descriptors.46/@actualFigure/@children.1"/>
     </descriptors>
     <descriptors
         name="EnumAttributeFigure">
@@ -1828,7 +1798,7 @@
       </actualFigure>
       <accessors
           accessor="getFigureEnumAttributeLabelFigure"
-          figure="//@figures.0/@descriptors.45/@actualFigure/@children.0"/>
+          figure="//@figures.0/@descriptors.47/@actualFigure/@children.0"/>
     </descriptors>
     <descriptors
         name="TypesFigure">
@@ -1870,10 +1840,10 @@
       </actualFigure>
       <accessors
           accessor="getFigureTypesLabelFigure"
-          figure="//@figures.0/@descriptors.46/@actualFigure/@children.0"/>
+          figure="//@figures.0/@descriptors.48/@actualFigure/@children.0"/>
       <accessors
           accessor="getTypesPackagesCompartmentFigure"
-          figure="//@figures.0/@descriptors.46/@actualFigure/@children.1"/>
+          figure="//@figures.0/@descriptors.48/@actualFigure/@children.1"/>
     </descriptors>
     <descriptors
         name="PackageFigure">
@@ -1908,7 +1878,7 @@
       </actualFigure>
       <accessors
           accessor="getFigurePackageLabelFigure"
-          figure="//@figures.0/@descriptors.47/@actualFigure/@children.0"/>
+          figure="//@figures.0/@descriptors.49/@actualFigure/@children.0"/>
     </descriptors>
     <descriptors
         name="FormFigure">
@@ -1954,13 +1924,13 @@
       </actualFigure>
       <accessors
           accessor="getFigureFormLabelFigure"
-          figure="//@figures.0/@descriptors.48/@actualFigure/@children.0"/>
+          figure="//@figures.0/@descriptors.50/@actualFigure/@children.0"/>
       <accessors
           accessor="getFormViewCompartmentFigure"
-          figure="//@figures.0/@descriptors.48/@actualFigure/@children.1"/>
+          figure="//@figures.0/@descriptors.50/@actualFigure/@children.1"/>
       <accessors
           accessor="getFormDatacontrolsCompartmentFigure"
-          figure="//@figures.0/@descriptors.48/@actualFigure/@children.2"/>
+          figure="//@figures.0/@descriptors.50/@actualFigure/@children.2"/>
     </descriptors>
     <descriptors
         name="FormViewFigure">
@@ -1995,7 +1965,7 @@
       </actualFigure>
       <accessors
           accessor="getFigureFormViewLabelFigure"
-          figure="//@figures.0/@descriptors.49/@actualFigure/@children.0"/>
+          figure="//@figures.0/@descriptors.51/@actualFigure/@children.0"/>
     </descriptors>
     <descriptors
         name="CanvasFigure">
@@ -2037,10 +2007,10 @@
       </actualFigure>
       <accessors
           accessor="getFigureCanvasLabelFigure"
-          figure="//@figures.0/@descriptors.50/@actualFigure/@children.0"/>
+          figure="//@figures.0/@descriptors.52/@actualFigure/@children.0"/>
       <accessors
           accessor="getCanvasViewPortsCompartmentFigure"
-          figure="//@figures.0/@descriptors.50/@actualFigure/@children.1"/>
+          figure="//@figures.0/@descriptors.52/@actualFigure/@children.1"/>
     </descriptors>
     <descriptors
         name="WindowFigure">
@@ -2082,10 +2052,10 @@
       </actualFigure>
       <accessors
           accessor="getFigureWindowLabelFigure"
-          figure="//@figures.0/@descriptors.51/@actualFigure/@children.0"/>
+          figure="//@figures.0/@descriptors.53/@actualFigure/@children.0"/>
       <accessors
           accessor="getWindowViewPortsCompartmentFigure"
-          figure="//@figures.0/@descriptors.51/@actualFigure/@children.1"/>
+          figure="//@figures.0/@descriptors.53/@actualFigure/@children.1"/>
     </descriptors>
     <descriptors
         name="TabCanvasFigure">
@@ -2120,7 +2090,7 @@
       </actualFigure>
       <accessors
           accessor="getFigureTabCanvasLabelFigure"
-          figure="//@figures.0/@descriptors.52/@actualFigure/@children.0"/>
+          figure="//@figures.0/@descriptors.54/@actualFigure/@children.0"/>
     </descriptors>
     <descriptors
         name="TabPageFigure">
@@ -2162,10 +2132,10 @@
       </actualFigure>
       <accessors
           accessor="getFigureTabPageLabelFigure"
-          figure="//@figures.0/@descriptors.53/@actualFigure/@children.0"/>
+          figure="//@figures.0/@descriptors.55/@actualFigure/@children.0"/>
       <accessors
           accessor="getTabPageViewPortsCompartmentFigure"
-          figure="//@figures.0/@descriptors.53/@actualFigure/@children.1"/>
+          figure="//@figures.0/@descriptors.55/@actualFigure/@children.1"/>
     </descriptors>
     <descriptors
         name="ViewPortFigure">
@@ -2207,10 +2177,10 @@
       </actualFigure>
       <accessors
           accessor="getFigureViewPortLabelFigure"
-          figure="//@figures.0/@descriptors.54/@actualFigure/@children.0"/>
+          figure="//@figures.0/@descriptors.56/@actualFigure/@children.0"/>
       <accessors
           accessor="getViewPortViewPortTriggerCompartmentFigure"
-          figure="//@figures.0/@descriptors.54/@actualFigure/@children.1"/>
+          figure="//@figures.0/@descriptors.56/@actualFigure/@children.1"/>
     </descriptors>
     <descriptors
         name="ViewPortTriggerFigure">
@@ -2245,7 +2215,7 @@
       </actualFigure>
       <accessors
           accessor="getFigureViewPortTriggerLabelFigure"
-          figure="//@figures.0/@descriptors.55/@actualFigure/@children.0"/>
+          figure="//@figures.0/@descriptors.57/@actualFigure/@children.0"/>
     </descriptors>
     <descriptors
         name="FormDataControlsFigure">
@@ -2280,7 +2250,7 @@
       </actualFigure>
       <accessors
           accessor="getFigureFormDataControlsLabelFigure"
-          figure="//@figures.0/@descriptors.56/@actualFigure/@children.0"/>
+          figure="//@figures.0/@descriptors.58/@actualFigure/@children.0"/>
     </descriptors>
     <descriptors
         name="PREFormTriggerFigure">
@@ -2315,7 +2285,7 @@
       </actualFigure>
       <accessors
           accessor="getFigurePREFormTriggerLabelFigure"
-          figure="//@figures.0/@descriptors.57/@actualFigure/@children.0"/>
+          figure="//@figures.0/@descriptors.59/@actualFigure/@children.0"/>
     </descriptors>
     <descriptors
         name="PREQueryTriggerFigure">
@@ -2350,7 +2320,7 @@
       </actualFigure>
       <accessors
           accessor="getFigurePREQueryTriggerLabelFigure"
-          figure="//@figures.0/@descriptors.58/@actualFigure/@children.0"/>
+          figure="//@figures.0/@descriptors.60/@actualFigure/@children.0"/>
     </descriptors>
     <descriptors
         name="POSTQueryTriggerFigure">
@@ -2385,7 +2355,7 @@
       </actualFigure>
       <accessors
           accessor="getFigurePOSTQueryTriggerLabelFigure"
-          figure="//@figures.0/@descriptors.59/@actualFigure/@children.0"/>
+          figure="//@figures.0/@descriptors.61/@actualFigure/@children.0"/>
     </descriptors>
     <descriptors
         name="PREInsertTriggerFigure">
@@ -2420,7 +2390,7 @@
       </actualFigure>
       <accessors
           accessor="getFigurePREInsertTriggerLabelFigure"
-          figure="//@figures.0/@descriptors.60/@actualFigure/@children.0"/>
+          figure="//@figures.0/@descriptors.62/@actualFigure/@children.0"/>
     </descriptors>
     <descriptors
         name="PREDeleteTriggerFigure">
@@ -2455,7 +2425,7 @@
       </actualFigure>
       <accessors
           accessor="getFigurePREDeleteTriggerLabelFigure"
-          figure="//@figures.0/@descriptors.61/@actualFigure/@children.0"/>
+          figure="//@figures.0/@descriptors.63/@actualFigure/@children.0"/>
     </descriptors>
     <descriptors
         name="POSTCreateTriggerFigure">
@@ -2490,7 +2460,7 @@
       </actualFigure>
       <accessors
           accessor="getFigurePOSTCreateTriggerLabelFigure"
-          figure="//@figures.0/@descriptors.62/@actualFigure/@children.0"/>
+          figure="//@figures.0/@descriptors.64/@actualFigure/@children.0"/>
     </descriptors>
     <descriptors
         name="PREUpdateTriggerFigure">
@@ -2525,7 +2495,7 @@
       </actualFigure>
       <accessors
           accessor="getFigurePREUpdateTriggerLabelFigure"
-          figure="//@figures.0/@descriptors.63/@actualFigure/@children.0"/>
+          figure="//@figures.0/@descriptors.65/@actualFigure/@children.0"/>
     </descriptors>
     <descriptors
         name="CreateTriggerFigure">
@@ -2560,7 +2530,7 @@
       </actualFigure>
       <accessors
           accessor="getFigureCreateTriggerLabelFigure"
-          figure="//@figures.0/@descriptors.64/@actualFigure/@children.0"/>
+          figure="//@figures.0/@descriptors.66/@actualFigure/@children.0"/>
     </descriptors>
     <descriptors
         name="InsertTriggerFigure">
@@ -2595,7 +2565,7 @@
       </actualFigure>
       <accessors
           accessor="getFigureInsertTriggerLabelFigure"
-          figure="//@figures.0/@descriptors.65/@actualFigure/@children.0"/>
+          figure="//@figures.0/@descriptors.67/@actualFigure/@children.0"/>
     </descriptors>
     <descriptors
         name="UpdateTriggerFigure">
@@ -2630,7 +2600,7 @@
       </actualFigure>
       <accessors
           accessor="getFigureUpdateTriggerLabelFigure"
-          figure="//@figures.0/@descriptors.66/@actualFigure/@children.0"/>
+          figure="//@figures.0/@descriptors.68/@actualFigure/@children.0"/>
     </descriptors>
     <descriptors
         name="DeleteTriggerFigure">
@@ -2665,7 +2635,7 @@
       </actualFigure>
       <accessors
           accessor="getFigureDeleteTriggerLabelFigure"
-          figure="//@figures.0/@descriptors.67/@actualFigure/@children.0"/>
+          figure="//@figures.0/@descriptors.69/@actualFigure/@children.0"/>
     </descriptors>
     <descriptors
         name="SearchTriggerFigure">
@@ -2700,7 +2670,7 @@
       </actualFigure>
       <accessors
           accessor="getFigureSearchTriggerLabelFigure"
-          figure="//@figures.0/@descriptors.68/@actualFigure/@children.0"/>
+          figure="//@figures.0/@descriptors.70/@actualFigure/@children.0"/>
     </descriptors>
     <descriptors
         name="RootFigure">
@@ -2742,10 +2712,10 @@
       </actualFigure>
       <accessors
           accessor="getFigureRootLabelFigure"
-          figure="//@figures.0/@descriptors.69/@actualFigure/@children.0"/>
+          figure="//@figures.0/@descriptors.71/@actualFigure/@children.0"/>
       <accessors
           accessor="getRootPreFormTriggerCompartmentFigure"
-          figure="//@figures.0/@descriptors.69/@actualFigure/@children.1"/>
+          figure="//@figures.0/@descriptors.71/@actualFigure/@children.1"/>
     </descriptors>
     <descriptors
         name="DataControlFigure">
@@ -2831,43 +2801,43 @@
       </actualFigure>
       <accessors
           accessor="getFigureDataControlLabelFigure"
-          figure="//@figures.0/@descriptors.70/@actualFigure/@children.0"/>
+          figure="//@figures.0/@descriptors.72/@actualFigure/@children.0"/>
       <accessors
           accessor="getDataControlPreQueryTriggerCompartmentFigure"
-          figure="//@figures.0/@descriptors.70/@actualFigure/@children.1"/>
+          figure="//@figures.0/@descriptors.72/@actualFigure/@children.1"/>
       <accessors
           accessor="getDataControlPostQueryTriggerCompartmentFigure"
-          figure="//@figures.0/@descriptors.70/@actualFigure/@children.2"/>
+          figure="//@figures.0/@descriptors.72/@actualFigure/@children.2"/>
       <accessors
           accessor="getDataControlPreInsertTriggerCompartmentFigure"
-          figure="//@figures.0/@descriptors.70/@actualFigure/@children.3"/>
+          figure="//@figures.0/@descriptors.72/@actualFigure/@children.3"/>
       <accessors
           accessor="getDataControlPreDeleteTriggerCompartmentFigure"
-          figure="//@figures.0/@descriptors.70/@actualFigure/@children.4"/>
+          figure="//@figures.0/@descriptors.72/@actualFigure/@children.4"/>
       <accessors
           accessor="getDataControlPostCreateTriggerCompartmentFigure"
-          figure="//@figures.0/@descriptors.70/@actualFigure/@children.5"/>
+          figure="//@figures.0/@descriptors.72/@actualFigure/@children.5"/>
       <accessors
           accessor="getDataControlPreUpdateTriggerCompartmentFigure"
-          figure="//@figures.0/@descriptors.70/@actualFigure/@children.6"/>
+          figure="//@figures.0/@descriptors.72/@actualFigure/@children.6"/>
       <accessors
           accessor="getDataControlCreateCompartmentFigure"
-          figure="//@figures.0/@descriptors.70/@actualFigure/@children.7"/>
+          figure="//@figures.0/@descriptors.72/@actualFigure/@children.7"/>
       <accessors
           accessor="getDataControlInsertCompartmentFigure"
-          figure="//@figures.0/@descriptors.70/@actualFigure/@children.8"/>
+          figure="//@figures.0/@descriptors.72/@actualFigure/@children.8"/>
       <accessors
           accessor="getDataControlUpdateCompartmentFigure"
-          figure="//@figures.0/@descriptors.70/@actualFigure/@children.9"/>
+          figure="//@figures.0/@descriptors.72/@actualFigure/@children.9"/>
       <accessors
           accessor="getDataControlRemoveCompartmentFigure"
-          figure="//@figures.0/@descriptors.70/@actualFigure/@children.10"/>
+          figure="//@figures.0/@descriptors.72/@actualFigure/@children.10"/>
       <accessors
           accessor="getDataControlSearchCompartmentFigure"
-          figure="//@figures.0/@descriptors.70/@actualFigure/@children.11"/>
+          figure="//@figures.0/@descriptors.72/@actualFigure/@children.11"/>
       <accessors
           accessor="getDataControlArtificialFieldsCompartmentFigure"
-          figure="//@figures.0/@descriptors.70/@actualFigure/@children.12"/>
+          figure="//@figures.0/@descriptors.72/@actualFigure/@children.12"/>
     </descriptors>
     <descriptors
         name="ArtificialFieldFigure">
@@ -2902,7 +2872,7 @@
       </actualFigure>
       <accessors
           accessor="getFigureArtificialFieldLabelFigure"
-          figure="//@figures.0/@descriptors.71/@actualFigure/@children.0"/>
+          figure="//@figures.0/@descriptors.73/@actualFigure/@children.0"/>
     </descriptors>
     <descriptors
         name="ApplicationInfrastructureLayerFigure">
@@ -2937,7 +2907,7 @@
       </actualFigure>
       <accessors
           accessor="getFigureApplicationInfrastructureLayerLabelFigure"
-          figure="//@figures.0/@descriptors.72/@actualFigure/@children.0"/>
+          figure="//@figures.0/@descriptors.74/@actualFigure/@children.0"/>
     </descriptors>
     <descriptors
         name="DatacenterFigure">
@@ -2972,10 +2942,10 @@
       </actualFigure>
       <accessors
           accessor="getFigureDatacenterLabelFigure"
-          figure="//@figures.0/@descriptors.73/@actualFigure/@children.0"/>
+          figure="//@figures.0/@descriptors.75/@actualFigure/@children.0"/>
       <accessors
           accessor="getDatacenterSubsystemsCompartmentFigure"
-          figure="//@figures.0/@descriptors.73/@actualFigure/@children.1"/>
+          figure="//@figures.0/@descriptors.75/@actualFigure/@children.1"/>
     </descriptors>
     <descriptors
         name="SubsystemFigure">
@@ -3010,10 +2980,10 @@
       </actualFigure>
       <accessors
           accessor="getFigureSubsystemLabelFigure"
-          figure="//@figures.0/@descriptors.74/@actualFigure/@children.0"/>
+          figure="//@figures.0/@descriptors.76/@actualFigure/@children.0"/>
       <accessors
           accessor="getSubsystemInfrastructureLayerCompartmentFigure"
-          figure="//@figures.0/@descriptors.74/@actualFigure/@children.1"/>
+          figure="//@figures.0/@descriptors.76/@actualFigure/@children.1"/>
     </descriptors>
     <descriptors
         name="InfrastructureLayerFigure">
@@ -3048,10 +3018,10 @@
       </actualFigure>
       <accessors
           accessor="getFigureInfrastructureLayerLabelFigure"
-          figure="//@figures.0/@descriptors.75/@actualFigure/@children.0"/>
+          figure="//@figures.0/@descriptors.77/@actualFigure/@children.0"/>
       <accessors
           accessor="getInfrastructureLayerInfrastructureComponentCompartmentFigure"
-          figure="//@figures.0/@descriptors.75/@actualFigure/@children.1"/>
+          figure="//@figures.0/@descriptors.77/@actualFigure/@children.1"/>
     </descriptors>
     <descriptors
         name="ServerFigure">
@@ -3166,10 +3136,10 @@
       </actualFigure>
       <accessors
           accessor="getFigureServerClasterLabelFigure"
-          figure="//@figures.0/@descriptors.84/@actualFigure/@children.0"/>
+          figure="//@figures.0/@descriptors.86/@actualFigure/@children.0"/>
       <accessors
           accessor="getServerClasterServersCompartmentFigure"
-          figure="//@figures.0/@descriptors.84/@actualFigure/@children.1"/>
+          figure="//@figures.0/@descriptors.86/@actualFigure/@children.1"/>
     </descriptors>
     <descriptors
         name="TypeExtensionFigure">
@@ -3718,167 +3688,167 @@
       name="StyleLibraryStylesCompartment"
       figure="StyleLibraryFigure"
       collapsible="true"
-      accessor="//@figures.0/@descriptors.25/@accessors.1"/>
+      accessor="//@figures.0/@descriptors.27/@accessors.1"/>
   <compartments
       name="RecipeIngredientsCompartment"
       figure="RecipeFigure"
       collapsible="true"
-      accessor="//@figures.0/@descriptors.31/@accessors.1"/>
+      accessor="//@figures.0/@descriptors.33/@accessors.1"/>
   <compartments
       name="IngredientComponentsCompartment"
       figure="IngredientFigure"
       collapsible="true"
-      accessor="//@figures.0/@descriptors.32/@accessors.1"/>
+      accessor="//@figures.0/@descriptors.34/@accessors.1"/>
   <compartments
       name="JavaComponentMappersCompartment"
       figure="JavaComponentFigure"
       collapsible="true"
-      accessor="//@figures.0/@descriptors.33/@accessors.1"/>
+      accessor="//@figures.0/@descriptors.35/@accessors.1"/>
   <compartments
       name="ConfigurationPropertiesCompartment"
       figure="ConfigurationFigure"
       collapsible="true"
-      accessor="//@figures.0/@descriptors.35/@accessors.1"/>
+      accessor="//@figures.0/@descriptors.37/@accessors.1"/>
   <compartments
       name="ModelMapperQueriesCompartment"
       figure="ModelMapperFigure"
       collapsible="true"
-      accessor="//@figures.0/@descriptors.36/@accessors.1"/>
+      accessor="//@figures.0/@descriptors.38/@accessors.1"/>
   <compartments
       name="TypeAttributesCompartment"
       figure="TypeFigure"
       collapsible="true"
-      accessor="//@figures.0/@descriptors.40/@accessors.1"/>
+      accessor="//@figures.0/@descriptors.42/@accessors.1"/>
   <compartments
       name="TypeOperationsCompartment"
       figure="TypeFigure"
       collapsible="true"
-      accessor="//@figures.0/@descriptors.40/@accessors.2"/>
+      accessor="//@figures.0/@descriptors.42/@accessors.2"/>
   <compartments
       name="EnumaratorValuesCompartment"
       figure="EnumaratorFigure"
       collapsible="true"
-      accessor="//@figures.0/@descriptors.44/@accessors.1"/>
+      accessor="//@figures.0/@descriptors.46/@accessors.1"/>
   <compartments
       name="TypesPackagesCompartment"
       figure="TypesFigure"
       collapsible="true"
-      accessor="//@figures.0/@descriptors.46/@accessors.1"/>
+      accessor="//@figures.0/@descriptors.48/@accessors.1"/>
   <compartments
       name="FormViewCompartment"
       figure="FormFigure"
       collapsible="true"
-      accessor="//@figures.0/@descriptors.48/@accessors.1"/>
+      accessor="//@figures.0/@descriptors.50/@accessors.1"/>
   <compartments
       name="FormDatacontrolsCompartment"
       figure="FormFigure"
       collapsible="true"
-      accessor="//@figures.0/@descriptors.48/@accessors.2"/>
+      accessor="//@figures.0/@descriptors.50/@accessors.2"/>
   <compartments
       name="CanvasViewPortsCompartment"
       figure="CanvasFigure"
       collapsible="true"
-      accessor="//@figures.0/@descriptors.50/@accessors.1"/>
+      accessor="//@figures.0/@descriptors.52/@accessors.1"/>
   <compartments
       name="WindowViewPortsCompartment"
       figure="WindowFigure"
       collapsible="true"
-      accessor="//@figures.0/@descriptors.51/@accessors.1"/>
+      accessor="//@figures.0/@descriptors.53/@accessors.1"/>
   <compartments
       name="TabPageViewPortsCompartment"
       figure="TabPageFigure"
       collapsible="true"
-      accessor="//@figures.0/@descriptors.53/@accessors.1"/>
+      accessor="//@figures.0/@descriptors.55/@accessors.1"/>
   <compartments
       name="ViewPortViewPortTriggerCompartment"
       figure="ViewPortFigure"
       collapsible="true"
-      accessor="//@figures.0/@descriptors.54/@accessors.1"/>
+      accessor="//@figures.0/@descriptors.56/@accessors.1"/>
   <compartments
       name="RootPreFormTriggerCompartment"
       figure="RootFigure"
       collapsible="true"
-      accessor="//@figures.0/@descriptors.69/@accessors.1"/>
+      accessor="//@figures.0/@descriptors.71/@accessors.1"/>
   <compartments
       name="DataControlPreQueryTriggerCompartment"
       figure="DataControlFigure"
       collapsible="true"
-      accessor="//@figures.0/@descriptors.70/@accessors.1"/>
+      accessor="//@figures.0/@descriptors.72/@accessors.1"/>
   <compartments
       name="DataControlPostQueryTriggerCompartment"
       figure="DataControlFigure"
       collapsible="true"
-      accessor="//@figures.0/@descriptors.70/@accessors.2"/>
+      accessor="//@figures.0/@descriptors.72/@accessors.2"/>
   <compartments
       name="DataControlPreInsertTriggerCompartment"
       figure="DataControlFigure"
       collapsible="true"
-      accessor="//@figures.0/@descriptors.70/@accessors.3"/>
+      accessor="//@figures.0/@descriptors.72/@accessors.3"/>
   <compartments
       name="DataControlPreDeleteTriggerCompartment"
       figure="DataControlFigure"
       collapsible="true"
-      accessor="//@figures.0/@descriptors.70/@accessors.4"/>
+      accessor="//@figures.0/@descriptors.72/@accessors.4"/>
   <compartments
       name="DataControlPostCreateTriggerCompartment"
       figure="DataControlFigure"
       collapsible="true"
-      accessor="//@figures.0/@descriptors.70/@accessors.5"/>
+      accessor="//@figures.0/@descriptors.72/@accessors.5"/>
   <compartments
       name="DataControlPreUpdateTriggerCompartment"
       figure="DataControlFigure"
       collapsible="true"
-      accessor="//@figures.0/@descriptors.70/@accessors.6"/>
+      accessor="//@figures.0/@descriptors.72/@accessors.6"/>
   <compartments
       name="DataControlCreateCompartment"
       figure="DataControlFigure"
       collapsible="true"
-      accessor="//@figures.0/@descriptors.70/@accessors.7"/>
+      accessor="//@figures.0/@descriptors.72/@accessors.7"/>
   <compartments
       name="DataControlInsertCompartment"
       figure="DataControlFigure"
       collapsible="true"
-      accessor="//@figures.0/@descriptors.70/@accessors.8"/>
+      accessor="//@figures.0/@descriptors.72/@accessors.8"/>
   <compartments
       name="DataControlUpdateCompartment"
       figure="DataControlFigure"
       collapsible="true"
-      accessor="//@figures.0/@descriptors.70/@accessors.9"/>
+      accessor="//@figures.0/@descriptors.72/@accessors.9"/>
   <compartments
       name="DataControlRemoveCompartment"
       figure="DataControlFigure"
       collapsible="true"
-      accessor="//@figures.0/@descriptors.70/@accessors.10"/>
+      accessor="//@figures.0/@descriptors.72/@accessors.10"/>
   <compartments
       name="DataControlSearchCompartment"
       figure="DataControlFigure"
       collapsible="true"
-      accessor="//@figures.0/@descriptors.70/@accessors.11"/>
+      accessor="//@figures.0/@descriptors.72/@accessors.11"/>
   <compartments
       name="DataControlArtificialFieldsCompartment"
       figure="DataControlFigure"
       collapsible="true"
-      accessor="//@figures.0/@descriptors.70/@accessors.12"/>
+      accessor="//@figures.0/@descriptors.72/@accessors.12"/>
   <compartments
       name="DatacenterSubsystemsCompartment"
       figure="DatacenterFigure"
       collapsible="true"
-      accessor="//@figures.0/@descriptors.73/@accessors.1"/>
+      accessor="//@figures.0/@descriptors.75/@accessors.1"/>
   <compartments
       name="SubsystemInfrastructureLayerCompartment"
       figure="SubsystemFigure"
       collapsible="true"
-      accessor="//@figures.0/@descriptors.74/@accessors.1"/>
+      accessor="//@figures.0/@descriptors.76/@accessors.1"/>
   <compartments
       name="InfrastructureLayerInfrastructureComponentCompartment"
       figure="InfrastructureLayerFigure"
       collapsible="true"
-      accessor="//@figures.0/@descriptors.75/@accessors.1"/>
+      accessor="//@figures.0/@descriptors.77/@accessors.1"/>
   <compartments
       name="ServerClasterServersCompartment"
       figure="ServerClasterFigure"
       collapsible="true"
-      accessor="//@figures.0/@descriptors.84/@accessors.1"/>
+      accessor="//@figures.0/@descriptors.86/@accessors.1"/>
   <labels
       name="DomainArtifactsLabel"
       figure="DomainArtifactsFigure"
@@ -3973,216 +3943,216 @@
       accessor="//@figures.0/@descriptors.22/@accessors.0"/>
   <labels
       name="RoleLabel"
-      figure="RoleFigure"
-      accessor="//@figures.0/@descriptors.23/@accessors.0"/>
+      figure="RoleLabelFigure"
+      elementIcon="false"/>
   <labels
       name="GroupLabel"
-      figure="GroupFigure"
-      accessor="//@figures.0/@descriptors.24/@accessors.0"/>
+      figure="GroupLabelFigure"
+      elementIcon="false"/>
   <labels
       name="StyleLibraryLabel"
       figure="StyleLibraryFigure"
-      accessor="//@figures.0/@descriptors.25/@accessors.0"/>
+      accessor="//@figures.0/@descriptors.27/@accessors.0"/>
   <labels
       name="StyleSetLabel"
       figure="StyleSetFigure"
-      accessor="//@figures.0/@descriptors.26/@accessors.0"/>
+      accessor="//@figures.0/@descriptors.28/@accessors.0"/>
   <labels
       name="JavaMapperLabel"
       figure="JavaMapperFigure"
-      accessor="//@figures.0/@descriptors.27/@accessors.0"/>
+      accessor="//@figures.0/@descriptors.29/@accessors.0"/>
   <labels
       name="DeploymentSequenceLabel"
       figure="DeploymentSequenceFigure"
-      accessor="//@figures.0/@descriptors.28/@accessors.0"/>
+      accessor="//@figures.0/@descriptors.30/@accessors.0"/>
   <labels
       name="DeploymentComponentLabel"
       figure="DeploymentComponentFigure"
-      accessor="//@figures.0/@descriptors.29/@accessors.0"/>
+      accessor="//@figures.0/@descriptors.31/@accessors.0"/>
   <labels
       name="DeploymentStarStepLabel"
       figure="DeploymentStarStepFigure"
-      accessor="//@figures.0/@descriptors.30/@accessors.0"/>
+      accessor="//@figures.0/@descriptors.32/@accessors.0"/>
   <labels
       name="RecipeLabel"
       figure="RecipeFigure"
-      accessor="//@figures.0/@descriptors.31/@accessors.0"/>
+      accessor="//@figures.0/@descriptors.33/@accessors.0"/>
   <labels
       name="IngredientLabel"
       figure="IngredientFigure"
-      accessor="//@figures.0/@descriptors.32/@accessors.0"/>
+      accessor="//@figures.0/@descriptors.34/@accessors.0"/>
   <labels
       name="JavaComponentLabel"
       figure="JavaComponentFigure"
-      accessor="//@figures.0/@descriptors.33/@accessors.0"/>
+      accessor="//@figures.0/@descriptors.35/@accessors.0"/>
   <labels
       name="InfrastructureLabel"
       figure="InfrastructureFigure"
-      accessor="//@figures.0/@descriptors.34/@accessors.0"/>
+      accessor="//@figures.0/@descriptors.36/@accessors.0"/>
   <labels
       name="ConfigurationLabel"
       figure="ConfigurationFigure"
-      accessor="//@figures.0/@descriptors.35/@accessors.0"/>
+      accessor="//@figures.0/@descriptors.37/@accessors.0"/>
   <labels
       name="ModelMapperLabel"
       figure="ModelMapperFigure"
-      accessor="//@figures.0/@descriptors.36/@accessors.0"/>
+      accessor="//@figures.0/@descriptors.38/@accessors.0"/>
   <labels
       name="PropertyLabel"
       figure="PropertyFigure"
-      accessor="//@figures.0/@descriptors.37/@accessors.0"/>
+      accessor="//@figures.0/@descriptors.39/@accessors.0"/>
   <labels
       name="QueryLabel"
       figure="QueryFigure"
-      accessor="//@figures.0/@descriptors.38/@accessors.0"/>
+      accessor="//@figures.0/@descriptors.40/@accessors.0"/>
   <labels
       name="PrimitiveLabel"
       figure="PrimitiveFigure"
-      accessor="//@figures.0/@descriptors.39/@accessors.0"/>
+      accessor="//@figures.0/@descriptors.41/@accessors.0"/>
   <labels
       name="TypeLabel"
       figure="TypeFigure"
-      accessor="//@figures.0/@descriptors.40/@accessors.0"/>
+      accessor="//@figures.0/@descriptors.42/@accessors.0"/>
   <labels
       name="TypeReferenceLabel"
       figure="TypeReferenceFigure"
-      accessor="//@figures.0/@descriptors.41/@accessors.0"/>
+      accessor="//@figures.0/@descriptors.43/@accessors.0"/>
   <labels
       name="AttributeLabel"
       figure="AttributeFigure"
-      accessor="//@figures.0/@descriptors.42/@accessors.0"/>
+      accessor="//@figures.0/@descriptors.44/@accessors.0"/>
   <labels
       name="OperationLabel"
       figure="OperationFigure"
-      accessor="//@figures.0/@descriptors.43/@accessors.0"/>
+      accessor="//@figures.0/@descriptors.45/@accessors.0"/>
   <labels
       name="EnumaratorLabel"
       figure="EnumaratorFigure"
-      accessor="//@figures.0/@descriptors.44/@accessors.0"/>
+      accessor="//@figures.0/@descriptors.46/@accessors.0"/>
   <labels
       name="EnumAttributeLabel"
       figure="EnumAttributeFigure"
-      accessor="//@figures.0/@descriptors.45/@accessors.0"/>
+      accessor="//@figures.0/@descriptors.47/@accessors.0"/>
   <labels
       name="TypesLabel"
       figure="TypesFigure"
-      accessor="//@figures.0/@descriptors.46/@accessors.0"/>
+      accessor="//@figures.0/@descriptors.48/@accessors.0"/>
   <labels
       name="PackageLabel"
       figure="PackageFigure"
-      accessor="//@figures.0/@descriptors.47/@accessors.0"/>
+      accessor="//@figures.0/@descriptors.49/@accessors.0"/>
   <labels
       name="FormLabel"
       figure="FormFigure"
-      accessor="//@figures.0/@descriptors.48/@accessors.0"/>
+      accessor="//@figures.0/@descriptors.50/@accessors.0"/>
   <labels
       name="FormViewLabel"
       figure="FormViewFigure"
-      accessor="//@figures.0/@descriptors.49/@accessors.0"/>
+      accessor="//@figures.0/@descriptors.51/@accessors.0"/>
   <labels
       name="CanvasLabel"
       figure="CanvasFigure"
-      accessor="//@figures.0/@descriptors.50/@accessors.0"/>
+      accessor="//@figures.0/@descriptors.52/@accessors.0"/>
   <labels
       name="WindowLabel"
       figure="WindowFigure"
-      accessor="//@figures.0/@descriptors.51/@accessors.0"/>
+      accessor="//@figures.0/@descriptors.53/@accessors.0"/>
   <labels
       name="TabCanvasLabel"
       figure="TabCanvasFigure"
-      accessor="//@figures.0/@descriptors.52/@accessors.0"/>
+      accessor="//@figures.0/@descriptors.54/@accessors.0"/>
   <labels
       name="TabPageLabel"
       figure="TabPageFigure"
-      accessor="//@figures.0/@descriptors.53/@accessors.0"/>
+      accessor="//@figures.0/@descriptors.55/@accessors.0"/>
   <labels
       name="ViewPortLabel"
       figure="ViewPortFigure"
-      accessor="//@figures.0/@descriptors.54/@accessors.0"/>
+      accessor="//@figures.0/@descriptors.56/@accessors.0"/>
   <labels
       name="ViewPortTriggerLabel"
       figure="ViewPortTriggerFigure"
-      accessor="//@figures.0/@descriptors.55/@accessors.0"/>
+      accessor="//@figures.0/@descriptors.57/@accessors.0"/>
   <labels
       name="FormDataControlsLabel"
       figure="FormDataControlsFigure"
-      accessor="//@figures.0/@descriptors.56/@accessors.0"/>
+      accessor="//@figures.0/@descriptors.58/@accessors.0"/>
   <labels
       name="PREFormTriggerLabel"
       figure="PREFormTriggerFigure"
-      accessor="//@figures.0/@descriptors.57/@accessors.0"/>
+      accessor="//@figures.0/@descriptors.59/@accessors.0"/>
   <labels
       name="PREQueryTriggerLabel"
       figure="PREQueryTriggerFigure"
-      accessor="//@figures.0/@descriptors.58/@accessors.0"/>
+      accessor="//@figures.0/@descriptors.60/@accessors.0"/>
   <labels
       name="POSTQueryTriggerLabel"
       figure="POSTQueryTriggerFigure"
-      accessor="//@figures.0/@descriptors.59/@accessors.0"/>
+      accessor="//@figures.0/@descriptors.61/@accessors.0"/>
   <labels
       name="PREInsertTriggerLabel"
       figure="PREInsertTriggerFigure"
-      accessor="//@figures.0/@descriptors.60/@accessors.0"/>
+      accessor="//@figures.0/@descriptors.62/@accessors.0"/>
   <labels
       name="PREDeleteTriggerLabel"
       figure="PREDeleteTriggerFigure"
-      accessor="//@figures.0/@descriptors.61/@accessors.0"/>
+      accessor="//@figures.0/@descriptors.63/@accessors.0"/>
   <labels
       name="POSTCreateTriggerLabel"
       figure="POSTCreateTriggerFigure"
-      accessor="//@figures.0/@descriptors.62/@accessors.0"/>
+      accessor="//@figures.0/@descriptors.64/@accessors.0"/>
   <labels
       name="PREUpdateTriggerLabel"
       figure="PREUpdateTriggerFigure"
-      accessor="//@figures.0/@descriptors.63/@accessors.0"/>
+      accessor="//@figures.0/@descriptors.65/@accessors.0"/>
   <labels
       name="CreateTriggerLabel"
       figure="CreateTriggerFigure"
-      accessor="//@figures.0/@descriptors.64/@accessors.0"/>
+      accessor="//@figures.0/@descriptors.66/@accessors.0"/>
   <labels
       name="InsertTriggerLabel"
       figure="InsertTriggerFigure"
-      accessor="//@figures.0/@descriptors.65/@accessors.0"/>
+      accessor="//@figures.0/@descriptors.67/@accessors.0"/>
   <labels
       name="UpdateTriggerLabel"
       figure="UpdateTriggerFigure"
-      accessor="//@figures.0/@descriptors.66/@accessors.0"/>
+      accessor="//@figures.0/@descriptors.68/@accessors.0"/>
   <labels
       name="DeleteTriggerLabel"
       figure="DeleteTriggerFigure"
-      accessor="//@figures.0/@descriptors.67/@accessors.0"/>
+      accessor="//@figures.0/@descriptors.69/@accessors.0"/>
   <labels
       name="SearchTriggerLabel"
       figure="SearchTriggerFigure"
-      accessor="//@figures.0/@descriptors.68/@accessors.0"/>
+      accessor="//@figures.0/@descriptors.70/@accessors.0"/>
   <labels
       name="RootLabel"
       figure="RootFigure"
-      accessor="//@figures.0/@descriptors.69/@accessors.0"/>
+      accessor="//@figures.0/@descriptors.71/@accessors.0"/>
   <labels
       name="DataControlLabel"
       figure="DataControlFigure"
-      accessor="//@figures.0/@descriptors.70/@accessors.0"/>
+      accessor="//@figures.0/@descriptors.72/@accessors.0"/>
   <labels
       name="ArtificialFieldLabel"
       figure="ArtificialFieldFigure"
-      accessor="//@figures.0/@descriptors.71/@accessors.0"/>
+      accessor="//@figures.0/@descriptors.73/@accessors.0"/>
   <labels
       name="ApplicationInfrastructureLayerLabel"
       figure="ApplicationInfrastructureLayerFigure"
-      accessor="//@figures.0/@descriptors.72/@accessors.0"/>
+      accessor="//@figures.0/@descriptors.74/@accessors.0"/>
   <labels
       name="DatacenterLabel"
       figure="DatacenterFigure"
-      accessor="//@figures.0/@descriptors.73/@accessors.0"/>
+      accessor="//@figures.0/@descriptors.75/@accessors.0"/>
   <labels
       name="SubsystemLabel"
       figure="SubsystemFigure"
-      accessor="//@figures.0/@descriptors.74/@accessors.0"/>
+      accessor="//@figures.0/@descriptors.76/@accessors.0"/>
   <labels
       name="InfrastructureLayerLabel"
       figure="InfrastructureLayerFigure"
-      accessor="//@figures.0/@descriptors.75/@accessors.0"/>
+      accessor="//@figures.0/@descriptors.77/@accessors.0"/>
   <labels
       name="ServerLabel"
       figure="ServerLabelFigure"
@@ -4202,7 +4172,7 @@
   <labels
       name="ServerClasterLabel"
       figure="ServerClasterFigure"
-      accessor="//@figures.0/@descriptors.84/@accessors.0"/>
+      accessor="//@figures.0/@descriptors.86/@accessors.0"/>
   <labels
       name="GroupGroup2GroupExternalLabel"
       figure="GroupGroup2GroupExternalLabelFigure"

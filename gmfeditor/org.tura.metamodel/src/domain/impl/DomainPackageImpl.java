@@ -8774,18 +8774,24 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
+       "figure", "org.tura.metamodel.commons.figures.RoleFigure",
+       "label.icon", "false",
        "label", "name",
-       "border.color", "0,0,0",
-       "color", "255,237,85"
+       "label.placement", "external",
+       "tool.small.bundle", "org.tura.metamodel.commons",
+       "tool.small.path", "icons/role.png"
        });		
     addAnnotation
       (groupEClass, 
        source, 
        new String[] 
        {
+       "figure", "org.tura.metamodel.commons.figures.GroupFigure",
+       "label.icon", "false",
        "label", "name",
-       "border.color", "0,0,0",
-       "color", "255,237,85"
+       "label.placement", "external",
+       "tool.small.bundle", "org.tura.metamodel.commons",
+       "tool.small.path", "icons/group.png"
        });					
     addAnnotation
       (styleLibraryEClass, 
@@ -9376,6 +9382,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
+       "layout", "list"
        });													
     addAnnotation
       (getRecipe_Ingredients(), 

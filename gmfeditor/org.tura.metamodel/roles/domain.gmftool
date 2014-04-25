@@ -15,7 +15,9 @@
           title="Group"
           description="Create new Group">
         <smallIcon
-            xsi:type="gmftool:DefaultImage"/>
+            xsi:type="gmftool:BundleImage"
+            path="icons/group.png"
+            bundle="org.tura.metamodel.commons"/>
         <largeIcon
             xsi:type="gmftool:DefaultImage"/>
       </tools>
@@ -24,7 +26,9 @@
           title="Role"
           description="Create new Role">
         <smallIcon
-            xsi:type="gmftool:DefaultImage"/>
+            xsi:type="gmftool:BundleImage"
+            path="icons/role.png"
+            bundle="org.tura.metamodel.commons"/>
         <largeIcon
             xsi:type="gmftool:DefaultImage"/>
       </tools>

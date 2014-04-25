@@ -22,7 +22,7 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  *
  * @see domain.DomainPackage#getGroup()
- * @model annotation="gmf.node label='name' border.color='0,0,0' color='255,237,85'"
+ * @model annotation="gmf.node figure='org.tura.metamodel.commons.figures.GroupFigure' label.icon='false' label='name' label.placement='external' tool.small.bundle='org.tura.metamodel.commons' tool.small.path='icons/group.png'"
  * @generated
  */
 public interface Group extends EObject

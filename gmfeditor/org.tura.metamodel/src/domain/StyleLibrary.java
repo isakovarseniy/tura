@@ -90,6 +90,7 @@ public interface StyleLibrary extends EObject
    * @return the value of the '<em>Styles</em>' containment reference list.
    * @see domain.DomainPackage#getStyleLibrary_Styles()
    * @model containment="true"
+   *        annotation="gmf.compartment layout='list'"
    * @generated
    */
   EList<StyleSet> getStyles();

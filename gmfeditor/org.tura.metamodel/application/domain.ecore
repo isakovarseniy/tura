@@ -386,9 +386,12 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Role">
     <eAnnotations source="gmf.node">
+      <details key="figure" value="org.tura.metamodel.commons.figures.RoleFigure"/>
+      <details key="label.icon" value="false"/>
       <details key="label" value="name"/>
-      <details key="border.color" value="0,0,0"/>
-      <details key="color" value="255,237,85"/>
+      <details key="label.placement" value="external"/>
+      <details key="tool.small.bundle" value="org.tura.metamodel.commons"/>
+      <details key="tool.small.path" value="icons/role.png"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>
@@ -396,9 +399,12 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Group">
     <eAnnotations source="gmf.node">
+      <details key="figure" value="org.tura.metamodel.commons.figures.GroupFigure"/>
+      <details key="label.icon" value="false"/>
       <details key="label" value="name"/>
-      <details key="border.color" value="0,0,0"/>
-      <details key="color" value="255,237,85"/>
+      <details key="label.placement" value="external"/>
+      <details key="tool.small.bundle" value="org.tura.metamodel.commons"/>
+      <details key="tool.small.path" value="icons/group.png"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>
@@ -438,7 +444,9 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="styles" upperBound="-1"
         eType="#//StyleSet" containment="true">
-      <eAnnotations source="gmf.compartment"/>
+      <eAnnotations source="gmf.compartment">
+        <details key="layout" value="list"/>
+      </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="StyleSet">

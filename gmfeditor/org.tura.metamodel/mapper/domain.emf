@@ -250,13 +250,13 @@ class Roles{
     val Group[*] groups;
 }
 
-@gmf.node(label="name",border.color="0,0,0",color="255,237,85")
+@gmf.node(figure="org.tura.metamodel.commons.figures.RoleFigure", label.icon="false", label="name", label.placement="external",tool.small.bundle="org.tura.metamodel.commons",tool.small.path="icons/role.png")
 class Role{
     id attr EString uid;
     attr EString name;
 }
 
-@gmf.node(label="name",border.color="0,0,0",color="255,237,85")
+@gmf.node(figure="org.tura.metamodel.commons.figures.GroupFigure", label.icon="false", label="name", label.placement="external",tool.small.bundle="org.tura.metamodel.commons",tool.small.path="icons/group.png")
 class Group{
     id attr EString uid;
     attr EString name;
@@ -280,7 +280,7 @@ class Styles{
 class StyleLibrary{
     id attr EString uid;
     attr EString name;
-    @gmf.compartment
+    @gmf.compartment(layout="list")
     val StyleSet[*] styles;    
 }
 
