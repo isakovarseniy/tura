@@ -1,0 +1,7 @@
+# Tracing options for the org.tura.metamodel.diagram.canvas plug-in
+
+# Common issues
+org.tura.metamodel.diagram.canvas/debug=false
+
+# Visual IDs
+org.tura.metamodel.diagram.canvas/debug/visualID=false
