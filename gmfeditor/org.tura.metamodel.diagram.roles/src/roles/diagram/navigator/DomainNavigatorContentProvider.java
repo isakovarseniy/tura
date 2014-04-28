@@ -299,6 +299,24 @@ public class DomainNavigatorContentProvider implements ICommonContentProvider {
 			return result.toArray();
 		}
 
+		case RoleEditPart.VISUAL_ID: {
+			LinkedList<DomainAbstractNavigatorItem> result = new LinkedList<DomainAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			DomainNavigatorGroup incominglinks = new DomainNavigatorGroup(
+					Messages.NavigatorGroupName_Role_1402001_incominglinks,
+					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
+					DomainVisualIDRegistry
+							.getType(GroupGroup2RoleEditPart.VISUAL_ID));
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			if (!incominglinks.isEmpty()) {
+				result.add(incominglinks);
+			}
+			return result.toArray();
+		}
+
 		case RolesEditPart.VISUAL_ID: {
 			LinkedList<DomainAbstractNavigatorItem> result = new LinkedList<DomainAbstractNavigatorItem>();
 			result.addAll(getForeignShortcuts((Diagram) view, parentElement));
@@ -352,24 +370,6 @@ public class DomainNavigatorContentProvider implements ICommonContentProvider {
 			}
 			if (!source.isEmpty()) {
 				result.add(source);
-			}
-			return result.toArray();
-		}
-
-		case RoleEditPart.VISUAL_ID: {
-			LinkedList<DomainAbstractNavigatorItem> result = new LinkedList<DomainAbstractNavigatorItem>();
-			Node sv = (Node) view;
-			DomainNavigatorGroup incominglinks = new DomainNavigatorGroup(
-					Messages.NavigatorGroupName_Role_1402001_incominglinks,
-					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection<View> connectedViews;
-			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
-					DomainVisualIDRegistry
-							.getType(GroupGroup2RoleEditPart.VISUAL_ID));
-			incominglinks.addChildren(createNavigatorItems(connectedViews,
-					incominglinks, true));
-			if (!incominglinks.isEmpty()) {
-				result.add(incominglinks);
 			}
 			return result.toArray();
 		}
