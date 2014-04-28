@@ -3,8 +3,9 @@
 package domain.provider;
 
 
+import domain.DomainFactory;
 import domain.DomainPackage;
-import domain.Label;
+import domain.ViewArea;
 
 import java.util.Collection;
 import java.util.List;
@@ -12,6 +13,7 @@ import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -23,13 +25,13 @@ import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link domain.Label} object.
+ * This is the item provider adapter for a {@link domain.ViewArea} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class LabelItemProvider
-  extends InputElementItemProvider
+public class ViewAreaItemProvider
+  extends ViewElementItemProvider
   implements
     IEditingDomainItemProvider,
     IStructuredItemContentProvider,
@@ -43,7 +45,7 @@ public class LabelItemProvider
    * <!-- end-user-doc -->
    * @generated
    */
-  public LabelItemProvider(AdapterFactory adapterFactory)
+  public ViewAreaItemProvider(AdapterFactory adapterFactory)
   {
     super(adapterFactory);
   }
@@ -61,26 +63,27 @@ public class LabelItemProvider
     {
       super.getPropertyDescriptors(object);
 
-      addLabelPropertyDescriptor(object);
+      addUidPropertyDescriptor(object);
+      addNamePropertyDescriptor(object);
     }
     return itemPropertyDescriptors;
   }
 
   /**
-   * This adds a property descriptor for the Label feature.
+   * This adds a property descriptor for the Uid feature.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected void addLabelPropertyDescriptor(Object object)
+  protected void addUidPropertyDescriptor(Object object)
   {
     itemPropertyDescriptors.add
       (createItemPropertyDescriptor
         (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
          getResourceLocator(),
-         getString("_UI_Label_label_feature"),
-         getString("_UI_PropertyDescriptor_description", "_UI_Label_label_feature", "_UI_Label_type"),
-         DomainPackage.Literals.LABEL__LABEL,
+         getString("_UI_ViewArea_uid_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_ViewArea_uid_feature", "_UI_ViewArea_type"),
+         DomainPackage.Literals.VIEW_AREA__UID,
          true,
          false,
          false,
@@ -90,7 +93,63 @@ public class LabelItemProvider
   }
 
   /**
-   * This returns Label.gif.
+   * This adds a property descriptor for the Name feature.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected void addNamePropertyDescriptor(Object object)
+  {
+    itemPropertyDescriptors.add
+      (createItemPropertyDescriptor
+        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+         getResourceLocator(),
+         getString("_UI_ViewArea_name_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_ViewArea_name_feature", "_UI_ViewArea_type"),
+         DomainPackage.Literals.VIEW_AREA__NAME,
+         true,
+         false,
+         false,
+         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+         null,
+         null));
+  }
+
+  /**
+   * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
+   * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
+   * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object)
+  {
+    if (childrenFeatures == null)
+    {
+      super.getChildrenFeatures(object);
+      childrenFeatures.add(DomainPackage.Literals.VIEW_AREA__CANVAS_VIEW);
+    }
+    return childrenFeatures;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  protected EStructuralFeature getChildFeature(Object object, Object child)
+  {
+    // Check the type of the specified child object and return the proper feature to use for
+    // adding (see {@link AddCommand}) it as a child.
+
+    return super.getChildFeature(object, child);
+  }
+
+  /**
+   * This returns ViewArea.gif.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -98,7 +157,7 @@ public class LabelItemProvider
   @Override
   public Object getImage(Object object)
   {
-    return overlayImage(object, getResourceLocator().getImage("full/obj16/Label"));
+    return overlayImage(object, getResourceLocator().getImage("full/obj16/ViewArea"));
   }
 
   /**
@@ -110,10 +169,10 @@ public class LabelItemProvider
   @Override
   public String getText(Object object)
   {
-    String label = ((Label)object).getUid();
+    String label = ((ViewArea)object).getName();
     return label == null || label.length() == 0 ?
-      getString("_UI_Label_type") :
-      getString("_UI_Label_type") + " " + label;
+      getString("_UI_ViewArea_type") :
+      getString("_UI_ViewArea_type") + " " + label;
   }
 
   /**
@@ -128,10 +187,14 @@ public class LabelItemProvider
   {
     updateChildren(notification);
 
-    switch (notification.getFeatureID(Label.class))
+    switch (notification.getFeatureID(ViewArea.class))
     {
-      case DomainPackage.LABEL__LABEL:
+      case DomainPackage.VIEW_AREA__UID:
+      case DomainPackage.VIEW_AREA__NAME:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+        return;
+      case DomainPackage.VIEW_AREA__CANVAS_VIEW:
+        fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
         return;
     }
     super.notifyChanged(notification);
@@ -148,32 +211,11 @@ public class LabelItemProvider
   protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object)
   {
     super.collectNewChildDescriptors(newChildDescriptors, object);
-  }
 
-  /**
-   * This returns the label text for {@link org.eclipse.emf.edit.command.CreateChildCommand}.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String getCreateChildText(Object owner, Object feature, Object child, Collection<?> selection)
-  {
-    Object childFeature = feature;
-    Object childObject = child;
-
-    boolean qualify =
-      childFeature == DomainPackage.Literals.UIELEMENT__ENABLED_CONTEXT ||
-      childFeature == DomainPackage.Literals.UIELEMENT__REQUIRED_CONTEXT ||
-      childFeature == DomainPackage.Literals.UIELEMENT__READ_ONLY_CONTEXT;
-
-    if (qualify)
-    {
-      return getString
-        ("_UI_CreateChild_text2",
-         new Object[] { getTypeText(childObject), getFeatureText(childFeature), getTypeText(owner) });
-    }
-    return super.getCreateChildText(owner, feature, child, selection);
+    newChildDescriptors.add
+      (createChildParameter
+        (DomainPackage.Literals.VIEW_AREA__CANVAS_VIEW,
+         DomainFactory.eINSTANCE.createCanvasView()));
   }
 
 }

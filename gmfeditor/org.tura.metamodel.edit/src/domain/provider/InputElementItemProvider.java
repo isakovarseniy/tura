@@ -61,32 +61,8 @@ public class InputElementItemProvider
     {
       super.getPropertyDescriptors(object);
 
-      addLabelPropertyDescriptor(object);
     }
     return itemPropertyDescriptors;
-  }
-
-  /**
-   * This adds a property descriptor for the Label feature.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected void addLabelPropertyDescriptor(Object object)
-  {
-    itemPropertyDescriptors.add
-      (createItemPropertyDescriptor
-        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-         getResourceLocator(),
-         getString("_UI_InputElement_label_feature"),
-         getString("_UI_PropertyDescriptor_description", "_UI_InputElement_label_feature", "_UI_InputElement_type"),
-         DomainPackage.Literals.INPUT_ELEMENT__LABEL,
-         true,
-         false,
-         false,
-         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-         null,
-         null));
   }
 
   /**
@@ -127,13 +103,6 @@ public class InputElementItemProvider
   public void notifyChanged(Notification notification)
   {
     updateChildren(notification);
-
-    switch (notification.getFeatureID(InputElement.class))
-    {
-      case DomainPackage.INPUT_ELEMENT__LABEL:
-        fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-        return;
-    }
     super.notifyChanged(notification);
   }
 

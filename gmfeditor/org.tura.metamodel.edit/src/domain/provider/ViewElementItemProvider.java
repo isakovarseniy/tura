@@ -3,33 +3,30 @@
 package domain.provider;
 
 
-import domain.DomainPackage;
-import domain.Label;
-
 import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
-import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
+import org.eclipse.emf.common.util.ResourceLocator;
+
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
-import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ViewerNotification;
+import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 
 /**
- * This is the item provider adapter for a {@link domain.Label} object.
+ * This is the item provider adapter for a {@link domain.ViewElement} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class LabelItemProvider
-  extends InputElementItemProvider
+public class ViewElementItemProvider
+  extends ItemProviderAdapter
   implements
     IEditingDomainItemProvider,
     IStructuredItemContentProvider,
@@ -43,7 +40,7 @@ public class LabelItemProvider
    * <!-- end-user-doc -->
    * @generated
    */
-  public LabelItemProvider(AdapterFactory adapterFactory)
+  public ViewElementItemProvider(AdapterFactory adapterFactory)
   {
     super(adapterFactory);
   }
@@ -61,36 +58,12 @@ public class LabelItemProvider
     {
       super.getPropertyDescriptors(object);
 
-      addLabelPropertyDescriptor(object);
     }
     return itemPropertyDescriptors;
   }
 
   /**
-   * This adds a property descriptor for the Label feature.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected void addLabelPropertyDescriptor(Object object)
-  {
-    itemPropertyDescriptors.add
-      (createItemPropertyDescriptor
-        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-         getResourceLocator(),
-         getString("_UI_Label_label_feature"),
-         getString("_UI_PropertyDescriptor_description", "_UI_Label_label_feature", "_UI_Label_type"),
-         DomainPackage.Literals.LABEL__LABEL,
-         true,
-         false,
-         false,
-         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-         null,
-         null));
-  }
-
-  /**
-   * This returns Label.gif.
+   * This returns ViewElement.gif.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -98,7 +71,7 @@ public class LabelItemProvider
   @Override
   public Object getImage(Object object)
   {
-    return overlayImage(object, getResourceLocator().getImage("full/obj16/Label"));
+    return overlayImage(object, getResourceLocator().getImage("full/obj16/ViewElement"));
   }
 
   /**
@@ -110,10 +83,7 @@ public class LabelItemProvider
   @Override
   public String getText(Object object)
   {
-    String label = ((Label)object).getUid();
-    return label == null || label.length() == 0 ?
-      getString("_UI_Label_type") :
-      getString("_UI_Label_type") + " " + label;
+    return getString("_UI_ViewElement_type");
   }
 
   /**
@@ -127,13 +97,6 @@ public class LabelItemProvider
   public void notifyChanged(Notification notification)
   {
     updateChildren(notification);
-
-    switch (notification.getFeatureID(Label.class))
-    {
-      case DomainPackage.LABEL__LABEL:
-        fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-        return;
-    }
     super.notifyChanged(notification);
   }
 
@@ -151,29 +114,15 @@ public class LabelItemProvider
   }
 
   /**
-   * This returns the label text for {@link org.eclipse.emf.edit.command.CreateChildCommand}.
+   * Return the resource locator for this item provider's resources.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
   @Override
-  public String getCreateChildText(Object owner, Object feature, Object child, Collection<?> selection)
+  public ResourceLocator getResourceLocator()
   {
-    Object childFeature = feature;
-    Object childObject = child;
-
-    boolean qualify =
-      childFeature == DomainPackage.Literals.UIELEMENT__ENABLED_CONTEXT ||
-      childFeature == DomainPackage.Literals.UIELEMENT__REQUIRED_CONTEXT ||
-      childFeature == DomainPackage.Literals.UIELEMENT__READ_ONLY_CONTEXT;
-
-    if (qualify)
-    {
-      return getString
-        ("_UI_CreateChild_text2",
-         new Object[] { getTypeText(childObject), getFeatureText(childFeature), getTypeText(owner) });
-    }
-    return super.getCreateChildText(owner, feature, child, selection);
+    return DomainEditPlugin.INSTANCE;
   }
 
 }

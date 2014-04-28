@@ -5,7 +5,7 @@ package domain.provider;
 
 import domain.DomainFactory;
 import domain.DomainPackage;
-import domain.Window;
+import domain.LayerHolder;
 
 import java.util.Collection;
 import java.util.List;
@@ -26,13 +26,13 @@ import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link domain.Window} object.
+ * This is the item provider adapter for a {@link domain.LayerHolder} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class WindowItemProvider
-  extends CanvasFrameItemProvider
+public class LayerHolderItemProvider
+  extends UielementItemProvider
   implements
     IEditingDomainItemProvider,
     IStructuredItemContentProvider,
@@ -46,7 +46,7 @@ public class WindowItemProvider
    * <!-- end-user-doc -->
    * @generated
    */
-  public WindowItemProvider(AdapterFactory adapterFactory)
+  public LayerHolderItemProvider(AdapterFactory adapterFactory)
   {
     super(adapterFactory);
   }
@@ -106,7 +106,7 @@ public class WindowItemProvider
     if (childrenFeatures == null)
     {
       super.getChildrenFeatures(object);
-      childrenFeatures.add(DomainPackage.Literals.VIEW_PORT_HOLDER__VIEW_ELEMENT);
+      childrenFeatures.add(DomainPackage.Literals.CHILDREN_HOLDER__CHILDREN);
     }
     return childrenFeatures;
   }
@@ -126,7 +126,7 @@ public class WindowItemProvider
   }
 
   /**
-   * This returns Window.gif.
+   * This returns LayerHolder.gif.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -134,7 +134,7 @@ public class WindowItemProvider
   @Override
   public Object getImage(Object object)
   {
-    return overlayImage(object, getResourceLocator().getImage("full/obj16/Window"));
+    return overlayImage(object, getResourceLocator().getImage("full/obj16/LayerHolder"));
   }
 
   /**
@@ -146,10 +146,10 @@ public class WindowItemProvider
   @Override
   public String getText(Object object)
   {
-    String label = ((Window)object).getName();
+    String label = ((LayerHolder)object).getUid();
     return label == null || label.length() == 0 ?
-      getString("_UI_Window_type") :
-      getString("_UI_Window_type") + " " + label;
+      getString("_UI_LayerHolder_type") :
+      getString("_UI_LayerHolder_type") + " " + label;
   }
 
   /**
@@ -164,12 +164,12 @@ public class WindowItemProvider
   {
     updateChildren(notification);
 
-    switch (notification.getFeatureID(Window.class))
+    switch (notification.getFeatureID(LayerHolder.class))
     {
-      case DomainPackage.WINDOW__COLUMNS:
+      case DomainPackage.LAYER_HOLDER__COLUMNS:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
         return;
-      case DomainPackage.WINDOW__VIEW_ELEMENT:
+      case DomainPackage.LAYER_HOLDER__CHILDREN:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
         return;
     }
@@ -190,18 +190,99 @@ public class WindowItemProvider
 
     newChildDescriptors.add
       (createChildParameter
-        (DomainPackage.Literals.VIEW_PORT_HOLDER__VIEW_ELEMENT,
-         DomainFactory.eINSTANCE.createViewElement()));
+        (DomainPackage.Literals.CHILDREN_HOLDER__CHILDREN,
+         DomainFactory.eINSTANCE.createUielement()));
 
     newChildDescriptors.add
       (createChildParameter
-        (DomainPackage.Literals.VIEW_PORT_HOLDER__VIEW_ELEMENT,
-         DomainFactory.eINSTANCE.createViewPort()));
+        (DomainPackage.Literals.CHILDREN_HOLDER__CHILDREN,
+         DomainFactory.eINSTANCE.createSourcesPointer()));
 
     newChildDescriptors.add
       (createChildParameter
-        (DomainPackage.Literals.VIEW_PORT_HOLDER__VIEW_ELEMENT,
-         DomainFactory.eINSTANCE.createViewArea()));
+        (DomainPackage.Literals.CHILDREN_HOLDER__CHILDREN,
+         DomainFactory.eINSTANCE.createActionElement()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (DomainPackage.Literals.CHILDREN_HOLDER__CHILDREN,
+         DomainFactory.eINSTANCE.createInputElement()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (DomainPackage.Literals.CHILDREN_HOLDER__CHILDREN,
+         DomainFactory.eINSTANCE.createOptionSelection()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (DomainPackage.Literals.CHILDREN_HOLDER__CHILDREN,
+         DomainFactory.eINSTANCE.createLayerHolder()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (DomainPackage.Literals.CHILDREN_HOLDER__CHILDREN,
+         DomainFactory.eINSTANCE.createInputText()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (DomainPackage.Literals.CHILDREN_HOLDER__CHILDREN,
+         DomainFactory.eINSTANCE.createLabel()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (DomainPackage.Literals.CHILDREN_HOLDER__CHILDREN,
+         DomainFactory.eINSTANCE.createOutputText()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (DomainPackage.Literals.CHILDREN_HOLDER__CHILDREN,
+         DomainFactory.eINSTANCE.createCheckBox()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (DomainPackage.Literals.CHILDREN_HOLDER__CHILDREN,
+         DomainFactory.eINSTANCE.createDropDownSelection()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (DomainPackage.Literals.CHILDREN_HOLDER__CHILDREN,
+         DomainFactory.eINSTANCE.createTable()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (DomainPackage.Literals.CHILDREN_HOLDER__CHILDREN,
+         DomainFactory.eINSTANCE.createTree()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (DomainPackage.Literals.CHILDREN_HOLDER__CHILDREN,
+         DomainFactory.eINSTANCE.createButton()));
+  }
+
+  /**
+   * This returns the label text for {@link org.eclipse.emf.edit.command.CreateChildCommand}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String getCreateChildText(Object owner, Object feature, Object child, Collection<?> selection)
+  {
+    Object childFeature = feature;
+    Object childObject = child;
+
+    boolean qualify =
+      childFeature == DomainPackage.Literals.UIELEMENT__ENABLED_CONTEXT ||
+      childFeature == DomainPackage.Literals.UIELEMENT__REQUIRED_CONTEXT ||
+      childFeature == DomainPackage.Literals.UIELEMENT__READ_ONLY_CONTEXT;
+
+    if (qualify)
+    {
+      return getString
+        ("_UI_CreateChild_text2",
+         new Object[] { getTypeText(childObject), getFeatureText(childFeature), getTypeText(owner) });
+    }
+    return super.getCreateChildText(owner, feature, child, selection);
   }
 
 }

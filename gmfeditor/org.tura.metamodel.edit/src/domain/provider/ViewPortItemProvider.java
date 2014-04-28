@@ -35,7 +35,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * @generated
  */
 public class ViewPortItemProvider
-  extends ItemProviderAdapter
+  extends ViewElementItemProvider
   implements
     IEditingDomainItemProvider,
     IStructuredItemContentProvider,
@@ -220,18 +220,6 @@ public class ViewPortItemProvider
       (createChildParameter
         (DomainPackage.Literals.VIEW_PORT__VIEW_PORT_TRIGGER,
          DomainFactory.eINSTANCE.createViewPortTrigger()));
-  }
-
-  /**
-   * Return the resource locator for this item provider's resources.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public ResourceLocator getResourceLocator()
-  {
-    return DomainEditPlugin.INSTANCE;
   }
 
 }

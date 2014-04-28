@@ -130,7 +130,7 @@ public class CanvasItemProvider
     if (childrenFeatures == null)
     {
       super.getChildrenFeatures(object);
-      childrenFeatures.add(DomainPackage.Literals.VIEW_PORT_HOLDER__VIEW_PORTS);
+      childrenFeatures.add(DomainPackage.Literals.VIEW_PORT_HOLDER__VIEW_ELEMENT);
     }
     return childrenFeatures;
   }
@@ -194,7 +194,7 @@ public class CanvasItemProvider
       case DomainPackage.CANVAS__DEFAULT_CANVAS:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
         return;
-      case DomainPackage.CANVAS__VIEW_PORTS:
+      case DomainPackage.CANVAS__VIEW_ELEMENT:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
         return;
     }
@@ -215,8 +215,18 @@ public class CanvasItemProvider
 
     newChildDescriptors.add
       (createChildParameter
-        (DomainPackage.Literals.VIEW_PORT_HOLDER__VIEW_PORTS,
+        (DomainPackage.Literals.VIEW_PORT_HOLDER__VIEW_ELEMENT,
+         DomainFactory.eINSTANCE.createViewElement()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (DomainPackage.Literals.VIEW_PORT_HOLDER__VIEW_ELEMENT,
          DomainFactory.eINSTANCE.createViewPort()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (DomainPackage.Literals.VIEW_PORT_HOLDER__VIEW_ELEMENT,
+         DomainFactory.eINSTANCE.createViewArea()));
   }
 
 }

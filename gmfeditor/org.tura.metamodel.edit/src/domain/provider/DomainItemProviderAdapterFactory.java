@@ -2049,6 +2049,31 @@ public class DomainItemProviderAdapterFactory extends DomainAdapterFactory imple
   }
 
   /**
+   * This keeps track of the one adapter used for all {@link domain.ViewElement} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected ViewElementItemProvider viewElementItemProvider;
+
+  /**
+   * This creates an adapter for a {@link domain.ViewElement}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createViewElementAdapter()
+  {
+    if (viewElementItemProvider == null)
+    {
+      viewElementItemProvider = new ViewElementItemProvider(this);
+    }
+
+    return viewElementItemProvider;
+  }
+
+  /**
    * This keeps track of the one adapter used for all {@link domain.Canvas} instances.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -2171,6 +2196,31 @@ public class DomainItemProviderAdapterFactory extends DomainAdapterFactory imple
     }
 
     return viewPortItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link domain.ViewArea} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected ViewAreaItemProvider viewAreaItemProvider;
+
+  /**
+   * This creates an adapter for a {@link domain.ViewArea}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createViewAreaAdapter()
+  {
+    if (viewAreaItemProvider == null)
+    {
+      viewAreaItemProvider = new ViewAreaItemProvider(this);
+    }
+
+    return viewAreaItemProvider;
   }
 
   /**
@@ -2321,6 +2371,31 @@ public class DomainItemProviderAdapterFactory extends DomainAdapterFactory imple
     }
 
     return styleItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link domain.ChildrenHolder} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected ChildrenHolderItemProvider childrenHolderItemProvider;
+
+  /**
+   * This creates an adapter for a {@link domain.ChildrenHolder}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createChildrenHolderAdapter()
+  {
+    if (childrenHolderItemProvider == null)
+    {
+      childrenHolderItemProvider = new ChildrenHolderItemProvider(this);
+    }
+
+    return childrenHolderItemProvider;
   }
 
   /**
@@ -2621,6 +2696,31 @@ public class DomainItemProviderAdapterFactory extends DomainAdapterFactory imple
     }
 
     return actionElementItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link domain.LayerHolder} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected LayerHolderItemProvider layerHolderItemProvider;
+
+  /**
+   * This creates an adapter for a {@link domain.LayerHolder}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createLayerHolderAdapter()
+  {
+    if (layerHolderItemProvider == null)
+    {
+      layerHolderItemProvider = new LayerHolderItemProvider(this);
+    }
+
+    return layerHolderItemProvider;
   }
 
   /**
@@ -3788,17 +3888,20 @@ public class DomainItemProviderAdapterFactory extends DomainAdapterFactory imple
     if (canvasFrameItemProvider != null) canvasFrameItemProvider.dispose();
     if (viewPortHolderItemProvider != null) viewPortHolderItemProvider.dispose();
     if (defaultCavasItemProvider != null) defaultCavasItemProvider.dispose();
+    if (viewElementItemProvider != null) viewElementItemProvider.dispose();
     if (canvasItemProvider != null) canvasItemProvider.dispose();
     if (windowItemProvider != null) windowItemProvider.dispose();
     if (tabCanvasItemProvider != null) tabCanvasItemProvider.dispose();
     if (tabPageItemProvider != null) tabPageItemProvider.dispose();
     if (viewPortItemProvider != null) viewPortItemProvider.dispose();
+    if (viewAreaItemProvider != null) viewAreaItemProvider.dispose();
     if (viewPortTriggerItemProvider != null) viewPortTriggerItemProvider.dispose();
     if (viewInheritanceItemProvider != null) viewInheritanceItemProvider.dispose();
     if (tabPagesInheritanceItemProvider != null) tabPagesInheritanceItemProvider.dispose();
     if (formDataControlsItemProvider != null) formDataControlsItemProvider.dispose();
     if (canvasViewItemProvider != null) canvasViewItemProvider.dispose();
     if (styleItemProvider != null) styleItemProvider.dispose();
+    if (childrenHolderItemProvider != null) childrenHolderItemProvider.dispose();
     if (styleClassItemProvider != null) styleClassItemProvider.dispose();
     if (contextParameterItemProvider != null) contextParameterItemProvider.dispose();
     if (contextValueItemProvider != null) contextValueItemProvider.dispose();
@@ -3807,10 +3910,11 @@ public class DomainItemProviderAdapterFactory extends DomainAdapterFactory imple
     if (styleElementItemProvider != null) styleElementItemProvider.dispose();
     if (uielementItemProvider != null) uielementItemProvider.dispose();
     if (sourcesPointerItemProvider != null) sourcesPointerItemProvider.dispose();
+    if (actionElementItemProvider != null) actionElementItemProvider.dispose();
     if (inputElementItemProvider != null) inputElementItemProvider.dispose();
     if (selectionItemProvider != null) selectionItemProvider.dispose();
     if (optionSelectionItemProvider != null) optionSelectionItemProvider.dispose();
-    if (actionElementItemProvider != null) actionElementItemProvider.dispose();
+    if (layerHolderItemProvider != null) layerHolderItemProvider.dispose();
     if (inputTextItemProvider != null) inputTextItemProvider.dispose();
     if (labelItemProvider != null) labelItemProvider.dispose();
     if (outputTextItemProvider != null) outputTextItemProvider.dispose();

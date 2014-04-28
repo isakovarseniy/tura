@@ -15,12 +15,14 @@ import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
 
+import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
@@ -62,8 +64,56 @@ public class ColumnItemProvider
     {
       super.getPropertyDescriptors(object);
 
+      addUidPropertyDescriptor(object);
+      addLabelPropertyDescriptor(object);
     }
     return itemPropertyDescriptors;
+  }
+
+  /**
+   * This adds a property descriptor for the Uid feature.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected void addUidPropertyDescriptor(Object object)
+  {
+    itemPropertyDescriptors.add
+      (createItemPropertyDescriptor
+        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+         getResourceLocator(),
+         getString("_UI_Column_uid_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_Column_uid_feature", "_UI_Column_type"),
+         DomainPackage.Literals.COLUMN__UID,
+         true,
+         false,
+         false,
+         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+         null,
+         null));
+  }
+
+  /**
+   * This adds a property descriptor for the Label feature.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected void addLabelPropertyDescriptor(Object object)
+  {
+    itemPropertyDescriptors.add
+      (createItemPropertyDescriptor
+        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+         getResourceLocator(),
+         getString("_UI_Column_label_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_Column_label_feature", "_UI_Column_type"),
+         DomainPackage.Literals.COLUMN__LABEL,
+         true,
+         false,
+         false,
+         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+         null,
+         null));
   }
 
   /**
@@ -120,7 +170,10 @@ public class ColumnItemProvider
   @Override
   public String getText(Object object)
   {
-    return getString("_UI_Column_type");
+    String label = ((Column)object).getUid();
+    return label == null || label.length() == 0 ?
+      getString("_UI_Column_type") :
+      getString("_UI_Column_type") + " " + label;
   }
 
   /**
@@ -137,6 +190,10 @@ public class ColumnItemProvider
 
     switch (notification.getFeatureID(Column.class))
     {
+      case DomainPackage.COLUMN__UID:
+      case DomainPackage.COLUMN__LABEL:
+        fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+        return;
       case DomainPackage.COLUMN__ELEMENT:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
         return;

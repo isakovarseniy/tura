@@ -106,7 +106,7 @@ public class TabPageItemProvider
     if (childrenFeatures == null)
     {
       super.getChildrenFeatures(object);
-      childrenFeatures.add(DomainPackage.Literals.VIEW_PORT_HOLDER__VIEW_PORTS);
+      childrenFeatures.add(DomainPackage.Literals.VIEW_PORT_HOLDER__VIEW_ELEMENT);
     }
     return childrenFeatures;
   }
@@ -169,7 +169,7 @@ public class TabPageItemProvider
       case DomainPackage.TAB_PAGE__COLUMNS:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
         return;
-      case DomainPackage.TAB_PAGE__VIEW_PORTS:
+      case DomainPackage.TAB_PAGE__VIEW_ELEMENT:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
         return;
     }
@@ -190,8 +190,18 @@ public class TabPageItemProvider
 
     newChildDescriptors.add
       (createChildParameter
-        (DomainPackage.Literals.VIEW_PORT_HOLDER__VIEW_PORTS,
+        (DomainPackage.Literals.VIEW_PORT_HOLDER__VIEW_ELEMENT,
+         DomainFactory.eINSTANCE.createViewElement()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (DomainPackage.Literals.VIEW_PORT_HOLDER__VIEW_ELEMENT,
          DomainFactory.eINSTANCE.createViewPort()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (DomainPackage.Literals.VIEW_PORT_HOLDER__VIEW_ELEMENT,
+         DomainFactory.eINSTANCE.createViewArea()));
   }
 
 }
