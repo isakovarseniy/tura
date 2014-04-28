@@ -2,17 +2,18 @@
  */
 package domain.tests;
 
-import junit.textui.TestRunner;
 import domain.DomainFactory;
-import domain.ViewPort;
+import domain.LayerHolder;
+
+import junit.textui.TestRunner;
 
 /**
  * <!-- begin-user-doc -->
- * A test case for the model object '<em><b>View Port</b></em>'.
+ * A test case for the model object '<em><b>Layer Holder</b></em>'.
  * <!-- end-user-doc -->
  * @generated
  */
-public class ViewPortTest extends ViewElementTest
+public class LayerHolderTest extends UielementTest
 {
 
   /**
@@ -22,30 +23,30 @@ public class ViewPortTest extends ViewElementTest
    */
   public static void main(String[] args)
   {
-    TestRunner.run(ViewPortTest.class);
+    TestRunner.run(LayerHolderTest.class);
   }
 
   /**
-   * Constructs a new View Port test case with the given name.
+   * Constructs a new Layer Holder test case with the given name.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  public ViewPortTest(String name)
+  public LayerHolderTest(String name)
   {
     super(name);
   }
 
   /**
-   * Returns the fixture for this View Port test case.
+   * Returns the fixture for this Layer Holder test case.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
   @Override
-  protected ViewPort getFixture()
+  protected LayerHolder getFixture()
   {
-    return (ViewPort)fixture;
+    return (LayerHolder)fixture;
   }
 
   /**
@@ -57,7 +58,7 @@ public class ViewPortTest extends ViewElementTest
   @Override
   protected void setUp() throws Exception
   {
-    setFixture(DomainFactory.eINSTANCE.createViewPort());
+    setFixture(DomainFactory.eINSTANCE.createLayerHolder());
   }
 
   /**
@@ -72,4 +73,4 @@ public class ViewPortTest extends ViewElementTest
     setFixture(null);
   }
 
-} //ViewPortTest
+} //LayerHolderTest
