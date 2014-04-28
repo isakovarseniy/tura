@@ -20,9 +20,10 @@ import org.eclipse.gmf.runtime.notation.View;
 
 import frmview.diagram.edit.commands.ViewInheritanceCreateCommand;
 import frmview.diagram.edit.commands.ViewInheritanceReorientCommand;
+import frmview.diagram.edit.parts.ViewAreaEditPart;
 import frmview.diagram.edit.parts.ViewInheritanceEditPart;
 import frmview.diagram.edit.parts.ViewPortEditPart;
-import frmview.diagram.edit.parts.WindowWindowViewPortsCompartmentEditPart;
+import frmview.diagram.edit.parts.WindowWindowViewElementCompartmentEditPart;
 import frmview.diagram.part.DomainVisualIDRegistry;
 import frmview.diagram.providers.DomainElementTypes;
 
@@ -78,7 +79,7 @@ public class WindowItemSemanticEditPolicy extends
 		for (Iterator<?> nit = view.getChildren().iterator(); nit.hasNext();) {
 			Node node = (Node) nit.next();
 			switch (DomainVisualIDRegistry.getVisualID(node)) {
-			case WindowWindowViewPortsCompartmentEditPart.VISUAL_ID:
+			case WindowWindowViewElementCompartmentEditPart.VISUAL_ID:
 				for (Iterator<?> cit = node.getChildren().iterator(); cit
 						.hasNext();) {
 					Node cnode = (Node) cit.next();
@@ -97,6 +98,13 @@ public class WindowItemSemanticEditPolicy extends
 								continue;
 							}
 						}
+						cmd.add(new DestroyElementCommand(
+								new DestroyElementRequest(getEditingDomain(),
+										cnode.getElement(), false))); // directlyOwned: true
+						// don't need explicit deletion of cnode as parent's view deletion would clean child views as well 
+						// cmd.add(new org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(), cnode));
+						break;
+					case ViewAreaEditPart.VISUAL_ID:
 						cmd.add(new DestroyElementCommand(
 								new DestroyElementRequest(getEditingDomain(),
 										cnode.getElement(), false))); // directlyOwned: true

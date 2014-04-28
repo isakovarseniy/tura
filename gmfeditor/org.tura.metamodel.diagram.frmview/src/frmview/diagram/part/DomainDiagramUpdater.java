@@ -22,24 +22,26 @@ import domain.DomainPackage;
 import domain.TabCanvas;
 import domain.TabPage;
 import domain.TabPagesInheritance;
+import domain.ViewElement;
 import domain.ViewInheritance;
 import domain.ViewPort;
 import domain.ViewPortTrigger;
 import domain.Views;
 import domain.Window;
-import frmview.diagram.edit.parts.CanvasCanvasViewPortsCompartmentEditPart;
+import frmview.diagram.edit.parts.CanvasCanvasViewElementCompartmentEditPart;
 import frmview.diagram.edit.parts.CanvasEditPart;
 import frmview.diagram.edit.parts.TabCanvasEditPart;
 import frmview.diagram.edit.parts.TabPageEditPart;
-import frmview.diagram.edit.parts.TabPageTabPageViewPortsCompartmentEditPart;
+import frmview.diagram.edit.parts.TabPageTabPageViewElementCompartmentEditPart;
 import frmview.diagram.edit.parts.TabPagesInheritanceEditPart;
+import frmview.diagram.edit.parts.ViewAreaEditPart;
 import frmview.diagram.edit.parts.ViewInheritanceEditPart;
 import frmview.diagram.edit.parts.ViewPortEditPart;
 import frmview.diagram.edit.parts.ViewPortTriggerEditPart;
 import frmview.diagram.edit.parts.ViewPortViewPortViewPortTriggerCompartmentEditPart;
 import frmview.diagram.edit.parts.ViewsEditPart;
 import frmview.diagram.edit.parts.WindowEditPart;
-import frmview.diagram.edit.parts.WindowWindowViewPortsCompartmentEditPart;
+import frmview.diagram.edit.parts.WindowWindowViewElementCompartmentEditPart;
 import frmview.diagram.providers.DomainElementTypes;
 
 /**
@@ -62,14 +64,14 @@ public class DomainDiagramUpdater {
 		switch (DomainVisualIDRegistry.getVisualID(view)) {
 		case ViewsEditPart.VISUAL_ID:
 			return getViews_1301000SemanticChildren(view);
-		case CanvasCanvasViewPortsCompartmentEditPart.VISUAL_ID:
-			return getCanvasCanvasViewPortsCompartment_1307004SemanticChildren(view);
+		case CanvasCanvasViewElementCompartmentEditPart.VISUAL_ID:
+			return getCanvasCanvasViewElementCompartment_1307004SemanticChildren(view);
 		case ViewPortViewPortViewPortTriggerCompartmentEditPart.VISUAL_ID:
-			return getViewPortViewPortViewPortTriggerCompartment_1307006SemanticChildren(view);
-		case WindowWindowViewPortsCompartmentEditPart.VISUAL_ID:
-			return getWindowWindowViewPortsCompartment_1307008SemanticChildren(view);
-		case TabPageTabPageViewPortsCompartmentEditPart.VISUAL_ID:
-			return getTabPageTabPageViewPortsCompartment_1307003SemanticChildren(view);
+			return getViewPortViewPortViewPortTriggerCompartment_1307009SemanticChildren(view);
+		case WindowWindowViewElementCompartmentEditPart.VISUAL_ID:
+			return getWindowWindowViewElementCompartment_1307008SemanticChildren(view);
+		case TabPageTabPageViewElementCompartmentEditPart.VISUAL_ID:
+			return getTabPageTabPageViewElementCompartment_1307003SemanticChildren(view);
 		}
 		return Collections.emptyList();
 	}
@@ -112,7 +114,7 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<DomainNodeDescriptor> getCanvasCanvasViewPortsCompartment_1307004SemanticChildren(
+	public static List<DomainNodeDescriptor> getCanvasCanvasViewElementCompartment_1307004SemanticChildren(
 			View view) {
 		if (false == view.eContainer() instanceof View) {
 			return Collections.emptyList();
@@ -123,12 +125,16 @@ public class DomainDiagramUpdater {
 		}
 		Canvas modelElement = (Canvas) containerView.getElement();
 		LinkedList<DomainNodeDescriptor> result = new LinkedList<DomainNodeDescriptor>();
-		for (Iterator<?> it = modelElement.getViewPorts().iterator(); it
+		for (Iterator<?> it = modelElement.getViewElement().iterator(); it
 				.hasNext();) {
-			ViewPort childElement = (ViewPort) it.next();
+			ViewElement childElement = (ViewElement) it.next();
 			int visualID = DomainVisualIDRegistry.getNodeVisualID(view,
 					childElement);
 			if (visualID == ViewPortEditPart.VISUAL_ID) {
+				result.add(new DomainNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == ViewAreaEditPart.VISUAL_ID) {
 				result.add(new DomainNodeDescriptor(childElement, visualID));
 				continue;
 			}
@@ -139,7 +145,7 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<DomainNodeDescriptor> getViewPortViewPortViewPortTriggerCompartment_1307006SemanticChildren(
+	public static List<DomainNodeDescriptor> getViewPortViewPortViewPortTriggerCompartment_1307009SemanticChildren(
 			View view) {
 		if (false == view.eContainer() instanceof View) {
 			return Collections.emptyList();
@@ -164,7 +170,7 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<DomainNodeDescriptor> getWindowWindowViewPortsCompartment_1307008SemanticChildren(
+	public static List<DomainNodeDescriptor> getWindowWindowViewElementCompartment_1307008SemanticChildren(
 			View view) {
 		if (false == view.eContainer() instanceof View) {
 			return Collections.emptyList();
@@ -175,12 +181,16 @@ public class DomainDiagramUpdater {
 		}
 		Window modelElement = (Window) containerView.getElement();
 		LinkedList<DomainNodeDescriptor> result = new LinkedList<DomainNodeDescriptor>();
-		for (Iterator<?> it = modelElement.getViewPorts().iterator(); it
+		for (Iterator<?> it = modelElement.getViewElement().iterator(); it
 				.hasNext();) {
-			ViewPort childElement = (ViewPort) it.next();
+			ViewElement childElement = (ViewElement) it.next();
 			int visualID = DomainVisualIDRegistry.getNodeVisualID(view,
 					childElement);
 			if (visualID == ViewPortEditPart.VISUAL_ID) {
+				result.add(new DomainNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == ViewAreaEditPart.VISUAL_ID) {
 				result.add(new DomainNodeDescriptor(childElement, visualID));
 				continue;
 			}
@@ -191,7 +201,7 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<DomainNodeDescriptor> getTabPageTabPageViewPortsCompartment_1307003SemanticChildren(
+	public static List<DomainNodeDescriptor> getTabPageTabPageViewElementCompartment_1307003SemanticChildren(
 			View view) {
 		if (false == view.eContainer() instanceof View) {
 			return Collections.emptyList();
@@ -202,12 +212,16 @@ public class DomainDiagramUpdater {
 		}
 		TabPage modelElement = (TabPage) containerView.getElement();
 		LinkedList<DomainNodeDescriptor> result = new LinkedList<DomainNodeDescriptor>();
-		for (Iterator<?> it = modelElement.getViewPorts().iterator(); it
+		for (Iterator<?> it = modelElement.getViewElement().iterator(); it
 				.hasNext();) {
-			ViewPort childElement = (ViewPort) it.next();
+			ViewElement childElement = (ViewElement) it.next();
 			int visualID = DomainVisualIDRegistry.getNodeVisualID(view,
 					childElement);
 			if (visualID == ViewPortEditPart.VISUAL_ID) {
+				result.add(new DomainNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == ViewAreaEditPart.VISUAL_ID) {
 				result.add(new DomainNodeDescriptor(childElement, visualID));
 				continue;
 			}
@@ -231,9 +245,11 @@ public class DomainDiagramUpdater {
 		case TabCanvasEditPart.VISUAL_ID:
 			return getTabCanvas_1302008ContainedLinks(view);
 		case ViewPortEditPart.VISUAL_ID:
-			return getViewPort_1303003ContainedLinks(view);
+			return getViewPort_1303004ContainedLinks(view);
 		case ViewPortTriggerEditPart.VISUAL_ID:
 			return getViewPortTrigger_1303002ContainedLinks(view);
+		case ViewAreaEditPart.VISUAL_ID:
+			return getViewArea_1303005ContainedLinks(view);
 		case ViewInheritanceEditPart.VISUAL_ID:
 			return getViewInheritance_1304001ContainedLinks(view);
 		case TabPagesInheritanceEditPart.VISUAL_ID:
@@ -256,9 +272,11 @@ public class DomainDiagramUpdater {
 		case TabCanvasEditPart.VISUAL_ID:
 			return getTabCanvas_1302008IncomingLinks(view);
 		case ViewPortEditPart.VISUAL_ID:
-			return getViewPort_1303003IncomingLinks(view);
+			return getViewPort_1303004IncomingLinks(view);
 		case ViewPortTriggerEditPart.VISUAL_ID:
 			return getViewPortTrigger_1303002IncomingLinks(view);
+		case ViewAreaEditPart.VISUAL_ID:
+			return getViewArea_1303005IncomingLinks(view);
 		case ViewInheritanceEditPart.VISUAL_ID:
 			return getViewInheritance_1304001IncomingLinks(view);
 		case TabPagesInheritanceEditPart.VISUAL_ID:
@@ -281,9 +299,11 @@ public class DomainDiagramUpdater {
 		case TabCanvasEditPart.VISUAL_ID:
 			return getTabCanvas_1302008OutgoingLinks(view);
 		case ViewPortEditPart.VISUAL_ID:
-			return getViewPort_1303003OutgoingLinks(view);
+			return getViewPort_1303004OutgoingLinks(view);
 		case ViewPortTriggerEditPart.VISUAL_ID:
 			return getViewPortTrigger_1303002OutgoingLinks(view);
+		case ViewAreaEditPart.VISUAL_ID:
+			return getViewArea_1303005OutgoingLinks(view);
 		case ViewInheritanceEditPart.VISUAL_ID:
 			return getViewInheritance_1304001OutgoingLinks(view);
 		case TabPagesInheritanceEditPart.VISUAL_ID:
@@ -339,7 +359,7 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getViewPort_1303003ContainedLinks(
+	public static List<DomainLinkDescriptor> getViewPort_1303004ContainedLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -348,6 +368,14 @@ public class DomainDiagramUpdater {
 	 * @generated
 	 */
 	public static List<DomainLinkDescriptor> getViewPortTrigger_1303002ContainedLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<DomainLinkDescriptor> getViewArea_1303005ContainedLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -429,7 +457,7 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getViewPort_1303003IncomingLinks(
+	public static List<DomainLinkDescriptor> getViewPort_1303004IncomingLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -438,6 +466,14 @@ public class DomainDiagramUpdater {
 	 * @generated
 	 */
 	public static List<DomainLinkDescriptor> getViewPortTrigger_1303002IncomingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<DomainLinkDescriptor> getViewArea_1303005IncomingLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -496,7 +532,7 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getViewPort_1303003OutgoingLinks(
+	public static List<DomainLinkDescriptor> getViewPort_1303004OutgoingLinks(
 			View view) {
 		ViewPort modelElement = (ViewPort) view.getElement();
 		LinkedList<DomainLinkDescriptor> result = new LinkedList<DomainLinkDescriptor>();
@@ -508,6 +544,14 @@ public class DomainDiagramUpdater {
 	 * @generated
 	 */
 	public static List<DomainLinkDescriptor> getViewPortTrigger_1303002OutgoingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<DomainLinkDescriptor> getViewArea_1303005OutgoingLinks(
 			View view) {
 		return Collections.emptyList();
 	}

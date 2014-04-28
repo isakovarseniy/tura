@@ -132,11 +132,11 @@ public class TabPageEditPart extends ShapeNodeEditPart {
 					.getFigureTabPageLabelFigure());
 			return true;
 		}
-		if (childEditPart instanceof TabPageTabPageViewPortsCompartmentEditPart) {
+		if (childEditPart instanceof TabPageTabPageViewElementCompartmentEditPart) {
 			IFigure pane = getPrimaryShape()
-					.getTabPageViewPortsCompartmentFigure();
+					.getTabPageViewElementCompartmentFigure();
 			setupContentPane(pane); // FIXME each comparment should handle his content pane in his own way 
-			pane.add(((TabPageTabPageViewPortsCompartmentEditPart) childEditPart)
+			pane.add(((TabPageTabPageViewElementCompartmentEditPart) childEditPart)
 					.getFigure());
 			return true;
 		}
@@ -150,10 +150,10 @@ public class TabPageEditPart extends ShapeNodeEditPart {
 		if (childEditPart instanceof TabPageNameEditPart) {
 			return true;
 		}
-		if (childEditPart instanceof TabPageTabPageViewPortsCompartmentEditPart) {
+		if (childEditPart instanceof TabPageTabPageViewElementCompartmentEditPart) {
 			IFigure pane = getPrimaryShape()
-					.getTabPageViewPortsCompartmentFigure();
-			pane.remove(((TabPageTabPageViewPortsCompartmentEditPart) childEditPart)
+					.getTabPageViewElementCompartmentFigure();
+			pane.remove(((TabPageTabPageViewElementCompartmentEditPart) childEditPart)
 					.getFigure());
 			return true;
 		}
@@ -184,8 +184,8 @@ public class TabPageEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected IFigure getContentPaneFor(IGraphicalEditPart editPart) {
-		if (editPart instanceof TabPageTabPageViewPortsCompartmentEditPart) {
-			return getPrimaryShape().getTabPageViewPortsCompartmentFigure();
+		if (editPart instanceof TabPageTabPageViewElementCompartmentEditPart) {
+			return getPrimaryShape().getTabPageViewElementCompartmentFigure();
 		}
 		return getContentPane();
 	}
@@ -300,7 +300,7 @@ public class TabPageEditPart extends ShapeNodeEditPart {
 	public List<IElementType> getMATypesForSource(IElementType relationshipType) {
 		LinkedList<IElementType> types = new LinkedList<IElementType>();
 		if (relationshipType == DomainElementTypes.ViewInheritance_1304001) {
-			types.add(DomainElementTypes.ViewPort_1303003);
+			types.add(DomainElementTypes.ViewPort_1303004);
 		} else if (relationshipType == DomainElementTypes.TabPagesInheritance_1304002) {
 			types.add(DomainElementTypes.TabCanvas_1302008);
 		}
@@ -332,7 +332,7 @@ public class TabPageEditPart extends ShapeNodeEditPart {
 		/**
 		 * @generated
 		 */
-		private RectangleFigure fTabPageViewPortsCompartmentFigure;
+		private RectangleFigure fTabPageViewElementCompartmentFigure;
 
 		/**
 		 * @generated
@@ -364,11 +364,11 @@ public class TabPageEditPart extends ShapeNodeEditPart {
 
 			this.add(fFigureTabPageLabelFigure);
 
-			fTabPageViewPortsCompartmentFigure = new RectangleFigure();
+			fTabPageViewElementCompartmentFigure = new RectangleFigure();
 
-			fTabPageViewPortsCompartmentFigure.setOutline(false);
+			fTabPageViewElementCompartmentFigure.setOutline(false);
 
-			this.add(fTabPageViewPortsCompartmentFigure);
+			this.add(fTabPageViewElementCompartmentFigure);
 
 		}
 
@@ -382,8 +382,8 @@ public class TabPageEditPart extends ShapeNodeEditPart {
 		/**
 		 * @generated
 		 */
-		public RectangleFigure getTabPageViewPortsCompartmentFigure() {
-			return fTabPageViewPortsCompartmentFigure;
+		public RectangleFigure getTabPageViewElementCompartmentFigure() {
+			return fTabPageViewElementCompartmentFigure;
 		}
 
 	}

@@ -3,19 +3,12 @@
  */
 package frmview.diagram.edit.parts;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.MarginBorder;
-import org.eclipse.draw2d.RectangleFigure;
 import org.eclipse.draw2d.RoundedRectangle;
 import org.eclipse.draw2d.Shape;
 import org.eclipse.draw2d.StackLayout;
 import org.eclipse.draw2d.geometry.Dimension;
-import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPolicy;
 import org.eclipse.gef.Request;
@@ -28,7 +21,6 @@ import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeNodeEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel;
-import org.eclipse.gmf.runtime.emf.type.core.IElementType;
 import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
@@ -37,20 +29,20 @@ import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.Font;
 import org.eclipse.swt.widgets.Display;
 
-import frmview.diagram.edit.policies.OpenDiagramEditPolicy;
-import frmview.diagram.edit.policies.WindowItemSemanticEditPolicy;
+import org.tura.metamodel.commons.editparts.SizeLimitedLabel;
+import frmview.diagram.edit.policies.OpenDiagramViewAreaEditPolicy;
+import frmview.diagram.edit.policies.ViewAreaItemSemanticEditPolicy;
 import frmview.diagram.part.DomainVisualIDRegistry;
-import frmview.diagram.providers.DomainElementTypes;
 
 /**
  * @generated
  */
-public class WindowEditPart extends ShapeNodeEditPart {
+public class ViewAreaEditPart extends ShapeNodeEditPart {
 
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 1302007;
+	public static final int VISUAL_ID = 1303005;
 
 	/**
 	 * @generated
@@ -65,7 +57,7 @@ public class WindowEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	public WindowEditPart(View view) {
+	public ViewAreaEditPart(View view) {
 		super(view);
 	}
 
@@ -75,10 +67,10 @@ public class WindowEditPart extends ShapeNodeEditPart {
 	protected void createDefaultEditPolicies() {
 		super.createDefaultEditPolicies();
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
-				new WindowItemSemanticEditPolicy());
+				new ViewAreaItemSemanticEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
 		installEditPolicy(EditPolicyRoles.OPEN_ROLE,
-				new OpenDiagramEditPolicy());
+				new OpenDiagramViewAreaEditPolicy());
 		// XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
 		// removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
 	}
@@ -113,31 +105,23 @@ public class WindowEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected IFigure createNodeShape() {
-		return primaryShape = new WindowFigure();
+		return primaryShape = new ViewAreaFigure();
 	}
 
 	/**
 	 * @generated
 	 */
-	public WindowFigure getPrimaryShape() {
-		return (WindowFigure) primaryShape;
+	public ViewAreaFigure getPrimaryShape() {
+		return (ViewAreaFigure) primaryShape;
 	}
 
 	/**
 	 * @generated
 	 */
 	protected boolean addFixedChild(EditPart childEditPart) {
-		if (childEditPart instanceof WindowNameEditPart) {
-			((WindowNameEditPart) childEditPart).setLabel(getPrimaryShape()
-					.getFigureWindowLabelFigure());
-			return true;
-		}
-		if (childEditPart instanceof WindowWindowViewElementCompartmentEditPart) {
-			IFigure pane = getPrimaryShape()
-					.getWindowViewElementCompartmentFigure();
-			setupContentPane(pane); // FIXME each comparment should handle his content pane in his own way 
-			pane.add(((WindowWindowViewElementCompartmentEditPart) childEditPart)
-					.getFigure());
+		if (childEditPart instanceof ViewAreaNameEditPart) {
+			((ViewAreaNameEditPart) childEditPart).setLabel(getPrimaryShape()
+					.getFigureViewAreaLabelFigure());
 			return true;
 		}
 		return false;
@@ -147,14 +131,7 @@ public class WindowEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected boolean removeFixedChild(EditPart childEditPart) {
-		if (childEditPart instanceof WindowNameEditPart) {
-			return true;
-		}
-		if (childEditPart instanceof WindowWindowViewElementCompartmentEditPart) {
-			IFigure pane = getPrimaryShape()
-					.getWindowViewElementCompartmentFigure();
-			pane.remove(((WindowWindowViewElementCompartmentEditPart) childEditPart)
-					.getFigure());
+		if (childEditPart instanceof ViewAreaNameEditPart) {
 			return true;
 		}
 		return false;
@@ -184,9 +161,6 @@ public class WindowEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected IFigure getContentPaneFor(IGraphicalEditPart editPart) {
-		if (editPart instanceof WindowWindowViewElementCompartmentEditPart) {
-			return getPrimaryShape().getWindowViewElementCompartmentFigure();
-		}
 		return getContentPane();
 	}
 
@@ -281,60 +255,23 @@ public class WindowEditPart extends ShapeNodeEditPart {
 	 */
 	public EditPart getPrimaryChildEditPart() {
 		return getChildBySemanticHint(DomainVisualIDRegistry
-				.getType(WindowNameEditPart.VISUAL_ID));
+				.getType(ViewAreaNameEditPart.VISUAL_ID));
 	}
 
 	/**
 	 * @generated
 	 */
-	public List<IElementType> getMARelTypesOnTarget() {
-		ArrayList<IElementType> types = new ArrayList<IElementType>(1);
-		types.add(DomainElementTypes.ViewInheritance_1304001);
-		return types;
-	}
-
-	/**
-	 * @generated
-	 */
-	public List<IElementType> getMATypesForSource(IElementType relationshipType) {
-		LinkedList<IElementType> types = new LinkedList<IElementType>();
-		if (relationshipType == DomainElementTypes.ViewInheritance_1304001) {
-			types.add(DomainElementTypes.ViewPort_1303004);
-		}
-		return types;
-	}
-
-	/**
-	 * @generated
-	 */
-	protected void handleNotificationEvent(Notification event) {
-		if (event.getNotifier() == getModel()
-				&& EcorePackage.eINSTANCE.getEModelElement_EAnnotations()
-						.equals(event.getFeature())) {
-			handleMajorSemanticChange();
-		} else {
-			super.handleNotificationEvent(event);
-		}
-	}
-
-	/**
-	 * @generated
-	 */
-	public class WindowFigure extends RoundedRectangle {
+	public class ViewAreaFigure extends RoundedRectangle {
 
 		/**
 		 * @generated
 		 */
-		private WrappingLabel fFigureWindowLabelFigure;
-		/**
-		 * @generated
-		 */
-		private RectangleFigure fWindowViewElementCompartmentFigure;
+		private SizeLimitedLabel fFigureViewAreaLabelFigure;
 
 		/**
 		 * @generated
 		 */
-		public WindowFigure() {
+		public ViewAreaFigure() {
 			this.setCornerDimensions(new Dimension(getMapMode().DPtoLP(8),
 					getMapMode().DPtoLP(8)));
 			this.setForegroundColor(THIS_FORE);
@@ -350,37 +287,21 @@ public class WindowEditPart extends ShapeNodeEditPart {
 		 */
 		private void createContents() {
 
-			fFigureWindowLabelFigure = new WrappingLabel();
+			fFigureViewAreaLabelFigure = new SizeLimitedLabel();
 
-			fFigureWindowLabelFigure.setText("Window");
+			fFigureViewAreaLabelFigure.setText("ViewArea");
 
-			fFigureWindowLabelFigure.setFont(FFIGUREWINDOWLABELFIGURE_FONT);
+			fFigureViewAreaLabelFigure.setFont(FFIGUREVIEWAREALABELFIGURE_FONT);
 
-			fFigureWindowLabelFigure.setMaximumSize(new Dimension(getMapMode()
-					.DPtoLP(10000), getMapMode().DPtoLP(50)));
-
-			this.add(fFigureWindowLabelFigure);
-
-			fWindowViewElementCompartmentFigure = new RectangleFigure();
-
-			fWindowViewElementCompartmentFigure.setOutline(false);
-
-			this.add(fWindowViewElementCompartmentFigure);
+			this.add(fFigureViewAreaLabelFigure);
 
 		}
 
 		/**
 		 * @generated
 		 */
-		public WrappingLabel getFigureWindowLabelFigure() {
-			return fFigureWindowLabelFigure;
-		}
-
-		/**
-		 * @generated
-		 */
-		public RectangleFigure getWindowViewElementCompartmentFigure() {
-			return fWindowViewElementCompartmentFigure;
+		public SizeLimitedLabel getFigureViewAreaLabelFigure() {
+			return fFigureViewAreaLabelFigure;
 		}
 
 	}
@@ -398,7 +319,7 @@ public class WindowEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	static final Font FFIGUREWINDOWLABELFIGURE_FONT = new Font(
+	static final Font FFIGUREVIEWAREALABELFIGURE_FONT = new Font(
 			Display.getCurrent(), "Palatino", 12, SWT.ITALIC);
 
 }

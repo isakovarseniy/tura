@@ -37,6 +37,7 @@ import frmview.diagram.edit.parts.CanvasEditPart;
 import frmview.diagram.edit.parts.TabCanvasEditPart;
 import frmview.diagram.edit.parts.TabPageEditPart;
 import frmview.diagram.edit.parts.TabPagesInheritanceEditPart;
+import frmview.diagram.edit.parts.ViewAreaEditPart;
 import frmview.diagram.edit.parts.ViewInheritanceEditPart;
 import frmview.diagram.edit.parts.ViewPortEditPart;
 import frmview.diagram.edit.parts.ViewPortTriggerEditPart;
@@ -314,7 +315,7 @@ public class ViewsCanonicalEditPolicy extends CanonicalEditPolicy {
 		case ViewPortEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(DomainDiagramUpdater
-						.getViewPort_1303003ContainedLinks(view));
+						.getViewPort_1303004ContainedLinks(view));
 			}
 			domain2NotationMap.putView(view.getElement(), view);
 			break;
@@ -323,6 +324,14 @@ public class ViewsCanonicalEditPolicy extends CanonicalEditPolicy {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(DomainDiagramUpdater
 						.getViewPortTrigger_1303002ContainedLinks(view));
+			}
+			domain2NotationMap.putView(view.getElement(), view);
+			break;
+		}
+		case ViewAreaEditPart.VISUAL_ID: {
+			if (!domain2NotationMap.containsKey(view.getElement())) {
+				result.addAll(DomainDiagramUpdater
+						.getViewArea_1303005ContainedLinks(view));
 			}
 			domain2NotationMap.putView(view.getElement(), view);
 			break;

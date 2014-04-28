@@ -17,29 +17,29 @@ import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.gmf.runtime.notation.impl.NodeImpl;
 import org.eclipse.gmf.tooling.runtime.edit.policies.reparent.CreationEditPolicyWithCustomReparent;
-import org.tura.metamodel.commons.editparts.HTMLLikeLayout;
 
+import org.tura.metamodel.commons.editparts.HTMLLikeLayout;
 import domain.HTMLLayerHolder;
-import frmview.diagram.edit.policies.TabPageTabPageViewPortsCompartmentCanonicalEditPolicy;
-import frmview.diagram.edit.policies.TabPageTabPageViewPortsCompartmentItemSemanticEditPolicy;
+import frmview.diagram.edit.policies.WindowWindowViewElementCompartmentCanonicalEditPolicy;
+import frmview.diagram.edit.policies.WindowWindowViewElementCompartmentItemSemanticEditPolicy;
 import frmview.diagram.part.DomainVisualIDRegistry;
 import frmview.diagram.part.Messages;
 
 /**
  * @generated
  */
-public class TabPageTabPageViewPortsCompartmentEditPart extends
+public class WindowWindowViewElementCompartmentEditPart extends
 		ShapeCompartmentEditPart {
 
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 1307003;
+	public static final int VISUAL_ID = 1307008;
 
 	/**
 	 * @generated
 	 */
-	public TabPageTabPageViewPortsCompartmentEditPart(View view) {
+	public WindowWindowViewElementCompartmentEditPart(View view) {
 		super(view);
 	}
 
@@ -47,7 +47,7 @@ public class TabPageTabPageViewPortsCompartmentEditPart extends
 	 * @generated
 	 */
 	public String getCompartmentName() {
-		return Messages.TabPageTabPageViewPortsCompartmentEditPart_title;
+		return Messages.WindowWindowViewElementCompartmentEditPart_title;
 	}
 
 	/**
@@ -107,14 +107,14 @@ public class TabPageTabPageViewPortsCompartmentEditPart extends
 		installEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE,
 				new ResizableCompartmentEditPolicy());
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
-				new TabPageTabPageViewPortsCompartmentItemSemanticEditPolicy());
+				new WindowWindowViewElementCompartmentItemSemanticEditPolicy());
 		installEditPolicy(EditPolicyRoles.CREATION_ROLE,
 				new CreationEditPolicyWithCustomReparent(
 						DomainVisualIDRegistry.TYPED_INSTANCE));
 		installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE,
 				new DragDropEditPolicy());
 		installEditPolicy(EditPolicyRoles.CANONICAL_ROLE,
-				new TabPageTabPageViewPortsCompartmentCanonicalEditPolicy());
+				new WindowWindowViewElementCompartmentCanonicalEditPolicy());
 	}
 
 	/**

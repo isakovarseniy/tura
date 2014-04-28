@@ -51,7 +51,7 @@ public class ViewPortEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 1303003;
+	public static final int VISUAL_ID = 1303004;
 
 	/**
 	 * @generated

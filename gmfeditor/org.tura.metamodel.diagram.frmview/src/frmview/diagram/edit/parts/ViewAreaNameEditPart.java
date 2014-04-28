@@ -55,13 +55,13 @@ import frmview.diagram.providers.DomainParserProvider;
 /**
  * @generated
  */
-public class ViewPortNameEditPart extends CompartmentEditPart implements
+public class ViewAreaNameEditPart extends CompartmentEditPart implements
 		ITextAwareEditPart {
 
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 1305012;
+	public static final int VISUAL_ID = 1305013;
 
 	/**
 	 * @generated
@@ -91,7 +91,7 @@ public class ViewPortNameEditPart extends CompartmentEditPart implements
 	/**
 	 * @generated
 	 */
-	public ViewPortNameEditPart(View view) {
+	public ViewAreaNameEditPart(View view) {
 		super(view);
 	}
 
@@ -313,10 +313,10 @@ public class ViewPortNameEditPart extends CompartmentEditPart implements
 		if (parser == null) {
 			parser = DomainParserProvider
 					.getParser(
-							DomainElementTypes.ViewPort_1303004,
+							DomainElementTypes.ViewArea_1303005,
 							getParserElement(),
 							DomainVisualIDRegistry
-									.getType(frmview.diagram.edit.parts.ViewPortNameEditPart.VISUAL_ID));
+									.getType(frmview.diagram.edit.parts.ViewAreaNameEditPart.VISUAL_ID));
 		}
 		return parser;
 	}

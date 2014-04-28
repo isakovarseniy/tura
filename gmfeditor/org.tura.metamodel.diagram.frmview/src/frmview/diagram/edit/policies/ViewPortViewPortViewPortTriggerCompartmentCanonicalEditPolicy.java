@@ -63,7 +63,7 @@ public class ViewPortViewPortViewPortTriggerCompartmentCanonicalEditPolicy
 		View viewObject = (View) getHost().getModel();
 		LinkedList<EObject> result = new LinkedList<EObject>();
 		List<DomainNodeDescriptor> childDescriptors = DomainDiagramUpdater
-				.getViewPortViewPortViewPortTriggerCompartment_1307006SemanticChildren(viewObject);
+				.getViewPortViewPortViewPortTriggerCompartment_1307009SemanticChildren(viewObject);
 		for (DomainNodeDescriptor d : childDescriptors) {
 			result.add(d.getModelElement());
 		}
@@ -96,7 +96,7 @@ public class ViewPortViewPortViewPortTriggerCompartmentCanonicalEditPolicy
 		}
 		LinkedList<IAdaptable> createdViews = new LinkedList<IAdaptable>();
 		List<DomainNodeDescriptor> childDescriptors = DomainDiagramUpdater
-				.getViewPortViewPortViewPortTriggerCompartment_1307006SemanticChildren((View) getHost()
+				.getViewPortViewPortViewPortTriggerCompartment_1307009SemanticChildren((View) getHost()
 						.getModel());
 		LinkedList<View> orphaned = new LinkedList<View>();
 		// we care to check only views we recognize as ours

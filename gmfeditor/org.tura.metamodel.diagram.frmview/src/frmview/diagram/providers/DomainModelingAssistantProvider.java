@@ -24,15 +24,15 @@ import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.dialogs.ElementListSelectionDialog;
 
-import frmview.diagram.edit.parts.CanvasCanvasViewPortsCompartmentEditPart;
+import frmview.diagram.edit.parts.CanvasCanvasViewElementCompartmentEditPart;
 import frmview.diagram.edit.parts.CanvasEditPart;
 import frmview.diagram.edit.parts.TabCanvasEditPart;
 import frmview.diagram.edit.parts.TabPageEditPart;
-import frmview.diagram.edit.parts.TabPageTabPageViewPortsCompartmentEditPart;
+import frmview.diagram.edit.parts.TabPageTabPageViewElementCompartmentEditPart;
 import frmview.diagram.edit.parts.ViewPortEditPart;
 import frmview.diagram.edit.parts.ViewsEditPart;
 import frmview.diagram.edit.parts.WindowEditPart;
-import frmview.diagram.edit.parts.WindowWindowViewPortsCompartmentEditPart;
+import frmview.diagram.edit.parts.WindowWindowViewElementCompartmentEditPart;
 import frmview.diagram.part.DomainDiagramEditorPlugin;
 import frmview.diagram.part.Messages;
 
@@ -60,19 +60,22 @@ public class DomainModelingAssistantProvider extends ModelingAssistantProvider {
 			types.add(DomainElementTypes.ViewPortTrigger_1303002);
 			return types;
 		}
-		if (editPart instanceof CanvasCanvasViewPortsCompartmentEditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(1);
-			types.add(DomainElementTypes.ViewPort_1303003);
+		if (editPart instanceof CanvasCanvasViewElementCompartmentEditPart) {
+			ArrayList<IElementType> types = new ArrayList<IElementType>(2);
+			types.add(DomainElementTypes.ViewPort_1303004);
+			types.add(DomainElementTypes.ViewArea_1303005);
 			return types;
 		}
-		if (editPart instanceof WindowWindowViewPortsCompartmentEditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(1);
-			types.add(DomainElementTypes.ViewPort_1303003);
+		if (editPart instanceof WindowWindowViewElementCompartmentEditPart) {
+			ArrayList<IElementType> types = new ArrayList<IElementType>(2);
+			types.add(DomainElementTypes.ViewPort_1303004);
+			types.add(DomainElementTypes.ViewArea_1303005);
 			return types;
 		}
-		if (editPart instanceof TabPageTabPageViewPortsCompartmentEditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(1);
-			types.add(DomainElementTypes.ViewPort_1303003);
+		if (editPart instanceof TabPageTabPageViewElementCompartmentEditPart) {
+			ArrayList<IElementType> types = new ArrayList<IElementType>(2);
+			types.add(DomainElementTypes.ViewPort_1303004);
+			types.add(DomainElementTypes.ViewArea_1303005);
 			return types;
 		}
 		return Collections.EMPTY_LIST;

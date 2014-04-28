@@ -20,6 +20,7 @@ import domain.DomainPackage;
 import frmview.diagram.edit.parts.CanvasNameEditPart;
 import frmview.diagram.edit.parts.TabCanvasNameEditPart;
 import frmview.diagram.edit.parts.TabPageNameEditPart;
+import frmview.diagram.edit.parts.ViewAreaNameEditPart;
 import frmview.diagram.edit.parts.ViewPortNameEditPart;
 import frmview.diagram.edit.parts.ViewPortTriggerFakeMethodEditPart;
 import frmview.diagram.edit.parts.WindowNameEditPart;
@@ -107,19 +108,19 @@ public class DomainParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	private IParser viewPortName_1305008Parser;
+	private IParser viewPortName_1305012Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getViewPortName_1305008Parser() {
-		if (viewPortName_1305008Parser == null) {
+	private IParser getViewPortName_1305012Parser() {
+		if (viewPortName_1305012Parser == null) {
 			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE
 					.getViewPort_Name() };
 			MessageFormatParser parser = new MessageFormatParser(features);
-			viewPortName_1305008Parser = parser;
+			viewPortName_1305012Parser = parser;
 		}
-		return viewPortName_1305008Parser;
+		return viewPortName_1305012Parser;
 	}
 
 	/**
@@ -143,6 +144,24 @@ public class DomainParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
+	private IParser viewAreaName_1305013Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getViewAreaName_1305013Parser() {
+		if (viewAreaName_1305013Parser == null) {
+			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE
+					.getViewArea_Name() };
+			MessageFormatParser parser = new MessageFormatParser(features);
+			viewAreaName_1305013Parser = parser;
+		}
+		return viewAreaName_1305013Parser;
+	}
+
+	/**
+	 * @generated
+	 */
 	protected IParser getParser(int visualID) {
 		switch (visualID) {
 		case CanvasNameEditPart.VISUAL_ID:
@@ -154,9 +173,11 @@ public class DomainParserProvider extends AbstractProvider implements
 		case TabCanvasNameEditPart.VISUAL_ID:
 			return getTabCanvasName_1305011Parser();
 		case ViewPortNameEditPart.VISUAL_ID:
-			return getViewPortName_1305008Parser();
+			return getViewPortName_1305012Parser();
 		case ViewPortTriggerFakeMethodEditPart.VISUAL_ID:
 			return getViewPortTriggerFakeMethod_1305005Parser();
+		case ViewAreaNameEditPart.VISUAL_ID:
+			return getViewAreaName_1305013Parser();
 		}
 		return null;
 	}

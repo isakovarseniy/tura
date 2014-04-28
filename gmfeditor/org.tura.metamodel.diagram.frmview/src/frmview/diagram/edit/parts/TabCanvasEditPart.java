@@ -309,7 +309,7 @@ public class TabCanvasEditPart extends ShapeNodeEditPart {
 	public List<IElementType> getMATypesForSource(IElementType relationshipType) {
 		LinkedList<IElementType> types = new LinkedList<IElementType>();
 		if (relationshipType == DomainElementTypes.ViewInheritance_1304001) {
-			types.add(DomainElementTypes.ViewPort_1303003);
+			types.add(DomainElementTypes.ViewPort_1303004);
 		}
 		return types;
 	}

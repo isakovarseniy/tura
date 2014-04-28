@@ -22,8 +22,9 @@ import frmview.diagram.edit.commands.TabPagesInheritanceCreateCommand;
 import frmview.diagram.edit.commands.TabPagesInheritanceReorientCommand;
 import frmview.diagram.edit.commands.ViewInheritanceCreateCommand;
 import frmview.diagram.edit.commands.ViewInheritanceReorientCommand;
-import frmview.diagram.edit.parts.TabPageTabPageViewPortsCompartmentEditPart;
+import frmview.diagram.edit.parts.TabPageTabPageViewElementCompartmentEditPart;
 import frmview.diagram.edit.parts.TabPagesInheritanceEditPart;
+import frmview.diagram.edit.parts.ViewAreaEditPart;
 import frmview.diagram.edit.parts.ViewInheritanceEditPart;
 import frmview.diagram.edit.parts.ViewPortEditPart;
 import frmview.diagram.part.DomainVisualIDRegistry;
@@ -88,7 +89,7 @@ public class TabPageItemSemanticEditPolicy extends
 		for (Iterator<?> nit = view.getChildren().iterator(); nit.hasNext();) {
 			Node node = (Node) nit.next();
 			switch (DomainVisualIDRegistry.getVisualID(node)) {
-			case TabPageTabPageViewPortsCompartmentEditPart.VISUAL_ID:
+			case TabPageTabPageViewElementCompartmentEditPart.VISUAL_ID:
 				for (Iterator<?> cit = node.getChildren().iterator(); cit
 						.hasNext();) {
 					Node cnode = (Node) cit.next();
@@ -107,6 +108,13 @@ public class TabPageItemSemanticEditPolicy extends
 								continue;
 							}
 						}
+						cmd.add(new DestroyElementCommand(
+								new DestroyElementRequest(getEditingDomain(),
+										cnode.getElement(), false))); // directlyOwned: true
+						// don't need explicit deletion of cnode as parent's view deletion would clean child views as well 
+						// cmd.add(new org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(), cnode));
+						break;
+					case ViewAreaEditPart.VISUAL_ID:
 						cmd.add(new DestroyElementCommand(
 								new DestroyElementRequest(getEditingDomain(),
 										cnode.getElement(), false))); // directlyOwned: true

@@ -16,18 +16,18 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 import org.eclipse.gmf.runtime.notation.View;
 
 import domain.DomainFactory;
-import domain.ViewPort;
+import domain.ViewArea;
 import domain.ViewPortHolder;
 
 /**
  * @generated
  */
-public class ViewPortCreateCommand extends EditElementCommand {
+public class ViewAreaCreateCommand extends EditElementCommand {
 
 	/**
 	 * @generated
 	 */
-	public ViewPortCreateCommand(CreateElementRequest req) {
+	public ViewAreaCreateCommand(CreateElementRequest req) {
 		super(req.getLabel(), null, req);
 	}
 
@@ -57,7 +57,7 @@ public class ViewPortCreateCommand extends EditElementCommand {
 	 */
 	protected CommandResult doExecuteWithResult(IProgressMonitor monitor,
 			IAdaptable info) throws ExecutionException {
-		ViewPort newElement = DomainFactory.eINSTANCE.createViewPort();
+		ViewArea newElement = DomainFactory.eINSTANCE.createViewArea();
 
 		ViewPortHolder owner = (ViewPortHolder) getElementToEdit();
 		owner.getViewElement().add(newElement);
@@ -73,7 +73,7 @@ public class ViewPortCreateCommand extends EditElementCommand {
 	/**
 	 * @generated
 	 */
-	protected void doConfigure(ViewPort newElement, IProgressMonitor monitor,
+	protected void doConfigure(ViewArea newElement, IProgressMonitor monitor,
 			IAdaptable info) throws ExecutionException {
 		IElementType elementType = ((CreateElementRequest) getRequest())
 				.getElementType();

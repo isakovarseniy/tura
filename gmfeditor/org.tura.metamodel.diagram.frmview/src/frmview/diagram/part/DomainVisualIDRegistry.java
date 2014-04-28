@@ -12,15 +12,17 @@ import org.eclipse.gmf.tooling.runtime.structure.DiagramStructure;
 
 import domain.DomainPackage;
 import domain.Views;
-import frmview.diagram.edit.parts.CanvasCanvasViewPortsCompartmentEditPart;
+import frmview.diagram.edit.parts.CanvasCanvasViewElementCompartmentEditPart;
 import frmview.diagram.edit.parts.CanvasEditPart;
 import frmview.diagram.edit.parts.CanvasNameEditPart;
 import frmview.diagram.edit.parts.TabCanvasEditPart;
 import frmview.diagram.edit.parts.TabCanvasNameEditPart;
 import frmview.diagram.edit.parts.TabPageEditPart;
 import frmview.diagram.edit.parts.TabPageNameEditPart;
-import frmview.diagram.edit.parts.TabPageTabPageViewPortsCompartmentEditPart;
+import frmview.diagram.edit.parts.TabPageTabPageViewElementCompartmentEditPart;
 import frmview.diagram.edit.parts.TabPagesInheritanceEditPart;
+import frmview.diagram.edit.parts.ViewAreaEditPart;
+import frmview.diagram.edit.parts.ViewAreaNameEditPart;
 import frmview.diagram.edit.parts.ViewInheritanceEditPart;
 import frmview.diagram.edit.parts.ViewPortEditPart;
 import frmview.diagram.edit.parts.ViewPortNameEditPart;
@@ -30,7 +32,7 @@ import frmview.diagram.edit.parts.ViewPortViewPortViewPortTriggerCompartmentEdit
 import frmview.diagram.edit.parts.ViewsEditPart;
 import frmview.diagram.edit.parts.WindowEditPart;
 import frmview.diagram.edit.parts.WindowNameEditPart;
-import frmview.diagram.edit.parts.WindowWindowViewPortsCompartmentEditPart;
+import frmview.diagram.edit.parts.WindowWindowViewElementCompartmentEditPart;
 
 /**
  * This registry is used to determine which type of visual object should be
@@ -158,10 +160,14 @@ public class DomainVisualIDRegistry {
 				return TabCanvasEditPart.VISUAL_ID;
 			}
 			break;
-		case CanvasCanvasViewPortsCompartmentEditPart.VISUAL_ID:
+		case CanvasCanvasViewElementCompartmentEditPart.VISUAL_ID:
 			if (DomainPackage.eINSTANCE.getViewPort().isSuperTypeOf(
 					domainElement.eClass())) {
 				return ViewPortEditPart.VISUAL_ID;
+			}
+			if (DomainPackage.eINSTANCE.getViewArea().isSuperTypeOf(
+					domainElement.eClass())) {
+				return ViewAreaEditPart.VISUAL_ID;
 			}
 			break;
 		case ViewPortViewPortViewPortTriggerCompartmentEditPart.VISUAL_ID:
@@ -170,16 +176,24 @@ public class DomainVisualIDRegistry {
 				return ViewPortTriggerEditPart.VISUAL_ID;
 			}
 			break;
-		case WindowWindowViewPortsCompartmentEditPart.VISUAL_ID:
+		case WindowWindowViewElementCompartmentEditPart.VISUAL_ID:
 			if (DomainPackage.eINSTANCE.getViewPort().isSuperTypeOf(
 					domainElement.eClass())) {
 				return ViewPortEditPart.VISUAL_ID;
 			}
+			if (DomainPackage.eINSTANCE.getViewArea().isSuperTypeOf(
+					domainElement.eClass())) {
+				return ViewAreaEditPart.VISUAL_ID;
+			}
 			break;
-		case TabPageTabPageViewPortsCompartmentEditPart.VISUAL_ID:
+		case TabPageTabPageViewElementCompartmentEditPart.VISUAL_ID:
 			if (DomainPackage.eINSTANCE.getViewPort().isSuperTypeOf(
 					domainElement.eClass())) {
 				return ViewPortEditPart.VISUAL_ID;
+			}
+			if (DomainPackage.eINSTANCE.getViewArea().isSuperTypeOf(
+					domainElement.eClass())) {
+				return ViewAreaEditPart.VISUAL_ID;
 			}
 			break;
 		}
@@ -226,7 +240,7 @@ public class DomainVisualIDRegistry {
 			if (CanvasNameEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
-			if (CanvasCanvasViewPortsCompartmentEditPart.VISUAL_ID == nodeVisualID) {
+			if (CanvasCanvasViewElementCompartmentEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -234,7 +248,7 @@ public class DomainVisualIDRegistry {
 			if (WindowNameEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
-			if (WindowWindowViewPortsCompartmentEditPart.VISUAL_ID == nodeVisualID) {
+			if (WindowWindowViewElementCompartmentEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -242,7 +256,7 @@ public class DomainVisualIDRegistry {
 			if (TabPageNameEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
-			if (TabPageTabPageViewPortsCompartmentEditPart.VISUAL_ID == nodeVisualID) {
+			if (TabPageTabPageViewElementCompartmentEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -264,8 +278,16 @@ public class DomainVisualIDRegistry {
 				return true;
 			}
 			break;
-		case CanvasCanvasViewPortsCompartmentEditPart.VISUAL_ID:
+		case ViewAreaEditPart.VISUAL_ID:
+			if (ViewAreaNameEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case CanvasCanvasViewElementCompartmentEditPart.VISUAL_ID:
 			if (ViewPortEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (ViewAreaEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -274,13 +296,19 @@ public class DomainVisualIDRegistry {
 				return true;
 			}
 			break;
-		case WindowWindowViewPortsCompartmentEditPart.VISUAL_ID:
+		case WindowWindowViewElementCompartmentEditPart.VISUAL_ID:
 			if (ViewPortEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
+			if (ViewAreaEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
 			break;
-		case TabPageTabPageViewPortsCompartmentEditPart.VISUAL_ID:
+		case TabPageTabPageViewElementCompartmentEditPart.VISUAL_ID:
 			if (ViewPortEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (ViewAreaEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -334,10 +362,10 @@ public class DomainVisualIDRegistry {
 	 */
 	public static boolean isCompartmentVisualID(int visualID) {
 		switch (visualID) {
-		case CanvasCanvasViewPortsCompartmentEditPart.VISUAL_ID:
+		case CanvasCanvasViewElementCompartmentEditPart.VISUAL_ID:
 		case ViewPortViewPortViewPortTriggerCompartmentEditPart.VISUAL_ID:
-		case WindowWindowViewPortsCompartmentEditPart.VISUAL_ID:
-		case TabPageTabPageViewPortsCompartmentEditPart.VISUAL_ID:
+		case WindowWindowViewElementCompartmentEditPart.VISUAL_ID:
+		case TabPageTabPageViewElementCompartmentEditPart.VISUAL_ID:
 			return true;
 		default:
 			break;
@@ -354,6 +382,7 @@ public class DomainVisualIDRegistry {
 			return false;
 		case TabCanvasEditPart.VISUAL_ID:
 		case ViewPortTriggerEditPart.VISUAL_ID:
+		case ViewAreaEditPart.VISUAL_ID:
 			return true;
 		default:
 			break;

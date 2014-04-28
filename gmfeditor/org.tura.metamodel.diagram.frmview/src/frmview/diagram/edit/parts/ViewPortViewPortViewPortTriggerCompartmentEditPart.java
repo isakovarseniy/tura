@@ -29,7 +29,7 @@ public class ViewPortViewPortViewPortTriggerCompartmentEditPart extends
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 1307006;
+	public static final int VISUAL_ID = 1307009;
 
 	/**
 	 * @generated

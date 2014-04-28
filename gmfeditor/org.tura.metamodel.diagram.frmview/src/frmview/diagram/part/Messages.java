@@ -306,32 +306,42 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String ViewPort6CreationTool_title;
+	public static String ViewArea6CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String ViewPort6CreationTool_desc;
+	public static String ViewArea6CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String ViewPortTrigger7CreationTool_title;
+	public static String ViewPort7CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String ViewPortTrigger7CreationTool_desc;
+	public static String ViewPort7CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String Window8CreationTool_title;
+	public static String ViewPortTrigger8CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Window8CreationTool_desc;
+	public static String ViewPortTrigger8CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String Window9CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String Window9CreationTool_desc;
 
 	/**
 	 * @generated
@@ -356,7 +366,7 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String CanvasCanvasViewPortsCompartmentEditPart_title;
+	public static String CanvasCanvasViewElementCompartmentEditPart_title;
 
 	/**
 	 * @generated
@@ -366,57 +376,17 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String WindowWindowViewPortsCompartmentEditPart_title;
+	public static String WindowWindowViewElementCompartmentEditPart_title;
 
 	/**
 	 * @generated
 	 */
-	public static String TabPageTabPageViewPortsCompartmentEditPart_title;
+	public static String TabPageTabPageViewElementCompartmentEditPart_title;
 
 	/**
 	 * @generated
 	 */
 	public static String CommandName_OpenDiagram;
-
-	/**
-	 * @generated
-	 */
-	public static String NavigatorGroupName_TabCanvas_1302008_incominglinks;
-
-	/**
-	 * @generated
-	 */
-	public static String NavigatorGroupName_TabCanvas_1302008_outgoinglinks;
-
-	/**
-	 * @generated
-	 */
-	public static String NavigatorGroupName_TabPage_1302002_incominglinks;
-
-	/**
-	 * @generated
-	 */
-	public static String NavigatorGroupName_Canvas_1302003_incominglinks;
-
-	/**
-	 * @generated
-	 */
-	public static String NavigatorGroupName_ViewPort_1303003_outgoinglinks;
-
-	/**
-	 * @generated
-	 */
-	public static String NavigatorGroupName_ViewInheritance_1304001_target;
-
-	/**
-	 * @generated
-	 */
-	public static String NavigatorGroupName_ViewInheritance_1304001_source;
-
-	/**
-	 * @generated
-	 */
-	public static String NavigatorGroupName_Window_1302007_incominglinks;
 
 	/**
 	 * @generated
@@ -432,6 +402,46 @@ public class Messages extends NLS {
 	 * @generated
 	 */
 	public static String NavigatorGroupName_Views_1301000_links;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_ViewInheritance_1304001_target;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_ViewInheritance_1304001_source;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_TabCanvas_1302008_incominglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_TabCanvas_1302008_outgoinglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_Canvas_1302003_incominglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_Window_1302007_incominglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_TabPage_1302002_incominglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_ViewPort_1303004_outgoinglinks;
 
 	/**
 	 * @generated

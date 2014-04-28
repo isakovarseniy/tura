@@ -19,7 +19,7 @@ public class ViewPortViewPortViewPortTriggerCompartmentItemSemanticEditPolicy
 	 * @generated
 	 */
 	public ViewPortViewPortViewPortTriggerCompartmentItemSemanticEditPolicy() {
-		super(DomainElementTypes.ViewPort_1303003);
+		super(DomainElementTypes.ViewPort_1303004);
 	}
 
 	/**

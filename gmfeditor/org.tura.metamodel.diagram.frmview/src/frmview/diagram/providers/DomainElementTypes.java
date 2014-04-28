@@ -24,6 +24,7 @@ import frmview.diagram.edit.parts.CanvasEditPart;
 import frmview.diagram.edit.parts.TabCanvasEditPart;
 import frmview.diagram.edit.parts.TabPageEditPart;
 import frmview.diagram.edit.parts.TabPagesInheritanceEditPart;
+import frmview.diagram.edit.parts.ViewAreaEditPart;
 import frmview.diagram.edit.parts.ViewInheritanceEditPart;
 import frmview.diagram.edit.parts.ViewPortEditPart;
 import frmview.diagram.edit.parts.ViewPortTriggerEditPart;
@@ -80,11 +81,15 @@ public class DomainElementTypes {
 	/**
 	 * @generated
 	 */
-	public static final IElementType ViewPort_1303003 = getElementType("org.tura.metamodel.diagram.frmview.ViewPort_1303003"); //$NON-NLS-1$
+	public static final IElementType ViewPort_1303004 = getElementType("org.tura.metamodel.diagram.frmview.ViewPort_1303004"); //$NON-NLS-1$
 	/**
 	 * @generated
 	 */
 	public static final IElementType ViewPortTrigger_1303002 = getElementType("org.tura.metamodel.diagram.frmview.ViewPortTrigger_1303002"); //$NON-NLS-1$
+	/**
+	 * @generated
+	 */
+	public static final IElementType ViewArea_1303005 = getElementType("org.tura.metamodel.diagram.frmview.ViewArea_1303005"); //$NON-NLS-1$
 	/**
 	 * @generated
 	 */
@@ -216,11 +221,14 @@ public class DomainElementTypes {
 			elements.put(TabCanvas_1302008,
 					DomainPackage.eINSTANCE.getTabCanvas());
 
-			elements.put(ViewPort_1303003,
+			elements.put(ViewPort_1303004,
 					DomainPackage.eINSTANCE.getViewPort());
 
 			elements.put(ViewPortTrigger_1303002,
 					DomainPackage.eINSTANCE.getViewPortTrigger());
+
+			elements.put(ViewArea_1303005,
+					DomainPackage.eINSTANCE.getViewArea());
 
 			elements.put(ViewInheritance_1304001,
 					DomainPackage.eINSTANCE.getViewInheritance());
@@ -249,8 +257,9 @@ public class DomainElementTypes {
 			KNOWN_ELEMENT_TYPES.add(Window_1302007);
 			KNOWN_ELEMENT_TYPES.add(TabPage_1302002);
 			KNOWN_ELEMENT_TYPES.add(TabCanvas_1302008);
-			KNOWN_ELEMENT_TYPES.add(ViewPort_1303003);
+			KNOWN_ELEMENT_TYPES.add(ViewPort_1303004);
 			KNOWN_ELEMENT_TYPES.add(ViewPortTrigger_1303002);
+			KNOWN_ELEMENT_TYPES.add(ViewArea_1303005);
 			KNOWN_ELEMENT_TYPES.add(ViewInheritance_1304001);
 			KNOWN_ELEMENT_TYPES.add(TabPagesInheritance_1304002);
 		}
@@ -273,9 +282,11 @@ public class DomainElementTypes {
 		case TabCanvasEditPart.VISUAL_ID:
 			return TabCanvas_1302008;
 		case ViewPortEditPart.VISUAL_ID:
-			return ViewPort_1303003;
+			return ViewPort_1303004;
 		case ViewPortTriggerEditPart.VISUAL_ID:
 			return ViewPortTrigger_1303002;
+		case ViewAreaEditPart.VISUAL_ID:
+			return ViewArea_1303005;
 		case ViewInheritanceEditPart.VISUAL_ID:
 			return ViewInheritance_1304001;
 		case TabPagesInheritanceEditPart.VISUAL_ID:

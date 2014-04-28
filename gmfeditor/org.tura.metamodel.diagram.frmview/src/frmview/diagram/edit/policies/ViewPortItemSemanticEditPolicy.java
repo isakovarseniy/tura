@@ -36,7 +36,7 @@ public class ViewPortItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	public ViewPortItemSemanticEditPolicy() {
-		super(DomainElementTypes.ViewPort_1303003);
+		super(DomainElementTypes.ViewPort_1303004);
 	}
 
 	/**

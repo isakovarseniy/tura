@@ -258,7 +258,7 @@
          </object>
          <context viewClass="org.eclipse.gmf.runtime.notation.Node" containerViews="referencing-diagrams"/>
          <context viewClass="org.eclipse.gmf.runtime.notation.Diagram" semanticHints="FrmView"/>
-         <context viewClass="org.eclipse.gmf.runtime.notation.Node" semanticHints="1302003,1302007,1302002,1302008,1303003,1303002"/>
+         <context viewClass="org.eclipse.gmf.runtime.notation.Node" semanticHints="1302003,1302007,1302002,1302008,1303004,1303002,1303005"/>
          <context viewClass="org.eclipse.gmf.runtime.notation.Edge" semanticHints="1304001,1304002"/>
       </viewProvider>
    </extension>
@@ -271,16 +271,16 @@
             <method name="getType()" value="FrmView"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-nodes">
-            <method name="getType()" value="1302003,1302007,1302002,1302008,1303003,1303002"/>
+            <method name="getType()" value="1302003,1302007,1302002,1302008,1303004,1303002,1303005"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Edge" id="generated-links">
             <method name="getType()" value="1304001,1304002"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-labels">
-            <method name="getType()" value="1305003,1305010,1305002,1305011,1305008,1305005"/>
+            <method name="getType()" value="1305003,1305010,1305002,1305011,1305012,1305005,1305013"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-compartments">
-            <method name="getType()" value="1307004,1307006,1307008,1307003"/>
+            <method name="getType()" value="1307004,1307009,1307008,1307003"/>
          </object>
          <context views="generated-diagram,generated-nodes,generated-links,generated-labels,generated-compartments"/>
       </editpartProvider>
@@ -378,12 +378,12 @@
       </metamodel>
       <metamodel nsURI="http://tura.org/2013/v1/domain">
          <metamodelType
-               id="org.tura.metamodel.diagram.frmview.ViewPort_1303003"
-               name="%metatype.name.ViewPort_1303003"
+               id="org.tura.metamodel.diagram.frmview.ViewPort_1303004"
+               name="%metatype.name.ViewPort_1303004"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
                eclass="ViewPort"
                edithelper="frmview.diagram.edit.helpers.ViewPortEditHelper">
-            <param name="semanticHint" value="1303003"/>
+            <param name="semanticHint" value="1303004"/>
          </metamodelType>
       </metamodel>
       <metamodel nsURI="http://tura.org/2013/v1/domain">
@@ -394,6 +394,16 @@
                eclass="ViewPortTrigger"
                edithelper="frmview.diagram.edit.helpers.ViewPortTriggerEditHelper">
             <param name="semanticHint" value="1303002"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://tura.org/2013/v1/domain">
+         <metamodelType
+               id="org.tura.metamodel.diagram.frmview.ViewArea_1303005"
+               name="%metatype.name.ViewArea_1303005"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="ViewArea"
+               edithelper="frmview.diagram.edit.helpers.ViewAreaEditHelper">
+            <param name="semanticHint" value="1303005"/>
          </metamodelType>
       </metamodel>
       <metamodel nsURI="http://tura.org/2013/v1/domain">
@@ -437,8 +447,9 @@
          <elementType ref="org.tura.metamodel.diagram.frmview.Window_1302007"/>
          <elementType ref="org.tura.metamodel.diagram.frmview.TabPage_1302002"/>
          <elementType ref="org.tura.metamodel.diagram.frmview.TabCanvas_1302008"/>
-         <elementType ref="org.tura.metamodel.diagram.frmview.ViewPort_1303003"/>
+         <elementType ref="org.tura.metamodel.diagram.frmview.ViewPort_1303004"/>
          <elementType ref="org.tura.metamodel.diagram.frmview.ViewPortTrigger_1303002"/>
+         <elementType ref="org.tura.metamodel.diagram.frmview.ViewArea_1303005"/>
          <elementType ref="org.tura.metamodel.diagram.frmview.ViewInheritance_1304001"/>
          <elementType ref="org.tura.metamodel.diagram.frmview.TabPagesInheritance_1304002"/>
          <advice ref="org.eclipse.gmf.runtime.diagram.core.advice.notationDepdendents"/>

@@ -64,18 +64,24 @@ public class DomainEditPartFactory implements EditPartFactory {
 			case ViewPortTriggerFakeMethodEditPart.VISUAL_ID:
 				return new ViewPortTriggerFakeMethodEditPart(view);
 
-			case CanvasCanvasViewPortsCompartmentEditPart.VISUAL_ID:
-				return new CanvasCanvasViewPortsCompartmentEditPart(view);
+			case ViewAreaEditPart.VISUAL_ID:
+				return new ViewAreaEditPart(view);
+
+			case ViewAreaNameEditPart.VISUAL_ID:
+				return new ViewAreaNameEditPart(view);
+
+			case CanvasCanvasViewElementCompartmentEditPart.VISUAL_ID:
+				return new CanvasCanvasViewElementCompartmentEditPart(view);
 
 			case ViewPortViewPortViewPortTriggerCompartmentEditPart.VISUAL_ID:
 				return new ViewPortViewPortViewPortTriggerCompartmentEditPart(
 						view);
 
-			case WindowWindowViewPortsCompartmentEditPart.VISUAL_ID:
-				return new WindowWindowViewPortsCompartmentEditPart(view);
+			case WindowWindowViewElementCompartmentEditPart.VISUAL_ID:
+				return new WindowWindowViewElementCompartmentEditPart(view);
 
-			case TabPageTabPageViewPortsCompartmentEditPart.VISUAL_ID:
-				return new TabPageTabPageViewPortsCompartmentEditPart(view);
+			case TabPageTabPageViewElementCompartmentEditPart.VISUAL_ID:
+				return new TabPageTabPageViewElementCompartmentEditPart(view);
 
 			case ViewInheritanceEditPart.VISUAL_ID:
 				return new ViewInheritanceEditPart(view);

@@ -17,18 +17,18 @@ import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.gmf.runtime.notation.impl.NodeImpl;
 import org.eclipse.gmf.tooling.runtime.edit.policies.reparent.CreationEditPolicyWithCustomReparent;
-import org.tura.metamodel.commons.editparts.HTMLLikeLayout;
 
+import org.tura.metamodel.commons.editparts.HTMLLikeLayout;
 import domain.HTMLLayerHolder;
-import frmview.diagram.edit.policies.CanvasCanvasViewPortsCompartmentCanonicalEditPolicy;
-import frmview.diagram.edit.policies.CanvasCanvasViewPortsCompartmentItemSemanticEditPolicy;
+import frmview.diagram.edit.policies.CanvasCanvasViewElementCompartmentCanonicalEditPolicy;
+import frmview.diagram.edit.policies.CanvasCanvasViewElementCompartmentItemSemanticEditPolicy;
 import frmview.diagram.part.DomainVisualIDRegistry;
 import frmview.diagram.part.Messages;
 
 /**
  * @generated
  */
-public class CanvasCanvasViewPortsCompartmentEditPart extends
+public class CanvasCanvasViewElementCompartmentEditPart extends
 		ShapeCompartmentEditPart {
 
 	/**
@@ -39,7 +39,7 @@ public class CanvasCanvasViewPortsCompartmentEditPart extends
 	/**
 	 * @generated
 	 */
-	public CanvasCanvasViewPortsCompartmentEditPart(View view) {
+	public CanvasCanvasViewElementCompartmentEditPart(View view) {
 		super(view);
 	}
 
@@ -47,7 +47,7 @@ public class CanvasCanvasViewPortsCompartmentEditPart extends
 	 * @generated
 	 */
 	public String getCompartmentName() {
-		return Messages.CanvasCanvasViewPortsCompartmentEditPart_title;
+		return Messages.CanvasCanvasViewElementCompartmentEditPart_title;
 	}
 
 	/**
@@ -107,14 +107,14 @@ public class CanvasCanvasViewPortsCompartmentEditPart extends
 		installEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE,
 				new ResizableCompartmentEditPolicy());
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
-				new CanvasCanvasViewPortsCompartmentItemSemanticEditPolicy());
+				new CanvasCanvasViewElementCompartmentItemSemanticEditPolicy());
 		installEditPolicy(EditPolicyRoles.CREATION_ROLE,
 				new CreationEditPolicyWithCustomReparent(
 						DomainVisualIDRegistry.TYPED_INSTANCE));
 		installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE,
 				new DragDropEditPolicy());
 		installEditPolicy(EditPolicyRoles.CANONICAL_ROLE,
-				new CanvasCanvasViewPortsCompartmentCanonicalEditPolicy());
+				new CanvasCanvasViewElementCompartmentCanonicalEditPolicy());
 	}
 
 	/**

@@ -29,6 +29,7 @@ import org.eclipse.gmf.runtime.notation.DecorationNode;
 import org.eclipse.gmf.runtime.notation.Diagram;
 import org.eclipse.gmf.runtime.notation.Edge;
 import org.eclipse.gmf.runtime.notation.FontStyle;
+import org.eclipse.gmf.runtime.notation.HintedDiagramLinkStyle;
 import org.eclipse.gmf.runtime.notation.MeasurementUnit;
 import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.NotationFactory;
@@ -43,15 +44,17 @@ import org.eclipse.jface.preference.PreferenceConverter;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.FontData;
 
-import frmview.diagram.edit.parts.CanvasCanvasViewPortsCompartmentEditPart;
+import frmview.diagram.edit.parts.CanvasCanvasViewElementCompartmentEditPart;
 import frmview.diagram.edit.parts.CanvasEditPart;
 import frmview.diagram.edit.parts.CanvasNameEditPart;
 import frmview.diagram.edit.parts.TabCanvasEditPart;
 import frmview.diagram.edit.parts.TabCanvasNameEditPart;
 import frmview.diagram.edit.parts.TabPageEditPart;
 import frmview.diagram.edit.parts.TabPageNameEditPart;
-import frmview.diagram.edit.parts.TabPageTabPageViewPortsCompartmentEditPart;
+import frmview.diagram.edit.parts.TabPageTabPageViewElementCompartmentEditPart;
 import frmview.diagram.edit.parts.TabPagesInheritanceEditPart;
+import frmview.diagram.edit.parts.ViewAreaEditPart;
+import frmview.diagram.edit.parts.ViewAreaNameEditPart;
 import frmview.diagram.edit.parts.ViewInheritanceEditPart;
 import frmview.diagram.edit.parts.ViewPortEditPart;
 import frmview.diagram.edit.parts.ViewPortNameEditPart;
@@ -61,7 +64,7 @@ import frmview.diagram.edit.parts.ViewPortViewPortViewPortTriggerCompartmentEdit
 import frmview.diagram.edit.parts.ViewsEditPart;
 import frmview.diagram.edit.parts.WindowEditPart;
 import frmview.diagram.edit.parts.WindowNameEditPart;
-import frmview.diagram.edit.parts.WindowWindowViewPortsCompartmentEditPart;
+import frmview.diagram.edit.parts.WindowWindowViewElementCompartmentEditPart;
 import frmview.diagram.part.DomainVisualIDRegistry;
 
 /**
@@ -160,6 +163,7 @@ public class DomainViewProvider extends AbstractProvider implements
 				case TabCanvasEditPart.VISUAL_ID:
 				case ViewPortEditPart.VISUAL_ID:
 				case ViewPortTriggerEditPart.VISUAL_ID:
+				case ViewAreaEditPart.VISUAL_ID:
 					if (domainElement == null
 							|| visualID != DomainVisualIDRegistry
 									.getNodeVisualID(op.getContainerView(),
@@ -177,7 +181,8 @@ public class DomainViewProvider extends AbstractProvider implements
 				|| TabPageEditPart.VISUAL_ID == visualID
 				|| TabCanvasEditPart.VISUAL_ID == visualID
 				|| ViewPortEditPart.VISUAL_ID == visualID
-				|| ViewPortTriggerEditPart.VISUAL_ID == visualID;
+				|| ViewPortTriggerEditPart.VISUAL_ID == visualID
+				|| ViewAreaEditPart.VISUAL_ID == visualID;
 	}
 
 	/**
@@ -247,11 +252,14 @@ public class DomainViewProvider extends AbstractProvider implements
 			return createTabCanvas_1302008(domainElement, containerView, index,
 					persisted, preferencesHint);
 		case ViewPortEditPart.VISUAL_ID:
-			return createViewPort_1303003(domainElement, containerView, index,
+			return createViewPort_1303004(domainElement, containerView, index,
 					persisted, preferencesHint);
 		case ViewPortTriggerEditPart.VISUAL_ID:
 			return createViewPortTrigger_1303002(domainElement, containerView,
 					index, persisted, preferencesHint);
+		case ViewAreaEditPart.VISUAL_ID:
+			return createViewArea_1303005(domainElement, containerView, index,
+					persisted, preferencesHint);
 		}
 		// can't happen, provided #provides(CreateNodeViewOperation) is correct
 		return null;
@@ -317,7 +325,7 @@ public class DomainViewProvider extends AbstractProvider implements
 		createCompartment(
 				node,
 				DomainVisualIDRegistry
-						.getType(CanvasCanvasViewPortsCompartmentEditPart.VISUAL_ID),
+						.getType(CanvasCanvasViewElementCompartmentEditPart.VISUAL_ID),
 				true, false, false, false);
 		return node;
 	}
@@ -360,7 +368,7 @@ public class DomainViewProvider extends AbstractProvider implements
 		createCompartment(
 				node,
 				DomainVisualIDRegistry
-						.getType(WindowWindowViewPortsCompartmentEditPart.VISUAL_ID),
+						.getType(WindowWindowViewElementCompartmentEditPart.VISUAL_ID),
 				true, false, false, false);
 		return node;
 	}
@@ -404,7 +412,7 @@ public class DomainViewProvider extends AbstractProvider implements
 		createCompartment(
 				node,
 				DomainVisualIDRegistry
-						.getType(TabPageTabPageViewPortsCompartmentEditPart.VISUAL_ID),
+						.getType(TabPageTabPageViewElementCompartmentEditPart.VISUAL_ID),
 				true, false, false, false);
 		return node;
 	}
@@ -450,7 +458,7 @@ public class DomainViewProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	public Node createViewPort_1303003(EObject domainElement,
+	public Node createViewPort_1303004(EObject domainElement,
 			View containerView, int index, boolean persisted,
 			PreferencesHint preferencesHint) {
 		Node node = NotationFactory.eINSTANCE.createNode();
@@ -480,7 +488,7 @@ public class DomainViewProvider extends AbstractProvider implements
 			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB)
 					.intValue());
 		}
-		Node label1305008 = createLabel(node,
+		Node label1305012 = createLabel(node,
 				DomainVisualIDRegistry.getType(ViewPortNameEditPart.VISUAL_ID));
 		createCompartment(
 				node,
@@ -525,6 +533,48 @@ public class DomainViewProvider extends AbstractProvider implements
 		Node label1305005 = createLabel(node,
 				DomainVisualIDRegistry
 						.getType(ViewPortTriggerFakeMethodEditPart.VISUAL_ID));
+		return node;
+	}
+
+	/**
+	 * @generated
+	 */
+	public Node createViewArea_1303005(EObject domainElement,
+			View containerView, int index, boolean persisted,
+			PreferencesHint preferencesHint) {
+		Node node = NotationFactory.eINSTANCE.createNode();
+		node.getStyles()
+				.add(NotationFactory.eINSTANCE.createDescriptionStyle());
+		node.getStyles().add(NotationFactory.eINSTANCE.createFontStyle());
+		{
+			HintedDiagramLinkStyle diagramFacet = NotationFactory.eINSTANCE
+					.createHintedDiagramLinkStyle();
+			diagramFacet.setHint("Canvas"); //$NON-NLS-1$
+			node.getStyles().add(diagramFacet);
+		}
+		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
+		node.setType(DomainVisualIDRegistry.getType(ViewAreaEditPart.VISUAL_ID));
+		ViewUtil.insertChildView(containerView, node, index, persisted);
+		node.setElement(domainElement);
+		// initializeFromPreferences 
+		final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint
+				.getPreferenceStore();
+		FontStyle nodeFontStyle = (FontStyle) node
+				.getStyle(NotationPackage.Literals.FONT_STYLE);
+		if (nodeFontStyle != null) {
+			FontData fontData = PreferenceConverter.getFontData(prefStore,
+					IPreferenceConstants.PREF_DEFAULT_FONT);
+			nodeFontStyle.setFontName(fontData.getName());
+			nodeFontStyle.setFontHeight(fontData.getHeight());
+			nodeFontStyle.setBold((fontData.getStyle() & SWT.BOLD) != 0);
+			nodeFontStyle.setItalic((fontData.getStyle() & SWT.ITALIC) != 0);
+			org.eclipse.swt.graphics.RGB fontRGB = PreferenceConverter
+					.getColor(prefStore, IPreferenceConstants.PREF_FONT_COLOR);
+			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB)
+					.intValue());
+		}
+		Node label1305013 = createLabel(node,
+				DomainVisualIDRegistry.getType(ViewAreaNameEditPart.VISUAL_ID));
 		return node;
 	}
 

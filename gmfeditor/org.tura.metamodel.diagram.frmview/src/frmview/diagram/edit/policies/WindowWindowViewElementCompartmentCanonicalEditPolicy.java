@@ -25,6 +25,7 @@ import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.View;
 
 import domain.DomainPackage;
+import frmview.diagram.edit.parts.ViewAreaEditPart;
 import frmview.diagram.edit.parts.ViewPortEditPart;
 import frmview.diagram.part.DomainDiagramUpdater;
 import frmview.diagram.part.DomainNodeDescriptor;
@@ -33,7 +34,7 @@ import frmview.diagram.part.DomainVisualIDRegistry;
 /**
  * @generated
  */
-public class WindowWindowViewPortsCompartmentCanonicalEditPolicy extends
+public class WindowWindowViewElementCompartmentCanonicalEditPolicy extends
 		CanonicalEditPolicy {
 
 	/**
@@ -52,7 +53,7 @@ public class WindowWindowViewPortsCompartmentCanonicalEditPolicy extends
 	 * @generated
 	 */
 	protected EStructuralFeature getFeatureToSynchronize() {
-		return DomainPackage.eINSTANCE.getViewPortHolder_ViewPorts();
+		return DomainPackage.eINSTANCE.getViewPortHolder_ViewElement();
 	}
 
 	/**
@@ -63,7 +64,7 @@ public class WindowWindowViewPortsCompartmentCanonicalEditPolicy extends
 		View viewObject = (View) getHost().getModel();
 		LinkedList<EObject> result = new LinkedList<EObject>();
 		List<DomainNodeDescriptor> childDescriptors = DomainDiagramUpdater
-				.getWindowWindowViewPortsCompartment_1307008SemanticChildren(viewObject);
+				.getWindowWindowViewElementCompartment_1307008SemanticChildren(viewObject);
 		for (DomainNodeDescriptor d : childDescriptors) {
 			result.add(d.getModelElement());
 		}
@@ -83,8 +84,9 @@ public class WindowWindowViewPortsCompartmentCanonicalEditPolicy extends
 	 * @generated
 	 */
 	private boolean isMyDiagramElement(View view) {
-		return ViewPortEditPart.VISUAL_ID == DomainVisualIDRegistry
-				.getVisualID(view);
+		int visualID = DomainVisualIDRegistry.getVisualID(view);
+		return visualID == ViewPortEditPart.VISUAL_ID
+				|| visualID == ViewAreaEditPart.VISUAL_ID;
 	}
 
 	/**
@@ -96,7 +98,7 @@ public class WindowWindowViewPortsCompartmentCanonicalEditPolicy extends
 		}
 		LinkedList<IAdaptable> createdViews = new LinkedList<IAdaptable>();
 		List<DomainNodeDescriptor> childDescriptors = DomainDiagramUpdater
-				.getWindowWindowViewPortsCompartment_1307008SemanticChildren((View) getHost()
+				.getWindowWindowViewElementCompartment_1307008SemanticChildren((View) getHost()
 						.getModel());
 		LinkedList<View> orphaned = new LinkedList<View>();
 		// we care to check only views we recognize as ours

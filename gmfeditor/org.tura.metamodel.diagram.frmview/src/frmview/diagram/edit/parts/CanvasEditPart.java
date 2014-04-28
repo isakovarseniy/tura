@@ -132,11 +132,11 @@ public class CanvasEditPart extends ShapeNodeEditPart {
 					.getFigureCanvasLabelFigure());
 			return true;
 		}
-		if (childEditPart instanceof CanvasCanvasViewPortsCompartmentEditPart) {
+		if (childEditPart instanceof CanvasCanvasViewElementCompartmentEditPart) {
 			IFigure pane = getPrimaryShape()
-					.getCanvasViewPortsCompartmentFigure();
+					.getCanvasViewElementCompartmentFigure();
 			setupContentPane(pane); // FIXME each comparment should handle his content pane in his own way 
-			pane.add(((CanvasCanvasViewPortsCompartmentEditPart) childEditPart)
+			pane.add(((CanvasCanvasViewElementCompartmentEditPart) childEditPart)
 					.getFigure());
 			return true;
 		}
@@ -150,10 +150,10 @@ public class CanvasEditPart extends ShapeNodeEditPart {
 		if (childEditPart instanceof CanvasNameEditPart) {
 			return true;
 		}
-		if (childEditPart instanceof CanvasCanvasViewPortsCompartmentEditPart) {
+		if (childEditPart instanceof CanvasCanvasViewElementCompartmentEditPart) {
 			IFigure pane = getPrimaryShape()
-					.getCanvasViewPortsCompartmentFigure();
-			pane.remove(((CanvasCanvasViewPortsCompartmentEditPart) childEditPart)
+					.getCanvasViewElementCompartmentFigure();
+			pane.remove(((CanvasCanvasViewElementCompartmentEditPart) childEditPart)
 					.getFigure());
 			return true;
 		}
@@ -184,8 +184,8 @@ public class CanvasEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected IFigure getContentPaneFor(IGraphicalEditPart editPart) {
-		if (editPart instanceof CanvasCanvasViewPortsCompartmentEditPart) {
-			return getPrimaryShape().getCanvasViewPortsCompartmentFigure();
+		if (editPart instanceof CanvasCanvasViewElementCompartmentEditPart) {
+			return getPrimaryShape().getCanvasViewElementCompartmentFigure();
 		}
 		return getContentPane();
 	}
@@ -299,7 +299,7 @@ public class CanvasEditPart extends ShapeNodeEditPart {
 	public List<IElementType> getMATypesForSource(IElementType relationshipType) {
 		LinkedList<IElementType> types = new LinkedList<IElementType>();
 		if (relationshipType == DomainElementTypes.ViewInheritance_1304001) {
-			types.add(DomainElementTypes.ViewPort_1303003);
+			types.add(DomainElementTypes.ViewPort_1303004);
 		}
 		return types;
 	}
@@ -329,7 +329,7 @@ public class CanvasEditPart extends ShapeNodeEditPart {
 		/**
 		 * @generated
 		 */
-		private RectangleFigure fCanvasViewPortsCompartmentFigure;
+		private RectangleFigure fCanvasViewElementCompartmentFigure;
 
 		/**
 		 * @generated
@@ -361,11 +361,11 @@ public class CanvasEditPart extends ShapeNodeEditPart {
 
 			this.add(fFigureCanvasLabelFigure);
 
-			fCanvasViewPortsCompartmentFigure = new RectangleFigure();
+			fCanvasViewElementCompartmentFigure = new RectangleFigure();
 
-			fCanvasViewPortsCompartmentFigure.setOutline(false);
+			fCanvasViewElementCompartmentFigure.setOutline(false);
 
-			this.add(fCanvasViewPortsCompartmentFigure);
+			this.add(fCanvasViewElementCompartmentFigure);
 
 		}
 
@@ -379,8 +379,8 @@ public class CanvasEditPart extends ShapeNodeEditPart {
 		/**
 		 * @generated
 		 */
-		public RectangleFigure getCanvasViewPortsCompartmentFigure() {
-			return fCanvasViewPortsCompartmentFigure;
+		public RectangleFigure getCanvasViewElementCompartmentFigure() {
+			return fCanvasViewElementCompartmentFigure;
 		}
 
 	}
