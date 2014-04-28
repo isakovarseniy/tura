@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="ASCII"?>
+<gmftool:ToolRegistry
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:gmftool="http://www.eclipse.org/gmf/2005/ToolDefinition">
+  <palette
+      title="domainPalette">
+    <tools
+        xsi:type="gmftool:ToolGroup"
+        title="Objects"
+        collapsible="true">
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="Button"
+          description="Create new Button">
+        <smallIcon
+            xsi:type="gmftool:BundleImage"
+            path="icons/button.png"
+            bundle="org.tura.metamodel.commons"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="CheckBox"
+          description="Create new CheckBox">
+        <smallIcon
+            xsi:type="gmftool:BundleImage"
+            path="icons/checkbox.png"
+            bundle="org.tura.metamodel.commons"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="Column"
+          description="Create new Column">
+        <smallIcon
+            xsi:type="gmftool:BundleImage"
+            path="icons/column.png"
+            bundle="org.tura.metamodel.commons"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="DropDownSelection"
+          description="Create new DropDownSelection">
+        <smallIcon
+            xsi:type="gmftool:BundleImage"
+            path="icons/dropdownselection.png"
+            bundle="org.tura.metamodel.commons"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="InputText"
+          description="Create new InputText">
+        <smallIcon
+            xsi:type="gmftool:BundleImage"
+            path="icons/inputtext.png"
+            bundle="org.tura.metamodel.commons"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="Label"
+          description="Create new Label">
+        <smallIcon
+            xsi:type="gmftool:BundleImage"
+            path="icons/label.png"
+            bundle="org.tura.metamodel.commons"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="LayerHolder"
+          description="Create new LayerHolder">
+        <smallIcon
+            xsi:type="gmftool:BundleImage"
+            path="icons/layerholder.png"
+            bundle="org.tura.metamodel.commons"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="OutputText"
+          description="Create new OutputText">
+        <smallIcon
+            xsi:type="gmftool:BundleImage"
+            path="icons/outputtext.png"
+            bundle="org.tura.metamodel.commons"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="Table"
+          description="Create new Table">
+        <smallIcon
+            xsi:type="gmftool:BundleImage"
+            path="icons/table.png"
+            bundle="org.tura.metamodel.commons"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="Tree"
+          description="Create new Tree">
+        <smallIcon
+            xsi:type="gmftool:BundleImage"
+            path="icons/tree.png"
+            bundle="org.tura.metamodel.commons"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+    </tools>
+  </palette>
+</gmftool:ToolRegistry>

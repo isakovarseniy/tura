@@ -10,7 +10,7 @@ package domain;
  *
  *
  * @see domain.DomainPackage#getInputText()
- * @model
+ * @model annotation="gmf.node label.placement='none' tool.small.bundle='org.tura.metamodel.commons' tool.small.path='icons/inputtext.png'"
  * @generated
  */
 public interface InputText extends InputElement

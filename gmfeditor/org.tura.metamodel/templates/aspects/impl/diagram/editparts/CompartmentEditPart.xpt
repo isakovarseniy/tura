@@ -17,7 +17,7 @@
            «EXPAND compartmentHTMLLayout-»
 		«ELSEIF editPartClassName.indexOf('SubsystemsCompartmentEditPart') > 0-»
             «EXPAND compartmentHTMLLayout-»
-		«ELSEIF editPartClassName.indexOf('ViewPortsCompartmentEditPart') > 0-»
+		«ELSEIF editPartClassName.indexOf('ViewElementCompartmentEditPart') > 0-»
             «EXPAND compartmentHTMLLayout-»
 		«ELSE»
 		public org.eclipse.draw2d.IFigure createFigure() {

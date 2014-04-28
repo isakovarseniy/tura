@@ -22,6 +22,29 @@ for (  label in GmfGraph!Label.all ){
 }
 
 -- remove unavailabels tools
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='Table');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='Column');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='DropDownSelection');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='CheckBox');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='OutputText');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='Label');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='InputText');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='LayerHolder');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='Tree');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='Button');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='ViewArea');
+delete tool;
+
 var tool = GmfTool!CreationTool.all.selectOne(r|r.title='ApplicationRole');
 delete tool;
 var tool = GmfTool!CreationTool.all.selectOne(r|r.title='ApplicationStyle');

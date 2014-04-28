@@ -10,7 +10,7 @@ package domain;
  *
  *
  * @see domain.DomainPackage#getOutputText()
- * @model
+ * @model annotation="gmf.node label.placement='none'"
  * @generated
  */
 public interface OutputText extends InputElement

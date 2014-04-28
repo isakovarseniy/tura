@@ -2,26 +2,22 @@
  */
 package domain.impl;
 
-import domain.DomainPackage;
-import domain.HTMLLayerHolder;
-import domain.ViewPort;
-import domain.ViewPortHolder;
-import domain.Window;
-
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
+
+import domain.DomainPackage;
+import domain.HTMLLayerHolder;
+import domain.ViewElement;
+import domain.ViewPortHolder;
+import domain.Window;
 
 /**
  * <!-- begin-user-doc -->
@@ -31,7 +27,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * <ul>
  *   <li>{@link domain.impl.WindowImpl#getColumns <em>Columns</em>}</li>
- *   <li>{@link domain.impl.WindowImpl#getViewPorts <em>View Ports</em>}</li>
+ *   <li>{@link domain.impl.WindowImpl#getViewElement <em>View Element</em>}</li>
  * </ul>
  * </p>
  *
@@ -60,14 +56,14 @@ public class WindowImpl extends CanvasFrameImpl implements Window
   protected int columns = COLUMNS_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getViewPorts() <em>View Ports</em>}' containment reference list.
+   * The cached value of the '{@link #getViewElement() <em>View Element</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getViewPorts()
+   * @see #getViewElement()
    * @generated
    * @ordered
    */
-  protected EList<ViewPort> viewPorts;
+  protected EList<ViewElement> viewElement;
 
   /**
    * <!-- begin-user-doc -->
@@ -118,13 +114,13 @@ public class WindowImpl extends CanvasFrameImpl implements Window
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<ViewPort> getViewPorts()
+  public EList<ViewElement> getViewElement()
   {
-    if (viewPorts == null)
+    if (viewElement == null)
     {
-      viewPorts = new EObjectContainmentEList<ViewPort>(ViewPort.class, this, DomainPackage.WINDOW__VIEW_PORTS);
+      viewElement = new EObjectContainmentEList<ViewElement>(ViewElement.class, this, DomainPackage.WINDOW__VIEW_ELEMENT);
     }
-    return viewPorts;
+    return viewElement;
   }
 
   /**
@@ -137,8 +133,8 @@ public class WindowImpl extends CanvasFrameImpl implements Window
   {
     switch (featureID)
     {
-      case DomainPackage.WINDOW__VIEW_PORTS:
-        return ((InternalEList<?>)getViewPorts()).basicRemove(otherEnd, msgs);
+      case DomainPackage.WINDOW__VIEW_ELEMENT:
+        return ((InternalEList<?>)getViewElement()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -155,8 +151,8 @@ public class WindowImpl extends CanvasFrameImpl implements Window
     {
       case DomainPackage.WINDOW__COLUMNS:
         return getColumns();
-      case DomainPackage.WINDOW__VIEW_PORTS:
-        return getViewPorts();
+      case DomainPackage.WINDOW__VIEW_ELEMENT:
+        return getViewElement();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -175,9 +171,9 @@ public class WindowImpl extends CanvasFrameImpl implements Window
       case DomainPackage.WINDOW__COLUMNS:
         setColumns((Integer)newValue);
         return;
-      case DomainPackage.WINDOW__VIEW_PORTS:
-        getViewPorts().clear();
-        getViewPorts().addAll((Collection<? extends ViewPort>)newValue);
+      case DomainPackage.WINDOW__VIEW_ELEMENT:
+        getViewElement().clear();
+        getViewElement().addAll((Collection<? extends ViewElement>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -196,8 +192,8 @@ public class WindowImpl extends CanvasFrameImpl implements Window
       case DomainPackage.WINDOW__COLUMNS:
         setColumns(COLUMNS_EDEFAULT);
         return;
-      case DomainPackage.WINDOW__VIEW_PORTS:
-        getViewPorts().clear();
+      case DomainPackage.WINDOW__VIEW_ELEMENT:
+        getViewElement().clear();
         return;
     }
     super.eUnset(featureID);
@@ -215,8 +211,8 @@ public class WindowImpl extends CanvasFrameImpl implements Window
     {
       case DomainPackage.WINDOW__COLUMNS:
         return columns != COLUMNS_EDEFAULT;
-      case DomainPackage.WINDOW__VIEW_PORTS:
-        return viewPorts != null && !viewPorts.isEmpty();
+      case DomainPackage.WINDOW__VIEW_ELEMENT:
+        return viewElement != null && !viewElement.isEmpty();
     }
     return super.eIsSet(featureID);
   }
@@ -241,7 +237,7 @@ public class WindowImpl extends CanvasFrameImpl implements Window
     {
       switch (derivedFeatureID)
       {
-        case DomainPackage.WINDOW__VIEW_PORTS: return DomainPackage.VIEW_PORT_HOLDER__VIEW_PORTS;
+        case DomainPackage.WINDOW__VIEW_ELEMENT: return DomainPackage.VIEW_PORT_HOLDER__VIEW_ELEMENT;
         default: return -1;
       }
     }
@@ -268,7 +264,7 @@ public class WindowImpl extends CanvasFrameImpl implements Window
     {
       switch (baseFeatureID)
       {
-        case DomainPackage.VIEW_PORT_HOLDER__VIEW_PORTS: return DomainPackage.WINDOW__VIEW_PORTS;
+        case DomainPackage.VIEW_PORT_HOLDER__VIEW_ELEMENT: return DomainPackage.WINDOW__VIEW_ELEMENT;
         default: return -1;
       }
     }

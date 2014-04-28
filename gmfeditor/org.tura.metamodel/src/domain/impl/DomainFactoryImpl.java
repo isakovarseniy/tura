@@ -23,6 +23,7 @@ import domain.Canvas;
 import domain.CanvasFrame;
 import domain.CanvasView;
 import domain.CheckBox;
+import domain.ChildrenHolder;
 import domain.Column;
 import domain.Component;
 import domain.ConfigVariable;
@@ -73,6 +74,7 @@ import domain.JPAService;
 import domain.JavaComponent;
 import domain.JavaMapper;
 import domain.Label;
+import domain.LayerHolder;
 import domain.Link;
 import domain.Mapper;
 import domain.Mappers;
@@ -139,6 +141,8 @@ import domain.UIPackage;
 import domain.Uielement;
 import domain.UpdateTrigger;
 import domain.UsingMappers;
+import domain.ViewArea;
+import domain.ViewElement;
 import domain.ViewInheritance;
 import domain.ViewPort;
 import domain.ViewPortHolder;
@@ -286,17 +290,20 @@ public class DomainFactoryImpl extends EFactoryImpl implements DomainFactory
       case DomainPackage.CANVAS_FRAME: return createCanvasFrame();
       case DomainPackage.VIEW_PORT_HOLDER: return createViewPortHolder();
       case DomainPackage.DEFAULT_CAVAS: return createDefaultCavas();
+      case DomainPackage.VIEW_ELEMENT: return createViewElement();
       case DomainPackage.CANVAS: return createCanvas();
       case DomainPackage.WINDOW: return createWindow();
       case DomainPackage.TAB_CANVAS: return createTabCanvas();
       case DomainPackage.TAB_PAGE: return createTabPage();
       case DomainPackage.VIEW_PORT: return createViewPort();
+      case DomainPackage.VIEW_AREA: return createViewArea();
       case DomainPackage.VIEW_PORT_TRIGGER: return createViewPortTrigger();
       case DomainPackage.VIEW_INHERITANCE: return createViewInheritance();
       case DomainPackage.TAB_PAGES_INHERITANCE: return createTabPagesInheritance();
       case DomainPackage.FORM_DATA_CONTROLS: return createFormDataControls();
       case DomainPackage.CANVAS_VIEW: return createCanvasView();
       case DomainPackage.STYLE: return createStyle();
+      case DomainPackage.CHILDREN_HOLDER: return createChildrenHolder();
       case DomainPackage.STYLE_CLASS: return createStyleClass();
       case DomainPackage.CONTEXT_PARAMETER: return createContextParameter();
       case DomainPackage.CONTEXT_VALUE: return createContextValue();
@@ -305,10 +312,11 @@ public class DomainFactoryImpl extends EFactoryImpl implements DomainFactory
       case DomainPackage.STYLE_ELEMENT: return createStyleElement();
       case DomainPackage.UIELEMENT: return createUielement();
       case DomainPackage.SOURCES_POINTER: return createSourcesPointer();
+      case DomainPackage.ACTION_ELEMENT: return createActionElement();
       case DomainPackage.INPUT_ELEMENT: return createInputElement();
       case DomainPackage.SELECTION: return createSelection();
       case DomainPackage.OPTION_SELECTION: return createOptionSelection();
-      case DomainPackage.ACTION_ELEMENT: return createActionElement();
+      case DomainPackage.LAYER_HOLDER: return createLayerHolder();
       case DomainPackage.INPUT_TEXT: return createInputText();
       case DomainPackage.LABEL: return createLabel();
       case DomainPackage.OUTPUT_TEXT: return createOutputText();
@@ -1261,6 +1269,17 @@ public class DomainFactoryImpl extends EFactoryImpl implements DomainFactory
    * <!-- end-user-doc -->
    * @generated
    */
+  public ViewElement createViewElement()
+  {
+    ViewElementImpl viewElement = new ViewElementImpl();
+    return viewElement;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public Canvas createCanvas()
   {
     CanvasImpl canvas = new CanvasImpl();
@@ -1309,6 +1328,17 @@ public class DomainFactoryImpl extends EFactoryImpl implements DomainFactory
   {
     ViewPortImpl viewPort = new ViewPortImpl();
     return viewPort;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ViewArea createViewArea()
+  {
+    ViewAreaImpl viewArea = new ViewAreaImpl();
+    return viewArea;
   }
 
   /**
@@ -1375,6 +1405,17 @@ public class DomainFactoryImpl extends EFactoryImpl implements DomainFactory
   {
     StyleImpl style = new StyleImpl();
     return style;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ChildrenHolder createChildrenHolder()
+  {
+    ChildrenHolderImpl childrenHolder = new ChildrenHolderImpl();
+    return childrenHolder;
   }
 
   /**
@@ -1470,6 +1511,28 @@ public class DomainFactoryImpl extends EFactoryImpl implements DomainFactory
    * <!-- end-user-doc -->
    * @generated
    */
+  public ActionElement createActionElement()
+  {
+    ActionElementImpl actionElement = new ActionElementImpl();
+    return actionElement;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public LayerHolder createLayerHolder()
+  {
+    LayerHolderImpl layerHolder = new LayerHolderImpl();
+    return layerHolder;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public InputElement createInputElement()
   {
     InputElementImpl inputElement = new InputElementImpl();
@@ -1496,17 +1559,6 @@ public class DomainFactoryImpl extends EFactoryImpl implements DomainFactory
   {
     OptionSelectionImpl optionSelection = new OptionSelectionImpl();
     return optionSelection;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public ActionElement createActionElement()
-  {
-    ActionElementImpl actionElement = new ActionElementImpl();
-    return actionElement;
   }
 
   /**

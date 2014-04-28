@@ -734,6 +734,15 @@ public interface DomainFactory extends EFactory
   DefaultCavas createDefaultCavas();
 
   /**
+   * Returns a new object of class '<em>View Element</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>View Element</em>'.
+   * @generated
+   */
+  ViewElement createViewElement();
+
+  /**
    * Returns a new object of class '<em>Canvas</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -777,6 +786,15 @@ public interface DomainFactory extends EFactory
    * @generated
    */
   ViewPort createViewPort();
+
+  /**
+   * Returns a new object of class '<em>View Area</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>View Area</em>'.
+   * @generated
+   */
+  ViewArea createViewArea();
 
   /**
    * Returns a new object of class '<em>View Port Trigger</em>'.
@@ -831,6 +849,15 @@ public interface DomainFactory extends EFactory
    * @generated
    */
   Style createStyle();
+
+  /**
+   * Returns a new object of class '<em>Children Holder</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Children Holder</em>'.
+   * @generated
+   */
+  ChildrenHolder createChildrenHolder();
 
   /**
    * Returns a new object of class '<em>Style Class</em>'.
@@ -905,6 +932,24 @@ public interface DomainFactory extends EFactory
   SourcesPointer createSourcesPointer();
 
   /**
+   * Returns a new object of class '<em>Action Element</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Action Element</em>'.
+   * @generated
+   */
+  ActionElement createActionElement();
+
+  /**
+   * Returns a new object of class '<em>Layer Holder</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Layer Holder</em>'.
+   * @generated
+   */
+  LayerHolder createLayerHolder();
+
+  /**
    * Returns a new object of class '<em>Input Element</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -930,15 +975,6 @@ public interface DomainFactory extends EFactory
    * @generated
    */
   OptionSelection createOptionSelection();
-
-  /**
-   * Returns a new object of class '<em>Action Element</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Action Element</em>'.
-   * @generated
-   */
-  ActionElement createActionElement();
 
   /**
    * Returns a new object of class '<em>Input Text</em>'.

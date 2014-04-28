@@ -23,6 +23,7 @@ import domain.Canvas;
 import domain.CanvasFrame;
 import domain.CanvasView;
 import domain.CheckBox;
+import domain.ChildrenHolder;
 import domain.Column;
 import domain.Component;
 import domain.ConfigVariable;
@@ -72,6 +73,7 @@ import domain.JPAService;
 import domain.JavaComponent;
 import domain.JavaMapper;
 import domain.Label;
+import domain.LayerHolder;
 import domain.Link;
 import domain.Mapper;
 import domain.Mappers;
@@ -137,6 +139,8 @@ import domain.UIPackage;
 import domain.Uielement;
 import domain.UpdateTrigger;
 import domain.UsingMappers;
+import domain.ViewArea;
+import domain.ViewElement;
 import domain.ViewInheritance;
 import domain.ViewPort;
 import domain.ViewPortHolder;
@@ -610,6 +614,11 @@ public class DomainAdapterFactory extends AdapterFactoryImpl
         return createDefaultCavasAdapter();
       }
       @Override
+      public Adapter caseViewElement(ViewElement object)
+      {
+        return createViewElementAdapter();
+      }
+      @Override
       public Adapter caseCanvas(Canvas object)
       {
         return createCanvasAdapter();
@@ -633,6 +642,11 @@ public class DomainAdapterFactory extends AdapterFactoryImpl
       public Adapter caseViewPort(ViewPort object)
       {
         return createViewPortAdapter();
+      }
+      @Override
+      public Adapter caseViewArea(ViewArea object)
+      {
+        return createViewAreaAdapter();
       }
       @Override
       public Adapter caseViewPortTrigger(ViewPortTrigger object)
@@ -663,6 +677,11 @@ public class DomainAdapterFactory extends AdapterFactoryImpl
       public Adapter caseStyle(Style object)
       {
         return createStyleAdapter();
+      }
+      @Override
+      public Adapter caseChildrenHolder(ChildrenHolder object)
+      {
+        return createChildrenHolderAdapter();
       }
       @Override
       public Adapter caseStyleClass(StyleClass object)
@@ -705,6 +724,11 @@ public class DomainAdapterFactory extends AdapterFactoryImpl
         return createSourcesPointerAdapter();
       }
       @Override
+      public Adapter caseActionElement(ActionElement object)
+      {
+        return createActionElementAdapter();
+      }
+      @Override
       public Adapter caseInputElement(InputElement object)
       {
         return createInputElementAdapter();
@@ -720,9 +744,9 @@ public class DomainAdapterFactory extends AdapterFactoryImpl
         return createOptionSelectionAdapter();
       }
       @Override
-      public Adapter caseActionElement(ActionElement object)
+      public Adapter caseLayerHolder(LayerHolder object)
       {
-        return createActionElementAdapter();
+        return createLayerHolderAdapter();
       }
       @Override
       public Adapter caseInputText(InputText object)
@@ -2127,6 +2151,21 @@ public class DomainAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link domain.ViewElement <em>View Element</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see domain.ViewElement
+   * @generated
+   */
+  public Adapter createViewElementAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link domain.Canvas <em>Canvas</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -2197,6 +2236,21 @@ public class DomainAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createViewPortAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link domain.ViewArea <em>View Area</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see domain.ViewArea
+   * @generated
+   */
+  public Adapter createViewAreaAdapter()
   {
     return null;
   }
@@ -2287,6 +2341,21 @@ public class DomainAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createStyleAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link domain.ChildrenHolder <em>Children Holder</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see domain.ChildrenHolder
+   * @generated
+   */
+  public Adapter createChildrenHolderAdapter()
   {
     return null;
   }
@@ -2412,6 +2481,36 @@ public class DomainAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link domain.ActionElement <em>Action Element</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see domain.ActionElement
+   * @generated
+   */
+  public Adapter createActionElementAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link domain.LayerHolder <em>Layer Holder</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see domain.LayerHolder
+   * @generated
+   */
+  public Adapter createLayerHolderAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link domain.InputElement <em>Input Element</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -2452,21 +2551,6 @@ public class DomainAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createOptionSelectionAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link domain.ActionElement <em>Action Element</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see domain.ActionElement
-   * @generated
-   */
-  public Adapter createActionElementAdapter()
   {
     return null;
   }

@@ -986,18 +986,17 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="canvasView" eType="#//CanvasView"
-        containment="true" eOpposite="#//CanvasView/parent"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ViewPortHolder" eSuperTypes="#//HTMLLayerHolder">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="viewPorts" upperBound="-1"
-        eType="#//ViewPort" containment="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="viewElement" upperBound="-1"
+        eType="#//ViewElement" containment="true">
       <eAnnotations source="gmf.compartment"/>
     </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DefaultCavas">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="defaultCanvas" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ViewElement"/>
   <eClassifiers xsi:type="ecore:EClass" name="Canvas" eSuperTypes="#//CanvasFrame #//ViewPortHolder #//DefaultCavas">
     <eAnnotations source="gmf.node">
       <details key="label" value="name"/>
@@ -1026,7 +1025,7 @@
       <details key="color" value="192,192,192"/>
     </eAnnotations>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ViewPort">
+  <eClassifiers xsi:type="ecore:EClass" name="ViewPort" eSuperTypes="#//ViewElement">
     <eAnnotations source="gmf.node">
       <details key="label" value="name"/>
       <details key="border.color" value="0,0,0"/>
@@ -1041,6 +1040,18 @@
         <details key="layout" value="list"/>
       </eAnnotations>
     </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ViewArea" eSuperTypes="#//ViewElement">
+    <eAnnotations source="gmf.node">
+      <details key="label" value="name"/>
+      <details key="border.color" value="0,0,0"/>
+      <details key="color" value="192,192,192"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="canvasView" eType="#//CanvasView"
+        containment="true" eOpposite="#//CanvasView/parent"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ViewPortTrigger">
     <eAnnotations source="gmf.node">
@@ -1095,16 +1106,24 @@
         eOpposite="#//Controls/parent"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CanvasView">
-    <eAnnotations source="gmf.diagram.canvasview"/>
+    <eAnnotations source="gmf.diagram.canvas"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//CanvasFrame"
-        eOpposite="#//CanvasFrame/canvasView"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//ViewArea"
+        eOpposite="#//ViewArea/canvasView"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="baseCanvas" eType="#//LayerHolder"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Style">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="style" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ChildrenHolder">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="children" upperBound="-1"
+        eType="#//Uielement" containment="true">
+      <eAnnotations source="gmf.compartment"/>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="StyleClass">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
@@ -1152,13 +1171,13 @@
   <eClassifiers xsi:type="ecore:EClass" name="Uielement" eSuperTypes="#//StyleElement">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="enabled" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="enabled" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="enabledContext" eType="#//Context"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="required" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="required" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="requiredContext" eType="#//Context"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="readOnly" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="readOnly" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="readOnlyContext" eType="#//Context"
         containment="true"/>
   </eClassifiers>
@@ -1170,9 +1189,11 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="sourceCast" eType="#//Context"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="InputElement" eSuperTypes="#//Uielement">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="label" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ActionElement" eSuperTypes="#//Uielement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="trigger" eType="#//Context"
+        containment="true"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="InputElement" eSuperTypes="#//Uielement"/>
   <eClassifiers xsi:type="ecore:EClass" name="Selection" eSuperTypes="#//StyleElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="displayOptionPointer" eType="#//Context"
         containment="true"/>
@@ -1185,31 +1206,93 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="optionCast" eType="#//Context"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ActionElement" eSuperTypes="#//Uielement">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="trigger" eType="#//Context"
-        containment="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="LayerHolder" eSuperTypes="#//Uielement #//ChildrenHolder #//HTMLLayerHolder">
+    <eAnnotations source="gmf.node">
+      <details key="label.placement" value="none"/>
+      <details key="tool.small.bundle" value="org.tura.metamodel.commons"/>
+      <details key="tool.small.path" value="icons/layerholder.png"/>
+    </eAnnotations>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="InputText" eSuperTypes="#//InputElement"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Label" eSuperTypes="#//InputElement"/>
-  <eClassifiers xsi:type="ecore:EClass" name="OutputText" eSuperTypes="#//InputElement"/>
-  <eClassifiers xsi:type="ecore:EClass" name="CheckBox" eSuperTypes="#//InputElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="InputText" eSuperTypes="#//InputElement">
+    <eAnnotations source="gmf.node">
+      <details key="label.placement" value="none"/>
+      <details key="tool.small.bundle" value="org.tura.metamodel.commons"/>
+      <details key="tool.small.path" value="icons/inputtext.png"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Label" eSuperTypes="#//InputElement">
+    <eAnnotations source="gmf.node">
+      <details key="label" value="label"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="label" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="OutputText" eSuperTypes="#//InputElement">
+    <eAnnotations source="gmf.node">
+      <details key="label.placement" value="none"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CheckBox" eSuperTypes="#//InputElement">
+    <eAnnotations source="gmf.node">
+      <details key="label.placement" value="none"/>
+      <details key="tool.small.bundle" value="org.tura.metamodel.commons"/>
+      <details key="tool.small.path" value="icons/checkbox.png"/>
+    </eAnnotations>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DropDownSelection" eSuperTypes="#//OptionSelection">
+    <eAnnotations source="gmf.node">
+      <details key="label.placement" value="none"/>
+      <details key="tool.small.bundle" value="org.tura.metamodel.commons"/>
+      <details key="tool.small.path" value="icons/dropdownselection.png"/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="selection" eType="#//Selection"
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Column" eSuperTypes="#//StyleElement">
+    <eAnnotations source="gmf.node">
+      <details key="label" value="label"/>
+      <details key="tool.small.bundle" value="org.tura.metamodel.commons"/>
+      <details key="tool.small.path" value="icons/column.png"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="label" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="element" eType="#//InputElement"
-        containment="true"/>
+        containment="true">
+      <eAnnotations source="gmf.compartment">
+        <details key="layout" value="list"/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Table" eSuperTypes="#//SourcesPointer">
+    <eAnnotations source="gmf.node">
+      <details key="label" value="label"/>
+      <details key="tool.small.bundle" value="org.tura.metamodel.commons"/>
+      <details key="tool.small.path" value="icons/table.png"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="label" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="columns" upperBound="-1"
-        eType="#//Column" containment="true"/>
+        eType="#//Column" containment="true">
+      <eAnnotations source="gmf.compartment">
+        <details key="layout" value="list"/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Tree" eSuperTypes="#//SourcesPointer">
+    <eAnnotations source="gmf.node">
+      <details key="label" value="label"/>
+      <details key="tool.small.bundle" value="org.tura.metamodel.commons"/>
+      <details key="tool.small.path" value="icons/tree.png"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="label" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="image" eType="#//Context"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Button" eSuperTypes="#//ActionElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Button" eSuperTypes="#//ActionElement">
+    <eAnnotations source="gmf.node">
+      <details key="label" value="label"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="label" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Controls">
     <eAnnotations source="gmf.diagram"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"

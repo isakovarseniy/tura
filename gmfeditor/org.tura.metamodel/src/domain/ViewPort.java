@@ -2,7 +2,6 @@
  */
 package domain;
 
-import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -22,7 +21,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model annotation="gmf.node label='name' border.color='0,0,0' color='192,192,192'"
  * @generated
  */
-public interface ViewPort extends EObject
+public interface ViewPort extends ViewElement
 {
   /**
    * Returns the value of the '<em><b>Uid</b></em>' attribute.

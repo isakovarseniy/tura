@@ -2,21 +2,18 @@
  */
 package domain.impl;
 
-import domain.DomainPackage;
-import domain.ViewPort;
-import domain.ViewPortHolder;
-
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
+
+import domain.DomainPackage;
+import domain.ViewElement;
+import domain.ViewPortHolder;
 
 /**
  * <!-- begin-user-doc -->
@@ -25,7 +22,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link domain.impl.ViewPortHolderImpl#getViewPorts <em>View Ports</em>}</li>
+ *   <li>{@link domain.impl.ViewPortHolderImpl#getViewElement <em>View Element</em>}</li>
  * </ul>
  * </p>
  *
@@ -34,15 +31,14 @@ import org.eclipse.emf.ecore.util.InternalEList;
 public class ViewPortHolderImpl extends HTMLLayerHolderImpl implements ViewPortHolder
 {
   /**
-   * The cached value of the '{@link #getViewPorts() <em>View Ports</em>}' containment reference list.
+   * The cached value of the '{@link #getViewElement() <em>View Element</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getViewPorts()
+   * @see #getViewElement()
    * @generated
    * @ordered
    */
-  protected EList<ViewPort> viewPorts;
-
+  protected EList<ViewElement> viewElement;
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -69,13 +65,13 @@ public class ViewPortHolderImpl extends HTMLLayerHolderImpl implements ViewPortH
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<ViewPort> getViewPorts()
+  public EList<ViewElement> getViewElement()
   {
-    if (viewPorts == null)
+    if (viewElement == null)
     {
-      viewPorts = new EObjectContainmentEList<ViewPort>(ViewPort.class, this, DomainPackage.VIEW_PORT_HOLDER__VIEW_PORTS);
+      viewElement = new EObjectContainmentEList<ViewElement>(ViewElement.class, this, DomainPackage.VIEW_PORT_HOLDER__VIEW_ELEMENT);
     }
-    return viewPorts;
+    return viewElement;
   }
 
   /**
@@ -88,8 +84,8 @@ public class ViewPortHolderImpl extends HTMLLayerHolderImpl implements ViewPortH
   {
     switch (featureID)
     {
-      case DomainPackage.VIEW_PORT_HOLDER__VIEW_PORTS:
-        return ((InternalEList<?>)getViewPorts()).basicRemove(otherEnd, msgs);
+      case DomainPackage.VIEW_PORT_HOLDER__VIEW_ELEMENT:
+        return ((InternalEList<?>)getViewElement()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -104,8 +100,8 @@ public class ViewPortHolderImpl extends HTMLLayerHolderImpl implements ViewPortH
   {
     switch (featureID)
     {
-      case DomainPackage.VIEW_PORT_HOLDER__VIEW_PORTS:
-        return getViewPorts();
+      case DomainPackage.VIEW_PORT_HOLDER__VIEW_ELEMENT:
+        return getViewElement();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -121,9 +117,9 @@ public class ViewPortHolderImpl extends HTMLLayerHolderImpl implements ViewPortH
   {
     switch (featureID)
     {
-      case DomainPackage.VIEW_PORT_HOLDER__VIEW_PORTS:
-        getViewPorts().clear();
-        getViewPorts().addAll((Collection<? extends ViewPort>)newValue);
+      case DomainPackage.VIEW_PORT_HOLDER__VIEW_ELEMENT:
+        getViewElement().clear();
+        getViewElement().addAll((Collection<? extends ViewElement>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -139,8 +135,8 @@ public class ViewPortHolderImpl extends HTMLLayerHolderImpl implements ViewPortH
   {
     switch (featureID)
     {
-      case DomainPackage.VIEW_PORT_HOLDER__VIEW_PORTS:
-        getViewPorts().clear();
+      case DomainPackage.VIEW_PORT_HOLDER__VIEW_ELEMENT:
+        getViewElement().clear();
         return;
     }
     super.eUnset(featureID);
@@ -156,8 +152,8 @@ public class ViewPortHolderImpl extends HTMLLayerHolderImpl implements ViewPortH
   {
     switch (featureID)
     {
-      case DomainPackage.VIEW_PORT_HOLDER__VIEW_PORTS:
-        return viewPorts != null && !viewPorts.isEmpty();
+      case DomainPackage.VIEW_PORT_HOLDER__VIEW_ELEMENT:
+        return viewElement != null && !viewElement.isEmpty();
     }
     return super.eIsSet(featureID);
   }

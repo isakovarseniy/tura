@@ -14,6 +14,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link domain.CanvasView#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.CanvasView#getParent <em>Parent</em>}</li>
+ *   <li>{@link domain.CanvasView#getBaseCanvas <em>Base Canvas</em>}</li>
  * </ul>
  * </p>
  *
@@ -51,7 +52,7 @@ public interface CanvasView extends EObject
 
   /**
    * Returns the value of the '<em><b>Parent</b></em>' container reference.
-   * It is bidirectional and its opposite is '{@link domain.CanvasFrame#getCanvasView <em>Canvas View</em>}'.
+   * It is bidirectional and its opposite is '{@link domain.ViewArea#getCanvasView <em>Canvas View</em>}'.
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Parent</em>' container reference isn't clear,
@@ -59,13 +60,13 @@ public interface CanvasView extends EObject
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Parent</em>' container reference.
-   * @see #setParent(CanvasFrame)
+   * @see #setParent(ViewArea)
    * @see domain.DomainPackage#getCanvasView_Parent()
-   * @see domain.CanvasFrame#getCanvasView
+   * @see domain.ViewArea#getCanvasView
    * @model opposite="canvasView" transient="false"
    * @generated
    */
-  CanvasFrame getParent();
+  ViewArea getParent();
 
   /**
    * Sets the value of the '{@link domain.CanvasView#getParent <em>Parent</em>}' container reference.
@@ -75,6 +76,32 @@ public interface CanvasView extends EObject
    * @see #getParent()
    * @generated
    */
-  void setParent(CanvasFrame value);
+  void setParent(ViewArea value);
+
+  /**
+   * Returns the value of the '<em><b>Base Canvas</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Base Canvas</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Base Canvas</em>' containment reference.
+   * @see #setBaseCanvas(LayerHolder)
+   * @see domain.DomainPackage#getCanvasView_BaseCanvas()
+   * @model containment="true"
+   * @generated
+   */
+  LayerHolder getBaseCanvas();
+
+  /**
+   * Sets the value of the '{@link domain.CanvasView#getBaseCanvas <em>Base Canvas</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Base Canvas</em>' containment reference.
+   * @see #getBaseCanvas()
+   * @generated
+   */
+  void setBaseCanvas(LayerHolder value);
 
 } // CanvasView

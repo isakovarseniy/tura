@@ -21,6 +21,8 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <p>
  * The following features are implemented:
  * <ul>
+ *   <li>{@link domain.impl.ColumnImpl#getUid <em>Uid</em>}</li>
+ *   <li>{@link domain.impl.ColumnImpl#getLabel <em>Label</em>}</li>
  *   <li>{@link domain.impl.ColumnImpl#getElement <em>Element</em>}</li>
  * </ul>
  * </p>
@@ -29,6 +31,46 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  */
 public class ColumnImpl extends StyleElementImpl implements Column
 {
+  /**
+   * The default value of the '{@link #getUid() <em>Uid</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getUid()
+   * @generated
+   * @ordered
+   */
+  protected static final String UID_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getUid() <em>Uid</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getUid()
+   * @generated
+   * @ordered
+   */
+  protected String uid = UID_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #getLabel() <em>Label</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getLabel()
+   * @generated
+   * @ordered
+   */
+  protected static final String LABEL_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getLabel() <em>Label</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getLabel()
+   * @generated
+   * @ordered
+   */
+  protected String label = LABEL_EDEFAULT;
+
   /**
    * The cached value of the '{@link #getElement() <em>Element</em>}' containment reference.
    * <!-- begin-user-doc -->
@@ -58,6 +100,52 @@ public class ColumnImpl extends StyleElementImpl implements Column
   protected EClass eStaticClass()
   {
     return DomainPackage.Literals.COLUMN;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String getUid()
+  {
+    return uid;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setUid(String newUid)
+  {
+    String oldUid = uid;
+    uid = newUid;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.COLUMN__UID, oldUid, uid));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String getLabel()
+  {
+    return label;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setLabel(String newLabel)
+  {
+    String oldLabel = label;
+    label = newLabel;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.COLUMN__LABEL, oldLabel, label));
   }
 
   /**
@@ -134,6 +222,10 @@ public class ColumnImpl extends StyleElementImpl implements Column
   {
     switch (featureID)
     {
+      case DomainPackage.COLUMN__UID:
+        return getUid();
+      case DomainPackage.COLUMN__LABEL:
+        return getLabel();
       case DomainPackage.COLUMN__ELEMENT:
         return getElement();
     }
@@ -150,6 +242,12 @@ public class ColumnImpl extends StyleElementImpl implements Column
   {
     switch (featureID)
     {
+      case DomainPackage.COLUMN__UID:
+        setUid((String)newValue);
+        return;
+      case DomainPackage.COLUMN__LABEL:
+        setLabel((String)newValue);
+        return;
       case DomainPackage.COLUMN__ELEMENT:
         setElement((InputElement)newValue);
         return;
@@ -167,6 +265,12 @@ public class ColumnImpl extends StyleElementImpl implements Column
   {
     switch (featureID)
     {
+      case DomainPackage.COLUMN__UID:
+        setUid(UID_EDEFAULT);
+        return;
+      case DomainPackage.COLUMN__LABEL:
+        setLabel(LABEL_EDEFAULT);
+        return;
       case DomainPackage.COLUMN__ELEMENT:
         setElement((InputElement)null);
         return;
@@ -184,10 +288,33 @@ public class ColumnImpl extends StyleElementImpl implements Column
   {
     switch (featureID)
     {
+      case DomainPackage.COLUMN__UID:
+        return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
+      case DomainPackage.COLUMN__LABEL:
+        return LABEL_EDEFAULT == null ? label != null : !LABEL_EDEFAULT.equals(label);
       case DomainPackage.COLUMN__ELEMENT:
         return element != null;
     }
     return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuffer result = new StringBuffer(super.toString());
+    result.append(" (uid: ");
+    result.append(uid);
+    result.append(", label: ");
+    result.append(label);
+    result.append(')');
+    return result.toString();
   }
 
 } //ColumnImpl

@@ -10,7 +10,7 @@ package domain;
  *
  *
  * @see domain.DomainPackage#getCheckBox()
- * @model
+ * @model annotation="gmf.node label.placement='none' tool.small.bundle='org.tura.metamodel.commons' tool.small.path='icons/checkbox.png'"
  * @generated
  */
 public interface CheckBox extends InputElement

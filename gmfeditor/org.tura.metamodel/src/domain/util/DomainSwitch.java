@@ -23,6 +23,7 @@ import domain.Canvas;
 import domain.CanvasFrame;
 import domain.CanvasView;
 import domain.CheckBox;
+import domain.ChildrenHolder;
 import domain.Column;
 import domain.Component;
 import domain.ConfigVariable;
@@ -72,6 +73,7 @@ import domain.JPAService;
 import domain.JavaComponent;
 import domain.JavaMapper;
 import domain.Label;
+import domain.LayerHolder;
 import domain.Link;
 import domain.Mapper;
 import domain.Mappers;
@@ -137,6 +139,8 @@ import domain.UIPackage;
 import domain.Uielement;
 import domain.UpdateTrigger;
 import domain.UsingMappers;
+import domain.ViewArea;
+import domain.ViewElement;
 import domain.ViewInheritance;
 import domain.ViewPort;
 import domain.ViewPortHolder;
@@ -794,6 +798,13 @@ public class DomainSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case DomainPackage.VIEW_ELEMENT:
+      {
+        ViewElement viewElement = (ViewElement)theEObject;
+        T result = caseViewElement(viewElement);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case DomainPackage.CANVAS:
       {
         Canvas canvas = (Canvas)theEObject;
@@ -838,6 +849,15 @@ public class DomainSwitch<T> extends Switch<T>
       {
         ViewPort viewPort = (ViewPort)theEObject;
         T result = caseViewPort(viewPort);
+        if (result == null) result = caseViewElement(viewPort);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DomainPackage.VIEW_AREA:
+      {
+        ViewArea viewArea = (ViewArea)theEObject;
+        T result = caseViewArea(viewArea);
+        if (result == null) result = caseViewElement(viewArea);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -880,6 +900,13 @@ public class DomainSwitch<T> extends Switch<T>
       {
         Style style = (Style)theEObject;
         T result = caseStyle(style);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DomainPackage.CHILDREN_HOLDER:
+      {
+        ChildrenHolder childrenHolder = (ChildrenHolder)theEObject;
+        T result = caseChildrenHolder(childrenHolder);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -942,6 +969,15 @@ public class DomainSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case DomainPackage.ACTION_ELEMENT:
+      {
+        ActionElement actionElement = (ActionElement)theEObject;
+        T result = caseActionElement(actionElement);
+        if (result == null) result = caseUielement(actionElement);
+        if (result == null) result = caseStyleElement(actionElement);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case DomainPackage.INPUT_ELEMENT:
       {
         InputElement inputElement = (InputElement)theEObject;
@@ -969,12 +1005,14 @@ public class DomainSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case DomainPackage.ACTION_ELEMENT:
+      case DomainPackage.LAYER_HOLDER:
       {
-        ActionElement actionElement = (ActionElement)theEObject;
-        T result = caseActionElement(actionElement);
-        if (result == null) result = caseUielement(actionElement);
-        if (result == null) result = caseStyleElement(actionElement);
+        LayerHolder layerHolder = (LayerHolder)theEObject;
+        T result = caseLayerHolder(layerHolder);
+        if (result == null) result = caseUielement(layerHolder);
+        if (result == null) result = caseChildrenHolder(layerHolder);
+        if (result == null) result = caseHTMLLayerHolder(layerHolder);
+        if (result == null) result = caseStyleElement(layerHolder);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -2553,6 +2591,22 @@ public class DomainSwitch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>View Element</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>View Element</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseViewElement(ViewElement object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>Canvas</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -2628,6 +2682,22 @@ public class DomainSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseViewPort(ViewPort object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>View Area</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>View Area</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseViewArea(ViewArea object)
   {
     return null;
   }
@@ -2724,6 +2794,22 @@ public class DomainSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseStyle(Style object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Children Holder</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Children Holder</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseChildrenHolder(ChildrenHolder object)
   {
     return null;
   }
@@ -2857,6 +2943,38 @@ public class DomainSwitch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>Action Element</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Action Element</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseActionElement(ActionElement object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Layer Holder</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Layer Holder</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseLayerHolder(LayerHolder object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>Input Element</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -2900,22 +3018,6 @@ public class DomainSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseOptionSelection(OptionSelection object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Action Element</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Action Element</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseActionElement(ActionElement object)
   {
     return null;
   }

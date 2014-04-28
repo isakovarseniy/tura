@@ -21,6 +21,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <p>
  * The following features are implemented:
  * <ul>
+ *   <li>{@link domain.impl.TreeImpl#getLabel <em>Label</em>}</li>
  *   <li>{@link domain.impl.TreeImpl#getImage <em>Image</em>}</li>
  * </ul>
  * </p>
@@ -29,6 +30,26 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  */
 public class TreeImpl extends SourcesPointerImpl implements Tree
 {
+  /**
+   * The default value of the '{@link #getLabel() <em>Label</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getLabel()
+   * @generated
+   * @ordered
+   */
+  protected static final String LABEL_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getLabel() <em>Label</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getLabel()
+   * @generated
+   * @ordered
+   */
+  protected String label = LABEL_EDEFAULT;
+
   /**
    * The cached value of the '{@link #getImage() <em>Image</em>}' containment reference.
    * <!-- begin-user-doc -->
@@ -58,6 +79,29 @@ public class TreeImpl extends SourcesPointerImpl implements Tree
   protected EClass eStaticClass()
   {
     return DomainPackage.Literals.TREE;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String getLabel()
+  {
+    return label;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setLabel(String newLabel)
+  {
+    String oldLabel = label;
+    label = newLabel;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.TREE__LABEL, oldLabel, label));
   }
 
   /**
@@ -134,6 +178,8 @@ public class TreeImpl extends SourcesPointerImpl implements Tree
   {
     switch (featureID)
     {
+      case DomainPackage.TREE__LABEL:
+        return getLabel();
       case DomainPackage.TREE__IMAGE:
         return getImage();
     }
@@ -150,6 +196,9 @@ public class TreeImpl extends SourcesPointerImpl implements Tree
   {
     switch (featureID)
     {
+      case DomainPackage.TREE__LABEL:
+        setLabel((String)newValue);
+        return;
       case DomainPackage.TREE__IMAGE:
         setImage((Context)newValue);
         return;
@@ -167,6 +216,9 @@ public class TreeImpl extends SourcesPointerImpl implements Tree
   {
     switch (featureID)
     {
+      case DomainPackage.TREE__LABEL:
+        setLabel(LABEL_EDEFAULT);
+        return;
       case DomainPackage.TREE__IMAGE:
         setImage((Context)null);
         return;
@@ -184,10 +236,29 @@ public class TreeImpl extends SourcesPointerImpl implements Tree
   {
     switch (featureID)
     {
+      case DomainPackage.TREE__LABEL:
+        return LABEL_EDEFAULT == null ? label != null : !LABEL_EDEFAULT.equals(label);
       case DomainPackage.TREE__IMAGE:
         return image != null;
     }
     return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuffer result = new StringBuffer(super.toString());
+    result.append(" (label: ");
+    result.append(label);
+    result.append(')');
+    return result.toString();
   }
 
 } //TreeImpl

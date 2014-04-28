@@ -75,8 +75,6 @@ class EJBService extends DomainArtifact{
 class ContinuousIintegration extends DomainArtifact{
 }
 
-
-
 @gmf.diagram.artifact
 class Artifacts{
     id attr EString uid;
@@ -629,18 +627,20 @@ class Views{
 class CanvasFrame{
     id attr EString uid;
    attr EString name;
-   val CanvasView#parent canvasView;
 }
 
 class ViewPortHolder extends HTMLLayerHolder{
    @gmf.compartment
-   val ViewPort[*] viewPorts;
+   val ViewElement[*] viewElement;
 }
 
 class DefaultCavas{
    attr boolean defaultCanvas;
 }
 
+class ViewElement{
+   
+}
 
 @gmf.node(label="name",border.color="0,0,0",color="192,192,192")
 class Canvas extends CanvasFrame,ViewPortHolder,DefaultCavas{
@@ -659,12 +659,20 @@ class TabPage extends CanvasFrame,ViewPortHolder{
 }
 
 @gmf.node(label="name",border.color="0,0,0",color="192,192,192")
-class ViewPort{
+class ViewPort extends ViewElement{
     id attr EString uid;
    attr EString name;
   @gmf.compartment(layout="list")
     val ViewPortTrigger  viewPortTrigger;
 }
+
+@gmf.node(label="name",border.color="0,0,0",color="192,192,192")
+class ViewArea extends ViewElement{
+    id attr EString uid;
+   attr EString name;
+   val CanvasView#parent canvasView;
+}
+
 
 @gmf.node(label="fakeMethod",border.color="0,0,0",color="241,238,203")
 class ViewPortTrigger  {
@@ -699,16 +707,21 @@ class FormDataControls{
 }
 
 
-@gmf.diagram.canvasview
+@gmf.diagram.canvas
 class CanvasView{
     id attr EString uid;
-   ref CanvasFrame#canvasView parent;
-   
+   ref ViewArea#canvasView parent;
+   val LayerHolder  baseCanvas; 
 }
 
 class Style{
     id attr EString uid;
     attr EString style;
+}
+
+class ChildrenHolder{
+   @gmf.compartment
+   val Uielement [*] children; 
 }
 
 class StyleClass{
@@ -752,11 +765,11 @@ class StyleElement{
 
 class Uielement extends StyleElement{
     id attr EString uid;
-    attr EString enabled;
+    attr boolean enabled;
     val Context enabledContext;
-    attr EString required;
+    attr boolean required;
     val Context requiredContext;
-    attr EString readOnly;
+    attr boolean readOnly;
     val Context readOnlyContext;
     
 }
@@ -767,8 +780,13 @@ class SourcesPointer extends Uielement{
    val Context sourceCast;
 }
 
+class ActionElement extends Uielement{
+  val Context trigger;
+}
+
+
+
 class InputElement extends Uielement {
-   attr EString label;
 }
 
 class Selection extends StyleElement{
@@ -781,44 +799,60 @@ class OptionSelection extends InputElement {
    val Context optionCast;
 }
 
-class ActionElement extends Uielement{
-  val Context trigger;
+@gmf.node(label.placement="none",tool.small.bundle="org.tura.metamodel.commons",tool.small.path="icons/layerholder.png")
+class LayerHolder extends Uielement , ChildrenHolder, HTMLLayerHolder{
+   
 }
 
+@gmf.node(label.placement="none",tool.small.bundle="org.tura.metamodel.commons",tool.small.path="icons/inputtext.png")
 class InputText extends InputElement {
    
 }
 
+@gmf.node(label="label",tool.small.bundle="org.tura.metamodel.commons",tool.small.path="icons/label.png")
 class Label extends InputElement {
-   
+  attr EString label;
 }
 
+@gmf.node(label.placement="none",tool.small.bundle="org.tura.metamodel.commons",tool.small.path="icons/outputtext.png")
 class OutputText extends InputElement {
    
 }
 
+@gmf.node(label.placement="none",tool.small.bundle="org.tura.metamodel.commons",tool.small.path="icons/checkbox.png")
 class CheckBox extends InputElement {
    
 }
 
+@gmf.node(label.placement="none",tool.small.bundle="org.tura.metamodel.commons",tool.small.path="icons/dropdownselection.png")
 class DropDownSelection extends OptionSelection {
    val Selection selection;
 }
 
+@gmf.node(label="label",tool.small.bundle="org.tura.metamodel.commons",tool.small.path="icons/column.png")
 class Column extends StyleElement{
+    id attr EString uid;
+   attr EString label;
+   @gmf.compartment(layout="list")
    val InputElement element;   
 }
 
+@gmf.node(label="label",tool.small.bundle="org.tura.metamodel.commons",tool.small.path="icons/table.png")
 class Table extends SourcesPointer{
+   attr EString label;
+   @gmf.compartment(layout="list")
     val Column[*] columns;
 }
 
+@gmf.node(label="label",tool.small.bundle="org.tura.metamodel.commons",tool.small.path="icons/tree.png")
 class Tree extends SourcesPointer{
+   attr EString label;
    val Context image;
 }
 
+@gmf.node(label="label",tool.small.bundle="org.tura.metamodel.commons",tool.small.path="icons/button.png")
 class Button extends ActionElement{
-   
+   attr EString label;
 }
 
 @gmf.diagram.control

@@ -12,7 +12,7 @@ import org.eclipse.emf.common.util.EList;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link domain.ViewPortHolder#getViewPorts <em>View Ports</em>}</li>
+ *   <li>{@link domain.ViewPortHolder#getViewElement <em>View Element</em>}</li>
  * </ul>
  * </p>
  *
@@ -23,19 +23,19 @@ import org.eclipse.emf.common.util.EList;
 public interface ViewPortHolder extends HTMLLayerHolder
 {
   /**
-   * Returns the value of the '<em><b>View Ports</b></em>' containment reference list.
-   * The list contents are of type {@link domain.ViewPort}.
+   * Returns the value of the '<em><b>View Element</b></em>' containment reference list.
+   * The list contents are of type {@link domain.ViewElement}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>View Ports</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>View Element</em>' containment reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>View Ports</em>' containment reference list.
-   * @see domain.DomainPackage#getViewPortHolder_ViewPorts()
+   * @return the value of the '<em>View Element</em>' containment reference list.
+   * @see domain.DomainPackage#getViewPortHolder_ViewElement()
    * @model containment="true"
    * @generated
    */
-  EList<ViewPort> getViewPorts();
+  EList<ViewElement> getViewElement();
 
 } // ViewPortHolder

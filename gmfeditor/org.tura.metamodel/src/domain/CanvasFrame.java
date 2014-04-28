@@ -14,7 +14,6 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link domain.CanvasFrame#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.CanvasFrame#getName <em>Name</em>}</li>
- *   <li>{@link domain.CanvasFrame#getCanvasView <em>Canvas View</em>}</li>
  * </ul>
  * </p>
  *
@@ -75,33 +74,5 @@ public interface CanvasFrame extends EObject
    * @generated
    */
   void setName(String value);
-
-  /**
-   * Returns the value of the '<em><b>Canvas View</b></em>' containment reference.
-   * It is bidirectional and its opposite is '{@link domain.CanvasView#getParent <em>Parent</em>}'.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Canvas View</em>' containment reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Canvas View</em>' containment reference.
-   * @see #setCanvasView(CanvasView)
-   * @see domain.DomainPackage#getCanvasFrame_CanvasView()
-   * @see domain.CanvasView#getParent
-   * @model opposite="parent" containment="true"
-   * @generated
-   */
-  CanvasView getCanvasView();
-
-  /**
-   * Sets the value of the '{@link domain.CanvasFrame#getCanvasView <em>Canvas View</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Canvas View</em>' containment reference.
-   * @see #getCanvasView()
-   * @generated
-   */
-  void setCanvasView(CanvasView value);
 
 } // CanvasFrame

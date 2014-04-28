@@ -13,6 +13,22 @@ for (c in GmfGen!GenCommonBase.allInstances) {
 }
 
 
+//Enable diagram partition for FormControl element
+var genTopLevelNode = GmfGen!GenChildNode.all.select(n|n.createCommandClassName = 'ViewAreaCreateCommand').first;
+var behaviour = new GmfGen!OpenDiagramBehaviour;
+behaviour.editorID = 'canvas.diagram.part.CanvasDiagramEditorID';
+behaviour.diagramKind='Canvas';
+behaviour.editPolicyClassName= 'OpenDiagramViewAreaEditPolicy';
+genTopLevelNode.behaviour.add(behaviour);
+
+
+// Change figure for ApplicationRecipe element 
+var innerClass = GmfGen!InnerClassViewmap.all.select(n|n.ClassName = 'ViewAreaFigure').first;
+innerClass.classBody=innerClass.classBody.replace('org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel','org.tura.metamodel.commons.editparts.SizeLimitedLabel');
+
+
+
+
 -- distinct model IDs
 genEditorGenerator.setModelID('FrmView');
 -- distinct package prefix

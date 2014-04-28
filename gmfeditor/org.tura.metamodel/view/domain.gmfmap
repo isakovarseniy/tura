@@ -28,7 +28,7 @@
       <children
           compartment="//@nodes.0/@ownedChild/@compartments.0">
         <containmentFeature
-            href="domain.ecore#//ViewPortHolder/viewPorts"/>
+            href="domain.ecore#//ViewPortHolder/viewElement"/>
         <ownedChild
             relatedDiagrams="//@diagram">
           <domainMetaElement
@@ -42,7 +42,7 @@
           </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
-              href="domain.gmftool#//@palette/@tools.0/@tools.5"/>
+              href="domain.gmftool#//@palette/@tools.0/@tools.6"/>
           <diagramNode
               href="domain.gmfgraph#ViewPort"/>
           <children
@@ -61,7 +61,7 @@
               </labelMappings>
               <tool
                   xsi:type="gmftool:CreationTool"
-                  href="domain.gmftool#//@palette/@tools.0/@tools.6"/>
+                  href="domain.gmftool#//@palette/@tools.0/@tools.7"/>
               <diagramNode
                   href="domain.gmfgraph#ViewPortTrigger"/>
             </ownedChild>
@@ -73,10 +73,31 @@
           </compartments>
         </ownedChild>
       </children>
+      <children
+          compartment="//@nodes.0/@ownedChild/@compartments.0">
+        <containmentFeature
+            href="domain.ecore#//ViewPortHolder/viewElement"/>
+        <ownedChild>
+          <domainMetaElement
+              href="domain.ecore#//ViewArea"/>
+          <labelMappings
+              xsi:type="gmfmap:FeatureLabelMapping">
+            <diagramLabel
+                href="domain.gmfgraph#ViewAreaLabel"/>
+            <features
+                href="domain.ecore#//ViewArea/name"/>
+          </labelMappings>
+          <tool
+              xsi:type="gmftool:CreationTool"
+              href="domain.gmftool#//@palette/@tools.0/@tools.5"/>
+          <diagramNode
+              href="domain.gmfgraph#ViewArea"/>
+        </ownedChild>
+      </children>
       <compartments
-          children="//@nodes.0/@ownedChild/@children.0">
+          children="//@nodes.0/@ownedChild/@children.0 //@nodes.0/@ownedChild/@children.1">
         <compartment
-            href="domain.gmfgraph#CanvasViewPortsCompartment"/>
+            href="domain.gmfgraph#CanvasViewElementCompartment"/>
       </compartments>
     </ownedChild>
   </nodes>
@@ -96,19 +117,25 @@
       </labelMappings>
       <tool
           xsi:type="gmftool:CreationTool"
-          href="domain.gmftool#//@palette/@tools.0/@tools.7"/>
+          href="domain.gmftool#//@palette/@tools.0/@tools.8"/>
       <diagramNode
           href="domain.gmfgraph#Window"/>
       <children
           compartment="//@nodes.1/@ownedChild/@compartments.0"
           referencedChild="//@nodes.0/@ownedChild/@children.0/@ownedChild">
         <containmentFeature
-            href="domain.ecore#//ViewPortHolder/viewPorts"/>
+            href="domain.ecore#//ViewPortHolder/viewElement"/>
+      </children>
+      <children
+          compartment="//@nodes.1/@ownedChild/@compartments.0"
+          referencedChild="//@nodes.0/@ownedChild/@children.1/@ownedChild">
+        <containmentFeature
+            href="domain.ecore#//ViewPortHolder/viewElement"/>
       </children>
       <compartments
-          children="//@nodes.1/@ownedChild/@children.0">
+          children="//@nodes.1/@ownedChild/@children.0 //@nodes.1/@ownedChild/@children.1">
         <compartment
-            href="domain.gmfgraph#WindowViewPortsCompartment"/>
+            href="domain.gmfgraph#WindowViewElementCompartment"/>
       </compartments>
     </ownedChild>
   </nodes>
@@ -135,12 +162,18 @@
           compartment="//@nodes.2/@ownedChild/@compartments.0"
           referencedChild="//@nodes.0/@ownedChild/@children.0/@ownedChild">
         <containmentFeature
-            href="domain.ecore#//ViewPortHolder/viewPorts"/>
+            href="domain.ecore#//ViewPortHolder/viewElement"/>
+      </children>
+      <children
+          compartment="//@nodes.2/@ownedChild/@compartments.0"
+          referencedChild="//@nodes.0/@ownedChild/@children.1/@ownedChild">
+        <containmentFeature
+            href="domain.ecore#//ViewPortHolder/viewElement"/>
       </children>
       <compartments
-          children="//@nodes.2/@ownedChild/@children.0">
+          children="//@nodes.2/@ownedChild/@children.0 //@nodes.2/@ownedChild/@children.1">
         <compartment
-            href="domain.gmfgraph#TabPageViewPortsCompartment"/>
+            href="domain.gmfgraph#TabPageViewElementCompartment"/>
       </compartments>
     </ownedChild>
   </nodes>

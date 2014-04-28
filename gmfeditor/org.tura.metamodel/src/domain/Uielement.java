@@ -12,11 +12,11 @@ package domain;
  * The following features are supported:
  * <ul>
  *   <li>{@link domain.Uielement#getUid <em>Uid</em>}</li>
- *   <li>{@link domain.Uielement#getEnabled <em>Enabled</em>}</li>
+ *   <li>{@link domain.Uielement#isEnabled <em>Enabled</em>}</li>
  *   <li>{@link domain.Uielement#getEnabledContext <em>Enabled Context</em>}</li>
- *   <li>{@link domain.Uielement#getRequired <em>Required</em>}</li>
+ *   <li>{@link domain.Uielement#isRequired <em>Required</em>}</li>
  *   <li>{@link domain.Uielement#getRequiredContext <em>Required Context</em>}</li>
- *   <li>{@link domain.Uielement#getReadOnly <em>Read Only</em>}</li>
+ *   <li>{@link domain.Uielement#isReadOnly <em>Read Only</em>}</li>
  *   <li>{@link domain.Uielement#getReadOnlyContext <em>Read Only Context</em>}</li>
  * </ul>
  * </p>
@@ -62,22 +62,22 @@ public interface Uielement extends StyleElement
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Enabled</em>' attribute.
-   * @see #setEnabled(String)
+   * @see #setEnabled(boolean)
    * @see domain.DomainPackage#getUielement_Enabled()
    * @model
    * @generated
    */
-  String getEnabled();
+  boolean isEnabled();
 
   /**
-   * Sets the value of the '{@link domain.Uielement#getEnabled <em>Enabled</em>}' attribute.
+   * Sets the value of the '{@link domain.Uielement#isEnabled <em>Enabled</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Enabled</em>' attribute.
-   * @see #getEnabled()
+   * @see #isEnabled()
    * @generated
    */
-  void setEnabled(String value);
+  void setEnabled(boolean value);
 
   /**
    * Returns the value of the '<em><b>Enabled Context</b></em>' containment reference.
@@ -114,22 +114,22 @@ public interface Uielement extends StyleElement
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Required</em>' attribute.
-   * @see #setRequired(String)
+   * @see #setRequired(boolean)
    * @see domain.DomainPackage#getUielement_Required()
    * @model
    * @generated
    */
-  String getRequired();
+  boolean isRequired();
 
   /**
-   * Sets the value of the '{@link domain.Uielement#getRequired <em>Required</em>}' attribute.
+   * Sets the value of the '{@link domain.Uielement#isRequired <em>Required</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Required</em>' attribute.
-   * @see #getRequired()
+   * @see #isRequired()
    * @generated
    */
-  void setRequired(String value);
+  void setRequired(boolean value);
 
   /**
    * Returns the value of the '<em><b>Required Context</b></em>' containment reference.
@@ -166,22 +166,22 @@ public interface Uielement extends StyleElement
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Read Only</em>' attribute.
-   * @see #setReadOnly(String)
+   * @see #setReadOnly(boolean)
    * @see domain.DomainPackage#getUielement_ReadOnly()
    * @model
    * @generated
    */
-  String getReadOnly();
+  boolean isReadOnly();
 
   /**
-   * Sets the value of the '{@link domain.Uielement#getReadOnly <em>Read Only</em>}' attribute.
+   * Sets the value of the '{@link domain.Uielement#isReadOnly <em>Read Only</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Read Only</em>' attribute.
-   * @see #getReadOnly()
+   * @see #isReadOnly()
    * @generated
    */
-  void setReadOnly(String value);
+  void setReadOnly(boolean value);
 
   /**
    * Returns the value of the '<em><b>Read Only Context</b></em>' containment reference.
