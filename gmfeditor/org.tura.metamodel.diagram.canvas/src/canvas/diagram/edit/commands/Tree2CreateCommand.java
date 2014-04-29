@@ -17,17 +17,17 @@ import org.eclipse.gmf.runtime.notation.View;
 
 import domain.Column;
 import domain.DomainFactory;
-import domain.Table;
+import domain.Tree;
 
 /**
  * @generated
  */
-public class ColumnCreateCommand extends EditElementCommand {
+public class Tree2CreateCommand extends EditElementCommand {
 
 	/**
 	 * @generated
 	 */
-	public ColumnCreateCommand(CreateElementRequest req) {
+	public Tree2CreateCommand(CreateElementRequest req) {
 		super(req.getLabel(), null, req);
 	}
 
@@ -48,6 +48,10 @@ public class ColumnCreateCommand extends EditElementCommand {
 	 * @generated
 	 */
 	public boolean canExecute() {
+		Column container = (Column) getElementToEdit();
+		if (container.getElement() != null) {
+			return false;
+		}
 		return true;
 
 	}
@@ -57,10 +61,10 @@ public class ColumnCreateCommand extends EditElementCommand {
 	 */
 	protected CommandResult doExecuteWithResult(IProgressMonitor monitor,
 			IAdaptable info) throws ExecutionException {
-		Column newElement = DomainFactory.eINSTANCE.createColumn();
+		Tree newElement = DomainFactory.eINSTANCE.createTree();
 
-		Table owner = (Table) getElementToEdit();
-		owner.getCols().add(newElement);
+		Column owner = (Column) getElementToEdit();
+		owner.setElement(newElement);
 
 		newElement.setUid(java.util.UUID.randomUUID().toString());
 
@@ -73,7 +77,7 @@ public class ColumnCreateCommand extends EditElementCommand {
 	/**
 	 * @generated
 	 */
-	protected void doConfigure(Column newElement, IProgressMonitor monitor,
+	protected void doConfigure(Tree newElement, IProgressMonitor monitor,
 			IAdaptable info) throws ExecutionException {
 		IElementType elementType = ((CreateElementRequest) getRequest())
 				.getElementType();

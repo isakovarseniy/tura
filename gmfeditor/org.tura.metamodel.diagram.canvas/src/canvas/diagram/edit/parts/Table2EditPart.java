@@ -4,8 +4,12 @@
 package canvas.diagram.edit.parts;
 
 import org.eclipse.draw2d.IFigure;
+import org.eclipse.draw2d.MarginBorder;
+import org.eclipse.draw2d.RectangleFigure;
+import org.eclipse.draw2d.RoundedRectangle;
 import org.eclipse.draw2d.Shape;
 import org.eclipse.draw2d.StackLayout;
+import org.eclipse.draw2d.geometry.Dimension;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPolicy;
 import org.eclipse.gef.Request;
@@ -26,18 +30,19 @@ import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.Font;
 import org.eclipse.swt.widgets.Display;
 
-import canvas.diagram.edit.policies.ButtonItemSemanticEditPolicy;
+import canvas.diagram.edit.policies.OpenDiagramEditPolicy;
+import canvas.diagram.edit.policies.Table2ItemSemanticEditPolicy;
 import canvas.diagram.part.DomainVisualIDRegistry;
 
 /**
  * @generated
  */
-public class ButtonEditPart extends ShapeNodeEditPart {
+public class Table2EditPart extends ShapeNodeEditPart {
 
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 1603017;
+	public static final int VISUAL_ID = 1603021;
 
 	/**
 	 * @generated
@@ -52,7 +57,7 @@ public class ButtonEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	public ButtonEditPart(View view) {
+	public Table2EditPart(View view) {
 		super(view);
 	}
 
@@ -62,8 +67,10 @@ public class ButtonEditPart extends ShapeNodeEditPart {
 	protected void createDefaultEditPolicies() {
 		super.createDefaultEditPolicies();
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
-				new ButtonItemSemanticEditPolicy());
+				new Table2ItemSemanticEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
+		installEditPolicy(EditPolicyRoles.OPEN_ROLE,
+				new OpenDiagramEditPolicy());
 		// XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
 		// removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
 	}
@@ -98,23 +105,30 @@ public class ButtonEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected IFigure createNodeShape() {
-		return primaryShape = new ButtonFigure();
+		return primaryShape = new TableFigure();
 	}
 
 	/**
 	 * @generated
 	 */
-	public ButtonFigure getPrimaryShape() {
-		return (ButtonFigure) primaryShape;
+	public TableFigure getPrimaryShape() {
+		return (TableFigure) primaryShape;
 	}
 
 	/**
 	 * @generated
 	 */
 	protected boolean addFixedChild(EditPart childEditPart) {
-		if (childEditPart instanceof ButtonLabelEditPart) {
-			((ButtonLabelEditPart) childEditPart).setLabel(getPrimaryShape()
-					.getFigureButtonLabelFigure());
+		if (childEditPart instanceof TableLabel2EditPart) {
+			((TableLabel2EditPart) childEditPart).setLabel(getPrimaryShape()
+					.getFigureTableLabelFigure());
+			return true;
+		}
+		if (childEditPart instanceof TableTableColsCompartment2EditPart) {
+			IFigure pane = getPrimaryShape().getTableColsCompartmentFigure();
+			setupContentPane(pane); // FIXME each comparment should handle his content pane in his own way 
+			pane.add(((TableTableColsCompartment2EditPart) childEditPart)
+					.getFigure());
 			return true;
 		}
 		return false;
@@ -124,7 +138,13 @@ public class ButtonEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected boolean removeFixedChild(EditPart childEditPart) {
-		if (childEditPart instanceof ButtonLabelEditPart) {
+		if (childEditPart instanceof TableLabel2EditPart) {
+			return true;
+		}
+		if (childEditPart instanceof TableTableColsCompartment2EditPart) {
+			IFigure pane = getPrimaryShape().getTableColsCompartmentFigure();
+			pane.remove(((TableTableColsCompartment2EditPart) childEditPart)
+					.getFigure());
 			return true;
 		}
 		return false;
@@ -154,6 +174,9 @@ public class ButtonEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected IFigure getContentPaneFor(IGraphicalEditPart editPart) {
+		if (editPart instanceof TableTableColsCompartment2EditPart) {
+			return getPrimaryShape().getTableColsCompartmentFigure();
+		}
 		return getContentPane();
 	}
 
@@ -248,24 +271,32 @@ public class ButtonEditPart extends ShapeNodeEditPart {
 	 */
 	public EditPart getPrimaryChildEditPart() {
 		return getChildBySemanticHint(DomainVisualIDRegistry
-				.getType(ButtonLabelEditPart.VISUAL_ID));
+				.getType(TableLabel2EditPart.VISUAL_ID));
 	}
 
 	/**
 	 * @generated
 	 */
-	public class ButtonFigure extends
-			org.tura.metamodel.commons.figures.ButtonFigure {
+	public class TableFigure extends RoundedRectangle {
 
 		/**
 		 * @generated
 		 */
-		private WrappingLabel fFigureButtonLabelFigure;
+		private WrappingLabel fFigureTableLabelFigure;
+		/**
+		 * @generated
+		 */
+		private RectangleFigure fTableColsCompartmentFigure;
 
 		/**
 		 * @generated
 		 */
-		public ButtonFigure() {
+		public TableFigure() {
+			this.setCornerDimensions(new Dimension(getMapMode().DPtoLP(8),
+					getMapMode().DPtoLP(8)));
+			this.setBorder(new MarginBorder(getMapMode().DPtoLP(5),
+					getMapMode().DPtoLP(5), getMapMode().DPtoLP(5),
+					getMapMode().DPtoLP(5)));
 			createContents();
 		}
 
@@ -274,21 +305,37 @@ public class ButtonEditPart extends ShapeNodeEditPart {
 		 */
 		private void createContents() {
 
-			fFigureButtonLabelFigure = new WrappingLabel();
+			fFigureTableLabelFigure = new WrappingLabel();
 
-			fFigureButtonLabelFigure.setText("Button");
+			fFigureTableLabelFigure.setText("Table");
 
-			fFigureButtonLabelFigure.setFont(FFIGUREBUTTONLABELFIGURE_FONT);
+			fFigureTableLabelFigure.setFont(FFIGURETABLELABELFIGURE_FONT);
 
-			this.add(fFigureButtonLabelFigure);
+			fFigureTableLabelFigure.setMaximumSize(new Dimension(getMapMode()
+					.DPtoLP(10000), getMapMode().DPtoLP(50)));
+
+			this.add(fFigureTableLabelFigure);
+
+			fTableColsCompartmentFigure = new RectangleFigure();
+
+			fTableColsCompartmentFigure.setOutline(false);
+
+			this.add(fTableColsCompartmentFigure);
 
 		}
 
 		/**
 		 * @generated
 		 */
-		public WrappingLabel getFigureButtonLabelFigure() {
-			return fFigureButtonLabelFigure;
+		public WrappingLabel getFigureTableLabelFigure() {
+			return fFigureTableLabelFigure;
+		}
+
+		/**
+		 * @generated
+		 */
+		public RectangleFigure getTableColsCompartmentFigure() {
+			return fTableColsCompartmentFigure;
 		}
 
 	}
@@ -296,7 +343,7 @@ public class ButtonEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	static final Font FFIGUREBUTTONLABELFIGURE_FONT = new Font(
+	static final Font FFIGURETABLELABELFIGURE_FONT = new Font(
 			Display.getCurrent(), "Palatino", 12, SWT.ITALIC);
 
 }

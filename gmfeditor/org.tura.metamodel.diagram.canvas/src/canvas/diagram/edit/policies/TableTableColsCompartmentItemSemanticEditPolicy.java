@@ -12,13 +12,13 @@ import canvas.diagram.providers.DomainElementTypes;
 /**
  * @generated
  */
-public class TableTableColumnsCompartmentItemSemanticEditPolicy extends
+public class TableTableColsCompartmentItemSemanticEditPolicy extends
 		DomainBaseItemSemanticEditPolicy {
 
 	/**
 	 * @generated
 	 */
-	public TableTableColumnsCompartmentItemSemanticEditPolicy() {
+	public TableTableColsCompartmentItemSemanticEditPolicy() {
 		super(DomainElementTypes.Table_1603008);
 	}
 
@@ -26,7 +26,7 @@ public class TableTableColumnsCompartmentItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	protected Command getCreateCommand(CreateElementRequest req) {
-		if (DomainElementTypes.Column_1603009 == req.getElementType()) {
+		if (DomainElementTypes.Column_1603024 == req.getElementType()) {
 			return getGEFWrapper(new ColumnCreateCommand(req));
 		}
 		return super.getCreateCommand(req);

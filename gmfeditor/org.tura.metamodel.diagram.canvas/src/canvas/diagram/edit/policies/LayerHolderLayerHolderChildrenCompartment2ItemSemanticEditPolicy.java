@@ -41,6 +41,9 @@ public class LayerHolderLayerHolderChildrenCompartment2ItemSemanticEditPolicy
 				.getElementType()) {
 			return getGEFWrapper(new DropDownSelectionCreateCommand(req));
 		}
+		if (DomainElementTypes.Table_1603008 == req.getElementType()) {
+			return getGEFWrapper(new TableCreateCommand(req));
+		}
 		if (DomainElementTypes.InputText_1603004 == req.getElementType()) {
 			return getGEFWrapper(new InputTextCreateCommand(req));
 		}
@@ -52,9 +55,6 @@ public class LayerHolderLayerHolderChildrenCompartment2ItemSemanticEditPolicy
 		}
 		if (DomainElementTypes.CheckBox_1603007 == req.getElementType()) {
 			return getGEFWrapper(new CheckBoxCreateCommand(req));
-		}
-		if (DomainElementTypes.Table_1603008 == req.getElementType()) {
-			return getGEFWrapper(new TableCreateCommand(req));
 		}
 		if (DomainElementTypes.Tree_1603016 == req.getElementType()) {
 			return getGEFWrapper(new TreeCreateCommand(req));

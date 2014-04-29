@@ -26,18 +26,18 @@ import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.Font;
 import org.eclipse.swt.widgets.Display;
 
-import canvas.diagram.edit.policies.ButtonItemSemanticEditPolicy;
+import canvas.diagram.edit.policies.Button2ItemSemanticEditPolicy;
 import canvas.diagram.part.DomainVisualIDRegistry;
 
 /**
  * @generated
  */
-public class ButtonEditPart extends ShapeNodeEditPart {
+public class Button2EditPart extends ShapeNodeEditPart {
 
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 1603017;
+	public static final int VISUAL_ID = 1603023;
 
 	/**
 	 * @generated
@@ -52,7 +52,7 @@ public class ButtonEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	public ButtonEditPart(View view) {
+	public Button2EditPart(View view) {
 		super(view);
 	}
 
@@ -62,7 +62,7 @@ public class ButtonEditPart extends ShapeNodeEditPart {
 	protected void createDefaultEditPolicies() {
 		super.createDefaultEditPolicies();
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
-				new ButtonItemSemanticEditPolicy());
+				new Button2ItemSemanticEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
 		// XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
 		// removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
@@ -112,8 +112,8 @@ public class ButtonEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected boolean addFixedChild(EditPart childEditPart) {
-		if (childEditPart instanceof ButtonLabelEditPart) {
-			((ButtonLabelEditPart) childEditPart).setLabel(getPrimaryShape()
+		if (childEditPart instanceof ButtonLabel2EditPart) {
+			((ButtonLabel2EditPart) childEditPart).setLabel(getPrimaryShape()
 					.getFigureButtonLabelFigure());
 			return true;
 		}
@@ -124,7 +124,7 @@ public class ButtonEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected boolean removeFixedChild(EditPart childEditPart) {
-		if (childEditPart instanceof ButtonLabelEditPart) {
+		if (childEditPart instanceof ButtonLabel2EditPart) {
 			return true;
 		}
 		return false;
@@ -248,7 +248,7 @@ public class ButtonEditPart extends ShapeNodeEditPart {
 	 */
 	public EditPart getPrimaryChildEditPart() {
 		return getChildBySemanticHint(DomainVisualIDRegistry
-				.getType(ButtonLabelEditPart.VISUAL_ID));
+				.getType(ButtonLabel2EditPart.VISUAL_ID));
 	}
 
 	/**

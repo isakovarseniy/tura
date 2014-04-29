@@ -19,6 +19,7 @@ import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.resource.ImageRegistry;
 import org.eclipse.swt.graphics.Image;
 
+import canvas.diagram.edit.parts.Button2EditPart;
 import canvas.diagram.edit.parts.ButtonEditPart;
 import canvas.diagram.edit.parts.CanvasViewEditPart;
 import canvas.diagram.edit.parts.CheckBox2EditPart;
@@ -31,10 +32,13 @@ import canvas.diagram.edit.parts.InputTextEditPart;
 import canvas.diagram.edit.parts.Label2EditPart;
 import canvas.diagram.edit.parts.LabelEditPart;
 import canvas.diagram.edit.parts.LayerHolder2EditPart;
+import canvas.diagram.edit.parts.LayerHolder3EditPart;
 import canvas.diagram.edit.parts.LayerHolderEditPart;
 import canvas.diagram.edit.parts.OutputText2EditPart;
 import canvas.diagram.edit.parts.OutputTextEditPart;
+import canvas.diagram.edit.parts.Table2EditPart;
 import canvas.diagram.edit.parts.TableEditPart;
+import canvas.diagram.edit.parts.Tree2EditPart;
 import canvas.diagram.edit.parts.TreeEditPart;
 import canvas.diagram.part.DomainDiagramEditorPlugin;
 import domain.DomainPackage;
@@ -84,6 +88,18 @@ public class DomainElementTypes {
 	/**
 	 * @generated
 	 */
+	public static final IElementType Table_1603008 = getElementType("org.tura.metamodel.diagram.canvas.Table_1603008"); //$NON-NLS-1$
+	/**
+	 * @generated
+	 */
+	public static final IElementType Column_1603024 = getElementType("org.tura.metamodel.diagram.canvas.Column_1603024"); //$NON-NLS-1$
+	/**
+	 * @generated
+	 */
+	public static final IElementType LayerHolder_1603020 = getElementType("org.tura.metamodel.diagram.canvas.LayerHolder_1603020"); //$NON-NLS-1$
+	/**
+	 * @generated
+	 */
 	public static final IElementType InputText_1603004 = getElementType("org.tura.metamodel.diagram.canvas.InputText_1603004"); //$NON-NLS-1$
 	/**
 	 * @generated
@@ -100,15 +116,19 @@ public class DomainElementTypes {
 	/**
 	 * @generated
 	 */
-	public static final IElementType Table_1603008 = getElementType("org.tura.metamodel.diagram.canvas.Table_1603008"); //$NON-NLS-1$
+	public static final IElementType Tree_1603016 = getElementType("org.tura.metamodel.diagram.canvas.Tree_1603016"); //$NON-NLS-1$
 	/**
 	 * @generated
 	 */
-	public static final IElementType Column_1603009 = getElementType("org.tura.metamodel.diagram.canvas.Column_1603009"); //$NON-NLS-1$
+	public static final IElementType Button_1603017 = getElementType("org.tura.metamodel.diagram.canvas.Button_1603017"); //$NON-NLS-1$
 	/**
 	 * @generated
 	 */
 	public static final IElementType DropDownSelection_1603010 = getElementType("org.tura.metamodel.diagram.canvas.DropDownSelection_1603010"); //$NON-NLS-1$
+	/**
+	 * @generated
+	 */
+	public static final IElementType Table_1603021 = getElementType("org.tura.metamodel.diagram.canvas.Table_1603021"); //$NON-NLS-1$
 	/**
 	 * @generated
 	 */
@@ -128,11 +148,11 @@ public class DomainElementTypes {
 	/**
 	 * @generated
 	 */
-	public static final IElementType Tree_1603016 = getElementType("org.tura.metamodel.diagram.canvas.Tree_1603016"); //$NON-NLS-1$
+	public static final IElementType Tree_1603022 = getElementType("org.tura.metamodel.diagram.canvas.Tree_1603022"); //$NON-NLS-1$
 	/**
 	 * @generated
 	 */
-	public static final IElementType Button_1603017 = getElementType("org.tura.metamodel.diagram.canvas.Button_1603017"); //$NON-NLS-1$
+	public static final IElementType Button_1603023 = getElementType("org.tura.metamodel.diagram.canvas.Button_1603023"); //$NON-NLS-1$
 
 	/**
 	 * @generated
@@ -257,6 +277,13 @@ public class DomainElementTypes {
 			elements.put(DropDownSelection_1603002,
 					DomainPackage.eINSTANCE.getDropDownSelection());
 
+			elements.put(Table_1603008, DomainPackage.eINSTANCE.getTable());
+
+			elements.put(Column_1603024, DomainPackage.eINSTANCE.getColumn());
+
+			elements.put(LayerHolder_1603020,
+					DomainPackage.eINSTANCE.getLayerHolder());
+
 			elements.put(InputText_1603004,
 					DomainPackage.eINSTANCE.getInputText());
 
@@ -268,12 +295,14 @@ public class DomainElementTypes {
 			elements.put(CheckBox_1603007,
 					DomainPackage.eINSTANCE.getCheckBox());
 
-			elements.put(Table_1603008, DomainPackage.eINSTANCE.getTable());
+			elements.put(Tree_1603016, DomainPackage.eINSTANCE.getTree());
 
-			elements.put(Column_1603009, DomainPackage.eINSTANCE.getColumn());
+			elements.put(Button_1603017, DomainPackage.eINSTANCE.getButton());
 
 			elements.put(DropDownSelection_1603010,
 					DomainPackage.eINSTANCE.getDropDownSelection());
+
+			elements.put(Table_1603021, DomainPackage.eINSTANCE.getTable());
 
 			elements.put(InputText_1603012,
 					DomainPackage.eINSTANCE.getInputText());
@@ -286,9 +315,9 @@ public class DomainElementTypes {
 			elements.put(CheckBox_1603015,
 					DomainPackage.eINSTANCE.getCheckBox());
 
-			elements.put(Tree_1603016, DomainPackage.eINSTANCE.getTree());
+			elements.put(Tree_1603022, DomainPackage.eINSTANCE.getTree());
 
-			elements.put(Button_1603017, DomainPackage.eINSTANCE.getButton());
+			elements.put(Button_1603023, DomainPackage.eINSTANCE.getButton());
 		}
 		return (ENamedElement) elements.get(type);
 	}
@@ -310,19 +339,23 @@ public class DomainElementTypes {
 			KNOWN_ELEMENT_TYPES.add(LayerHolder_1602003);
 			KNOWN_ELEMENT_TYPES.add(LayerHolder_1603019);
 			KNOWN_ELEMENT_TYPES.add(DropDownSelection_1603002);
+			KNOWN_ELEMENT_TYPES.add(Table_1603008);
+			KNOWN_ELEMENT_TYPES.add(Column_1603024);
+			KNOWN_ELEMENT_TYPES.add(LayerHolder_1603020);
 			KNOWN_ELEMENT_TYPES.add(InputText_1603004);
 			KNOWN_ELEMENT_TYPES.add(Label_1603005);
 			KNOWN_ELEMENT_TYPES.add(OutputText_1603006);
 			KNOWN_ELEMENT_TYPES.add(CheckBox_1603007);
-			KNOWN_ELEMENT_TYPES.add(Table_1603008);
-			KNOWN_ELEMENT_TYPES.add(Column_1603009);
+			KNOWN_ELEMENT_TYPES.add(Tree_1603016);
+			KNOWN_ELEMENT_TYPES.add(Button_1603017);
 			KNOWN_ELEMENT_TYPES.add(DropDownSelection_1603010);
+			KNOWN_ELEMENT_TYPES.add(Table_1603021);
 			KNOWN_ELEMENT_TYPES.add(InputText_1603012);
 			KNOWN_ELEMENT_TYPES.add(Label_1603013);
 			KNOWN_ELEMENT_TYPES.add(OutputText_1603014);
 			KNOWN_ELEMENT_TYPES.add(CheckBox_1603015);
-			KNOWN_ELEMENT_TYPES.add(Tree_1603016);
-			KNOWN_ELEMENT_TYPES.add(Button_1603017);
+			KNOWN_ELEMENT_TYPES.add(Tree_1603022);
+			KNOWN_ELEMENT_TYPES.add(Button_1603023);
 		}
 		return KNOWN_ELEMENT_TYPES.contains(elementType);
 	}
@@ -340,6 +373,12 @@ public class DomainElementTypes {
 			return LayerHolder_1603019;
 		case DropDownSelectionEditPart.VISUAL_ID:
 			return DropDownSelection_1603002;
+		case TableEditPart.VISUAL_ID:
+			return Table_1603008;
+		case ColumnEditPart.VISUAL_ID:
+			return Column_1603024;
+		case LayerHolder3EditPart.VISUAL_ID:
+			return LayerHolder_1603020;
 		case InputTextEditPart.VISUAL_ID:
 			return InputText_1603004;
 		case LabelEditPart.VISUAL_ID:
@@ -348,12 +387,14 @@ public class DomainElementTypes {
 			return OutputText_1603006;
 		case CheckBoxEditPart.VISUAL_ID:
 			return CheckBox_1603007;
-		case TableEditPart.VISUAL_ID:
-			return Table_1603008;
-		case ColumnEditPart.VISUAL_ID:
-			return Column_1603009;
+		case TreeEditPart.VISUAL_ID:
+			return Tree_1603016;
+		case ButtonEditPart.VISUAL_ID:
+			return Button_1603017;
 		case DropDownSelection2EditPart.VISUAL_ID:
 			return DropDownSelection_1603010;
+		case Table2EditPart.VISUAL_ID:
+			return Table_1603021;
 		case InputText2EditPart.VISUAL_ID:
 			return InputText_1603012;
 		case Label2EditPart.VISUAL_ID:
@@ -362,10 +403,10 @@ public class DomainElementTypes {
 			return OutputText_1603014;
 		case CheckBox2EditPart.VISUAL_ID:
 			return CheckBox_1603015;
-		case TreeEditPart.VISUAL_ID:
-			return Tree_1603016;
-		case ButtonEditPart.VISUAL_ID:
-			return Button_1603017;
+		case Tree2EditPart.VISUAL_ID:
+			return Tree_1603022;
+		case Button2EditPart.VISUAL_ID:
+			return Button_1603023;
 		}
 		return null;
 	}

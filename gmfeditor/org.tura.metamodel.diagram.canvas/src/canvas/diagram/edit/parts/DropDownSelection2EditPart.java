@@ -4,11 +4,8 @@
 package canvas.diagram.edit.parts;
 
 import org.eclipse.draw2d.IFigure;
-import org.eclipse.draw2d.MarginBorder;
-import org.eclipse.draw2d.RoundedRectangle;
 import org.eclipse.draw2d.Shape;
 import org.eclipse.draw2d.StackLayout;
-import org.eclipse.draw2d.geometry.Dimension;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPolicy;
 import org.eclipse.gef.Request;
@@ -22,6 +19,7 @@ import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.swt.graphics.Color;
+import org.tura.metamodel.commons.figures.DropDownFigure;
 
 import canvas.diagram.edit.policies.DropDownSelection2ItemSemanticEditPolicy;
 
@@ -94,14 +92,14 @@ public class DropDownSelection2EditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected IFigure createNodeShape() {
-		return primaryShape = new DropDownSelectionFigure();
+		return primaryShape = new DropDownFigure();
 	}
 
 	/**
 	 * @generated
 	 */
-	public DropDownSelectionFigure getPrimaryShape() {
-		return (DropDownSelectionFigure) primaryShape;
+	public DropDownFigure getPrimaryShape() {
+		return (DropDownFigure) primaryShape;
 	}
 
 	/**
@@ -183,24 +181,6 @@ public class DropDownSelection2EditPart extends ShapeNodeEditPart {
 		if (primaryShape instanceof Shape) {
 			((Shape) primaryShape).setLineStyle(style);
 		}
-	}
-
-	/**
-	 * @generated
-	 */
-	public class DropDownSelectionFigure extends RoundedRectangle {
-
-		/**
-		 * @generated
-		 */
-		public DropDownSelectionFigure() {
-			this.setCornerDimensions(new Dimension(getMapMode().DPtoLP(8),
-					getMapMode().DPtoLP(8)));
-			this.setBorder(new MarginBorder(getMapMode().DPtoLP(5),
-					getMapMode().DPtoLP(5), getMapMode().DPtoLP(5),
-					getMapMode().DPtoLP(5)));
-		}
-
 	}
 
 }

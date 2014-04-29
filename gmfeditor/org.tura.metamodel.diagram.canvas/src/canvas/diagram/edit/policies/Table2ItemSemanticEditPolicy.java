@@ -16,21 +16,21 @@ import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.View;
 
 import canvas.diagram.edit.parts.ColumnEditPart;
-import canvas.diagram.edit.parts.TableTableColsCompartmentEditPart;
+import canvas.diagram.edit.parts.TableTableColsCompartment2EditPart;
 import canvas.diagram.part.DomainVisualIDRegistry;
 import canvas.diagram.providers.DomainElementTypes;
 
 /**
  * @generated
  */
-public class TableItemSemanticEditPolicy extends
+public class Table2ItemSemanticEditPolicy extends
 		DomainBaseItemSemanticEditPolicy {
 
 	/**
 	 * @generated
 	 */
-	public TableItemSemanticEditPolicy() {
-		super(DomainElementTypes.Table_1603008);
+	public Table2ItemSemanticEditPolicy() {
+		super(DomainElementTypes.Table_1603021);
 	}
 
 	/**
@@ -62,7 +62,7 @@ public class TableItemSemanticEditPolicy extends
 		for (Iterator<?> nit = view.getChildren().iterator(); nit.hasNext();) {
 			Node node = (Node) nit.next();
 			switch (DomainVisualIDRegistry.getVisualID(node)) {
-			case TableTableColsCompartmentEditPart.VISUAL_ID:
+			case TableTableColsCompartment2EditPart.VISUAL_ID:
 				for (Iterator<?> cit = node.getChildren().iterator(); cit
 						.hasNext();) {
 					Node cnode = (Node) cit.next();

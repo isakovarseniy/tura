@@ -4,8 +4,11 @@
 package canvas.diagram.edit.parts;
 
 import org.eclipse.draw2d.IFigure;
+import org.eclipse.draw2d.MarginBorder;
+import org.eclipse.draw2d.RoundedRectangle;
 import org.eclipse.draw2d.Shape;
 import org.eclipse.draw2d.StackLayout;
+import org.eclipse.draw2d.geometry.Dimension;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPolicy;
 import org.eclipse.gef.Request;
@@ -26,18 +29,18 @@ import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.Font;
 import org.eclipse.swt.widgets.Display;
 
-import canvas.diagram.edit.policies.ButtonItemSemanticEditPolicy;
+import canvas.diagram.edit.policies.Tree2ItemSemanticEditPolicy;
 import canvas.diagram.part.DomainVisualIDRegistry;
 
 /**
  * @generated
  */
-public class ButtonEditPart extends ShapeNodeEditPart {
+public class Tree2EditPart extends ShapeNodeEditPart {
 
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 1603017;
+	public static final int VISUAL_ID = 1603022;
 
 	/**
 	 * @generated
@@ -52,7 +55,7 @@ public class ButtonEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	public ButtonEditPart(View view) {
+	public Tree2EditPart(View view) {
 		super(view);
 	}
 
@@ -62,7 +65,7 @@ public class ButtonEditPart extends ShapeNodeEditPart {
 	protected void createDefaultEditPolicies() {
 		super.createDefaultEditPolicies();
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
-				new ButtonItemSemanticEditPolicy());
+				new Tree2ItemSemanticEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
 		// XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
 		// removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
@@ -98,23 +101,23 @@ public class ButtonEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected IFigure createNodeShape() {
-		return primaryShape = new ButtonFigure();
+		return primaryShape = new TreeFigure();
 	}
 
 	/**
 	 * @generated
 	 */
-	public ButtonFigure getPrimaryShape() {
-		return (ButtonFigure) primaryShape;
+	public TreeFigure getPrimaryShape() {
+		return (TreeFigure) primaryShape;
 	}
 
 	/**
 	 * @generated
 	 */
 	protected boolean addFixedChild(EditPart childEditPart) {
-		if (childEditPart instanceof ButtonLabelEditPart) {
-			((ButtonLabelEditPart) childEditPart).setLabel(getPrimaryShape()
-					.getFigureButtonLabelFigure());
+		if (childEditPart instanceof TreeLabel2EditPart) {
+			((TreeLabel2EditPart) childEditPart).setLabel(getPrimaryShape()
+					.getFigureTreeLabelFigure());
 			return true;
 		}
 		return false;
@@ -124,7 +127,7 @@ public class ButtonEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected boolean removeFixedChild(EditPart childEditPart) {
-		if (childEditPart instanceof ButtonLabelEditPart) {
+		if (childEditPart instanceof TreeLabel2EditPart) {
 			return true;
 		}
 		return false;
@@ -248,24 +251,28 @@ public class ButtonEditPart extends ShapeNodeEditPart {
 	 */
 	public EditPart getPrimaryChildEditPart() {
 		return getChildBySemanticHint(DomainVisualIDRegistry
-				.getType(ButtonLabelEditPart.VISUAL_ID));
+				.getType(TreeLabel2EditPart.VISUAL_ID));
 	}
 
 	/**
 	 * @generated
 	 */
-	public class ButtonFigure extends
-			org.tura.metamodel.commons.figures.ButtonFigure {
+	public class TreeFigure extends RoundedRectangle {
 
 		/**
 		 * @generated
 		 */
-		private WrappingLabel fFigureButtonLabelFigure;
+		private WrappingLabel fFigureTreeLabelFigure;
 
 		/**
 		 * @generated
 		 */
-		public ButtonFigure() {
+		public TreeFigure() {
+			this.setCornerDimensions(new Dimension(getMapMode().DPtoLP(8),
+					getMapMode().DPtoLP(8)));
+			this.setBorder(new MarginBorder(getMapMode().DPtoLP(5),
+					getMapMode().DPtoLP(5), getMapMode().DPtoLP(5),
+					getMapMode().DPtoLP(5)));
 			createContents();
 		}
 
@@ -274,21 +281,21 @@ public class ButtonEditPart extends ShapeNodeEditPart {
 		 */
 		private void createContents() {
 
-			fFigureButtonLabelFigure = new WrappingLabel();
+			fFigureTreeLabelFigure = new WrappingLabel();
 
-			fFigureButtonLabelFigure.setText("Button");
+			fFigureTreeLabelFigure.setText("Tree");
 
-			fFigureButtonLabelFigure.setFont(FFIGUREBUTTONLABELFIGURE_FONT);
+			fFigureTreeLabelFigure.setFont(FFIGURETREELABELFIGURE_FONT);
 
-			this.add(fFigureButtonLabelFigure);
+			this.add(fFigureTreeLabelFigure);
 
 		}
 
 		/**
 		 * @generated
 		 */
-		public WrappingLabel getFigureButtonLabelFigure() {
-			return fFigureButtonLabelFigure;
+		public WrappingLabel getFigureTreeLabelFigure() {
+			return fFigureTreeLabelFigure;
 		}
 
 	}
@@ -296,7 +303,7 @@ public class ButtonEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	static final Font FFIGUREBUTTONLABELFIGURE_FONT = new Font(
+	static final Font FFIGURETREELABELFIGURE_FONT = new Font(
 			Display.getCurrent(), "Palatino", 12, SWT.ITALIC);
 
 }

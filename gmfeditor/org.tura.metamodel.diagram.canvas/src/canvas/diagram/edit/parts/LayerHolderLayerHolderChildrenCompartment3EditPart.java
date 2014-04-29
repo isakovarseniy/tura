@@ -4,9 +4,8 @@
 package canvas.diagram.edit.parts;
 
 import org.eclipse.draw2d.IFigure;
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.gef.EditPolicy;
-import org.eclipse.gmf.runtime.diagram.ui.editparts.ListCompartmentEditPart;
+import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeCompartmentEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.DragDropEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.ResizableCompartmentEditPolicy;
@@ -15,41 +14,34 @@ import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.gmf.tooling.runtime.edit.policies.reparent.CreationEditPolicyWithCustomReparent;
 
-import canvas.diagram.edit.policies.ColumnColumnElementCompartmentCanonicalEditPolicy;
-import canvas.diagram.edit.policies.ColumnColumnElementCompartmentItemSemanticEditPolicy;
+import canvas.diagram.edit.policies.LayerHolderLayerHolderChildrenCompartment3CanonicalEditPolicy;
+import canvas.diagram.edit.policies.LayerHolderLayerHolderChildrenCompartment3ItemSemanticEditPolicy;
 import canvas.diagram.part.DomainVisualIDRegistry;
 import canvas.diagram.part.Messages;
 
 /**
  * @generated
  */
-public class ColumnColumnElementCompartmentEditPart extends
-		ListCompartmentEditPart {
+public class LayerHolderLayerHolderChildrenCompartment3EditPart extends
+		ShapeCompartmentEditPart {
 
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 1607011;
+	public static final int VISUAL_ID = 1607009;
 
 	/**
 	 * @generated
 	 */
-	public ColumnColumnElementCompartmentEditPart(View view) {
+	public LayerHolderLayerHolderChildrenCompartment3EditPart(View view) {
 		super(view);
 	}
 
 	/**
 	 * @generated
 	 */
-	protected boolean hasModelChildrenChanged(Notification evt) {
-		return false;
-	}
-
-	/**
-	 * @generated
-	 */
 	public String getCompartmentName() {
-		return Messages.ColumnColumnElementCompartmentEditPart_title;
+		return Messages.LayerHolderLayerHolderChildrenCompartment3EditPart_title;
 	}
 
 	/**
@@ -70,15 +62,17 @@ public class ColumnColumnElementCompartmentEditPart extends
 		super.createDefaultEditPolicies();
 		installEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE,
 				new ResizableCompartmentEditPolicy());
-		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
-				new ColumnColumnElementCompartmentItemSemanticEditPolicy());
+		installEditPolicy(
+				EditPolicyRoles.SEMANTIC_ROLE,
+				new LayerHolderLayerHolderChildrenCompartment3ItemSemanticEditPolicy());
 		installEditPolicy(EditPolicyRoles.CREATION_ROLE,
 				new CreationEditPolicyWithCustomReparent(
 						DomainVisualIDRegistry.TYPED_INSTANCE));
 		installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE,
 				new DragDropEditPolicy());
-		installEditPolicy(EditPolicyRoles.CANONICAL_ROLE,
-				new ColumnColumnElementCompartmentCanonicalEditPolicy());
+		installEditPolicy(
+				EditPolicyRoles.CANONICAL_ROLE,
+				new LayerHolderLayerHolderChildrenCompartment3CanonicalEditPolicy());
 	}
 
 	/**

@@ -20,14 +20,14 @@ import canvas.diagram.providers.DomainElementTypes;
 /**
  * @generated
  */
-public class LayerHolderLayerHolderChildrenCompartmentItemSemanticEditPolicy
+public class LayerHolderLayerHolderChildrenCompartment3ItemSemanticEditPolicy
 		extends DomainBaseItemSemanticEditPolicy {
 
 	/**
 	 * @generated
 	 */
-	public LayerHolderLayerHolderChildrenCompartmentItemSemanticEditPolicy() {
-		super(DomainElementTypes.LayerHolder_1602003);
+	public LayerHolderLayerHolderChildrenCompartment3ItemSemanticEditPolicy() {
+		super(DomainElementTypes.LayerHolder_1603020);
 	}
 
 	/**

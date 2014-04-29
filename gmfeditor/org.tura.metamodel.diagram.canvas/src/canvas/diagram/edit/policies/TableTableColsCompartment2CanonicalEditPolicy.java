@@ -24,15 +24,7 @@ import org.eclipse.gmf.runtime.emf.core.util.EObjectAdapter;
 import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.View;
 
-import canvas.diagram.edit.parts.Button2EditPart;
-import canvas.diagram.edit.parts.CheckBox2EditPart;
-import canvas.diagram.edit.parts.DropDownSelection2EditPart;
-import canvas.diagram.edit.parts.InputText2EditPart;
-import canvas.diagram.edit.parts.Label2EditPart;
-import canvas.diagram.edit.parts.LayerHolder3EditPart;
-import canvas.diagram.edit.parts.OutputText2EditPart;
-import canvas.diagram.edit.parts.Table2EditPart;
-import canvas.diagram.edit.parts.Tree2EditPart;
+import canvas.diagram.edit.parts.ColumnEditPart;
 import canvas.diagram.part.DomainDiagramUpdater;
 import canvas.diagram.part.DomainNodeDescriptor;
 import canvas.diagram.part.DomainVisualIDRegistry;
@@ -41,7 +33,7 @@ import domain.DomainPackage;
 /**
  * @generated
  */
-public class ColumnColumnElementCompartmentCanonicalEditPolicy extends
+public class TableTableColsCompartment2CanonicalEditPolicy extends
 		CanonicalEditPolicy {
 
 	/**
@@ -60,7 +52,7 @@ public class ColumnColumnElementCompartmentCanonicalEditPolicy extends
 	 * @generated
 	 */
 	protected EStructuralFeature getFeatureToSynchronize() {
-		return DomainPackage.eINSTANCE.getColumn_Element();
+		return DomainPackage.eINSTANCE.getTable_Cols();
 	}
 
 	/**
@@ -71,7 +63,7 @@ public class ColumnColumnElementCompartmentCanonicalEditPolicy extends
 		View viewObject = (View) getHost().getModel();
 		LinkedList<EObject> result = new LinkedList<EObject>();
 		List<DomainNodeDescriptor> childDescriptors = DomainDiagramUpdater
-				.getColumnColumnElementCompartment_1607011SemanticChildren(viewObject);
+				.getTableTableColsCompartment_1607010SemanticChildren(viewObject);
 		for (DomainNodeDescriptor d : childDescriptors) {
 			result.add(d.getModelElement());
 		}
@@ -91,20 +83,8 @@ public class ColumnColumnElementCompartmentCanonicalEditPolicy extends
 	 * @generated
 	 */
 	private boolean isMyDiagramElement(View view) {
-		int visualID = DomainVisualIDRegistry.getVisualID(view);
-		switch (visualID) {
-		case LayerHolder3EditPart.VISUAL_ID:
-		case DropDownSelection2EditPart.VISUAL_ID:
-		case Table2EditPart.VISUAL_ID:
-		case InputText2EditPart.VISUAL_ID:
-		case Label2EditPart.VISUAL_ID:
-		case OutputText2EditPart.VISUAL_ID:
-		case CheckBox2EditPart.VISUAL_ID:
-		case Tree2EditPart.VISUAL_ID:
-		case Button2EditPart.VISUAL_ID:
-			return true;
-		}
-		return false;
+		return ColumnEditPart.VISUAL_ID == DomainVisualIDRegistry
+				.getVisualID(view);
 	}
 
 	/**
@@ -116,7 +96,7 @@ public class ColumnColumnElementCompartmentCanonicalEditPolicy extends
 		}
 		LinkedList<IAdaptable> createdViews = new LinkedList<IAdaptable>();
 		List<DomainNodeDescriptor> childDescriptors = DomainDiagramUpdater
-				.getColumnColumnElementCompartment_1607011SemanticChildren((View) getHost()
+				.getTableTableColsCompartment_1607010SemanticChildren((View) getHost()
 						.getModel());
 		LinkedList<View> orphaned = new LinkedList<View>();
 		// we care to check only views we recognize as ours

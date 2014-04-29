@@ -19,8 +19,8 @@ import org.eclipse.gmf.runtime.notation.impl.NodeImpl;
 import org.eclipse.gmf.tooling.runtime.edit.policies.reparent.CreationEditPolicyWithCustomReparent;
 import org.tura.metamodel.commons.editparts.HTMLLikeLayout;
 
-import canvas.diagram.edit.policies.LayerHolderLayerHolderChildrenCompartmentCanonicalEditPolicy;
-import canvas.diagram.edit.policies.LayerHolderLayerHolderChildrenCompartmentItemSemanticEditPolicy;
+import canvas.diagram.edit.policies.TableTableColsCompartmentCanonicalEditPolicy;
+import canvas.diagram.edit.policies.TableTableColsCompartmentItemSemanticEditPolicy;
 import canvas.diagram.part.DomainVisualIDRegistry;
 import canvas.diagram.part.Messages;
 import domain.HTMLLayerHolder;
@@ -28,18 +28,17 @@ import domain.HTMLLayerHolder;
 /**
  * @generated
  */
-public class LayerHolderLayerHolderChildrenCompartmentEditPart extends
-		ShapeCompartmentEditPart {
+public class TableTableColsCompartmentEditPart extends ShapeCompartmentEditPart {
 
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 1607007;
+	public static final int VISUAL_ID = 1607003;
 
 	/**
 	 * @generated
 	 */
-	public LayerHolderLayerHolderChildrenCompartmentEditPart(View view) {
+	public TableTableColsCompartmentEditPart(View view) {
 		super(view);
 	}
 
@@ -47,7 +46,7 @@ public class LayerHolderLayerHolderChildrenCompartmentEditPart extends
 	 * @generated
 	 */
 	public String getCompartmentName() {
-		return Messages.LayerHolderLayerHolderChildrenCompartmentEditPart_title;
+		return Messages.TableTableColsCompartmentEditPart_title;
 	}
 
 	/**
@@ -106,17 +105,15 @@ public class LayerHolderLayerHolderChildrenCompartmentEditPart extends
 		super.createDefaultEditPolicies();
 		installEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE,
 				new ResizableCompartmentEditPolicy());
-		installEditPolicy(
-				EditPolicyRoles.SEMANTIC_ROLE,
-				new LayerHolderLayerHolderChildrenCompartmentItemSemanticEditPolicy());
+		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
+				new TableTableColsCompartmentItemSemanticEditPolicy());
 		installEditPolicy(EditPolicyRoles.CREATION_ROLE,
 				new CreationEditPolicyWithCustomReparent(
 						DomainVisualIDRegistry.TYPED_INSTANCE));
 		installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE,
 				new DragDropEditPolicy());
-		installEditPolicy(
-				EditPolicyRoles.CANONICAL_ROLE,
-				new LayerHolderLayerHolderChildrenCompartmentCanonicalEditPolicy());
+		installEditPolicy(EditPolicyRoles.CANONICAL_ROLE,
+				new TableTableColsCompartmentCanonicalEditPolicy());
 	}
 
 	/**

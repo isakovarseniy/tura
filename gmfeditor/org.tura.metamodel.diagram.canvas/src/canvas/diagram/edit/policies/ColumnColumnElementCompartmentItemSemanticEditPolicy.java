@@ -6,11 +6,15 @@ package canvas.diagram.edit.policies;
 import org.eclipse.gef.commands.Command;
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 
+import canvas.diagram.edit.commands.Button2CreateCommand;
 import canvas.diagram.edit.commands.CheckBox2CreateCommand;
 import canvas.diagram.edit.commands.DropDownSelection2CreateCommand;
 import canvas.diagram.edit.commands.InputText2CreateCommand;
 import canvas.diagram.edit.commands.Label2CreateCommand;
+import canvas.diagram.edit.commands.LayerHolder3CreateCommand;
 import canvas.diagram.edit.commands.OutputText2CreateCommand;
+import canvas.diagram.edit.commands.Table2CreateCommand;
+import canvas.diagram.edit.commands.Tree2CreateCommand;
 import canvas.diagram.providers.DomainElementTypes;
 
 /**
@@ -23,16 +27,22 @@ public class ColumnColumnElementCompartmentItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	public ColumnColumnElementCompartmentItemSemanticEditPolicy() {
-		super(DomainElementTypes.Column_1603009);
+		super(DomainElementTypes.Column_1603024);
 	}
 
 	/**
 	 * @generated
 	 */
 	protected Command getCreateCommand(CreateElementRequest req) {
+		if (DomainElementTypes.LayerHolder_1603020 == req.getElementType()) {
+			return getGEFWrapper(new LayerHolder3CreateCommand(req));
+		}
 		if (DomainElementTypes.DropDownSelection_1603010 == req
 				.getElementType()) {
 			return getGEFWrapper(new DropDownSelection2CreateCommand(req));
+		}
+		if (DomainElementTypes.Table_1603021 == req.getElementType()) {
+			return getGEFWrapper(new Table2CreateCommand(req));
 		}
 		if (DomainElementTypes.InputText_1603012 == req.getElementType()) {
 			return getGEFWrapper(new InputText2CreateCommand(req));
@@ -45,6 +55,12 @@ public class ColumnColumnElementCompartmentItemSemanticEditPolicy extends
 		}
 		if (DomainElementTypes.CheckBox_1603015 == req.getElementType()) {
 			return getGEFWrapper(new CheckBox2CreateCommand(req));
+		}
+		if (DomainElementTypes.Tree_1603022 == req.getElementType()) {
+			return getGEFWrapper(new Tree2CreateCommand(req));
+		}
+		if (DomainElementTypes.Button_1603023 == req.getElementType()) {
+			return getGEFWrapper(new Button2CreateCommand(req));
 		}
 		return super.getCreateCommand(req);
 	}

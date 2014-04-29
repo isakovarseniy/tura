@@ -21,7 +21,7 @@ import canvas.diagram.edit.parts.DropDownSelectionEditPart;
 import canvas.diagram.edit.parts.InputTextEditPart;
 import canvas.diagram.edit.parts.LabelEditPart;
 import canvas.diagram.edit.parts.LayerHolder2EditPart;
-import canvas.diagram.edit.parts.LayerHolderLayerHolderChildrenCompartment2EditPart;
+import canvas.diagram.edit.parts.LayerHolderLayerHolderChildrenCompartment3EditPart;
 import canvas.diagram.edit.parts.OutputTextEditPart;
 import canvas.diagram.edit.parts.TableEditPart;
 import canvas.diagram.edit.parts.TreeEditPart;
@@ -31,14 +31,14 @@ import canvas.diagram.providers.DomainElementTypes;
 /**
  * @generated
  */
-public class LayerHolder2ItemSemanticEditPolicy extends
+public class LayerHolder3ItemSemanticEditPolicy extends
 		DomainBaseItemSemanticEditPolicy {
 
 	/**
 	 * @generated
 	 */
-	public LayerHolder2ItemSemanticEditPolicy() {
-		super(DomainElementTypes.LayerHolder_1603019);
+	public LayerHolder3ItemSemanticEditPolicy() {
+		super(DomainElementTypes.LayerHolder_1603020);
 	}
 
 	/**
@@ -70,7 +70,7 @@ public class LayerHolder2ItemSemanticEditPolicy extends
 		for (Iterator<?> nit = view.getChildren().iterator(); nit.hasNext();) {
 			Node node = (Node) nit.next();
 			switch (DomainVisualIDRegistry.getVisualID(node)) {
-			case LayerHolderLayerHolderChildrenCompartment2EditPart.VISUAL_ID:
+			case LayerHolderLayerHolderChildrenCompartment3EditPart.VISUAL_ID:
 				for (Iterator<?> cit = node.getChildren().iterator(); cit
 						.hasNext();) {
 					Node cnode = (Node) cit.next();

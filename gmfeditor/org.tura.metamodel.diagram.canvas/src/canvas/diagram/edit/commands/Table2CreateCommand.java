@@ -22,12 +22,12 @@ import domain.Table;
 /**
  * @generated
  */
-public class ColumnCreateCommand extends EditElementCommand {
+public class Table2CreateCommand extends EditElementCommand {
 
 	/**
 	 * @generated
 	 */
-	public ColumnCreateCommand(CreateElementRequest req) {
+	public Table2CreateCommand(CreateElementRequest req) {
 		super(req.getLabel(), null, req);
 	}
 
@@ -48,6 +48,10 @@ public class ColumnCreateCommand extends EditElementCommand {
 	 * @generated
 	 */
 	public boolean canExecute() {
+		Column container = (Column) getElementToEdit();
+		if (container.getElement() != null) {
+			return false;
+		}
 		return true;
 
 	}
@@ -57,10 +61,10 @@ public class ColumnCreateCommand extends EditElementCommand {
 	 */
 	protected CommandResult doExecuteWithResult(IProgressMonitor monitor,
 			IAdaptable info) throws ExecutionException {
-		Column newElement = DomainFactory.eINSTANCE.createColumn();
+		Table newElement = DomainFactory.eINSTANCE.createTable();
 
-		Table owner = (Table) getElementToEdit();
-		owner.getCols().add(newElement);
+		Column owner = (Column) getElementToEdit();
+		owner.setElement(newElement);
 
 		newElement.setUid(java.util.UUID.randomUUID().toString());
 
@@ -73,7 +77,7 @@ public class ColumnCreateCommand extends EditElementCommand {
 	/**
 	 * @generated
 	 */
-	protected void doConfigure(Column newElement, IProgressMonitor monitor,
+	protected void doConfigure(Table newElement, IProgressMonitor monitor,
 			IAdaptable info) throws ExecutionException {
 		IElementType elementType = ((CreateElementRequest) getRequest())
 				.getElementType();

@@ -55,13 +55,13 @@ import canvas.diagram.providers.DomainParserProvider;
 /**
  * @generated
  */
-public class ColumnLabelEditPart extends CompartmentEditPart implements
+public class TableLabel2EditPart extends CompartmentEditPart implements
 		ITextAwareEditPart {
 
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 1605010;
+	public static final int VISUAL_ID = 1605007;
 
 	/**
 	 * @generated
@@ -91,7 +91,7 @@ public class ColumnLabelEditPart extends CompartmentEditPart implements
 	/**
 	 * @generated
 	 */
-	public ColumnLabelEditPart(View view) {
+	public TableLabel2EditPart(View view) {
 		super(view);
 	}
 
@@ -313,10 +313,10 @@ public class ColumnLabelEditPart extends CompartmentEditPart implements
 		if (parser == null) {
 			parser = DomainParserProvider
 					.getParser(
-							DomainElementTypes.Column_1603024,
+							DomainElementTypes.Table_1603021,
 							getParserElement(),
 							DomainVisualIDRegistry
-									.getType(canvas.diagram.edit.parts.ColumnLabelEditPart.VISUAL_ID));
+									.getType(canvas.diagram.edit.parts.TableLabel2EditPart.VISUAL_ID));
 		}
 		return parser;
 	}

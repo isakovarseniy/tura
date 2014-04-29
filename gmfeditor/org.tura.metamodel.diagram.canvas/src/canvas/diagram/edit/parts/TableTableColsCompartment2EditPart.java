@@ -4,9 +4,8 @@
 package canvas.diagram.edit.parts;
 
 import org.eclipse.draw2d.IFigure;
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.gef.EditPolicy;
-import org.eclipse.gmf.runtime.diagram.ui.editparts.ListCompartmentEditPart;
+import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeCompartmentEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.DragDropEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.ResizableCompartmentEditPolicy;
@@ -15,41 +14,34 @@ import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.gmf.tooling.runtime.edit.policies.reparent.CreationEditPolicyWithCustomReparent;
 
-import canvas.diagram.edit.policies.TableTableColumnsCompartmentCanonicalEditPolicy;
-import canvas.diagram.edit.policies.TableTableColumnsCompartmentItemSemanticEditPolicy;
+import canvas.diagram.edit.policies.TableTableColsCompartment2CanonicalEditPolicy;
+import canvas.diagram.edit.policies.TableTableColsCompartment2ItemSemanticEditPolicy;
 import canvas.diagram.part.DomainVisualIDRegistry;
 import canvas.diagram.part.Messages;
 
 /**
  * @generated
  */
-public class TableTableColumnsCompartmentEditPart extends
-		ListCompartmentEditPart {
+public class TableTableColsCompartment2EditPart extends
+		ShapeCompartmentEditPart {
 
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 1607003;
+	public static final int VISUAL_ID = 1607010;
 
 	/**
 	 * @generated
 	 */
-	public TableTableColumnsCompartmentEditPart(View view) {
+	public TableTableColsCompartment2EditPart(View view) {
 		super(view);
 	}
 
 	/**
 	 * @generated
 	 */
-	protected boolean hasModelChildrenChanged(Notification evt) {
-		return false;
-	}
-
-	/**
-	 * @generated
-	 */
 	public String getCompartmentName() {
-		return Messages.TableTableColumnsCompartmentEditPart_title;
+		return Messages.TableTableColsCompartment2EditPart_title;
 	}
 
 	/**
@@ -71,14 +63,14 @@ public class TableTableColumnsCompartmentEditPart extends
 		installEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE,
 				new ResizableCompartmentEditPolicy());
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
-				new TableTableColumnsCompartmentItemSemanticEditPolicy());
+				new TableTableColsCompartment2ItemSemanticEditPolicy());
 		installEditPolicy(EditPolicyRoles.CREATION_ROLE,
 				new CreationEditPolicyWithCustomReparent(
 						DomainVisualIDRegistry.TYPED_INSTANCE));
 		installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE,
 				new DragDropEditPolicy());
 		installEditPolicy(EditPolicyRoles.CANONICAL_ROLE,
-				new TableTableColumnsCompartmentCanonicalEditPolicy());
+				new TableTableColsCompartment2CanonicalEditPolicy());
 	}
 
 	/**
