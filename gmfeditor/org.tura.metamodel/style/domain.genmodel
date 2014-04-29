@@ -553,7 +553,7 @@
     </genClasses>
     <genClasses ecoreClass="domain.ecore#//Table">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//Table/label"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//Table/columns"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//Table/cols"/>
     </genClasses>
     <genClasses ecoreClass="domain.ecore#//Tree">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//Tree/label"/>

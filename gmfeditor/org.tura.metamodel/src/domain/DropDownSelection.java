@@ -16,7 +16,7 @@ package domain;
  * </p>
  *
  * @see domain.DomainPackage#getDropDownSelection()
- * @model annotation="gmf.node label.placement='none' tool.small.bundle='org.tura.metamodel.commons' tool.small.path='icons/dropdownselection.png'"
+ * @model annotation="gmf.node figure='org.tura.metamodel.commons.figures.DropDownFigure' label.placement='none' tool.small.bundle='org.tura.metamodel.commons' tool.small.path='icons/dropdownselection.png'"
  * @generated
  */
 public interface DropDownSelection extends OptionSelection

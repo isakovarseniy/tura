@@ -4,7 +4,7 @@ package domain.impl;
 
 import domain.Column;
 import domain.DomainPackage;
-import domain.InputElement;
+import domain.Uielement;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -79,7 +79,7 @@ public class ColumnImpl extends StyleElementImpl implements Column
    * @generated
    * @ordered
    */
-  protected InputElement element;
+  protected Uielement element;
 
   /**
    * <!-- begin-user-doc -->
@@ -153,7 +153,7 @@ public class ColumnImpl extends StyleElementImpl implements Column
    * <!-- end-user-doc -->
    * @generated
    */
-  public InputElement getElement()
+  public Uielement getElement()
   {
     return element;
   }
@@ -163,9 +163,9 @@ public class ColumnImpl extends StyleElementImpl implements Column
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetElement(InputElement newElement, NotificationChain msgs)
+  public NotificationChain basicSetElement(Uielement newElement, NotificationChain msgs)
   {
-    InputElement oldElement = element;
+    Uielement oldElement = element;
     element = newElement;
     if (eNotificationRequired())
     {
@@ -180,7 +180,7 @@ public class ColumnImpl extends StyleElementImpl implements Column
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setElement(InputElement newElement)
+  public void setElement(Uielement newElement)
   {
     if (newElement != element)
     {
@@ -249,7 +249,7 @@ public class ColumnImpl extends StyleElementImpl implements Column
         setLabel((String)newValue);
         return;
       case DomainPackage.COLUMN__ELEMENT:
-        setElement((InputElement)newValue);
+        setElement((Uielement)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -272,7 +272,7 @@ public class ColumnImpl extends StyleElementImpl implements Column
         setLabel(LABEL_EDEFAULT);
         return;
       case DomainPackage.COLUMN__ELEMENT:
-        setElement((InputElement)null);
+        setElement((Uielement)null);
         return;
     }
     super.eUnset(featureID);

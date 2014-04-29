@@ -1522,17 +1522,6 @@ public class DomainFactoryImpl extends EFactoryImpl implements DomainFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public LayerHolder createLayerHolder()
-  {
-    LayerHolderImpl layerHolder = new LayerHolderImpl();
-    return layerHolder;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public InputElement createInputElement()
   {
     InputElementImpl inputElement = new InputElementImpl();
@@ -1559,6 +1548,17 @@ public class DomainFactoryImpl extends EFactoryImpl implements DomainFactory
   {
     OptionSelectionImpl optionSelection = new OptionSelectionImpl();
     return optionSelection;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public LayerHolder createLayerHolder()
+  {
+    LayerHolderImpl layerHolder = new LayerHolderImpl();
+    return layerHolder;
   }
 
   /**

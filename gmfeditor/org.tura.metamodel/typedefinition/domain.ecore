@@ -1215,6 +1215,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="InputText" eSuperTypes="#//InputElement">
     <eAnnotations source="gmf.node">
+      <details key="figure" value="org.tura.metamodel.commons.figures.InputTextFigure"/>
       <details key="label.placement" value="none"/>
       <details key="tool.small.bundle" value="org.tura.metamodel.commons"/>
       <details key="tool.small.path" value="icons/inputtext.png"/>
@@ -1223,16 +1224,22 @@
   <eClassifiers xsi:type="ecore:EClass" name="Label" eSuperTypes="#//InputElement">
     <eAnnotations source="gmf.node">
       <details key="label" value="label"/>
+      <details key="tool.small.bundle" value="org.tura.metamodel.commons"/>
+      <details key="tool.small.path" value="icons/label.png"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="label" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="OutputText" eSuperTypes="#//InputElement">
     <eAnnotations source="gmf.node">
+      <details key="figure" value="org.tura.metamodel.commons.figures.OutputTextFigure"/>
       <details key="label.placement" value="none"/>
+      <details key="tool.small.bundle" value="org.tura.metamodel.commons"/>
+      <details key="tool.small.path" value="icons/outputtext.png"/>
     </eAnnotations>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CheckBox" eSuperTypes="#//InputElement">
     <eAnnotations source="gmf.node">
+      <details key="figure" value="org.tura.metamodel.commons.figures.CheckBoxFigure"/>
       <details key="label.placement" value="none"/>
       <details key="tool.small.bundle" value="org.tura.metamodel.commons"/>
       <details key="tool.small.path" value="icons/checkbox.png"/>
@@ -1240,6 +1247,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DropDownSelection" eSuperTypes="#//OptionSelection">
     <eAnnotations source="gmf.node">
+      <details key="figure" value="org.tura.metamodel.commons.figures.DropDownFigure"/>
       <details key="label.placement" value="none"/>
       <details key="tool.small.bundle" value="org.tura.metamodel.commons"/>
       <details key="tool.small.path" value="icons/dropdownselection.png"/>
@@ -1256,25 +1264,23 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="label" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="element" eType="#//InputElement"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="element" eType="#//Uielement"
         containment="true">
       <eAnnotations source="gmf.compartment">
         <details key="layout" value="list"/>
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Table" eSuperTypes="#//SourcesPointer">
+  <eClassifiers xsi:type="ecore:EClass" name="Table" eSuperTypes="#//SourcesPointer #//HTMLLayerHolder">
     <eAnnotations source="gmf.node">
       <details key="label" value="label"/>
       <details key="tool.small.bundle" value="org.tura.metamodel.commons"/>
       <details key="tool.small.path" value="icons/table.png"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="label" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="columns" upperBound="-1"
-        eType="#//Column" containment="true">
-      <eAnnotations source="gmf.compartment">
-        <details key="layout" value="list"/>
-      </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="cols" upperBound="-1" eType="#//Column"
+        containment="true">
+      <eAnnotations source="gmf.compartment"/>
     </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Tree" eSuperTypes="#//SourcesPointer">
@@ -1289,7 +1295,10 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Button" eSuperTypes="#//ActionElement">
     <eAnnotations source="gmf.node">
+      <details key="figure" value="org.tura.metamodel.commons.figures.ButtonFigure"/>
       <details key="label" value="label"/>
+      <details key="tool.small.bundle" value="org.tura.metamodel.commons"/>
+      <details key="tool.small.path" value="icons/button.png"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="label" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>

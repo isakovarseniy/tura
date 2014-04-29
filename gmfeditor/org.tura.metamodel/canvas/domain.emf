@@ -804,7 +804,7 @@ class LayerHolder extends Uielement , ChildrenHolder, HTMLLayerHolder{
    
 }
 
-@gmf.node(label.placement="none",tool.small.bundle="org.tura.metamodel.commons",tool.small.path="icons/inputtext.png")
+@gmf.node(figure="org.tura.metamodel.commons.figures.InputTextFigure",label.placement="none",tool.small.bundle="org.tura.metamodel.commons",tool.small.path="icons/inputtext.png")
 class InputText extends InputElement {
    
 }
@@ -814,17 +814,17 @@ class Label extends InputElement {
   attr EString label;
 }
 
-@gmf.node(label.placement="none",tool.small.bundle="org.tura.metamodel.commons",tool.small.path="icons/outputtext.png")
+@gmf.node(figure="org.tura.metamodel.commons.figures.OutputTextFigure",label.placement="none",tool.small.bundle="org.tura.metamodel.commons",tool.small.path="icons/outputtext.png")
 class OutputText extends InputElement {
    
 }
 
-@gmf.node(label.placement="none",tool.small.bundle="org.tura.metamodel.commons",tool.small.path="icons/checkbox.png")
+@gmf.node(figure="org.tura.metamodel.commons.figures.CheckBoxFigure",label.placement="none",tool.small.bundle="org.tura.metamodel.commons",tool.small.path="icons/checkbox.png")
 class CheckBox extends InputElement {
    
 }
 
-@gmf.node(label.placement="none",tool.small.bundle="org.tura.metamodel.commons",tool.small.path="icons/dropdownselection.png")
+@gmf.node(figure="org.tura.metamodel.commons.figures.DropDownFigure",label.placement="none",tool.small.bundle="org.tura.metamodel.commons",tool.small.path="icons/dropdownselection.png")
 class DropDownSelection extends OptionSelection {
    val Selection selection;
 }
@@ -834,14 +834,14 @@ class Column extends StyleElement{
     id attr EString uid;
    attr EString label;
    @gmf.compartment(layout="list")
-   val InputElement element;   
+   val Uielement element;   
 }
 
 @gmf.node(label="label",tool.small.bundle="org.tura.metamodel.commons",tool.small.path="icons/table.png")
-class Table extends SourcesPointer{
+class Table extends SourcesPointer,HTMLLayerHolder{
    attr EString label;
-   @gmf.compartment(layout="list")
-    val Column[*] columns;
+   @gmf.compartment
+    val Column[*] cols;
 }
 
 @gmf.node(label="label",tool.small.bundle="org.tura.metamodel.commons",tool.small.path="icons/tree.png")
@@ -850,7 +850,7 @@ class Tree extends SourcesPointer{
    val Context image;
 }
 
-@gmf.node(label="label",tool.small.bundle="org.tura.metamodel.commons",tool.small.path="icons/button.png")
+@gmf.node(figure="org.tura.metamodel.commons.figures.ButtonFigure",label="label",tool.small.bundle="org.tura.metamodel.commons",tool.small.path="icons/button.png")
 class Button extends ActionElement{
    attr EString label;
 }

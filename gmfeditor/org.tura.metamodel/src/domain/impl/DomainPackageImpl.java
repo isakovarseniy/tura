@@ -885,13 +885,6 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass layerHolderEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   private EClass inputElementEClass = null;
 
   /**
@@ -907,6 +900,13 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * @generated
    */
   private EClass optionSelectionEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass layerHolderEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -5526,16 +5526,6 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getLayerHolder()
-  {
-    return layerHolderEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EClass getInputElement()
   {
     return inputElementEClass;
@@ -5599,6 +5589,16 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
   public EReference getOptionSelection_OptionCast()
   {
     return (EReference)optionSelectionEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getLayerHolder()
+  {
+    return layerHolderEClass;
   }
 
   /**
@@ -5736,7 +5736,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getTable_Columns()
+  public EReference getTable_Cols()
   {
     return (EReference)tableEClass.getEStructuralFeatures().get(1);
   }
@@ -7681,7 +7681,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
 
     tableEClass = createEClass(TABLE);
     createEAttribute(tableEClass, TABLE__LABEL);
-    createEReference(tableEClass, TABLE__COLUMNS);
+    createEReference(tableEClass, TABLE__COLS);
 
     treeEClass = createEClass(TREE);
     createEAttribute(treeEClass, TREE__LABEL);
@@ -7936,6 +7936,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     dropDownSelectionEClass.getESuperTypes().add(this.getOptionSelection());
     columnEClass.getESuperTypes().add(this.getStyleElement());
     tableEClass.getESuperTypes().add(this.getSourcesPointer());
+    tableEClass.getESuperTypes().add(this.getHTMLLayerHolder());
     treeEClass.getESuperTypes().add(this.getSourcesPointer());
     buttonEClass.getESuperTypes().add(this.getActionElement());
     artificialFieldEClass.getESuperTypes().add(this.getTypePointer());
@@ -8503,11 +8504,11 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     initEClass(columnEClass, Column.class, "Column", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getColumn_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, Column.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getColumn_Label(), ecorePackage.getEString(), "label", null, 0, 1, Column.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getColumn_Element(), this.getInputElement(), null, "element", null, 0, 1, Column.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getColumn_Element(), this.getUielement(), null, "element", null, 0, 1, Column.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(tableEClass, Table.class, "Table", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getTable_Label(), ecorePackage.getEString(), "label", null, 0, 1, Table.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getTable_Columns(), this.getColumn(), null, "columns", null, 0, -1, Table.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getTable_Cols(), this.getColumn(), null, "cols", null, 0, -1, Table.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(treeEClass, Tree.class, "Tree", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getTree_Label(), ecorePackage.getEString(), "label", null, 0, 1, Tree.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -9305,6 +9306,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
+       "figure", "org.tura.metamodel.commons.figures.InputTextFigure",
        "label.placement", "none",
        "tool.small.bundle", "org.tura.metamodel.commons",
        "tool.small.path", "icons/inputtext.png"
@@ -9314,20 +9316,26 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
-       "label", "label"
+       "label", "label",
+       "tool.small.bundle", "org.tura.metamodel.commons",
+       "tool.small.path", "icons/label.png"
        });		
     addAnnotation
       (outputTextEClass, 
        source, 
        new String[] 
        {
-       "label.placement", "none"
+       "figure", "org.tura.metamodel.commons.figures.OutputTextFigure",
+       "label.placement", "none",
+       "tool.small.bundle", "org.tura.metamodel.commons",
+       "tool.small.path", "icons/outputtext.png"
        });		
     addAnnotation
       (checkBoxEClass, 
        source, 
        new String[] 
        {
+       "figure", "org.tura.metamodel.commons.figures.CheckBoxFigure",
        "label.placement", "none",
        "tool.small.bundle", "org.tura.metamodel.commons",
        "tool.small.path", "icons/checkbox.png"
@@ -9337,6 +9345,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
+       "figure", "org.tura.metamodel.commons.figures.DropDownFigure",
        "label.placement", "none",
        "tool.small.bundle", "org.tura.metamodel.commons",
        "tool.small.path", "icons/dropdownselection.png"
@@ -9373,7 +9382,10 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
-       "label", "label"
+       "figure", "org.tura.metamodel.commons.figures.ButtonFigure",
+       "label", "label",
+       "tool.small.bundle", "org.tura.metamodel.commons",
+       "tool.small.path", "icons/button.png"
        });			
     addAnnotation
       (preFormTriggerEClass, 
@@ -9779,11 +9791,10 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        "layout", "list"
        });			
     addAnnotation
-      (getTable_Columns(), 
+      (getTable_Cols(), 
        source, 
        new String[] 
        {
-       "layout", "list"
        });																		
     addAnnotation
       (getRoot_PreFormTrigger(), 

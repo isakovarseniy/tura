@@ -941,15 +941,6 @@ public interface DomainFactory extends EFactory
   ActionElement createActionElement();
 
   /**
-   * Returns a new object of class '<em>Layer Holder</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Layer Holder</em>'.
-   * @generated
-   */
-  LayerHolder createLayerHolder();
-
-  /**
    * Returns a new object of class '<em>Input Element</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -975,6 +966,15 @@ public interface DomainFactory extends EFactory
    * @generated
    */
   OptionSelection createOptionSelection();
+
+  /**
+   * Returns a new object of class '<em>Layer Holder</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Layer Holder</em>'.
+   * @generated
+   */
+  LayerHolder createLayerHolder();
 
   /**
    * Returns a new object of class '<em>Input Text</em>'.

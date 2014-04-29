@@ -16,12 +16,11 @@ package domain;
  * </p>
  *
  * @see domain.DomainPackage#getButton()
- * @model annotation="gmf.node label='label'"
+ * @model annotation="gmf.node figure='org.tura.metamodel.commons.figures.ButtonFigure' label='label' tool.small.bundle='org.tura.metamodel.commons' tool.small.path='icons/button.png'"
  * @generated
  */
 public interface Button extends ActionElement
 {
-
   /**
    * Returns the value of the '<em><b>Label</b></em>' attribute.
    * <!-- begin-user-doc -->
@@ -47,4 +46,5 @@ public interface Button extends ActionElement
    * @generated
    */
   void setLabel(String value);
+
 } // Button

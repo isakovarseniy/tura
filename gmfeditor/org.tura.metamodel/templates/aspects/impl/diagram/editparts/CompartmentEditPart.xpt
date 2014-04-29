@@ -19,6 +19,12 @@
             «EXPAND compartmentHTMLLayout-»
 		«ELSEIF editPartClassName.indexOf('ViewElementCompartmentEditPart') > 0-»
             «EXPAND compartmentHTMLLayout-»
+		«ELSEIF editPartClassName.indexOf('ChildrenCompartment2EditPart') > 0-»
+            «EXPAND compartmentHTMLLayout-»
+		«ELSEIF editPartClassName.indexOf('ChildrenCompartmentEditPart') > 0-»
+            «EXPAND compartmentHTMLLayout-»
+		«ELSEIF editPartClassName.indexOf('TableColsCompartmentEditPart') > 0-»
+            «EXPAND compartmentHTMLLayout-»
 		«ELSE»
 		public org.eclipse.draw2d.IFigure createFigure() {
 			org.eclipse.gmf.runtime.diagram.ui.figures.ResizableCompartmentFigure result = (org.eclipse.gmf.runtime.diagram.ui.figures.ResizableCompartmentFigure) super.createFigure();

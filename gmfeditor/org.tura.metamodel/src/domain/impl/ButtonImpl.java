@@ -6,7 +6,9 @@ import domain.Button;
 import domain.DomainPackage;
 
 import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.ecore.EClass;
+
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
@@ -33,6 +35,7 @@ public class ButtonImpl extends ActionElementImpl implements Button
    * @ordered
    */
   protected static final String LABEL_EDEFAULT = null;
+
   /**
    * The cached value of the '{@link #getLabel() <em>Label</em>}' attribute.
    * <!-- begin-user-doc -->

@@ -2,18 +2,21 @@
  */
 package domain.impl;
 
-import java.util.Collection;
-
-import org.eclipse.emf.common.notify.NotificationChain;
-import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.InternalEList;
-
 import domain.DomainPackage;
 import domain.ViewElement;
 import domain.ViewPortHolder;
+
+import java.util.Collection;
+
+import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
+
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
+
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -39,6 +42,7 @@ public class ViewPortHolderImpl extends HTMLLayerHolderImpl implements ViewPortH
    * @ordered
    */
   protected EList<ViewElement> viewElement;
+
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

@@ -84,13 +84,13 @@ public interface Column extends StyleElement
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Element</em>' containment reference.
-   * @see #setElement(InputElement)
+   * @see #setElement(Uielement)
    * @see domain.DomainPackage#getColumn_Element()
    * @model containment="true"
    *        annotation="gmf.compartment layout='list'"
    * @generated
    */
-  InputElement getElement();
+  Uielement getElement();
 
   /**
    * Sets the value of the '{@link domain.Column#getElement <em>Element</em>}' containment reference.
@@ -100,6 +100,6 @@ public interface Column extends StyleElement
    * @see #getElement()
    * @generated
    */
-  void setElement(InputElement value);
+  void setElement(Uielement value);
 
 } // Column

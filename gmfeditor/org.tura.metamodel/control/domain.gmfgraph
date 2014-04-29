@@ -2325,17 +2325,9 @@
       <descriptors
           name="InputTextFigure">
         <actualFigure
-            xsi:type="gmfgraph:RoundedRectangle"
-            name="InputTextFigure">
-          <border
-              xsi:type="gmfgraph:MarginBorder">
-            <insets
-                top="5"
-                left="5"
-                bottom="5"
-                right="5"/>
-          </border>
-        </actualFigure>
+            xsi:type="gmfgraph:CustomFigure"
+            name="InputTextFigure"
+            qualifiedClassName="org.tura.metamodel.commons.figures.InputTextFigure"/>
       </descriptors>
       <descriptors
           name="LabelFigure">
@@ -2368,47 +2360,23 @@
       <descriptors
           name="OutputTextFigure">
         <actualFigure
-            xsi:type="gmfgraph:RoundedRectangle"
-            name="OutputTextFigure">
-          <border
-              xsi:type="gmfgraph:MarginBorder">
-            <insets
-                top="5"
-                left="5"
-                bottom="5"
-                right="5"/>
-          </border>
-        </actualFigure>
+            xsi:type="gmfgraph:CustomFigure"
+            name="OutputTextFigure"
+            qualifiedClassName="org.tura.metamodel.commons.figures.OutputTextFigure"/>
       </descriptors>
       <descriptors
           name="CheckBoxFigure">
         <actualFigure
-            xsi:type="gmfgraph:RoundedRectangle"
-            name="CheckBoxFigure">
-          <border
-              xsi:type="gmfgraph:MarginBorder">
-            <insets
-                top="5"
-                left="5"
-                bottom="5"
-                right="5"/>
-          </border>
-        </actualFigure>
+            xsi:type="gmfgraph:CustomFigure"
+            name="CheckBoxFigure"
+            qualifiedClassName="org.tura.metamodel.commons.figures.CheckBoxFigure"/>
       </descriptors>
       <descriptors
           name="DropDownSelectionFigure">
         <actualFigure
-            xsi:type="gmfgraph:RoundedRectangle"
-            name="DropDownSelectionFigure">
-          <border
-              xsi:type="gmfgraph:MarginBorder">
-            <insets
-                top="5"
-                left="5"
-                bottom="5"
-                right="5"/>
-          </border>
-        </actualFigure>
+            xsi:type="gmfgraph:CustomFigure"
+            name="DropDownSelectionFigure"
+            qualifiedClassName="org.tura.metamodel.commons.figures.DropDownFigure"/>
       </descriptors>
       <descriptors
           name="ColumnFigure">
@@ -2476,14 +2444,14 @@
           </children>
           <children
               xsi:type="gmfgraph:Rectangle"
-              name="TableColumnsCompartmentFigure"
+              name="TableColsCompartmentFigure"
               outline="false"/>
         </actualFigure>
         <accessors
             accessor="getFigureTableLabelFigure"
             figure="/0/@figures.0/@descriptors.67/@actualFigure/@children.0"/>
         <accessors
-            accessor="getTableColumnsCompartmentFigure"
+            accessor="getTableColsCompartmentFigure"
             figure="/0/@figures.0/@descriptors.67/@actualFigure/@children.1"/>
       </descriptors>
       <descriptors
@@ -2517,16 +2485,9 @@
       <descriptors
           name="ButtonFigure">
         <actualFigure
-            xsi:type="gmfgraph:RoundedRectangle"
-            name="ButtonFigure">
-          <border
-              xsi:type="gmfgraph:MarginBorder">
-            <insets
-                top="5"
-                left="5"
-                bottom="5"
-                right="5"/>
-          </border>
+            xsi:type="gmfgraph:CustomFigure"
+            name="ButtonFigure"
+            qualifiedClassName="org.tura.metamodel.commons.figures.ButtonFigure">
           <children
               xsi:type="gmfgraph:Label"
               name="ButtonLabelFigure"
@@ -4050,7 +4011,7 @@
         collapsible="true"
         accessor="/0/@figures.0/@descriptors.66/@accessors.1"/>
     <compartments
-        name="TableColumnsCompartment"
+        name="TableColsCompartment"
         figure="TableFigure"
         collapsible="true"
         accessor="/0/@figures.0/@descriptors.67/@accessors.1"/>

@@ -16,7 +16,7 @@ package domain;
  * </p>
  *
  * @see domain.DomainPackage#getLabel()
- * @model annotation="gmf.node label='label'"
+ * @model annotation="gmf.node label='label' tool.small.bundle='org.tura.metamodel.commons' tool.small.path='icons/label.png'"
  * @generated
  */
 public interface Label extends InputElement

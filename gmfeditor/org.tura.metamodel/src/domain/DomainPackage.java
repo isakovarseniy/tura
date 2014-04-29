@@ -5956,16 +5956,6 @@ public interface DomainPackage extends EPackage
   int ACTION_ELEMENT_FEATURE_COUNT = UIELEMENT_FEATURE_COUNT + 1;
 
   /**
-   * The meta object id for the '{@link domain.impl.LayerHolderImpl <em>Layer Holder</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see domain.impl.LayerHolderImpl
-   * @see domain.impl.DomainPackageImpl#getLayerHolder()
-   * @generated
-   */
-  int LAYER_HOLDER = 105;
-
-  /**
    * The meta object id for the '{@link domain.impl.InputElementImpl <em>Input Element</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -6237,6 +6227,16 @@ public interface DomainPackage extends EPackage
    * @ordered
    */
   int OPTION_SELECTION_FEATURE_COUNT = INPUT_ELEMENT_FEATURE_COUNT + 2;
+
+  /**
+   * The meta object id for the '{@link domain.impl.LayerHolderImpl <em>Layer Holder</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see domain.impl.LayerHolderImpl
+   * @see domain.impl.DomainPackageImpl#getLayerHolder()
+   * @generated
+   */
+  int LAYER_HOLDER = 105;
 
   /**
    * The feature id for the '<em><b>Style</b></em>' containment reference.
@@ -7065,22 +7065,31 @@ public interface DomainPackage extends EPackage
   int TABLE__SOURCE_CAST = SOURCES_POINTER__SOURCE_CAST;
 
   /**
+   * The feature id for the '<em><b>Columns</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TABLE__COLUMNS = SOURCES_POINTER_FEATURE_COUNT + 0;
+
+  /**
    * The feature id for the '<em><b>Label</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int TABLE__LABEL = SOURCES_POINTER_FEATURE_COUNT + 0;
+  int TABLE__LABEL = SOURCES_POINTER_FEATURE_COUNT + 1;
 
   /**
-   * The feature id for the '<em><b>Columns</b></em>' containment reference list.
+   * The feature id for the '<em><b>Cols</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int TABLE__COLUMNS = SOURCES_POINTER_FEATURE_COUNT + 1;
+  int TABLE__COLS = SOURCES_POINTER_FEATURE_COUNT + 2;
 
   /**
    * The number of structural features of the '<em>Table</em>' class.
@@ -7089,7 +7098,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int TABLE_FEATURE_COUNT = SOURCES_POINTER_FEATURE_COUNT + 2;
+  int TABLE_FEATURE_COUNT = SOURCES_POINTER_FEATURE_COUNT + 3;
 
   /**
    * The meta object id for the '{@link domain.impl.TreeImpl <em>Tree</em>}' class.
@@ -13602,16 +13611,6 @@ public interface DomainPackage extends EPackage
   EReference getActionElement_Trigger();
 
   /**
-   * Returns the meta object for class '{@link domain.LayerHolder <em>Layer Holder</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Layer Holder</em>'.
-   * @see domain.LayerHolder
-   * @generated
-   */
-  EClass getLayerHolder();
-
-  /**
    * Returns the meta object for class '{@link domain.InputElement <em>Input Element</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -13684,6 +13683,16 @@ public interface DomainPackage extends EPackage
    * @generated
    */
   EReference getOptionSelection_OptionCast();
+
+  /**
+   * Returns the meta object for class '{@link domain.LayerHolder <em>Layer Holder</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Layer Holder</em>'.
+   * @see domain.LayerHolder
+   * @generated
+   */
+  EClass getLayerHolder();
 
   /**
    * Returns the meta object for class '{@link domain.InputText <em>Input Text</em>}'.
@@ -13822,15 +13831,15 @@ public interface DomainPackage extends EPackage
   EAttribute getTable_Label();
 
   /**
-   * Returns the meta object for the containment reference list '{@link domain.Table#getColumns <em>Columns</em>}'.
+   * Returns the meta object for the containment reference list '{@link domain.Table#getCols <em>Cols</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Columns</em>'.
-   * @see domain.Table#getColumns()
+   * @return the meta object for the containment reference list '<em>Cols</em>'.
+   * @see domain.Table#getCols()
    * @see #getTable()
    * @generated
    */
-  EReference getTable_Columns();
+  EReference getTable_Cols();
 
   /**
    * Returns the meta object for class '{@link domain.Tree <em>Tree</em>}'.
@@ -18928,16 +18937,6 @@ public interface DomainPackage extends EPackage
     EReference ACTION_ELEMENT__TRIGGER = eINSTANCE.getActionElement_Trigger();
 
     /**
-     * The meta object literal for the '{@link domain.impl.LayerHolderImpl <em>Layer Holder</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see domain.impl.LayerHolderImpl
-     * @see domain.impl.DomainPackageImpl#getLayerHolder()
-     * @generated
-     */
-    EClass LAYER_HOLDER = eINSTANCE.getLayerHolder();
-
-    /**
      * The meta object literal for the '{@link domain.impl.InputElementImpl <em>Input Element</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -18998,6 +18997,16 @@ public interface DomainPackage extends EPackage
      * @generated
      */
     EReference OPTION_SELECTION__OPTION_CAST = eINSTANCE.getOptionSelection_OptionCast();
+
+    /**
+     * The meta object literal for the '{@link domain.impl.LayerHolderImpl <em>Layer Holder</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see domain.impl.LayerHolderImpl
+     * @see domain.impl.DomainPackageImpl#getLayerHolder()
+     * @generated
+     */
+    EClass LAYER_HOLDER = eINSTANCE.getLayerHolder();
 
     /**
      * The meta object literal for the '{@link domain.impl.InputTextImpl <em>Input Text</em>}' class.
@@ -19118,12 +19127,12 @@ public interface DomainPackage extends EPackage
     EAttribute TABLE__LABEL = eINSTANCE.getTable_Label();
 
     /**
-     * The meta object literal for the '<em><b>Columns</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Cols</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference TABLE__COLUMNS = eINSTANCE.getTable_Columns();
+    EReference TABLE__COLS = eINSTANCE.getTable_Cols();
 
     /**
      * The meta object literal for the '{@link domain.impl.TreeImpl <em>Tree</em>}' class.

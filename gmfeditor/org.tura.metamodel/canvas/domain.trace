@@ -40,16 +40,6 @@
         queryText="true"/>
   </childNodeTraces>
   <childNodeTraces
-      visualID="3009"
-      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://tura.org/2013/v1/domain' and _eClass_.name = 'Column') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://tura.org/2013/v1/domain' and _eClass_.name = 'Table') and _containmentMF_.name = 'columns')">
-    <nodeLabelTraces
-        visualID="5003"
-        queryText="true"/>
-    <compartmentTraces
-        visualID="7004"
-        queryText="true"/>
-  </childNodeTraces>
-  <childNodeTraces
       visualID="3010"
       queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://tura.org/2013/v1/domain' and _eClass_.name = 'DropDownSelection') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://tura.org/2013/v1/domain' and _eClass_.name = 'Column') and _containmentMF_.name = 'element')"/>
   <childNodeTraces
@@ -87,6 +77,47 @@
       queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://tura.org/2013/v1/domain' and _eClass_.name = 'LayerHolder') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://tura.org/2013/v1/domain' and _eClass_.name = 'ChildrenHolder') and _containmentMF_.name = 'children')">
     <compartmentTraces
         visualID="7008"
+        queryText="true"/>
+  </childNodeTraces>
+  <childNodeTraces
+      visualID="3020"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://tura.org/2013/v1/domain' and _eClass_.name = 'LayerHolder') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://tura.org/2013/v1/domain' and _eClass_.name = 'Column') and _containmentMF_.name = 'element')">
+    <compartmentTraces
+        visualID="7009"
+        queryText="true"/>
+  </childNodeTraces>
+  <childNodeTraces
+      visualID="3021"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://tura.org/2013/v1/domain' and _eClass_.name = 'Table') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://tura.org/2013/v1/domain' and _eClass_.name = 'Column') and _containmentMF_.name = 'element')">
+    <nodeLabelTraces
+        visualID="5007"
+        queryText="true"/>
+    <compartmentTraces
+        visualID="7010"
+        queryText="true"/>
+  </childNodeTraces>
+  <childNodeTraces
+      visualID="3022"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://tura.org/2013/v1/domain' and _eClass_.name = 'Tree') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://tura.org/2013/v1/domain' and _eClass_.name = 'Column') and _containmentMF_.name = 'element')">
+    <nodeLabelTraces
+        visualID="5008"
+        queryText="true"/>
+  </childNodeTraces>
+  <childNodeTraces
+      visualID="3023"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://tura.org/2013/v1/domain' and _eClass_.name = 'Button') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://tura.org/2013/v1/domain' and _eClass_.name = 'Column') and _containmentMF_.name = 'element')">
+    <nodeLabelTraces
+        visualID="5009"
+        queryText="true"/>
+  </childNodeTraces>
+  <childNodeTraces
+      visualID="3024"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://tura.org/2013/v1/domain' and _eClass_.name = 'Column') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://tura.org/2013/v1/domain' and _eClass_.name = 'Table') and _containmentMF_.name = 'cols')">
+    <nodeLabelTraces
+        visualID="5010"
+        queryText="true"/>
+    <compartmentTraces
+        visualID="7011"
         queryText="true"/>
   </childNodeTraces>
 </trace:TraceModel>

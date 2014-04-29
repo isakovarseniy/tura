@@ -13,7 +13,7 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * <ul>
  *   <li>{@link domain.Table#getLabel <em>Label</em>}</li>
- *   <li>{@link domain.Table#getColumns <em>Columns</em>}</li>
+ *   <li>{@link domain.Table#getCols <em>Cols</em>}</li>
  * </ul>
  * </p>
  *
@@ -21,7 +21,7 @@ import org.eclipse.emf.common.util.EList;
  * @model annotation="gmf.node label='label' tool.small.bundle='org.tura.metamodel.commons' tool.small.path='icons/table.png'"
  * @generated
  */
-public interface Table extends SourcesPointer
+public interface Table extends SourcesPointer, HTMLLayerHolder
 {
   /**
    * Returns the value of the '<em><b>Label</b></em>' attribute.
@@ -50,20 +50,19 @@ public interface Table extends SourcesPointer
   void setLabel(String value);
 
   /**
-   * Returns the value of the '<em><b>Columns</b></em>' containment reference list.
+   * Returns the value of the '<em><b>Cols</b></em>' containment reference list.
    * The list contents are of type {@link domain.Column}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Columns</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>Cols</em>' containment reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Columns</em>' containment reference list.
-   * @see domain.DomainPackage#getTable_Columns()
+   * @return the value of the '<em>Cols</em>' containment reference list.
+   * @see domain.DomainPackage#getTable_Cols()
    * @model containment="true"
-   *        annotation="gmf.compartment layout='list'"
    * @generated
    */
-  EList<Column> getColumns();
+  EList<Column> getCols();
 
 } // Table
