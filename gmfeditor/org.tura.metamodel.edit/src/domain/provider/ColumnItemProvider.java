@@ -216,12 +216,32 @@ public class ColumnItemProvider
     newChildDescriptors.add
       (createChildParameter
         (DomainPackage.Literals.COLUMN__ELEMENT,
+         DomainFactory.eINSTANCE.createUielement()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (DomainPackage.Literals.COLUMN__ELEMENT,
+         DomainFactory.eINSTANCE.createSourcesPointer()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (DomainPackage.Literals.COLUMN__ELEMENT,
+         DomainFactory.eINSTANCE.createActionElement()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (DomainPackage.Literals.COLUMN__ELEMENT,
          DomainFactory.eINSTANCE.createInputElement()));
 
     newChildDescriptors.add
       (createChildParameter
         (DomainPackage.Literals.COLUMN__ELEMENT,
          DomainFactory.eINSTANCE.createOptionSelection()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (DomainPackage.Literals.COLUMN__ELEMENT,
+         DomainFactory.eINSTANCE.createLayerHolder()));
 
     newChildDescriptors.add
       (createChildParameter
@@ -247,6 +267,21 @@ public class ColumnItemProvider
       (createChildParameter
         (DomainPackage.Literals.COLUMN__ELEMENT,
          DomainFactory.eINSTANCE.createDropDownSelection()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (DomainPackage.Literals.COLUMN__ELEMENT,
+         DomainFactory.eINSTANCE.createTable()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (DomainPackage.Literals.COLUMN__ELEMENT,
+         DomainFactory.eINSTANCE.createTree()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (DomainPackage.Literals.COLUMN__ELEMENT,
+         DomainFactory.eINSTANCE.createButton()));
   }
 
 }

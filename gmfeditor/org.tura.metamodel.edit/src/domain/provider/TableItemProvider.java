@@ -64,9 +64,33 @@ public class TableItemProvider
     {
       super.getPropertyDescriptors(object);
 
+      addColumnsPropertyDescriptor(object);
       addLabelPropertyDescriptor(object);
     }
     return itemPropertyDescriptors;
+  }
+
+  /**
+   * This adds a property descriptor for the Columns feature.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected void addColumnsPropertyDescriptor(Object object)
+  {
+    itemPropertyDescriptors.add
+      (createItemPropertyDescriptor
+        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+         getResourceLocator(),
+         getString("_UI_HTMLLayerHolder_columns_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_HTMLLayerHolder_columns_feature", "_UI_HTMLLayerHolder_type"),
+         DomainPackage.Literals.HTML_LAYER_HOLDER__COLUMNS,
+         true,
+         false,
+         false,
+         ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
+         null,
+         null));
   }
 
   /**
@@ -106,7 +130,7 @@ public class TableItemProvider
     if (childrenFeatures == null)
     {
       super.getChildrenFeatures(object);
-      childrenFeatures.add(DomainPackage.Literals.TABLE__COLUMNS);
+      childrenFeatures.add(DomainPackage.Literals.TABLE__COLS);
     }
     return childrenFeatures;
   }
@@ -166,10 +190,11 @@ public class TableItemProvider
 
     switch (notification.getFeatureID(Table.class))
     {
+      case DomainPackage.TABLE__COLUMNS:
       case DomainPackage.TABLE__LABEL:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
         return;
-      case DomainPackage.TABLE__COLUMNS:
+      case DomainPackage.TABLE__COLS:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
         return;
     }
@@ -190,7 +215,7 @@ public class TableItemProvider
 
     newChildDescriptors.add
       (createChildParameter
-        (DomainPackage.Literals.TABLE__COLUMNS,
+        (DomainPackage.Literals.TABLE__COLS,
          DomainFactory.eINSTANCE.createColumn()));
   }
 

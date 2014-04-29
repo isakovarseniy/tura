@@ -2599,6 +2599,31 @@ public class DomainItemProviderAdapterFactory extends DomainAdapterFactory imple
   }
 
   /**
+   * This keeps track of the one adapter used for all {@link domain.ActionElement} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected ActionElementItemProvider actionElementItemProvider;
+
+  /**
+   * This creates an adapter for a {@link domain.ActionElement}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createActionElementAdapter()
+  {
+    if (actionElementItemProvider == null)
+    {
+      actionElementItemProvider = new ActionElementItemProvider(this);
+    }
+
+    return actionElementItemProvider;
+  }
+
+  /**
    * This keeps track of the one adapter used for all {@link domain.InputElement} instances.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -2671,31 +2696,6 @@ public class DomainItemProviderAdapterFactory extends DomainAdapterFactory imple
     }
 
     return optionSelectionItemProvider;
-  }
-
-  /**
-   * This keeps track of the one adapter used for all {@link domain.ActionElement} instances.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected ActionElementItemProvider actionElementItemProvider;
-
-  /**
-   * This creates an adapter for a {@link domain.ActionElement}.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public Adapter createActionElementAdapter()
-  {
-    if (actionElementItemProvider == null)
-    {
-      actionElementItemProvider = new ActionElementItemProvider(this);
-    }
-
-    return actionElementItemProvider;
   }
 
   /**
