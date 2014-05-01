@@ -1067,6 +1067,15 @@ public interface DomainFactory extends EFactory
   Controls createControls();
 
   /**
+   * Returns a new object of class '<em>Trigger</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Trigger</em>'.
+   * @generated
+   */
+  Trigger createTrigger();
+
+  /**
    * Returns a new object of class '<em>PRE Form Trigger</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

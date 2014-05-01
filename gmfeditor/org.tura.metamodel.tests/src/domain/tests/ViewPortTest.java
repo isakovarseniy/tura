@@ -2,9 +2,10 @@
  */
 package domain.tests;
 
-import junit.textui.TestRunner;
 import domain.DomainFactory;
 import domain.ViewPort;
+
+import junit.textui.TestRunner;
 
 /**
  * <!-- begin-user-doc -->

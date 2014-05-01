@@ -5,8 +5,6 @@ package domain.tests;
 import domain.DomainFactory;
 import domain.UpdateTrigger;
 
-import junit.framework.TestCase;
-
 import junit.textui.TestRunner;
 
 /**
@@ -15,16 +13,8 @@ import junit.textui.TestRunner;
  * <!-- end-user-doc -->
  * @generated
  */
-public class UpdateTriggerTest extends TestCase
+public class UpdateTriggerTest extends TriggerTest
 {
-
-  /**
-   * The fixture for this Update Trigger test case.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected UpdateTrigger fixture = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -48,25 +38,15 @@ public class UpdateTriggerTest extends TestCase
   }
 
   /**
-   * Sets the fixture for this Update Trigger test case.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected void setFixture(UpdateTrigger fixture)
-  {
-    this.fixture = fixture;
-  }
-
-  /**
    * Returns the fixture for this Update Trigger test case.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
+  @Override
   protected UpdateTrigger getFixture()
   {
-    return fixture;
+    return (UpdateTrigger)fixture;
   }
 
   /**

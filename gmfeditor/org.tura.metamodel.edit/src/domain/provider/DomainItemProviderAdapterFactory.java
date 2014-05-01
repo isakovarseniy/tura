@@ -2974,6 +2974,31 @@ public class DomainItemProviderAdapterFactory extends DomainAdapterFactory imple
   }
 
   /**
+   * This keeps track of the one adapter used for all {@link domain.Trigger} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected TriggerItemProvider triggerItemProvider;
+
+  /**
+   * This creates an adapter for a {@link domain.Trigger}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createTriggerAdapter()
+  {
+    if (triggerItemProvider == null)
+    {
+      triggerItemProvider = new TriggerItemProvider(this);
+    }
+
+    return triggerItemProvider;
+  }
+
+  /**
    * This keeps track of the one adapter used for all {@link domain.PREFormTrigger} instances.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -3925,6 +3950,7 @@ public class DomainItemProviderAdapterFactory extends DomainAdapterFactory imple
     if (treeItemProvider != null) treeItemProvider.dispose();
     if (buttonItemProvider != null) buttonItemProvider.dispose();
     if (controlsItemProvider != null) controlsItemProvider.dispose();
+    if (triggerItemProvider != null) triggerItemProvider.dispose();
     if (preFormTriggerItemProvider != null) preFormTriggerItemProvider.dispose();
     if (preQueryTriggerItemProvider != null) preQueryTriggerItemProvider.dispose();
     if (postQueryTriggerItemProvider != null) postQueryTriggerItemProvider.dispose();

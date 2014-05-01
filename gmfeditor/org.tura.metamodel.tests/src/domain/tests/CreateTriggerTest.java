@@ -5,8 +5,6 @@ package domain.tests;
 import domain.CreateTrigger;
 import domain.DomainFactory;
 
-import junit.framework.TestCase;
-
 import junit.textui.TestRunner;
 
 /**
@@ -15,16 +13,8 @@ import junit.textui.TestRunner;
  * <!-- end-user-doc -->
  * @generated
  */
-public class CreateTriggerTest extends TestCase
+public class CreateTriggerTest extends TriggerTest
 {
-
-  /**
-   * The fixture for this Create Trigger test case.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected CreateTrigger fixture = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -48,25 +38,15 @@ public class CreateTriggerTest extends TestCase
   }
 
   /**
-   * Sets the fixture for this Create Trigger test case.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected void setFixture(CreateTrigger fixture)
-  {
-    this.fixture = fixture;
-  }
-
-  /**
    * Returns the fixture for this Create Trigger test case.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
+  @Override
   protected CreateTrigger getFixture()
   {
-    return fixture;
+    return (CreateTrigger)fixture;
   }
 
   /**

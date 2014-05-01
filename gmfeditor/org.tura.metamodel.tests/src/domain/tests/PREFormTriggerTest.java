@@ -5,8 +5,6 @@ package domain.tests;
 import domain.DomainFactory;
 import domain.PREFormTrigger;
 
-import junit.framework.TestCase;
-
 import junit.textui.TestRunner;
 
 /**
@@ -15,16 +13,8 @@ import junit.textui.TestRunner;
  * <!-- end-user-doc -->
  * @generated
  */
-public class PREFormTriggerTest extends TestCase
+public class PREFormTriggerTest extends TriggerTest
 {
-
-  /**
-   * The fixture for this PRE Form Trigger test case.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected PREFormTrigger fixture = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -48,25 +38,15 @@ public class PREFormTriggerTest extends TestCase
   }
 
   /**
-   * Sets the fixture for this PRE Form Trigger test case.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected void setFixture(PREFormTrigger fixture)
-  {
-    this.fixture = fixture;
-  }
-
-  /**
    * Returns the fixture for this PRE Form Trigger test case.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
+  @Override
   protected PREFormTrigger getFixture()
   {
-    return fixture;
+    return (PREFormTrigger)fixture;
   }
 
   /**

@@ -3,17 +3,17 @@
 package domain.tests;
 
 import domain.DomainFactory;
-import domain.PREDeleteTrigger;
+import domain.Trigger;
 
 import junit.textui.TestRunner;
 
 /**
  * <!-- begin-user-doc -->
- * A test case for the model object '<em><b>PRE Delete Trigger</b></em>'.
+ * A test case for the model object '<em><b>Trigger</b></em>'.
  * <!-- end-user-doc -->
  * @generated
  */
-public class PREDeleteTriggerTest extends TriggerTest
+public class TriggerTest extends MethodPointerTest
 {
 
   /**
@@ -23,30 +23,30 @@ public class PREDeleteTriggerTest extends TriggerTest
    */
   public static void main(String[] args)
   {
-    TestRunner.run(PREDeleteTriggerTest.class);
+    TestRunner.run(TriggerTest.class);
   }
 
   /**
-   * Constructs a new PRE Delete Trigger test case with the given name.
+   * Constructs a new Trigger test case with the given name.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  public PREDeleteTriggerTest(String name)
+  public TriggerTest(String name)
   {
     super(name);
   }
 
   /**
-   * Returns the fixture for this PRE Delete Trigger test case.
+   * Returns the fixture for this Trigger test case.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
   @Override
-  protected PREDeleteTrigger getFixture()
+  protected Trigger getFixture()
   {
-    return (PREDeleteTrigger)fixture;
+    return (Trigger)fixture;
   }
 
   /**
@@ -58,7 +58,7 @@ public class PREDeleteTriggerTest extends TriggerTest
   @Override
   protected void setUp() throws Exception
   {
-    setFixture(DomainFactory.eINSTANCE.createPREDeleteTrigger());
+    setFixture(DomainFactory.eINSTANCE.createTrigger());
   }
 
   /**
@@ -73,4 +73,4 @@ public class PREDeleteTriggerTest extends TriggerTest
     setFixture(null);
   }
 
-} //PREDeleteTriggerTest
+} //TriggerTest

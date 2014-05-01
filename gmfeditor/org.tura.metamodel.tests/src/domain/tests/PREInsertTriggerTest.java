@@ -5,8 +5,6 @@ package domain.tests;
 import domain.DomainFactory;
 import domain.PREInsertTrigger;
 
-import junit.framework.TestCase;
-
 import junit.textui.TestRunner;
 
 /**
@@ -15,16 +13,8 @@ import junit.textui.TestRunner;
  * <!-- end-user-doc -->
  * @generated
  */
-public class PREInsertTriggerTest extends TestCase
+public class PREInsertTriggerTest extends TriggerTest
 {
-
-  /**
-   * The fixture for this PRE Insert Trigger test case.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected PREInsertTrigger fixture = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -48,25 +38,15 @@ public class PREInsertTriggerTest extends TestCase
   }
 
   /**
-   * Sets the fixture for this PRE Insert Trigger test case.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected void setFixture(PREInsertTrigger fixture)
-  {
-    this.fixture = fixture;
-  }
-
-  /**
    * Returns the fixture for this PRE Insert Trigger test case.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
+  @Override
   protected PREInsertTrigger getFixture()
   {
-    return fixture;
+    return (PREInsertTrigger)fixture;
   }
 
   /**

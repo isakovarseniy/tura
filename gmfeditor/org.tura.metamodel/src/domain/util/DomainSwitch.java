@@ -127,6 +127,7 @@ import domain.TabPage;
 import domain.TabPagesInheritance;
 import domain.Table;
 import domain.Tree;
+import domain.Trigger;
 import domain.Type;
 import domain.TypeDefinition;
 import domain.TypeElement;
@@ -1113,10 +1114,22 @@ public class DomainSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case DomainPackage.TRIGGER:
+      {
+        Trigger trigger = (Trigger)theEObject;
+        T result = caseTrigger(trigger);
+        if (result == null) result = caseMethodPointer(trigger);
+        if (result == null) result = caseTypePointer(trigger);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case DomainPackage.PRE_FORM_TRIGGER:
       {
         PREFormTrigger preFormTrigger = (PREFormTrigger)theEObject;
         T result = casePREFormTrigger(preFormTrigger);
+        if (result == null) result = caseTrigger(preFormTrigger);
+        if (result == null) result = caseMethodPointer(preFormTrigger);
+        if (result == null) result = caseTypePointer(preFormTrigger);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -1124,6 +1137,9 @@ public class DomainSwitch<T> extends Switch<T>
       {
         PREQueryTrigger preQueryTrigger = (PREQueryTrigger)theEObject;
         T result = casePREQueryTrigger(preQueryTrigger);
+        if (result == null) result = caseTrigger(preQueryTrigger);
+        if (result == null) result = caseMethodPointer(preQueryTrigger);
+        if (result == null) result = caseTypePointer(preQueryTrigger);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -1131,6 +1147,9 @@ public class DomainSwitch<T> extends Switch<T>
       {
         POSTQueryTrigger postQueryTrigger = (POSTQueryTrigger)theEObject;
         T result = casePOSTQueryTrigger(postQueryTrigger);
+        if (result == null) result = caseTrigger(postQueryTrigger);
+        if (result == null) result = caseMethodPointer(postQueryTrigger);
+        if (result == null) result = caseTypePointer(postQueryTrigger);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -1138,6 +1157,9 @@ public class DomainSwitch<T> extends Switch<T>
       {
         PREInsertTrigger preInsertTrigger = (PREInsertTrigger)theEObject;
         T result = casePREInsertTrigger(preInsertTrigger);
+        if (result == null) result = caseTrigger(preInsertTrigger);
+        if (result == null) result = caseMethodPointer(preInsertTrigger);
+        if (result == null) result = caseTypePointer(preInsertTrigger);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -1145,6 +1167,9 @@ public class DomainSwitch<T> extends Switch<T>
       {
         PREDeleteTrigger preDeleteTrigger = (PREDeleteTrigger)theEObject;
         T result = casePREDeleteTrigger(preDeleteTrigger);
+        if (result == null) result = caseTrigger(preDeleteTrigger);
+        if (result == null) result = caseMethodPointer(preDeleteTrigger);
+        if (result == null) result = caseTypePointer(preDeleteTrigger);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -1152,6 +1177,9 @@ public class DomainSwitch<T> extends Switch<T>
       {
         POSTCreateTrigger postCreateTrigger = (POSTCreateTrigger)theEObject;
         T result = casePOSTCreateTrigger(postCreateTrigger);
+        if (result == null) result = caseTrigger(postCreateTrigger);
+        if (result == null) result = caseMethodPointer(postCreateTrigger);
+        if (result == null) result = caseTypePointer(postCreateTrigger);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -1159,6 +1187,9 @@ public class DomainSwitch<T> extends Switch<T>
       {
         PREUpdateTrigger preUpdateTrigger = (PREUpdateTrigger)theEObject;
         T result = casePREUpdateTrigger(preUpdateTrigger);
+        if (result == null) result = caseTrigger(preUpdateTrigger);
+        if (result == null) result = caseMethodPointer(preUpdateTrigger);
+        if (result == null) result = caseTypePointer(preUpdateTrigger);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -1166,6 +1197,9 @@ public class DomainSwitch<T> extends Switch<T>
       {
         CreateTrigger createTrigger = (CreateTrigger)theEObject;
         T result = caseCreateTrigger(createTrigger);
+        if (result == null) result = caseTrigger(createTrigger);
+        if (result == null) result = caseMethodPointer(createTrigger);
+        if (result == null) result = caseTypePointer(createTrigger);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -1173,6 +1207,9 @@ public class DomainSwitch<T> extends Switch<T>
       {
         InsertTrigger insertTrigger = (InsertTrigger)theEObject;
         T result = caseInsertTrigger(insertTrigger);
+        if (result == null) result = caseTrigger(insertTrigger);
+        if (result == null) result = caseMethodPointer(insertTrigger);
+        if (result == null) result = caseTypePointer(insertTrigger);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -1180,6 +1217,9 @@ public class DomainSwitch<T> extends Switch<T>
       {
         UpdateTrigger updateTrigger = (UpdateTrigger)theEObject;
         T result = caseUpdateTrigger(updateTrigger);
+        if (result == null) result = caseTrigger(updateTrigger);
+        if (result == null) result = caseMethodPointer(updateTrigger);
+        if (result == null) result = caseTypePointer(updateTrigger);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -1187,6 +1227,9 @@ public class DomainSwitch<T> extends Switch<T>
       {
         DeleteTrigger deleteTrigger = (DeleteTrigger)theEObject;
         T result = caseDeleteTrigger(deleteTrigger);
+        if (result == null) result = caseTrigger(deleteTrigger);
+        if (result == null) result = caseMethodPointer(deleteTrigger);
+        if (result == null) result = caseTypePointer(deleteTrigger);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -1194,6 +1237,9 @@ public class DomainSwitch<T> extends Switch<T>
       {
         SearchTrigger searchTrigger = (SearchTrigger)theEObject;
         T result = caseSearchTrigger(searchTrigger);
+        if (result == null) result = caseTrigger(searchTrigger);
+        if (result == null) result = caseMethodPointer(searchTrigger);
+        if (result == null) result = caseTypePointer(searchTrigger);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -3179,6 +3225,22 @@ public class DomainSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseControls(Controls object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Trigger</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Trigger</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseTrigger(Trigger object)
   {
     return null;
   }

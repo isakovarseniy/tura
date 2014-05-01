@@ -256,9 +256,6 @@ public class DomainElementTypes {
 			elements.put(PREFormTrigger_1103001,
 					DomainPackage.eINSTANCE.getPREFormTrigger());
 
-			elements.put(ArtificialField_1103008,
-					DomainPackage.eINSTANCE.getArtificialField());
-
 			elements.put(PREQueryTrigger_1103002,
 					DomainPackage.eINSTANCE.getPREQueryTrigger());
 
@@ -292,6 +289,9 @@ public class DomainElementTypes {
 			elements.put(SearchTrigger_1103016,
 					DomainPackage.eINSTANCE.getSearchTrigger());
 
+			elements.put(ArtificialField_1103008,
+					DomainPackage.eINSTANCE.getArtificialField());
+
 			elements.put(Relation_1104009,
 					DomainPackage.eINSTANCE.getRelation());
 		}
@@ -315,7 +315,6 @@ public class DomainElementTypes {
 			KNOWN_ELEMENT_TYPES.add(Root_1102001);
 			KNOWN_ELEMENT_TYPES.add(DataControl_1102002);
 			KNOWN_ELEMENT_TYPES.add(PREFormTrigger_1103001);
-			KNOWN_ELEMENT_TYPES.add(ArtificialField_1103008);
 			KNOWN_ELEMENT_TYPES.add(PREQueryTrigger_1103002);
 			KNOWN_ELEMENT_TYPES.add(POSTQueryTrigger_1103003);
 			KNOWN_ELEMENT_TYPES.add(PREInsertTrigger_1103004);
@@ -327,6 +326,7 @@ public class DomainElementTypes {
 			KNOWN_ELEMENT_TYPES.add(UpdateTrigger_1103014);
 			KNOWN_ELEMENT_TYPES.add(DeleteTrigger_1103015);
 			KNOWN_ELEMENT_TYPES.add(SearchTrigger_1103016);
+			KNOWN_ELEMENT_TYPES.add(ArtificialField_1103008);
 			KNOWN_ELEMENT_TYPES.add(Relation_1104009);
 		}
 		return KNOWN_ELEMENT_TYPES.contains(elementType);
@@ -345,8 +345,6 @@ public class DomainElementTypes {
 			return DataControl_1102002;
 		case PREFormTriggerEditPart.VISUAL_ID:
 			return PREFormTrigger_1103001;
-		case ArtificialFieldEditPart.VISUAL_ID:
-			return ArtificialField_1103008;
 		case PREQueryTriggerEditPart.VISUAL_ID:
 			return PREQueryTrigger_1103002;
 		case POSTQueryTriggerEditPart.VISUAL_ID:
@@ -369,6 +367,8 @@ public class DomainElementTypes {
 			return DeleteTrigger_1103015;
 		case SearchTriggerEditPart.VISUAL_ID:
 			return SearchTrigger_1103016;
+		case ArtificialFieldEditPart.VISUAL_ID:
+			return ArtificialField_1103008;
 		case RelationEditPart.VISUAL_ID:
 			return Relation_1104009;
 		}

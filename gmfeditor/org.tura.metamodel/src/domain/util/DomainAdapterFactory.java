@@ -127,6 +127,7 @@ import domain.TabPage;
 import domain.TabPagesInheritance;
 import domain.Table;
 import domain.Tree;
+import domain.Trigger;
 import domain.Type;
 import domain.TypeDefinition;
 import domain.TypeElement;
@@ -797,6 +798,11 @@ public class DomainAdapterFactory extends AdapterFactoryImpl
       public Adapter caseControls(Controls object)
       {
         return createControlsAdapter();
+      }
+      @Override
+      public Adapter caseTrigger(Trigger object)
+      {
+        return createTriggerAdapter();
       }
       @Override
       public Adapter casePREFormTrigger(PREFormTrigger object)
@@ -2701,6 +2707,21 @@ public class DomainAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createControlsAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link domain.Trigger <em>Trigger</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see domain.Trigger
+   * @generated
+   */
+  public Adapter createTriggerAdapter()
   {
     return null;
   }

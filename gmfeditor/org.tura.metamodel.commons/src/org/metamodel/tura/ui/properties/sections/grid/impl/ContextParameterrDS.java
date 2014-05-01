@@ -17,11 +17,11 @@ import org.metamodel.tura.ui.properties.sections.grid.GridProperty;
 import domain.DomainFactory;
 import domain.DomainPackage;
 
-public class TriggerParameterrDS extends DataSource {
+public class ContextParameterrDS extends DataSource {
 
 	private GridProperty property;
 
-	public TriggerParameterrDS(GridProperty property) {
+	public ContextParameterrDS(GridProperty property) {
 		this.property = property;
 	}
 

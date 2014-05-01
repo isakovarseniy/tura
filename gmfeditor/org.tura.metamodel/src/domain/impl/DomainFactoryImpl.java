@@ -129,6 +129,7 @@ import domain.TabPage;
 import domain.TabPagesInheritance;
 import domain.Table;
 import domain.Tree;
+import domain.Trigger;
 import domain.Type;
 import domain.TypeDefinition;
 import domain.TypeElement;
@@ -327,6 +328,7 @@ public class DomainFactoryImpl extends EFactoryImpl implements DomainFactory
       case DomainPackage.TREE: return createTree();
       case DomainPackage.BUTTON: return createButton();
       case DomainPackage.CONTROLS: return createControls();
+      case DomainPackage.TRIGGER: return createTrigger();
       case DomainPackage.PRE_FORM_TRIGGER: return createPREFormTrigger();
       case DomainPackage.PRE_QUERY_TRIGGER: return createPREQueryTrigger();
       case DomainPackage.POST_QUERY_TRIGGER: return createPOSTQueryTrigger();
@@ -1669,6 +1671,17 @@ public class DomainFactoryImpl extends EFactoryImpl implements DomainFactory
   {
     ControlsImpl controls = new ControlsImpl();
     return controls;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Trigger createTrigger()
+  {
+    TriggerImpl trigger = new TriggerImpl();
+    return trigger;
   }
 
   /**

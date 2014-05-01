@@ -5,8 +5,6 @@ package domain.tests;
 import domain.DomainFactory;
 import domain.SearchTrigger;
 
-import junit.framework.TestCase;
-
 import junit.textui.TestRunner;
 
 /**
@@ -15,16 +13,8 @@ import junit.textui.TestRunner;
  * <!-- end-user-doc -->
  * @generated
  */
-public class SearchTriggerTest extends TestCase
+public class SearchTriggerTest extends TriggerTest
 {
-
-  /**
-   * The fixture for this Search Trigger test case.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected SearchTrigger fixture = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -48,25 +38,15 @@ public class SearchTriggerTest extends TestCase
   }
 
   /**
-   * Sets the fixture for this Search Trigger test case.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected void setFixture(SearchTrigger fixture)
-  {
-    this.fixture = fixture;
-  }
-
-  /**
    * Returns the fixture for this Search Trigger test case.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
+  @Override
   protected SearchTrigger getFixture()
   {
-    return fixture;
+    return (SearchTrigger)fixture;
   }
 
   /**

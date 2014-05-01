@@ -40,7 +40,7 @@ import domain.Type;
 import domain.TypeElement;
 import domain.TypeReference;
 
-public class TriggerParameterPropertySelection extends GridProperty {
+public class ContextParameterPropertySelection extends GridProperty {
 
 	private List<GridColumn> columnList;
 
@@ -49,8 +49,8 @@ public class TriggerParameterPropertySelection extends GridProperty {
 		return getEObject();
 	}
 
-	public TriggerParameterPropertySelection() {
-		ds = new TriggerParameterrDS(this);
+	public ContextParameterPropertySelection() {
+		ds = new ContextParameterrDS(this);
 	}
 
 	@Override
@@ -120,7 +120,7 @@ public class TriggerParameterPropertySelection extends GridProperty {
 		@Override
 		public Object getValue(Object element) {
 			String result = "";
-			domain.TriggerParameter task = (domain.TriggerParameter) element;
+			domain.ContextParameter task = (domain.ContextParameter) element;
 			if (task.getParameter().getName() != null)
 				result = task.getParameter().getName();
 			return result;
@@ -130,7 +130,7 @@ public class TriggerParameterPropertySelection extends GridProperty {
 		public void modify(Object element, Object value) {
 
 			TableItem item = (TableItem) element;
-			domain.TriggerParameter opt = (domain.TriggerParameter) item
+			domain.ContextParameter opt = (domain.ContextParameter) item
 					.getData();
 			String valueString;
 
@@ -199,7 +199,7 @@ public class TriggerParameterPropertySelection extends GridProperty {
 
 		@Override
 		public Object getValue(Object element) {
-			domain.TriggerParameter task = (domain.TriggerParameter) element;
+			domain.ContextParameter task = (domain.ContextParameter) element;
 			return task.getValue().isIsExpression();
 		}
 
@@ -207,7 +207,7 @@ public class TriggerParameterPropertySelection extends GridProperty {
 		public void modify(Object element, Object value) {
 
 			TableItem item = (TableItem) element;
-			domain.TriggerParameter opt = (domain.TriggerParameter) item
+			domain.ContextParameter opt = (domain.ContextParameter) item
 					.getData();
 
 			EditingDomain editingDomain = ((DiagramEditor) getPart())
@@ -276,7 +276,7 @@ public class TriggerParameterPropertySelection extends GridProperty {
 		@Override
 		public Object getValue(Object element) {
 			String result = "";
-			domain.TriggerParameter opt = (domain.TriggerParameter) element;
+			domain.ContextParameter opt = (domain.ContextParameter) element;
 
 			result = opt.getValue().getValue();
 			if (result == null)
@@ -291,7 +291,7 @@ public class TriggerParameterPropertySelection extends GridProperty {
 			if (element == null)
 				return;
 			TableItem item = (TableItem) element;
-			domain.TriggerParameter opt = (domain.TriggerParameter) item
+			domain.ContextParameter opt = (domain.ContextParameter) item
 					.getData();
 			EditingDomain editingDomain = this.property.getEditPart()
 					.getEditingDomain();
@@ -304,7 +304,7 @@ public class TriggerParameterPropertySelection extends GridProperty {
 
 		@Override
 		public boolean isModify(Object element, String property) {
-			domain.TriggerParameter obj = (domain.TriggerParameter) element;
+			domain.ContextParameter obj = (domain.ContextParameter) element;
 			CellEditor editor;
 			if (obj.getValue().isIsExpression()) {
 				TreeRoot rootOfTree = new TreeRoot();
@@ -344,7 +344,7 @@ public class TriggerParameterPropertySelection extends GridProperty {
 	}
 
 	public void updateExpressionValue(EditingDomain editingDomain,
-			domain.TriggerParameter param, TreePath path) {
+			domain.ContextParameter param, TreePath path) {
 		String value = "";
 
 		if (param.getParameter().getTypeRef() == null) {
@@ -428,7 +428,7 @@ public class TriggerParameterPropertySelection extends GridProperty {
 
 	}
 
-	private boolean checkType(domain.TriggerParameter param,
+	private boolean checkType(domain.ContextParameter param,
 			domain.TypeElement type) {
 
 		if (type.getUid().equals(param.getParameter().getTypeRef().getUid()))
@@ -454,7 +454,7 @@ public class TriggerParameterPropertySelection extends GridProperty {
 	}
 
 	public void updateConstantValue(EditingDomain editingDomain,
-			domain.TriggerParameter param, String value) {
+			domain.ContextParameter param, String value) {
 		String valueString = null;
 		if (value != null)
 			valueString = ((String) value).trim();
@@ -468,7 +468,7 @@ public class TriggerParameterPropertySelection extends GridProperty {
 	}
 
 	public void removeExpession(EditingDomain editingDomain,
-			domain.TriggerParameter param) {
+			domain.ContextParameter param) {
 		if (param.getValue() != null
 				&& param.getValue().getExpression() != null
 				&& param.getValue().getExpression().size() != 0) {

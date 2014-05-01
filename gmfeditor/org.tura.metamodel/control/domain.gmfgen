@@ -85,7 +85,630 @@
             xsi:type="gmfgen:FeatureLabelModelFacet"
             parser="//@labelParsers/@implementations.0">
           <metaFeatures
-              href="domain.genmodel#//domain/PREFormTrigger/fakeMethod"/>
+              href="domain.genmodel#//domain/MethodPointer/fakeMethod"/>
+        </modelFacet>
+      </labels>
+    </childNodes>
+    <childNodes
+        visualID="1103002"
+        editPartClassName="PREQueryTriggerEditPart"
+        itemSemanticEditPolicyClassName="PREQueryTriggerItemSemanticEditPolicy"
+        canonicalEditPolicyClassName="PREQueryTriggerCanonicalEditPolicy"
+        graphicalNodeEditPolicyClassName="PREQueryTriggerGraphicalNodeEditPolicy"
+        createCommandClassName="PREQueryTriggerCreateCommand"
+        containers="//@diagram/@compartments.1">
+      <diagramRunTimeClass
+          href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+      <elementType
+          xsi:type="gmfgen:MetamodelType"
+          editHelperClassName="PREQueryTriggerEditHelper"/>
+      <viewmap
+          xsi:type="gmfgen:InnerClassViewmap"
+          className="PREQueryTriggerFigure"
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class PREQueryTriggerFigure extends org.eclipse.draw2d.RoundedRectangle {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigurePREQueryTriggerLabelFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public PREQueryTriggerFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setCornerDimensions(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(8)&#xA;, getMapMode().DPtoLP(8)&#xA;));&#xA;this.setOutline(false);&#xA;&#x9;this.setForegroundColor(THIS_FORE&#xA;);&#xA;&#x9;this.setBackgroundColor(THIS_BACK&#xA;);&#xA;this.setPreferredSize(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(200)&#xA;, getMapMode().DPtoLP(16)&#xA;));&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigurePREQueryTriggerLabelFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigurePREQueryTriggerLabelFigure.setText(&quot;PREQueryTrigger&quot;);&#xA;&#xA;fFigurePREQueryTriggerLabelFigure.setFont(FFIGUREPREQUERYTRIGGERLABELFIGURE_FONT);&#xA;&#xA;&#xA;&#xA;this.add(fFigurePREQueryTriggerLabelFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigurePREQueryTriggerLabelFigure() {&#xA;&#x9;&#x9;return fFigurePREQueryTriggerLabelFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_FORE = new org.eclipse.swt.graphics.Color(null, 0, 0, 0);&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_BACK = new org.eclipse.swt.graphics.Color(null, 241, 238, 203);&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Font FFIGUREPREQUERYTRIGGERLABELFIGURE_FONT = new org.eclipse.swt.graphics.Font(org.eclipse.swt.widgets.Display.getCurrent(), &quot;Palatino&quot;, 12, org.eclipse.swt.SWT.ITALIC);&#xA;&#xA;">
+        <attributes
+            xsi:type="gmfgen:StyleAttributes"
+            fixedForeground="true"
+            fixedBackground="true"/>
+        <attributes
+            xsi:type="gmfgen:DefaultSizeAttributes"
+            width="200"
+            height="16"/>
+      </viewmap>
+      <modelFacet>
+        <metaClass
+            href="domain.genmodel#//domain/PREQueryTrigger"/>
+        <containmentMetaFeature
+            href="domain.genmodel#//domain/DataControl/preQueryTrigger"/>
+        <childMetaFeature
+            href="domain.genmodel#//domain/DataControl/preQueryTrigger"/>
+      </modelFacet>
+      <labels
+          visualID="1105003"
+          editPartClassName="PREQueryTriggerFakeMethodEditPart"
+          itemSemanticEditPolicyClassName="PREQueryTriggerFakeMethodItemSemanticEditPolicy"
+          elementIcon="true">
+        <diagramRunTimeClass
+            href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+        <viewmap
+            xsi:type="gmfgen:ParentAssignedViewmap"
+            getterName="getFigurePREQueryTriggerLabelFigure"
+            figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel">
+          <attributes
+              xsi:type="gmfgen:StyleAttributes"
+              fixedFont="true"/>
+        </viewmap>
+        <modelFacet
+            xsi:type="gmfgen:FeatureLabelModelFacet"
+            parser="//@labelParsers/@implementations.0">
+          <metaFeatures
+              href="domain.genmodel#//domain/MethodPointer/fakeMethod"/>
+        </modelFacet>
+      </labels>
+    </childNodes>
+    <childNodes
+        visualID="1103003"
+        editPartClassName="POSTQueryTriggerEditPart"
+        itemSemanticEditPolicyClassName="POSTQueryTriggerItemSemanticEditPolicy"
+        canonicalEditPolicyClassName="POSTQueryTriggerCanonicalEditPolicy"
+        graphicalNodeEditPolicyClassName="POSTQueryTriggerGraphicalNodeEditPolicy"
+        createCommandClassName="POSTQueryTriggerCreateCommand"
+        containers="//@diagram/@compartments.2">
+      <diagramRunTimeClass
+          href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+      <elementType
+          xsi:type="gmfgen:MetamodelType"
+          editHelperClassName="POSTQueryTriggerEditHelper"/>
+      <viewmap
+          xsi:type="gmfgen:InnerClassViewmap"
+          className="POSTQueryTriggerFigure"
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class POSTQueryTriggerFigure extends org.eclipse.draw2d.RoundedRectangle {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigurePOSTQueryTriggerLabelFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public POSTQueryTriggerFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setCornerDimensions(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(8)&#xA;, getMapMode().DPtoLP(8)&#xA;));&#xA;this.setOutline(false);&#xA;&#x9;this.setForegroundColor(THIS_FORE&#xA;);&#xA;&#x9;this.setBackgroundColor(THIS_BACK&#xA;);&#xA;this.setPreferredSize(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(200)&#xA;, getMapMode().DPtoLP(16)&#xA;));&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigurePOSTQueryTriggerLabelFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigurePOSTQueryTriggerLabelFigure.setText(&quot;POSTQueryTrigger&quot;);&#xA;&#xA;fFigurePOSTQueryTriggerLabelFigure.setFont(FFIGUREPOSTQUERYTRIGGERLABELFIGURE_FONT);&#xA;&#xA;&#xA;&#xA;this.add(fFigurePOSTQueryTriggerLabelFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigurePOSTQueryTriggerLabelFigure() {&#xA;&#x9;&#x9;return fFigurePOSTQueryTriggerLabelFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_FORE = new org.eclipse.swt.graphics.Color(null, 0, 0, 0);&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_BACK = new org.eclipse.swt.graphics.Color(null, 241, 238, 203);&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Font FFIGUREPOSTQUERYTRIGGERLABELFIGURE_FONT = new org.eclipse.swt.graphics.Font(org.eclipse.swt.widgets.Display.getCurrent(), &quot;Palatino&quot;, 12, org.eclipse.swt.SWT.ITALIC);&#xA;&#xA;">
+        <attributes
+            xsi:type="gmfgen:StyleAttributes"
+            fixedForeground="true"
+            fixedBackground="true"/>
+        <attributes
+            xsi:type="gmfgen:DefaultSizeAttributes"
+            width="200"
+            height="16"/>
+      </viewmap>
+      <modelFacet>
+        <metaClass
+            href="domain.genmodel#//domain/POSTQueryTrigger"/>
+        <containmentMetaFeature
+            href="domain.genmodel#//domain/DataControl/postQueryTrigger"/>
+        <childMetaFeature
+            href="domain.genmodel#//domain/DataControl/postQueryTrigger"/>
+      </modelFacet>
+      <labels
+          visualID="1105004"
+          editPartClassName="POSTQueryTriggerFakeMethodEditPart"
+          itemSemanticEditPolicyClassName="POSTQueryTriggerFakeMethodItemSemanticEditPolicy"
+          elementIcon="true">
+        <diagramRunTimeClass
+            href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+        <viewmap
+            xsi:type="gmfgen:ParentAssignedViewmap"
+            getterName="getFigurePOSTQueryTriggerLabelFigure"
+            figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel">
+          <attributes
+              xsi:type="gmfgen:StyleAttributes"
+              fixedFont="true"/>
+        </viewmap>
+        <modelFacet
+            xsi:type="gmfgen:FeatureLabelModelFacet"
+            parser="//@labelParsers/@implementations.0">
+          <metaFeatures
+              href="domain.genmodel#//domain/MethodPointer/fakeMethod"/>
+        </modelFacet>
+      </labels>
+    </childNodes>
+    <childNodes
+        visualID="1103004"
+        editPartClassName="PREInsertTriggerEditPart"
+        itemSemanticEditPolicyClassName="PREInsertTriggerItemSemanticEditPolicy"
+        canonicalEditPolicyClassName="PREInsertTriggerCanonicalEditPolicy"
+        graphicalNodeEditPolicyClassName="PREInsertTriggerGraphicalNodeEditPolicy"
+        createCommandClassName="PREInsertTriggerCreateCommand"
+        containers="//@diagram/@compartments.3">
+      <diagramRunTimeClass
+          href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+      <elementType
+          xsi:type="gmfgen:MetamodelType"
+          editHelperClassName="PREInsertTriggerEditHelper"/>
+      <viewmap
+          xsi:type="gmfgen:InnerClassViewmap"
+          className="PREInsertTriggerFigure"
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class PREInsertTriggerFigure extends org.eclipse.draw2d.RoundedRectangle {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigurePREInsertTriggerLabelFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public PREInsertTriggerFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setCornerDimensions(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(8)&#xA;, getMapMode().DPtoLP(8)&#xA;));&#xA;this.setOutline(false);&#xA;&#x9;this.setForegroundColor(THIS_FORE&#xA;);&#xA;&#x9;this.setBackgroundColor(THIS_BACK&#xA;);&#xA;this.setPreferredSize(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(200)&#xA;, getMapMode().DPtoLP(16)&#xA;));&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigurePREInsertTriggerLabelFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigurePREInsertTriggerLabelFigure.setText(&quot;PREInsertTrigger&quot;);&#xA;&#xA;fFigurePREInsertTriggerLabelFigure.setFont(FFIGUREPREINSERTTRIGGERLABELFIGURE_FONT);&#xA;&#xA;&#xA;&#xA;this.add(fFigurePREInsertTriggerLabelFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigurePREInsertTriggerLabelFigure() {&#xA;&#x9;&#x9;return fFigurePREInsertTriggerLabelFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_FORE = new org.eclipse.swt.graphics.Color(null, 0, 0, 0);&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_BACK = new org.eclipse.swt.graphics.Color(null, 241, 238, 203);&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Font FFIGUREPREINSERTTRIGGERLABELFIGURE_FONT = new org.eclipse.swt.graphics.Font(org.eclipse.swt.widgets.Display.getCurrent(), &quot;Palatino&quot;, 12, org.eclipse.swt.SWT.ITALIC);&#xA;&#xA;">
+        <attributes
+            xsi:type="gmfgen:StyleAttributes"
+            fixedForeground="true"
+            fixedBackground="true"/>
+        <attributes
+            xsi:type="gmfgen:DefaultSizeAttributes"
+            width="200"
+            height="16"/>
+      </viewmap>
+      <modelFacet>
+        <metaClass
+            href="domain.genmodel#//domain/PREInsertTrigger"/>
+        <containmentMetaFeature
+            href="domain.genmodel#//domain/DataControl/preInsertTrigger"/>
+        <childMetaFeature
+            href="domain.genmodel#//domain/DataControl/preInsertTrigger"/>
+      </modelFacet>
+      <labels
+          visualID="1105005"
+          editPartClassName="PREInsertTriggerFakeMethodEditPart"
+          itemSemanticEditPolicyClassName="PREInsertTriggerFakeMethodItemSemanticEditPolicy"
+          elementIcon="true">
+        <diagramRunTimeClass
+            href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+        <viewmap
+            xsi:type="gmfgen:ParentAssignedViewmap"
+            getterName="getFigurePREInsertTriggerLabelFigure"
+            figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel">
+          <attributes
+              xsi:type="gmfgen:StyleAttributes"
+              fixedFont="true"/>
+        </viewmap>
+        <modelFacet
+            xsi:type="gmfgen:FeatureLabelModelFacet"
+            parser="//@labelParsers/@implementations.0">
+          <metaFeatures
+              href="domain.genmodel#//domain/MethodPointer/fakeMethod"/>
+        </modelFacet>
+      </labels>
+    </childNodes>
+    <childNodes
+        visualID="1103005"
+        editPartClassName="PREDeleteTriggerEditPart"
+        itemSemanticEditPolicyClassName="PREDeleteTriggerItemSemanticEditPolicy"
+        canonicalEditPolicyClassName="PREDeleteTriggerCanonicalEditPolicy"
+        graphicalNodeEditPolicyClassName="PREDeleteTriggerGraphicalNodeEditPolicy"
+        createCommandClassName="PREDeleteTriggerCreateCommand"
+        containers="//@diagram/@compartments.4">
+      <diagramRunTimeClass
+          href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+      <elementType
+          xsi:type="gmfgen:MetamodelType"
+          editHelperClassName="PREDeleteTriggerEditHelper"/>
+      <viewmap
+          xsi:type="gmfgen:InnerClassViewmap"
+          className="PREDeleteTriggerFigure"
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class PREDeleteTriggerFigure extends org.eclipse.draw2d.RoundedRectangle {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigurePREDeleteTriggerLabelFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public PREDeleteTriggerFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setCornerDimensions(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(8)&#xA;, getMapMode().DPtoLP(8)&#xA;));&#xA;this.setOutline(false);&#xA;&#x9;this.setForegroundColor(THIS_FORE&#xA;);&#xA;&#x9;this.setBackgroundColor(THIS_BACK&#xA;);&#xA;this.setPreferredSize(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(200)&#xA;, getMapMode().DPtoLP(16)&#xA;));&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigurePREDeleteTriggerLabelFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigurePREDeleteTriggerLabelFigure.setText(&quot;PREDeleteTrigger&quot;);&#xA;&#xA;fFigurePREDeleteTriggerLabelFigure.setFont(FFIGUREPREDELETETRIGGERLABELFIGURE_FONT);&#xA;&#xA;&#xA;&#xA;this.add(fFigurePREDeleteTriggerLabelFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigurePREDeleteTriggerLabelFigure() {&#xA;&#x9;&#x9;return fFigurePREDeleteTriggerLabelFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_FORE = new org.eclipse.swt.graphics.Color(null, 0, 0, 0);&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_BACK = new org.eclipse.swt.graphics.Color(null, 241, 238, 203);&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Font FFIGUREPREDELETETRIGGERLABELFIGURE_FONT = new org.eclipse.swt.graphics.Font(org.eclipse.swt.widgets.Display.getCurrent(), &quot;Palatino&quot;, 12, org.eclipse.swt.SWT.ITALIC);&#xA;&#xA;">
+        <attributes
+            xsi:type="gmfgen:StyleAttributes"
+            fixedForeground="true"
+            fixedBackground="true"/>
+        <attributes
+            xsi:type="gmfgen:DefaultSizeAttributes"
+            width="200"
+            height="16"/>
+      </viewmap>
+      <modelFacet>
+        <metaClass
+            href="domain.genmodel#//domain/PREDeleteTrigger"/>
+        <containmentMetaFeature
+            href="domain.genmodel#//domain/DataControl/preDeleteTrigger"/>
+        <childMetaFeature
+            href="domain.genmodel#//domain/DataControl/preDeleteTrigger"/>
+      </modelFacet>
+      <labels
+          visualID="1105006"
+          editPartClassName="PREDeleteTriggerFakeMethodEditPart"
+          itemSemanticEditPolicyClassName="PREDeleteTriggerFakeMethodItemSemanticEditPolicy"
+          elementIcon="true">
+        <diagramRunTimeClass
+            href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+        <viewmap
+            xsi:type="gmfgen:ParentAssignedViewmap"
+            getterName="getFigurePREDeleteTriggerLabelFigure"
+            figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel">
+          <attributes
+              xsi:type="gmfgen:StyleAttributes"
+              fixedFont="true"/>
+        </viewmap>
+        <modelFacet
+            xsi:type="gmfgen:FeatureLabelModelFacet"
+            parser="//@labelParsers/@implementations.0">
+          <metaFeatures
+              href="domain.genmodel#//domain/MethodPointer/fakeMethod"/>
+        </modelFacet>
+      </labels>
+    </childNodes>
+    <childNodes
+        visualID="1103011"
+        editPartClassName="POSTCreateTriggerEditPart"
+        itemSemanticEditPolicyClassName="POSTCreateTriggerItemSemanticEditPolicy"
+        canonicalEditPolicyClassName="POSTCreateTriggerCanonicalEditPolicy"
+        graphicalNodeEditPolicyClassName="POSTCreateTriggerGraphicalNodeEditPolicy"
+        createCommandClassName="POSTCreateTriggerCreateCommand"
+        containers="//@diagram/@compartments.5">
+      <diagramRunTimeClass
+          href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+      <elementType
+          xsi:type="gmfgen:MetamodelType"
+          editHelperClassName="POSTCreateTriggerEditHelper"/>
+      <viewmap
+          xsi:type="gmfgen:InnerClassViewmap"
+          className="POSTCreateTriggerFigure"
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class POSTCreateTriggerFigure extends org.eclipse.draw2d.RoundedRectangle {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigurePOSTCreateTriggerLabelFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public POSTCreateTriggerFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setCornerDimensions(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(8)&#xA;, getMapMode().DPtoLP(8)&#xA;));&#xA;this.setOutline(false);&#xA;&#x9;this.setForegroundColor(THIS_FORE&#xA;);&#xA;&#x9;this.setBackgroundColor(THIS_BACK&#xA;);&#xA;this.setPreferredSize(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(200)&#xA;, getMapMode().DPtoLP(16)&#xA;));&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigurePOSTCreateTriggerLabelFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigurePOSTCreateTriggerLabelFigure.setText(&quot;POSTCreateTrigger&quot;);&#xA;&#xA;fFigurePOSTCreateTriggerLabelFigure.setFont(FFIGUREPOSTCREATETRIGGERLABELFIGURE_FONT);&#xA;&#xA;&#xA;&#xA;this.add(fFigurePOSTCreateTriggerLabelFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigurePOSTCreateTriggerLabelFigure() {&#xA;&#x9;&#x9;return fFigurePOSTCreateTriggerLabelFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_FORE = new org.eclipse.swt.graphics.Color(null, 0, 0, 0);&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_BACK = new org.eclipse.swt.graphics.Color(null, 241, 238, 203);&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Font FFIGUREPOSTCREATETRIGGERLABELFIGURE_FONT = new org.eclipse.swt.graphics.Font(org.eclipse.swt.widgets.Display.getCurrent(), &quot;Palatino&quot;, 12, org.eclipse.swt.SWT.ITALIC);&#xA;&#xA;">
+        <attributes
+            xsi:type="gmfgen:StyleAttributes"
+            fixedForeground="true"
+            fixedBackground="true"/>
+        <attributes
+            xsi:type="gmfgen:DefaultSizeAttributes"
+            width="200"
+            height="16"/>
+      </viewmap>
+      <modelFacet>
+        <metaClass
+            href="domain.genmodel#//domain/POSTCreateTrigger"/>
+        <containmentMetaFeature
+            href="domain.genmodel#//domain/DataControl/postCreateTrigger"/>
+        <childMetaFeature
+            href="domain.genmodel#//domain/DataControl/postCreateTrigger"/>
+      </modelFacet>
+      <labels
+          visualID="1105013"
+          editPartClassName="POSTCreateTriggerFakeMethodEditPart"
+          itemSemanticEditPolicyClassName="POSTCreateTriggerFakeMethodItemSemanticEditPolicy"
+          elementIcon="true">
+        <diagramRunTimeClass
+            href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+        <viewmap
+            xsi:type="gmfgen:ParentAssignedViewmap"
+            getterName="getFigurePOSTCreateTriggerLabelFigure"
+            figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel">
+          <attributes
+              xsi:type="gmfgen:StyleAttributes"
+              fixedFont="true"/>
+        </viewmap>
+        <modelFacet
+            xsi:type="gmfgen:FeatureLabelModelFacet"
+            parser="//@labelParsers/@implementations.0">
+          <metaFeatures
+              href="domain.genmodel#//domain/MethodPointer/fakeMethod"/>
+        </modelFacet>
+      </labels>
+    </childNodes>
+    <childNodes
+        visualID="1103010"
+        editPartClassName="PREUpdateTriggerEditPart"
+        itemSemanticEditPolicyClassName="PREUpdateTriggerItemSemanticEditPolicy"
+        canonicalEditPolicyClassName="PREUpdateTriggerCanonicalEditPolicy"
+        graphicalNodeEditPolicyClassName="PREUpdateTriggerGraphicalNodeEditPolicy"
+        createCommandClassName="PREUpdateTriggerCreateCommand"
+        containers="//@diagram/@compartments.6">
+      <diagramRunTimeClass
+          href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+      <elementType
+          xsi:type="gmfgen:MetamodelType"
+          editHelperClassName="PREUpdateTriggerEditHelper"/>
+      <viewmap
+          xsi:type="gmfgen:InnerClassViewmap"
+          className="PREUpdateTriggerFigure"
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class PREUpdateTriggerFigure extends org.eclipse.draw2d.RoundedRectangle {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigurePREUpdateTriggerLabelFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public PREUpdateTriggerFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setCornerDimensions(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(8)&#xA;, getMapMode().DPtoLP(8)&#xA;));&#xA;&#x9;this.setForegroundColor(THIS_FORE&#xA;);&#xA;&#x9;this.setBackgroundColor(THIS_BACK&#xA;);&#xA;this.setBorder(new org.eclipse.draw2d.MarginBorder(getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;));&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigurePREUpdateTriggerLabelFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigurePREUpdateTriggerLabelFigure.setText(&quot;PREUpdateTrigger&quot;);&#xA;&#xA;fFigurePREUpdateTriggerLabelFigure.setFont(FFIGUREPREUPDATETRIGGERLABELFIGURE_FONT);&#xA;&#xA;&#xA;&#xA;this.add(fFigurePREUpdateTriggerLabelFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigurePREUpdateTriggerLabelFigure() {&#xA;&#x9;&#x9;return fFigurePREUpdateTriggerLabelFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_FORE = new org.eclipse.swt.graphics.Color(null, 0, 0, 0);&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_BACK = new org.eclipse.swt.graphics.Color(null, 241, 238, 203);&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Font FFIGUREPREUPDATETRIGGERLABELFIGURE_FONT = new org.eclipse.swt.graphics.Font(org.eclipse.swt.widgets.Display.getCurrent(), &quot;Palatino&quot;, 12, org.eclipse.swt.SWT.ITALIC);&#xA;&#xA;">
+        <attributes
+            xsi:type="gmfgen:StyleAttributes"
+            fixedForeground="true"
+            fixedBackground="true"/>
+      </viewmap>
+      <modelFacet>
+        <metaClass
+            href="domain.genmodel#//domain/PREUpdateTrigger"/>
+        <containmentMetaFeature
+            href="domain.genmodel#//domain/DataControl/preUpdateTrigger"/>
+        <childMetaFeature
+            href="domain.genmodel#//domain/DataControl/preUpdateTrigger"/>
+      </modelFacet>
+      <labels
+          visualID="1105012"
+          editPartClassName="PREUpdateTriggerFakeMethodEditPart"
+          itemSemanticEditPolicyClassName="PREUpdateTriggerFakeMethodItemSemanticEditPolicy"
+          elementIcon="true">
+        <diagramRunTimeClass
+            href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+        <viewmap
+            xsi:type="gmfgen:ParentAssignedViewmap"
+            getterName="getFigurePREUpdateTriggerLabelFigure"
+            figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel">
+          <attributes
+              xsi:type="gmfgen:StyleAttributes"
+              fixedFont="true"/>
+        </viewmap>
+        <modelFacet
+            xsi:type="gmfgen:FeatureLabelModelFacet"
+            parser="//@labelParsers/@implementations.0">
+          <metaFeatures
+              href="domain.genmodel#//domain/MethodPointer/fakeMethod"/>
+        </modelFacet>
+      </labels>
+    </childNodes>
+    <childNodes
+        visualID="1103012"
+        editPartClassName="CreateTriggerEditPart"
+        itemSemanticEditPolicyClassName="CreateTriggerItemSemanticEditPolicy"
+        canonicalEditPolicyClassName="CreateTriggerCanonicalEditPolicy"
+        graphicalNodeEditPolicyClassName="CreateTriggerGraphicalNodeEditPolicy"
+        createCommandClassName="CreateTriggerCreateCommand"
+        containers="//@diagram/@compartments.7">
+      <diagramRunTimeClass
+          href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+      <elementType
+          xsi:type="gmfgen:MetamodelType"
+          editHelperClassName="CreateTriggerEditHelper"/>
+      <viewmap
+          xsi:type="gmfgen:InnerClassViewmap"
+          className="CreateTriggerFigure"
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class CreateTriggerFigure extends org.eclipse.draw2d.RoundedRectangle {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureCreateTriggerLabelFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public CreateTriggerFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setCornerDimensions(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(8)&#xA;, getMapMode().DPtoLP(8)&#xA;));&#xA;this.setOutline(false);&#xA;&#x9;this.setForegroundColor(THIS_FORE&#xA;);&#xA;&#x9;this.setBackgroundColor(THIS_BACK&#xA;);&#xA;this.setPreferredSize(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(200)&#xA;, getMapMode().DPtoLP(16)&#xA;));&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureCreateTriggerLabelFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureCreateTriggerLabelFigure.setText(&quot;CreateTrigger&quot;);&#xA;&#xA;fFigureCreateTriggerLabelFigure.setFont(FFIGURECREATETRIGGERLABELFIGURE_FONT);&#xA;&#xA;&#xA;&#xA;this.add(fFigureCreateTriggerLabelFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureCreateTriggerLabelFigure() {&#xA;&#x9;&#x9;return fFigureCreateTriggerLabelFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_FORE = new org.eclipse.swt.graphics.Color(null, 0, 0, 0);&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_BACK = new org.eclipse.swt.graphics.Color(null, 241, 238, 203);&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Font FFIGURECREATETRIGGERLABELFIGURE_FONT = new org.eclipse.swt.graphics.Font(org.eclipse.swt.widgets.Display.getCurrent(), &quot;Palatino&quot;, 12, org.eclipse.swt.SWT.ITALIC);&#xA;&#xA;">
+        <attributes
+            xsi:type="gmfgen:StyleAttributes"
+            fixedForeground="true"
+            fixedBackground="true"/>
+        <attributes
+            xsi:type="gmfgen:DefaultSizeAttributes"
+            width="200"
+            height="16"/>
+      </viewmap>
+      <modelFacet>
+        <metaClass
+            href="domain.genmodel#//domain/CreateTrigger"/>
+        <containmentMetaFeature
+            href="domain.genmodel#//domain/DataControl/create"/>
+        <childMetaFeature
+            href="domain.genmodel#//domain/DataControl/create"/>
+      </modelFacet>
+      <labels
+          visualID="1105014"
+          editPartClassName="CreateTriggerFakeMethodEditPart"
+          itemSemanticEditPolicyClassName="CreateTriggerFakeMethodItemSemanticEditPolicy"
+          elementIcon="true">
+        <diagramRunTimeClass
+            href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+        <viewmap
+            xsi:type="gmfgen:ParentAssignedViewmap"
+            getterName="getFigureCreateTriggerLabelFigure"
+            figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel">
+          <attributes
+              xsi:type="gmfgen:StyleAttributes"
+              fixedFont="true"/>
+        </viewmap>
+        <modelFacet
+            xsi:type="gmfgen:FeatureLabelModelFacet"
+            parser="//@labelParsers/@implementations.0">
+          <metaFeatures
+              href="domain.genmodel#//domain/MethodPointer/fakeMethod"/>
+        </modelFacet>
+      </labels>
+    </childNodes>
+    <childNodes
+        visualID="1103013"
+        editPartClassName="InsertTriggerEditPart"
+        itemSemanticEditPolicyClassName="InsertTriggerItemSemanticEditPolicy"
+        canonicalEditPolicyClassName="InsertTriggerCanonicalEditPolicy"
+        graphicalNodeEditPolicyClassName="InsertTriggerGraphicalNodeEditPolicy"
+        createCommandClassName="InsertTriggerCreateCommand"
+        containers="//@diagram/@compartments.8">
+      <diagramRunTimeClass
+          href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+      <elementType
+          xsi:type="gmfgen:MetamodelType"
+          editHelperClassName="InsertTriggerEditHelper"/>
+      <viewmap
+          xsi:type="gmfgen:InnerClassViewmap"
+          className="InsertTriggerFigure"
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class InsertTriggerFigure extends org.eclipse.draw2d.RoundedRectangle {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureInsertTriggerLabelFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public InsertTriggerFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setCornerDimensions(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(8)&#xA;, getMapMode().DPtoLP(8)&#xA;));&#xA;this.setOutline(false);&#xA;&#x9;this.setForegroundColor(THIS_FORE&#xA;);&#xA;&#x9;this.setBackgroundColor(THIS_BACK&#xA;);&#xA;this.setPreferredSize(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(200)&#xA;, getMapMode().DPtoLP(16)&#xA;));&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureInsertTriggerLabelFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureInsertTriggerLabelFigure.setText(&quot;InsertTrigger&quot;);&#xA;&#xA;fFigureInsertTriggerLabelFigure.setFont(FFIGUREINSERTTRIGGERLABELFIGURE_FONT);&#xA;&#xA;&#xA;&#xA;this.add(fFigureInsertTriggerLabelFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureInsertTriggerLabelFigure() {&#xA;&#x9;&#x9;return fFigureInsertTriggerLabelFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_FORE = new org.eclipse.swt.graphics.Color(null, 0, 0, 0);&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_BACK = new org.eclipse.swt.graphics.Color(null, 241, 238, 203);&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Font FFIGUREINSERTTRIGGERLABELFIGURE_FONT = new org.eclipse.swt.graphics.Font(org.eclipse.swt.widgets.Display.getCurrent(), &quot;Palatino&quot;, 12, org.eclipse.swt.SWT.ITALIC);&#xA;&#xA;">
+        <attributes
+            xsi:type="gmfgen:StyleAttributes"
+            fixedForeground="true"
+            fixedBackground="true"/>
+        <attributes
+            xsi:type="gmfgen:DefaultSizeAttributes"
+            width="200"
+            height="16"/>
+      </viewmap>
+      <modelFacet>
+        <metaClass
+            href="domain.genmodel#//domain/InsertTrigger"/>
+        <containmentMetaFeature
+            href="domain.genmodel#//domain/DataControl/insert"/>
+        <childMetaFeature
+            href="domain.genmodel#//domain/DataControl/insert"/>
+      </modelFacet>
+      <labels
+          visualID="1105015"
+          editPartClassName="InsertTriggerFakeMethodEditPart"
+          itemSemanticEditPolicyClassName="InsertTriggerFakeMethodItemSemanticEditPolicy"
+          elementIcon="true">
+        <diagramRunTimeClass
+            href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+        <viewmap
+            xsi:type="gmfgen:ParentAssignedViewmap"
+            getterName="getFigureInsertTriggerLabelFigure"
+            figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel">
+          <attributes
+              xsi:type="gmfgen:StyleAttributes"
+              fixedFont="true"/>
+        </viewmap>
+        <modelFacet
+            xsi:type="gmfgen:FeatureLabelModelFacet"
+            parser="//@labelParsers/@implementations.0">
+          <metaFeatures
+              href="domain.genmodel#//domain/MethodPointer/fakeMethod"/>
+        </modelFacet>
+      </labels>
+    </childNodes>
+    <childNodes
+        visualID="1103014"
+        editPartClassName="UpdateTriggerEditPart"
+        itemSemanticEditPolicyClassName="UpdateTriggerItemSemanticEditPolicy"
+        canonicalEditPolicyClassName="UpdateTriggerCanonicalEditPolicy"
+        graphicalNodeEditPolicyClassName="UpdateTriggerGraphicalNodeEditPolicy"
+        createCommandClassName="UpdateTriggerCreateCommand"
+        containers="//@diagram/@compartments.9">
+      <diagramRunTimeClass
+          href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+      <elementType
+          xsi:type="gmfgen:MetamodelType"
+          editHelperClassName="UpdateTriggerEditHelper"/>
+      <viewmap
+          xsi:type="gmfgen:InnerClassViewmap"
+          className="UpdateTriggerFigure"
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class UpdateTriggerFigure extends org.eclipse.draw2d.RoundedRectangle {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureUpdateTriggerLabelFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public UpdateTriggerFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setCornerDimensions(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(8)&#xA;, getMapMode().DPtoLP(8)&#xA;));&#xA;this.setOutline(false);&#xA;&#x9;this.setForegroundColor(THIS_FORE&#xA;);&#xA;&#x9;this.setBackgroundColor(THIS_BACK&#xA;);&#xA;this.setPreferredSize(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(200)&#xA;, getMapMode().DPtoLP(16)&#xA;));&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureUpdateTriggerLabelFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureUpdateTriggerLabelFigure.setText(&quot;UpdateTrigger&quot;);&#xA;&#xA;fFigureUpdateTriggerLabelFigure.setFont(FFIGUREUPDATETRIGGERLABELFIGURE_FONT);&#xA;&#xA;&#xA;&#xA;this.add(fFigureUpdateTriggerLabelFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureUpdateTriggerLabelFigure() {&#xA;&#x9;&#x9;return fFigureUpdateTriggerLabelFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_FORE = new org.eclipse.swt.graphics.Color(null, 0, 0, 0);&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_BACK = new org.eclipse.swt.graphics.Color(null, 241, 238, 203);&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Font FFIGUREUPDATETRIGGERLABELFIGURE_FONT = new org.eclipse.swt.graphics.Font(org.eclipse.swt.widgets.Display.getCurrent(), &quot;Palatino&quot;, 12, org.eclipse.swt.SWT.ITALIC);&#xA;&#xA;">
+        <attributes
+            xsi:type="gmfgen:StyleAttributes"
+            fixedForeground="true"
+            fixedBackground="true"/>
+        <attributes
+            xsi:type="gmfgen:DefaultSizeAttributes"
+            width="200"
+            height="16"/>
+      </viewmap>
+      <modelFacet>
+        <metaClass
+            href="domain.genmodel#//domain/UpdateTrigger"/>
+        <containmentMetaFeature
+            href="domain.genmodel#//domain/DataControl/update"/>
+        <childMetaFeature
+            href="domain.genmodel#//domain/DataControl/update"/>
+      </modelFacet>
+      <labels
+          visualID="1105016"
+          editPartClassName="UpdateTriggerFakeMethodEditPart"
+          itemSemanticEditPolicyClassName="UpdateTriggerFakeMethodItemSemanticEditPolicy"
+          elementIcon="true">
+        <diagramRunTimeClass
+            href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+        <viewmap
+            xsi:type="gmfgen:ParentAssignedViewmap"
+            getterName="getFigureUpdateTriggerLabelFigure"
+            figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel">
+          <attributes
+              xsi:type="gmfgen:StyleAttributes"
+              fixedFont="true"/>
+        </viewmap>
+        <modelFacet
+            xsi:type="gmfgen:FeatureLabelModelFacet"
+            parser="//@labelParsers/@implementations.0">
+          <metaFeatures
+              href="domain.genmodel#//domain/MethodPointer/fakeMethod"/>
+        </modelFacet>
+      </labels>
+    </childNodes>
+    <childNodes
+        visualID="1103015"
+        editPartClassName="DeleteTriggerEditPart"
+        itemSemanticEditPolicyClassName="DeleteTriggerItemSemanticEditPolicy"
+        canonicalEditPolicyClassName="DeleteTriggerCanonicalEditPolicy"
+        graphicalNodeEditPolicyClassName="DeleteTriggerGraphicalNodeEditPolicy"
+        createCommandClassName="DeleteTriggerCreateCommand"
+        containers="//@diagram/@compartments.10">
+      <diagramRunTimeClass
+          href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+      <elementType
+          xsi:type="gmfgen:MetamodelType"
+          editHelperClassName="DeleteTriggerEditHelper"/>
+      <viewmap
+          xsi:type="gmfgen:InnerClassViewmap"
+          className="DeleteTriggerFigure"
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class DeleteTriggerFigure extends org.eclipse.draw2d.RoundedRectangle {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureDeleteTriggerLabelFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public DeleteTriggerFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setCornerDimensions(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(8)&#xA;, getMapMode().DPtoLP(8)&#xA;));&#xA;this.setOutline(false);&#xA;&#x9;this.setForegroundColor(THIS_FORE&#xA;);&#xA;&#x9;this.setBackgroundColor(THIS_BACK&#xA;);&#xA;this.setPreferredSize(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(200)&#xA;, getMapMode().DPtoLP(16)&#xA;));&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureDeleteTriggerLabelFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureDeleteTriggerLabelFigure.setText(&quot;DeleteTrigger&quot;);&#xA;&#xA;fFigureDeleteTriggerLabelFigure.setFont(FFIGUREDELETETRIGGERLABELFIGURE_FONT);&#xA;&#xA;&#xA;&#xA;this.add(fFigureDeleteTriggerLabelFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureDeleteTriggerLabelFigure() {&#xA;&#x9;&#x9;return fFigureDeleteTriggerLabelFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_FORE = new org.eclipse.swt.graphics.Color(null, 0, 0, 0);&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_BACK = new org.eclipse.swt.graphics.Color(null, 241, 238, 203);&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Font FFIGUREDELETETRIGGERLABELFIGURE_FONT = new org.eclipse.swt.graphics.Font(org.eclipse.swt.widgets.Display.getCurrent(), &quot;Palatino&quot;, 12, org.eclipse.swt.SWT.ITALIC);&#xA;&#xA;">
+        <attributes
+            xsi:type="gmfgen:StyleAttributes"
+            fixedForeground="true"
+            fixedBackground="true"/>
+        <attributes
+            xsi:type="gmfgen:DefaultSizeAttributes"
+            width="200"
+            height="16"/>
+      </viewmap>
+      <modelFacet>
+        <metaClass
+            href="domain.genmodel#//domain/DeleteTrigger"/>
+        <containmentMetaFeature
+            href="domain.genmodel#//domain/DataControl/remove"/>
+        <childMetaFeature
+            href="domain.genmodel#//domain/DataControl/remove"/>
+      </modelFacet>
+      <labels
+          visualID="1105017"
+          editPartClassName="DeleteTriggerFakeMethodEditPart"
+          itemSemanticEditPolicyClassName="DeleteTriggerFakeMethodItemSemanticEditPolicy"
+          elementIcon="true">
+        <diagramRunTimeClass
+            href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+        <viewmap
+            xsi:type="gmfgen:ParentAssignedViewmap"
+            getterName="getFigureDeleteTriggerLabelFigure"
+            figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel">
+          <attributes
+              xsi:type="gmfgen:StyleAttributes"
+              fixedFont="true"/>
+        </viewmap>
+        <modelFacet
+            xsi:type="gmfgen:FeatureLabelModelFacet"
+            parser="//@labelParsers/@implementations.0">
+          <metaFeatures
+              href="domain.genmodel#//domain/MethodPointer/fakeMethod"/>
+        </modelFacet>
+      </labels>
+    </childNodes>
+    <childNodes
+        visualID="1103016"
+        editPartClassName="SearchTriggerEditPart"
+        itemSemanticEditPolicyClassName="SearchTriggerItemSemanticEditPolicy"
+        canonicalEditPolicyClassName="SearchTriggerCanonicalEditPolicy"
+        graphicalNodeEditPolicyClassName="SearchTriggerGraphicalNodeEditPolicy"
+        createCommandClassName="SearchTriggerCreateCommand"
+        containers="//@diagram/@compartments.11">
+      <diagramRunTimeClass
+          href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+      <elementType
+          xsi:type="gmfgen:MetamodelType"
+          editHelperClassName="SearchTriggerEditHelper"/>
+      <viewmap
+          xsi:type="gmfgen:InnerClassViewmap"
+          className="SearchTriggerFigure"
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class SearchTriggerFigure extends org.eclipse.draw2d.RoundedRectangle {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureSearchTriggerLabelFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public SearchTriggerFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setCornerDimensions(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(8)&#xA;, getMapMode().DPtoLP(8)&#xA;));&#xA;this.setOutline(false);&#xA;&#x9;this.setForegroundColor(THIS_FORE&#xA;);&#xA;&#x9;this.setBackgroundColor(THIS_BACK&#xA;);&#xA;this.setPreferredSize(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(200)&#xA;, getMapMode().DPtoLP(16)&#xA;));&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureSearchTriggerLabelFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureSearchTriggerLabelFigure.setText(&quot;SearchTrigger&quot;);&#xA;&#xA;fFigureSearchTriggerLabelFigure.setFont(FFIGURESEARCHTRIGGERLABELFIGURE_FONT);&#xA;&#xA;&#xA;&#xA;this.add(fFigureSearchTriggerLabelFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureSearchTriggerLabelFigure() {&#xA;&#x9;&#x9;return fFigureSearchTriggerLabelFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_FORE = new org.eclipse.swt.graphics.Color(null, 0, 0, 0);&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_BACK = new org.eclipse.swt.graphics.Color(null, 241, 238, 203);&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Font FFIGURESEARCHTRIGGERLABELFIGURE_FONT = new org.eclipse.swt.graphics.Font(org.eclipse.swt.widgets.Display.getCurrent(), &quot;Palatino&quot;, 12, org.eclipse.swt.SWT.ITALIC);&#xA;&#xA;">
+        <attributes
+            xsi:type="gmfgen:StyleAttributes"
+            fixedForeground="true"
+            fixedBackground="true"/>
+        <attributes
+            xsi:type="gmfgen:DefaultSizeAttributes"
+            width="200"
+            height="16"/>
+      </viewmap>
+      <modelFacet>
+        <metaClass
+            href="domain.genmodel#//domain/SearchTrigger"/>
+        <containmentMetaFeature
+            href="domain.genmodel#//domain/DataControl/search"/>
+        <childMetaFeature
+            href="domain.genmodel#//domain/DataControl/search"/>
+      </modelFacet>
+      <labels
+          visualID="1105018"
+          editPartClassName="SearchTriggerFakeMethodEditPart"
+          itemSemanticEditPolicyClassName="SearchTriggerFakeMethodItemSemanticEditPolicy"
+          elementIcon="true">
+        <diagramRunTimeClass
+            href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+        <viewmap
+            xsi:type="gmfgen:ParentAssignedViewmap"
+            getterName="getFigureSearchTriggerLabelFigure"
+            figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel">
+          <attributes
+              xsi:type="gmfgen:StyleAttributes"
+              fixedFont="true"/>
+        </viewmap>
+        <modelFacet
+            xsi:type="gmfgen:FeatureLabelModelFacet"
+            parser="//@labelParsers/@implementations.0">
+          <metaFeatures
+              href="domain.genmodel#//domain/MethodPointer/fakeMethod"/>
         </modelFacet>
       </labels>
     </childNodes>
@@ -143,629 +766,6 @@
             parser="//@labelParsers/@implementations.0">
           <metaFeatures
               href="domain.genmodel#//domain/ArtificialField/name"/>
-        </modelFacet>
-      </labels>
-    </childNodes>
-    <childNodes
-        visualID="1103002"
-        editPartClassName="PREQueryTriggerEditPart"
-        itemSemanticEditPolicyClassName="PREQueryTriggerItemSemanticEditPolicy"
-        canonicalEditPolicyClassName="PREQueryTriggerCanonicalEditPolicy"
-        graphicalNodeEditPolicyClassName="PREQueryTriggerGraphicalNodeEditPolicy"
-        createCommandClassName="PREQueryTriggerCreateCommand"
-        containers="//@diagram/@compartments.1">
-      <diagramRunTimeClass
-          href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
-      <elementType
-          xsi:type="gmfgen:MetamodelType"
-          editHelperClassName="PREQueryTriggerEditHelper"/>
-      <viewmap
-          xsi:type="gmfgen:InnerClassViewmap"
-          className="PREQueryTriggerFigure"
-          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class PREQueryTriggerFigure extends org.eclipse.draw2d.RoundedRectangle {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigurePREQueryTriggerLabelFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public PREQueryTriggerFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setCornerDimensions(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(8)&#xA;, getMapMode().DPtoLP(8)&#xA;));&#xA;this.setOutline(false);&#xA;&#x9;this.setForegroundColor(THIS_FORE&#xA;);&#xA;&#x9;this.setBackgroundColor(THIS_BACK&#xA;);&#xA;this.setPreferredSize(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(200)&#xA;, getMapMode().DPtoLP(16)&#xA;));&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigurePREQueryTriggerLabelFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigurePREQueryTriggerLabelFigure.setText(&quot;PREQueryTrigger&quot;);&#xA;&#xA;fFigurePREQueryTriggerLabelFigure.setFont(FFIGUREPREQUERYTRIGGERLABELFIGURE_FONT);&#xA;&#xA;&#xA;&#xA;this.add(fFigurePREQueryTriggerLabelFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigurePREQueryTriggerLabelFigure() {&#xA;&#x9;&#x9;return fFigurePREQueryTriggerLabelFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_FORE = new org.eclipse.swt.graphics.Color(null, 0, 0, 0);&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_BACK = new org.eclipse.swt.graphics.Color(null, 241, 238, 203);&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Font FFIGUREPREQUERYTRIGGERLABELFIGURE_FONT = new org.eclipse.swt.graphics.Font(org.eclipse.swt.widgets.Display.getCurrent(), &quot;Palatino&quot;, 12, org.eclipse.swt.SWT.ITALIC);&#xA;&#xA;">
-        <attributes
-            xsi:type="gmfgen:StyleAttributes"
-            fixedForeground="true"
-            fixedBackground="true"/>
-        <attributes
-            xsi:type="gmfgen:DefaultSizeAttributes"
-            width="200"
-            height="16"/>
-      </viewmap>
-      <modelFacet>
-        <metaClass
-            href="domain.genmodel#//domain/PREQueryTrigger"/>
-        <containmentMetaFeature
-            href="domain.genmodel#//domain/DataControl/preQueryTrigger"/>
-        <childMetaFeature
-            href="domain.genmodel#//domain/DataControl/preQueryTrigger"/>
-      </modelFacet>
-      <labels
-          visualID="1105003"
-          editPartClassName="PREQueryTriggerFakeMethodEditPart"
-          itemSemanticEditPolicyClassName="PREQueryTriggerFakeMethodItemSemanticEditPolicy"
-          elementIcon="true">
-        <diagramRunTimeClass
-            href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
-        <viewmap
-            xsi:type="gmfgen:ParentAssignedViewmap"
-            getterName="getFigurePREQueryTriggerLabelFigure"
-            figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel">
-          <attributes
-              xsi:type="gmfgen:StyleAttributes"
-              fixedFont="true"/>
-        </viewmap>
-        <modelFacet
-            xsi:type="gmfgen:FeatureLabelModelFacet"
-            parser="//@labelParsers/@implementations.0">
-          <metaFeatures
-              href="domain.genmodel#//domain/PREQueryTrigger/fakeMethod"/>
-        </modelFacet>
-      </labels>
-    </childNodes>
-    <childNodes
-        visualID="1103003"
-        editPartClassName="POSTQueryTriggerEditPart"
-        itemSemanticEditPolicyClassName="POSTQueryTriggerItemSemanticEditPolicy"
-        canonicalEditPolicyClassName="POSTQueryTriggerCanonicalEditPolicy"
-        graphicalNodeEditPolicyClassName="POSTQueryTriggerGraphicalNodeEditPolicy"
-        createCommandClassName="POSTQueryTriggerCreateCommand"
-        containers="//@diagram/@compartments.2">
-      <diagramRunTimeClass
-          href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
-      <elementType
-          xsi:type="gmfgen:MetamodelType"
-          editHelperClassName="POSTQueryTriggerEditHelper"/>
-      <viewmap
-          xsi:type="gmfgen:InnerClassViewmap"
-          className="POSTQueryTriggerFigure"
-          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class POSTQueryTriggerFigure extends org.eclipse.draw2d.RoundedRectangle {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigurePOSTQueryTriggerLabelFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public POSTQueryTriggerFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setCornerDimensions(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(8)&#xA;, getMapMode().DPtoLP(8)&#xA;));&#xA;this.setOutline(false);&#xA;&#x9;this.setForegroundColor(THIS_FORE&#xA;);&#xA;&#x9;this.setBackgroundColor(THIS_BACK&#xA;);&#xA;this.setPreferredSize(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(200)&#xA;, getMapMode().DPtoLP(16)&#xA;));&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigurePOSTQueryTriggerLabelFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigurePOSTQueryTriggerLabelFigure.setText(&quot;POSTQueryTrigger&quot;);&#xA;&#xA;fFigurePOSTQueryTriggerLabelFigure.setFont(FFIGUREPOSTQUERYTRIGGERLABELFIGURE_FONT);&#xA;&#xA;&#xA;&#xA;this.add(fFigurePOSTQueryTriggerLabelFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigurePOSTQueryTriggerLabelFigure() {&#xA;&#x9;&#x9;return fFigurePOSTQueryTriggerLabelFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_FORE = new org.eclipse.swt.graphics.Color(null, 0, 0, 0);&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_BACK = new org.eclipse.swt.graphics.Color(null, 241, 238, 203);&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Font FFIGUREPOSTQUERYTRIGGERLABELFIGURE_FONT = new org.eclipse.swt.graphics.Font(org.eclipse.swt.widgets.Display.getCurrent(), &quot;Palatino&quot;, 12, org.eclipse.swt.SWT.ITALIC);&#xA;&#xA;">
-        <attributes
-            xsi:type="gmfgen:StyleAttributes"
-            fixedForeground="true"
-            fixedBackground="true"/>
-        <attributes
-            xsi:type="gmfgen:DefaultSizeAttributes"
-            width="200"
-            height="16"/>
-      </viewmap>
-      <modelFacet>
-        <metaClass
-            href="domain.genmodel#//domain/POSTQueryTrigger"/>
-        <containmentMetaFeature
-            href="domain.genmodel#//domain/DataControl/postQueryTrigger"/>
-        <childMetaFeature
-            href="domain.genmodel#//domain/DataControl/postQueryTrigger"/>
-      </modelFacet>
-      <labels
-          visualID="1105004"
-          editPartClassName="POSTQueryTriggerFakeMethodEditPart"
-          itemSemanticEditPolicyClassName="POSTQueryTriggerFakeMethodItemSemanticEditPolicy"
-          elementIcon="true">
-        <diagramRunTimeClass
-            href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
-        <viewmap
-            xsi:type="gmfgen:ParentAssignedViewmap"
-            getterName="getFigurePOSTQueryTriggerLabelFigure"
-            figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel">
-          <attributes
-              xsi:type="gmfgen:StyleAttributes"
-              fixedFont="true"/>
-        </viewmap>
-        <modelFacet
-            xsi:type="gmfgen:FeatureLabelModelFacet"
-            parser="//@labelParsers/@implementations.0">
-          <metaFeatures
-              href="domain.genmodel#//domain/POSTQueryTrigger/fakeMethod"/>
-        </modelFacet>
-      </labels>
-    </childNodes>
-    <childNodes
-        visualID="1103004"
-        editPartClassName="PREInsertTriggerEditPart"
-        itemSemanticEditPolicyClassName="PREInsertTriggerItemSemanticEditPolicy"
-        canonicalEditPolicyClassName="PREInsertTriggerCanonicalEditPolicy"
-        graphicalNodeEditPolicyClassName="PREInsertTriggerGraphicalNodeEditPolicy"
-        createCommandClassName="PREInsertTriggerCreateCommand"
-        containers="//@diagram/@compartments.3">
-      <diagramRunTimeClass
-          href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
-      <elementType
-          xsi:type="gmfgen:MetamodelType"
-          editHelperClassName="PREInsertTriggerEditHelper"/>
-      <viewmap
-          xsi:type="gmfgen:InnerClassViewmap"
-          className="PREInsertTriggerFigure"
-          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class PREInsertTriggerFigure extends org.eclipse.draw2d.RoundedRectangle {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigurePREInsertTriggerLabelFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public PREInsertTriggerFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setCornerDimensions(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(8)&#xA;, getMapMode().DPtoLP(8)&#xA;));&#xA;this.setOutline(false);&#xA;&#x9;this.setForegroundColor(THIS_FORE&#xA;);&#xA;&#x9;this.setBackgroundColor(THIS_BACK&#xA;);&#xA;this.setPreferredSize(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(200)&#xA;, getMapMode().DPtoLP(16)&#xA;));&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigurePREInsertTriggerLabelFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigurePREInsertTriggerLabelFigure.setText(&quot;PREInsertTrigger&quot;);&#xA;&#xA;fFigurePREInsertTriggerLabelFigure.setFont(FFIGUREPREINSERTTRIGGERLABELFIGURE_FONT);&#xA;&#xA;&#xA;&#xA;this.add(fFigurePREInsertTriggerLabelFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigurePREInsertTriggerLabelFigure() {&#xA;&#x9;&#x9;return fFigurePREInsertTriggerLabelFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_FORE = new org.eclipse.swt.graphics.Color(null, 0, 0, 0);&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_BACK = new org.eclipse.swt.graphics.Color(null, 241, 238, 203);&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Font FFIGUREPREINSERTTRIGGERLABELFIGURE_FONT = new org.eclipse.swt.graphics.Font(org.eclipse.swt.widgets.Display.getCurrent(), &quot;Palatino&quot;, 12, org.eclipse.swt.SWT.ITALIC);&#xA;&#xA;">
-        <attributes
-            xsi:type="gmfgen:StyleAttributes"
-            fixedForeground="true"
-            fixedBackground="true"/>
-        <attributes
-            xsi:type="gmfgen:DefaultSizeAttributes"
-            width="200"
-            height="16"/>
-      </viewmap>
-      <modelFacet>
-        <metaClass
-            href="domain.genmodel#//domain/PREInsertTrigger"/>
-        <containmentMetaFeature
-            href="domain.genmodel#//domain/DataControl/preInsertTrigger"/>
-        <childMetaFeature
-            href="domain.genmodel#//domain/DataControl/preInsertTrigger"/>
-      </modelFacet>
-      <labels
-          visualID="1105005"
-          editPartClassName="PREInsertTriggerFakeMethodEditPart"
-          itemSemanticEditPolicyClassName="PREInsertTriggerFakeMethodItemSemanticEditPolicy"
-          elementIcon="true">
-        <diagramRunTimeClass
-            href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
-        <viewmap
-            xsi:type="gmfgen:ParentAssignedViewmap"
-            getterName="getFigurePREInsertTriggerLabelFigure"
-            figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel">
-          <attributes
-              xsi:type="gmfgen:StyleAttributes"
-              fixedFont="true"/>
-        </viewmap>
-        <modelFacet
-            xsi:type="gmfgen:FeatureLabelModelFacet"
-            parser="//@labelParsers/@implementations.0">
-          <metaFeatures
-              href="domain.genmodel#//domain/PREInsertTrigger/fakeMethod"/>
-        </modelFacet>
-      </labels>
-    </childNodes>
-    <childNodes
-        visualID="1103005"
-        editPartClassName="PREDeleteTriggerEditPart"
-        itemSemanticEditPolicyClassName="PREDeleteTriggerItemSemanticEditPolicy"
-        canonicalEditPolicyClassName="PREDeleteTriggerCanonicalEditPolicy"
-        graphicalNodeEditPolicyClassName="PREDeleteTriggerGraphicalNodeEditPolicy"
-        createCommandClassName="PREDeleteTriggerCreateCommand"
-        containers="//@diagram/@compartments.4">
-      <diagramRunTimeClass
-          href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
-      <elementType
-          xsi:type="gmfgen:MetamodelType"
-          editHelperClassName="PREDeleteTriggerEditHelper"/>
-      <viewmap
-          xsi:type="gmfgen:InnerClassViewmap"
-          className="PREDeleteTriggerFigure"
-          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class PREDeleteTriggerFigure extends org.eclipse.draw2d.RoundedRectangle {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigurePREDeleteTriggerLabelFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public PREDeleteTriggerFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setCornerDimensions(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(8)&#xA;, getMapMode().DPtoLP(8)&#xA;));&#xA;this.setOutline(false);&#xA;&#x9;this.setForegroundColor(THIS_FORE&#xA;);&#xA;&#x9;this.setBackgroundColor(THIS_BACK&#xA;);&#xA;this.setPreferredSize(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(200)&#xA;, getMapMode().DPtoLP(16)&#xA;));&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigurePREDeleteTriggerLabelFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigurePREDeleteTriggerLabelFigure.setText(&quot;PREDeleteTrigger&quot;);&#xA;&#xA;fFigurePREDeleteTriggerLabelFigure.setFont(FFIGUREPREDELETETRIGGERLABELFIGURE_FONT);&#xA;&#xA;&#xA;&#xA;this.add(fFigurePREDeleteTriggerLabelFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigurePREDeleteTriggerLabelFigure() {&#xA;&#x9;&#x9;return fFigurePREDeleteTriggerLabelFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_FORE = new org.eclipse.swt.graphics.Color(null, 0, 0, 0);&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_BACK = new org.eclipse.swt.graphics.Color(null, 241, 238, 203);&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Font FFIGUREPREDELETETRIGGERLABELFIGURE_FONT = new org.eclipse.swt.graphics.Font(org.eclipse.swt.widgets.Display.getCurrent(), &quot;Palatino&quot;, 12, org.eclipse.swt.SWT.ITALIC);&#xA;&#xA;">
-        <attributes
-            xsi:type="gmfgen:StyleAttributes"
-            fixedForeground="true"
-            fixedBackground="true"/>
-        <attributes
-            xsi:type="gmfgen:DefaultSizeAttributes"
-            width="200"
-            height="16"/>
-      </viewmap>
-      <modelFacet>
-        <metaClass
-            href="domain.genmodel#//domain/PREDeleteTrigger"/>
-        <containmentMetaFeature
-            href="domain.genmodel#//domain/DataControl/preDeleteTrigger"/>
-        <childMetaFeature
-            href="domain.genmodel#//domain/DataControl/preDeleteTrigger"/>
-      </modelFacet>
-      <labels
-          visualID="1105006"
-          editPartClassName="PREDeleteTriggerFakeMethodEditPart"
-          itemSemanticEditPolicyClassName="PREDeleteTriggerFakeMethodItemSemanticEditPolicy"
-          elementIcon="true">
-        <diagramRunTimeClass
-            href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
-        <viewmap
-            xsi:type="gmfgen:ParentAssignedViewmap"
-            getterName="getFigurePREDeleteTriggerLabelFigure"
-            figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel">
-          <attributes
-              xsi:type="gmfgen:StyleAttributes"
-              fixedFont="true"/>
-        </viewmap>
-        <modelFacet
-            xsi:type="gmfgen:FeatureLabelModelFacet"
-            parser="//@labelParsers/@implementations.0">
-          <metaFeatures
-              href="domain.genmodel#//domain/PREDeleteTrigger/fakeMethod"/>
-        </modelFacet>
-      </labels>
-    </childNodes>
-    <childNodes
-        visualID="1103011"
-        editPartClassName="POSTCreateTriggerEditPart"
-        itemSemanticEditPolicyClassName="POSTCreateTriggerItemSemanticEditPolicy"
-        canonicalEditPolicyClassName="POSTCreateTriggerCanonicalEditPolicy"
-        graphicalNodeEditPolicyClassName="POSTCreateTriggerGraphicalNodeEditPolicy"
-        createCommandClassName="POSTCreateTriggerCreateCommand"
-        containers="//@diagram/@compartments.5">
-      <diagramRunTimeClass
-          href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
-      <elementType
-          xsi:type="gmfgen:MetamodelType"
-          editHelperClassName="POSTCreateTriggerEditHelper"/>
-      <viewmap
-          xsi:type="gmfgen:InnerClassViewmap"
-          className="POSTCreateTriggerFigure"
-          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class POSTCreateTriggerFigure extends org.eclipse.draw2d.RoundedRectangle {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigurePOSTCreateTriggerLabelFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public POSTCreateTriggerFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setCornerDimensions(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(8)&#xA;, getMapMode().DPtoLP(8)&#xA;));&#xA;this.setOutline(false);&#xA;&#x9;this.setForegroundColor(THIS_FORE&#xA;);&#xA;&#x9;this.setBackgroundColor(THIS_BACK&#xA;);&#xA;this.setPreferredSize(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(200)&#xA;, getMapMode().DPtoLP(16)&#xA;));&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigurePOSTCreateTriggerLabelFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigurePOSTCreateTriggerLabelFigure.setText(&quot;POSTCreateTrigger&quot;);&#xA;&#xA;fFigurePOSTCreateTriggerLabelFigure.setFont(FFIGUREPOSTCREATETRIGGERLABELFIGURE_FONT);&#xA;&#xA;&#xA;&#xA;this.add(fFigurePOSTCreateTriggerLabelFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigurePOSTCreateTriggerLabelFigure() {&#xA;&#x9;&#x9;return fFigurePOSTCreateTriggerLabelFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_FORE = new org.eclipse.swt.graphics.Color(null, 0, 0, 0);&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_BACK = new org.eclipse.swt.graphics.Color(null, 241, 238, 203);&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Font FFIGUREPOSTCREATETRIGGERLABELFIGURE_FONT = new org.eclipse.swt.graphics.Font(org.eclipse.swt.widgets.Display.getCurrent(), &quot;Palatino&quot;, 12, org.eclipse.swt.SWT.ITALIC);&#xA;&#xA;">
-        <attributes
-            xsi:type="gmfgen:StyleAttributes"
-            fixedForeground="true"
-            fixedBackground="true"/>
-        <attributes
-            xsi:type="gmfgen:DefaultSizeAttributes"
-            width="200"
-            height="16"/>
-      </viewmap>
-      <modelFacet>
-        <metaClass
-            href="domain.genmodel#//domain/POSTCreateTrigger"/>
-        <containmentMetaFeature
-            href="domain.genmodel#//domain/DataControl/postCreateTrigger"/>
-        <childMetaFeature
-            href="domain.genmodel#//domain/DataControl/postCreateTrigger"/>
-      </modelFacet>
-      <labels
-          visualID="1105013"
-          editPartClassName="POSTCreateTriggerFakeMethodEditPart"
-          itemSemanticEditPolicyClassName="POSTCreateTriggerFakeMethodItemSemanticEditPolicy"
-          elementIcon="true">
-        <diagramRunTimeClass
-            href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
-        <viewmap
-            xsi:type="gmfgen:ParentAssignedViewmap"
-            getterName="getFigurePOSTCreateTriggerLabelFigure"
-            figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel">
-          <attributes
-              xsi:type="gmfgen:StyleAttributes"
-              fixedFont="true"/>
-        </viewmap>
-        <modelFacet
-            xsi:type="gmfgen:FeatureLabelModelFacet"
-            parser="//@labelParsers/@implementations.0">
-          <metaFeatures
-              href="domain.genmodel#//domain/POSTCreateTrigger/fakeMethod"/>
-        </modelFacet>
-      </labels>
-    </childNodes>
-    <childNodes
-        visualID="1103010"
-        editPartClassName="PREUpdateTriggerEditPart"
-        itemSemanticEditPolicyClassName="PREUpdateTriggerItemSemanticEditPolicy"
-        canonicalEditPolicyClassName="PREUpdateTriggerCanonicalEditPolicy"
-        graphicalNodeEditPolicyClassName="PREUpdateTriggerGraphicalNodeEditPolicy"
-        createCommandClassName="PREUpdateTriggerCreateCommand"
-        containers="//@diagram/@compartments.6">
-      <diagramRunTimeClass
-          href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
-      <elementType
-          xsi:type="gmfgen:MetamodelType"
-          editHelperClassName="PREUpdateTriggerEditHelper"/>
-      <viewmap
-          xsi:type="gmfgen:InnerClassViewmap"
-          className="PREUpdateTriggerFigure"
-          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class PREUpdateTriggerFigure extends org.eclipse.draw2d.RoundedRectangle {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigurePREUpdateTriggerLabelFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public PREUpdateTriggerFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setCornerDimensions(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(8)&#xA;, getMapMode().DPtoLP(8)&#xA;));&#xA;&#x9;this.setForegroundColor(THIS_FORE&#xA;);&#xA;&#x9;this.setBackgroundColor(THIS_BACK&#xA;);&#xA;this.setBorder(new org.eclipse.draw2d.MarginBorder(getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;));&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigurePREUpdateTriggerLabelFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigurePREUpdateTriggerLabelFigure.setText(&quot;PREUpdateTrigger&quot;);&#xA;&#xA;fFigurePREUpdateTriggerLabelFigure.setFont(FFIGUREPREUPDATETRIGGERLABELFIGURE_FONT);&#xA;&#xA;&#xA;&#xA;this.add(fFigurePREUpdateTriggerLabelFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigurePREUpdateTriggerLabelFigure() {&#xA;&#x9;&#x9;return fFigurePREUpdateTriggerLabelFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_FORE = new org.eclipse.swt.graphics.Color(null, 0, 0, 0);&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_BACK = new org.eclipse.swt.graphics.Color(null, 241, 238, 203);&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Font FFIGUREPREUPDATETRIGGERLABELFIGURE_FONT = new org.eclipse.swt.graphics.Font(org.eclipse.swt.widgets.Display.getCurrent(), &quot;Palatino&quot;, 12, org.eclipse.swt.SWT.ITALIC);&#xA;&#xA;">
-        <attributes
-            xsi:type="gmfgen:StyleAttributes"
-            fixedForeground="true"
-            fixedBackground="true"/>
-      </viewmap>
-      <modelFacet>
-        <metaClass
-            href="domain.genmodel#//domain/PREUpdateTrigger"/>
-        <containmentMetaFeature
-            href="domain.genmodel#//domain/DataControl/preUpdateTrigger"/>
-        <childMetaFeature
-            href="domain.genmodel#//domain/DataControl/preUpdateTrigger"/>
-      </modelFacet>
-      <labels
-          visualID="1105012"
-          editPartClassName="PREUpdateTriggerFakeMethodEditPart"
-          itemSemanticEditPolicyClassName="PREUpdateTriggerFakeMethodItemSemanticEditPolicy"
-          elementIcon="true">
-        <diagramRunTimeClass
-            href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
-        <viewmap
-            xsi:type="gmfgen:ParentAssignedViewmap"
-            getterName="getFigurePREUpdateTriggerLabelFigure"
-            figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel">
-          <attributes
-              xsi:type="gmfgen:StyleAttributes"
-              fixedFont="true"/>
-        </viewmap>
-        <modelFacet
-            xsi:type="gmfgen:FeatureLabelModelFacet"
-            parser="//@labelParsers/@implementations.0">
-          <metaFeatures
-              href="domain.genmodel#//domain/PREUpdateTrigger/fakeMethod"/>
-        </modelFacet>
-      </labels>
-    </childNodes>
-    <childNodes
-        visualID="1103012"
-        editPartClassName="CreateTriggerEditPart"
-        itemSemanticEditPolicyClassName="CreateTriggerItemSemanticEditPolicy"
-        canonicalEditPolicyClassName="CreateTriggerCanonicalEditPolicy"
-        graphicalNodeEditPolicyClassName="CreateTriggerGraphicalNodeEditPolicy"
-        createCommandClassName="CreateTriggerCreateCommand"
-        containers="//@diagram/@compartments.7">
-      <diagramRunTimeClass
-          href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
-      <elementType
-          xsi:type="gmfgen:MetamodelType"
-          editHelperClassName="CreateTriggerEditHelper"/>
-      <viewmap
-          xsi:type="gmfgen:InnerClassViewmap"
-          className="CreateTriggerFigure"
-          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class CreateTriggerFigure extends org.eclipse.draw2d.RoundedRectangle {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureCreateTriggerLabelFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public CreateTriggerFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setCornerDimensions(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(8)&#xA;, getMapMode().DPtoLP(8)&#xA;));&#xA;this.setOutline(false);&#xA;&#x9;this.setForegroundColor(THIS_FORE&#xA;);&#xA;&#x9;this.setBackgroundColor(THIS_BACK&#xA;);&#xA;this.setPreferredSize(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(200)&#xA;, getMapMode().DPtoLP(16)&#xA;));&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureCreateTriggerLabelFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureCreateTriggerLabelFigure.setText(&quot;CreateTrigger&quot;);&#xA;&#xA;fFigureCreateTriggerLabelFigure.setFont(FFIGURECREATETRIGGERLABELFIGURE_FONT);&#xA;&#xA;&#xA;&#xA;this.add(fFigureCreateTriggerLabelFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureCreateTriggerLabelFigure() {&#xA;&#x9;&#x9;return fFigureCreateTriggerLabelFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_FORE = new org.eclipse.swt.graphics.Color(null, 0, 0, 0);&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_BACK = new org.eclipse.swt.graphics.Color(null, 241, 238, 203);&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Font FFIGURECREATETRIGGERLABELFIGURE_FONT = new org.eclipse.swt.graphics.Font(org.eclipse.swt.widgets.Display.getCurrent(), &quot;Palatino&quot;, 12, org.eclipse.swt.SWT.ITALIC);&#xA;&#xA;">
-        <attributes
-            xsi:type="gmfgen:StyleAttributes"
-            fixedForeground="true"
-            fixedBackground="true"/>
-        <attributes
-            xsi:type="gmfgen:DefaultSizeAttributes"
-            width="200"
-            height="16"/>
-      </viewmap>
-      <modelFacet>
-        <metaClass
-            href="domain.genmodel#//domain/CreateTrigger"/>
-        <containmentMetaFeature
-            href="domain.genmodel#//domain/DataControl/create"/>
-        <childMetaFeature
-            href="domain.genmodel#//domain/DataControl/create"/>
-      </modelFacet>
-      <labels
-          visualID="1105014"
-          editPartClassName="CreateTriggerFakeMethodEditPart"
-          itemSemanticEditPolicyClassName="CreateTriggerFakeMethodItemSemanticEditPolicy"
-          elementIcon="true">
-        <diagramRunTimeClass
-            href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
-        <viewmap
-            xsi:type="gmfgen:ParentAssignedViewmap"
-            getterName="getFigureCreateTriggerLabelFigure"
-            figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel">
-          <attributes
-              xsi:type="gmfgen:StyleAttributes"
-              fixedFont="true"/>
-        </viewmap>
-        <modelFacet
-            xsi:type="gmfgen:FeatureLabelModelFacet"
-            parser="//@labelParsers/@implementations.0">
-          <metaFeatures
-              href="domain.genmodel#//domain/CreateTrigger/fakeMethod"/>
-        </modelFacet>
-      </labels>
-    </childNodes>
-    <childNodes
-        visualID="1103013"
-        editPartClassName="InsertTriggerEditPart"
-        itemSemanticEditPolicyClassName="InsertTriggerItemSemanticEditPolicy"
-        canonicalEditPolicyClassName="InsertTriggerCanonicalEditPolicy"
-        graphicalNodeEditPolicyClassName="InsertTriggerGraphicalNodeEditPolicy"
-        createCommandClassName="InsertTriggerCreateCommand"
-        containers="//@diagram/@compartments.8">
-      <diagramRunTimeClass
-          href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
-      <elementType
-          xsi:type="gmfgen:MetamodelType"
-          editHelperClassName="InsertTriggerEditHelper"/>
-      <viewmap
-          xsi:type="gmfgen:InnerClassViewmap"
-          className="InsertTriggerFigure"
-          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class InsertTriggerFigure extends org.eclipse.draw2d.RoundedRectangle {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureInsertTriggerLabelFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public InsertTriggerFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setCornerDimensions(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(8)&#xA;, getMapMode().DPtoLP(8)&#xA;));&#xA;this.setOutline(false);&#xA;&#x9;this.setForegroundColor(THIS_FORE&#xA;);&#xA;&#x9;this.setBackgroundColor(THIS_BACK&#xA;);&#xA;this.setPreferredSize(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(200)&#xA;, getMapMode().DPtoLP(16)&#xA;));&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureInsertTriggerLabelFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureInsertTriggerLabelFigure.setText(&quot;InsertTrigger&quot;);&#xA;&#xA;fFigureInsertTriggerLabelFigure.setFont(FFIGUREINSERTTRIGGERLABELFIGURE_FONT);&#xA;&#xA;&#xA;&#xA;this.add(fFigureInsertTriggerLabelFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureInsertTriggerLabelFigure() {&#xA;&#x9;&#x9;return fFigureInsertTriggerLabelFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_FORE = new org.eclipse.swt.graphics.Color(null, 0, 0, 0);&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_BACK = new org.eclipse.swt.graphics.Color(null, 241, 238, 203);&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Font FFIGUREINSERTTRIGGERLABELFIGURE_FONT = new org.eclipse.swt.graphics.Font(org.eclipse.swt.widgets.Display.getCurrent(), &quot;Palatino&quot;, 12, org.eclipse.swt.SWT.ITALIC);&#xA;&#xA;">
-        <attributes
-            xsi:type="gmfgen:StyleAttributes"
-            fixedForeground="true"
-            fixedBackground="true"/>
-        <attributes
-            xsi:type="gmfgen:DefaultSizeAttributes"
-            width="200"
-            height="16"/>
-      </viewmap>
-      <modelFacet>
-        <metaClass
-            href="domain.genmodel#//domain/InsertTrigger"/>
-        <containmentMetaFeature
-            href="domain.genmodel#//domain/DataControl/insert"/>
-        <childMetaFeature
-            href="domain.genmodel#//domain/DataControl/insert"/>
-      </modelFacet>
-      <labels
-          visualID="1105015"
-          editPartClassName="InsertTriggerFakeMethodEditPart"
-          itemSemanticEditPolicyClassName="InsertTriggerFakeMethodItemSemanticEditPolicy"
-          elementIcon="true">
-        <diagramRunTimeClass
-            href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
-        <viewmap
-            xsi:type="gmfgen:ParentAssignedViewmap"
-            getterName="getFigureInsertTriggerLabelFigure"
-            figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel">
-          <attributes
-              xsi:type="gmfgen:StyleAttributes"
-              fixedFont="true"/>
-        </viewmap>
-        <modelFacet
-            xsi:type="gmfgen:FeatureLabelModelFacet"
-            parser="//@labelParsers/@implementations.0">
-          <metaFeatures
-              href="domain.genmodel#//domain/InsertTrigger/fakeMethod"/>
-        </modelFacet>
-      </labels>
-    </childNodes>
-    <childNodes
-        visualID="1103014"
-        editPartClassName="UpdateTriggerEditPart"
-        itemSemanticEditPolicyClassName="UpdateTriggerItemSemanticEditPolicy"
-        canonicalEditPolicyClassName="UpdateTriggerCanonicalEditPolicy"
-        graphicalNodeEditPolicyClassName="UpdateTriggerGraphicalNodeEditPolicy"
-        createCommandClassName="UpdateTriggerCreateCommand"
-        containers="//@diagram/@compartments.9">
-      <diagramRunTimeClass
-          href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
-      <elementType
-          xsi:type="gmfgen:MetamodelType"
-          editHelperClassName="UpdateTriggerEditHelper"/>
-      <viewmap
-          xsi:type="gmfgen:InnerClassViewmap"
-          className="UpdateTriggerFigure"
-          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class UpdateTriggerFigure extends org.eclipse.draw2d.RoundedRectangle {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureUpdateTriggerLabelFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public UpdateTriggerFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setCornerDimensions(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(8)&#xA;, getMapMode().DPtoLP(8)&#xA;));&#xA;this.setOutline(false);&#xA;&#x9;this.setForegroundColor(THIS_FORE&#xA;);&#xA;&#x9;this.setBackgroundColor(THIS_BACK&#xA;);&#xA;this.setPreferredSize(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(200)&#xA;, getMapMode().DPtoLP(16)&#xA;));&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureUpdateTriggerLabelFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureUpdateTriggerLabelFigure.setText(&quot;UpdateTrigger&quot;);&#xA;&#xA;fFigureUpdateTriggerLabelFigure.setFont(FFIGUREUPDATETRIGGERLABELFIGURE_FONT);&#xA;&#xA;&#xA;&#xA;this.add(fFigureUpdateTriggerLabelFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureUpdateTriggerLabelFigure() {&#xA;&#x9;&#x9;return fFigureUpdateTriggerLabelFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_FORE = new org.eclipse.swt.graphics.Color(null, 0, 0, 0);&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_BACK = new org.eclipse.swt.graphics.Color(null, 241, 238, 203);&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Font FFIGUREUPDATETRIGGERLABELFIGURE_FONT = new org.eclipse.swt.graphics.Font(org.eclipse.swt.widgets.Display.getCurrent(), &quot;Palatino&quot;, 12, org.eclipse.swt.SWT.ITALIC);&#xA;&#xA;">
-        <attributes
-            xsi:type="gmfgen:StyleAttributes"
-            fixedForeground="true"
-            fixedBackground="true"/>
-        <attributes
-            xsi:type="gmfgen:DefaultSizeAttributes"
-            width="200"
-            height="16"/>
-      </viewmap>
-      <modelFacet>
-        <metaClass
-            href="domain.genmodel#//domain/UpdateTrigger"/>
-        <containmentMetaFeature
-            href="domain.genmodel#//domain/DataControl/update"/>
-        <childMetaFeature
-            href="domain.genmodel#//domain/DataControl/update"/>
-      </modelFacet>
-      <labels
-          visualID="1105016"
-          editPartClassName="UpdateTriggerFakeMethodEditPart"
-          itemSemanticEditPolicyClassName="UpdateTriggerFakeMethodItemSemanticEditPolicy"
-          elementIcon="true">
-        <diagramRunTimeClass
-            href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
-        <viewmap
-            xsi:type="gmfgen:ParentAssignedViewmap"
-            getterName="getFigureUpdateTriggerLabelFigure"
-            figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel">
-          <attributes
-              xsi:type="gmfgen:StyleAttributes"
-              fixedFont="true"/>
-        </viewmap>
-        <modelFacet
-            xsi:type="gmfgen:FeatureLabelModelFacet"
-            parser="//@labelParsers/@implementations.0">
-          <metaFeatures
-              href="domain.genmodel#//domain/UpdateTrigger/fakeMethod"/>
-        </modelFacet>
-      </labels>
-    </childNodes>
-    <childNodes
-        visualID="1103015"
-        editPartClassName="DeleteTriggerEditPart"
-        itemSemanticEditPolicyClassName="DeleteTriggerItemSemanticEditPolicy"
-        canonicalEditPolicyClassName="DeleteTriggerCanonicalEditPolicy"
-        graphicalNodeEditPolicyClassName="DeleteTriggerGraphicalNodeEditPolicy"
-        createCommandClassName="DeleteTriggerCreateCommand"
-        containers="//@diagram/@compartments.10">
-      <diagramRunTimeClass
-          href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
-      <elementType
-          xsi:type="gmfgen:MetamodelType"
-          editHelperClassName="DeleteTriggerEditHelper"/>
-      <viewmap
-          xsi:type="gmfgen:InnerClassViewmap"
-          className="DeleteTriggerFigure"
-          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class DeleteTriggerFigure extends org.eclipse.draw2d.RoundedRectangle {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureDeleteTriggerLabelFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public DeleteTriggerFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setCornerDimensions(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(8)&#xA;, getMapMode().DPtoLP(8)&#xA;));&#xA;this.setOutline(false);&#xA;&#x9;this.setForegroundColor(THIS_FORE&#xA;);&#xA;&#x9;this.setBackgroundColor(THIS_BACK&#xA;);&#xA;this.setPreferredSize(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(200)&#xA;, getMapMode().DPtoLP(16)&#xA;));&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureDeleteTriggerLabelFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureDeleteTriggerLabelFigure.setText(&quot;DeleteTrigger&quot;);&#xA;&#xA;fFigureDeleteTriggerLabelFigure.setFont(FFIGUREDELETETRIGGERLABELFIGURE_FONT);&#xA;&#xA;&#xA;&#xA;this.add(fFigureDeleteTriggerLabelFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureDeleteTriggerLabelFigure() {&#xA;&#x9;&#x9;return fFigureDeleteTriggerLabelFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_FORE = new org.eclipse.swt.graphics.Color(null, 0, 0, 0);&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_BACK = new org.eclipse.swt.graphics.Color(null, 241, 238, 203);&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Font FFIGUREDELETETRIGGERLABELFIGURE_FONT = new org.eclipse.swt.graphics.Font(org.eclipse.swt.widgets.Display.getCurrent(), &quot;Palatino&quot;, 12, org.eclipse.swt.SWT.ITALIC);&#xA;&#xA;">
-        <attributes
-            xsi:type="gmfgen:StyleAttributes"
-            fixedForeground="true"
-            fixedBackground="true"/>
-        <attributes
-            xsi:type="gmfgen:DefaultSizeAttributes"
-            width="200"
-            height="16"/>
-      </viewmap>
-      <modelFacet>
-        <metaClass
-            href="domain.genmodel#//domain/DeleteTrigger"/>
-        <containmentMetaFeature
-            href="domain.genmodel#//domain/DataControl/remove"/>
-        <childMetaFeature
-            href="domain.genmodel#//domain/DataControl/remove"/>
-      </modelFacet>
-      <labels
-          visualID="1105017"
-          editPartClassName="DeleteTriggerFakeMethodEditPart"
-          itemSemanticEditPolicyClassName="DeleteTriggerFakeMethodItemSemanticEditPolicy"
-          elementIcon="true">
-        <diagramRunTimeClass
-            href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
-        <viewmap
-            xsi:type="gmfgen:ParentAssignedViewmap"
-            getterName="getFigureDeleteTriggerLabelFigure"
-            figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel">
-          <attributes
-              xsi:type="gmfgen:StyleAttributes"
-              fixedFont="true"/>
-        </viewmap>
-        <modelFacet
-            xsi:type="gmfgen:FeatureLabelModelFacet"
-            parser="//@labelParsers/@implementations.0">
-          <metaFeatures
-              href="domain.genmodel#//domain/DeleteTrigger/fakeMethod"/>
-        </modelFacet>
-      </labels>
-    </childNodes>
-    <childNodes
-        visualID="1103016"
-        editPartClassName="SearchTriggerEditPart"
-        itemSemanticEditPolicyClassName="SearchTriggerItemSemanticEditPolicy"
-        canonicalEditPolicyClassName="SearchTriggerCanonicalEditPolicy"
-        graphicalNodeEditPolicyClassName="SearchTriggerGraphicalNodeEditPolicy"
-        createCommandClassName="SearchTriggerCreateCommand"
-        containers="//@diagram/@compartments.11">
-      <diagramRunTimeClass
-          href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
-      <elementType
-          xsi:type="gmfgen:MetamodelType"
-          editHelperClassName="SearchTriggerEditHelper"/>
-      <viewmap
-          xsi:type="gmfgen:InnerClassViewmap"
-          className="SearchTriggerFigure"
-          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class SearchTriggerFigure extends org.eclipse.draw2d.RoundedRectangle {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureSearchTriggerLabelFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public SearchTriggerFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setCornerDimensions(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(8)&#xA;, getMapMode().DPtoLP(8)&#xA;));&#xA;this.setOutline(false);&#xA;&#x9;this.setForegroundColor(THIS_FORE&#xA;);&#xA;&#x9;this.setBackgroundColor(THIS_BACK&#xA;);&#xA;this.setPreferredSize(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(200)&#xA;, getMapMode().DPtoLP(16)&#xA;));&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureSearchTriggerLabelFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureSearchTriggerLabelFigure.setText(&quot;SearchTrigger&quot;);&#xA;&#xA;fFigureSearchTriggerLabelFigure.setFont(FFIGURESEARCHTRIGGERLABELFIGURE_FONT);&#xA;&#xA;&#xA;&#xA;this.add(fFigureSearchTriggerLabelFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureSearchTriggerLabelFigure() {&#xA;&#x9;&#x9;return fFigureSearchTriggerLabelFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_FORE = new org.eclipse.swt.graphics.Color(null, 0, 0, 0);&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_BACK = new org.eclipse.swt.graphics.Color(null, 241, 238, 203);&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Font FFIGURESEARCHTRIGGERLABELFIGURE_FONT = new org.eclipse.swt.graphics.Font(org.eclipse.swt.widgets.Display.getCurrent(), &quot;Palatino&quot;, 12, org.eclipse.swt.SWT.ITALIC);&#xA;&#xA;">
-        <attributes
-            xsi:type="gmfgen:StyleAttributes"
-            fixedForeground="true"
-            fixedBackground="true"/>
-        <attributes
-            xsi:type="gmfgen:DefaultSizeAttributes"
-            width="200"
-            height="16"/>
-      </viewmap>
-      <modelFacet>
-        <metaClass
-            href="domain.genmodel#//domain/SearchTrigger"/>
-        <containmentMetaFeature
-            href="domain.genmodel#//domain/DataControl/search"/>
-        <childMetaFeature
-            href="domain.genmodel#//domain/DataControl/search"/>
-      </modelFacet>
-      <labels
-          visualID="1105018"
-          editPartClassName="SearchTriggerFakeMethodEditPart"
-          itemSemanticEditPolicyClassName="SearchTriggerFakeMethodItemSemanticEditPolicy"
-          elementIcon="true">
-        <diagramRunTimeClass
-            href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
-        <viewmap
-            xsi:type="gmfgen:ParentAssignedViewmap"
-            getterName="getFigureSearchTriggerLabelFigure"
-            figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel">
-          <attributes
-              xsi:type="gmfgen:StyleAttributes"
-              fixedFont="true"/>
-        </viewmap>
-        <modelFacet
-            xsi:type="gmfgen:FeatureLabelModelFacet"
-            parser="//@labelParsers/@implementations.0">
-          <metaFeatures
-              href="domain.genmodel#//domain/SearchTrigger/fakeMethod"/>
         </modelFacet>
       </labels>
     </childNodes>
@@ -929,7 +929,7 @@
         editPartClassName="DataControlDataControlPreQueryTriggerCompartmentEditPart"
         itemSemanticEditPolicyClassName="DataControlDataControlPreQueryTriggerCompartmentItemSemanticEditPolicy"
         canonicalEditPolicyClassName="DataControlDataControlPreQueryTriggerCompartmentCanonicalEditPolicy"
-        childNodes="//@diagram/@childNodes.2"
+        childNodes="//@diagram/@childNodes.1"
         title="DataControlPreQueryTriggerCompartment"
         needsTitle="false"
         node="//@diagram/@topLevelNodes.1">
@@ -945,7 +945,7 @@
         editPartClassName="DataControlDataControlPostQueryTriggerCompartmentEditPart"
         itemSemanticEditPolicyClassName="DataControlDataControlPostQueryTriggerCompartmentItemSemanticEditPolicy"
         canonicalEditPolicyClassName="DataControlDataControlPostQueryTriggerCompartmentCanonicalEditPolicy"
-        childNodes="//@diagram/@childNodes.3"
+        childNodes="//@diagram/@childNodes.2"
         title="DataControlPostQueryTriggerCompartment"
         needsTitle="false"
         node="//@diagram/@topLevelNodes.1">
@@ -961,7 +961,7 @@
         editPartClassName="DataControlDataControlPreInsertTriggerCompartmentEditPart"
         itemSemanticEditPolicyClassName="DataControlDataControlPreInsertTriggerCompartmentItemSemanticEditPolicy"
         canonicalEditPolicyClassName="DataControlDataControlPreInsertTriggerCompartmentCanonicalEditPolicy"
-        childNodes="//@diagram/@childNodes.4"
+        childNodes="//@diagram/@childNodes.3"
         title="DataControlPreInsertTriggerCompartment"
         needsTitle="false"
         node="//@diagram/@topLevelNodes.1">
@@ -977,7 +977,7 @@
         editPartClassName="DataControlDataControlPreDeleteTriggerCompartmentEditPart"
         itemSemanticEditPolicyClassName="DataControlDataControlPreDeleteTriggerCompartmentItemSemanticEditPolicy"
         canonicalEditPolicyClassName="DataControlDataControlPreDeleteTriggerCompartmentCanonicalEditPolicy"
-        childNodes="//@diagram/@childNodes.5"
+        childNodes="//@diagram/@childNodes.4"
         title="DataControlPreDeleteTriggerCompartment"
         needsTitle="false"
         node="//@diagram/@topLevelNodes.1">
@@ -993,7 +993,7 @@
         editPartClassName="DataControlDataControlPostCreateTriggerCompartmentEditPart"
         itemSemanticEditPolicyClassName="DataControlDataControlPostCreateTriggerCompartmentItemSemanticEditPolicy"
         canonicalEditPolicyClassName="DataControlDataControlPostCreateTriggerCompartmentCanonicalEditPolicy"
-        childNodes="//@diagram/@childNodes.6"
+        childNodes="//@diagram/@childNodes.5"
         title="DataControlPostCreateTriggerCompartment"
         needsTitle="false"
         node="//@diagram/@topLevelNodes.1">
@@ -1009,7 +1009,7 @@
         editPartClassName="DataControlDataControlPreUpdateTriggerCompartmentEditPart"
         itemSemanticEditPolicyClassName="DataControlDataControlPreUpdateTriggerCompartmentItemSemanticEditPolicy"
         canonicalEditPolicyClassName="DataControlDataControlPreUpdateTriggerCompartmentCanonicalEditPolicy"
-        childNodes="//@diagram/@childNodes.7"
+        childNodes="//@diagram/@childNodes.6"
         title="DataControlPreUpdateTriggerCompartment"
         needsTitle="false"
         node="//@diagram/@topLevelNodes.1">
@@ -1025,7 +1025,7 @@
         editPartClassName="DataControlDataControlCreateCompartmentEditPart"
         itemSemanticEditPolicyClassName="DataControlDataControlCreateCompartmentItemSemanticEditPolicy"
         canonicalEditPolicyClassName="DataControlDataControlCreateCompartmentCanonicalEditPolicy"
-        childNodes="//@diagram/@childNodes.8"
+        childNodes="//@diagram/@childNodes.7"
         title="DataControlCreateCompartment"
         needsTitle="false"
         node="//@diagram/@topLevelNodes.1">
@@ -1041,7 +1041,7 @@
         editPartClassName="DataControlDataControlInsertCompartmentEditPart"
         itemSemanticEditPolicyClassName="DataControlDataControlInsertCompartmentItemSemanticEditPolicy"
         canonicalEditPolicyClassName="DataControlDataControlInsertCompartmentCanonicalEditPolicy"
-        childNodes="//@diagram/@childNodes.9"
+        childNodes="//@diagram/@childNodes.8"
         title="DataControlInsertCompartment"
         needsTitle="false"
         node="//@diagram/@topLevelNodes.1">
@@ -1057,7 +1057,7 @@
         editPartClassName="DataControlDataControlUpdateCompartmentEditPart"
         itemSemanticEditPolicyClassName="DataControlDataControlUpdateCompartmentItemSemanticEditPolicy"
         canonicalEditPolicyClassName="DataControlDataControlUpdateCompartmentCanonicalEditPolicy"
-        childNodes="//@diagram/@childNodes.10"
+        childNodes="//@diagram/@childNodes.9"
         title="DataControlUpdateCompartment"
         needsTitle="false"
         node="//@diagram/@topLevelNodes.1">
@@ -1073,7 +1073,7 @@
         editPartClassName="DataControlDataControlRemoveCompartmentEditPart"
         itemSemanticEditPolicyClassName="DataControlDataControlRemoveCompartmentItemSemanticEditPolicy"
         canonicalEditPolicyClassName="DataControlDataControlRemoveCompartmentCanonicalEditPolicy"
-        childNodes="//@diagram/@childNodes.11"
+        childNodes="//@diagram/@childNodes.10"
         title="DataControlRemoveCompartment"
         needsTitle="false"
         node="//@diagram/@topLevelNodes.1">
@@ -1089,7 +1089,7 @@
         editPartClassName="DataControlDataControlSearchCompartmentEditPart"
         itemSemanticEditPolicyClassName="DataControlDataControlSearchCompartmentItemSemanticEditPolicy"
         canonicalEditPolicyClassName="DataControlDataControlSearchCompartmentCanonicalEditPolicy"
-        childNodes="//@diagram/@childNodes.12"
+        childNodes="//@diagram/@childNodes.11"
         title="DataControlSearchCompartment"
         needsTitle="false"
         node="//@diagram/@topLevelNodes.1">
@@ -1105,7 +1105,7 @@
         editPartClassName="DataControlDataControlArtificialFieldsCompartmentEditPart"
         itemSemanticEditPolicyClassName="DataControlDataControlArtificialFieldsCompartmentItemSemanticEditPolicy"
         canonicalEditPolicyClassName="DataControlDataControlArtificialFieldsCompartmentCanonicalEditPolicy"
-        childNodes="//@diagram/@childNodes.1"
+        childNodes="//@diagram/@childNodes.12"
         title="DataControlArtificialFieldsCompartment"
         needsTitle="false"
         node="//@diagram/@topLevelNodes.1">
@@ -1132,12 +1132,12 @@
             xsi:type="gmfgen:ToolEntry"
             title="ArtificialField"
             description="Create new ArtificialField"
-            genNodes="//@diagram/@childNodes.1"/>
+            genNodes="//@diagram/@childNodes.12"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
             title="CreateTrigger"
             description="Create new CreateTrigger"
-            genNodes="//@diagram/@childNodes.8"/>
+            genNodes="//@diagram/@childNodes.7"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
             title="DataControl"
@@ -1147,27 +1147,27 @@
             xsi:type="gmfgen:ToolEntry"
             title="DeleteTrigger"
             description="Create new DeleteTrigger"
-            genNodes="//@diagram/@childNodes.11"/>
+            genNodes="//@diagram/@childNodes.10"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
             title="InsertTrigger"
             description="Create new InsertTrigger"
-            genNodes="//@diagram/@childNodes.9"/>
+            genNodes="//@diagram/@childNodes.8"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
             title="POSTCreateTrigger"
             description="Create new POSTCreateTrigger"
-            genNodes="//@diagram/@childNodes.6"/>
+            genNodes="//@diagram/@childNodes.5"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
             title="POSTQueryTrigger"
             description="Create new POSTQueryTrigger"
-            genNodes="//@diagram/@childNodes.3"/>
+            genNodes="//@diagram/@childNodes.2"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
             title="PREDeleteTrigger"
             description="Create new PREDeleteTrigger"
-            genNodes="//@diagram/@childNodes.5"/>
+            genNodes="//@diagram/@childNodes.4"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
             title="PREFormTrigger"
@@ -1177,17 +1177,17 @@
             xsi:type="gmfgen:ToolEntry"
             title="PREInsertTrigger"
             description="Create new PREInsertTrigger"
-            genNodes="//@diagram/@childNodes.4"/>
+            genNodes="//@diagram/@childNodes.3"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
             title="PREQueryTrigger"
             description="Create new PREQueryTrigger"
-            genNodes="//@diagram/@childNodes.2"/>
+            genNodes="//@diagram/@childNodes.1"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
             title="PREUpdateTrigger"
             description="Create new PREUpdateTrigger"
-            genNodes="//@diagram/@childNodes.7"/>
+            genNodes="//@diagram/@childNodes.6"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
             title="Root"
@@ -1197,12 +1197,12 @@
             xsi:type="gmfgen:ToolEntry"
             title="SearchTrigger"
             description="Create new SearchTrigger"
-            genNodes="//@diagram/@childNodes.12"/>
+            genNodes="//@diagram/@childNodes.11"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
             title="UpdateTrigger"
             description="Create new UpdateTrigger"
-            genNodes="//@diagram/@childNodes.10"/>
+            genNodes="//@diagram/@childNodes.9"/>
       </groups>
       <groups
           title="Connections"

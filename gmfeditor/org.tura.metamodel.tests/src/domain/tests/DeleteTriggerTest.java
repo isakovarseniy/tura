@@ -5,8 +5,6 @@ package domain.tests;
 import domain.DeleteTrigger;
 import domain.DomainFactory;
 
-import junit.framework.TestCase;
-
 import junit.textui.TestRunner;
 
 /**
@@ -15,16 +13,8 @@ import junit.textui.TestRunner;
  * <!-- end-user-doc -->
  * @generated
  */
-public class DeleteTriggerTest extends TestCase
+public class DeleteTriggerTest extends TriggerTest
 {
-
-  /**
-   * The fixture for this Delete Trigger test case.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected DeleteTrigger fixture = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -48,25 +38,15 @@ public class DeleteTriggerTest extends TestCase
   }
 
   /**
-   * Sets the fixture for this Delete Trigger test case.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected void setFixture(DeleteTrigger fixture)
-  {
-    this.fixture = fixture;
-  }
-
-  /**
    * Returns the fixture for this Delete Trigger test case.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
+  @Override
   protected DeleteTrigger getFixture()
   {
-    return fixture;
+    return (DeleteTrigger)fixture;
   }
 
   /**

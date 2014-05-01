@@ -88,7 +88,7 @@ public class DomainParserProvider extends AbstractProvider implements
 	private IParser getPREFormTriggerFakeMethod_1105001Parser() {
 		if (pREFormTriggerFakeMethod_1105001Parser == null) {
 			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE
-					.getPREFormTrigger_FakeMethod() };
+					.getMethodPointer_FakeMethod() };
 			MessageFormatParser parser = new MessageFormatParser(features);
 			pREFormTriggerFakeMethod_1105001Parser = parser;
 		}
@@ -124,7 +124,7 @@ public class DomainParserProvider extends AbstractProvider implements
 	private IParser getPREQueryTriggerFakeMethod_1105003Parser() {
 		if (pREQueryTriggerFakeMethod_1105003Parser == null) {
 			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE
-					.getPREQueryTrigger_FakeMethod() };
+					.getMethodPointer_FakeMethod() };
 			MessageFormatParser parser = new MessageFormatParser(features);
 			pREQueryTriggerFakeMethod_1105003Parser = parser;
 		}
@@ -142,7 +142,7 @@ public class DomainParserProvider extends AbstractProvider implements
 	private IParser getPOSTQueryTriggerFakeMethod_1105004Parser() {
 		if (pOSTQueryTriggerFakeMethod_1105004Parser == null) {
 			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE
-					.getPOSTQueryTrigger_FakeMethod() };
+					.getMethodPointer_FakeMethod() };
 			MessageFormatParser parser = new MessageFormatParser(features);
 			pOSTQueryTriggerFakeMethod_1105004Parser = parser;
 		}
@@ -160,7 +160,7 @@ public class DomainParserProvider extends AbstractProvider implements
 	private IParser getPREInsertTriggerFakeMethod_1105005Parser() {
 		if (pREInsertTriggerFakeMethod_1105005Parser == null) {
 			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE
-					.getPREInsertTrigger_FakeMethod() };
+					.getMethodPointer_FakeMethod() };
 			MessageFormatParser parser = new MessageFormatParser(features);
 			pREInsertTriggerFakeMethod_1105005Parser = parser;
 		}
@@ -178,7 +178,7 @@ public class DomainParserProvider extends AbstractProvider implements
 	private IParser getPREDeleteTriggerFakeMethod_1105006Parser() {
 		if (pREDeleteTriggerFakeMethod_1105006Parser == null) {
 			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE
-					.getPREDeleteTrigger_FakeMethod() };
+					.getMethodPointer_FakeMethod() };
 			MessageFormatParser parser = new MessageFormatParser(features);
 			pREDeleteTriggerFakeMethod_1105006Parser = parser;
 		}
@@ -196,7 +196,7 @@ public class DomainParserProvider extends AbstractProvider implements
 	private IParser getPOSTCreateTriggerFakeMethod_1105013Parser() {
 		if (pOSTCreateTriggerFakeMethod_1105013Parser == null) {
 			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE
-					.getPOSTCreateTrigger_FakeMethod() };
+					.getMethodPointer_FakeMethod() };
 			MessageFormatParser parser = new MessageFormatParser(features);
 			pOSTCreateTriggerFakeMethod_1105013Parser = parser;
 		}
@@ -214,7 +214,7 @@ public class DomainParserProvider extends AbstractProvider implements
 	private IParser getPREUpdateTriggerFakeMethod_1105012Parser() {
 		if (pREUpdateTriggerFakeMethod_1105012Parser == null) {
 			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE
-					.getPREUpdateTrigger_FakeMethod() };
+					.getMethodPointer_FakeMethod() };
 			MessageFormatParser parser = new MessageFormatParser(features);
 			pREUpdateTriggerFakeMethod_1105012Parser = parser;
 		}
@@ -232,7 +232,7 @@ public class DomainParserProvider extends AbstractProvider implements
 	private IParser getCreateTriggerFakeMethod_1105014Parser() {
 		if (createTriggerFakeMethod_1105014Parser == null) {
 			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE
-					.getCreateTrigger_FakeMethod() };
+					.getMethodPointer_FakeMethod() };
 			MessageFormatParser parser = new MessageFormatParser(features);
 			createTriggerFakeMethod_1105014Parser = parser;
 		}
@@ -250,7 +250,7 @@ public class DomainParserProvider extends AbstractProvider implements
 	private IParser getInsertTriggerFakeMethod_1105015Parser() {
 		if (insertTriggerFakeMethod_1105015Parser == null) {
 			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE
-					.getInsertTrigger_FakeMethod() };
+					.getMethodPointer_FakeMethod() };
 			MessageFormatParser parser = new MessageFormatParser(features);
 			insertTriggerFakeMethod_1105015Parser = parser;
 		}
@@ -268,7 +268,7 @@ public class DomainParserProvider extends AbstractProvider implements
 	private IParser getUpdateTriggerFakeMethod_1105016Parser() {
 		if (updateTriggerFakeMethod_1105016Parser == null) {
 			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE
-					.getUpdateTrigger_FakeMethod() };
+					.getMethodPointer_FakeMethod() };
 			MessageFormatParser parser = new MessageFormatParser(features);
 			updateTriggerFakeMethod_1105016Parser = parser;
 		}
@@ -286,7 +286,7 @@ public class DomainParserProvider extends AbstractProvider implements
 	private IParser getDeleteTriggerFakeMethod_1105017Parser() {
 		if (deleteTriggerFakeMethod_1105017Parser == null) {
 			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE
-					.getDeleteTrigger_FakeMethod() };
+					.getMethodPointer_FakeMethod() };
 			MessageFormatParser parser = new MessageFormatParser(features);
 			deleteTriggerFakeMethod_1105017Parser = parser;
 		}
@@ -304,7 +304,7 @@ public class DomainParserProvider extends AbstractProvider implements
 	private IParser getSearchTriggerFakeMethod_1105018Parser() {
 		if (searchTriggerFakeMethod_1105018Parser == null) {
 			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE
-					.getSearchTrigger_FakeMethod() };
+					.getMethodPointer_FakeMethod() };
 			MessageFormatParser parser = new MessageFormatParser(features);
 			searchTriggerFakeMethod_1105018Parser = parser;
 		}
@@ -322,8 +322,6 @@ public class DomainParserProvider extends AbstractProvider implements
 			return getDataControlName_1105007Parser();
 		case PREFormTriggerFakeMethodEditPart.VISUAL_ID:
 			return getPREFormTriggerFakeMethod_1105001Parser();
-		case ArtificialFieldNameEditPart.VISUAL_ID:
-			return getArtificialFieldName_1105010Parser();
 		case PREQueryTriggerFakeMethodEditPart.VISUAL_ID:
 			return getPREQueryTriggerFakeMethod_1105003Parser();
 		case POSTQueryTriggerFakeMethodEditPart.VISUAL_ID:
@@ -346,6 +344,8 @@ public class DomainParserProvider extends AbstractProvider implements
 			return getDeleteTriggerFakeMethod_1105017Parser();
 		case SearchTriggerFakeMethodEditPart.VISUAL_ID:
 			return getSearchTriggerFakeMethod_1105018Parser();
+		case ArtificialFieldNameEditPart.VISUAL_ID:
+			return getArtificialFieldName_1105010Parser();
 		}
 		return null;
 	}

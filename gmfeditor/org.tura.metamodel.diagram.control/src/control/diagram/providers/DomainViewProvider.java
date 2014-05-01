@@ -184,7 +184,6 @@ public class DomainViewProvider extends AbstractProvider implements
 				case RootEditPart.VISUAL_ID:
 				case DataControlEditPart.VISUAL_ID:
 				case PREFormTriggerEditPart.VISUAL_ID:
-				case ArtificialFieldEditPart.VISUAL_ID:
 				case PREQueryTriggerEditPart.VISUAL_ID:
 				case POSTQueryTriggerEditPart.VISUAL_ID:
 				case PREInsertTriggerEditPart.VISUAL_ID:
@@ -196,6 +195,7 @@ public class DomainViewProvider extends AbstractProvider implements
 				case UpdateTriggerEditPart.VISUAL_ID:
 				case DeleteTriggerEditPart.VISUAL_ID:
 				case SearchTriggerEditPart.VISUAL_ID:
+				case ArtificialFieldEditPart.VISUAL_ID:
 					if (domainElement == null
 							|| visualID != DomainVisualIDRegistry
 									.getNodeVisualID(op.getContainerView(),
@@ -211,7 +211,6 @@ public class DomainViewProvider extends AbstractProvider implements
 		return RootEditPart.VISUAL_ID == visualID
 				|| DataControlEditPart.VISUAL_ID == visualID
 				|| PREFormTriggerEditPart.VISUAL_ID == visualID
-				|| ArtificialFieldEditPart.VISUAL_ID == visualID
 				|| PREQueryTriggerEditPart.VISUAL_ID == visualID
 				|| POSTQueryTriggerEditPart.VISUAL_ID == visualID
 				|| PREInsertTriggerEditPart.VISUAL_ID == visualID
@@ -222,7 +221,8 @@ public class DomainViewProvider extends AbstractProvider implements
 				|| InsertTriggerEditPart.VISUAL_ID == visualID
 				|| UpdateTriggerEditPart.VISUAL_ID == visualID
 				|| DeleteTriggerEditPart.VISUAL_ID == visualID
-				|| SearchTriggerEditPart.VISUAL_ID == visualID;
+				|| SearchTriggerEditPart.VISUAL_ID == visualID
+				|| ArtificialFieldEditPart.VISUAL_ID == visualID;
 	}
 
 	/**
@@ -288,9 +288,6 @@ public class DomainViewProvider extends AbstractProvider implements
 		case PREFormTriggerEditPart.VISUAL_ID:
 			return createPREFormTrigger_1103001(domainElement, containerView,
 					index, persisted, preferencesHint);
-		case ArtificialFieldEditPart.VISUAL_ID:
-			return createArtificialField_1103008(domainElement, containerView,
-					index, persisted, preferencesHint);
 		case PREQueryTriggerEditPart.VISUAL_ID:
 			return createPREQueryTrigger_1103002(domainElement, containerView,
 					index, persisted, preferencesHint);
@@ -323,6 +320,9 @@ public class DomainViewProvider extends AbstractProvider implements
 					index, persisted, preferencesHint);
 		case SearchTriggerEditPart.VISUAL_ID:
 			return createSearchTrigger_1103016(domainElement, containerView,
+					index, persisted, preferencesHint);
+		case ArtificialFieldEditPart.VISUAL_ID:
+			return createArtificialField_1103008(domainElement, containerView,
 					index, persisted, preferencesHint);
 		}
 		// can't happen, provided #provides(CreateNodeViewOperation) is correct

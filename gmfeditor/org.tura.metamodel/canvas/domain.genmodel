@@ -569,66 +569,23 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//Controls/controls"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//Controls/relations"/>
     </genClasses>
-    <genClasses ecoreClass="domain.ecore#//PREFormTrigger">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//PREFormTrigger/uid"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//PREFormTrigger/trigger"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//PREFormTrigger/fakeMethod"/>
+    <genClasses ecoreClass="domain.ecore#//Trigger">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//Trigger/uid"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//Trigger/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//Trigger/parameters"/>
     </genClasses>
-    <genClasses ecoreClass="domain.ecore#//PREQueryTrigger">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//PREQueryTrigger/uid"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//PREQueryTrigger/trigger"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//PREQueryTrigger/fakeMethod"/>
-    </genClasses>
-    <genClasses ecoreClass="domain.ecore#//POSTQueryTrigger">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//POSTQueryTrigger/uid"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//POSTQueryTrigger/trigger"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//POSTQueryTrigger/fakeMethod"/>
-    </genClasses>
-    <genClasses ecoreClass="domain.ecore#//PREInsertTrigger">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//PREInsertTrigger/uid"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//PREInsertTrigger/trigger"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//PREInsertTrigger/fakeMethod"/>
-    </genClasses>
-    <genClasses ecoreClass="domain.ecore#//PREDeleteTrigger">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//PREDeleteTrigger/uid"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//PREDeleteTrigger/trigger"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//PREDeleteTrigger/fakeMethod"/>
-    </genClasses>
-    <genClasses ecoreClass="domain.ecore#//POSTCreateTrigger">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//POSTCreateTrigger/uid"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//POSTCreateTrigger/trigger"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//POSTCreateTrigger/fakeMethod"/>
-    </genClasses>
-    <genClasses ecoreClass="domain.ecore#//PREUpdateTrigger">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//PREUpdateTrigger/uid"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//PREUpdateTrigger/trigger"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//PREUpdateTrigger/fakeMethod"/>
-    </genClasses>
-    <genClasses ecoreClass="domain.ecore#//CreateTrigger">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//CreateTrigger/uid"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//CreateTrigger/trigger"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//CreateTrigger/fakeMethod"/>
-    </genClasses>
-    <genClasses ecoreClass="domain.ecore#//InsertTrigger">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//InsertTrigger/uid"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//InsertTrigger/trigger"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//InsertTrigger/fakeMethod"/>
-    </genClasses>
-    <genClasses ecoreClass="domain.ecore#//UpdateTrigger">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//UpdateTrigger/uid"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//UpdateTrigger/trigger"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//UpdateTrigger/fakeMethod"/>
-    </genClasses>
-    <genClasses ecoreClass="domain.ecore#//DeleteTrigger">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//DeleteTrigger/uid"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//DeleteTrigger/trigger"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//DeleteTrigger/fakeMethod"/>
-    </genClasses>
-    <genClasses ecoreClass="domain.ecore#//SearchTrigger">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//SearchTrigger/uid"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//SearchTrigger/trigger"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//SearchTrigger/fakeMethod"/>
-    </genClasses>
+    <genClasses ecoreClass="domain.ecore#//PREFormTrigger"/>
+    <genClasses ecoreClass="domain.ecore#//PREQueryTrigger"/>
+    <genClasses ecoreClass="domain.ecore#//POSTQueryTrigger"/>
+    <genClasses ecoreClass="domain.ecore#//PREInsertTrigger"/>
+    <genClasses ecoreClass="domain.ecore#//PREDeleteTrigger"/>
+    <genClasses ecoreClass="domain.ecore#//POSTCreateTrigger"/>
+    <genClasses ecoreClass="domain.ecore#//PREUpdateTrigger"/>
+    <genClasses ecoreClass="domain.ecore#//CreateTrigger"/>
+    <genClasses ecoreClass="domain.ecore#//InsertTrigger"/>
+    <genClasses ecoreClass="domain.ecore#//UpdateTrigger"/>
+    <genClasses ecoreClass="domain.ecore#//DeleteTrigger"/>
+    <genClasses ecoreClass="domain.ecore#//SearchTrigger"/>
     <genClasses ecoreClass="domain.ecore#//Root">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//Root/uid"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//Root/name"/>

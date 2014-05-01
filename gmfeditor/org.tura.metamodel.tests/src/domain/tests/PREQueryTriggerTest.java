@@ -5,8 +5,6 @@ package domain.tests;
 import domain.DomainFactory;
 import domain.PREQueryTrigger;
 
-import junit.framework.TestCase;
-
 import junit.textui.TestRunner;
 
 /**
@@ -15,16 +13,8 @@ import junit.textui.TestRunner;
  * <!-- end-user-doc -->
  * @generated
  */
-public class PREQueryTriggerTest extends TestCase
+public class PREQueryTriggerTest extends TriggerTest
 {
-
-  /**
-   * The fixture for this PRE Query Trigger test case.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected PREQueryTrigger fixture = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -48,25 +38,15 @@ public class PREQueryTriggerTest extends TestCase
   }
 
   /**
-   * Sets the fixture for this PRE Query Trigger test case.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected void setFixture(PREQueryTrigger fixture)
-  {
-    this.fixture = fixture;
-  }
-
-  /**
    * Returns the fixture for this PRE Query Trigger test case.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
+  @Override
   protected PREQueryTrigger getFixture()
   {
-    return fixture;
+    return (PREQueryTrigger)fixture;
   }
 
   /**

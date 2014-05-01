@@ -5,8 +5,6 @@ package domain.tests;
 import domain.DomainFactory;
 import domain.POSTQueryTrigger;
 
-import junit.framework.TestCase;
-
 import junit.textui.TestRunner;
 
 /**
@@ -15,16 +13,8 @@ import junit.textui.TestRunner;
  * <!-- end-user-doc -->
  * @generated
  */
-public class POSTQueryTriggerTest extends TestCase
+public class POSTQueryTriggerTest extends TriggerTest
 {
-
-  /**
-   * The fixture for this POST Query Trigger test case.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected POSTQueryTrigger fixture = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -48,25 +38,15 @@ public class POSTQueryTriggerTest extends TestCase
   }
 
   /**
-   * Sets the fixture for this POST Query Trigger test case.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected void setFixture(POSTQueryTrigger fixture)
-  {
-    this.fixture = fixture;
-  }
-
-  /**
    * Returns the fixture for this POST Query Trigger test case.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
+  @Override
   protected POSTQueryTrigger getFixture()
   {
-    return fixture;
+    return (POSTQueryTrigger)fixture;
   }
 
   /**

@@ -864,103 +864,70 @@ class Controls{
     val Relation[*] relations;
 }
 
+class Trigger extends MethodPointer {
+    id attr EString uid;
+    attr EString name;
+    val ContextParameter[*] parameters;
 
+}
 
 @gmf.node(label="fakeMethod",border.color="0,0,0",color="241,238,203")
-class PREFormTrigger  {
-    id attr EString uid;
-  val Context trigger;
-  
-  attr EString fakeMethod;
+class PREFormTrigger  extends Trigger {
  }
 
 @gmf.node(label="fakeMethod",border.color="0,0,0",color="241,238,203")
-class PREQueryTrigger  {
-    id attr EString uid;
-  val Context trigger;
-
-  attr EString fakeMethod;
+class PREQueryTrigger  extends  Trigger {
  }
 
 @gmf.node(label="fakeMethod",border.color="0,0,0",color="241,238,203")
-class POSTQueryTrigger  {
-    id attr EString uid;
-  val Context trigger;
-
-  attr EString fakeMethod;
+class POSTQueryTrigger   extends Trigger {
  }
+
 
 @gmf.node(label="fakeMethod",border.color="0,0,0",color="241,238,203")
-class PREInsertTrigger  {
-    id attr EString uid;
-  val Context trigger;
-
-  attr EString fakeMethod;
+class PREInsertTrigger   extends Trigger {
  }
+
 
 @gmf.node(label="fakeMethod",border.color="0,0,0",color="241,238,203")
-class PREDeleteTrigger  {
-    id attr EString uid;
-  val Context trigger;
-
-  attr EString fakeMethod;
+class PREDeleteTrigger   extends Trigger {
  }
+
 
 @gmf.node(label="fakeMethod",border.color="0,0,0",color="241,238,203")
-class POSTCreateTrigger  {
-    id attr EString uid;
-  val Context trigger;
-
-  attr EString fakeMethod;
+class POSTCreateTrigger   extends Trigger {
  }
+
 
 @gmf.node(label="fakeMethod",border.color="0,0,0",color="241,238,203")
-class PREUpdateTrigger  {
-    id attr EString uid;
-  val Context trigger;
-
-  attr EString fakeMethod;
+class PREUpdateTrigger   extends Trigger {
  }
+
 
 @gmf.node(label="fakeMethod",border.color="0,0,0",color="241,238,203")
-class CreateTrigger  {
-    id attr EString uid;
-  val Context trigger;
-
-  attr EString fakeMethod;
+class CreateTrigger   extends Trigger {
  }
+
 
 @gmf.node(label="fakeMethod",border.color="0,0,0",color="241,238,203")
-class InsertTrigger {
-    id attr EString uid;
-  val Context trigger;
-
-  attr EString fakeMethod;
+class InsertTrigger  extends Trigger {
  }
+
 
 @gmf.node(label="fakeMethod",border.color="0,0,0",color="241,238,203")
-class UpdateTrigger  {
-    id attr EString uid;
-  val Context trigger;
-
-  attr EString fakeMethod;
+class UpdateTrigger   extends Trigger {
  }
+
 
 @gmf.node(label="fakeMethod",border.color="0,0,0",color="241,238,203")
-class DeleteTrigger  {
-    id attr EString uid;
-  val Context trigger;
-
-  attr EString fakeMethod;
+class DeleteTrigger  extends Trigger {
  }
+
 
 @gmf.node(label="fakeMethod",border.color="0,0,0",color="241,238,203")
-class SearchTrigger  {
-    id attr EString uid;
-  val Context trigger;
-
-  attr EString fakeMethod;
+class SearchTrigger  extends Trigger {
  }
+
 
 
 @gmf.node(label="name",border.color="0,0,0",color="241,238,203")

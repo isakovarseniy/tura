@@ -22,11 +22,11 @@ import org.eclipse.ocl.ecore.EcoreEnvironmentFactory;
 import org.eclipse.ocl.expressions.OCLExpression;
 import org.eclipse.ocl.helper.OCLHelper;
 
+import domain.ContextParameter;
 import domain.ContextValue;
 import domain.DomainFactory;
 import domain.DomainPackage;
 import domain.Parameter;
-import domain.TriggerParameter;
 import domain.Types;
 
 public class QueryHelper {
@@ -294,8 +294,8 @@ public class QueryHelper {
 	public List<Object> findTriggerParameters(domain.Trigger trg,
 			EObject types, EditingDomain editingDomain) throws ParserException {
 
-		ArrayList<domain.TriggerParameter> removeParameters = new ArrayList<domain.TriggerParameter>();
-		ArrayList<domain.TriggerParameter> addParameters = new ArrayList<domain.TriggerParameter>();
+		ArrayList<domain.ContextParameter> removeParameters = new ArrayList<domain.ContextParameter>();
+		ArrayList<domain.ContextParameter> addParameters = new ArrayList<domain.ContextParameter>();
 
 		OCL ocl = OCL.newInstance(EcoreEnvironmentFactory.INSTANCE);
 		OCLHelper<EClassifier, ?, ?, Constraint> helper = ocl.createOCLHelper();
@@ -316,13 +316,13 @@ public class QueryHelper {
 		}
 		Collections.sort(parameters,new ParameterComparator());
 
-		ArrayList<domain.TriggerParameter> trgParameters = new ArrayList<domain.TriggerParameter>();
-		for (Iterator<domain.TriggerParameter> i = trg.getParameters().iterator(); i.hasNext();) {
-			domain.TriggerParameter p = i.next();
+		ArrayList<domain.ContextParameter> trgParameters = new ArrayList<domain.ContextParameter>();
+		for (Iterator<domain.ContextParameter> i = trg.getParameters().iterator(); i.hasNext();) {
+			domain.ContextParameter p = i.next();
 			trgParameters.add(p);
 		}
 
-		Collections.sort(trgParameters,new TriggerParameterComparator());
+		Collections.sort(trgParameters,new ContextParameterComparator());
 		
 		
 		boolean renewParameters = false;
@@ -333,7 +333,7 @@ public class QueryHelper {
 		else {
 
 			for (int i = 0; i < trgParameters.size(); i++) {
-				TriggerParameter trgParam = trgParameters.get(i);
+				ContextParameter trgParam = trgParameters.get(i);
 				domain.Parameter param = parameters.get(i);
 				if (trgParam.getParameter() == null || !trgParam.getParameter().getUid().equals(param.getUid())) {
 					removeParameters.addAll(trgParameters);
@@ -344,8 +344,8 @@ public class QueryHelper {
 		}
 		if (renewParameters) {
 			for (int i = 0; i < parameters.size(); i++) {
-				TriggerParameter trgParam = DomainFactory.eINSTANCE
-						.createTriggerParameter();
+				ContextParameter trgParam = DomainFactory.eINSTANCE
+						.createContextParameter();
 				trgParam.setParameter(parameters.get(i));
 				trgParam.setUid(UUID.randomUUID().toString());
 				addParameters.add(trgParam);
@@ -369,12 +369,12 @@ public class QueryHelper {
 							addParameters));
 		}
 
-		trgParameters = new ArrayList<domain.TriggerParameter>();
-		for (Iterator<domain.TriggerParameter> i = trg.getParameters().iterator(); i.hasNext();) {
-			domain.TriggerParameter p = i.next();
+		trgParameters = new ArrayList<domain.ContextParameter>();
+		for (Iterator<domain.ContextParameter> i = trg.getParameters().iterator(); i.hasNext();) {
+			domain.ContextParameter p = i.next();
 			trgParameters.add(p);
 		}
-		Collections.sort(trgParameters,new TriggerParameterComparator());
+		Collections.sort(trgParameters,new ContextParameterComparator());
 		
 		ArrayList<Object> rows = new ArrayList<>();
 		rows.addAll(trgParameters);
@@ -408,10 +408,10 @@ public class QueryHelper {
 		
 	}
 	
-	class TriggerParameterComparator implements Comparator<domain.TriggerParameter>{
+	class ContextParameterComparator implements Comparator<domain.ContextParameter>{
 
 		@Override
-		public int compare(TriggerParameter o1, TriggerParameter o2) {
+		public int compare(ContextParameter o1, ContextParameter o2) {
 			if (o1.getParameter() == null || o2.getParameter() == null)
 				return -1;
 			return new Integer(o1.getParameter().getOrder()).compareTo(new Integer(o2.getParameter().getOrder()));
