@@ -65,9 +65,6 @@ public class UielementItemProvider
       super.getPropertyDescriptors(object);
 
       addUidPropertyDescriptor(object);
-      addEnabledPropertyDescriptor(object);
-      addRequiredPropertyDescriptor(object);
-      addReadOnlyPropertyDescriptor(object);
     }
     return itemPropertyDescriptors;
   }
@@ -91,75 +88,6 @@ public class UielementItemProvider
          false,
          false,
          ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-         null,
-         null));
-  }
-
-  /**
-   * This adds a property descriptor for the Enabled feature.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected void addEnabledPropertyDescriptor(Object object)
-  {
-    itemPropertyDescriptors.add
-      (createItemPropertyDescriptor
-        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-         getResourceLocator(),
-         getString("_UI_Uielement_enabled_feature"),
-         getString("_UI_PropertyDescriptor_description", "_UI_Uielement_enabled_feature", "_UI_Uielement_type"),
-         DomainPackage.Literals.UIELEMENT__ENABLED,
-         true,
-         false,
-         false,
-         ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-         null,
-         null));
-  }
-
-  /**
-   * This adds a property descriptor for the Required feature.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected void addRequiredPropertyDescriptor(Object object)
-  {
-    itemPropertyDescriptors.add
-      (createItemPropertyDescriptor
-        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-         getResourceLocator(),
-         getString("_UI_Uielement_required_feature"),
-         getString("_UI_PropertyDescriptor_description", "_UI_Uielement_required_feature", "_UI_Uielement_type"),
-         DomainPackage.Literals.UIELEMENT__REQUIRED,
-         true,
-         false,
-         false,
-         ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-         null,
-         null));
-  }
-
-  /**
-   * This adds a property descriptor for the Read Only feature.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected void addReadOnlyPropertyDescriptor(Object object)
-  {
-    itemPropertyDescriptors.add
-      (createItemPropertyDescriptor
-        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-         getResourceLocator(),
-         getString("_UI_Uielement_readOnly_feature"),
-         getString("_UI_PropertyDescriptor_description", "_UI_Uielement_readOnly_feature", "_UI_Uielement_type"),
-         DomainPackage.Literals.UIELEMENT__READ_ONLY,
-         true,
-         false,
-         false,
-         ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
          null,
          null));
   }
@@ -241,9 +169,6 @@ public class UielementItemProvider
     switch (notification.getFeatureID(Uielement.class))
     {
       case DomainPackage.UIELEMENT__UID:
-      case DomainPackage.UIELEMENT__ENABLED:
-      case DomainPackage.UIELEMENT__REQUIRED:
-      case DomainPackage.UIELEMENT__READ_ONLY:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
         return;
       case DomainPackage.UIELEMENT__ENABLED_CONTEXT:

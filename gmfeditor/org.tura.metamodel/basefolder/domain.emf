@@ -670,7 +670,7 @@ class ViewPort extends ViewElement{
 class ViewArea extends ViewElement{
     id attr EString uid;
    attr EString name;
-   val CanvasView#parent canvasView;
+   ref CanvasView#parent canvasView;
 }
 
 
@@ -765,38 +765,32 @@ class StyleElement{
 
 class Uielement extends StyleElement{
     id attr EString uid;
-    attr boolean enabled;
     val Context enabledContext;
-    attr boolean required;
     val Context requiredContext;
-    attr boolean readOnly;
     val Context readOnlyContext;
-    
 }
 
 class SourcesPointer extends Uielement{
-   val Context sourcePointer;
-   val Context valuePointer;
-   val Context sourceCast;
+   ref DataControl sourcePointer;
+   ref EObject valuePointer;
+   ref Type sourceCast;
 }
 
 class ActionElement extends Uielement{
   val Context trigger;
 }
 
-
-
-class InputElement extends Uielement {
+class InputElement extends SourcesPointer {
 }
 
 class Selection extends StyleElement{
-   val Context displayOptionPointer;
-   val Context valueOptionPointer;
+   ref EObject displayOptionPointer;
+   ref EObject valueOptionPointer;
 }
 
 class OptionSelection extends InputElement {
-   val Context optionPointer;
-   val Context optionCast;
+   ref DataControl optionPointer;
+   ref Type optionCast;
 }
 
 @gmf.node(label.placement="none",tool.small.bundle="org.tura.metamodel.commons",tool.small.path="icons/layerholder.png")

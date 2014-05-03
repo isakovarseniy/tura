@@ -56,7 +56,7 @@ public abstract class AbstractTypeNamePropertySection extends
 				String strQuery = getQuery().replaceAll(
 						"\\$1",
 						((domain.Package) dropDownDataSupplier
-								.getWatchPointObject(getModel())).getUid());
+								.getWatchPointObject(getModel())[0]).getUid());
 
 				OCLExpression<EClassifier> query = helper.createQuery(strQuery);
 

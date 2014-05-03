@@ -22,11 +22,8 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * The following features are implemented:
  * <ul>
  *   <li>{@link domain.impl.UielementImpl#getUid <em>Uid</em>}</li>
- *   <li>{@link domain.impl.UielementImpl#isEnabled <em>Enabled</em>}</li>
  *   <li>{@link domain.impl.UielementImpl#getEnabledContext <em>Enabled Context</em>}</li>
- *   <li>{@link domain.impl.UielementImpl#isRequired <em>Required</em>}</li>
  *   <li>{@link domain.impl.UielementImpl#getRequiredContext <em>Required Context</em>}</li>
- *   <li>{@link domain.impl.UielementImpl#isReadOnly <em>Read Only</em>}</li>
  *   <li>{@link domain.impl.UielementImpl#getReadOnlyContext <em>Read Only Context</em>}</li>
  * </ul>
  * </p>
@@ -56,26 +53,6 @@ public class UielementImpl extends StyleElementImpl implements Uielement
   protected String uid = UID_EDEFAULT;
 
   /**
-   * The default value of the '{@link #isEnabled() <em>Enabled</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #isEnabled()
-   * @generated
-   * @ordered
-   */
-  protected static final boolean ENABLED_EDEFAULT = false;
-
-  /**
-   * The cached value of the '{@link #isEnabled() <em>Enabled</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #isEnabled()
-   * @generated
-   * @ordered
-   */
-  protected boolean enabled = ENABLED_EDEFAULT;
-
-  /**
    * The cached value of the '{@link #getEnabledContext() <em>Enabled Context</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -86,26 +63,6 @@ public class UielementImpl extends StyleElementImpl implements Uielement
   protected Context enabledContext;
 
   /**
-   * The default value of the '{@link #isRequired() <em>Required</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #isRequired()
-   * @generated
-   * @ordered
-   */
-  protected static final boolean REQUIRED_EDEFAULT = false;
-
-  /**
-   * The cached value of the '{@link #isRequired() <em>Required</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #isRequired()
-   * @generated
-   * @ordered
-   */
-  protected boolean required = REQUIRED_EDEFAULT;
-
-  /**
    * The cached value of the '{@link #getRequiredContext() <em>Required Context</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -114,26 +71,6 @@ public class UielementImpl extends StyleElementImpl implements Uielement
    * @ordered
    */
   protected Context requiredContext;
-
-  /**
-   * The default value of the '{@link #isReadOnly() <em>Read Only</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #isReadOnly()
-   * @generated
-   * @ordered
-   */
-  protected static final boolean READ_ONLY_EDEFAULT = false;
-
-  /**
-   * The cached value of the '{@link #isReadOnly() <em>Read Only</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #isReadOnly()
-   * @generated
-   * @ordered
-   */
-  protected boolean readOnly = READ_ONLY_EDEFAULT;
 
   /**
    * The cached value of the '{@link #getReadOnlyContext() <em>Read Only Context</em>}' containment reference.
@@ -194,29 +131,6 @@ public class UielementImpl extends StyleElementImpl implements Uielement
    * <!-- end-user-doc -->
    * @generated
    */
-  public boolean isEnabled()
-  {
-    return enabled;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setEnabled(boolean newEnabled)
-  {
-    boolean oldEnabled = enabled;
-    enabled = newEnabled;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.UIELEMENT__ENABLED, oldEnabled, enabled));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public Context getEnabledContext()
   {
     return enabledContext;
@@ -265,29 +179,6 @@ public class UielementImpl extends StyleElementImpl implements Uielement
    * <!-- end-user-doc -->
    * @generated
    */
-  public boolean isRequired()
-  {
-    return required;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setRequired(boolean newRequired)
-  {
-    boolean oldRequired = required;
-    required = newRequired;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.UIELEMENT__REQUIRED, oldRequired, required));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public Context getRequiredContext()
   {
     return requiredContext;
@@ -329,29 +220,6 @@ public class UielementImpl extends StyleElementImpl implements Uielement
     }
     else if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.UIELEMENT__REQUIRED_CONTEXT, newRequiredContext, newRequiredContext));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public boolean isReadOnly()
-  {
-    return readOnly;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setReadOnly(boolean newReadOnly)
-  {
-    boolean oldReadOnly = readOnly;
-    readOnly = newReadOnly;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.UIELEMENT__READ_ONLY, oldReadOnly, readOnly));
   }
 
   /**
@@ -434,16 +302,10 @@ public class UielementImpl extends StyleElementImpl implements Uielement
     {
       case DomainPackage.UIELEMENT__UID:
         return getUid();
-      case DomainPackage.UIELEMENT__ENABLED:
-        return isEnabled();
       case DomainPackage.UIELEMENT__ENABLED_CONTEXT:
         return getEnabledContext();
-      case DomainPackage.UIELEMENT__REQUIRED:
-        return isRequired();
       case DomainPackage.UIELEMENT__REQUIRED_CONTEXT:
         return getRequiredContext();
-      case DomainPackage.UIELEMENT__READ_ONLY:
-        return isReadOnly();
       case DomainPackage.UIELEMENT__READ_ONLY_CONTEXT:
         return getReadOnlyContext();
     }
@@ -463,20 +325,11 @@ public class UielementImpl extends StyleElementImpl implements Uielement
       case DomainPackage.UIELEMENT__UID:
         setUid((String)newValue);
         return;
-      case DomainPackage.UIELEMENT__ENABLED:
-        setEnabled((Boolean)newValue);
-        return;
       case DomainPackage.UIELEMENT__ENABLED_CONTEXT:
         setEnabledContext((Context)newValue);
         return;
-      case DomainPackage.UIELEMENT__REQUIRED:
-        setRequired((Boolean)newValue);
-        return;
       case DomainPackage.UIELEMENT__REQUIRED_CONTEXT:
         setRequiredContext((Context)newValue);
-        return;
-      case DomainPackage.UIELEMENT__READ_ONLY:
-        setReadOnly((Boolean)newValue);
         return;
       case DomainPackage.UIELEMENT__READ_ONLY_CONTEXT:
         setReadOnlyContext((Context)newValue);
@@ -498,20 +351,11 @@ public class UielementImpl extends StyleElementImpl implements Uielement
       case DomainPackage.UIELEMENT__UID:
         setUid(UID_EDEFAULT);
         return;
-      case DomainPackage.UIELEMENT__ENABLED:
-        setEnabled(ENABLED_EDEFAULT);
-        return;
       case DomainPackage.UIELEMENT__ENABLED_CONTEXT:
         setEnabledContext((Context)null);
         return;
-      case DomainPackage.UIELEMENT__REQUIRED:
-        setRequired(REQUIRED_EDEFAULT);
-        return;
       case DomainPackage.UIELEMENT__REQUIRED_CONTEXT:
         setRequiredContext((Context)null);
-        return;
-      case DomainPackage.UIELEMENT__READ_ONLY:
-        setReadOnly(READ_ONLY_EDEFAULT);
         return;
       case DomainPackage.UIELEMENT__READ_ONLY_CONTEXT:
         setReadOnlyContext((Context)null);
@@ -532,16 +376,10 @@ public class UielementImpl extends StyleElementImpl implements Uielement
     {
       case DomainPackage.UIELEMENT__UID:
         return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
-      case DomainPackage.UIELEMENT__ENABLED:
-        return enabled != ENABLED_EDEFAULT;
       case DomainPackage.UIELEMENT__ENABLED_CONTEXT:
         return enabledContext != null;
-      case DomainPackage.UIELEMENT__REQUIRED:
-        return required != REQUIRED_EDEFAULT;
       case DomainPackage.UIELEMENT__REQUIRED_CONTEXT:
         return requiredContext != null;
-      case DomainPackage.UIELEMENT__READ_ONLY:
-        return readOnly != READ_ONLY_EDEFAULT;
       case DomainPackage.UIELEMENT__READ_ONLY_CONTEXT:
         return readOnlyContext != null;
     }
@@ -561,12 +399,6 @@ public class UielementImpl extends StyleElementImpl implements Uielement
     StringBuffer result = new StringBuffer(super.toString());
     result.append(" (uid: ");
     result.append(uid);
-    result.append(", enabled: ");
-    result.append(enabled);
-    result.append(", required: ");
-    result.append(required);
-    result.append(", readOnly: ");
-    result.append(readOnly);
     result.append(')');
     return result.toString();
   }

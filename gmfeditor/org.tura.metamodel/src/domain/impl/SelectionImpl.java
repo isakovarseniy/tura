@@ -10,6 +10,7 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
@@ -31,24 +32,24 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 public class SelectionImpl extends StyleElementImpl implements Selection
 {
   /**
-   * The cached value of the '{@link #getDisplayOptionPointer() <em>Display Option Pointer</em>}' containment reference.
+   * The cached value of the '{@link #getDisplayOptionPointer() <em>Display Option Pointer</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getDisplayOptionPointer()
    * @generated
    * @ordered
    */
-  protected Context displayOptionPointer;
+  protected EObject displayOptionPointer;
 
   /**
-   * The cached value of the '{@link #getValueOptionPointer() <em>Value Option Pointer</em>}' containment reference.
+   * The cached value of the '{@link #getValueOptionPointer() <em>Value Option Pointer</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getValueOptionPointer()
    * @generated
    * @ordered
    */
-  protected Context valueOptionPointer;
+  protected EObject valueOptionPointer;
 
   /**
    * <!-- begin-user-doc -->
@@ -76,7 +77,27 @@ public class SelectionImpl extends StyleElementImpl implements Selection
    * <!-- end-user-doc -->
    * @generated
    */
-  public Context getDisplayOptionPointer()
+  public EObject getDisplayOptionPointer()
+  {
+    if (displayOptionPointer != null && displayOptionPointer.eIsProxy())
+    {
+      InternalEObject oldDisplayOptionPointer = (InternalEObject)displayOptionPointer;
+      displayOptionPointer = eResolveProxy(oldDisplayOptionPointer);
+      if (displayOptionPointer != oldDisplayOptionPointer)
+      {
+        if (eNotificationRequired())
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, DomainPackage.SELECTION__DISPLAY_OPTION_POINTER, oldDisplayOptionPointer, displayOptionPointer));
+      }
+    }
+    return displayOptionPointer;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EObject basicGetDisplayOptionPointer()
   {
     return displayOptionPointer;
   }
@@ -86,16 +107,12 @@ public class SelectionImpl extends StyleElementImpl implements Selection
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetDisplayOptionPointer(Context newDisplayOptionPointer, NotificationChain msgs)
+  public void setDisplayOptionPointer(EObject newDisplayOptionPointer)
   {
-    Context oldDisplayOptionPointer = displayOptionPointer;
+    EObject oldDisplayOptionPointer = displayOptionPointer;
     displayOptionPointer = newDisplayOptionPointer;
     if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DomainPackage.SELECTION__DISPLAY_OPTION_POINTER, oldDisplayOptionPointer, newDisplayOptionPointer);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
+      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.SELECTION__DISPLAY_OPTION_POINTER, oldDisplayOptionPointer, displayOptionPointer));
   }
 
   /**
@@ -103,20 +120,19 @@ public class SelectionImpl extends StyleElementImpl implements Selection
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setDisplayOptionPointer(Context newDisplayOptionPointer)
+  public EObject getValueOptionPointer()
   {
-    if (newDisplayOptionPointer != displayOptionPointer)
+    if (valueOptionPointer != null && valueOptionPointer.eIsProxy())
     {
-      NotificationChain msgs = null;
-      if (displayOptionPointer != null)
-        msgs = ((InternalEObject)displayOptionPointer).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DomainPackage.SELECTION__DISPLAY_OPTION_POINTER, null, msgs);
-      if (newDisplayOptionPointer != null)
-        msgs = ((InternalEObject)newDisplayOptionPointer).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - DomainPackage.SELECTION__DISPLAY_OPTION_POINTER, null, msgs);
-      msgs = basicSetDisplayOptionPointer(newDisplayOptionPointer, msgs);
-      if (msgs != null) msgs.dispatch();
+      InternalEObject oldValueOptionPointer = (InternalEObject)valueOptionPointer;
+      valueOptionPointer = eResolveProxy(oldValueOptionPointer);
+      if (valueOptionPointer != oldValueOptionPointer)
+      {
+        if (eNotificationRequired())
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, DomainPackage.SELECTION__VALUE_OPTION_POINTER, oldValueOptionPointer, valueOptionPointer));
+      }
     }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.SELECTION__DISPLAY_OPTION_POINTER, newDisplayOptionPointer, newDisplayOptionPointer));
+    return valueOptionPointer;
   }
 
   /**
@@ -124,7 +140,7 @@ public class SelectionImpl extends StyleElementImpl implements Selection
    * <!-- end-user-doc -->
    * @generated
    */
-  public Context getValueOptionPointer()
+  public EObject basicGetValueOptionPointer()
   {
     return valueOptionPointer;
   }
@@ -134,55 +150,12 @@ public class SelectionImpl extends StyleElementImpl implements Selection
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetValueOptionPointer(Context newValueOptionPointer, NotificationChain msgs)
+  public void setValueOptionPointer(EObject newValueOptionPointer)
   {
-    Context oldValueOptionPointer = valueOptionPointer;
+    EObject oldValueOptionPointer = valueOptionPointer;
     valueOptionPointer = newValueOptionPointer;
     if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DomainPackage.SELECTION__VALUE_OPTION_POINTER, oldValueOptionPointer, newValueOptionPointer);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setValueOptionPointer(Context newValueOptionPointer)
-  {
-    if (newValueOptionPointer != valueOptionPointer)
-    {
-      NotificationChain msgs = null;
-      if (valueOptionPointer != null)
-        msgs = ((InternalEObject)valueOptionPointer).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DomainPackage.SELECTION__VALUE_OPTION_POINTER, null, msgs);
-      if (newValueOptionPointer != null)
-        msgs = ((InternalEObject)newValueOptionPointer).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - DomainPackage.SELECTION__VALUE_OPTION_POINTER, null, msgs);
-      msgs = basicSetValueOptionPointer(newValueOptionPointer, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.SELECTION__VALUE_OPTION_POINTER, newValueOptionPointer, newValueOptionPointer));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-  {
-    switch (featureID)
-    {
-      case DomainPackage.SELECTION__DISPLAY_OPTION_POINTER:
-        return basicSetDisplayOptionPointer(null, msgs);
-      case DomainPackage.SELECTION__VALUE_OPTION_POINTER:
-        return basicSetValueOptionPointer(null, msgs);
-    }
-    return super.eInverseRemove(otherEnd, featureID, msgs);
+      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.SELECTION__VALUE_OPTION_POINTER, oldValueOptionPointer, valueOptionPointer));
   }
 
   /**
@@ -196,9 +169,11 @@ public class SelectionImpl extends StyleElementImpl implements Selection
     switch (featureID)
     {
       case DomainPackage.SELECTION__DISPLAY_OPTION_POINTER:
-        return getDisplayOptionPointer();
+        if (resolve) return getDisplayOptionPointer();
+        return basicGetDisplayOptionPointer();
       case DomainPackage.SELECTION__VALUE_OPTION_POINTER:
-        return getValueOptionPointer();
+        if (resolve) return getValueOptionPointer();
+        return basicGetValueOptionPointer();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -214,10 +189,10 @@ public class SelectionImpl extends StyleElementImpl implements Selection
     switch (featureID)
     {
       case DomainPackage.SELECTION__DISPLAY_OPTION_POINTER:
-        setDisplayOptionPointer((Context)newValue);
+        setDisplayOptionPointer((EObject)newValue);
         return;
       case DomainPackage.SELECTION__VALUE_OPTION_POINTER:
-        setValueOptionPointer((Context)newValue);
+        setValueOptionPointer((EObject)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -234,10 +209,10 @@ public class SelectionImpl extends StyleElementImpl implements Selection
     switch (featureID)
     {
       case DomainPackage.SELECTION__DISPLAY_OPTION_POINTER:
-        setDisplayOptionPointer((Context)null);
+        setDisplayOptionPointer((EObject)null);
         return;
       case DomainPackage.SELECTION__VALUE_OPTION_POINTER:
-        setValueOptionPointer((Context)null);
+        setValueOptionPointer((EObject)null);
         return;
     }
     super.eUnset(featureID);

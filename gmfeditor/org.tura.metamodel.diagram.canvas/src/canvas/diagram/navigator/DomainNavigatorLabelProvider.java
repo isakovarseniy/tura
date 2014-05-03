@@ -134,21 +134,12 @@ public class DomainNavigatorLabelProvider extends LabelProvider implements
 		case LayerHolderEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?TopLevelNode?http://tura.org/2013/v1/domain?LayerHolder", DomainElementTypes.LayerHolder_1602003); //$NON-NLS-1$
-		case LayerHolder2EditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Node?http://tura.org/2013/v1/domain?LayerHolder", DomainElementTypes.LayerHolder_1603019); //$NON-NLS-1$
 		case DropDownSelectionEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Node?http://tura.org/2013/v1/domain?DropDownSelection", DomainElementTypes.DropDownSelection_1603002); //$NON-NLS-1$
-		case TableEditPart.VISUAL_ID:
+		case LayerHolder2EditPart.VISUAL_ID:
 			return getImage(
-					"Navigator?Node?http://tura.org/2013/v1/domain?Table", DomainElementTypes.Table_1603008); //$NON-NLS-1$
-		case ColumnEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Node?http://tura.org/2013/v1/domain?Column", DomainElementTypes.Column_1603024); //$NON-NLS-1$
-		case LayerHolder3EditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Node?http://tura.org/2013/v1/domain?LayerHolder", DomainElementTypes.LayerHolder_1603020); //$NON-NLS-1$
+					"Navigator?Node?http://tura.org/2013/v1/domain?LayerHolder", DomainElementTypes.LayerHolder_1603019); //$NON-NLS-1$
 		case InputTextEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Node?http://tura.org/2013/v1/domain?InputText", DomainElementTypes.InputText_1603004); //$NON-NLS-1$
@@ -161,18 +152,24 @@ public class DomainNavigatorLabelProvider extends LabelProvider implements
 		case CheckBoxEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Node?http://tura.org/2013/v1/domain?CheckBox", DomainElementTypes.CheckBox_1603007); //$NON-NLS-1$
+		case TableEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Node?http://tura.org/2013/v1/domain?Table", DomainElementTypes.Table_1603008); //$NON-NLS-1$
+		case ColumnEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Node?http://tura.org/2013/v1/domain?Column", DomainElementTypes.Column_1603024); //$NON-NLS-1$
+		case DropDownSelection2EditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Node?http://tura.org/2013/v1/domain?DropDownSelection", DomainElementTypes.DropDownSelection_1603010); //$NON-NLS-1$
+		case LayerHolder3EditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Node?http://tura.org/2013/v1/domain?LayerHolder", DomainElementTypes.LayerHolder_1603020); //$NON-NLS-1$
 		case TreeEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Node?http://tura.org/2013/v1/domain?Tree", DomainElementTypes.Tree_1603016); //$NON-NLS-1$
 		case ButtonEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Node?http://tura.org/2013/v1/domain?Button", DomainElementTypes.Button_1603017); //$NON-NLS-1$
-		case DropDownSelection2EditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Node?http://tura.org/2013/v1/domain?DropDownSelection", DomainElementTypes.DropDownSelection_1603010); //$NON-NLS-1$
-		case Table2EditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Node?http://tura.org/2013/v1/domain?Table", DomainElementTypes.Table_1603021); //$NON-NLS-1$
 		case InputText2EditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Node?http://tura.org/2013/v1/domain?InputText", DomainElementTypes.InputText_1603012); //$NON-NLS-1$
@@ -185,6 +182,9 @@ public class DomainNavigatorLabelProvider extends LabelProvider implements
 		case CheckBox2EditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Node?http://tura.org/2013/v1/domain?CheckBox", DomainElementTypes.CheckBox_1603015); //$NON-NLS-1$
+		case Table2EditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Node?http://tura.org/2013/v1/domain?Table", DomainElementTypes.Table_1603021); //$NON-NLS-1$
 		case Tree2EditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Node?http://tura.org/2013/v1/domain?Tree", DomainElementTypes.Tree_1603022); //$NON-NLS-1$
@@ -255,16 +255,10 @@ public class DomainNavigatorLabelProvider extends LabelProvider implements
 			return getCanvasView_1601000Text(view);
 		case LayerHolderEditPart.VISUAL_ID:
 			return getLayerHolder_1602003Text(view);
-		case LayerHolder2EditPart.VISUAL_ID:
-			return getLayerHolder_1603019Text(view);
 		case DropDownSelectionEditPart.VISUAL_ID:
 			return getDropDownSelection_1603002Text(view);
-		case TableEditPart.VISUAL_ID:
-			return getTable_1603008Text(view);
-		case ColumnEditPart.VISUAL_ID:
-			return getColumn_1603024Text(view);
-		case LayerHolder3EditPart.VISUAL_ID:
-			return getLayerHolder_1603020Text(view);
+		case LayerHolder2EditPart.VISUAL_ID:
+			return getLayerHolder_1603019Text(view);
 		case InputTextEditPart.VISUAL_ID:
 			return getInputText_1603004Text(view);
 		case LabelEditPart.VISUAL_ID:
@@ -273,14 +267,18 @@ public class DomainNavigatorLabelProvider extends LabelProvider implements
 			return getOutputText_1603006Text(view);
 		case CheckBoxEditPart.VISUAL_ID:
 			return getCheckBox_1603007Text(view);
+		case TableEditPart.VISUAL_ID:
+			return getTable_1603008Text(view);
+		case ColumnEditPart.VISUAL_ID:
+			return getColumn_1603024Text(view);
+		case DropDownSelection2EditPart.VISUAL_ID:
+			return getDropDownSelection_1603010Text(view);
+		case LayerHolder3EditPart.VISUAL_ID:
+			return getLayerHolder_1603020Text(view);
 		case TreeEditPart.VISUAL_ID:
 			return getTree_1603016Text(view);
 		case ButtonEditPart.VISUAL_ID:
 			return getButton_1603017Text(view);
-		case DropDownSelection2EditPart.VISUAL_ID:
-			return getDropDownSelection_1603010Text(view);
-		case Table2EditPart.VISUAL_ID:
-			return getTable_1603021Text(view);
 		case InputText2EditPart.VISUAL_ID:
 			return getInputText_1603012Text(view);
 		case Label2EditPart.VISUAL_ID:
@@ -289,6 +287,8 @@ public class DomainNavigatorLabelProvider extends LabelProvider implements
 			return getOutputText_1603014Text(view);
 		case CheckBox2EditPart.VISUAL_ID:
 			return getCheckBox_1603015Text(view);
+		case Table2EditPart.VISUAL_ID:
+			return getTable_1603021Text(view);
 		case Tree2EditPart.VISUAL_ID:
 			return getTree_1603022Text(view);
 		case Button2EditPart.VISUAL_ID:
@@ -328,20 +328,6 @@ public class DomainNavigatorLabelProvider extends LabelProvider implements
 	/**
 	 * @generated
 	 */
-	private String getLayerHolder_1603019Text(View view) {
-		LayerHolder domainModelElement = (LayerHolder) view.getElement();
-		if (domainModelElement != null) {
-			return domainModelElement.getUid();
-		} else {
-			DomainDiagramEditorPlugin.getInstance().logError(
-					"No domain element for view with visualID = " + 1603019); //$NON-NLS-1$
-			return ""; //$NON-NLS-1$
-		}
-	}
-
-	/**
-	 * @generated
-	 */
 	private String getDropDownSelection_1603002Text(View view) {
 		DropDownSelection domainModelElement = (DropDownSelection) view
 				.getElement();
@@ -357,51 +343,13 @@ public class DomainNavigatorLabelProvider extends LabelProvider implements
 	/**
 	 * @generated
 	 */
-	private String getTable_1603008Text(View view) {
-		IParser parser = DomainParserProvider.getParser(
-				DomainElementTypes.Table_1603008,
-				view.getElement() != null ? view.getElement() : view,
-				DomainVisualIDRegistry.getType(TableLabelEditPart.VISUAL_ID));
-		if (parser != null) {
-			return parser.getPrintString(new EObjectAdapter(
-					view.getElement() != null ? view.getElement() : view),
-					ParserOptions.NONE.intValue());
-		} else {
-			DomainDiagramEditorPlugin.getInstance().logError(
-					"Parser was not found for label " + 1605004); //$NON-NLS-1$
-			return ""; //$NON-NLS-1$
-		}
-	}
-
-	/**
-	 * @generated
-	 */
-	private String getColumn_1603024Text(View view) {
-		IParser parser = DomainParserProvider.getParser(
-				DomainElementTypes.Column_1603024,
-				view.getElement() != null ? view.getElement() : view,
-				DomainVisualIDRegistry.getType(ColumnLabelEditPart.VISUAL_ID));
-		if (parser != null) {
-			return parser.getPrintString(new EObjectAdapter(
-					view.getElement() != null ? view.getElement() : view),
-					ParserOptions.NONE.intValue());
-		} else {
-			DomainDiagramEditorPlugin.getInstance().logError(
-					"Parser was not found for label " + 1605010); //$NON-NLS-1$
-			return ""; //$NON-NLS-1$
-		}
-	}
-
-	/**
-	 * @generated
-	 */
-	private String getLayerHolder_1603020Text(View view) {
+	private String getLayerHolder_1603019Text(View view) {
 		LayerHolder domainModelElement = (LayerHolder) view.getElement();
 		if (domainModelElement != null) {
 			return domainModelElement.getUid();
 		} else {
 			DomainDiagramEditorPlugin.getInstance().logError(
-					"No domain element for view with visualID = " + 1603020); //$NON-NLS-1$
+					"No domain element for view with visualID = " + 1603019); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 	}
@@ -470,6 +418,73 @@ public class DomainNavigatorLabelProvider extends LabelProvider implements
 	/**
 	 * @generated
 	 */
+	private String getTable_1603008Text(View view) {
+		IParser parser = DomainParserProvider.getParser(
+				DomainElementTypes.Table_1603008,
+				view.getElement() != null ? view.getElement() : view,
+				DomainVisualIDRegistry.getType(TableLabelEditPart.VISUAL_ID));
+		if (parser != null) {
+			return parser.getPrintString(new EObjectAdapter(
+					view.getElement() != null ? view.getElement() : view),
+					ParserOptions.NONE.intValue());
+		} else {
+			DomainDiagramEditorPlugin.getInstance().logError(
+					"Parser was not found for label " + 1605004); //$NON-NLS-1$
+			return ""; //$NON-NLS-1$
+		}
+	}
+
+	/**
+	 * @generated
+	 */
+	private String getColumn_1603024Text(View view) {
+		IParser parser = DomainParserProvider.getParser(
+				DomainElementTypes.Column_1603024,
+				view.getElement() != null ? view.getElement() : view,
+				DomainVisualIDRegistry.getType(ColumnLabelEditPart.VISUAL_ID));
+		if (parser != null) {
+			return parser.getPrintString(new EObjectAdapter(
+					view.getElement() != null ? view.getElement() : view),
+					ParserOptions.NONE.intValue());
+		} else {
+			DomainDiagramEditorPlugin.getInstance().logError(
+					"Parser was not found for label " + 1605010); //$NON-NLS-1$
+			return ""; //$NON-NLS-1$
+		}
+	}
+
+	/**
+	 * @generated
+	 */
+	private String getDropDownSelection_1603010Text(View view) {
+		DropDownSelection domainModelElement = (DropDownSelection) view
+				.getElement();
+		if (domainModelElement != null) {
+			return domainModelElement.getUid();
+		} else {
+			DomainDiagramEditorPlugin.getInstance().logError(
+					"No domain element for view with visualID = " + 1603010); //$NON-NLS-1$
+			return ""; //$NON-NLS-1$
+		}
+	}
+
+	/**
+	 * @generated
+	 */
+	private String getLayerHolder_1603020Text(View view) {
+		LayerHolder domainModelElement = (LayerHolder) view.getElement();
+		if (domainModelElement != null) {
+			return domainModelElement.getUid();
+		} else {
+			DomainDiagramEditorPlugin.getInstance().logError(
+					"No domain element for view with visualID = " + 1603020); //$NON-NLS-1$
+			return ""; //$NON-NLS-1$
+		}
+	}
+
+	/**
+	 * @generated
+	 */
 	private String getTree_1603016Text(View view) {
 		IParser parser = DomainParserProvider.getParser(
 				DomainElementTypes.Tree_1603016,
@@ -501,40 +516,6 @@ public class DomainNavigatorLabelProvider extends LabelProvider implements
 		} else {
 			DomainDiagramEditorPlugin.getInstance().logError(
 					"Parser was not found for label " + 1605006); //$NON-NLS-1$
-			return ""; //$NON-NLS-1$
-		}
-	}
-
-	/**
-	 * @generated
-	 */
-	private String getDropDownSelection_1603010Text(View view) {
-		DropDownSelection domainModelElement = (DropDownSelection) view
-				.getElement();
-		if (domainModelElement != null) {
-			return domainModelElement.getUid();
-		} else {
-			DomainDiagramEditorPlugin.getInstance().logError(
-					"No domain element for view with visualID = " + 1603010); //$NON-NLS-1$
-			return ""; //$NON-NLS-1$
-		}
-	}
-
-	/**
-	 * @generated
-	 */
-	private String getTable_1603021Text(View view) {
-		IParser parser = DomainParserProvider.getParser(
-				DomainElementTypes.Table_1603021,
-				view.getElement() != null ? view.getElement() : view,
-				DomainVisualIDRegistry.getType(TableLabel2EditPart.VISUAL_ID));
-		if (parser != null) {
-			return parser.getPrintString(new EObjectAdapter(
-					view.getElement() != null ? view.getElement() : view),
-					ParserOptions.NONE.intValue());
-		} else {
-			DomainDiagramEditorPlugin.getInstance().logError(
-					"Parser was not found for label " + 1605007); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 	}
@@ -596,6 +577,25 @@ public class DomainNavigatorLabelProvider extends LabelProvider implements
 		} else {
 			DomainDiagramEditorPlugin.getInstance().logError(
 					"No domain element for view with visualID = " + 1603015); //$NON-NLS-1$
+			return ""; //$NON-NLS-1$
+		}
+	}
+
+	/**
+	 * @generated
+	 */
+	private String getTable_1603021Text(View view) {
+		IParser parser = DomainParserProvider.getParser(
+				DomainElementTypes.Table_1603021,
+				view.getElement() != null ? view.getElement() : view,
+				DomainVisualIDRegistry.getType(TableLabel2EditPart.VISUAL_ID));
+		if (parser != null) {
+			return parser.getPrintString(new EObjectAdapter(
+					view.getElement() != null ? view.getElement() : view),
+					ParserOptions.NONE.intValue());
+		} else {
+			DomainDiagramEditorPlugin.getInstance().logError(
+					"Parser was not found for label " + 1605007); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 	}

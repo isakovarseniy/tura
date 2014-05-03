@@ -2,6 +2,8 @@
  */
 package domain;
 
+import org.eclipse.emf.ecore.EObject;
+
 
 /**
  * <!-- begin-user-doc -->
@@ -23,55 +25,55 @@ package domain;
 public interface Selection extends StyleElement
 {
   /**
-   * Returns the value of the '<em><b>Display Option Pointer</b></em>' containment reference.
+   * Returns the value of the '<em><b>Display Option Pointer</b></em>' reference.
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Display Option Pointer</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Display Option Pointer</em>' containment reference.
-   * @see #setDisplayOptionPointer(Context)
+   * @return the value of the '<em>Display Option Pointer</em>' reference.
+   * @see #setDisplayOptionPointer(EObject)
    * @see domain.DomainPackage#getSelection_DisplayOptionPointer()
-   * @model containment="true"
+   * @model
    * @generated
    */
-  Context getDisplayOptionPointer();
+  EObject getDisplayOptionPointer();
 
   /**
-   * Sets the value of the '{@link domain.Selection#getDisplayOptionPointer <em>Display Option Pointer</em>}' containment reference.
+   * Sets the value of the '{@link domain.Selection#getDisplayOptionPointer <em>Display Option Pointer</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Display Option Pointer</em>' containment reference.
+   * @param value the new value of the '<em>Display Option Pointer</em>' reference.
    * @see #getDisplayOptionPointer()
    * @generated
    */
-  void setDisplayOptionPointer(Context value);
+  void setDisplayOptionPointer(EObject value);
 
   /**
-   * Returns the value of the '<em><b>Value Option Pointer</b></em>' containment reference.
+   * Returns the value of the '<em><b>Value Option Pointer</b></em>' reference.
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Value Option Pointer</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Value Option Pointer</em>' containment reference.
-   * @see #setValueOptionPointer(Context)
+   * @return the value of the '<em>Value Option Pointer</em>' reference.
+   * @see #setValueOptionPointer(EObject)
    * @see domain.DomainPackage#getSelection_ValueOptionPointer()
-   * @model containment="true"
+   * @model
    * @generated
    */
-  Context getValueOptionPointer();
+  EObject getValueOptionPointer();
 
   /**
-   * Sets the value of the '{@link domain.Selection#getValueOptionPointer <em>Value Option Pointer</em>}' containment reference.
+   * Sets the value of the '{@link domain.Selection#getValueOptionPointer <em>Value Option Pointer</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Value Option Pointer</em>' containment reference.
+   * @param value the new value of the '<em>Value Option Pointer</em>' reference.
    * @see #getValueOptionPointer()
    * @generated
    */
-  void setValueOptionPointer(Context value);
+  void setValueOptionPointer(EObject value);
 
 } // Selection

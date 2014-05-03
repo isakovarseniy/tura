@@ -34,15 +34,12 @@ public class ColumnColumnElementCompartmentItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	protected Command getCreateCommand(CreateElementRequest req) {
-		if (DomainElementTypes.LayerHolder_1603020 == req.getElementType()) {
-			return getGEFWrapper(new LayerHolder3CreateCommand(req));
-		}
 		if (DomainElementTypes.DropDownSelection_1603010 == req
 				.getElementType()) {
 			return getGEFWrapper(new DropDownSelection2CreateCommand(req));
 		}
-		if (DomainElementTypes.Table_1603021 == req.getElementType()) {
-			return getGEFWrapper(new Table2CreateCommand(req));
+		if (DomainElementTypes.LayerHolder_1603020 == req.getElementType()) {
+			return getGEFWrapper(new LayerHolder3CreateCommand(req));
 		}
 		if (DomainElementTypes.InputText_1603012 == req.getElementType()) {
 			return getGEFWrapper(new InputText2CreateCommand(req));
@@ -55,6 +52,9 @@ public class ColumnColumnElementCompartmentItemSemanticEditPolicy extends
 		}
 		if (DomainElementTypes.CheckBox_1603015 == req.getElementType()) {
 			return getGEFWrapper(new CheckBox2CreateCommand(req));
+		}
+		if (DomainElementTypes.Table_1603021 == req.getElementType()) {
+			return getGEFWrapper(new Table2CreateCommand(req));
 		}
 		if (DomainElementTypes.Tree_1603022 == req.getElementType()) {
 			return getGEFWrapper(new Tree2CreateCommand(req));

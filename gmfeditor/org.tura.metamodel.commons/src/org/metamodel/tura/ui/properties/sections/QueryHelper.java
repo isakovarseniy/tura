@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
@@ -27,6 +28,7 @@ import domain.ContextValue;
 import domain.DomainFactory;
 import domain.DomainPackage;
 import domain.Parameter;
+import domain.Type;
 import domain.Types;
 
 public class QueryHelper {
@@ -314,28 +316,29 @@ public class QueryHelper {
 			domain.Parameter p = i.next();
 			parameters.add(p);
 		}
-		Collections.sort(parameters,new ParameterComparator());
+		Collections.sort(parameters, new ParameterComparator());
 
 		ArrayList<domain.ContextParameter> trgParameters = new ArrayList<domain.ContextParameter>();
-		for (Iterator<domain.ContextParameter> i = trg.getParameters().iterator(); i.hasNext();) {
+		for (Iterator<domain.ContextParameter> i = trg.getParameters()
+				.iterator(); i.hasNext();) {
 			domain.ContextParameter p = i.next();
 			trgParameters.add(p);
 		}
 
-		Collections.sort(trgParameters,new ContextParameterComparator());
-		
-		
+		Collections.sort(trgParameters, new ContextParameterComparator());
+
 		boolean renewParameters = false;
-		if (trgParameters.size() != parameters.size()){
+		if (trgParameters.size() != parameters.size()) {
 			removeParameters.addAll(trgParameters);
 			renewParameters = true;
-		}
-		else {
+		} else {
 
 			for (int i = 0; i < trgParameters.size(); i++) {
 				ContextParameter trgParam = trgParameters.get(i);
 				domain.Parameter param = parameters.get(i);
-				if (trgParam.getParameter() == null || !trgParam.getParameter().getUid().equals(param.getUid())) {
+				if (trgParam.getParameter() == null
+						|| !trgParam.getParameter().getUid()
+								.equals(param.getUid())) {
 					removeParameters.addAll(trgParameters);
 					renewParameters = true;
 					break;
@@ -370,19 +373,20 @@ public class QueryHelper {
 		}
 
 		trgParameters = new ArrayList<domain.ContextParameter>();
-		for (Iterator<domain.ContextParameter> i = trg.getParameters().iterator(); i.hasNext();) {
+		for (Iterator<domain.ContextParameter> i = trg.getParameters()
+				.iterator(); i.hasNext();) {
 			domain.ContextParameter p = i.next();
 			trgParameters.add(p);
 		}
-		Collections.sort(trgParameters,new ContextParameterComparator());
-		
+		Collections.sort(trgParameters, new ContextParameterComparator());
+
 		ArrayList<Object> rows = new ArrayList<>();
 		rows.addAll(trgParameters);
 		return rows;
 	}
-	
+
 	@SuppressWarnings({ "rawtypes", "unchecked" })
-	public domain.Types getTypesRepository(EObject obj) throws Exception{
+	public domain.Types getTypesRepository(EObject obj) throws Exception {
 		OCL ocl = OCL.newInstance(EcoreEnvironmentFactory.INSTANCE);
 		OCLHelper<EClassifier, ?, ?, Constraint> helper = ocl.createOCLHelper();
 		helper.setContext(DomainPackage.eINSTANCE.getEClassifier("Domain"));
@@ -390,34 +394,96 @@ public class QueryHelper {
 		OCLExpression<EClassifier> query = helper
 				.createQuery("domain::Types.allInstances()");
 
-		Collection<domain.Types> map = (Collection<domain.Types>) ocl
-				.evaluate(obj, query);
+		Collection<domain.Types> map = (Collection<domain.Types>) ocl.evaluate(
+				obj, query);
 		if (map != null && map.size() != 0)
 			return (Types) map.toArray()[0];
-		
+
 		return null;
-		
+
 	}
-	
-	class ParameterComparator implements Comparator<domain.Parameter>{
+
+	class ParameterComparator implements Comparator<domain.Parameter> {
 
 		@Override
 		public int compare(Parameter o1, Parameter o2) {
-			return new Integer(o1.getOrder()).compareTo(new Integer(o2.getOrder()));
+			return new Integer(o1.getOrder()).compareTo(new Integer(o2
+					.getOrder()));
 		}
-		
+
 	}
-	
-	class ContextParameterComparator implements Comparator<domain.ContextParameter>{
+
+	class ContextParameterComparator implements
+			Comparator<domain.ContextParameter> {
 
 		@Override
 		public int compare(ContextParameter o1, ContextParameter o2) {
 			if (o1.getParameter() == null || o2.getParameter() == null)
 				return -1;
-			return new Integer(o1.getParameter().getOrder()).compareTo(new Integer(o2.getParameter().getOrder()));
+			return new Integer(o1.getParameter().getOrder())
+					.compareTo(new Integer(o2.getParameter().getOrder()));
 		}
-		
+
 	}
-	
-	
+
+	public void getInheritTypes(List<domain.Type> typesTree, domain.Type type) {
+
+		try {
+			@SuppressWarnings("rawtypes")
+			OCL ocl = OCL.newInstance(EcoreEnvironmentFactory.INSTANCE);
+			@SuppressWarnings("unchecked")
+			OCLHelper<EClassifier, ?, ?, Constraint> helper = ocl
+					.createOCLHelper();
+			helper.setContext(DomainPackage.eINSTANCE.getEClassifier("Domain"));
+
+			OCLExpression<EClassifier> query = helper
+					.createQuery("domain::TypeExtension.allInstances()->select(r|r.oclAsType(domain::TypeExtension).target.oclIsKindOf(domain::Type) and  " +
+							"r.oclAsType(domain::TypeExtension).target.uid ='"+ type.getUid() + "')");
+
+			@SuppressWarnings("unchecked")
+			Collection<domain.TypeExtension> map = (Collection<domain.TypeExtension>) ocl
+					.evaluate(type, query);
+
+			query = helper
+				.createQuery("domain::TypeExtension.allInstances()->select(r|r.oclAsType(domain::TypeExtension).target.oclIsKindOf(domain::TypeReference) "+
+							"and "+
+							"r.oclAsType(domain::TypeExtension).target.oclAsType(domain::TypeReference).typeRef.uid = '" + type.getUid()+ "')");
+
+			
+			@SuppressWarnings("unchecked")
+			Collection<domain.TypeExtension> map1 = (Collection<domain.TypeExtension>) ocl
+					.evaluate(type, query);
+
+			HashMap<String, domain.TypeElement> joinmap = new HashMap<String, domain.TypeElement>();
+
+			if (map != null) {
+				for (Iterator<domain.TypeExtension> itr = map.iterator(); itr
+						.hasNext();) {
+					domain.TypeElement el = itr.next().getSource();
+					joinmap.put(el.getUid(), el);
+				}
+			}
+
+			if (map1 != null) {
+				for (Iterator<domain.TypeExtension> itr = map1.iterator(); itr
+						.hasNext();) {
+					domain.TypeElement el = itr.next().getSource();
+					joinmap.put(el.getUid(), el);
+				}
+			}
+			
+			for (Iterator<domain.TypeElement> itr = joinmap.values().iterator(); itr
+					.hasNext();) {
+				domain.TypeElement t = itr.next();
+				typesTree.add((Type) t);
+				getInheritTypes(typesTree,(Type) t);
+			}
+			
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			// do nothing
+		}
+
+	}
 }

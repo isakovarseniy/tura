@@ -180,9 +180,7 @@ public class DropDownSelectionItemProvider
     boolean qualify =
       childFeature == DomainPackage.Literals.UIELEMENT__ENABLED_CONTEXT ||
       childFeature == DomainPackage.Literals.UIELEMENT__REQUIRED_CONTEXT ||
-      childFeature == DomainPackage.Literals.UIELEMENT__READ_ONLY_CONTEXT ||
-      childFeature == DomainPackage.Literals.OPTION_SELECTION__OPTION_POINTER ||
-      childFeature == DomainPackage.Literals.OPTION_SELECTION__OPTION_CAST;
+      childFeature == DomainPackage.Literals.UIELEMENT__READ_ONLY_CONTEXT;
 
     if (qualify)
     {

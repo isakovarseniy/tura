@@ -1051,7 +1051,7 @@
         iD="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="canvasView" eType="#//CanvasView"
-        containment="true" eOpposite="#//CanvasView/parent"/>
+        eOpposite="#//CanvasView/parent"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ViewPortTrigger">
     <eAnnotations source="gmf.node">
@@ -1171,39 +1171,30 @@
   <eClassifiers xsi:type="ecore:EClass" name="Uielement" eSuperTypes="#//StyleElement">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="enabled" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="enabledContext" eType="#//Context"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="required" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="requiredContext" eType="#//Context"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="readOnly" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="readOnlyContext" eType="#//Context"
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SourcesPointer" eSuperTypes="#//Uielement">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="sourcePointer" eType="#//Context"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="valuePointer" eType="#//Context"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="sourceCast" eType="#//Context"
-        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sourcePointer" eType="#//DataControl"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="valuePointer" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sourceCast" eType="#//Type"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ActionElement" eSuperTypes="#//Uielement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="trigger" eType="#//Context"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="InputElement" eSuperTypes="#//Uielement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="InputElement" eSuperTypes="#//SourcesPointer"/>
   <eClassifiers xsi:type="ecore:EClass" name="Selection" eSuperTypes="#//StyleElement">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="displayOptionPointer" eType="#//Context"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="valueOptionPointer" eType="#//Context"
-        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="displayOptionPointer" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="valueOptionPointer" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="OptionSelection" eSuperTypes="#//InputElement">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="optionPointer" eType="#//Context"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="optionCast" eType="#//Context"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="optionPointer" eType="#//DataControl"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="optionCast" eType="#//TypePointer"
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="LayerHolder" eSuperTypes="#//Uielement #//ChildrenHolder #//HTMLLayerHolder">

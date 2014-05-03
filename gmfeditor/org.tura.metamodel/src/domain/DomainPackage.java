@@ -5013,7 +5013,7 @@ public interface DomainPackage extends EPackage
   int VIEW_AREA__NAME = VIEW_ELEMENT_FEATURE_COUNT + 1;
 
   /**
-   * The feature id for the '<em><b>Canvas View</b></em>' containment reference.
+   * The feature id for the '<em><b>Canvas View</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -5234,7 +5234,7 @@ public interface DomainPackage extends EPackage
   int CANVAS_VIEW__UID = 0;
 
   /**
-   * The feature id for the '<em><b>Parent</b></em>' container reference.
+   * The feature id for the '<em><b>Parent</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -5657,31 +5657,13 @@ public interface DomainPackage extends EPackage
   int UIELEMENT__UID = STYLE_ELEMENT_FEATURE_COUNT + 0;
 
   /**
-   * The feature id for the '<em><b>Enabled</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int UIELEMENT__ENABLED = STYLE_ELEMENT_FEATURE_COUNT + 1;
-
-  /**
    * The feature id for the '<em><b>Enabled Context</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int UIELEMENT__ENABLED_CONTEXT = STYLE_ELEMENT_FEATURE_COUNT + 2;
-
-  /**
-   * The feature id for the '<em><b>Required</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int UIELEMENT__REQUIRED = STYLE_ELEMENT_FEATURE_COUNT + 3;
+  int UIELEMENT__ENABLED_CONTEXT = STYLE_ELEMENT_FEATURE_COUNT + 1;
 
   /**
    * The feature id for the '<em><b>Required Context</b></em>' containment reference.
@@ -5690,16 +5672,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int UIELEMENT__REQUIRED_CONTEXT = STYLE_ELEMENT_FEATURE_COUNT + 4;
-
-  /**
-   * The feature id for the '<em><b>Read Only</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int UIELEMENT__READ_ONLY = STYLE_ELEMENT_FEATURE_COUNT + 5;
+  int UIELEMENT__REQUIRED_CONTEXT = STYLE_ELEMENT_FEATURE_COUNT + 2;
 
   /**
    * The feature id for the '<em><b>Read Only Context</b></em>' containment reference.
@@ -5708,7 +5681,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int UIELEMENT__READ_ONLY_CONTEXT = STYLE_ELEMENT_FEATURE_COUNT + 6;
+  int UIELEMENT__READ_ONLY_CONTEXT = STYLE_ELEMENT_FEATURE_COUNT + 3;
 
   /**
    * The number of structural features of the '<em>Uielement</em>' class.
@@ -5717,7 +5690,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int UIELEMENT_FEATURE_COUNT = STYLE_ELEMENT_FEATURE_COUNT + 7;
+  int UIELEMENT_FEATURE_COUNT = STYLE_ELEMENT_FEATURE_COUNT + 4;
 
   /**
    * The meta object id for the '{@link domain.impl.SourcesPointerImpl <em>Sources Pointer</em>}' class.
@@ -5757,15 +5730,6 @@ public interface DomainPackage extends EPackage
   int SOURCES_POINTER__UID = UIELEMENT__UID;
 
   /**
-   * The feature id for the '<em><b>Enabled</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SOURCES_POINTER__ENABLED = UIELEMENT__ENABLED;
-
-  /**
    * The feature id for the '<em><b>Enabled Context</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -5773,15 +5737,6 @@ public interface DomainPackage extends EPackage
    * @ordered
    */
   int SOURCES_POINTER__ENABLED_CONTEXT = UIELEMENT__ENABLED_CONTEXT;
-
-  /**
-   * The feature id for the '<em><b>Required</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SOURCES_POINTER__REQUIRED = UIELEMENT__REQUIRED;
 
   /**
    * The feature id for the '<em><b>Required Context</b></em>' containment reference.
@@ -5793,15 +5748,6 @@ public interface DomainPackage extends EPackage
   int SOURCES_POINTER__REQUIRED_CONTEXT = UIELEMENT__REQUIRED_CONTEXT;
 
   /**
-   * The feature id for the '<em><b>Read Only</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SOURCES_POINTER__READ_ONLY = UIELEMENT__READ_ONLY;
-
-  /**
    * The feature id for the '<em><b>Read Only Context</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -5811,7 +5757,7 @@ public interface DomainPackage extends EPackage
   int SOURCES_POINTER__READ_ONLY_CONTEXT = UIELEMENT__READ_ONLY_CONTEXT;
 
   /**
-   * The feature id for the '<em><b>Source Pointer</b></em>' containment reference.
+   * The feature id for the '<em><b>Source Pointer</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -5820,7 +5766,7 @@ public interface DomainPackage extends EPackage
   int SOURCES_POINTER__SOURCE_POINTER = UIELEMENT_FEATURE_COUNT + 0;
 
   /**
-   * The feature id for the '<em><b>Value Pointer</b></em>' containment reference.
+   * The feature id for the '<em><b>Value Pointer</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -5829,7 +5775,7 @@ public interface DomainPackage extends EPackage
   int SOURCES_POINTER__VALUE_POINTER = UIELEMENT_FEATURE_COUNT + 1;
 
   /**
-   * The feature id for the '<em><b>Source Cast</b></em>' containment reference.
+   * The feature id for the '<em><b>Source Cast</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -5884,15 +5830,6 @@ public interface DomainPackage extends EPackage
   int ACTION_ELEMENT__UID = UIELEMENT__UID;
 
   /**
-   * The feature id for the '<em><b>Enabled</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ACTION_ELEMENT__ENABLED = UIELEMENT__ENABLED;
-
-  /**
    * The feature id for the '<em><b>Enabled Context</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -5902,15 +5839,6 @@ public interface DomainPackage extends EPackage
   int ACTION_ELEMENT__ENABLED_CONTEXT = UIELEMENT__ENABLED_CONTEXT;
 
   /**
-   * The feature id for the '<em><b>Required</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ACTION_ELEMENT__REQUIRED = UIELEMENT__REQUIRED;
-
-  /**
    * The feature id for the '<em><b>Required Context</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -5918,15 +5846,6 @@ public interface DomainPackage extends EPackage
    * @ordered
    */
   int ACTION_ELEMENT__REQUIRED_CONTEXT = UIELEMENT__REQUIRED_CONTEXT;
-
-  /**
-   * The feature id for the '<em><b>Read Only</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ACTION_ELEMENT__READ_ONLY = UIELEMENT__READ_ONLY;
 
   /**
    * The feature id for the '<em><b>Read Only Context</b></em>' containment reference.
@@ -5972,7 +5891,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int INPUT_ELEMENT__STYLE = UIELEMENT__STYLE;
+  int INPUT_ELEMENT__STYLE = SOURCES_POINTER__STYLE;
 
   /**
    * The feature id for the '<em><b>Style Class</b></em>' containment reference.
@@ -5981,7 +5900,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int INPUT_ELEMENT__STYLE_CLASS = UIELEMENT__STYLE_CLASS;
+  int INPUT_ELEMENT__STYLE_CLASS = SOURCES_POINTER__STYLE_CLASS;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -5990,16 +5909,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int INPUT_ELEMENT__UID = UIELEMENT__UID;
-
-  /**
-   * The feature id for the '<em><b>Enabled</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int INPUT_ELEMENT__ENABLED = UIELEMENT__ENABLED;
+  int INPUT_ELEMENT__UID = SOURCES_POINTER__UID;
 
   /**
    * The feature id for the '<em><b>Enabled Context</b></em>' containment reference.
@@ -6008,16 +5918,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int INPUT_ELEMENT__ENABLED_CONTEXT = UIELEMENT__ENABLED_CONTEXT;
-
-  /**
-   * The feature id for the '<em><b>Required</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int INPUT_ELEMENT__REQUIRED = UIELEMENT__REQUIRED;
+  int INPUT_ELEMENT__ENABLED_CONTEXT = SOURCES_POINTER__ENABLED_CONTEXT;
 
   /**
    * The feature id for the '<em><b>Required Context</b></em>' containment reference.
@@ -6026,16 +5927,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int INPUT_ELEMENT__REQUIRED_CONTEXT = UIELEMENT__REQUIRED_CONTEXT;
-
-  /**
-   * The feature id for the '<em><b>Read Only</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int INPUT_ELEMENT__READ_ONLY = UIELEMENT__READ_ONLY;
+  int INPUT_ELEMENT__REQUIRED_CONTEXT = SOURCES_POINTER__REQUIRED_CONTEXT;
 
   /**
    * The feature id for the '<em><b>Read Only Context</b></em>' containment reference.
@@ -6044,7 +5936,34 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int INPUT_ELEMENT__READ_ONLY_CONTEXT = UIELEMENT__READ_ONLY_CONTEXT;
+  int INPUT_ELEMENT__READ_ONLY_CONTEXT = SOURCES_POINTER__READ_ONLY_CONTEXT;
+
+  /**
+   * The feature id for the '<em><b>Source Pointer</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INPUT_ELEMENT__SOURCE_POINTER = SOURCES_POINTER__SOURCE_POINTER;
+
+  /**
+   * The feature id for the '<em><b>Value Pointer</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INPUT_ELEMENT__VALUE_POINTER = SOURCES_POINTER__VALUE_POINTER;
+
+  /**
+   * The feature id for the '<em><b>Source Cast</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INPUT_ELEMENT__SOURCE_CAST = SOURCES_POINTER__SOURCE_CAST;
 
   /**
    * The number of structural features of the '<em>Input Element</em>' class.
@@ -6053,7 +5972,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int INPUT_ELEMENT_FEATURE_COUNT = UIELEMENT_FEATURE_COUNT + 0;
+  int INPUT_ELEMENT_FEATURE_COUNT = SOURCES_POINTER_FEATURE_COUNT + 0;
 
   /**
    * The meta object id for the '{@link domain.impl.SelectionImpl <em>Selection</em>}' class.
@@ -6084,7 +6003,7 @@ public interface DomainPackage extends EPackage
   int SELECTION__STYLE_CLASS = STYLE_ELEMENT__STYLE_CLASS;
 
   /**
-   * The feature id for the '<em><b>Display Option Pointer</b></em>' containment reference.
+   * The feature id for the '<em><b>Display Option Pointer</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -6093,7 +6012,7 @@ public interface DomainPackage extends EPackage
   int SELECTION__DISPLAY_OPTION_POINTER = STYLE_ELEMENT_FEATURE_COUNT + 0;
 
   /**
-   * The feature id for the '<em><b>Value Option Pointer</b></em>' containment reference.
+   * The feature id for the '<em><b>Value Option Pointer</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -6148,15 +6067,6 @@ public interface DomainPackage extends EPackage
   int OPTION_SELECTION__UID = INPUT_ELEMENT__UID;
 
   /**
-   * The feature id for the '<em><b>Enabled</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int OPTION_SELECTION__ENABLED = INPUT_ELEMENT__ENABLED;
-
-  /**
    * The feature id for the '<em><b>Enabled Context</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -6164,15 +6074,6 @@ public interface DomainPackage extends EPackage
    * @ordered
    */
   int OPTION_SELECTION__ENABLED_CONTEXT = INPUT_ELEMENT__ENABLED_CONTEXT;
-
-  /**
-   * The feature id for the '<em><b>Required</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int OPTION_SELECTION__REQUIRED = INPUT_ELEMENT__REQUIRED;
 
   /**
    * The feature id for the '<em><b>Required Context</b></em>' containment reference.
@@ -6184,15 +6085,6 @@ public interface DomainPackage extends EPackage
   int OPTION_SELECTION__REQUIRED_CONTEXT = INPUT_ELEMENT__REQUIRED_CONTEXT;
 
   /**
-   * The feature id for the '<em><b>Read Only</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int OPTION_SELECTION__READ_ONLY = INPUT_ELEMENT__READ_ONLY;
-
-  /**
    * The feature id for the '<em><b>Read Only Context</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -6202,7 +6094,34 @@ public interface DomainPackage extends EPackage
   int OPTION_SELECTION__READ_ONLY_CONTEXT = INPUT_ELEMENT__READ_ONLY_CONTEXT;
 
   /**
-   * The feature id for the '<em><b>Option Pointer</b></em>' containment reference.
+   * The feature id for the '<em><b>Source Pointer</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OPTION_SELECTION__SOURCE_POINTER = INPUT_ELEMENT__SOURCE_POINTER;
+
+  /**
+   * The feature id for the '<em><b>Value Pointer</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OPTION_SELECTION__VALUE_POINTER = INPUT_ELEMENT__VALUE_POINTER;
+
+  /**
+   * The feature id for the '<em><b>Source Cast</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OPTION_SELECTION__SOURCE_CAST = INPUT_ELEMENT__SOURCE_CAST;
+
+  /**
+   * The feature id for the '<em><b>Option Pointer</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -6266,15 +6185,6 @@ public interface DomainPackage extends EPackage
   int LAYER_HOLDER__UID = UIELEMENT__UID;
 
   /**
-   * The feature id for the '<em><b>Enabled</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int LAYER_HOLDER__ENABLED = UIELEMENT__ENABLED;
-
-  /**
    * The feature id for the '<em><b>Enabled Context</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -6284,15 +6194,6 @@ public interface DomainPackage extends EPackage
   int LAYER_HOLDER__ENABLED_CONTEXT = UIELEMENT__ENABLED_CONTEXT;
 
   /**
-   * The feature id for the '<em><b>Required</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int LAYER_HOLDER__REQUIRED = UIELEMENT__REQUIRED;
-
-  /**
    * The feature id for the '<em><b>Required Context</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -6300,15 +6201,6 @@ public interface DomainPackage extends EPackage
    * @ordered
    */
   int LAYER_HOLDER__REQUIRED_CONTEXT = UIELEMENT__REQUIRED_CONTEXT;
-
-  /**
-   * The feature id for the '<em><b>Read Only</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int LAYER_HOLDER__READ_ONLY = UIELEMENT__READ_ONLY;
 
   /**
    * The feature id for the '<em><b>Read Only Context</b></em>' containment reference.
@@ -6384,15 +6276,6 @@ public interface DomainPackage extends EPackage
   int INPUT_TEXT__UID = INPUT_ELEMENT__UID;
 
   /**
-   * The feature id for the '<em><b>Enabled</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int INPUT_TEXT__ENABLED = INPUT_ELEMENT__ENABLED;
-
-  /**
    * The feature id for the '<em><b>Enabled Context</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -6400,15 +6283,6 @@ public interface DomainPackage extends EPackage
    * @ordered
    */
   int INPUT_TEXT__ENABLED_CONTEXT = INPUT_ELEMENT__ENABLED_CONTEXT;
-
-  /**
-   * The feature id for the '<em><b>Required</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int INPUT_TEXT__REQUIRED = INPUT_ELEMENT__REQUIRED;
 
   /**
    * The feature id for the '<em><b>Required Context</b></em>' containment reference.
@@ -6420,15 +6294,6 @@ public interface DomainPackage extends EPackage
   int INPUT_TEXT__REQUIRED_CONTEXT = INPUT_ELEMENT__REQUIRED_CONTEXT;
 
   /**
-   * The feature id for the '<em><b>Read Only</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int INPUT_TEXT__READ_ONLY = INPUT_ELEMENT__READ_ONLY;
-
-  /**
    * The feature id for the '<em><b>Read Only Context</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -6436,6 +6301,33 @@ public interface DomainPackage extends EPackage
    * @ordered
    */
   int INPUT_TEXT__READ_ONLY_CONTEXT = INPUT_ELEMENT__READ_ONLY_CONTEXT;
+
+  /**
+   * The feature id for the '<em><b>Source Pointer</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INPUT_TEXT__SOURCE_POINTER = INPUT_ELEMENT__SOURCE_POINTER;
+
+  /**
+   * The feature id for the '<em><b>Value Pointer</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INPUT_TEXT__VALUE_POINTER = INPUT_ELEMENT__VALUE_POINTER;
+
+  /**
+   * The feature id for the '<em><b>Source Cast</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INPUT_TEXT__SOURCE_CAST = INPUT_ELEMENT__SOURCE_CAST;
 
   /**
    * The number of structural features of the '<em>Input Text</em>' class.
@@ -6484,15 +6376,6 @@ public interface DomainPackage extends EPackage
   int LABEL__UID = INPUT_ELEMENT__UID;
 
   /**
-   * The feature id for the '<em><b>Enabled</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int LABEL__ENABLED = INPUT_ELEMENT__ENABLED;
-
-  /**
    * The feature id for the '<em><b>Enabled Context</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -6500,15 +6383,6 @@ public interface DomainPackage extends EPackage
    * @ordered
    */
   int LABEL__ENABLED_CONTEXT = INPUT_ELEMENT__ENABLED_CONTEXT;
-
-  /**
-   * The feature id for the '<em><b>Required</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int LABEL__REQUIRED = INPUT_ELEMENT__REQUIRED;
 
   /**
    * The feature id for the '<em><b>Required Context</b></em>' containment reference.
@@ -6520,15 +6394,6 @@ public interface DomainPackage extends EPackage
   int LABEL__REQUIRED_CONTEXT = INPUT_ELEMENT__REQUIRED_CONTEXT;
 
   /**
-   * The feature id for the '<em><b>Read Only</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int LABEL__READ_ONLY = INPUT_ELEMENT__READ_ONLY;
-
-  /**
    * The feature id for the '<em><b>Read Only Context</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -6536,6 +6401,33 @@ public interface DomainPackage extends EPackage
    * @ordered
    */
   int LABEL__READ_ONLY_CONTEXT = INPUT_ELEMENT__READ_ONLY_CONTEXT;
+
+  /**
+   * The feature id for the '<em><b>Source Pointer</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LABEL__SOURCE_POINTER = INPUT_ELEMENT__SOURCE_POINTER;
+
+  /**
+   * The feature id for the '<em><b>Value Pointer</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LABEL__VALUE_POINTER = INPUT_ELEMENT__VALUE_POINTER;
+
+  /**
+   * The feature id for the '<em><b>Source Cast</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LABEL__SOURCE_CAST = INPUT_ELEMENT__SOURCE_CAST;
 
   /**
    * The feature id for the '<em><b>Label</b></em>' attribute.
@@ -6593,15 +6485,6 @@ public interface DomainPackage extends EPackage
   int OUTPUT_TEXT__UID = INPUT_ELEMENT__UID;
 
   /**
-   * The feature id for the '<em><b>Enabled</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int OUTPUT_TEXT__ENABLED = INPUT_ELEMENT__ENABLED;
-
-  /**
    * The feature id for the '<em><b>Enabled Context</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -6609,15 +6492,6 @@ public interface DomainPackage extends EPackage
    * @ordered
    */
   int OUTPUT_TEXT__ENABLED_CONTEXT = INPUT_ELEMENT__ENABLED_CONTEXT;
-
-  /**
-   * The feature id for the '<em><b>Required</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int OUTPUT_TEXT__REQUIRED = INPUT_ELEMENT__REQUIRED;
 
   /**
    * The feature id for the '<em><b>Required Context</b></em>' containment reference.
@@ -6629,15 +6503,6 @@ public interface DomainPackage extends EPackage
   int OUTPUT_TEXT__REQUIRED_CONTEXT = INPUT_ELEMENT__REQUIRED_CONTEXT;
 
   /**
-   * The feature id for the '<em><b>Read Only</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int OUTPUT_TEXT__READ_ONLY = INPUT_ELEMENT__READ_ONLY;
-
-  /**
    * The feature id for the '<em><b>Read Only Context</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -6645,6 +6510,33 @@ public interface DomainPackage extends EPackage
    * @ordered
    */
   int OUTPUT_TEXT__READ_ONLY_CONTEXT = INPUT_ELEMENT__READ_ONLY_CONTEXT;
+
+  /**
+   * The feature id for the '<em><b>Source Pointer</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OUTPUT_TEXT__SOURCE_POINTER = INPUT_ELEMENT__SOURCE_POINTER;
+
+  /**
+   * The feature id for the '<em><b>Value Pointer</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OUTPUT_TEXT__VALUE_POINTER = INPUT_ELEMENT__VALUE_POINTER;
+
+  /**
+   * The feature id for the '<em><b>Source Cast</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OUTPUT_TEXT__SOURCE_CAST = INPUT_ELEMENT__SOURCE_CAST;
 
   /**
    * The number of structural features of the '<em>Output Text</em>' class.
@@ -6693,15 +6585,6 @@ public interface DomainPackage extends EPackage
   int CHECK_BOX__UID = INPUT_ELEMENT__UID;
 
   /**
-   * The feature id for the '<em><b>Enabled</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CHECK_BOX__ENABLED = INPUT_ELEMENT__ENABLED;
-
-  /**
    * The feature id for the '<em><b>Enabled Context</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -6709,15 +6592,6 @@ public interface DomainPackage extends EPackage
    * @ordered
    */
   int CHECK_BOX__ENABLED_CONTEXT = INPUT_ELEMENT__ENABLED_CONTEXT;
-
-  /**
-   * The feature id for the '<em><b>Required</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CHECK_BOX__REQUIRED = INPUT_ELEMENT__REQUIRED;
 
   /**
    * The feature id for the '<em><b>Required Context</b></em>' containment reference.
@@ -6729,15 +6603,6 @@ public interface DomainPackage extends EPackage
   int CHECK_BOX__REQUIRED_CONTEXT = INPUT_ELEMENT__REQUIRED_CONTEXT;
 
   /**
-   * The feature id for the '<em><b>Read Only</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CHECK_BOX__READ_ONLY = INPUT_ELEMENT__READ_ONLY;
-
-  /**
    * The feature id for the '<em><b>Read Only Context</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -6745,6 +6610,33 @@ public interface DomainPackage extends EPackage
    * @ordered
    */
   int CHECK_BOX__READ_ONLY_CONTEXT = INPUT_ELEMENT__READ_ONLY_CONTEXT;
+
+  /**
+   * The feature id for the '<em><b>Source Pointer</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CHECK_BOX__SOURCE_POINTER = INPUT_ELEMENT__SOURCE_POINTER;
+
+  /**
+   * The feature id for the '<em><b>Value Pointer</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CHECK_BOX__VALUE_POINTER = INPUT_ELEMENT__VALUE_POINTER;
+
+  /**
+   * The feature id for the '<em><b>Source Cast</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CHECK_BOX__SOURCE_CAST = INPUT_ELEMENT__SOURCE_CAST;
 
   /**
    * The number of structural features of the '<em>Check Box</em>' class.
@@ -6793,15 +6685,6 @@ public interface DomainPackage extends EPackage
   int DROP_DOWN_SELECTION__UID = OPTION_SELECTION__UID;
 
   /**
-   * The feature id for the '<em><b>Enabled</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DROP_DOWN_SELECTION__ENABLED = OPTION_SELECTION__ENABLED;
-
-  /**
    * The feature id for the '<em><b>Enabled Context</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -6809,15 +6692,6 @@ public interface DomainPackage extends EPackage
    * @ordered
    */
   int DROP_DOWN_SELECTION__ENABLED_CONTEXT = OPTION_SELECTION__ENABLED_CONTEXT;
-
-  /**
-   * The feature id for the '<em><b>Required</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DROP_DOWN_SELECTION__REQUIRED = OPTION_SELECTION__REQUIRED;
 
   /**
    * The feature id for the '<em><b>Required Context</b></em>' containment reference.
@@ -6829,15 +6703,6 @@ public interface DomainPackage extends EPackage
   int DROP_DOWN_SELECTION__REQUIRED_CONTEXT = OPTION_SELECTION__REQUIRED_CONTEXT;
 
   /**
-   * The feature id for the '<em><b>Read Only</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DROP_DOWN_SELECTION__READ_ONLY = OPTION_SELECTION__READ_ONLY;
-
-  /**
    * The feature id for the '<em><b>Read Only Context</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -6847,7 +6712,34 @@ public interface DomainPackage extends EPackage
   int DROP_DOWN_SELECTION__READ_ONLY_CONTEXT = OPTION_SELECTION__READ_ONLY_CONTEXT;
 
   /**
-   * The feature id for the '<em><b>Option Pointer</b></em>' containment reference.
+   * The feature id for the '<em><b>Source Pointer</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DROP_DOWN_SELECTION__SOURCE_POINTER = OPTION_SELECTION__SOURCE_POINTER;
+
+  /**
+   * The feature id for the '<em><b>Value Pointer</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DROP_DOWN_SELECTION__VALUE_POINTER = OPTION_SELECTION__VALUE_POINTER;
+
+  /**
+   * The feature id for the '<em><b>Source Cast</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DROP_DOWN_SELECTION__SOURCE_CAST = OPTION_SELECTION__SOURCE_CAST;
+
+  /**
+   * The feature id for the '<em><b>Option Pointer</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -6984,15 +6876,6 @@ public interface DomainPackage extends EPackage
   int TABLE__UID = SOURCES_POINTER__UID;
 
   /**
-   * The feature id for the '<em><b>Enabled</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int TABLE__ENABLED = SOURCES_POINTER__ENABLED;
-
-  /**
    * The feature id for the '<em><b>Enabled Context</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -7000,15 +6883,6 @@ public interface DomainPackage extends EPackage
    * @ordered
    */
   int TABLE__ENABLED_CONTEXT = SOURCES_POINTER__ENABLED_CONTEXT;
-
-  /**
-   * The feature id for the '<em><b>Required</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int TABLE__REQUIRED = SOURCES_POINTER__REQUIRED;
 
   /**
    * The feature id for the '<em><b>Required Context</b></em>' containment reference.
@@ -7020,15 +6894,6 @@ public interface DomainPackage extends EPackage
   int TABLE__REQUIRED_CONTEXT = SOURCES_POINTER__REQUIRED_CONTEXT;
 
   /**
-   * The feature id for the '<em><b>Read Only</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int TABLE__READ_ONLY = SOURCES_POINTER__READ_ONLY;
-
-  /**
    * The feature id for the '<em><b>Read Only Context</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -7038,7 +6903,7 @@ public interface DomainPackage extends EPackage
   int TABLE__READ_ONLY_CONTEXT = SOURCES_POINTER__READ_ONLY_CONTEXT;
 
   /**
-   * The feature id for the '<em><b>Source Pointer</b></em>' containment reference.
+   * The feature id for the '<em><b>Source Pointer</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -7047,7 +6912,7 @@ public interface DomainPackage extends EPackage
   int TABLE__SOURCE_POINTER = SOURCES_POINTER__SOURCE_POINTER;
 
   /**
-   * The feature id for the '<em><b>Value Pointer</b></em>' containment reference.
+   * The feature id for the '<em><b>Value Pointer</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -7056,7 +6921,7 @@ public interface DomainPackage extends EPackage
   int TABLE__VALUE_POINTER = SOURCES_POINTER__VALUE_POINTER;
 
   /**
-   * The feature id for the '<em><b>Source Cast</b></em>' containment reference.
+   * The feature id for the '<em><b>Source Cast</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -7138,15 +7003,6 @@ public interface DomainPackage extends EPackage
   int TREE__UID = SOURCES_POINTER__UID;
 
   /**
-   * The feature id for the '<em><b>Enabled</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int TREE__ENABLED = SOURCES_POINTER__ENABLED;
-
-  /**
    * The feature id for the '<em><b>Enabled Context</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -7154,15 +7010,6 @@ public interface DomainPackage extends EPackage
    * @ordered
    */
   int TREE__ENABLED_CONTEXT = SOURCES_POINTER__ENABLED_CONTEXT;
-
-  /**
-   * The feature id for the '<em><b>Required</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int TREE__REQUIRED = SOURCES_POINTER__REQUIRED;
 
   /**
    * The feature id for the '<em><b>Required Context</b></em>' containment reference.
@@ -7174,15 +7021,6 @@ public interface DomainPackage extends EPackage
   int TREE__REQUIRED_CONTEXT = SOURCES_POINTER__REQUIRED_CONTEXT;
 
   /**
-   * The feature id for the '<em><b>Read Only</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int TREE__READ_ONLY = SOURCES_POINTER__READ_ONLY;
-
-  /**
    * The feature id for the '<em><b>Read Only Context</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -7192,7 +7030,7 @@ public interface DomainPackage extends EPackage
   int TREE__READ_ONLY_CONTEXT = SOURCES_POINTER__READ_ONLY_CONTEXT;
 
   /**
-   * The feature id for the '<em><b>Source Pointer</b></em>' containment reference.
+   * The feature id for the '<em><b>Source Pointer</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -7201,7 +7039,7 @@ public interface DomainPackage extends EPackage
   int TREE__SOURCE_POINTER = SOURCES_POINTER__SOURCE_POINTER;
 
   /**
-   * The feature id for the '<em><b>Value Pointer</b></em>' containment reference.
+   * The feature id for the '<em><b>Value Pointer</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -7210,7 +7048,7 @@ public interface DomainPackage extends EPackage
   int TREE__VALUE_POINTER = SOURCES_POINTER__VALUE_POINTER;
 
   /**
-   * The feature id for the '<em><b>Source Cast</b></em>' containment reference.
+   * The feature id for the '<em><b>Source Cast</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -7283,15 +7121,6 @@ public interface DomainPackage extends EPackage
   int BUTTON__UID = ACTION_ELEMENT__UID;
 
   /**
-   * The feature id for the '<em><b>Enabled</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int BUTTON__ENABLED = ACTION_ELEMENT__ENABLED;
-
-  /**
    * The feature id for the '<em><b>Enabled Context</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -7301,15 +7130,6 @@ public interface DomainPackage extends EPackage
   int BUTTON__ENABLED_CONTEXT = ACTION_ELEMENT__ENABLED_CONTEXT;
 
   /**
-   * The feature id for the '<em><b>Required</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int BUTTON__REQUIRED = ACTION_ELEMENT__REQUIRED;
-
-  /**
    * The feature id for the '<em><b>Required Context</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -7317,15 +7137,6 @@ public interface DomainPackage extends EPackage
    * @ordered
    */
   int BUTTON__REQUIRED_CONTEXT = ACTION_ELEMENT__REQUIRED_CONTEXT;
-
-  /**
-   * The feature id for the '<em><b>Read Only</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int BUTTON__READ_ONLY = ACTION_ELEMENT__READ_ONLY;
 
   /**
    * The feature id for the '<em><b>Read Only Context</b></em>' containment reference.
@@ -13649,10 +13460,10 @@ public interface DomainPackage extends EPackage
   EAttribute getViewArea_Name();
 
   /**
-   * Returns the meta object for the containment reference '{@link domain.ViewArea#getCanvasView <em>Canvas View</em>}'.
+   * Returns the meta object for the reference '{@link domain.ViewArea#getCanvasView <em>Canvas View</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Canvas View</em>'.
+   * @return the meta object for the reference '<em>Canvas View</em>'.
    * @see domain.ViewArea#getCanvasView()
    * @see #getViewArea()
    * @generated
@@ -13853,10 +13664,10 @@ public interface DomainPackage extends EPackage
   EAttribute getCanvasView_Uid();
 
   /**
-   * Returns the meta object for the container reference '{@link domain.CanvasView#getParent <em>Parent</em>}'.
+   * Returns the meta object for the reference '{@link domain.CanvasView#getParent <em>Parent</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the container reference '<em>Parent</em>'.
+   * @return the meta object for the reference '<em>Parent</em>'.
    * @see domain.CanvasView#getParent()
    * @see #getCanvasView()
    * @generated
@@ -14229,17 +14040,6 @@ public interface DomainPackage extends EPackage
   EAttribute getUielement_Uid();
 
   /**
-   * Returns the meta object for the attribute '{@link domain.Uielement#isEnabled <em>Enabled</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Enabled</em>'.
-   * @see domain.Uielement#isEnabled()
-   * @see #getUielement()
-   * @generated
-   */
-  EAttribute getUielement_Enabled();
-
-  /**
    * Returns the meta object for the containment reference '{@link domain.Uielement#getEnabledContext <em>Enabled Context</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -14251,17 +14051,6 @@ public interface DomainPackage extends EPackage
   EReference getUielement_EnabledContext();
 
   /**
-   * Returns the meta object for the attribute '{@link domain.Uielement#isRequired <em>Required</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Required</em>'.
-   * @see domain.Uielement#isRequired()
-   * @see #getUielement()
-   * @generated
-   */
-  EAttribute getUielement_Required();
-
-  /**
    * Returns the meta object for the containment reference '{@link domain.Uielement#getRequiredContext <em>Required Context</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -14271,17 +14060,6 @@ public interface DomainPackage extends EPackage
    * @generated
    */
   EReference getUielement_RequiredContext();
-
-  /**
-   * Returns the meta object for the attribute '{@link domain.Uielement#isReadOnly <em>Read Only</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Read Only</em>'.
-   * @see domain.Uielement#isReadOnly()
-   * @see #getUielement()
-   * @generated
-   */
-  EAttribute getUielement_ReadOnly();
 
   /**
    * Returns the meta object for the containment reference '{@link domain.Uielement#getReadOnlyContext <em>Read Only Context</em>}'.
@@ -14305,10 +14083,10 @@ public interface DomainPackage extends EPackage
   EClass getSourcesPointer();
 
   /**
-   * Returns the meta object for the containment reference '{@link domain.SourcesPointer#getSourcePointer <em>Source Pointer</em>}'.
+   * Returns the meta object for the reference '{@link domain.SourcesPointer#getSourcePointer <em>Source Pointer</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Source Pointer</em>'.
+   * @return the meta object for the reference '<em>Source Pointer</em>'.
    * @see domain.SourcesPointer#getSourcePointer()
    * @see #getSourcesPointer()
    * @generated
@@ -14316,10 +14094,10 @@ public interface DomainPackage extends EPackage
   EReference getSourcesPointer_SourcePointer();
 
   /**
-   * Returns the meta object for the containment reference '{@link domain.SourcesPointer#getValuePointer <em>Value Pointer</em>}'.
+   * Returns the meta object for the reference '{@link domain.SourcesPointer#getValuePointer <em>Value Pointer</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Value Pointer</em>'.
+   * @return the meta object for the reference '<em>Value Pointer</em>'.
    * @see domain.SourcesPointer#getValuePointer()
    * @see #getSourcesPointer()
    * @generated
@@ -14327,10 +14105,10 @@ public interface DomainPackage extends EPackage
   EReference getSourcesPointer_ValuePointer();
 
   /**
-   * Returns the meta object for the containment reference '{@link domain.SourcesPointer#getSourceCast <em>Source Cast</em>}'.
+   * Returns the meta object for the reference '{@link domain.SourcesPointer#getSourceCast <em>Source Cast</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Source Cast</em>'.
+   * @return the meta object for the reference '<em>Source Cast</em>'.
    * @see domain.SourcesPointer#getSourceCast()
    * @see #getSourcesPointer()
    * @generated
@@ -14379,10 +14157,10 @@ public interface DomainPackage extends EPackage
   EClass getSelection();
 
   /**
-   * Returns the meta object for the containment reference '{@link domain.Selection#getDisplayOptionPointer <em>Display Option Pointer</em>}'.
+   * Returns the meta object for the reference '{@link domain.Selection#getDisplayOptionPointer <em>Display Option Pointer</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Display Option Pointer</em>'.
+   * @return the meta object for the reference '<em>Display Option Pointer</em>'.
    * @see domain.Selection#getDisplayOptionPointer()
    * @see #getSelection()
    * @generated
@@ -14390,10 +14168,10 @@ public interface DomainPackage extends EPackage
   EReference getSelection_DisplayOptionPointer();
 
   /**
-   * Returns the meta object for the containment reference '{@link domain.Selection#getValueOptionPointer <em>Value Option Pointer</em>}'.
+   * Returns the meta object for the reference '{@link domain.Selection#getValueOptionPointer <em>Value Option Pointer</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Value Option Pointer</em>'.
+   * @return the meta object for the reference '<em>Value Option Pointer</em>'.
    * @see domain.Selection#getValueOptionPointer()
    * @see #getSelection()
    * @generated
@@ -14411,10 +14189,10 @@ public interface DomainPackage extends EPackage
   EClass getOptionSelection();
 
   /**
-   * Returns the meta object for the containment reference '{@link domain.OptionSelection#getOptionPointer <em>Option Pointer</em>}'.
+   * Returns the meta object for the reference '{@link domain.OptionSelection#getOptionPointer <em>Option Pointer</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Option Pointer</em>'.
+   * @return the meta object for the reference '<em>Option Pointer</em>'.
    * @see domain.OptionSelection#getOptionPointer()
    * @see #getOptionSelection()
    * @generated
@@ -18772,7 +18550,7 @@ public interface DomainPackage extends EPackage
     EAttribute VIEW_AREA__NAME = eINSTANCE.getViewArea_Name();
 
     /**
-     * The meta object literal for the '<em><b>Canvas View</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Canvas View</b></em>' reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -18934,7 +18712,7 @@ public interface DomainPackage extends EPackage
     EAttribute CANVAS_VIEW__UID = eINSTANCE.getCanvasView_Uid();
 
     /**
-     * The meta object literal for the '<em><b>Parent</b></em>' container reference feature.
+     * The meta object literal for the '<em><b>Parent</b></em>' reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -19232,14 +19010,6 @@ public interface DomainPackage extends EPackage
     EAttribute UIELEMENT__UID = eINSTANCE.getUielement_Uid();
 
     /**
-     * The meta object literal for the '<em><b>Enabled</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute UIELEMENT__ENABLED = eINSTANCE.getUielement_Enabled();
-
-    /**
      * The meta object literal for the '<em><b>Enabled Context</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -19248,28 +19018,12 @@ public interface DomainPackage extends EPackage
     EReference UIELEMENT__ENABLED_CONTEXT = eINSTANCE.getUielement_EnabledContext();
 
     /**
-     * The meta object literal for the '<em><b>Required</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute UIELEMENT__REQUIRED = eINSTANCE.getUielement_Required();
-
-    /**
      * The meta object literal for the '<em><b>Required Context</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
     EReference UIELEMENT__REQUIRED_CONTEXT = eINSTANCE.getUielement_RequiredContext();
-
-    /**
-     * The meta object literal for the '<em><b>Read Only</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute UIELEMENT__READ_ONLY = eINSTANCE.getUielement_ReadOnly();
 
     /**
      * The meta object literal for the '<em><b>Read Only Context</b></em>' containment reference feature.
@@ -19290,7 +19044,7 @@ public interface DomainPackage extends EPackage
     EClass SOURCES_POINTER = eINSTANCE.getSourcesPointer();
 
     /**
-     * The meta object literal for the '<em><b>Source Pointer</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Source Pointer</b></em>' reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -19298,7 +19052,7 @@ public interface DomainPackage extends EPackage
     EReference SOURCES_POINTER__SOURCE_POINTER = eINSTANCE.getSourcesPointer_SourcePointer();
 
     /**
-     * The meta object literal for the '<em><b>Value Pointer</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Value Pointer</b></em>' reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -19306,7 +19060,7 @@ public interface DomainPackage extends EPackage
     EReference SOURCES_POINTER__VALUE_POINTER = eINSTANCE.getSourcesPointer_ValuePointer();
 
     /**
-     * The meta object literal for the '<em><b>Source Cast</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Source Cast</b></em>' reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -19352,7 +19106,7 @@ public interface DomainPackage extends EPackage
     EClass SELECTION = eINSTANCE.getSelection();
 
     /**
-     * The meta object literal for the '<em><b>Display Option Pointer</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Display Option Pointer</b></em>' reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -19360,7 +19114,7 @@ public interface DomainPackage extends EPackage
     EReference SELECTION__DISPLAY_OPTION_POINTER = eINSTANCE.getSelection_DisplayOptionPointer();
 
     /**
-     * The meta object literal for the '<em><b>Value Option Pointer</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Value Option Pointer</b></em>' reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -19378,7 +19132,7 @@ public interface DomainPackage extends EPackage
     EClass OPTION_SELECTION = eINSTANCE.getOptionSelection();
 
     /**
-     * The meta object literal for the '<em><b>Option Pointer</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Option Pointer</b></em>' reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated

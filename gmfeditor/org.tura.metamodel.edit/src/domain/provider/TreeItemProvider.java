@@ -210,9 +210,6 @@ public class TreeItemProvider
       childFeature == DomainPackage.Literals.UIELEMENT__ENABLED_CONTEXT ||
       childFeature == DomainPackage.Literals.UIELEMENT__REQUIRED_CONTEXT ||
       childFeature == DomainPackage.Literals.UIELEMENT__READ_ONLY_CONTEXT ||
-      childFeature == DomainPackage.Literals.SOURCES_POINTER__SOURCE_POINTER ||
-      childFeature == DomainPackage.Literals.SOURCES_POINTER__VALUE_POINTER ||
-      childFeature == DomainPackage.Literals.SOURCES_POINTER__SOURCE_CAST ||
       childFeature == DomainPackage.Literals.TREE__IMAGE;
 
     if (qualify)

@@ -16,7 +16,7 @@ import org.eclipse.emf.ecore.EClass;
  *
  * @generated
  */
-public class InputElementImpl extends UielementImpl implements InputElement
+public class InputElementImpl extends SourcesPointerImpl implements InputElement
 {
   /**
    * <!-- begin-user-doc -->

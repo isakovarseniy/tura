@@ -7,12 +7,12 @@ import org.metamodel.tura.ui.properties.sections.dropdown.DropDownDataSupplier;
 
 import domain.DomainPackage;
 
-public class DomainArtifactRefArtifactRef implements DropDownDataSupplier{
+public class DomainArtifactRefArtifactRef implements DropDownDataSupplier {
 
 	@Override
 	public EStructuralFeature[] getFeature() {
-		return new EStructuralFeature[] { 
-				DomainPackage.eINSTANCE.getArtifactRef_ArtifactRef() };
+		return new EStructuralFeature[] { DomainPackage.eINSTANCE
+				.getArtifactRef_ArtifactRef() };
 	}
 
 	@Override
@@ -48,20 +48,19 @@ public class DomainArtifactRefArtifactRef implements DropDownDataSupplier{
 	}
 
 	@Override
-	public Object getWatchPointObject(Object eObject) {
-		return ((domain.ArtifactRef) eObject).getDomainArtifactRef();
+	public Object[] getWatchPointObject(Object eObject) {
+		return new Object[]{((domain.ArtifactRef) eObject).getDomainArtifactRef()};
 	}
 
 	@Override
-	public EStructuralFeature getWatchPointFeature() {
-		return DomainPackage.eINSTANCE
-				.getArtifactRef_DomainArtifactRef();
+	public EStructuralFeature[] getWatchPointFeature() {
+		return new EStructuralFeature[] { DomainPackage.eINSTANCE
+				.getArtifactRef_DomainArtifactRef() };
 	}
 
 	@Override
 	public Class<?> getExpectedClass() {
 		return domain.ArtifactRef.class;
 	}
-
 
 }

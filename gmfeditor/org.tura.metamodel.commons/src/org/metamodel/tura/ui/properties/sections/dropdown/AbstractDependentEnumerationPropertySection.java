@@ -23,26 +23,32 @@ public abstract class AbstractDependentEnumerationPropertySection extends
 
 			AdapterImpl adapter = new AdapterImpl() {
 				public void notifyChanged(Notification notification) {
-					if (notification.getFeatureID(dropDownDataSupplier
-							.getExpectedClass()) == dropDownDataSupplier
-							.getWatchPointFeature().getFeatureID()) {
-						values = null;
+					for (int j = 0; j < dropDownDataSupplier
+							.getWatchPointFeature().length; j++) {
+						if (notification.getFeatureID(dropDownDataSupplier
+								.getExpectedClass()) == dropDownDataSupplier
+								.getWatchPointFeature()[j].getFeatureID()) {
+							values = null;
 
-						EditingDomain editingDomain = ((DiagramEditor) getPart())
-								.getEditingDomain();
-						CompoundCommand compoundCommand = new CompoundCommand();
-						EStructuralFeature[] features = getFeature();
-						for (int i = 0; i < features.length; i++) {
-							if (features[i].getFeatureID() != dropDownDataSupplier
-									.getWatchPointFeature().getFeatureID())
-								compoundCommand.append(SetCommand.create(
-										editingDomain, getModel(), features[i],
-										null));
+							EditingDomain editingDomain = ((DiagramEditor) getPart())
+									.getEditingDomain();
+							CompoundCommand compoundCommand = new CompoundCommand();
+							EStructuralFeature[] features = getFeature();
+
+							for (int i = 0; i < features.length; i++) {
+								if (features[i].getFeatureID() != dropDownDataSupplier
+										.getWatchPointFeature()[j]
+										.getFeatureID())
+									compoundCommand.append(SetCommand.create(
+											editingDomain, getModel(),
+											features[i], null));
+							}
+							editingDomain.getCommandStack().execute(
+									compoundCommand);
+							refresh();
 						}
-						editingDomain.getCommandStack()
-								.execute(compoundCommand);
-						refresh();
 					}
+
 				}
 
 			};

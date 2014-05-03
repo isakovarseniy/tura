@@ -5,19 +5,21 @@ import java.util.HashMap;
 import org.eclipse.emf.ecore.EStructuralFeature;
 
 public interface DropDownDataSupplier {
-	public abstract EStructuralFeature[] getFeature();
+	public EStructuralFeature[] getFeature();
 
-	public abstract String getFeatureAsText(Object eObject);
+	public String getFeatureAsText(Object eObject);
 
-	public abstract Object getFeatureValue(Object eObject,HashMap<String,Object> values,EStructuralFeature feature,
+	public Object getFeatureValue(Object eObject,
+			HashMap<String, Object> values, EStructuralFeature feature,
 			Object... obj);
 
-	public abstract boolean isEqual(HashMap<String,Object> values,Object key,Object eObject);
+	public boolean isEqual(HashMap<String, Object> values, Object key,
+			Object eObject);
 
-	public abstract Object  getWatchPointObject(Object eObject);
-	
-	public abstract EStructuralFeature  getWatchPointFeature();
+	public Object[] getWatchPointObject(Object eObject);
 
-	public abstract Class<?>  getExpectedClass();
+	public EStructuralFeature[] getWatchPointFeature();
+
+	public Class<?> getExpectedClass();
 
 }

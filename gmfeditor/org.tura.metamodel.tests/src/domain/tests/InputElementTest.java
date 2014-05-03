@@ -13,7 +13,7 @@ import junit.textui.TestRunner;
  * <!-- end-user-doc -->
  * @generated
  */
-public class InputElementTest extends UielementTest
+public class InputElementTest extends SourcesPointerTest
 {
 
   /**

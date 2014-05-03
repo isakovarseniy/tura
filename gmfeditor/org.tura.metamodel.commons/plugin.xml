@@ -98,8 +98,6 @@
               <input type="typedefinition.diagram.edit.parts.TypeReferenceEditPart"/>
          </propertySection>        
 
-
-
     </propertySections>
   </extension>  
 
@@ -394,7 +392,7 @@
    
              <propertySection
                tab="property.tab.domain.control.parameters"
-               class="org.metamodel.tura.ui.properties.sections.grid.impl.TriggerParameterPropertySelection"
+               class="org.metamodel.tura.ui.properties.sections.grid.impl.ContextParameterPropertySelection"
                id="org.tura.metamodel.diagram.control.parameters">
               <input type="control.diagram.edit.parts.POSTQueryTriggerEditPart"/>
               <input type="control.diagram.edit.parts.POSTQueryTriggerEditPart"/>
@@ -417,11 +415,86 @@
                <input type="control.diagram.edit.parts.RelationEditPart"/>
            </propertySection>        
    
-   
        </propertySections>
-    
-    
   </extension>  
+
+      <extension point="org.eclipse.ui.views.properties.tabbed.propertyTabs" id="org.tura.metamodel.diagram.canvas.proptabs">
+      <?gmfgen generated="true"?>   
+      <propertyTabs contributorId="org.tura.metamodel.diagram.canvas">
+          <propertyTab
+             category="domain"
+             id="property.tab.domain.canvas.sourcepointer"
+             label="Data control selection"/>
+ 
+          <propertyTab
+             category="domain"
+             id="property.tab.domain.canvas.optionpointer"
+             label="Options data control selection"/>
+             
+          </propertyTabs>
+       </extension>
+
+
+    <extension point="org.eclipse.ui.views.properties.tabbed.propertySections" id="org.tura.metamodel.diagram.control.propsections">
+      <?gmfgen generated="true"?>   
+      <propertySections contributorId="org.tura.metamodel.diagram.canvas">
+             <propertySection
+               tab="property.tab.domain.canvas.sourcepointer"
+               class="org.metamodel.tura.ui.properties.sections.dropdown.SourcesPointerDataControlPropertySelection"
+               id="org.tura.metamodel.diagram.canvas.sourcepointer">
+              <input type="canvas.diagram.edit.parts.CheckBoxEditPart"/>
+              <input type="canvas.diagram.edit.parts.InputTextEditPart"/>
+              <input type="canvas.diagram.edit.parts.OutputTextEditPart"/>
+              <input type="canvas.diagram.edit.parts.TableEditPart"/>
+              <input type="canvas.diagram.edit.parts.TreeEditPart"/>
+              <input type="canvas.diagram.edit.parts.DropDownSelectionEditPart"/>
+           </propertySection>        
+
+             <propertySection
+               tab="property.tab.domain.canvas.sourcepointer"
+               class="org.metamodel.tura.ui.properties.sections.dropdown.ValuePointerAttributePropertySelection"
+               id="org.tura.metamodel.diagram.canvas.sourcepointer">
+              <input type="canvas.diagram.edit.parts.CheckBoxEditPart"/>
+              <input type="canvas.diagram.edit.parts.InputTextEditPart"/>
+              <input type="canvas.diagram.edit.parts.OutputTextEditPart"/>
+              <input type="canvas.diagram.edit.parts.TableEditPart"/>
+              <input type="canvas.diagram.edit.parts.TreeEditPart"/>
+              <input type="canvas.diagram.edit.parts.DropDownSelectionEditPart"/>
+           </propertySection>        
+
+             <propertySection
+               tab="property.tab.domain.canvas.sourcepointer"
+               class="org.metamodel.tura.ui.properties.sections.dropdown.SourceCastPropertySelection"
+               id="org.tura.metamodel.diagram.canvas.sourcepointer">
+              <input type="canvas.diagram.edit.parts.CheckBoxEditPart"/>
+              <input type="canvas.diagram.edit.parts.InputTextEditPart"/>
+              <input type="canvas.diagram.edit.parts.OutputTextEditPart"/>
+              <input type="canvas.diagram.edit.parts.TableEditPart"/>
+              <input type="canvas.diagram.edit.parts.TreeEditPart"/>
+              <input type="canvas.diagram.edit.parts.DropDownSelectionEditPart"/>
+           </propertySection>        
+
+
+       </propertySections>
+  </extension>  
+
+
+
+    <extension point="org.eclipse.ui.views.properties.tabbed.propertySections" id="org.tura.metamodel.diagram.control.propsections">
+      <?gmfgen generated="true"?>   
+      <propertySections contributorId="org.tura.metamodel.diagram.canvas">
+             <propertySection
+               tab="property.tab.domain.canvas.optionpointer"
+               class="org.metamodel.tura.ui.properties.sections.dropdown.OptionsPointerDataControlPropertySelection"
+               id="org.tura.metamodel.diagram.canvas.optionpointer">
+              <input type="canvas.diagram.edit.parts.DropDownSelectionEditPart"/>
+           </propertySection>        
+       </propertySections>
+  </extension>  
+
+
+
+
 
     <extension
          point="org.eclipse.epsilon.common.dt.tool">

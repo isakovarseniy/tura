@@ -44,15 +44,14 @@ public class DomainMapperQueryRef  implements DropDownDataSupplier {
 	}
 
 	@Override
-	public Object getWatchPointObject(Object eObject) {
-		// TODO Auto-generated method stub
-		return null;
+	public Object[] getWatchPointObject(Object eObject) {
+		return new Object[]{};
 	}
 
 	@Override
-	public EStructuralFeature getWatchPointFeature() {
+	public EStructuralFeature[] getWatchPointFeature() {
 		// TODO Auto-generated method stub
-		return null;
+		return new EStructuralFeature[] { };
 	}
 
 	@Override

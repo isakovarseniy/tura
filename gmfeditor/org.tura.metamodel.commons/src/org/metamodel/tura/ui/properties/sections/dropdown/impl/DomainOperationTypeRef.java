@@ -48,19 +48,20 @@ public class DomainOperationTypeRef implements DropDownDataSupplier {
 						.getName());
 	}
 
-	public Object getWatchPointObject(Object eObject) {
+	public Object[] getWatchPointObject(Object eObject) {
 		if (((domain.Operation) eObject).getReturnValue() == null)
-			return null;
-		return ((domain.Operation) eObject).getReturnValue().getPackageRef();
+			return new Object[]{};
+		return new Object[]{((domain.Operation) eObject).getReturnValue().getPackageRef()};
 	}
 
-	public EStructuralFeature getWatchPointFeature() {
+	public EStructuralFeature[] getWatchPointFeature() {
 
-		return DomainPackage.eINSTANCE.getOperation_ReturnValue();
+		return new EStructuralFeature[] { DomainPackage.eINSTANCE.getOperation_ReturnValue()};
 	}
 
 	public Class<?> getExpectedClass() {
 		return domain.Operation.class;
 	}
 
+	
 }

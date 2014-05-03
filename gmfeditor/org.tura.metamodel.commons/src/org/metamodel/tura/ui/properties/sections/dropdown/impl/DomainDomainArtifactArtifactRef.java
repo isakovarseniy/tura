@@ -45,13 +45,13 @@ public class DomainDomainArtifactArtifactRef implements DropDownDataSupplier {
 	}
 
 	@Override
-	public Object getWatchPointObject(Object eObject) {
-		return null;
+	public Object[] getWatchPointObject(Object eObject) {
+		return new Object[]{};
 	}
 
 	@Override
-	public EStructuralFeature getWatchPointFeature() {
-		return null;
+	public EStructuralFeature[] getWatchPointFeature() {
+		return new EStructuralFeature[] { };
 	}
 
 	@Override

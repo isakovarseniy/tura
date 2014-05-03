@@ -983,6 +983,7 @@ public class DomainSwitch<T> extends Switch<T>
       {
         InputElement inputElement = (InputElement)theEObject;
         T result = caseInputElement(inputElement);
+        if (result == null) result = caseSourcesPointer(inputElement);
         if (result == null) result = caseUielement(inputElement);
         if (result == null) result = caseStyleElement(inputElement);
         if (result == null) result = defaultCase(theEObject);
@@ -1001,6 +1002,7 @@ public class DomainSwitch<T> extends Switch<T>
         OptionSelection optionSelection = (OptionSelection)theEObject;
         T result = caseOptionSelection(optionSelection);
         if (result == null) result = caseInputElement(optionSelection);
+        if (result == null) result = caseSourcesPointer(optionSelection);
         if (result == null) result = caseUielement(optionSelection);
         if (result == null) result = caseStyleElement(optionSelection);
         if (result == null) result = defaultCase(theEObject);
@@ -1022,6 +1024,7 @@ public class DomainSwitch<T> extends Switch<T>
         InputText inputText = (InputText)theEObject;
         T result = caseInputText(inputText);
         if (result == null) result = caseInputElement(inputText);
+        if (result == null) result = caseSourcesPointer(inputText);
         if (result == null) result = caseUielement(inputText);
         if (result == null) result = caseStyleElement(inputText);
         if (result == null) result = defaultCase(theEObject);
@@ -1032,6 +1035,7 @@ public class DomainSwitch<T> extends Switch<T>
         Label label = (Label)theEObject;
         T result = caseLabel(label);
         if (result == null) result = caseInputElement(label);
+        if (result == null) result = caseSourcesPointer(label);
         if (result == null) result = caseUielement(label);
         if (result == null) result = caseStyleElement(label);
         if (result == null) result = defaultCase(theEObject);
@@ -1042,6 +1046,7 @@ public class DomainSwitch<T> extends Switch<T>
         OutputText outputText = (OutputText)theEObject;
         T result = caseOutputText(outputText);
         if (result == null) result = caseInputElement(outputText);
+        if (result == null) result = caseSourcesPointer(outputText);
         if (result == null) result = caseUielement(outputText);
         if (result == null) result = caseStyleElement(outputText);
         if (result == null) result = defaultCase(theEObject);
@@ -1052,6 +1057,7 @@ public class DomainSwitch<T> extends Switch<T>
         CheckBox checkBox = (CheckBox)theEObject;
         T result = caseCheckBox(checkBox);
         if (result == null) result = caseInputElement(checkBox);
+        if (result == null) result = caseSourcesPointer(checkBox);
         if (result == null) result = caseUielement(checkBox);
         if (result == null) result = caseStyleElement(checkBox);
         if (result == null) result = defaultCase(theEObject);
@@ -1063,6 +1069,7 @@ public class DomainSwitch<T> extends Switch<T>
         T result = caseDropDownSelection(dropDownSelection);
         if (result == null) result = caseOptionSelection(dropDownSelection);
         if (result == null) result = caseInputElement(dropDownSelection);
+        if (result == null) result = caseSourcesPointer(dropDownSelection);
         if (result == null) result = caseUielement(dropDownSelection);
         if (result == null) result = caseStyleElement(dropDownSelection);
         if (result == null) result = defaultCase(theEObject);

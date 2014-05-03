@@ -76,7 +76,7 @@ public interface ViewArea extends ViewElement
   void setName(String value);
 
   /**
-   * Returns the value of the '<em><b>Canvas View</b></em>' containment reference.
+   * Returns the value of the '<em><b>Canvas View</b></em>' reference.
    * It is bidirectional and its opposite is '{@link domain.CanvasView#getParent <em>Parent</em>}'.
    * <!-- begin-user-doc -->
    * <p>
@@ -84,20 +84,20 @@ public interface ViewArea extends ViewElement
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Canvas View</em>' containment reference.
+   * @return the value of the '<em>Canvas View</em>' reference.
    * @see #setCanvasView(CanvasView)
    * @see domain.DomainPackage#getViewArea_CanvasView()
    * @see domain.CanvasView#getParent
-   * @model opposite="parent" containment="true"
+   * @model opposite="parent"
    * @generated
    */
   CanvasView getCanvasView();
 
   /**
-   * Sets the value of the '{@link domain.ViewArea#getCanvasView <em>Canvas View</em>}' containment reference.
+   * Sets the value of the '{@link domain.ViewArea#getCanvasView <em>Canvas View</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Canvas View</em>' containment reference.
+   * @param value the new value of the '<em>Canvas View</em>' reference.
    * @see #getCanvasView()
    * @generated
    */

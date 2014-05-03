@@ -444,7 +444,7 @@
     <genClasses ecoreClass="domain.ecore#//ViewArea">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//ViewArea/uid"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//ViewArea/name"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//ViewArea/canvasView"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference domain.ecore#//ViewArea/canvasView"/>
     </genClasses>
     <genClasses ecoreClass="domain.ecore#//ViewPortTrigger">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//ViewPortTrigger/uid"/>
@@ -468,7 +468,7 @@
     </genClasses>
     <genClasses ecoreClass="domain.ecore#//CanvasView">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//CanvasView/uid"/>
-      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference domain.ecore#//CanvasView/parent"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference domain.ecore#//CanvasView/parent"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//CanvasView/baseCanvas"/>
     </genClasses>
     <genClasses ecoreClass="domain.ecore#//Style">
@@ -512,28 +512,25 @@
     </genClasses>
     <genClasses ecoreClass="domain.ecore#//Uielement">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//Uielement/uid"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//Uielement/enabled"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//Uielement/enabledContext"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//Uielement/required"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//Uielement/requiredContext"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//Uielement/readOnly"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//Uielement/readOnlyContext"/>
     </genClasses>
     <genClasses ecoreClass="domain.ecore#//SourcesPointer">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//SourcesPointer/sourcePointer"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//SourcesPointer/valuePointer"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//SourcesPointer/sourceCast"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference domain.ecore#//SourcesPointer/sourcePointer"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference domain.ecore#//SourcesPointer/valuePointer"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference domain.ecore#//SourcesPointer/sourceCast"/>
     </genClasses>
     <genClasses ecoreClass="domain.ecore#//ActionElement">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//ActionElement/trigger"/>
     </genClasses>
     <genClasses ecoreClass="domain.ecore#//InputElement"/>
     <genClasses ecoreClass="domain.ecore#//Selection">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//Selection/displayOptionPointer"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//Selection/valueOptionPointer"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference domain.ecore#//Selection/displayOptionPointer"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference domain.ecore#//Selection/valueOptionPointer"/>
     </genClasses>
     <genClasses ecoreClass="domain.ecore#//OptionSelection">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//OptionSelection/optionPointer"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference domain.ecore#//OptionSelection/optionPointer"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//OptionSelection/optionCast"/>
     </genClasses>
     <genClasses ecoreClass="domain.ecore#//LayerHolder"/>

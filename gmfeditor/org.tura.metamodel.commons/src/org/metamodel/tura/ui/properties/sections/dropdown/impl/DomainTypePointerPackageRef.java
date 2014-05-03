@@ -41,12 +41,12 @@ public class DomainTypePointerPackageRef implements DropDownDataSupplier{
 				((domain.TypePointer) eObject).getPackageRef().getName());
 	}
 
-	public Object getWatchPointObject(Object eObject) {
-		return null;
+	public Object[] getWatchPointObject(Object eObject) {
+		return new Object[]{};
 	}
 
-	public EStructuralFeature getWatchPointFeature() {
-		return null;
+	public EStructuralFeature[] getWatchPointFeature() {
+		return new EStructuralFeature[] { };
 	}
 
 	public Class<?> getExpectedClass() {

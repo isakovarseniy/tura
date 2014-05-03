@@ -42,16 +42,16 @@ public class DomainOperationPackageRef implements DropDownDataSupplier {
 				((domain.Operation)eObject).getReturnValue().getPackageRef().getName());
 	}
 
-	public EStructuralFeature getWatchPointFeature() {
-		return null;
+	public EStructuralFeature[] getWatchPointFeature() {
+		return new EStructuralFeature[] { };
 	}
 
 	public Class<?> getExpectedClass() {
 		return null;
 	}
 
-	public Package getWatchPointObject(Object eObject) {
-		return null;
+	public Object[] getWatchPointObject(Object eObject) {
+		return new Object[]{};
 	}
 
 

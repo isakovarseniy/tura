@@ -53,13 +53,13 @@ public class DomainMethodPointerMethodMethodRef implements DropDownDataSupplier 
 	}
 
 	@Override
-	public Object getWatchPointObject(Object eObject) {
-		return 	((domain.TypePointer) eObject).getTypeRef();
+	public Object[] getWatchPointObject(Object eObject) {
+		return 	new Object[] {((domain.TypePointer) eObject).getTypeRef()};
 	}
 
 	@Override
-	public EStructuralFeature getWatchPointFeature() {
-		return 	DomainPackage.eINSTANCE.getTypePointer_TypeRef();
+	public EStructuralFeature[] getWatchPointFeature() {
+		return 	new EStructuralFeature[] { DomainPackage.eINSTANCE.getTypePointer_TypeRef()};
 	}
 
 	@Override
@@ -67,4 +67,5 @@ public class DomainMethodPointerMethodMethodRef implements DropDownDataSupplier 
 		return domain.MethodPointer.class;
 	}
 
+	
 }

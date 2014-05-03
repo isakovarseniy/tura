@@ -2,6 +2,8 @@
  */
 package domain;
 
+import org.eclipse.emf.ecore.EObject;
+
 
 /**
  * <!-- begin-user-doc -->
@@ -24,81 +26,81 @@ package domain;
 public interface SourcesPointer extends Uielement
 {
   /**
-   * Returns the value of the '<em><b>Source Pointer</b></em>' containment reference.
+   * Returns the value of the '<em><b>Source Pointer</b></em>' reference.
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Source Pointer</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Source Pointer</em>' containment reference.
-   * @see #setSourcePointer(Context)
+   * @return the value of the '<em>Source Pointer</em>' reference.
+   * @see #setSourcePointer(DataControl)
    * @see domain.DomainPackage#getSourcesPointer_SourcePointer()
-   * @model containment="true"
+   * @model
    * @generated
    */
-  Context getSourcePointer();
+  DataControl getSourcePointer();
 
   /**
-   * Sets the value of the '{@link domain.SourcesPointer#getSourcePointer <em>Source Pointer</em>}' containment reference.
+   * Sets the value of the '{@link domain.SourcesPointer#getSourcePointer <em>Source Pointer</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Source Pointer</em>' containment reference.
+   * @param value the new value of the '<em>Source Pointer</em>' reference.
    * @see #getSourcePointer()
    * @generated
    */
-  void setSourcePointer(Context value);
+  void setSourcePointer(DataControl value);
 
   /**
-   * Returns the value of the '<em><b>Value Pointer</b></em>' containment reference.
+   * Returns the value of the '<em><b>Value Pointer</b></em>' reference.
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Value Pointer</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Value Pointer</em>' containment reference.
-   * @see #setValuePointer(Context)
+   * @return the value of the '<em>Value Pointer</em>' reference.
+   * @see #setValuePointer(EObject)
    * @see domain.DomainPackage#getSourcesPointer_ValuePointer()
-   * @model containment="true"
+   * @model
    * @generated
    */
-  Context getValuePointer();
+  EObject getValuePointer();
 
   /**
-   * Sets the value of the '{@link domain.SourcesPointer#getValuePointer <em>Value Pointer</em>}' containment reference.
+   * Sets the value of the '{@link domain.SourcesPointer#getValuePointer <em>Value Pointer</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Value Pointer</em>' containment reference.
+   * @param value the new value of the '<em>Value Pointer</em>' reference.
    * @see #getValuePointer()
    * @generated
    */
-  void setValuePointer(Context value);
+  void setValuePointer(EObject value);
 
   /**
-   * Returns the value of the '<em><b>Source Cast</b></em>' containment reference.
+   * Returns the value of the '<em><b>Source Cast</b></em>' reference.
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Source Cast</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Source Cast</em>' containment reference.
-   * @see #setSourceCast(Context)
+   * @return the value of the '<em>Source Cast</em>' reference.
+   * @see #setSourceCast(Type)
    * @see domain.DomainPackage#getSourcesPointer_SourceCast()
-   * @model containment="true"
+   * @model
    * @generated
    */
-  Context getSourceCast();
+  Type getSourceCast();
 
   /**
-   * Sets the value of the '{@link domain.SourcesPointer#getSourceCast <em>Source Cast</em>}' containment reference.
+   * Sets the value of the '{@link domain.SourcesPointer#getSourceCast <em>Source Cast</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Source Cast</em>' containment reference.
+   * @param value the new value of the '<em>Source Cast</em>' reference.
    * @see #getSourceCast()
    * @generated
    */
-  void setSourceCast(Context value);
+  void setSourceCast(Type value);
 
 } // SourcesPointer

@@ -3,13 +3,17 @@
 package domain.impl;
 
 import domain.Context;
+import domain.DataControl;
 import domain.DomainPackage;
 import domain.SourcesPointer;
 
+import domain.Type;
+import domain.TypePointer;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
@@ -32,34 +36,34 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 public class SourcesPointerImpl extends UielementImpl implements SourcesPointer
 {
   /**
-   * The cached value of the '{@link #getSourcePointer() <em>Source Pointer</em>}' containment reference.
+   * The cached value of the '{@link #getSourcePointer() <em>Source Pointer</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getSourcePointer()
    * @generated
    * @ordered
    */
-  protected Context sourcePointer;
+  protected DataControl sourcePointer;
 
   /**
-   * The cached value of the '{@link #getValuePointer() <em>Value Pointer</em>}' containment reference.
+   * The cached value of the '{@link #getValuePointer() <em>Value Pointer</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getValuePointer()
    * @generated
    * @ordered
    */
-  protected Context valuePointer;
+  protected EObject valuePointer;
 
   /**
-   * The cached value of the '{@link #getSourceCast() <em>Source Cast</em>}' containment reference.
+   * The cached value of the '{@link #getSourceCast() <em>Source Cast</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getSourceCast()
    * @generated
    * @ordered
    */
-  protected Context sourceCast;
+  protected Type sourceCast;
 
   /**
    * <!-- begin-user-doc -->
@@ -87,7 +91,27 @@ public class SourcesPointerImpl extends UielementImpl implements SourcesPointer
    * <!-- end-user-doc -->
    * @generated
    */
-  public Context getSourcePointer()
+  public DataControl getSourcePointer()
+  {
+    if (sourcePointer != null && sourcePointer.eIsProxy())
+    {
+      InternalEObject oldSourcePointer = (InternalEObject)sourcePointer;
+      sourcePointer = (DataControl)eResolveProxy(oldSourcePointer);
+      if (sourcePointer != oldSourcePointer)
+      {
+        if (eNotificationRequired())
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, DomainPackage.SOURCES_POINTER__SOURCE_POINTER, oldSourcePointer, sourcePointer));
+      }
+    }
+    return sourcePointer;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public DataControl basicGetSourcePointer()
   {
     return sourcePointer;
   }
@@ -97,16 +121,12 @@ public class SourcesPointerImpl extends UielementImpl implements SourcesPointer
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetSourcePointer(Context newSourcePointer, NotificationChain msgs)
+  public void setSourcePointer(DataControl newSourcePointer)
   {
-    Context oldSourcePointer = sourcePointer;
+    DataControl oldSourcePointer = sourcePointer;
     sourcePointer = newSourcePointer;
     if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DomainPackage.SOURCES_POINTER__SOURCE_POINTER, oldSourcePointer, newSourcePointer);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
+      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.SOURCES_POINTER__SOURCE_POINTER, oldSourcePointer, sourcePointer));
   }
 
   /**
@@ -114,20 +134,19 @@ public class SourcesPointerImpl extends UielementImpl implements SourcesPointer
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setSourcePointer(Context newSourcePointer)
+  public EObject getValuePointer()
   {
-    if (newSourcePointer != sourcePointer)
+    if (valuePointer != null && valuePointer.eIsProxy())
     {
-      NotificationChain msgs = null;
-      if (sourcePointer != null)
-        msgs = ((InternalEObject)sourcePointer).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DomainPackage.SOURCES_POINTER__SOURCE_POINTER, null, msgs);
-      if (newSourcePointer != null)
-        msgs = ((InternalEObject)newSourcePointer).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - DomainPackage.SOURCES_POINTER__SOURCE_POINTER, null, msgs);
-      msgs = basicSetSourcePointer(newSourcePointer, msgs);
-      if (msgs != null) msgs.dispatch();
+      InternalEObject oldValuePointer = (InternalEObject)valuePointer;
+      valuePointer = eResolveProxy(oldValuePointer);
+      if (valuePointer != oldValuePointer)
+      {
+        if (eNotificationRequired())
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, DomainPackage.SOURCES_POINTER__VALUE_POINTER, oldValuePointer, valuePointer));
+      }
     }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.SOURCES_POINTER__SOURCE_POINTER, newSourcePointer, newSourcePointer));
+    return valuePointer;
   }
 
   /**
@@ -135,7 +154,7 @@ public class SourcesPointerImpl extends UielementImpl implements SourcesPointer
    * <!-- end-user-doc -->
    * @generated
    */
-  public Context getValuePointer()
+  public EObject basicGetValuePointer()
   {
     return valuePointer;
   }
@@ -145,16 +164,12 @@ public class SourcesPointerImpl extends UielementImpl implements SourcesPointer
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetValuePointer(Context newValuePointer, NotificationChain msgs)
+  public void setValuePointer(EObject newValuePointer)
   {
-    Context oldValuePointer = valuePointer;
+    EObject oldValuePointer = valuePointer;
     valuePointer = newValuePointer;
     if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DomainPackage.SOURCES_POINTER__VALUE_POINTER, oldValuePointer, newValuePointer);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
+      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.SOURCES_POINTER__VALUE_POINTER, oldValuePointer, valuePointer));
   }
 
   /**
@@ -162,20 +177,19 @@ public class SourcesPointerImpl extends UielementImpl implements SourcesPointer
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setValuePointer(Context newValuePointer)
+  public Type getSourceCast()
   {
-    if (newValuePointer != valuePointer)
+    if (sourceCast != null && sourceCast.eIsProxy())
     {
-      NotificationChain msgs = null;
-      if (valuePointer != null)
-        msgs = ((InternalEObject)valuePointer).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DomainPackage.SOURCES_POINTER__VALUE_POINTER, null, msgs);
-      if (newValuePointer != null)
-        msgs = ((InternalEObject)newValuePointer).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - DomainPackage.SOURCES_POINTER__VALUE_POINTER, null, msgs);
-      msgs = basicSetValuePointer(newValuePointer, msgs);
-      if (msgs != null) msgs.dispatch();
+      InternalEObject oldSourceCast = (InternalEObject)sourceCast;
+      sourceCast = (Type)eResolveProxy(oldSourceCast);
+      if (sourceCast != oldSourceCast)
+      {
+        if (eNotificationRequired())
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, DomainPackage.SOURCES_POINTER__SOURCE_CAST, oldSourceCast, sourceCast));
+      }
     }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.SOURCES_POINTER__VALUE_POINTER, newValuePointer, newValuePointer));
+    return sourceCast;
   }
 
   /**
@@ -183,7 +197,7 @@ public class SourcesPointerImpl extends UielementImpl implements SourcesPointer
    * <!-- end-user-doc -->
    * @generated
    */
-  public Context getSourceCast()
+  public Type basicGetSourceCast()
   {
     return sourceCast;
   }
@@ -193,57 +207,12 @@ public class SourcesPointerImpl extends UielementImpl implements SourcesPointer
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetSourceCast(Context newSourceCast, NotificationChain msgs)
+  public void setSourceCast(Type newSourceCast)
   {
-    Context oldSourceCast = sourceCast;
+    Type oldSourceCast = sourceCast;
     sourceCast = newSourceCast;
     if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DomainPackage.SOURCES_POINTER__SOURCE_CAST, oldSourceCast, newSourceCast);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setSourceCast(Context newSourceCast)
-  {
-    if (newSourceCast != sourceCast)
-    {
-      NotificationChain msgs = null;
-      if (sourceCast != null)
-        msgs = ((InternalEObject)sourceCast).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DomainPackage.SOURCES_POINTER__SOURCE_CAST, null, msgs);
-      if (newSourceCast != null)
-        msgs = ((InternalEObject)newSourceCast).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - DomainPackage.SOURCES_POINTER__SOURCE_CAST, null, msgs);
-      msgs = basicSetSourceCast(newSourceCast, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.SOURCES_POINTER__SOURCE_CAST, newSourceCast, newSourceCast));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-  {
-    switch (featureID)
-    {
-      case DomainPackage.SOURCES_POINTER__SOURCE_POINTER:
-        return basicSetSourcePointer(null, msgs);
-      case DomainPackage.SOURCES_POINTER__VALUE_POINTER:
-        return basicSetValuePointer(null, msgs);
-      case DomainPackage.SOURCES_POINTER__SOURCE_CAST:
-        return basicSetSourceCast(null, msgs);
-    }
-    return super.eInverseRemove(otherEnd, featureID, msgs);
+      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.SOURCES_POINTER__SOURCE_CAST, oldSourceCast, sourceCast));
   }
 
   /**
@@ -257,11 +226,14 @@ public class SourcesPointerImpl extends UielementImpl implements SourcesPointer
     switch (featureID)
     {
       case DomainPackage.SOURCES_POINTER__SOURCE_POINTER:
-        return getSourcePointer();
+        if (resolve) return getSourcePointer();
+        return basicGetSourcePointer();
       case DomainPackage.SOURCES_POINTER__VALUE_POINTER:
-        return getValuePointer();
+        if (resolve) return getValuePointer();
+        return basicGetValuePointer();
       case DomainPackage.SOURCES_POINTER__SOURCE_CAST:
-        return getSourceCast();
+        if (resolve) return getSourceCast();
+        return basicGetSourceCast();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -277,13 +249,13 @@ public class SourcesPointerImpl extends UielementImpl implements SourcesPointer
     switch (featureID)
     {
       case DomainPackage.SOURCES_POINTER__SOURCE_POINTER:
-        setSourcePointer((Context)newValue);
+        setSourcePointer((DataControl)newValue);
         return;
       case DomainPackage.SOURCES_POINTER__VALUE_POINTER:
-        setValuePointer((Context)newValue);
+        setValuePointer((EObject)newValue);
         return;
       case DomainPackage.SOURCES_POINTER__SOURCE_CAST:
-        setSourceCast((Context)newValue);
+        setSourceCast((Type)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -300,13 +272,13 @@ public class SourcesPointerImpl extends UielementImpl implements SourcesPointer
     switch (featureID)
     {
       case DomainPackage.SOURCES_POINTER__SOURCE_POINTER:
-        setSourcePointer((Context)null);
+        setSourcePointer((DataControl)null);
         return;
       case DomainPackage.SOURCES_POINTER__VALUE_POINTER:
-        setValuePointer((Context)null);
+        setValuePointer((EObject)null);
         return;
       case DomainPackage.SOURCES_POINTER__SOURCE_CAST:
-        setSourceCast((Context)null);
+        setSourceCast((Type)null);
         return;
     }
     super.eUnset(featureID);

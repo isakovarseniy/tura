@@ -2,6 +2,7 @@
  */
 package domain;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -51,7 +52,7 @@ public interface CanvasView extends EObject
   void setUid(String value);
 
   /**
-   * Returns the value of the '<em><b>Parent</b></em>' container reference.
+   * Returns the value of the '<em><b>Parent</b></em>' reference.
    * It is bidirectional and its opposite is '{@link domain.ViewArea#getCanvasView <em>Canvas View</em>}'.
    * <!-- begin-user-doc -->
    * <p>
@@ -59,20 +60,20 @@ public interface CanvasView extends EObject
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Parent</em>' container reference.
+   * @return the value of the '<em>Parent</em>' reference.
    * @see #setParent(ViewArea)
    * @see domain.DomainPackage#getCanvasView_Parent()
    * @see domain.ViewArea#getCanvasView
-   * @model opposite="canvasView" transient="false"
+   * @model opposite="canvasView"
    * @generated
    */
   ViewArea getParent();
 
   /**
-   * Sets the value of the '{@link domain.CanvasView#getParent <em>Parent</em>}' container reference.
+   * Sets the value of the '{@link domain.CanvasView#getParent <em>Parent</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Parent</em>' container reference.
+   * @param value the new value of the '<em>Parent</em>' reference.
    * @see #getParent()
    * @generated
    */

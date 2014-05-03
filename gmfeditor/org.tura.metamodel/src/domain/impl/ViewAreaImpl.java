@@ -72,7 +72,7 @@ public class ViewAreaImpl extends ViewElementImpl implements ViewArea
   protected String name = NAME_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getCanvasView() <em>Canvas View</em>}' containment reference.
+   * The cached value of the '{@link #getCanvasView() <em>Canvas View</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getCanvasView()
@@ -155,6 +155,26 @@ public class ViewAreaImpl extends ViewElementImpl implements ViewArea
    */
   public CanvasView getCanvasView()
   {
+    if (canvasView != null && canvasView.eIsProxy())
+    {
+      InternalEObject oldCanvasView = (InternalEObject)canvasView;
+      canvasView = (CanvasView)eResolveProxy(oldCanvasView);
+      if (canvasView != oldCanvasView)
+      {
+        if (eNotificationRequired())
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, DomainPackage.VIEW_AREA__CANVAS_VIEW, oldCanvasView, canvasView));
+      }
+    }
+    return canvasView;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public CanvasView basicGetCanvasView()
+  {
     return canvasView;
   }
 
@@ -208,7 +228,7 @@ public class ViewAreaImpl extends ViewElementImpl implements ViewArea
     {
       case DomainPackage.VIEW_AREA__CANVAS_VIEW:
         if (canvasView != null)
-          msgs = ((InternalEObject)canvasView).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DomainPackage.VIEW_AREA__CANVAS_VIEW, null, msgs);
+          msgs = ((InternalEObject)canvasView).eInverseRemove(this, DomainPackage.CANVAS_VIEW__PARENT, CanvasView.class, msgs);
         return basicSetCanvasView((CanvasView)otherEnd, msgs);
     }
     return super.eInverseAdd(otherEnd, featureID, msgs);
@@ -245,7 +265,8 @@ public class ViewAreaImpl extends ViewElementImpl implements ViewArea
       case DomainPackage.VIEW_AREA__NAME:
         return getName();
       case DomainPackage.VIEW_AREA__CANVAS_VIEW:
-        return getCanvasView();
+        if (resolve) return getCanvasView();
+        return basicGetCanvasView();
     }
     return super.eGet(featureID, resolve, coreType);
   }

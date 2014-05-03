@@ -13,6 +13,7 @@ import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.ecore.EStructuralFeature;
 
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
@@ -62,42 +63,56 @@ public class SelectionItemProvider
     {
       super.getPropertyDescriptors(object);
 
+      addDisplayOptionPointerPropertyDescriptor(object);
+      addValueOptionPointerPropertyDescriptor(object);
     }
     return itemPropertyDescriptors;
   }
 
   /**
-   * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
-   * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
-   * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
+   * This adds a property descriptor for the Display Option Pointer feature.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
-  public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object)
+  protected void addDisplayOptionPointerPropertyDescriptor(Object object)
   {
-    if (childrenFeatures == null)
-    {
-      super.getChildrenFeatures(object);
-      childrenFeatures.add(DomainPackage.Literals.SELECTION__DISPLAY_OPTION_POINTER);
-      childrenFeatures.add(DomainPackage.Literals.SELECTION__VALUE_OPTION_POINTER);
-    }
-    return childrenFeatures;
+    itemPropertyDescriptors.add
+      (createItemPropertyDescriptor
+        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+         getResourceLocator(),
+         getString("_UI_Selection_displayOptionPointer_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_Selection_displayOptionPointer_feature", "_UI_Selection_type"),
+         DomainPackage.Literals.SELECTION__DISPLAY_OPTION_POINTER,
+         true,
+         false,
+         true,
+         null,
+         null,
+         null));
   }
 
   /**
+   * This adds a property descriptor for the Value Option Pointer feature.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
-  protected EStructuralFeature getChildFeature(Object object, Object child)
+  protected void addValueOptionPointerPropertyDescriptor(Object object)
   {
-    // Check the type of the specified child object and return the proper feature to use for
-    // adding (see {@link AddCommand}) it as a child.
-
-    return super.getChildFeature(object, child);
+    itemPropertyDescriptors.add
+      (createItemPropertyDescriptor
+        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+         getResourceLocator(),
+         getString("_UI_Selection_valueOptionPointer_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_Selection_valueOptionPointer_feature", "_UI_Selection_type"),
+         DomainPackage.Literals.SELECTION__VALUE_OPTION_POINTER,
+         true,
+         false,
+         true,
+         null,
+         null,
+         null));
   }
 
   /**
@@ -135,14 +150,6 @@ public class SelectionItemProvider
   public void notifyChanged(Notification notification)
   {
     updateChildren(notification);
-
-    switch (notification.getFeatureID(Selection.class))
-    {
-      case DomainPackage.SELECTION__DISPLAY_OPTION_POINTER:
-      case DomainPackage.SELECTION__VALUE_OPTION_POINTER:
-        fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
-        return;
-    }
     super.notifyChanged(notification);
   }
 
@@ -157,41 +164,6 @@ public class SelectionItemProvider
   protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object)
   {
     super.collectNewChildDescriptors(newChildDescriptors, object);
-
-    newChildDescriptors.add
-      (createChildParameter
-        (DomainPackage.Literals.SELECTION__DISPLAY_OPTION_POINTER,
-         DomainFactory.eINSTANCE.createContext()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (DomainPackage.Literals.SELECTION__VALUE_OPTION_POINTER,
-         DomainFactory.eINSTANCE.createContext()));
-  }
-
-  /**
-   * This returns the label text for {@link org.eclipse.emf.edit.command.CreateChildCommand}.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String getCreateChildText(Object owner, Object feature, Object child, Collection<?> selection)
-  {
-    Object childFeature = feature;
-    Object childObject = child;
-
-    boolean qualify =
-      childFeature == DomainPackage.Literals.SELECTION__DISPLAY_OPTION_POINTER ||
-      childFeature == DomainPackage.Literals.SELECTION__VALUE_OPTION_POINTER;
-
-    if (qualify)
-    {
-      return getString
-        ("_UI_CreateChild_text2",
-         new Object[] { getTypeText(childObject), getFeatureText(childFeature), getTypeText(owner) });
-    }
-    return super.getCreateChildText(owner, feature, child, selection);
   }
 
 }

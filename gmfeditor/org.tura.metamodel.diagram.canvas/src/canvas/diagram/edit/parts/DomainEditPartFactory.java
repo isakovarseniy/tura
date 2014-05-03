@@ -31,26 +31,11 @@ public class DomainEditPartFactory implements EditPartFactory {
 			case LayerHolderEditPart.VISUAL_ID:
 				return new LayerHolderEditPart(view);
 
-			case LayerHolder2EditPart.VISUAL_ID:
-				return new LayerHolder2EditPart(view);
-
 			case DropDownSelectionEditPart.VISUAL_ID:
 				return new DropDownSelectionEditPart(view);
 
-			case TableEditPart.VISUAL_ID:
-				return new TableEditPart(view);
-
-			case TableLabelEditPart.VISUAL_ID:
-				return new TableLabelEditPart(view);
-
-			case ColumnEditPart.VISUAL_ID:
-				return new ColumnEditPart(view);
-
-			case ColumnLabelEditPart.VISUAL_ID:
-				return new ColumnLabelEditPart(view);
-
-			case LayerHolder3EditPart.VISUAL_ID:
-				return new LayerHolder3EditPart(view);
+			case LayerHolder2EditPart.VISUAL_ID:
+				return new LayerHolder2EditPart(view);
 
 			case InputTextEditPart.VISUAL_ID:
 				return new InputTextEditPart(view);
@@ -67,6 +52,24 @@ public class DomainEditPartFactory implements EditPartFactory {
 			case CheckBoxEditPart.VISUAL_ID:
 				return new CheckBoxEditPart(view);
 
+			case TableEditPart.VISUAL_ID:
+				return new TableEditPart(view);
+
+			case TableLabelEditPart.VISUAL_ID:
+				return new TableLabelEditPart(view);
+
+			case ColumnEditPart.VISUAL_ID:
+				return new ColumnEditPart(view);
+
+			case ColumnLabelEditPart.VISUAL_ID:
+				return new ColumnLabelEditPart(view);
+
+			case DropDownSelection2EditPart.VISUAL_ID:
+				return new DropDownSelection2EditPart(view);
+
+			case LayerHolder3EditPart.VISUAL_ID:
+				return new LayerHolder3EditPart(view);
+
 			case TreeEditPart.VISUAL_ID:
 				return new TreeEditPart(view);
 
@@ -78,15 +81,6 @@ public class DomainEditPartFactory implements EditPartFactory {
 
 			case ButtonLabelEditPart.VISUAL_ID:
 				return new ButtonLabelEditPart(view);
-
-			case DropDownSelection2EditPart.VISUAL_ID:
-				return new DropDownSelection2EditPart(view);
-
-			case Table2EditPart.VISUAL_ID:
-				return new Table2EditPart(view);
-
-			case TableLabel2EditPart.VISUAL_ID:
-				return new TableLabel2EditPart(view);
 
 			case InputText2EditPart.VISUAL_ID:
 				return new InputText2EditPart(view);
@@ -102,6 +96,12 @@ public class DomainEditPartFactory implements EditPartFactory {
 
 			case CheckBox2EditPart.VISUAL_ID:
 				return new CheckBox2EditPart(view);
+
+			case Table2EditPart.VISUAL_ID:
+				return new Table2EditPart(view);
+
+			case TableLabel2EditPart.VISUAL_ID:
+				return new TableLabel2EditPart(view);
 
 			case Tree2EditPart.VISUAL_ID:
 				return new Tree2EditPart(view);

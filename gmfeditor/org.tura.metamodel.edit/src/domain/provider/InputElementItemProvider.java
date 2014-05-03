@@ -26,7 +26,7 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
  * @generated
  */
 public class InputElementItemProvider
-  extends UielementItemProvider
+  extends SourcesPointerItemProvider
   implements
     IEditingDomainItemProvider,
     IStructuredItemContentProvider,

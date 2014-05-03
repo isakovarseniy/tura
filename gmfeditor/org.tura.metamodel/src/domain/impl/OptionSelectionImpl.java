@@ -2,10 +2,12 @@
  */
 package domain.impl;
 
+import domain.DataControl;
 import domain.Context;
 import domain.DomainPackage;
 import domain.OptionSelection;
 
+import domain.TypePointer;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -31,14 +33,14 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 public class OptionSelectionImpl extends InputElementImpl implements OptionSelection
 {
   /**
-   * The cached value of the '{@link #getOptionPointer() <em>Option Pointer</em>}' containment reference.
+   * The cached value of the '{@link #getOptionPointer() <em>Option Pointer</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getOptionPointer()
    * @generated
    * @ordered
    */
-  protected Context optionPointer;
+  protected DataControl optionPointer;
 
   /**
    * The cached value of the '{@link #getOptionCast() <em>Option Cast</em>}' containment reference.
@@ -48,7 +50,7 @@ public class OptionSelectionImpl extends InputElementImpl implements OptionSelec
    * @generated
    * @ordered
    */
-  protected Context optionCast;
+  protected TypePointer optionCast;
 
   /**
    * <!-- begin-user-doc -->
@@ -76,7 +78,27 @@ public class OptionSelectionImpl extends InputElementImpl implements OptionSelec
    * <!-- end-user-doc -->
    * @generated
    */
-  public Context getOptionPointer()
+  public DataControl getOptionPointer()
+  {
+    if (optionPointer != null && optionPointer.eIsProxy())
+    {
+      InternalEObject oldOptionPointer = (InternalEObject)optionPointer;
+      optionPointer = (DataControl)eResolveProxy(oldOptionPointer);
+      if (optionPointer != oldOptionPointer)
+      {
+        if (eNotificationRequired())
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, DomainPackage.OPTION_SELECTION__OPTION_POINTER, oldOptionPointer, optionPointer));
+      }
+    }
+    return optionPointer;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public DataControl basicGetOptionPointer()
   {
     return optionPointer;
   }
@@ -86,16 +108,12 @@ public class OptionSelectionImpl extends InputElementImpl implements OptionSelec
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetOptionPointer(Context newOptionPointer, NotificationChain msgs)
+  public void setOptionPointer(DataControl newOptionPointer)
   {
-    Context oldOptionPointer = optionPointer;
+    DataControl oldOptionPointer = optionPointer;
     optionPointer = newOptionPointer;
     if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DomainPackage.OPTION_SELECTION__OPTION_POINTER, oldOptionPointer, newOptionPointer);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
+      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.OPTION_SELECTION__OPTION_POINTER, oldOptionPointer, optionPointer));
   }
 
   /**
@@ -103,28 +121,7 @@ public class OptionSelectionImpl extends InputElementImpl implements OptionSelec
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setOptionPointer(Context newOptionPointer)
-  {
-    if (newOptionPointer != optionPointer)
-    {
-      NotificationChain msgs = null;
-      if (optionPointer != null)
-        msgs = ((InternalEObject)optionPointer).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DomainPackage.OPTION_SELECTION__OPTION_POINTER, null, msgs);
-      if (newOptionPointer != null)
-        msgs = ((InternalEObject)newOptionPointer).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - DomainPackage.OPTION_SELECTION__OPTION_POINTER, null, msgs);
-      msgs = basicSetOptionPointer(newOptionPointer, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.OPTION_SELECTION__OPTION_POINTER, newOptionPointer, newOptionPointer));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Context getOptionCast()
+  public TypePointer getOptionCast()
   {
     return optionCast;
   }
@@ -134,9 +131,9 @@ public class OptionSelectionImpl extends InputElementImpl implements OptionSelec
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetOptionCast(Context newOptionCast, NotificationChain msgs)
+  public NotificationChain basicSetOptionCast(TypePointer newOptionCast, NotificationChain msgs)
   {
-    Context oldOptionCast = optionCast;
+    TypePointer oldOptionCast = optionCast;
     optionCast = newOptionCast;
     if (eNotificationRequired())
     {
@@ -151,7 +148,7 @@ public class OptionSelectionImpl extends InputElementImpl implements OptionSelec
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setOptionCast(Context newOptionCast)
+  public void setOptionCast(TypePointer newOptionCast)
   {
     if (newOptionCast != optionCast)
     {
@@ -177,8 +174,6 @@ public class OptionSelectionImpl extends InputElementImpl implements OptionSelec
   {
     switch (featureID)
     {
-      case DomainPackage.OPTION_SELECTION__OPTION_POINTER:
-        return basicSetOptionPointer(null, msgs);
       case DomainPackage.OPTION_SELECTION__OPTION_CAST:
         return basicSetOptionCast(null, msgs);
     }
@@ -196,7 +191,8 @@ public class OptionSelectionImpl extends InputElementImpl implements OptionSelec
     switch (featureID)
     {
       case DomainPackage.OPTION_SELECTION__OPTION_POINTER:
-        return getOptionPointer();
+        if (resolve) return getOptionPointer();
+        return basicGetOptionPointer();
       case DomainPackage.OPTION_SELECTION__OPTION_CAST:
         return getOptionCast();
     }
@@ -214,10 +210,10 @@ public class OptionSelectionImpl extends InputElementImpl implements OptionSelec
     switch (featureID)
     {
       case DomainPackage.OPTION_SELECTION__OPTION_POINTER:
-        setOptionPointer((Context)newValue);
+        setOptionPointer((DataControl)newValue);
         return;
       case DomainPackage.OPTION_SELECTION__OPTION_CAST:
-        setOptionCast((Context)newValue);
+        setOptionCast((TypePointer)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -234,10 +230,10 @@ public class OptionSelectionImpl extends InputElementImpl implements OptionSelec
     switch (featureID)
     {
       case DomainPackage.OPTION_SELECTION__OPTION_POINTER:
-        setOptionPointer((Context)null);
+        setOptionPointer((DataControl)null);
         return;
       case DomainPackage.OPTION_SELECTION__OPTION_CAST:
-        setOptionCast((Context)null);
+        setOptionCast((TypePointer)null);
         return;
     }
     super.eUnset(featureID);

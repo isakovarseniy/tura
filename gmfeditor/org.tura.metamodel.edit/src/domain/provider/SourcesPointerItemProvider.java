@@ -15,6 +15,7 @@ import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
 
+import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
@@ -62,43 +63,80 @@ public class SourcesPointerItemProvider
     {
       super.getPropertyDescriptors(object);
 
+      addSourcePointerPropertyDescriptor(object);
+      addValuePointerPropertyDescriptor(object);
+      addSourceCastPropertyDescriptor(object);
     }
     return itemPropertyDescriptors;
   }
 
   /**
-   * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
-   * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
-   * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
+   * This adds a property descriptor for the Source Pointer feature.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
-  public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object)
+  protected void addSourcePointerPropertyDescriptor(Object object)
   {
-    if (childrenFeatures == null)
-    {
-      super.getChildrenFeatures(object);
-      childrenFeatures.add(DomainPackage.Literals.SOURCES_POINTER__SOURCE_POINTER);
-      childrenFeatures.add(DomainPackage.Literals.SOURCES_POINTER__VALUE_POINTER);
-      childrenFeatures.add(DomainPackage.Literals.SOURCES_POINTER__SOURCE_CAST);
-    }
-    return childrenFeatures;
+    itemPropertyDescriptors.add
+      (createItemPropertyDescriptor
+        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+         getResourceLocator(),
+         getString("_UI_SourcesPointer_sourcePointer_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_SourcesPointer_sourcePointer_feature", "_UI_SourcesPointer_type"),
+         DomainPackage.Literals.SOURCES_POINTER__SOURCE_POINTER,
+         true,
+         false,
+         true,
+         null,
+         null,
+         null));
   }
 
   /**
+   * This adds a property descriptor for the Value Pointer feature.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
-  protected EStructuralFeature getChildFeature(Object object, Object child)
+  protected void addValuePointerPropertyDescriptor(Object object)
   {
-    // Check the type of the specified child object and return the proper feature to use for
-    // adding (see {@link AddCommand}) it as a child.
+    itemPropertyDescriptors.add
+      (createItemPropertyDescriptor
+        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+         getResourceLocator(),
+         getString("_UI_SourcesPointer_valuePointer_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_SourcesPointer_valuePointer_feature", "_UI_SourcesPointer_type"),
+         DomainPackage.Literals.SOURCES_POINTER__VALUE_POINTER,
+         true,
+         false,
+         true,
+         null,
+         null,
+         null));
+  }
 
-    return super.getChildFeature(object, child);
+  /**
+   * This adds a property descriptor for the Source Cast feature.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected void addSourceCastPropertyDescriptor(Object object)
+  {
+    itemPropertyDescriptors.add
+      (createItemPropertyDescriptor
+        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+         getResourceLocator(),
+         getString("_UI_SourcesPointer_sourceCast_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_SourcesPointer_sourceCast_feature", "_UI_SourcesPointer_type"),
+         DomainPackage.Literals.SOURCES_POINTER__SOURCE_CAST,
+         true,
+         false,
+         true,
+         null,
+         null,
+         null));
   }
 
   /**
@@ -139,15 +177,6 @@ public class SourcesPointerItemProvider
   public void notifyChanged(Notification notification)
   {
     updateChildren(notification);
-
-    switch (notification.getFeatureID(SourcesPointer.class))
-    {
-      case DomainPackage.SOURCES_POINTER__SOURCE_POINTER:
-      case DomainPackage.SOURCES_POINTER__VALUE_POINTER:
-      case DomainPackage.SOURCES_POINTER__SOURCE_CAST:
-        fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
-        return;
-    }
     super.notifyChanged(notification);
   }
 
@@ -162,21 +191,6 @@ public class SourcesPointerItemProvider
   protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object)
   {
     super.collectNewChildDescriptors(newChildDescriptors, object);
-
-    newChildDescriptors.add
-      (createChildParameter
-        (DomainPackage.Literals.SOURCES_POINTER__SOURCE_POINTER,
-         DomainFactory.eINSTANCE.createContext()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (DomainPackage.Literals.SOURCES_POINTER__VALUE_POINTER,
-         DomainFactory.eINSTANCE.createContext()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (DomainPackage.Literals.SOURCES_POINTER__SOURCE_CAST,
-         DomainFactory.eINSTANCE.createContext()));
   }
 
   /**
@@ -194,10 +208,7 @@ public class SourcesPointerItemProvider
     boolean qualify =
       childFeature == DomainPackage.Literals.UIELEMENT__ENABLED_CONTEXT ||
       childFeature == DomainPackage.Literals.UIELEMENT__REQUIRED_CONTEXT ||
-      childFeature == DomainPackage.Literals.UIELEMENT__READ_ONLY_CONTEXT ||
-      childFeature == DomainPackage.Literals.SOURCES_POINTER__SOURCE_POINTER ||
-      childFeature == DomainPackage.Literals.SOURCES_POINTER__VALUE_POINTER ||
-      childFeature == DomainPackage.Literals.SOURCES_POINTER__SOURCE_CAST;
+      childFeature == DomainPackage.Literals.UIELEMENT__READ_ONLY_CONTEXT;
 
     if (qualify)
     {

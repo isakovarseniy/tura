@@ -7,15 +7,19 @@ import domain.DomainPackage;
 import domain.LayerHolder;
 import domain.ViewArea;
 
+import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 
 /**
@@ -54,6 +58,16 @@ public class CanvasViewImpl extends EObjectImpl implements CanvasView
    * @ordered
    */
   protected String uid = UID_EDEFAULT;
+
+  /**
+   * The cached value of the '{@link #getParent() <em>Parent</em>}' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getParent()
+   * @generated
+   * @ordered
+   */
+  protected ViewArea parent;
 
   /**
    * The cached value of the '{@link #getBaseCanvas() <em>Base Canvas</em>}' containment reference.
@@ -116,8 +130,27 @@ public class CanvasViewImpl extends EObjectImpl implements CanvasView
    */
   public ViewArea getParent()
   {
-    if (eContainerFeatureID() != DomainPackage.CANVAS_VIEW__PARENT) return null;
-    return (ViewArea)eContainer();
+    if (parent != null && parent.eIsProxy())
+    {
+      InternalEObject oldParent = (InternalEObject)parent;
+      parent = (ViewArea)eResolveProxy(oldParent);
+      if (parent != oldParent)
+      {
+        if (eNotificationRequired())
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, DomainPackage.CANVAS_VIEW__PARENT, oldParent, parent));
+      }
+    }
+    return parent;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ViewArea basicGetParent()
+  {
+    return parent;
   }
 
   /**
@@ -127,7 +160,13 @@ public class CanvasViewImpl extends EObjectImpl implements CanvasView
    */
   public NotificationChain basicSetParent(ViewArea newParent, NotificationChain msgs)
   {
-    msgs = eBasicSetContainer((InternalEObject)newParent, DomainPackage.CANVAS_VIEW__PARENT, msgs);
+    ViewArea oldParent = parent;
+    parent = newParent;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DomainPackage.CANVAS_VIEW__PARENT, oldParent, newParent);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
     return msgs;
   }
 
@@ -138,13 +177,11 @@ public class CanvasViewImpl extends EObjectImpl implements CanvasView
    */
   public void setParent(ViewArea newParent)
   {
-    if (newParent != eInternalContainer() || (eContainerFeatureID() != DomainPackage.CANVAS_VIEW__PARENT && newParent != null))
+    if (newParent != parent)
     {
-      if (EcoreUtil.isAncestor(this, newParent))
-        throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
       NotificationChain msgs = null;
-      if (eInternalContainer() != null)
-        msgs = eBasicRemoveFromContainer(msgs);
+      if (parent != null)
+        msgs = ((InternalEObject)parent).eInverseRemove(this, DomainPackage.VIEW_AREA__CANVAS_VIEW, ViewArea.class, msgs);
       if (newParent != null)
         msgs = ((InternalEObject)newParent).eInverseAdd(this, DomainPackage.VIEW_AREA__CANVAS_VIEW, ViewArea.class, msgs);
       msgs = basicSetParent(newParent, msgs);
@@ -213,8 +250,8 @@ public class CanvasViewImpl extends EObjectImpl implements CanvasView
     switch (featureID)
     {
       case DomainPackage.CANVAS_VIEW__PARENT:
-        if (eInternalContainer() != null)
-          msgs = eBasicRemoveFromContainer(msgs);
+        if (parent != null)
+          msgs = ((InternalEObject)parent).eInverseRemove(this, DomainPackage.VIEW_AREA__CANVAS_VIEW, ViewArea.class, msgs);
         return basicSetParent((ViewArea)otherEnd, msgs);
     }
     return super.eInverseAdd(otherEnd, featureID, msgs);
@@ -244,22 +281,6 @@ public class CanvasViewImpl extends EObjectImpl implements CanvasView
    * @generated
    */
   @Override
-  public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs)
-  {
-    switch (eContainerFeatureID())
-    {
-      case DomainPackage.CANVAS_VIEW__PARENT:
-        return eInternalContainer().eInverseRemove(this, DomainPackage.VIEW_AREA__CANVAS_VIEW, ViewArea.class, msgs);
-    }
-    return super.eBasicRemoveFromContainerFeature(msgs);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
     switch (featureID)
@@ -267,7 +288,8 @@ public class CanvasViewImpl extends EObjectImpl implements CanvasView
       case DomainPackage.CANVAS_VIEW__UID:
         return getUid();
       case DomainPackage.CANVAS_VIEW__PARENT:
-        return getParent();
+        if (resolve) return getParent();
+        return basicGetParent();
       case DomainPackage.CANVAS_VIEW__BASE_CANVAS:
         return getBaseCanvas();
     }
@@ -279,6 +301,7 @@ public class CanvasViewImpl extends EObjectImpl implements CanvasView
    * <!-- end-user-doc -->
    * @generated
    */
+  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
@@ -333,7 +356,7 @@ public class CanvasViewImpl extends EObjectImpl implements CanvasView
       case DomainPackage.CANVAS_VIEW__UID:
         return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
       case DomainPackage.CANVAS_VIEW__PARENT:
-        return getParent() != null;
+        return parent != null;
       case DomainPackage.CANVAS_VIEW__BASE_CANVAS:
         return baseCanvas != null;
     }

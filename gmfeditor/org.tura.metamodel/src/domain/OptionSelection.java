@@ -23,30 +23,30 @@ package domain;
 public interface OptionSelection extends InputElement
 {
   /**
-   * Returns the value of the '<em><b>Option Pointer</b></em>' containment reference.
+   * Returns the value of the '<em><b>Option Pointer</b></em>' reference.
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Option Pointer</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Option Pointer</em>' containment reference.
-   * @see #setOptionPointer(Context)
+   * @return the value of the '<em>Option Pointer</em>' reference.
+   * @see #setOptionPointer(DataControl)
    * @see domain.DomainPackage#getOptionSelection_OptionPointer()
-   * @model containment="true"
+   * @model
    * @generated
    */
-  Context getOptionPointer();
+  DataControl getOptionPointer();
 
   /**
-   * Sets the value of the '{@link domain.OptionSelection#getOptionPointer <em>Option Pointer</em>}' containment reference.
+   * Sets the value of the '{@link domain.OptionSelection#getOptionPointer <em>Option Pointer</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Option Pointer</em>' containment reference.
+   * @param value the new value of the '<em>Option Pointer</em>' reference.
    * @see #getOptionPointer()
    * @generated
    */
-  void setOptionPointer(Context value);
+  void setOptionPointer(DataControl value);
 
   /**
    * Returns the value of the '<em><b>Option Cast</b></em>' containment reference.
@@ -57,12 +57,12 @@ public interface OptionSelection extends InputElement
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Option Cast</em>' containment reference.
-   * @see #setOptionCast(Context)
+   * @see #setOptionCast(TypePointer)
    * @see domain.DomainPackage#getOptionSelection_OptionCast()
    * @model containment="true"
    * @generated
    */
-  Context getOptionCast();
+  TypePointer getOptionCast();
 
   /**
    * Sets the value of the '{@link domain.OptionSelection#getOptionCast <em>Option Cast</em>}' containment reference.
@@ -72,6 +72,6 @@ public interface OptionSelection extends InputElement
    * @see #getOptionCast()
    * @generated
    */
-  void setOptionCast(Context value);
+  void setOptionCast(TypePointer value);
 
 } // OptionSelection
