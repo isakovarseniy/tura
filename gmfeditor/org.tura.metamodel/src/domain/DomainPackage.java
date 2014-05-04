@@ -6130,7 +6130,7 @@ public interface DomainPackage extends EPackage
   int OPTION_SELECTION__OPTION_POINTER = INPUT_ELEMENT_FEATURE_COUNT + 0;
 
   /**
-   * The feature id for the '<em><b>Option Cast</b></em>' containment reference.
+   * The feature id for the '<em><b>Option Cast</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -6748,7 +6748,7 @@ public interface DomainPackage extends EPackage
   int DROP_DOWN_SELECTION__OPTION_POINTER = OPTION_SELECTION__OPTION_POINTER;
 
   /**
-   * The feature id for the '<em><b>Option Cast</b></em>' containment reference.
+   * The feature id for the '<em><b>Option Cast</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -14200,10 +14200,10 @@ public interface DomainPackage extends EPackage
   EReference getOptionSelection_OptionPointer();
 
   /**
-   * Returns the meta object for the containment reference '{@link domain.OptionSelection#getOptionCast <em>Option Cast</em>}'.
+   * Returns the meta object for the reference '{@link domain.OptionSelection#getOptionCast <em>Option Cast</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Option Cast</em>'.
+   * @return the meta object for the reference '<em>Option Cast</em>'.
    * @see domain.OptionSelection#getOptionCast()
    * @see #getOptionSelection()
    * @generated
@@ -19140,7 +19140,7 @@ public interface DomainPackage extends EPackage
     EReference OPTION_SELECTION__OPTION_POINTER = eINSTANCE.getOptionSelection_OptionPointer();
 
     /**
-     * The meta object literal for the '<em><b>Option Cast</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Option Cast</b></em>' reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated

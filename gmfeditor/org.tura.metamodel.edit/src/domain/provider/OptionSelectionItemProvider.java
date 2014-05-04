@@ -64,6 +64,7 @@ public class OptionSelectionItemProvider
       super.getPropertyDescriptors(object);
 
       addOptionPointerPropertyDescriptor(object);
+      addOptionCastPropertyDescriptor(object);
     }
     return itemPropertyDescriptors;
   }
@@ -92,36 +93,26 @@ public class OptionSelectionItemProvider
   }
 
   /**
-   * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
-   * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
-   * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
+   * This adds a property descriptor for the Option Cast feature.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
-  public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object)
+  protected void addOptionCastPropertyDescriptor(Object object)
   {
-    if (childrenFeatures == null)
-    {
-      super.getChildrenFeatures(object);
-      childrenFeatures.add(DomainPackage.Literals.OPTION_SELECTION__OPTION_CAST);
-    }
-    return childrenFeatures;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  protected EStructuralFeature getChildFeature(Object object, Object child)
-  {
-    // Check the type of the specified child object and return the proper feature to use for
-    // adding (see {@link AddCommand}) it as a child.
-
-    return super.getChildFeature(object, child);
+    itemPropertyDescriptors.add
+      (createItemPropertyDescriptor
+        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+         getResourceLocator(),
+         getString("_UI_OptionSelection_optionCast_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_OptionSelection_optionCast_feature", "_UI_OptionSelection_type"),
+         DomainPackage.Literals.OPTION_SELECTION__OPTION_CAST,
+         true,
+         false,
+         true,
+         null,
+         null,
+         null));
   }
 
   /**
@@ -162,13 +153,6 @@ public class OptionSelectionItemProvider
   public void notifyChanged(Notification notification)
   {
     updateChildren(notification);
-
-    switch (notification.getFeatureID(OptionSelection.class))
-    {
-      case DomainPackage.OPTION_SELECTION__OPTION_CAST:
-        fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
-        return;
-    }
     super.notifyChanged(notification);
   }
 
@@ -183,116 +167,6 @@ public class OptionSelectionItemProvider
   protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object)
   {
     super.collectNewChildDescriptors(newChildDescriptors, object);
-
-    newChildDescriptors.add
-      (createChildParameter
-        (DomainPackage.Literals.OPTION_SELECTION__OPTION_CAST,
-         DomainFactory.eINSTANCE.createTypePointer()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (DomainPackage.Literals.OPTION_SELECTION__OPTION_CAST,
-         DomainFactory.eINSTANCE.createMethodPointer()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (DomainPackage.Literals.OPTION_SELECTION__OPTION_CAST,
-         DomainFactory.eINSTANCE.createMapper()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (DomainPackage.Literals.OPTION_SELECTION__OPTION_CAST,
-         DomainFactory.eINSTANCE.createJavaMapper()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (DomainPackage.Literals.OPTION_SELECTION__OPTION_CAST,
-         DomainFactory.eINSTANCE.createTypeReference()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (DomainPackage.Literals.OPTION_SELECTION__OPTION_CAST,
-         DomainFactory.eINSTANCE.createAttribute()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (DomainPackage.Literals.OPTION_SELECTION__OPTION_CAST,
-         DomainFactory.eINSTANCE.createParameter()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (DomainPackage.Literals.OPTION_SELECTION__OPTION_CAST,
-         DomainFactory.eINSTANCE.createReturnValue()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (DomainPackage.Literals.OPTION_SELECTION__OPTION_CAST,
-         DomainFactory.eINSTANCE.createTrigger()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (DomainPackage.Literals.OPTION_SELECTION__OPTION_CAST,
-         DomainFactory.eINSTANCE.createPREFormTrigger()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (DomainPackage.Literals.OPTION_SELECTION__OPTION_CAST,
-         DomainFactory.eINSTANCE.createPREQueryTrigger()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (DomainPackage.Literals.OPTION_SELECTION__OPTION_CAST,
-         DomainFactory.eINSTANCE.createPOSTQueryTrigger()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (DomainPackage.Literals.OPTION_SELECTION__OPTION_CAST,
-         DomainFactory.eINSTANCE.createPREInsertTrigger()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (DomainPackage.Literals.OPTION_SELECTION__OPTION_CAST,
-         DomainFactory.eINSTANCE.createPREDeleteTrigger()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (DomainPackage.Literals.OPTION_SELECTION__OPTION_CAST,
-         DomainFactory.eINSTANCE.createPOSTCreateTrigger()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (DomainPackage.Literals.OPTION_SELECTION__OPTION_CAST,
-         DomainFactory.eINSTANCE.createPREUpdateTrigger()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (DomainPackage.Literals.OPTION_SELECTION__OPTION_CAST,
-         DomainFactory.eINSTANCE.createCreateTrigger()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (DomainPackage.Literals.OPTION_SELECTION__OPTION_CAST,
-         DomainFactory.eINSTANCE.createInsertTrigger()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (DomainPackage.Literals.OPTION_SELECTION__OPTION_CAST,
-         DomainFactory.eINSTANCE.createUpdateTrigger()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (DomainPackage.Literals.OPTION_SELECTION__OPTION_CAST,
-         DomainFactory.eINSTANCE.createDeleteTrigger()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (DomainPackage.Literals.OPTION_SELECTION__OPTION_CAST,
-         DomainFactory.eINSTANCE.createSearchTrigger()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (DomainPackage.Literals.OPTION_SELECTION__OPTION_CAST,
-         DomainFactory.eINSTANCE.createArtificialField()));
   }
 
   /**

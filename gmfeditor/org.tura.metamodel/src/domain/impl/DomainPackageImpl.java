@@ -8119,7 +8119,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
 
     initEClass(optionSelectionEClass, OptionSelection.class, "OptionSelection", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getOptionSelection_OptionPointer(), this.getDataControl(), null, "optionPointer", null, 0, 1, OptionSelection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getOptionSelection_OptionCast(), this.getTypePointer(), null, "optionCast", null, 0, 1, OptionSelection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getOptionSelection_OptionCast(), this.getType(), null, "optionCast", null, 0, 1, OptionSelection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(layerHolderEClass, LayerHolder.class, "LayerHolder", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

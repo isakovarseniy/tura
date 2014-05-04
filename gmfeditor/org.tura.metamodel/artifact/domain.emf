@@ -790,7 +790,7 @@ class Selection extends StyleElement{
 
 class OptionSelection extends InputElement {
    ref DataControl optionPointer;
-   val TypePointer optionCast;
+   ref Type optionCast;
 }
 
 @gmf.node(label.placement="none",tool.small.bundle="org.tura.metamodel.commons",tool.small.path="icons/layerholder.png")

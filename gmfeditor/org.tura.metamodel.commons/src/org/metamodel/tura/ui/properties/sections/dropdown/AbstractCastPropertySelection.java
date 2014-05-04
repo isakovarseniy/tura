@@ -29,7 +29,7 @@ public abstract class AbstractCastPropertySelection extends
 
 			domain.DataControl dc = (DataControl) dropDownDataSupplier
 					.getWatchPointObject(getModel())[0];
-			if (dc.getCreate() == null)
+			if (dc == null || dc.getCreate() == null)
 				return values;
 
 			if (dc.getCreate().getMethodRef() == null

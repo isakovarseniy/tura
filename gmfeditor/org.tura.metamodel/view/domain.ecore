@@ -1194,8 +1194,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="OptionSelection" eSuperTypes="#//InputElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="optionPointer" eType="#//DataControl"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="optionCast" eType="#//TypePointer"
-        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="optionCast" eType="#//Type"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="LayerHolder" eSuperTypes="#//Uielement #//ChildrenHolder #//HTMLLayerHolder">
     <eAnnotations source="gmf.node">

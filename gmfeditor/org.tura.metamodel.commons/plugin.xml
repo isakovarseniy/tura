@@ -489,6 +489,15 @@
                id="org.tura.metamodel.diagram.canvas.optionpointer">
               <input type="canvas.diagram.edit.parts.DropDownSelectionEditPart"/>
            </propertySection>        
+
+             <propertySection
+               tab="property.tab.domain.canvas.optionpointer"
+               class="org.metamodel.tura.ui.properties.sections.dropdown.OptionsCastDataControlPropertySelection"
+               id="org.tura.metamodel.diagram.canvas.optionpointer">
+              <input type="canvas.diagram.edit.parts.DropDownSelectionEditPart"/>
+           </propertySection>        
+
+
        </propertySections>
   </extension>  
 

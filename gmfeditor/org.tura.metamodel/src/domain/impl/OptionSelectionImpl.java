@@ -7,6 +7,7 @@ import domain.Context;
 import domain.DomainPackage;
 import domain.OptionSelection;
 
+import domain.Type;
 import domain.TypePointer;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -43,14 +44,14 @@ public class OptionSelectionImpl extends InputElementImpl implements OptionSelec
   protected DataControl optionPointer;
 
   /**
-   * The cached value of the '{@link #getOptionCast() <em>Option Cast</em>}' containment reference.
+   * The cached value of the '{@link #getOptionCast() <em>Option Cast</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getOptionCast()
    * @generated
    * @ordered
    */
-  protected TypePointer optionCast;
+  protected Type optionCast;
 
   /**
    * <!-- begin-user-doc -->
@@ -121,7 +122,27 @@ public class OptionSelectionImpl extends InputElementImpl implements OptionSelec
    * <!-- end-user-doc -->
    * @generated
    */
-  public TypePointer getOptionCast()
+  public Type getOptionCast()
+  {
+    if (optionCast != null && optionCast.eIsProxy())
+    {
+      InternalEObject oldOptionCast = (InternalEObject)optionCast;
+      optionCast = (Type)eResolveProxy(oldOptionCast);
+      if (optionCast != oldOptionCast)
+      {
+        if (eNotificationRequired())
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, DomainPackage.OPTION_SELECTION__OPTION_CAST, oldOptionCast, optionCast));
+      }
+    }
+    return optionCast;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Type basicGetOptionCast()
   {
     return optionCast;
   }
@@ -131,53 +152,12 @@ public class OptionSelectionImpl extends InputElementImpl implements OptionSelec
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetOptionCast(TypePointer newOptionCast, NotificationChain msgs)
+  public void setOptionCast(Type newOptionCast)
   {
-    TypePointer oldOptionCast = optionCast;
+    Type oldOptionCast = optionCast;
     optionCast = newOptionCast;
     if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DomainPackage.OPTION_SELECTION__OPTION_CAST, oldOptionCast, newOptionCast);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setOptionCast(TypePointer newOptionCast)
-  {
-    if (newOptionCast != optionCast)
-    {
-      NotificationChain msgs = null;
-      if (optionCast != null)
-        msgs = ((InternalEObject)optionCast).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DomainPackage.OPTION_SELECTION__OPTION_CAST, null, msgs);
-      if (newOptionCast != null)
-        msgs = ((InternalEObject)newOptionCast).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - DomainPackage.OPTION_SELECTION__OPTION_CAST, null, msgs);
-      msgs = basicSetOptionCast(newOptionCast, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.OPTION_SELECTION__OPTION_CAST, newOptionCast, newOptionCast));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-  {
-    switch (featureID)
-    {
-      case DomainPackage.OPTION_SELECTION__OPTION_CAST:
-        return basicSetOptionCast(null, msgs);
-    }
-    return super.eInverseRemove(otherEnd, featureID, msgs);
+      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.OPTION_SELECTION__OPTION_CAST, oldOptionCast, optionCast));
   }
 
   /**
@@ -194,7 +174,8 @@ public class OptionSelectionImpl extends InputElementImpl implements OptionSelec
         if (resolve) return getOptionPointer();
         return basicGetOptionPointer();
       case DomainPackage.OPTION_SELECTION__OPTION_CAST:
-        return getOptionCast();
+        if (resolve) return getOptionCast();
+        return basicGetOptionCast();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -213,7 +194,7 @@ public class OptionSelectionImpl extends InputElementImpl implements OptionSelec
         setOptionPointer((DataControl)newValue);
         return;
       case DomainPackage.OPTION_SELECTION__OPTION_CAST:
-        setOptionCast((TypePointer)newValue);
+        setOptionCast((Type)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -233,7 +214,7 @@ public class OptionSelectionImpl extends InputElementImpl implements OptionSelec
         setOptionPointer((DataControl)null);
         return;
       case DomainPackage.OPTION_SELECTION__OPTION_CAST:
-        setOptionCast((TypePointer)null);
+        setOptionCast((Type)null);
         return;
     }
     super.eUnset(featureID);
