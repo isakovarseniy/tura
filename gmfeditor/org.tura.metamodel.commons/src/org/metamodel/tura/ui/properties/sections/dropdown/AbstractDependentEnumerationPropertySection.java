@@ -40,7 +40,7 @@ public abstract class AbstractDependentEnumerationPropertySection extends
 										.getWatchPointFeature()[j]
 										.getFeatureID())
 									compoundCommand.append(SetCommand.create(
-											editingDomain, getModel(),
+											editingDomain, getModel(features[i]),
 											features[i], null));
 							}
 							editingDomain.getCommandStack().execute(

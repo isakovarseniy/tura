@@ -112,5 +112,5 @@ public abstract class AbstractTuraPropertySection extends
 	 * @return the label for the text field.
 	 */
 	public abstract EObject getModel();
-	
+
 }

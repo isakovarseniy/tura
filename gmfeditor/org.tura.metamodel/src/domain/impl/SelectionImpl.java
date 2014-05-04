@@ -2,18 +2,14 @@
  */
 package domain.impl;
 
-import domain.Context;
-import domain.DomainPackage;
-import domain.Selection;
-
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
+import domain.DomainPackage;
+import domain.Selection;
 
 /**
  * <!-- begin-user-doc -->

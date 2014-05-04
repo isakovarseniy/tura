@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EStructuralFeature;
 import org.metamodel.tura.ui.properties.sections.Helper;
 
 import domain.DataControl;
@@ -64,6 +65,11 @@ public abstract class AbstractAttributePropertySelection extends
 		}
 		return values;
 
+	}
+
+	@Override
+	public EObject getModel(EStructuralFeature feature) {
+		return getEObject();
 	}
 
 	@Override

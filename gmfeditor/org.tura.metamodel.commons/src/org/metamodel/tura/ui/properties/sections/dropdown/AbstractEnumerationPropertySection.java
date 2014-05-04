@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Set;
 
 import org.eclipse.emf.common.command.CompoundCommand;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.command.SetCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
@@ -116,7 +117,7 @@ public abstract class AbstractEnumerationPropertySection extends
 			EStructuralFeature[] features = getFeature();
 			for (int i = 0; i < features.length; i++) {
 				compoundCommand.append(SetCommand.create(editingDomain,
-						getModel(), features[i],
+						getModel(features[i]), features[i],
 						getFeatureValue(features[i], combo.getItem(index))));
 			}
 			editingDomain.getCommandStack().execute(compoundCommand);
@@ -151,5 +152,7 @@ public abstract class AbstractEnumerationPropertySection extends
 	protected abstract String getLabelText();
 	
 	protected abstract void init();
+
+	public abstract EObject getModel(EStructuralFeature feature);
 	
 }

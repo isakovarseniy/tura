@@ -6,6 +6,7 @@ import java.util.Iterator;
 
 import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.validation.internal.modeled.model.validation.Constraint;
 import org.eclipse.gmf.runtime.notation.Diagram;
 import org.eclipse.ocl.OCL;
@@ -73,6 +74,10 @@ public class MethodNamePropertySection extends
 	}
 	@Override
 	public EObject getModel() {
+		return getEObject();
+	}
+	@Override
+	public EObject getModel(EStructuralFeature feature) {
 		return getEObject();
 	}
 

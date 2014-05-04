@@ -5,6 +5,7 @@ import java.util.Iterator;
 import java.util.List;
 
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.gmf.runtime.notation.Diagram;
 
 public abstract class AbstractDataControlPropertySelection extends
@@ -45,6 +46,10 @@ public abstract class AbstractDataControlPropertySelection extends
 
 	@Override
 	public EObject getModel() {
+		return getEObject();
+	}
+	@Override
+	public EObject getModel(EStructuralFeature feature) {
 		return getEObject();
 	}
 

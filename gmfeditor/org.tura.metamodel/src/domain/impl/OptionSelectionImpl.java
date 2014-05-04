@@ -2,20 +2,15 @@
  */
 package domain.impl;
 
-import domain.DataControl;
-import domain.Context;
-import domain.DomainPackage;
-import domain.OptionSelection;
-
-import domain.Type;
-import domain.TypePointer;
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
+import domain.DataControl;
+import domain.DomainPackage;
+import domain.OptionSelection;
+import domain.Type;
 
 /**
  * <!-- begin-user-doc -->

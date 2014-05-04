@@ -6,6 +6,7 @@ import java.util.Iterator;
 
 import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.command.RemoveCommand;
 import org.eclipse.emf.edit.command.SetCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
@@ -130,6 +131,11 @@ public class QueryPropertySelection extends AbstractEnumerationPropertySection {
 
 	@Override
 	public EObject getModel() {
+		return getEObject();
+	}
+
+	@Override
+	public EObject getModel(EStructuralFeature feature) {
 		return getEObject();
 	}
 

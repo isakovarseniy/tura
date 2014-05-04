@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EStructuralFeature;
 import org.metamodel.tura.ui.properties.sections.QueryHelper;
 
 import domain.DataControl;
@@ -55,6 +56,11 @@ public abstract class AbstractCastPropertySelection extends
 
 	@Override
 	public EObject getModel() {
+		return getEObject();
+	}
+
+	@Override
+	public EObject getModel(EStructuralFeature feature) {
 		return getEObject();
 	}
 
