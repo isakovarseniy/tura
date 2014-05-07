@@ -5,7 +5,9 @@ import java.util.ArrayList;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.ui.model.IWorkbenchAdapter;
 
-public class OperationProvider implements IWorkbenchAdapter{
+import domain.Operation;
+
+public class OperationProvider implements IWorkbenchAdapter ,IReturnTypeProvider{
 
 	@Override
 	public Object[] getChildren(Object o) {
@@ -30,6 +32,14 @@ public class OperationProvider implements IWorkbenchAdapter{
 
 	@Override
 	public Object getParent(Object o) {
+		return null;
+	}
+
+	@Override
+	public Object getReturnType(Object o) {
+		if (((Operation) o).getReturnValue() != null) {
+			return ((Operation) o).getReturnValue().getTypeRef();
+		}
 		return null;
 	}
 

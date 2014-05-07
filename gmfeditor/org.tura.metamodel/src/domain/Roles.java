@@ -54,7 +54,7 @@ public interface Roles extends EObject
   void setUid(String value);
 
   /**
-   * Returns the value of the '<em><b>Parent</b></em>' container reference.
+   * Returns the value of the '<em><b>Parent</b></em>' reference.
    * It is bidirectional and its opposite is '{@link domain.ApplicationRole#getRoles <em>Roles</em>}'.
    * <!-- begin-user-doc -->
    * <p>
@@ -62,20 +62,20 @@ public interface Roles extends EObject
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Parent</em>' container reference.
+   * @return the value of the '<em>Parent</em>' reference.
    * @see #setParent(ApplicationRole)
    * @see domain.DomainPackage#getRoles_Parent()
    * @see domain.ApplicationRole#getRoles
-   * @model opposite="roles" transient="false"
+   * @model opposite="roles"
    * @generated
    */
   ApplicationRole getParent();
 
   /**
-   * Sets the value of the '{@link domain.Roles#getParent <em>Parent</em>}' container reference.
+   * Sets the value of the '{@link domain.Roles#getParent <em>Parent</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Parent</em>' container reference.
+   * @param value the new value of the '<em>Parent</em>' reference.
    * @see #getParent()
    * @generated
    */

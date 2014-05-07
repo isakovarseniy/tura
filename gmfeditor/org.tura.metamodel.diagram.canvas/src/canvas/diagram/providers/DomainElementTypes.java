@@ -80,6 +80,10 @@ public class DomainElementTypes {
 	/**
 	 * @generated
 	 */
+	public static final IElementType Button_1603017 = getElementType("org.tura.metamodel.diagram.canvas.Button_1603017"); //$NON-NLS-1$
+	/**
+	 * @generated
+	 */
 	public static final IElementType DropDownSelection_1603002 = getElementType("org.tura.metamodel.diagram.canvas.DropDownSelection_1603002"); //$NON-NLS-1$
 	/**
 	 * @generated
@@ -112,6 +116,10 @@ public class DomainElementTypes {
 	/**
 	 * @generated
 	 */
+	public static final IElementType Button_1603023 = getElementType("org.tura.metamodel.diagram.canvas.Button_1603023"); //$NON-NLS-1$
+	/**
+	 * @generated
+	 */
 	public static final IElementType DropDownSelection_1603010 = getElementType("org.tura.metamodel.diagram.canvas.DropDownSelection_1603010"); //$NON-NLS-1$
 	/**
 	 * @generated
@@ -121,10 +129,6 @@ public class DomainElementTypes {
 	 * @generated
 	 */
 	public static final IElementType Tree_1603016 = getElementType("org.tura.metamodel.diagram.canvas.Tree_1603016"); //$NON-NLS-1$
-	/**
-	 * @generated
-	 */
-	public static final IElementType Button_1603017 = getElementType("org.tura.metamodel.diagram.canvas.Button_1603017"); //$NON-NLS-1$
 	/**
 	 * @generated
 	 */
@@ -149,10 +153,6 @@ public class DomainElementTypes {
 	 * @generated
 	 */
 	public static final IElementType Tree_1603022 = getElementType("org.tura.metamodel.diagram.canvas.Tree_1603022"); //$NON-NLS-1$
-	/**
-	 * @generated
-	 */
-	public static final IElementType Button_1603023 = getElementType("org.tura.metamodel.diagram.canvas.Button_1603023"); //$NON-NLS-1$
 
 	/**
 	 * @generated
@@ -271,6 +271,8 @@ public class DomainElementTypes {
 			elements.put(LayerHolder_1602003,
 					DomainPackage.eINSTANCE.getLayerHolder());
 
+			elements.put(Button_1603017, DomainPackage.eINSTANCE.getButton());
+
 			elements.put(DropDownSelection_1603002,
 					DomainPackage.eINSTANCE.getDropDownSelection());
 
@@ -292,6 +294,8 @@ public class DomainElementTypes {
 
 			elements.put(Column_1603024, DomainPackage.eINSTANCE.getColumn());
 
+			elements.put(Button_1603023, DomainPackage.eINSTANCE.getButton());
+
 			elements.put(DropDownSelection_1603010,
 					DomainPackage.eINSTANCE.getDropDownSelection());
 
@@ -299,8 +303,6 @@ public class DomainElementTypes {
 					DomainPackage.eINSTANCE.getLayerHolder());
 
 			elements.put(Tree_1603016, DomainPackage.eINSTANCE.getTree());
-
-			elements.put(Button_1603017, DomainPackage.eINSTANCE.getButton());
 
 			elements.put(InputText_1603012,
 					DomainPackage.eINSTANCE.getInputText());
@@ -316,8 +318,6 @@ public class DomainElementTypes {
 			elements.put(Table_1603021, DomainPackage.eINSTANCE.getTable());
 
 			elements.put(Tree_1603022, DomainPackage.eINSTANCE.getTree());
-
-			elements.put(Button_1603023, DomainPackage.eINSTANCE.getButton());
 		}
 		return (ENamedElement) elements.get(type);
 	}
@@ -337,6 +337,7 @@ public class DomainElementTypes {
 			KNOWN_ELEMENT_TYPES = new HashSet<IElementType>();
 			KNOWN_ELEMENT_TYPES.add(CanvasView_1601000);
 			KNOWN_ELEMENT_TYPES.add(LayerHolder_1602003);
+			KNOWN_ELEMENT_TYPES.add(Button_1603017);
 			KNOWN_ELEMENT_TYPES.add(DropDownSelection_1603002);
 			KNOWN_ELEMENT_TYPES.add(LayerHolder_1603019);
 			KNOWN_ELEMENT_TYPES.add(InputText_1603004);
@@ -345,17 +346,16 @@ public class DomainElementTypes {
 			KNOWN_ELEMENT_TYPES.add(CheckBox_1603007);
 			KNOWN_ELEMENT_TYPES.add(Table_1603008);
 			KNOWN_ELEMENT_TYPES.add(Column_1603024);
+			KNOWN_ELEMENT_TYPES.add(Button_1603023);
 			KNOWN_ELEMENT_TYPES.add(DropDownSelection_1603010);
 			KNOWN_ELEMENT_TYPES.add(LayerHolder_1603020);
 			KNOWN_ELEMENT_TYPES.add(Tree_1603016);
-			KNOWN_ELEMENT_TYPES.add(Button_1603017);
 			KNOWN_ELEMENT_TYPES.add(InputText_1603012);
 			KNOWN_ELEMENT_TYPES.add(Label_1603013);
 			KNOWN_ELEMENT_TYPES.add(OutputText_1603014);
 			KNOWN_ELEMENT_TYPES.add(CheckBox_1603015);
 			KNOWN_ELEMENT_TYPES.add(Table_1603021);
 			KNOWN_ELEMENT_TYPES.add(Tree_1603022);
-			KNOWN_ELEMENT_TYPES.add(Button_1603023);
 		}
 		return KNOWN_ELEMENT_TYPES.contains(elementType);
 	}
@@ -369,6 +369,8 @@ public class DomainElementTypes {
 			return CanvasView_1601000;
 		case LayerHolderEditPart.VISUAL_ID:
 			return LayerHolder_1602003;
+		case ButtonEditPart.VISUAL_ID:
+			return Button_1603017;
 		case DropDownSelectionEditPart.VISUAL_ID:
 			return DropDownSelection_1603002;
 		case LayerHolder2EditPart.VISUAL_ID:
@@ -385,14 +387,14 @@ public class DomainElementTypes {
 			return Table_1603008;
 		case ColumnEditPart.VISUAL_ID:
 			return Column_1603024;
+		case Button2EditPart.VISUAL_ID:
+			return Button_1603023;
 		case DropDownSelection2EditPart.VISUAL_ID:
 			return DropDownSelection_1603010;
 		case LayerHolder3EditPart.VISUAL_ID:
 			return LayerHolder_1603020;
 		case TreeEditPart.VISUAL_ID:
 			return Tree_1603016;
-		case ButtonEditPart.VISUAL_ID:
-			return Button_1603017;
 		case InputText2EditPart.VISUAL_ID:
 			return InputText_1603012;
 		case Label2EditPart.VISUAL_ID:
@@ -405,8 +407,6 @@ public class DomainElementTypes {
 			return Table_1603021;
 		case Tree2EditPart.VISUAL_ID:
 			return Tree_1603022;
-		case Button2EditPart.VISUAL_ID:
-			return Button_1603023;
 		}
 		return null;
 	}

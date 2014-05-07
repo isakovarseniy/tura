@@ -44,7 +44,7 @@ public abstract class AbstractTypeNamePropertySection extends
 					.getModel();
 			EObject types = (EObject) diagram.getElement();
 
-			if (dropDownDataSupplier.getWatchPointObject(getModel()) == null)
+			if (dropDownDataSupplier.getWatchPointObject(getModel())[0] == null)
 				return values;
 
 			OCL ocl = OCL.newInstance(EcoreEnvironmentFactory.INSTANCE);

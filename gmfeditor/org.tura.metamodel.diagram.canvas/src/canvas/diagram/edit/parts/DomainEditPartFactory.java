@@ -31,6 +31,12 @@ public class DomainEditPartFactory implements EditPartFactory {
 			case LayerHolderEditPart.VISUAL_ID:
 				return new LayerHolderEditPart(view);
 
+			case ButtonEditPart.VISUAL_ID:
+				return new ButtonEditPart(view);
+
+			case ButtonLabelEditPart.VISUAL_ID:
+				return new ButtonLabelEditPart(view);
+
 			case DropDownSelectionEditPart.VISUAL_ID:
 				return new DropDownSelectionEditPart(view);
 
@@ -64,6 +70,12 @@ public class DomainEditPartFactory implements EditPartFactory {
 			case ColumnLabelEditPart.VISUAL_ID:
 				return new ColumnLabelEditPart(view);
 
+			case Button2EditPart.VISUAL_ID:
+				return new Button2EditPart(view);
+
+			case ButtonLabel2EditPart.VISUAL_ID:
+				return new ButtonLabel2EditPart(view);
+
 			case DropDownSelection2EditPart.VISUAL_ID:
 				return new DropDownSelection2EditPart(view);
 
@@ -75,12 +87,6 @@ public class DomainEditPartFactory implements EditPartFactory {
 
 			case TreeLabelEditPart.VISUAL_ID:
 				return new TreeLabelEditPart(view);
-
-			case ButtonEditPart.VISUAL_ID:
-				return new ButtonEditPart(view);
-
-			case ButtonLabelEditPart.VISUAL_ID:
-				return new ButtonLabelEditPart(view);
 
 			case InputText2EditPart.VISUAL_ID:
 				return new InputText2EditPart(view);
@@ -108,12 +114,6 @@ public class DomainEditPartFactory implements EditPartFactory {
 
 			case TreeLabel2EditPart.VISUAL_ID:
 				return new TreeLabel2EditPart(view);
-
-			case Button2EditPart.VISUAL_ID:
-				return new Button2EditPart(view);
-
-			case ButtonLabel2EditPart.VISUAL_ID:
-				return new ButtonLabel2EditPart(view);
 
 			case LayerHolderLayerHolderChildrenCompartmentEditPart.VISUAL_ID:
 				return new LayerHolderLayerHolderChildrenCompartmentEditPart(

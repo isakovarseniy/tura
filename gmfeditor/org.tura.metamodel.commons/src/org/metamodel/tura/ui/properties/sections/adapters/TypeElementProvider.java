@@ -9,7 +9,7 @@ import org.metamodel.tura.ui.properties.sections.Helper;
 
 import domain.Type;
 
-public class TypeElementProvider implements IWorkbenchAdapter {
+public class TypeElementProvider implements IWorkbenchAdapter  ,IReturnTypeProvider{
 
 	@Override
 	public Object[] getChildren(Object o) {
@@ -46,6 +46,12 @@ public class TypeElementProvider implements IWorkbenchAdapter {
 
 	@Override
 	public Object getParent(Object o) {
+		return null;
+	}
+
+
+	@Override
+	public Object getReturnType(Object o) {
 		return null;
 	}
 

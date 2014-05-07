@@ -6,7 +6,7 @@ import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.ui.model.IWorkbenchAdapter;
 import org.metamodel.tura.ui.properties.sections.adapters.helper.TriggerHolder;
 
-public class TriggerProvider implements IWorkbenchAdapter  {
+public class TriggerProvider implements IWorkbenchAdapter  ,IReturnTypeProvider {
 
 	@Override
 	public Object[] getChildren(Object o) {
@@ -31,6 +31,11 @@ public class TriggerProvider implements IWorkbenchAdapter  {
 
 	@Override
 	public Object getParent(Object o) {
+		return null;
+	}
+
+	@Override
+	public Object getReturnType(Object o) {
 		return null;
 	}
 

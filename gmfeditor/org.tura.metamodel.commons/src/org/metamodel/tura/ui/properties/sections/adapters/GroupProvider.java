@@ -2,13 +2,13 @@ package org.metamodel.tura.ui.properties.sections.adapters;
 
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.ui.model.IWorkbenchAdapter;
-import org.metamodel.tura.ui.properties.sections.adapters.helper.TreeRoot;
+import org.metamodel.tura.ui.properties.sections.QueryHelper;
 
-public class TreeRootProvider implements IWorkbenchAdapter  ,IReturnTypeProvider{
+public class GroupProvider implements IWorkbenchAdapter ,IReturnTypeProvider{
 
 	@Override
 	public Object[] getChildren(Object o) {
-		return ((TreeRoot)o).getChildren().toArray();
+		return new Object[]{};
 	}
 
 	@Override
@@ -18,7 +18,8 @@ public class TreeRootProvider implements IWorkbenchAdapter  ,IReturnTypeProvider
 
 	@Override
 	public String getLabel(Object o) {
-		return null;
+		domain.Group opr = (domain.Group) o;
+		return "g-"+opr.getName();
 	}
 
 	@Override
@@ -28,7 +29,7 @@ public class TreeRootProvider implements IWorkbenchAdapter  ,IReturnTypeProvider
 
 	@Override
 	public Object getReturnType(Object o) {
-		return null;
+		return new QueryHelper().findStringType(o);
 	}
 
 }

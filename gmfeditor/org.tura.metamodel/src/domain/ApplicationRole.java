@@ -106,7 +106,7 @@ public interface ApplicationRole extends EObject
   void setParent(Application value);
 
   /**
-   * Returns the value of the '<em><b>Roles</b></em>' containment reference.
+   * Returns the value of the '<em><b>Roles</b></em>' reference.
    * It is bidirectional and its opposite is '{@link domain.Roles#getParent <em>Parent</em>}'.
    * <!-- begin-user-doc -->
    * <p>
@@ -114,20 +114,20 @@ public interface ApplicationRole extends EObject
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Roles</em>' containment reference.
+   * @return the value of the '<em>Roles</em>' reference.
    * @see #setRoles(Roles)
    * @see domain.DomainPackage#getApplicationRole_Roles()
    * @see domain.Roles#getParent
-   * @model opposite="parent" containment="true"
+   * @model opposite="parent"
    * @generated
    */
   Roles getRoles();
 
   /**
-   * Sets the value of the '{@link domain.ApplicationRole#getRoles <em>Roles</em>}' containment reference.
+   * Sets the value of the '{@link domain.ApplicationRole#getRoles <em>Roles</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Roles</em>' containment reference.
+   * @param value the new value of the '<em>Roles</em>' reference.
    * @see #getRoles()
    * @generated
    */

@@ -26,7 +26,7 @@ public interface OptionSelection extends InputElement
    * Returns the value of the '<em><b>Option Pointer</b></em>' reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Option Pointer</em>' containment reference isn't clear,
+   * If the meaning of the '<em>Option Pointer</em>' reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
@@ -52,7 +52,7 @@ public interface OptionSelection extends InputElement
    * Returns the value of the '<em><b>Option Cast</b></em>' reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Option Cast</em>' containment reference isn't clear,
+   * If the meaning of the '<em>Option Cast</em>' reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->

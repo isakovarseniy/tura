@@ -27,15 +27,14 @@ import org.eclipse.swt.widgets.Text;
 import org.eclipse.ui.model.IWorkbenchAdapter;
 import org.eclipse.ui.views.properties.tabbed.TabbedPropertySheetPage;
 import org.metamodel.tura.ui.properties.sections.QueryHelper;
+import org.metamodel.tura.ui.properties.sections.adapters.IReturnTypeProvider;
 import org.metamodel.tura.ui.properties.sections.adapters.helper.TreeRoot;
 import org.metamodel.tura.ui.properties.sections.adapters.helper.TriggerHolder;
 import org.metamodel.tura.ui.properties.sections.grid.GridColumn;
 import org.metamodel.tura.ui.properties.sections.grid.GridProperty;
 
-import domain.Attribute;
 import domain.DomainFactory;
 import domain.DomainPackage;
-import domain.Operation;
 import domain.Type;
 import domain.TypeElement;
 import domain.TypeReference;
@@ -310,15 +309,22 @@ public class ContextParameterPropertySelection extends GridProperty {
 				TreeRoot rootOfTree = new TreeRoot();
 				DiagramImpl root = (DiagramImpl) this.property.getEditPart()
 						.getRoot().getContents().getModel();
+
+				domain.Controls controls = null;
 				if (root.getElement() instanceof domain.Controls) {
-					rootOfTree.addChild(((domain.Controls) root.getElement())
-							.getParent().getFormControl());
+					controls = ((domain.Controls) root.getElement())
+							.getParent().getFormControl();
 				}
 				if (root.getElement() instanceof domain.Views) {
-					rootOfTree.addChild(((domain.Form) (((domain.Views) root
+					controls = ((domain.Form) (((domain.Views) root
 							.getElement()).getParent().eContainer()))
-							.getDatacontrols().getFormControl());
+							.getDatacontrols().getFormControl();
 				}
+				rootOfTree.addChild(controls);
+				rootOfTree.addChild(((domain.UIPackage) controls.getParent()
+						.eContainer().eContainer()).getParent().getParent()
+						.getParent().getApplicationRole());
+
 				try {
 					rootOfTree.addChild(new QueryHelper()
 							.getTypesRepository(root.getElement()));
@@ -361,16 +367,12 @@ public class ContextParameterPropertySelection extends GridProperty {
 			return;
 		}
 		Object obj = path.getLastSegment();
+		
+		IReturnTypeProvider provider = (IReturnTypeProvider) Platform.getAdapterManager().getAdapter(obj, IReturnTypeProvider.class);
+		
 		domain.TypeElement type = null;
-
-		if (obj instanceof Attribute)
-			type = ((Attribute) obj).getTypeRef();
-
-		if (obj instanceof Operation) {
-			if (((Operation) obj).getReturnValue() != null) {
-				type = ((Operation) obj).getReturnValue().getTypeRef();
-			}
-		}
+		if (provider !=null && provider.getReturnType( obj ) != null)
+			type=(TypeElement) provider.getReturnType( obj);
 
 		if (type == null) {
 			Display.getDefault().asyncExec(new Runnable() {
@@ -384,7 +386,7 @@ public class ContextParameterPropertySelection extends GridProperty {
 			});
 			return;
 		}
-		if (!checkType(param,type)){
+		if (!checkType(param, type)) {
 			Display.getDefault().asyncExec(new Runnable() {
 				public void run() {
 					MessageDialog dialog = new MessageDialog(Display

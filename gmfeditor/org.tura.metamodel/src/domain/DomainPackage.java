@@ -1176,7 +1176,7 @@ public interface DomainPackage extends EPackage
   int APPLICATION_ROLE__PARENT = 2;
 
   /**
-   * The feature id for the '<em><b>Roles</b></em>' containment reference.
+   * The feature id for the '<em><b>Roles</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -1799,7 +1799,7 @@ public interface DomainPackage extends EPackage
   int ROLES__UID = 0;
 
   /**
-   * The feature id for the '<em><b>Parent</b></em>' container reference.
+   * The feature id for the '<em><b>Parent</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -5857,13 +5857,76 @@ public interface DomainPackage extends EPackage
   int ACTION_ELEMENT__READ_ONLY_CONTEXT = UIELEMENT__READ_ONLY_CONTEXT;
 
   /**
-   * The feature id for the '<em><b>Trigger</b></em>' containment reference.
+   * The feature id for the '<em><b>Package Ref</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ACTION_ELEMENT__TRIGGER = UIELEMENT_FEATURE_COUNT + 0;
+  int ACTION_ELEMENT__PACKAGE_REF = UIELEMENT_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Type Ref</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ACTION_ELEMENT__TYPE_REF = UIELEMENT_FEATURE_COUNT + 1;
+
+  /**
+   * The feature id for the '<em><b>Fake Package Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ACTION_ELEMENT__FAKE_PACKAGE_NAME = UIELEMENT_FEATURE_COUNT + 2;
+
+  /**
+   * The feature id for the '<em><b>Fake Type Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ACTION_ELEMENT__FAKE_TYPE_NAME = UIELEMENT_FEATURE_COUNT + 3;
+
+  /**
+   * The feature id for the '<em><b>Method Ref</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ACTION_ELEMENT__METHOD_REF = UIELEMENT_FEATURE_COUNT + 4;
+
+  /**
+   * The feature id for the '<em><b>Fake Method</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ACTION_ELEMENT__FAKE_METHOD = UIELEMENT_FEATURE_COUNT + 5;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ACTION_ELEMENT__NAME = UIELEMENT_FEATURE_COUNT + 6;
+
+  /**
+   * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ACTION_ELEMENT__PARAMETERS = UIELEMENT_FEATURE_COUNT + 7;
 
   /**
    * The number of structural features of the '<em>Action Element</em>' class.
@@ -5872,7 +5935,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ACTION_ELEMENT_FEATURE_COUNT = UIELEMENT_FEATURE_COUNT + 1;
+  int ACTION_ELEMENT_FEATURE_COUNT = UIELEMENT_FEATURE_COUNT + 8;
 
   /**
    * The meta object id for the '{@link domain.impl.InputElementImpl <em>Input Element</em>}' class.
@@ -7148,13 +7211,76 @@ public interface DomainPackage extends EPackage
   int BUTTON__READ_ONLY_CONTEXT = ACTION_ELEMENT__READ_ONLY_CONTEXT;
 
   /**
-   * The feature id for the '<em><b>Trigger</b></em>' containment reference.
+   * The feature id for the '<em><b>Package Ref</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int BUTTON__TRIGGER = ACTION_ELEMENT__TRIGGER;
+  int BUTTON__PACKAGE_REF = ACTION_ELEMENT__PACKAGE_REF;
+
+  /**
+   * The feature id for the '<em><b>Type Ref</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BUTTON__TYPE_REF = ACTION_ELEMENT__TYPE_REF;
+
+  /**
+   * The feature id for the '<em><b>Fake Package Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BUTTON__FAKE_PACKAGE_NAME = ACTION_ELEMENT__FAKE_PACKAGE_NAME;
+
+  /**
+   * The feature id for the '<em><b>Fake Type Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BUTTON__FAKE_TYPE_NAME = ACTION_ELEMENT__FAKE_TYPE_NAME;
+
+  /**
+   * The feature id for the '<em><b>Method Ref</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BUTTON__METHOD_REF = ACTION_ELEMENT__METHOD_REF;
+
+  /**
+   * The feature id for the '<em><b>Fake Method</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BUTTON__FAKE_METHOD = ACTION_ELEMENT__FAKE_METHOD;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BUTTON__NAME = ACTION_ELEMENT__NAME;
+
+  /**
+   * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BUTTON__PARAMETERS = ACTION_ELEMENT__PARAMETERS;
 
   /**
    * The feature id for the '<em><b>Label</b></em>' attribute.
@@ -7303,22 +7429,13 @@ public interface DomainPackage extends EPackage
   int TRIGGER__FAKE_METHOD = METHOD_POINTER__FAKE_METHOD;
 
   /**
-   * The feature id for the '<em><b>Uid</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int TRIGGER__UID = METHOD_POINTER_FEATURE_COUNT + 0;
-
-  /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int TRIGGER__NAME = METHOD_POINTER_FEATURE_COUNT + 1;
+  int TRIGGER__NAME = METHOD_POINTER_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
@@ -7327,7 +7444,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int TRIGGER__PARAMETERS = METHOD_POINTER_FEATURE_COUNT + 2;
+  int TRIGGER__PARAMETERS = METHOD_POINTER_FEATURE_COUNT + 1;
 
   /**
    * The number of structural features of the '<em>Trigger</em>' class.
@@ -7336,7 +7453,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int TRIGGER_FEATURE_COUNT = METHOD_POINTER_FEATURE_COUNT + 3;
+  int TRIGGER_FEATURE_COUNT = METHOD_POINTER_FEATURE_COUNT + 2;
 
   /**
    * The meta object id for the '{@link domain.impl.PREFormTriggerImpl <em>PRE Form Trigger</em>}' class.
@@ -7403,15 +7520,6 @@ public interface DomainPackage extends EPackage
   int PRE_FORM_TRIGGER__FAKE_METHOD = TRIGGER__FAKE_METHOD;
 
   /**
-   * The feature id for the '<em><b>Uid</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PRE_FORM_TRIGGER__UID = TRIGGER__UID;
-
-  /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -7430,13 +7538,22 @@ public interface DomainPackage extends EPackage
   int PRE_FORM_TRIGGER__PARAMETERS = TRIGGER__PARAMETERS;
 
   /**
+   * The feature id for the '<em><b>Uid</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PRE_FORM_TRIGGER__UID = TRIGGER_FEATURE_COUNT + 0;
+
+  /**
    * The number of structural features of the '<em>PRE Form Trigger</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PRE_FORM_TRIGGER_FEATURE_COUNT = TRIGGER_FEATURE_COUNT + 0;
+  int PRE_FORM_TRIGGER_FEATURE_COUNT = TRIGGER_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link domain.impl.PREQueryTriggerImpl <em>PRE Query Trigger</em>}' class.
@@ -7503,15 +7620,6 @@ public interface DomainPackage extends EPackage
   int PRE_QUERY_TRIGGER__FAKE_METHOD = TRIGGER__FAKE_METHOD;
 
   /**
-   * The feature id for the '<em><b>Uid</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PRE_QUERY_TRIGGER__UID = TRIGGER__UID;
-
-  /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -7530,13 +7638,22 @@ public interface DomainPackage extends EPackage
   int PRE_QUERY_TRIGGER__PARAMETERS = TRIGGER__PARAMETERS;
 
   /**
+   * The feature id for the '<em><b>Uid</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PRE_QUERY_TRIGGER__UID = TRIGGER_FEATURE_COUNT + 0;
+
+  /**
    * The number of structural features of the '<em>PRE Query Trigger</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PRE_QUERY_TRIGGER_FEATURE_COUNT = TRIGGER_FEATURE_COUNT + 0;
+  int PRE_QUERY_TRIGGER_FEATURE_COUNT = TRIGGER_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link domain.impl.POSTQueryTriggerImpl <em>POST Query Trigger</em>}' class.
@@ -7603,15 +7720,6 @@ public interface DomainPackage extends EPackage
   int POST_QUERY_TRIGGER__FAKE_METHOD = TRIGGER__FAKE_METHOD;
 
   /**
-   * The feature id for the '<em><b>Uid</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int POST_QUERY_TRIGGER__UID = TRIGGER__UID;
-
-  /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -7630,13 +7738,22 @@ public interface DomainPackage extends EPackage
   int POST_QUERY_TRIGGER__PARAMETERS = TRIGGER__PARAMETERS;
 
   /**
+   * The feature id for the '<em><b>Uid</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int POST_QUERY_TRIGGER__UID = TRIGGER_FEATURE_COUNT + 0;
+
+  /**
    * The number of structural features of the '<em>POST Query Trigger</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int POST_QUERY_TRIGGER_FEATURE_COUNT = TRIGGER_FEATURE_COUNT + 0;
+  int POST_QUERY_TRIGGER_FEATURE_COUNT = TRIGGER_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link domain.impl.PREInsertTriggerImpl <em>PRE Insert Trigger</em>}' class.
@@ -7703,15 +7820,6 @@ public interface DomainPackage extends EPackage
   int PRE_INSERT_TRIGGER__FAKE_METHOD = TRIGGER__FAKE_METHOD;
 
   /**
-   * The feature id for the '<em><b>Uid</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PRE_INSERT_TRIGGER__UID = TRIGGER__UID;
-
-  /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -7730,13 +7838,22 @@ public interface DomainPackage extends EPackage
   int PRE_INSERT_TRIGGER__PARAMETERS = TRIGGER__PARAMETERS;
 
   /**
+   * The feature id for the '<em><b>Uid</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PRE_INSERT_TRIGGER__UID = TRIGGER_FEATURE_COUNT + 0;
+
+  /**
    * The number of structural features of the '<em>PRE Insert Trigger</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PRE_INSERT_TRIGGER_FEATURE_COUNT = TRIGGER_FEATURE_COUNT + 0;
+  int PRE_INSERT_TRIGGER_FEATURE_COUNT = TRIGGER_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link domain.impl.PREDeleteTriggerImpl <em>PRE Delete Trigger</em>}' class.
@@ -7803,15 +7920,6 @@ public interface DomainPackage extends EPackage
   int PRE_DELETE_TRIGGER__FAKE_METHOD = TRIGGER__FAKE_METHOD;
 
   /**
-   * The feature id for the '<em><b>Uid</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PRE_DELETE_TRIGGER__UID = TRIGGER__UID;
-
-  /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -7830,13 +7938,22 @@ public interface DomainPackage extends EPackage
   int PRE_DELETE_TRIGGER__PARAMETERS = TRIGGER__PARAMETERS;
 
   /**
+   * The feature id for the '<em><b>Uid</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PRE_DELETE_TRIGGER__UID = TRIGGER_FEATURE_COUNT + 0;
+
+  /**
    * The number of structural features of the '<em>PRE Delete Trigger</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PRE_DELETE_TRIGGER_FEATURE_COUNT = TRIGGER_FEATURE_COUNT + 0;
+  int PRE_DELETE_TRIGGER_FEATURE_COUNT = TRIGGER_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link domain.impl.POSTCreateTriggerImpl <em>POST Create Trigger</em>}' class.
@@ -7903,15 +8020,6 @@ public interface DomainPackage extends EPackage
   int POST_CREATE_TRIGGER__FAKE_METHOD = TRIGGER__FAKE_METHOD;
 
   /**
-   * The feature id for the '<em><b>Uid</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int POST_CREATE_TRIGGER__UID = TRIGGER__UID;
-
-  /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -7930,13 +8038,22 @@ public interface DomainPackage extends EPackage
   int POST_CREATE_TRIGGER__PARAMETERS = TRIGGER__PARAMETERS;
 
   /**
+   * The feature id for the '<em><b>Uid</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int POST_CREATE_TRIGGER__UID = TRIGGER_FEATURE_COUNT + 0;
+
+  /**
    * The number of structural features of the '<em>POST Create Trigger</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int POST_CREATE_TRIGGER_FEATURE_COUNT = TRIGGER_FEATURE_COUNT + 0;
+  int POST_CREATE_TRIGGER_FEATURE_COUNT = TRIGGER_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link domain.impl.PREUpdateTriggerImpl <em>PRE Update Trigger</em>}' class.
@@ -8003,15 +8120,6 @@ public interface DomainPackage extends EPackage
   int PRE_UPDATE_TRIGGER__FAKE_METHOD = TRIGGER__FAKE_METHOD;
 
   /**
-   * The feature id for the '<em><b>Uid</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PRE_UPDATE_TRIGGER__UID = TRIGGER__UID;
-
-  /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -8030,13 +8138,22 @@ public interface DomainPackage extends EPackage
   int PRE_UPDATE_TRIGGER__PARAMETERS = TRIGGER__PARAMETERS;
 
   /**
+   * The feature id for the '<em><b>Uid</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PRE_UPDATE_TRIGGER__UID = TRIGGER_FEATURE_COUNT + 0;
+
+  /**
    * The number of structural features of the '<em>PRE Update Trigger</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PRE_UPDATE_TRIGGER_FEATURE_COUNT = TRIGGER_FEATURE_COUNT + 0;
+  int PRE_UPDATE_TRIGGER_FEATURE_COUNT = TRIGGER_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link domain.impl.CreateTriggerImpl <em>Create Trigger</em>}' class.
@@ -8103,15 +8220,6 @@ public interface DomainPackage extends EPackage
   int CREATE_TRIGGER__FAKE_METHOD = TRIGGER__FAKE_METHOD;
 
   /**
-   * The feature id for the '<em><b>Uid</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CREATE_TRIGGER__UID = TRIGGER__UID;
-
-  /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -8130,13 +8238,22 @@ public interface DomainPackage extends EPackage
   int CREATE_TRIGGER__PARAMETERS = TRIGGER__PARAMETERS;
 
   /**
+   * The feature id for the '<em><b>Uid</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CREATE_TRIGGER__UID = TRIGGER_FEATURE_COUNT + 0;
+
+  /**
    * The number of structural features of the '<em>Create Trigger</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CREATE_TRIGGER_FEATURE_COUNT = TRIGGER_FEATURE_COUNT + 0;
+  int CREATE_TRIGGER_FEATURE_COUNT = TRIGGER_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link domain.impl.InsertTriggerImpl <em>Insert Trigger</em>}' class.
@@ -8203,15 +8320,6 @@ public interface DomainPackage extends EPackage
   int INSERT_TRIGGER__FAKE_METHOD = TRIGGER__FAKE_METHOD;
 
   /**
-   * The feature id for the '<em><b>Uid</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int INSERT_TRIGGER__UID = TRIGGER__UID;
-
-  /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -8230,13 +8338,22 @@ public interface DomainPackage extends EPackage
   int INSERT_TRIGGER__PARAMETERS = TRIGGER__PARAMETERS;
 
   /**
+   * The feature id for the '<em><b>Uid</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INSERT_TRIGGER__UID = TRIGGER_FEATURE_COUNT + 0;
+
+  /**
    * The number of structural features of the '<em>Insert Trigger</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int INSERT_TRIGGER_FEATURE_COUNT = TRIGGER_FEATURE_COUNT + 0;
+  int INSERT_TRIGGER_FEATURE_COUNT = TRIGGER_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link domain.impl.UpdateTriggerImpl <em>Update Trigger</em>}' class.
@@ -8303,15 +8420,6 @@ public interface DomainPackage extends EPackage
   int UPDATE_TRIGGER__FAKE_METHOD = TRIGGER__FAKE_METHOD;
 
   /**
-   * The feature id for the '<em><b>Uid</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int UPDATE_TRIGGER__UID = TRIGGER__UID;
-
-  /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -8330,13 +8438,22 @@ public interface DomainPackage extends EPackage
   int UPDATE_TRIGGER__PARAMETERS = TRIGGER__PARAMETERS;
 
   /**
+   * The feature id for the '<em><b>Uid</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int UPDATE_TRIGGER__UID = TRIGGER_FEATURE_COUNT + 0;
+
+  /**
    * The number of structural features of the '<em>Update Trigger</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int UPDATE_TRIGGER_FEATURE_COUNT = TRIGGER_FEATURE_COUNT + 0;
+  int UPDATE_TRIGGER_FEATURE_COUNT = TRIGGER_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link domain.impl.DeleteTriggerImpl <em>Delete Trigger</em>}' class.
@@ -8403,15 +8520,6 @@ public interface DomainPackage extends EPackage
   int DELETE_TRIGGER__FAKE_METHOD = TRIGGER__FAKE_METHOD;
 
   /**
-   * The feature id for the '<em><b>Uid</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DELETE_TRIGGER__UID = TRIGGER__UID;
-
-  /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -8430,13 +8538,22 @@ public interface DomainPackage extends EPackage
   int DELETE_TRIGGER__PARAMETERS = TRIGGER__PARAMETERS;
 
   /**
+   * The feature id for the '<em><b>Uid</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DELETE_TRIGGER__UID = TRIGGER_FEATURE_COUNT + 0;
+
+  /**
    * The number of structural features of the '<em>Delete Trigger</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int DELETE_TRIGGER_FEATURE_COUNT = TRIGGER_FEATURE_COUNT + 0;
+  int DELETE_TRIGGER_FEATURE_COUNT = TRIGGER_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link domain.impl.SearchTriggerImpl <em>Search Trigger</em>}' class.
@@ -8503,15 +8620,6 @@ public interface DomainPackage extends EPackage
   int SEARCH_TRIGGER__FAKE_METHOD = TRIGGER__FAKE_METHOD;
 
   /**
-   * The feature id for the '<em><b>Uid</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SEARCH_TRIGGER__UID = TRIGGER__UID;
-
-  /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -8530,13 +8638,22 @@ public interface DomainPackage extends EPackage
   int SEARCH_TRIGGER__PARAMETERS = TRIGGER__PARAMETERS;
 
   /**
+   * The feature id for the '<em><b>Uid</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SEARCH_TRIGGER__UID = TRIGGER_FEATURE_COUNT + 0;
+
+  /**
    * The number of structural features of the '<em>Search Trigger</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int SEARCH_TRIGGER_FEATURE_COUNT = TRIGGER_FEATURE_COUNT + 0;
+  int SEARCH_TRIGGER_FEATURE_COUNT = TRIGGER_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link domain.impl.RootImpl <em>Root</em>}' class.
@@ -10490,10 +10607,10 @@ public interface DomainPackage extends EPackage
   EReference getApplicationRole_Parent();
 
   /**
-   * Returns the meta object for the containment reference '{@link domain.ApplicationRole#getRoles <em>Roles</em>}'.
+   * Returns the meta object for the reference '{@link domain.ApplicationRole#getRoles <em>Roles</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Roles</em>'.
+   * @return the meta object for the reference '<em>Roles</em>'.
    * @see domain.ApplicationRole#getRoles()
    * @see #getApplicationRole()
    * @generated
@@ -10986,10 +11103,10 @@ public interface DomainPackage extends EPackage
   EAttribute getRoles_Uid();
 
   /**
-   * Returns the meta object for the container reference '{@link domain.Roles#getParent <em>Parent</em>}'.
+   * Returns the meta object for the reference '{@link domain.Roles#getParent <em>Parent</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the container reference '<em>Parent</em>'.
+   * @return the meta object for the reference '<em>Parent</em>'.
    * @see domain.Roles#getParent()
    * @see #getRoles()
    * @generated
@@ -14126,17 +14243,6 @@ public interface DomainPackage extends EPackage
   EClass getActionElement();
 
   /**
-   * Returns the meta object for the containment reference '{@link domain.ActionElement#getTrigger <em>Trigger</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Trigger</em>'.
-   * @see domain.ActionElement#getTrigger()
-   * @see #getActionElement()
-   * @generated
-   */
-  EReference getActionElement_Trigger();
-
-  /**
    * Returns the meta object for class '{@link domain.InputElement <em>Input Element</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -14496,17 +14602,6 @@ public interface DomainPackage extends EPackage
   EClass getTrigger();
 
   /**
-   * Returns the meta object for the attribute '{@link domain.Trigger#getUid <em>Uid</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Uid</em>'.
-   * @see domain.Trigger#getUid()
-   * @see #getTrigger()
-   * @generated
-   */
-  EAttribute getTrigger_Uid();
-
-  /**
    * Returns the meta object for the attribute '{@link domain.Trigger#getName <em>Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -14539,6 +14634,17 @@ public interface DomainPackage extends EPackage
   EClass getPREFormTrigger();
 
   /**
+   * Returns the meta object for the attribute '{@link domain.PREFormTrigger#getUid <em>Uid</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Uid</em>'.
+   * @see domain.PREFormTrigger#getUid()
+   * @see #getPREFormTrigger()
+   * @generated
+   */
+  EAttribute getPREFormTrigger_Uid();
+
+  /**
    * Returns the meta object for class '{@link domain.PREQueryTrigger <em>PRE Query Trigger</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -14547,6 +14653,17 @@ public interface DomainPackage extends EPackage
    * @generated
    */
   EClass getPREQueryTrigger();
+
+  /**
+   * Returns the meta object for the attribute '{@link domain.PREQueryTrigger#getUid <em>Uid</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Uid</em>'.
+   * @see domain.PREQueryTrigger#getUid()
+   * @see #getPREQueryTrigger()
+   * @generated
+   */
+  EAttribute getPREQueryTrigger_Uid();
 
   /**
    * Returns the meta object for class '{@link domain.POSTQueryTrigger <em>POST Query Trigger</em>}'.
@@ -14559,6 +14676,17 @@ public interface DomainPackage extends EPackage
   EClass getPOSTQueryTrigger();
 
   /**
+   * Returns the meta object for the attribute '{@link domain.POSTQueryTrigger#getUid <em>Uid</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Uid</em>'.
+   * @see domain.POSTQueryTrigger#getUid()
+   * @see #getPOSTQueryTrigger()
+   * @generated
+   */
+  EAttribute getPOSTQueryTrigger_Uid();
+
+  /**
    * Returns the meta object for class '{@link domain.PREInsertTrigger <em>PRE Insert Trigger</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -14567,6 +14695,17 @@ public interface DomainPackage extends EPackage
    * @generated
    */
   EClass getPREInsertTrigger();
+
+  /**
+   * Returns the meta object for the attribute '{@link domain.PREInsertTrigger#getUid <em>Uid</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Uid</em>'.
+   * @see domain.PREInsertTrigger#getUid()
+   * @see #getPREInsertTrigger()
+   * @generated
+   */
+  EAttribute getPREInsertTrigger_Uid();
 
   /**
    * Returns the meta object for class '{@link domain.PREDeleteTrigger <em>PRE Delete Trigger</em>}'.
@@ -14579,6 +14718,17 @@ public interface DomainPackage extends EPackage
   EClass getPREDeleteTrigger();
 
   /**
+   * Returns the meta object for the attribute '{@link domain.PREDeleteTrigger#getUid <em>Uid</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Uid</em>'.
+   * @see domain.PREDeleteTrigger#getUid()
+   * @see #getPREDeleteTrigger()
+   * @generated
+   */
+  EAttribute getPREDeleteTrigger_Uid();
+
+  /**
    * Returns the meta object for class '{@link domain.POSTCreateTrigger <em>POST Create Trigger</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -14587,6 +14737,17 @@ public interface DomainPackage extends EPackage
    * @generated
    */
   EClass getPOSTCreateTrigger();
+
+  /**
+   * Returns the meta object for the attribute '{@link domain.POSTCreateTrigger#getUid <em>Uid</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Uid</em>'.
+   * @see domain.POSTCreateTrigger#getUid()
+   * @see #getPOSTCreateTrigger()
+   * @generated
+   */
+  EAttribute getPOSTCreateTrigger_Uid();
 
   /**
    * Returns the meta object for class '{@link domain.PREUpdateTrigger <em>PRE Update Trigger</em>}'.
@@ -14599,6 +14760,17 @@ public interface DomainPackage extends EPackage
   EClass getPREUpdateTrigger();
 
   /**
+   * Returns the meta object for the attribute '{@link domain.PREUpdateTrigger#getUid <em>Uid</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Uid</em>'.
+   * @see domain.PREUpdateTrigger#getUid()
+   * @see #getPREUpdateTrigger()
+   * @generated
+   */
+  EAttribute getPREUpdateTrigger_Uid();
+
+  /**
    * Returns the meta object for class '{@link domain.CreateTrigger <em>Create Trigger</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -14607,6 +14779,17 @@ public interface DomainPackage extends EPackage
    * @generated
    */
   EClass getCreateTrigger();
+
+  /**
+   * Returns the meta object for the attribute '{@link domain.CreateTrigger#getUid <em>Uid</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Uid</em>'.
+   * @see domain.CreateTrigger#getUid()
+   * @see #getCreateTrigger()
+   * @generated
+   */
+  EAttribute getCreateTrigger_Uid();
 
   /**
    * Returns the meta object for class '{@link domain.InsertTrigger <em>Insert Trigger</em>}'.
@@ -14619,6 +14802,17 @@ public interface DomainPackage extends EPackage
   EClass getInsertTrigger();
 
   /**
+   * Returns the meta object for the attribute '{@link domain.InsertTrigger#getUid <em>Uid</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Uid</em>'.
+   * @see domain.InsertTrigger#getUid()
+   * @see #getInsertTrigger()
+   * @generated
+   */
+  EAttribute getInsertTrigger_Uid();
+
+  /**
    * Returns the meta object for class '{@link domain.UpdateTrigger <em>Update Trigger</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -14627,6 +14821,17 @@ public interface DomainPackage extends EPackage
    * @generated
    */
   EClass getUpdateTrigger();
+
+  /**
+   * Returns the meta object for the attribute '{@link domain.UpdateTrigger#getUid <em>Uid</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Uid</em>'.
+   * @see domain.UpdateTrigger#getUid()
+   * @see #getUpdateTrigger()
+   * @generated
+   */
+  EAttribute getUpdateTrigger_Uid();
 
   /**
    * Returns the meta object for class '{@link domain.DeleteTrigger <em>Delete Trigger</em>}'.
@@ -14639,6 +14844,17 @@ public interface DomainPackage extends EPackage
   EClass getDeleteTrigger();
 
   /**
+   * Returns the meta object for the attribute '{@link domain.DeleteTrigger#getUid <em>Uid</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Uid</em>'.
+   * @see domain.DeleteTrigger#getUid()
+   * @see #getDeleteTrigger()
+   * @generated
+   */
+  EAttribute getDeleteTrigger_Uid();
+
+  /**
    * Returns the meta object for class '{@link domain.SearchTrigger <em>Search Trigger</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -14647,6 +14863,17 @@ public interface DomainPackage extends EPackage
    * @generated
    */
   EClass getSearchTrigger();
+
+  /**
+   * Returns the meta object for the attribute '{@link domain.SearchTrigger#getUid <em>Uid</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Uid</em>'.
+   * @see domain.SearchTrigger#getUid()
+   * @see #getSearchTrigger()
+   * @generated
+   */
+  EAttribute getSearchTrigger_Uid();
 
   /**
    * Returns the meta object for class '{@link domain.Root <em>Root</em>}'.
@@ -16210,7 +16437,7 @@ public interface DomainPackage extends EPackage
     EReference APPLICATION_ROLE__PARENT = eINSTANCE.getApplicationRole_Parent();
 
     /**
-     * The meta object literal for the '<em><b>Roles</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Roles</b></em>' reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -16598,7 +16825,7 @@ public interface DomainPackage extends EPackage
     EAttribute ROLES__UID = eINSTANCE.getRoles_Uid();
 
     /**
-     * The meta object literal for the '<em><b>Parent</b></em>' container reference feature.
+     * The meta object literal for the '<em><b>Parent</b></em>' reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -19078,14 +19305,6 @@ public interface DomainPackage extends EPackage
     EClass ACTION_ELEMENT = eINSTANCE.getActionElement();
 
     /**
-     * The meta object literal for the '<em><b>Trigger</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference ACTION_ELEMENT__TRIGGER = eINSTANCE.getActionElement_Trigger();
-
-    /**
      * The meta object literal for the '{@link domain.impl.InputElementImpl <em>Input Element</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -19388,14 +19607,6 @@ public interface DomainPackage extends EPackage
     EClass TRIGGER = eINSTANCE.getTrigger();
 
     /**
-     * The meta object literal for the '<em><b>Uid</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute TRIGGER__UID = eINSTANCE.getTrigger_Uid();
-
-    /**
      * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -19422,6 +19633,14 @@ public interface DomainPackage extends EPackage
     EClass PRE_FORM_TRIGGER = eINSTANCE.getPREFormTrigger();
 
     /**
+     * The meta object literal for the '<em><b>Uid</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute PRE_FORM_TRIGGER__UID = eINSTANCE.getPREFormTrigger_Uid();
+
+    /**
      * The meta object literal for the '{@link domain.impl.PREQueryTriggerImpl <em>PRE Query Trigger</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -19430,6 +19649,14 @@ public interface DomainPackage extends EPackage
      * @generated
      */
     EClass PRE_QUERY_TRIGGER = eINSTANCE.getPREQueryTrigger();
+
+    /**
+     * The meta object literal for the '<em><b>Uid</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute PRE_QUERY_TRIGGER__UID = eINSTANCE.getPREQueryTrigger_Uid();
 
     /**
      * The meta object literal for the '{@link domain.impl.POSTQueryTriggerImpl <em>POST Query Trigger</em>}' class.
@@ -19442,6 +19669,14 @@ public interface DomainPackage extends EPackage
     EClass POST_QUERY_TRIGGER = eINSTANCE.getPOSTQueryTrigger();
 
     /**
+     * The meta object literal for the '<em><b>Uid</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute POST_QUERY_TRIGGER__UID = eINSTANCE.getPOSTQueryTrigger_Uid();
+
+    /**
      * The meta object literal for the '{@link domain.impl.PREInsertTriggerImpl <em>PRE Insert Trigger</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -19450,6 +19685,14 @@ public interface DomainPackage extends EPackage
      * @generated
      */
     EClass PRE_INSERT_TRIGGER = eINSTANCE.getPREInsertTrigger();
+
+    /**
+     * The meta object literal for the '<em><b>Uid</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute PRE_INSERT_TRIGGER__UID = eINSTANCE.getPREInsertTrigger_Uid();
 
     /**
      * The meta object literal for the '{@link domain.impl.PREDeleteTriggerImpl <em>PRE Delete Trigger</em>}' class.
@@ -19462,6 +19705,14 @@ public interface DomainPackage extends EPackage
     EClass PRE_DELETE_TRIGGER = eINSTANCE.getPREDeleteTrigger();
 
     /**
+     * The meta object literal for the '<em><b>Uid</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute PRE_DELETE_TRIGGER__UID = eINSTANCE.getPREDeleteTrigger_Uid();
+
+    /**
      * The meta object literal for the '{@link domain.impl.POSTCreateTriggerImpl <em>POST Create Trigger</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -19470,6 +19721,14 @@ public interface DomainPackage extends EPackage
      * @generated
      */
     EClass POST_CREATE_TRIGGER = eINSTANCE.getPOSTCreateTrigger();
+
+    /**
+     * The meta object literal for the '<em><b>Uid</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute POST_CREATE_TRIGGER__UID = eINSTANCE.getPOSTCreateTrigger_Uid();
 
     /**
      * The meta object literal for the '{@link domain.impl.PREUpdateTriggerImpl <em>PRE Update Trigger</em>}' class.
@@ -19482,6 +19741,14 @@ public interface DomainPackage extends EPackage
     EClass PRE_UPDATE_TRIGGER = eINSTANCE.getPREUpdateTrigger();
 
     /**
+     * The meta object literal for the '<em><b>Uid</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute PRE_UPDATE_TRIGGER__UID = eINSTANCE.getPREUpdateTrigger_Uid();
+
+    /**
      * The meta object literal for the '{@link domain.impl.CreateTriggerImpl <em>Create Trigger</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -19490,6 +19757,14 @@ public interface DomainPackage extends EPackage
      * @generated
      */
     EClass CREATE_TRIGGER = eINSTANCE.getCreateTrigger();
+
+    /**
+     * The meta object literal for the '<em><b>Uid</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute CREATE_TRIGGER__UID = eINSTANCE.getCreateTrigger_Uid();
 
     /**
      * The meta object literal for the '{@link domain.impl.InsertTriggerImpl <em>Insert Trigger</em>}' class.
@@ -19502,6 +19777,14 @@ public interface DomainPackage extends EPackage
     EClass INSERT_TRIGGER = eINSTANCE.getInsertTrigger();
 
     /**
+     * The meta object literal for the '<em><b>Uid</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute INSERT_TRIGGER__UID = eINSTANCE.getInsertTrigger_Uid();
+
+    /**
      * The meta object literal for the '{@link domain.impl.UpdateTriggerImpl <em>Update Trigger</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -19510,6 +19793,14 @@ public interface DomainPackage extends EPackage
      * @generated
      */
     EClass UPDATE_TRIGGER = eINSTANCE.getUpdateTrigger();
+
+    /**
+     * The meta object literal for the '<em><b>Uid</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute UPDATE_TRIGGER__UID = eINSTANCE.getUpdateTrigger_Uid();
 
     /**
      * The meta object literal for the '{@link domain.impl.DeleteTriggerImpl <em>Delete Trigger</em>}' class.
@@ -19522,6 +19813,14 @@ public interface DomainPackage extends EPackage
     EClass DELETE_TRIGGER = eINSTANCE.getDeleteTrigger();
 
     /**
+     * The meta object literal for the '<em><b>Uid</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute DELETE_TRIGGER__UID = eINSTANCE.getDeleteTrigger_Uid();
+
+    /**
      * The meta object literal for the '{@link domain.impl.SearchTriggerImpl <em>Search Trigger</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -19530,6 +19829,14 @@ public interface DomainPackage extends EPackage
      * @generated
      */
     EClass SEARCH_TRIGGER = eINSTANCE.getSearchTrigger();
+
+    /**
+     * The meta object literal for the '<em><b>Uid</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute SEARCH_TRIGGER__UID = eINSTANCE.getSearchTrigger_Uid();
 
     /**
      * The meta object literal for the '{@link domain.impl.RootImpl <em>Root</em>}' class.

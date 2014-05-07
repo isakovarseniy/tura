@@ -247,7 +247,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//Application"
         eOpposite="#//Application/applicationRole"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="roles" eType="#//Roles"
-        containment="true" eOpposite="#//Roles/parent"/>
+        eOpposite="#//Roles/parent"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ApplicationStyle">
     <eAnnotations source="gmf.node">
@@ -1183,10 +1183,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="valuePointer" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="sourceCast" eType="#//Type"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ActionElement" eSuperTypes="#//Uielement">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="trigger" eType="#//Context"
-        containment="true"/>
-  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ActionElement" eSuperTypes="#//Uielement #//Trigger"/>
   <eClassifiers xsi:type="ecore:EClass" name="InputElement" eSuperTypes="#//SourcesPointer"/>
   <eClassifiers xsi:type="ecore:EClass" name="Selection" eSuperTypes="#//StyleElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="displayOptionPointer" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
@@ -1305,8 +1302,6 @@
         eType="#//Relation" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Trigger" eSuperTypes="#//MethodPointer">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        iD="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="parameters" upperBound="-1"
         eType="#//ContextParameter" containment="true"/>
@@ -1317,6 +1312,8 @@
       <details key="border.color" value="0,0,0"/>
       <details key="color" value="241,238,203"/>
     </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="PREQueryTrigger" eSuperTypes="#//Trigger">
     <eAnnotations source="gmf.node">
@@ -1324,6 +1321,8 @@
       <details key="border.color" value="0,0,0"/>
       <details key="color" value="241,238,203"/>
     </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="POSTQueryTrigger" eSuperTypes="#//Trigger">
     <eAnnotations source="gmf.node">
@@ -1331,6 +1330,8 @@
       <details key="border.color" value="0,0,0"/>
       <details key="color" value="241,238,203"/>
     </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="PREInsertTrigger" eSuperTypes="#//Trigger">
     <eAnnotations source="gmf.node">
@@ -1338,6 +1339,8 @@
       <details key="border.color" value="0,0,0"/>
       <details key="color" value="241,238,203"/>
     </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="PREDeleteTrigger" eSuperTypes="#//Trigger">
     <eAnnotations source="gmf.node">
@@ -1345,6 +1348,8 @@
       <details key="border.color" value="0,0,0"/>
       <details key="color" value="241,238,203"/>
     </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="POSTCreateTrigger" eSuperTypes="#//Trigger">
     <eAnnotations source="gmf.node">
@@ -1352,6 +1357,8 @@
       <details key="border.color" value="0,0,0"/>
       <details key="color" value="241,238,203"/>
     </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="PREUpdateTrigger" eSuperTypes="#//Trigger">
     <eAnnotations source="gmf.node">
@@ -1359,6 +1366,8 @@
       <details key="border.color" value="0,0,0"/>
       <details key="color" value="241,238,203"/>
     </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CreateTrigger" eSuperTypes="#//Trigger">
     <eAnnotations source="gmf.node">
@@ -1366,6 +1375,8 @@
       <details key="border.color" value="0,0,0"/>
       <details key="color" value="241,238,203"/>
     </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="InsertTrigger" eSuperTypes="#//Trigger">
     <eAnnotations source="gmf.node">
@@ -1373,6 +1384,8 @@
       <details key="border.color" value="0,0,0"/>
       <details key="color" value="241,238,203"/>
     </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="UpdateTrigger" eSuperTypes="#//Trigger">
     <eAnnotations source="gmf.node">
@@ -1380,6 +1393,8 @@
       <details key="border.color" value="0,0,0"/>
       <details key="color" value="241,238,203"/>
     </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DeleteTrigger" eSuperTypes="#//Trigger">
     <eAnnotations source="gmf.node">
@@ -1387,6 +1402,8 @@
       <details key="border.color" value="0,0,0"/>
       <details key="color" value="241,238,203"/>
     </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SearchTrigger" eSuperTypes="#//Trigger">
     <eAnnotations source="gmf.node">
@@ -1394,6 +1411,8 @@
       <details key="border.color" value="0,0,0"/>
       <details key="color" value="241,238,203"/>
     </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Root">
     <eAnnotations source="gmf.node">

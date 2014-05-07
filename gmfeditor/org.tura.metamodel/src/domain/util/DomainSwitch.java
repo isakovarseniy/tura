@@ -975,7 +975,10 @@ public class DomainSwitch<T> extends Switch<T>
         ActionElement actionElement = (ActionElement)theEObject;
         T result = caseActionElement(actionElement);
         if (result == null) result = caseUielement(actionElement);
+        if (result == null) result = caseTrigger(actionElement);
         if (result == null) result = caseStyleElement(actionElement);
+        if (result == null) result = caseMethodPointer(actionElement);
+        if (result == null) result = caseTypePointer(actionElement);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -1110,7 +1113,10 @@ public class DomainSwitch<T> extends Switch<T>
         T result = caseButton(button);
         if (result == null) result = caseActionElement(button);
         if (result == null) result = caseUielement(button);
+        if (result == null) result = caseTrigger(button);
         if (result == null) result = caseStyleElement(button);
+        if (result == null) result = caseMethodPointer(button);
+        if (result == null) result = caseTypePointer(button);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }

@@ -64,6 +64,16 @@ public class RolesImpl extends EObjectImpl implements Roles
   protected String uid = UID_EDEFAULT;
 
   /**
+   * The cached value of the '{@link #getParent() <em>Parent</em>}' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getParent()
+   * @generated
+   * @ordered
+   */
+  protected ApplicationRole parent;
+
+  /**
    * The cached value of the '{@link #getRoles() <em>Roles</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -134,8 +144,27 @@ public class RolesImpl extends EObjectImpl implements Roles
    */
   public ApplicationRole getParent()
   {
-    if (eContainerFeatureID() != DomainPackage.ROLES__PARENT) return null;
-    return (ApplicationRole)eContainer();
+    if (parent != null && parent.eIsProxy())
+    {
+      InternalEObject oldParent = (InternalEObject)parent;
+      parent = (ApplicationRole)eResolveProxy(oldParent);
+      if (parent != oldParent)
+      {
+        if (eNotificationRequired())
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, DomainPackage.ROLES__PARENT, oldParent, parent));
+      }
+    }
+    return parent;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ApplicationRole basicGetParent()
+  {
+    return parent;
   }
 
   /**
@@ -145,7 +174,13 @@ public class RolesImpl extends EObjectImpl implements Roles
    */
   public NotificationChain basicSetParent(ApplicationRole newParent, NotificationChain msgs)
   {
-    msgs = eBasicSetContainer((InternalEObject)newParent, DomainPackage.ROLES__PARENT, msgs);
+    ApplicationRole oldParent = parent;
+    parent = newParent;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DomainPackage.ROLES__PARENT, oldParent, newParent);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
     return msgs;
   }
 
@@ -156,13 +191,11 @@ public class RolesImpl extends EObjectImpl implements Roles
    */
   public void setParent(ApplicationRole newParent)
   {
-    if (newParent != eInternalContainer() || (eContainerFeatureID() != DomainPackage.ROLES__PARENT && newParent != null))
+    if (newParent != parent)
     {
-      if (EcoreUtil.isAncestor(this, newParent))
-        throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
       NotificationChain msgs = null;
-      if (eInternalContainer() != null)
-        msgs = eBasicRemoveFromContainer(msgs);
+      if (parent != null)
+        msgs = ((InternalEObject)parent).eInverseRemove(this, DomainPackage.APPLICATION_ROLE__ROLES, ApplicationRole.class, msgs);
       if (newParent != null)
         msgs = ((InternalEObject)newParent).eInverseAdd(this, DomainPackage.APPLICATION_ROLE__ROLES, ApplicationRole.class, msgs);
       msgs = basicSetParent(newParent, msgs);
@@ -211,8 +244,8 @@ public class RolesImpl extends EObjectImpl implements Roles
     switch (featureID)
     {
       case DomainPackage.ROLES__PARENT:
-        if (eInternalContainer() != null)
-          msgs = eBasicRemoveFromContainer(msgs);
+        if (parent != null)
+          msgs = ((InternalEObject)parent).eInverseRemove(this, DomainPackage.APPLICATION_ROLE__ROLES, ApplicationRole.class, msgs);
         return basicSetParent((ApplicationRole)otherEnd, msgs);
     }
     return super.eInverseAdd(otherEnd, featureID, msgs);
@@ -244,22 +277,6 @@ public class RolesImpl extends EObjectImpl implements Roles
    * @generated
    */
   @Override
-  public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs)
-  {
-    switch (eContainerFeatureID())
-    {
-      case DomainPackage.ROLES__PARENT:
-        return eInternalContainer().eInverseRemove(this, DomainPackage.APPLICATION_ROLE__ROLES, ApplicationRole.class, msgs);
-    }
-    return super.eBasicRemoveFromContainerFeature(msgs);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
     switch (featureID)
@@ -267,7 +284,8 @@ public class RolesImpl extends EObjectImpl implements Roles
       case DomainPackage.ROLES__UID:
         return getUid();
       case DomainPackage.ROLES__PARENT:
-        return getParent();
+        if (resolve) return getParent();
+        return basicGetParent();
       case DomainPackage.ROLES__ROLES:
         return getRoles();
       case DomainPackage.ROLES__GROUPS:
@@ -344,7 +362,7 @@ public class RolesImpl extends EObjectImpl implements Roles
       case DomainPackage.ROLES__UID:
         return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
       case DomainPackage.ROLES__PARENT:
-        return getParent() != null;
+        return parent != null;
       case DomainPackage.ROLES__ROLES:
         return roles != null && !roles.isEmpty();
       case DomainPackage.ROLES__GROUPS:

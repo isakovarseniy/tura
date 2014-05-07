@@ -38,6 +38,24 @@ public class DomainParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
+	private IParser buttonLabel_1605006Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getButtonLabel_1605006Parser() {
+		if (buttonLabel_1605006Parser == null) {
+			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE
+					.getButton_Label() };
+			MessageFormatParser parser = new MessageFormatParser(features);
+			buttonLabel_1605006Parser = parser;
+		}
+		return buttonLabel_1605006Parser;
+	}
+
+	/**
+	 * @generated
+	 */
 	private IParser labelLabel_1605001Parser;
 
 	/**
@@ -92,6 +110,24 @@ public class DomainParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
+	private IParser buttonLabel_1605009Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getButtonLabel_1605009Parser() {
+		if (buttonLabel_1605009Parser == null) {
+			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE
+					.getButton_Label() };
+			MessageFormatParser parser = new MessageFormatParser(features);
+			buttonLabel_1605009Parser = parser;
+		}
+		return buttonLabel_1605009Parser;
+	}
+
+	/**
+	 * @generated
+	 */
 	private IParser treeLabel_1605005Parser;
 
 	/**
@@ -105,24 +141,6 @@ public class DomainParserProvider extends AbstractProvider implements
 			treeLabel_1605005Parser = parser;
 		}
 		return treeLabel_1605005Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	private IParser buttonLabel_1605006Parser;
-
-	/**
-	 * @generated
-	 */
-	private IParser getButtonLabel_1605006Parser() {
-		if (buttonLabel_1605006Parser == null) {
-			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE
-					.getButton_Label() };
-			MessageFormatParser parser = new MessageFormatParser(features);
-			buttonLabel_1605006Parser = parser;
-		}
-		return buttonLabel_1605006Parser;
 	}
 
 	/**
@@ -182,44 +200,26 @@ public class DomainParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	private IParser buttonLabel_1605009Parser;
-
-	/**
-	 * @generated
-	 */
-	private IParser getButtonLabel_1605009Parser() {
-		if (buttonLabel_1605009Parser == null) {
-			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE
-					.getButton_Label() };
-			MessageFormatParser parser = new MessageFormatParser(features);
-			buttonLabel_1605009Parser = parser;
-		}
-		return buttonLabel_1605009Parser;
-	}
-
-	/**
-	 * @generated
-	 */
 	protected IParser getParser(int visualID) {
 		switch (visualID) {
+		case ButtonLabelEditPart.VISUAL_ID:
+			return getButtonLabel_1605006Parser();
 		case LabelLabelEditPart.VISUAL_ID:
 			return getLabelLabel_1605001Parser();
 		case TableLabelEditPart.VISUAL_ID:
 			return getTableLabel_1605004Parser();
 		case ColumnLabelEditPart.VISUAL_ID:
 			return getColumnLabel_1605010Parser();
+		case ButtonLabel2EditPart.VISUAL_ID:
+			return getButtonLabel_1605009Parser();
 		case TreeLabelEditPart.VISUAL_ID:
 			return getTreeLabel_1605005Parser();
-		case ButtonLabelEditPart.VISUAL_ID:
-			return getButtonLabel_1605006Parser();
 		case LabelLabel2EditPart.VISUAL_ID:
 			return getLabelLabel_1605002Parser();
 		case TableLabel2EditPart.VISUAL_ID:
 			return getTableLabel_1605007Parser();
 		case TreeLabel2EditPart.VISUAL_ID:
 			return getTreeLabel_1605008Parser();
-		case ButtonLabel2EditPart.VISUAL_ID:
-			return getButtonLabel_1605009Parser();
 		}
 		return null;
 	}

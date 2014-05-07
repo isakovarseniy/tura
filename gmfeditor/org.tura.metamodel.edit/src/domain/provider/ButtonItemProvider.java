@@ -110,7 +110,7 @@ public class ButtonItemProvider
   @Override
   public String getText(Object object)
   {
-    String label = ((Button)object).getUid();
+    String label = ((Button)object).getName();
     return label == null || label.length() == 0 ?
       getString("_UI_Button_type") :
       getString("_UI_Button_type") + " " + label;
@@ -165,8 +165,7 @@ public class ButtonItemProvider
     boolean qualify =
       childFeature == DomainPackage.Literals.UIELEMENT__ENABLED_CONTEXT ||
       childFeature == DomainPackage.Literals.UIELEMENT__REQUIRED_CONTEXT ||
-      childFeature == DomainPackage.Literals.UIELEMENT__READ_ONLY_CONTEXT ||
-      childFeature == DomainPackage.Literals.ACTION_ELEMENT__TRIGGER;
+      childFeature == DomainPackage.Literals.UIELEMENT__READ_ONLY_CONTEXT;
 
     if (qualify)
     {

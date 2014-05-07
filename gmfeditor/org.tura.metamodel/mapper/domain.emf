@@ -160,7 +160,7 @@ class ApplicationRole{
     id attr EString uid;
    attr EString name;
    ref Application#applicationRole parent;
-   val Roles#parent roles; 
+   ref Roles#parent roles; 
 }
 
 
@@ -776,8 +776,7 @@ class SourcesPointer extends Uielement{
    ref Type sourceCast;
 }
 
-class ActionElement extends Uielement{
-  val Context trigger;
+class ActionElement extends Uielement , Trigger {
 }
 
 class InputElement extends SourcesPointer {
@@ -859,7 +858,6 @@ class Controls{
 }
 
 class Trigger extends MethodPointer {
-    id attr EString uid;
     attr EString name;
     val ContextParameter[*] parameters;
 
@@ -867,59 +865,71 @@ class Trigger extends MethodPointer {
 
 @gmf.node(label="fakeMethod",border.color="0,0,0",color="241,238,203")
 class PREFormTrigger  extends Trigger {
+    id attr EString uid;
  }
 
 @gmf.node(label="fakeMethod",border.color="0,0,0",color="241,238,203")
 class PREQueryTrigger  extends  Trigger {
+   id attr EString uid;
  }
 
 @gmf.node(label="fakeMethod",border.color="0,0,0",color="241,238,203")
 class POSTQueryTrigger   extends Trigger {
+    id attr EString uid;
  }
 
 
 @gmf.node(label="fakeMethod",border.color="0,0,0",color="241,238,203")
 class PREInsertTrigger   extends Trigger {
+    id attr EString uid;
  }
 
 
 @gmf.node(label="fakeMethod",border.color="0,0,0",color="241,238,203")
 class PREDeleteTrigger   extends Trigger {
+    id attr EString uid;
  }
 
 
 @gmf.node(label="fakeMethod",border.color="0,0,0",color="241,238,203")
 class POSTCreateTrigger   extends Trigger {
+    id attr EString uid;
  }
 
 
 @gmf.node(label="fakeMethod",border.color="0,0,0",color="241,238,203")
 class PREUpdateTrigger   extends Trigger {
+    id attr EString uid;
  }
 
 
 @gmf.node(label="fakeMethod",border.color="0,0,0",color="241,238,203")
 class CreateTrigger   extends Trigger {
+    id attr EString uid;
  }
 
 
 @gmf.node(label="fakeMethod",border.color="0,0,0",color="241,238,203")
 class InsertTrigger  extends Trigger {
+    id attr EString uid;
  }
 
 
 @gmf.node(label="fakeMethod",border.color="0,0,0",color="241,238,203")
 class UpdateTrigger   extends Trigger {
+    id attr EString uid;
  }
 
 
 @gmf.node(label="fakeMethod",border.color="0,0,0",color="241,238,203")
 class DeleteTrigger  extends Trigger {
+    id attr EString uid;
  }
 
 
 @gmf.node(label="fakeMethod",border.color="0,0,0",color="241,238,203")
 class SearchTrigger  extends Trigger {
+    id attr EString uid;
  }
 
 

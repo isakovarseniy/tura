@@ -8,7 +8,7 @@ import org.metamodel.tura.ui.properties.sections.adapters.helper.TriggerHolder;
 
 import domain.DataControl;
 
-public class DataControlProvider implements IWorkbenchAdapter{
+public class DataControlProvider implements IWorkbenchAdapter ,IReturnTypeProvider{
 
 	@Override
 	public Object[] getChildren(Object o) {
@@ -64,6 +64,11 @@ public class DataControlProvider implements IWorkbenchAdapter{
 
 	@Override
 	public Object getParent(Object o) {
+		return null;
+	}
+
+	@Override
+	public Object getReturnType(Object o) {
 		return null;
 	}
 

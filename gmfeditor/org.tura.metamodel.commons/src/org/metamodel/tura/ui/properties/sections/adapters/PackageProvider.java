@@ -8,7 +8,7 @@ import org.eclipse.ui.model.IWorkbenchAdapter;
 
 import domain.Package;
 
-public class PackageProvider implements IWorkbenchAdapter {
+public class PackageProvider implements IWorkbenchAdapter  ,IReturnTypeProvider{
 
 	@Override
 	public Object[] getChildren(Object o) {
@@ -39,6 +39,11 @@ public class PackageProvider implements IWorkbenchAdapter {
 
 	@Override
 	public Object getParent(Object o) {
+		return null;
+	}
+
+	@Override
+	public Object getReturnType(Object o) {
 		return null;
 	}
 

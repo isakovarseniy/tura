@@ -80,7 +80,7 @@ public interface ViewArea extends ViewElement
    * It is bidirectional and its opposite is '{@link domain.CanvasView#getParent <em>Parent</em>}'.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Canvas View</em>' containment reference isn't clear,
+   * If the meaning of the '<em>Canvas View</em>' reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->

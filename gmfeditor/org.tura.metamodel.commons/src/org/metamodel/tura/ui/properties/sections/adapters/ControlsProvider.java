@@ -6,7 +6,7 @@ import java.util.Iterator;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.ui.model.IWorkbenchAdapter;
 
-public class ControlsProvider implements IWorkbenchAdapter {
+public class ControlsProvider implements IWorkbenchAdapter  ,IReturnTypeProvider{
 
 	@Override
 	public Object[] getChildren(Object o) {
@@ -22,7 +22,6 @@ public class ControlsProvider implements IWorkbenchAdapter {
 
 	@Override
 	public ImageDescriptor getImageDescriptor(Object object) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
@@ -33,6 +32,11 @@ public class ControlsProvider implements IWorkbenchAdapter {
 
 	@Override
 	public Object getParent(Object o) {
+		return null;
+	}
+
+	@Override
+	public Object getReturnType(Object o) {
 		return null;
 	}
 

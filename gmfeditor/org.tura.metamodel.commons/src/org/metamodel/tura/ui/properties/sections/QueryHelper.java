@@ -22,6 +22,7 @@ import org.eclipse.ocl.ParserException;
 import org.eclipse.ocl.ecore.EcoreEnvironmentFactory;
 import org.eclipse.ocl.expressions.OCLExpression;
 import org.eclipse.ocl.helper.OCLHelper;
+import org.tura.metamodel.commons.initdiagram.InitDiagram;
 
 import domain.ContextParameter;
 import domain.ContextValue;
@@ -296,6 +297,9 @@ public class QueryHelper {
 	public List<Object> findTriggerParameters(domain.Trigger trg,
 			EObject types, EditingDomain editingDomain) throws ParserException {
 
+		if (trg.getMethodRef() == null)
+			return new ArrayList<Object>();
+
 		ArrayList<domain.ContextParameter> removeParameters = new ArrayList<domain.ContextParameter>();
 		ArrayList<domain.ContextParameter> addParameters = new ArrayList<domain.ContextParameter>();
 
@@ -437,19 +441,20 @@ public class QueryHelper {
 			helper.setContext(DomainPackage.eINSTANCE.getEClassifier("Domain"));
 
 			OCLExpression<EClassifier> query = helper
-					.createQuery("domain::TypeExtension.allInstances()->select(r|r.oclAsType(domain::TypeExtension).target.oclIsKindOf(domain::Type) and  " +
-							"r.oclAsType(domain::TypeExtension).target.uid ='"+ type.getUid() + "')");
+					.createQuery("domain::TypeExtension.allInstances()->select(r|r.oclAsType(domain::TypeExtension).target.oclIsKindOf(domain::Type) and  "
+							+ "r.oclAsType(domain::TypeExtension).target.uid ='"
+							+ type.getUid() + "')");
 
 			@SuppressWarnings("unchecked")
 			Collection<domain.TypeExtension> map = (Collection<domain.TypeExtension>) ocl
 					.evaluate(type, query);
 
 			query = helper
-				.createQuery("domain::TypeExtension.allInstances()->select(r|r.oclAsType(domain::TypeExtension).target.oclIsKindOf(domain::TypeReference) "+
-							"and "+
-							"r.oclAsType(domain::TypeExtension).target.oclAsType(domain::TypeReference).typeRef.uid = '" + type.getUid()+ "')");
+					.createQuery("domain::TypeExtension.allInstances()->select(r|r.oclAsType(domain::TypeExtension).target.oclIsKindOf(domain::TypeReference) "
+							+ "and "
+							+ "r.oclAsType(domain::TypeExtension).target.oclAsType(domain::TypeReference).typeRef.uid = '"
+							+ type.getUid() + "')");
 
-			
 			@SuppressWarnings("unchecked")
 			Collection<domain.TypeExtension> map1 = (Collection<domain.TypeExtension>) ocl
 					.evaluate(type, query);
@@ -471,14 +476,13 @@ public class QueryHelper {
 					joinmap.put(el.getUid(), el);
 				}
 			}
-			
+
 			for (Iterator<domain.TypeElement> itr = joinmap.values().iterator(); itr
 					.hasNext();) {
 				domain.TypeElement t = itr.next();
 				typesTree.add((Type) t);
-				getInheritTypes(typesTree,(Type) t);
+				getInheritTypes(typesTree, (Type) t);
 			}
-			
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -486,4 +490,33 @@ public class QueryHelper {
 		}
 
 	}
+
+	public domain.TypeElement findStringType(Object obj) {
+		try {
+			@SuppressWarnings("rawtypes")
+			OCL ocl = OCL.newInstance(EcoreEnvironmentFactory.INSTANCE);
+			@SuppressWarnings("unchecked")
+			OCLHelper<EClassifier, ?, ?, Constraint> helper = ocl
+					.createOCLHelper();
+			helper.setContext(DomainPackage.eINSTANCE.getEClassifier("Domain"));
+
+			OCLExpression<EClassifier> query = helper
+					.createQuery("domain::Primitive.allInstances()->select(r|r.oclAsType(domain::Primitive).name = 'String'  and  r.oclAsType(domain::Primitive).parent.parent.name ='"
+							+ InitDiagram.PRIVATE_PACKAGE + "')");
+
+			@SuppressWarnings("unchecked")
+			Collection<domain.Primitive> map = (Collection<domain.Primitive>) ocl
+					.evaluate(obj, query);
+
+			if (map.size() != 0)
+				return map.iterator().next();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			// do nothing
+		}
+		return null;
+
+	}
+
 }

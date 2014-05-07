@@ -5494,16 +5494,6 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getActionElement_Trigger()
-  {
-    return (EReference)actionElementEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EClass getInputElement()
   {
     return inputElementEClass;
@@ -5844,7 +5834,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getTrigger_Uid()
+  public EAttribute getTrigger_Name()
   {
     return (EAttribute)triggerEClass.getEStructuralFeatures().get(0);
   }
@@ -5854,19 +5844,9 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getTrigger_Name()
-  {
-    return (EAttribute)triggerEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EReference getTrigger_Parameters()
   {
-    return (EReference)triggerEClass.getEStructuralFeatures().get(2);
+    return (EReference)triggerEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -5884,9 +5864,29 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EAttribute getPREFormTrigger_Uid()
+  {
+    return (EAttribute)preFormTriggerEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getPREQueryTrigger()
   {
     return preQueryTriggerEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getPREQueryTrigger_Uid()
+  {
+    return (EAttribute)preQueryTriggerEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -5904,9 +5904,29 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EAttribute getPOSTQueryTrigger_Uid()
+  {
+    return (EAttribute)postQueryTriggerEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getPREInsertTrigger()
   {
     return preInsertTriggerEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getPREInsertTrigger_Uid()
+  {
+    return (EAttribute)preInsertTriggerEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -5924,9 +5944,29 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EAttribute getPREDeleteTrigger_Uid()
+  {
+    return (EAttribute)preDeleteTriggerEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getPOSTCreateTrigger()
   {
     return postCreateTriggerEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getPOSTCreateTrigger_Uid()
+  {
+    return (EAttribute)postCreateTriggerEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -5944,9 +5984,29 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EAttribute getPREUpdateTrigger_Uid()
+  {
+    return (EAttribute)preUpdateTriggerEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getCreateTrigger()
   {
     return createTriggerEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getCreateTrigger_Uid()
+  {
+    return (EAttribute)createTriggerEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -5964,9 +6024,29 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EAttribute getInsertTrigger_Uid()
+  {
+    return (EAttribute)insertTriggerEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getUpdateTrigger()
   {
     return updateTriggerEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getUpdateTrigger_Uid()
+  {
+    return (EAttribute)updateTriggerEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -5984,9 +6064,29 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EAttribute getDeleteTrigger_Uid()
+  {
+    return (EAttribute)deleteTriggerEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getSearchTrigger()
   {
     return searchTriggerEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getSearchTrigger_Uid()
+  {
+    return (EAttribute)searchTriggerEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -7303,7 +7403,6 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     createEReference(sourcesPointerEClass, SOURCES_POINTER__SOURCE_CAST);
 
     actionElementEClass = createEClass(ACTION_ELEMENT);
-    createEReference(actionElementEClass, ACTION_ELEMENT__TRIGGER);
 
     inputElementEClass = createEClass(INPUT_ELEMENT);
 
@@ -7353,33 +7452,44 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     createEReference(controlsEClass, CONTROLS__RELATIONS);
 
     triggerEClass = createEClass(TRIGGER);
-    createEAttribute(triggerEClass, TRIGGER__UID);
     createEAttribute(triggerEClass, TRIGGER__NAME);
     createEReference(triggerEClass, TRIGGER__PARAMETERS);
 
     preFormTriggerEClass = createEClass(PRE_FORM_TRIGGER);
+    createEAttribute(preFormTriggerEClass, PRE_FORM_TRIGGER__UID);
 
     preQueryTriggerEClass = createEClass(PRE_QUERY_TRIGGER);
+    createEAttribute(preQueryTriggerEClass, PRE_QUERY_TRIGGER__UID);
 
     postQueryTriggerEClass = createEClass(POST_QUERY_TRIGGER);
+    createEAttribute(postQueryTriggerEClass, POST_QUERY_TRIGGER__UID);
 
     preInsertTriggerEClass = createEClass(PRE_INSERT_TRIGGER);
+    createEAttribute(preInsertTriggerEClass, PRE_INSERT_TRIGGER__UID);
 
     preDeleteTriggerEClass = createEClass(PRE_DELETE_TRIGGER);
+    createEAttribute(preDeleteTriggerEClass, PRE_DELETE_TRIGGER__UID);
 
     postCreateTriggerEClass = createEClass(POST_CREATE_TRIGGER);
+    createEAttribute(postCreateTriggerEClass, POST_CREATE_TRIGGER__UID);
 
     preUpdateTriggerEClass = createEClass(PRE_UPDATE_TRIGGER);
+    createEAttribute(preUpdateTriggerEClass, PRE_UPDATE_TRIGGER__UID);
 
     createTriggerEClass = createEClass(CREATE_TRIGGER);
+    createEAttribute(createTriggerEClass, CREATE_TRIGGER__UID);
 
     insertTriggerEClass = createEClass(INSERT_TRIGGER);
+    createEAttribute(insertTriggerEClass, INSERT_TRIGGER__UID);
 
     updateTriggerEClass = createEClass(UPDATE_TRIGGER);
+    createEAttribute(updateTriggerEClass, UPDATE_TRIGGER__UID);
 
     deleteTriggerEClass = createEClass(DELETE_TRIGGER);
+    createEAttribute(deleteTriggerEClass, DELETE_TRIGGER__UID);
 
     searchTriggerEClass = createEClass(SEARCH_TRIGGER);
+    createEAttribute(searchTriggerEClass, SEARCH_TRIGGER__UID);
 
     rootEClass = createEClass(ROOT);
     createEAttribute(rootEClass, ROOT__UID);
@@ -7547,6 +7657,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     uielementEClass.getESuperTypes().add(this.getStyleElement());
     sourcesPointerEClass.getESuperTypes().add(this.getUielement());
     actionElementEClass.getESuperTypes().add(this.getUielement());
+    actionElementEClass.getESuperTypes().add(this.getTrigger());
     inputElementEClass.getESuperTypes().add(this.getSourcesPointer());
     selectionEClass.getESuperTypes().add(this.getStyleElement());
     optionSelectionEClass.getESuperTypes().add(this.getInputElement());
@@ -7689,7 +7800,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     initEAttribute(getApplicationRole_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, ApplicationRole.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getApplicationRole_Name(), ecorePackage.getEString(), "name", null, 0, 1, ApplicationRole.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getApplicationRole_Parent(), this.getApplication(), this.getApplication_ApplicationRole(), "parent", null, 0, 1, ApplicationRole.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getApplicationRole_Roles(), this.getRoles(), this.getRoles_Parent(), "roles", null, 0, 1, ApplicationRole.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getApplicationRole_Roles(), this.getRoles(), this.getRoles_Parent(), "roles", null, 0, 1, ApplicationRole.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(applicationStyleEClass, ApplicationStyle.class, "ApplicationStyle", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getApplicationStyle_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, ApplicationStyle.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -7745,7 +7856,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
 
     initEClass(rolesEClass, Roles.class, "Roles", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getRoles_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, Roles.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getRoles_Parent(), this.getApplicationRole(), this.getApplicationRole_Roles(), "parent", null, 0, 1, Roles.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getRoles_Parent(), this.getApplicationRole(), this.getApplicationRole_Roles(), "parent", null, 0, 1, Roles.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getRoles_Roles(), this.getRole(), null, "roles", null, 0, -1, Roles.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getRoles_Groups(), this.getGroup(), null, "groups", null, 0, -1, Roles.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -8109,7 +8220,6 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     initEReference(getSourcesPointer_SourceCast(), this.getType(), null, "sourceCast", null, 0, 1, SourcesPointer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(actionElementEClass, ActionElement.class, "ActionElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getActionElement_Trigger(), this.getContext(), null, "trigger", null, 0, 1, ActionElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(inputElementEClass, InputElement.class, "InputElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -8159,33 +8269,44 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     initEReference(getControls_Relations(), this.getRelation(), null, "relations", null, 0, -1, Controls.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(triggerEClass, Trigger.class, "Trigger", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getTrigger_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, Trigger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getTrigger_Name(), ecorePackage.getEString(), "name", null, 0, 1, Trigger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getTrigger_Parameters(), this.getContextParameter(), null, "parameters", null, 0, -1, Trigger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(preFormTriggerEClass, PREFormTrigger.class, "PREFormTrigger", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getPREFormTrigger_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, PREFormTrigger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(preQueryTriggerEClass, PREQueryTrigger.class, "PREQueryTrigger", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getPREQueryTrigger_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, PREQueryTrigger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(postQueryTriggerEClass, POSTQueryTrigger.class, "POSTQueryTrigger", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getPOSTQueryTrigger_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, POSTQueryTrigger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(preInsertTriggerEClass, PREInsertTrigger.class, "PREInsertTrigger", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getPREInsertTrigger_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, PREInsertTrigger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(preDeleteTriggerEClass, PREDeleteTrigger.class, "PREDeleteTrigger", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getPREDeleteTrigger_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, PREDeleteTrigger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(postCreateTriggerEClass, POSTCreateTrigger.class, "POSTCreateTrigger", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getPOSTCreateTrigger_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, POSTCreateTrigger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(preUpdateTriggerEClass, PREUpdateTrigger.class, "PREUpdateTrigger", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getPREUpdateTrigger_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, PREUpdateTrigger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(createTriggerEClass, CreateTrigger.class, "CreateTrigger", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getCreateTrigger_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, CreateTrigger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(insertTriggerEClass, InsertTrigger.class, "InsertTrigger", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getInsertTrigger_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, InsertTrigger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(updateTriggerEClass, UpdateTrigger.class, "UpdateTrigger", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getUpdateTrigger_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, UpdateTrigger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(deleteTriggerEClass, DeleteTrigger.class, "DeleteTrigger", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getDeleteTrigger_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, DeleteTrigger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(searchTriggerEClass, SearchTrigger.class, "SearchTrigger", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getSearchTrigger_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, SearchTrigger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(rootEClass, Root.class, "Root", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getRoot_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, Root.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

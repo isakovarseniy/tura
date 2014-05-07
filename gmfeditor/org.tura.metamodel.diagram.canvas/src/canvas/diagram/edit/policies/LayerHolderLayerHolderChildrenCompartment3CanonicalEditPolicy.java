@@ -93,6 +93,7 @@ public class LayerHolderLayerHolderChildrenCompartment3CanonicalEditPolicy
 	private boolean isMyDiagramElement(View view) {
 		int visualID = DomainVisualIDRegistry.getVisualID(view);
 		switch (visualID) {
+		case ButtonEditPart.VISUAL_ID:
 		case DropDownSelectionEditPart.VISUAL_ID:
 		case LayerHolder2EditPart.VISUAL_ID:
 		case InputTextEditPart.VISUAL_ID:
@@ -101,7 +102,6 @@ public class LayerHolderLayerHolderChildrenCompartment3CanonicalEditPolicy
 		case CheckBoxEditPart.VISUAL_ID:
 		case TableEditPart.VISUAL_ID:
 		case TreeEditPart.VISUAL_ID:
-		case ButtonEditPart.VISUAL_ID:
 			return true;
 		}
 		return false;

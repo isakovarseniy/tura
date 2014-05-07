@@ -4,7 +4,6 @@ package domain;
 
 import org.eclipse.emf.ecore.EObject;
 
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Sources Pointer</b></em>'.
@@ -29,7 +28,7 @@ public interface SourcesPointer extends Uielement
    * Returns the value of the '<em><b>Source Pointer</b></em>' reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Source Pointer</em>' containment reference isn't clear,
+   * If the meaning of the '<em>Source Pointer</em>' reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
@@ -55,7 +54,7 @@ public interface SourcesPointer extends Uielement
    * Returns the value of the '<em><b>Value Pointer</b></em>' reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Value Pointer</em>' containment reference isn't clear,
+   * If the meaning of the '<em>Value Pointer</em>' reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
@@ -81,7 +80,7 @@ public interface SourcesPointer extends Uielement
    * Returns the value of the '<em><b>Source Cast</b></em>' reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Source Cast</em>' containment reference isn't clear,
+   * If the meaning of the '<em>Source Cast</em>' reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->

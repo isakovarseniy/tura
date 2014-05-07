@@ -281,6 +281,14 @@ public class DomainNavigatorContentProvider implements ICommonContentProvider {
 					DomainVisualIDRegistry
 							.getType(LayerHolderLayerHolderChildrenCompartmentEditPart.VISUAL_ID));
 			connectedViews = getChildrenByType(connectedViews,
+					DomainVisualIDRegistry.getType(ButtonEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					DomainVisualIDRegistry
+							.getType(LayerHolderLayerHolderChildrenCompartmentEditPart.VISUAL_ID));
+			connectedViews = getChildrenByType(connectedViews,
 					DomainVisualIDRegistry
 							.getType(DropDownSelectionEditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
@@ -341,14 +349,6 @@ public class DomainNavigatorContentProvider implements ICommonContentProvider {
 							.getType(LayerHolderLayerHolderChildrenCompartmentEditPart.VISUAL_ID));
 			connectedViews = getChildrenByType(connectedViews,
 					DomainVisualIDRegistry.getType(TreeEditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					DomainVisualIDRegistry
-							.getType(LayerHolderLayerHolderChildrenCompartmentEditPart.VISUAL_ID));
-			connectedViews = getChildrenByType(connectedViews,
-					DomainVisualIDRegistry.getType(ButtonEditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
 			return result.toArray();
@@ -363,6 +363,14 @@ public class DomainNavigatorContentProvider implements ICommonContentProvider {
 					DomainVisualIDRegistry
 							.getType(LayerHolderLayerHolderChildrenCompartment2EditPart.VISUAL_ID));
 			connectedViews = getChildrenByType(connectedViews,
+					DomainVisualIDRegistry.getType(ButtonEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					DomainVisualIDRegistry
+							.getType(LayerHolderLayerHolderChildrenCompartment2EditPart.VISUAL_ID));
+			connectedViews = getChildrenByType(connectedViews,
 					DomainVisualIDRegistry
 							.getType(DropDownSelectionEditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
@@ -423,14 +431,6 @@ public class DomainNavigatorContentProvider implements ICommonContentProvider {
 							.getType(LayerHolderLayerHolderChildrenCompartment2EditPart.VISUAL_ID));
 			connectedViews = getChildrenByType(connectedViews,
 					DomainVisualIDRegistry.getType(TreeEditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					DomainVisualIDRegistry
-							.getType(LayerHolderLayerHolderChildrenCompartment2EditPart.VISUAL_ID));
-			connectedViews = getChildrenByType(connectedViews,
-					DomainVisualIDRegistry.getType(ButtonEditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
 			return result.toArray();
@@ -455,6 +455,14 @@ public class DomainNavigatorContentProvider implements ICommonContentProvider {
 			LinkedList<DomainAbstractNavigatorItem> result = new LinkedList<DomainAbstractNavigatorItem>();
 			Node sv = (Node) view;
 			Collection<View> connectedViews;
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					DomainVisualIDRegistry
+							.getType(ColumnColumnElementCompartmentEditPart.VISUAL_ID));
+			connectedViews = getChildrenByType(connectedViews,
+					DomainVisualIDRegistry.getType(Button2EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
 			connectedViews = getChildrenByType(
 					Collections.singleton(sv),
 					DomainVisualIDRegistry
@@ -523,14 +531,6 @@ public class DomainNavigatorContentProvider implements ICommonContentProvider {
 					DomainVisualIDRegistry.getType(Tree2EditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					DomainVisualIDRegistry
-							.getType(ColumnColumnElementCompartmentEditPart.VISUAL_ID));
-			connectedViews = getChildrenByType(connectedViews,
-					DomainVisualIDRegistry.getType(Button2EditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
 			return result.toArray();
 		}
 
@@ -538,6 +538,14 @@ public class DomainNavigatorContentProvider implements ICommonContentProvider {
 			LinkedList<DomainAbstractNavigatorItem> result = new LinkedList<DomainAbstractNavigatorItem>();
 			Node sv = (Node) view;
 			Collection<View> connectedViews;
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					DomainVisualIDRegistry
+							.getType(LayerHolderLayerHolderChildrenCompartment3EditPart.VISUAL_ID));
+			connectedViews = getChildrenByType(connectedViews,
+					DomainVisualIDRegistry.getType(ButtonEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
 			connectedViews = getChildrenByType(
 					Collections.singleton(sv),
 					DomainVisualIDRegistry
@@ -603,14 +611,6 @@ public class DomainNavigatorContentProvider implements ICommonContentProvider {
 							.getType(LayerHolderLayerHolderChildrenCompartment3EditPart.VISUAL_ID));
 			connectedViews = getChildrenByType(connectedViews,
 					DomainVisualIDRegistry.getType(TreeEditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					DomainVisualIDRegistry
-							.getType(LayerHolderLayerHolderChildrenCompartment3EditPart.VISUAL_ID));
-			connectedViews = getChildrenByType(connectedViews,
-					DomainVisualIDRegistry.getType(ButtonEditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
 			return result.toArray();

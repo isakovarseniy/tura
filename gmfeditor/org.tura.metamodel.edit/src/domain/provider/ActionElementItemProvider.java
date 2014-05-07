@@ -15,12 +15,14 @@ import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
 
+import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
@@ -62,8 +64,176 @@ public class ActionElementItemProvider
     {
       super.getPropertyDescriptors(object);
 
+      addPackageRefPropertyDescriptor(object);
+      addTypeRefPropertyDescriptor(object);
+      addFakePackageNamePropertyDescriptor(object);
+      addFakeTypeNamePropertyDescriptor(object);
+      addMethodRefPropertyDescriptor(object);
+      addFakeMethodPropertyDescriptor(object);
+      addNamePropertyDescriptor(object);
     }
     return itemPropertyDescriptors;
+  }
+
+  /**
+   * This adds a property descriptor for the Package Ref feature.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected void addPackageRefPropertyDescriptor(Object object)
+  {
+    itemPropertyDescriptors.add
+      (createItemPropertyDescriptor
+        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+         getResourceLocator(),
+         getString("_UI_TypePointer_packageRef_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_TypePointer_packageRef_feature", "_UI_TypePointer_type"),
+         DomainPackage.Literals.TYPE_POINTER__PACKAGE_REF,
+         true,
+         false,
+         true,
+         null,
+         null,
+         null));
+  }
+
+  /**
+   * This adds a property descriptor for the Type Ref feature.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected void addTypeRefPropertyDescriptor(Object object)
+  {
+    itemPropertyDescriptors.add
+      (createItemPropertyDescriptor
+        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+         getResourceLocator(),
+         getString("_UI_TypePointer_typeRef_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_TypePointer_typeRef_feature", "_UI_TypePointer_type"),
+         DomainPackage.Literals.TYPE_POINTER__TYPE_REF,
+         true,
+         false,
+         true,
+         null,
+         null,
+         null));
+  }
+
+  /**
+   * This adds a property descriptor for the Fake Package Name feature.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected void addFakePackageNamePropertyDescriptor(Object object)
+  {
+    itemPropertyDescriptors.add
+      (createItemPropertyDescriptor
+        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+         getResourceLocator(),
+         getString("_UI_TypePointer_fakePackageName_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_TypePointer_fakePackageName_feature", "_UI_TypePointer_type"),
+         DomainPackage.Literals.TYPE_POINTER__FAKE_PACKAGE_NAME,
+         true,
+         false,
+         false,
+         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+         null,
+         null));
+  }
+
+  /**
+   * This adds a property descriptor for the Fake Type Name feature.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected void addFakeTypeNamePropertyDescriptor(Object object)
+  {
+    itemPropertyDescriptors.add
+      (createItemPropertyDescriptor
+        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+         getResourceLocator(),
+         getString("_UI_TypePointer_fakeTypeName_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_TypePointer_fakeTypeName_feature", "_UI_TypePointer_type"),
+         DomainPackage.Literals.TYPE_POINTER__FAKE_TYPE_NAME,
+         true,
+         false,
+         false,
+         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+         null,
+         null));
+  }
+
+  /**
+   * This adds a property descriptor for the Method Ref feature.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected void addMethodRefPropertyDescriptor(Object object)
+  {
+    itemPropertyDescriptors.add
+      (createItemPropertyDescriptor
+        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+         getResourceLocator(),
+         getString("_UI_MethodPointer_methodRef_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_MethodPointer_methodRef_feature", "_UI_MethodPointer_type"),
+         DomainPackage.Literals.METHOD_POINTER__METHOD_REF,
+         true,
+         false,
+         true,
+         null,
+         null,
+         null));
+  }
+
+  /**
+   * This adds a property descriptor for the Fake Method feature.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected void addFakeMethodPropertyDescriptor(Object object)
+  {
+    itemPropertyDescriptors.add
+      (createItemPropertyDescriptor
+        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+         getResourceLocator(),
+         getString("_UI_MethodPointer_fakeMethod_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_MethodPointer_fakeMethod_feature", "_UI_MethodPointer_type"),
+         DomainPackage.Literals.METHOD_POINTER__FAKE_METHOD,
+         true,
+         false,
+         false,
+         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+         null,
+         null));
+  }
+
+  /**
+   * This adds a property descriptor for the Name feature.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected void addNamePropertyDescriptor(Object object)
+  {
+    itemPropertyDescriptors.add
+      (createItemPropertyDescriptor
+        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+         getResourceLocator(),
+         getString("_UI_Trigger_name_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_Trigger_name_feature", "_UI_Trigger_type"),
+         DomainPackage.Literals.TRIGGER__NAME,
+         true,
+         false,
+         false,
+         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+         null,
+         null));
   }
 
   /**
@@ -80,7 +250,7 @@ public class ActionElementItemProvider
     if (childrenFeatures == null)
     {
       super.getChildrenFeatures(object);
-      childrenFeatures.add(DomainPackage.Literals.ACTION_ELEMENT__TRIGGER);
+      childrenFeatures.add(DomainPackage.Literals.TRIGGER__PARAMETERS);
     }
     return childrenFeatures;
   }
@@ -120,7 +290,7 @@ public class ActionElementItemProvider
   @Override
   public String getText(Object object)
   {
-    String label = ((ActionElement)object).getUid();
+    String label = ((ActionElement)object).getName();
     return label == null || label.length() == 0 ?
       getString("_UI_ActionElement_type") :
       getString("_UI_ActionElement_type") + " " + label;
@@ -140,7 +310,13 @@ public class ActionElementItemProvider
 
     switch (notification.getFeatureID(ActionElement.class))
     {
-      case DomainPackage.ACTION_ELEMENT__TRIGGER:
+      case DomainPackage.ACTION_ELEMENT__FAKE_PACKAGE_NAME:
+      case DomainPackage.ACTION_ELEMENT__FAKE_TYPE_NAME:
+      case DomainPackage.ACTION_ELEMENT__FAKE_METHOD:
+      case DomainPackage.ACTION_ELEMENT__NAME:
+        fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+        return;
+      case DomainPackage.ACTION_ELEMENT__PARAMETERS:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
         return;
     }
@@ -161,8 +337,8 @@ public class ActionElementItemProvider
 
     newChildDescriptors.add
       (createChildParameter
-        (DomainPackage.Literals.ACTION_ELEMENT__TRIGGER,
-         DomainFactory.eINSTANCE.createContext()));
+        (DomainPackage.Literals.TRIGGER__PARAMETERS,
+         DomainFactory.eINSTANCE.createContextParameter()));
   }
 
   /**
@@ -180,8 +356,7 @@ public class ActionElementItemProvider
     boolean qualify =
       childFeature == DomainPackage.Literals.UIELEMENT__ENABLED_CONTEXT ||
       childFeature == DomainPackage.Literals.UIELEMENT__REQUIRED_CONTEXT ||
-      childFeature == DomainPackage.Literals.UIELEMENT__READ_ONLY_CONTEXT ||
-      childFeature == DomainPackage.Literals.ACTION_ELEMENT__TRIGGER;
+      childFeature == DomainPackage.Literals.UIELEMENT__READ_ONLY_CONTEXT;
 
     if (qualify)
     {

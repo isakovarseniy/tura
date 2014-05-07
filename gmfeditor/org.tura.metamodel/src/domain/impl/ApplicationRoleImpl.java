@@ -77,7 +77,7 @@ public class ApplicationRoleImpl extends EObjectImpl implements ApplicationRole
   protected String name = NAME_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getRoles() <em>Roles</em>}' containment reference.
+   * The cached value of the '{@link #getRoles() <em>Roles</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getRoles()
@@ -205,6 +205,26 @@ public class ApplicationRoleImpl extends EObjectImpl implements ApplicationRole
    */
   public Roles getRoles()
   {
+    if (roles != null && roles.eIsProxy())
+    {
+      InternalEObject oldRoles = (InternalEObject)roles;
+      roles = (Roles)eResolveProxy(oldRoles);
+      if (roles != oldRoles)
+      {
+        if (eNotificationRequired())
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, DomainPackage.APPLICATION_ROLE__ROLES, oldRoles, roles));
+      }
+    }
+    return roles;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Roles basicGetRoles()
+  {
     return roles;
   }
 
@@ -262,7 +282,7 @@ public class ApplicationRoleImpl extends EObjectImpl implements ApplicationRole
         return basicSetParent((Application)otherEnd, msgs);
       case DomainPackage.APPLICATION_ROLE__ROLES:
         if (roles != null)
-          msgs = ((InternalEObject)roles).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DomainPackage.APPLICATION_ROLE__ROLES, null, msgs);
+          msgs = ((InternalEObject)roles).eInverseRemove(this, DomainPackage.ROLES__PARENT, Roles.class, msgs);
         return basicSetRoles((Roles)otherEnd, msgs);
     }
     return super.eInverseAdd(otherEnd, featureID, msgs);
@@ -319,7 +339,8 @@ public class ApplicationRoleImpl extends EObjectImpl implements ApplicationRole
       case DomainPackage.APPLICATION_ROLE__PARENT:
         return getParent();
       case DomainPackage.APPLICATION_ROLE__ROLES:
-        return getRoles();
+        if (resolve) return getRoles();
+        return basicGetRoles();
     }
     return super.eGet(featureID, resolve, coreType);
   }

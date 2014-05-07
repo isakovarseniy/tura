@@ -34,6 +34,9 @@ public class LayerHolderLayerHolderChildrenCompartment3ItemSemanticEditPolicy
 	 * @generated
 	 */
 	protected Command getCreateCommand(CreateElementRequest req) {
+		if (DomainElementTypes.Button_1603017 == req.getElementType()) {
+			return getGEFWrapper(new ButtonCreateCommand(req));
+		}
 		if (DomainElementTypes.DropDownSelection_1603002 == req
 				.getElementType()) {
 			return getGEFWrapper(new DropDownSelectionCreateCommand(req));
@@ -58,9 +61,6 @@ public class LayerHolderLayerHolderChildrenCompartment3ItemSemanticEditPolicy
 		}
 		if (DomainElementTypes.Tree_1603016 == req.getElementType()) {
 			return getGEFWrapper(new TreeCreateCommand(req));
-		}
-		if (DomainElementTypes.Button_1603017 == req.getElementType()) {
-			return getGEFWrapper(new ButtonCreateCommand(req));
 		}
 		return super.getCreateCommand(req);
 	}

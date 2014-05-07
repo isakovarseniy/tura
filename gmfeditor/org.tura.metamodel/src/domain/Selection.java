@@ -4,7 +4,6 @@ package domain;
 
 import org.eclipse.emf.ecore.EObject;
 
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Selection</b></em>'.
@@ -28,7 +27,7 @@ public interface Selection extends StyleElement
    * Returns the value of the '<em><b>Display Option Pointer</b></em>' reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Display Option Pointer</em>' containment reference isn't clear,
+   * If the meaning of the '<em>Display Option Pointer</em>' reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
@@ -54,7 +53,7 @@ public interface Selection extends StyleElement
    * Returns the value of the '<em><b>Value Option Pointer</b></em>' reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Value Option Pointer</em>' containment reference isn't clear,
+   * If the meaning of the '<em>Value Option Pointer</em>' reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->

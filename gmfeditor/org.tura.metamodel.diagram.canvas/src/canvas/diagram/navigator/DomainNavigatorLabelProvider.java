@@ -134,6 +134,9 @@ public class DomainNavigatorLabelProvider extends LabelProvider implements
 		case LayerHolderEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?TopLevelNode?http://tura.org/2013/v1/domain?LayerHolder", DomainElementTypes.LayerHolder_1602003); //$NON-NLS-1$
+		case ButtonEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Node?http://tura.org/2013/v1/domain?Button", DomainElementTypes.Button_1603017); //$NON-NLS-1$
 		case DropDownSelectionEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Node?http://tura.org/2013/v1/domain?DropDownSelection", DomainElementTypes.DropDownSelection_1603002); //$NON-NLS-1$
@@ -158,6 +161,9 @@ public class DomainNavigatorLabelProvider extends LabelProvider implements
 		case ColumnEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Node?http://tura.org/2013/v1/domain?Column", DomainElementTypes.Column_1603024); //$NON-NLS-1$
+		case Button2EditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Node?http://tura.org/2013/v1/domain?Button", DomainElementTypes.Button_1603023); //$NON-NLS-1$
 		case DropDownSelection2EditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Node?http://tura.org/2013/v1/domain?DropDownSelection", DomainElementTypes.DropDownSelection_1603010); //$NON-NLS-1$
@@ -167,9 +173,6 @@ public class DomainNavigatorLabelProvider extends LabelProvider implements
 		case TreeEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Node?http://tura.org/2013/v1/domain?Tree", DomainElementTypes.Tree_1603016); //$NON-NLS-1$
-		case ButtonEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Node?http://tura.org/2013/v1/domain?Button", DomainElementTypes.Button_1603017); //$NON-NLS-1$
 		case InputText2EditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Node?http://tura.org/2013/v1/domain?InputText", DomainElementTypes.InputText_1603012); //$NON-NLS-1$
@@ -188,9 +191,6 @@ public class DomainNavigatorLabelProvider extends LabelProvider implements
 		case Tree2EditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Node?http://tura.org/2013/v1/domain?Tree", DomainElementTypes.Tree_1603022); //$NON-NLS-1$
-		case Button2EditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Node?http://tura.org/2013/v1/domain?Button", DomainElementTypes.Button_1603023); //$NON-NLS-1$
 		}
 		return getImage("Navigator?UnknownElement", null); //$NON-NLS-1$
 	}
@@ -255,6 +255,8 @@ public class DomainNavigatorLabelProvider extends LabelProvider implements
 			return getCanvasView_1601000Text(view);
 		case LayerHolderEditPart.VISUAL_ID:
 			return getLayerHolder_1602003Text(view);
+		case ButtonEditPart.VISUAL_ID:
+			return getButton_1603017Text(view);
 		case DropDownSelectionEditPart.VISUAL_ID:
 			return getDropDownSelection_1603002Text(view);
 		case LayerHolder2EditPart.VISUAL_ID:
@@ -271,14 +273,14 @@ public class DomainNavigatorLabelProvider extends LabelProvider implements
 			return getTable_1603008Text(view);
 		case ColumnEditPart.VISUAL_ID:
 			return getColumn_1603024Text(view);
+		case Button2EditPart.VISUAL_ID:
+			return getButton_1603023Text(view);
 		case DropDownSelection2EditPart.VISUAL_ID:
 			return getDropDownSelection_1603010Text(view);
 		case LayerHolder3EditPart.VISUAL_ID:
 			return getLayerHolder_1603020Text(view);
 		case TreeEditPart.VISUAL_ID:
 			return getTree_1603016Text(view);
-		case ButtonEditPart.VISUAL_ID:
-			return getButton_1603017Text(view);
 		case InputText2EditPart.VISUAL_ID:
 			return getInputText_1603012Text(view);
 		case Label2EditPart.VISUAL_ID:
@@ -291,8 +293,6 @@ public class DomainNavigatorLabelProvider extends LabelProvider implements
 			return getTable_1603021Text(view);
 		case Tree2EditPart.VISUAL_ID:
 			return getTree_1603022Text(view);
-		case Button2EditPart.VISUAL_ID:
-			return getButton_1603023Text(view);
 		}
 		return getUnknownElementText(view);
 	}
@@ -321,6 +321,25 @@ public class DomainNavigatorLabelProvider extends LabelProvider implements
 		} else {
 			DomainDiagramEditorPlugin.getInstance().logError(
 					"No domain element for view with visualID = " + 1602003); //$NON-NLS-1$
+			return ""; //$NON-NLS-1$
+		}
+	}
+
+	/**
+	 * @generated
+	 */
+	private String getButton_1603017Text(View view) {
+		IParser parser = DomainParserProvider.getParser(
+				DomainElementTypes.Button_1603017,
+				view.getElement() != null ? view.getElement() : view,
+				DomainVisualIDRegistry.getType(ButtonLabelEditPart.VISUAL_ID));
+		if (parser != null) {
+			return parser.getPrintString(new EObjectAdapter(
+					view.getElement() != null ? view.getElement() : view),
+					ParserOptions.NONE.intValue());
+		} else {
+			DomainDiagramEditorPlugin.getInstance().logError(
+					"Parser was not found for label " + 1605006); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 	}
@@ -456,6 +475,25 @@ public class DomainNavigatorLabelProvider extends LabelProvider implements
 	/**
 	 * @generated
 	 */
+	private String getButton_1603023Text(View view) {
+		IParser parser = DomainParserProvider.getParser(
+				DomainElementTypes.Button_1603023,
+				view.getElement() != null ? view.getElement() : view,
+				DomainVisualIDRegistry.getType(ButtonLabel2EditPart.VISUAL_ID));
+		if (parser != null) {
+			return parser.getPrintString(new EObjectAdapter(
+					view.getElement() != null ? view.getElement() : view),
+					ParserOptions.NONE.intValue());
+		} else {
+			DomainDiagramEditorPlugin.getInstance().logError(
+					"Parser was not found for label " + 1605009); //$NON-NLS-1$
+			return ""; //$NON-NLS-1$
+		}
+	}
+
+	/**
+	 * @generated
+	 */
 	private String getDropDownSelection_1603010Text(View view) {
 		DropDownSelection domainModelElement = (DropDownSelection) view
 				.getElement();
@@ -497,25 +535,6 @@ public class DomainNavigatorLabelProvider extends LabelProvider implements
 		} else {
 			DomainDiagramEditorPlugin.getInstance().logError(
 					"Parser was not found for label " + 1605005); //$NON-NLS-1$
-			return ""; //$NON-NLS-1$
-		}
-	}
-
-	/**
-	 * @generated
-	 */
-	private String getButton_1603017Text(View view) {
-		IParser parser = DomainParserProvider.getParser(
-				DomainElementTypes.Button_1603017,
-				view.getElement() != null ? view.getElement() : view,
-				DomainVisualIDRegistry.getType(ButtonLabelEditPart.VISUAL_ID));
-		if (parser != null) {
-			return parser.getPrintString(new EObjectAdapter(
-					view.getElement() != null ? view.getElement() : view),
-					ParserOptions.NONE.intValue());
-		} else {
-			DomainDiagramEditorPlugin.getInstance().logError(
-					"Parser was not found for label " + 1605006); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 	}
@@ -615,25 +634,6 @@ public class DomainNavigatorLabelProvider extends LabelProvider implements
 		} else {
 			DomainDiagramEditorPlugin.getInstance().logError(
 					"Parser was not found for label " + 1605008); //$NON-NLS-1$
-			return ""; //$NON-NLS-1$
-		}
-	}
-
-	/**
-	 * @generated
-	 */
-	private String getButton_1603023Text(View view) {
-		IParser parser = DomainParserProvider.getParser(
-				DomainElementTypes.Button_1603023,
-				view.getElement() != null ? view.getElement() : view,
-				DomainVisualIDRegistry.getType(ButtonLabel2EditPart.VISUAL_ID));
-		if (parser != null) {
-			return parser.getPrintString(new EObjectAdapter(
-					view.getElement() != null ? view.getElement() : view),
-					ParserOptions.NONE.intValue());
-		} else {
-			DomainDiagramEditorPlugin.getInstance().logError(
-					"Parser was not found for label " + 1605009); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 	}

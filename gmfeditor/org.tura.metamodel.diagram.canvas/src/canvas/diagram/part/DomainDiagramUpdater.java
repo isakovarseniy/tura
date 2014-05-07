@@ -120,6 +120,10 @@ public class DomainDiagramUpdater {
 			Uielement childElement = (Uielement) it.next();
 			int visualID = DomainVisualIDRegistry.getNodeVisualID(view,
 					childElement);
+			if (visualID == ButtonEditPart.VISUAL_ID) {
+				result.add(new DomainNodeDescriptor(childElement, visualID));
+				continue;
+			}
 			if (visualID == DropDownSelectionEditPart.VISUAL_ID) {
 				result.add(new DomainNodeDescriptor(childElement, visualID));
 				continue;
@@ -149,10 +153,6 @@ public class DomainDiagramUpdater {
 				continue;
 			}
 			if (visualID == TreeEditPart.VISUAL_ID) {
-				result.add(new DomainNodeDescriptor(childElement, visualID));
-				continue;
-			}
-			if (visualID == ButtonEditPart.VISUAL_ID) {
 				result.add(new DomainNodeDescriptor(childElement, visualID));
 				continue;
 			}
@@ -179,6 +179,10 @@ public class DomainDiagramUpdater {
 			Uielement childElement = (Uielement) it.next();
 			int visualID = DomainVisualIDRegistry.getNodeVisualID(view,
 					childElement);
+			if (visualID == ButtonEditPart.VISUAL_ID) {
+				result.add(new DomainNodeDescriptor(childElement, visualID));
+				continue;
+			}
 			if (visualID == DropDownSelectionEditPart.VISUAL_ID) {
 				result.add(new DomainNodeDescriptor(childElement, visualID));
 				continue;
@@ -208,10 +212,6 @@ public class DomainDiagramUpdater {
 				continue;
 			}
 			if (visualID == TreeEditPart.VISUAL_ID) {
-				result.add(new DomainNodeDescriptor(childElement, visualID));
-				continue;
-			}
-			if (visualID == ButtonEditPart.VISUAL_ID) {
 				result.add(new DomainNodeDescriptor(childElement, visualID));
 				continue;
 			}
@@ -263,6 +263,9 @@ public class DomainDiagramUpdater {
 			Uielement childElement = modelElement.getElement();
 			int visualID = DomainVisualIDRegistry.getNodeVisualID(view,
 					childElement);
+			if (visualID == Button2EditPart.VISUAL_ID) {
+				result.add(new DomainNodeDescriptor(childElement, visualID));
+			}
 			if (visualID == DropDownSelection2EditPart.VISUAL_ID) {
 				result.add(new DomainNodeDescriptor(childElement, visualID));
 			}
@@ -285,9 +288,6 @@ public class DomainDiagramUpdater {
 				result.add(new DomainNodeDescriptor(childElement, visualID));
 			}
 			if (visualID == Tree2EditPart.VISUAL_ID) {
-				result.add(new DomainNodeDescriptor(childElement, visualID));
-			}
-			if (visualID == Button2EditPart.VISUAL_ID) {
 				result.add(new DomainNodeDescriptor(childElement, visualID));
 			}
 		}
@@ -313,6 +313,10 @@ public class DomainDiagramUpdater {
 			Uielement childElement = (Uielement) it.next();
 			int visualID = DomainVisualIDRegistry.getNodeVisualID(view,
 					childElement);
+			if (visualID == ButtonEditPart.VISUAL_ID) {
+				result.add(new DomainNodeDescriptor(childElement, visualID));
+				continue;
+			}
 			if (visualID == DropDownSelectionEditPart.VISUAL_ID) {
 				result.add(new DomainNodeDescriptor(childElement, visualID));
 				continue;
@@ -342,10 +346,6 @@ public class DomainDiagramUpdater {
 				continue;
 			}
 			if (visualID == TreeEditPart.VISUAL_ID) {
-				result.add(new DomainNodeDescriptor(childElement, visualID));
-				continue;
-			}
-			if (visualID == ButtonEditPart.VISUAL_ID) {
 				result.add(new DomainNodeDescriptor(childElement, visualID));
 				continue;
 			}
@@ -388,6 +388,8 @@ public class DomainDiagramUpdater {
 			return getCanvasView_1601000ContainedLinks(view);
 		case LayerHolderEditPart.VISUAL_ID:
 			return getLayerHolder_1602003ContainedLinks(view);
+		case ButtonEditPart.VISUAL_ID:
+			return getButton_1603017ContainedLinks(view);
 		case DropDownSelectionEditPart.VISUAL_ID:
 			return getDropDownSelection_1603002ContainedLinks(view);
 		case LayerHolder2EditPart.VISUAL_ID:
@@ -404,14 +406,14 @@ public class DomainDiagramUpdater {
 			return getTable_1603008ContainedLinks(view);
 		case ColumnEditPart.VISUAL_ID:
 			return getColumn_1603024ContainedLinks(view);
+		case Button2EditPart.VISUAL_ID:
+			return getButton_1603023ContainedLinks(view);
 		case DropDownSelection2EditPart.VISUAL_ID:
 			return getDropDownSelection_1603010ContainedLinks(view);
 		case LayerHolder3EditPart.VISUAL_ID:
 			return getLayerHolder_1603020ContainedLinks(view);
 		case TreeEditPart.VISUAL_ID:
 			return getTree_1603016ContainedLinks(view);
-		case ButtonEditPart.VISUAL_ID:
-			return getButton_1603017ContainedLinks(view);
 		case InputText2EditPart.VISUAL_ID:
 			return getInputText_1603012ContainedLinks(view);
 		case Label2EditPart.VISUAL_ID:
@@ -424,8 +426,6 @@ public class DomainDiagramUpdater {
 			return getTable_1603021ContainedLinks(view);
 		case Tree2EditPart.VISUAL_ID:
 			return getTree_1603022ContainedLinks(view);
-		case Button2EditPart.VISUAL_ID:
-			return getButton_1603023ContainedLinks(view);
 		}
 		return Collections.emptyList();
 	}
@@ -437,6 +437,8 @@ public class DomainDiagramUpdater {
 		switch (DomainVisualIDRegistry.getVisualID(view)) {
 		case LayerHolderEditPart.VISUAL_ID:
 			return getLayerHolder_1602003IncomingLinks(view);
+		case ButtonEditPart.VISUAL_ID:
+			return getButton_1603017IncomingLinks(view);
 		case DropDownSelectionEditPart.VISUAL_ID:
 			return getDropDownSelection_1603002IncomingLinks(view);
 		case LayerHolder2EditPart.VISUAL_ID:
@@ -453,14 +455,14 @@ public class DomainDiagramUpdater {
 			return getTable_1603008IncomingLinks(view);
 		case ColumnEditPart.VISUAL_ID:
 			return getColumn_1603024IncomingLinks(view);
+		case Button2EditPart.VISUAL_ID:
+			return getButton_1603023IncomingLinks(view);
 		case DropDownSelection2EditPart.VISUAL_ID:
 			return getDropDownSelection_1603010IncomingLinks(view);
 		case LayerHolder3EditPart.VISUAL_ID:
 			return getLayerHolder_1603020IncomingLinks(view);
 		case TreeEditPart.VISUAL_ID:
 			return getTree_1603016IncomingLinks(view);
-		case ButtonEditPart.VISUAL_ID:
-			return getButton_1603017IncomingLinks(view);
 		case InputText2EditPart.VISUAL_ID:
 			return getInputText_1603012IncomingLinks(view);
 		case Label2EditPart.VISUAL_ID:
@@ -473,8 +475,6 @@ public class DomainDiagramUpdater {
 			return getTable_1603021IncomingLinks(view);
 		case Tree2EditPart.VISUAL_ID:
 			return getTree_1603022IncomingLinks(view);
-		case Button2EditPart.VISUAL_ID:
-			return getButton_1603023IncomingLinks(view);
 		}
 		return Collections.emptyList();
 	}
@@ -486,6 +486,8 @@ public class DomainDiagramUpdater {
 		switch (DomainVisualIDRegistry.getVisualID(view)) {
 		case LayerHolderEditPart.VISUAL_ID:
 			return getLayerHolder_1602003OutgoingLinks(view);
+		case ButtonEditPart.VISUAL_ID:
+			return getButton_1603017OutgoingLinks(view);
 		case DropDownSelectionEditPart.VISUAL_ID:
 			return getDropDownSelection_1603002OutgoingLinks(view);
 		case LayerHolder2EditPart.VISUAL_ID:
@@ -502,14 +504,14 @@ public class DomainDiagramUpdater {
 			return getTable_1603008OutgoingLinks(view);
 		case ColumnEditPart.VISUAL_ID:
 			return getColumn_1603024OutgoingLinks(view);
+		case Button2EditPart.VISUAL_ID:
+			return getButton_1603023OutgoingLinks(view);
 		case DropDownSelection2EditPart.VISUAL_ID:
 			return getDropDownSelection_1603010OutgoingLinks(view);
 		case LayerHolder3EditPart.VISUAL_ID:
 			return getLayerHolder_1603020OutgoingLinks(view);
 		case TreeEditPart.VISUAL_ID:
 			return getTree_1603016OutgoingLinks(view);
-		case ButtonEditPart.VISUAL_ID:
-			return getButton_1603017OutgoingLinks(view);
 		case InputText2EditPart.VISUAL_ID:
 			return getInputText_1603012OutgoingLinks(view);
 		case Label2EditPart.VISUAL_ID:
@@ -522,8 +524,6 @@ public class DomainDiagramUpdater {
 			return getTable_1603021OutgoingLinks(view);
 		case Tree2EditPart.VISUAL_ID:
 			return getTree_1603022OutgoingLinks(view);
-		case Button2EditPart.VISUAL_ID:
-			return getButton_1603023OutgoingLinks(view);
 		}
 		return Collections.emptyList();
 	}
@@ -540,6 +540,14 @@ public class DomainDiagramUpdater {
 	 * @generated
 	 */
 	public static List<DomainLinkDescriptor> getLayerHolder_1602003ContainedLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<DomainLinkDescriptor> getButton_1603017ContainedLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -611,6 +619,14 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
+	public static List<DomainLinkDescriptor> getButton_1603023ContainedLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
 	public static List<DomainLinkDescriptor> getDropDownSelection_1603010ContainedLinks(
 			View view) {
 		return Collections.emptyList();
@@ -628,14 +644,6 @@ public class DomainDiagramUpdater {
 	 * @generated
 	 */
 	public static List<DomainLinkDescriptor> getTree_1603016ContainedLinks(
-			View view) {
-		return Collections.emptyList();
-	}
-
-	/**
-	 * @generated
-	 */
-	public static List<DomainLinkDescriptor> getButton_1603017ContainedLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -691,7 +699,7 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getButton_1603023ContainedLinks(
+	public static List<DomainLinkDescriptor> getLayerHolder_1602003IncomingLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -699,7 +707,7 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getLayerHolder_1602003IncomingLinks(
+	public static List<DomainLinkDescriptor> getButton_1603017IncomingLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -771,6 +779,14 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
+	public static List<DomainLinkDescriptor> getButton_1603023IncomingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
 	public static List<DomainLinkDescriptor> getDropDownSelection_1603010IncomingLinks(
 			View view) {
 		return Collections.emptyList();
@@ -788,14 +804,6 @@ public class DomainDiagramUpdater {
 	 * @generated
 	 */
 	public static List<DomainLinkDescriptor> getTree_1603016IncomingLinks(
-			View view) {
-		return Collections.emptyList();
-	}
-
-	/**
-	 * @generated
-	 */
-	public static List<DomainLinkDescriptor> getButton_1603017IncomingLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -851,7 +859,7 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getButton_1603023IncomingLinks(
+	public static List<DomainLinkDescriptor> getLayerHolder_1602003OutgoingLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -859,7 +867,7 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getLayerHolder_1602003OutgoingLinks(
+	public static List<DomainLinkDescriptor> getButton_1603017OutgoingLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -931,6 +939,14 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
+	public static List<DomainLinkDescriptor> getButton_1603023OutgoingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
 	public static List<DomainLinkDescriptor> getDropDownSelection_1603010OutgoingLinks(
 			View view) {
 		return Collections.emptyList();
@@ -948,14 +964,6 @@ public class DomainDiagramUpdater {
 	 * @generated
 	 */
 	public static List<DomainLinkDescriptor> getTree_1603016OutgoingLinks(
-			View view) {
-		return Collections.emptyList();
-	}
-
-	/**
-	 * @generated
-	 */
-	public static List<DomainLinkDescriptor> getButton_1603017OutgoingLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -1004,14 +1012,6 @@ public class DomainDiagramUpdater {
 	 * @generated
 	 */
 	public static List<DomainLinkDescriptor> getTree_1603022OutgoingLinks(
-			View view) {
-		return Collections.emptyList();
-	}
-
-	/**
-	 * @generated
-	 */
-	public static List<DomainLinkDescriptor> getButton_1603023OutgoingLinks(
 			View view) {
 		return Collections.emptyList();
 	}

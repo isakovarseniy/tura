@@ -8,7 +8,7 @@ import org.metamodel.tura.ui.properties.sections.adapters.helper.TriggerHolder;
 public class TreeProviderAdapterFactory implements IAdapterFactory {
 
 	@SuppressWarnings("rawtypes")
-	private static final Class[] TYPES = { IWorkbenchAdapter.class, };
+	private static final Class[] TYPES = { IWorkbenchAdapter.class, IReturnTypeProvider.class};
 	private TreeRootProvider treeRootProvider;
 	private ControlsProvider controlsProvider;
 	private DataControlProvider dataControlProvider;
@@ -18,6 +18,9 @@ public class TreeProviderAdapterFactory implements IAdapterFactory {
 	private TypesProvider typesProvider;
 	private PackageProvider packageProvider;
 	private OperationProvider operationProvider;
+	private ApplicationRoleProvider applicationRoleProvider;
+	private GroupProvider groupProvider;
+	private RoleProvider roleProvider;
 
 	@SuppressWarnings("rawtypes")
 	public Class[] getAdapterList() {
@@ -26,7 +29,7 @@ public class TreeProviderAdapterFactory implements IAdapterFactory {
 
 	@SuppressWarnings("rawtypes")
 	public Object getAdapter(Object adaptableObject, Class adapterType) {
-		if (adapterType == IWorkbenchAdapter.class) {
+		if (adapterType == IWorkbenchAdapter.class || adapterType == IReturnTypeProvider.class) {
 			if (adaptableObject instanceof TreeRoot)
 				return getTreeRootProvider();
 			if (adaptableObject instanceof domain.Controls)
@@ -45,6 +48,12 @@ public class TreeProviderAdapterFactory implements IAdapterFactory {
 				return getTypesProvider();
 			if (adaptableObject instanceof domain.Package)
 				return getPackageProvider();
+			if (adaptableObject instanceof domain.ApplicationRole)
+				return getApplicationRoleProvider();
+			if (adaptableObject instanceof domain.Group)
+				return getGroupProvider();
+			if (adaptableObject instanceof domain.Role)
+				return getRoleProvider();
 		}
 		return null;
 	}
@@ -106,5 +115,22 @@ public class TreeProviderAdapterFactory implements IAdapterFactory {
 		return packageProvider;
 	}
 
+	protected ApplicationRoleProvider getApplicationRoleProvider() {
+		if (applicationRoleProvider == null)
+			applicationRoleProvider = new ApplicationRoleProvider();
+		return applicationRoleProvider;
+	}
 
+	protected GroupProvider getGroupProvider() {
+		if (groupProvider == null)
+			groupProvider = new GroupProvider();
+		return groupProvider;
+	}
+
+	protected RoleProvider getRoleProvider() {
+		if (roleProvider == null)
+			roleProvider = new RoleProvider();
+		return roleProvider;
+	}
+	
 }

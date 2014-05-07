@@ -7,7 +7,7 @@ import org.eclipse.ui.model.IWorkbenchAdapter;
 
 import domain.Type;
 
-public class AttributeProvider implements IWorkbenchAdapter {
+public class AttributeProvider implements IWorkbenchAdapter ,IReturnTypeProvider{
 
 	@Override
 	public Object[] getChildren(Object o) {
@@ -39,6 +39,11 @@ public class AttributeProvider implements IWorkbenchAdapter {
 	@Override
 	public Object getParent(Object o) {
 		return null;
+	}
+
+	@Override
+	public Object getReturnType(Object o) {
+		return ((domain.Attribute) o).getTypeRef();
 	}
 
 }

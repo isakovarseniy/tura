@@ -69,6 +69,7 @@ public class ApplicationRoleItemProvider
 
       addUidPropertyDescriptor(object);
       addNamePropertyDescriptor(object);
+      addRolesPropertyDescriptor(object);
     }
     return itemPropertyDescriptors;
   }
@@ -120,36 +121,26 @@ public class ApplicationRoleItemProvider
   }
 
   /**
-   * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
-   * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
-   * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
+   * This adds a property descriptor for the Roles feature.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
-  public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object)
+  protected void addRolesPropertyDescriptor(Object object)
   {
-    if (childrenFeatures == null)
-    {
-      super.getChildrenFeatures(object);
-      childrenFeatures.add(DomainPackage.Literals.APPLICATION_ROLE__ROLES);
-    }
-    return childrenFeatures;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  protected EStructuralFeature getChildFeature(Object object, Object child)
-  {
-    // Check the type of the specified child object and return the proper feature to use for
-    // adding (see {@link AddCommand}) it as a child.
-
-    return super.getChildFeature(object, child);
+    itemPropertyDescriptors.add
+      (createItemPropertyDescriptor
+        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+         getResourceLocator(),
+         getString("_UI_ApplicationRole_roles_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_ApplicationRole_roles_feature", "_UI_ApplicationRole_type"),
+         DomainPackage.Literals.APPLICATION_ROLE__ROLES,
+         true,
+         false,
+         true,
+         null,
+         null,
+         null));
   }
 
   /**
@@ -197,9 +188,6 @@ public class ApplicationRoleItemProvider
       case DomainPackage.APPLICATION_ROLE__NAME:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
         return;
-      case DomainPackage.APPLICATION_ROLE__ROLES:
-        fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
-        return;
     }
     super.notifyChanged(notification);
   }
@@ -215,11 +203,6 @@ public class ApplicationRoleItemProvider
   protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object)
   {
     super.collectNewChildDescriptors(newChildDescriptors, object);
-
-    newChildDescriptors.add
-      (createChildParameter
-        (DomainPackage.Literals.APPLICATION_ROLE__ROLES,
-         DomainFactory.eINSTANCE.createRoles()));
   }
 
   /**

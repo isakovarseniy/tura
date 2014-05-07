@@ -431,6 +431,12 @@
              id="property.tab.domain.canvas.optionpointer"
              label="Options data control selection"/>
              
+          <propertyTab
+             category="domain"
+             id="property.tab.domain.canvas.action"
+             label="Action"/>
+             
+             
           </propertyTabs>
        </extension>
 
@@ -474,7 +480,6 @@
               <input type="canvas.diagram.edit.parts.DropDownSelectionEditPart"/>
            </propertySection>        
 
-
        </propertySections>
   </extension>  
 
@@ -512,6 +517,34 @@
            </propertySection>        
 
 
+             <propertySection
+               tab="property.tab.domain.canvas.action"
+               class="org.metamodel.tura.ui.properties.sections.dropdown.PackageNamePropertySection"
+               id="org.tura.metamodel.diagram.canvas.actioin">
+              <input type="canvas.diagram.edit.parts.ButtonEditPart"/>
+           </propertySection>        
+
+             <propertySection
+               tab="property.tab.domain.canvas.action"
+               class="org.metamodel.tura.ui.properties.sections.dropdown.TypeRefTypeNamePropertySection"
+               id="org.tura.metamodel.diagram.canvas.actioin">
+              <input type="canvas.diagram.edit.parts.ButtonEditPart"/>
+           </propertySection>        
+
+             <propertySection
+               tab="property.tab.domain.canvas.action"
+               class="org.metamodel.tura.ui.properties.sections.dropdown.MethodNamePropertySection"
+               id="org.tura.metamodel.diagram.canvas.actioin">
+              <input type="canvas.diagram.edit.parts.ButtonEditPart"/>
+           </propertySection>        
+
+             <propertySection
+               tab="property.tab.domain.canvas.action"
+               class="org.metamodel.tura.ui.properties.sections.grid.impl.ContextParameterPropertySelection"
+               id="org.tura.metamodel.diagram.canvas.actioin">
+              <input type="canvas.diagram.edit.parts.ButtonEditPart"/>
+           </propertySection>        
+
 
        </propertySections>
   </extension>  
@@ -534,38 +567,62 @@
       <factory  adaptableType="org.metamodel.tura.ui.properties.sections.adapters.helper.TreeRoot"
              class="org.metamodel.tura.ui.properties.sections.adapters.TreeProviderAdapterFactory">
                  <adapter type="org.eclipse.ui.model.IWorkbenchAdapter"/> 
+                 <adapter type="org.metamodel.tura.ui.properties.sections.adapters.IReturnTypeProvider"/> 
       </factory>
       <factory  adaptableType="domain.Controls"
              class="org.metamodel.tura.ui.properties.sections.adapters.TreeProviderAdapterFactory">
                  <adapter type="org.eclipse.ui.model.IWorkbenchAdapter"/> 
+                 <adapter type="org.metamodel.tura.ui.properties.sections.adapters.IReturnTypeProvider"/> 
       </factory>
       <factory  adaptableType="domain.DataControl"
              class="org.metamodel.tura.ui.properties.sections.adapters.TreeProviderAdapterFactory">
                  <adapter type="org.eclipse.ui.model.IWorkbenchAdapter"/> 
+                 <adapter type="org.metamodel.tura.ui.properties.sections.adapters.IReturnTypeProvider"/> 
       </factory>
       <factory  adaptableType="org.metamodel.tura.ui.properties.sections.adapters.helper.TriggerHolder"
              class="org.metamodel.tura.ui.properties.sections.adapters.TreeProviderAdapterFactory">
                  <adapter type="org.eclipse.ui.model.IWorkbenchAdapter"/> 
+                 <adapter type="org.metamodel.tura.ui.properties.sections.adapters.IReturnTypeProvider"/> 
       </factory>
       <factory  adaptableType="domain.TypeElement"
              class="org.metamodel.tura.ui.properties.sections.adapters.TreeProviderAdapterFactory">
                  <adapter type="org.eclipse.ui.model.IWorkbenchAdapter"/> 
+                 <adapter type="org.metamodel.tura.ui.properties.sections.adapters.IReturnTypeProvider"/> 
       </factory>
      <factory  adaptableType="domain.Attribute"
              class="org.metamodel.tura.ui.properties.sections.adapters.TreeProviderAdapterFactory">
                  <adapter type="org.eclipse.ui.model.IWorkbenchAdapter"/> 
+                 <adapter type="org.metamodel.tura.ui.properties.sections.adapters.IReturnTypeProvider"/> 
       </factory>
      <factory  adaptableType="domain.Operation"
              class="org.metamodel.tura.ui.properties.sections.adapters.TreeProviderAdapterFactory">
                  <adapter type="org.eclipse.ui.model.IWorkbenchAdapter"/> 
+                 <adapter type="org.metamodel.tura.ui.properties.sections.adapters.IReturnTypeProvider"/> 
       </factory>
      <factory  adaptableType="domain.Types"
              class="org.metamodel.tura.ui.properties.sections.adapters.TreeProviderAdapterFactory">
                  <adapter type="org.eclipse.ui.model.IWorkbenchAdapter"/> 
+                 <adapter type="org.metamodel.tura.ui.properties.sections.adapters.IReturnTypeProvider"/> 
       </factory>
      <factory  adaptableType="domain.Package"
              class="org.metamodel.tura.ui.properties.sections.adapters.TreeProviderAdapterFactory">
                  <adapter type="org.eclipse.ui.model.IWorkbenchAdapter"/> 
+                 <adapter type="org.metamodel.tura.ui.properties.sections.adapters.IReturnTypeProvider"/> 
+      </factory>
+     <factory  adaptableType="domain.ApplicationRole"
+             class="org.metamodel.tura.ui.properties.sections.adapters.TreeProviderAdapterFactory">
+                 <adapter type="org.eclipse.ui.model.IWorkbenchAdapter"/> 
+                 <adapter type="org.metamodel.tura.ui.properties.sections.adapters.IReturnTypeProvider"/> 
+      </factory>
+     <factory  adaptableType="domain.Role"
+             class="org.metamodel.tura.ui.properties.sections.adapters.TreeProviderAdapterFactory">
+                 <adapter type="org.eclipse.ui.model.IWorkbenchAdapter"/> 
+                 <adapter type="org.metamodel.tura.ui.properties.sections.adapters.IReturnTypeProvider"/> 
+      </factory>
+     <factory  adaptableType="domain.Group"
+             class="org.metamodel.tura.ui.properties.sections.adapters.TreeProviderAdapterFactory">
+                 <adapter type="org.eclipse.ui.model.IWorkbenchAdapter"/> 
+                 <adapter type="org.metamodel.tura.ui.properties.sections.adapters.IReturnTypeProvider"/> 
       </factory>
 
 </extension>
