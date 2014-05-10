@@ -3,7 +3,7 @@
 package domain.impl;
 
 import domain.DomainPackage;
-import domain.JavaScript;
+import domain.JavaScriptMapper;
 
 import org.eclipse.emf.common.notify.Notification;
 
@@ -13,18 +13,18 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Java Script</b></em>'.
+ * An implementation of the model object '<em><b>Java Script Mapper</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link domain.impl.JavaScriptImpl#getLibraryUrl <em>Library Url</em>}</li>
+ *   <li>{@link domain.impl.JavaScriptMapperImpl#getLibraryUrl <em>Library Url</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class JavaScriptImpl extends MapperImpl implements JavaScript
+public class JavaScriptMapperImpl extends TypeMapperImpl implements JavaScriptMapper
 {
   /**
    * The default value of the '{@link #getLibraryUrl() <em>Library Url</em>}' attribute.
@@ -51,7 +51,7 @@ public class JavaScriptImpl extends MapperImpl implements JavaScript
    * <!-- end-user-doc -->
    * @generated
    */
-  protected JavaScriptImpl()
+  protected JavaScriptMapperImpl()
   {
     super();
   }
@@ -64,7 +64,7 @@ public class JavaScriptImpl extends MapperImpl implements JavaScript
   @Override
   protected EClass eStaticClass()
   {
-    return DomainPackage.Literals.JAVA_SCRIPT;
+    return DomainPackage.Literals.JAVA_SCRIPT_MAPPER;
   }
 
   /**
@@ -87,7 +87,7 @@ public class JavaScriptImpl extends MapperImpl implements JavaScript
     String oldLibraryUrl = libraryUrl;
     libraryUrl = newLibraryUrl;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.JAVA_SCRIPT__LIBRARY_URL, oldLibraryUrl, libraryUrl));
+      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.JAVA_SCRIPT_MAPPER__LIBRARY_URL, oldLibraryUrl, libraryUrl));
   }
 
   /**
@@ -100,7 +100,7 @@ public class JavaScriptImpl extends MapperImpl implements JavaScript
   {
     switch (featureID)
     {
-      case DomainPackage.JAVA_SCRIPT__LIBRARY_URL:
+      case DomainPackage.JAVA_SCRIPT_MAPPER__LIBRARY_URL:
         return getLibraryUrl();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -116,7 +116,7 @@ public class JavaScriptImpl extends MapperImpl implements JavaScript
   {
     switch (featureID)
     {
-      case DomainPackage.JAVA_SCRIPT__LIBRARY_URL:
+      case DomainPackage.JAVA_SCRIPT_MAPPER__LIBRARY_URL:
         setLibraryUrl((String)newValue);
         return;
     }
@@ -133,7 +133,7 @@ public class JavaScriptImpl extends MapperImpl implements JavaScript
   {
     switch (featureID)
     {
-      case DomainPackage.JAVA_SCRIPT__LIBRARY_URL:
+      case DomainPackage.JAVA_SCRIPT_MAPPER__LIBRARY_URL:
         setLibraryUrl(LIBRARY_URL_EDEFAULT);
         return;
     }
@@ -150,7 +150,7 @@ public class JavaScriptImpl extends MapperImpl implements JavaScript
   {
     switch (featureID)
     {
-      case DomainPackage.JAVA_SCRIPT__LIBRARY_URL:
+      case DomainPackage.JAVA_SCRIPT_MAPPER__LIBRARY_URL:
         return LIBRARY_URL_EDEFAULT == null ? libraryUrl != null : !LIBRARY_URL_EDEFAULT.equals(libraryUrl);
     }
     return super.eIsSet(featureID);
@@ -173,4 +173,4 @@ public class JavaScriptImpl extends MapperImpl implements JavaScript
     return result.toString();
   }
 
-} //JavaScriptImpl
+} //JavaScriptMapperImpl

@@ -271,42 +271,52 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String Form3CreationTool_title;
+	public static String CSSMapper3CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Form3CreationTool_desc;
+	public static String CSSMapper3CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String FormDataControls4CreationTool_title;
+	public static String Form4CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String FormDataControls4CreationTool_desc;
+	public static String Form4CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String FormView5CreationTool_title;
+	public static String FormDataControls5CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String FormView5CreationTool_desc;
+	public static String FormDataControls5CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String JavaScript6CreationTool_title;
+	public static String FormView6CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String JavaScript6CreationTool_desc;
+	public static String FormView6CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String JavaScriptMapper7CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String JavaScriptMapper7CreationTool_desc;
 
 	/**
 	 * @generated

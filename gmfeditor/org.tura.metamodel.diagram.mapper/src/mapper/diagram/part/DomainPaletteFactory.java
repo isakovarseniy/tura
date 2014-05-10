@@ -36,20 +36,36 @@ public class DomainPaletteFactory {
 		PaletteDrawer paletteContainer = new PaletteDrawer(
 				Messages.Objects1Group_title);
 		paletteContainer.setId("createObjects1Group"); //$NON-NLS-1$
-		paletteContainer.add(createJavaMapper1CreationTool());
-		paletteContainer.add(createJavaScript2CreationTool());
+		paletteContainer.add(createCSSMapper1CreationTool());
+		paletteContainer.add(createJavaMapper2CreationTool());
+		paletteContainer.add(createJavaScriptMapper3CreationTool());
 		return paletteContainer;
 	}
 
 	/**
 	 * @generated
 	 */
-	private ToolEntry createJavaMapper1CreationTool() {
+	private ToolEntry createCSSMapper1CreationTool() {
 		NodeToolEntry entry = new NodeToolEntry(
-				Messages.JavaMapper1CreationTool_title,
-				Messages.JavaMapper1CreationTool_desc,
+				Messages.CSSMapper1CreationTool_title,
+				Messages.CSSMapper1CreationTool_desc,
+				Collections.singletonList(DomainElementTypes.CSSMapper_402004));
+		entry.setId("createCSSMapper1CreationTool"); //$NON-NLS-1$
+		entry.setSmallIcon(DomainElementTypes
+				.getImageDescriptor(DomainElementTypes.CSSMapper_402004));
+		entry.setLargeIcon(entry.getSmallIcon());
+		return entry;
+	}
+
+	/**
+	 * @generated
+	 */
+	private ToolEntry createJavaMapper2CreationTool() {
+		NodeToolEntry entry = new NodeToolEntry(
+				Messages.JavaMapper2CreationTool_title,
+				Messages.JavaMapper2CreationTool_desc,
 				Collections.singletonList(DomainElementTypes.JavaMapper_402001));
-		entry.setId("createJavaMapper1CreationTool"); //$NON-NLS-1$
+		entry.setId("createJavaMapper2CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(DomainElementTypes
 				.getImageDescriptor(DomainElementTypes.JavaMapper_402001));
 		entry.setLargeIcon(entry.getSmallIcon());
@@ -59,14 +75,15 @@ public class DomainPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createJavaScript2CreationTool() {
+	private ToolEntry createJavaScriptMapper3CreationTool() {
 		NodeToolEntry entry = new NodeToolEntry(
-				Messages.JavaScript2CreationTool_title,
-				Messages.JavaScript2CreationTool_desc,
-				Collections.singletonList(DomainElementTypes.JavaScript_402002));
-		entry.setId("createJavaScript2CreationTool"); //$NON-NLS-1$
+				Messages.JavaScriptMapper3CreationTool_title,
+				Messages.JavaScriptMapper3CreationTool_desc,
+				Collections
+						.singletonList(DomainElementTypes.JavaScriptMapper_402003));
+		entry.setId("createJavaScriptMapper3CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(DomainElementTypes
-				.getImageDescriptor(DomainElementTypes.JavaScript_402002));
+				.getImageDescriptor(DomainElementTypes.JavaScriptMapper_402003));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}

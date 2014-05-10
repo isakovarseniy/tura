@@ -87,21 +87,21 @@
       </labels>
     </topLevelNodes>
     <topLevelNodes
-        visualID="402002"
-        editPartClassName="JavaScriptEditPart"
-        itemSemanticEditPolicyClassName="JavaScriptItemSemanticEditPolicy"
-        canonicalEditPolicyClassName="JavaScriptCanonicalEditPolicy"
-        graphicalNodeEditPolicyClassName="JavaScriptGraphicalNodeEditPolicy"
-        createCommandClassName="JavaScriptCreateCommand">
+        visualID="402003"
+        editPartClassName="JavaScriptMapperEditPart"
+        itemSemanticEditPolicyClassName="JavaScriptMapperItemSemanticEditPolicy"
+        canonicalEditPolicyClassName="JavaScriptMapperCanonicalEditPolicy"
+        graphicalNodeEditPolicyClassName="JavaScriptMapperGraphicalNodeEditPolicy"
+        createCommandClassName="JavaScriptMapperCreateCommand">
       <diagramRunTimeClass
           href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
           xsi:type="gmfgen:MetamodelType"
-          editHelperClassName="JavaScriptEditHelper"/>
+          editHelperClassName="JavaScriptMapperEditHelper"/>
       <viewmap
           xsi:type="gmfgen:InnerClassViewmap"
-          className="JavaScriptFigure"
-          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class JavaScriptFigure extends org.eclipse.draw2d.RoundedRectangle {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureJavaScriptLabelFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public JavaScriptFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setCornerDimensions(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(8)&#xA;, getMapMode().DPtoLP(8)&#xA;));&#xA;&#x9;this.setForegroundColor(THIS_FORE&#xA;);&#xA;&#x9;this.setBackgroundColor(THIS_BACK&#xA;);&#xA;this.setBorder(new org.eclipse.draw2d.MarginBorder(getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;));&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureJavaScriptLabelFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureJavaScriptLabelFigure.setText(&quot;JavaScript&quot;);&#xA;&#xA;fFigureJavaScriptLabelFigure.setFont(FFIGUREJAVASCRIPTLABELFIGURE_FONT);&#xA;&#xA;&#xA;&#xA;this.add(fFigureJavaScriptLabelFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureJavaScriptLabelFigure() {&#xA;&#x9;&#x9;return fFigureJavaScriptLabelFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_FORE = new org.eclipse.swt.graphics.Color(null, 0, 0, 0);&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_BACK = new org.eclipse.swt.graphics.Color(null, 47, 180, 155);&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Font FFIGUREJAVASCRIPTLABELFIGURE_FONT = new org.eclipse.swt.graphics.Font(org.eclipse.swt.widgets.Display.getCurrent(), &quot;Palatino&quot;, 12, org.eclipse.swt.SWT.ITALIC);&#xA;&#xA;">
+          className="JavaScriptMapperFigure"
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class JavaScriptMapperFigure extends org.eclipse.draw2d.RoundedRectangle {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureJavaScriptMapperLabelFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public JavaScriptMapperFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setCornerDimensions(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(8)&#xA;, getMapMode().DPtoLP(8)&#xA;));&#xA;&#x9;this.setForegroundColor(THIS_FORE&#xA;);&#xA;&#x9;this.setBackgroundColor(THIS_BACK&#xA;);&#xA;this.setBorder(new org.eclipse.draw2d.MarginBorder(getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;));&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureJavaScriptMapperLabelFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureJavaScriptMapperLabelFigure.setText(&quot;JavaScriptMapper&quot;);&#xA;&#xA;fFigureJavaScriptMapperLabelFigure.setFont(FFIGUREJAVASCRIPTMAPPERLABELFIGURE_FONT);&#xA;&#xA;&#xA;&#xA;this.add(fFigureJavaScriptMapperLabelFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureJavaScriptMapperLabelFigure() {&#xA;&#x9;&#x9;return fFigureJavaScriptMapperLabelFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_FORE = new org.eclipse.swt.graphics.Color(null, 0, 0, 0);&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_BACK = new org.eclipse.swt.graphics.Color(null, 47, 180, 155);&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Font FFIGUREJAVASCRIPTMAPPERLABELFIGURE_FONT = new org.eclipse.swt.graphics.Font(org.eclipse.swt.widgets.Display.getCurrent(), &quot;Palatino&quot;, 12, org.eclipse.swt.SWT.ITALIC);&#xA;&#xA;">
         <attributes
             xsi:type="gmfgen:StyleAttributes"
             fixedForeground="true"
@@ -109,22 +109,22 @@
       </viewmap>
       <modelFacet>
         <metaClass
-            href="domain.genmodel#//domain/JavaScript"/>
+            href="domain.genmodel#//domain/JavaScriptMapper"/>
         <containmentMetaFeature
             href="domain.genmodel#//domain/Mappers/mappers"/>
         <childMetaFeature
             href="domain.genmodel#//domain/Mappers/mappers"/>
       </modelFacet>
       <labels
-          visualID="405002"
-          editPartClassName="JavaScriptFakePackageNameFakeTypeEditPart"
-          itemSemanticEditPolicyClassName="JavaScriptFakePackageNameFakeTypeItemSemanticEditPolicy"
+          visualID="405003"
+          editPartClassName="JavaScriptMapperFakePackageNameFakeTypeEditPart"
+          itemSemanticEditPolicyClassName="JavaScriptMapperFakePackageNameFakeTypeItemSemanticEditPolicy"
           elementIcon="true">
         <diagramRunTimeClass
             href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
         <viewmap
             xsi:type="gmfgen:ParentAssignedViewmap"
-            getterName="getFigureJavaScriptLabelFigure"
+            getterName="getFigureJavaScriptMapperLabelFigure"
             figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel">
           <attributes
               xsi:type="gmfgen:StyleAttributes"
@@ -140,10 +140,69 @@
         </modelFacet>
       </labels>
     </topLevelNodes>
+    <topLevelNodes
+        visualID="402004"
+        editPartClassName="CSSMapperEditPart"
+        itemSemanticEditPolicyClassName="CSSMapperItemSemanticEditPolicy"
+        canonicalEditPolicyClassName="CSSMapperCanonicalEditPolicy"
+        graphicalNodeEditPolicyClassName="CSSMapperGraphicalNodeEditPolicy"
+        createCommandClassName="CSSMapperCreateCommand">
+      <diagramRunTimeClass
+          href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+      <elementType
+          xsi:type="gmfgen:MetamodelType"
+          editHelperClassName="CSSMapperEditHelper"/>
+      <viewmap
+          xsi:type="gmfgen:InnerClassViewmap"
+          className="CSSMapperFigure"
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class CSSMapperFigure extends org.eclipse.draw2d.RoundedRectangle {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureCSSMapperLabelFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public CSSMapperFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setCornerDimensions(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(8)&#xA;, getMapMode().DPtoLP(8)&#xA;));&#xA;&#x9;this.setForegroundColor(THIS_FORE&#xA;);&#xA;&#x9;this.setBackgroundColor(THIS_BACK&#xA;);&#xA;this.setBorder(new org.eclipse.draw2d.MarginBorder(getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;));&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureCSSMapperLabelFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureCSSMapperLabelFigure.setText(&quot;CSSMapper&quot;);&#xA;&#xA;fFigureCSSMapperLabelFigure.setFont(FFIGURECSSMAPPERLABELFIGURE_FONT);&#xA;&#xA;&#xA;&#xA;this.add(fFigureCSSMapperLabelFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureCSSMapperLabelFigure() {&#xA;&#x9;&#x9;return fFigureCSSMapperLabelFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_FORE = new org.eclipse.swt.graphics.Color(null, 0, 0, 0);&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_BACK = new org.eclipse.swt.graphics.Color(null, 47, 180, 155);&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Font FFIGURECSSMAPPERLABELFIGURE_FONT = new org.eclipse.swt.graphics.Font(org.eclipse.swt.widgets.Display.getCurrent(), &quot;Palatino&quot;, 12, org.eclipse.swt.SWT.ITALIC);&#xA;&#xA;">
+        <attributes
+            xsi:type="gmfgen:StyleAttributes"
+            fixedForeground="true"
+            fixedBackground="true"/>
+      </viewmap>
+      <modelFacet>
+        <metaClass
+            href="domain.genmodel#//domain/CSSMapper"/>
+        <containmentMetaFeature
+            href="domain.genmodel#//domain/Mappers/mappers"/>
+        <childMetaFeature
+            href="domain.genmodel#//domain/Mappers/mappers"/>
+      </modelFacet>
+      <labels
+          visualID="405004"
+          editPartClassName="CSSMapperFakePackageNameFakeTypeEditPart"
+          itemSemanticEditPolicyClassName="CSSMapperFakePackageNameFakeTypeItemSemanticEditPolicy"
+          elementIcon="true">
+        <diagramRunTimeClass
+            href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+        <viewmap
+            xsi:type="gmfgen:ParentAssignedViewmap"
+            getterName="getFigureCSSMapperLabelFigure"
+            figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel">
+          <attributes
+              xsi:type="gmfgen:StyleAttributes"
+              fixedFont="true"/>
+        </viewmap>
+        <modelFacet
+            xsi:type="gmfgen:FeatureLabelModelFacet"
+            parser="//@labelParsers/@implementations.0">
+          <metaFeatures
+              href="domain.genmodel#//domain/CSSMapper/fakePackageName"/>
+          <metaFeatures
+              href="domain.genmodel#//domain/CSSMapper/fakeTypeName"/>
+        </modelFacet>
+      </labels>
+    </topLevelNodes>
     <palette>
       <groups
           title="Objects"
           collapse="true">
+        <entries
+            xsi:type="gmfgen:ToolEntry"
+            title="CSSMapper"
+            description="Create new CSSMapper"
+            genNodes="//@diagram/@topLevelNodes.2"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
             title="JavaMapper"
@@ -151,8 +210,8 @@
             genNodes="//@diagram/@topLevelNodes.0"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
-            title="JavaScript"
-            description="Create new JavaScript"
+            title="JavaScriptMapper"
+            description="Create new JavaScriptMapper"
             genNodes="//@diagram/@topLevelNodes.1"/>
       </groups>
     </palette>
@@ -199,6 +258,9 @@
     <childReferences
         parent="//@diagram"
         child="//@diagram/@topLevelNodes.1"/>
+    <childReferences
+        parent="//@diagram"
+        child="//@diagram/@topLevelNodes.2"/>
   </navigator>
   <diagramUpdater/>
   <propertySheet>
@@ -226,7 +288,7 @@
       extensibleViaService="true">
     <implementations
         xsi:type="gmfgen:PredefinedParser"
-        uses="//@diagram/@topLevelNodes.0/@labels.0/@modelFacet //@diagram/@topLevelNodes.1/@labels.0/@modelFacet"/>
+        uses="//@diagram/@topLevelNodes.0/@labels.0/@modelFacet //@diagram/@topLevelNodes.1/@labels.0/@modelFacet //@diagram/@topLevelNodes.2/@labels.0/@modelFacet"/>
   </labelParsers>
   <contextMenus
       context="//@diagram">

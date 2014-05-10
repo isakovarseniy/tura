@@ -468,7 +468,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//ApplicationMapper"
         eOpposite="#//ApplicationMapper/mapper"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Mapper" eSuperTypes="#//TypePointer">
+  <eClassifiers xsi:type="ecore:EClass" name="Mapper">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//Mappers"
@@ -476,7 +476,8 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="serviceLayer" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="uiLayer" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="JavaMapper" eSuperTypes="#//Mapper">
+  <eClassifiers xsi:type="ecore:EClass" name="TypeMapper" eSuperTypes="#//Mapper #//TypePointer"/>
+  <eClassifiers xsi:type="ecore:EClass" name="JavaMapper" eSuperTypes="#//TypeMapper">
     <eAnnotations source="gmf.node">
       <details key="label" value="fakePackageName,fakeTypeName"/>
       <details key="border.color" value="0,0,0"/>
@@ -489,13 +490,25 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="version" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="libraryName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="JavaScript" eSuperTypes="#//Mapper">
+  <eClassifiers xsi:type="ecore:EClass" name="JavaScriptMapper" eSuperTypes="#//TypeMapper">
     <eAnnotations source="gmf.node">
       <details key="label" value="fakePackageName,fakeTypeName"/>
       <details key="border.color" value="0,0,0"/>
       <details key="color" value="47,180,155"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="libraryUrl" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CSSMapper" eSuperTypes="#//Mapper">
+    <eAnnotations source="gmf.node">
+      <details key="label" value="fakePackageName,fakeTypeName"/>
+      <details key="border.color" value="0,0,0"/>
+      <details key="color" value="47,180,155"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="libraryUrl" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="stylePackage" eType="#//StylesPackage"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="styleLibrary" eType="#//StyleLibrary"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="fakePackageName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="fakeTypeName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Recipes">
     <eAnnotations source="gmf.diagram"/>

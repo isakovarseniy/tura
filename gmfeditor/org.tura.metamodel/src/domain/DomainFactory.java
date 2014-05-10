@@ -356,6 +356,15 @@ public interface DomainFactory extends EFactory
   Mapper createMapper();
 
   /**
+   * Returns a new object of class '<em>Type Mapper</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Type Mapper</em>'.
+   * @generated
+   */
+  TypeMapper createTypeMapper();
+
+  /**
    * Returns a new object of class '<em>Java Mapper</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -365,13 +374,22 @@ public interface DomainFactory extends EFactory
   JavaMapper createJavaMapper();
 
   /**
-   * Returns a new object of class '<em>Java Script</em>'.
+   * Returns a new object of class '<em>Java Script Mapper</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Java Script</em>'.
+   * @return a new object of class '<em>Java Script Mapper</em>'.
    * @generated
    */
-  JavaScript createJavaScript();
+  JavaScriptMapper createJavaScriptMapper();
+
+  /**
+   * Returns a new object of class '<em>CSS Mapper</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>CSS Mapper</em>'.
+   * @generated
+   */
+  CSSMapper createCSSMapper();
 
   /**
    * Returns a new object of class '<em>Recipes</em>'.

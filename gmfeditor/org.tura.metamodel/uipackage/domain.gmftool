@@ -30,6 +30,15 @@
       </tools>
       <tools
           xsi:type="gmftool:CreationTool"
+          title="CSSMapper"
+          description="Create new CSSMapper">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
           title="Form"
           description="Create new Form">
         <smallIcon
@@ -57,8 +66,8 @@
       </tools>
       <tools
           xsi:type="gmftool:CreationTool"
-          title="JavaScript"
-          description="Create new JavaScript">
+          title="JavaScriptMapper"
+          description="Create new JavaScriptMapper">
         <smallIcon
             xsi:type="gmftool:DefaultImage"/>
         <largeIcon

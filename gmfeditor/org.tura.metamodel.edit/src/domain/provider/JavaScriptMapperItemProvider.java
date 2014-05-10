@@ -4,7 +4,7 @@ package domain.provider;
 
 
 import domain.DomainPackage;
-import domain.JavaScript;
+import domain.JavaScriptMapper;
 
 import java.util.Collection;
 import java.util.List;
@@ -23,13 +23,13 @@ import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link domain.JavaScript} object.
+ * This is the item provider adapter for a {@link domain.JavaScriptMapper} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class JavaScriptItemProvider
-  extends MapperItemProvider
+public class JavaScriptMapperItemProvider
+  extends TypeMapperItemProvider
   implements
     IEditingDomainItemProvider,
     IStructuredItemContentProvider,
@@ -43,7 +43,7 @@ public class JavaScriptItemProvider
    * <!-- end-user-doc -->
    * @generated
    */
-  public JavaScriptItemProvider(AdapterFactory adapterFactory)
+  public JavaScriptMapperItemProvider(AdapterFactory adapterFactory)
   {
     super(adapterFactory);
   }
@@ -78,9 +78,9 @@ public class JavaScriptItemProvider
       (createItemPropertyDescriptor
         (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
          getResourceLocator(),
-         getString("_UI_JavaScript_libraryUrl_feature"),
-         getString("_UI_PropertyDescriptor_description", "_UI_JavaScript_libraryUrl_feature", "_UI_JavaScript_type"),
-         DomainPackage.Literals.JAVA_SCRIPT__LIBRARY_URL,
+         getString("_UI_JavaScriptMapper_libraryUrl_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_JavaScriptMapper_libraryUrl_feature", "_UI_JavaScriptMapper_type"),
+         DomainPackage.Literals.JAVA_SCRIPT_MAPPER__LIBRARY_URL,
          true,
          false,
          false,
@@ -90,7 +90,7 @@ public class JavaScriptItemProvider
   }
 
   /**
-   * This returns JavaScript.gif.
+   * This returns JavaScriptMapper.gif.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -98,7 +98,7 @@ public class JavaScriptItemProvider
   @Override
   public Object getImage(Object object)
   {
-    return overlayImage(object, getResourceLocator().getImage("full/obj16/JavaScript"));
+    return overlayImage(object, getResourceLocator().getImage("full/obj16/JavaScriptMapper"));
   }
 
   /**
@@ -110,10 +110,10 @@ public class JavaScriptItemProvider
   @Override
   public String getText(Object object)
   {
-    String label = ((JavaScript)object).getFakePackageName();
+    String label = ((JavaScriptMapper)object).getFakePackageName();
     return label == null || label.length() == 0 ?
-      getString("_UI_JavaScript_type") :
-      getString("_UI_JavaScript_type") + " " + label;
+      getString("_UI_JavaScriptMapper_type") :
+      getString("_UI_JavaScriptMapper_type") + " " + label;
   }
 
   /**
@@ -128,9 +128,9 @@ public class JavaScriptItemProvider
   {
     updateChildren(notification);
 
-    switch (notification.getFeatureID(JavaScript.class))
+    switch (notification.getFeatureID(JavaScriptMapper.class))
     {
-      case DomainPackage.JAVA_SCRIPT__LIBRARY_URL:
+      case DomainPackage.JAVA_SCRIPT_MAPPER__LIBRARY_URL:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
         return;
     }

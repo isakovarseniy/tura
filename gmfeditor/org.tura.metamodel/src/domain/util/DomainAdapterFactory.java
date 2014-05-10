@@ -19,6 +19,7 @@ import domain.Artifacts;
 import domain.ArtificialField;
 import domain.Attribute;
 import domain.Button;
+import domain.CSSMapper;
 import domain.Canvas;
 import domain.CanvasFrame;
 import domain.CanvasView;
@@ -72,7 +73,7 @@ import domain.InsertTrigger;
 import domain.JPAService;
 import domain.JavaComponent;
 import domain.JavaMapper;
-import domain.JavaScript;
+import domain.JavaScriptMapper;
 import domain.Label;
 import domain.LayerHolder;
 import domain.Link;
@@ -133,6 +134,7 @@ import domain.Type;
 import domain.TypeDefinition;
 import domain.TypeElement;
 import domain.TypeExtension;
+import domain.TypeMapper;
 import domain.TypePointer;
 import domain.TypeReference;
 import domain.Types;
@@ -406,14 +408,24 @@ public class DomainAdapterFactory extends AdapterFactoryImpl
         return createMapperAdapter();
       }
       @Override
+      public Adapter caseTypeMapper(TypeMapper object)
+      {
+        return createTypeMapperAdapter();
+      }
+      @Override
       public Adapter caseJavaMapper(JavaMapper object)
       {
         return createJavaMapperAdapter();
       }
       @Override
-      public Adapter caseJavaScript(JavaScript object)
+      public Adapter caseJavaScriptMapper(JavaScriptMapper object)
       {
-        return createJavaScriptAdapter();
+        return createJavaScriptMapperAdapter();
+      }
+      @Override
+      public Adapter caseCSSMapper(CSSMapper object)
+      {
+        return createCSSMapperAdapter();
       }
       @Override
       public Adapter caseRecipes(Recipes object)
@@ -1533,6 +1545,21 @@ public class DomainAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link domain.TypeMapper <em>Type Mapper</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see domain.TypeMapper
+   * @generated
+   */
+  public Adapter createTypeMapperAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link domain.JavaMapper <em>Java Mapper</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -1548,16 +1575,31 @@ public class DomainAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link domain.JavaScript <em>Java Script</em>}'.
+   * Creates a new adapter for an object of class '{@link domain.JavaScriptMapper <em>Java Script Mapper</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see domain.JavaScript
+   * @see domain.JavaScriptMapper
    * @generated
    */
-  public Adapter createJavaScriptAdapter()
+  public Adapter createJavaScriptMapperAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link domain.CSSMapper <em>CSS Mapper</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see domain.CSSMapper
+   * @generated
+   */
+  public Adapter createCSSMapperAdapter()
   {
     return null;
   }

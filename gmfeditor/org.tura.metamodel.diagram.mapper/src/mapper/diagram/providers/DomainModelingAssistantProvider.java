@@ -40,9 +40,10 @@ public class DomainModelingAssistantProvider extends ModelingAssistantProvider {
 		IGraphicalEditPart editPart = (IGraphicalEditPart) host
 				.getAdapter(IGraphicalEditPart.class);
 		if (editPart instanceof MappersEditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(2);
+			ArrayList<IElementType> types = new ArrayList<IElementType>(3);
 			types.add(DomainElementTypes.JavaMapper_402001);
-			types.add(DomainElementTypes.JavaScript_402002);
+			types.add(DomainElementTypes.JavaScriptMapper_402003);
+			types.add(DomainElementTypes.CSSMapper_402004);
 			return types;
 		}
 		return Collections.EMPTY_LIST;

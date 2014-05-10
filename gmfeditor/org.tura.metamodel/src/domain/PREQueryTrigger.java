@@ -21,7 +21,6 @@ package domain;
  */
 public interface PREQueryTrigger extends Trigger
 {
-
   /**
    * Returns the value of the '<em><b>Uid</b></em>' attribute.
    * <!-- begin-user-doc -->
@@ -47,4 +46,5 @@ public interface PREQueryTrigger extends Trigger
    * @generated
    */
   void setUid(String value);
+
 } // PREQueryTrigger

@@ -29,7 +29,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public class JavaMapperImpl extends MapperImpl implements JavaMapper
+public class JavaMapperImpl extends TypeMapperImpl implements JavaMapper
 {
   /**
    * The default value of the '{@link #getMappedToPackageName() <em>Mapped To Package Name</em>}' attribute.

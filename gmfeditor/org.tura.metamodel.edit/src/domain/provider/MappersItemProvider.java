@@ -223,12 +223,22 @@ public class MappersItemProvider
     newChildDescriptors.add
       (createChildParameter
         (DomainPackage.Literals.MAPPERS__MAPPERS,
+         DomainFactory.eINSTANCE.createTypeMapper()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (DomainPackage.Literals.MAPPERS__MAPPERS,
          DomainFactory.eINSTANCE.createJavaMapper()));
 
     newChildDescriptors.add
       (createChildParameter
         (DomainPackage.Literals.MAPPERS__MAPPERS,
-         DomainFactory.eINSTANCE.createJavaScript()));
+         DomainFactory.eINSTANCE.createJavaScriptMapper()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (DomainPackage.Literals.MAPPERS__MAPPERS,
+         DomainFactory.eINSTANCE.createCSSMapper()));
   }
 
   /**

@@ -19,6 +19,7 @@ import domain.Artifacts;
 import domain.ArtificialField;
 import domain.Attribute;
 import domain.Button;
+import domain.CSSMapper;
 import domain.Canvas;
 import domain.CanvasFrame;
 import domain.CanvasView;
@@ -73,7 +74,7 @@ import domain.InsertTrigger;
 import domain.JPAService;
 import domain.JavaComponent;
 import domain.JavaMapper;
-import domain.JavaScript;
+import domain.JavaScriptMapper;
 import domain.Label;
 import domain.LayerHolder;
 import domain.Link;
@@ -135,6 +136,7 @@ import domain.Type;
 import domain.TypeDefinition;
 import domain.TypeElement;
 import domain.TypeExtension;
+import domain.TypeMapper;
 import domain.TypePointer;
 import domain.TypeReference;
 import domain.Types;
@@ -250,8 +252,10 @@ public class DomainFactoryImpl extends EFactoryImpl implements DomainFactory
       case DomainPackage.STYLE_SET: return createStyleSet();
       case DomainPackage.MAPPERS: return createMappers();
       case DomainPackage.MAPPER: return createMapper();
+      case DomainPackage.TYPE_MAPPER: return createTypeMapper();
       case DomainPackage.JAVA_MAPPER: return createJavaMapper();
-      case DomainPackage.JAVA_SCRIPT: return createJavaScript();
+      case DomainPackage.JAVA_SCRIPT_MAPPER: return createJavaScriptMapper();
+      case DomainPackage.CSS_MAPPER: return createCSSMapper();
       case DomainPackage.RECIPES: return createRecipes();
       case DomainPackage.DEPLOYMENT_SEQUENCE: return createDeploymentSequence();
       case DomainPackage.DEPLOYMENT_COMPONENTS: return createDeploymentComponents();
@@ -811,6 +815,17 @@ public class DomainFactoryImpl extends EFactoryImpl implements DomainFactory
    * <!-- end-user-doc -->
    * @generated
    */
+  public TypeMapper createTypeMapper()
+  {
+    TypeMapperImpl typeMapper = new TypeMapperImpl();
+    return typeMapper;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public JavaMapper createJavaMapper()
   {
     JavaMapperImpl javaMapper = new JavaMapperImpl();
@@ -822,10 +837,21 @@ public class DomainFactoryImpl extends EFactoryImpl implements DomainFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public JavaScript createJavaScript()
+  public JavaScriptMapper createJavaScriptMapper()
   {
-    JavaScriptImpl javaScript = new JavaScriptImpl();
-    return javaScript;
+    JavaScriptMapperImpl javaScriptMapper = new JavaScriptMapperImpl();
+    return javaScriptMapper;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public CSSMapper createCSSMapper()
+  {
+    CSSMapperImpl cssMapper = new CSSMapperImpl();
+    return cssMapper;
   }
 
   /**

@@ -261,102 +261,112 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String CheckBox2CreationTool_title;
+	public static String CSSMapper2CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String CheckBox2CreationTool_desc;
+	public static String CSSMapper2CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String Column3CreationTool_title;
+	public static String CheckBox3CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Column3CreationTool_desc;
+	public static String CheckBox3CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String DropDownSelection4CreationTool_title;
+	public static String Column4CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String DropDownSelection4CreationTool_desc;
+	public static String Column4CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String InputText5CreationTool_title;
+	public static String DropDownSelection5CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String InputText5CreationTool_desc;
+	public static String DropDownSelection5CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String JavaScript6CreationTool_title;
+	public static String InputText6CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String JavaScript6CreationTool_desc;
+	public static String InputText6CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String Label7CreationTool_title;
+	public static String JavaScriptMapper7CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Label7CreationTool_desc;
+	public static String JavaScriptMapper7CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String LayerHolder8CreationTool_title;
+	public static String Label8CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String LayerHolder8CreationTool_desc;
+	public static String Label8CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String OutputText9CreationTool_title;
+	public static String LayerHolder9CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String OutputText9CreationTool_desc;
+	public static String LayerHolder9CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String Table10CreationTool_title;
+	public static String OutputText10CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Table10CreationTool_desc;
+	public static String OutputText10CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String Tree11CreationTool_title;
+	public static String Table11CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Tree11CreationTool_desc;
+	public static String Table11CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String Tree12CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String Tree12CreationTool_desc;
 
 	/**
 	 * @generated

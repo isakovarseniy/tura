@@ -3,8 +3,9 @@
  */
 package mapper.diagram.edit.policies;
 
+import mapper.diagram.edit.commands.CSSMapperCreateCommand;
 import mapper.diagram.edit.commands.JavaMapperCreateCommand;
-import mapper.diagram.edit.commands.JavaScriptCreateCommand;
+import mapper.diagram.edit.commands.JavaScriptMapperCreateCommand;
 import mapper.diagram.providers.DomainElementTypes;
 
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
@@ -34,8 +35,11 @@ public class MappersItemSemanticEditPolicy extends
 		if (DomainElementTypes.JavaMapper_402001 == req.getElementType()) {
 			return getGEFWrapper(new JavaMapperCreateCommand(req));
 		}
-		if (DomainElementTypes.JavaScript_402002 == req.getElementType()) {
-			return getGEFWrapper(new JavaScriptCreateCommand(req));
+		if (DomainElementTypes.JavaScriptMapper_402003 == req.getElementType()) {
+			return getGEFWrapper(new JavaScriptMapperCreateCommand(req));
+		}
+		if (DomainElementTypes.CSSMapper_402004 == req.getElementType()) {
+			return getGEFWrapper(new CSSMapperCreateCommand(req));
 		}
 		return super.getCreateCommand(req);
 	}

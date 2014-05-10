@@ -295,15 +295,18 @@ class Mappers{
    ref ApplicationMapper#mapper parent;
 }
 
-class Mapper extends TypePointer{
+class Mapper {
     id attr EString uid;
     ref Mappers#mappers  parent;
     attr boolean serviceLayer;
     attr boolean uiLayer;
 }
 
+class TypeMapper extends Mapper,TypePointer{
+}
+
 @gmf.node(label="fakePackageName,fakeTypeName",border.color="0,0,0",color="255,237,85")
-class JavaMapper extends Mapper{
+class JavaMapper extends TypeMapper{
    attr EString mappedToPackageName;
    attr EString mappedToClassName;
    attr EString artifactId;
@@ -312,10 +315,25 @@ class JavaMapper extends Mapper{
    attr EString libraryName;
 }
 
+
 @gmf.node(label="fakePackageName,fakeTypeName",border.color="0,0,0",color="47,180,155")
-class JavaScript extends Mapper{
+class JavaScriptMapper extends TypeMapper{
    attr EString libraryUrl;
 }
+
+@gmf.node(label="fakePackageName,fakeTypeName",border.color="0,0,0",color="47,180,155")
+class CSSMapper extends Mapper{
+   attr EString libraryUrl;
+   ref StylesPackage stylePackage;
+   ref StyleLibrary styleLibrary;
+
+  // To support display label
+  attr EString fakePackageName;
+  attr EString fakeTypeName;
+
+}
+
+
 
 @gmf.diagram
 class Recipes{

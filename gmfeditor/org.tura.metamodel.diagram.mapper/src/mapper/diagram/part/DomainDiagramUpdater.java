@@ -8,8 +8,9 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
+import mapper.diagram.edit.parts.CSSMapperEditPart;
 import mapper.diagram.edit.parts.JavaMapperEditPart;
-import mapper.diagram.edit.parts.JavaScriptEditPart;
+import mapper.diagram.edit.parts.JavaScriptMapperEditPart;
 import mapper.diagram.edit.parts.MappersEditPart;
 
 import org.eclipse.gmf.runtime.notation.View;
@@ -61,7 +62,11 @@ public class DomainDiagramUpdater {
 				result.add(new DomainNodeDescriptor(childElement, visualID));
 				continue;
 			}
-			if (visualID == JavaScriptEditPart.VISUAL_ID) {
+			if (visualID == JavaScriptMapperEditPart.VISUAL_ID) {
+				result.add(new DomainNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == CSSMapperEditPart.VISUAL_ID) {
 				result.add(new DomainNodeDescriptor(childElement, visualID));
 				continue;
 			}
@@ -78,8 +83,10 @@ public class DomainDiagramUpdater {
 			return getMappers_401000ContainedLinks(view);
 		case JavaMapperEditPart.VISUAL_ID:
 			return getJavaMapper_402001ContainedLinks(view);
-		case JavaScriptEditPart.VISUAL_ID:
-			return getJavaScript_402002ContainedLinks(view);
+		case JavaScriptMapperEditPart.VISUAL_ID:
+			return getJavaScriptMapper_402003ContainedLinks(view);
+		case CSSMapperEditPart.VISUAL_ID:
+			return getCSSMapper_402004ContainedLinks(view);
 		}
 		return Collections.emptyList();
 	}
@@ -91,8 +98,10 @@ public class DomainDiagramUpdater {
 		switch (DomainVisualIDRegistry.getVisualID(view)) {
 		case JavaMapperEditPart.VISUAL_ID:
 			return getJavaMapper_402001IncomingLinks(view);
-		case JavaScriptEditPart.VISUAL_ID:
-			return getJavaScript_402002IncomingLinks(view);
+		case JavaScriptMapperEditPart.VISUAL_ID:
+			return getJavaScriptMapper_402003IncomingLinks(view);
+		case CSSMapperEditPart.VISUAL_ID:
+			return getCSSMapper_402004IncomingLinks(view);
 		}
 		return Collections.emptyList();
 	}
@@ -104,8 +113,10 @@ public class DomainDiagramUpdater {
 		switch (DomainVisualIDRegistry.getVisualID(view)) {
 		case JavaMapperEditPart.VISUAL_ID:
 			return getJavaMapper_402001OutgoingLinks(view);
-		case JavaScriptEditPart.VISUAL_ID:
-			return getJavaScript_402002OutgoingLinks(view);
+		case JavaScriptMapperEditPart.VISUAL_ID:
+			return getJavaScriptMapper_402003OutgoingLinks(view);
+		case CSSMapperEditPart.VISUAL_ID:
+			return getCSSMapper_402004OutgoingLinks(view);
 		}
 		return Collections.emptyList();
 	}
@@ -129,7 +140,15 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getJavaScript_402002ContainedLinks(
+	public static List<DomainLinkDescriptor> getJavaScriptMapper_402003ContainedLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<DomainLinkDescriptor> getCSSMapper_402004ContainedLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -145,7 +164,15 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getJavaScript_402002IncomingLinks(
+	public static List<DomainLinkDescriptor> getJavaScriptMapper_402003IncomingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<DomainLinkDescriptor> getCSSMapper_402004IncomingLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -161,7 +188,15 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getJavaScript_402002OutgoingLinks(
+	public static List<DomainLinkDescriptor> getJavaScriptMapper_402003OutgoingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<DomainLinkDescriptor> getCSSMapper_402004OutgoingLinks(
 			View view) {
 		return Collections.emptyList();
 	}

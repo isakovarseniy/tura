@@ -5,6 +5,8 @@ package domain.tests;
 import domain.DomainFactory;
 import domain.Mapper;
 
+import junit.framework.TestCase;
+
 import junit.textui.TestRunner;
 
 /**
@@ -13,8 +15,16 @@ import junit.textui.TestRunner;
  * <!-- end-user-doc -->
  * @generated
  */
-public class MapperTest extends TypePointerTest
+public class MapperTest extends TestCase
 {
+
+  /**
+   * The fixture for this Mapper test case.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected Mapper fixture = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -38,15 +48,25 @@ public class MapperTest extends TypePointerTest
   }
 
   /**
+   * Sets the fixture for this Mapper test case.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected void setFixture(Mapper fixture)
+  {
+    this.fixture = fixture;
+  }
+
+  /**
    * Returns the fixture for this Mapper test case.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   protected Mapper getFixture()
   {
-    return (Mapper)fixture;
+    return fixture;
   }
 
   /**

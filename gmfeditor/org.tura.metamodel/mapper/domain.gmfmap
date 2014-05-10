@@ -22,7 +22,7 @@
       </labelMappings>
       <tool
           xsi:type="gmftool:CreationTool"
-          href="domain.gmftool#//@palette/@tools.0/@tools.0"/>
+          href="domain.gmftool#//@palette/@tools.0/@tools.1"/>
       <diagramNode
           href="domain.gmfgraph#JavaMapper"/>
     </ownedChild>
@@ -32,11 +32,11 @@
         href="domain.ecore#//Mappers/mappers"/>
     <ownedChild>
       <domainMetaElement
-          href="domain.ecore#//JavaScript"/>
+          href="domain.ecore#//JavaScriptMapper"/>
       <labelMappings
           xsi:type="gmfmap:FeatureLabelMapping">
         <diagramLabel
-            href="domain.gmfgraph#JavaScriptLabel"/>
+            href="domain.gmfgraph#JavaScriptMapperLabel"/>
         <features
             href="domain.ecore#//TypePointer/fakePackageName"/>
         <features
@@ -44,9 +44,31 @@
       </labelMappings>
       <tool
           xsi:type="gmftool:CreationTool"
-          href="domain.gmftool#//@palette/@tools.0/@tools.1"/>
+          href="domain.gmftool#//@palette/@tools.0/@tools.2"/>
       <diagramNode
-          href="domain.gmfgraph#JavaScript"/>
+          href="domain.gmfgraph#JavaScriptMapper"/>
+    </ownedChild>
+  </nodes>
+  <nodes>
+    <containmentFeature
+        href="domain.ecore#//Mappers/mappers"/>
+    <ownedChild>
+      <domainMetaElement
+          href="domain.ecore#//CSSMapper"/>
+      <labelMappings
+          xsi:type="gmfmap:FeatureLabelMapping">
+        <diagramLabel
+            href="domain.gmfgraph#CSSMapperLabel"/>
+        <features
+            href="domain.ecore#//CSSMapper/fakePackageName"/>
+        <features
+            href="domain.ecore#//CSSMapper/fakeTypeName"/>
+      </labelMappings>
+      <tool
+          xsi:type="gmftool:CreationTool"
+          href="domain.gmftool#//@palette/@tools.0/@tools.0"/>
+      <diagramNode
+          href="domain.gmfgraph#CSSMapper"/>
     </ownedChild>
   </nodes>
   <diagram>

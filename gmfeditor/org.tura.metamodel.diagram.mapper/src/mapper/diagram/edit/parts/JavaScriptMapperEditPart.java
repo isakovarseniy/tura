@@ -3,7 +3,7 @@
  */
 package mapper.diagram.edit.parts;
 
-import mapper.diagram.edit.policies.JavaScriptItemSemanticEditPolicy;
+import mapper.diagram.edit.policies.JavaScriptMapperItemSemanticEditPolicy;
 import mapper.diagram.part.DomainVisualIDRegistry;
 
 import org.eclipse.draw2d.IFigure;
@@ -37,12 +37,12 @@ import org.eclipse.swt.widgets.Display;
 /**
  * @generated
  */
-public class JavaScriptEditPart extends ShapeNodeEditPart {
+public class JavaScriptMapperEditPart extends ShapeNodeEditPart {
 
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 402002;
+	public static final int VISUAL_ID = 402003;
 
 	/**
 	 * @generated
@@ -57,7 +57,7 @@ public class JavaScriptEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	public JavaScriptEditPart(View view) {
+	public JavaScriptMapperEditPart(View view) {
 		super(view);
 	}
 
@@ -67,7 +67,7 @@ public class JavaScriptEditPart extends ShapeNodeEditPart {
 	protected void createDefaultEditPolicies() {
 		super.createDefaultEditPolicies();
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
-				new JavaScriptItemSemanticEditPolicy());
+				new JavaScriptMapperItemSemanticEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
 		// XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
 		// removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
@@ -103,24 +103,24 @@ public class JavaScriptEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected IFigure createNodeShape() {
-		return primaryShape = new JavaScriptFigure();
+		return primaryShape = new JavaScriptMapperFigure();
 	}
 
 	/**
 	 * @generated
 	 */
-	public JavaScriptFigure getPrimaryShape() {
-		return (JavaScriptFigure) primaryShape;
+	public JavaScriptMapperFigure getPrimaryShape() {
+		return (JavaScriptMapperFigure) primaryShape;
 	}
 
 	/**
 	 * @generated
 	 */
 	protected boolean addFixedChild(EditPart childEditPart) {
-		if (childEditPart instanceof JavaScriptFakePackageNameFakeTypeEditPart) {
-			((JavaScriptFakePackageNameFakeTypeEditPart) childEditPart)
+		if (childEditPart instanceof JavaScriptMapperFakePackageNameFakeTypeEditPart) {
+			((JavaScriptMapperFakePackageNameFakeTypeEditPart) childEditPart)
 					.setLabel(getPrimaryShape()
-							.getFigureJavaScriptLabelFigure());
+							.getFigureJavaScriptMapperLabelFigure());
 			return true;
 		}
 		return false;
@@ -130,7 +130,7 @@ public class JavaScriptEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected boolean removeFixedChild(EditPart childEditPart) {
-		if (childEditPart instanceof JavaScriptFakePackageNameFakeTypeEditPart) {
+		if (childEditPart instanceof JavaScriptMapperFakePackageNameFakeTypeEditPart) {
 			return true;
 		}
 		return false;
@@ -254,7 +254,7 @@ public class JavaScriptEditPart extends ShapeNodeEditPart {
 	 */
 	public EditPart getPrimaryChildEditPart() {
 		return getChildBySemanticHint(DomainVisualIDRegistry
-				.getType(JavaScriptFakePackageNameFakeTypeEditPart.VISUAL_ID));
+				.getType(JavaScriptMapperFakePackageNameFakeTypeEditPart.VISUAL_ID));
 	}
 
 	/**
@@ -273,17 +273,17 @@ public class JavaScriptEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	public class JavaScriptFigure extends RoundedRectangle {
+	public class JavaScriptMapperFigure extends RoundedRectangle {
 
 		/**
 		 * @generated
 		 */
-		private WrappingLabel fFigureJavaScriptLabelFigure;
+		private WrappingLabel fFigureJavaScriptMapperLabelFigure;
 
 		/**
 		 * @generated
 		 */
-		public JavaScriptFigure() {
+		public JavaScriptMapperFigure() {
 			this.setCornerDimensions(new Dimension(getMapMode().DPtoLP(8),
 					getMapMode().DPtoLP(8)));
 			this.setForegroundColor(THIS_FORE);
@@ -299,22 +299,22 @@ public class JavaScriptEditPart extends ShapeNodeEditPart {
 		 */
 		private void createContents() {
 
-			fFigureJavaScriptLabelFigure = new WrappingLabel();
+			fFigureJavaScriptMapperLabelFigure = new WrappingLabel();
 
-			fFigureJavaScriptLabelFigure.setText("JavaScript");
+			fFigureJavaScriptMapperLabelFigure.setText("JavaScriptMapper");
 
-			fFigureJavaScriptLabelFigure
-					.setFont(FFIGUREJAVASCRIPTLABELFIGURE_FONT);
+			fFigureJavaScriptMapperLabelFigure
+					.setFont(FFIGUREJAVASCRIPTMAPPERLABELFIGURE_FONT);
 
-			this.add(fFigureJavaScriptLabelFigure);
+			this.add(fFigureJavaScriptMapperLabelFigure);
 
 		}
 
 		/**
 		 * @generated
 		 */
-		public WrappingLabel getFigureJavaScriptLabelFigure() {
-			return fFigureJavaScriptLabelFigure;
+		public WrappingLabel getFigureJavaScriptMapperLabelFigure() {
+			return fFigureJavaScriptMapperLabelFigure;
 		}
 
 	}
@@ -332,7 +332,7 @@ public class JavaScriptEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	static final Font FFIGUREJAVASCRIPTLABELFIGURE_FONT = new Font(
+	static final Font FFIGUREJAVASCRIPTMAPPERLABELFIGURE_FONT = new Font(
 			Display.getCurrent(), "Palatino", 12, SWT.ITALIC);
 
 }

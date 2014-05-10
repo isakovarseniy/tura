@@ -3,10 +3,12 @@
  */
 package mapper.diagram.navigator;
 
+import mapper.diagram.edit.parts.CSSMapperEditPart;
+import mapper.diagram.edit.parts.CSSMapperFakePackageNameFakeTypeEditPart;
 import mapper.diagram.edit.parts.JavaMapperEditPart;
 import mapper.diagram.edit.parts.JavaMapperFakePackageNameFakeTypeEditPart;
-import mapper.diagram.edit.parts.JavaScriptEditPart;
-import mapper.diagram.edit.parts.JavaScriptFakePackageNameFakeTypeEditPart;
+import mapper.diagram.edit.parts.JavaScriptMapperEditPart;
+import mapper.diagram.edit.parts.JavaScriptMapperFakePackageNameFakeTypeEditPart;
 import mapper.diagram.edit.parts.MappersEditPart;
 import mapper.diagram.part.DomainDiagramEditorPlugin;
 import mapper.diagram.part.DomainVisualIDRegistry;
@@ -105,9 +107,12 @@ public class DomainNavigatorLabelProvider extends LabelProvider implements
 		case JavaMapperEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?TopLevelNode?http://tura.org/2013/v1/domain?JavaMapper", DomainElementTypes.JavaMapper_402001); //$NON-NLS-1$
-		case JavaScriptEditPart.VISUAL_ID:
+		case JavaScriptMapperEditPart.VISUAL_ID:
 			return getImage(
-					"Navigator?TopLevelNode?http://tura.org/2013/v1/domain?JavaScript", DomainElementTypes.JavaScript_402002); //$NON-NLS-1$
+					"Navigator?TopLevelNode?http://tura.org/2013/v1/domain?JavaScriptMapper", DomainElementTypes.JavaScriptMapper_402003); //$NON-NLS-1$
+		case CSSMapperEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?TopLevelNode?http://tura.org/2013/v1/domain?CSSMapper", DomainElementTypes.CSSMapper_402004); //$NON-NLS-1$
 		}
 		return getImage("Navigator?UnknownElement", null); //$NON-NLS-1$
 	}
@@ -172,8 +177,10 @@ public class DomainNavigatorLabelProvider extends LabelProvider implements
 			return getMappers_401000Text(view);
 		case JavaMapperEditPart.VISUAL_ID:
 			return getJavaMapper_402001Text(view);
-		case JavaScriptEditPart.VISUAL_ID:
-			return getJavaScript_402002Text(view);
+		case JavaScriptMapperEditPart.VISUAL_ID:
+			return getJavaScriptMapper_402003Text(view);
+		case CSSMapperEditPart.VISUAL_ID:
+			return getCSSMapper_402004Text(view);
 		}
 		return getUnknownElementText(view);
 	}
@@ -216,20 +223,41 @@ public class DomainNavigatorLabelProvider extends LabelProvider implements
 	/**
 	 * @generated
 	 */
-	private String getJavaScript_402002Text(View view) {
+	private String getJavaScriptMapper_402003Text(View view) {
 		IParser parser = DomainParserProvider
 				.getParser(
-						DomainElementTypes.JavaScript_402002,
+						DomainElementTypes.JavaScriptMapper_402003,
 						view.getElement() != null ? view.getElement() : view,
 						DomainVisualIDRegistry
-								.getType(JavaScriptFakePackageNameFakeTypeEditPart.VISUAL_ID));
+								.getType(JavaScriptMapperFakePackageNameFakeTypeEditPart.VISUAL_ID));
 		if (parser != null) {
 			return parser.getPrintString(new EObjectAdapter(
 					view.getElement() != null ? view.getElement() : view),
 					ParserOptions.NONE.intValue());
 		} else {
 			DomainDiagramEditorPlugin.getInstance().logError(
-					"Parser was not found for label " + 405002); //$NON-NLS-1$
+					"Parser was not found for label " + 405003); //$NON-NLS-1$
+			return ""; //$NON-NLS-1$
+		}
+	}
+
+	/**
+	 * @generated
+	 */
+	private String getCSSMapper_402004Text(View view) {
+		IParser parser = DomainParserProvider
+				.getParser(
+						DomainElementTypes.CSSMapper_402004,
+						view.getElement() != null ? view.getElement() : view,
+						DomainVisualIDRegistry
+								.getType(CSSMapperFakePackageNameFakeTypeEditPart.VISUAL_ID));
+		if (parser != null) {
+			return parser.getPrintString(new EObjectAdapter(
+					view.getElement() != null ? view.getElement() : view),
+					ParserOptions.NONE.intValue());
+		} else {
+			DomainDiagramEditorPlugin.getInstance().logError(
+					"Parser was not found for label " + 405004); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 	}

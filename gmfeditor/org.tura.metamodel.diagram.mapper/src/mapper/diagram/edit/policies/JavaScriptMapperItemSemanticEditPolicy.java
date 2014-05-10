@@ -16,14 +16,14 @@ import org.eclipse.gmf.runtime.notation.View;
 /**
  * @generated
  */
-public class JavaScriptItemSemanticEditPolicy extends
+public class JavaScriptMapperItemSemanticEditPolicy extends
 		DomainBaseItemSemanticEditPolicy {
 
 	/**
 	 * @generated
 	 */
-	public JavaScriptItemSemanticEditPolicy() {
-		super(DomainElementTypes.JavaScript_402002);
+	public JavaScriptMapperItemSemanticEditPolicy() {
+		super(DomainElementTypes.JavaScriptMapper_402003);
 	}
 
 	/**

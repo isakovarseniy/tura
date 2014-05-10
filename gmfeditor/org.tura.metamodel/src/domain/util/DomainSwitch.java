@@ -19,6 +19,7 @@ import domain.Artifacts;
 import domain.ArtificialField;
 import domain.Attribute;
 import domain.Button;
+import domain.CSSMapper;
 import domain.Canvas;
 import domain.CanvasFrame;
 import domain.CanvasView;
@@ -72,7 +73,7 @@ import domain.InsertTrigger;
 import domain.JPAService;
 import domain.JavaComponent;
 import domain.JavaMapper;
-import domain.JavaScript;
+import domain.JavaScriptMapper;
 import domain.Label;
 import domain.LayerHolder;
 import domain.Link;
@@ -133,6 +134,7 @@ import domain.Type;
 import domain.TypeDefinition;
 import domain.TypeElement;
 import domain.TypeExtension;
+import domain.TypeMapper;
 import domain.TypePointer;
 import domain.TypeReference;
 import domain.Types;
@@ -483,7 +485,15 @@ public class DomainSwitch<T> extends Switch<T>
       {
         Mapper mapper = (Mapper)theEObject;
         T result = caseMapper(mapper);
-        if (result == null) result = caseTypePointer(mapper);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DomainPackage.TYPE_MAPPER:
+      {
+        TypeMapper typeMapper = (TypeMapper)theEObject;
+        T result = caseTypeMapper(typeMapper);
+        if (result == null) result = caseMapper(typeMapper);
+        if (result == null) result = caseTypePointer(typeMapper);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -491,17 +501,27 @@ public class DomainSwitch<T> extends Switch<T>
       {
         JavaMapper javaMapper = (JavaMapper)theEObject;
         T result = caseJavaMapper(javaMapper);
+        if (result == null) result = caseTypeMapper(javaMapper);
         if (result == null) result = caseMapper(javaMapper);
         if (result == null) result = caseTypePointer(javaMapper);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case DomainPackage.JAVA_SCRIPT:
+      case DomainPackage.JAVA_SCRIPT_MAPPER:
       {
-        JavaScript javaScript = (JavaScript)theEObject;
-        T result = caseJavaScript(javaScript);
-        if (result == null) result = caseMapper(javaScript);
-        if (result == null) result = caseTypePointer(javaScript);
+        JavaScriptMapper javaScriptMapper = (JavaScriptMapper)theEObject;
+        T result = caseJavaScriptMapper(javaScriptMapper);
+        if (result == null) result = caseTypeMapper(javaScriptMapper);
+        if (result == null) result = caseMapper(javaScriptMapper);
+        if (result == null) result = caseTypePointer(javaScriptMapper);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DomainPackage.CSS_MAPPER:
+      {
+        CSSMapper cssMapper = (CSSMapper)theEObject;
+        T result = caseCSSMapper(cssMapper);
+        if (result == null) result = caseMapper(cssMapper);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -1989,6 +2009,22 @@ public class DomainSwitch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>Type Mapper</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Type Mapper</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseTypeMapper(TypeMapper object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>Java Mapper</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -2005,17 +2041,33 @@ public class DomainSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Java Script</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Java Script Mapper</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Java Script</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Java Script Mapper</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseJavaScript(JavaScript object)
+  public T caseJavaScriptMapper(JavaScriptMapper object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>CSS Mapper</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>CSS Mapper</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseCSSMapper(CSSMapper object)
   {
     return null;
   }

@@ -251,22 +251,32 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String JavaMapper1CreationTool_title;
+	public static String CSSMapper1CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String JavaMapper1CreationTool_desc;
+	public static String CSSMapper1CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String JavaScript2CreationTool_title;
+	public static String JavaMapper2CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String JavaScript2CreationTool_desc;
+	public static String JavaMapper2CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String JavaScriptMapper3CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String JavaScriptMapper3CreationTool_desc;
 
 	/**
 	 * @generated

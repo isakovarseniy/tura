@@ -579,6 +579,10 @@
           collapse="true">
         <entries
             xsi:type="gmfgen:ToolEntry"
+            title="CSSMapper"
+            description="Create new CSSMapper"/>
+        <entries
+            xsi:type="gmfgen:ToolEntry"
             title="ContinuousIintegration"
             description="Create new ContinuousIintegration"
             genNodes="//@diagram/@childNodes.3"/>
@@ -619,8 +623,8 @@
             genNodes="//@diagram/@childNodes.1"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
-            title="JavaScript"
-            description="Create new JavaScript"/>
+            title="JavaScriptMapper"
+            description="Create new JavaScriptMapper"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
             title="ORMEntity"

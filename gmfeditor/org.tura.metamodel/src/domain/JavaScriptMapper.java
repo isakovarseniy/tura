@@ -5,21 +5,21 @@ package domain;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Java Script</b></em>'.
+ * A representation of the model object '<em><b>Java Script Mapper</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link domain.JavaScript#getLibraryUrl <em>Library Url</em>}</li>
+ *   <li>{@link domain.JavaScriptMapper#getLibraryUrl <em>Library Url</em>}</li>
  * </ul>
  * </p>
  *
- * @see domain.DomainPackage#getJavaScript()
+ * @see domain.DomainPackage#getJavaScriptMapper()
  * @model annotation="gmf.node label='fakePackageName,fakeTypeName' border.color='0,0,0' color='47,180,155'"
  * @generated
  */
-public interface JavaScript extends Mapper
+public interface JavaScriptMapper extends TypeMapper
 {
   /**
    * Returns the value of the '<em><b>Library Url</b></em>' attribute.
@@ -31,14 +31,14 @@ public interface JavaScript extends Mapper
    * <!-- end-user-doc -->
    * @return the value of the '<em>Library Url</em>' attribute.
    * @see #setLibraryUrl(String)
-   * @see domain.DomainPackage#getJavaScript_LibraryUrl()
+   * @see domain.DomainPackage#getJavaScriptMapper_LibraryUrl()
    * @model
    * @generated
    */
   String getLibraryUrl();
 
   /**
-   * Sets the value of the '{@link domain.JavaScript#getLibraryUrl <em>Library Url</em>}' attribute.
+   * Sets the value of the '{@link domain.JavaScriptMapper#getLibraryUrl <em>Library Url</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Library Url</em>' attribute.
@@ -47,4 +47,4 @@ public interface JavaScript extends Mapper
    */
   void setLibraryUrl(String value);
 
-} // JavaScript
+} // JavaScriptMapper

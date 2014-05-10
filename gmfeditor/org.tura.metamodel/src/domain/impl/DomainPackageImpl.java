@@ -19,6 +19,7 @@ import domain.Artifacts;
 import domain.ArtificialField;
 import domain.Attribute;
 import domain.Button;
+import domain.CSSMapper;
 import domain.Canvas;
 import domain.CanvasFrame;
 import domain.CanvasView;
@@ -73,7 +74,7 @@ import domain.InsertTrigger;
 import domain.JPAService;
 import domain.JavaComponent;
 import domain.JavaMapper;
-import domain.JavaScript;
+import domain.JavaScriptMapper;
 import domain.Label;
 import domain.LayerHolder;
 import domain.Link;
@@ -135,6 +136,7 @@ import domain.Type;
 import domain.TypeDefinition;
 import domain.TypeElement;
 import domain.TypeExtension;
+import domain.TypeMapper;
 import domain.TypePointer;
 import domain.TypeReference;
 import domain.Types;
@@ -432,6 +434,13 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  private EClass typeMapperEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   private EClass javaMapperEClass = null;
 
   /**
@@ -439,7 +448,14 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass javaScriptEClass = null;
+  private EClass javaScriptMapperEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass cssMapperEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -2892,6 +2908,16 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EClass getTypeMapper()
+  {
+    return typeMapperEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getJavaMapper()
   {
     return javaMapperEClass;
@@ -2962,9 +2988,9 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getJavaScript()
+  public EClass getJavaScriptMapper()
   {
-    return javaScriptEClass;
+    return javaScriptMapperEClass;
   }
 
   /**
@@ -2972,9 +2998,69 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getJavaScript_LibraryUrl()
+  public EAttribute getJavaScriptMapper_LibraryUrl()
   {
-    return (EAttribute)javaScriptEClass.getEStructuralFeatures().get(0);
+    return (EAttribute)javaScriptMapperEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getCSSMapper()
+  {
+    return cssMapperEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getCSSMapper_LibraryUrl()
+  {
+    return (EAttribute)cssMapperEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getCSSMapper_StylePackage()
+  {
+    return (EReference)cssMapperEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getCSSMapper_StyleLibrary()
+  {
+    return (EReference)cssMapperEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getCSSMapper_FakePackageName()
+  {
+    return (EAttribute)cssMapperEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getCSSMapper_FakeTypeName()
+  {
+    return (EAttribute)cssMapperEClass.getEStructuralFeatures().get(4);
   }
 
   /**
@@ -7106,6 +7192,8 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     createEAttribute(mapperEClass, MAPPER__SERVICE_LAYER);
     createEAttribute(mapperEClass, MAPPER__UI_LAYER);
 
+    typeMapperEClass = createEClass(TYPE_MAPPER);
+
     javaMapperEClass = createEClass(JAVA_MAPPER);
     createEAttribute(javaMapperEClass, JAVA_MAPPER__MAPPED_TO_PACKAGE_NAME);
     createEAttribute(javaMapperEClass, JAVA_MAPPER__MAPPED_TO_CLASS_NAME);
@@ -7114,8 +7202,15 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     createEAttribute(javaMapperEClass, JAVA_MAPPER__VERSION);
     createEAttribute(javaMapperEClass, JAVA_MAPPER__LIBRARY_NAME);
 
-    javaScriptEClass = createEClass(JAVA_SCRIPT);
-    createEAttribute(javaScriptEClass, JAVA_SCRIPT__LIBRARY_URL);
+    javaScriptMapperEClass = createEClass(JAVA_SCRIPT_MAPPER);
+    createEAttribute(javaScriptMapperEClass, JAVA_SCRIPT_MAPPER__LIBRARY_URL);
+
+    cssMapperEClass = createEClass(CSS_MAPPER);
+    createEAttribute(cssMapperEClass, CSS_MAPPER__LIBRARY_URL);
+    createEReference(cssMapperEClass, CSS_MAPPER__STYLE_PACKAGE);
+    createEReference(cssMapperEClass, CSS_MAPPER__STYLE_LIBRARY);
+    createEAttribute(cssMapperEClass, CSS_MAPPER__FAKE_PACKAGE_NAME);
+    createEAttribute(cssMapperEClass, CSS_MAPPER__FAKE_TYPE_NAME);
 
     recipesEClass = createEClass(RECIPES);
     createEAttribute(recipesEClass, RECIPES__UID);
@@ -7656,9 +7751,11 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     applicationRecipesEClass.getESuperTypes().add(this.getHTMLLayerHolder());
     applicationMappersEClass.getESuperTypes().add(this.getHTMLLayerHolder());
     methodPointerEClass.getESuperTypes().add(this.getTypePointer());
-    mapperEClass.getESuperTypes().add(this.getTypePointer());
-    javaMapperEClass.getESuperTypes().add(this.getMapper());
-    javaScriptEClass.getESuperTypes().add(this.getMapper());
+    typeMapperEClass.getESuperTypes().add(this.getMapper());
+    typeMapperEClass.getESuperTypes().add(this.getTypePointer());
+    javaMapperEClass.getESuperTypes().add(this.getTypeMapper());
+    javaScriptMapperEClass.getESuperTypes().add(this.getTypeMapper());
+    cssMapperEClass.getESuperTypes().add(this.getMapper());
     recipeEClass.getESuperTypes().add(this.getUsingMappers());
     ingredientEClass.getESuperTypes().add(this.getUsingMappers());
     ingredientEClass.getESuperTypes().add(this.getHTMLLayerHolder());
@@ -7927,6 +8024,8 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     initEAttribute(getMapper_ServiceLayer(), ecorePackage.getEBoolean(), "serviceLayer", null, 0, 1, Mapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getMapper_UiLayer(), ecorePackage.getEBoolean(), "uiLayer", null, 0, 1, Mapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+    initEClass(typeMapperEClass, TypeMapper.class, "TypeMapper", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
     initEClass(javaMapperEClass, JavaMapper.class, "JavaMapper", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getJavaMapper_MappedToPackageName(), ecorePackage.getEString(), "mappedToPackageName", null, 0, 1, JavaMapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getJavaMapper_MappedToClassName(), ecorePackage.getEString(), "mappedToClassName", null, 0, 1, JavaMapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -7935,8 +8034,15 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     initEAttribute(getJavaMapper_Version(), ecorePackage.getEString(), "version", null, 0, 1, JavaMapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getJavaMapper_LibraryName(), ecorePackage.getEString(), "libraryName", null, 0, 1, JavaMapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(javaScriptEClass, JavaScript.class, "JavaScript", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getJavaScript_LibraryUrl(), ecorePackage.getEString(), "libraryUrl", null, 0, 1, JavaScript.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(javaScriptMapperEClass, JavaScriptMapper.class, "JavaScriptMapper", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getJavaScriptMapper_LibraryUrl(), ecorePackage.getEString(), "libraryUrl", null, 0, 1, JavaScriptMapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(cssMapperEClass, CSSMapper.class, "CSSMapper", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getCSSMapper_LibraryUrl(), ecorePackage.getEString(), "libraryUrl", null, 0, 1, CSSMapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getCSSMapper_StylePackage(), this.getStylesPackage(), null, "stylePackage", null, 0, 1, CSSMapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getCSSMapper_StyleLibrary(), this.getStyleLibrary(), null, "styleLibrary", null, 0, 1, CSSMapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getCSSMapper_FakePackageName(), ecorePackage.getEString(), "fakePackageName", null, 0, 1, CSSMapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getCSSMapper_FakeTypeName(), ecorePackage.getEString(), "fakeTypeName", null, 0, 1, CSSMapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(recipesEClass, Recipes.class, "Recipes", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getRecipes_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, Recipes.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -8498,7 +8604,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
-       });																																																																																																																																																																				
+       });																																																																																																																																																																					
   }
 
   /**
@@ -8515,7 +8621,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
-       });																																																																																																																																																																			
+       });																																																																																																																																																																				
   }
 
   /**
@@ -8782,7 +8888,16 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        "color", "255,237,85"
        });		
     addAnnotation
-      (javaScriptEClass, 
+      (javaScriptMapperEClass, 
+       source, 
+       new String[] 
+       {
+       "label", "fakePackageName,fakeTypeName",
+       "border.color", "0,0,0",
+       "color", "47,180,155"
+       });		
+    addAnnotation
+      (cssMapperEClass, 
        source, 
        new String[] 
        {
@@ -9457,7 +9572,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        new String[] 
        {
        "layout", "list"
-       });														
+       });															
     addAnnotation
       (getRecipe_Ingredients(), 
        source, 
@@ -9696,7 +9811,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
-       });																																																																																																																																																							
+       });																																																																																																																																																								
   }
 
   /**
@@ -9713,7 +9828,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
-       });																																																																																																																																														
+       });																																																																																																																																															
   }
 
   /**
@@ -9730,7 +9845,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
-       });																																																																																																																																
+       });																																																																																																																																	
   }
 
   /**
@@ -9757,7 +9872,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        {
        "target.decoration", "arrow",
        "style", "dash"
-       });													
+       });														
     addAnnotation
       (getDeploymentComponent_DeploymentComponentLink(), 
        source, 
@@ -9877,7 +9992,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
-       });																																																																																																																											
+       });																																																																																																																												
   }
 
   /**
@@ -9894,7 +10009,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
-       });																																																																																																																							
+       });																																																																																																																								
   }
 
   /**
@@ -9905,7 +10020,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    */
   protected void createGmf_10Annotations()
   {
-    String source = "gmf.diagram.recipe";																																																		
+    String source = "gmf.diagram.recipe";																																																			
     addAnnotation
       (recipesEClass, 
        source, 
@@ -9922,7 +10037,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    */
   protected void createGmf_11Annotations()
   {
-    String source = "gmf.diagram.deployment";																																																				
+    String source = "gmf.diagram.deployment";																																																					
     addAnnotation
       (deploymentComponentsEClass, 
        source, 
@@ -9939,7 +10054,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    */
   protected void createGmf_12Annotations()
   {
-    String source = "gmf.diagram.typedefinition";																																																																										
+    String source = "gmf.diagram.typedefinition";																																																																											
     addAnnotation
       (typeDefinitionEClass, 
        source, 
@@ -9956,7 +10071,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    */
   protected void createGmf_13Annotations()
   {
-    String source = "gmf.diagram.typesrepository";																																																																																						
+    String source = "gmf.diagram.typesrepository";																																																																																							
     addAnnotation
       (typesRepositoryEClass, 
        source, 
@@ -9973,7 +10088,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    */
   protected void createGmf_14Annotations()
   {
-    String source = "gmf.diagram.uipackage";																																																																																										
+    String source = "gmf.diagram.uipackage";																																																																																											
     addAnnotation
       (uiPackageEClass, 
        source, 
@@ -9990,7 +10105,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    */
   protected void createGmf_15Annotations()
   {
-    String source = "gmf.diagram.view";																																																																																															
+    String source = "gmf.diagram.view";																																																																																																
     addAnnotation
       (viewsEClass, 
        source, 
@@ -10007,7 +10122,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    */
   protected void createGmf_16Annotations()
   {
-    String source = "gmf.diagram.canvas";																																																																																																												
+    String source = "gmf.diagram.canvas";																																																																																																													
     addAnnotation
       (canvasViewEClass, 
        source, 
@@ -10024,7 +10139,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    */
   protected void createGmf_17Annotations()
   {
-    String source = "gmf.diagram.control";																																																																																																																										
+    String source = "gmf.diagram.control";																																																																																																																											
     addAnnotation
       (controlsEClass, 
        source, 
@@ -10041,7 +10156,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    */
   protected void createGmf_18Annotations()
   {
-    String source = "gmf.diagram.infarastructure";																																																																																																																																																									
+    String source = "gmf.diagram.infarastructure";																																																																																																																																																										
     addAnnotation
       (enterpriseInfrastructureEClass, 
        source, 

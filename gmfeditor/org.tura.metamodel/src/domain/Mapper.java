@@ -2,6 +2,7 @@
  */
 package domain;
 
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -22,7 +23,7 @@ package domain;
  * @model
  * @generated
  */
-public interface Mapper extends TypePointer
+public interface Mapper extends EObject
 {
   /**
    * Returns the value of the '<em><b>Uid</b></em>' attribute.

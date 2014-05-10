@@ -266,72 +266,82 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String EnumAttribute2CreationTool_title;
+	public static String CSSMapper2CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String EnumAttribute2CreationTool_desc;
+	public static String CSSMapper2CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String Enumarator3CreationTool_title;
+	public static String EnumAttribute3CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Enumarator3CreationTool_desc;
+	public static String EnumAttribute3CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String JavaScript4CreationTool_title;
+	public static String Enumarator4CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String JavaScript4CreationTool_desc;
+	public static String Enumarator4CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String Operation5CreationTool_title;
+	public static String JavaScriptMapper5CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Operation5CreationTool_desc;
+	public static String JavaScriptMapper5CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String Primitive6CreationTool_title;
+	public static String Operation6CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Primitive6CreationTool_desc;
+	public static String Operation6CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String Type7CreationTool_title;
+	public static String Primitive7CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Type7CreationTool_desc;
+	public static String Primitive7CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String TypeReference8CreationTool_title;
+	public static String Type8CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String TypeReference8CreationTool_desc;
+	public static String Type8CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String TypeReference9CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String TypeReference9CreationTool_desc;
 
 	/**
 	 * @generated

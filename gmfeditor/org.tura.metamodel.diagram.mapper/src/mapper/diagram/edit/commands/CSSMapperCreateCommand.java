@@ -15,19 +15,19 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.ConfigureRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 import org.eclipse.gmf.runtime.notation.View;
 
+import domain.CSSMapper;
 import domain.DomainFactory;
-import domain.JavaScript;
 import domain.Mappers;
 
 /**
  * @generated
  */
-public class JavaScriptCreateCommand extends EditElementCommand {
+public class CSSMapperCreateCommand extends EditElementCommand {
 
 	/**
 	 * @generated
 	 */
-	public JavaScriptCreateCommand(CreateElementRequest req) {
+	public CSSMapperCreateCommand(CreateElementRequest req) {
 		super(req.getLabel(), null, req);
 	}
 
@@ -57,7 +57,7 @@ public class JavaScriptCreateCommand extends EditElementCommand {
 	 */
 	protected CommandResult doExecuteWithResult(IProgressMonitor monitor,
 			IAdaptable info) throws ExecutionException {
-		JavaScript newElement = DomainFactory.eINSTANCE.createJavaScript();
+		CSSMapper newElement = DomainFactory.eINSTANCE.createCSSMapper();
 
 		Mappers owner = (Mappers) getElementToEdit();
 		owner.getMappers().add(newElement);
@@ -73,7 +73,7 @@ public class JavaScriptCreateCommand extends EditElementCommand {
 	/**
 	 * @generated
 	 */
-	protected void doConfigure(JavaScript newElement, IProgressMonitor monitor,
+	protected void doConfigure(CSSMapper newElement, IProgressMonitor monitor,
 			IAdaptable info) throws ExecutionException {
 		IElementType elementType = ((CreateElementRequest) getRequest())
 				.getElementType();

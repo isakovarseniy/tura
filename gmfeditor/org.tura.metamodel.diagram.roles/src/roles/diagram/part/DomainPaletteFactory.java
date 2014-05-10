@@ -38,9 +38,10 @@ public class DomainPaletteFactory {
 		PaletteDrawer paletteContainer = new PaletteDrawer(
 				Messages.Objects1Group_title);
 		paletteContainer.setId("createObjects1Group"); //$NON-NLS-1$
-		paletteContainer.add(createGroup1CreationTool());
-		paletteContainer.add(createJavaScript2CreationTool());
-		paletteContainer.add(createRole3CreationTool());
+		paletteContainer.add(createCSSMapper1CreationTool());
+		paletteContainer.add(createGroup2CreationTool());
+		paletteContainer.add(createJavaScriptMapper3CreationTool());
+		paletteContainer.add(createRole4CreationTool());
 		return paletteContainer;
 	}
 
@@ -60,12 +61,23 @@ public class DomainPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createGroup1CreationTool() {
+	private ToolEntry createCSSMapper1CreationTool() {
+		ToolEntry entry = new ToolEntry(Messages.CSSMapper1CreationTool_title,
+				Messages.CSSMapper1CreationTool_desc, null, null) {
+		};
+		entry.setId("createCSSMapper1CreationTool"); //$NON-NLS-1$
+		return entry;
+	}
+
+	/**
+	 * @generated
+	 */
+	private ToolEntry createGroup2CreationTool() {
 		NodeToolEntry entry = new NodeToolEntry(
-				Messages.Group1CreationTool_title,
-				Messages.Group1CreationTool_desc,
+				Messages.Group2CreationTool_title,
+				Messages.Group2CreationTool_desc,
 				Collections.singletonList(DomainElementTypes.Group_1402002));
-		entry.setId("createGroup1CreationTool"); //$NON-NLS-1$
+		entry.setId("createGroup2CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(DomainDiagramEditorPlugin
 				.findImageDescriptor("/org.tura.metamodel.commons/icons/group.png")); //$NON-NLS-1$
 		entry.setLargeIcon(entry.getSmallIcon());
@@ -75,23 +87,24 @@ public class DomainPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createJavaScript2CreationTool() {
-		ToolEntry entry = new ToolEntry(Messages.JavaScript2CreationTool_title,
-				Messages.JavaScript2CreationTool_desc, null, null) {
+	private ToolEntry createJavaScriptMapper3CreationTool() {
+		ToolEntry entry = new ToolEntry(
+				Messages.JavaScriptMapper3CreationTool_title,
+				Messages.JavaScriptMapper3CreationTool_desc, null, null) {
 		};
-		entry.setId("createJavaScript2CreationTool"); //$NON-NLS-1$
+		entry.setId("createJavaScriptMapper3CreationTool"); //$NON-NLS-1$
 		return entry;
 	}
 
 	/**
 	 * @generated
 	 */
-	private ToolEntry createRole3CreationTool() {
+	private ToolEntry createRole4CreationTool() {
 		NodeToolEntry entry = new NodeToolEntry(
-				Messages.Role3CreationTool_title,
-				Messages.Role3CreationTool_desc,
+				Messages.Role4CreationTool_title,
+				Messages.Role4CreationTool_desc,
 				Collections.singletonList(DomainElementTypes.Role_1402001));
-		entry.setId("createRole3CreationTool"); //$NON-NLS-1$
+		entry.setId("createRole4CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(DomainDiagramEditorPlugin
 				.findImageDescriptor("/org.tura.metamodel.commons/icons/role.png")); //$NON-NLS-1$
 		entry.setLargeIcon(entry.getSmallIcon());

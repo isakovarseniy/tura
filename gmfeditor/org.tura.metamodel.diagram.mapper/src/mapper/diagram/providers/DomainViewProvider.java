@@ -3,10 +3,12 @@
  */
 package mapper.diagram.providers;
 
+import mapper.diagram.edit.parts.CSSMapperEditPart;
+import mapper.diagram.edit.parts.CSSMapperFakePackageNameFakeTypeEditPart;
 import mapper.diagram.edit.parts.JavaMapperEditPart;
 import mapper.diagram.edit.parts.JavaMapperFakePackageNameFakeTypeEditPart;
-import mapper.diagram.edit.parts.JavaScriptEditPart;
-import mapper.diagram.edit.parts.JavaScriptFakePackageNameFakeTypeEditPart;
+import mapper.diagram.edit.parts.JavaScriptMapperEditPart;
+import mapper.diagram.edit.parts.JavaScriptMapperFakePackageNameFakeTypeEditPart;
 import mapper.diagram.edit.parts.MappersEditPart;
 import mapper.diagram.part.DomainVisualIDRegistry;
 
@@ -135,7 +137,8 @@ public class DomainViewProvider extends AbstractProvider implements
 				}
 				switch (visualID) {
 				case JavaMapperEditPart.VISUAL_ID:
-				case JavaScriptEditPart.VISUAL_ID:
+				case JavaScriptMapperEditPart.VISUAL_ID:
+				case CSSMapperEditPart.VISUAL_ID:
 					if (domainElement == null
 							|| visualID != DomainVisualIDRegistry
 									.getNodeVisualID(op.getContainerView(),
@@ -149,7 +152,8 @@ public class DomainViewProvider extends AbstractProvider implements
 			}
 		}
 		return JavaMapperEditPart.VISUAL_ID == visualID
-				|| JavaScriptEditPart.VISUAL_ID == visualID;
+				|| JavaScriptMapperEditPart.VISUAL_ID == visualID
+				|| CSSMapperEditPart.VISUAL_ID == visualID;
 	}
 
 	/**
@@ -209,8 +213,11 @@ public class DomainViewProvider extends AbstractProvider implements
 		case JavaMapperEditPart.VISUAL_ID:
 			return createJavaMapper_402001(domainElement, containerView, index,
 					persisted, preferencesHint);
-		case JavaScriptEditPart.VISUAL_ID:
-			return createJavaScript_402002(domainElement, containerView, index,
+		case JavaScriptMapperEditPart.VISUAL_ID:
+			return createJavaScriptMapper_402003(domainElement, containerView,
+					index, persisted, preferencesHint);
+		case CSSMapperEditPart.VISUAL_ID:
+			return createCSSMapper_402004(domainElement, containerView, index,
 					persisted, preferencesHint);
 		}
 		// can't happen, provided #provides(CreateNodeViewOperation) is correct
@@ -274,7 +281,7 @@ public class DomainViewProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	public Node createJavaScript_402002(EObject domainElement,
+	public Node createJavaScriptMapper_402003(EObject domainElement,
 			View containerView, int index, boolean persisted,
 			PreferencesHint preferencesHint) {
 		Node node = NotationFactory.eINSTANCE.createNode();
@@ -283,7 +290,7 @@ public class DomainViewProvider extends AbstractProvider implements
 		node.getStyles().add(NotationFactory.eINSTANCE.createFontStyle());
 		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
 		node.setType(DomainVisualIDRegistry
-				.getType(JavaScriptEditPart.VISUAL_ID));
+				.getType(JavaScriptMapperEditPart.VISUAL_ID));
 		ViewUtil.insertChildView(containerView, node, index, persisted);
 		node.setElement(domainElement);
 		stampShortcut(containerView, node);
@@ -304,10 +311,50 @@ public class DomainViewProvider extends AbstractProvider implements
 			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB)
 					.intValue());
 		}
-		Node label405002 = createLabel(
+		Node label405003 = createLabel(
 				node,
 				DomainVisualIDRegistry
-						.getType(JavaScriptFakePackageNameFakeTypeEditPart.VISUAL_ID));
+						.getType(JavaScriptMapperFakePackageNameFakeTypeEditPart.VISUAL_ID));
+		return node;
+	}
+
+	/**
+	 * @generated
+	 */
+	public Node createCSSMapper_402004(EObject domainElement,
+			View containerView, int index, boolean persisted,
+			PreferencesHint preferencesHint) {
+		Node node = NotationFactory.eINSTANCE.createNode();
+		node.getStyles()
+				.add(NotationFactory.eINSTANCE.createDescriptionStyle());
+		node.getStyles().add(NotationFactory.eINSTANCE.createFontStyle());
+		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
+		node.setType(DomainVisualIDRegistry
+				.getType(CSSMapperEditPart.VISUAL_ID));
+		ViewUtil.insertChildView(containerView, node, index, persisted);
+		node.setElement(domainElement);
+		stampShortcut(containerView, node);
+		// initializeFromPreferences 
+		final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint
+				.getPreferenceStore();
+		FontStyle nodeFontStyle = (FontStyle) node
+				.getStyle(NotationPackage.Literals.FONT_STYLE);
+		if (nodeFontStyle != null) {
+			FontData fontData = PreferenceConverter.getFontData(prefStore,
+					IPreferenceConstants.PREF_DEFAULT_FONT);
+			nodeFontStyle.setFontName(fontData.getName());
+			nodeFontStyle.setFontHeight(fontData.getHeight());
+			nodeFontStyle.setBold((fontData.getStyle() & SWT.BOLD) != 0);
+			nodeFontStyle.setItalic((fontData.getStyle() & SWT.ITALIC) != 0);
+			org.eclipse.swt.graphics.RGB fontRGB = PreferenceConverter
+					.getColor(prefStore, IPreferenceConstants.PREF_FONT_COLOR);
+			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB)
+					.intValue());
+		}
+		Node label405004 = createLabel(
+				node,
+				DomainVisualIDRegistry
+						.getType(CSSMapperFakePackageNameFakeTypeEditPart.VISUAL_ID));
 		return node;
 	}
 

@@ -1135,6 +1135,10 @@
             genNodes="//@diagram/@childNodes.12"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
+            title="CSSMapper"
+            description="Create new CSSMapper"/>
+        <entries
+            xsi:type="gmfgen:ToolEntry"
             title="CreateTrigger"
             description="Create new CreateTrigger"
             genNodes="//@diagram/@childNodes.7"/>
@@ -1155,8 +1159,8 @@
             genNodes="//@diagram/@childNodes.8"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
-            title="JavaScript"
-            description="Create new JavaScript"/>
+            title="JavaScriptMapper"
+            description="Create new JavaScriptMapper"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
             title="POSTCreateTrigger"

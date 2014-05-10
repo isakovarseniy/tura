@@ -46,12 +46,12 @@ public class Util {
 		return false;
 	}
 
-	public static domain.Mapper mapType(Set<domain.Mapper> mappers,
+	public static domain.TypeMapper mapType(Set<domain.TypeMapper> mappers,
 			domain.Ingredient ingredient, domain.TypeElement typeElement)
 			throws Exception {
 
-		for (Iterator<domain.Mapper> itr = mappers.iterator(); itr.hasNext();) {
-			domain.Mapper mapper = itr.next();
+		for (Iterator<domain.TypeMapper> itr = mappers.iterator(); itr.hasNext();) {
+			domain.TypeMapper mapper = itr.next();
 
 			int ui = mapper.isUiLayer() ? 1 : 0;
 			int s = mapper.isServiceLayer() ? 1 : 0;

@@ -46,8 +46,9 @@ public class DomainPaletteFactory {
 		paletteContainer.add(createApplicationStyle7CreationTool());
 		paletteContainer.add(createApplicationUILayer8CreationTool());
 		paletteContainer.add(createApplicationUIPackage9CreationTool());
-		paletteContainer.add(createJavaScript10CreationTool());
-		paletteContainer.add(createStylesPackage11CreationTool());
+		paletteContainer.add(createCSSMapper10CreationTool());
+		paletteContainer.add(createJavaScriptMapper11CreationTool());
+		paletteContainer.add(createStylesPackage12CreationTool());
 		return paletteContainer;
 	}
 
@@ -198,25 +199,36 @@ public class DomainPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createJavaScript10CreationTool() {
-		ToolEntry entry = new ToolEntry(
-				Messages.JavaScript10CreationTool_title,
-				Messages.JavaScript10CreationTool_desc, null, null) {
+	private ToolEntry createCSSMapper10CreationTool() {
+		ToolEntry entry = new ToolEntry(Messages.CSSMapper10CreationTool_title,
+				Messages.CSSMapper10CreationTool_desc, null, null) {
 		};
-		entry.setId("createJavaScript10CreationTool"); //$NON-NLS-1$
+		entry.setId("createCSSMapper10CreationTool"); //$NON-NLS-1$
 		return entry;
 	}
 
 	/**
 	 * @generated
 	 */
-	private ToolEntry createStylesPackage11CreationTool() {
+	private ToolEntry createJavaScriptMapper11CreationTool() {
+		ToolEntry entry = new ToolEntry(
+				Messages.JavaScriptMapper11CreationTool_title,
+				Messages.JavaScriptMapper11CreationTool_desc, null, null) {
+		};
+		entry.setId("createJavaScriptMapper11CreationTool"); //$NON-NLS-1$
+		return entry;
+	}
+
+	/**
+	 * @generated
+	 */
+	private ToolEntry createStylesPackage12CreationTool() {
 		NodeToolEntry entry = new NodeToolEntry(
-				Messages.StylesPackage11CreationTool_title,
-				Messages.StylesPackage11CreationTool_desc,
+				Messages.StylesPackage12CreationTool_title,
+				Messages.StylesPackage12CreationTool_desc,
 				Collections
 						.singletonList(DomainElementTypes.StylesPackage_803004));
-		entry.setId("createStylesPackage11CreationTool"); //$NON-NLS-1$
+		entry.setId("createStylesPackage12CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(DomainElementTypes
 				.getImageDescriptor(DomainElementTypes.StylesPackage_803004));
 		entry.setLargeIcon(entry.getSmallIcon());

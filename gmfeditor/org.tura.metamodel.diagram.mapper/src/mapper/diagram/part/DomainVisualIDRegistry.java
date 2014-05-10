@@ -3,10 +3,12 @@
  */
 package mapper.diagram.part;
 
+import mapper.diagram.edit.parts.CSSMapperEditPart;
+import mapper.diagram.edit.parts.CSSMapperFakePackageNameFakeTypeEditPart;
 import mapper.diagram.edit.parts.JavaMapperEditPart;
 import mapper.diagram.edit.parts.JavaMapperFakePackageNameFakeTypeEditPart;
-import mapper.diagram.edit.parts.JavaScriptEditPart;
-import mapper.diagram.edit.parts.JavaScriptFakePackageNameFakeTypeEditPart;
+import mapper.diagram.edit.parts.JavaScriptMapperEditPart;
+import mapper.diagram.edit.parts.JavaScriptMapperFakePackageNameFakeTypeEditPart;
 import mapper.diagram.edit.parts.MappersEditPart;
 
 import org.eclipse.core.runtime.Platform;
@@ -132,9 +134,13 @@ public class DomainVisualIDRegistry {
 					domainElement.eClass())) {
 				return JavaMapperEditPart.VISUAL_ID;
 			}
-			if (DomainPackage.eINSTANCE.getJavaScript().isSuperTypeOf(
+			if (DomainPackage.eINSTANCE.getJavaScriptMapper().isSuperTypeOf(
 					domainElement.eClass())) {
-				return JavaScriptEditPart.VISUAL_ID;
+				return JavaScriptMapperEditPart.VISUAL_ID;
+			}
+			if (DomainPackage.eINSTANCE.getCSSMapper().isSuperTypeOf(
+					domainElement.eClass())) {
+				return CSSMapperEditPart.VISUAL_ID;
 			}
 			break;
 		}
@@ -167,7 +173,10 @@ public class DomainVisualIDRegistry {
 			if (JavaMapperEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
-			if (JavaScriptEditPart.VISUAL_ID == nodeVisualID) {
+			if (JavaScriptMapperEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (CSSMapperEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -176,8 +185,13 @@ public class DomainVisualIDRegistry {
 				return true;
 			}
 			break;
-		case JavaScriptEditPart.VISUAL_ID:
-			if (JavaScriptFakePackageNameFakeTypeEditPart.VISUAL_ID == nodeVisualID) {
+		case JavaScriptMapperEditPart.VISUAL_ID:
+			if (JavaScriptMapperFakePackageNameFakeTypeEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case CSSMapperEditPart.VISUAL_ID:
+			if (CSSMapperFakePackageNameFakeTypeEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -233,7 +247,8 @@ public class DomainVisualIDRegistry {
 		case MappersEditPart.VISUAL_ID:
 			return false;
 		case JavaMapperEditPart.VISUAL_ID:
-		case JavaScriptEditPart.VISUAL_ID:
+		case JavaScriptMapperEditPart.VISUAL_ID:
+		case CSSMapperEditPart.VISUAL_ID:
 			return true;
 		default:
 			break;

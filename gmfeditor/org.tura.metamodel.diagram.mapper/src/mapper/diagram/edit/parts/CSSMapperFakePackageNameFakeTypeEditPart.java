@@ -55,13 +55,13 @@ import org.eclipse.swt.graphics.Image;
 /**
  * @generated
  */
-public class JavaScriptFakePackageNameFakeTypeEditPart extends
+public class CSSMapperFakePackageNameFakeTypeEditPart extends
 		CompartmentEditPart implements ITextAwareEditPart {
 
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 405002;
+	public static final int VISUAL_ID = 405004;
 
 	/**
 	 * @generated
@@ -91,7 +91,7 @@ public class JavaScriptFakePackageNameFakeTypeEditPart extends
 	/**
 	 * @generated
 	 */
-	public JavaScriptFakePackageNameFakeTypeEditPart(View view) {
+	public CSSMapperFakePackageNameFakeTypeEditPart(View view) {
 		super(view);
 	}
 
@@ -313,10 +313,10 @@ public class JavaScriptFakePackageNameFakeTypeEditPart extends
 		if (parser == null) {
 			parser = DomainParserProvider
 					.getParser(
-							DomainElementTypes.JavaScript_402002,
+							DomainElementTypes.CSSMapper_402004,
 							getParserElement(),
 							DomainVisualIDRegistry
-									.getType(mapper.diagram.edit.parts.JavaScriptFakePackageNameFakeTypeEditPart.VISUAL_ID));
+									.getType(mapper.diagram.edit.parts.CSSMapperFakePackageNameFakeTypeEditPart.VISUAL_ID));
 		}
 		return parser;
 	}

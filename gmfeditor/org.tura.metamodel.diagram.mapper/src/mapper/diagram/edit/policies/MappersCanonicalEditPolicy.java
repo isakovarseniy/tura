@@ -10,8 +10,9 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
+import mapper.diagram.edit.parts.CSSMapperEditPart;
 import mapper.diagram.edit.parts.JavaMapperEditPart;
-import mapper.diagram.edit.parts.JavaScriptEditPart;
+import mapper.diagram.edit.parts.JavaScriptMapperEditPart;
 import mapper.diagram.part.DomainDiagramUpdater;
 import mapper.diagram.part.DomainNodeDescriptor;
 import mapper.diagram.part.DomainVisualIDRegistry;
@@ -90,7 +91,8 @@ public class MappersCanonicalEditPolicy extends CanonicalEditPolicy {
 	private boolean isMyDiagramElement(View view) {
 		int visualID = DomainVisualIDRegistry.getVisualID(view);
 		return visualID == JavaMapperEditPart.VISUAL_ID
-				|| visualID == JavaScriptEditPart.VISUAL_ID;
+				|| visualID == JavaScriptMapperEditPart.VISUAL_ID
+				|| visualID == CSSMapperEditPart.VISUAL_ID;
 	}
 
 	/**

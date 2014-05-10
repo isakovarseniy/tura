@@ -14,7 +14,7 @@
           href="domain.ecore#//LayerHolder"/>
       <tool
           xsi:type="gmftool:CreationTool"
-          href="domain.gmftool#//@palette/@tools.0/@tools.7"/>
+          href="domain.gmftool#//@palette/@tools.0/@tools.8"/>
       <diagramNode
           href="domain.gmfgraph#LayerHolder"/>
       <children
@@ -47,7 +47,7 @@
               href="domain.ecore#//DropDownSelection"/>
           <tool
               xsi:type="gmftool:CreationTool"
-              href="domain.gmftool#//@palette/@tools.0/@tools.3"/>
+              href="domain.gmftool#//@palette/@tools.0/@tools.4"/>
           <diagramNode
               href="domain.gmfgraph#DropDownSelection"/>
         </ownedChild>
@@ -67,7 +67,7 @@
               href="domain.ecore#//InputText"/>
           <tool
               xsi:type="gmftool:CreationTool"
-              href="domain.gmftool#//@palette/@tools.0/@tools.4"/>
+              href="domain.gmftool#//@palette/@tools.0/@tools.5"/>
           <diagramNode
               href="domain.gmfgraph#InputText"/>
         </ownedChild>
@@ -88,7 +88,7 @@
           </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
-              href="domain.gmftool#//@palette/@tools.0/@tools.6"/>
+              href="domain.gmftool#//@palette/@tools.0/@tools.7"/>
           <diagramNode
               href="domain.gmfgraph#Label"/>
         </ownedChild>
@@ -102,7 +102,7 @@
               href="domain.ecore#//OutputText"/>
           <tool
               xsi:type="gmftool:CreationTool"
-              href="domain.gmftool#//@palette/@tools.0/@tools.8"/>
+              href="domain.gmftool#//@palette/@tools.0/@tools.9"/>
           <diagramNode
               href="domain.gmfgraph#OutputText"/>
         </ownedChild>
@@ -116,7 +116,7 @@
               href="domain.ecore#//CheckBox"/>
           <tool
               xsi:type="gmftool:CreationTool"
-              href="domain.gmftool#//@palette/@tools.0/@tools.1"/>
+              href="domain.gmftool#//@palette/@tools.0/@tools.2"/>
           <diagramNode
               href="domain.gmfgraph#CheckBox"/>
         </ownedChild>
@@ -138,7 +138,7 @@
           </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
-              href="domain.gmftool#//@palette/@tools.0/@tools.9"/>
+              href="domain.gmftool#//@palette/@tools.0/@tools.10"/>
           <diagramNode
               href="domain.gmfgraph#Table"/>
           <children
@@ -158,7 +158,7 @@
               </labelMappings>
               <tool
                   xsi:type="gmftool:CreationTool"
-                  href="domain.gmftool#//@palette/@tools.0/@tools.2"/>
+                  href="domain.gmftool#//@palette/@tools.0/@tools.3"/>
               <diagramNode
                   href="domain.gmfgraph#Column"/>
               <children
@@ -245,7 +245,7 @@
           </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
-              href="domain.gmftool#//@palette/@tools.0/@tools.10"/>
+              href="domain.gmftool#//@palette/@tools.0/@tools.11"/>
           <diagramNode
               href="domain.gmfgraph#Tree"/>
         </ownedChild>

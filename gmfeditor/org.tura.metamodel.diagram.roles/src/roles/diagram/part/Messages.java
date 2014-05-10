@@ -256,32 +256,42 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String Group1CreationTool_title;
+	public static String CSSMapper1CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Group1CreationTool_desc;
+	public static String CSSMapper1CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String JavaScript2CreationTool_title;
+	public static String Group2CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String JavaScript2CreationTool_desc;
+	public static String Group2CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String Role3CreationTool_title;
+	public static String JavaScriptMapper3CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Role3CreationTool_desc;
+	public static String JavaScriptMapper3CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String Role4CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String Role4CreationTool_desc;
 
 	/**
 	 * @generated

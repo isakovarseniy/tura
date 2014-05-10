@@ -34,11 +34,17 @@ public class DomainEditPartFactory implements EditPartFactory {
 			case JavaMapperFakePackageNameFakeTypeEditPart.VISUAL_ID:
 				return new JavaMapperFakePackageNameFakeTypeEditPart(view);
 
-			case JavaScriptEditPart.VISUAL_ID:
-				return new JavaScriptEditPart(view);
+			case JavaScriptMapperEditPart.VISUAL_ID:
+				return new JavaScriptMapperEditPart(view);
 
-			case JavaScriptFakePackageNameFakeTypeEditPart.VISUAL_ID:
-				return new JavaScriptFakePackageNameFakeTypeEditPart(view);
+			case JavaScriptMapperFakePackageNameFakeTypeEditPart.VISUAL_ID:
+				return new JavaScriptMapperFakePackageNameFakeTypeEditPart(view);
+
+			case CSSMapperEditPart.VISUAL_ID:
+				return new CSSMapperEditPart(view);
+
+			case CSSMapperFakePackageNameFakeTypeEditPart.VISUAL_ID:
+				return new CSSMapperFakePackageNameFakeTypeEditPart(view);
 			}
 		}
 		return createUnrecognizedEditPart(context, model);

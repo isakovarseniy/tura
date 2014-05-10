@@ -209,6 +209,20 @@
       
           <propertySection
                tab="property.tab.domain.typeReference"
+               class="org.metamodel.tura.ui.properties.sections.dropdown.StylesPackagePropertySelection"
+               id="org.tura.metamodel.mapper.stylepackage">
+              <input type="mapper.diagram.edit.parts.CSSMapperEditPart"/>
+         </propertySection>        
+      
+          <propertySection
+               tab="property.tab.domain.typeReference"
+               class="org.metamodel.tura.ui.properties.sections.dropdown.StyleLibraryPropertySelection"
+               id="org.tura.metamodel.mapper.stylelib">
+              <input type="mapper.diagram.edit.parts.CSSMapperEditPart"/>
+         </propertySection>        
+
+          <propertySection
+               tab="property.tab.domain.typeReference"
                class="org.metamodel.tura.ui.properties.sections.dropdown.TypeNamePropertySection"
                id="org.tura.metamodel.mapper.typeName">
               <input type="mapper.diagram.edit.parts.JavaMapperEditPart"/>
@@ -452,6 +466,21 @@
  
       <propertySections contributorId="org.tura.metamodel.diagram.canvas">
 
+
+             <propertySection
+               tab="property.tab.domain.canvas.uielement.styleset"
+               class="org.metamodel.tura.ui.properties.sections.input.StylePropertySelection"
+               id="org.tura.metamodel.diagram.canvas.sourcepointer.style">
+              <input type="canvas.diagram.edit.parts.CheckBoxEditPart"/>
+              <input type="canvas.diagram.edit.parts.InputTextEditPart"/>
+              <input type="canvas.diagram.edit.parts.OutputTextEditPart"/>
+              <input type="canvas.diagram.edit.parts.TableEditPart"/>
+              <input type="canvas.diagram.edit.parts.TreeEditPart"/>
+              <input type="canvas.diagram.edit.parts.DropDownSelectionEditPart"/>
+              <input type="canvas.diagram.edit.parts.ButtonEditPart"/>
+           </propertySection>        
+
+
              <propertySection
                tab="property.tab.domain.canvas.uielement.styleset"
                class="org.metamodel.tura.ui.properties.sections.grid.impl.StyleClassPropertySelection"
@@ -462,6 +491,7 @@
               <input type="canvas.diagram.edit.parts.TableEditPart"/>
               <input type="canvas.diagram.edit.parts.TreeEditPart"/>
               <input type="canvas.diagram.edit.parts.DropDownSelectionEditPart"/>
+              <input type="canvas.diagram.edit.parts.ButtonEditPart"/>
            </propertySection>        
 
 

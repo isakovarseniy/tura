@@ -10,8 +10,9 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedList;
 
+import mapper.diagram.edit.parts.CSSMapperEditPart;
 import mapper.diagram.edit.parts.JavaMapperEditPart;
-import mapper.diagram.edit.parts.JavaScriptEditPart;
+import mapper.diagram.edit.parts.JavaScriptMapperEditPart;
 import mapper.diagram.edit.parts.MappersEditPart;
 import mapper.diagram.part.DomainVisualIDRegistry;
 
@@ -246,7 +247,11 @@ public class DomainNavigatorContentProvider implements ICommonContentProvider {
 					false));
 			connectedViews = getChildrenByType(Collections.singleton(sv),
 					DomainVisualIDRegistry
-							.getType(JavaScriptEditPart.VISUAL_ID));
+							.getType(JavaScriptMapperEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(Collections.singleton(sv),
+					DomainVisualIDRegistry.getType(CSSMapperEditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
 			return result.toArray();

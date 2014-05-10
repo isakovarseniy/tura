@@ -41,21 +41,22 @@ public class DomainPaletteFactory {
 		paletteContainer.add(createApplicationRole1CreationTool());
 		paletteContainer.add(createApplicationStyle2CreationTool());
 		paletteContainer.add(createArtificialField3CreationTool());
-		paletteContainer.add(createCreateTrigger4CreationTool());
-		paletteContainer.add(createDataControl5CreationTool());
-		paletteContainer.add(createDeleteTrigger6CreationTool());
-		paletteContainer.add(createInsertTrigger7CreationTool());
-		paletteContainer.add(createJavaScript8CreationTool());
-		paletteContainer.add(createPOSTCreateTrigger9CreationTool());
-		paletteContainer.add(createPOSTQueryTrigger10CreationTool());
-		paletteContainer.add(createPREDeleteTrigger11CreationTool());
-		paletteContainer.add(createPREFormTrigger12CreationTool());
-		paletteContainer.add(createPREInsertTrigger13CreationTool());
-		paletteContainer.add(createPREQueryTrigger14CreationTool());
-		paletteContainer.add(createPREUpdateTrigger15CreationTool());
-		paletteContainer.add(createRoot16CreationTool());
-		paletteContainer.add(createSearchTrigger17CreationTool());
-		paletteContainer.add(createUpdateTrigger18CreationTool());
+		paletteContainer.add(createCSSMapper4CreationTool());
+		paletteContainer.add(createCreateTrigger5CreationTool());
+		paletteContainer.add(createDataControl6CreationTool());
+		paletteContainer.add(createDeleteTrigger7CreationTool());
+		paletteContainer.add(createInsertTrigger8CreationTool());
+		paletteContainer.add(createJavaScriptMapper9CreationTool());
+		paletteContainer.add(createPOSTCreateTrigger10CreationTool());
+		paletteContainer.add(createPOSTQueryTrigger11CreationTool());
+		paletteContainer.add(createPREDeleteTrigger12CreationTool());
+		paletteContainer.add(createPREFormTrigger13CreationTool());
+		paletteContainer.add(createPREInsertTrigger14CreationTool());
+		paletteContainer.add(createPREQueryTrigger15CreationTool());
+		paletteContainer.add(createPREUpdateTrigger16CreationTool());
+		paletteContainer.add(createRoot17CreationTool());
+		paletteContainer.add(createSearchTrigger18CreationTool());
+		paletteContainer.add(createUpdateTrigger19CreationTool());
 		return paletteContainer;
 	}
 
@@ -114,13 +115,24 @@ public class DomainPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createCreateTrigger4CreationTool() {
+	private ToolEntry createCSSMapper4CreationTool() {
+		ToolEntry entry = new ToolEntry(Messages.CSSMapper4CreationTool_title,
+				Messages.CSSMapper4CreationTool_desc, null, null) {
+		};
+		entry.setId("createCSSMapper4CreationTool"); //$NON-NLS-1$
+		return entry;
+	}
+
+	/**
+	 * @generated
+	 */
+	private ToolEntry createCreateTrigger5CreationTool() {
 		NodeToolEntry entry = new NodeToolEntry(
-				Messages.CreateTrigger4CreationTool_title,
-				Messages.CreateTrigger4CreationTool_desc,
+				Messages.CreateTrigger5CreationTool_title,
+				Messages.CreateTrigger5CreationTool_desc,
 				Collections
 						.singletonList(DomainElementTypes.CreateTrigger_1103012));
-		entry.setId("createCreateTrigger4CreationTool"); //$NON-NLS-1$
+		entry.setId("createCreateTrigger5CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(DomainElementTypes
 				.getImageDescriptor(DomainElementTypes.CreateTrigger_1103012));
 		entry.setLargeIcon(entry.getSmallIcon());
@@ -130,13 +142,13 @@ public class DomainPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createDataControl5CreationTool() {
+	private ToolEntry createDataControl6CreationTool() {
 		NodeToolEntry entry = new NodeToolEntry(
-				Messages.DataControl5CreationTool_title,
-				Messages.DataControl5CreationTool_desc,
+				Messages.DataControl6CreationTool_title,
+				Messages.DataControl6CreationTool_desc,
 				Collections
 						.singletonList(DomainElementTypes.DataControl_1102002));
-		entry.setId("createDataControl5CreationTool"); //$NON-NLS-1$
+		entry.setId("createDataControl6CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(DomainElementTypes
 				.getImageDescriptor(DomainElementTypes.DataControl_1102002));
 		entry.setLargeIcon(entry.getSmallIcon());
@@ -146,13 +158,13 @@ public class DomainPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createDeleteTrigger6CreationTool() {
+	private ToolEntry createDeleteTrigger7CreationTool() {
 		NodeToolEntry entry = new NodeToolEntry(
-				Messages.DeleteTrigger6CreationTool_title,
-				Messages.DeleteTrigger6CreationTool_desc,
+				Messages.DeleteTrigger7CreationTool_title,
+				Messages.DeleteTrigger7CreationTool_desc,
 				Collections
 						.singletonList(DomainElementTypes.DeleteTrigger_1103015));
-		entry.setId("createDeleteTrigger6CreationTool"); //$NON-NLS-1$
+		entry.setId("createDeleteTrigger7CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(DomainElementTypes
 				.getImageDescriptor(DomainElementTypes.DeleteTrigger_1103015));
 		entry.setLargeIcon(entry.getSmallIcon());
@@ -162,13 +174,13 @@ public class DomainPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createInsertTrigger7CreationTool() {
+	private ToolEntry createInsertTrigger8CreationTool() {
 		NodeToolEntry entry = new NodeToolEntry(
-				Messages.InsertTrigger7CreationTool_title,
-				Messages.InsertTrigger7CreationTool_desc,
+				Messages.InsertTrigger8CreationTool_title,
+				Messages.InsertTrigger8CreationTool_desc,
 				Collections
 						.singletonList(DomainElementTypes.InsertTrigger_1103013));
-		entry.setId("createInsertTrigger7CreationTool"); //$NON-NLS-1$
+		entry.setId("createInsertTrigger8CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(DomainElementTypes
 				.getImageDescriptor(DomainElementTypes.InsertTrigger_1103013));
 		entry.setLargeIcon(entry.getSmallIcon());
@@ -178,24 +190,25 @@ public class DomainPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createJavaScript8CreationTool() {
-		ToolEntry entry = new ToolEntry(Messages.JavaScript8CreationTool_title,
-				Messages.JavaScript8CreationTool_desc, null, null) {
+	private ToolEntry createJavaScriptMapper9CreationTool() {
+		ToolEntry entry = new ToolEntry(
+				Messages.JavaScriptMapper9CreationTool_title,
+				Messages.JavaScriptMapper9CreationTool_desc, null, null) {
 		};
-		entry.setId("createJavaScript8CreationTool"); //$NON-NLS-1$
+		entry.setId("createJavaScriptMapper9CreationTool"); //$NON-NLS-1$
 		return entry;
 	}
 
 	/**
 	 * @generated
 	 */
-	private ToolEntry createPOSTCreateTrigger9CreationTool() {
+	private ToolEntry createPOSTCreateTrigger10CreationTool() {
 		NodeToolEntry entry = new NodeToolEntry(
-				Messages.POSTCreateTrigger9CreationTool_title,
-				Messages.POSTCreateTrigger9CreationTool_desc,
+				Messages.POSTCreateTrigger10CreationTool_title,
+				Messages.POSTCreateTrigger10CreationTool_desc,
 				Collections
 						.singletonList(DomainElementTypes.POSTCreateTrigger_1103011));
-		entry.setId("createPOSTCreateTrigger9CreationTool"); //$NON-NLS-1$
+		entry.setId("createPOSTCreateTrigger10CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(DomainElementTypes
 				.getImageDescriptor(DomainElementTypes.POSTCreateTrigger_1103011));
 		entry.setLargeIcon(entry.getSmallIcon());
@@ -205,13 +218,13 @@ public class DomainPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createPOSTQueryTrigger10CreationTool() {
+	private ToolEntry createPOSTQueryTrigger11CreationTool() {
 		NodeToolEntry entry = new NodeToolEntry(
-				Messages.POSTQueryTrigger10CreationTool_title,
-				Messages.POSTQueryTrigger10CreationTool_desc,
+				Messages.POSTQueryTrigger11CreationTool_title,
+				Messages.POSTQueryTrigger11CreationTool_desc,
 				Collections
 						.singletonList(DomainElementTypes.POSTQueryTrigger_1103003));
-		entry.setId("createPOSTQueryTrigger10CreationTool"); //$NON-NLS-1$
+		entry.setId("createPOSTQueryTrigger11CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(DomainElementTypes
 				.getImageDescriptor(DomainElementTypes.POSTQueryTrigger_1103003));
 		entry.setLargeIcon(entry.getSmallIcon());
@@ -221,13 +234,13 @@ public class DomainPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createPREDeleteTrigger11CreationTool() {
+	private ToolEntry createPREDeleteTrigger12CreationTool() {
 		NodeToolEntry entry = new NodeToolEntry(
-				Messages.PREDeleteTrigger11CreationTool_title,
-				Messages.PREDeleteTrigger11CreationTool_desc,
+				Messages.PREDeleteTrigger12CreationTool_title,
+				Messages.PREDeleteTrigger12CreationTool_desc,
 				Collections
 						.singletonList(DomainElementTypes.PREDeleteTrigger_1103005));
-		entry.setId("createPREDeleteTrigger11CreationTool"); //$NON-NLS-1$
+		entry.setId("createPREDeleteTrigger12CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(DomainElementTypes
 				.getImageDescriptor(DomainElementTypes.PREDeleteTrigger_1103005));
 		entry.setLargeIcon(entry.getSmallIcon());
@@ -237,13 +250,13 @@ public class DomainPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createPREFormTrigger12CreationTool() {
+	private ToolEntry createPREFormTrigger13CreationTool() {
 		NodeToolEntry entry = new NodeToolEntry(
-				Messages.PREFormTrigger12CreationTool_title,
-				Messages.PREFormTrigger12CreationTool_desc,
+				Messages.PREFormTrigger13CreationTool_title,
+				Messages.PREFormTrigger13CreationTool_desc,
 				Collections
 						.singletonList(DomainElementTypes.PREFormTrigger_1103001));
-		entry.setId("createPREFormTrigger12CreationTool"); //$NON-NLS-1$
+		entry.setId("createPREFormTrigger13CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(DomainElementTypes
 				.getImageDescriptor(DomainElementTypes.PREFormTrigger_1103001));
 		entry.setLargeIcon(entry.getSmallIcon());
@@ -253,13 +266,13 @@ public class DomainPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createPREInsertTrigger13CreationTool() {
+	private ToolEntry createPREInsertTrigger14CreationTool() {
 		NodeToolEntry entry = new NodeToolEntry(
-				Messages.PREInsertTrigger13CreationTool_title,
-				Messages.PREInsertTrigger13CreationTool_desc,
+				Messages.PREInsertTrigger14CreationTool_title,
+				Messages.PREInsertTrigger14CreationTool_desc,
 				Collections
 						.singletonList(DomainElementTypes.PREInsertTrigger_1103004));
-		entry.setId("createPREInsertTrigger13CreationTool"); //$NON-NLS-1$
+		entry.setId("createPREInsertTrigger14CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(DomainElementTypes
 				.getImageDescriptor(DomainElementTypes.PREInsertTrigger_1103004));
 		entry.setLargeIcon(entry.getSmallIcon());
@@ -269,13 +282,13 @@ public class DomainPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createPREQueryTrigger14CreationTool() {
+	private ToolEntry createPREQueryTrigger15CreationTool() {
 		NodeToolEntry entry = new NodeToolEntry(
-				Messages.PREQueryTrigger14CreationTool_title,
-				Messages.PREQueryTrigger14CreationTool_desc,
+				Messages.PREQueryTrigger15CreationTool_title,
+				Messages.PREQueryTrigger15CreationTool_desc,
 				Collections
 						.singletonList(DomainElementTypes.PREQueryTrigger_1103002));
-		entry.setId("createPREQueryTrigger14CreationTool"); //$NON-NLS-1$
+		entry.setId("createPREQueryTrigger15CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(DomainElementTypes
 				.getImageDescriptor(DomainElementTypes.PREQueryTrigger_1103002));
 		entry.setLargeIcon(entry.getSmallIcon());
@@ -285,13 +298,13 @@ public class DomainPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createPREUpdateTrigger15CreationTool() {
+	private ToolEntry createPREUpdateTrigger16CreationTool() {
 		NodeToolEntry entry = new NodeToolEntry(
-				Messages.PREUpdateTrigger15CreationTool_title,
-				Messages.PREUpdateTrigger15CreationTool_desc,
+				Messages.PREUpdateTrigger16CreationTool_title,
+				Messages.PREUpdateTrigger16CreationTool_desc,
 				Collections
 						.singletonList(DomainElementTypes.PREUpdateTrigger_1103010));
-		entry.setId("createPREUpdateTrigger15CreationTool"); //$NON-NLS-1$
+		entry.setId("createPREUpdateTrigger16CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(DomainElementTypes
 				.getImageDescriptor(DomainElementTypes.PREUpdateTrigger_1103010));
 		entry.setLargeIcon(entry.getSmallIcon());
@@ -301,12 +314,12 @@ public class DomainPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createRoot16CreationTool() {
+	private ToolEntry createRoot17CreationTool() {
 		NodeToolEntry entry = new NodeToolEntry(
-				Messages.Root16CreationTool_title,
-				Messages.Root16CreationTool_desc,
+				Messages.Root17CreationTool_title,
+				Messages.Root17CreationTool_desc,
 				Collections.singletonList(DomainElementTypes.Root_1102001));
-		entry.setId("createRoot16CreationTool"); //$NON-NLS-1$
+		entry.setId("createRoot17CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(DomainElementTypes
 				.getImageDescriptor(DomainElementTypes.Root_1102001));
 		entry.setLargeIcon(entry.getSmallIcon());
@@ -316,13 +329,13 @@ public class DomainPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createSearchTrigger17CreationTool() {
+	private ToolEntry createSearchTrigger18CreationTool() {
 		NodeToolEntry entry = new NodeToolEntry(
-				Messages.SearchTrigger17CreationTool_title,
-				Messages.SearchTrigger17CreationTool_desc,
+				Messages.SearchTrigger18CreationTool_title,
+				Messages.SearchTrigger18CreationTool_desc,
 				Collections
 						.singletonList(DomainElementTypes.SearchTrigger_1103016));
-		entry.setId("createSearchTrigger17CreationTool"); //$NON-NLS-1$
+		entry.setId("createSearchTrigger18CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(DomainElementTypes
 				.getImageDescriptor(DomainElementTypes.SearchTrigger_1103016));
 		entry.setLargeIcon(entry.getSmallIcon());
@@ -332,13 +345,13 @@ public class DomainPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createUpdateTrigger18CreationTool() {
+	private ToolEntry createUpdateTrigger19CreationTool() {
 		NodeToolEntry entry = new NodeToolEntry(
-				Messages.UpdateTrigger18CreationTool_title,
-				Messages.UpdateTrigger18CreationTool_desc,
+				Messages.UpdateTrigger19CreationTool_title,
+				Messages.UpdateTrigger19CreationTool_desc,
 				Collections
 						.singletonList(DomainElementTypes.UpdateTrigger_1103014));
-		entry.setId("createUpdateTrigger18CreationTool"); //$NON-NLS-1$
+		entry.setId("createUpdateTrigger19CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(DomainElementTypes
 				.getImageDescriptor(DomainElementTypes.UpdateTrigger_1103014));
 		entry.setLargeIcon(entry.getSmallIcon());

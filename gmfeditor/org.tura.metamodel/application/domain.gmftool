@@ -93,8 +93,17 @@
       </tools>
       <tools
           xsi:type="gmftool:CreationTool"
-          title="JavaScript"
-          description="Create new JavaScript">
+          title="CSSMapper"
+          description="Create new CSSMapper">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="JavaScriptMapper"
+          description="Create new JavaScriptMapper">
         <smallIcon
             xsi:type="gmftool:DefaultImage"/>
         <largeIcon

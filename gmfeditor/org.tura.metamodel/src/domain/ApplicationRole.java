@@ -110,7 +110,7 @@ public interface ApplicationRole extends EObject
    * It is bidirectional and its opposite is '{@link domain.Roles#getParent <em>Parent</em>}'.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Roles</em>' containment reference isn't clear,
+   * If the meaning of the '<em>Roles</em>' reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->

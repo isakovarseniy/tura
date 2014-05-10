@@ -13,7 +13,7 @@ import junit.textui.TestRunner;
  * <!-- end-user-doc -->
  * @generated
  */
-public class JavaMapperTest extends MapperTest
+public class JavaMapperTest extends TypeMapperTest
 {
 
   /**

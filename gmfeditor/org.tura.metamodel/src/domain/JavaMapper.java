@@ -24,7 +24,7 @@ package domain;
  * @model annotation="gmf.node label='fakePackageName,fakeTypeName' border.color='0,0,0' color='255,237,85'"
  * @generated
  */
-public interface JavaMapper extends Mapper
+public interface JavaMapper extends TypeMapper
 {
   /**
    * Returns the value of the '<em><b>Mapped To Package Name</b></em>' attribute.

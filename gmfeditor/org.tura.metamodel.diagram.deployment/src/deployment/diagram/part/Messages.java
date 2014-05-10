@@ -256,32 +256,42 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String DeploymentComponent1CreationTool_title;
+	public static String CSSMapper1CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String DeploymentComponent1CreationTool_desc;
+	public static String CSSMapper1CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String DeploymentStarStep2CreationTool_title;
+	public static String DeploymentComponent2CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String DeploymentStarStep2CreationTool_desc;
+	public static String DeploymentComponent2CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String JavaScript3CreationTool_title;
+	public static String DeploymentStarStep3CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String JavaScript3CreationTool_desc;
+	public static String DeploymentStarStep3CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String JavaScriptMapper4CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String JavaScriptMapper4CreationTool_desc;
 
 	/**
 	 * @generated

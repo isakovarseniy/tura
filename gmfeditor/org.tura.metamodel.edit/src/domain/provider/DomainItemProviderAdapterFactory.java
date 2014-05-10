@@ -999,6 +999,31 @@ public class DomainItemProviderAdapterFactory extends DomainAdapterFactory imple
   }
 
   /**
+   * This keeps track of the one adapter used for all {@link domain.TypeMapper} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected TypeMapperItemProvider typeMapperItemProvider;
+
+  /**
+   * This creates an adapter for a {@link domain.TypeMapper}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createTypeMapperAdapter()
+  {
+    if (typeMapperItemProvider == null)
+    {
+      typeMapperItemProvider = new TypeMapperItemProvider(this);
+    }
+
+    return typeMapperItemProvider;
+  }
+
+  /**
    * This keeps track of the one adapter used for all {@link domain.JavaMapper} instances.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1024,28 +1049,53 @@ public class DomainItemProviderAdapterFactory extends DomainAdapterFactory imple
   }
 
   /**
-   * This keeps track of the one adapter used for all {@link domain.JavaScript} instances.
+   * This keeps track of the one adapter used for all {@link domain.JavaScriptMapper} instances.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected JavaScriptItemProvider javaScriptItemProvider;
+  protected JavaScriptMapperItemProvider javaScriptMapperItemProvider;
 
   /**
-   * This creates an adapter for a {@link domain.JavaScript}.
+   * This creates an adapter for a {@link domain.JavaScriptMapper}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
   @Override
-  public Adapter createJavaScriptAdapter()
+  public Adapter createJavaScriptMapperAdapter()
   {
-    if (javaScriptItemProvider == null)
+    if (javaScriptMapperItemProvider == null)
     {
-      javaScriptItemProvider = new JavaScriptItemProvider(this);
+      javaScriptMapperItemProvider = new JavaScriptMapperItemProvider(this);
     }
 
-    return javaScriptItemProvider;
+    return javaScriptMapperItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link domain.CSSMapper} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected CSSMapperItemProvider cssMapperItemProvider;
+
+  /**
+   * This creates an adapter for a {@link domain.CSSMapper}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createCSSMapperAdapter()
+  {
+    if (cssMapperItemProvider == null)
+    {
+      cssMapperItemProvider = new CSSMapperItemProvider(this);
+    }
+
+    return cssMapperItemProvider;
   }
 
   /**
@@ -3896,8 +3946,10 @@ public class DomainItemProviderAdapterFactory extends DomainAdapterFactory imple
     if (styleSetItemProvider != null) styleSetItemProvider.dispose();
     if (mappersItemProvider != null) mappersItemProvider.dispose();
     if (mapperItemProvider != null) mapperItemProvider.dispose();
+    if (typeMapperItemProvider != null) typeMapperItemProvider.dispose();
     if (javaMapperItemProvider != null) javaMapperItemProvider.dispose();
-    if (javaScriptItemProvider != null) javaScriptItemProvider.dispose();
+    if (javaScriptMapperItemProvider != null) javaScriptMapperItemProvider.dispose();
+    if (cssMapperItemProvider != null) cssMapperItemProvider.dispose();
     if (recipesItemProvider != null) recipesItemProvider.dispose();
     if (deploymentSequenceItemProvider != null) deploymentSequenceItemProvider.dispose();
     if (deploymentComponentsItemProvider != null) deploymentComponentsItemProvider.dispose();
