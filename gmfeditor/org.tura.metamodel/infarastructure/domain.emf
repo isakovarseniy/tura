@@ -760,7 +760,7 @@ class Context{
 
 class StyleElement{
     val Style style;
-    val StyleClass styleClass;
+    val StyleClass[*] styleClass;
 }
 
 class Uielement extends StyleElement{

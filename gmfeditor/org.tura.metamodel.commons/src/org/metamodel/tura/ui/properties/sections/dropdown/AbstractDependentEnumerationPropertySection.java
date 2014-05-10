@@ -59,7 +59,7 @@ public abstract class AbstractDependentEnumerationPropertySection extends
 
 	public void dispose() {
 		super.dispose();
-		if (getModel() != null)
+		if  ( getEObject() != null && getModel() != null)
 			getModel().eAdapters().remove(adapter);
 	}
 
