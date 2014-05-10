@@ -166,6 +166,10 @@
           collapse="true">
         <entries
             xsi:type="gmfgen:ToolEntry"
+            title="JavaScript"
+            description="Create new JavaScript"/>
+        <entries
+            xsi:type="gmfgen:ToolEntry"
             title="StyleLibrary"
             description="Create new StyleLibrary"
             genNodes="//@diagram/@topLevelNodes.0"/>

@@ -276,6 +276,10 @@
             title="DeploymentStarStep"
             description="Create new DeploymentStarStep"
             genNodes="//@diagram/@topLevelNodes.1"/>
+        <entries
+            xsi:type="gmfgen:ToolEntry"
+            title="JavaScript"
+            description="Create new JavaScript"/>
       </groups>
       <groups
           title="Connections"

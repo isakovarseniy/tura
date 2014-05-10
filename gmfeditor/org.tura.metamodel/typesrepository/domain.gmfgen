@@ -168,6 +168,10 @@
           collapse="true">
         <entries
             xsi:type="gmfgen:ToolEntry"
+            title="JavaScript"
+            description="Create new JavaScript"/>
+        <entries
+            xsi:type="gmfgen:ToolEntry"
             title="Package"
             description="Create new Package"
             genNodes="//@diagram/@childNodes.0"/>

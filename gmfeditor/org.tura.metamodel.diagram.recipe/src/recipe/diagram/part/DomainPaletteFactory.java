@@ -43,10 +43,11 @@ public class DomainPaletteFactory {
 		paletteContainer.add(createInfrastructure3CreationTool());
 		paletteContainer.add(createIngredient4CreationTool());
 		paletteContainer.add(createJavaComponent5CreationTool());
-		paletteContainer.add(createModelMapper6CreationTool());
-		paletteContainer.add(createProperty7CreationTool());
-		paletteContainer.add(createQuery8CreationTool());
-		paletteContainer.add(createRecipe9CreationTool());
+		paletteContainer.add(createJavaScript6CreationTool());
+		paletteContainer.add(createModelMapper7CreationTool());
+		paletteContainer.add(createProperty8CreationTool());
+		paletteContainer.add(createQuery9CreationTool());
+		paletteContainer.add(createRecipe10CreationTool());
 		return paletteContainer;
 	}
 
@@ -146,13 +147,24 @@ public class DomainPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createModelMapper6CreationTool() {
+	private ToolEntry createJavaScript6CreationTool() {
+		ToolEntry entry = new ToolEntry(Messages.JavaScript6CreationTool_title,
+				Messages.JavaScript6CreationTool_desc, null, null) {
+		};
+		entry.setId("createJavaScript6CreationTool"); //$NON-NLS-1$
+		return entry;
+	}
+
+	/**
+	 * @generated
+	 */
+	private ToolEntry createModelMapper7CreationTool() {
 		NodeToolEntry entry = new NodeToolEntry(
-				Messages.ModelMapper6CreationTool_title,
-				Messages.ModelMapper6CreationTool_desc,
+				Messages.ModelMapper7CreationTool_title,
+				Messages.ModelMapper7CreationTool_desc,
 				Collections
 						.singletonList(DomainElementTypes.ModelMapper_303003));
-		entry.setId("createModelMapper6CreationTool"); //$NON-NLS-1$
+		entry.setId("createModelMapper7CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(DomainElementTypes
 				.getImageDescriptor(DomainElementTypes.ModelMapper_303003));
 		entry.setLargeIcon(entry.getSmallIcon());
@@ -162,12 +174,12 @@ public class DomainPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createProperty7CreationTool() {
+	private ToolEntry createProperty8CreationTool() {
 		NodeToolEntry entry = new NodeToolEntry(
-				Messages.Property7CreationTool_title,
-				Messages.Property7CreationTool_desc,
+				Messages.Property8CreationTool_title,
+				Messages.Property8CreationTool_desc,
 				Collections.singletonList(DomainElementTypes.Property_303005));
-		entry.setId("createProperty7CreationTool"); //$NON-NLS-1$
+		entry.setId("createProperty8CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(DomainElementTypes
 				.getImageDescriptor(DomainElementTypes.Property_303005));
 		entry.setLargeIcon(entry.getSmallIcon());
@@ -177,12 +189,12 @@ public class DomainPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createQuery8CreationTool() {
+	private ToolEntry createQuery9CreationTool() {
 		NodeToolEntry entry = new NodeToolEntry(
-				Messages.Query8CreationTool_title,
-				Messages.Query8CreationTool_desc,
+				Messages.Query9CreationTool_title,
+				Messages.Query9CreationTool_desc,
 				Collections.singletonList(DomainElementTypes.Query_303004));
-		entry.setId("createQuery8CreationTool"); //$NON-NLS-1$
+		entry.setId("createQuery9CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(DomainElementTypes
 				.getImageDescriptor(DomainElementTypes.Query_303004));
 		entry.setLargeIcon(entry.getSmallIcon());
@@ -192,12 +204,12 @@ public class DomainPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createRecipe9CreationTool() {
+	private ToolEntry createRecipe10CreationTool() {
 		NodeToolEntry entry = new NodeToolEntry(
-				Messages.Recipe9CreationTool_title,
-				Messages.Recipe9CreationTool_desc,
+				Messages.Recipe10CreationTool_title,
+				Messages.Recipe10CreationTool_desc,
 				Collections.singletonList(DomainElementTypes.Recipe_302001));
-		entry.setId("createRecipe9CreationTool"); //$NON-NLS-1$
+		entry.setId("createRecipe10CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(DomainElementTypes
 				.getImageDescriptor(DomainElementTypes.Recipe_302001));
 		entry.setLargeIcon(entry.getSmallIcon());

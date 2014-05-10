@@ -72,6 +72,7 @@ import domain.InsertTrigger;
 import domain.JPAService;
 import domain.JavaComponent;
 import domain.JavaMapper;
+import domain.JavaScript;
 import domain.Label;
 import domain.LayerHolder;
 import domain.Link;
@@ -408,6 +409,11 @@ public class DomainAdapterFactory extends AdapterFactoryImpl
       public Adapter caseJavaMapper(JavaMapper object)
       {
         return createJavaMapperAdapter();
+      }
+      @Override
+      public Adapter caseJavaScript(JavaScript object)
+      {
+        return createJavaScriptAdapter();
       }
       @Override
       public Adapter caseRecipes(Recipes object)
@@ -1537,6 +1543,21 @@ public class DomainAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createJavaMapperAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link domain.JavaScript <em>Java Script</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see domain.JavaScript
+   * @generated
+   */
+  public Adapter createJavaScriptAdapter()
   {
     return null;
   }

@@ -312,6 +312,11 @@ class JavaMapper extends Mapper{
    attr EString libraryName;
 }
 
+@gmf.node(label="fakePackageName,fakeTypeName",border.color="0,0,0",color="47,180,155")
+class JavaScript extends Mapper{
+   attr EString libraryUrl;
+}
+
 @gmf.diagram.recipe
 class Recipes{
     id attr EString uid;

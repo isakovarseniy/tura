@@ -9,6 +9,7 @@ import java.util.Map;
 import java.util.Set;
 
 import mapper.diagram.edit.parts.JavaMapperEditPart;
+import mapper.diagram.edit.parts.JavaScriptEditPart;
 import mapper.diagram.edit.parts.MappersEditPart;
 import mapper.diagram.part.DomainDiagramEditorPlugin;
 
@@ -59,6 +60,11 @@ public class DomainElementTypes {
 	 * @generated
 	 */
 	public static final IElementType JavaMapper_402001 = getElementType("org.tura.metamodel.diagram.mapper.JavaMapper_402001"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType JavaScript_402002 = getElementType("org.tura.metamodel.diagram.mapper.JavaScript_402002"); //$NON-NLS-1$
 
 	/**
 	 * @generated
@@ -175,6 +181,9 @@ public class DomainElementTypes {
 
 			elements.put(JavaMapper_402001,
 					DomainPackage.eINSTANCE.getJavaMapper());
+
+			elements.put(JavaScript_402002,
+					DomainPackage.eINSTANCE.getJavaScript());
 		}
 		return (ENamedElement) elements.get(type);
 	}
@@ -194,6 +203,7 @@ public class DomainElementTypes {
 			KNOWN_ELEMENT_TYPES = new HashSet<IElementType>();
 			KNOWN_ELEMENT_TYPES.add(Mappers_401000);
 			KNOWN_ELEMENT_TYPES.add(JavaMapper_402001);
+			KNOWN_ELEMENT_TYPES.add(JavaScript_402002);
 		}
 		return KNOWN_ELEMENT_TYPES.contains(elementType);
 	}
@@ -207,6 +217,8 @@ public class DomainElementTypes {
 			return Mappers_401000;
 		case JavaMapperEditPart.VISUAL_ID:
 			return JavaMapper_402001;
+		case JavaScriptEditPart.VISUAL_ID:
+			return JavaScript_402002;
 		}
 		return null;
 	}

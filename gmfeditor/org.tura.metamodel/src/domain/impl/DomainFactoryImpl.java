@@ -73,6 +73,7 @@ import domain.InsertTrigger;
 import domain.JPAService;
 import domain.JavaComponent;
 import domain.JavaMapper;
+import domain.JavaScript;
 import domain.Label;
 import domain.LayerHolder;
 import domain.Link;
@@ -250,6 +251,7 @@ public class DomainFactoryImpl extends EFactoryImpl implements DomainFactory
       case DomainPackage.MAPPERS: return createMappers();
       case DomainPackage.MAPPER: return createMapper();
       case DomainPackage.JAVA_MAPPER: return createJavaMapper();
+      case DomainPackage.JAVA_SCRIPT: return createJavaScript();
       case DomainPackage.RECIPES: return createRecipes();
       case DomainPackage.DEPLOYMENT_SEQUENCE: return createDeploymentSequence();
       case DomainPackage.DEPLOYMENT_COMPONENTS: return createDeploymentComponents();
@@ -813,6 +815,17 @@ public class DomainFactoryImpl extends EFactoryImpl implements DomainFactory
   {
     JavaMapperImpl javaMapper = new JavaMapperImpl();
     return javaMapper;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public JavaScript createJavaScript()
+  {
+    JavaScriptImpl javaScript = new JavaScriptImpl();
+    return javaScript;
   }
 
   /**

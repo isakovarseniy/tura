@@ -11,6 +11,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 import mapper.diagram.edit.parts.JavaMapperEditPart;
+import mapper.diagram.edit.parts.JavaScriptEditPart;
 import mapper.diagram.part.DomainDiagramUpdater;
 import mapper.diagram.part.DomainNodeDescriptor;
 import mapper.diagram.part.DomainVisualIDRegistry;
@@ -87,8 +88,9 @@ public class MappersCanonicalEditPolicy extends CanonicalEditPolicy {
 	 * @generated
 	 */
 	private boolean isMyDiagramElement(View view) {
-		return JavaMapperEditPart.VISUAL_ID == DomainVisualIDRegistry
-				.getVisualID(view);
+		int visualID = DomainVisualIDRegistry.getVisualID(view);
+		return visualID == JavaMapperEditPart.VISUAL_ID
+				|| visualID == JavaScriptEditPart.VISUAL_ID;
 	}
 
 	/**

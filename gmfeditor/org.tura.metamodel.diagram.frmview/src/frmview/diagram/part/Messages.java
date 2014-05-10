@@ -286,62 +286,72 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String TabCanvas4CreationTool_title;
+	public static String JavaScript4CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String TabCanvas4CreationTool_desc;
+	public static String JavaScript4CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String TabPage5CreationTool_title;
+	public static String TabCanvas5CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String TabPage5CreationTool_desc;
+	public static String TabCanvas5CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String ViewArea6CreationTool_title;
+	public static String TabPage6CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String ViewArea6CreationTool_desc;
+	public static String TabPage6CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String ViewPort7CreationTool_title;
+	public static String ViewArea7CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String ViewPort7CreationTool_desc;
+	public static String ViewArea7CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String ViewPortTrigger8CreationTool_title;
+	public static String ViewPort8CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String ViewPortTrigger8CreationTool_desc;
+	public static String ViewPort8CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String Window9CreationTool_title;
+	public static String ViewPortTrigger9CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Window9CreationTool_desc;
+	public static String ViewPortTrigger9CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String Window10CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String Window10CreationTool_desc;
 
 	/**
 	 * @generated

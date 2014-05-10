@@ -39,7 +39,8 @@ public class DomainPaletteFactory {
 				Messages.Objects1Group_title);
 		paletteContainer.setId("createObjects1Group"); //$NON-NLS-1$
 		paletteContainer.add(createGroup1CreationTool());
-		paletteContainer.add(createRole2CreationTool());
+		paletteContainer.add(createJavaScript2CreationTool());
+		paletteContainer.add(createRole3CreationTool());
 		return paletteContainer;
 	}
 
@@ -74,12 +75,23 @@ public class DomainPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createRole2CreationTool() {
+	private ToolEntry createJavaScript2CreationTool() {
+		ToolEntry entry = new ToolEntry(Messages.JavaScript2CreationTool_title,
+				Messages.JavaScript2CreationTool_desc, null, null) {
+		};
+		entry.setId("createJavaScript2CreationTool"); //$NON-NLS-1$
+		return entry;
+	}
+
+	/**
+	 * @generated
+	 */
+	private ToolEntry createRole3CreationTool() {
 		NodeToolEntry entry = new NodeToolEntry(
-				Messages.Role2CreationTool_title,
-				Messages.Role2CreationTool_desc,
+				Messages.Role3CreationTool_title,
+				Messages.Role3CreationTool_desc,
 				Collections.singletonList(DomainElementTypes.Role_1402001));
-		entry.setId("createRole2CreationTool"); //$NON-NLS-1$
+		entry.setId("createRole3CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(DomainDiagramEditorPlugin
 				.findImageDescriptor("/org.tura.metamodel.commons/icons/role.png")); //$NON-NLS-1$
 		entry.setLargeIcon(entry.getSmallIcon());

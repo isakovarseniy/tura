@@ -42,7 +42,7 @@
           </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
-              href="domain.gmftool#//@palette/@tools.0/@tools.9"/>
+              href="domain.gmftool#//@palette/@tools.0/@tools.10"/>
           <diagramNode
               href="domain.gmfgraph#Subsystem"/>
           <children
@@ -81,7 +81,7 @@
                   </labelMappings>
                   <tool
                       xsi:type="gmftool:CreationTool"
-                      href="domain.gmftool#//@palette/@tools.0/@tools.6"/>
+                      href="domain.gmftool#//@palette/@tools.0/@tools.7"/>
                   <diagramNode
                       href="domain.gmfgraph#Server"/>
                 </ownedChild>
@@ -102,7 +102,7 @@
                   </labelMappings>
                   <tool
                       xsi:type="gmftool:CreationTool"
-                      href="domain.gmftool#//@palette/@tools.0/@tools.5"/>
+                      href="domain.gmftool#//@palette/@tools.0/@tools.6"/>
                   <diagramNode
                       href="domain.gmfgraph#Router"/>
                 </ownedChild>
@@ -144,7 +144,7 @@
                   </labelMappings>
                   <tool
                       xsi:type="gmftool:CreationTool"
-                      href="domain.gmftool#//@palette/@tools.0/@tools.8"/>
+                      href="domain.gmftool#//@palette/@tools.0/@tools.9"/>
                   <diagramNode
                       href="domain.gmfgraph#Storage"/>
                 </ownedChild>
@@ -166,7 +166,7 @@
                   </labelMappings>
                   <tool
                       xsi:type="gmftool:CreationTool"
-                      href="domain.gmftool#//@palette/@tools.0/@tools.7"/>
+                      href="domain.gmftool#//@palette/@tools.0/@tools.8"/>
                   <diagramNode
                       href="domain.gmfgraph#ServerClaster"/>
                   <children

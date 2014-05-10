@@ -36,21 +36,33 @@ public class DomainPaletteFactory {
 		PaletteDrawer paletteContainer = new PaletteDrawer(
 				Messages.Objects1Group_title);
 		paletteContainer.setId("createObjects1Group"); //$NON-NLS-1$
-		paletteContainer.add(createStyleLibrary1CreationTool());
-		paletteContainer.add(createStyleSet2CreationTool());
+		paletteContainer.add(createJavaScript1CreationTool());
+		paletteContainer.add(createStyleLibrary2CreationTool());
+		paletteContainer.add(createStyleSet3CreationTool());
 		return paletteContainer;
 	}
 
 	/**
 	 * @generated
 	 */
-	private ToolEntry createStyleLibrary1CreationTool() {
+	private ToolEntry createJavaScript1CreationTool() {
+		ToolEntry entry = new ToolEntry(Messages.JavaScript1CreationTool_title,
+				Messages.JavaScript1CreationTool_desc, null, null) {
+		};
+		entry.setId("createJavaScript1CreationTool"); //$NON-NLS-1$
+		return entry;
+	}
+
+	/**
+	 * @generated
+	 */
+	private ToolEntry createStyleLibrary2CreationTool() {
 		NodeToolEntry entry = new NodeToolEntry(
-				Messages.StyleLibrary1CreationTool_title,
-				Messages.StyleLibrary1CreationTool_desc,
+				Messages.StyleLibrary2CreationTool_title,
+				Messages.StyleLibrary2CreationTool_desc,
 				Collections
 						.singletonList(DomainElementTypes.StyleLibrary_1502001));
-		entry.setId("createStyleLibrary1CreationTool"); //$NON-NLS-1$
+		entry.setId("createStyleLibrary2CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(DomainElementTypes
 				.getImageDescriptor(DomainElementTypes.StyleLibrary_1502001));
 		entry.setLargeIcon(entry.getSmallIcon());
@@ -60,12 +72,12 @@ public class DomainPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createStyleSet2CreationTool() {
+	private ToolEntry createStyleSet3CreationTool() {
 		NodeToolEntry entry = new NodeToolEntry(
-				Messages.StyleSet2CreationTool_title,
-				Messages.StyleSet2CreationTool_desc,
+				Messages.StyleSet3CreationTool_title,
+				Messages.StyleSet3CreationTool_desc,
 				Collections.singletonList(DomainElementTypes.StyleSet_1503001));
-		entry.setId("createStyleSet2CreationTool"); //$NON-NLS-1$
+		entry.setId("createStyleSet3CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(DomainElementTypes
 				.getImageDescriptor(DomainElementTypes.StyleSet_1503001));
 		entry.setLargeIcon(entry.getSmallIcon());

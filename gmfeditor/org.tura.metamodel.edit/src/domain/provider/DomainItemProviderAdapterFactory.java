@@ -1024,6 +1024,31 @@ public class DomainItemProviderAdapterFactory extends DomainAdapterFactory imple
   }
 
   /**
+   * This keeps track of the one adapter used for all {@link domain.JavaScript} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected JavaScriptItemProvider javaScriptItemProvider;
+
+  /**
+   * This creates an adapter for a {@link domain.JavaScript}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createJavaScriptAdapter()
+  {
+    if (javaScriptItemProvider == null)
+    {
+      javaScriptItemProvider = new JavaScriptItemProvider(this);
+    }
+
+    return javaScriptItemProvider;
+  }
+
+  /**
    * This keeps track of the one adapter used for all {@link domain.Recipes} instances.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -3872,6 +3897,7 @@ public class DomainItemProviderAdapterFactory extends DomainAdapterFactory imple
     if (mappersItemProvider != null) mappersItemProvider.dispose();
     if (mapperItemProvider != null) mapperItemProvider.dispose();
     if (javaMapperItemProvider != null) javaMapperItemProvider.dispose();
+    if (javaScriptItemProvider != null) javaScriptItemProvider.dispose();
     if (recipesItemProvider != null) recipesItemProvider.dispose();
     if (deploymentSequenceItemProvider != null) deploymentSequenceItemProvider.dispose();
     if (deploymentComponentsItemProvider != null) deploymentComponentsItemProvider.dispose();

@@ -46,7 +46,8 @@ public class DomainPaletteFactory {
 		paletteContainer.add(createApplicationStyle7CreationTool());
 		paletteContainer.add(createApplicationUILayer8CreationTool());
 		paletteContainer.add(createApplicationUIPackage9CreationTool());
-		paletteContainer.add(createStylesPackage10CreationTool());
+		paletteContainer.add(createJavaScript10CreationTool());
+		paletteContainer.add(createStylesPackage11CreationTool());
 		return paletteContainer;
 	}
 
@@ -197,13 +198,25 @@ public class DomainPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createStylesPackage10CreationTool() {
+	private ToolEntry createJavaScript10CreationTool() {
+		ToolEntry entry = new ToolEntry(
+				Messages.JavaScript10CreationTool_title,
+				Messages.JavaScript10CreationTool_desc, null, null) {
+		};
+		entry.setId("createJavaScript10CreationTool"); //$NON-NLS-1$
+		return entry;
+	}
+
+	/**
+	 * @generated
+	 */
+	private ToolEntry createStylesPackage11CreationTool() {
 		NodeToolEntry entry = new NodeToolEntry(
-				Messages.StylesPackage10CreationTool_title,
-				Messages.StylesPackage10CreationTool_desc,
+				Messages.StylesPackage11CreationTool_title,
+				Messages.StylesPackage11CreationTool_desc,
 				Collections
 						.singletonList(DomainElementTypes.StylesPackage_803004));
-		entry.setId("createStylesPackage10CreationTool"); //$NON-NLS-1$
+		entry.setId("createStylesPackage11CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(DomainElementTypes
 				.getImageDescriptor(DomainElementTypes.StylesPackage_803004));
 		entry.setLargeIcon(entry.getSmallIcon());

@@ -262,6 +262,10 @@
             title="FormView"
             description="Create new FormView"
             genNodes="//@diagram/@childNodes.0"/>
+        <entries
+            xsi:type="gmfgen:ToolEntry"
+            title="JavaScript"
+            description="Create new JavaScript"/>
       </groups>
     </palette>
     <preferencePages

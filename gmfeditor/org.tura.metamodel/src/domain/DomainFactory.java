@@ -365,6 +365,15 @@ public interface DomainFactory extends EFactory
   JavaMapper createJavaMapper();
 
   /**
+   * Returns a new object of class '<em>Java Script</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Java Script</em>'.
+   * @generated
+   */
+  JavaScript createJavaScript();
+
+  /**
    * Returns a new object of class '<em>Recipes</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

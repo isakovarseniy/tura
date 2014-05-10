@@ -717,6 +717,10 @@
             genNodes="//@diagram/@childNodes.2"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
+            title="JavaScript"
+            description="Create new JavaScript"/>
+        <entries
+            xsi:type="gmfgen:ToolEntry"
             title="StylesPackage"
             description="Create new StylesPackage"
             genNodes="//@diagram/@childNodes.3"/>

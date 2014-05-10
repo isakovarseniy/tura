@@ -598,6 +598,10 @@
             genNodes="//@diagram/@childNodes.1"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
+            title="JavaScript"
+            description="Create new JavaScript"/>
+        <entries
+            xsi:type="gmfgen:ToolEntry"
             title="Router"
             description="Create new Router"
             smallIconPath="/org.tura.metamodel.commons/icons/router.png"

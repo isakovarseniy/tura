@@ -41,6 +41,7 @@ public class DomainPaletteFactory {
 		paletteContainer.add(createForm3CreationTool());
 		paletteContainer.add(createFormDataControls4CreationTool());
 		paletteContainer.add(createFormView5CreationTool());
+		paletteContainer.add(createJavaScript6CreationTool());
 		return paletteContainer;
 	}
 
@@ -111,6 +112,17 @@ public class DomainPaletteFactory {
 		entry.setSmallIcon(DomainElementTypes
 				.getImageDescriptor(DomainElementTypes.FormView_1003001));
 		entry.setLargeIcon(entry.getSmallIcon());
+		return entry;
+	}
+
+	/**
+	 * @generated
+	 */
+	private ToolEntry createJavaScript6CreationTool() {
+		ToolEntry entry = new ToolEntry(Messages.JavaScript6CreationTool_title,
+				Messages.JavaScript6CreationTool_desc, null, null) {
+		};
+		entry.setId("createJavaScript6CreationTool"); //$NON-NLS-1$
 		return entry;
 	}
 

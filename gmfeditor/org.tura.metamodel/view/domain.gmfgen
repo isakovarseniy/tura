@@ -572,6 +572,10 @@
             genNodes="//@diagram/@topLevelNodes.0"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
+            title="JavaScript"
+            description="Create new JavaScript"/>
+        <entries
+            xsi:type="gmfgen:ToolEntry"
             title="TabCanvas"
             description="Create new TabCanvas"
             genNodes="//@diagram/@topLevelNodes.3"/>

@@ -301,52 +301,62 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String Label6CreationTool_title;
+	public static String JavaScript6CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Label6CreationTool_desc;
+	public static String JavaScript6CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String LayerHolder7CreationTool_title;
+	public static String Label7CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String LayerHolder7CreationTool_desc;
+	public static String Label7CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String OutputText8CreationTool_title;
+	public static String LayerHolder8CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String OutputText8CreationTool_desc;
+	public static String LayerHolder8CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String Table9CreationTool_title;
+	public static String OutputText9CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Table9CreationTool_desc;
+	public static String OutputText9CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String Tree10CreationTool_title;
+	public static String Table10CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Tree10CreationTool_desc;
+	public static String Table10CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String Tree11CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String Tree11CreationTool_desc;
 
 	/**
 	 * @generated

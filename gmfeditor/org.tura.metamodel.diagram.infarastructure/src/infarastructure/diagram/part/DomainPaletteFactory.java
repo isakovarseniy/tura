@@ -44,11 +44,12 @@ public class DomainPaletteFactory {
 		paletteContainer.add(createDatacenter3CreationTool());
 		paletteContainer.add(createHub4CreationTool());
 		paletteContainer.add(createInfrastructureLayer5CreationTool());
-		paletteContainer.add(createRouter6CreationTool());
-		paletteContainer.add(createServer7CreationTool());
-		paletteContainer.add(createServerClaster8CreationTool());
-		paletteContainer.add(createStorage9CreationTool());
-		paletteContainer.add(createSubsystem10CreationTool());
+		paletteContainer.add(createJavaScript6CreationTool());
+		paletteContainer.add(createRouter7CreationTool());
+		paletteContainer.add(createServer8CreationTool());
+		paletteContainer.add(createServerClaster9CreationTool());
+		paletteContainer.add(createStorage10CreationTool());
+		paletteContainer.add(createSubsystem11CreationTool());
 		return paletteContainer;
 	}
 
@@ -138,12 +139,23 @@ public class DomainPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createRouter6CreationTool() {
+	private ToolEntry createJavaScript6CreationTool() {
+		ToolEntry entry = new ToolEntry(Messages.JavaScript6CreationTool_title,
+				Messages.JavaScript6CreationTool_desc, null, null) {
+		};
+		entry.setId("createJavaScript6CreationTool"); //$NON-NLS-1$
+		return entry;
+	}
+
+	/**
+	 * @generated
+	 */
+	private ToolEntry createRouter7CreationTool() {
 		NodeToolEntry entry = new NodeToolEntry(
-				Messages.Router6CreationTool_title,
-				Messages.Router6CreationTool_desc,
+				Messages.Router7CreationTool_title,
+				Messages.Router7CreationTool_desc,
 				Collections.singletonList(DomainElementTypes.Router_1203004));
-		entry.setId("createRouter6CreationTool"); //$NON-NLS-1$
+		entry.setId("createRouter7CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(DomainDiagramEditorPlugin
 				.findImageDescriptor("/org.tura.metamodel.commons/icons/router.png")); //$NON-NLS-1$
 		entry.setLargeIcon(entry.getSmallIcon());
@@ -153,14 +165,14 @@ public class DomainPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createServer7CreationTool() {
+	private ToolEntry createServer8CreationTool() {
 		ArrayList<IElementType> types = new ArrayList<IElementType>(2);
 		types.add(DomainElementTypes.Server_1203003);
 		types.add(DomainElementTypes.Server_1203008);
 		NodeToolEntry entry = new NodeToolEntry(
-				Messages.Server7CreationTool_title,
-				Messages.Server7CreationTool_desc, types);
-		entry.setId("createServer7CreationTool"); //$NON-NLS-1$
+				Messages.Server8CreationTool_title,
+				Messages.Server8CreationTool_desc, types);
+		entry.setId("createServer8CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(DomainDiagramEditorPlugin
 				.findImageDescriptor("/org.tura.metamodel.commons/icons/server.png")); //$NON-NLS-1$
 		entry.setLargeIcon(entry.getSmallIcon());
@@ -170,13 +182,13 @@ public class DomainPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createServerClaster8CreationTool() {
+	private ToolEntry createServerClaster9CreationTool() {
 		NodeToolEntry entry = new NodeToolEntry(
-				Messages.ServerClaster8CreationTool_title,
-				Messages.ServerClaster8CreationTool_desc,
+				Messages.ServerClaster9CreationTool_title,
+				Messages.ServerClaster9CreationTool_desc,
 				Collections
 						.singletonList(DomainElementTypes.ServerClaster_1203007));
-		entry.setId("createServerClaster8CreationTool"); //$NON-NLS-1$
+		entry.setId("createServerClaster9CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(DomainDiagramEditorPlugin
 				.findImageDescriptor("/org.tura.metamodel.commons/icons/serverclaster.png")); //$NON-NLS-1$
 		entry.setLargeIcon(entry.getSmallIcon());
@@ -186,12 +198,12 @@ public class DomainPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createStorage9CreationTool() {
+	private ToolEntry createStorage10CreationTool() {
 		NodeToolEntry entry = new NodeToolEntry(
-				Messages.Storage9CreationTool_title,
-				Messages.Storage9CreationTool_desc,
+				Messages.Storage10CreationTool_title,
+				Messages.Storage10CreationTool_desc,
 				Collections.singletonList(DomainElementTypes.Storage_1203006));
-		entry.setId("createStorage9CreationTool"); //$NON-NLS-1$
+		entry.setId("createStorage10CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(DomainDiagramEditorPlugin
 				.findImageDescriptor("/org.tura.metamodel.commons/icons/storage.png")); //$NON-NLS-1$
 		entry.setLargeIcon(entry.getSmallIcon());
@@ -201,12 +213,12 @@ public class DomainPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createSubsystem10CreationTool() {
+	private ToolEntry createSubsystem11CreationTool() {
 		NodeToolEntry entry = new NodeToolEntry(
-				Messages.Subsystem10CreationTool_title,
-				Messages.Subsystem10CreationTool_desc,
+				Messages.Subsystem11CreationTool_title,
+				Messages.Subsystem11CreationTool_desc,
 				Collections.singletonList(DomainElementTypes.Subsystem_1203001));
-		entry.setId("createSubsystem10CreationTool"); //$NON-NLS-1$
+		entry.setId("createSubsystem11CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(DomainDiagramEditorPlugin
 				.findImageDescriptor("/org.tura.metamodel.commons/icons/subsystem.png")); //$NON-NLS-1$
 		entry.setLargeIcon(entry.getSmallIcon());

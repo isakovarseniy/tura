@@ -768,6 +768,10 @@
             genNodes="//@diagram/@childNodes.1"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
+            title="JavaScript"
+            description="Create new JavaScript"/>
+        <entries
+            xsi:type="gmfgen:ToolEntry"
             title="ModelMapper"
             description="Create new ModelMapper"
             genNodes="//@diagram/@childNodes.2"/>

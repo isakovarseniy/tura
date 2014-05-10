@@ -37,6 +37,7 @@ public class DomainPaletteFactory {
 				Messages.Objects1Group_title);
 		paletteContainer.setId("createObjects1Group"); //$NON-NLS-1$
 		paletteContainer.add(createJavaMapper1CreationTool());
+		paletteContainer.add(createJavaScript2CreationTool());
 		return paletteContainer;
 	}
 
@@ -51,6 +52,21 @@ public class DomainPaletteFactory {
 		entry.setId("createJavaMapper1CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(DomainElementTypes
 				.getImageDescriptor(DomainElementTypes.JavaMapper_402001));
+		entry.setLargeIcon(entry.getSmallIcon());
+		return entry;
+	}
+
+	/**
+	 * @generated
+	 */
+	private ToolEntry createJavaScript2CreationTool() {
+		NodeToolEntry entry = new NodeToolEntry(
+				Messages.JavaScript2CreationTool_title,
+				Messages.JavaScript2CreationTool_desc,
+				Collections.singletonList(DomainElementTypes.JavaScript_402002));
+		entry.setId("createJavaScript2CreationTool"); //$NON-NLS-1$
+		entry.setSmallIcon(DomainElementTypes
+				.getImageDescriptor(DomainElementTypes.JavaScript_402002));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}

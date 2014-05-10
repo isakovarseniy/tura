@@ -5,6 +5,8 @@ package mapper.diagram.part;
 
 import mapper.diagram.edit.parts.JavaMapperEditPart;
 import mapper.diagram.edit.parts.JavaMapperFakePackageNameFakeTypeEditPart;
+import mapper.diagram.edit.parts.JavaScriptEditPart;
+import mapper.diagram.edit.parts.JavaScriptFakePackageNameFakeTypeEditPart;
 import mapper.diagram.edit.parts.MappersEditPart;
 
 import org.eclipse.core.runtime.Platform;
@@ -130,6 +132,10 @@ public class DomainVisualIDRegistry {
 					domainElement.eClass())) {
 				return JavaMapperEditPart.VISUAL_ID;
 			}
+			if (DomainPackage.eINSTANCE.getJavaScript().isSuperTypeOf(
+					domainElement.eClass())) {
+				return JavaScriptEditPart.VISUAL_ID;
+			}
 			break;
 		}
 		return -1;
@@ -161,9 +167,17 @@ public class DomainVisualIDRegistry {
 			if (JavaMapperEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
+			if (JavaScriptEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
 			break;
 		case JavaMapperEditPart.VISUAL_ID:
 			if (JavaMapperFakePackageNameFakeTypeEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case JavaScriptEditPart.VISUAL_ID:
+			if (JavaScriptFakePackageNameFakeTypeEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -219,6 +233,7 @@ public class DomainVisualIDRegistry {
 		case MappersEditPart.VISUAL_ID:
 			return false;
 		case JavaMapperEditPart.VISUAL_ID:
+		case JavaScriptEditPart.VISUAL_ID:
 			return true;
 		default:
 			break;

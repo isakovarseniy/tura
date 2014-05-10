@@ -27,6 +27,28 @@
           href="domain.gmfgraph#JavaMapper"/>
     </ownedChild>
   </nodes>
+  <nodes>
+    <containmentFeature
+        href="domain.ecore#//Mappers/mappers"/>
+    <ownedChild>
+      <domainMetaElement
+          href="domain.ecore#//JavaScript"/>
+      <labelMappings
+          xsi:type="gmfmap:FeatureLabelMapping">
+        <diagramLabel
+            href="domain.gmfgraph#JavaScriptLabel"/>
+        <features
+            href="domain.ecore#//TypePointer/fakePackageName"/>
+        <features
+            href="domain.ecore#//TypePointer/fakeTypeName"/>
+      </labelMappings>
+      <tool
+          xsi:type="gmftool:CreationTool"
+          href="domain.gmftool#//@palette/@tools.0/@tools.1"/>
+      <diagramNode
+          href="domain.gmfgraph#JavaScript"/>
+    </ownedChild>
+  </nodes>
   <diagram>
     <diagramCanvas
         href="domain.gmfgraph#domain"/>

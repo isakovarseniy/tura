@@ -276,6 +276,16 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
+	public static String JavaScript3CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String JavaScript3CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
 	public static String Deployment1CreationTool_title;
 
 	/**

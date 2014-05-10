@@ -4,6 +4,7 @@
 package mapper.diagram.providers;
 
 import mapper.diagram.edit.parts.JavaMapperFakePackageNameFakeTypeEditPart;
+import mapper.diagram.edit.parts.JavaScriptFakePackageNameFakeTypeEditPart;
 import mapper.diagram.parsers.MessageFormatParser;
 import mapper.diagram.part.DomainVisualIDRegistry;
 
@@ -50,10 +51,31 @@ public class DomainParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
+	private IParser javaScriptFakePackageNameFakeTypeName_405002Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getJavaScriptFakePackageNameFakeTypeName_405002Parser() {
+		if (javaScriptFakePackageNameFakeTypeName_405002Parser == null) {
+			EAttribute[] features = new EAttribute[] {
+					DomainPackage.eINSTANCE.getTypePointer_FakePackageName(),
+					DomainPackage.eINSTANCE.getTypePointer_FakeTypeName() };
+			MessageFormatParser parser = new MessageFormatParser(features);
+			javaScriptFakePackageNameFakeTypeName_405002Parser = parser;
+		}
+		return javaScriptFakePackageNameFakeTypeName_405002Parser;
+	}
+
+	/**
+	 * @generated
+	 */
 	protected IParser getParser(int visualID) {
 		switch (visualID) {
 		case JavaMapperFakePackageNameFakeTypeEditPart.VISUAL_ID:
 			return getJavaMapperFakePackageNameFakeTypeName_405001Parser();
+		case JavaScriptFakePackageNameFakeTypeEditPart.VISUAL_ID:
+			return getJavaScriptFakePackageNameFakeTypeName_405002Parser();
 		}
 		return null;
 	}

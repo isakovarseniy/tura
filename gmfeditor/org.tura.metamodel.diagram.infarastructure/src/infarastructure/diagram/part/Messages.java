@@ -306,52 +306,62 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String Router6CreationTool_title;
+	public static String JavaScript6CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Router6CreationTool_desc;
+	public static String JavaScript6CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String Server7CreationTool_title;
+	public static String Router7CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Server7CreationTool_desc;
+	public static String Router7CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String ServerClaster8CreationTool_title;
+	public static String Server8CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String ServerClaster8CreationTool_desc;
+	public static String Server8CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String Storage9CreationTool_title;
+	public static String ServerClaster9CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Storage9CreationTool_desc;
+	public static String ServerClaster9CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String Subsystem10CreationTool_title;
+	public static String Storage10CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Subsystem10CreationTool_desc;
+	public static String Storage10CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String Subsystem11CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String Subsystem11CreationTool_desc;
 
 	/**
 	 * @generated

@@ -322,6 +322,10 @@
             genNodes="//@diagram/@childNodes.0"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
+            title="JavaScript"
+            description="Create new JavaScript"/>
+        <entries
+            xsi:type="gmfgen:ToolEntry"
             title="ModelQuery"
             description="Create new ModelQuery"
             genNodes="//@diagram/@childNodes.1"/>

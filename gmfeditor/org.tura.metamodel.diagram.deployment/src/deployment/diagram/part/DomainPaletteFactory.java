@@ -40,6 +40,7 @@ public class DomainPaletteFactory {
 		paletteContainer.setId("createObjects1Group"); //$NON-NLS-1$
 		paletteContainer.add(createDeploymentComponent1CreationTool());
 		paletteContainer.add(createDeploymentStarStep2CreationTool());
+		paletteContainer.add(createJavaScript3CreationTool());
 		return paletteContainer;
 	}
 
@@ -86,6 +87,17 @@ public class DomainPaletteFactory {
 		entry.setSmallIcon(DomainElementTypes
 				.getImageDescriptor(DomainElementTypes.DeploymentStarStep_902002));
 		entry.setLargeIcon(entry.getSmallIcon());
+		return entry;
+	}
+
+	/**
+	 * @generated
+	 */
+	private ToolEntry createJavaScript3CreationTool() {
+		ToolEntry entry = new ToolEntry(Messages.JavaScript3CreationTool_title,
+				Messages.JavaScript3CreationTool_desc, null, null) {
+		};
+		entry.setId("createJavaScript3CreationTool"); //$NON-NLS-1$
 		return entry;
 	}
 

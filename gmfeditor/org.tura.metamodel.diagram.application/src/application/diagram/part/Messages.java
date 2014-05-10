@@ -341,12 +341,22 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String StylesPackage10CreationTool_title;
+	public static String JavaScript10CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String StylesPackage10CreationTool_desc;
+	public static String JavaScript10CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String StylesPackage11CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String StylesPackage11CreationTool_desc;
 
 	/**
 	 * @generated

@@ -72,6 +72,7 @@ import domain.InsertTrigger;
 import domain.JPAService;
 import domain.JavaComponent;
 import domain.JavaMapper;
+import domain.JavaScript;
 import domain.Label;
 import domain.LayerHolder;
 import domain.Link;
@@ -492,6 +493,15 @@ public class DomainSwitch<T> extends Switch<T>
         T result = caseJavaMapper(javaMapper);
         if (result == null) result = caseMapper(javaMapper);
         if (result == null) result = caseTypePointer(javaMapper);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DomainPackage.JAVA_SCRIPT:
+      {
+        JavaScript javaScript = (JavaScript)theEObject;
+        T result = caseJavaScript(javaScript);
+        if (result == null) result = caseMapper(javaScript);
+        if (result == null) result = caseTypePointer(javaScript);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -1990,6 +2000,22 @@ public class DomainSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseJavaMapper(JavaMapper object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Java Script</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Java Script</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseJavaScript(JavaScript object)
   {
     return null;
   }

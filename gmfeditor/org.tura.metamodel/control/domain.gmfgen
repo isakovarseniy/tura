@@ -1155,6 +1155,10 @@
             genNodes="//@diagram/@childNodes.8"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
+            title="JavaScript"
+            description="Create new JavaScript"/>
+        <entries
+            xsi:type="gmfgen:ToolEntry"
             title="POSTCreateTrigger"
             description="Create new POSTCreateTrigger"
             genNodes="//@diagram/@childNodes.5"/>
