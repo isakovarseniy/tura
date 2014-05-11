@@ -170,7 +170,7 @@ public class TableItemProvider
   @Override
   public String getText(Object object)
   {
-    String label = ((Table)object).getUid();
+    String label = ((Table)object).getNickname();
     return label == null || label.length() == 0 ?
       getString("_UI_Table_type") :
       getString("_UI_Table_type") + " " + label;

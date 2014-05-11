@@ -2649,6 +2649,31 @@ public class DomainItemProviderAdapterFactory extends DomainAdapterFactory imple
   }
 
   /**
+   * This keeps track of the one adapter used for all {@link domain.EventRefreshArea} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected EventRefreshAreaItemProvider eventRefreshAreaItemProvider;
+
+  /**
+   * This creates an adapter for a {@link domain.EventRefreshArea}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createEventRefreshAreaAdapter()
+  {
+    if (eventRefreshAreaItemProvider == null)
+    {
+      eventRefreshAreaItemProvider = new EventRefreshAreaItemProvider(this);
+    }
+
+    return eventRefreshAreaItemProvider;
+  }
+
+  /**
    * This keeps track of the one adapter used for all {@link domain.Uielement} instances.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -4037,6 +4062,7 @@ public class DomainItemProviderAdapterFactory extends DomainAdapterFactory imple
     if (expressionPartItemProvider != null) expressionPartItemProvider.dispose();
     if (contextItemProvider != null) contextItemProvider.dispose();
     if (styleElementItemProvider != null) styleElementItemProvider.dispose();
+    if (eventRefreshAreaItemProvider != null) eventRefreshAreaItemProvider.dispose();
     if (uielementItemProvider != null) uielementItemProvider.dispose();
     if (sourcesPointerItemProvider != null) sourcesPointerItemProvider.dispose();
     if (actionElementItemProvider != null) actionElementItemProvider.dispose();

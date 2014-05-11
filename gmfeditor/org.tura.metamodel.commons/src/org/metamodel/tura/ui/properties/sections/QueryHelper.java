@@ -31,6 +31,7 @@ import domain.DomainPackage;
 import domain.Parameter;
 import domain.Type;
 import domain.Types;
+import domain.Views;
 
 public class QueryHelper {
 
@@ -517,6 +518,82 @@ public class QueryHelper {
 		}
 		return null;
 
+	}
+
+	public Object[] findRefreshedAeas(domain.Uielement obj) throws Exception {
+
+		EObject root = obj;
+		do {
+			root = root.eContainer();
+			if (root == null)
+				throw new Exception("UI element container is null");
+		} while (!(root instanceof domain.CanvasView));
+
+		domain.Views views = (Views) ((domain.CanvasView) root).getParent()
+				.eContainer().eContainer();
+
+		try {
+			@SuppressWarnings("rawtypes")
+			OCL ocl = OCL.newInstance(EcoreEnvironmentFactory.INSTANCE);
+			@SuppressWarnings("unchecked")
+			OCLHelper<EClassifier, ?, ?, Constraint> helper = ocl
+					.createOCLHelper();
+			helper.setContext(DomainPackage.eINSTANCE.getEClassifier("Domain"));
+
+			OCLExpression<EClassifier> query = helper
+					.createQuery("domain::Views.allInstances()->select(r|r.oclAsType(domain::Views).uid = '"
+							+ views.getUid()
+							+ "').canvases.viewElement-> select(q|q.oclIsKindOf(domain.ViewArea)->collect(e : domain.ViewArea | e )"
+							+ ")");
+
+			@SuppressWarnings("unchecked")
+			Collection<domain.ViewArea> map = (Collection<domain.ViewArea>) ocl
+					.evaluate(obj, query);
+
+			ArrayList<domain.Uielement> nickNamed = new ArrayList<domain.Uielement>();
+			ArrayList<domain.EventRefreshArea> remove = new ArrayList<domain.EventRefreshArea>();
+
+			if (map.size() != 0) {
+				for (Iterator<domain.ViewArea> itr = map.iterator(); itr
+						.hasNext();) {
+					domain.ViewArea viewarea = itr.next();
+					findNick(nickNamed, viewarea.getCanvasView()
+							.getBaseCanvas());
+				}
+			}
+
+			for (Iterator<domain.EventRefreshArea> itr1 = obj
+					.getOnEventRefreshArea().iterator(); itr1.hasNext();) {
+				domain.EventRefreshArea ref = itr1.next();
+				if (ref.getElement() == null)
+					remove.add(ref);
+
+				if (ref.getElement().getNickname() == null
+						|| "".equals(ref.getElement().getNickname()))
+					remove.add(ref);
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			// do nothing
+			return new Object[] { null, null };
+		}
+
+		return null;
+
+	}
+
+	private void findNick(List<domain.Uielement> list, domain.LayerHolder holder) {
+		for (Iterator<domain.Uielement> itr = holder.getChildren().iterator(); itr
+				.hasNext();) {
+
+			domain.Uielement el = itr.next();
+			if (el instanceof domain.LayerHolder)
+				findNick(list, (domain.LayerHolder) el);
+
+			if (el.getNickname() != null)
+				list.add(el);
+		}
 	}
 
 }

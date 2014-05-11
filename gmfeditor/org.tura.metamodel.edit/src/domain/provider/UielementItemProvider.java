@@ -65,6 +65,7 @@ public class UielementItemProvider
       super.getPropertyDescriptors(object);
 
       addUidPropertyDescriptor(object);
+      addNicknamePropertyDescriptor(object);
     }
     return itemPropertyDescriptors;
   }
@@ -93,6 +94,29 @@ public class UielementItemProvider
   }
 
   /**
+   * This adds a property descriptor for the Nickname feature.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected void addNicknamePropertyDescriptor(Object object)
+  {
+    itemPropertyDescriptors.add
+      (createItemPropertyDescriptor
+        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+         getResourceLocator(),
+         getString("_UI_Uielement_nickname_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_Uielement_nickname_feature", "_UI_Uielement_type"),
+         DomainPackage.Literals.UIELEMENT__NICKNAME,
+         true,
+         false,
+         false,
+         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+         null,
+         null));
+  }
+
+  /**
    * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
    * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
    * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -109,6 +133,7 @@ public class UielementItemProvider
       childrenFeatures.add(DomainPackage.Literals.UIELEMENT__ENABLED_CONTEXT);
       childrenFeatures.add(DomainPackage.Literals.UIELEMENT__REQUIRED_CONTEXT);
       childrenFeatures.add(DomainPackage.Literals.UIELEMENT__READ_ONLY_CONTEXT);
+      childrenFeatures.add(DomainPackage.Literals.UIELEMENT__ON_EVENT_REFRESH_AREA);
     }
     return childrenFeatures;
   }
@@ -148,7 +173,7 @@ public class UielementItemProvider
   @Override
   public String getText(Object object)
   {
-    String label = ((Uielement)object).getUid();
+    String label = ((Uielement)object).getNickname();
     return label == null || label.length() == 0 ?
       getString("_UI_Uielement_type") :
       getString("_UI_Uielement_type") + " " + label;
@@ -169,11 +194,13 @@ public class UielementItemProvider
     switch (notification.getFeatureID(Uielement.class))
     {
       case DomainPackage.UIELEMENT__UID:
+      case DomainPackage.UIELEMENT__NICKNAME:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
         return;
       case DomainPackage.UIELEMENT__ENABLED_CONTEXT:
       case DomainPackage.UIELEMENT__REQUIRED_CONTEXT:
       case DomainPackage.UIELEMENT__READ_ONLY_CONTEXT:
+      case DomainPackage.UIELEMENT__ON_EVENT_REFRESH_AREA:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
         return;
     }
@@ -206,6 +233,11 @@ public class UielementItemProvider
       (createChildParameter
         (DomainPackage.Literals.UIELEMENT__READ_ONLY_CONTEXT,
          DomainFactory.eINSTANCE.createContext()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (DomainPackage.Literals.UIELEMENT__ON_EVENT_REFRESH_AREA,
+         DomainFactory.eINSTANCE.createEventRefreshArea()));
   }
 
   /**

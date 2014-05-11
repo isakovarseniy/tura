@@ -146,7 +146,7 @@ public class TreeItemProvider
   @Override
   public String getText(Object object)
   {
-    String label = ((Tree)object).getUid();
+    String label = ((Tree)object).getNickname();
     return label == null || label.length() == 0 ?
       getString("_UI_Tree_type") :
       getString("_UI_Tree_type") + " " + label;

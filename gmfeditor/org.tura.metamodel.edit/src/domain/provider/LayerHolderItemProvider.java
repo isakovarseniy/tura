@@ -146,7 +146,7 @@ public class LayerHolderItemProvider
   @Override
   public String getText(Object object)
   {
-    String label = ((LayerHolder)object).getUid();
+    String label = ((LayerHolder)object).getNickname();
     return label == null || label.length() == 0 ?
       getString("_UI_LayerHolder_type") :
       getString("_UI_LayerHolder_type") + " " + label;

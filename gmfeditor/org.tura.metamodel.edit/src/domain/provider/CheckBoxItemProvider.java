@@ -83,7 +83,7 @@ public class CheckBoxItemProvider
   @Override
   public String getText(Object object)
   {
-    String label = ((CheckBox)object).getUid();
+    String label = ((CheckBox)object).getNickname();
     return label == null || label.length() == 0 ?
       getString("_UI_CheckBox_type") :
       getString("_UI_CheckBox_type") + " " + label;

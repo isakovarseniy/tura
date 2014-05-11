@@ -83,7 +83,7 @@ public class OutputTextItemProvider
   @Override
   public String getText(Object object)
   {
-    String label = ((OutputText)object).getUid();
+    String label = ((OutputText)object).getNickname();
     return label == null || label.length() == 0 ?
       getString("_UI_OutputText_type") :
       getString("_UI_OutputText_type") + " " + label;

@@ -797,11 +797,18 @@ class StyleElement{
     val StyleClass[*] styleClass;
 }
 
+class EventRefreshArea{
+    id attr EString uid;
+    ref Uielement element;
+}
+
 class Uielement extends StyleElement{
     id attr EString uid;
+    attr EString nickname;
     val Context enabledContext;
     val Context requiredContext;
     val Context readOnlyContext;
+    val EventRefreshArea[*] onEventRefreshArea;
 }
 
 class SourcesPointer extends Uielement{

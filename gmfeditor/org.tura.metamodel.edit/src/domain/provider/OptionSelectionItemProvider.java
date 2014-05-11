@@ -132,7 +132,7 @@ public class OptionSelectionItemProvider
   @Override
   public String getText(Object object)
   {
-    String label = ((OptionSelection)object).getUid();
+    String label = ((OptionSelection)object).getNickname();
     return label == null || label.length() == 0 ?
       getString("_UI_OptionSelection_type") :
       getString("_UI_OptionSelection_type") + " " + label;

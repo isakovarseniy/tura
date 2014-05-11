@@ -55,6 +55,7 @@ import domain.EJBService;
 import domain.EnterpriseInfrastructure;
 import domain.EnumAttribute;
 import domain.Enumarator;
+import domain.EventRefreshArea;
 import domain.ExpressionPart;
 import domain.Form;
 import domain.FormDataControls;
@@ -737,6 +738,11 @@ public class DomainAdapterFactory extends AdapterFactoryImpl
       public Adapter caseStyleElement(StyleElement object)
       {
         return createStyleElementAdapter();
+      }
+      @Override
+      public Adapter caseEventRefreshArea(EventRefreshArea object)
+      {
+        return createEventRefreshAreaAdapter();
       }
       @Override
       public Adapter caseUielement(Uielement object)
@@ -2536,6 +2542,21 @@ public class DomainAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createStyleElementAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link domain.EventRefreshArea <em>Event Refresh Area</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see domain.EventRefreshArea
+   * @generated
+   */
+  public Adapter createEventRefreshAreaAdapter()
   {
     return null;
   }

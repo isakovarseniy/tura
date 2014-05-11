@@ -317,7 +317,7 @@ public class DomainNavigatorLabelProvider extends LabelProvider implements
 	private String getLayerHolder_1602003Text(View view) {
 		LayerHolder domainModelElement = (LayerHolder) view.getElement();
 		if (domainModelElement != null) {
-			return domainModelElement.getUid();
+			return domainModelElement.getNickname();
 		} else {
 			DomainDiagramEditorPlugin.getInstance().logError(
 					"No domain element for view with visualID = " + 1602003); //$NON-NLS-1$
@@ -351,7 +351,7 @@ public class DomainNavigatorLabelProvider extends LabelProvider implements
 		DropDownSelection domainModelElement = (DropDownSelection) view
 				.getElement();
 		if (domainModelElement != null) {
-			return domainModelElement.getUid();
+			return domainModelElement.getNickname();
 		} else {
 			DomainDiagramEditorPlugin.getInstance().logError(
 					"No domain element for view with visualID = " + 1603002); //$NON-NLS-1$
@@ -365,7 +365,7 @@ public class DomainNavigatorLabelProvider extends LabelProvider implements
 	private String getLayerHolder_1603019Text(View view) {
 		LayerHolder domainModelElement = (LayerHolder) view.getElement();
 		if (domainModelElement != null) {
-			return domainModelElement.getUid();
+			return domainModelElement.getNickname();
 		} else {
 			DomainDiagramEditorPlugin.getInstance().logError(
 					"No domain element for view with visualID = " + 1603019); //$NON-NLS-1$
@@ -379,7 +379,7 @@ public class DomainNavigatorLabelProvider extends LabelProvider implements
 	private String getInputText_1603004Text(View view) {
 		InputText domainModelElement = (InputText) view.getElement();
 		if (domainModelElement != null) {
-			return domainModelElement.getUid();
+			return domainModelElement.getNickname();
 		} else {
 			DomainDiagramEditorPlugin.getInstance().logError(
 					"No domain element for view with visualID = " + 1603004); //$NON-NLS-1$
@@ -412,7 +412,7 @@ public class DomainNavigatorLabelProvider extends LabelProvider implements
 	private String getOutputText_1603006Text(View view) {
 		OutputText domainModelElement = (OutputText) view.getElement();
 		if (domainModelElement != null) {
-			return domainModelElement.getUid();
+			return domainModelElement.getNickname();
 		} else {
 			DomainDiagramEditorPlugin.getInstance().logError(
 					"No domain element for view with visualID = " + 1603006); //$NON-NLS-1$
@@ -426,7 +426,7 @@ public class DomainNavigatorLabelProvider extends LabelProvider implements
 	private String getCheckBox_1603007Text(View view) {
 		CheckBox domainModelElement = (CheckBox) view.getElement();
 		if (domainModelElement != null) {
-			return domainModelElement.getUid();
+			return domainModelElement.getNickname();
 		} else {
 			DomainDiagramEditorPlugin.getInstance().logError(
 					"No domain element for view with visualID = " + 1603007); //$NON-NLS-1$
@@ -498,7 +498,7 @@ public class DomainNavigatorLabelProvider extends LabelProvider implements
 		DropDownSelection domainModelElement = (DropDownSelection) view
 				.getElement();
 		if (domainModelElement != null) {
-			return domainModelElement.getUid();
+			return domainModelElement.getNickname();
 		} else {
 			DomainDiagramEditorPlugin.getInstance().logError(
 					"No domain element for view with visualID = " + 1603010); //$NON-NLS-1$
@@ -512,7 +512,7 @@ public class DomainNavigatorLabelProvider extends LabelProvider implements
 	private String getLayerHolder_1603020Text(View view) {
 		LayerHolder domainModelElement = (LayerHolder) view.getElement();
 		if (domainModelElement != null) {
-			return domainModelElement.getUid();
+			return domainModelElement.getNickname();
 		} else {
 			DomainDiagramEditorPlugin.getInstance().logError(
 					"No domain element for view with visualID = " + 1603020); //$NON-NLS-1$
@@ -545,7 +545,7 @@ public class DomainNavigatorLabelProvider extends LabelProvider implements
 	private String getInputText_1603012Text(View view) {
 		InputText domainModelElement = (InputText) view.getElement();
 		if (domainModelElement != null) {
-			return domainModelElement.getUid();
+			return domainModelElement.getNickname();
 		} else {
 			DomainDiagramEditorPlugin.getInstance().logError(
 					"No domain element for view with visualID = " + 1603012); //$NON-NLS-1$
@@ -578,7 +578,7 @@ public class DomainNavigatorLabelProvider extends LabelProvider implements
 	private String getOutputText_1603014Text(View view) {
 		OutputText domainModelElement = (OutputText) view.getElement();
 		if (domainModelElement != null) {
-			return domainModelElement.getUid();
+			return domainModelElement.getNickname();
 		} else {
 			DomainDiagramEditorPlugin.getInstance().logError(
 					"No domain element for view with visualID = " + 1603014); //$NON-NLS-1$
@@ -592,7 +592,7 @@ public class DomainNavigatorLabelProvider extends LabelProvider implements
 	private String getCheckBox_1603015Text(View view) {
 		CheckBox domainModelElement = (CheckBox) view.getElement();
 		if (domainModelElement != null) {
-			return domainModelElement.getUid();
+			return domainModelElement.getNickname();
 		} else {
 			DomainDiagramEditorPlugin.getInstance().logError(
 					"No domain element for view with visualID = " + 1603015); //$NON-NLS-1$

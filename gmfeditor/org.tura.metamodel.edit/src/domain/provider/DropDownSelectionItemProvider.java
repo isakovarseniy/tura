@@ -120,7 +120,7 @@ public class DropDownSelectionItemProvider
   @Override
   public String getText(Object object)
   {
-    String label = ((DropDownSelection)object).getUid();
+    String label = ((DropDownSelection)object).getNickname();
     return label == null || label.length() == 0 ?
       getString("_UI_DropDownSelection_type") :
       getString("_UI_DropDownSelection_type") + " " + label;

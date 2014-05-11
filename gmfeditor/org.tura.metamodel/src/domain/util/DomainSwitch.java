@@ -55,6 +55,7 @@ import domain.EJBService;
 import domain.EnterpriseInfrastructure;
 import domain.EnumAttribute;
 import domain.Enumarator;
+import domain.EventRefreshArea;
 import domain.ExpressionPart;
 import domain.Form;
 import domain.FormDataControls;
@@ -989,6 +990,13 @@ public class DomainSwitch<T> extends Switch<T>
       {
         StyleElement styleElement = (StyleElement)theEObject;
         T result = caseStyleElement(styleElement);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DomainPackage.EVENT_REFRESH_AREA:
+      {
+        EventRefreshArea eventRefreshArea = (EventRefreshArea)theEObject;
+        T result = caseEventRefreshArea(eventRefreshArea);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -3069,6 +3077,22 @@ public class DomainSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseStyleElement(StyleElement object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Event Refresh Area</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Event Refresh Area</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseEventRefreshArea(EventRefreshArea object)
   {
     return null;
   }

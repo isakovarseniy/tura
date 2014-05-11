@@ -83,7 +83,7 @@ public class InputTextItemProvider
   @Override
   public String getText(Object object)
   {
-    String label = ((InputText)object).getUid();
+    String label = ((InputText)object).getNickname();
     return label == null || label.length() == 0 ?
       getString("_UI_InputText_type") :
       getString("_UI_InputText_type") + " " + label;

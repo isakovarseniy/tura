@@ -110,7 +110,7 @@ public class LabelItemProvider
   @Override
   public String getText(Object object)
   {
-    String label = ((Label)object).getUid();
+    String label = ((Label)object).getNickname();
     return label == null || label.length() == 0 ?
       getString("_UI_Label_type") :
       getString("_UI_Label_type") + " " + label;

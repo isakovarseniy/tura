@@ -2,6 +2,8 @@
  */
 package domain;
 
+import org.eclipse.emf.common.util.EList;
+
 
 /**
  * <!-- begin-user-doc -->
@@ -12,9 +14,11 @@ package domain;
  * The following features are supported:
  * <ul>
  *   <li>{@link domain.Uielement#getUid <em>Uid</em>}</li>
+ *   <li>{@link domain.Uielement#getNickname <em>Nickname</em>}</li>
  *   <li>{@link domain.Uielement#getEnabledContext <em>Enabled Context</em>}</li>
  *   <li>{@link domain.Uielement#getRequiredContext <em>Required Context</em>}</li>
  *   <li>{@link domain.Uielement#getReadOnlyContext <em>Read Only Context</em>}</li>
+ *   <li>{@link domain.Uielement#getOnEventRefreshArea <em>On Event Refresh Area</em>}</li>
  * </ul>
  * </p>
  *
@@ -49,6 +53,32 @@ public interface Uielement extends StyleElement
    * @generated
    */
   void setUid(String value);
+
+  /**
+   * Returns the value of the '<em><b>Nickname</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Nickname</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Nickname</em>' attribute.
+   * @see #setNickname(String)
+   * @see domain.DomainPackage#getUielement_Nickname()
+   * @model
+   * @generated
+   */
+  String getNickname();
+
+  /**
+   * Sets the value of the '{@link domain.Uielement#getNickname <em>Nickname</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Nickname</em>' attribute.
+   * @see #getNickname()
+   * @generated
+   */
+  void setNickname(String value);
 
   /**
    * Returns the value of the '<em><b>Enabled Context</b></em>' containment reference.
@@ -127,5 +157,21 @@ public interface Uielement extends StyleElement
    * @generated
    */
   void setReadOnlyContext(Context value);
+
+  /**
+   * Returns the value of the '<em><b>On Event Refresh Area</b></em>' containment reference list.
+   * The list contents are of type {@link domain.EventRefreshArea}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>On Event Refresh Area</em>' containment reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>On Event Refresh Area</em>' containment reference list.
+   * @see domain.DomainPackage#getUielement_OnEventRefreshArea()
+   * @model containment="true"
+   * @generated
+   */
+  EList<EventRefreshArea> getOnEventRefreshArea();
 
 } // Uielement
