@@ -14,6 +14,7 @@ import mapper.diagram.edit.parts.CSSMapperEditPart;
 import mapper.diagram.edit.parts.JavaMapperEditPart;
 import mapper.diagram.edit.parts.JavaScriptMapperEditPart;
 import mapper.diagram.edit.parts.MappersEditPart;
+import mapper.diagram.edit.parts.RoleMapperEditPart;
 import mapper.diagram.part.DomainVisualIDRegistry;
 
 import org.eclipse.core.resources.IFile;
@@ -252,6 +253,11 @@ public class DomainNavigatorContentProvider implements ICommonContentProvider {
 					false));
 			connectedViews = getChildrenByType(Collections.singleton(sv),
 					DomainVisualIDRegistry.getType(CSSMapperEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(Collections.singleton(sv),
+					DomainVisualIDRegistry
+							.getType(RoleMapperEditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
 			return result.toArray();

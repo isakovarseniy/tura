@@ -42,6 +42,7 @@ public class DomainPaletteFactory {
 		paletteContainer.add(createDeploymentComponent2CreationTool());
 		paletteContainer.add(createDeploymentStarStep3CreationTool());
 		paletteContainer.add(createJavaScriptMapper4CreationTool());
+		paletteContainer.add(createRoleMapper5CreationTool());
 		return paletteContainer;
 	}
 
@@ -111,6 +112,17 @@ public class DomainPaletteFactory {
 				Messages.JavaScriptMapper4CreationTool_desc, null, null) {
 		};
 		entry.setId("createJavaScriptMapper4CreationTool"); //$NON-NLS-1$
+		return entry;
+	}
+
+	/**
+	 * @generated
+	 */
+	private ToolEntry createRoleMapper5CreationTool() {
+		ToolEntry entry = new ToolEntry(Messages.RoleMapper5CreationTool_title,
+				Messages.RoleMapper5CreationTool_desc, null, null) {
+		};
+		entry.setId("createRoleMapper5CreationTool"); //$NON-NLS-1$
 		return entry;
 	}
 

@@ -12,6 +12,7 @@ import mapper.diagram.edit.parts.CSSMapperEditPart;
 import mapper.diagram.edit.parts.JavaMapperEditPart;
 import mapper.diagram.edit.parts.JavaScriptMapperEditPart;
 import mapper.diagram.edit.parts.MappersEditPart;
+import mapper.diagram.edit.parts.RoleMapperEditPart;
 import mapper.diagram.part.DomainDiagramEditorPlugin;
 
 import org.eclipse.core.runtime.IAdaptable;
@@ -69,6 +70,11 @@ public class DomainElementTypes {
 	 * @generated
 	 */
 	public static final IElementType CSSMapper_402004 = getElementType("org.tura.metamodel.diagram.mapper.CSSMapper_402004"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType RoleMapper_402005 = getElementType("org.tura.metamodel.diagram.mapper.RoleMapper_402005"); //$NON-NLS-1$
 
 	/**
 	 * @generated
@@ -191,6 +197,9 @@ public class DomainElementTypes {
 
 			elements.put(CSSMapper_402004,
 					DomainPackage.eINSTANCE.getCSSMapper());
+
+			elements.put(RoleMapper_402005,
+					DomainPackage.eINSTANCE.getRoleMapper());
 		}
 		return (ENamedElement) elements.get(type);
 	}
@@ -212,6 +221,7 @@ public class DomainElementTypes {
 			KNOWN_ELEMENT_TYPES.add(JavaMapper_402001);
 			KNOWN_ELEMENT_TYPES.add(JavaScriptMapper_402003);
 			KNOWN_ELEMENT_TYPES.add(CSSMapper_402004);
+			KNOWN_ELEMENT_TYPES.add(RoleMapper_402005);
 		}
 		return KNOWN_ELEMENT_TYPES.contains(elementType);
 	}
@@ -229,6 +239,8 @@ public class DomainElementTypes {
 			return JavaScriptMapper_402003;
 		case CSSMapperEditPart.VISUAL_ID:
 			return CSSMapper_402004;
+		case RoleMapperEditPart.VISUAL_ID:
+			return RoleMapper_402005;
 		}
 		return null;
 	}

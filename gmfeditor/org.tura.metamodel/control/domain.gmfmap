@@ -22,7 +22,7 @@
       </labelMappings>
       <tool
           xsi:type="gmftool:CreationTool"
-          href="domain.gmftool#//@palette/@tools.0/@tools.16"/>
+          href="domain.gmftool#//@palette/@tools.0/@tools.17"/>
       <diagramNode
           href="domain.gmfgraph#Root"/>
       <children
@@ -256,7 +256,7 @@
           </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
-              href="domain.gmftool#//@palette/@tools.0/@tools.18"/>
+              href="domain.gmftool#//@palette/@tools.0/@tools.19"/>
           <diagramNode
               href="domain.gmfgraph#UpdateTrigger"/>
         </ownedChild>
@@ -298,7 +298,7 @@
           </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
-              href="domain.gmftool#//@palette/@tools.0/@tools.17"/>
+              href="domain.gmftool#//@palette/@tools.0/@tools.18"/>
           <diagramNode
               href="domain.gmfgraph#SearchTrigger"/>
         </ownedChild>

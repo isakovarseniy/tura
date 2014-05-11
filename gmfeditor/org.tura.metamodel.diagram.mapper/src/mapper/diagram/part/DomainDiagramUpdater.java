@@ -13,6 +13,7 @@ import mapper.diagram.edit.parts.JavaMapperEditPart;
 import mapper.diagram.edit.parts.JavaScriptMapperEditPart;
 import mapper.diagram.edit.parts.MappersEditPart;
 
+import mapper.diagram.edit.parts.RoleMapperEditPart;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.gmf.tooling.runtime.update.DiagramUpdater;
 
@@ -70,6 +71,10 @@ public class DomainDiagramUpdater {
 				result.add(new DomainNodeDescriptor(childElement, visualID));
 				continue;
 			}
+			if (visualID == RoleMapperEditPart.VISUAL_ID) {
+				result.add(new DomainNodeDescriptor(childElement, visualID));
+				continue;
+			}
 		}
 		return result;
 	}
@@ -87,6 +92,8 @@ public class DomainDiagramUpdater {
 			return getJavaScriptMapper_402003ContainedLinks(view);
 		case CSSMapperEditPart.VISUAL_ID:
 			return getCSSMapper_402004ContainedLinks(view);
+		case RoleMapperEditPart.VISUAL_ID:
+			return getRoleMapper_402005ContainedLinks(view);
 		}
 		return Collections.emptyList();
 	}
@@ -102,6 +109,8 @@ public class DomainDiagramUpdater {
 			return getJavaScriptMapper_402003IncomingLinks(view);
 		case CSSMapperEditPart.VISUAL_ID:
 			return getCSSMapper_402004IncomingLinks(view);
+		case RoleMapperEditPart.VISUAL_ID:
+			return getRoleMapper_402005IncomingLinks(view);
 		}
 		return Collections.emptyList();
 	}
@@ -117,6 +126,8 @@ public class DomainDiagramUpdater {
 			return getJavaScriptMapper_402003OutgoingLinks(view);
 		case CSSMapperEditPart.VISUAL_ID:
 			return getCSSMapper_402004OutgoingLinks(view);
+		case RoleMapperEditPart.VISUAL_ID:
+			return getRoleMapper_402005OutgoingLinks(view);
 		}
 		return Collections.emptyList();
 	}
@@ -156,6 +167,14 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
+	public static List<DomainLinkDescriptor> getRoleMapper_402005ContainedLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
 	public static List<DomainLinkDescriptor> getJavaMapper_402001IncomingLinks(
 			View view) {
 		return Collections.emptyList();
@@ -180,6 +199,14 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
+	public static List<DomainLinkDescriptor> getRoleMapper_402005IncomingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
 	public static List<DomainLinkDescriptor> getJavaMapper_402001OutgoingLinks(
 			View view) {
 		return Collections.emptyList();
@@ -197,6 +224,14 @@ public class DomainDiagramUpdater {
 	 * @generated
 	 */
 	public static List<DomainLinkDescriptor> getCSSMapper_402004OutgoingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<DomainLinkDescriptor> getRoleMapper_402005OutgoingLinks(
 			View view) {
 		return Collections.emptyList();
 	}

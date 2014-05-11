@@ -351,22 +351,32 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String Table11CreationTool_title;
+	public static String RoleMapper11CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Table11CreationTool_desc;
+	public static String RoleMapper11CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String Tree12CreationTool_title;
+	public static String Table12CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Tree12CreationTool_desc;
+	public static String Table12CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String Tree13CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String Tree13CreationTool_desc;
 
 	/**
 	 * @generated

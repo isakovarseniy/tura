@@ -1198,6 +1198,10 @@
             genNodes="//@diagram/@childNodes.6"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
+            title="RoleMapper"
+            description="Create new RoleMapper"/>
+        <entries
+            xsi:type="gmfgen:ToolEntry"
             title="Root"
             description="Create new Root"
             genNodes="//@diagram/@topLevelNodes.0"/>

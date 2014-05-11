@@ -11,6 +11,8 @@ import mapper.diagram.edit.parts.JavaScriptMapperEditPart;
 import mapper.diagram.edit.parts.JavaScriptMapperFakePackageNameFakeTypeEditPart;
 import mapper.diagram.edit.parts.MappersEditPart;
 
+import mapper.diagram.edit.parts.RoleMapperEditPart;
+import mapper.diagram.edit.parts.RoleMapperFakeRoleNameEditPart;
 import org.eclipse.core.runtime.Platform;
 import org.eclipse.emf.ecore.EAnnotation;
 import org.eclipse.emf.ecore.EObject;
@@ -142,6 +144,10 @@ public class DomainVisualIDRegistry {
 					domainElement.eClass())) {
 				return CSSMapperEditPart.VISUAL_ID;
 			}
+			if (DomainPackage.eINSTANCE.getRoleMapper().isSuperTypeOf(
+					domainElement.eClass())) {
+				return RoleMapperEditPart.VISUAL_ID;
+			}
 			break;
 		}
 		return -1;
@@ -179,6 +185,9 @@ public class DomainVisualIDRegistry {
 			if (CSSMapperEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
+			if (RoleMapperEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
 			break;
 		case JavaMapperEditPart.VISUAL_ID:
 			if (JavaMapperFakePackageNameFakeTypeEditPart.VISUAL_ID == nodeVisualID) {
@@ -192,6 +201,11 @@ public class DomainVisualIDRegistry {
 			break;
 		case CSSMapperEditPart.VISUAL_ID:
 			if (CSSMapperFakePackageNameFakeTypeEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case RoleMapperEditPart.VISUAL_ID:
+			if (RoleMapperFakeRoleNameEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -249,6 +263,7 @@ public class DomainVisualIDRegistry {
 		case JavaMapperEditPart.VISUAL_ID:
 		case JavaScriptMapperEditPart.VISUAL_ID:
 		case CSSMapperEditPart.VISUAL_ID:
+		case RoleMapperEditPart.VISUAL_ID:
 			return true;
 		default:
 			break;

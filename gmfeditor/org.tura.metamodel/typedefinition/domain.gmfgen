@@ -535,6 +535,10 @@
             genNodes="//@diagram/@topLevelNodes.1"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
+            title="RoleMapper"
+            description="Create new RoleMapper"/>
+        <entries
+            xsi:type="gmfgen:ToolEntry"
             title="Type"
             description="Create new Type"
             genNodes="//@diagram/@topLevelNodes.2"/>

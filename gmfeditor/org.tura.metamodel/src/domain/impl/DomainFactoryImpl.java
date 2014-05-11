@@ -108,6 +108,7 @@ import domain.Recipes;
 import domain.Relation;
 import domain.ReturnValue;
 import domain.Role;
+import domain.RoleMapper;
 import domain.Roles;
 import domain.Root;
 import domain.Router;
@@ -256,6 +257,7 @@ public class DomainFactoryImpl extends EFactoryImpl implements DomainFactory
       case DomainPackage.JAVA_MAPPER: return createJavaMapper();
       case DomainPackage.JAVA_SCRIPT_MAPPER: return createJavaScriptMapper();
       case DomainPackage.CSS_MAPPER: return createCSSMapper();
+      case DomainPackage.ROLE_MAPPER: return createRoleMapper();
       case DomainPackage.RECIPES: return createRecipes();
       case DomainPackage.DEPLOYMENT_SEQUENCE: return createDeploymentSequence();
       case DomainPackage.DEPLOYMENT_COMPONENTS: return createDeploymentComponents();
@@ -852,6 +854,17 @@ public class DomainFactoryImpl extends EFactoryImpl implements DomainFactory
   {
     CSSMapperImpl cssMapper = new CSSMapperImpl();
     return cssMapper;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public RoleMapper createRoleMapper()
+  {
+    RoleMapperImpl roleMapper = new RoleMapperImpl();
+    return roleMapper;
   }
 
   /**

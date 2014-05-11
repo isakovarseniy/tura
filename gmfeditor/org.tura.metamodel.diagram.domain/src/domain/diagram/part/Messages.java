@@ -361,6 +361,16 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
+	public static String RoleMapper12CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String RoleMapper12CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
 	public static String DomainArtifactsDomainArtifactsDomainArtifactCompartmentEditPart_title;
 
 	/**

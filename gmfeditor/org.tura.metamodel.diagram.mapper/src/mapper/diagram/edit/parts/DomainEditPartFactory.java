@@ -45,6 +45,12 @@ public class DomainEditPartFactory implements EditPartFactory {
 
 			case CSSMapperFakePackageNameFakeTypeEditPart.VISUAL_ID:
 				return new CSSMapperFakePackageNameFakeTypeEditPart(view);
+
+			case RoleMapperEditPart.VISUAL_ID:
+				return new RoleMapperEditPart(view);
+
+			case RoleMapperFakeRoleNameEditPart.VISUAL_ID:
+				return new RoleMapperFakeRoleNameEditPart(view);
 			}
 		}
 		return createUnrecognizedEditPart(context, model);

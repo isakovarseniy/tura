@@ -335,6 +335,10 @@
             genNodes="//@diagram/@childNodes.1"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
+            title="RoleMapper"
+            description="Create new RoleMapper"/>
+        <entries
+            xsi:type="gmfgen:ToolEntry"
             title="Specifier"
             description="Create new Specifier"
             genNodes="//@diagram/@childNodes.2"/>

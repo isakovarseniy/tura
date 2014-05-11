@@ -232,6 +232,10 @@
             description="Create new Role"
             smallIconPath="/org.tura.metamodel.commons/icons/role.png"
             genNodes="//@diagram/@topLevelNodes.0"/>
+        <entries
+            xsi:type="gmfgen:ToolEntry"
+            title="RoleMapper"
+            description="Create new RoleMapper"/>
       </groups>
       <groups
           title="Connections"

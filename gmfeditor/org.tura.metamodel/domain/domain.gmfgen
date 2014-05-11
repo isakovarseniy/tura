@@ -630,6 +630,10 @@
             title="ORMEntity"
             description="Create new ORMEntity"
             genNodes="//@diagram/@childNodes.0"/>
+        <entries
+            xsi:type="gmfgen:ToolEntry"
+            title="RoleMapper"
+            description="Create new RoleMapper"/>
       </groups>
     </palette>
     <preferencePages

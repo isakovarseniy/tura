@@ -39,7 +39,8 @@ public class DomainPaletteFactory {
 		paletteContainer.add(createCSSMapper1CreationTool());
 		paletteContainer.add(createJavaScriptMapper2CreationTool());
 		paletteContainer.add(createPackage3CreationTool());
-		paletteContainer.add(createTypes4CreationTool());
+		paletteContainer.add(createRoleMapper4CreationTool());
+		paletteContainer.add(createTypes5CreationTool());
 		return paletteContainer;
 	}
 
@@ -84,12 +85,23 @@ public class DomainPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createTypes4CreationTool() {
+	private ToolEntry createRoleMapper4CreationTool() {
+		ToolEntry entry = new ToolEntry(Messages.RoleMapper4CreationTool_title,
+				Messages.RoleMapper4CreationTool_desc, null, null) {
+		};
+		entry.setId("createRoleMapper4CreationTool"); //$NON-NLS-1$
+		return entry;
+	}
+
+	/**
+	 * @generated
+	 */
+	private ToolEntry createTypes5CreationTool() {
 		NodeToolEntry entry = new NodeToolEntry(
-				Messages.Types4CreationTool_title,
-				Messages.Types4CreationTool_desc,
+				Messages.Types5CreationTool_title,
+				Messages.Types5CreationTool_desc,
 				Collections.singletonList(DomainElementTypes.Types_202001));
-		entry.setId("createTypes4CreationTool"); //$NON-NLS-1$
+		entry.setId("createTypes5CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(DomainElementTypes
 				.getImageDescriptor(DomainElementTypes.Types_202001));
 		entry.setLargeIcon(entry.getSmallIcon());

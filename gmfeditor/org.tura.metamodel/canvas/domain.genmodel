@@ -223,6 +223,12 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//CSSMapper/fakePackageName"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//CSSMapper/fakeTypeName"/>
     </genClasses>
+    <genClasses ecoreClass="domain.ecore#//RoleMapper">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference domain.ecore#//RoleMapper/role"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//RoleMapper/localRoleName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//RoleMapper/globalRoleName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//RoleMapper/fakeRoleName"/>
+    </genClasses>
     <genClasses ecoreClass="domain.ecore#//Recipes">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//Recipes/uid"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//Recipes/recipe"/>

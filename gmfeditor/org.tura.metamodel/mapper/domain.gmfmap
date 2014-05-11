@@ -71,6 +71,26 @@
           href="domain.gmfgraph#CSSMapper"/>
     </ownedChild>
   </nodes>
+  <nodes>
+    <containmentFeature
+        href="domain.ecore#//Mappers/mappers"/>
+    <ownedChild>
+      <domainMetaElement
+          href="domain.ecore#//RoleMapper"/>
+      <labelMappings
+          xsi:type="gmfmap:FeatureLabelMapping">
+        <diagramLabel
+            href="domain.gmfgraph#RoleMapperLabel"/>
+        <features
+            href="domain.ecore#//RoleMapper/fakeRoleName"/>
+      </labelMappings>
+      <tool
+          xsi:type="gmftool:CreationTool"
+          href="domain.gmftool#//@palette/@tools.0/@tools.3"/>
+      <diagramNode
+          href="domain.gmfgraph#RoleMapper"/>
+    </ownedChild>
+  </nodes>
   <diagram>
     <diagramCanvas
         href="domain.gmfgraph#domain"/>

@@ -1099,6 +1099,31 @@ public class DomainItemProviderAdapterFactory extends DomainAdapterFactory imple
   }
 
   /**
+   * This keeps track of the one adapter used for all {@link domain.RoleMapper} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected RoleMapperItemProvider roleMapperItemProvider;
+
+  /**
+   * This creates an adapter for a {@link domain.RoleMapper}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createRoleMapperAdapter()
+  {
+    if (roleMapperItemProvider == null)
+    {
+      roleMapperItemProvider = new RoleMapperItemProvider(this);
+    }
+
+    return roleMapperItemProvider;
+  }
+
+  /**
    * This keeps track of the one adapter used for all {@link domain.Recipes} instances.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -3950,6 +3975,7 @@ public class DomainItemProviderAdapterFactory extends DomainAdapterFactory imple
     if (javaMapperItemProvider != null) javaMapperItemProvider.dispose();
     if (javaScriptMapperItemProvider != null) javaScriptMapperItemProvider.dispose();
     if (cssMapperItemProvider != null) cssMapperItemProvider.dispose();
+    if (roleMapperItemProvider != null) roleMapperItemProvider.dispose();
     if (recipesItemProvider != null) recipesItemProvider.dispose();
     if (deploymentSequenceItemProvider != null) deploymentSequenceItemProvider.dispose();
     if (deploymentComponentsItemProvider != null) deploymentComponentsItemProvider.dispose();

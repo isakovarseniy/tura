@@ -47,6 +47,7 @@ public class DomainPaletteFactory {
 		paletteContainer.add(createJPAService9CreationTool());
 		paletteContainer.add(createJavaScriptMapper10CreationTool());
 		paletteContainer.add(createORMEntity11CreationTool());
+		paletteContainer.add(createRoleMapper12CreationTool());
 		return paletteContainer;
 	}
 
@@ -211,6 +212,18 @@ public class DomainPaletteFactory {
 		entry.setSmallIcon(DomainElementTypes
 				.getImageDescriptor(DomainElementTypes.ORMEntity_503003));
 		entry.setLargeIcon(entry.getSmallIcon());
+		return entry;
+	}
+
+	/**
+	 * @generated
+	 */
+	private ToolEntry createRoleMapper12CreationTool() {
+		ToolEntry entry = new ToolEntry(
+				Messages.RoleMapper12CreationTool_title,
+				Messages.RoleMapper12CreationTool_desc, null, null) {
+		};
+		entry.setId("createRoleMapper12CreationTool"); //$NON-NLS-1$
 		return entry;
 	}
 

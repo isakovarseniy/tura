@@ -138,7 +138,7 @@
           </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
-              href="domain.gmftool#//@palette/@tools.0/@tools.10"/>
+              href="domain.gmftool#//@palette/@tools.0/@tools.11"/>
           <diagramNode
               href="domain.gmfgraph#Table"/>
           <children
@@ -245,7 +245,7 @@
           </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
-              href="domain.gmftool#//@palette/@tools.0/@tools.11"/>
+              href="domain.gmftool#//@palette/@tools.0/@tools.12"/>
           <diagramNode
               href="domain.gmfgraph#Tree"/>
         </ownedChild>

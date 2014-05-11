@@ -361,12 +361,22 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String StylesPackage12CreationTool_title;
+	public static String RoleMapper12CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String StylesPackage12CreationTool_desc;
+	public static String RoleMapper12CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String StylesPackage13CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String StylesPackage13CreationTool_desc;
 
 	/**
 	 * @generated

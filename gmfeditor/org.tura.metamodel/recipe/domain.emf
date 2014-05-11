@@ -316,6 +316,7 @@ class JavaMapper extends TypeMapper{
 }
 
 
+
 @gmf.node(label="fakePackageName,fakeTypeName",border.color="0,0,0",color="47,180,155")
 class JavaScriptMapper extends TypeMapper{
    attr EString libraryUrl;
@@ -333,6 +334,16 @@ class CSSMapper extends Mapper{
 
 }
 
+@gmf.node(label="fakeRoleName",border.color="0,0,0",color="246,148,52")
+class RoleMapper extends Mapper{
+     ref EObject role;
+     attr EString localRoleName;
+     attr EString globalRoleName;
+        
+  // To support display label
+  attr EString fakeRoleName;
+   
+}
 
 
 @gmf.diagram

@@ -6,6 +6,7 @@ package mapper.diagram.providers;
 import mapper.diagram.edit.parts.CSSMapperFakePackageNameFakeTypeEditPart;
 import mapper.diagram.edit.parts.JavaMapperFakePackageNameFakeTypeEditPart;
 import mapper.diagram.edit.parts.JavaScriptMapperFakePackageNameFakeTypeEditPart;
+import mapper.diagram.edit.parts.RoleMapperFakeRoleNameEditPart;
 import mapper.diagram.parsers.MessageFormatParser;
 import mapper.diagram.part.DomainVisualIDRegistry;
 
@@ -90,6 +91,24 @@ public class DomainParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
+	private IParser roleMapperFakeRoleName_405005Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getRoleMapperFakeRoleName_405005Parser() {
+		if (roleMapperFakeRoleName_405005Parser == null) {
+			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE
+					.getRoleMapper_FakeRoleName() };
+			MessageFormatParser parser = new MessageFormatParser(features);
+			roleMapperFakeRoleName_405005Parser = parser;
+		}
+		return roleMapperFakeRoleName_405005Parser;
+	}
+
+	/**
+	 * @generated
+	 */
 	protected IParser getParser(int visualID) {
 		switch (visualID) {
 		case JavaMapperFakePackageNameFakeTypeEditPart.VISUAL_ID:
@@ -98,6 +117,8 @@ public class DomainParserProvider extends AbstractProvider implements
 			return getJavaScriptMapperFakePackageNameFakeTypeName_405003Parser();
 		case CSSMapperFakePackageNameFakeTypeEditPart.VISUAL_ID:
 			return getCSSMapperFakePackageNameFakeTypeName_405004Parser();
+		case RoleMapperFakeRoleNameEditPart.VISUAL_ID:
+			return getRoleMapperFakeRoleName_405005Parser();
 		}
 		return null;
 	}

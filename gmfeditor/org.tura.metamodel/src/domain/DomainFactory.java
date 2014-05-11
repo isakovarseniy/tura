@@ -392,6 +392,15 @@ public interface DomainFactory extends EFactory
   CSSMapper createCSSMapper();
 
   /**
+   * Returns a new object of class '<em>Role Mapper</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Role Mapper</em>'.
+   * @generated
+   */
+  RoleMapper createRoleMapper();
+
+  /**
    * Returns a new object of class '<em>Recipes</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

@@ -321,6 +321,16 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
+	public static String RoleMapper8CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String RoleMapper8CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
 	public static String FormFormViewCompartmentEditPart_title;
 
 	/**

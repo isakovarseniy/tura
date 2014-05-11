@@ -301,12 +301,22 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String Specifier6CreationTool_title;
+	public static String RoleMapper6CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Specifier6CreationTool_desc;
+	public static String RoleMapper6CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String Specifier7CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String Specifier7CreationTool_desc;
 
 	/**
 	 * @generated

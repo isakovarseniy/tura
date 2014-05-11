@@ -209,6 +209,14 @@
       
           <propertySection
                tab="property.tab.domain.typeReference"
+               class="org.metamodel.tura.ui.properties.sections.dropdown.RolePropertySelection"
+               id="org.tura.metamodel.mapper.role">
+              <input type="mapper.diagram.edit.parts.RoleMapperEditPart"/>
+         </propertySection>        
+
+
+          <propertySection
+               tab="property.tab.domain.typeReference"
                class="org.metamodel.tura.ui.properties.sections.dropdown.StylesPackagePropertySelection"
                id="org.tura.metamodel.mapper.stylepackage">
               <input type="mapper.diagram.edit.parts.CSSMapperEditPart"/>

@@ -326,22 +326,32 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String Type8CreationTool_title;
+	public static String RoleMapper8CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Type8CreationTool_desc;
+	public static String RoleMapper8CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String TypeReference9CreationTool_title;
+	public static String Type9CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String TypeReference9CreationTool_desc;
+	public static String Type9CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String TypeReference10CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String TypeReference10CreationTool_desc;
 
 	/**
 	 * @generated

@@ -106,6 +106,7 @@ import domain.Recipes;
 import domain.Relation;
 import domain.ReturnValue;
 import domain.Role;
+import domain.RoleMapper;
 import domain.Roles;
 import domain.Root;
 import domain.Router;
@@ -426,6 +427,11 @@ public class DomainAdapterFactory extends AdapterFactoryImpl
       public Adapter caseCSSMapper(CSSMapper object)
       {
         return createCSSMapperAdapter();
+      }
+      @Override
+      public Adapter caseRoleMapper(RoleMapper object)
+      {
+        return createRoleMapperAdapter();
       }
       @Override
       public Adapter caseRecipes(Recipes object)
@@ -1600,6 +1606,21 @@ public class DomainAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createCSSMapperAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link domain.RoleMapper <em>Role Mapper</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see domain.RoleMapper
+   * @generated
+   */
+  public Adapter createRoleMapperAdapter()
   {
     return null;
   }

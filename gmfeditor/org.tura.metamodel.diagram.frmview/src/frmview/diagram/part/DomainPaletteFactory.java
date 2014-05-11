@@ -43,12 +43,13 @@ public class DomainPaletteFactory {
 		paletteContainer.add(createCSSMapper3CreationTool());
 		paletteContainer.add(createCanvas4CreationTool());
 		paletteContainer.add(createJavaScriptMapper5CreationTool());
-		paletteContainer.add(createTabCanvas6CreationTool());
-		paletteContainer.add(createTabPage7CreationTool());
-		paletteContainer.add(createViewArea8CreationTool());
-		paletteContainer.add(createViewPort9CreationTool());
-		paletteContainer.add(createViewPortTrigger10CreationTool());
-		paletteContainer.add(createWindow11CreationTool());
+		paletteContainer.add(createRoleMapper6CreationTool());
+		paletteContainer.add(createTabCanvas7CreationTool());
+		paletteContainer.add(createTabPage8CreationTool());
+		paletteContainer.add(createViewArea9CreationTool());
+		paletteContainer.add(createViewPort10CreationTool());
+		paletteContainer.add(createViewPortTrigger11CreationTool());
+		paletteContainer.add(createWindow12CreationTool());
 		return paletteContainer;
 	}
 
@@ -130,12 +131,23 @@ public class DomainPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createTabCanvas6CreationTool() {
+	private ToolEntry createRoleMapper6CreationTool() {
+		ToolEntry entry = new ToolEntry(Messages.RoleMapper6CreationTool_title,
+				Messages.RoleMapper6CreationTool_desc, null, null) {
+		};
+		entry.setId("createRoleMapper6CreationTool"); //$NON-NLS-1$
+		return entry;
+	}
+
+	/**
+	 * @generated
+	 */
+	private ToolEntry createTabCanvas7CreationTool() {
 		NodeToolEntry entry = new NodeToolEntry(
-				Messages.TabCanvas6CreationTool_title,
-				Messages.TabCanvas6CreationTool_desc,
+				Messages.TabCanvas7CreationTool_title,
+				Messages.TabCanvas7CreationTool_desc,
 				Collections.singletonList(DomainElementTypes.TabCanvas_1302008));
-		entry.setId("createTabCanvas6CreationTool"); //$NON-NLS-1$
+		entry.setId("createTabCanvas7CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(DomainElementTypes
 				.getImageDescriptor(DomainElementTypes.TabCanvas_1302008));
 		entry.setLargeIcon(entry.getSmallIcon());
@@ -145,12 +157,12 @@ public class DomainPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createTabPage7CreationTool() {
+	private ToolEntry createTabPage8CreationTool() {
 		NodeToolEntry entry = new NodeToolEntry(
-				Messages.TabPage7CreationTool_title,
-				Messages.TabPage7CreationTool_desc,
+				Messages.TabPage8CreationTool_title,
+				Messages.TabPage8CreationTool_desc,
 				Collections.singletonList(DomainElementTypes.TabPage_1302002));
-		entry.setId("createTabPage7CreationTool"); //$NON-NLS-1$
+		entry.setId("createTabPage8CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(DomainElementTypes
 				.getImageDescriptor(DomainElementTypes.TabPage_1302002));
 		entry.setLargeIcon(entry.getSmallIcon());
@@ -160,12 +172,12 @@ public class DomainPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createViewArea8CreationTool() {
+	private ToolEntry createViewArea9CreationTool() {
 		NodeToolEntry entry = new NodeToolEntry(
-				Messages.ViewArea8CreationTool_title,
-				Messages.ViewArea8CreationTool_desc,
+				Messages.ViewArea9CreationTool_title,
+				Messages.ViewArea9CreationTool_desc,
 				Collections.singletonList(DomainElementTypes.ViewArea_1303005));
-		entry.setId("createViewArea8CreationTool"); //$NON-NLS-1$
+		entry.setId("createViewArea9CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(DomainElementTypes
 				.getImageDescriptor(DomainElementTypes.ViewArea_1303005));
 		entry.setLargeIcon(entry.getSmallIcon());
@@ -175,12 +187,12 @@ public class DomainPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createViewPort9CreationTool() {
+	private ToolEntry createViewPort10CreationTool() {
 		NodeToolEntry entry = new NodeToolEntry(
-				Messages.ViewPort9CreationTool_title,
-				Messages.ViewPort9CreationTool_desc,
+				Messages.ViewPort10CreationTool_title,
+				Messages.ViewPort10CreationTool_desc,
 				Collections.singletonList(DomainElementTypes.ViewPort_1303004));
-		entry.setId("createViewPort9CreationTool"); //$NON-NLS-1$
+		entry.setId("createViewPort10CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(DomainElementTypes
 				.getImageDescriptor(DomainElementTypes.ViewPort_1303004));
 		entry.setLargeIcon(entry.getSmallIcon());
@@ -190,13 +202,13 @@ public class DomainPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createViewPortTrigger10CreationTool() {
+	private ToolEntry createViewPortTrigger11CreationTool() {
 		NodeToolEntry entry = new NodeToolEntry(
-				Messages.ViewPortTrigger10CreationTool_title,
-				Messages.ViewPortTrigger10CreationTool_desc,
+				Messages.ViewPortTrigger11CreationTool_title,
+				Messages.ViewPortTrigger11CreationTool_desc,
 				Collections
 						.singletonList(DomainElementTypes.ViewPortTrigger_1303002));
-		entry.setId("createViewPortTrigger10CreationTool"); //$NON-NLS-1$
+		entry.setId("createViewPortTrigger11CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(DomainElementTypes
 				.getImageDescriptor(DomainElementTypes.ViewPortTrigger_1303002));
 		entry.setLargeIcon(entry.getSmallIcon());
@@ -206,12 +218,12 @@ public class DomainPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createWindow11CreationTool() {
+	private ToolEntry createWindow12CreationTool() {
 		NodeToolEntry entry = new NodeToolEntry(
-				Messages.Window11CreationTool_title,
-				Messages.Window11CreationTool_desc,
+				Messages.Window12CreationTool_title,
+				Messages.Window12CreationTool_desc,
 				Collections.singletonList(DomainElementTypes.Window_1302007));
-		entry.setId("createWindow11CreationTool"); //$NON-NLS-1$
+		entry.setId("createWindow12CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(DomainElementTypes
 				.getImageDescriptor(DomainElementTypes.Window_1302007));
 		entry.setLargeIcon(entry.getSmallIcon());

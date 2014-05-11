@@ -39,6 +39,7 @@ public class DomainPaletteFactory {
 		paletteContainer.add(createCSSMapper1CreationTool());
 		paletteContainer.add(createJavaMapper2CreationTool());
 		paletteContainer.add(createJavaScriptMapper3CreationTool());
+		paletteContainer.add(createRoleMapper4CreationTool());
 		return paletteContainer;
 	}
 
@@ -84,6 +85,21 @@ public class DomainPaletteFactory {
 		entry.setId("createJavaScriptMapper3CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(DomainElementTypes
 				.getImageDescriptor(DomainElementTypes.JavaScriptMapper_402003));
+		entry.setLargeIcon(entry.getSmallIcon());
+		return entry;
+	}
+
+	/**
+	 * @generated
+	 */
+	private ToolEntry createRoleMapper4CreationTool() {
+		NodeToolEntry entry = new NodeToolEntry(
+				Messages.RoleMapper4CreationTool_title,
+				Messages.RoleMapper4CreationTool_desc,
+				Collections.singletonList(DomainElementTypes.RoleMapper_402005));
+		entry.setId("createRoleMapper4CreationTool"); //$NON-NLS-1$
+		entry.setSmallIcon(DomainElementTypes
+				.getImageDescriptor(DomainElementTypes.RoleMapper_402005));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}

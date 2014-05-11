@@ -106,6 +106,7 @@ import domain.Recipes;
 import domain.Relation;
 import domain.ReturnValue;
 import domain.Role;
+import domain.RoleMapper;
 import domain.Roles;
 import domain.Root;
 import domain.Router;
@@ -522,6 +523,14 @@ public class DomainSwitch<T> extends Switch<T>
         CSSMapper cssMapper = (CSSMapper)theEObject;
         T result = caseCSSMapper(cssMapper);
         if (result == null) result = caseMapper(cssMapper);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DomainPackage.ROLE_MAPPER:
+      {
+        RoleMapper roleMapper = (RoleMapper)theEObject;
+        T result = caseRoleMapper(roleMapper);
+        if (result == null) result = caseMapper(roleMapper);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -2068,6 +2077,22 @@ public class DomainSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseCSSMapper(CSSMapper object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Role Mapper</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Role Mapper</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseRoleMapper(RoleMapper object)
   {
     return null;
   }

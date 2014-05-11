@@ -42,6 +42,7 @@ public class DomainPaletteFactory {
 		paletteContainer.add(createGroup2CreationTool());
 		paletteContainer.add(createJavaScriptMapper3CreationTool());
 		paletteContainer.add(createRole4CreationTool());
+		paletteContainer.add(createRoleMapper5CreationTool());
 		return paletteContainer;
 	}
 
@@ -108,6 +109,17 @@ public class DomainPaletteFactory {
 		entry.setSmallIcon(DomainDiagramEditorPlugin
 				.findImageDescriptor("/org.tura.metamodel.commons/icons/role.png")); //$NON-NLS-1$
 		entry.setLargeIcon(entry.getSmallIcon());
+		return entry;
+	}
+
+	/**
+	 * @generated
+	 */
+	private ToolEntry createRoleMapper5CreationTool() {
+		ToolEntry entry = new ToolEntry(Messages.RoleMapper5CreationTool_title,
+				Messages.RoleMapper5CreationTool_desc, null, null) {
+		};
+		entry.setId("createRoleMapper5CreationTool"); //$NON-NLS-1$
 		return entry;
 	}
 

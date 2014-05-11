@@ -794,6 +794,10 @@
             title="Recipe"
             description="Create new Recipe"
             genNodes="//@diagram/@topLevelNodes.0"/>
+        <entries
+            xsi:type="gmfgen:ToolEntry"
+            title="RoleMapper"
+            description="Create new RoleMapper"/>
       </groups>
       <groups
           title="Connections"

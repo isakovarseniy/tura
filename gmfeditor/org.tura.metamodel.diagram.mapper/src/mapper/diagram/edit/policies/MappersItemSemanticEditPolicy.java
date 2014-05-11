@@ -6,6 +6,7 @@ package mapper.diagram.edit.policies;
 import mapper.diagram.edit.commands.CSSMapperCreateCommand;
 import mapper.diagram.edit.commands.JavaMapperCreateCommand;
 import mapper.diagram.edit.commands.JavaScriptMapperCreateCommand;
+import mapper.diagram.edit.commands.RoleMapperCreateCommand;
 import mapper.diagram.providers.DomainElementTypes;
 
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
@@ -40,6 +41,9 @@ public class MappersItemSemanticEditPolicy extends
 		}
 		if (DomainElementTypes.CSSMapper_402004 == req.getElementType()) {
 			return getGEFWrapper(new CSSMapperCreateCommand(req));
+		}
+		if (DomainElementTypes.RoleMapper_402005 == req.getElementType()) {
+			return getGEFWrapper(new RoleMapperCreateCommand(req));
 		}
 		return super.getCreateCommand(req);
 	}

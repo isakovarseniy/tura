@@ -306,62 +306,72 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String TabCanvas6CreationTool_title;
+	public static String RoleMapper6CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String TabCanvas6CreationTool_desc;
+	public static String RoleMapper6CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String TabPage7CreationTool_title;
+	public static String TabCanvas7CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String TabPage7CreationTool_desc;
+	public static String TabCanvas7CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String ViewArea8CreationTool_title;
+	public static String TabPage8CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String ViewArea8CreationTool_desc;
+	public static String TabPage8CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String ViewPort9CreationTool_title;
+	public static String ViewArea9CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String ViewPort9CreationTool_desc;
+	public static String ViewArea9CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String ViewPortTrigger10CreationTool_title;
+	public static String ViewPort10CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String ViewPortTrigger10CreationTool_desc;
+	public static String ViewPort10CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String Window11CreationTool_title;
+	public static String ViewPortTrigger11CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Window11CreationTool_desc;
+	public static String ViewPortTrigger11CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String Window12CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String Window12CreationTool_desc;
 
 	/**
 	 * @generated

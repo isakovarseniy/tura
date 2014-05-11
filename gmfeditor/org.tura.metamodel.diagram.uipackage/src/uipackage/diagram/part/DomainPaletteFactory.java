@@ -43,6 +43,7 @@ public class DomainPaletteFactory {
 		paletteContainer.add(createFormDataControls5CreationTool());
 		paletteContainer.add(createFormView6CreationTool());
 		paletteContainer.add(createJavaScriptMapper7CreationTool());
+		paletteContainer.add(createRoleMapper8CreationTool());
 		return paletteContainer;
 	}
 
@@ -136,6 +137,17 @@ public class DomainPaletteFactory {
 				Messages.JavaScriptMapper7CreationTool_desc, null, null) {
 		};
 		entry.setId("createJavaScriptMapper7CreationTool"); //$NON-NLS-1$
+		return entry;
+	}
+
+	/**
+	 * @generated
+	 */
+	private ToolEntry createRoleMapper8CreationTool() {
+		ToolEntry entry = new ToolEntry(Messages.RoleMapper8CreationTool_title,
+				Messages.RoleMapper8CreationTool_desc, null, null) {
+		};
+		entry.setId("createRoleMapper8CreationTool"); //$NON-NLS-1$
 		return entry;
 	}
 

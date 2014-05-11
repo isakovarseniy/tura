@@ -47,8 +47,9 @@ public class DomainPaletteFactory {
 		paletteContainer.add(createLabel8CreationTool());
 		paletteContainer.add(createLayerHolder9CreationTool());
 		paletteContainer.add(createOutputText10CreationTool());
-		paletteContainer.add(createTable11CreationTool());
-		paletteContainer.add(createTree12CreationTool());
+		paletteContainer.add(createRoleMapper11CreationTool());
+		paletteContainer.add(createTable12CreationTool());
+		paletteContainer.add(createTree13CreationTool());
 		return paletteContainer;
 	}
 
@@ -213,14 +214,26 @@ public class DomainPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createTable11CreationTool() {
+	private ToolEntry createRoleMapper11CreationTool() {
+		ToolEntry entry = new ToolEntry(
+				Messages.RoleMapper11CreationTool_title,
+				Messages.RoleMapper11CreationTool_desc, null, null) {
+		};
+		entry.setId("createRoleMapper11CreationTool"); //$NON-NLS-1$
+		return entry;
+	}
+
+	/**
+	 * @generated
+	 */
+	private ToolEntry createTable12CreationTool() {
 		ArrayList<IElementType> types = new ArrayList<IElementType>(2);
 		types.add(DomainElementTypes.Table_1603008);
 		types.add(DomainElementTypes.Table_1603021);
 		NodeToolEntry entry = new NodeToolEntry(
-				Messages.Table11CreationTool_title,
-				Messages.Table11CreationTool_desc, types);
-		entry.setId("createTable11CreationTool"); //$NON-NLS-1$
+				Messages.Table12CreationTool_title,
+				Messages.Table12CreationTool_desc, types);
+		entry.setId("createTable12CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(DomainDiagramEditorPlugin
 				.findImageDescriptor("/org.tura.metamodel.commons/icons/table.png")); //$NON-NLS-1$
 		entry.setLargeIcon(entry.getSmallIcon());
@@ -230,14 +243,14 @@ public class DomainPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createTree12CreationTool() {
+	private ToolEntry createTree13CreationTool() {
 		ArrayList<IElementType> types = new ArrayList<IElementType>(2);
 		types.add(DomainElementTypes.Tree_1603016);
 		types.add(DomainElementTypes.Tree_1603022);
 		NodeToolEntry entry = new NodeToolEntry(
-				Messages.Tree12CreationTool_title,
-				Messages.Tree12CreationTool_desc, types);
-		entry.setId("createTree12CreationTool"); //$NON-NLS-1$
+				Messages.Tree13CreationTool_title,
+				Messages.Tree13CreationTool_desc, types);
+		entry.setId("createTree13CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(DomainDiagramEditorPlugin
 				.findImageDescriptor("/org.tura.metamodel.commons/icons/tree.png")); //$NON-NLS-1$
 		entry.setLargeIcon(entry.getSmallIcon());

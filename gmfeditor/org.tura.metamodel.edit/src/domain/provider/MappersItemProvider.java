@@ -239,6 +239,11 @@ public class MappersItemProvider
       (createChildParameter
         (DomainPackage.Literals.MAPPERS__MAPPERS,
          DomainFactory.eINSTANCE.createCSSMapper()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (DomainPackage.Literals.MAPPERS__MAPPERS,
+         DomainFactory.eINSTANCE.createRoleMapper()));
   }
 
   /**

@@ -416,32 +416,42 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String Root17CreationTool_title;
+	public static String RoleMapper17CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Root17CreationTool_desc;
+	public static String RoleMapper17CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String SearchTrigger18CreationTool_title;
+	public static String Root18CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String SearchTrigger18CreationTool_desc;
+	public static String Root18CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String UpdateTrigger19CreationTool_title;
+	public static String SearchTrigger19CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String UpdateTrigger19CreationTool_desc;
+	public static String SearchTrigger19CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String UpdateTrigger20CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String UpdateTrigger20CreationTool_desc;
 
 	/**
 	 * @generated
