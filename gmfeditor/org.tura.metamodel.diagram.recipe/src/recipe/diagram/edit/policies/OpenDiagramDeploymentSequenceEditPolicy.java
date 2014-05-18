@@ -154,10 +154,12 @@ public class OpenDiagramDeploymentSequenceEditPolicy extends OpenEditPolicy {
 			obj = sourceObject.getDeploymentComponents
 
 			();
-			if (obj == null)
+			if (obj == null) {
 				obj = DomainFactory.eINSTANCE.createDeploymentComponents()
 
 				;
+				obj.setUid(java.util.UUID.randomUUID().toString());
+			}
 
 			Diagram d = ViewService.createDiagram(obj, getDiagramKind(),
 					getPreferencesHint());

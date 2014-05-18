@@ -154,10 +154,12 @@ public class OpenDiagramDomainArtifactEditPolicy extends OpenEditPolicy {
 			obj = sourceObject.getArtifact
 
 			();
-			if (obj == null)
+			if (obj == null) {
 				obj = DomainFactory.eINSTANCE.createArtifacts()
 
 				;
+				obj.setUid(java.util.UUID.randomUUID().toString());
+			}
 
 			Diagram d = ViewService.createDiagram(obj, getDiagramKind(),
 					getPreferencesHint());

@@ -154,10 +154,12 @@ public class OpenDiagramApplicationMapperEditPolicy extends OpenEditPolicy {
 			obj = sourceObject.getMapper
 
 			();
-			if (obj == null)
+			if (obj == null) {
 				obj = DomainFactory.eINSTANCE.createMappers()
 
 				;
+				obj.setUid(java.util.UUID.randomUUID().toString());
+			}
 
 			Diagram d = ViewService.createDiagram(obj, getDiagramKind(),
 					getPreferencesHint());

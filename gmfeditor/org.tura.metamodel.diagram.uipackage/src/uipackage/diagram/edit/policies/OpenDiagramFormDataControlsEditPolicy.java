@@ -154,10 +154,12 @@ public class OpenDiagramFormDataControlsEditPolicy extends OpenEditPolicy {
 			obj = sourceObject.getFormControl
 
 			();
-			if (obj == null)
+			if (obj == null) {
 				obj = DomainFactory.eINSTANCE.createControls()
 
 				;
+				obj.setUid(java.util.UUID.randomUUID().toString());
+			}
 
 			Diagram d = ViewService.createDiagram(obj, getDiagramKind(),
 					getPreferencesHint());

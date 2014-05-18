@@ -149,15 +149,11 @@ public class OpenDiagramFormViewEditPolicy extends OpenEditPolicy {
 
 			}
 
-			Views
-
-			obj = sourceObject.getView
-
-			();
-			if (obj == null)
-				obj = DomainFactory.eINSTANCE.createViews()
-
-				;
+			Views obj = sourceObject.getView();
+			if (obj == null) {
+				obj = DomainFactory.eINSTANCE.createViews();
+				obj.setUid(java.util.UUID.randomUUID().toString());
+			}
 
 			Diagram d = ViewService.createDiagram(obj, getDiagramKind(),
 					getPreferencesHint());

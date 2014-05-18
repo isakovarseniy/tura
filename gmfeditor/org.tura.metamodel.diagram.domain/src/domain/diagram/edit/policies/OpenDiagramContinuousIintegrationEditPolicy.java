@@ -154,11 +154,13 @@ public class OpenDiagramContinuousIintegrationEditPolicy extends OpenEditPolicy 
 			obj = sourceObject.getArtifact
 
 			();
-			if (obj == null)
+			if (obj == null) {
 				obj = InitDiagram.initContinuousIntegration(sourceObject
 						.eResource())
 
 				;
+				obj.setUid(java.util.UUID.randomUUID().toString());
+			}
 
 			Diagram d = ViewService.createDiagram(obj, getDiagramKind(),
 					getPreferencesHint());

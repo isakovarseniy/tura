@@ -156,10 +156,12 @@ public class OpenDiagramViewAreaEditPolicy extends OpenEditPolicy {
 			obj = sourceObject.getCanvasView
 
 			();
-			if (obj == null)
+			if (obj == null) {
 				obj = DomainFactory.eINSTANCE.createCanvasView()
 
 				;
+				obj.setUid(java.util.UUID.randomUUID().toString());
+			}
 
 			Diagram d = ViewService.createDiagram(obj, getDiagramKind(),
 					getPreferencesHint());

@@ -154,10 +154,12 @@ public class OpenDiagramApplicationRecipeEditPolicy extends OpenEditPolicy {
 			obj = sourceObject.getRecipes
 
 			();
-			if (obj == null)
+			if (obj == null) {
 				obj = DomainFactory.eINSTANCE.createRecipes()
 
 				;
+				obj.setUid(java.util.UUID.randomUUID().toString());
+			}
 
 			Diagram d = ViewService.createDiagram(obj, getDiagramKind(),
 					getPreferencesHint());

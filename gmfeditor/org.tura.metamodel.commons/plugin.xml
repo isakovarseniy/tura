@@ -465,6 +465,11 @@
              id="property.tab.domain.canvas.uielement.styleset"
              label="Style set"/>
              
+          <propertyTab
+             category="domain"
+             id="property.tab.domain.canvas.uielement.refresh"
+             label="Refresh on action"/>
+
           </propertyTabs>
        </extension>
 
@@ -473,6 +478,21 @@
       <?gmfgen generated="true"?>   
  
       <propertySections contributorId="org.tura.metamodel.diagram.canvas">
+
+
+
+            <propertySection
+               tab="property.tab.domain.canvas.uielement.refresh"
+               class="org.metamodel.tura.ui.properties.sections.grid.impl.UielementOnEventRefreshAreaPropertySelection"
+               id="org.tura.metamodel.diagram.canvas.sourcepointer.refresh">
+              <input type="canvas.diagram.edit.parts.CheckBoxEditPart"/>
+              <input type="canvas.diagram.edit.parts.InputTextEditPart"/>
+              <input type="canvas.diagram.edit.parts.OutputTextEditPart"/>
+              <input type="canvas.diagram.edit.parts.TableEditPart"/>
+              <input type="canvas.diagram.edit.parts.TreeEditPart"/>
+              <input type="canvas.diagram.edit.parts.DropDownSelectionEditPart"/>
+              <input type="canvas.diagram.edit.parts.ButtonEditPart"/>
+           </propertySection>        
 
 
              <propertySection

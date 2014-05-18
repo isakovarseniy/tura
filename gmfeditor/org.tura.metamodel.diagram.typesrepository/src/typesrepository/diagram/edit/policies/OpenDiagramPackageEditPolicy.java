@@ -154,10 +154,12 @@ public class OpenDiagramPackageEditPolicy extends OpenEditPolicy {
 			obj = sourceObject.getTypedefinition
 
 			();
-			if (obj == null)
+			if (obj == null) {
 				obj = DomainFactory.eINSTANCE.createTypeDefinition()
 
 				;
+				obj.setUid(java.util.UUID.randomUUID().toString());
+			}
 
 			Diagram d = ViewService.createDiagram(obj, getDiagramKind(),
 					getPreferencesHint());

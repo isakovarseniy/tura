@@ -543,8 +543,7 @@ public class QueryHelper {
 			OCLExpression<EClassifier> query = helper
 					.createQuery("domain::Views.allInstances()->select(r|r.oclAsType(domain::Views).uid = '"
 							+ views.getUid()
-							+ "').canvases.viewElement-> select(q|q.oclIsKindOf(domain.ViewArea)->collect(e : domain.ViewArea | e )"
-							+ ")");
+							+ "').canvases.oclAsType(domain::ViewPortHolder).viewElement-> select(q|q.oclIsKindOf(domain::ViewArea))");
 
 			@SuppressWarnings("unchecked")
 			Collection<domain.ViewArea> map = (Collection<domain.ViewArea>) ocl
@@ -572,6 +571,7 @@ public class QueryHelper {
 						|| "".equals(ref.getElement().getNickname()))
 					remove.add(ref);
 			}
+			return new Object[] { nickNamed,remove};
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -579,7 +579,6 @@ public class QueryHelper {
 			return new Object[] { null, null };
 		}
 
-		return null;
 
 	}
 

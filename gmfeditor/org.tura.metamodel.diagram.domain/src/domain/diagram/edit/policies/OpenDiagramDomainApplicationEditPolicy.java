@@ -154,11 +154,13 @@ public class OpenDiagramDomainApplicationEditPolicy extends OpenEditPolicy {
 			obj = sourceObject.getApplication
 
 			();
-			if (obj == null)
+			if (obj == null) {
 				obj = InitDiagram.initApplicationDiagram(sourceObject
 						.eResource())
 
 				;
+				obj.setUid(java.util.UUID.randomUUID().toString());
+			}
 
 			Diagram d = ViewService.createDiagram(obj, getDiagramKind(),
 					getPreferencesHint());

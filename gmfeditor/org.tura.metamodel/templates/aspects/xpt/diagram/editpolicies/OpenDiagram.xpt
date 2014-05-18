@@ -55,8 +55,11 @@
 			}
 
            «EXPAND targetObject» obj = sourceObject.«EXPAND sourceObjectGetMethod»();
-			if (obj == null)
+			if (obj == null){
 				obj = «EXPAND targetObjectGenerator»;
+				obj.setUid(java.util.UUID.randomUUID().toString());
+		    }
+				
            
 			org.eclipse.gmf.runtime.notation.Diagram d = org.eclipse.gmf.runtime.diagram.core.services.ViewService.createDiagram(
 					obj,getDiagramKind(), getPreferencesHint());
