@@ -7,6 +7,7 @@ import domain.Application;
 import domain.ApplicationInfrastructureLayer;
 import domain.ApplicationMapper;
 import domain.ApplicationMappers;
+import domain.ApplicationMessages;
 import domain.ApplicationRecipe;
 import domain.ApplicationRecipes;
 import domain.ApplicationRole;
@@ -76,11 +77,15 @@ import domain.JavaComponent;
 import domain.JavaMapper;
 import domain.JavaScriptMapper;
 import domain.Label;
+import domain.Language;
 import domain.LayerHolder;
 import domain.Link;
 import domain.Mapper;
 import domain.Mappers;
 import domain.MappingSpecifier;
+import domain.Message;
+import domain.MessageLibrary;
+import domain.Messages;
 import domain.MethodPointer;
 import domain.ModelMapper;
 import domain.ModelQuery;
@@ -130,6 +135,7 @@ import domain.TabCanvas;
 import domain.TabPage;
 import domain.TabPagesInheritance;
 import domain.Table;
+import domain.Translation;
 import domain.Tree;
 import domain.Trigger;
 import domain.Type;
@@ -320,6 +326,11 @@ public class DomainAdapterFactory extends AdapterFactoryImpl
         return createApplicationAdapter();
       }
       @Override
+      public Adapter caseApplicationMessages(ApplicationMessages object)
+      {
+        return createApplicationMessagesAdapter();
+      }
+      @Override
       public Adapter caseApplicationRole(ApplicationRole object)
       {
         return createApplicationRoleAdapter();
@@ -368,6 +379,31 @@ public class DomainAdapterFactory extends AdapterFactoryImpl
       public Adapter caseMethodPointer(MethodPointer object)
       {
         return createMethodPointerAdapter();
+      }
+      @Override
+      public Adapter caseMessages(Messages object)
+      {
+        return createMessagesAdapter();
+      }
+      @Override
+      public Adapter caseMessageLibrary(MessageLibrary object)
+      {
+        return createMessageLibraryAdapter();
+      }
+      @Override
+      public Adapter caseMessage(Message object)
+      {
+        return createMessageAdapter();
+      }
+      @Override
+      public Adapter caseTranslation(Translation object)
+      {
+        return createTranslationAdapter();
+      }
+      @Override
+      public Adapter caseLanguage(Language object)
+      {
+        return createLanguageAdapter();
       }
       @Override
       public Adapter caseRoles(Roles object)
@@ -1287,6 +1323,21 @@ public class DomainAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link domain.ApplicationMessages <em>Application Messages</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see domain.ApplicationMessages
+   * @generated
+   */
+  public Adapter createApplicationMessagesAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link domain.ApplicationRole <em>Application Role</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -1432,6 +1483,81 @@ public class DomainAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createMethodPointerAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link domain.Messages <em>Messages</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see domain.Messages
+   * @generated
+   */
+  public Adapter createMessagesAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link domain.MessageLibrary <em>Message Library</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see domain.MessageLibrary
+   * @generated
+   */
+  public Adapter createMessageLibraryAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link domain.Message <em>Message</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see domain.Message
+   * @generated
+   */
+  public Adapter createMessageAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link domain.Translation <em>Translation</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see domain.Translation
+   * @generated
+   */
+  public Adapter createTranslationAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link domain.Language <em>Language</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see domain.Language
+   * @generated
+   */
+  public Adapter createLanguageAdapter()
   {
     return null;
   }

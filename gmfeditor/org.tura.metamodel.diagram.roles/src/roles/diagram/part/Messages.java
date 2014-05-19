@@ -256,52 +256,22 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String CSSMapper1CreationTool_title;
+	public static String Group1CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String CSSMapper1CreationTool_desc;
+	public static String Group1CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String Group2CreationTool_title;
+	public static String Role2CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Group2CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String JavaScriptMapper3CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String JavaScriptMapper3CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String Role4CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String Role4CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String RoleMapper5CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String RoleMapper5CreationTool_desc;
+	public static String Role2CreationTool_desc;
 
 	/**
 	 * @generated
@@ -331,7 +301,22 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
+	public static String NavigatorGroupName_GroupGroup2Group_1404003_target;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_GroupGroup2Group_1404003_source;
+
+	/**
+	 * @generated
+	 */
 	public static String NavigatorGroupName_Roles_1401000_links;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_Role_1402001_incominglinks;
 
 	/**
 	 * @generated
@@ -346,27 +331,12 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_Role_1402001_incominglinks;
-
-	/**
-	 * @generated
-	 */
 	public static String NavigatorGroupName_Group_1402002_incominglinks;
 
 	/**
 	 * @generated
 	 */
 	public static String NavigatorGroupName_Group_1402002_outgoinglinks;
-
-	/**
-	 * @generated
-	 */
-	public static String NavigatorGroupName_GroupGroup2Group_1404003_target;
-
-	/**
-	 * @generated
-	 */
-	public static String NavigatorGroupName_GroupGroup2Group_1404003_source;
 
 	/**
 	 * @generated

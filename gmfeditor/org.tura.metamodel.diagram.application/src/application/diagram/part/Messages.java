@@ -281,102 +281,82 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String ApplicationRecipe4CreationTool_title;
+	public static String ApplicationMessages4CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String ApplicationRecipe4CreationTool_desc;
+	public static String ApplicationMessages4CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String ApplicationRecipes5CreationTool_title;
+	public static String ApplicationRecipe5CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String ApplicationRecipes5CreationTool_desc;
+	public static String ApplicationRecipe5CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String ApplicationRole6CreationTool_title;
+	public static String ApplicationRecipes6CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String ApplicationRole6CreationTool_desc;
+	public static String ApplicationRecipes6CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String ApplicationStyle7CreationTool_title;
+	public static String ApplicationRole7CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String ApplicationStyle7CreationTool_desc;
+	public static String ApplicationRole7CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String ApplicationUILayer8CreationTool_title;
+	public static String ApplicationStyle8CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String ApplicationUILayer8CreationTool_desc;
+	public static String ApplicationStyle8CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String ApplicationUIPackage9CreationTool_title;
+	public static String ApplicationUILayer9CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String ApplicationUIPackage9CreationTool_desc;
+	public static String ApplicationUILayer9CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String CSSMapper10CreationTool_title;
+	public static String ApplicationUIPackage10CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String CSSMapper10CreationTool_desc;
+	public static String ApplicationUIPackage10CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String JavaScriptMapper11CreationTool_title;
+	public static String StylesPackage11CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String JavaScriptMapper11CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String RoleMapper12CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String RoleMapper12CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String StylesPackage13CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String StylesPackage13CreationTool_desc;
+	public static String StylesPackage11CreationTool_desc;
 
 	/**
 	 * @generated

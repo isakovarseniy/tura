@@ -19,6 +19,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link domain.Application#getApplicationInfrastructureLayer <em>Application Infrastructure Layer</em>}</li>
  *   <li>{@link domain.Application#getApplicationStyle <em>Application Style</em>}</li>
  *   <li>{@link domain.Application#getApplicationRole <em>Application Role</em>}</li>
+ *   <li>{@link domain.Application#getApplicationMessages <em>Application Messages</em>}</li>
  *   <li>{@link domain.Application#getParent <em>Parent</em>}</li>
  * </ul>
  * </p>
@@ -222,6 +223,34 @@ public interface Application extends EObject
    * @generated
    */
   void setApplicationRole(ApplicationRole value);
+
+  /**
+   * Returns the value of the '<em><b>Application Messages</b></em>' containment reference.
+   * It is bidirectional and its opposite is '{@link domain.ApplicationMessages#getParent <em>Parent</em>}'.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Application Messages</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Application Messages</em>' containment reference.
+   * @see #setApplicationMessages(ApplicationMessages)
+   * @see domain.DomainPackage#getApplication_ApplicationMessages()
+   * @see domain.ApplicationMessages#getParent
+   * @model opposite="parent" containment="true"
+   * @generated
+   */
+  ApplicationMessages getApplicationMessages();
+
+  /**
+   * Sets the value of the '{@link domain.Application#getApplicationMessages <em>Application Messages</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Application Messages</em>' containment reference.
+   * @see #getApplicationMessages()
+   * @generated
+   */
+  void setApplicationMessages(ApplicationMessages value);
 
   /**
    * Returns the value of the '<em><b>Parent</b></em>' reference.

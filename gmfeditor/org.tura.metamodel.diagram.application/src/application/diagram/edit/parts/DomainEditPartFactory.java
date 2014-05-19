@@ -64,6 +64,12 @@ public class DomainEditPartFactory implements EditPartFactory {
 			case ApplicationRoleNameEditPart.VISUAL_ID:
 				return new ApplicationRoleNameEditPart(view);
 
+			case ApplicationMessagesEditPart.VISUAL_ID:
+				return new ApplicationMessagesEditPart(view);
+
+			case ApplicationMessagesNameEditPart.VISUAL_ID:
+				return new ApplicationMessagesNameEditPart(view);
+
 			case ApplicationRecipeEditPart.VISUAL_ID:
 				return new ApplicationRecipeEditPart(view);
 

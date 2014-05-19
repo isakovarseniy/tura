@@ -549,6 +549,31 @@ public class DomainItemProviderAdapterFactory extends DomainAdapterFactory imple
   }
 
   /**
+   * This keeps track of the one adapter used for all {@link domain.ApplicationMessages} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected ApplicationMessagesItemProvider applicationMessagesItemProvider;
+
+  /**
+   * This creates an adapter for a {@link domain.ApplicationMessages}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createApplicationMessagesAdapter()
+  {
+    if (applicationMessagesItemProvider == null)
+    {
+      applicationMessagesItemProvider = new ApplicationMessagesItemProvider(this);
+    }
+
+    return applicationMessagesItemProvider;
+  }
+
+  /**
    * This keeps track of the one adapter used for all {@link domain.ApplicationRole} instances.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -796,6 +821,131 @@ public class DomainItemProviderAdapterFactory extends DomainAdapterFactory imple
     }
 
     return methodPointerItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link domain.Messages} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected MessagesItemProvider messagesItemProvider;
+
+  /**
+   * This creates an adapter for a {@link domain.Messages}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createMessagesAdapter()
+  {
+    if (messagesItemProvider == null)
+    {
+      messagesItemProvider = new MessagesItemProvider(this);
+    }
+
+    return messagesItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link domain.MessageLibrary} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected MessageLibraryItemProvider messageLibraryItemProvider;
+
+  /**
+   * This creates an adapter for a {@link domain.MessageLibrary}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createMessageLibraryAdapter()
+  {
+    if (messageLibraryItemProvider == null)
+    {
+      messageLibraryItemProvider = new MessageLibraryItemProvider(this);
+    }
+
+    return messageLibraryItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link domain.Message} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected MessageItemProvider messageItemProvider;
+
+  /**
+   * This creates an adapter for a {@link domain.Message}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createMessageAdapter()
+  {
+    if (messageItemProvider == null)
+    {
+      messageItemProvider = new MessageItemProvider(this);
+    }
+
+    return messageItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link domain.Translation} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected TranslationItemProvider translationItemProvider;
+
+  /**
+   * This creates an adapter for a {@link domain.Translation}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createTranslationAdapter()
+  {
+    if (translationItemProvider == null)
+    {
+      translationItemProvider = new TranslationItemProvider(this);
+    }
+
+    return translationItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link domain.Language} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected LanguageItemProvider languageItemProvider;
+
+  /**
+   * This creates an adapter for a {@link domain.Language}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createLanguageAdapter()
+  {
+    if (languageItemProvider == null)
+    {
+      languageItemProvider = new LanguageItemProvider(this);
+    }
+
+    return languageItemProvider;
   }
 
   /**
@@ -3978,6 +4128,7 @@ public class DomainItemProviderAdapterFactory extends DomainAdapterFactory imple
     if (specifierItemProvider != null) specifierItemProvider.dispose();
     if (optionItemProvider != null) optionItemProvider.dispose();
     if (applicationItemProvider != null) applicationItemProvider.dispose();
+    if (applicationMessagesItemProvider != null) applicationMessagesItemProvider.dispose();
     if (applicationRoleItemProvider != null) applicationRoleItemProvider.dispose();
     if (applicationStyleItemProvider != null) applicationStyleItemProvider.dispose();
     if (stylesPackageItemProvider != null) stylesPackageItemProvider.dispose();
@@ -3988,6 +4139,11 @@ public class DomainItemProviderAdapterFactory extends DomainAdapterFactory imple
     if (applicationMappersItemProvider != null) applicationMappersItemProvider.dispose();
     if (applicationMapperItemProvider != null) applicationMapperItemProvider.dispose();
     if (methodPointerItemProvider != null) methodPointerItemProvider.dispose();
+    if (messagesItemProvider != null) messagesItemProvider.dispose();
+    if (messageLibraryItemProvider != null) messageLibraryItemProvider.dispose();
+    if (messageItemProvider != null) messageItemProvider.dispose();
+    if (translationItemProvider != null) translationItemProvider.dispose();
+    if (languageItemProvider != null) languageItemProvider.dispose();
     if (rolesItemProvider != null) rolesItemProvider.dispose();
     if (roleItemProvider != null) roleItemProvider.dispose();
     if (groupItemProvider != null) groupItemProvider.dispose();

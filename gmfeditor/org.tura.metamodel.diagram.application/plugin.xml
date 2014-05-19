@@ -258,7 +258,7 @@
          </object>
          <context viewClass="org.eclipse.gmf.runtime.notation.Node" containerViews="referencing-diagrams"/>
          <context viewClass="org.eclipse.gmf.runtime.notation.Diagram" semanticHints="Application"/>
-         <context viewClass="org.eclipse.gmf.runtime.notation.Node" semanticHints="802001,802002,802003,802004,802005,802006,803001,803002,803003,803004"/>
+         <context viewClass="org.eclipse.gmf.runtime.notation.Node" semanticHints="802001,802002,802003,802004,802005,802006,802007,803001,803002,803003,803004"/>
          <context viewClass="org.eclipse.gmf.runtime.notation.Edge" semanticHints=""/>
       </viewProvider>
    </extension>
@@ -271,13 +271,13 @@
             <method name="getType()" value="Application"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-nodes">
-            <method name="getType()" value="802001,802002,802003,802004,802005,802006,803001,803002,803003,803004"/>
+            <method name="getType()" value="802001,802002,802003,802004,802005,802006,802007,803001,803002,803003,803004"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Edge" id="generated-links">
             <method name="getType()" value=""/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-labels">
-            <method name="getType()" value="805002,805004,805006,805007,805009,805010,805001,805003,805005,805008"/>
+            <method name="getType()" value="805002,805004,805006,805007,805009,805010,805012,805001,805003,805005,805008"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-compartments">
             <method name="getType()" value="807001,807002,807003,807004"/>
@@ -297,7 +297,8 @@
          <object class="application.diagram.edit.parts.ApplicationInfrastructureLayerEditPart" id="ApplicationInfrastructureLayer_802004"/>
          <object class="application.diagram.edit.parts.ApplicationStyleEditPart" id="ApplicationStyle_802005"/>
          <object class="application.diagram.edit.parts.ApplicationRoleEditPart" id="ApplicationRole_802006"/>
-         <context elements="Application_801000,ApplicationRecipes_802001,ApplicationMappers_802002,ApplicationUILayer_802003,ApplicationInfrastructureLayer_802004,ApplicationStyle_802005,ApplicationRole_802006"/>
+         <object class="application.diagram.edit.parts.ApplicationMessagesEditPart" id="ApplicationMessages_802007"/>
+         <context elements="Application_801000,ApplicationRecipes_802001,ApplicationMappers_802002,ApplicationUILayer_802003,ApplicationInfrastructureLayer_802004,ApplicationStyle_802005,ApplicationRole_802006,ApplicationMessages_802007"/>
       </modelingAssistantProvider>
    </extension>
 
@@ -320,7 +321,7 @@
       <decoratorProvider class="application.diagram.providers.DomainShortcutsDecoratorProvider">
          <Priority name="Lowest"/>
          <object class="org.eclipse.gmf.runtime.notation.Node(org.eclipse.gmf.runtime.notation)" id="generated-top-nodes">
-            <method name="getType()" value="802001,802002,802003,802004,802005,802006"/>
+            <method name="getType()" value="802001,802002,802003,802004,802005,802006,802007"/>
          </object>
          <context decoratorTargets="generated-top-nodes"/>
       </decoratorProvider>
@@ -400,6 +401,16 @@
       </metamodel>
       <metamodel nsURI="http://tura.org/2013/v1/domain">
          <metamodelType
+               id="org.tura.metamodel.diagram.application.ApplicationMessages_802007"
+               name="%metatype.name.ApplicationMessages_802007"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="ApplicationMessages"
+               edithelper="application.diagram.edit.helpers.ApplicationMessagesEditHelper">
+            <param name="semanticHint" value="802007"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://tura.org/2013/v1/domain">
+         <metamodelType
                id="org.tura.metamodel.diagram.application.ApplicationRecipe_803001"
                name="%metatype.name.ApplicationRecipe_803001"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
@@ -461,6 +472,7 @@
          <elementType ref="org.tura.metamodel.diagram.application.ApplicationInfrastructureLayer_802004"/>
          <elementType ref="org.tura.metamodel.diagram.application.ApplicationStyle_802005"/>
          <elementType ref="org.tura.metamodel.diagram.application.ApplicationRole_802006"/>
+         <elementType ref="org.tura.metamodel.diagram.application.ApplicationMessages_802007"/>
          <elementType ref="org.tura.metamodel.diagram.application.ApplicationRecipe_803001"/>
          <elementType ref="org.tura.metamodel.diagram.application.ApplicationMapper_803002"/>
          <elementType ref="org.tura.metamodel.diagram.application.ApplicationUIPackage_803003"/>

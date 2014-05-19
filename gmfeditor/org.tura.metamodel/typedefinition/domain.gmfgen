@@ -507,10 +507,6 @@
             genNodes="//@diagram/@childNodes.0"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
-            title="CSSMapper"
-            description="Create new CSSMapper"/>
-        <entries
-            xsi:type="gmfgen:ToolEntry"
             title="EnumAttribute"
             description="Create new EnumAttribute"
             genNodes="//@diagram/@childNodes.2"/>
@@ -521,10 +517,6 @@
             genNodes="//@diagram/@topLevelNodes.3"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
-            title="JavaScriptMapper"
-            description="Create new JavaScriptMapper"/>
-        <entries
-            xsi:type="gmfgen:ToolEntry"
             title="Operation"
             description="Create new Operation"
             genNodes="//@diagram/@childNodes.1"/>
@@ -533,10 +525,6 @@
             title="Primitive"
             description="Create new Primitive"
             genNodes="//@diagram/@topLevelNodes.1"/>
-        <entries
-            xsi:type="gmfgen:ToolEntry"
-            title="RoleMapper"
-            description="Create new RoleMapper"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
             title="Type"

@@ -194,6 +194,15 @@ public interface DomainFactory extends EFactory
   Application createApplication();
 
   /**
+   * Returns a new object of class '<em>Application Messages</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Application Messages</em>'.
+   * @generated
+   */
+  ApplicationMessages createApplicationMessages();
+
+  /**
    * Returns a new object of class '<em>Application Role</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -282,6 +291,51 @@ public interface DomainFactory extends EFactory
    * @generated
    */
   MethodPointer createMethodPointer();
+
+  /**
+   * Returns a new object of class '<em>Messages</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Messages</em>'.
+   * @generated
+   */
+  Messages createMessages();
+
+  /**
+   * Returns a new object of class '<em>Message Library</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Message Library</em>'.
+   * @generated
+   */
+  MessageLibrary createMessageLibrary();
+
+  /**
+   * Returns a new object of class '<em>Message</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Message</em>'.
+   * @generated
+   */
+  Message createMessage();
+
+  /**
+   * Returns a new object of class '<em>Translation</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Translation</em>'.
+   * @generated
+   */
+  Translation createTranslation();
+
+  /**
+   * Returns a new object of class '<em>Language</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Language</em>'.
+   * @generated
+   */
+  Language createLanguage();
 
   /**
    * Returns a new object of class '<em>Roles</em>'.

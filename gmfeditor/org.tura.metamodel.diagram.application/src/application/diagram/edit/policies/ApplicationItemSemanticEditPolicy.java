@@ -12,6 +12,7 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.DuplicateElementsRequest;
 
 import application.diagram.edit.commands.ApplicationInfrastructureLayerCreateCommand;
 import application.diagram.edit.commands.ApplicationMappersCreateCommand;
+import application.diagram.edit.commands.ApplicationMessagesCreateCommand;
 import application.diagram.edit.commands.ApplicationRecipesCreateCommand;
 import application.diagram.edit.commands.ApplicationRoleCreateCommand;
 import application.diagram.edit.commands.ApplicationStyleCreateCommand;
@@ -57,6 +58,10 @@ public class ApplicationItemSemanticEditPolicy extends
 		}
 		if (DomainElementTypes.ApplicationRole_802006 == req.getElementType()) {
 			return getGEFWrapper(new ApplicationRoleCreateCommand(req));
+		}
+		if (DomainElementTypes.ApplicationMessages_802007 == req
+				.getElementType()) {
+			return getGEFWrapper(new ApplicationMessagesCreateCommand(req));
 		}
 		return super.getCreateCommand(req);
 	}

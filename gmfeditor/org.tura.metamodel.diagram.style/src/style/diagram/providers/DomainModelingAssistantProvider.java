@@ -25,7 +25,6 @@ import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.dialogs.ElementListSelectionDialog;
 
 import style.diagram.edit.parts.StyleLibraryEditPart;
-import style.diagram.edit.parts.StyleLibraryStyleLibraryStylesCompartmentEditPart;
 import style.diagram.edit.parts.StylesEditPart;
 import style.diagram.part.DomainDiagramEditorPlugin;
 import style.diagram.part.Messages;

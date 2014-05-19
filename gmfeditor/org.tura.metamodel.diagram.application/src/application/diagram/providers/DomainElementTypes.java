@@ -23,6 +23,7 @@ import application.diagram.edit.parts.ApplicationEditPart;
 import application.diagram.edit.parts.ApplicationInfrastructureLayerEditPart;
 import application.diagram.edit.parts.ApplicationMapperEditPart;
 import application.diagram.edit.parts.ApplicationMappersEditPart;
+import application.diagram.edit.parts.ApplicationMessagesEditPart;
 import application.diagram.edit.parts.ApplicationRecipeEditPart;
 import application.diagram.edit.parts.ApplicationRecipesEditPart;
 import application.diagram.edit.parts.ApplicationRoleEditPart;
@@ -83,12 +84,14 @@ public class DomainElementTypes {
 	 * @generated
 	 */
 	public static final IElementType ApplicationStyle_802005 = getElementType("org.tura.metamodel.diagram.application.ApplicationStyle_802005"); //$NON-NLS-1$
-
 	/**
 	 * @generated
 	 */
 	public static final IElementType ApplicationRole_802006 = getElementType("org.tura.metamodel.diagram.application.ApplicationRole_802006"); //$NON-NLS-1$
-
+	/**
+	 * @generated
+	 */
+	public static final IElementType ApplicationMessages_802007 = getElementType("org.tura.metamodel.diagram.application.ApplicationMessages_802007"); //$NON-NLS-1$
 	/**
 	 * @generated
 	 */
@@ -101,7 +104,6 @@ public class DomainElementTypes {
 	 * @generated
 	 */
 	public static final IElementType ApplicationUIPackage_803003 = getElementType("org.tura.metamodel.diagram.application.ApplicationUIPackage_803003"); //$NON-NLS-1$
-
 	/**
 	 * @generated
 	 */
@@ -239,6 +241,9 @@ public class DomainElementTypes {
 			elements.put(ApplicationRole_802006,
 					DomainPackage.eINSTANCE.getApplicationRole());
 
+			elements.put(ApplicationMessages_802007,
+					DomainPackage.eINSTANCE.getApplicationMessages());
+
 			elements.put(ApplicationRecipe_803001,
 					DomainPackage.eINSTANCE.getApplicationRecipe());
 
@@ -274,6 +279,7 @@ public class DomainElementTypes {
 			KNOWN_ELEMENT_TYPES.add(ApplicationInfrastructureLayer_802004);
 			KNOWN_ELEMENT_TYPES.add(ApplicationStyle_802005);
 			KNOWN_ELEMENT_TYPES.add(ApplicationRole_802006);
+			KNOWN_ELEMENT_TYPES.add(ApplicationMessages_802007);
 			KNOWN_ELEMENT_TYPES.add(ApplicationRecipe_803001);
 			KNOWN_ELEMENT_TYPES.add(ApplicationMapper_803002);
 			KNOWN_ELEMENT_TYPES.add(ApplicationUIPackage_803003);
@@ -301,6 +307,8 @@ public class DomainElementTypes {
 			return ApplicationStyle_802005;
 		case ApplicationRoleEditPart.VISUAL_ID:
 			return ApplicationRole_802006;
+		case ApplicationMessagesEditPart.VISUAL_ID:
+			return ApplicationMessages_802007;
 		case ApplicationRecipeEditPart.VISUAL_ID:
 			return ApplicationRecipe_803001;
 		case ApplicationMapperEditPart.VISUAL_ID:

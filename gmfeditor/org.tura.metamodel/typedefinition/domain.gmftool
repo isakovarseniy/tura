@@ -21,15 +21,6 @@
       </tools>
       <tools
           xsi:type="gmftool:CreationTool"
-          title="CSSMapper"
-          description="Create new CSSMapper">
-        <smallIcon
-            xsi:type="gmftool:DefaultImage"/>
-        <largeIcon
-            xsi:type="gmftool:DefaultImage"/>
-      </tools>
-      <tools
-          xsi:type="gmftool:CreationTool"
           title="EnumAttribute"
           description="Create new EnumAttribute">
         <smallIcon
@@ -48,15 +39,6 @@
       </tools>
       <tools
           xsi:type="gmftool:CreationTool"
-          title="JavaScriptMapper"
-          description="Create new JavaScriptMapper">
-        <smallIcon
-            xsi:type="gmftool:DefaultImage"/>
-        <largeIcon
-            xsi:type="gmftool:DefaultImage"/>
-      </tools>
-      <tools
-          xsi:type="gmftool:CreationTool"
           title="Operation"
           description="Create new Operation">
         <smallIcon
@@ -68,15 +50,6 @@
           xsi:type="gmftool:CreationTool"
           title="Primitive"
           description="Create new Primitive">
-        <smallIcon
-            xsi:type="gmftool:DefaultImage"/>
-        <largeIcon
-            xsi:type="gmftool:DefaultImage"/>
-      </tools>
-      <tools
-          xsi:type="gmftool:CreationTool"
-          title="RoleMapper"
-          description="Create new RoleMapper">
         <smallIcon
             xsi:type="gmftool:DefaultImage"/>
         <largeIcon

@@ -7,6 +7,7 @@ import domain.Application;
 import domain.ApplicationInfrastructureLayer;
 import domain.ApplicationMapper;
 import domain.ApplicationMappers;
+import domain.ApplicationMessages;
 import domain.ApplicationRecipe;
 import domain.ApplicationRecipes;
 import domain.ApplicationRole;
@@ -76,11 +77,15 @@ import domain.JavaComponent;
 import domain.JavaMapper;
 import domain.JavaScriptMapper;
 import domain.Label;
+import domain.Language;
 import domain.LayerHolder;
 import domain.Link;
 import domain.Mapper;
 import domain.Mappers;
 import domain.MappingSpecifier;
+import domain.Message;
+import domain.MessageLibrary;
+import domain.Messages;
 import domain.MethodPointer;
 import domain.ModelMapper;
 import domain.ModelQuery;
@@ -130,6 +135,7 @@ import domain.TabCanvas;
 import domain.TabPage;
 import domain.TabPagesInheritance;
 import domain.Table;
+import domain.Translation;
 import domain.Tree;
 import domain.Trigger;
 import domain.Type;
@@ -361,6 +367,13 @@ public class DomainSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case DomainPackage.APPLICATION_MESSAGES:
+      {
+        ApplicationMessages applicationMessages = (ApplicationMessages)theEObject;
+        T result = caseApplicationMessages(applicationMessages);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case DomainPackage.APPLICATION_ROLE:
       {
         ApplicationRole applicationRole = (ApplicationRole)theEObject;
@@ -431,6 +444,41 @@ public class DomainSwitch<T> extends Switch<T>
         MethodPointer methodPointer = (MethodPointer)theEObject;
         T result = caseMethodPointer(methodPointer);
         if (result == null) result = caseTypePointer(methodPointer);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DomainPackage.MESSAGES:
+      {
+        Messages messages = (Messages)theEObject;
+        T result = caseMessages(messages);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DomainPackage.MESSAGE_LIBRARY:
+      {
+        MessageLibrary messageLibrary = (MessageLibrary)theEObject;
+        T result = caseMessageLibrary(messageLibrary);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DomainPackage.MESSAGE:
+      {
+        Message message = (Message)theEObject;
+        T result = caseMessage(message);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DomainPackage.TRANSLATION:
+      {
+        Translation translation = (Translation)theEObject;
+        T result = caseTranslation(translation);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DomainPackage.LANGUAGE:
+      {
+        Language language = (Language)theEObject;
+        T result = caseLanguage(language);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -1738,6 +1786,22 @@ public class DomainSwitch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>Application Messages</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Application Messages</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseApplicationMessages(ApplicationMessages object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>Application Role</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -1893,6 +1957,86 @@ public class DomainSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseMethodPointer(MethodPointer object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Messages</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Messages</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseMessages(Messages object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Message Library</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Message Library</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseMessageLibrary(MessageLibrary object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Message</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Message</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseMessage(Message object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Translation</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Translation</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseTranslation(Translation object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Language</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Language</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseLanguage(Language object)
   {
     return null;
   }

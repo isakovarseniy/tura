@@ -36,58 +36,21 @@ public class DomainPaletteFactory {
 		PaletteDrawer paletteContainer = new PaletteDrawer(
 				Messages.Objects1Group_title);
 		paletteContainer.setId("createObjects1Group"); //$NON-NLS-1$
-		paletteContainer.add(createCSSMapper1CreationTool());
-		paletteContainer.add(createJavaScriptMapper2CreationTool());
-		paletteContainer.add(createRoleMapper3CreationTool());
-		paletteContainer.add(createStyleLibrary4CreationTool());
-		paletteContainer.add(createStyleSet5CreationTool());
+		paletteContainer.add(createStyleLibrary1CreationTool());
+		paletteContainer.add(createStyleSet2CreationTool());
 		return paletteContainer;
 	}
 
 	/**
 	 * @generated
 	 */
-	private ToolEntry createCSSMapper1CreationTool() {
-		ToolEntry entry = new ToolEntry(Messages.CSSMapper1CreationTool_title,
-				Messages.CSSMapper1CreationTool_desc, null, null) {
-		};
-		entry.setId("createCSSMapper1CreationTool"); //$NON-NLS-1$
-		return entry;
-	}
-
-	/**
-	 * @generated
-	 */
-	private ToolEntry createJavaScriptMapper2CreationTool() {
-		ToolEntry entry = new ToolEntry(
-				Messages.JavaScriptMapper2CreationTool_title,
-				Messages.JavaScriptMapper2CreationTool_desc, null, null) {
-		};
-		entry.setId("createJavaScriptMapper2CreationTool"); //$NON-NLS-1$
-		return entry;
-	}
-
-	/**
-	 * @generated
-	 */
-	private ToolEntry createRoleMapper3CreationTool() {
-		ToolEntry entry = new ToolEntry(Messages.RoleMapper3CreationTool_title,
-				Messages.RoleMapper3CreationTool_desc, null, null) {
-		};
-		entry.setId("createRoleMapper3CreationTool"); //$NON-NLS-1$
-		return entry;
-	}
-
-	/**
-	 * @generated
-	 */
-	private ToolEntry createStyleLibrary4CreationTool() {
+	private ToolEntry createStyleLibrary1CreationTool() {
 		NodeToolEntry entry = new NodeToolEntry(
-				Messages.StyleLibrary4CreationTool_title,
-				Messages.StyleLibrary4CreationTool_desc,
+				Messages.StyleLibrary1CreationTool_title,
+				Messages.StyleLibrary1CreationTool_desc,
 				Collections
 						.singletonList(DomainElementTypes.StyleLibrary_1502001));
-		entry.setId("createStyleLibrary4CreationTool"); //$NON-NLS-1$
+		entry.setId("createStyleLibrary1CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(DomainElementTypes
 				.getImageDescriptor(DomainElementTypes.StyleLibrary_1502001));
 		entry.setLargeIcon(entry.getSmallIcon());
@@ -97,12 +60,12 @@ public class DomainPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createStyleSet5CreationTool() {
+	private ToolEntry createStyleSet2CreationTool() {
 		NodeToolEntry entry = new NodeToolEntry(
-				Messages.StyleSet5CreationTool_title,
-				Messages.StyleSet5CreationTool_desc,
+				Messages.StyleSet2CreationTool_title,
+				Messages.StyleSet2CreationTool_desc,
 				Collections.singletonList(DomainElementTypes.StyleSet_1503001));
-		entry.setId("createStyleSet5CreationTool"); //$NON-NLS-1$
+		entry.setId("createStyleSet2CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(DomainElementTypes
 				.getImageDescriptor(DomainElementTypes.StyleSet_1503001));
 		entry.setLargeIcon(entry.getSmallIcon());

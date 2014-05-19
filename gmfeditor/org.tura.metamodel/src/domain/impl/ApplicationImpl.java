@@ -5,6 +5,7 @@ package domain.impl;
 import domain.Application;
 import domain.ApplicationInfrastructureLayer;
 import domain.ApplicationMappers;
+import domain.ApplicationMessages;
 import domain.ApplicationRecipes;
 import domain.ApplicationRole;
 import domain.ApplicationStyle;
@@ -35,6 +36,7 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  *   <li>{@link domain.impl.ApplicationImpl#getApplicationInfrastructureLayer <em>Application Infrastructure Layer</em>}</li>
  *   <li>{@link domain.impl.ApplicationImpl#getApplicationStyle <em>Application Style</em>}</li>
  *   <li>{@link domain.impl.ApplicationImpl#getApplicationRole <em>Application Role</em>}</li>
+ *   <li>{@link domain.impl.ApplicationImpl#getApplicationMessages <em>Application Messages</em>}</li>
  *   <li>{@link domain.impl.ApplicationImpl#getParent <em>Parent</em>}</li>
  * </ul>
  * </p>
@@ -122,6 +124,16 @@ public class ApplicationImpl extends EObjectImpl implements Application
    * @ordered
    */
   protected ApplicationRole applicationRole;
+
+  /**
+   * The cached value of the '{@link #getApplicationMessages() <em>Application Messages</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getApplicationMessages()
+   * @generated
+   * @ordered
+   */
+  protected ApplicationMessages applicationMessages;
 
   /**
    * The cached value of the '{@link #getParent() <em>Parent</em>}' reference.
@@ -470,6 +482,54 @@ public class ApplicationImpl extends EObjectImpl implements Application
    * <!-- end-user-doc -->
    * @generated
    */
+  public ApplicationMessages getApplicationMessages()
+  {
+    return applicationMessages;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetApplicationMessages(ApplicationMessages newApplicationMessages, NotificationChain msgs)
+  {
+    ApplicationMessages oldApplicationMessages = applicationMessages;
+    applicationMessages = newApplicationMessages;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DomainPackage.APPLICATION__APPLICATION_MESSAGES, oldApplicationMessages, newApplicationMessages);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setApplicationMessages(ApplicationMessages newApplicationMessages)
+  {
+    if (newApplicationMessages != applicationMessages)
+    {
+      NotificationChain msgs = null;
+      if (applicationMessages != null)
+        msgs = ((InternalEObject)applicationMessages).eInverseRemove(this, DomainPackage.APPLICATION_MESSAGES__PARENT, ApplicationMessages.class, msgs);
+      if (newApplicationMessages != null)
+        msgs = ((InternalEObject)newApplicationMessages).eInverseAdd(this, DomainPackage.APPLICATION_MESSAGES__PARENT, ApplicationMessages.class, msgs);
+      msgs = basicSetApplicationMessages(newApplicationMessages, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.APPLICATION__APPLICATION_MESSAGES, newApplicationMessages, newApplicationMessages));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public DomainApplication getParent()
   {
     if (parent != null && parent.eIsProxy())
@@ -567,6 +627,10 @@ public class ApplicationImpl extends EObjectImpl implements Application
         if (applicationRole != null)
           msgs = ((InternalEObject)applicationRole).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DomainPackage.APPLICATION__APPLICATION_ROLE, null, msgs);
         return basicSetApplicationRole((ApplicationRole)otherEnd, msgs);
+      case DomainPackage.APPLICATION__APPLICATION_MESSAGES:
+        if (applicationMessages != null)
+          msgs = ((InternalEObject)applicationMessages).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DomainPackage.APPLICATION__APPLICATION_MESSAGES, null, msgs);
+        return basicSetApplicationMessages((ApplicationMessages)otherEnd, msgs);
       case DomainPackage.APPLICATION__PARENT:
         if (parent != null)
           msgs = ((InternalEObject)parent).eInverseRemove(this, DomainPackage.DOMAIN_APPLICATION__APPLICATION, DomainApplication.class, msgs);
@@ -597,6 +661,8 @@ public class ApplicationImpl extends EObjectImpl implements Application
         return basicSetApplicationStyle(null, msgs);
       case DomainPackage.APPLICATION__APPLICATION_ROLE:
         return basicSetApplicationRole(null, msgs);
+      case DomainPackage.APPLICATION__APPLICATION_MESSAGES:
+        return basicSetApplicationMessages(null, msgs);
       case DomainPackage.APPLICATION__PARENT:
         return basicSetParent(null, msgs);
     }
@@ -627,6 +693,8 @@ public class ApplicationImpl extends EObjectImpl implements Application
         return getApplicationStyle();
       case DomainPackage.APPLICATION__APPLICATION_ROLE:
         return getApplicationRole();
+      case DomainPackage.APPLICATION__APPLICATION_MESSAGES:
+        return getApplicationMessages();
       case DomainPackage.APPLICATION__PARENT:
         if (resolve) return getParent();
         return basicGetParent();
@@ -664,6 +732,9 @@ public class ApplicationImpl extends EObjectImpl implements Application
         return;
       case DomainPackage.APPLICATION__APPLICATION_ROLE:
         setApplicationRole((ApplicationRole)newValue);
+        return;
+      case DomainPackage.APPLICATION__APPLICATION_MESSAGES:
+        setApplicationMessages((ApplicationMessages)newValue);
         return;
       case DomainPackage.APPLICATION__PARENT:
         setParent((DomainApplication)newValue);
@@ -703,6 +774,9 @@ public class ApplicationImpl extends EObjectImpl implements Application
       case DomainPackage.APPLICATION__APPLICATION_ROLE:
         setApplicationRole((ApplicationRole)null);
         return;
+      case DomainPackage.APPLICATION__APPLICATION_MESSAGES:
+        setApplicationMessages((ApplicationMessages)null);
+        return;
       case DomainPackage.APPLICATION__PARENT:
         setParent((DomainApplication)null);
         return;
@@ -734,6 +808,8 @@ public class ApplicationImpl extends EObjectImpl implements Application
         return applicationStyle != null;
       case DomainPackage.APPLICATION__APPLICATION_ROLE:
         return applicationRole != null;
+      case DomainPackage.APPLICATION__APPLICATION_MESSAGES:
+        return applicationMessages != null;
       case DomainPackage.APPLICATION__PARENT:
         return parent != null;
     }

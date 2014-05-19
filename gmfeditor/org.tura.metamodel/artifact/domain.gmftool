@@ -21,15 +21,6 @@
       </tools>
       <tools
           xsi:type="gmftool:CreationTool"
-          title="CSSMapper"
-          description="Create new CSSMapper">
-        <smallIcon
-            xsi:type="gmftool:DefaultImage"/>
-        <largeIcon
-            xsi:type="gmftool:DefaultImage"/>
-      </tools>
-      <tools
-          xsi:type="gmftool:CreationTool"
           title="ConfigVariable"
           description="Create new ConfigVariable">
         <smallIcon
@@ -39,26 +30,8 @@
       </tools>
       <tools
           xsi:type="gmftool:CreationTool"
-          title="JavaScriptMapper"
-          description="Create new JavaScriptMapper">
-        <smallIcon
-            xsi:type="gmftool:DefaultImage"/>
-        <largeIcon
-            xsi:type="gmftool:DefaultImage"/>
-      </tools>
-      <tools
-          xsi:type="gmftool:CreationTool"
           title="ModelQuery"
           description="Create new ModelQuery">
-        <smallIcon
-            xsi:type="gmftool:DefaultImage"/>
-        <largeIcon
-            xsi:type="gmftool:DefaultImage"/>
-      </tools>
-      <tools
-          xsi:type="gmftool:CreationTool"
-          title="RoleMapper"
-          description="Create new RoleMapper">
         <smallIcon
             xsi:type="gmftool:DefaultImage"/>
         <largeIcon

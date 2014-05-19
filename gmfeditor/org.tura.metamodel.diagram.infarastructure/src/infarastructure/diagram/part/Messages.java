@@ -276,112 +276,82 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String CSSMapper3CreationTool_title;
+	public static String Datacenter3CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String CSSMapper3CreationTool_desc;
+	public static String Datacenter3CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String Datacenter4CreationTool_title;
+	public static String Hub4CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Datacenter4CreationTool_desc;
+	public static String Hub4CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String Hub5CreationTool_title;
+	public static String InfrastructureLayer5CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Hub5CreationTool_desc;
+	public static String InfrastructureLayer5CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String InfrastructureLayer6CreationTool_title;
+	public static String Router6CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String InfrastructureLayer6CreationTool_desc;
+	public static String Router6CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String JavaScriptMapper7CreationTool_title;
+	public static String Server7CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String JavaScriptMapper7CreationTool_desc;
+	public static String Server7CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String RoleMapper8CreationTool_title;
+	public static String ServerClaster8CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String RoleMapper8CreationTool_desc;
+	public static String ServerClaster8CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String Router9CreationTool_title;
+	public static String Storage9CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Router9CreationTool_desc;
+	public static String Storage9CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String Server10CreationTool_title;
+	public static String Subsystem10CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Server10CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String ServerClaster11CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String ServerClaster11CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String Storage12CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String Storage12CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String Subsystem13CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String Subsystem13CreationTool_desc;
+	public static String Subsystem10CreationTool_desc;
 
 	/**
 	 * @generated
@@ -421,36 +391,6 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_InfrastructureConnection_1204009_target;
-
-	/**
-	 * @generated
-	 */
-	public static String NavigatorGroupName_InfrastructureConnection_1204009_source;
-
-	/**
-	 * @generated
-	 */
-	public static String NavigatorGroupName_Hub_1203005_incominglinks;
-
-	/**
-	 * @generated
-	 */
-	public static String NavigatorGroupName_Hub_1203005_outgoinglinks;
-
-	/**
-	 * @generated
-	 */
-	public static String NavigatorGroupName_Server_1203003_incominglinks;
-
-	/**
-	 * @generated
-	 */
-	public static String NavigatorGroupName_Server_1203003_outgoinglinks;
-
-	/**
-	 * @generated
-	 */
 	public static String NavigatorGroupName_ServerClaster_1203007_incominglinks;
 
 	/**
@@ -461,12 +401,22 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_Storage_1203006_incominglinks;
+	public static String NavigatorGroupName_Router_1203004_incominglinks;
 
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_Storage_1203006_outgoinglinks;
+	public static String NavigatorGroupName_Router_1203004_outgoinglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_InfrastructureConnection_1204009_target;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_InfrastructureConnection_1204009_source;
 
 	/**
 	 * @generated
@@ -481,17 +431,37 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
+	public static String NavigatorGroupName_Hub_1203005_incominglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_Hub_1203005_outgoinglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_Storage_1203006_incominglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_Storage_1203006_outgoinglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_Server_1203003_incominglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_Server_1203003_outgoinglinks;
+
+	/**
+	 * @generated
+	 */
 	public static String NavigatorGroupName_EnterpriseInfrastructure_1201000_links;
-
-	/**
-	 * @generated
-	 */
-	public static String NavigatorGroupName_Router_1203004_incominglinks;
-
-	/**
-	 * @generated
-	 */
-	public static String NavigatorGroupName_Router_1203004_outgoinglinks;
 
 	/**
 	 * @generated

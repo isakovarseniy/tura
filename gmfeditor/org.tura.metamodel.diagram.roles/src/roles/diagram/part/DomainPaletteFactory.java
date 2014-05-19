@@ -38,11 +38,8 @@ public class DomainPaletteFactory {
 		PaletteDrawer paletteContainer = new PaletteDrawer(
 				Messages.Objects1Group_title);
 		paletteContainer.setId("createObjects1Group"); //$NON-NLS-1$
-		paletteContainer.add(createCSSMapper1CreationTool());
-		paletteContainer.add(createGroup2CreationTool());
-		paletteContainer.add(createJavaScriptMapper3CreationTool());
-		paletteContainer.add(createRole4CreationTool());
-		paletteContainer.add(createRoleMapper5CreationTool());
+		paletteContainer.add(createGroup1CreationTool());
+		paletteContainer.add(createRole2CreationTool());
 		return paletteContainer;
 	}
 
@@ -62,23 +59,12 @@ public class DomainPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createCSSMapper1CreationTool() {
-		ToolEntry entry = new ToolEntry(Messages.CSSMapper1CreationTool_title,
-				Messages.CSSMapper1CreationTool_desc, null, null) {
-		};
-		entry.setId("createCSSMapper1CreationTool"); //$NON-NLS-1$
-		return entry;
-	}
-
-	/**
-	 * @generated
-	 */
-	private ToolEntry createGroup2CreationTool() {
+	private ToolEntry createGroup1CreationTool() {
 		NodeToolEntry entry = new NodeToolEntry(
-				Messages.Group2CreationTool_title,
-				Messages.Group2CreationTool_desc,
+				Messages.Group1CreationTool_title,
+				Messages.Group1CreationTool_desc,
 				Collections.singletonList(DomainElementTypes.Group_1402002));
-		entry.setId("createGroup2CreationTool"); //$NON-NLS-1$
+		entry.setId("createGroup1CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(DomainDiagramEditorPlugin
 				.findImageDescriptor("/org.tura.metamodel.commons/icons/group.png")); //$NON-NLS-1$
 		entry.setLargeIcon(entry.getSmallIcon());
@@ -88,38 +74,15 @@ public class DomainPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createJavaScriptMapper3CreationTool() {
-		ToolEntry entry = new ToolEntry(
-				Messages.JavaScriptMapper3CreationTool_title,
-				Messages.JavaScriptMapper3CreationTool_desc, null, null) {
-		};
-		entry.setId("createJavaScriptMapper3CreationTool"); //$NON-NLS-1$
-		return entry;
-	}
-
-	/**
-	 * @generated
-	 */
-	private ToolEntry createRole4CreationTool() {
+	private ToolEntry createRole2CreationTool() {
 		NodeToolEntry entry = new NodeToolEntry(
-				Messages.Role4CreationTool_title,
-				Messages.Role4CreationTool_desc,
+				Messages.Role2CreationTool_title,
+				Messages.Role2CreationTool_desc,
 				Collections.singletonList(DomainElementTypes.Role_1402001));
-		entry.setId("createRole4CreationTool"); //$NON-NLS-1$
+		entry.setId("createRole2CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(DomainDiagramEditorPlugin
 				.findImageDescriptor("/org.tura.metamodel.commons/icons/role.png")); //$NON-NLS-1$
 		entry.setLargeIcon(entry.getSmallIcon());
-		return entry;
-	}
-
-	/**
-	 * @generated
-	 */
-	private ToolEntry createRoleMapper5CreationTool() {
-		ToolEntry entry = new ToolEntry(Messages.RoleMapper5CreationTool_title,
-				Messages.RoleMapper5CreationTool_desc, null, null) {
-		};
-		entry.setId("createRoleMapper5CreationTool"); //$NON-NLS-1$
 		return entry;
 	}
 

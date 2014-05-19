@@ -70,7 +70,6 @@ public class DomainElementTypes {
 	 * @generated
 	 */
 	public static final IElementType CSSMapper_402004 = getElementType("org.tura.metamodel.diagram.mapper.CSSMapper_402004"); //$NON-NLS-1$
-
 	/**
 	 * @generated
 	 */

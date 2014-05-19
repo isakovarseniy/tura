@@ -6,8 +6,8 @@ package uipackage.diagram.edit.policies;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Iterator;
-
 import java.util.List;
+
 import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IFolder;
@@ -149,9 +149,15 @@ public class OpenDiagramFormViewEditPolicy extends OpenEditPolicy {
 
 			}
 
-			Views obj = sourceObject.getView();
+			Views
+
+			obj = sourceObject.getView
+
+			();
 			if (obj == null) {
-				obj = DomainFactory.eINSTANCE.createViews();
+				obj = DomainFactory.eINSTANCE.createViews()
+
+				;
 				obj.setUid(java.util.UUID.randomUUID().toString());
 			}
 

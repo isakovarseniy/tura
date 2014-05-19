@@ -39,6 +39,15 @@
       </tools>
       <tools
           xsi:type="gmftool:CreationTool"
+          title="ApplicationMessages"
+          description="Create new ApplicationMessages">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
           title="ApplicationRecipe"
           description="Create new ApplicationRecipe">
         <smallIcon
@@ -86,33 +95,6 @@
           xsi:type="gmftool:CreationTool"
           title="ApplicationUIPackage"
           description="Create new ApplicationUIPackage">
-        <smallIcon
-            xsi:type="gmftool:DefaultImage"/>
-        <largeIcon
-            xsi:type="gmftool:DefaultImage"/>
-      </tools>
-      <tools
-          xsi:type="gmftool:CreationTool"
-          title="CSSMapper"
-          description="Create new CSSMapper">
-        <smallIcon
-            xsi:type="gmftool:DefaultImage"/>
-        <largeIcon
-            xsi:type="gmftool:DefaultImage"/>
-      </tools>
-      <tools
-          xsi:type="gmftool:CreationTool"
-          title="JavaScriptMapper"
-          description="Create new JavaScriptMapper">
-        <smallIcon
-            xsi:type="gmftool:DefaultImage"/>
-        <largeIcon
-            xsi:type="gmftool:DefaultImage"/>
-      </tools>
-      <tools
-          xsi:type="gmftool:CreationTool"
-          title="RoleMapper"
-          description="Create new RoleMapper">
         <smallIcon
             xsi:type="gmftool:DefaultImage"/>
         <largeIcon

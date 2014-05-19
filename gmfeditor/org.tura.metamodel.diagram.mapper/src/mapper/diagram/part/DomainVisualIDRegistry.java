@@ -10,9 +10,9 @@ import mapper.diagram.edit.parts.JavaMapperFakePackageNameFakeTypeEditPart;
 import mapper.diagram.edit.parts.JavaScriptMapperEditPart;
 import mapper.diagram.edit.parts.JavaScriptMapperFakePackageNameFakeTypeEditPart;
 import mapper.diagram.edit.parts.MappersEditPart;
-
 import mapper.diagram.edit.parts.RoleMapperEditPart;
 import mapper.diagram.edit.parts.RoleMapperFakeRoleNameEditPart;
+
 import org.eclipse.core.runtime.Platform;
 import org.eclipse.emf.ecore.EAnnotation;
 import org.eclipse.emf.ecore.EObject;

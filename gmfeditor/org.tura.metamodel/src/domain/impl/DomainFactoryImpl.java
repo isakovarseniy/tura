@@ -7,6 +7,7 @@ import domain.Application;
 import domain.ApplicationInfrastructureLayer;
 import domain.ApplicationMapper;
 import domain.ApplicationMappers;
+import domain.ApplicationMessages;
 import domain.ApplicationRecipe;
 import domain.ApplicationRecipes;
 import domain.ApplicationRole;
@@ -77,11 +78,15 @@ import domain.JavaComponent;
 import domain.JavaMapper;
 import domain.JavaScriptMapper;
 import domain.Label;
+import domain.Language;
 import domain.LayerHolder;
 import domain.Link;
 import domain.Mapper;
 import domain.Mappers;
 import domain.MappingSpecifier;
+import domain.Message;
+import domain.MessageLibrary;
+import domain.Messages;
 import domain.MethodPointer;
 import domain.ModelMapper;
 import domain.ModelQuery;
@@ -132,6 +137,7 @@ import domain.TabCanvas;
 import domain.TabPage;
 import domain.TabPagesInheritance;
 import domain.Table;
+import domain.Translation;
 import domain.Tree;
 import domain.Trigger;
 import domain.Type;
@@ -236,6 +242,7 @@ public class DomainFactoryImpl extends EFactoryImpl implements DomainFactory
       case DomainPackage.SPECIFIER: return createSpecifier();
       case DomainPackage.OPTION: return createOption();
       case DomainPackage.APPLICATION: return createApplication();
+      case DomainPackage.APPLICATION_MESSAGES: return createApplicationMessages();
       case DomainPackage.APPLICATION_ROLE: return createApplicationRole();
       case DomainPackage.APPLICATION_STYLE: return createApplicationStyle();
       case DomainPackage.STYLES_PACKAGE: return createStylesPackage();
@@ -246,6 +253,11 @@ public class DomainFactoryImpl extends EFactoryImpl implements DomainFactory
       case DomainPackage.APPLICATION_MAPPERS: return createApplicationMappers();
       case DomainPackage.APPLICATION_MAPPER: return createApplicationMapper();
       case DomainPackage.METHOD_POINTER: return createMethodPointer();
+      case DomainPackage.MESSAGES: return createMessages();
+      case DomainPackage.MESSAGE_LIBRARY: return createMessageLibrary();
+      case DomainPackage.MESSAGE: return createMessage();
+      case DomainPackage.TRANSLATION: return createTranslation();
+      case DomainPackage.LANGUAGE: return createLanguage();
       case DomainPackage.ROLES: return createRoles();
       case DomainPackage.ROLE: return createRole();
       case DomainPackage.GROUP: return createGroup();
@@ -621,6 +633,17 @@ public class DomainFactoryImpl extends EFactoryImpl implements DomainFactory
    * <!-- end-user-doc -->
    * @generated
    */
+  public ApplicationMessages createApplicationMessages()
+  {
+    ApplicationMessagesImpl applicationMessages = new ApplicationMessagesImpl();
+    return applicationMessages;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public ApplicationRole createApplicationRole()
   {
     ApplicationRoleImpl applicationRole = new ApplicationRoleImpl();
@@ -724,6 +747,61 @@ public class DomainFactoryImpl extends EFactoryImpl implements DomainFactory
   {
     MethodPointerImpl methodPointer = new MethodPointerImpl();
     return methodPointer;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Messages createMessages()
+  {
+    MessagesImpl messages = new MessagesImpl();
+    return messages;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public MessageLibrary createMessageLibrary()
+  {
+    MessageLibraryImpl messageLibrary = new MessageLibraryImpl();
+    return messageLibrary;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Message createMessage()
+  {
+    MessageImpl message = new MessageImpl();
+    return message;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Translation createTranslation()
+  {
+    TranslationImpl translation = new TranslationImpl();
+    return translation;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Language createLanguage()
+  {
+    LanguageImpl language = new LanguageImpl();
+    return language;
   }
 
   /**

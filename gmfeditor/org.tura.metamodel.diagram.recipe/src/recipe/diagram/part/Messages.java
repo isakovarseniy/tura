@@ -256,122 +256,92 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String CSSMapper1CreationTool_title;
+	public static String Configuration1CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String CSSMapper1CreationTool_desc;
+	public static String Configuration1CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String Configuration2CreationTool_title;
+	public static String DeploymentSequence2CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Configuration2CreationTool_desc;
+	public static String DeploymentSequence2CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String DeploymentSequence3CreationTool_title;
+	public static String Infrastructure3CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String DeploymentSequence3CreationTool_desc;
+	public static String Infrastructure3CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String Infrastructure4CreationTool_title;
+	public static String Ingredient4CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Infrastructure4CreationTool_desc;
+	public static String Ingredient4CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String Ingredient5CreationTool_title;
+	public static String JavaComponent5CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Ingredient5CreationTool_desc;
+	public static String JavaComponent5CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String JavaComponent6CreationTool_title;
+	public static String ModelMapper6CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String JavaComponent6CreationTool_desc;
+	public static String ModelMapper6CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String JavaScriptMapper7CreationTool_title;
+	public static String Property7CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String JavaScriptMapper7CreationTool_desc;
+	public static String Property7CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String ModelMapper8CreationTool_title;
+	public static String Query8CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String ModelMapper8CreationTool_desc;
+	public static String Query8CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String Property9CreationTool_title;
+	public static String Recipe9CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Property9CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String Query10CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String Query10CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String Recipe11CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String Recipe11CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String RoleMapper12CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String RoleMapper12CreationTool_desc;
+	public static String Recipe9CreationTool_desc;
 
 	/**
 	 * @generated
@@ -436,21 +406,6 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_Configuration_302002_incominglinks;
-
-	/**
-	 * @generated
-	 */
-	public static String NavigatorGroupName_Infrastructure_302003_incominglinks;
-
-	/**
-	 * @generated
-	 */
-	public static String NavigatorGroupName_Infrastructure_302003_outgoinglinks;
-
-	/**
-	 * @generated
-	 */
 	public static String NavigatorGroupName_DeploymentSequence_302004_incominglinks;
 
 	/**
@@ -466,12 +421,7 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_RecipeDeployment_304013_target;
-
-	/**
-	 * @generated
-	 */
-	public static String NavigatorGroupName_RecipeDeployment_304013_source;
+	public static String NavigatorGroupName_Recipe_302001_outgoinglinks;
 
 	/**
 	 * @generated
@@ -486,12 +436,32 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_Recipe_302001_outgoinglinks;
+	public static String NavigatorGroupName_Infrastructure_302003_incominglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_Infrastructure_302003_outgoinglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_Configuration_302002_incominglinks;
 
 	/**
 	 * @generated
 	 */
 	public static String NavigatorGroupName_Recipes_301000_links;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_RecipeDeployment_304013_target;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_RecipeDeployment_304013_source;
 
 	/**
 	 * @generated

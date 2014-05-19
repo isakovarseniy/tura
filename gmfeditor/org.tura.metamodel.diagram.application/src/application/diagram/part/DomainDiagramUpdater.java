@@ -16,6 +16,7 @@ import application.diagram.edit.parts.ApplicationInfrastructureLayerEditPart;
 import application.diagram.edit.parts.ApplicationMapperEditPart;
 import application.diagram.edit.parts.ApplicationMappersApplicationMappersMappersCompartmentEditPart;
 import application.diagram.edit.parts.ApplicationMappersEditPart;
+import application.diagram.edit.parts.ApplicationMessagesEditPart;
 import application.diagram.edit.parts.ApplicationRecipeEditPart;
 import application.diagram.edit.parts.ApplicationRecipesApplicationRecipesRecipesCompartmentEditPart;
 import application.diagram.edit.parts.ApplicationRecipesEditPart;
@@ -30,6 +31,7 @@ import domain.Application;
 import domain.ApplicationInfrastructureLayer;
 import domain.ApplicationMapper;
 import domain.ApplicationMappers;
+import domain.ApplicationMessages;
 import domain.ApplicationRecipe;
 import domain.ApplicationRecipes;
 import domain.ApplicationRole;
@@ -129,6 +131,15 @@ public class DomainDiagramUpdater {
 			int visualID = DomainVisualIDRegistry.getNodeVisualID(view,
 					childElement);
 			if (visualID == ApplicationRoleEditPart.VISUAL_ID) {
+				result.add(new DomainNodeDescriptor(childElement, visualID));
+			}
+		}
+		{
+			ApplicationMessages childElement = modelElement
+					.getApplicationMessages();
+			int visualID = DomainVisualIDRegistry.getNodeVisualID(view,
+					childElement);
+			if (visualID == ApplicationMessagesEditPart.VISUAL_ID) {
 				result.add(new DomainNodeDescriptor(childElement, visualID));
 			}
 		}
@@ -267,6 +278,8 @@ public class DomainDiagramUpdater {
 			return getApplicationStyle_802005ContainedLinks(view);
 		case ApplicationRoleEditPart.VISUAL_ID:
 			return getApplicationRole_802006ContainedLinks(view);
+		case ApplicationMessagesEditPart.VISUAL_ID:
+			return getApplicationMessages_802007ContainedLinks(view);
 		case ApplicationRecipeEditPart.VISUAL_ID:
 			return getApplicationRecipe_803001ContainedLinks(view);
 		case ApplicationMapperEditPart.VISUAL_ID:
@@ -296,6 +309,8 @@ public class DomainDiagramUpdater {
 			return getApplicationStyle_802005IncomingLinks(view);
 		case ApplicationRoleEditPart.VISUAL_ID:
 			return getApplicationRole_802006IncomingLinks(view);
+		case ApplicationMessagesEditPart.VISUAL_ID:
+			return getApplicationMessages_802007IncomingLinks(view);
 		case ApplicationRecipeEditPart.VISUAL_ID:
 			return getApplicationRecipe_803001IncomingLinks(view);
 		case ApplicationMapperEditPart.VISUAL_ID:
@@ -325,6 +340,8 @@ public class DomainDiagramUpdater {
 			return getApplicationStyle_802005OutgoingLinks(view);
 		case ApplicationRoleEditPart.VISUAL_ID:
 			return getApplicationRole_802006OutgoingLinks(view);
+		case ApplicationMessagesEditPart.VISUAL_ID:
+			return getApplicationMessages_802007OutgoingLinks(view);
 		case ApplicationRecipeEditPart.VISUAL_ID:
 			return getApplicationRecipe_803001OutgoingLinks(view);
 		case ApplicationMapperEditPart.VISUAL_ID:
@@ -389,6 +406,14 @@ public class DomainDiagramUpdater {
 	 * @generated
 	 */
 	public static List<DomainLinkDescriptor> getApplicationRole_802006ContainedLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<DomainLinkDescriptor> getApplicationMessages_802007ContainedLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -476,6 +501,14 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
+	public static List<DomainLinkDescriptor> getApplicationMessages_802007IncomingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
 	public static List<DomainLinkDescriptor> getApplicationRecipe_803001IncomingLinks(
 			View view) {
 		return Collections.emptyList();
@@ -549,6 +582,14 @@ public class DomainDiagramUpdater {
 	 * @generated
 	 */
 	public static List<DomainLinkDescriptor> getApplicationRole_802006OutgoingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<DomainLinkDescriptor> getApplicationMessages_802007OutgoingLinks(
 			View view) {
 		return Collections.emptyList();
 	}

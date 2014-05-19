@@ -103,7 +103,14 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//Application/applicationInfrastructureLayer"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//Application/applicationStyle"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//Application/applicationRole"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//Application/applicationMessages"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference domain.ecore#//Application/parent"/>
+    </genClasses>
+    <genClasses ecoreClass="domain.ecore#//ApplicationMessages">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//ApplicationMessages/uid"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//ApplicationMessages/name"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference domain.ecore#//ApplicationMessages/parent"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference domain.ecore#//ApplicationMessages/messages"/>
     </genClasses>
     <genClasses ecoreClass="domain.ecore#//ApplicationRole">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//ApplicationRole/uid"/>
@@ -162,6 +169,31 @@
     <genClasses ecoreClass="domain.ecore#//MethodPointer">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference domain.ecore#//MethodPointer/methodRef"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//MethodPointer/fakeMethod"/>
+    </genClasses>
+    <genClasses ecoreClass="domain.ecore#//Messages">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//Messages/uid"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference domain.ecore#//Messages/parent"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//Messages/messageLibraries"/>
+    </genClasses>
+    <genClasses ecoreClass="domain.ecore#//MessageLibrary">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//MessageLibrary/uid"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//MessageLibrary/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//MessageLibrary/message"/>
+    </genClasses>
+    <genClasses ecoreClass="domain.ecore#//Message">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//Message/uid"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//Message/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//Message/translatioins"/>
+    </genClasses>
+    <genClasses ecoreClass="domain.ecore#//Translation">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//Translation/uid"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//Translation/translation"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference domain.ecore#//Translation/lang"/>
+    </genClasses>
+    <genClasses ecoreClass="domain.ecore#//Language">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//Language/uid"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//Language/lang"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//Language/code"/>
     </genClasses>
     <genClasses ecoreClass="domain.ecore#//Roles">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//Roles/uid"/>

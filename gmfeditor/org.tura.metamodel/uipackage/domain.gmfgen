@@ -249,10 +249,6 @@
             description="Create new ApplicationStyle"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
-            title="CSSMapper"
-            description="Create new CSSMapper"/>
-        <entries
-            xsi:type="gmfgen:ToolEntry"
             title="Form"
             description="Create new Form"
             genNodes="//@diagram/@topLevelNodes.0"/>
@@ -266,14 +262,6 @@
             title="FormView"
             description="Create new FormView"
             genNodes="//@diagram/@childNodes.0"/>
-        <entries
-            xsi:type="gmfgen:ToolEntry"
-            title="JavaScriptMapper"
-            description="Create new JavaScriptMapper"/>
-        <entries
-            xsi:type="gmfgen:ToolEntry"
-            title="RoleMapper"
-            description="Create new RoleMapper"/>
       </groups>
     </palette>
     <preferencePages

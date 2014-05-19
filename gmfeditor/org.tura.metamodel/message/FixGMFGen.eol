@@ -1,0 +1,26 @@
+//Enable dynamic templates
+var genEditorGenerator = GmfGen!GenEditorGenerator.all.first;
+genEditorGenerator.setDynamicTemplates(true);
+genEditorGenerator.setTemplateDirectory('/org.tura.metamodel/templates/');
+
+var plugin = GmfGen!GenPlugin.all.first;
+plugin.id = 'org.tura.metamodel.diagram.message';
+
+
+-- distinct visual ID
+for (c in GmfGen!GenCommonBase.allInstances) {
+  c.setVisualID (c.getVisualID()+1700000);
+}
+
+
+-- distinct model IDs
+genEditorGenerator.setModelID('Message');
+-- distinct package prefix
+genEditorGenerator.setPackageNamePrefix('message.diagram');
+-- distinct diagram file extension
+genEditorGenerator.setDiagramFileExtension('message');
+-- set ID model editor
+var genEditorView = GmfGen!GenEditorView.all.first;
+genEditorView.setID('message.diagram.part.MessagesDiagramEditorID');
+
+

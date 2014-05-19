@@ -152,8 +152,20 @@ class Application{
    val ApplicationInfrastructureLayer#parent  applicationInfrastructureLayer;
    val ApplicationStyle#parent applicationStyle;
    val ApplicationRole#parent applicationRole;
+   val ApplicationMessages#parent applicationMessages;
    ref DomainApplication#application parent;
 }
+
+
+@gmf.node(label="name",border.color="0,0,0",color="192,192,192")
+class ApplicationMessages{
+    id attr EString uid;
+   attr EString name;
+   ref Application#applicationMessages parent;
+   ref Messages#parent messages;
+}
+
+
 
 @gmf.node(label="name",border.color="0,0,0",color="192,192,192")
 class ApplicationRole{
@@ -239,6 +251,44 @@ class MethodPointer extends TypePointer{
   // To support display label
     attr EString fakeMethod;
 }
+
+@gmf.diagram.messages
+class Messages{
+    id attr EString uid;
+    ref ApplicationMessages#messages parent;
+    val MessageLibrary  messageLibraries;
+}
+
+
+@gmf.node(label="name",border.color="0,0,0",color="255,237,85")
+class MessageLibrary{
+    id attr EString uid;
+    attr EString name;
+    @gmf.compartment(layout="list")
+    val Message[*] message;
+}
+
+
+@gmf.node(label="name",border.color="0,0,0",color="255,237,85")
+class Message{
+    id attr EString uid;
+    attr EString name;
+   val Translation[*] translatioins;
+   
+}
+class Translation{
+    id attr EString uid;
+    attr EString translation;
+    ref Language lang;
+}
+
+
+class Language{
+    id attr EString uid;
+   attr EString lang;
+   attr EString code;
+}
+
 
 @gmf.diagram
 class Roles{

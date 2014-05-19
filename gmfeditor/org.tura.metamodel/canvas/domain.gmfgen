@@ -882,10 +882,6 @@
             genNodes="//@diagram/@childNodes.0 //@diagram/@childNodes.9"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
-            title="CSSMapper"
-            description="Create new CSSMapper"/>
-        <entries
-            xsi:type="gmfgen:ToolEntry"
             title="CheckBox"
             description="Create new CheckBox"
             smallIconPath="/org.tura.metamodel.commons/icons/checkbox.png"
@@ -910,10 +906,6 @@
             genNodes="//@diagram/@childNodes.3 //@diagram/@childNodes.13"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
-            title="JavaScriptMapper"
-            description="Create new JavaScriptMapper"/>
-        <entries
-            xsi:type="gmfgen:ToolEntry"
             title="Label"
             description="Create new Label"
             smallIconPath="/org.tura.metamodel.commons/icons/label.png"
@@ -930,10 +922,6 @@
             description="Create new OutputText"
             smallIconPath="/org.tura.metamodel.commons/icons/outputtext.png"
             genNodes="//@diagram/@childNodes.5 //@diagram/@childNodes.15"/>
-        <entries
-            xsi:type="gmfgen:ToolEntry"
-            title="RoleMapper"
-            description="Create new RoleMapper"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
             title="Table"

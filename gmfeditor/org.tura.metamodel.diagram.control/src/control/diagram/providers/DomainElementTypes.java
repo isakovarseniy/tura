@@ -84,10 +84,6 @@ public class DomainElementTypes {
 	/**
 	 * @generated
 	 */
-	public static final IElementType ArtificialField_1103008 = getElementType("org.tura.metamodel.diagram.control.ArtificialField_1103008"); //$NON-NLS-1$
-	/**
-	 * @generated
-	 */
 	public static final IElementType PREQueryTrigger_1103002 = getElementType("org.tura.metamodel.diagram.control.PREQueryTrigger_1103002"); //$NON-NLS-1$
 	/**
 	 * @generated
@@ -129,6 +125,10 @@ public class DomainElementTypes {
 	 * @generated
 	 */
 	public static final IElementType SearchTrigger_1103016 = getElementType("org.tura.metamodel.diagram.control.SearchTrigger_1103016"); //$NON-NLS-1$
+	/**
+	 * @generated
+	 */
+	public static final IElementType ArtificialField_1103008 = getElementType("org.tura.metamodel.diagram.control.ArtificialField_1103008"); //$NON-NLS-1$
 	/**
 	 * @generated
 	 */

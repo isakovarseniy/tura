@@ -218,6 +218,20 @@ delete tool;
 var tool = GmfTool!CreationTool.all.selectOne(r|r.title='Window');
 delete tool;
 
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='CSSMapper');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='JavaScriptMapper');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='Message');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='MessageLibrary');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='RoleMapper');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='ApplicationMessages');
+delete tool;
+
+
 var tool = GmfTool!CreationTool.all.selectOne(r|r.title='Role');
 delete tool;
 

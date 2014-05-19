@@ -261,62 +261,32 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String CSSMapper2CreationTool_title;
+	public static String ConfigVariable2CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String CSSMapper2CreationTool_desc;
+	public static String ConfigVariable2CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String ConfigVariable3CreationTool_title;
+	public static String ModelQuery3CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String ConfigVariable3CreationTool_desc;
+	public static String ModelQuery3CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String JavaScriptMapper4CreationTool_title;
+	public static String Specifier4CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String JavaScriptMapper4CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String ModelQuery5CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String ModelQuery5CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String RoleMapper6CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String RoleMapper6CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String Specifier7CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String Specifier7CreationTool_desc;
+	public static String Specifier4CreationTool_desc;
 
 	/**
 	 * @generated

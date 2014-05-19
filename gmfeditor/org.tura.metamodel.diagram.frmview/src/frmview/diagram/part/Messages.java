@@ -276,102 +276,72 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String CSSMapper3CreationTool_title;
+	public static String Canvas3CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String CSSMapper3CreationTool_desc;
+	public static String Canvas3CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String Canvas4CreationTool_title;
+	public static String TabCanvas4CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Canvas4CreationTool_desc;
+	public static String TabCanvas4CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String JavaScriptMapper5CreationTool_title;
+	public static String TabPage5CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String JavaScriptMapper5CreationTool_desc;
+	public static String TabPage5CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String RoleMapper6CreationTool_title;
+	public static String ViewArea6CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String RoleMapper6CreationTool_desc;
+	public static String ViewArea6CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String TabCanvas7CreationTool_title;
+	public static String ViewPort7CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String TabCanvas7CreationTool_desc;
+	public static String ViewPort7CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String TabPage8CreationTool_title;
+	public static String ViewPortTrigger8CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String TabPage8CreationTool_desc;
+	public static String ViewPortTrigger8CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String ViewArea9CreationTool_title;
+	public static String Window9CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String ViewArea9CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String ViewPort10CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String ViewPort10CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String ViewPortTrigger11CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String ViewPortTrigger11CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String Window12CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String Window12CreationTool_desc;
+	public static String Window9CreationTool_desc;
 
 	/**
 	 * @generated
@@ -421,12 +391,32 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
+	public static String NavigatorGroupName_ViewPort_1303004_outgoinglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_Canvas_1302003_incominglinks;
+
+	/**
+	 * @generated
+	 */
 	public static String NavigatorGroupName_TabPagesInheritance_1304002_target;
 
 	/**
 	 * @generated
 	 */
 	public static String NavigatorGroupName_TabPagesInheritance_1304002_source;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_TabPage_1302002_incominglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_Window_1302007_incominglinks;
 
 	/**
 	 * @generated
@@ -452,26 +442,6 @@ public class Messages extends NLS {
 	 * @generated
 	 */
 	public static String NavigatorGroupName_TabCanvas_1302008_outgoinglinks;
-
-	/**
-	 * @generated
-	 */
-	public static String NavigatorGroupName_Canvas_1302003_incominglinks;
-
-	/**
-	 * @generated
-	 */
-	public static String NavigatorGroupName_Window_1302007_incominglinks;
-
-	/**
-	 * @generated
-	 */
-	public static String NavigatorGroupName_TabPage_1302002_incominglinks;
-
-	/**
-	 * @generated
-	 */
-	public static String NavigatorGroupName_ViewPort_1303004_outgoinglinks;
 
 	/**
 	 * @generated

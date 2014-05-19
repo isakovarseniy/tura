@@ -98,24 +98,6 @@ public class DomainParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	private IParser artificialFieldName_1105010Parser;
-
-	/**
-	 * @generated
-	 */
-	private IParser getArtificialFieldName_1105010Parser() {
-		if (artificialFieldName_1105010Parser == null) {
-			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE
-					.getArtificialField_Name() };
-			MessageFormatParser parser = new MessageFormatParser(features);
-			artificialFieldName_1105010Parser = parser;
-		}
-		return artificialFieldName_1105010Parser;
-	}
-
-	/**
-	 * @generated
-	 */
 	private IParser pREQueryTriggerFakeMethod_1105003Parser;
 
 	/**
@@ -309,6 +291,24 @@ public class DomainParserProvider extends AbstractProvider implements
 			searchTriggerFakeMethod_1105018Parser = parser;
 		}
 		return searchTriggerFakeMethod_1105018Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	private IParser artificialFieldName_1105010Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getArtificialFieldName_1105010Parser() {
+		if (artificialFieldName_1105010Parser == null) {
+			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE
+					.getArtificialField_Name() };
+			MessageFormatParser parser = new MessageFormatParser(features);
+			artificialFieldName_1105010Parser = parser;
+		}
+		return artificialFieldName_1105010Parser;
 	}
 
 	/**

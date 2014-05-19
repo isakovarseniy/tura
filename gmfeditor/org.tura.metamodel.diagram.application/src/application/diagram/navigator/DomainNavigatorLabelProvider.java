@@ -27,6 +27,8 @@ import application.diagram.edit.parts.ApplicationMapperEditPart;
 import application.diagram.edit.parts.ApplicationMapperNameEditPart;
 import application.diagram.edit.parts.ApplicationMappersEditPart;
 import application.diagram.edit.parts.ApplicationMappersNameEditPart;
+import application.diagram.edit.parts.ApplicationMessagesEditPart;
+import application.diagram.edit.parts.ApplicationMessagesNameEditPart;
 import application.diagram.edit.parts.ApplicationRecipeEditPart;
 import application.diagram.edit.parts.ApplicationRecipeNameEditPart;
 import application.diagram.edit.parts.ApplicationRecipesEditPart;
@@ -135,6 +137,9 @@ public class DomainNavigatorLabelProvider extends LabelProvider implements
 		case ApplicationRoleEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?TopLevelNode?http://tura.org/2013/v1/domain?ApplicationRole", DomainElementTypes.ApplicationRole_802006); //$NON-NLS-1$
+		case ApplicationMessagesEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?TopLevelNode?http://tura.org/2013/v1/domain?ApplicationMessages", DomainElementTypes.ApplicationMessages_802007); //$NON-NLS-1$
 		case ApplicationRecipeEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Node?http://tura.org/2013/v1/domain?ApplicationRecipe", DomainElementTypes.ApplicationRecipe_803001); //$NON-NLS-1$
@@ -221,6 +226,8 @@ public class DomainNavigatorLabelProvider extends LabelProvider implements
 			return getApplicationStyle_802005Text(view);
 		case ApplicationRoleEditPart.VISUAL_ID:
 			return getApplicationRole_802006Text(view);
+		case ApplicationMessagesEditPart.VISUAL_ID:
+			return getApplicationMessages_802007Text(view);
 		case ApplicationRecipeEditPart.VISUAL_ID:
 			return getApplicationRecipe_803001Text(view);
 		case ApplicationMapperEditPart.VISUAL_ID:
@@ -364,6 +371,26 @@ public class DomainNavigatorLabelProvider extends LabelProvider implements
 		} else {
 			DomainDiagramEditorPlugin.getInstance().logError(
 					"Parser was not found for label " + 805010); //$NON-NLS-1$
+			return ""; //$NON-NLS-1$
+		}
+	}
+
+	/**
+	 * @generated
+	 */
+	private String getApplicationMessages_802007Text(View view) {
+		IParser parser = DomainParserProvider.getParser(
+				DomainElementTypes.ApplicationMessages_802007, view
+						.getElement() != null ? view.getElement() : view,
+				DomainVisualIDRegistry
+						.getType(ApplicationMessagesNameEditPart.VISUAL_ID));
+		if (parser != null) {
+			return parser.getPrintString(new EObjectAdapter(
+					view.getElement() != null ? view.getElement() : view),
+					ParserOptions.NONE.intValue());
+		} else {
+			DomainDiagramEditorPlugin.getInstance().logError(
+					"Parser was not found for label " + 805012); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 	}

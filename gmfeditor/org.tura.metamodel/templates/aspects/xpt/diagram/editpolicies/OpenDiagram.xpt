@@ -40,7 +40,7 @@
 
 		«EXPAND xpt::Common::generatedMemberComment»
 		protected org.eclipse.gmf.runtime.notation.Diagram intializeNewDiagram() throws org.eclipse.core.commands.ExecutionException {
-        «IF editPolicyClassName = 'OpenDiagramBusinessPackageEditPolicy' or  editPolicyClassName = 'OpenDiagramPackageEditPolicy'   or editPolicyClassName = 'OpenDiagramDomainArtifactEditPolicy'  or editPolicyClassName = 'OpenDiagramDomainTypesEditPolicy' or editPolicyClassName = 'OpenDiagramDomainApplicationEditPolicy'  or editPolicyClassName = 'OpenDiagramApplicationMapperEditPolicy' or editPolicyClassName = 'OpenDiagramApplicationRecipeEditPolicy'  or editPolicyClassName = 'OpenDiagramORMEntityEditPolicy'  or editPolicyClassName = 'OpenDiagramJPAServiceEditPolicy' or editPolicyClassName = 'OpenDiagramEJBServiceEditPolicy' or editPolicyClassName = 'OpenDiagramContinuousIintegrationEditPolicy'  or editPolicyClassName = 'OpenDiagramDeploymentSequenceEditPolicy' or editPolicyClassName = 'OpenDiagramApplicationUIPackageEditPolicy'  or editPolicyClassName = 'OpenDiagramFormDataControlsEditPolicy'  or editPolicyClassName = 'OpenDiagramApplicationInfrastructureLayerEditPolicy'  or editPolicyClassName =  'OpenDiagramFormViewEditPolicy'   or editPolicyClassName =  'OpenDiagramApplicationRoleEditPolicy'   or editPolicyClassName =  'OpenDiagramStylesPackageEditPolicy'   or editPolicyClassName =  'OpenDiagramViewAreaEditPolicy'-»
+        «IF editPolicyClassName = 'OpenDiagramBusinessPackageEditPolicy' or  editPolicyClassName = 'OpenDiagramPackageEditPolicy'   or editPolicyClassName = 'OpenDiagramDomainArtifactEditPolicy'  or editPolicyClassName = 'OpenDiagramDomainTypesEditPolicy' or editPolicyClassName = 'OpenDiagramDomainApplicationEditPolicy'  or editPolicyClassName = 'OpenDiagramApplicationMapperEditPolicy' or editPolicyClassName = 'OpenDiagramApplicationRecipeEditPolicy'  or editPolicyClassName = 'OpenDiagramORMEntityEditPolicy'  or editPolicyClassName = 'OpenDiagramJPAServiceEditPolicy' or editPolicyClassName = 'OpenDiagramEJBServiceEditPolicy' or editPolicyClassName = 'OpenDiagramContinuousIintegrationEditPolicy'  or editPolicyClassName = 'OpenDiagramDeploymentSequenceEditPolicy' or editPolicyClassName = 'OpenDiagramApplicationUIPackageEditPolicy'  or editPolicyClassName = 'OpenDiagramFormDataControlsEditPolicy'  or editPolicyClassName = 'OpenDiagramApplicationInfrastructureLayerEditPolicy'  or editPolicyClassName =  'OpenDiagramFormViewEditPolicy'   or editPolicyClassName =  'OpenDiagramApplicationRoleEditPolicy'   or editPolicyClassName =  'OpenDiagramStylesPackageEditPolicy'   or editPolicyClassName =  'OpenDiagramViewAreaEditPolicy'  or editPolicyClassName =  'OpenDiagramApplicationMessagesEditPolicy' -»
  			«EXPAND sourceObject» sourceObject = («EXPAND sourceObject») ((org.eclipse.gmf.runtime.notation.impl.NodeImpl) (diagramFacet
 					.eContainer())).basicGetElement();
 			if (sourceObject.getName() == null) {
@@ -227,6 +227,8 @@
           domain.StylesPackage
           «ELSEIF  editPolicyClassName = 'OpenDiagramViewAreaEditPolicy'-» 
           domain.ViewArea
+          «ELSEIF  editPolicyClassName = 'OpenDiagramApplicationMessagesEditPolicy'-» 
+          domain.ApplicationMessages
            «ELSE»
            null
            «ENDIF»
@@ -271,6 +273,8 @@
           setStyles
           «ELSEIF  editPolicyClassName = 'OpenDiagramViewAreaEditPolicy'-» 
           setCanvasView
+          «ELSEIF  editPolicyClassName = 'OpenDiagramApplicationMessagesEditPolicy'-» 
+          setMessages
            «ELSE»
            null
            «ENDIF»
@@ -316,6 +320,8 @@
           getStyles
           «ELSEIF  editPolicyClassName = 'OpenDiagramViewAreaEditPolicy'-» 
           getCanvasView
+          «ELSEIF  editPolicyClassName = 'OpenDiagramApplicationMessagesEditPolicy'-» 
+          getMessages
             «ELSE»
            null
            «ENDIF»
@@ -361,6 +367,8 @@
           domain.Styles
           «ELSEIF  editPolicyClassName = 'OpenDiagramViewAreaEditPolicy'-» 
           domain.CanvasView
+          «ELSEIF  editPolicyClassName = 'OpenDiagramApplicationMessagesEditPolicy'-» 
+          domain.Messages
            «ELSE»
            null
            «ENDIF»
@@ -405,6 +413,8 @@
            domain.DomainFactory.eINSTANCE.createStyles()
           «ELSEIF  editPolicyClassName = 'OpenDiagramViewAreaEditPolicy'-» 
            domain.DomainFactory.eINSTANCE.createCanvasView()
+          «ELSEIF  editPolicyClassName = 'OpenDiagramApplicationMessagesEditPolicy'-» 
+          domain.DomainFactory.eINSTANCE.createMessages()
            «ELSE»
            null
            «ENDIF»
@@ -449,6 +459,8 @@
             "style"
           «ELSEIF  editPolicyClassName = 'OpenDiagramViewAreaEditPolicy'-» 
            "canvas"
+          «ELSEIF  editPolicyClassName = 'OpenDiagramApplicationMessagesEditPolicy'-» 
+           "message"
            «ELSE»
            null
            «ENDIF»

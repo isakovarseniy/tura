@@ -598,6 +598,63 @@
         </modelFacet>
       </labels>
     </topLevelNodes>
+    <topLevelNodes
+        visualID="802007"
+        editPartClassName="ApplicationMessagesEditPart"
+        itemSemanticEditPolicyClassName="ApplicationMessagesItemSemanticEditPolicy"
+        canonicalEditPolicyClassName="ApplicationMessagesCanonicalEditPolicy"
+        graphicalNodeEditPolicyClassName="ApplicationMessagesGraphicalNodeEditPolicy"
+        createCommandClassName="ApplicationMessagesCreateCommand">
+      <diagramRunTimeClass
+          href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+      <elementType
+          xsi:type="gmfgen:MetamodelType"
+          editHelperClassName="ApplicationMessagesEditHelper"/>
+      <viewmap
+          xsi:type="gmfgen:InnerClassViewmap"
+          className="ApplicationMessagesFigure"
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class ApplicationMessagesFigure extends org.eclipse.draw2d.RoundedRectangle {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.tura.metamodel.commons.editparts.SizeLimitedLabel fFigureApplicationMessagesLabelFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public ApplicationMessagesFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setCornerDimensions(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(8)&#xA;, getMapMode().DPtoLP(8)&#xA;));&#xA;&#x9;this.setForegroundColor(THIS_FORE&#xA;);&#xA;&#x9;this.setBackgroundColor(THIS_BACK&#xA;);&#xA;this.setBorder(new org.eclipse.draw2d.MarginBorder(getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;));&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureApplicationMessagesLabelFigure = new org.tura.metamodel.commons.editparts.SizeLimitedLabel();&#xA;&#xA;fFigureApplicationMessagesLabelFigure.setText(&quot;ApplicationMessages&quot;);&#xA;&#xA;fFigureApplicationMessagesLabelFigure.setFont(FFIGUREAPPLICATIONMESSAGESLABELFIGURE_FONT);&#xA;&#xA;&#xA;&#xA;this.add(fFigureApplicationMessagesLabelFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.tura.metamodel.commons.editparts.SizeLimitedLabel getFigureApplicationMessagesLabelFigure() {&#xA;&#x9;&#x9;return fFigureApplicationMessagesLabelFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_FORE = new org.eclipse.swt.graphics.Color(null, 0, 0, 0);&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_BACK = new org.eclipse.swt.graphics.Color(null, 192, 192, 192);&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Font FFIGUREAPPLICATIONMESSAGESLABELFIGURE_FONT = new org.eclipse.swt.graphics.Font(org.eclipse.swt.widgets.Display.getCurrent(), &quot;Palatino&quot;, 12, org.eclipse.swt.SWT.ITALIC);&#xA;&#xA;">
+        <attributes
+            xsi:type="gmfgen:StyleAttributes"
+            fixedForeground="true"
+            fixedBackground="true"/>
+      </viewmap>
+      <behaviour
+          xsi:type="gmfgen:OpenDiagramBehaviour"
+          editPolicyClassName="OpenDiagramApplicationMessagesEditPolicy"
+          diagramKind="Message"
+          editorID="message.diagram.part.MessagesDiagramEditorID"/>
+      <modelFacet>
+        <metaClass
+            href="domain.genmodel#//domain/ApplicationMessages"/>
+        <containmentMetaFeature
+            href="domain.genmodel#//domain/Application/applicationMessages"/>
+        <childMetaFeature
+            href="domain.genmodel#//domain/Application/applicationMessages"/>
+      </modelFacet>
+      <labels
+          visualID="805012"
+          editPartClassName="ApplicationMessagesNameEditPart"
+          itemSemanticEditPolicyClassName="ApplicationMessagesNameItemSemanticEditPolicy"
+          elementIcon="true">
+        <diagramRunTimeClass
+            href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+        <viewmap
+            xsi:type="gmfgen:ParentAssignedViewmap"
+            getterName="getFigureApplicationMessagesLabelFigure"
+            figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel">
+          <attributes
+              xsi:type="gmfgen:StyleAttributes"
+              fixedFont="true"/>
+        </viewmap>
+        <modelFacet
+            xsi:type="gmfgen:FeatureLabelModelFacet"
+            parser="//@labelParsers/@implementations.0">
+          <metaFeatures
+              href="domain.genmodel#//domain/ApplicationMessages/name"/>
+        </modelFacet>
+      </labels>
+    </topLevelNodes>
     <compartments
         visualID="807001"
         editPartClassName="ApplicationRecipesApplicationRecipesRecipesCompartmentEditPart"
@@ -687,6 +744,11 @@
             genNodes="//@diagram/@topLevelNodes.1"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
+            title="ApplicationMessages"
+            description="Create new ApplicationMessages"
+            genNodes="//@diagram/@topLevelNodes.6"/>
+        <entries
+            xsi:type="gmfgen:ToolEntry"
             title="ApplicationRecipe"
             description="Create new ApplicationRecipe"
             genNodes="//@diagram/@childNodes.0"/>
@@ -715,18 +777,6 @@
             title="ApplicationUIPackage"
             description="Create new ApplicationUIPackage"
             genNodes="//@diagram/@childNodes.2"/>
-        <entries
-            xsi:type="gmfgen:ToolEntry"
-            title="CSSMapper"
-            description="Create new CSSMapper"/>
-        <entries
-            xsi:type="gmfgen:ToolEntry"
-            title="JavaScriptMapper"
-            description="Create new JavaScriptMapper"/>
-        <entries
-            xsi:type="gmfgen:ToolEntry"
-            title="RoleMapper"
-            description="Create new RoleMapper"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
             title="StylesPackage"
@@ -801,6 +851,9 @@
     <childReferences
         parent="//@diagram"
         child="//@diagram/@topLevelNodes.5"/>
+    <childReferences
+        parent="//@diagram"
+        child="//@diagram/@topLevelNodes.6"/>
   </navigator>
   <diagramUpdater/>
   <propertySheet>
@@ -828,7 +881,7 @@
       extensibleViaService="true">
     <implementations
         xsi:type="gmfgen:PredefinedParser"
-        uses="//@diagram/@childNodes.0/@labels.0/@modelFacet //@diagram/@topLevelNodes.0/@labels.0/@modelFacet //@diagram/@childNodes.1/@labels.0/@modelFacet //@diagram/@topLevelNodes.1/@labels.0/@modelFacet //@diagram/@childNodes.2/@labels.0/@modelFacet //@diagram/@topLevelNodes.2/@labels.0/@modelFacet //@diagram/@topLevelNodes.3/@labels.0/@modelFacet //@diagram/@childNodes.3/@labels.0/@modelFacet //@diagram/@topLevelNodes.4/@labels.0/@modelFacet //@diagram/@topLevelNodes.5/@labels.0/@modelFacet"/>
+        uses="//@diagram/@childNodes.0/@labels.0/@modelFacet //@diagram/@topLevelNodes.0/@labels.0/@modelFacet //@diagram/@childNodes.1/@labels.0/@modelFacet //@diagram/@topLevelNodes.1/@labels.0/@modelFacet //@diagram/@childNodes.2/@labels.0/@modelFacet //@diagram/@topLevelNodes.2/@labels.0/@modelFacet //@diagram/@topLevelNodes.3/@labels.0/@modelFacet //@diagram/@childNodes.3/@labels.0/@modelFacet //@diagram/@topLevelNodes.4/@labels.0/@modelFacet //@diagram/@topLevelNodes.5/@labels.0/@modelFacet //@diagram/@topLevelNodes.6/@labels.0/@modelFacet"/>
   </labelParsers>
   <contextMenus
       context="//@diagram">

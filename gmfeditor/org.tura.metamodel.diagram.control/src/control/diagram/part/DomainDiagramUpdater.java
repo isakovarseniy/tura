@@ -638,14 +638,6 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getArtificialField_1103008ContainedLinks(
-			View view) {
-		return Collections.emptyList();
-	}
-
-	/**
-	 * @generated
-	 */
 	public static List<DomainLinkDescriptor> getPREQueryTrigger_1103002ContainedLinks(
 			View view) {
 		return Collections.emptyList();
@@ -734,6 +726,14 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
+	public static List<DomainLinkDescriptor> getArtificialField_1103008ContainedLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
 	public static List<DomainLinkDescriptor> getRelation_1104009ContainedLinks(
 			View view) {
 		return Collections.emptyList();
@@ -765,14 +765,6 @@ public class DomainDiagramUpdater {
 	 * @generated
 	 */
 	public static List<DomainLinkDescriptor> getPREFormTrigger_1103001IncomingLinks(
-			View view) {
-		return Collections.emptyList();
-	}
-
-	/**
-	 * @generated
-	 */
-	public static List<DomainLinkDescriptor> getArtificialField_1103008IncomingLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -868,6 +860,14 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
+	public static List<DomainLinkDescriptor> getArtificialField_1103008IncomingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
 	public static List<DomainLinkDescriptor> getRelation_1104009IncomingLinks(
 			View view) {
 		return Collections.emptyList();
@@ -896,14 +896,6 @@ public class DomainDiagramUpdater {
 	 * @generated
 	 */
 	public static List<DomainLinkDescriptor> getPREFormTrigger_1103001OutgoingLinks(
-			View view) {
-		return Collections.emptyList();
-	}
-
-	/**
-	 * @generated
-	 */
-	public static List<DomainLinkDescriptor> getArtificialField_1103008OutgoingLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -992,6 +984,14 @@ public class DomainDiagramUpdater {
 	 * @generated
 	 */
 	public static List<DomainLinkDescriptor> getSearchTrigger_1103016OutgoingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<DomainLinkDescriptor> getArtificialField_1103008OutgoingLinks(
 			View view) {
 		return Collections.emptyList();
 	}

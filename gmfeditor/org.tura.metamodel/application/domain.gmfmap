@@ -21,7 +21,7 @@
       </labelMappings>
       <tool
           xsi:type="gmftool:CreationTool"
-          href="domain.gmftool#//@palette/@tools.0/@tools.4"/>
+          href="domain.gmftool#//@palette/@tools.0/@tools.5"/>
       <diagramNode
           href="domain.gmfgraph#ApplicationRecipes"/>
       <children
@@ -40,7 +40,7 @@
           </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
-              href="domain.gmftool#//@palette/@tools.0/@tools.3"/>
+              href="domain.gmftool#//@palette/@tools.0/@tools.4"/>
           <diagramNode
               href="domain.gmfgraph#ApplicationRecipe"/>
         </ownedChild>
@@ -115,7 +115,7 @@
       </labelMappings>
       <tool
           xsi:type="gmftool:CreationTool"
-          href="domain.gmftool#//@palette/@tools.0/@tools.7"/>
+          href="domain.gmftool#//@palette/@tools.0/@tools.8"/>
       <diagramNode
           href="domain.gmfgraph#ApplicationUILayer"/>
       <children
@@ -134,7 +134,7 @@
           </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
-              href="domain.gmftool#//@palette/@tools.0/@tools.8"/>
+              href="domain.gmftool#//@palette/@tools.0/@tools.9"/>
           <diagramNode
               href="domain.gmfgraph#ApplicationUIPackage"/>
         </ownedChild>
@@ -182,7 +182,7 @@
       </labelMappings>
       <tool
           xsi:type="gmftool:CreationTool"
-          href="domain.gmftool#//@palette/@tools.0/@tools.6"/>
+          href="domain.gmftool#//@palette/@tools.0/@tools.7"/>
       <diagramNode
           href="domain.gmfgraph#ApplicationStyle"/>
       <children
@@ -201,7 +201,7 @@
           </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
-              href="domain.gmftool#//@palette/@tools.0/@tools.12"/>
+              href="domain.gmftool#//@palette/@tools.0/@tools.10"/>
           <diagramNode
               href="domain.gmfgraph#StylesPackage"/>
         </ownedChild>
@@ -228,9 +228,29 @@
       </labelMappings>
       <tool
           xsi:type="gmftool:CreationTool"
-          href="domain.gmftool#//@palette/@tools.0/@tools.5"/>
+          href="domain.gmftool#//@palette/@tools.0/@tools.6"/>
       <diagramNode
           href="domain.gmfgraph#ApplicationRole"/>
+    </ownedChild>
+  </nodes>
+  <nodes>
+    <containmentFeature
+        href="domain.ecore#//Application/applicationMessages"/>
+    <ownedChild>
+      <domainMetaElement
+          href="domain.ecore#//ApplicationMessages"/>
+      <labelMappings
+          xsi:type="gmfmap:FeatureLabelMapping">
+        <diagramLabel
+            href="domain.gmfgraph#ApplicationMessagesLabel"/>
+        <features
+            href="domain.ecore#//ApplicationMessages/name"/>
+      </labelMappings>
+      <tool
+          xsi:type="gmftool:CreationTool"
+          href="domain.gmftool#//@palette/@tools.0/@tools.3"/>
+      <diagramNode
+          href="domain.gmfgraph#ApplicationMessages"/>
     </ownedChild>
   </nodes>
   <diagram>

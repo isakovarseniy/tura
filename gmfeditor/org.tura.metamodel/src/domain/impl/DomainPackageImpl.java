@@ -7,6 +7,7 @@ import domain.Application;
 import domain.ApplicationInfrastructureLayer;
 import domain.ApplicationMapper;
 import domain.ApplicationMappers;
+import domain.ApplicationMessages;
 import domain.ApplicationRecipe;
 import domain.ApplicationRecipes;
 import domain.ApplicationRole;
@@ -77,11 +78,15 @@ import domain.JavaComponent;
 import domain.JavaMapper;
 import domain.JavaScriptMapper;
 import domain.Label;
+import domain.Language;
 import domain.LayerHolder;
 import domain.Link;
 import domain.Mapper;
 import domain.Mappers;
 import domain.MappingSpecifier;
+import domain.Message;
+import domain.MessageLibrary;
+import domain.Messages;
 import domain.MethodPointer;
 import domain.ModelMapper;
 import domain.ModelQuery;
@@ -132,6 +137,7 @@ import domain.TabCanvas;
 import domain.TabPage;
 import domain.TabPagesInheritance;
 import domain.Table;
+import domain.Translation;
 import domain.Tree;
 import domain.Trigger;
 import domain.Type;
@@ -310,6 +316,13 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  private EClass applicationMessagesEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   private EClass applicationRoleEClass = null;
 
   /**
@@ -374,6 +387,41 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * @generated
    */
   private EClass methodPointerEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass messagesEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass messageLibraryEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass messageEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass translationEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass languageEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -2104,9 +2152,69 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getApplication_Parent()
+  public EReference getApplication_ApplicationMessages()
   {
     return (EReference)applicationEClass.getEStructuralFeatures().get(7);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getApplication_Parent()
+  {
+    return (EReference)applicationEClass.getEStructuralFeatures().get(8);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getApplicationMessages()
+  {
+    return applicationMessagesEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getApplicationMessages_Uid()
+  {
+    return (EAttribute)applicationMessagesEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getApplicationMessages_Name()
+  {
+    return (EAttribute)applicationMessagesEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getApplicationMessages_Parent()
+  {
+    return (EReference)applicationMessagesEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getApplicationMessages_Messages()
+  {
+    return (EReference)applicationMessagesEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -2587,6 +2695,206 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
   public EAttribute getMethodPointer_FakeMethod()
   {
     return (EAttribute)methodPointerEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getMessages()
+  {
+    return messagesEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getMessages_Uid()
+  {
+    return (EAttribute)messagesEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getMessages_Parent()
+  {
+    return (EReference)messagesEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getMessages_MessageLibraries()
+  {
+    return (EReference)messagesEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getMessageLibrary()
+  {
+    return messageLibraryEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getMessageLibrary_Uid()
+  {
+    return (EAttribute)messageLibraryEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getMessageLibrary_Name()
+  {
+    return (EAttribute)messageLibraryEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getMessageLibrary_Message()
+  {
+    return (EReference)messageLibraryEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getMessage()
+  {
+    return messageEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getMessage_Uid()
+  {
+    return (EAttribute)messageEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getMessage_Name()
+  {
+    return (EAttribute)messageEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getMessage_Translatioins()
+  {
+    return (EReference)messageEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getTranslation()
+  {
+    return translationEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getTranslation_Uid()
+  {
+    return (EAttribute)translationEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getTranslation_Translation()
+  {
+    return (EAttribute)translationEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getTranslation_Lang()
+  {
+    return (EReference)translationEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getLanguage()
+  {
+    return languageEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getLanguage_Uid()
+  {
+    return (EAttribute)languageEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getLanguage_Lang()
+  {
+    return (EAttribute)languageEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getLanguage_Code()
+  {
+    return (EAttribute)languageEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -7207,7 +7515,14 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     createEReference(applicationEClass, APPLICATION__APPLICATION_INFRASTRUCTURE_LAYER);
     createEReference(applicationEClass, APPLICATION__APPLICATION_STYLE);
     createEReference(applicationEClass, APPLICATION__APPLICATION_ROLE);
+    createEReference(applicationEClass, APPLICATION__APPLICATION_MESSAGES);
     createEReference(applicationEClass, APPLICATION__PARENT);
+
+    applicationMessagesEClass = createEClass(APPLICATION_MESSAGES);
+    createEAttribute(applicationMessagesEClass, APPLICATION_MESSAGES__UID);
+    createEAttribute(applicationMessagesEClass, APPLICATION_MESSAGES__NAME);
+    createEReference(applicationMessagesEClass, APPLICATION_MESSAGES__PARENT);
+    createEReference(applicationMessagesEClass, APPLICATION_MESSAGES__MESSAGES);
 
     applicationRoleEClass = createEClass(APPLICATION_ROLE);
     createEAttribute(applicationRoleEClass, APPLICATION_ROLE__UID);
@@ -7266,6 +7581,31 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     methodPointerEClass = createEClass(METHOD_POINTER);
     createEReference(methodPointerEClass, METHOD_POINTER__METHOD_REF);
     createEAttribute(methodPointerEClass, METHOD_POINTER__FAKE_METHOD);
+
+    messagesEClass = createEClass(MESSAGES);
+    createEAttribute(messagesEClass, MESSAGES__UID);
+    createEReference(messagesEClass, MESSAGES__PARENT);
+    createEReference(messagesEClass, MESSAGES__MESSAGE_LIBRARIES);
+
+    messageLibraryEClass = createEClass(MESSAGE_LIBRARY);
+    createEAttribute(messageLibraryEClass, MESSAGE_LIBRARY__UID);
+    createEAttribute(messageLibraryEClass, MESSAGE_LIBRARY__NAME);
+    createEReference(messageLibraryEClass, MESSAGE_LIBRARY__MESSAGE);
+
+    messageEClass = createEClass(MESSAGE);
+    createEAttribute(messageEClass, MESSAGE__UID);
+    createEAttribute(messageEClass, MESSAGE__NAME);
+    createEReference(messageEClass, MESSAGE__TRANSLATIOINS);
+
+    translationEClass = createEClass(TRANSLATION);
+    createEAttribute(translationEClass, TRANSLATION__UID);
+    createEAttribute(translationEClass, TRANSLATION__TRANSLATION);
+    createEReference(translationEClass, TRANSLATION__LANG);
+
+    languageEClass = createEClass(LANGUAGE);
+    createEAttribute(languageEClass, LANGUAGE__UID);
+    createEAttribute(languageEClass, LANGUAGE__LANG);
+    createEAttribute(languageEClass, LANGUAGE__CODE);
 
     rolesEClass = createEClass(ROLES);
     createEAttribute(rolesEClass, ROLES__UID);
@@ -8052,7 +8392,14 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     initEReference(getApplication_ApplicationInfrastructureLayer(), this.getApplicationInfrastructureLayer(), this.getApplicationInfrastructureLayer_Parent(), "applicationInfrastructureLayer", null, 0, 1, Application.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getApplication_ApplicationStyle(), this.getApplicationStyle(), this.getApplicationStyle_Parent(), "applicationStyle", null, 0, 1, Application.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getApplication_ApplicationRole(), this.getApplicationRole(), this.getApplicationRole_Parent(), "applicationRole", null, 0, 1, Application.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getApplication_ApplicationMessages(), this.getApplicationMessages(), this.getApplicationMessages_Parent(), "applicationMessages", null, 0, 1, Application.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getApplication_Parent(), this.getDomainApplication(), this.getDomainApplication_Application(), "parent", null, 0, 1, Application.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(applicationMessagesEClass, ApplicationMessages.class, "ApplicationMessages", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getApplicationMessages_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, ApplicationMessages.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getApplicationMessages_Name(), ecorePackage.getEString(), "name", null, 0, 1, ApplicationMessages.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getApplicationMessages_Parent(), this.getApplication(), this.getApplication_ApplicationMessages(), "parent", null, 0, 1, ApplicationMessages.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getApplicationMessages_Messages(), this.getMessages(), this.getMessages_Parent(), "messages", null, 0, 1, ApplicationMessages.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(applicationRoleEClass, ApplicationRole.class, "ApplicationRole", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getApplicationRole_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, ApplicationRole.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -8111,6 +8458,31 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     initEClass(methodPointerEClass, MethodPointer.class, "MethodPointer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getMethodPointer_MethodRef(), this.getOperation(), null, "methodRef", null, 0, 1, MethodPointer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getMethodPointer_FakeMethod(), ecorePackage.getEString(), "fakeMethod", null, 0, 1, MethodPointer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(messagesEClass, Messages.class, "Messages", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getMessages_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, Messages.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getMessages_Parent(), this.getApplicationMessages(), this.getApplicationMessages_Messages(), "parent", null, 0, 1, Messages.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getMessages_MessageLibraries(), this.getMessageLibrary(), null, "messageLibraries", null, 0, 1, Messages.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(messageLibraryEClass, MessageLibrary.class, "MessageLibrary", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getMessageLibrary_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, MessageLibrary.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getMessageLibrary_Name(), ecorePackage.getEString(), "name", null, 0, 1, MessageLibrary.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getMessageLibrary_Message(), this.getMessage(), null, "message", null, 0, -1, MessageLibrary.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(messageEClass, Message.class, "Message", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getMessage_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, Message.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getMessage_Name(), ecorePackage.getEString(), "name", null, 0, 1, Message.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getMessage_Translatioins(), this.getTranslation(), null, "translatioins", null, 0, -1, Message.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(translationEClass, Translation.class, "Translation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getTranslation_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, Translation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getTranslation_Translation(), ecorePackage.getEString(), "translation", null, 0, 1, Translation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getTranslation_Lang(), this.getLanguage(), null, "lang", null, 0, 1, Translation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(languageEClass, Language.class, "Language", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getLanguage_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, Language.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getLanguage_Lang(), ecorePackage.getEString(), "lang", null, 0, 1, Language.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getLanguage_Code(), ecorePackage.getEString(), "code", null, 0, 1, Language.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(rolesEClass, Roles.class, "Roles", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getRoles_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, Roles.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -8703,32 +9075,34 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     createGmf_4Annotations();
     // gmf.diagram.application
     createGmf_5Annotations();
-    // gmf.diagram.roles
+    // gmf.diagram.messages
     createGmf_6Annotations();
-    // gmf.link
+    // gmf.diagram.roles
     createGmf_7Annotations();
-    // gmf.diagram.style
+    // gmf.link
     createGmf_8Annotations();
-    // gmf.diagram.mapper
+    // gmf.diagram.style
     createGmf_9Annotations();
-    // gmf.diagram.recipe
+    // gmf.diagram.mapper
     createGmf_10Annotations();
-    // gmf.diagram.deployment
+    // gmf.diagram.recipe
     createGmf_11Annotations();
-    // gmf.diagram.typedefinition
+    // gmf.diagram.deployment
     createGmf_12Annotations();
-    // gmf.diagram.typesrepository
+    // gmf.diagram.typedefinition
     createGmf_13Annotations();
-    // gmf.diagram.uipackage
+    // gmf.diagram.typesrepository
     createGmf_14Annotations();
-    // gmf.diagram.view
+    // gmf.diagram.uipackage
     createGmf_15Annotations();
-    // gmf.diagram.canvas
+    // gmf.diagram.view
     createGmf_16Annotations();
-    // gmf.diagram.control
+    // gmf.diagram.canvas
     createGmf_17Annotations();
-    // gmf.diagram.infarastructure
+    // gmf.diagram.control
     createGmf_18Annotations();
+    // gmf.diagram.infarastructure
+    createGmf_19Annotations();
   }
 
   /**
@@ -8745,7 +9119,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
-       });																																																																																																																																																																						
+       });																																																																																																																																																																											
   }
 
   /**
@@ -8762,7 +9136,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
-       });																																																																																																																																																																					
+       });																																																																																																																																																																										
   }
 
   /**
@@ -8897,6 +9271,15 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        "label", "name"
        });			
     addAnnotation
+      (applicationMessagesEClass, 
+       source, 
+       new String[] 
+       {
+       "label", "name",
+       "border.color", "0,0,0",
+       "color", "192,192,192"
+       });		
+    addAnnotation
       (applicationRoleEClass, 
        source, 
        new String[] 
@@ -8970,6 +9353,24 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        });			
     addAnnotation
       (applicationMapperEClass, 
+       source, 
+       new String[] 
+       {
+       "label", "name",
+       "border.color", "0,0,0",
+       "color", "255,237,85"
+       });			
+    addAnnotation
+      (messageLibraryEClass, 
+       source, 
+       new String[] 
+       {
+       "label", "name",
+       "border.color", "0,0,0",
+       "color", "255,237,85"
+       });			
+    addAnnotation
+      (messageEClass, 
        source, 
        new String[] 
        {
@@ -9691,7 +10092,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        new String[] 
        {
        "layout", "list"
-       });									
+       });										
     addAnnotation
       (getApplicationStyle_StylesPackage(), 
        source, 
@@ -9715,6 +10116,13 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
+       });					
+    addAnnotation
+      (getMessageLibrary_Message(), 
+       source, 
+       new String[] 
+       {
+       "layout", "list"
        });										
     addAnnotation
       (getStyleLibrary_Styles(), 
@@ -9961,7 +10369,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
-       });																																																																																																																																																									
+       });																																																																																																																																																														
   }
 
   /**
@@ -9978,7 +10386,24 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
-       });																																																																																																																																																
+       });																																																																																																																																																					
+  }
+
+  /**
+   * Initializes the annotations for <b>gmf.diagram.messages</b>.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected void createGmf_6Annotations()
+  {
+    String source = "gmf.diagram.messages";																																							
+    addAnnotation
+      (messagesEClass, 
+       source, 
+       new String[] 
+       {
+       });																																																																																																																																						
   }
 
   /**
@@ -9987,9 +10412,9 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  protected void createGmf_6Annotations()
+  protected void createGmf_7Annotations()
   {
-    String source = "gmf.diagram.roles";																																						
+    String source = "gmf.diagram.roles";																																											
     addAnnotation
       (rolesEClass, 
        source, 
@@ -10004,9 +10429,9 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  protected void createGmf_7Annotations()
+  protected void createGmf_8Annotations()
   {
-    String source = "gmf.link";																																									
+    String source = "gmf.link";																																														
     addAnnotation
       (getGroup_Group2Group(), 
        source, 
@@ -10134,9 +10559,9 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  protected void createGmf_8Annotations()
+  protected void createGmf_9Annotations()
   {
-    String source = "gmf.diagram.style";																																											
+    String source = "gmf.diagram.style";																																																
     addAnnotation
       (stylesEClass, 
        source, 
@@ -10151,9 +10576,9 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  protected void createGmf_9Annotations()
+  protected void createGmf_10Annotations()
   {
-    String source = "gmf.diagram.mapper";																																															
+    String source = "gmf.diagram.mapper";																																																				
     addAnnotation
       (mappersEClass, 
        source, 
@@ -10168,9 +10593,9 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  protected void createGmf_10Annotations()
+  protected void createGmf_11Annotations()
   {
-    String source = "gmf.diagram.recipe";																																																				
+    String source = "gmf.diagram.recipe";																																																									
     addAnnotation
       (recipesEClass, 
        source, 
@@ -10185,9 +10610,9 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  protected void createGmf_11Annotations()
+  protected void createGmf_12Annotations()
   {
-    String source = "gmf.diagram.deployment";																																																						
+    String source = "gmf.diagram.deployment";																																																											
     addAnnotation
       (deploymentComponentsEClass, 
        source, 
@@ -10202,9 +10627,9 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  protected void createGmf_12Annotations()
+  protected void createGmf_13Annotations()
   {
-    String source = "gmf.diagram.typedefinition";																																																																												
+    String source = "gmf.diagram.typedefinition";																																																																																	
     addAnnotation
       (typeDefinitionEClass, 
        source, 
@@ -10219,9 +10644,9 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  protected void createGmf_13Annotations()
+  protected void createGmf_14Annotations()
   {
-    String source = "gmf.diagram.typesrepository";																																																																																								
+    String source = "gmf.diagram.typesrepository";																																																																																													
     addAnnotation
       (typesRepositoryEClass, 
        source, 
@@ -10236,9 +10661,9 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  protected void createGmf_14Annotations()
+  protected void createGmf_15Annotations()
   {
-    String source = "gmf.diagram.uipackage";																																																																																												
+    String source = "gmf.diagram.uipackage";																																																																																																	
     addAnnotation
       (uiPackageEClass, 
        source, 
@@ -10253,9 +10678,9 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  protected void createGmf_15Annotations()
+  protected void createGmf_16Annotations()
   {
-    String source = "gmf.diagram.view";																																																																																																	
+    String source = "gmf.diagram.view";																																																																																																						
     addAnnotation
       (viewsEClass, 
        source, 
@@ -10270,9 +10695,9 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  protected void createGmf_16Annotations()
+  protected void createGmf_17Annotations()
   {
-    String source = "gmf.diagram.canvas";																																																																																																														
+    String source = "gmf.diagram.canvas";																																																																																																																			
     addAnnotation
       (canvasViewEClass, 
        source, 
@@ -10287,9 +10712,9 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  protected void createGmf_17Annotations()
+  protected void createGmf_18Annotations()
   {
-    String source = "gmf.diagram.control";																																																																																																																												
+    String source = "gmf.diagram.control";																																																																																																																																	
     addAnnotation
       (controlsEClass, 
        source, 
@@ -10304,9 +10729,9 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  protected void createGmf_18Annotations()
+  protected void createGmf_19Annotations()
   {
-    String source = "gmf.diagram.infarastructure";																																																																																																																																																											
+    String source = "gmf.diagram.infarastructure";																																																																																																																																																																
     addAnnotation
       (enterpriseInfrastructureEClass, 
        source, 

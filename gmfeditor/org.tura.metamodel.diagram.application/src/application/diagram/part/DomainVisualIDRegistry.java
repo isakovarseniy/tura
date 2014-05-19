@@ -18,6 +18,8 @@ import application.diagram.edit.parts.ApplicationMapperNameEditPart;
 import application.diagram.edit.parts.ApplicationMappersApplicationMappersMappersCompartmentEditPart;
 import application.diagram.edit.parts.ApplicationMappersEditPart;
 import application.diagram.edit.parts.ApplicationMappersNameEditPart;
+import application.diagram.edit.parts.ApplicationMessagesEditPart;
+import application.diagram.edit.parts.ApplicationMessagesNameEditPart;
 import application.diagram.edit.parts.ApplicationRecipeEditPart;
 import application.diagram.edit.parts.ApplicationRecipeNameEditPart;
 import application.diagram.edit.parts.ApplicationRecipesApplicationRecipesRecipesCompartmentEditPart;
@@ -171,6 +173,10 @@ public class DomainVisualIDRegistry {
 					domainElement.eClass())) {
 				return ApplicationRoleEditPart.VISUAL_ID;
 			}
+			if (DomainPackage.eINSTANCE.getApplicationMessages().isSuperTypeOf(
+					domainElement.eClass())) {
+				return ApplicationMessagesEditPart.VISUAL_ID;
+			}
 			break;
 		case ApplicationRecipesApplicationRecipesRecipesCompartmentEditPart.VISUAL_ID:
 			if (DomainPackage.eINSTANCE.getApplicationRecipe().isSuperTypeOf(
@@ -241,6 +247,9 @@ public class DomainVisualIDRegistry {
 			if (ApplicationRoleEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
+			if (ApplicationMessagesEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
 			break;
 		case ApplicationRecipesEditPart.VISUAL_ID:
 			if (ApplicationRecipesNameEditPart.VISUAL_ID == nodeVisualID) {
@@ -281,6 +290,11 @@ public class DomainVisualIDRegistry {
 			break;
 		case ApplicationRoleEditPart.VISUAL_ID:
 			if (ApplicationRoleNameEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case ApplicationMessagesEditPart.VISUAL_ID:
+			if (ApplicationMessagesNameEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -386,6 +400,7 @@ public class DomainVisualIDRegistry {
 			return false;
 		case ApplicationInfrastructureLayerEditPart.VISUAL_ID:
 		case ApplicationRoleEditPart.VISUAL_ID:
+		case ApplicationMessagesEditPart.VISUAL_ID:
 		case ApplicationRecipeEditPart.VISUAL_ID:
 		case ApplicationMapperEditPart.VISUAL_ID:
 		case ApplicationUIPackageEditPart.VISUAL_ID:

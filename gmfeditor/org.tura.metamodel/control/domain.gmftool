@@ -39,15 +39,6 @@
       </tools>
       <tools
           xsi:type="gmftool:CreationTool"
-          title="CSSMapper"
-          description="Create new CSSMapper">
-        <smallIcon
-            xsi:type="gmftool:DefaultImage"/>
-        <largeIcon
-            xsi:type="gmftool:DefaultImage"/>
-      </tools>
-      <tools
-          xsi:type="gmftool:CreationTool"
           title="CreateTrigger"
           description="Create new CreateTrigger">
         <smallIcon
@@ -77,15 +68,6 @@
           xsi:type="gmftool:CreationTool"
           title="InsertTrigger"
           description="Create new InsertTrigger">
-        <smallIcon
-            xsi:type="gmftool:DefaultImage"/>
-        <largeIcon
-            xsi:type="gmftool:DefaultImage"/>
-      </tools>
-      <tools
-          xsi:type="gmftool:CreationTool"
-          title="JavaScriptMapper"
-          description="Create new JavaScriptMapper">
         <smallIcon
             xsi:type="gmftool:DefaultImage"/>
         <largeIcon
@@ -149,15 +131,6 @@
           xsi:type="gmftool:CreationTool"
           title="PREUpdateTrigger"
           description="Create new PREUpdateTrigger">
-        <smallIcon
-            xsi:type="gmftool:DefaultImage"/>
-        <largeIcon
-            xsi:type="gmftool:DefaultImage"/>
-      </tools>
-      <tools
-          xsi:type="gmftool:CreationTool"
-          title="RoleMapper"
-          description="Create new RoleMapper">
         <smallIcon
             xsi:type="gmftool:DefaultImage"/>
         <largeIcon

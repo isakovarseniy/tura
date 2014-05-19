@@ -91,6 +91,19 @@ var innerClass = GmfGen!InnerClassViewmap.all.select(n|n.ClassName = 'StylesPack
 innerClass.classBody=innerClass.classBody.replace('org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel','org.tura.metamodel.commons.editparts.SizeLimitedLabel');
 
 
+//Enable diagram partition for ApplicationMessages element
+var genTopLevelNode = GmfGen!GenTopLevelNode.all.select(n|n.createCommandClassName = 'ApplicationMessagesCreateCommand').first;
+var behaviour = new GmfGen!OpenDiagramBehaviour;
+behaviour.editorID = 'message.diagram.part.MessagesDiagramEditorID';
+behaviour.diagramKind='Message';
+behaviour.editPolicyClassName= 'OpenDiagramApplicationMessagesEditPolicy';
+genTopLevelNode.behaviour.add(behaviour);
+
+
+// Change figure for ApplicationMessages element 
+var innerClass = GmfGen!InnerClassViewmap.all.select(n|n.ClassName = 'ApplicationMessagesFigure').first;
+innerClass.classBody=innerClass.classBody.replace('org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel','org.tura.metamodel.commons.editparts.SizeLimitedLabel');
+
 
 
  -- distinct visual ID

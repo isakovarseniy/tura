@@ -19,6 +19,7 @@ import org.eclipse.gmf.runtime.notation.View;
 import application.diagram.edit.parts.ApplicationInfrastructureLayerNameEditPart;
 import application.diagram.edit.parts.ApplicationMapperNameEditPart;
 import application.diagram.edit.parts.ApplicationMappersNameEditPart;
+import application.diagram.edit.parts.ApplicationMessagesNameEditPart;
 import application.diagram.edit.parts.ApplicationRecipeNameEditPart;
 import application.diagram.edit.parts.ApplicationRecipesNameEditPart;
 import application.diagram.edit.parts.ApplicationRoleNameEditPart;
@@ -147,6 +148,24 @@ public class DomainParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
+	private IParser applicationMessagesName_805012Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getApplicationMessagesName_805012Parser() {
+		if (applicationMessagesName_805012Parser == null) {
+			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE
+					.getApplicationMessages_Name() };
+			MessageFormatParser parser = new MessageFormatParser(features);
+			applicationMessagesName_805012Parser = parser;
+		}
+		return applicationMessagesName_805012Parser;
+	}
+
+	/**
+	 * @generated
+	 */
 	private IParser applicationRecipeName_805001Parser;
 
 	/**
@@ -233,6 +252,8 @@ public class DomainParserProvider extends AbstractProvider implements
 			return getApplicationStyleName_805009Parser();
 		case ApplicationRoleNameEditPart.VISUAL_ID:
 			return getApplicationRoleName_805010Parser();
+		case ApplicationMessagesNameEditPart.VISUAL_ID:
+			return getApplicationMessagesName_805012Parser();
 		case ApplicationRecipeNameEditPart.VISUAL_ID:
 			return getApplicationRecipeName_805001Parser();
 		case ApplicationMapperNameEditPart.VISUAL_ID:

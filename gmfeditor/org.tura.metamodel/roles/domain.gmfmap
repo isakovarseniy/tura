@@ -21,7 +21,7 @@
       </labelMappings>
       <tool
           xsi:type="gmftool:CreationTool"
-          href="domain.gmftool#//@palette/@tools.0/@tools.3"/>
+          href="domain.gmftool#//@palette/@tools.0/@tools.1"/>
       <diagramNode
           href="domain.gmfgraph#Role"/>
     </ownedChild>
@@ -41,7 +41,7 @@
       </labelMappings>
       <tool
           xsi:type="gmftool:CreationTool"
-          href="domain.gmftool#//@palette/@tools.0/@tools.1"/>
+          href="domain.gmftool#//@palette/@tools.0/@tools.0"/>
       <diagramNode
           href="domain.gmfgraph#Group"/>
     </ownedChild>

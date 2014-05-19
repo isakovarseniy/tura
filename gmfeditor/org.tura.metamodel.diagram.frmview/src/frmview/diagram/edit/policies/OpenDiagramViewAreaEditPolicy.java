@@ -6,8 +6,8 @@ package frmview.diagram.edit.policies;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Iterator;
-
 import java.util.List;
+
 import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IFolder;
@@ -96,9 +96,7 @@ public class OpenDiagramViewAreaEditPolicy extends OpenEditPolicy {
 			diagramFacet = linkStyle;
 		}
 
-		// FIXME canExecute if !(readOnly && getDiagramToOpen == null), i.e.
-		// open works on ro diagrams only when there's associated diagram
-		// already
+		// FIXME canExecute if  !(readOnly && getDiagramToOpen == null), i.e. open works on ro diagrams only when there's associated diagram already
 
 		/**
 		 * @generated
