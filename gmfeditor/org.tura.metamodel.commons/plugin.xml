@@ -442,6 +442,33 @@
        </propertySections>
   </extension>  
 
+      <extension point="org.eclipse.ui.views.properties.tabbed.propertyTabs" id="org.tura.metamodel.diagram.messages.proptabs">
+      <?gmfgen generated="true"?>   
+      <propertyTabs contributorId="org.tura.metamodel.diagram.message">
+          <propertyTab
+             category="domain"
+             id="property.tab.domain.messages.translation"
+             label="Translation"/>
+      </propertyTabs>
+     </extension>  
+
+    <extension point="org.eclipse.ui.views.properties.tabbed.propertySections" id="org.tura.metamodel.diagram.control.propsections">
+      <?gmfgen generated="true"?>   
+ 
+      <propertySections contributorId="org.tura.metamodel.diagram.message">
+
+            <propertySection
+               tab="property.tab.domain.messages.translation"
+               class="org.metamodel.tura.ui.properties.sections.grid.impl.TranslationsPropertySelection"
+               id="org.tura.metamodel.diagram.message.translation">
+              <input type="message.diagram.edit.parts.MessageEditPart"/>
+ 
+           </propertySection>        
+     </propertySections>
+
+     </extension>  
+
+
       <extension point="org.eclipse.ui.views.properties.tabbed.propertyTabs" id="org.tura.metamodel.diagram.canvas.proptabs">
       <?gmfgen generated="true"?>   
       <propertyTabs contributorId="org.tura.metamodel.diagram.canvas">
@@ -478,8 +505,6 @@
       <?gmfgen generated="true"?>   
  
       <propertySections contributorId="org.tura.metamodel.diagram.canvas">
-
-
 
             <propertySection
                tab="property.tab.domain.canvas.uielement.refresh"
@@ -667,7 +692,6 @@
       <tool
             class="org.tura.metamodel.commons.Util"
             defaultName="Util"> 
-      
       </tool>
    </extension>
 

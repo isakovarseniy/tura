@@ -117,6 +117,8 @@ public class InitDiagram {
 		cnInteg.setUid(UUID.randomUUID().toString());
 		domainArtifacts.getDomainArtifact().add(cnInteg);
 		cnInteg.setArtifact(initContinuousIntegration(resource));
+		
+		initLang(resource);
 
 		return model;
 	}
@@ -148,6 +150,23 @@ public class InitDiagram {
 		return model;
 	}
 
+	public static void initLang(Resource resource){
+		
+		domain.Language lang = domain.DomainFactory.eINSTANCE.createLanguage();
+		lang.setLang("English");
+		lang.setUid(lang.getLang());
+		lang.setCode("en");
+		resource.getContents().add(lang);
+		
+		lang = domain.DomainFactory.eINSTANCE.createLanguage();
+		lang.setLang("France");
+		lang.setUid(lang.getLang());
+		lang.setCode("fr");
+		resource.getContents().add(lang);
+		
+		
+	}
+	
 	public static domain.Form initFormDiagram(Resource resource) {
 		domain.Form model = domain.DomainFactory.eINSTANCE.createForm();
 		
