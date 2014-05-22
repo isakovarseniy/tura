@@ -31,19 +31,19 @@ public class EnabledPropertySelection extends ContextPropertySelection {
 	public EObject getModel() {
 
 		domain.Uielement el = ((domain.Uielement) getEObject());
-		if (el.getEnabledContext() == null) {
+		if (el.getEnabled() == null) {
 
 			EditingDomain editingDomain = ((DiagramEditor) getPart())
 					.getEditingDomain();
 			editingDomain.getCommandStack().execute(
 					SetCommand.create(editingDomain, el,
 							DomainPackage.eINSTANCE
-									.getUielement_EnabledContext(),
+									.getUielement_Enabled(),
 							DomainFactory.eINSTANCE.createContext()));
 
 		}
 
-		return el.getEnabledContext();
+		return el.getEnabled();
 	}
 
 	@Override

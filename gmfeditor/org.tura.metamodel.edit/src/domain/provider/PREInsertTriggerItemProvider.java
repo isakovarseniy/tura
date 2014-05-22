@@ -110,7 +110,7 @@ public class PREInsertTriggerItemProvider
   @Override
   public String getText(Object object)
   {
-    String label = ((PREInsertTrigger)object).getName();
+    String label = ((PREInsertTrigger)object).getFakePackageName();
     return label == null || label.length() == 0 ?
       getString("_UI_PREInsertTrigger_type") :
       getString("_UI_PREInsertTrigger_type") + " " + label;

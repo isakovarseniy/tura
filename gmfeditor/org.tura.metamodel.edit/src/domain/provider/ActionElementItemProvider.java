@@ -70,7 +70,6 @@ public class ActionElementItemProvider
       addFakeTypeNamePropertyDescriptor(object);
       addMethodRefPropertyDescriptor(object);
       addFakeMethodPropertyDescriptor(object);
-      addNamePropertyDescriptor(object);
     }
     return itemPropertyDescriptors;
   }
@@ -214,29 +213,6 @@ public class ActionElementItemProvider
   }
 
   /**
-   * This adds a property descriptor for the Name feature.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected void addNamePropertyDescriptor(Object object)
-  {
-    itemPropertyDescriptors.add
-      (createItemPropertyDescriptor
-        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-         getResourceLocator(),
-         getString("_UI_Trigger_name_feature"),
-         getString("_UI_PropertyDescriptor_description", "_UI_Trigger_name_feature", "_UI_Trigger_type"),
-         DomainPackage.Literals.TRIGGER__NAME,
-         true,
-         false,
-         false,
-         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-         null,
-         null));
-  }
-
-  /**
    * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
    * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
    * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -250,7 +226,7 @@ public class ActionElementItemProvider
     if (childrenFeatures == null)
     {
       super.getChildrenFeatures(object);
-      childrenFeatures.add(DomainPackage.Literals.TRIGGER__PARAMETERS);
+      childrenFeatures.add(DomainPackage.Literals.CONTEXT_PARAMETERS__PARAMETERS);
     }
     return childrenFeatures;
   }
@@ -290,7 +266,7 @@ public class ActionElementItemProvider
   @Override
   public String getText(Object object)
   {
-    String label = ((ActionElement)object).getName();
+    String label = ((ActionElement)object).getNickname();
     return label == null || label.length() == 0 ?
       getString("_UI_ActionElement_type") :
       getString("_UI_ActionElement_type") + " " + label;
@@ -313,7 +289,6 @@ public class ActionElementItemProvider
       case DomainPackage.ACTION_ELEMENT__FAKE_PACKAGE_NAME:
       case DomainPackage.ACTION_ELEMENT__FAKE_TYPE_NAME:
       case DomainPackage.ACTION_ELEMENT__FAKE_METHOD:
-      case DomainPackage.ACTION_ELEMENT__NAME:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
         return;
       case DomainPackage.ACTION_ELEMENT__PARAMETERS:
@@ -337,7 +312,7 @@ public class ActionElementItemProvider
 
     newChildDescriptors.add
       (createChildParameter
-        (DomainPackage.Literals.TRIGGER__PARAMETERS,
+        (DomainPackage.Literals.CONTEXT_PARAMETERS__PARAMETERS,
          DomainFactory.eINSTANCE.createContextParameter()));
   }
 
@@ -354,9 +329,9 @@ public class ActionElementItemProvider
     Object childObject = child;
 
     boolean qualify =
-      childFeature == DomainPackage.Literals.UIELEMENT__ENABLED_CONTEXT ||
-      childFeature == DomainPackage.Literals.UIELEMENT__REQUIRED_CONTEXT ||
-      childFeature == DomainPackage.Literals.UIELEMENT__READ_ONLY_CONTEXT;
+      childFeature == DomainPackage.Literals.UIELEMENT__ENABLED ||
+      childFeature == DomainPackage.Literals.UIELEMENT__REQUIRED ||
+      childFeature == DomainPackage.Literals.UIELEMENT__READ_ONLY;
 
     if (qualify)
     {

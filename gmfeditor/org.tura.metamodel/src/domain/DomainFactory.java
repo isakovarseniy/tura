@@ -986,6 +986,15 @@ public interface DomainFactory extends EFactory
   ExpressionPart createExpressionPart();
 
   /**
+   * Returns a new object of class '<em>Context Parameters</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Context Parameters</em>'.
+   * @generated
+   */
+  ContextParameters createContextParameters();
+
+  /**
    * Returns a new object of class '<em>Context</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

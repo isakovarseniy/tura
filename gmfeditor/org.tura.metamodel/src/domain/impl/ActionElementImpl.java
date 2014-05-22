@@ -4,6 +4,7 @@ package domain.impl;
 
 import domain.ActionElement;
 import domain.ContextParameter;
+import domain.ContextParameters;
 import domain.DomainPackage;
 import domain.MethodPointer;
 import domain.Operation;
@@ -39,7 +40,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link domain.impl.ActionElementImpl#getFakeTypeName <em>Fake Type Name</em>}</li>
  *   <li>{@link domain.impl.ActionElementImpl#getMethodRef <em>Method Ref</em>}</li>
  *   <li>{@link domain.impl.ActionElementImpl#getFakeMethod <em>Fake Method</em>}</li>
- *   <li>{@link domain.impl.ActionElementImpl#getName <em>Name</em>}</li>
  *   <li>{@link domain.impl.ActionElementImpl#getParameters <em>Parameters</em>}</li>
  * </ul>
  * </p>
@@ -137,26 +137,6 @@ public class ActionElementImpl extends UielementImpl implements ActionElement
    * @ordered
    */
   protected String fakeMethod = FAKE_METHOD_EDEFAULT;
-
-  /**
-   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getName()
-   * @generated
-   * @ordered
-   */
-  protected static final String NAME_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getName()
-   * @generated
-   * @ordered
-   */
-  protected String name = NAME_EDEFAULT;
 
   /**
    * The cached value of the '{@link #getParameters() <em>Parameters</em>}' containment reference list.
@@ -392,29 +372,6 @@ public class ActionElementImpl extends UielementImpl implements ActionElement
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getName()
-  {
-    return name;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setName(String newName)
-  {
-    String oldName = name;
-    name = newName;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.ACTION_ELEMENT__NAME, oldName, name));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EList<ContextParameter> getParameters()
   {
     if (parameters == null)
@@ -465,8 +422,6 @@ public class ActionElementImpl extends UielementImpl implements ActionElement
         return basicGetMethodRef();
       case DomainPackage.ACTION_ELEMENT__FAKE_METHOD:
         return getFakeMethod();
-      case DomainPackage.ACTION_ELEMENT__NAME:
-        return getName();
       case DomainPackage.ACTION_ELEMENT__PARAMETERS:
         return getParameters();
     }
@@ -501,9 +456,6 @@ public class ActionElementImpl extends UielementImpl implements ActionElement
         return;
       case DomainPackage.ACTION_ELEMENT__FAKE_METHOD:
         setFakeMethod((String)newValue);
-        return;
-      case DomainPackage.ACTION_ELEMENT__NAME:
-        setName((String)newValue);
         return;
       case DomainPackage.ACTION_ELEMENT__PARAMETERS:
         getParameters().clear();
@@ -541,9 +493,6 @@ public class ActionElementImpl extends UielementImpl implements ActionElement
       case DomainPackage.ACTION_ELEMENT__FAKE_METHOD:
         setFakeMethod(FAKE_METHOD_EDEFAULT);
         return;
-      case DomainPackage.ACTION_ELEMENT__NAME:
-        setName(NAME_EDEFAULT);
-        return;
       case DomainPackage.ACTION_ELEMENT__PARAMETERS:
         getParameters().clear();
         return;
@@ -573,8 +522,6 @@ public class ActionElementImpl extends UielementImpl implements ActionElement
         return methodRef != null;
       case DomainPackage.ACTION_ELEMENT__FAKE_METHOD:
         return FAKE_METHOD_EDEFAULT == null ? fakeMethod != null : !FAKE_METHOD_EDEFAULT.equals(fakeMethod);
-      case DomainPackage.ACTION_ELEMENT__NAME:
-        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case DomainPackage.ACTION_ELEMENT__PARAMETERS:
         return parameters != null && !parameters.isEmpty();
     }
@@ -609,12 +556,18 @@ public class ActionElementImpl extends UielementImpl implements ActionElement
         default: return -1;
       }
     }
+    if (baseClass == ContextParameters.class)
+    {
+      switch (derivedFeatureID)
+      {
+        case DomainPackage.ACTION_ELEMENT__PARAMETERS: return DomainPackage.CONTEXT_PARAMETERS__PARAMETERS;
+        default: return -1;
+      }
+    }
     if (baseClass == Trigger.class)
     {
       switch (derivedFeatureID)
       {
-        case DomainPackage.ACTION_ELEMENT__NAME: return DomainPackage.TRIGGER__NAME;
-        case DomainPackage.ACTION_ELEMENT__PARAMETERS: return DomainPackage.TRIGGER__PARAMETERS;
         default: return -1;
       }
     }
@@ -649,12 +602,18 @@ public class ActionElementImpl extends UielementImpl implements ActionElement
         default: return -1;
       }
     }
+    if (baseClass == ContextParameters.class)
+    {
+      switch (baseFeatureID)
+      {
+        case DomainPackage.CONTEXT_PARAMETERS__PARAMETERS: return DomainPackage.ACTION_ELEMENT__PARAMETERS;
+        default: return -1;
+      }
+    }
     if (baseClass == Trigger.class)
     {
       switch (baseFeatureID)
       {
-        case DomainPackage.TRIGGER__NAME: return DomainPackage.ACTION_ELEMENT__NAME;
-        case DomainPackage.TRIGGER__PARAMETERS: return DomainPackage.ACTION_ELEMENT__PARAMETERS;
         default: return -1;
       }
     }
@@ -678,8 +637,6 @@ public class ActionElementImpl extends UielementImpl implements ActionElement
     result.append(fakeTypeName);
     result.append(", fakeMethod: ");
     result.append(fakeMethod);
-    result.append(", name: ");
-    result.append(name);
     result.append(')');
     return result.toString();
   }

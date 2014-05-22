@@ -110,7 +110,7 @@ public class InsertTriggerItemProvider
   @Override
   public String getText(Object object)
   {
-    String label = ((InsertTrigger)object).getName();
+    String label = ((InsertTrigger)object).getFakePackageName();
     return label == null || label.length() == 0 ?
       getString("_UI_InsertTrigger_type") :
       getString("_UI_InsertTrigger_type") + " " + label;

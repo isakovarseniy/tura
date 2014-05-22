@@ -110,7 +110,7 @@ public class UpdateTriggerItemProvider
   @Override
   public String getText(Object object)
   {
-    String label = ((UpdateTrigger)object).getName();
+    String label = ((UpdateTrigger)object).getFakePackageName();
     return label == null || label.length() == 0 ?
       getString("_UI_UpdateTrigger_type") :
       getString("_UI_UpdateTrigger_type") + " " + label;

@@ -830,9 +830,14 @@ class ExpressionPart{
    attr EInt order;   
 }
 
-class Context extends ContextValue{
+class ContextParameters {
     val ContextParameter[*] parameters;
 }
+
+class Context extends ContextValue, ContextParameters{
+}
+
+
 
 class StyleElement{
     val Style style;
@@ -847,9 +852,9 @@ class EventRefreshArea{
 class Uielement extends StyleElement{
     id attr EString uid;
     attr EString nickname;
-    val Context enabledContext;
-    val Context requiredContext;
-    val Context readOnlyContext;
+    val Context enabled;
+    val Context required;
+    val Context readOnly;
     val EventRefreshArea[*] onEventRefreshArea;
 }
 
@@ -940,10 +945,7 @@ class Controls{
     val Relation[*] relations;
 }
 
-class Trigger extends MethodPointer {
-    attr EString name;
-    val ContextParameter[*] parameters;
-
+class Trigger extends MethodPointer , ContextParameters{
 }
 
 @gmf.node(label="fakeMethod",border.color="0,0,0",color="241,238,203")

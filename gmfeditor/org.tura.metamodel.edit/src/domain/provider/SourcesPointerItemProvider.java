@@ -202,9 +202,9 @@ public class SourcesPointerItemProvider
     Object childObject = child;
 
     boolean qualify =
-      childFeature == DomainPackage.Literals.UIELEMENT__ENABLED_CONTEXT ||
-      childFeature == DomainPackage.Literals.UIELEMENT__REQUIRED_CONTEXT ||
-      childFeature == DomainPackage.Literals.UIELEMENT__READ_ONLY_CONTEXT;
+      childFeature == DomainPackage.Literals.UIELEMENT__ENABLED ||
+      childFeature == DomainPackage.Literals.UIELEMENT__REQUIRED ||
+      childFeature == DomainPackage.Literals.UIELEMENT__READ_ONLY;
 
     if (qualify)
     {

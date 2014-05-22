@@ -47,6 +47,7 @@ import org.metamodel.tura.ui.properties.sections.adapters.helper.TreeRoot;
 import org.metamodel.tura.ui.properties.sections.adapters.helper.TriggerHolder;
 
 import domain.Context;
+import domain.ContextParameters;
 import domain.ContextValue;
 import domain.DomainFactory;
 import domain.DomainPackage;
@@ -277,6 +278,7 @@ public abstract class ContextPropertySelection extends
 				btnConfirm.getSelection());
 		updateConstantValue(editingDomain, (ContextValue) getModel(), null);
 		removeExpession(editingDomain, (ContextValue) getModel());
+		removeParameters(editingDomain, (ContextParameters) getModel());
 
 		this.propertySheetPage.refresh();
 
@@ -362,6 +364,15 @@ public abstract class ContextPropertySelection extends
 						param.getExpression()));
 
 	}
+	
+	public void removeParameters(EditingDomain editingDomain, domain.ContextParameters model){
+
+		editingDomain.getCommandStack().execute(
+				RemoveCommand.create(editingDomain, model,
+						DomainPackage.eINSTANCE.getContextParameters_Parameters(),
+						model.getParameters()));
+	}
+
 
 	protected abstract TreeRoot getContextRoot();
 

@@ -110,7 +110,7 @@ public class CreateTriggerItemProvider
   @Override
   public String getText(Object object)
   {
-    String label = ((CreateTrigger)object).getName();
+    String label = ((CreateTrigger)object).getFakePackageName();
     return label == null || label.length() == 0 ?
       getString("_UI_CreateTrigger_type") :
       getString("_UI_CreateTrigger_type") + " " + label;

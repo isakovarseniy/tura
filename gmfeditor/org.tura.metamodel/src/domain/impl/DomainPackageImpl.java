@@ -32,6 +32,7 @@ import domain.ConfigVariable;
 import domain.Configuration;
 import domain.Context;
 import domain.ContextParameter;
+import domain.ContextParameters;
 import domain.ContextValue;
 import domain.ContinuousIintegration;
 import domain.Controls;
@@ -926,6 +927,13 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * @generated
    */
   private EClass expressionPartEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass contextParametersEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -5782,9 +5790,9 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getContext()
+  public EClass getContextParameters()
   {
-    return contextEClass;
+    return contextParametersEClass;
   }
 
   /**
@@ -5792,9 +5800,19 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getContext_Parameters()
+  public EReference getContextParameters_Parameters()
   {
-    return (EReference)contextEClass.getEStructuralFeatures().get(0);
+    return (EReference)contextParametersEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getContext()
+  {
+    return contextEClass;
   }
 
   /**
@@ -5892,7 +5910,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getUielement_EnabledContext()
+  public EReference getUielement_Enabled()
   {
     return (EReference)uielementEClass.getEStructuralFeatures().get(2);
   }
@@ -5902,7 +5920,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getUielement_RequiredContext()
+  public EReference getUielement_Required()
   {
     return (EReference)uielementEClass.getEStructuralFeatures().get(3);
   }
@@ -5912,7 +5930,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getUielement_ReadOnlyContext()
+  public EReference getUielement_ReadOnly()
   {
     return (EReference)uielementEClass.getEStructuralFeatures().get(4);
   }
@@ -6315,26 +6333,6 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
   public EClass getTrigger()
   {
     return triggerEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getTrigger_Name()
-  {
-    return (EAttribute)triggerEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getTrigger_Parameters()
-  {
-    return (EReference)triggerEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -7917,8 +7915,10 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     createEReference(expressionPartEClass, EXPRESSION_PART__OBJ_REF);
     createEAttribute(expressionPartEClass, EXPRESSION_PART__ORDER);
 
+    contextParametersEClass = createEClass(CONTEXT_PARAMETERS);
+    createEReference(contextParametersEClass, CONTEXT_PARAMETERS__PARAMETERS);
+
     contextEClass = createEClass(CONTEXT);
-    createEReference(contextEClass, CONTEXT__PARAMETERS);
 
     styleElementEClass = createEClass(STYLE_ELEMENT);
     createEReference(styleElementEClass, STYLE_ELEMENT__STYLE);
@@ -7931,9 +7931,9 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     uielementEClass = createEClass(UIELEMENT);
     createEAttribute(uielementEClass, UIELEMENT__UID);
     createEAttribute(uielementEClass, UIELEMENT__NICKNAME);
-    createEReference(uielementEClass, UIELEMENT__ENABLED_CONTEXT);
-    createEReference(uielementEClass, UIELEMENT__REQUIRED_CONTEXT);
-    createEReference(uielementEClass, UIELEMENT__READ_ONLY_CONTEXT);
+    createEReference(uielementEClass, UIELEMENT__ENABLED);
+    createEReference(uielementEClass, UIELEMENT__REQUIRED);
+    createEReference(uielementEClass, UIELEMENT__READ_ONLY);
     createEReference(uielementEClass, UIELEMENT__ON_EVENT_REFRESH_AREA);
 
     sourcesPointerEClass = createEClass(SOURCES_POINTER);
@@ -7991,8 +7991,6 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     createEReference(controlsEClass, CONTROLS__RELATIONS);
 
     triggerEClass = createEClass(TRIGGER);
-    createEAttribute(triggerEClass, TRIGGER__NAME);
-    createEReference(triggerEClass, TRIGGER__PARAMETERS);
 
     preFormTriggerEClass = createEClass(PRE_FORM_TRIGGER);
     createEAttribute(preFormTriggerEClass, PRE_FORM_TRIGGER__UID);
@@ -8199,6 +8197,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     viewAreaEClass.getESuperTypes().add(this.getViewElement());
     viewPortTriggerEClass.getESuperTypes().add(this.getTrigger());
     contextEClass.getESuperTypes().add(this.getContextValue());
+    contextEClass.getESuperTypes().add(this.getContextParameters());
     uielementEClass.getESuperTypes().add(this.getStyleElement());
     sourcesPointerEClass.getESuperTypes().add(this.getUielement());
     actionElementEClass.getESuperTypes().add(this.getUielement());
@@ -8220,6 +8219,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     treeEClass.getESuperTypes().add(this.getSourcesPointer());
     buttonEClass.getESuperTypes().add(this.getActionElement());
     triggerEClass.getESuperTypes().add(this.getMethodPointer());
+    triggerEClass.getESuperTypes().add(this.getContextParameters());
     preFormTriggerEClass.getESuperTypes().add(this.getTrigger());
     preQueryTriggerEClass.getESuperTypes().add(this.getTrigger());
     postQueryTriggerEClass.getESuperTypes().add(this.getTrigger());
@@ -8791,8 +8791,10 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     initEReference(getExpressionPart_ObjRef(), ecorePackage.getEObject(), null, "objRef", null, 0, 1, ExpressionPart.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getExpressionPart_Order(), ecorePackage.getEInt(), "order", null, 0, 1, ExpressionPart.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+    initEClass(contextParametersEClass, ContextParameters.class, "ContextParameters", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getContextParameters_Parameters(), this.getContextParameter(), null, "parameters", null, 0, -1, ContextParameters.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
     initEClass(contextEClass, Context.class, "Context", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getContext_Parameters(), this.getContextParameter(), null, "parameters", null, 0, -1, Context.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(styleElementEClass, StyleElement.class, "StyleElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getStyleElement_Style(), this.getStyle(), null, "style", null, 0, 1, StyleElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -8805,9 +8807,9 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     initEClass(uielementEClass, Uielement.class, "Uielement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getUielement_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, Uielement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getUielement_Nickname(), ecorePackage.getEString(), "nickname", null, 0, 1, Uielement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getUielement_EnabledContext(), this.getContext(), null, "enabledContext", null, 0, 1, Uielement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getUielement_RequiredContext(), this.getContext(), null, "requiredContext", null, 0, 1, Uielement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getUielement_ReadOnlyContext(), this.getContext(), null, "readOnlyContext", null, 0, 1, Uielement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getUielement_Enabled(), this.getContext(), null, "enabled", null, 0, 1, Uielement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getUielement_Required(), this.getContext(), null, "required", null, 0, 1, Uielement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getUielement_ReadOnly(), this.getContext(), null, "readOnly", null, 0, 1, Uielement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getUielement_OnEventRefreshArea(), this.getEventRefreshArea(), null, "onEventRefreshArea", null, 0, -1, Uielement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(sourcesPointerEClass, SourcesPointer.class, "SourcesPointer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -8865,8 +8867,6 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     initEReference(getControls_Relations(), this.getRelation(), null, "relations", null, 0, -1, Controls.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(triggerEClass, Trigger.class, "Trigger", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getTrigger_Name(), ecorePackage.getEString(), "name", null, 0, 1, Trigger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getTrigger_Parameters(), this.getContextParameter(), null, "parameters", null, 0, -1, Trigger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(preFormTriggerEClass, PREFormTrigger.class, "PREFormTrigger", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getPREFormTrigger_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, PREFormTrigger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

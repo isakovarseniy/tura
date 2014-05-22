@@ -329,10 +329,10 @@ public class QueryHelper {
 	}
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
-	public List<Object> findTriggerParameters(domain.Trigger trg,
+	public List<Object> findTriggerParameters(domain.MethodPointer method,domain.ContextParameters trg,
 			EObject types, EditingDomain editingDomain) throws ParserException {
 
-		if (trg.getMethodRef() == null)
+		if (method.getMethodRef() == null)
 			return new ArrayList<Object>();
 
 		ArrayList<domain.ContextParameter> removeParameters = new ArrayList<domain.ContextParameter>();
@@ -344,7 +344,7 @@ public class QueryHelper {
 
 		OCLExpression<EClassifier> query = helper
 				.createQuery("domain::Operation.allInstances()->select(r|r.oclAsType(domain::Operation).uid ='"
-						+ trg.getMethodRef().getUid()
+						+ method.getMethodRef().getUid()
 						+ "').oclAsType(domain::Operation).parameters");
 
 		Collection<domain.Parameter> map = (Collection<Parameter>) ocl
@@ -400,14 +400,14 @@ public class QueryHelper {
 		if (removeParameters.size() != 0) {
 			editingDomain.getCommandStack().execute(
 					RemoveCommand.create(editingDomain, trg,
-							DomainPackage.eINSTANCE.getTrigger_Parameters(),
+							DomainPackage.eINSTANCE.getContextParameters_Parameters(),
 							removeParameters));
 		}
 
 		if (addParameters.size() != 0) {
 			editingDomain.getCommandStack().execute(
 					AddCommand.create(editingDomain, trg,
-							DomainPackage.eINSTANCE.getTrigger_Parameters(),
+							DomainPackage.eINSTANCE.getContextParameters_Parameters(),
 							addParameters));
 		}
 

@@ -110,7 +110,7 @@ public class PREFormTriggerItemProvider
   @Override
   public String getText(Object object)
   {
-    String label = ((PREFormTrigger)object).getName();
+    String label = ((PREFormTrigger)object).getFakePackageName();
     return label == null || label.length() == 0 ?
       getString("_UI_PREFormTrigger_type") :
       getString("_UI_PREFormTrigger_type") + " " + label;

@@ -110,7 +110,7 @@ public class PREDeleteTriggerItemProvider
   @Override
   public String getText(Object object)
   {
-    String label = ((PREDeleteTrigger)object).getName();
+    String label = ((PREDeleteTrigger)object).getFakePackageName();
     return label == null || label.length() == 0 ?
       getString("_UI_PREDeleteTrigger_type") :
       getString("_UI_PREDeleteTrigger_type") + " " + label;

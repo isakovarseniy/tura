@@ -110,7 +110,7 @@ public class PREUpdateTriggerItemProvider
   @Override
   public String getText(Object object)
   {
-    String label = ((PREUpdateTrigger)object).getName();
+    String label = ((PREUpdateTrigger)object).getFakePackageName();
     return label == null || label.length() == 0 ?
       getString("_UI_PREUpdateTrigger_type") :
       getString("_UI_PREUpdateTrigger_type") + " " + label;

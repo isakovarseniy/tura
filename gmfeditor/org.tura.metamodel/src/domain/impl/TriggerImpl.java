@@ -3,6 +3,7 @@
 package domain.impl;
 
 import domain.ContextParameter;
+import domain.ContextParameters;
 import domain.DomainPackage;
 import domain.Trigger;
 
@@ -28,7 +29,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link domain.impl.TriggerImpl#getName <em>Name</em>}</li>
  *   <li>{@link domain.impl.TriggerImpl#getParameters <em>Parameters</em>}</li>
  * </ul>
  * </p>
@@ -37,26 +37,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  */
 public class TriggerImpl extends MethodPointerImpl implements Trigger
 {
-  /**
-   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getName()
-   * @generated
-   * @ordered
-   */
-  protected static final String NAME_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getName()
-   * @generated
-   * @ordered
-   */
-  protected String name = NAME_EDEFAULT;
-
   /**
    * The cached value of the '{@link #getParameters() <em>Parameters</em>}' containment reference list.
    * <!-- begin-user-doc -->
@@ -86,29 +66,6 @@ public class TriggerImpl extends MethodPointerImpl implements Trigger
   protected EClass eStaticClass()
   {
     return DomainPackage.Literals.TRIGGER;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public String getName()
-  {
-    return name;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setName(String newName)
-  {
-    String oldName = name;
-    name = newName;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.TRIGGER__NAME, oldName, name));
   }
 
   /**
@@ -151,8 +108,6 @@ public class TriggerImpl extends MethodPointerImpl implements Trigger
   {
     switch (featureID)
     {
-      case DomainPackage.TRIGGER__NAME:
-        return getName();
       case DomainPackage.TRIGGER__PARAMETERS:
         return getParameters();
     }
@@ -170,9 +125,6 @@ public class TriggerImpl extends MethodPointerImpl implements Trigger
   {
     switch (featureID)
     {
-      case DomainPackage.TRIGGER__NAME:
-        setName((String)newValue);
-        return;
       case DomainPackage.TRIGGER__PARAMETERS:
         getParameters().clear();
         getParameters().addAll((Collection<? extends ContextParameter>)newValue);
@@ -191,9 +143,6 @@ public class TriggerImpl extends MethodPointerImpl implements Trigger
   {
     switch (featureID)
     {
-      case DomainPackage.TRIGGER__NAME:
-        setName(NAME_EDEFAULT);
-        return;
       case DomainPackage.TRIGGER__PARAMETERS:
         getParameters().clear();
         return;
@@ -211,8 +160,6 @@ public class TriggerImpl extends MethodPointerImpl implements Trigger
   {
     switch (featureID)
     {
-      case DomainPackage.TRIGGER__NAME:
-        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case DomainPackage.TRIGGER__PARAMETERS:
         return parameters != null && !parameters.isEmpty();
     }
@@ -225,15 +172,36 @@ public class TriggerImpl extends MethodPointerImpl implements Trigger
    * @generated
    */
   @Override
-  public String toString()
+  public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass)
   {
-    if (eIsProxy()) return super.toString();
+    if (baseClass == ContextParameters.class)
+    {
+      switch (derivedFeatureID)
+      {
+        case DomainPackage.TRIGGER__PARAMETERS: return DomainPackage.CONTEXT_PARAMETERS__PARAMETERS;
+        default: return -1;
+      }
+    }
+    return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
+  }
 
-    StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (name: ");
-    result.append(name);
-    result.append(')');
-    return result.toString();
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass)
+  {
+    if (baseClass == ContextParameters.class)
+    {
+      switch (baseFeatureID)
+      {
+        case DomainPackage.CONTEXT_PARAMETERS__PARAMETERS: return DomainPackage.TRIGGER__PARAMETERS;
+        default: return -1;
+      }
+    }
+    return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
   }
 
 } //TriggerImpl

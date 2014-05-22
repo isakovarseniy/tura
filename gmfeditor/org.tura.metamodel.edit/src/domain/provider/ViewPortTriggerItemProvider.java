@@ -116,7 +116,7 @@ public class ViewPortTriggerItemProvider
   @Override
   public String getText(Object object)
   {
-    String label = ((ViewPortTrigger)object).getName();
+    String label = ((ViewPortTrigger)object).getFakePackageName();
     return label == null || label.length() == 0 ?
       getString("_UI_ViewPortTrigger_type") :
       getString("_UI_ViewPortTrigger_type") + " " + label;

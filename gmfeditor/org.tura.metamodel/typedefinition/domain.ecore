@@ -1247,10 +1247,11 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="objRef" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="order" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Context" eSuperTypes="#//ContextValue">
+  <eClassifiers xsi:type="ecore:EClass" name="ContextParameters">
     <eStructuralFeatures xsi:type="ecore:EReference" name="parameters" upperBound="-1"
         eType="#//ContextParameter" containment="true"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Context" eSuperTypes="#//ContextValue #//ContextParameters"/>
   <eClassifiers xsi:type="ecore:EClass" name="StyleElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="style" eType="#//Style"
         containment="true"/>
@@ -1266,11 +1267,11 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="nickname" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="enabledContext" eType="#//Context"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="enabled" eType="#//Context"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="requiredContext" eType="#//Context"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="required" eType="#//Context"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="readOnlyContext" eType="#//Context"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="readOnly" eType="#//Context"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="onEventRefreshArea" upperBound="-1"
         eType="#//EventRefreshArea" containment="true"/>
@@ -1398,11 +1399,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="relations" upperBound="-1"
         eType="#//Relation" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Trigger" eSuperTypes="#//MethodPointer">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="parameters" upperBound="-1"
-        eType="#//ContextParameter" containment="true"/>
-  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Trigger" eSuperTypes="#//MethodPointer #//ContextParameters"/>
   <eClassifiers xsi:type="ecore:EClass" name="PREFormTrigger" eSuperTypes="#//Trigger">
     <eAnnotations source="gmf.node">
       <details key="label" value="fakeMethod"/>

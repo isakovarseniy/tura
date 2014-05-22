@@ -14,9 +14,9 @@ import org.eclipse.emf.common.util.EList;
  * <ul>
  *   <li>{@link domain.Uielement#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.Uielement#getNickname <em>Nickname</em>}</li>
- *   <li>{@link domain.Uielement#getEnabledContext <em>Enabled Context</em>}</li>
- *   <li>{@link domain.Uielement#getRequiredContext <em>Required Context</em>}</li>
- *   <li>{@link domain.Uielement#getReadOnlyContext <em>Read Only Context</em>}</li>
+ *   <li>{@link domain.Uielement#getEnabled <em>Enabled</em>}</li>
+ *   <li>{@link domain.Uielement#getRequired <em>Required</em>}</li>
+ *   <li>{@link domain.Uielement#getReadOnly <em>Read Only</em>}</li>
  *   <li>{@link domain.Uielement#getOnEventRefreshArea <em>On Event Refresh Area</em>}</li>
  * </ul>
  * </p>
@@ -80,82 +80,82 @@ public interface Uielement extends StyleElement
   void setNickname(String value);
 
   /**
-   * Returns the value of the '<em><b>Enabled Context</b></em>' containment reference.
+   * Returns the value of the '<em><b>Enabled</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Enabled Context</em>' containment reference isn't clear,
+   * If the meaning of the '<em>Enabled</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Enabled Context</em>' containment reference.
-   * @see #setEnabledContext(Context)
-   * @see domain.DomainPackage#getUielement_EnabledContext()
+   * @return the value of the '<em>Enabled</em>' containment reference.
+   * @see #setEnabled(Context)
+   * @see domain.DomainPackage#getUielement_Enabled()
    * @model containment="true"
    * @generated
    */
-  Context getEnabledContext();
+  Context getEnabled();
 
   /**
-   * Sets the value of the '{@link domain.Uielement#getEnabledContext <em>Enabled Context</em>}' containment reference.
+   * Sets the value of the '{@link domain.Uielement#getEnabled <em>Enabled</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Enabled Context</em>' containment reference.
-   * @see #getEnabledContext()
+   * @param value the new value of the '<em>Enabled</em>' containment reference.
+   * @see #getEnabled()
    * @generated
    */
-  void setEnabledContext(Context value);
+  void setEnabled(Context value);
 
   /**
-   * Returns the value of the '<em><b>Required Context</b></em>' containment reference.
+   * Returns the value of the '<em><b>Required</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Required Context</em>' containment reference isn't clear,
+   * If the meaning of the '<em>Required</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Required Context</em>' containment reference.
-   * @see #setRequiredContext(Context)
-   * @see domain.DomainPackage#getUielement_RequiredContext()
+   * @return the value of the '<em>Required</em>' containment reference.
+   * @see #setRequired(Context)
+   * @see domain.DomainPackage#getUielement_Required()
    * @model containment="true"
    * @generated
    */
-  Context getRequiredContext();
+  Context getRequired();
 
   /**
-   * Sets the value of the '{@link domain.Uielement#getRequiredContext <em>Required Context</em>}' containment reference.
+   * Sets the value of the '{@link domain.Uielement#getRequired <em>Required</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Required Context</em>' containment reference.
-   * @see #getRequiredContext()
+   * @param value the new value of the '<em>Required</em>' containment reference.
+   * @see #getRequired()
    * @generated
    */
-  void setRequiredContext(Context value);
+  void setRequired(Context value);
 
   /**
-   * Returns the value of the '<em><b>Read Only Context</b></em>' containment reference.
+   * Returns the value of the '<em><b>Read Only</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Read Only Context</em>' containment reference isn't clear,
+   * If the meaning of the '<em>Read Only</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Read Only Context</em>' containment reference.
-   * @see #setReadOnlyContext(Context)
-   * @see domain.DomainPackage#getUielement_ReadOnlyContext()
+   * @return the value of the '<em>Read Only</em>' containment reference.
+   * @see #setReadOnly(Context)
+   * @see domain.DomainPackage#getUielement_ReadOnly()
    * @model containment="true"
    * @generated
    */
-  Context getReadOnlyContext();
+  Context getReadOnly();
 
   /**
-   * Sets the value of the '{@link domain.Uielement#getReadOnlyContext <em>Read Only Context</em>}' containment reference.
+   * Sets the value of the '{@link domain.Uielement#getReadOnly <em>Read Only</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Read Only Context</em>' containment reference.
-   * @see #getReadOnlyContext()
+   * @param value the new value of the '<em>Read Only</em>' containment reference.
+   * @see #getReadOnly()
    * @generated
    */
-  void setReadOnlyContext(Context value);
+  void setReadOnly(Context value);
 
   /**
    * Returns the value of the '<em><b>On Event Refresh Area</b></em>' containment reference list.

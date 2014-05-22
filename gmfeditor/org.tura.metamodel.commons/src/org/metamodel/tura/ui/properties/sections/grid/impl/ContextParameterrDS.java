@@ -38,9 +38,9 @@ public class ContextParameterrDS extends DataSource {
 				.getEditingDomain();
 
 		editingDomain.getCommandStack().execute(
-				AddCommand.create(editingDomain,
-						((domain.Trigger) property.getModel()),
-						DomainPackage.eINSTANCE.getTrigger_Parameters(), ls));
+				AddCommand.create(editingDomain, ((domain.Trigger) property
+						.getModel()), DomainPackage.eINSTANCE
+						.getContextParameters_Parameters(), ls));
 
 		rowList.add(rowList.size(), parameter);
 		this.notifyAddRow(parameter);
@@ -56,9 +56,9 @@ public class ContextParameterrDS extends DataSource {
 				.getEditingDomain();
 
 		editingDomain.getCommandStack().execute(
-				RemoveCommand.create(editingDomain,
-						((domain.Trigger) property.getModel()),
-						DomainPackage.eINSTANCE.getTrigger_Parameters(), ls));
+				RemoveCommand.create(editingDomain, ((domain.Trigger) property
+						.getModel()), DomainPackage.eINSTANCE
+						.getContextParameters_Parameters(), ls));
 
 		rowList.remove(row);
 		this.notifyRemoveRow(row);
@@ -71,12 +71,28 @@ public class ContextParameterrDS extends DataSource {
 		try {
 			NodeImpl diagram = (NodeImpl) property.getEditPart().getModel();
 			EObject types = (EObject) diagram.getElement();
-			domain.Trigger trg = (domain.Trigger) property.getModel();
 			EditingDomain editingDomain = ((DiagramEditor) property.getPart())
 					.getEditingDomain();
+			List<Object> ls = new ArrayList<Object>();
 
-			List<Object> ls = new QueryHelper().findTriggerParameters(trg,
-					types, editingDomain);
+			if (property.getModel() instanceof domain.Trigger) {
+				domain.Trigger trg = (domain.Trigger) property.getModel();
+				ls = new QueryHelper().findTriggerParameters(trg,trg, types,
+						editingDomain);
+			}
+			if (property.getModel() instanceof domain.Context) {
+				domain.Context ctx = (domain.Context) property.getModel();
+				if  (ctx.getExpression() != null && ctx.getExpression().size() != 0 ){
+					Object obj = ctx.getExpression().get(ctx.getExpression().size() - 1);
+					if (obj instanceof domain.MethodPointer){
+						ls = new QueryHelper().findTriggerParameters((domain.MethodPointer)obj ,ctx, types,
+								editingDomain);
+						
+					}
+				}
+					
+			}
+
 			return ls;
 		} catch (Exception e) {
 			e.printStackTrace();

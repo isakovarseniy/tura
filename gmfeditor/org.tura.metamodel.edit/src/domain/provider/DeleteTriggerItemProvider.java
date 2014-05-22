@@ -110,7 +110,7 @@ public class DeleteTriggerItemProvider
   @Override
   public String getText(Object object)
   {
-    String label = ((DeleteTrigger)object).getName();
+    String label = ((DeleteTrigger)object).getFakePackageName();
     return label == null || label.length() == 0 ?
       getString("_UI_DeleteTrigger_type") :
       getString("_UI_DeleteTrigger_type") + " " + label;

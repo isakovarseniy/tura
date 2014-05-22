@@ -5788,7 +5788,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getContext()
    * @generated
    */
-  int CONTEXT = 107;
+  int CONTEXT = 108;
 
   /**
    * The meta object id for the '{@link domain.impl.StyleElementImpl <em>Style Element</em>}' class.
@@ -5798,7 +5798,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getStyleElement()
    * @generated
    */
-  int STYLE_ELEMENT = 108;
+  int STYLE_ELEMENT = 109;
 
   /**
    * The meta object id for the '{@link domain.impl.EventRefreshAreaImpl <em>Event Refresh Area</em>}' class.
@@ -5808,7 +5808,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getEventRefreshArea()
    * @generated
    */
-  int EVENT_REFRESH_AREA = 109;
+  int EVENT_REFRESH_AREA = 110;
 
   /**
    * The meta object id for the '{@link domain.impl.UielementImpl <em>Uielement</em>}' class.
@@ -5818,7 +5818,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getUielement()
    * @generated
    */
-  int UIELEMENT = 110;
+  int UIELEMENT = 111;
 
   /**
    * The meta object id for the '{@link domain.impl.SourcesPointerImpl <em>Sources Pointer</em>}' class.
@@ -5828,7 +5828,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getSourcesPointer()
    * @generated
    */
-  int SOURCES_POINTER = 111;
+  int SOURCES_POINTER = 112;
 
   /**
    * The meta object id for the '{@link domain.impl.ActionElementImpl <em>Action Element</em>}' class.
@@ -5838,7 +5838,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getActionElement()
    * @generated
    */
-  int ACTION_ELEMENT = 112;
+  int ACTION_ELEMENT = 113;
 
   /**
    * The meta object id for the '{@link domain.impl.InputElementImpl <em>Input Element</em>}' class.
@@ -5848,7 +5848,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getInputElement()
    * @generated
    */
-  int INPUT_ELEMENT = 113;
+  int INPUT_ELEMENT = 114;
 
   /**
    * The meta object id for the '{@link domain.impl.SelectionImpl <em>Selection</em>}' class.
@@ -5858,7 +5858,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getSelection()
    * @generated
    */
-  int SELECTION = 114;
+  int SELECTION = 115;
 
   /**
    * The meta object id for the '{@link domain.impl.OptionSelectionImpl <em>Option Selection</em>}' class.
@@ -5868,7 +5868,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getOptionSelection()
    * @generated
    */
-  int OPTION_SELECTION = 115;
+  int OPTION_SELECTION = 116;
 
   /**
    * The meta object id for the '{@link domain.impl.LayerHolderImpl <em>Layer Holder</em>}' class.
@@ -5878,7 +5878,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getLayerHolder()
    * @generated
    */
-  int LAYER_HOLDER = 116;
+  int LAYER_HOLDER = 117;
 
   /**
    * The meta object id for the '{@link domain.impl.InputTextImpl <em>Input Text</em>}' class.
@@ -5888,7 +5888,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getInputText()
    * @generated
    */
-  int INPUT_TEXT = 117;
+  int INPUT_TEXT = 118;
 
   /**
    * The meta object id for the '{@link domain.impl.LabelImpl <em>Label</em>}' class.
@@ -5898,7 +5898,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getLabel()
    * @generated
    */
-  int LABEL = 118;
+  int LABEL = 119;
 
   /**
    * The meta object id for the '{@link domain.impl.OutputTextImpl <em>Output Text</em>}' class.
@@ -5908,7 +5908,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getOutputText()
    * @generated
    */
-  int OUTPUT_TEXT = 119;
+  int OUTPUT_TEXT = 120;
 
   /**
    * The meta object id for the '{@link domain.impl.CheckBoxImpl <em>Check Box</em>}' class.
@@ -5918,7 +5918,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getCheckBox()
    * @generated
    */
-  int CHECK_BOX = 120;
+  int CHECK_BOX = 121;
 
   /**
    * The meta object id for the '{@link domain.impl.DropDownSelectionImpl <em>Drop Down Selection</em>}' class.
@@ -5928,7 +5928,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getDropDownSelection()
    * @generated
    */
-  int DROP_DOWN_SELECTION = 121;
+  int DROP_DOWN_SELECTION = 122;
 
   /**
    * The meta object id for the '{@link domain.impl.ColumnImpl <em>Column</em>}' class.
@@ -5938,7 +5938,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getColumn()
    * @generated
    */
-  int COLUMN = 122;
+  int COLUMN = 123;
 
   /**
    * The meta object id for the '{@link domain.impl.TableImpl <em>Table</em>}' class.
@@ -5948,7 +5948,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getTable()
    * @generated
    */
-  int TABLE = 123;
+  int TABLE = 124;
 
   /**
    * The meta object id for the '{@link domain.impl.TreeImpl <em>Tree</em>}' class.
@@ -5958,7 +5958,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getTree()
    * @generated
    */
-  int TREE = 124;
+  int TREE = 125;
 
   /**
    * The meta object id for the '{@link domain.impl.ButtonImpl <em>Button</em>}' class.
@@ -5968,7 +5968,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getButton()
    * @generated
    */
-  int BUTTON = 125;
+  int BUTTON = 126;
 
   /**
    * The meta object id for the '{@link domain.impl.ControlsImpl <em>Controls</em>}' class.
@@ -5978,7 +5978,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getControls()
    * @generated
    */
-  int CONTROLS = 126;
+  int CONTROLS = 127;
 
   /**
    * The meta object id for the '{@link domain.impl.TriggerImpl <em>Trigger</em>}' class.
@@ -5988,7 +5988,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getTrigger()
    * @generated
    */
-  int TRIGGER = 127;
+  int TRIGGER = 128;
 
   /**
    * The feature id for the '<em><b>Package Ref</b></em>' reference.
@@ -6045,22 +6045,13 @@ public interface DomainPackage extends EPackage
   int TRIGGER__FAKE_METHOD = METHOD_POINTER__FAKE_METHOD;
 
   /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int TRIGGER__NAME = METHOD_POINTER_FEATURE_COUNT + 0;
-
-  /**
    * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int TRIGGER__PARAMETERS = METHOD_POINTER_FEATURE_COUNT + 1;
+  int TRIGGER__PARAMETERS = METHOD_POINTER_FEATURE_COUNT + 0;
 
   /**
    * The number of structural features of the '<em>Trigger</em>' class.
@@ -6069,7 +6060,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int TRIGGER_FEATURE_COUNT = METHOD_POINTER_FEATURE_COUNT + 2;
+  int TRIGGER_FEATURE_COUNT = METHOD_POINTER_FEATURE_COUNT + 1;
 
   /**
    * The feature id for the '<em><b>Package Ref</b></em>' reference.
@@ -6124,15 +6115,6 @@ public interface DomainPackage extends EPackage
    * @ordered
    */
   int VIEW_PORT_TRIGGER__FAKE_METHOD = TRIGGER__FAKE_METHOD;
-
-  /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int VIEW_PORT_TRIGGER__NAME = TRIGGER__NAME;
 
   /**
    * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
@@ -6513,6 +6495,34 @@ public interface DomainPackage extends EPackage
   int EXPRESSION_PART_FEATURE_COUNT = 3;
 
   /**
+   * The meta object id for the '{@link domain.impl.ContextParametersImpl <em>Context Parameters</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see domain.impl.ContextParametersImpl
+   * @see domain.impl.DomainPackageImpl#getContextParameters()
+   * @generated
+   */
+  int CONTEXT_PARAMETERS = 107;
+
+  /**
+   * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONTEXT_PARAMETERS__PARAMETERS = 0;
+
+  /**
+   * The number of structural features of the '<em>Context Parameters</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONTEXT_PARAMETERS_FEATURE_COUNT = 1;
+
+  /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -6657,31 +6667,31 @@ public interface DomainPackage extends EPackage
   int UIELEMENT__NICKNAME = STYLE_ELEMENT_FEATURE_COUNT + 1;
 
   /**
-   * The feature id for the '<em><b>Enabled Context</b></em>' containment reference.
+   * The feature id for the '<em><b>Enabled</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int UIELEMENT__ENABLED_CONTEXT = STYLE_ELEMENT_FEATURE_COUNT + 2;
+  int UIELEMENT__ENABLED = STYLE_ELEMENT_FEATURE_COUNT + 2;
 
   /**
-   * The feature id for the '<em><b>Required Context</b></em>' containment reference.
+   * The feature id for the '<em><b>Required</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int UIELEMENT__REQUIRED_CONTEXT = STYLE_ELEMENT_FEATURE_COUNT + 3;
+  int UIELEMENT__REQUIRED = STYLE_ELEMENT_FEATURE_COUNT + 3;
 
   /**
-   * The feature id for the '<em><b>Read Only Context</b></em>' containment reference.
+   * The feature id for the '<em><b>Read Only</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int UIELEMENT__READ_ONLY_CONTEXT = STYLE_ELEMENT_FEATURE_COUNT + 4;
+  int UIELEMENT__READ_ONLY = STYLE_ELEMENT_FEATURE_COUNT + 4;
 
   /**
    * The feature id for the '<em><b>On Event Refresh Area</b></em>' containment reference list.
@@ -6738,31 +6748,31 @@ public interface DomainPackage extends EPackage
   int SOURCES_POINTER__NICKNAME = UIELEMENT__NICKNAME;
 
   /**
-   * The feature id for the '<em><b>Enabled Context</b></em>' containment reference.
+   * The feature id for the '<em><b>Enabled</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int SOURCES_POINTER__ENABLED_CONTEXT = UIELEMENT__ENABLED_CONTEXT;
+  int SOURCES_POINTER__ENABLED = UIELEMENT__ENABLED;
 
   /**
-   * The feature id for the '<em><b>Required Context</b></em>' containment reference.
+   * The feature id for the '<em><b>Required</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int SOURCES_POINTER__REQUIRED_CONTEXT = UIELEMENT__REQUIRED_CONTEXT;
+  int SOURCES_POINTER__REQUIRED = UIELEMENT__REQUIRED;
 
   /**
-   * The feature id for the '<em><b>Read Only Context</b></em>' containment reference.
+   * The feature id for the '<em><b>Read Only</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int SOURCES_POINTER__READ_ONLY_CONTEXT = UIELEMENT__READ_ONLY_CONTEXT;
+  int SOURCES_POINTER__READ_ONLY = UIELEMENT__READ_ONLY;
 
   /**
    * The feature id for the '<em><b>On Event Refresh Area</b></em>' containment reference list.
@@ -6846,31 +6856,31 @@ public interface DomainPackage extends EPackage
   int ACTION_ELEMENT__NICKNAME = UIELEMENT__NICKNAME;
 
   /**
-   * The feature id for the '<em><b>Enabled Context</b></em>' containment reference.
+   * The feature id for the '<em><b>Enabled</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ACTION_ELEMENT__ENABLED_CONTEXT = UIELEMENT__ENABLED_CONTEXT;
+  int ACTION_ELEMENT__ENABLED = UIELEMENT__ENABLED;
 
   /**
-   * The feature id for the '<em><b>Required Context</b></em>' containment reference.
+   * The feature id for the '<em><b>Required</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ACTION_ELEMENT__REQUIRED_CONTEXT = UIELEMENT__REQUIRED_CONTEXT;
+  int ACTION_ELEMENT__REQUIRED = UIELEMENT__REQUIRED;
 
   /**
-   * The feature id for the '<em><b>Read Only Context</b></em>' containment reference.
+   * The feature id for the '<em><b>Read Only</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ACTION_ELEMENT__READ_ONLY_CONTEXT = UIELEMENT__READ_ONLY_CONTEXT;
+  int ACTION_ELEMENT__READ_ONLY = UIELEMENT__READ_ONLY;
 
   /**
    * The feature id for the '<em><b>On Event Refresh Area</b></em>' containment reference list.
@@ -6936,22 +6946,13 @@ public interface DomainPackage extends EPackage
   int ACTION_ELEMENT__FAKE_METHOD = UIELEMENT_FEATURE_COUNT + 5;
 
   /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ACTION_ELEMENT__NAME = UIELEMENT_FEATURE_COUNT + 6;
-
-  /**
    * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ACTION_ELEMENT__PARAMETERS = UIELEMENT_FEATURE_COUNT + 7;
+  int ACTION_ELEMENT__PARAMETERS = UIELEMENT_FEATURE_COUNT + 6;
 
   /**
    * The number of structural features of the '<em>Action Element</em>' class.
@@ -6960,7 +6961,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ACTION_ELEMENT_FEATURE_COUNT = UIELEMENT_FEATURE_COUNT + 8;
+  int ACTION_ELEMENT_FEATURE_COUNT = UIELEMENT_FEATURE_COUNT + 7;
 
   /**
    * The feature id for the '<em><b>Style</b></em>' containment reference.
@@ -6999,31 +7000,31 @@ public interface DomainPackage extends EPackage
   int INPUT_ELEMENT__NICKNAME = SOURCES_POINTER__NICKNAME;
 
   /**
-   * The feature id for the '<em><b>Enabled Context</b></em>' containment reference.
+   * The feature id for the '<em><b>Enabled</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int INPUT_ELEMENT__ENABLED_CONTEXT = SOURCES_POINTER__ENABLED_CONTEXT;
+  int INPUT_ELEMENT__ENABLED = SOURCES_POINTER__ENABLED;
 
   /**
-   * The feature id for the '<em><b>Required Context</b></em>' containment reference.
+   * The feature id for the '<em><b>Required</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int INPUT_ELEMENT__REQUIRED_CONTEXT = SOURCES_POINTER__REQUIRED_CONTEXT;
+  int INPUT_ELEMENT__REQUIRED = SOURCES_POINTER__REQUIRED;
 
   /**
-   * The feature id for the '<em><b>Read Only Context</b></em>' containment reference.
+   * The feature id for the '<em><b>Read Only</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int INPUT_ELEMENT__READ_ONLY_CONTEXT = SOURCES_POINTER__READ_ONLY_CONTEXT;
+  int INPUT_ELEMENT__READ_ONLY = SOURCES_POINTER__READ_ONLY;
 
   /**
    * The feature id for the '<em><b>On Event Refresh Area</b></em>' containment reference list.
@@ -7152,31 +7153,31 @@ public interface DomainPackage extends EPackage
   int OPTION_SELECTION__NICKNAME = INPUT_ELEMENT__NICKNAME;
 
   /**
-   * The feature id for the '<em><b>Enabled Context</b></em>' containment reference.
+   * The feature id for the '<em><b>Enabled</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int OPTION_SELECTION__ENABLED_CONTEXT = INPUT_ELEMENT__ENABLED_CONTEXT;
+  int OPTION_SELECTION__ENABLED = INPUT_ELEMENT__ENABLED;
 
   /**
-   * The feature id for the '<em><b>Required Context</b></em>' containment reference.
+   * The feature id for the '<em><b>Required</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int OPTION_SELECTION__REQUIRED_CONTEXT = INPUT_ELEMENT__REQUIRED_CONTEXT;
+  int OPTION_SELECTION__REQUIRED = INPUT_ELEMENT__REQUIRED;
 
   /**
-   * The feature id for the '<em><b>Read Only Context</b></em>' containment reference.
+   * The feature id for the '<em><b>Read Only</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int OPTION_SELECTION__READ_ONLY_CONTEXT = INPUT_ELEMENT__READ_ONLY_CONTEXT;
+  int OPTION_SELECTION__READ_ONLY = INPUT_ELEMENT__READ_ONLY;
 
   /**
    * The feature id for the '<em><b>On Event Refresh Area</b></em>' containment reference list.
@@ -7278,31 +7279,31 @@ public interface DomainPackage extends EPackage
   int LAYER_HOLDER__NICKNAME = UIELEMENT__NICKNAME;
 
   /**
-   * The feature id for the '<em><b>Enabled Context</b></em>' containment reference.
+   * The feature id for the '<em><b>Enabled</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int LAYER_HOLDER__ENABLED_CONTEXT = UIELEMENT__ENABLED_CONTEXT;
+  int LAYER_HOLDER__ENABLED = UIELEMENT__ENABLED;
 
   /**
-   * The feature id for the '<em><b>Required Context</b></em>' containment reference.
+   * The feature id for the '<em><b>Required</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int LAYER_HOLDER__REQUIRED_CONTEXT = UIELEMENT__REQUIRED_CONTEXT;
+  int LAYER_HOLDER__REQUIRED = UIELEMENT__REQUIRED;
 
   /**
-   * The feature id for the '<em><b>Read Only Context</b></em>' containment reference.
+   * The feature id for the '<em><b>Read Only</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int LAYER_HOLDER__READ_ONLY_CONTEXT = UIELEMENT__READ_ONLY_CONTEXT;
+  int LAYER_HOLDER__READ_ONLY = UIELEMENT__READ_ONLY;
 
   /**
    * The feature id for the '<em><b>On Event Refresh Area</b></em>' containment reference list.
@@ -7377,31 +7378,31 @@ public interface DomainPackage extends EPackage
   int INPUT_TEXT__NICKNAME = INPUT_ELEMENT__NICKNAME;
 
   /**
-   * The feature id for the '<em><b>Enabled Context</b></em>' containment reference.
+   * The feature id for the '<em><b>Enabled</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int INPUT_TEXT__ENABLED_CONTEXT = INPUT_ELEMENT__ENABLED_CONTEXT;
+  int INPUT_TEXT__ENABLED = INPUT_ELEMENT__ENABLED;
 
   /**
-   * The feature id for the '<em><b>Required Context</b></em>' containment reference.
+   * The feature id for the '<em><b>Required</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int INPUT_TEXT__REQUIRED_CONTEXT = INPUT_ELEMENT__REQUIRED_CONTEXT;
+  int INPUT_TEXT__REQUIRED = INPUT_ELEMENT__REQUIRED;
 
   /**
-   * The feature id for the '<em><b>Read Only Context</b></em>' containment reference.
+   * The feature id for the '<em><b>Read Only</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int INPUT_TEXT__READ_ONLY_CONTEXT = INPUT_ELEMENT__READ_ONLY_CONTEXT;
+  int INPUT_TEXT__READ_ONLY = INPUT_ELEMENT__READ_ONLY;
 
   /**
    * The feature id for the '<em><b>On Event Refresh Area</b></em>' containment reference list.
@@ -7485,31 +7486,31 @@ public interface DomainPackage extends EPackage
   int LABEL__NICKNAME = INPUT_ELEMENT__NICKNAME;
 
   /**
-   * The feature id for the '<em><b>Enabled Context</b></em>' containment reference.
+   * The feature id for the '<em><b>Enabled</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int LABEL__ENABLED_CONTEXT = INPUT_ELEMENT__ENABLED_CONTEXT;
+  int LABEL__ENABLED = INPUT_ELEMENT__ENABLED;
 
   /**
-   * The feature id for the '<em><b>Required Context</b></em>' containment reference.
+   * The feature id for the '<em><b>Required</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int LABEL__REQUIRED_CONTEXT = INPUT_ELEMENT__REQUIRED_CONTEXT;
+  int LABEL__REQUIRED = INPUT_ELEMENT__REQUIRED;
 
   /**
-   * The feature id for the '<em><b>Read Only Context</b></em>' containment reference.
+   * The feature id for the '<em><b>Read Only</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int LABEL__READ_ONLY_CONTEXT = INPUT_ELEMENT__READ_ONLY_CONTEXT;
+  int LABEL__READ_ONLY = INPUT_ELEMENT__READ_ONLY;
 
   /**
    * The feature id for the '<em><b>On Event Refresh Area</b></em>' containment reference list.
@@ -7602,31 +7603,31 @@ public interface DomainPackage extends EPackage
   int OUTPUT_TEXT__NICKNAME = INPUT_ELEMENT__NICKNAME;
 
   /**
-   * The feature id for the '<em><b>Enabled Context</b></em>' containment reference.
+   * The feature id for the '<em><b>Enabled</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int OUTPUT_TEXT__ENABLED_CONTEXT = INPUT_ELEMENT__ENABLED_CONTEXT;
+  int OUTPUT_TEXT__ENABLED = INPUT_ELEMENT__ENABLED;
 
   /**
-   * The feature id for the '<em><b>Required Context</b></em>' containment reference.
+   * The feature id for the '<em><b>Required</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int OUTPUT_TEXT__REQUIRED_CONTEXT = INPUT_ELEMENT__REQUIRED_CONTEXT;
+  int OUTPUT_TEXT__REQUIRED = INPUT_ELEMENT__REQUIRED;
 
   /**
-   * The feature id for the '<em><b>Read Only Context</b></em>' containment reference.
+   * The feature id for the '<em><b>Read Only</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int OUTPUT_TEXT__READ_ONLY_CONTEXT = INPUT_ELEMENT__READ_ONLY_CONTEXT;
+  int OUTPUT_TEXT__READ_ONLY = INPUT_ELEMENT__READ_ONLY;
 
   /**
    * The feature id for the '<em><b>On Event Refresh Area</b></em>' containment reference list.
@@ -7710,31 +7711,31 @@ public interface DomainPackage extends EPackage
   int CHECK_BOX__NICKNAME = INPUT_ELEMENT__NICKNAME;
 
   /**
-   * The feature id for the '<em><b>Enabled Context</b></em>' containment reference.
+   * The feature id for the '<em><b>Enabled</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CHECK_BOX__ENABLED_CONTEXT = INPUT_ELEMENT__ENABLED_CONTEXT;
+  int CHECK_BOX__ENABLED = INPUT_ELEMENT__ENABLED;
 
   /**
-   * The feature id for the '<em><b>Required Context</b></em>' containment reference.
+   * The feature id for the '<em><b>Required</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CHECK_BOX__REQUIRED_CONTEXT = INPUT_ELEMENT__REQUIRED_CONTEXT;
+  int CHECK_BOX__REQUIRED = INPUT_ELEMENT__REQUIRED;
 
   /**
-   * The feature id for the '<em><b>Read Only Context</b></em>' containment reference.
+   * The feature id for the '<em><b>Read Only</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CHECK_BOX__READ_ONLY_CONTEXT = INPUT_ELEMENT__READ_ONLY_CONTEXT;
+  int CHECK_BOX__READ_ONLY = INPUT_ELEMENT__READ_ONLY;
 
   /**
    * The feature id for the '<em><b>On Event Refresh Area</b></em>' containment reference list.
@@ -7818,31 +7819,31 @@ public interface DomainPackage extends EPackage
   int DROP_DOWN_SELECTION__NICKNAME = OPTION_SELECTION__NICKNAME;
 
   /**
-   * The feature id for the '<em><b>Enabled Context</b></em>' containment reference.
+   * The feature id for the '<em><b>Enabled</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int DROP_DOWN_SELECTION__ENABLED_CONTEXT = OPTION_SELECTION__ENABLED_CONTEXT;
+  int DROP_DOWN_SELECTION__ENABLED = OPTION_SELECTION__ENABLED;
 
   /**
-   * The feature id for the '<em><b>Required Context</b></em>' containment reference.
+   * The feature id for the '<em><b>Required</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int DROP_DOWN_SELECTION__REQUIRED_CONTEXT = OPTION_SELECTION__REQUIRED_CONTEXT;
+  int DROP_DOWN_SELECTION__REQUIRED = OPTION_SELECTION__REQUIRED;
 
   /**
-   * The feature id for the '<em><b>Read Only Context</b></em>' containment reference.
+   * The feature id for the '<em><b>Read Only</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int DROP_DOWN_SELECTION__READ_ONLY_CONTEXT = OPTION_SELECTION__READ_ONLY_CONTEXT;
+  int DROP_DOWN_SELECTION__READ_ONLY = OPTION_SELECTION__READ_ONLY;
 
   /**
    * The feature id for the '<em><b>On Event Refresh Area</b></em>' containment reference list.
@@ -8007,31 +8008,31 @@ public interface DomainPackage extends EPackage
   int TABLE__NICKNAME = SOURCES_POINTER__NICKNAME;
 
   /**
-   * The feature id for the '<em><b>Enabled Context</b></em>' containment reference.
+   * The feature id for the '<em><b>Enabled</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int TABLE__ENABLED_CONTEXT = SOURCES_POINTER__ENABLED_CONTEXT;
+  int TABLE__ENABLED = SOURCES_POINTER__ENABLED;
 
   /**
-   * The feature id for the '<em><b>Required Context</b></em>' containment reference.
+   * The feature id for the '<em><b>Required</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int TABLE__REQUIRED_CONTEXT = SOURCES_POINTER__REQUIRED_CONTEXT;
+  int TABLE__REQUIRED = SOURCES_POINTER__REQUIRED;
 
   /**
-   * The feature id for the '<em><b>Read Only Context</b></em>' containment reference.
+   * The feature id for the '<em><b>Read Only</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int TABLE__READ_ONLY_CONTEXT = SOURCES_POINTER__READ_ONLY_CONTEXT;
+  int TABLE__READ_ONLY = SOURCES_POINTER__READ_ONLY;
 
   /**
    * The feature id for the '<em><b>On Event Refresh Area</b></em>' containment reference list.
@@ -8142,31 +8143,31 @@ public interface DomainPackage extends EPackage
   int TREE__NICKNAME = SOURCES_POINTER__NICKNAME;
 
   /**
-   * The feature id for the '<em><b>Enabled Context</b></em>' containment reference.
+   * The feature id for the '<em><b>Enabled</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int TREE__ENABLED_CONTEXT = SOURCES_POINTER__ENABLED_CONTEXT;
+  int TREE__ENABLED = SOURCES_POINTER__ENABLED;
 
   /**
-   * The feature id for the '<em><b>Required Context</b></em>' containment reference.
+   * The feature id for the '<em><b>Required</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int TREE__REQUIRED_CONTEXT = SOURCES_POINTER__REQUIRED_CONTEXT;
+  int TREE__REQUIRED = SOURCES_POINTER__REQUIRED;
 
   /**
-   * The feature id for the '<em><b>Read Only Context</b></em>' containment reference.
+   * The feature id for the '<em><b>Read Only</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int TREE__READ_ONLY_CONTEXT = SOURCES_POINTER__READ_ONLY_CONTEXT;
+  int TREE__READ_ONLY = SOURCES_POINTER__READ_ONLY;
 
   /**
    * The feature id for the '<em><b>On Event Refresh Area</b></em>' containment reference list.
@@ -8268,31 +8269,31 @@ public interface DomainPackage extends EPackage
   int BUTTON__NICKNAME = ACTION_ELEMENT__NICKNAME;
 
   /**
-   * The feature id for the '<em><b>Enabled Context</b></em>' containment reference.
+   * The feature id for the '<em><b>Enabled</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int BUTTON__ENABLED_CONTEXT = ACTION_ELEMENT__ENABLED_CONTEXT;
+  int BUTTON__ENABLED = ACTION_ELEMENT__ENABLED;
 
   /**
-   * The feature id for the '<em><b>Required Context</b></em>' containment reference.
+   * The feature id for the '<em><b>Required</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int BUTTON__REQUIRED_CONTEXT = ACTION_ELEMENT__REQUIRED_CONTEXT;
+  int BUTTON__REQUIRED = ACTION_ELEMENT__REQUIRED;
 
   /**
-   * The feature id for the '<em><b>Read Only Context</b></em>' containment reference.
+   * The feature id for the '<em><b>Read Only</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int BUTTON__READ_ONLY_CONTEXT = ACTION_ELEMENT__READ_ONLY_CONTEXT;
+  int BUTTON__READ_ONLY = ACTION_ELEMENT__READ_ONLY;
 
   /**
    * The feature id for the '<em><b>On Event Refresh Area</b></em>' containment reference list.
@@ -8356,15 +8357,6 @@ public interface DomainPackage extends EPackage
    * @ordered
    */
   int BUTTON__FAKE_METHOD = ACTION_ELEMENT__FAKE_METHOD;
-
-  /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int BUTTON__NAME = ACTION_ELEMENT__NAME;
 
   /**
    * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
@@ -8455,7 +8447,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getPREFormTrigger()
    * @generated
    */
-  int PRE_FORM_TRIGGER = 128;
+  int PRE_FORM_TRIGGER = 129;
 
   /**
    * The feature id for the '<em><b>Package Ref</b></em>' reference.
@@ -8512,15 +8504,6 @@ public interface DomainPackage extends EPackage
   int PRE_FORM_TRIGGER__FAKE_METHOD = TRIGGER__FAKE_METHOD;
 
   /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PRE_FORM_TRIGGER__NAME = TRIGGER__NAME;
-
-  /**
    * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -8555,7 +8538,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getPREQueryTrigger()
    * @generated
    */
-  int PRE_QUERY_TRIGGER = 129;
+  int PRE_QUERY_TRIGGER = 130;
 
   /**
    * The feature id for the '<em><b>Package Ref</b></em>' reference.
@@ -8612,15 +8595,6 @@ public interface DomainPackage extends EPackage
   int PRE_QUERY_TRIGGER__FAKE_METHOD = TRIGGER__FAKE_METHOD;
 
   /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PRE_QUERY_TRIGGER__NAME = TRIGGER__NAME;
-
-  /**
    * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -8655,7 +8629,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getPOSTQueryTrigger()
    * @generated
    */
-  int POST_QUERY_TRIGGER = 130;
+  int POST_QUERY_TRIGGER = 131;
 
   /**
    * The feature id for the '<em><b>Package Ref</b></em>' reference.
@@ -8712,15 +8686,6 @@ public interface DomainPackage extends EPackage
   int POST_QUERY_TRIGGER__FAKE_METHOD = TRIGGER__FAKE_METHOD;
 
   /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int POST_QUERY_TRIGGER__NAME = TRIGGER__NAME;
-
-  /**
    * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -8755,7 +8720,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getPREInsertTrigger()
    * @generated
    */
-  int PRE_INSERT_TRIGGER = 131;
+  int PRE_INSERT_TRIGGER = 132;
 
   /**
    * The feature id for the '<em><b>Package Ref</b></em>' reference.
@@ -8812,15 +8777,6 @@ public interface DomainPackage extends EPackage
   int PRE_INSERT_TRIGGER__FAKE_METHOD = TRIGGER__FAKE_METHOD;
 
   /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PRE_INSERT_TRIGGER__NAME = TRIGGER__NAME;
-
-  /**
    * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -8855,7 +8811,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getPREDeleteTrigger()
    * @generated
    */
-  int PRE_DELETE_TRIGGER = 132;
+  int PRE_DELETE_TRIGGER = 133;
 
   /**
    * The feature id for the '<em><b>Package Ref</b></em>' reference.
@@ -8912,15 +8868,6 @@ public interface DomainPackage extends EPackage
   int PRE_DELETE_TRIGGER__FAKE_METHOD = TRIGGER__FAKE_METHOD;
 
   /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PRE_DELETE_TRIGGER__NAME = TRIGGER__NAME;
-
-  /**
    * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -8955,7 +8902,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getPOSTCreateTrigger()
    * @generated
    */
-  int POST_CREATE_TRIGGER = 133;
+  int POST_CREATE_TRIGGER = 134;
 
   /**
    * The feature id for the '<em><b>Package Ref</b></em>' reference.
@@ -9012,15 +8959,6 @@ public interface DomainPackage extends EPackage
   int POST_CREATE_TRIGGER__FAKE_METHOD = TRIGGER__FAKE_METHOD;
 
   /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int POST_CREATE_TRIGGER__NAME = TRIGGER__NAME;
-
-  /**
    * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -9055,7 +8993,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getPREUpdateTrigger()
    * @generated
    */
-  int PRE_UPDATE_TRIGGER = 134;
+  int PRE_UPDATE_TRIGGER = 135;
 
   /**
    * The feature id for the '<em><b>Package Ref</b></em>' reference.
@@ -9112,15 +9050,6 @@ public interface DomainPackage extends EPackage
   int PRE_UPDATE_TRIGGER__FAKE_METHOD = TRIGGER__FAKE_METHOD;
 
   /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PRE_UPDATE_TRIGGER__NAME = TRIGGER__NAME;
-
-  /**
    * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -9155,7 +9084,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getCreateTrigger()
    * @generated
    */
-  int CREATE_TRIGGER = 135;
+  int CREATE_TRIGGER = 136;
 
   /**
    * The feature id for the '<em><b>Package Ref</b></em>' reference.
@@ -9212,15 +9141,6 @@ public interface DomainPackage extends EPackage
   int CREATE_TRIGGER__FAKE_METHOD = TRIGGER__FAKE_METHOD;
 
   /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CREATE_TRIGGER__NAME = TRIGGER__NAME;
-
-  /**
    * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -9255,7 +9175,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getInsertTrigger()
    * @generated
    */
-  int INSERT_TRIGGER = 136;
+  int INSERT_TRIGGER = 137;
 
   /**
    * The feature id for the '<em><b>Package Ref</b></em>' reference.
@@ -9312,15 +9232,6 @@ public interface DomainPackage extends EPackage
   int INSERT_TRIGGER__FAKE_METHOD = TRIGGER__FAKE_METHOD;
 
   /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int INSERT_TRIGGER__NAME = TRIGGER__NAME;
-
-  /**
    * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -9355,7 +9266,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getUpdateTrigger()
    * @generated
    */
-  int UPDATE_TRIGGER = 137;
+  int UPDATE_TRIGGER = 138;
 
   /**
    * The feature id for the '<em><b>Package Ref</b></em>' reference.
@@ -9412,15 +9323,6 @@ public interface DomainPackage extends EPackage
   int UPDATE_TRIGGER__FAKE_METHOD = TRIGGER__FAKE_METHOD;
 
   /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int UPDATE_TRIGGER__NAME = TRIGGER__NAME;
-
-  /**
    * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -9455,7 +9357,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getDeleteTrigger()
    * @generated
    */
-  int DELETE_TRIGGER = 138;
+  int DELETE_TRIGGER = 139;
 
   /**
    * The feature id for the '<em><b>Package Ref</b></em>' reference.
@@ -9512,15 +9414,6 @@ public interface DomainPackage extends EPackage
   int DELETE_TRIGGER__FAKE_METHOD = TRIGGER__FAKE_METHOD;
 
   /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DELETE_TRIGGER__NAME = TRIGGER__NAME;
-
-  /**
    * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -9555,7 +9448,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getSearchTrigger()
    * @generated
    */
-  int SEARCH_TRIGGER = 139;
+  int SEARCH_TRIGGER = 140;
 
   /**
    * The feature id for the '<em><b>Package Ref</b></em>' reference.
@@ -9612,15 +9505,6 @@ public interface DomainPackage extends EPackage
   int SEARCH_TRIGGER__FAKE_METHOD = TRIGGER__FAKE_METHOD;
 
   /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SEARCH_TRIGGER__NAME = TRIGGER__NAME;
-
-  /**
    * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -9655,7 +9539,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getRoot()
    * @generated
    */
-  int ROOT = 140;
+  int ROOT = 141;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -9701,7 +9585,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getDataControl()
    * @generated
    */
-  int DATA_CONTROL = 141;
+  int DATA_CONTROL = 142;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -9855,7 +9739,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getRelation()
    * @generated
    */
-  int RELATION = 142;
+  int RELATION = 143;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -9928,7 +9812,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getArtificialField()
    * @generated
    */
-  int ARTIFICIAL_FIELD = 143;
+  int ARTIFICIAL_FIELD = 144;
 
   /**
    * The feature id for the '<em><b>Package Ref</b></em>' reference.
@@ -10010,7 +9894,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getLink()
    * @generated
    */
-  int LINK = 144;
+  int LINK = 145;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -10065,7 +9949,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getApplicationInfrastructureLayer()
    * @generated
    */
-  int APPLICATION_INFRASTRUCTURE_LAYER = 145;
+  int APPLICATION_INFRASTRUCTURE_LAYER = 146;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -10120,7 +10004,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getEnterpriseInfrastructure()
    * @generated
    */
-  int ENTERPRISE_INFRASTRUCTURE = 146;
+  int ENTERPRISE_INFRASTRUCTURE = 147;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -10175,7 +10059,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getDatacenter()
    * @generated
    */
-  int DATACENTER = 147;
+  int DATACENTER = 148;
 
   /**
    * The feature id for the '<em><b>Columns</b></em>' attribute.
@@ -10239,7 +10123,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getSubsystem()
    * @generated
    */
-  int SUBSYSTEM = 148;
+  int SUBSYSTEM = 149;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -10294,7 +10178,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getInfrastructureLayer()
    * @generated
    */
-  int INFRASTRUCTURE_LAYER = 149;
+  int INFRASTRUCTURE_LAYER = 150;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -10349,7 +10233,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getInfrastructureConnection()
    * @generated
    */
-  int INFRASTRUCTURE_CONNECTION = 150;
+  int INFRASTRUCTURE_CONNECTION = 151;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -10395,7 +10279,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getInfrastructureComponent()
    * @generated
    */
-  int INFRASTRUCTURE_COMPONENT = 151;
+  int INFRASTRUCTURE_COMPONENT = 152;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -10441,7 +10325,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getServer()
    * @generated
    */
-  int SERVER = 152;
+  int SERVER = 153;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -10487,7 +10371,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getRouter()
    * @generated
    */
-  int ROUTER = 153;
+  int ROUTER = 154;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -10533,7 +10417,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getHub()
    * @generated
    */
-  int HUB = 154;
+  int HUB = 155;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -10579,7 +10463,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getStorage()
    * @generated
    */
-  int STORAGE = 155;
+  int STORAGE = 156;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -10625,7 +10509,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getServerClaster()
    * @generated
    */
-  int SERVER_CLASTER = 156;
+  int SERVER_CLASTER = 157;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -10680,7 +10564,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getPlatformLayers()
    * @generated
    */
-  int PLATFORM_LAYERS = 157;
+  int PLATFORM_LAYERS = 158;
 
 
   /**
@@ -15450,6 +15334,27 @@ public interface DomainPackage extends EPackage
   EAttribute getExpressionPart_Order();
 
   /**
+   * Returns the meta object for class '{@link domain.ContextParameters <em>Context Parameters</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Context Parameters</em>'.
+   * @see domain.ContextParameters
+   * @generated
+   */
+  EClass getContextParameters();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link domain.ContextParameters#getParameters <em>Parameters</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Parameters</em>'.
+   * @see domain.ContextParameters#getParameters()
+   * @see #getContextParameters()
+   * @generated
+   */
+  EReference getContextParameters_Parameters();
+
+  /**
    * Returns the meta object for class '{@link domain.Context <em>Context</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -15458,17 +15363,6 @@ public interface DomainPackage extends EPackage
    * @generated
    */
   EClass getContext();
-
-  /**
-   * Returns the meta object for the containment reference list '{@link domain.Context#getParameters <em>Parameters</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Parameters</em>'.
-   * @see domain.Context#getParameters()
-   * @see #getContext()
-   * @generated
-   */
-  EReference getContext_Parameters();
 
   /**
    * Returns the meta object for class '{@link domain.StyleElement <em>Style Element</em>}'.
@@ -15567,37 +15461,37 @@ public interface DomainPackage extends EPackage
   EAttribute getUielement_Nickname();
 
   /**
-   * Returns the meta object for the containment reference '{@link domain.Uielement#getEnabledContext <em>Enabled Context</em>}'.
+   * Returns the meta object for the containment reference '{@link domain.Uielement#getEnabled <em>Enabled</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Enabled Context</em>'.
-   * @see domain.Uielement#getEnabledContext()
+   * @return the meta object for the containment reference '<em>Enabled</em>'.
+   * @see domain.Uielement#getEnabled()
    * @see #getUielement()
    * @generated
    */
-  EReference getUielement_EnabledContext();
+  EReference getUielement_Enabled();
 
   /**
-   * Returns the meta object for the containment reference '{@link domain.Uielement#getRequiredContext <em>Required Context</em>}'.
+   * Returns the meta object for the containment reference '{@link domain.Uielement#getRequired <em>Required</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Required Context</em>'.
-   * @see domain.Uielement#getRequiredContext()
+   * @return the meta object for the containment reference '<em>Required</em>'.
+   * @see domain.Uielement#getRequired()
    * @see #getUielement()
    * @generated
    */
-  EReference getUielement_RequiredContext();
+  EReference getUielement_Required();
 
   /**
-   * Returns the meta object for the containment reference '{@link domain.Uielement#getReadOnlyContext <em>Read Only Context</em>}'.
+   * Returns the meta object for the containment reference '{@link domain.Uielement#getReadOnly <em>Read Only</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Read Only Context</em>'.
-   * @see domain.Uielement#getReadOnlyContext()
+   * @return the meta object for the containment reference '<em>Read Only</em>'.
+   * @see domain.Uielement#getReadOnly()
    * @see #getUielement()
    * @generated
    */
-  EReference getUielement_ReadOnlyContext();
+  EReference getUielement_ReadOnly();
 
   /**
    * Returns the meta object for the containment reference list '{@link domain.Uielement#getOnEventRefreshArea <em>On Event Refresh Area</em>}'.
@@ -16021,28 +15915,6 @@ public interface DomainPackage extends EPackage
    * @generated
    */
   EClass getTrigger();
-
-  /**
-   * Returns the meta object for the attribute '{@link domain.Trigger#getName <em>Name</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Name</em>'.
-   * @see domain.Trigger#getName()
-   * @see #getTrigger()
-   * @generated
-   */
-  EAttribute getTrigger_Name();
-
-  /**
-   * Returns the meta object for the containment reference list '{@link domain.Trigger#getParameters <em>Parameters</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Parameters</em>'.
-   * @see domain.Trigger#getParameters()
-   * @see #getTrigger()
-   * @generated
-   */
-  EReference getTrigger_Parameters();
 
   /**
    * Returns the meta object for class '{@link domain.PREFormTrigger <em>PRE Form Trigger</em>}'.
@@ -20896,6 +20768,24 @@ public interface DomainPackage extends EPackage
     EAttribute EXPRESSION_PART__ORDER = eINSTANCE.getExpressionPart_Order();
 
     /**
+     * The meta object literal for the '{@link domain.impl.ContextParametersImpl <em>Context Parameters</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see domain.impl.ContextParametersImpl
+     * @see domain.impl.DomainPackageImpl#getContextParameters()
+     * @generated
+     */
+    EClass CONTEXT_PARAMETERS = eINSTANCE.getContextParameters();
+
+    /**
+     * The meta object literal for the '<em><b>Parameters</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference CONTEXT_PARAMETERS__PARAMETERS = eINSTANCE.getContextParameters_Parameters();
+
+    /**
      * The meta object literal for the '{@link domain.impl.ContextImpl <em>Context</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -20904,14 +20794,6 @@ public interface DomainPackage extends EPackage
      * @generated
      */
     EClass CONTEXT = eINSTANCE.getContext();
-
-    /**
-     * The meta object literal for the '<em><b>Parameters</b></em>' containment reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference CONTEXT__PARAMETERS = eINSTANCE.getContext_Parameters();
 
     /**
      * The meta object literal for the '{@link domain.impl.StyleElementImpl <em>Style Element</em>}' class.
@@ -20992,28 +20874,28 @@ public interface DomainPackage extends EPackage
     EAttribute UIELEMENT__NICKNAME = eINSTANCE.getUielement_Nickname();
 
     /**
-     * The meta object literal for the '<em><b>Enabled Context</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Enabled</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference UIELEMENT__ENABLED_CONTEXT = eINSTANCE.getUielement_EnabledContext();
+    EReference UIELEMENT__ENABLED = eINSTANCE.getUielement_Enabled();
 
     /**
-     * The meta object literal for the '<em><b>Required Context</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Required</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference UIELEMENT__REQUIRED_CONTEXT = eINSTANCE.getUielement_RequiredContext();
+    EReference UIELEMENT__REQUIRED = eINSTANCE.getUielement_Required();
 
     /**
-     * The meta object literal for the '<em><b>Read Only Context</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Read Only</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference UIELEMENT__READ_ONLY_CONTEXT = eINSTANCE.getUielement_ReadOnlyContext();
+    EReference UIELEMENT__READ_ONLY = eINSTANCE.getUielement_ReadOnly();
 
     /**
      * The meta object literal for the '<em><b>On Event Refresh Area</b></em>' containment reference list feature.
@@ -21368,22 +21250,6 @@ public interface DomainPackage extends EPackage
      * @generated
      */
     EClass TRIGGER = eINSTANCE.getTrigger();
-
-    /**
-     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute TRIGGER__NAME = eINSTANCE.getTrigger_Name();
-
-    /**
-     * The meta object literal for the '<em><b>Parameters</b></em>' containment reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference TRIGGER__PARAMETERS = eINSTANCE.getTrigger_Parameters();
 
     /**
      * The meta object literal for the '{@link domain.impl.PREFormTriggerImpl <em>PRE Form Trigger</em>}' class.

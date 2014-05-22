@@ -29,7 +29,7 @@ public abstract class GridProperty extends AbstractTuraPropertySection {
 
 	public void createControls(Composite parent,
 			TabbedPropertySheetPage aTabbedPropertySheetPage) {
-
+         super.createControls(parent, aTabbedPropertySheetPage);
 		Composite composite = aTabbedPropertySheetPage.getWidgetFactory()
 				.createFlatFormComposite(parent);
 

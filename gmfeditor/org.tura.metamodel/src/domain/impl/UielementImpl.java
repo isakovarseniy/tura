@@ -31,9 +31,9 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link domain.impl.UielementImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.impl.UielementImpl#getNickname <em>Nickname</em>}</li>
- *   <li>{@link domain.impl.UielementImpl#getEnabledContext <em>Enabled Context</em>}</li>
- *   <li>{@link domain.impl.UielementImpl#getRequiredContext <em>Required Context</em>}</li>
- *   <li>{@link domain.impl.UielementImpl#getReadOnlyContext <em>Read Only Context</em>}</li>
+ *   <li>{@link domain.impl.UielementImpl#getEnabled <em>Enabled</em>}</li>
+ *   <li>{@link domain.impl.UielementImpl#getRequired <em>Required</em>}</li>
+ *   <li>{@link domain.impl.UielementImpl#getReadOnly <em>Read Only</em>}</li>
  *   <li>{@link domain.impl.UielementImpl#getOnEventRefreshArea <em>On Event Refresh Area</em>}</li>
  * </ul>
  * </p>
@@ -83,34 +83,34 @@ public class UielementImpl extends StyleElementImpl implements Uielement
   protected String nickname = NICKNAME_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getEnabledContext() <em>Enabled Context</em>}' containment reference.
+   * The cached value of the '{@link #getEnabled() <em>Enabled</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getEnabledContext()
+   * @see #getEnabled()
    * @generated
    * @ordered
    */
-  protected Context enabledContext;
+  protected Context enabled;
 
   /**
-   * The cached value of the '{@link #getRequiredContext() <em>Required Context</em>}' containment reference.
+   * The cached value of the '{@link #getRequired() <em>Required</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getRequiredContext()
+   * @see #getRequired()
    * @generated
    * @ordered
    */
-  protected Context requiredContext;
+  protected Context required;
 
   /**
-   * The cached value of the '{@link #getReadOnlyContext() <em>Read Only Context</em>}' containment reference.
+   * The cached value of the '{@link #getReadOnly() <em>Read Only</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getReadOnlyContext()
+   * @see #getReadOnly()
    * @generated
    * @ordered
    */
-  protected Context readOnlyContext;
+  protected Context readOnly;
 
   /**
    * The cached value of the '{@link #getOnEventRefreshArea() <em>On Event Refresh Area</em>}' containment reference list.
@@ -194,9 +194,9 @@ public class UielementImpl extends StyleElementImpl implements Uielement
    * <!-- end-user-doc -->
    * @generated
    */
-  public Context getEnabledContext()
+  public Context getEnabled()
   {
-    return enabledContext;
+    return enabled;
   }
 
   /**
@@ -204,13 +204,13 @@ public class UielementImpl extends StyleElementImpl implements Uielement
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetEnabledContext(Context newEnabledContext, NotificationChain msgs)
+  public NotificationChain basicSetEnabled(Context newEnabled, NotificationChain msgs)
   {
-    Context oldEnabledContext = enabledContext;
-    enabledContext = newEnabledContext;
+    Context oldEnabled = enabled;
+    enabled = newEnabled;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DomainPackage.UIELEMENT__ENABLED_CONTEXT, oldEnabledContext, newEnabledContext);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DomainPackage.UIELEMENT__ENABLED, oldEnabled, newEnabled);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -221,20 +221,20 @@ public class UielementImpl extends StyleElementImpl implements Uielement
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setEnabledContext(Context newEnabledContext)
+  public void setEnabled(Context newEnabled)
   {
-    if (newEnabledContext != enabledContext)
+    if (newEnabled != enabled)
     {
       NotificationChain msgs = null;
-      if (enabledContext != null)
-        msgs = ((InternalEObject)enabledContext).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DomainPackage.UIELEMENT__ENABLED_CONTEXT, null, msgs);
-      if (newEnabledContext != null)
-        msgs = ((InternalEObject)newEnabledContext).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - DomainPackage.UIELEMENT__ENABLED_CONTEXT, null, msgs);
-      msgs = basicSetEnabledContext(newEnabledContext, msgs);
+      if (enabled != null)
+        msgs = ((InternalEObject)enabled).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DomainPackage.UIELEMENT__ENABLED, null, msgs);
+      if (newEnabled != null)
+        msgs = ((InternalEObject)newEnabled).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - DomainPackage.UIELEMENT__ENABLED, null, msgs);
+      msgs = basicSetEnabled(newEnabled, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.UIELEMENT__ENABLED_CONTEXT, newEnabledContext, newEnabledContext));
+      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.UIELEMENT__ENABLED, newEnabled, newEnabled));
   }
 
   /**
@@ -242,9 +242,9 @@ public class UielementImpl extends StyleElementImpl implements Uielement
    * <!-- end-user-doc -->
    * @generated
    */
-  public Context getRequiredContext()
+  public Context getRequired()
   {
-    return requiredContext;
+    return required;
   }
 
   /**
@@ -252,13 +252,13 @@ public class UielementImpl extends StyleElementImpl implements Uielement
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetRequiredContext(Context newRequiredContext, NotificationChain msgs)
+  public NotificationChain basicSetRequired(Context newRequired, NotificationChain msgs)
   {
-    Context oldRequiredContext = requiredContext;
-    requiredContext = newRequiredContext;
+    Context oldRequired = required;
+    required = newRequired;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DomainPackage.UIELEMENT__REQUIRED_CONTEXT, oldRequiredContext, newRequiredContext);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DomainPackage.UIELEMENT__REQUIRED, oldRequired, newRequired);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -269,20 +269,20 @@ public class UielementImpl extends StyleElementImpl implements Uielement
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setRequiredContext(Context newRequiredContext)
+  public void setRequired(Context newRequired)
   {
-    if (newRequiredContext != requiredContext)
+    if (newRequired != required)
     {
       NotificationChain msgs = null;
-      if (requiredContext != null)
-        msgs = ((InternalEObject)requiredContext).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DomainPackage.UIELEMENT__REQUIRED_CONTEXT, null, msgs);
-      if (newRequiredContext != null)
-        msgs = ((InternalEObject)newRequiredContext).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - DomainPackage.UIELEMENT__REQUIRED_CONTEXT, null, msgs);
-      msgs = basicSetRequiredContext(newRequiredContext, msgs);
+      if (required != null)
+        msgs = ((InternalEObject)required).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DomainPackage.UIELEMENT__REQUIRED, null, msgs);
+      if (newRequired != null)
+        msgs = ((InternalEObject)newRequired).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - DomainPackage.UIELEMENT__REQUIRED, null, msgs);
+      msgs = basicSetRequired(newRequired, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.UIELEMENT__REQUIRED_CONTEXT, newRequiredContext, newRequiredContext));
+      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.UIELEMENT__REQUIRED, newRequired, newRequired));
   }
 
   /**
@@ -290,9 +290,9 @@ public class UielementImpl extends StyleElementImpl implements Uielement
    * <!-- end-user-doc -->
    * @generated
    */
-  public Context getReadOnlyContext()
+  public Context getReadOnly()
   {
-    return readOnlyContext;
+    return readOnly;
   }
 
   /**
@@ -300,13 +300,13 @@ public class UielementImpl extends StyleElementImpl implements Uielement
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetReadOnlyContext(Context newReadOnlyContext, NotificationChain msgs)
+  public NotificationChain basicSetReadOnly(Context newReadOnly, NotificationChain msgs)
   {
-    Context oldReadOnlyContext = readOnlyContext;
-    readOnlyContext = newReadOnlyContext;
+    Context oldReadOnly = readOnly;
+    readOnly = newReadOnly;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DomainPackage.UIELEMENT__READ_ONLY_CONTEXT, oldReadOnlyContext, newReadOnlyContext);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DomainPackage.UIELEMENT__READ_ONLY, oldReadOnly, newReadOnly);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -317,20 +317,20 @@ public class UielementImpl extends StyleElementImpl implements Uielement
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setReadOnlyContext(Context newReadOnlyContext)
+  public void setReadOnly(Context newReadOnly)
   {
-    if (newReadOnlyContext != readOnlyContext)
+    if (newReadOnly != readOnly)
     {
       NotificationChain msgs = null;
-      if (readOnlyContext != null)
-        msgs = ((InternalEObject)readOnlyContext).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DomainPackage.UIELEMENT__READ_ONLY_CONTEXT, null, msgs);
-      if (newReadOnlyContext != null)
-        msgs = ((InternalEObject)newReadOnlyContext).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - DomainPackage.UIELEMENT__READ_ONLY_CONTEXT, null, msgs);
-      msgs = basicSetReadOnlyContext(newReadOnlyContext, msgs);
+      if (readOnly != null)
+        msgs = ((InternalEObject)readOnly).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DomainPackage.UIELEMENT__READ_ONLY, null, msgs);
+      if (newReadOnly != null)
+        msgs = ((InternalEObject)newReadOnly).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - DomainPackage.UIELEMENT__READ_ONLY, null, msgs);
+      msgs = basicSetReadOnly(newReadOnly, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.UIELEMENT__READ_ONLY_CONTEXT, newReadOnlyContext, newReadOnlyContext));
+      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.UIELEMENT__READ_ONLY, newReadOnly, newReadOnly));
   }
 
   /**
@@ -357,12 +357,12 @@ public class UielementImpl extends StyleElementImpl implements Uielement
   {
     switch (featureID)
     {
-      case DomainPackage.UIELEMENT__ENABLED_CONTEXT:
-        return basicSetEnabledContext(null, msgs);
-      case DomainPackage.UIELEMENT__REQUIRED_CONTEXT:
-        return basicSetRequiredContext(null, msgs);
-      case DomainPackage.UIELEMENT__READ_ONLY_CONTEXT:
-        return basicSetReadOnlyContext(null, msgs);
+      case DomainPackage.UIELEMENT__ENABLED:
+        return basicSetEnabled(null, msgs);
+      case DomainPackage.UIELEMENT__REQUIRED:
+        return basicSetRequired(null, msgs);
+      case DomainPackage.UIELEMENT__READ_ONLY:
+        return basicSetReadOnly(null, msgs);
       case DomainPackage.UIELEMENT__ON_EVENT_REFRESH_AREA:
         return ((InternalEList<?>)getOnEventRefreshArea()).basicRemove(otherEnd, msgs);
     }
@@ -383,12 +383,12 @@ public class UielementImpl extends StyleElementImpl implements Uielement
         return getUid();
       case DomainPackage.UIELEMENT__NICKNAME:
         return getNickname();
-      case DomainPackage.UIELEMENT__ENABLED_CONTEXT:
-        return getEnabledContext();
-      case DomainPackage.UIELEMENT__REQUIRED_CONTEXT:
-        return getRequiredContext();
-      case DomainPackage.UIELEMENT__READ_ONLY_CONTEXT:
-        return getReadOnlyContext();
+      case DomainPackage.UIELEMENT__ENABLED:
+        return getEnabled();
+      case DomainPackage.UIELEMENT__REQUIRED:
+        return getRequired();
+      case DomainPackage.UIELEMENT__READ_ONLY:
+        return getReadOnly();
       case DomainPackage.UIELEMENT__ON_EVENT_REFRESH_AREA:
         return getOnEventRefreshArea();
     }
@@ -412,14 +412,14 @@ public class UielementImpl extends StyleElementImpl implements Uielement
       case DomainPackage.UIELEMENT__NICKNAME:
         setNickname((String)newValue);
         return;
-      case DomainPackage.UIELEMENT__ENABLED_CONTEXT:
-        setEnabledContext((Context)newValue);
+      case DomainPackage.UIELEMENT__ENABLED:
+        setEnabled((Context)newValue);
         return;
-      case DomainPackage.UIELEMENT__REQUIRED_CONTEXT:
-        setRequiredContext((Context)newValue);
+      case DomainPackage.UIELEMENT__REQUIRED:
+        setRequired((Context)newValue);
         return;
-      case DomainPackage.UIELEMENT__READ_ONLY_CONTEXT:
-        setReadOnlyContext((Context)newValue);
+      case DomainPackage.UIELEMENT__READ_ONLY:
+        setReadOnly((Context)newValue);
         return;
       case DomainPackage.UIELEMENT__ON_EVENT_REFRESH_AREA:
         getOnEventRefreshArea().clear();
@@ -445,14 +445,14 @@ public class UielementImpl extends StyleElementImpl implements Uielement
       case DomainPackage.UIELEMENT__NICKNAME:
         setNickname(NICKNAME_EDEFAULT);
         return;
-      case DomainPackage.UIELEMENT__ENABLED_CONTEXT:
-        setEnabledContext((Context)null);
+      case DomainPackage.UIELEMENT__ENABLED:
+        setEnabled((Context)null);
         return;
-      case DomainPackage.UIELEMENT__REQUIRED_CONTEXT:
-        setRequiredContext((Context)null);
+      case DomainPackage.UIELEMENT__REQUIRED:
+        setRequired((Context)null);
         return;
-      case DomainPackage.UIELEMENT__READ_ONLY_CONTEXT:
-        setReadOnlyContext((Context)null);
+      case DomainPackage.UIELEMENT__READ_ONLY:
+        setReadOnly((Context)null);
         return;
       case DomainPackage.UIELEMENT__ON_EVENT_REFRESH_AREA:
         getOnEventRefreshArea().clear();
@@ -475,12 +475,12 @@ public class UielementImpl extends StyleElementImpl implements Uielement
         return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
       case DomainPackage.UIELEMENT__NICKNAME:
         return NICKNAME_EDEFAULT == null ? nickname != null : !NICKNAME_EDEFAULT.equals(nickname);
-      case DomainPackage.UIELEMENT__ENABLED_CONTEXT:
-        return enabledContext != null;
-      case DomainPackage.UIELEMENT__REQUIRED_CONTEXT:
-        return requiredContext != null;
-      case DomainPackage.UIELEMENT__READ_ONLY_CONTEXT:
-        return readOnlyContext != null;
+      case DomainPackage.UIELEMENT__ENABLED:
+        return enabled != null;
+      case DomainPackage.UIELEMENT__REQUIRED:
+        return required != null;
+      case DomainPackage.UIELEMENT__READ_ONLY:
+        return readOnly != null;
       case DomainPackage.UIELEMENT__ON_EVENT_REFRESH_AREA:
         return onEventRefreshArea != null && !onEventRefreshArea.isEmpty();
     }

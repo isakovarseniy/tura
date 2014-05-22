@@ -547,9 +547,10 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference domain.ecore#//ExpressionPart/objRef"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//ExpressionPart/order"/>
     </genClasses>
-    <genClasses ecoreClass="domain.ecore#//Context">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//Context/parameters"/>
+    <genClasses ecoreClass="domain.ecore#//ContextParameters">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//ContextParameters/parameters"/>
     </genClasses>
+    <genClasses ecoreClass="domain.ecore#//Context"/>
     <genClasses ecoreClass="domain.ecore#//StyleElement">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//StyleElement/style"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//StyleElement/styleClass"/>
@@ -561,9 +562,9 @@
     <genClasses ecoreClass="domain.ecore#//Uielement">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//Uielement/uid"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//Uielement/nickname"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//Uielement/enabledContext"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//Uielement/requiredContext"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//Uielement/readOnlyContext"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//Uielement/enabled"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//Uielement/required"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//Uielement/readOnly"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//Uielement/onEventRefreshArea"/>
     </genClasses>
     <genClasses ecoreClass="domain.ecore#//SourcesPointer">
@@ -614,10 +615,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//Controls/controls"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//Controls/relations"/>
     </genClasses>
-    <genClasses ecoreClass="domain.ecore#//Trigger">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//Trigger/name"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//Trigger/parameters"/>
-    </genClasses>
+    <genClasses ecoreClass="domain.ecore#//Trigger"/>
     <genClasses ecoreClass="domain.ecore#//PREFormTrigger">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//PREFormTrigger/uid"/>
     </genClasses>

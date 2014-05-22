@@ -85,7 +85,7 @@ public class ContextItemProvider
     if (childrenFeatures == null)
     {
       super.getChildrenFeatures(object);
-      childrenFeatures.add(DomainPackage.Literals.CONTEXT__PARAMETERS);
+      childrenFeatures.add(DomainPackage.Literals.CONTEXT_PARAMETERS__PARAMETERS);
     }
     return childrenFeatures;
   }
@@ -166,7 +166,7 @@ public class ContextItemProvider
 
     newChildDescriptors.add
       (createChildParameter
-        (DomainPackage.Literals.CONTEXT__PARAMETERS,
+        (DomainPackage.Literals.CONTEXT_PARAMETERS__PARAMETERS,
          DomainFactory.eINSTANCE.createContextParameter()));
   }
 

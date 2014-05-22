@@ -32,6 +32,7 @@ import domain.ConfigVariable;
 import domain.Configuration;
 import domain.Context;
 import domain.ContextParameter;
+import domain.ContextParameters;
 import domain.ContextValue;
 import domain.ContinuousIintegration;
 import domain.Controls;
@@ -764,6 +765,11 @@ public class DomainAdapterFactory extends AdapterFactoryImpl
       public Adapter caseExpressionPart(ExpressionPart object)
       {
         return createExpressionPartAdapter();
+      }
+      @Override
+      public Adapter caseContextParameters(ContextParameters object)
+      {
+        return createContextParametersAdapter();
       }
       @Override
       public Adapter caseContext(Context object)
@@ -2638,6 +2644,21 @@ public class DomainAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createExpressionPartAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link domain.ContextParameters <em>Context Parameters</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see domain.ContextParameters
+   * @generated
+   */
+  public Adapter createContextParametersAdapter()
   {
     return null;
   }

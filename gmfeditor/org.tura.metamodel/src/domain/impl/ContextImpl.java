@@ -4,6 +4,7 @@ package domain.impl;
 
 import domain.Context;
 import domain.ContextParameter;
+import domain.ContextParameters;
 import domain.DomainPackage;
 import domain.ExpressionPart;
 
@@ -165,6 +166,44 @@ public class ContextImpl extends ContextValueImpl implements Context
         return parameters != null && !parameters.isEmpty();
     }
     return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass)
+  {
+    if (baseClass == ContextParameters.class)
+    {
+      switch (derivedFeatureID)
+      {
+        case DomainPackage.CONTEXT__PARAMETERS: return DomainPackage.CONTEXT_PARAMETERS__PARAMETERS;
+        default: return -1;
+      }
+    }
+    return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass)
+  {
+    if (baseClass == ContextParameters.class)
+    {
+      switch (baseFeatureID)
+      {
+        case DomainPackage.CONTEXT_PARAMETERS__PARAMETERS: return DomainPackage.CONTEXT__PARAMETERS;
+        default: return -1;
+      }
+    }
+    return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
   }
 
 } //ContextImpl

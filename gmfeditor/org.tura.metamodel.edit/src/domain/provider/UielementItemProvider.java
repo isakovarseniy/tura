@@ -130,9 +130,9 @@ public class UielementItemProvider
     if (childrenFeatures == null)
     {
       super.getChildrenFeatures(object);
-      childrenFeatures.add(DomainPackage.Literals.UIELEMENT__ENABLED_CONTEXT);
-      childrenFeatures.add(DomainPackage.Literals.UIELEMENT__REQUIRED_CONTEXT);
-      childrenFeatures.add(DomainPackage.Literals.UIELEMENT__READ_ONLY_CONTEXT);
+      childrenFeatures.add(DomainPackage.Literals.UIELEMENT__ENABLED);
+      childrenFeatures.add(DomainPackage.Literals.UIELEMENT__REQUIRED);
+      childrenFeatures.add(DomainPackage.Literals.UIELEMENT__READ_ONLY);
       childrenFeatures.add(DomainPackage.Literals.UIELEMENT__ON_EVENT_REFRESH_AREA);
     }
     return childrenFeatures;
@@ -197,9 +197,9 @@ public class UielementItemProvider
       case DomainPackage.UIELEMENT__NICKNAME:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
         return;
-      case DomainPackage.UIELEMENT__ENABLED_CONTEXT:
-      case DomainPackage.UIELEMENT__REQUIRED_CONTEXT:
-      case DomainPackage.UIELEMENT__READ_ONLY_CONTEXT:
+      case DomainPackage.UIELEMENT__ENABLED:
+      case DomainPackage.UIELEMENT__REQUIRED:
+      case DomainPackage.UIELEMENT__READ_ONLY:
       case DomainPackage.UIELEMENT__ON_EVENT_REFRESH_AREA:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
         return;
@@ -221,17 +221,17 @@ public class UielementItemProvider
 
     newChildDescriptors.add
       (createChildParameter
-        (DomainPackage.Literals.UIELEMENT__ENABLED_CONTEXT,
+        (DomainPackage.Literals.UIELEMENT__ENABLED,
          DomainFactory.eINSTANCE.createContext()));
 
     newChildDescriptors.add
       (createChildParameter
-        (DomainPackage.Literals.UIELEMENT__REQUIRED_CONTEXT,
+        (DomainPackage.Literals.UIELEMENT__REQUIRED,
          DomainFactory.eINSTANCE.createContext()));
 
     newChildDescriptors.add
       (createChildParameter
-        (DomainPackage.Literals.UIELEMENT__READ_ONLY_CONTEXT,
+        (DomainPackage.Literals.UIELEMENT__READ_ONLY,
          DomainFactory.eINSTANCE.createContext()));
 
     newChildDescriptors.add
@@ -253,9 +253,9 @@ public class UielementItemProvider
     Object childObject = child;
 
     boolean qualify =
-      childFeature == DomainPackage.Literals.UIELEMENT__ENABLED_CONTEXT ||
-      childFeature == DomainPackage.Literals.UIELEMENT__REQUIRED_CONTEXT ||
-      childFeature == DomainPackage.Literals.UIELEMENT__READ_ONLY_CONTEXT;
+      childFeature == DomainPackage.Literals.UIELEMENT__ENABLED ||
+      childFeature == DomainPackage.Literals.UIELEMENT__REQUIRED ||
+      childFeature == DomainPackage.Literals.UIELEMENT__READ_ONLY;
 
     if (qualify)
     {

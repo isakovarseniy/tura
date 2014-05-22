@@ -110,7 +110,7 @@ public class PREQueryTriggerItemProvider
   @Override
   public String getText(Object object)
   {
-    String label = ((PREQueryTrigger)object).getName();
+    String label = ((PREQueryTrigger)object).getFakePackageName();
     return label == null || label.length() == 0 ?
       getString("_UI_PREQueryTrigger_type") :
       getString("_UI_PREQueryTrigger_type") + " " + label;

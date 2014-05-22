@@ -32,6 +32,7 @@ import domain.ConfigVariable;
 import domain.Configuration;
 import domain.Context;
 import domain.ContextParameter;
+import domain.ContextParameters;
 import domain.ContextValue;
 import domain.ContinuousIintegration;
 import domain.Controls;
@@ -330,6 +331,7 @@ public class DomainFactoryImpl extends EFactoryImpl implements DomainFactory
       case DomainPackage.CONTEXT_PARAMETER: return createContextParameter();
       case DomainPackage.CONTEXT_VALUE: return createContextValue();
       case DomainPackage.EXPRESSION_PART: return createExpressionPart();
+      case DomainPackage.CONTEXT_PARAMETERS: return createContextParameters();
       case DomainPackage.CONTEXT: return createContext();
       case DomainPackage.STYLE_ELEMENT: return createStyleElement();
       case DomainPackage.EVENT_REFRESH_AREA: return createEventRefreshArea();
@@ -1594,6 +1596,17 @@ public class DomainFactoryImpl extends EFactoryImpl implements DomainFactory
   {
     ExpressionPartImpl expressionPart = new ExpressionPartImpl();
     return expressionPart;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ContextParameters createContextParameters()
+  {
+    ContextParametersImpl contextParameters = new ContextParametersImpl();
+    return contextParameters;
   }
 
   /**

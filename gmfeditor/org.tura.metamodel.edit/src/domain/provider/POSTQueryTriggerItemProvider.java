@@ -110,7 +110,7 @@ public class POSTQueryTriggerItemProvider
   @Override
   public String getText(Object object)
   {
-    String label = ((POSTQueryTrigger)object).getName();
+    String label = ((POSTQueryTrigger)object).getFakePackageName();
     return label == null || label.length() == 0 ?
       getString("_UI_POSTQueryTrigger_type") :
       getString("_UI_POSTQueryTrigger_type") + " " + label;

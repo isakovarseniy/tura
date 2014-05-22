@@ -110,7 +110,7 @@ public class POSTCreateTriggerItemProvider
   @Override
   public String getText(Object object)
   {
-    String label = ((POSTCreateTrigger)object).getName();
+    String label = ((POSTCreateTrigger)object).getFakePackageName();
     return label == null || label.length() == 0 ?
       getString("_UI_POSTCreateTrigger_type") :
       getString("_UI_POSTCreateTrigger_type") + " " + label;

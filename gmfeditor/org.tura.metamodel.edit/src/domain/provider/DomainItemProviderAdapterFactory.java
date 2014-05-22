@@ -2749,6 +2749,31 @@ public class DomainItemProviderAdapterFactory extends DomainAdapterFactory imple
   }
 
   /**
+   * This keeps track of the one adapter used for all {@link domain.ContextParameters} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected ContextParametersItemProvider contextParametersItemProvider;
+
+  /**
+   * This creates an adapter for a {@link domain.ContextParameters}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createContextParametersAdapter()
+  {
+    if (contextParametersItemProvider == null)
+    {
+      contextParametersItemProvider = new ContextParametersItemProvider(this);
+    }
+
+    return contextParametersItemProvider;
+  }
+
+  /**
    * This keeps track of the one adapter used for all {@link domain.Context} instances.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -4216,6 +4241,7 @@ public class DomainItemProviderAdapterFactory extends DomainAdapterFactory imple
     if (contextParameterItemProvider != null) contextParameterItemProvider.dispose();
     if (contextValueItemProvider != null) contextValueItemProvider.dispose();
     if (expressionPartItemProvider != null) expressionPartItemProvider.dispose();
+    if (contextParametersItemProvider != null) contextParametersItemProvider.dispose();
     if (contextItemProvider != null) contextItemProvider.dispose();
     if (styleElementItemProvider != null) styleElementItemProvider.dispose();
     if (eventRefreshAreaItemProvider != null) eventRefreshAreaItemProvider.dispose();

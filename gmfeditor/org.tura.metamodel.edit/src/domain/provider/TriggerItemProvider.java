@@ -64,32 +64,8 @@ public class TriggerItemProvider
     {
       super.getPropertyDescriptors(object);
 
-      addNamePropertyDescriptor(object);
     }
     return itemPropertyDescriptors;
-  }
-
-  /**
-   * This adds a property descriptor for the Name feature.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected void addNamePropertyDescriptor(Object object)
-  {
-    itemPropertyDescriptors.add
-      (createItemPropertyDescriptor
-        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-         getResourceLocator(),
-         getString("_UI_Trigger_name_feature"),
-         getString("_UI_PropertyDescriptor_description", "_UI_Trigger_name_feature", "_UI_Trigger_type"),
-         DomainPackage.Literals.TRIGGER__NAME,
-         true,
-         false,
-         false,
-         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-         null,
-         null));
   }
 
   /**
@@ -106,7 +82,7 @@ public class TriggerItemProvider
     if (childrenFeatures == null)
     {
       super.getChildrenFeatures(object);
-      childrenFeatures.add(DomainPackage.Literals.TRIGGER__PARAMETERS);
+      childrenFeatures.add(DomainPackage.Literals.CONTEXT_PARAMETERS__PARAMETERS);
     }
     return childrenFeatures;
   }
@@ -146,7 +122,7 @@ public class TriggerItemProvider
   @Override
   public String getText(Object object)
   {
-    String label = ((Trigger)object).getName();
+    String label = ((Trigger)object).getFakePackageName();
     return label == null || label.length() == 0 ?
       getString("_UI_Trigger_type") :
       getString("_UI_Trigger_type") + " " + label;
@@ -166,9 +142,6 @@ public class TriggerItemProvider
 
     switch (notification.getFeatureID(Trigger.class))
     {
-      case DomainPackage.TRIGGER__NAME:
-        fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-        return;
       case DomainPackage.TRIGGER__PARAMETERS:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
         return;
@@ -190,7 +163,7 @@ public class TriggerItemProvider
 
     newChildDescriptors.add
       (createChildParameter
-        (DomainPackage.Literals.TRIGGER__PARAMETERS,
+        (DomainPackage.Literals.CONTEXT_PARAMETERS__PARAMETERS,
          DomainFactory.eINSTANCE.createContextParameter()));
   }
 
