@@ -207,6 +207,12 @@ delete tool;
 var tool = GmfTool!CreationTool.all.selectOne(r|r.title='ArtificialField');
 delete tool;
 
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='ApplicationRole');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='ApplicationStyle');
+delete tool;
+
+
 var tool = GmfTool!CreationTool.all.selectOne(r|r.title='CSSMapper');
 delete tool;
 var tool = GmfTool!CreationTool.all.selectOne(r|r.title='JavaScriptMapper');

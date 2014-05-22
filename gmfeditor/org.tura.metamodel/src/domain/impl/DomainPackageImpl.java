@@ -5392,26 +5392,6 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getViewPortTrigger_Trigger()
-  {
-    return (EReference)viewPortTriggerEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getViewPortTrigger_FakeMethod()
-  {
-    return (EAttribute)viewPortTriggerEClass.getEStructuralFeatures().get(2);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EClass getViewInheritance()
   {
     return viewInheritanceEClass;
@@ -5732,7 +5712,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getContextValue_IsExpression()
+  public EAttribute getContextValue_Constant()
   {
     return (EAttribute)contextValueEClass.getEStructuralFeatures().get(1);
   }
@@ -5812,39 +5792,9 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getContext_Uid()
-  {
-    return (EAttribute)contextEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getContext_Value()
-  {
-    return (EAttribute)contextEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getContext_Expression()
-  {
-    return (EReference)contextEClass.getEStructuralFeatures().get(2);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EReference getContext_Parameters()
   {
-    return (EReference)contextEClass.getEStructuralFeatures().get(3);
+    return (EReference)contextEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -7917,8 +7867,6 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
 
     viewPortTriggerEClass = createEClass(VIEW_PORT_TRIGGER);
     createEAttribute(viewPortTriggerEClass, VIEW_PORT_TRIGGER__UID);
-    createEReference(viewPortTriggerEClass, VIEW_PORT_TRIGGER__TRIGGER);
-    createEAttribute(viewPortTriggerEClass, VIEW_PORT_TRIGGER__FAKE_METHOD);
 
     viewInheritanceEClass = createEClass(VIEW_INHERITANCE);
     createEAttribute(viewInheritanceEClass, VIEW_INHERITANCE__UID);
@@ -7960,7 +7908,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
 
     contextValueEClass = createEClass(CONTEXT_VALUE);
     createEAttribute(contextValueEClass, CONTEXT_VALUE__UID);
-    createEAttribute(contextValueEClass, CONTEXT_VALUE__IS_EXPRESSION);
+    createEAttribute(contextValueEClass, CONTEXT_VALUE__CONSTANT);
     createEAttribute(contextValueEClass, CONTEXT_VALUE__VALUE);
     createEReference(contextValueEClass, CONTEXT_VALUE__EXPRESSION);
 
@@ -7970,9 +7918,6 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     createEAttribute(expressionPartEClass, EXPRESSION_PART__ORDER);
 
     contextEClass = createEClass(CONTEXT);
-    createEAttribute(contextEClass, CONTEXT__UID);
-    createEAttribute(contextEClass, CONTEXT__VALUE);
-    createEReference(contextEClass, CONTEXT__EXPRESSION);
     createEReference(contextEClass, CONTEXT__PARAMETERS);
 
     styleElementEClass = createEClass(STYLE_ELEMENT);
@@ -8252,6 +8197,8 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     tabPageEClass.getESuperTypes().add(this.getViewPortHolder());
     viewPortEClass.getESuperTypes().add(this.getViewElement());
     viewAreaEClass.getESuperTypes().add(this.getViewElement());
+    viewPortTriggerEClass.getESuperTypes().add(this.getTrigger());
+    contextEClass.getESuperTypes().add(this.getContextValue());
     uielementEClass.getESuperTypes().add(this.getStyleElement());
     sourcesPointerEClass.getESuperTypes().add(this.getUielement());
     actionElementEClass.getESuperTypes().add(this.getUielement());
@@ -8794,8 +8741,6 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
 
     initEClass(viewPortTriggerEClass, ViewPortTrigger.class, "ViewPortTrigger", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getViewPortTrigger_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, ViewPortTrigger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getViewPortTrigger_Trigger(), this.getContext(), null, "trigger", null, 0, 1, ViewPortTrigger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getViewPortTrigger_FakeMethod(), ecorePackage.getEString(), "fakeMethod", null, 0, 1, ViewPortTrigger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(viewInheritanceEClass, ViewInheritance.class, "ViewInheritance", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getViewInheritance_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, ViewInheritance.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -8837,7 +8782,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
 
     initEClass(contextValueEClass, ContextValue.class, "ContextValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getContextValue_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, ContextValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getContextValue_IsExpression(), ecorePackage.getEBoolean(), "isExpression", null, 0, 1, ContextValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getContextValue_Constant(), ecorePackage.getEBoolean(), "constant", null, 0, 1, ContextValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getContextValue_Value(), ecorePackage.getEString(), "value", null, 0, 1, ContextValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getContextValue_Expression(), this.getExpressionPart(), null, "expression", null, 0, -1, ContextValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -8847,9 +8792,6 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     initEAttribute(getExpressionPart_Order(), ecorePackage.getEInt(), "order", null, 0, 1, ExpressionPart.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(contextEClass, Context.class, "Context", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getContext_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, Context.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getContext_Value(), ecorePackage.getEString(), "value", null, 0, 1, Context.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getContext_Expression(), this.getExpressionPart(), null, "expression", null, 0, -1, Context.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getContext_Parameters(), this.getContextParameter(), null, "parameters", null, 0, -1, Context.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(styleElementEClass, StyleElement.class, "StyleElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

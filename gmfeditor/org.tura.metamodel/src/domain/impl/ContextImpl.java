@@ -30,67 +30,14 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link domain.impl.ContextImpl#getUid <em>Uid</em>}</li>
- *   <li>{@link domain.impl.ContextImpl#getValue <em>Value</em>}</li>
- *   <li>{@link domain.impl.ContextImpl#getExpression <em>Expression</em>}</li>
  *   <li>{@link domain.impl.ContextImpl#getParameters <em>Parameters</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class ContextImpl extends EObjectImpl implements Context
+public class ContextImpl extends ContextValueImpl implements Context
 {
-  /**
-   * The default value of the '{@link #getUid() <em>Uid</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getUid()
-   * @generated
-   * @ordered
-   */
-  protected static final String UID_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getUid() <em>Uid</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getUid()
-   * @generated
-   * @ordered
-   */
-  protected String uid = UID_EDEFAULT;
-
-  /**
-   * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getValue()
-   * @generated
-   * @ordered
-   */
-  protected static final String VALUE_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getValue()
-   * @generated
-   * @ordered
-   */
-  protected String value = VALUE_EDEFAULT;
-
-  /**
-   * The cached value of the '{@link #getExpression() <em>Expression</em>}' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getExpression()
-   * @generated
-   * @ordered
-   */
-  protected EList<ExpressionPart> expression;
-
   /**
    * The cached value of the '{@link #getParameters() <em>Parameters</em>}' containment reference list.
    * <!-- begin-user-doc -->
@@ -127,66 +74,6 @@ public class ContextImpl extends EObjectImpl implements Context
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getUid()
-  {
-    return uid;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setUid(String newUid)
-  {
-    String oldUid = uid;
-    uid = newUid;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.CONTEXT__UID, oldUid, uid));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public String getValue()
-  {
-    return value;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setValue(String newValue)
-  {
-    String oldValue = value;
-    value = newValue;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.CONTEXT__VALUE, oldValue, value));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EList<ExpressionPart> getExpression()
-  {
-    if (expression == null)
-    {
-      expression = new EObjectContainmentEList<ExpressionPart>(ExpressionPart.class, this, DomainPackage.CONTEXT__EXPRESSION);
-    }
-    return expression;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EList<ContextParameter> getParameters()
   {
     if (parameters == null)
@@ -206,8 +93,6 @@ public class ContextImpl extends EObjectImpl implements Context
   {
     switch (featureID)
     {
-      case DomainPackage.CONTEXT__EXPRESSION:
-        return ((InternalEList<?>)getExpression()).basicRemove(otherEnd, msgs);
       case DomainPackage.CONTEXT__PARAMETERS:
         return ((InternalEList<?>)getParameters()).basicRemove(otherEnd, msgs);
     }
@@ -224,12 +109,6 @@ public class ContextImpl extends EObjectImpl implements Context
   {
     switch (featureID)
     {
-      case DomainPackage.CONTEXT__UID:
-        return getUid();
-      case DomainPackage.CONTEXT__VALUE:
-        return getValue();
-      case DomainPackage.CONTEXT__EXPRESSION:
-        return getExpression();
       case DomainPackage.CONTEXT__PARAMETERS:
         return getParameters();
     }
@@ -247,16 +126,6 @@ public class ContextImpl extends EObjectImpl implements Context
   {
     switch (featureID)
     {
-      case DomainPackage.CONTEXT__UID:
-        setUid((String)newValue);
-        return;
-      case DomainPackage.CONTEXT__VALUE:
-        setValue((String)newValue);
-        return;
-      case DomainPackage.CONTEXT__EXPRESSION:
-        getExpression().clear();
-        getExpression().addAll((Collection<? extends ExpressionPart>)newValue);
-        return;
       case DomainPackage.CONTEXT__PARAMETERS:
         getParameters().clear();
         getParameters().addAll((Collection<? extends ContextParameter>)newValue);
@@ -275,15 +144,6 @@ public class ContextImpl extends EObjectImpl implements Context
   {
     switch (featureID)
     {
-      case DomainPackage.CONTEXT__UID:
-        setUid(UID_EDEFAULT);
-        return;
-      case DomainPackage.CONTEXT__VALUE:
-        setValue(VALUE_EDEFAULT);
-        return;
-      case DomainPackage.CONTEXT__EXPRESSION:
-        getExpression().clear();
-        return;
       case DomainPackage.CONTEXT__PARAMETERS:
         getParameters().clear();
         return;
@@ -301,35 +161,10 @@ public class ContextImpl extends EObjectImpl implements Context
   {
     switch (featureID)
     {
-      case DomainPackage.CONTEXT__UID:
-        return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
-      case DomainPackage.CONTEXT__VALUE:
-        return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
-      case DomainPackage.CONTEXT__EXPRESSION:
-        return expression != null && !expression.isEmpty();
       case DomainPackage.CONTEXT__PARAMETERS:
         return parameters != null && !parameters.isEmpty();
     }
     return super.eIsSet(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String toString()
-  {
-    if (eIsProxy()) return super.toString();
-
-    StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (uid: ");
-    result.append(uid);
-    result.append(", value: ");
-    result.append(value);
-    result.append(')');
-    return result.toString();
   }
 
 } //ContextImpl

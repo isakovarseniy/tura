@@ -68,7 +68,7 @@ public class ContextValueItemProvider
       super.getPropertyDescriptors(object);
 
       addUidPropertyDescriptor(object);
-      addIsExpressionPropertyDescriptor(object);
+      addConstantPropertyDescriptor(object);
       addValuePropertyDescriptor(object);
     }
     return itemPropertyDescriptors;
@@ -98,20 +98,20 @@ public class ContextValueItemProvider
   }
 
   /**
-   * This adds a property descriptor for the Is Expression feature.
+   * This adds a property descriptor for the Constant feature.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected void addIsExpressionPropertyDescriptor(Object object)
+  protected void addConstantPropertyDescriptor(Object object)
   {
     itemPropertyDescriptors.add
       (createItemPropertyDescriptor
         (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
          getResourceLocator(),
-         getString("_UI_ContextValue_isExpression_feature"),
-         getString("_UI_PropertyDescriptor_description", "_UI_ContextValue_isExpression_feature", "_UI_ContextValue_type"),
-         DomainPackage.Literals.CONTEXT_VALUE__IS_EXPRESSION,
+         getString("_UI_ContextValue_constant_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_ContextValue_constant_feature", "_UI_ContextValue_type"),
+         DomainPackage.Literals.CONTEXT_VALUE__CONSTANT,
          true,
          false,
          false,
@@ -218,7 +218,7 @@ public class ContextValueItemProvider
     switch (notification.getFeatureID(ContextValue.class))
     {
       case DomainPackage.CONTEXT_VALUE__UID:
-      case DomainPackage.CONTEXT_VALUE__IS_EXPRESSION:
+      case DomainPackage.CONTEXT_VALUE__CONSTANT:
       case DomainPackage.CONTEXT_VALUE__VALUE:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
         return;

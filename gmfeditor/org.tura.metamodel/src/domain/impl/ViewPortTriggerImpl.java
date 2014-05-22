@@ -23,14 +23,12 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * The following features are implemented:
  * <ul>
  *   <li>{@link domain.impl.ViewPortTriggerImpl#getUid <em>Uid</em>}</li>
- *   <li>{@link domain.impl.ViewPortTriggerImpl#getTrigger <em>Trigger</em>}</li>
- *   <li>{@link domain.impl.ViewPortTriggerImpl#getFakeMethod <em>Fake Method</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class ViewPortTriggerImpl extends EObjectImpl implements ViewPortTrigger
+public class ViewPortTriggerImpl extends TriggerImpl implements ViewPortTrigger
 {
   /**
    * The default value of the '{@link #getUid() <em>Uid</em>}' attribute.
@@ -51,36 +49,6 @@ public class ViewPortTriggerImpl extends EObjectImpl implements ViewPortTrigger
    * @ordered
    */
   protected String uid = UID_EDEFAULT;
-
-  /**
-   * The cached value of the '{@link #getTrigger() <em>Trigger</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getTrigger()
-   * @generated
-   * @ordered
-   */
-  protected Context trigger;
-
-  /**
-   * The default value of the '{@link #getFakeMethod() <em>Fake Method</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getFakeMethod()
-   * @generated
-   * @ordered
-   */
-  protected static final String FAKE_METHOD_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getFakeMethod() <em>Fake Method</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getFakeMethod()
-   * @generated
-   * @ordered
-   */
-  protected String fakeMethod = FAKE_METHOD_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -131,93 +99,6 @@ public class ViewPortTriggerImpl extends EObjectImpl implements ViewPortTrigger
    * <!-- end-user-doc -->
    * @generated
    */
-  public Context getTrigger()
-  {
-    return trigger;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetTrigger(Context newTrigger, NotificationChain msgs)
-  {
-    Context oldTrigger = trigger;
-    trigger = newTrigger;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DomainPackage.VIEW_PORT_TRIGGER__TRIGGER, oldTrigger, newTrigger);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setTrigger(Context newTrigger)
-  {
-    if (newTrigger != trigger)
-    {
-      NotificationChain msgs = null;
-      if (trigger != null)
-        msgs = ((InternalEObject)trigger).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DomainPackage.VIEW_PORT_TRIGGER__TRIGGER, null, msgs);
-      if (newTrigger != null)
-        msgs = ((InternalEObject)newTrigger).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - DomainPackage.VIEW_PORT_TRIGGER__TRIGGER, null, msgs);
-      msgs = basicSetTrigger(newTrigger, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.VIEW_PORT_TRIGGER__TRIGGER, newTrigger, newTrigger));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public String getFakeMethod()
-  {
-    return fakeMethod;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setFakeMethod(String newFakeMethod)
-  {
-    String oldFakeMethod = fakeMethod;
-    fakeMethod = newFakeMethod;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.VIEW_PORT_TRIGGER__FAKE_METHOD, oldFakeMethod, fakeMethod));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-  {
-    switch (featureID)
-    {
-      case DomainPackage.VIEW_PORT_TRIGGER__TRIGGER:
-        return basicSetTrigger(null, msgs);
-    }
-    return super.eInverseRemove(otherEnd, featureID, msgs);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
@@ -225,10 +106,6 @@ public class ViewPortTriggerImpl extends EObjectImpl implements ViewPortTrigger
     {
       case DomainPackage.VIEW_PORT_TRIGGER__UID:
         return getUid();
-      case DomainPackage.VIEW_PORT_TRIGGER__TRIGGER:
-        return getTrigger();
-      case DomainPackage.VIEW_PORT_TRIGGER__FAKE_METHOD:
-        return getFakeMethod();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -245,12 +122,6 @@ public class ViewPortTriggerImpl extends EObjectImpl implements ViewPortTrigger
     {
       case DomainPackage.VIEW_PORT_TRIGGER__UID:
         setUid((String)newValue);
-        return;
-      case DomainPackage.VIEW_PORT_TRIGGER__TRIGGER:
-        setTrigger((Context)newValue);
-        return;
-      case DomainPackage.VIEW_PORT_TRIGGER__FAKE_METHOD:
-        setFakeMethod((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -269,12 +140,6 @@ public class ViewPortTriggerImpl extends EObjectImpl implements ViewPortTrigger
       case DomainPackage.VIEW_PORT_TRIGGER__UID:
         setUid(UID_EDEFAULT);
         return;
-      case DomainPackage.VIEW_PORT_TRIGGER__TRIGGER:
-        setTrigger((Context)null);
-        return;
-      case DomainPackage.VIEW_PORT_TRIGGER__FAKE_METHOD:
-        setFakeMethod(FAKE_METHOD_EDEFAULT);
-        return;
     }
     super.eUnset(featureID);
   }
@@ -291,10 +156,6 @@ public class ViewPortTriggerImpl extends EObjectImpl implements ViewPortTrigger
     {
       case DomainPackage.VIEW_PORT_TRIGGER__UID:
         return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
-      case DomainPackage.VIEW_PORT_TRIGGER__TRIGGER:
-        return trigger != null;
-      case DomainPackage.VIEW_PORT_TRIGGER__FAKE_METHOD:
-        return FAKE_METHOD_EDEFAULT == null ? fakeMethod != null : !FAKE_METHOD_EDEFAULT.equals(fakeMethod);
     }
     return super.eIsSet(featureID);
   }
@@ -312,8 +173,6 @@ public class ViewPortTriggerImpl extends EObjectImpl implements ViewPortTrigger
     StringBuffer result = new StringBuffer(super.toString());
     result.append(" (uid: ");
     result.append(uid);
-    result.append(", fakeMethod: ");
-    result.append(fakeMethod);
     result.append(')');
     return result.toString();
   }

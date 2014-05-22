@@ -134,7 +134,7 @@ public class DomainParserProvider extends AbstractProvider implements
 	private IParser getViewPortTriggerFakeMethod_1305005Parser() {
 		if (viewPortTriggerFakeMethod_1305005Parser == null) {
 			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE
-					.getViewPortTrigger_FakeMethod() };
+					.getMethodPointer_FakeMethod() };
 			MessageFormatParser parser = new MessageFormatParser(features);
 			viewPortTriggerFakeMethod_1305005Parser = parser;
 		}

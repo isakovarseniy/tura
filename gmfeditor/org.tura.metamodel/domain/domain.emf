@@ -759,12 +759,8 @@ class ViewArea extends ViewElement{
 
 
 @gmf.node(label="fakeMethod",border.color="0,0,0",color="241,238,203")
-class ViewPortTrigger  {
+class ViewPortTrigger extends Trigger  {
    id attr EString uid;
-
-  val Context trigger;
-
-  attr EString fakeMethod;
  }
 
 @gmf.link(source="source", target="target", color = "80,195,63" ,style="dot", width="2" , target.decoration="closedarrow")
@@ -823,7 +819,7 @@ class ContextParameter{
 
 class ContextValue{
    id attr EString uid;
-   attr boolean isExpression;
+   attr boolean constant;
    attr EString value;
    val ExpressionPart[*] expression;
 }
@@ -834,12 +830,8 @@ class ExpressionPart{
    attr EInt order;   
 }
 
-class Context{
-    id attr EString uid;
-    attr EString value;
-    val ExpressionPart[*] expression;
+class Context extends ContextValue{
     val ContextParameter[*] parameters;
-   
 }
 
 class StyleElement{

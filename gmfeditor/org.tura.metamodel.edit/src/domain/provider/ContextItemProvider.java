@@ -35,7 +35,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * @generated
  */
 public class ContextItemProvider
-  extends ItemProviderAdapter
+  extends ContextValueItemProvider
   implements
     IEditingDomainItemProvider,
     IStructuredItemContentProvider,
@@ -67,56 +67,8 @@ public class ContextItemProvider
     {
       super.getPropertyDescriptors(object);
 
-      addUidPropertyDescriptor(object);
-      addValuePropertyDescriptor(object);
     }
     return itemPropertyDescriptors;
-  }
-
-  /**
-   * This adds a property descriptor for the Uid feature.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected void addUidPropertyDescriptor(Object object)
-  {
-    itemPropertyDescriptors.add
-      (createItemPropertyDescriptor
-        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-         getResourceLocator(),
-         getString("_UI_Context_uid_feature"),
-         getString("_UI_PropertyDescriptor_description", "_UI_Context_uid_feature", "_UI_Context_type"),
-         DomainPackage.Literals.CONTEXT__UID,
-         true,
-         false,
-         false,
-         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-         null,
-         null));
-  }
-
-  /**
-   * This adds a property descriptor for the Value feature.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected void addValuePropertyDescriptor(Object object)
-  {
-    itemPropertyDescriptors.add
-      (createItemPropertyDescriptor
-        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-         getResourceLocator(),
-         getString("_UI_Context_value_feature"),
-         getString("_UI_PropertyDescriptor_description", "_UI_Context_value_feature", "_UI_Context_type"),
-         DomainPackage.Literals.CONTEXT__VALUE,
-         true,
-         false,
-         false,
-         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-         null,
-         null));
   }
 
   /**
@@ -133,7 +85,6 @@ public class ContextItemProvider
     if (childrenFeatures == null)
     {
       super.getChildrenFeatures(object);
-      childrenFeatures.add(DomainPackage.Literals.CONTEXT__EXPRESSION);
       childrenFeatures.add(DomainPackage.Literals.CONTEXT__PARAMETERS);
     }
     return childrenFeatures;
@@ -194,11 +145,6 @@ public class ContextItemProvider
 
     switch (notification.getFeatureID(Context.class))
     {
-      case DomainPackage.CONTEXT__UID:
-      case DomainPackage.CONTEXT__VALUE:
-        fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-        return;
-      case DomainPackage.CONTEXT__EXPRESSION:
       case DomainPackage.CONTEXT__PARAMETERS:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
         return;
@@ -220,25 +166,8 @@ public class ContextItemProvider
 
     newChildDescriptors.add
       (createChildParameter
-        (DomainPackage.Literals.CONTEXT__EXPRESSION,
-         DomainFactory.eINSTANCE.createExpressionPart()));
-
-    newChildDescriptors.add
-      (createChildParameter
         (DomainPackage.Literals.CONTEXT__PARAMETERS,
          DomainFactory.eINSTANCE.createContextParameter()));
-  }
-
-  /**
-   * Return the resource locator for this item provider's resources.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public ResourceLocator getResourceLocator()
-  {
-    return DomainEditPlugin.INSTANCE;
   }
 
 }

@@ -554,6 +554,40 @@ public class QueryHelper {
 
 	}
 
+
+	public domain.TypeElement findBooleanType(Object obj) {
+		try {
+			@SuppressWarnings("rawtypes")
+			OCL ocl = OCL.newInstance(EcoreEnvironmentFactory.INSTANCE);
+			@SuppressWarnings("unchecked")
+			OCLHelper<EClassifier, ?, ?, Constraint> helper = ocl
+					.createOCLHelper();
+			helper.setContext(DomainPackage.eINSTANCE.getEClassifier("Domain"));
+
+			OCLExpression<EClassifier> query = helper
+					.createQuery("domain::Primitive.allInstances()->select(r|r.oclAsType(domain::Primitive).name = 'Boolean'  and  r.oclAsType(domain::Primitive).parent.parent.name ='"
+							+ InitDiagram.PRIVATE_PACKAGE + "')");
+
+			@SuppressWarnings("unchecked")
+			Collection<domain.Primitive> map = (Collection<domain.Primitive>) ocl
+					.evaluate(obj, query);
+
+			if (map.size() != 0)
+				return map.iterator().next();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			// do nothing
+		}
+		return null;
+
+	}
+
+	
+	
+	
+	
+	
 	public Object[] findRefreshedAeas(domain.Uielement obj) throws Exception {
 
 		EObject root = obj;

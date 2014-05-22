@@ -35,7 +35,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * @generated
  */
 public class ViewPortTriggerItemProvider
-  extends ItemProviderAdapter
+  extends TriggerItemProvider
   implements
     IEditingDomainItemProvider,
     IStructuredItemContentProvider,
@@ -68,7 +68,6 @@ public class ViewPortTriggerItemProvider
       super.getPropertyDescriptors(object);
 
       addUidPropertyDescriptor(object);
-      addFakeMethodPropertyDescriptor(object);
     }
     return itemPropertyDescriptors;
   }
@@ -97,62 +96,6 @@ public class ViewPortTriggerItemProvider
   }
 
   /**
-   * This adds a property descriptor for the Fake Method feature.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected void addFakeMethodPropertyDescriptor(Object object)
-  {
-    itemPropertyDescriptors.add
-      (createItemPropertyDescriptor
-        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-         getResourceLocator(),
-         getString("_UI_ViewPortTrigger_fakeMethod_feature"),
-         getString("_UI_PropertyDescriptor_description", "_UI_ViewPortTrigger_fakeMethod_feature", "_UI_ViewPortTrigger_type"),
-         DomainPackage.Literals.VIEW_PORT_TRIGGER__FAKE_METHOD,
-         true,
-         false,
-         false,
-         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-         null,
-         null));
-  }
-
-  /**
-   * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
-   * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
-   * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object)
-  {
-    if (childrenFeatures == null)
-    {
-      super.getChildrenFeatures(object);
-      childrenFeatures.add(DomainPackage.Literals.VIEW_PORT_TRIGGER__TRIGGER);
-    }
-    return childrenFeatures;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  protected EStructuralFeature getChildFeature(Object object, Object child)
-  {
-    // Check the type of the specified child object and return the proper feature to use for
-    // adding (see {@link AddCommand}) it as a child.
-
-    return super.getChildFeature(object, child);
-  }
-
-  /**
    * This returns ViewPortTrigger.gif.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -173,7 +116,7 @@ public class ViewPortTriggerItemProvider
   @Override
   public String getText(Object object)
   {
-    String label = ((ViewPortTrigger)object).getUid();
+    String label = ((ViewPortTrigger)object).getName();
     return label == null || label.length() == 0 ?
       getString("_UI_ViewPortTrigger_type") :
       getString("_UI_ViewPortTrigger_type") + " " + label;
@@ -194,11 +137,7 @@ public class ViewPortTriggerItemProvider
     switch (notification.getFeatureID(ViewPortTrigger.class))
     {
       case DomainPackage.VIEW_PORT_TRIGGER__UID:
-      case DomainPackage.VIEW_PORT_TRIGGER__FAKE_METHOD:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-        return;
-      case DomainPackage.VIEW_PORT_TRIGGER__TRIGGER:
-        fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
         return;
     }
     super.notifyChanged(notification);
@@ -215,23 +154,6 @@ public class ViewPortTriggerItemProvider
   protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object)
   {
     super.collectNewChildDescriptors(newChildDescriptors, object);
-
-    newChildDescriptors.add
-      (createChildParameter
-        (DomainPackage.Literals.VIEW_PORT_TRIGGER__TRIGGER,
-         DomainFactory.eINSTANCE.createContext()));
-  }
-
-  /**
-   * Return the resource locator for this item provider's resources.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public ResourceLocator getResourceLocator()
-  {
-    return DomainEditPlugin.INSTANCE;
   }
 
 }

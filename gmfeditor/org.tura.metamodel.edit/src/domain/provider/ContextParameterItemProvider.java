@@ -219,6 +219,11 @@ public class ContextParameterItemProvider
       (createChildParameter
         (DomainPackage.Literals.CONTEXT_PARAMETER__VALUE,
          DomainFactory.eINSTANCE.createContextValue()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (DomainPackage.Literals.CONTEXT_PARAMETER__VALUE,
+         DomainFactory.eINSTANCE.createContext()));
   }
 
   /**

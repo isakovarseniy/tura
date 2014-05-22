@@ -251,52 +251,32 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String ApplicationRole1CreationTool_title;
+	public static String Form1CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String ApplicationRole1CreationTool_desc;
+	public static String Form1CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String ApplicationStyle2CreationTool_title;
+	public static String FormDataControls2CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String ApplicationStyle2CreationTool_desc;
+	public static String FormDataControls2CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String Form3CreationTool_title;
+	public static String FormView3CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Form3CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String FormDataControls4CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String FormDataControls4CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String FormView5CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String FormView5CreationTool_desc;
+	public static String FormView3CreationTool_desc;
 
 	/**
 	 * @generated

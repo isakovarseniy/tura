@@ -954,6 +954,9 @@ public class DomainSwitch<T> extends Switch<T>
       {
         ViewPortTrigger viewPortTrigger = (ViewPortTrigger)theEObject;
         T result = caseViewPortTrigger(viewPortTrigger);
+        if (result == null) result = caseTrigger(viewPortTrigger);
+        if (result == null) result = caseMethodPointer(viewPortTrigger);
+        if (result == null) result = caseTypePointer(viewPortTrigger);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -1031,6 +1034,7 @@ public class DomainSwitch<T> extends Switch<T>
       {
         Context context = (Context)theEObject;
         T result = caseContext(context);
+        if (result == null) result = caseContextValue(context);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }

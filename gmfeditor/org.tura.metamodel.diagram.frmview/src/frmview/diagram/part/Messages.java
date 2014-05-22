@@ -256,92 +256,72 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String ApplicationRole1CreationTool_title;
+	public static String Canvas1CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String ApplicationRole1CreationTool_desc;
+	public static String Canvas1CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String ApplicationStyle2CreationTool_title;
+	public static String TabCanvas2CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String ApplicationStyle2CreationTool_desc;
+	public static String TabCanvas2CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String Canvas3CreationTool_title;
+	public static String TabPage3CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Canvas3CreationTool_desc;
+	public static String TabPage3CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String TabCanvas4CreationTool_title;
+	public static String ViewArea4CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String TabCanvas4CreationTool_desc;
+	public static String ViewArea4CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String TabPage5CreationTool_title;
+	public static String ViewPort5CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String TabPage5CreationTool_desc;
+	public static String ViewPort5CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String ViewArea6CreationTool_title;
+	public static String ViewPortTrigger6CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String ViewArea6CreationTool_desc;
+	public static String ViewPortTrigger6CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String ViewPort7CreationTool_title;
+	public static String Window7CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String ViewPort7CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String ViewPortTrigger8CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String ViewPortTrigger8CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String Window9CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String Window9CreationTool_desc;
+	public static String Window7CreationTool_desc;
 
 	/**
 	 * @generated

@@ -469,6 +469,53 @@
      </extension>  
 
 
+      <extension point="org.eclipse.ui.views.properties.tabbed.propertyTabs" id="org.tura.metamodel.diagram.frmview.proptabs">
+      <?gmfgen generated="true"?>   
+      <propertyTabs contributorId="org.tura.metamodel.diagram.frmview">
+          <propertyTab
+             category="domain"
+             id="property.tab.domain.frmview"
+             label="Trigger"/>
+      </propertyTabs>
+     </extension>  
+
+    <extension point="org.eclipse.ui.views.properties.tabbed.propertySections" id="org.tura.metamodel.diagram.frmview.propsections">
+      <?gmfgen generated="true"?>   
+ 
+      <propertySections contributorId="org.tura.metamodel.diagram.frmview">
+
+            <propertySection
+               tab="property.tab.domain.frmview"
+               class="org.metamodel.tura.ui.properties.sections.dropdown.PackageNamePropertySection"
+               id="org.tura.metamodel.diagram.canvas.actioin.packagename">
+              <input type="frmview.diagram.edit.parts.ViewPortTriggerEditPart"/>
+           </propertySection>        
+
+             <propertySection
+               tab="property.tab.domain.frmview"
+               class="org.metamodel.tura.ui.properties.sections.dropdown.TypeRefTypeNamePropertySection"
+               id="org.tura.metamodel.diagram.canvas.actioin.typeref">
+              <input type="frmview.diagram.edit.parts.ViewPortTriggerEditPart"/>
+           </propertySection>        
+
+             <propertySection
+               tab="property.tab.domain.frmview"
+               class="org.metamodel.tura.ui.properties.sections.dropdown.MethodNamePropertySection"
+               id="org.tura.metamodel.diagram.canvas.actioin.methodname">
+              <input type="frmview.diagram.edit.parts.ViewPortTriggerEditPart"/>
+           </propertySection>        
+
+             <propertySection
+               tab="property.tab.domain.frmview"
+               class="org.metamodel.tura.ui.properties.sections.grid.impl.ContextParameterPropertySelection"
+               id="org.tura.metamodel.diagram.canvas.actioin.contextparameter">
+              <input type="frmview.diagram.edit.parts.ViewPortTriggerEditPart"/>
+           </propertySection>        
+
+      </propertySections>
+     </extension>  
+
+
       <extension point="org.eclipse.ui.views.properties.tabbed.propertyTabs" id="org.tura.metamodel.diagram.canvas.proptabs">
       <?gmfgen generated="true"?>   
       <propertyTabs contributorId="org.tura.metamodel.diagram.canvas">
@@ -497,6 +544,11 @@
              id="property.tab.domain.canvas.uielement.refresh"
              label="Refresh on action"/>
 
+          <propertyTab
+             category="domain"
+             id="property.tab.domain.canvas.uielement.misce"
+             label="Miscellaneous"/>
+
           </propertyTabs>
        </extension>
 
@@ -505,6 +557,30 @@
       <?gmfgen generated="true"?>   
  
       <propertySections contributorId="org.tura.metamodel.diagram.canvas">
+
+
+            <propertySection
+               tab="property.tab.domain.canvas.uielement.misce"
+               class="org.metamodel.tura.ui.properties.sections.context.impl.EnabledPropertySelection"
+               id="org.tura.metamodel.diagram.canvas.misce">
+              <input type="canvas.diagram.edit.parts.CheckBoxEditPart"/>
+              <input type="canvas.diagram.edit.parts.InputTextEditPart"/>
+              <input type="canvas.diagram.edit.parts.OutputTextEditPart"/>
+              <input type="canvas.diagram.edit.parts.TableEditPart"/>
+              <input type="canvas.diagram.edit.parts.TreeEditPart"/>
+              <input type="canvas.diagram.edit.parts.DropDownSelectionEditPart"/>
+              <input type="canvas.diagram.edit.parts.ButtonEditPart"/>
+ 
+               <input type="canvas.diagram.edit.parts.CheckBox2EditPart"/>
+              <input type="canvas.diagram.edit.parts.InputText2EditPart"/>
+              <input type="canvas.diagram.edit.parts.OutputText2EditPart"/>
+              <input type="canvas.diagram.edit.parts.TableEditPart"/>
+              <input type="canvas.diagram.edit.parts.TreeEditPart"/>
+              <input type="canvas.diagram.edit.parts.DropDownSelection2EditPart"/>
+ 
+           </propertySection>        
+
+
 
             <propertySection
                tab="property.tab.domain.canvas.uielement.refresh"

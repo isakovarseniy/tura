@@ -30,7 +30,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * <ul>
  *   <li>{@link domain.impl.ContextValueImpl#getUid <em>Uid</em>}</li>
- *   <li>{@link domain.impl.ContextValueImpl#isIsExpression <em>Is Expression</em>}</li>
+ *   <li>{@link domain.impl.ContextValueImpl#isConstant <em>Constant</em>}</li>
  *   <li>{@link domain.impl.ContextValueImpl#getValue <em>Value</em>}</li>
  *   <li>{@link domain.impl.ContextValueImpl#getExpression <em>Expression</em>}</li>
  * </ul>
@@ -61,24 +61,24 @@ public class ContextValueImpl extends EObjectImpl implements ContextValue
   protected String uid = UID_EDEFAULT;
 
   /**
-   * The default value of the '{@link #isIsExpression() <em>Is Expression</em>}' attribute.
+   * The default value of the '{@link #isConstant() <em>Constant</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #isIsExpression()
+   * @see #isConstant()
    * @generated
    * @ordered
    */
-  protected static final boolean IS_EXPRESSION_EDEFAULT = false;
+  protected static final boolean CONSTANT_EDEFAULT = false;
 
   /**
-   * The cached value of the '{@link #isIsExpression() <em>Is Expression</em>}' attribute.
+   * The cached value of the '{@link #isConstant() <em>Constant</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #isIsExpression()
+   * @see #isConstant()
    * @generated
    * @ordered
    */
-  protected boolean isExpression = IS_EXPRESSION_EDEFAULT;
+  protected boolean constant = CONSTANT_EDEFAULT;
 
   /**
    * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
@@ -159,9 +159,9 @@ public class ContextValueImpl extends EObjectImpl implements ContextValue
    * <!-- end-user-doc -->
    * @generated
    */
-  public boolean isIsExpression()
+  public boolean isConstant()
   {
-    return isExpression;
+    return constant;
   }
 
   /**
@@ -169,12 +169,12 @@ public class ContextValueImpl extends EObjectImpl implements ContextValue
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setIsExpression(boolean newIsExpression)
+  public void setConstant(boolean newConstant)
   {
-    boolean oldIsExpression = isExpression;
-    isExpression = newIsExpression;
+    boolean oldConstant = constant;
+    constant = newConstant;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.CONTEXT_VALUE__IS_EXPRESSION, oldIsExpression, isExpression));
+      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.CONTEXT_VALUE__CONSTANT, oldConstant, constant));
   }
 
   /**
@@ -242,8 +242,8 @@ public class ContextValueImpl extends EObjectImpl implements ContextValue
     {
       case DomainPackage.CONTEXT_VALUE__UID:
         return getUid();
-      case DomainPackage.CONTEXT_VALUE__IS_EXPRESSION:
-        return isIsExpression();
+      case DomainPackage.CONTEXT_VALUE__CONSTANT:
+        return isConstant();
       case DomainPackage.CONTEXT_VALUE__VALUE:
         return getValue();
       case DomainPackage.CONTEXT_VALUE__EXPRESSION:
@@ -266,8 +266,8 @@ public class ContextValueImpl extends EObjectImpl implements ContextValue
       case DomainPackage.CONTEXT_VALUE__UID:
         setUid((String)newValue);
         return;
-      case DomainPackage.CONTEXT_VALUE__IS_EXPRESSION:
-        setIsExpression((Boolean)newValue);
+      case DomainPackage.CONTEXT_VALUE__CONSTANT:
+        setConstant((Boolean)newValue);
         return;
       case DomainPackage.CONTEXT_VALUE__VALUE:
         setValue((String)newValue);
@@ -293,8 +293,8 @@ public class ContextValueImpl extends EObjectImpl implements ContextValue
       case DomainPackage.CONTEXT_VALUE__UID:
         setUid(UID_EDEFAULT);
         return;
-      case DomainPackage.CONTEXT_VALUE__IS_EXPRESSION:
-        setIsExpression(IS_EXPRESSION_EDEFAULT);
+      case DomainPackage.CONTEXT_VALUE__CONSTANT:
+        setConstant(CONSTANT_EDEFAULT);
         return;
       case DomainPackage.CONTEXT_VALUE__VALUE:
         setValue(VALUE_EDEFAULT);
@@ -318,8 +318,8 @@ public class ContextValueImpl extends EObjectImpl implements ContextValue
     {
       case DomainPackage.CONTEXT_VALUE__UID:
         return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
-      case DomainPackage.CONTEXT_VALUE__IS_EXPRESSION:
-        return isExpression != IS_EXPRESSION_EDEFAULT;
+      case DomainPackage.CONTEXT_VALUE__CONSTANT:
+        return constant != CONSTANT_EDEFAULT;
       case DomainPackage.CONTEXT_VALUE__VALUE:
         return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
       case DomainPackage.CONTEXT_VALUE__EXPRESSION:
@@ -341,8 +341,8 @@ public class ContextValueImpl extends EObjectImpl implements ContextValue
     StringBuffer result = new StringBuffer(super.toString());
     result.append(" (uid: ");
     result.append(uid);
-    result.append(", isExpression: ");
-    result.append(isExpression);
+    result.append(", constant: ");
+    result.append(constant);
     result.append(", value: ");
     result.append(value);
     result.append(')');

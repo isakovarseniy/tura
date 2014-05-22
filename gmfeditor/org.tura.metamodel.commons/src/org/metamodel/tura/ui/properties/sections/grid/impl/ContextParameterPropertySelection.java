@@ -35,6 +35,7 @@ import org.metamodel.tura.ui.properties.sections.grid.GridProperty;
 
 import domain.DomainFactory;
 import domain.DomainPackage;
+import domain.Form;
 import domain.Type;
 import domain.TypeElement;
 import domain.TypeReference;
@@ -199,7 +200,7 @@ public class ContextParameterPropertySelection extends GridProperty {
 		@Override
 		public Object getValue(Object element) {
 			domain.ContextParameter task = (domain.ContextParameter) element;
-			return task.getValue().isIsExpression();
+			return task.getValue().isConstant();
 		}
 
 		@Override
@@ -214,8 +215,8 @@ public class ContextParameterPropertySelection extends GridProperty {
 			/* apply the property change to single selected object */
 			editingDomain.getCommandStack().execute(
 					SetCommand.create(editingDomain, opt.getValue(),
-							DomainPackage.eINSTANCE
-									.getContextValue_IsExpression(), value));
+							DomainPackage.eINSTANCE.getContextValue_Constant(),
+							value));
 
 			removeExpession(editingDomain, opt);
 			updateConstantValue(editingDomain, opt, null);
@@ -263,8 +264,7 @@ public class ContextParameterPropertySelection extends GridProperty {
 
 		@Override
 		public CellEditor getEditor() {
-			CellEditor editor = new TextAndDialogCellEditor(table);
-			return editor;
+			return null;
 		}
 
 		@Override
@@ -305,35 +305,10 @@ public class ContextParameterPropertySelection extends GridProperty {
 		public boolean isModify(Object element, String property) {
 			domain.ContextParameter obj = (domain.ContextParameter) element;
 			CellEditor editor;
-			if (obj.getValue().isIsExpression()) {
-				TreeRoot rootOfTree = new TreeRoot();
-				DiagramImpl root = (DiagramImpl) this.property.getEditPart()
-						.getRoot().getContents().getModel();
-
-				domain.Controls controls = null;
-				if (root.getElement() instanceof domain.Controls) {
-					controls = ((domain.Controls) root.getElement())
-							.getParent().getFormControl();
-				}
-				if (root.getElement() instanceof domain.Views) {
-					controls = ((domain.Form) (((domain.Views) root
-							.getElement()).getParent().eContainer()))
-							.getDatacontrols().getFormControl();
-				}
-				rootOfTree.addChild(controls);
-				rootOfTree.addChild(((domain.UIPackage) controls.getParent()
-						.eContainer().eContainer()).getParent().getParent()
-						.getParent().getApplicationRole());
-
-				try {
-					rootOfTree.addChild(new QueryHelper()
-							.getTypesRepository(root.getElement()));
-				} catch (Exception e) {
-					// ignore
-				}
-
-				editor = this.getEditor();
-				((TextAndDialogCellEditor) editor).setRootObject(rootOfTree);
+			if (obj.getValue().isConstant()) {
+				editor = new TextAndDialogCellEditor(table);
+				((TextAndDialogCellEditor) editor)
+						.setRootObject(getContextRoot());
 			} else {
 				editor = new TextCellEditor(table);
 				((Text) editor.getControl()).setTextLimit(60);
@@ -349,84 +324,69 @@ public class ContextParameterPropertySelection extends GridProperty {
 
 	}
 
+	private TreeRoot getContextRoot() {
+
+		TreeRoot rootOfTree = new TreeRoot();
+		DiagramImpl root = (DiagramImpl) this.getEditPart().getRoot()
+				.getContents().getModel();
+
+		domain.Controls controls = null;
+		domain.Form frm = null;
+		if (root.getElement() instanceof domain.Controls) {
+			frm = (Form) ((domain.Controls) root.getElement()).getParent()
+					.eContainer();
+		}
+		if (root.getElement() instanceof domain.Views) {
+			frm = ((domain.Form) (((domain.Views) root.getElement())
+					.getParent().eContainer()));
+		}
+
+		if (frm.getDatacontrols() != null) {
+			controls = frm.getDatacontrols().getFormControl();
+			rootOfTree.addChild(controls);
+		}
+
+		domain.ApplicationRole appRole = ((domain.UIPackage) frm.eContainer())
+				.getParent().getParent().getParent().getApplicationRole();
+
+		if (appRole != null) {
+			rootOfTree.addChild(appRole);
+		}
+
+		try {
+			rootOfTree.addChild(new QueryHelper().getTypesRepository(root
+					.getElement()));
+		} catch (Exception e) {
+			// ignore
+		}
+		return rootOfTree;
+	}
+
 	public void updateExpressionValue(EditingDomain editingDomain,
 			domain.ContextParameter param, TreePath path) {
-		String value = "";
 
 		if (param.getParameter().getTypeRef() == null) {
-
-			Display.getDefault().asyncExec(new Runnable() {
-				public void run() {
-					MessageDialog dialog = new MessageDialog(Display
-							.getDefault().getActiveShell(), "Tura", null,
-							"Parameter type is undefined", MessageDialog.ERROR,
-							new String[] { "Ok" }, 0);
-					dialog.open();
-				}
-			});
+			showError("Parameter type is undefined");
 			return;
 		}
+
 		Object obj = path.getLastSegment();
-		
-		IReturnTypeProvider provider = (IReturnTypeProvider) Platform.getAdapterManager().getAdapter(obj, IReturnTypeProvider.class);
-		
-		domain.TypeElement type = null;
-		if (provider !=null && provider.getReturnType( obj ) != null)
-			type=(TypeElement) provider.getReturnType( obj);
 
-		if (type == null) {
-			Display.getDefault().asyncExec(new Runnable() {
-				public void run() {
-					MessageDialog dialog = new MessageDialog(Display
-							.getDefault().getActiveShell(), "Tura", null,
-							"Choosen type missmarch of parameter type",
-							MessageDialog.ERROR, new String[] { "Ok" }, 0);
-					dialog.open();
-				}
-			});
-			return;
-		}
-		if (!checkType(param, type)) {
-			Display.getDefault().asyncExec(new Runnable() {
-				public void run() {
-					MessageDialog dialog = new MessageDialog(Display
-							.getDefault().getActiveShell(), "Tura", null,
-							"Choosen type missmarch of parameter type",
-							MessageDialog.ERROR, new String[] { "Ok" }, 0);
-					dialog.open();
-				}
-			});
+		IReturnTypeProvider provider = (IReturnTypeProvider) Platform
+				.getAdapterManager().getAdapter(obj, IReturnTypeProvider.class);
+
+		domain.TypeElement type = null;
+		if (provider != null && provider.getReturnType(obj) != null)
+			type = (TypeElement) provider.getReturnType(obj);
+
+		if (type == null || !checkType(param, type)) {
+			showError("Choosen type missmarch of parameter type");
 			return;
 		}
 
 		removeExpession(editingDomain, param);
-		ArrayList<domain.ExpressionPart> ls = new ArrayList<>();
-		for (int i = 0; i < path.getSegmentCount(); i++) {
-			domain.ExpressionPart part = DomainFactory.eINSTANCE
-					.createExpressionPart();
-			if (path.getSegment(i) instanceof EObject)
-				part.setObjRef((EObject) path.getSegment(i));
-
-			if (path.getSegment(i) instanceof TriggerHolder)
-				part.setObjRef(((TriggerHolder) path.getSegment(i))
-						.getTrigger());
-
-			part.setOrder(i);
-			ls.add(part);
-
-			IWorkbenchAdapter adapter = (IWorkbenchAdapter) Platform
-					.getAdapterManager().getAdapter(path.getSegment(i),
-							IWorkbenchAdapter.class);
-			if (i != 0)
-				value = value + ".";
-			value = value + adapter.getLabel(path.getSegment(i));
-		}
-
-		editingDomain.getCommandStack().execute(
-				SetCommand.create(editingDomain, param.getValue(),
-						DomainPackage.eINSTANCE.getContextValue_Expression(),
-						ls));
-		updateConstantValue(editingDomain, param, value);
+		updateExpession(editingDomain, param, buildExpressionList(path));
+		updateConstantValue(editingDomain, param, buildExpression(path));
 
 	}
 
@@ -455,7 +415,39 @@ public class ContextParameterPropertySelection extends GridProperty {
 		return false;
 	}
 
-	public void updateConstantValue(EditingDomain editingDomain,
+	protected List<domain.ExpressionPart> buildExpressionList(TreePath path) {
+		ArrayList<domain.ExpressionPart> ls = new ArrayList<>();
+		for (int i = 0; i < path.getSegmentCount(); i++) {
+			domain.ExpressionPart part = DomainFactory.eINSTANCE
+					.createExpressionPart();
+			if (path.getSegment(i) instanceof EObject)
+				part.setObjRef((EObject) path.getSegment(i));
+
+			if (path.getSegment(i) instanceof TriggerHolder)
+				part.setObjRef(((TriggerHolder) path.getSegment(i))
+						.getTrigger());
+
+			part.setOrder(i);
+			ls.add(part);
+
+		}
+		return ls;
+	}
+
+	protected String buildExpression(TreePath path) {
+		String value = "";
+		for (int i = 0; i < path.getSegmentCount(); i++) {
+			IWorkbenchAdapter adapter = (IWorkbenchAdapter) Platform
+					.getAdapterManager().getAdapter(path.getSegment(i),
+							IWorkbenchAdapter.class);
+			if (i != 0)
+				value = value + ".";
+			value = value + adapter.getLabel(path.getSegment(i));
+		}
+		return value;
+	}
+
+	private void updateConstantValue(EditingDomain editingDomain,
 			domain.ContextParameter param, String value) {
 		String valueString = null;
 		if (value != null)
@@ -469,7 +461,28 @@ public class ContextParameterPropertySelection extends GridProperty {
 
 	}
 
-	public void removeExpession(EditingDomain editingDomain,
+	public void updateExpession(EditingDomain editingDomain,
+			domain.ContextParameter param, List<domain.ExpressionPart> ls) {
+
+		editingDomain.getCommandStack().execute(
+				SetCommand.create(editingDomain, param.getValue(),
+						DomainPackage.eINSTANCE.getContextValue_Expression(),
+						ls));
+	}
+
+	private void showError(final String message) {
+		Display.getDefault().asyncExec(new Runnable() {
+			public void run() {
+				MessageDialog dialog = new MessageDialog(Display.getDefault()
+						.getActiveShell(), "Tura", null, message,
+						MessageDialog.ERROR, new String[] { "Ok" }, 0);
+				dialog.open();
+			}
+		});
+
+	}
+
+	private void removeExpession(EditingDomain editingDomain,
 			domain.ContextParameter param) {
 		if (param.getValue() != null
 				&& param.getValue().getExpression() != null

@@ -497,8 +497,6 @@
     </genClasses>
     <genClasses ecoreClass="domain.ecore#//ViewPortTrigger">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//ViewPortTrigger/uid"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//ViewPortTrigger/trigger"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//ViewPortTrigger/fakeMethod"/>
     </genClasses>
     <genClasses ecoreClass="domain.ecore#//ViewInheritance">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//ViewInheritance/uid"/>
@@ -540,7 +538,7 @@
     </genClasses>
     <genClasses ecoreClass="domain.ecore#//ContextValue">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//ContextValue/uid"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//ContextValue/isExpression"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//ContextValue/constant"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//ContextValue/value"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//ContextValue/expression"/>
     </genClasses>
@@ -550,9 +548,6 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//ExpressionPart/order"/>
     </genClasses>
     <genClasses ecoreClass="domain.ecore#//Context">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//Context/uid"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//Context/value"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//Context/expression"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//Context/parameters"/>
     </genClasses>
     <genClasses ecoreClass="domain.ecore#//StyleElement">

@@ -15,16 +15,8 @@ import junit.textui.TestRunner;
  * <!-- end-user-doc -->
  * @generated
  */
-public class ContextTest extends TestCase
+public class ContextTest extends ContextValueTest
 {
-
-  /**
-   * The fixture for this Context test case.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected Context fixture = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -48,25 +40,15 @@ public class ContextTest extends TestCase
   }
 
   /**
-   * Sets the fixture for this Context test case.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected void setFixture(Context fixture)
-  {
-    this.fixture = fixture;
-  }
-
-  /**
    * Returns the fixture for this Context test case.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
+  @Override
   protected Context getFixture()
   {
-    return fixture;
+    return (Context)fixture;
   }
 
   /**

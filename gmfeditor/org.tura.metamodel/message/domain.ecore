@@ -1150,7 +1150,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="canvasView" eType="#//CanvasView"
         eOpposite="#//CanvasView/parent"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ViewPortTrigger">
+  <eClassifiers xsi:type="ecore:EClass" name="ViewPortTrigger" eSuperTypes="#//Trigger">
     <eAnnotations source="gmf.node">
       <details key="label" value="fakeMethod"/>
       <details key="border.color" value="0,0,0"/>
@@ -1158,9 +1158,6 @@
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="trigger" eType="#//Context"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="fakeMethod" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ViewInheritance">
     <eAnnotations source="gmf.link">
@@ -1239,7 +1236,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="ContextValue">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isExpression" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="constant" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="expression" upperBound="-1"
         eType="#//ExpressionPart" containment="true"/>
@@ -1250,12 +1247,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="objRef" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="order" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Context">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        iD="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="expression" upperBound="-1"
-        eType="#//ExpressionPart" containment="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Context" eSuperTypes="#//ContextValue">
     <eStructuralFeatures xsi:type="ecore:EReference" name="parameters" upperBound="-1"
         eType="#//ContextParameter" containment="true"/>
   </eClassifiers>

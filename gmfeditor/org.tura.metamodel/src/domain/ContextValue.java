@@ -15,7 +15,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * <ul>
  *   <li>{@link domain.ContextValue#getUid <em>Uid</em>}</li>
- *   <li>{@link domain.ContextValue#isIsExpression <em>Is Expression</em>}</li>
+ *   <li>{@link domain.ContextValue#isConstant <em>Constant</em>}</li>
  *   <li>{@link domain.ContextValue#getValue <em>Value</em>}</li>
  *   <li>{@link domain.ContextValue#getExpression <em>Expression</em>}</li>
  * </ul>
@@ -54,30 +54,30 @@ public interface ContextValue extends EObject
   void setUid(String value);
 
   /**
-   * Returns the value of the '<em><b>Is Expression</b></em>' attribute.
+   * Returns the value of the '<em><b>Constant</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Is Expression</em>' attribute isn't clear,
+   * If the meaning of the '<em>Constant</em>' attribute isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Is Expression</em>' attribute.
-   * @see #setIsExpression(boolean)
-   * @see domain.DomainPackage#getContextValue_IsExpression()
+   * @return the value of the '<em>Constant</em>' attribute.
+   * @see #setConstant(boolean)
+   * @see domain.DomainPackage#getContextValue_Constant()
    * @model
    * @generated
    */
-  boolean isIsExpression();
+  boolean isConstant();
 
   /**
-   * Sets the value of the '{@link domain.ContextValue#isIsExpression <em>Is Expression</em>}' attribute.
+   * Sets the value of the '{@link domain.ContextValue#isConstant <em>Constant</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Is Expression</em>' attribute.
-   * @see #isIsExpression()
+   * @param value the new value of the '<em>Constant</em>' attribute.
+   * @see #isConstant()
    * @generated
    */
-  void setIsExpression(boolean value);
+  void setConstant(boolean value);
 
   /**
    * Returns the value of the '<em><b>Value</b></em>' attribute.
