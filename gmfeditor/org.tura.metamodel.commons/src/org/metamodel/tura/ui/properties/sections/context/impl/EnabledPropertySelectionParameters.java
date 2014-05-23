@@ -36,7 +36,10 @@ public class EnabledPropertySelectionParameters extends
 
 					if (notification.getFeatureID(domain.ContextValue.class) == DomainPackage.eINSTANCE
 							.getContextValue_Expression().getFeatureID()) {
+						ds.cleanList();
 						enableParametersEntry();
+						tableViewer.refresh();
+						
 					}
 
 				}

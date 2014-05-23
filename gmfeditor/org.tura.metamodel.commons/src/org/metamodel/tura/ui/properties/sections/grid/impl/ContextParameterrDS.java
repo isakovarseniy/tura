@@ -77,15 +77,17 @@ public class ContextParameterrDS extends DataSource {
 
 			if (property.getModel() instanceof domain.Trigger) {
 				domain.Trigger trg = (domain.Trigger) property.getModel();
-				ls = new QueryHelper().findTriggerParameters(trg,trg, types,
+				if (trg.getMethodRef() == null)
+					return ls;
+				ls = new QueryHelper().findTriggerParameters(trg.getMethodRef(),trg, types,
 						editingDomain);
 			}
 			if (property.getModel() instanceof domain.Context) {
 				domain.Context ctx = (domain.Context) property.getModel();
 				if  (ctx.getExpression() != null && ctx.getExpression().size() != 0 ){
-					Object obj = ctx.getExpression().get(ctx.getExpression().size() - 1);
-					if (obj instanceof domain.MethodPointer){
-						ls = new QueryHelper().findTriggerParameters((domain.MethodPointer)obj ,ctx, types,
+					domain.ExpressionPart obj = ctx.getExpression().get(ctx.getExpression().size() - 1);
+					if (  obj.getObjRef() != null &&  obj.getObjRef() instanceof domain.Operation){
+						ls = new QueryHelper().findTriggerParameters((domain.Operation)obj.getObjRef() ,ctx, types,
 								editingDomain);
 						
 					}

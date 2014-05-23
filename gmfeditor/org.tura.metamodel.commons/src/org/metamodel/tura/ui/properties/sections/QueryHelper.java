@@ -329,11 +329,8 @@ public class QueryHelper {
 	}
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
-	public List<Object> findTriggerParameters(domain.MethodPointer method,domain.ContextParameters trg,
+	public List<Object> findTriggerParameters(domain.Operation method,domain.ContextParameters trg,
 			EObject types, EditingDomain editingDomain) throws ParserException {
-
-		if (method.getMethodRef() == null)
-			return new ArrayList<Object>();
 
 		ArrayList<domain.ContextParameter> removeParameters = new ArrayList<domain.ContextParameter>();
 		ArrayList<domain.ContextParameter> addParameters = new ArrayList<domain.ContextParameter>();
@@ -344,7 +341,7 @@ public class QueryHelper {
 
 		OCLExpression<EClassifier> query = helper
 				.createQuery("domain::Operation.allInstances()->select(r|r.oclAsType(domain::Operation).uid ='"
-						+ method.getMethodRef().getUid()
+						+ method.getUid()
 						+ "').oclAsType(domain::Operation).parameters");
 
 		Collection<domain.Parameter> map = (Collection<Parameter>) ocl
