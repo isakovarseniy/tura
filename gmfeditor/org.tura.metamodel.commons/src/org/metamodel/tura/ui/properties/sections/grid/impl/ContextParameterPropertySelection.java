@@ -39,6 +39,7 @@ import domain.Form;
 import domain.Type;
 import domain.TypeElement;
 import domain.TypeReference;
+import domain.Views;
 
 public class ContextParameterPropertySelection extends GridProperty {
 
@@ -336,9 +337,12 @@ public class ContextParameterPropertySelection extends GridProperty {
 			frm = (Form) ((domain.Controls) root.getElement()).getParent()
 					.eContainer();
 		}
-		if (root.getElement() instanceof domain.Views) {
-			frm = ((domain.Form) (((domain.Views) root.getElement())
-					.getParent().eContainer()));
+		if (root.getElement() instanceof domain.CanvasView) {
+			
+			domain.Views views = (Views) (((domain.CanvasView) root.getElement())
+					.getParent().eContainer().eContainer() );
+			
+			frm = (domain.Form) (views.getParent().eContainer());
 		}
 
 		if (frm.getDatacontrols() != null) {
