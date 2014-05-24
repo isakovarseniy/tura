@@ -2,6 +2,7 @@
  */
 package domain;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -79,29 +80,19 @@ public interface Messages extends EObject
   void setParent(ApplicationMessages value);
 
   /**
-   * Returns the value of the '<em><b>Message Libraries</b></em>' containment reference.
+   * Returns the value of the '<em><b>Message Libraries</b></em>' containment reference list.
+   * The list contents are of type {@link domain.MessageLibrary}.
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Message Libraries</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Message Libraries</em>' containment reference.
-   * @see #setMessageLibraries(MessageLibrary)
+   * @return the value of the '<em>Message Libraries</em>' containment reference list.
    * @see domain.DomainPackage#getMessages_MessageLibraries()
    * @model containment="true"
    * @generated
    */
-  MessageLibrary getMessageLibraries();
-
-  /**
-   * Sets the value of the '{@link domain.Messages#getMessageLibraries <em>Message Libraries</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Message Libraries</em>' containment reference.
-   * @see #getMessageLibraries()
-   * @generated
-   */
-  void setMessageLibraries(MessageLibrary value);
+  EList<MessageLibrary> getMessageLibraries();
 
 } // Messages

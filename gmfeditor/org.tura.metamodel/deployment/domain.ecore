@@ -395,8 +395,8 @@
         iD="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//ApplicationMessages"
         eOpposite="#//ApplicationMessages/messages"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="messageLibraries" eType="#//MessageLibrary"
-        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="messageLibraries" upperBound="-1"
+        eType="#//MessageLibrary" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MessageLibrary">
     <eAnnotations source="gmf.node">
@@ -1079,6 +1079,10 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="tabPagesInheritances" upperBound="-1"
         eType="#//TabPagesInheritance" containment="true"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MultiLangLabel">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="multiLangLabel" eType="#//Context"
+        containment="true"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CanvasFrame">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>
@@ -1094,28 +1098,28 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="defaultCanvas" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ViewElement"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Canvas" eSuperTypes="#//CanvasFrame #//ViewPortHolder #//DefaultCavas">
+  <eClassifiers xsi:type="ecore:EClass" name="Canvas" eSuperTypes="#//CanvasFrame #//ViewPortHolder #//DefaultCavas #//MultiLangLabel">
     <eAnnotations source="gmf.node">
       <details key="label" value="name"/>
       <details key="border.color" value="0,0,0"/>
       <details key="color" value="192,192,192"/>
     </eAnnotations>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Window" eSuperTypes="#//CanvasFrame #//ViewPortHolder">
+  <eClassifiers xsi:type="ecore:EClass" name="Window" eSuperTypes="#//CanvasFrame #//ViewPortHolder #//MultiLangLabel">
     <eAnnotations source="gmf.node">
       <details key="label" value="name"/>
       <details key="border.color" value="0,0,0"/>
       <details key="color" value="192,192,192"/>
     </eAnnotations>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="TabCanvas" eSuperTypes="#//CanvasFrame #//DefaultCavas">
+  <eClassifiers xsi:type="ecore:EClass" name="TabCanvas" eSuperTypes="#//CanvasFrame #//DefaultCavas #//MultiLangLabel">
     <eAnnotations source="gmf.node">
       <details key="label" value="name"/>
       <details key="border.color" value="0,0,0"/>
       <details key="color" value="192,192,192"/>
     </eAnnotations>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="TabPage" eSuperTypes="#//CanvasFrame #//ViewPortHolder">
+  <eClassifiers xsi:type="ecore:EClass" name="TabPage" eSuperTypes="#//CanvasFrame #//ViewPortHolder #//MultiLangLabel">
     <eAnnotations source="gmf.node">
       <details key="label" value="name"/>
       <details key="border.color" value="0,0,0"/>
@@ -1306,7 +1310,7 @@
       <details key="tool.small.path" value="icons/inputtext.png"/>
     </eAnnotations>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Label" eSuperTypes="#//InputElement">
+  <eClassifiers xsi:type="ecore:EClass" name="Label" eSuperTypes="#//InputElement #//MultiLangLabel">
     <eAnnotations source="gmf.node">
       <details key="label" value="label"/>
       <details key="tool.small.bundle" value="org.tura.metamodel.commons"/>
@@ -1340,7 +1344,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="selection" eType="#//Selection"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Column" eSuperTypes="#//StyleElement">
+  <eClassifiers xsi:type="ecore:EClass" name="Column" eSuperTypes="#//StyleElement #//MultiLangLabel">
     <eAnnotations source="gmf.node">
       <details key="label" value="label"/>
       <details key="tool.small.bundle" value="org.tura.metamodel.commons"/>
@@ -1356,7 +1360,7 @@
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Table" eSuperTypes="#//SourcesPointer #//HTMLLayerHolder">
+  <eClassifiers xsi:type="ecore:EClass" name="Table" eSuperTypes="#//SourcesPointer #//HTMLLayerHolder #//MultiLangLabel">
     <eAnnotations source="gmf.node">
       <details key="label" value="label"/>
       <details key="tool.small.bundle" value="org.tura.metamodel.commons"/>
@@ -1368,7 +1372,7 @@
       <eAnnotations source="gmf.compartment"/>
     </eStructuralFeatures>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Tree" eSuperTypes="#//SourcesPointer">
+  <eClassifiers xsi:type="ecore:EClass" name="Tree" eSuperTypes="#//SourcesPointer #//MultiLangLabel">
     <eAnnotations source="gmf.node">
       <details key="label" value="label"/>
       <details key="tool.small.bundle" value="org.tura.metamodel.commons"/>
@@ -1378,7 +1382,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="image" eType="#//Context"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Button" eSuperTypes="#//ActionElement">
+  <eClassifiers xsi:type="ecore:EClass" name="Button" eSuperTypes="#//ActionElement #//MultiLangLabel">
     <eAnnotations source="gmf.node">
       <details key="figure" value="org.tura.metamodel.commons.figures.ButtonFigure"/>
       <details key="label" value="label"/>

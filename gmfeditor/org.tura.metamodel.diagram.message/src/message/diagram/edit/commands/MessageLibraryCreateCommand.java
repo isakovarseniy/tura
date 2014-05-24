@@ -48,10 +48,6 @@ public class MessageLibraryCreateCommand extends EditElementCommand {
 	 * @generated
 	 */
 	public boolean canExecute() {
-		Messages container = (Messages) getElementToEdit();
-		if (container.getMessageLibraries() != null) {
-			return false;
-		}
 		return true;
 
 	}
@@ -65,7 +61,7 @@ public class MessageLibraryCreateCommand extends EditElementCommand {
 				.createMessageLibrary();
 
 		Messages owner = (Messages) getElementToEdit();
-		owner.setMessageLibraries(newElement);
+		owner.getMessageLibraries().add(newElement);
 
 		newElement.setUid(java.util.UUID.randomUUID().toString());
 

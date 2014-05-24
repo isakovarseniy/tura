@@ -13,6 +13,6 @@ package domain;
  * @model annotation="gmf.node label='name' border.color='0,0,0' color='192,192,192'"
  * @generated
  */
-public interface Window extends CanvasFrame, ViewPortHolder
+public interface Window extends CanvasFrame, ViewPortHolder, MultiLangLabel
 {
 } // Window

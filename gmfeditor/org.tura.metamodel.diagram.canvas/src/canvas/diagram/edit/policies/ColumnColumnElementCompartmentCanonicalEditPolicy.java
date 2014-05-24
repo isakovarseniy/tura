@@ -29,6 +29,7 @@ import canvas.diagram.edit.parts.CheckBox2EditPart;
 import canvas.diagram.edit.parts.DropDownSelection2EditPart;
 import canvas.diagram.edit.parts.InputText2EditPart;
 import canvas.diagram.edit.parts.Label2EditPart;
+import canvas.diagram.edit.parts.LayerHolder2EditPart;
 import canvas.diagram.edit.parts.LayerHolder3EditPart;
 import canvas.diagram.edit.parts.OutputText2EditPart;
 import canvas.diagram.edit.parts.Table2EditPart;
@@ -94,13 +95,13 @@ public class ColumnColumnElementCompartmentCanonicalEditPolicy extends
 		int visualID = DomainVisualIDRegistry.getVisualID(view);
 		switch (visualID) {
 		case Button2EditPart.VISUAL_ID:
-		case DropDownSelection2EditPart.VISUAL_ID:
-		case LayerHolder3EditPart.VISUAL_ID:
-		case InputText2EditPart.VISUAL_ID:
 		case Label2EditPart.VISUAL_ID:
+		case DropDownSelection2EditPart.VISUAL_ID:
+		case Table2EditPart.VISUAL_ID:
+		case LayerHolder2EditPart.VISUAL_ID:
+		case InputText2EditPart.VISUAL_ID:
 		case OutputText2EditPart.VISUAL_ID:
 		case CheckBox2EditPart.VISUAL_ID:
-		case Table2EditPart.VISUAL_ID:
 		case Tree2EditPart.VISUAL_ID:
 			return true;
 		}

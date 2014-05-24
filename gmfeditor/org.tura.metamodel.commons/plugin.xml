@@ -476,6 +476,13 @@
              category="domain"
              id="property.tab.domain.frmview"
              label="Trigger"/>
+             
+             
+          <propertyTab
+             category="domain"
+             id="property.tab.domain.frmview.mulilanglabel"
+             label="Multi lang label"/>
+             
       </propertyTabs>
      </extension>  
 
@@ -483,6 +490,17 @@
       <?gmfgen generated="true"?>   
  
       <propertySections contributorId="org.tura.metamodel.diagram.frmview">
+
+            <propertySection
+               tab="property.tab.domain.frmview.mulilanglabel"
+               class="org.metamodel.tura.ui.properties.sections.context.impl.MultiLangLabelPropertySelection"
+               id="org.tura.metamodel.diagram.canvas.mulilanglabel">
+              <input type="frmview.diagram.edit.parts.CanvasEditPart"/>
+              <input type="frmview.diagram.edit.parts.WindowEditPart"/>
+              <input type="frmview.diagram.edit.parts.TabCanvasEditPart"/>
+              <input type="frmview.diagram.edit.parts.TabPageEditPart"/>
+           </propertySection>        
+
 
             <propertySection
                tab="property.tab.domain.frmview"
@@ -546,9 +564,25 @@
 
           <propertyTab
              category="domain"
-             id="property.tab.domain.canvas.uielement.misce"
-             label="Miscellaneous"/>
+             id="property.tab.domain.canvas.uielement.enabled"
+             label="Enabled"/>
 
+          <propertyTab
+             category="domain"
+             id="property.tab.domain.canvas.uielement.readonly"
+             label="Read Only"/>
+
+          <propertyTab
+             category="domain"
+             id="property.tab.domain.canvas.uielement.required"
+             label="Required"/>
+
+           <propertyTab
+             category="domain"
+             id="property.tab.domain.canvas.uielement.mulilanglabel"
+             label="Multi lang label"/>
+    
+    
           </propertyTabs>
        </extension>
 
@@ -560,8 +594,20 @@
 
 
             <propertySection
-               tab="property.tab.domain.canvas.uielement.misce"
-               class="org.metamodel.tura.ui.properties.sections.context.impl.EnabledPropertySelection"
+               tab="property.tab.domain.canvas.uielement.mulilanglabel"
+               class="org.metamodel.tura.ui.properties.sections.context.impl.MultiLangLabelPropertySelection"
+               id="property.tab.domain.canvas.uielement.mulilanglabel">
+              <input type="canvas.diagram.edit.parts.TableEditPart"/>
+              <input type="canvas.diagram.edit.parts.TreeEditPart"/>
+              <input type="canvas.diagram.edit.parts.ButtonEditPart"/>
+              <input type="canvas.diagram.edit.parts.LabelEditPart"/>
+           </propertySection>        
+
+
+
+            <propertySection
+               tab="property.tab.domain.canvas.uielement.required"
+               class="org.metamodel.tura.ui.properties.sections.context.impl.RequiredParameterPropertySelection"
                id="org.tura.metamodel.diagram.canvas.misce">
               <input type="canvas.diagram.edit.parts.CheckBoxEditPart"/>
               <input type="canvas.diagram.edit.parts.InputTextEditPart"/>
@@ -581,8 +627,96 @@
            </propertySection>        
 
             <propertySection
-               tab="property.tab.domain.canvas.uielement.misce"
-               class="org.metamodel.tura.ui.properties.sections.context.impl.EnabledPropertySelectionParameters"
+               tab="property.tab.domain.canvas.uielement.required"
+               class="org.metamodel.tura.ui.properties.sections.context.impl.RequiredPropertySelection"
+               id="org.tura.metamodel.diagram.canvas.misce">
+              <input type="canvas.diagram.edit.parts.CheckBoxEditPart"/>
+              <input type="canvas.diagram.edit.parts.InputTextEditPart"/>
+              <input type="canvas.diagram.edit.parts.OutputTextEditPart"/>
+              <input type="canvas.diagram.edit.parts.TableEditPart"/>
+              <input type="canvas.diagram.edit.parts.TreeEditPart"/>
+              <input type="canvas.diagram.edit.parts.DropDownSelectionEditPart"/>
+              <input type="canvas.diagram.edit.parts.ButtonEditPart"/>
+ 
+               <input type="canvas.diagram.edit.parts.CheckBox2EditPart"/>
+              <input type="canvas.diagram.edit.parts.InputText2EditPart"/>
+              <input type="canvas.diagram.edit.parts.OutputText2EditPart"/>
+              <input type="canvas.diagram.edit.parts.TableEditPart"/>
+              <input type="canvas.diagram.edit.parts.TreeEditPart"/>
+              <input type="canvas.diagram.edit.parts.DropDownSelection2EditPart"/>
+ 
+           </propertySection>        
+
+
+
+
+            <propertySection
+               tab="property.tab.domain.canvas.uielement.enabled"
+               class="org.metamodel.tura.ui.properties.sections.context.impl.EnabledParameterPropertySelection"
+               id="org.tura.metamodel.diagram.canvas.misce">
+              <input type="canvas.diagram.edit.parts.CheckBoxEditPart"/>
+              <input type="canvas.diagram.edit.parts.InputTextEditPart"/>
+              <input type="canvas.diagram.edit.parts.OutputTextEditPart"/>
+              <input type="canvas.diagram.edit.parts.TableEditPart"/>
+              <input type="canvas.diagram.edit.parts.TreeEditPart"/>
+              <input type="canvas.diagram.edit.parts.DropDownSelectionEditPart"/>
+              <input type="canvas.diagram.edit.parts.ButtonEditPart"/>
+ 
+               <input type="canvas.diagram.edit.parts.CheckBox2EditPart"/>
+              <input type="canvas.diagram.edit.parts.InputText2EditPart"/>
+              <input type="canvas.diagram.edit.parts.OutputText2EditPart"/>
+              <input type="canvas.diagram.edit.parts.TableEditPart"/>
+              <input type="canvas.diagram.edit.parts.TreeEditPart"/>
+              <input type="canvas.diagram.edit.parts.DropDownSelection2EditPart"/>
+ 
+           </propertySection>        
+
+            <propertySection
+               tab="property.tab.domain.canvas.uielement.enabled"
+               class="org.metamodel.tura.ui.properties.sections.context.impl.EnabledPropertySelection"
+               id="org.tura.metamodel.diagram.canvas.misce">
+              <input type="canvas.diagram.edit.parts.CheckBoxEditPart"/>
+              <input type="canvas.diagram.edit.parts.InputTextEditPart"/>
+              <input type="canvas.diagram.edit.parts.OutputTextEditPart"/>
+              <input type="canvas.diagram.edit.parts.TableEditPart"/>
+              <input type="canvas.diagram.edit.parts.TreeEditPart"/>
+              <input type="canvas.diagram.edit.parts.DropDownSelectionEditPart"/>
+              <input type="canvas.diagram.edit.parts.ButtonEditPart"/>
+ 
+               <input type="canvas.diagram.edit.parts.CheckBox2EditPart"/>
+              <input type="canvas.diagram.edit.parts.InputText2EditPart"/>
+              <input type="canvas.diagram.edit.parts.OutputText2EditPart"/>
+              <input type="canvas.diagram.edit.parts.TableEditPart"/>
+              <input type="canvas.diagram.edit.parts.TreeEditPart"/>
+              <input type="canvas.diagram.edit.parts.DropDownSelection2EditPart"/>
+ 
+           </propertySection>        
+
+
+            <propertySection
+               tab="property.tab.domain.canvas.uielement.readonly"
+               class="org.metamodel.tura.ui.properties.sections.context.impl.ReadOnlyParameterPropertySelection"
+               id="org.tura.metamodel.diagram.canvas.misce">
+              <input type="canvas.diagram.edit.parts.CheckBoxEditPart"/>
+              <input type="canvas.diagram.edit.parts.InputTextEditPart"/>
+              <input type="canvas.diagram.edit.parts.OutputTextEditPart"/>
+              <input type="canvas.diagram.edit.parts.TableEditPart"/>
+              <input type="canvas.diagram.edit.parts.TreeEditPart"/>
+              <input type="canvas.diagram.edit.parts.DropDownSelectionEditPart"/>
+              <input type="canvas.diagram.edit.parts.ButtonEditPart"/>
+ 
+               <input type="canvas.diagram.edit.parts.CheckBox2EditPart"/>
+              <input type="canvas.diagram.edit.parts.InputText2EditPart"/>
+              <input type="canvas.diagram.edit.parts.OutputText2EditPart"/>
+              <input type="canvas.diagram.edit.parts.TableEditPart"/>
+              <input type="canvas.diagram.edit.parts.TreeEditPart"/>
+              <input type="canvas.diagram.edit.parts.DropDownSelection2EditPart"/>
+ 
+           </propertySection>        
+
+            <propertySection
+               tab="property.tab.domain.canvas.uielement.readonly"
+               class="org.metamodel.tura.ui.properties.sections.context.impl.ReadOnlyPropertySelection"
                id="org.tura.metamodel.diagram.canvas.misce">
               <input type="canvas.diagram.edit.parts.CheckBoxEditPart"/>
               <input type="canvas.diagram.edit.parts.InputTextEditPart"/>
@@ -681,7 +815,7 @@
 
            </propertySection>        
 
-             <propertySection
+            <propertySection
                tab="property.tab.domain.canvas.sourcepointer"
                class="org.metamodel.tura.ui.properties.sections.dropdown.ValuePointerAttributePropertySelection"
                id="org.tura.metamodel.diagram.canvas.sourcepointer.valuepointer">
@@ -746,7 +880,6 @@
               <input type="canvas.diagram.edit.parts.DropDownSelectionEditPart"/>
            </propertySection>        
 
-
              <propertySection
                tab="property.tab.domain.canvas.action"
                class="org.metamodel.tura.ui.properties.sections.dropdown.PackageNamePropertySection"
@@ -779,10 +912,6 @@
        </propertySections>
   </extension>  
 
-
-
-
-
     <extension
          point="org.eclipse.epsilon.common.dt.tool">
       <tool
@@ -790,7 +919,6 @@
             defaultName="Util"> 
       </tool>
    </extension>
-
 
    <extension   point="org.eclipse.core.runtime.adapters">
       <factory  adaptableType="org.metamodel.tura.ui.properties.sections.adapters.helper.TreeRoot"
@@ -849,6 +977,24 @@
                  <adapter type="org.metamodel.tura.ui.properties.sections.adapters.IReturnTypeProvider"/> 
       </factory>
      <factory  adaptableType="domain.Group"
+             class="org.metamodel.tura.ui.properties.sections.adapters.TreeProviderAdapterFactory">
+                 <adapter type="org.eclipse.ui.model.IWorkbenchAdapter"/> 
+                 <adapter type="org.metamodel.tura.ui.properties.sections.adapters.IReturnTypeProvider"/> 
+      </factory>
+
+     <factory  adaptableType="domain.MessageLibrary"
+             class="org.metamodel.tura.ui.properties.sections.adapters.TreeProviderAdapterFactory">
+                 <adapter type="org.eclipse.ui.model.IWorkbenchAdapter"/> 
+                 <adapter type="org.metamodel.tura.ui.properties.sections.adapters.IReturnTypeProvider"/> 
+      </factory>
+
+     <factory  adaptableType="domain.Message"
+             class="org.metamodel.tura.ui.properties.sections.adapters.TreeProviderAdapterFactory">
+                 <adapter type="org.eclipse.ui.model.IWorkbenchAdapter"/> 
+                 <adapter type="org.metamodel.tura.ui.properties.sections.adapters.IReturnTypeProvider"/> 
+      </factory>
+
+     <factory  adaptableType="domain.Messages"
              class="org.metamodel.tura.ui.properties.sections.adapters.TreeProviderAdapterFactory">
                  <adapter type="org.eclipse.ui.model.IWorkbenchAdapter"/> 
                  <adapter type="org.metamodel.tura.ui.properties.sections.adapters.IReturnTypeProvider"/> 

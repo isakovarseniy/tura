@@ -90,6 +90,7 @@ import domain.Messages;
 import domain.MethodPointer;
 import domain.ModelMapper;
 import domain.ModelQuery;
+import domain.MultiLangLabel;
 import domain.ORMEntity;
 import domain.Operation;
 import domain.Option;
@@ -660,6 +661,11 @@ public class DomainAdapterFactory extends AdapterFactoryImpl
       public Adapter caseViews(Views object)
       {
         return createViewsAdapter();
+      }
+      @Override
+      public Adapter caseMultiLangLabel(MultiLangLabel object)
+      {
+        return createMultiLangLabelAdapter();
       }
       @Override
       public Adapter caseCanvasFrame(CanvasFrame object)
@@ -2329,6 +2335,21 @@ public class DomainAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createViewsAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link domain.MultiLangLabel <em>Multi Lang Label</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see domain.MultiLangLabel
+   * @generated
+   */
+  public Adapter createMultiLangLabelAdapter()
   {
     return null;
   }

@@ -3,7 +3,9 @@
 package domain.impl;
 
 import domain.Column;
+import domain.Context;
 import domain.DomainPackage;
+import domain.MultiLangLabel;
 import domain.Uielement;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -21,6 +23,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <p>
  * The following features are implemented:
  * <ul>
+ *   <li>{@link domain.impl.ColumnImpl#getMultiLangLabel <em>Multi Lang Label</em>}</li>
  *   <li>{@link domain.impl.ColumnImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.impl.ColumnImpl#getLabel <em>Label</em>}</li>
  *   <li>{@link domain.impl.ColumnImpl#getElement <em>Element</em>}</li>
@@ -31,6 +34,16 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  */
 public class ColumnImpl extends StyleElementImpl implements Column
 {
+  /**
+   * The cached value of the '{@link #getMultiLangLabel() <em>Multi Lang Label</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getMultiLangLabel()
+   * @generated
+   * @ordered
+   */
+  protected Context multiLangLabel;
+
   /**
    * The default value of the '{@link #getUid() <em>Uid</em>}' attribute.
    * <!-- begin-user-doc -->
@@ -100,6 +113,54 @@ public class ColumnImpl extends StyleElementImpl implements Column
   protected EClass eStaticClass()
   {
     return DomainPackage.Literals.COLUMN;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Context getMultiLangLabel()
+  {
+    return multiLangLabel;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetMultiLangLabel(Context newMultiLangLabel, NotificationChain msgs)
+  {
+    Context oldMultiLangLabel = multiLangLabel;
+    multiLangLabel = newMultiLangLabel;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DomainPackage.COLUMN__MULTI_LANG_LABEL, oldMultiLangLabel, newMultiLangLabel);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setMultiLangLabel(Context newMultiLangLabel)
+  {
+    if (newMultiLangLabel != multiLangLabel)
+    {
+      NotificationChain msgs = null;
+      if (multiLangLabel != null)
+        msgs = ((InternalEObject)multiLangLabel).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DomainPackage.COLUMN__MULTI_LANG_LABEL, null, msgs);
+      if (newMultiLangLabel != null)
+        msgs = ((InternalEObject)newMultiLangLabel).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - DomainPackage.COLUMN__MULTI_LANG_LABEL, null, msgs);
+      msgs = basicSetMultiLangLabel(newMultiLangLabel, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.COLUMN__MULTI_LANG_LABEL, newMultiLangLabel, newMultiLangLabel));
   }
 
   /**
@@ -206,6 +267,8 @@ public class ColumnImpl extends StyleElementImpl implements Column
   {
     switch (featureID)
     {
+      case DomainPackage.COLUMN__MULTI_LANG_LABEL:
+        return basicSetMultiLangLabel(null, msgs);
       case DomainPackage.COLUMN__ELEMENT:
         return basicSetElement(null, msgs);
     }
@@ -222,6 +285,8 @@ public class ColumnImpl extends StyleElementImpl implements Column
   {
     switch (featureID)
     {
+      case DomainPackage.COLUMN__MULTI_LANG_LABEL:
+        return getMultiLangLabel();
       case DomainPackage.COLUMN__UID:
         return getUid();
       case DomainPackage.COLUMN__LABEL:
@@ -242,6 +307,9 @@ public class ColumnImpl extends StyleElementImpl implements Column
   {
     switch (featureID)
     {
+      case DomainPackage.COLUMN__MULTI_LANG_LABEL:
+        setMultiLangLabel((Context)newValue);
+        return;
       case DomainPackage.COLUMN__UID:
         setUid((String)newValue);
         return;
@@ -265,6 +333,9 @@ public class ColumnImpl extends StyleElementImpl implements Column
   {
     switch (featureID)
     {
+      case DomainPackage.COLUMN__MULTI_LANG_LABEL:
+        setMultiLangLabel((Context)null);
+        return;
       case DomainPackage.COLUMN__UID:
         setUid(UID_EDEFAULT);
         return;
@@ -288,6 +359,8 @@ public class ColumnImpl extends StyleElementImpl implements Column
   {
     switch (featureID)
     {
+      case DomainPackage.COLUMN__MULTI_LANG_LABEL:
+        return multiLangLabel != null;
       case DomainPackage.COLUMN__UID:
         return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
       case DomainPackage.COLUMN__LABEL:
@@ -296,6 +369,44 @@ public class ColumnImpl extends StyleElementImpl implements Column
         return element != null;
     }
     return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass)
+  {
+    if (baseClass == MultiLangLabel.class)
+    {
+      switch (derivedFeatureID)
+      {
+        case DomainPackage.COLUMN__MULTI_LANG_LABEL: return DomainPackage.MULTI_LANG_LABEL__MULTI_LANG_LABEL;
+        default: return -1;
+      }
+    }
+    return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass)
+  {
+    if (baseClass == MultiLangLabel.class)
+    {
+      switch (baseFeatureID)
+      {
+        case DomainPackage.MULTI_LANG_LABEL__MULTI_LANG_LABEL: return DomainPackage.COLUMN__MULTI_LANG_LABEL;
+        default: return -1;
+      }
+    }
+    return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
   }
 
   /**

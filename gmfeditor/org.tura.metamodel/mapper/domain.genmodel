@@ -470,6 +470,9 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//Views/viewInheritances"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//Views/tabPagesInheritances"/>
     </genClasses>
+    <genClasses ecoreClass="domain.ecore#//MultiLangLabel">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//MultiLangLabel/multiLangLabel"/>
+    </genClasses>
     <genClasses ecoreClass="domain.ecore#//CanvasFrame">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//CanvasFrame/uid"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//CanvasFrame/name"/>

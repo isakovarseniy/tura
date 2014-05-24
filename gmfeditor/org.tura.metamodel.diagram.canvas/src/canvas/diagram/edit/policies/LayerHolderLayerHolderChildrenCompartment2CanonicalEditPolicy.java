@@ -30,6 +30,7 @@ import canvas.diagram.edit.parts.DropDownSelectionEditPart;
 import canvas.diagram.edit.parts.InputTextEditPart;
 import canvas.diagram.edit.parts.LabelEditPart;
 import canvas.diagram.edit.parts.LayerHolder2EditPart;
+import canvas.diagram.edit.parts.LayerHolder3EditPart;
 import canvas.diagram.edit.parts.OutputTextEditPart;
 import canvas.diagram.edit.parts.TableEditPart;
 import canvas.diagram.edit.parts.TreeEditPart;
@@ -71,7 +72,7 @@ public class LayerHolderLayerHolderChildrenCompartment2CanonicalEditPolicy
 		View viewObject = (View) getHost().getModel();
 		LinkedList<EObject> result = new LinkedList<EObject>();
 		List<DomainNodeDescriptor> childDescriptors = DomainDiagramUpdater
-				.getLayerHolderLayerHolderChildrenCompartment_1607008SemanticChildren(viewObject);
+				.getLayerHolderLayerHolderChildrenCompartment_1607009SemanticChildren(viewObject);
 		for (DomainNodeDescriptor d : childDescriptors) {
 			result.add(d.getModelElement());
 		}
@@ -94,13 +95,13 @@ public class LayerHolderLayerHolderChildrenCompartment2CanonicalEditPolicy
 		int visualID = DomainVisualIDRegistry.getVisualID(view);
 		switch (visualID) {
 		case ButtonEditPart.VISUAL_ID:
-		case DropDownSelectionEditPart.VISUAL_ID:
-		case LayerHolder2EditPart.VISUAL_ID:
-		case InputTextEditPart.VISUAL_ID:
 		case LabelEditPart.VISUAL_ID:
+		case DropDownSelectionEditPart.VISUAL_ID:
+		case TableEditPart.VISUAL_ID:
+		case LayerHolder3EditPart.VISUAL_ID:
+		case InputTextEditPart.VISUAL_ID:
 		case OutputTextEditPart.VISUAL_ID:
 		case CheckBoxEditPart.VISUAL_ID:
-		case TableEditPart.VISUAL_ID:
 		case TreeEditPart.VISUAL_ID:
 			return true;
 		}
@@ -116,7 +117,7 @@ public class LayerHolderLayerHolderChildrenCompartment2CanonicalEditPolicy
 		}
 		LinkedList<IAdaptable> createdViews = new LinkedList<IAdaptable>();
 		List<DomainNodeDescriptor> childDescriptors = DomainDiagramUpdater
-				.getLayerHolderLayerHolderChildrenCompartment_1607008SemanticChildren((View) getHost()
+				.getLayerHolderLayerHolderChildrenCompartment_1607009SemanticChildren((View) getHost()
 						.getModel());
 		LinkedList<View> orphaned = new LinkedList<View>();
 		// we care to check only views we recognize as ours

@@ -91,6 +91,7 @@ import domain.Messages;
 import domain.MethodPointer;
 import domain.ModelMapper;
 import domain.ModelQuery;
+import domain.MultiLangLabel;
 import domain.ORMEntity;
 import domain.Operation;
 import domain.Option;
@@ -780,6 +781,13 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * @generated
    */
   private EClass viewsEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass multiLangLabelEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -5180,6 +5188,26 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EClass getMultiLangLabel()
+  {
+    return multiLangLabelEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getMultiLangLabel_MultiLangLabel()
+  {
+    return (EReference)multiLangLabelEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getCanvasFrame()
   {
     return canvasFrameEClass;
@@ -7833,6 +7861,9 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     createEReference(viewsEClass, VIEWS__VIEW_INHERITANCES);
     createEReference(viewsEClass, VIEWS__TAB_PAGES_INHERITANCES);
 
+    multiLangLabelEClass = createEClass(MULTI_LANG_LABEL);
+    createEReference(multiLangLabelEClass, MULTI_LANG_LABEL__MULTI_LANG_LABEL);
+
     canvasFrameEClass = createEClass(CANVAS_FRAME);
     createEAttribute(canvasFrameEClass, CANVAS_FRAME__UID);
     createEAttribute(canvasFrameEClass, CANVAS_FRAME__NAME);
@@ -8187,12 +8218,16 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     canvasEClass.getESuperTypes().add(this.getCanvasFrame());
     canvasEClass.getESuperTypes().add(this.getViewPortHolder());
     canvasEClass.getESuperTypes().add(this.getDefaultCavas());
+    canvasEClass.getESuperTypes().add(this.getMultiLangLabel());
     windowEClass.getESuperTypes().add(this.getCanvasFrame());
     windowEClass.getESuperTypes().add(this.getViewPortHolder());
+    windowEClass.getESuperTypes().add(this.getMultiLangLabel());
     tabCanvasEClass.getESuperTypes().add(this.getCanvasFrame());
     tabCanvasEClass.getESuperTypes().add(this.getDefaultCavas());
+    tabCanvasEClass.getESuperTypes().add(this.getMultiLangLabel());
     tabPageEClass.getESuperTypes().add(this.getCanvasFrame());
     tabPageEClass.getESuperTypes().add(this.getViewPortHolder());
+    tabPageEClass.getESuperTypes().add(this.getMultiLangLabel());
     viewPortEClass.getESuperTypes().add(this.getViewElement());
     viewAreaEClass.getESuperTypes().add(this.getViewElement());
     viewPortTriggerEClass.getESuperTypes().add(this.getTrigger());
@@ -8210,14 +8245,19 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     layerHolderEClass.getESuperTypes().add(this.getHTMLLayerHolder());
     inputTextEClass.getESuperTypes().add(this.getInputElement());
     labelEClass.getESuperTypes().add(this.getInputElement());
+    labelEClass.getESuperTypes().add(this.getMultiLangLabel());
     outputTextEClass.getESuperTypes().add(this.getInputElement());
     checkBoxEClass.getESuperTypes().add(this.getInputElement());
     dropDownSelectionEClass.getESuperTypes().add(this.getOptionSelection());
     columnEClass.getESuperTypes().add(this.getStyleElement());
+    columnEClass.getESuperTypes().add(this.getMultiLangLabel());
     tableEClass.getESuperTypes().add(this.getSourcesPointer());
     tableEClass.getESuperTypes().add(this.getHTMLLayerHolder());
+    tableEClass.getESuperTypes().add(this.getMultiLangLabel());
     treeEClass.getESuperTypes().add(this.getSourcesPointer());
+    treeEClass.getESuperTypes().add(this.getMultiLangLabel());
     buttonEClass.getESuperTypes().add(this.getActionElement());
+    buttonEClass.getESuperTypes().add(this.getMultiLangLabel());
     triggerEClass.getESuperTypes().add(this.getMethodPointer());
     triggerEClass.getESuperTypes().add(this.getContextParameters());
     preFormTriggerEClass.getESuperTypes().add(this.getTrigger());
@@ -8409,7 +8449,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     initEClass(messagesEClass, Messages.class, "Messages", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getMessages_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, Messages.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getMessages_Parent(), this.getApplicationMessages(), this.getApplicationMessages_Messages(), "parent", null, 0, 1, Messages.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getMessages_MessageLibraries(), this.getMessageLibrary(), null, "messageLibraries", null, 0, 1, Messages.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getMessages_MessageLibraries(), this.getMessageLibrary(), null, "messageLibraries", null, 0, -1, Messages.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(messageLibraryEClass, MessageLibrary.class, "MessageLibrary", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getMessageLibrary_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, MessageLibrary.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -8708,6 +8748,9 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     initEReference(getViews_Canvases(), this.getCanvasFrame(), null, "canvases", null, 0, -1, Views.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getViews_ViewInheritances(), this.getViewInheritance(), null, "viewInheritances", null, 0, -1, Views.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getViews_TabPagesInheritances(), this.getTabPagesInheritance(), null, "tabPagesInheritances", null, 0, -1, Views.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(multiLangLabelEClass, MultiLangLabel.class, "MultiLangLabel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getMultiLangLabel_MultiLangLabel(), this.getContext(), null, "multiLangLabel", null, 0, 1, MultiLangLabel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(canvasFrameEClass, CanvasFrame.class, "CanvasFrame", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getCanvasFrame_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, CanvasFrame.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

@@ -107,6 +107,7 @@ public class TabPageItemProvider
     {
       super.getChildrenFeatures(object);
       childrenFeatures.add(DomainPackage.Literals.VIEW_PORT_HOLDER__VIEW_ELEMENT);
+      childrenFeatures.add(DomainPackage.Literals.MULTI_LANG_LABEL__MULTI_LANG_LABEL);
     }
     return childrenFeatures;
   }
@@ -170,6 +171,7 @@ public class TabPageItemProvider
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
         return;
       case DomainPackage.TAB_PAGE__VIEW_ELEMENT:
+      case DomainPackage.TAB_PAGE__MULTI_LANG_LABEL:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
         return;
     }
@@ -202,6 +204,11 @@ public class TabPageItemProvider
       (createChildParameter
         (DomainPackage.Literals.VIEW_PORT_HOLDER__VIEW_ELEMENT,
          DomainFactory.eINSTANCE.createViewArea()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (DomainPackage.Literals.MULTI_LANG_LABEL__MULTI_LANG_LABEL,
+         DomainFactory.eINSTANCE.createContext()));
   }
 
 }

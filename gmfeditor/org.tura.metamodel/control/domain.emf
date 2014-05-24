@@ -256,7 +256,7 @@ class MethodPointer extends TypePointer{
 class Messages{
     id attr EString uid;
     ref ApplicationMessages#messages parent;
-    val MessageLibrary  messageLibraries;
+    val MessageLibrary[*]  messageLibraries;
 }
 
 
@@ -708,6 +708,10 @@ class Views{
 }
 
 
+class MultiLangLabel{
+   val Context multiLangLabel;
+}
+
 class CanvasFrame{
     id attr EString uid;
    attr EString name;
@@ -727,19 +731,19 @@ class ViewElement{
 }
 
 @gmf.node(label="name",border.color="0,0,0",color="192,192,192")
-class Canvas extends CanvasFrame,ViewPortHolder,DefaultCavas{
+class Canvas extends CanvasFrame,ViewPortHolder,DefaultCavas, MultiLangLabel{
 }
 
 @gmf.node(label="name",border.color="0,0,0",color="192,192,192")
-class Window extends CanvasFrame,ViewPortHolder{
+class Window extends CanvasFrame,ViewPortHolder,MultiLangLabel{
 }
 
 @gmf.node(label="name",border.color="0,0,0",color="192,192,192")
-class TabCanvas extends CanvasFrame,DefaultCavas{
+class TabCanvas extends CanvasFrame,DefaultCavas,MultiLangLabel{
 }
 
 @gmf.node(label="name",border.color="0,0,0",color="192,192,192")
-class TabPage extends CanvasFrame,ViewPortHolder{
+class TabPage extends CanvasFrame,ViewPortHolder,MultiLangLabel{
 }
 
 @gmf.node(label="name",border.color="0,0,0",color="192,192,192")
@@ -891,7 +895,7 @@ class InputText extends InputElement {
 }
 
 @gmf.node(label="label",tool.small.bundle="org.tura.metamodel.commons",tool.small.path="icons/label.png")
-class Label extends InputElement {
+class Label extends InputElement ,MultiLangLabel{
   attr EString label;
 }
 
@@ -911,7 +915,7 @@ class DropDownSelection extends OptionSelection {
 }
 
 @gmf.node(label="label",tool.small.bundle="org.tura.metamodel.commons",tool.small.path="icons/column.png")
-class Column extends StyleElement{
+class Column extends StyleElement,MultiLangLabel{
     id attr EString uid;
    attr EString label;
    @gmf.compartment(layout="list")
@@ -919,20 +923,20 @@ class Column extends StyleElement{
 }
 
 @gmf.node(label="label",tool.small.bundle="org.tura.metamodel.commons",tool.small.path="icons/table.png")
-class Table extends SourcesPointer,HTMLLayerHolder{
+class Table extends SourcesPointer,HTMLLayerHolder,MultiLangLabel{
    attr EString label;
    @gmf.compartment
     val Column[*] cols;
 }
 
 @gmf.node(label="label",tool.small.bundle="org.tura.metamodel.commons",tool.small.path="icons/tree.png")
-class Tree extends SourcesPointer{
+class Tree extends SourcesPointer,MultiLangLabel{
    attr EString label;
    val Context image;
 }
 
 @gmf.node(figure="org.tura.metamodel.commons.figures.ButtonFigure",label="label",tool.small.bundle="org.tura.metamodel.commons",tool.small.path="icons/button.png")
-class Button extends ActionElement{
+class Button extends ActionElement,MultiLangLabel{
    attr EString label;
 }
 

@@ -106,6 +106,7 @@ public class TreeItemProvider
     if (childrenFeatures == null)
     {
       super.getChildrenFeatures(object);
+      childrenFeatures.add(DomainPackage.Literals.MULTI_LANG_LABEL__MULTI_LANG_LABEL);
       childrenFeatures.add(DomainPackage.Literals.TREE__IMAGE);
     }
     return childrenFeatures;
@@ -169,6 +170,7 @@ public class TreeItemProvider
       case DomainPackage.TREE__LABEL:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
         return;
+      case DomainPackage.TREE__MULTI_LANG_LABEL:
       case DomainPackage.TREE__IMAGE:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
         return;
@@ -187,6 +189,11 @@ public class TreeItemProvider
   protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object)
   {
     super.collectNewChildDescriptors(newChildDescriptors, object);
+
+    newChildDescriptors.add
+      (createChildParameter
+        (DomainPackage.Literals.MULTI_LANG_LABEL__MULTI_LANG_LABEL,
+         DomainFactory.eINSTANCE.createContext()));
 
     newChildDescriptors.add
       (createChildParameter
@@ -210,6 +217,7 @@ public class TreeItemProvider
       childFeature == DomainPackage.Literals.UIELEMENT__ENABLED ||
       childFeature == DomainPackage.Literals.UIELEMENT__REQUIRED ||
       childFeature == DomainPackage.Literals.UIELEMENT__READ_ONLY ||
+      childFeature == DomainPackage.Literals.MULTI_LANG_LABEL__MULTI_LANG_LABEL ||
       childFeature == DomainPackage.Literals.TREE__IMAGE;
 
     if (qualify)

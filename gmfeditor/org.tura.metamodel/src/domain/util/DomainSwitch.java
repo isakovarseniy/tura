@@ -90,6 +90,7 @@ import domain.Messages;
 import domain.MethodPointer;
 import domain.ModelMapper;
 import domain.ModelQuery;
+import domain.MultiLangLabel;
 import domain.ORMEntity;
 import domain.Operation;
 import domain.Option;
@@ -866,6 +867,13 @@ public class DomainSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case DomainPackage.MULTI_LANG_LABEL:
+      {
+        MultiLangLabel multiLangLabel = (MultiLangLabel)theEObject;
+        T result = caseMultiLangLabel(multiLangLabel);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case DomainPackage.CANVAS_FRAME:
       {
         CanvasFrame canvasFrame = (CanvasFrame)theEObject;
@@ -902,6 +910,7 @@ public class DomainSwitch<T> extends Switch<T>
         if (result == null) result = caseCanvasFrame(canvas);
         if (result == null) result = caseViewPortHolder(canvas);
         if (result == null) result = caseDefaultCavas(canvas);
+        if (result == null) result = caseMultiLangLabel(canvas);
         if (result == null) result = caseHTMLLayerHolder(canvas);
         if (result == null) result = defaultCase(theEObject);
         return result;
@@ -912,6 +921,7 @@ public class DomainSwitch<T> extends Switch<T>
         T result = caseWindow(window);
         if (result == null) result = caseCanvasFrame(window);
         if (result == null) result = caseViewPortHolder(window);
+        if (result == null) result = caseMultiLangLabel(window);
         if (result == null) result = caseHTMLLayerHolder(window);
         if (result == null) result = defaultCase(theEObject);
         return result;
@@ -922,6 +932,7 @@ public class DomainSwitch<T> extends Switch<T>
         T result = caseTabCanvas(tabCanvas);
         if (result == null) result = caseCanvasFrame(tabCanvas);
         if (result == null) result = caseDefaultCavas(tabCanvas);
+        if (result == null) result = caseMultiLangLabel(tabCanvas);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -931,6 +942,7 @@ public class DomainSwitch<T> extends Switch<T>
         T result = caseTabPage(tabPage);
         if (result == null) result = caseCanvasFrame(tabPage);
         if (result == null) result = caseViewPortHolder(tabPage);
+        if (result == null) result = caseMultiLangLabel(tabPage);
         if (result == null) result = caseHTMLLayerHolder(tabPage);
         if (result == null) result = defaultCase(theEObject);
         return result;
@@ -1148,6 +1160,7 @@ public class DomainSwitch<T> extends Switch<T>
         Label label = (Label)theEObject;
         T result = caseLabel(label);
         if (result == null) result = caseInputElement(label);
+        if (result == null) result = caseMultiLangLabel(label);
         if (result == null) result = caseSourcesPointer(label);
         if (result == null) result = caseUielement(label);
         if (result == null) result = caseStyleElement(label);
@@ -1193,6 +1206,7 @@ public class DomainSwitch<T> extends Switch<T>
         Column column = (Column)theEObject;
         T result = caseColumn(column);
         if (result == null) result = caseStyleElement(column);
+        if (result == null) result = caseMultiLangLabel(column);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -1202,6 +1216,7 @@ public class DomainSwitch<T> extends Switch<T>
         T result = caseTable(table);
         if (result == null) result = caseSourcesPointer(table);
         if (result == null) result = caseHTMLLayerHolder(table);
+        if (result == null) result = caseMultiLangLabel(table);
         if (result == null) result = caseUielement(table);
         if (result == null) result = caseStyleElement(table);
         if (result == null) result = defaultCase(theEObject);
@@ -1212,6 +1227,7 @@ public class DomainSwitch<T> extends Switch<T>
         Tree tree = (Tree)theEObject;
         T result = caseTree(tree);
         if (result == null) result = caseSourcesPointer(tree);
+        if (result == null) result = caseMultiLangLabel(tree);
         if (result == null) result = caseUielement(tree);
         if (result == null) result = caseStyleElement(tree);
         if (result == null) result = defaultCase(theEObject);
@@ -1222,6 +1238,7 @@ public class DomainSwitch<T> extends Switch<T>
         Button button = (Button)theEObject;
         T result = caseButton(button);
         if (result == null) result = caseActionElement(button);
+        if (result == null) result = caseMultiLangLabel(button);
         if (result == null) result = caseUielement(button);
         if (result == null) result = caseTrigger(button);
         if (result == null) result = caseStyleElement(button);
@@ -2882,6 +2899,22 @@ public class DomainSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseViews(Views object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Multi Lang Label</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Multi Lang Label</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseMultiLangLabel(MultiLangLabel object)
   {
     return null;
   }

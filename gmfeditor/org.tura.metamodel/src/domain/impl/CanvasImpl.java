@@ -3,9 +3,11 @@
 package domain.impl;
 
 import domain.Canvas;
+import domain.Context;
 import domain.DefaultCavas;
 import domain.DomainPackage;
 import domain.HTMLLayerHolder;
+import domain.MultiLangLabel;
 import domain.ViewElement;
 import domain.ViewPortHolder;
 
@@ -34,6 +36,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link domain.impl.CanvasImpl#getColumns <em>Columns</em>}</li>
  *   <li>{@link domain.impl.CanvasImpl#getViewElement <em>View Element</em>}</li>
  *   <li>{@link domain.impl.CanvasImpl#isDefaultCanvas <em>Default Canvas</em>}</li>
+ *   <li>{@link domain.impl.CanvasImpl#getMultiLangLabel <em>Multi Lang Label</em>}</li>
  * </ul>
  * </p>
  *
@@ -90,6 +93,16 @@ public class CanvasImpl extends CanvasFrameImpl implements Canvas
    * @ordered
    */
   protected boolean defaultCanvas = DEFAULT_CANVAS_EDEFAULT;
+
+  /**
+   * The cached value of the '{@link #getMultiLangLabel() <em>Multi Lang Label</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getMultiLangLabel()
+   * @generated
+   * @ordered
+   */
+  protected Context multiLangLabel;
 
   /**
    * <!-- begin-user-doc -->
@@ -177,6 +190,54 @@ public class CanvasImpl extends CanvasFrameImpl implements Canvas
    * <!-- end-user-doc -->
    * @generated
    */
+  public Context getMultiLangLabel()
+  {
+    return multiLangLabel;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetMultiLangLabel(Context newMultiLangLabel, NotificationChain msgs)
+  {
+    Context oldMultiLangLabel = multiLangLabel;
+    multiLangLabel = newMultiLangLabel;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DomainPackage.CANVAS__MULTI_LANG_LABEL, oldMultiLangLabel, newMultiLangLabel);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setMultiLangLabel(Context newMultiLangLabel)
+  {
+    if (newMultiLangLabel != multiLangLabel)
+    {
+      NotificationChain msgs = null;
+      if (multiLangLabel != null)
+        msgs = ((InternalEObject)multiLangLabel).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DomainPackage.CANVAS__MULTI_LANG_LABEL, null, msgs);
+      if (newMultiLangLabel != null)
+        msgs = ((InternalEObject)newMultiLangLabel).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - DomainPackage.CANVAS__MULTI_LANG_LABEL, null, msgs);
+      msgs = basicSetMultiLangLabel(newMultiLangLabel, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.CANVAS__MULTI_LANG_LABEL, newMultiLangLabel, newMultiLangLabel));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
@@ -184,6 +245,8 @@ public class CanvasImpl extends CanvasFrameImpl implements Canvas
     {
       case DomainPackage.CANVAS__VIEW_ELEMENT:
         return ((InternalEList<?>)getViewElement()).basicRemove(otherEnd, msgs);
+      case DomainPackage.CANVAS__MULTI_LANG_LABEL:
+        return basicSetMultiLangLabel(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -204,6 +267,8 @@ public class CanvasImpl extends CanvasFrameImpl implements Canvas
         return getViewElement();
       case DomainPackage.CANVAS__DEFAULT_CANVAS:
         return isDefaultCanvas();
+      case DomainPackage.CANVAS__MULTI_LANG_LABEL:
+        return getMultiLangLabel();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -229,6 +294,9 @@ public class CanvasImpl extends CanvasFrameImpl implements Canvas
       case DomainPackage.CANVAS__DEFAULT_CANVAS:
         setDefaultCanvas((Boolean)newValue);
         return;
+      case DomainPackage.CANVAS__MULTI_LANG_LABEL:
+        setMultiLangLabel((Context)newValue);
+        return;
     }
     super.eSet(featureID, newValue);
   }
@@ -252,6 +320,9 @@ public class CanvasImpl extends CanvasFrameImpl implements Canvas
       case DomainPackage.CANVAS__DEFAULT_CANVAS:
         setDefaultCanvas(DEFAULT_CANVAS_EDEFAULT);
         return;
+      case DomainPackage.CANVAS__MULTI_LANG_LABEL:
+        setMultiLangLabel((Context)null);
+        return;
     }
     super.eUnset(featureID);
   }
@@ -272,6 +343,8 @@ public class CanvasImpl extends CanvasFrameImpl implements Canvas
         return viewElement != null && !viewElement.isEmpty();
       case DomainPackage.CANVAS__DEFAULT_CANVAS:
         return defaultCanvas != DEFAULT_CANVAS_EDEFAULT;
+      case DomainPackage.CANVAS__MULTI_LANG_LABEL:
+        return multiLangLabel != null;
     }
     return super.eIsSet(featureID);
   }
@@ -308,6 +381,14 @@ public class CanvasImpl extends CanvasFrameImpl implements Canvas
         default: return -1;
       }
     }
+    if (baseClass == MultiLangLabel.class)
+    {
+      switch (derivedFeatureID)
+      {
+        case DomainPackage.CANVAS__MULTI_LANG_LABEL: return DomainPackage.MULTI_LANG_LABEL__MULTI_LANG_LABEL;
+        default: return -1;
+      }
+    }
     return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
   }
 
@@ -340,6 +421,14 @@ public class CanvasImpl extends CanvasFrameImpl implements Canvas
       switch (baseFeatureID)
       {
         case DomainPackage.DEFAULT_CAVAS__DEFAULT_CANVAS: return DomainPackage.CANVAS__DEFAULT_CANVAS;
+        default: return -1;
+      }
+    }
+    if (baseClass == MultiLangLabel.class)
+    {
+      switch (baseFeatureID)
+      {
+        case DomainPackage.MULTI_LANG_LABEL__MULTI_LANG_LABEL: return DomainPackage.CANVAS__MULTI_LANG_LABEL;
         default: return -1;
       }
     }

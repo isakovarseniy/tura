@@ -56,12 +56,14 @@ public class DomainDiagramUpdater {
 		}
 		Messages modelElement = (Messages) view.getElement();
 		LinkedList<DomainNodeDescriptor> result = new LinkedList<DomainNodeDescriptor>();
-		{
-			MessageLibrary childElement = modelElement.getMessageLibraries();
+		for (Iterator<?> it = modelElement.getMessageLibraries().iterator(); it
+				.hasNext();) {
+			MessageLibrary childElement = (MessageLibrary) it.next();
 			int visualID = DomainVisualIDRegistry.getNodeVisualID(view,
 					childElement);
 			if (visualID == MessageLibraryEditPart.VISUAL_ID) {
 				result.add(new DomainNodeDescriptor(childElement, visualID));
+				continue;
 			}
 		}
 		return result;

@@ -18,6 +18,11 @@ public abstract class AbstractBooleanPropertySelection extends ContextPropertySe
 
 
 	@Override
+	public String getLabelText() {
+		return "Value:";
+	}
+	
+	@Override
 	protected TreeRoot getContextRoot() {
 
 		TreeRoot rootOfTree = new TreeRoot();

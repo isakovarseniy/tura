@@ -797,6 +797,15 @@ public interface DomainFactory extends EFactory
   Views createViews();
 
   /**
+   * Returns a new object of class '<em>Multi Lang Label</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Multi Lang Label</em>'.
+   * @generated
+   */
+  MultiLangLabel createMultiLangLabel();
+
+  /**
    * Returns a new object of class '<em>Canvas Frame</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

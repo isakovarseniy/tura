@@ -130,6 +130,7 @@ public class ColumnItemProvider
     if (childrenFeatures == null)
     {
       super.getChildrenFeatures(object);
+      childrenFeatures.add(DomainPackage.Literals.MULTI_LANG_LABEL__MULTI_LANG_LABEL);
       childrenFeatures.add(DomainPackage.Literals.COLUMN__ELEMENT);
     }
     return childrenFeatures;
@@ -194,6 +195,7 @@ public class ColumnItemProvider
       case DomainPackage.COLUMN__LABEL:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
         return;
+      case DomainPackage.COLUMN__MULTI_LANG_LABEL:
       case DomainPackage.COLUMN__ELEMENT:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
         return;
@@ -212,6 +214,11 @@ public class ColumnItemProvider
   protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object)
   {
     super.collectNewChildDescriptors(newChildDescriptors, object);
+
+    newChildDescriptors.add
+      (createChildParameter
+        (DomainPackage.Literals.MULTI_LANG_LABEL__MULTI_LANG_LABEL,
+         DomainFactory.eINSTANCE.createContext()));
 
     newChildDescriptors.add
       (createChildParameter

@@ -21,6 +21,9 @@ public class TreeProviderAdapterFactory implements IAdapterFactory {
 	private ApplicationRoleProvider applicationRoleProvider;
 	private GroupProvider groupProvider;
 	private RoleProvider roleProvider;
+	private MessageLibraryProvider messageLibraryProvider;
+	private MessagesProvider messagesProvider;
+	private MessageProvider messageProvider;
 
 	@SuppressWarnings("rawtypes")
 	public Class[] getAdapterList() {
@@ -54,6 +57,14 @@ public class TreeProviderAdapterFactory implements IAdapterFactory {
 				return getGroupProvider();
 			if (adaptableObject instanceof domain.Role)
 				return getRoleProvider();
+			if (adaptableObject instanceof domain.Message)
+				return getMessageProvider();
+			if (adaptableObject instanceof domain.Messages)
+				return getMessagesProvider();
+			if (adaptableObject instanceof domain.MessageLibrary)
+				return getMessageLibraryProvider();
+		
+		
 		}
 		return null;
 	}
@@ -132,5 +143,24 @@ public class TreeProviderAdapterFactory implements IAdapterFactory {
 			roleProvider = new RoleProvider();
 		return roleProvider;
 	}
+
+	protected MessageProvider getMessageProvider() {
+		if (messageProvider == null)
+			messageProvider = new MessageProvider();
+		return messageProvider;
+	}
+	
+	protected MessagesProvider getMessagesProvider() {
+		if (messagesProvider == null)
+			messagesProvider = new MessagesProvider();
+		return messagesProvider;
+	}
+
+	protected MessageLibraryProvider getMessageLibraryProvider() {
+		if (messageLibraryProvider == null)
+			messageLibraryProvider = new MessageLibraryProvider();
+		return messageLibraryProvider;
+	}
+	
 	
 }

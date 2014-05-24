@@ -19,7 +19,7 @@ package domain;
  * @model annotation="gmf.node figure='org.tura.metamodel.commons.figures.ButtonFigure' label='label' tool.small.bundle='org.tura.metamodel.commons' tool.small.path='icons/button.png'"
  * @generated
  */
-public interface Button extends ActionElement
+public interface Button extends ActionElement, MultiLangLabel
 {
   /**
    * Returns the value of the '<em><b>Label</b></em>' attribute.

@@ -2224,6 +2224,31 @@ public class DomainItemProviderAdapterFactory extends DomainAdapterFactory imple
   }
 
   /**
+   * This keeps track of the one adapter used for all {@link domain.MultiLangLabel} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected MultiLangLabelItemProvider multiLangLabelItemProvider;
+
+  /**
+   * This creates an adapter for a {@link domain.MultiLangLabel}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createMultiLangLabelAdapter()
+  {
+    if (multiLangLabelItemProvider == null)
+    {
+      multiLangLabelItemProvider = new MultiLangLabelItemProvider(this);
+    }
+
+    return multiLangLabelItemProvider;
+  }
+
+  /**
    * This keeps track of the one adapter used for all {@link domain.CanvasFrame} instances.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -4220,6 +4245,7 @@ public class DomainItemProviderAdapterFactory extends DomainAdapterFactory imple
     if (formItemProvider != null) formItemProvider.dispose();
     if (formViewItemProvider != null) formViewItemProvider.dispose();
     if (viewsItemProvider != null) viewsItemProvider.dispose();
+    if (multiLangLabelItemProvider != null) multiLangLabelItemProvider.dispose();
     if (canvasFrameItemProvider != null) canvasFrameItemProvider.dispose();
     if (viewPortHolderItemProvider != null) viewPortHolderItemProvider.dispose();
     if (defaultCavasItemProvider != null) defaultCavasItemProvider.dispose();

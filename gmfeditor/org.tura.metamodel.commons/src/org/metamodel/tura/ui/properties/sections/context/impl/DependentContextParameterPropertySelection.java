@@ -2,19 +2,14 @@ package org.metamodel.tura.ui.properties.sections.context.impl;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.impl.AdapterImpl;
-import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.edit.command.SetCommand;
-import org.eclipse.emf.edit.domain.EditingDomain;
-import org.eclipse.gmf.runtime.diagram.ui.parts.DiagramEditor;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.ui.IWorkbenchPart;
 import org.metamodel.tura.ui.properties.sections.grid.impl.ContextParameterPropertySelection;
 
 import domain.ContextValue;
-import domain.DomainFactory;
 import domain.DomainPackage;
 
-public class EnabledPropertySelectionParameters extends
+public class DependentContextParameterPropertySelection extends
 		ContextParameterPropertySelection {
 
 	private AdapterImpl adapter;
@@ -69,23 +64,5 @@ public class EnabledPropertySelectionParameters extends
 			getModel().eAdapters().remove(adapter);
 	}
 
-	@Override
-	public EObject getModel() {
-
-		domain.Uielement el = ((domain.Uielement) getEObject());
-		if (el.getEnabled() == null) {
-
-			EditingDomain editingDomain = ((DiagramEditor) getPart())
-					.getEditingDomain();
-			editingDomain.getCommandStack().execute(
-					SetCommand.create(editingDomain, el,
-							DomainPackage.eINSTANCE.getUielement_Enabled(),
-							DomainFactory.eINSTANCE.createContext()));
-
-		}
-
-		return el.getEnabled();
-
-	}
 
 }

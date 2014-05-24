@@ -156,8 +156,8 @@ public class DomainPaletteFactory {
 	private ToolEntry createLayerHolder7CreationTool() {
 		ArrayList<IElementType> types = new ArrayList<IElementType>(3);
 		types.add(DomainElementTypes.LayerHolder_1602003);
-		types.add(DomainElementTypes.LayerHolder_1603019);
 		types.add(DomainElementTypes.LayerHolder_1603020);
+		types.add(DomainElementTypes.LayerHolder_1603019);
 		NodeToolEntry entry = new NodeToolEntry(
 				Messages.LayerHolder7CreationTool_title,
 				Messages.LayerHolder7CreationTool_desc, types);

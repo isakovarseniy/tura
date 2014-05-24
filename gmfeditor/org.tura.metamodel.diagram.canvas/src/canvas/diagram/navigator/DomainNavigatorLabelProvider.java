@@ -137,24 +137,12 @@ public class DomainNavigatorLabelProvider extends LabelProvider implements
 		case ButtonEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Node?http://tura.org/2013/v1/domain?Button", DomainElementTypes.Button_1603017); //$NON-NLS-1$
-		case DropDownSelectionEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Node?http://tura.org/2013/v1/domain?DropDownSelection", DomainElementTypes.DropDownSelection_1603002); //$NON-NLS-1$
-		case LayerHolder2EditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Node?http://tura.org/2013/v1/domain?LayerHolder", DomainElementTypes.LayerHolder_1603019); //$NON-NLS-1$
-		case InputTextEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Node?http://tura.org/2013/v1/domain?InputText", DomainElementTypes.InputText_1603004); //$NON-NLS-1$
 		case LabelEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Node?http://tura.org/2013/v1/domain?Label", DomainElementTypes.Label_1603005); //$NON-NLS-1$
-		case OutputTextEditPart.VISUAL_ID:
+		case DropDownSelectionEditPart.VISUAL_ID:
 			return getImage(
-					"Navigator?Node?http://tura.org/2013/v1/domain?OutputText", DomainElementTypes.OutputText_1603006); //$NON-NLS-1$
-		case CheckBoxEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Node?http://tura.org/2013/v1/domain?CheckBox", DomainElementTypes.CheckBox_1603007); //$NON-NLS-1$
+					"Navigator?Node?http://tura.org/2013/v1/domain?DropDownSelection", DomainElementTypes.DropDownSelection_1603002); //$NON-NLS-1$
 		case TableEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Node?http://tura.org/2013/v1/domain?Table", DomainElementTypes.Table_1603008); //$NON-NLS-1$
@@ -164,30 +152,42 @@ public class DomainNavigatorLabelProvider extends LabelProvider implements
 		case Button2EditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Node?http://tura.org/2013/v1/domain?Button", DomainElementTypes.Button_1603023); //$NON-NLS-1$
+		case Label2EditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Node?http://tura.org/2013/v1/domain?Label", DomainElementTypes.Label_1603013); //$NON-NLS-1$
 		case DropDownSelection2EditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Node?http://tura.org/2013/v1/domain?DropDownSelection", DomainElementTypes.DropDownSelection_1603010); //$NON-NLS-1$
-		case LayerHolder3EditPart.VISUAL_ID:
+		case Table2EditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Node?http://tura.org/2013/v1/domain?Table", DomainElementTypes.Table_1603021); //$NON-NLS-1$
+		case LayerHolder2EditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Node?http://tura.org/2013/v1/domain?LayerHolder", DomainElementTypes.LayerHolder_1603020); //$NON-NLS-1$
+		case LayerHolder3EditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Node?http://tura.org/2013/v1/domain?LayerHolder", DomainElementTypes.LayerHolder_1603019); //$NON-NLS-1$
+		case InputTextEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Node?http://tura.org/2013/v1/domain?InputText", DomainElementTypes.InputText_1603004); //$NON-NLS-1$
+		case OutputTextEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Node?http://tura.org/2013/v1/domain?OutputText", DomainElementTypes.OutputText_1603006); //$NON-NLS-1$
+		case CheckBoxEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Node?http://tura.org/2013/v1/domain?CheckBox", DomainElementTypes.CheckBox_1603007); //$NON-NLS-1$
 		case TreeEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Node?http://tura.org/2013/v1/domain?Tree", DomainElementTypes.Tree_1603016); //$NON-NLS-1$
 		case InputText2EditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Node?http://tura.org/2013/v1/domain?InputText", DomainElementTypes.InputText_1603012); //$NON-NLS-1$
-		case Label2EditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Node?http://tura.org/2013/v1/domain?Label", DomainElementTypes.Label_1603013); //$NON-NLS-1$
 		case OutputText2EditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Node?http://tura.org/2013/v1/domain?OutputText", DomainElementTypes.OutputText_1603014); //$NON-NLS-1$
 		case CheckBox2EditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Node?http://tura.org/2013/v1/domain?CheckBox", DomainElementTypes.CheckBox_1603015); //$NON-NLS-1$
-		case Table2EditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Node?http://tura.org/2013/v1/domain?Table", DomainElementTypes.Table_1603021); //$NON-NLS-1$
 		case Tree2EditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Node?http://tura.org/2013/v1/domain?Tree", DomainElementTypes.Tree_1603022); //$NON-NLS-1$
@@ -257,40 +257,40 @@ public class DomainNavigatorLabelProvider extends LabelProvider implements
 			return getLayerHolder_1602003Text(view);
 		case ButtonEditPart.VISUAL_ID:
 			return getButton_1603017Text(view);
-		case DropDownSelectionEditPart.VISUAL_ID:
-			return getDropDownSelection_1603002Text(view);
-		case LayerHolder2EditPart.VISUAL_ID:
-			return getLayerHolder_1603019Text(view);
-		case InputTextEditPart.VISUAL_ID:
-			return getInputText_1603004Text(view);
 		case LabelEditPart.VISUAL_ID:
 			return getLabel_1603005Text(view);
-		case OutputTextEditPart.VISUAL_ID:
-			return getOutputText_1603006Text(view);
-		case CheckBoxEditPart.VISUAL_ID:
-			return getCheckBox_1603007Text(view);
+		case DropDownSelectionEditPart.VISUAL_ID:
+			return getDropDownSelection_1603002Text(view);
 		case TableEditPart.VISUAL_ID:
 			return getTable_1603008Text(view);
 		case ColumnEditPart.VISUAL_ID:
 			return getColumn_1603024Text(view);
 		case Button2EditPart.VISUAL_ID:
 			return getButton_1603023Text(view);
+		case Label2EditPart.VISUAL_ID:
+			return getLabel_1603013Text(view);
 		case DropDownSelection2EditPart.VISUAL_ID:
 			return getDropDownSelection_1603010Text(view);
-		case LayerHolder3EditPart.VISUAL_ID:
+		case Table2EditPart.VISUAL_ID:
+			return getTable_1603021Text(view);
+		case LayerHolder2EditPart.VISUAL_ID:
 			return getLayerHolder_1603020Text(view);
+		case LayerHolder3EditPart.VISUAL_ID:
+			return getLayerHolder_1603019Text(view);
+		case InputTextEditPart.VISUAL_ID:
+			return getInputText_1603004Text(view);
+		case OutputTextEditPart.VISUAL_ID:
+			return getOutputText_1603006Text(view);
+		case CheckBoxEditPart.VISUAL_ID:
+			return getCheckBox_1603007Text(view);
 		case TreeEditPart.VISUAL_ID:
 			return getTree_1603016Text(view);
 		case InputText2EditPart.VISUAL_ID:
 			return getInputText_1603012Text(view);
-		case Label2EditPart.VISUAL_ID:
-			return getLabel_1603013Text(view);
 		case OutputText2EditPart.VISUAL_ID:
 			return getOutputText_1603014Text(view);
 		case CheckBox2EditPart.VISUAL_ID:
 			return getCheckBox_1603015Text(view);
-		case Table2EditPart.VISUAL_ID:
-			return getTable_1603021Text(view);
 		case Tree2EditPart.VISUAL_ID:
 			return getTree_1603022Text(view);
 		}

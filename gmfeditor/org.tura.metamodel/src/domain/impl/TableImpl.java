@@ -3,8 +3,10 @@
 package domain.impl;
 
 import domain.Column;
+import domain.Context;
 import domain.DomainPackage;
 import domain.HTMLLayerHolder;
+import domain.MultiLangLabel;
 import domain.Table;
 
 import java.util.Collection;
@@ -30,6 +32,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * <ul>
  *   <li>{@link domain.impl.TableImpl#getColumns <em>Columns</em>}</li>
+ *   <li>{@link domain.impl.TableImpl#getMultiLangLabel <em>Multi Lang Label</em>}</li>
  *   <li>{@link domain.impl.TableImpl#getLabel <em>Label</em>}</li>
  *   <li>{@link domain.impl.TableImpl#getCols <em>Cols</em>}</li>
  * </ul>
@@ -58,6 +61,16 @@ public class TableImpl extends SourcesPointerImpl implements Table
    * @ordered
    */
   protected int columns = COLUMNS_EDEFAULT;
+
+  /**
+   * The cached value of the '{@link #getMultiLangLabel() <em>Multi Lang Label</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getMultiLangLabel()
+   * @generated
+   * @ordered
+   */
+  protected Context multiLangLabel;
 
   /**
    * The default value of the '{@link #getLabel() <em>Label</em>}' attribute.
@@ -138,6 +151,54 @@ public class TableImpl extends SourcesPointerImpl implements Table
    * <!-- end-user-doc -->
    * @generated
    */
+  public Context getMultiLangLabel()
+  {
+    return multiLangLabel;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetMultiLangLabel(Context newMultiLangLabel, NotificationChain msgs)
+  {
+    Context oldMultiLangLabel = multiLangLabel;
+    multiLangLabel = newMultiLangLabel;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DomainPackage.TABLE__MULTI_LANG_LABEL, oldMultiLangLabel, newMultiLangLabel);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setMultiLangLabel(Context newMultiLangLabel)
+  {
+    if (newMultiLangLabel != multiLangLabel)
+    {
+      NotificationChain msgs = null;
+      if (multiLangLabel != null)
+        msgs = ((InternalEObject)multiLangLabel).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DomainPackage.TABLE__MULTI_LANG_LABEL, null, msgs);
+      if (newMultiLangLabel != null)
+        msgs = ((InternalEObject)newMultiLangLabel).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - DomainPackage.TABLE__MULTI_LANG_LABEL, null, msgs);
+      msgs = basicSetMultiLangLabel(newMultiLangLabel, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.TABLE__MULTI_LANG_LABEL, newMultiLangLabel, newMultiLangLabel));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public String getLabel()
   {
     return label;
@@ -180,6 +241,8 @@ public class TableImpl extends SourcesPointerImpl implements Table
   {
     switch (featureID)
     {
+      case DomainPackage.TABLE__MULTI_LANG_LABEL:
+        return basicSetMultiLangLabel(null, msgs);
       case DomainPackage.TABLE__COLS:
         return ((InternalEList<?>)getCols()).basicRemove(otherEnd, msgs);
     }
@@ -198,6 +261,8 @@ public class TableImpl extends SourcesPointerImpl implements Table
     {
       case DomainPackage.TABLE__COLUMNS:
         return getColumns();
+      case DomainPackage.TABLE__MULTI_LANG_LABEL:
+        return getMultiLangLabel();
       case DomainPackage.TABLE__LABEL:
         return getLabel();
       case DomainPackage.TABLE__COLS:
@@ -219,6 +284,9 @@ public class TableImpl extends SourcesPointerImpl implements Table
     {
       case DomainPackage.TABLE__COLUMNS:
         setColumns((Integer)newValue);
+        return;
+      case DomainPackage.TABLE__MULTI_LANG_LABEL:
+        setMultiLangLabel((Context)newValue);
         return;
       case DomainPackage.TABLE__LABEL:
         setLabel((String)newValue);
@@ -244,6 +312,9 @@ public class TableImpl extends SourcesPointerImpl implements Table
       case DomainPackage.TABLE__COLUMNS:
         setColumns(COLUMNS_EDEFAULT);
         return;
+      case DomainPackage.TABLE__MULTI_LANG_LABEL:
+        setMultiLangLabel((Context)null);
+        return;
       case DomainPackage.TABLE__LABEL:
         setLabel(LABEL_EDEFAULT);
         return;
@@ -266,6 +337,8 @@ public class TableImpl extends SourcesPointerImpl implements Table
     {
       case DomainPackage.TABLE__COLUMNS:
         return columns != COLUMNS_EDEFAULT;
+      case DomainPackage.TABLE__MULTI_LANG_LABEL:
+        return multiLangLabel != null;
       case DomainPackage.TABLE__LABEL:
         return LABEL_EDEFAULT == null ? label != null : !LABEL_EDEFAULT.equals(label);
       case DomainPackage.TABLE__COLS:
@@ -290,6 +363,14 @@ public class TableImpl extends SourcesPointerImpl implements Table
         default: return -1;
       }
     }
+    if (baseClass == MultiLangLabel.class)
+    {
+      switch (derivedFeatureID)
+      {
+        case DomainPackage.TABLE__MULTI_LANG_LABEL: return DomainPackage.MULTI_LANG_LABEL__MULTI_LANG_LABEL;
+        default: return -1;
+      }
+    }
     return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
   }
 
@@ -306,6 +387,14 @@ public class TableImpl extends SourcesPointerImpl implements Table
       switch (baseFeatureID)
       {
         case DomainPackage.HTML_LAYER_HOLDER__COLUMNS: return DomainPackage.TABLE__COLUMNS;
+        default: return -1;
+      }
+    }
+    if (baseClass == MultiLangLabel.class)
+    {
+      switch (baseFeatureID)
+      {
+        case DomainPackage.MULTI_LANG_LABEL__MULTI_LANG_LABEL: return DomainPackage.TABLE__MULTI_LANG_LABEL;
         default: return -1;
       }
     }

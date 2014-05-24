@@ -34,7 +34,7 @@ public class LayerHolderLayerHolderChildrenCompartment2EditPart extends
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 1607008;
+	public static final int VISUAL_ID = 1607009;
 
 	/**
 	 * @generated

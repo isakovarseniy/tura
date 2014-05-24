@@ -15,6 +15,7 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.ConfigureRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 import org.eclipse.gmf.runtime.notation.View;
 
+import domain.ChildrenHolder;
 import domain.Column;
 import domain.DomainFactory;
 import domain.LayerHolder;
@@ -48,10 +49,6 @@ public class LayerHolder3CreateCommand extends EditElementCommand {
 	 * @generated
 	 */
 	public boolean canExecute() {
-		Column container = (Column) getElementToEdit();
-		if (container.getElement() != null) {
-			return false;
-		}
 		return true;
 
 	}
@@ -63,8 +60,8 @@ public class LayerHolder3CreateCommand extends EditElementCommand {
 			IAdaptable info) throws ExecutionException {
 		LayerHolder newElement = DomainFactory.eINSTANCE.createLayerHolder();
 
-		Column owner = (Column) getElementToEdit();
-		owner.setElement(newElement);
+		ChildrenHolder owner = (ChildrenHolder) getElementToEdit();
+		owner.getChildren().add(newElement);
 
 		newElement.setUid(java.util.UUID.randomUUID().toString());
 

@@ -21,7 +21,7 @@ import org.eclipse.emf.common.util.EList;
  * @model annotation="gmf.node label='label' tool.small.bundle='org.tura.metamodel.commons' tool.small.path='icons/table.png'"
  * @generated
  */
-public interface Table extends SourcesPointer, HTMLLayerHolder
+public interface Table extends SourcesPointer, HTMLLayerHolder, MultiLangLabel
 {
   /**
    * Returns the value of the '<em><b>Label</b></em>' attribute.

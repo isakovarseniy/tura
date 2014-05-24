@@ -7,14 +7,18 @@ import domain.DomainPackage;
 import domain.MessageLibrary;
 import domain.Messages;
 
+import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -64,14 +68,14 @@ public class MessagesImpl extends EObjectImpl implements Messages
   protected ApplicationMessages parent;
 
   /**
-   * The cached value of the '{@link #getMessageLibraries() <em>Message Libraries</em>}' containment reference.
+   * The cached value of the '{@link #getMessageLibraries() <em>Message Libraries</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getMessageLibraries()
    * @generated
    * @ordered
    */
-  protected MessageLibrary messageLibraries;
+  protected EList<MessageLibrary> messageLibraries;
 
   /**
    * <!-- begin-user-doc -->
@@ -190,47 +194,13 @@ public class MessagesImpl extends EObjectImpl implements Messages
    * <!-- end-user-doc -->
    * @generated
    */
-  public MessageLibrary getMessageLibraries()
+  public EList<MessageLibrary> getMessageLibraries()
   {
+    if (messageLibraries == null)
+    {
+      messageLibraries = new EObjectContainmentEList<MessageLibrary>(MessageLibrary.class, this, DomainPackage.MESSAGES__MESSAGE_LIBRARIES);
+    }
     return messageLibraries;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetMessageLibraries(MessageLibrary newMessageLibraries, NotificationChain msgs)
-  {
-    MessageLibrary oldMessageLibraries = messageLibraries;
-    messageLibraries = newMessageLibraries;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DomainPackage.MESSAGES__MESSAGE_LIBRARIES, oldMessageLibraries, newMessageLibraries);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setMessageLibraries(MessageLibrary newMessageLibraries)
-  {
-    if (newMessageLibraries != messageLibraries)
-    {
-      NotificationChain msgs = null;
-      if (messageLibraries != null)
-        msgs = ((InternalEObject)messageLibraries).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DomainPackage.MESSAGES__MESSAGE_LIBRARIES, null, msgs);
-      if (newMessageLibraries != null)
-        msgs = ((InternalEObject)newMessageLibraries).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - DomainPackage.MESSAGES__MESSAGE_LIBRARIES, null, msgs);
-      msgs = basicSetMessageLibraries(newMessageLibraries, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.MESSAGES__MESSAGE_LIBRARIES, newMessageLibraries, newMessageLibraries));
   }
 
   /**
@@ -264,7 +234,7 @@ public class MessagesImpl extends EObjectImpl implements Messages
       case DomainPackage.MESSAGES__PARENT:
         return basicSetParent(null, msgs);
       case DomainPackage.MESSAGES__MESSAGE_LIBRARIES:
-        return basicSetMessageLibraries(null, msgs);
+        return ((InternalEList<?>)getMessageLibraries()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -295,6 +265,7 @@ public class MessagesImpl extends EObjectImpl implements Messages
    * <!-- end-user-doc -->
    * @generated
    */
+  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
@@ -307,7 +278,8 @@ public class MessagesImpl extends EObjectImpl implements Messages
         setParent((ApplicationMessages)newValue);
         return;
       case DomainPackage.MESSAGES__MESSAGE_LIBRARIES:
-        setMessageLibraries((MessageLibrary)newValue);
+        getMessageLibraries().clear();
+        getMessageLibraries().addAll((Collection<? extends MessageLibrary>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -330,7 +302,7 @@ public class MessagesImpl extends EObjectImpl implements Messages
         setParent((ApplicationMessages)null);
         return;
       case DomainPackage.MESSAGES__MESSAGE_LIBRARIES:
-        setMessageLibraries((MessageLibrary)null);
+        getMessageLibraries().clear();
         return;
     }
     super.eUnset(featureID);
@@ -351,7 +323,7 @@ public class MessagesImpl extends EObjectImpl implements Messages
       case DomainPackage.MESSAGES__PARENT:
         return parent != null;
       case DomainPackage.MESSAGES__MESSAGE_LIBRARIES:
-        return messageLibraries != null;
+        return messageLibraries != null && !messageLibraries.isEmpty();
     }
     return super.eIsSet(featureID);
   }

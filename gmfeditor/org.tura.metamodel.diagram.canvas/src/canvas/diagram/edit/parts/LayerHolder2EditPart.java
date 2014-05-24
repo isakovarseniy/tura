@@ -37,7 +37,7 @@ public class LayerHolder2EditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 1603019;
+	public static final int VISUAL_ID = 1603020;
 
 	/**
 	 * @generated

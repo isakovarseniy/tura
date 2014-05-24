@@ -130,6 +130,7 @@ public class TableItemProvider
     if (childrenFeatures == null)
     {
       super.getChildrenFeatures(object);
+      childrenFeatures.add(DomainPackage.Literals.MULTI_LANG_LABEL__MULTI_LANG_LABEL);
       childrenFeatures.add(DomainPackage.Literals.TABLE__COLS);
     }
     return childrenFeatures;
@@ -194,6 +195,7 @@ public class TableItemProvider
       case DomainPackage.TABLE__LABEL:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
         return;
+      case DomainPackage.TABLE__MULTI_LANG_LABEL:
       case DomainPackage.TABLE__COLS:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
         return;
@@ -212,6 +214,11 @@ public class TableItemProvider
   protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object)
   {
     super.collectNewChildDescriptors(newChildDescriptors, object);
+
+    newChildDescriptors.add
+      (createChildParameter
+        (DomainPackage.Literals.MULTI_LANG_LABEL__MULTI_LANG_LABEL,
+         DomainFactory.eINSTANCE.createContext()));
 
     newChildDescriptors.add
       (createChildParameter
@@ -234,7 +241,8 @@ public class TableItemProvider
     boolean qualify =
       childFeature == DomainPackage.Literals.UIELEMENT__ENABLED ||
       childFeature == DomainPackage.Literals.UIELEMENT__REQUIRED ||
-      childFeature == DomainPackage.Literals.UIELEMENT__READ_ONLY;
+      childFeature == DomainPackage.Literals.UIELEMENT__READ_ONLY ||
+      childFeature == DomainPackage.Literals.MULTI_LANG_LABEL__MULTI_LANG_LABEL;
 
     if (qualify)
     {
