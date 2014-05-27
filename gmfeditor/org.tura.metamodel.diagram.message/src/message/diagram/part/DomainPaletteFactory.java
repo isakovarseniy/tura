@@ -48,10 +48,10 @@ public class DomainPaletteFactory {
 		NodeToolEntry entry = new NodeToolEntry(
 				Messages.Message1CreationTool_title,
 				Messages.Message1CreationTool_desc,
-				Collections.singletonList(DomainElementTypes.Message_1703001));
+				Collections.singletonList(DomainElementTypes.Message_1703004));
 		entry.setId("createMessage1CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(DomainElementTypes
-				.getImageDescriptor(DomainElementTypes.Message_1703001));
+				.getImageDescriptor(DomainElementTypes.Message_1703004));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}

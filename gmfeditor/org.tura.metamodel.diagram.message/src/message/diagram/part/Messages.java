@@ -271,7 +271,7 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String MessageLibraryMessageLibraryMessageCompartmentEditPart_title;
+	public static String MessageLibraryMessageLibraryMessagesCompartmentEditPart_title;
 
 	/**
 	 * @generated

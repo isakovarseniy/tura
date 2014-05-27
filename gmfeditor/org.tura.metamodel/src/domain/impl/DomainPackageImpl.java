@@ -2788,7 +2788,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getMessageLibrary_Message()
+  public EReference getMessageLibrary_Messages()
   {
     return (EReference)messageLibraryEClass.getEStructuralFeatures().get(2);
   }
@@ -7566,7 +7566,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     messageLibraryEClass = createEClass(MESSAGE_LIBRARY);
     createEAttribute(messageLibraryEClass, MESSAGE_LIBRARY__UID);
     createEAttribute(messageLibraryEClass, MESSAGE_LIBRARY__NAME);
-    createEReference(messageLibraryEClass, MESSAGE_LIBRARY__MESSAGE);
+    createEReference(messageLibraryEClass, MESSAGE_LIBRARY__MESSAGES);
 
     messageEClass = createEClass(MESSAGE);
     createEAttribute(messageEClass, MESSAGE__UID);
@@ -8454,7 +8454,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     initEClass(messageLibraryEClass, MessageLibrary.class, "MessageLibrary", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getMessageLibrary_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, MessageLibrary.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getMessageLibrary_Name(), ecorePackage.getEString(), "name", null, 0, 1, MessageLibrary.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getMessageLibrary_Message(), this.getMessage(), null, "message", null, 0, -1, MessageLibrary.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getMessageLibrary_Messages(), this.getMessage(), null, "messages", null, 0, -1, MessageLibrary.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(messageEClass, Message.class, "Message", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getMessage_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, Message.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -10103,7 +10103,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        {
        });					
     addAnnotation
-      (getMessageLibrary_Message(), 
+      (getMessageLibrary_Messages(), 
        source, 
        new String[] 
        {

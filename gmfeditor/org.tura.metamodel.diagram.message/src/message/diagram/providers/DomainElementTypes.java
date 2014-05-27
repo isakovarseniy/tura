@@ -63,7 +63,7 @@ public class DomainElementTypes {
 	/**
 	 * @generated
 	 */
-	public static final IElementType Message_1703001 = getElementType("org.tura.metamodel.diagram.message.Message_1703001"); //$NON-NLS-1$
+	public static final IElementType Message_1703004 = getElementType("org.tura.metamodel.diagram.message.Message_1703004"); //$NON-NLS-1$
 
 	/**
 	 * @generated
@@ -182,7 +182,7 @@ public class DomainElementTypes {
 			elements.put(MessageLibrary_1702001,
 					DomainPackage.eINSTANCE.getMessageLibrary());
 
-			elements.put(Message_1703001, DomainPackage.eINSTANCE.getMessage());
+			elements.put(Message_1703004, DomainPackage.eINSTANCE.getMessage());
 		}
 		return (ENamedElement) elements.get(type);
 	}
@@ -202,7 +202,7 @@ public class DomainElementTypes {
 			KNOWN_ELEMENT_TYPES = new HashSet<IElementType>();
 			KNOWN_ELEMENT_TYPES.add(Messages_1701000);
 			KNOWN_ELEMENT_TYPES.add(MessageLibrary_1702001);
-			KNOWN_ELEMENT_TYPES.add(Message_1703001);
+			KNOWN_ELEMENT_TYPES.add(Message_1703004);
 		}
 		return KNOWN_ELEMENT_TYPES.contains(elementType);
 	}
@@ -217,7 +217,7 @@ public class DomainElementTypes {
 		case MessageLibraryEditPart.VISUAL_ID:
 			return MessageLibrary_1702001;
 		case MessageEditPart.VISUAL_ID:
-			return Message_1703001;
+			return Message_1703004;
 		}
 		return null;
 	}

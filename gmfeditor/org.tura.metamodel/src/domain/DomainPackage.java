@@ -1918,13 +1918,13 @@ public interface DomainPackage extends EPackage
   int MESSAGE_LIBRARY__NAME = 1;
 
   /**
-   * The feature id for the '<em><b>Message</b></em>' containment reference list.
+   * The feature id for the '<em><b>Messages</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MESSAGE_LIBRARY__MESSAGE = 2;
+  int MESSAGE_LIBRARY__MESSAGES = 2;
 
   /**
    * The number of structural features of the '<em>Message Library</em>' class.
@@ -12207,15 +12207,15 @@ public interface DomainPackage extends EPackage
   EAttribute getMessageLibrary_Name();
 
   /**
-   * Returns the meta object for the containment reference list '{@link domain.MessageLibrary#getMessage <em>Message</em>}'.
+   * Returns the meta object for the containment reference list '{@link domain.MessageLibrary#getMessages <em>Messages</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Message</em>'.
-   * @see domain.MessageLibrary#getMessage()
+   * @return the meta object for the containment reference list '<em>Messages</em>'.
+   * @see domain.MessageLibrary#getMessages()
    * @see #getMessageLibrary()
    * @generated
    */
-  EReference getMessageLibrary_Message();
+  EReference getMessageLibrary_Messages();
 
   /**
    * Returns the meta object for class '{@link domain.Message <em>Message</em>}'.
@@ -18340,12 +18340,12 @@ public interface DomainPackage extends EPackage
     EAttribute MESSAGE_LIBRARY__NAME = eINSTANCE.getMessageLibrary_Name();
 
     /**
-     * The meta object literal for the '<em><b>Message</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Messages</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference MESSAGE_LIBRARY__MESSAGE = eINSTANCE.getMessageLibrary_Message();
+    EReference MESSAGE_LIBRARY__MESSAGES = eINSTANCE.getMessageLibrary_Messages();
 
     /**
      * The meta object literal for the '{@link domain.impl.MessageImpl <em>Message</em>}' class.

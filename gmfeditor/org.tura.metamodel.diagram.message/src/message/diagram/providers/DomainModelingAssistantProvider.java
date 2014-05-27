@@ -47,7 +47,7 @@ public class DomainModelingAssistantProvider extends ModelingAssistantProvider {
 		}
 		if (editPart instanceof MessageLibraryEditPart) {
 			ArrayList<IElementType> types = new ArrayList<IElementType>(1);
-			types.add(DomainElementTypes.Message_1703001);
+			types.add(DomainElementTypes.Message_1703004);
 			return types;
 		}
 		return Collections.EMPTY_LIST;

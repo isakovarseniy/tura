@@ -23,7 +23,7 @@ public class MessageItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	public MessageItemSemanticEditPolicy() {
-		super(DomainElementTypes.Message_1703001);
+		super(DomainElementTypes.Message_1703004);
 	}
 
 	/**

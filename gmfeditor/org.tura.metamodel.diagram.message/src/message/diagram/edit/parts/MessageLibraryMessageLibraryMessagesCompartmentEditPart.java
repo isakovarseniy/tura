@@ -3,8 +3,8 @@
  */
 package message.diagram.edit.parts;
 
-import message.diagram.edit.policies.MessageLibraryMessageLibraryMessageCompartmentCanonicalEditPolicy;
-import message.diagram.edit.policies.MessageLibraryMessageLibraryMessageCompartmentItemSemanticEditPolicy;
+import message.diagram.edit.policies.MessageLibraryMessageLibraryMessagesCompartmentCanonicalEditPolicy;
+import message.diagram.edit.policies.MessageLibraryMessageLibraryMessagesCompartmentItemSemanticEditPolicy;
 import message.diagram.part.DomainVisualIDRegistry;
 import message.diagram.part.Messages;
 
@@ -23,7 +23,7 @@ import org.eclipse.gmf.tooling.runtime.edit.policies.reparent.CreationEditPolicy
 /**
  * @generated
  */
-public class MessageLibraryMessageLibraryMessageCompartmentEditPart extends
+public class MessageLibraryMessageLibraryMessagesCompartmentEditPart extends
 		ListCompartmentEditPart {
 
 	/**
@@ -34,7 +34,7 @@ public class MessageLibraryMessageLibraryMessageCompartmentEditPart extends
 	/**
 	 * @generated
 	 */
-	public MessageLibraryMessageLibraryMessageCompartmentEditPart(View view) {
+	public MessageLibraryMessageLibraryMessagesCompartmentEditPart(View view) {
 		super(view);
 	}
 
@@ -49,7 +49,7 @@ public class MessageLibraryMessageLibraryMessageCompartmentEditPart extends
 	 * @generated
 	 */
 	public String getCompartmentName() {
-		return Messages.MessageLibraryMessageLibraryMessageCompartmentEditPart_title;
+		return Messages.MessageLibraryMessageLibraryMessagesCompartmentEditPart_title;
 	}
 
 	/**
@@ -72,7 +72,7 @@ public class MessageLibraryMessageLibraryMessageCompartmentEditPart extends
 				new ResizableCompartmentEditPolicy());
 		installEditPolicy(
 				EditPolicyRoles.SEMANTIC_ROLE,
-				new MessageLibraryMessageLibraryMessageCompartmentItemSemanticEditPolicy());
+				new MessageLibraryMessageLibraryMessagesCompartmentItemSemanticEditPolicy());
 		installEditPolicy(EditPolicyRoles.CREATION_ROLE,
 				new CreationEditPolicyWithCustomReparent(
 						DomainVisualIDRegistry.TYPED_INSTANCE));
@@ -80,7 +80,7 @@ public class MessageLibraryMessageLibraryMessageCompartmentEditPart extends
 				new DragDropEditPolicy());
 		installEditPolicy(
 				EditPolicyRoles.CANONICAL_ROLE,
-				new MessageLibraryMessageLibraryMessageCompartmentCanonicalEditPolicy());
+				new MessageLibraryMessageLibraryMessagesCompartmentCanonicalEditPolicy());
 	}
 
 	/**

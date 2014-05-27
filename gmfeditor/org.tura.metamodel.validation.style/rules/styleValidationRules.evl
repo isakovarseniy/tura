@@ -14,9 +14,9 @@
       check :  self.eContainer().libraries.select(r|r.uid <> self.uid  and r.name.isDefined() and r.name=self.name).size()=0
       message : 'Name  ' + self.name + ' is not unique'
 
-  }
+   }
 
-  }
+}
   
   
  context StyleSet {

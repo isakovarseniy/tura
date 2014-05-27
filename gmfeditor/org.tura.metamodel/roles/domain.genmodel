@@ -178,7 +178,7 @@
     <genClasses ecoreClass="domain.ecore#//MessageLibrary">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//MessageLibrary/uid"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//MessageLibrary/name"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//MessageLibrary/message"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//MessageLibrary/messages"/>
     </genClasses>
     <genClasses ecoreClass="domain.ecore#//Message">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//Message/uid"/>

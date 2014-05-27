@@ -407,7 +407,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="message" upperBound="-1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="messages" upperBound="-1"
         eType="#//Message" containment="true">
       <eAnnotations source="gmf.compartment">
         <details key="layout" value="list"/>

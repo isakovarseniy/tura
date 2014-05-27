@@ -60,7 +60,7 @@ public class MessageCreateCommand extends EditElementCommand {
 		Message newElement = DomainFactory.eINSTANCE.createMessage();
 
 		MessageLibrary owner = (MessageLibrary) getElementToEdit();
-		owner.getMessage().add(newElement);
+		owner.getMessages().add(newElement);
 
 		newElement.setUid(java.util.UUID.randomUUID().toString());
 

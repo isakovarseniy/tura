@@ -40,8 +40,8 @@ public class DomainEditPartFactory implements EditPartFactory {
 			case MessageNameEditPart.VISUAL_ID:
 				return new MessageNameEditPart(view);
 
-			case MessageLibraryMessageLibraryMessageCompartmentEditPart.VISUAL_ID:
-				return new MessageLibraryMessageLibraryMessageCompartmentEditPart(
+			case MessageLibraryMessageLibraryMessagesCompartmentEditPart.VISUAL_ID:
+				return new MessageLibraryMessageLibraryMessagesCompartmentEditPart(
 						view);
 			}
 		}

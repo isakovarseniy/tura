@@ -12,13 +12,13 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 /**
  * @generated
  */
-public class MessageLibraryMessageLibraryMessageCompartmentItemSemanticEditPolicy
+public class MessageLibraryMessageLibraryMessagesCompartmentItemSemanticEditPolicy
 		extends DomainBaseItemSemanticEditPolicy {
 
 	/**
 	 * @generated
 	 */
-	public MessageLibraryMessageLibraryMessageCompartmentItemSemanticEditPolicy() {
+	public MessageLibraryMessageLibraryMessagesCompartmentItemSemanticEditPolicy() {
 		super(DomainElementTypes.MessageLibrary_1702001);
 	}
 
@@ -26,7 +26,7 @@ public class MessageLibraryMessageLibraryMessageCompartmentItemSemanticEditPolic
 	 * @generated
 	 */
 	protected Command getCreateCommand(CreateElementRequest req) {
-		if (DomainElementTypes.Message_1703001 == req.getElementType()) {
+		if (DomainElementTypes.Message_1703004 == req.getElementType()) {
 			return getGEFWrapper(new MessageCreateCommand(req));
 		}
 		return super.getCreateCommand(req);

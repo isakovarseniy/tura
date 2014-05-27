@@ -39,7 +39,7 @@ public class MessageEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 1703001;
+	public static final int VISUAL_ID = 1703004;
 
 	/**
 	 * @generated

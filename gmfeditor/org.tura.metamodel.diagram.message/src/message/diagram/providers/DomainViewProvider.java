@@ -5,7 +5,7 @@ package message.diagram.providers;
 
 import message.diagram.edit.parts.MessageEditPart;
 import message.diagram.edit.parts.MessageLibraryEditPart;
-import message.diagram.edit.parts.MessageLibraryMessageLibraryMessageCompartmentEditPart;
+import message.diagram.edit.parts.MessageLibraryMessageLibraryMessagesCompartmentEditPart;
 import message.diagram.edit.parts.MessageLibraryNameEditPart;
 import message.diagram.edit.parts.MessageNameEditPart;
 import message.diagram.edit.parts.MessagesEditPart;
@@ -212,7 +212,7 @@ public class DomainViewProvider extends AbstractProvider implements
 			return createMessageLibrary_1702001(domainElement, containerView,
 					index, persisted, preferencesHint);
 		case MessageEditPart.VISUAL_ID:
-			return createMessage_1703001(domainElement, containerView, index,
+			return createMessage_1703004(domainElement, containerView, index,
 					persisted, preferencesHint);
 		}
 		// can't happen, provided #provides(CreateNodeViewOperation) is correct
@@ -274,7 +274,7 @@ public class DomainViewProvider extends AbstractProvider implements
 		createCompartment(
 				node,
 				DomainVisualIDRegistry
-						.getType(MessageLibraryMessageLibraryMessageCompartmentEditPart.VISUAL_ID),
+						.getType(MessageLibraryMessageLibraryMessagesCompartmentEditPart.VISUAL_ID),
 				true, false, true, true);
 		return node;
 	}
@@ -282,7 +282,7 @@ public class DomainViewProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	public Node createMessage_1703001(EObject domainElement,
+	public Node createMessage_1703004(EObject domainElement,
 			View containerView, int index, boolean persisted,
 			PreferencesHint preferencesHint) {
 		Node node = NotationFactory.eINSTANCE.createNode();
@@ -310,7 +310,7 @@ public class DomainViewProvider extends AbstractProvider implements
 			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB)
 					.intValue());
 		}
-		Node label1705001 = createLabel(node,
+		Node label1705005 = createLabel(node,
 				DomainVisualIDRegistry.getType(MessageNameEditPart.VISUAL_ID));
 		return node;
 	}

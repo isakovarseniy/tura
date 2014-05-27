@@ -10,7 +10,7 @@ import java.util.List;
 
 import message.diagram.edit.parts.MessageEditPart;
 import message.diagram.edit.parts.MessageLibraryEditPart;
-import message.diagram.edit.parts.MessageLibraryMessageLibraryMessageCompartmentEditPart;
+import message.diagram.edit.parts.MessageLibraryMessageLibraryMessagesCompartmentEditPart;
 import message.diagram.edit.parts.MessagesEditPart;
 
 import org.eclipse.gmf.runtime.notation.View;
@@ -40,8 +40,8 @@ public class DomainDiagramUpdater {
 		switch (DomainVisualIDRegistry.getVisualID(view)) {
 		case MessagesEditPart.VISUAL_ID:
 			return getMessages_1701000SemanticChildren(view);
-		case MessageLibraryMessageLibraryMessageCompartmentEditPart.VISUAL_ID:
-			return getMessageLibraryMessageLibraryMessageCompartment_1707001SemanticChildren(view);
+		case MessageLibraryMessageLibraryMessagesCompartmentEditPart.VISUAL_ID:
+			return getMessageLibraryMessageLibraryMessagesCompartment_1707001SemanticChildren(view);
 		}
 		return Collections.emptyList();
 	}
@@ -72,7 +72,7 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<DomainNodeDescriptor> getMessageLibraryMessageLibraryMessageCompartment_1707001SemanticChildren(
+	public static List<DomainNodeDescriptor> getMessageLibraryMessageLibraryMessagesCompartment_1707001SemanticChildren(
 			View view) {
 		if (false == view.eContainer() instanceof View) {
 			return Collections.emptyList();
@@ -84,7 +84,7 @@ public class DomainDiagramUpdater {
 		MessageLibrary modelElement = (MessageLibrary) containerView
 				.getElement();
 		LinkedList<DomainNodeDescriptor> result = new LinkedList<DomainNodeDescriptor>();
-		for (Iterator<?> it = modelElement.getMessage().iterator(); it
+		for (Iterator<?> it = modelElement.getMessages().iterator(); it
 				.hasNext();) {
 			Message childElement = (Message) it.next();
 			int visualID = DomainVisualIDRegistry.getNodeVisualID(view,
@@ -107,7 +107,7 @@ public class DomainDiagramUpdater {
 		case MessageLibraryEditPart.VISUAL_ID:
 			return getMessageLibrary_1702001ContainedLinks(view);
 		case MessageEditPart.VISUAL_ID:
-			return getMessage_1703001ContainedLinks(view);
+			return getMessage_1703004ContainedLinks(view);
 		}
 		return Collections.emptyList();
 	}
@@ -120,7 +120,7 @@ public class DomainDiagramUpdater {
 		case MessageLibraryEditPart.VISUAL_ID:
 			return getMessageLibrary_1702001IncomingLinks(view);
 		case MessageEditPart.VISUAL_ID:
-			return getMessage_1703001IncomingLinks(view);
+			return getMessage_1703004IncomingLinks(view);
 		}
 		return Collections.emptyList();
 	}
@@ -133,7 +133,7 @@ public class DomainDiagramUpdater {
 		case MessageLibraryEditPart.VISUAL_ID:
 			return getMessageLibrary_1702001OutgoingLinks(view);
 		case MessageEditPart.VISUAL_ID:
-			return getMessage_1703001OutgoingLinks(view);
+			return getMessage_1703004OutgoingLinks(view);
 		}
 		return Collections.emptyList();
 	}
@@ -157,7 +157,7 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getMessage_1703001ContainedLinks(
+	public static List<DomainLinkDescriptor> getMessage_1703004ContainedLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -173,7 +173,7 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getMessage_1703001IncomingLinks(
+	public static List<DomainLinkDescriptor> getMessage_1703004IncomingLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -189,7 +189,7 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getMessage_1703001OutgoingLinks(
+	public static List<DomainLinkDescriptor> getMessage_1703004OutgoingLinks(
 			View view) {
 		return Collections.emptyList();
 	}

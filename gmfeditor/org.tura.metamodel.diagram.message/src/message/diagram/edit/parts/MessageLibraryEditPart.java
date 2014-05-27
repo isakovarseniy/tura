@@ -135,11 +135,11 @@ public class MessageLibraryEditPart extends ShapeNodeEditPart {
 							.getFigureMessageLibraryLabelFigure());
 			return true;
 		}
-		if (childEditPart instanceof MessageLibraryMessageLibraryMessageCompartmentEditPart) {
+		if (childEditPart instanceof MessageLibraryMessageLibraryMessagesCompartmentEditPart) {
 			IFigure pane = getPrimaryShape()
-					.getMessageLibraryMessageCompartmentFigure();
+					.getMessageLibraryMessagesCompartmentFigure();
 			setupContentPane(pane); // FIXME each comparment should handle his content pane in his own way 
-			pane.add(((MessageLibraryMessageLibraryMessageCompartmentEditPart) childEditPart)
+			pane.add(((MessageLibraryMessageLibraryMessagesCompartmentEditPart) childEditPart)
 					.getFigure());
 			return true;
 		}
@@ -153,10 +153,10 @@ public class MessageLibraryEditPart extends ShapeNodeEditPart {
 		if (childEditPart instanceof MessageLibraryNameEditPart) {
 			return true;
 		}
-		if (childEditPart instanceof MessageLibraryMessageLibraryMessageCompartmentEditPart) {
+		if (childEditPart instanceof MessageLibraryMessageLibraryMessagesCompartmentEditPart) {
 			IFigure pane = getPrimaryShape()
-					.getMessageLibraryMessageCompartmentFigure();
-			pane.remove(((MessageLibraryMessageLibraryMessageCompartmentEditPart) childEditPart)
+					.getMessageLibraryMessagesCompartmentFigure();
+			pane.remove(((MessageLibraryMessageLibraryMessagesCompartmentEditPart) childEditPart)
 					.getFigure());
 			return true;
 		}
@@ -187,9 +187,9 @@ public class MessageLibraryEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected IFigure getContentPaneFor(IGraphicalEditPart editPart) {
-		if (editPart instanceof MessageLibraryMessageLibraryMessageCompartmentEditPart) {
+		if (editPart instanceof MessageLibraryMessageLibraryMessagesCompartmentEditPart) {
 			return getPrimaryShape()
-					.getMessageLibraryMessageCompartmentFigure();
+					.getMessageLibraryMessagesCompartmentFigure();
 		}
 		return getContentPane();
 	}
@@ -298,9 +298,9 @@ public class MessageLibraryEditPart extends ShapeNodeEditPart {
 					.getCreateElementRequestAdapter();
 			IElementType type = (IElementType) adapter
 					.getAdapter(IElementType.class);
-			if (type == DomainElementTypes.Message_1703001) {
+			if (type == DomainElementTypes.Message_1703004) {
 				return getChildBySemanticHint(DomainVisualIDRegistry
-						.getType(MessageLibraryMessageLibraryMessageCompartmentEditPart.VISUAL_ID));
+						.getType(MessageLibraryMessageLibraryMessagesCompartmentEditPart.VISUAL_ID));
 			}
 		}
 		return super.getTargetEditPart(request);
@@ -331,7 +331,7 @@ public class MessageLibraryEditPart extends ShapeNodeEditPart {
 		/**
 		 * @generated
 		 */
-		private RectangleFigure fMessageLibraryMessageCompartmentFigure;
+		private RectangleFigure fMessageLibraryMessagesCompartmentFigure;
 
 		/**
 		 * @generated
@@ -364,11 +364,11 @@ public class MessageLibraryEditPart extends ShapeNodeEditPart {
 
 			this.add(fFigureMessageLibraryLabelFigure);
 
-			fMessageLibraryMessageCompartmentFigure = new RectangleFigure();
+			fMessageLibraryMessagesCompartmentFigure = new RectangleFigure();
 
-			fMessageLibraryMessageCompartmentFigure.setOutline(false);
+			fMessageLibraryMessagesCompartmentFigure.setOutline(false);
 
-			this.add(fMessageLibraryMessageCompartmentFigure);
+			this.add(fMessageLibraryMessagesCompartmentFigure);
 
 		}
 
@@ -382,8 +382,8 @@ public class MessageLibraryEditPart extends ShapeNodeEditPart {
 		/**
 		 * @generated
 		 */
-		public RectangleFigure getMessageLibraryMessageCompartmentFigure() {
-			return fMessageLibraryMessageCompartmentFigure;
+		public RectangleFigure getMessageLibraryMessagesCompartmentFigure() {
+			return fMessageLibraryMessagesCompartmentFigure;
 		}
 
 	}

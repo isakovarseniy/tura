@@ -265,7 +265,7 @@ class MessageLibrary{
     id attr EString uid;
     attr EString name;
     @gmf.compartment(layout="list")
-    val Message[*] message;
+    val Message[*] messages ;
 }
 
 

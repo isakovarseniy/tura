@@ -12,7 +12,7 @@ import java.util.LinkedList;
 
 import message.diagram.edit.parts.MessageEditPart;
 import message.diagram.edit.parts.MessageLibraryEditPart;
-import message.diagram.edit.parts.MessageLibraryMessageLibraryMessageCompartmentEditPart;
+import message.diagram.edit.parts.MessageLibraryMessageLibraryMessagesCompartmentEditPart;
 import message.diagram.edit.parts.MessagesEditPart;
 import message.diagram.part.DomainVisualIDRegistry;
 
@@ -256,7 +256,7 @@ public class DomainNavigatorContentProvider implements ICommonContentProvider {
 			connectedViews = getChildrenByType(
 					Collections.singleton(sv),
 					DomainVisualIDRegistry
-							.getType(MessageLibraryMessageLibraryMessageCompartmentEditPart.VISUAL_ID));
+							.getType(MessageLibraryMessageLibraryMessagesCompartmentEditPart.VISUAL_ID));
 			connectedViews = getChildrenByType(connectedViews,
 					DomainVisualIDRegistry.getType(MessageEditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement,

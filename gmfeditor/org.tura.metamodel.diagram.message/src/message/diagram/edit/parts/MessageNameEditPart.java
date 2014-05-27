@@ -61,7 +61,7 @@ public class MessageNameEditPart extends CompartmentEditPart implements
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 1705001;
+	public static final int VISUAL_ID = 1705005;
 
 	/**
 	 * @generated
@@ -313,7 +313,7 @@ public class MessageNameEditPart extends CompartmentEditPart implements
 		if (parser == null) {
 			parser = DomainParserProvider
 					.getParser(
-							DomainElementTypes.Message_1703001,
+							DomainElementTypes.Message_1703004,
 							getParserElement(),
 							DomainVisualIDRegistry
 									.getType(message.diagram.edit.parts.MessageNameEditPart.VISUAL_ID));

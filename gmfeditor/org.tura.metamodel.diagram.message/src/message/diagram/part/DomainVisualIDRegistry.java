@@ -5,7 +5,7 @@ package message.diagram.part;
 
 import message.diagram.edit.parts.MessageEditPart;
 import message.diagram.edit.parts.MessageLibraryEditPart;
-import message.diagram.edit.parts.MessageLibraryMessageLibraryMessageCompartmentEditPart;
+import message.diagram.edit.parts.MessageLibraryMessageLibraryMessagesCompartmentEditPart;
 import message.diagram.edit.parts.MessageLibraryNameEditPart;
 import message.diagram.edit.parts.MessageNameEditPart;
 import message.diagram.edit.parts.MessagesEditPart;
@@ -134,7 +134,7 @@ public class DomainVisualIDRegistry {
 				return MessageLibraryEditPart.VISUAL_ID;
 			}
 			break;
-		case MessageLibraryMessageLibraryMessageCompartmentEditPart.VISUAL_ID:
+		case MessageLibraryMessageLibraryMessagesCompartmentEditPart.VISUAL_ID:
 			if (DomainPackage.eINSTANCE.getMessage().isSuperTypeOf(
 					domainElement.eClass())) {
 				return MessageEditPart.VISUAL_ID;
@@ -175,7 +175,7 @@ public class DomainVisualIDRegistry {
 			if (MessageLibraryNameEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
-			if (MessageLibraryMessageLibraryMessageCompartmentEditPart.VISUAL_ID == nodeVisualID) {
+			if (MessageLibraryMessageLibraryMessagesCompartmentEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -184,7 +184,7 @@ public class DomainVisualIDRegistry {
 				return true;
 			}
 			break;
-		case MessageLibraryMessageLibraryMessageCompartmentEditPart.VISUAL_ID:
+		case MessageLibraryMessageLibraryMessagesCompartmentEditPart.VISUAL_ID:
 			if (MessageEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
@@ -231,7 +231,7 @@ public class DomainVisualIDRegistry {
 	 */
 	public static boolean isCompartmentVisualID(int visualID) {
 		switch (visualID) {
-		case MessageLibraryMessageLibraryMessageCompartmentEditPart.VISUAL_ID:
+		case MessageLibraryMessageLibraryMessagesCompartmentEditPart.VISUAL_ID:
 			return true;
 		default:
 			break;

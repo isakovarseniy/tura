@@ -50,19 +50,19 @@ public class DomainParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	private IParser messageName_1705001Parser;
+	private IParser messageName_1705005Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getMessageName_1705001Parser() {
-		if (messageName_1705001Parser == null) {
+	private IParser getMessageName_1705005Parser() {
+		if (messageName_1705005Parser == null) {
 			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE
 					.getMessage_Name() };
 			MessageFormatParser parser = new MessageFormatParser(features);
-			messageName_1705001Parser = parser;
+			messageName_1705005Parser = parser;
 		}
-		return messageName_1705001Parser;
+		return messageName_1705005Parser;
 	}
 
 	/**
@@ -73,7 +73,7 @@ public class DomainParserProvider extends AbstractProvider implements
 		case MessageLibraryNameEditPart.VISUAL_ID:
 			return getMessageLibraryName_1705002Parser();
 		case MessageNameEditPart.VISUAL_ID:
-			return getMessageName_1705001Parser();
+			return getMessageName_1705005Parser();
 		}
 		return null;
 	}

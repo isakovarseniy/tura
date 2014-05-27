@@ -34,7 +34,7 @@ import domain.DomainPackage;
 /**
  * @generated
  */
-public class MessageLibraryMessageLibraryMessageCompartmentCanonicalEditPolicy
+public class MessageLibraryMessageLibraryMessagesCompartmentCanonicalEditPolicy
 		extends CanonicalEditPolicy {
 
 	/**
@@ -53,7 +53,7 @@ public class MessageLibraryMessageLibraryMessageCompartmentCanonicalEditPolicy
 	 * @generated
 	 */
 	protected EStructuralFeature getFeatureToSynchronize() {
-		return DomainPackage.eINSTANCE.getMessageLibrary_Message();
+		return DomainPackage.eINSTANCE.getMessageLibrary_Messages();
 	}
 
 	/**
@@ -64,7 +64,7 @@ public class MessageLibraryMessageLibraryMessageCompartmentCanonicalEditPolicy
 		View viewObject = (View) getHost().getModel();
 		LinkedList<EObject> result = new LinkedList<EObject>();
 		List<DomainNodeDescriptor> childDescriptors = DomainDiagramUpdater
-				.getMessageLibraryMessageLibraryMessageCompartment_1707001SemanticChildren(viewObject);
+				.getMessageLibraryMessageLibraryMessagesCompartment_1707001SemanticChildren(viewObject);
 		for (DomainNodeDescriptor d : childDescriptors) {
 			result.add(d.getModelElement());
 		}
@@ -97,7 +97,7 @@ public class MessageLibraryMessageLibraryMessageCompartmentCanonicalEditPolicy
 		}
 		LinkedList<IAdaptable> createdViews = new LinkedList<IAdaptable>();
 		List<DomainNodeDescriptor> childDescriptors = DomainDiagramUpdater
-				.getMessageLibraryMessageLibraryMessageCompartment_1707001SemanticChildren((View) getHost()
+				.getMessageLibraryMessageLibraryMessagesCompartment_1707001SemanticChildren((View) getHost()
 						.getModel());
 		LinkedList<View> orphaned = new LinkedList<View>();
 		// we care to check only views we recognize as ours

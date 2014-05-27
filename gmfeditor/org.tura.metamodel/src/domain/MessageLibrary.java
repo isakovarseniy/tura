@@ -16,7 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link domain.MessageLibrary#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.MessageLibrary#getName <em>Name</em>}</li>
- *   <li>{@link domain.MessageLibrary#getMessage <em>Message</em>}</li>
+ *   <li>{@link domain.MessageLibrary#getMessages <em>Messages</em>}</li>
  * </ul>
  * </p>
  *
@@ -79,20 +79,20 @@ public interface MessageLibrary extends EObject
   void setName(String value);
 
   /**
-   * Returns the value of the '<em><b>Message</b></em>' containment reference list.
+   * Returns the value of the '<em><b>Messages</b></em>' containment reference list.
    * The list contents are of type {@link domain.Message}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Message</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>Messages</em>' containment reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Message</em>' containment reference list.
-   * @see domain.DomainPackage#getMessageLibrary_Message()
+   * @return the value of the '<em>Messages</em>' containment reference list.
+   * @see domain.DomainPackage#getMessageLibrary_Messages()
    * @model containment="true"
    *        annotation="gmf.compartment layout='list'"
    * @generated
    */
-  EList<Message> getMessage();
+  EList<Message> getMessages();
 
 } // MessageLibrary

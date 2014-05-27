@@ -27,7 +27,7 @@
       <children
           compartment="//@nodes.0/@ownedChild/@compartments.0">
         <containmentFeature
-            href="domain.ecore#//MessageLibrary/message"/>
+            href="domain.ecore#//MessageLibrary/messages"/>
         <ownedChild>
           <domainMetaElement
               href="domain.ecore#//Message"/>
@@ -48,7 +48,7 @@
       <compartments
           children="//@nodes.0/@ownedChild/@children.0">
         <compartment
-            href="domain.gmfgraph#MessageLibraryMessageCompartment"/>
+            href="domain.gmfgraph#MessageLibraryMessagesCompartment"/>
       </compartments>
     </ownedChild>
   </nodes>

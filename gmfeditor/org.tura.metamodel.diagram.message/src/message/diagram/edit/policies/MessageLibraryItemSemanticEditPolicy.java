@@ -6,7 +6,7 @@ package message.diagram.edit.policies;
 import java.util.Iterator;
 
 import message.diagram.edit.parts.MessageEditPart;
-import message.diagram.edit.parts.MessageLibraryMessageLibraryMessageCompartmentEditPart;
+import message.diagram.edit.parts.MessageLibraryMessageLibraryMessagesCompartmentEditPart;
 import message.diagram.part.DomainVisualIDRegistry;
 import message.diagram.providers.DomainElementTypes;
 
@@ -62,7 +62,7 @@ public class MessageLibraryItemSemanticEditPolicy extends
 		for (Iterator<?> nit = view.getChildren().iterator(); nit.hasNext();) {
 			Node node = (Node) nit.next();
 			switch (DomainVisualIDRegistry.getVisualID(node)) {
-			case MessageLibraryMessageLibraryMessageCompartmentEditPart.VISUAL_ID:
+			case MessageLibraryMessageLibraryMessagesCompartmentEditPart.VISUAL_ID:
 				for (Iterator<?> cit = node.getChildren().iterator(); cit
 						.hasNext();) {
 					Node cnode = (Node) cit.next();

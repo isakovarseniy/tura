@@ -133,7 +133,7 @@ public class MessageLibraryItemProvider
     if (childrenFeatures == null)
     {
       super.getChildrenFeatures(object);
-      childrenFeatures.add(DomainPackage.Literals.MESSAGE_LIBRARY__MESSAGE);
+      childrenFeatures.add(DomainPackage.Literals.MESSAGE_LIBRARY__MESSAGES);
     }
     return childrenFeatures;
   }
@@ -197,7 +197,7 @@ public class MessageLibraryItemProvider
       case DomainPackage.MESSAGE_LIBRARY__NAME:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
         return;
-      case DomainPackage.MESSAGE_LIBRARY__MESSAGE:
+      case DomainPackage.MESSAGE_LIBRARY__MESSAGES:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
         return;
     }
@@ -218,7 +218,7 @@ public class MessageLibraryItemProvider
 
     newChildDescriptors.add
       (createChildParameter
-        (DomainPackage.Literals.MESSAGE_LIBRARY__MESSAGE,
+        (DomainPackage.Literals.MESSAGE_LIBRARY__MESSAGES,
          DomainFactory.eINSTANCE.createMessage()));
   }
 

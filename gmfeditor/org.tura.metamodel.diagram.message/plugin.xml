@@ -258,7 +258,7 @@
          </object>
          <context viewClass="org.eclipse.gmf.runtime.notation.Node" containerViews="referencing-diagrams"/>
          <context viewClass="org.eclipse.gmf.runtime.notation.Diagram" semanticHints="Message"/>
-         <context viewClass="org.eclipse.gmf.runtime.notation.Node" semanticHints="1702001,1703001"/>
+         <context viewClass="org.eclipse.gmf.runtime.notation.Node" semanticHints="1702001,1703004"/>
          <context viewClass="org.eclipse.gmf.runtime.notation.Edge" semanticHints=""/>
       </viewProvider>
    </extension>
@@ -271,13 +271,13 @@
             <method name="getType()" value="Message"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-nodes">
-            <method name="getType()" value="1702001,1703001"/>
+            <method name="getType()" value="1702001,1703004"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Edge" id="generated-links">
             <method name="getType()" value=""/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-labels">
-            <method name="getType()" value="1705002,1705001"/>
+            <method name="getType()" value="1705002,1705005"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-compartments">
             <method name="getType()" value="1707001"/>
@@ -345,12 +345,12 @@
       </metamodel>
       <metamodel nsURI="http://tura.org/2013/v1/domain">
          <metamodelType
-               id="org.tura.metamodel.diagram.message.Message_1703001"
-               name="%metatype.name.Message_1703001"
+               id="org.tura.metamodel.diagram.message.Message_1703004"
+               name="%metatype.name.Message_1703004"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
                eclass="Message"
                edithelper="message.diagram.edit.helpers.MessageEditHelper">
-            <param name="semanticHint" value="1703001"/>
+            <param name="semanticHint" value="1703004"/>
          </metamodelType>
       </metamodel>
    </extension>
@@ -371,7 +371,7 @@
       <binding context="SharedClientContext">
          <elementType ref="org.tura.metamodel.diagram.message.Messages_1701000"/>
          <elementType ref="org.tura.metamodel.diagram.message.MessageLibrary_1702001"/>
-         <elementType ref="org.tura.metamodel.diagram.message.Message_1703001"/>
+         <elementType ref="org.tura.metamodel.diagram.message.Message_1703004"/>
          <advice ref="org.eclipse.gmf.runtime.diagram.core.advice.notationDepdendents"/>
       </binding>
    </extension>

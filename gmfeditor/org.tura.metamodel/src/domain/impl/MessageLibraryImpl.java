@@ -31,7 +31,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link domain.impl.MessageLibraryImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.impl.MessageLibraryImpl#getName <em>Name</em>}</li>
- *   <li>{@link domain.impl.MessageLibraryImpl#getMessage <em>Message</em>}</li>
+ *   <li>{@link domain.impl.MessageLibraryImpl#getMessages <em>Messages</em>}</li>
  * </ul>
  * </p>
  *
@@ -80,14 +80,14 @@ public class MessageLibraryImpl extends EObjectImpl implements MessageLibrary
   protected String name = NAME_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getMessage() <em>Message</em>}' containment reference list.
+   * The cached value of the '{@link #getMessages() <em>Messages</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getMessage()
+   * @see #getMessages()
    * @generated
    * @ordered
    */
-  protected EList<Message> message;
+  protected EList<Message> messages;
 
   /**
    * <!-- begin-user-doc -->
@@ -161,13 +161,13 @@ public class MessageLibraryImpl extends EObjectImpl implements MessageLibrary
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Message> getMessage()
+  public EList<Message> getMessages()
   {
-    if (message == null)
+    if (messages == null)
     {
-      message = new EObjectContainmentEList<Message>(Message.class, this, DomainPackage.MESSAGE_LIBRARY__MESSAGE);
+      messages = new EObjectContainmentEList<Message>(Message.class, this, DomainPackage.MESSAGE_LIBRARY__MESSAGES);
     }
-    return message;
+    return messages;
   }
 
   /**
@@ -180,8 +180,8 @@ public class MessageLibraryImpl extends EObjectImpl implements MessageLibrary
   {
     switch (featureID)
     {
-      case DomainPackage.MESSAGE_LIBRARY__MESSAGE:
-        return ((InternalEList<?>)getMessage()).basicRemove(otherEnd, msgs);
+      case DomainPackage.MESSAGE_LIBRARY__MESSAGES:
+        return ((InternalEList<?>)getMessages()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -200,8 +200,8 @@ public class MessageLibraryImpl extends EObjectImpl implements MessageLibrary
         return getUid();
       case DomainPackage.MESSAGE_LIBRARY__NAME:
         return getName();
-      case DomainPackage.MESSAGE_LIBRARY__MESSAGE:
-        return getMessage();
+      case DomainPackage.MESSAGE_LIBRARY__MESSAGES:
+        return getMessages();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -223,9 +223,9 @@ public class MessageLibraryImpl extends EObjectImpl implements MessageLibrary
       case DomainPackage.MESSAGE_LIBRARY__NAME:
         setName((String)newValue);
         return;
-      case DomainPackage.MESSAGE_LIBRARY__MESSAGE:
-        getMessage().clear();
-        getMessage().addAll((Collection<? extends Message>)newValue);
+      case DomainPackage.MESSAGE_LIBRARY__MESSAGES:
+        getMessages().clear();
+        getMessages().addAll((Collection<? extends Message>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -247,8 +247,8 @@ public class MessageLibraryImpl extends EObjectImpl implements MessageLibrary
       case DomainPackage.MESSAGE_LIBRARY__NAME:
         setName(NAME_EDEFAULT);
         return;
-      case DomainPackage.MESSAGE_LIBRARY__MESSAGE:
-        getMessage().clear();
+      case DomainPackage.MESSAGE_LIBRARY__MESSAGES:
+        getMessages().clear();
         return;
     }
     super.eUnset(featureID);
@@ -268,8 +268,8 @@ public class MessageLibraryImpl extends EObjectImpl implements MessageLibrary
         return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
       case DomainPackage.MESSAGE_LIBRARY__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-      case DomainPackage.MESSAGE_LIBRARY__MESSAGE:
-        return message != null && !message.isEmpty();
+      case DomainPackage.MESSAGE_LIBRARY__MESSAGES:
+        return messages != null && !messages.isEmpty();
     }
     return super.eIsSet(featureID);
   }

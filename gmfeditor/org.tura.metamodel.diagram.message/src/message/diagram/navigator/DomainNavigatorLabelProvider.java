@@ -107,7 +107,7 @@ public class DomainNavigatorLabelProvider extends LabelProvider implements
 					"Navigator?TopLevelNode?http://tura.org/2013/v1/domain?MessageLibrary", DomainElementTypes.MessageLibrary_1702001); //$NON-NLS-1$
 		case MessageEditPart.VISUAL_ID:
 			return getImage(
-					"Navigator?Node?http://tura.org/2013/v1/domain?Message", DomainElementTypes.Message_1703001); //$NON-NLS-1$
+					"Navigator?Node?http://tura.org/2013/v1/domain?Message", DomainElementTypes.Message_1703004); //$NON-NLS-1$
 		}
 		return getImage("Navigator?UnknownElement", null); //$NON-NLS-1$
 	}
@@ -173,7 +173,7 @@ public class DomainNavigatorLabelProvider extends LabelProvider implements
 		case MessageLibraryEditPart.VISUAL_ID:
 			return getMessageLibrary_1702001Text(view);
 		case MessageEditPart.VISUAL_ID:
-			return getMessage_1703001Text(view);
+			return getMessage_1703004Text(view);
 		}
 		return getUnknownElementText(view);
 	}
@@ -215,9 +215,9 @@ public class DomainNavigatorLabelProvider extends LabelProvider implements
 	/**
 	 * @generated
 	 */
-	private String getMessage_1703001Text(View view) {
+	private String getMessage_1703004Text(View view) {
 		IParser parser = DomainParserProvider.getParser(
-				DomainElementTypes.Message_1703001,
+				DomainElementTypes.Message_1703004,
 				view.getElement() != null ? view.getElement() : view,
 				DomainVisualIDRegistry.getType(MessageNameEditPart.VISUAL_ID));
 		if (parser != null) {
@@ -226,7 +226,7 @@ public class DomainNavigatorLabelProvider extends LabelProvider implements
 					ParserOptions.NONE.intValue());
 		} else {
 			DomainDiagramEditorPlugin.getInstance().logError(
-					"Parser was not found for label " + 1705001); //$NON-NLS-1$
+					"Parser was not found for label " + 1705005); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 	}

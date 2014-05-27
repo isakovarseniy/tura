@@ -18,7 +18,7 @@ public class MessageLibraryProvider implements IWorkbenchAdapter,
 	public Object[] getChildren(Object o) {
 		ArrayList<Object> ls = new ArrayList<>();
 		domain.MessageLibrary opr = (domain.MessageLibrary) o;
-		for (Iterator<domain.Message> itr = opr.getMessage().iterator(); itr
+		for (Iterator<domain.Message> itr = opr.getMessages().iterator(); itr
 				.hasNext();) {
 			domain.Message t = itr.next();
 			if (t.getName() != null)
