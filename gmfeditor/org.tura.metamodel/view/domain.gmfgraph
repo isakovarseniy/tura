@@ -1022,14 +1022,14 @@
           </children>
           <children
               xsi:type="gmfgraph:Rectangle"
-              name="MessageLibraryMessageCompartmentFigure"
+              name="MessageLibraryMessagesCompartmentFigure"
               outline="false"/>
         </actualFigure>
         <accessors
             accessor="getFigureMessageLibraryLabelFigure"
             figure="/0/@figures.0/@descriptors.24/@actualFigure/@children.0"/>
         <accessors
-            accessor="getMessageLibraryMessageCompartmentFigure"
+            accessor="getMessageLibraryMessagesCompartmentFigure"
             figure="/0/@figures.0/@descriptors.24/@actualFigure/@children.1"/>
       </descriptors>
       <descriptors
@@ -4203,7 +4203,7 @@
         collapsible="true"
         accessor="/0/@figures.0/@descriptors.22/@accessors.1"/>
     <compartments
-        name="MessageLibraryMessageCompartment"
+        name="MessageLibraryMessagesCompartment"
         figure="MessageLibraryFigure"
         collapsible="true"
         accessor="/0/@figures.0/@descriptors.24/@accessors.1"/>
