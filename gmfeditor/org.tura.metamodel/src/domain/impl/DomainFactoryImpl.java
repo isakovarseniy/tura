@@ -80,6 +80,7 @@ import domain.JavaMapper;
 import domain.JavaScriptMapper;
 import domain.Label;
 import domain.Language;
+import domain.LanguageRef;
 import domain.LayerHolder;
 import domain.Link;
 import domain.Mapper;
@@ -257,6 +258,7 @@ public class DomainFactoryImpl extends EFactoryImpl implements DomainFactory
       case DomainPackage.METHOD_POINTER: return createMethodPointer();
       case DomainPackage.MESSAGES: return createMessages();
       case DomainPackage.MESSAGE_LIBRARY: return createMessageLibrary();
+      case DomainPackage.LANGUAGE_REF: return createLanguageRef();
       case DomainPackage.MESSAGE: return createMessage();
       case DomainPackage.TRANSLATION: return createTranslation();
       case DomainPackage.LANGUAGE: return createLanguage();
@@ -773,6 +775,17 @@ public class DomainFactoryImpl extends EFactoryImpl implements DomainFactory
   {
     MessageLibraryImpl messageLibrary = new MessageLibraryImpl();
     return messageLibrary;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public LanguageRef createLanguageRef()
+  {
+    LanguageRefImpl languageRef = new LanguageRefImpl();
+    return languageRef;
   }
 
   /**

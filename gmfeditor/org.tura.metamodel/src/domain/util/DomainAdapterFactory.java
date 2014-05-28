@@ -79,6 +79,7 @@ import domain.JavaMapper;
 import domain.JavaScriptMapper;
 import domain.Label;
 import domain.Language;
+import domain.LanguageRef;
 import domain.LayerHolder;
 import domain.Link;
 import domain.Mapper;
@@ -391,6 +392,11 @@ public class DomainAdapterFactory extends AdapterFactoryImpl
       public Adapter caseMessageLibrary(MessageLibrary object)
       {
         return createMessageLibraryAdapter();
+      }
+      @Override
+      public Adapter caseLanguageRef(LanguageRef object)
+      {
+        return createLanguageRefAdapter();
       }
       @Override
       public Adapter caseMessage(Message object)
@@ -1525,6 +1531,21 @@ public class DomainAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createMessageLibraryAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link domain.LanguageRef <em>Language Ref</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see domain.LanguageRef
+   * @generated
+   */
+  public Adapter createLanguageRefAdapter()
   {
     return null;
   }

@@ -80,6 +80,7 @@ import domain.JavaMapper;
 import domain.JavaScriptMapper;
 import domain.Label;
 import domain.Language;
+import domain.LanguageRef;
 import domain.LayerHolder;
 import domain.Link;
 import domain.Mapper;
@@ -403,6 +404,13 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * @generated
    */
   private EClass messageLibraryEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass languageRefEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -2788,9 +2796,49 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getMessageLibrary_Messages()
+  public EReference getMessageLibrary_LibLanguages()
   {
     return (EReference)messageLibraryEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getMessageLibrary_Messages()
+  {
+    return (EReference)messageLibraryEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getLanguageRef()
+  {
+    return languageRefEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getLanguageRef_Uid()
+  {
+    return (EAttribute)languageRefEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getLanguageRef_Lang()
+  {
+    return (EReference)languageRefEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -7566,7 +7614,12 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     messageLibraryEClass = createEClass(MESSAGE_LIBRARY);
     createEAttribute(messageLibraryEClass, MESSAGE_LIBRARY__UID);
     createEAttribute(messageLibraryEClass, MESSAGE_LIBRARY__NAME);
+    createEReference(messageLibraryEClass, MESSAGE_LIBRARY__LIB_LANGUAGES);
     createEReference(messageLibraryEClass, MESSAGE_LIBRARY__MESSAGES);
+
+    languageRefEClass = createEClass(LANGUAGE_REF);
+    createEAttribute(languageRefEClass, LANGUAGE_REF__UID);
+    createEReference(languageRefEClass, LANGUAGE_REF__LANG);
 
     messageEClass = createEClass(MESSAGE);
     createEAttribute(messageEClass, MESSAGE__UID);
@@ -8454,7 +8507,12 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     initEClass(messageLibraryEClass, MessageLibrary.class, "MessageLibrary", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getMessageLibrary_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, MessageLibrary.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getMessageLibrary_Name(), ecorePackage.getEString(), "name", null, 0, 1, MessageLibrary.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getMessageLibrary_LibLanguages(), this.getLanguageRef(), null, "libLanguages", null, 0, -1, MessageLibrary.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getMessageLibrary_Messages(), this.getMessage(), null, "messages", null, 0, -1, MessageLibrary.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(languageRefEClass, LanguageRef.class, "LanguageRef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getLanguageRef_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, LanguageRef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getLanguageRef_Lang(), this.getLanguage(), null, "lang", null, 0, 1, LanguageRef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(messageEClass, Message.class, "Message", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getMessage_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, Message.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -8464,7 +8522,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     initEClass(translationEClass, Translation.class, "Translation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getTranslation_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, Translation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getTranslation_Translation(), ecorePackage.getEString(), "translation", null, 0, 1, Translation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getTranslation_Lang(), this.getLanguage(), null, "lang", null, 0, 1, Translation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getTranslation_Lang(), this.getLanguageRef(), null, "lang", null, 0, 1, Translation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(languageEClass, Language.class, "Language", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getLanguage_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, Language.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

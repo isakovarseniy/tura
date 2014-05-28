@@ -16,6 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link domain.MessageLibrary#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.MessageLibrary#getName <em>Name</em>}</li>
+ *   <li>{@link domain.MessageLibrary#getLibLanguages <em>Lib Languages</em>}</li>
  *   <li>{@link domain.MessageLibrary#getMessages <em>Messages</em>}</li>
  * </ul>
  * </p>
@@ -77,6 +78,22 @@ public interface MessageLibrary extends EObject
    * @generated
    */
   void setName(String value);
+
+  /**
+   * Returns the value of the '<em><b>Lib Languages</b></em>' containment reference list.
+   * The list contents are of type {@link domain.LanguageRef}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Lib Languages</em>' reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Lib Languages</em>' containment reference list.
+   * @see domain.DomainPackage#getMessageLibrary_LibLanguages()
+   * @model containment="true"
+   * @generated
+   */
+  EList<LanguageRef> getLibLanguages();
 
   /**
    * Returns the value of the '<em><b>Messages</b></em>' containment reference list.

@@ -445,6 +445,14 @@
       <extension point="org.eclipse.ui.views.properties.tabbed.propertyTabs" id="org.tura.metamodel.diagram.messages.proptabs">
       <?gmfgen generated="true"?>   
       <propertyTabs contributorId="org.tura.metamodel.diagram.message">
+
+          <propertyTab
+             category="domain"
+             id="property.tab.domain.messages.lang"
+             label="Library languagies"/>
+
+
+
           <propertyTab
              category="domain"
              id="property.tab.domain.messages.translation"
@@ -456,6 +464,14 @@
       <?gmfgen generated="true"?>   
  
       <propertySections contributorId="org.tura.metamodel.diagram.message">
+
+            <propertySection
+               tab="property.tab.domain.messages.lang"
+               class="org.metamodel.tura.ui.properties.sections.grid.impl.AvailableLanguagesPropertySelection"
+               id="org.tura.metamodel.diagram.message.lanl">
+              <input type="message.diagram.edit.parts.MessageLibraryEditPart"/>
+           </propertySection>        
+
 
             <propertySection
                tab="property.tab.domain.messages.translation"

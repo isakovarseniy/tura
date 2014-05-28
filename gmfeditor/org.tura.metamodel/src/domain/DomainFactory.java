@@ -311,6 +311,15 @@ public interface DomainFactory extends EFactory
   MessageLibrary createMessageLibrary();
 
   /**
+   * Returns a new object of class '<em>Language Ref</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Language Ref</em>'.
+   * @generated
+   */
+  LanguageRef createLanguageRef();
+
+  /**
    * Returns a new object of class '<em>Message</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

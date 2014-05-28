@@ -264,10 +264,15 @@ class Messages{
 class MessageLibrary{
     id attr EString uid;
     attr EString name;
+    val LanguageRef[*] libLanguages;
     @gmf.compartment(layout="list")
     val Message[*] messages ;
 }
 
+class LanguageRef{
+    id attr EString uid;
+    ref Language lang; 
+}
 
 @gmf.node(label="name",border.color="0,0,0",color="255,237,85")
 class Message{
@@ -279,7 +284,7 @@ class Message{
 class Translation{
     id attr EString uid;
     attr EString translation;
-    ref Language lang;
+    ref LanguageRef lang;
 }
 
 

@@ -79,6 +79,7 @@ import domain.JavaMapper;
 import domain.JavaScriptMapper;
 import domain.Label;
 import domain.Language;
+import domain.LanguageRef;
 import domain.LayerHolder;
 import domain.Link;
 import domain.Mapper;
@@ -460,6 +461,13 @@ public class DomainSwitch<T> extends Switch<T>
       {
         MessageLibrary messageLibrary = (MessageLibrary)theEObject;
         T result = caseMessageLibrary(messageLibrary);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DomainPackage.LANGUAGE_REF:
+      {
+        LanguageRef languageRef = (LanguageRef)theEObject;
+        T result = caseLanguageRef(languageRef);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -2035,6 +2043,22 @@ public class DomainSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseMessageLibrary(MessageLibrary object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Language Ref</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Language Ref</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseLanguageRef(LanguageRef object)
   {
     return null;
   }

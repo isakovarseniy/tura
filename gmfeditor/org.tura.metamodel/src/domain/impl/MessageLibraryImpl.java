@@ -2,25 +2,22 @@
  */
 package domain.impl;
 
-import domain.DomainPackage;
-import domain.Message;
-import domain.MessageLibrary;
-
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
-
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
+
+import domain.DomainPackage;
+import domain.LanguageRef;
+import domain.Message;
+import domain.MessageLibrary;
 
 /**
  * <!-- begin-user-doc -->
@@ -31,6 +28,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link domain.impl.MessageLibraryImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.impl.MessageLibraryImpl#getName <em>Name</em>}</li>
+ *   <li>{@link domain.impl.MessageLibraryImpl#getLibLanguages <em>Lib Languages</em>}</li>
  *   <li>{@link domain.impl.MessageLibraryImpl#getMessages <em>Messages</em>}</li>
  * </ul>
  * </p>
@@ -78,6 +76,16 @@ public class MessageLibraryImpl extends EObjectImpl implements MessageLibrary
    * @ordered
    */
   protected String name = NAME_EDEFAULT;
+
+  /**
+   * The cached value of the '{@link #getLibLanguages() <em>Lib Languages</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getLibLanguages()
+   * @generated
+   * @ordered
+   */
+  protected EList<LanguageRef> libLanguages;
 
   /**
    * The cached value of the '{@link #getMessages() <em>Messages</em>}' containment reference list.
@@ -161,6 +169,20 @@ public class MessageLibraryImpl extends EObjectImpl implements MessageLibrary
    * <!-- end-user-doc -->
    * @generated
    */
+  public EList<LanguageRef> getLibLanguages()
+  {
+    if (libLanguages == null)
+    {
+      libLanguages = new EObjectContainmentEList<LanguageRef>(LanguageRef.class, this, DomainPackage.MESSAGE_LIBRARY__LIB_LANGUAGES);
+    }
+    return libLanguages;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EList<Message> getMessages()
   {
     if (messages == null)
@@ -180,6 +202,8 @@ public class MessageLibraryImpl extends EObjectImpl implements MessageLibrary
   {
     switch (featureID)
     {
+      case DomainPackage.MESSAGE_LIBRARY__LIB_LANGUAGES:
+        return ((InternalEList<?>)getLibLanguages()).basicRemove(otherEnd, msgs);
       case DomainPackage.MESSAGE_LIBRARY__MESSAGES:
         return ((InternalEList<?>)getMessages()).basicRemove(otherEnd, msgs);
     }
@@ -200,6 +224,8 @@ public class MessageLibraryImpl extends EObjectImpl implements MessageLibrary
         return getUid();
       case DomainPackage.MESSAGE_LIBRARY__NAME:
         return getName();
+      case DomainPackage.MESSAGE_LIBRARY__LIB_LANGUAGES:
+        return getLibLanguages();
       case DomainPackage.MESSAGE_LIBRARY__MESSAGES:
         return getMessages();
     }
@@ -222,6 +248,10 @@ public class MessageLibraryImpl extends EObjectImpl implements MessageLibrary
         return;
       case DomainPackage.MESSAGE_LIBRARY__NAME:
         setName((String)newValue);
+        return;
+      case DomainPackage.MESSAGE_LIBRARY__LIB_LANGUAGES:
+        getLibLanguages().clear();
+        getLibLanguages().addAll((Collection<? extends LanguageRef>)newValue);
         return;
       case DomainPackage.MESSAGE_LIBRARY__MESSAGES:
         getMessages().clear();
@@ -247,6 +277,9 @@ public class MessageLibraryImpl extends EObjectImpl implements MessageLibrary
       case DomainPackage.MESSAGE_LIBRARY__NAME:
         setName(NAME_EDEFAULT);
         return;
+      case DomainPackage.MESSAGE_LIBRARY__LIB_LANGUAGES:
+        getLibLanguages().clear();
+        return;
       case DomainPackage.MESSAGE_LIBRARY__MESSAGES:
         getMessages().clear();
         return;
@@ -268,6 +301,8 @@ public class MessageLibraryImpl extends EObjectImpl implements MessageLibrary
         return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
       case DomainPackage.MESSAGE_LIBRARY__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+      case DomainPackage.MESSAGE_LIBRARY__LIB_LANGUAGES:
+        return libLanguages != null && !libLanguages.isEmpty();
       case DomainPackage.MESSAGE_LIBRARY__MESSAGES:
         return messages != null && !messages.isEmpty();
     }

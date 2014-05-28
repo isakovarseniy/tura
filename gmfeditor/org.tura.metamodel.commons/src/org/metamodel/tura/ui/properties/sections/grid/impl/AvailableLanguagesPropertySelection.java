@@ -11,7 +11,6 @@ import org.eclipse.gmf.runtime.diagram.ui.parts.DiagramEditor;
 import org.eclipse.jface.viewers.CellEditor;
 import org.eclipse.jface.viewers.ComboBoxCellEditor;
 import org.eclipse.jface.viewers.IStructuredSelection;
-import org.eclipse.jface.viewers.TextCellEditor;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
@@ -22,14 +21,14 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableColumn;
 import org.eclipse.swt.widgets.TableItem;
-import org.eclipse.swt.widgets.Text;
 import org.eclipse.ui.views.properties.tabbed.TabbedPropertySheetPage;
+import org.metamodel.tura.ui.properties.sections.QueryHelper;
 import org.metamodel.tura.ui.properties.sections.grid.GridColumn;
 import org.metamodel.tura.ui.properties.sections.grid.GridProperty;
 
 import domain.DomainPackage;
 
-public class TranslationsPropertySelection extends GridProperty {
+public class AvailableLanguagesPropertySelection extends GridProperty {
 
 	private List<GridColumn> columnList;
 
@@ -38,16 +37,15 @@ public class TranslationsPropertySelection extends GridProperty {
 		return getEObject();
 	}
 	
-	public TranslationsPropertySelection() {
-		ds = new TranslationsDS(this);
+	public AvailableLanguagesPropertySelection() {
+		ds = new AvailableLanguagesDS(this);
 	}
 
 	@Override
 	public List<GridColumn> getColumns() {
 		if (columnList == null) {
 			columnList = new ArrayList<GridColumn>();
-			columnList.add(new TranslationColumn(table, this,0));
-			columnList.add(new LangColumn(table, this,1));
+			columnList.add(new LangColumn(table, this,0));
 		}
 		return columnList;
 	}
@@ -109,87 +107,6 @@ public class TranslationsPropertySelection extends GridProperty {
 		});
 
 	}
-	
-	
-	class TranslationColumn implements GridColumn {
-
-		// Set the table column property names
-		private final String TRANSLATION_COLUMN = "Translation";
-
-		private Table table;
-		@SuppressWarnings("unused")
-		private GridProperty property;
-		private int col;
-
-		public TranslationColumn(Table table, GridProperty property, int col) {
-			this.table = table;
-			this.property = property;
-			this.col=col;
-		}
-
-		@Override
-		public TableColumn createColumn() {
-			TableColumn column = new TableColumn(table, SWT.LEFT, col);
-			column.setText(TRANSLATION_COLUMN);
-			column.setWidth(400);
-			return column;
-		}
-
-		@Override
-		public String getName() {
-			return TRANSLATION_COLUMN;
-		}
-
-		@Override
-		public CellEditor getEditor() {
-			TextCellEditor textEditor = new TextCellEditor(table);
-			((Text) textEditor.getControl()).setTextLimit(60);
-			return textEditor;
-		}
-
-		@Override
-		public int compareOptions(Object o1, Object o2) {
-			return 0;
-		}
-
-		@Override
-		public Object getValue(Object element) {
-			String result = "";
-			domain.Translation task = (domain.Translation) element;
-			if (task.getTranslation() != null)
-				result = task.getTranslation();
-			return result;
-		}
-
-		@Override
-		public void modify(Object element, Object value) {
-
-			TableItem item = (TableItem) element;
-			domain.Translation opt = (domain.Translation) item.getData();
-			String valueString;
-
-			valueString = ((String) value).trim();
-			EditingDomain editingDomain = ((DiagramEditor) getPart())
-					.getEditingDomain();
-			/* apply the property change to single selected object */
-			editingDomain.getCommandStack().execute(
-					SetCommand.create(editingDomain, opt,
-							DomainPackage.eINSTANCE.getTranslation_Translation(),
-							valueString));
-
-		}
-
-		@Override
-		public boolean isModify(Object element, String property) {
-			return true;
-		}
-		
-		@Override
-		public Object getText(Object element) {
-			return getValue(element);
-		}
-		
-	}
 
 	class LangColumn implements GridColumn {
 
@@ -233,25 +150,22 @@ public class TranslationsPropertySelection extends GridProperty {
 			return 0;
 		}
 
-		private List<domain.LanguageRef> initOptions(Object obj) {
-			
-			EObject opt = (EObject) obj;
-			return ((domain.MessageLibrary)(((domain.Message)(opt.eContainer())).eContainer())).getLibLanguages();
-			
+		private List<domain.Language> initOptions(Object obj) {
+			return new QueryHelper().findLanguages(obj);
 
 		}
 
 		@Override
 		public Object getValue(Object element) {
 			Object result = null;
-			domain.Translation opt = (domain.Translation) element;
+			domain.LanguageRef opt = (domain.LanguageRef) element;
 
-			List<domain.LanguageRef> choicesOptions = initOptions(opt);
+			List<domain.Language> choicesOptions = initOptions(opt);
 
 			ArrayList<String> choices = new ArrayList<String>();
-			for (Iterator<domain.LanguageRef> itr = choicesOptions.iterator(); itr
+			for (Iterator<domain.Language> itr = choicesOptions.iterator(); itr
 					.hasNext();) {
-				choices.add(itr.next().getLang().getLang());
+				choices.add(itr.next().getLang());
 			}
 			((ComboBoxCellEditor) (tableViewer.getCellEditors()[col]))
 					.setItems(choices.toArray(new String[choices.size()]));
@@ -272,25 +186,25 @@ public class TranslationsPropertySelection extends GridProperty {
 		@Override
 		public void modify(Object element, Object value) {
 			TableItem item = (TableItem) element;
-			domain.Translation opt = (domain.Translation) item
+			domain.LanguageRef opt = (domain.LanguageRef) item
 					.getData();
 
 			String valueString = ((ComboBoxCellEditor) (tableViewer
 					.getCellEditors()[col])).getItems()[(int) value];
 
-			List<domain.LanguageRef> choicesOptions = initOptions(opt);
+			List<domain.Language> choicesOptions = initOptions(opt);
 
-			for (Iterator<domain.LanguageRef> itr = choicesOptions.iterator(); itr
+			for (Iterator<domain.Language> itr = choicesOptions.iterator(); itr
 					.hasNext();) {
-				domain.LanguageRef option = itr.next();
-				if (option.getLang().getLang().equals(valueString)) {
+				domain.Language option = itr.next();
+				if (option.getLang().equals(valueString)) {
 					EditingDomain editingDomain = ((DiagramEditor) getPart())
 							.getEditingDomain();
 					/* apply the property change to single selected object */
 					editingDomain.getCommandStack().execute(
 							SetCommand.create(editingDomain, opt,
 									DomainPackage.eINSTANCE
-											.getTranslation_Lang(),
+											.getLanguageRef_Lang(),
 									option));
 					break;
 				}
@@ -300,31 +214,23 @@ public class TranslationsPropertySelection extends GridProperty {
 
 		@Override
 		public boolean isModify(Object element, String property) {
-			domain.Translation opt = (domain.Translation) element;
-			List<domain.LanguageRef> choicesOptions = initOptions(opt);
-			if (choicesOptions == null || choicesOptions.size() == 0)
-				return false;
-
 			return true;
 		}
 
 		@Override
 		public Object getText(Object element) {
 			String result = "";
-			domain.Translation task = (domain.Translation) element;
+			domain.LanguageRef task = (domain.LanguageRef) element;
 			if (task.getLang() == null)
-				return "";
-			if (task.getLang().getLang() == null)
 				return "";
 
 			if (task.getLang().getLang() == null)
 				result = "";
 			else
-				result = task.getLang().getLang().getLang();
+				result = task.getLang().getLang();
 			return result;
 		}
 
 	}
-
 
 }

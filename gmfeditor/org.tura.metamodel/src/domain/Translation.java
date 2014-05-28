@@ -85,12 +85,12 @@ public interface Translation extends EObject
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Lang</em>' reference.
-   * @see #setLang(Language)
+   * @see #setLang(LanguageRef)
    * @see domain.DomainPackage#getTranslation_Lang()
    * @model
    * @generated
    */
-  Language getLang();
+  LanguageRef getLang();
 
   /**
    * Sets the value of the '{@link domain.Translation#getLang <em>Lang</em>}' reference.
@@ -100,6 +100,6 @@ public interface Translation extends EObject
    * @see #getLang()
    * @generated
    */
-  void setLang(Language value);
+  void setLang(LanguageRef value);
 
 } // Translation

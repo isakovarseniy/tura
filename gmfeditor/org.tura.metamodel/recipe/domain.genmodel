@@ -178,7 +178,12 @@
     <genClasses ecoreClass="domain.ecore#//MessageLibrary">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//MessageLibrary/uid"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//MessageLibrary/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//MessageLibrary/libLanguages"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//MessageLibrary/messages"/>
+    </genClasses>
+    <genClasses ecoreClass="domain.ecore#//LanguageRef">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//LanguageRef/uid"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference domain.ecore#//LanguageRef/lang"/>
     </genClasses>
     <genClasses ecoreClass="domain.ecore#//Message">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//Message/uid"/>

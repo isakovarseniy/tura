@@ -3,9 +3,8 @@
 package domain.provider;
 
 
-import domain.DomainFactory;
 import domain.DomainPackage;
-import domain.MessageLibrary;
+import domain.LanguageRef;
 
 import java.util.Collection;
 import java.util.List;
@@ -14,8 +13,6 @@ import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
-
-import org.eclipse.emf.ecore.EStructuralFeature;
 
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
@@ -29,12 +26,12 @@ import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link domain.MessageLibrary} object.
+ * This is the item provider adapter for a {@link domain.LanguageRef} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class MessageLibraryItemProvider
+public class LanguageRefItemProvider
   extends ItemProviderAdapter
   implements
     IEditingDomainItemProvider,
@@ -49,7 +46,7 @@ public class MessageLibraryItemProvider
    * <!-- end-user-doc -->
    * @generated
    */
-  public MessageLibraryItemProvider(AdapterFactory adapterFactory)
+  public LanguageRefItemProvider(AdapterFactory adapterFactory)
   {
     super(adapterFactory);
   }
@@ -68,7 +65,7 @@ public class MessageLibraryItemProvider
       super.getPropertyDescriptors(object);
 
       addUidPropertyDescriptor(object);
-      addNamePropertyDescriptor(object);
+      addLangPropertyDescriptor(object);
     }
     return itemPropertyDescriptors;
   }
@@ -85,9 +82,9 @@ public class MessageLibraryItemProvider
       (createItemPropertyDescriptor
         (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
          getResourceLocator(),
-         getString("_UI_MessageLibrary_uid_feature"),
-         getString("_UI_PropertyDescriptor_description", "_UI_MessageLibrary_uid_feature", "_UI_MessageLibrary_type"),
-         DomainPackage.Literals.MESSAGE_LIBRARY__UID,
+         getString("_UI_LanguageRef_uid_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_LanguageRef_uid_feature", "_UI_LanguageRef_type"),
+         DomainPackage.Literals.LANGUAGE_REF__UID,
          true,
          false,
          false,
@@ -97,64 +94,30 @@ public class MessageLibraryItemProvider
   }
 
   /**
-   * This adds a property descriptor for the Name feature.
+   * This adds a property descriptor for the Lang feature.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected void addNamePropertyDescriptor(Object object)
+  protected void addLangPropertyDescriptor(Object object)
   {
     itemPropertyDescriptors.add
       (createItemPropertyDescriptor
         (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
          getResourceLocator(),
-         getString("_UI_MessageLibrary_name_feature"),
-         getString("_UI_PropertyDescriptor_description", "_UI_MessageLibrary_name_feature", "_UI_MessageLibrary_type"),
-         DomainPackage.Literals.MESSAGE_LIBRARY__NAME,
+         getString("_UI_LanguageRef_lang_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_LanguageRef_lang_feature", "_UI_LanguageRef_type"),
+         DomainPackage.Literals.LANGUAGE_REF__LANG,
          true,
          false,
-         false,
-         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+         true,
+         null,
          null,
          null));
   }
 
   /**
-   * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
-   * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
-   * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object)
-  {
-    if (childrenFeatures == null)
-    {
-      super.getChildrenFeatures(object);
-      childrenFeatures.add(DomainPackage.Literals.MESSAGE_LIBRARY__LIB_LANGUAGES);
-      childrenFeatures.add(DomainPackage.Literals.MESSAGE_LIBRARY__MESSAGES);
-    }
-    return childrenFeatures;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  protected EStructuralFeature getChildFeature(Object object, Object child)
-  {
-    // Check the type of the specified child object and return the proper feature to use for
-    // adding (see {@link AddCommand}) it as a child.
-
-    return super.getChildFeature(object, child);
-  }
-
-  /**
-   * This returns MessageLibrary.gif.
+   * This returns LanguageRef.gif.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -162,7 +125,7 @@ public class MessageLibraryItemProvider
   @Override
   public Object getImage(Object object)
   {
-    return overlayImage(object, getResourceLocator().getImage("full/obj16/MessageLibrary"));
+    return overlayImage(object, getResourceLocator().getImage("full/obj16/LanguageRef"));
   }
 
   /**
@@ -174,10 +137,10 @@ public class MessageLibraryItemProvider
   @Override
   public String getText(Object object)
   {
-    String label = ((MessageLibrary)object).getName();
+    String label = ((LanguageRef)object).getUid();
     return label == null || label.length() == 0 ?
-      getString("_UI_MessageLibrary_type") :
-      getString("_UI_MessageLibrary_type") + " " + label;
+      getString("_UI_LanguageRef_type") :
+      getString("_UI_LanguageRef_type") + " " + label;
   }
 
   /**
@@ -192,15 +155,10 @@ public class MessageLibraryItemProvider
   {
     updateChildren(notification);
 
-    switch (notification.getFeatureID(MessageLibrary.class))
+    switch (notification.getFeatureID(LanguageRef.class))
     {
-      case DomainPackage.MESSAGE_LIBRARY__UID:
-      case DomainPackage.MESSAGE_LIBRARY__NAME:
+      case DomainPackage.LANGUAGE_REF__UID:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-        return;
-      case DomainPackage.MESSAGE_LIBRARY__LIB_LANGUAGES:
-      case DomainPackage.MESSAGE_LIBRARY__MESSAGES:
-        fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
         return;
     }
     super.notifyChanged(notification);
@@ -217,16 +175,6 @@ public class MessageLibraryItemProvider
   protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object)
   {
     super.collectNewChildDescriptors(newChildDescriptors, object);
-
-    newChildDescriptors.add
-      (createChildParameter
-        (DomainPackage.Literals.MESSAGE_LIBRARY__LIB_LANGUAGES,
-         DomainFactory.eINSTANCE.createLanguageRef()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (DomainPackage.Literals.MESSAGE_LIBRARY__MESSAGES,
-         DomainFactory.eINSTANCE.createMessage()));
   }
 
   /**

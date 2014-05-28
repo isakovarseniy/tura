@@ -874,6 +874,31 @@ public class DomainItemProviderAdapterFactory extends DomainAdapterFactory imple
   }
 
   /**
+   * This keeps track of the one adapter used for all {@link domain.LanguageRef} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected LanguageRefItemProvider languageRefItemProvider;
+
+  /**
+   * This creates an adapter for a {@link domain.LanguageRef}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createLanguageRefAdapter()
+  {
+    if (languageRefItemProvider == null)
+    {
+      languageRefItemProvider = new LanguageRefItemProvider(this);
+    }
+
+    return languageRefItemProvider;
+  }
+
+  /**
    * This keeps track of the one adapter used for all {@link domain.Message} instances.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -4191,6 +4216,7 @@ public class DomainItemProviderAdapterFactory extends DomainAdapterFactory imple
     if (methodPointerItemProvider != null) methodPointerItemProvider.dispose();
     if (messagesItemProvider != null) messagesItemProvider.dispose();
     if (messageLibraryItemProvider != null) messageLibraryItemProvider.dispose();
+    if (languageRefItemProvider != null) languageRefItemProvider.dispose();
     if (messageItemProvider != null) messageItemProvider.dispose();
     if (translationItemProvider != null) translationItemProvider.dispose();
     if (languageItemProvider != null) languageItemProvider.dispose();
