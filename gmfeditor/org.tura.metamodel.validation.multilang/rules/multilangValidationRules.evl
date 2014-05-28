@@ -16,6 +16,14 @@
 
    }
 
+   constraint SupportableLang {
+   
+     guard : self.satisfies("HasName")
+     check: self.libLanguages.isDefined() and self.libLanguages.size()>0
+     message : 'Library  ' + self.name + ' is not support any language'
+     
+  }
+
 }
   
   
@@ -38,5 +46,36 @@
 
   }
 
+   constraint NoTranslation {
+     guard : self.satisfies("HasName")
+     check: self.translatioins.isDefined() and self.translatioins.size()>0
+     message : 'Message  ' + self.name + ' is not support any language'
+   }
 
-}  
+   constraint MissingSomeTranslation {
+     guard : self.satisfies("HasName")
+     check:  self.translatioins.collect(t|t.lang).includesAll(self.eContainer().libLanguages) 
+     message : 'Message ' + self.name+ ' is not translatede to all available languagies'
+    }
+
+   constraint ExtraTranslation {
+     guard : self.satisfies("MissingSomeTranslation")
+     check:  self.translatioins.size()=self.eContainer().libLanguages.size()
+     message : 'Message ' + self.name+ ' has more translation them number of abailable languagies'
+    }
+
+
+}
+
+ context Translation {
+
+   constraint LangCheck{
+     guard : self.eContainer().name.isDefined()
+     check: self.lang.isDefined() and self.lang.lang.isDefined()
+     message : ' Language for translation ' + self.eContainer().name +" / " +self.translation + ' is not define properly'
+   
+   }
+
+}
+
+  

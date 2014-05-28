@@ -4,9 +4,75 @@
 
       check :  self.mappedToClassName.isDefined()
 
-      message :  'Unnamed Maping class ' + self.refName() + ' not allowed'
+      message :  'Unnamed Maping class ' + self.refName() + ' is not allowed'
   }
   
+}
+
+
+ context JavaScriptMapper {
+
+  constraint HasLibraryUrl {
+
+     check :  self.libraryUrl.isDefined()
+
+     message :  'Undefined stype library url for ' + self.refName() + ' is not allowed'
+  }
+  
+}
+
+
+
+ context CSSMapper{
+ 
+  constraint HasStylePackageRef {
+
+      check :  self.stylePackage.isDefined()
+
+      message :  'Undefined stype package  ' + self.refName() + ' is not allowed'
+  }
+ 
+  constraint HasStyleLibraryRef {
+
+      check :  self.styleLibrary.isDefined()
+
+      message :  'Undefined stype library  ' + self.refName() + ' is not allowed'
+  }
+
+
+  constraint HasLibraryUrl {
+
+     guard : self.satisfies("HasStylePackageRef") and self.satisfies("HasStyleLibraryRef") 
+
+     check :  self.libraryUrl.isDefined()
+
+     message :  'Undefined stype library url for ' + self.stylePackage.name+":"+self.styleLibrary.name + ' is not allowed'
+  }
+
+ }
+ 
+ 
+ context RoleMapper{
+  
+  constraint HasRoleRef {
+
+      check :  self.role.isDefined()
+
+      message :  'Undefined role ' + self.refName() + ' not allowed'
+  }
+  
+  constraint HasLocalRoleName {
+     guard : self.satisfies("HasRoleRef")
+     check :  self.localRoleName.isDefined()
+     message :  'Undefined local role name for Role: ' + self.role.name+ ' not allowed'
+  }
+  
+  constraint HasGlobalRoleName {
+     guard : self.satisfies("HasRoleRef")
+     check :  self.globalRoleName.isDefined()
+     message :  'Undefined global role name for Role: ' + self.role.name + ' not allowed'
+  }
+
 }
 
 operation Mapper refName() : String {

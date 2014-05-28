@@ -234,7 +234,7 @@
                class="org.metamodel.tura.ui.properties.sections.dropdown.TypeNamePropertySection"
                id="org.tura.metamodel.mapper.typeName">
               <input type="mapper.diagram.edit.parts.JavaMapperEditPart"/>
-              <input type="mapper.diagram.edit.parts.JavaScriptEditPart"/>
+              <input type="mapper.diagram.edit.parts.JavaScriptMapperEditPart"/>
          </propertySection>        
  
           <propertySection
@@ -242,7 +242,7 @@
                class="org.metamodel.tura.ui.properties.sections.dropdown.PackageNamePropertySection"
                id="org.tura.metamodel.mapper.packageName">
               <input type="mapper.diagram.edit.parts.JavaMapperEditPart"/>
-              <input type="mapper.diagram.edit.parts.JavaScriptEditPart"/>
+              <input type="mapper.diagram.edit.parts.JavaScriptMapperEditPart"/>
          </propertySection>        
 
     </propertySections>
