@@ -15,5 +15,4 @@ package domain;
  */
 public interface Context extends ContextValue, ContextParameters
 {
-
 } // Context

@@ -15,5 +15,4 @@ package domain;
  */
 public interface Trigger extends MethodPointer, ContextParameters
 {
-
 } // Trigger

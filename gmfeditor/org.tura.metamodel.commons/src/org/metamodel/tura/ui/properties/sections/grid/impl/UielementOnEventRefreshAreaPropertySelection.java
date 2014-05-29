@@ -3,7 +3,6 @@ package org.metamodel.tura.ui.properties.sections.grid.impl;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-import java.util.UUID;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.edit.command.AddCommand;
@@ -21,7 +20,6 @@ import org.eclipse.swt.widgets.Text;
 import org.metamodel.tura.ui.properties.sections.grid.GridColumn;
 import org.metamodel.tura.ui.properties.sections.grid.GridProperty;
 
-import domain.DomainFactory;
 import domain.DomainPackage;
 import domain.Uielement;
 
@@ -170,12 +168,8 @@ public class UielementOnEventRefreshAreaPropertySelection extends GridProperty {
 					.getEditingDomain();
 
 			if (refreshable) {
-				domain.EventRefreshArea event = DomainFactory.eINSTANCE
-						.createEventRefreshArea();
-				event.setElement(opt.getUielement());
-				event.setUid(UUID.randomUUID().toString());
-				ArrayList<domain.EventRefreshArea> ls = new ArrayList<domain.EventRefreshArea>();
-				ls.add(event);
+				ArrayList<domain.Uielement> ls = new ArrayList<domain.Uielement>();
+				ls.add(opt.getUielement());
 
 				editingDomain
 						.getCommandStack()
@@ -185,11 +179,11 @@ public class UielementOnEventRefreshAreaPropertySelection extends GridProperty {
 										.getUielement_OnEventRefreshArea(), ls));
 			} else {
 				Uielement uie = (Uielement) property.getModel();
-				for (Iterator<domain.EventRefreshArea>  itr = uie.getOnEventRefreshArea().iterator(); itr.hasNext();){
-					domain.EventRefreshArea ev = itr.next();
-					if (ev.getElement().getUid().equals(opt.getUielement().getUid())){
+				for (Iterator<domain.Uielement>  itr = uie.getOnEventRefreshArea().iterator(); itr.hasNext();){
+					domain.Uielement ev = itr.next();
+					if (ev.getUid().equals(opt.getUielement().getUid())){
 
-						ArrayList<domain.EventRefreshArea> ls = new ArrayList<domain.EventRefreshArea>();
+						ArrayList<domain.Uielement> ls = new ArrayList<domain.Uielement>();
 						ls.add(ev);
 						
 						editingDomain

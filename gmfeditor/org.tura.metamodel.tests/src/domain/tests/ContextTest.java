@@ -2,9 +2,10 @@
  */
 package domain.tests;
 
-import junit.textui.TestRunner;
 import domain.Context;
 import domain.DomainFactory;
+
+import junit.textui.TestRunner;
 
 /**
  * <!-- begin-user-doc -->

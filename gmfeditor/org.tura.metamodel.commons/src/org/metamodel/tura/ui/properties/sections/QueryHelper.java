@@ -35,9 +35,8 @@ import domain.Views;
 
 public class QueryHelper {
 
-	
-	public List<domain.Language> findLanguages(Object obj){
-		
+	public List<domain.Language> findLanguages(Object obj) {
+
 		try {
 			@SuppressWarnings("rawtypes")
 			OCL ocl = OCL.newInstance(EcoreEnvironmentFactory.INSTANCE);
@@ -52,12 +51,11 @@ public class QueryHelper {
 			@SuppressWarnings("unchecked")
 			Collection<domain.Language> map = (Collection<domain.Language>) ocl
 					.evaluate(obj, query);
-			
+
 			ArrayList<domain.Language> ls = new ArrayList<domain.Language>();
 			ls.addAll(map);
 
 			return ls;
-
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -65,10 +63,8 @@ public class QueryHelper {
 		}
 		return null;
 
-		
 	}
-	
-	
+
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public Object[] findMappingSpecifiers(domain.ModelMapper eObject,
 			EObject types) throws Exception {
@@ -329,8 +325,9 @@ public class QueryHelper {
 	}
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
-	public List<Object> findTriggerParameters(domain.Operation method,domain.ContextParameters trg,
-			EObject types, EditingDomain editingDomain) throws ParserException {
+	public List<Object> findTriggerParameters(domain.Operation method,
+			domain.ContextParameters trg, EObject types,
+			EditingDomain editingDomain) throws ParserException {
 
 		ArrayList<domain.ContextParameter> removeParameters = new ArrayList<domain.ContextParameter>();
 		ArrayList<domain.ContextParameter> addParameters = new ArrayList<domain.ContextParameter>();
@@ -397,14 +394,16 @@ public class QueryHelper {
 		if (removeParameters.size() != 0) {
 			editingDomain.getCommandStack().execute(
 					RemoveCommand.create(editingDomain, trg,
-							DomainPackage.eINSTANCE.getContextParameters_Parameters(),
+							DomainPackage.eINSTANCE
+									.getContextParameters_Parameters(),
 							removeParameters));
 		}
 
 		if (addParameters.size() != 0) {
 			editingDomain.getCommandStack().execute(
 					AddCommand.create(editingDomain, trg,
-							DomainPackage.eINSTANCE.getContextParameters_Parameters(),
+							DomainPackage.eINSTANCE
+									.getContextParameters_Parameters(),
 							addParameters));
 		}
 
@@ -551,7 +550,6 @@ public class QueryHelper {
 
 	}
 
-
 	public domain.TypeElement findBooleanType(Object obj) {
 		try {
 			@SuppressWarnings("rawtypes")
@@ -580,11 +578,6 @@ public class QueryHelper {
 
 	}
 
-	
-	
-	
-	
-	
 	public Object[] findRefreshedAeas(domain.Uielement obj) throws Exception {
 
 		EObject root = obj;
@@ -608,42 +601,39 @@ public class QueryHelper {
 			OCLExpression<EClassifier> query = helper
 					.createQuery("domain::Views.allInstances()->select(r|r.oclAsType(domain::Views).uid = '"
 							+ views.getUid()
-							+ "').canvases.oclAsType(domain::ViewPortHolder).viewElement-> select(q|q.oclIsKindOf(domain::ViewArea))");
+							+ "').canvases->select(c|c.oclIsKindOf(domain::ViewPortHolder))->collect(v|v.oclAsType(domain::ViewPortHolder).viewElement)->select(q|q.oclIsKindOf(domain::ViewArea))");
 
 			@SuppressWarnings("unchecked")
 			Collection<domain.ViewArea> map = (Collection<domain.ViewArea>) ocl
 					.evaluate(obj, query);
 
 			ArrayList<domain.Uielement> nickNamed = new ArrayList<domain.Uielement>();
-			ArrayList<domain.EventRefreshArea> remove = new ArrayList<domain.EventRefreshArea>();
+			ArrayList<domain.Uielement> remove = new ArrayList<domain.Uielement>();
 
 			if (map.size() != 0) {
 				for (Iterator<domain.ViewArea> itr = map.iterator(); itr
 						.hasNext();) {
 					domain.ViewArea viewarea = itr.next();
-					findNick(nickNamed, viewarea.getCanvasView()
-							.getBaseCanvas());
+					if (viewarea.getCanvasView() != null)
+						findNick(nickNamed, viewarea.getCanvasView()
+								.getBaseCanvas());
 				}
 			}
 
-			for (Iterator<domain.EventRefreshArea> itr1 = obj
-					.getOnEventRefreshArea().iterator(); itr1.hasNext();) {
-				domain.EventRefreshArea ref = itr1.next();
-				if (ref.getElement() == null)
-					remove.add(ref);
+			for (Iterator<domain.Uielement> itr1 = obj.getOnEventRefreshArea()
+					.iterator(); itr1.hasNext();) {
+				domain.Uielement ref = itr1.next();
 
-				if (ref.getElement().getNickname() == null
-						|| "".equals(ref.getElement().getNickname()))
+				if (ref.getNickname() == null || "".equals(ref.getNickname()))
 					remove.add(ref);
 			}
-			return new Object[] { nickNamed,remove};
+			return new Object[] { nickNamed, remove };
 
 		} catch (Exception e) {
 			e.printStackTrace();
 			// do nothing
 			return new Object[] { null, null };
 		}
-
 
 	}
 

@@ -1031,15 +1031,6 @@ public interface DomainFactory extends EFactory
   StyleElement createStyleElement();
 
   /**
-   * Returns a new object of class '<em>Event Refresh Area</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Event Refresh Area</em>'.
-   * @generated
-   */
-  EventRefreshArea createEventRefreshArea();
-
-  /**
    * Returns a new object of class '<em>Uielement</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

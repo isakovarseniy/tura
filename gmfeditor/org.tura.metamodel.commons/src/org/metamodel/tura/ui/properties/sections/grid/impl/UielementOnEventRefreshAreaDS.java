@@ -13,7 +13,6 @@ import org.metamodel.tura.ui.properties.sections.grid.DataSource;
 import org.metamodel.tura.ui.properties.sections.grid.GridProperty;
 
 import domain.DomainPackage;
-import domain.EventRefreshArea;
 
 public class UielementOnEventRefreshAreaDS extends DataSource {
 
@@ -45,7 +44,7 @@ public class UielementOnEventRefreshAreaDS extends DataSource {
 			@SuppressWarnings("unchecked")
 			List<domain.Uielement> allAreas = (List<domain.Uielement>) result[0];
 			@SuppressWarnings("unchecked")
-			List<domain.EventRefreshArea> removeAreas = (List<domain.EventRefreshArea>) result[1];
+			List<domain.Uielement> removeAreas = (List<domain.Uielement>) result[1];
 
 			
 			// Remove
@@ -55,10 +54,10 @@ public class UielementOnEventRefreshAreaDS extends DataSource {
 								DomainPackage.eINSTANCE.getUielement_OnEventRefreshArea(),
 								removeAreas));
 
-				HashMap<String, domain.EventRefreshArea> map = new HashMap<String, domain.EventRefreshArea> ();
-				for (Iterator<EventRefreshArea> itr = ((domain.Uielement)(property.getModel())).getOnEventRefreshArea().iterator(); itr.hasNext() ; ){
-					EventRefreshArea event = itr.next();
-					map.put(event.getElement().getUid(), event);
+				HashMap<String, domain.Uielement> map = new HashMap<String, domain.Uielement> ();
+				for (Iterator<domain.Uielement> itr = ((domain.Uielement)(property.getModel())).getOnEventRefreshArea().iterator(); itr.hasNext() ; ){
+					domain.Uielement event = itr.next();
+					map.put(event.getUid(), event);
 				}
 				
 			ArrayList<Object> rows = new ArrayList<Object>();

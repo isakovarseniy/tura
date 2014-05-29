@@ -3,6 +3,7 @@
 package domain;
 
 import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -84,7 +85,7 @@ public interface Messages extends EObject
    * The list contents are of type {@link domain.MessageLibrary}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Message Libraries</em>' containment reference isn't clear,
+   * If the meaning of the '<em>Message Libraries</em>' containment reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->

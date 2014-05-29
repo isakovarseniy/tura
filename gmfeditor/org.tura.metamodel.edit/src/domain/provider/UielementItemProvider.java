@@ -66,6 +66,7 @@ public class UielementItemProvider
 
       addUidPropertyDescriptor(object);
       addNicknamePropertyDescriptor(object);
+      addOnEventRefreshAreaPropertyDescriptor(object);
     }
     return itemPropertyDescriptors;
   }
@@ -117,6 +118,29 @@ public class UielementItemProvider
   }
 
   /**
+   * This adds a property descriptor for the On Event Refresh Area feature.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected void addOnEventRefreshAreaPropertyDescriptor(Object object)
+  {
+    itemPropertyDescriptors.add
+      (createItemPropertyDescriptor
+        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+         getResourceLocator(),
+         getString("_UI_Uielement_onEventRefreshArea_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_Uielement_onEventRefreshArea_feature", "_UI_Uielement_type"),
+         DomainPackage.Literals.UIELEMENT__ON_EVENT_REFRESH_AREA,
+         true,
+         false,
+         true,
+         null,
+         null,
+         null));
+  }
+
+  /**
    * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
    * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
    * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -133,7 +157,6 @@ public class UielementItemProvider
       childrenFeatures.add(DomainPackage.Literals.UIELEMENT__ENABLED);
       childrenFeatures.add(DomainPackage.Literals.UIELEMENT__REQUIRED);
       childrenFeatures.add(DomainPackage.Literals.UIELEMENT__READ_ONLY);
-      childrenFeatures.add(DomainPackage.Literals.UIELEMENT__ON_EVENT_REFRESH_AREA);
     }
     return childrenFeatures;
   }
@@ -200,7 +223,6 @@ public class UielementItemProvider
       case DomainPackage.UIELEMENT__ENABLED:
       case DomainPackage.UIELEMENT__REQUIRED:
       case DomainPackage.UIELEMENT__READ_ONLY:
-      case DomainPackage.UIELEMENT__ON_EVENT_REFRESH_AREA:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
         return;
     }
@@ -233,11 +255,6 @@ public class UielementItemProvider
       (createChildParameter
         (DomainPackage.Literals.UIELEMENT__READ_ONLY,
          DomainFactory.eINSTANCE.createContext()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (DomainPackage.Literals.UIELEMENT__ON_EVENT_REFRESH_AREA,
-         DomainFactory.eINSTANCE.createEventRefreshArea()));
   }
 
   /**

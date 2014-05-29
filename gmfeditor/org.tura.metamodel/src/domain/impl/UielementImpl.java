@@ -4,7 +4,6 @@ package domain.impl;
 
 import domain.Context;
 import domain.DomainPackage;
-import domain.EventRefreshArea;
 import domain.Uielement;
 
 import java.util.Collection;
@@ -19,8 +18,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.InternalEList;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -113,14 +111,14 @@ public class UielementImpl extends StyleElementImpl implements Uielement
   protected Context readOnly;
 
   /**
-   * The cached value of the '{@link #getOnEventRefreshArea() <em>On Event Refresh Area</em>}' containment reference list.
+   * The cached value of the '{@link #getOnEventRefreshArea() <em>On Event Refresh Area</em>}' reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getOnEventRefreshArea()
    * @generated
    * @ordered
    */
-  protected EList<EventRefreshArea> onEventRefreshArea;
+  protected EList<Uielement> onEventRefreshArea;
 
   /**
    * <!-- begin-user-doc -->
@@ -338,11 +336,11 @@ public class UielementImpl extends StyleElementImpl implements Uielement
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<EventRefreshArea> getOnEventRefreshArea()
+  public EList<Uielement> getOnEventRefreshArea()
   {
     if (onEventRefreshArea == null)
     {
-      onEventRefreshArea = new EObjectContainmentEList<EventRefreshArea>(EventRefreshArea.class, this, DomainPackage.UIELEMENT__ON_EVENT_REFRESH_AREA);
+      onEventRefreshArea = new EObjectResolvingEList<Uielement>(Uielement.class, this, DomainPackage.UIELEMENT__ON_EVENT_REFRESH_AREA);
     }
     return onEventRefreshArea;
   }
@@ -363,8 +361,6 @@ public class UielementImpl extends StyleElementImpl implements Uielement
         return basicSetRequired(null, msgs);
       case DomainPackage.UIELEMENT__READ_ONLY:
         return basicSetReadOnly(null, msgs);
-      case DomainPackage.UIELEMENT__ON_EVENT_REFRESH_AREA:
-        return ((InternalEList<?>)getOnEventRefreshArea()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -423,7 +419,7 @@ public class UielementImpl extends StyleElementImpl implements Uielement
         return;
       case DomainPackage.UIELEMENT__ON_EVENT_REFRESH_AREA:
         getOnEventRefreshArea().clear();
-        getOnEventRefreshArea().addAll((Collection<? extends EventRefreshArea>)newValue);
+        getOnEventRefreshArea().addAll((Collection<? extends Uielement>)newValue);
         return;
     }
     super.eSet(featureID, newValue);

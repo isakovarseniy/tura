@@ -1269,11 +1269,6 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="styleClass" upperBound="-1"
         eType="#//StyleClass" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="EventRefreshArea">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        iD="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="element" eType="#//Uielement"/>
-  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Uielement" eSuperTypes="#//StyleElement">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>
@@ -1285,7 +1280,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="readOnly" eType="#//Context"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="onEventRefreshArea" upperBound="-1"
-        eType="#//EventRefreshArea" containment="true"/>
+        eType="#//Uielement"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SourcesPointer" eSuperTypes="#//Uielement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="sourcePointer" eType="#//DataControl"/>

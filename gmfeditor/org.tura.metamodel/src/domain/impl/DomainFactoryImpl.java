@@ -58,7 +58,6 @@ import domain.EJBService;
 import domain.EnterpriseInfrastructure;
 import domain.EnumAttribute;
 import domain.Enumarator;
-import domain.EventRefreshArea;
 import domain.ExpressionPart;
 import domain.Form;
 import domain.FormDataControls;
@@ -338,7 +337,6 @@ public class DomainFactoryImpl extends EFactoryImpl implements DomainFactory
       case DomainPackage.CONTEXT_PARAMETERS: return createContextParameters();
       case DomainPackage.CONTEXT: return createContext();
       case DomainPackage.STYLE_ELEMENT: return createStyleElement();
-      case DomainPackage.EVENT_REFRESH_AREA: return createEventRefreshArea();
       case DomainPackage.UIELEMENT: return createUielement();
       case DomainPackage.SOURCES_POINTER: return createSourcesPointer();
       case DomainPackage.ACTION_ELEMENT: return createActionElement();
@@ -1655,17 +1653,6 @@ public class DomainFactoryImpl extends EFactoryImpl implements DomainFactory
   {
     StyleElementImpl styleElement = new StyleElementImpl();
     return styleElement;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EventRefreshArea createEventRefreshArea()
-  {
-    EventRefreshAreaImpl eventRefreshArea = new EventRefreshAreaImpl();
-    return eventRefreshArea;
   }
 
   /**

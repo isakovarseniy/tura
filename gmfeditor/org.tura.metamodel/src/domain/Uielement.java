@@ -158,19 +158,19 @@ public interface Uielement extends StyleElement
   void setReadOnly(Context value);
 
   /**
-   * Returns the value of the '<em><b>On Event Refresh Area</b></em>' containment reference list.
-   * The list contents are of type {@link domain.EventRefreshArea}.
+   * Returns the value of the '<em><b>On Event Refresh Area</b></em>' reference list.
+   * The list contents are of type {@link domain.Uielement}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>On Event Refresh Area</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>On Event Refresh Area</em>' reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>On Event Refresh Area</em>' containment reference list.
+   * @return the value of the '<em>On Event Refresh Area</em>' reference list.
    * @see domain.DomainPackage#getUielement_OnEventRefreshArea()
-   * @model containment="true"
+   * @model
    * @generated
    */
-  EList<EventRefreshArea> getOnEventRefreshArea();
+  EList<Uielement> getOnEventRefreshArea();
 
 } // Uielement
