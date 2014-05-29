@@ -30,6 +30,18 @@ import domain.DomainPackage;
 
 public class Util {
 
+	
+	public boolean ifInternalElement( EObject element){
+		
+		EObject top = element.eContainer();
+		if (top == null )
+			return false;
+        if (top instanceof domain.Table)
+        	return true;
+        
+        return ifInternalElement(top);
+		
+	}
 	public static boolean mapperRecognizer(Set<domain.Mapper> mappers,
 			domain.Ingredient ingredient) {
 

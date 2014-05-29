@@ -1,0 +1,53 @@
+context SourcesPointer{
+
+  constraint HasSourcePointer {
+
+      guard: not (new Native('org.tura.metamodel.commons.Util')).ifInternalElement(self) and not self.isKindOf(domain::Table)
+      check :  self.sourcePointer.isDefined()
+
+      message : 'Undefined data control name for  ' + self.eClass().name + ' is not allowed'
+
+  }
+
+  constraint HasValuePointer {
+  
+      guard:   not self.isKindOf(domain::Table)
+      check :  self.valuePointer.isDefined()
+
+      message : 'Undefined attribute name for  ' + self.eClass().name + ' is not allowed'
+
+  }
+
+}
+
+context OptionSelection{
+
+  constraint HasSourcePointer {
+
+      check :  self.optionPointer.isDefined()
+      message : 'Undefined data control name for option selection for  ' + self.eClass().name + ' is not allowed'
+
+  }
+}
+
+context Selection{
+
+  constraint HasDisplayOptionPointer {
+
+      check :  self.displayOptionPointer.isDefined()
+      message : 'Undefined display value for option selection for  ' + self.eClass().name + ' is not allowed'
+
+  }
+
+  constraint HasValueOptionPointer {
+
+      check :  self.valueOptionPointer.isDefined()
+      message : 'Undefined value for option selection for  ' + self.eClass().name + ' is not allowed'
+
+  }
+
+
+}
+
+
+

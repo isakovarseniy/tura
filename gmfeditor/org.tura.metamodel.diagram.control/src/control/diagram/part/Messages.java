@@ -256,172 +256,152 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String ApplicationRole1CreationTool_title;
+	public static String ArtificialField1CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String ApplicationRole1CreationTool_desc;
+	public static String ArtificialField1CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String ApplicationStyle2CreationTool_title;
+	public static String CreateTrigger2CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String ApplicationStyle2CreationTool_desc;
+	public static String CreateTrigger2CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String ArtificialField3CreationTool_title;
+	public static String DataControl3CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String ArtificialField3CreationTool_desc;
+	public static String DataControl3CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String CreateTrigger4CreationTool_title;
+	public static String DeleteTrigger4CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String CreateTrigger4CreationTool_desc;
+	public static String DeleteTrigger4CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String DataControl5CreationTool_title;
+	public static String InsertTrigger5CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String DataControl5CreationTool_desc;
+	public static String InsertTrigger5CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String DeleteTrigger6CreationTool_title;
+	public static String POSTCreateTrigger6CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String DeleteTrigger6CreationTool_desc;
+	public static String POSTCreateTrigger6CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String InsertTrigger7CreationTool_title;
+	public static String POSTQueryTrigger7CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String InsertTrigger7CreationTool_desc;
+	public static String POSTQueryTrigger7CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String POSTCreateTrigger8CreationTool_title;
+	public static String PREDeleteTrigger8CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String POSTCreateTrigger8CreationTool_desc;
+	public static String PREDeleteTrigger8CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String POSTQueryTrigger9CreationTool_title;
+	public static String PREFormTrigger9CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String POSTQueryTrigger9CreationTool_desc;
+	public static String PREFormTrigger9CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String PREDeleteTrigger10CreationTool_title;
+	public static String PREInsertTrigger10CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String PREDeleteTrigger10CreationTool_desc;
+	public static String PREInsertTrigger10CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String PREFormTrigger11CreationTool_title;
+	public static String PREQueryTrigger11CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String PREFormTrigger11CreationTool_desc;
+	public static String PREQueryTrigger11CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String PREInsertTrigger12CreationTool_title;
+	public static String PREUpdateTrigger12CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String PREInsertTrigger12CreationTool_desc;
+	public static String PREUpdateTrigger12CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String PREQueryTrigger13CreationTool_title;
+	public static String Root13CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String PREQueryTrigger13CreationTool_desc;
+	public static String Root13CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String PREUpdateTrigger14CreationTool_title;
+	public static String SearchTrigger14CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String PREUpdateTrigger14CreationTool_desc;
+	public static String SearchTrigger14CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String Root15CreationTool_title;
+	public static String UpdateTrigger15CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Root15CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String SearchTrigger16CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String SearchTrigger16CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String UpdateTrigger17CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String UpdateTrigger17CreationTool_desc;
+	public static String UpdateTrigger15CreationTool_desc;
 
 	/**
 	 * @generated
