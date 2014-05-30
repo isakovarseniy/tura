@@ -30,14 +30,13 @@ import org.metamodel.tura.ui.properties.sections.AbstractTuraPropertySection;
 public abstract class AbstractEnumerationPropertySection extends
 		AbstractTuraPropertySection {
 
-	
 	/**
 	 * the combo box control for the section.
 	 */
 	protected CCombo combo;
 	protected boolean updated = false;
 
-	protected HashMap<String,Object> values;
+	protected HashMap<String, Object> values;
 	protected DropDownDataSupplier dropDownDataSupplier;
 
 	protected EStructuralFeature[] getFeature() {
@@ -55,17 +54,16 @@ public abstract class AbstractEnumerationPropertySection extends
 	protected Object getFeatureValue(EStructuralFeature feature, Object... obj) {
 		if (dropDownDataSupplier == null)
 			init();
-		return dropDownDataSupplier.getFeatureValue(getModel(),values,feature,obj);
+		return dropDownDataSupplier.getFeatureValue(getModel(), values,
+				feature, obj);
 	}
-
 
 	protected boolean isEqual(Object key) {
 		if (dropDownDataSupplier == null)
 			init();
-		return dropDownDataSupplier.isEqual(values,key,getModel());
+		return dropDownDataSupplier.isEqual(values, key, getModel());
 	}
-	
-	
+
 	/**
 	 * @see org.eclipse.ui.views.properties.tabbed.ISection#createControls(org.eclipse.swt.widgets.Composite,
 	 *      org.eclipse.ui.views.properties.tabbed.TabbedPropertySheetPage)
@@ -128,13 +126,16 @@ public abstract class AbstractEnumerationPropertySection extends
 	 * @see org.eclipse.ui.views.properties.tabbed.ISection#refresh()
 	 */
 	public void refresh() {
-		Set<String> keySet = getEnumerationFeatureValues().keySet();
-		combo.setItems(keySet.toArray(new String[keySet.size()]));
-		if (getFeatureAsText() != null) {
-			combo.setText(getFeatureAsText());
+		try {
+			Set<String> keySet = getEnumerationFeatureValues().keySet();
+			combo.setItems(keySet.toArray(new String[keySet.size()]));
+			if (getFeatureAsText() != null) {
+				combo.setText(getFeatureAsText());
+			}
+		} catch (org.eclipse.swt.SWTException e) {
+
 		}
 	}
-
 
 	/**
 	 * Get the enumeration values of the feature for the combo field for the
@@ -150,9 +151,9 @@ public abstract class AbstractEnumerationPropertySection extends
 	 * @return the label for the text field.
 	 */
 	protected abstract String getLabelText();
-	
+
 	protected abstract void init();
 
 	public abstract EObject getModel(EStructuralFeature feature);
-	
+
 }

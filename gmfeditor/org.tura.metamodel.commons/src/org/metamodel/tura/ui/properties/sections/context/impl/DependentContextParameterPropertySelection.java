@@ -15,13 +15,15 @@ public class DependentContextParameterPropertySelection extends
 	private AdapterImpl adapter;
 	private boolean isFirstTime = true;
 
-	
-	
 	public void refresh() {
-		super.refresh();
-		enableParametersEntry();
+		try {
+			super.refresh();
+			enableParametersEntry();
+		} catch (org.eclipse.swt.SWTException e) {
+
+		}
 	}
-	
+
 	public void setInput(IWorkbenchPart part, ISelection selection) {
 		super.setInput(part, selection);
 		if (isFirstTime) {
@@ -34,7 +36,7 @@ public class DependentContextParameterPropertySelection extends
 						ds.cleanList();
 						enableParametersEntry();
 						tableViewer.refresh();
-						
+
 					}
 
 				}
@@ -44,14 +46,16 @@ public class DependentContextParameterPropertySelection extends
 		}
 
 	}
-	
-	private void enableParametersEntry(){
+
+	private void enableParametersEntry() {
 		domain.ContextValue cnt = (ContextValue) getModel();
 		this.table.setVisible(false);
-		if (cnt.isConstant()){
-			if (cnt.getExpression() != null && cnt.getExpression().size() != 0 ){
-				domain.ExpressionPart eobj = cnt.getExpression().get(cnt.getExpression().size() -1);
-				if ( eobj.getObjRef() != null &&  eobj.getObjRef() instanceof domain.Operation){
+		if (cnt.isConstant()) {
+			if (cnt.getExpression() != null && cnt.getExpression().size() != 0) {
+				domain.ExpressionPart eobj = cnt.getExpression().get(
+						cnt.getExpression().size() - 1);
+				if (eobj.getObjRef() != null
+						&& eobj.getObjRef() instanceof domain.Operation) {
 					this.table.setVisible(true);
 				}
 			}
@@ -63,6 +67,5 @@ public class DependentContextParameterPropertySelection extends
 		if (getEObject() != null && getModel() != null)
 			getModel().eAdapters().remove(adapter);
 	}
-
 
 }

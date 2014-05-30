@@ -22,14 +22,13 @@ public abstract class GridProperty extends AbstractTuraPropertySection {
 	private GridContentProvider gridContentProvider;
 	protected DataSource ds;
 
-	
 	public TableViewer getTableViewer() {
 		return tableViewer;
 	}
 
 	public void createControls(Composite parent,
 			TabbedPropertySheetPage aTabbedPropertySheetPage) {
-         super.createControls(parent, aTabbedPropertySheetPage);
+		super.createControls(parent, aTabbedPropertySheetPage);
 		Composite composite = aTabbedPropertySheetPage.getWidgetFactory()
 				.createFlatFormComposite(parent);
 
@@ -118,8 +117,12 @@ public abstract class GridProperty extends AbstractTuraPropertySection {
 	}
 
 	public void refresh() {
-		super.refresh();
-		tableViewer.setInput(ds);
+		try {
+			super.refresh();
+			tableViewer.setInput(ds);
+		} catch (org.eclipse.swt.SWTException e) {
+
+		}
 	}
 
 	public abstract List<GridColumn> getColumns();

@@ -98,8 +98,8 @@ public abstract class AbstractTextPropertySection extends
 			if (eObjectList.size() == 1) {
 				/* apply the property change to single selected object */
 				editingDomain.getCommandStack().execute(
-						SetCommand.create(editingDomain, getModel(), getFeature(),
-								value));
+						SetCommand.create(editingDomain, getModel(),
+								getFeature(), value));
 			} else {
 				CompoundCommand compoundCommand = new CompoundCommand();
 				/* apply the property change to all selected elements */
@@ -119,7 +119,11 @@ public abstract class AbstractTextPropertySection extends
 	 * ()
 	 */
 	public void refresh() {
-		text.setText(getFeatureAsText());
+		try {
+			text.setText(getFeatureAsText());
+		} catch (org.eclipse.swt.SWTException e) {
+
+		}
 	}
 
 	/**
@@ -162,9 +166,5 @@ public abstract class AbstractTextPropertySection extends
 	 * @return the label for the text field.
 	 */
 	protected abstract String getLabelText();
-	
-	
-	
-	
-	
+
 }
