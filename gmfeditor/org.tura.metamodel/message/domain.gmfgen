@@ -6,7 +6,7 @@
     xmlns:gmfgen="http://www.eclipse.org/gmf/2009/GenModel"
     packageNamePrefix="message.diagram"
     modelID="Message"
-    diagramFileExtension="message"
+    diagramFileExtension="message_diagram"
     dynamicTemplates="true"
     templateDirectory="/org.tura.metamodel/templates/"
     copyrightText="">

@@ -18,7 +18,7 @@ genEditorGenerator.setModelID('Message');
 -- distinct package prefix
 genEditorGenerator.setPackageNamePrefix('message.diagram');
 -- distinct diagram file extension
-genEditorGenerator.setDiagramFileExtension('message');
+genEditorGenerator.setDiagramFileExtension('message_diagram');
 -- set ID model editor
 var genEditorView = GmfGen!GenEditorView.all.first;
 genEditorView.setID('message.diagram.part.MessagesDiagramEditorID');

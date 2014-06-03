@@ -18,7 +18,7 @@ genEditorGenerator.setModelID('Canvas');
 -- distinct package prefix
 genEditorGenerator.setPackageNamePrefix('canvas.diagram');
 -- distinct diagram file extension
-genEditorGenerator.setDiagramFileExtension('canvas');
+genEditorGenerator.setDiagramFileExtension('canvas_diagram');
 -- set ID model editor
 var genEditorView = GmfGen!GenEditorView.all.first;
 genEditorView.setID('canvas.diagram.part.CanvasDiagramEditorID');

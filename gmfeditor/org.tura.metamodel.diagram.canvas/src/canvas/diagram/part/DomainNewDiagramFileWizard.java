@@ -85,7 +85,7 @@ public class DomainNewDiagramFileWizard extends Wizard {
 		}
 		myFileCreationPage.setContainerFullPath(filePath);
 		myFileCreationPage.setFileName(DomainDiagramEditorUtil
-				.getUniqueFileName(filePath, fileName, "canvas")); //$NON-NLS-1$
+				.getUniqueFileName(filePath, fileName, "canvas_diagram")); //$NON-NLS-1$
 
 		diagramRootElementSelectionPage = new DiagramRootElementSelectionPage(
 				Messages.DomainNewDiagramFileWizard_RootSelectionPageName);

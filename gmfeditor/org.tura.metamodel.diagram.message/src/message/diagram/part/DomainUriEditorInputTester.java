@@ -20,7 +20,7 @@ public class DomainUriEditorInputTester extends PropertyTester {
 			return false;
 		}
 		URIEditorInput editorInput = (URIEditorInput) receiver;
-		return "message".equals(editorInput.getURI().fileExtension()); //$NON-NLS-1$
+		return "message_diagram".equals(editorInput.getURI().fileExtension()); //$NON-NLS-1$
 	}
 
 }

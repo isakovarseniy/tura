@@ -6,7 +6,7 @@
     xmlns:gmfgen="http://www.eclipse.org/gmf/2009/GenModel"
     packageNamePrefix="canvas.diagram"
     modelID="Canvas"
-    diagramFileExtension="canvas"
+    diagramFileExtension="canvas_diagram"
     dynamicTemplates="true"
     templateDirectory="/org.tura.metamodel/templates/"
     copyrightText="">

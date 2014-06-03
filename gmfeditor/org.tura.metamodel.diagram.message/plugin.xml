@@ -7,13 +7,13 @@
 
    <extension point="org.eclipse.team.core.fileTypes" id="repo-ftype">
       <?gmfgen generated="true"?>
-      <fileTypes type="text" extension="message"/>
+      <fileTypes type="text" extension="message_diagram"/>
    </extension>
 
    <extension point="org.eclipse.emf.ecore.extension_parser" id="resource-factory">
       <?gmfgen generated="true"?>
       <parser
-         type="message"
+         type="message_diagram"
          class="org.eclipse.gmf.runtime.emf.core.resources.GMFResourceFactory">
       </parser>
    </extension>
@@ -24,7 +24,7 @@
          id="message.diagram.part.MessagesDiagramEditorID"
          name="%editorName"
          icon="icons/obj16/DomainDiagramFile.gif"
-         extensions="message"
+         extensions="message_diagram"
          default="true"
          class="message.diagram.part.DomainDiagramEditor"
          matchingStrategy="message.diagram.part.DomainMatchingStrategy"
@@ -427,7 +427,7 @@
             <or>
 	           <and>
     	          <instanceof value="org.eclipse.core.resources.IFile"/>
-        	      <test property="org.eclipse.core.resources.extension" value="message"/>
+        	      <test property="org.eclipse.core.resources.extension" value="message_diagram"/>
                </and>
                <instanceof value="message.diagram.navigator.DomainAbstractNavigatorItem"/>
            	   <adapt type="org.eclipse.gmf.runtime.notation.View">
@@ -450,7 +450,7 @@
                <or>
 	              <and>
     	             <instanceof value="org.eclipse.core.resources.IFile"/>
-        	         <test property="org.eclipse.core.resources.extension" value="message"/>
+        	         <test property="org.eclipse.core.resources.extension" value="message_diagram"/>
                   </and>
                   <instanceof value="message.diagram.navigator.DomainAbstractNavigatorItem"/>
                </or>
