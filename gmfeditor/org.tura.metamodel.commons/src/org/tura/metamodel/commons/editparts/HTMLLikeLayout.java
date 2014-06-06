@@ -57,6 +57,9 @@ public class HTMLLikeLayout extends FreeFormLayoutEx {
 		return ignoreInvisibleChildren;
 	}
 	
+	protected Dimension calculatePreferredSize(IFigure f, int wHint, int hHint) {
+		return calculateLayout(f);
+	}	
 	
 	
 	
@@ -66,7 +69,9 @@ public class HTMLLikeLayout extends FreeFormLayoutEx {
 		calculateLayout(parent);
 	}
 	
-	
+	public Dimension getPreferredSize(IFigure container, int wHint, int hHint) {
+		return calculateLayout(container);
+	}	
 	protected Dimension calculateLayout(IFigure parent){
 		
 		List<IFigure> children = getChildren(parent);
@@ -107,11 +112,11 @@ public class HTMLLikeLayout extends FreeFormLayoutEx {
         	}
         }
 		
-       int xOffset = parent.getClientArea().x;
-       int yOffset = parent.getClientArea().y;
+       int xOffset = 0;//parent.getClientArea().x;
+       int yOffset = 0;//parent.getClientArea().y;
         for (int i = 0 ; i <grid.size(); i++){
         	row = grid.get(i);
-            xOffset = parent.getClientArea().x;
+            xOffset = 0;//parent.getClientArea().x;
         	for (int j= 0; j < row.size();j++ ){
         		Rectangle bounds = new Rectangle(xOffset, yOffset,row.get(j).getBounds().width, row.get(j).getBounds().height);
         		row.get(j).setBounds(bounds);
@@ -120,8 +125,7 @@ public class HTMLLikeLayout extends FreeFormLayoutEx {
         	yOffset =yOffset +rowHigh[i];
         }
         
-        
-        return new Dimension(xOffset,yOffset);
+        return new Dimension(xOffset ,yOffset);
 	}
 	
 	public int getColumns() {

@@ -15,30 +15,23 @@
              category="domain"
              id="property.tab.domain.type"
              label="Type ref"/>
-      </propertyTabs>
-      
-      <propertyTabs contributorId="org.tura.metamodel.diagram.typedefinition">
+             
           <propertyTab
              category="domain"
              id="property.tab.domain.typeref"
              label="Type ref"/>
-      </propertyTabs>
-
-      <propertyTabs contributorId="org.tura.metamodel.diagram.typedefinition">
-          <propertyTab
+             
+            <propertyTab
              category="domain"
              id="property.tab.domain.operation"
              label="Operation"/>
-      </propertyTabs>
-
-      <propertyTabs contributorId="org.tura.metamodel.diagram.typedefinition">
-          <propertyTab
+ 
+           <propertyTab
              category="domain"
              id="property.tab.domain.operation.parameters"
              label="Operation parameters"/>
+             
       </propertyTabs>
-
-      
    </extension>
    
    <extension point="org.eclipse.ui.views.properties.tabbed.propertySections" id="propsections">

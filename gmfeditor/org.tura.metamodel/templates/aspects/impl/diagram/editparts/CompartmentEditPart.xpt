@@ -73,8 +73,8 @@
 					org.tura.metamodel.commons.editparts.HTMLLikeLayout layout = (org.tura.metamodel.commons.editparts.HTMLLikeLayout) figure
 							.getContentPane().getLayoutManager();
 					layout.setColumns(event.getNewIntValue());
-					figure.collapse();
-					figure.expand();
+					figure.getContentPane().revalidate();
+					figure.getUpdateManager().performUpdate();
 				}
 			}
 
