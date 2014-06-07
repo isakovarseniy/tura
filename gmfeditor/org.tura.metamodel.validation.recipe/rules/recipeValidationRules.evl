@@ -130,7 +130,7 @@ context Configuration{
   constraint checkMappingSpecifiers{
       guard : self.satisfies("HasRefArtifact")
       check{
- 	   var helper := new Native('org.metamodel.tura.ui.properties.sections.QueryHelper');
+ 	   var helper := new Native('org.tura.metamodel.commons.QueryHelper');
 	   var result = helper.findMappingSpecifiers(self, self);
 	   if (result[0].size()=0 and result[1].size()=0)
 	       return true;
@@ -164,7 +164,7 @@ context Configuration{
  
   constraint checkQueryParameters{
       check{
- 	   var helper := new Native('org.metamodel.tura.ui.properties.sections.QueryHelper');
+ 	   var helper := new Native('org.tura.metamodel.commons.QueryHelper');
 	   var result = helper.findMappingVariable(self, self);
 	   if (result[0].size()=0 and result[1].size()=0)
 	       return true;
