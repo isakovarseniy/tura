@@ -33,7 +33,7 @@
 
           <propertySection
                tab="property.tab.domain.operation.parameters"
-               class="org.metamodel.tura.ui.properties.sections.grid.impl.ParameterPropertySelection"
+               class="org.tura.metamodel.commons.properties.sections.grid.impl.ParameterPropertySelection"
                id="org.tura.metamodel.typedefinition.operation.parameters">
               <input type="typedefinition.diagram.edit.parts.OperationEditPart"/>
            </propertySection>        
@@ -41,14 +41,14 @@
 
           <propertySection
                tab="property.tab.domain.operation"
-               class="org.metamodel.tura.ui.properties.sections.dropdown.PackageNamePropertySection"
+               class="org.tura.metamodel.commons.properties.sections.dropdown.PackageNamePropertySection"
                id="org.tura.metamodel.typedefinition.package.reference.returntype">
               <input type="typedefinition.diagram.edit.parts.OperationEditPart"/>
            </propertySection>        
 
           <propertySection
                tab="property.tab.domain.operation"
-               class="org.metamodel.tura.ui.properties.sections.dropdown.TypeNamePropertySection"
+               class="org.tura.metamodel.commons.properties.sections.dropdown.TypeNamePropertySection"
                id="org.tura.metamodel.typedefinition.type.reference.returntype">
               <input type="typedefinition.diagram.edit.parts.OperationEditPart"/>
            </propertySection>        
@@ -56,14 +56,14 @@
 
           <propertySection
                tab="property.tab.domain.type"
-               class="org.metamodel.tura.ui.properties.sections.dropdown.PackageNamePropertySection"
+               class="org.tura.metamodel.commons.properties.sections.dropdown.PackageNamePropertySection"
                id="org.tura.metamodel.typedefinition.package.reference">
               <input type="typedefinition.diagram.edit.parts.AttributeEditPart"/>
            </propertySection>        
  
           <propertySection
                tab="property.tab.domain.type"
-               class="org.metamodel.tura.ui.properties.sections.dropdown.TypeNamePropertySection"
+               class="org.tura.metamodel.commons.properties.sections.dropdown.TypeNamePropertySection"
                id="org.tura.metamodel.typedefinition.type.reference">
               <input type="typedefinition.diagram.edit.parts.AttributeEditPart"/>
          </propertySection>        
@@ -71,14 +71,14 @@
 
           <propertySection
                tab="property.tab.domain.typeref"
-               class="org.metamodel.tura.ui.properties.sections.dropdown.PackageNamePropertySection"
+               class="org.tura.metamodel.commons.properties.sections.dropdown.PackageNamePropertySection"
                id="org.tura.metamodel.typedefinition.typereference.package.reference">
              <input type="typedefinition.diagram.edit.parts.TypeReferenceEditPart"/>
            </propertySection>        
 
           <propertySection
                tab="property.tab.domain.typeref"
-               class="org.metamodel.tura.ui.properties.sections.dropdown.TypeRefTypeNamePropertySection"
+               class="org.tura.metamodel.commons.properties.sections.dropdown.TypeRefTypeNamePropertySection"
                id="org.tura.metamodel.typedefinition.typereference.type.typereference">
               <input type="typedefinition.diagram.edit.parts.TypeReferenceEditPart"/>
          </propertySection>        
@@ -109,14 +109,14 @@
       
           <propertySection
                tab="property.tab.domain.queryParameters"
-               class="org.metamodel.tura.ui.properties.sections.grid.impl.QueryParameterPropertySelection"
+               class="org.tura.metamodel.commons.properties.sections.grid.impl.QueryParameterPropertySelection"
                id="org.tura.metamodel.artifact.queryParams">
               <input type="artifact.diagram.edit.parts.ModelQueryEditPart"/>
            </propertySection>        
  
           <propertySection
                tab="property.tab.domain.specifierOptions"
-               class="org.metamodel.tura.ui.properties.sections.grid.impl.OptionPropertySelection"
+               class="org.tura.metamodel.commons.properties.sections.grid.impl.OptionPropertySelection"
                id="org.tura.metamodel.artifact.option">
               <input type="artifact.diagram.edit.parts.SpecifierEditPart"/>
            </propertySection>        
@@ -141,7 +141,7 @@
       
           <propertySection
                tab="property.tab.domain.typeReference"
-               class="org.metamodel.tura.ui.properties.sections.dropdown.RolePropertySelection"
+               class="org.tura.metamodel.commons.properties.sections.dropdown.RolePropertySelection"
                id="org.tura.metamodel.mapper.role">
               <input type="mapper.diagram.edit.parts.RoleMapperEditPart"/>
          </propertySection>        
@@ -149,21 +149,21 @@
 
           <propertySection
                tab="property.tab.domain.typeReference"
-               class="org.metamodel.tura.ui.properties.sections.dropdown.StylesPackagePropertySelection"
+               class="org.tura.metamodel.commons.properties.sections.dropdown.StylesPackagePropertySelection"
                id="org.tura.metamodel.mapper.stylepackage">
               <input type="mapper.diagram.edit.parts.CSSMapperEditPart"/>
          </propertySection>        
       
           <propertySection
                tab="property.tab.domain.typeReference"
-               class="org.metamodel.tura.ui.properties.sections.dropdown.StyleLibraryPropertySelection"
+               class="org.tura.metamodel.commons.properties.sections.dropdown.StyleLibraryPropertySelection"
                id="org.tura.metamodel.mapper.stylelib">
               <input type="mapper.diagram.edit.parts.CSSMapperEditPart"/>
          </propertySection>        
 
           <propertySection
                tab="property.tab.domain.typeReference"
-               class="org.metamodel.tura.ui.properties.sections.dropdown.TypeNamePropertySection"
+               class="org.tura.metamodel.commons.properties.sections.dropdown.TypeNamePropertySection"
                id="org.tura.metamodel.mapper.typeName">
               <input type="mapper.diagram.edit.parts.JavaMapperEditPart"/>
               <input type="mapper.diagram.edit.parts.JavaScriptMapperEditPart"/>
@@ -171,7 +171,7 @@
  
           <propertySection
                tab="property.tab.domain.typeReference"
-               class="org.metamodel.tura.ui.properties.sections.dropdown.PackageNamePropertySection"
+               class="org.tura.metamodel.commons.properties.sections.dropdown.PackageNamePropertySection"
                id="org.tura.metamodel.mapper.packageName">
               <input type="mapper.diagram.edit.parts.JavaMapperEditPart"/>
               <input type="mapper.diagram.edit.parts.JavaScriptMapperEditPart"/>
@@ -219,42 +219,42 @@
       
           <propertySection
                tab="property.tab.domain.availableMappers"
-               class="org.metamodel.tura.ui.properties.sections.grid.impl.RecipeMappersListPropertySelection"
+               class="org.tura.metamodel.commons.properties.sections.grid.impl.RecipeMappersListPropertySelection"
                id="org.tura.metamodel.mapper.recipe">
               <input type="recipe.diagram.edit.parts.RecipeEditPart"/>
          </propertySection>        
 
           <propertySection
                tab="property.tab.domain.availableMappers"
-               class="org.metamodel.tura.ui.properties.sections.grid.impl.IngredientMappersListPropertySelection"
+               class="org.tura.metamodel.commons.properties.sections.grid.impl.IngredientMappersListPropertySelection"
                id="org.tura.metamodel.mapper.ingredient">
               <input type="recipe.diagram.edit.parts.IngredientEditPart"/>
          </propertySection>        
          
          <propertySection
                tab="property.tab.domain.selectArtifact"
-               class="org.metamodel.tura.ui.properties.sections.dropdown.DomainArtifactPropertySelection"
+               class="org.tura.metamodel.commons.properties.sections.dropdown.DomainArtifactPropertySelection"
                id="org.tura.metamodel.mapper.domainArtifact">
               <input type="recipe.diagram.edit.parts.ModelMapperEditPart"/>
          </propertySection>        
          
          <propertySection
                tab="property.tab.domain.selectArtifact"
-               class="org.metamodel.tura.ui.properties.sections.dropdown.ArtifactPropertySelection"
+               class="org.tura.metamodel.commons.properties.sections.dropdown.ArtifactPropertySelection"
                id="org.tura.metamodel.mapper.artifact">
               <input type="recipe.diagram.edit.parts.ModelMapperEditPart"/>
          </propertySection>        
          
          <propertySection
                tab="property.tab.domain.mappingSpecifier"
-               class="org.metamodel.tura.ui.properties.sections.grid.impl.MappingSpecifierPropertySelection"
+               class="org.tura.metamodel.commons.properties.sections.grid.impl.MappingSpecifierPropertySelection"
                id="org.tura.metamodel.mapper.mappingSpecifier">
               <input type="recipe.diagram.edit.parts.ModelMapperEditPart"/>
          </propertySection>        
 
          <propertySection
                tab="property.tab.domain.query"
-               class="org.metamodel.tura.ui.properties.sections.dropdown.QueryPropertySelection"
+               class="org.tura.metamodel.commons.properties.sections.dropdown.QueryPropertySelection"
                id="org.tura.metamodel.mapper.query">
               <input type="recipe.diagram.edit.parts.QueryEditPart"/>
          </propertySection>        
@@ -262,7 +262,7 @@
 
          <propertySection
                tab="property.tab.domain.mappingVariable"
-               class="org.metamodel.tura.ui.properties.sections.grid.impl.QueryVariablePropertySelection"
+               class="org.tura.metamodel.commons.properties.sections.grid.impl.QueryVariablePropertySelection"
                id="org.tura.metamodel.mapper.mappingVariable">
               <input type="recipe.diagram.edit.parts.QueryEditPart"/>
          </propertySection>        
@@ -297,7 +297,7 @@
       
           <propertySection
                tab="property.tab.domain.control.serviceref"
-               class="org.metamodel.tura.ui.properties.sections.dropdown.PackageNamePropertySection"
+               class="org.tura.metamodel.commons.properties.sections.dropdown.PackageNamePropertySection"
                id="org.tura.metamodel.diagram.control.packageref">
               <input type="control.diagram.edit.parts.POSTQueryTriggerEditPart"/>
               <input type="control.diagram.edit.parts.PREQueryTriggerEditPart"/>
@@ -314,7 +314,7 @@
  
           <propertySection
                tab="property.tab.domain.control.serviceref"
-               class="org.metamodel.tura.ui.properties.sections.dropdown.TypeRefTypeNamePropertySection"
+               class="org.tura.metamodel.commons.properties.sections.dropdown.TypeRefTypeNamePropertySection"
                id="org.tura.metamodel.diagram.control.typeref">
               <input type="control.diagram.edit.parts.POSTQueryTriggerEditPart"/>
               <input type="control.diagram.edit.parts.PREQueryTriggerEditPart"/>
@@ -331,7 +331,7 @@
 
           <propertySection
                tab="property.tab.domain.control.serviceref"
-               class="org.metamodel.tura.ui.properties.sections.dropdown.MethodNamePropertySection"
+               class="org.tura.metamodel.commons.properties.sections.dropdown.MethodNamePropertySection"
                id="org.tura.metamodel.diagram.control.methodref">
               <input type="control.diagram.edit.parts.POSTQueryTriggerEditPart"/>
               <input type="control.diagram.edit.parts.PREQueryTriggerEditPart"/>
@@ -348,7 +348,7 @@
    
              <propertySection
                tab="property.tab.domain.control.parameters"
-               class="org.metamodel.tura.ui.properties.sections.grid.impl.ContextParameterPropertySelection"
+               class="org.tura.metamodel.commons.properties.sections.grid.impl.ContextParameterPropertySelection"
                id="org.tura.metamodel.diagram.control.parameters">
               <input type="control.diagram.edit.parts.POSTQueryTriggerEditPart"/>
               <input type="control.diagram.edit.parts.POSTQueryTriggerEditPart"/>
@@ -366,7 +366,7 @@
    
              <propertySection
                tab="property.tab.domain.control.relations"
-               class="org.metamodel.tura.ui.properties.sections.grid.impl.RelationPropertySelection"
+               class="org.tura.metamodel.commons.properties.sections.grid.impl.RelationPropertySelection"
                id="org.tura.metamodel.diagram.control.relation">
                <input type="control.diagram.edit.parts.RelationEditPart"/>
            </propertySection>        
@@ -399,7 +399,7 @@
 
             <propertySection
                tab="property.tab.domain.messages.lang"
-               class="org.metamodel.tura.ui.properties.sections.grid.impl.AvailableLanguagesPropertySelection"
+               class="org.tura.metamodel.commons.properties.sections.grid.impl.AvailableLanguagesPropertySelection"
                id="org.tura.metamodel.diagram.message.lanl">
               <input type="message.diagram.edit.parts.MessageLibraryEditPart"/>
            </propertySection>        
@@ -407,7 +407,7 @@
 
             <propertySection
                tab="property.tab.domain.messages.translation"
-               class="org.metamodel.tura.ui.properties.sections.grid.impl.TranslationsPropertySelection"
+               class="org.tura.metamodel.commons.properties.sections.grid.impl.TranslationsPropertySelection"
                id="org.tura.metamodel.diagram.message.translation">
               <input type="message.diagram.edit.parts.MessageEditPart"/>
  
@@ -441,7 +441,7 @@
 
             <propertySection
                tab="property.tab.domain.frmview.mulilanglabel"
-               class="org.metamodel.tura.ui.properties.sections.context.impl.MultiLangLabelPropertySelection"
+               class="org.tura.metamodel.commons.properties.sections.context.impl.MultiLangLabelPropertySelection"
                id="org.tura.metamodel.diagram.canvas.mulilanglabel">
               <input type="frmview.diagram.edit.parts.CanvasEditPart"/>
               <input type="frmview.diagram.edit.parts.WindowEditPart"/>
@@ -452,28 +452,28 @@
 
             <propertySection
                tab="property.tab.domain.frmview"
-               class="org.metamodel.tura.ui.properties.sections.dropdown.PackageNamePropertySection"
+               class="org.tura.metamodel.commons.properties.sections.dropdown.PackageNamePropertySection"
                id="org.tura.metamodel.diagram.canvas.actioin.packagename">
               <input type="frmview.diagram.edit.parts.ViewPortTriggerEditPart"/>
            </propertySection>        
 
              <propertySection
                tab="property.tab.domain.frmview"
-               class="org.metamodel.tura.ui.properties.sections.dropdown.TypeRefTypeNamePropertySection"
+               class="org.tura.metamodel.commons.properties.sections.dropdown.TypeRefTypeNamePropertySection"
                id="org.tura.metamodel.diagram.canvas.actioin.typeref">
               <input type="frmview.diagram.edit.parts.ViewPortTriggerEditPart"/>
            </propertySection>        
 
              <propertySection
                tab="property.tab.domain.frmview"
-               class="org.metamodel.tura.ui.properties.sections.dropdown.MethodNamePropertySection"
+               class="org.tura.metamodel.commons.properties.sections.dropdown.MethodNamePropertySection"
                id="org.tura.metamodel.diagram.canvas.actioin.methodname">
               <input type="frmview.diagram.edit.parts.ViewPortTriggerEditPart"/>
            </propertySection>        
 
              <propertySection
                tab="property.tab.domain.frmview"
-               class="org.metamodel.tura.ui.properties.sections.grid.impl.ContextParameterPropertySelection"
+               class="org.tura.metamodel.commons.properties.sections.grid.impl.ContextParameterPropertySelection"
                id="org.tura.metamodel.diagram.canvas.actioin.contextparameter">
               <input type="frmview.diagram.edit.parts.ViewPortTriggerEditPart"/>
            </propertySection>        
@@ -543,7 +543,7 @@
 
             <propertySection
                tab="property.tab.domain.canvas.uielement.mulilanglabel"
-               class="org.metamodel.tura.ui.properties.sections.context.impl.MultiLangLabelPropertySelection"
+               class="org.tura.metamodel.commons.properties.sections.context.impl.MultiLangLabelPropertySelection"
                id="property.tab.domain.canvas.uielement.mulilanglabel">
               <input type="canvas.diagram.edit.parts.TableEditPart"/>
               <input type="canvas.diagram.edit.parts.TreeEditPart"/>
@@ -555,7 +555,7 @@
 
             <propertySection
                tab="property.tab.domain.canvas.uielement.required"
-               class="org.metamodel.tura.ui.properties.sections.context.impl.RequiredParameterPropertySelection"
+               class="org.tura.metamodel.commons.properties.sections.context.impl.RequiredParameterPropertySelection"
                id="org.tura.metamodel.diagram.canvas.misce">
               <input type="canvas.diagram.edit.parts.CheckBoxEditPart"/>
               <input type="canvas.diagram.edit.parts.InputTextEditPart"/>
@@ -576,7 +576,7 @@
 
             <propertySection
                tab="property.tab.domain.canvas.uielement.required"
-               class="org.metamodel.tura.ui.properties.sections.context.impl.RequiredPropertySelection"
+               class="org.tura.metamodel.commons.properties.sections.context.impl.RequiredPropertySelection"
                id="org.tura.metamodel.diagram.canvas.misce">
               <input type="canvas.diagram.edit.parts.CheckBoxEditPart"/>
               <input type="canvas.diagram.edit.parts.InputTextEditPart"/>
@@ -600,7 +600,7 @@
 
             <propertySection
                tab="property.tab.domain.canvas.uielement.enabled"
-               class="org.metamodel.tura.ui.properties.sections.context.impl.EnabledParameterPropertySelection"
+               class="org.tura.metamodel.commons.properties.sections.context.impl.EnabledParameterPropertySelection"
                id="org.tura.metamodel.diagram.canvas.misce">
               <input type="canvas.diagram.edit.parts.CheckBoxEditPart"/>
               <input type="canvas.diagram.edit.parts.InputTextEditPart"/>
@@ -621,7 +621,7 @@
 
             <propertySection
                tab="property.tab.domain.canvas.uielement.enabled"
-               class="org.metamodel.tura.ui.properties.sections.context.impl.EnabledPropertySelection"
+               class="org.tura.metamodel.commons.properties.sections.context.impl.EnabledPropertySelection"
                id="org.tura.metamodel.diagram.canvas.misce">
               <input type="canvas.diagram.edit.parts.CheckBoxEditPart"/>
               <input type="canvas.diagram.edit.parts.InputTextEditPart"/>
@@ -643,7 +643,7 @@
 
             <propertySection
                tab="property.tab.domain.canvas.uielement.readonly"
-               class="org.metamodel.tura.ui.properties.sections.context.impl.ReadOnlyParameterPropertySelection"
+               class="org.tura.metamodel.commons.properties.sections.context.impl.ReadOnlyParameterPropertySelection"
                id="org.tura.metamodel.diagram.canvas.misce">
               <input type="canvas.diagram.edit.parts.CheckBoxEditPart"/>
               <input type="canvas.diagram.edit.parts.InputTextEditPart"/>
@@ -664,7 +664,7 @@
 
             <propertySection
                tab="property.tab.domain.canvas.uielement.readonly"
-               class="org.metamodel.tura.ui.properties.sections.context.impl.ReadOnlyPropertySelection"
+               class="org.tura.metamodel.commons.properties.sections.context.impl.ReadOnlyPropertySelection"
                id="org.tura.metamodel.diagram.canvas.misce">
               <input type="canvas.diagram.edit.parts.CheckBoxEditPart"/>
               <input type="canvas.diagram.edit.parts.InputTextEditPart"/>
@@ -686,7 +686,7 @@
 
             <propertySection
                tab="property.tab.domain.canvas.uielement.refresh"
-               class="org.metamodel.tura.ui.properties.sections.grid.impl.UielementOnEventRefreshAreaPropertySelection"
+               class="org.tura.metamodel.commons.properties.sections.grid.impl.UielementOnEventRefreshAreaPropertySelection"
                id="org.tura.metamodel.diagram.canvas.sourcepointer.refresh">
               <input type="canvas.diagram.edit.parts.CheckBoxEditPart"/>
               <input type="canvas.diagram.edit.parts.InputTextEditPart"/>
@@ -708,7 +708,7 @@
 
              <propertySection
                tab="property.tab.domain.canvas.uielement.styleset"
-               class="org.metamodel.tura.ui.properties.sections.input.StylePropertySelection"
+               class="org.tura.metamodel.commons.properties.sections.input.StylePropertySelection"
                id="org.tura.metamodel.diagram.canvas.sourcepointer.style">
               <input type="canvas.diagram.edit.parts.CheckBoxEditPart"/>
               <input type="canvas.diagram.edit.parts.InputTextEditPart"/>
@@ -730,7 +730,7 @@
 
              <propertySection
                tab="property.tab.domain.canvas.uielement.styleset"
-               class="org.metamodel.tura.ui.properties.sections.grid.impl.StyleClassPropertySelection"
+               class="org.tura.metamodel.commons.properties.sections.grid.impl.StyleClassPropertySelection"
                id="org.tura.metamodel.diagram.canvas.sourcepointer.styleclass">
               <input type="canvas.diagram.edit.parts.CheckBoxEditPart"/>
               <input type="canvas.diagram.edit.parts.InputTextEditPart"/>
@@ -752,7 +752,7 @@
 
              <propertySection
                tab="property.tab.domain.canvas.sourcepointer"
-               class="org.metamodel.tura.ui.properties.sections.dropdown.SourcesPointerDataControlPropertySelection"
+               class="org.tura.metamodel.commons.properties.sections.dropdown.SourcesPointerDataControlPropertySelection"
                id="org.tura.metamodel.diagram.canvas.sourcepointer.datacontrol">
               <input type="canvas.diagram.edit.parts.CheckBoxEditPart"/>
               <input type="canvas.diagram.edit.parts.InputTextEditPart"/>
@@ -765,7 +765,7 @@
 
             <propertySection
                tab="property.tab.domain.canvas.sourcepointer"
-               class="org.metamodel.tura.ui.properties.sections.dropdown.ValuePointerAttributePropertySelection"
+               class="org.tura.metamodel.commons.properties.sections.dropdown.ValuePointerAttributePropertySelection"
                id="org.tura.metamodel.diagram.canvas.sourcepointer.valuepointer">
               <input type="canvas.diagram.edit.parts.CheckBoxEditPart"/>
               <input type="canvas.diagram.edit.parts.InputTextEditPart"/>
@@ -777,7 +777,7 @@
 
              <propertySection
                tab="property.tab.domain.canvas.sourcepointer"
-               class="org.metamodel.tura.ui.properties.sections.dropdown.ValuePointerAttributePropertySelectionExternalIterator"
+               class="org.tura.metamodel.commons.properties.sections.dropdown.ValuePointerAttributePropertySelectionExternalIterator"
                id="org.tura.metamodel.diagram.canvas.sourcepointer.valuepointer.externaliterator">
 
               <input type="canvas.diagram.edit.parts.CheckBox2EditPart"/>
@@ -789,7 +789,7 @@
 
              <propertySection
                tab="property.tab.domain.canvas.sourcepointer"
-               class="org.metamodel.tura.ui.properties.sections.dropdown.SourceCastPropertySelection"
+               class="org.tura.metamodel.commons.properties.sections.dropdown.SourceCastPropertySelection"
                id="org.tura.metamodel.diagram.canvas.sourcepointer.sourcecast">
               <input type="canvas.diagram.edit.parts.CheckBoxEditPart"/>
               <input type="canvas.diagram.edit.parts.InputTextEditPart"/>
@@ -802,56 +802,56 @@
 
              <propertySection
                tab="property.tab.domain.canvas.optionpointer"
-               class="org.metamodel.tura.ui.properties.sections.dropdown.OptionsPointerDataControlPropertySelection"
+               class="org.tura.metamodel.commons.properties.sections.dropdown.OptionsPointerDataControlPropertySelection"
                id="org.tura.metamodel.diagram.canvas.optionpointer.datacontrol">
               <input type="canvas.diagram.edit.parts.DropDownSelectionEditPart"/>
            </propertySection>        
 
              <propertySection
                tab="property.tab.domain.canvas.optionpointer"
-               class="org.metamodel.tura.ui.properties.sections.dropdown.OptionsCastDataControlPropertySelection"
+               class="org.tura.metamodel.commons.properties.sections.dropdown.OptionsCastDataControlPropertySelection"
                id="org.tura.metamodel.diagram.canvas.optionpointer.cast">
               <input type="canvas.diagram.edit.parts.DropDownSelectionEditPart"/>
            </propertySection>        
 
              <propertySection
                tab="property.tab.domain.canvas.optionpointer"
-               class="org.metamodel.tura.ui.properties.sections.dropdown.DisplayOptionPointerAttributePropertySelection"
+               class="org.tura.metamodel.commons.properties.sections.dropdown.DisplayOptionPointerAttributePropertySelection"
                id="org.tura.metamodel.diagram.canvas.optionpointer.displayoption">
               <input type="canvas.diagram.edit.parts.DropDownSelectionEditPart"/>
            </propertySection>        
 
              <propertySection
                tab="property.tab.domain.canvas.optionpointer"
-               class="org.metamodel.tura.ui.properties.sections.dropdown.ValueOptionPointerAttributePropertySelection"
+               class="org.tura.metamodel.commons.properties.sections.dropdown.ValueOptionPointerAttributePropertySelection"
                id="org.tura.metamodel.diagram.canvas.optionpointer.valueoption">
               <input type="canvas.diagram.edit.parts.DropDownSelectionEditPart"/>
            </propertySection>        
 
              <propertySection
                tab="property.tab.domain.canvas.action"
-               class="org.metamodel.tura.ui.properties.sections.dropdown.PackageNamePropertySection"
+               class="org.tura.metamodel.commons.properties.sections.dropdown.PackageNamePropertySection"
                id="org.tura.metamodel.diagram.canvas.actioin.packagename">
               <input type="canvas.diagram.edit.parts.ButtonEditPart"/>
            </propertySection>        
 
              <propertySection
                tab="property.tab.domain.canvas.action"
-               class="org.metamodel.tura.ui.properties.sections.dropdown.TypeRefTypeNamePropertySection"
+               class="org.tura.metamodel.commons.properties.sections.dropdown.TypeRefTypeNamePropertySection"
                id="org.tura.metamodel.diagram.canvas.actioin.typeref">
               <input type="canvas.diagram.edit.parts.ButtonEditPart"/>
            </propertySection>        
 
              <propertySection
                tab="property.tab.domain.canvas.action"
-               class="org.metamodel.tura.ui.properties.sections.dropdown.MethodNamePropertySection"
+               class="org.tura.metamodel.commons.properties.sections.dropdown.MethodNamePropertySection"
                id="org.tura.metamodel.diagram.canvas.actioin.methodname">
               <input type="canvas.diagram.edit.parts.ButtonEditPart"/>
            </propertySection>        
 
              <propertySection
                tab="property.tab.domain.canvas.action"
-               class="org.metamodel.tura.ui.properties.sections.grid.impl.ContextParameterPropertySelection"
+               class="org.tura.metamodel.commons.properties.sections.grid.impl.ContextParameterPropertySelection"
                id="org.tura.metamodel.diagram.canvas.actioin.contextparameter">
               <input type="canvas.diagram.edit.parts.ButtonEditPart"/>
            </propertySection>        
@@ -861,83 +861,83 @@
   </extension>  
 
    <extension   point="org.eclipse.core.runtime.adapters">
-      <factory  adaptableType="org.metamodel.tura.ui.properties.sections.adapters.helper.TreeRoot"
-             class="org.metamodel.tura.ui.properties.sections.adapters.TreeProviderAdapterFactory">
+      <factory  adaptableType="org.tura.metamodel.commons.properties.sections.adapters.helper.TreeRoot"
+             class="org.tura.metamodel.commons.properties.sections.adapters.TreeProviderAdapterFactory">
                  <adapter type="org.eclipse.ui.model.IWorkbenchAdapter"/> 
-                 <adapter type="org.metamodel.tura.ui.properties.sections.adapters.IReturnTypeProvider"/> 
+                 <adapter type="org.tura.metamodel.commons.properties.sections.adapters.IReturnTypeProvider"/> 
       </factory>
       <factory  adaptableType="domain.Controls"
-             class="org.metamodel.tura.ui.properties.sections.adapters.TreeProviderAdapterFactory">
+             class="org.tura.metamodel.commons.properties.sections.adapters.TreeProviderAdapterFactory">
                  <adapter type="org.eclipse.ui.model.IWorkbenchAdapter"/> 
-                 <adapter type="org.metamodel.tura.ui.properties.sections.adapters.IReturnTypeProvider"/> 
+                 <adapter type="org.tura.metamodel.commons.properties.sections.adapters.IReturnTypeProvider"/> 
       </factory>
       <factory  adaptableType="domain.DataControl"
-             class="org.metamodel.tura.ui.properties.sections.adapters.TreeProviderAdapterFactory">
+             class="org.tura.metamodel.commons.properties.sections.adapters.TreeProviderAdapterFactory">
                  <adapter type="org.eclipse.ui.model.IWorkbenchAdapter"/> 
-                 <adapter type="org.metamodel.tura.ui.properties.sections.adapters.IReturnTypeProvider"/> 
+                 <adapter type="org.tura.metamodel.commons.properties.sections.adapters.IReturnTypeProvider"/> 
       </factory>
-      <factory  adaptableType="org.metamodel.tura.ui.properties.sections.adapters.helper.TriggerHolder"
-             class="org.metamodel.tura.ui.properties.sections.adapters.TreeProviderAdapterFactory">
+      <factory  adaptableType="org.tura.metamodel.commons.properties.sections.adapters.helper.TriggerHolder"
+             class="org.tura.metamodel.commons.properties.sections.adapters.TreeProviderAdapterFactory">
                  <adapter type="org.eclipse.ui.model.IWorkbenchAdapter"/> 
-                 <adapter type="org.metamodel.tura.ui.properties.sections.adapters.IReturnTypeProvider"/> 
+                 <adapter type="org.tura.metamodel.commons.properties.sections.adapters.IReturnTypeProvider"/> 
       </factory>
       <factory  adaptableType="domain.TypeElement"
-             class="org.metamodel.tura.ui.properties.sections.adapters.TreeProviderAdapterFactory">
+             class="org.tura.metamodel.commons.properties.sections.adapters.TreeProviderAdapterFactory">
                  <adapter type="org.eclipse.ui.model.IWorkbenchAdapter"/> 
-                 <adapter type="org.metamodel.tura.ui.properties.sections.adapters.IReturnTypeProvider"/> 
+                 <adapter type="org.tura.metamodel.commons.properties.sections.adapters.IReturnTypeProvider"/> 
       </factory>
      <factory  adaptableType="domain.Attribute"
-             class="org.metamodel.tura.ui.properties.sections.adapters.TreeProviderAdapterFactory">
+             class="org.tura.metamodel.commons.properties.sections.adapters.TreeProviderAdapterFactory">
                  <adapter type="org.eclipse.ui.model.IWorkbenchAdapter"/> 
-                 <adapter type="org.metamodel.tura.ui.properties.sections.adapters.IReturnTypeProvider"/> 
+                 <adapter type="org.tura.metamodel.commons.properties.sections.adapters.IReturnTypeProvider"/> 
       </factory>
      <factory  adaptableType="domain.Operation"
-             class="org.metamodel.tura.ui.properties.sections.adapters.TreeProviderAdapterFactory">
+             class="org.tura.metamodel.commons.properties.sections.adapters.TreeProviderAdapterFactory">
                  <adapter type="org.eclipse.ui.model.IWorkbenchAdapter"/> 
-                 <adapter type="org.metamodel.tura.ui.properties.sections.adapters.IReturnTypeProvider"/> 
+                 <adapter type="org.tura.metamodel.commons.properties.sections.adapters.IReturnTypeProvider"/> 
       </factory>
      <factory  adaptableType="domain.Types"
-             class="org.metamodel.tura.ui.properties.sections.adapters.TreeProviderAdapterFactory">
+             class="org.tura.metamodel.commons.properties.sections.adapters.TreeProviderAdapterFactory">
                  <adapter type="org.eclipse.ui.model.IWorkbenchAdapter"/> 
-                 <adapter type="org.metamodel.tura.ui.properties.sections.adapters.IReturnTypeProvider"/> 
+                 <adapter type="org.tura.metamodel.commons.properties.sections.adapters.IReturnTypeProvider"/> 
       </factory>
      <factory  adaptableType="domain.Package"
-             class="org.metamodel.tura.ui.properties.sections.adapters.TreeProviderAdapterFactory">
+             class="org.tura.metamodel.commons.properties.sections.adapters.TreeProviderAdapterFactory">
                  <adapter type="org.eclipse.ui.model.IWorkbenchAdapter"/> 
-                 <adapter type="org.metamodel.tura.ui.properties.sections.adapters.IReturnTypeProvider"/> 
+                 <adapter type="org.tura.metamodel.commons.properties.sections.adapters.IReturnTypeProvider"/> 
       </factory>
      <factory  adaptableType="domain.ApplicationRole"
-             class="org.metamodel.tura.ui.properties.sections.adapters.TreeProviderAdapterFactory">
+             class="org.tura.metamodel.commons.properties.sections.adapters.TreeProviderAdapterFactory">
                  <adapter type="org.eclipse.ui.model.IWorkbenchAdapter"/> 
-                 <adapter type="org.metamodel.tura.ui.properties.sections.adapters.IReturnTypeProvider"/> 
+                 <adapter type="org.tura.metamodel.commons.properties.sections.adapters.IReturnTypeProvider"/> 
       </factory>
      <factory  adaptableType="domain.Role"
-             class="org.metamodel.tura.ui.properties.sections.adapters.TreeProviderAdapterFactory">
+             class="org.tura.metamodel.commons.properties.sections.adapters.TreeProviderAdapterFactory">
                  <adapter type="org.eclipse.ui.model.IWorkbenchAdapter"/> 
-                 <adapter type="org.metamodel.tura.ui.properties.sections.adapters.IReturnTypeProvider"/> 
+                 <adapter type="org.tura.metamodel.commons.properties.sections.adapters.IReturnTypeProvider"/> 
       </factory>
      <factory  adaptableType="domain.Group"
-             class="org.metamodel.tura.ui.properties.sections.adapters.TreeProviderAdapterFactory">
+             class="org.tura.metamodel.commons.properties.sections.adapters.TreeProviderAdapterFactory">
                  <adapter type="org.eclipse.ui.model.IWorkbenchAdapter"/> 
-                 <adapter type="org.metamodel.tura.ui.properties.sections.adapters.IReturnTypeProvider"/> 
+                 <adapter type="org.tura.metamodel.commons.properties.sections.adapters.IReturnTypeProvider"/> 
       </factory>
 
      <factory  adaptableType="domain.MessageLibrary"
-             class="org.metamodel.tura.ui.properties.sections.adapters.TreeProviderAdapterFactory">
+             class="org.tura.metamodel.commons.properties.sections.adapters.TreeProviderAdapterFactory">
                  <adapter type="org.eclipse.ui.model.IWorkbenchAdapter"/> 
-                 <adapter type="org.metamodel.tura.ui.properties.sections.adapters.IReturnTypeProvider"/> 
+                 <adapter type="org.tura.metamodel.commons.properties.sections.adapters.IReturnTypeProvider"/> 
       </factory>
 
      <factory  adaptableType="domain.Message"
-             class="org.metamodel.tura.ui.properties.sections.adapters.TreeProviderAdapterFactory">
+             class="org.tura.metamodel.commons.properties.sections.adapters.TreeProviderAdapterFactory">
                  <adapter type="org.eclipse.ui.model.IWorkbenchAdapter"/> 
-                 <adapter type="org.metamodel.tura.ui.properties.sections.adapters.IReturnTypeProvider"/> 
+                 <adapter type="org.tura.metamodel.commons.properties.sections.adapters.IReturnTypeProvider"/> 
       </factory>
 
      <factory  adaptableType="domain.Messages"
-             class="org.metamodel.tura.ui.properties.sections.adapters.TreeProviderAdapterFactory">
+             class="org.tura.metamodel.commons.properties.sections.adapters.TreeProviderAdapterFactory">
                  <adapter type="org.eclipse.ui.model.IWorkbenchAdapter"/> 
-                 <adapter type="org.metamodel.tura.ui.properties.sections.adapters.IReturnTypeProvider"/> 
+                 <adapter type="org.tura.metamodel.commons.properties.sections.adapters.IReturnTypeProvider"/> 
       </factory>
 
 </extension>
