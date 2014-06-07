@@ -112,11 +112,11 @@ public class HTMLLikeLayout extends FreeFormLayoutEx {
         	}
         }
 		
-       int xOffset = 0;//parent.getClientArea().x;
-       int yOffset = 0;//parent.getClientArea().y;
+       int xOffset = 0;
+       int yOffset = 0;
         for (int i = 0 ; i <grid.size(); i++){
         	row = grid.get(i);
-            xOffset = 0;//parent.getClientArea().x;
+            xOffset = 0;
         	for (int j= 0; j < row.size();j++ ){
         		Rectangle bounds = new Rectangle(xOffset, yOffset,row.get(j).getBounds().width, row.get(j).getBounds().height);
         		row.get(j).setBounds(bounds);
