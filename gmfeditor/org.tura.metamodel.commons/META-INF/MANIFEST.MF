@@ -44,7 +44,6 @@ Export-Package:
  org.apache.velocity.texen.util,
  org.apache.velocity.util,
  org.apache.velocity.util.introspection,
- org.metamodel.tura.ui.properties.sections,
  org.tura.metamodel.commons,
  org.tura.metamodel.commons.editparts,
  org.tura.metamodel.commons.figures,

@@ -1,4 +1,4 @@
-package org.metamodel.tura.ui.properties.sections;
+package org.tura.metamodel.commons;
 
 import java.util.Iterator;
 import java.util.Map;

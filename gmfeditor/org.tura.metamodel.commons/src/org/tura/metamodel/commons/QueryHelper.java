@@ -1,4 +1,4 @@
-package org.metamodel.tura.ui.properties.sections;
+package org.tura.metamodel.commons;
 
 import java.util.ArrayList;
 import java.util.Collection;
