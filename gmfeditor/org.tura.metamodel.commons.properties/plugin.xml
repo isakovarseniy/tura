@@ -19,6 +19,7 @@
              label="Operation"/>
  
            <propertyTab
+             afterTab="property.tab.domain.operation"
              category="domain"
              id="property.tab.domain.operation.parameters"
              label="Operation parameters"/>
@@ -47,6 +48,7 @@
            </propertySection>        
 
           <propertySection
+               afterSection="org.tura.metamodel.typedefinition.package.reference.returntype"
                tab="property.tab.domain.operation"
                class="org.tura.metamodel.commons.properties.sections.dropdown.TypeNamePropertySection"
                id="org.tura.metamodel.typedefinition.type.reference.returntype">
@@ -62,6 +64,7 @@
            </propertySection>        
  
           <propertySection
+               afterSection="org.tura.metamodel.typedefinition.package.reference"
                tab="property.tab.domain.type"
                class="org.tura.metamodel.commons.properties.sections.dropdown.TypeNamePropertySection"
                id="org.tura.metamodel.typedefinition.type.reference">
@@ -77,6 +80,7 @@
            </propertySection>        
 
           <propertySection
+                afterSection="org.tura.metamodel.typedefinition.typereference.package.reference"
                tab="property.tab.domain.typeref"
                class="org.tura.metamodel.commons.properties.sections.dropdown.TypeRefTypeNamePropertySection"
                id="org.tura.metamodel.typedefinition.typereference.type.typereference">
