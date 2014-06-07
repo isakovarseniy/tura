@@ -1,7 +1,7 @@
 package org.tura.metamodel.commons.figures;
 
 import org.eclipse.draw2d.ImageFigure;
-import org.metamodel.tura.Activator;
+import org.tura.metamodel.Activator;
 
 public class DropDownFigure extends ImageFigure {
 

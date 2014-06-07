@@ -1,4 +1,4 @@
-package org.metamodel.tura;
+package org.tura.metamodel;
 
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.swt.graphics.Image;

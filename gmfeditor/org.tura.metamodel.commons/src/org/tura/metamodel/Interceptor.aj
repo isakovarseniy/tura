@@ -1,3 +1,4 @@
+package org.tura.metamodel;
 /*
          http://wiki.eclipse.org/Equinox_Weaving_QuickStart
          
