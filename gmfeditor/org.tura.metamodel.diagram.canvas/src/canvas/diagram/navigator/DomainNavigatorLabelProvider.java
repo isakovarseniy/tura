@@ -347,49 +347,6 @@ public class DomainNavigatorLabelProvider extends LabelProvider implements
 	/**
 	 * @generated
 	 */
-	private String getDropDownSelection_1603002Text(View view) {
-		DropDownSelection domainModelElement = (DropDownSelection) view
-				.getElement();
-		if (domainModelElement != null) {
-			return domainModelElement.getNickname();
-		} else {
-			DomainDiagramEditorPlugin.getInstance().logError(
-					"No domain element for view with visualID = " + 1603002); //$NON-NLS-1$
-			return ""; //$NON-NLS-1$
-		}
-	}
-
-	/**
-	 * @generated
-	 */
-	private String getLayerHolder_1603019Text(View view) {
-		LayerHolder domainModelElement = (LayerHolder) view.getElement();
-		if (domainModelElement != null) {
-			return domainModelElement.getNickname();
-		} else {
-			DomainDiagramEditorPlugin.getInstance().logError(
-					"No domain element for view with visualID = " + 1603019); //$NON-NLS-1$
-			return ""; //$NON-NLS-1$
-		}
-	}
-
-	/**
-	 * @generated
-	 */
-	private String getInputText_1603004Text(View view) {
-		InputText domainModelElement = (InputText) view.getElement();
-		if (domainModelElement != null) {
-			return domainModelElement.getNickname();
-		} else {
-			DomainDiagramEditorPlugin.getInstance().logError(
-					"No domain element for view with visualID = " + 1603004); //$NON-NLS-1$
-			return ""; //$NON-NLS-1$
-		}
-	}
-
-	/**
-	 * @generated
-	 */
 	private String getLabel_1603005Text(View view) {
 		IParser parser = DomainParserProvider.getParser(
 				DomainElementTypes.Label_1603005,
@@ -409,27 +366,14 @@ public class DomainNavigatorLabelProvider extends LabelProvider implements
 	/**
 	 * @generated
 	 */
-	private String getOutputText_1603006Text(View view) {
-		OutputText domainModelElement = (OutputText) view.getElement();
+	private String getDropDownSelection_1603002Text(View view) {
+		DropDownSelection domainModelElement = (DropDownSelection) view
+				.getElement();
 		if (domainModelElement != null) {
 			return domainModelElement.getNickname();
 		} else {
 			DomainDiagramEditorPlugin.getInstance().logError(
-					"No domain element for view with visualID = " + 1603006); //$NON-NLS-1$
-			return ""; //$NON-NLS-1$
-		}
-	}
-
-	/**
-	 * @generated
-	 */
-	private String getCheckBox_1603007Text(View view) {
-		CheckBox domainModelElement = (CheckBox) view.getElement();
-		if (domainModelElement != null) {
-			return domainModelElement.getNickname();
-		} else {
-			DomainDiagramEditorPlugin.getInstance().logError(
-					"No domain element for view with visualID = " + 1603007); //$NON-NLS-1$
+					"No domain element for view with visualID = " + 1603002); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 	}
@@ -494,6 +438,25 @@ public class DomainNavigatorLabelProvider extends LabelProvider implements
 	/**
 	 * @generated
 	 */
+	private String getLabel_1603013Text(View view) {
+		IParser parser = DomainParserProvider.getParser(
+				DomainElementTypes.Label_1603013,
+				view.getElement() != null ? view.getElement() : view,
+				DomainVisualIDRegistry.getType(LabelLabel2EditPart.VISUAL_ID));
+		if (parser != null) {
+			return parser.getPrintString(new EObjectAdapter(
+					view.getElement() != null ? view.getElement() : view),
+					ParserOptions.NONE.intValue());
+		} else {
+			DomainDiagramEditorPlugin.getInstance().logError(
+					"Parser was not found for label " + 1605002); //$NON-NLS-1$
+			return ""; //$NON-NLS-1$
+		}
+	}
+
+	/**
+	 * @generated
+	 */
 	private String getDropDownSelection_1603010Text(View view) {
 		DropDownSelection domainModelElement = (DropDownSelection) view
 				.getElement();
@@ -509,6 +472,25 @@ public class DomainNavigatorLabelProvider extends LabelProvider implements
 	/**
 	 * @generated
 	 */
+	private String getTable_1603021Text(View view) {
+		IParser parser = DomainParserProvider.getParser(
+				DomainElementTypes.Table_1603021,
+				view.getElement() != null ? view.getElement() : view,
+				DomainVisualIDRegistry.getType(TableLabel2EditPart.VISUAL_ID));
+		if (parser != null) {
+			return parser.getPrintString(new EObjectAdapter(
+					view.getElement() != null ? view.getElement() : view),
+					ParserOptions.NONE.intValue());
+		} else {
+			DomainDiagramEditorPlugin.getInstance().logError(
+					"Parser was not found for label " + 1605007); //$NON-NLS-1$
+			return ""; //$NON-NLS-1$
+		}
+	}
+
+	/**
+	 * @generated
+	 */
 	private String getLayerHolder_1603020Text(View view) {
 		LayerHolder domainModelElement = (LayerHolder) view.getElement();
 		if (domainModelElement != null) {
@@ -516,6 +498,62 @@ public class DomainNavigatorLabelProvider extends LabelProvider implements
 		} else {
 			DomainDiagramEditorPlugin.getInstance().logError(
 					"No domain element for view with visualID = " + 1603020); //$NON-NLS-1$
+			return ""; //$NON-NLS-1$
+		}
+	}
+
+	/**
+	 * @generated
+	 */
+	private String getLayerHolder_1603019Text(View view) {
+		LayerHolder domainModelElement = (LayerHolder) view.getElement();
+		if (domainModelElement != null) {
+			return domainModelElement.getNickname();
+		} else {
+			DomainDiagramEditorPlugin.getInstance().logError(
+					"No domain element for view with visualID = " + 1603019); //$NON-NLS-1$
+			return ""; //$NON-NLS-1$
+		}
+	}
+
+	/**
+	 * @generated
+	 */
+	private String getInputText_1603004Text(View view) {
+		InputText domainModelElement = (InputText) view.getElement();
+		if (domainModelElement != null) {
+			return domainModelElement.getNickname();
+		} else {
+			DomainDiagramEditorPlugin.getInstance().logError(
+					"No domain element for view with visualID = " + 1603004); //$NON-NLS-1$
+			return ""; //$NON-NLS-1$
+		}
+	}
+
+	/**
+	 * @generated
+	 */
+	private String getOutputText_1603006Text(View view) {
+		OutputText domainModelElement = (OutputText) view.getElement();
+		if (domainModelElement != null) {
+			return domainModelElement.getNickname();
+		} else {
+			DomainDiagramEditorPlugin.getInstance().logError(
+					"No domain element for view with visualID = " + 1603006); //$NON-NLS-1$
+			return ""; //$NON-NLS-1$
+		}
+	}
+
+	/**
+	 * @generated
+	 */
+	private String getCheckBox_1603007Text(View view) {
+		CheckBox domainModelElement = (CheckBox) view.getElement();
+		if (domainModelElement != null) {
+			return domainModelElement.getNickname();
+		} else {
+			DomainDiagramEditorPlugin.getInstance().logError(
+					"No domain element for view with visualID = " + 1603007); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 	}
@@ -556,25 +594,6 @@ public class DomainNavigatorLabelProvider extends LabelProvider implements
 	/**
 	 * @generated
 	 */
-	private String getLabel_1603013Text(View view) {
-		IParser parser = DomainParserProvider.getParser(
-				DomainElementTypes.Label_1603013,
-				view.getElement() != null ? view.getElement() : view,
-				DomainVisualIDRegistry.getType(LabelLabel2EditPart.VISUAL_ID));
-		if (parser != null) {
-			return parser.getPrintString(new EObjectAdapter(
-					view.getElement() != null ? view.getElement() : view),
-					ParserOptions.NONE.intValue());
-		} else {
-			DomainDiagramEditorPlugin.getInstance().logError(
-					"Parser was not found for label " + 1605002); //$NON-NLS-1$
-			return ""; //$NON-NLS-1$
-		}
-	}
-
-	/**
-	 * @generated
-	 */
 	private String getOutputText_1603014Text(View view) {
 		OutputText domainModelElement = (OutputText) view.getElement();
 		if (domainModelElement != null) {
@@ -596,25 +615,6 @@ public class DomainNavigatorLabelProvider extends LabelProvider implements
 		} else {
 			DomainDiagramEditorPlugin.getInstance().logError(
 					"No domain element for view with visualID = " + 1603015); //$NON-NLS-1$
-			return ""; //$NON-NLS-1$
-		}
-	}
-
-	/**
-	 * @generated
-	 */
-	private String getTable_1603021Text(View view) {
-		IParser parser = DomainParserProvider.getParser(
-				DomainElementTypes.Table_1603021,
-				view.getElement() != null ? view.getElement() : view,
-				DomainVisualIDRegistry.getType(TableLabel2EditPart.VISUAL_ID));
-		if (parser != null) {
-			return parser.getPrintString(new EObjectAdapter(
-					view.getElement() != null ? view.getElement() : view),
-					ParserOptions.NONE.intValue());
-		} else {
-			DomainDiagramEditorPlugin.getInstance().logError(
-					"Parser was not found for label " + 1605007); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 	}

@@ -128,24 +128,6 @@ public class DomainParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	private IParser treeLabel_1605005Parser;
-
-	/**
-	 * @generated
-	 */
-	private IParser getTreeLabel_1605005Parser() {
-		if (treeLabel_1605005Parser == null) {
-			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE
-					.getTree_Label() };
-			MessageFormatParser parser = new MessageFormatParser(features);
-			treeLabel_1605005Parser = parser;
-		}
-		return treeLabel_1605005Parser;
-	}
-
-	/**
-	 * @generated
-	 */
 	private IParser labelLabel_1605002Parser;
 
 	/**
@@ -177,6 +159,24 @@ public class DomainParserProvider extends AbstractProvider implements
 			tableLabel_1605007Parser = parser;
 		}
 		return tableLabel_1605007Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	private IParser treeLabel_1605005Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getTreeLabel_1605005Parser() {
+		if (treeLabel_1605005Parser == null) {
+			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE
+					.getTree_Label() };
+			MessageFormatParser parser = new MessageFormatParser(features);
+			treeLabel_1605005Parser = parser;
+		}
+		return treeLabel_1605005Parser;
 	}
 
 	/**

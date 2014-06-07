@@ -11,7 +11,6 @@ import canvas.diagram.edit.commands.CheckBoxCreateCommand;
 import canvas.diagram.edit.commands.DropDownSelectionCreateCommand;
 import canvas.diagram.edit.commands.InputTextCreateCommand;
 import canvas.diagram.edit.commands.LabelCreateCommand;
-import canvas.diagram.edit.commands.LayerHolder2CreateCommand;
 import canvas.diagram.edit.commands.LayerHolder3CreateCommand;
 import canvas.diagram.edit.commands.OutputTextCreateCommand;
 import canvas.diagram.edit.commands.TableCreateCommand;

@@ -84,27 +84,11 @@ public class DomainElementTypes {
 	/**
 	 * @generated
 	 */
-	public static final IElementType DropDownSelection_1603002 = getElementType("org.tura.metamodel.diagram.canvas.DropDownSelection_1603002"); //$NON-NLS-1$
-	/**
-	 * @generated
-	 */
-	public static final IElementType LayerHolder_1603019 = getElementType("org.tura.metamodel.diagram.canvas.LayerHolder_1603019"); //$NON-NLS-1$
-	/**
-	 * @generated
-	 */
-	public static final IElementType InputText_1603004 = getElementType("org.tura.metamodel.diagram.canvas.InputText_1603004"); //$NON-NLS-1$
-	/**
-	 * @generated
-	 */
 	public static final IElementType Label_1603005 = getElementType("org.tura.metamodel.diagram.canvas.Label_1603005"); //$NON-NLS-1$
 	/**
 	 * @generated
 	 */
-	public static final IElementType OutputText_1603006 = getElementType("org.tura.metamodel.diagram.canvas.OutputText_1603006"); //$NON-NLS-1$
-	/**
-	 * @generated
-	 */
-	public static final IElementType CheckBox_1603007 = getElementType("org.tura.metamodel.diagram.canvas.CheckBox_1603007"); //$NON-NLS-1$
+	public static final IElementType DropDownSelection_1603002 = getElementType("org.tura.metamodel.diagram.canvas.DropDownSelection_1603002"); //$NON-NLS-1$
 	/**
 	 * @generated
 	 */
@@ -120,11 +104,35 @@ public class DomainElementTypes {
 	/**
 	 * @generated
 	 */
+	public static final IElementType Label_1603013 = getElementType("org.tura.metamodel.diagram.canvas.Label_1603013"); //$NON-NLS-1$
+	/**
+	 * @generated
+	 */
 	public static final IElementType DropDownSelection_1603010 = getElementType("org.tura.metamodel.diagram.canvas.DropDownSelection_1603010"); //$NON-NLS-1$
 	/**
 	 * @generated
 	 */
+	public static final IElementType Table_1603021 = getElementType("org.tura.metamodel.diagram.canvas.Table_1603021"); //$NON-NLS-1$
+	/**
+	 * @generated
+	 */
 	public static final IElementType LayerHolder_1603020 = getElementType("org.tura.metamodel.diagram.canvas.LayerHolder_1603020"); //$NON-NLS-1$
+	/**
+	 * @generated
+	 */
+	public static final IElementType LayerHolder_1603019 = getElementType("org.tura.metamodel.diagram.canvas.LayerHolder_1603019"); //$NON-NLS-1$
+	/**
+	 * @generated
+	 */
+	public static final IElementType InputText_1603004 = getElementType("org.tura.metamodel.diagram.canvas.InputText_1603004"); //$NON-NLS-1$
+	/**
+	 * @generated
+	 */
+	public static final IElementType OutputText_1603006 = getElementType("org.tura.metamodel.diagram.canvas.OutputText_1603006"); //$NON-NLS-1$
+	/**
+	 * @generated
+	 */
+	public static final IElementType CheckBox_1603007 = getElementType("org.tura.metamodel.diagram.canvas.CheckBox_1603007"); //$NON-NLS-1$
 	/**
 	 * @generated
 	 */
@@ -136,19 +144,11 @@ public class DomainElementTypes {
 	/**
 	 * @generated
 	 */
-	public static final IElementType Label_1603013 = getElementType("org.tura.metamodel.diagram.canvas.Label_1603013"); //$NON-NLS-1$
-	/**
-	 * @generated
-	 */
 	public static final IElementType OutputText_1603014 = getElementType("org.tura.metamodel.diagram.canvas.OutputText_1603014"); //$NON-NLS-1$
 	/**
 	 * @generated
 	 */
 	public static final IElementType CheckBox_1603015 = getElementType("org.tura.metamodel.diagram.canvas.CheckBox_1603015"); //$NON-NLS-1$
-	/**
-	 * @generated
-	 */
-	public static final IElementType Table_1603021 = getElementType("org.tura.metamodel.diagram.canvas.Table_1603021"); //$NON-NLS-1$
 	/**
 	 * @generated
 	 */

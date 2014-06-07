@@ -90,8 +90,8 @@ public class DomainArtifactsDomainArtifactsDomainArtifactCompartmentEditPart
 					HTMLLikeLayout layout = (HTMLLikeLayout) figure
 							.getContentPane().getLayoutManager();
 					layout.setColumns(event.getNewIntValue());
-					figure.collapse();
-					figure.expand();
+					figure.getContentPane().revalidate();
+					figure.getUpdateManager().performUpdate();
 				}
 			}
 

@@ -12,7 +12,6 @@ import canvas.diagram.edit.commands.DropDownSelection2CreateCommand;
 import canvas.diagram.edit.commands.InputText2CreateCommand;
 import canvas.diagram.edit.commands.Label2CreateCommand;
 import canvas.diagram.edit.commands.LayerHolder2CreateCommand;
-import canvas.diagram.edit.commands.LayerHolder3CreateCommand;
 import canvas.diagram.edit.commands.OutputText2CreateCommand;
 import canvas.diagram.edit.commands.Table2CreateCommand;
 import canvas.diagram.edit.commands.Tree2CreateCommand;

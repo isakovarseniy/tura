@@ -29,7 +29,6 @@ import canvas.diagram.edit.parts.CheckBoxEditPart;
 import canvas.diagram.edit.parts.DropDownSelectionEditPart;
 import canvas.diagram.edit.parts.InputTextEditPart;
 import canvas.diagram.edit.parts.LabelEditPart;
-import canvas.diagram.edit.parts.LayerHolder2EditPart;
 import canvas.diagram.edit.parts.LayerHolder3EditPart;
 import canvas.diagram.edit.parts.OutputTextEditPart;
 import canvas.diagram.edit.parts.TableEditPart;

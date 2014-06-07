@@ -311,6 +311,16 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
+	public static String NavigatorGroupName_DeploymentComponent_902001_incominglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_DeploymentComponent_902001_outgoinglinks;
+
+	/**
+	 * @generated
+	 */
 	public static String NavigatorGroupName_DeploymentComponentDeploymentComponentLink_904014_target;
 
 	/**
@@ -332,16 +342,6 @@ public class Messages extends NLS {
 	 * @generated
 	 */
 	public static String NavigatorGroupName_DeploymentStarStep_902002_outgoinglinks;
-
-	/**
-	 * @generated
-	 */
-	public static String NavigatorGroupName_DeploymentComponent_902001_incominglinks;
-
-	/**
-	 * @generated
-	 */
-	public static String NavigatorGroupName_DeploymentComponent_902001_outgoinglinks;
 
 	/**
 	 * @generated

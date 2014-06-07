@@ -486,22 +486,22 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_DataControl_1102002_incominglinks;
-
-	/**
-	 * @generated
-	 */
-	public static String NavigatorGroupName_DataControl_1102002_outgoinglinks;
-
-	/**
-	 * @generated
-	 */
 	public static String NavigatorGroupName_Relation_1104009_target;
 
 	/**
 	 * @generated
 	 */
 	public static String NavigatorGroupName_Relation_1104009_source;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_DataControl_1102002_incominglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_DataControl_1102002_outgoinglinks;
 
 	/**
 	 * @generated

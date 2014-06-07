@@ -376,7 +376,12 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_Canvas_1302003_incominglinks;
+	public static String NavigatorGroupName_Window_1302007_incominglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_Views_1301000_links;
 
 	/**
 	 * @generated
@@ -396,12 +401,7 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_Window_1302007_incominglinks;
-
-	/**
-	 * @generated
-	 */
-	public static String NavigatorGroupName_Views_1301000_links;
+	public static String NavigatorGroupName_Canvas_1302003_incominglinks;
 
 	/**
 	 * @generated

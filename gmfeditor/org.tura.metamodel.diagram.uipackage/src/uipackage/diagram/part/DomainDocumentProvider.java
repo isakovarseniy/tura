@@ -174,29 +174,29 @@ public class DomainDocumentProvider extends AbstractDocumentProvider implements
 		final org.eclipse.emf.transaction.NotificationFilter diagramResourceModifiedFilter = org.eclipse.emf.transaction.NotificationFilter.createNotifierFilter(editingDomain.getResourceSet()).and(org.eclipse.emf.transaction.NotificationFilter.createEventTypeFilter(org.eclipse.emf.common.notify.Notification.ADD)).and(org.eclipse.emf.transaction.NotificationFilter.createFeatureFilter(org.eclipse.emf.ecore.resource.ResourceSet.class, org.eclipse.emf.ecore.resource.ResourceSet.RESOURCE_SET__RESOURCES));
 		editingDomain.getResourceSet().eAdapters().add(new org.eclipse.emf.common.notify.Adapter() {
 
-		  private org.eclipse.emf.common.notify.Notifier myTarger;
+			private org.eclipse.emf.common.notify.Notifier myTarger;
 
-		  public org.eclipse.emf.common.notify.Notifier getTarget() {
-		    return myTarger;
-		  }
+			public org.eclipse.emf.common.notify.Notifier getTarget() {
+				return myTarger;
+			}
 
-		  public boolean isAdapterForType(Object type) {
-		    return false;
-		  }
+			public boolean isAdapterForType(Object type) {
+				return false;
+			}
 
-		  public void notifyChanged(org.eclipse.emf.common.notify.Notification notification) {
-		    if (diagramResourceModifiedFilter.matches(notification)) {
-		      Object value = notification.getNewValue();
-		      if (value instanceof org.eclipse.emf.ecore.resource.Resource) {
-		        ((org.eclipse.emf.ecore.resource.Resource) value).setTrackingModification(true);
-		      }
-		    }
-		  }
+			public void notifyChanged(org.eclipse.emf.common.notify.Notification notification) {
+				if (diagramResourceModifiedFilter.matches(notification)) {
+					Object value = notification.getNewValue();
+					if (value instanceof org.eclipse.emf.ecore.resource.Resource) {
+						((org.eclipse.emf.ecore.resource.Resource) value).setTrackingModification(true);
+					}
+				}
+			}
 
-		  public void setTarget(org.eclipse.emf.common.notify.Notifier newTarget) {
-		    myTarger = newTarget;
-		  }
-		    
+			public void setTarget(org.eclipse.emf.common.notify.Notifier newTarget) {
+				myTarger = newTarget;
+			}
+				
 		});	
 		 */
 		return editingDomain;
@@ -707,16 +707,16 @@ public class DomainDocumentProvider extends AbstractDocumentProvider implements
 		// ITEMIS CHANGE : Using the shared editing domain, we reload externally
 		// changed resources centrally
 		/*
-		  org.eclipse.core.resources.IFile file = org.eclipse.emf.workspace.util.WorkspaceSynchronizer.getFile(changedResource);
+			org.eclipse.core.resources.IFile file = org.eclipse.emf.workspace.util.WorkspaceSynchronizer.getFile(changedResource);
 		if (file != null) {
-		  try {
-		    file.refreshLocal(org.eclipse.core.resources.IResource.DEPTH_INFINITE, monitor);
-		  } catch (org.eclipse.core.runtime.CoreException ex) {
-		    uipackage.diagram.part.DomainDiagramEditorPlugin.getInstance().logError(uipackage.diagram.part.Messages.DomainDocumentProvider_handleElementContentChanged, ex);
-		    // Error message to log was initially taken from org.eclipse.gmf.runtime.diagram.ui.resources.editor.ide.internal.l10n.EditorMessages.FileDocumentProvider_handleElementContentChanged
-		  }
+			try {
+				file.refreshLocal(org.eclipse.core.resources.IResource.DEPTH_INFINITE, monitor);
+			} catch (org.eclipse.core.runtime.CoreException ex) {
+				uipackage.diagram.part.DomainDiagramEditorPlugin.getInstance().logError(uipackage.diagram.part.Messages.DomainDocumentProvider_handleElementContentChanged, ex);
+				// Error message to log was initially taken from org.eclipse.gmf.runtime.diagram.ui.resources.editor.ide.internal.l10n.EditorMessages.FileDocumentProvider_handleElementContentChanged
+			}
 		}
-		  changedResource.unload();
+			changedResource.unload();
 		 */
 		fireElementContentAboutToBeReplaced(info.getEditorInput());
 		removeUnchangedElementListeners(info.getEditorInput(), info);

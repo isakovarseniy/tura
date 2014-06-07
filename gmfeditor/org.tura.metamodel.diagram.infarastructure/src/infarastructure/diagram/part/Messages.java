@@ -391,26 +391,6 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_ServerClaster_1203007_incominglinks;
-
-	/**
-	 * @generated
-	 */
-	public static String NavigatorGroupName_ServerClaster_1203007_outgoinglinks;
-
-	/**
-	 * @generated
-	 */
-	public static String NavigatorGroupName_Router_1203004_incominglinks;
-
-	/**
-	 * @generated
-	 */
-	public static String NavigatorGroupName_Router_1203004_outgoinglinks;
-
-	/**
-	 * @generated
-	 */
 	public static String NavigatorGroupName_InfrastructureConnection_1204009_target;
 
 	/**
@@ -421,12 +401,12 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_Server_1203008_incominglinks;
+	public static String NavigatorGroupName_Server_1203003_incominglinks;
 
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_Server_1203008_outgoinglinks;
+	public static String NavigatorGroupName_Server_1203003_outgoinglinks;
 
 	/**
 	 * @generated
@@ -451,12 +431,32 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_Server_1203003_incominglinks;
+	public static String NavigatorGroupName_ServerClaster_1203007_incominglinks;
 
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_Server_1203003_outgoinglinks;
+	public static String NavigatorGroupName_ServerClaster_1203007_outgoinglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_Server_1203008_incominglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_Server_1203008_outgoinglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_Router_1203004_incominglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_Router_1203004_outgoinglinks;
 
 	/**
 	 * @generated

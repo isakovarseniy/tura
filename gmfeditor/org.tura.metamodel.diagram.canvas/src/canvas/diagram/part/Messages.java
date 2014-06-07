@@ -356,11 +356,6 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String LayerHolderLayerHolderChildrenCompartment2EditPart_title;
-
-	/**
-	 * @generated
-	 */
 	public static String TableTableColsCompartmentEditPart_title;
 
 	/**
@@ -371,12 +366,17 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String LayerHolderLayerHolderChildrenCompartment3EditPart_title;
+	public static String TableTableColsCompartment2EditPart_title;
 
 	/**
 	 * @generated
 	 */
-	public static String TableTableColsCompartment2EditPart_title;
+	public static String LayerHolderLayerHolderChildrenCompartment2EditPart_title;
+
+	/**
+	 * @generated
+	 */
+	public static String LayerHolderLayerHolderChildrenCompartment3EditPart_title;
 
 	/**
 	 * @generated

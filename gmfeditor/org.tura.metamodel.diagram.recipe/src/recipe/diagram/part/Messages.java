@@ -406,22 +406,32 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
+	public static String NavigatorGroupName_Recipe_302001_outgoinglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_Recipes_301000_links;
+
+	/**
+	 * @generated
+	 */
 	public static String NavigatorGroupName_DeploymentSequence_302004_incominglinks;
 
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_RecipeInfrastructures_304004_target;
+	public static String NavigatorGroupName_RecipeDeployment_304013_target;
 
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_RecipeInfrastructures_304004_source;
+	public static String NavigatorGroupName_RecipeDeployment_304013_source;
 
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_Recipe_302001_outgoinglinks;
+	public static String NavigatorGroupName_Configuration_302002_incominglinks;
 
 	/**
 	 * @generated
@@ -446,22 +456,12 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_Configuration_302002_incominglinks;
+	public static String NavigatorGroupName_RecipeInfrastructures_304004_target;
 
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_Recipes_301000_links;
-
-	/**
-	 * @generated
-	 */
-	public static String NavigatorGroupName_RecipeDeployment_304013_target;
-
-	/**
-	 * @generated
-	 */
-	public static String NavigatorGroupName_RecipeDeployment_304013_source;
+	public static String NavigatorGroupName_RecipeInfrastructures_304004_source;
 
 	/**
 	 * @generated

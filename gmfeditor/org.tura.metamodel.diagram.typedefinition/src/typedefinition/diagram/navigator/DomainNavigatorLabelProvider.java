@@ -110,33 +110,33 @@ public class DomainNavigatorLabelProvider extends LabelProvider implements
 	 */
 	public Image getImage(View view) {
 		switch (DomainVisualIDRegistry.getVisualID(view)) {
-		case AttributeEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Node?http://tura.org/2013/v1/domain?Attribute", DomainElementTypes.Attribute_103001); //$NON-NLS-1$
-		case EnumaratorEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?TopLevelNode?http://tura.org/2013/v1/domain?Enumarator", DomainElementTypes.Enumarator_102005); //$NON-NLS-1$
-		case TypeEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?TopLevelNode?http://tura.org/2013/v1/domain?Type", DomainElementTypes.Type_102002); //$NON-NLS-1$
-		case TypeDefinitionEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Diagram?http://tura.org/2013/v1/domain?TypeDefinition", DomainElementTypes.TypeDefinition_101000); //$NON-NLS-1$
 		case PrimitiveEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?TopLevelNode?http://tura.org/2013/v1/domain?Primitive", DomainElementTypes.Primitive_102004); //$NON-NLS-1$
-		case TypeExtensionEditPart.VISUAL_ID:
+		case TypeEditPart.VISUAL_ID:
 			return getImage(
-					"Navigator?Link?http://tura.org/2013/v1/domain?TypeExtension", DomainElementTypes.TypeExtension_104001); //$NON-NLS-1$
+					"Navigator?TopLevelNode?http://tura.org/2013/v1/domain?Type", DomainElementTypes.Type_102002); //$NON-NLS-1$
 		case EnumAttributeEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Node?http://tura.org/2013/v1/domain?EnumAttribute", DomainElementTypes.EnumAttribute_103005); //$NON-NLS-1$
-		case TypeReferenceEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?TopLevelNode?http://tura.org/2013/v1/domain?TypeReference", DomainElementTypes.TypeReference_102001); //$NON-NLS-1$
 		case OperationEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Node?http://tura.org/2013/v1/domain?Operation", DomainElementTypes.Operation_103002); //$NON-NLS-1$
+		case TypeExtensionEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Link?http://tura.org/2013/v1/domain?TypeExtension", DomainElementTypes.TypeExtension_104001); //$NON-NLS-1$
+		case TypeDefinitionEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Diagram?http://tura.org/2013/v1/domain?TypeDefinition", DomainElementTypes.TypeDefinition_101000); //$NON-NLS-1$
+		case TypeReferenceEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?TopLevelNode?http://tura.org/2013/v1/domain?TypeReference", DomainElementTypes.TypeReference_102001); //$NON-NLS-1$
+		case EnumaratorEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?TopLevelNode?http://tura.org/2013/v1/domain?Enumarator", DomainElementTypes.Enumarator_102005); //$NON-NLS-1$
+		case AttributeEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Node?http://tura.org/2013/v1/domain?Attribute", DomainElementTypes.Attribute_103001); //$NON-NLS-1$
 		}
 		return getImage("Navigator?UnknownElement", null); //$NON-NLS-1$
 	}
@@ -197,79 +197,26 @@ public class DomainNavigatorLabelProvider extends LabelProvider implements
 			return getUnresolvedDomainElementProxyText(view);
 		}
 		switch (DomainVisualIDRegistry.getVisualID(view)) {
-		case AttributeEditPart.VISUAL_ID:
-			return getAttribute_103001Text(view);
-		case EnumaratorEditPart.VISUAL_ID:
-			return getEnumarator_102005Text(view);
-		case TypeEditPart.VISUAL_ID:
-			return getType_102002Text(view);
-		case TypeDefinitionEditPart.VISUAL_ID:
-			return getTypeDefinition_101000Text(view);
 		case PrimitiveEditPart.VISUAL_ID:
 			return getPrimitive_102004Text(view);
-		case TypeExtensionEditPart.VISUAL_ID:
-			return getTypeExtension_104001Text(view);
+		case TypeEditPart.VISUAL_ID:
+			return getType_102002Text(view);
 		case EnumAttributeEditPart.VISUAL_ID:
 			return getEnumAttribute_103005Text(view);
-		case TypeReferenceEditPart.VISUAL_ID:
-			return getTypeReference_102001Text(view);
 		case OperationEditPart.VISUAL_ID:
 			return getOperation_103002Text(view);
+		case TypeExtensionEditPart.VISUAL_ID:
+			return getTypeExtension_104001Text(view);
+		case TypeDefinitionEditPart.VISUAL_ID:
+			return getTypeDefinition_101000Text(view);
+		case TypeReferenceEditPart.VISUAL_ID:
+			return getTypeReference_102001Text(view);
+		case EnumaratorEditPart.VISUAL_ID:
+			return getEnumarator_102005Text(view);
+		case AttributeEditPart.VISUAL_ID:
+			return getAttribute_103001Text(view);
 		}
 		return getUnknownElementText(view);
-	}
-
-	/**
-	 * @generated
-	 */
-	private String getType_102002Text(View view) {
-		IParser parser = DomainParserProvider.getParser(
-				DomainElementTypes.Type_102002,
-				view.getElement() != null ? view.getElement() : view,
-				DomainVisualIDRegistry.getType(TypeNameEditPart.VISUAL_ID));
-		if (parser != null) {
-			return parser.getPrintString(new EObjectAdapter(
-					view.getElement() != null ? view.getElement() : view),
-					ParserOptions.NONE.intValue());
-		} else {
-			DomainDiagramEditorPlugin.getInstance().logError(
-					"Parser was not found for label " + 105006); //$NON-NLS-1$
-			return ""; //$NON-NLS-1$
-		}
-	}
-
-	/**
-	 * @generated
-	 */
-	private String getTypeDefinition_101000Text(View view) {
-		TypeDefinition domainModelElement = (TypeDefinition) view.getElement();
-		if (domainModelElement != null) {
-			return domainModelElement.getUid();
-		} else {
-			DomainDiagramEditorPlugin.getInstance().logError(
-					"No domain element for view with visualID = " + 101000); //$NON-NLS-1$
-			return ""; //$NON-NLS-1$
-		}
-	}
-
-	/**
-	 * @generated
-	 */
-	private String getAttribute_103001Text(View view) {
-		IParser parser = DomainParserProvider
-				.getParser(DomainElementTypes.Attribute_103001, view
-						.getElement() != null ? view.getElement() : view,
-						DomainVisualIDRegistry
-								.getType(AttributeNameEditPart.VISUAL_ID));
-		if (parser != null) {
-			return parser.getPrintString(new EObjectAdapter(
-					view.getElement() != null ? view.getElement() : view),
-					ParserOptions.NONE.intValue());
-		} else {
-			DomainDiagramEditorPlugin.getInstance().logError(
-					"Parser was not found for label " + 105002); //$NON-NLS-1$
-			return ""; //$NON-NLS-1$
-		}
 	}
 
 	/**
@@ -295,6 +242,25 @@ public class DomainNavigatorLabelProvider extends LabelProvider implements
 	/**
 	 * @generated
 	 */
+	private String getType_102002Text(View view) {
+		IParser parser = DomainParserProvider.getParser(
+				DomainElementTypes.Type_102002,
+				view.getElement() != null ? view.getElement() : view,
+				DomainVisualIDRegistry.getType(TypeNameEditPart.VISUAL_ID));
+		if (parser != null) {
+			return parser.getPrintString(new EObjectAdapter(
+					view.getElement() != null ? view.getElement() : view),
+					ParserOptions.NONE.intValue());
+		} else {
+			DomainDiagramEditorPlugin.getInstance().logError(
+					"Parser was not found for label " + 105006); //$NON-NLS-1$
+			return ""; //$NON-NLS-1$
+		}
+	}
+
+	/**
+	 * @generated
+	 */
 	private String getEnumAttribute_103005Text(View view) {
 		IParser parser = DomainParserProvider.getParser(
 				DomainElementTypes.EnumAttribute_103005,
@@ -308,26 +274,6 @@ public class DomainNavigatorLabelProvider extends LabelProvider implements
 		} else {
 			DomainDiagramEditorPlugin.getInstance().logError(
 					"Parser was not found for label " + 105007); //$NON-NLS-1$
-			return ""; //$NON-NLS-1$
-		}
-	}
-
-	/**
-	 * @generated
-	 */
-	private String getEnumarator_102005Text(View view) {
-		IParser parser = DomainParserProvider.getParser(
-				DomainElementTypes.Enumarator_102005,
-				view.getElement() != null ? view.getElement() : view,
-				DomainVisualIDRegistry
-						.getType(EnumaratorNameEditPart.VISUAL_ID));
-		if (parser != null) {
-			return parser.getPrintString(new EObjectAdapter(
-					view.getElement() != null ? view.getElement() : view),
-					ParserOptions.NONE.intValue());
-		} else {
-			DomainDiagramEditorPlugin.getInstance().logError(
-					"Parser was not found for label " + 105011); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 	}
@@ -369,6 +315,20 @@ public class DomainNavigatorLabelProvider extends LabelProvider implements
 	/**
 	 * @generated
 	 */
+	private String getTypeDefinition_101000Text(View view) {
+		TypeDefinition domainModelElement = (TypeDefinition) view.getElement();
+		if (domainModelElement != null) {
+			return domainModelElement.getUid();
+		} else {
+			DomainDiagramEditorPlugin.getInstance().logError(
+					"No domain element for view with visualID = " + 101000); //$NON-NLS-1$
+			return ""; //$NON-NLS-1$
+		}
+	}
+
+	/**
+	 * @generated
+	 */
 	private String getTypeReference_102001Text(View view) {
 		IParser parser = DomainParserProvider
 				.getParser(
@@ -383,6 +343,46 @@ public class DomainNavigatorLabelProvider extends LabelProvider implements
 		} else {
 			DomainDiagramEditorPlugin.getInstance().logError(
 					"Parser was not found for label " + 105001); //$NON-NLS-1$
+			return ""; //$NON-NLS-1$
+		}
+	}
+
+	/**
+	 * @generated
+	 */
+	private String getEnumarator_102005Text(View view) {
+		IParser parser = DomainParserProvider.getParser(
+				DomainElementTypes.Enumarator_102005,
+				view.getElement() != null ? view.getElement() : view,
+				DomainVisualIDRegistry
+						.getType(EnumaratorNameEditPart.VISUAL_ID));
+		if (parser != null) {
+			return parser.getPrintString(new EObjectAdapter(
+					view.getElement() != null ? view.getElement() : view),
+					ParserOptions.NONE.intValue());
+		} else {
+			DomainDiagramEditorPlugin.getInstance().logError(
+					"Parser was not found for label " + 105011); //$NON-NLS-1$
+			return ""; //$NON-NLS-1$
+		}
+	}
+
+	/**
+	 * @generated
+	 */
+	private String getAttribute_103001Text(View view) {
+		IParser parser = DomainParserProvider
+				.getParser(DomainElementTypes.Attribute_103001, view
+						.getElement() != null ? view.getElement() : view,
+						DomainVisualIDRegistry
+								.getType(AttributeNameEditPart.VISUAL_ID));
+		if (parser != null) {
+			return parser.getPrintString(new EObjectAdapter(
+					view.getElement() != null ? view.getElement() : view),
+					ParserOptions.NONE.intValue());
+		} else {
+			DomainDiagramEditorPlugin.getInstance().logError(
+					"Parser was not found for label " + 105002); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 	}

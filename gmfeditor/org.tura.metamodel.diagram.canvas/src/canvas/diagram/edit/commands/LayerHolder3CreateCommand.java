@@ -16,7 +16,6 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 import org.eclipse.gmf.runtime.notation.View;
 
 import domain.ChildrenHolder;
-import domain.Column;
 import domain.DomainFactory;
 import domain.LayerHolder;
 
