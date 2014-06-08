@@ -110,19 +110,19 @@ public class DomainDiagramUpdater {
 			}
 		}
 		{
+			ApplicationStyle childElement = modelElement.getApplicationStyle();
+			int visualID = DomainVisualIDRegistry.getNodeVisualID(view,
+					childElement);
+			if (visualID == ApplicationStyleEditPart.VISUAL_ID) {
+				result.add(new DomainNodeDescriptor(childElement, visualID));
+			}
+		}
+		{
 			ApplicationInfrastructureLayer childElement = modelElement
 					.getApplicationInfrastructureLayer();
 			int visualID = DomainVisualIDRegistry.getNodeVisualID(view,
 					childElement);
 			if (visualID == ApplicationInfrastructureLayerEditPart.VISUAL_ID) {
-				result.add(new DomainNodeDescriptor(childElement, visualID));
-			}
-		}
-		{
-			ApplicationStyle childElement = modelElement.getApplicationStyle();
-			int visualID = DomainVisualIDRegistry.getNodeVisualID(view,
-					childElement);
-			if (visualID == ApplicationStyleEditPart.VISUAL_ID) {
 				result.add(new DomainNodeDescriptor(childElement, visualID));
 			}
 		}
@@ -272,10 +272,10 @@ public class DomainDiagramUpdater {
 			return getApplicationMappers_802002ContainedLinks(view);
 		case ApplicationUILayerEditPart.VISUAL_ID:
 			return getApplicationUILayer_802003ContainedLinks(view);
-		case ApplicationInfrastructureLayerEditPart.VISUAL_ID:
-			return getApplicationInfrastructureLayer_802004ContainedLinks(view);
 		case ApplicationStyleEditPart.VISUAL_ID:
 			return getApplicationStyle_802005ContainedLinks(view);
+		case ApplicationInfrastructureLayerEditPart.VISUAL_ID:
+			return getApplicationInfrastructureLayer_802004ContainedLinks(view);
 		case ApplicationRoleEditPart.VISUAL_ID:
 			return getApplicationRole_802006ContainedLinks(view);
 		case ApplicationMessagesEditPart.VISUAL_ID:
@@ -303,10 +303,10 @@ public class DomainDiagramUpdater {
 			return getApplicationMappers_802002IncomingLinks(view);
 		case ApplicationUILayerEditPart.VISUAL_ID:
 			return getApplicationUILayer_802003IncomingLinks(view);
-		case ApplicationInfrastructureLayerEditPart.VISUAL_ID:
-			return getApplicationInfrastructureLayer_802004IncomingLinks(view);
 		case ApplicationStyleEditPart.VISUAL_ID:
 			return getApplicationStyle_802005IncomingLinks(view);
+		case ApplicationInfrastructureLayerEditPart.VISUAL_ID:
+			return getApplicationInfrastructureLayer_802004IncomingLinks(view);
 		case ApplicationRoleEditPart.VISUAL_ID:
 			return getApplicationRole_802006IncomingLinks(view);
 		case ApplicationMessagesEditPart.VISUAL_ID:
@@ -334,10 +334,10 @@ public class DomainDiagramUpdater {
 			return getApplicationMappers_802002OutgoingLinks(view);
 		case ApplicationUILayerEditPart.VISUAL_ID:
 			return getApplicationUILayer_802003OutgoingLinks(view);
-		case ApplicationInfrastructureLayerEditPart.VISUAL_ID:
-			return getApplicationInfrastructureLayer_802004OutgoingLinks(view);
 		case ApplicationStyleEditPart.VISUAL_ID:
 			return getApplicationStyle_802005OutgoingLinks(view);
+		case ApplicationInfrastructureLayerEditPart.VISUAL_ID:
+			return getApplicationInfrastructureLayer_802004OutgoingLinks(view);
 		case ApplicationRoleEditPart.VISUAL_ID:
 			return getApplicationRole_802006OutgoingLinks(view);
 		case ApplicationMessagesEditPart.VISUAL_ID:

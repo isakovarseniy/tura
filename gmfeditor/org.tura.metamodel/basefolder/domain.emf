@@ -177,7 +177,7 @@ class ApplicationRole{
 
 
 @gmf.node(label="name",border.color="0,0,0",color="192,192,192")
-class ApplicationStyle{
+class ApplicationStyle extends HTMLLayerHolder{
     id attr EString uid;
    attr EString name;
    ref Application#applicationStyle parent;
@@ -194,7 +194,7 @@ class StylesPackage{
 }
 
 @gmf.node(label="name",border.color="0,0,0",color="192,192,192")
-class ApplicationUILayer{
+class ApplicationUILayer extends HTMLLayerHolder{
     id attr EString uid;
    attr EString name;
    ref Application#applicationUILayer parent;

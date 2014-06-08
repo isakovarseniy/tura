@@ -15,16 +15,8 @@ import junit.textui.TestRunner;
  * <!-- end-user-doc -->
  * @generated
  */
-public class ApplicationStyleTest extends TestCase
+public class ApplicationStyleTest extends HTMLLayerHolderTest
 {
-
-  /**
-   * The fixture for this Application Style test case.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected ApplicationStyle fixture = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -48,25 +40,15 @@ public class ApplicationStyleTest extends TestCase
   }
 
   /**
-   * Sets the fixture for this Application Style test case.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected void setFixture(ApplicationStyle fixture)
-  {
-    this.fixture = fixture;
-  }
-
-  /**
    * Returns the fixture for this Application Style test case.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
+  @Override
   protected ApplicationStyle getFixture()
   {
-    return fixture;
+    return (ApplicationStyle)fixture;
   }
 
   /**

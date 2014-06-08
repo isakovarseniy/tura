@@ -74,9 +74,9 @@ public class ApplicationCanonicalEditPolicy extends CanonicalEditPolicy {
 			myFeaturesToSynchronize.add(DomainPackage.eINSTANCE
 					.getApplication_ApplicationUILayer());
 			myFeaturesToSynchronize.add(DomainPackage.eINSTANCE
-					.getApplication_ApplicationInfrastructureLayer());
-			myFeaturesToSynchronize.add(DomainPackage.eINSTANCE
 					.getApplication_ApplicationStyle());
+			myFeaturesToSynchronize.add(DomainPackage.eINSTANCE
+					.getApplication_ApplicationInfrastructureLayer());
 			myFeaturesToSynchronize.add(DomainPackage.eINSTANCE
 					.getApplication_ApplicationRole());
 			myFeaturesToSynchronize.add(DomainPackage.eINSTANCE
@@ -121,8 +121,8 @@ public class ApplicationCanonicalEditPolicy extends CanonicalEditPolicy {
 		case ApplicationRecipesEditPart.VISUAL_ID:
 		case ApplicationMappersEditPart.VISUAL_ID:
 		case ApplicationUILayerEditPart.VISUAL_ID:
-		case ApplicationInfrastructureLayerEditPart.VISUAL_ID:
 		case ApplicationStyleEditPart.VISUAL_ID:
+		case ApplicationInfrastructureLayerEditPart.VISUAL_ID:
 		case ApplicationRoleEditPart.VISUAL_ID:
 		case ApplicationMessagesEditPart.VISUAL_ID:
 			return true;

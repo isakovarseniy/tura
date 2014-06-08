@@ -48,13 +48,13 @@ public class ApplicationItemSemanticEditPolicy extends
 				.getElementType()) {
 			return getGEFWrapper(new ApplicationUILayerCreateCommand(req));
 		}
+		if (DomainElementTypes.ApplicationStyle_802005 == req.getElementType()) {
+			return getGEFWrapper(new ApplicationStyleCreateCommand(req));
+		}
 		if (DomainElementTypes.ApplicationInfrastructureLayer_802004 == req
 				.getElementType()) {
 			return getGEFWrapper(new ApplicationInfrastructureLayerCreateCommand(
 					req));
-		}
-		if (DomainElementTypes.ApplicationStyle_802005 == req.getElementType()) {
-			return getGEFWrapper(new ApplicationStyleCreateCommand(req));
 		}
 		if (DomainElementTypes.ApplicationRole_802006 == req.getElementType()) {
 			return getGEFWrapper(new ApplicationRoleCreateCommand(req));

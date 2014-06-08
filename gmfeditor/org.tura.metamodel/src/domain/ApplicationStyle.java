@@ -25,7 +25,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model annotation="gmf.node label='name' border.color='0,0,0' color='192,192,192'"
  * @generated
  */
-public interface ApplicationStyle extends EObject
+public interface ApplicationStyle extends HTMLLayerHolder
 {
   /**
    * Returns the value of the '<em><b>Uid</b></em>' attribute.

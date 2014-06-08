@@ -161,13 +161,13 @@ public class DomainVisualIDRegistry {
 					domainElement.eClass())) {
 				return ApplicationUILayerEditPart.VISUAL_ID;
 			}
-			if (DomainPackage.eINSTANCE.getApplicationInfrastructureLayer()
-					.isSuperTypeOf(domainElement.eClass())) {
-				return ApplicationInfrastructureLayerEditPart.VISUAL_ID;
-			}
 			if (DomainPackage.eINSTANCE.getApplicationStyle().isSuperTypeOf(
 					domainElement.eClass())) {
 				return ApplicationStyleEditPart.VISUAL_ID;
+			}
+			if (DomainPackage.eINSTANCE.getApplicationInfrastructureLayer()
+					.isSuperTypeOf(domainElement.eClass())) {
+				return ApplicationInfrastructureLayerEditPart.VISUAL_ID;
 			}
 			if (DomainPackage.eINSTANCE.getApplicationRole().isSuperTypeOf(
 					domainElement.eClass())) {
@@ -238,10 +238,10 @@ public class DomainVisualIDRegistry {
 			if (ApplicationUILayerEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
-			if (ApplicationInfrastructureLayerEditPart.VISUAL_ID == nodeVisualID) {
+			if (ApplicationStyleEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
-			if (ApplicationStyleEditPart.VISUAL_ID == nodeVisualID) {
+			if (ApplicationInfrastructureLayerEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			if (ApplicationRoleEditPart.VISUAL_ID == nodeVisualID) {
@@ -275,16 +275,16 @@ public class DomainVisualIDRegistry {
 				return true;
 			}
 			break;
-		case ApplicationInfrastructureLayerEditPart.VISUAL_ID:
-			if (ApplicationInfrastructureLayerNameEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			break;
 		case ApplicationStyleEditPart.VISUAL_ID:
 			if (ApplicationStyleNameEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			if (ApplicationStyleApplicationStyleStylesPackageCompartmentEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case ApplicationInfrastructureLayerEditPart.VISUAL_ID:
+			if (ApplicationInfrastructureLayerNameEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;

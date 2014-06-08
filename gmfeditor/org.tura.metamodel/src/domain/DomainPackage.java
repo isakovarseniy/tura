@@ -1268,13 +1268,22 @@ public interface DomainPackage extends EPackage
   int APPLICATION_STYLE = 21;
 
   /**
+   * The feature id for the '<em><b>Columns</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int APPLICATION_STYLE__COLUMNS = HTML_LAYER_HOLDER__COLUMNS;
+
+  /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int APPLICATION_STYLE__UID = 0;
+  int APPLICATION_STYLE__UID = HTML_LAYER_HOLDER_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1283,7 +1292,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int APPLICATION_STYLE__NAME = 1;
+  int APPLICATION_STYLE__NAME = HTML_LAYER_HOLDER_FEATURE_COUNT + 1;
 
   /**
    * The feature id for the '<em><b>Parent</b></em>' container reference.
@@ -1292,7 +1301,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int APPLICATION_STYLE__PARENT = 2;
+  int APPLICATION_STYLE__PARENT = HTML_LAYER_HOLDER_FEATURE_COUNT + 2;
 
   /**
    * The feature id for the '<em><b>Styles Package</b></em>' containment reference list.
@@ -1301,7 +1310,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int APPLICATION_STYLE__STYLES_PACKAGE = 3;
+  int APPLICATION_STYLE__STYLES_PACKAGE = HTML_LAYER_HOLDER_FEATURE_COUNT + 3;
 
   /**
    * The number of structural features of the '<em>Application Style</em>' class.
@@ -1310,7 +1319,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int APPLICATION_STYLE_FEATURE_COUNT = 4;
+  int APPLICATION_STYLE_FEATURE_COUNT = HTML_LAYER_HOLDER_FEATURE_COUNT + 4;
 
   /**
    * The meta object id for the '{@link domain.impl.StylesPackageImpl <em>Styles Package</em>}' class.
@@ -1378,13 +1387,22 @@ public interface DomainPackage extends EPackage
   int APPLICATION_UI_LAYER = 23;
 
   /**
+   * The feature id for the '<em><b>Columns</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int APPLICATION_UI_LAYER__COLUMNS = HTML_LAYER_HOLDER__COLUMNS;
+
+  /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int APPLICATION_UI_LAYER__UID = 0;
+  int APPLICATION_UI_LAYER__UID = HTML_LAYER_HOLDER_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1393,7 +1411,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int APPLICATION_UI_LAYER__NAME = 1;
+  int APPLICATION_UI_LAYER__NAME = HTML_LAYER_HOLDER_FEATURE_COUNT + 1;
 
   /**
    * The feature id for the '<em><b>Parent</b></em>' container reference.
@@ -1402,7 +1420,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int APPLICATION_UI_LAYER__PARENT = 2;
+  int APPLICATION_UI_LAYER__PARENT = HTML_LAYER_HOLDER_FEATURE_COUNT + 2;
 
   /**
    * The feature id for the '<em><b>Application UI Packages</b></em>' containment reference list.
@@ -1411,7 +1429,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int APPLICATION_UI_LAYER__APPLICATION_UI_PACKAGES = 3;
+  int APPLICATION_UI_LAYER__APPLICATION_UI_PACKAGES = HTML_LAYER_HOLDER_FEATURE_COUNT + 3;
 
   /**
    * The number of structural features of the '<em>Application UI Layer</em>' class.
@@ -1420,7 +1438,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int APPLICATION_UI_LAYER_FEATURE_COUNT = 4;
+  int APPLICATION_UI_LAYER_FEATURE_COUNT = HTML_LAYER_HOLDER_FEATURE_COUNT + 4;
 
   /**
    * The meta object id for the '{@link domain.impl.ApplicationUIPackageImpl <em>Application UI Package</em>}' class.

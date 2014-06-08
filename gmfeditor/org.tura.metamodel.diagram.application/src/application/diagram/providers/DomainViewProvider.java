@@ -161,8 +161,8 @@ public class DomainViewProvider extends AbstractProvider implements
 				case ApplicationRecipesEditPart.VISUAL_ID:
 				case ApplicationMappersEditPart.VISUAL_ID:
 				case ApplicationUILayerEditPart.VISUAL_ID:
-				case ApplicationInfrastructureLayerEditPart.VISUAL_ID:
 				case ApplicationStyleEditPart.VISUAL_ID:
+				case ApplicationInfrastructureLayerEditPart.VISUAL_ID:
 				case ApplicationRoleEditPart.VISUAL_ID:
 				case ApplicationMessagesEditPart.VISUAL_ID:
 				case ApplicationRecipeEditPart.VISUAL_ID:
@@ -184,8 +184,8 @@ public class DomainViewProvider extends AbstractProvider implements
 		return ApplicationRecipesEditPart.VISUAL_ID == visualID
 				|| ApplicationMappersEditPart.VISUAL_ID == visualID
 				|| ApplicationUILayerEditPart.VISUAL_ID == visualID
-				|| ApplicationInfrastructureLayerEditPart.VISUAL_ID == visualID
 				|| ApplicationStyleEditPart.VISUAL_ID == visualID
+				|| ApplicationInfrastructureLayerEditPart.VISUAL_ID == visualID
 				|| ApplicationRoleEditPart.VISUAL_ID == visualID
 				|| ApplicationMessagesEditPart.VISUAL_ID == visualID
 				|| ApplicationRecipeEditPart.VISUAL_ID == visualID
@@ -257,12 +257,12 @@ public class DomainViewProvider extends AbstractProvider implements
 		case ApplicationUILayerEditPart.VISUAL_ID:
 			return createApplicationUILayer_802003(domainElement,
 					containerView, index, persisted, preferencesHint);
-		case ApplicationInfrastructureLayerEditPart.VISUAL_ID:
-			return createApplicationInfrastructureLayer_802004(domainElement,
-					containerView, index, persisted, preferencesHint);
 		case ApplicationStyleEditPart.VISUAL_ID:
 			return createApplicationStyle_802005(domainElement, containerView,
 					index, persisted, preferencesHint);
+		case ApplicationInfrastructureLayerEditPart.VISUAL_ID:
+			return createApplicationInfrastructureLayer_802004(domainElement,
+					containerView, index, persisted, preferencesHint);
 		case ApplicationRoleEditPart.VISUAL_ID:
 			return createApplicationRole_802006(domainElement, containerView,
 					index, persisted, preferencesHint);

@@ -232,11 +232,11 @@ public class DomainElementTypes {
 			elements.put(ApplicationUILayer_802003,
 					DomainPackage.eINSTANCE.getApplicationUILayer());
 
-			elements.put(ApplicationInfrastructureLayer_802004,
-					DomainPackage.eINSTANCE.getApplicationInfrastructureLayer());
-
 			elements.put(ApplicationStyle_802005,
 					DomainPackage.eINSTANCE.getApplicationStyle());
+
+			elements.put(ApplicationInfrastructureLayer_802004,
+					DomainPackage.eINSTANCE.getApplicationInfrastructureLayer());
 
 			elements.put(ApplicationRole_802006,
 					DomainPackage.eINSTANCE.getApplicationRole());
@@ -276,8 +276,8 @@ public class DomainElementTypes {
 			KNOWN_ELEMENT_TYPES.add(ApplicationRecipes_802001);
 			KNOWN_ELEMENT_TYPES.add(ApplicationMappers_802002);
 			KNOWN_ELEMENT_TYPES.add(ApplicationUILayer_802003);
-			KNOWN_ELEMENT_TYPES.add(ApplicationInfrastructureLayer_802004);
 			KNOWN_ELEMENT_TYPES.add(ApplicationStyle_802005);
+			KNOWN_ELEMENT_TYPES.add(ApplicationInfrastructureLayer_802004);
 			KNOWN_ELEMENT_TYPES.add(ApplicationRole_802006);
 			KNOWN_ELEMENT_TYPES.add(ApplicationMessages_802007);
 			KNOWN_ELEMENT_TYPES.add(ApplicationRecipe_803001);
@@ -301,10 +301,10 @@ public class DomainElementTypes {
 			return ApplicationMappers_802002;
 		case ApplicationUILayerEditPart.VISUAL_ID:
 			return ApplicationUILayer_802003;
-		case ApplicationInfrastructureLayerEditPart.VISUAL_ID:
-			return ApplicationInfrastructureLayer_802004;
 		case ApplicationStyleEditPart.VISUAL_ID:
 			return ApplicationStyle_802005;
+		case ApplicationInfrastructureLayerEditPart.VISUAL_ID:
+			return ApplicationInfrastructureLayer_802004;
 		case ApplicationRoleEditPart.VISUAL_ID:
 			return ApplicationRole_802006;
 		case ApplicationMessagesEditPart.VISUAL_ID:

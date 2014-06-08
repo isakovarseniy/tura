@@ -387,6 +387,7 @@ public class DomainSwitch<T> extends Switch<T>
       {
         ApplicationStyle applicationStyle = (ApplicationStyle)theEObject;
         T result = caseApplicationStyle(applicationStyle);
+        if (result == null) result = caseHTMLLayerHolder(applicationStyle);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -401,6 +402,7 @@ public class DomainSwitch<T> extends Switch<T>
       {
         ApplicationUILayer applicationUILayer = (ApplicationUILayer)theEObject;
         T result = caseApplicationUILayer(applicationUILayer);
+        if (result == null) result = caseHTMLLayerHolder(applicationUILayer);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }

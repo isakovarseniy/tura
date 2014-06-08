@@ -246,10 +246,10 @@ public class DomainParserProvider extends AbstractProvider implements
 			return getApplicationMappersName_805004Parser();
 		case ApplicationUILayerNameEditPart.VISUAL_ID:
 			return getApplicationUILayerName_805006Parser();
-		case ApplicationInfrastructureLayerNameEditPart.VISUAL_ID:
-			return getApplicationInfrastructureLayerName_805007Parser();
 		case ApplicationStyleNameEditPart.VISUAL_ID:
 			return getApplicationStyleName_805009Parser();
+		case ApplicationInfrastructureLayerNameEditPart.VISUAL_ID:
+			return getApplicationInfrastructureLayerName_805007Parser();
 		case ApplicationRoleNameEditPart.VISUAL_ID:
 			return getApplicationRoleName_805010Parser();
 		case ApplicationMessagesNameEditPart.VISUAL_ID:

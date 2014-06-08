@@ -23,7 +23,10 @@
         newElement.setName("Data control");
   «ENDIF-»
   «IF self.createCommandClassName.indexOf('ApplicationRoleCreateCommand') > 0-»
-        newElement.setName("Application Role");
+        newElement.setName("Application Roles");
+  «ENDIF-»
+  «IF self.createCommandClassName.indexOf('ApplicationMessagesCreateCommand') > 0-»
+        newElement.setName("Application Messages");
   «ENDIF-»
 		
 «IF true/*FIXME boolean needsExternalConfiguration*/»

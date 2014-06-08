@@ -48,8 +48,8 @@ public class DomainModelingAssistantProvider extends ModelingAssistantProvider {
 			types.add(DomainElementTypes.ApplicationRecipes_802001);
 			types.add(DomainElementTypes.ApplicationMappers_802002);
 			types.add(DomainElementTypes.ApplicationUILayer_802003);
-			types.add(DomainElementTypes.ApplicationInfrastructureLayer_802004);
 			types.add(DomainElementTypes.ApplicationStyle_802005);
+			types.add(DomainElementTypes.ApplicationInfrastructureLayer_802004);
 			types.add(DomainElementTypes.ApplicationRole_802006);
 			types.add(DomainElementTypes.ApplicationMessages_802007);
 			return types;

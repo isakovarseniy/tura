@@ -35,7 +35,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * @generated
  */
 public class ApplicationUILayerItemProvider
-  extends ItemProviderAdapter
+  extends HTMLLayerHolderItemProvider
   implements
     IEditingDomainItemProvider,
     IStructuredItemContentProvider,
@@ -220,18 +220,6 @@ public class ApplicationUILayerItemProvider
       (createChildParameter
         (DomainPackage.Literals.APPLICATION_UI_LAYER__APPLICATION_UI_PACKAGES,
          DomainFactory.eINSTANCE.createApplicationUIPackage()));
-  }
-
-  /**
-   * Return the resource locator for this item provider's resources.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public ResourceLocator getResourceLocator()
-  {
-    return DomainEditPlugin.INSTANCE;
   }
 
 }

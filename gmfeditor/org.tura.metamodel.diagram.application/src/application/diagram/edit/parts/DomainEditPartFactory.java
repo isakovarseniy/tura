@@ -46,17 +46,17 @@ public class DomainEditPartFactory implements EditPartFactory {
 			case ApplicationUILayerNameEditPart.VISUAL_ID:
 				return new ApplicationUILayerNameEditPart(view);
 
-			case ApplicationInfrastructureLayerEditPart.VISUAL_ID:
-				return new ApplicationInfrastructureLayerEditPart(view);
-
-			case ApplicationInfrastructureLayerNameEditPart.VISUAL_ID:
-				return new ApplicationInfrastructureLayerNameEditPart(view);
-
 			case ApplicationStyleEditPart.VISUAL_ID:
 				return new ApplicationStyleEditPart(view);
 
 			case ApplicationStyleNameEditPart.VISUAL_ID:
 				return new ApplicationStyleNameEditPart(view);
+
+			case ApplicationInfrastructureLayerEditPart.VISUAL_ID:
+				return new ApplicationInfrastructureLayerEditPart(view);
+
+			case ApplicationInfrastructureLayerNameEditPart.VISUAL_ID:
+				return new ApplicationInfrastructureLayerNameEditPart(view);
 
 			case ApplicationRoleEditPart.VISUAL_ID:
 				return new ApplicationRoleEditPart(view);

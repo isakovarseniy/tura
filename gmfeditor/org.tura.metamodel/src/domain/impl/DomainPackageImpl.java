@@ -8201,6 +8201,8 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     jpaServiceEClass.getESuperTypes().add(this.getDomainArtifact());
     ejbServiceEClass.getESuperTypes().add(this.getDomainArtifact());
     continuousIintegrationEClass.getESuperTypes().add(this.getDomainArtifact());
+    applicationStyleEClass.getESuperTypes().add(this.getHTMLLayerHolder());
+    applicationUILayerEClass.getESuperTypes().add(this.getHTMLLayerHolder());
     applicationRecipesEClass.getESuperTypes().add(this.getHTMLLayerHolder());
     applicationMappersEClass.getESuperTypes().add(this.getHTMLLayerHolder());
     methodPointerEClass.getESuperTypes().add(this.getTypePointer());

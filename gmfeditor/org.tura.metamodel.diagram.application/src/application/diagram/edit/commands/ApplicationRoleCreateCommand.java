@@ -69,7 +69,7 @@ public class ApplicationRoleCreateCommand extends EditElementCommand {
 
 		newElement.setUid(java.util.UUID.randomUUID().toString());
 
-		newElement.setName("Application Role");
+		newElement.setName("Application Roles");
 
 		doConfigure(newElement, monitor, info);
 

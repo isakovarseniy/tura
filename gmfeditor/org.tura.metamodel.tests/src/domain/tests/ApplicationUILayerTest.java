@@ -15,16 +15,8 @@ import junit.textui.TestRunner;
  * <!-- end-user-doc -->
  * @generated
  */
-public class ApplicationUILayerTest extends TestCase
+public class ApplicationUILayerTest extends HTMLLayerHolderTest
 {
-
-  /**
-   * The fixture for this Application UI Layer test case.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected ApplicationUILayer fixture = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -48,25 +40,15 @@ public class ApplicationUILayerTest extends TestCase
   }
 
   /**
-   * Sets the fixture for this Application UI Layer test case.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected void setFixture(ApplicationUILayer fixture)
-  {
-    this.fixture = fixture;
-  }
-
-  /**
    * Returns the fixture for this Application UI Layer test case.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
+  @Override
   protected ApplicationUILayer getFixture()
   {
-    return fixture;
+    return (ApplicationUILayer)fixture;
   }
 
   /**

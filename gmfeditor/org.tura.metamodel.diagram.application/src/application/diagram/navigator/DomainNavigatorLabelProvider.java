@@ -128,12 +128,12 @@ public class DomainNavigatorLabelProvider extends LabelProvider implements
 		case ApplicationUILayerEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?TopLevelNode?http://tura.org/2013/v1/domain?ApplicationUILayer", DomainElementTypes.ApplicationUILayer_802003); //$NON-NLS-1$
-		case ApplicationInfrastructureLayerEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?TopLevelNode?http://tura.org/2013/v1/domain?ApplicationInfrastructureLayer", DomainElementTypes.ApplicationInfrastructureLayer_802004); //$NON-NLS-1$
 		case ApplicationStyleEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?TopLevelNode?http://tura.org/2013/v1/domain?ApplicationStyle", DomainElementTypes.ApplicationStyle_802005); //$NON-NLS-1$
+		case ApplicationInfrastructureLayerEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?TopLevelNode?http://tura.org/2013/v1/domain?ApplicationInfrastructureLayer", DomainElementTypes.ApplicationInfrastructureLayer_802004); //$NON-NLS-1$
 		case ApplicationRoleEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?TopLevelNode?http://tura.org/2013/v1/domain?ApplicationRole", DomainElementTypes.ApplicationRole_802006); //$NON-NLS-1$
@@ -220,10 +220,10 @@ public class DomainNavigatorLabelProvider extends LabelProvider implements
 			return getApplicationMappers_802002Text(view);
 		case ApplicationUILayerEditPart.VISUAL_ID:
 			return getApplicationUILayer_802003Text(view);
-		case ApplicationInfrastructureLayerEditPart.VISUAL_ID:
-			return getApplicationInfrastructureLayer_802004Text(view);
 		case ApplicationStyleEditPart.VISUAL_ID:
 			return getApplicationStyle_802005Text(view);
+		case ApplicationInfrastructureLayerEditPart.VISUAL_ID:
+			return getApplicationInfrastructureLayer_802004Text(view);
 		case ApplicationRoleEditPart.VISUAL_ID:
 			return getApplicationRole_802006Text(view);
 		case ApplicationMessagesEditPart.VISUAL_ID:

@@ -148,26 +148,6 @@
   </nodes>
   <nodes>
     <containmentFeature
-        href="domain.ecore#//Application/applicationInfrastructureLayer"/>
-    <ownedChild>
-      <domainMetaElement
-          href="domain.ecore#//ApplicationInfrastructureLayer"/>
-      <labelMappings
-          xsi:type="gmfmap:FeatureLabelMapping">
-        <diagramLabel
-            href="domain.gmfgraph#ApplicationInfrastructureLayerLabel"/>
-        <features
-            href="domain.ecore#//ApplicationInfrastructureLayer/name"/>
-      </labelMappings>
-      <tool
-          xsi:type="gmftool:CreationTool"
-          href="domain.gmftool#//@palette/@tools.0/@tools.0"/>
-      <diagramNode
-          href="domain.gmfgraph#ApplicationInfrastructureLayer"/>
-    </ownedChild>
-  </nodes>
-  <nodes>
-    <containmentFeature
         href="domain.ecore#//Application/applicationStyle"/>
     <ownedChild
         relatedDiagrams="//@diagram">
@@ -186,7 +166,7 @@
       <diagramNode
           href="domain.gmfgraph#ApplicationStyle"/>
       <children
-          compartment="//@nodes.4/@ownedChild/@compartments.0">
+          compartment="//@nodes.3/@ownedChild/@compartments.0">
         <containmentFeature
             href="domain.ecore#//ApplicationStyle/stylesPackage"/>
         <ownedChild>
@@ -207,10 +187,30 @@
         </ownedChild>
       </children>
       <compartments
-          children="//@nodes.4/@ownedChild/@children.0">
+          children="//@nodes.3/@ownedChild/@children.0">
         <compartment
             href="domain.gmfgraph#ApplicationStyleStylesPackageCompartment"/>
       </compartments>
+    </ownedChild>
+  </nodes>
+  <nodes>
+    <containmentFeature
+        href="domain.ecore#//Application/applicationInfrastructureLayer"/>
+    <ownedChild>
+      <domainMetaElement
+          href="domain.ecore#//ApplicationInfrastructureLayer"/>
+      <labelMappings
+          xsi:type="gmfmap:FeatureLabelMapping">
+        <diagramLabel
+            href="domain.gmfgraph#ApplicationInfrastructureLayerLabel"/>
+        <features
+            href="domain.ecore#//ApplicationInfrastructureLayer/name"/>
+      </labelMappings>
+      <tool
+          xsi:type="gmftool:CreationTool"
+          href="domain.gmftool#//@palette/@tools.0/@tools.0"/>
+      <diagramNode
+          href="domain.gmfgraph#ApplicationInfrastructureLayer"/>
     </ownedChild>
   </nodes>
   <nodes>

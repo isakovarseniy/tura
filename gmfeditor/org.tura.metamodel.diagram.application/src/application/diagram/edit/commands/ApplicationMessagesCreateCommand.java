@@ -69,6 +69,8 @@ public class ApplicationMessagesCreateCommand extends EditElementCommand {
 
 		newElement.setUid(java.util.UUID.randomUUID().toString());
 
+		newElement.setName("Application Messages");
+
 		doConfigure(newElement, monitor, info);
 
 		((CreateElementRequest) getRequest()).setNewElement(newElement);
