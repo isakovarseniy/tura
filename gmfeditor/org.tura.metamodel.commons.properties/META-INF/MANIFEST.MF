@@ -33,3 +33,14 @@ Require-Bundle: org.eclipse.ui,
  org.tura.metamodel.diagram.uipackage;bundle-version="1.0.0"
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Export-Package: org.tura.metamodel.commons.properties,
+ org.tura.metamodel.commons.properties.selections,
+ org.tura.metamodel.commons.properties.selections.adapters,
+ org.tura.metamodel.commons.properties.selections.adapters.helper,
+ org.tura.metamodel.commons.properties.selections.context,
+ org.tura.metamodel.commons.properties.selections.context.impl,
+ org.tura.metamodel.commons.properties.selections.dropdown,
+ org.tura.metamodel.commons.properties.selections.dropdown.impl,
+ org.tura.metamodel.commons.properties.selections.grid,
+ org.tura.metamodel.commons.properties.selections.grid.impl,
+ org.tura.metamodel.commons.properties.selections.input
