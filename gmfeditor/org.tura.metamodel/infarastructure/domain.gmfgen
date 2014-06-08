@@ -572,14 +572,6 @@
           collapse="true">
         <entries
             xsi:type="gmfgen:ToolEntry"
-            title="ApplicationRole"
-            description="Create new ApplicationRole"/>
-        <entries
-            xsi:type="gmfgen:ToolEntry"
-            title="ApplicationStyle"
-            description="Create new ApplicationStyle"/>
-        <entries
-            xsi:type="gmfgen:ToolEntry"
             title="Datacenter"
             description="Create new Datacenter"
             smallIconPath="/org.tura.metamodel.commons/icons/datacenter.png"
