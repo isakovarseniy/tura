@@ -54,8 +54,8 @@ public class StyleClassPropertySelection extends GridProperty {
 		if (columnList == null) {
 			columnList = new ArrayList<GridColumn>();
 			columnList.add(new StylesPackageColumn(table, this, 0));
-			columnList.add(new StylesLibraryColumn(table, this,1));
-			columnList.add(new StyleSetColumn(table, this,2));
+			columnList.add(new StylesLibraryColumn(table, this, 1));
+			columnList.add(new StyleSetColumn(table, this, 2));
 
 		}
 		return columnList;
@@ -71,10 +71,11 @@ public class StyleClassPropertySelection extends GridProperty {
 		layout.marginWidth = 4;
 		composite.setLayout(layout);
 		super.createControls(composite, aTabbedPropertySheetPage);
-		createButtons(composite,aTabbedPropertySheetPage);
-	}	
-	
-	private void createButtons(Composite parent,TabbedPropertySheetPage aTabbedPropertySheetPage) {
+		createButtons(composite, aTabbedPropertySheetPage);
+	}
+
+	private void createButtons(Composite parent,
+			TabbedPropertySheetPage aTabbedPropertySheetPage) {
 
 		Composite composite = aTabbedPropertySheetPage.getWidgetFactory()
 				.createFlatFormComposite(parent);
@@ -82,7 +83,7 @@ public class StyleClassPropertySelection extends GridProperty {
 		GridLayout layout = new GridLayout(2, false);
 		layout.marginWidth = 4;
 		composite.setLayout(layout);
-		
+
 		// Create and configure the "Add" button
 		Button add = new Button(composite, SWT.PUSH | SWT.CENTER);
 		add.setText("Add");
@@ -109,8 +110,8 @@ public class StyleClassPropertySelection extends GridProperty {
 
 			// Remove the selection and refresh the view
 			public void widgetSelected(SelectionEvent e) {
-				Object row = ((IStructuredSelection) tableViewer
-						.getSelection()).getFirstElement();
+				Object row = ((IStructuredSelection) tableViewer.getSelection())
+						.getFirstElement();
 				if (row != null) {
 					removeRow(row);
 				}
@@ -118,8 +119,7 @@ public class StyleClassPropertySelection extends GridProperty {
 		});
 
 	}
-	
-	
+
 	class StylesPackageColumn implements GridColumn {
 
 		// Set the table column property names
@@ -140,12 +140,18 @@ public class StyleClassPropertySelection extends GridProperty {
 
 			DiagramImpl root = (DiagramImpl) this.property.getEditPart()
 					.getRoot().getContents().getModel();
-			domain.Controls controls =    ( (domain.Form)(((domain.Views)  ( ((domain.CanvasView) root.getElement())
-					.getParent().eContainer().eContainer() )).getParent().eContainer())).getDatacontrols().getFormControl();
+			domain.Form form = ((domain.Form) (((domain.Views) (((domain.CanvasView) root
+					.getElement()).getParent().eContainer().eContainer()))
+					.getParent().eContainer()));
 
-			List<domain.StylesPackage> map = ((domain.UIPackage) controls
-					.getParent().eContainer().eContainer()).getParent()
-					.getParent().getParent().getApplicationStyle()
+			domain.Application app = ((domain.UIPackage) form.eContainer())
+					.getParent().getParent().getParent();
+
+			if (app.getApplicationStyle() == null
+					|| app.getApplicationStyle().getStylesPackage() == null)
+				return new ArrayList<domain.StylesPackage>();
+
+			List<domain.StylesPackage> map = app.getApplicationStyle()
 					.getStylesPackage();
 
 			ArrayList<domain.StylesPackage> rows = new ArrayList<domain.StylesPackage>();
@@ -241,11 +247,10 @@ public class StyleClassPropertySelection extends GridProperty {
 							.getEditingDomain();
 
 					CompoundCommand compoundCommand = new CompoundCommand();
-					
-					compoundCommand
-							.append(SetCommand.create(editingDomain, param,
-									DomainPackage.eINSTANCE
-											.getStyleClass_StylesPackage(), pkg));
+
+					compoundCommand.append(SetCommand.create(editingDomain,
+							param, DomainPackage.eINSTANCE
+									.getStyleClass_StylesPackage(), pkg));
 
 					compoundCommand.append(SetCommand.create(editingDomain,
 							param,
@@ -256,7 +261,7 @@ public class StyleClassPropertySelection extends GridProperty {
 							param,
 							DomainPackage.eINSTANCE.getStyleClass_StyleSet(),
 							null));
-					
+
 					editingDomain.getCommandStack().execute(compoundCommand);
 
 					break;
@@ -267,12 +272,15 @@ public class StyleClassPropertySelection extends GridProperty {
 
 		@Override
 		public boolean isModify(Object element, String property) {
+			domain.StyleClass opt = (domain.StyleClass) element;
+			List<domain.StylesPackage> choicesOptions = initPackages(opt);
+			if (choicesOptions == null || choicesOptions.size() == 0)
+				return false;
+
 			return true;
 		}
 	}
 
-	
-	
 	class StylesLibraryColumn implements GridColumn {
 
 		// Set the table column property names
@@ -294,6 +302,9 @@ public class StyleClassPropertySelection extends GridProperty {
 		private List<domain.StyleLibrary> initLibrarys(EObject eObject) {
 
 			domain.StyleClass opr = (domain.StyleClass) eObject;
+			
+			if (opr.getStylesPackage() == null)
+				return new ArrayList<domain.StyleLibrary>();
 
 			try {
 				OCL ocl = OCL.newInstance(EcoreEnvironmentFactory.INSTANCE);
@@ -305,14 +316,16 @@ public class StyleClassPropertySelection extends GridProperty {
 				EObject types = (EObject) eObject;
 
 				OCLExpression<EClassifier> query = helper
-						.createQuery("domain::StyleLibrary.allInstances()->select(r|r.oclIsKindOf(domain::StyleLibrary) and r.oclAsType(domain::StyleLibrary).name <> null   " +
-								"and r.oclAsType(ecore::EObject).eContainer().oclAsType(domain::Styles).parent.uid='" +opr.getStylesPackage().getUid()+"')");
+						.createQuery("domain::StyleLibrary.allInstances()->select(r|r.oclIsKindOf(domain::StyleLibrary) and r.oclAsType(domain::StyleLibrary).name <> null   "
+								+ "and r.oclAsType(ecore::EObject).eContainer().oclAsType(domain::Styles).parent.uid='"
+								+ opr.getStylesPackage().getUid() + "')");
 
 				Collection<domain.StyleLibrary> map = (Collection<domain.StyleLibrary>) ocl
 						.evaluate(types, query);
 
 				ArrayList<domain.StyleLibrary> rows = new ArrayList<domain.StyleLibrary>();
-				for (Iterator<domain.StyleLibrary> i = map.iterator(); i.hasNext();) {
+				for (Iterator<domain.StyleLibrary> i = map.iterator(); i
+						.hasNext();) {
 					domain.StyleLibrary p = i.next();
 					rows.add(p);
 				}
@@ -408,17 +421,17 @@ public class StyleClassPropertySelection extends GridProperty {
 							.getEditingDomain();
 
 					CompoundCommand compoundCommand = new CompoundCommand();
-					
-					compoundCommand
-							.append(SetCommand.create(editingDomain, param,
-									DomainPackage.eINSTANCE
-											.getStyleClass_Library(), pkg));
+
+					compoundCommand.append(SetCommand.create(editingDomain,
+							param,
+							DomainPackage.eINSTANCE.getStyleClass_Library(),
+							pkg));
 
 					compoundCommand.append(SetCommand.create(editingDomain,
 							param,
 							DomainPackage.eINSTANCE.getStyleClass_StyleSet(),
 							null));
-					
+
 					editingDomain.getCommandStack().execute(compoundCommand);
 
 					break;
@@ -429,11 +442,15 @@ public class StyleClassPropertySelection extends GridProperty {
 
 		@Override
 		public boolean isModify(Object element, String property) {
+			domain.StyleClass opt = (domain.StyleClass) element;
+			List<domain.StyleLibrary> choicesOptions = initLibrarys(opt);
+			if (choicesOptions == null || choicesOptions.size() == 0)
+				return false;
+
 			return true;
 		}
 	}
-	
-	
+
 	class StyleSetColumn implements GridColumn {
 
 		// Set the table column property names
@@ -444,8 +461,7 @@ public class StyleClassPropertySelection extends GridProperty {
 		@SuppressWarnings("unused")
 		private GridProperty property;
 
-		public StyleSetColumn(Table table, GridProperty property,
-				int column) {
+		public StyleSetColumn(Table table, GridProperty property, int column) {
 			this.table = table;
 			this.property = property;
 			this.col = column;
@@ -455,6 +471,8 @@ public class StyleClassPropertySelection extends GridProperty {
 		private List<domain.StyleSet> initStyleSets(EObject eObject) {
 
 			domain.StyleClass opr = (domain.StyleClass) eObject;
+			if (opr.getLibrary() == null)
+				return new ArrayList<domain.StyleSet>();
 
 			try {
 				OCL ocl = OCL.newInstance(EcoreEnvironmentFactory.INSTANCE);
@@ -466,8 +484,9 @@ public class StyleClassPropertySelection extends GridProperty {
 				EObject types = (EObject) eObject;
 
 				OCLExpression<EClassifier> query = helper
-						.createQuery("domain::StyleLibrary.allInstances()->select(r|r.oclIsKindOf(domain::StyleLibrary) and r.oclAsType(domain::StyleLibrary).name <> null   " +
-								"and r.oclAsType(domain::StyleLibrary).uid='" +opr.getLibrary().getUid()+"').styles");
+						.createQuery("domain::StyleLibrary.allInstances()->select(r|r.oclIsKindOf(domain::StyleLibrary) and r.oclAsType(domain::StyleLibrary).name <> null   "
+								+ "and r.oclAsType(domain::StyleLibrary).uid='"
+								+ opr.getLibrary().getUid() + "').styles");
 
 				Collection<domain.StyleSet> map = (Collection<domain.StyleSet>) ocl
 						.evaluate(types, query);
@@ -569,11 +588,11 @@ public class StyleClassPropertySelection extends GridProperty {
 							.getEditingDomain();
 
 					CompoundCommand compoundCommand = new CompoundCommand();
-					
-					compoundCommand
-							.append(SetCommand.create(editingDomain, param,
-									DomainPackage.eINSTANCE
-											.getStyleClass_StyleSet(), pkg));
+
+					compoundCommand.append(SetCommand.create(editingDomain,
+							param,
+							DomainPackage.eINSTANCE.getStyleClass_StyleSet(),
+							pkg));
 
 					editingDomain.getCommandStack().execute(compoundCommand);
 
@@ -585,11 +604,13 @@ public class StyleClassPropertySelection extends GridProperty {
 
 		@Override
 		public boolean isModify(Object element, String property) {
+			domain.StyleClass opt = (domain.StyleClass) element;
+			List<domain.StyleSet> choicesOptions = initStyleSets(opt);
+			if (choicesOptions == null || choicesOptions.size() == 0)
+				return false;
+
 			return true;
 		}
 	}
-	
-	
-	
-	
+
 }
