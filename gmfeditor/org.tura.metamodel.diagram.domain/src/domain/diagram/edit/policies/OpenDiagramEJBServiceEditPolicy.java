@@ -169,36 +169,8 @@ public class OpenDiagramEJBServiceEditPolicy extends OpenEditPolicy {
 						+ getDiagramKind() + "' kind");
 			}
 
-			String filename = sourceObject.getName();
-
-			List<String> segments = diagramFacet.eResource().getURI()
-					.segmentsList();
-			String projectName = segments.get(1);
-			IProject project = ResourcesPlugin.getWorkspace().getRoot()
-					.getProject(projectName);
-
 			try {
-				IFolder folder = project.getFolder("model");
-				folder = folder.getFolder("artifact"
-
-				);
-				if (!folder.exists()) {
-					folder.create(true, true, null);
-				}
-
-				IFile diagramFile = folder.getFile(filename + "." + "artifact"
-
-				+ "_diagram");
-
-				URI diagramURI = URI.createFileURI(diagramFile.getLocation()
-						.toOSString());
-				Resource diagramResource = null;
-
-				if (diagramFile.exists())
-					diagramFile.delete(true, null);
-
-				diagramResource = diagramFacet.eResource().getResourceSet()
-						.createResource(diagramURI);
+				Resource diagramResource = diagramFacet.eResource();
 
 				diagramFacet.setDiagramLink(d);
 				diagramResource.getContents().add(d);

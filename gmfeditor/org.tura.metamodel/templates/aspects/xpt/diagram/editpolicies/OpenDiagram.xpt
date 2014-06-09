@@ -68,38 +68,14 @@
 						+ getDiagramKind() + "' kind");
 			}
 
-			String filename = sourceObject.getName();
-
-			java.util.List<String> segments = diagramFacet.eResource().getURI()
-					.segmentsList();
-			String projectName = segments.get(1);
-			org.eclipse.core.resources.IProject project = org.eclipse.core.resources.ResourcesPlugin.getWorkspace().getRoot()
-					.getProject(projectName);
 
 			try {
-				org.eclipse.core.resources.IFolder folder = project.getFolder("model");
-				folder = folder.getFolder(«EXPAND diagramNameExtension»);
-				if (!folder.exists()) {
-					folder.create(true, true, null);
-				}
-
-				org.eclipse.core.resources.IFile diagramFile = folder.getFile(filename+ "."+«EXPAND diagramNameExtension»+"_diagram");
-
-				org.eclipse.emf.common.util.URI diagramURI = org.eclipse.emf.common.util.URI.createFileURI(diagramFile.getLocation()
-						.toOSString());
-				org.eclipse.emf.ecore.resource.Resource diagramResource = null;
-
-				if (diagramFile.exists())
-					diagramFile.delete(true, null);
-
-				diagramResource = diagramFacet.eResource().getResourceSet()
-						.createResource(diagramURI);
+				org.eclipse.emf.ecore.resource.Resource diagramResource = diagramFacet.eResource();
 
 				diagramFacet.setDiagramLink(d);
 				diagramResource.getContents().add(d);
 
-				«EXPAND targetObject» targetObject = («EXPAND targetObject») d
-						.getElement();
+				«EXPAND targetObject» targetObject = («EXPAND targetObject») d.getElement();
 				if( sourceObject.«EXPAND sourceObjectGetMethod»() == null ){		
 				    sourceObject.«EXPAND sourceObjectSetMethod»(targetObject);
 				    sourceObject.eResource().getContents().add(targetObject);

@@ -23,6 +23,7 @@ import domain.DomainPackage;
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Application UI Layer</b></em>'.
  * <!-- end-user-doc -->
+ * <p>
  * The following features are implemented:
  * <ul>
  *   <li>{@link domain.impl.ApplicationUILayerImpl#getUid <em>Uid</em>}</li>
