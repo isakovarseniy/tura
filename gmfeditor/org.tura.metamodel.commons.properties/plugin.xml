@@ -286,6 +286,7 @@
              id="property.tab.domain.control.serviceref"
              label="Method ref"/>
           <propertyTab
+            afterTab="property.tab.domain.control.serviceref"
              category="domain"
              id="property.tab.domain.control.parameters"
              label="Parameters"/>
@@ -320,6 +321,7 @@
            </propertySection>        
  
           <propertySection
+               afterSection="org.tura.metamodel.diagram.control.packageref"
                tab="property.tab.domain.control.serviceref"
                class="org.tura.metamodel.commons.properties.selections.dropdown.TypeRefTypeNamePropertySection"
                id="org.tura.metamodel.diagram.control.typeref">
@@ -337,6 +339,7 @@
            </propertySection>        
 
           <propertySection
+                afterSection="property.tab.domain.control.serviceref"
                tab="property.tab.domain.control.serviceref"
                class="org.tura.metamodel.commons.properties.selections.dropdown.MethodNamePropertySection"
                id="org.tura.metamodel.diagram.control.methodref">
