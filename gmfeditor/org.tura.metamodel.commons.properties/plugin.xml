@@ -441,6 +441,13 @@
              id="property.tab.domain.frmview.mulilanglabel"
              label="Multi lang label"/>
              
+          <propertyTab
+             afterTab="property.tab.domain.frmview"
+             category="domain"
+             id="property.tab.domain.frmview.parameters"
+             label="Parameters"/>
+  
+  
       </propertyTabs>
      </extension>  
 
@@ -469,6 +476,7 @@
 
              <propertySection
                tab="property.tab.domain.frmview"
+               afterSection="org.tura.metamodel.diagram.canvas.actioin.packagename"
                class="org.tura.metamodel.commons.properties.selections.dropdown.TypeRefTypeNamePropertySection"
                id="org.tura.metamodel.diagram.canvas.actioin.typeref">
               <input type="frmview.diagram.edit.parts.ViewPortTriggerEditPart"/>
@@ -476,13 +484,14 @@
 
              <propertySection
                tab="property.tab.domain.frmview"
+               afterSection="org.tura.metamodel.diagram.canvas.actioin.typeref"
                class="org.tura.metamodel.commons.properties.selections.dropdown.MethodNamePropertySection"
                id="org.tura.metamodel.diagram.canvas.actioin.methodname">
               <input type="frmview.diagram.edit.parts.ViewPortTriggerEditPart"/>
            </propertySection>        
 
              <propertySection
-               tab="property.tab.domain.frmview"
+               tab="property.tab.domain.frmview.parameters"
                class="org.tura.metamodel.commons.properties.selections.grid.impl.ContextParameterPropertySelection"
                id="org.tura.metamodel.diagram.canvas.actioin.contextparameter">
               <input type="frmview.diagram.edit.parts.ViewPortTriggerEditPart"/>
@@ -539,6 +548,12 @@
              category="domain"
              id="property.tab.domain.canvas.uielement.mulilanglabel"
              label="Multi lang label"/>
+    
+           <propertyTab
+             category="domain"
+             afterTab="property.tab.domain.canvas.action"
+             id="property.tab.domain.canvas.uielement.parameters"
+             label="Parameters"/>
     
     
           </propertyTabs>
@@ -873,8 +888,7 @@
            </propertySection>        
 
              <propertySection
-               tab="property.tab.domain.canvas.action"
-               afterSection="org.tura.metamodel.diagram.canvas.actioin.methodname"
+               tab="property.tab.domain.canvas.uielement.parameters"
                class="org.tura.metamodel.commons.properties.selections.grid.impl.ContextParameterPropertySelection"
                id="org.tura.metamodel.diagram.canvas.actioin.contextparameter">
               <input type="canvas.diagram.edit.parts.ButtonEditPart"/>

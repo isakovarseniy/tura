@@ -64,7 +64,7 @@ public class DomainMethodPointerMethodMethodRef implements DropDownDataSupplier 
 
 	@Override
 	public Class<?> getExpectedClass() {
-		return domain.MethodPointer.class;
+		return domain.TypePointer.class;
 	}
 
 	
