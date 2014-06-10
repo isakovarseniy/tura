@@ -94,7 +94,6 @@ public class LayerHolderLayerHolderChildrenCompartmentCanonicalEditPolicy
 		int visualID = DomainVisualIDRegistry.getVisualID(view);
 		switch (visualID) {
 		case ButtonEditPart.VISUAL_ID:
-		case LabelEditPart.VISUAL_ID:
 		case DropDownSelectionEditPart.VISUAL_ID:
 		case TableEditPart.VISUAL_ID:
 		case LayerHolder3EditPart.VISUAL_ID:
@@ -102,6 +101,7 @@ public class LayerHolderLayerHolderChildrenCompartmentCanonicalEditPolicy
 		case OutputTextEditPart.VISUAL_ID:
 		case CheckBoxEditPart.VISUAL_ID:
 		case TreeEditPart.VISUAL_ID:
+		case LabelEditPart.VISUAL_ID:
 			return true;
 		}
 		return false;

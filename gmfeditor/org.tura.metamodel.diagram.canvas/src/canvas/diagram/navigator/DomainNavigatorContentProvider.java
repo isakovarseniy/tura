@@ -289,14 +289,6 @@ public class DomainNavigatorContentProvider implements ICommonContentProvider {
 					DomainVisualIDRegistry
 							.getType(LayerHolderLayerHolderChildrenCompartmentEditPart.VISUAL_ID));
 			connectedViews = getChildrenByType(connectedViews,
-					DomainVisualIDRegistry.getType(LabelEditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					DomainVisualIDRegistry
-							.getType(LayerHolderLayerHolderChildrenCompartmentEditPart.VISUAL_ID));
-			connectedViews = getChildrenByType(connectedViews,
 					DomainVisualIDRegistry
 							.getType(DropDownSelectionEditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
@@ -351,6 +343,14 @@ public class DomainNavigatorContentProvider implements ICommonContentProvider {
 					DomainVisualIDRegistry.getType(TreeEditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					DomainVisualIDRegistry
+							.getType(LayerHolderLayerHolderChildrenCompartmentEditPart.VISUAL_ID));
+			connectedViews = getChildrenByType(connectedViews,
+					DomainVisualIDRegistry.getType(LabelEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
 			return result.toArray();
 		}
 
@@ -379,14 +379,6 @@ public class DomainNavigatorContentProvider implements ICommonContentProvider {
 							.getType(ColumnColumnElementCompartmentEditPart.VISUAL_ID));
 			connectedViews = getChildrenByType(connectedViews,
 					DomainVisualIDRegistry.getType(Button2EditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					DomainVisualIDRegistry
-							.getType(ColumnColumnElementCompartmentEditPart.VISUAL_ID));
-			connectedViews = getChildrenByType(connectedViews,
-					DomainVisualIDRegistry.getType(Label2EditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
 			connectedViews = getChildrenByType(
@@ -449,6 +441,14 @@ public class DomainNavigatorContentProvider implements ICommonContentProvider {
 					DomainVisualIDRegistry.getType(Tree2EditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					DomainVisualIDRegistry
+							.getType(ColumnColumnElementCompartmentEditPart.VISUAL_ID));
+			connectedViews = getChildrenByType(connectedViews,
+					DomainVisualIDRegistry.getType(Label2EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
 			return result.toArray();
 		}
 
@@ -484,14 +484,6 @@ public class DomainNavigatorContentProvider implements ICommonContentProvider {
 					DomainVisualIDRegistry
 							.getType(LayerHolderLayerHolderChildrenCompartment2EditPart.VISUAL_ID));
 			connectedViews = getChildrenByType(connectedViews,
-					DomainVisualIDRegistry.getType(LabelEditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					DomainVisualIDRegistry
-							.getType(LayerHolderLayerHolderChildrenCompartment2EditPart.VISUAL_ID));
-			connectedViews = getChildrenByType(connectedViews,
 					DomainVisualIDRegistry
 							.getType(DropDownSelectionEditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
@@ -544,6 +536,14 @@ public class DomainNavigatorContentProvider implements ICommonContentProvider {
 							.getType(LayerHolderLayerHolderChildrenCompartment2EditPart.VISUAL_ID));
 			connectedViews = getChildrenByType(connectedViews,
 					DomainVisualIDRegistry.getType(TreeEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					DomainVisualIDRegistry
+							.getType(LayerHolderLayerHolderChildrenCompartment2EditPart.VISUAL_ID));
+			connectedViews = getChildrenByType(connectedViews,
+					DomainVisualIDRegistry.getType(LabelEditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
 			return result.toArray();
@@ -566,14 +566,6 @@ public class DomainNavigatorContentProvider implements ICommonContentProvider {
 					DomainVisualIDRegistry
 							.getType(LayerHolderLayerHolderChildrenCompartment3EditPart.VISUAL_ID));
 			connectedViews = getChildrenByType(connectedViews,
-					DomainVisualIDRegistry.getType(LabelEditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					DomainVisualIDRegistry
-							.getType(LayerHolderLayerHolderChildrenCompartment3EditPart.VISUAL_ID));
-			connectedViews = getChildrenByType(connectedViews,
 					DomainVisualIDRegistry
 							.getType(DropDownSelectionEditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
@@ -626,6 +618,14 @@ public class DomainNavigatorContentProvider implements ICommonContentProvider {
 							.getType(LayerHolderLayerHolderChildrenCompartment3EditPart.VISUAL_ID));
 			connectedViews = getChildrenByType(connectedViews,
 					DomainVisualIDRegistry.getType(TreeEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					DomainVisualIDRegistry
+							.getType(LayerHolderLayerHolderChildrenCompartment3EditPart.VISUAL_ID));
+			connectedViews = getChildrenByType(connectedViews,
+					DomainVisualIDRegistry.getType(LabelEditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
 			return result.toArray();

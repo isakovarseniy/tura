@@ -16,7 +16,7 @@ package domain;
  * </p>
  *
  * @see domain.DomainPackage#getButton()
- * @model annotation="gmf.node figure='org.tura.metamodel.commons.figures.ButtonFigure' label='label' tool.small.bundle='org.tura.metamodel.commons' tool.small.path='icons/button.png'"
+ * @model annotation="gmf.node figure='org.tura.metamodel.commons.figures.ButtonFigure' label.icon='false' label='label' tool.small.bundle='org.tura.metamodel.commons' tool.small.path='icons/button.png'"
  * @generated
  */
 public interface Button extends ActionElement, MultiLangLabel

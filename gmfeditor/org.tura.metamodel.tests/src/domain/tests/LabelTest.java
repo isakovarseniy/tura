@@ -13,7 +13,7 @@ import junit.textui.TestRunner;
  * <!-- end-user-doc -->
  * @generated
  */
-public class LabelTest extends InputElementTest
+public class LabelTest extends UielementTest
 {
 
   /**

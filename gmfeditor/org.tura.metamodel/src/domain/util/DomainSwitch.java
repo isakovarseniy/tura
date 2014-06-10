@@ -1161,10 +1161,8 @@ public class DomainSwitch<T> extends Switch<T>
       {
         Label label = (Label)theEObject;
         T result = caseLabel(label);
-        if (result == null) result = caseInputElement(label);
-        if (result == null) result = caseMultiLangLabel(label);
-        if (result == null) result = caseSourcesPointer(label);
         if (result == null) result = caseUielement(label);
+        if (result == null) result = caseMultiLangLabel(label);
         if (result == null) result = caseStyleElement(label);
         if (result == null) result = defaultCase(theEObject);
         return result;

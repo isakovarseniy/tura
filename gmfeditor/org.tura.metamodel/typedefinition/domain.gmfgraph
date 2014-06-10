@@ -4638,6 +4638,7 @@
     <labels
         name="LabelLabel"
         figure="LabelFigure"
+        elementIcon="false"
         accessor="/0/@figures.0/@descriptors.68/@accessors.0"/>
     <labels
         name="ColumnLabel"
@@ -4654,6 +4655,7 @@
     <labels
         name="ButtonLabel"
         figure="ButtonFigure"
+        elementIcon="false"
         accessor="/0/@figures.0/@descriptors.75/@accessors.0"/>
     <labels
         name="PREFormTriggerLabel"

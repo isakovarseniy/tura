@@ -168,10 +168,6 @@ public class DomainVisualIDRegistry {
 					domainElement.eClass())) {
 				return ButtonEditPart.VISUAL_ID;
 			}
-			if (DomainPackage.eINSTANCE.getLabel().isSuperTypeOf(
-					domainElement.eClass())) {
-				return LabelEditPart.VISUAL_ID;
-			}
 			if (DomainPackage.eINSTANCE.getDropDownSelection().isSuperTypeOf(
 					domainElement.eClass())) {
 				return DropDownSelectionEditPart.VISUAL_ID;
@@ -200,6 +196,10 @@ public class DomainVisualIDRegistry {
 					domainElement.eClass())) {
 				return TreeEditPart.VISUAL_ID;
 			}
+			if (DomainPackage.eINSTANCE.getLabel().isSuperTypeOf(
+					domainElement.eClass())) {
+				return LabelEditPart.VISUAL_ID;
+			}
 			break;
 		case TableTableColsCompartmentEditPart.VISUAL_ID:
 			if (DomainPackage.eINSTANCE.getColumn().isSuperTypeOf(
@@ -211,10 +211,6 @@ public class DomainVisualIDRegistry {
 			if (DomainPackage.eINSTANCE.getButton().isSuperTypeOf(
 					domainElement.eClass())) {
 				return Button2EditPart.VISUAL_ID;
-			}
-			if (DomainPackage.eINSTANCE.getLabel().isSuperTypeOf(
-					domainElement.eClass())) {
-				return Label2EditPart.VISUAL_ID;
 			}
 			if (DomainPackage.eINSTANCE.getDropDownSelection().isSuperTypeOf(
 					domainElement.eClass())) {
@@ -244,6 +240,10 @@ public class DomainVisualIDRegistry {
 					domainElement.eClass())) {
 				return Tree2EditPart.VISUAL_ID;
 			}
+			if (DomainPackage.eINSTANCE.getLabel().isSuperTypeOf(
+					domainElement.eClass())) {
+				return Label2EditPart.VISUAL_ID;
+			}
 			break;
 		case TableTableColsCompartment2EditPart.VISUAL_ID:
 			if (DomainPackage.eINSTANCE.getColumn().isSuperTypeOf(
@@ -256,10 +256,6 @@ public class DomainVisualIDRegistry {
 					domainElement.eClass())) {
 				return ButtonEditPart.VISUAL_ID;
 			}
-			if (DomainPackage.eINSTANCE.getLabel().isSuperTypeOf(
-					domainElement.eClass())) {
-				return LabelEditPart.VISUAL_ID;
-			}
 			if (DomainPackage.eINSTANCE.getDropDownSelection().isSuperTypeOf(
 					domainElement.eClass())) {
 				return DropDownSelectionEditPart.VISUAL_ID;
@@ -287,6 +283,10 @@ public class DomainVisualIDRegistry {
 			if (DomainPackage.eINSTANCE.getTree().isSuperTypeOf(
 					domainElement.eClass())) {
 				return TreeEditPart.VISUAL_ID;
+			}
+			if (DomainPackage.eINSTANCE.getLabel().isSuperTypeOf(
+					domainElement.eClass())) {
+				return LabelEditPart.VISUAL_ID;
 			}
 			break;
 		case LayerHolderLayerHolderChildrenCompartment3EditPart.VISUAL_ID:
@@ -294,10 +294,6 @@ public class DomainVisualIDRegistry {
 					domainElement.eClass())) {
 				return ButtonEditPart.VISUAL_ID;
 			}
-			if (DomainPackage.eINSTANCE.getLabel().isSuperTypeOf(
-					domainElement.eClass())) {
-				return LabelEditPart.VISUAL_ID;
-			}
 			if (DomainPackage.eINSTANCE.getDropDownSelection().isSuperTypeOf(
 					domainElement.eClass())) {
 				return DropDownSelectionEditPart.VISUAL_ID;
@@ -325,6 +321,10 @@ public class DomainVisualIDRegistry {
 			if (DomainPackage.eINSTANCE.getTree().isSuperTypeOf(
 					domainElement.eClass())) {
 				return TreeEditPart.VISUAL_ID;
+			}
+			if (DomainPackage.eINSTANCE.getLabel().isSuperTypeOf(
+					domainElement.eClass())) {
+				return LabelEditPart.VISUAL_ID;
 			}
 			break;
 		}
@@ -368,11 +368,6 @@ public class DomainVisualIDRegistry {
 				return true;
 			}
 			break;
-		case LabelEditPart.VISUAL_ID:
-			if (LabelLabelEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			break;
 		case TableEditPart.VISUAL_ID:
 			if (TableLabelEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
@@ -391,11 +386,6 @@ public class DomainVisualIDRegistry {
 			break;
 		case Button2EditPart.VISUAL_ID:
 			if (ButtonLabel2EditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			break;
-		case Label2EditPart.VISUAL_ID:
-			if (LabelLabel2EditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -422,16 +412,23 @@ public class DomainVisualIDRegistry {
 				return true;
 			}
 			break;
+		case LabelEditPart.VISUAL_ID:
+			if (LabelLabelEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
 		case Tree2EditPart.VISUAL_ID:
 			if (TreeLabel2EditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
-		case LayerHolderLayerHolderChildrenCompartmentEditPart.VISUAL_ID:
-			if (ButtonEditPart.VISUAL_ID == nodeVisualID) {
+		case Label2EditPart.VISUAL_ID:
+			if (LabelLabel2EditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
-			if (LabelEditPart.VISUAL_ID == nodeVisualID) {
+			break;
+		case LayerHolderLayerHolderChildrenCompartmentEditPart.VISUAL_ID:
+			if (ButtonEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			if (DropDownSelectionEditPart.VISUAL_ID == nodeVisualID) {
@@ -455,6 +452,9 @@ public class DomainVisualIDRegistry {
 			if (TreeEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
+			if (LabelEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
 			break;
 		case TableTableColsCompartmentEditPart.VISUAL_ID:
 			if (ColumnEditPart.VISUAL_ID == nodeVisualID) {
@@ -463,9 +463,6 @@ public class DomainVisualIDRegistry {
 			break;
 		case ColumnColumnElementCompartmentEditPart.VISUAL_ID:
 			if (Button2EditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			if (Label2EditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			if (DropDownSelection2EditPart.VISUAL_ID == nodeVisualID) {
@@ -489,6 +486,9 @@ public class DomainVisualIDRegistry {
 			if (Tree2EditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
+			if (Label2EditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
 			break;
 		case TableTableColsCompartment2EditPart.VISUAL_ID:
 			if (ColumnEditPart.VISUAL_ID == nodeVisualID) {
@@ -499,9 +499,6 @@ public class DomainVisualIDRegistry {
 			if (ButtonEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
-			if (LabelEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
 			if (DropDownSelectionEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
@@ -521,6 +518,9 @@ public class DomainVisualIDRegistry {
 				return true;
 			}
 			if (TreeEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (LabelEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -528,9 +528,6 @@ public class DomainVisualIDRegistry {
 			if (ButtonEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
-			if (LabelEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
 			if (DropDownSelectionEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
@@ -550,6 +547,9 @@ public class DomainVisualIDRegistry {
 				return true;
 			}
 			if (TreeEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (LabelEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;

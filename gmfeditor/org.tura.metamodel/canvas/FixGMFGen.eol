@@ -7,6 +7,11 @@ var plugin = GmfGen!GenPlugin.all.first;
 plugin.id = 'org.tura.metamodel.diagram.canvas';
 
 
+// Change figure for Button element 
+var innerClass = GmfGen!InnerClassViewmap.all.select(n|n.ClassName = 'ButtonFigure').first;
+innerClass.classBody=innerClass.classBody.replace('new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel\\(\\);','new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel(); fFigureButtonLabelFigure.setAlignment(2);');
+
+
 -- distinct visual ID
 for (c in GmfGen!GenCommonBase.allInstances) {
   c.setVisualID (c.getVisualID()+1600000);

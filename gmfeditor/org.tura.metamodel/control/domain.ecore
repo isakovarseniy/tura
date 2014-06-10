@@ -1312,10 +1312,11 @@
       <details key="tool.small.path" value="icons/inputtext.png"/>
     </eAnnotations>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Label" eSuperTypes="#//InputElement #//MultiLangLabel">
+  <eClassifiers xsi:type="ecore:EClass" name="Label" eSuperTypes="#//Uielement #//MultiLangLabel">
     <eAnnotations source="gmf.node">
       <details key="label" value="label"/>
       <details key="tool.small.bundle" value="org.tura.metamodel.commons"/>
+      <details key="label.icon" value="false"/>
       <details key="tool.small.path" value="icons/label.png"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="label" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -1387,6 +1388,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="Button" eSuperTypes="#//ActionElement #//MultiLangLabel">
     <eAnnotations source="gmf.node">
       <details key="figure" value="org.tura.metamodel.commons.figures.ButtonFigure"/>
+      <details key="label.icon" value="false"/>
       <details key="label" value="label"/>
       <details key="tool.small.bundle" value="org.tura.metamodel.commons"/>
       <details key="tool.small.path" value="icons/button.png"/>

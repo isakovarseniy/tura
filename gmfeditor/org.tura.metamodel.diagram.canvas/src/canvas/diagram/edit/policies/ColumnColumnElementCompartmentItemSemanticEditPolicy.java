@@ -37,9 +37,6 @@ public class ColumnColumnElementCompartmentItemSemanticEditPolicy extends
 		if (DomainElementTypes.Button_1603023 == req.getElementType()) {
 			return getGEFWrapper(new Button2CreateCommand(req));
 		}
-		if (DomainElementTypes.Label_1603013 == req.getElementType()) {
-			return getGEFWrapper(new Label2CreateCommand(req));
-		}
 		if (DomainElementTypes.DropDownSelection_1603010 == req
 				.getElementType()) {
 			return getGEFWrapper(new DropDownSelection2CreateCommand(req));
@@ -61,6 +58,9 @@ public class ColumnColumnElementCompartmentItemSemanticEditPolicy extends
 		}
 		if (DomainElementTypes.Tree_1603022 == req.getElementType()) {
 			return getGEFWrapper(new Tree2CreateCommand(req));
+		}
+		if (DomainElementTypes.Label_1603013 == req.getElementType()) {
+			return getGEFWrapper(new Label2CreateCommand(req));
 		}
 		return super.getCreateCommand(req);
 	}

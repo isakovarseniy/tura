@@ -7467,7 +7467,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int LABEL__STYLE = INPUT_ELEMENT__STYLE;
+  int LABEL__STYLE = UIELEMENT__STYLE;
 
   /**
    * The feature id for the '<em><b>Style Class</b></em>' containment reference list.
@@ -7476,7 +7476,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int LABEL__STYLE_CLASS = INPUT_ELEMENT__STYLE_CLASS;
+  int LABEL__STYLE_CLASS = UIELEMENT__STYLE_CLASS;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -7485,7 +7485,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int LABEL__UID = INPUT_ELEMENT__UID;
+  int LABEL__UID = UIELEMENT__UID;
 
   /**
    * The feature id for the '<em><b>Nickname</b></em>' attribute.
@@ -7494,7 +7494,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int LABEL__NICKNAME = INPUT_ELEMENT__NICKNAME;
+  int LABEL__NICKNAME = UIELEMENT__NICKNAME;
 
   /**
    * The feature id for the '<em><b>Enabled</b></em>' containment reference.
@@ -7503,7 +7503,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int LABEL__ENABLED = INPUT_ELEMENT__ENABLED;
+  int LABEL__ENABLED = UIELEMENT__ENABLED;
 
   /**
    * The feature id for the '<em><b>Required</b></em>' containment reference.
@@ -7512,7 +7512,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int LABEL__REQUIRED = INPUT_ELEMENT__REQUIRED;
+  int LABEL__REQUIRED = UIELEMENT__REQUIRED;
 
   /**
    * The feature id for the '<em><b>Read Only</b></em>' containment reference.
@@ -7521,7 +7521,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int LABEL__READ_ONLY = INPUT_ELEMENT__READ_ONLY;
+  int LABEL__READ_ONLY = UIELEMENT__READ_ONLY;
 
   /**
    * The feature id for the '<em><b>On Event Refresh Area</b></em>' reference list.
@@ -7530,34 +7530,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int LABEL__ON_EVENT_REFRESH_AREA = INPUT_ELEMENT__ON_EVENT_REFRESH_AREA;
-
-  /**
-   * The feature id for the '<em><b>Source Pointer</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int LABEL__SOURCE_POINTER = INPUT_ELEMENT__SOURCE_POINTER;
-
-  /**
-   * The feature id for the '<em><b>Value Pointer</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int LABEL__VALUE_POINTER = INPUT_ELEMENT__VALUE_POINTER;
-
-  /**
-   * The feature id for the '<em><b>Source Cast</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int LABEL__SOURCE_CAST = INPUT_ELEMENT__SOURCE_CAST;
+  int LABEL__ON_EVENT_REFRESH_AREA = UIELEMENT__ON_EVENT_REFRESH_AREA;
 
   /**
    * The feature id for the '<em><b>Multi Lang Label</b></em>' containment reference.
@@ -7566,7 +7539,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int LABEL__MULTI_LANG_LABEL = INPUT_ELEMENT_FEATURE_COUNT + 0;
+  int LABEL__MULTI_LANG_LABEL = UIELEMENT_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Label</b></em>' attribute.
@@ -7575,7 +7548,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int LABEL__LABEL = INPUT_ELEMENT_FEATURE_COUNT + 1;
+  int LABEL__LABEL = UIELEMENT_FEATURE_COUNT + 1;
 
   /**
    * The number of structural features of the '<em>Label</em>' class.
@@ -7584,7 +7557,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int LABEL_FEATURE_COUNT = INPUT_ELEMENT_FEATURE_COUNT + 2;
+  int LABEL_FEATURE_COUNT = UIELEMENT_FEATURE_COUNT + 2;
 
   /**
    * The meta object id for the '{@link domain.impl.OutputTextImpl <em>Output Text</em>}' class.

@@ -204,22 +204,22 @@ public class DomainParserProvider extends AbstractProvider implements
 		switch (visualID) {
 		case ButtonLabelEditPart.VISUAL_ID:
 			return getButtonLabel_1605006Parser();
-		case LabelLabelEditPart.VISUAL_ID:
-			return getLabelLabel_1605001Parser();
 		case TableLabelEditPart.VISUAL_ID:
 			return getTableLabel_1605004Parser();
 		case ColumnLabelEditPart.VISUAL_ID:
 			return getColumnLabel_1605010Parser();
 		case ButtonLabel2EditPart.VISUAL_ID:
 			return getButtonLabel_1605009Parser();
-		case LabelLabel2EditPart.VISUAL_ID:
-			return getLabelLabel_1605002Parser();
 		case TableLabel2EditPart.VISUAL_ID:
 			return getTableLabel_1605007Parser();
 		case TreeLabelEditPart.VISUAL_ID:
 			return getTreeLabel_1605005Parser();
+		case LabelLabelEditPart.VISUAL_ID:
+			return getLabelLabel_1605001Parser();
 		case TreeLabel2EditPart.VISUAL_ID:
 			return getTreeLabel_1605008Parser();
+		case LabelLabel2EditPart.VISUAL_ID:
+			return getLabelLabel_1605002Parser();
 		}
 		return null;
 	}

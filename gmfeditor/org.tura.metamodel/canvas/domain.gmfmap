@@ -44,27 +44,6 @@
             href="domain.ecore#//ChildrenHolder/children"/>
         <ownedChild>
           <domainMetaElement
-              href="domain.ecore#//Label"/>
-          <labelMappings
-              xsi:type="gmfmap:FeatureLabelMapping">
-            <diagramLabel
-                href="domain.gmfgraph#LabelLabel"/>
-            <features
-                href="domain.ecore#//Label/label"/>
-          </labelMappings>
-          <tool
-              xsi:type="gmftool:CreationTool"
-              href="domain.gmftool#//@palette/@tools.0/@tools.5"/>
-          <diagramNode
-              href="domain.gmfgraph#Label"/>
-        </ownedChild>
-      </children>
-      <children
-          compartment="//@nodes.0/@ownedChild/@compartments.0">
-        <containmentFeature
-            href="domain.ecore#//ChildrenHolder/children"/>
-        <ownedChild>
-          <domainMetaElement
               href="domain.ecore#//DropDownSelection"/>
           <tool
               xsi:type="gmftool:CreationTool"
@@ -94,7 +73,7 @@
           <diagramNode
               href="domain.gmfgraph#Table"/>
           <children
-              compartment="//@nodes.0/@ownedChild/@children.3/@ownedChild/@compartments.0">
+              compartment="//@nodes.0/@ownedChild/@children.2/@ownedChild/@compartments.0">
             <containmentFeature
                 href="domain.ecore#//Table/cols"/>
             <ownedChild
@@ -114,68 +93,68 @@
               <diagramNode
                   href="domain.gmfgraph#Column"/>
               <children
-                  compartment="//@nodes.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@compartments.0"
+                  compartment="//@nodes.0/@ownedChild/@children.2/@ownedChild/@children.0/@ownedChild/@compartments.0"
                   referencedChild="//@nodes.0/@ownedChild/@children.0/@ownedChild">
                 <containmentFeature
                     href="domain.ecore#//Column/element"/>
               </children>
               <children
-                  compartment="//@nodes.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@compartments.0"
+                  compartment="//@nodes.0/@ownedChild/@children.2/@ownedChild/@children.0/@ownedChild/@compartments.0"
                   referencedChild="//@nodes.0/@ownedChild/@children.1/@ownedChild">
                 <containmentFeature
                     href="domain.ecore#//Column/element"/>
               </children>
               <children
-                  compartment="//@nodes.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@compartments.0"
+                  compartment="//@nodes.0/@ownedChild/@children.2/@ownedChild/@children.0/@ownedChild/@compartments.0"
                   referencedChild="//@nodes.0/@ownedChild/@children.2/@ownedChild">
                 <containmentFeature
                     href="domain.ecore#//Column/element"/>
               </children>
               <children
-                  compartment="//@nodes.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@compartments.0"
-                  referencedChild="//@nodes.0/@ownedChild/@children.3/@ownedChild">
-                <containmentFeature
-                    href="domain.ecore#//Column/element"/>
-              </children>
-              <children
-                  compartment="//@nodes.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@compartments.0"
+                  compartment="//@nodes.0/@ownedChild/@children.2/@ownedChild/@children.0/@ownedChild/@compartments.0"
                   referencedChild="//@nodes.0/@ownedChild">
                 <containmentFeature
                     href="domain.ecore#//Column/element"/>
               </children>
               <children
-                  compartment="//@nodes.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@compartments.0"
+                  compartment="//@nodes.0/@ownedChild/@children.2/@ownedChild/@children.0/@ownedChild/@compartments.0"
+                  referencedChild="//@nodes.0/@ownedChild/@children.4/@ownedChild">
+                <containmentFeature
+                    href="domain.ecore#//Column/element"/>
+              </children>
+              <children
+                  compartment="//@nodes.0/@ownedChild/@children.2/@ownedChild/@children.0/@ownedChild/@compartments.0"
                   referencedChild="//@nodes.0/@ownedChild/@children.5/@ownedChild">
                 <containmentFeature
                     href="domain.ecore#//Column/element"/>
               </children>
               <children
-                  compartment="//@nodes.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@compartments.0"
+                  compartment="//@nodes.0/@ownedChild/@children.2/@ownedChild/@children.0/@ownedChild/@compartments.0"
                   referencedChild="//@nodes.0/@ownedChild/@children.6/@ownedChild">
                 <containmentFeature
                     href="domain.ecore#//Column/element"/>
               </children>
               <children
-                  compartment="//@nodes.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@compartments.0"
+                  compartment="//@nodes.0/@ownedChild/@children.2/@ownedChild/@children.0/@ownedChild/@compartments.0"
                   referencedChild="//@nodes.0/@ownedChild/@children.7/@ownedChild">
                 <containmentFeature
                     href="domain.ecore#//Column/element"/>
               </children>
               <children
-                  compartment="//@nodes.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@compartments.0"
+                  compartment="//@nodes.0/@ownedChild/@children.2/@ownedChild/@children.0/@ownedChild/@compartments.0"
                   referencedChild="//@nodes.0/@ownedChild/@children.8/@ownedChild">
                 <containmentFeature
                     href="domain.ecore#//Column/element"/>
               </children>
               <compartments
-                  children="//@nodes.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0 //@nodes.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.1 //@nodes.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.2 //@nodes.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.3 //@nodes.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.4 //@nodes.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.5 //@nodes.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.6 //@nodes.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.7 //@nodes.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.8">
+                  children="//@nodes.0/@ownedChild/@children.2/@ownedChild/@children.0/@ownedChild/@children.0 //@nodes.0/@ownedChild/@children.2/@ownedChild/@children.0/@ownedChild/@children.1 //@nodes.0/@ownedChild/@children.2/@ownedChild/@children.0/@ownedChild/@children.2 //@nodes.0/@ownedChild/@children.2/@ownedChild/@children.0/@ownedChild/@children.3 //@nodes.0/@ownedChild/@children.2/@ownedChild/@children.0/@ownedChild/@children.4 //@nodes.0/@ownedChild/@children.2/@ownedChild/@children.0/@ownedChild/@children.5 //@nodes.0/@ownedChild/@children.2/@ownedChild/@children.0/@ownedChild/@children.6 //@nodes.0/@ownedChild/@children.2/@ownedChild/@children.0/@ownedChild/@children.7 //@nodes.0/@ownedChild/@children.2/@ownedChild/@children.0/@ownedChild/@children.8">
                 <compartment
                     href="domain.gmfgraph#ColumnElementCompartment"/>
               </compartments>
             </ownedChild>
           </children>
           <compartments
-              children="//@nodes.0/@ownedChild/@children.3/@ownedChild/@children.0">
+              children="//@nodes.0/@ownedChild/@children.2/@ownedChild/@children.0">
             <compartment
                 href="domain.gmfgraph#TableColsCompartment"/>
           </compartments>
@@ -248,6 +227,27 @@
               href="domain.gmftool#//@palette/@tools.0/@tools.9"/>
           <diagramNode
               href="domain.gmfgraph#Tree"/>
+        </ownedChild>
+      </children>
+      <children
+          compartment="//@nodes.0/@ownedChild/@compartments.0">
+        <containmentFeature
+            href="domain.ecore#//ChildrenHolder/children"/>
+        <ownedChild>
+          <domainMetaElement
+              href="domain.ecore#//Label"/>
+          <labelMappings
+              xsi:type="gmfmap:FeatureLabelMapping">
+            <diagramLabel
+                href="domain.gmfgraph#LabelLabel"/>
+            <features
+                href="domain.ecore#//Label/label"/>
+          </labelMappings>
+          <tool
+              xsi:type="gmftool:CreationTool"
+              href="domain.gmftool#//@palette/@tools.0/@tools.5"/>
+          <diagramNode
+              href="domain.gmfgraph#Label"/>
         </ownedChild>
       </children>
       <compartments

@@ -137,9 +137,6 @@ public class DomainNavigatorLabelProvider extends LabelProvider implements
 		case ButtonEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Node?http://tura.org/2013/v1/domain?Button", DomainElementTypes.Button_1603017); //$NON-NLS-1$
-		case LabelEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Node?http://tura.org/2013/v1/domain?Label", DomainElementTypes.Label_1603005); //$NON-NLS-1$
 		case DropDownSelectionEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Node?http://tura.org/2013/v1/domain?DropDownSelection", DomainElementTypes.DropDownSelection_1603002); //$NON-NLS-1$
@@ -152,9 +149,6 @@ public class DomainNavigatorLabelProvider extends LabelProvider implements
 		case Button2EditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Node?http://tura.org/2013/v1/domain?Button", DomainElementTypes.Button_1603023); //$NON-NLS-1$
-		case Label2EditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Node?http://tura.org/2013/v1/domain?Label", DomainElementTypes.Label_1603013); //$NON-NLS-1$
 		case DropDownSelection2EditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Node?http://tura.org/2013/v1/domain?DropDownSelection", DomainElementTypes.DropDownSelection_1603010); //$NON-NLS-1$
@@ -179,6 +173,9 @@ public class DomainNavigatorLabelProvider extends LabelProvider implements
 		case TreeEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Node?http://tura.org/2013/v1/domain?Tree", DomainElementTypes.Tree_1603016); //$NON-NLS-1$
+		case LabelEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Node?http://tura.org/2013/v1/domain?Label", DomainElementTypes.Label_1603005); //$NON-NLS-1$
 		case InputText2EditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Node?http://tura.org/2013/v1/domain?InputText", DomainElementTypes.InputText_1603012); //$NON-NLS-1$
@@ -191,6 +188,9 @@ public class DomainNavigatorLabelProvider extends LabelProvider implements
 		case Tree2EditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Node?http://tura.org/2013/v1/domain?Tree", DomainElementTypes.Tree_1603022); //$NON-NLS-1$
+		case Label2EditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Node?http://tura.org/2013/v1/domain?Label", DomainElementTypes.Label_1603013); //$NON-NLS-1$
 		}
 		return getImage("Navigator?UnknownElement", null); //$NON-NLS-1$
 	}
@@ -257,8 +257,6 @@ public class DomainNavigatorLabelProvider extends LabelProvider implements
 			return getLayerHolder_1602003Text(view);
 		case ButtonEditPart.VISUAL_ID:
 			return getButton_1603017Text(view);
-		case LabelEditPart.VISUAL_ID:
-			return getLabel_1603005Text(view);
 		case DropDownSelectionEditPart.VISUAL_ID:
 			return getDropDownSelection_1603002Text(view);
 		case TableEditPart.VISUAL_ID:
@@ -267,8 +265,6 @@ public class DomainNavigatorLabelProvider extends LabelProvider implements
 			return getColumn_1603024Text(view);
 		case Button2EditPart.VISUAL_ID:
 			return getButton_1603023Text(view);
-		case Label2EditPart.VISUAL_ID:
-			return getLabel_1603013Text(view);
 		case DropDownSelection2EditPart.VISUAL_ID:
 			return getDropDownSelection_1603010Text(view);
 		case Table2EditPart.VISUAL_ID:
@@ -285,6 +281,8 @@ public class DomainNavigatorLabelProvider extends LabelProvider implements
 			return getCheckBox_1603007Text(view);
 		case TreeEditPart.VISUAL_ID:
 			return getTree_1603016Text(view);
+		case LabelEditPart.VISUAL_ID:
+			return getLabel_1603005Text(view);
 		case InputText2EditPart.VISUAL_ID:
 			return getInputText_1603012Text(view);
 		case OutputText2EditPart.VISUAL_ID:
@@ -293,6 +291,8 @@ public class DomainNavigatorLabelProvider extends LabelProvider implements
 			return getCheckBox_1603015Text(view);
 		case Tree2EditPart.VISUAL_ID:
 			return getTree_1603022Text(view);
+		case Label2EditPart.VISUAL_ID:
+			return getLabel_1603013Text(view);
 		}
 		return getUnknownElementText(view);
 	}

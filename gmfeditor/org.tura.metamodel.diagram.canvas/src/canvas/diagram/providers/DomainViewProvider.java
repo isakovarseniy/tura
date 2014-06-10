@@ -169,7 +169,6 @@ public class DomainViewProvider extends AbstractProvider implements
 				switch (visualID) {
 				case LayerHolderEditPart.VISUAL_ID:
 				case ButtonEditPart.VISUAL_ID:
-				case LabelEditPart.VISUAL_ID:
 				case DropDownSelectionEditPart.VISUAL_ID:
 				case TableEditPart.VISUAL_ID:
 				case ColumnEditPart.VISUAL_ID:
@@ -177,8 +176,8 @@ public class DomainViewProvider extends AbstractProvider implements
 				case OutputTextEditPart.VISUAL_ID:
 				case CheckBoxEditPart.VISUAL_ID:
 				case TreeEditPart.VISUAL_ID:
+				case LabelEditPart.VISUAL_ID:
 				case Button2EditPart.VISUAL_ID:
-				case Label2EditPart.VISUAL_ID:
 				case DropDownSelection2EditPart.VISUAL_ID:
 				case Table2EditPart.VISUAL_ID:
 				case LayerHolder2EditPart.VISUAL_ID:
@@ -187,6 +186,7 @@ public class DomainViewProvider extends AbstractProvider implements
 				case OutputText2EditPart.VISUAL_ID:
 				case CheckBox2EditPart.VISUAL_ID:
 				case Tree2EditPart.VISUAL_ID:
+				case Label2EditPart.VISUAL_ID:
 					if (domainElement == null
 							|| visualID != DomainVisualIDRegistry
 									.getNodeVisualID(op.getContainerView(),
@@ -201,12 +201,10 @@ public class DomainViewProvider extends AbstractProvider implements
 		}
 		return LayerHolderEditPart.VISUAL_ID == visualID
 				|| ButtonEditPart.VISUAL_ID == visualID
-				|| LabelEditPart.VISUAL_ID == visualID
 				|| DropDownSelectionEditPart.VISUAL_ID == visualID
 				|| TableEditPart.VISUAL_ID == visualID
 				|| ColumnEditPart.VISUAL_ID == visualID
 				|| Button2EditPart.VISUAL_ID == visualID
-				|| Label2EditPart.VISUAL_ID == visualID
 				|| DropDownSelection2EditPart.VISUAL_ID == visualID
 				|| Table2EditPart.VISUAL_ID == visualID
 				|| LayerHolder2EditPart.VISUAL_ID == visualID
@@ -215,10 +213,12 @@ public class DomainViewProvider extends AbstractProvider implements
 				|| OutputTextEditPart.VISUAL_ID == visualID
 				|| CheckBoxEditPart.VISUAL_ID == visualID
 				|| TreeEditPart.VISUAL_ID == visualID
+				|| LabelEditPart.VISUAL_ID == visualID
 				|| InputText2EditPart.VISUAL_ID == visualID
 				|| OutputText2EditPart.VISUAL_ID == visualID
 				|| CheckBox2EditPart.VISUAL_ID == visualID
-				|| Tree2EditPart.VISUAL_ID == visualID;
+				|| Tree2EditPart.VISUAL_ID == visualID
+				|| Label2EditPart.VISUAL_ID == visualID;
 	}
 
 	/**
@@ -281,9 +281,6 @@ public class DomainViewProvider extends AbstractProvider implements
 		case ButtonEditPart.VISUAL_ID:
 			return createButton_1603017(domainElement, containerView, index,
 					persisted, preferencesHint);
-		case LabelEditPart.VISUAL_ID:
-			return createLabel_1603005(domainElement, containerView, index,
-					persisted, preferencesHint);
 		case DropDownSelectionEditPart.VISUAL_ID:
 			return createDropDownSelection_1603002(domainElement,
 					containerView, index, persisted, preferencesHint);
@@ -295,9 +292,6 @@ public class DomainViewProvider extends AbstractProvider implements
 					persisted, preferencesHint);
 		case Button2EditPart.VISUAL_ID:
 			return createButton_1603023(domainElement, containerView, index,
-					persisted, preferencesHint);
-		case Label2EditPart.VISUAL_ID:
-			return createLabel_1603013(domainElement, containerView, index,
 					persisted, preferencesHint);
 		case DropDownSelection2EditPart.VISUAL_ID:
 			return createDropDownSelection_1603010(domainElement,
@@ -323,6 +317,9 @@ public class DomainViewProvider extends AbstractProvider implements
 		case TreeEditPart.VISUAL_ID:
 			return createTree_1603016(domainElement, containerView, index,
 					persisted, preferencesHint);
+		case LabelEditPart.VISUAL_ID:
+			return createLabel_1603005(domainElement, containerView, index,
+					persisted, preferencesHint);
 		case InputText2EditPart.VISUAL_ID:
 			return createInputText_1603012(domainElement, containerView, index,
 					persisted, preferencesHint);
@@ -334,6 +331,9 @@ public class DomainViewProvider extends AbstractProvider implements
 					persisted, preferencesHint);
 		case Tree2EditPart.VISUAL_ID:
 			return createTree_1603022(domainElement, containerView, index,
+					persisted, preferencesHint);
+		case Label2EditPart.VISUAL_ID:
+			return createLabel_1603013(domainElement, containerView, index,
 					persisted, preferencesHint);
 		}
 		// can't happen, provided #provides(CreateNodeViewOperation) is correct

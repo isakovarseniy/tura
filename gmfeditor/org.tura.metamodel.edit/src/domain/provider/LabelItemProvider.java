@@ -32,7 +32,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * @generated
  */
 public class LabelItemProvider
-  extends InputElementItemProvider
+  extends UielementItemProvider
   implements
     IEditingDomainItemProvider,
     IStructuredItemContentProvider,

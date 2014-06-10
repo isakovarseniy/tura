@@ -29,7 +29,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public class LabelImpl extends InputElementImpl implements Label
+public class LabelImpl extends UielementImpl implements Label
 {
   /**
    * The cached value of the '{@link #getMultiLangLabel() <em>Multi Lang Label</em>}' containment reference.

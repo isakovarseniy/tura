@@ -16,10 +16,10 @@ package domain;
  * </p>
  *
  * @see domain.DomainPackage#getLabel()
- * @model annotation="gmf.node label='label' tool.small.bundle='org.tura.metamodel.commons' tool.small.path='icons/label.png'"
+ * @model annotation="gmf.node label='label' tool.small.bundle='org.tura.metamodel.commons' label.icon='false' tool.small.path='icons/label.png'"
  * @generated
  */
-public interface Label extends InputElement, MultiLangLabel
+public interface Label extends Uielement, MultiLangLabel
 {
   /**
    * Returns the value of the '<em><b>Label</b></em>' attribute.

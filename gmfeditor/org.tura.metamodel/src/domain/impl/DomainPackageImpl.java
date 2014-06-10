@@ -8257,7 +8257,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     layerHolderEClass.getESuperTypes().add(this.getChildrenHolder());
     layerHolderEClass.getESuperTypes().add(this.getHTMLLayerHolder());
     inputTextEClass.getESuperTypes().add(this.getInputElement());
-    labelEClass.getESuperTypes().add(this.getInputElement());
+    labelEClass.getESuperTypes().add(this.getUielement());
     labelEClass.getESuperTypes().add(this.getMultiLangLabel());
     outputTextEClass.getESuperTypes().add(this.getInputElement());
     checkBoxEClass.getESuperTypes().add(this.getInputElement());
@@ -9751,6 +9751,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        {
        "label", "label",
        "tool.small.bundle", "org.tura.metamodel.commons",
+       "label.icon", "false",
        "tool.small.path", "icons/label.png"
        });		
     addAnnotation
@@ -9816,6 +9817,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        new String[] 
        {
        "figure", "org.tura.metamodel.commons.figures.ButtonFigure",
+       "label.icon", "false",
        "label", "label",
        "tool.small.bundle", "org.tura.metamodel.commons",
        "tool.small.path", "icons/button.png"

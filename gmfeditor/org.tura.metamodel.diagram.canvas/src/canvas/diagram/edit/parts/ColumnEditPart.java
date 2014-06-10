@@ -298,10 +298,6 @@ public class ColumnEditPart extends ShapeNodeEditPart {
 				return getChildBySemanticHint(DomainVisualIDRegistry
 						.getType(ColumnColumnElementCompartmentEditPart.VISUAL_ID));
 			}
-			if (type == DomainElementTypes.Label_1603013) {
-				return getChildBySemanticHint(DomainVisualIDRegistry
-						.getType(ColumnColumnElementCompartmentEditPart.VISUAL_ID));
-			}
 			if (type == DomainElementTypes.DropDownSelection_1603010) {
 				return getChildBySemanticHint(DomainVisualIDRegistry
 						.getType(ColumnColumnElementCompartmentEditPart.VISUAL_ID));
@@ -327,6 +323,10 @@ public class ColumnEditPart extends ShapeNodeEditPart {
 						.getType(ColumnColumnElementCompartmentEditPart.VISUAL_ID));
 			}
 			if (type == DomainElementTypes.Tree_1603022) {
+				return getChildBySemanticHint(DomainVisualIDRegistry
+						.getType(ColumnColumnElementCompartmentEditPart.VISUAL_ID));
+			}
+			if (type == DomainElementTypes.Label_1603013) {
 				return getChildBySemanticHint(DomainVisualIDRegistry
 						.getType(ColumnColumnElementCompartmentEditPart.VISUAL_ID));
 			}

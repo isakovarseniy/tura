@@ -894,8 +894,8 @@ class InputText extends InputElement {
    
 }
 
-@gmf.node(label="label",tool.small.bundle="org.tura.metamodel.commons",tool.small.path="icons/label.png")
-class Label extends InputElement ,MultiLangLabel{
+@gmf.node(label="label",tool.small.bundle="org.tura.metamodel.commons",label.icon="false",tool.small.path="icons/label.png")
+class Label extends Uielement ,MultiLangLabel{
   attr EString label;
 }
 
@@ -935,7 +935,7 @@ class Tree extends SourcesPointer,MultiLangLabel{
    val Context image;
 }
 
-@gmf.node(figure="org.tura.metamodel.commons.figures.ButtonFigure",label="label",tool.small.bundle="org.tura.metamodel.commons",tool.small.path="icons/button.png")
+@gmf.node(figure="org.tura.metamodel.commons.figures.ButtonFigure",label.icon="false",label="label",tool.small.bundle="org.tura.metamodel.commons",tool.small.path="icons/button.png")
 class Button extends ActionElement,MultiLangLabel{
    attr EString label;
 }
