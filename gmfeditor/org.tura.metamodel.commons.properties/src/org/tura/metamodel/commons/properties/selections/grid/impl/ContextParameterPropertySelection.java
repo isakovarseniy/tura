@@ -54,6 +54,7 @@ public class ContextParameterPropertySelection extends GridProperty {
 		ds = new ContextParameterrDS(this);
 	}
 
+
 	@Override
 	public List<GridColumn> getColumns() {
 		if (columnList == null) {
@@ -338,10 +339,10 @@ public class ContextParameterPropertySelection extends GridProperty {
 					.eContainer();
 		}
 		if (root.getElement() instanceof domain.CanvasView) {
-			
-			domain.Views views = (Views) (((domain.CanvasView) root.getElement())
-					.getParent().eContainer().eContainer() );
-			
+
+			domain.Views views = (Views) (((domain.CanvasView) root
+					.getElement()).getParent().eContainer().eContainer());
+
 			frm = (domain.Form) (views.getParent().eContainer());
 		}
 

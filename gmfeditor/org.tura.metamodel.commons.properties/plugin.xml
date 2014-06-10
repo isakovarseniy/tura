@@ -285,11 +285,6 @@
              category="domain"
              id="property.tab.domain.control.serviceref"
              label="Method ref"/>
-          <propertyTab
-            afterTab="property.tab.domain.control.serviceref"
-             category="domain"
-             id="property.tab.domain.control.parameters"
-             label="Parameters"/>
              
           <propertyTab
              category="domain"
@@ -357,9 +352,10 @@
            </propertySection>        
    
              <propertySection
-               tab="property.tab.domain.control.parameters"
-               class="org.tura.metamodel.commons.properties.selections.grid.impl.ContextParameterPropertySelection"
-               id="org.tura.metamodel.diagram.control.parameters">
+               tab="property.tab.domain.control.serviceref"
+               afterSection="property.tab.domain.control.serviceref"
+               class="org.tura.metamodel.commons.properties.selections.grid.impl.TriggerContextParameterPropertySelection"
+               id="org.tura.metamodel.diagram.control.methodref">
               <input type="control.diagram.edit.parts.POSTQueryTriggerEditPart"/>
               <input type="control.diagram.edit.parts.POSTQueryTriggerEditPart"/>
               <input type="control.diagram.edit.parts.PREQueryTriggerEditPart"/>
@@ -441,13 +437,6 @@
              id="property.tab.domain.frmview.mulilanglabel"
              label="Multi lang label"/>
              
-          <propertyTab
-             afterTab="property.tab.domain.frmview"
-             category="domain"
-             id="property.tab.domain.frmview.parameters"
-             label="Parameters"/>
-  
-  
       </propertyTabs>
      </extension>  
 
@@ -491,8 +480,9 @@
            </propertySection>        
 
              <propertySection
-               tab="property.tab.domain.frmview.parameters"
-               class="org.tura.metamodel.commons.properties.selections.grid.impl.ContextParameterPropertySelection"
+               tab="property.tab.domain.frmview"
+               afterSection="org.tura.metamodel.diagram.canvas.actioin.methodname"
+               class="org.tura.metamodel.commons.properties.selections.grid.impl.TriggerContextParameterPropertySelection"
                id="org.tura.metamodel.diagram.canvas.actioin.contextparameter">
               <input type="frmview.diagram.edit.parts.ViewPortTriggerEditPart"/>
            </propertySection>        
@@ -548,13 +538,6 @@
              category="domain"
              id="property.tab.domain.canvas.uielement.mulilanglabel"
              label="Multi lang label"/>
-    
-           <propertyTab
-             category="domain"
-             afterTab="property.tab.domain.canvas.action"
-             id="property.tab.domain.canvas.uielement.parameters"
-             label="Parameters"/>
-    
     
           </propertyTabs>
        </extension>
@@ -888,9 +871,10 @@
            </propertySection>        
 
              <propertySection
-               tab="property.tab.domain.canvas.uielement.parameters"
-               class="org.tura.metamodel.commons.properties.selections.grid.impl.ContextParameterPropertySelection"
-               id="org.tura.metamodel.diagram.canvas.actioin.contextparameter">
+               tab="property.tab.domain.canvas.action"
+               afterSection="org.tura.metamodel.diagram.canvas.actioin.methodname"
+               class="org.tura.metamodel.commons.properties.selections.grid.impl.TriggerContextParameterPropertySelection"
+               id="org.tura.metamodel.diagram.canvas.actioin.parameters">
               <input type="canvas.diagram.edit.parts.ButtonEditPart"/>
            </propertySection>        
 
