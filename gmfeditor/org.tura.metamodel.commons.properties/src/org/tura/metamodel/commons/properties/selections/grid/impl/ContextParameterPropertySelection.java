@@ -346,6 +346,13 @@ public class ContextParameterPropertySelection extends GridProperty {
 			frm = (domain.Form) (views.getParent().eContainer());
 		}
 
+		if (root.getElement() instanceof domain.Views) {
+
+			domain.Views views = (Views) root.getElement();
+			frm = (domain.Form) (views.getParent().eContainer());
+		}
+
+		
 		if (frm.getDatacontrols() != null) {
 			controls = frm.getDatacontrols().getFormControl();
 			rootOfTree.addChild(controls);
