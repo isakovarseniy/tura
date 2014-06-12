@@ -616,7 +616,7 @@ public class QueryHelper {
 					domain.ViewArea viewarea = itr.next();
 					if (viewarea.getCanvasView() != null)
 						findNick(nickNamed, viewarea.getCanvasView()
-								.getBaseCanvas());
+								.getBaseCanvas(),obj);
 				}
 			}
 
@@ -637,15 +637,15 @@ public class QueryHelper {
 
 	}
 
-	private void findNick(List<domain.Uielement> list, domain.LayerHolder holder) {
+	private void findNick(List<domain.Uielement> list, domain.LayerHolder holder,domain.Uielement exception) {
 		for (Iterator<domain.Uielement> itr = holder.getChildren().iterator(); itr
 				.hasNext();) {
 
 			domain.Uielement el = itr.next();
 			if (el instanceof domain.LayerHolder)
-				findNick(list, (domain.LayerHolder) el);
+				findNick(list, (domain.LayerHolder) el,exception);
 
-			if (el.getNickname() != null)
+			if (el.getNickname() != null && !el.getUid().equals(exception.getUid()))
 				list.add(el);
 		}
 	}
