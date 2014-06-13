@@ -9,6 +9,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 import org.eclipse.core.resources.IFile;
@@ -29,7 +30,9 @@ import org.eclipse.gef.EditPartViewer;
 import org.eclipse.gmf.runtime.diagram.ui.OffscreenEditPartFactory;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.DiagramEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.parts.IDiagramWorkbenchPart;
+import org.eclipse.gmf.runtime.diagram.ui.resources.editor.parts.DiagramDocumentEditor;
 import org.eclipse.gmf.runtime.emf.core.util.EMFCoreUtil;
+import org.eclipse.gmf.runtime.notation.Diagram;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.jface.action.Action;
 import org.eclipse.jface.operation.IRunnableWithProgress;
@@ -39,6 +42,8 @@ import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.actions.WorkspaceModifyDelegatingOperation;
 
+import org.osgi.framework.FrameworkUtil;
+import org.tura.metamodel.validatioin.TuraDiagnostician;
 import recipe.diagram.providers.DomainMarkerNavigationProvider;
 import recipe.diagram.providers.DomainValidationProvider;
 
@@ -158,14 +163,48 @@ public class ValidateAction extends Action {
 		if (target != null) {
 			DomainMarkerNavigationProvider.deleteMarkers(target);
 		}
-		Diagnostic diagnostic = runEMFValidator(view);
-		createMarkers(target, diagnostic, diagramEditPart);
+
+		runTuraValidator(view);
+
 		IBatchValidator validator = (IBatchValidator) ModelValidationService
 				.getInstance().newValidator(EvaluationMode.BATCH);
 		validator.setIncludeLiveConstraints(true);
 		if (view.isSetElement() && view.getElement() != null) {
 			IStatus status = validator.validate(view.getElement());
 			createMarkers(target, status, diagramEditPart);
+		}
+	}
+
+	private static void runTuraValidator(View target) {
+		if (target.isSetElement() && target.getElement() != null) {
+			Map<DiagramDocumentEditor, Diagnostic> diagnosticHash = new TuraDiagnostician() {
+
+				public String getObjectLabel(EObject eObject) {
+					return EMFCoreUtil.getQualifiedName(eObject, true);
+				}
+			}.validateAllDiagrams(target);
+
+			//			for (DiagramDocumentEditor editPart : diagnosticHash.keySet()) {
+			//				Diagram d = editPart.getDiagram();
+			//
+			//				IFile file = d.eResource() != null ? WorkspaceSynchronizer
+			//						.getFile(d.eResource()) : null;
+			//				if (file != null) {
+			//					DomainMarkerNavigationProvider.deleteMarkers(file);
+			//				}
+			//			}
+
+			for (DiagramDocumentEditor editPart : diagnosticHash.keySet()) {
+				Diagnostic diagnostic = diagnosticHash.get(editPart);
+
+				Diagram d = editPart.getDiagram();
+
+				IFile file = d.eResource() != null ? WorkspaceSynchronizer
+						.getFile(d.eResource()) : null;
+
+				createMarkers(file, diagnostic, editPart.getDiagramEditPart());
+
+			}
 		}
 	}
 
@@ -230,13 +269,18 @@ public class ValidateAction extends Action {
 				EObject element = (EObject) data.get(0);
 				View view = DomainDiagramEditorUtil.findView(diagramEditPart,
 						element, element2ViewMap);
-				addMarker(
-						diagramEditPart.getViewer(),
-						target,
-						view.eResource().getURIFragment(view),
-						EMFCoreUtil.getQualifiedName(element, true),
-						nextDiagnostic.getMessage(),
-						diagnosticToStatusSeverity(nextDiagnostic.getSeverity()));
+
+				String markerType = FrameworkUtil.getBundle(
+						diagramEditPart.getClass()).getSymbolicName()
+						+ ".diagnostic";
+
+				TuraDiagnostician
+						.addMarker(target, view.eResource()
+								.getURIFragment(view), EMFCoreUtil
+								.getQualifiedName(element, true),
+								nextDiagnostic.getMessage(),
+								diagnosticToStatusSeverity(nextDiagnostic
+										.getSeverity()), markerType);
 			}
 		}
 	}

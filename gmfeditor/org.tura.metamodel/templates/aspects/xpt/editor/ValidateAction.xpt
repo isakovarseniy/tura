@@ -1,3 +1,6 @@
+«EXTENSION xpt::editor::Utils»
+«EXTENSION xpt::GenAuditRoot»
+
 «AROUND runValidation FOR gmfgen::GenDiagram-»
 
 	«EXPAND xpt::Common::generatedMemberComment»
@@ -61,10 +64,101 @@
 				org.eclipse.emf.ecore.EObject element = (org.eclipse.emf.ecore.EObject) data.get(0);
 				org.eclipse.gmf.runtime.notation.View view = «getDiagramEditorUtilQualifiedClassName()».findView(
 						diagramEditPart, element, element2ViewMap);
-				addMarker(diagramEditPart.getViewer(), target, view.eResource().getURIFragment(view),
+
+		String markerType = org.osgi.framework.FrameworkUtil.getBundle(diagramEditPart.getClass()).getSymbolicName() + ".diagnostic";
+
+
+			org.tura.metamodel.validatioin.TuraDiagnostician.addMarker( target, view.eResource().getURIFragment(view),
 						org.eclipse.gmf.runtime.emf.core.util.EMFCoreUtil.getQualifiedName(element, true),
-						nextDiagnostic.getMessage(), diagnosticToStatusSeverity(nextDiagnostic.getSeverity()));
+						nextDiagnostic.getMessage(), diagnosticToStatusSeverity(nextDiagnostic.getSeverity()),markerType);
 			}
 		}
 	}
 «ENDAROUND»
+
+
+«AROUND validate FOR gmfgen::GenDiagram-»
+
+	«EXPAND xpt::Common::generatedMemberComment»
+	private static void validate(org.eclipse.gmf.runtime.diagram.ui.editparts.DiagramEditPart diagramEditPart,
+			org.eclipse.gmf.runtime.notation.View view) {
+		«IF editorGen.application = null-»
+		org.eclipse.core.resources.IFile target = view.eResource() != null ?
+				org.eclipse.emf.workspace.util.WorkspaceSynchronizer.getFile(view.eResource()) : null;
+		if (target != null) {
+			«getMarkerNavigationProviderQualifiedClassName()».deleteMarkers(target);
+		}
+		«ELSE-»
+		org.eclipse.gmf.runtime.notation.View target = view;
+		«EXPAND xpt::editor::ValidationMarker::qualifiedClassName».removeAllMarkers(diagramEditPart.getViewer());
+		«ENDIF-»
+
+		runTuraValidator(view);
+
+		org.eclipse.emf.validation.service.IBatchValidator validator =
+				(org.eclipse.emf.validation.service.IBatchValidator)
+						org.eclipse.emf.validation.service.ModelValidationService.getInstance().newValidator(
+								org.eclipse.emf.validation.model.EvaluationMode.BATCH);
+		validator.setIncludeLiveConstraints(true);
+		if (view.isSetElement() && view.getElement() != null) {
+			org.eclipse.core.runtime.IStatus status = validator.validate(view.getElement());
+			createMarkers(target, status, diagramEditPart);
+		}
+«IF shouldRunValidateOnDiagram(editorGen.audits)-»
+«IF hasDiagramElementTargetRule(editorGen.audits)-»
+		validator.setTraversalStrategy(«getValidationProviderQualifiedClassName()».getNotationTraversalStrategy(validator));
+«ENDIF-»
+		org.eclipse.core.runtime.IStatus status = validator.validate(view);
+		createMarkers(target, status, diagramEditPart);
+«ENDIF-»
+		«IF editorGen.application <> null and validationDecorators-»
+		«getValidationDecoratorProviderQualifiedClassName()».refreshDecorators(view);
+		for (java.util.Iterator it = view.eAllContents(); it.hasNext();) {
+			org.eclipse.emf.ecore.EObject next = (org.eclipse.emf.ecore.EObject) it.next();
+			if (next instanceof org.eclipse.gmf.runtime.notation.View) {
+				«getValidationDecoratorProviderQualifiedClassName()».refreshDecorators(
+						(org.eclipse.gmf.runtime.notation.View) next);
+			}
+		}
+		«ENDIF-»
+	}
+	
+	private static void runTuraValidator(View target) {
+		if (target.isSetElement() && target.getElement() != null) {
+			java.util.Map<org.eclipse.gmf.runtime.diagram.ui.resources.editor.parts.DiagramDocumentEditor, org.eclipse.emf.common.util.Diagnostic> diagnosticHash = new org.tura.metamodel.validatioin.TuraDiagnostician() {
+
+				public String getObjectLabel(EObject eObject) {
+					return EMFCoreUtil.getQualifiedName(eObject, true);
+				}
+			}.validateAllDiagrams(target);
+
+			for (DiagramDocumentEditor editPart : diagnosticHash.keySet()) {
+				Diagram d = editPart.getDiagram();
+
+				IFile file = d.eResource() != null ? WorkspaceSynchronizer
+						.getFile(d.eResource()) : null;
+				if (file != null) {
+					String markerType = org.osgi.framework.FrameworkUtil.getBundle(
+							editPart.getClass()).getSymbolicName()
+							+ ".diagnostic";
+
+					org.tura.metamodel.validatioin.TuraDiagnostician.deleteMarkers(file, markerType);
+				}
+			}
+			
+			for (org.eclipse.gmf.runtime.diagram.ui.resources.editor.parts.DiagramDocumentEditor editPart : diagnosticHash.keySet()) {
+				org.eclipse.emf.common.util.Diagnostic diagnostic = diagnosticHash.get(editPart);
+
+				org.eclipse.gmf.runtime.notation.Diagram d = editPart.getDiagram();
+
+				IFile file = d.eResource() != null ? WorkspaceSynchronizer
+						.getFile(d.eResource()) : null;
+
+				createMarkers(file, diagnostic, editPart.getDiagramEditPart());
+
+			}
+		}
+	}
+	
+«ENDAROUND»
+
