@@ -301,17 +301,22 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
+	public static String NavigatorGroupName_GroupGroup2Role_1404005_target;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_GroupGroup2Role_1404005_source;
+
+	/**
+	 * @generated
+	 */
 	public static String NavigatorGroupName_GroupGroup2Group_1404003_target;
 
 	/**
 	 * @generated
 	 */
 	public static String NavigatorGroupName_GroupGroup2Group_1404003_source;
-
-	/**
-	 * @generated
-	 */
-	public static String NavigatorGroupName_Roles_1401000_links;
 
 	/**
 	 * @generated
@@ -331,12 +336,7 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_GroupGroup2Role_1404005_target;
-
-	/**
-	 * @generated
-	 */
-	public static String NavigatorGroupName_GroupGroup2Role_1404005_source;
+	public static String NavigatorGroupName_Roles_1401000_links;
 
 	/**
 	 * @generated

@@ -371,32 +371,12 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_ViewPort_1303004_outgoinglinks;
-
-	/**
-	 * @generated
-	 */
-	public static String NavigatorGroupName_Window_1302007_incominglinks;
-
-	/**
-	 * @generated
-	 */
-	public static String NavigatorGroupName_Views_1301000_links;
-
-	/**
-	 * @generated
-	 */
-	public static String NavigatorGroupName_TabPagesInheritance_1304002_target;
-
-	/**
-	 * @generated
-	 */
-	public static String NavigatorGroupName_TabPagesInheritance_1304002_source;
-
-	/**
-	 * @generated
-	 */
 	public static String NavigatorGroupName_TabPage_1302002_incominglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_ViewPort_1303004_outgoinglinks;
 
 	/**
 	 * @generated
@@ -416,12 +396,32 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
+	public static String NavigatorGroupName_Views_1301000_links;
+
+	/**
+	 * @generated
+	 */
 	public static String NavigatorGroupName_TabCanvas_1302008_incominglinks;
 
 	/**
 	 * @generated
 	 */
 	public static String NavigatorGroupName_TabCanvas_1302008_outgoinglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_Window_1302007_incominglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_TabPagesInheritance_1304002_target;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_TabPagesInheritance_1304002_source;
 
 	/**
 	 * @generated

@@ -389,7 +389,7 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getApplicationInfrastructureLayer_802004ContainedLinks(
+	public static List<DomainLinkDescriptor> getApplicationStyle_802005ContainedLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -397,7 +397,7 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getApplicationStyle_802005ContainedLinks(
+	public static List<DomainLinkDescriptor> getApplicationInfrastructureLayer_802004ContainedLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -477,7 +477,7 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getApplicationInfrastructureLayer_802004IncomingLinks(
+	public static List<DomainLinkDescriptor> getApplicationStyle_802005IncomingLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -485,7 +485,7 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getApplicationStyle_802005IncomingLinks(
+	public static List<DomainLinkDescriptor> getApplicationInfrastructureLayer_802004IncomingLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -565,7 +565,7 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getApplicationInfrastructureLayer_802004OutgoingLinks(
+	public static List<DomainLinkDescriptor> getApplicationStyle_802005OutgoingLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -573,7 +573,7 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getApplicationStyle_802005OutgoingLinks(
+	public static List<DomainLinkDescriptor> getApplicationInfrastructureLayer_802004OutgoingLinks(
 			View view) {
 		return Collections.emptyList();
 	}

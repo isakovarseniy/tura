@@ -555,14 +555,6 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getLabel_1603005ContainedLinks(
-			View view) {
-		return Collections.emptyList();
-	}
-
-	/**
-	 * @generated
-	 */
 	public static List<DomainLinkDescriptor> getDropDownSelection_1603002ContainedLinks(
 			View view) {
 		return Collections.emptyList();
@@ -588,14 +580,6 @@ public class DomainDiagramUpdater {
 	 * @generated
 	 */
 	public static List<DomainLinkDescriptor> getButton_1603023ContainedLinks(
-			View view) {
-		return Collections.emptyList();
-	}
-
-	/**
-	 * @generated
-	 */
-	public static List<DomainLinkDescriptor> getLabel_1603013ContainedLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -667,6 +651,14 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
+	public static List<DomainLinkDescriptor> getLabel_1603005ContainedLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
 	public static List<DomainLinkDescriptor> getInputText_1603012ContainedLinks(
 			View view) {
 		return Collections.emptyList();
@@ -699,6 +691,14 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
+	public static List<DomainLinkDescriptor> getLabel_1603013ContainedLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
 	public static List<DomainLinkDescriptor> getLayerHolder_1602003IncomingLinks(
 			View view) {
 		return Collections.emptyList();
@@ -708,14 +708,6 @@ public class DomainDiagramUpdater {
 	 * @generated
 	 */
 	public static List<DomainLinkDescriptor> getButton_1603017IncomingLinks(
-			View view) {
-		return Collections.emptyList();
-	}
-
-	/**
-	 * @generated
-	 */
-	public static List<DomainLinkDescriptor> getLabel_1603005IncomingLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -748,14 +740,6 @@ public class DomainDiagramUpdater {
 	 * @generated
 	 */
 	public static List<DomainLinkDescriptor> getButton_1603023IncomingLinks(
-			View view) {
-		return Collections.emptyList();
-	}
-
-	/**
-	 * @generated
-	 */
-	public static List<DomainLinkDescriptor> getLabel_1603013IncomingLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -827,6 +811,14 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
+	public static List<DomainLinkDescriptor> getLabel_1603005IncomingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
 	public static List<DomainLinkDescriptor> getInputText_1603012IncomingLinks(
 			View view) {
 		return Collections.emptyList();
@@ -859,6 +851,14 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
+	public static List<DomainLinkDescriptor> getLabel_1603013IncomingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
 	public static List<DomainLinkDescriptor> getLayerHolder_1602003OutgoingLinks(
 			View view) {
 		return Collections.emptyList();
@@ -868,14 +868,6 @@ public class DomainDiagramUpdater {
 	 * @generated
 	 */
 	public static List<DomainLinkDescriptor> getButton_1603017OutgoingLinks(
-			View view) {
-		return Collections.emptyList();
-	}
-
-	/**
-	 * @generated
-	 */
-	public static List<DomainLinkDescriptor> getLabel_1603005OutgoingLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -908,14 +900,6 @@ public class DomainDiagramUpdater {
 	 * @generated
 	 */
 	public static List<DomainLinkDescriptor> getButton_1603023OutgoingLinks(
-			View view) {
-		return Collections.emptyList();
-	}
-
-	/**
-	 * @generated
-	 */
-	public static List<DomainLinkDescriptor> getLabel_1603013OutgoingLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -987,6 +971,14 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
+	public static List<DomainLinkDescriptor> getLabel_1603005OutgoingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
 	public static List<DomainLinkDescriptor> getInputText_1603012OutgoingLinks(
 			View view) {
 		return Collections.emptyList();
@@ -1012,6 +1004,14 @@ public class DomainDiagramUpdater {
 	 * @generated
 	 */
 	public static List<DomainLinkDescriptor> getTree_1603022OutgoingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<DomainLinkDescriptor> getLabel_1603013OutgoingLinks(
 			View view) {
 		return Collections.emptyList();
 	}

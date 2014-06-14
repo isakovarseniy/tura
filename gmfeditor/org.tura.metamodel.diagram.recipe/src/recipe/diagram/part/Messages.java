@@ -411,16 +411,6 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_Recipes_301000_links;
-
-	/**
-	 * @generated
-	 */
-	public static String NavigatorGroupName_DeploymentSequence_302004_incominglinks;
-
-	/**
-	 * @generated
-	 */
 	public static String NavigatorGroupName_RecipeDeployment_304013_target;
 
 	/**
@@ -431,17 +421,12 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_Configuration_302002_incominglinks;
+	public static String NavigatorGroupName_RecipeInfrastructures_304004_target;
 
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_InfrastructureRecipeConfig_304006_target;
-
-	/**
-	 * @generated
-	 */
-	public static String NavigatorGroupName_InfrastructureRecipeConfig_304006_source;
+	public static String NavigatorGroupName_RecipeInfrastructures_304004_source;
 
 	/**
 	 * @generated
@@ -456,12 +441,27 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_RecipeInfrastructures_304004_target;
+	public static String NavigatorGroupName_Configuration_302002_incominglinks;
 
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_RecipeInfrastructures_304004_source;
+	public static String NavigatorGroupName_DeploymentSequence_302004_incominglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_InfrastructureRecipeConfig_304006_target;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_InfrastructureRecipeConfig_304006_source;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_Recipes_301000_links;
 
 	/**
 	 * @generated
