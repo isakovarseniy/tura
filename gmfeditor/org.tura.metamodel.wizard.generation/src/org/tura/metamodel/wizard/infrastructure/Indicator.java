@@ -1,9 +1,10 @@
 package org.tura.metamodel.wizard.infrastructure;
 
+import org.tura.metamodel.validatioin.TuraCompositeEValidator;
+
 
 public class Indicator {
 
-	public static int runTime = 0;
 	public static domain.Recipe currentRecipe;
 	public static domain.Ingredient currentIngredient;
 	public static domain.Component currentComponent;
@@ -11,7 +12,7 @@ public class Indicator {
 	public static domain.Query currentQuery;
 	
 	public static void clean(){
-		runTime = 0;
+		TuraCompositeEValidator.runTime = 0;
 		currentRecipe = null;
 		currentIngredient = null;
 		currentComponent = null;
@@ -20,7 +21,7 @@ public class Indicator {
 	}
 	
 	public static int getRunTime(){
-		return runTime;
+		return TuraCompositeEValidator.runTime;
 	}
 
 	public static domain.Recipe getCurrentRecipe() {

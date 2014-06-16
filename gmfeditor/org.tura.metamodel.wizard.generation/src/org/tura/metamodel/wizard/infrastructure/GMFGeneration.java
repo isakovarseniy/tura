@@ -15,6 +15,7 @@ import org.eclipse.epsilon.eol.models.ModelRepository;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.DiagramEditPart;
 import org.eclipse.gmf.runtime.notation.View;
 import org.tura.metamodel.commons.Util;
+import org.tura.metamodel.validatioin.TuraCompositeEValidator;
 
 import domain.Ingredient;
 import domain.Recipes;
@@ -123,7 +124,7 @@ public class GMFGeneration {
 					  }
 				  }
 			}finally{
-				Indicator.runTime = 0;
+				TuraCompositeEValidator.runTime = 0;
 			}
 		}
 	}

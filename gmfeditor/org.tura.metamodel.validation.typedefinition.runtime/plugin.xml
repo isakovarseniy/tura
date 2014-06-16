@@ -6,7 +6,8 @@
          point="org.tura.metamodel.validatioin">
       <constraintsBinding
             constraints="rules/runtimeTypedefinitionValidationRules.evl"
-            namespaceURI="http://tura.org/2013/v1/domain">
+            namespaceURI="http://tura.org/2013/v1/domain"
+            runtime="true">
       </constraintsBinding>
    </extension>
    

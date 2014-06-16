@@ -14,6 +14,7 @@ import org.eclipse.gmf.runtime.diagram.ui.editparts.DiagramEditPart;
 import org.eclipse.gmf.runtime.emf.core.util.EMFCoreUtil;
 import org.eclipse.gmf.runtime.notation.View;
 import org.tura.metamodel.commons.Util;
+import org.tura.metamodel.validatioin.TuraCompositeEValidator;
 import org.tura.metamodel.validatioin.TuraValidator;
 
 import recipe.diagram.part.DomainDiagramEditorPlugin;
@@ -81,7 +82,7 @@ public class GMFValidation {
 
 			try {
 				Indicator.clean();
-				Indicator.runTime = 1;
+				TuraCompositeEValidator.runTime = 1;
 
 				Indicator.currentRecipe = recipes.getRecipe();
 				for (Iterator<Ingredient> itr = recipes.getRecipe()
@@ -141,7 +142,7 @@ public class GMFValidation {
 					}
 				}
 			} finally {
-				Indicator.runTime = 0;
+				TuraCompositeEValidator.runTime = 0;
 			}
 
 			for (Diagnostic d :  diag) {

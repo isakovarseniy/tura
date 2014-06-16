@@ -20,9 +20,8 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EValidator;
 import org.eclipse.emf.ecore.util.EObjectValidator;
 import org.eclipse.epsilon.common.dt.util.LogUtil;
-import org.eclipse.ui.IStartup;
-import org.eclipse.epsilon.evl.emf.validation.CompositeEValidator;
 import org.eclipse.epsilon.evl.emf.validation.OclValidator;
+import org.eclipse.ui.IStartup;
 
 
 public class EValidatorPopulator implements IStartup {
@@ -63,19 +62,29 @@ public class EValidatorPopulator implements IStartup {
 				EValidator newValidator = null;
 				EValidator existingValidator = EValidator.Registry.INSTANCE.getEValidator(ePackage);
 				
+				String runtime = configurationElement.getAttribute("runtime");
+				
+				
+				
 				if (existingValidator == null) {
 					existingValidator = EObjectValidator.INSTANCE;
 				}
 				
-				if (existingValidator instanceof CompositeEValidator) {
-					((CompositeEValidator) existingValidator).getDelegates().add(evlValidator);
+				if (existingValidator instanceof TuraCompositeEValidator) {
+					if ("true".equals(runtime))
+						((TuraCompositeEValidator) existingValidator).getRuntimeDelegates().add(evlValidator);
+					else	
+					    ((TuraCompositeEValidator) existingValidator).getDelegates().add(evlValidator);
 					newValidator = existingValidator;
 				}
 				else {
-					//newValidator = existingValidator;
-					newValidator = new CompositeEValidator();
-					((CompositeEValidator) newValidator).getDelegates().add(evlValidator);
-					((CompositeEValidator) newValidator).getDelegates().add(existingValidator);
+					newValidator = new TuraCompositeEValidator();
+					if ("true".equals(runtime))
+						((TuraCompositeEValidator) newValidator).getRuntimeDelegates().add(evlValidator);
+					else	
+					    ((TuraCompositeEValidator) newValidator).getDelegates().add(evlValidator);
+
+					((TuraCompositeEValidator) newValidator).getDelegates().add(existingValidator);
 				}
 				
 				if (newValidator != existingValidator) {

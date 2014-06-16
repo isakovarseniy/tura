@@ -74,6 +74,13 @@
                </appinfo>
             </annotation>
          </attribute>
+         <attribute name="runtime" type="boolean">
+            <annotation>
+               <documentation>
+                  The name of the model in the EVL constraints file. If no value is specified the model shall be accessible as &quot;_Model&quot;.
+               </documentation>
+            </annotation>
+         </attribute>
          <attribute name="modelName" type="string">
             <annotation>
                <documentation>

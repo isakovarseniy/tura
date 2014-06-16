@@ -1,23 +1,18 @@
  context TypePointer {
 
   constraint PackageRef {
-
-      guard : (new Native('org.tura.metamodel.wizard.infrastructure.Indicator')).runTime <> 0
       check :  self.packageRef.isDefined()
       message : 'Undefined  package name ' + self.eClass().name + ' not allowed'
 
   }
   
   constraint TypeRef {
-
-      guard : (new Native('org.tura.metamodel.wizard.infrastructure.Indicator')).runTime <> 0
       check :  self.typeRef.isDefined()
       message : 'Undefined  type name ' + self.eClass().name + ' not allowed'
 
   }
   
    constraint RecipeMappers{
-      guard : (new Native('org.tura.metamodel.wizard.infrastructure.Indicator')).runTime <> 0
       check : self.getAllRecipeMappers()
       message : 'Runtime constraint ' + self.typeRef.name+" -->"
   } 
