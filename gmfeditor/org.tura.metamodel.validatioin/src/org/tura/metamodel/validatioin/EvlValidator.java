@@ -156,9 +156,6 @@ public class EvlValidator implements EValidator {
 		module.getContext().dispose();
 		module.getContext().getModelRepository().dispose();
 	}
-
-	
-	
 	
 	
 	private void addMarkers(String msgPrefix, EObject eObject, DiagnosticChain diagnostics) {
