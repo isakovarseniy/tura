@@ -8,6 +8,7 @@ import java.util.UUID;
 import org.eclipse.emf.edit.command.AddCommand;
 import org.eclipse.emf.edit.command.RemoveCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
+import org.eclipse.epsilon.common.dt.util.LogUtil;
 import org.eclipse.gmf.runtime.diagram.ui.parts.DiagramEditor;
 import org.tura.metamodel.commons.properties.selections.grid.DataSource;
 import org.tura.metamodel.commons.properties.selections.grid.GridProperty;
@@ -77,7 +78,7 @@ public class ParameterDS extends DataSource {
 			}
 			return rows;
 		} catch (Exception e) {
-			e.printStackTrace();
+			LogUtil.log(e);
 		}
 		return null;
 	}

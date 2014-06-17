@@ -8,6 +8,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.edit.command.AddCommand;
 import org.eclipse.emf.edit.command.RemoveCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
+import org.eclipse.epsilon.common.dt.util.LogUtil;
 import org.eclipse.gmf.runtime.diagram.ui.parts.DiagramEditor;
 import org.eclipse.gmf.runtime.notation.impl.NodeImpl;
 import org.tura.metamodel.commons.QueryHelper;
@@ -116,7 +117,7 @@ public class QueryVariableDS extends DataSource {
 			return rows;
 			
 		} catch (Exception e) {
-			e.printStackTrace();
+			LogUtil.log(e);
 		}
 
 		return null;

@@ -7,6 +7,7 @@ import java.util.List;
 
 import org.eclipse.emf.edit.command.RemoveCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
+import org.eclipse.epsilon.common.dt.util.LogUtil;
 import org.eclipse.gmf.runtime.diagram.ui.parts.DiagramEditor;
 import org.tura.metamodel.commons.QueryHelper;
 import org.tura.metamodel.commons.properties.selections.grid.DataSource;
@@ -72,7 +73,7 @@ public class UielementOnEventRefreshAreaDS extends DataSource {
 			return rows;
 
 		} catch (Exception e) {
-			e.printStackTrace();
+			LogUtil.log(e);
 		}
 
 		return null;

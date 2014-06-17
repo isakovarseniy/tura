@@ -6,6 +6,7 @@ import java.util.Collections;
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.ecore.change.ChangeDescription;
 import org.eclipse.emf.ecore.change.util.ChangeRecorder;
+import org.eclipse.epsilon.common.dt.util.LogUtil;
 import org.eclipse.epsilon.egl.EglTemplate;
 import org.eclipse.epsilon.egl.EglTemplateFactory;
 import org.eclipse.epsilon.emc.emf.InMemoryEmfModel;
@@ -66,7 +67,7 @@ public class EGLCommand implements Command {
 		} catch (EolRuntimeException e) {
 			factory.getContext().getModelRepository().getTransactionSupport()
 					.rollbackTransaction();
-			e.printStackTrace();
+			LogUtil.log(e);
 			throw new RuntimeException(e);
 		} finally {
 			changeDescription = recorder.endRecording();

@@ -11,6 +11,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.edit.command.SetCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.validation.internal.modeled.model.validation.Constraint;
+import org.eclipse.epsilon.common.dt.util.LogUtil;
 import org.eclipse.gmf.runtime.diagram.ui.parts.DiagramEditor;
 import org.eclipse.gmf.runtime.notation.impl.DiagramImpl;
 import org.eclipse.jface.viewers.CellEditor;
@@ -331,7 +332,7 @@ public class StyleClassPropertySelection extends GridProperty {
 				}
 				return rows;
 			} catch (Exception e) {
-				e.printStackTrace();
+				LogUtil.log(e);
 			}
 			return null;
 		}
@@ -498,7 +499,7 @@ public class StyleClassPropertySelection extends GridProperty {
 				}
 				return rows;
 			} catch (Exception e) {
-				e.printStackTrace();
+				LogUtil.log(e);
 			}
 			return null;
 		}

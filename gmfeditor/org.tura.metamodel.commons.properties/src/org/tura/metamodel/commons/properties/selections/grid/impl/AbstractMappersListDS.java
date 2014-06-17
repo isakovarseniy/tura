@@ -9,6 +9,7 @@ import java.util.Set;
 import org.eclipse.emf.edit.command.AddCommand;
 import org.eclipse.emf.edit.command.RemoveCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
+import org.eclipse.epsilon.common.dt.util.LogUtil;
 import org.eclipse.gmf.runtime.diagram.ui.parts.DiagramEditor;
 import org.eclipse.jface.viewers.ArrayContentProvider;
 import org.eclipse.jface.viewers.LabelProvider;
@@ -135,7 +136,7 @@ public abstract class AbstractMappersListDS extends DataSource {
 			return rows;
 
 		} catch (Exception e) {
-			e.printStackTrace();
+			LogUtil.log(e);
 		}
 		return null;
 	}

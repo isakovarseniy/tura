@@ -8,6 +8,7 @@ import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.validation.internal.modeled.model.validation.Constraint;
+import org.eclipse.epsilon.common.dt.util.LogUtil;
 import org.eclipse.gmf.runtime.notation.Diagram;
 import org.eclipse.ocl.OCL;
 import org.eclipse.ocl.ecore.EcoreEnvironmentFactory;
@@ -71,7 +72,7 @@ public abstract class AbstractTypeNamePropertySection extends
 				}
 
 			} catch (Exception e) {
-				e.printStackTrace();
+				LogUtil.log(e);
 			}
 		}
 

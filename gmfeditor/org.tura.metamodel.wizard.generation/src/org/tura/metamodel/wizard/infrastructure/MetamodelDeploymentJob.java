@@ -10,6 +10,7 @@ import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.core.runtime.jobs.Job;
+import org.eclipse.epsilon.common.dt.util.LogUtil;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.ui.IEditorPart;
@@ -130,7 +131,7 @@ public class MetamodelDeploymentJob extends Job {
 				monitor.worked(1);
 			}
 		} catch (Exception e) {
-			e.printStackTrace();
+			LogUtil.log(e);
 		} finally {
 			System.setOut(oldOut);
 			System.setErr(olderr);

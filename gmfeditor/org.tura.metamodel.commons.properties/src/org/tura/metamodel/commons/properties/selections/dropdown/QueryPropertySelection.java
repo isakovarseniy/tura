@@ -11,6 +11,7 @@ import org.eclipse.emf.edit.command.RemoveCommand;
 import org.eclipse.emf.edit.command.SetCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.validation.internal.modeled.model.validation.Constraint;
+import org.eclipse.epsilon.common.dt.util.LogUtil;
 import org.eclipse.gmf.runtime.diagram.ui.parts.DiagramEditor;
 import org.eclipse.gmf.runtime.notation.Diagram;
 import org.eclipse.ocl.OCL;
@@ -122,7 +123,7 @@ public class QueryPropertySelection extends AbstractEnumerationPropertySection {
 				}
 
 			} catch (Exception e) {
-				e.printStackTrace();
+				LogUtil.log(e);
 			}
 		}
 

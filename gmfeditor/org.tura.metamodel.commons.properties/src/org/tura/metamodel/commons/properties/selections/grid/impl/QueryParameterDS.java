@@ -12,6 +12,7 @@ import org.eclipse.emf.edit.command.AddCommand;
 import org.eclipse.emf.edit.command.RemoveCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.validation.internal.modeled.model.validation.Constraint;
+import org.eclipse.epsilon.common.dt.util.LogUtil;
 import org.eclipse.gmf.runtime.diagram.ui.parts.DiagramEditor;
 import org.eclipse.gmf.runtime.notation.impl.NodeImpl;
 import org.eclipse.ocl.OCL;
@@ -115,7 +116,7 @@ public class QueryParameterDS extends DataSource {
 			}
 			return rows;
 		} catch (Exception e) {
-			e.printStackTrace();
+			LogUtil.log(e);
 		}
 		return null;
 	}

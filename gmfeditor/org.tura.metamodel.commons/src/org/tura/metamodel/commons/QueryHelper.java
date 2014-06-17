@@ -17,6 +17,7 @@ import org.eclipse.emf.edit.command.AddCommand;
 import org.eclipse.emf.edit.command.RemoveCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.validation.internal.modeled.model.validation.Constraint;
+import org.eclipse.epsilon.common.dt.util.LogUtil;
 import org.eclipse.ocl.OCL;
 import org.eclipse.ocl.ParserException;
 import org.eclipse.ocl.ecore.EcoreEnvironmentFactory;
@@ -58,8 +59,7 @@ public class QueryHelper {
 			return ls;
 
 		} catch (Exception e) {
-			e.printStackTrace();
-			// do nothing
+			LogUtil.log(e);
 		}
 		return null;
 
@@ -223,7 +223,7 @@ public class QueryHelper {
 			}
 
 		} catch (Exception e) {
-			e.printStackTrace();
+			LogUtil.log(e);
 		}
 		return mappers;
 	}
@@ -249,7 +249,7 @@ public class QueryHelper {
 			}
 
 		} catch (Exception e) {
-			e.printStackTrace();
+			LogUtil.log(e);
 		}
 		return mappers;
 	}
@@ -516,8 +516,7 @@ public class QueryHelper {
 			}
 
 		} catch (Exception e) {
-			e.printStackTrace();
-			// do nothing
+			LogUtil.log(e);
 		}
 
 	}
@@ -543,8 +542,7 @@ public class QueryHelper {
 				return map.iterator().next();
 
 		} catch (Exception e) {
-			e.printStackTrace();
-			// do nothing
+			LogUtil.log(e);
 		}
 		return null;
 
@@ -571,8 +569,7 @@ public class QueryHelper {
 				return map.iterator().next();
 
 		} catch (Exception e) {
-			e.printStackTrace();
-			// do nothing
+			LogUtil.log(e);
 		}
 		return null;
 
@@ -630,8 +627,7 @@ public class QueryHelper {
 			return new Object[] { nickNamed, remove };
 
 		} catch (Exception e) {
-			e.printStackTrace();
-			// do nothing
+			LogUtil.log(e);
 			return new Object[] { null, null };
 		}
 

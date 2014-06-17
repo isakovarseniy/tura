@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.Set;
 
 import org.eclipse.emf.ecore.EClassifier;
+import org.eclipse.epsilon.common.dt.util.LogUtil;
 import org.eclipse.jface.viewers.ArrayContentProvider;
 import org.eclipse.jface.viewers.LabelProvider;
 import org.eclipse.jface.window.Window;
@@ -116,7 +117,7 @@ public class ConfigVarDialog {
 					}
 
 				} catch (Exception e) {
-					e.printStackTrace();
+					LogUtil.log(e);
 				}
 
 			}
