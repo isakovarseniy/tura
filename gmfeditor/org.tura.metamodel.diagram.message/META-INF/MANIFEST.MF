@@ -38,7 +38,7 @@ Require-Bundle: org.eclipse.core.runtime,
  org.tura.metamodel;visibility:=reexport,
  org.tura.metamodel.edit;visibility:=reexport,
  org.eclipse.emf.validation;visibility:=reexport,
- org.eclipse.gef;visibility:=reexport,
- de.itemis.gmf.runtime.extensions;visibility:=reexport
+ org.eclipse.gef;visibility:=reexport
 Eclipse-LazyStart: true
-Import-Package: org.tura.metamodel.validatioin
+Import-Package: de.itemis.gmf.runtime.editingdomain,
+ org.tura.metamodel.validatioin
