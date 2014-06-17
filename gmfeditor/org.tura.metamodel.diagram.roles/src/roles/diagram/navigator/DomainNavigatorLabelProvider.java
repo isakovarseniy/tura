@@ -101,6 +101,12 @@ public class DomainNavigatorLabelProvider extends LabelProvider implements
 	 */
 	public Image getImage(View view) {
 		switch (DomainVisualIDRegistry.getVisualID(view)) {
+		case GroupGroup2GroupEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Link?http://tura.org/2013/v1/domain?Group?group2Group", DomainElementTypes.GroupGroup2Group_1404003); //$NON-NLS-1$
+		case GroupGroup2RoleEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Link?http://tura.org/2013/v1/domain?Group?group2Role", DomainElementTypes.GroupGroup2Role_1404005); //$NON-NLS-1$
 		case RoleEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?TopLevelNode?http://tura.org/2013/v1/domain?Role", DomainElementTypes.Role_1402001); //$NON-NLS-1$
@@ -110,12 +116,6 @@ public class DomainNavigatorLabelProvider extends LabelProvider implements
 		case RolesEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Diagram?http://tura.org/2013/v1/domain?Roles", DomainElementTypes.Roles_1401000); //$NON-NLS-1$
-		case GroupGroup2RoleEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Link?http://tura.org/2013/v1/domain?Group?group2Role", DomainElementTypes.GroupGroup2Role_1404005); //$NON-NLS-1$
-		case GroupGroup2GroupEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Link?http://tura.org/2013/v1/domain?Group?group2Group", DomainElementTypes.GroupGroup2Group_1404003); //$NON-NLS-1$
 		}
 		return getImage("Navigator?UnknownElement", null); //$NON-NLS-1$
 	}
@@ -176,16 +176,16 @@ public class DomainNavigatorLabelProvider extends LabelProvider implements
 			return getUnresolvedDomainElementProxyText(view);
 		}
 		switch (DomainVisualIDRegistry.getVisualID(view)) {
+		case GroupGroup2GroupEditPart.VISUAL_ID:
+			return getGroupGroup2Group_1404003Text(view);
+		case GroupGroup2RoleEditPart.VISUAL_ID:
+			return getGroupGroup2Role_1404005Text(view);
 		case RoleEditPart.VISUAL_ID:
 			return getRole_1402001Text(view);
 		case GroupEditPart.VISUAL_ID:
 			return getGroup_1402002Text(view);
 		case RolesEditPart.VISUAL_ID:
 			return getRoles_1401000Text(view);
-		case GroupGroup2RoleEditPart.VISUAL_ID:
-			return getGroupGroup2Role_1404005Text(view);
-		case GroupGroup2GroupEditPart.VISUAL_ID:
-			return getGroupGroup2Group_1404003Text(view);
 		}
 		return getUnknownElementText(view);
 	}

@@ -5,6 +5,7 @@ package uipackage.diagram.edit.policies;
 
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.util.Iterator;
 import java.util.List;
 
@@ -109,8 +110,17 @@ public class OpenDiagramFormViewEditPolicy extends OpenEditPolicy {
 					diagram = intializeNewDiagram();
 				}
 				URI uri = EcoreUtil.getURI(diagram);
-				String editorName = uri.lastSegment() + '#'
-						+ diagram.eResource().getContents().indexOf(diagram);
+				EObject obj = ((NodeImpl) (diagramFacet.eContainer()))
+						.basicGetElement();
+				String editor = null;
+				try {
+					Method m = obj.getClass().getMethod("getName");
+					editor = (String) m.invoke(obj);
+				} catch (Exception e) {
+					editor = new Integer(diagram.eResource().getContents()
+							.indexOf(diagram)).toString();
+				}
+				String editorName = uri.lastSegment() + '#' + editor;
 				IEditorInput editorInput = new URIEditorInput(uri, editorName);
 				IWorkbenchPage page = PlatformUI.getWorkbench()
 						.getActiveWorkbenchWindow().getActivePage();
