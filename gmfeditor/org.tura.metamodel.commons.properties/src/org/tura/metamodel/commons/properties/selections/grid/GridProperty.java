@@ -12,6 +12,7 @@ import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.ui.IWorkbenchPart;
+import org.eclipse.ui.internal.views.properties.tabbed.view.TabbedPropertyComposite;
 import org.eclipse.ui.views.properties.tabbed.TabbedPropertySheetPage;
 import org.tura.metamodel.commons.properties.selections.AbstractTuraPropertySection;
 
@@ -120,8 +121,9 @@ public abstract class GridProperty extends AbstractTuraPropertySection {
 		try {
 			super.refresh();
 			tableViewer.setInput(ds);
+			((TabbedPropertyComposite)(getPropertySheetPage().getControl())).getTabComposite().layout(true,true);
+			
 		} catch (org.eclipse.swt.SWTException e) {
-
 		}
 	}
 
