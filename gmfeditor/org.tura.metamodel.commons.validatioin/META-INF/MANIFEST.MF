@@ -27,5 +27,6 @@ Import-Package: javax.inject;version="1.0.0",
  org.eclipse.epsilon.evl.emf.validation,
  org.eclipse.gmf.runtime.diagram.ui.resources.editor.document,
  org.eclipse.gmf.runtime.diagram.ui.resources.editor.parts,
- org.eclipse.gmf.runtime.notation
+ org.eclipse.gmf.runtime.notation,
+ org.tura.metamodel.commons.markers
 Export-Package: org.tura.metamodel.validatioin

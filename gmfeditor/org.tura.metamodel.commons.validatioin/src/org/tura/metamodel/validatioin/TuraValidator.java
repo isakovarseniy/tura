@@ -24,7 +24,7 @@ import org.eclipse.gmf.runtime.emf.core.util.EMFCoreUtil;
 import org.eclipse.gmf.runtime.notation.Diagram;
 import org.eclipse.gmf.runtime.notation.View;
 import org.osgi.framework.FrameworkUtil;
-
+import org.tura.metamodel.commons.markers.TuraMarkerNavigationProvider;
 
 public class TuraValidator {
 
@@ -48,7 +48,7 @@ public class TuraValidator {
 							editPart.getClass()).getSymbolicName()
 							+ ".diagnostic";
 
-					TuraDiagnostician.deleteMarkers(file, markerType);
+					TuraMarkerNavigationProvider.deleteMarkers(file, markerType);
 				}
 			}
 
@@ -107,7 +107,7 @@ public class TuraValidator {
 						diagramEditPart.getClass()).getSymbolicName()
 						+ ".diagnostic";
 
-				TuraDiagnostician
+				TuraMarkerNavigationProvider
 						.addMarker(target, view.eResource()
 								.getURIFragment(view), EMFCoreUtil
 								.getQualifiedName(element, true),
