@@ -1,0 +1,26 @@
+<plugin>
+
+  <extension 
+        point="org.eclipse.ui.views"> 
+     <view 
+           category="org.eclipse.ui"
+           class="org.tura.metamodel.commons.markers.ProblemsMarkersView" 
+           icon="icons/storage.png" 
+           id="org.tura.metamodel.commons.markers.problemsview" 
+           name="Tura metamodel markers"> 
+     </view>
+  </extension>
+
+  <extension 
+        point="org.eclipse.ui.ide.markerSupport"> 
+     <markerContentGenerator 
+           id="org.tura.metamodel.commons.markers.TuraMarkerGenerator" 
+           name="Tura metamodel problem viewr"> 
+          <markerTypeReference 
+               id="org.eclipse.core.resources.marker"/> 
+          <markerFieldReference 
+               id="org.eclipse.ui.ide.descriptionField"/> 
+      </markerContentGenerator> 
+  </extension>
+
+</plugin>
