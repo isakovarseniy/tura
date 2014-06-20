@@ -1,8 +1,0 @@
-<p1:PopUpCanvas xmlns="http://www.eclipse.org/xwt/presentation"
-	xmlns:x="http://www.eclipse.org/xwt" x:Class="Canvas"
-	xmlns:p1="clr-namespace:org.eclipse.wb.elsoft.components">
-	<p1:PopUpCanvas.layout>
-		<GridLayout/>
-	</p1:PopUpCanvas.layout>
-
-</p1:PopUpCanvas>

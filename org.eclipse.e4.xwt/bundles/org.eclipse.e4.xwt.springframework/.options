@@ -1,2 +1,0 @@
-# Turn on debugging for the eclipse contexts
-org.eclipse.e4.xwt.springframework/debug=false
