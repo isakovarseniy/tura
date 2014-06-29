@@ -15,19 +15,27 @@
  ******************************************************************************/
 package org.tura.platform.datacontrol;
 
-import java.lang.reflect.*;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.logging.Logger;
+
+import net.sf.cglib.core.Signature;
+import net.sf.cglib.proxy.Callback;
+import net.sf.cglib.proxy.Enhancer;
+import net.sf.cglib.proxy.InterfaceMaker;
+import net.sf.cglib.proxy.MethodInterceptor;
+import net.sf.cglib.proxy.MethodProxy;
+import net.sf.cglib.proxy.NoOp;
 
 import org.apache.commons.lang.StringUtils;
 import org.apache.commons.lang.builder.ReflectionToStringBuilder;
+import org.tura.platform.datacontrol.commons.PlatformConfig;
 import org.tura.platform.datacontrol.commons.Reflection;
 import org.tura.platform.datacontrol.metainfo.ArtificialProperty;
-
-import net.sf.cglib.core.Signature;
-import net.sf.cglib.proxy.*;
 
 public class BeanWrapper implements MethodInterceptor {
 
@@ -57,7 +65,6 @@ public class BeanWrapper implements MethodInterceptor {
 		return insertMode;
 	}
 
-	@SuppressWarnings("rawtypes")
 	public void setInsertMode(boolean insertMode) {
 		this.insertMode = insertMode;
 		if (insertMode)
@@ -76,7 +83,7 @@ public class BeanWrapper implements MethodInterceptor {
 	}
 
 	@SuppressWarnings("rawtypes")
-	public static Object newInstance(Class clazz, String object,
+	public static Object newInstance(Class clazz, 
 			DataControl<?> datacontrol) {
 		try {
 
@@ -90,7 +97,7 @@ public class BeanWrapper implements MethodInterceptor {
 					parameters);
 			im.add(signature, parameters);
 
-			for (ArtificialProperty obj : datacontrol.artificialProperties) {
+			for (ArtificialProperty obj : datacontrol.getArtificialProperties()) {
 
 				parameters = new org.objectweb.asm.Type[] {};
 
@@ -131,7 +138,7 @@ public class BeanWrapper implements MethodInterceptor {
 
 			BeanWrapper w = (BeanWrapper) Reflection.call(bean, "getWrapper");
 
-			for (ArtificialProperty obj : datacontrol.artificialProperties) {
+			for (ArtificialProperty obj : datacontrol.getArtificialProperties()) {
 				if (!obj.getDefaultValue().equals("")) {
 					Constructor<?> cons = obj.getType().getConstructor(
 							String.class);
@@ -252,23 +259,23 @@ public class BeanWrapper implements MethodInterceptor {
 	}
 
 	private void createCommand() throws Exception {
-		if (datacontrol.getMode().getStControl() != null) {
+		if (datacontrol.getCommandStack() != null) {
 			if (this.insertMode) {
 
-				if (datacontrol.preInsertCommand != null )
-					datacontrol.preInsertCommand.execute();
-				
-				datacontrol.insertCommand.execute();
+				if (datacontrol.getPreInsertCommand() != null)
+					datacontrol.getPreInsertCommand().execute();
+
+				datacontrol.getInsertCommand().execute();
 
 				setInsertMode(false);
-				datacontrol.getMode().getStControl()
-						.addCreatedObjects(obj, datacontrol);
+				datacontrol.getCommandStack().addCreatedObjects(obj,
+						datacontrol);
 			} else {
-				if (datacontrol.preUpdateCommand != null )
-					datacontrol.preUpdateCommand.execute();
-				
-				datacontrol.getMode().getStControl()
-						.addUpdatedObjects(obj, datacontrol);
+				if (datacontrol.getPreUpdateCommand() != null)
+					datacontrol.getPreUpdateCommand().execute();
+
+				datacontrol.getCommandStack().addUpdatedObjects(obj,
+						datacontrol);
 			}
 		}
 	}

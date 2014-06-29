@@ -2,37 +2,53 @@ package org.tura.platform.datacontrol;
 
 import java.lang.reflect.Constructor;
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
+import java.util.UUID;
+import java.util.logging.Logger;
 
 import org.apache.commons.lang.StringUtils;
 import org.tura.platform.datacontrol.commons.Constants;
 import org.tura.platform.datacontrol.commons.OrderCriteria;
+import org.tura.platform.datacontrol.commons.PlatformConfig;
 import org.tura.platform.datacontrol.commons.Reflection;
 import org.tura.platform.datacontrol.commons.SearchCriteria;
-import org.tura.platform.datacontrol.metainfo.DefaultSearchCriteria;
 import org.tura.platform.datacontrol.metainfo.Relation;
 
 public abstract class DataControl<T> extends MetaInfoHolder {
 
 	private ArrayList<ChangeRecordListener> chageRecordLiteners = new ArrayList<>();
+	private String uuid = UUID.randomUUID().toString();
 
 	private List<SearchCriteria> filter;
 	private List<OrderCriteria> orderby;
 
 	private Pager<T> pager;
 	private int currentPosition = 0;
+	private int ghostCounter = 0;
+
+	private static Logger logger = Logger
+			.getLogger(DataControl.class.getName());
 
 	protected Object comandResultHolder;
+
+	private CommandStack commandStack;
 
 	public void addChageRecordLiteners(ChangeRecordListener listener) {
 		chageRecordLiteners.add(listener);
 	}
 
-	public abstract void handleChangeMusterCurrentRecordNotification(
-			Object newCurrentObject);
+    public void forceRefresh(){
+		pager.cleanPager();
+		notifyChageRecordAll(pager.getObject(currentPosition));
+    }
+
+    public void handleChangeMusterCurrentRecordNotification(
+			Object newCurrentObject) {
+		pager.cleanPager();
+		currentPosition=0;
+		notifyChageRecordAll(pager.getObject(currentPosition));
+	}
 
 	protected void notifyChageRecordAll(T newCurrentObject) {
 		notifyChildrenDataControlsChangeCurrentRecord(newCurrentObject);
@@ -44,6 +60,37 @@ public abstract class DataControl<T> extends MetaInfoHolder {
 			listener.handleChangeRecord(this, newCurrentObject);
 		}
 
+	}
+
+	public Pager<T> getPager() {
+		return pager;
+	}
+
+	public synchronized void incGhostCounter() {
+		ghostCounter++;
+		commandStack.addGhostObjectsControls(uuid, this);
+	}
+
+	public synchronized void decGhostCounter() {
+		ghostCounter--;
+		if (ghostCounter == 0)
+			commandStack.removeGhostObjectsControls(uuid);
+	}
+
+	public synchronized void cleanGhost() {
+		ghostCounter = 0;
+		commandStack.removeGhostObjectsControls(uuid);
+	}
+
+	public synchronized void cleanGhostObjects() throws Exception {
+		if (ghostCounter < 0)
+			throw new Exception("ghostCounter < 0");
+
+		ghostCounter = 0;
+	}
+
+	public synchronized void setGhostCounter() {
+		ghostCounter = 0;
 	}
 
 	private void notifyChildrenDataControlsChangeCurrentRecord(
@@ -85,51 +132,42 @@ public abstract class DataControl<T> extends MetaInfoHolder {
 	}
 
 	public void nextObject() {
-		if (getCurrentObject() != null) {
+		T newRecord = pager.getObject(currentPosition+1);
+		if (newRecord != null) {
 			currentPosition++;
+			notifyChageRecordAll(newRecord);
 		}
 	}
 
 	public void prevObject() {
-		if (currentPosition > 0)
+		T newRecord = pager.getObject(currentPosition-1);
+		if (newRecord != null) {
 			currentPosition--;
+			notifyChageRecordAll(newRecord);
+		}
 	}
 
 	public void removeObject() throws Exception {
 
-		Collection<String> ls = this.getMode().getRelationsName();
-
-		if (ls != null) {
-			Iterator<String> itr = ls.iterator();
-			while (itr.hasNext()) {
-				String relName = itr.next();
-				Relation rel = this.getMode().getChildren(relName);
+			for  (String relName : getRelationsName() ) {
+				Relation rel = this.getChild(relName);
 
 				if ((rel.isCascade()) && (rel.getChild() == null)) {
-					Object extender = this.getMode().getExtender();
-					ModeExtender mdExt = (ModeExtender) Reflection.call(
-							extender, "getWrapper");
-					Reflection.call(extender, mdExt.getRelationMethod(relName));
+					Factory.createDataControl(this, rel);
 				}
 
 				if ((rel.isCascade())
 						&& (rel.getChild() != null)
-						&& (rel.getChild().getControl().getCurrentObject() != null))
-					rel.getChild().getControl().removeAll();
+						&& ( rel.getChild().getCurrentObject() != null)   )
+					rel.getChild().removeAll();
 			}
-		}
 		this.pager.remove(currentPosition);
 	}
 
-	
 	public String getObjectKey(Object object) {
 
-		String clazz = this.getMode().getAnnotatedObject();
-
 		StringBuffer key = new StringBuffer();
-		Iterator<String> itr = this.getMode().getStControl()
-				.getAnnotation(clazz, DCMetaInfoLevel.Field, DCMetaInfo.Id)
-				.keySet().iterator();
+		Iterator<String> itr = this.getKeys().iterator();
 		while (itr.hasNext()) {
 			String method = "get" + StringUtils.capitalize(itr.next());
 			key.append(Reflection.call(object, method));
@@ -139,7 +177,6 @@ public abstract class DataControl<T> extends MetaInfoHolder {
 	}
 
 	public void removeAll() throws Exception {
-		this.setRefresh(true);
 		T obj = null;
 		int i = 0;
 		do {
@@ -161,33 +198,9 @@ public abstract class DataControl<T> extends MetaInfoHolder {
 
 	public synchronized T getObject(int index) {
 
-		if (mode.getParent() != null)
-			checkParenObject(mode.getParent().getParent().getControl()
-					.getCurrentObject());
-
-		boolean flagUpdate = this.isUpdated();
-
-		if (!isRefresh()) {
-			if (flagUpdate) {
-				this.setRefresh(true);
-			}
-		}
-
-		if (isRefresh()) {
-			currentPosition = 0;
-			index = 0;
-		}
-
 		T obj = pager.getObject(index);
 		this.currentPosition = index;
-		if (isRefresh()) {
-			Iterator<DCEventListener> itr = this.getMode()
-					.getRefreshListeners().iterator();
-			while (itr.hasNext()) {
-				itr.next().execute();
-			}
-		}
-		this.setRefresh(false);
+
 		return obj;
 	}
 
@@ -200,12 +213,12 @@ public abstract class DataControl<T> extends MetaInfoHolder {
 
 		try {
 			if (objWrp != null) {
-				if (mode.getParent() != null) {
-					BeanWrapper w = ((BeanWrapper) Reflection
-							.call(objWrp, "getWrapper"));
+				if (getParent() != null) {
+					BeanWrapper w = ((BeanWrapper) Reflection.call(objWrp,
+							"getWrapper"));
 					Object obj = w.getObj();
 
-					List<SearchCriteria> ls = mode.getParent()
+					List<SearchCriteria> ls = getParent()
 							.getChildSearchCriteria();
 					Iterator<SearchCriteria> itr = ls.iterator();
 					while (itr.hasNext()) {
@@ -237,6 +250,21 @@ public abstract class DataControl<T> extends MetaInfoHolder {
 
 	public int getCurrentPosition() {
 		return currentPosition;
+	}
+
+	/**
+	 * @return the commandStack
+	 */
+	public CommandStack getCommandStack() {
+		return commandStack;
+	}
+
+	/**
+	 * @param commandStack
+	 *            the commandStack to set
+	 */
+	public void setCommandStack(CommandStack commandStack) {
+		this.commandStack = commandStack;
 	}
 
 }

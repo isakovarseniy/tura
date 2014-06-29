@@ -6,6 +6,7 @@ import java.util.Iterator;
 import java.util.List;
 
 import org.apache.commons.lang.StringUtils;
+import org.tura.platform.datacontrol.DataControl;
 import org.tura.platform.datacontrol.MetaInfoHolder;
 import org.tura.platform.datacontrol.commons.ComparatorType;
 import org.tura.platform.datacontrol.commons.Constants;
@@ -13,8 +14,8 @@ import org.tura.platform.datacontrol.commons.SearchCriteria;
 
 public class Relation {
 
-	private MetaInfoHolder parent;
-	private MetaInfoHolder child;
+	private DataControl<?> parent;
+	private DataControl<?> child;
 	private Object masterCurrentObject;
 	private boolean cascade = true;
 
@@ -24,15 +25,15 @@ public class Relation {
 		return parent;
 	}
 
-	public void setParent(MetaInfoHolder parent) {
+	public void setParent(DataControl<?> parent) {
 		this.parent = parent;
 	}
 
-	public MetaInfoHolder getChild() {
+	public DataControl<?> getChild() {
 		return child;
 	}
 
-	public void setChild(MetaInfoHolder child) {
+	public void setChild(DataControl<?> child) {
 		this.child = child;
 	}
 

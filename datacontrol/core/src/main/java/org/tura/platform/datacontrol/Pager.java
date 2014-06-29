@@ -35,6 +35,7 @@ import org.tura.platform.datacontrol.commons.ComparatorType;
 import org.tura.platform.datacontrol.commons.Constants;
 import org.tura.platform.datacontrol.commons.OrderCriteria;
 import org.tura.platform.datacontrol.commons.OrderType;
+import org.tura.platform.datacontrol.commons.PlatformConfig;
 import org.tura.platform.datacontrol.commons.Reflection;
 import org.tura.platform.datacontrol.commons.SQLSearchCriteria;
 import org.tura.platform.datacontrol.commons.SearchCriteria;
@@ -44,13 +45,14 @@ import com.rits.cloning.Cloner;
 
 public class Pager<T> {
 
-	private Method findMethod;
 	private int startIndex;
 	private int endIndex;
 	private List<T> entities;
 	private DataControl<T> datacontrol;
 	private Object prevBeginElement;
 	private Object postEndElement;
+	private int beginOfQueryWindow;
+	private int endOfQueryWindow;
 
 	private static Logger logger = Logger.getLogger(Pager.class.getName());
 
@@ -59,6 +61,11 @@ public class Pager<T> {
 
 	public Pager(DataControl<T> datacontrol) throws Exception {
 		this.datacontrol = datacontrol;
+	}
+
+	public void cleanPager() {
+		entities = null;
+		startIndex = 0;
 	}
 
 	public Collection<OrderCriteria> getOrderCriteria() {
@@ -149,12 +156,10 @@ public class Pager<T> {
 
 		try {
 
-			datacontrol.createCommand.execute();
-			Object obj = datacontrol.comandResultHolder;
+			Object obj = datacontrol.getCreateCommand().execute();
 			obj = convertobject((T) obj);
 
-			BeanWrapper w = (BeanWrapper) Reflection.call(obj,
-					"getWrapper");
+			BeanWrapper w = (BeanWrapper) Reflection.call(obj, "getWrapper");
 			w.setInsertMode(true);
 			if (entities == null)
 				entities = new ArrayList<T>();
@@ -177,7 +182,7 @@ public class Pager<T> {
 			st.push(endIndex);
 			st.push(entities);
 
-			if ((entities == null) || (isRefresh())) {
+			if (entities == null) {
 				datacontrol.cleanGhost();
 				return queryDS(index, null);
 			}
@@ -232,17 +237,17 @@ public class Pager<T> {
 		if (lsOrd == null)
 			lsOrd = new ArrayList<OrderCriteria>();
 
-		if (datacontrol.postQueryCommand != null)
-			datacontrol.postQueryCommand.execute();
+		if (datacontrol.getPreQueryTrigger() != null)
+			datacontrol.getPreQueryTrigger().execute(datacontrol);
 
 		try {
-			this.getDataControl().getMode().getStControl().getTrx().begin();
+			datacontrol.getCommandStack().getTrx().begin();
 
 			int shift = 0;
 			if (index != 0)
 				shift = 1;
 
-			datacontrol.searchCommand.execute();
+			datacontrol.getSearchCommand().execute();
 			entities = (List<T>) datacontrol.comandResultHolder;
 
 			prevBeginElement = null;
@@ -251,13 +256,11 @@ public class Pager<T> {
 
 			if ((entities.size() == 0) && (index != 0)) {
 
-				int i = Math.max(startIndex - PRVELEMENTWINDOW, 0);
-				int j = Math.max(startIndex - 1, 0);
+				beginOfQueryWindow = Math.max(startIndex - PRVELEMENTWINDOW, 0);
+				endOfQueryWindow = Math.max(startIndex - 1, 0);
 
-				List<T> check = (List<T>) findMethod.invoke(
-						annotation.getProxyObject(), new Object[] { ls, lsOrd,
-								new Integer(i), new Integer(j),
-								annotation.getValues().get(4) });
+				List<T> check = (List<T>) datacontrol.getSearchCommand().execute();
+
 				if (check.size() == 0)
 					return null;
 				prevBeginElement = check.get(check.size() - 1);
@@ -272,14 +275,14 @@ public class Pager<T> {
 				postEndElement = entities.get(LOADSTEP + shift);
 
 		} finally {
-			this.getDataControl().getMode().getStControl().getTrx().commit();
+			datacontrol.getCommandStack().getTrx().commit();
 		}
 
 		Map allObjects = new HashMap();
 
-		Collection<?> c = (new Cloner()).deepClone(getDataControl().getMode()
-				.getStControl().getCreatedObjects().values());
-		CollectionUtils.filter(c, new Filter(ls, datacontrol.rootClass));
+		Collection<?> c = (new Cloner()).deepClone(datacontrol
+				.getCommandStack().getCreatedObjects().values());
+		CollectionUtils.filter(c, new Filter(ls, datacontrol.getRootClass()));
 		Iterator<?> itr = c.iterator();
 		while (itr.hasNext()) {
 			Object t = itr.next();
@@ -290,15 +293,14 @@ public class Pager<T> {
 			Iterator<T> itrT = entities.iterator();
 			while (itrT.hasNext()) {
 				T t = itrT.next();
-				if (!getDataControl().getMode().getStControl()
-						.getRemovedObjects().containsKey(getObjectKey(t))) {
+				if (!datacontrol.getCommandStack().getRemovedObjects()
+						.containsKey(getObjectKey(t))) {
 					allObjects.put(getObjectKey(t), t);
 				}
 			}
 		}
 
-		c = getDataControl().getMode().getStControl().getUpdatedObjects()
-				.values();
+		c = datacontrol.getCommandStack().getUpdatedObjects().values();
 
 		Iterator itr1 = c.iterator();
 		while (itr1.hasNext()) {
@@ -308,7 +310,7 @@ public class Pager<T> {
 		}
 
 		c = (new Cloner()).deepClone(allObjects.values());
-		CollectionUtils.filter(c, new Filter(ls, datacontrol.rootClass));
+		CollectionUtils.filter(c, new Filter(ls, datacontrol.getRootClass()));
 		allObjects = new HashMap();
 		itr1 = c.iterator();
 		while (itr1.hasNext()) {
@@ -375,8 +377,8 @@ public class Pager<T> {
 			Object el = convertobject(t);
 			entities.set((index - startIndex), (T) el);
 
-			if (datacontrol.postQueryCommand != null)
-				datacontrol.postQueryCommand.execute();
+			if (datacontrol.getPostQueryTrigger() != null)
+				datacontrol.getPostQueryTrigger().execute(datacontrol,el);
 
 			return (T) el;
 		}
@@ -387,10 +389,9 @@ public class Pager<T> {
 
 		try {
 			Object wrapper = BeanWrapper.newInstance(obj.getClass(),
-					this.getDataControl().getMode().getAnnotatedObject(),
 					this.getDataControl());
-			BeanWrapper w = (BeanWrapper) Reflection.call(
-					wrapper, "getWrapper");
+			BeanWrapper w = (BeanWrapper) Reflection
+					.call(wrapper, "getWrapper");
 
 			w.setObj(obj);
 			w.setDatacontrol(datacontrol);
@@ -411,27 +412,22 @@ public class Pager<T> {
 
 			T obj = this.entities.get(i - startIndex);
 			if (obj != null) {
-				BeanWrapper w = (BeanWrapper) Reflection.call(
-						obj, "getWrapper");
+				BeanWrapper w = (BeanWrapper) Reflection
+						.call(obj, "getWrapper");
 				if (w.isInsertMode()) {
-					getDataControl().getMode().getStControl()
-							.getCreatedObjects()
+					datacontrol.getCommandStack().getCreatedObjects()
 							.remove(this.getObjectKey(w.getObj()));
 				} else {
-					
-					getDataControl().getMode().getStControl()
-							.getUpdatedObjects()
+
+					datacontrol.getCommandStack().getUpdatedObjects()
 							.remove(this.getObjectKey(w.getObj()));
-					
-					this.getDataControl()
-							.getMode()
-							.getStControl()
-							.removeObjectCommand(w.getObj(),
-									this.getDataControl());
+
+					datacontrol.getCommandStack().removeObjectCommand(
+							w.getObj(), this.getDataControl());
 				}
 				obj = this.entities.remove(i - startIndex);
-				getDataControl().getMode().getStControl()
-						.addRemovedObjects((T) w.getObj(), getDataControl());
+				datacontrol.getCommandStack().addRemovedObjects((T) w.getObj(),
+						getDataControl());
 				return obj;
 			} else
 				return null;
@@ -552,5 +548,13 @@ public class Pager<T> {
 
 			return isComarable;
 		}
+	}
+
+	public int getBeginOfQueryWindow() {
+		return beginOfQueryWindow;
+	}
+
+	public int getEndOfQueryWindow() {
+		return endOfQueryWindow;
 	}
 }
