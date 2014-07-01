@@ -23,4 +23,8 @@ public class CreateCommand extends Command {
 		
 	}
 
+	@Override
+	public void delayedExecution() throws Exception {
+	}
+
 }

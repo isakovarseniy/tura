@@ -16,7 +16,6 @@
 package org.tura.platform.datacontrol;
 
 import java.lang.reflect.Constructor;
-import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Comparator;
@@ -237,9 +236,6 @@ public class Pager<T> {
 		if (lsOrd == null)
 			lsOrd = new ArrayList<OrderCriteria>();
 
-		if (datacontrol.getPreQueryTrigger() != null)
-			datacontrol.getPreQueryTrigger().execute(datacontrol);
-
 		try {
 			datacontrol.getCommandStack().getTrx().begin();
 
@@ -404,7 +400,6 @@ public class Pager<T> {
 		}
 	}
 
-	@SuppressWarnings("unchecked")
 	public T remove(int i) {
 		try {
 			if ((startIndex > i) || (startIndex + LOADSTEP <= i))
@@ -414,20 +409,9 @@ public class Pager<T> {
 			if (obj != null) {
 				BeanWrapper w = (BeanWrapper) Reflection
 						.call(obj, "getWrapper");
-				if (w.isInsertMode()) {
-					datacontrol.getCommandStack().getCreatedObjects()
-							.remove(this.getObjectKey(w.getObj()));
-				} else {
 
-					datacontrol.getCommandStack().getUpdatedObjects()
-							.remove(this.getObjectKey(w.getObj()));
-
-					datacontrol.getCommandStack().removeObjectCommand(
-							w.getObj(), this.getDataControl());
-				}
+				datacontrol.getDeleteCommand().setObj(w.getObj());
 				obj = this.entities.remove(i - startIndex);
-				datacontrol.getCommandStack().addRemovedObjects((T) w.getObj(),
-						getDataControl());
 				return obj;
 			} else
 				return null;

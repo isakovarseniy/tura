@@ -13,7 +13,15 @@ public class SearchCommand extends Command{
 		this.prepareParameters();
 		this.prepareCall();
 
+		if (getDatacontrol().getPreQueryTrigger() != null)
+			getDatacontrol().getPreQueryTrigger().execute(getDatacontrol());
+
 		return  callMethod();
+	}
+
+	@Override
+	public void delayedExecution() throws Exception {
+		
 	}
 
 }

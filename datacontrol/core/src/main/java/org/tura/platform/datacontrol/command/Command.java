@@ -20,11 +20,17 @@ public abstract class Command {
 	private String method;
 	private Method call;
 
+	
+	public ArrayList<CallParameter> getParameters() {
+		return parameters;
+	}
+
 	public Command(DataControl<?> datacontrol) {
 		this.datacontrol = datacontrol;
 	}
 
 	public abstract Object execute() throws Exception;
+	public abstract void delayedExecution() throws Exception;
 	
 	public DataControl<?> getDatacontrol() {
 		return datacontrol;

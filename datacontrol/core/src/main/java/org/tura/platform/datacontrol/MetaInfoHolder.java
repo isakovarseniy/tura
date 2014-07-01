@@ -5,10 +5,17 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 
-import org.tura.platform.datacontrol.command.Command;
+import org.tura.platform.datacontrol.command.CreateCommand;
+import org.tura.platform.datacontrol.command.DeleteCommand;
+import org.tura.platform.datacontrol.command.InsertCommand;
 import org.tura.platform.datacontrol.command.PostCreateTrigger;
 import org.tura.platform.datacontrol.command.PostQueryTrigger;
+import org.tura.platform.datacontrol.command.PreDeleteTrigger;
+import org.tura.platform.datacontrol.command.PreInsertTrigger;
 import org.tura.platform.datacontrol.command.PreQueryTrigger;
+import org.tura.platform.datacontrol.command.PreUpdateTrigger;
+import org.tura.platform.datacontrol.command.SearchCommand;
+import org.tura.platform.datacontrol.command.UpdateCommand;
 import org.tura.platform.datacontrol.commons.OrderCriteria;
 import org.tura.platform.datacontrol.metainfo.ArtificialProperty;
 import org.tura.platform.datacontrol.metainfo.DefaultSearchCriteria;
@@ -25,17 +32,17 @@ public abstract class MetaInfoHolder {
 	protected String versionattribute;
 	
 	protected ELResolver elResolver;
-	protected Command createCommand;
-	protected Command insertCommand;
-	protected Command updateCommand;
-	protected Command removeCommand;
-	protected Command searchCommand;
+	protected CreateCommand createCommand;
+	protected InsertCommand insertCommand;
+	protected UpdateCommand updateCommand;
+	protected DeleteCommand deleteCommand;
+	protected SearchCommand searchCommand;
 	protected PreQueryTrigger preQueryTrigger;
 	protected PostQueryTrigger postQueryTrigger;
 	protected PostCreateTrigger postCreateTrigger;
-	protected Command preInsertCommand;
-	protected Command preUpdateCommand;
-	protected Command preDeleteCommand;
+	protected PreInsertTrigger preInsertTrigger;
+	protected PreUpdateTrigger preUpdateTrigger;
+	protected PreDeleteTrigger preDeleteTrigger;
 
 	protected Class<?>  rootClass;
 
@@ -45,17 +52,17 @@ public abstract class MetaInfoHolder {
 	
 	public abstract void setDefaultFilter(List<DefaultSearchCriteria> defaultFilter) ;
 	public abstract void setDefaultOrderby(List<OrderCriteria> defaultOrderby) ;
-	public abstract void setCreateCommand(Command createCommand) ;
-	public abstract void setInsertCommand(Command insertCommand);
-	public abstract void setUpdateCommand(Command updateCommand);
-	public abstract void setRemoveCommand(Command removeCommand) ;
+	public abstract void setCreateCommand(CreateCommand createCommand) ;
+	public abstract void setInsertCommand(InsertCommand insertCommand);
+	public abstract void setUpdateCommand(UpdateCommand updateCommand);
+	public abstract void setDeleteCommand(DeleteCommand deleteCommand) ;
 	public abstract void setPreQueryTrigger(PreQueryTrigger preQueryTrigger) ;
 	public abstract void setPostQueryTrigger(PostQueryTrigger postQueryTrigger) ;
-	public abstract void setSearchCommand(Command searchCommand) ;
+	public abstract void setSearchCommand(SearchCommand searchCommand) ;
 	public abstract void setPostCreateTrigger(PostCreateTrigger postCreateTrigger);
-	public abstract void setPreDeleteCommand(Command preDeleteCommand) ;
-	public abstract void setPreInsertCommand(Command preInsertCommand);
-	public abstract void setPreUpdateCommand(Command preUpdateCommand) ;
+	public abstract void setPreDeleteTrigger(PreDeleteTrigger preDeleteTrigger) ;
+	public abstract void setPreInsertTrigger(PreInsertTrigger preInsertTrigger);
+	public abstract void setPreUpdateTrigger(PreUpdateTrigger preUpdateCommand) ;
 	public abstract void setElResolver(ELResolver elResolver);
 	public abstract void setRootClass(Class<?> rootClass);
 	public abstract void setArtificialProperties();
@@ -104,22 +111,22 @@ public abstract class MetaInfoHolder {
 		return elResolver;
 	}
 	
-	public Command getCreateCommand() {
+	public CreateCommand getCreateCommand() {
 		return createCommand;
 	}
 	
-	public Command getInsertCommand() {
+	public InsertCommand getInsertCommand() {
 		return insertCommand;
 	}
 	
-	public Command getUpdateCommand() {
+	public UpdateCommand getUpdateCommand() {
 		return updateCommand;
 	}
 	
-	public Command getRemoveCommand() {
-		return removeCommand;
+	public DeleteCommand getDeleteCommand() {
+		return deleteCommand;
 	}
-	public Command getSearchCommand() {
+	public SearchCommand getSearchCommand() {
 		return searchCommand;
 	}
 	
@@ -134,16 +141,16 @@ public abstract class MetaInfoHolder {
 	public PostCreateTrigger getPostCreateTrigger() {
 		return postCreateTrigger;
 	}
-	public Command getPreInsertCommand() {
-		return preInsertCommand;
+	public PreInsertTrigger getPreInsertTrigger() {
+		return preInsertTrigger;
 	}
 	
-	public Command getPreUpdateCommand() {
-		return preUpdateCommand;
+	public PreUpdateTrigger getPreUpdateTrigger() {
+		return preUpdateTrigger;
 	}
 	
-	public Command getPreDeleteCommand() {
-		return preDeleteCommand;
+	public PreDeleteTrigger getPreDeleteTrigger() {
+		return preDeleteTrigger;
 	}
 
 	public HashMap<String, Object> getDependency() {

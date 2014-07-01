@@ -23,6 +23,9 @@ import javax.transaction.TransactionManager;
 
 import org.apache.commons.collections.map.MultiKeyMap;
 import org.tura.platform.datacontrol.command.Command;
+import org.tura.platform.datacontrol.command.DeleteCommand;
+import org.tura.platform.datacontrol.command.InsertCommand;
+import org.tura.platform.datacontrol.command.UpdateCommand;
 
 public class CommandStack {
 
@@ -35,17 +38,19 @@ public class CommandStack {
 	private HashMap<Object, Object> removedObjects = new HashMap<Object, Object>();
 	private HashMap<Object, Object> ghostObjectsControls = new HashMap<Object, Object>();
 
-	public void addUpdatedObjects(Object t, DataControl<?> dc) {
-		Object key = dc.getPager().getObjectKey(t);
-		this.updatedObjects.put(key, t);
+	public void addUpdatedObjects(Object t, UpdateCommand cmd) {
+		this.updatedObjects.put(cmd.getDatacontrol().getPager().getObjectKey(t), t);
+		this.transaction.add(cmd);
 	}
 
-	public void addCreatedObjects(Object t, DataControl<?> dc) {
-		this.createdObjects.put(dc.getPager().getObjectKey(t), t);
+	public void addCreatedObjects(Object t, InsertCommand cmd) {
+		this.createdObjects.put(cmd.getDatacontrol().getPager().getObjectKey(t), t);
+		this.transaction.add(cmd);
 	}
 
-	public void addRemovedObjects(Object t, DataControl<?> dc) {
-		this.removedObjects.put(dc.getPager().getObjectKey(t), t);
+	public void addRemovedObjects(Object t, DeleteCommand cmd) {
+		this.removedObjects.put(cmd.getDatacontrol().getPager().getObjectKey(t), t);
+		this.transaction.add(cmd);
 	}
 
 	public void addGhostObjectsControls(String uuid, DataControl<?> dc) {
@@ -108,7 +113,7 @@ public class CommandStack {
 			trx.begin();
 			while (itr.hasNext()) {
 				Command cmd = itr.next();
-				cmd.execute();
+				cmd.delayedExecution();
 			}
 			trx.commit();
 

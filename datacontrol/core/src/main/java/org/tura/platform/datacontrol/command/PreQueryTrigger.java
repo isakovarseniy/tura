@@ -2,9 +2,9 @@ package org.tura.platform.datacontrol.command;
 
 import org.tura.platform.datacontrol.DataControl;
 
-public abstract class PreQueryTrigger {
+public interface PreQueryTrigger {
 
-	public abstract void execute(DataControl<?> datacontrol);
+	public void execute(DataControl<?> datacontrol);
 	
 	
 }

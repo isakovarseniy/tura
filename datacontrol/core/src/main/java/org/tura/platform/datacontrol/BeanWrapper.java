@@ -83,8 +83,8 @@ public class BeanWrapper implements MethodInterceptor {
 	}
 
 	@SuppressWarnings("rawtypes")
-	public static Object newInstance(Class clazz, 
-			DataControl<?> datacontrol) {
+	public static Object newInstance(Class clazz, DataControl<?> datacontrol)
+			throws Exception {
 		try {
 
 			// Create a dynamice interface
@@ -152,7 +152,7 @@ public class BeanWrapper implements MethodInterceptor {
 			return bean;
 		} catch (Throwable e) {
 			logger.log(PlatformConfig.LOGGER_LEVEL, e.getMessage(), e);
-			throw new Error(e.getMessage());
+			throw new Exception(e.getMessage());
 		}
 
 	}
@@ -262,20 +262,12 @@ public class BeanWrapper implements MethodInterceptor {
 		if (datacontrol.getCommandStack() != null) {
 			if (this.insertMode) {
 
-				if (datacontrol.getPreInsertCommand() != null)
-					datacontrol.getPreInsertCommand().execute();
-
+				datacontrol.getInsertCommand().setObj(this);
 				datacontrol.getInsertCommand().execute();
-
 				setInsertMode(false);
-				datacontrol.getCommandStack().addCreatedObjects(obj,
-						datacontrol);
 			} else {
-				if (datacontrol.getPreUpdateCommand() != null)
-					datacontrol.getPreUpdateCommand().execute();
-
-				datacontrol.getCommandStack().addUpdatedObjects(obj,
-						datacontrol);
+				datacontrol.getUpdateCommand().setObj(this);
+				datacontrol.getUpdateCommand().execute();
 			}
 		}
 	}
