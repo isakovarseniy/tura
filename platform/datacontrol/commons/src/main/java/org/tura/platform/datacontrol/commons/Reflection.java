@@ -15,51 +15,47 @@
  ******************************************************************************/
 package org.tura.platform.datacontrol.commons;
 
+import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
 public class Reflection {
 
 	@SuppressWarnings("rawtypes")
-	public static Object call(Object obj, String method, Object... args) {
-		try {
+	public static Object call(Object obj, String method, Object... args)
+			throws NoSuchMethodException, SecurityException,
+			IllegalAccessException, IllegalArgumentException,
+			InvocationTargetException {
 
-			Class[] classes = new Class[args.length];
-			for (int i = 0; i < args.length; i++) {
-				classes[i] = args[i].getClass();
-			}
-
-			Method m = obj.getClass().getMethod(method, classes);
-			return m.invoke(obj, args);
-
-		} catch (Exception e) {
-			e.printStackTrace();
-			return null;
-
+		Class[] classes = new Class[args.length];
+		for (int i = 0; i < args.length; i++) {
+			classes[i] = args[i].getClass();
 		}
 
-	}
+		Method m = obj.getClass().getMethod(method, classes);
+		return m.invoke(obj, args);
 
+	}
 
 	@SuppressWarnings("rawtypes")
-	public static Object callTyped(Object obj, String method, Object... args) throws Exception {
+	public static Object callTyped(Object obj, String method, Object... args)
+			throws NoSuchMethodException, SecurityException,
+			IllegalAccessException, IllegalArgumentException,
+			InvocationTargetException {
 
-			Class[] classes = new Class[args.length/2];
-			for (int i = 0,j=0; i < args.length; i+=2,j++) {
-				classes[j] = (Class<?>)args[i];
-			}
+		Class[] classes = new Class[args.length / 2];
+		for (int i = 0, j = 0; i < args.length; i += 2, j++) {
+			classes[j] = (Class<?>) args[i];
+		}
 
-			Method m = obj.getClass().getMethod(method, classes);
+		Method m = obj.getClass().getMethod(method, classes);
 
-			Object[] objects = new Object[args.length/2];
-			for (int i = 1,j=0; i < args.length; i+=2,j++) {
-				objects[j] = args[i];
-			}
-			
-			
-			return m.invoke(obj, objects);
+		Object[] objects = new Object[args.length / 2];
+		for (int i = 1, j = 0; i < args.length; i += 2, j++) {
+			objects[j] = args[i];
+		}
 
+		return m.invoke(obj, objects);
 
 	}
-
 
 }

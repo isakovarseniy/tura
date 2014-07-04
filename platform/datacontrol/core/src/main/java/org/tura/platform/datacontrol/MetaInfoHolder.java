@@ -16,10 +16,10 @@ import org.tura.platform.datacontrol.command.PreQueryTrigger;
 import org.tura.platform.datacontrol.command.PreUpdateTrigger;
 import org.tura.platform.datacontrol.command.SearchCommand;
 import org.tura.platform.datacontrol.command.UpdateCommand;
-import org.tura.platform.datacontrol.commons.OrderCriteria;
 import org.tura.platform.datacontrol.metainfo.ArtificialProperty;
-import org.tura.platform.datacontrol.metainfo.DefaultSearchCriteria;
 import org.tura.platform.datacontrol.metainfo.Relation;
+
+import com.octo.java.sql.query.SelectQuery;
 
 public abstract class MetaInfoHolder {
 
@@ -45,13 +45,9 @@ public abstract class MetaInfoHolder {
 	protected PreDeleteTrigger preDeleteTrigger;
 
 	protected Class<?>  rootClass;
-
-	protected List<DefaultSearchCriteria> defaultFilter;
-	protected List<OrderCriteria> defaultOrderby;
-
+	protected SelectQuery defaultQuery;
 	
-	public abstract void setDefaultFilter(List<DefaultSearchCriteria> defaultFilter) ;
-	public abstract void setDefaultOrderby(List<OrderCriteria> defaultOrderby) ;
+	public abstract void setDefaultQuery(SelectQuery selectQuery) ;
 	public abstract void setCreateCommand(CreateCommand createCommand) ;
 	public abstract void setInsertCommand(InsertCommand insertCommand);
 	public abstract void setUpdateCommand(UpdateCommand updateCommand);
@@ -95,16 +91,6 @@ public abstract class MetaInfoHolder {
 
 	public void setParent(Relation parent) {
 		this.parent = parent;
-	}
-	
-	
-	public List<DefaultSearchCriteria> getDefaultFilter() {
-		return defaultFilter;
-	}
-
-
-	public List<OrderCriteria> getDefaultOrderby() {
-		return defaultOrderby;
 	}
 	
 	public ELResolver getElResolver() {
@@ -172,6 +158,9 @@ public abstract class MetaInfoHolder {
 	}
 	public String getVersionattribute() {
 		return versionattribute;
+	}
+	public SelectQuery getDefaultQuery() {
+		return defaultQuery;
 	}
 	
 	

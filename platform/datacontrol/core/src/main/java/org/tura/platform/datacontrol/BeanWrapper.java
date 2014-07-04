@@ -21,7 +21,6 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.logging.Logger;
 
 import net.sf.cglib.core.Signature;
 import net.sf.cglib.proxy.Callback;
@@ -33,7 +32,6 @@ import net.sf.cglib.proxy.NoOp;
 
 import org.apache.commons.lang.StringUtils;
 import org.apache.commons.lang.builder.ReflectionToStringBuilder;
-import org.tura.platform.datacontrol.commons.PlatformConfig;
 import org.tura.platform.datacontrol.commons.Reflection;
 import org.tura.platform.datacontrol.metainfo.ArtificialProperty;
 
@@ -45,9 +43,6 @@ public class BeanWrapper implements MethodInterceptor {
 	private ArrayList<String> exceptionmethod = new ArrayList<String>();
 	private ArrayList<String> artificialmethod = new ArrayList<String>();
 	private HashMap<String, Object> artificialvalues = new HashMap<String, Object>();
-
-	private static Logger logger = Logger
-			.getLogger(BeanWrapper.class.getName());
 
 	public void addExceptionsmethod(String method) {
 		exceptionmethod.add(method);
@@ -67,11 +62,6 @@ public class BeanWrapper implements MethodInterceptor {
 
 	public void setInsertMode(boolean insertMode) {
 		this.insertMode = insertMode;
-		if (insertMode)
-			datacontrol.incGhostCounter();
-		else
-			datacontrol.decGhostCounter();
-
 	}
 
 	public DataControl<?> getDatacontrol() {
@@ -83,77 +73,68 @@ public class BeanWrapper implements MethodInterceptor {
 	}
 
 	@SuppressWarnings("rawtypes")
-	public static Object newInstance(Class clazz, DataControl<?> datacontrol)
-			throws Exception {
-		try {
+	public static Object newInstance(Class clazz, DataControl<?> datacontrol) throws NoSuchMethodException, SecurityException, InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException {
 
-			// Create a dynamice interface
-			InterfaceMaker im = new InterfaceMaker();
+		// Create a dynamice interface
+		InterfaceMaker im = new InterfaceMaker();
 
-			// Define a getter method to get Wrapper object
-			org.objectweb.asm.Type[] parameters = new org.objectweb.asm.Type[] {};
-			Signature signature = new Signature("getWrapper",
-					org.objectweb.asm.Type.getType(BeanWrapper.class),
-					parameters);
-			im.add(signature, parameters);
+		// Define a getter method to get Wrapper object
+		org.objectweb.asm.Type[] parameters = new org.objectweb.asm.Type[] {};
+		Signature signature = new Signature("getWrapper",
+				org.objectweb.asm.Type.getType(BeanWrapper.class), parameters);
+		im.add(signature, parameters);
 
-			for (ArtificialProperty obj : datacontrol.getArtificialProperties()) {
+		for (ArtificialProperty obj : datacontrol.getArtificialProperties()) {
 
-				parameters = new org.objectweb.asm.Type[] {};
+			parameters = new org.objectweb.asm.Type[] {};
 
-				if (obj.getType().getCanonicalName()
-						.equals("java.lang.Boolean")) {
-					signature = new Signature("is"
-							+ StringUtils.capitalize(obj.getProperty()),
-							org.objectweb.asm.Type.getType(obj.getType()),
-							parameters);
-					im.add(signature, parameters);
-				}
-
-				signature = new Signature("get"
+			if (obj.getType().getCanonicalName().equals("java.lang.Boolean")) {
+				signature = new Signature("is"
 						+ StringUtils.capitalize(obj.getProperty()),
 						org.objectweb.asm.Type.getType(obj.getType()),
 						parameters);
 				im.add(signature, parameters);
-
-				parameters = new org.objectweb.asm.Type[] { org.objectweb.asm.Type
-						.getType(obj.getType()) };
-				signature = new Signature("set"
-						+ StringUtils.capitalize(obj.getProperty()),
-						org.objectweb.asm.Type.VOID_TYPE, parameters);
-				im.add(signature, parameters);
-
 			}
-			// Finish creating the interface
-			Class myInterface = im.create();
 
-			BeanWrapper interceptor = new BeanWrapper();
-			Enhancer e = new Enhancer();
-			e.setSuperclass(clazz);
-			e.setInterfaces(new Class[] { myInterface });
-			e.setCallbackFilter(new MethodFilter());
-			e.setCallbacks(new Callback[] { interceptor, NoOp.INSTANCE });
+			signature = new Signature("get"
+					+ StringUtils.capitalize(obj.getProperty()),
+					org.objectweb.asm.Type.getType(obj.getType()), parameters);
+			im.add(signature, parameters);
 
-			Object bean = e.create();
+			parameters = new org.objectweb.asm.Type[] { org.objectweb.asm.Type
+					.getType(obj.getType()) };
+			signature = new Signature("set"
+					+ StringUtils.capitalize(obj.getProperty()),
+					org.objectweb.asm.Type.VOID_TYPE, parameters);
+			im.add(signature, parameters);
 
-			BeanWrapper w = (BeanWrapper) Reflection.call(bean, "getWrapper");
-
-			for (ArtificialProperty obj : datacontrol.getArtificialProperties()) {
-				if (!obj.getDefaultValue().equals("")) {
-					Constructor<?> cons = obj.getType().getConstructor(
-							String.class);
-
-					w.addArtificialmethod(obj.getProperty(),
-							cons.newInstance(obj.getDefaultValue()));
-				} else {
-					w.addArtificialmethod(obj.getProperty(), null);
-				}
-			}
-			return bean;
-		} catch (Throwable e) {
-			logger.log(PlatformConfig.LOGGER_LEVEL, e.getMessage(), e);
-			throw new Exception(e.getMessage());
 		}
+		// Finish creating the interface
+		Class myInterface = im.create();
+
+		BeanWrapper interceptor = new BeanWrapper();
+		Enhancer e = new Enhancer();
+		e.setSuperclass(clazz);
+		e.setInterfaces(new Class[] { myInterface });
+		e.setCallbackFilter(new MethodFilter());
+		e.setCallbacks(new Callback[] { interceptor, NoOp.INSTANCE });
+
+		Object bean = e.create();
+
+		BeanWrapper w = (BeanWrapper) Reflection.call(bean, "getWrapper");
+
+		for (ArtificialProperty obj : datacontrol.getArtificialProperties()) {
+			if (!obj.getDefaultValue().equals("")) {
+				Constructor<?> cons = obj.getType()
+						.getConstructor(String.class);
+
+				w.addArtificialmethod(obj.getProperty(),
+						cons.newInstance(obj.getDefaultValue()));
+			} else {
+				w.addArtificialmethod(obj.getProperty(), null);
+			}
+		}
+		return bean;
 
 	}
 

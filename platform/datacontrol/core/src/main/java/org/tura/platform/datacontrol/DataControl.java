@@ -4,31 +4,29 @@ import java.lang.reflect.Constructor;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-import java.util.UUID;
 import java.util.logging.Logger;
 
 import org.apache.commons.lang.StringUtils;
 import org.tura.platform.datacontrol.commons.Constants;
-import org.tura.platform.datacontrol.commons.OrderCriteria;
 import org.tura.platform.datacontrol.commons.PlatformConfig;
 import org.tura.platform.datacontrol.commons.Reflection;
 import org.tura.platform.datacontrol.commons.SearchCriteria;
+import org.tura.platform.datacontrol.commons.TuraException;
 import org.tura.platform.datacontrol.metainfo.Relation;
+
+import com.octo.java.sql.query.SelectQuery;
 
 public abstract class DataControl<T> extends MetaInfoHolder {
 
 	private ArrayList<ChangeRecordListener> chageRecordLiteners = new ArrayList<>();
-	private String uuid = UUID.randomUUID().toString();
 
-	private List<SearchCriteria> filter;
-	private List<OrderCriteria> orderby;
+	private SelectQuery query;
 
 	private Pager<T> pager;
 	private int currentPosition = 0;
-	private int ghostCounter = 0;
 
-	private static Logger logger = Logger
-			.getLogger(DataControl.class.getName());
+	protected static Logger logger = Logger.getLogger(DataControl.class
+			.getName());
 
 	protected Object comandResultHolder;
 
@@ -38,19 +36,20 @@ public abstract class DataControl<T> extends MetaInfoHolder {
 		chageRecordLiteners.add(listener);
 	}
 
-    public void forceRefresh(){
+	public void forceRefresh() throws TuraException {
 		pager.cleanPager();
-		notifyChageRecordAll(pager.getObject(currentPosition));
-    }
-
-    public void handleChangeMusterCurrentRecordNotification(
-			Object newCurrentObject) {
-		pager.cleanPager();
-		currentPosition=0;
 		notifyChageRecordAll(pager.getObject(currentPosition));
 	}
 
-	protected void notifyChageRecordAll(T newCurrentObject) {
+	public void handleChangeMusterCurrentRecordNotification(
+			Object newCurrentObject) throws TuraException {
+		pager.cleanPager();
+		currentPosition = 0;
+		notifyChageRecordAll(pager.getObject(currentPosition));
+	}
+
+	protected void notifyChageRecordAll(T newCurrentObject)
+			throws TuraException {
 		notifyChildrenDataControlsChangeCurrentRecord(newCurrentObject);
 		notifyChageRecordLiteners(newCurrentObject);
 	}
@@ -66,57 +65,14 @@ public abstract class DataControl<T> extends MetaInfoHolder {
 		return pager;
 	}
 
-	public synchronized void incGhostCounter() {
-		ghostCounter++;
-		commandStack.addGhostObjectsControls(uuid, this);
-	}
-
-	public synchronized void decGhostCounter() {
-		ghostCounter--;
-		if (ghostCounter == 0)
-			commandStack.removeGhostObjectsControls(uuid);
-	}
-
-	public synchronized void cleanGhost() {
-		ghostCounter = 0;
-		commandStack.removeGhostObjectsControls(uuid);
-	}
-
-	public synchronized void cleanGhostObjects() throws Exception {
-		if (ghostCounter < 0)
-			throw new Exception("ghostCounter < 0");
-
-		ghostCounter = 0;
-	}
-
-	public synchronized void setGhostCounter() {
-		ghostCounter = 0;
-	}
-
 	private void notifyChildrenDataControlsChangeCurrentRecord(
-			T newCurrentObject) {
+			T newCurrentObject) throws TuraException {
 		for (Relation relation : children.values()) {
 			relation.setMasterCurrentObject(newCurrentObject);
 			((DataControl<?>) relation.getChild())
 					.handleChangeMusterCurrentRecordNotification(newCurrentObject);
 		}
 
-	}
-
-	public List<SearchCriteria> getFilter() {
-		return filter;
-	}
-
-	public void setFilter(List<SearchCriteria> filter) {
-		this.filter = filter;
-	}
-
-	public List<OrderCriteria> getOrderby() {
-		return orderby;
-	}
-
-	public void setOrderby(List<OrderCriteria> orderby) {
-		this.orderby = orderby;
 	}
 
 	public ELResolver getElResolver() {
@@ -127,65 +83,67 @@ public abstract class DataControl<T> extends MetaInfoHolder {
 		this.pager = new Pager<T>(this);
 	}
 
-	public T getCurrentObject() {
+	public T getCurrentObject() throws TuraException {
 		return getObject(currentPosition);
 	}
 
-	public void nextObject() {
-		T newRecord = pager.getObject(currentPosition+1);
+	public void nextObject() throws TuraException {
+		T newRecord = pager.getObject(currentPosition + 1);
 		if (newRecord != null) {
 			currentPosition++;
 			notifyChageRecordAll(newRecord);
 		}
 	}
 
-	public void prevObject() {
-		T newRecord = pager.getObject(currentPosition-1);
+	public void prevObject() throws TuraException {
+		T newRecord = pager.getObject(currentPosition - 1);
 		if (newRecord != null) {
 			currentPosition--;
 			notifyChageRecordAll(newRecord);
 		}
 	}
 
-	public void removeObject() throws Exception {
+	public void removeObject() throws Exception  {
 
-			for  (String relName : getRelationsName() ) {
-				Relation rel = this.getChild(relName);
+		for (String relName : getRelationsName()) {
+			Relation rel = this.getChild(relName);
 
-				if ((rel.isCascade()) && (rel.getChild() == null)) {
-					Factory.createDataControl(this, rel);
-				}
-
-				if ((rel.isCascade())
-						&& (rel.getChild() != null)
-						&& ( rel.getChild().getCurrentObject() != null)   )
-					rel.getChild().removeAll();
+			if ((rel.isCascade()) && (rel.getChild() == null)) {
+				Factory.createDataControl(this, rel);
 			}
+
+			if ((rel.isCascade()) && (rel.getChild() != null)
+					&& (rel.getChild().getCurrentObject() != null))
+				rel.getChild().removeAll();
+		}
 		this.pager.remove(currentPosition);
 	}
 
-	public String getObjectKey(Object object) {
-
-		StringBuffer key = new StringBuffer();
-		Iterator<String> itr = this.getKeys().iterator();
-		while (itr.hasNext()) {
-			String method = "get" + StringUtils.capitalize(itr.next());
-			key.append(Reflection.call(object, method));
-			key.append(" ");
+	public String getObjectKey(Object object) throws TuraException {
+		try {
+			StringBuffer key = new StringBuffer();
+			Iterator<String> itr = this.getKeys().iterator();
+			while (itr.hasNext()) {
+				String method = "get" + StringUtils.capitalize(itr.next());
+				key.append(Reflection.call(object, method));
+				key.append(" ");
+			}
+			return key.toString();
+		} catch (Exception e) {
+			throw new TuraException(e);
 		}
-		return key.toString();
 	}
 
-	public void removeAll() throws Exception {
+	public void removeAll() throws Exception  {
 		T obj = null;
 		int i = 0;
 		do {
-			obj = this.getObject(i * Pager.LOADSTEP);
+			obj = this.getObject(i * PlatformConfig.LOADSTEP);
 			if (obj != null)
 				removeObject();
 			else {
 				i++;
-				obj = this.getObject(i * Pager.LOADSTEP);
+				obj = this.getObject(i * PlatformConfig.LOADSTEP);
 			}
 		} while (obj != null);
 
@@ -196,7 +154,7 @@ public abstract class DataControl<T> extends MetaInfoHolder {
 		return new ObjectIterator<T>(this, pager);
 	}
 
-	public synchronized T getObject(int index) {
+	public synchronized T getObject(int index) throws TuraException {
 
 		T obj = pager.getObject(index);
 		this.currentPosition = index;
@@ -204,7 +162,7 @@ public abstract class DataControl<T> extends MetaInfoHolder {
 		return obj;
 	}
 
-	public T createObject() {
+	public T createObject() throws TuraException {
 		// Refresh tree
 		getObject(currentPosition);
 
@@ -265,6 +223,14 @@ public abstract class DataControl<T> extends MetaInfoHolder {
 	 */
 	public void setCommandStack(CommandStack commandStack) {
 		this.commandStack = commandStack;
+	}
+
+	public SelectQuery getQuery() {
+		return query;
+	}
+
+	public void setQuery(SelectQuery query) {
+		this.query = query;
 	}
 
 }

@@ -1,5 +1,6 @@
 package org.tura.platform.datacontrol.metainfo;
 
+import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -45,7 +46,6 @@ public class Relation {
 		return this.links;
 	}
 
-	
 	public boolean isCascade() {
 		return cascade;
 	}
@@ -61,10 +61,12 @@ public class Relation {
 	public void setMasterCurrentObject(Object masterCurrentObject) {
 		this.masterCurrentObject = masterCurrentObject;
 	}
-		
-	
+
 	@SuppressWarnings("unchecked")
-	public List<SearchCriteria> getChildSearchCriteria() throws Exception {
+	public List<SearchCriteria> getChildSearchCriteria()
+			throws NoSuchMethodException, SecurityException,
+			IllegalAccessException, IllegalArgumentException,
+			InvocationTargetException {
 
 		@SuppressWarnings("rawtypes")
 		ArrayList scls = new ArrayList();
@@ -78,8 +80,8 @@ public class Relation {
 						+ StringUtils.capitalize(lnk.getParent());
 				Method m = obj.getClass().getMethod(methodName, new Class[] {});
 				Object value = m.invoke(obj, new Object[] {});
-                if (value == null)
-                	value = Constants.UNDEFINED_PARAMETER;
+				if (value == null)
+					value = Constants.UNDEFINED_PARAMETER;
 				SearchCriteria sc = new SearchCriteria();
 				sc.setName(lnk.getChild());
 
@@ -90,7 +92,7 @@ public class Relation {
 
 				scls.add(sc);
 			}
-		}else{
+		} else {
 			PropertyLink lnk = itr.next();
 
 			SearchCriteria sc = new SearchCriteria();
@@ -107,6 +109,4 @@ public class Relation {
 		return scls;
 	}
 
-
-	
 }

@@ -15,538 +15,220 @@
  ******************************************************************************/
 package org.tura.platform.datacontrol;
 
+import static com.octo.java.sql.query.Query.c;
+
 import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Comparator;
-import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
 import java.util.Stack;
-import java.util.TreeMap;
-import java.util.logging.Logger;
 
-import org.apache.commons.collections.CollectionUtils;
-import org.apache.commons.collections.Predicate;
-import org.apache.commons.lang.StringUtils;
-import org.tura.platform.datacontrol.commons.ComparatorType;
 import org.tura.platform.datacontrol.commons.Constants;
-import org.tura.platform.datacontrol.commons.OrderCriteria;
-import org.tura.platform.datacontrol.commons.OrderType;
-import org.tura.platform.datacontrol.commons.PlatformConfig;
+import org.tura.platform.datacontrol.commons.LazyList;
 import org.tura.platform.datacontrol.commons.Reflection;
-import org.tura.platform.datacontrol.commons.SQLSearchCriteria;
+import org.tura.platform.datacontrol.commons.RestrictionsConverter;
 import org.tura.platform.datacontrol.commons.SearchCriteria;
-import org.tura.platform.datacontrol.metainfo.DefaultSearchCriteria;
+import org.tura.platform.datacontrol.commons.TuraException;
 
-import com.rits.cloning.Cloner;
+import com.octo.java.sql.query.QueryGrammarException;
+import com.octo.java.sql.query.SelectQuery;
 
 public class Pager<T> {
 
 	private int startIndex;
-	private int endIndex;
-	private Map<Integer,T> entities=new HashMap<>();
+	private List<T> entities = new LazyList<>();
 	private DataControl<T> datacontrol;
-	private Object prevBeginElement;
-	private Object postEndElement;
-	private int beginOfQueryWindow;
-	private int endOfQueryWindow;
 
-	private static Logger logger = Logger.getLogger(Pager.class.getName());
-
-	public static int LOADSTEP = 40;
-	public static int PRVELEMENTWINDOW = 10;
-
-	public Pager(DataControl<T> datacontrol) throws Exception {
+	public Pager(DataControl<T> datacontrol)  {
 		this.datacontrol = datacontrol;
 	}
 
 	public void cleanPager() {
-		entities =new HashMap<>();
+		entities = new LazyList<>();
 		startIndex = 0;
 	}
 
-	public Collection<OrderCriteria> getOrderCriteria() {
-		if (datacontrol.getDefaultOrderby() == null) {
-			return datacontrol.getOrderby();
-		} else {
-			if (datacontrol.getOrderby() == null) {
-				return datacontrol.getDefaultOrderby();
-			}
-			HashMap<String, OrderCriteria> h = new HashMap<String, OrderCriteria>();
+	private void prepareQuery() throws NoSuchMethodException,
+			SecurityException, ClassNotFoundException, InstantiationException,
+			IllegalAccessException, IllegalArgumentException,
+			InvocationTargetException, QueryGrammarException {
 
-			for (OrderCriteria obj : datacontrol.getOrderby())
-				h.put(obj.getName(), obj);
-
-			for (OrderCriteria obj : datacontrol.getDefaultOrderby())
-				h.put(obj.getName(), obj);
-
-			return h.values();
-		}
-	}
-
-	public Collection<SearchCriteria> getSearchCriteria() throws Exception {
+		datacontrol.setQuery(datacontrol.getDefaultQuery());
 
 		Collection<SearchCriteria> sc = null;
 
-		if (datacontrol.getParent() != null)
+		SelectQuery query = datacontrol.getQuery();
+		if (datacontrol.getParent() != null) {
 			sc = datacontrol.getParent().getChildSearchCriteria();
+			for (SearchCriteria criteria : sc) {
 
-		if (datacontrol.getFilter() != null) {
-			if (sc == null)
-				sc = datacontrol.getFilter();
-			else {
+				if (!criteria.getValue().equals(Constants.UNDEFINED_PARAMETER)) {
+					Constructor<?> cons = Class
+							.forName(criteria.getClassName()).getConstructor(
+									String.class);
 
-				HashMap<SearchCriteria, SearchCriteria> h = new HashMap<>();
-				for (SearchCriteria obj : datacontrol.getFilter())
-					h.put(obj, obj);
-
-				for (SearchCriteria obj : sc)
-					h.put(obj, obj);
-
-				sc = h.values();
+					Object obj = cons.newInstance(criteria.getValue());
+					query = query.and(c(criteria.getName()));
+					RestrictionsConverter.valueOf(criteria.getComparator())
+							.getRestriction(query, obj);
+				} else
+					query.and(c("1")).eq("-1");
 			}
+
 		}
 
-		if ((datacontrol.getDefaultFilter() != null)
-				&& (datacontrol.getDefaultFilter().size() != 0)) {
-
-			HashMap<String, SearchCriteria> h = new HashMap<>();
-
-			if (sc != null) {
-				for (SearchCriteria obj : sc)
-					h.put(obj.getName(), obj);
-			}
-
-			for (DefaultSearchCriteria obj : datacontrol.getDefaultFilter()) {
-
-				SearchCriteria defcri = new SearchCriteria();
-				defcri.setName(obj.getName());
-				defcri.setComparator(obj.getComparator());
-				defcri.setClassName(obj.getClassName());
-				if (obj.getValue() != null)
-					defcri.setValue(obj.getValue());
-				else {
-					Object expVal = datacontrol.getElResolver().getValue(
-							obj.getExpression());
-					if (expVal != null)
-						defcri.setValue(expVal.toString());
-					else
-						defcri.setValue(Constants.UNDEFINED_PARAMETER);
+		for (String key : query.getParams().keySet()) {
+			Object param = query.getParams().get(key);
+			if (param instanceof String) {
+				String str = (String) param;
+				if (((String) param).length() > 3) {
+					int lastindex = str.length() - 1;
+					if ("#{".equals(str.substring(0, 2))
+							&& "}".equals(str.substring(lastindex - 1))) {
+						Object expVal = datacontrol.getElResolver().getValue(
+								str);
+						query.getParams().put(key, expVal);
+					}
 				}
-				h.put(defcri.getName(), defcri);
 			}
-			sc = h.values();
 		}
-		return sc;
 	}
 
 	public DataControl<T> getDataControl() {
 		return datacontrol;
 	}
 
-	public T createObject(int index) {
+	public T createObject(int index) throws TuraException {
 		return createObject(index, true);
 	}
 
 	@SuppressWarnings("unchecked")
-	public T createObject(int index, boolean managable) {
-
+	public T createObject(int index, boolean managable) throws TuraException {
 		try {
-
 			Object obj = datacontrol.getCreateCommand().execute();
 			obj = convertobject((T) obj);
 
 			BeanWrapper w = (BeanWrapper) Reflection.call(obj, "getWrapper");
 			w.setInsertMode(true);
-			
-			Map<Integer,T> newTable = new HashMap<>(); 
-			for (Integer key : entities.keySet()){
-				int i = key;
-				if ( i >=  index)
-					i++;
-				newTable.put(i, entities.get(key));
-			}
-			newTable.put(index, (T) obj);
-			entities = newTable;
-			
+			entities.add(index, (T) obj);
+
 			return (T) obj;
 		} catch (Exception e) {
-			logger.log(PlatformConfig.LOGGER_LEVEL, e.getMessage(), e);
-			return null;
+			throw new TuraException(e);
 		}
 	}
 
 	@SuppressWarnings("unchecked")
-	public T getObject(int index) {
-
-		@SuppressWarnings("rawtypes")
-		Stack st = new Stack();
+	public T getObject(int index) throws TuraException {
 
 		try {
-			st.push(startIndex);
-			st.push(endIndex);
-			st.push(entities);
+			return entities.get(index);
+		} catch (IndexOutOfBoundsException e) {
+			@SuppressWarnings("rawtypes")
+			Stack st = new Stack();
+			try {
+				st.push(startIndex);
+				st.push(entities);
 
-			if (entities == null) {
-				datacontrol.cleanGhost();
-				return queryDS(index, null);
-			}
-
-			if ((startIndex <= index) && (index < entities.size() + startIndex)
-					&& (entities.size() != 0)) {
-
-				return getEntity(index);
-
-			} else {
-				Object prev = null;
-				if (entities.size() != 0)
-					prev = entities.get(entities.size() - 1);
-				T obj = queryDS(index, prev);
+				T obj = queryDS(index);
 				if (obj == null) {
 					entities = (ArrayList<T>) st.pop();
-					endIndex = (Integer) st.pop();
 					startIndex = (Integer) st.pop();
-				} else
-					datacontrol.cleanGhost();
-
+				}
 				return obj;
+			} catch (Throwable ee) {
+				entities = (ArrayList<T>) st.pop();
+				startIndex = (Integer) st.pop();
+
+				throw new TuraException(e);
 
 			}
-		} catch (Throwable e) {
-			logger.log(PlatformConfig.LOGGER_LEVEL, e.getMessage(), e);
-
-			entities = (ArrayList<T>) st.pop();
-			endIndex = (Integer) st.pop();
-			startIndex = (Integer) st.pop();
-
-			throw new RuntimeException(e.getMessage());
-
 		}
 	}
 
-	public int size() {
-		return 0;
-	}
+	@SuppressWarnings({ "unchecked" })
+	private T queryDS(int index) throws TuraException {
 
-	@SuppressWarnings({ "unchecked", "rawtypes" })
-	private T queryDS(int index, Object prevObject) throws Exception {
+		if (datacontrol.getCommandStack().isEmpty())
+			throw new TuraException(
+					"Command stack is not empty. Commit or Rollback first ");
 
 		startIndex = index;
-		endIndex = startIndex + LOADSTEP + 1;
-
-		Collection<SearchCriteria> ls = getSearchCriteria();
-		if (ls == null)
-			ls = new ArrayList<SearchCriteria>();
-
-		Collection<OrderCriteria> lsOrd = getOrderCriteria();
-		if (lsOrd == null)
-			lsOrd = new ArrayList<OrderCriteria>();
 
 		try {
-			datacontrol.getCommandStack().getTrx().begin();
+			prepareQuery();
 
-			int shift = 0;
-			if (index != 0)
-				shift = 1;
+			try {
+				datacontrol.getCommandStack().getTrx().begin();
 
-			datacontrol.getSearchCommand().execute();
-			entities = (List<T>) datacontrol.getSearchCommand().execute();
+				entities = (List<T>) datacontrol.getSearchCommand().execute();
 
-			prevBeginElement = null;
-			if ((entities != null) && (entities.size() != 0) && (index != 0))
-				prevBeginElement = entities.get(0);
-
-			if ((entities.size() == 0) && (index != 0)) {
-
-				beginOfQueryWindow = Math.max(startIndex - PRVELEMENTWINDOW, 0);
-				endOfQueryWindow = Math.max(startIndex - 1, 0);
-
-				List<T> check = (List<T>) datacontrol.getSearchCommand().execute();
-
-				if (check.size() == 0)
-					return null;
-				prevBeginElement = check.get(check.size() - 1);
+			} finally {
+				datacontrol.getCommandStack().getTrx().commit();
 			}
 
-			if ((prevBeginElement != null) && (prevObject != null)) {
-				prevBeginElement = sort(prevBeginElement, prevObject, lsOrd);
+			if (entities.size() != 0) {
+				return getEntity(index);
+			} else {
+				return null;
 			}
-
-			postEndElement = null;
-			if ((entities != null) && (entities.size() == LOADSTEP + 1 + shift))
-				postEndElement = entities.get(LOADSTEP + shift);
-
-		} finally {
-			datacontrol.getCommandStack().getTrx().commit();
-		}
-
-		Map allObjects = new HashMap();
-
-		Collection<?> c = (new Cloner()).deepClone(datacontrol
-				.getCommandStack().getCreatedObjects().values());
-		CollectionUtils.filter(c, new Filter(ls, datacontrol.getRootClass()));
-		Iterator<?> itr = c.iterator();
-		while (itr.hasNext()) {
-			Object t = itr.next();
-			allObjects.put(this.getObjectKey(t), t);
-		}
-
-		if (entities != null) {
-			Iterator<T> itrT = entities.iterator();
-			while (itrT.hasNext()) {
-				T t = itrT.next();
-				if (!datacontrol.getCommandStack().getRemovedObjects()
-						.containsKey(getObjectKey(t))) {
-					allObjects.put(getObjectKey(t), t);
-				}
-			}
-		}
-
-		c = datacontrol.getCommandStack().getUpdatedObjects().values();
-
-		Iterator itr1 = c.iterator();
-		while (itr1.hasNext()) {
-			Object t = itr1.next();
-			Object key = getObjectKey(t);
-			allObjects.put(key, t);
-		}
-
-		c = (new Cloner()).deepClone(allObjects.values());
-		CollectionUtils.filter(c, new Filter(ls, datacontrol.getRootClass()));
-		allObjects = new HashMap();
-		itr1 = c.iterator();
-		while (itr1.hasNext()) {
-			Object t = itr1.next();
-			Object key = getObjectKey(t);
-			allObjects.put(key, t);
-		}
-
-		Map treemap = null;
-		if ((lsOrd != null) && (lsOrd.size() != 0)) {
-			treemap = new TreeMap(new Sort(lsOrd, allObjects));
-		} else {
-			treemap = new TreeMap();
-		}
-		treemap.putAll(allObjects);
-
-		List keyList = new ArrayList(treemap.keySet());
-		List valueList = new ArrayList(treemap.values());
-
-		int top = 0;
-		int bottom = keyList.size();
-
-		if (prevBeginElement != null) {
-			top = keyList.indexOf(getObjectKey(prevBeginElement)) + 1;
-		}
-
-		if (postEndElement != null) {
-			bottom = keyList.indexOf(getObjectKey(postEndElement));
-		}
-
-		if (top == bottom)
-			entities = new ArrayList<T>();
-		else {
-			entities = new ArrayList<T>(
-					(Collection<? extends T>) valueList.subList(top, bottom));
-		}
-		if (entities.size() != 0) {
-			return getEntity(index);
-		} else {
-			return null;
+		} catch (Exception e) {
+			throw new TuraException(e);
 		}
 	}
 
-	private Object sort(Object o1, Object o2, Collection<OrderCriteria> order) {
-		int i = new Sorter().objectSorter(o1, o2, order);
-		if (i == 1)
-			return o1;
-		else
-			return o2;
-	}
-
-	public String getObjectKey(Object object) {
+	public String getObjectKey(Object object) throws TuraException {
 		return this.getDataControl().getObjectKey(object);
 	}
 
 	@SuppressWarnings("unchecked")
-	private T getEntity(int index) throws Exception {
-		T t = entities.get(index - startIndex);
+	private T getEntity(int index) throws NoSuchMethodException,
+			SecurityException, InstantiationException, IllegalAccessException,
+			IllegalArgumentException, InvocationTargetException {
+		T t = entities.get(index);
 		try {
 			t.getClass().getMethod("getWrapper", new Class[] {});
 			return (T) t;
 
 		} catch (Exception e) {
 			Object el = convertobject(t);
-			entities.set((index - startIndex), (T) el);
+			entities.set((index), (T) el);
 
 			if (datacontrol.getPostQueryTrigger() != null)
-				datacontrol.getPostQueryTrigger().execute(datacontrol,el);
+				datacontrol.getPostQueryTrigger().execute(datacontrol, el);
 
 			return (T) el;
 		}
 	}
 
 	@SuppressWarnings("unchecked")
-	private T convertobject(T obj) {
+	private T convertobject(T obj) throws NoSuchMethodException,
+			SecurityException, InstantiationException, IllegalAccessException,
+			IllegalArgumentException, InvocationTargetException {
 
+		Object wrapper = BeanWrapper.newInstance(obj.getClass(),
+				this.getDataControl());
+		BeanWrapper w = (BeanWrapper) Reflection.call(wrapper, "getWrapper");
+
+		w.setObj(obj);
+		w.setDatacontrol(datacontrol);
+
+		return (T) wrapper;
+
+	}
+
+	public T remove(int i) throws TuraException {
 		try {
-			Object wrapper = BeanWrapper.newInstance(obj.getClass(),
-					this.getDataControl());
-			BeanWrapper w = (BeanWrapper) Reflection
-					.call(wrapper, "getWrapper");
+			T obj = getEntity(i);
+			BeanWrapper w = (BeanWrapper) Reflection.call(obj, "getWrapper");
 
-			w.setObj(obj);
-			w.setDatacontrol(datacontrol);
+			datacontrol.getDeleteCommand().setObj(w.getObj());
+			this.entities.remove(i);
 
-			return (T) wrapper;
-
+			return obj;
 		} catch (Exception e) {
-			logger.log(PlatformConfig.LOGGER_LEVEL, e.getMessage(), e);
-			return null;
+			throw new TuraException(e);
 		}
-	}
-
-	public T remove(int i) {
-		try {
-			if ((startIndex > i) || (startIndex + LOADSTEP <= i))
-				this.getObject(i);
-
-			T obj = this.entities.get(i - startIndex);
-			if (obj != null) {
-				BeanWrapper w = (BeanWrapper) Reflection
-						.call(obj, "getWrapper");
-
-				datacontrol.getDeleteCommand().setObj(w.getObj());
-				obj = this.entities.remove(i - startIndex);
-				return obj;
-			} else
-				return null;
-		} catch (Exception e) {
-			logger.log(PlatformConfig.LOGGER_LEVEL, e.getMessage(), e);
-			return null;
-		}
-	}
-
-	class Sort implements Comparator<Object> {
-		private Collection<OrderCriteria> order;
-		private Map<?, ?> base;
-		private Sorter sorter;
-
-		protected Sort(Collection<OrderCriteria> order, Map<?, ?> base) {
-			this.order = order;
-			this.base = base;
-			this.sorter = new Sorter();
-		}
-
-		public int compare(Object k1, Object k2) {
-
-			Object o1 = base.get(k1);
-			Object o2 = base.get(k2);
-			return sorter.objectSorter(o1, o2, order);
-		}
-	}
-
-	@SuppressWarnings("unchecked")
-	class Sorter {
-		protected int objectSorter(Object o1, Object o2,
-				Collection<OrderCriteria> order) {
-			int result = 0;
-			for (OrderCriteria crit : order) {
-				String method = "get" + StringUtils.capitalize(crit.getName());
-
-				@SuppressWarnings("rawtypes")
-				Comparable v1 = (Comparable) Reflection.call(o1, method);
-				@SuppressWarnings("rawtypes")
-				Comparable v2 = (Comparable) Reflection.call(o2, method);
-
-				result = v1.compareTo(v2);
-				if (result != 0) {
-					if (crit.getOrder().equals(OrderType.DESC.name()))
-						result = result * (-1);
-					break;
-				}
-			}
-			return result;
-		}
-	}
-
-	class Filter implements Predicate {
-
-		private Collection<SearchCriteria> sc;
-		private Class<?> clazz;
-
-		protected Filter(Collection<SearchCriteria> ls, Class<?> clazz) {
-			this.sc = ls;
-			this.clazz = clazz;
-
-		}
-
-		@SuppressWarnings("unchecked")
-		public boolean evaluate(Object obj) {
-			boolean isComarable = true;
-
-			try {
-
-				obj.getClass().asSubclass(clazz);
-				if (sc == null)
-					return true;
-				for (SearchCriteria crit : sc) {
-					if (crit instanceof SQLSearchCriteria)
-						continue;
-					String method = "get"
-							+ StringUtils.capitalize(crit.getName());
-					Constructor<?> c = Class.forName(crit.getClassName())
-							.getConstructor(String.class);
-					Object value = c.newInstance(crit.getValue());
-
-					ComparatorType cmp = ComparatorType.valueOf(crit
-							.getComparator());
-					@SuppressWarnings("rawtypes")
-					Comparable v = (Comparable) Reflection.call(obj, method);
-
-					if (cmp.equals(ComparatorType.LIKE)) {
-						String expr = (String) value;
-						expr = expr.toLowerCase(); // ignoring locale for now
-						expr = expr.replace(".", "\\."); // "\\" is escaped to
-															// "\" (thanks, Alan
-															// M)
-						// ... escape any other potentially problematic
-						// characters here
-						expr = expr.replace("?", ".");
-						expr = expr.replace("%", ".*");
-						String str = (String) v;
-						str = str.toLowerCase();
-						int i = 0;
-						if (!str.matches(expr))
-							i = -1;
-						if (!cmp.compare(i)) {
-							isComarable = false;
-							break;
-						}
-					} else {
-
-						if (!cmp.compare(v.compareTo(value))) {
-							isComarable = false;
-							break;
-						}
-					}
-
-				}
-			} catch (Exception e) {
-				return false;
-			}
-
-			return isComarable;
-		}
-	}
-
-	public int getBeginOfQueryWindow() {
-		return beginOfQueryWindow;
-	}
-
-	public int getEndOfQueryWindow() {
-		return endOfQueryWindow;
 	}
 }

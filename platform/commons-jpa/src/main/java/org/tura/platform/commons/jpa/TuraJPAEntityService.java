@@ -20,6 +20,7 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
+import org.tura.platform.datacontrol.commons.LazyList;
 import org.tura.platform.persistence.ObjectsID;
 import org.tura.platform.persistence.TuraObject;
 
@@ -37,6 +38,7 @@ public class TuraJPAEntityService {
 
 	}
 
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public List<?> find(SelectQuery dslQuery, Integer startIndex,
 			Integer endIndex, String objectClass) throws Exception {
 
@@ -51,9 +53,9 @@ public class TuraJPAEntityService {
 
 		dslQuery.getColumns()[0] = "count(1)";
 		query = em.createQuery(dslQuery.toSql());
-		query.getSingleResult();
-
-		return ls;
+		long numResults = (long) query.getSingleResult();
+		
+		return new LazyList(ls,numResults,startIndex);
 
 	}
 

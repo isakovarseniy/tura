@@ -16,93 +16,29 @@
 package org.tura.platform.datacontrol;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Iterator;
 
 import javax.transaction.TransactionManager;
 
-import org.apache.commons.collections.map.MultiKeyMap;
 import org.tura.platform.datacontrol.command.Command;
-import org.tura.platform.datacontrol.command.DeleteCommand;
-import org.tura.platform.datacontrol.command.InsertCommand;
-import org.tura.platform.datacontrol.command.UpdateCommand;
 
 public class CommandStack {
 
 	private TransactionManager trx;
 
 	private ArrayList<Command> transaction = new ArrayList<Command>();
-	private MultiKeyMap annotation = new MultiKeyMap();
-	private HashMap<Object, Object> updatedObjects = new HashMap<Object, Object>();
-	private HashMap<Object, Object> createdObjects = new HashMap<Object, Object>();
-	private HashMap<Object, Object> removedObjects = new HashMap<Object, Object>();
-	private HashMap<Object, Object> ghostObjectsControls = new HashMap<Object, Object>();
 
-	public void addUpdatedObjects(Object t, UpdateCommand cmd) {
-		this.updatedObjects.put(cmd.getDatacontrol().getPager().getObjectKey(t), t);
+	public void addCommandObjects(Object t, Command cmd) {
 		this.transaction.add(cmd);
-	}
-
-	public void addCreatedObjects(Object t, InsertCommand cmd) {
-		this.createdObjects.put(cmd.getDatacontrol().getPager().getObjectKey(t), t);
-		this.transaction.add(cmd);
-	}
-
-	public void addRemovedObjects(Object t, DeleteCommand cmd) {
-		this.removedObjects.put(cmd.getDatacontrol().getPager().getObjectKey(t), t);
-		this.transaction.add(cmd);
-	}
-
-	public void addGhostObjectsControls(String uuid, DataControl<?> dc) {
-		this.ghostObjectsControls.put(uuid, dc);
-	}
-
-	public void removeGhostObjectsControls(String uuid) {
-		this.ghostObjectsControls.remove(uuid);
-	}
-
-	public MultiKeyMap getAnnotation() {
-		return annotation;
-	}
-
-	public HashMap<Object, Object> getUpdatedObjects() {
-		return updatedObjects;
-	}
-
-	public HashMap<Object, Object> getCreatedObjects() {
-		return createdObjects;
-	}
-
-	public HashMap<Object, Object> getRemovedObjects() {
-		return removedObjects;
-	}
-
-	public void cleaner() throws Exception {
-		updatedObjects = new HashMap<Object, Object>();
-		createdObjects = new HashMap<Object, Object>();
-		removedObjects = new HashMap<Object, Object>();
-
-		Iterator<?> itr = ghostObjectsControls.values().iterator();
-		while (itr.hasNext()) {
-			DataControl<?> obj = (DataControl<?>) itr.next();
-			obj.cleanGhostObjects();
-		}
-		ghostObjectsControls = new HashMap<Object, Object>();
 	}
 
 	public void rallbackCommand() throws Exception {
-		Iterator<?> itrG = ghostObjectsControls.values().iterator();
-		while (itrG.hasNext()) {
-			DataControl<?> obj = (DataControl<?>) itrG.next();
-			obj.forceRefresh();
-		}
 
 		Iterator<Command> itr = transaction.iterator();
 		while (itr.hasNext()) {
 			Command cmd = itr.next();
 			cmd.getDatacontrol().forceRefresh();
 		}
-		cleaner();
 		transaction = new ArrayList<Command>();
 	}
 
@@ -117,25 +53,22 @@ public class CommandStack {
 			}
 			trx.commit();
 
-			Iterator<?> itrG = ghostObjectsControls.values().iterator();
-			while (itrG.hasNext()) {
-				DataControl<?> obj = (DataControl<?>) itrG.next();
-				obj.forceRefresh();
-			}
-
 			itr = transaction.iterator();
 			while (itr.hasNext()) {
 				Command cmd = itr.next();
 				cmd.getDatacontrol().forceRefresh();
 			}
 
-			cleaner();
 			transaction = new ArrayList<Command>();
 
 		} catch (Exception e) {
 			trx.rollback();
 			throw new Exception(e);
 		}
+	}
+
+	public boolean isEmpty() {
+		return transaction.isEmpty();
 	}
 
 	public TransactionManager getTrx() {

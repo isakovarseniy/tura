@@ -21,4 +21,6 @@ public class PlatformConfig {
 
 	public static Level LOGGER_LEVEL = Level.INFO;
 
+	public static int LOADSTEP = 40;
+	
 }

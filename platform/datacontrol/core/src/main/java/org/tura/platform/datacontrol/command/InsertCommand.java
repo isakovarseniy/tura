@@ -14,7 +14,7 @@ public class InsertCommand extends Command {
 
 		this.prepareParameters();
 		this.prepareCall();
-		this.getDatacontrol().getCommandStack().addCreatedObjects(obj, this);
+		this.getDatacontrol().getCommandStack().addCommandObjects(obj, this);
 
 		// Force to work with method parameters
 		// this.getParameters();

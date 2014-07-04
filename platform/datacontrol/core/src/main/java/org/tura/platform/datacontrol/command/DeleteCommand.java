@@ -14,7 +14,7 @@ public class DeleteCommand extends Command{
 	public Object execute() throws Exception {
 		this.prepareParameters();
 		this.prepareCall();
-		this.getDatacontrol().getCommandStack().addRemovedObjects(obj, this);
+		this.getDatacontrol().getCommandStack().addCommandObjects(obj, this);
 
 		// Force to work with method parameters
 		// this.getParameters();

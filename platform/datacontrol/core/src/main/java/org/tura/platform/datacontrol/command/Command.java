@@ -1,6 +1,7 @@
 package org.tura.platform.datacontrol.command;
 
 import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -88,7 +89,7 @@ public abstract class Command {
 		}
 	}
 
-	protected void versionControl() {
+	protected void versionControl() throws NoSuchMethodException, SecurityException, IllegalAccessException, IllegalArgumentException, InvocationTargetException {
 
 		Iterator<?> itr = parameters.iterator();
 
