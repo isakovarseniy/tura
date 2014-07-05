@@ -4,11 +4,9 @@ import java.lang.reflect.Constructor;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-import java.util.logging.Logger;
 
 import org.apache.commons.lang.StringUtils;
 import org.tura.platform.datacontrol.commons.Constants;
-import org.tura.platform.datacontrol.commons.PlatformConfig;
 import org.tura.platform.datacontrol.commons.Reflection;
 import org.tura.platform.datacontrol.commons.SearchCriteria;
 import org.tura.platform.datacontrol.commons.TuraException;
@@ -24,9 +22,6 @@ public abstract class DataControl<T> extends MetaInfoHolder {
 
 	private Pager<T> pager;
 	private int currentPosition = 0;
-
-	protected static Logger logger = Logger.getLogger(DataControl.class
-			.getName());
 
 	protected Object comandResultHolder;
 
@@ -138,20 +133,15 @@ public abstract class DataControl<T> extends MetaInfoHolder {
 		T obj = null;
 		int i = 0;
 		do {
-			obj = this.getObject(i * PlatformConfig.LOADSTEP);
+			obj = this.getObject(i);
 			if (obj != null)
 				removeObject();
 			else {
 				i++;
-				obj = this.getObject(i * PlatformConfig.LOADSTEP);
+				obj = this.getObject(i );
 			}
 		} while (obj != null);
 
-	}
-
-	public List<T> getList() {
-		this.currentPosition = 0;
-		return new ObjectIterator<T>(this, pager);
 	}
 
 	public synchronized T getObject(int index) throws TuraException {
@@ -200,8 +190,7 @@ public abstract class DataControl<T> extends MetaInfoHolder {
 
 			}
 		} catch (Exception e) {
-			logger.log(PlatformConfig.LOGGER_LEVEL, e.getMessage(), e);
-			objWrp = null;
+			 throw new TuraException(e);
 		}
 		return objWrp;
 	}

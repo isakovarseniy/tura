@@ -26,6 +26,7 @@ import java.util.Stack;
 
 import org.tura.platform.datacontrol.commons.Constants;
 import org.tura.platform.datacontrol.commons.LazyList;
+import org.tura.platform.datacontrol.commons.PlatformConfig;
 import org.tura.platform.datacontrol.commons.Reflection;
 import org.tura.platform.datacontrol.commons.RestrictionsConverter;
 import org.tura.platform.datacontrol.commons.SearchCriteria;
@@ -37,11 +38,14 @@ import com.octo.java.sql.query.SelectQuery;
 public class Pager<T> {
 
 	private int startIndex;
+	private int endIndex;
+	private int loadStep;
 	private List<T> entities = new LazyList<>();
 	private DataControl<T> datacontrol;
 
 	public Pager(DataControl<T> datacontrol)  {
 		this.datacontrol = datacontrol;
+		loadStep = PlatformConfig.LOADSTEP;
 	}
 
 	public void cleanPager() {
@@ -49,6 +53,9 @@ public class Pager<T> {
 		startIndex = 0;
 	}
 
+	public int listSize(){
+		return entities.size();
+	}
 	private void prepareQuery() throws NoSuchMethodException,
 			SecurityException, ClassNotFoundException, InstantiationException,
 			IllegalAccessException, IllegalArgumentException,
@@ -155,6 +162,7 @@ public class Pager<T> {
 					"Command stack is not empty. Commit or Rollback first ");
 
 		startIndex = index;
+		endIndex = index+getLoadStep();
 
 		try {
 			prepareQuery();
@@ -230,5 +238,21 @@ public class Pager<T> {
 		} catch (Exception e) {
 			throw new TuraException(e);
 		}
+	}
+
+	public int getLoadStep() {
+		return loadStep;
+	}
+
+	public void setLoadStep(int loadStep) {
+		this.loadStep = loadStep;
+	}
+
+	public int getStartIndex() {
+		return startIndex;
+	}
+
+	public int getEndIndex() {
+		return endIndex;
 	}
 }
