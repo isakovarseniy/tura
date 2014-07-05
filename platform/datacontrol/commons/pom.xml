@@ -11,7 +11,7 @@
 
 	<groupId>org.tura.platform.datacontrol</groupId>
 	<artifactId>commons</artifactId>
-	<name>commons</name>
+  <name>Tura :: Platform :: DataControl :: Commons</name>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

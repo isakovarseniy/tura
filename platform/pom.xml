@@ -15,7 +15,7 @@
   </properties>
 
   <modules>
-    <!--  module>datacontrol</module-->
+    <module>datacontrol</module>
     <module>java-sql-dsl</module>
     <module>commons-persistence</module>
     <module>commons-jpa</module>

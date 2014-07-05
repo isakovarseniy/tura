@@ -11,7 +11,7 @@
 	<groupId>org.tura.platform.datacontrol</groupId>
 	<artifactId>core</artifactId>
 
-	<name>core</name>
+  <name>Tura :: Platform :: DataControl :: Core</name>
 	<url>http://maven.apache.org</url>
 
 	<properties>

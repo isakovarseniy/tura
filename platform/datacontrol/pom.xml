@@ -12,7 +12,7 @@
   <artifactId>datacontrol</artifactId>
   <packaging>pom</packaging>
 
-  <name>datacontrol</name>
+  <name>Tura :: Platform :: DataControl</name>
   <url>http://maven.apache.org</url>
 
   <properties>
