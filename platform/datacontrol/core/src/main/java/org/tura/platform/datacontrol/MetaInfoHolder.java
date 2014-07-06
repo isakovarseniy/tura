@@ -44,7 +44,7 @@ public abstract class MetaInfoHolder {
 	protected PreUpdateTrigger preUpdateTrigger;
 	protected PreDeleteTrigger preDeleteTrigger;
 
-	protected Class<?>  rootClass;
+	protected Class<?>  baseClass;
 	protected SelectQuery defaultQuery;
 	
 	public abstract void setDefaultQuery(SelectQuery selectQuery) ;
@@ -60,7 +60,7 @@ public abstract class MetaInfoHolder {
 	public abstract void setPreInsertTrigger(PreInsertTrigger preInsertTrigger);
 	public abstract void setPreUpdateTrigger(PreUpdateTrigger preUpdateCommand) ;
 	public abstract void setElResolver(ELResolver elResolver);
-	public abstract void setRootClass(Class<?> rootClass);
+	public abstract void setBaseClass(Class<?> baseClass);
 	public abstract void setArtificialProperties();
 	public abstract void setVersionattribute(String versionattribute) ;
 
@@ -80,10 +80,10 @@ public abstract class MetaInfoHolder {
 		return children.keySet();
 	}
 	
-	public Class<?> getRootClass() {
-		return rootClass;
-	}
 	
+	public Class<?> getBaseClass() {
+		return baseClass;
+	}
 	
 	public Relation getParent() {
 		return parent;

@@ -19,9 +19,9 @@ import static com.octo.java.sql.query.Query.c;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
-import java.util.ArrayList;
 import java.util.Collection;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Stack;
 
 import org.tura.platform.datacontrol.commons.Constants;
@@ -40,10 +40,10 @@ public class Pager<T> {
 	private int startIndex;
 	private int endIndex;
 	private int loadStep;
-	private List<T> entities = new LazyList<>();
+	private LazyList<T> entities = new LazyList<>();
 	private DataControl<T> datacontrol;
 
-	public Pager(DataControl<T> datacontrol)  {
+	public Pager(DataControl<T> datacontrol) {
 		this.datacontrol = datacontrol;
 		loadStep = PlatformConfig.LOADSTEP;
 	}
@@ -53,9 +53,10 @@ public class Pager<T> {
 		startIndex = 0;
 	}
 
-	public int listSize(){
+	public int listSize() {
 		return entities.size();
 	}
+
 	private void prepareQuery() throws NoSuchMethodException,
 			SecurityException, ClassNotFoundException, InstantiationException,
 			IllegalAccessException, IllegalArgumentException,
@@ -140,12 +141,12 @@ public class Pager<T> {
 
 				T obj = queryDS(index);
 				if (obj == null) {
-					entities = (ArrayList<T>) st.pop();
+					entities = (LazyList<T>) st.pop();
 					startIndex = (Integer) st.pop();
 				}
 				return obj;
 			} catch (Throwable ee) {
-				entities = (ArrayList<T>) st.pop();
+				entities = (LazyList<T>) st.pop();
 				startIndex = (Integer) st.pop();
 
 				throw new TuraException(e);
@@ -157,12 +158,12 @@ public class Pager<T> {
 	@SuppressWarnings({ "unchecked" })
 	private T queryDS(int index) throws TuraException {
 
-		if (datacontrol.getCommandStack().isEmpty())
-			throw new TuraException(
-					"Command stack is not empty. Commit or Rollback first ");
+		startIndex = index - calculateShift();
+		assert startIndex >=  0;
 
-		startIndex = index;
-		endIndex = index+getLoadStep();
+		endIndex = index + getLoadStep()
+				+ getDataControl().getCommandStack().getRemovedObjects().size()
+				+ 1;
 
 		try {
 			prepareQuery();
@@ -170,11 +171,23 @@ public class Pager<T> {
 			try {
 				datacontrol.getCommandStack().beginTransaction();
 
-				entities = (List<T>) datacontrol.getSearchCommand().execute();
+				entities = (LazyList<T>) datacontrol.getSearchCommand()
+						.execute();
 
 			} finally {
 				datacontrol.getCommandStack().commitTransaction();
 			}
+
+			// Add created objects
+			applyCreatedObjects();
+
+			Map<String, Integer> map = buildMapper();
+
+			// Apply updates
+			applyUpdatedObjects(map);
+
+			// Apply removed
+			applyRemovedObjects(map);
 
 			if (entities.size() != 0) {
 				return getEntity(index);
@@ -186,8 +199,124 @@ public class Pager<T> {
 		}
 	}
 
+	@SuppressWarnings("unchecked")
+	private void applyUpdatedObjects(Map<String, Integer> map)
+			throws NoSuchMethodException, SecurityException,
+			IllegalAccessException, IllegalArgumentException,
+			InvocationTargetException {
+		for (String key : getDataControl().getCommandStack()
+				.getUpdatedObjects().keySet()) {
+
+			Object obj = getDataControl().getCommandStack().getRemovedObjects()
+					.get(key);
+
+			BeanWrapper bean = (BeanWrapper) Reflection.call(obj, "getWrapper");
+
+			if (bean.getDatacontrol().getBaseClass()
+					.equals(datacontrol.getBaseClass())) {
+
+				Integer i = map.get(key);
+				if (i != null) {
+					entities.set(i, (T) getDataControl().getCommandStack()
+							.getUpdatedObjects().get(key));
+				}
+			}
+		}
+
+	}
+
+	private void applyRemovedObjects(Map<String, Integer> map)
+			throws NoSuchMethodException, SecurityException,
+			IllegalAccessException, IllegalArgumentException,
+			InvocationTargetException {
+		for (String key : getDataControl().getCommandStack()
+				.getRemovedObjects().keySet()) {
+
+			Object obj = getDataControl().getCommandStack().getRemovedObjects()
+					.get(key);
+
+			BeanWrapper bean = (BeanWrapper) Reflection.call(obj, "getWrapper");
+
+			if (bean.getDatacontrol().getBaseClass()
+					.equals(datacontrol.getBaseClass())) {
+
+				Integer i = map.get(key);
+				if (i != null) {
+					entities.remove(i);
+				} else
+					entities.correctRowsNumber(-1);
+			}
+		}
+
+	}
+
+	@SuppressWarnings("unchecked")
+	private void applyCreatedObjects() throws NoSuchMethodException,
+			SecurityException, IllegalAccessException,
+			IllegalArgumentException, InvocationTargetException {
+		if (startIndex == 0) {
+			for (Object obj : datacontrol.getCommandStack().getCreatedObjects()
+					.values()) {
+				BeanWrapper bean = (BeanWrapper) Reflection.call(obj,
+						"getWrapper");
+				if (bean.getDatacontrol().getBaseClass()
+						.equals(datacontrol.getBaseClass()))
+					entities.add(0, (T) obj);
+			}
+		} else
+			entities.correctRowsNumber(datacontrol.getCommandStack()
+					.getCreatedObjects().size());
+
+	}
+
+	private int calculateShift() throws TuraException {
+
+		try {
+			Map<String, String> createdMap = new HashMap<>();
+
+			for (String key : getDataControl().getCommandStack()
+					.getCreatedObjects().keySet()) {
+
+				Object obj = getDataControl().getCommandStack()
+						.getCreatedObjects().get(key);
+				BeanWrapper bean = (BeanWrapper) Reflection.call(obj,
+						"getWrapper");
+				if (bean.getDatacontrol().getBaseClass()
+						.equals(datacontrol.getBaseClass()))
+					createdMap.put(key, key);
+			}
+
+			for (String key : getDataControl().getCommandStack()
+					.getRemovedObjects().keySet()) {
+
+				Object obj = getDataControl().getCommandStack()
+						.getRemovedObjects().get(key);
+				BeanWrapper bean = (BeanWrapper) Reflection.call(obj,
+						"getWrapper");
+				if (bean.getDatacontrol().getBaseClass()
+						.equals(datacontrol.getBaseClass()))
+					createdMap.remove(key);
+			}
+			return createdMap.size();
+
+		} catch (Exception e) {
+			throw new TuraException(e);
+		}
+
+	}
+
 	public String getObjectKey(Object object) throws TuraException {
 		return this.getDataControl().getObjectKey(object);
+	}
+
+	private Map<String, Integer> buildMapper() throws TuraException {
+		Map<String, Integer> map = new HashMap<String, Integer>();
+		for (Integer i : entities.getKeys()) {
+			Object obj = entities.get(i);
+			map.put(getObjectKey(obj), i);
+		}
+		return map;
+
 	}
 
 	@SuppressWarnings("unchecked")

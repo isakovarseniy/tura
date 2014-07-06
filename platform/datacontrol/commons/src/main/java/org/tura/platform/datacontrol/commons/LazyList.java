@@ -4,6 +4,7 @@ import java.util.AbstractList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 public class LazyList<T> extends AbstractList<T> {
 
@@ -17,6 +18,10 @@ public class LazyList<T> extends AbstractList<T> {
 			loaded.put(startIndex + j, data.get(j));
 		}
 
+	}
+	
+	public Set<Integer> getKeys(){
+		return loaded.keySet();
 	}
 
 	public LazyList() {
@@ -84,4 +89,7 @@ public class LazyList<T> extends AbstractList<T> {
 		return (int) numResults;
 	}
 
+	public void correctRowsNumber(int correction){
+		numResults = numResults + correction;
+	}
 }

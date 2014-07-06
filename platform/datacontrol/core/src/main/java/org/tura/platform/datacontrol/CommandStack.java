@@ -16,19 +16,39 @@
 package org.tura.platform.datacontrol;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Iterator;
 
 import org.tura.platform.datacontrol.command.Command;
+import org.tura.platform.datacontrol.commons.TuraException;
 
 public abstract class CommandStack {
 
 
 	private ArrayList<Command> transaction = new ArrayList<Command>();
-
-	public void addCommandObjects(Object t, Command cmd) {
+	private HashMap<String, Object> updatedObjects = new HashMap<String, Object>();
+	private HashMap<String, Object> createdObjects = new HashMap<String, Object>();
+	private HashMap<String, Object> removedObjects = new HashMap<String, Object>();
+	
+	
+	public void addUpdatedObjects(Object t, Command cmd) throws TuraException {
+		String key = cmd.getDatacontrol().getObjectKey(t);
+		this.updatedObjects.put(key, t);
 		this.transaction.add(cmd);
 	}
 
+	public void addCreatedObjects(Object t, Command cmd) throws TuraException {
+		String key = cmd.getDatacontrol().getObjectKey(t);
+		this.createdObjects.put(key, t);
+		this.transaction.add(cmd);
+	}
+
+	public void addRemovedObjects(Object t, Command cmd) throws TuraException {
+		String key = cmd.getDatacontrol().getObjectKey(t);
+		this.removedObjects.put(key, t);
+		this.transaction.add(cmd);
+	}
+	
 	public void rallbackCommand() throws Exception {
 
 		Iterator<Command> itr = transaction.iterator();
@@ -37,9 +57,12 @@ public abstract class CommandStack {
 			cmd.getDatacontrol().forceRefresh();
 		}
 		transaction = new ArrayList<Command>();
+		updatedObjects = new HashMap<String, Object>();
+		createdObjects = new HashMap<String, Object>();
+		removedObjects = new HashMap<String, Object>();
 	}
 
-	public void commitCommand() throws Exception {
+	public void commitCommand() throws TuraException {
 		Iterator<Command> itr = transaction.iterator();
 
 		try {
@@ -57,10 +80,13 @@ public abstract class CommandStack {
 			}
 
 			transaction = new ArrayList<Command>();
+			updatedObjects = new HashMap<String, Object>();
+			createdObjects = new HashMap<String, Object>();
+			removedObjects = new HashMap<String, Object>();
 
 		} catch (Exception e) {
 			rallbackTransaction();
-			throw new Exception(e);
+			throw new TuraException(e);
 		}
 	}
 
@@ -68,11 +94,21 @@ public abstract class CommandStack {
 		return transaction.isEmpty();
 	}
 
-
-
 	public abstract void beginTransaction();
 	public abstract void commitTransaction();
 	public abstract void rallbackTransaction();
+
+	public HashMap<String, Object> getUpdatedObjects() {
+		return updatedObjects;
+	}
+
+	public HashMap<String, Object> getCreatedObjects() {
+		return createdObjects;
+	}
+
+	public HashMap<String, Object> getRemovedObjects() {
+		return removedObjects;
+	}
 	
 	
 }

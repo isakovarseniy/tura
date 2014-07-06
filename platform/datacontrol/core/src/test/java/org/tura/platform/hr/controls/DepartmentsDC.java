@@ -19,6 +19,10 @@ import com.octo.java.sql.query.SelectQuery;
 
 public class DepartmentsDC extends DataControl<DepartmentsDAO>{
 
+	public DepartmentsDC() throws Exception {
+		super();
+	}
+
 	@Override
 	public void setDefaultQuery(SelectQuery selectQuery) {
 		// TODO Auto-generated method stub
@@ -98,12 +102,6 @@ public class DepartmentsDC extends DataControl<DepartmentsDAO>{
 	}
 
 	@Override
-	public void setRootClass(Class<?> rootClass) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
 	public void setArtificialProperties() {
 		// TODO Auto-generated method stub
 		
@@ -111,6 +109,12 @@ public class DepartmentsDC extends DataControl<DepartmentsDAO>{
 
 	@Override
 	public void setVersionattribute(String versionattribute) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void setBaseClass(Class<?> baseClass) {
 		// TODO Auto-generated method stub
 		
 	}

@@ -21,7 +21,7 @@ public class InsertCommand extends Command {
 		Command cmd = cloner.deepClone(this);
 
 		
-		this.getDatacontrol().getCommandStack().addCommandObjects(obj, cmd);
+		this.getDatacontrol().getCommandStack().addCreatedObjects(obj, cmd);
 
 		// Force to work with method parameters
 		// this.getParameters();

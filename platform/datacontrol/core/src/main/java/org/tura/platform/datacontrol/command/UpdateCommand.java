@@ -20,7 +20,7 @@ public class UpdateCommand extends Command {
 
 		Cloner cloner = new Cloner();
 		Command cmd = cloner.deepClone(this);
-		this.getDatacontrol().getCommandStack().addCommandObjects(obj, cmd);
+		this.getDatacontrol().getCommandStack().addUpdatedObjects(obj, cmd);
 
 		// Force to work with method parameters
 		// this.getParameters();

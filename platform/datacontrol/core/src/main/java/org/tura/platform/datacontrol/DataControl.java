@@ -27,6 +27,11 @@ public abstract class DataControl<T> extends MetaInfoHolder {
 
 	private CommandStack commandStack;
 
+
+	public DataControl() throws Exception {
+		this.pager = new Pager<T>(this);
+	}
+	
 	public void addChageRecordLiteners(ChangeRecordListener listener) {
 		chageRecordLiteners.add(listener);
 	}
@@ -36,7 +41,7 @@ public abstract class DataControl<T> extends MetaInfoHolder {
 		notifyChageRecordAll(pager.getObject(currentPosition));
 	}
 
-	public void handleChangeMusterCurrentRecordNotification(
+	protected void handleChangeMusterCurrentRecordNotification(
 			Object newCurrentObject) throws TuraException {
 		pager.cleanPager();
 		currentPosition = 0;
@@ -46,18 +51,13 @@ public abstract class DataControl<T> extends MetaInfoHolder {
 	protected void notifyChageRecordAll(T newCurrentObject)
 			throws TuraException {
 		notifyChildrenDataControlsChangeCurrentRecord(newCurrentObject);
-		notifyChageRecordLiteners(newCurrentObject);
+		notifyChangeRecordLiteners(newCurrentObject);
 	}
 
-	private void notifyChageRecordLiteners(T newCurrentObject) {
+	private void notifyChangeRecordLiteners(T newCurrentObject) {
 		for (ChangeRecordListener listener : chageRecordLiteners) {
 			listener.handleChangeRecord(this, newCurrentObject);
 		}
-
-	}
-
-	public Pager<T> getPager() {
-		return pager;
 	}
 
 	private void notifyChildrenDataControlsChangeCurrentRecord(
@@ -67,38 +67,33 @@ public abstract class DataControl<T> extends MetaInfoHolder {
 			((DataControl<?>) relation.getChild())
 					.handleChangeMusterCurrentRecordNotification(newCurrentObject);
 		}
-
 	}
 
 	public ELResolver getElResolver() {
 		return elResolver;
 	}
 
-	public void initControl() throws Exception {
-		this.pager = new Pager<T>(this);
-	}
-
 	public T getCurrentObject() throws TuraException {
-		return getObject(currentPosition);
+		return  pager.getObject(currentPosition);
 	}
 
 	public void nextObject() throws TuraException {
-		T newRecord = pager.getObject(currentPosition + 1);
-		if (newRecord != null) {
+		if (currentPosition <  pager.listSize()) {
 			currentPosition++;
+			T newRecord = pager.getObject(currentPosition);
 			notifyChageRecordAll(newRecord);
 		}
 	}
 
 	public void prevObject() throws TuraException {
-		T newRecord = pager.getObject(currentPosition - 1);
-		if (newRecord != null) {
+		if (currentPosition >  0) {
 			currentPosition--;
+			T newRecord = pager.getObject(currentPosition );
 			notifyChageRecordAll(newRecord);
 		}
 	}
 
-	public void removeObject() throws Exception  {
+	public void removeObject() throws Exception {
 
 		for (String relName : getRelationsName()) {
 			Relation rel = this.getChild(relName);
@@ -112,6 +107,9 @@ public abstract class DataControl<T> extends MetaInfoHolder {
 				rel.getChild().removeAll();
 		}
 		this.pager.remove(currentPosition);
+		if (currentPosition == pager.listSize())
+			currentPosition--;
+		notifyChageRecordAll(getCurrentObject());
 	}
 
 	public String getObjectKey(Object object) throws TuraException {
@@ -129,32 +127,24 @@ public abstract class DataControl<T> extends MetaInfoHolder {
 		}
 	}
 
-	public void removeAll() throws Exception  {
+	public void removeAll() throws Exception {
 		T obj = null;
 		int i = 0;
 		do {
-			obj = this.getObject(i);
+			obj = pager.getObject(i);
 			if (obj != null)
 				removeObject();
 			else {
 				i++;
-				obj = this.getObject(i );
+				obj =  pager.getObject(i);
 			}
 		} while (obj != null);
 
 	}
 
-	public synchronized T getObject(int index) throws TuraException {
-
-		T obj = pager.getObject(index);
-		this.currentPosition = index;
-
-		return obj;
-	}
-
 	public T createObject() throws TuraException {
 		// Refresh tree
-		getObject(currentPosition);
+		pager.getObject(currentPosition);
 
 		// Create a new object
 		T objWrp = pager.createObject(currentPosition);
@@ -187,10 +177,10 @@ public abstract class DataControl<T> extends MetaInfoHolder {
 						}
 					}
 				}
-
+				notifyChageRecordAll(getCurrentObject());
 			}
 		} catch (Exception e) {
-			 throw new TuraException(e);
+			throw new TuraException(e);
 		}
 		return objWrp;
 	}
@@ -220,6 +210,10 @@ public abstract class DataControl<T> extends MetaInfoHolder {
 
 	public void setQuery(SelectQuery query) {
 		this.query = query;
+	}
+
+	public Pager<T> getPager() {
+		return pager;
 	}
 
 }
