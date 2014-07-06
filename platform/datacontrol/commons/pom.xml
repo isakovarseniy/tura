@@ -11,17 +11,14 @@
 
 	<groupId>org.tura.platform.datacontrol</groupId>
 	<artifactId>commons</artifactId>
-  <name>Tura :: Platform :: DataControl :: Commons</name>
-
-	<properties>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-	</properties>
+	<name>Tura :: Platform :: DataControl :: Commons</name>
+	<url>http://sourceforge.net/p/tura/wiki/Home/</url>
 
 	<dependencies>
 		<dependency>
 			<groupId>com.octo.java.sql</groupId>
 			<artifactId>java-sql-dsl</artifactId>
-			<version>0.1.1-SNAPSHOT</version>
+			<version>${java-sql-dsl}</version>
 		</dependency>
 	</dependencies>
 

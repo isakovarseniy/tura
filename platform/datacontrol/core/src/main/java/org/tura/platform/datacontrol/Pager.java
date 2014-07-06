@@ -168,12 +168,12 @@ public class Pager<T> {
 			prepareQuery();
 
 			try {
-				datacontrol.getCommandStack().getTrx().begin();
+				datacontrol.getCommandStack().beginTransaction();
 
 				entities = (List<T>) datacontrol.getSearchCommand().execute();
 
 			} finally {
-				datacontrol.getCommandStack().getTrx().commit();
+				datacontrol.getCommandStack().commitTransaction();
 			}
 
 			if (entities.size() != 0) {

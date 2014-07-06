@@ -13,36 +13,33 @@
 	<artifactId>commons-jpa</artifactId>
 
 	<name>Tura :: Platform :: Commons JPA</name>
-	<url>http://maven.apache.org</url>
-	<properties>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-	</properties>
+	<url>http://sourceforge.net/p/tura/wiki/Home/</url>
 
 	<dependencies>
 		<dependency>
 			<groupId>javax</groupId>
 			<artifactId>javaee-api</artifactId>
-			<version>6.0</version>
+			<version>${javaee-api}</version>
 			<scope>provided</scope>
 		</dependency>
 
 		<dependency>
 			<groupId>org.tura.platform.datacontrol</groupId>
 			<artifactId>commons</artifactId>
-			<version>2.0</version>
+			<version>${tura-platform-version}</version>
 		</dependency>
 
 		<dependency>
 			<groupId>org.tura.platform</groupId>
 			<artifactId>commons-persistence</artifactId>
-			<version>2.0</version>
+			<version>${tura-platform-version}</version>
 		</dependency>
 
 
 		<dependency>
 			<groupId>com.octo.java.sql</groupId>
 			<artifactId>java-sql-dsl</artifactId>
-			<version>0.1.1-SNAPSHOT</version>
+			<version>${java-sql-dsl}</version>
 		</dependency>
 
 	</dependencies>

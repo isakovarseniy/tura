@@ -18,13 +18,10 @@ package org.tura.platform.datacontrol;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-import javax.transaction.TransactionManager;
-
 import org.tura.platform.datacontrol.command.Command;
 
-public class CommandStack {
+public abstract class CommandStack {
 
-	private TransactionManager trx;
 
 	private ArrayList<Command> transaction = new ArrayList<Command>();
 
@@ -46,12 +43,12 @@ public class CommandStack {
 		Iterator<Command> itr = transaction.iterator();
 
 		try {
-			trx.begin();
+			beginTransaction();
 			while (itr.hasNext()) {
 				Command cmd = itr.next();
 				cmd.delayedExecution();
 			}
-			trx.commit();
+			commitTransaction();
 
 			itr = transaction.iterator();
 			while (itr.hasNext()) {
@@ -62,7 +59,7 @@ public class CommandStack {
 			transaction = new ArrayList<Command>();
 
 		} catch (Exception e) {
-			trx.rollback();
+			rallbackTransaction();
 			throw new Exception(e);
 		}
 	}
@@ -71,12 +68,11 @@ public class CommandStack {
 		return transaction.isEmpty();
 	}
 
-	public TransactionManager getTrx() {
-		return trx;
-	}
 
-	public void setTrx(TransactionManager trx) {
-		this.trx = trx;
-	}
 
+	public abstract void beginTransaction();
+	public abstract void commitTransaction();
+	public abstract void rallbackTransaction();
+	
+	
 }

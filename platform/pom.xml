@@ -8,18 +8,28 @@
   <packaging>pom</packaging>
 
   <name>Tura :: Platform</name>
-  <url>http://maven.apache.org</url>
+  <url>http://sourceforge.net/p/tura/wiki/Home/</url>
 
-  <properties>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-  </properties>
+ 	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<tura-platform-version>2.0</tura-platform-version>
+		<hibernate-entitymanager>4.3.5.Final</hibernate-entitymanager>
+		<cglib>2.2.2</cglib>
+		<commons-collections>3.2.1</commons-collections>
+		<uk.com.robust-it.cloning>1.7.9</uk.com.robust-it.cloning>
+		<commons-lang>2.5</commons-lang>
+		<hibernate-jpa-2.1-api>1.0.0.Final</hibernate-jpa-2.1-api>
+		<junit>4.11</junit>
+		<java-sql-dsl>0.1.1-SNAPSHOT</java-sql-dsl>
+		<javaee-api>6.0</javaee-api>
+		<org.hsqldb.hsqldb>2.2.8</org.hsqldb.hsqldb>
+	</properties>
 
   <modules>
-    <module>datacontrol</module>
     <module>java-sql-dsl</module>
     <module>commons-persistence</module>
     <module>commons-jpa</module>
-    
+    <module>datacontrol</module>
   </modules>
 
   <build>
