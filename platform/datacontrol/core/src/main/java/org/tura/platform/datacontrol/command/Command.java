@@ -10,16 +10,26 @@ import org.apache.commons.lang.StringUtils;
 import org.tura.platform.datacontrol.BeanWrapper;
 import org.tura.platform.datacontrol.DataControl;
 import org.tura.platform.datacontrol.commons.Reflection;
+import org.tura.platform.datacontrol.commons.TuraException;
 
 import com.rits.cloning.Cloner;
 
 public abstract class Command {
+
+	public void setProvider(Object provider) {
+		this.provider = provider;
+	}
+
+	public void setMethod(String method) {
+		this.method = method;
+	}
 
 	private DataControl<?> datacontrol;
 	private ArrayList<CallParameter> parameters = new ArrayList<>();
 	private Object provider;
 	private String method;
 	private Method call;
+
 
 	
 	public ArrayList<CallParameter> getParameters() {
@@ -41,7 +51,7 @@ public abstract class Command {
 	public void prepareCall() throws Exception{
 		ArrayList<Class<?>> ls = new ArrayList<>();
 		for ( CallParameter prm : parameters){
-			ls.add(prm.getClass());
+			ls.add(prm.getClazz());
 		}
 		call = provider.getClass().getMethod(method, ls.toArray(new Class<?>[ls.size()]));
 	}
@@ -66,13 +76,13 @@ public abstract class Command {
 				String exp = parameter.getExpression();
 				String val = parameter.getValue();
 				Class<?> clazz = parameter.getClazz();
-				if (!exp.equals("") & (!val.equals(""))) {
-					new Exception("Wrong combination of method's parameter");
+				if (    (exp != null  && !exp.equals("")   ) &&  (val !=null  &&  !val.equals("") ) ) {
+					new TuraException("Wrong combination of method's parameter");
 				}
 				if (!exp.equals("")) {
 					Object obj = datacontrol.getElResolver().getValue(exp);
 
-					if (obj.getClass().getName().indexOf("EnhancerByCGLIB") != -1) {
+					if (  !obj.getClass().isPrimitive() &&   obj.getClass().getName().indexOf("EnhancerByCGLIB") != -1) {
 						BeanWrapper w = (BeanWrapper) Reflection.call(obj,
 								"getWrapper");
 						obj = w.getObj();
@@ -80,7 +90,7 @@ public abstract class Command {
 					Object o = cloner.deepClone(obj);
 					parameter.setObj(o);
 				}
-				if (!val.equals("")) {
+				if ( val != null &&  !val.equals("")) {
 					Constructor<?> constructor = clazz
 							.getConstructor(String.class);
 					parameter.setObj(constructor.newInstance(val));
@@ -96,7 +106,7 @@ public abstract class Command {
 		while (itr.hasNext()) {
 			Object obj = itr.next();
 
-			String optlcrMethod = datacontrol.getVersionattribute();
+			String optlcrMethod = datacontrol.getVersionAttribute();
 
 			if (optlcrMethod != null) {
 				Object optlcr = (Number) Reflection.call(obj, "get"
@@ -110,7 +120,7 @@ public abstract class Command {
 		}
 	}
 
-	class CallParameter {
+	public class CallParameter {
 		private String name;
 		private String value;
 		private Class<?> clazz;

@@ -29,11 +29,15 @@ import com.octo.java.sql.query.SelectQuery;
 public class TuraJPAEntityService {
 	private EntityManager em;
 
+	public void setEntityManager(EntityManager em){
+		this.em=em;
+	}
+	
 	public TuraObject create(String objectClass) throws Exception {
 		Class<?> clazz = (Class<?>) this.getClass().getClassLoader()
 				.loadClass(objectClass);
 		TuraObject obj = (TuraObject) clazz.newInstance();
-		obj.setObjId(this.getObjsectID(em));
+		obj.setObjId(this.getObjectID(em));
 		return obj;
 
 	}
@@ -72,7 +76,7 @@ public class TuraJPAEntityService {
 		em.remove(entity);
 	}
 
-	public Long getObjsectID(EntityManager em) {
+	protected Long getObjectID(EntityManager em) {
 		ObjectsID obj = new ObjectsID();
 		em.persist(obj);
 		em.remove(obj);

@@ -17,7 +17,7 @@ import org.tura.platform.hr.objects.DepartmentsDAO;
 
 import com.octo.java.sql.query.SelectQuery;
 
-public class DepartmentsDC extends DataControl<DepartmentsDAO>{
+public class DepartmentsDC extends DataControl<DepartmentsDAO> {
 
 	public DepartmentsDC() throws Exception {
 		super();
@@ -25,98 +25,83 @@ public class DepartmentsDC extends DataControl<DepartmentsDAO>{
 
 	@Override
 	public void setDefaultQuery(SelectQuery selectQuery) {
-		// TODO Auto-generated method stub
-		
+		this.defaultQuery = selectQuery;
+
 	}
 
 	@Override
 	public void setCreateCommand(CreateCommand createCommand) {
-		// TODO Auto-generated method stub
-		
+		this.createCommand = createCommand;
+
 	}
 
 	@Override
 	public void setInsertCommand(InsertCommand insertCommand) {
-		// TODO Auto-generated method stub
-		
+		this.insertCommand = insertCommand;
+
 	}
 
 	@Override
 	public void setUpdateCommand(UpdateCommand updateCommand) {
-		// TODO Auto-generated method stub
-		
+		this.updateCommand = updateCommand;
 	}
 
 	@Override
 	public void setDeleteCommand(DeleteCommand deleteCommand) {
-		// TODO Auto-generated method stub
-		
+		this.deleteCommand = deleteCommand;
 	}
 
 	@Override
 	public void setPreQueryTrigger(PreQueryTrigger preQueryTrigger) {
-		// TODO Auto-generated method stub
-		
+		this.preQueryTrigger = preQueryTrigger;
 	}
 
 	@Override
 	public void setPostQueryTrigger(PostQueryTrigger postQueryTrigger) {
-		// TODO Auto-generated method stub
-		
+		this.postQueryTrigger = postQueryTrigger;
 	}
 
 	@Override
 	public void setSearchCommand(SearchCommand searchCommand) {
-		// TODO Auto-generated method stub
-		
+		this.searchCommand = searchCommand;
 	}
 
 	@Override
 	public void setPostCreateTrigger(PostCreateTrigger postCreateTrigger) {
-		// TODO Auto-generated method stub
-		
+		this.postCreateTrigger = postCreateTrigger;
 	}
 
 	@Override
 	public void setPreDeleteTrigger(PreDeleteTrigger preDeleteTrigger) {
-		// TODO Auto-generated method stub
-		
+		this.preDeleteTrigger = preDeleteTrigger;
 	}
 
 	@Override
 	public void setPreInsertTrigger(PreInsertTrigger preInsertTrigger) {
-		// TODO Auto-generated method stub
-		
+		this.preInsertTrigger = preInsertTrigger;
+
 	}
 
 	@Override
-	public void setPreUpdateTrigger(PreUpdateTrigger preUpdateCommand) {
-		// TODO Auto-generated method stub
-		
+	public void setPreUpdateTrigger(PreUpdateTrigger preUpdateTrigger) {
+		this.preUpdateTrigger = preUpdateTrigger;
 	}
 
 	@Override
 	public void setElResolver(ELResolver elResolver) {
-		// TODO Auto-generated method stub
-		
-	}
+		this.elResolver = elResolver;
 
-	@Override
-	public void setArtificialProperties() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void setVersionattribute(String versionattribute) {
-		// TODO Auto-generated method stub
-		
 	}
 
 	@Override
 	public void setBaseClass(Class<?> baseClass) {
-		// TODO Auto-generated method stub
-		
+		this.baseClass = baseClass;
+
+	}
+
+	@Override
+	public void setVersionAttribute(String versionAttribute) {
+		this.versionAttribute = versionAttribute;
 	}
 
 }

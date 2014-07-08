@@ -46,6 +46,14 @@
 		<!-- Test -->
 
 		<dependency>
+			<groupId>de.odysseus.juel</groupId>
+			<artifactId>juel</artifactId>
+			<version>${de.odysseus.juel}</version>
+			<scope>test</scope>
+		</dependency>
+
+
+		<dependency>
 			<groupId>org.hibernate.javax.persistence</groupId>
 			<artifactId>hibernate-jpa-2.1-api</artifactId>
 			<version>${hibernate-jpa-2.1-api}</version>
@@ -65,6 +73,14 @@
 			<version>${tura-platform-version}</version>
 			<scope>test</scope>
 		</dependency>
+
+		<dependency>
+			<groupId>org.tura.platform</groupId>
+			<artifactId>commons-jpa</artifactId>
+			<version>${tura-platform-version}</version>
+			<scope>test</scope>
+		</dependency>
+
 
 		<dependency>
 			<groupId>org.hibernate</groupId>

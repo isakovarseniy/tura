@@ -2,7 +2,7 @@ package org.tura.platform.datacontrol.commons;
 
 public class TuraException extends Exception {
 
-	public TuraException(Exception e) {
+	public TuraException(Throwable e) {
 		super(e);
 	}
 

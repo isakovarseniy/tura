@@ -32,7 +32,7 @@ import org.tura.platform.datacontrol.commons.RestrictionsConverter;
 import org.tura.platform.datacontrol.commons.SearchCriteria;
 import org.tura.platform.datacontrol.commons.TuraException;
 
-import com.octo.java.sql.query.QueryGrammarException;
+import com.octo.java.sql.query.QueryException;
 import com.octo.java.sql.query.SelectQuery;
 
 public class Pager<T> {
@@ -60,7 +60,7 @@ public class Pager<T> {
 	private void prepareQuery() throws NoSuchMethodException,
 			SecurityException, ClassNotFoundException, InstantiationException,
 			IllegalAccessException, IllegalArgumentException,
-			InvocationTargetException, QueryGrammarException {
+			InvocationTargetException, QueryException {
 
 		datacontrol.setQuery(datacontrol.getDefaultQuery());
 
@@ -85,7 +85,7 @@ public class Pager<T> {
 			}
 
 		}
-
+		query.toSql();
 		for (String key : query.getParams().keySet()) {
 			Object param = query.getParams().get(key);
 			if (param instanceof String) {
@@ -149,7 +149,7 @@ public class Pager<T> {
 				entities = (LazyList<T>) st.pop();
 				startIndex = (Integer) st.pop();
 
-				throw new TuraException(e);
+				throw new TuraException(ee);
 
 			}
 		}
@@ -159,7 +159,7 @@ public class Pager<T> {
 	private T queryDS(int index) throws TuraException {
 
 		startIndex = index - calculateShift();
-		assert startIndex >=  0;
+		assert startIndex >= 0;
 
 		endIndex = index + getLoadStep()
 				+ getDataControl().getCommandStack().getRemovedObjects().size()

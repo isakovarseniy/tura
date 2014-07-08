@@ -29,7 +29,6 @@ public abstract class MetaInfoHolder {
 	protected HashMap<String, Relation> children = new HashMap<String, Relation>();
 	protected ArrayList<ArtificialProperty> artificialProperties = new ArrayList<>();
 	protected List<String> keys = new ArrayList<>();
-	protected String versionattribute;
 	
 	protected ELResolver elResolver;
 	protected CreateCommand createCommand;
@@ -46,6 +45,7 @@ public abstract class MetaInfoHolder {
 
 	protected Class<?>  baseClass;
 	protected SelectQuery defaultQuery;
+	protected String versionAttribute;
 	
 	public abstract void setDefaultQuery(SelectQuery selectQuery) ;
 	public abstract void setCreateCommand(CreateCommand createCommand) ;
@@ -58,12 +58,11 @@ public abstract class MetaInfoHolder {
 	public abstract void setPostCreateTrigger(PostCreateTrigger postCreateTrigger);
 	public abstract void setPreDeleteTrigger(PreDeleteTrigger preDeleteTrigger) ;
 	public abstract void setPreInsertTrigger(PreInsertTrigger preInsertTrigger);
-	public abstract void setPreUpdateTrigger(PreUpdateTrigger preUpdateCommand) ;
+	public abstract void setPreUpdateTrigger(PreUpdateTrigger preUpdateTrigger) ;
 	public abstract void setElResolver(ELResolver elResolver);
 	public abstract void setBaseClass(Class<?> baseClass);
-	public abstract void setArtificialProperties();
-	public abstract void setVersionattribute(String versionattribute) ;
-
+	public abstract void setVersionAttribute(String versionAttribute);
+	
 	
 	public void addChildren(String relationName, Relation relation) {
 		children.put(relationName, relation);
@@ -147,21 +146,20 @@ public abstract class MetaInfoHolder {
 		this.dependency = dependency;
 	}
 	
-	public ArrayList<ArtificialProperty> getArtificialProperties() {
+	public List<ArtificialProperty> getArtificialProperties() {
 		return artificialProperties;
 	}
+
 	public List<String> getKeys() {
 		return keys;
 	}
-	public void setKeys(List<String> keys) {
-		this.keys = keys;
-	}
-	public String getVersionattribute() {
-		return versionattribute;
-	}
+
 	public SelectQuery getDefaultQuery() {
 		return defaultQuery;
 	}
-	
+	public String getVersionAttribute() {
+		return versionAttribute;
+	}
+
 	
 }
