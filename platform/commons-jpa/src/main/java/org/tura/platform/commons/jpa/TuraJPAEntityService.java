@@ -30,10 +30,10 @@ import static com.octo.java.sql.query.Query.c;
 public class TuraJPAEntityService {
 	private EntityManager em;
 
-	public void setEntityManager(EntityManager em){
-		this.em=em;
+	public void setEntityManager(EntityManager em) {
+		this.em = em;
 	}
-	
+
 	public TuraObject create(String objectClass) throws Exception {
 		Class<?> clazz = (Class<?>) this.getClass().getClassLoader()
 				.loadClass(objectClass);
@@ -53,16 +53,22 @@ public class TuraJPAEntityService {
 		Query query = em.createQuery(dslQuery.toSql(), clazz);
 		query.setFirstResult(startIndex);
 		query.setMaxResults(endIndex - startIndex);
+		for (String param : dslQuery.getParams().keySet()) {
+			query.setParameter(param, dslQuery.getParams().get(param));
+		}
 
 		List<?> ls = query.getResultList();
 
-		dslQuery.getColumns()[0] = c("count(*)")  ;
+		dslQuery.getColumns()[0] = c("count(*)");
 		dslQuery.getOrderBy().clear();
 
 		query = em.createQuery(dslQuery.toSql());
+		for (String param : dslQuery.getParams().keySet()) {
+			query.setParameter(param, dslQuery.getParams().get(param));
+		}
 		long numResults = (long) query.getSingleResult();
 
-		return new LazyList(ls,numResults,startIndex);
+		return new LazyList(ls, numResults, startIndex);
 
 	}
 

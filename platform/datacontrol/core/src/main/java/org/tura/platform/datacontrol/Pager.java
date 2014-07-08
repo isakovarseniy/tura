@@ -85,22 +85,7 @@ public class Pager<T> {
 			}
 
 		}
-		query.toSql();
-		for (String key : query.getParams().keySet()) {
-			Object param = query.getParams().get(key);
-			if (param instanceof String) {
-				String str = (String) param;
-				if (((String) param).length() > 3) {
-					int lastindex = str.length() - 1;
-					if ("#{".equals(str.substring(0, 2))
-							&& "}".equals(str.substring(lastindex - 1))) {
-						Object expVal = datacontrol.getElResolver().getValue(
-								str);
-						query.getParams().put(key, expVal);
-					}
-				}
-			}
-		}
+		query.toSql( new ExpressionResolver(datacontrol.getElResolver()));
 	}
 
 	public DataControl<T> getDataControl() {

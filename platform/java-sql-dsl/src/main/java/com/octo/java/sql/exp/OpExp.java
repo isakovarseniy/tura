@@ -21,8 +21,8 @@ import com.octo.java.sql.query.QueryGrammarException;
 import com.octo.java.sql.query.visitor.QueryVisitor;
 
 public class OpExp extends Exp {
-  private final Object lhsValue;
-  private final Object rhsValue;
+  private  Object lhsValue;
+  private  Object rhsValue;
   private final Operator operator;
 
   public OpExp(final Object lhsValue) {
@@ -105,4 +105,12 @@ public class OpExp extends Exp {
   public Object getRhsValue() {
     return rhsValue;
   }
+
+public void setLhsValue(Object lhsValue) {
+	this.lhsValue = lhsValue;
+}
+
+public void setRhsValue(Object rhsValue) {
+	this.rhsValue = rhsValue;
+}
 }

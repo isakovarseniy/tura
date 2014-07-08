@@ -17,16 +17,17 @@
 package com.octo.java.sql.exp;
 
 public enum Operator {
-  IS("IS"), BTW("BETWEEN"), LIKE("LIKE"), EQ("="), NEQ("!="), GEQ(">="), LEQ(
-      "<="), NOT("NOT"), IN("IN"), IS_NOT("IS NOT"), AND("AND"), OR("OR");
+	IS("IS"), BTW("BETWEEN"), LIKE("LIKE"), EQ("="), NEQ("!="), GT(">"), GEQ(
+			">="), LT("<"), LEQ("<="), NOT("NOT"), IN("IN"), IS_NOT("IS NOT"), AND(
+			"AND"), OR("OR");
 
-  private final String value;
+	private final String value;
 
-  Operator(final String value) {
-    this.value = value;
-  }
+	Operator(final String value) {
+		this.value = value;
+	}
 
-  public String getValue() {
-    return value;
-  }
+	public String getValue() {
+		return value;
+	}
 }

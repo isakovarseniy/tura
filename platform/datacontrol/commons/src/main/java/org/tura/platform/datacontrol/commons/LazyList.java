@@ -27,6 +27,7 @@ public class LazyList<T> extends AbstractList<T> {
 
 	public LazyList() {
 		loaded = new HashMap<Integer, T>();
+		numResults=-1;
 	}
 
 	@Override

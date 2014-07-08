@@ -27,11 +27,10 @@ public abstract class DataControl<T> extends MetaInfoHolder {
 
 	private CommandStack commandStack;
 
-
 	public DataControl() throws Exception {
 		this.pager = new Pager<T>(this);
 	}
-	
+
 	public void addChageRecordLiteners(ChangeRecordListener listener) {
 		chageRecordLiteners.add(listener);
 	}
@@ -74,21 +73,41 @@ public abstract class DataControl<T> extends MetaInfoHolder {
 	}
 
 	public T getCurrentObject() throws TuraException {
-		return  pager.getObject(currentPosition);
+		return pager.getObject(currentPosition);
+	}
+
+	public boolean hasNext() throws TuraException {
+		if (pager.listSize() == -1)
+			getCurrentObject();
+		if (currentPosition +1 < pager.listSize())
+			return true;
+		else
+			return false;
+
 	}
 
 	public void nextObject() throws TuraException {
-		if (currentPosition <  pager.listSize()) {
+		if (pager.listSize() == -1)
+			getCurrentObject();
+		if (currentPosition+1 < pager.listSize()) {
 			currentPosition++;
 			T newRecord = pager.getObject(currentPosition);
 			notifyChageRecordAll(newRecord);
 		}
 	}
 
+	public boolean hasPrev() {
+		if (currentPosition > 0)
+			return true;
+		else
+			return false;
+
+	}
+
 	public void prevObject() throws TuraException {
-		if (currentPosition >  0) {
+		if (currentPosition > 0) {
 			currentPosition--;
-			T newRecord = pager.getObject(currentPosition );
+			T newRecord = pager.getObject(currentPosition);
 			notifyChageRecordAll(newRecord);
 		}
 	}
@@ -136,7 +155,7 @@ public abstract class DataControl<T> extends MetaInfoHolder {
 				removeObject();
 			else {
 				i++;
-				obj =  pager.getObject(i);
+				obj = pager.getObject(i);
 			}
 		} while (obj != null);
 

@@ -9,9 +9,10 @@ import java.util.List;
 import org.apache.commons.lang.StringUtils;
 import org.tura.platform.datacontrol.DataControl;
 import org.tura.platform.datacontrol.MetaInfoHolder;
-import org.tura.platform.datacontrol.commons.ComparatorType;
 import org.tura.platform.datacontrol.commons.Constants;
 import org.tura.platform.datacontrol.commons.SearchCriteria;
+
+import com.octo.java.sql.exp.Operator;
 
 public class Relation {
 
@@ -88,7 +89,7 @@ public class Relation {
 				sc.setName(lnk.getChild());
 				sc.setClassName(value.getClass().getName());
 				sc.setValue(value.toString());
-				sc.setComparator(ComparatorType.EQ.name());
+				sc.setComparator(Operator.EQ.name());
 
 				scls.add(sc);
 			}
