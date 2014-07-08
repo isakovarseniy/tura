@@ -25,6 +25,7 @@ import org.tura.platform.persistence.ObjectsID;
 import org.tura.platform.persistence.TuraObject;
 
 import com.octo.java.sql.query.SelectQuery;
+import static com.octo.java.sql.query.Query.c;
 
 public class TuraJPAEntityService {
 	private EntityManager em;
@@ -55,10 +56,12 @@ public class TuraJPAEntityService {
 
 		List<?> ls = query.getResultList();
 
-		dslQuery.getColumns()[0] = "count(1)";
+		dslQuery.getColumns()[0] = c("count(*)")  ;
+		dslQuery.getOrderBy().clear();
+
 		query = em.createQuery(dslQuery.toSql());
 		long numResults = (long) query.getSingleResult();
-		
+
 		return new LazyList(ls,numResults,startIndex);
 
 	}

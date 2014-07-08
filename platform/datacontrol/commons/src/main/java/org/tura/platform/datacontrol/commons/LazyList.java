@@ -14,6 +14,7 @@ public class LazyList<T> extends AbstractList<T> {
 
 	public LazyList(List<T> data, long numResults, int startIndex) {
 		this();
+		this.numResults=numResults;
 		for (int j = 0; j < data.size(); j++) {
 			loaded.put(startIndex + j, data.get(j));
 		}

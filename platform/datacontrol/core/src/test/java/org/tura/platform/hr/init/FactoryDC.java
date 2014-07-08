@@ -1,5 +1,8 @@
 package org.tura.platform.hr.init;
 
+import static com.octo.java.sql.query.Query.c;
+import static com.octo.java.sql.query.Query.select;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -19,8 +22,7 @@ import org.tura.platform.hr.controls.DepartmentsDC;
 import org.tura.platform.hr.objects.DepartmentsDAO;
 import org.tura.platform.persistence.TuraObject;
 
-import static com.octo.java.sql.query.Query.select;
-
+import com.octo.java.sql.query.QueryException;
 import com.octo.java.sql.query.SelectQuery;
 
 public class FactoryDC {
@@ -54,24 +56,30 @@ public class FactoryDC {
 		departmentsDS.setVersionAttribute("version");
 		departmentsDS.setCommandStack(sc);
 
-		createCreateCommand(departmentsDS, elPrefix + "departments",TuraObject.class);
-		createInsertCommand(departmentsDS, elPrefix + "departments",TuraObject.class);
-		createUpdateCommand(departmentsDS, elPrefix + "departments",TuraObject.class);
-		createRemoveCommand(departmentsDS, elPrefix + "departments",TuraObject.class);
+		createCreateCommand(departmentsDS, elPrefix + "departments",
+				TuraObject.class);
+		createInsertCommand(departmentsDS, elPrefix + "departments",
+				TuraObject.class);
+		createUpdateCommand(departmentsDS, elPrefix + "departments",
+				TuraObject.class);
+		createRemoveCommand(departmentsDS, elPrefix + "departments",
+				TuraObject.class);
 		createSearchCommand(departmentsDS, elPrefix + "departments");
 
 		createQuery(departmentsDS, "DepartmentsDAO");
-		
 
 		return departmentsDS;
 	}
 
-	void createQuery(DataControl<?> control, String entity) {
-		final SelectQuery query = select(entity).from(entity).orderBy("objId");
+	void createQuery(DataControl<?> control, String entity)
+			throws QueryException {
+		SelectQuery query = select(c("x")).from(entity).as("x")
+				.orderBy("objId");
 		control.setDefaultQuery(query);
+		
 	}
 
-	void createCreateCommand(DataControl<?> control, String expr,Class<?> clazz) {
+	void createCreateCommand(DataControl<?> control, String expr, Class<?> clazz) {
 
 		CreateCommand command = new CreateCommand(control);
 		command.setProvider(provider);
@@ -86,7 +94,7 @@ public class FactoryDC {
 		control.setCreateCommand(command);
 	}
 
-	void createInsertCommand(DataControl<?> control, String expr,Class<?> clazz) {
+	void createInsertCommand(DataControl<?> control, String expr, Class<?> clazz) {
 
 		InsertCommand insertCommand = new InsertCommand(control);
 		insertCommand.setProvider(provider);
@@ -101,7 +109,7 @@ public class FactoryDC {
 		control.setInsertCommand(insertCommand);
 	}
 
-	void createUpdateCommand(DataControl<?> control, String expr,Class<?> clazz) {
+	void createUpdateCommand(DataControl<?> control, String expr, Class<?> clazz) {
 
 		UpdateCommand command = new UpdateCommand(control);
 		command.setProvider(provider);
@@ -116,7 +124,7 @@ public class FactoryDC {
 		control.setUpdateCommand(command);
 	}
 
-	void createRemoveCommand(DataControl<?> control, String expr,Class<?> clazz) {
+	void createRemoveCommand(DataControl<?> control, String expr, Class<?> clazz) {
 
 		DeleteCommand command = new DeleteCommand(control);
 		command.setProvider(provider);
@@ -132,7 +140,7 @@ public class FactoryDC {
 	}
 
 	void createSearchCommand(DataControl<?> control, String expr) {
-		
+
 		SearchCommand command = new SearchCommand(control);
 		command.setProvider(provider);
 		command.setMethod("find");
@@ -161,41 +169,39 @@ public class FactoryDC {
 		prm.setExpression(expr + ".baseClass.name");
 		command.getParameters().add(prm);
 
-		
 		control.setSearchCommand(command);
-		
+
 	}
 
 	public EntityManager getEntityManager() {
 		return em;
 	}
 
-	class LocalCommandStack extends CommandStack{
-		
+	class LocalCommandStack extends CommandStack {
+
 		private EntityManager em;
-		
-		public LocalCommandStack(EntityManager em ){
-			this.em=em;
+
+		public LocalCommandStack(EntityManager em) {
+			this.em = em;
 		}
 
 		@Override
 		public void beginTransaction() {
 			em.getTransaction().begin();
-			
+
 		}
 
 		@Override
 		public void commitTransaction() {
 			em.getTransaction().commit();
-			
+
 		}
 
 		@Override
 		public void rallbackTransaction() {
 			em.getTransaction().rollback();
 		}
-		
+
 	}
-	
-	
+
 }
