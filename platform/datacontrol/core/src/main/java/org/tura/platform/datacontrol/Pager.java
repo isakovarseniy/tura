@@ -86,6 +86,9 @@ public class Pager<T> {
 
 		}
 		query.toSql( new ExpressionResolver(datacontrol.getElResolver()));
+		//restore dafaut querybuilder
+		query.toSql(query.getQueryBuilder());
+		
 	}
 
 	public DataControl<T> getDataControl() {

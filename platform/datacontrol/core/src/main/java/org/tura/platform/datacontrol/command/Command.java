@@ -87,6 +87,7 @@ public abstract class Command {
 								"getWrapper");
 						obj = w.getObj();
 					}
+					
 					Object o = cloner.deepClone(obj);
 					parameter.setObj(o);
 				}
