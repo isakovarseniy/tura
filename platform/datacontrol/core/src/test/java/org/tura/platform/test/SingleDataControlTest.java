@@ -16,21 +16,24 @@ import org.tura.platform.hr.objects.DepartmentsDAO;
 
 import com.octo.java.sql.exp.Operator;
 
-public class DataControlTest {
+public class SingleDataControlTest {
 
-	private EntityManager em;
-	private FactoryDC factory;
+	private static EntityManager em;
+	private  static FactoryDC factory;
 
-	public DataControlTest() throws ParseException {
-
+	
+	static{
 		factory = new FactoryDC();
-
 		em = factory.getEntityManager();
 		new DepartmentsInit(em).init();
-		new EmployesesInit(em).init();
-
+		try {
+			new EmployesesInit(em).init();
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+		
 	}
-
+	
 	@Test
 	public void getObject() {
 		try {
@@ -52,7 +55,6 @@ public class DataControlTest {
 			Long id = new Long(10);
 			do {
 				DepartmentsDAO row = dc.getCurrentObject();
-				System.out.println(row.getObjId());
 				assertEquals(row.getObjId(), id);
 				id = id + 10L;
 				dc.nextObject();
@@ -63,7 +65,6 @@ public class DataControlTest {
 			id = new Long(270);
 			do {
 				DepartmentsDAO row = dc.getCurrentObject();
-				System.out.println(row.getObjId());
 				assertEquals(row.getObjId(), id);
 				id = id - 10L;
 				dc.prevObject();
