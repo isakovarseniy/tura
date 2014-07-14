@@ -16,6 +16,9 @@ import com.octo.java.sql.query.SelectQuery;
 
 public abstract class DataControl<T> extends MetaInfoHolder {
 
+	private static boolean SCROLL_DOWN = true;
+	private static boolean SCROLL_UP = false;
+	
 	private ArrayList<ChangeRecordListener> chageRecordLiteners = new ArrayList<>();
 
 	private SelectQuery query;
@@ -37,6 +40,7 @@ public abstract class DataControl<T> extends MetaInfoHolder {
 
 	public void forceRefresh() throws TuraException {
 		pager.cleanPager();
+		pager.setScrollDirection(SCROLL_DOWN);
 		notifyChageRecordAll(pager.getObject(currentPosition));
 	}
 
@@ -44,6 +48,7 @@ public abstract class DataControl<T> extends MetaInfoHolder {
 			Object newCurrentObject) throws TuraException {
 		pager.cleanPager();
 		currentPosition = 0;
+		pager.setScrollDirection(SCROLL_DOWN);
 		notifyChageRecordAll(pager.getObject(currentPosition));
 	}
 
@@ -73,6 +78,7 @@ public abstract class DataControl<T> extends MetaInfoHolder {
 	}
 
 	public T getCurrentObject() throws TuraException {
+		pager.setScrollDirection(SCROLL_DOWN);
 		return pager.getObject(currentPosition);
 	}
 
@@ -91,6 +97,7 @@ public abstract class DataControl<T> extends MetaInfoHolder {
 			getCurrentObject();
 		if (currentPosition+1 < pager.listSize()) {
 			currentPosition++;
+			pager.setScrollDirection(SCROLL_DOWN);
 			T newRecord = pager.getObject(currentPosition);
 			notifyChageRecordAll(newRecord);
 		}
@@ -107,6 +114,7 @@ public abstract class DataControl<T> extends MetaInfoHolder {
 	public void prevObject() throws TuraException {
 		if (currentPosition > 0) {
 			currentPosition--;
+			pager.setScrollDirection(SCROLL_UP);
 			T newRecord = pager.getObject(currentPosition);
 			notifyChageRecordAll(newRecord);
 		}
@@ -149,6 +157,7 @@ public abstract class DataControl<T> extends MetaInfoHolder {
 	public void removeAll() throws Exception {
 		T obj = null;
 		int i = 0;
+		pager.setScrollDirection(SCROLL_DOWN);
 		do {
 			obj = pager.getObject(i);
 			if (obj != null)
@@ -163,6 +172,7 @@ public abstract class DataControl<T> extends MetaInfoHolder {
 
 	public T createObject() throws TuraException {
 		// Refresh tree
+		pager.setScrollDirection(SCROLL_DOWN);
 		pager.getObject(currentPosition);
 
 		// Create a new object
@@ -231,8 +241,16 @@ public abstract class DataControl<T> extends MetaInfoHolder {
 		this.query = query;
 	}
 
-	public Pager<T> getPager() {
-		return pager;
+	public void setPageSize(int page){
+		pager.setLoadStep(page);
+	}
+	
+	public int getStartIndex() {
+		return pager.getStartIndex();
 	}
 
+	public int getEndIndex() {
+		return pager.getEndIndex();
+	}
+	
 }

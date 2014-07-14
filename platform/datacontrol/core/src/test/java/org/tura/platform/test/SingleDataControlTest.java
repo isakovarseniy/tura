@@ -52,25 +52,30 @@ public class SingleDataControlTest {
 		try {
 			DataControl<DepartmentsDAO> dc = factory.initDepartments("");
 			dc.getElResolver().setValue("departments", dc);
+			dc.setPageSize(5);
 			Long id = new Long(10);
 			do {
 				DepartmentsDAO row = dc.getCurrentObject();
+System.out.println(row.getObjId());				
 				assertEquals(row.getObjId(), id);
 				id = id + 10L;
 				dc.nextObject();
 			} while (dc.hasNext());
 			// Check last row
 			assertEquals(dc.getCurrentObject().getObjId(), id);
+System.out.println(dc.getCurrentObject().getObjId());				
 
 			id = new Long(270);
 			do {
 				DepartmentsDAO row = dc.getCurrentObject();
+System.out.println(row.getObjId());				
 				assertEquals(row.getObjId(), id);
 				id = id - 10L;
 				dc.prevObject();
 			} while (dc.hasPrev());
 			// Check last row
 			assertEquals(dc.getCurrentObject().getObjId(), id);
+System.out.println(dc.getCurrentObject().getObjId());				
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -108,4 +113,49 @@ public class SingleDataControlTest {
 	}
 
 
+	@Test
+	public void removeAndScroll() {
+		try {
+			DataControl<DepartmentsDAO> dc = factory.initDepartments("");
+			dc.getElResolver().setValue("departments", dc);
+			dc.setPageSize(5);
+			dc.getCurrentObject();
+			for (int i = 0 ; i< 4; i++) {
+				dc.removeObject();
+			} 
+			
+			dc.forceRefresh();
+
+			Long id = new Long(50);
+			do {
+				DepartmentsDAO row = dc.getCurrentObject();
+System.out.println(row.getObjId());				
+				assertEquals(row.getObjId(), id);
+				id = id + 10L;
+				dc.nextObject();
+			} while (dc.hasNext());
+			// Check last row
+			assertEquals(dc.getCurrentObject().getObjId(), id);
+System.out.println(dc.getCurrentObject().getObjId());				
+
+			id = new Long(270);
+			do {
+				DepartmentsDAO row = dc.getCurrentObject();
+System.out.println(row.getObjId());				
+				assertEquals(row.getObjId(), id);
+				id = id - 10L;
+				dc.prevObject();
+			} while (dc.hasPrev());
+			// Check last row
+			assertEquals(dc.getCurrentObject().getObjId(), id);
+System.out.println(dc.getCurrentObject().getObjId());				
+			
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			fail(e.getMessage());
+		}
+	}
+	
+	
 }

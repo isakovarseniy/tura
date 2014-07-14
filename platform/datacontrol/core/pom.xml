@@ -43,6 +43,13 @@
 			<version>${cglib}</version>
 		</dependency>
 
+		<dependency>
+			<groupId>net.sf.josql</groupId>
+			<artifactId>josql</artifactId>
+			<version>${josql}</version>
+		</dependency>
+
+
 		<!-- Test -->
 
 		<dependency>

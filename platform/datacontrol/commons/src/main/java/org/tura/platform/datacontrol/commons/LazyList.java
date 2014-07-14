@@ -11,14 +11,28 @@ public class LazyList<T> extends AbstractList<T> {
 	private Map<Integer, T> loaded;
 
 	private long numResults;
+	private int startIndex;
+	private long actualRowNumber;
 
 	public LazyList(List<T> data, long numResults, int startIndex) {
 		this();
 		this.numResults=numResults;
+		this.actualRowNumber=numResults;
+		this.startIndex=startIndex;
 		for (int j = 0; j < data.size(); j++) {
 			loaded.put(startIndex + j, data.get(j));
 		}
 
+	}
+	
+	public void reindex(int index){
+		HashMap<Integer, T>	map  = new HashMap<Integer, T>();
+
+		for (Integer i : loaded.keySet()){
+			int ni = i-startIndex+index;
+			map.put(new Integer(ni), loaded.get(i));
+		}
+		loaded=map;
 	}
 	
 	public Set<Integer> getKeys(){
@@ -28,6 +42,7 @@ public class LazyList<T> extends AbstractList<T> {
 	public LazyList() {
 		loaded = new HashMap<Integer, T>();
 		numResults=-1;
+		actualRowNumber=-1;
 	}
 
 	@Override
@@ -93,5 +108,17 @@ public class LazyList<T> extends AbstractList<T> {
 
 	public void correctRowsNumber(int correction){
 		numResults = numResults + correction;
+	}
+
+	public int getStartIndex() {
+		return startIndex;
+	}
+
+	public int getFragmentSize() {
+		return loaded.size();
+	}
+
+	public long getActualRowNumber() {
+		return actualRowNumber;
 	}
 }

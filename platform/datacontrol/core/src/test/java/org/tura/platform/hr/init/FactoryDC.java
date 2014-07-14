@@ -154,13 +154,13 @@ public class FactoryDC {
 		prm = command.new CallParameter();
 		prm.setName("startIndex");
 		prm.setClazz(Integer.class);
-		prm.setExpression(expr + ".pager.startIndex");
+		prm.setExpression(expr + ".startIndex");
 		command.getParameters().add(prm);
 
 		prm = command.new CallParameter();
 		prm.setName("endIndex");
 		prm.setClazz(Integer.class);
-		prm.setExpression(expr + ".pager.endIndex");
+		prm.setExpression(expr + ".endIndex");
 		command.getParameters().add(prm);
 
 		prm = command.new CallParameter();

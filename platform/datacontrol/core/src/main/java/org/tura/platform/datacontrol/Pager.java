@@ -42,6 +42,7 @@ public class Pager<T> {
 	private int loadStep;
 	private LazyList<T> entities = new LazyList<>();
 	private DataControl<T> datacontrol;
+	private boolean direction;
 
 	public Pager(DataControl<T> datacontrol) {
 		this.datacontrol = datacontrol;
@@ -85,10 +86,10 @@ public class Pager<T> {
 			}
 
 		}
-		query.toSql( new ExpressionResolver(datacontrol.getElResolver()));
-		//restore dafaut querybuilder
+		query.toSql(new ExpressionResolver(datacontrol.getElResolver()));
+		// restore dafaut querybuilder
 		query.toSql(query.getQueryBuilder());
-		
+
 	}
 
 	public DataControl<T> getDataControl() {
@@ -127,7 +128,7 @@ public class Pager<T> {
 				st.push(startIndex);
 				st.push(entities);
 
-				T obj = queryDS(index);
+				T obj = queryDS(entities.getStartIndex(), index, -1);
 				if (obj == null) {
 					entities = (LazyList<T>) st.pop();
 					startIndex = (Integer) st.pop();
@@ -144,14 +145,11 @@ public class Pager<T> {
 	}
 
 	@SuppressWarnings({ "unchecked" })
-	private T queryDS(int index) throws TuraException {
+	private T queryDS(int sindex, int index, int reindex) throws TuraException {
 
-		startIndex = index - calculateShift();
-		assert startIndex >= 0;
-
-		endIndex = index + getLoadStep()
-				+ getDataControl().getCommandStack().getRemovedObjects().size()
-				+ 1;
+		if (!isFrameShiftPossible(sindex, entities.getActualRowNumber()))
+			return null;
+		calculateShift(sindex);
 
 		try {
 			prepareQuery();
@@ -162,6 +160,12 @@ public class Pager<T> {
 				entities = (LazyList<T>) datacontrol.getSearchCommand()
 						.execute();
 
+				if (entities.getStartIndex() > index
+						|| entities.getStartIndex()
+								+ entities.getFragmentSize() <  index) {
+					System.out.println("Reindex !!!!!!!!!!!!!!!!!!!!! : "+entities.getStartIndex()+" {} "+ entities.getStartIndex() +"+"+ entities.getFragmentSize()+" idx="+ index );
+					entities.reindex(index);
+				}
 			} finally {
 				datacontrol.getCommandStack().commitTransaction();
 			}
@@ -169,29 +173,60 @@ public class Pager<T> {
 			// Add created objects
 			applyCreatedObjects();
 
-			Map<String, Integer> map = buildMapper();
-
 			// Apply updates
-			applyUpdatedObjects(map);
+			applyUpdatedObjects();
 
 			// Apply removed
-			applyRemovedObjects(map);
+			applyRemovedObjects();
 
-			if (entities.size() != 0) {
+			if (entities.getFragmentSize() != 0) {
 				return getEntity(index);
 			} else {
-				return null;
+
+				return queryDS(startIndex, index, ++reindex);
 			}
 		} catch (Exception e) {
 			throw new TuraException(e);
 		}
 	}
 
+	private boolean isFrameShiftPossible(int sindex, long maxrow) {
+		if (maxrow == -1)
+			return true;
+
+		if (direction && sindex + getLoadStep() < maxrow)
+			return true;
+
+		if (!direction && sindex - getLoadStep() >= 0)
+			return true;
+
+		return false;
+	}
+
+	private void calculateShift(int sindex) {
+		if (entities.size() == -1) {
+			startIndex = 0;
+			endIndex = startIndex + getLoadStep();
+			return;
+		}
+
+		if (direction) {
+			startIndex = sindex + getLoadStep();
+			endIndex = startIndex + getLoadStep();
+		} else {
+			endIndex = startIndex;
+			startIndex = sindex - getLoadStep();
+		}
+
+	}
+
 	@SuppressWarnings("unchecked")
-	private void applyUpdatedObjects(Map<String, Integer> map)
-			throws NoSuchMethodException, SecurityException,
-			IllegalAccessException, IllegalArgumentException,
-			InvocationTargetException {
+	private void applyUpdatedObjects() throws NoSuchMethodException,
+			SecurityException, IllegalAccessException,
+			IllegalArgumentException, InvocationTargetException, TuraException {
+
+		Map<String, Integer> map = buildMapper();
+
 		for (String key : getDataControl().getCommandStack()
 				.getUpdatedObjects().keySet()) {
 
@@ -213,10 +248,9 @@ public class Pager<T> {
 
 	}
 
-	private void applyRemovedObjects(Map<String, Integer> map)
-			throws NoSuchMethodException, SecurityException,
-			IllegalAccessException, IllegalArgumentException,
-			InvocationTargetException {
+	private void applyRemovedObjects() throws NoSuchMethodException,
+			SecurityException, IllegalAccessException,
+			IllegalArgumentException, InvocationTargetException, TuraException {
 		for (String key : getDataControl().getCommandStack()
 				.getRemovedObjects().keySet()) {
 
@@ -228,9 +262,11 @@ public class Pager<T> {
 			if (bean.getDatacontrol().getBaseClass()
 					.equals(datacontrol.getBaseClass())) {
 
+				Map<String, Integer> map = buildMapper();
+
 				Integer i = map.get(key);
 				if (i != null) {
-					entities.remove(i);
+					entities.remove(i.intValue());
 				} else
 					entities.correctRowsNumber(-1);
 			}
@@ -254,42 +290,6 @@ public class Pager<T> {
 		} else
 			entities.correctRowsNumber(datacontrol.getCommandStack()
 					.getCreatedObjects().size());
-
-	}
-
-	private int calculateShift() throws TuraException {
-
-		try {
-			Map<String, String> createdMap = new HashMap<>();
-
-			for (String key : getDataControl().getCommandStack()
-					.getCreatedObjects().keySet()) {
-
-				Object obj = getDataControl().getCommandStack()
-						.getCreatedObjects().get(key);
-				BeanWrapper bean = (BeanWrapper) Reflection.call(obj,
-						"getWrapper");
-				if (bean.getDatacontrol().getBaseClass()
-						.equals(datacontrol.getBaseClass()))
-					createdMap.put(key, key);
-			}
-
-			for (String key : getDataControl().getCommandStack()
-					.getRemovedObjects().keySet()) {
-
-				Object obj = getDataControl().getCommandStack()
-						.getRemovedObjects().get(key);
-				BeanWrapper bean = (BeanWrapper) Reflection.call(obj,
-						"getWrapper");
-				if (bean.getDatacontrol().getBaseClass()
-						.equals(datacontrol.getBaseClass()))
-					createdMap.remove(key);
-			}
-			return createdMap.size();
-
-		} catch (Exception e) {
-			throw new TuraException(e);
-		}
 
 	}
 
@@ -346,10 +346,15 @@ public class Pager<T> {
 	public T remove(int i) throws TuraException {
 		try {
 			T obj = getEntity(i);
-			BeanWrapper w = (BeanWrapper) Reflection.call(obj, "getWrapper");
 
-			datacontrol.getDeleteCommand().setObj(w.getObj());
+			datacontrol.getDeleteCommand().setObj(obj);
+
+			if (datacontrol.getPreDeleteTrigger() != null)
+				datacontrol.getPreDeleteTrigger().execute(
+						datacontrol.getDeleteCommand());
+
 			this.entities.remove(i);
+			datacontrol.getDeleteCommand().execute();
 
 			return obj;
 		} catch (Exception e) {
@@ -371,5 +376,9 @@ public class Pager<T> {
 
 	public int getEndIndex() {
 		return endIndex;
+	}
+
+	public void setScrollDirection(boolean direction) {
+		this.direction = direction;
 	}
 }
