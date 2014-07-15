@@ -1,9 +1,11 @@
-package org.tura.platform.datacontrol.shift;
+package org.tura.platform.datacontrol.shift.rules;
 
 import java.util.List;
 
 import org.josql.QueryExecutionException;
 import org.josql.QueryParseException;
+import org.tura.platform.datacontrol.shift.Element;
+import org.tura.platform.datacontrol.shift.ShiftControl;
 
 public abstract class AddRule extends Rule {
 
@@ -14,16 +16,13 @@ public abstract class AddRule extends Rule {
 		for (int i = 0; i < result.size(); i++) {
 			Element element = (Element) result.get(i);
 			element.setActualPosition(element.getActualPosition() + 1);
-			element.setShift(element.getShift() + 1);
-			if (element.getShift() == 0 && i+1 < result.size()){
-				element.setOriginalPosition(element.getOriginalPosition() + 1);
-				element.setActualPosition(element.getActualPosition() + 1);
-				element.setShift(element.getShift() + 1);
-				
-			}
+//			if (element.getShift() == 0 ){
+//				element.setOriginalPosition(element.getOriginalPosition() + 2);
+//				element.setActualPosition(element.getActualPosition() + 1);
+//			}
 			
 		}
-		removeZeroShift(shiftControl);
+//		removeZeroShift(shiftControl);
 	}
 
 }

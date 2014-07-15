@@ -1,4 +1,4 @@
-package org.tura.platform.datacontrol.shift;
+package org.tura.platform.datacontrol.shift.rules;
 
 import java.util.List;
 
@@ -6,6 +6,9 @@ import org.josql.Query;
 import org.josql.QueryExecutionException;
 import org.josql.QueryParseException;
 import org.josql.QueryResults;
+import org.tura.platform.datacontrol.shift.Element;
+import org.tura.platform.datacontrol.shift.ShiftConstants;
+import org.tura.platform.datacontrol.shift.ShiftControl;
 
 public abstract class Rule {
 	

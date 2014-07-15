@@ -5,7 +5,6 @@ public class Element {
 	private int actualPosition;
 	private int originalPosition;
 	private String elementType;
-	private int shift;
 
 	@Override
 	public boolean equals(Object o) {
@@ -31,7 +30,6 @@ public class Element {
 		this.actualPosition = actualPosition;
 		this.originalPosition = originalPosition;
 		this.elementType = elementType.name();
-		shift = actualPosition - originalPosition;
 	}
 
 	public int getActualPosition() {
@@ -59,11 +57,8 @@ public class Element {
 	}
 
 	public int getShift() {
-		return shift;
+		return actualPosition - originalPosition;
 	}
 
-	public void setShift(int shift) {
-		this.shift = shift;
-	}
 
 }
