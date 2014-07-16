@@ -99,9 +99,8 @@ public class ShifterTest {
 
 			comparator(control, new Element[] {
 					new Element(3, 3, ElementType.NEW),
-					new Element(4, 3, ElementType.EXISTING),
-					new Element(5, 4, ElementType.NEW),
-					new Element(6, 4, ElementType.EXISTING),
+					new Element(4, 4, ElementType.NEW),
+					new Element(5, 3, ElementType.EXISTING),
 					new Element(7, 5, ElementType.NEW),
 					new Element(8, 5, ElementType.EXISTING)
 
@@ -185,8 +184,8 @@ public class ShifterTest {
 			control.print(ShiftConstants.SELECT_ORDERBY_ACTUALPOSITION);
 			
 			comparator(control, new Element[] {
-					new Element(3, 5, ElementType.EXISTING),
-					new Element(5, 8, ElementType.EXISTING)
+					new Element(3, 4, ElementType.EXISTING),
+					new Element(4, 7, ElementType.EXISTING)
 			});
 			
 			
@@ -213,7 +212,8 @@ public class ShifterTest {
 			control.print(ShiftConstants.SELECT_ORDERBY_ACTUALPOSITION);
 
 			comparator(control, new Element[] {
-					new Element(1, 4, ElementType.EXISTING)
+					new Element(3, 4, ElementType.EXISTING),
+					new Element(4, 7, ElementType.EXISTING)
 			});
 		
 		
@@ -239,7 +239,9 @@ public class ShifterTest {
 			control.print(ShiftConstants.SELECT_ORDERBY_ACTUALPOSITION);
 
 			comparator(control, new Element[] {
-					new Element(1, 4, ElementType.EXISTING)
+					new Element(3, 4, ElementType.EXISTING),
+					new Element(4, 6, ElementType.EXISTING),
+					new Element(5, 8, ElementType.EXISTING)
 			});
 		
 		
@@ -389,6 +391,7 @@ public class ShifterTest {
 			control.print(ShiftConstants.SELECT_ORDERBY_ACTUALPOSITION);
 
 			comparator(control, new Element[] {
+					new Element(1, 2, ElementType.EXISTING),
 					new Element(2, 3, ElementType.NEW),
 					new Element(3, 3, ElementType.EXISTING),
 					new Element(6, 7, ElementType.EXISTING)
@@ -415,8 +418,8 @@ public class ShifterTest {
 			control.print(ShiftConstants.SELECT_ORDERBY_ACTUALPOSITION);
 
 			comparator(control, new Element[] {
-					new Element(2, 3, ElementType.NEW),
-					new Element(3, 3, ElementType.EXISTING),
+					new Element(1, 2, ElementType.EXISTING),
+					new Element(3, 3, ElementType.NEW),
 					new Element(6, 7, ElementType.EXISTING)
 			});
 
@@ -471,7 +474,8 @@ public class ShifterTest {
 
 			comparator(control, new Element[] {
 					new Element(1, 1, ElementType.EXISTING),
-					new Element(4, 4, ElementType.EXISTING)
+					new Element(4, 5, ElementType.EXISTING),
+					new Element(5, 5, ElementType.NEW)
 			});
 			
 		} catch (Exception e) {
@@ -498,7 +502,8 @@ public class ShifterTest {
 
 			comparator(control, new Element[] {
 					new Element(1, 1, ElementType.EXISTING),
-					new Element(4, 4, ElementType.EXISTING)
+					new Element(4, 5, ElementType.NEW),
+					new Element(5, 5, ElementType.EXISTING)
 			});
 			
 		} catch (Exception e) {
@@ -508,6 +513,32 @@ public class ShifterTest {
 
 	}
 	
+	
+	@Test
+	public void R8_R5_R1() {
+
+		try {
+			ShiftControl control = new ShiftControl(logger);
+
+			control.remove(8);
+			control.print(ShiftConstants.SELECT_ORDERBY_ACTUALPOSITION);
+			control.remove(5);
+			control.print(ShiftConstants.SELECT_ORDERBY_ACTUALPOSITION);
+			control.remove(1);
+			control.print(ShiftConstants.SELECT_ORDERBY_ACTUALPOSITION);
+
+			comparator(control, new Element[] {
+					new Element(1, 2, ElementType.EXISTING),
+					new Element(4, 6, ElementType.NEW),
+					new Element(6, 9, ElementType.EXISTING)
+			});
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			fail(e.getMessage());
+		}
+
+	}
 	
 	
 	

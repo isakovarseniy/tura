@@ -9,36 +9,42 @@ import org.tura.platform.datacontrol.shift.ElementType;
 import org.tura.platform.datacontrol.shift.ShiftControl;
 import org.tura.platform.datacontrol.shift.rules.RemoveRule;
 
-public class PositionElementDoesNotExistsRemoveRule extends RemoveRule {
+public class PositionElementExistsShiftNot0RemoveRule extends RemoveRule{
 
+	
 	@Override
-	public boolean guard(ShiftControl shiftControl, List<Object> result,
-			int position) {
-		if (shiftControl.getShiftTracker().size() == 0 && result.size() == 0)
+	public boolean guard(ShiftControl shiftControl,List<Object> result, int position) {
+		if (shiftControl.getShiftTracker().size() == 0 || result.size() == 0 )
 			return false;
 
 		Element element = (Element) result.get(0);
-		if (element.getActualPosition() != position) {
+		if (element.getActualPosition() == position && element.getShift() !=0
+				&& element.getElementType().equals(ElementType.EXISTING.name())) {
 			return true;
 		}
 		return false;
 	}
-
+	
 	@Override
 	public void execute(ShiftControl shiftControl, List<Object> result,
 			int position) throws QueryParseException, QueryExecutionException {
 
-		Element e = ((Element) result.get(0));
-		if (e.getActualPosition() != position + 1) {
+		Element e = (Element) result.get(0);
+		int original = position + 1 - e.getActualPosition()
+				+ e.getOriginalPosition();
+		if (e.getShift() > 0)
+			original++;
 
-			int original = position + 1;
+		shiftControl.getShiftTracker().remove(e);
+		shiftControl.getShiftTracker().add(
+				new Element(position, original, ElementType.EXISTING));
 
-			shiftControl.getShiftTracker().add(
-					new Element(position, original, ElementType.EXISTING));
-
-		}
 		super.execute(shiftControl, result, position);
-
 	}
 
+	
 }
+
+
+
+

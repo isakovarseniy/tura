@@ -4,13 +4,15 @@ import org.tura.platform.datacontrol.shift.rules.remove.PositionElementDoesNotEx
 import org.tura.platform.datacontrol.shift.rules.remove.PositionElementNewExistsRemoveRule;
 import org.tura.platform.datacontrol.shift.rules.remove.ResultSetEmptyRemoveRule;
 import org.tura.platform.datacontrol.shift.rules.remove.PositionElementExistsShift0RemoveRule;
+import org.tura.platform.datacontrol.shift.rules.remove.PositionElementExistsShiftNot0RemoveRule;
 
 public enum  RemoveRuleFactory {
 	
 	FirstRowRemoveRule(ResultSetEmptyRemoveRule.class),
 	PositionElementDoesNotExistsRemoveRule(PositionElementDoesNotExistsRemoveRule.class),
 	PositionElementNewExistsRemoveRule(PositionElementNewExistsRemoveRule.class),
-	PositionElementExistsShift0RemoveRule(PositionElementExistsShift0RemoveRule.class);
+	PositionElementExistsShift0RemoveRule(PositionElementExistsShift0RemoveRule.class),
+	PositionElementExistsShiftNot0RemoveRule(PositionElementExistsShiftNot0RemoveRule.class);
 	
 	private Class<?> clazz;
 
