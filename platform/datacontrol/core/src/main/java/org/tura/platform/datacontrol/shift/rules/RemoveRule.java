@@ -15,23 +15,6 @@ public abstract class RemoveRule extends Rule {
 		for (int i = 0; i < result.size(); i++) {
 			Element element = (Element) result.get(i);
 			element.setActualPosition(element.getActualPosition() - 1);
-
-//			if (element.getShift() == 0) {
-//
-//				Query query = new Query();
-//				query.parse(ShiftConstants.SELECT_UPPER_ELEMENTS);
-//				query.setVariable("position", i);
-//
-//				QueryResults upperResult = query.execute(shiftControl
-//						.getShiftTracker());
-//				if (upperResult.getResults().size() != 0) {
-//					element.setOriginalPosition(element.getOriginalPosition() - 1);
-//					element.setActualPosition(element.getActualPosition() - 1);
-//				}
-//			}
-
 		}
-//		removeZeroShift(shiftControl);
 	}
-
 }

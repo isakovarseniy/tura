@@ -16,13 +16,7 @@ public abstract class AddRule extends Rule {
 		for (int i = 0; i < result.size(); i++) {
 			Element element = (Element) result.get(i);
 			element.setActualPosition(element.getActualPosition() + 1);
-//			if (element.getShift() == 0 ){
-//				element.setOriginalPosition(element.getOriginalPosition() + 2);
-//				element.setActualPosition(element.getActualPosition() + 1);
-//			}
-			
 		}
-//		removeZeroShift(shiftControl);
 	}
 
 }

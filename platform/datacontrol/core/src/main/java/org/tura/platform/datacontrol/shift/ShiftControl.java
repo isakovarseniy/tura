@@ -10,6 +10,7 @@ import org.josql.QueryResults;
 import org.tura.platform.datacontrol.shift.rules.AddRulesFactory;
 import org.tura.platform.datacontrol.shift.rules.RemoveRuleFactory;
 import org.tura.platform.datacontrol.shift.rules.Rule;
+import org.tura.platform.datacontrol.shift.rules.UpdateRulesFactory;
 
 public class ShiftControl {
 
@@ -49,6 +50,33 @@ public class ShiftControl {
 			throw new RuntimeException("Rule not found");
 	}
 
+	
+	@SuppressWarnings("unchecked")
+	public void update(int position) throws QueryExecutionException,
+			QueryParseException, InstantiationException, IllegalAccessException {
+		Query query = new Query();
+		query.parse(ShiftConstants.SELECT_FOR_SHIFT);
+		query.setVariable("position", new Integer(position));
+
+		QueryResults result = query.execute(shiftTracker);
+		boolean processed = false;
+
+		for (UpdateRulesFactory ruleDef : UpdateRulesFactory.values()) {
+			Rule rule = ruleDef.getRule();
+			if (rule.guard(this, result.getResults(), position)) {
+				if (logger != null)
+					logger.info("<-----------" + rule.getClass().getName()
+							+ "----------->");
+				rule.execute(this, result.getResults(), position);
+				processed = true;
+				break;
+			}
+		}
+		if (!processed)
+			throw new RuntimeException("Rule not found");
+	}
+	
+	
 	@SuppressWarnings("unchecked")
 	public void remove(int position) throws QueryExecutionException,
 			QueryParseException, InstantiationException, IllegalAccessException {
@@ -93,7 +121,7 @@ public class ShiftControl {
 
 			logger.info("actual = " + element.getActualPosition()
 					+ " original=" + element.getOriginalPosition() + " shift="
-					+ element.getShift() + " type=" + element.getElementType());
+					+ element.getShift() + " type=" + element.getElementType() + " updated=" + element.isModified());
 		}
 
 	}

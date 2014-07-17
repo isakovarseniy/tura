@@ -5,7 +5,9 @@ public class Element {
 	private int actualPosition;
 	private int originalPosition;
 	private String elementType;
+	private boolean modified=false;
 
+	
 	@Override
 	public boolean equals(Object o) {
 		if (!(o instanceof Element))
@@ -54,6 +56,14 @@ public class Element {
 
 	public void setElementType(String elementType) {
 		this.elementType = elementType;
+	}
+
+	public boolean isModified() {
+		return modified;
+	}
+
+	public void setModified(boolean modified) {
+		this.modified = modified;
 	}
 
 	public int getShift() {

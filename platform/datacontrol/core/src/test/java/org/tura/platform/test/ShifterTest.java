@@ -541,6 +541,58 @@ public class ShifterTest {
 	}
 	
 	
+
+	@Test
+	public void U7() {
+
+		try {
+			ShiftControl control = new ShiftControl(logger);
+
+			control.update(8);
+			control.print(ShiftConstants.SELECT_ORDERBY_ACTUALPOSITION);
+
+			comparator(control, new Element[] {
+					new Element(8, 8, ElementType.EXISTING),
+			});
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			fail(e.getMessage());
+		}
+
+	}
+	
+
+	@Test
+	public void A1_R1_U3_R4_A5() {
+
+		try {
+			ShiftControl control = new ShiftControl(logger);
+
+			control.add(1);
+			control.print(ShiftConstants.SELECT_ORDERBY_ACTUALPOSITION);
+			control.remove(1);
+			control.print(ShiftConstants.SELECT_ORDERBY_ACTUALPOSITION);
+			control.update(1);
+			control.print(ShiftConstants.SELECT_ORDERBY_ACTUALPOSITION);
+			control.remove(4);
+			control.print(ShiftConstants.SELECT_ORDERBY_ACTUALPOSITION);
+			control.add(5);
+			control.print(ShiftConstants.SELECT_ORDERBY_ACTUALPOSITION);
+
+			comparator(control, new Element[] {
+					new Element(1, 1, ElementType.EXISTING),
+					new Element(4, 5, ElementType.EXISTING),
+					new Element(5, 5, ElementType.NEW)
+			});
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			fail(e.getMessage());
+		}
+
+	}
+	
 	
 	private void comparator(ShiftControl contorl, Element[] array) {
 		assertEquals(contorl.getShiftTracker().size(), array.length);
