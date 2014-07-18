@@ -81,8 +81,9 @@ public class TuraJPAEntityService {
 		em.persist(entity);
 	}
 
-	public void remove(TuraObject entity) {
-		em.remove(entity);
+	public void remove( TuraObject entity) throws ClassNotFoundException {
+		Object obj = em.find(entity.getClass(),entity.getObjId());
+		em.remove(obj);
 	}
 
 	protected Long getObjectID(EntityManager em) {

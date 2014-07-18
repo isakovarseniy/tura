@@ -1,6 +1,8 @@
 package org.tura.platform.hr.objects;
 
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
@@ -9,7 +11,10 @@ import org.tura.platform.persistence.TuraObject;
 
 @Entity(name = "DepartmentsDAO")
 @Table(name = "DEPARTMENTSDAO")
-public class DepartmentsDAO extends TuraObject {
+public class DepartmentsDAO extends TuraObject  implements Serializable{
+
+	private static final long serialVersionUID = 7526472295622776147L;
+	
     @Column(name = "DEPARTMENTID")
     private Long departmentId;
     @Column(name = "DEPARTMENTNAME")

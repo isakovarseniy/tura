@@ -82,7 +82,7 @@ public abstract class Command {
 				if (    (exp != null  && !exp.equals("")   ) &&  (val !=null  &&  !val.equals("") ) ) {
 					new TuraException("Wrong combination of method's parameter");
 				}
-				if (!exp.equals("")) {
+				if ( exp != null &&  !exp.equals("")) {
 					Object obj = datacontrol.getElResolver().getValue(exp);
 
 					if (  !obj.getClass().isPrimitive() &&   obj.getClass().getName().indexOf("EnhancerByCGLIB") != -1) {

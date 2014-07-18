@@ -129,7 +129,7 @@ public class SingleDataControlTest {
 
 
 	@Test
-	public void removeAndScroll() {
+	public void removeScrollDownScrollUpCpmmitScrollDown() {
 		try {
 			DataControl<DepartmentsDAO> dc = factory.initDepartments("");
 			dc.getElResolver().setValue("departments", dc);
@@ -165,6 +165,21 @@ public class SingleDataControlTest {
 			// Check last row
 			assertEquals(dc.getCurrentObject().getObjId(), id);
 			logger.info(dc.getCurrentObject().getObjId().toString());				
+			
+			dc.getCommandStack().commitCommand();
+
+			id = new Long(50);
+			do {
+				DepartmentsDAO row = dc.getCurrentObject();
+				logger.info(row.getObjId().toString());				
+				assertEquals(row.getObjId(), id);
+				id = id + 10L;
+				dc.nextObject();
+			} while (dc.hasNext());
+			// Check last row
+			assertEquals(dc.getCurrentObject().getObjId(), id);
+			logger.info(dc.getCurrentObject().getObjId().toString());				
+			
 			
 		} catch (Exception e) {
 			e.printStackTrace();
