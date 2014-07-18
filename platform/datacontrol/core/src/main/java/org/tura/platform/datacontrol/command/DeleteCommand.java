@@ -2,8 +2,6 @@ package org.tura.platform.datacontrol.command;
 
 import org.tura.platform.datacontrol.DataControl;
 
-import com.rits.cloning.Cloner;
-
 public class DeleteCommand extends Command{
 
 	private Object obj;
@@ -14,18 +12,16 @@ public class DeleteCommand extends Command{
 
 	@Override
 	public Object execute() throws Exception {
-		this.prepareParameters();
-		this.prepareCall();
 
-		Cloner cloner = new Cloner();
-		Command cmd = cloner.deepClone(this);
-		
+		DeleteCommand cmd = new DeleteCommand(this.getDatacontrol());
+		cmd.provider = this.provider;
+		cmd.parameters =this.prepareParameters();
+		this.prepareCall();
+		cmd.call = this.call;
+
 		this.getDatacontrol().getShifter().remove(this.getDatacontrol().getCurrentPosition());
 		this.getDatacontrol().getCommandStack().addTransaction( cmd);
 
-		// Force to work with method parameters
-		// this.getParameters();
-		obj = null;
 
 		return null;
 	}

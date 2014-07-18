@@ -6,6 +6,8 @@ import java.util.Iterator;
 import java.util.List;
 
 import org.apache.commons.lang.StringUtils;
+import org.josql.QueryExecutionException;
+import org.josql.QueryParseException;
 import org.tura.platform.datacontrol.commons.Constants;
 import org.tura.platform.datacontrol.commons.Reflection;
 import org.tura.platform.datacontrol.commons.SearchCriteria;
@@ -86,7 +88,14 @@ public abstract class DataControl<T> extends MetaInfoHolder {
 	public boolean hasNext() throws TuraException {
 		if (pager.listSize() == -1)
 			getCurrentObject();
-		if (currentPosition +1 < pager.listSize())
+		
+		int position;
+		try {
+			position = (int) pager.getShifter().getObject(currentPosition, true);
+		} catch (Exception e) {
+			throw new TuraException(e);
+		}
+		if (position +1 < pager.listSize())
 			return true;
 		else
 			return false;
@@ -96,7 +105,14 @@ public abstract class DataControl<T> extends MetaInfoHolder {
 	public void nextObject() throws TuraException {
 		if (pager.listSize() == -1)
 			getCurrentObject();
-		if (currentPosition+1 < pager.listSize()) {
+
+		int position;
+		try {
+			position = (int) pager.getShifter().getObject(currentPosition, true);
+		} catch (Exception e) {
+			throw new TuraException(e);
+		}
+		if (position +1 < pager.listSize()){
 			currentPosition++;
 			pager.setScrollDirection(SCROLL_DOWN);
 			T newRecord = pager.getObject(currentPosition);
@@ -105,6 +121,8 @@ public abstract class DataControl<T> extends MetaInfoHolder {
 	}
 
 	public boolean hasPrev() {
+
+		
 		if (currentPosition > 0)
 			return true;
 		else

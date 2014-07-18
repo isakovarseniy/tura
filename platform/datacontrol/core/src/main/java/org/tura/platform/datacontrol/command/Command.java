@@ -5,6 +5,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 
 import org.apache.commons.lang.StringUtils;
 import org.tura.platform.datacontrol.BeanWrapper;
@@ -25,14 +26,14 @@ public abstract class Command {
 	}
 
 	private DataControl<?> datacontrol;
-	private ArrayList<CallParameter> parameters = new ArrayList<>();
-	private Object provider;
+	protected List<CallParameter> parameters = new ArrayList<>();
+	protected Object provider;
 	private String method;
-	private Method call;
+	protected Method call;
 
 
 	
-	public ArrayList<CallParameter> getParameters() {
+	public List<CallParameter> getParameters() {
 		return parameters;
 	}
 
@@ -67,9 +68,11 @@ public abstract class Command {
 	}
 	
 	
-	public void prepareParameters() throws Exception {
+	public List<CallParameter> prepareParameters() throws Exception {
 
 		Cloner cloner = new Cloner();
+		ArrayList<CallParameter> lst = new ArrayList<CallParameter> ();
+
 		if (parameters.size() != 0) {
 			for (CallParameter parameter : parameters) {
 
@@ -96,8 +99,17 @@ public abstract class Command {
 							.getConstructor(String.class);
 					parameter.setObj(constructor.newInstance(val));
 				}
+
+				CallParameter param = new CallParameter();
+				param.clazz = parameter.clazz;
+				param.expression = parameter.expression;
+				param.name = parameter.name;
+				param.obj = parameter.obj;
+				
+				lst.add( param);
 			}
 		}
+		return lst;
 	}
 
 	protected void versionControl() throws NoSuchMethodException, SecurityException, IllegalAccessException, IllegalArgumentException, InvocationTargetException {

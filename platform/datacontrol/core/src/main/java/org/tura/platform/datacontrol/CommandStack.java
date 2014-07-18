@@ -54,7 +54,9 @@ public abstract class CommandStack {
 			itr = transaction.iterator();
 			while (itr.hasNext()) {
 				Command cmd = itr.next();
+				cmd.getDatacontrol().getShifter().clean();
 				cmd.getDatacontrol().forceRefresh();
+				
 			}
 
 			transaction = new ArrayList<Command>();

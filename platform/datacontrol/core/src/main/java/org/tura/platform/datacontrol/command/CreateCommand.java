@@ -11,7 +11,7 @@ public class CreateCommand extends Command {
 	@Override
 	public Object execute() throws Exception {
 
-		this.prepareParameters();
+		this.parameters= this.prepareParameters();
 		this.prepareCall();
 
 		Object obj = callMethod();

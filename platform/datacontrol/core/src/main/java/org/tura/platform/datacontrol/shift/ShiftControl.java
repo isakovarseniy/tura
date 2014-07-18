@@ -26,9 +26,13 @@ public class ShiftControl {
 
 	private ArrayList<Element> shiftTracker = new ArrayList<>();
 
-
 	public Object getObject(int position) throws QueryParseException,
 			QueryExecutionException {
+		return getObject(position, false);
+	}
+
+	public Object getObject(int position, boolean retPosition)
+			throws QueryParseException, QueryExecutionException {
 		Query query = new Query();
 		query.parse(ShiftConstants.SELECT_UPPER_EQ_ELEMENTS);
 		query.setVariable("position", new Integer(position));
@@ -39,21 +43,29 @@ public class ShiftControl {
 			return position;
 
 		Element e = (Element) result.getResults().get(0);
-		if (e.getActualPosition() == position && e.isModified())
-			return e.getRef();
+		if (e.getActualPosition() == position && e.isModified()) {
+			if (retPosition)
+				return e.getOriginalPosition();
+			else
+				return e.getRef();
+		}
 
 		if (e.getActualPosition() == position && !e.isModified())
 			return e.getOriginalPosition();
 
 		if (e.getActualPosition() != position) {
-			int original = position  - e.getActualPosition()
+			int original = position - e.getActualPosition()
 					+ e.getOriginalPosition();
 
 			return original;
 
 		}
-		return -1;
-		
+		return null;
+
+	}
+
+	public void clean() {
+		shiftTracker = new ArrayList<>();
 	}
 
 	@SuppressWarnings("unchecked")
@@ -129,6 +141,10 @@ public class ShiftControl {
 		}
 		if (!processed)
 			throw new RuntimeException("Rule not found");
+	}
+
+	public void setLogger(Logger logger) {
+		this.logger = logger;
 	}
 
 	public ArrayList<Element> getShiftTracker() {

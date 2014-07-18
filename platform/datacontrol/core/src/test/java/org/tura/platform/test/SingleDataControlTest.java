@@ -4,11 +4,15 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
 
 import java.text.ParseException;
+import java.util.logging.ConsoleHandler;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javax.persistence.EntityManager;
 import static com.octo.java.sql.query.Query.c;
 import org.junit.Test;
 import org.tura.platform.datacontrol.DataControl;
+import org.tura.platform.datacontrol.shift.ShiftConstants;
 import org.tura.platform.hr.init.DepartmentsInit;
 import org.tura.platform.hr.init.EmployesesInit;
 import org.tura.platform.hr.init.FactoryDC;
@@ -18,6 +22,17 @@ import com.octo.java.sql.exp.Operator;
 
 public class SingleDataControlTest {
 
+	private static Logger logger;	
+	static{
+		logger = Logger.getLogger("InfoLogging");
+		logger.setUseParentHandlers(false);		
+		ConsoleHandler handler = new ConsoleHandler(); 
+		handler.setFormatter(new LogFormatter());
+		logger.addHandler(handler);
+		logger.setLevel(Level.INFO);
+	}
+	
+	
 	private static EntityManager em;
 	private  static FactoryDC factory;
 
@@ -56,26 +71,26 @@ public class SingleDataControlTest {
 			Long id = new Long(10);
 			do {
 				DepartmentsDAO row = dc.getCurrentObject();
-System.out.println(row.getObjId());				
+				logger.info(row.getObjId().toString());				
 				assertEquals(row.getObjId(), id);
 				id = id + 10L;
 				dc.nextObject();
 			} while (dc.hasNext());
 			// Check last row
 			assertEquals(dc.getCurrentObject().getObjId(), id);
-System.out.println(dc.getCurrentObject().getObjId());				
+			logger.info(dc.getCurrentObject().getObjId().toString());				
 
 			id = new Long(270);
 			do {
 				DepartmentsDAO row = dc.getCurrentObject();
-System.out.println(row.getObjId());				
+				logger.info(row.getObjId().toString());				
 				assertEquals(row.getObjId(), id);
 				id = id - 10L;
 				dc.prevObject();
 			} while (dc.hasPrev());
 			// Check last row
 			assertEquals(dc.getCurrentObject().getObjId(), id);
-System.out.println(dc.getCurrentObject().getObjId());				
+			logger.info(dc.getCurrentObject().getObjId().toString());				
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -123,33 +138,33 @@ System.out.println(dc.getCurrentObject().getObjId());
 			for (int i = 0 ; i< 4; i++) {
 				dc.removeObject();
 			} 
-			
+			dc.getShifter().setLogger(logger);
+			dc.getShifter().print(ShiftConstants.SELECT_ORDERBY_ACTUALPOSITION);
 			dc.forceRefresh();
 
 			Long id = new Long(50);
 			do {
 				DepartmentsDAO row = dc.getCurrentObject();
-System.out.println(row.getObjId());				
+				logger.info(row.getObjId().toString());				
 				assertEquals(row.getObjId(), id);
 				id = id + 10L;
 				dc.nextObject();
 			} while (dc.hasNext());
 			// Check last row
 			assertEquals(dc.getCurrentObject().getObjId(), id);
-System.out.println(dc.getCurrentObject().getObjId());				
+			logger.info(dc.getCurrentObject().getObjId().toString());				
 
 			id = new Long(270);
 			do {
 				DepartmentsDAO row = dc.getCurrentObject();
-System.out.println(row.getObjId());				
+				logger.info(row.getObjId().toString());				
 				assertEquals(row.getObjId(), id);
 				id = id - 10L;
 				dc.prevObject();
 			} while (dc.hasPrev());
 			// Check last row
 			assertEquals(dc.getCurrentObject().getObjId(), id);
-System.out.println(dc.getCurrentObject().getObjId());				
-			
+			logger.info(dc.getCurrentObject().getObjId().toString());				
 			
 		} catch (Exception e) {
 			e.printStackTrace();

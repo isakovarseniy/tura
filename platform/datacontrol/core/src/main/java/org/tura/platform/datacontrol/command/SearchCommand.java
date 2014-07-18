@@ -10,7 +10,7 @@ public class SearchCommand extends Command{
 
 	@Override
 	public Object execute() throws Exception {
-		this.prepareParameters();
+		this.parameters= this.prepareParameters();
 		this.prepareCall();
 
 		if (getDatacontrol().getPreQueryTrigger() != null)

@@ -2,8 +2,6 @@ package org.tura.platform.datacontrol.command;
 
 import org.tura.platform.datacontrol.DataControl;
 
-import com.rits.cloning.Cloner;
-
 public class InsertCommand extends Command {
 	private Object obj;
 
@@ -14,19 +12,16 @@ public class InsertCommand extends Command {
 	@Override
 	public Object execute() throws Exception {
 
-		this.prepareParameters();
+		InsertCommand cmd = new InsertCommand(this.getDatacontrol());
+		cmd.provider = this.provider;
+		cmd.parameters =this.prepareParameters();
 		this.prepareCall();
-
-		Cloner cloner = new Cloner();
-		Command cmd = cloner.deepClone(this);
-
+		cmd.call = this.call;
 		
+
 		this.getDatacontrol().getCommandStack().addTransaction( cmd);
 		this.getDatacontrol().getShifter().update(this.getDatacontrol().getCurrentPosition(), obj);
 
-		// Force to work with method parameters
-		// this.getParameters();
-		obj = null;
 
 		return null;
 	}

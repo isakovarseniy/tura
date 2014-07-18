@@ -126,7 +126,13 @@ public class Pager<T> {
 			} catch (Exception e) {
 				throw new TuraException(e);
 			}
-			if (obj == int.class)
+			
+			if (obj == int.class )
+				index = (int) obj;
+			if (obj instanceof Integer )
+				index = (int) obj;
+			
+			if (obj == int.class || obj instanceof Integer)
 				return entities.get(index);
 
 			return (T) obj;
@@ -177,7 +183,6 @@ public class Pager<T> {
 			if (entities.getFragmentSize() != 0) {
 				return getEntity(index);
 			} else {
-
 				return null;
 			}
 		} catch (Exception e) {
@@ -265,7 +270,6 @@ public class Pager<T> {
 				datacontrol.getPreDeleteTrigger().execute(
 						datacontrol.getDeleteCommand());
 
-			this.entities.remove(i);
 			datacontrol.getDeleteCommand().execute();
 
 			return obj;
