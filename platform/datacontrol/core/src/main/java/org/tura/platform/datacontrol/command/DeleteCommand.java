@@ -19,7 +19,9 @@ public class DeleteCommand extends Command{
 
 		Cloner cloner = new Cloner();
 		Command cmd = cloner.deepClone(this);
-		this.getDatacontrol().getCommandStack().addRemovedObjects(obj, cmd);
+		
+		this.getDatacontrol().getShifter().remove(this.getDatacontrol().getCurrentPosition());
+		this.getDatacontrol().getCommandStack().addTransaction( cmd);
 
 		// Force to work with method parameters
 		// this.getParameters();

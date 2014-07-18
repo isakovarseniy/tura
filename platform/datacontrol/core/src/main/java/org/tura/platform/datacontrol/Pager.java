@@ -20,8 +20,6 @@ import static com.octo.java.sql.query.Query.c;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Stack;
 
 import org.tura.platform.datacontrol.commons.Constants;
@@ -31,6 +29,7 @@ import org.tura.platform.datacontrol.commons.Reflection;
 import org.tura.platform.datacontrol.commons.RestrictionsConverter;
 import org.tura.platform.datacontrol.commons.SearchCriteria;
 import org.tura.platform.datacontrol.commons.TuraException;
+import org.tura.platform.datacontrol.shift.ShiftControl;
 
 import com.octo.java.sql.query.QueryException;
 import com.octo.java.sql.query.SelectQuery;
@@ -43,6 +42,7 @@ public class Pager<T> {
 	private LazyList<T> entities = new LazyList<>();
 	private DataControl<T> datacontrol;
 	private boolean direction;
+	private ShiftControl shifter = new ShiftControl();
 
 	public Pager(DataControl<T> datacontrol) {
 		this.datacontrol = datacontrol;
@@ -120,7 +120,17 @@ public class Pager<T> {
 	public T getObject(int index) throws TuraException {
 
 		try {
-			return entities.get(index);
+			Object obj = null;
+			try {
+				obj = shifter.getObject(index);
+			} catch (Exception e) {
+				throw new TuraException(e);
+			}
+			if (obj == int.class)
+				return entities.get(index);
+
+			return (T) obj;
+
 		} catch (IndexOutOfBoundsException e) {
 			@SuppressWarnings("rawtypes")
 			Stack st = new Stack();
@@ -128,7 +138,7 @@ public class Pager<T> {
 				st.push(startIndex);
 				st.push(entities);
 
-				T obj = queryDS(entities.getStartIndex(), index, -1);
+				T obj = queryDS(entities.getStartIndex(), index);
 				if (obj == null) {
 					entities = (LazyList<T>) st.pop();
 					startIndex = (Integer) st.pop();
@@ -145,7 +155,7 @@ public class Pager<T> {
 	}
 
 	@SuppressWarnings({ "unchecked" })
-	private T queryDS(int sindex, int index, int reindex) throws TuraException {
+	private T queryDS(int sindex, int index) throws TuraException {
 
 		if (!isFrameShiftPossible(sindex, entities.getActualRowNumber()))
 			return null;
@@ -160,30 +170,15 @@ public class Pager<T> {
 				entities = (LazyList<T>) datacontrol.getSearchCommand()
 						.execute();
 
-				if (entities.getStartIndex() > index
-						|| entities.getStartIndex()
-								+ entities.getFragmentSize() <  index) {
-					System.out.println("Reindex !!!!!!!!!!!!!!!!!!!!! : "+entities.getStartIndex()+" {} "+ entities.getStartIndex() +"+"+ entities.getFragmentSize()+" idx="+ index );
-					entities.reindex(index);
-				}
 			} finally {
 				datacontrol.getCommandStack().commitTransaction();
 			}
-
-			// Add created objects
-			applyCreatedObjects();
-
-			// Apply updates
-			applyUpdatedObjects();
-
-			// Apply removed
-			applyRemovedObjects();
 
 			if (entities.getFragmentSize() != 0) {
 				return getEntity(index);
 			} else {
 
-				return queryDS(startIndex, index, ++reindex);
+				return null;
 			}
 		} catch (Exception e) {
 			throw new TuraException(e);
@@ -220,91 +215,8 @@ public class Pager<T> {
 
 	}
 
-	@SuppressWarnings("unchecked")
-	private void applyUpdatedObjects() throws NoSuchMethodException,
-			SecurityException, IllegalAccessException,
-			IllegalArgumentException, InvocationTargetException, TuraException {
-
-		Map<String, Integer> map = buildMapper();
-
-		for (String key : getDataControl().getCommandStack()
-				.getUpdatedObjects().keySet()) {
-
-			Object obj = getDataControl().getCommandStack().getRemovedObjects()
-					.get(key);
-
-			BeanWrapper bean = (BeanWrapper) Reflection.call(obj, "getWrapper");
-
-			if (bean.getDatacontrol().getBaseClass()
-					.equals(datacontrol.getBaseClass())) {
-
-				Integer i = map.get(key);
-				if (i != null) {
-					entities.set(i, (T) getDataControl().getCommandStack()
-							.getUpdatedObjects().get(key));
-				}
-			}
-		}
-
-	}
-
-	private void applyRemovedObjects() throws NoSuchMethodException,
-			SecurityException, IllegalAccessException,
-			IllegalArgumentException, InvocationTargetException, TuraException {
-		for (String key : getDataControl().getCommandStack()
-				.getRemovedObjects().keySet()) {
-
-			Object obj = getDataControl().getCommandStack().getRemovedObjects()
-					.get(key);
-
-			BeanWrapper bean = (BeanWrapper) Reflection.call(obj, "getWrapper");
-
-			if (bean.getDatacontrol().getBaseClass()
-					.equals(datacontrol.getBaseClass())) {
-
-				Map<String, Integer> map = buildMapper();
-
-				Integer i = map.get(key);
-				if (i != null) {
-					entities.remove(i.intValue());
-				} else
-					entities.correctRowsNumber(-1);
-			}
-		}
-
-	}
-
-	@SuppressWarnings("unchecked")
-	private void applyCreatedObjects() throws NoSuchMethodException,
-			SecurityException, IllegalAccessException,
-			IllegalArgumentException, InvocationTargetException {
-		if (startIndex == 0) {
-			for (Object obj : datacontrol.getCommandStack().getCreatedObjects()
-					.values()) {
-				BeanWrapper bean = (BeanWrapper) Reflection.call(obj,
-						"getWrapper");
-				if (bean.getDatacontrol().getBaseClass()
-						.equals(datacontrol.getBaseClass()))
-					entities.add(0, (T) obj);
-			}
-		} else
-			entities.correctRowsNumber(datacontrol.getCommandStack()
-					.getCreatedObjects().size());
-
-	}
-
 	public String getObjectKey(Object object) throws TuraException {
 		return this.getDataControl().getObjectKey(object);
-	}
-
-	private Map<String, Integer> buildMapper() throws TuraException {
-		Map<String, Integer> map = new HashMap<String, Integer>();
-		for (Integer i : entities.getKeys()) {
-			Object obj = entities.get(i);
-			map.put(getObjectKey(obj), i);
-		}
-		return map;
-
 	}
 
 	@SuppressWarnings("unchecked")
@@ -381,4 +293,9 @@ public class Pager<T> {
 	public void setScrollDirection(boolean direction) {
 		this.direction = direction;
 	}
+
+	public ShiftControl getShifter() {
+		return shifter;
+	}
+	
 }

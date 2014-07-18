@@ -16,7 +16,6 @@
 package org.tura.platform.datacontrol;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Iterator;
 
 import org.tura.platform.datacontrol.command.Command;
@@ -26,26 +25,8 @@ public abstract class CommandStack {
 
 
 	private ArrayList<Command> transaction = new ArrayList<Command>();
-	private HashMap<String, Object> updatedObjects = new HashMap<String, Object>();
-	private HashMap<String, Object> createdObjects = new HashMap<String, Object>();
-	private HashMap<String, Object> removedObjects = new HashMap<String, Object>();
 	
-	
-	public void addUpdatedObjects(Object t, Command cmd) throws TuraException {
-		String key = cmd.getDatacontrol().getObjectKey(t);
-		this.updatedObjects.put(key, t);
-		this.transaction.add(cmd);
-	}
-
-	public void addCreatedObjects(Object t, Command cmd) throws TuraException {
-		String key = cmd.getDatacontrol().getObjectKey(t);
-		this.createdObjects.put(key, t);
-		this.transaction.add(cmd);
-	}
-
-	public void addRemovedObjects(Object t, Command cmd) throws TuraException {
-		String key = cmd.getDatacontrol().getObjectKey(t);
-		this.removedObjects.put(key, t);
+	public void addTransaction(Command cmd) throws TuraException {
 		this.transaction.add(cmd);
 	}
 	
@@ -57,9 +38,6 @@ public abstract class CommandStack {
 			cmd.getDatacontrol().forceRefresh();
 		}
 		transaction = new ArrayList<Command>();
-		updatedObjects = new HashMap<String, Object>();
-		createdObjects = new HashMap<String, Object>();
-		removedObjects = new HashMap<String, Object>();
 	}
 
 	public void commitCommand() throws TuraException {
@@ -80,9 +58,6 @@ public abstract class CommandStack {
 			}
 
 			transaction = new ArrayList<Command>();
-			updatedObjects = new HashMap<String, Object>();
-			createdObjects = new HashMap<String, Object>();
-			removedObjects = new HashMap<String, Object>();
 
 		} catch (Exception e) {
 			rallbackTransaction();
@@ -98,17 +73,6 @@ public abstract class CommandStack {
 	public abstract void commitTransaction();
 	public abstract void rallbackTransaction();
 
-	public HashMap<String, Object> getUpdatedObjects() {
-		return updatedObjects;
-	}
-
-	public HashMap<String, Object> getCreatedObjects() {
-		return createdObjects;
-	}
-
-	public HashMap<String, Object> getRemovedObjects() {
-		return removedObjects;
-	}
 	
 	
 }

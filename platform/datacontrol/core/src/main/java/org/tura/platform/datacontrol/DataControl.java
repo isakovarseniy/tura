@@ -11,6 +11,7 @@ import org.tura.platform.datacontrol.commons.Reflection;
 import org.tura.platform.datacontrol.commons.SearchCriteria;
 import org.tura.platform.datacontrol.commons.TuraException;
 import org.tura.platform.datacontrol.metainfo.Relation;
+import org.tura.platform.datacontrol.shift.ShiftControl;
 
 import com.octo.java.sql.query.SelectQuery;
 
@@ -251,6 +252,10 @@ public abstract class DataControl<T> extends MetaInfoHolder {
 
 	public int getEndIndex() {
 		return pager.getEndIndex();
+	}
+	public ShiftControl getShifter(){
+		return pager.getShifter();
+		
 	}
 	
 }
