@@ -8,7 +8,8 @@ import org.tura.platform.datacontrol.shift.Element;
 import org.tura.platform.datacontrol.shift.ElementType;
 import org.tura.platform.datacontrol.shift.ShiftControl;
 
-public class PositionElementExistsShift0RemoveRule extends ResultSetEmptyRemoveRule {
+public class PositionElementExistsShift0RemoveRule extends
+		ResultSetEmptyRemoveRule {
 
 	@Override
 	public boolean guard(ShiftControl shiftControl, List<Object> result,
@@ -17,20 +18,21 @@ public class PositionElementExistsShift0RemoveRule extends ResultSetEmptyRemoveR
 			return false;
 
 		Element element = (Element) result.get(0);
-		if (element.getActualPosition() == position && element.getShift() ==0
+		if (element.getActualPosition() == position && element.getShift() == 0
 				&& element.getElementType().equals(ElementType.EXISTING.name())) {
 			return true;
 		}
 		return false;
 	}
 
+	@Override
 	public void execute(ShiftControl shiftControl, List<Object> result,
-			int position) throws QueryParseException, QueryExecutionException {
+			int position, Object obj) throws QueryParseException, QueryExecutionException {
 
-		 Element e = (Element) result.get(0);
-		 shiftControl.getShiftTracker().remove(e);
-	
-		super.execute(shiftControl, result, position);
+		Element e = (Element) result.get(0);
+		shiftControl.getShiftTracker().remove(e);
+
+		super.execute(shiftControl, result, position,obj);
 
 	}
 

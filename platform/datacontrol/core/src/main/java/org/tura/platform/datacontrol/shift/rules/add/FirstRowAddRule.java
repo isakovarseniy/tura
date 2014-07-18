@@ -19,10 +19,10 @@ public class FirstRowAddRule extends AddRule {
 	}
 
 	@Override
-	public void execute( ShiftControl shiftControl, List<Object> result , int position) throws QueryParseException, QueryExecutionException{
-		super.execute(shiftControl,result,position);
+	public void execute( ShiftControl shiftControl, List<Object> result , int position, Object obj) throws QueryParseException, QueryExecutionException{
+		super.execute(shiftControl,result,position,obj);
 		shiftControl.getShiftTracker().add(new Element(position , position,
-				ElementType.NEW));
+				ElementType.NEW,obj));
 		shiftControl.getShiftTracker().add(new Element(position +1, position,
 				ElementType.EXISTING));
 		

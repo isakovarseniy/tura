@@ -11,7 +11,7 @@ public abstract class AddRule extends Rule {
 
 
 	@Override
-	public void execute(ShiftControl shiftControl, List<Object> result, int position)
+	public void execute(ShiftControl shiftControl, List<Object> result, int position,Object obj)
 			throws QueryParseException, QueryExecutionException {
 		for (int i = 0; i < result.size(); i++) {
 			Element element = (Element) result.get(i);

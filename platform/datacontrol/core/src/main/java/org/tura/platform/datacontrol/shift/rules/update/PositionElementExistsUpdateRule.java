@@ -26,10 +26,11 @@ public class PositionElementExistsUpdateRule extends Rule{
 
 	@Override
 	public void execute(ShiftControl shiftControl, List<Object> result,
-			int position) throws QueryParseException, QueryExecutionException {
+			int position, Object obj) throws QueryParseException, QueryExecutionException {
 
 		Element element = (Element) result.get(0);
 		element.setModified(true);
+		element.setRef(obj);
 		
 	}
 

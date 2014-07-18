@@ -24,7 +24,7 @@ public class ResultSetEmptyRemoveRule extends RemoveRule {
 
 	@Override
 	public void execute(ShiftControl shiftControl, List<Object> result,
-			int position) throws QueryParseException, QueryExecutionException {
+			int position, Object obj) throws QueryParseException, QueryExecutionException {
 
 		Query query = new Query();
 		query.parse(ShiftConstants.SELECT_UPPER_ELEMENTS);
@@ -46,7 +46,7 @@ public class ResultSetEmptyRemoveRule extends RemoveRule {
 					new Element(position, position + 1, ElementType.EXISTING));
 
 		}
-		super.execute(shiftControl, result, position);
+		super.execute(shiftControl, result, position,obj);
 
 	}
 

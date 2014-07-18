@@ -11,7 +11,7 @@ public abstract class RemoveRule extends Rule {
 
 	@Override
 	public void execute(ShiftControl shiftControl, List<Object> result,
-			int position) throws QueryParseException, QueryExecutionException {
+			int position, Object obj) throws QueryParseException, QueryExecutionException {
 		for (int i = 0; i < result.size(); i++) {
 			Element element = (Element) result.get(i);
 			element.setActualPosition(element.getActualPosition() - 1);

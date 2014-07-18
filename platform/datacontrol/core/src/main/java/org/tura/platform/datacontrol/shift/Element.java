@@ -6,7 +6,9 @@ public class Element {
 	private int originalPosition;
 	private String elementType;
 	private boolean modified=false;
+	private Object ref;
 
+	
 	
 	@Override
 	public boolean equals(Object o) {
@@ -23,6 +25,9 @@ public class Element {
 		if (elementType.equals(e.originalPosition))
 			return false;
 
+		if (modified != e.modified)
+			return false;
+
 		return true;
 
 	}
@@ -32,8 +37,30 @@ public class Element {
 		this.actualPosition = actualPosition;
 		this.originalPosition = originalPosition;
 		this.elementType = elementType.name();
+		if ( elementType.equals(ElementType.NEW) )
+			this.modified=true;
 	}
 
+	public Element(int actualPosition, int originalPosition,
+			ElementType elementType, boolean modified) {
+		this.actualPosition = actualPosition;
+		this.originalPosition = originalPosition;
+		this.elementType = elementType.name();
+		this.modified= modified;
+	}
+
+
+	public Element(int actualPosition, int originalPosition,
+			ElementType elementType, Object obj) {
+		this.actualPosition = actualPosition;
+		this.originalPosition = originalPosition;
+		this.elementType = elementType.name();
+		if ( elementType.equals(ElementType.NEW) )
+			this.modified=true;
+		this.ref=obj;
+	}
+	
+	
 	public int getActualPosition() {
 		return actualPosition;
 	}
@@ -68,6 +95,14 @@ public class Element {
 
 	public int getShift() {
 		return actualPosition - originalPosition;
+	}
+
+	public Object getRef() {
+		return ref;
+	}
+
+	public void setRef(Object ref) {
+		this.ref = ref;
 	}
 
 

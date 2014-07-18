@@ -25,13 +25,13 @@ public class PositionElementNotNewExistsAddRule extends AddRule {
 	}
 
 	@Override
-	public void execute(ShiftControl shiftControl,List<Object> result, int position)
+	public void execute(ShiftControl shiftControl,List<Object> result, int position, Object obj)
 			throws QueryParseException, QueryExecutionException {
 
 		shiftControl.getShiftTracker().add(new Element(position , position,
-				ElementType.NEW));
+				ElementType.NEW,obj));
 
-		 super.execute(shiftControl,result, position);
+		 super.execute(shiftControl,result, position,obj);
 
 	}
 

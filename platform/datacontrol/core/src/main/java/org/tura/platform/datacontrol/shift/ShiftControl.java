@@ -26,8 +26,38 @@ public class ShiftControl {
 
 	private ArrayList<Element> shiftTracker = new ArrayList<>();
 
+
+	public Object getObject(int position) throws QueryParseException,
+			QueryExecutionException {
+		Query query = new Query();
+		query.parse(ShiftConstants.SELECT_UPPER_EQ_ELEMENTS);
+		query.setVariable("position", new Integer(position));
+
+		QueryResults result = query.execute(shiftTracker);
+
+		if (result.getResults().size() == 0)
+			return position;
+
+		Element e = (Element) result.getResults().get(0);
+		if (e.getActualPosition() == position && e.isModified())
+			return e.getRef();
+
+		if (e.getActualPosition() == position && !e.isModified())
+			return e.getOriginalPosition();
+
+		if (e.getActualPosition() != position) {
+			int original = position  - e.getActualPosition()
+					+ e.getOriginalPosition();
+
+			return original;
+
+		}
+		return -1;
+		
+	}
+
 	@SuppressWarnings("unchecked")
-	public void add(int position) throws QueryExecutionException,
+	public void add(int position, Object obj) throws QueryExecutionException,
 			QueryParseException, InstantiationException, IllegalAccessException {
 		Query query = new Query();
 		query.parse(ShiftConstants.SELECT_FOR_SHIFT);
@@ -41,7 +71,7 @@ public class ShiftControl {
 				if (logger != null)
 					logger.info("<-----------" + rule.getClass().getName()
 							+ "----------->");
-				rule.execute(this, result.getResults(), position);
+				rule.execute(this, result.getResults(), position, obj);
 				processed = true;
 				break;
 			}
@@ -50,10 +80,10 @@ public class ShiftControl {
 			throw new RuntimeException("Rule not found");
 	}
 
-	
 	@SuppressWarnings("unchecked")
-	public void update(int position) throws QueryExecutionException,
-			QueryParseException, InstantiationException, IllegalAccessException {
+	public void update(int position, Object obj)
+			throws QueryExecutionException, QueryParseException,
+			InstantiationException, IllegalAccessException {
 		Query query = new Query();
 		query.parse(ShiftConstants.SELECT_FOR_SHIFT);
 		query.setVariable("position", new Integer(position));
@@ -67,7 +97,7 @@ public class ShiftControl {
 				if (logger != null)
 					logger.info("<-----------" + rule.getClass().getName()
 							+ "----------->");
-				rule.execute(this, result.getResults(), position);
+				rule.execute(this, result.getResults(), position, obj);
 				processed = true;
 				break;
 			}
@@ -75,8 +105,7 @@ public class ShiftControl {
 		if (!processed)
 			throw new RuntimeException("Rule not found");
 	}
-	
-	
+
 	@SuppressWarnings("unchecked")
 	public void remove(int position) throws QueryExecutionException,
 			QueryParseException, InstantiationException, IllegalAccessException {
@@ -93,7 +122,7 @@ public class ShiftControl {
 				if (logger != null)
 					logger.info("<-----------" + rule.getClass().getName()
 							+ "----------->");
-				rule.execute(this, result.getResults(), position);
+				rule.execute(this, result.getResults(), position, null);
 				processed = true;
 				break;
 			}
@@ -121,7 +150,8 @@ public class ShiftControl {
 
 			logger.info("actual = " + element.getActualPosition()
 					+ " original=" + element.getOriginalPosition() + " shift="
-					+ element.getShift() + " type=" + element.getElementType() + " updated=" + element.isModified());
+					+ element.getShift() + " type=" + element.getElementType()
+					+ " updated=" + element.isModified());
 		}
 
 	}

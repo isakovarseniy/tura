@@ -14,7 +14,7 @@ public abstract class Rule {
 	
 	public abstract boolean guard(ShiftControl shiftControl ,List<Object> result  , int position);
 	
-	public abstract void execute(ShiftControl shiftControl , List<Object> result ,int position) throws QueryParseException, QueryExecutionException;
+	public abstract void execute(ShiftControl shiftControl , List<Object> result ,int position, Object obj) throws QueryParseException, QueryExecutionException;
 
 	protected void removeZeroShift( ShiftControl shiftControl) throws QueryParseException, QueryExecutionException{
 		Query query = new Query();

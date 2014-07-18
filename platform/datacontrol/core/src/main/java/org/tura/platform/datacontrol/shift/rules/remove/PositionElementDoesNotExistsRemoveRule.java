@@ -26,7 +26,7 @@ public class PositionElementDoesNotExistsRemoveRule extends RemoveRule {
 
 	@Override
 	public void execute(ShiftControl shiftControl, List<Object> result,
-			int position) throws QueryParseException, QueryExecutionException {
+			int position, Object obj) throws QueryParseException, QueryExecutionException {
 
 		Element e = ((Element) result.get(0));
 		if (e.getActualPosition() != position + 1) {
@@ -37,7 +37,7 @@ public class PositionElementDoesNotExistsRemoveRule extends RemoveRule {
 					new Element(position, original, ElementType.EXISTING));
 
 		}
-		super.execute(shiftControl, result, position);
+		super.execute(shiftControl, result, position, obj);
 
 	}
 

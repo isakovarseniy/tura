@@ -32,11 +32,11 @@ public class ShifterTest {
 		try {
 			ShiftControl control = new ShiftControl(logger);
 
-			control.add(3);
+			control.add(3,null);
 			control.print(ShiftConstants.SELECT_ORDERBY_ACTUALPOSITION);
-			control.add(4);
+			control.add(4,null);
 			control.print(ShiftConstants.SELECT_ORDERBY_ACTUALPOSITION);
-			control.add(5);
+			control.add(5,null);
 			control.print(ShiftConstants.SELECT_ORDERBY_ACTUALPOSITION);
 
 			comparator(control, new Element[] {
@@ -59,11 +59,11 @@ public class ShifterTest {
 		try {
 			ShiftControl control = new ShiftControl(logger);
 
-			control.add(5);
+			control.add(5,null);
 			control.print(ShiftConstants.SELECT_ORDERBY_ACTUALPOSITION);
-			control.add(4);
+			control.add(4,null);
 			control.print(ShiftConstants.SELECT_ORDERBY_ACTUALPOSITION);
-			control.add(3);
+			control.add(3,null);
 			control.print(ShiftConstants.SELECT_ORDERBY_ACTUALPOSITION);
 
 			comparator(control, new Element[] {
@@ -90,11 +90,11 @@ public class ShifterTest {
 		try {
 			ShiftControl control = new ShiftControl(logger);
 
-			control.add(5);
+			control.add(5,null);
 			control.print(ShiftConstants.SELECT_ORDERBY_ACTUALPOSITION);
-			control.add(3);
+			control.add(3,null);
 			control.print(ShiftConstants.SELECT_ORDERBY_ACTUALPOSITION);
-			control.add(4);
+			control.add(4,null);
 			control.print(ShiftConstants.SELECT_ORDERBY_ACTUALPOSITION);
 
 			comparator(control, new Element[] {
@@ -121,11 +121,11 @@ public class ShifterTest {
 		try {
 			ShiftControl control = new ShiftControl(logger);
 
-			control.add(5);
+			control.add(5,null);
 			control.print(ShiftConstants.SELECT_ORDERBY_ACTUALPOSITION);
-			control.add(5);
+			control.add(5,null);
 			control.print(ShiftConstants.SELECT_ORDERBY_ACTUALPOSITION);
-			control.add(5);
+			control.add(5,null);
 			control.print(ShiftConstants.SELECT_ORDERBY_ACTUALPOSITION);
 
 			comparator(control, new Element[] {
@@ -261,7 +261,7 @@ public class ShifterTest {
 
 			control.remove(4);
 			control.print(ShiftConstants.SELECT_ORDERBY_ACTUALPOSITION);
-			control.add(3);
+			control.add(3,null);
 			control.print(ShiftConstants.SELECT_ORDERBY_ACTUALPOSITION);
 			control.remove(5);
 			control.print(ShiftConstants.SELECT_ORDERBY_ACTUALPOSITION);
@@ -287,7 +287,7 @@ public class ShifterTest {
 
 			control.remove(4);
 			control.print(ShiftConstants.SELECT_ORDERBY_ACTUALPOSITION);
-			control.add(3);
+			control.add(3,null);
 			control.print(ShiftConstants.SELECT_ORDERBY_ACTUALPOSITION);
 			control.remove(3);
 			control.print(ShiftConstants.SELECT_ORDERBY_ACTUALPOSITION);
@@ -305,7 +305,7 @@ public class ShifterTest {
 		try {
 			ShiftControl control = new ShiftControl(logger);
 
-			control.add(3);
+			control.add(3,null);
 			control.print(ShiftConstants.SELECT_ORDERBY_ACTUALPOSITION);
 			control.remove(3);
 			control.print(ShiftConstants.SELECT_ORDERBY_ACTUALPOSITION);
@@ -328,15 +328,15 @@ public class ShifterTest {
 		try {
 			ShiftControl control = new ShiftControl(logger);
 
-			control.add(3);
+			control.add(3,null);
 			control.print(ShiftConstants.SELECT_ORDERBY_ACTUALPOSITION);
 			control.remove(3);
 			control.print(ShiftConstants.SELECT_ORDERBY_ACTUALPOSITION);
-			control.add(3);
+			control.add(3,null);
 			control.print(ShiftConstants.SELECT_ORDERBY_ACTUALPOSITION);
 			
 			comparator(control, new Element[] {
-					new Element(3, 3, ElementType.EXISTING),
+					new Element(3, 3, ElementType.NEW),
 					new Element(4, 3, ElementType.EXISTING)
 			});
 
@@ -359,13 +359,13 @@ public class ShifterTest {
 			control.print(ShiftConstants.SELECT_ORDERBY_ACTUALPOSITION);
 			control.remove(6);
 			control.print(ShiftConstants.SELECT_ORDERBY_ACTUALPOSITION);
-			control.add(3);
+			control.add(3,null);
 			control.print(ShiftConstants.SELECT_ORDERBY_ACTUALPOSITION);
 			control.remove(3);
 			control.print(ShiftConstants.SELECT_ORDERBY_ACTUALPOSITION);
 			
 			comparator(control, new Element[] {
-					new Element(1, 2, ElementType.NEW),
+					new Element(1, 2, ElementType.EXISTING),
 					new Element(6, 8, ElementType.EXISTING)
 			});
 
@@ -385,7 +385,7 @@ public class ShifterTest {
 
 			control.remove(6);
 			control.print(ShiftConstants.SELECT_ORDERBY_ACTUALPOSITION);
-			control.add(3);
+			control.add(3,null);
 			control.print(ShiftConstants.SELECT_ORDERBY_ACTUALPOSITION);
 			control.remove(1);
 			control.print(ShiftConstants.SELECT_ORDERBY_ACTUALPOSITION);
@@ -412,7 +412,7 @@ public class ShifterTest {
 
 			control.remove(1);
 			control.print(ShiftConstants.SELECT_ORDERBY_ACTUALPOSITION);
-			control.add(3);
+			control.add(3,null);
 			control.print(ShiftConstants.SELECT_ORDERBY_ACTUALPOSITION);
 			control.remove(6);
 			control.print(ShiftConstants.SELECT_ORDERBY_ACTUALPOSITION);
@@ -436,9 +436,9 @@ public class ShifterTest {
 		try {
 			ShiftControl control = new ShiftControl(logger);
 
-			control.add(1);
+			control.add(1,null);
 			control.print(ShiftConstants.SELECT_ORDERBY_ACTUALPOSITION);
-			control.add(5);
+			control.add(5,null);
 			control.print(ShiftConstants.SELECT_ORDERBY_ACTUALPOSITION);
 			control.remove(1);
 			control.print(ShiftConstants.SELECT_ORDERBY_ACTUALPOSITION);
@@ -463,13 +463,13 @@ public class ShifterTest {
 		try {
 			ShiftControl control = new ShiftControl(logger);
 
-			control.add(1);
+			control.add(1,null);
 			control.print(ShiftConstants.SELECT_ORDERBY_ACTUALPOSITION);
 			control.remove(1);
 			control.print(ShiftConstants.SELECT_ORDERBY_ACTUALPOSITION);
 			control.remove(4);
 			control.print(ShiftConstants.SELECT_ORDERBY_ACTUALPOSITION);
-			control.add(5);
+			control.add(5,null);
 			control.print(ShiftConstants.SELECT_ORDERBY_ACTUALPOSITION);
 
 			comparator(control, new Element[] {
@@ -493,9 +493,9 @@ public class ShifterTest {
 
 			control.remove(4);
 			control.print(ShiftConstants.SELECT_ORDERBY_ACTUALPOSITION);
-			control.add(1);
+			control.add(1,null);
 			control.print(ShiftConstants.SELECT_ORDERBY_ACTUALPOSITION);
-			control.add(5);
+			control.add(5,null);
 			control.print(ShiftConstants.SELECT_ORDERBY_ACTUALPOSITION);
 			control.remove(1);
 			control.print(ShiftConstants.SELECT_ORDERBY_ACTUALPOSITION);
@@ -529,7 +529,7 @@ public class ShifterTest {
 
 			comparator(control, new Element[] {
 					new Element(1, 2, ElementType.EXISTING),
-					new Element(4, 6, ElementType.NEW),
+					new Element(4, 6, ElementType.EXISTING),
 					new Element(6, 9, ElementType.EXISTING)
 			});
 			
@@ -548,11 +548,11 @@ public class ShifterTest {
 		try {
 			ShiftControl control = new ShiftControl(logger);
 
-			control.update(8);
+			control.update(8,null);
 			control.print(ShiftConstants.SELECT_ORDERBY_ACTUALPOSITION);
 
 			comparator(control, new Element[] {
-					new Element(8, 8, ElementType.EXISTING),
+					new Element(8, 8, ElementType.EXISTING,true),
 			});
 			
 		} catch (Exception e) {
@@ -569,22 +569,99 @@ public class ShifterTest {
 		try {
 			ShiftControl control = new ShiftControl(logger);
 
-			control.add(1);
+			control.add(1,null);
 			control.print(ShiftConstants.SELECT_ORDERBY_ACTUALPOSITION);
 			control.remove(1);
 			control.print(ShiftConstants.SELECT_ORDERBY_ACTUALPOSITION);
-			control.update(1);
+			control.update(1,null);
 			control.print(ShiftConstants.SELECT_ORDERBY_ACTUALPOSITION);
 			control.remove(4);
 			control.print(ShiftConstants.SELECT_ORDERBY_ACTUALPOSITION);
-			control.add(5);
+			control.add(5,null);
 			control.print(ShiftConstants.SELECT_ORDERBY_ACTUALPOSITION);
 
 			comparator(control, new Element[] {
-					new Element(1, 1, ElementType.EXISTING),
+					new Element(1, 1, ElementType.EXISTING,true),
 					new Element(4, 5, ElementType.EXISTING),
 					new Element(5, 5, ElementType.NEW)
 			});
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			fail(e.getMessage());
+		}
+
+	}
+	
+	
+	@Test
+	public void position() {
+
+		try {
+			ShiftControl control = new ShiftControl(logger);
+
+			control.remove(4);
+			control.print(ShiftConstants.SELECT_ORDERBY_ACTUALPOSITION);
+			control.add(3,null);
+			control.print(ShiftConstants.SELECT_ORDERBY_ACTUALPOSITION);
+			control.remove(5);
+			control.print(ShiftConstants.SELECT_ORDERBY_ACTUALPOSITION);
+			control.add(6, null);
+			control.print(ShiftConstants.SELECT_ORDERBY_ACTUALPOSITION);
+			control.add(6, null);
+			control.print(ShiftConstants.SELECT_ORDERBY_ACTUALPOSITION);
+			control.add(6, null);
+			control.print(ShiftConstants.SELECT_ORDERBY_ACTUALPOSITION);
+			control.add(6, null);
+			control.print(ShiftConstants.SELECT_ORDERBY_ACTUALPOSITION);
+			
+			
+			comparator(control, new Element[] {
+					new Element(3, 3, ElementType.NEW),
+					new Element(4, 3, ElementType.EXISTING),
+					new Element(5, 6, ElementType.EXISTING),
+					new Element(6, 6, ElementType.NEW),
+					new Element(7, 6, ElementType.NEW),
+					new Element(8, 6, ElementType.NEW),
+					new Element(9, 6, ElementType.NEW)
+			});
+			
+             for (int i = 0; i < 15 ; i++){
+            	Object obj =  control.getObject(i);
+            	logger.info( "position "+ i+" = "  + obj);
+             }
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			fail(e.getMessage());
+		}
+
+	}
+	
+
+	
+	@Test
+	public void position1() {
+
+		try {
+			ShiftControl control = new ShiftControl(logger);
+
+			control.remove(2);
+			control.print(ShiftConstants.SELECT_ORDERBY_ACTUALPOSITION);
+			control.remove(2);
+			control.print(ShiftConstants.SELECT_ORDERBY_ACTUALPOSITION);
+			control.remove(2);
+			control.print(ShiftConstants.SELECT_ORDERBY_ACTUALPOSITION);
+			
+			
+			comparator(control, new Element[] {
+					new Element(2, 5, ElementType.EXISTING),
+			});
+			
+             for (int i = 0; i < 10 ; i++){
+            	Object obj =  control.getObject(i);
+            	logger.info( "position "+ i+" = "  + obj);
+             }
 			
 		} catch (Exception e) {
 			e.printStackTrace();

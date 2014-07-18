@@ -17,5 +17,9 @@ public class ShiftConstants {
 	public static String SELECT_ORDERBY_ACTUALPOSITION= 
 			"SELECT * FROM org.tura.platform.datacontrol.shift.Element ORDER BY actualPosition";
 
+	
+	public static String SELECT_UPPER_EQ_ELEMENTS = 
+			"SELECT * FROM org.tura.platform.datacontrol.shift.Element WHERE actualPosition <= :position ORDER BY actualPosition DESC";
+	
 
 }

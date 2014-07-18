@@ -25,13 +25,13 @@ public class PositionElementNewExistsRemoveRule extends RemoveRule {
 	}
 
 	@Override
-	public void execute(ShiftControl shiftControl,List<Object> result, int position)
+	public void execute(ShiftControl shiftControl,List<Object> result, int position, Object obj)
 			throws QueryParseException, QueryExecutionException {
 
 		 Element e = (Element) result.get(0);
 		 shiftControl.getShiftTracker().remove(e);
 
-		 super.execute(shiftControl,result, position);
+		 super.execute(shiftControl,result, position,obj);
 
 	}
 

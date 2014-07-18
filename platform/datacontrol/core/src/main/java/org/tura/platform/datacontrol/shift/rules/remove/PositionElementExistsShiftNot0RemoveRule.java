@@ -27,7 +27,7 @@ public class PositionElementExistsShiftNot0RemoveRule extends RemoveRule{
 	
 	@Override
 	public void execute(ShiftControl shiftControl, List<Object> result,
-			int position) throws QueryParseException, QueryExecutionException {
+			int position, Object obj) throws QueryParseException, QueryExecutionException {
 
 		Element e = (Element) result.get(0);
 		int original = position + 1 - e.getActualPosition()
@@ -39,7 +39,7 @@ public class PositionElementExistsShiftNot0RemoveRule extends RemoveRule{
 		shiftControl.getShiftTracker().add(
 				new Element(position, original, ElementType.EXISTING));
 
-		super.execute(shiftControl, result, position);
+		super.execute(shiftControl, result, position,obj);
 	}
 
 	

@@ -32,10 +32,10 @@ public class PositionElementDoesNotExistsAddRule extends AddRule {
 
 	@Override
 	public void execute(ShiftControl shiftControl, List<Object> result,
-			int position) throws QueryParseException, QueryExecutionException {
-		super.execute(shiftControl, result, position);
+			int position, Object obj) throws QueryParseException, QueryExecutionException {
+		super.execute(shiftControl, result, position,obj);
 		shiftControl.getShiftTracker().add(
-				new Element(position, position, ElementType.NEW));
+				new Element(position, position, ElementType.NEW,obj));
 
 		Query query = new Query();
 		query.parse(ShiftConstants.SELECT_UPPER_ELEMENTS);
