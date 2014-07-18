@@ -6,8 +6,6 @@ import java.util.Iterator;
 import java.util.List;
 
 import org.apache.commons.lang.StringUtils;
-import org.josql.QueryExecutionException;
-import org.josql.QueryParseException;
 import org.tura.platform.datacontrol.commons.Constants;
 import org.tura.platform.datacontrol.commons.Reflection;
 import org.tura.platform.datacontrol.commons.SearchCriteria;
@@ -121,8 +119,6 @@ public abstract class DataControl<T> extends MetaInfoHolder {
 	}
 
 	public boolean hasPrev() {
-
-		
 		if (currentPosition > 0)
 			return true;
 		else
