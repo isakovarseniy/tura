@@ -1,13 +1,10 @@
 package org.tura.platform.datacontrol.command;
 
 import java.lang.reflect.Constructor;
-import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
-import org.apache.commons.lang.StringUtils;
 import org.tura.platform.datacontrol.BeanWrapper;
 import org.tura.platform.datacontrol.DataControl;
 import org.tura.platform.datacontrol.commons.Reflection;
@@ -112,26 +109,26 @@ public abstract class Command {
 		return lst;
 	}
 
-	protected void versionControl() throws NoSuchMethodException, SecurityException, IllegalAccessException, IllegalArgumentException, InvocationTargetException {
-
-		Iterator<?> itr = parameters.iterator();
-
-		while (itr.hasNext()) {
-			Object obj = itr.next();
-
-			String optlcrMethod = datacontrol.getVersionAttribute();
-
-			if (optlcrMethod != null) {
-				Object optlcr = (Number) Reflection.call(obj, "get"
-						+ StringUtils.capitalize(optlcrMethod));
-				if (optlcr == null) {
-					optlcr = 0;
-					Reflection.call(obj,
-							"set" + StringUtils.capitalize(optlcrMethod), 0);
-				}
-			}
-		}
-	}
+//	protected void versionControl() throws NoSuchMethodException, SecurityException, IllegalAccessException, IllegalArgumentException, InvocationTargetException {
+//
+//		Iterator<?> itr = parameters.iterator();
+//
+//		while (itr.hasNext()) {
+//			Object obj = itr.next();
+//
+//			String optlcrMethod = datacontrol.getVersionAttribute();
+//
+//			if (optlcrMethod != null) {
+//				Object optlcr = (Number) Reflection.call(obj, "get"
+//						+ StringUtils.capitalize(optlcrMethod));
+//				if (optlcr == null) {
+//					optlcr = 0;
+//					Reflection.call(obj,
+//							"set" + StringUtils.capitalize(optlcrMethod), 0);
+//				}
+//			}
+//		}
+//	}
 
 	public class CallParameter {
 		private String name;

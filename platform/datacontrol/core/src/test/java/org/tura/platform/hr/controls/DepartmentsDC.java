@@ -99,9 +99,9 @@ public class DepartmentsDC extends DataControl<DepartmentsDAO> {
 
 	}
 
-	@Override
-	public void setVersionAttribute(String versionAttribute) {
-		this.versionAttribute = versionAttribute;
-	}
+//	@Override
+//	public void setVersionAttribute(String versionAttribute) {
+//		this.versionAttribute = versionAttribute;
+//	}
 
 }

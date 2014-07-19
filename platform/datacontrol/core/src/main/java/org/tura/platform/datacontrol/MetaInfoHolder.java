@@ -45,7 +45,7 @@ public abstract class MetaInfoHolder {
 
 	protected Class<?>  baseClass;
 	protected SelectQuery defaultQuery;
-	protected String versionAttribute;
+//	protected String versionAttribute;
 	
 	public abstract void setDefaultQuery(SelectQuery selectQuery) ;
 	public abstract void setCreateCommand(CreateCommand createCommand) ;
@@ -61,7 +61,7 @@ public abstract class MetaInfoHolder {
 	public abstract void setPreUpdateTrigger(PreUpdateTrigger preUpdateTrigger) ;
 	public abstract void setElResolver(ELResolver elResolver);
 	public abstract void setBaseClass(Class<?> baseClass);
-	public abstract void setVersionAttribute(String versionAttribute);
+//	public abstract void setVersionAttribute(String versionAttribute);
 	
 	
 	public void addChildren(String relationName, Relation relation) {
@@ -157,9 +157,9 @@ public abstract class MetaInfoHolder {
 	public SelectQuery getDefaultQuery() {
 		return defaultQuery;
 	}
-	public String getVersionAttribute() {
-		return versionAttribute;
-	}
+//	public String getVersionAttribute() {
+//		return versionAttribute;
+//	}
 
 	
 }

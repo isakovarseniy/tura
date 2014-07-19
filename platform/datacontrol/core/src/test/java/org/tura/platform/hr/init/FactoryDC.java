@@ -53,7 +53,7 @@ public class FactoryDC {
 
 		departmentsDS.setElResolver(elResolver);
 		departmentsDS.getKeys().add("objId");
-		departmentsDS.setVersionAttribute("version");
+//		departmentsDS.setVersionAttribute("version");
 		departmentsDS.setCommandStack(sc);
 
 		createCreateCommand(departmentsDS, elPrefix + "departments",
