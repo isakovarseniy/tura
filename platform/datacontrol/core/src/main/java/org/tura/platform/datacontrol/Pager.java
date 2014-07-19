@@ -102,18 +102,37 @@ public class Pager<T> {
 
 	@SuppressWarnings("unchecked")
 	public T createObject(int index, boolean managable) throws TuraException {
+
 		try {
+			datacontrol.getCommandStack().beginTransaction();
+
 			Object obj = datacontrol.getCreateCommand().execute();
 			obj = convertobject((T) obj);
 
 			BeanWrapper w = (BeanWrapper) Reflection.call(obj, "getWrapper");
 			w.setInsertMode(true);
-			entities.add(index, (T) obj);
 
 			return (T) obj;
+
 		} catch (Exception e) {
 			throw new TuraException(e);
+		} finally {
+			datacontrol.getCommandStack().commitTransaction();
 		}
+
+		// try {
+		//
+		//
+		// Object obj = datacontrol.getCreateCommand().execute();
+		// obj = convertobject((T) obj);
+		//
+		// BeanWrapper w = (BeanWrapper) Reflection.call(obj, "getWrapper");
+		// w.setInsertMode(true);
+		//
+		// return (T) obj;
+		// } catch (Exception e) {
+		// throw new TuraException(e);
+		// }
 	}
 
 	@SuppressWarnings("unchecked")
@@ -126,12 +145,12 @@ public class Pager<T> {
 			} catch (Exception e) {
 				throw new TuraException(e);
 			}
-			
-			if (obj == int.class )
+
+			if (obj == int.class)
 				index = (int) obj;
-			if (obj instanceof Integer )
+			if (obj instanceof Integer)
 				index = (int) obj;
-			
+
 			if (obj == int.class || obj instanceof Integer)
 				return entities.get(index);
 
@@ -301,5 +320,5 @@ public class Pager<T> {
 	public ShiftControl getShifter() {
 		return shifter;
 	}
-	
+
 }

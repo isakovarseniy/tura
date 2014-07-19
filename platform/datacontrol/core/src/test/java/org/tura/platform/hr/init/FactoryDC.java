@@ -57,7 +57,7 @@ public class FactoryDC {
 		departmentsDS.setCommandStack(sc);
 
 		createCreateCommand(departmentsDS, elPrefix + "departments",
-				TuraObject.class);
+				DepartmentsDAO.class);
 		createInsertCommand(departmentsDS, elPrefix + "departments",
 				TuraObject.class);
 		createUpdateCommand(departmentsDS, elPrefix + "departments",
@@ -87,8 +87,8 @@ public class FactoryDC {
 
 		CallParameter prm = command.new CallParameter();
 		prm.setName("obj");
-		prm.setClazz(clazz);
-		prm.setExpression(expr + ".baseClass");
+		prm.setClazz(String.class);
+		prm.setValue(clazz.getName());
 		command.getParameters().add(prm);
 
 		control.setCreateCommand(command);

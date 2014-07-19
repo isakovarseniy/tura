@@ -243,11 +243,11 @@ public class BeanWrapper implements MethodInterceptor {
 		if (datacontrol.getCommandStack() != null) {
 			if (this.insertMode) {
 
-				datacontrol.getInsertCommand().setObj(this);
+				datacontrol.getInsertCommand().setObj(obj);
 				datacontrol.getInsertCommand().execute();
 				setInsertMode(false);
 			} else {
-				datacontrol.getUpdateCommand().setObj(this);
+				datacontrol.getUpdateCommand().setObj(obj);
 				datacontrol.getUpdateCommand().execute();
 			}
 		}

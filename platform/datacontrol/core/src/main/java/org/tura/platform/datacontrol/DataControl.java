@@ -40,6 +40,7 @@ public abstract class DataControl<T> extends MetaInfoHolder {
 	}
 
 	public void forceRefresh() throws TuraException {
+		currentPosition=0;
 		pager.cleanPager();
 		pager.setScrollDirection(SCROLL_DOWN);
 		notifyChageRecordAll(pager.getObject(currentPosition));
