@@ -1,8 +1,0 @@
-<Shell xmlns="http://www.eclipse.org/xwt/presentation" xmlns:x="http://www.eclipse.org/xwt" x:Class="Window" text="One2ManyForm" xmlns:p1="clr-namespace:org.elsoft.component" xmlns:p2="clr-namespace:org.eclipse.wb.elsoft.components">
-	<Shell.layout>
-		<GridLayout/>
-	</Shell.layout>
-	<p1:MetaComposite>
-		<p2:ViewPort bounds="0, 0, 64, 64" viewPortName="ViewPort1" canvasName="Canvas"/>
-	</p1:MetaComposite>
-</Shell>
