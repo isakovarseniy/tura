@@ -198,6 +198,7 @@ public class SingleDataControlTest1 {
 			assertEquals(row.getObjId(), new Long(70));
 
 			row.setDepartmentName("test");
+			row.setDepartmentName("qwerty");
 
 			dc.getShifter().setLogger(logger);
 			dc.getShifter().print(ShiftConstants.SELECT_ORDERBY_ACTUALPOSITION);
@@ -206,7 +207,7 @@ public class SingleDataControlTest1 {
 
 			dc.forceRefresh();
 			row = dc.getCurrentObject();
-			assertEquals("test", row.getDepartmentName());
+			assertEquals("qwerty", row.getDepartmentName());
 
 		} catch (Exception e) {
 			e.printStackTrace();

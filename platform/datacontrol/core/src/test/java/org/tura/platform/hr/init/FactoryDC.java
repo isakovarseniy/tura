@@ -64,7 +64,7 @@ public class FactoryDC {
 				TuraObject.class);
 		createRemoveCommand(departmentsDS, elPrefix + "departments",
 				TuraObject.class);
-		createSearchCommand(departmentsDS, elPrefix + "departments");
+		createSearchCommand(departmentsDS, elPrefix + "departments",DepartmentsDAO.class);
 
 		createQuery(departmentsDS, "DepartmentsDAO");
 
@@ -139,7 +139,7 @@ public class FactoryDC {
 		control.setDeleteCommand(command);
 	}
 
-	void createSearchCommand(DataControl<?> control, String expr) {
+	void createSearchCommand(DataControl<?> control, String expr,Class<?> clazz) {
 
 		SearchCommand command = new SearchCommand(control);
 		command.setProvider(provider);
@@ -166,7 +166,7 @@ public class FactoryDC {
 		prm = command.new CallParameter();
 		prm.setName("objectClass");
 		prm.setClazz(String.class);
-		prm.setExpression(expr + ".baseClass.name");
+		prm.setValue(clazz.getName());
 		command.getParameters().add(prm);
 
 		control.setSearchCommand(command);
