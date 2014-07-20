@@ -246,7 +246,7 @@ public class Pager<T> {
 	@SuppressWarnings("unchecked")
 	private T getEntity(int index) throws NoSuchMethodException,
 			SecurityException, InstantiationException, IllegalAccessException,
-			IllegalArgumentException, InvocationTargetException {
+			IllegalArgumentException, InvocationTargetException, TuraException {
 		T t = entities.get(index);
 		try {
 			t.getClass().getMethod("getWrapper", new Class[] {});

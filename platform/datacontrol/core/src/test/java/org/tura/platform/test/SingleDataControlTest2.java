@@ -12,6 +12,8 @@ import javax.persistence.EntityManager;
 
 import org.junit.Test;
 import org.tura.platform.datacontrol.DataControl;
+import org.tura.platform.datacontrol.command.PostCreateTrigger;
+import org.tura.platform.datacontrol.commons.TuraException;
 import org.tura.platform.datacontrol.shift.ShiftConstants;
 import org.tura.platform.hr.init.DepartmentsInit;
 import org.tura.platform.hr.init.EmployesesInit;
@@ -48,6 +50,8 @@ public class SingleDataControlTest2 {
 	public void scrollDownAddCommitScrollDown() {
 		try {
 			DataControl<DepartmentsDAO> dc = factory.initDepartments("");
+			dc.setPostCreateTrigger(new DeparmentPostCreatTrigger());
+			
 			dc.getElResolver().setValue("departments", dc);
 			dc.setPageSize(5);
 			dc.getCurrentObject();
@@ -56,7 +60,9 @@ public class SingleDataControlTest2 {
 			}
 
 			DepartmentsDAO d1 = dc.createObject();
+			assertEquals(d1.getDepartmentName(), "test");
 			DepartmentsDAO d2 = dc.createObject();
+			assertEquals(d2.getDepartmentName(), "test");
 
 			d1.setDepartmentName("d1");
 			d2.setDepartmentName("d2");
@@ -132,4 +138,17 @@ public class SingleDataControlTest2 {
 		}
 	}
 
+	public class  DeparmentPostCreatTrigger implements  PostCreateTrigger{
+
+		@Override
+		public void execute(DataControl<?> datacontrol, Object obj)
+				throws TuraException {
+
+			DepartmentsDAO d = (DepartmentsDAO) obj;
+			d.setDepartmentName("test");
+			
+		}
+		
+	}
+	
 }

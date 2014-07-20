@@ -1,5 +1,6 @@
 package org.tura.platform.test;
 
+import static com.octo.java.sql.query.Query.c;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
 
@@ -9,9 +10,12 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import javax.persistence.EntityManager;
-import static com.octo.java.sql.query.Query.c;
+
 import org.junit.Test;
 import org.tura.platform.datacontrol.DataControl;
+import org.tura.platform.datacontrol.command.PostQueryTrigger;
+import org.tura.platform.datacontrol.command.PreQueryTrigger;
+import org.tura.platform.datacontrol.commons.TuraException;
 import org.tura.platform.datacontrol.shift.ShiftConstants;
 import org.tura.platform.hr.init.DepartmentsInit;
 import org.tura.platform.hr.init.EmployesesInit;
@@ -183,9 +187,8 @@ public class SingleDataControlTest1 {
 		}
 	}
 
-	
 	@Test
-	public void defaultSearchCriteriaWithConstantUpdateRequery () {
+	public void defaultSearchCriteriaWithConstantUpdateRequery() {
 		try {
 			DataControl<DepartmentsDAO> dc = factory.initDepartments("");
 			dc.getElResolver().setValue("departments", dc);
@@ -193,22 +196,67 @@ public class SingleDataControlTest1 {
 					.op(Operator.EQ, new Long(70));
 			DepartmentsDAO row = dc.getCurrentObject();
 			assertEquals(row.getObjId(), new Long(70));
-			
+
 			row.setDepartmentName("test");
 
 			dc.getShifter().setLogger(logger);
 			dc.getShifter().print(ShiftConstants.SELECT_ORDERBY_ACTUALPOSITION);
 
 			dc.getCommandStack().commitCommand();
-			
+
 			dc.forceRefresh();
 			row = dc.getCurrentObject();
 			assertEquals("test", row.getDepartmentName());
-			
+
 		} catch (Exception e) {
 			e.printStackTrace();
 			fail(e.getMessage());
 		}
-	}	
-	
+	}
+
+	@Test
+	public void preQueryPostQueryTriggers() {
+		try {
+			DataControl<DepartmentsDAO> dc = factory.initDepartments("");
+
+			dc.getElResolver().setValue("departments", dc);
+			dc.setPreQueryTrigger(new DepartmentDCPreQueryTrigger());
+			dc.setPostQueryTrigger(new DepartmentDCPostQueryTrigger());
+			DepartmentsDAO row = dc.getCurrentObject();
+			assertEquals(row.getObjId(), new Long(70));
+			assertEquals(row.getDepartmentName(), "test");
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			fail(e.getMessage());
+		}
+	}
+
+	public class DepartmentDCPreQueryTrigger implements PreQueryTrigger {
+
+		@Override
+		public void execute(DataControl<?> datacontrol) throws TuraException {
+			try {
+				datacontrol.getQuery().where(c("objId"))
+						.op(Operator.EQ, new Long(70));
+			} catch (Exception e) {
+				throw new TuraException(e);
+			}
+
+		}
+	}
+
+		public class DepartmentDCPostQueryTrigger implements PostQueryTrigger {
+
+			@Override
+			public void execute(DataControl<?> datacontrol, Object obj)
+					throws TuraException {
+
+				DepartmentsDAO d = (DepartmentsDAO) obj;
+				d.setDepartmentName("test");
+			}
+
+		}
+
+
 }
