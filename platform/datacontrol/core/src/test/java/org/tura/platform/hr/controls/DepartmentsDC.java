@@ -93,11 +93,11 @@ public class DepartmentsDC extends DataControl<DepartmentsDAO> {
 
 	}
 
-	@Override
-	public void setBaseClass(Class<?> baseClass) {
-		this.baseClass = baseClass;
-
-	}
+//	@Override
+//	public void setBaseClass(Class<?> baseClass) {
+//		this.baseClass = baseClass;
+//
+//	}
 
 //	@Override
 //	public void setVersionAttribute(String versionAttribute) {

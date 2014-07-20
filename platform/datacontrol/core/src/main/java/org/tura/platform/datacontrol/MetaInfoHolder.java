@@ -43,7 +43,7 @@ public abstract class MetaInfoHolder {
 	protected PreUpdateTrigger preUpdateTrigger;
 	protected PreDeleteTrigger preDeleteTrigger;
 
-	protected Class<?>  baseClass;
+//	protected Class<?>  baseClass;
 	protected SelectQuery defaultQuery;
 //	protected String versionAttribute;
 	
@@ -60,7 +60,7 @@ public abstract class MetaInfoHolder {
 	public abstract void setPreInsertTrigger(PreInsertTrigger preInsertTrigger);
 	public abstract void setPreUpdateTrigger(PreUpdateTrigger preUpdateTrigger) ;
 	public abstract void setElResolver(ELResolver elResolver);
-	public abstract void setBaseClass(Class<?> baseClass);
+//	public abstract void setBaseClass(Class<?> baseClass);
 //	public abstract void setVersionAttribute(String versionAttribute);
 	
 	
@@ -80,9 +80,9 @@ public abstract class MetaInfoHolder {
 	}
 	
 	
-	public Class<?> getBaseClass() {
-		return baseClass;
-	}
+//	public Class<?> getBaseClass() {
+//		return baseClass;
+//	}
 	
 	public Relation getParent() {
 		return parent;

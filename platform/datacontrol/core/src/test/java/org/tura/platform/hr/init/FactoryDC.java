@@ -49,7 +49,7 @@ public class FactoryDC {
 	public DataControl<DepartmentsDAO> initDepartments(String elPrefix)
 			throws Exception {
 		DepartmentsDC departmentsDS = new DepartmentsDC();
-		departmentsDS.setBaseClass(DepartmentsDAO.class);
+//		departmentsDS.setBaseClass(DepartmentsDAO.class);
 
 		departmentsDS.setElResolver(elResolver);
 		departmentsDS.getKeys().add("objId");
