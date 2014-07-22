@@ -1,5 +1,6 @@
 package org.tura.platform.test;
 
+import static com.octo.java.sql.query.Query.c;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
 
@@ -19,6 +20,8 @@ import org.tura.platform.hr.init.EmployesesInit;
 import org.tura.platform.hr.init.FactoryDC;
 import org.tura.platform.hr.objects.DepartmentsDAO;
 import org.tura.platform.hr.objects.EmployeesDAO;
+
+import com.octo.java.sql.exp.Operator;
 
 public class MasterDetailTest {
 
@@ -76,5 +79,41 @@ public class MasterDetailTest {
 		}
 		
 	}
+	
+	
+	@Test
+	public void getObjectWithDefailtWhere(){
+		try {
+			DataControl<DepartmentsDAO> dcd = factory.initDepartments("");
+			dcd.getElResolver().setValue("departments", dcd);
+			
+			DataControl<EmployeesDAO> dce = factory.initEmployees("");
+			dce.getElResolver().setValue("employees", dce);
+			dce.getDefaultQuery().where(c("objId"))
+			.op(Operator.GT, new Long(30));
+			
+			
+			Relation relation = new Relation();
+			relation.setParent(dcd);
+			relation.setChild(dce);
+			PropertyLink  link =   new PropertyLink ("objId", "parentId");
+			relation.getLinks().add(link);
+			
+			dcd.addChildren("departmentsToemployees", relation);
+			
+			DepartmentsDAO rowd = dcd.getCurrentObject();
+			dcd.nextObject();
+			EmployeesDAO rowe = dce.getCurrentObject();
+			
+			assertEquals(rowd.getObjId(), new Long(10));
+			assertEquals(rowe.getObjId(), new Long(201));
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			fail(e.getMessage());
+		}
+		
+	}
+	
 
 }
