@@ -4,7 +4,7 @@ public class SearchCriteria {
 
 	private String name;
 	private String comparator;
-	private String value;
+	private Object value;
 	private String className;
 	
 	public String getName() {
@@ -13,10 +13,10 @@ public class SearchCriteria {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public String getValue() {
+	public Object getValue() {
 		return value;
 	}
-	public void setValue(String value) {
+	public void setValue(Object value) {
 		this.value = value;
 	}
 	public String getClassName() {

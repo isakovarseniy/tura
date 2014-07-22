@@ -4,10 +4,9 @@ package org.tura.platform.datacontrol.commons;
 import java.lang.reflect.InvocationTargetException;
 
 import com.octo.java.sql.query.Query;
-import com.octo.java.sql.query.SelectQuery;
 
 public enum RestrictionsConverter {
-	GT("gt"), GTEQ("ge"), LT("lt"), LTEQ("le"), EQ("equal"), LIKE("like");
+	GT("gt"), GTEQ("ge"), LT("lt"), LTEQ("le"), EQ("eq"), LIKE("like");
 
 	private String comp;
 
@@ -15,10 +14,10 @@ public enum RestrictionsConverter {
 		this.comp = comp;
 	}
 
-	public Query<?> getRestriction(SelectQuery query, Object value)
+	public Query<?> getRestriction(Query<?> query, Object value)
 			throws NoSuchMethodException, SecurityException, IllegalAccessException, IllegalArgumentException, InvocationTargetException
 			 {
-		return (Query<?>) Reflection.call(query, comp, value);
+		return (Query<?>) Reflection.callTyped(query, comp, Object.class, value);
 
 	}
 

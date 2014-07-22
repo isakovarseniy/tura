@@ -11,6 +11,7 @@ import org.tura.platform.datacontrol.DataControl;
 import org.tura.platform.datacontrol.MetaInfoHolder;
 import org.tura.platform.datacontrol.commons.Constants;
 import org.tura.platform.datacontrol.commons.SearchCriteria;
+import org.tura.platform.datacontrol.commons.TuraException;
 
 import com.octo.java.sql.exp.Operator;
 
@@ -67,20 +68,21 @@ public class Relation {
 	public List<SearchCriteria> getChildSearchCriteria()
 			throws NoSuchMethodException, SecurityException,
 			IllegalAccessException, IllegalArgumentException,
-			InvocationTargetException {
+			InvocationTargetException, TuraException {
 
 		@SuppressWarnings("rawtypes")
 		ArrayList scls = new ArrayList();
 
 		Iterator<PropertyLink> itr = links.iterator();
-		Object obj = getMasterCurrentObject();
-		if (obj != null) {
+		if (masterCurrentObject == null)
+			masterCurrentObject = parent.getCurrentObject();
+		if (masterCurrentObject != null) {
 			while (itr.hasNext()) {
 				PropertyLink lnk = itr.next();
 				String methodName = "get"
 						+ StringUtils.capitalize(lnk.getParent());
-				Method m = obj.getClass().getMethod(methodName, new Class[] {});
-				Object value = m.invoke(obj, new Object[] {});
+				Method m = masterCurrentObject.getClass().getMethod(methodName, new Class[] {});
+				Object value = m.invoke(masterCurrentObject, new Object[] {});
 				if (value == null)
 					value = Constants.UNDEFINED_PARAMETER;
 				SearchCriteria sc = new SearchCriteria();
@@ -88,7 +90,7 @@ public class Relation {
 
 				sc.setName(lnk.getChild());
 				sc.setClassName(value.getClass().getName());
-				sc.setValue(value.toString());
+				sc.setValue(value);
 				sc.setComparator(Operator.EQ.name());
 
 				scls.add(sc);

@@ -17,11 +17,11 @@ package org.tura.platform.datacontrol;
 
 import static com.octo.java.sql.query.Query.c;
 
-import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
 import java.util.Stack;
 
+import org.tura.platform.datacontrol.commons.ConditionConverter;
 import org.tura.platform.datacontrol.commons.Constants;
 import org.tura.platform.datacontrol.commons.LazyList;
 import org.tura.platform.datacontrol.commons.PlatformConfig;
@@ -58,10 +58,10 @@ public class Pager<T> {
 		return entities.size();
 	}
 
-	private void prepareQuery() throws NoSuchMethodException,
+	private boolean prepareQuery() throws NoSuchMethodException,
 			SecurityException, ClassNotFoundException, InstantiationException,
 			IllegalAccessException, IllegalArgumentException,
-			InvocationTargetException, QueryException {
+			InvocationTargetException, QueryException, TuraException {
 
 		datacontrol.setQuery(datacontrol.getDefaultQuery());
 
@@ -70,19 +70,22 @@ public class Pager<T> {
 		SelectQuery query = datacontrol.getQuery();
 		if (datacontrol.getParent() != null) {
 			sc = datacontrol.getParent().getChildSearchCriteria();
+			String condition = "AND";
+			if (!sc.isEmpty() && query.getWhereClause() == null)
+				condition = "WHERE";
+
 			for (SearchCriteria criteria : sc) {
 
 				if (!criteria.getValue().equals(Constants.UNDEFINED_PARAMETER)) {
-					Constructor<?> cons = Class
-							.forName(criteria.getClassName()).getConstructor(
-									String.class);
-
-					Object obj = cons.newInstance(criteria.getValue());
-					query = query.and(c(criteria.getName()));
+					ConditionConverter.valueOf(condition).getRestriction(query,
+							c(criteria.getName()));
+					
 					RestrictionsConverter.valueOf(criteria.getComparator())
-							.getRestriction(query, obj);
-				} else
-					query.and(c("1")).eq("-1");
+							.getRestriction(query, criteria.getValue());
+				} else {
+					return false;
+				}
+				condition = "AND";
 			}
 
 		}
@@ -90,6 +93,7 @@ public class Pager<T> {
 		// restore dafaut querybuilder
 		query.toSql(query.getQueryBuilder());
 
+		return true;
 	}
 
 	public DataControl<T> getDataControl() {
@@ -119,20 +123,6 @@ public class Pager<T> {
 		} finally {
 			datacontrol.getCommandStack().commitTransaction();
 		}
-
-		// try {
-		//
-		//
-		// Object obj = datacontrol.getCreateCommand().execute();
-		// obj = convertobject((T) obj);
-		//
-		// BeanWrapper w = (BeanWrapper) Reflection.call(obj, "getWrapper");
-		// w.setInsertMode(true);
-		//
-		// return (T) obj;
-		// } catch (Exception e) {
-		// throw new TuraException(e);
-		// }
 	}
 
 	@SuppressWarnings("unchecked")
@@ -187,7 +177,9 @@ public class Pager<T> {
 		calculateShift(sindex);
 
 		try {
-			prepareQuery();
+			
+			if (!prepareQuery())
+				return null;
 
 			try {
 				datacontrol.getCommandStack().beginTransaction();

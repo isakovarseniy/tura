@@ -21,14 +21,14 @@ public class EmployesesInit {
 		SimpleDateFormat format = new SimpleDateFormat(
 				"dd-MMM-yy");
 		em.getTransaction().begin();
-		create( (long)100,(long)100,"Steven","King","SKING","515.123.4567",format.parse("17-Jun-87"),"AD_PRES",(float)24000,null,null,(long)90);
-		create( (long)101,(long)101,"Neena","Kochhar","NKOCHHAR","515.123.4568",format.parse("21-Sep-89"),"AD_VP",(float)17000,null,(long)100,(long)90);
-		create( (long)102,(long)102,"Lex","De Haan","LDEHAAN","515.123.4569",format.parse("13-Jan-93"),"AD_VP",(float)17000,null,(long)100,(long)90);
-		create( (long)103,(long)103,"Alexander","Hunold","AHUNOLD","590.423.4567",format.parse("03-Jan-90"),"IT_PROG",(float)9000,null,(long)102,(long)60);
-		create( (long)104,(long)104,"Bruce","Ernst","BERNST","590.423.4568",format.parse("21-May-91"),"IT_PROG",(float)6000,null,(long)103,(long)60);
-		create( (long)105,(long)105,"David","Austin","DAUSTIN","590.423.4569",format.parse("25-Jun-97"),"IT_PROG",(float)4800,null,(long)103,(long)60);
-		create( (long)106,(long)106,"Valli","Pataballa","VPATABAL","590.423.4560",format.parse("05-Feb-98"),"IT_PROG",(float)4800,null,(long)103,(long)60);
-		create( (long)107,(long)107,"Diana","Lorentz","DLORENTZ","590.423.5567",format.parse("07-Feb-99"),"IT_PROG",(float)4200,null,(long)103,(long)60);
+		create( (long)100,(long)100,"Steven","King","SKING","515.123.4567",format.parse("17-Jun-87"),"AD_PRES",(float)24000,null,null,(long)10);
+		create( (long)101,(long)101,"Neena","Kochhar","NKOCHHAR","515.123.4568",format.parse("21-Sep-89"),"AD_VP",(float)17000,null,(long)100,(long)10);
+		create( (long)102,(long)102,"Lex","De Haan","LDEHAAN","515.123.4569",format.parse("13-Jan-93"),"AD_VP",(float)17000,null,(long)100,(long)10);
+		create( (long)103,(long)103,"Alexander","Hunold","AHUNOLD","590.423.4567",format.parse("03-Jan-90"),"IT_PROG",(float)9000,null,(long)102,(long)10);
+		create( (long)104,(long)104,"Bruce","Ernst","BERNST","590.423.4568",format.parse("21-May-91"),"IT_PROG",(float)6000,null,(long)103,(long)10);
+		create( (long)105,(long)105,"David","Austin","DAUSTIN","590.423.4569",format.parse("25-Jun-97"),"IT_PROG",(float)4800,null,(long)103,(long)10);
+		create( (long)106,(long)106,"Valli","Pataballa","VPATABAL","590.423.4560",format.parse("05-Feb-98"),"IT_PROG",(float)4800,null,(long)103,(long)10);
+		create( (long)107,(long)107,"Diana","Lorentz","DLORENTZ","590.423.5567",format.parse("07-Feb-99"),"IT_PROG",(float)4200,null,(long)103,(long)10);
 		create( (long)108,(long)108,"Nancy","Greenberg","NGREENBE","515.124.4569",format.parse("17-Aug-94"),"FI_MGR",(float)12000,null,(long)101,(long)100);
 		create( (long)109,(long)109,"Daniel","Faviet","DFAVIET","515.124.4169",format.parse("16-Aug-94"),"FI_ACCOUNT",(float)9000,null,(long)108,(long)100);
 		create( (long)110,(long)110,"John","Chen","JCHEN","515.124.4269",format.parse("28-Sep-97"),"FI_ACCOUNT",(float)8200,null,(long)108,(long)100);
@@ -144,6 +144,7 @@ public class EmployesesInit {
 		emp.setCommissionPct(commissionpct);
 		emp.setManagerId(managerid);
 		emp.setDepartmentId(departmentid);
+		emp.setParentId(departmentid);
 		em.persist(emp);
 
 	}

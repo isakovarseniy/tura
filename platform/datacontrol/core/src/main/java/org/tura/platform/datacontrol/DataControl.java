@@ -1,6 +1,5 @@
 package org.tura.platform.datacontrol;
 
-import java.lang.reflect.Constructor;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -19,7 +18,7 @@ public abstract class DataControl<T> extends MetaInfoHolder {
 
 	private static boolean SCROLL_DOWN = true;
 	private static boolean SCROLL_UP = false;
-	
+
 	private ArrayList<ChangeRecordListener> chageRecordLiteners = new ArrayList<>();
 
 	private SelectQuery query;
@@ -40,7 +39,7 @@ public abstract class DataControl<T> extends MetaInfoHolder {
 	}
 
 	public void forceRefresh() throws TuraException {
-		currentPosition=0;
+		currentPosition = 0;
 		pager.cleanPager();
 		pager.setScrollDirection(SCROLL_DOWN);
 		notifyChageRecordAll(pager.getObject(currentPosition));
@@ -87,14 +86,15 @@ public abstract class DataControl<T> extends MetaInfoHolder {
 	public boolean hasNext() throws TuraException {
 		if (pager.listSize() == -1)
 			getCurrentObject();
-		
+
 		int position;
 		try {
-			position = (int) pager.getShifter().getObject(currentPosition, true);
+			position = (int) pager.getShifter()
+					.getObject(currentPosition, true);
 		} catch (Exception e) {
 			throw new TuraException(e);
 		}
-		if (position +1 < pager.listSize())
+		if (position + 1 < pager.listSize())
 			return true;
 		else
 			return false;
@@ -107,11 +107,12 @@ public abstract class DataControl<T> extends MetaInfoHolder {
 
 		int position;
 		try {
-			position = (int) pager.getShifter().getObject(currentPosition, true);
+			position = (int) pager.getShifter()
+					.getObject(currentPosition, true);
 		} catch (Exception e) {
 			throw new TuraException(e);
 		}
-		if (position +1 < pager.listSize()){
+		if (position + 1 < pager.listSize()) {
 			currentPosition++;
 			pager.setScrollDirection(SCROLL_DOWN);
 			T newRecord = pager.getObject(currentPosition);
@@ -209,16 +210,13 @@ public abstract class DataControl<T> extends MetaInfoHolder {
 
 						String name = sc.getName();
 						String className = sc.getClassName();
-						String value = sc.getValue();
-						if (value != Constants.UNDEFINED_PARAMETER) {
+						Object value = sc.getValue();
+						if (!value.equals(Constants.UNDEFINED_PARAMETER)) {
 
 							String method = "set"
 									+ StringUtils.capitalize(name);
-							Constructor<?> cons = Class.forName(className)
-									.getConstructor(String.class);
 
-							Reflection.call(obj, method,
-									cons.newInstance(value));
+							Reflection.callTyped(obj, method, Class.forName(className), value);
 						}
 					}
 				}
@@ -257,10 +255,10 @@ public abstract class DataControl<T> extends MetaInfoHolder {
 		this.query = query;
 	}
 
-	public void setPageSize(int page){
+	public void setPageSize(int page) {
 		pager.setLoadStep(page);
 	}
-	
+
 	public int getStartIndex() {
 		return pager.getStartIndex();
 	}
@@ -268,9 +266,10 @@ public abstract class DataControl<T> extends MetaInfoHolder {
 	public int getEndIndex() {
 		return pager.getEndIndex();
 	}
-	public ShiftControl getShifter(){
+
+	public ShiftControl getShifter() {
 		return pager.getShifter();
-		
+
 	}
-	
+
 }

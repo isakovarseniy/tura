@@ -19,7 +19,9 @@ import org.tura.platform.datacontrol.command.InsertCommand;
 import org.tura.platform.datacontrol.command.SearchCommand;
 import org.tura.platform.datacontrol.command.UpdateCommand;
 import org.tura.platform.hr.controls.DepartmentsDC;
+import org.tura.platform.hr.controls.EmployeesDC;
 import org.tura.platform.hr.objects.DepartmentsDAO;
+import org.tura.platform.hr.objects.EmployeesDAO;
 import org.tura.platform.persistence.TuraObject;
 
 import com.octo.java.sql.query.QueryException;
@@ -46,14 +48,36 @@ public class FactoryDC {
 
 	}
 
+	public DataControl<EmployeesDAO> initEmployees(String elPrefix)
+			throws Exception {
+		EmployeesDC employeesDS = new EmployeesDC();
+
+		employeesDS.setElResolver(elResolver);
+		employeesDS.getKeys().add("objId");
+		employeesDS.setCommandStack(sc);
+
+		createCreateCommand(employeesDS, elPrefix + "employees",
+				EmployeesDAO.class);
+		createInsertCommand(employeesDS, elPrefix + "employees",
+				TuraObject.class);
+		createUpdateCommand(employeesDS, elPrefix + "employees",
+				TuraObject.class);
+		createRemoveCommand(employeesDS, elPrefix + "employees",
+				TuraObject.class);
+		createSearchCommand(employeesDS, elPrefix + "employees",EmployeesDAO.class);
+
+		createQuery(employeesDS, "EmployeesDAO");
+
+		return employeesDS;
+	}
+	
+	
 	public DataControl<DepartmentsDAO> initDepartments(String elPrefix)
 			throws Exception {
 		DepartmentsDC departmentsDS = new DepartmentsDC();
-//		departmentsDS.setBaseClass(DepartmentsDAO.class);
 
 		departmentsDS.setElResolver(elResolver);
 		departmentsDS.getKeys().add("objId");
-//		departmentsDS.setVersionAttribute("version");
 		departmentsDS.setCommandStack(sc);
 
 		createCreateCommand(departmentsDS, elPrefix + "departments",
