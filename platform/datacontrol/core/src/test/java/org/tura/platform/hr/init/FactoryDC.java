@@ -34,18 +34,22 @@ public class FactoryDC {
 	private CommandStack sc;
 	private TuraJPAEntityService provider = new TuraJPAEntityService();
 
-	public FactoryDC() {
+	public FactoryDC(String unit) {
 
 		Configuration config = new Configuration();
 		config.addResource("META-INF/persistence.xml");
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory(
-				"HRServices", config.getProperties());
+				unit, config.getProperties());
 		em = emf.createEntityManager();
 		provider.setEntityManager(em);
 
 		elResolver = new ELResolverImpl();
-		sc = new LocalCommandStack(em);
 
+	}
+
+	
+	public void initCommandStack(){
+		sc = new LocalCommandStack(em);
 	}
 
 	public DataControl<EmployeesDAO> initEmployees(String elPrefix)

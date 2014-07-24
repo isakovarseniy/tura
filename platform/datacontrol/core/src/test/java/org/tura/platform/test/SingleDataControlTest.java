@@ -3,6 +3,7 @@ package org.tura.platform.test;
 import static com.octo.java.sql.query.Query.c;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
+import org.junit.runners.MethodSorters;
 
 import java.text.ParseException;
 import java.util.logging.ConsoleHandler;
@@ -11,8 +12,10 @@ import java.util.logging.Logger;
 
 import javax.persistence.EntityManager;
 
+import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.tura.platform.datacontrol.DataControl;
+import org.tura.platform.datacontrol.command.PostCreateTrigger;
 import org.tura.platform.datacontrol.command.PostQueryTrigger;
 import org.tura.platform.datacontrol.command.PreQueryTrigger;
 import org.tura.platform.datacontrol.commons.TuraException;
@@ -24,7 +27,8 @@ import org.tura.platform.hr.objects.DepartmentsDAO;
 
 import com.octo.java.sql.exp.Operator;
 
-public class SingleDataControlTest1 {
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)
+public class SingleDataControlTest {
 
 	private static EntityManager em;
 	private static FactoryDC factory;
@@ -39,7 +43,7 @@ public class SingleDataControlTest1 {
 		logger.addHandler(handler);
 		logger.setLevel(Level.INFO);
 
-		factory = new FactoryDC();
+		factory = new FactoryDC("SingleDataControl");
 		em = factory.getEntityManager();
 		new DepartmentsInit(em).init();
 		try {
@@ -51,8 +55,9 @@ public class SingleDataControlTest1 {
 	}
 
 	@Test
-	public void getObject() {
+	public void t1_getObject() {
 		try {
+			factory.initCommandStack();
 			DataControl<DepartmentsDAO> dc = factory.initDepartments("");
 			dc.getElResolver().setValue("departments", dc);
 			DepartmentsDAO row = dc.getCurrentObject();
@@ -64,8 +69,9 @@ public class SingleDataControlTest1 {
 	}
 
 	@Test
-	public void scrolling() {
+	public void t2_scrolling() {
 		try {
+			factory.initCommandStack();
 			DataControl<DepartmentsDAO> dc = factory.initDepartments("");
 			dc.getElResolver().setValue("departments", dc);
 			dc.setPageSize(5);
@@ -100,8 +106,9 @@ public class SingleDataControlTest1 {
 	}
 
 	@Test
-	public void defaultSearchCriteriaWithConstant() {
+	public void t3_defaultSearchCriteriaWithConstant() {
 		try {
+			factory.initCommandStack();
 			DataControl<DepartmentsDAO> dc = factory.initDepartments("");
 			dc.getElResolver().setValue("departments", dc);
 			dc.getDefaultQuery().where(c("objId"))
@@ -115,8 +122,9 @@ public class SingleDataControlTest1 {
 	}
 
 	@Test
-	public void defaultSearchCriteriaWithExpression() {
+	public void t4_defaultSearchCriteriaWithExpression() {
 		try {
+			factory.initCommandStack();
 			DataControl<DepartmentsDAO> dc = factory.initDepartments("");
 			dc.getElResolver().setValue("departments", dc);
 			dc.getElResolver().setValue("limit", new Long(30));
@@ -130,8 +138,9 @@ public class SingleDataControlTest1 {
 	}
 
 	@Test
-	public void removeScrollDownScrollUpCpmmitScrollDown() {
+	public void t5_removeScrollDownScrollUpCpmmitScrollDown() {
 		try {
+			factory.initCommandStack();
 			DataControl<DepartmentsDAO> dc = factory.initDepartments("");
 			dc.getElResolver().setValue("departments", dc);
 			dc.setPageSize(5);
@@ -188,8 +197,9 @@ public class SingleDataControlTest1 {
 	}
 
 	@Test
-	public void defaultSearchCriteriaWithConstantUpdateRequery() {
+	public void t6_defaultSearchCriteriaWithConstantUpdateRequery() {
 		try {
+			factory.initCommandStack();
 			DataControl<DepartmentsDAO> dc = factory.initDepartments("");
 			dc.getElResolver().setValue("departments", dc);
 			dc.getDefaultQuery().where(c("objId"))
@@ -216,8 +226,9 @@ public class SingleDataControlTest1 {
 	}
 
 	@Test
-	public void preQueryPostQueryTriggers() {
+	public void t7_preQueryPostQueryTriggers() {
 		try {
+			factory.initCommandStack();
 			DataControl<DepartmentsDAO> dc = factory.initDepartments("");
 
 			dc.getElResolver().setValue("departments", dc);
@@ -231,6 +242,112 @@ public class SingleDataControlTest1 {
 			e.printStackTrace();
 			fail(e.getMessage());
 		}
+	}
+
+	@Test
+	public void t8_scrollDownAddCommitScrollDown() {
+		try {
+			factory.initCommandStack();
+			DataControl<DepartmentsDAO> dc = factory.initDepartments("");
+			dc.setPostCreateTrigger(new DeparmentPostCreatTrigger());
+
+			dc.getElResolver().setValue("departments", dc);
+			dc.setPageSize(5);
+			dc.getCurrentObject();
+			for (int i = 0; i < 4; i++) {
+				dc.nextObject();
+			}
+
+			DepartmentsDAO d1 = dc.createObject();
+			assertEquals(d1.getDepartmentName(), "test");
+			DepartmentsDAO d2 = dc.createObject();
+			assertEquals(d2.getDepartmentName(), "test");
+
+			d1.setDepartmentName("d1");
+			d2.setDepartmentName("d2");
+
+			dc.getShifter().setLogger(logger);
+			dc.getShifter().print(ShiftConstants.SELECT_ORDERBY_ACTUALPOSITION);
+
+			dc.forceRefresh();
+
+			Long id = new Long(50);
+			for (int i = 0; i < 4; i++) {
+				DepartmentsDAO row = dc.getCurrentObject();
+				logger.info(row.getObjId().toString());
+				assertEquals(row.getObjId(), id);
+				id = id + 10L;
+				dc.nextObject();
+			}
+
+			id = new Long(2);
+			for (int i = 0; i < 2; i++) {
+				DepartmentsDAO row = dc.getCurrentObject();
+				logger.info(row.getObjId().toString());
+				assertEquals(row.getObjId(), id);
+				id = id - 1L;
+				dc.nextObject();
+			}
+
+			id = new Long(90);
+			do {
+				DepartmentsDAO row = dc.getCurrentObject();
+				logger.info(row.getObjId().toString());
+				assertEquals(row.getObjId(), id);
+				id = id + 10L;
+				dc.nextObject();
+			} while (dc.hasNext());
+			// Check last row
+			assertEquals(dc.getCurrentObject().getObjId(), id);
+			logger.info(dc.getCurrentObject().getObjId().toString());
+
+			dc.getShifter().setLogger(logger);
+			dc.getShifter().print(ShiftConstants.SELECT_ORDERBY_ACTUALPOSITION);
+
+			dc.getCommandStack().commitCommand();
+
+			dc.getShifter().setLogger(logger);
+			dc.getShifter().print(ShiftConstants.SELECT_ORDERBY_ACTUALPOSITION);
+			dc.forceRefresh();
+
+			id = new Long(1);
+			for (int i = 0; i < 2; i++) {
+				DepartmentsDAO row = dc.getCurrentObject();
+				logger.info(row.getObjId().toString());
+				assertEquals(row.getObjId(), id);
+				id = id + 1L;
+				dc.nextObject();
+			}
+
+			id = new Long(50);
+			do {
+				DepartmentsDAO row = dc.getCurrentObject();
+				logger.info(row.getObjId().toString());
+				assertEquals(row.getObjId(), id);
+				id = id + 10L;
+				dc.nextObject();
+			} while (dc.hasNext());
+			// Check last row
+			assertEquals(dc.getCurrentObject().getObjId(), id);
+			logger.info(dc.getCurrentObject().getObjId().toString());
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			fail(e.getMessage());
+		}
+	}
+
+	public class DeparmentPostCreatTrigger implements PostCreateTrigger {
+
+		@Override
+		public void execute(DataControl<?> datacontrol, Object obj)
+				throws TuraException {
+
+			DepartmentsDAO d = (DepartmentsDAO) obj;
+			d.setDepartmentName("test");
+
+		}
+
 	}
 
 	public class DepartmentDCPreQueryTrigger implements PreQueryTrigger {
@@ -247,17 +364,16 @@ public class SingleDataControlTest1 {
 		}
 	}
 
-		public class DepartmentDCPostQueryTrigger implements PostQueryTrigger {
+	public class DepartmentDCPostQueryTrigger implements PostQueryTrigger {
 
-			@Override
-			public void execute(DataControl<?> datacontrol, Object obj)
-					throws TuraException {
+		@Override
+		public void execute(DataControl<?> datacontrol, Object obj)
+				throws TuraException {
 
-				DepartmentsDAO d = (DepartmentsDAO) obj;
-				d.setDepartmentName("test");
-			}
-
+			DepartmentsDAO d = (DepartmentsDAO) obj;
+			d.setDepartmentName("test");
 		}
 
+	}
 
 }

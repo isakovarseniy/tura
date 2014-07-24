@@ -39,7 +39,7 @@ public class MasterDetailTest {
 		logger.addHandler(handler);
 		logger.setLevel(Level.INFO);
 
-		factory = new FactoryDC();
+		factory = new FactoryDC("MasterDetail");
 		em = factory.getEntityManager();
 		new DepartmentsInit(em).init();
 		try {
@@ -52,6 +52,7 @@ public class MasterDetailTest {
 	@Test
 	public void getObject(){
 		try {
+			factory.initCommandStack();
 			DataControl<DepartmentsDAO> dcd = factory.initDepartments("");
 			dcd.getElResolver().setValue("departments", dcd);
 			
@@ -85,6 +86,7 @@ public class MasterDetailTest {
 	@Test
 	public void getObjectWithDefailtWhere(){
 		try {
+			factory.initCommandStack();
 			DataControl<DepartmentsDAO> dcd = factory.initDepartments("");
 			dcd.getElResolver().setValue("departments", dcd);
 			
@@ -120,6 +122,7 @@ public class MasterDetailTest {
 	@Test
 	public void createDetailObject(){
 		try {
+			factory.initCommandStack();
 			DataControl<DepartmentsDAO> dcd = factory.initDepartments("");
 			dcd.getElResolver().setValue("departments", dcd);
 			
@@ -151,6 +154,7 @@ public class MasterDetailTest {
 	@Test
 	public void removeDetailObject(){
 		try {
+			factory.initCommandStack();
 			DataControl<DepartmentsDAO> dcd = factory.initDepartments("");
 			dcd.getElResolver().setValue("departments", dcd);
 			
