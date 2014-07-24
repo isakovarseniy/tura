@@ -3,17 +3,15 @@ package org.tura.platform.test;
 import static com.octo.java.sql.query.Query.c;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
-import org.junit.runners.MethodSorters;
 
 import java.text.ParseException;
-import java.util.logging.ConsoleHandler;
-import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import javax.persistence.EntityManager;
 
 import org.junit.FixMethodOrder;
 import org.junit.Test;
+import org.junit.runners.MethodSorters;
 import org.tura.platform.datacontrol.DataControl;
 import org.tura.platform.datacontrol.command.PostCreateTrigger;
 import org.tura.platform.datacontrol.command.PostQueryTrigger;
@@ -38,10 +36,10 @@ public class SingleDataControlTest {
 	static {
 		logger = Logger.getLogger("InfoLogging");
 		logger.setUseParentHandlers(false);
-		ConsoleHandler handler = new ConsoleHandler();
-		handler.setFormatter(new LogFormatter());
-		logger.addHandler(handler);
-		logger.setLevel(Level.INFO);
+//		ConsoleHandler handler = new ConsoleHandler();
+//		handler.setFormatter(new LogFormatter());
+//		logger.addHandler(handler);
+//		logger.setLevel(Level.INFO);
 
 		factory = new FactoryDC("SingleDataControl");
 		em = factory.getEntityManager();

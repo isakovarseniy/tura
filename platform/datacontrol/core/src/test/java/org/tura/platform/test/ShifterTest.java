@@ -3,10 +3,12 @@ package org.tura.platform.test;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
 
-import java.util.logging.ConsoleHandler;
-import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import org.josql.Query;
+import org.josql.QueryExecutionException;
+import org.josql.QueryParseException;
+import org.josql.QueryResults;
 import org.junit.Test;
 import org.tura.platform.datacontrol.shift.Element;
 import org.tura.platform.datacontrol.shift.ElementType;
@@ -19,10 +21,10 @@ public class ShifterTest {
 	static{
 		logger = Logger.getLogger("InfoLogging");
 		logger.setUseParentHandlers(false);		
-		ConsoleHandler handler = new ConsoleHandler(); 
-		handler.setFormatter(new LogFormatter());
-		logger.addHandler(handler);
-		logger.setLevel(Level.INFO);
+//		ConsoleHandler handler = new ConsoleHandler(); 
+//		handler.setFormatter(new LogFormatter());
+//		logger.addHandler(handler);
+//		logger.setLevel(Level.INFO);
 	}
 
 	
@@ -671,10 +673,16 @@ public class ShifterTest {
 	}
 	
 	
-	private void comparator(ShiftControl contorl, Element[] array) {
+	private void comparator(ShiftControl contorl, Element[] array) throws QueryParseException, QueryExecutionException {
+		
+		Query query = new Query();
+		query.parse(ShiftConstants.SELECT_ORDERBY_ACTUALPOSITION);
+
+		QueryResults result = query.execute(contorl.getShiftTracker());
+		
 		assertEquals(contorl.getShiftTracker().size(), array.length);
 		for (int i = 0; i < array.length; i++) {
-			assertEquals(array[i], contorl.getShiftTracker().get(i));
+			assertEquals(array[i], result.getResults().get(i));
 		}
 
 	}

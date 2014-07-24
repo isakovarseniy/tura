@@ -5,8 +5,6 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
 
 import java.text.ParseException;
-import java.util.logging.ConsoleHandler;
-import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import javax.persistence.EntityManager;
@@ -34,10 +32,10 @@ public class MasterDetailTest {
 	static {
 		logger = Logger.getLogger("InfoLogging");
 		logger.setUseParentHandlers(false);
-		ConsoleHandler handler = new ConsoleHandler();
-		handler.setFormatter(new LogFormatter());
-		logger.addHandler(handler);
-		logger.setLevel(Level.INFO);
+//		ConsoleHandler handler = new ConsoleHandler();
+//		handler.setFormatter(new LogFormatter());
+//		logger.addHandler(handler);
+//		logger.setLevel(Level.INFO);
 
 		factory = new FactoryDC("MasterDetail");
 		em = factory.getEntityManager();
