@@ -18,7 +18,6 @@ package org.tura.platform.datacontrol.model;
 import java.util.AbstractList;
 
 import org.tura.platform.datacontrol.Pager;
-import org.tura.platform.datacontrol.commons.TuraException;
 
 public class GridModel<T> extends AbstractList<T> {
 
@@ -35,7 +34,7 @@ public class GridModel<T> extends AbstractList<T> {
 	public T get(int index) {
 		try {
 			return this.pager.getObject(index);
-		} catch (TuraException e) {
+		} catch (Exception e) {
 			throw new RuntimeException(e);
 		}
 	}

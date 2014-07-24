@@ -19,6 +19,7 @@ import static com.octo.java.sql.query.Query.c;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.Stack;
 
 import org.tura.platform.datacontrol.commons.ConditionConverter;
@@ -33,6 +34,7 @@ import org.tura.platform.datacontrol.shift.ShiftControl;
 
 import com.octo.java.sql.query.QueryException;
 import com.octo.java.sql.query.SelectQuery;
+import com.rits.cloning.Cloner;
 
 public class Pager<T> {
 
@@ -42,13 +44,18 @@ public class Pager<T> {
 	private LazyList<T> entities = new LazyList<>();
 	private DataControl<T> datacontrol;
 	private boolean direction;
-	private ShiftControl shifter = new ShiftControl();
+	private HashMap <String , ShiftControl> shifterHash = new HashMap <>();
 
 	public Pager(DataControl<T> datacontrol) {
 		this.datacontrol = datacontrol;
 		loadStep = PlatformConfig.LOADSTEP;
 	}
 
+	
+	public void cleanShifter(){
+		shifterHash = new HashMap <>();
+	}
+	
 	public void cleanPager() {
 		entities = new LazyList<>();
 		startIndex = 0;
@@ -63,7 +70,9 @@ public class Pager<T> {
 			IllegalAccessException, IllegalArgumentException,
 			InvocationTargetException, QueryException, TuraException {
 
-		datacontrol.setQuery(datacontrol.getDefaultQuery());
+		
+		Cloner cloner = new Cloner();
+		datacontrol.setQuery( cloner.deepClone( datacontrol.getDefaultQuery()));
 
 		Collection<SearchCriteria> sc = null;
 
@@ -131,7 +140,7 @@ public class Pager<T> {
 		try {
 			Object obj = null;
 			try {
-				obj = shifter.getObject(index);
+				obj = getShifter().getObject(index);
 			} catch (Exception e) {
 				throw new TuraException(e);
 			}
@@ -141,8 +150,23 @@ public class Pager<T> {
 			if (obj instanceof Integer)
 				index = (int) obj;
 
-			if (obj == int.class || obj instanceof Integer)
-				return entities.get(index);
+			if (obj == int.class || obj instanceof Integer){
+				try {
+					return  getEntity(index);
+				} catch (NoSuchMethodException e) {
+					throw new TuraException(e);
+				} catch (SecurityException e) {
+					throw new TuraException(e);
+				} catch (InstantiationException e) {
+					throw new TuraException(e);
+				} catch (IllegalAccessException e) {
+					throw new TuraException(e);
+				} catch (IllegalArgumentException e) {
+					throw new TuraException(e);
+				} catch (InvocationTargetException e) {
+					throw new TuraException(e);
+				}
+			}
 
 			return (T) obj;
 
@@ -309,7 +333,17 @@ public class Pager<T> {
 		this.direction = direction;
 	}
 
-	public ShiftControl getShifter() {
+	public ShiftControl getShifter() throws TuraException {
+	   String key="default";	
+		if (datacontrol.getParent() != null){
+			Object obj = datacontrol.getParent().getMasterCurrentObject();
+			key = datacontrol.getObjectKey(obj);
+		}
+		ShiftControl shifter = shifterHash.get(key);
+		if (shifter == null){
+			shifter = new ShiftControl();
+			shifterHash.put(key, shifter);
+		}
 		return shifter;
 	}
 

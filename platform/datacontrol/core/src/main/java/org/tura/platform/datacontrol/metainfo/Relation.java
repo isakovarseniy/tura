@@ -56,13 +56,16 @@ public class Relation {
 		this.cascade = cascade;
 	}
 
-	public Object getMasterCurrentObject() {
+	public Object getMasterCurrentObject() throws TuraException {
+		if (masterCurrentObject == null)
+			masterCurrentObject = parent.getCurrentObject();
 		return masterCurrentObject;
 	}
 
 	public void setMasterCurrentObject(Object masterCurrentObject) {
 		this.masterCurrentObject = masterCurrentObject;
 	}
+	
 
 	@SuppressWarnings("unchecked")
 	public List<SearchCriteria> getChildSearchCriteria()

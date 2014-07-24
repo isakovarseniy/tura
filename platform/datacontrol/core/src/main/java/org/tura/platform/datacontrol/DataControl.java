@@ -3,6 +3,7 @@ package org.tura.platform.datacontrol;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.UUID;
 
 import org.apache.commons.lang.StringUtils;
 import org.tura.platform.datacontrol.commons.Constants;
@@ -18,7 +19,8 @@ public abstract class DataControl<T> extends MetaInfoHolder {
 
 	private static boolean SCROLL_DOWN = true;
 	private static boolean SCROLL_UP = false;
-
+	private static String id = UUID.randomUUID().toString();
+	
 	private ArrayList<ChangeRecordListener> chageRecordLiteners = new ArrayList<>();
 
 	private SelectQuery query;
@@ -267,9 +269,17 @@ public abstract class DataControl<T> extends MetaInfoHolder {
 		return pager.getEndIndex();
 	}
 
-	public ShiftControl getShifter() {
+   public void cleanShifter(){
+	   pager.cleanShifter();
+   }
+	
+	public ShiftControl getShifter() throws TuraException {
 		return pager.getShifter();
 
+	}
+
+	public String getId() {
+		return id;
 	}
 
 }

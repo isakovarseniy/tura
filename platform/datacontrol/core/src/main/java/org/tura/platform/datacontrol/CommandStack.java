@@ -16,6 +16,7 @@
 package org.tura.platform.datacontrol;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Iterator;
 
 import org.tura.platform.datacontrol.command.Command;
@@ -43,20 +44,22 @@ public abstract class CommandStack {
 	public void commitCommand() throws TuraException {
 		Iterator<Command> itr = transaction.iterator();
 
+		HashMap<String,DataControl<?>> controlsId =  new HashMap<>();
+		
 		try {
 			beginTransaction();
 			while (itr.hasNext()) {
 				Command cmd = itr.next();
 				cmd.delayedExecution();
+				controlsId.put(cmd.getDatacontrol().getId(), cmd.getDatacontrol());
 			}
 			commitTransaction();
 
-			itr = transaction.iterator();
-			while (itr.hasNext()) {
-				Command cmd = itr.next();
-				cmd.getDatacontrol().getShifter().clean();
-				cmd.getDatacontrol().forceRefresh();
-				
+			Iterator<DataControl<?>> itrc = controlsId.values().iterator();
+			while (itrc.hasNext()) {
+				DataControl<?> ctl = itrc.next();
+				ctl.cleanShifter();
+				ctl.forceRefresh();
 			}
 
 			transaction = new ArrayList<Command>();

@@ -15,6 +15,7 @@ import org.junit.Test;
 import org.tura.platform.datacontrol.DataControl;
 import org.tura.platform.datacontrol.metainfo.PropertyLink;
 import org.tura.platform.datacontrol.metainfo.Relation;
+import org.tura.platform.datacontrol.shift.ShiftConstants;
 import org.tura.platform.hr.init.DepartmentsInit;
 import org.tura.platform.hr.init.EmployesesInit;
 import org.tura.platform.hr.init.FactoryDC;
@@ -116,4 +117,75 @@ public class MasterDetailTest {
 	}
 	
 
+	@Test
+	public void createDetailObject(){
+		try {
+			DataControl<DepartmentsDAO> dcd = factory.initDepartments("");
+			dcd.getElResolver().setValue("departments", dcd);
+			
+			DataControl<EmployeesDAO> dce = factory.initEmployees("");
+			dce.getElResolver().setValue("employees", dce);
+			
+			
+			Relation relation = new Relation();
+			relation.setParent(dcd);
+			relation.setChild(dce);
+			PropertyLink  link =   new PropertyLink ("objId", "parentId");
+			relation.getLinks().add(link);
+			
+			dcd.addChildren("departmentsToemployees", relation);
+
+			EmployeesDAO rowe = dce.createObject();
+			rowe.setFirstName("test");
+			dce.getCommandStack().commitCommand();
+			assertEquals(rowe.getParentId(), new Long(10));
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			fail(e.getMessage());
+		}
+		
+	}
+	
+	
+	@Test
+	public void removeDetailObject(){
+		try {
+			DataControl<DepartmentsDAO> dcd = factory.initDepartments("");
+			dcd.getElResolver().setValue("departments", dcd);
+			
+			DataControl<EmployeesDAO> dce = factory.initEmployees("");
+			dce.getElResolver().setValue("employees", dce);
+			
+			
+			Relation relation = new Relation();
+			relation.setParent(dcd);
+			relation.setChild(dce);
+			PropertyLink  link =   new PropertyLink ("objId", "parentId");
+			relation.getLinks().add(link);
+			
+			dcd.addChildren("departmentsToemployees", relation);
+			dcd.removeObject();
+
+			DepartmentsDAO rowd = dcd.getCurrentObject();
+			EmployeesDAO rowe = dce.getCurrentObject();
+			
+			dcd.getShifter().setLogger(logger);
+			dcd.getShifter().print(ShiftConstants.SELECT_ORDERBY_ACTUALPOSITION);
+			logger.info("++++++++++++++++++++++++++++++++++++++++++");
+			dce.getShifter().setLogger(logger);
+			dce.getShifter().print(ShiftConstants.SELECT_ORDERBY_ACTUALPOSITION);
+			
+		    assertEquals(rowd.getObjId(), new Long(20));
+		    assertEquals(rowe.getParentId(), new Long(20));
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			fail(e.getMessage());
+		}
+		
+	}
+	
+	
+	
 }
