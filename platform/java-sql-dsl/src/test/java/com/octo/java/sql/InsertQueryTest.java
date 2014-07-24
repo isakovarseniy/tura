@@ -33,12 +33,12 @@ public class InsertQueryTest {
         "column2", "value2");
 
     assertEquals(
-        "INSERT INTO table (column1, column2) VALUES (:column11, :column22)",
+        "INSERT INTO table (column1, column2) VALUES (:p1, :p2)",
         query.toSql());
     final Map<String, Object> params = query.getParams();
     assertEquals(2, params.size());
-    assertEquals(42, params.get("column11"));
-    assertEquals("value2", params.get("column22"));
+    assertEquals(42, params.get("p1"));
+    assertEquals("value2", params.get("p2"));
   }
 
   @Test
@@ -48,12 +48,12 @@ public class InsertQueryTest {
         "column1", 42);
 
     assertEquals(
-        "INSERT INTO table (column2, column1) VALUES (:column21, :column12)",
+        "INSERT INTO table (column2, column1) VALUES (:p1, :p2)",
         query.toSql());
     final Map<String, Object> params = query.getParams();
     assertEquals(2, params.size());
-    assertEquals(42, params.get("column12"));
-    assertEquals("value2", params.get("column21"));
+    assertEquals(42, params.get("p2"));
+    assertEquals("value2", params.get("p1"));
   }
 
   @Test
@@ -63,11 +63,11 @@ public class InsertQueryTest {
         "column2", null);
 
     assertEquals(
-        "INSERT INTO table (column1, column2) VALUES (:column11, :column22)",
+        "INSERT INTO table (column1, column2) VALUES (:p1, :p2)",
         query.toSql());
     final Map<String, Object> params = query.getParams();
     assertEquals(2, params.size());
-    assertEquals("", params.get("column11"));
-    assertEquals(null, params.get("column22"));
+    assertEquals("", params.get("p1"));
+    assertEquals(null, params.get("p2"));
   }
 }

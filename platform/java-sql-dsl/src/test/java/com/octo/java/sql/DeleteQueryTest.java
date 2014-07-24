@@ -32,8 +32,8 @@ public class DeleteQueryTest {
     final DeleteQuery query = deleteFrom("table") //
         .where(c("column")).eq("value");
 
-    assertEquals("DELETE FROM table WHERE (column = :column1)", query.toSql());
+    assertEquals("DELETE FROM table WHERE (column = :p1)", query.toSql());
     assertEquals(1, query.getParams().size());
-    assertEquals("value", query.getParams().get("column1"));
+    assertEquals("value", query.getParams().get("p1"));
   }
 }

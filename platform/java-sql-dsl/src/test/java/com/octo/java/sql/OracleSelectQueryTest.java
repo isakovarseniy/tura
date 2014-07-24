@@ -43,10 +43,10 @@ public class OracleSelectQueryTest {
   public void testShouldBuildSQLQueryWithLimit() throws QueryException {
     final SelectQuery query = select("*").from("table").limit(10L);
 
-    assertEquals("SELECT * FROM (SELECT * FROM table) WHERE (rownum<=:limit1)",
+    assertEquals("SELECT * FROM (SELECT * FROM table) WHERE (rownum<=:p1)",
         query.toSql());
     assertEquals(1, query.getParams().size());
-    assertEquals(10L, query.getParams().get("limit1"));
+    assertEquals(10L, query.getParams().get("p1"));
   }
 
   @Test
@@ -56,11 +56,11 @@ public class OracleSelectQueryTest {
         .where(c("column")).eq("columnValue").limit(10L);
 
     assertEquals(
-        "SELECT * FROM (SELECT * FROM table WHERE (column = :column1)) WHERE (rownum<=:limit2)",
+        "SELECT * FROM (SELECT * FROM table WHERE (column = :p1)) WHERE (rownum<=:p2)",
         query.toSql());
     assertEquals(2, query.getParams().size());
-    assertEquals("columnValue", query.getParams().get("column1"));
-    assertEquals(10L, query.getParams().get("limit2"));
+    assertEquals("columnValue", query.getParams().get("p1"));
+    assertEquals(10L, query.getParams().get("p2"));
   }
 
 }

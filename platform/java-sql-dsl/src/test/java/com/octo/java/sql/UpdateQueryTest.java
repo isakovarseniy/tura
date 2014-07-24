@@ -37,7 +37,7 @@ public class UpdateQueryTest {
         .set(c("secondCol"), "v2");
 
     assertEquals(
-        "UPDATE myTable SET firstCol = :firstCol1, secondCol = :secondCol2",
+        "UPDATE myTable SET firstCol = :p1, secondCol = :p2",
         query.toSql());
     assertEquals(2, query.getParams().size());
   }
@@ -47,10 +47,10 @@ public class UpdateQueryTest {
       throws QueryException {
     final UpdateQuery query = update("myTable").set(c("firstCol"), null);
 
-    assertEquals("UPDATE myTable SET firstCol = :firstCol1", query.toSql());
+    assertEquals("UPDATE myTable SET firstCol = :p1", query.toSql());
     final Map<String, Object> params = query.getParams();
     assertEquals(1, params.size());
-    assertEquals(null, params.get("firstCol1"));
+    assertEquals(null, params.get("p1"));
   }
 
   @Test
@@ -62,10 +62,10 @@ public class UpdateQueryTest {
         .where(c("thirdCol")).like("%1%");
 
     assertEquals(
-        "UPDATE myTable SET firstCol = :firstCol1, secondCol = :secondCol2 WHERE (thirdCol LIKE :thirdCol3)",
+        "UPDATE myTable SET firstCol = :p1, secondCol = :p2 WHERE (thirdCol LIKE :p3)",
         query.toSql());
     assertEquals(3, query.getParams().size());
-    assertEquals("%1%", query.getParams().get("thirdCol3"));
+    assertEquals("%1%", query.getParams().get("p3"));
   }
 
   @Test
@@ -81,10 +81,10 @@ public class UpdateQueryTest {
         );
 
     assertEquals(
-        "UPDATE myTable SET firstCol = :firstCol1, secondCol = :secondCol2 WHERE ((thirdCol LIKE :thirdCol3) AND (col4 = (SELECT MAX(colnum) FROM otherTable WHERE (otherCol = :otherCol4))))",
+        "UPDATE myTable SET firstCol = :p1, secondCol = :p2 WHERE ((thirdCol LIKE :p3) AND (col4 = (SELECT MAX(colnum) FROM otherTable WHERE (otherCol = :p4))))",
         query.toSql());
     assertEquals(4, query.getParams().size());
-    assertEquals("%1%", query.getParams().get("thirdCol3"));
-    assertEquals(42, query.getParams().get("otherCol4"));
+    assertEquals("%1%", query.getParams().get("p3"));
+    assertEquals(42, query.getParams().get("p4"));
   }
 }

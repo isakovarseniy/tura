@@ -78,10 +78,10 @@ public class BasicOptimizedSelectQueryTest {
         .where(c("column")).eq(null) //
         .and(c("lastColumn")).eq("lastColumnValue");
 
-    assertEquals("SELECT * FROM table WHERE ((lastColumn = :lastColumn1))",
+    assertEquals("SELECT * FROM table WHERE ((lastColumn = :p1))",
         query.toSql());
     assertEquals(1, query.getParams().size());
-    assertEquals("lastColumnValue", query.getParams().get("lastColumn1"));
+    assertEquals("lastColumnValue", query.getParams().get("p1"));
   }
 
   @Test
@@ -92,10 +92,10 @@ public class BasicOptimizedSelectQueryTest {
         .and(c("otherColumn")).eq(null) //
         .and(c("lastColumn")).eq("lastColumnValue");
 
-    assertEquals("SELECT * FROM table WHERE ((lastColumn = :lastColumn1))",
+    assertEquals("SELECT * FROM table WHERE ((lastColumn = :p1))",
         query.toSql());
     assertEquals(1, query.getParams().size());
-    assertEquals("lastColumnValue", query.getParams().get("lastColumn1"));
+    assertEquals("lastColumnValue", query.getParams().get("p1"));
   }
 
   @Test
@@ -144,11 +144,11 @@ public class BasicOptimizedSelectQueryTest {
         .where(c("column")).between(null, null) //
         .and(c("column")).eq("value");
 
-    assertEquals("SELECT * FROM table WHERE ((column = :column1))", query
+    assertEquals("SELECT * FROM table WHERE ((column = :p1))", query
         .toSql());
     final Map<String, Object> params = query.getParams();
     assertEquals(1, params.size());
-    assertEquals("value", params.get("column1"));
+    assertEquals("value", params.get("p1"));
   }
 
   @Test
@@ -160,10 +160,10 @@ public class BasicOptimizedSelectQueryTest {
         .where(c("table.column")).eq(42);
 
     assertEquals(
-        "SELECT table.column,table.column2 FROM table WHERE (table.column = :table.column1)",
+        "SELECT table.column,table.column2 FROM table WHERE (table.column = :p1)",
         query.toSql());
     assertEquals(1, query.getParams().size());
-    assertEquals(42, query.getParams().get("table.column1"));
+    assertEquals(42, query.getParams().get("p1"));
   }
 
   @Test
@@ -175,10 +175,10 @@ public class BasicOptimizedSelectQueryTest {
         .where(c("table.column")).eq(42);
 
     assertEquals(
-        "SELECT table2.column2,table.column2 FROM table INNER JOIN table2 ON (table2.column2 = table.column) WHERE (table.column = :table.column1)",
+        "SELECT table2.column2,table.column2 FROM table INNER JOIN table2 ON (table2.column2 = table.column) WHERE (table.column = :p1)",
         query.toSql());
     assertEquals(1, query.getParams().size());
-    assertEquals(42, query.getParams().get("table.column1"));
+    assertEquals(42, query.getParams().get("p1"));
   }
 
   @Test
@@ -190,10 +190,10 @@ public class BasicOptimizedSelectQueryTest {
         .where(c("table.column")).eq(42);
 
     assertEquals(
-        "SELECT * FROM table INNER JOIN table2 ON (table2.column2 = table.column) WHERE (table.column = :table.column1)",
+        "SELECT * FROM table INNER JOIN table2 ON (table2.column2 = table.column) WHERE (table.column = :p1)",
         query.toSql());
     assertEquals(1, query.getParams().size());
-    assertEquals(42, query.getParams().get("table.column1"));
+    assertEquals(42, query.getParams().get("p1"));
   }
 
   @Test
@@ -205,10 +205,10 @@ public class BasicOptimizedSelectQueryTest {
         .where(c("column")).eq(42);
 
     assertEquals(
-        "SELECT table2.column2,table.column2 FROM table INNER JOIN table2 ON (table2.column2 = table.column) WHERE (column = :column1)",
+        "SELECT table2.column2,table.column2 FROM table INNER JOIN table2 ON (table2.column2 = table.column) WHERE (column = :p1)",
         query.toSql());
     assertEquals(1, query.getParams().size());
-    assertEquals(42, query.getParams().get("column1"));
+    assertEquals(42, query.getParams().get("p1"));
   }
 
   @Test
@@ -221,10 +221,10 @@ public class BasicOptimizedSelectQueryTest {
         .where(c("column")).eq(42);
 
     assertEquals(
-        "SELECT table3.column3,table.column2 FROM table INNER JOIN table2 ON (table2.column2 = table.column2) INNER JOIN table3 ON (table3.column3 = table2.column3) WHERE (column = :column1)",
+        "SELECT table3.column3,table.column2 FROM table INNER JOIN table2 ON (table2.column2 = table.column2) INNER JOIN table3 ON (table3.column3 = table2.column3) WHERE (column = :p1)",
         query.toSql());
     assertEquals(1, query.getParams().size());
-    assertEquals(42, query.getParams().get("column1"));
+    assertEquals(42, query.getParams().get("p1"));
   }
 
   @Test
@@ -236,9 +236,9 @@ public class BasicOptimizedSelectQueryTest {
         .innerJoin("table3").on(c("table3.column3")).eq(c("table2.column3")) //
         .where(c("column")).eq(42);
 
-    assertEquals("SELECT table.column2 FROM table WHERE (column = :column1)",
+    assertEquals("SELECT table.column2 FROM table WHERE (column = :p1)",
         query.toSql());
     assertEquals(1, query.getParams().size());
-    assertEquals(42, query.getParams().get("column1"));
+    assertEquals(42, query.getParams().get("p1"));
   }
 }

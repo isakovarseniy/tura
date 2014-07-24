@@ -91,7 +91,7 @@ public class DefaultQueryBuilder extends BaseVisitor {
    * @return
    */
   protected String addVariable(final Object value, final String baseColumnName) {
-    final String columnName = baseColumnName + variableIndex++;
+    final String columnName = "p" + variableIndex++;
     params.put(columnName, value);
     return columnName;
   }
