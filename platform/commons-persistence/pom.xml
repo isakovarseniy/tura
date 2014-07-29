@@ -28,7 +28,6 @@
 		<dependency>
 			<groupId>javax</groupId>
 			<artifactId>javaee-api</artifactId>
-			<version>${javaee-api}</version>
 			<scope>provided</scope>
 		</dependency>
 

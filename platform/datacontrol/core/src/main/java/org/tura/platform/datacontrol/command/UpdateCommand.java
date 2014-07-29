@@ -10,6 +10,10 @@ public class UpdateCommand extends Command {
 		super(datacontrol);
 	}
 
+
+	public UpdateCommand() {
+	}
+	
 	@Override
 	public Object execute() throws Exception {
 

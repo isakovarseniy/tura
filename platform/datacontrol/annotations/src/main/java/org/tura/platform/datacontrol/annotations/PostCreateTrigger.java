@@ -13,9 +13,11 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  ******************************************************************************/
-package org.tura.platform.datacontrol.commons;
+package org.tura.platform.datacontrol.annotations;
 
-public class Constants {
-	public static String UNDEFINED_PARAMETER="@@ARSENIY@UNDEFINED_PARAMETER";
+import static java.lang.annotation.RetentionPolicy.RUNTIME;
+import java.lang.annotation.Retention;
 
+@Retention(RUNTIME)
+public @interface PostCreateTrigger {
 }

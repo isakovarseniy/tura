@@ -10,6 +10,9 @@ public class DeleteCommand extends Command{
 		super(datacontrol);
 	}
 
+	public DeleteCommand() {
+	}
+
 	@Override
 	public Object execute() throws Exception {
 

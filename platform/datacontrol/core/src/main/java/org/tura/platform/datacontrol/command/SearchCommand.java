@@ -8,6 +8,11 @@ public class SearchCommand extends Command{
 		super(datacontrol);
 	}
 
+	public SearchCommand() {
+	}
+
+	
+	
 	@Override
 	public Object execute() throws Exception {
 

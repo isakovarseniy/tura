@@ -9,6 +9,10 @@ public class InsertCommand extends Command {
 		super(datacontrol);
 	}
 
+	public InsertCommand() {
+	}
+
+	
 	@Override
 	public Object execute() throws Exception {
 

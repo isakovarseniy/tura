@@ -13,6 +13,24 @@ import com.rits.cloning.Cloner;
 
 public abstract class Command {
 
+	private DataControl<?> datacontrol;
+	protected List<CallParameter> parameters = new ArrayList<>();
+	protected Object provider;
+	private String method;
+	protected Method call;
+
+	public abstract Object execute() throws Exception;
+	public abstract void delayedExecution() throws Exception;
+	
+	public Command(DataControl<?> datacontrol) {
+		this.datacontrol = datacontrol;
+	}
+
+	public Command(){
+		
+	}
+	
+	
 	public void setProvider(Object provider) {
 		this.provider = provider;
 	}
@@ -21,30 +39,18 @@ public abstract class Command {
 		this.method = method;
 	}
 
-	private DataControl<?> datacontrol;
-	protected List<CallParameter> parameters = new ArrayList<>();
-	protected Object provider;
-	private String method;
-	protected Method call;
-
-
-	
 	public List<CallParameter> getParameters() {
 		return parameters;
 	}
 
-	public Command(DataControl<?> datacontrol) {
-		this.datacontrol = datacontrol;
-	}
-
-	public abstract Object execute() throws Exception;
-	public abstract void delayedExecution() throws Exception;
-	
 	public DataControl<?> getDatacontrol() {
 		return datacontrol;
 	}
 	
 	
+	public void setDatacontrol(DataControl<?> datacontrol) {
+		this.datacontrol = datacontrol;
+	}
 	public void prepareCall() throws Exception{
 		ArrayList<Class<?>> ls = new ArrayList<>();
 		for ( CallParameter prm : parameters){

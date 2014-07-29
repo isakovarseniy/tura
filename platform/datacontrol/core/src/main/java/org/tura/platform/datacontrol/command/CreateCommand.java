@@ -7,6 +7,10 @@ public class CreateCommand extends Command {
 	public CreateCommand(DataControl<?> datacontrol) {
 		super(datacontrol);
 	}
+	
+	public CreateCommand() {
+	}
+	
 
 	@Override
 	public Object execute() throws Exception {
