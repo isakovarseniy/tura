@@ -16,8 +16,11 @@
 package org.tura.platform.datacontrol.annotations;
 
 import static java.lang.annotation.RetentionPolicy.RUNTIME;
+
 import java.lang.annotation.Retention;
 
 @Retention(RUNTIME)
-public @interface PostCreateTrigger {
+public @interface Link {
+	String field1();
+	String field2();
 }

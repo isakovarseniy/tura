@@ -15,17 +15,13 @@
  ******************************************************************************/
 package org.tura.platform.datacontrol.annotations;
 
-
-import javax.inject.Qualifier;
-import java.lang.annotation.Retention;
-import java.lang.annotation.Target;
-
-import static java.lang.annotation.ElementType.*;
 import static java.lang.annotation.RetentionPolicy.RUNTIME;
 
-@Qualifier
+import java.lang.annotation.Retention;
+
 @Retention(RUNTIME)
-@Target({FIELD, TYPE, METHOD,PARAMETER})
-public @interface SearchTrigger {
-	String value();
+public @interface ArtificialField {
+	String field();
+	Class<?> type();
+	String defaulValue() default "";
 }
