@@ -12,7 +12,8 @@
 	<url>http://sourceforge.net/p/tura/wiki/Home/</url>
 
 	<properties>
-		<version.project.build.sourceEncoding>UTF-8</version.project.build.sourceEncoding>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		
 		<version.tura-platform>2.0</version.tura-platform>
 		<version.hibernate-entitymanager>4.3.5.Final</version.hibernate-entitymanager>
 		<version.cglib>2.2.2</version.cglib>
