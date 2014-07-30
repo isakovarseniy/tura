@@ -30,7 +30,7 @@ public abstract class DataControl<T> extends MetaInfoHolder {
 
 	protected Object comandResultHolder;
 
-	private CommandStack commandStack;
+	protected CommandStack commandStack;
 
 	public DataControl() throws Exception {
 		this.pager = new Pager<T>(this);

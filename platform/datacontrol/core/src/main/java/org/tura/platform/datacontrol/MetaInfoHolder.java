@@ -27,7 +27,7 @@ public abstract class MetaInfoHolder {
 	protected HashMap<String, Object> dependency = new HashMap<String, Object>();
 	private Relation parent;
 	protected HashMap<String, Relation> children = new HashMap<String, Relation>();
-	protected ArrayList<ArtificialProperty> artificialProperties = new ArrayList<>();
+	protected List<ArtificialProperty> artificialProperties = new ArrayList<>();
 	protected List<String> keys = new ArrayList<>();
 	
 	protected ELResolver elResolver;
