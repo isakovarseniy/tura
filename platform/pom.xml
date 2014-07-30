@@ -13,7 +13,7 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		
+
 		<version.tura-platform>2.0</version.tura-platform>
 		<version.hibernate-entitymanager>4.3.5.Final</version.hibernate-entitymanager>
 		<version.cglib>2.2.2</version.cglib>
@@ -41,6 +41,7 @@
 
 
 	<modules>
+		<module>commons-test</module>
 		<module>java-sql-dsl</module>
 		<module>commons-persistence</module>
 		<module>commons-jpa</module>
@@ -85,6 +86,13 @@
 				<artifactId>core</artifactId>
 				<version>${version.tura-platform}</version>
 			</dependency>
+
+			<dependency>
+				<groupId>org.tura.platform</groupId>
+				<artifactId>commons-test</artifactId>
+				<version>${version.tura-platform}</version>
+			</dependency>
+
 
 			<dependency>
 				<groupId>com.octo.java.sql</groupId>
