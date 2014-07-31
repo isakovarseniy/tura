@@ -70,121 +70,121 @@ public class DepartmentsDC extends DataControl<DepartmentsDAO> {
 		return provider;
 	}
 
-//	@Inject
-//	@TransactionUnit("MasterDetail")
+	@Inject
+	@TransactionUnit("MasterDetail")
 	public void setCommandStack(CommandStack commandStack) {
 		this.commandStack = commandStack;
 	}
 
-//	@Inject
-//	@ArtificialFields(fields = {
-//			@ArtificialField(field = "prop1", type = String.class),
-//			@ArtificialField(field = "prop2", type = String.class) })
+	@Inject
+	@ArtificialFields(fields = {
+			@ArtificialField(field = "prop1", type = String.class),
+			@ArtificialField(field = "prop2", type = String.class) })
 	public void setArtificialProperties( List<ArtificialProperty> properties) {
 		this.artificialProperties = properties;
 	}
 	
 	@Override
 	@Inject
-//	@Create(objectAction = "create", parameters = @Parameters(value = { @Parameter(name = "objType", value = "org.tura.platform.hr.objects.DepartmentsDAO", type = String.class) }))
+	@Create(objectAction = "create", parameters = @Parameters(value = { @Parameter(name = "objType", value = "org.tura.platform.hr.objects.DepartmentsDAO", type = String.class) }))
 	public void setCreateCommand( CreateCommand createCommand) {
-//		this.createCommand = createCommand;
-//		this.createCommand.setDatacontrol(this);
+		this.createCommand = createCommand;
+		this.createCommand.setDatacontrol(this);
 	}
 
 	@Override
-//	@Inject
-//	@Insert(objectAction = "insert", parameters = @Parameters(value = { @Parameter(name = "obj", expression = "department.currentObject", type = TuraObject.class) }))
+	@Inject
+	@Insert(objectAction = "insert", parameters = @Parameters(value = { @Parameter(name = "obj", expression = "department.currentObject", type = TuraObject.class) }))
 	public void setInsertCommand(  InsertCommand insertCommand) {
 		this.insertCommand = insertCommand;
 		this.insertCommand.setDatacontrol(this);
 	}
 
 	@Override
-//	@Inject
-//	@Update(objectAction = "update", parameters = @Parameters(value = { @Parameter(name = "obj", expression = "department.currentObject", type = TuraObject.class) }))
+	@Inject
+	@Update(objectAction = "update", parameters = @Parameters(value = { @Parameter(name = "obj", expression = "department.currentObject", type = TuraObject.class) }))
 	public void setUpdateCommand( UpdateCommand updateCommand) {
 		this.updateCommand = updateCommand;
 		this.updateCommand.setDatacontrol(this);
 	}
 
 	@Override
-//	@Inject
-//	@Delete(objectAction = "remove", parameters = @Parameters(value = { @Parameter(name = "obj", expression = "department.currentObject", type = TuraObject.class) }))
+	@Inject
+	@Delete(objectAction = "remove", parameters = @Parameters(value = { @Parameter(name = "obj", expression = "department.currentObject", type = TuraObject.class) }))
 	public void setDeleteCommand( DeleteCommand deleteCommand) {
 		this.deleteCommand = deleteCommand;
 		this.deleteCommand.setDatacontrol(this);
 	}
 
 	@Override
-//	@Inject
-//	@Search(objectAction = "find", parameters = @Parameters(value = {
-//			@Parameter(name = "dslQuery", expression = "department.query"),
-//			@Parameter(name = "startindex", expression = "department.startIndex"),
-//			@Parameter(name = "endindex", expression = "department.endIndex"),
-//			@Parameter(name = "objectClass", value = "org.tura.platform.hr.objects.DepartmentsDAO", type = String.class) }))
+	@Inject
+	@Search(objectAction = "find", parameters = @Parameters(value = {
+			@Parameter(name = "dslQuery", expression = "department.query"),
+			@Parameter(name = "startindex", expression = "department.startIndex"),
+			@Parameter(name = "endindex", expression = "department.endIndex"),
+			@Parameter(name = "objectClass", value = "org.tura.platform.hr.objects.DepartmentsDAO", type = String.class) }))
 	public void setSearchCommand(@Default SearchCommand searchCommand) {
 		this.searchCommand = searchCommand;
 		this.searchCommand.setDatacontrol(this);
 	}
 
 	@Override
-//	@Inject
-//	@Query(
-//	       base = @Base(clazz = DepartmentsDAO.class),
-//	       keys = @Keys(fields = { @Key(field = "objId") }),
-//	       search = @DefaultSearchCriterias(criterias = { @DefaultSearchCriteria(field = "objId", comparator = Operator.GT, value = "30", type = Integer.class, expression = "") }),
-//	       orders = @DefaultOrderBys(orders = { @DefaultOrderBy(field = "objId", type = SelectQuery.Order.ASC) })
-//	       )
+	@Inject
+	@Query(
+	       base = @Base(clazz = DepartmentsDAO.class),
+	       keys = @Keys(fields = { @Key(field = "objId") }),
+	       search = @DefaultSearchCriterias(criterias = { @DefaultSearchCriteria(field = "objId", comparator = Operator.GT, value = "30", type = Integer.class, expression = "") }),
+	       orders = @DefaultOrderBys(orders = { @DefaultOrderBy(field = "objId", type = SelectQuery.Order.ASC) })
+	       )
 	public void setDefaultQuery( SelectQuery selectQuery) {
 		this.defaultQuery = selectQuery;
 	}
 
 	@Override
-//	@Inject
+	@Inject
 	public void setElResolver( ELResolver elResolver) {
 		this.elResolver = elResolver;
 
 	}
 
 	@Override
-//	@Inject
-//	@PreQuery("department")
+	@Inject
+	@PreQuery("department")
 	public void setPreQueryTrigger( PreQueryTrigger preQueryTrigger) {
 		this.preQueryTrigger = preQueryTrigger;
 	}
 
 	@Override
-//	@Inject
-//	@PostQuery("department")
+	@Inject
+	@PostQuery("department")
 	public void setPostQueryTrigger( PostQueryTrigger postQueryTrigger) {
 		this.postQueryTrigger = postQueryTrigger;
 	}
 
 	@Override
-//	@Inject
-//	@PostCreate("department")
+	@Inject
+	@PostCreate("department")
 	public void setPostCreateTrigger( PostCreateTrigger postCreateTrigger) {
 		this.postCreateTrigger = postCreateTrigger;
 	}
 
 	@Override
-//	@Inject
-//	@PreDelete("department")
+	@Inject
+	@PreDelete("department")
 	public void setPreDeleteTrigger( PreDeleteTrigger preDeleteTrigger) {
 		this.preDeleteTrigger = preDeleteTrigger;
 	}
 
 	@Override
-//	@Inject
-//	@PreInsert("department")
+	@Inject
+	@PreInsert("department")
 	public void setPreInsertTrigger( PreInsertTrigger preInsertTrigger) {
 		this.preInsertTrigger = preInsertTrigger;
 	}
 
 	@Override
-//	@Inject
-//	@PreUpdate("department")
+	@Inject
+	@PreUpdate("department")
 	public void setPreUpdateTrigger( PreUpdateTrigger preUpdateTrigger) {
 		this.preUpdateTrigger = preUpdateTrigger;
 	}
