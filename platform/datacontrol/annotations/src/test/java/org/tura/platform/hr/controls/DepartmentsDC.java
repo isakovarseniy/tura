@@ -32,7 +32,6 @@ import org.tura.platform.datacontrol.annotations.PreQuery;
 import org.tura.platform.datacontrol.annotations.PreUpdate;
 import org.tura.platform.datacontrol.annotations.Provider;
 import org.tura.platform.datacontrol.annotations.Query;
-import org.tura.platform.datacontrol.annotations.Qwerty;
 import org.tura.platform.datacontrol.annotations.Search;
 import org.tura.platform.datacontrol.annotations.TransactionUnit;
 import org.tura.platform.datacontrol.annotations.Update;
@@ -88,9 +87,9 @@ public class DepartmentsDC extends DataControl<DepartmentsDAO> {
 	@Override
 	@Inject
 //	@Create(objectAction = "create", parameters = @Parameters(value = { @Parameter(name = "objType", value = "org.tura.platform.hr.objects.DepartmentsDAO", type = String.class) }))
-	public void setCreateCommand( @Qwerty CreateCommand createCommand) {
-		this.createCommand = createCommand;
-		this.createCommand.setDatacontrol(this);
+	public void setCreateCommand( CreateCommand createCommand) {
+//		this.createCommand = createCommand;
+//		this.createCommand.setDatacontrol(this);
 	}
 
 	@Override
@@ -130,7 +129,7 @@ public class DepartmentsDC extends DataControl<DepartmentsDAO> {
 	}
 
 	@Override
-	@Inject
+//	@Inject
 //	@Query(
 //	       base = @Base(clazz = DepartmentsDAO.class),
 //	       keys = @Keys(fields = { @Key(field = "objId") }),
