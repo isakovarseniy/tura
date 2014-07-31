@@ -28,6 +28,10 @@
 			<artifactId>weld-se</artifactId>
 		</dependency>
 
+		<dependency>
+			<groupId>org.tura.platform.datacontrol</groupId>
+			<artifactId>core</artifactId>
+		</dependency>
 
 
 		<!-- Test -->
@@ -57,17 +61,15 @@
 		</dependency>
 
 		<dependency>
-			<groupId>org.tura.platform.datacontrol</groupId>
-			<artifactId>core</artifactId>
+			<groupId>org.tura.platform</groupId>
+			<artifactId>commons-jpa</artifactId>
 			<scope>test</scope>
-
 		</dependency>
 
 
 		<dependency>
-			<groupId>org.tura.platform</groupId>
-			<artifactId>commons-jpa</artifactId>
-			<scope>test</scope>
+			<groupId>org.tura.platform.datacontrol</groupId>
+			<artifactId>annotations</artifactId>
 		</dependency>
 
 

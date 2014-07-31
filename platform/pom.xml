@@ -41,8 +41,8 @@
 
 
 	<modules>
-		<module>commons-test</module>
 		<module>java-sql-dsl</module>
+		<module>commons-test</module>
 		<module>commons-persistence</module>
 		<module>commons-jpa</module>
 		<module>datacontrol</module>
