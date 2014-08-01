@@ -9,25 +9,22 @@ import org.tura.platform.datacontrol.command.PostCreateTrigger;
 import org.tura.platform.datacontrol.command.PreQueryTrigger;
 import org.tura.platform.datacontrol.commons.TuraException;
 
-@Alternative 
-@PreQuery("department") 
+@Alternative
+@PreQuery("department")
 @PostCreate("department")
-public class DepartmentTrigger implements PreQueryTrigger,PostCreateTrigger{
-	public DepartmentTrigger(){
-		System.out.println("asdas");
+public class DepartmentTrigger implements PreQueryTrigger, PostCreateTrigger {
+	public DepartmentTrigger() {
 	}
 
 	@Override
 	public void execute(DataControl<?> datacontrol) throws TuraException {
-		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void execute(DataControl<?> datacontrol, Object obj)
 			throws TuraException {
-		// TODO Auto-generated method stub
-		
+
 	}
 
 }

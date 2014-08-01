@@ -26,7 +26,7 @@ import java.lang.annotation.Target;
 @Target({ FIELD, PARAMETER})
 public @interface Parameter {
     String name();
-	Class<?> type()  default String.class;
+	Class<?> type() ;
 	String expression() default "";
 	String value() default "";
 }

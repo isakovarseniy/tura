@@ -1,17 +1,28 @@
 package org.tura.platform.datacontrol;
 
+import static com.octo.java.sql.query.Query.c;
+import static com.octo.java.sql.query.Query.select;
+
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.enterprise.inject.Produces;
 import javax.enterprise.inject.spi.InjectionPoint;
 
+import org.tura.platform.datacontrol.annotations.ArtificialField;
+import org.tura.platform.datacontrol.annotations.ArtificialFields;
 import org.tura.platform.datacontrol.annotations.Create;
+import org.tura.platform.datacontrol.annotations.DefaultOrderBy;
+import org.tura.platform.datacontrol.annotations.DefaultSearchCriteria;
 import org.tura.platform.datacontrol.annotations.Delete;
 import org.tura.platform.datacontrol.annotations.Insert;
+import org.tura.platform.datacontrol.annotations.Key;
+import org.tura.platform.datacontrol.annotations.Keys;
 import org.tura.platform.datacontrol.annotations.Parameter;
 import org.tura.platform.datacontrol.annotations.Parameters;
+import org.tura.platform.datacontrol.annotations.Query;
 import org.tura.platform.datacontrol.annotations.Search;
 import org.tura.platform.datacontrol.annotations.Update;
 import org.tura.platform.datacontrol.command.Command;
@@ -21,22 +32,95 @@ import org.tura.platform.datacontrol.command.DeleteCommand;
 import org.tura.platform.datacontrol.command.InsertCommand;
 import org.tura.platform.datacontrol.command.SearchCommand;
 import org.tura.platform.datacontrol.command.UpdateCommand;
+import org.tura.platform.datacontrol.commons.ConditionConverter;
 import org.tura.platform.datacontrol.metainfo.ArtificialProperty;
 
+import com.octo.java.sql.exp.Operator;
+import com.octo.java.sql.query.QueryException;
 import com.octo.java.sql.query.SelectQuery;
+import com.octo.java.sql.query.SelectQuery.Order;
 
 public class DataControlFactory {
 
+	
+	
+	@Produces
+	public List<String> getKeys(InjectionPoint injectionPoint){
+		ArrayList<String> list = new ArrayList<>();
+
+		Keys annotation = injectionPoint.getAnnotated()
+				.getAnnotation(Keys.class);
+		for (Key key : annotation.fields()){
+			list.add(key.field());
+		}
+		return list;
+		
+	}
+	
 	@Produces
 	public List<ArtificialProperty> getArtificialProperties(
-			InjectionPoint injectionPoint) {
-		return null;
+			InjectionPoint injectionPoint) throws NoSuchMethodException,
+			SecurityException, InstantiationException, IllegalAccessException,
+			IllegalArgumentException, InvocationTargetException {
+
+		ArrayList<ArtificialProperty> list = new ArrayList<>();
+
+		ArtificialFields annotation = injectionPoint.getAnnotated()
+				.getAnnotation(ArtificialFields.class);
+
+		for (ArtificialField field : annotation.fields()) {
+			ArtificialProperty property = new ArtificialProperty();
+			if (!"".equals(field.defaulValue())) {
+				Constructor<?> constructor = field.type().getConstructor(
+						String.class);
+				property.setDefaultValue(constructor.newInstance(field
+						.defaulValue()));
+			}
+			property.setType(field.type());
+			property.setProperty(field.field());
+
+			list.add(property);
+		}
+		return list;
 	}
 
 	@Produces
-	public SelectQuery getSelectQuery(InjectionPoint injectionPoint) {
-		return null;
+	public SelectQuery getSelectQuery(InjectionPoint injectionPoint)
+			throws NoSuchMethodException, SecurityException,
+			InstantiationException, IllegalAccessException,
+			IllegalArgumentException, InvocationTargetException, QueryException {
 
+		Query annotation = injectionPoint.getAnnotated().getAnnotation(
+				Query.class);
+		SelectQuery query = select(c("x")).from(
+				annotation.base().clazz().getName()).as("x");
+
+		String condition = "WHERE";
+
+		for (DefaultSearchCriteria criteria : annotation.search().criterias()) {
+
+			ConditionConverter.valueOf(condition).getRestriction(query,
+					c(criteria.field()));
+
+			Constructor<?> constructor = criteria.type().getConstructor(
+					String.class);
+			Object obj = constructor.newInstance(criteria.value());
+
+			query.op(Operator.valueOf(criteria.comparator().name()), obj);
+
+			condition = "AND";
+		}
+
+		for (DefaultOrderBy order : annotation.orders().orders()) {
+
+			query.orderBy(order.field());
+
+			if (order.type().equals(Order.ASC))
+				query.asc();
+			else
+				query.desc();
+		}
+		return query;
 	}
 
 	@Produces

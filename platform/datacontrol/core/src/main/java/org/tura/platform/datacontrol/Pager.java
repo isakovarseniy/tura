@@ -27,11 +27,11 @@ import org.tura.platform.datacontrol.commons.Constants;
 import org.tura.platform.datacontrol.commons.LazyList;
 import org.tura.platform.datacontrol.commons.PlatformConfig;
 import org.tura.platform.datacontrol.commons.Reflection;
-import org.tura.platform.datacontrol.commons.RestrictionsConverter;
 import org.tura.platform.datacontrol.commons.SearchCriteria;
 import org.tura.platform.datacontrol.commons.TuraException;
 import org.tura.platform.datacontrol.shift.ShiftControl;
 
+import com.octo.java.sql.exp.Operator;
 import com.octo.java.sql.query.QueryException;
 import com.octo.java.sql.query.SelectQuery;
 import com.rits.cloning.Cloner;
@@ -88,9 +88,8 @@ public class Pager<T> {
 				if (!criteria.getValue().equals(Constants.UNDEFINED_PARAMETER)) {
 					ConditionConverter.valueOf(condition).getRestriction(query,
 							c(criteria.getName()));
-					
-					RestrictionsConverter.valueOf(criteria.getComparator())
-							.getRestriction(query, criteria.getValue());
+					query.op(Operator.valueOf(criteria.getComparator()) , criteria.getValue()) ;
+
 				} else {
 					return false;
 				}

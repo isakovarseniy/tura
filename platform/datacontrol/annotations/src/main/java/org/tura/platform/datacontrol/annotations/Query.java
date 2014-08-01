@@ -11,7 +11,6 @@ import java.lang.annotation.Target;
 @Target({ FIELD, PARAMETER})
 public @interface Query {
   Base base();
-  Keys keys();
   DefaultSearchCriterias search();
   DefaultOrderBys orders();
 }

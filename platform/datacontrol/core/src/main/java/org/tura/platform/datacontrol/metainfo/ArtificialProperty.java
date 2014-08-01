@@ -4,7 +4,7 @@ public class ArtificialProperty {
 
 	private String property;
 	private Class<?> type;
-	private String defaultValue;
+	private Object defaultValue;
 
 	public String getProperty() {
 		return property;
@@ -22,11 +22,11 @@ public class ArtificialProperty {
 		this.type = type;
 	}
 
-	public String getDefaultValue() {
+	public Object getDefaultValue() {
 		return defaultValue;
 	}
 
-	public void setDefaultValue(String defaultValue) {
+	public void setDefaultValue(Object defaultValue) {
 		this.defaultValue = defaultValue;
 	}
 
