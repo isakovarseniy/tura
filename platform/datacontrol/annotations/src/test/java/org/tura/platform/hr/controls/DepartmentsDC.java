@@ -32,7 +32,6 @@ import org.tura.platform.datacontrol.annotations.PreQuery;
 import org.tura.platform.datacontrol.annotations.PreUpdate;
 import org.tura.platform.datacontrol.annotations.Query;
 import org.tura.platform.datacontrol.annotations.Search;
-import org.tura.platform.datacontrol.annotations.TransactionUnit;
 import org.tura.platform.datacontrol.annotations.Update;
 import org.tura.platform.datacontrol.command.CreateCommand;
 import org.tura.platform.datacontrol.command.DeleteCommand;
@@ -73,16 +72,16 @@ public class DepartmentsDC extends DataControl<DepartmentsDAO> {
 	
 
 	@Inject
-	@TransactionUnit("MasterDetail")
 	public void setCommandStack(CommandStack commandStack) {
 		this.commandStack = commandStack;
 	}
 
 	@Inject
-	@ArtificialFields(fields = {
-			@ArtificialField(field = "prop1", type = String.class),
-			@ArtificialField(field = "prop2", type = String.class) })
-	public void setArtificialProperties( List<ArtificialProperty> properties) {
+	public void setArtificialProperties( 
+			@ArtificialFields(fields = {
+					@ArtificialField(field = "prop1", type = String.class),
+					@ArtificialField(field = "prop2", type = String.class) })
+			List<ArtificialProperty> properties) {
 		this.artificialProperties = properties;
 	}
 	
@@ -137,13 +136,14 @@ public class DepartmentsDC extends DataControl<DepartmentsDAO> {
 
 	@Override
 	@Inject
-	@Query(
-	       base = @Base(clazz = DepartmentsDAO.class),
-	       keys = @Keys(fields = { @Key(field = "objId") }),
-	       search = @DefaultSearchCriterias(criterias = { @DefaultSearchCriteria(field = "objId", comparator = Operator.GT, value = "30", type = Integer.class, expression = "") }),
-	       orders = @DefaultOrderBys(orders = { @DefaultOrderBy(field = "objId", type = SelectQuery.Order.ASC) })
-	       )
-	public void setDefaultQuery( SelectQuery selectQuery) {
+	public void setDefaultQuery( 
+			@Query(
+				       base = @Base(clazz = DepartmentsDAO.class),
+				       keys = @Keys(fields = { @Key(field = "objId") }),
+				       search = @DefaultSearchCriterias(criterias = { @DefaultSearchCriteria(field = "objId", comparator = Operator.GT, value = "30", type = Integer.class, expression = "") }),
+				       orders = @DefaultOrderBys(orders = { @DefaultOrderBy(field = "objId", type = SelectQuery.Order.ASC) })
+				       )
+			SelectQuery selectQuery) {
 		this.defaultQuery = selectQuery;
 	}
 
@@ -156,43 +156,49 @@ public class DepartmentsDC extends DataControl<DepartmentsDAO> {
 
 	@Override
 	@Inject
-	@PreQuery("department")
-	public void setPreQueryTrigger( PreQueryTrigger preQueryTrigger) {
+	public void setPreQueryTrigger( 
+			@PreQuery("department")
+			PreQueryTrigger preQueryTrigger) {
 		this.preQueryTrigger = preQueryTrigger;
 	}
 
 	@Override
 	@Inject
-	@PostQuery("department")
-	public void setPostQueryTrigger( PostQueryTrigger postQueryTrigger) {
+	public void setPostQueryTrigger( 
+			@PostQuery("department")
+			PostQueryTrigger postQueryTrigger) {
 		this.postQueryTrigger = postQueryTrigger;
 	}
 
 	@Override
 	@Inject
-	@PostCreate("department")
-	public void setPostCreateTrigger( PostCreateTrigger postCreateTrigger) {
+	public void setPostCreateTrigger(
+			@PostCreate("department")
+			PostCreateTrigger postCreateTrigger) {
 		this.postCreateTrigger = postCreateTrigger;
 	}
 
 	@Override
 	@Inject
-	@PreDelete("department")
-	public void setPreDeleteTrigger( PreDeleteTrigger preDeleteTrigger) {
+	public void setPreDeleteTrigger(
+			@PreDelete("department")
+			PreDeleteTrigger preDeleteTrigger) {
 		this.preDeleteTrigger = preDeleteTrigger;
 	}
 
 	@Override
 	@Inject
-	@PreInsert("department")
-	public void setPreInsertTrigger( PreInsertTrigger preInsertTrigger) {
+	public void setPreInsertTrigger( 
+			@PreInsert("department")
+			PreInsertTrigger preInsertTrigger) {
 		this.preInsertTrigger = preInsertTrigger;
 	}
 
 	@Override
 	@Inject
-	@PreUpdate("department")
-	public void setPreUpdateTrigger( PreUpdateTrigger preUpdateTrigger) {
+	public void setPreUpdateTrigger( 
+			@PreUpdate("department")
+			PreUpdateTrigger preUpdateTrigger) {
 		this.preUpdateTrigger = preUpdateTrigger;
 	}
 

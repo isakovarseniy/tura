@@ -35,6 +35,11 @@
 
 
 		<!-- Test -->
+		<dependency>
+			<groupId>de.odysseus.juel</groupId>
+			<artifactId>juel</artifactId>
+			<scope>test</scope>
+		</dependency>
 
 		<dependency>
 			<groupId>org.tura.platform</groupId>

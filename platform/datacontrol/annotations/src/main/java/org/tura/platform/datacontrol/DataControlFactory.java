@@ -5,9 +5,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 
 import javax.enterprise.inject.Produces;
-import javax.enterprise.inject.spi.BeanManager;
 import javax.enterprise.inject.spi.InjectionPoint;
-import javax.inject.Inject;
 
 import org.tura.platform.datacontrol.annotations.Create;
 import org.tura.platform.datacontrol.annotations.Delete;
@@ -35,14 +33,52 @@ import com.octo.java.sql.query.SelectQuery;
 
 public class DataControlFactory {
 
-	
-	@Inject
-	   private BeanManager beanManager;
-	
 	@Produces
 	public List<ArtificialProperty> getArtificialProperties(
 			InjectionPoint injectionPoint) {
 		return null;
+	}
+
+	@Produces
+	public SelectQuery getSelectQuery(InjectionPoint injectionPoint) {
+		return null;
+
+	}
+
+	@Produces
+	public PreQueryTrigger getPreQueryTrigger(InjectionPoint injectionPoint) {
+		return null;
+
+	}
+
+	@Produces
+	public PostQueryTrigger getPostQueryTrigger(InjectionPoint injectionPoint) {
+		return null;
+
+	}
+
+	@Produces
+	public PostCreateTrigger getPostCreateTrigger(InjectionPoint injectionPoint) {
+		return null;
+
+	}
+
+	@Produces
+	public PreDeleteTrigger getPreDeleteTrigger(InjectionPoint injectionPoint) {
+		return null;
+
+	}
+
+	@Produces
+	public PreInsertTrigger getPreInsertTrigger(InjectionPoint injectionPoint) {
+		return null;
+
+	}
+
+	@Produces
+	public PreUpdateTrigger getPreUpdateTrigger(InjectionPoint injectionPoint) {
+		return null;
+
 	}
 
 	@Produces
@@ -128,53 +164,6 @@ public class DataControlFactory {
 		parametersBuilder(annotation.parameters(), cmd);
 
 		return cmd;
-
-	}
-
-	@Produces
-	public SelectQuery getSelectQuery(InjectionPoint injectionPoint) {
-		return null;
-
-	}
-
-	@Produces
-	public ELResolver getELResolver(InjectionPoint injectionPoint) {
-		return null;
-	}
-
-	@Produces
-	public PreQueryTrigger getPreQueryTrigger(InjectionPoint injectionPoint) {
-		return null;
-
-	}
-
-	@Produces
-	public PostQueryTrigger getPostQueryTrigger(InjectionPoint injectionPoint) {
-		return null;
-
-	}
-
-	@Produces
-	public PostCreateTrigger getPostCreateTrigger(InjectionPoint injectionPoint) {
-		return null;
-
-	}
-
-	@Produces
-	public PreDeleteTrigger getPreDeleteTrigger(InjectionPoint injectionPoint) {
-		return null;
-
-	}
-
-	@Produces
-	public PreInsertTrigger getPreInsertTrigger(InjectionPoint injectionPoint) {
-		return null;
-
-	}
-
-	@Produces
-	public PreUpdateTrigger getPreUpdateTrigger(InjectionPoint injectionPoint) {
-		return null;
 
 	}
 

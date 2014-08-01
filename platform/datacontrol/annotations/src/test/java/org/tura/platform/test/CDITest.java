@@ -13,7 +13,10 @@ public class CDITest {
     @Test
     public void getDepartmentControl() {
         WeldContainer weld = new Weld().initialize();
-        DataControl<DepartmentsDAO> department = weld.instance().select(DepartmentsDC.class).get();
+        DataControl<DepartmentsDAO> dc = weld.instance().select(DepartmentsDC.class).get();
+		dc.getElResolver().setValue("departments", dc);
+ 
+        
         System.out.println("");
     }
 	
