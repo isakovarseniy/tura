@@ -2,7 +2,7 @@ package org.tura.platform.hr.controls;
 
 import java.util.List;
 
-import javax.enterprise.inject.Default;
+import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 import javax.inject.Named;
 
@@ -10,18 +10,18 @@ import org.tura.platform.commons.jpa.TuraJPAEntityService;
 import org.tura.platform.datacontrol.CommandStack;
 import org.tura.platform.datacontrol.DataControl;
 import org.tura.platform.datacontrol.ELResolver;
-import org.tura.platform.datacontrol.annotations.ArtificialFields;
 import org.tura.platform.datacontrol.annotations.ArtificialField;
+import org.tura.platform.datacontrol.annotations.ArtificialFields;
 import org.tura.platform.datacontrol.annotations.Base;
 import org.tura.platform.datacontrol.annotations.Create;
-import org.tura.platform.datacontrol.annotations.DefaultOrderBys;
 import org.tura.platform.datacontrol.annotations.DefaultOrderBy;
+import org.tura.platform.datacontrol.annotations.DefaultOrderBys;
 import org.tura.platform.datacontrol.annotations.DefaultSearchCriteria;
 import org.tura.platform.datacontrol.annotations.DefaultSearchCriterias;
 import org.tura.platform.datacontrol.annotations.Delete;
 import org.tura.platform.datacontrol.annotations.Insert;
-import org.tura.platform.datacontrol.annotations.Keys;
 import org.tura.platform.datacontrol.annotations.Key;
+import org.tura.platform.datacontrol.annotations.Keys;
 import org.tura.platform.datacontrol.annotations.Parameter;
 import org.tura.platform.datacontrol.annotations.Parameters;
 import org.tura.platform.datacontrol.annotations.PostCreate;
@@ -30,7 +30,6 @@ import org.tura.platform.datacontrol.annotations.PreDelete;
 import org.tura.platform.datacontrol.annotations.PreInsert;
 import org.tura.platform.datacontrol.annotations.PreQuery;
 import org.tura.platform.datacontrol.annotations.PreUpdate;
-import org.tura.platform.datacontrol.annotations.Provider;
 import org.tura.platform.datacontrol.annotations.Query;
 import org.tura.platform.datacontrol.annotations.Search;
 import org.tura.platform.datacontrol.annotations.TransactionUnit;
@@ -56,19 +55,22 @@ import com.octo.java.sql.query.SelectQuery;
 @Named("department")
 public class DepartmentsDC extends DataControl<DepartmentsDAO> {
 
-	private Object provider;
+	@Inject
+	private TuraJPAEntityService provider;
 
 	public DepartmentsDC() throws Exception {
 		super();
 	}
 
-	
-	@Provider
-	public Object getProvider() {
-		if (provider == null)
-			provider = new TuraJPAEntityService();
-		return provider;
+	@PostConstruct
+	public void init(){
+		this.insertCommand.setProvider(provider);
+		this.updateCommand.setProvider(provider);
+		this.deleteCommand.setProvider(provider);
+		this.createCommand.setProvider(provider);
+		this.searchCommand.setProvider(provider);
 	}
+	
 
 	@Inject
 	@TransactionUnit("MasterDetail")
@@ -86,44 +88,49 @@ public class DepartmentsDC extends DataControl<DepartmentsDAO> {
 	
 	@Override
 	@Inject
-	@Create(objectAction = "create", parameters = @Parameters(value = { @Parameter(name = "objType", value = "org.tura.platform.hr.objects.DepartmentsDAO", type = String.class) }))
-	public void setCreateCommand( CreateCommand createCommand) {
+	public void setCreateCommand( 
+			@Create(objectAction = "create", parameters = @Parameters(value = { @Parameter(name = "objType", value = "org.tura.platform.hr.objects.DepartmentsDAO", type = String.class) }))
+			CreateCommand createCommand) {
 		this.createCommand = createCommand;
 		this.createCommand.setDatacontrol(this);
 	}
 
 	@Override
 	@Inject
-	@Insert(objectAction = "insert", parameters = @Parameters(value = { @Parameter(name = "obj", expression = "department.currentObject", type = TuraObject.class) }))
-	public void setInsertCommand(  InsertCommand insertCommand) {
+	public void setInsertCommand(  
+			@Insert(objectAction = "insert", parameters = @Parameters(value = { @Parameter(name = "obj", expression = "department.currentObject", type = TuraObject.class) }))
+			InsertCommand insertCommand) {
 		this.insertCommand = insertCommand;
 		this.insertCommand.setDatacontrol(this);
 	}
 
 	@Override
 	@Inject
-	@Update(objectAction = "update", parameters = @Parameters(value = { @Parameter(name = "obj", expression = "department.currentObject", type = TuraObject.class) }))
-	public void setUpdateCommand( UpdateCommand updateCommand) {
+	public void setUpdateCommand( 
+			@Update(objectAction = "update", parameters = @Parameters(value = { @Parameter(name = "obj", expression = "department.currentObject", type = TuraObject.class) }))
+			UpdateCommand updateCommand) {
 		this.updateCommand = updateCommand;
 		this.updateCommand.setDatacontrol(this);
 	}
 
 	@Override
 	@Inject
-	@Delete(objectAction = "remove", parameters = @Parameters(value = { @Parameter(name = "obj", expression = "department.currentObject", type = TuraObject.class) }))
-	public void setDeleteCommand( DeleteCommand deleteCommand) {
+	public void setDeleteCommand( 
+			@Delete(objectAction = "remove", parameters = @Parameters(value = { @Parameter(name = "obj", expression = "department.currentObject", type = TuraObject.class) }))
+			DeleteCommand deleteCommand) {
 		this.deleteCommand = deleteCommand;
 		this.deleteCommand.setDatacontrol(this);
 	}
 
 	@Override
 	@Inject
-	@Search(objectAction = "find", parameters = @Parameters(value = {
-			@Parameter(name = "dslQuery", expression = "department.query"),
-			@Parameter(name = "startindex", expression = "department.startIndex"),
-			@Parameter(name = "endindex", expression = "department.endIndex"),
-			@Parameter(name = "objectClass", value = "org.tura.platform.hr.objects.DepartmentsDAO", type = String.class) }))
-	public void setSearchCommand(@Default SearchCommand searchCommand) {
+	public void setSearchCommand(
+			@Search(objectAction = "find", parameters = @Parameters(value = {
+					@Parameter(name = "dslQuery", expression = "department.query"),
+					@Parameter(name = "startindex", expression = "department.startIndex"),
+					@Parameter(name = "endindex", expression = "department.endIndex"),
+					@Parameter(name = "objectClass", value = "org.tura.platform.hr.objects.DepartmentsDAO", type = String.class) }))
+			SearchCommand searchCommand) {
 		this.searchCommand = searchCommand;
 		this.searchCommand.setDatacontrol(this);
 	}

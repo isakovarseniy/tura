@@ -41,4 +41,9 @@ public class CDICommandStack extends CommandStack{
 		em.getTransaction().rollback();
 	}
 
+
+	public EntityManager getEm() {
+		return em;
+	}
+
 }
