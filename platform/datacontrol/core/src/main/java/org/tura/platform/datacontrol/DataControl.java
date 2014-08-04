@@ -36,6 +36,8 @@ public abstract class DataControl<T> extends MetaInfoHolder {
 		this.pager = new Pager<T>(this);
 	}
 
+	public abstract void createChild(DataControl<?> dc, Relation relation);
+
 	public void addChageRecordLiteners(ChangeRecordListener listener) {
 		chageRecordLiteners.add(listener);
 	}
@@ -146,7 +148,7 @@ public abstract class DataControl<T> extends MetaInfoHolder {
 			Relation rel = this.getChild(relName);
 
 			if ((rel.isCascade()) && (rel.getChild() == null)) {
-				Factory.createDataControl(this, rel);
+				createChild(this, rel);
 			}
 
 			if ((rel.isCascade()) && (rel.getChild() != null)

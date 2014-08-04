@@ -13,6 +13,7 @@ import org.tura.platform.datacontrol.command.PreQueryTrigger;
 import org.tura.platform.datacontrol.command.PreUpdateTrigger;
 import org.tura.platform.datacontrol.command.SearchCommand;
 import org.tura.platform.datacontrol.command.UpdateCommand;
+import org.tura.platform.datacontrol.metainfo.Relation;
 import org.tura.platform.hr.objects.EmployeesDAO;
 
 import com.octo.java.sql.query.SelectQuery;
@@ -91,6 +92,11 @@ public class EmployeesDC extends DataControl<EmployeesDAO>{
 	public void setElResolver(ELResolver elResolver) {
 		this.elResolver = elResolver;
 
+	}
+
+	@Override
+	public void createChild(DataControl<?> dc, Relation relation) {
+		
 	}
 	
 	

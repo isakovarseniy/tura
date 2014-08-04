@@ -50,6 +50,7 @@ import org.tura.platform.datacontrol.command.PreUpdateTrigger;
 import org.tura.platform.datacontrol.command.SearchCommand;
 import org.tura.platform.datacontrol.command.UpdateCommand;
 import org.tura.platform.datacontrol.metainfo.ArtificialProperty;
+import org.tura.platform.datacontrol.metainfo.Relation;
 import org.tura.platform.hr.objects.DepartmentsDAO;
 import org.tura.platform.persistence.TuraObject;
 
@@ -209,6 +210,11 @@ public class DepartmentsDC extends DataControl<DepartmentsDAO> {
 	@Connection(connectionName = "department2employees", links = { @Link(field1 = "objId", field2 = "parentId") }) 
 	public EmployeesDC getEmployeesdc() {
 		return employeesdcproducers.get();
+	}
+
+	@Override
+	public void createChild(DataControl<?> dc, Relation relation) {
+		getEmployeesdc();
 	}
 
 

@@ -44,6 +44,7 @@ import org.tura.platform.datacontrol.command.PreUpdateTrigger;
 import org.tura.platform.datacontrol.command.SearchCommand;
 import org.tura.platform.datacontrol.command.UpdateCommand;
 import org.tura.platform.datacontrol.metainfo.ArtificialProperty;
+import org.tura.platform.datacontrol.metainfo.Relation;
 import org.tura.platform.hr.objects.EmployeesDAO;
 import org.tura.platform.persistence.TuraObject;
 
@@ -192,6 +193,10 @@ public class EmployeesDC extends DataControl<EmployeesDAO>{
 	public void setPreUpdateTrigger(
 			@PreUpdate("employees") PreUpdateTrigger preUpdateTrigger) {
 		this.preUpdateTrigger = preUpdateTrigger;
+	}
+
+	@Override
+	public void createChild(DataControl<?> dc, Relation relation) {
 	}
 	
 	
