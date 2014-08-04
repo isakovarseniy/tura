@@ -5,9 +5,7 @@ import static org.junit.Assert.fail;
 import org.jboss.weld.environment.se.Weld;
 import org.jboss.weld.environment.se.WeldContainer;
 import org.junit.Test;
-import org.tura.platform.datacontrol.DataControl;
 import org.tura.platform.hr.controls.DepartmentsDC;
-import org.tura.platform.hr.objects.DepartmentsDAO;
 
 public class CDITest {
 
@@ -15,11 +13,13 @@ public class CDITest {
 	public void getDepartmentControl() {
 		try {
 			WeldContainer weld = new Weld().initialize();
-			DataControl<DepartmentsDAO> dc = weld.instance()
+			DepartmentsDC dc = weld.instance()
 					.select(DepartmentsDC.class).get();
 			dc.getElResolver().setValue("department", dc);
 
 			dc.getCurrentObject();
+			
+			dc.getEmployeesdc();
 
 			System.out.println("");
 

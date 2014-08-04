@@ -9,10 +9,12 @@ import javax.inject.Named;
 import org.tura.platform.commons.jpa.TuraJPAEntityService;
 import org.tura.platform.datacontrol.CommandStack;
 import org.tura.platform.datacontrol.DataControl;
+import org.tura.platform.datacontrol.DataControlFactory;
 import org.tura.platform.datacontrol.ELResolver;
 import org.tura.platform.datacontrol.annotations.ArtificialField;
 import org.tura.platform.datacontrol.annotations.ArtificialFields;
 import org.tura.platform.datacontrol.annotations.Base;
+import org.tura.platform.datacontrol.annotations.Connection;
 import org.tura.platform.datacontrol.annotations.Create;
 import org.tura.platform.datacontrol.annotations.DefaultOrderBy;
 import org.tura.platform.datacontrol.annotations.DefaultOrderBys;
@@ -22,6 +24,7 @@ import org.tura.platform.datacontrol.annotations.Delete;
 import org.tura.platform.datacontrol.annotations.Insert;
 import org.tura.platform.datacontrol.annotations.Key;
 import org.tura.platform.datacontrol.annotations.Keys;
+import org.tura.platform.datacontrol.annotations.Link;
 import org.tura.platform.datacontrol.annotations.Parameter;
 import org.tura.platform.datacontrol.annotations.Parameters;
 import org.tura.platform.datacontrol.annotations.PostCreate;
@@ -57,17 +60,33 @@ public class DepartmentsDC extends DataControl<DepartmentsDAO> {
 	@Inject
 	private TuraJPAEntityService provider;
 
+	@Connection(connectionName = "department2employees", links = { @Link(field1 = "objId", field2 = "parentId") }) 
+	@Inject
+	private EmployeesDC employeesdc;
+
 	public DepartmentsDC() throws Exception {
 		super();
 	}
 
 	@PostConstruct
-	public void init() {
+	public void init() throws IllegalArgumentException, IllegalAccessException {
 		this.insertCommand.setProvider(provider);
+		this.insertCommand.setDatacontrol(this);
+
 		this.updateCommand.setProvider(provider);
+		this.updateCommand.setDatacontrol(this);
+
 		this.deleteCommand.setProvider(provider);
+		this.deleteCommand.setDatacontrol(this);
+
 		this.createCommand.setProvider(provider);
+		this.createCommand.setDatacontrol(this);
+
 		this.searchCommand.setProvider(provider);
+		this.searchCommand.setDatacontrol(this);
+		
+		DataControlFactory.buildConnection(this);
+		
 	}
 
 	@Inject
@@ -94,7 +113,6 @@ public class DepartmentsDC extends DataControl<DepartmentsDAO> {
 	public void setCreateCommand(
 			@Create(objectAction = "create", parameters = @Parameters(value = { @Parameter(name = "objType", value = "org.tura.platform.hr.objects.DepartmentsDAO", type = String.class) })) CreateCommand createCommand) {
 		this.createCommand = createCommand;
-		this.createCommand.setDatacontrol(this);
 	}
 
 	@Override
@@ -102,7 +120,6 @@ public class DepartmentsDC extends DataControl<DepartmentsDAO> {
 	public void setInsertCommand(
 			@Insert(objectAction = "insert", parameters = @Parameters(value = { @Parameter(name = "obj", expression = "department.currentObject", type = TuraObject.class) })) InsertCommand insertCommand) {
 		this.insertCommand = insertCommand;
-		this.insertCommand.setDatacontrol(this);
 	}
 
 	@Override
@@ -110,7 +127,6 @@ public class DepartmentsDC extends DataControl<DepartmentsDAO> {
 	public void setUpdateCommand(
 			@Update(objectAction = "update", parameters = @Parameters(value = { @Parameter(name = "obj", expression = "department.currentObject", type = TuraObject.class) })) UpdateCommand updateCommand) {
 		this.updateCommand = updateCommand;
-		this.updateCommand.setDatacontrol(this);
 	}
 
 	@Override
@@ -118,7 +134,6 @@ public class DepartmentsDC extends DataControl<DepartmentsDAO> {
 	public void setDeleteCommand(
 			@Delete(objectAction = "remove", parameters = @Parameters(value = { @Parameter(name = "obj", expression = "department.currentObject", type = TuraObject.class) })) DeleteCommand deleteCommand) {
 		this.deleteCommand = deleteCommand;
-		this.deleteCommand.setDatacontrol(this);
 	}
 
 	@Override
@@ -130,7 +145,6 @@ public class DepartmentsDC extends DataControl<DepartmentsDAO> {
 					@Parameter(name = "endindex", type = Integer.class, expression = "department.endIndex"),
 					@Parameter(name = "objectClass", type = String.class, value = "org.tura.platform.hr.objects.DepartmentsDAO") })) SearchCommand searchCommand) {
 		this.searchCommand = searchCommand;
-		this.searchCommand.setDatacontrol(this);
 	}
 
 	@Override
@@ -146,7 +160,6 @@ public class DepartmentsDC extends DataControl<DepartmentsDAO> {
 	@Inject
 	public void setElResolver(ELResolver elResolver) {
 		this.elResolver = elResolver;
-
 	}
 
 	@Override
@@ -190,5 +203,10 @@ public class DepartmentsDC extends DataControl<DepartmentsDAO> {
 			@PreUpdate("department") PreUpdateTrigger preUpdateTrigger) {
 		this.preUpdateTrigger = preUpdateTrigger;
 	}
+
+	public EmployeesDC getEmployeesdc() {
+		return employeesdc;
+	}
+
 
 }

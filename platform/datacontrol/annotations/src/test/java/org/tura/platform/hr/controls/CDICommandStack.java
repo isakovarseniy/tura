@@ -1,5 +1,7 @@
 package org.tura.platform.hr.controls;
 
+import javax.enterprise.context.ApplicationScoped;
+import javax.inject.Named;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -7,6 +9,8 @@ import javax.persistence.Persistence;
 import org.hibernate.cfg.Configuration;
 import org.tura.platform.datacontrol.CommandStack;
 
+@Named("CommandStack")
+@ApplicationScoped
 public class CDICommandStack extends CommandStack{
 
 	

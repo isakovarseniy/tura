@@ -22,7 +22,6 @@ import java.lang.annotation.Retention;
 @Retention(RUNTIME)
 public @interface Connection {
 	String connectionName();
-	Class<?> connectedObject();
 	boolean cascade() default false;
 	boolean treeRelation() default false;
 	Link[] links();

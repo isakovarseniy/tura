@@ -16,39 +16,39 @@ import org.tura.platform.datacontrol.command.PreInsertTrigger;
 import org.tura.platform.datacontrol.command.PreQueryTrigger;
 import org.tura.platform.datacontrol.command.PreUpdateTrigger;
 
-public class DepartmentProducer {
+public class EmployeesProducer {
 
- 	@Produces @PreQuery("department")
-	public PreQueryTrigger getPreQueryTrigger( InjectionPoint injectionPoint) {
+ 	@Produces @PreQuery("employees")
+	public PreQueryTrigger getPreQueryTrigger(InjectionPoint injectionPoint) {
 		return null;
 
 	}
 
-	@Produces @PostQuery("department")
+	@Produces @PostQuery("employees")
 	public PostQueryTrigger getPostQueryTrigger(InjectionPoint injectionPoint) {
 		return null;
 
 	}
 
-	@Produces @PostCreate("department")
+	@Produces @PostCreate("employees")
 	public PostCreateTrigger getPostCreateTrigger(InjectionPoint injectionPoint) {
 		return null;
 
 	}
 
-	@Produces @PreDelete("department")
+	@Produces @PreDelete("employees")
 	public PreDeleteTrigger getPreDeleteTrigger(InjectionPoint injectionPoint) {
 		return null;
 
 	}
 
-	@Produces @PreInsert("department")
+	@Produces @PreInsert("employees")
 	public PreInsertTrigger getPreInsertTrigger(InjectionPoint injectionPoint) {
 		return null;
 
 	}
 
-	@Produces @PreUpdate("department")
+	@Produces @PreUpdate("employees")
 	public PreUpdateTrigger getPreUpdateTrigger(InjectionPoint injectionPoint) {
 		return null;
 

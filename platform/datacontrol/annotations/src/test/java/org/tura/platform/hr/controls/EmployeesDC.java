@@ -1,7 +1,38 @@
 package org.tura.platform.hr.controls;
 
+import java.util.List;
+
+import javax.annotation.PostConstruct;
+import javax.inject.Inject;
+import javax.inject.Named;
+
+import org.tura.platform.commons.jpa.TuraJPAEntityService;
+import org.tura.platform.datacontrol.CommandStack;
 import org.tura.platform.datacontrol.DataControl;
 import org.tura.platform.datacontrol.ELResolver;
+import org.tura.platform.datacontrol.annotations.ArtificialField;
+import org.tura.platform.datacontrol.annotations.ArtificialFields;
+import org.tura.platform.datacontrol.annotations.Base;
+import org.tura.platform.datacontrol.annotations.Create;
+import org.tura.platform.datacontrol.annotations.DefaultOrderBy;
+import org.tura.platform.datacontrol.annotations.DefaultOrderBys;
+import org.tura.platform.datacontrol.annotations.DefaultSearchCriteria;
+import org.tura.platform.datacontrol.annotations.DefaultSearchCriterias;
+import org.tura.platform.datacontrol.annotations.Delete;
+import org.tura.platform.datacontrol.annotations.Insert;
+import org.tura.platform.datacontrol.annotations.Key;
+import org.tura.platform.datacontrol.annotations.Keys;
+import org.tura.platform.datacontrol.annotations.Parameter;
+import org.tura.platform.datacontrol.annotations.Parameters;
+import org.tura.platform.datacontrol.annotations.PostCreate;
+import org.tura.platform.datacontrol.annotations.PostQuery;
+import org.tura.platform.datacontrol.annotations.PreDelete;
+import org.tura.platform.datacontrol.annotations.PreInsert;
+import org.tura.platform.datacontrol.annotations.PreQuery;
+import org.tura.platform.datacontrol.annotations.PreUpdate;
+import org.tura.platform.datacontrol.annotations.Query;
+import org.tura.platform.datacontrol.annotations.Search;
+import org.tura.platform.datacontrol.annotations.Update;
 import org.tura.platform.datacontrol.command.CreateCommand;
 import org.tura.platform.datacontrol.command.DeleteCommand;
 import org.tura.platform.datacontrol.command.InsertCommand;
@@ -13,84 +44,154 @@ import org.tura.platform.datacontrol.command.PreQueryTrigger;
 import org.tura.platform.datacontrol.command.PreUpdateTrigger;
 import org.tura.platform.datacontrol.command.SearchCommand;
 import org.tura.platform.datacontrol.command.UpdateCommand;
+import org.tura.platform.datacontrol.metainfo.ArtificialProperty;
 import org.tura.platform.hr.objects.EmployeesDAO;
+import org.tura.platform.persistence.TuraObject;
 
+import com.octo.java.sql.exp.Operator;
 import com.octo.java.sql.query.SelectQuery;
 
+@Named("employees")
 public class EmployeesDC extends DataControl<EmployeesDAO>{
+
+	@Inject
+	private TuraJPAEntityService provider;
 
 	public EmployeesDC() throws Exception {
 		super();
 	}
 
-	@Override
-	public void setDefaultQuery(SelectQuery selectQuery) {
-		this.defaultQuery = selectQuery;
+	@PostConstruct
+	public void init() {
+		this.insertCommand.setProvider(provider);
+		this.updateCommand.setProvider(provider);
+		this.deleteCommand.setProvider(provider);
+		this.createCommand.setProvider(provider);
+		this.searchCommand.setProvider(provider);
+	}
 
+	@Inject
+	public void setCommandStack(CommandStack commandStack) {
+		this.commandStack = commandStack;
+	}
+
+	@Inject
+	public void setKeys(
+			@Keys(fields = { @Key(field = "objId") }) List<String> keys) {
+		this.keys = keys;
+	}
+
+	@Inject
+	public void setArtificialProperties(
+			@ArtificialFields(fields = {
+					@ArtificialField(field = "prop1", type = String.class),
+					@ArtificialField(field = "prop2", type = String.class) }) List<ArtificialProperty> properties) {
+		this.artificialProperties = properties;
 	}
 
 	@Override
-	public void setCreateCommand(CreateCommand createCommand) {
+	@Inject
+	public void setCreateCommand(
+			@Create(objectAction = "create", parameters = @Parameters(value = { @Parameter(name = "objType", value = "org.tura.platform.hr.objects.EmployeesDAO", type = String.class) })) CreateCommand createCommand) {
 		this.createCommand = createCommand;
-
+		this.createCommand.setDatacontrol(this);
 	}
 
 	@Override
-	public void setInsertCommand(InsertCommand insertCommand) {
+	@Inject
+	public void setInsertCommand(
+			@Insert(objectAction = "insert", parameters = @Parameters(value = { @Parameter(name = "obj", expression = "employees.currentObject", type = TuraObject.class) })) InsertCommand insertCommand) {
 		this.insertCommand = insertCommand;
-
+		this.insertCommand.setDatacontrol(this);
 	}
 
 	@Override
-	public void setUpdateCommand(UpdateCommand updateCommand) {
+	@Inject
+	public void setUpdateCommand(
+			@Update(objectAction = "update", parameters = @Parameters(value = { @Parameter(name = "obj", expression = "employees.currentObject", type = TuraObject.class) })) UpdateCommand updateCommand) {
 		this.updateCommand = updateCommand;
+		this.updateCommand.setDatacontrol(this);
 	}
 
 	@Override
-	public void setDeleteCommand(DeleteCommand deleteCommand) {
+	@Inject
+	public void setDeleteCommand(
+			@Delete(objectAction = "remove", parameters = @Parameters(value = { @Parameter(name = "obj", expression = "employees.currentObject", type = TuraObject.class) })) DeleteCommand deleteCommand) {
 		this.deleteCommand = deleteCommand;
+		this.deleteCommand.setDatacontrol(this);
 	}
 
 	@Override
-	public void setPreQueryTrigger(PreQueryTrigger preQueryTrigger) {
+	@Inject
+	public void setSearchCommand(
+			@Search(objectAction = "find", parameters = @Parameters(value = {
+					@Parameter(name = "dslQuery", type = SelectQuery.class, expression = "employees.query"),
+					@Parameter(name = "startindex", type = Integer.class, expression = "employees.startIndex"),
+					@Parameter(name = "endindex", type = Integer.class, expression = "employees.endIndex"),
+					@Parameter(name = "objectClass", type = String.class, value = "org.tura.platform.hr.objects.EmployeesDAO") })) SearchCommand searchCommand) {
+		this.searchCommand = searchCommand;
+		this.searchCommand.setDatacontrol(this);
+	}
+
+	@Override
+	@Inject
+	public void setDefaultQuery(
+			@Query(base = @Base(clazz = EmployeesDAO.class), 
+			      search = @DefaultSearchCriterias(criterias = {
+					     @DefaultSearchCriteria(field = "objId", comparator = Operator.GT, value = "30", type = Long.class, expression = ""),
+					     @DefaultSearchCriteria(field = "objId", comparator = Operator.LT, value = "300", type = Long.class, expression = "") }), 
+				   orders = @DefaultOrderBys(orders = { 
+					     @DefaultOrderBy(field = "objId", type = SelectQuery.Order.ASC) })) SelectQuery selectQuery) {
+		this.defaultQuery = selectQuery;
+	}
+
+	@Override
+	@Inject
+	public void setElResolver(ELResolver elResolver) {
+		this.elResolver = elResolver;
+
+	}
+
+	@Override
+	@Inject
+	public void setPreQueryTrigger(
+			@PreQuery("employees") PreQueryTrigger preQueryTrigger) {
 		this.preQueryTrigger = preQueryTrigger;
 	}
 
 	@Override
-	public void setPostQueryTrigger(PostQueryTrigger postQueryTrigger) {
+	@Inject
+	public void setPostQueryTrigger(
+			@PostQuery("employees") PostQueryTrigger postQueryTrigger) {
 		this.postQueryTrigger = postQueryTrigger;
 	}
 
 	@Override
-	public void setSearchCommand(SearchCommand searchCommand) {
-		this.searchCommand = searchCommand;
-	}
-
-	@Override
-	public void setPostCreateTrigger(PostCreateTrigger postCreateTrigger) {
+	@Inject
+	public void setPostCreateTrigger(
+			@PostCreate("employees") PostCreateTrigger postCreateTrigger) {
 		this.postCreateTrigger = postCreateTrigger;
 	}
 
 	@Override
-	public void setPreDeleteTrigger(PreDeleteTrigger preDeleteTrigger) {
+	@Inject
+	public void setPreDeleteTrigger(
+			@PreDelete("employees") PreDeleteTrigger preDeleteTrigger) {
 		this.preDeleteTrigger = preDeleteTrigger;
 	}
 
 	@Override
-	public void setPreInsertTrigger(PreInsertTrigger preInsertTrigger) {
+	@Inject
+	public void setPreInsertTrigger(
+			@PreInsert("employees") PreInsertTrigger preInsertTrigger) {
 		this.preInsertTrigger = preInsertTrigger;
-
 	}
 
 	@Override
-	public void setPreUpdateTrigger(PreUpdateTrigger preUpdateTrigger) {
+	@Inject
+	public void setPreUpdateTrigger(
+			@PreUpdate("employees") PreUpdateTrigger preUpdateTrigger) {
 		this.preUpdateTrigger = preUpdateTrigger;
-	}
-
-	@Override
-	public void setElResolver(ELResolver elResolver) {
-		this.elResolver = elResolver;
-
 	}
 	
 	
