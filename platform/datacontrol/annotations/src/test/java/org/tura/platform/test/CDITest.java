@@ -13,12 +13,13 @@ public class CDITest {
 	public void getDepartmentControl() {
 		try {
 			WeldContainer weld = new Weld().initialize();
-			DepartmentsDC dc = weld.instance()
-					.select(DepartmentsDC.class).get();
+			DepartmentsDC dc = weld.instance().select(DepartmentsDC.class)
+					.get();
 			dc.getElResolver().setValue("department", dc);
 
 			dc.getCurrentObject();
-			
+
+			dc.getEmployeesdc();
 			dc.getEmployeesdc();
 
 			System.out.println("");

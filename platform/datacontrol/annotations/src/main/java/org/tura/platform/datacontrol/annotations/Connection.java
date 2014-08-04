@@ -24,6 +24,6 @@ public @interface Connection {
 	String connectionName();
 	boolean cascade() default false;
 	boolean treeRelation() default false;
-	Link[] links();
+	Link[] links() default {};
 	
 }

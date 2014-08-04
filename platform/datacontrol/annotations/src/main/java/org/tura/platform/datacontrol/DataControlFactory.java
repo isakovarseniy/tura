@@ -4,8 +4,8 @@ import static com.octo.java.sql.query.Query.c;
 import static com.octo.java.sql.query.Query.select;
 
 import java.lang.reflect.Constructor;
-import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -236,14 +236,13 @@ public class DataControlFactory {
 	public static void buildConnection(DataControl<?> masterDC)
 			throws IllegalArgumentException, IllegalAccessException {
 
-		Field[] fields = masterDC.getClass().getDeclaredFields();
-		for (Field field : fields) {
-			field.setAccessible(true);
-			Connection connection = field.getAnnotation(Connection.class);
+		Method[] methods = masterDC.getClass().getDeclaredMethods();
+		for (Method method : methods) {
+			method.setAccessible(true);
+			Connection connection = method.getAnnotation(Connection.class);
 			if (connection != null) {
-				DataControl<?> dc = (DataControl<?>) field.get(masterDC);
 				Relation relation = new Relation();
-				relation.setChild(dc);
+				relation.setChild(null);
 				for (Link link : connection.links()) {
 					relation.getLinks().add(
 							new PropertyLink(link.field1(), link.field2()));

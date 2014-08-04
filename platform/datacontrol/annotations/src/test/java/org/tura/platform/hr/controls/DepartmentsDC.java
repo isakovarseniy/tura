@@ -3,6 +3,7 @@ package org.tura.platform.hr.controls;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
+import javax.enterprise.inject.Instance;
 import javax.inject.Inject;
 import javax.inject.Named;
 
@@ -21,6 +22,7 @@ import org.tura.platform.datacontrol.annotations.DefaultOrderBys;
 import org.tura.platform.datacontrol.annotations.DefaultSearchCriteria;
 import org.tura.platform.datacontrol.annotations.DefaultSearchCriterias;
 import org.tura.platform.datacontrol.annotations.Delete;
+import org.tura.platform.datacontrol.annotations.Factory;
 import org.tura.platform.datacontrol.annotations.Insert;
 import org.tura.platform.datacontrol.annotations.Key;
 import org.tura.platform.datacontrol.annotations.Keys;
@@ -60,9 +62,8 @@ public class DepartmentsDC extends DataControl<DepartmentsDAO> {
 	@Inject
 	private TuraJPAEntityService provider;
 
-	@Connection(connectionName = "department2employees", links = { @Link(field1 = "objId", field2 = "parentId") }) 
 	@Inject
-	private EmployeesDC employeesdc;
+	private Instance<EmployeesDC> employeesdcproducers;
 
 	public DepartmentsDC() throws Exception {
 		super();
@@ -204,8 +205,10 @@ public class DepartmentsDC extends DataControl<DepartmentsDAO> {
 		this.preUpdateTrigger = preUpdateTrigger;
 	}
 
+	@Factory
+	@Connection(connectionName = "department2employees", links = { @Link(field1 = "objId", field2 = "parentId") }) 
 	public EmployeesDC getEmployeesdc() {
-		return employeesdc;
+		return employeesdcproducers.get();
 	}
 
 

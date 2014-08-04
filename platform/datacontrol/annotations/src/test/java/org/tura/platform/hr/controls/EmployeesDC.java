@@ -16,7 +16,6 @@ import org.tura.platform.datacontrol.annotations.Base;
 import org.tura.platform.datacontrol.annotations.Create;
 import org.tura.platform.datacontrol.annotations.DefaultOrderBy;
 import org.tura.platform.datacontrol.annotations.DefaultOrderBys;
-import org.tura.platform.datacontrol.annotations.DefaultSearchCriteria;
 import org.tura.platform.datacontrol.annotations.DefaultSearchCriterias;
 import org.tura.platform.datacontrol.annotations.Delete;
 import org.tura.platform.datacontrol.annotations.Insert;
@@ -48,7 +47,6 @@ import org.tura.platform.datacontrol.metainfo.ArtificialProperty;
 import org.tura.platform.hr.objects.EmployeesDAO;
 import org.tura.platform.persistence.TuraObject;
 
-import com.octo.java.sql.exp.Operator;
 import com.octo.java.sql.query.SelectQuery;
 
 @Named("employees")
@@ -64,10 +62,19 @@ public class EmployeesDC extends DataControl<EmployeesDAO>{
 	@PostConstruct
 	public void init() {
 		this.insertCommand.setProvider(provider);
+		this.insertCommand.setDatacontrol(this);
+
 		this.updateCommand.setProvider(provider);
+		this.updateCommand.setDatacontrol(this);
+
 		this.deleteCommand.setProvider(provider);
+		this.deleteCommand.setDatacontrol(this);
+		
 		this.createCommand.setProvider(provider);
+		this.createCommand.setDatacontrol(this);
+
 		this.searchCommand.setProvider(provider);
+		this.searchCommand.setDatacontrol(this);
 	}
 
 	@Inject
@@ -94,7 +101,6 @@ public class EmployeesDC extends DataControl<EmployeesDAO>{
 	public void setCreateCommand(
 			@Create(objectAction = "create", parameters = @Parameters(value = { @Parameter(name = "objType", value = "org.tura.platform.hr.objects.EmployeesDAO", type = String.class) })) CreateCommand createCommand) {
 		this.createCommand = createCommand;
-		this.createCommand.setDatacontrol(this);
 	}
 
 	@Override
@@ -102,7 +108,6 @@ public class EmployeesDC extends DataControl<EmployeesDAO>{
 	public void setInsertCommand(
 			@Insert(objectAction = "insert", parameters = @Parameters(value = { @Parameter(name = "obj", expression = "employees.currentObject", type = TuraObject.class) })) InsertCommand insertCommand) {
 		this.insertCommand = insertCommand;
-		this.insertCommand.setDatacontrol(this);
 	}
 
 	@Override
@@ -110,7 +115,6 @@ public class EmployeesDC extends DataControl<EmployeesDAO>{
 	public void setUpdateCommand(
 			@Update(objectAction = "update", parameters = @Parameters(value = { @Parameter(name = "obj", expression = "employees.currentObject", type = TuraObject.class) })) UpdateCommand updateCommand) {
 		this.updateCommand = updateCommand;
-		this.updateCommand.setDatacontrol(this);
 	}
 
 	@Override
@@ -118,7 +122,6 @@ public class EmployeesDC extends DataControl<EmployeesDAO>{
 	public void setDeleteCommand(
 			@Delete(objectAction = "remove", parameters = @Parameters(value = { @Parameter(name = "obj", expression = "employees.currentObject", type = TuraObject.class) })) DeleteCommand deleteCommand) {
 		this.deleteCommand = deleteCommand;
-		this.deleteCommand.setDatacontrol(this);
 	}
 
 	@Override
@@ -130,16 +133,13 @@ public class EmployeesDC extends DataControl<EmployeesDAO>{
 					@Parameter(name = "endindex", type = Integer.class, expression = "employees.endIndex"),
 					@Parameter(name = "objectClass", type = String.class, value = "org.tura.platform.hr.objects.EmployeesDAO") })) SearchCommand searchCommand) {
 		this.searchCommand = searchCommand;
-		this.searchCommand.setDatacontrol(this);
 	}
 
 	@Override
 	@Inject
 	public void setDefaultQuery(
 			@Query(base = @Base(clazz = EmployeesDAO.class), 
-			      search = @DefaultSearchCriterias(criterias = {
-					     @DefaultSearchCriteria(field = "objId", comparator = Operator.GT, value = "30", type = Long.class, expression = ""),
-					     @DefaultSearchCriteria(field = "objId", comparator = Operator.LT, value = "300", type = Long.class, expression = "") }), 
+			      search = @DefaultSearchCriterias(criterias = { }), 
 				   orders = @DefaultOrderBys(orders = { 
 					     @DefaultOrderBy(field = "objId", type = SelectQuery.Order.ASC) })) SelectQuery selectQuery) {
 		this.defaultQuery = selectQuery;

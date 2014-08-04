@@ -7,4 +7,10 @@
 	<alternatives>
 		<class>org.tura.platform.hr.controls.DepartmentTrigger</class>
 	</alternatives>
+	
+	
+	<interceptors>
+		<class>org.tura.platform.datacontrol.ConnectionFactory</class>
+	</interceptors>
+	
 </beans>

@@ -20,7 +20,7 @@ public abstract class DataControl<T> extends MetaInfoHolder {
 	private static boolean SCROLL_DOWN = true;
 	private static boolean SCROLL_UP = false;
 	private static String id = UUID.randomUUID().toString();
-	
+
 	private ArrayList<ChangeRecordListener> chageRecordLiteners = new ArrayList<>();
 
 	private SelectQuery query;
@@ -71,8 +71,9 @@ public abstract class DataControl<T> extends MetaInfoHolder {
 			T newCurrentObject) throws TuraException {
 		for (Relation relation : children.values()) {
 			relation.setMasterCurrentObject(newCurrentObject);
-			((DataControl<?>) relation.getChild())
-					.handleChangeMusterCurrentRecordNotification(newCurrentObject);
+			if (relation.getChild() != null)
+				((DataControl<?>) relation.getChild())
+						.handleChangeMusterCurrentRecordNotification(newCurrentObject);
 		}
 	}
 
@@ -218,7 +219,8 @@ public abstract class DataControl<T> extends MetaInfoHolder {
 							String method = "set"
 									+ StringUtils.capitalize(name);
 
-							Reflection.callTyped(obj, method, Class.forName(className), value);
+							Reflection.callTyped(obj, method,
+									Class.forName(className), value);
 						}
 					}
 				}
@@ -269,10 +271,10 @@ public abstract class DataControl<T> extends MetaInfoHolder {
 		return pager.getEndIndex();
 	}
 
-   public void cleanShifter(){
-	   pager.cleanShifter();
-   }
-	
+	public void cleanShifter() {
+		pager.cleanShifter();
+	}
+
 	public ShiftControl getShifter() throws TuraException {
 		return pager.getShifter();
 
