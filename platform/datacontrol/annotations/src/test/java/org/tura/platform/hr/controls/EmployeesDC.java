@@ -10,6 +10,7 @@ import org.tura.platform.commons.jpa.TuraJPAEntityService;
 import org.tura.platform.datacontrol.CommandStack;
 import org.tura.platform.datacontrol.DataControl;
 import org.tura.platform.datacontrol.ELResolver;
+import org.tura.platform.datacontrol.IDataControl;
 import org.tura.platform.datacontrol.annotations.ArtificialField;
 import org.tura.platform.datacontrol.annotations.ArtificialFields;
 import org.tura.platform.datacontrol.annotations.Base;
@@ -196,7 +197,7 @@ public class EmployeesDC extends DataControl<EmployeesDAO>{
 	}
 
 	@Override
-	public void createChild(DataControl<?> dc, Relation relation) {
+	public void createChild(IDataControl dc, Relation relation) {
 	}
 	
 	

@@ -7,8 +7,8 @@ import java.util.Iterator;
 import java.util.List;
 
 import org.apache.commons.lang.StringUtils;
-import org.tura.platform.datacontrol.DataControl;
-import org.tura.platform.datacontrol.MetaInfoHolder;
+import org.tura.platform.datacontrol.IDataControl;
+import org.tura.platform.datacontrol.IMetaInfoHolder;
 import org.tura.platform.datacontrol.commons.Constants;
 import org.tura.platform.datacontrol.commons.SearchCriteria;
 import org.tura.platform.datacontrol.commons.TuraException;
@@ -17,26 +17,26 @@ import com.octo.java.sql.exp.Operator;
 
 public class Relation {
 
-	private DataControl<?> parent;
-	private DataControl<?> child;
+	private IDataControl parent;
+	private IDataControl child;
 	private Object masterCurrentObject;
 	private boolean cascade = true;
 
 	private ArrayList<PropertyLink> links = new ArrayList<PropertyLink>();
 
-	public MetaInfoHolder getParent() {
+	public IMetaInfoHolder getParent() {
 		return parent;
 	}
 
-	public void setParent(DataControl<?> parent) {
+	public void setParent(IDataControl parent) {
 		this.parent = parent;
 	}
 
-	public DataControl<?> getChild() {
+	public IDataControl getChild() {
 		return child;
 	}
 
-	public void setChild(DataControl<?> child) {
+	public void setChild(IDataControl child) {
 		this.child = child;
 	}
 

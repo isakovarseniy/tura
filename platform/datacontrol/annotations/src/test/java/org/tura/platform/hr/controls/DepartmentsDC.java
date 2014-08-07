@@ -12,6 +12,7 @@ import org.tura.platform.datacontrol.CommandStack;
 import org.tura.platform.datacontrol.DataControl;
 import org.tura.platform.datacontrol.DataControlFactory;
 import org.tura.platform.datacontrol.ELResolver;
+import org.tura.platform.datacontrol.IDataControl;
 import org.tura.platform.datacontrol.annotations.ArtificialField;
 import org.tura.platform.datacontrol.annotations.ArtificialFields;
 import org.tura.platform.datacontrol.annotations.Base;
@@ -213,7 +214,7 @@ public class DepartmentsDC extends DataControl<DepartmentsDAO> {
 	}
 
 	@Override
-	public void createChild(DataControl<?> dc, Relation relation) {
+	public void createChild(IDataControl dc, Relation relation) {
 		getEmployeesdc();
 	}
 

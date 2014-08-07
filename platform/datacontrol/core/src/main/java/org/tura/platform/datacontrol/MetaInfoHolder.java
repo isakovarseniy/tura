@@ -43,9 +43,7 @@ public abstract class MetaInfoHolder {
 	protected PreUpdateTrigger preUpdateTrigger;
 	protected PreDeleteTrigger preDeleteTrigger;
 
-//	protected Class<?>  baseClass;
 	protected SelectQuery defaultQuery;
-//	protected String versionAttribute;
 	
 	public abstract void setDefaultQuery(SelectQuery selectQuery) ;
 	public abstract void setCreateCommand(CreateCommand createCommand) ;
@@ -60,13 +58,11 @@ public abstract class MetaInfoHolder {
 	public abstract void setPreInsertTrigger(PreInsertTrigger preInsertTrigger);
 	public abstract void setPreUpdateTrigger(PreUpdateTrigger preUpdateTrigger) ;
 	public abstract void setElResolver(ELResolver elResolver);
-//	public abstract void setBaseClass(Class<?> baseClass);
-//	public abstract void setVersionAttribute(String versionAttribute);
 	
 	
 	public void addChildren(String relationName, Relation relation) {
 		children.put(relationName, relation);
-		relation.setParent((DataControl<?>) this);
+		relation.setParent((IDataControl) this);
 		if (relation.getChild() != null)
 			relation.getChild().setParent(relation);
 	}
@@ -78,11 +74,6 @@ public abstract class MetaInfoHolder {
 	public Collection<String> getRelationsName(){
 		return children.keySet();
 	}
-	
-	
-//	public Class<?> getBaseClass() {
-//		return baseClass;
-//	}
 	
 	public Relation getParent() {
 		return parent;
@@ -157,9 +148,6 @@ public abstract class MetaInfoHolder {
 	public SelectQuery getDefaultQuery() {
 		return defaultQuery;
 	}
-//	public String getVersionAttribute() {
-//		return versionAttribute;
-//	}
 
 	
 }

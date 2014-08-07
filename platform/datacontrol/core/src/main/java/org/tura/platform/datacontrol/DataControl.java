@@ -15,7 +15,7 @@ import org.tura.platform.datacontrol.shift.ShiftControl;
 
 import com.octo.java.sql.query.SelectQuery;
 
-public abstract class DataControl<T> extends MetaInfoHolder {
+public abstract class DataControl<T>  extends MetaInfoHolder implements IDataControl{
 
 	private static boolean SCROLL_DOWN = true;
 	private static boolean SCROLL_UP = false;
@@ -36,7 +36,7 @@ public abstract class DataControl<T> extends MetaInfoHolder {
 		this.pager = new Pager<T>(this);
 	}
 
-	public abstract void createChild(DataControl<?> dc, Relation relation);
+	public abstract void createChild(IDataControl dc, Relation relation);
 
 	public void addChageRecordLiteners(ChangeRecordListener listener) {
 		chageRecordLiteners.add(listener);
@@ -49,7 +49,7 @@ public abstract class DataControl<T> extends MetaInfoHolder {
 		notifyChageRecordAll(pager.getObject(currentPosition));
 	}
 
-	protected void handleChangeMusterCurrentRecordNotification(
+	public void handleChangeMusterCurrentRecordNotification(
 			Object newCurrentObject) throws TuraException {
 		pager.cleanPager();
 		currentPosition = 0;
