@@ -3,34 +3,21 @@ package org.tura.platform.datacontrol;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
-import java.util.List;
 
-import org.tura.platform.datacontrol.command.CreateCommand;
-import org.tura.platform.datacontrol.command.DeleteCommand;
-import org.tura.platform.datacontrol.command.InsertCommand;
-import org.tura.platform.datacontrol.command.PostCreateTrigger;
-import org.tura.platform.datacontrol.command.PostQueryTrigger;
-import org.tura.platform.datacontrol.command.PreDeleteTrigger;
-import org.tura.platform.datacontrol.command.PreInsertTrigger;
-import org.tura.platform.datacontrol.command.PreQueryTrigger;
-import org.tura.platform.datacontrol.command.PreUpdateTrigger;
-import org.tura.platform.datacontrol.command.SearchCommand;
-import org.tura.platform.datacontrol.command.UpdateCommand;
+import org.tura.platform.datacontrol.commons.Reflection;
 import org.tura.platform.datacontrol.commons.TuraException;
-import org.tura.platform.datacontrol.metainfo.ArtificialProperty;
 import org.tura.platform.datacontrol.metainfo.Relation;
 
-import com.octo.java.sql.query.SelectQuery;
+public class TreeDataControl implements IDataControl {
 
-public abstract class TreeDataControl implements IDataControl {
-
+	protected HashMap<String, Object> dependency = new HashMap<String, Object>();
+	@SuppressWarnings("unused")
 	private Relation parent;
 	protected HashMap<String, Relation> children = new HashMap<String, Relation>();
 	private ArrayList<ChangeRecordListener> chageRecordLiteners = new ArrayList<>();
+	private Object currentObject;
 
 	private DataControl<?> root;
-	private DataControl<?> current;
-	
 
 	public DataControl<?> getRoot() {
 		return root;
@@ -38,37 +25,21 @@ public abstract class TreeDataControl implements IDataControl {
 
 	public void setRoot(DataControl<?> root) {
 		this.root = root;
-		this.current = root;
 	}
 
-	@Override
-	public Relation getParent() {
-		return parent;
-	}
-
-	@Override
-	public Relation getChild(String relationName) {
-		return null;
-	}
-
-	@Override
-	public Collection<String> getRelationsName() {
-		return null;
-	}
-	
-	
 	@Override
 	public void setParent(Relation parent) {
 		this.parent = parent;
 	}
 
 	@Override
-	public HashMap<String, Object> getDependency() {
-		return null;
+	public Relation getChild(String relationName) {
+		return children.get(relationName);
 	}
-	
+
 	@Override
-	public void setDependency(HashMap<String, Object> dependency) {
+	public Collection<String> getRelationsName() {
+		return children.keySet();
 	}
 
 	@Override
@@ -77,19 +48,9 @@ public abstract class TreeDataControl implements IDataControl {
 	}
 
 	@Override
-	public void addChildren(String relationName, Relation relation) {
-	}
-	
-	
-	@Override
 	public void handleChangeMusterCurrentRecordNotification(
 			Object newCurrentObject) throws TuraException {
-	}
-
-	protected void notifyChageRecordAll(Object newCurrentObject)
-			throws TuraException {
-		notifyChildrenDataControlsChangeCurrentRecord(newCurrentObject);
-		notifyChangeRecordLiteners(newCurrentObject);
+		root.handleChangeMusterCurrentRecordNotification(newCurrentObject);
 	}
 
 	private void notifyChangeRecordLiteners(Object newCurrentObject) {
@@ -98,163 +59,89 @@ public abstract class TreeDataControl implements IDataControl {
 		}
 	}
 
-	private void notifyChildrenDataControlsChangeCurrentRecord(
-			Object newCurrentObject) throws TuraException {
-		for (Relation relation : children.values()) {
-			relation.setMasterCurrentObject(newCurrentObject);
-			if (relation.getChild() != null)
-				((DataControl<?>) relation.getChild())
-						.handleChangeMusterCurrentRecordNotification(newCurrentObject);
-		}
-	}
-
 	@Override
 	public Object getCurrentObject() throws TuraException {
-		return null;
+		if (currentObject == null) {
+			currentObject = root.getCurrentObject();
+		}
+		return currentObject;
 	}
 
 	@Override
 	public Object createObject() throws TuraException {
-		return null;
+		try {
+			BeanWrapper w = ((BeanWrapper) Reflection.call(currentObject,
+					"getWrapper"));
+			DataControl<?> dc = w.getDatacontrol();
+			currentObject = dc.createObject();
+		} catch (Exception e) {
+			throw new TuraException(e);
+		}
+
+		if (currentObject != null) {
+			notifyChangeRecordLiteners(currentObject);
+		} else {
+			throw new TuraException(
+					"Error during creation new object for tree data control");
+		}
+		return currentObject;
 	}
 
 	@Override
 	public void removeObject() throws Exception {
+		BeanWrapper w = ((BeanWrapper) Reflection.call(currentObject,
+				"getWrapper"));
+		DataControl<?> dc = w.getDatacontrol();
+		dc.removeObject();
+		notifyChangeRecordLiteners(dc.getCurrentObject());
 	}
 
 	@Override
 	public void removeAll() throws Exception {
+		BeanWrapper w = ((BeanWrapper) Reflection.call(currentObject,
+				"getWrapper"));
+		DataControl<?> dc = w.getDatacontrol();
+		dc.removeAll();
+		notifyChangeRecordLiteners(dc.getCurrentObject());
 	}
 
-	
-	@Override
-	public void setDefaultQuery(SelectQuery selectQuery) {
-	}
+	public void setCurrentPosition(Object o) throws TuraException {
+		int[] path = (int[]) o;
+		IDataControl current = root;
+		Object obj = null;
+		for (int i = 0; i < path.length; i++) {
+			int key = path[i];
+			current.setCurrentPosition(key);
+			obj = current.getCurrentObject();
+			if (obj != null) {
+				if (i + 1 < path.length) {
+					Collection<String> names = current.getRelationsName();
+					if (names != null && names.size() > 0) {
+						String relationName = names.iterator().next();
+						Relation rel = current.getChild(relationName);
+						if (rel.getChild() == null)
+							current.createChild(current, relationName, rel);
+						current = rel.getChild();
 
-	@Override
-	public void setCreateCommand(CreateCommand createCommand) {
-	}
+					} else {
+						throw new TuraException(
+								"Cannot set path for tree data control");
+					}
+				}
+			} else {
+				throw new TuraException("Cannot set path for tree data control");
+			}
 
-	@Override
-	public void setInsertCommand(InsertCommand insertCommand) {
-	}
-
-	@Override
-	public void setUpdateCommand(UpdateCommand updateCommand) {
-	}
-
-	@Override
-	public void setDeleteCommand(DeleteCommand deleteCommand) {
-	}
-
-	@Override
-	public void setPreQueryTrigger(PreQueryTrigger preQueryTrigger) {
-	}
-
-	@Override
-	public void setPostQueryTrigger(PostQueryTrigger postQueryTrigger) {
-	}
-
-	@Override
-	public void setSearchCommand(SearchCommand searchCommand) {
-	}
-
-	@Override
-	public void setPostCreateTrigger(PostCreateTrigger postCreateTrigger) {
-	}
-
-	@Override
-	public void setPreDeleteTrigger(PreDeleteTrigger preDeleteTrigger) {
+		}
+		currentObject = obj;
+		notifyChangeRecordLiteners(obj);
 	}
 
 	@Override
-	public void setPreInsertTrigger(PreInsertTrigger preInsertTrigger) {
+	public final void createChild(IDataControl dc, String relationName,
+			Relation relation) throws TuraException {
+		throw new TuraException(
+				"Tree data contol cannot has master - detail relations");
 	}
-
-	@Override
-	public void setPreUpdateTrigger(PreUpdateTrigger preUpdateTrigger) {
-	}
-
-	@Override
-	public void setElResolver(ELResolver elResolver) {
-	}
-
-	@Override
-	public ELResolver getElResolver() {
-		return current.getElResolver();
-	}
-
-	@Override
-	public CreateCommand getCreateCommand() {
-		return current.getCreateCommand();
-	}
-
-	@Override
-	public InsertCommand getInsertCommand() {
-		return current.getInsertCommand();
-	}
-
-	@Override
-	public UpdateCommand getUpdateCommand() {
-		return current.getUpdateCommand();
-	}
-
-	@Override
-	public DeleteCommand getDeleteCommand() {
-		return current.getDeleteCommand();
-	}
-
-	@Override
-	public SearchCommand getSearchCommand() {
-		return current.getSearchCommand();
-	}
-
-	@Override
-	public PreQueryTrigger getPreQueryTrigger() {
-		return current.getPreQueryTrigger();
-	}
-
-	@Override
-	public PostQueryTrigger getPostQueryTrigger() {
-		return current.getPostQueryTrigger();
-	}
-
-	@Override
-	public PostCreateTrigger getPostCreateTrigger() {
-		return current.getPostCreateTrigger();
-	}
-
-	@Override
-	public PreInsertTrigger getPreInsertTrigger() {
-		return current.getPreInsertTrigger();
-	}
-
-	@Override
-	public PreUpdateTrigger getPreUpdateTrigger() {
-		return current.getPreUpdateTrigger();
-	}
-
-	@Override
-	public PreDeleteTrigger getPreDeleteTrigger() {
-		return current.getPreDeleteTrigger();
-	}
-
-	@Override
-	public List<ArtificialProperty> getArtificialProperties() {
-		return current.getArtificialProperties();
-	}
-
-	@Override
-	public List<String> getKeys() {
-		return current.getKeys();
-	}
-
-	@Override
-	public SelectQuery getDefaultQuery() {
-		return current.getDefaultQuery();
-	}
-
-	@Override
-	public abstract void createChild(IDataControl dc, Relation relation) ;
 
 }

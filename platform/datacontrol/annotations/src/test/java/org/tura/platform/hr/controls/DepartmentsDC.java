@@ -214,9 +214,8 @@ public class DepartmentsDC extends DataControl<DepartmentsDAO> {
 	}
 
 	@Override
-	public void createChild(IDataControl dc, Relation relation) {
+	public void createChild(IDataControl dc, String  relName, Relation relation) {
 		getEmployeesdc();
 	}
-
 
 }

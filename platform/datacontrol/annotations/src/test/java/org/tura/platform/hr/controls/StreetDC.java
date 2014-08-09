@@ -3,12 +3,14 @@ package org.tura.platform.hr.controls;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
+import javax.enterprise.inject.Instance;
 import javax.inject.Inject;
 import javax.inject.Named;
 
 import org.tura.platform.commons.jpa.TuraJPAEntityService;
 import org.tura.platform.datacontrol.CommandStack;
 import org.tura.platform.datacontrol.DataControl;
+import org.tura.platform.datacontrol.DataControlFactory;
 import org.tura.platform.datacontrol.ELResolver;
 import org.tura.platform.datacontrol.IDataControl;
 import org.tura.platform.datacontrol.annotations.ArtificialField;
@@ -17,6 +19,7 @@ import org.tura.platform.datacontrol.annotations.Base;
 import org.tura.platform.datacontrol.annotations.Create;
 import org.tura.platform.datacontrol.annotations.DefaultOrderBy;
 import org.tura.platform.datacontrol.annotations.DefaultOrderBys;
+import org.tura.platform.datacontrol.annotations.DefaultSearchCriteria;
 import org.tura.platform.datacontrol.annotations.DefaultSearchCriterias;
 import org.tura.platform.datacontrol.annotations.Delete;
 import org.tura.platform.datacontrol.annotations.Insert;
@@ -46,23 +49,27 @@ import org.tura.platform.datacontrol.command.SearchCommand;
 import org.tura.platform.datacontrol.command.UpdateCommand;
 import org.tura.platform.datacontrol.metainfo.ArtificialProperty;
 import org.tura.platform.datacontrol.metainfo.Relation;
-import org.tura.platform.hr.objects.EmployeesDAO;
+import org.tura.platform.hr.objects.StreetDAO;
 import org.tura.platform.persistence.TuraObject;
 
+import com.octo.java.sql.exp.Operator;
 import com.octo.java.sql.query.SelectQuery;
 
-@Named("employees")
-public class EmployeesDC extends DataControl<EmployeesDAO>{
+@Named("street")
+public class StreetDC extends DataControl<StreetDAO> {
 
 	@Inject
 	private TuraJPAEntityService provider;
 
-	public EmployeesDC() throws Exception {
+	@Inject
+	private Instance<StreetDC> streetcproducers;
+
+	public StreetDC() throws Exception {
 		super();
 	}
 
 	@PostConstruct
-	public void init() {
+	public void init() throws IllegalArgumentException, IllegalAccessException {
 		this.insertCommand.setProvider(provider);
 		this.insertCommand.setDatacontrol(this);
 
@@ -71,12 +78,15 @@ public class EmployeesDC extends DataControl<EmployeesDAO>{
 
 		this.deleteCommand.setProvider(provider);
 		this.deleteCommand.setDatacontrol(this);
-		
+
 		this.createCommand.setProvider(provider);
 		this.createCommand.setDatacontrol(this);
 
 		this.searchCommand.setProvider(provider);
 		this.searchCommand.setDatacontrol(this);
+		
+		DataControlFactory.buildConnection(this);
+		
 	}
 
 	@Inject
@@ -101,28 +111,28 @@ public class EmployeesDC extends DataControl<EmployeesDAO>{
 	@Override
 	@Inject
 	public void setCreateCommand(
-			@Create(objectAction = "create", parameters = @Parameters(value = { @Parameter(name = "objType", value = "org.tura.platform.hr.objects.EmployeesDAO", type = String.class) })) CreateCommand createCommand) {
+			@Create(objectAction = "create", parameters = @Parameters(value = { @Parameter(name = "objType", value = "org.tura.platform.hr.objects.StreetDAO", type = String.class) })) CreateCommand createCommand) {
 		this.createCommand = createCommand;
 	}
 
 	@Override
 	@Inject
 	public void setInsertCommand(
-			@Insert(objectAction = "insert", parameters = @Parameters(value = { @Parameter(name = "obj", expression = "employees.currentObject", type = TuraObject.class) })) InsertCommand insertCommand) {
+			@Insert(objectAction = "insert", parameters = @Parameters(value = { @Parameter(name = "obj", expression = "city.currentObject", type = TuraObject.class) })) InsertCommand insertCommand) {
 		this.insertCommand = insertCommand;
 	}
 
 	@Override
 	@Inject
 	public void setUpdateCommand(
-			@Update(objectAction = "update", parameters = @Parameters(value = { @Parameter(name = "obj", expression = "employees.currentObject", type = TuraObject.class) })) UpdateCommand updateCommand) {
+			@Update(objectAction = "update", parameters = @Parameters(value = { @Parameter(name = "obj", expression = "city.currentObject", type = TuraObject.class) })) UpdateCommand updateCommand) {
 		this.updateCommand = updateCommand;
 	}
 
 	@Override
 	@Inject
 	public void setDeleteCommand(
-			@Delete(objectAction = "remove", parameters = @Parameters(value = { @Parameter(name = "obj", expression = "employees.currentObject", type = TuraObject.class) })) DeleteCommand deleteCommand) {
+			@Delete(objectAction = "remove", parameters = @Parameters(value = { @Parameter(name = "obj", expression = "city.currentObject", type = TuraObject.class) })) DeleteCommand deleteCommand) {
 		this.deleteCommand = deleteCommand;
 	}
 
@@ -130,20 +140,19 @@ public class EmployeesDC extends DataControl<EmployeesDAO>{
 	@Inject
 	public void setSearchCommand(
 			@Search(objectAction = "find", parameters = @Parameters(value = {
-					@Parameter(name = "dslQuery", type = SelectQuery.class, expression = "employees.query"),
-					@Parameter(name = "startindex", type = Integer.class, expression = "employees.startIndex"),
-					@Parameter(name = "endindex", type = Integer.class, expression = "employees.endIndex"),
-					@Parameter(name = "objectClass", type = String.class, value = "org.tura.platform.hr.objects.EmployeesDAO") })) SearchCommand searchCommand) {
+					@Parameter(name = "dslQuery", type = SelectQuery.class, expression = "city.query"),
+					@Parameter(name = "startindex", type = Integer.class, expression = "city.startIndex"),
+					@Parameter(name = "endindex", type = Integer.class, expression = "city.endIndex"),
+					@Parameter(name = "objectClass", type = String.class, value = "org.tura.platform.hr.objects.StreetDAO") })) SearchCommand searchCommand) {
 		this.searchCommand = searchCommand;
 	}
 
 	@Override
 	@Inject
 	public void setDefaultQuery(
-			@Query(base = @Base(clazz = EmployeesDAO.class), 
-			      search = @DefaultSearchCriterias(criterias = { }), 
-				   orders = @DefaultOrderBys(orders = { 
-					     @DefaultOrderBy(field = "objId", type = SelectQuery.Order.ASC) })) SelectQuery selectQuery) {
+			@Query(base = @Base(clazz = StreetDAO.class), search = @DefaultSearchCriterias(criterias = {
+					@DefaultSearchCriteria(field = "objId", comparator = Operator.GT, value = "30", type = Long.class, expression = ""),
+					@DefaultSearchCriteria(field = "objId", comparator = Operator.LT, value = "300", type = Long.class, expression = "") }), orders = @DefaultOrderBys(orders = { @DefaultOrderBy(field = "objId", type = SelectQuery.Order.ASC) })) SelectQuery selectQuery) {
 		this.defaultQuery = selectQuery;
 	}
 
@@ -151,55 +160,52 @@ public class EmployeesDC extends DataControl<EmployeesDAO>{
 	@Inject
 	public void setElResolver(ELResolver elResolver) {
 		this.elResolver = elResolver;
-
 	}
 
 	@Override
 	@Inject
 	public void setPreQueryTrigger(
-			@PreQuery("employees") PreQueryTrigger preQueryTrigger) {
+			@PreQuery("city") PreQueryTrigger preQueryTrigger) {
 		this.preQueryTrigger = preQueryTrigger;
 	}
 
 	@Override
 	@Inject
 	public void setPostQueryTrigger(
-			@PostQuery("employees") PostQueryTrigger postQueryTrigger) {
+			@PostQuery("city") PostQueryTrigger postQueryTrigger) {
 		this.postQueryTrigger = postQueryTrigger;
 	}
 
 	@Override
 	@Inject
 	public void setPostCreateTrigger(
-			@PostCreate("employees") PostCreateTrigger postCreateTrigger) {
+			@PostCreate("city") PostCreateTrigger postCreateTrigger) {
 		this.postCreateTrigger = postCreateTrigger;
 	}
 
 	@Override
 	@Inject
 	public void setPreDeleteTrigger(
-			@PreDelete("employees") PreDeleteTrigger preDeleteTrigger) {
+			@PreDelete("city") PreDeleteTrigger preDeleteTrigger) {
 		this.preDeleteTrigger = preDeleteTrigger;
 	}
 
 	@Override
 	@Inject
 	public void setPreInsertTrigger(
-			@PreInsert("employees") PreInsertTrigger preInsertTrigger) {
+			@PreInsert("city") PreInsertTrigger preInsertTrigger) {
 		this.preInsertTrigger = preInsertTrigger;
 	}
 
 	@Override
 	@Inject
 	public void setPreUpdateTrigger(
-			@PreUpdate("employees") PreUpdateTrigger preUpdateTrigger) {
+			@PreUpdate("city") PreUpdateTrigger preUpdateTrigger) {
 		this.preUpdateTrigger = preUpdateTrigger;
 	}
 
 	@Override
-	public void createChild(IDataControl dc, String  relName,Relation relation) {
+	public void createChild(IDataControl dc, String  relName, Relation relation) {
 	}
-	
-	
-	
+
 }

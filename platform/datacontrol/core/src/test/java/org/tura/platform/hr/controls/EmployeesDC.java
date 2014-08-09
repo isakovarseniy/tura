@@ -19,7 +19,7 @@ import org.tura.platform.hr.objects.EmployeesDAO;
 
 import com.octo.java.sql.query.SelectQuery;
 
-public class EmployeesDC extends DataControl<EmployeesDAO>{
+public class EmployeesDC extends DataControl<EmployeesDAO> {
 
 	public EmployeesDC() throws Exception {
 		super();
@@ -96,10 +96,8 @@ public class EmployeesDC extends DataControl<EmployeesDAO>{
 	}
 
 	@Override
-	public void createChild(IDataControl dc, Relation relation) {
-		
+	public void createChild(IDataControl dc, String relName, Relation relation) {
+
 	}
-	
-	
-	
+
 }

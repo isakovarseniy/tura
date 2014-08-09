@@ -8,7 +8,6 @@ import java.util.List;
 
 import org.apache.commons.lang.StringUtils;
 import org.tura.platform.datacontrol.IDataControl;
-import org.tura.platform.datacontrol.IMetaInfoHolder;
 import org.tura.platform.datacontrol.commons.Constants;
 import org.tura.platform.datacontrol.commons.SearchCriteria;
 import org.tura.platform.datacontrol.commons.TuraException;
@@ -23,10 +22,6 @@ public class Relation {
 	private boolean cascade = true;
 
 	private ArrayList<PropertyLink> links = new ArrayList<PropertyLink>();
-
-	public IMetaInfoHolder getParent() {
-		return parent;
-	}
 
 	public void setParent(IDataControl parent) {
 		this.parent = parent;

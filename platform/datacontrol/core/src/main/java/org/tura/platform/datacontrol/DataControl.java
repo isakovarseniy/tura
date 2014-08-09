@@ -36,7 +36,7 @@ public abstract class DataControl<T>  extends MetaInfoHolder implements IDataCon
 		this.pager = new Pager<T>(this);
 	}
 
-	public abstract void createChild(IDataControl dc, Relation relation);
+	public abstract void createChild(IDataControl dc, String relName , Relation relation);
 
 	public void addChageRecordLiteners(ChangeRecordListener listener) {
 		chageRecordLiteners.add(listener);
@@ -148,7 +148,7 @@ public abstract class DataControl<T>  extends MetaInfoHolder implements IDataCon
 			Relation rel = this.getChild(relName);
 
 			if ((rel.isCascade()) && (rel.getChild() == null)) {
-				createChild(this, rel);
+				createChild(this, relName, rel);
 			}
 
 			if ((rel.isCascade()) && (rel.getChild() != null)
@@ -236,6 +236,10 @@ public abstract class DataControl<T>  extends MetaInfoHolder implements IDataCon
 
 	public int getCurrentPosition() {
 		return currentPosition;
+	}
+
+	public void setCurrentPosition(Object currentPosition) {
+		this.currentPosition = (int)currentPosition;
 	}
 
 	/**
