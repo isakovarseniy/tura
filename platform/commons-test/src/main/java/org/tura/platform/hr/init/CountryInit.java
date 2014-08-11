@@ -27,6 +27,7 @@ public class CountryInit {
 		CountryDAO dpt = new CountryDAO();
 		dpt.setObjId(obj_id);
 		dpt.setCountryName(countryName);
+		dpt.setParentId(companyid);
 		em.persist(dpt);
 		return dpt;
 

@@ -11,7 +11,6 @@ public class LocationDC extends TreeDataControl {
 	@Inject
 	public void setRoot(CountryDC root) {
 		super.setRoot(root);
+		root.getElResolver().setValue("country", root);
 	}
-
-	
 }

@@ -20,7 +20,6 @@ import org.tura.platform.datacontrol.annotations.Connection;
 import org.tura.platform.datacontrol.annotations.Create;
 import org.tura.platform.datacontrol.annotations.DefaultOrderBy;
 import org.tura.platform.datacontrol.annotations.DefaultOrderBys;
-import org.tura.platform.datacontrol.annotations.DefaultSearchCriteria;
 import org.tura.platform.datacontrol.annotations.DefaultSearchCriterias;
 import org.tura.platform.datacontrol.annotations.Delete;
 import org.tura.platform.datacontrol.annotations.Factory;
@@ -55,7 +54,6 @@ import org.tura.platform.datacontrol.metainfo.Relation;
 import org.tura.platform.hr.objects.StateDAO;
 import org.tura.platform.persistence.TuraObject;
 
-import com.octo.java.sql.exp.Operator;
 import com.octo.java.sql.query.SelectQuery;
 
 @Named("state")
@@ -153,9 +151,7 @@ public class StatesDC extends DataControl<StateDAO> {
 	@Override
 	@Inject
 	public void setDefaultQuery(
-			@Query(base = @Base(clazz = StateDAO.class), search = @DefaultSearchCriterias(criterias = {
-					@DefaultSearchCriteria(field = "objId", comparator = Operator.GT, value = "30", type = Long.class, expression = ""),
-					@DefaultSearchCriteria(field = "objId", comparator = Operator.LT, value = "300", type = Long.class, expression = "") }), orders = @DefaultOrderBys(orders = { @DefaultOrderBy(field = "objId", type = SelectQuery.Order.ASC) })) SelectQuery selectQuery) {
+			@Query(base = @Base(clazz = StateDAO.class), search = @DefaultSearchCriterias(criterias = { }), orders = @DefaultOrderBys(orders = { @DefaultOrderBy(field = "objId", type = SelectQuery.Order.ASC) })) SelectQuery selectQuery) {
 		this.defaultQuery = selectQuery;
 	}
 
@@ -209,8 +205,10 @@ public class StatesDC extends DataControl<StateDAO> {
 
 	@Factory
 	@Connection(connectionName = "state2city", links = { @Link(field1 = "objId", field2 = "parentId") }) 
-	public CityDC getDetail() {
-		return citycproducers.get();
+	public IDataControl getDetail() {
+		IDataControl dc = citycproducers.get();
+		getElResolver().setValue("city", dc);
+		return dc;
 	}
 
 	@Override

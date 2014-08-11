@@ -18,6 +18,7 @@ package org.tura.platform.hr.controls;
 import javax.el.ELContext;
 import javax.el.ExpressionFactory;
 import javax.el.ValueExpression;
+import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Named;
 
 import org.tura.platform.datacontrol.ELResolver;
@@ -25,6 +26,7 @@ import org.tura.platform.datacontrol.ELResolver;
 import de.odysseus.el.ExpressionFactoryImpl;
 import de.odysseus.el.util.SimpleContext;
 @Named("elresolver")
+@ApplicationScoped
 public class ELResolverImpl implements ELResolver {
 	private ExpressionFactory ef;
 	private ELContext context;

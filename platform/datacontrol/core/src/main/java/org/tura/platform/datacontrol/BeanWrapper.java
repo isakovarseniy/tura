@@ -15,7 +15,6 @@
  ******************************************************************************/
 package org.tura.platform.datacontrol;
 
-import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -73,7 +72,10 @@ public class BeanWrapper implements MethodInterceptor {
 	}
 
 	@SuppressWarnings("rawtypes")
-	public static Object newInstance(Class clazz, DataControl<?> datacontrol) throws NoSuchMethodException, SecurityException, InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException {
+	public static Object newInstance(Class clazz, DataControl<?> datacontrol)
+			throws NoSuchMethodException, SecurityException,
+			InstantiationException, IllegalAccessException,
+			IllegalArgumentException, InvocationTargetException {
 
 		// Create a dynamice interface
 		InterfaceMaker im = new InterfaceMaker();
@@ -124,15 +126,7 @@ public class BeanWrapper implements MethodInterceptor {
 		BeanWrapper w = (BeanWrapper) Reflection.call(bean, "getWrapper");
 
 		for (ArtificialProperty obj : datacontrol.getArtificialProperties()) {
-			if (!obj.getDefaultValue().equals("")) {
-				Constructor<?> cons = obj.getType()
-						.getConstructor(String.class);
-
-				w.addArtificialmethod(obj.getProperty(),
-						cons.newInstance(obj.getDefaultValue()));
-			} else {
-				w.addArtificialmethod(obj.getProperty(), null);
-			}
+			w.addArtificialmethod(obj.getProperty(), obj.getDefaultValue());
 		}
 		return bean;
 

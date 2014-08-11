@@ -1,4 +1,4 @@
-package org.tura.platform.hr.controls;
+package org.tura.platform.hr.controls.producer;
 
 import javax.enterprise.inject.Produces;
 import javax.enterprise.inject.spi.InjectionPoint;
@@ -16,42 +16,43 @@ import org.tura.platform.datacontrol.command.PreInsertTrigger;
 import org.tura.platform.datacontrol.command.PreQueryTrigger;
 import org.tura.platform.datacontrol.command.PreUpdateTrigger;
 
-public class DepartmentProducer {
+public class StreetProducer {
 
- 	@Produces @PreQuery("department")
+	@Produces @PreQuery("street")
 	public PreQueryTrigger getPreQueryTrigger( InjectionPoint injectionPoint) {
 		return null;
 
 	}
 
-	@Produces @PostQuery("department")
+	@Produces @PostQuery("street")
 	public PostQueryTrigger getPostQueryTrigger(InjectionPoint injectionPoint) {
 		return null;
 
 	}
 
-	@Produces @PostCreate("department")
+	@Produces @PostCreate("street")
 	public PostCreateTrigger getPostCreateTrigger(InjectionPoint injectionPoint) {
 		return null;
 
 	}
 
-	@Produces @PreDelete("department")
+	@Produces @PreDelete("street")
 	public PreDeleteTrigger getPreDeleteTrigger(InjectionPoint injectionPoint) {
 		return null;
 
 	}
 
-	@Produces @PreInsert("department")
+	@Produces @PreInsert("street")
 	public PreInsertTrigger getPreInsertTrigger(InjectionPoint injectionPoint) {
 		return null;
 
 	}
 
-	@Produces @PreUpdate("department")
+	@Produces @PreUpdate("street")
 	public PreUpdateTrigger getPreUpdateTrigger(InjectionPoint injectionPoint) {
 		return null;
 
 	}
-
+	
+	
 }

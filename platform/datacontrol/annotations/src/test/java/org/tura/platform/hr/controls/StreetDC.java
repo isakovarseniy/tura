@@ -19,7 +19,6 @@ import org.tura.platform.datacontrol.annotations.Base;
 import org.tura.platform.datacontrol.annotations.Create;
 import org.tura.platform.datacontrol.annotations.DefaultOrderBy;
 import org.tura.platform.datacontrol.annotations.DefaultOrderBys;
-import org.tura.platform.datacontrol.annotations.DefaultSearchCriteria;
 import org.tura.platform.datacontrol.annotations.DefaultSearchCriterias;
 import org.tura.platform.datacontrol.annotations.Delete;
 import org.tura.platform.datacontrol.annotations.Insert;
@@ -52,7 +51,6 @@ import org.tura.platform.datacontrol.metainfo.Relation;
 import org.tura.platform.hr.objects.StreetDAO;
 import org.tura.platform.persistence.TuraObject;
 
-import com.octo.java.sql.exp.Operator;
 import com.octo.java.sql.query.SelectQuery;
 
 @Named("street")
@@ -84,9 +82,9 @@ public class StreetDC extends DataControl<StreetDAO> {
 
 		this.searchCommand.setProvider(provider);
 		this.searchCommand.setDatacontrol(this);
-		
+
 		DataControlFactory.buildConnection(this);
-		
+
 	}
 
 	@Inject
@@ -118,21 +116,21 @@ public class StreetDC extends DataControl<StreetDAO> {
 	@Override
 	@Inject
 	public void setInsertCommand(
-			@Insert(objectAction = "insert", parameters = @Parameters(value = { @Parameter(name = "obj", expression = "city.currentObject", type = TuraObject.class) })) InsertCommand insertCommand) {
+			@Insert(objectAction = "insert", parameters = @Parameters(value = { @Parameter(name = "obj", expression = "street.currentObject", type = TuraObject.class) })) InsertCommand insertCommand) {
 		this.insertCommand = insertCommand;
 	}
 
 	@Override
 	@Inject
 	public void setUpdateCommand(
-			@Update(objectAction = "update", parameters = @Parameters(value = { @Parameter(name = "obj", expression = "city.currentObject", type = TuraObject.class) })) UpdateCommand updateCommand) {
+			@Update(objectAction = "update", parameters = @Parameters(value = { @Parameter(name = "obj", expression = "street.currentObject", type = TuraObject.class) })) UpdateCommand updateCommand) {
 		this.updateCommand = updateCommand;
 	}
 
 	@Override
 	@Inject
 	public void setDeleteCommand(
-			@Delete(objectAction = "remove", parameters = @Parameters(value = { @Parameter(name = "obj", expression = "city.currentObject", type = TuraObject.class) })) DeleteCommand deleteCommand) {
+			@Delete(objectAction = "remove", parameters = @Parameters(value = { @Parameter(name = "obj", expression = "street.currentObject", type = TuraObject.class) })) DeleteCommand deleteCommand) {
 		this.deleteCommand = deleteCommand;
 	}
 
@@ -140,9 +138,9 @@ public class StreetDC extends DataControl<StreetDAO> {
 	@Inject
 	public void setSearchCommand(
 			@Search(objectAction = "find", parameters = @Parameters(value = {
-					@Parameter(name = "dslQuery", type = SelectQuery.class, expression = "city.query"),
-					@Parameter(name = "startindex", type = Integer.class, expression = "city.startIndex"),
-					@Parameter(name = "endindex", type = Integer.class, expression = "city.endIndex"),
+					@Parameter(name = "dslQuery", type = SelectQuery.class, expression = "street.query"),
+					@Parameter(name = "startindex", type = Integer.class, expression = "street.startIndex"),
+					@Parameter(name = "endindex", type = Integer.class, expression = "street.endIndex"),
 					@Parameter(name = "objectClass", type = String.class, value = "org.tura.platform.hr.objects.StreetDAO") })) SearchCommand searchCommand) {
 		this.searchCommand = searchCommand;
 	}
@@ -150,9 +148,7 @@ public class StreetDC extends DataControl<StreetDAO> {
 	@Override
 	@Inject
 	public void setDefaultQuery(
-			@Query(base = @Base(clazz = StreetDAO.class), search = @DefaultSearchCriterias(criterias = {
-					@DefaultSearchCriteria(field = "objId", comparator = Operator.GT, value = "30", type = Long.class, expression = ""),
-					@DefaultSearchCriteria(field = "objId", comparator = Operator.LT, value = "300", type = Long.class, expression = "") }), orders = @DefaultOrderBys(orders = { @DefaultOrderBy(field = "objId", type = SelectQuery.Order.ASC) })) SelectQuery selectQuery) {
+			@Query(base = @Base(clazz = StreetDAO.class), search = @DefaultSearchCriterias(criterias = {}), orders = @DefaultOrderBys(orders = { @DefaultOrderBy(field = "objId", type = SelectQuery.Order.ASC) })) SelectQuery selectQuery) {
 		this.defaultQuery = selectQuery;
 	}
 
@@ -165,47 +161,47 @@ public class StreetDC extends DataControl<StreetDAO> {
 	@Override
 	@Inject
 	public void setPreQueryTrigger(
-			@PreQuery("city") PreQueryTrigger preQueryTrigger) {
+			@PreQuery("street") PreQueryTrigger preQueryTrigger) {
 		this.preQueryTrigger = preQueryTrigger;
 	}
 
 	@Override
 	@Inject
 	public void setPostQueryTrigger(
-			@PostQuery("city") PostQueryTrigger postQueryTrigger) {
+			@PostQuery("street") PostQueryTrigger postQueryTrigger) {
 		this.postQueryTrigger = postQueryTrigger;
 	}
 
 	@Override
 	@Inject
 	public void setPostCreateTrigger(
-			@PostCreate("city") PostCreateTrigger postCreateTrigger) {
+			@PostCreate("street") PostCreateTrigger postCreateTrigger) {
 		this.postCreateTrigger = postCreateTrigger;
 	}
 
 	@Override
 	@Inject
 	public void setPreDeleteTrigger(
-			@PreDelete("city") PreDeleteTrigger preDeleteTrigger) {
+			@PreDelete("street") PreDeleteTrigger preDeleteTrigger) {
 		this.preDeleteTrigger = preDeleteTrigger;
 	}
 
 	@Override
 	@Inject
 	public void setPreInsertTrigger(
-			@PreInsert("city") PreInsertTrigger preInsertTrigger) {
+			@PreInsert("street") PreInsertTrigger preInsertTrigger) {
 		this.preInsertTrigger = preInsertTrigger;
 	}
 
 	@Override
 	@Inject
 	public void setPreUpdateTrigger(
-			@PreUpdate("city") PreUpdateTrigger preUpdateTrigger) {
+			@PreUpdate("street") PreUpdateTrigger preUpdateTrigger) {
 		this.preUpdateTrigger = preUpdateTrigger;
 	}
 
 	@Override
-	public void createChild(IDataControl dc, String  relName, Relation relation) {
+	public void createChild(IDataControl dc, String relName, Relation relation) {
 	}
 
 }

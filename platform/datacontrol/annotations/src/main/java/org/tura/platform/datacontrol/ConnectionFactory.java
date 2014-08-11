@@ -19,8 +19,10 @@ public class ConnectionFactory {
 		if (relation.getChild() != null  )
 			  return relation.getChild();
 		
-		DataControl<?> child  = (DataControl<?>) ctx.proceed();
+		IDataControl child  = (IDataControl ) ctx.proceed();
 		relation.setChild(child);
+		dc.addChildren(connection.connectionName(), relation);
+		
 		return relation.getChild();
 	}
 

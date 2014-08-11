@@ -11,11 +11,12 @@ import org.tura.platform.datacontrol.metainfo.Relation;
 public class TreeDataControl implements IDataControl {
 
 	protected HashMap<String, Object> dependency = new HashMap<String, Object>();
-	@SuppressWarnings("unused")
 	private Relation parent;
+	private Relation treeRelation = new Relation();
 	protected HashMap<String, Relation> children = new HashMap<String, Relation>();
 	private ArrayList<ChangeRecordListener> chageRecordLiteners = new ArrayList<>();
 	private Object currentObject;
+	private int criticalSection;
 
 	private DataControl<?> root;
 
@@ -25,11 +26,15 @@ public class TreeDataControl implements IDataControl {
 
 	public void setRoot(DataControl<?> root) {
 		this.root = root;
+		root.setParent(treeRelation);
 	}
 
 	@Override
 	public void setParent(Relation parent) {
 		this.parent = parent;
+		treeRelation.setParent(this);
+		treeRelation.setChild(root);
+		treeRelation.getLinks().addAll(parent.getLinks());
 	}
 
 	@Override
@@ -50,6 +55,8 @@ public class TreeDataControl implements IDataControl {
 	@Override
 	public void handleChangeMusterCurrentRecordNotification(
 			Object newCurrentObject) throws TuraException {
+		treeRelation.setMasterCurrentObject(newCurrentObject);
+		currentObject = null;
 		root.handleChangeMusterCurrentRecordNotification(newCurrentObject);
 	}
 
@@ -61,8 +68,19 @@ public class TreeDataControl implements IDataControl {
 
 	@Override
 	public Object getCurrentObject() throws TuraException {
-		if (currentObject == null) {
-			currentObject = root.getCurrentObject();
+		if (criticalSection > 0)
+			return null;
+		try {
+			criticalSection++;
+			if (currentObject == null) {
+				treeRelation.setMasterCurrentObject(parent
+						.getMasterCurrentObject());
+				currentObject = root.getCurrentObject();
+			}
+		}catch(Exception e){
+			e.printStackTrace();
+		} finally {
+			criticalSection--;
 		}
 		return currentObject;
 	}

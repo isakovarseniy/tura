@@ -1,4 +1,4 @@
-package org.tura.platform.hr.controls;
+package org.tura.platform.hr.controls.producer;
 
 import javax.enterprise.inject.Produces;
 import javax.enterprise.inject.spi.InjectionPoint;
@@ -16,42 +16,42 @@ import org.tura.platform.datacontrol.command.PreInsertTrigger;
 import org.tura.platform.datacontrol.command.PreQueryTrigger;
 import org.tura.platform.datacontrol.command.PreUpdateTrigger;
 
-public class EmployeesProducer {
+public class StatProducer {
 
- 	@Produces @PreQuery("employees")
-	public PreQueryTrigger getPreQueryTrigger(InjectionPoint injectionPoint) {
+	@Produces @PreQuery("state")
+	public PreQueryTrigger getPreQueryTrigger( InjectionPoint injectionPoint) {
 		return null;
 
 	}
 
-	@Produces @PostQuery("employees")
+	@Produces @PostQuery("state")
 	public PostQueryTrigger getPostQueryTrigger(InjectionPoint injectionPoint) {
 		return null;
 
 	}
 
-	@Produces @PostCreate("employees")
+	@Produces @PostCreate("state")
 	public PostCreateTrigger getPostCreateTrigger(InjectionPoint injectionPoint) {
 		return null;
 
 	}
 
-	@Produces @PreDelete("employees")
+	@Produces @PreDelete("state")
 	public PreDeleteTrigger getPreDeleteTrigger(InjectionPoint injectionPoint) {
 		return null;
 
 	}
 
-	@Produces @PreInsert("employees")
+	@Produces @PreInsert("state")
 	public PreInsertTrigger getPreInsertTrigger(InjectionPoint injectionPoint) {
 		return null;
 
 	}
 
-	@Produces @PreUpdate("employees")
+	@Produces @PreUpdate("state")
 	public PreUpdateTrigger getPreUpdateTrigger(InjectionPoint injectionPoint) {
 		return null;
 
 	}
-
+	
 }

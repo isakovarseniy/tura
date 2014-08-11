@@ -20,7 +20,7 @@ public class CDICommandStack extends CommandStack{
 		Configuration config = new Configuration();
 		config.addResource("META-INF/persistence.xml");
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory(
-				"MasterDetail", config.getProperties());
+				"CDIUnit", config.getProperties());
 		em = emf.createEntityManager();
 		
 	}

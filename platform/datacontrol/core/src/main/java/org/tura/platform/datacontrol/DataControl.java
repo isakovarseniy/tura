@@ -74,7 +74,7 @@ public abstract class DataControl<T>  extends MetaInfoHolder implements IDataCon
 		for (Relation relation : children.values()) {
 			relation.setMasterCurrentObject(newCurrentObject);
 			if (relation.getChild() != null)
-				((DataControl<?>) relation.getChild())
+				((IDataControl) relation.getChild())
 						.handleChangeMusterCurrentRecordNotification(newCurrentObject);
 		}
 	}
