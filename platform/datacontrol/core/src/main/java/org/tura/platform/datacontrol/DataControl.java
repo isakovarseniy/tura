@@ -238,8 +238,26 @@ public abstract class DataControl<T>  extends MetaInfoHolder implements IDataCon
 		return currentPosition;
 	}
 
-	public void setCurrentPosition(Object currentPosition) {
-		this.currentPosition = (int)currentPosition;
+	@Override
+	public boolean setCurrentPosition(Object crtPosition) throws TuraException {
+
+		if (pager.listSize() == -1)
+			getCurrentObject();
+		
+		int position;
+		try {
+			position = (int) pager.getShifter()
+					.getObject((int)crtPosition, true);
+		} catch (Exception e) {
+			throw new TuraException(e);
+		}
+		if (position  < pager.listSize()){
+			this.currentPosition = (int)crtPosition;
+			return true;
+		}
+		else
+			return false;
+		
 	}
 
 	/**

@@ -27,6 +27,16 @@ public class StateInit {
 		create(9L,"State 4 Ct 2", 2L);
 		create(10L,"State 5 Ct 2", 2L);
 
+
+		create(11L,"State 1 Ct 2", 3L);
+		create(12L,"State 2 Ct 2", 3L);
+		create(13L,"State 3 Ct 2", 3L);
+		create(14L,"State 4 Ct 2", 3L);
+		create(15L,"State 5 Ct 2", 3L);
+		
+		
+		
+		
 		em.getTransaction().commit();
 
 	}

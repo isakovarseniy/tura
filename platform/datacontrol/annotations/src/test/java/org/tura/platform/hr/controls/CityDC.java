@@ -214,7 +214,7 @@ public class CityDC extends DataControl<CityDAO> {
 
 	@Override
 	public void createChild(IDataControl dc, String relName, Relation relation) {
-		getDetail();
+		relation.setChild(this.getDetail()) ;
 	}
 
 }

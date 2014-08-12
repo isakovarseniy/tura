@@ -24,7 +24,7 @@ public interface IDataControl {
 
 	public void setParent(Relation relation);
 	
-	public void setCurrentPosition(Object obj) throws TuraException;
+	public boolean setCurrentPosition(Object obj) throws TuraException;
 	
 	public Collection<String> getRelationsName();
 	

@@ -77,7 +77,7 @@ public class TreeDataControl implements IDataControl {
 						.getMasterCurrentObject());
 				currentObject = root.getCurrentObject();
 			}
-		}catch(Exception e){
+		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
 			criticalSection--;
@@ -123,13 +123,14 @@ public class TreeDataControl implements IDataControl {
 		notifyChangeRecordLiteners(dc.getCurrentObject());
 	}
 
-	public void setCurrentPosition(Object o) throws TuraException {
+	public boolean setCurrentPosition(Object o) throws TuraException {
 		int[] path = (int[]) o;
 		IDataControl current = root;
 		Object obj = null;
 		for (int i = 0; i < path.length; i++) {
 			int key = path[i];
-			current.setCurrentPosition(key);
+			if (!current.setCurrentPosition(key))
+				return false;
 			obj = current.getCurrentObject();
 			if (obj != null) {
 				if (i + 1 < path.length) {
@@ -142,17 +143,17 @@ public class TreeDataControl implements IDataControl {
 						current = rel.getChild();
 
 					} else {
-						throw new TuraException(
-								"Cannot set path for tree data control");
+						return false;
 					}
 				}
 			} else {
-				throw new TuraException("Cannot set path for tree data control");
+				return false;
 			}
 
 		}
 		currentObject = obj;
 		notifyChangeRecordLiteners(obj);
+		return true;
 	}
 
 	@Override

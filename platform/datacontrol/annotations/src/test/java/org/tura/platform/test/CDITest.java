@@ -1,5 +1,6 @@
 package org.tura.platform.test;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
 
 import java.text.ParseException;
@@ -20,8 +21,8 @@ import org.tura.platform.hr.init.DepartmentsInit;
 import org.tura.platform.hr.init.EmployesesInit;
 import org.tura.platform.hr.init.StateInit;
 import org.tura.platform.hr.init.StreetInit;
-import org.tura.platform.hr.objects.CompanyDAO;
 import org.tura.platform.hr.objects.CountryDAO;
+import org.tura.platform.hr.objects.StateDAO;
 
 public class CDITest {
 
@@ -61,17 +62,15 @@ public class CDITest {
 			CompanyDC companyDC = weld.instance().select(CompanyDC.class).get();
 			companyDC.getElResolver().setValue("company", companyDC);
 
-			CompanyDAO company = companyDC.getCurrentObject();
+			companyDC.getCurrentObject();
 			LocationDC locationDC = (LocationDC) companyDC.getDetail();
 
-			CountryDAO obj = (CountryDAO) locationDC.getCurrentObject();
-			System.out.println(obj.getObjId());
+			CountryDAO row = (CountryDAO) locationDC.getCurrentObject();
+			assertEquals(row.getObjId(), new Long(1));
 
 			companyDC.nextObject();
-			obj = (CountryDAO) locationDC.getCurrentObject();
-			System.out.println(obj.getObjId());
-
-			System.out.println("");
+			row = (CountryDAO) locationDC.getCurrentObject();
+			assertEquals(row.getObjId(), new Long(2));
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -79,4 +78,23 @@ public class CDITest {
 		}
 	}
 
+	
+	@Test
+	public void setPath() {
+		try {
+			CompanyDC companyDC = weld.instance().select(CompanyDC.class).get();
+			companyDC.getElResolver().setValue("company", companyDC);
+
+			companyDC.getCurrentObject();
+			LocationDC locationDC = (LocationDC) companyDC.getDetail();
+			locationDC.setCurrentPosition(new int[]{1,12});
+			
+			StateDAO row  = (StateDAO) locationDC.getCurrentObject();
+			assertEquals(row.getObjId(), new Long(13));
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			fail(e.getMessage());
+		}
+	}
 }
