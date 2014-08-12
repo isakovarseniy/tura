@@ -92,6 +92,11 @@ public class CDITest {
 			StateDAO row  = (StateDAO) locationDC.getCurrentObject();
 			assertEquals(row.getObjId(), new Long(13));
 			
+			companyDC.nextObject();
+			CountryDAO country  = (CountryDAO) locationDC.getCurrentObject();
+			assertEquals(country.getObjId(), new Long(2));
+			
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 			fail(e.getMessage());
