@@ -3,14 +3,16 @@ package org.tura.platform.datacontrol;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.List;
 
 import org.tura.platform.datacontrol.commons.Reflection;
 import org.tura.platform.datacontrol.commons.TuraException;
+import org.tura.platform.datacontrol.metainfo.DependecyProperty;
 import org.tura.platform.datacontrol.metainfo.Relation;
 
-public class TreeDataControl implements IDataControl {
+public abstract class TreeDataControl implements IDataControl {
 
-	protected HashMap<String, Object> dependency = new HashMap<String, Object>();
+	protected List<DependecyProperty> dependency = new ArrayList<DependecyProperty>();
 	private Relation parent;
 	private Relation treeRelation = new Relation();
 	protected HashMap<String, Relation> children = new HashMap<String, Relation>();
@@ -59,12 +61,25 @@ public class TreeDataControl implements IDataControl {
 		currentObject = null;
 		root.handleChangeMusterCurrentRecordNotification(newCurrentObject);
 	}
+	
+	protected void notifyChageRecordAll(Object newCurrentObject){
+		notifyChangeRecordLiteners(newCurrentObject);
+		notifyDependencyListeners(newCurrentObject);
+	}
 
 	private void notifyChangeRecordLiteners(Object newCurrentObject) {
 		for (ChangeRecordListener listener : chageRecordLiteners) {
 			listener.handleChangeRecord(this, newCurrentObject);
 		}
 	}
+	
+	private void notifyDependencyListeners(Object newCurrentObject){
+		for (DependecyProperty dep : dependency ){
+			ChangeRecordListener listener = (ChangeRecordListener) root.getElResolver().getValue(dep.getExpression());
+			listener.handleChangeRecord(this, newCurrentObject);
+		}
+	}
+	
 
 	@Override
 	public Object getCurrentObject() throws TuraException {
@@ -97,7 +112,7 @@ public class TreeDataControl implements IDataControl {
 		}
 
 		if (currentObject != null) {
-			notifyChangeRecordLiteners(currentObject);
+			notifyChageRecordAll(currentObject);
 		} else {
 			throw new TuraException(
 					"Error during creation new object for tree data control");
@@ -111,7 +126,7 @@ public class TreeDataControl implements IDataControl {
 				"getWrapper"));
 		DataControl<?> dc = w.getDatacontrol();
 		dc.removeObject();
-		notifyChangeRecordLiteners(dc.getCurrentObject());
+		notifyChageRecordAll(dc.getCurrentObject());
 	}
 
 	@Override
@@ -163,4 +178,15 @@ public class TreeDataControl implements IDataControl {
 				"Tree data contol cannot has master - detail relations");
 	}
 
+	@Override
+	public List<DependecyProperty> getDependency() {
+		return dependency;
+	}
+
+	@Override
+	public void setDependency(List<DependecyProperty> dependency) {
+		this.dependency = dependency;
+	}
+	
+	
 }

@@ -19,6 +19,8 @@ import org.tura.platform.datacontrol.annotations.Create;
 import org.tura.platform.datacontrol.annotations.DefaultOrderBy;
 import org.tura.platform.datacontrol.annotations.DefaultSearchCriteria;
 import org.tura.platform.datacontrol.annotations.Delete;
+import org.tura.platform.datacontrol.annotations.Dependencies;
+import org.tura.platform.datacontrol.annotations.Dependency;
 import org.tura.platform.datacontrol.annotations.Insert;
 import org.tura.platform.datacontrol.annotations.Key;
 import org.tura.platform.datacontrol.annotations.Keys;
@@ -37,6 +39,7 @@ import org.tura.platform.datacontrol.command.SearchCommand;
 import org.tura.platform.datacontrol.command.UpdateCommand;
 import org.tura.platform.datacontrol.commons.ConditionConverter;
 import org.tura.platform.datacontrol.metainfo.ArtificialProperty;
+import org.tura.platform.datacontrol.metainfo.DependecyProperty;
 import org.tura.platform.datacontrol.metainfo.PropertyLink;
 import org.tura.platform.datacontrol.metainfo.Relation;
 
@@ -212,6 +215,21 @@ public class DataControlFactory {
 
 	}
 
+	@Produces
+	public List<DependecyProperty> getDependencies(InjectionPoint injectionPoint){
+	
+		Dependencies dependencies = injectionPoint.getAnnotated().getAnnotation(
+				Dependencies.class);
+
+		ArrayList<DependecyProperty> list = new ArrayList<>();
+		
+		for (Dependency d : dependencies.dependency()) {
+			DependecyProperty property = new DependecyProperty();
+			property.setExpression(d.expression());
+		}		
+		return list;
+	}
+	
 	private void parametersBuilder(Parameters parameters, Command cmd)
 			throws NoSuchMethodException, SecurityException,
 			InstantiationException, IllegalAccessException,

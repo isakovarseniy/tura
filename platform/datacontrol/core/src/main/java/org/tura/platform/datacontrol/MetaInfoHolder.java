@@ -17,6 +17,7 @@ import org.tura.platform.datacontrol.command.PreUpdateTrigger;
 import org.tura.platform.datacontrol.command.SearchCommand;
 import org.tura.platform.datacontrol.command.UpdateCommand;
 import org.tura.platform.datacontrol.metainfo.ArtificialProperty;
+import org.tura.platform.datacontrol.metainfo.DependecyProperty;
 import org.tura.platform.datacontrol.metainfo.Relation;
 
 import com.octo.java.sql.query.SelectQuery;
@@ -24,7 +25,7 @@ import com.octo.java.sql.query.SelectQuery;
 public abstract class MetaInfoHolder {
 
 
-	protected HashMap<String, Object> dependency = new HashMap<String, Object>();
+	protected List<DependecyProperty> dependency = new ArrayList<DependecyProperty>();
 	private Relation parent;
 	protected HashMap<String, Relation> children = new HashMap<String, Relation>();
 	protected List<ArtificialProperty> artificialProperties = new ArrayList<>();
@@ -129,11 +130,11 @@ public abstract class MetaInfoHolder {
 		return preDeleteTrigger;
 	}
 
-	public HashMap<String, Object> getDependency() {
+	public List<DependecyProperty> getDependency() {
 		return dependency;
 	}
 
-	public void setDependency(HashMap<String, Object> dependency) {
+	public void setDependency(List<DependecyProperty> dependency) {
 		this.dependency = dependency;
 	}
 	

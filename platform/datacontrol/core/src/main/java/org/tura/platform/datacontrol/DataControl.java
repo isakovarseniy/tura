@@ -10,6 +10,7 @@ import org.tura.platform.datacontrol.commons.Constants;
 import org.tura.platform.datacontrol.commons.Reflection;
 import org.tura.platform.datacontrol.commons.SearchCriteria;
 import org.tura.platform.datacontrol.commons.TuraException;
+import org.tura.platform.datacontrol.metainfo.DependecyProperty;
 import org.tura.platform.datacontrol.metainfo.Relation;
 import org.tura.platform.datacontrol.shift.ShiftControl;
 
@@ -61,8 +62,17 @@ public abstract class DataControl<T>  extends MetaInfoHolder implements IDataCon
 			throws TuraException {
 		notifyChildrenDataControlsChangeCurrentRecord(newCurrentObject);
 		notifyChangeRecordLiteners(newCurrentObject);
+		notifyDependencyListeners(newCurrentObject);
 	}
 
+	private void notifyDependencyListeners(Object newCurrentObject){
+		for (DependecyProperty dep : dependency ){
+			ChangeRecordListener listener = (ChangeRecordListener) getElResolver().getValue(dep.getExpression());
+			listener.handleChangeRecord(this, newCurrentObject);
+		}
+	}
+	
+	
 	private void notifyChangeRecordLiteners(T newCurrentObject) {
 		for (ChangeRecordListener listener : chageRecordLiteners) {
 			listener.handleChangeRecord(this, newCurrentObject);

@@ -1,8 +1,10 @@
 package org.tura.platform.datacontrol;
 
 import java.util.Collection;
+import java.util.List;
 
 import org.tura.platform.datacontrol.commons.TuraException;
+import org.tura.platform.datacontrol.metainfo.DependecyProperty;
 import org.tura.platform.datacontrol.metainfo.Relation;
 
 public interface IDataControl {
@@ -30,5 +32,8 @@ public interface IDataControl {
 	
 	public Relation getChild(String relationName);
 	
+	public List<DependecyProperty> getDependency();
+
+	public void setDependency(List<DependecyProperty> dependency);
 
 }
