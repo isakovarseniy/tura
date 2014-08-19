@@ -4,6 +4,8 @@ import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.core.runtime.jobs.Job;
+import org.eclipse.core.runtime.preferences.IEclipsePreferences;
+import org.eclipse.core.runtime.preferences.InstanceScope;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.emf.transaction.util.TransactionUtil;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.DiagramEditPart;
@@ -14,6 +16,7 @@ import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.ui.IEditorPart;
+import org.tura.metamodel.commons.preferences.IPreferenceConstants;
 
 import recipe.diagram.part.DomainDiagramEditorPlugin;
 import recipe.diagram.providers.DomainValidationProvider;
@@ -52,9 +55,16 @@ public class MetamodelTransformationJob extends Job {
 				.getDocumentProvider()).getDocument(input);
 
 		GMFValidation gmfVlaidation = new GMFValidation(monitor);
-		runValidation(
-				((IDiagramWorkbenchPart) editorPart).getDiagramEditPart(),
-				(View) document.getContent(), gmfVlaidation);
+		IEclipsePreferences pref = InstanceScope.INSTANCE
+				.getNode("org.tura.metamodel.commons.preferences");
+
+		if ("true".equals(pref.get(IPreferenceConstants.ENABLE_VALIDATION,
+				"true"))) {
+
+			runValidation(
+					((IDiagramWorkbenchPart) editorPart).getDiagramEditPart(),
+					(View) document.getContent(), gmfVlaidation);
+		}
 
 		if (gmfVlaidation.isValidationError()) {
 			Display.getDefault().asyncExec(new Runnable() {
@@ -121,7 +131,7 @@ public class MetamodelTransformationJob extends Job {
 		final View fview = view;
 		final GMFGeneration action = gmfGeneration;
 		final domain.Infrastructure infra = infrastructure;
-		
+
 		action.generate(fpart, fview, infra);
 
 	}

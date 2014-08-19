@@ -1,0 +1,11 @@
+<plugin>
+
+   <extension
+         point="org.eclipse.ui.preferencePages">
+      <page
+            name="Tura preferences"
+            class="org.tura.metamodel.commons.preferences.TuraPreferencePage"
+            id="org.tura.metamodel.commons.preferences.TuraPreference">
+      </page>
+   </extension>
+</plugin>	

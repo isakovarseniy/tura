@@ -12,12 +12,11 @@ import java.util.List;
 import java.util.Set;
 
 import org.apache.commons.lang.StringUtils;
-import org.apache.velocity.Template;
-import org.apache.velocity.VelocityContext;
-import org.apache.velocity.app.VelocityEngine;
-import org.apache.velocity.runtime.RuntimeConstants;
+import org.eclipse.core.runtime.preferences.IEclipsePreferences;
+import org.eclipse.core.runtime.preferences.InstanceScope;
 import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.epsilon.common.dt.util.LogUtil;
 import org.eclipse.epsilon.egl.EglTemplate;
 import org.eclipse.epsilon.egl.EglTemplateFactory;
 import org.eclipse.ocl.OCL;
@@ -26,6 +25,10 @@ import org.eclipse.ocl.ecore.EcoreEnvironmentFactory;
 import org.eclipse.ocl.expressions.OCLExpression;
 import org.eclipse.ocl.helper.OCLHelper;
 
+import org.tura.metamodel.commons.preferences.IPreferenceConstants;
+
+
+import freemarker.template.*;
 import domain.DomainPackage;
 
 public class Util {
@@ -158,26 +161,30 @@ public class Util {
 			HashMap<String, Object> parameters, EglTemplateFactory factory)
 			throws Exception {
 
-		VelocityContext context = new VelocityContext();
-		for (Iterator<String> itr = parameters.keySet().iterator(); itr
-				.hasNext();) {
-			String key = itr.next();
-			context.put(key, parameters.get(key));
-		}
+        /* Create and adjust the configuration */
+        Configuration cfg = new Configuration();
 
-		VelocityEngine ve = new VelocityEngine();
-		ve.setProperty(RuntimeConstants.RESOURCE_LOADER, "class");
-		ve.setProperty("class.resource.loader.class",
-				"org.tura.metamodel.commons.VelocityResourceLoader");
-		ve.init();
+        cfg.setObjectWrapper(new DefaultObjectWrapper());
+        cfg.setDefaultEncoding("UTF-8");
+        cfg.setTemplateExceptionHandler(TemplateExceptionHandler.HTML_DEBUG_HANDLER);
+        cfg.setTemplateLoader(new FreeMarkeResourceLoader());
+        cfg.setLocalizedLookup(false);
 
-		Template t = ve.getTemplate(templateFile);
+        Template t = cfg.getTemplate(templateFile);
+
 		StringWriter writer = new StringWriter();
-		t.merge(context, writer);
+		t.process(parameters, writer);
 
+		IEclipsePreferences pref =InstanceScope.INSTANCE.getNode("org.tura.metamodel.commons.preferences");
+		if ( "true".equals(pref.get(IPreferenceConstants.LOG_TEMPLATES,"false"))){
+			LogUtil.logInfo("Template"+templateFile+" : \n"+writer.toString());
+		}
+		
 		EglTemplate egltemplate = factory.prepare(writer.toString());
 
 		if (egltemplate == null || !egltemplate.getParseProblems().isEmpty()) {
+			if (egltemplate != null)
+				LogUtil.logInfo("Error during pursing template"+templateFile+  " : \n"+writer.toString());
 			throw new Exception( egltemplate.getParseProblems().toString()); 
 		}
 
