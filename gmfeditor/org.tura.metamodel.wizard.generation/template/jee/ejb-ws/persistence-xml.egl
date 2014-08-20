@@ -1,11 +1,11 @@
-#set( $percent = "%" )
-#set( $start = "[" )
-#set( $end = "]" )
-$start$percent 
-#foreach( $tech in $model_mapper.getSpecifiers() )
+<#assign percent = "%" >
+<#assign start = "[" >
+<#assign end = "]" >
+${start}${percent} 
+<#list  model_mapper.getSpecifiers()  as tech >
 import "platform:/plugin/org.tura.metamodel.wizard.generation/template/technologies/${tech.getValueRef().getValue()}.egl";
-#end
-$percent$end
+</#list>
+${percent}${end}
 [%
      var util = new Native('org.tura.metamodel.commons.Util');
 %]
