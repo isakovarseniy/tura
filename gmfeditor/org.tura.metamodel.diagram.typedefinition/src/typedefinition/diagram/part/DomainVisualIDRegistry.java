@@ -141,6 +141,10 @@ public class DomainVisualIDRegistry {
 		}
 		switch (containerVisualID) {
 		case TypeDefinitionEditPart.VISUAL_ID:
+			if (DomainPackage.eINSTANCE.getType().isSuperTypeOf(
+					domainElement.eClass())) {
+				return TypeEditPart.VISUAL_ID;
+			}
 			if (DomainPackage.eINSTANCE.getTypeReference().isSuperTypeOf(
 					domainElement.eClass())) {
 				return TypeReferenceEditPart.VISUAL_ID;
@@ -148,10 +152,6 @@ public class DomainVisualIDRegistry {
 			if (DomainPackage.eINSTANCE.getPrimitive().isSuperTypeOf(
 					domainElement.eClass())) {
 				return PrimitiveEditPart.VISUAL_ID;
-			}
-			if (DomainPackage.eINSTANCE.getType().isSuperTypeOf(
-					domainElement.eClass())) {
-				return TypeEditPart.VISUAL_ID;
 			}
 			if (DomainPackage.eINSTANCE.getEnumarator().isSuperTypeOf(
 					domainElement.eClass())) {
@@ -203,26 +203,16 @@ public class DomainVisualIDRegistry {
 		}
 		switch (containerVisualID) {
 		case TypeDefinitionEditPart.VISUAL_ID:
+			if (TypeEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
 			if (TypeReferenceEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			if (PrimitiveEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
-			if (TypeEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
 			if (EnumaratorEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			break;
-		case TypeReferenceEditPart.VISUAL_ID:
-			if (TypeReferenceFakePackageNameFakeTypeEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			break;
-		case PrimitiveEditPart.VISUAL_ID:
-			if (PrimitiveNameEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -234,6 +224,16 @@ public class DomainVisualIDRegistry {
 				return true;
 			}
 			if (TypeTypeOperationsCompartmentEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case TypeReferenceEditPart.VISUAL_ID:
+			if (TypeReferenceFakePackageNameFakeTypeEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case PrimitiveEditPart.VISUAL_ID:
+			if (PrimitiveNameEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;

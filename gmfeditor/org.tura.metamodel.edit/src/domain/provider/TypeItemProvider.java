@@ -80,6 +80,7 @@ public class TypeItemProvider
     if (childrenFeatures == null)
     {
       super.getChildrenFeatures(object);
+      childrenFeatures.add(DomainPackage.Literals.CATEGORIZED__CLASSIFIERS);
       childrenFeatures.add(DomainPackage.Literals.TYPE__ATTRIBUTES);
       childrenFeatures.add(DomainPackage.Literals.TYPE__OPERATIONS);
       childrenFeatures.add(DomainPackage.Literals.TYPE__EXTENSION);
@@ -142,6 +143,7 @@ public class TypeItemProvider
 
     switch (notification.getFeatureID(Type.class))
     {
+      case DomainPackage.TYPE__CLASSIFIERS:
       case DomainPackage.TYPE__ATTRIBUTES:
       case DomainPackage.TYPE__OPERATIONS:
       case DomainPackage.TYPE__EXTENSION:
@@ -162,6 +164,11 @@ public class TypeItemProvider
   protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object)
   {
     super.collectNewChildDescriptors(newChildDescriptors, object);
+
+    newChildDescriptors.add
+      (createChildParameter
+        (DomainPackage.Literals.CATEGORIZED__CLASSIFIERS,
+         DomainFactory.eINSTANCE.createClassifier()));
 
     newChildDescriptors.add
       (createChildParameter

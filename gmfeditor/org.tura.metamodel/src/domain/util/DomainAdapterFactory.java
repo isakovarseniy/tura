@@ -24,8 +24,10 @@ import domain.CSSMapper;
 import domain.Canvas;
 import domain.CanvasFrame;
 import domain.CanvasView;
+import domain.Categorized;
 import domain.CheckBox;
 import domain.ChildrenHolder;
+import domain.Classifier;
 import domain.Column;
 import domain.Component;
 import domain.ConfigVariable;
@@ -241,6 +243,16 @@ public class DomainAdapterFactory extends AdapterFactoryImpl
       public Adapter caseHTMLLayerHolder(HTMLLayerHolder object)
       {
         return createHTMLLayerHolderAdapter();
+      }
+      @Override
+      public Adapter caseCategorized(Categorized object)
+      {
+        return createCategorizedAdapter();
+      }
+      @Override
+      public Adapter caseClassifier(Classifier object)
+      {
+        return createClassifierAdapter();
       }
       @Override
       public Adapter caseDomainArtifacts(DomainArtifacts object)
@@ -1075,6 +1087,36 @@ public class DomainAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createHTMLLayerHolderAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link domain.Categorized <em>Categorized</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see domain.Categorized
+   * @generated
+   */
+  public Adapter createCategorizedAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link domain.Classifier <em>Classifier</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see domain.Classifier
+   * @generated
+   */
+  public Adapter createClassifierAdapter()
   {
     return null;
   }

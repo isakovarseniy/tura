@@ -41,6 +41,24 @@ public interface DomainFactory extends EFactory
   HTMLLayerHolder createHTMLLayerHolder();
 
   /**
+   * Returns a new object of class '<em>Categorized</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Categorized</em>'.
+   * @generated
+   */
+  Categorized createCategorized();
+
+  /**
+   * Returns a new object of class '<em>Classifier</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Classifier</em>'.
+   * @generated
+   */
+  Classifier createClassifier();
+
+  /**
    * Returns a new object of class '<em>Artifacts</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

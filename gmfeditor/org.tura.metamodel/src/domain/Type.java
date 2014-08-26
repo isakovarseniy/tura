@@ -22,7 +22,7 @@ import org.eclipse.emf.common.util.EList;
  * @model annotation="gmf.node label='name' border.color='0,0,0' color='255,239,222'"
  * @generated
  */
-public interface Type extends TypeElement
+public interface Type extends TypeElement, Categorized
 {
   /**
    * Returns the value of the '<em><b>Attributes</b></em>' containment reference list.

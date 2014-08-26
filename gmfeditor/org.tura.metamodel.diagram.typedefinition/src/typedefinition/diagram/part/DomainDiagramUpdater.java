@@ -85,15 +85,15 @@ public class DomainDiagramUpdater {
 			TypeElement childElement = (TypeElement) it.next();
 			int visualID = DomainVisualIDRegistry.getNodeVisualID(view,
 					childElement);
+			if (visualID == TypeEditPart.VISUAL_ID) {
+				result.add(new DomainNodeDescriptor(childElement, visualID));
+				continue;
+			}
 			if (visualID == TypeReferenceEditPart.VISUAL_ID) {
 				result.add(new DomainNodeDescriptor(childElement, visualID));
 				continue;
 			}
 			if (visualID == PrimitiveEditPart.VISUAL_ID) {
-				result.add(new DomainNodeDescriptor(childElement, visualID));
-				continue;
-			}
-			if (visualID == TypeEditPart.VISUAL_ID) {
 				result.add(new DomainNodeDescriptor(childElement, visualID));
 				continue;
 			}
@@ -192,12 +192,12 @@ public class DomainDiagramUpdater {
 		switch (DomainVisualIDRegistry.getVisualID(view)) {
 		case TypeDefinitionEditPart.VISUAL_ID:
 			return getTypeDefinition_101000ContainedLinks(view);
+		case TypeEditPart.VISUAL_ID:
+			return getType_102002ContainedLinks(view);
 		case TypeReferenceEditPart.VISUAL_ID:
 			return getTypeReference_102001ContainedLinks(view);
 		case PrimitiveEditPart.VISUAL_ID:
 			return getPrimitive_102004ContainedLinks(view);
-		case TypeEditPart.VISUAL_ID:
-			return getType_102002ContainedLinks(view);
 		case EnumaratorEditPart.VISUAL_ID:
 			return getEnumarator_102005ContainedLinks(view);
 		case AttributeEditPart.VISUAL_ID:
@@ -217,12 +217,12 @@ public class DomainDiagramUpdater {
 	 */
 	public static List<DomainLinkDescriptor> getIncomingLinks(View view) {
 		switch (DomainVisualIDRegistry.getVisualID(view)) {
+		case TypeEditPart.VISUAL_ID:
+			return getType_102002IncomingLinks(view);
 		case TypeReferenceEditPart.VISUAL_ID:
 			return getTypeReference_102001IncomingLinks(view);
 		case PrimitiveEditPart.VISUAL_ID:
 			return getPrimitive_102004IncomingLinks(view);
-		case TypeEditPart.VISUAL_ID:
-			return getType_102002IncomingLinks(view);
 		case EnumaratorEditPart.VISUAL_ID:
 			return getEnumarator_102005IncomingLinks(view);
 		case AttributeEditPart.VISUAL_ID:
@@ -242,12 +242,12 @@ public class DomainDiagramUpdater {
 	 */
 	public static List<DomainLinkDescriptor> getOutgoingLinks(View view) {
 		switch (DomainVisualIDRegistry.getVisualID(view)) {
+		case TypeEditPart.VISUAL_ID:
+			return getType_102002OutgoingLinks(view);
 		case TypeReferenceEditPart.VISUAL_ID:
 			return getTypeReference_102001OutgoingLinks(view);
 		case PrimitiveEditPart.VISUAL_ID:
 			return getPrimitive_102004OutgoingLinks(view);
-		case TypeEditPart.VISUAL_ID:
-			return getType_102002OutgoingLinks(view);
 		case EnumaratorEditPart.VISUAL_ID:
 			return getEnumarator_102005OutgoingLinks(view);
 		case AttributeEditPart.VISUAL_ID:

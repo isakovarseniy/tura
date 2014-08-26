@@ -18,6 +18,13 @@
     <genClasses ecoreClass="domain.ecore#//HTMLLayerHolder">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//HTMLLayerHolder/columns"/>
     </genClasses>
+    <genClasses ecoreClass="domain.ecore#//Categorized">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//Categorized/classifiers"/>
+    </genClasses>
+    <genClasses ecoreClass="domain.ecore#//Classifier">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//Classifier/uid"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//Classifier/name"/>
+    </genClasses>
     <genClasses ecoreClass="domain.ecore#//DomainArtifacts">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//DomainArtifacts/uid"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//DomainArtifacts/name"/>

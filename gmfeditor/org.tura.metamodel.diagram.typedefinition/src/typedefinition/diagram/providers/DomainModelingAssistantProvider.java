@@ -45,9 +45,9 @@ public class DomainModelingAssistantProvider extends ModelingAssistantProvider {
 				.getAdapter(IGraphicalEditPart.class);
 		if (editPart instanceof TypeDefinitionEditPart) {
 			ArrayList<IElementType> types = new ArrayList<IElementType>(4);
+			types.add(DomainElementTypes.Type_102002);
 			types.add(DomainElementTypes.TypeReference_102001);
 			types.add(DomainElementTypes.Primitive_102004);
-			types.add(DomainElementTypes.Type_102002);
 			types.add(DomainElementTypes.Enumarator_102005);
 			return types;
 		}
@@ -71,15 +71,15 @@ public class DomainModelingAssistantProvider extends ModelingAssistantProvider {
 	public List getRelTypesOnSource(IAdaptable source) {
 		IGraphicalEditPart sourceEditPart = (IGraphicalEditPart) source
 				.getAdapter(IGraphicalEditPart.class);
+		if (sourceEditPart instanceof TypeEditPart) {
+			return ((TypeEditPart) sourceEditPart).getMARelTypesOnSource();
+		}
 		if (sourceEditPart instanceof TypeReferenceEditPart) {
 			return ((TypeReferenceEditPart) sourceEditPart)
 					.getMARelTypesOnSource();
 		}
 		if (sourceEditPart instanceof PrimitiveEditPart) {
 			return ((PrimitiveEditPart) sourceEditPart).getMARelTypesOnSource();
-		}
-		if (sourceEditPart instanceof TypeEditPart) {
-			return ((TypeEditPart) sourceEditPart).getMARelTypesOnSource();
 		}
 		if (sourceEditPart instanceof EnumaratorEditPart) {
 			return ((EnumaratorEditPart) sourceEditPart)
@@ -94,15 +94,15 @@ public class DomainModelingAssistantProvider extends ModelingAssistantProvider {
 	public List getRelTypesOnTarget(IAdaptable target) {
 		IGraphicalEditPart targetEditPart = (IGraphicalEditPart) target
 				.getAdapter(IGraphicalEditPart.class);
+		if (targetEditPart instanceof TypeEditPart) {
+			return ((TypeEditPart) targetEditPart).getMARelTypesOnTarget();
+		}
 		if (targetEditPart instanceof TypeReferenceEditPart) {
 			return ((TypeReferenceEditPart) targetEditPart)
 					.getMARelTypesOnTarget();
 		}
 		if (targetEditPart instanceof PrimitiveEditPart) {
 			return ((PrimitiveEditPart) targetEditPart).getMARelTypesOnTarget();
-		}
-		if (targetEditPart instanceof TypeEditPart) {
-			return ((TypeEditPart) targetEditPart).getMARelTypesOnTarget();
 		}
 		if (targetEditPart instanceof EnumaratorEditPart) {
 			return ((EnumaratorEditPart) targetEditPart)
@@ -120,16 +120,16 @@ public class DomainModelingAssistantProvider extends ModelingAssistantProvider {
 				.getAdapter(IGraphicalEditPart.class);
 		IGraphicalEditPart targetEditPart = (IGraphicalEditPart) target
 				.getAdapter(IGraphicalEditPart.class);
+		if (sourceEditPart instanceof TypeEditPart) {
+			return ((TypeEditPart) sourceEditPart)
+					.getMARelTypesOnSourceAndTarget(targetEditPart);
+		}
 		if (sourceEditPart instanceof TypeReferenceEditPart) {
 			return ((TypeReferenceEditPart) sourceEditPart)
 					.getMARelTypesOnSourceAndTarget(targetEditPart);
 		}
 		if (sourceEditPart instanceof PrimitiveEditPart) {
 			return ((PrimitiveEditPart) sourceEditPart)
-					.getMARelTypesOnSourceAndTarget(targetEditPart);
-		}
-		if (sourceEditPart instanceof TypeEditPart) {
-			return ((TypeEditPart) sourceEditPart)
 					.getMARelTypesOnSourceAndTarget(targetEditPart);
 		}
 		if (sourceEditPart instanceof EnumaratorEditPart) {
@@ -146,16 +146,16 @@ public class DomainModelingAssistantProvider extends ModelingAssistantProvider {
 			IElementType relationshipType) {
 		IGraphicalEditPart targetEditPart = (IGraphicalEditPart) target
 				.getAdapter(IGraphicalEditPart.class);
+		if (targetEditPart instanceof TypeEditPart) {
+			return ((TypeEditPart) targetEditPart)
+					.getMATypesForSource(relationshipType);
+		}
 		if (targetEditPart instanceof TypeReferenceEditPart) {
 			return ((TypeReferenceEditPart) targetEditPart)
 					.getMATypesForSource(relationshipType);
 		}
 		if (targetEditPart instanceof PrimitiveEditPart) {
 			return ((PrimitiveEditPart) targetEditPart)
-					.getMATypesForSource(relationshipType);
-		}
-		if (targetEditPart instanceof TypeEditPart) {
-			return ((TypeEditPart) targetEditPart)
 					.getMATypesForSource(relationshipType);
 		}
 		if (targetEditPart instanceof EnumaratorEditPart) {
@@ -172,16 +172,16 @@ public class DomainModelingAssistantProvider extends ModelingAssistantProvider {
 			IElementType relationshipType) {
 		IGraphicalEditPart sourceEditPart = (IGraphicalEditPart) source
 				.getAdapter(IGraphicalEditPart.class);
+		if (sourceEditPart instanceof TypeEditPart) {
+			return ((TypeEditPart) sourceEditPart)
+					.getMATypesForTarget(relationshipType);
+		}
 		if (sourceEditPart instanceof TypeReferenceEditPart) {
 			return ((TypeReferenceEditPart) sourceEditPart)
 					.getMATypesForTarget(relationshipType);
 		}
 		if (sourceEditPart instanceof PrimitiveEditPart) {
 			return ((PrimitiveEditPart) sourceEditPart)
-					.getMATypesForTarget(relationshipType);
-		}
-		if (sourceEditPart instanceof TypeEditPart) {
-			return ((TypeEditPart) sourceEditPart)
 					.getMATypesForTarget(relationshipType);
 		}
 		if (sourceEditPart instanceof EnumaratorEditPart) {

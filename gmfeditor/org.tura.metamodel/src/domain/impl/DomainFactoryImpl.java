@@ -24,8 +24,10 @@ import domain.CSSMapper;
 import domain.Canvas;
 import domain.CanvasFrame;
 import domain.CanvasView;
+import domain.Categorized;
 import domain.CheckBox;
 import domain.ChildrenHolder;
+import domain.Classifier;
 import domain.Column;
 import domain.Component;
 import domain.ConfigVariable;
@@ -227,6 +229,8 @@ public class DomainFactoryImpl extends EFactoryImpl implements DomainFactory
     {
       case DomainPackage.DOMAIN: return createDomain();
       case DomainPackage.HTML_LAYER_HOLDER: return createHTMLLayerHolder();
+      case DomainPackage.CATEGORIZED: return createCategorized();
+      case DomainPackage.CLASSIFIER: return createClassifier();
       case DomainPackage.DOMAIN_ARTIFACTS: return createDomainArtifacts();
       case DomainPackage.DOMAIN_TYPES: return createDomainTypes();
       case DomainPackage.DOMAIN_APPLICATIONS: return createDomainApplications();
@@ -443,6 +447,28 @@ public class DomainFactoryImpl extends EFactoryImpl implements DomainFactory
   {
     HTMLLayerHolderImpl htmlLayerHolder = new HTMLLayerHolderImpl();
     return htmlLayerHolder;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Categorized createCategorized()
+  {
+    CategorizedImpl categorized = new CategorizedImpl();
+    return categorized;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Classifier createClassifier()
+  {
+    ClassifierImpl classifier = new ClassifierImpl();
+    return classifier;
   }
 
   /**

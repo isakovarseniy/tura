@@ -24,8 +24,10 @@ import domain.CSSMapper;
 import domain.Canvas;
 import domain.CanvasFrame;
 import domain.CanvasView;
+import domain.Categorized;
 import domain.CheckBox;
 import domain.ChildrenHolder;
+import domain.Classifier;
 import domain.Column;
 import domain.Component;
 import domain.ConfigVariable;
@@ -193,6 +195,20 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * @generated
    */
   private EClass htmlLayerHolderEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass categorizedEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass classifierEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -1431,6 +1447,56 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
   public EAttribute getHTMLLayerHolder_Columns()
   {
     return (EAttribute)htmlLayerHolderEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getCategorized()
+  {
+    return categorizedEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getCategorized_Classifiers()
+  {
+    return (EReference)categorizedEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getClassifier()
+  {
+    return classifierEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getClassifier_Uid()
+  {
+    return (EAttribute)classifierEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getClassifier_Name()
+  {
+    return (EAttribute)classifierEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -7412,6 +7478,13 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     htmlLayerHolderEClass = createEClass(HTML_LAYER_HOLDER);
     createEAttribute(htmlLayerHolderEClass, HTML_LAYER_HOLDER__COLUMNS);
 
+    categorizedEClass = createEClass(CATEGORIZED);
+    createEReference(categorizedEClass, CATEGORIZED__CLASSIFIERS);
+
+    classifierEClass = createEClass(CLASSIFIER);
+    createEAttribute(classifierEClass, CLASSIFIER__UID);
+    createEAttribute(classifierEClass, CLASSIFIER__NAME);
+
     domainArtifactsEClass = createEClass(DOMAIN_ARTIFACTS);
     createEAttribute(domainArtifactsEClass, DOMAIN_ARTIFACTS__UID);
     createEAttribute(domainArtifactsEClass, DOMAIN_ARTIFACTS__NAME);
@@ -8220,6 +8293,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     modelMapperEClass.getESuperTypes().add(this.getArtifactRef());
     primitiveEClass.getESuperTypes().add(this.getTypeElement());
     typeEClass.getESuperTypes().add(this.getTypeElement());
+    typeEClass.getESuperTypes().add(this.getCategorized());
     typeReferenceEClass.getESuperTypes().add(this.getTypeElement());
     typeReferenceEClass.getESuperTypes().add(this.getTypePointer());
     attributeEClass.getESuperTypes().add(this.getTypePointer());
@@ -8302,6 +8376,13 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
 
     initEClass(htmlLayerHolderEClass, HTMLLayerHolder.class, "HTMLLayerHolder", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getHTMLLayerHolder_Columns(), ecorePackage.getEInt(), "columns", "1", 0, 1, HTMLLayerHolder.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(categorizedEClass, Categorized.class, "Categorized", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getCategorized_Classifiers(), this.getClassifier(), null, "classifiers", null, 0, -1, Categorized.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(classifierEClass, Classifier.class, "Classifier", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getClassifier_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, Classifier.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getClassifier_Name(), ecorePackage.getEString(), "name", null, 0, 1, Classifier.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(domainArtifactsEClass, DomainArtifacts.class, "DomainArtifacts", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getDomainArtifacts_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, DomainArtifacts.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

@@ -156,9 +156,9 @@ public class DomainViewProvider extends AbstractProvider implements
 					return false; // foreign diagram
 				}
 				switch (visualID) {
+				case TypeEditPart.VISUAL_ID:
 				case TypeReferenceEditPart.VISUAL_ID:
 				case PrimitiveEditPart.VISUAL_ID:
-				case TypeEditPart.VISUAL_ID:
 				case EnumaratorEditPart.VISUAL_ID:
 				case AttributeEditPart.VISUAL_ID:
 				case OperationEditPart.VISUAL_ID:
@@ -175,9 +175,9 @@ public class DomainViewProvider extends AbstractProvider implements
 				}
 			}
 		}
-		return TypeReferenceEditPart.VISUAL_ID == visualID
+		return TypeEditPart.VISUAL_ID == visualID
+				|| TypeReferenceEditPart.VISUAL_ID == visualID
 				|| PrimitiveEditPart.VISUAL_ID == visualID
-				|| TypeEditPart.VISUAL_ID == visualID
 				|| EnumaratorEditPart.VISUAL_ID == visualID
 				|| AttributeEditPart.VISUAL_ID == visualID
 				|| OperationEditPart.VISUAL_ID == visualID
@@ -238,14 +238,14 @@ public class DomainViewProvider extends AbstractProvider implements
 			visualID = DomainVisualIDRegistry.getVisualID(semanticHint);
 		}
 		switch (visualID) {
+		case TypeEditPart.VISUAL_ID:
+			return createType_102002(domainElement, containerView, index,
+					persisted, preferencesHint);
 		case TypeReferenceEditPart.VISUAL_ID:
 			return createTypeReference_102001(domainElement, containerView,
 					index, persisted, preferencesHint);
 		case PrimitiveEditPart.VISUAL_ID:
 			return createPrimitive_102004(domainElement, containerView, index,
-					persisted, preferencesHint);
-		case TypeEditPart.VISUAL_ID:
-			return createType_102002(domainElement, containerView, index,
 					persisted, preferencesHint);
 		case EnumaratorEditPart.VISUAL_ID:
 			return createEnumarator_102005(domainElement, containerView, index,

@@ -33,14 +33,14 @@ public class TypeDefinitionItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	protected Command getCreateCommand(CreateElementRequest req) {
+		if (DomainElementTypes.Type_102002 == req.getElementType()) {
+			return getGEFWrapper(new TypeCreateCommand(req));
+		}
 		if (DomainElementTypes.TypeReference_102001 == req.getElementType()) {
 			return getGEFWrapper(new TypeReferenceCreateCommand(req));
 		}
 		if (DomainElementTypes.Primitive_102004 == req.getElementType()) {
 			return getGEFWrapper(new PrimitiveCreateCommand(req));
-		}
-		if (DomainElementTypes.Type_102002 == req.getElementType()) {
-			return getGEFWrapper(new TypeCreateCommand(req));
 		}
 		if (DomainElementTypes.Enumarator_102005 == req.getElementType()) {
 			return getGEFWrapper(new EnumaratorCreateCommand(req));

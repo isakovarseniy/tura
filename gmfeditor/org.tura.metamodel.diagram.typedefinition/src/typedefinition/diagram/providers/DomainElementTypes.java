@@ -208,13 +208,13 @@ public class DomainElementTypes {
 			elements.put(TypeDefinition_101000,
 					DomainPackage.eINSTANCE.getTypeDefinition());
 
+			elements.put(Type_102002, DomainPackage.eINSTANCE.getType());
+
 			elements.put(TypeReference_102001,
 					DomainPackage.eINSTANCE.getTypeReference());
 
 			elements.put(Primitive_102004,
 					DomainPackage.eINSTANCE.getPrimitive());
-
-			elements.put(Type_102002, DomainPackage.eINSTANCE.getType());
 
 			elements.put(Enumarator_102005,
 					DomainPackage.eINSTANCE.getEnumarator());
@@ -248,9 +248,9 @@ public class DomainElementTypes {
 		if (KNOWN_ELEMENT_TYPES == null) {
 			KNOWN_ELEMENT_TYPES = new HashSet<IElementType>();
 			KNOWN_ELEMENT_TYPES.add(TypeDefinition_101000);
+			KNOWN_ELEMENT_TYPES.add(Type_102002);
 			KNOWN_ELEMENT_TYPES.add(TypeReference_102001);
 			KNOWN_ELEMENT_TYPES.add(Primitive_102004);
-			KNOWN_ELEMENT_TYPES.add(Type_102002);
 			KNOWN_ELEMENT_TYPES.add(Enumarator_102005);
 			KNOWN_ELEMENT_TYPES.add(Attribute_103001);
 			KNOWN_ELEMENT_TYPES.add(Operation_103002);
@@ -267,12 +267,12 @@ public class DomainElementTypes {
 		switch (visualID) {
 		case TypeDefinitionEditPart.VISUAL_ID:
 			return TypeDefinition_101000;
+		case TypeEditPart.VISUAL_ID:
+			return Type_102002;
 		case TypeReferenceEditPart.VISUAL_ID:
 			return TypeReference_102001;
 		case PrimitiveEditPart.VISUAL_ID:
 			return Primitive_102004;
-		case TypeEditPart.VISUAL_ID:
-			return Type_102002;
 		case EnumaratorEditPart.VISUAL_ID:
 			return Enumarator_102005;
 		case AttributeEditPart.VISUAL_ID:

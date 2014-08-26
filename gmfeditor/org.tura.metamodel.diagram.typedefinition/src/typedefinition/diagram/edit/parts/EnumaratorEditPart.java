@@ -305,13 +305,13 @@ public class EnumaratorEditPart extends ShapeNodeEditPart {
 	public List<IElementType> getMARelTypesOnSourceAndTarget(
 			IGraphicalEditPart targetEditPart) {
 		LinkedList<IElementType> types = new LinkedList<IElementType>();
+		if (targetEditPart instanceof TypeEditPart) {
+			types.add(DomainElementTypes.TypeExtension_104001);
+		}
 		if (targetEditPart instanceof TypeReferenceEditPart) {
 			types.add(DomainElementTypes.TypeExtension_104001);
 		}
 		if (targetEditPart instanceof PrimitiveEditPart) {
-			types.add(DomainElementTypes.TypeExtension_104001);
-		}
-		if (targetEditPart instanceof TypeEditPart) {
 			types.add(DomainElementTypes.TypeExtension_104001);
 		}
 		if (targetEditPart instanceof typedefinition.diagram.edit.parts.EnumaratorEditPart) {
@@ -326,9 +326,9 @@ public class EnumaratorEditPart extends ShapeNodeEditPart {
 	public List<IElementType> getMATypesForTarget(IElementType relationshipType) {
 		LinkedList<IElementType> types = new LinkedList<IElementType>();
 		if (relationshipType == DomainElementTypes.TypeExtension_104001) {
+			types.add(DomainElementTypes.Type_102002);
 			types.add(DomainElementTypes.TypeReference_102001);
 			types.add(DomainElementTypes.Primitive_102004);
-			types.add(DomainElementTypes.Type_102002);
 			types.add(DomainElementTypes.Enumarator_102005);
 		}
 		return types;
@@ -349,9 +349,9 @@ public class EnumaratorEditPart extends ShapeNodeEditPart {
 	public List<IElementType> getMATypesForSource(IElementType relationshipType) {
 		LinkedList<IElementType> types = new LinkedList<IElementType>();
 		if (relationshipType == DomainElementTypes.TypeExtension_104001) {
+			types.add(DomainElementTypes.Type_102002);
 			types.add(DomainElementTypes.TypeReference_102001);
 			types.add(DomainElementTypes.Primitive_102004);
-			types.add(DomainElementTypes.Type_102002);
 			types.add(DomainElementTypes.Enumarator_102005);
 		}
 		return types;

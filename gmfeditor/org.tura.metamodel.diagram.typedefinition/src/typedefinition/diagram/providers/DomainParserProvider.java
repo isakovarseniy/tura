@@ -165,12 +165,12 @@ public class DomainParserProvider extends AbstractProvider implements
 	 */
 	protected IParser getParser(int visualID) {
 		switch (visualID) {
+		case TypeNameEditPart.VISUAL_ID:
+			return getTypeName_105006Parser();
 		case TypeReferenceFakePackageNameFakeTypeEditPart.VISUAL_ID:
 			return getTypeReferenceFakePackageNameFakeTypeName_105001Parser();
 		case PrimitiveNameEditPart.VISUAL_ID:
 			return getPrimitiveName_105010Parser();
-		case TypeNameEditPart.VISUAL_ID:
-			return getTypeName_105006Parser();
 		case EnumaratorNameEditPart.VISUAL_ID:
 			return getEnumaratorName_105011Parser();
 		case AttributeNameEditPart.VISUAL_ID:

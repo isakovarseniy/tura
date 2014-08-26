@@ -24,8 +24,10 @@ import domain.CSSMapper;
 import domain.Canvas;
 import domain.CanvasFrame;
 import domain.CanvasView;
+import domain.Categorized;
 import domain.CheckBox;
 import domain.ChildrenHolder;
+import domain.Classifier;
 import domain.Column;
 import domain.Component;
 import domain.ConfigVariable;
@@ -241,6 +243,20 @@ public class DomainSwitch<T> extends Switch<T>
       {
         HTMLLayerHolder htmlLayerHolder = (HTMLLayerHolder)theEObject;
         T result = caseHTMLLayerHolder(htmlLayerHolder);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DomainPackage.CATEGORIZED:
+      {
+        Categorized categorized = (Categorized)theEObject;
+        T result = caseCategorized(categorized);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DomainPackage.CLASSIFIER:
+      {
+        Classifier classifier = (Classifier)theEObject;
+        T result = caseClassifier(classifier);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -761,6 +777,7 @@ public class DomainSwitch<T> extends Switch<T>
         Type type = (Type)theEObject;
         T result = caseType(type);
         if (result == null) result = caseTypeElement(type);
+        if (result == null) result = caseCategorized(type);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -1555,6 +1572,38 @@ public class DomainSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseHTMLLayerHolder(HTMLLayerHolder object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Categorized</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Categorized</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseCategorized(Categorized object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Classifier</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Classifier</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseClassifier(Classifier object)
   {
     return null;
   }

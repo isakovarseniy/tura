@@ -15,6 +15,18 @@ class HTMLLayerHolder{
    attr EInt columns = 1;
 }
 
+
+class Categorized{
+    val Classifier[*] classifiers;
+}
+
+class Classifier{
+    id attr EString uid;
+    attr EString name;  
+}
+
+
+
 @gmf.node(label="name",border.color="0,0,0",color="255,239,222")
 class DomainArtifacts extends HTMLLayerHolder{
     id attr EString uid;
@@ -590,7 +602,7 @@ class Primitive extends TypeElement{
 
 
 @gmf.node(label="name",border.color="0,0,0",color="255,239,222")
-class Type extends TypeElement {
+class Type extends TypeElement , Categorized{
    @gmf.compartment(layout="list")
    val Attribute[*]#parent attributes;
    @gmf.compartment(layout="list")

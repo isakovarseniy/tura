@@ -3,6 +3,8 @@
 package domain.impl;
 
 import domain.Attribute;
+import domain.Categorized;
+import domain.Classifier;
 import domain.DomainPackage;
 import domain.Operation;
 import domain.Type;
@@ -28,6 +30,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <p>
  * The following features are implemented:
  * <ul>
+ *   <li>{@link domain.impl.TypeImpl#getClassifiers <em>Classifiers</em>}</li>
  *   <li>{@link domain.impl.TypeImpl#getAttributes <em>Attributes</em>}</li>
  *   <li>{@link domain.impl.TypeImpl#getOperations <em>Operations</em>}</li>
  *   <li>{@link domain.impl.TypeImpl#getExtension <em>Extension</em>}</li>
@@ -38,6 +41,16 @@ import org.eclipse.emf.ecore.util.InternalEList;
  */
 public class TypeImpl extends TypeElementImpl implements Type
 {
+  /**
+   * The cached value of the '{@link #getClassifiers() <em>Classifiers</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getClassifiers()
+   * @generated
+   * @ordered
+   */
+  protected EList<Classifier> classifiers;
+
   /**
    * The cached value of the '{@link #getAttributes() <em>Attributes</em>}' containment reference list.
    * <!-- begin-user-doc -->
@@ -87,6 +100,20 @@ public class TypeImpl extends TypeElementImpl implements Type
   protected EClass eStaticClass()
   {
     return DomainPackage.Literals.TYPE;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EList<Classifier> getClassifiers()
+  {
+    if (classifiers == null)
+    {
+      classifiers = new EObjectContainmentEList<Classifier>(Classifier.class, this, DomainPackage.TYPE__CLASSIFIERS);
+    }
+    return classifiers;
   }
 
   /**
@@ -160,6 +187,8 @@ public class TypeImpl extends TypeElementImpl implements Type
   {
     switch (featureID)
     {
+      case DomainPackage.TYPE__CLASSIFIERS:
+        return ((InternalEList<?>)getClassifiers()).basicRemove(otherEnd, msgs);
       case DomainPackage.TYPE__ATTRIBUTES:
         return ((InternalEList<?>)getAttributes()).basicRemove(otherEnd, msgs);
       case DomainPackage.TYPE__OPERATIONS:
@@ -180,6 +209,8 @@ public class TypeImpl extends TypeElementImpl implements Type
   {
     switch (featureID)
     {
+      case DomainPackage.TYPE__CLASSIFIERS:
+        return getClassifiers();
       case DomainPackage.TYPE__ATTRIBUTES:
         return getAttributes();
       case DomainPackage.TYPE__OPERATIONS:
@@ -201,6 +232,10 @@ public class TypeImpl extends TypeElementImpl implements Type
   {
     switch (featureID)
     {
+      case DomainPackage.TYPE__CLASSIFIERS:
+        getClassifiers().clear();
+        getClassifiers().addAll((Collection<? extends Classifier>)newValue);
+        return;
       case DomainPackage.TYPE__ATTRIBUTES:
         getAttributes().clear();
         getAttributes().addAll((Collection<? extends Attribute>)newValue);
@@ -227,6 +262,9 @@ public class TypeImpl extends TypeElementImpl implements Type
   {
     switch (featureID)
     {
+      case DomainPackage.TYPE__CLASSIFIERS:
+        getClassifiers().clear();
+        return;
       case DomainPackage.TYPE__ATTRIBUTES:
         getAttributes().clear();
         return;
@@ -250,6 +288,8 @@ public class TypeImpl extends TypeElementImpl implements Type
   {
     switch (featureID)
     {
+      case DomainPackage.TYPE__CLASSIFIERS:
+        return classifiers != null && !classifiers.isEmpty();
       case DomainPackage.TYPE__ATTRIBUTES:
         return attributes != null && !attributes.isEmpty();
       case DomainPackage.TYPE__OPERATIONS:
@@ -258,6 +298,44 @@ public class TypeImpl extends TypeElementImpl implements Type
         return extension != null && !extension.isEmpty();
     }
     return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass)
+  {
+    if (baseClass == Categorized.class)
+    {
+      switch (derivedFeatureID)
+      {
+        case DomainPackage.TYPE__CLASSIFIERS: return DomainPackage.CATEGORIZED__CLASSIFIERS;
+        default: return -1;
+      }
+    }
+    return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass)
+  {
+    if (baseClass == Categorized.class)
+    {
+      switch (baseFeatureID)
+      {
+        case DomainPackage.CATEGORIZED__CLASSIFIERS: return DomainPackage.TYPE__CLASSIFIERS;
+        default: return -1;
+      }
+    }
+    return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
   }
 
 } //TypeImpl
