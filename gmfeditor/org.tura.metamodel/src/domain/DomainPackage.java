@@ -4544,13 +4544,22 @@ public interface DomainPackage extends EPackage
   int TYPE_EXTENSION = 75;
 
   /**
+   * The feature id for the '<em><b>Classifiers</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TYPE_EXTENSION__CLASSIFIERS = CATEGORIZED__CLASSIFIERS;
+
+  /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int TYPE_EXTENSION__UID = 0;
+  int TYPE_EXTENSION__UID = CATEGORIZED_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Source</b></em>' reference.
@@ -4559,7 +4568,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int TYPE_EXTENSION__SOURCE = 1;
+  int TYPE_EXTENSION__SOURCE = CATEGORIZED_FEATURE_COUNT + 1;
 
   /**
    * The feature id for the '<em><b>Target</b></em>' reference.
@@ -4568,7 +4577,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int TYPE_EXTENSION__TARGET = 2;
+  int TYPE_EXTENSION__TARGET = CATEGORIZED_FEATURE_COUNT + 2;
 
   /**
    * The number of structural features of the '<em>Type Extension</em>' class.
@@ -4577,7 +4586,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int TYPE_EXTENSION_FEATURE_COUNT = 3;
+  int TYPE_EXTENSION_FEATURE_COUNT = CATEGORIZED_FEATURE_COUNT + 3;
 
   /**
    * The meta object id for the '{@link domain.impl.AttributeImpl <em>Attribute</em>}' class.

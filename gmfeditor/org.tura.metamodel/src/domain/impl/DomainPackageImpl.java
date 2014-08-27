@@ -8296,6 +8296,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     typeEClass.getESuperTypes().add(this.getCategorized());
     typeReferenceEClass.getESuperTypes().add(this.getTypeElement());
     typeReferenceEClass.getESuperTypes().add(this.getTypePointer());
+    typeExtensionEClass.getESuperTypes().add(this.getCategorized());
     attributeEClass.getESuperTypes().add(this.getTypePointer());
     parameterEClass.getESuperTypes().add(this.getTypePointer());
     returnValueEClass.getESuperTypes().add(this.getTypePointer());

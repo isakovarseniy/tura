@@ -920,7 +920,7 @@
       <details key="color" value="255,239,222"/>
     </eAnnotations>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="TypeExtension">
+  <eClassifiers xsi:type="ecore:EClass" name="TypeExtension" eSuperTypes="#//Categorized">
     <eAnnotations source="gmf.link">
       <details key="source" value="source"/>
       <details key="target" value="target"/>

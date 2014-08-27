@@ -615,7 +615,7 @@ class TypeReference extends TypeElement , TypePointer{
  }
 
 @gmf.link(source="source", target="target", style="dot", width="2" ,target.decoration="closedarrow")
-class TypeExtension {
+class TypeExtension extends Categorized{
     id attr EString uid;
     ref TypeElement source;
     ref TypeElement target;

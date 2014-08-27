@@ -29,7 +29,7 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  *
  * @generated
  */
-public class TypeExtensionImpl extends EObjectImpl implements TypeExtension
+public class TypeExtensionImpl extends CategorizedImpl implements TypeExtension
 {
   /**
    * The default value of the '{@link #getUid() <em>Uid</em>}' attribute.

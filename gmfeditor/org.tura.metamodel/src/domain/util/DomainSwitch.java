@@ -794,6 +794,7 @@ public class DomainSwitch<T> extends Switch<T>
       {
         TypeExtension typeExtension = (TypeExtension)theEObject;
         T result = caseTypeExtension(typeExtension);
+        if (result == null) result = caseCategorized(typeExtension);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }

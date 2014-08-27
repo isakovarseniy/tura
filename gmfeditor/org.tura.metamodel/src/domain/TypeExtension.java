@@ -22,7 +22,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model annotation="gmf.link source='source' target='target' style='dot' width='2' target.decoration='closedarrow'"
  * @generated
  */
-public interface TypeExtension extends EObject
+public interface TypeExtension extends Categorized
 {
   /**
    * Returns the value of the '<em><b>Uid</b></em>' attribute.

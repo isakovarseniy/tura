@@ -107,10 +107,12 @@ public abstract class GridProperty extends AbstractTuraPropertySection {
 
 	public void addRow() {
 		ds.addRow();
+		((TabbedPropertyComposite)(getPropertySheetPage().getControl())).getTabComposite().layout(true,true);
 	}
 
 	public void removeRow(Object row) {
 		ds.removeRow(row);
+		((TabbedPropertyComposite)(getPropertySheetPage().getControl())).getTabComposite().layout(true,true);
 	}
 
 	public int getSorterID() {

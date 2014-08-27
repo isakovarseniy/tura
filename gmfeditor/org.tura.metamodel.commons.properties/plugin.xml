@@ -24,12 +24,29 @@
              id="property.tab.domain.operation.parameters"
              label="Operation parameters"/>
              
+
+           <propertyTab
+             afterTab="property.tab.domain.classifier"
+             category="domain"
+             id="property.tab.domain.classifier"
+             label="Classifier"/>
+
+
       </propertyTabs>
    </extension>
    
    <extension point="org.eclipse.ui.views.properties.tabbed.propertySections" id="propsections">
       <?gmfgen generated="true"?>   
       <propertySections contributorId="org.tura.metamodel.diagram.typedefinition">
+
+
+          <propertySection
+               tab="property.tab.domain.classifier"
+               class="org.tura.metamodel.commons.properties.selections.grid.impl.CategorizedPropertySelection"
+               id="org.tura.metamodel.typedefinition.classifier">
+              <input type="typedefinition.diagram.edit.parts.TypeEditPart"/>
+              <input type="typedefinition.diagram.edit.parts.TypeExtensionEditPart"/>
+           </propertySection>        
 
 
           <propertySection
