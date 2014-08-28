@@ -26,5 +26,11 @@ public class Constants {
 	public static String HR_SERVICE =  "HR Services";
 	public static String HR_SERVICE_PROXY_CLIENT =  "HR Services proxy client";
 
+	public static String CLASSIFIER_ENTITY = "Entity";
+	public static String CLASSIFIER_SERVICE = "Service";
+	public static String CLASSIFIER_IMPLEMENTS = "Implements";
+	public static String CLASSIFIER_EXTENDS = "Extends";
+	public static String CLASSIFIER_REMOTE = "RemoteInterface";
+	public static String CLASSIFIER_LOCAL = "LocalInterface";
 	
 }

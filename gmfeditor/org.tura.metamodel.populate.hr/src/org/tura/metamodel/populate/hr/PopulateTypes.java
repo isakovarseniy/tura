@@ -52,10 +52,13 @@ public class PopulateTypes {
 		td.getTypes().add(department);
 		department.setName(Constants.TYPE_DEPARTMENT);
 		department.setUid(UUID.randomUUID().toString());
+		addClassifier(department, Constants.CLASSIFIER_ENTITY);
 		InitDiagram.addType(typesHash, department);
 
 		domain.TypeExtension ext = domain.DomainFactory.eINSTANCE
 				.createTypeExtension();
+		addClassifier(ext, Constants.CLASSIFIER_EXTENDS);
+
 		department.getExtension().add(ext);
 
 		domain.TypeReference typeRef = domain.DomainFactory.eINSTANCE
@@ -142,6 +145,8 @@ public class PopulateTypes {
 		td.getTypes().add(departmentsService);
 		departmentsService.setName(Constants.TYPE_DEPARTMENTS_QUERY_SERVICE);
 		departmentsService.setUid(UUID.randomUUID().toString());
+		addClassifier(departmentsService, Constants.CLASSIFIER_SERVICE);
+
 		InitDiagram.addType(typesHash, departmentsService);
 		departmentserviceStructure(departmentsService,typesHash);
 
@@ -152,6 +157,7 @@ public class PopulateTypes {
 		td.getTypes().add(departmentsServiceRemoteInterface);
 		departmentsServiceRemoteInterface.setName(Constants.TYPE_DEPARTMENTS_QUERY_SERVICE_REMOTE);
 		departmentsServiceRemoteInterface.setUid(UUID.randomUUID().toString());
+		addClassifier(departmentsServiceRemoteInterface, Constants.CLASSIFIER_REMOTE);
 		InitDiagram.addType(typesHash, departmentsServiceRemoteInterface);
 		departmentserviceStructure(departmentsServiceRemoteInterface,typesHash);
 		
@@ -161,6 +167,8 @@ public class PopulateTypes {
 		td.getTypes().add(departmentsServiceLocalInterface);
 		departmentsServiceLocalInterface.setName(Constants.TYPE_DEPARTMENTS_QUERY_SERVICE_LOCAL);
 		departmentsServiceLocalInterface.setUid(UUID.randomUUID().toString());
+		addClassifier(departmentsServiceLocalInterface, Constants.CLASSIFIER_LOCAL);
+
 		InitDiagram.addType(typesHash, departmentsServiceLocalInterface);
 		departmentserviceStructure(departmentsServiceLocalInterface,typesHash);
 		
@@ -169,16 +177,19 @@ public class PopulateTypes {
 		departmentsService.getExtension().add(ext);
 		ext.setTarget(departmentsServiceRemoteInterface);
 		ext.setSource(departmentsService);
+		addClassifier(ext, Constants.CLASSIFIER_IMPLEMENTS);
 		
 		ext = domain.DomainFactory.eINSTANCE
 				.createTypeExtension();
 		departmentsService.getExtension().add(ext);
 		ext.setTarget(departmentsServiceLocalInterface);
 		ext.setSource(departmentsService);
+		addClassifier(ext, Constants.CLASSIFIER_IMPLEMENTS);
 
 		ext = domain.DomainFactory.eINSTANCE
 				.createTypeExtension();
 		departmentsService.getExtension().add(ext);
+		addClassifier(ext, Constants.CLASSIFIER_EXTENDS);
 		typeRef = domain.DomainFactory.eINSTANCE
 				.createTypeReference();
 		td.getTypes().add(typeRef);
@@ -350,12 +361,14 @@ public class PopulateTypes {
 		td.getTypes().add(employee);
 		employee.setName(Constants.TYPE_EMPLOYEE);
 		employee.setUid(UUID.randomUUID().toString());
+		addClassifier(employee, Constants.CLASSIFIER_ENTITY);
 		InitDiagram.addType(typesHash, employee);
 
 		
 		domain.TypeExtension ext = domain.DomainFactory.eINSTANCE
 				.createTypeExtension();
 		employee.getExtension().add(ext);
+		addClassifier(ext, Constants.CLASSIFIER_EXTENDS);
 
 		domain.TypeReference typeRef = domain.DomainFactory.eINSTANCE
 				.createTypeReference();
@@ -500,6 +513,7 @@ public class PopulateTypes {
 		td.getTypes().add(employeesService);
 		employeesService.setName(Constants.TYPE_EMPLOYEES_QUERY_SERVICE);
 		employeesService.setUid(UUID.randomUUID().toString());
+		addClassifier(employeesService, Constants.CLASSIFIER_SERVICE);
 		InitDiagram.addType(typesHash, employeesService);
 
 		employeeserviceStructure(employeesService,typesHash);
@@ -511,6 +525,7 @@ public class PopulateTypes {
 		td.getTypes().add(employeesServiceLocalInterface);
 		employeesServiceLocalInterface.setName(Constants.TYPE_EMPLOYEES_QUERY_SERVICE_LOCAL);
 		employeesServiceLocalInterface.setUid(UUID.randomUUID().toString());
+		addClassifier(employeesServiceLocalInterface, Constants.CLASSIFIER_LOCAL);
 		InitDiagram.addType(typesHash, employeesServiceLocalInterface);
 		employeeserviceStructure(employeesServiceLocalInterface,typesHash);
 		
@@ -520,6 +535,7 @@ public class PopulateTypes {
 		td.getTypes().add(employeesServiceRemotInterface);
 		employeesServiceRemotInterface.setName(Constants.TYPE_EMPLOYEES_QUERY_SERVICE_REMOTE);
 		employeesServiceRemotInterface.setUid(UUID.randomUUID().toString());
+		addClassifier(employeesServiceRemotInterface, Constants.CLASSIFIER_REMOTE);
 		InitDiagram.addType(typesHash, employeesServiceRemotInterface);
 		employeeserviceStructure(employeesServiceRemotInterface,typesHash);
 
@@ -528,16 +544,19 @@ public class PopulateTypes {
 		employeesService.getExtension().add(ext);
 		ext.setTarget(employeesServiceRemotInterface);
 		ext.setSource(employeesService);
+		addClassifier(ext, Constants.CLASSIFIER_IMPLEMENTS);
 		
 		ext = domain.DomainFactory.eINSTANCE
 				.createTypeExtension();
 		employeesService.getExtension().add(ext);
 		ext.setTarget(employeesServiceLocalInterface);
 		ext.setSource(employeesService);
+		addClassifier(ext, Constants.CLASSIFIER_IMPLEMENTS);
 		
 		ext = domain.DomainFactory.eINSTANCE
 				.createTypeExtension();
 		employeesService.getExtension().add(ext);
+		addClassifier(ext, Constants.CLASSIFIER_EXTENDS);
 		typeRef = domain.DomainFactory.eINSTANCE
 				.createTypeReference();
 		td.getTypes().add(typeRef);
@@ -696,6 +715,14 @@ public class PopulateTypes {
 		param.setPackageRef(typesHash.get(Constants.PACKAGE_HR + "_" +Constants. TYPE_EMPLOYEE)
 				.getParent().getParent());
 		param.setTypeRef(typesHash.get(Constants.PACKAGE_HR + "_" + Constants.TYPE_EMPLOYEE));
+		
+	}
+	
+	private void addClassifier( domain.Categorized obj,   String classifier){
+		domain.Classifier c = domain.DomainFactory.eINSTANCE.createClassifier();
+		c.setName(classifier);
+		c.setUid(UUID.randomUUID().toString());
+		obj.getClassifiers().add(c);
 		
 	}
 
