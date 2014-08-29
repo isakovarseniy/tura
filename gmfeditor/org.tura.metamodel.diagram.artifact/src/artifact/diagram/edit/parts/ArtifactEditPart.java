@@ -158,6 +158,14 @@ public class ArtifactEditPart extends ShapeNodeEditPart {
 					.getFigure());
 			return true;
 		}
+		if (childEditPart instanceof ArtifactArtifactHintsCompartmentEditPart) {
+			IFigure pane = getPrimaryShape()
+					.getArtifactHintsCompartmentFigure();
+			setupContentPane(pane); // FIXME each comparment should handle his content pane in his own way 
+			pane.add(((ArtifactArtifactHintsCompartmentEditPart) childEditPart)
+					.getFigure());
+			return true;
+		}
 		return false;
 	}
 
@@ -186,6 +194,13 @@ public class ArtifactEditPart extends ShapeNodeEditPart {
 			IFigure pane = getPrimaryShape()
 					.getArtifactSpecifiersCompartmentFigure();
 			pane.remove(((ArtifactArtifactSpecifiersCompartmentEditPart) childEditPart)
+					.getFigure());
+			return true;
+		}
+		if (childEditPart instanceof ArtifactArtifactHintsCompartmentEditPart) {
+			IFigure pane = getPrimaryShape()
+					.getArtifactHintsCompartmentFigure();
+			pane.remove(((ArtifactArtifactHintsCompartmentEditPart) childEditPart)
 					.getFigure());
 			return true;
 		}
@@ -225,6 +240,9 @@ public class ArtifactEditPart extends ShapeNodeEditPart {
 		}
 		if (editPart instanceof ArtifactArtifactSpecifiersCompartmentEditPart) {
 			return getPrimaryShape().getArtifactSpecifiersCompartmentFigure();
+		}
+		if (editPart instanceof ArtifactArtifactHintsCompartmentEditPart) {
+			return getPrimaryShape().getArtifactHintsCompartmentFigure();
 		}
 		return getContentPane();
 	}
@@ -345,6 +363,10 @@ public class ArtifactEditPart extends ShapeNodeEditPart {
 				return getChildBySemanticHint(DomainVisualIDRegistry
 						.getType(ArtifactArtifactSpecifiersCompartmentEditPart.VISUAL_ID));
 			}
+			if (type == DomainElementTypes.GenerationHint_703006) {
+				return getChildBySemanticHint(DomainVisualIDRegistry
+						.getType(ArtifactArtifactHintsCompartmentEditPart.VISUAL_ID));
+			}
 		}
 		return super.getTargetEditPart(request);
 	}
@@ -383,6 +405,11 @@ public class ArtifactEditPart extends ShapeNodeEditPart {
 		 * @generated
 		 */
 		private RectangleFigure fArtifactSpecifiersCompartmentFigure;
+
+		/**
+		 * @generated
+		 */
+		private RectangleFigure fArtifactHintsCompartmentFigure;
 
 		/**
 		 * @generated
@@ -432,6 +459,12 @@ public class ArtifactEditPart extends ShapeNodeEditPart {
 
 			this.add(fArtifactSpecifiersCompartmentFigure);
 
+			fArtifactHintsCompartmentFigure = new RectangleFigure();
+
+			fArtifactHintsCompartmentFigure.setOutline(false);
+
+			this.add(fArtifactHintsCompartmentFigure);
+
 		}
 
 		/**
@@ -460,6 +493,13 @@ public class ArtifactEditPart extends ShapeNodeEditPart {
 		 */
 		public RectangleFigure getArtifactSpecifiersCompartmentFigure() {
 			return fArtifactSpecifiersCompartmentFigure;
+		}
+
+		/**
+		 * @generated
+		 */
+		public RectangleFigure getArtifactHintsCompartmentFigure() {
+			return fArtifactHintsCompartmentFigure;
 		}
 
 	}

@@ -12,16 +12,19 @@ import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.gmf.tooling.runtime.update.DiagramUpdater;
 
 import artifact.diagram.edit.parts.ArtifactArtifactConfigVariablesCompartmentEditPart;
+import artifact.diagram.edit.parts.ArtifactArtifactHintsCompartmentEditPart;
 import artifact.diagram.edit.parts.ArtifactArtifactModelQueryCompartmentEditPart;
 import artifact.diagram.edit.parts.ArtifactArtifactSpecifiersCompartmentEditPart;
 import artifact.diagram.edit.parts.ArtifactEditPart;
 import artifact.diagram.edit.parts.ArtifactsEditPart;
 import artifact.diagram.edit.parts.ConfigVariableEditPart;
+import artifact.diagram.edit.parts.GenerationHintEditPart;
 import artifact.diagram.edit.parts.ModelQueryEditPart;
 import artifact.diagram.edit.parts.SpecifierEditPart;
 import domain.Artifact;
 import domain.Artifacts;
 import domain.ConfigVariable;
+import domain.GenerationHint;
 import domain.ModelQuery;
 import domain.Specifier;
 
@@ -51,6 +54,8 @@ public class DomainDiagramUpdater {
 			return getArtifactArtifactModelQueryCompartment_707002SemanticChildren(view);
 		case ArtifactArtifactSpecifiersCompartmentEditPart.VISUAL_ID:
 			return getArtifactArtifactSpecifiersCompartment_707003SemanticChildren(view);
+		case ArtifactArtifactHintsCompartmentEditPart.VISUAL_ID:
+			return getArtifactArtifactHintsCompartment_707004SemanticChildren(view);
 		}
 		return Collections.emptyList();
 	}
@@ -162,6 +167,32 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
+	public static List<DomainNodeDescriptor> getArtifactArtifactHintsCompartment_707004SemanticChildren(
+			View view) {
+		if (false == view.eContainer() instanceof View) {
+			return Collections.emptyList();
+		}
+		View containerView = (View) view.eContainer();
+		if (!containerView.isSetElement()) {
+			return Collections.emptyList();
+		}
+		Artifact modelElement = (Artifact) containerView.getElement();
+		LinkedList<DomainNodeDescriptor> result = new LinkedList<DomainNodeDescriptor>();
+		for (Iterator<?> it = modelElement.getHints().iterator(); it.hasNext();) {
+			GenerationHint childElement = (GenerationHint) it.next();
+			int visualID = DomainVisualIDRegistry.getNodeVisualID(view,
+					childElement);
+			if (visualID == GenerationHintEditPart.VISUAL_ID) {
+				result.add(new DomainNodeDescriptor(childElement, visualID));
+				continue;
+			}
+		}
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
 	public static List<DomainLinkDescriptor> getContainedLinks(View view) {
 		switch (DomainVisualIDRegistry.getVisualID(view)) {
 		case ArtifactsEditPart.VISUAL_ID:
@@ -174,6 +205,8 @@ public class DomainDiagramUpdater {
 			return getModelQuery_703005ContainedLinks(view);
 		case SpecifierEditPart.VISUAL_ID:
 			return getSpecifier_703003ContainedLinks(view);
+		case GenerationHintEditPart.VISUAL_ID:
+			return getGenerationHint_703006ContainedLinks(view);
 		}
 		return Collections.emptyList();
 	}
@@ -191,6 +224,8 @@ public class DomainDiagramUpdater {
 			return getModelQuery_703005IncomingLinks(view);
 		case SpecifierEditPart.VISUAL_ID:
 			return getSpecifier_703003IncomingLinks(view);
+		case GenerationHintEditPart.VISUAL_ID:
+			return getGenerationHint_703006IncomingLinks(view);
 		}
 		return Collections.emptyList();
 	}
@@ -208,6 +243,8 @@ public class DomainDiagramUpdater {
 			return getModelQuery_703005OutgoingLinks(view);
 		case SpecifierEditPart.VISUAL_ID:
 			return getSpecifier_703003OutgoingLinks(view);
+		case GenerationHintEditPart.VISUAL_ID:
+			return getGenerationHint_703006OutgoingLinks(view);
 		}
 		return Collections.emptyList();
 	}
@@ -255,6 +292,14 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
+	public static List<DomainLinkDescriptor> getGenerationHint_703006ContainedLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
 	public static List<DomainLinkDescriptor> getArtifact_702001IncomingLinks(
 			View view) {
 		return Collections.emptyList();
@@ -287,6 +332,14 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
+	public static List<DomainLinkDescriptor> getGenerationHint_703006IncomingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
 	public static List<DomainLinkDescriptor> getArtifact_702001OutgoingLinks(
 			View view) {
 		return Collections.emptyList();
@@ -312,6 +365,14 @@ public class DomainDiagramUpdater {
 	 * @generated
 	 */
 	public static List<DomainLinkDescriptor> getSpecifier_703003OutgoingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<DomainLinkDescriptor> getGenerationHint_703006OutgoingLinks(
 			View view) {
 		return Collections.emptyList();
 	}

@@ -49,6 +49,9 @@ var tool = GmfTool!CreationTool.all.selectOne(r|r.title='ViewPortTrigger');
 delete tool;
 var tool = GmfTool!CreationTool.all.selectOne(r|r.title='Window');
 delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='GenerationHint');
+delete tool;
+
 var tool = GmfTool!CreationTool.all.selectOne(r|r.title='ContinuousIintegration');
 delete tool;
 var tool = GmfTool!CreationTool.all.selectOne(r|r.title='ModelQuery');

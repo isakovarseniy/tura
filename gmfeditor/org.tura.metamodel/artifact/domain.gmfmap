@@ -61,7 +61,7 @@
           </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
-              href="domain.gmftool#//@palette/@tools.0/@tools.2"/>
+              href="domain.gmftool#//@palette/@tools.0/@tools.3"/>
           <diagramNode
               href="domain.gmfgraph#ModelQuery"/>
         </ownedChild>
@@ -82,9 +82,30 @@
           </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
-              href="domain.gmftool#//@palette/@tools.0/@tools.3"/>
+              href="domain.gmftool#//@palette/@tools.0/@tools.4"/>
           <diagramNode
               href="domain.gmfgraph#Specifier"/>
+        </ownedChild>
+      </children>
+      <children
+          compartment="//@nodes.0/@ownedChild/@compartments.3">
+        <containmentFeature
+            href="domain.ecore#//Artifact/hints"/>
+        <ownedChild>
+          <domainMetaElement
+              href="domain.ecore#//GenerationHint"/>
+          <labelMappings
+              xsi:type="gmfmap:FeatureLabelMapping">
+            <diagramLabel
+                href="domain.gmfgraph#GenerationHintLabel"/>
+            <features
+                href="domain.ecore#//GenerationHint/name"/>
+          </labelMappings>
+          <tool
+              xsi:type="gmftool:CreationTool"
+              href="domain.gmftool#//@palette/@tools.0/@tools.2"/>
+          <diagramNode
+              href="domain.gmfgraph#GenerationHint"/>
         </ownedChild>
       </children>
       <compartments
@@ -101,6 +122,11 @@
           children="//@nodes.0/@ownedChild/@children.2">
         <compartment
             href="domain.gmfgraph#ArtifactSpecifiersCompartment"/>
+      </compartments>
+      <compartments
+          children="//@nodes.0/@ownedChild/@children.3">
+        <compartment
+            href="domain.gmfgraph#ArtifactHintsCompartment"/>
       </compartments>
     </ownedChild>
   </nodes>

@@ -449,6 +449,31 @@ public class DomainItemProviderAdapterFactory extends DomainAdapterFactory imple
   }
 
   /**
+   * This keeps track of the one adapter used for all {@link domain.GenerationHint} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected GenerationHintItemProvider generationHintItemProvider;
+
+  /**
+   * This creates an adapter for a {@link domain.GenerationHint}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createGenerationHintAdapter()
+  {
+    if (generationHintItemProvider == null)
+    {
+      generationHintItemProvider = new GenerationHintItemProvider(this);
+    }
+
+    return generationHintItemProvider;
+  }
+
+  /**
    * This keeps track of the one adapter used for all {@link domain.ConfigVariable} instances.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -4224,6 +4249,7 @@ public class DomainItemProviderAdapterFactory extends DomainAdapterFactory imple
     if (continuousIintegrationItemProvider != null) continuousIintegrationItemProvider.dispose();
     if (artifactsItemProvider != null) artifactsItemProvider.dispose();
     if (artifactItemProvider != null) artifactItemProvider.dispose();
+    if (generationHintItemProvider != null) generationHintItemProvider.dispose();
     if (configVariableItemProvider != null) configVariableItemProvider.dispose();
     if (modelQueryItemProvider != null) modelQueryItemProvider.dispose();
     if (queryParameterItemProvider != null) queryParameterItemProvider.dispose();

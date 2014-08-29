@@ -46,10 +46,11 @@ public class DomainModelingAssistantProvider extends ModelingAssistantProvider {
 			return types;
 		}
 		if (editPart instanceof ArtifactEditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(3);
+			ArrayList<IElementType> types = new ArrayList<IElementType>(4);
 			types.add(DomainElementTypes.ConfigVariable_703004);
 			types.add(DomainElementTypes.ModelQuery_703005);
 			types.add(DomainElementTypes.Specifier_703003);
+			types.add(DomainElementTypes.GenerationHint_703006);
 			return types;
 		}
 		return Collections.EMPTY_LIST;

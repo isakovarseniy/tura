@@ -52,6 +52,12 @@ public class DomainEditPartFactory implements EditPartFactory {
 			case SpecifierNameEditPart.VISUAL_ID:
 				return new SpecifierNameEditPart(view);
 
+			case GenerationHintEditPart.VISUAL_ID:
+				return new GenerationHintEditPart(view);
+
+			case GenerationHintNameEditPart.VISUAL_ID:
+				return new GenerationHintNameEditPart(view);
+
 			case ArtifactArtifactConfigVariablesCompartmentEditPart.VISUAL_ID:
 				return new ArtifactArtifactConfigVariablesCompartmentEditPart(
 						view);
@@ -61,6 +67,9 @@ public class DomainEditPartFactory implements EditPartFactory {
 
 			case ArtifactArtifactSpecifiersCompartmentEditPart.VISUAL_ID:
 				return new ArtifactArtifactSpecifiersCompartmentEditPart(view);
+
+			case ArtifactArtifactHintsCompartmentEditPart.VISUAL_ID:
+				return new ArtifactArtifactHintsCompartmentEditPart(view);
 			}
 		}
 		return createUnrecognizedEditPart(context, model);

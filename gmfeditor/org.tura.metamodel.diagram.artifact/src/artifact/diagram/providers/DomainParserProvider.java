@@ -18,6 +18,7 @@ import org.eclipse.gmf.runtime.notation.View;
 
 import artifact.diagram.edit.parts.ArtifactNameEditPart;
 import artifact.diagram.edit.parts.ConfigVariableNameEditPart;
+import artifact.diagram.edit.parts.GenerationHintNameEditPart;
 import artifact.diagram.edit.parts.ModelQueryNameEditPart;
 import artifact.diagram.edit.parts.SpecifierNameEditPart;
 import artifact.diagram.parsers.MessageFormatParser;
@@ -105,6 +106,24 @@ public class DomainParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
+	private IParser generationHintName_705007Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getGenerationHintName_705007Parser() {
+		if (generationHintName_705007Parser == null) {
+			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE
+					.getGenerationHint_Name() };
+			MessageFormatParser parser = new MessageFormatParser(features);
+			generationHintName_705007Parser = parser;
+		}
+		return generationHintName_705007Parser;
+	}
+
+	/**
+	 * @generated
+	 */
 	protected IParser getParser(int visualID) {
 		switch (visualID) {
 		case ArtifactNameEditPart.VISUAL_ID:
@@ -115,6 +134,8 @@ public class DomainParserProvider extends AbstractProvider implements
 			return getModelQueryName_705006Parser();
 		case SpecifierNameEditPart.VISUAL_ID:
 			return getSpecifierName_705003Parser();
+		case GenerationHintNameEditPart.VISUAL_ID:
+			return getGenerationHintName_705007Parser();
 		}
 		return null;
 	}

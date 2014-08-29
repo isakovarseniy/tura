@@ -11,6 +11,7 @@ import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.gmf.tooling.runtime.structure.DiagramStructure;
 
 import artifact.diagram.edit.parts.ArtifactArtifactConfigVariablesCompartmentEditPart;
+import artifact.diagram.edit.parts.ArtifactArtifactHintsCompartmentEditPart;
 import artifact.diagram.edit.parts.ArtifactArtifactModelQueryCompartmentEditPart;
 import artifact.diagram.edit.parts.ArtifactArtifactSpecifiersCompartmentEditPart;
 import artifact.diagram.edit.parts.ArtifactEditPart;
@@ -18,6 +19,8 @@ import artifact.diagram.edit.parts.ArtifactNameEditPart;
 import artifact.diagram.edit.parts.ArtifactsEditPart;
 import artifact.diagram.edit.parts.ConfigVariableEditPart;
 import artifact.diagram.edit.parts.ConfigVariableNameEditPart;
+import artifact.diagram.edit.parts.GenerationHintEditPart;
+import artifact.diagram.edit.parts.GenerationHintNameEditPart;
 import artifact.diagram.edit.parts.ModelQueryEditPart;
 import artifact.diagram.edit.parts.ModelQueryNameEditPart;
 import artifact.diagram.edit.parts.SpecifierEditPart;
@@ -157,6 +160,12 @@ public class DomainVisualIDRegistry {
 				return SpecifierEditPart.VISUAL_ID;
 			}
 			break;
+		case ArtifactArtifactHintsCompartmentEditPart.VISUAL_ID:
+			if (DomainPackage.eINSTANCE.getGenerationHint().isSuperTypeOf(
+					domainElement.eClass())) {
+				return GenerationHintEditPart.VISUAL_ID;
+			}
+			break;
 		}
 		return -1;
 	}
@@ -201,6 +210,9 @@ public class DomainVisualIDRegistry {
 			if (ArtifactArtifactSpecifiersCompartmentEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
+			if (ArtifactArtifactHintsCompartmentEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
 			break;
 		case ConfigVariableEditPart.VISUAL_ID:
 			if (ConfigVariableNameEditPart.VISUAL_ID == nodeVisualID) {
@@ -217,6 +229,11 @@ public class DomainVisualIDRegistry {
 				return true;
 			}
 			break;
+		case GenerationHintEditPart.VISUAL_ID:
+			if (GenerationHintNameEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
 		case ArtifactArtifactConfigVariablesCompartmentEditPart.VISUAL_ID:
 			if (ConfigVariableEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
@@ -229,6 +246,11 @@ public class DomainVisualIDRegistry {
 			break;
 		case ArtifactArtifactSpecifiersCompartmentEditPart.VISUAL_ID:
 			if (SpecifierEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case ArtifactArtifactHintsCompartmentEditPart.VISUAL_ID:
+			if (GenerationHintEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -277,6 +299,7 @@ public class DomainVisualIDRegistry {
 		case ArtifactArtifactConfigVariablesCompartmentEditPart.VISUAL_ID:
 		case ArtifactArtifactModelQueryCompartmentEditPart.VISUAL_ID:
 		case ArtifactArtifactSpecifiersCompartmentEditPart.VISUAL_ID:
+		case ArtifactArtifactHintsCompartmentEditPart.VISUAL_ID:
 			return true;
 		default:
 			break;
@@ -294,6 +317,7 @@ public class DomainVisualIDRegistry {
 		case SpecifierEditPart.VISUAL_ID:
 		case ConfigVariableEditPart.VISUAL_ID:
 		case ModelQueryEditPart.VISUAL_ID:
+		case GenerationHintEditPart.VISUAL_ID:
 			return true;
 		default:
 			break;

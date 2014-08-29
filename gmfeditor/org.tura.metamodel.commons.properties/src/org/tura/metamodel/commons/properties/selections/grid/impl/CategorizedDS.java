@@ -30,7 +30,6 @@ public class CategorizedDS extends DataSource {
 	public void addRow() {
 		domain.Classifier classifier = DomainFactory.eINSTANCE
 				.createClassifier();
-		classifier.setName("New option");
 		classifier.setUid(UUID.randomUUID().toString());
 		ArrayList<domain.Classifier> ls = new ArrayList<domain.Classifier>();
 		ls.add(classifier);

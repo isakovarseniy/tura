@@ -2,177 +2,14 @@
  */
 package domain.impl;
 
-import domain.ActionElement;
-import domain.Application;
-import domain.ApplicationInfrastructureLayer;
-import domain.ApplicationMapper;
-import domain.ApplicationMappers;
-import domain.ApplicationMessages;
-import domain.ApplicationRecipe;
-import domain.ApplicationRecipes;
-import domain.ApplicationRole;
-import domain.ApplicationStyle;
-import domain.ApplicationUILayer;
-import domain.ApplicationUIPackage;
-import domain.Artifact;
-import domain.ArtifactRef;
-import domain.Artifacts;
-import domain.ArtificialField;
-import domain.Attribute;
-import domain.Button;
-import domain.CSSMapper;
-import domain.Canvas;
-import domain.CanvasFrame;
-import domain.CanvasView;
-import domain.Categorized;
-import domain.CheckBox;
-import domain.ChildrenHolder;
-import domain.Classifier;
-import domain.Column;
-import domain.Component;
-import domain.ConfigVariable;
-import domain.Configuration;
-import domain.Context;
-import domain.ContextParameter;
-import domain.ContextParameters;
-import domain.ContextValue;
-import domain.ContinuousIintegration;
-import domain.Controls;
-import domain.CreateTrigger;
-import domain.DataControl;
-import domain.Datacenter;
-import domain.DefaultCavas;
-import domain.DeleteTrigger;
-import domain.DeploymentComponent;
-import domain.DeploymentComponents;
-import domain.DeploymentSequence;
-import domain.DeploymentStarStep;
-import domain.Domain;
-import domain.DomainApplication;
-import domain.DomainApplications;
-import domain.DomainArtifact;
-import domain.DomainArtifacts;
-import domain.DomainFactory;
-import domain.DomainPackage;
-import domain.DomainTypes;
-import domain.DropDownSelection;
-import domain.EJBService;
-import domain.EnterpriseInfrastructure;
-import domain.EnumAttribute;
-import domain.Enumarator;
-import domain.ExpressionPart;
-import domain.Form;
-import domain.FormDataControls;
-import domain.FormView;
-import domain.Group;
-import domain.HTMLLayerHolder;
-import domain.Hub;
-import domain.Infrastructure;
-import domain.InfrastructureComponent;
-import domain.InfrastructureConnection;
-import domain.InfrastructureLayer;
-import domain.Ingredient;
-import domain.InputElement;
-import domain.InputText;
-import domain.InsertTrigger;
-import domain.JPAService;
-import domain.JavaComponent;
-import domain.JavaMapper;
-import domain.JavaScriptMapper;
-import domain.Label;
-import domain.Language;
-import domain.LanguageRef;
-import domain.LayerHolder;
-import domain.Link;
-import domain.Mapper;
-import domain.Mappers;
-import domain.MappingSpecifier;
-import domain.Message;
-import domain.MessageLibrary;
-import domain.Messages;
-import domain.MethodPointer;
-import domain.ModelMapper;
-import domain.ModelQuery;
-import domain.MultiLangLabel;
-import domain.ORMEntity;
-import domain.Operation;
-import domain.Option;
-import domain.OptionSelection;
-import domain.OutputText;
-import domain.POSTCreateTrigger;
-import domain.POSTQueryTrigger;
-import domain.PREDeleteTrigger;
-import domain.PREFormTrigger;
-import domain.PREInsertTrigger;
-import domain.PREQueryTrigger;
-import domain.PREUpdateTrigger;
-import domain.Parameter;
-import domain.PlatformLayers;
-import domain.Primitive;
-import domain.Property;
-import domain.Query;
-import domain.QueryParameter;
-import domain.QueryVariable;
-import domain.Recipe;
-import domain.Recipes;
-import domain.Relation;
-import domain.ReturnValue;
-import domain.Role;
-import domain.RoleMapper;
-import domain.Roles;
-import domain.Root;
-import domain.Router;
-import domain.SearchTrigger;
-import domain.Selection;
-import domain.Server;
-import domain.ServerClaster;
-import domain.SourcesPointer;
-import domain.Specifier;
-import domain.Storage;
-import domain.Style;
-import domain.StyleClass;
-import domain.StyleElement;
-import domain.StyleLibrary;
-import domain.StyleSet;
-import domain.Styles;
-import domain.StylesPackage;
-import domain.Subsystem;
-import domain.TabCanvas;
-import domain.TabPage;
-import domain.TabPagesInheritance;
-import domain.Table;
-import domain.Translation;
-import domain.Tree;
-import domain.Trigger;
-import domain.Type;
-import domain.TypeDefinition;
-import domain.TypeElement;
-import domain.TypeExtension;
-import domain.TypeMapper;
-import domain.TypePointer;
-import domain.TypeReference;
-import domain.Types;
-import domain.TypesRepository;
-import domain.UIPackage;
-import domain.Uielement;
-import domain.UpdateTrigger;
-import domain.UsingMappers;
-import domain.ViewArea;
-import domain.ViewElement;
-import domain.ViewInheritance;
-import domain.ViewPort;
-import domain.ViewPortHolder;
-import domain.ViewPortTrigger;
-import domain.Views;
-import domain.Window;
-
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
-
 import org.eclipse.emf.ecore.impl.EPackageImpl;
+
+import domain.*;
 
 /**
  * <!-- begin-user-doc -->
@@ -286,6 +123,13 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * @generated
    */
   private EClass artifactEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass generationHintEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -1494,9 +1338,9 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getClassifier_Name()
+  public EReference getClassifier_Hint()
   {
-    return (EAttribute)classifierEClass.getEStructuralFeatures().get(1);
+    return (EReference)classifierEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -1914,9 +1758,59 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EReference getArtifact_Hints()
+  {
+    return (EReference)artifactEClass.getEStructuralFeatures().get(7);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EAttribute getArtifact_Template()
   {
-    return (EAttribute)artifactEClass.getEStructuralFeatures().get(7);
+    return (EAttribute)artifactEClass.getEStructuralFeatures().get(8);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getGenerationHint()
+  {
+    return generationHintEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getGenerationHint_Uid()
+  {
+    return (EAttribute)generationHintEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getGenerationHint_Name()
+  {
+    return (EAttribute)generationHintEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getGenerationHint_ApplyedClass()
+  {
+    return (EAttribute)generationHintEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -7483,7 +7377,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
 
     classifierEClass = createEClass(CLASSIFIER);
     createEAttribute(classifierEClass, CLASSIFIER__UID);
-    createEAttribute(classifierEClass, CLASSIFIER__NAME);
+    createEReference(classifierEClass, CLASSIFIER__HINT);
 
     domainArtifactsEClass = createEClass(DOMAIN_ARTIFACTS);
     createEAttribute(domainArtifactsEClass, DOMAIN_ARTIFACTS__UID);
@@ -7536,7 +7430,13 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     createEReference(artifactEClass, ARTIFACT__CONFIG_VARIABLES);
     createEReference(artifactEClass, ARTIFACT__MODEL_QUERY);
     createEReference(artifactEClass, ARTIFACT__SPECIFIERS);
+    createEReference(artifactEClass, ARTIFACT__HINTS);
     createEAttribute(artifactEClass, ARTIFACT__TEMPLATE);
+
+    generationHintEClass = createEClass(GENERATION_HINT);
+    createEAttribute(generationHintEClass, GENERATION_HINT__UID);
+    createEAttribute(generationHintEClass, GENERATION_HINT__NAME);
+    createEAttribute(generationHintEClass, GENERATION_HINT__APPLYED_CLASS);
 
     configVariableEClass = createEClass(CONFIG_VARIABLE);
     createEAttribute(configVariableEClass, CONFIG_VARIABLE__UID);
@@ -8383,7 +8283,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
 
     initEClass(classifierEClass, Classifier.class, "Classifier", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getClassifier_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, Classifier.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getClassifier_Name(), ecorePackage.getEString(), "name", null, 0, 1, Classifier.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getClassifier_Hint(), this.getGenerationHint(), null, "hint", null, 0, 1, Classifier.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(domainArtifactsEClass, DomainArtifacts.class, "DomainArtifacts", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getDomainArtifacts_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, DomainArtifacts.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -8436,7 +8336,13 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     initEReference(getArtifact_ConfigVariables(), this.getConfigVariable(), this.getConfigVariable_Parent(), "configVariables", null, 0, -1, Artifact.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getArtifact_ModelQuery(), this.getModelQuery(), this.getModelQuery_Parent(), "modelQuery", null, 0, -1, Artifact.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getArtifact_Specifiers(), this.getSpecifier(), this.getSpecifier_Parent(), "specifiers", null, 0, -1, Artifact.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getArtifact_Hints(), this.getGenerationHint(), null, "hints", null, 0, -1, Artifact.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getArtifact_Template(), ecorePackage.getEString(), "template", null, 0, 1, Artifact.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(generationHintEClass, GenerationHint.class, "GenerationHint", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getGenerationHint_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, GenerationHint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getGenerationHint_Name(), ecorePackage.getEString(), "name", null, 0, 1, GenerationHint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getGenerationHint_ApplyedClass(), ecorePackage.getEString(), "applyedClass", null, 0, 1, GenerationHint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(configVariableEClass, ConfigVariable.class, "ConfigVariable", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getConfigVariable_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, ConfigVariable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -9200,7 +9106,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
-       });																																																																																																																																																																											
+       });																																																																																																																																																																													
   }
 
   /**
@@ -9217,7 +9123,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
-       });																																																																																																																																																																										
+       });																																																																																																																																																																												
   }
 
   /**
@@ -9316,7 +9222,16 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        "label", "name",
        "border.color", "0,0,0",
        "color", "255,239,222"
-       });					
+       });						
+    addAnnotation
+      (generationHintEClass, 
+       source, 
+       new String[] 
+       {
+       "label", "name",
+       "border.color", "0,0,0",
+       "color", "255,239,222"
+       });		
     addAnnotation
       (configVariableEClass, 
        source, 
@@ -10175,7 +10090,14 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        new String[] 
        {
        "layout", "list"
-       });										
+       });		
+    addAnnotation
+      (getArtifact_Hints(), 
+       source, 
+       new String[] 
+       {
+       "layout", "list"
+       });											
     addAnnotation
       (getApplicationStyle_StylesPackage(), 
        source, 
@@ -10452,7 +10374,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
-       });																																																																																																																																																														
+       });																																																																																																																																																																
   }
 
   /**
@@ -10463,7 +10385,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    */
   protected void createGmf_5Annotations()
   {
-    String source = "gmf.diagram.application";																								
+    String source = "gmf.diagram.application";																										
     addAnnotation
       (applicationEClass, 
        source, 
@@ -10480,7 +10402,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    */
   protected void createGmf_6Annotations()
   {
-    String source = "gmf.diagram.messages";																																							
+    String source = "gmf.diagram.messages";																																									
     addAnnotation
       (messagesEClass, 
        source, 
@@ -10497,7 +10419,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    */
   protected void createGmf_7Annotations()
   {
-    String source = "gmf.diagram.roles";																																											
+    String source = "gmf.diagram.roles";																																													
     addAnnotation
       (rolesEClass, 
        source, 
@@ -10514,7 +10436,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    */
   protected void createGmf_8Annotations()
   {
-    String source = "gmf.link";																																														
+    String source = "gmf.link";																																																
     addAnnotation
       (getGroup_Group2Group(), 
        source, 
@@ -10644,7 +10566,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    */
   protected void createGmf_9Annotations()
   {
-    String source = "gmf.diagram.style";																																																
+    String source = "gmf.diagram.style";																																																		
     addAnnotation
       (stylesEClass, 
        source, 
@@ -10661,7 +10583,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    */
   protected void createGmf_10Annotations()
   {
-    String source = "gmf.diagram.mapper";																																																				
+    String source = "gmf.diagram.mapper";																																																						
     addAnnotation
       (mappersEClass, 
        source, 
@@ -10678,7 +10600,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    */
   protected void createGmf_11Annotations()
   {
-    String source = "gmf.diagram.recipe";																																																									
+    String source = "gmf.diagram.recipe";																																																											
     addAnnotation
       (recipesEClass, 
        source, 
@@ -10695,7 +10617,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    */
   protected void createGmf_12Annotations()
   {
-    String source = "gmf.diagram.deployment";																																																											
+    String source = "gmf.diagram.deployment";																																																													
     addAnnotation
       (deploymentComponentsEClass, 
        source, 
@@ -10712,7 +10634,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    */
   protected void createGmf_13Annotations()
   {
-    String source = "gmf.diagram.typedefinition";																																																																																	
+    String source = "gmf.diagram.typedefinition";																																																																																			
     addAnnotation
       (typeDefinitionEClass, 
        source, 
@@ -10729,7 +10651,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    */
   protected void createGmf_14Annotations()
   {
-    String source = "gmf.diagram.typesrepository";																																																																																													
+    String source = "gmf.diagram.typesrepository";																																																																																															
     addAnnotation
       (typesRepositoryEClass, 
        source, 
@@ -10746,7 +10668,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    */
   protected void createGmf_15Annotations()
   {
-    String source = "gmf.diagram.uipackage";																																																																																																	
+    String source = "gmf.diagram.uipackage";																																																																																																			
     addAnnotation
       (uiPackageEClass, 
        source, 
@@ -10763,7 +10685,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    */
   protected void createGmf_16Annotations()
   {
-    String source = "gmf.diagram.view";																																																																																																						
+    String source = "gmf.diagram.view";																																																																																																								
     addAnnotation
       (viewsEClass, 
        source, 
@@ -10780,7 +10702,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    */
   protected void createGmf_17Annotations()
   {
-    String source = "gmf.diagram.canvas";																																																																																																																			
+    String source = "gmf.diagram.canvas";																																																																																																																					
     addAnnotation
       (canvasViewEClass, 
        source, 
@@ -10797,7 +10719,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    */
   protected void createGmf_18Annotations()
   {
-    String source = "gmf.diagram.control";																																																																																																																																	
+    String source = "gmf.diagram.control";																																																																																																																																			
     addAnnotation
       (controlsEClass, 
        source, 
@@ -10814,7 +10736,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    */
   protected void createGmf_19Annotations()
   {
-    String source = "gmf.diagram.infarastructure";																																																																																																																																																																
+    String source = "gmf.diagram.infarastructure";																																																																																																																																																																		
     addAnnotation
       (enterpriseInfrastructureEClass, 
        source, 

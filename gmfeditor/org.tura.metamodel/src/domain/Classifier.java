@@ -13,7 +13,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * <ul>
  *   <li>{@link domain.Classifier#getUid <em>Uid</em>}</li>
- *   <li>{@link domain.Classifier#getName <em>Name</em>}</li>
+ *   <li>{@link domain.Classifier#getHint <em>Hint</em>}</li>
  * </ul>
  * </p>
  *
@@ -50,29 +50,29 @@ public interface Classifier extends EObject
   void setUid(String value);
 
   /**
-   * Returns the value of the '<em><b>Name</b></em>' attribute.
+   * Returns the value of the '<em><b>Hint</b></em>' reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Name</em>' attribute isn't clear,
+   * If the meaning of the '<em>Hint</em>' reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Name</em>' attribute.
-   * @see #setName(String)
-   * @see domain.DomainPackage#getClassifier_Name()
+   * @return the value of the '<em>Hint</em>' reference.
+   * @see #setHint(GenerationHint)
+   * @see domain.DomainPackage#getClassifier_Hint()
    * @model
    * @generated
    */
-  String getName();
+  GenerationHint getHint();
 
   /**
-   * Sets the value of the '{@link domain.Classifier#getName <em>Name</em>}' attribute.
+   * Sets the value of the '{@link domain.Classifier#getHint <em>Hint</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Name</em>' attribute.
-   * @see #getName()
+   * @param value the new value of the '<em>Hint</em>' reference.
+   * @see #getHint()
    * @generated
    */
-  void setName(String value);
+  void setHint(GenerationHint value);
 
 } // Classifier

@@ -979,6 +979,33 @@
                  <adapter type="org.tura.metamodel.commons.properties.selections.adapters.IReturnTypeProvider"/> 
       </factory>
 
+
+     <factory  adaptableType="domain.DomainArtifacts"
+             class="org.tura.metamodel.commons.properties.selections.adapters.TreeProviderAdapterFactory">
+                 <adapter type="org.eclipse.ui.model.IWorkbenchAdapter"/> 
+                 <adapter type="org.tura.metamodel.commons.properties.selections.adapters.IReturnTypeProvider"/> 
+      </factory>
+
+     <factory  adaptableType="domain.DomainArtifact"
+             class="org.tura.metamodel.commons.properties.selections.adapters.TreeProviderAdapterFactory">
+                 <adapter type="org.eclipse.ui.model.IWorkbenchAdapter"/> 
+                 <adapter type="org.tura.metamodel.commons.properties.selections.adapters.IReturnTypeProvider"/> 
+      </factory>
+
+     <factory  adaptableType="domain.Artifact"
+             class="org.tura.metamodel.commons.properties.selections.adapters.TreeProviderAdapterFactory">
+                 <adapter type="org.eclipse.ui.model.IWorkbenchAdapter"/> 
+                 <adapter type="org.tura.metamodel.commons.properties.selections.adapters.IReturnTypeProvider"/> 
+      </factory>
+
+     <factory  adaptableType="domain.GenerationHint"
+             class="org.tura.metamodel.commons.properties.selections.adapters.TreeProviderAdapterFactory">
+                 <adapter type="org.eclipse.ui.model.IWorkbenchAdapter"/> 
+                 <adapter type="org.tura.metamodel.commons.properties.selections.adapters.IReturnTypeProvider"/> 
+      </factory>
+
+
+
 </extension>
 
 </plugin>

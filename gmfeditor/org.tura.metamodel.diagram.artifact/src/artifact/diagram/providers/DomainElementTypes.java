@@ -22,6 +22,7 @@ import org.eclipse.swt.graphics.Image;
 import artifact.diagram.edit.parts.ArtifactEditPart;
 import artifact.diagram.edit.parts.ArtifactsEditPart;
 import artifact.diagram.edit.parts.ConfigVariableEditPart;
+import artifact.diagram.edit.parts.GenerationHintEditPart;
 import artifact.diagram.edit.parts.ModelQueryEditPart;
 import artifact.diagram.edit.parts.SpecifierEditPart;
 import artifact.diagram.part.DomainDiagramEditorPlugin;
@@ -73,6 +74,11 @@ public class DomainElementTypes {
 	 * @generated
 	 */
 	public static final IElementType Specifier_703003 = getElementType("org.tura.metamodel.diagram.artifact.Specifier_703003"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType GenerationHint_703006 = getElementType("org.tura.metamodel.diagram.artifact.GenerationHint_703006"); //$NON-NLS-1$
 
 	/**
 	 * @generated
@@ -198,6 +204,9 @@ public class DomainElementTypes {
 
 			elements.put(Specifier_703003,
 					DomainPackage.eINSTANCE.getSpecifier());
+
+			elements.put(GenerationHint_703006,
+					DomainPackage.eINSTANCE.getGenerationHint());
 		}
 		return (ENamedElement) elements.get(type);
 	}
@@ -220,6 +229,7 @@ public class DomainElementTypes {
 			KNOWN_ELEMENT_TYPES.add(ConfigVariable_703004);
 			KNOWN_ELEMENT_TYPES.add(ModelQuery_703005);
 			KNOWN_ELEMENT_TYPES.add(Specifier_703003);
+			KNOWN_ELEMENT_TYPES.add(GenerationHint_703006);
 		}
 		return KNOWN_ELEMENT_TYPES.contains(elementType);
 	}
@@ -239,6 +249,8 @@ public class DomainElementTypes {
 			return ModelQuery_703005;
 		case SpecifierEditPart.VISUAL_ID:
 			return Specifier_703003;
+		case GenerationHintEditPart.VISUAL_ID:
+			return GenerationHint_703006;
 		}
 		return null;
 	}

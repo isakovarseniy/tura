@@ -184,6 +184,7 @@ public class ArtifactItemProvider
       childrenFeatures.add(DomainPackage.Literals.ARTIFACT__CONFIG_VARIABLES);
       childrenFeatures.add(DomainPackage.Literals.ARTIFACT__MODEL_QUERY);
       childrenFeatures.add(DomainPackage.Literals.ARTIFACT__SPECIFIERS);
+      childrenFeatures.add(DomainPackage.Literals.ARTIFACT__HINTS);
     }
     return childrenFeatures;
   }
@@ -252,6 +253,7 @@ public class ArtifactItemProvider
       case DomainPackage.ARTIFACT__CONFIG_VARIABLES:
       case DomainPackage.ARTIFACT__MODEL_QUERY:
       case DomainPackage.ARTIFACT__SPECIFIERS:
+      case DomainPackage.ARTIFACT__HINTS:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
         return;
     }
@@ -284,6 +286,11 @@ public class ArtifactItemProvider
       (createChildParameter
         (DomainPackage.Literals.ARTIFACT__SPECIFIERS,
          DomainFactory.eINSTANCE.createSpecifier()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (DomainPackage.Literals.ARTIFACT__HINTS,
+         DomainFactory.eINSTANCE.createGenerationHint()));
   }
 
   /**

@@ -65,7 +65,7 @@ public class ClassifierItemProvider
       super.getPropertyDescriptors(object);
 
       addUidPropertyDescriptor(object);
-      addNamePropertyDescriptor(object);
+      addHintPropertyDescriptor(object);
     }
     return itemPropertyDescriptors;
   }
@@ -94,24 +94,24 @@ public class ClassifierItemProvider
   }
 
   /**
-   * This adds a property descriptor for the Name feature.
+   * This adds a property descriptor for the Hint feature.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected void addNamePropertyDescriptor(Object object)
+  protected void addHintPropertyDescriptor(Object object)
   {
     itemPropertyDescriptors.add
       (createItemPropertyDescriptor
         (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
          getResourceLocator(),
-         getString("_UI_Classifier_name_feature"),
-         getString("_UI_PropertyDescriptor_description", "_UI_Classifier_name_feature", "_UI_Classifier_type"),
-         DomainPackage.Literals.CLASSIFIER__NAME,
+         getString("_UI_Classifier_hint_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_Classifier_hint_feature", "_UI_Classifier_type"),
+         DomainPackage.Literals.CLASSIFIER__HINT,
          true,
          false,
-         false,
-         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+         true,
+         null,
          null,
          null));
   }
@@ -137,7 +137,7 @@ public class ClassifierItemProvider
   @Override
   public String getText(Object object)
   {
-    String label = ((Classifier)object).getName();
+    String label = ((Classifier)object).getUid();
     return label == null || label.length() == 0 ?
       getString("_UI_Classifier_type") :
       getString("_UI_Classifier_type") + " " + label;
@@ -158,7 +158,6 @@ public class ClassifierItemProvider
     switch (notification.getFeatureID(Classifier.class))
     {
       case DomainPackage.CLASSIFIER__UID:
-      case DomainPackage.CLASSIFIER__NAME:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
         return;
     }

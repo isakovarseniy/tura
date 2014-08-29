@@ -258,7 +258,7 @@
          </object>
          <context viewClass="org.eclipse.gmf.runtime.notation.Node" containerViews="referencing-diagrams"/>
          <context viewClass="org.eclipse.gmf.runtime.notation.Diagram" semanticHints="Artifact"/>
-         <context viewClass="org.eclipse.gmf.runtime.notation.Node" semanticHints="702001,703004,703005,703003"/>
+         <context viewClass="org.eclipse.gmf.runtime.notation.Node" semanticHints="702001,703004,703005,703003,703006"/>
          <context viewClass="org.eclipse.gmf.runtime.notation.Edge" semanticHints=""/>
       </viewProvider>
    </extension>
@@ -271,16 +271,16 @@
             <method name="getType()" value="Artifact"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-nodes">
-            <method name="getType()" value="702001,703004,703005,703003"/>
+            <method name="getType()" value="702001,703004,703005,703003,703006"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Edge" id="generated-links">
             <method name="getType()" value=""/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-labels">
-            <method name="getType()" value="705004,705005,705006,705003"/>
+            <method name="getType()" value="705004,705005,705006,705003,705007"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-compartments">
-            <method name="getType()" value="707001,707002,707003"/>
+            <method name="getType()" value="707001,707002,707003,707004"/>
          </object>
          <context views="generated-diagram,generated-nodes,generated-links,generated-labels,generated-compartments"/>
       </editpartProvider>
@@ -373,6 +373,16 @@
             <param name="semanticHint" value="703003"/>
          </metamodelType>
       </metamodel>
+      <metamodel nsURI="http://tura.org/2013/v1/domain">
+         <metamodelType
+               id="org.tura.metamodel.diagram.artifact.GenerationHint_703006"
+               name="%metatype.name.GenerationHint_703006"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="GenerationHint"
+               edithelper="artifact.diagram.edit.helpers.GenerationHintEditHelper">
+            <param name="semanticHint" value="703006"/>
+         </metamodelType>
+      </metamodel>
    </extension>
 
    <extension point="org.eclipse.gmf.runtime.emf.type.core.elementTypeBindings" id="element-types-bindings">
@@ -394,6 +404,7 @@
          <elementType ref="org.tura.metamodel.diagram.artifact.ConfigVariable_703004"/>
          <elementType ref="org.tura.metamodel.diagram.artifact.ModelQuery_703005"/>
          <elementType ref="org.tura.metamodel.diagram.artifact.Specifier_703003"/>
+         <elementType ref="org.tura.metamodel.diagram.artifact.GenerationHint_703006"/>
          <advice ref="org.eclipse.gmf.runtime.diagram.core.advice.notationDepdendents"/>
       </binding>
    </extension>

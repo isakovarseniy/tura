@@ -20,12 +20,11 @@ class Categorized{
     val Classifier[*] classifiers;
 }
 
+
 class Classifier{
     id attr EString uid;
-    attr EString name;  
+    ref GenerationHint hint;
 }
-
-
 
 @gmf.node(label="name",border.color="0,0,0",color="255,239,222")
 class DomainArtifacts extends HTMLLayerHolder{
@@ -113,9 +112,20 @@ class Artifact{
    @gmf.compartment(layout="list")
    val   Specifier[*]#parent specifiers;
 
+   //Hint to help template generate specific code
+   @gmf.compartment(layout="list")
+   val   GenerationHint[*]#parent hints;
+
+
    attr EString template;
 }
 
+@gmf.node(label="name",border.color="0,0,0",color="255,239,222")
+class GenerationHint{
+   id attr EString uid;
+  attr EString name;
+  attr EString applyedClass; 
+}
 
 @gmf.node(label="name",border.color="0,0,0",color="255,239,222")
 class ConfigVariable{

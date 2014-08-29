@@ -158,6 +158,15 @@ public interface DomainFactory extends EFactory
   Artifact createArtifact();
 
   /**
+   * Returns a new object of class '<em>Generation Hint</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Generation Hint</em>'.
+   * @generated
+   */
+  GenerationHint createGenerationHint();
+
+  /**
    * Returns a new object of class '<em>Config Variable</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

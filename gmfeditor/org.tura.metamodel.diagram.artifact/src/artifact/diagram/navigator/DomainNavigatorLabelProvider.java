@@ -25,6 +25,8 @@ import artifact.diagram.edit.parts.ArtifactNameEditPart;
 import artifact.diagram.edit.parts.ArtifactsEditPart;
 import artifact.diagram.edit.parts.ConfigVariableEditPart;
 import artifact.diagram.edit.parts.ConfigVariableNameEditPart;
+import artifact.diagram.edit.parts.GenerationHintEditPart;
+import artifact.diagram.edit.parts.GenerationHintNameEditPart;
 import artifact.diagram.edit.parts.ModelQueryEditPart;
 import artifact.diagram.edit.parts.ModelQueryNameEditPart;
 import artifact.diagram.edit.parts.SpecifierEditPart;
@@ -117,6 +119,9 @@ public class DomainNavigatorLabelProvider extends LabelProvider implements
 		case SpecifierEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Node?http://tura.org/2013/v1/domain?Specifier", DomainElementTypes.Specifier_703003); //$NON-NLS-1$
+		case GenerationHintEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Node?http://tura.org/2013/v1/domain?GenerationHint", DomainElementTypes.GenerationHint_703006); //$NON-NLS-1$
 		}
 		return getImage("Navigator?UnknownElement", null); //$NON-NLS-1$
 	}
@@ -187,6 +192,8 @@ public class DomainNavigatorLabelProvider extends LabelProvider implements
 			return getModelQuery_703005Text(view);
 		case SpecifierEditPart.VISUAL_ID:
 			return getSpecifier_703003Text(view);
+		case GenerationHintEditPart.VISUAL_ID:
+			return getGenerationHint_703006Text(view);
 		}
 		return getUnknownElementText(view);
 	}
@@ -280,6 +287,26 @@ public class DomainNavigatorLabelProvider extends LabelProvider implements
 		} else {
 			DomainDiagramEditorPlugin.getInstance().logError(
 					"Parser was not found for label " + 705003); //$NON-NLS-1$
+			return ""; //$NON-NLS-1$
+		}
+	}
+
+	/**
+	 * @generated
+	 */
+	private String getGenerationHint_703006Text(View view) {
+		IParser parser = DomainParserProvider.getParser(
+				DomainElementTypes.GenerationHint_703006,
+				view.getElement() != null ? view.getElement() : view,
+				DomainVisualIDRegistry
+						.getType(GenerationHintNameEditPart.VISUAL_ID));
+		if (parser != null) {
+			return parser.getPrintString(new EObjectAdapter(
+					view.getElement() != null ? view.getElement() : view),
+					ParserOptions.NONE.intValue());
+		} else {
+			DomainDiagramEditorPlugin.getInstance().logError(
+					"Parser was not found for label " + 705007); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 	}

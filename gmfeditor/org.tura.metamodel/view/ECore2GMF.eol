@@ -44,6 +44,8 @@ delete tool;
 var tool = GmfTool!CreationTool.all.selectOne(r|r.title='Button');
 delete tool;
 
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='GenerationHint');
+delete tool;
 
 var tool = GmfTool!CreationTool.all.selectOne(r|r.title='StyleLibrary');
 delete tool;

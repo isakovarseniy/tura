@@ -24,6 +24,14 @@ public class TreeProviderAdapterFactory implements IAdapterFactory {
 	private MessageLibraryProvider messageLibraryProvider;
 	private MessagesProvider messagesProvider;
 	private MessageProvider messageProvider;
+	private DomainArtifactsProvider domainArtifactsProvider;
+	private DomainArtifactProvider domainArtifactProvider;
+	private ArtifactProvider artifactProvider;
+	private GeneratioinHintProvider generatioinHintProvider;
+	
+	
+	
+	
 
 	@SuppressWarnings("rawtypes")
 	public Class[] getAdapterList() {
@@ -64,11 +72,49 @@ public class TreeProviderAdapterFactory implements IAdapterFactory {
 			if (adaptableObject instanceof domain.MessageLibrary)
 				return getMessageLibraryProvider();
 		
-		
+
+			if (adaptableObject instanceof domain.DomainArtifacts)
+				return getDomainArtifactsProvider();
+			
+			if (adaptableObject instanceof domain.DomainArtifact)
+				return  getDomainArtifactProvider();
+
+			if (adaptableObject instanceof domain.Artifact)
+				return  getArtifactProvider();
+
+			if (adaptableObject instanceof domain.GenerationHint)
+				return  getGeneratioinHintProvider();
+			
 		}
 		return null;
 	}
 
+	
+	protected DomainArtifactsProvider getDomainArtifactsProvider() {
+		if (domainArtifactsProvider == null)
+			domainArtifactsProvider = new DomainArtifactsProvider();
+		return domainArtifactsProvider;
+	}
+
+	protected DomainArtifactProvider getDomainArtifactProvider() {
+		if (domainArtifactProvider == null)
+			domainArtifactProvider = new DomainArtifactProvider();
+		return domainArtifactProvider;
+	}
+	
+	protected ArtifactProvider getArtifactProvider() {
+		if (artifactProvider == null)
+			artifactProvider = new ArtifactProvider();
+		return artifactProvider;
+	}
+
+	protected GeneratioinHintProvider getGeneratioinHintProvider() {
+		if (generatioinHintProvider == null)
+			generatioinHintProvider = new GeneratioinHintProvider();
+		return generatioinHintProvider;
+	}
+	
+	
 	protected TreeRootProvider getTreeRootProvider() {
 		if (treeRootProvider == null)
 			treeRootProvider = new TreeRootProvider();

@@ -21,6 +21,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link domain.Artifact#getConfigVariables <em>Config Variables</em>}</li>
  *   <li>{@link domain.Artifact#getModelQuery <em>Model Query</em>}</li>
  *   <li>{@link domain.Artifact#getSpecifiers <em>Specifiers</em>}</li>
+ *   <li>{@link domain.Artifact#getHints <em>Hints</em>}</li>
  *   <li>{@link domain.Artifact#getTemplate <em>Template</em>}</li>
  * </ul>
  * </p>
@@ -193,6 +194,23 @@ public interface Artifact extends EObject
    * @generated
    */
   EList<Specifier> getSpecifiers();
+
+  /**
+   * Returns the value of the '<em><b>Hints</b></em>' containment reference list.
+   * The list contents are of type {@link domain.GenerationHint}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Hints</em>' containment reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Hints</em>' containment reference list.
+   * @see domain.DomainPackage#getArtifact_Hints()
+   * @model containment="true"
+   *        annotation="gmf.compartment layout='list'"
+   * @generated
+   */
+  EList<GenerationHint> getHints();
 
   /**
    * Returns the value of the '<em><b>Template</b></em>' attribute.

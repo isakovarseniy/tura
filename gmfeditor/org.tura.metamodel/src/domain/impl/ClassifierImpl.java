@@ -4,10 +4,12 @@ package domain.impl;
 
 import domain.Classifier;
 import domain.DomainPackage;
+import domain.GenerationHint;
 
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
@@ -20,7 +22,7 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * The following features are implemented:
  * <ul>
  *   <li>{@link domain.impl.ClassifierImpl#getUid <em>Uid</em>}</li>
- *   <li>{@link domain.impl.ClassifierImpl#getName <em>Name</em>}</li>
+ *   <li>{@link domain.impl.ClassifierImpl#getHint <em>Hint</em>}</li>
  * </ul>
  * </p>
  *
@@ -49,24 +51,14 @@ public class ClassifierImpl extends EObjectImpl implements Classifier
   protected String uid = UID_EDEFAULT;
 
   /**
-   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+   * The cached value of the '{@link #getHint() <em>Hint</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getName()
+   * @see #getHint()
    * @generated
    * @ordered
    */
-  protected static final String NAME_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getName()
-   * @generated
-   * @ordered
-   */
-  protected String name = NAME_EDEFAULT;
+  protected GenerationHint hint;
 
   /**
    * <!-- begin-user-doc -->
@@ -117,9 +109,19 @@ public class ClassifierImpl extends EObjectImpl implements Classifier
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getName()
+  public GenerationHint getHint()
   {
-    return name;
+    if (hint != null && hint.eIsProxy())
+    {
+      InternalEObject oldHint = (InternalEObject)hint;
+      hint = (GenerationHint)eResolveProxy(oldHint);
+      if (hint != oldHint)
+      {
+        if (eNotificationRequired())
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, DomainPackage.CLASSIFIER__HINT, oldHint, hint));
+      }
+    }
+    return hint;
   }
 
   /**
@@ -127,12 +129,22 @@ public class ClassifierImpl extends EObjectImpl implements Classifier
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setName(String newName)
+  public GenerationHint basicGetHint()
   {
-    String oldName = name;
-    name = newName;
+    return hint;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setHint(GenerationHint newHint)
+  {
+    GenerationHint oldHint = hint;
+    hint = newHint;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.CLASSIFIER__NAME, oldName, name));
+      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.CLASSIFIER__HINT, oldHint, hint));
   }
 
   /**
@@ -147,8 +159,9 @@ public class ClassifierImpl extends EObjectImpl implements Classifier
     {
       case DomainPackage.CLASSIFIER__UID:
         return getUid();
-      case DomainPackage.CLASSIFIER__NAME:
-        return getName();
+      case DomainPackage.CLASSIFIER__HINT:
+        if (resolve) return getHint();
+        return basicGetHint();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -166,8 +179,8 @@ public class ClassifierImpl extends EObjectImpl implements Classifier
       case DomainPackage.CLASSIFIER__UID:
         setUid((String)newValue);
         return;
-      case DomainPackage.CLASSIFIER__NAME:
-        setName((String)newValue);
+      case DomainPackage.CLASSIFIER__HINT:
+        setHint((GenerationHint)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -186,8 +199,8 @@ public class ClassifierImpl extends EObjectImpl implements Classifier
       case DomainPackage.CLASSIFIER__UID:
         setUid(UID_EDEFAULT);
         return;
-      case DomainPackage.CLASSIFIER__NAME:
-        setName(NAME_EDEFAULT);
+      case DomainPackage.CLASSIFIER__HINT:
+        setHint((GenerationHint)null);
         return;
     }
     super.eUnset(featureID);
@@ -205,8 +218,8 @@ public class ClassifierImpl extends EObjectImpl implements Classifier
     {
       case DomainPackage.CLASSIFIER__UID:
         return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
-      case DomainPackage.CLASSIFIER__NAME:
-        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+      case DomainPackage.CLASSIFIER__HINT:
+        return hint != null;
     }
     return super.eIsSet(featureID);
   }
@@ -224,8 +237,6 @@ public class ClassifierImpl extends EObjectImpl implements Classifier
     StringBuffer result = new StringBuffer(super.toString());
     result.append(" (uid: ");
     result.append(uid);
-    result.append(", name: ");
-    result.append(name);
     result.append(')');
     return result.toString();
   }

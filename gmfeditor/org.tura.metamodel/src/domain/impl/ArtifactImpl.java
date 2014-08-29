@@ -6,6 +6,7 @@ import domain.Artifact;
 import domain.Artifacts;
 import domain.ConfigVariable;
 import domain.DomainPackage;
+import domain.GenerationHint;
 import domain.ModelQuery;
 import domain.Specifier;
 
@@ -22,6 +23,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -40,6 +42,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link domain.impl.ArtifactImpl#getConfigVariables <em>Config Variables</em>}</li>
  *   <li>{@link domain.impl.ArtifactImpl#getModelQuery <em>Model Query</em>}</li>
  *   <li>{@link domain.impl.ArtifactImpl#getSpecifiers <em>Specifiers</em>}</li>
+ *   <li>{@link domain.impl.ArtifactImpl#getHints <em>Hints</em>}</li>
  *   <li>{@link domain.impl.ArtifactImpl#getTemplate <em>Template</em>}</li>
  * </ul>
  * </p>
@@ -137,6 +140,16 @@ public class ArtifactImpl extends EObjectImpl implements Artifact
    * @ordered
    */
   protected EList<Specifier> specifiers;
+
+  /**
+   * The cached value of the '{@link #getHints() <em>Hints</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getHints()
+   * @generated
+   * @ordered
+   */
+  protected EList<GenerationHint> hints;
 
   /**
    * The default value of the '{@link #getTemplate() <em>Template</em>}' attribute.
@@ -340,6 +353,20 @@ public class ArtifactImpl extends EObjectImpl implements Artifact
    * <!-- end-user-doc -->
    * @generated
    */
+  public EList<GenerationHint> getHints()
+  {
+    if (hints == null)
+    {
+      hints = new EObjectContainmentEList<GenerationHint>(GenerationHint.class, this, DomainPackage.ARTIFACT__HINTS);
+    }
+    return hints;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public String getTemplate()
   {
     return template;
@@ -401,6 +428,8 @@ public class ArtifactImpl extends EObjectImpl implements Artifact
         return ((InternalEList<?>)getModelQuery()).basicRemove(otherEnd, msgs);
       case DomainPackage.ARTIFACT__SPECIFIERS:
         return ((InternalEList<?>)getSpecifiers()).basicRemove(otherEnd, msgs);
+      case DomainPackage.ARTIFACT__HINTS:
+        return ((InternalEList<?>)getHints()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -445,6 +474,8 @@ public class ArtifactImpl extends EObjectImpl implements Artifact
         return getModelQuery();
       case DomainPackage.ARTIFACT__SPECIFIERS:
         return getSpecifiers();
+      case DomainPackage.ARTIFACT__HINTS:
+        return getHints();
       case DomainPackage.ARTIFACT__TEMPLATE:
         return getTemplate();
     }
@@ -486,6 +517,10 @@ public class ArtifactImpl extends EObjectImpl implements Artifact
         getSpecifiers().clear();
         getSpecifiers().addAll((Collection<? extends Specifier>)newValue);
         return;
+      case DomainPackage.ARTIFACT__HINTS:
+        getHints().clear();
+        getHints().addAll((Collection<? extends GenerationHint>)newValue);
+        return;
       case DomainPackage.ARTIFACT__TEMPLATE:
         setTemplate((String)newValue);
         return;
@@ -524,6 +559,9 @@ public class ArtifactImpl extends EObjectImpl implements Artifact
       case DomainPackage.ARTIFACT__SPECIFIERS:
         getSpecifiers().clear();
         return;
+      case DomainPackage.ARTIFACT__HINTS:
+        getHints().clear();
+        return;
       case DomainPackage.ARTIFACT__TEMPLATE:
         setTemplate(TEMPLATE_EDEFAULT);
         return;
@@ -555,6 +593,8 @@ public class ArtifactImpl extends EObjectImpl implements Artifact
         return modelQuery != null && !modelQuery.isEmpty();
       case DomainPackage.ARTIFACT__SPECIFIERS:
         return specifiers != null && !specifiers.isEmpty();
+      case DomainPackage.ARTIFACT__HINTS:
+        return hints != null && !hints.isEmpty();
       case DomainPackage.ARTIFACT__TEMPLATE:
         return TEMPLATE_EDEFAULT == null ? template != null : !TEMPLATE_EDEFAULT.equals(template);
     }

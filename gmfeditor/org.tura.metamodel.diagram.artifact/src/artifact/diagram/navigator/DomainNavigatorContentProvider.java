@@ -29,11 +29,13 @@ import org.eclipse.ui.navigator.ICommonContentExtensionSite;
 import org.eclipse.ui.navigator.ICommonContentProvider;
 
 import artifact.diagram.edit.parts.ArtifactArtifactConfigVariablesCompartmentEditPart;
+import artifact.diagram.edit.parts.ArtifactArtifactHintsCompartmentEditPart;
 import artifact.diagram.edit.parts.ArtifactArtifactModelQueryCompartmentEditPart;
 import artifact.diagram.edit.parts.ArtifactArtifactSpecifiersCompartmentEditPart;
 import artifact.diagram.edit.parts.ArtifactEditPart;
 import artifact.diagram.edit.parts.ArtifactsEditPart;
 import artifact.diagram.edit.parts.ConfigVariableEditPart;
+import artifact.diagram.edit.parts.GenerationHintEditPart;
 import artifact.diagram.edit.parts.ModelQueryEditPart;
 import artifact.diagram.edit.parts.SpecifierEditPart;
 import artifact.diagram.part.DomainVisualIDRegistry;
@@ -280,6 +282,15 @@ public class DomainNavigatorContentProvider implements ICommonContentProvider {
 							.getType(ArtifactArtifactSpecifiersCompartmentEditPart.VISUAL_ID));
 			connectedViews = getChildrenByType(connectedViews,
 					DomainVisualIDRegistry.getType(SpecifierEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					DomainVisualIDRegistry
+							.getType(ArtifactArtifactHintsCompartmentEditPart.VISUAL_ID));
+			connectedViews = getChildrenByType(connectedViews,
+					DomainVisualIDRegistry
+							.getType(GenerationHintEditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
 			return result.toArray();

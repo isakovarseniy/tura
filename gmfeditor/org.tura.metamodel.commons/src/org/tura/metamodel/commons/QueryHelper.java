@@ -438,6 +438,26 @@ public class QueryHelper {
 
 	}
 
+	@SuppressWarnings({ "rawtypes", "unchecked" })
+	public domain.DomainArtifacts getDomainArtifact(EObject obj) throws Exception {
+		OCL ocl = OCL.newInstance(EcoreEnvironmentFactory.INSTANCE);
+		OCLHelper<EClassifier, ?, ?, Constraint> helper = ocl.createOCLHelper();
+		helper.setContext(DomainPackage.eINSTANCE.getEClassifier("Domain"));
+
+		OCLExpression<EClassifier> query = helper
+				.createQuery("domain::DomainArtifacts.allInstances()");
+
+		Collection<domain.DomainArtifacts> map = (Collection<domain.DomainArtifacts>) ocl.evaluate(
+				obj, query);
+		if (map != null && map.size() != 0)
+			return (domain.DomainArtifacts) map.toArray()[0];
+
+		return null;
+
+	}
+
+	
+	
 	class ParameterComparator implements Comparator<domain.Parameter> {
 
 		@Override
