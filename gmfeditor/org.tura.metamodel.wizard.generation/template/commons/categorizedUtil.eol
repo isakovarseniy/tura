@@ -1,0 +1,13 @@
+operation Categorized findClassifier( artifactLib:String, artifact: String, classifier : String) { 
+
+      for (hint in self.getClassifiers()){
+           if (classifier.equals(hint.getHint.getName())){
+               if ( artifact.equals(  hint.getHint.eContainer().getName)){
+                  if ( artifactLib.equals( hint.getHint.eContainer().getParent().getParent().getName()) ){
+                     return true;
+                  }
+               }
+           }
+      }
+      return false;
+}

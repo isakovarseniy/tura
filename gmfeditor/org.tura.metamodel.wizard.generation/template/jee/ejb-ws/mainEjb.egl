@@ -1,4 +1,5 @@
 [%
+ import "platform:/plugin/org.tura.metamodel.wizard.generation/template/commons/categorizedUtil.eol";
  import "platform:/plugin/org.tura.metamodel.wizard.generation/template/commons/typeElementUtil.eol";
   
      var util = new Native('org.tura.metamodel.commons.Util');
@@ -6,32 +7,36 @@
      var typeRemote;
      var typeLocal;
      var typeGeneric;
+     var typeExtens;
      
     var types = util.runQuery(model_mapper,"Query type",model_mapper);
     if (types.size() <> 0 ){
        type = types.get(0);
        type.mappingType2Java(recipe,ingredient);
     }
-    var typesLocal = util.runQuery(model_mapper,"Query local interface",model_mapper);
-    if (typesLocal.size() <> 0 ){
-       typeLocal = typesLocal.get(0);
-       typeLocal.mappingType2Java(recipe,ingredient);
-    }
     
-    var typesRemote = util.runQuery(model_mapper,"Query remote interface",model_mapper);
-    if (typesRemote.size() <> 0 ){
-       typeRemote = typesRemote.get(0);
-       typeRemote.mappingType2Java(recipe,ingredient);
+    for (  extension in type.getExtension() ){
+            if (extension.findClassifier("ORMEntity","entityObject","Extends")){
+              typeExtens = extension.getTarget();
+              typeExtens.mappingType2Java(recipe,ingredient);
+            }
+            if (extension.findClassifier("EJBService","Service Bean","Generics")){
+              typeGeneric = extension.getTarget();
+              typeGeneric.mappingType2Java(recipe,ingredient);
+            }
+            if (extension.findClassifier("ORMEntity","entityObject","Implements")){
+                 var target = extension.getTarget();
+                 if (target.findClassifier("EJBService","Service Bean","EJBRemoteInterface")){
+                    typeRemote = target;
+                    typeRemote.mappingType2Java(recipe,ingredient);
+                 }
+                 if (target.findClassifier("EJBService","Service Bean","EJBLocalInterface")){
+                    typeLocal = target;
+                    typeLocal.mappingType2Java(recipe,ingredient);
+                 }
+           }
     }
-            
-    var typesGeneric = util.runQuery(model_mapper,"Query generic type",model_mapper);
-    if (typesGeneric.size() <> 0 ){
-       typeGeneric = typesGeneric.get(0);
-       typeGeneric.mappingType2Java(recipe,ingredient);
-    }
-   
-   
-   
+
     var f = new Native("org.tura.metamodel.wizard.infrastructure.JavaFormatter"); 
     var sessionBean : Template = TemplateFactory.load("platform:/plugin/org.tura.metamodel.wizard.generation/template/jee/ejb-ws/sessionBean.egl");
     sessionBean.setFormatter(f);

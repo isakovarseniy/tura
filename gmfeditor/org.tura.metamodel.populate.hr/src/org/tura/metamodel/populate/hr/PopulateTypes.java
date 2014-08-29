@@ -184,7 +184,6 @@ public class PopulateTypes {
 		ext.setSource(departmentsService);
 		addClassifier(ext,  (domain.GenerationHint) artifactMap.get(InitDiagram.ORMENTITY + "_" + InitDiagram.ENTITYOBJECT+"_"+InitDiagram.HINTS_IMPLEMENTS  ));
 
-		
 		ext = domain.DomainFactory.eINSTANCE
 				.createTypeExtension();
 		departmentsService.getExtension().add(ext);
@@ -192,6 +191,15 @@ public class PopulateTypes {
 		ext.setSource(departmentsService);
 		addClassifier(ext,  (domain.GenerationHint) artifactMap.get(InitDiagram.ORMENTITY + "_" + InitDiagram.ENTITYOBJECT+"_"+InitDiagram.HINTS_IMPLEMENTS  ));
 
+		
+		ext = domain.DomainFactory.eINSTANCE
+				.createTypeExtension();
+		departmentsService.getExtension().add(ext);
+		ext.setTarget(department);
+		ext.setSource(departmentsService);
+		addClassifier(ext,  (domain.GenerationHint) artifactMap.get(InitDiagram.EJBSERVICE + "_" + InitDiagram.SERVICE_BEAN+"_"+InitDiagram.HINTS_EJB_GENERICS  ));
+		
+		
 		ext = domain.DomainFactory.eINSTANCE
 				.createTypeExtension();
 		departmentsService.getExtension().add(ext);
@@ -566,11 +574,21 @@ public class PopulateTypes {
 		ext.setSource(employeesService);
 		addClassifier(ext,  (domain.GenerationHint) artifactMap.get(InitDiagram.ORMENTITY + "_" + InitDiagram.ENTITYOBJECT+"_"+InitDiagram.HINTS_IMPLEMENTS  ));
 		
+
+		ext = domain.DomainFactory.eINSTANCE
+				.createTypeExtension();
+		employeesService.getExtension().add(ext);
+		ext.setTarget(employee);
+		ext.setSource(employeesService);
+		addClassifier(ext,  (domain.GenerationHint) artifactMap.get(InitDiagram.EJBSERVICE + "_" + InitDiagram.SERVICE_BEAN+"_"+InitDiagram.HINTS_EJB_GENERICS  ));
+		
+		
 		ext = domain.DomainFactory.eINSTANCE
 				.createTypeExtension();
 		employeesService.getExtension().add(ext);
 		addClassifier(ext,  (domain.GenerationHint) artifactMap.get(InitDiagram.ORMENTITY + "_" + InitDiagram.ENTITYOBJECT+"_"+InitDiagram.HINTS_EXTENDS)  );
-
+		
+		
 		typeRef = domain.DomainFactory.eINSTANCE
 				.createTypeReference();
 		td.getTypes().add(typeRef);

@@ -157,6 +157,10 @@ public class Util {
 		out.close();
 	}
 
+	public static void println(Object obj){
+		System.out.println(obj);
+	}
+	
 	public static EglTemplate loadTemplate(String templateFile,
 			HashMap<String, Object> parameters, EglTemplateFactory factory)
 			throws Exception {

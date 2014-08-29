@@ -69,6 +69,7 @@ public class InitDiagram {
 	public static String HINTS_EJB_REMOTE_INREFACE = "EJBRemoteInterface";
 	public static String HINTS_EJB_LOCAL_INREFACE = "EJBLocalInterface";
 	public static String HINTS_ENTITY= "Entity";
+	public static String HINTS_EJB_GENERICS = "Generics";
 
 	public static String OS = "OS";
 
@@ -403,6 +404,13 @@ public class InitDiagram {
 		hint.setUid(UUID.randomUUID().toString());
 		artifact.getHints().add(hint);
 
+
+		hint = domain.DomainFactory.eINSTANCE.createGenerationHint();
+		hint.setName(HINTS_EJB_GENERICS);
+		hint.setUid(UUID.randomUUID().toString());
+		artifact.getHints().add(hint);
+		
+		
 		domain.ModelQuery query = domain.DomainFactory.eINSTANCE
 				.createModelQuery();
 		query.setUid(UUID.randomUUID().toString());
@@ -421,53 +429,53 @@ public class InitDiagram {
 		param.setName(VAR_PACKAGE_NAME);
 		query.getParameters().add(param);
 
-		query = domain.DomainFactory.eINSTANCE.createModelQuery();
-		query.setUid(UUID.randomUUID().toString());
-		query.setName(QUERY_TYPE_LOCAL);
-		query.setQuery("domain::Package.allInstances()->select(r|r.oclAsType(domain::Package).name='${Package name}').oclAsType(domain::Package).typedefinition.types->select(r|(r.oclIsKindOf(domain::Type) and  r.oclAsType(domain::Type).name = '${Type name}')  or (r.oclIsKindOf(domain::Primitive) and  r.oclAsType(domain::Primitive).name = '${Type name}') or (r.oclIsKindOf(domain::Enumarator) and  r.oclAsType(domain::Enumarator).name = '${Type name}') )");
-		artifact.getModelQuery().add(query);
-
-		param = domain.DomainFactory.eINSTANCE.createQueryParameter();
-		param.setUid(UUID.randomUUID().toString());
-		param.setName(VAR_TYPE_NAME);
-		query.getParameters().add(param);
-
-		param = domain.DomainFactory.eINSTANCE.createQueryParameter();
-		param.setUid(UUID.randomUUID().toString());
-		param.setName(VAR_PACKAGE_NAME);
-		query.getParameters().add(param);
-
-		query = domain.DomainFactory.eINSTANCE.createModelQuery();
-		query.setUid(UUID.randomUUID().toString());
-		query.setName(QUERY_TYPE_REMOTE);
-		query.setQuery("domain::Package.allInstances()->select(r|r.oclAsType(domain::Package).name='${Package name}').oclAsType(domain::Package).typedefinition.types->select(r|(r.oclIsKindOf(domain::Type) and  r.oclAsType(domain::Type).name = '${Type name}')  or (r.oclIsKindOf(domain::Primitive) and  r.oclAsType(domain::Primitive).name = '${Type name}') or (r.oclIsKindOf(domain::Enumarator) and  r.oclAsType(domain::Enumarator).name = '${Type name}') )");
-		artifact.getModelQuery().add(query);
-
-		param = domain.DomainFactory.eINSTANCE.createQueryParameter();
-		param.setUid(UUID.randomUUID().toString());
-		param.setName(VAR_TYPE_NAME);
-		query.getParameters().add(param);
-
-		param = domain.DomainFactory.eINSTANCE.createQueryParameter();
-		param.setUid(UUID.randomUUID().toString());
-		param.setName(VAR_PACKAGE_NAME);
-		query.getParameters().add(param);
-
-		query = domain.DomainFactory.eINSTANCE.createModelQuery();
-		query.setUid(UUID.randomUUID().toString());
-		query.setName(QUERY_TYPE_GENERIC);
-		query.setQuery("domain::Package.allInstances()->select(r|r.oclAsType(domain::Package).name='${Package name}').oclAsType(domain::Package).typedefinition.types->select(r|(r.oclIsKindOf(domain::Type) and  r.oclAsType(domain::Type).name = '${Type name}')  or (r.oclIsKindOf(domain::Primitive) and  r.oclAsType(domain::Primitive).name = '${Type name}') or (r.oclIsKindOf(domain::Enumarator) and  r.oclAsType(domain::Enumarator).name = '${Type name}') )");
-		artifact.getModelQuery().add(query);
-
-		param = domain.DomainFactory.eINSTANCE.createQueryParameter();
-		param.setUid(UUID.randomUUID().toString());
-		param.setName(VAR_TYPE_NAME);
-		query.getParameters().add(param);
-
-		param = domain.DomainFactory.eINSTANCE.createQueryParameter();
-		param.setUid(UUID.randomUUID().toString());
-		param.setName(VAR_PACKAGE_NAME);
-		query.getParameters().add(param);
+//		query = domain.DomainFactory.eINSTANCE.createModelQuery();
+//		query.setUid(UUID.randomUUID().toString());
+//		query.setName(QUERY_TYPE_LOCAL);
+//		query.setQuery("domain::Package.allInstances()->select(r|r.oclAsType(domain::Package).name='${Package name}').oclAsType(domain::Package).typedefinition.types->select(r|(r.oclIsKindOf(domain::Type) and  r.oclAsType(domain::Type).name = '${Type name}')  or (r.oclIsKindOf(domain::Primitive) and  r.oclAsType(domain::Primitive).name = '${Type name}') or (r.oclIsKindOf(domain::Enumarator) and  r.oclAsType(domain::Enumarator).name = '${Type name}') )");
+//		artifact.getModelQuery().add(query);
+//
+//		param = domain.DomainFactory.eINSTANCE.createQueryParameter();
+//		param.setUid(UUID.randomUUID().toString());
+//		param.setName(VAR_TYPE_NAME);
+//		query.getParameters().add(param);
+//
+//		param = domain.DomainFactory.eINSTANCE.createQueryParameter();
+//		param.setUid(UUID.randomUUID().toString());
+//		param.setName(VAR_PACKAGE_NAME);
+//		query.getParameters().add(param);
+//
+//		query = domain.DomainFactory.eINSTANCE.createModelQuery();
+//		query.setUid(UUID.randomUUID().toString());
+//		query.setName(QUERY_TYPE_REMOTE);
+//		query.setQuery("domain::Package.allInstances()->select(r|r.oclAsType(domain::Package).name='${Package name}').oclAsType(domain::Package).typedefinition.types->select(r|(r.oclIsKindOf(domain::Type) and  r.oclAsType(domain::Type).name = '${Type name}')  or (r.oclIsKindOf(domain::Primitive) and  r.oclAsType(domain::Primitive).name = '${Type name}') or (r.oclIsKindOf(domain::Enumarator) and  r.oclAsType(domain::Enumarator).name = '${Type name}') )");
+//		artifact.getModelQuery().add(query);
+//
+//		param = domain.DomainFactory.eINSTANCE.createQueryParameter();
+//		param.setUid(UUID.randomUUID().toString());
+//		param.setName(VAR_TYPE_NAME);
+//		query.getParameters().add(param);
+//
+//		param = domain.DomainFactory.eINSTANCE.createQueryParameter();
+//		param.setUid(UUID.randomUUID().toString());
+//		param.setName(VAR_PACKAGE_NAME);
+//		query.getParameters().add(param);
+//
+//		query = domain.DomainFactory.eINSTANCE.createModelQuery();
+//		query.setUid(UUID.randomUUID().toString());
+//		query.setName(QUERY_TYPE_GENERIC);
+//		query.setQuery("domain::Package.allInstances()->select(r|r.oclAsType(domain::Package).name='${Package name}').oclAsType(domain::Package).typedefinition.types->select(r|(r.oclIsKindOf(domain::Type) and  r.oclAsType(domain::Type).name = '${Type name}')  or (r.oclIsKindOf(domain::Primitive) and  r.oclAsType(domain::Primitive).name = '${Type name}') or (r.oclIsKindOf(domain::Enumarator) and  r.oclAsType(domain::Enumarator).name = '${Type name}') )");
+//		artifact.getModelQuery().add(query);
+//
+//		param = domain.DomainFactory.eINSTANCE.createQueryParameter();
+//		param.setUid(UUID.randomUUID().toString());
+//		param.setName(VAR_TYPE_NAME);
+//		query.getParameters().add(param);
+//
+//		param = domain.DomainFactory.eINSTANCE.createQueryParameter();
+//		param.setUid(UUID.randomUUID().toString());
+//		param.setName(VAR_PACKAGE_NAME);
+//		query.getParameters().add(param);
 
 		model.getArtifacts().add(artifact);
 
