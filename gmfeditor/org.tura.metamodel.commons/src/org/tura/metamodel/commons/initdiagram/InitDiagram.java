@@ -63,6 +63,13 @@ public class InitDiagram {
 	public static String GLASSFISH_ADMIN_PORT = "GlassFish admin port";
 	public static String GLASSFISH_DOMAIN = "GlassFish domain";
 
+	public static String HINTS_IMPLEMENTS = "Implements";
+	public static String HINTS_EXTENDS = "Extends";
+	public static String HINTS_EJBSERVICE = "EJBService";
+	public static String HINTS_EJB_REMOTE_INREFACE = "EJBRemoteInterface";
+	public static String HINTS_EJB_LOCAL_INREFACE = "EJBLocalInterface";
+	public static String HINTS_ENTITY= "Entity";
+
 	public static String OS = "OS";
 
 	public static domain.Domain initDomainDiagram(Resource resource) {
@@ -117,7 +124,7 @@ public class InitDiagram {
 		cnInteg.setUid(UUID.randomUUID().toString());
 		domainArtifacts.getDomainArtifact().add(cnInteg);
 		cnInteg.setArtifact(initContinuousIntegration(resource));
-		
+
 		initLang(resource);
 
 		return model;
@@ -150,34 +157,34 @@ public class InitDiagram {
 		return model;
 	}
 
-	public static void initLang(Resource resource){
-		
+	public static void initLang(Resource resource) {
+
 		domain.Language lang = domain.DomainFactory.eINSTANCE.createLanguage();
 		lang.setLang("English");
 		lang.setUid(lang.getLang());
 		lang.setCode("en");
 		resource.getContents().add(lang);
-		
+
 		lang = domain.DomainFactory.eINSTANCE.createLanguage();
 		lang.setLang("France");
 		lang.setUid(lang.getLang());
 		lang.setCode("fr");
 		resource.getContents().add(lang);
-		
-		
+
 	}
-	
+
 	public static domain.Form initFormDiagram(Resource resource) {
 		domain.Form model = domain.DomainFactory.eINSTANCE.createForm();
-		
+
 		domain.FormView view = domain.DomainFactory.eINSTANCE.createFormView();
 		view.setName("Views");
 		model.setView(view);
 
-		domain.FormDataControls controls = domain.DomainFactory.eINSTANCE.createFormDataControls();
+		domain.FormDataControls controls = domain.DomainFactory.eINSTANCE
+				.createFormDataControls();
 		controls.setName("DataControls");
 		model.setDatacontrols(controls);
-		
+
 		return model;
 	}
 
@@ -236,6 +243,23 @@ public class InitDiagram {
 
 		model.getArtifacts().add(artifact);
 
+		domain.GenerationHint hint = domain.DomainFactory.eINSTANCE
+				.createGenerationHint();
+		hint.setName(HINTS_IMPLEMENTS);
+		hint.setUid(UUID.randomUUID().toString());
+		artifact.getHints().add(hint);
+
+		hint = domain.DomainFactory.eINSTANCE.createGenerationHint();
+		hint.setName(HINTS_EXTENDS);
+		hint.setUid(UUID.randomUUID().toString());
+		artifact.getHints().add(hint);
+
+		hint = domain.DomainFactory.eINSTANCE.createGenerationHint();
+		hint.setName(HINTS_ENTITY);
+		hint.setUid(UUID.randomUUID().toString());
+		artifact.getHints().add(hint);
+
+		
 		return model;
 	}
 
@@ -362,6 +386,22 @@ public class InitDiagram {
 		artifact.setName(SERVICE_BEAN);
 		artifact.setUid(UUID.randomUUID().toString());
 		artifact.setTemplate("platform:/plugin/org.tura.metamodel.wizard.generation/template/jee/ejb-ws/mainEjb.egl");
+
+		domain.GenerationHint hint = domain.DomainFactory.eINSTANCE
+				.createGenerationHint();
+		hint.setName(HINTS_EJBSERVICE);
+		hint.setUid(UUID.randomUUID().toString());
+		artifact.getHints().add(hint);
+
+		hint = domain.DomainFactory.eINSTANCE.createGenerationHint();
+		hint.setName(HINTS_EJB_REMOTE_INREFACE);
+		hint.setUid(UUID.randomUUID().toString());
+		artifact.getHints().add(hint);
+
+		hint = domain.DomainFactory.eINSTANCE.createGenerationHint();
+		hint.setName(HINTS_EJB_LOCAL_INREFACE);
+		hint.setUid(UUID.randomUUID().toString());
+		artifact.getHints().add(hint);
 
 		domain.ModelQuery query = domain.DomainFactory.eINSTANCE
 				.createModelQuery();
@@ -1000,6 +1040,14 @@ public class InitDiagram {
 					domain.Artifact artifact = artitr.next();
 					map.put(artifact.getParent().getParent().getName() + "_"
 							+ artifact.getName(), artifact);
+
+					for (Iterator<domain.GenerationHint> hintItr = artifact
+							.getHints().iterator(); hintItr.hasNext();) {
+						domain.GenerationHint h = hintItr.next();
+						map.put(artifact.getParent().getParent().getName() + "_"
+								+ artifact.getName()+"_"+ h.getName(), h);
+					}
+
 					for (Iterator<domain.ModelQuery> mqItr = artifact
 							.getModelQuery().iterator(); mqItr.hasNext();) {
 						domain.ModelQuery mq = mqItr.next();

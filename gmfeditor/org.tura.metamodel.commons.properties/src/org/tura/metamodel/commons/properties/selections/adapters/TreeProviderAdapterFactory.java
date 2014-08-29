@@ -9,6 +9,7 @@ public class TreeProviderAdapterFactory implements IAdapterFactory {
 
 	@SuppressWarnings("rawtypes")
 	private static final Class[] TYPES = { IWorkbenchAdapter.class, IReturnTypeProvider.class};
+
 	private TreeRootProvider treeRootProvider;
 	private ControlsProvider controlsProvider;
 	private DataControlProvider dataControlProvider;
@@ -28,9 +29,6 @@ public class TreeProviderAdapterFactory implements IAdapterFactory {
 	private DomainArtifactProvider domainArtifactProvider;
 	private ArtifactProvider artifactProvider;
 	private GeneratioinHintProvider generatioinHintProvider;
-	
-	
-	
 	
 
 	@SuppressWarnings("rawtypes")
@@ -71,17 +69,12 @@ public class TreeProviderAdapterFactory implements IAdapterFactory {
 				return getMessagesProvider();
 			if (adaptableObject instanceof domain.MessageLibrary)
 				return getMessageLibraryProvider();
-		
-
 			if (adaptableObject instanceof domain.DomainArtifacts)
 				return getDomainArtifactsProvider();
-			
 			if (adaptableObject instanceof domain.DomainArtifact)
 				return  getDomainArtifactProvider();
-
 			if (adaptableObject instanceof domain.Artifact)
 				return  getArtifactProvider();
-
 			if (adaptableObject instanceof domain.GenerationHint)
 				return  getGeneratioinHintProvider();
 			

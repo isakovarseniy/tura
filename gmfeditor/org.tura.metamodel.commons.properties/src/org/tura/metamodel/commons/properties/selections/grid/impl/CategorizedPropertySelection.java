@@ -3,7 +3,6 @@ package org.tura.metamodel.commons.properties.selections.grid.impl;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.eclipse.core.runtime.Platform;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.edit.command.SetCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
@@ -23,7 +22,6 @@ import org.eclipse.swt.widgets.TableColumn;
 import org.eclipse.swt.widgets.TableItem;
 import org.eclipse.ui.views.properties.tabbed.TabbedPropertySheetPage;
 import org.tura.metamodel.commons.QueryHelper;
-import org.tura.metamodel.commons.properties.selections.adapters.IReturnTypeProvider;
 import org.tura.metamodel.commons.properties.selections.adapters.helper.TreeRoot;
 import org.tura.metamodel.commons.properties.selections.grid.GridColumn;
 import org.tura.metamodel.commons.properties.selections.grid.GridProperty;
@@ -166,10 +164,8 @@ public class CategorizedPropertySelection extends GridProperty {
 			TableItem item = (TableItem) element;
 			Object obj = ((TreePath)value).getLastSegment();
 			
-			IReturnTypeProvider provider = (IReturnTypeProvider) Platform
-					.getAdapterManager().getAdapter(obj, IReturnTypeProvider.class);
 
-			if (provider != null && provider.getReturnType(obj) != null){
+			if ( obj instanceof domain.GenerationHint){
 				domain.Classifier opt = (domain.Classifier) item
 						.getData();
 				EditingDomain editingDomain = this.property.getEditPart()
@@ -180,8 +176,6 @@ public class CategorizedPropertySelection extends GridProperty {
 								DomainPackage.eINSTANCE.getClassifier_Hint(),
 								obj));
 			}
-			
-			
 			
 		}
 
