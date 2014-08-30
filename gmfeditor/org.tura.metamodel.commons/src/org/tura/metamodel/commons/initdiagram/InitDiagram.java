@@ -21,6 +21,10 @@ public class InitDiagram {
 	public static String APPLICATION_RECIPES = "Application recipes";
 	public static String APPLICATION_MAPPER = "Application mapper";
 	public static String ENTITYOBJECT = "entityObject";
+	public static String  PACKAGEENTITYOBJECT = "Package of Entity objects";
+	public static String  PACKAGE_EJB_SERVICES = "Package of EJB Service";
+	public static String  PACKAGE_REMOTE_EJB_INTERFACE = "Package of Remote EJB interface";
+	public static String  PACKAGE_LOCAL_EJB_INTERFACE = "Package of Local EJB interface";
 	public static String SERVICE_BEAN = "Service Bean";
 	public static String REMOTE_INTERFACE = "Remote Interface";
 	public static String LOCAL_INTERFACE = "Local Interface";
@@ -71,6 +75,11 @@ public class InitDiagram {
 	public static String HINTS_ENTITY= "Entity";
 	public static String HINTS_EJB_GENERICS = "Generics";
 
+	
+	public static String VAR_ARTIFACT_LIB = "ArtifactLib";
+	public static String VAR_ARTIFACT = "Artifact";
+	public static String VAR_HINT = "Hint";
+	
 	public static String OS = "OS";
 
 	public static domain.Domain initDomainDiagram(Resource resource) {
@@ -260,6 +269,44 @@ public class InitDiagram {
 		hint.setUid(UUID.randomUUID().toString());
 		artifact.getHints().add(hint);
 
+		
+		artifact = domain.DomainFactory.eINSTANCE
+				.createArtifact();
+		artifact.setUid(UUID.randomUUID().toString());
+		artifact.setName(PACKAGEENTITYOBJECT);
+		artifact.setTemplate("platform:/plugin/org.tura.metamodel.wizard.generation/template/jee/ORMMapper/mainPackageEntity.egl");
+
+		query = domain.DomainFactory.eINSTANCE
+				.createModelQuery();
+		query.setUid(UUID.randomUUID().toString());
+		query.setName(QUERY_TYPE);
+		query.setQuery("domain::Package.allInstances()->select(r|r.oclAsType(domain::Package).name='${Package}').oclAsType(domain::Package).typedefinition.types->select(r|((r.oclIsKindOf(domain::Type ) ) )).oclAsType(domain::Categorized).classifiers->select(c|c.hint.name='${Hint}' and c.hint.oclAsType(ecore::EObject).eContainer().oclAsType(domain::Artifact).name = '${Artifact}' and  c.hint.oclAsType(ecore::EObject).eContainer().oclAsType(domain::Artifact).parent.oclAsType(domain::Artifacts).parent.oclAsType(domain::DomainArtifact).name = '${ArtifactLib}' )->collect(c|c.oclAsType(ecore::EObject).eContainer())");
+		artifact.getModelQuery().add(query);
+
+		param = domain.DomainFactory.eINSTANCE.createQueryParameter();
+		param.setUid(UUID.randomUUID().toString());
+		param.setName(VAR_PACKAGE_NAME);
+		query.getParameters().add(param);
+
+		param = domain.DomainFactory.eINSTANCE.createQueryParameter();
+		param.setUid(UUID.randomUUID().toString());
+		param.setName(VAR_ARTIFACT_LIB);
+		query.getParameters().add(param);
+
+		param = domain.DomainFactory.eINSTANCE.createQueryParameter();
+		param.setUid(UUID.randomUUID().toString());
+		param.setName(VAR_ARTIFACT);
+		query.getParameters().add(param);
+
+		param = domain.DomainFactory.eINSTANCE.createQueryParameter();
+		param.setUid(UUID.randomUUID().toString());
+		param.setName(VAR_HINT);
+		query.getParameters().add(param);
+		
+		model.getArtifacts().add(artifact);
+		
+		
+		
 		
 		return model;
 	}
@@ -695,6 +742,113 @@ public class InitDiagram {
 		specifier.getOptions().add(option);
 		option.setValue("Window");
 
+		
+		artifact = domain.DomainFactory.eINSTANCE
+				.createArtifact();
+		artifact.setUid(UUID.randomUUID().toString());
+		artifact.setName(PACKAGE_EJB_SERVICES);
+		artifact.setTemplate("platform:/plugin/org.tura.metamodel.wizard.generation/template/jee/ORMMapper/mainPackageEJBServices.egl");
+
+		query = domain.DomainFactory.eINSTANCE
+				.createModelQuery();
+		query.setUid(UUID.randomUUID().toString());
+		query.setName(QUERY_TYPE);
+		query.setQuery("domain::Package.allInstances()->select(r|r.oclAsType(domain::Package).name='${Package}').oclAsType(domain::Package).typedefinition.types->select(r|((r.oclIsKindOf(domain::Type ) ) )).oclAsType(domain::Categorized).classifiers->select(c|c.hint.name='${Hint}' and c.hint.oclAsType(ecore::EObject).eContainer().oclAsType(domain::Artifact).name = '${Artifact}' and  c.hint.oclAsType(ecore::EObject).eContainer().oclAsType(domain::Artifact).parent.oclAsType(domain::Artifacts).parent.oclAsType(domain::DomainArtifact).name = '${ArtifactLib}' )->collect(c|c.oclAsType(ecore::EObject).eContainer())");
+		artifact.getModelQuery().add(query);
+
+		param = domain.DomainFactory.eINSTANCE.createQueryParameter();
+		param.setUid(UUID.randomUUID().toString());
+		param.setName(VAR_PACKAGE_NAME);
+		query.getParameters().add(param);
+
+		param = domain.DomainFactory.eINSTANCE.createQueryParameter();
+		param.setUid(UUID.randomUUID().toString());
+		param.setName(VAR_ARTIFACT_LIB);
+		query.getParameters().add(param);
+
+		param = domain.DomainFactory.eINSTANCE.createQueryParameter();
+		param.setUid(UUID.randomUUID().toString());
+		param.setName(VAR_ARTIFACT);
+		query.getParameters().add(param);
+
+		param = domain.DomainFactory.eINSTANCE.createQueryParameter();
+		param.setUid(UUID.randomUUID().toString());
+		param.setName(VAR_HINT);
+		query.getParameters().add(param);
+		
+		model.getArtifacts().add(artifact);
+		
+		artifact = domain.DomainFactory.eINSTANCE
+				.createArtifact();
+		artifact.setUid(UUID.randomUUID().toString());
+		artifact.setName(PACKAGE_REMOTE_EJB_INTERFACE);
+		artifact.setTemplate("platform:/plugin/org.tura.metamodel.wizard.generation/template/jee/ORMMapper/mainPackageRemoteEJBInterface.egl");
+
+		query = domain.DomainFactory.eINSTANCE
+				.createModelQuery();
+		query.setUid(UUID.randomUUID().toString());
+		query.setName(QUERY_TYPE);
+		query.setQuery("domain::Package.allInstances()->select(r|r.oclAsType(domain::Package).name='${Package}').oclAsType(domain::Package).typedefinition.types->select(r|((r.oclIsKindOf(domain::Type ) ) )).oclAsType(domain::Categorized).classifiers->select(c|c.hint.name='${Hint}' and c.hint.oclAsType(ecore::EObject).eContainer().oclAsType(domain::Artifact).name = '${Artifact}' and  c.hint.oclAsType(ecore::EObject).eContainer().oclAsType(domain::Artifact).parent.oclAsType(domain::Artifacts).parent.oclAsType(domain::DomainArtifact).name = '${ArtifactLib}' )->collect(c|c.oclAsType(ecore::EObject).eContainer())");
+		artifact.getModelQuery().add(query);
+
+		param = domain.DomainFactory.eINSTANCE.createQueryParameter();
+		param.setUid(UUID.randomUUID().toString());
+		param.setName(VAR_PACKAGE_NAME);
+		query.getParameters().add(param);
+
+		param = domain.DomainFactory.eINSTANCE.createQueryParameter();
+		param.setUid(UUID.randomUUID().toString());
+		param.setName(VAR_ARTIFACT_LIB);
+		query.getParameters().add(param);
+
+		param = domain.DomainFactory.eINSTANCE.createQueryParameter();
+		param.setUid(UUID.randomUUID().toString());
+		param.setName(VAR_ARTIFACT);
+		query.getParameters().add(param);
+
+		param = domain.DomainFactory.eINSTANCE.createQueryParameter();
+		param.setUid(UUID.randomUUID().toString());
+		param.setName(VAR_HINT);
+		query.getParameters().add(param);
+		
+		model.getArtifacts().add(artifact);
+		
+		artifact = domain.DomainFactory.eINSTANCE
+				.createArtifact();
+		artifact.setUid(UUID.randomUUID().toString());
+		artifact.setName(PACKAGE_LOCAL_EJB_INTERFACE);
+		artifact.setTemplate("platform:/plugin/org.tura.metamodel.wizard.generation/template/jee/ORMMapper/mainPackageLocalEJBInterface.egl");
+
+		query = domain.DomainFactory.eINSTANCE
+				.createModelQuery();
+		query.setUid(UUID.randomUUID().toString());
+		query.setName(QUERY_TYPE);
+		query.setQuery("domain::Package.allInstances()->select(r|r.oclAsType(domain::Package).name='${Package}').oclAsType(domain::Package).typedefinition.types->select(r|((r.oclIsKindOf(domain::Type ) ) )).oclAsType(domain::Categorized).classifiers->select(c|c.hint.name='${Hint}' and c.hint.oclAsType(ecore::EObject).eContainer().oclAsType(domain::Artifact).name = '${Artifact}' and  c.hint.oclAsType(ecore::EObject).eContainer().oclAsType(domain::Artifact).parent.oclAsType(domain::Artifacts).parent.oclAsType(domain::DomainArtifact).name = '${ArtifactLib}' )->collect(c|c.oclAsType(ecore::EObject).eContainer())");
+		artifact.getModelQuery().add(query);
+
+		param = domain.DomainFactory.eINSTANCE.createQueryParameter();
+		param.setUid(UUID.randomUUID().toString());
+		param.setName(VAR_PACKAGE_NAME);
+		query.getParameters().add(param);
+
+		param = domain.DomainFactory.eINSTANCE.createQueryParameter();
+		param.setUid(UUID.randomUUID().toString());
+		param.setName(VAR_ARTIFACT_LIB);
+		query.getParameters().add(param);
+
+		param = domain.DomainFactory.eINSTANCE.createQueryParameter();
+		param.setUid(UUID.randomUUID().toString());
+		param.setName(VAR_ARTIFACT);
+		query.getParameters().add(param);
+
+		param = domain.DomainFactory.eINSTANCE.createQueryParameter();
+		param.setUid(UUID.randomUUID().toString());
+		param.setName(VAR_HINT);
+		query.getParameters().add(param);
+		
+		model.getArtifacts().add(artifact);
+		
+		
 		return model;
 	}
 

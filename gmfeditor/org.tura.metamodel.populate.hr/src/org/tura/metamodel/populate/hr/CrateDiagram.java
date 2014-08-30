@@ -56,6 +56,7 @@ public class CrateDiagram {
 	    new PopulateTypes().execute(model,resource);
 	    new PopulateTypesMapping().execute(model, resource);
 	    new PopulateRecipe().execute(model, resource);
+	    new PopulateRecipe2().execute(model, resource);
 	    
 	    // As of here we preparing to save the model content
 		IAdaptable viewModel = (model != null) ? new EObjectAdapter(model): null;
