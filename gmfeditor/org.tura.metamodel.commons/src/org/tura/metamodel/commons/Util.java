@@ -89,6 +89,12 @@ public class Util {
 			strQuery = strQuery.replaceAll("\\$\\{"
 					+ var.getQueryParamRef().getName() + "\\}", var.getValue());
 		}
+		IEclipsePreferences pref =InstanceScope.INSTANCE.getNode("org.tura.metamodel.commons.preferences");
+		if ( "true".equals(pref.get(IPreferenceConstants.DEBUGING,"false"))){
+			LogUtil.logInfo("Query : "+strQuery);
+		}
+		
+		
 		return executeQuery(strQuery, eobj);
 	}
 

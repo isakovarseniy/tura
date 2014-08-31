@@ -42,6 +42,14 @@ public class TuraPreferencePage
 				getFieldEditorParent());
 			addField(logPreprocessedTemplate);
 		
+			BooleanFieldEditor debugging = new BooleanFieldEditor(
+					IPreferenceConstants.DEBUGING, 
+					"&Debugging", 
+					getFieldEditorParent());
+				addField(debugging);
+
+	
+	
 	}
 	
 	/**

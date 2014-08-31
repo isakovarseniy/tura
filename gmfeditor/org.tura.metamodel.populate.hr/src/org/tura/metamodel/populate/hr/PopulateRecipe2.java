@@ -159,7 +159,7 @@ public class PopulateRecipe2 {
 				.get(InitDiagram.EJBSERVICE + "_" + InitDiagram.PACKAGE_EJB_SERVICES
 						+ "_" + InitDiagram.QUERY_TYPE + "_"
 						+ InitDiagram.VAR_ARTIFACT));
-		var.setValue(InitDiagram.PACKAGE_EJB_SERVICES);
+		var.setValue(InitDiagram.SERVICE_BEAN);
 		query.getVariables().add(var);
 
 
@@ -310,7 +310,7 @@ public class PopulateRecipe2 {
 				.get(InitDiagram.EJBSERVICE + "_" + InitDiagram.PACKAGE_REMOTE_EJB_INTERFACE
 						+ "_" + InitDiagram.QUERY_TYPE + "_"
 						+ InitDiagram.VAR_ARTIFACT));
-		var.setValue(InitDiagram.PACKAGE_REMOTE_EJB_INTERFACE);
+		var.setValue(InitDiagram.SERVICE_BEAN);
 		query.getVariables().add(var);
 
 
@@ -366,7 +366,7 @@ public class PopulateRecipe2 {
 				.get(InitDiagram.EJBSERVICE + "_" + InitDiagram.PACKAGE_LOCAL_EJB_INTERFACE
 						+ "_" + InitDiagram.QUERY_TYPE + "_"
 						+ InitDiagram.VAR_ARTIFACT));
-		var.setValue(InitDiagram.PACKAGE_LOCAL_EJB_INTERFACE);
+		var.setValue(InitDiagram.SERVICE_BEAN);
 		query.getVariables().add(var);
 
 

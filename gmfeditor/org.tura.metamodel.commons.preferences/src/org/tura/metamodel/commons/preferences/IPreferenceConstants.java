@@ -6,5 +6,7 @@ package org.tura.metamodel.commons.preferences;
 public interface IPreferenceConstants {
 	public static final String ENABLE_VALIDATION = "enableValidation";
 	public static final String LOG_TEMPLATES = "logTemlates";
+	public static final String DEBUGING = "debugging";
+	
 	
 }

@@ -51,6 +51,7 @@ public class Activator extends AbstractUIPlugin {
 	protected void initializeDefaultPreferences(IPreferenceStore store) {
 		store.setDefault(IPreferenceConstants.ENABLE_VALIDATION, true);
 		store.setDefault(IPreferenceConstants.LOG_TEMPLATES, false);
+		store.setDefault(IPreferenceConstants.DEBUGING, false);
 	}
 	
 	

@@ -280,7 +280,7 @@ public class InitDiagram {
 				.createModelQuery();
 		query.setUid(UUID.randomUUID().toString());
 		query.setName(QUERY_TYPE);
-		query.setQuery("domain::Package.allInstances()->select(r|r.oclAsType(domain::Package).name='${Package}').oclAsType(domain::Package).typedefinition.types->select(r|((r.oclIsKindOf(domain::Type ) ) )).oclAsType(domain::Categorized).classifiers->select(c|c.hint.name='${Hint}' and c.hint.oclAsType(ecore::EObject).eContainer().oclAsType(domain::Artifact).name = '${Artifact}' and  c.hint.oclAsType(ecore::EObject).eContainer().oclAsType(domain::Artifact).parent.oclAsType(domain::Artifacts).parent.oclAsType(domain::DomainArtifact).name = '${ArtifactLib}' )->collect(c|c.oclAsType(ecore::EObject).eContainer())");
+		query.setQuery("domain::Package.allInstances()->select(r|r.oclAsType(domain::Package).name='${Package name}').oclAsType(domain::Package).typedefinition.types->select(r|((r.oclIsKindOf(domain::Type ) ) )).oclAsType(domain::Categorized).classifiers->select(c|c.hint.name='${Hint}' and c.hint.oclAsType(ecore::EObject).eContainer().oclAsType(domain::Artifact).name = '${Artifact}' and  c.hint.oclAsType(ecore::EObject).eContainer().oclAsType(domain::Artifact).parent.oclAsType(domain::Artifacts).parent.oclAsType(domain::DomainArtifact).name = '${ArtifactLib}' )->collect(c|c.oclAsType(ecore::EObject).eContainer())");
 		artifact.getModelQuery().add(query);
 
 		param = domain.DomainFactory.eINSTANCE.createQueryParameter();
@@ -747,13 +747,13 @@ public class InitDiagram {
 				.createArtifact();
 		artifact.setUid(UUID.randomUUID().toString());
 		artifact.setName(PACKAGE_EJB_SERVICES);
-		artifact.setTemplate("platform:/plugin/org.tura.metamodel.wizard.generation/template/jee/ORMMapper/mainPackageEJBServices.egl");
+		artifact.setTemplate("platform:/plugin/org.tura.metamodel.wizard.generation/template/jee/ejb-ws/mainPackageEJBServices.egl");
 
 		query = domain.DomainFactory.eINSTANCE
 				.createModelQuery();
 		query.setUid(UUID.randomUUID().toString());
 		query.setName(QUERY_TYPE);
-		query.setQuery("domain::Package.allInstances()->select(r|r.oclAsType(domain::Package).name='${Package}').oclAsType(domain::Package).typedefinition.types->select(r|((r.oclIsKindOf(domain::Type ) ) )).oclAsType(domain::Categorized).classifiers->select(c|c.hint.name='${Hint}' and c.hint.oclAsType(ecore::EObject).eContainer().oclAsType(domain::Artifact).name = '${Artifact}' and  c.hint.oclAsType(ecore::EObject).eContainer().oclAsType(domain::Artifact).parent.oclAsType(domain::Artifacts).parent.oclAsType(domain::DomainArtifact).name = '${ArtifactLib}' )->collect(c|c.oclAsType(ecore::EObject).eContainer())");
+		query.setQuery("domain::Package.allInstances()->select(r|r.oclAsType(domain::Package).name='${Package name}').oclAsType(domain::Package).typedefinition.types->select(r|((r.oclIsKindOf(domain::Type ) ) )).oclAsType(domain::Categorized).classifiers->select(c|c.hint.name='${Hint}' and c.hint.oclAsType(ecore::EObject).eContainer().oclAsType(domain::Artifact).name = '${Artifact}' and  c.hint.oclAsType(ecore::EObject).eContainer().oclAsType(domain::Artifact).parent.oclAsType(domain::Artifacts).parent.oclAsType(domain::DomainArtifact).name = '${ArtifactLib}' )->collect(c|c.oclAsType(ecore::EObject).eContainer())");
 		artifact.getModelQuery().add(query);
 
 		param = domain.DomainFactory.eINSTANCE.createQueryParameter();
@@ -782,13 +782,13 @@ public class InitDiagram {
 				.createArtifact();
 		artifact.setUid(UUID.randomUUID().toString());
 		artifact.setName(PACKAGE_REMOTE_EJB_INTERFACE);
-		artifact.setTemplate("platform:/plugin/org.tura.metamodel.wizard.generation/template/jee/ORMMapper/mainPackageRemoteEJBInterface.egl");
+		artifact.setTemplate("platform:/plugin/org.tura.metamodel.wizard.generation/template/jee/ejb-ws/mainPackageRemoteEJBInterface.egl");
 
 		query = domain.DomainFactory.eINSTANCE
 				.createModelQuery();
 		query.setUid(UUID.randomUUID().toString());
 		query.setName(QUERY_TYPE);
-		query.setQuery("domain::Package.allInstances()->select(r|r.oclAsType(domain::Package).name='${Package}').oclAsType(domain::Package).typedefinition.types->select(r|((r.oclIsKindOf(domain::Type ) ) )).oclAsType(domain::Categorized).classifiers->select(c|c.hint.name='${Hint}' and c.hint.oclAsType(ecore::EObject).eContainer().oclAsType(domain::Artifact).name = '${Artifact}' and  c.hint.oclAsType(ecore::EObject).eContainer().oclAsType(domain::Artifact).parent.oclAsType(domain::Artifacts).parent.oclAsType(domain::DomainArtifact).name = '${ArtifactLib}' )->collect(c|c.oclAsType(ecore::EObject).eContainer())");
+		query.setQuery("domain::Package.allInstances()->select(r|r.oclAsType(domain::Package).name='${Package name}').oclAsType(domain::Package).typedefinition.types->select(r|((r.oclIsKindOf(domain::Type ) ) )).oclAsType(domain::Categorized).classifiers->select(c|c.hint.name='${Hint}' and c.hint.oclAsType(ecore::EObject).eContainer().oclAsType(domain::Artifact).name = '${Artifact}' and  c.hint.oclAsType(ecore::EObject).eContainer().oclAsType(domain::Artifact).parent.oclAsType(domain::Artifacts).parent.oclAsType(domain::DomainArtifact).name = '${ArtifactLib}' )->collect(c|c.oclAsType(ecore::EObject).eContainer())");
 		artifact.getModelQuery().add(query);
 
 		param = domain.DomainFactory.eINSTANCE.createQueryParameter();
@@ -817,13 +817,13 @@ public class InitDiagram {
 				.createArtifact();
 		artifact.setUid(UUID.randomUUID().toString());
 		artifact.setName(PACKAGE_LOCAL_EJB_INTERFACE);
-		artifact.setTemplate("platform:/plugin/org.tura.metamodel.wizard.generation/template/jee/ORMMapper/mainPackageLocalEJBInterface.egl");
+		artifact.setTemplate("platform:/plugin/org.tura.metamodel.wizard.generation/template/jee/ejb-ws/mainPackageLocalEJBInterface.egl");
 
 		query = domain.DomainFactory.eINSTANCE
 				.createModelQuery();
 		query.setUid(UUID.randomUUID().toString());
 		query.setName(QUERY_TYPE);
-		query.setQuery("domain::Package.allInstances()->select(r|r.oclAsType(domain::Package).name='${Package}').oclAsType(domain::Package).typedefinition.types->select(r|((r.oclIsKindOf(domain::Type ) ) )).oclAsType(domain::Categorized).classifiers->select(c|c.hint.name='${Hint}' and c.hint.oclAsType(ecore::EObject).eContainer().oclAsType(domain::Artifact).name = '${Artifact}' and  c.hint.oclAsType(ecore::EObject).eContainer().oclAsType(domain::Artifact).parent.oclAsType(domain::Artifacts).parent.oclAsType(domain::DomainArtifact).name = '${ArtifactLib}' )->collect(c|c.oclAsType(ecore::EObject).eContainer())");
+		query.setQuery("domain::Package.allInstances()->select(r|r.oclAsType(domain::Package).name='${Package name}').oclAsType(domain::Package).typedefinition.types->select(r|((r.oclIsKindOf(domain::Type ) ) )).oclAsType(domain::Categorized).classifiers->select(c|c.hint.name='${Hint}' and c.hint.oclAsType(ecore::EObject).eContainer().oclAsType(domain::Artifact).name = '${Artifact}' and  c.hint.oclAsType(ecore::EObject).eContainer().oclAsType(domain::Artifact).parent.oclAsType(domain::Artifacts).parent.oclAsType(domain::DomainArtifact).name = '${ArtifactLib}' )->collect(c|c.oclAsType(ecore::EObject).eContainer())");
 		artifact.getModelQuery().add(query);
 
 		param = domain.DomainFactory.eINSTANCE.createQueryParameter();

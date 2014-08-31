@@ -4,12 +4,15 @@
 %]
 package [%=type.~package%];  
 
-import org.elsoft.platform.metamodel.objects.ELsoftObject;
+import org.tura.platform.persistence.TuraObject;
 
 
 @javax.persistence.Entity(name = "[%=type.~class%]")
 @javax.persistence.Table(name = "[%=type.~class.toUpperCase()%]")
-public class [%=type.~class%] extends ELsoftObject{
+public class [%=type.~class%] extends TuraObject implements java.io.Serializable{
+
+	private static final long serialVersionUID = -1L;
+
 [%for ( field in type.attributes){     
     field.typeRef.mappingType2Java(recipe,ingredient);
 
