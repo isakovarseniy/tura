@@ -131,22 +131,14 @@ public class PopulateTypesMapping {
         jm.setPackageRef(typesHash.get(Constants.PACKAGE_HR + "_" + Constants.TYPE_SEARCH_CRITERIAS_FOR_DEPARTMENTS)
 				.getParent().getParent());
         jm.setTypeRef(typesHash.get(Constants.PACKAGE_HR + "_" + Constants.TYPE_SEARCH_CRITERIAS_FOR_DEPARTMENTS));
-        jm.setMappedToPackageName("java.util");
-        jm.setMappedToClassName("List<org.elsoft.platform.SearchCriteria>");
+        jm.setMappedToPackageName("com.octo.java.sql.query");
+        jm.setMappedToClassName("SelectQuery");
+        jm.setGroupId("com.octo.java.sql");
+        jm.setArtifactId("java-sql-dsl");
+        jm.setVersion("0.1.1-SNAPSHOT");
         jm.setUiLayer(true);
         jm.setServiceLayer(true);
         
-		jm =  domain.DomainFactory.eINSTANCE.createJavaMapper();
-		mps.getMappers().add(jm);
-        jm.setPackageRef(typesHash.get(Constants.PACKAGE_HR + "_" + Constants.TYPE_ORDERBY_CRITERIAS_FOR_DEPARTMENTS)
-				.getParent().getParent());
-        jm.setTypeRef(typesHash.get(Constants.PACKAGE_HR + "_" + Constants.TYPE_ORDERBY_CRITERIAS_FOR_DEPARTMENTS));
-        jm.setMappedToPackageName("java.util");
-        jm.setMappedToClassName("List<org.elsoft.platform.OrderCriteria>");
-        jm.setUiLayer(true);
-        jm.setServiceLayer(true);
-        
-
 	}
 	
 	private void populateEmployeesTypeMapping(domain.Mappers mps,Resource resource){
@@ -251,18 +243,11 @@ public class PopulateTypesMapping {
         jm.setPackageRef(typesHash.get(Constants.PACKAGE_HR + "_" + Constants.TYPE_SEARCH_CRITERIAS_FOR_EMPLOYEES)
 				.getParent().getParent());
         jm.setTypeRef(typesHash.get(Constants.PACKAGE_HR + "_" + Constants.TYPE_SEARCH_CRITERIAS_FOR_EMPLOYEES));
-        jm.setMappedToPackageName("java.util");
-        jm.setMappedToClassName("List<org.elsoft.platform.SearchCriteria>");
-        jm.setUiLayer(true);
-        jm.setServiceLayer(true);
-        
-		jm =  domain.DomainFactory.eINSTANCE.createJavaMapper();
-		mps.getMappers().add(jm);
-        jm.setPackageRef(typesHash.get(Constants.PACKAGE_HR + "_" + Constants.TYPE_ORDERBY_CRITERIAS_FOR_EMPLOYEES)
-				.getParent().getParent());
-        jm.setTypeRef(typesHash.get(Constants.PACKAGE_HR + "_" + Constants.TYPE_ORDERBY_CRITERIAS_FOR_EMPLOYEES));
-        jm.setMappedToPackageName("java.util");
-        jm.setMappedToClassName("List<org.elsoft.platform.OrderCriteria>");
+        jm.setMappedToPackageName("com.octo.java.sql.query");
+        jm.setMappedToClassName("SelectQuery");
+        jm.setGroupId("com.octo.java.sql");
+        jm.setArtifactId("java-sql-dsl");
+        jm.setVersion("0.1.1-SNAPSHOT");
         jm.setUiLayer(true);
         jm.setServiceLayer(true);
         

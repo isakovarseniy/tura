@@ -260,15 +260,6 @@ public class PopulateTypes {
 		param = domain.DomainFactory.eINSTANCE.createParameter();
 		param.setUid(UUID.randomUUID().toString());
 		opr.getParameters().add(param);
-		param.setName("order");
-		param.setOrder(1);
-		param.setPackageRef(typesHash.get(Constants.PACKAGE_HR + "_" + Constants.TYPE_ORDERBY_CRITERIAS_FOR_DEPARTMENTS)
-				.getParent().getParent());
-		param.setTypeRef(typesHash.get(Constants.PACKAGE_HR + "_" + Constants.TYPE_ORDERBY_CRITERIAS_FOR_DEPARTMENTS));
-
-		param = domain.DomainFactory.eINSTANCE.createParameter();
-		param.setUid(UUID.randomUUID().toString());
-		opr.getParameters().add(param);
 		param.setName("startIndex");
 		param.setOrder(2);
 		param.setPackageRef(typesHash.get(InitDiagram.PRIVATE_PACKAGE + "_Integer")
@@ -641,15 +632,6 @@ public class PopulateTypes {
 		param.setPackageRef(typesHash.get(Constants.PACKAGE_HR + "_" + Constants.TYPE_SEARCH_CRITERIAS_FOR_EMPLOYEES)
 				.getParent().getParent());
 		param.setTypeRef(typesHash.get(Constants.PACKAGE_HR + "_" + Constants.TYPE_SEARCH_CRITERIAS_FOR_EMPLOYEES));
-
-		param = domain.DomainFactory.eINSTANCE.createParameter();
-		param.setUid(UUID.randomUUID().toString());
-		opr.getParameters().add(param);
-		param.setName("order");
-		param.setOrder(1);
-		param.setPackageRef(typesHash.get(Constants.PACKAGE_HR + "_" + Constants.TYPE_ORDERBY_CRITERIAS_FOR_EMPLOYEES)
-				.getParent().getParent());
-		param.setTypeRef(typesHash.get(Constants.PACKAGE_HR + "_" + Constants.TYPE_ORDERBY_CRITERIAS_FOR_EMPLOYEES));
 
 		param = domain.DomainFactory.eINSTANCE.createParameter();
 		param.setUid(UUID.randomUUID().toString());

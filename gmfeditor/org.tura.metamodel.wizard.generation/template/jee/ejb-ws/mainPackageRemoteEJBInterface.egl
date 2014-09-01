@@ -1,0 +1,36 @@
+[%
+ import "platform:/plugin/org.tura.metamodel.wizard.generation/template/commons/typeElementUtil.eol";
+ import "platform:/plugin/org.tura.metamodel.wizard.generation/template/commons/categorizedUtil.eol";
+  
+     var util = new Native('org.tura.metamodel.commons.Util');
+     var type;
+     var typeRemote;
+     var typeLocal;
+     var typeGeneric;
+     var typeExtens;
+     var f = new Native("org.tura.metamodel.wizard.infrastructure.JavaFormatter"); 
+
+    var types = util.runQuery(model_mapper,"Query type",model_mapper);
+    if (types.size() <> 0 ){
+
+       for (type in types){
+       
+          type.mappingType2Java(recipe,ingredient);
+    
+          var f = new Native("org.tura.metamodel.wizard.infrastructure.JavaFormatter"); 
+          var remoteInterface : Template = TemplateFactory.load("platform:/plugin/org.tura.metamodel.wizard.generation/template/jee/ejb-ws/remoteInterface.egl");
+          remoteInterface.setFormatter(f);
+    
+          var path = component.getComponentRoot+"/"+component.getArtifactId+"/"+component.getArtifactId()+"-ejb/src/main/java/"+type.~package.replaceAll("\\.","\\/")+"/";  
+          remoteInterface.populate("type",type);
+          remoteInterface.populate("recipe",recipe);
+          remoteInterface.populate("ingredient",ingredient);
+          remoteInterface.populate("component",component);
+          remoteInterface.populate("model_mapper",model_mapper);
+     
+          var buffer = remoteInterface.process();
+          util.saveFile( path, type.~class + ".java",buffer);   
+       }
+    }    
+
+ %]   
