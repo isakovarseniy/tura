@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="ASCII"?>
+<hutnConfig:Configuration xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:hutnConfig="http://www.eclipse.org/gmt/epsilon/hutnConfig" xmi:id="_PB0ccDIvEeSClv8U5zrmWg">
+  <rules xsi:type="hutnConfig:IdentifierRule" xmi:id="_QJ--YDIvEeSClv8U5zrmWg" classifier="Domain" attribute="uid"/>
+  <rules xsi:type="hutnConfig:IdentifierRule" xmi:id="_SxpkMDIvEeSClv8U5zrmWg" classifier="DomainArtifacts" attribute="uid"/>
+  <rules xsi:type="hutnConfig:IdentifierRule" xmi:id="_V4DUcDIvEeSClv8U5zrmWg" classifier="DomainTypes" attribute="uid"/>
+  <rules xsi:type="hutnConfig:IdentifierRule" xmi:id="_YLjoIDIvEeSClv8U5zrmWg" classifier="DomainApplications" attribute="uid"/>
+  <rules xsi:type="hutnConfig:IdentifierRule" xmi:id="_bJ6PoDIvEeSClv8U5zrmWg" classifier="DomainArtifact" attribute="uid"/>
+</hutnConfig:Configuration>

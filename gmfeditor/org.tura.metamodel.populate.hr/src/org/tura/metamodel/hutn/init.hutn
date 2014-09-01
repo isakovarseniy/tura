@@ -1,0 +1,11 @@
+@Spec {
+	metamodel "domain" {
+		nsUri: "http://tura.org/2013/v1/domain"
+		configFile: "FamilyConfig.model"
+	}
+}
+
+domain {
+       Domain "newDomain"{
+       }
+}

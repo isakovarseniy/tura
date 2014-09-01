@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tura.domain:Domain xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:tura.domain="http://tura.org/2013/v1/domain"
+    uid="Domain">
+  <domainArtifacts uid="DomainArtifacts" name="Domain Artifacts">
+    <domainArtifact uid="ORMEntity" name="ORMEntity"/>
+    <domainArtifact uid="EJBService" name="EJBService"/>
+    <domainArtifact uid="ContinuousIntegration" name="Continuous integration"/>
+  </domainArtifacts>
+  <domainTypes uid="DomainTypes" name="Domain Types"/>
+  <domainApplications uid="DomainApplications" name="Domain Applications"/>
+</tura.domain:Domain>
