@@ -5,4 +5,8 @@
   <rules xsi:type="hutnConfig:IdentifierRule" xmi:id="_V4DUcDIvEeSClv8U5zrmWg" classifier="DomainTypes" attribute="uid"/>
   <rules xsi:type="hutnConfig:IdentifierRule" xmi:id="_YLjoIDIvEeSClv8U5zrmWg" classifier="DomainApplications" attribute="uid"/>
   <rules xsi:type="hutnConfig:IdentifierRule" xmi:id="_bJ6PoDIvEeSClv8U5zrmWg" classifier="DomainArtifact" attribute="uid"/>
+  <rules xsi:type="hutnConfig:IdentifierRule" xmi:id="_DFry4DI1EeSL4fDD254gug" classifier="Artifacts" attribute="uid"/>
+  <rules xsi:type="hutnConfig:IdentifierRule" xmi:id="_Bn_wEDI5EeSL4fDD254gug" classifier="ModelQuery" attribute="uid"/>
+  <rules xsi:type="hutnConfig:IdentifierRule" xmi:id="_GdKIMDI5EeSL4fDD254gug" classifier="QueryParameter" attribute="uid"/>
+  <rules xsi:type="hutnConfig:IdentifierRule" xmi:id="_KO0b8DI5EeSL4fDD254gug" classifier="GenerationHint" attribute="uid"/>
 </hutnConfig:Configuration>
