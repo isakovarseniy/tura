@@ -22,4 +22,17 @@
   <rules xsi:type="hutnConfig:IdentifierRule" xmi:id="_dBhLcDM1EeSLJtnbAiZbXA" classifier="TypeExtension" attribute="uid"/>
   <rules xsi:type="hutnConfig:IdentifierRule" xmi:id="_wxadgDM1EeSLJtnbAiZbXA" classifier="Classifier" attribute="uid"/>
   <rules xsi:type="hutnConfig:IdentifierRule" xmi:id="_7Ip-IDM1EeSLJtnbAiZbXA" classifier="Operation" attribute="uid"/>
+  <rules xsi:type="hutnConfig:IdentifierRule" xmi:id="_zEr5sDPPEeSewMMp2UnIRA" classifier="Mappers" attribute="uid"/>
+  <rules xsi:type="hutnConfig:IdentifierRule" xmi:id="_4lZJMDPPEeSewMMp2UnIRA" classifier="JavaMapper" attribute="uid"/>
+  <rules xsi:type="hutnConfig:IdentifierRule" xmi:id="_e2sSMDPWEeSewMMp2UnIRA" classifier="Recipes" attribute="uid"/>
+  <rules xsi:type="hutnConfig:IdentifierRule" xmi:id="_hkHhwDPWEeSewMMp2UnIRA" classifier="Recipe" attribute="uid"/>
+  <rules xsi:type="hutnConfig:IdentifierRule" xmi:id="_l6-NQDPWEeSewMMp2UnIRA" classifier="Ingredient" attribute="uid"/>
+  <rules xsi:type="hutnConfig:IdentifierRule" xmi:id="_pIggQDPWEeSewMMp2UnIRA" classifier="JavaComponent" attribute="uid"/>
+  <rules xsi:type="hutnConfig:IdentifierRule" xmi:id="_sG4V4DPWEeSewMMp2UnIRA" classifier="ModelMapper" attribute="uid"/>
+  <rules xsi:type="hutnConfig:IdentifierRule" xmi:id="_wfy24DPWEeSewMMp2UnIRA" classifier="Query" attribute="uid"/>
+  <rules xsi:type="hutnConfig:IdentifierRule" xmi:id="_y4sn8DPWEeSewMMp2UnIRA" classifier="QueryVariable" attribute="uid"/>
+  <rules xsi:type="hutnConfig:IdentifierRule" xmi:id="_7iz4YDPWEeSewMMp2UnIRA" classifier="Configuration" attribute="uid"/>
+  <rules xsi:type="hutnConfig:IdentifierRule" xmi:id="__GeMYDPWEeSewMMp2UnIRA" classifier="Property" attribute="uid"/>
+  <rules xsi:type="hutnConfig:IdentifierRule" xmi:id="_CHbb8DPXEeSewMMp2UnIRA" classifier="Infrastructure" attribute="uid"/>
+  <rules xsi:type="hutnConfig:IdentifierRule" xmi:id="_8w5KMDPYEeSewMMp2UnIRA" classifier="MappingSpecifier" attribute="uid"/>
 </hutnConfig:Configuration>

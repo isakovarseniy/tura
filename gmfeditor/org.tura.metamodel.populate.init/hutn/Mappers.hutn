@@ -1,0 +1,250 @@
+@Spec {
+	metamodel "domain" {
+		nsUri: "http://tura.org/2013/v1/domain"
+		configFile: "TuraHUTNConfig.model"
+	}
+}
+
+domain  {
+	Mappers "e5ddc4b2-b9bc-4fb3-928a-2cb53fcc0d2d" {
+//		parent: ApplicationMappers "#0d86886f-6d6e-49e1-a123-d063d2d9bd22"
+		mappers: 
+		JavaMapper "f77c09eb-aef3-4ebd-bb99-eb19ab9c40d6" {
+			serviceLayer: true
+			uiLayer: true
+//			packageRef: Package "#9fcd56c0-2fe7-445a-864e-9550f1b901c2"
+//			typeRef: TypeElement "#e370b9d1-a6fb-4a40-88e2-8845be441438"
+			mappedToPackageName: "java.lang"
+			mappedToClassName: "String"
+		}, 
+		JavaMapper "eef26771-3c84-471f-92e4-396a8ff232f0" {
+			serviceLayer: true
+			uiLayer: true
+//			packageRef: Package "#9fcd56c0-2fe7-445a-864e-9550f1b901c2"
+//			typeRef: TypeElement "#6f5f3825-6695-4b7e-b07c-76ea31fa40e0"
+			mappedToPackageName: "java.lang"
+			mappedToClassName: "Boolean"
+		}, 
+		JavaMapper "e3b1302e-d1d4-41be-acb5-3f8e30e680b7" {
+			serviceLayer: true
+			uiLayer: true
+//			packageRef: Package "#9fcd56c0-2fe7-445a-864e-9550f1b901c2"
+//			typeRef: TypeElement "#9d594d56-4c84-4a05-a388-07a547c5e5b8"
+			mappedToPackageName: "java.lang"
+			mappedToClassName: "BigDecimal"
+		}, 
+		JavaMapper "6f57711e-fd4f-41e3-b473-8a1e04372c4e" {
+			serviceLayer: true
+			uiLayer: true
+//			packageRef: Package "#9fcd56c0-2fe7-445a-864e-9550f1b901c2"
+//			typeRef: TypeElement "#a4e377e2-1300-4dac-92a3-e96f93d253fe"
+			mappedToPackageName: "java.lang"
+			mappedToClassName: "Float"
+		}, 
+		JavaMapper "fc5c6a70-c982-4f1d-bed6-459c1f1fbc04" {
+			serviceLayer: true
+			uiLayer: true
+//			packageRef: Package "#9fcd56c0-2fe7-445a-864e-9550f1b901c2"
+//			typeRef: TypeElement "#1df3e036-0166-414a-8b91-56b38c0a50f9"
+			mappedToPackageName: "java.lang"
+			mappedToClassName: "Double"
+		}, 
+		JavaMapper "832bc047-f961-4b96-ada2-82408960ffea" {
+			serviceLayer: true
+			uiLayer: true
+//			packageRef: Package "#9fcd56c0-2fe7-445a-864e-9550f1b901c2"
+//			typeRef: TypeElement "#07cd92d1-a1c3-4540-b539-800fcea3908d"
+			mappedToPackageName: "java.util"
+			mappedToClassName: "Date"
+		}, 
+		JavaMapper "b9fe8ceb-d273-43ff-97de-f510f09ddc2b" {
+			serviceLayer: true
+			uiLayer: true
+//			packageRef: Package "#9fcd56c0-2fe7-445a-864e-9550f1b901c2"
+//			typeRef: TypeElement "#2d20ec03-0bec-4e3f-9cb6-c19e186711e7"
+			mappedToPackageName: "java.util"
+			mappedToClassName: "Date"
+		}, 
+		JavaMapper "5b8dfb4b-5f7b-45aa-b405-5bcdb17a0ceb" {
+			serviceLayer: true
+			uiLayer: true
+//			packageRef: Package "#9fcd56c0-2fe7-445a-864e-9550f1b901c2"
+//			typeRef: TypeElement "#2829901f-e985-4786-96ff-852230536694"
+			mappedToPackageName: "java.lang"
+			mappedToClassName: "Integer"
+		}, 
+		JavaMapper "88b0f9fd-61f7-48aa-8e1c-a01aaace1b59" {
+			serviceLayer: true
+			uiLayer: true
+//			packageRef: Package "#9fcd56c0-2fe7-445a-864e-9550f1b901c2"
+//			typeRef: TypeElement "#7b7c554c-a1ad-4e6e-8c91-20df7d6530f8"
+			mappedToPackageName: "java.lang"
+			mappedToClassName: "Long"
+		}, 
+		JavaMapper "1b308335-bbad-4010-a74b-17c0c71d7774" {
+			serviceLayer: true
+			uiLayer: true
+//			packageRef: Package "#9fcd56c0-2fe7-445a-864e-9550f1b901c2"
+//			typeRef: TypeElement "#5a474622-2c06-4b5a-bf6d-1c1d76cd961d"
+			mappedToPackageName: ""
+			mappedToClassName: "byte[]"
+		},
+		JavaMapper "2e063ebf-3cd0-4e54-9384-cc68f8fabb88" {
+			serviceLayer: true
+			uiLayer: true
+//			packageRef: Package "#9fcd56c0-2fe7-445a-864e-9550f1b901c2"
+//			typeRef: TypeElement "#90b18156-de6d-42d1-b350-925e44a0e4cc"
+			mappedToPackageName: ""
+			mappedToClassName: "void"
+		}
+	}
+	Mappers "35c625c3-5c19-4681-ac50-eb8581a54cc1" {
+//		parent: ApplicationMappers "#d29466f4-8d55-4047-b6ba-fc1a830db2a1"
+		mappers: 
+		JavaMapper "JavaMapper12" {
+			uiLayer: true
+//			packageRef: Package "#e8faa4f9-a654-40f5-bdf5-454f90f2af19"
+//			typeRef: TypeElement "#52ffccb7-cea6-49de-ba4b-7437f1da3369"
+			mappedToPackageName: "org.elsoft.platform.hr.departments"
+			mappedToClassName: "DepartmentsDAO"
+			artifactId: "Model-Manufacturing-BackOffice-HR-client"
+			groupId: "org.elsoft.platform.Manufacturing.BackOffice"
+			version: "1.0"
+		}, 
+		JavaMapper "JavaMapper13" {
+			serviceLayer: true
+//			packageRef: Package "#e8faa4f9-a654-40f5-bdf5-454f90f2af19"
+//			typeRef: TypeElement "#52ffccb7-cea6-49de-ba4b-7437f1da3369"
+			mappedToPackageName: "org.elsoft.platform.hr.objects"
+			mappedToClassName: "DepartmentsDAO"
+		}, 
+		JavaMapper "JavaMapper14" {
+			uiLayer: true
+//			packageRef: Package "#e8faa4f9-a654-40f5-bdf5-454f90f2af19"
+//			typeRef: TypeElement "#25a85943-6b6b-4ca0-a223-e031e30c5563"
+			mappedToPackageName: "org.elsoft.platform.hr.departments.impl"
+			mappedToClassName: "DepartmentsService"
+			artifactId: "Model-Manufacturing-BackOffice-HR-client"
+			groupId: "org.elsoft.platform.Manufacturing.BackOffice"
+			version: "1.0"
+		}, 
+		JavaMapper "JavaMapper15" {
+			serviceLayer: true
+//			packageRef: Package "#e8faa4f9-a654-40f5-bdf5-454f90f2af19"
+//			typeRef: TypeElement "#25a85943-6b6b-4ca0-a223-e031e30c5563"
+			mappedToPackageName: "org.elsoft.platform.hr.services.impl"
+			mappedToClassName: "DepartmentsService"
+		}, 
+		JavaMapper "JavaMapper16" {
+			serviceLayer: true
+//			packageRef: Package "#e8faa4f9-a654-40f5-bdf5-454f90f2af19"
+//			typeRef: TypeElement "#f8c0591c-d9c2-4897-97fa-536fadf94cbf"
+			mappedToPackageName: "org.elsoft.platform.hr.services"
+			mappedToClassName: "DepartmentsServiceRemote"
+		}, 
+		JavaMapper "JavaMapper17" {
+			serviceLayer: true
+//			packageRef: Package "#e8faa4f9-a654-40f5-bdf5-454f90f2af19"
+//			typeRef: TypeElement "#30bb8955-d333-429b-a7ae-777f1a62e767"
+			mappedToPackageName: "org.elsoft.platform.hr.services"
+			mappedToClassName: "DepartmentsServiceLocal"
+		}, 
+		JavaMapper "JavaMapper18" {
+			serviceLayer: true
+			uiLayer: true
+//			packageRef: Package "#e8faa4f9-a654-40f5-bdf5-454f90f2af19"
+//			typeRef: TypeElement "#692cc400-912b-471d-84f5-15f08a7ec191"
+			mappedToPackageName: "java.util"
+			mappedToClassName: "List<org.elsoft.platform.hr.objects.DepartmentsDAO>"
+		}, 
+		JavaMapper "JavaMapper19" {
+			serviceLayer: true
+			uiLayer: true
+//			packageRef: Package "#e8faa4f9-a654-40f5-bdf5-454f90f2af19"
+//			typeRef: TypeElement "#3eb3dfbb-0905-40f4-b629-6472c6503589"
+			mappedToPackageName: "com.octo.java.sql.query"
+			mappedToClassName: "SelectQuery"
+			artifactId: "java-sql-dsl"
+			groupId: "com.octo.java.sql"
+			version: "0.1.1-SNAPSHOT"
+		}, 
+		JavaMapper "JavaMapper20" {
+			uiLayer: true
+//			packageRef: Package "#e8faa4f9-a654-40f5-bdf5-454f90f2af19"
+//			typeRef: TypeElement "#dd5f2ada-dfef-49f4-99c9-77ee2bd72f13"
+			mappedToPackageName: "org.elsoft.platform.hr.employees"
+			mappedToClassName: "EmployeesDAO"
+			artifactId: "Model-Manufacturing-BackOffice-HR-client"
+			groupId: "org.elsoft.platform.Manufacturing.BackOffice"
+			version: "1.0"
+		}, 
+		JavaMapper "JavaMapper21" {
+			serviceLayer: true
+			uiLayer: true
+//			packageRef: Package "#dd77a443-471b-441e-88bf-3f3f092f372c"
+//			typeRef: TypeElement "#50dcca84-4d2c-4fe2-baad-56afdf1be76d"
+			mappedToPackageName: "org.elsoft.platform.metamodel.objects"
+			mappedToClassName: "ELsoftObject"
+			artifactId: "commons-platform-datastructure"
+			groupId: "org.elsoft.platform"
+			version: "1.0"
+		}, 
+		JavaMapper "JavaMapper22" {
+			serviceLayer: true
+//			packageRef: Package "#e8faa4f9-a654-40f5-bdf5-454f90f2af19"
+//			typeRef: TypeElement "#dd5f2ada-dfef-49f4-99c9-77ee2bd72f13"
+			mappedToPackageName: "org.elsoft.platform.hr.objects"
+			mappedToClassName: "EmployeesDAO"
+		}, 
+		JavaMapper "JavaMapper23" {
+			uiLayer: true
+//			packageRef: Package "#e8faa4f9-a654-40f5-bdf5-454f90f2af19"
+//			typeRef: TypeElement "#984ec018-e02b-47e0-a720-40c00663b5c6"
+			mappedToPackageName: "org.elsoft.platform.hr.employees.impl"
+			mappedToClassName: "EmployeesService"
+			artifactId: "Model-Manufacturing-BackOffice-HR-client"
+			groupId: "org.elsoft.platform.Manufacturing.BackOffice"
+			version: "1.0"
+		}, 
+		JavaMapper "JavaMapper24" {
+			serviceLayer: true
+//			packageRef: Package "#e8faa4f9-a654-40f5-bdf5-454f90f2af19"
+//			typeRef: TypeElement "#984ec018-e02b-47e0-a720-40c00663b5c6"
+			mappedToPackageName: "org.elsoft.platform.hr.services.impl"
+			mappedToClassName: "EmployeesService"
+		}, 
+		JavaMapper "JavaMapper25" {
+			serviceLayer: true
+//			packageRef: Package "#e8faa4f9-a654-40f5-bdf5-454f90f2af19"
+//			typeRef: TypeElement "#d9a6e035-db1b-47b5-be3d-1bec6a97eed0"
+			mappedToPackageName: "org.elsoft.platform.hr.services"
+			mappedToClassName: "EmployeesServiceRemote"
+		}, 
+		JavaMapper "JavaMapper26" {
+			serviceLayer: true
+//			packageRef: Package "#e8faa4f9-a654-40f5-bdf5-454f90f2af19"
+//			typeRef: TypeElement "#d2a066ad-d36f-45ea-911e-253a2f804f09"
+			mappedToPackageName: "org.elsoft.platform.hr.services"
+			mappedToClassName: "EmployeesServiceLocal"
+		}, 
+		JavaMapper "JavaMapper27" {
+			serviceLayer: true
+			uiLayer: true
+//			packageRef: Package "#e8faa4f9-a654-40f5-bdf5-454f90f2af19"
+//			typeRef: TypeElement "#2814d4c5-b26a-4f3e-b1dc-c400f54b494e"
+			mappedToPackageName: "java.util"
+			mappedToClassName: "List<org.elsoft.platform.hr.objects.EmployeesDAO>"
+		}, 
+		JavaMapper "JavaMapper28" {
+			serviceLayer: true
+			uiLayer: true
+//			packageRef: Package "#e8faa4f9-a654-40f5-bdf5-454f90f2af19"
+//			typeRef: TypeElement "#cff56a6e-6d9a-41dc-8ff7-d3d6d0c85cdb"
+			mappedToPackageName: "com.octo.java.sql.query"
+			mappedToClassName: "SelectQuery"
+			artifactId: "java-sql-dsl"
+			groupId: "com.octo.java.sql"
+			version: "0.1.1-SNAPSHOT"
+		}
+	}
+}
