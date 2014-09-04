@@ -7,7 +7,7 @@
 
 domain {
     Artifacts "ORMEntity_Artifacts" {
-       parent : DomainArtifact "#ORMEntity"
+//       parent : DomainArtifact "#ORMEntity"
        artifacts : Artifact "entityObject" {
                         name : "Entity Object"
                         template : "platform:/plugin/org.tura.metamodel.wizard.generation/template/jee/ORMMapper/mainEntity.egl"

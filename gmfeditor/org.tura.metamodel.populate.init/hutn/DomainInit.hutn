@@ -1,5 +1,6 @@
 @Spec {
 	metamodel "domain" {
+	    modelFile: "my.model"
 		nsUri: "http://tura.org/2013/v1/domain"
 		configFile: "TuraHUTNConfig.model"
 	}

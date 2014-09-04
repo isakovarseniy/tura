@@ -9,4 +9,17 @@
   <rules xsi:type="hutnConfig:IdentifierRule" xmi:id="_Bn_wEDI5EeSL4fDD254gug" classifier="ModelQuery" attribute="uid"/>
   <rules xsi:type="hutnConfig:IdentifierRule" xmi:id="_GdKIMDI5EeSL4fDD254gug" classifier="QueryParameter" attribute="uid"/>
   <rules xsi:type="hutnConfig:IdentifierRule" xmi:id="_KO0b8DI5EeSL4fDD254gug" classifier="GenerationHint" attribute="uid"/>
+  <rules xsi:type="hutnConfig:IdentifierRule" xmi:id="_0sJLgDMmEeSSTL69o-l5Pg" classifier="ConfigVariable" attribute="uid"/>
+  <rules xsi:type="hutnConfig:IdentifierRule" xmi:id="_Fr0YsDMnEeSSTL69o-l5Pg" classifier="Parameter" attribute="uid"/>
+  <rules xsi:type="hutnConfig:IdentifierRule" xmi:id="_P-SuEDMnEeSSTL69o-l5Pg" classifier="Specifier" attribute="uid"/>
+  <rules xsi:type="hutnConfig:IdentifierRule" xmi:id="_MF2mcDMzEeSLJtnbAiZbXA" classifier="TypesRepository" attribute="uid"/>
+  <rules xsi:type="hutnConfig:IdentifierRule" xmi:id="_PYYHIDMzEeSLJtnbAiZbXA" classifier="Types" attribute="uid"/>
+  <rules xsi:type="hutnConfig:IdentifierRule" xmi:id="_T7bbkDMzEeSLJtnbAiZbXA" classifier="Package" attribute="uid"/>
+  <rules xsi:type="hutnConfig:IdentifierRule" xmi:id="_Ww_6gDMzEeSLJtnbAiZbXA" classifier="TypeDefinition" attribute="uid"/>
+  <rules xsi:type="hutnConfig:IdentifierRule" xmi:id="_ZmPpUDMzEeSLJtnbAiZbXA" classifier="Primitive" attribute="uid"/>
+  <rules xsi:type="hutnConfig:IdentifierRule" xmi:id="_Sqh-8DM0EeSLJtnbAiZbXA" classifier="Attribute" attribute="uid"/>
+  <rules xsi:type="hutnConfig:IdentifierRule" xmi:id="_YjpR8DM1EeSLJtnbAiZbXA" classifier="TypeReference" attribute="uid"/>
+  <rules xsi:type="hutnConfig:IdentifierRule" xmi:id="_dBhLcDM1EeSLJtnbAiZbXA" classifier="TypeExtension" attribute="uid"/>
+  <rules xsi:type="hutnConfig:IdentifierRule" xmi:id="_wxadgDM1EeSLJtnbAiZbXA" classifier="Classifier" attribute="uid"/>
+  <rules xsi:type="hutnConfig:IdentifierRule" xmi:id="_7Ip-IDM1EeSLJtnbAiZbXA" classifier="Operation" attribute="uid"/>
 </hutnConfig:Configuration>
