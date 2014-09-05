@@ -6,7 +6,7 @@
 }
 domain {
 	Recipes "e0a24138-9ba7-44dd-8b87-d1b01751c642" {
-	   parent: ApplicationRecipe "/#Hr recipe"
+//	   parent: ApplicationRecipe "#Hr recipe"
 		recipe: 
 		Recipe "f89d43e4-5d8d-4437-ad00-188328a43ed0" {
 			infrastructures: Infrastructure "080702f2-6a78-43d2-8987-c923fe681415"
@@ -389,7 +389,7 @@ domain {
 	}
 }
 Recipes "d2517ae2-db04-4b91-acc4-b19b80cf1449" {
-    parent ApplicationRecipe "/#Hr recipe Package processing"
+//    parent ApplicationRecipe "#Hr recipe Package processing"
 	recipe: 
 	Recipe "85c10e4e-451d-458d-84e5-e9458ed38cd7" {
 		infrastructures: Infrastructure "491ea860-1d5f-4fd4-9d0a-a31ca685ef74"

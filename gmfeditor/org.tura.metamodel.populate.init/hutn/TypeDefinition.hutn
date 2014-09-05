@@ -8,7 +8,7 @@
 
 domain  {
 	TypesRepository "acbcf3e3-7b19-4349-9993-12a9fe3e753a" {
-	    parent: DomainTypes "/#5b26b14a-ae2f-4ac1-a04f-fbd45eab1344"
+//	    parent: DomainTypes "#5b26b14a-ae2f-4ac1-a04f-fbd45eab1344"
 		typeDefinition: 
 		Types "221291dc-9bcb-4876-8e6f-38f03f4560a2" {
 			columns: 3

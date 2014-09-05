@@ -7,7 +7,7 @@
 
 domain  {
 	Mappers "e5ddc4b2-b9bc-4fb3-928a-2cb53fcc0d2d" {
-		parent: ApplicationMappers "/#0d86886f-6d6e-49e1-a123-d063d2d9bd22"
+//		parent: ApplicationMappers "#0d86886f-6d6e-49e1-a123-d063d2d9bd22"
 		mappers: 
 		JavaMapper "f77c09eb-aef3-4ebd-bb99-eb19ab9c40d6" {
 			serviceLayer: true
@@ -99,7 +99,7 @@ domain  {
 		}
 	}
 	Mappers "35c625c3-5c19-4681-ac50-eb8581a54cc1" {
-		parent: ApplicationMappers "/#d29466f4-8d55-4047-b6ba-fc1a830db2a1"
+//		parent: ApplicationMappers "#d29466f4-8d55-4047-b6ba-fc1a830db2a1"
 		mappers: 
 		JavaMapper "JavaMapper12" {
 			uiLayer: true

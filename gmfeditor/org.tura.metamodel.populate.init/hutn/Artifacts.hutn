@@ -8,7 +8,7 @@
 
 domain  {
 	Artifacts "cfc1509d-db2a-4863-becd-7540552cf00b" {
-	    parent: DomainArtifact "/#a1b4e4c3-7685-434e-97ae-7e353396ba1f"
+//	    parent: DomainArtifact "#a1b4e4c3-7685-434e-97ae-7e353396ba1f"
 		artifacts: 
 		   Artifact "0da0dca3-26b9-4877-854f-6011ca619df3" {
 			name: "Service Bean"
@@ -78,7 +78,7 @@ domain  {
 	}
 	
 	Artifacts "e26c4095-ebd6-48b4-917a-11026d3e511f" {
-	    parent: DomainArtifact "/#bf6005f8-bcb9-4c2a-b3e5-49468794367a"
+//	    parent: DomainArtifact "#bf6005f8-bcb9-4c2a-b3e5-49468794367a"
 		artifacts: 
 		Artifact "3c5b8283-1d08-47d8-ba3b-96b405638aa1" {
 			name: "Service Bean"
@@ -320,7 +320,7 @@ domain  {
 		}
 	}
 	Artifacts "ec71bdb8-8365-492b-a974-5db4672bc0c0" {
-	    parent:DomainArtifact "/#edb48357-89bd-4570-aaf7-e49d7bb75e57"
+//	    parent:DomainArtifact "#edb48357-89bd-4570-aaf7-e49d7bb75e57"
 		artifacts: 
 		Artifact "327f881c-6227-4ff4-9527-67b2ac881f02" {
 			name: "entityObject"
