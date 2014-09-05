@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+
+   <extension
+         point="org.eclipse.ui.popupMenus">
+      <objectContribution
+            id="org.tura.metamodel.hutn.source"
+            nameFilter="*.def"
+            objectClass="org.eclipse.core.resources.IFile">
+         <action
+               class="org.tura.metamodel.hutn.builder.GeneratorHUTNModel"
+               id="org.tura.metamodel.hutn.builder.GenerateHUTNModel"
+               label="Generate initial model"
+               menubarPath="org.tura.metamodel.hutn.source.menu/actions">
+         </action>
+         <menu
+               id="org.tura.metamodel.hutn.source.menu"
+               label="Tura"
+               path="additions">
+            <separator
+                  name="actions">
+            </separator>
+         </menu>
+         
+      </objectContribution>
+   </extension>
+</plugin>
