@@ -35,4 +35,9 @@
   <rules xsi:type="hutnConfig:IdentifierRule" xmi:id="__GeMYDPWEeSewMMp2UnIRA" classifier="Property" attribute="uid"/>
   <rules xsi:type="hutnConfig:IdentifierRule" xmi:id="_CHbb8DPXEeSewMMp2UnIRA" classifier="Infrastructure" attribute="uid"/>
   <rules xsi:type="hutnConfig:IdentifierRule" xmi:id="_8w5KMDPYEeSewMMp2UnIRA" classifier="MappingSpecifier" attribute="uid"/>
+  <rules xsi:type="hutnConfig:IdentifierRule" xmi:id="_6dEh0DSmEeSTJJD8BQh9Jw" classifier="ApplicationMappers" attribute="uid"/>
+  <rules xsi:type="hutnConfig:IdentifierRule" xmi:id="_-3014DSmEeSTJJD8BQh9Jw" classifier="ApplicationMapper" attribute="uid"/>
+  <rules xsi:type="hutnConfig:IdentifierRule" xmi:id="_EPrrYDSnEeSTJJD8BQh9Jw" classifier="ApplicationRecipe" attribute="uid"/>
+  <rules xsi:type="hutnConfig:IdentifierRule" xmi:id="_H7DJ4DSnEeSTJJD8BQh9Jw" classifier="ApplicationRecipes" attribute="uid"/>
+  <rules xsi:type="hutnConfig:IdentifierRule" xmi:id="_OksXYDSnEeSTJJD8BQh9Jw" classifier="Application" attribute="uid"/>
 </hutnConfig:Configuration>

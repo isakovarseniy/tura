@@ -1,0 +1,79 @@
+@Spec {
+	metamodel "domain" {
+		nsUri: "http://tura.org/2013/v1/domain"
+		configFile: "TuraHUTNConfig.model"
+	}
+}
+
+domain {
+	Domain "f7da5889-f65e-4b5c-820a-388210b59a66" {
+		domainArtifacts: 
+		DomainArtifacts "6f4c10d5-1762-4d4b-99f4-3c031a203f2b" {
+			columns: 4
+			name: "Domain artifacts"
+			domainArtifact: 
+			JPAService "a1b4e4c3-7685-434e-97ae-7e353396ba1f" {
+				name: "JPAService"
+//				artifact: Artifacts "#cfc1509d-db2a-4863-becd-7540552cf00b"
+			}, 
+			EJBService "bf6005f8-bcb9-4c2a-b3e5-49468794367a" {
+				name: "EJBService"
+//				artifact: Artifacts "#e26c4095-ebd6-48b4-917a-11026d3e511f"
+			}, 
+			ORMEntity "edb48357-89bd-4570-aaf7-e49d7bb75e57" {
+				name: "ORMEntity"
+//				artifact: Artifacts "#ec71bdb8-8365-492b-a974-5db4672bc0c0"
+			}, 
+			ContinuousIintegration "1d4b5afc-284f-4eb2-81ab-859af4fb84f1" {
+				name: "Continuous integration"
+//				artifact: Artifacts "#76c5c93b-9847-4bee-8968-bb19afbb1896"
+			}
+		}
+		domainTypes: 
+		DomainTypes "5b26b14a-ae2f-4ac1-a04f-fbd45eab1344" {
+			name: "Domain types"
+//			typesrepository: TypesRepository "#acbcf3e3-7b19-4349-9993-12a9fe3e753a"
+		}
+		domainApplications: 
+		DomainApplications "28e10ed5-f6cf-4b06-896c-fd5c9bc2c8e2" {
+			name: "Domain applications"
+			applications: 
+			DomainApplication "be2c5bc4-286f-4e09-9fb5-bd0a24e2ff9d" {
+				name: "HR application"
+//				application: UnknownType "#a5fbccfd-c3e9-440c-a68d-551035ebf03a"
+			}
+		}
+	}
+	Application "a5fbccfd-c3e9-440c-a68d-551035ebf03a" {
+		parent: DomainApplication "be2c5bc4-286f-4e09-9fb5-bd0a24e2ff9d"
+		applicationRecipes: 
+		ApplicationRecipes "f9514377-08f6-4c90-939e-17075d3239fd" {
+			name: "Application recipes"
+			recipes: 
+			ApplicationRecipe "Hr recipe" {
+				name: "Hr recipe"
+//				recipes: Recipes "#e0a24138-9ba7-44dd-8b87-d1b01751c642"
+			}, 
+			ApplicationRecipe "Hr recipe Package processing" {
+				name: "Hr recipe Package processing"
+//				recipes: Recipes "#d2517ae2-db04-4b91-acc4-b19b80cf1449"
+			}
+		}
+		applicationMappers: 
+		ApplicationMappers "Application mapper" {
+			columns: 2
+			uid: "bd625d91-80b6-42b4-bfd3-9311a0f32026"
+			name: "Application mapper"
+			mappers: 
+			ApplicationMapper "0d86886f-6d6e-49e1-a123-d063d2d9bd22" {
+				name: "Primitives mapper"
+//				mapper: Mappers "#e5ddc4b2-b9bc-4fb3-928a-2cb53fcc0d2d"
+			}, 
+			ApplicationMapper "d29466f4-8d55-4047-b6ba-fc1a830db2a1" {
+				name: "HR types mapper"
+//				mapper: Mappers "#35c625c3-5c19-4681-ac50-eb8581a54cc1"
+			}
+		}
+	}
+													
+}
