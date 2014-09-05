@@ -8,7 +8,7 @@
 
 domain  {
 	TypesRepository "acbcf3e3-7b19-4349-9993-12a9fe3e753a" {
-//		parent: UnknownType "5b26b14a-ae2f-4ac1-a04f-fbd45eab1344"
+	    parent: DomainTypes "/#5b26b14a-ae2f-4ac1-a04f-fbd45eab1344"
 		typeDefinition: 
 		Types "221291dc-9bcb-4876-8e6f-38f03f4560a2" {
 			columns: 3
@@ -144,13 +144,13 @@ domain  {
 		}
 	}
 TypeDefinition "115091ed-0c7c-4eae-be06-8496210d4b84" {
-	parent: UnknownType "e8faa4f9-a654-40f5-bdf5-454f90f2af19"
+	parent: Package "e8faa4f9-a654-40f5-bdf5-454f90f2af19"
 	types: 
 	Type "52ffccb7-cea6-49de-ba4b-7437f1da3369" {
 		name: "Department Type"
 		classifiers:
 		Classifier "03eabbe7-b921-4ce7-a2a4-78b65cc0bda8" {
-//			hint: GenerationHint "#bf57ae0e-a725-4c7c-b178-ebbf640b2375"
+			hint: GenerationHint "/#bf57ae0e-a725-4c7c-b178-ebbf640b2375"
 		}
 		attributes: 
 		Attribute "4229ac85-ee1b-46c1-87d7-b23abcc416c9" {
@@ -179,7 +179,7 @@ TypeDefinition "115091ed-0c7c-4eae-be06-8496210d4b84" {
 			target: UnknownType "eb76b6af-9330-4f5b-b46c-8b732b8fe354"
 			classifiers: 
 			Classifier "30a3e710-436b-41a7-9649-0311b2fe1ef7" {
-//				hint: GenerationHint "#2fe9fdd8-3fec-4a11-9ed5-a79c64373895"
+				hint: GenerationHint "/#2fe9fdd8-3fec-4a11-9ed5-a79c64373895"
 			}
 		}
 	}, 
@@ -200,7 +200,7 @@ TypeDefinition "115091ed-0c7c-4eae-be06-8496210d4b84" {
 		name: "Departments query service"
 		classifiers: 
 		Classifier "99c0f3c6-d7bc-4bce-abdb-4882c283879c" {
-//			hint: GenerationHint "#6ea5878f-e938-4e8b-990c-dbbbb2460dd9"
+			hint: GenerationHint "/#6ea5878f-e938-4e8b-990c-dbbbb2460dd9"
 		}
 		operations: 
 		Operation "25e3ad11-7c03-40a0-8f16-3bd73e3995e3" {
@@ -291,7 +291,7 @@ TypeDefinition "115091ed-0c7c-4eae-be06-8496210d4b84" {
 			target: TypeElement "f8c0591c-d9c2-4897-97fa-536fadf94cbf"
 			classifiers: 
 			Classifier "08a1bea0-4ed7-40eb-823b-5dd4148bd3e5" {
-//				hint: GenerationHint "#652c130e-7f7e-4676-a370-2455f3615470"
+				hint: GenerationHint "/#652c130e-7f7e-4676-a370-2455f3615470"
 			}
 		}, 
 		TypeExtension "TypeExtension3" {
@@ -299,7 +299,7 @@ TypeDefinition "115091ed-0c7c-4eae-be06-8496210d4b84" {
 			target: TypeElement "30bb8955-d333-429b-a7ae-777f1a62e767"
 			classifiers: 
 			Classifier "2609ff9a-ccb7-4aa6-b23a-76aca2ee442b" {
-//				hint: GenerationHint "#652c130e-7f7e-4676-a370-2455f3615470"
+				hint: GenerationHint "/#652c130e-7f7e-4676-a370-2455f3615470"
 			}
 		}, 
 		TypeExtension "TypeExtension4" {
@@ -307,7 +307,7 @@ TypeDefinition "115091ed-0c7c-4eae-be06-8496210d4b84" {
 			target: TypeElement "52ffccb7-cea6-49de-ba4b-7437f1da3369"
 			classifiers: 
 			Classifier "dc219655-adc0-4029-b35c-897e715563fe" {
-//				hint: GenerationHint "#4529ca6e-e57b-4e9f-80f7-215832b613e0"
+				hint: GenerationHint "/#4529ca6e-e57b-4e9f-80f7-215832b613e0"
 			}
 		}, 
 		TypeExtension "TypeExtension5" {
@@ -315,7 +315,7 @@ TypeDefinition "115091ed-0c7c-4eae-be06-8496210d4b84" {
 			target:  TypeElement "TypeReference2"
 			classifiers: 
 			Classifier "557c5691-367f-49de-895c-d2d83b85342c" {
-//				hint: GenerationHint "#2fe9fdd8-3fec-4a11-9ed5-a79c64373895"
+				hint: GenerationHint "/#2fe9fdd8-3fec-4a11-9ed5-a79c64373895"
 			}
 		}
 	}, 
@@ -323,7 +323,7 @@ TypeDefinition "115091ed-0c7c-4eae-be06-8496210d4b84" {
 		name: "Departments query service remote"
 		classifiers: 
 		Classifier "7b9bdcc1-c2ff-42b2-a103-e7e0a5e7a4c6" {
-//			hint: GenerationHint "#43bcf7f7-df80-41c6-a67c-a85c5722f25f"
+			hint: GenerationHint "/#43bcf7f7-df80-41c6-a67c-a85c5722f25f"
 		}
 		operations: 
 		Operation "aab2312e-3840-47bd-ab51-3adff8fa9a5e" {
@@ -413,7 +413,7 @@ TypeDefinition "115091ed-0c7c-4eae-be06-8496210d4b84" {
 		name: "Departments query service local"
 		classifiers: 
 		Classifier "a32c29d7-47a3-40f4-9541-6914537c75b6" {
-//			hint: GenerationHint "#e887a98a-c56d-455b-956e-bdbe57da2d14"
+			hint: GenerationHint "/#e887a98a-c56d-455b-956e-bdbe57da2d14"
 		}
 		operations: 
 		Operation "908f3a45-5328-43b4-9cfd-a77b23d1cf47" {
@@ -507,7 +507,7 @@ TypeDefinition "115091ed-0c7c-4eae-be06-8496210d4b84" {
 	Type "dd5f2ada-dfef-49f4-99c9-77ee2bd72f13" {
 		name: "Employee Type"
 		classifiers: Classifier "5fa0f329-7443-4f56-8d3b-704d9debe0e8" {
-//			hint: UnknownType "bf57ae0e-a725-4c7c-b178-ebbf640b2375"
+			hint: GenerationHint "/bf57ae0e-a725-4c7c-b178-ebbf640b2375"
 		}
 		attributes: 
 		Attribute "a7c64c5e-749d-413f-b9ad-ca3f33cc4b62" {
@@ -566,7 +566,7 @@ TypeDefinition "115091ed-0c7c-4eae-be06-8496210d4b84" {
 			target: UnknownType "f85d674e-5f0a-4ccd-9e43-f26357d85168"
 		classifiers: 
 		Classifier "68bd2fb8-5412-4ced-9373-2d2c58a9e1bf" {
-//			hint: GenerationHint "#2fe9fdd8-3fec-4a11-9ed5-a79c64373895"
+			hint: GenerationHint "/#2fe9fdd8-3fec-4a11-9ed5-a79c64373895"
 		}
 	}
 }, 
@@ -587,7 +587,7 @@ TypeDefinition "115091ed-0c7c-4eae-be06-8496210d4b84" {
 		name: "Employees query service"
 		classifiers: 
 		Classifier "ba2d61a7-f66a-4e05-acbc-76558ec1ad4d" {
-//			hint: GenerationHint "#6ea5878f-e938-4e8b-990c-dbbbb2460dd9"
+			hint: GenerationHint "/#6ea5878f-e938-4e8b-990c-dbbbb2460dd9"
 		}
 		operations:
 		Operation "4f57c552-8343-4142-95da-b77958d767e3" {
@@ -678,7 +678,7 @@ TypeDefinition "115091ed-0c7c-4eae-be06-8496210d4b84" {
 			target: UnknownType "d9a6e035-db1b-47b5-be3d-1bec6a97eed0"
 			classifiers: 
 			Classifier "7f5712de-7a0b-4748-979d-ec599121e3d2" {
-//				hint: GenerationHint "#652c130e-7f7e-4676-a370-2455f3615470"
+				hint: GenerationHint "/#652c130e-7f7e-4676-a370-2455f3615470"
 			}
 		}, 
 		TypeExtension "TypeExtension8" {
@@ -686,7 +686,7 @@ TypeDefinition "115091ed-0c7c-4eae-be06-8496210d4b84" {
 		     target: UnknownType "d2a066ad-d36f-45ea-911e-253a2f804f09"
 		     classifiers: 
 		     Classifier "8e909d93-a998-4c8f-86a8-487552d4a234" {
-//				hint: GenerationHint "#652c130e-7f7e-4676-a370-2455f3615470"
+				hint: GenerationHint "/#652c130e-7f7e-4676-a370-2455f3615470"
 			}
 		}, 
 		TypeExtension "TypeExtension9" {
@@ -694,7 +694,7 @@ TypeDefinition "115091ed-0c7c-4eae-be06-8496210d4b84" {
 			target: UnknownType "dd5f2ada-dfef-49f4-99c9-77ee2bd72f13"
 			classifiers: 
 			Classifier "74139310-0b00-4e10-86ad-0eada536b00c" {
-//				hint: GenerationHint "#4529ca6e-e57b-4e9f-80f7-215832b613e0"
+				hint: GenerationHint "/#4529ca6e-e57b-4e9f-80f7-215832b613e0"
 			}
 		}, 
 		TypeExtension "TypeExtension10" {
@@ -702,7 +702,7 @@ TypeDefinition "115091ed-0c7c-4eae-be06-8496210d4b84" {
 			target: TypeReference "TypeReference4"
 			classifiers: 
 			Classifier "fa24e061-0d2d-4999-baf4-2185da700047" {
-//				hint: GenerationHint "#2fe9fdd8-3fec-4a11-9ed5-a79c64373895"
+				hint: GenerationHint "/#2fe9fdd8-3fec-4a11-9ed5-a79c64373895"
 			}
 		}
 	}, 
@@ -710,7 +710,7 @@ TypeDefinition "115091ed-0c7c-4eae-be06-8496210d4b84" {
 		name: "Employees query service local"
 		classifiers: 
 		Classifier "35c58537-4bd2-4ffb-8dc2-fb19de9a1677" {
-//			hint: GenerationHint "#e887a98a-c56d-455b-956e-bdbe57da2d14"
+			hint: GenerationHint "/#e887a98a-c56d-455b-956e-bdbe57da2d14"
 		}
 	operations: 
 	Operation "c6b53fe6-3caf-4147-b8e9-55b59150967a" {
@@ -800,7 +800,7 @@ TypeDefinition "115091ed-0c7c-4eae-be06-8496210d4b84" {
 		name: "Employees query service remote"
 		classifiers: 
 		Classifier "daa415ee-6d04-441d-aeb9-d6cdd776a373" {
-//			hint: GenerationHint "#43bcf7f7-df80-41c6-a67c-a85c5722f25f"
+			hint: GenerationHint "/#43bcf7f7-df80-41c6-a67c-a85c5722f25f"
 		}
 		operations: 
 		Operation "7180cd5e-ca92-4753-a588-2f23a0881a81" {
