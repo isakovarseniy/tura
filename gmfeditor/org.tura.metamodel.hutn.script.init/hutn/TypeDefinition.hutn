@@ -1,0 +1,895 @@
+@Spec {
+	metamodel "domain" {
+		nsUri: "http://tura.org/2013/v1/domain"
+		configFile: "TuraHUTNConfig.model"
+	}
+}
+
+
+domain  {
+	TypesRepository "acbcf3e3-7b19-4349-9993-12a9fe3e753a" {
+//	    parent: DomainTypes "#5b26b14a-ae2f-4ac1-a04f-fbd45eab1344"
+		typeDefinition: 
+		Types "221291dc-9bcb-4876-8e6f-38f03f4560a2" {
+			columns: 3
+			packages: 
+			Package "9fcd56c0-2fe7-445a-864e-9550f1b901c2" {
+				name: "Primitive package"
+				typedefinition: TypeDefinition "29bf33f0-cf65-44c3-89d9-0f63b8cf9b1d"
+			}, 
+			Package "dd77a443-471b-441e-88bf-3f3f092f372c" {
+				name: "Base package"
+				typedefinition: TypeDefinition "d3aaa3c1-ce4f-4b19-9e05-30631fe679cd"
+			}, 
+			Package "e8faa4f9-a654-40f5-bdf5-454f90f2af19" {
+				name: "HR package"
+				typedefinition: TypeDefinition "115091ed-0c7c-4eae-be06-8496210d4b84"
+			}
+		}
+	}
+	TypeDefinition "29bf33f0-cf65-44c3-89d9-0f63b8cf9b1d" {
+		parent: Package "9fcd56c0-2fe7-445a-864e-9550f1b901c2"
+		types: 
+		Primitive "e370b9d1-a6fb-4a40-88e2-8845be441438" {
+			name: "String"
+		}, 
+		Primitive "6f5f3825-6695-4b7e-b07c-76ea31fa40e0" {
+			name: "Boolean"
+		},
+		Primitive "9d594d56-4c84-4a05-a388-07a547c5e5b8" {
+			name: "Decimal"
+		}, 
+		Primitive "a4e377e2-1300-4dac-92a3-e96f93d253fe" {
+			name: "Float"
+		}, 
+		Primitive "1df3e036-0166-414a-8b91-56b38c0a50f9" {
+			name: "Double"
+		}, 
+		Primitive "20d20f60-762c-4d7f-b53d-3182a64c0393" {
+			name: "Duration"
+		}, 
+		Primitive "07cd92d1-a1c3-4540-b539-800fcea3908d" {
+			name: "DateTime"
+		}, 
+		Primitive "b7077980-3075-46e4-b6af-78b2869e1f83" {
+			name: "Time"
+		}, 
+		Primitive "2d20ec03-0bec-4e3f-9cb6-c19e186711e7" {
+			name: "Date"
+		}, 
+		Primitive "4d155298-4f77-43f3-88a0-7189a54e9980" {
+			name: "GYearMonth"
+		}, 
+		Primitive "24bb9aff-f6f9-4cc4-8ac3-c72d3ed8ba7d" {
+			name: "GYear"
+		}, 
+		Primitive "aeff8daf-248d-4f97-99f5-3c1afefcf6c3" {
+			name: "GMonthDay"
+		}, 
+		Primitive "28ca9840-426d-4112-8ffd-dd18efd5db2a" {
+			name: "GDay"
+		}, 
+		Primitive "1b54c5aa-7adb-4445-b76c-e414be73babd" {
+			name: "GMonth"
+		}, 
+		Primitive "5a474622-2c06-4b5a-bf6d-1c1d76cd961d" {
+			name: "HexBinary"
+		}, 
+		Primitive "23073537-683d-4f80-a50e-ea6dbedf657b" {
+			name: "Base64Binary"
+		}, 
+		Primitive "2829901f-e985-4786-96ff-852230536694" {
+			name: "Integer"
+		},
+	    Primitive "7b7c554c-a1ad-4e6e-8c91-20df7d6530f8" {
+			name: "Long"
+		}, 
+		Primitive "90b18156-de6d-42d1-b350-925e44a0e4cc" {
+			name: "Void"
+		}
+	}
+	TypeDefinition "d3aaa3c1-ce4f-4b19-9e05-30631fe679cd" {
+		parent: Package "dd77a443-471b-441e-88bf-3f3f092f372c"
+		types: 
+		Type "50dcca84-4d2c-4fe2-baad-56afdf1be76d" {
+			name: "BaseType"
+			attributes: 
+			Attribute "32e932b5-e86f-43a3-96c1-8b919c740eb6" {
+				packageRef: Package "9fcd56c0-2fe7-445a-864e-9550f1b901c2"
+				typeRef: TypeElement "7b7c554c-a1ad-4e6e-8c91-20df7d6530f8"
+				name: "objId"
+				pk: true
+			}, 
+			Attribute "4ff34e6a-5c01-4656-9a98-32a95c0babea" {
+				packageRef: Package "9fcd56c0-2fe7-445a-864e-9550f1b901c2"
+				typeRef: TypeElement "7b7c554c-a1ad-4e6e-8c91-20df7d6530f8"
+				name: "parentId"
+			}, 
+			Attribute "f1a45c9c-5b5c-493f-bd17-3218567518d3" {
+				packageRef: Package "9fcd56c0-2fe7-445a-864e-9550f1b901c2"
+				typeRef: TypeElement "e370b9d1-a6fb-4a40-88e2-8845be441438"
+				name: "objType"
+			}, 
+			Attribute "1d6f2af5-d0e2-42fb-8fd1-f5fc4d367317" {
+				packageRef: Package "9fcd56c0-2fe7-445a-864e-9550f1b901c2"
+				typeRef: TypeElement "e370b9d1-a6fb-4a40-88e2-8845be441438"
+				name: "objStatus"
+			}, 
+			Attribute "5e155949-aba6-4571-8711-324ccc881988" {
+				packageRef: Package "9fcd56c0-2fe7-445a-864e-9550f1b901c2"
+				typeRef: TypeElement "2d20ec03-0bec-4e3f-9cb6-c19e186711e7"
+				name: "createDate"
+			}, 
+			Attribute "c395bad1-45df-4809-96d7-8ba1566e9176" {
+				packageRef: Package "9fcd56c0-2fe7-445a-864e-9550f1b901c2"
+				typeRef: TypeElement "2d20ec03-0bec-4e3f-9cb6-c19e186711e7"
+				name: "updateDate"
+			}, 
+			Attribute "2e1b46cb-f771-4d7c-a791-9161cc005239" {
+				packageRef: Package "9fcd56c0-2fe7-445a-864e-9550f1b901c2"
+				typeRef: TypeElement "2d20ec03-0bec-4e3f-9cb6-c19e186711e7"
+				name: "activeDate"
+			}, 
+			Attribute "fa2687fb-fba8-48c6-8981-6a558e112904" {
+				packageRef: Package "9fcd56c0-2fe7-445a-864e-9550f1b901c2"
+				typeRef: TypeElement "2d20ec03-0bec-4e3f-9cb6-c19e186711e7"
+				name: "expiredDate"
+			}
+		}, 
+		Type "2957c51c-68e7-4d1e-b8b7-cbe7ccdbe13f" {
+			name: "EJB Entity CRAD Service"
+		}, 
+		Type "8ef14552-bc20-4e0f-b53d-cc472e16f71c" {
+			name: "JPA Entity CRAD Service"
+		}
+	}
+TypeDefinition "115091ed-0c7c-4eae-be06-8496210d4b84" {
+	parent: Package "e8faa4f9-a654-40f5-bdf5-454f90f2af19"
+	types: 
+	Type "52ffccb7-cea6-49de-ba4b-7437f1da3369" {
+		name: "Department Type"
+		classifiers:
+		Classifier "03eabbe7-b921-4ce7-a2a4-78b65cc0bda8" {
+			hint: GenerationHint "/#bf57ae0e-a725-4c7c-b178-ebbf640b2375"
+		}
+		attributes: 
+		Attribute "4229ac85-ee1b-46c1-87d7-b23abcc416c9" {
+			packageRef: Package "9fcd56c0-2fe7-445a-864e-9550f1b901c2"
+			typeRef: TypeElement "7b7c554c-a1ad-4e6e-8c91-20df7d6530f8"
+			name: "departmentId"
+		}, 
+		Attribute "7982905f-4f83-472f-8551-80e30e34934c" {
+			packageRef: Package "9fcd56c0-2fe7-445a-864e-9550f1b901c2"
+			typeRef: TypeElement "e370b9d1-a6fb-4a40-88e2-8845be441438"
+			name: "departmentName"
+		}, 
+		Attribute "a898ef4f-3c81-405b-a712-fa513b0e5754" {
+			packageRef: Package "9fcd56c0-2fe7-445a-864e-9550f1b901c2"
+			typeRef: TypeElement "7b7c554c-a1ad-4e6e-8c91-20df7d6530f8"
+			name: "managerId"
+		}, 
+		Attribute "84d12c71-8ea0-47f8-ab40-36ef71389fa1" {
+			packageRef: Package "9fcd56c0-2fe7-445a-864e-9550f1b901c2"
+			typeRef: TypeElement "7b7c554c-a1ad-4e6e-8c91-20df7d6530f8"
+			name: "locationId"
+		}
+		extension: 
+		TypeExtension "TypeExtension1" {
+			source: UnknownType "52ffccb7-cea6-49de-ba4b-7437f1da3369"
+			target: UnknownType "eb76b6af-9330-4f5b-b46c-8b732b8fe354"
+			classifiers: 
+			Classifier "30a3e710-436b-41a7-9649-0311b2fe1ef7" {
+				hint: GenerationHint "/#2fe9fdd8-3fec-4a11-9ed5-a79c64373895"
+			}
+		}
+	}, 
+	TypeReference "eb76b6af-9330-4f5b-b46c-8b732b8fe354" {
+		packageRef: Package "dd77a443-471b-441e-88bf-3f3f092f372c"
+		typeRef: TypeElement "50dcca84-4d2c-4fe2-baad-56afdf1be76d"
+	}, 
+	Type "692cc400-912b-471d-84f5-15f08a7ec191" {
+		name: "List of Departments"
+	}, 
+	Type "3eb3dfbb-0905-40f4-b629-6472c6503589" {
+		name: "Search criterias for Departments"
+	}, 
+	Type "43f02e82-e0f2-4640-a7d7-c580382e54d8" {
+		name: "OrderBy criterias for Departments"
+	}, 
+	Type "25a85943-6b6b-4ca0-a223-e031e30c5563" {
+		name: "Departments query service"
+		classifiers: 
+		Classifier "99c0f3c6-d7bc-4bce-abdb-4882c283879c" {
+			hint: GenerationHint "/#6ea5878f-e938-4e8b-990c-dbbbb2460dd9"
+		}
+		operations: 
+		Operation "25e3ad11-7c03-40a0-8f16-3bd73e3995e3" {
+			name: "create"
+			returnValue: 
+			ReturnValue "4ba05ef7-6af5-4924-af72-3f9416635430" {
+				packageRef: Package "e8faa4f9-a654-40f5-bdf5-454f90f2af19"
+				typeRef: TypeElement "52ffccb7-cea6-49de-ba4b-7437f1da3369"
+			}
+		}, 
+		Operation "6f60ecf7-ef93-42f5-8ec7-fc7d83a5105f" {
+			name: "find"
+			parameters: 
+			Parameter "77a159a3-8d3e-47db-affa-16faaa50edba" {
+				packageRef: Package "e8faa4f9-a654-40f5-bdf5-454f90f2af19"
+				typeRef: TypeElement "3eb3dfbb-0905-40f4-b629-6472c6503589"
+				name: "search"
+			}, 
+			Parameter "08819d7d-ef3b-4590-b6dd-5c21920ce9f0" {
+				packageRef: Package "9fcd56c0-2fe7-445a-864e-9550f1b901c2"
+				typeRef: TypeElement "2829901f-e985-4786-96ff-852230536694"
+				name: "startIndex"
+				order: 2
+			}, 
+			Parameter "ae1fe3b6-79aa-4fc4-b474-8cbd238b2368" {
+				packageRef: Package "9fcd56c0-2fe7-445a-864e-9550f1b901c2"
+				typeRef: TypeElement "2829901f-e985-4786-96ff-852230536694"
+				name: "endIndex"
+				order: 3
+			}, 
+			Parameter "c3a25545-521b-48c3-a14a-7f5974670e38" {
+				packageRef: Package "9fcd56c0-2fe7-445a-864e-9550f1b901c2"
+				typeRef: TypeElement "e370b9d1-a6fb-4a40-88e2-8845be441438"
+				name: "className"
+				order: 4
+			}
+			returnValue: 
+			ReturnValue "ed9f0f95-00f0-4bf3-88fa-9f033028cb62" {
+				packageRef: Package "e8faa4f9-a654-40f5-bdf5-454f90f2af19"
+				typeRef: TypeElement "692cc400-912b-471d-84f5-15f08a7ec191"
+			}
+		}, 
+		Operation "9a90fdd8-603c-46db-adc8-6bc6b08512f0" {
+			name: "insert"
+			parameters: 
+			Parameter "f3ba5a1a-2ef7-409f-b972-6eaeef1dc462" {
+				packageRef: Package "e8faa4f9-a654-40f5-bdf5-454f90f2af19"
+				typeRef: TypeElement "52ffccb7-cea6-49de-ba4b-7437f1da3369"
+				name: "obj"
+			}
+			returnValue: 
+			ReturnValue "680666ec-9086-461e-8d81-d6d6fdfe9f79" {
+				packageRef: Package "9fcd56c0-2fe7-445a-864e-9550f1b901c2"
+				typeRef: TypeElement "90b18156-de6d-42d1-b350-925e44a0e4cc"
+			}
+		}, 
+		Operation "20e79110-2821-4a08-ba51-82e083c766e5" {
+			name: "update"
+			parameters: 
+			Parameter "a9d079b4-430b-4eca-93e9-1a09b867f67e" {
+				packageRef: Package "e8faa4f9-a654-40f5-bdf5-454f90f2af19"
+				typeRef: TypeElement "52ffccb7-cea6-49de-ba4b-7437f1da3369"
+				name: "obj"
+			}
+			returnValue: 
+			ReturnValue "1c42623e-d8ec-4784-b2e7-ffbb10f5d445" {
+				packageRef: Package "9fcd56c0-2fe7-445a-864e-9550f1b901c2"
+				typeRef: TypeElement "90b18156-de6d-42d1-b350-925e44a0e4cc"
+			}
+		}, 
+		Operation "4f5cced5-8d80-4a67-8f3b-3a1773e45d4f" {
+			name: "remove"
+			parameters: 
+			Parameter "39c898b5-df57-435f-ac70-7656cfcff63d" {
+				packageRef: Package "e8faa4f9-a654-40f5-bdf5-454f90f2af19"
+				typeRef: TypeElement "52ffccb7-cea6-49de-ba4b-7437f1da3369"
+				name: "obj"
+			}
+			returnValue: 
+			ReturnValue "b88195df-953e-4c76-8941-9ba89b00571d" {
+				packageRef: Package "9fcd56c0-2fe7-445a-864e-9550f1b901c2"
+				typeRef: TypeElement "90b18156-de6d-42d1-b350-925e44a0e4cc"
+			}
+		}
+		extension: 
+		TypeExtension "TypeExtension2" {
+			source: TypeElement "25a85943-6b6b-4ca0-a223-e031e30c5563"
+			target: TypeElement "f8c0591c-d9c2-4897-97fa-536fadf94cbf"
+			classifiers: 
+			Classifier "08a1bea0-4ed7-40eb-823b-5dd4148bd3e5" {
+				hint: GenerationHint "/#652c130e-7f7e-4676-a370-2455f3615470"
+			}
+		}, 
+		TypeExtension "TypeExtension3" {
+			source: TypeElement "25a85943-6b6b-4ca0-a223-e031e30c5563"
+			target: TypeElement "30bb8955-d333-429b-a7ae-777f1a62e767"
+			classifiers: 
+			Classifier "2609ff9a-ccb7-4aa6-b23a-76aca2ee442b" {
+				hint: GenerationHint "/#652c130e-7f7e-4676-a370-2455f3615470"
+			}
+		}, 
+		TypeExtension "TypeExtension4" {
+			source: TypeElement "25a85943-6b6b-4ca0-a223-e031e30c5563"
+			target: TypeElement "52ffccb7-cea6-49de-ba4b-7437f1da3369"
+			classifiers: 
+			Classifier "dc219655-adc0-4029-b35c-897e715563fe" {
+				hint: GenerationHint "/#4529ca6e-e57b-4e9f-80f7-215832b613e0"
+			}
+		}, 
+		TypeExtension "TypeExtension5" {
+			source: TypeElement "25a85943-6b6b-4ca0-a223-e031e30c5563"
+			target:  TypeElement "TypeReference2"
+			classifiers: 
+			Classifier "557c5691-367f-49de-895c-d2d83b85342c" {
+				hint: GenerationHint "/#2fe9fdd8-3fec-4a11-9ed5-a79c64373895"
+			}
+		}
+	}, 
+	Type "f8c0591c-d9c2-4897-97fa-536fadf94cbf" {
+		name: "Departments query service remote"
+		classifiers: 
+		Classifier "7b9bdcc1-c2ff-42b2-a103-e7e0a5e7a4c6" {
+			hint: GenerationHint "/#43bcf7f7-df80-41c6-a67c-a85c5722f25f"
+		}
+		operations: 
+		Operation "aab2312e-3840-47bd-ab51-3adff8fa9a5e" {
+			name: "create"
+			returnValue: 
+			ReturnValue "965977d9-2890-48de-9768-7bc4f4deb887" {
+				packageRef: Package "e8faa4f9-a654-40f5-bdf5-454f90f2af19"
+				typeRef: TypeElement "52ffccb7-cea6-49de-ba4b-7437f1da3369"
+			}
+		}, 
+		Operation "b248b752-4cf0-4e2a-92d8-f69568f2146d" {
+			name: "find"
+			parameters: 
+			Parameter "e24109a4-a84f-4607-8d57-23b2c6630b43" {
+				packageRef: Package "e8faa4f9-a654-40f5-bdf5-454f90f2af19"
+				typeRef: TypeElement "3eb3dfbb-0905-40f4-b629-6472c6503589"
+				name: "search"
+			}, 
+			Parameter "caebc035-26e7-4eb4-8212-99463bd48970" {
+				packageRef: Package "9fcd56c0-2fe7-445a-864e-9550f1b901c2"
+				typeRef: TypeElement "2829901f-e985-4786-96ff-852230536694"
+				name: "startIndex"
+				order: 2
+			},
+			 Parameter "3dc4adbb-76b1-4c73-b36a-00d0c733afd4" {
+				packageRef: Package "9fcd56c0-2fe7-445a-864e-9550f1b901c2"
+				typeRef: TypeElement "2829901f-e985-4786-96ff-852230536694"
+				name: "endIndex"
+				order: 3
+			}, 
+			Parameter "bb60dd8c-5277-4961-b331-cf36d1407996" {
+				packageRef: Package "9fcd56c0-2fe7-445a-864e-9550f1b901c2"
+				typeRef: TypeElement "e370b9d1-a6fb-4a40-88e2-8845be441438"
+				name: "className"
+				order: 4
+			}
+			returnValue: 
+			ReturnValue "0bbd8c90-6111-4673-a7c7-60126ffeee97" {
+				packageRef: Package "e8faa4f9-a654-40f5-bdf5-454f90f2af19"
+				typeRef: TypeElement "692cc400-912b-471d-84f5-15f08a7ec191"
+			}
+		}, 
+		Operation "6ca9173a-3785-45cc-89fe-8ed73339b62d" {
+			name: "insert"
+			parameters: 
+			Parameter "ad00ff21-5181-4cf5-b7b1-86ab4271b1fe" {
+				packageRef: Package "e8faa4f9-a654-40f5-bdf5-454f90f2af19"
+				typeRef: TypeElement "52ffccb7-cea6-49de-ba4b-7437f1da3369"
+				name: "obj"
+			}
+			returnValue: 
+			ReturnValue "6c056f40-03f1-4c10-b2c4-d60513d3461d" {
+				packageRef: Package "9fcd56c0-2fe7-445a-864e-9550f1b901c2"
+				typeRef: TypeElement "90b18156-de6d-42d1-b350-925e44a0e4cc"
+			}
+		}, 
+		Operation "6f0ee849-3233-4813-845a-8eb071bd67b6" {
+			name: "update"
+			parameters: 
+			Parameter "8f363a30-5593-4db1-9ecd-7cb4fea709ab" {
+				packageRef: Package "e8faa4f9-a654-40f5-bdf5-454f90f2af19"
+				typeRef: TypeElement "52ffccb7-cea6-49de-ba4b-7437f1da3369"
+				name: "obj"
+			}
+		   returnValue: 
+		   ReturnValue "b9b3a3bb-6dde-46fd-88f8-9f6f04d2d9e6" {
+			  packageRef: Package "9fcd56c0-2fe7-445a-864e-9550f1b901c2"
+			  typeRef: TypeElement "90b18156-de6d-42d1-b350-925e44a0e4cc"
+		  }
+	    }, 
+	   Operation "9f740438-a824-436e-8567-ee7a625c69c6" {
+		 name: "remove"
+		 parameters: 
+		 Parameter "fbdece4c-9be9-48f4-88c6-ec3e49dc296e" {
+			packageRef: Package "e8faa4f9-a654-40f5-bdf5-454f90f2af19"
+			typeRef: TypeElement "52ffccb7-cea6-49de-ba4b-7437f1da3369"
+			name: "obj"
+		 }
+	    returnValue: 
+	    ReturnValue "6dccd75b-3ae9-468e-8b9e-02e2be8f1c09" {
+		   packageRef: Package "9fcd56c0-2fe7-445a-864e-9550f1b901c2"
+		   typeRef: TypeElement "90b18156-de6d-42d1-b350-925e44a0e4cc"
+	    }
+       }
+	  }, 
+	 Type "30bb8955-d333-429b-a7ae-777f1a62e767" {
+		name: "Departments query service local"
+		classifiers: 
+		Classifier "a32c29d7-47a3-40f4-9541-6914537c75b6" {
+			hint: GenerationHint "/#e887a98a-c56d-455b-956e-bdbe57da2d14"
+		}
+		operations: 
+		Operation "908f3a45-5328-43b4-9cfd-a77b23d1cf47" {
+			name: "create"
+			returnValue: 
+			ReturnValue "076da86f-d27c-4b80-a22e-6a92edcc4bc0" {
+				packageRef: Package "e8faa4f9-a654-40f5-bdf5-454f90f2af19"
+				typeRef: TypeElement "52ffccb7-cea6-49de-ba4b-7437f1da3369"
+			}
+		}, 
+		Operation "9a20871e-dc67-473c-8144-f675cf20009e" {
+			name: "find"
+			parameters: 
+			Parameter "2527c4a9-4542-417d-bfa0-50313d5eed51" {
+				packageRef: Package "e8faa4f9-a654-40f5-bdf5-454f90f2af19"
+				typeRef: TypeElement "3eb3dfbb-0905-40f4-b629-6472c6503589"
+				name: "search"
+			}, 
+			Parameter "e9110d0b-6386-4f88-af1a-90a6679b1b90" {
+				packageRef: Package "9fcd56c0-2fe7-445a-864e-9550f1b901c2"
+				typeRef: TypeElement "2829901f-e985-4786-96ff-852230536694"
+				name: "startIndex"
+				order: 2
+			}, 
+			Parameter "a05abb18-6914-42c5-9e49-e1d17763f0c2" {
+				packageRef: Package "9fcd56c0-2fe7-445a-864e-9550f1b901c2"
+				typeRef: TypeElement "2829901f-e985-4786-96ff-852230536694"
+				name: "endIndex"
+				order: 3
+			}, 
+			Parameter "10f6d4b8-904c-4678-9fc4-0289fdd2dda7" {
+				packageRef: Package "9fcd56c0-2fe7-445a-864e-9550f1b901c2"
+				typeRef: TypeElement "e370b9d1-a6fb-4a40-88e2-8845be441438"
+				name: "className"
+				order: 4
+			}
+			returnValue: 
+			ReturnValue "75020eae-15fc-4b96-97b6-efc1c8da4ece" {
+				packageRef: Package "e8faa4f9-a654-40f5-bdf5-454f90f2af19"
+				typeRef: TypeElement "692cc400-912b-471d-84f5-15f08a7ec191"
+			}
+		}, 
+		Operation "4dd40bfa-27d1-4439-8123-498df4915fa1" {
+			name: "insert"
+			parameters: 
+			Parameter "372d6c77-b59a-430c-b822-903538eb0baf" {
+				packageRef: Package "e8faa4f9-a654-40f5-bdf5-454f90f2af19"
+				typeRef: TypeElement "52ffccb7-cea6-49de-ba4b-7437f1da3369"
+				name: "obj"
+			}
+			returnValue: 
+			ReturnValue "daa8f3b3-5301-45ef-b613-b80050c0ec60" {
+				packageRef: Package "9fcd56c0-2fe7-445a-864e-9550f1b901c2"
+				typeRef: TypeElement "90b18156-de6d-42d1-b350-925e44a0e4cc"
+			}
+		},
+		Operation "7f56dbf7-4c23-4e3a-9dc1-2fdb987af787" {
+			name: "update"
+			parameters: 
+			Parameter "9c2274f1-58f1-4a7e-bef7-5c275b881e96" {
+				packageRef: Package "e8faa4f9-a654-40f5-bdf5-454f90f2af19"
+				typeRef: TypeElement "52ffccb7-cea6-49de-ba4b-7437f1da3369"
+				name: "obj"
+			}
+			returnValue: 
+			ReturnValue "640d4c14-a3c9-45cb-ae64-c71848cfe5b5" {
+				packageRef: Package "9fcd56c0-2fe7-445a-864e-9550f1b901c2"
+				typeRef: TypeElement "90b18156-de6d-42d1-b350-925e44a0e4cc"
+			}
+		}, 
+		Operation "remove" {
+			uid: "05ea8cee-54b1-44ce-a556-33d96fe9a02e"
+			name: "remove"
+			parameters: 
+			Parameter "d687827e-e433-43e5-851a-79e820724b0e" {
+				packageRef: Package "e8faa4f9-a654-40f5-bdf5-454f90f2af19"
+				typeRef: TypeElement "52ffccb7-cea6-49de-ba4b-7437f1da3369"
+				name: "obj"
+			}
+			returnValue: 
+			ReturnValue "8845db96-2ab9-475c-8bed-c71813414644" {
+				packageRef: Package "9fcd56c0-2fe7-445a-864e-9550f1b901c2"
+				typeRef: TypeElement "90b18156-de6d-42d1-b350-925e44a0e4cc"
+			}
+		}
+	}, 
+	TypeReference "TypeReference2" {
+		packageRef: Package "dd77a443-471b-441e-88bf-3f3f092f372c"
+		typeRef: TypeElement "2957c51c-68e7-4d1e-b8b7-cbe7ccdbe13f"
+	}, 
+	Type "dd5f2ada-dfef-49f4-99c9-77ee2bd72f13" {
+		name: "Employee Type"
+		classifiers: Classifier "5fa0f329-7443-4f56-8d3b-704d9debe0e8" {
+			hint: GenerationHint "/bf57ae0e-a725-4c7c-b178-ebbf640b2375"
+		}
+		attributes: 
+		Attribute "a7c64c5e-749d-413f-b9ad-ca3f33cc4b62" {
+			packageRef: Package "9fcd56c0-2fe7-445a-864e-9550f1b901c2"
+			typeRef: TypeElement "7b7c554c-a1ad-4e6e-8c91-20df7d6530f8"
+			name: "employeeId"
+		}, 
+		Attribute "ea8666ca-4384-491d-98ba-1d63f2320c04" {
+			packageRef: Package "9fcd56c0-2fe7-445a-864e-9550f1b901c2"
+			typeRef: TypeElement "e370b9d1-a6fb-4a40-88e2-8845be441438"
+			name: "firstName"
+		}, 
+		Attribute "f510f9b4-83eb-44c7-977b-22b1910134ad" {
+			packageRef: Package "9fcd56c0-2fe7-445a-864e-9550f1b901c2"
+			typeRef: TypeElement "e370b9d1-a6fb-4a40-88e2-8845be441438"
+			name: "lastName"
+		}, 
+		Attribute "83d91af6-a043-4d1c-b795-37d31f8dbc72" {
+			packageRef: Package "9fcd56c0-2fe7-445a-864e-9550f1b901c2"
+			typeRef: TypeElement "e370b9d1-a6fb-4a40-88e2-8845be441438"
+			name: "email"
+		}, 
+		Attribute "5218cbef-904f-4469-94f8-141b0742985e" {
+			packageRef: Package "9fcd56c0-2fe7-445a-864e-9550f1b901c2"
+			typeRef: TypeElement "e370b9d1-a6fb-4a40-88e2-8845be441438"
+			name: "phoneNumber"
+		}, 
+		Attribute "bdf0412e-246e-4d81-8109-ffa32f0a2ab3" {
+			packageRef: Package "9fcd56c0-2fe7-445a-864e-9550f1b901c2"
+			typeRef: TypeElement "2d20ec03-0bec-4e3f-9cb6-c19e186711e7"
+		    name: "hireDate"
+		}, 
+		Attribute "d3f4f447-e522-4da6-82d4-70c4add09a66" {
+			packageRef: Package "9fcd56c0-2fe7-445a-864e-9550f1b901c2"
+			typeRef: TypeElement "a4e377e2-1300-4dac-92a3-e96f93d253fe"
+			name: "salary"
+		}, 
+		Attribute "0afb75ed-53fc-4d13-ad59-48423b3ccf80" {
+			packageRef: Package "9fcd56c0-2fe7-445a-864e-9550f1b901c2"
+			typeRef: TypeElement "a4e377e2-1300-4dac-92a3-e96f93d253fe"
+			name: "commissionPct"
+		}, 
+		Attribute "97c41a52-78c3-422f-ae56-c81eb04a899c" {
+			packageRef: Package "9fcd56c0-2fe7-445a-864e-9550f1b901c2"
+			typeRef: TypeElement "7b7c554c-a1ad-4e6e-8c91-20df7d6530f8"
+			name: "managerId"
+		}, 
+		Attribute "bda32672-4070-449e-a6d7-cc54d813feb9" {
+			packageRef: Package "9fcd56c0-2fe7-445a-864e-9550f1b901c2"
+			typeRef: TypeElement "7b7c554c-a1ad-4e6e-8c91-20df7d6530f8"
+			name: "departmentId"
+		}
+		extension: 
+		TypeExtension "TypeExtension6" {
+			source: UnknownType "dd5f2ada-dfef-49f4-99c9-77ee2bd72f13"
+			target: UnknownType "f85d674e-5f0a-4ccd-9e43-f26357d85168"
+		classifiers: 
+		Classifier "68bd2fb8-5412-4ced-9373-2d2c58a9e1bf" {
+			hint: GenerationHint "/#2fe9fdd8-3fec-4a11-9ed5-a79c64373895"
+		}
+	}
+}, 
+  TypeReference "f85d674e-5f0a-4ccd-9e43-f26357d85168" {
+	packageRef: Package "dd77a443-471b-441e-88bf-3f3f092f372c"
+	typeRef: TypeElement "50dcca84-4d2c-4fe2-baad-56afdf1be76d"
+	}, 
+	Type "2814d4c5-b26a-4f3e-b1dc-c400f54b494e" {
+		name: "List of Employees"
+	}, 
+	Type "cff56a6e-6d9a-41dc-8ff7-d3d6d0c85cdb" {
+		name: "Search criterias for Employees"
+	}, 
+	Type "460c4784-9ff8-43b2-9b38-2f84266b7b2b" {
+		name: "OrderBy criterias for Employees"
+	}, 
+	Type "984ec018-e02b-47e0-a720-40c00663b5c6" {
+		name: "Employees query service"
+		classifiers: 
+		Classifier "ba2d61a7-f66a-4e05-acbc-76558ec1ad4d" {
+			hint: GenerationHint "/#6ea5878f-e938-4e8b-990c-dbbbb2460dd9"
+		}
+		operations:
+		Operation "4f57c552-8343-4142-95da-b77958d767e3" {
+			name: "create"
+			returnValue: 
+			ReturnValue "b3e90cc7-157d-4994-b042-39ca5f65a055" {
+				packageRef: Package "e8faa4f9-a654-40f5-bdf5-454f90f2af19"
+				typeRef: TypeElement "dd5f2ada-dfef-49f4-99c9-77ee2bd72f13"
+			}
+		}, 
+		Operation "b79fd740-dfd2-42a3-87a6-2344b6352f01" {
+			name: "find"
+			parameters: 
+			Parameter "38def6df-a9a4-4638-ac28-a972eff6cacb" {
+				packageRef: Package "e8faa4f9-a654-40f5-bdf5-454f90f2af19"
+				typeRef: TypeElement "cff56a6e-6d9a-41dc-8ff7-d3d6d0c85cdb"
+				name: "search"
+			}, 
+			Parameter "10b795b0-47ec-4859-845b-d9cbd8d9c1d0" {
+				packageRef: Package "9fcd56c0-2fe7-445a-864e-9550f1b901c2"
+				typeRef: TypeElement "2829901f-e985-4786-96ff-852230536694"
+				name: "startIndex"
+				order: 2
+			}, 
+			Parameter "7346ea59-8396-407f-9bc1-ba28c405352b" {
+				packageRef: Package "9fcd56c0-2fe7-445a-864e-9550f1b901c2"
+				typeRef: TypeElement "2829901f-e985-4786-96ff-852230536694"
+				name: "endIndex"
+				order: 3
+			}, 
+			Parameter "1d84f570-0cb4-41cd-b87f-b1e740fc7ef4" {
+				packageRef: Package "9fcd56c0-2fe7-445a-864e-9550f1b901c2"
+				typeRef: TypeElement "e370b9d1-a6fb-4a40-88e2-8845be441438"
+				name: "className"
+				order: 4
+			}
+			returnValue: 
+			ReturnValue "0657d20e-c14c-4e18-a1fd-7d12086fc1d5" {
+				packageRef: Package "e8faa4f9-a654-40f5-bdf5-454f90f2af19"
+				typeRef: TypeElement "2814d4c5-b26a-4f3e-b1dc-c400f54b494e"
+			}
+		}, 
+		Operation "d8e23117-c977-433c-9925-3e3e2a4334b6" {
+			name: "insert"
+			parameters: 
+			Parameter "9c4cbdd5-b6c0-4e2b-a909-e25c0bb6d088" {
+				packageRef: Package "e8faa4f9-a654-40f5-bdf5-454f90f2af19"
+				typeRef: TypeElement "dd5f2ada-dfef-49f4-99c9-77ee2bd72f13"
+				name: "obj"
+			}
+			returnValue: 
+			ReturnValue "2e411885-9045-421b-a5e1-c7b0a1b499f4" {
+				packageRef: Package "9fcd56c0-2fe7-445a-864e-9550f1b901c2"
+				typeRef: TypeElement "90b18156-de6d-42d1-b350-925e44a0e4cc"
+			}
+		}, 
+		Operation "646acbaf-bd7f-4ede-a9e0-0c5377ed7be7" {
+			name: "update"
+			parameters: 
+			Parameter "2186ecd5-6eef-4ea5-b730-bc1689c022d7" {
+				packageRef: Package "e8faa4f9-a654-40f5-bdf5-454f90f2af19"
+				typeRef: TypeElement "dd5f2ada-dfef-49f4-99c9-77ee2bd72f13"
+				name: "obj"
+			}
+			returnValue: 
+			ReturnValue "1e35b914-2859-491b-8632-2e4babb2f9a1" {
+				packageRef: Package "9fcd56c0-2fe7-445a-864e-9550f1b901c2"
+				typeRef: TypeElement "90b18156-de6d-42d1-b350-925e44a0e4cc"
+			}
+		}, 
+		Operation "5c9737e4-43ed-4d74-b129-af9e66207860" {
+			name: "remove"
+			parameters: 
+			Parameter "6922dc12-46cf-4eb2-a146-5f7a10870c33" {
+				packageRef: Package "e8faa4f9-a654-40f5-bdf5-454f90f2af19"
+				typeRef: TypeElement "dd5f2ada-dfef-49f4-99c9-77ee2bd72f13"
+				name: "obj"
+			}
+			returnValue: 
+			ReturnValue "409a3757-c7b0-4d37-8294-8827e21db19f" {
+				packageRef: Package "9fcd56c0-2fe7-445a-864e-9550f1b901c2"
+				typeRef: TypeElement "90b18156-de6d-42d1-b350-925e44a0e4cc"
+			}
+		}
+		extension: 
+		TypeExtension "TypeExtension7" {
+			source: UnknownType "984ec018-e02b-47e0-a720-40c00663b5c6"
+			target: UnknownType "d9a6e035-db1b-47b5-be3d-1bec6a97eed0"
+			classifiers: 
+			Classifier "7f5712de-7a0b-4748-979d-ec599121e3d2" {
+				hint: GenerationHint "/#652c130e-7f7e-4676-a370-2455f3615470"
+			}
+		}, 
+		TypeExtension "TypeExtension8" {
+		     source: UnknownType "984ec018-e02b-47e0-a720-40c00663b5c6"
+		     target: UnknownType "d2a066ad-d36f-45ea-911e-253a2f804f09"
+		     classifiers: 
+		     Classifier "8e909d93-a998-4c8f-86a8-487552d4a234" {
+				hint: GenerationHint "/#652c130e-7f7e-4676-a370-2455f3615470"
+			}
+		}, 
+		TypeExtension "TypeExtension9" {
+			source: UnknownType "984ec018-e02b-47e0-a720-40c00663b5c6"
+			target: UnknownType "dd5f2ada-dfef-49f4-99c9-77ee2bd72f13"
+			classifiers: 
+			Classifier "74139310-0b00-4e10-86ad-0eada536b00c" {
+				hint: GenerationHint "/#4529ca6e-e57b-4e9f-80f7-215832b613e0"
+			}
+		}, 
+		TypeExtension "TypeExtension10" {
+			source: UnknownType "984ec018-e02b-47e0-a720-40c00663b5c6"
+			target: TypeReference "TypeReference4"
+			classifiers: 
+			Classifier "fa24e061-0d2d-4999-baf4-2185da700047" {
+				hint: GenerationHint "/#2fe9fdd8-3fec-4a11-9ed5-a79c64373895"
+			}
+		}
+	}, 
+	Type "d2a066ad-d36f-45ea-911e-253a2f804f09" {
+		name: "Employees query service local"
+		classifiers: 
+		Classifier "35c58537-4bd2-4ffb-8dc2-fb19de9a1677" {
+			hint: GenerationHint "/#e887a98a-c56d-455b-956e-bdbe57da2d14"
+		}
+	operations: 
+	Operation "c6b53fe6-3caf-4147-b8e9-55b59150967a" {
+		name: "create"
+		returnValue: 
+		ReturnValue "30b1483a-1ee9-41d3-afb7-001e5e127cf2" {
+			packageRef: Package "e8faa4f9-a654-40f5-bdf5-454f90f2af19"
+			typeRef: TypeElement "dd5f2ada-dfef-49f4-99c9-77ee2bd72f13"
+		}
+	}, 
+	Operation "9582598b-bb47-45dd-8e96-8f5e569078f1" {
+		name: "find"
+		parameters: 
+		Parameter "7f08b836-63c7-443d-bcd9-0b583ee61f6b" {
+			packageRef: Package "e8faa4f9-a654-40f5-bdf5-454f90f2af19"
+			typeRef: TypeElement "cff56a6e-6d9a-41dc-8ff7-d3d6d0c85cdb"
+			name: "search"
+		}, 
+		Parameter "30afd63d-266d-406a-a864-487e69faf636" {
+			packageRef: Package "9fcd56c0-2fe7-445a-864e-9550f1b901c2"
+			typeRef: TypeElement "2829901f-e985-4786-96ff-852230536694"
+			name: "startIndex"
+			order: 2
+		}, 
+		Parameter "7b597f63-b5a7-40f2-8ba6-ad681e32c952" {
+			packageRef: Package "9fcd56c0-2fe7-445a-864e-9550f1b901c2"
+			typeRef: TypeElement "2829901f-e985-4786-96ff-852230536694"
+			name: "endIndex"
+			order: 3
+		}, 
+		Parameter "26cfba81-0b37-430c-b6f2-ad6d1f6ccb46" {
+			packageRef: Package "9fcd56c0-2fe7-445a-864e-9550f1b901c2"
+			typeRef: TypeElement "e370b9d1-a6fb-4a40-88e2-8845be441438"
+			name: "className"
+			order: 4
+		}
+		returnValue: 
+		ReturnValue "0c40e323-d0ae-4bfe-ae4d-a578275812dd" {
+			packageRef: Package "e8faa4f9-a654-40f5-bdf5-454f90f2af19"
+			typeRef: TypeElement "2814d4c5-b26a-4f3e-b1dc-c400f54b494e"
+		}
+	}, 
+	Operation "224d7033-2205-42b7-b62d-c8a173feb12f" {
+		name: "insert"
+		parameters: 
+		Parameter "cbd0926a-5908-4a8d-a4c6-12c0a3701082" {
+			packageRef: Package "e8faa4f9-a654-40f5-bdf5-454f90f2af19"
+			typeRef: TypeElement "dd5f2ada-dfef-49f4-99c9-77ee2bd72f13"
+			name: "obj"
+		}
+		returnValue: 
+		ReturnValue "03da8ec7-6709-46ca-8934-87dae3c361c4" {
+			packageRef: Package "9fcd56c0-2fe7-445a-864e-9550f1b901c2"
+			typeRef: TypeElement "90b18156-de6d-42d1-b350-925e44a0e4cc"
+		}
+	}, 
+	Operation "0bc461a2-b7e2-4dd5-ae59-a79fd44bc838" {
+		name: "update"
+		parameters: 
+		Parameter "9c8f85f2-7181-4db1-b179-efb44ee43aa2" {
+		   packageRef: Package "e8faa4f9-a654-40f5-bdf5-454f90f2af19"
+		    typeRef: TypeElement "dd5f2ada-dfef-49f4-99c9-77ee2bd72f13"
+			name: "obj"
+		}
+		returnValue: 
+		ReturnValue "d22a86fe-16cf-43f0-adc3-adb08116d62c" {
+			packageRef: Package "9fcd56c0-2fe7-445a-864e-9550f1b901c2"
+			typeRef: TypeElement "90b18156-de6d-42d1-b350-925e44a0e4cc"
+		}
+	}, 
+	Operation "1d970b6d-49b4-4316-8bdb-6929314c9486" {
+		name: "remove"
+		parameters: 
+		Parameter "d1fa7bd1-7d4b-4af7-9ecb-cf911fd96fb3" {
+			packageRef: Package "e8faa4f9-a654-40f5-bdf5-454f90f2af19"
+			typeRef: TypeElement "dd5f2ada-dfef-49f4-99c9-77ee2bd72f13"
+			name: "obj"
+		}
+	    returnValue: 
+	    ReturnValue "f341d0d2-985d-4c6d-8c50-e058d7f33f60" {
+			packageRef: Package "9fcd56c0-2fe7-445a-864e-9550f1b901c2"
+			typeRef: TypeElement "90b18156-de6d-42d1-b350-925e44a0e4cc"
+		}
+	}
+}, 
+  Type "d9a6e035-db1b-47b5-be3d-1bec6a97eed0" {
+		name: "Employees query service remote"
+		classifiers: 
+		Classifier "daa415ee-6d04-441d-aeb9-d6cdd776a373" {
+			hint: GenerationHint "/#43bcf7f7-df80-41c6-a67c-a85c5722f25f"
+		}
+		operations: 
+		Operation "7180cd5e-ca92-4753-a588-2f23a0881a81" {
+			name: "create"
+			returnValue: 
+			ReturnValue "5ceb23e5-9942-4efd-bab9-9dba8d81bf54" {
+				packageRef: Package "e8faa4f9-a654-40f5-bdf5-454f90f2af19"
+				typeRef: TypeElement "dd5f2ada-dfef-49f4-99c9-77ee2bd72f13"
+			}
+		}, 
+		Operation "aff1f653-e724-4997-9ada-9a211149eca0" {
+			name: "find"
+			parameters: 
+			Parameter "9639398a-b943-4b3c-a1b9-08406d1b3d43" {
+				packageRef: Package "e8faa4f9-a654-40f5-bdf5-454f90f2af19"
+				typeRef: TypeElement "cff56a6e-6d9a-41dc-8ff7-d3d6d0c85cdb"
+				name: "search"
+			}, 
+			Parameter "956e022e-f639-41c8-879b-ed6356971e8f" {
+				packageRef: Package "9fcd56c0-2fe7-445a-864e-9550f1b901c2"
+				typeRef: TypeElement "2829901f-e985-4786-96ff-852230536694"
+				name: "startIndex"
+				order: 2
+			}, 
+			Parameter "034d769d-21f9-4bb3-8ffe-90ba28c5085c" {
+				packageRef: Package "9fcd56c0-2fe7-445a-864e-9550f1b901c2"
+				typeRef: TypeElement "2829901f-e985-4786-96ff-852230536694"
+				name: "endIndex"
+				order: 3
+			}, 
+			Parameter "8ad146ec-9d43-4a3c-af59-970f86a01cf9" {
+				packageRef: Package "9fcd56c0-2fe7-445a-864e-9550f1b901c2"
+				typeRef: TypeElement "e370b9d1-a6fb-4a40-88e2-8845be441438"
+				name: "className"
+				order: 4
+			}
+			returnValue: 
+			ReturnValue "34481a0d-d3f0-496b-9505-842691c1f353" {
+				packageRef: Package "e8faa4f9-a654-40f5-bdf5-454f90f2af19"
+				typeRef: TypeElement "2814d4c5-b26a-4f3e-b1dc-c400f54b494e"
+			}
+		}, 
+		Operation "bb6c0a0d-faf7-44a7-994c-bbf40497d62a" {
+			name: "insert"
+			parameters: 
+			Parameter "559aa4f3-d81c-443e-a768-5ba43cf94a9c" {
+				packageRef: Package "e8faa4f9-a654-40f5-bdf5-454f90f2af19"
+				typeRef: TypeElement "dd5f2ada-dfef-49f4-99c9-77ee2bd72f13"
+				name: "obj"
+			}
+			returnValue: 
+			ReturnValue "1cce36b7-b729-4748-ab71-2da363918aef" {
+				packageRef: Package "9fcd56c0-2fe7-445a-864e-9550f1b901c2"
+				typeRef: TypeElement "90b18156-de6d-42d1-b350-925e44a0e4cc"
+			}
+		}, 
+		Operation "1b38601f-0b7b-4fc5-b2d2-a4576b2c29ab" {
+			name: "update"
+			parameters: 
+			Parameter "3b2c3fce-6d64-4e4f-abd2-5ccda63f18c9" {
+				packageRef: Package "e8faa4f9-a654-40f5-bdf5-454f90f2af19"
+				typeRef: TypeElement "dd5f2ada-dfef-49f4-99c9-77ee2bd72f13"
+				name: "obj"
+			}
+			returnValue: 
+			ReturnValue "8ab59ed1-52a4-466a-ba9a-a3e8b504cc18" {
+				packageRef: Package "9fcd56c0-2fe7-445a-864e-9550f1b901c2"
+				typeRef: TypeElement "90b18156-de6d-42d1-b350-925e44a0e4cc"
+			}
+		}, 
+		Operation "6e1d6c15-39ae-4035-81fa-a9353c04d2ad" {
+			name: "remove"
+			parameters: 
+			Parameter "ea0ac724-09ba-446a-bd5e-44c464618e9d" {
+				packageRef: Package "e8faa4f9-a654-40f5-bdf5-454f90f2af19"
+				typeRef: TypeElement "dd5f2ada-dfef-49f4-99c9-77ee2bd72f13"
+				name: "obj"
+			}
+			returnValue: 
+			ReturnValue "acc8de8e-5afc-47b2-a337-6201fd246299" {
+				packageRef: Package "9fcd56c0-2fe7-445a-864e-9550f1b901c2"
+				typeRef: TypeElement "90b18156-de6d-42d1-b350-925e44a0e4cc"
+			}
+		}
+	}, 
+	TypeReference "TypeReference4" {
+		packageRef: Package "dd77a443-471b-441e-88bf-3f3f092f372c"
+		typeRef: TypeElement "2957c51c-68e7-4d1e-b8b7-cbe7ccdbe13f"
+	}
+  }
+																																									
+}																																									

@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Init
+Bundle-SymbolicName: org.tura.metamodel.hutn.script.init
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: org.tura.metamodel.populate.init.Activator
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
