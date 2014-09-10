@@ -40,4 +40,8 @@
   <rules xsi:type="hutnConfig:IdentifierRule" xmi:id="_EPrrYDSnEeSTJJD8BQh9Jw" classifier="ApplicationRecipe" attribute="uid"/>
   <rules xsi:type="hutnConfig:IdentifierRule" xmi:id="_H7DJ4DSnEeSTJJD8BQh9Jw" classifier="ApplicationRecipes" attribute="uid"/>
   <rules xsi:type="hutnConfig:IdentifierRule" xmi:id="_OksXYDSnEeSTJJD8BQh9Jw" classifier="Application" attribute="uid"/>
+  <rules xsi:type="hutnConfig:IdentifierRule" xmi:id="_-N03gDiUEeSi-4JFjEnHOw" classifier="JPAService" attribute="uid"/>
+  <rules xsi:type="hutnConfig:IdentifierRule" xmi:id="_DhkpEDiVEeSi-4JFjEnHOw" classifier="EJBService" attribute="uid"/>
+  <rules xsi:type="hutnConfig:IdentifierRule" xmi:id="_Nnz5QDiVEeSi-4JFjEnHOw" classifier="ORMEntity" attribute="uid"/>
+  <rules xsi:type="hutnConfig:IdentifierRule" xmi:id="_RnO8MDiVEeSi-4JFjEnHOw" classifier="ContinuousIintegration" attribute="uid"/>
 </hutnConfig:Configuration>

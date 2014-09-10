@@ -1,9 +1,9 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Builder
-Bundle-SymbolicName: org.tura.metamodel.hutn.builder;singleton:=true
+Bundle-SymbolicName: org.tura.metamodel.hutn.action;singleton:=true
 Bundle-Version: 1.0.0.qualifier
-Bundle-Activator: org.tura.metamodel.hutn.builder.Activator
+Bundle-Activator: org.tura.metamodel.hutn.action.Activator
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
  org.eclipse.epsilon.common;bundle-version="1.0.0",
@@ -28,4 +28,7 @@ Import-Package: org.antlr.runtime,
  org.eclipse.epsilon.hutn.exceptions,
  org.eclipse.epsilon.hutn.generate.metamodel,
  org.eclipse.epsilon.hutn.generate.model,
- org.eclipse.epsilon.hutn.model.hutn
+ org.eclipse.epsilon.hutn.model.hutn,
+ org.tura.metamodel.commons,
+ org.tura.metamodel.transform.processor,
+ org.tura.platform.hutn.workflow

@@ -372,7 +372,7 @@ domain  {
 		}
 	}
 	Artifacts "76c5c93b-9847-4bee-8968-bb19afbb1896" {
-	    parent: DomainArtifact "/#1d4b5afc-284f-4eb2-81ab-859af4fb84f1"
+	    parent: DomainArtifact "${model}#1d4b5afc-284f-4eb2-81ab-859af4fb84f1"
 		artifacts: 
 		Artifact "6ad40124-cc0a-4fac-845b-1f57dfdf0c1d" {
 			name: "Maven Builder"

@@ -1,0 +1,11 @@
+<project default="main">
+
+	<target name="main">
+		<exec executable="xjc">
+			<arg value="-d" />
+			<arg value="src" />
+			<arg value="xsd/hutnflow.xsd" />
+		</exec>
+	</target>
+
+</project>

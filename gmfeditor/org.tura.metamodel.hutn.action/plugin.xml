@@ -9,7 +9,7 @@
             nameFilter="*.def"
             objectClass="org.eclipse.core.resources.IFile">
          <action
-               class="org.tura.metamodel.hutn.builder.GeneratorHUTNModel"
+               class="org.tura.metamodel.hutn.action.GeneratorHUTNModel"
                id="org.tura.metamodel.hutn.builder.GenerateHUTNModel"
                label="Generate initial model"
                menubarPath="org.tura.metamodel.hutn.source.menu/actions">
