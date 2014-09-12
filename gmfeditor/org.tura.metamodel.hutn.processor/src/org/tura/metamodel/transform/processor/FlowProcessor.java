@@ -1,7 +1,6 @@
 package org.tura.metamodel.transform.processor;
 
 import java.io.BufferedReader;
-import org.eclipse.core.resources.IFile;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.InputStream;
@@ -10,12 +9,11 @@ import java.io.PrintStream;
 import java.net.URL;
 import java.util.List;
 
+import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IResource;
-import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.epsilon.common.dt.util.LogUtil;
 import org.eclipse.epsilon.hutn.IHutnModule;
-import org.eclipse.epsilon.hutn.dt.util.WorkspaceUtil;
 import org.tura.metamodel.transform.processor.hutn.TuraHutnModule;
 import org.tura.platform.hutn.workflow.Flow;
 import org.tura.platform.hutn.workflow.Rule;
@@ -30,7 +28,6 @@ public class FlowProcessor {
 			if (rule.getFilename().indexOf(".etl") != -1) {
 				etlProcessing(rule.getFilename(), flow.getModel(), base);
 			}
-
 		}
 	}
 
@@ -40,39 +37,57 @@ public class FlowProcessor {
 		try {
 
 			final IHutnModule hutnModule = new TuraHutnModule();
-
+			boolean regularProcessing = false;
 
 			IResource parent = resource.getParent();
-			URL url = new URL(hutnFile);
+			URL url = null;
+			try {
+				 url = new URL(hutnFile);
+			} catch (Exception e) {
+				 regularProcessing = true;
+			}
 
-			hutnModule.setConfigFileDirectory(WorkspaceUtil.getAbsolutePath(parent));
+			File projectLocation = resource.getProject().getLocation().toFile();
+			File configDir = new File(projectLocation, resource.getParent()
+					.getProjectRelativePath().toString());
+
+			hutnModule.setConfigFileDirectory(configDir);
 
 			File hutn = null;
 			boolean isParsed = false;
-			if ("platform".equals(url.getProtocol())) {
+			
+			if ( !regularProcessing && "platform".equals(url.getProtocol())) {
 				InputStream in = url.openStream();
 				ByteArrayOutputStream buffer = new ByteArrayOutputStream();
-				
-				//Construct BufferedReader from InputStreamReader
-				BufferedReader br = new BufferedReader(new InputStreamReader(in));
-			    PrintStream out = new PrintStream(buffer);
+				BufferedReader br = null;
+				try {
+					// Construct BufferedReader from InputStreamReader
+					br = new BufferedReader(new InputStreamReader(in));
+					PrintStream out = new PrintStream(buffer);
 
-			    String line = null;
-				while ((line = br.readLine()) != null) {
-					out.println(line);
+					String line = null;
+					while ((line = br.readLine()) != null) {
+						out.println(line);
+					}
+				} finally {
+					if (br != null)
+						br.close();
+					if (in != null)
+						in.close();
 				}
-				br.close();				
-				isParsed = hutnModule.parse(buffer.toString().replaceAll("\\$\\{model\\}", modelFile), ((IFile)resource).getLocation().toFile() );
+				isParsed = hutnModule.parse(
+						buffer.toString().replaceAll("\\$\\{model\\}",
+								modelFile), ((IFile) resource).getLocation()
+								.toFile());
 			} else {
-				hutn = ResourcesPlugin.getWorkspace().getRoot()
-						.findMember(hutnFile).getRawLocation().toFile();
+				hutn = resource.getProject().findMember(hutnFile).getRawLocation().toFile();
 				isParsed = hutnModule.parse(hutn);
 			}
 
 			if (isParsed) {
 
 				final List<File> generatedFiles = hutnModule.storeEmfModel(
-						WorkspaceUtil.getAbsolutePath(parent), // /../ScratchPad/
+						configDir, // /../ScratchPad/
 						modelFile, // eg: Output.model
 						null); // eg: Inferred.metamodel
 
