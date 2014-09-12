@@ -16,7 +16,7 @@ domain {
 			   components: 
 			   JavaComponent "399ff625-e169-4315-9832-bea40ec7c633" {
 				   name: "HR Services"
-				   componentRoot: "///generatedCode/serviceLayer"
+				   componentRoot: "/Users/arseniy/generatedCode/serviceLayer"
 				   artifactId: "hrservice"
 				   groupId: "org.tura.example.service"
 				   version: "1.0"
@@ -247,7 +247,7 @@ domain {
 				components: 
 				JavaComponent "22170718-9198-4a7e-8973-f6301c72dc5a" {
 					name: "HR Services proxy client"
-					componentRoot: "/generatedCode/serviceLayer"
+					componentRoot: "/Users/arseniy/generatedCode/serviceLayer"
 					artifactId: "hrservice-proxy-client"
 					groupId: "org.tura.example.service"
 					version: "1.0"
@@ -399,7 +399,7 @@ Recipes "d2517ae2-db04-4b91-acc4-b19b80cf1449" {
 			components: 
 			JavaComponent "e3be8013-56ff-4a17-8f4c-c4001c83d8cb" {
 				name: "HR Services"
-				componentRoot: "/generatedCode/serviceLayer"
+				componentRoot: "/Users/arseniy/generatedCode/serviceLayer"
 				artifactId: "hrservice"
 				groupId: "org.tura.example.service"
 				version: "1.0"
@@ -586,7 +586,7 @@ Recipes "d2517ae2-db04-4b91-acc4-b19b80cf1449" {
 				components: 
 				JavaComponent "42ef7d98-fc16-4413-bc7b-b5f18f85ff90" {
 					name: "HR Services proxy client"
-					componentRoot: "/generatedCode/serviceLayer"
+					componentRoot: "/Users/arseniy/generatedCode/serviceLayer"
 					artifactId: "hrservice-proxy-client"
 					groupId: "org.tura.example.service"
 					version: "1.0"
