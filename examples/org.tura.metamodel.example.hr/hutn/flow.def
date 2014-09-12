@@ -8,6 +8,6 @@
    <tns:ruleFlow filename="hutn/Artifacts.hutn"/>   
    <tns:ruleFlow filename="hutn/TypeDefinition.hutn"/>   
    <tns:ruleFlow filename="hutn/Mappers.hutn"/>   
-   <!--tns:ruleFlow filename="hutn/Recepies.hutn"/-->   
+   <tns:ruleFlow filename="hutn/Recepies.hutn"/>   
 
 </tns:flow>

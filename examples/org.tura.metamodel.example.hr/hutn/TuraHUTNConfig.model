@@ -45,4 +45,6 @@
   <rules xsi:type="hutnConfig:IdentifierRule" xmi:id="_Nnz5QDiVEeSi-4JFjEnHOw" classifier="ORMEntity" attribute="uid"/>
   <rules xsi:type="hutnConfig:IdentifierRule" xmi:id="_RnO8MDiVEeSi-4JFjEnHOw" classifier="ContinuousIintegration" attribute="uid"/>
   <rules xsi:type="hutnConfig:IdentifierRule" xmi:id="_WeQFMDqoEeSPDbC-jAyEwA" classifier="Type" attribute="uid"/>
+  <rules xsi:type="hutnConfig:IdentifierRule" xmi:id="_914HoDqvEeSWkcewuRK9YQ" classifier="Artifact" attribute="uid"/>
+  <rules xsi:type="hutnConfig:IdentifierRule" xmi:id="_RVgowDqzEeSWkcewuRK9YQ" classifier="Option" attribute="uid"/>
 </hutnConfig:Configuration>

@@ -45,10 +45,10 @@ domain {
 		ApplicationRecipes "f9514377-08f6-4c90-939e-17075d3239fd" {
 			name: "Application recipes"
 			recipes: 
-			ApplicationRecipe "Hr recipe" {
+			ApplicationRecipe "Hr_recipe" {
 				name: "Hr recipe"
 			}, 
-			ApplicationRecipe "Hr recipe Package processing" {
+			ApplicationRecipe "Hr_recipe_Package_processing" {
 				name: "Hr recipe Package processing"
 			}
 		}
