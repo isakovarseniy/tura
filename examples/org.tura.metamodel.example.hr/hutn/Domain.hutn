@@ -1,0 +1,68 @@
+@Spec {
+	metamodel "domain" {
+		nsUri: "http://tura.org/2013/v1/domain"
+		configFile: "TuraHUTNConfig.model"
+	}
+}
+
+domain {
+	Domain "f7da5889-f65e-4b5c-820a-388210b59a66" {
+		domainArtifacts: 
+		DomainArtifacts "6f4c10d5-1762-4d4b-99f4-3c031a203f2b" {
+			columns: 4
+			name: "Domain artifacts"
+			domainArtifact: 
+			JPAService "a1b4e4c3-7685-434e-97ae-7e353396ba1f" {
+				name: "JPAService"
+			},
+			EJBService "bf6005f8-bcb9-4c2a-b3e5-49468794367a" {
+				name: "EJBService"
+			}, 
+			ORMEntity "edb48357-89bd-4570-aaf7-e49d7bb75e57" {
+				name: "ORMEntity"
+			}, 
+			ContinuousIintegration "1d4b5afc-284f-4eb2-81ab-859af4fb84f1" {
+				name: "Continuous integration"
+			}
+		}
+		domainTypes: 
+		DomainTypes "5b26b14a-ae2f-4ac1-a04f-fbd45eab1344" {
+			name: "Domain types"
+		}
+		domainApplications: 
+		DomainApplications "28e10ed5-f6cf-4b06-896c-fd5c9bc2c8e2" {
+			name: "Domain applications"
+			applications: 
+			DomainApplication "be2c5bc4-286f-4e09-9fb5-bd0a24e2ff9d" {
+				name: "HR application"
+				application: Application "a5fbccfd-c3e9-440c-a68d-551035ebf03a"
+			}
+		}
+	}
+	Application "a5fbccfd-c3e9-440c-a68d-551035ebf03a" {
+		parent: DomainApplication "be2c5bc4-286f-4e09-9fb5-bd0a24e2ff9d"
+		applicationRecipes: 
+		ApplicationRecipes "f9514377-08f6-4c90-939e-17075d3239fd" {
+			name: "Application recipes"
+			recipes: 
+			ApplicationRecipe "Hr recipe" {
+				name: "Hr recipe"
+			}, 
+			ApplicationRecipe "Hr recipe Package processing" {
+				name: "Hr recipe Package processing"
+			}
+		}
+		applicationMappers: 
+		ApplicationMappers "bd625d91-80b6-42b4-bfd3-9311a0f32026" {
+			columns: 2
+			name: "Application mapper"
+			mappers: 
+			ApplicationMapper "0d86886f-6d6e-49e1-a123-d063d2d9bd22" {
+				name: "Primitives mapper"
+			}, 
+			ApplicationMapper "d29466f4-8d55-4047-b6ba-fc1a830db2a1" {
+				name: "HR types mapper"
+			}
+		}
+	}
+}

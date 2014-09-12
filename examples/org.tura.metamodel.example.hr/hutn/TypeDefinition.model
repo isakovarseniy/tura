@@ -1,0 +1,326 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:tura.domain="http://tura.org/2013/v1/domain">
+  <tura.domain:TypesRepository parent="hr.domain#5b26b14a-ae2f-4ac1-a04f-fbd45eab1344">
+    <typeDefinition columns="3">
+      <packages name="Primitive package" typedefinition="#/1"/>
+      <packages name="Base package" typedefinition="#/2"/>
+      <packages name="HR package" typedefinition="#/3"/>
+    </typeDefinition>
+  </tura.domain:TypesRepository>
+  <tura.domain:TypeDefinition parent="#/0/@typeDefinition/@packages.0">
+    <types xsi:type="tura.domain:Primitive" name="String"/>
+    <types xsi:type="tura.domain:Primitive" name="Boolean"/>
+    <types xsi:type="tura.domain:Primitive" name="Decimal"/>
+    <types xsi:type="tura.domain:Primitive" name="Float"/>
+    <types xsi:type="tura.domain:Primitive" name="Double"/>
+    <types xsi:type="tura.domain:Primitive" name="Duration"/>
+    <types xsi:type="tura.domain:Primitive" name="DateTime"/>
+    <types xsi:type="tura.domain:Primitive" name="Time"/>
+    <types xsi:type="tura.domain:Primitive" name="Date"/>
+    <types xsi:type="tura.domain:Primitive" name="GYearMonth"/>
+    <types xsi:type="tura.domain:Primitive" name="GYear"/>
+    <types xsi:type="tura.domain:Primitive" name="GMonthDay"/>
+    <types xsi:type="tura.domain:Primitive" name="GDay"/>
+    <types xsi:type="tura.domain:Primitive" name="GMonth"/>
+    <types xsi:type="tura.domain:Primitive" name="HexBinary"/>
+    <types xsi:type="tura.domain:Primitive" name="Base64Binary"/>
+    <types xsi:type="tura.domain:Primitive" name="Integer"/>
+    <types xsi:type="tura.domain:Primitive" name="Long"/>
+    <types xsi:type="tura.domain:Primitive" name="Void"/>
+  </tura.domain:TypeDefinition>
+  <tura.domain:TypeDefinition parent="#/0/@typeDefinition/@packages.1">
+    <types xsi:type="tura.domain:Type" name="BaseType">
+      <attributes packageRef="#/0/@typeDefinition/@packages.0" typeRef="#/1/@types.17"
+          name="objId" pk="true"/>
+      <attributes packageRef="#/0/@typeDefinition/@packages.0" typeRef="#/1/@types.17"
+          name="parentId"/>
+      <attributes packageRef="#/0/@typeDefinition/@packages.0" typeRef="#/1/@types.0"
+          name="objType"/>
+      <attributes packageRef="#/0/@typeDefinition/@packages.0" typeRef="#/1/@types.0"
+          name="objStatus"/>
+      <attributes packageRef="#/0/@typeDefinition/@packages.0" typeRef="#/1/@types.8"
+          name="createDate"/>
+      <attributes packageRef="#/0/@typeDefinition/@packages.0" typeRef="#/1/@types.8"
+          name="updateDate"/>
+      <attributes packageRef="#/0/@typeDefinition/@packages.0" typeRef="#/1/@types.8"
+          name="activeDate"/>
+      <attributes packageRef="#/0/@typeDefinition/@packages.0" typeRef="#/1/@types.8"
+          name="expiredDate"/>
+    </types>
+    <types xsi:type="tura.domain:Type" name="EJB Entity CRAD Service"/>
+    <types xsi:type="tura.domain:Type" name="JPA Entity CRAD Service"/>
+  </tura.domain:TypeDefinition>
+  <tura.domain:TypeDefinition parent="#/0/@typeDefinition/@packages.2">
+    <types xsi:type="tura.domain:Type" name="Department Type">
+      <classifiers hint="hr.domain#bf57ae0e-a725-4c7c-b178-ebbf640b2375"/>
+      <attributes packageRef="#/0/@typeDefinition/@packages.0" typeRef="#/1/@types.17"
+          name="departmentId"/>
+      <attributes packageRef="#/0/@typeDefinition/@packages.0" typeRef="#/1/@types.0"
+          name="departmentName"/>
+      <attributes packageRef="#/0/@typeDefinition/@packages.0" typeRef="#/1/@types.17"
+          name="managerId"/>
+      <attributes packageRef="#/0/@typeDefinition/@packages.0" typeRef="#/1/@types.17"
+          name="locationId"/>
+      <extension source="#/3/@types.0" target="#/3/@types.1">
+        <classifiers hint="hr.domain#2fe9fdd8-3fec-4a11-9ed5-a79c64373895"/>
+      </extension>
+    </types>
+    <types xsi:type="tura.domain:TypeReference" packageRef="#/0/@typeDefinition/@packages.1"
+        typeRef="#/2/@types.0"/>
+    <types xsi:type="tura.domain:Type" name="List of Departments"/>
+    <types xsi:type="tura.domain:Type" name="Search criterias for Departments"/>
+    <types xsi:type="tura.domain:Type" name="OrderBy criterias for Departments"/>
+    <types xsi:type="tura.domain:Type" name="Departments query service">
+      <classifiers hint="hr.domain#6ea5878f-e938-4e8b-990c-dbbbb2460dd9"/>
+      <operations name="create">
+        <returnValue packageRef="#/0/@typeDefinition/@packages.2" typeRef="#/3/@types.0"/>
+      </operations>
+      <operations name="find">
+        <parameters packageRef="#/0/@typeDefinition/@packages.2" typeRef="#/3/@types.3"
+            name="search"/>
+        <parameters packageRef="#/0/@typeDefinition/@packages.0" typeRef="#/1/@types.16"
+            name="startIndex" order="2"/>
+        <parameters packageRef="#/0/@typeDefinition/@packages.0" typeRef="#/1/@types.16"
+            name="endIndex" order="3"/>
+        <parameters packageRef="#/0/@typeDefinition/@packages.0" typeRef="#/1/@types.0"
+            name="className" order="4"/>
+        <returnValue packageRef="#/0/@typeDefinition/@packages.2" typeRef="#/3/@types.2"/>
+      </operations>
+      <operations name="insert">
+        <parameters packageRef="#/0/@typeDefinition/@packages.2" typeRef="#/3/@types.0"
+            name="obj"/>
+        <returnValue packageRef="#/0/@typeDefinition/@packages.0" typeRef="#/1/@types.18"/>
+      </operations>
+      <operations name="update">
+        <parameters packageRef="#/0/@typeDefinition/@packages.2" typeRef="#/3/@types.0"
+            name="obj"/>
+        <returnValue packageRef="#/0/@typeDefinition/@packages.0" typeRef="#/1/@types.18"/>
+      </operations>
+      <operations name="remove">
+        <parameters packageRef="#/0/@typeDefinition/@packages.2" typeRef="#/3/@types.0"
+            name="obj"/>
+        <returnValue packageRef="#/0/@typeDefinition/@packages.0" typeRef="#/1/@types.18"/>
+      </operations>
+      <extension source="#/3/@types.5" target="#/3/@types.6">
+        <classifiers hint="hr.domain#652c130e-7f7e-4676-a370-2455f3615470"/>
+      </extension>
+      <extension source="#/3/@types.5" target="#/3/@types.7">
+        <classifiers hint="hr.domain#652c130e-7f7e-4676-a370-2455f3615470"/>
+      </extension>
+      <extension source="#/3/@types.5" target="#/3/@types.0">
+        <classifiers hint="hr.domain#4529ca6e-e57b-4e9f-80f7-215832b613e0"/>
+      </extension>
+      <extension source="#/3/@types.5" target="#/3/@types.8">
+        <classifiers hint="hr.domain#2fe9fdd8-3fec-4a11-9ed5-a79c64373895"/>
+      </extension>
+    </types>
+    <types xsi:type="tura.domain:Type" name="Departments query service remote">
+      <classifiers hint="hr.domain#43bcf7f7-df80-41c6-a67c-a85c5722f25f"/>
+      <operations name="create">
+        <returnValue packageRef="#/0/@typeDefinition/@packages.2" typeRef="#/3/@types.0"/>
+      </operations>
+      <operations name="find">
+        <parameters packageRef="#/0/@typeDefinition/@packages.2" typeRef="#/3/@types.3"
+            name="search"/>
+        <parameters packageRef="#/0/@typeDefinition/@packages.0" typeRef="#/1/@types.16"
+            name="startIndex" order="2"/>
+        <parameters packageRef="#/0/@typeDefinition/@packages.0" typeRef="#/1/@types.16"
+            name="endIndex" order="3"/>
+        <parameters packageRef="#/0/@typeDefinition/@packages.0" typeRef="#/1/@types.0"
+            name="className" order="4"/>
+        <returnValue packageRef="#/0/@typeDefinition/@packages.2" typeRef="#/3/@types.2"/>
+      </operations>
+      <operations name="insert">
+        <parameters packageRef="#/0/@typeDefinition/@packages.2" typeRef="#/3/@types.0"
+            name="obj"/>
+        <returnValue packageRef="#/0/@typeDefinition/@packages.0" typeRef="#/1/@types.18"/>
+      </operations>
+      <operations name="update">
+        <parameters packageRef="#/0/@typeDefinition/@packages.2" typeRef="#/3/@types.0"
+            name="obj"/>
+        <returnValue packageRef="#/0/@typeDefinition/@packages.0" typeRef="#/1/@types.18"/>
+      </operations>
+      <operations name="remove">
+        <parameters packageRef="#/0/@typeDefinition/@packages.2" typeRef="#/3/@types.0"
+            name="obj"/>
+        <returnValue packageRef="#/0/@typeDefinition/@packages.0" typeRef="#/1/@types.18"/>
+      </operations>
+    </types>
+    <types xsi:type="tura.domain:Type" name="Departments query service local">
+      <classifiers hint="hr.domain#e887a98a-c56d-455b-956e-bdbe57da2d14"/>
+      <operations name="create">
+        <returnValue packageRef="#/0/@typeDefinition/@packages.2" typeRef="#/3/@types.0"/>
+      </operations>
+      <operations name="find">
+        <parameters packageRef="#/0/@typeDefinition/@packages.2" typeRef="#/3/@types.3"
+            name="search"/>
+        <parameters packageRef="#/0/@typeDefinition/@packages.0" typeRef="#/1/@types.16"
+            name="startIndex" order="2"/>
+        <parameters packageRef="#/0/@typeDefinition/@packages.0" typeRef="#/1/@types.16"
+            name="endIndex" order="3"/>
+        <parameters packageRef="#/0/@typeDefinition/@packages.0" typeRef="#/1/@types.0"
+            name="className" order="4"/>
+        <returnValue packageRef="#/0/@typeDefinition/@packages.2" typeRef="#/3/@types.2"/>
+      </operations>
+      <operations name="insert">
+        <parameters packageRef="#/0/@typeDefinition/@packages.2" typeRef="#/3/@types.0"
+            name="obj"/>
+        <returnValue packageRef="#/0/@typeDefinition/@packages.0" typeRef="#/1/@types.18"/>
+      </operations>
+      <operations name="update">
+        <parameters packageRef="#/0/@typeDefinition/@packages.2" typeRef="#/3/@types.0"
+            name="obj"/>
+        <returnValue packageRef="#/0/@typeDefinition/@packages.0" typeRef="#/1/@types.18"/>
+      </operations>
+      <operations uid="05ea8cee-54b1-44ce-a556-33d96fe9a02e" name="remove">
+        <parameters packageRef="#/0/@typeDefinition/@packages.2" typeRef="#/3/@types.0"
+            name="obj"/>
+        <returnValue packageRef="#/0/@typeDefinition/@packages.0" typeRef="#/1/@types.18"/>
+      </operations>
+    </types>
+    <types xsi:type="tura.domain:TypeReference" packageRef="#/0/@typeDefinition/@packages.1"
+        typeRef="#/2/@types.1"/>
+    <types xsi:type="tura.domain:Type" name="Employee Type">
+      <classifiers hint="hr.domain#bf57ae0e-a725-4c7c-b178-ebbf640b2375"/>
+      <attributes packageRef="#/0/@typeDefinition/@packages.0" typeRef="#/1/@types.17"
+          name="employeeId"/>
+      <attributes packageRef="#/0/@typeDefinition/@packages.0" typeRef="#/1/@types.0"
+          name="firstName"/>
+      <attributes packageRef="#/0/@typeDefinition/@packages.0" typeRef="#/1/@types.0"
+          name="lastName"/>
+      <attributes packageRef="#/0/@typeDefinition/@packages.0" typeRef="#/1/@types.0"
+          name="email"/>
+      <attributes packageRef="#/0/@typeDefinition/@packages.0" typeRef="#/1/@types.0"
+          name="phoneNumber"/>
+      <attributes packageRef="#/0/@typeDefinition/@packages.0" typeRef="#/1/@types.8"
+          name="hireDate"/>
+      <attributes packageRef="#/0/@typeDefinition/@packages.0" typeRef="#/1/@types.3"
+          name="salary"/>
+      <attributes packageRef="#/0/@typeDefinition/@packages.0" typeRef="#/1/@types.3"
+          name="commissionPct"/>
+      <attributes packageRef="#/0/@typeDefinition/@packages.0" typeRef="#/1/@types.17"
+          name="managerId"/>
+      <attributes packageRef="#/0/@typeDefinition/@packages.0" typeRef="#/1/@types.17"
+          name="departmentId"/>
+      <extension source="#/3/@types.9" target="#/3/@types.10">
+        <classifiers hint="hr.domain#2fe9fdd8-3fec-4a11-9ed5-a79c64373895"/>
+      </extension>
+    </types>
+    <types xsi:type="tura.domain:TypeReference" packageRef="#/0/@typeDefinition/@packages.1"
+        typeRef="#/2/@types.0"/>
+    <types xsi:type="tura.domain:Type" name="List of Employees"/>
+    <types xsi:type="tura.domain:Type" name="Search criterias for Employees"/>
+    <types xsi:type="tura.domain:Type" name="OrderBy criterias for Employees"/>
+    <types xsi:type="tura.domain:Type" name="Employees query service">
+      <classifiers hint="hr.domain#6ea5878f-e938-4e8b-990c-dbbbb2460dd9"/>
+      <operations name="create">
+        <returnValue packageRef="#/0/@typeDefinition/@packages.2" typeRef="#/3/@types.9"/>
+      </operations>
+      <operations name="find">
+        <parameters packageRef="#/0/@typeDefinition/@packages.2" typeRef="#/3/@types.12"
+            name="search"/>
+        <parameters packageRef="#/0/@typeDefinition/@packages.0" typeRef="#/1/@types.16"
+            name="startIndex" order="2"/>
+        <parameters packageRef="#/0/@typeDefinition/@packages.0" typeRef="#/1/@types.16"
+            name="endIndex" order="3"/>
+        <parameters packageRef="#/0/@typeDefinition/@packages.0" typeRef="#/1/@types.0"
+            name="className" order="4"/>
+        <returnValue packageRef="#/0/@typeDefinition/@packages.2" typeRef="#/3/@types.11"/>
+      </operations>
+      <operations name="insert">
+        <parameters packageRef="#/0/@typeDefinition/@packages.2" typeRef="#/3/@types.9"
+            name="obj"/>
+        <returnValue packageRef="#/0/@typeDefinition/@packages.0" typeRef="#/1/@types.18"/>
+      </operations>
+      <operations name="update">
+        <parameters packageRef="#/0/@typeDefinition/@packages.2" typeRef="#/3/@types.9"
+            name="obj"/>
+        <returnValue packageRef="#/0/@typeDefinition/@packages.0" typeRef="#/1/@types.18"/>
+      </operations>
+      <operations name="remove">
+        <parameters packageRef="#/0/@typeDefinition/@packages.2" typeRef="#/3/@types.9"
+            name="obj"/>
+        <returnValue packageRef="#/0/@typeDefinition/@packages.0" typeRef="#/1/@types.18"/>
+      </operations>
+      <extension source="#/3/@types.14" target="#/3/@types.16">
+        <classifiers hint="hr.domain#652c130e-7f7e-4676-a370-2455f3615470"/>
+      </extension>
+      <extension source="#/3/@types.14" target="#/3/@types.15">
+        <classifiers hint="hr.domain#652c130e-7f7e-4676-a370-2455f3615470"/>
+      </extension>
+      <extension source="#/3/@types.14" target="#/3/@types.9">
+        <classifiers hint="hr.domain#4529ca6e-e57b-4e9f-80f7-215832b613e0"/>
+      </extension>
+      <extension source="#/3/@types.14" target="#/3/@types.17">
+        <classifiers hint="hr.domain#2fe9fdd8-3fec-4a11-9ed5-a79c64373895"/>
+      </extension>
+    </types>
+    <types xsi:type="tura.domain:Type" name="Employees query service local">
+      <classifiers hint="hr.domain#e887a98a-c56d-455b-956e-bdbe57da2d14"/>
+      <operations name="create">
+        <returnValue packageRef="#/0/@typeDefinition/@packages.2" typeRef="#/3/@types.9"/>
+      </operations>
+      <operations name="find">
+        <parameters packageRef="#/0/@typeDefinition/@packages.2" typeRef="#/3/@types.12"
+            name="search"/>
+        <parameters packageRef="#/0/@typeDefinition/@packages.0" typeRef="#/1/@types.16"
+            name="startIndex" order="2"/>
+        <parameters packageRef="#/0/@typeDefinition/@packages.0" typeRef="#/1/@types.16"
+            name="endIndex" order="3"/>
+        <parameters packageRef="#/0/@typeDefinition/@packages.0" typeRef="#/1/@types.0"
+            name="className" order="4"/>
+        <returnValue packageRef="#/0/@typeDefinition/@packages.2" typeRef="#/3/@types.11"/>
+      </operations>
+      <operations name="insert">
+        <parameters packageRef="#/0/@typeDefinition/@packages.2" typeRef="#/3/@types.9"
+            name="obj"/>
+        <returnValue packageRef="#/0/@typeDefinition/@packages.0" typeRef="#/1/@types.18"/>
+      </operations>
+      <operations name="update">
+        <parameters packageRef="#/0/@typeDefinition/@packages.2" typeRef="#/3/@types.9"
+            name="obj"/>
+        <returnValue packageRef="#/0/@typeDefinition/@packages.0" typeRef="#/1/@types.18"/>
+      </operations>
+      <operations name="remove">
+        <parameters packageRef="#/0/@typeDefinition/@packages.2" typeRef="#/3/@types.9"
+            name="obj"/>
+        <returnValue packageRef="#/0/@typeDefinition/@packages.0" typeRef="#/1/@types.18"/>
+      </operations>
+    </types>
+    <types xsi:type="tura.domain:Type" name="Employees query service remote">
+      <classifiers hint="hr.domain#43bcf7f7-df80-41c6-a67c-a85c5722f25f"/>
+      <operations name="create">
+        <returnValue packageRef="#/0/@typeDefinition/@packages.2" typeRef="#/3/@types.9"/>
+      </operations>
+      <operations name="find">
+        <parameters packageRef="#/0/@typeDefinition/@packages.2" typeRef="#/3/@types.12"
+            name="search"/>
+        <parameters packageRef="#/0/@typeDefinition/@packages.0" typeRef="#/1/@types.16"
+            name="startIndex" order="2"/>
+        <parameters packageRef="#/0/@typeDefinition/@packages.0" typeRef="#/1/@types.16"
+            name="endIndex" order="3"/>
+        <parameters packageRef="#/0/@typeDefinition/@packages.0" typeRef="#/1/@types.0"
+            name="className" order="4"/>
+        <returnValue packageRef="#/0/@typeDefinition/@packages.2" typeRef="#/3/@types.11"/>
+      </operations>
+      <operations name="insert">
+        <parameters packageRef="#/0/@typeDefinition/@packages.2" typeRef="#/3/@types.9"
+            name="obj"/>
+        <returnValue packageRef="#/0/@typeDefinition/@packages.0" typeRef="#/1/@types.18"/>
+      </operations>
+      <operations name="update">
+        <parameters packageRef="#/0/@typeDefinition/@packages.2" typeRef="#/3/@types.9"
+            name="obj"/>
+        <returnValue packageRef="#/0/@typeDefinition/@packages.0" typeRef="#/1/@types.18"/>
+      </operations>
+      <operations name="remove">
+        <parameters packageRef="#/0/@typeDefinition/@packages.2" typeRef="#/3/@types.9"
+            name="obj"/>
+        <returnValue packageRef="#/0/@typeDefinition/@packages.0" typeRef="#/1/@types.18"/>
+      </operations>
+    </types>
+    <types xsi:type="tura.domain:TypeReference" packageRef="#/0/@typeDefinition/@packages.1"
+        typeRef="#/2/@types.1"/>
+  </tura.domain:TypeDefinition>
+</xmi:XMI>
