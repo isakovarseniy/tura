@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="ASCII"?>
-<hutnConfig:Configuration xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:hutnConfig="http://www.eclipse.org/gmt/epsilon/hutnConfig" xmi:id="_kTEioDImEeSClv8U5zrmWg">
-  <rules xsi:type="hutnConfig:IdentifierRule" xmi:id="_lP0ewDImEeSClv8U5zrmWg" classifier="Domain" attribute="uid"/>
-</hutnConfig:Configuration>

@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<tura.domain:Domain xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:tura.domain="http://tura.org/2013/v1/domain"
-    uid="newDomain">
-  <domainArtifacts/>
-  <domainTypes/>
-  <domainApplications/>
-</tura.domain:Domain>
