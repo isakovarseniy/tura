@@ -4,3 +4,4 @@ Bundle-Name: org.tura.metamodel.example.hr
 Bundle-SymbolicName: org.tura.metamodel.example.hr; singleton:=true
 Bundle-Version: 0.1.0
 Require-Bundle: org.eclipse.emf.ecore
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
