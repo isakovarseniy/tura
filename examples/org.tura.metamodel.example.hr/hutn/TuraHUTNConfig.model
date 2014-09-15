@@ -47,4 +47,5 @@
   <rules xsi:type="hutnConfig:IdentifierRule" xmi:id="_WeQFMDqoEeSPDbC-jAyEwA" classifier="Type" attribute="uid"/>
   <rules xsi:type="hutnConfig:IdentifierRule" xmi:id="_914HoDqvEeSWkcewuRK9YQ" classifier="Artifact" attribute="uid"/>
   <rules xsi:type="hutnConfig:IdentifierRule" xmi:id="_RVgowDqzEeSWkcewuRK9YQ" classifier="Option" attribute="uid"/>
+  <rules xsi:type="hutnConfig:IdentifierRule" xmi:id="_Q-ueUDxREeS1VZB12NmFxw" classifier="Primitive" attribute="uid"/>
 </hutnConfig:Configuration>

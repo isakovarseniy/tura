@@ -1,0 +1,397 @@
+@Spec {
+	metamodel "domain" {
+		nsUri: "http://tura.org/2013/v1/domain"
+		configFile: "TuraHUTNConfig.model"
+	}
+}
+
+domain  {
+TypeDefinition "Dep_115091ed-0c7c-4eae-be06-8496210d4b84" {
+	parent: Package "hr.domain#68b44bf0-3c89-11e4-916c-0800200c9a66"
+	types: 
+
+	Type "Emp_dd5f2ada-dfef-49f4-99c9-77ee2bd72f13" {
+		name: "Employee Type"
+		classifiers: Classifier "Emp_5fa0f329-7443-4f56-8d3b-704d9debe0e8" {
+			hint: GenerationHint "hr.domain#bf57ae0e-a725-4c7c-b178-ebbf640b2375"
+		}
+		attributes: 
+		Attribute "Emp_a7c64c5e-749d-413f-b9ad-ca3f33cc4b62" {
+			packageRef: Package "hr.domain#9fcd56c0-2fe7-445a-864e-9550f1b901c2"
+			typeRef: TypeElement "hr.domain#7b7c554c-a1ad-4e6e-8c91-20df7d6530f8"
+			name: "employeeId"
+		}, 
+		Attribute "Emp_ea8666ca-4384-491d-98ba-1d63f2320c04" {
+			packageRef: Package "hr.domain#9fcd56c0-2fe7-445a-864e-9550f1b901c2"
+			typeRef: TypeElement "hr.domain#e370b9d1-a6fb-4a40-88e2-8845be441438"
+			name: "firstName"
+		}, 
+		Attribute "Emp_f510f9b4-83eb-44c7-977b-22b1910134ad" {
+			packageRef: Package "hr.domain#9fcd56c0-2fe7-445a-864e-9550f1b901c2"
+			typeRef: TypeElement "hr.domain#e370b9d1-a6fb-4a40-88e2-8845be441438"
+			name: "lastName"
+		}, 
+		Attribute "Emp_83d91af6-a043-4d1c-b795-37d31f8dbc72" {
+			packageRef: Package "hr.domain#9fcd56c0-2fe7-445a-864e-9550f1b901c2"
+			typeRef: TypeElement "hr.domain#e370b9d1-a6fb-4a40-88e2-8845be441438"
+			name: "email"
+		}, 
+		Attribute "Emp_5218cbef-904f-4469-94f8-141b0742985e" {
+			packageRef: Package "hr.domain#9fcd56c0-2fe7-445a-864e-9550f1b901c2"
+			typeRef: TypeElement "hr.domain#e370b9d1-a6fb-4a40-88e2-8845be441438"
+			name: "phoneNumber"
+		}, 
+		Attribute "Emp_bdf0412e-246e-4d81-8109-ffa32f0a2ab3" {
+			packageRef: Package "hr.domain#9fcd56c0-2fe7-445a-864e-9550f1b901c2"
+			typeRef: TypeElement "hr.domain#2d20ec03-0bec-4e3f-9cb6-c19e186711e7"
+		    name: "hireDate"
+		}, 
+		Attribute "Emp_d3f4f447-e522-4da6-82d4-70c4add09a66" {
+			packageRef: Package "hr.domain#9fcd56c0-2fe7-445a-864e-9550f1b901c2"
+			typeRef: TypeElement "hr.domain#a4e377e2-1300-4dac-92a3-e96f93d253fe"
+			name: "salary"
+		}, 
+		Attribute "Emp_0afb75ed-53fc-4d13-ad59-48423b3ccf80" {
+			packageRef: Package "hr.domain#9fcd56c0-2fe7-445a-864e-9550f1b901c2"
+			typeRef: TypeElement "hr.domain#a4e377e2-1300-4dac-92a3-e96f93d253fe"
+			name: "commissionPct"
+		}, 
+		Attribute "Emp_97c41a52-78c3-422f-ae56-c81eb04a899c" {
+			packageRef: Package "hr.domain#9fcd56c0-2fe7-445a-864e-9550f1b901c2"
+			typeRef: TypeElement "hr.domain#7b7c554c-a1ad-4e6e-8c91-20df7d6530f8"
+			name: "managerId"
+		}, 
+		Attribute "Emp_bda32672-4070-449e-a6d7-cc54d813feb9" {
+			packageRef: Package "hr.domain#9fcd56c0-2fe7-445a-864e-9550f1b901c2"
+			typeRef: TypeElement "hr.domain#7b7c554c-a1ad-4e6e-8c91-20df7d6530f8"
+			name: "departmentId"
+		}
+		extension: 
+		TypeExtension "Emp_TypeExtension6" {
+			source: UnknownType "Emp_dd5f2ada-dfef-49f4-99c9-77ee2bd72f13"
+			target: UnknownType "Emp_f85d674e-5f0a-4ccd-9e43-f26357d85168"
+		classifiers: 
+		Classifier "Emp_68bd2fb8-5412-4ced-9373-2d2c58a9e1bf" {
+			hint: GenerationHint "hr.domain#2fe9fdd8-3fec-4a11-9ed5-a79c64373895"
+		}
+	}
+  },  
+  TypeReference "Emp_f85d674e-5f0a-4ccd-9e43-f26357d85168" {
+	packageRef: Package "hr.domain#dd77a443-471b-441e-88bf-3f3f092f372c"
+	typeRef: TypeElement "hr.domain#50dcca84-4d2c-4fe2-baad-56afdf1be76d"
+	} ,
+	Type "Emp_2814d4c5-b26a-4f3e-b1dc-c400f54b494e" {
+		name: "List of Employees"
+	} ,
+	Type "Emp_cff56a6e-6d9a-41dc-8ff7-d3d6d0c85cdb" {
+		name: "Search criterias for Employees"
+	} ,
+	Type "Emp_984ec018-e02b-47e0-a720-40c00663b5c6" {
+		name: "Employees query service"
+		classifiers: 
+		Classifier "Emp_ba2d61a7-f66a-4e05-acbc-76558ec1ad4d" {
+			hint: GenerationHint "hr.domain#6ea5878f-e938-4e8b-990c-dbbbb2460dd9"
+		}
+		operations:
+		Operation "Emp_4f57c552-8343-4142-95da-b77958d767e3" {
+			name: "create"
+			returnValue: 
+			ReturnValue "Emp_b3e90cc7-157d-4994-b042-39ca5f65a055" {
+				packageRef: Package "hr.domain#68b44bf0-3c89-11e4-916c-0800200c9a66"
+				typeRef: TypeElement "Emp_dd5f2ada-dfef-49f4-99c9-77ee2bd72f13"
+			}
+		}, 
+		Operation "Emp_b79fd740-dfd2-42a3-87a6-2344b6352f01" {
+			name: "find"
+			parameters: 
+			Parameter "Emp_38def6df-a9a4-4638-ac28-a972eff6cacb" {
+				packageRef: Package "hr.domain#68b44bf0-3c89-11e4-916c-0800200c9a66"
+				typeRef: TypeElement "Emp_cff56a6e-6d9a-41dc-8ff7-d3d6d0c85cdb"
+				name: "search"
+			}, 
+			Parameter "Emp_10b795b0-47ec-4859-845b-d9cbd8d9c1d0" {
+				packageRef: Package "hr.domain#9fcd56c0-2fe7-445a-864e-9550f1b901c2"
+				typeRef: TypeElement "hr.domain#2829901f-e985-4786-96ff-852230536694"
+				name: "startIndex"
+				order: 2
+			}, 
+			Parameter "Emp_7346ea59-8396-407f-9bc1-ba28c405352b" {
+				packageRef: Package "hr.domain#9fcd56c0-2fe7-445a-864e-9550f1b901c2"
+				typeRef: TypeElement "hr.domain#2829901f-e985-4786-96ff-852230536694"
+				name: "endIndex"
+				order: 3
+			}, 
+			Parameter "Emp_1d84f570-0cb4-41cd-b87f-b1e740fc7ef4" {
+				packageRef: Package "hr.domain#9fcd56c0-2fe7-445a-864e-9550f1b901c2"
+				typeRef: TypeElement "hr.domain#e370b9d1-a6fb-4a40-88e2-8845be441438"
+				name: "className"
+				order: 4
+			}
+			returnValue: 
+			ReturnValue "Emp_0657d20e-c14c-4e18-a1fd-7d12086fc1d5" {
+				packageRef: Package "hr.domain#68b44bf0-3c89-11e4-916c-0800200c9a66"
+				typeRef: TypeElement "Emp_2814d4c5-b26a-4f3e-b1dc-c400f54b494e"
+			}
+		}, 
+		Operation "Emp_d8e23117-c977-433c-9925-3e3e2a4334b6" {
+			name: "insert"
+			parameters: 
+			Parameter "Emp_9c4cbdd5-b6c0-4e2b-a909-e25c0bb6d088" {
+				packageRef: Package "hr.domain#68b44bf0-3c89-11e4-916c-0800200c9a66"
+				typeRef: TypeElement "Emp_dd5f2ada-dfef-49f4-99c9-77ee2bd72f13"
+				name: "obj"
+			}
+			returnValue: 
+			ReturnValue "Emp_2e411885-9045-421b-a5e1-c7b0a1b499f4" {
+				packageRef: Package "hr.domain#9fcd56c0-2fe7-445a-864e-9550f1b901c2"
+				typeRef: TypeElement "hr.domain#90b18156-de6d-42d1-b350-925e44a0e4cc"
+			}
+		}, 
+		Operation "Emp_646acbaf-bd7f-4ede-a9e0-0c5377ed7be7" {
+			name: "update"
+			parameters: 
+			Parameter "Emp_2186ecd5-6eef-4ea5-b730-bc1689c022d7" {
+				packageRef: Package "hr.domain#68b44bf0-3c89-11e4-916c-0800200c9a66"
+				typeRef: TypeElement "Emp_dd5f2ada-dfef-49f4-99c9-77ee2bd72f13"
+				name: "obj"
+			}
+			returnValue: 
+			ReturnValue "Emp_1e35b914-2859-491b-8632-2e4babb2f9a1" {
+				packageRef: Package "hr.domain#9fcd56c0-2fe7-445a-864e-9550f1b901c2"
+				typeRef: TypeElement "hr.domain#90b18156-de6d-42d1-b350-925e44a0e4cc"
+			}
+		}, 
+		Operation "Emp_5c9737e4-43ed-4d74-b129-af9e66207860" {
+			name: "remove"
+			parameters: 
+			Parameter "Emp_6922dc12-46cf-4eb2-a146-5f7a10870c33" {
+				packageRef: Package "hr.domain#68b44bf0-3c89-11e4-916c-0800200c9a66"
+				typeRef: TypeElement "Emp_dd5f2ada-dfef-49f4-99c9-77ee2bd72f13"
+				name: "obj"
+			}
+			returnValue: 
+			ReturnValue "Emp_409a3757-c7b0-4d37-8294-8827e21db19f" {
+				packageRef: Package "hr.domain#9fcd56c0-2fe7-445a-864e-9550f1b901c2"
+				typeRef: TypeElement "hr.domain#90b18156-de6d-42d1-b350-925e44a0e4cc"
+			}
+		}
+		extension: 
+		TypeExtension "Emp_TypeExtension7" {
+			source: UnknownType "Emp_984ec018-e02b-47e0-a720-40c00663b5c6"
+			target: UnknownType "Emp_d9a6e035-db1b-47b5-be3d-1bec6a97eed0"
+			classifiers: 
+			Classifier "Emp_7f5712de-7a0b-4748-979d-ec599121e3d2" {
+				hint: GenerationHint "hr.domain#652c130e-7f7e-4676-a370-2455f3615470"
+			}
+		}, 
+		TypeExtension "Emp_TypeExtension8" {
+		     source: UnknownType "Emp_984ec018-e02b-47e0-a720-40c00663b5c6"
+		     target: UnknownType "Emp_d2a066ad-d36f-45ea-911e-253a2f804f09"
+		     classifiers: 
+		     Classifier "Emp_8e909d93-a998-4c8f-86a8-487552d4a234" {
+				hint: GenerationHint "hr.domain#652c130e-7f7e-4676-a370-2455f3615470"
+			}
+		}, 
+		TypeExtension "Emp_TypeExtension9" {
+			source: UnknownType "Emp_984ec018-e02b-47e0-a720-40c00663b5c6"
+			target: UnknownType "Emp_dd5f2ada-dfef-49f4-99c9-77ee2bd72f13"
+			classifiers: 
+			Classifier "Emp_74139310-0b00-4e10-86ad-0eada536b00c" {
+				hint: GenerationHint "hr.domain#4529ca6e-e57b-4e9f-80f7-215832b613e0"
+			}
+		}, 
+		TypeExtension "Emp_TypeExtension10" {
+			source: UnknownType "Emp_984ec018-e02b-47e0-a720-40c00663b5c6"
+			target: TypeReference "Emp_TypeReference4"
+			classifiers: 
+			Classifier "Emp_fa24e061-0d2d-4999-baf4-2185da700047" {
+				hint: GenerationHint "hr.domain#2fe9fdd8-3fec-4a11-9ed5-a79c64373895"
+			}
+		}
+	} ,
+	Type "Emp_d2a066ad-d36f-45ea-911e-253a2f804f09" {
+		name: "Employees query service local"
+		classifiers: 
+		Classifier "Emp_35c58537-4bd2-4ffb-8dc2-fb19de9a1677" {
+			hint: GenerationHint "hr.domain#e887a98a-c56d-455b-956e-bdbe57da2d14"
+		}
+	operations: 
+	Operation "Emp_c6b53fe6-3caf-4147-b8e9-55b59150967a" {
+		name: "create"
+		returnValue: 
+		ReturnValue "Emp_30b1483a-1ee9-41d3-afb7-001e5e127cf2" {
+			packageRef: Package "hr.domain#68b44bf0-3c89-11e4-916c-0800200c9a66"
+			typeRef: TypeElement "Emp_dd5f2ada-dfef-49f4-99c9-77ee2bd72f13"
+		}
+	}, 
+	Operation "Emp_9582598b-bb47-45dd-8e96-8f5e569078f1" {
+		name: "find"
+		parameters: 
+		Parameter "Emp_7f08b836-63c7-443d-bcd9-0b583ee61f6b" {
+			packageRef: Package "hr.domain#68b44bf0-3c89-11e4-916c-0800200c9a66"
+			typeRef: TypeElement "Emp_cff56a6e-6d9a-41dc-8ff7-d3d6d0c85cdb"
+			name: "search"
+		}, 
+		Parameter "Emp_30afd63d-266d-406a-a864-487e69faf636" {
+			packageRef: Package "hr.domain#9fcd56c0-2fe7-445a-864e-9550f1b901c2"
+			typeRef: TypeElement "hr.domain#2829901f-e985-4786-96ff-852230536694"
+			name: "startIndex"
+			order: 2
+		}, 
+		Parameter "Emp_7b597f63-b5a7-40f2-8ba6-ad681e32c952" {
+			packageRef: Package "hr.domain#9fcd56c0-2fe7-445a-864e-9550f1b901c2"
+			typeRef: TypeElement "hr.domain#2829901f-e985-4786-96ff-852230536694"
+			name: "endIndex"
+			order: 3
+		}, 
+		Parameter "Emp_26cfba81-0b37-430c-b6f2-ad6d1f6ccb46" {
+			packageRef: Package "hr.domain#9fcd56c0-2fe7-445a-864e-9550f1b901c2"
+			typeRef: TypeElement "hr.domain#e370b9d1-a6fb-4a40-88e2-8845be441438"
+			name: "className"
+			order: 4
+		}
+		returnValue: 
+		ReturnValue "Emp_0c40e323-d0ae-4bfe-ae4d-a578275812dd" {
+			packageRef: Package "hr.domain#68b44bf0-3c89-11e4-916c-0800200c9a66"
+			typeRef: TypeElement "Emp_2814d4c5-b26a-4f3e-b1dc-c400f54b494e"
+		}
+	}, 
+	Operation "Emp_224d7033-2205-42b7-b62d-c8a173feb12f" {
+		name: "insert"
+		parameters: 
+		Parameter "Emp_cbd0926a-5908-4a8d-a4c6-12c0a3701082" {
+			packageRef: Package "hr.domain#68b44bf0-3c89-11e4-916c-0800200c9a66"
+			typeRef: TypeElement "Emp_dd5f2ada-dfef-49f4-99c9-77ee2bd72f13"
+			name: "obj"
+		}
+		returnValue: 
+		ReturnValue "Emp_03da8ec7-6709-46ca-8934-87dae3c361c4" {
+			packageRef: Package "hr.domain#9fcd56c0-2fe7-445a-864e-9550f1b901c2"
+			typeRef: TypeElement "hr.domain#90b18156-de6d-42d1-b350-925e44a0e4cc"
+		}
+	}, 
+	Operation "Emp_0bc461a2-b7e2-4dd5-ae59-a79fd44bc838" {
+		name: "update"
+		parameters: 
+		Parameter "Emp_9c8f85f2-7181-4db1-b179-efb44ee43aa2" {
+		   packageRef: Package "hr.domain#68b44bf0-3c89-11e4-916c-0800200c9a66"
+		    typeRef: TypeElement "Emp_dd5f2ada-dfef-49f4-99c9-77ee2bd72f13"
+			name: "obj"
+		}
+		returnValue: 
+		ReturnValue "Emp_d22a86fe-16cf-43f0-adc3-adb08116d62c" {
+			packageRef: Package "hr.domain#9fcd56c0-2fe7-445a-864e-9550f1b901c2"
+			typeRef: TypeElement "hr.domain#90b18156-de6d-42d1-b350-925e44a0e4cc"
+		}
+	}, 
+	Operation "Emp_1d970b6d-49b4-4316-8bdb-6929314c9486" {
+		name: "remove"
+		parameters: 
+		Parameter "Emp_d1fa7bd1-7d4b-4af7-9ecb-cf911fd96fb3" {
+			packageRef: Package "hr.domain#68b44bf0-3c89-11e4-916c-0800200c9a66"
+			typeRef: TypeElement "Emp_dd5f2ada-dfef-49f4-99c9-77ee2bd72f13"
+			name: "obj"
+		}
+	    returnValue: 
+	    ReturnValue "Emp_f341d0d2-985d-4c6d-8c50-e058d7f33f60" {
+			packageRef: Package "hr.domain#9fcd56c0-2fe7-445a-864e-9550f1b901c2"
+			typeRef: TypeElement "hr.domain#90b18156-de6d-42d1-b350-925e44a0e4cc"
+		}
+	}
+} ,
+  Type "Emp_d9a6e035-db1b-47b5-be3d-1bec6a97eed0" {
+		name: "Employees query service remote"
+		classifiers: 
+		Classifier "Emp_daa415ee-6d04-441d-aeb9-d6cdd776a373" {
+			hint: GenerationHint "hr.domain#43bcf7f7-df80-41c6-a67c-a85c5722f25f"
+		}
+		operations: 
+		Operation "Emp_7180cd5e-ca92-4753-a588-2f23a0881a81" {
+			name: "create"
+			returnValue: 
+			ReturnValue "Emp_5ceb23e5-9942-4efd-bab9-9dba8d81bf54" {
+				packageRef: Package "hr.domain#68b44bf0-3c89-11e4-916c-0800200c9a66"
+				typeRef: TypeElement "Emp_dd5f2ada-dfef-49f4-99c9-77ee2bd72f13"
+			}
+		}, 
+		Operation "Emp_aff1f653-e724-4997-9ada-9a211149eca0" {
+			name: "find"
+			parameters: 
+			Parameter "Emp_9639398a-b943-4b3c-a1b9-08406d1b3d43" {
+				packageRef: Package "hr.domain#68b44bf0-3c89-11e4-916c-0800200c9a66"
+				typeRef: TypeElement "Emp_cff56a6e-6d9a-41dc-8ff7-d3d6d0c85cdb"
+				name: "search"
+			}, 
+			Parameter "Emp_956e022e-f639-41c8-879b-ed6356971e8f" {
+				packageRef: Package "hr.domain#9fcd56c0-2fe7-445a-864e-9550f1b901c2"
+				typeRef: TypeElement "hr.domain#2829901f-e985-4786-96ff-852230536694"
+				name: "startIndex"
+				order: 2
+			}, 
+			Parameter "Emp_034d769d-21f9-4bb3-8ffe-90ba28c5085c" {
+				packageRef: Package "hr.domain#9fcd56c0-2fe7-445a-864e-9550f1b901c2"
+				typeRef: TypeElement "hr.domain#2829901f-e985-4786-96ff-852230536694"
+				name: "endIndex"
+				order: 3
+			}, 
+			Parameter "Emp_8ad146ec-9d43-4a3c-af59-970f86a01cf9" {
+				packageRef: Package "hr.domain#9fcd56c0-2fe7-445a-864e-9550f1b901c2"
+				typeRef: TypeElement "hr.domain#e370b9d1-a6fb-4a40-88e2-8845be441438"
+				name: "className"
+				order: 4
+			}
+			returnValue: 
+			ReturnValue "Emp_34481a0d-d3f0-496b-9505-842691c1f353" {
+				packageRef: Package "hr.domain#68b44bf0-3c89-11e4-916c-0800200c9a66"
+				typeRef: TypeElement "Emp_2814d4c5-b26a-4f3e-b1dc-c400f54b494e"
+			}
+		}, 
+		Operation "Emp_bb6c0a0d-faf7-44a7-994c-bbf40497d62a" {
+			name: "insert"
+			parameters: 
+			Parameter "Emp_559aa4f3-d81c-443e-a768-5ba43cf94a9c" {
+				packageRef: Package "hr.domain#68b44bf0-3c89-11e4-916c-0800200c9a66"
+				typeRef: TypeElement "Emp_dd5f2ada-dfef-49f4-99c9-77ee2bd72f13"
+				name: "obj"
+			}
+			returnValue: 
+			ReturnValue "Emp_1cce36b7-b729-4748-ab71-2da363918aef" {
+				packageRef: Package "hr.domain#9fcd56c0-2fe7-445a-864e-9550f1b901c2"
+				typeRef: TypeElement "hr.domain#90b18156-de6d-42d1-b350-925e44a0e4cc"
+			}
+		}, 
+		Operation "Emp_1b38601f-0b7b-4fc5-b2d2-a4576b2c29ab" {
+			name: "update"
+			parameters: 
+			Parameter "Emp_3b2c3fce-6d64-4e4f-abd2-5ccda63f18c9" {
+				packageRef: Package "hr.domain#68b44bf0-3c89-11e4-916c-0800200c9a66"
+				typeRef: TypeElement "Emp_dd5f2ada-dfef-49f4-99c9-77ee2bd72f13"
+				name: "obj"
+			}
+			returnValue: 
+			ReturnValue "Emp_8ab59ed1-52a4-466a-ba9a-a3e8b504cc18" {
+				packageRef: Package "hr.domain#9fcd56c0-2fe7-445a-864e-9550f1b901c2"
+				typeRef: TypeElement "hr.domain#90b18156-de6d-42d1-b350-925e44a0e4cc"
+			}
+		}, 
+		Operation "Emp_6e1d6c15-39ae-4035-81fa-a9353c04d2ad" {
+			name: "remove"
+			parameters: 
+			Parameter "Emp_ea0ac724-09ba-446a-bd5e-44c464618e9d" {
+				packageRef: Package "hr.domain#68b44bf0-3c89-11e4-916c-0800200c9a66"
+				typeRef: TypeElement "Emp_dd5f2ada-dfef-49f4-99c9-77ee2bd72f13"
+				name: "obj"
+			}
+			returnValue: 
+			ReturnValue "Emp_acc8de8e-5afc-47b2-a337-6201fd246299" {
+				packageRef: Package "hr.domain#9fcd56c0-2fe7-445a-864e-9550f1b901c2"
+				typeRef: TypeElement "hr.domain#90b18156-de6d-42d1-b350-925e44a0e4cc"
+			}
+		}
+	} ,
+	TypeReference "Emp_TypeReference4" {
+		packageRef: Package "hr.domain#dd77a443-471b-441e-88bf-3f3f092f372c"
+		typeRef: TypeElement "hr.domain#2957c51c-68e7-4d1e-b8b7-cbe7ccdbe13f"
+	}
+  }
+}
