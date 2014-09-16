@@ -187,7 +187,7 @@
       <packages uid="3c18ec90-3c89-11e4-916c-0800200c9a66" name="Country package"
           typedefinition="#Cntr_115091ed-0c7c-4eae-be06-8496210d4b84"/>
       <packages uid="45953530-3c89-11e4-916c-0800200c9a66" name="State package" typedefinition="#State_115091ed-0c7c-4eae-be06-8496210d4b84"/>
-      <packages uid="4e26f6c0-3c89-11e4-916c-0800200c9a66" name="City package"/>
+      <packages uid="4e26f6c0-3c89-11e4-916c-0800200c9a66" name="City package" typedefinition="#City_115091ed-0c7c-4eae-be06-8496210d4b84"/>
       <packages uid="571d6d90-3c89-11e4-916c-0800200c9a66" name="Street package" typedefinition="#Str_115091ed-0c7c-4eae-be06-8496210d4b84"/>
       <packages uid="5fa62e70-3c89-11e4-916c-0800200c9a66" name="Departments package"
           typedefinition="#Dep_115091ed-0c7c-4eae-be06-8496210d4b84"/>
@@ -670,6 +670,143 @@
       </operations>
     </types>
     <types xsi:type="tura.domain:TypeReference" uid="State_TypeReference2" packageRef="#dd77a443-471b-441e-88bf-3f3f092f372c"
+        typeRef="#2957c51c-68e7-4d1e-b8b7-cbe7ccdbe13f"/>
+  </tura.domain:TypeDefinition>
+  <tura.domain:TypeDefinition uid="City_115091ed-0c7c-4eae-be06-8496210d4b84" parent="#4e26f6c0-3c89-11e4-916c-0800200c9a66">
+    <types xsi:type="tura.domain:Type" uid="City_52ffccb7-cea6-49de-ba4b-7437f1da3369"
+        name="City Type">
+      <classifiers uid="City_03eabbe7-b921-4ce7-a2a4-78b65cc0bda8" hint="#bf57ae0e-a725-4c7c-b178-ebbf640b2375"/>
+      <attributes packageRef="#9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="#e370b9d1-a6fb-4a40-88e2-8845be441438"
+          uid="City_7982905f-4f83-472f-8551-80e30e34934c" name="cityName"/>
+      <attributes packageRef="#9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="#7b7c554c-a1ad-4e6e-8c91-20df7d6530f8"
+          uid="City_a898ef4f-3c81-405b-a712-fa513b0e5754" name="streetId"/>
+      <extension uid="City_TypeExtension1" source="#City_52ffccb7-cea6-49de-ba4b-7437f1da3369"
+          target="#City_eb76b6af-9330-4f5b-b46c-8b732b8fe354">
+        <classifiers uid="City_30a3e710-436b-41a7-9649-0311b2fe1ef7" hint="#2fe9fdd8-3fec-4a11-9ed5-a79c64373895"/>
+      </extension>
+    </types>
+    <types xsi:type="tura.domain:TypeReference" uid="City_eb76b6af-9330-4f5b-b46c-8b732b8fe354"
+        packageRef="#dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="#50dcca84-4d2c-4fe2-baad-56afdf1be76d"/>
+    <types xsi:type="tura.domain:Type" uid="City_692cc400-912b-471d-84f5-15f08a7ec191"
+        name="List of Citys"/>
+    <types xsi:type="tura.domain:Type" uid="City_3eb3dfbb-0905-40f4-b629-6472c6503589"
+        name="Search criterias for Citys"/>
+    <types xsi:type="tura.domain:Type" uid="City_25a85943-6b6b-4ca0-a223-e031e30c5563"
+        name="Citys query service">
+      <classifiers uid="City_99c0f3c6-d7bc-4bce-abdb-4882c283879c" hint="#6ea5878f-e938-4e8b-990c-dbbbb2460dd9"/>
+      <operations uid="City_25e3ad11-7c03-40a0-8f16-3bd73e3995e3" name="create">
+        <returnValue packageRef="#4e26f6c0-3c89-11e4-916c-0800200c9a66" typeRef="#City_52ffccb7-cea6-49de-ba4b-7437f1da3369"/>
+      </operations>
+      <operations uid="City_6f60ecf7-ef93-42f5-8ec7-fc7d83a5105f" name="find">
+        <parameters packageRef="#4e26f6c0-3c89-11e4-916c-0800200c9a66" typeRef="#City_3eb3dfbb-0905-40f4-b629-6472c6503589"
+            uid="City_77a159a3-8d3e-47db-affa-16faaa50edba" name="search"/>
+        <parameters packageRef="#9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="#2829901f-e985-4786-96ff-852230536694"
+            uid="City_08819d7d-ef3b-4590-b6dd-5c21920ce9f0" name="startIndex" order="2"/>
+        <parameters packageRef="#9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="#2829901f-e985-4786-96ff-852230536694"
+            uid="City_ae1fe3b6-79aa-4fc4-b474-8cbd238b2368" name="endIndex" order="3"/>
+        <parameters packageRef="#9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="#e370b9d1-a6fb-4a40-88e2-8845be441438"
+            uid="City_c3a25545-521b-48c3-a14a-7f5974670e38" name="className" order="4"/>
+        <returnValue packageRef="#4e26f6c0-3c89-11e4-916c-0800200c9a66" typeRef="#City_692cc400-912b-471d-84f5-15f08a7ec191"/>
+      </operations>
+      <operations uid="City_9a90fdd8-603c-46db-adc8-6bc6b08512f0" name="insert">
+        <parameters packageRef="#4e26f6c0-3c89-11e4-916c-0800200c9a66" typeRef="#City_52ffccb7-cea6-49de-ba4b-7437f1da3369"
+            uid="City_f3ba5a1a-2ef7-409f-b972-6eaeef1dc462" name="obj"/>
+        <returnValue packageRef="#9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="#90b18156-de6d-42d1-b350-925e44a0e4cc"/>
+      </operations>
+      <operations uid="City_20e79110-2821-4a08-ba51-82e083c766e5" name="update">
+        <parameters packageRef="#4e26f6c0-3c89-11e4-916c-0800200c9a66" typeRef="#City_52ffccb7-cea6-49de-ba4b-7437f1da3369"
+            uid="City_a9d079b4-430b-4eca-93e9-1a09b867f67e" name="obj"/>
+        <returnValue packageRef="#9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="#90b18156-de6d-42d1-b350-925e44a0e4cc"/>
+      </operations>
+      <operations uid="City_4f5cced5-8d80-4a67-8f3b-3a1773e45d4f" name="remove">
+        <parameters packageRef="#4e26f6c0-3c89-11e4-916c-0800200c9a66" typeRef="#City_52ffccb7-cea6-49de-ba4b-7437f1da3369"
+            uid="City_39c898b5-df57-435f-ac70-7656cfcff63d" name="obj"/>
+        <returnValue packageRef="#9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="#90b18156-de6d-42d1-b350-925e44a0e4cc"/>
+      </operations>
+      <extension uid="City_TypeExtension2" source="#City_25a85943-6b6b-4ca0-a223-e031e30c5563"
+          target="#City_f8c0591c-d9c2-4897-97fa-536fadf94cbf">
+        <classifiers uid="City_08a1bea0-4ed7-40eb-823b-5dd4148bd3e5" hint="#652c130e-7f7e-4676-a370-2455f3615470"/>
+      </extension>
+      <extension uid="City_TypeExtension3" source="#City_25a85943-6b6b-4ca0-a223-e031e30c5563"
+          target="#City_30bb8955-d333-429b-a7ae-777f1a62e767">
+        <classifiers uid="City_2609ff9a-ccb7-4aa6-b23a-76aca2ee442b" hint="#652c130e-7f7e-4676-a370-2455f3615470"/>
+      </extension>
+      <extension uid="TypeExtension4" source="#City_25a85943-6b6b-4ca0-a223-e031e30c5563"
+          target="#City_52ffccb7-cea6-49de-ba4b-7437f1da3369">
+        <classifiers uid="City_dc219655-adc0-4029-b35c-897e715563fe" hint="#4529ca6e-e57b-4e9f-80f7-215832b613e0"/>
+      </extension>
+      <extension uid="City_TypeExtension5" source="#City_25a85943-6b6b-4ca0-a223-e031e30c5563"
+          target="#City_TypeReference2">
+        <classifiers uid="City_557c5691-367f-49de-895c-d2d83b85342c" hint="#2fe9fdd8-3fec-4a11-9ed5-a79c64373895"/>
+      </extension>
+    </types>
+    <types xsi:type="tura.domain:Type" uid="City_f8c0591c-d9c2-4897-97fa-536fadf94cbf"
+        name="Citys query service remote">
+      <classifiers uid="City_7b9bdcc1-c2ff-42b2-a103-e7e0a5e7a4c6" hint="#43bcf7f7-df80-41c6-a67c-a85c5722f25f"/>
+      <operations uid="City_aab2312e-3840-47bd-ab51-3adff8fa9a5e" name="create">
+        <returnValue packageRef="#4e26f6c0-3c89-11e4-916c-0800200c9a66" typeRef="#City_52ffccb7-cea6-49de-ba4b-7437f1da3369"/>
+      </operations>
+      <operations uid="City_b248b752-4cf0-4e2a-92d8-f69568f2146d" name="find">
+        <parameters packageRef="#4e26f6c0-3c89-11e4-916c-0800200c9a66" typeRef="#City_3eb3dfbb-0905-40f4-b629-6472c6503589"
+            uid="City_e24109a4-a84f-4607-8d57-23b2c6630b43" name="search"/>
+        <parameters packageRef="#9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="#2829901f-e985-4786-96ff-852230536694"
+            uid="City_caebc035-26e7-4eb4-8212-99463bd48970" name="startIndex" order="2"/>
+        <parameters packageRef="#9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="#2829901f-e985-4786-96ff-852230536694"
+            uid="City_3dc4adbb-76b1-4c73-b36a-00d0c733afd4" name="endIndex" order="3"/>
+        <parameters packageRef="#9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="#e370b9d1-a6fb-4a40-88e2-8845be441438"
+            uid="City_bb60dd8c-5277-4961-b331-cf36d1407996" name="className" order="4"/>
+        <returnValue packageRef="#4e26f6c0-3c89-11e4-916c-0800200c9a66" typeRef="#City_692cc400-912b-471d-84f5-15f08a7ec191"/>
+      </operations>
+      <operations uid="City_6ca9173a-3785-45cc-89fe-8ed73339b62d" name="insert">
+        <parameters packageRef="#4e26f6c0-3c89-11e4-916c-0800200c9a66" typeRef="#City_52ffccb7-cea6-49de-ba4b-7437f1da3369"
+            uid="City_ad00ff21-5181-4cf5-b7b1-86ab4271b1fe" name="obj"/>
+        <returnValue packageRef="#9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="#90b18156-de6d-42d1-b350-925e44a0e4cc"/>
+      </operations>
+      <operations uid="City_6f0ee849-3233-4813-845a-8eb071bd67b6" name="update">
+        <parameters packageRef="#4e26f6c0-3c89-11e4-916c-0800200c9a66" typeRef="#City_52ffccb7-cea6-49de-ba4b-7437f1da3369"
+            uid="City_8f363a30-5593-4db1-9ecd-7cb4fea709ab" name="obj"/>
+        <returnValue packageRef="#9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="#90b18156-de6d-42d1-b350-925e44a0e4cc"/>
+      </operations>
+      <operations uid="City_9f740438-a824-436e-8567-ee7a625c69c6" name="remove">
+        <parameters packageRef="#4e26f6c0-3c89-11e4-916c-0800200c9a66" typeRef="#City_52ffccb7-cea6-49de-ba4b-7437f1da3369"
+            uid="City_fbdece4c-9be9-48f4-88c6-ec3e49dc296e" name="obj"/>
+        <returnValue packageRef="#9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="#90b18156-de6d-42d1-b350-925e44a0e4cc"/>
+      </operations>
+    </types>
+    <types xsi:type="tura.domain:Type" uid="City_30bb8955-d333-429b-a7ae-777f1a62e767"
+        name="Citys query service local">
+      <classifiers uid="City_a32c29d7-47a3-40f4-9541-6914537c75b6" hint="#e887a98a-c56d-455b-956e-bdbe57da2d14"/>
+      <operations uid="City_908f3a45-5328-43b4-9cfd-a77b23d1cf47" name="create">
+        <returnValue packageRef="#4e26f6c0-3c89-11e4-916c-0800200c9a66" typeRef="#City_52ffccb7-cea6-49de-ba4b-7437f1da3369"/>
+      </operations>
+      <operations uid="City_9a20871e-dc67-473c-8144-f675cf20009e" name="find">
+        <parameters packageRef="#4e26f6c0-3c89-11e4-916c-0800200c9a66" typeRef="#City_3eb3dfbb-0905-40f4-b629-6472c6503589"
+            uid="City_2527c4a9-4542-417d-bfa0-50313d5eed51" name="search"/>
+        <parameters packageRef="#9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="#2829901f-e985-4786-96ff-852230536694"
+            uid="City_e9110d0b-6386-4f88-af1a-90a6679b1b90" name="startIndex" order="2"/>
+        <parameters packageRef="#9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="#2829901f-e985-4786-96ff-852230536694"
+            uid="City_a05abb18-6914-42c5-9e49-e1d17763f0c2" name="endIndex" order="3"/>
+        <parameters packageRef="#9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="#e370b9d1-a6fb-4a40-88e2-8845be441438"
+            uid="City_10f6d4b8-904c-4678-9fc4-0289fdd2dda7" name="className" order="4"/>
+        <returnValue packageRef="#4e26f6c0-3c89-11e4-916c-0800200c9a66" typeRef="#City_692cc400-912b-471d-84f5-15f08a7ec191"/>
+      </operations>
+      <operations uid="City_4dd40bfa-27d1-4439-8123-498df4915fa1" name="insert">
+        <parameters packageRef="#4e26f6c0-3c89-11e4-916c-0800200c9a66" typeRef="#City_52ffccb7-cea6-49de-ba4b-7437f1da3369"
+            uid="City_372d6c77-b59a-430c-b822-903538eb0baf" name="obj"/>
+        <returnValue packageRef="#9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="#90b18156-de6d-42d1-b350-925e44a0e4cc"/>
+      </operations>
+      <operations uid="City_7f56dbf7-4c23-4e3a-9dc1-2fdb987af787" name="update">
+        <parameters packageRef="#4e26f6c0-3c89-11e4-916c-0800200c9a66" typeRef="#City_52ffccb7-cea6-49de-ba4b-7437f1da3369"
+            uid="City_9c2274f1-58f1-4a7e-bef7-5c275b881e96" name="obj"/>
+        <returnValue packageRef="#9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="#90b18156-de6d-42d1-b350-925e44a0e4cc"/>
+      </operations>
+      <operations uid="City_05ea8cee-54b1-44ce-a556-33d96fe9a02e" name="remove">
+        <parameters packageRef="#4e26f6c0-3c89-11e4-916c-0800200c9a66" typeRef="#City_52ffccb7-cea6-49de-ba4b-7437f1da3369"
+            uid="City_d687827e-e433-43e5-851a-79e820724b0e" name="obj"/>
+        <returnValue packageRef="#9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="#90b18156-de6d-42d1-b350-925e44a0e4cc"/>
+      </operations>
+    </types>
+    <types xsi:type="tura.domain:TypeReference" uid="City_TypeReference2" packageRef="#dd77a443-471b-441e-88bf-3f3f092f372c"
         typeRef="#2957c51c-68e7-4d1e-b8b7-cbe7ccdbe13f"/>
   </tura.domain:TypeDefinition>
   <tura.domain:TypeDefinition uid="Str_115091ed-0c7c-4eae-be06-8496210d4b84" parent="#571d6d90-3c89-11e4-916c-0800200c9a66">
