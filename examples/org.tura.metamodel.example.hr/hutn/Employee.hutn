@@ -6,7 +6,7 @@
 }
 
 domain  {
-TypeDefinition "Dep_115091ed-0c7c-4eae-be06-8496210d4b84" {
+TypeDefinition "Emp_115091ed-0c7c-4eae-be06-8496210d4b84" {
 	parent: Package "hr.domain#68b44bf0-3c89-11e4-916c-0800200c9a66"
 	types: 
 
