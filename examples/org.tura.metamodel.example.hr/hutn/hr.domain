@@ -12,7 +12,7 @@
       <domainArtifact xsi:type="tura.domain:ContinuousIintegration" uid="1d4b5afc-284f-4eb2-81ab-859af4fb84f1"
           name="Continuous integration" artifact="#76c5c93b-9847-4bee-8968-bb19afbb1896"/>
     </domainArtifacts>
-    <domainTypes uid="5b26b14a-ae2f-4ac1-a04f-fbd45eab1344" name="Domain types" typesrepository="#acbcf3e3-7b19-4349-9993-12a9fe3e753a"/>
+    <domainTypes uid="5b26b14a-ae2f-4ac1-a04f-fbd45eab1344" name="Domain types"/>
     <domainApplications uid="28e10ed5-f6cf-4b06-896c-fd5c9bc2c8e2" name="Domain applications">
       <applications name="HR application" application="#a5fbccfd-c3e9-440c-a68d-551035ebf03a"/>
     </domainApplications>
@@ -182,18 +182,7 @@
       <packages uid="9fcd56c0-2fe7-445a-864e-9550f1b901c2" name="Primitive package"
           typedefinition="#29bf33f0-cf65-44c3-89d9-0f63b8cf9b1d"/>
       <packages uid="dd77a443-471b-441e-88bf-3f3f092f372c" name="Base package" typedefinition="#d3aaa3c1-ce4f-4b19-9e05-30631fe679cd"/>
-      <packages uid="e8faa4f9-a654-40f5-bdf5-454f90f2af19" name="Company package"
-          typedefinition="#Comp_115091ed-0c7c-4eae-be06-8496210d4b84"/>
-      <packages uid="3c18ec90-3c89-11e4-916c-0800200c9a66" name="Country package"
-          typedefinition="#Cntr_115091ed-0c7c-4eae-be06-8496210d4b84"/>
-      <packages uid="45953530-3c89-11e4-916c-0800200c9a66" name="State package" typedefinition="#State_115091ed-0c7c-4eae-be06-8496210d4b84"/>
-      <packages uid="4e26f6c0-3c89-11e4-916c-0800200c9a66" name="City package" typedefinition="#City_115091ed-0c7c-4eae-be06-8496210d4b84"/>
-      <packages uid="571d6d90-3c89-11e4-916c-0800200c9a66" name="Street package" typedefinition="#Str_115091ed-0c7c-4eae-be06-8496210d4b84"/>
-      <packages uid="5fa62e70-3c89-11e4-916c-0800200c9a66" name="Departments package"
-          typedefinition="#Dep_115091ed-0c7c-4eae-be06-8496210d4b84"/>
-      <packages uid="68b44bf0-3c89-11e4-916c-0800200c9a66" name="Employee package"
-          typedefinition="#Emp_115091ed-0c7c-4eae-be06-8496210d4b84"/>
-      <packages uid="6fbc1220-3c89-11e4-916c-0800200c9a66" name="Vehicle package"/>
+      <packages uid="e8faa4f9-a654-40f5-bdf5-454f90f2af19" name="HR package" typedefinition="#Uniq_115091ed-0c7c-4eae-be06-8496210d4b84"/>
     </typeDefinition>
   </tura.domain:TypesRepository>
   <tura.domain:TypeDefinition uid="29bf33f0-cf65-44c3-89d9-0f63b8cf9b1d" parent="#9fcd56c0-2fe7-445a-864e-9550f1b901c2">
@@ -261,7 +250,7 @@
     <types xsi:type="tura.domain:Type" uid="8ef14552-bc20-4e0f-b53d-cc472e16f71c"
         name="JPA Entity CRAD Service"/>
   </tura.domain:TypeDefinition>
-  <tura.domain:TypeDefinition uid="Comp_115091ed-0c7c-4eae-be06-8496210d4b84" parent="#e8faa4f9-a654-40f5-bdf5-454f90f2af19">
+  <tura.domain:TypeDefinition uid="Uniq_115091ed-0c7c-4eae-be06-8496210d4b84" parent="#e8faa4f9-a654-40f5-bdf5-454f90f2af19">
     <types xsi:type="tura.domain:Type" uid="Comp_52ffccb7-cea6-49de-ba4b-7437f1da3369"
         name="Company Type">
       <classifiers uid="Comp_03eabbe7-b921-4ce7-a2a4-78b65cc0bda8" hint="#bf57ae0e-a725-4c7c-b178-ebbf640b2375"/>
@@ -320,7 +309,7 @@
           target="#Comp_30bb8955-d333-429b-a7ae-777f1a62e767">
         <classifiers uid="Comp_2609ff9a-ccb7-4aa6-b23a-76aca2ee442b" hint="#652c130e-7f7e-4676-a370-2455f3615470"/>
       </extension>
-      <extension uid="TypeExtension4" source="#Comp_25a85943-6b6b-4ca0-a223-e031e30c5563"
+      <extension uid="Comp_TypeExtension4" source="#Comp_25a85943-6b6b-4ca0-a223-e031e30c5563"
           target="#Comp_52ffccb7-cea6-49de-ba4b-7437f1da3369">
         <classifiers uid="Comp_dc219655-adc0-4029-b35c-897e715563fe" hint="#4529ca6e-e57b-4e9f-80f7-215832b613e0"/>
       </extension>
@@ -397,8 +386,6 @@
     </types>
     <types xsi:type="tura.domain:TypeReference" uid="Comp_TypeReference2" packageRef="#dd77a443-471b-441e-88bf-3f3f092f372c"
         typeRef="#2957c51c-68e7-4d1e-b8b7-cbe7ccdbe13f"/>
-  </tura.domain:TypeDefinition>
-  <tura.domain:TypeDefinition uid="Cntr_115091ed-0c7c-4eae-be06-8496210d4b84" parent="#3c18ec90-3c89-11e4-916c-0800200c9a66">
     <types xsi:type="tura.domain:Type" uid="Cntr_52ffccb7-cea6-49de-ba4b-7437f1da3369"
         name="Country Type">
       <classifiers uid="Cntr_03eabbe7-b921-4ce7-a2a4-78b65cc0bda8" hint="#bf57ae0e-a725-4c7c-b178-ebbf640b2375"/>
@@ -421,10 +408,10 @@
         name="Countrys query service">
       <classifiers uid="Cntr_99c0f3c6-d7bc-4bce-abdb-4882c283879c" hint="#6ea5878f-e938-4e8b-990c-dbbbb2460dd9"/>
       <operations uid="Cntr_25e3ad11-7c03-40a0-8f16-3bd73e3995e3" name="create">
-        <returnValue packageRef="#3c18ec90-3c89-11e4-916c-0800200c9a66" typeRef="#Cntr_52ffccb7-cea6-49de-ba4b-7437f1da3369"/>
+        <returnValue packageRef="#e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="#Cntr_52ffccb7-cea6-49de-ba4b-7437f1da3369"/>
       </operations>
       <operations uid="Cntr_6f60ecf7-ef93-42f5-8ec7-fc7d83a5105f" name="find">
-        <parameters packageRef="#3c18ec90-3c89-11e4-916c-0800200c9a66" typeRef="#Cntr_3eb3dfbb-0905-40f4-b629-6472c6503589"
+        <parameters packageRef="#e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="#Cntr_3eb3dfbb-0905-40f4-b629-6472c6503589"
             uid="Cntr_77a159a3-8d3e-47db-affa-16faaa50edba" name="search"/>
         <parameters packageRef="#9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="#2829901f-e985-4786-96ff-852230536694"
             uid="Cntr_08819d7d-ef3b-4590-b6dd-5c21920ce9f0" name="startIndex" order="2"/>
@@ -432,20 +419,20 @@
             uid="Cntr_ae1fe3b6-79aa-4fc4-b474-8cbd238b2368" name="endIndex" order="3"/>
         <parameters packageRef="#9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="#e370b9d1-a6fb-4a40-88e2-8845be441438"
             uid="Cntr_c3a25545-521b-48c3-a14a-7f5974670e38" name="className" order="4"/>
-        <returnValue packageRef="#3c18ec90-3c89-11e4-916c-0800200c9a66" typeRef="#Cntr_692cc400-912b-471d-84f5-15f08a7ec191"/>
+        <returnValue packageRef="#e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="#Cntr_692cc400-912b-471d-84f5-15f08a7ec191"/>
       </operations>
       <operations uid="Cntr_9a90fdd8-603c-46db-adc8-6bc6b08512f0" name="insert">
-        <parameters packageRef="#3c18ec90-3c89-11e4-916c-0800200c9a66" typeRef="#Cntr_52ffccb7-cea6-49de-ba4b-7437f1da3369"
+        <parameters packageRef="#e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="#Cntr_52ffccb7-cea6-49de-ba4b-7437f1da3369"
             uid="Cntr_f3ba5a1a-2ef7-409f-b972-6eaeef1dc462" name="obj"/>
         <returnValue packageRef="#9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="#90b18156-de6d-42d1-b350-925e44a0e4cc"/>
       </operations>
       <operations uid="Cntr_20e79110-2821-4a08-ba51-82e083c766e5" name="update">
-        <parameters packageRef="#3c18ec90-3c89-11e4-916c-0800200c9a66" typeRef="#Cntr_52ffccb7-cea6-49de-ba4b-7437f1da3369"
+        <parameters packageRef="#e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="#Cntr_52ffccb7-cea6-49de-ba4b-7437f1da3369"
             uid="Cntr_a9d079b4-430b-4eca-93e9-1a09b867f67e" name="obj"/>
         <returnValue packageRef="#9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="#90b18156-de6d-42d1-b350-925e44a0e4cc"/>
       </operations>
       <operations uid="Cntr_4f5cced5-8d80-4a67-8f3b-3a1773e45d4f" name="remove">
-        <parameters packageRef="#3c18ec90-3c89-11e4-916c-0800200c9a66" typeRef="#Cntr_52ffccb7-cea6-49de-ba4b-7437f1da3369"
+        <parameters packageRef="#e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="#Cntr_52ffccb7-cea6-49de-ba4b-7437f1da3369"
             uid="Cntr_39c898b5-df57-435f-ac70-7656cfcff63d" name="obj"/>
         <returnValue packageRef="#9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="#90b18156-de6d-42d1-b350-925e44a0e4cc"/>
       </operations>
@@ -457,7 +444,7 @@
           target="#Cntr_30bb8955-d333-429b-a7ae-777f1a62e767">
         <classifiers uid="Cntr_2609ff9a-ccb7-4aa6-b23a-76aca2ee442b" hint="#652c130e-7f7e-4676-a370-2455f3615470"/>
       </extension>
-      <extension uid="TypeExtension4" source="#Cntr_25a85943-6b6b-4ca0-a223-e031e30c5563"
+      <extension uid="Cntr_TypeExtension4" source="#Cntr_25a85943-6b6b-4ca0-a223-e031e30c5563"
           target="#Cntr_52ffccb7-cea6-49de-ba4b-7437f1da3369">
         <classifiers uid="Cntr_dc219655-adc0-4029-b35c-897e715563fe" hint="#4529ca6e-e57b-4e9f-80f7-215832b613e0"/>
       </extension>
@@ -470,10 +457,10 @@
         name="Countrys query service remote">
       <classifiers uid="Cntr_7b9bdcc1-c2ff-42b2-a103-e7e0a5e7a4c6" hint="#43bcf7f7-df80-41c6-a67c-a85c5722f25f"/>
       <operations uid="Cntr_aab2312e-3840-47bd-ab51-3adff8fa9a5e" name="create">
-        <returnValue packageRef="#3c18ec90-3c89-11e4-916c-0800200c9a66" typeRef="#Cntr_52ffccb7-cea6-49de-ba4b-7437f1da3369"/>
+        <returnValue packageRef="#e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="#Cntr_52ffccb7-cea6-49de-ba4b-7437f1da3369"/>
       </operations>
       <operations uid="Cntr_b248b752-4cf0-4e2a-92d8-f69568f2146d" name="find">
-        <parameters packageRef="#3c18ec90-3c89-11e4-916c-0800200c9a66" typeRef="#Cntr_3eb3dfbb-0905-40f4-b629-6472c6503589"
+        <parameters packageRef="#e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="#Cntr_3eb3dfbb-0905-40f4-b629-6472c6503589"
             uid="Cntr_e24109a4-a84f-4607-8d57-23b2c6630b43" name="search"/>
         <parameters packageRef="#9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="#2829901f-e985-4786-96ff-852230536694"
             uid="Cntr_caebc035-26e7-4eb4-8212-99463bd48970" name="startIndex" order="2"/>
@@ -481,20 +468,20 @@
             uid="Cntr_3dc4adbb-76b1-4c73-b36a-00d0c733afd4" name="endIndex" order="3"/>
         <parameters packageRef="#9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="#e370b9d1-a6fb-4a40-88e2-8845be441438"
             uid="Cntr_bb60dd8c-5277-4961-b331-cf36d1407996" name="className" order="4"/>
-        <returnValue packageRef="#3c18ec90-3c89-11e4-916c-0800200c9a66" typeRef="#Cntr_692cc400-912b-471d-84f5-15f08a7ec191"/>
+        <returnValue packageRef="#e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="#Cntr_692cc400-912b-471d-84f5-15f08a7ec191"/>
       </operations>
       <operations uid="Cntr_6ca9173a-3785-45cc-89fe-8ed73339b62d" name="insert">
-        <parameters packageRef="#3c18ec90-3c89-11e4-916c-0800200c9a66" typeRef="#Cntr_52ffccb7-cea6-49de-ba4b-7437f1da3369"
+        <parameters packageRef="#e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="#Cntr_52ffccb7-cea6-49de-ba4b-7437f1da3369"
             uid="Cntr_ad00ff21-5181-4cf5-b7b1-86ab4271b1fe" name="obj"/>
         <returnValue packageRef="#9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="#90b18156-de6d-42d1-b350-925e44a0e4cc"/>
       </operations>
       <operations uid="Cntr_6f0ee849-3233-4813-845a-8eb071bd67b6" name="update">
-        <parameters packageRef="#3c18ec90-3c89-11e4-916c-0800200c9a66" typeRef="#Cntr_52ffccb7-cea6-49de-ba4b-7437f1da3369"
+        <parameters packageRef="#e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="#Cntr_52ffccb7-cea6-49de-ba4b-7437f1da3369"
             uid="Cntr_8f363a30-5593-4db1-9ecd-7cb4fea709ab" name="obj"/>
         <returnValue packageRef="#9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="#90b18156-de6d-42d1-b350-925e44a0e4cc"/>
       </operations>
       <operations uid="Cntr_9f740438-a824-436e-8567-ee7a625c69c6" name="remove">
-        <parameters packageRef="#3c18ec90-3c89-11e4-916c-0800200c9a66" typeRef="#Cntr_52ffccb7-cea6-49de-ba4b-7437f1da3369"
+        <parameters packageRef="#e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="#Cntr_52ffccb7-cea6-49de-ba4b-7437f1da3369"
             uid="Cntr_fbdece4c-9be9-48f4-88c6-ec3e49dc296e" name="obj"/>
         <returnValue packageRef="#9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="#90b18156-de6d-42d1-b350-925e44a0e4cc"/>
       </operations>
@@ -503,10 +490,10 @@
         name="Countrys query service local">
       <classifiers uid="Cntr_a32c29d7-47a3-40f4-9541-6914537c75b6" hint="#e887a98a-c56d-455b-956e-bdbe57da2d14"/>
       <operations uid="Cntr_908f3a45-5328-43b4-9cfd-a77b23d1cf47" name="create">
-        <returnValue packageRef="#3c18ec90-3c89-11e4-916c-0800200c9a66" typeRef="#Cntr_52ffccb7-cea6-49de-ba4b-7437f1da3369"/>
+        <returnValue packageRef="#e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="#Cntr_52ffccb7-cea6-49de-ba4b-7437f1da3369"/>
       </operations>
       <operations uid="Cntr_9a20871e-dc67-473c-8144-f675cf20009e" name="find">
-        <parameters packageRef="#3c18ec90-3c89-11e4-916c-0800200c9a66" typeRef="#Cntr_3eb3dfbb-0905-40f4-b629-6472c6503589"
+        <parameters packageRef="#e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="#Cntr_3eb3dfbb-0905-40f4-b629-6472c6503589"
             uid="Cntr_2527c4a9-4542-417d-bfa0-50313d5eed51" name="search"/>
         <parameters packageRef="#9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="#2829901f-e985-4786-96ff-852230536694"
             uid="Cntr_e9110d0b-6386-4f88-af1a-90a6679b1b90" name="startIndex" order="2"/>
@@ -514,28 +501,26 @@
             uid="Cntr_a05abb18-6914-42c5-9e49-e1d17763f0c2" name="endIndex" order="3"/>
         <parameters packageRef="#9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="#e370b9d1-a6fb-4a40-88e2-8845be441438"
             uid="Cntr_10f6d4b8-904c-4678-9fc4-0289fdd2dda7" name="className" order="4"/>
-        <returnValue packageRef="#3c18ec90-3c89-11e4-916c-0800200c9a66" typeRef="#Cntr_692cc400-912b-471d-84f5-15f08a7ec191"/>
+        <returnValue packageRef="#e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="#Cntr_692cc400-912b-471d-84f5-15f08a7ec191"/>
       </operations>
       <operations uid="Cntr_4dd40bfa-27d1-4439-8123-498df4915fa1" name="insert">
-        <parameters packageRef="#3c18ec90-3c89-11e4-916c-0800200c9a66" typeRef="#Cntr_52ffccb7-cea6-49de-ba4b-7437f1da3369"
+        <parameters packageRef="#e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="#Cntr_52ffccb7-cea6-49de-ba4b-7437f1da3369"
             uid="Cntr_372d6c77-b59a-430c-b822-903538eb0baf" name="obj"/>
         <returnValue packageRef="#9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="#90b18156-de6d-42d1-b350-925e44a0e4cc"/>
       </operations>
       <operations uid="Cntr_7f56dbf7-4c23-4e3a-9dc1-2fdb987af787" name="update">
-        <parameters packageRef="#3c18ec90-3c89-11e4-916c-0800200c9a66" typeRef="#Cntr_52ffccb7-cea6-49de-ba4b-7437f1da3369"
+        <parameters packageRef="#e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="#Cntr_52ffccb7-cea6-49de-ba4b-7437f1da3369"
             uid="Cntr_9c2274f1-58f1-4a7e-bef7-5c275b881e96" name="obj"/>
         <returnValue packageRef="#9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="#90b18156-de6d-42d1-b350-925e44a0e4cc"/>
       </operations>
       <operations uid="Cntr_05ea8cee-54b1-44ce-a556-33d96fe9a02e" name="remove">
-        <parameters packageRef="#3c18ec90-3c89-11e4-916c-0800200c9a66" typeRef="#Cntr_52ffccb7-cea6-49de-ba4b-7437f1da3369"
+        <parameters packageRef="#e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="#Cntr_52ffccb7-cea6-49de-ba4b-7437f1da3369"
             uid="Cntr_d687827e-e433-43e5-851a-79e820724b0e" name="obj"/>
         <returnValue packageRef="#9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="#90b18156-de6d-42d1-b350-925e44a0e4cc"/>
       </operations>
     </types>
     <types xsi:type="tura.domain:TypeReference" uid="Cntr_TypeReference2" packageRef="#dd77a443-471b-441e-88bf-3f3f092f372c"
         typeRef="#2957c51c-68e7-4d1e-b8b7-cbe7ccdbe13f"/>
-  </tura.domain:TypeDefinition>
-  <tura.domain:TypeDefinition uid="State_115091ed-0c7c-4eae-be06-8496210d4b84" parent="#45953530-3c89-11e4-916c-0800200c9a66">
     <types xsi:type="tura.domain:Type" uid="State_52ffccb7-cea6-49de-ba4b-7437f1da3369"
         name="State Type">
       <classifiers uid="State_03eabbe7-b921-4ce7-a2a4-78b65cc0bda8" hint="#bf57ae0e-a725-4c7c-b178-ebbf640b2375"/>
@@ -558,10 +543,10 @@
         name="States query service">
       <classifiers uid="State_99c0f3c6-d7bc-4bce-abdb-4882c283879c" hint="#6ea5878f-e938-4e8b-990c-dbbbb2460dd9"/>
       <operations uid="State_25e3ad11-7c03-40a0-8f16-3bd73e3995e3" name="create">
-        <returnValue packageRef="#45953530-3c89-11e4-916c-0800200c9a66" typeRef="#State_52ffccb7-cea6-49de-ba4b-7437f1da3369"/>
+        <returnValue packageRef="#e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="#State_52ffccb7-cea6-49de-ba4b-7437f1da3369"/>
       </operations>
       <operations uid="State_6f60ecf7-ef93-42f5-8ec7-fc7d83a5105f" name="find">
-        <parameters packageRef="#45953530-3c89-11e4-916c-0800200c9a66" typeRef="#State_3eb3dfbb-0905-40f4-b629-6472c6503589"
+        <parameters packageRef="#e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="#State_3eb3dfbb-0905-40f4-b629-6472c6503589"
             uid="State_77a159a3-8d3e-47db-affa-16faaa50edba" name="search"/>
         <parameters packageRef="#9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="#2829901f-e985-4786-96ff-852230536694"
             uid="State_08819d7d-ef3b-4590-b6dd-5c21920ce9f0" name="startIndex" order="2"/>
@@ -569,20 +554,20 @@
             uid="State_ae1fe3b6-79aa-4fc4-b474-8cbd238b2368" name="endIndex" order="3"/>
         <parameters packageRef="#9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="#e370b9d1-a6fb-4a40-88e2-8845be441438"
             uid="State_c3a25545-521b-48c3-a14a-7f5974670e38" name="className" order="4"/>
-        <returnValue packageRef="#45953530-3c89-11e4-916c-0800200c9a66" typeRef="#State_692cc400-912b-471d-84f5-15f08a7ec191"/>
+        <returnValue packageRef="#e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="#State_692cc400-912b-471d-84f5-15f08a7ec191"/>
       </operations>
       <operations uid="State_9a90fdd8-603c-46db-adc8-6bc6b08512f0" name="insert">
-        <parameters packageRef="#45953530-3c89-11e4-916c-0800200c9a66" typeRef="#State_52ffccb7-cea6-49de-ba4b-7437f1da3369"
+        <parameters packageRef="#e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="#State_52ffccb7-cea6-49de-ba4b-7437f1da3369"
             uid="State_f3ba5a1a-2ef7-409f-b972-6eaeef1dc462" name="obj"/>
         <returnValue packageRef="#9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="#90b18156-de6d-42d1-b350-925e44a0e4cc"/>
       </operations>
       <operations uid="State_20e79110-2821-4a08-ba51-82e083c766e5" name="update">
-        <parameters packageRef="#45953530-3c89-11e4-916c-0800200c9a66" typeRef="#State_52ffccb7-cea6-49de-ba4b-7437f1da3369"
+        <parameters packageRef="#e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="#State_52ffccb7-cea6-49de-ba4b-7437f1da3369"
             uid="State_a9d079b4-430b-4eca-93e9-1a09b867f67e" name="obj"/>
         <returnValue packageRef="#9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="#90b18156-de6d-42d1-b350-925e44a0e4cc"/>
       </operations>
       <operations uid="State_4f5cced5-8d80-4a67-8f3b-3a1773e45d4f" name="remove">
-        <parameters packageRef="#45953530-3c89-11e4-916c-0800200c9a66" typeRef="#State_52ffccb7-cea6-49de-ba4b-7437f1da3369"
+        <parameters packageRef="#e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="#State_52ffccb7-cea6-49de-ba4b-7437f1da3369"
             uid="State_39c898b5-df57-435f-ac70-7656cfcff63d" name="obj"/>
         <returnValue packageRef="#9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="#90b18156-de6d-42d1-b350-925e44a0e4cc"/>
       </operations>
@@ -594,7 +579,7 @@
           target="#State_30bb8955-d333-429b-a7ae-777f1a62e767">
         <classifiers uid="State_2609ff9a-ccb7-4aa6-b23a-76aca2ee442b" hint="#652c130e-7f7e-4676-a370-2455f3615470"/>
       </extension>
-      <extension uid="TypeExtension4" source="#State_25a85943-6b6b-4ca0-a223-e031e30c5563"
+      <extension uid="State_TypeExtension4" source="#State_25a85943-6b6b-4ca0-a223-e031e30c5563"
           target="#State_52ffccb7-cea6-49de-ba4b-7437f1da3369">
         <classifiers uid="State_dc219655-adc0-4029-b35c-897e715563fe" hint="#4529ca6e-e57b-4e9f-80f7-215832b613e0"/>
       </extension>
@@ -607,10 +592,10 @@
         name="States query service remote">
       <classifiers uid="State_7b9bdcc1-c2ff-42b2-a103-e7e0a5e7a4c6" hint="#43bcf7f7-df80-41c6-a67c-a85c5722f25f"/>
       <operations uid="State_aab2312e-3840-47bd-ab51-3adff8fa9a5e" name="create">
-        <returnValue packageRef="#45953530-3c89-11e4-916c-0800200c9a66" typeRef="#State_52ffccb7-cea6-49de-ba4b-7437f1da3369"/>
+        <returnValue packageRef="#e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="#State_52ffccb7-cea6-49de-ba4b-7437f1da3369"/>
       </operations>
       <operations uid="State_b248b752-4cf0-4e2a-92d8-f69568f2146d" name="find">
-        <parameters packageRef="#45953530-3c89-11e4-916c-0800200c9a66" typeRef="#State_3eb3dfbb-0905-40f4-b629-6472c6503589"
+        <parameters packageRef="#e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="#State_3eb3dfbb-0905-40f4-b629-6472c6503589"
             uid="State_e24109a4-a84f-4607-8d57-23b2c6630b43" name="search"/>
         <parameters packageRef="#9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="#2829901f-e985-4786-96ff-852230536694"
             uid="State_caebc035-26e7-4eb4-8212-99463bd48970" name="startIndex" order="2"/>
@@ -618,20 +603,20 @@
             uid="State_3dc4adbb-76b1-4c73-b36a-00d0c733afd4" name="endIndex" order="3"/>
         <parameters packageRef="#9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="#e370b9d1-a6fb-4a40-88e2-8845be441438"
             uid="State_bb60dd8c-5277-4961-b331-cf36d1407996" name="className" order="4"/>
-        <returnValue packageRef="#45953530-3c89-11e4-916c-0800200c9a66" typeRef="#State_692cc400-912b-471d-84f5-15f08a7ec191"/>
+        <returnValue packageRef="#e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="#State_692cc400-912b-471d-84f5-15f08a7ec191"/>
       </operations>
       <operations uid="State_6ca9173a-3785-45cc-89fe-8ed73339b62d" name="insert">
-        <parameters packageRef="#45953530-3c89-11e4-916c-0800200c9a66" typeRef="#State_52ffccb7-cea6-49de-ba4b-7437f1da3369"
+        <parameters packageRef="#e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="#State_52ffccb7-cea6-49de-ba4b-7437f1da3369"
             uid="State_ad00ff21-5181-4cf5-b7b1-86ab4271b1fe" name="obj"/>
         <returnValue packageRef="#9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="#90b18156-de6d-42d1-b350-925e44a0e4cc"/>
       </operations>
       <operations uid="State_6f0ee849-3233-4813-845a-8eb071bd67b6" name="update">
-        <parameters packageRef="#45953530-3c89-11e4-916c-0800200c9a66" typeRef="#State_52ffccb7-cea6-49de-ba4b-7437f1da3369"
+        <parameters packageRef="#e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="#State_52ffccb7-cea6-49de-ba4b-7437f1da3369"
             uid="State_8f363a30-5593-4db1-9ecd-7cb4fea709ab" name="obj"/>
         <returnValue packageRef="#9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="#90b18156-de6d-42d1-b350-925e44a0e4cc"/>
       </operations>
       <operations uid="State_9f740438-a824-436e-8567-ee7a625c69c6" name="remove">
-        <parameters packageRef="#45953530-3c89-11e4-916c-0800200c9a66" typeRef="#State_52ffccb7-cea6-49de-ba4b-7437f1da3369"
+        <parameters packageRef="#e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="#State_52ffccb7-cea6-49de-ba4b-7437f1da3369"
             uid="State_fbdece4c-9be9-48f4-88c6-ec3e49dc296e" name="obj"/>
         <returnValue packageRef="#9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="#90b18156-de6d-42d1-b350-925e44a0e4cc"/>
       </operations>
@@ -640,10 +625,10 @@
         name="States query service local">
       <classifiers uid="State_a32c29d7-47a3-40f4-9541-6914537c75b6" hint="#e887a98a-c56d-455b-956e-bdbe57da2d14"/>
       <operations uid="State_908f3a45-5328-43b4-9cfd-a77b23d1cf47" name="create">
-        <returnValue packageRef="#45953530-3c89-11e4-916c-0800200c9a66" typeRef="#State_52ffccb7-cea6-49de-ba4b-7437f1da3369"/>
+        <returnValue packageRef="#e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="#State_52ffccb7-cea6-49de-ba4b-7437f1da3369"/>
       </operations>
       <operations uid="State_9a20871e-dc67-473c-8144-f675cf20009e" name="find">
-        <parameters packageRef="#45953530-3c89-11e4-916c-0800200c9a66" typeRef="#State_3eb3dfbb-0905-40f4-b629-6472c6503589"
+        <parameters packageRef="#e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="#State_3eb3dfbb-0905-40f4-b629-6472c6503589"
             uid="State_2527c4a9-4542-417d-bfa0-50313d5eed51" name="search"/>
         <parameters packageRef="#9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="#2829901f-e985-4786-96ff-852230536694"
             uid="State_e9110d0b-6386-4f88-af1a-90a6679b1b90" name="startIndex" order="2"/>
@@ -651,28 +636,26 @@
             uid="State_a05abb18-6914-42c5-9e49-e1d17763f0c2" name="endIndex" order="3"/>
         <parameters packageRef="#9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="#e370b9d1-a6fb-4a40-88e2-8845be441438"
             uid="State_10f6d4b8-904c-4678-9fc4-0289fdd2dda7" name="className" order="4"/>
-        <returnValue packageRef="#45953530-3c89-11e4-916c-0800200c9a66" typeRef="#State_692cc400-912b-471d-84f5-15f08a7ec191"/>
+        <returnValue packageRef="#e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="#State_692cc400-912b-471d-84f5-15f08a7ec191"/>
       </operations>
       <operations uid="State_4dd40bfa-27d1-4439-8123-498df4915fa1" name="insert">
-        <parameters packageRef="#45953530-3c89-11e4-916c-0800200c9a66" typeRef="#State_52ffccb7-cea6-49de-ba4b-7437f1da3369"
+        <parameters packageRef="#e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="#State_52ffccb7-cea6-49de-ba4b-7437f1da3369"
             uid="State_372d6c77-b59a-430c-b822-903538eb0baf" name="obj"/>
         <returnValue packageRef="#9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="#90b18156-de6d-42d1-b350-925e44a0e4cc"/>
       </operations>
       <operations uid="State_7f56dbf7-4c23-4e3a-9dc1-2fdb987af787" name="update">
-        <parameters packageRef="#45953530-3c89-11e4-916c-0800200c9a66" typeRef="#State_52ffccb7-cea6-49de-ba4b-7437f1da3369"
+        <parameters packageRef="#e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="#State_52ffccb7-cea6-49de-ba4b-7437f1da3369"
             uid="State_9c2274f1-58f1-4a7e-bef7-5c275b881e96" name="obj"/>
         <returnValue packageRef="#9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="#90b18156-de6d-42d1-b350-925e44a0e4cc"/>
       </operations>
       <operations uid="State_05ea8cee-54b1-44ce-a556-33d96fe9a02e" name="remove">
-        <parameters packageRef="#45953530-3c89-11e4-916c-0800200c9a66" typeRef="#State_52ffccb7-cea6-49de-ba4b-7437f1da3369"
+        <parameters packageRef="#e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="#State_52ffccb7-cea6-49de-ba4b-7437f1da3369"
             uid="State_d687827e-e433-43e5-851a-79e820724b0e" name="obj"/>
         <returnValue packageRef="#9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="#90b18156-de6d-42d1-b350-925e44a0e4cc"/>
       </operations>
     </types>
     <types xsi:type="tura.domain:TypeReference" uid="State_TypeReference2" packageRef="#dd77a443-471b-441e-88bf-3f3f092f372c"
         typeRef="#2957c51c-68e7-4d1e-b8b7-cbe7ccdbe13f"/>
-  </tura.domain:TypeDefinition>
-  <tura.domain:TypeDefinition uid="City_115091ed-0c7c-4eae-be06-8496210d4b84" parent="#4e26f6c0-3c89-11e4-916c-0800200c9a66">
     <types xsi:type="tura.domain:Type" uid="City_52ffccb7-cea6-49de-ba4b-7437f1da3369"
         name="City Type">
       <classifiers uid="City_03eabbe7-b921-4ce7-a2a4-78b65cc0bda8" hint="#bf57ae0e-a725-4c7c-b178-ebbf640b2375"/>
@@ -695,10 +678,10 @@
         name="Citys query service">
       <classifiers uid="City_99c0f3c6-d7bc-4bce-abdb-4882c283879c" hint="#6ea5878f-e938-4e8b-990c-dbbbb2460dd9"/>
       <operations uid="City_25e3ad11-7c03-40a0-8f16-3bd73e3995e3" name="create">
-        <returnValue packageRef="#4e26f6c0-3c89-11e4-916c-0800200c9a66" typeRef="#City_52ffccb7-cea6-49de-ba4b-7437f1da3369"/>
+        <returnValue packageRef="#e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="#City_52ffccb7-cea6-49de-ba4b-7437f1da3369"/>
       </operations>
       <operations uid="City_6f60ecf7-ef93-42f5-8ec7-fc7d83a5105f" name="find">
-        <parameters packageRef="#4e26f6c0-3c89-11e4-916c-0800200c9a66" typeRef="#City_3eb3dfbb-0905-40f4-b629-6472c6503589"
+        <parameters packageRef="#e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="#City_3eb3dfbb-0905-40f4-b629-6472c6503589"
             uid="City_77a159a3-8d3e-47db-affa-16faaa50edba" name="search"/>
         <parameters packageRef="#9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="#2829901f-e985-4786-96ff-852230536694"
             uid="City_08819d7d-ef3b-4590-b6dd-5c21920ce9f0" name="startIndex" order="2"/>
@@ -706,20 +689,20 @@
             uid="City_ae1fe3b6-79aa-4fc4-b474-8cbd238b2368" name="endIndex" order="3"/>
         <parameters packageRef="#9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="#e370b9d1-a6fb-4a40-88e2-8845be441438"
             uid="City_c3a25545-521b-48c3-a14a-7f5974670e38" name="className" order="4"/>
-        <returnValue packageRef="#4e26f6c0-3c89-11e4-916c-0800200c9a66" typeRef="#City_692cc400-912b-471d-84f5-15f08a7ec191"/>
+        <returnValue packageRef="#e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="#City_692cc400-912b-471d-84f5-15f08a7ec191"/>
       </operations>
       <operations uid="City_9a90fdd8-603c-46db-adc8-6bc6b08512f0" name="insert">
-        <parameters packageRef="#4e26f6c0-3c89-11e4-916c-0800200c9a66" typeRef="#City_52ffccb7-cea6-49de-ba4b-7437f1da3369"
+        <parameters packageRef="#e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="#City_52ffccb7-cea6-49de-ba4b-7437f1da3369"
             uid="City_f3ba5a1a-2ef7-409f-b972-6eaeef1dc462" name="obj"/>
         <returnValue packageRef="#9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="#90b18156-de6d-42d1-b350-925e44a0e4cc"/>
       </operations>
       <operations uid="City_20e79110-2821-4a08-ba51-82e083c766e5" name="update">
-        <parameters packageRef="#4e26f6c0-3c89-11e4-916c-0800200c9a66" typeRef="#City_52ffccb7-cea6-49de-ba4b-7437f1da3369"
+        <parameters packageRef="#e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="#City_52ffccb7-cea6-49de-ba4b-7437f1da3369"
             uid="City_a9d079b4-430b-4eca-93e9-1a09b867f67e" name="obj"/>
         <returnValue packageRef="#9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="#90b18156-de6d-42d1-b350-925e44a0e4cc"/>
       </operations>
       <operations uid="City_4f5cced5-8d80-4a67-8f3b-3a1773e45d4f" name="remove">
-        <parameters packageRef="#4e26f6c0-3c89-11e4-916c-0800200c9a66" typeRef="#City_52ffccb7-cea6-49de-ba4b-7437f1da3369"
+        <parameters packageRef="#e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="#City_52ffccb7-cea6-49de-ba4b-7437f1da3369"
             uid="City_39c898b5-df57-435f-ac70-7656cfcff63d" name="obj"/>
         <returnValue packageRef="#9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="#90b18156-de6d-42d1-b350-925e44a0e4cc"/>
       </operations>
@@ -731,7 +714,7 @@
           target="#City_30bb8955-d333-429b-a7ae-777f1a62e767">
         <classifiers uid="City_2609ff9a-ccb7-4aa6-b23a-76aca2ee442b" hint="#652c130e-7f7e-4676-a370-2455f3615470"/>
       </extension>
-      <extension uid="TypeExtension4" source="#City_25a85943-6b6b-4ca0-a223-e031e30c5563"
+      <extension uid="City_TypeExtension4" source="#City_25a85943-6b6b-4ca0-a223-e031e30c5563"
           target="#City_52ffccb7-cea6-49de-ba4b-7437f1da3369">
         <classifiers uid="City_dc219655-adc0-4029-b35c-897e715563fe" hint="#4529ca6e-e57b-4e9f-80f7-215832b613e0"/>
       </extension>
@@ -744,10 +727,10 @@
         name="Citys query service remote">
       <classifiers uid="City_7b9bdcc1-c2ff-42b2-a103-e7e0a5e7a4c6" hint="#43bcf7f7-df80-41c6-a67c-a85c5722f25f"/>
       <operations uid="City_aab2312e-3840-47bd-ab51-3adff8fa9a5e" name="create">
-        <returnValue packageRef="#4e26f6c0-3c89-11e4-916c-0800200c9a66" typeRef="#City_52ffccb7-cea6-49de-ba4b-7437f1da3369"/>
+        <returnValue packageRef="#e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="#City_52ffccb7-cea6-49de-ba4b-7437f1da3369"/>
       </operations>
       <operations uid="City_b248b752-4cf0-4e2a-92d8-f69568f2146d" name="find">
-        <parameters packageRef="#4e26f6c0-3c89-11e4-916c-0800200c9a66" typeRef="#City_3eb3dfbb-0905-40f4-b629-6472c6503589"
+        <parameters packageRef="#e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="#City_3eb3dfbb-0905-40f4-b629-6472c6503589"
             uid="City_e24109a4-a84f-4607-8d57-23b2c6630b43" name="search"/>
         <parameters packageRef="#9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="#2829901f-e985-4786-96ff-852230536694"
             uid="City_caebc035-26e7-4eb4-8212-99463bd48970" name="startIndex" order="2"/>
@@ -755,20 +738,20 @@
             uid="City_3dc4adbb-76b1-4c73-b36a-00d0c733afd4" name="endIndex" order="3"/>
         <parameters packageRef="#9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="#e370b9d1-a6fb-4a40-88e2-8845be441438"
             uid="City_bb60dd8c-5277-4961-b331-cf36d1407996" name="className" order="4"/>
-        <returnValue packageRef="#4e26f6c0-3c89-11e4-916c-0800200c9a66" typeRef="#City_692cc400-912b-471d-84f5-15f08a7ec191"/>
+        <returnValue packageRef="#e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="#City_692cc400-912b-471d-84f5-15f08a7ec191"/>
       </operations>
       <operations uid="City_6ca9173a-3785-45cc-89fe-8ed73339b62d" name="insert">
-        <parameters packageRef="#4e26f6c0-3c89-11e4-916c-0800200c9a66" typeRef="#City_52ffccb7-cea6-49de-ba4b-7437f1da3369"
+        <parameters packageRef="#e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="#City_52ffccb7-cea6-49de-ba4b-7437f1da3369"
             uid="City_ad00ff21-5181-4cf5-b7b1-86ab4271b1fe" name="obj"/>
         <returnValue packageRef="#9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="#90b18156-de6d-42d1-b350-925e44a0e4cc"/>
       </operations>
       <operations uid="City_6f0ee849-3233-4813-845a-8eb071bd67b6" name="update">
-        <parameters packageRef="#4e26f6c0-3c89-11e4-916c-0800200c9a66" typeRef="#City_52ffccb7-cea6-49de-ba4b-7437f1da3369"
+        <parameters packageRef="#e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="#City_52ffccb7-cea6-49de-ba4b-7437f1da3369"
             uid="City_8f363a30-5593-4db1-9ecd-7cb4fea709ab" name="obj"/>
         <returnValue packageRef="#9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="#90b18156-de6d-42d1-b350-925e44a0e4cc"/>
       </operations>
       <operations uid="City_9f740438-a824-436e-8567-ee7a625c69c6" name="remove">
-        <parameters packageRef="#4e26f6c0-3c89-11e4-916c-0800200c9a66" typeRef="#City_52ffccb7-cea6-49de-ba4b-7437f1da3369"
+        <parameters packageRef="#e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="#City_52ffccb7-cea6-49de-ba4b-7437f1da3369"
             uid="City_fbdece4c-9be9-48f4-88c6-ec3e49dc296e" name="obj"/>
         <returnValue packageRef="#9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="#90b18156-de6d-42d1-b350-925e44a0e4cc"/>
       </operations>
@@ -777,10 +760,10 @@
         name="Citys query service local">
       <classifiers uid="City_a32c29d7-47a3-40f4-9541-6914537c75b6" hint="#e887a98a-c56d-455b-956e-bdbe57da2d14"/>
       <operations uid="City_908f3a45-5328-43b4-9cfd-a77b23d1cf47" name="create">
-        <returnValue packageRef="#4e26f6c0-3c89-11e4-916c-0800200c9a66" typeRef="#City_52ffccb7-cea6-49de-ba4b-7437f1da3369"/>
+        <returnValue packageRef="#e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="#City_52ffccb7-cea6-49de-ba4b-7437f1da3369"/>
       </operations>
       <operations uid="City_9a20871e-dc67-473c-8144-f675cf20009e" name="find">
-        <parameters packageRef="#4e26f6c0-3c89-11e4-916c-0800200c9a66" typeRef="#City_3eb3dfbb-0905-40f4-b629-6472c6503589"
+        <parameters packageRef="#e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="#City_3eb3dfbb-0905-40f4-b629-6472c6503589"
             uid="City_2527c4a9-4542-417d-bfa0-50313d5eed51" name="search"/>
         <parameters packageRef="#9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="#2829901f-e985-4786-96ff-852230536694"
             uid="City_e9110d0b-6386-4f88-af1a-90a6679b1b90" name="startIndex" order="2"/>
@@ -788,28 +771,26 @@
             uid="City_a05abb18-6914-42c5-9e49-e1d17763f0c2" name="endIndex" order="3"/>
         <parameters packageRef="#9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="#e370b9d1-a6fb-4a40-88e2-8845be441438"
             uid="City_10f6d4b8-904c-4678-9fc4-0289fdd2dda7" name="className" order="4"/>
-        <returnValue packageRef="#4e26f6c0-3c89-11e4-916c-0800200c9a66" typeRef="#City_692cc400-912b-471d-84f5-15f08a7ec191"/>
+        <returnValue packageRef="#e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="#City_692cc400-912b-471d-84f5-15f08a7ec191"/>
       </operations>
       <operations uid="City_4dd40bfa-27d1-4439-8123-498df4915fa1" name="insert">
-        <parameters packageRef="#4e26f6c0-3c89-11e4-916c-0800200c9a66" typeRef="#City_52ffccb7-cea6-49de-ba4b-7437f1da3369"
+        <parameters packageRef="#e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="#City_52ffccb7-cea6-49de-ba4b-7437f1da3369"
             uid="City_372d6c77-b59a-430c-b822-903538eb0baf" name="obj"/>
         <returnValue packageRef="#9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="#90b18156-de6d-42d1-b350-925e44a0e4cc"/>
       </operations>
       <operations uid="City_7f56dbf7-4c23-4e3a-9dc1-2fdb987af787" name="update">
-        <parameters packageRef="#4e26f6c0-3c89-11e4-916c-0800200c9a66" typeRef="#City_52ffccb7-cea6-49de-ba4b-7437f1da3369"
+        <parameters packageRef="#e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="#City_52ffccb7-cea6-49de-ba4b-7437f1da3369"
             uid="City_9c2274f1-58f1-4a7e-bef7-5c275b881e96" name="obj"/>
         <returnValue packageRef="#9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="#90b18156-de6d-42d1-b350-925e44a0e4cc"/>
       </operations>
       <operations uid="City_05ea8cee-54b1-44ce-a556-33d96fe9a02e" name="remove">
-        <parameters packageRef="#4e26f6c0-3c89-11e4-916c-0800200c9a66" typeRef="#City_52ffccb7-cea6-49de-ba4b-7437f1da3369"
+        <parameters packageRef="#e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="#City_52ffccb7-cea6-49de-ba4b-7437f1da3369"
             uid="City_d687827e-e433-43e5-851a-79e820724b0e" name="obj"/>
         <returnValue packageRef="#9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="#90b18156-de6d-42d1-b350-925e44a0e4cc"/>
       </operations>
     </types>
     <types xsi:type="tura.domain:TypeReference" uid="City_TypeReference2" packageRef="#dd77a443-471b-441e-88bf-3f3f092f372c"
         typeRef="#2957c51c-68e7-4d1e-b8b7-cbe7ccdbe13f"/>
-  </tura.domain:TypeDefinition>
-  <tura.domain:TypeDefinition uid="Str_115091ed-0c7c-4eae-be06-8496210d4b84" parent="#571d6d90-3c89-11e4-916c-0800200c9a66">
     <types xsi:type="tura.domain:Type" uid="Str_52ffccb7-cea6-49de-ba4b-7437f1da3369"
         name="Street Type">
       <classifiers uid="Str_03eabbe7-b921-4ce7-a2a4-78b65cc0bda8" hint="#bf57ae0e-a725-4c7c-b178-ebbf640b2375"/>
@@ -830,10 +811,10 @@
         name="Streets query service">
       <classifiers uid="Str_99c0f3c6-d7bc-4bce-abdb-4882c283879c" hint="#6ea5878f-e938-4e8b-990c-dbbbb2460dd9"/>
       <operations uid="Str_25e3ad11-7c03-40a0-8f16-3bd73e3995e3" name="create">
-        <returnValue packageRef="#571d6d90-3c89-11e4-916c-0800200c9a66" typeRef="#Str_52ffccb7-cea6-49de-ba4b-7437f1da3369"/>
+        <returnValue packageRef="#e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="#Str_52ffccb7-cea6-49de-ba4b-7437f1da3369"/>
       </operations>
       <operations uid="Str_6f60ecf7-ef93-42f5-8ec7-fc7d83a5105f" name="find">
-        <parameters packageRef="#571d6d90-3c89-11e4-916c-0800200c9a66" typeRef="#Str_3eb3dfbb-0905-40f4-b629-6472c6503589"
+        <parameters packageRef="#e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="#Str_3eb3dfbb-0905-40f4-b629-6472c6503589"
             uid="Str_77a159a3-8d3e-47db-affa-16faaa50edba" name="search"/>
         <parameters packageRef="#9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="#2829901f-e985-4786-96ff-852230536694"
             uid="Str_08819d7d-ef3b-4590-b6dd-5c21920ce9f0" name="startIndex" order="2"/>
@@ -841,20 +822,20 @@
             uid="Str_ae1fe3b6-79aa-4fc4-b474-8cbd238b2368" name="endIndex" order="3"/>
         <parameters packageRef="#9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="#e370b9d1-a6fb-4a40-88e2-8845be441438"
             uid="Str_c3a25545-521b-48c3-a14a-7f5974670e38" name="className" order="4"/>
-        <returnValue packageRef="#571d6d90-3c89-11e4-916c-0800200c9a66" typeRef="#Str_692cc400-912b-471d-84f5-15f08a7ec191"/>
+        <returnValue packageRef="#e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="#Str_692cc400-912b-471d-84f5-15f08a7ec191"/>
       </operations>
       <operations uid="Str_9a90fdd8-603c-46db-adc8-6bc6b08512f0" name="insert">
-        <parameters packageRef="#571d6d90-3c89-11e4-916c-0800200c9a66" typeRef="#Str_52ffccb7-cea6-49de-ba4b-7437f1da3369"
+        <parameters packageRef="#e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="#Str_52ffccb7-cea6-49de-ba4b-7437f1da3369"
             uid="Str_f3ba5a1a-2ef7-409f-b972-6eaeef1dc462" name="obj"/>
         <returnValue packageRef="#9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="#90b18156-de6d-42d1-b350-925e44a0e4cc"/>
       </operations>
       <operations uid="Str_20e79110-2821-4a08-ba51-82e083c766e5" name="update">
-        <parameters packageRef="#571d6d90-3c89-11e4-916c-0800200c9a66" typeRef="#Str_52ffccb7-cea6-49de-ba4b-7437f1da3369"
+        <parameters packageRef="#e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="#Str_52ffccb7-cea6-49de-ba4b-7437f1da3369"
             uid="Str_a9d079b4-430b-4eca-93e9-1a09b867f67e" name="obj"/>
         <returnValue packageRef="#9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="#90b18156-de6d-42d1-b350-925e44a0e4cc"/>
       </operations>
       <operations uid="Str_4f5cced5-8d80-4a67-8f3b-3a1773e45d4f" name="remove">
-        <parameters packageRef="#571d6d90-3c89-11e4-916c-0800200c9a66" typeRef="#Str_52ffccb7-cea6-49de-ba4b-7437f1da3369"
+        <parameters packageRef="#e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="#Str_52ffccb7-cea6-49de-ba4b-7437f1da3369"
             uid="Str_39c898b5-df57-435f-ac70-7656cfcff63d" name="obj"/>
         <returnValue packageRef="#9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="#90b18156-de6d-42d1-b350-925e44a0e4cc"/>
       </operations>
@@ -866,7 +847,7 @@
           target="#Str_30bb8955-d333-429b-a7ae-777f1a62e767">
         <classifiers uid="Str_2609ff9a-ccb7-4aa6-b23a-76aca2ee442b" hint="#652c130e-7f7e-4676-a370-2455f3615470"/>
       </extension>
-      <extension uid="TypeExtension4" source="#Str_25a85943-6b6b-4ca0-a223-e031e30c5563"
+      <extension uid="Str_TypeExtension4" source="#Str_25a85943-6b6b-4ca0-a223-e031e30c5563"
           target="#Str_52ffccb7-cea6-49de-ba4b-7437f1da3369">
         <classifiers uid="Str_dc219655-adc0-4029-b35c-897e715563fe" hint="#4529ca6e-e57b-4e9f-80f7-215832b613e0"/>
       </extension>
@@ -879,10 +860,10 @@
         name="Streets query service remote">
       <classifiers uid="Str_7b9bdcc1-c2ff-42b2-a103-e7e0a5e7a4c6" hint="#43bcf7f7-df80-41c6-a67c-a85c5722f25f"/>
       <operations uid="Str_aab2312e-3840-47bd-ab51-3adff8fa9a5e" name="create">
-        <returnValue packageRef="#571d6d90-3c89-11e4-916c-0800200c9a66" typeRef="#Str_52ffccb7-cea6-49de-ba4b-7437f1da3369"/>
+        <returnValue packageRef="#e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="#Str_52ffccb7-cea6-49de-ba4b-7437f1da3369"/>
       </operations>
       <operations uid="Str_b248b752-4cf0-4e2a-92d8-f69568f2146d" name="find">
-        <parameters packageRef="#571d6d90-3c89-11e4-916c-0800200c9a66" typeRef="#Str_3eb3dfbb-0905-40f4-b629-6472c6503589"
+        <parameters packageRef="#e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="#Str_3eb3dfbb-0905-40f4-b629-6472c6503589"
             uid="Str_e24109a4-a84f-4607-8d57-23b2c6630b43" name="search"/>
         <parameters packageRef="#9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="#2829901f-e985-4786-96ff-852230536694"
             uid="Str_caebc035-26e7-4eb4-8212-99463bd48970" name="startIndex" order="2"/>
@@ -890,20 +871,20 @@
             uid="Str_3dc4adbb-76b1-4c73-b36a-00d0c733afd4" name="endIndex" order="3"/>
         <parameters packageRef="#9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="#e370b9d1-a6fb-4a40-88e2-8845be441438"
             uid="Str_bb60dd8c-5277-4961-b331-cf36d1407996" name="className" order="4"/>
-        <returnValue packageRef="#571d6d90-3c89-11e4-916c-0800200c9a66" typeRef="#Str_692cc400-912b-471d-84f5-15f08a7ec191"/>
+        <returnValue packageRef="#e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="#Str_692cc400-912b-471d-84f5-15f08a7ec191"/>
       </operations>
       <operations uid="Str_6ca9173a-3785-45cc-89fe-8ed73339b62d" name="insert">
-        <parameters packageRef="#571d6d90-3c89-11e4-916c-0800200c9a66" typeRef="#Str_52ffccb7-cea6-49de-ba4b-7437f1da3369"
+        <parameters packageRef="#e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="#Str_52ffccb7-cea6-49de-ba4b-7437f1da3369"
             uid="Str_ad00ff21-5181-4cf5-b7b1-86ab4271b1fe" name="obj"/>
         <returnValue packageRef="#9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="#90b18156-de6d-42d1-b350-925e44a0e4cc"/>
       </operations>
       <operations uid="Str_6f0ee849-3233-4813-845a-8eb071bd67b6" name="update">
-        <parameters packageRef="#571d6d90-3c89-11e4-916c-0800200c9a66" typeRef="#Str_52ffccb7-cea6-49de-ba4b-7437f1da3369"
+        <parameters packageRef="#e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="#Str_52ffccb7-cea6-49de-ba4b-7437f1da3369"
             uid="Str_8f363a30-5593-4db1-9ecd-7cb4fea709ab" name="obj"/>
         <returnValue packageRef="#9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="#90b18156-de6d-42d1-b350-925e44a0e4cc"/>
       </operations>
       <operations uid="Str_9f740438-a824-436e-8567-ee7a625c69c6" name="remove">
-        <parameters packageRef="#571d6d90-3c89-11e4-916c-0800200c9a66" typeRef="#Str_52ffccb7-cea6-49de-ba4b-7437f1da3369"
+        <parameters packageRef="#e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="#Str_52ffccb7-cea6-49de-ba4b-7437f1da3369"
             uid="Str_fbdece4c-9be9-48f4-88c6-ec3e49dc296e" name="obj"/>
         <returnValue packageRef="#9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="#90b18156-de6d-42d1-b350-925e44a0e4cc"/>
       </operations>
@@ -912,10 +893,10 @@
         name="Streets query service local">
       <classifiers uid="Str_a32c29d7-47a3-40f4-9541-6914537c75b6" hint="#e887a98a-c56d-455b-956e-bdbe57da2d14"/>
       <operations uid="Str_908f3a45-5328-43b4-9cfd-a77b23d1cf47" name="create">
-        <returnValue packageRef="#571d6d90-3c89-11e4-916c-0800200c9a66" typeRef="#Str_52ffccb7-cea6-49de-ba4b-7437f1da3369"/>
+        <returnValue packageRef="#e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="#Str_52ffccb7-cea6-49de-ba4b-7437f1da3369"/>
       </operations>
       <operations uid="Str_9a20871e-dc67-473c-8144-f675cf20009e" name="find">
-        <parameters packageRef="#571d6d90-3c89-11e4-916c-0800200c9a66" typeRef="#Str_3eb3dfbb-0905-40f4-b629-6472c6503589"
+        <parameters packageRef="#e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="#Str_3eb3dfbb-0905-40f4-b629-6472c6503589"
             uid="Str_2527c4a9-4542-417d-bfa0-50313d5eed51" name="search"/>
         <parameters packageRef="#9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="#2829901f-e985-4786-96ff-852230536694"
             uid="Str_e9110d0b-6386-4f88-af1a-90a6679b1b90" name="startIndex" order="2"/>
@@ -923,28 +904,26 @@
             uid="Str_a05abb18-6914-42c5-9e49-e1d17763f0c2" name="endIndex" order="3"/>
         <parameters packageRef="#9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="#e370b9d1-a6fb-4a40-88e2-8845be441438"
             uid="Str_10f6d4b8-904c-4678-9fc4-0289fdd2dda7" name="className" order="4"/>
-        <returnValue packageRef="#571d6d90-3c89-11e4-916c-0800200c9a66" typeRef="#Str_692cc400-912b-471d-84f5-15f08a7ec191"/>
+        <returnValue packageRef="#e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="#Str_692cc400-912b-471d-84f5-15f08a7ec191"/>
       </operations>
       <operations uid="Str_4dd40bfa-27d1-4439-8123-498df4915fa1" name="insert">
-        <parameters packageRef="#571d6d90-3c89-11e4-916c-0800200c9a66" typeRef="#Str_52ffccb7-cea6-49de-ba4b-7437f1da3369"
+        <parameters packageRef="#e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="#Str_52ffccb7-cea6-49de-ba4b-7437f1da3369"
             uid="Str_372d6c77-b59a-430c-b822-903538eb0baf" name="obj"/>
         <returnValue packageRef="#9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="#90b18156-de6d-42d1-b350-925e44a0e4cc"/>
       </operations>
       <operations uid="Str_7f56dbf7-4c23-4e3a-9dc1-2fdb987af787" name="update">
-        <parameters packageRef="#571d6d90-3c89-11e4-916c-0800200c9a66" typeRef="#Str_52ffccb7-cea6-49de-ba4b-7437f1da3369"
+        <parameters packageRef="#e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="#Str_52ffccb7-cea6-49de-ba4b-7437f1da3369"
             uid="Str_9c2274f1-58f1-4a7e-bef7-5c275b881e96" name="obj"/>
         <returnValue packageRef="#9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="#90b18156-de6d-42d1-b350-925e44a0e4cc"/>
       </operations>
       <operations uid="Str_05ea8cee-54b1-44ce-a556-33d96fe9a02e" name="remove">
-        <parameters packageRef="#571d6d90-3c89-11e4-916c-0800200c9a66" typeRef="#Str_52ffccb7-cea6-49de-ba4b-7437f1da3369"
+        <parameters packageRef="#e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="#Str_52ffccb7-cea6-49de-ba4b-7437f1da3369"
             uid="Str_d687827e-e433-43e5-851a-79e820724b0e" name="obj"/>
         <returnValue packageRef="#9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="#90b18156-de6d-42d1-b350-925e44a0e4cc"/>
       </operations>
     </types>
     <types xsi:type="tura.domain:TypeReference" uid="Str_TypeReference2" packageRef="#dd77a443-471b-441e-88bf-3f3f092f372c"
         typeRef="#2957c51c-68e7-4d1e-b8b7-cbe7ccdbe13f"/>
-  </tura.domain:TypeDefinition>
-  <tura.domain:TypeDefinition uid="Dep_115091ed-0c7c-4eae-be06-8496210d4b84" parent="#5fa62e70-3c89-11e4-916c-0800200c9a66">
     <types xsi:type="tura.domain:Type" uid="Dep_52ffccb7-cea6-49de-ba4b-7437f1da3369"
         name="Department Type">
       <classifiers uid="Dep_03eabbe7-b921-4ce7-a2a4-78b65cc0bda8" hint="#bf57ae0e-a725-4c7c-b178-ebbf640b2375"/>
@@ -971,10 +950,10 @@
         name="Departments query service">
       <classifiers uid="Dep_99c0f3c6-d7bc-4bce-abdb-4882c283879c" hint="#6ea5878f-e938-4e8b-990c-dbbbb2460dd9"/>
       <operations uid="Dep_25e3ad11-7c03-40a0-8f16-3bd73e3995e3" name="create">
-        <returnValue packageRef="#5fa62e70-3c89-11e4-916c-0800200c9a66" typeRef="#Dep_52ffccb7-cea6-49de-ba4b-7437f1da3369"/>
+        <returnValue packageRef="#e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="#Dep_52ffccb7-cea6-49de-ba4b-7437f1da3369"/>
       </operations>
       <operations uid="Dep_6f60ecf7-ef93-42f5-8ec7-fc7d83a5105f" name="find">
-        <parameters packageRef="#5fa62e70-3c89-11e4-916c-0800200c9a66" typeRef="#Dep_3eb3dfbb-0905-40f4-b629-6472c6503589"
+        <parameters packageRef="#e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="#Dep_3eb3dfbb-0905-40f4-b629-6472c6503589"
             uid="Dep_77a159a3-8d3e-47db-affa-16faaa50edba" name="search"/>
         <parameters packageRef="#9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="#2829901f-e985-4786-96ff-852230536694"
             uid="Dep_08819d7d-ef3b-4590-b6dd-5c21920ce9f0" name="startIndex" order="2"/>
@@ -982,20 +961,20 @@
             uid="Dep_ae1fe3b6-79aa-4fc4-b474-8cbd238b2368" name="endIndex" order="3"/>
         <parameters packageRef="#9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="#e370b9d1-a6fb-4a40-88e2-8845be441438"
             uid="Dep_c3a25545-521b-48c3-a14a-7f5974670e38" name="className" order="4"/>
-        <returnValue packageRef="#5fa62e70-3c89-11e4-916c-0800200c9a66" typeRef="#Dep_692cc400-912b-471d-84f5-15f08a7ec191"/>
+        <returnValue packageRef="#e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="#Dep_692cc400-912b-471d-84f5-15f08a7ec191"/>
       </operations>
       <operations uid="Dep_9a90fdd8-603c-46db-adc8-6bc6b08512f0" name="insert">
-        <parameters packageRef="#5fa62e70-3c89-11e4-916c-0800200c9a66" typeRef="#Dep_52ffccb7-cea6-49de-ba4b-7437f1da3369"
+        <parameters packageRef="#e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="#Dep_52ffccb7-cea6-49de-ba4b-7437f1da3369"
             uid="Dep_f3ba5a1a-2ef7-409f-b972-6eaeef1dc462" name="obj"/>
         <returnValue packageRef="#9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="#90b18156-de6d-42d1-b350-925e44a0e4cc"/>
       </operations>
       <operations uid="Dep_20e79110-2821-4a08-ba51-82e083c766e5" name="update">
-        <parameters packageRef="#5fa62e70-3c89-11e4-916c-0800200c9a66" typeRef="#Dep_52ffccb7-cea6-49de-ba4b-7437f1da3369"
+        <parameters packageRef="#e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="#Dep_52ffccb7-cea6-49de-ba4b-7437f1da3369"
             uid="Dep_a9d079b4-430b-4eca-93e9-1a09b867f67e" name="obj"/>
         <returnValue packageRef="#9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="#90b18156-de6d-42d1-b350-925e44a0e4cc"/>
       </operations>
       <operations uid="Dep_4f5cced5-8d80-4a67-8f3b-3a1773e45d4f" name="remove">
-        <parameters packageRef="#5fa62e70-3c89-11e4-916c-0800200c9a66" typeRef="#Dep_52ffccb7-cea6-49de-ba4b-7437f1da3369"
+        <parameters packageRef="#e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="#Dep_52ffccb7-cea6-49de-ba4b-7437f1da3369"
             uid="Dep_39c898b5-df57-435f-ac70-7656cfcff63d" name="obj"/>
         <returnValue packageRef="#9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="#90b18156-de6d-42d1-b350-925e44a0e4cc"/>
       </operations>
@@ -1007,7 +986,7 @@
           target="#Dep_30bb8955-d333-429b-a7ae-777f1a62e767">
         <classifiers uid="Dep_2609ff9a-ccb7-4aa6-b23a-76aca2ee442b" hint="#652c130e-7f7e-4676-a370-2455f3615470"/>
       </extension>
-      <extension uid="TypeExtension4" source="#Dep_25a85943-6b6b-4ca0-a223-e031e30c5563"
+      <extension uid="Dep_TypeExtension4" source="#Dep_25a85943-6b6b-4ca0-a223-e031e30c5563"
           target="#Dep_52ffccb7-cea6-49de-ba4b-7437f1da3369">
         <classifiers uid="Dep_dc219655-adc0-4029-b35c-897e715563fe" hint="#4529ca6e-e57b-4e9f-80f7-215832b613e0"/>
       </extension>
@@ -1020,10 +999,10 @@
         name="Departments query service remote">
       <classifiers uid="Dep_7b9bdcc1-c2ff-42b2-a103-e7e0a5e7a4c6" hint="#43bcf7f7-df80-41c6-a67c-a85c5722f25f"/>
       <operations uid="Dep_aab2312e-3840-47bd-ab51-3adff8fa9a5e" name="create">
-        <returnValue packageRef="#5fa62e70-3c89-11e4-916c-0800200c9a66" typeRef="#Dep_52ffccb7-cea6-49de-ba4b-7437f1da3369"/>
+        <returnValue packageRef="#e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="#Dep_52ffccb7-cea6-49de-ba4b-7437f1da3369"/>
       </operations>
       <operations uid="Dep_b248b752-4cf0-4e2a-92d8-f69568f2146d" name="find">
-        <parameters packageRef="#5fa62e70-3c89-11e4-916c-0800200c9a66" typeRef="#Dep_3eb3dfbb-0905-40f4-b629-6472c6503589"
+        <parameters packageRef="#e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="#Dep_3eb3dfbb-0905-40f4-b629-6472c6503589"
             uid="Dep_e24109a4-a84f-4607-8d57-23b2c6630b43" name="search"/>
         <parameters packageRef="#9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="#2829901f-e985-4786-96ff-852230536694"
             uid="Dep_caebc035-26e7-4eb4-8212-99463bd48970" name="startIndex" order="2"/>
@@ -1031,20 +1010,20 @@
             uid="Dep_3dc4adbb-76b1-4c73-b36a-00d0c733afd4" name="endIndex" order="3"/>
         <parameters packageRef="#9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="#e370b9d1-a6fb-4a40-88e2-8845be441438"
             uid="Dep_bb60dd8c-5277-4961-b331-cf36d1407996" name="className" order="4"/>
-        <returnValue packageRef="#5fa62e70-3c89-11e4-916c-0800200c9a66" typeRef="#Dep_692cc400-912b-471d-84f5-15f08a7ec191"/>
+        <returnValue packageRef="#e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="#Dep_692cc400-912b-471d-84f5-15f08a7ec191"/>
       </operations>
       <operations uid="Dep_6ca9173a-3785-45cc-89fe-8ed73339b62d" name="insert">
-        <parameters packageRef="#5fa62e70-3c89-11e4-916c-0800200c9a66" typeRef="#Dep_52ffccb7-cea6-49de-ba4b-7437f1da3369"
+        <parameters packageRef="#e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="#Dep_52ffccb7-cea6-49de-ba4b-7437f1da3369"
             uid="Dep_ad00ff21-5181-4cf5-b7b1-86ab4271b1fe" name="obj"/>
         <returnValue packageRef="#9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="#90b18156-de6d-42d1-b350-925e44a0e4cc"/>
       </operations>
       <operations uid="Dep_6f0ee849-3233-4813-845a-8eb071bd67b6" name="update">
-        <parameters packageRef="#5fa62e70-3c89-11e4-916c-0800200c9a66" typeRef="#Dep_52ffccb7-cea6-49de-ba4b-7437f1da3369"
+        <parameters packageRef="#e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="#Dep_52ffccb7-cea6-49de-ba4b-7437f1da3369"
             uid="Dep_8f363a30-5593-4db1-9ecd-7cb4fea709ab" name="obj"/>
         <returnValue packageRef="#9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="#90b18156-de6d-42d1-b350-925e44a0e4cc"/>
       </operations>
       <operations uid="Dep_9f740438-a824-436e-8567-ee7a625c69c6" name="remove">
-        <parameters packageRef="#5fa62e70-3c89-11e4-916c-0800200c9a66" typeRef="#Dep_52ffccb7-cea6-49de-ba4b-7437f1da3369"
+        <parameters packageRef="#e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="#Dep_52ffccb7-cea6-49de-ba4b-7437f1da3369"
             uid="Dep_fbdece4c-9be9-48f4-88c6-ec3e49dc296e" name="obj"/>
         <returnValue packageRef="#9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="#90b18156-de6d-42d1-b350-925e44a0e4cc"/>
       </operations>
@@ -1053,10 +1032,10 @@
         name="Departments query service local">
       <classifiers uid="Dep_a32c29d7-47a3-40f4-9541-6914537c75b6" hint="#e887a98a-c56d-455b-956e-bdbe57da2d14"/>
       <operations uid="Dep_908f3a45-5328-43b4-9cfd-a77b23d1cf47" name="create">
-        <returnValue packageRef="#5fa62e70-3c89-11e4-916c-0800200c9a66" typeRef="#Dep_52ffccb7-cea6-49de-ba4b-7437f1da3369"/>
+        <returnValue packageRef="#e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="#Dep_52ffccb7-cea6-49de-ba4b-7437f1da3369"/>
       </operations>
       <operations uid="Dep_9a20871e-dc67-473c-8144-f675cf20009e" name="find">
-        <parameters packageRef="#5fa62e70-3c89-11e4-916c-0800200c9a66" typeRef="#Dep_3eb3dfbb-0905-40f4-b629-6472c6503589"
+        <parameters packageRef="#e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="#Dep_3eb3dfbb-0905-40f4-b629-6472c6503589"
             uid="Dep_2527c4a9-4542-417d-bfa0-50313d5eed51" name="search"/>
         <parameters packageRef="#9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="#2829901f-e985-4786-96ff-852230536694"
             uid="Dep_e9110d0b-6386-4f88-af1a-90a6679b1b90" name="startIndex" order="2"/>
@@ -1064,28 +1043,26 @@
             uid="Dep_a05abb18-6914-42c5-9e49-e1d17763f0c2" name="endIndex" order="3"/>
         <parameters packageRef="#9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="#e370b9d1-a6fb-4a40-88e2-8845be441438"
             uid="Dep_10f6d4b8-904c-4678-9fc4-0289fdd2dda7" name="className" order="4"/>
-        <returnValue packageRef="#5fa62e70-3c89-11e4-916c-0800200c9a66" typeRef="#Dep_692cc400-912b-471d-84f5-15f08a7ec191"/>
+        <returnValue packageRef="#e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="#Dep_692cc400-912b-471d-84f5-15f08a7ec191"/>
       </operations>
       <operations uid="Dep_4dd40bfa-27d1-4439-8123-498df4915fa1" name="insert">
-        <parameters packageRef="#5fa62e70-3c89-11e4-916c-0800200c9a66" typeRef="#Dep_52ffccb7-cea6-49de-ba4b-7437f1da3369"
+        <parameters packageRef="#e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="#Dep_52ffccb7-cea6-49de-ba4b-7437f1da3369"
             uid="Dep_372d6c77-b59a-430c-b822-903538eb0baf" name="obj"/>
         <returnValue packageRef="#9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="#90b18156-de6d-42d1-b350-925e44a0e4cc"/>
       </operations>
       <operations uid="Dep_7f56dbf7-4c23-4e3a-9dc1-2fdb987af787" name="update">
-        <parameters packageRef="#5fa62e70-3c89-11e4-916c-0800200c9a66" typeRef="#Dep_52ffccb7-cea6-49de-ba4b-7437f1da3369"
+        <parameters packageRef="#e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="#Dep_52ffccb7-cea6-49de-ba4b-7437f1da3369"
             uid="Dep_9c2274f1-58f1-4a7e-bef7-5c275b881e96" name="obj"/>
         <returnValue packageRef="#9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="#90b18156-de6d-42d1-b350-925e44a0e4cc"/>
       </operations>
       <operations uid="Dep_05ea8cee-54b1-44ce-a556-33d96fe9a02e" name="remove">
-        <parameters packageRef="#5fa62e70-3c89-11e4-916c-0800200c9a66" typeRef="#Dep_52ffccb7-cea6-49de-ba4b-7437f1da3369"
+        <parameters packageRef="#e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="#Dep_52ffccb7-cea6-49de-ba4b-7437f1da3369"
             uid="Dep_d687827e-e433-43e5-851a-79e820724b0e" name="obj"/>
         <returnValue packageRef="#9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="#90b18156-de6d-42d1-b350-925e44a0e4cc"/>
       </operations>
     </types>
     <types xsi:type="tura.domain:TypeReference" uid="Dep_TypeReference2" packageRef="#dd77a443-471b-441e-88bf-3f3f092f372c"
         typeRef="#2957c51c-68e7-4d1e-b8b7-cbe7ccdbe13f"/>
-  </tura.domain:TypeDefinition>
-  <tura.domain:TypeDefinition uid="Emp_115091ed-0c7c-4eae-be06-8496210d4b84" parent="#68b44bf0-3c89-11e4-916c-0800200c9a66">
     <types xsi:type="tura.domain:Type" uid="Emp_dd5f2ada-dfef-49f4-99c9-77ee2bd72f13"
         name="Employee Type">
       <classifiers uid="Emp_5fa0f329-7443-4f56-8d3b-704d9debe0e8" hint="#bf57ae0e-a725-4c7c-b178-ebbf640b2375"/>
@@ -1124,10 +1101,10 @@
         name="Employees query service">
       <classifiers uid="Emp_ba2d61a7-f66a-4e05-acbc-76558ec1ad4d" hint="#6ea5878f-e938-4e8b-990c-dbbbb2460dd9"/>
       <operations uid="Emp_4f57c552-8343-4142-95da-b77958d767e3" name="create">
-        <returnValue packageRef="#68b44bf0-3c89-11e4-916c-0800200c9a66" typeRef="#Emp_dd5f2ada-dfef-49f4-99c9-77ee2bd72f13"/>
+        <returnValue packageRef="#e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="#Emp_dd5f2ada-dfef-49f4-99c9-77ee2bd72f13"/>
       </operations>
       <operations uid="Emp_b79fd740-dfd2-42a3-87a6-2344b6352f01" name="find">
-        <parameters packageRef="#68b44bf0-3c89-11e4-916c-0800200c9a66" typeRef="#Emp_cff56a6e-6d9a-41dc-8ff7-d3d6d0c85cdb"
+        <parameters packageRef="#e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="#Emp_cff56a6e-6d9a-41dc-8ff7-d3d6d0c85cdb"
             uid="Emp_38def6df-a9a4-4638-ac28-a972eff6cacb" name="search"/>
         <parameters packageRef="#9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="#2829901f-e985-4786-96ff-852230536694"
             uid="Emp_10b795b0-47ec-4859-845b-d9cbd8d9c1d0" name="startIndex" order="2"/>
@@ -1135,20 +1112,20 @@
             uid="Emp_7346ea59-8396-407f-9bc1-ba28c405352b" name="endIndex" order="3"/>
         <parameters packageRef="#9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="#e370b9d1-a6fb-4a40-88e2-8845be441438"
             uid="Emp_1d84f570-0cb4-41cd-b87f-b1e740fc7ef4" name="className" order="4"/>
-        <returnValue packageRef="#68b44bf0-3c89-11e4-916c-0800200c9a66" typeRef="#Emp_2814d4c5-b26a-4f3e-b1dc-c400f54b494e"/>
+        <returnValue packageRef="#e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="#Emp_2814d4c5-b26a-4f3e-b1dc-c400f54b494e"/>
       </operations>
       <operations uid="Emp_d8e23117-c977-433c-9925-3e3e2a4334b6" name="insert">
-        <parameters packageRef="#68b44bf0-3c89-11e4-916c-0800200c9a66" typeRef="#Emp_dd5f2ada-dfef-49f4-99c9-77ee2bd72f13"
+        <parameters packageRef="#e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="#Emp_dd5f2ada-dfef-49f4-99c9-77ee2bd72f13"
             uid="Emp_9c4cbdd5-b6c0-4e2b-a909-e25c0bb6d088" name="obj"/>
         <returnValue packageRef="#9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="#90b18156-de6d-42d1-b350-925e44a0e4cc"/>
       </operations>
       <operations uid="Emp_646acbaf-bd7f-4ede-a9e0-0c5377ed7be7" name="update">
-        <parameters packageRef="#68b44bf0-3c89-11e4-916c-0800200c9a66" typeRef="#Emp_dd5f2ada-dfef-49f4-99c9-77ee2bd72f13"
+        <parameters packageRef="#e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="#Emp_dd5f2ada-dfef-49f4-99c9-77ee2bd72f13"
             uid="Emp_2186ecd5-6eef-4ea5-b730-bc1689c022d7" name="obj"/>
         <returnValue packageRef="#9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="#90b18156-de6d-42d1-b350-925e44a0e4cc"/>
       </operations>
       <operations uid="Emp_5c9737e4-43ed-4d74-b129-af9e66207860" name="remove">
-        <parameters packageRef="#68b44bf0-3c89-11e4-916c-0800200c9a66" typeRef="#Emp_dd5f2ada-dfef-49f4-99c9-77ee2bd72f13"
+        <parameters packageRef="#e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="#Emp_dd5f2ada-dfef-49f4-99c9-77ee2bd72f13"
             uid="Emp_6922dc12-46cf-4eb2-a146-5f7a10870c33" name="obj"/>
         <returnValue packageRef="#9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="#90b18156-de6d-42d1-b350-925e44a0e4cc"/>
       </operations>
@@ -1173,10 +1150,10 @@
         name="Employees query service local">
       <classifiers uid="Emp_35c58537-4bd2-4ffb-8dc2-fb19de9a1677" hint="#e887a98a-c56d-455b-956e-bdbe57da2d14"/>
       <operations uid="Emp_c6b53fe6-3caf-4147-b8e9-55b59150967a" name="create">
-        <returnValue packageRef="#68b44bf0-3c89-11e4-916c-0800200c9a66" typeRef="#Emp_dd5f2ada-dfef-49f4-99c9-77ee2bd72f13"/>
+        <returnValue packageRef="#e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="#Emp_dd5f2ada-dfef-49f4-99c9-77ee2bd72f13"/>
       </operations>
       <operations uid="Emp_9582598b-bb47-45dd-8e96-8f5e569078f1" name="find">
-        <parameters packageRef="#68b44bf0-3c89-11e4-916c-0800200c9a66" typeRef="#Emp_cff56a6e-6d9a-41dc-8ff7-d3d6d0c85cdb"
+        <parameters packageRef="#e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="#Emp_cff56a6e-6d9a-41dc-8ff7-d3d6d0c85cdb"
             uid="Emp_7f08b836-63c7-443d-bcd9-0b583ee61f6b" name="search"/>
         <parameters packageRef="#9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="#2829901f-e985-4786-96ff-852230536694"
             uid="Emp_30afd63d-266d-406a-a864-487e69faf636" name="startIndex" order="2"/>
@@ -1184,20 +1161,20 @@
             uid="Emp_7b597f63-b5a7-40f2-8ba6-ad681e32c952" name="endIndex" order="3"/>
         <parameters packageRef="#9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="#e370b9d1-a6fb-4a40-88e2-8845be441438"
             uid="Emp_26cfba81-0b37-430c-b6f2-ad6d1f6ccb46" name="className" order="4"/>
-        <returnValue packageRef="#68b44bf0-3c89-11e4-916c-0800200c9a66" typeRef="#Emp_2814d4c5-b26a-4f3e-b1dc-c400f54b494e"/>
+        <returnValue packageRef="#e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="#Emp_2814d4c5-b26a-4f3e-b1dc-c400f54b494e"/>
       </operations>
       <operations uid="Emp_224d7033-2205-42b7-b62d-c8a173feb12f" name="insert">
-        <parameters packageRef="#68b44bf0-3c89-11e4-916c-0800200c9a66" typeRef="#Emp_dd5f2ada-dfef-49f4-99c9-77ee2bd72f13"
+        <parameters packageRef="#e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="#Emp_dd5f2ada-dfef-49f4-99c9-77ee2bd72f13"
             uid="Emp_cbd0926a-5908-4a8d-a4c6-12c0a3701082" name="obj"/>
         <returnValue packageRef="#9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="#90b18156-de6d-42d1-b350-925e44a0e4cc"/>
       </operations>
       <operations uid="Emp_0bc461a2-b7e2-4dd5-ae59-a79fd44bc838" name="update">
-        <parameters packageRef="#68b44bf0-3c89-11e4-916c-0800200c9a66" typeRef="#Emp_dd5f2ada-dfef-49f4-99c9-77ee2bd72f13"
+        <parameters packageRef="#e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="#Emp_dd5f2ada-dfef-49f4-99c9-77ee2bd72f13"
             uid="Emp_9c8f85f2-7181-4db1-b179-efb44ee43aa2" name="obj"/>
         <returnValue packageRef="#9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="#90b18156-de6d-42d1-b350-925e44a0e4cc"/>
       </operations>
       <operations uid="Emp_1d970b6d-49b4-4316-8bdb-6929314c9486" name="remove">
-        <parameters packageRef="#68b44bf0-3c89-11e4-916c-0800200c9a66" typeRef="#Emp_dd5f2ada-dfef-49f4-99c9-77ee2bd72f13"
+        <parameters packageRef="#e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="#Emp_dd5f2ada-dfef-49f4-99c9-77ee2bd72f13"
             uid="Emp_d1fa7bd1-7d4b-4af7-9ecb-cf911fd96fb3" name="obj"/>
         <returnValue packageRef="#9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="#90b18156-de6d-42d1-b350-925e44a0e4cc"/>
       </operations>
@@ -1206,10 +1183,10 @@
         name="Employees query service remote">
       <classifiers uid="Emp_daa415ee-6d04-441d-aeb9-d6cdd776a373" hint="#43bcf7f7-df80-41c6-a67c-a85c5722f25f"/>
       <operations uid="Emp_7180cd5e-ca92-4753-a588-2f23a0881a81" name="create">
-        <returnValue packageRef="#68b44bf0-3c89-11e4-916c-0800200c9a66" typeRef="#Emp_dd5f2ada-dfef-49f4-99c9-77ee2bd72f13"/>
+        <returnValue packageRef="#e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="#Emp_dd5f2ada-dfef-49f4-99c9-77ee2bd72f13"/>
       </operations>
       <operations uid="Emp_aff1f653-e724-4997-9ada-9a211149eca0" name="find">
-        <parameters packageRef="#68b44bf0-3c89-11e4-916c-0800200c9a66" typeRef="#Emp_cff56a6e-6d9a-41dc-8ff7-d3d6d0c85cdb"
+        <parameters packageRef="#e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="#Emp_cff56a6e-6d9a-41dc-8ff7-d3d6d0c85cdb"
             uid="Emp_9639398a-b943-4b3c-a1b9-08406d1b3d43" name="search"/>
         <parameters packageRef="#9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="#2829901f-e985-4786-96ff-852230536694"
             uid="Emp_956e022e-f639-41c8-879b-ed6356971e8f" name="startIndex" order="2"/>
@@ -1217,28 +1194,26 @@
             uid="Emp_034d769d-21f9-4bb3-8ffe-90ba28c5085c" name="endIndex" order="3"/>
         <parameters packageRef="#9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="#e370b9d1-a6fb-4a40-88e2-8845be441438"
             uid="Emp_8ad146ec-9d43-4a3c-af59-970f86a01cf9" name="className" order="4"/>
-        <returnValue packageRef="#68b44bf0-3c89-11e4-916c-0800200c9a66" typeRef="#Emp_2814d4c5-b26a-4f3e-b1dc-c400f54b494e"/>
+        <returnValue packageRef="#e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="#Emp_2814d4c5-b26a-4f3e-b1dc-c400f54b494e"/>
       </operations>
       <operations uid="Emp_bb6c0a0d-faf7-44a7-994c-bbf40497d62a" name="insert">
-        <parameters packageRef="#68b44bf0-3c89-11e4-916c-0800200c9a66" typeRef="#Emp_dd5f2ada-dfef-49f4-99c9-77ee2bd72f13"
+        <parameters packageRef="#e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="#Emp_dd5f2ada-dfef-49f4-99c9-77ee2bd72f13"
             uid="Emp_559aa4f3-d81c-443e-a768-5ba43cf94a9c" name="obj"/>
         <returnValue packageRef="#9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="#90b18156-de6d-42d1-b350-925e44a0e4cc"/>
       </operations>
       <operations uid="Emp_1b38601f-0b7b-4fc5-b2d2-a4576b2c29ab" name="update">
-        <parameters packageRef="#68b44bf0-3c89-11e4-916c-0800200c9a66" typeRef="#Emp_dd5f2ada-dfef-49f4-99c9-77ee2bd72f13"
+        <parameters packageRef="#e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="#Emp_dd5f2ada-dfef-49f4-99c9-77ee2bd72f13"
             uid="Emp_3b2c3fce-6d64-4e4f-abd2-5ccda63f18c9" name="obj"/>
         <returnValue packageRef="#9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="#90b18156-de6d-42d1-b350-925e44a0e4cc"/>
       </operations>
       <operations uid="Emp_6e1d6c15-39ae-4035-81fa-a9353c04d2ad" name="remove">
-        <parameters packageRef="#68b44bf0-3c89-11e4-916c-0800200c9a66" typeRef="#Emp_dd5f2ada-dfef-49f4-99c9-77ee2bd72f13"
+        <parameters packageRef="#e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="#Emp_dd5f2ada-dfef-49f4-99c9-77ee2bd72f13"
             uid="Emp_ea0ac724-09ba-446a-bd5e-44c464618e9d" name="obj"/>
         <returnValue packageRef="#9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="#90b18156-de6d-42d1-b350-925e44a0e4cc"/>
       </operations>
     </types>
     <types xsi:type="tura.domain:TypeReference" uid="Emp_TypeReference4" packageRef="#dd77a443-471b-441e-88bf-3f3f092f372c"
         typeRef="#2957c51c-68e7-4d1e-b8b7-cbe7ccdbe13f"/>
-  </tura.domain:TypeDefinition>
-  <tura.domain:TypeDefinition uid="Vhc_115091ed-0c7c-4eae-be06-8496210d4b84" parent="#6fbc1220-3c89-11e4-916c-0800200c9a66">
     <types xsi:type="tura.domain:Type" uid="Vhc_52ffccb7-cea6-49de-ba4b-7437f1da3369"
         name="Vehicle Type">
       <classifiers uid="Vhc_03eabbe7-b921-4ce7-a2a4-78b65cc0bda8" hint="#bf57ae0e-a725-4c7c-b178-ebbf640b2375"/>
@@ -1261,10 +1236,10 @@
         name="Vehicles query service">
       <classifiers uid="Vhc_99c0f3c6-d7bc-4bce-abdb-4882c283879c" hint="#6ea5878f-e938-4e8b-990c-dbbbb2460dd9"/>
       <operations uid="Vhc_25e3ad11-7c03-40a0-8f16-3bd73e3995e3" name="create">
-        <returnValue packageRef="#6fbc1220-3c89-11e4-916c-0800200c9a66" typeRef="#Vhc_52ffccb7-cea6-49de-ba4b-7437f1da3369"/>
+        <returnValue packageRef="#e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="#Vhc_52ffccb7-cea6-49de-ba4b-7437f1da3369"/>
       </operations>
       <operations uid="Vhc_6f60ecf7-ef93-42f5-8ec7-fc7d83a5105f" name="find">
-        <parameters packageRef="#6fbc1220-3c89-11e4-916c-0800200c9a66" typeRef="#Vhc_3eb3dfbb-0905-40f4-b629-6472c6503589"
+        <parameters packageRef="#e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="#Vhc_3eb3dfbb-0905-40f4-b629-6472c6503589"
             uid="Vhc_77a159a3-8d3e-47db-affa-16faaa50edba" name="search"/>
         <parameters packageRef="#9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="#2829901f-e985-4786-96ff-852230536694"
             uid="Vhc_08819d7d-ef3b-4590-b6dd-5c21920ce9f0" name="startIndex" order="2"/>
@@ -1272,20 +1247,20 @@
             uid="Vhc_ae1fe3b6-79aa-4fc4-b474-8cbd238b2368" name="endIndex" order="3"/>
         <parameters packageRef="#9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="#e370b9d1-a6fb-4a40-88e2-8845be441438"
             uid="Vhc_c3a25545-521b-48c3-a14a-7f5974670e38" name="className" order="4"/>
-        <returnValue packageRef="#6fbc1220-3c89-11e4-916c-0800200c9a66" typeRef="#Vhc_692cc400-912b-471d-84f5-15f08a7ec191"/>
+        <returnValue packageRef="#e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="#Vhc_692cc400-912b-471d-84f5-15f08a7ec191"/>
       </operations>
       <operations uid="Vhc_9a90fdd8-603c-46db-adc8-6bc6b08512f0" name="insert">
-        <parameters packageRef="#6fbc1220-3c89-11e4-916c-0800200c9a66" typeRef="#Vhc_52ffccb7-cea6-49de-ba4b-7437f1da3369"
+        <parameters packageRef="#e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="#Vhc_52ffccb7-cea6-49de-ba4b-7437f1da3369"
             uid="Vhc_f3ba5a1a-2ef7-409f-b972-6eaeef1dc462" name="obj"/>
         <returnValue packageRef="#9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="#90b18156-de6d-42d1-b350-925e44a0e4cc"/>
       </operations>
       <operations uid="Vhc_20e79110-2821-4a08-ba51-82e083c766e5" name="update">
-        <parameters packageRef="#6fbc1220-3c89-11e4-916c-0800200c9a66" typeRef="#Vhc_52ffccb7-cea6-49de-ba4b-7437f1da3369"
+        <parameters packageRef="#e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="#Vhc_52ffccb7-cea6-49de-ba4b-7437f1da3369"
             uid="Vhc_a9d079b4-430b-4eca-93e9-1a09b867f67e" name="obj"/>
         <returnValue packageRef="#9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="#90b18156-de6d-42d1-b350-925e44a0e4cc"/>
       </operations>
       <operations uid="Vhc_4f5cced5-8d80-4a67-8f3b-3a1773e45d4f" name="remove">
-        <parameters packageRef="#6fbc1220-3c89-11e4-916c-0800200c9a66" typeRef="#Vhc_52ffccb7-cea6-49de-ba4b-7437f1da3369"
+        <parameters packageRef="#e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="#Vhc_52ffccb7-cea6-49de-ba4b-7437f1da3369"
             uid="Vhc_39c898b5-df57-435f-ac70-7656cfcff63d" name="obj"/>
         <returnValue packageRef="#9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="#90b18156-de6d-42d1-b350-925e44a0e4cc"/>
       </operations>
@@ -1310,10 +1285,10 @@
         name="Vehicles query service remote">
       <classifiers uid="Vhc_7b9bdcc1-c2ff-42b2-a103-e7e0a5e7a4c6" hint="#43bcf7f7-df80-41c6-a67c-a85c5722f25f"/>
       <operations uid="Vhc_aab2312e-3840-47bd-ab51-3adff8fa9a5e" name="create">
-        <returnValue packageRef="#6fbc1220-3c89-11e4-916c-0800200c9a66" typeRef="#Vhc_52ffccb7-cea6-49de-ba4b-7437f1da3369"/>
+        <returnValue packageRef="#e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="#Vhc_52ffccb7-cea6-49de-ba4b-7437f1da3369"/>
       </operations>
       <operations uid="Vhc_b248b752-4cf0-4e2a-92d8-f69568f2146d" name="find">
-        <parameters packageRef="#6fbc1220-3c89-11e4-916c-0800200c9a66" typeRef="#Vhc_3eb3dfbb-0905-40f4-b629-6472c6503589"
+        <parameters packageRef="#e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="#Vhc_3eb3dfbb-0905-40f4-b629-6472c6503589"
             uid="Vhc_e24109a4-a84f-4607-8d57-23b2c6630b43" name="search"/>
         <parameters packageRef="#9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="#2829901f-e985-4786-96ff-852230536694"
             uid="Vhc_caebc035-26e7-4eb4-8212-99463bd48970" name="startIndex" order="2"/>
@@ -1321,20 +1296,20 @@
             uid="Vhc_3dc4adbb-76b1-4c73-b36a-00d0c733afd4" name="endIndex" order="3"/>
         <parameters packageRef="#9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="#e370b9d1-a6fb-4a40-88e2-8845be441438"
             uid="Vhc_bb60dd8c-5277-4961-b331-cf36d1407996" name="className" order="4"/>
-        <returnValue packageRef="#6fbc1220-3c89-11e4-916c-0800200c9a66" typeRef="#Vhc_692cc400-912b-471d-84f5-15f08a7ec191"/>
+        <returnValue packageRef="#e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="#Vhc_692cc400-912b-471d-84f5-15f08a7ec191"/>
       </operations>
       <operations uid="Vhc_6ca9173a-3785-45cc-89fe-8ed73339b62d" name="insert">
-        <parameters packageRef="#6fbc1220-3c89-11e4-916c-0800200c9a66" typeRef="#Vhc_52ffccb7-cea6-49de-ba4b-7437f1da3369"
+        <parameters packageRef="#e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="#Vhc_52ffccb7-cea6-49de-ba4b-7437f1da3369"
             uid="Vhc_ad00ff21-5181-4cf5-b7b1-86ab4271b1fe" name="obj"/>
         <returnValue packageRef="#9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="#90b18156-de6d-42d1-b350-925e44a0e4cc"/>
       </operations>
       <operations uid="Vhc_6f0ee849-3233-4813-845a-8eb071bd67b6" name="update">
-        <parameters packageRef="#6fbc1220-3c89-11e4-916c-0800200c9a66" typeRef="#Vhc_52ffccb7-cea6-49de-ba4b-7437f1da3369"
+        <parameters packageRef="#e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="#Vhc_52ffccb7-cea6-49de-ba4b-7437f1da3369"
             uid="Vhc_8f363a30-5593-4db1-9ecd-7cb4fea709ab" name="obj"/>
         <returnValue packageRef="#9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="#90b18156-de6d-42d1-b350-925e44a0e4cc"/>
       </operations>
       <operations uid="Vhc_9f740438-a824-436e-8567-ee7a625c69c6" name="remove">
-        <parameters packageRef="#6fbc1220-3c89-11e4-916c-0800200c9a66" typeRef="#Vhc_52ffccb7-cea6-49de-ba4b-7437f1da3369"
+        <parameters packageRef="#e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="#Vhc_52ffccb7-cea6-49de-ba4b-7437f1da3369"
             uid="Vhc_fbdece4c-9be9-48f4-88c6-ec3e49dc296e" name="obj"/>
         <returnValue packageRef="#9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="#90b18156-de6d-42d1-b350-925e44a0e4cc"/>
       </operations>
@@ -1343,10 +1318,10 @@
         name="Vehicles query service local">
       <classifiers uid="Vhc_a32c29d7-47a3-40f4-9541-6914537c75b6" hint="#e887a98a-c56d-455b-956e-bdbe57da2d14"/>
       <operations uid="Vhc_908f3a45-5328-43b4-9cfd-a77b23d1cf47" name="create">
-        <returnValue packageRef="#6fbc1220-3c89-11e4-916c-0800200c9a66" typeRef="#Vhc_52ffccb7-cea6-49de-ba4b-7437f1da3369"/>
+        <returnValue packageRef="#e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="#Vhc_52ffccb7-cea6-49de-ba4b-7437f1da3369"/>
       </operations>
       <operations uid="Vhc_9a20871e-dc67-473c-8144-f675cf20009e" name="find">
-        <parameters packageRef="#6fbc1220-3c89-11e4-916c-0800200c9a66" typeRef="#Vhc_3eb3dfbb-0905-40f4-b629-6472c6503589"
+        <parameters packageRef="#e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="#Vhc_3eb3dfbb-0905-40f4-b629-6472c6503589"
             uid="Vhc_2527c4a9-4542-417d-bfa0-50313d5eed51" name="search"/>
         <parameters packageRef="#9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="#2829901f-e985-4786-96ff-852230536694"
             uid="Vhc_e9110d0b-6386-4f88-af1a-90a6679b1b90" name="startIndex" order="2"/>
@@ -1354,20 +1329,20 @@
             uid="Vhc_a05abb18-6914-42c5-9e49-e1d17763f0c2" name="endIndex" order="3"/>
         <parameters packageRef="#9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="#e370b9d1-a6fb-4a40-88e2-8845be441438"
             uid="Vhc_10f6d4b8-904c-4678-9fc4-0289fdd2dda7" name="className" order="4"/>
-        <returnValue packageRef="#6fbc1220-3c89-11e4-916c-0800200c9a66" typeRef="#Vhc_692cc400-912b-471d-84f5-15f08a7ec191"/>
+        <returnValue packageRef="#e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="#Vhc_692cc400-912b-471d-84f5-15f08a7ec191"/>
       </operations>
       <operations uid="Vhc_4dd40bfa-27d1-4439-8123-498df4915fa1" name="insert">
-        <parameters packageRef="#6fbc1220-3c89-11e4-916c-0800200c9a66" typeRef="#Vhc_52ffccb7-cea6-49de-ba4b-7437f1da3369"
+        <parameters packageRef="#e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="#Vhc_52ffccb7-cea6-49de-ba4b-7437f1da3369"
             uid="Vhc_372d6c77-b59a-430c-b822-903538eb0baf" name="obj"/>
         <returnValue packageRef="#9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="#90b18156-de6d-42d1-b350-925e44a0e4cc"/>
       </operations>
       <operations uid="Vhc_7f56dbf7-4c23-4e3a-9dc1-2fdb987af787" name="update">
-        <parameters packageRef="#6fbc1220-3c89-11e4-916c-0800200c9a66" typeRef="#Vhc_52ffccb7-cea6-49de-ba4b-7437f1da3369"
+        <parameters packageRef="#e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="#Vhc_52ffccb7-cea6-49de-ba4b-7437f1da3369"
             uid="Vhc_9c2274f1-58f1-4a7e-bef7-5c275b881e96" name="obj"/>
         <returnValue packageRef="#9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="#90b18156-de6d-42d1-b350-925e44a0e4cc"/>
       </operations>
       <operations uid="Vhc_05ea8cee-54b1-44ce-a556-33d96fe9a02e" name="remove">
-        <parameters packageRef="#6fbc1220-3c89-11e4-916c-0800200c9a66" typeRef="#Vhc_52ffccb7-cea6-49de-ba4b-7437f1da3369"
+        <parameters packageRef="#e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="#Vhc_52ffccb7-cea6-49de-ba4b-7437f1da3369"
             uid="Vhc_d687827e-e433-43e5-851a-79e820724b0e" name="obj"/>
         <returnValue packageRef="#9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="#90b18156-de6d-42d1-b350-925e44a0e4cc"/>
       </operations>
