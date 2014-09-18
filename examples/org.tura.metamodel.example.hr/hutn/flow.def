@@ -7,15 +7,7 @@
    <tns:ruleFlow filename="hutn/Domain.hutn" />   
    <tns:ruleFlow filename="hutn/Artifacts.hutn"/>   
    <tns:ruleFlow filename="hutn/TypeDefinition.hutn"/>  
-   <!-- tns:ruleFlow filename="hutn/Company.hutn"/>  
-   <tns:ruleFlow filename="hutn/Country.hutn"/>  
-   <tns:ruleFlow filename="hutn/State.hutn"/>  
-   <tns:ruleFlow filename="hutn/City.hutn"/>  
-   <tns:ruleFlow filename="hutn/Street.hutn"/>  
-   <tns:ruleFlow filename="hutn/Departments.hutn"/>  
-   <tns:ruleFlow filename="hutn/Employee.hutn"/>  
-   <tns:ruleFlow filename="hutn/Vehicle.hutn"/-->  
-   <!-- tns:ruleFlow filename="hutn/Mappers.hutn"/>   
-   <tns:ruleFlow filename="hutn/Recepies.hutn"/-->   
+   <tns:ruleFlow filename="hutn/Mappers.hutn"/>   
+   <tns:ruleFlow filename="hutn/Recepies.hutn"/>   
 
 </tns:flow>
