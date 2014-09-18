@@ -2,6 +2,7 @@ package org.tura.metamodel.commons.properties.selections.dropdown;
 
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.LinkedHashMap;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
@@ -21,7 +22,7 @@ public class ArtifactPropertySelection extends
 	protected HashMap<String, Object> getEnumerationFeatureValues() {
 
 		if (values == null) {
-			values = new HashMap<String, Object>();
+			values = new LinkedHashMap<String, Object>();
 
 			if (((domain.ArtifactRef) getModel()).getDomainArtifactRef() == null)
 				return values;

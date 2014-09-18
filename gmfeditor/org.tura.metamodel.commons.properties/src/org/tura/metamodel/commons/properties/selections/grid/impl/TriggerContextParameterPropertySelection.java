@@ -7,16 +7,17 @@ import org.eclipse.emf.edit.command.RemoveCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.gmf.runtime.diagram.ui.parts.DiagramEditor;
 import org.eclipse.jface.viewers.ISelection;
+import org.eclipse.swt.widgets.Control;
 import org.eclipse.ui.IWorkbenchPart;
 
 import domain.DomainPackage;
 
-public class TriggerContextParameterPropertySelection extends ContextParameterPropertySelection{
+public class TriggerContextParameterPropertySelection extends
+		ContextParameterPropertySelection {
 
 	private AdapterImpl adapter;
 	private boolean isFirstTime = true;
-	
-	
+
 	public void setInput(IWorkbenchPart part, ISelection selection) {
 		super.setInput(part, selection);
 
@@ -41,8 +42,10 @@ public class TriggerContextParameterPropertySelection extends ContextParameterPr
 																	.getContextParameters_Parameters(),
 															((domain.Trigger) getModel())
 																	.getParameters()));
-						ds.cleanList();
-						tableViewer.setInput(ds);
+							ds.cleanList();
+							Control control = tableViewer.getControl();
+							if (control != null && !control.isDisposed())
+								tableViewer.setInput(ds);
 
 						}
 					}
@@ -66,6 +69,5 @@ public class TriggerContextParameterPropertySelection extends ContextParameterPr
 	public Class<?> getExpectedClass() {
 		return domain.MethodPointer.class;
 	}
-	
-	
+
 }

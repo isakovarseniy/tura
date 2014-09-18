@@ -2,6 +2,7 @@ package org.tura.metamodel.commons.properties.selections.adapters;
 
 import org.eclipse.core.runtime.IAdapterFactory;
 import org.eclipse.ui.model.IWorkbenchAdapter;
+import org.tura.metamodel.commons.properties.selections.adapters.helper.DataControlFakeAttribute;
 import org.tura.metamodel.commons.properties.selections.adapters.helper.TreeRoot;
 import org.tura.metamodel.commons.properties.selections.adapters.helper.TriggerHolder;
 
@@ -29,6 +30,7 @@ public class TreeProviderAdapterFactory implements IAdapterFactory {
 	private DomainArtifactProvider domainArtifactProvider;
 	private ArtifactProvider artifactProvider;
 	private GeneratioinHintProvider generatioinHintProvider;
+	private DataControlFakeAttributeProvider dataControlFakeAttributeProvider;
 	
 
 	@SuppressWarnings("rawtypes")
@@ -77,11 +79,19 @@ public class TreeProviderAdapterFactory implements IAdapterFactory {
 				return  getArtifactProvider();
 			if (adaptableObject instanceof domain.GenerationHint)
 				return  getGeneratioinHintProvider();
+			if (adaptableObject instanceof DataControlFakeAttribute)
+				return  getDataControlFakeAttributeProvider();
 			
 		}
 		return null;
 	}
 
+
+	protected DataControlFakeAttributeProvider getDataControlFakeAttributeProvider() {
+		if (dataControlFakeAttributeProvider == null)
+			dataControlFakeAttributeProvider = new DataControlFakeAttributeProvider();
+		return dataControlFakeAttributeProvider;
+	}
 	
 	protected DomainArtifactsProvider getDomainArtifactsProvider() {
 		if (domainArtifactsProvider == null)

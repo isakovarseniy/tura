@@ -4,6 +4,8 @@ import java.util.ArrayList;
 
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.ui.model.IWorkbenchAdapter;
+import org.tura.metamodel.commons.QueryHelper;
+import org.tura.metamodel.commons.properties.selections.adapters.helper.DataControlFakeAttribute;
 import org.tura.metamodel.commons.properties.selections.adapters.helper.TriggerHolder;
 
 import domain.DataControl;
@@ -12,8 +14,14 @@ public class DataControlProvider implements IWorkbenchAdapter ,IReturnTypeProvid
 
 	@Override
 	public Object[] getChildren(Object o) {
-		ArrayList<TriggerHolder> ls = new ArrayList<>();
+		ArrayList<Object> ls = new ArrayList<>();
 		domain.DataControl ctr =  (DataControl) o;
+
+		QueryHelper qh = new QueryHelper();
+		
+		ls.add(new DataControlFakeAttribute("query", qh.findIntegerType(o)));
+		ls.add(new DataControlFakeAttribute("startIndex", qh.findIntegerType(o)));
+		ls.add(new DataControlFakeAttribute("endindex", qh.findIntegerType(o)));
 
 		if (ctr.getCreate() != null  && ctr.getCreate().getMethodRef() != null)
 			ls.add( new  TriggerHolder( "CreateTrigger" , ctr.getCreate()));

@@ -27,7 +27,7 @@ public abstract class AbstractDependentEnumerationPropertySection extends
 							.getWatchPointFeature().length; j++) {
 						if (notification.getFeatureID(dropDownDataSupplier
 								.getExpectedClass()) == dropDownDataSupplier
-								.getWatchPointFeature()[j].getFeatureID()) {
+								.getWatchPointFeature()[j].getFeatureID() && getPart() !=null) {
 							values = null;
 
 							EditingDomain editingDomain = ((DiagramEditor) getPart())

@@ -1,6 +1,7 @@
 package org.tura.metamodel.commons.properties.selections.dropdown;
 
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Set;
 
 import org.eclipse.emf.common.command.CompoundCommand;
@@ -36,7 +37,7 @@ public abstract class AbstractEnumerationPropertySection extends
 	protected CCombo combo;
 	protected boolean updated = false;
 
-	protected HashMap<String, Object> values;
+	protected LinkedHashMap<String, Object> values;
 	protected DropDownDataSupplier dropDownDataSupplier;
 
 	protected EStructuralFeature[] getFeature() {

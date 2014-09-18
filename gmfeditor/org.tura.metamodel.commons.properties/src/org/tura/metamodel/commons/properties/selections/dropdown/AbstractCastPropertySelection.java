@@ -3,6 +3,7 @@ package org.tura.metamodel.commons.properties.selections.dropdown;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.LinkedHashMap;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
@@ -23,7 +24,7 @@ public abstract class AbstractCastPropertySelection extends
 			init();
 
 		if (values == null) {
-			values = new HashMap<String, Object>();
+			values = new LinkedHashMap<String, Object>();
 
 			if (dropDownDataSupplier.getWatchPointObject(getModel()) == null)
 				return values;

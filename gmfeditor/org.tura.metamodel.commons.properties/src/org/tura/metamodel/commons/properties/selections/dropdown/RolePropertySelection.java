@@ -2,6 +2,7 @@ package org.tura.metamodel.commons.properties.selections.dropdown;
 
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.LinkedHashMap;
 import java.util.List;
 
 import org.eclipse.emf.ecore.EObject;
@@ -21,7 +22,7 @@ public class RolePropertySelection extends AbstractEnumerationPropertySection {
 	protected HashMap<String, ?> getEnumerationFeatureValues() {
 
 		if (values == null) {
-			values = new HashMap<String, Object>();
+			values = new LinkedHashMap<String, Object>();
 			domain.RoleMapper mapper = (domain.RoleMapper) getModel();
 
 			if (mapper.getParent().getParent().getParent().getParent()

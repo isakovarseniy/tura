@@ -3,6 +3,7 @@ package org.tura.metamodel.commons.properties.selections.dropdown;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.LinkedHashMap;
 
 import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EObject;
@@ -36,7 +37,7 @@ public class QueryPropertySelection extends AbstractEnumerationPropertySection {
 	protected HashMap<String, Object> getEnumerationFeatureValues() {
 
 		if (values == null) {
-			values = new HashMap<String, Object>();
+			values = new LinkedHashMap<String, Object>();
 
 			Diagram diagram = (Diagram) editPart.getRoot().getContents()
 					.getModel();
