@@ -9,6 +9,7 @@ import org.eclipse.gmf.runtime.diagram.ui.parts.DiagramEditor;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.ui.IWorkbenchPart;
+import org.eclipse.ui.internal.views.properties.tabbed.view.TabbedPropertyComposite;
 
 import domain.DomainPackage;
 
@@ -44,8 +45,10 @@ public class TriggerContextParameterPropertySelection extends
 																	.getParameters()));
 							ds.cleanList();
 							Control control = tableViewer.getControl();
-							if (control != null && !control.isDisposed())
+							if (control != null && !control.isDisposed()){
 								tableViewer.setInput(ds);
+								((TabbedPropertyComposite)(getPropertySheetPage().getControl())).getTabComposite().layout(true,true);
+							}
 
 						}
 					}

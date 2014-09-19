@@ -3,6 +3,7 @@ package org.tura.metamodel.commons.properties.selections.adapters;
 import org.eclipse.core.runtime.IAdapterFactory;
 import org.eclipse.ui.model.IWorkbenchAdapter;
 import org.tura.metamodel.commons.properties.selections.adapters.helper.DataControlFakeAttribute;
+import org.tura.metamodel.commons.properties.selections.adapters.helper.DataControlFakeMethod;
 import org.tura.metamodel.commons.properties.selections.adapters.helper.TreeRoot;
 import org.tura.metamodel.commons.properties.selections.adapters.helper.TriggerHolder;
 
@@ -31,6 +32,7 @@ public class TreeProviderAdapterFactory implements IAdapterFactory {
 	private ArtifactProvider artifactProvider;
 	private GeneratioinHintProvider generatioinHintProvider;
 	private DataControlFakeAttributeProvider dataControlFakeAttributeProvider;
+	private DataControlFakeMethodProvider dataControlFakeMethodProvider;
 	
 
 	@SuppressWarnings("rawtypes")
@@ -81,6 +83,8 @@ public class TreeProviderAdapterFactory implements IAdapterFactory {
 				return  getGeneratioinHintProvider();
 			if (adaptableObject instanceof DataControlFakeAttribute)
 				return  getDataControlFakeAttributeProvider();
+			if (adaptableObject instanceof DataControlFakeMethod)
+				return  getDataControlFakeMethodProvider();
 			
 		}
 		return null;
@@ -91,6 +95,13 @@ public class TreeProviderAdapterFactory implements IAdapterFactory {
 		if (dataControlFakeAttributeProvider == null)
 			dataControlFakeAttributeProvider = new DataControlFakeAttributeProvider();
 		return dataControlFakeAttributeProvider;
+	}
+	
+
+	protected DataControlFakeMethodProvider getDataControlFakeMethodProvider() {
+		if (dataControlFakeMethodProvider == null)
+			dataControlFakeMethodProvider = new DataControlFakeMethodProvider();
+		return dataControlFakeMethodProvider;
 	}
 	
 	protected DomainArtifactsProvider getDomainArtifactsProvider() {

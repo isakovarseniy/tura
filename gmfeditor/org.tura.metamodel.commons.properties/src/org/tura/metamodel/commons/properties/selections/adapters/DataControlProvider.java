@@ -6,6 +6,7 @@ import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.ui.model.IWorkbenchAdapter;
 import org.tura.metamodel.commons.QueryHelper;
 import org.tura.metamodel.commons.properties.selections.adapters.helper.DataControlFakeAttribute;
+import org.tura.metamodel.commons.properties.selections.adapters.helper.DataControlFakeMethod;
 import org.tura.metamodel.commons.properties.selections.adapters.helper.TriggerHolder;
 
 import domain.DataControl;
@@ -23,6 +24,8 @@ public class DataControlProvider implements IWorkbenchAdapter ,IReturnTypeProvid
 		ls.add(new DataControlFakeAttribute("endindex", qh.findIntegerType(o)));
 		ls.add(new DataControlFakeAttribute("query", qh.findSearchCriteriaType(o)));
 
+		if (ctr.getCreate() != null  && ctr.getCreate().getMethodRef() != null)
+			ls.add( new  DataControlFakeMethod( "currentObject" , ctr.getCreate().getMethodRef().getReturnValue().getTypeRef()));
 		
 		if (ctr.getCreate() != null  && ctr.getCreate().getMethodRef() != null)
 			ls.add( new  TriggerHolder( "CreateTrigger" , ctr.getCreate()));
