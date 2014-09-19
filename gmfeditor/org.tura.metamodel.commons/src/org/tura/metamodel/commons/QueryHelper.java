@@ -541,6 +541,35 @@ public class QueryHelper {
 
 	}
 
+	public domain.TypeElement findSearchCriteriaType(Object obj) {
+		try {
+			@SuppressWarnings("rawtypes")
+			OCL ocl = OCL.newInstance(EcoreEnvironmentFactory.INSTANCE);
+			@SuppressWarnings("unchecked")
+			OCLHelper<EClassifier, ?, ?, Constraint> helper = ocl
+					.createOCLHelper();
+			helper.setContext(DomainPackage.eINSTANCE.getEClassifier("Domain"));
+
+			OCLExpression<EClassifier> query = helper
+					.createQuery( "domain::Package.allInstances()->select(r|r.oclAsType(domain::Package).name='"+ InitDiagram.BASE_PACKAGE + "').oclAsType(domain::Package)."
+			+"typedefinition.types->select(r|(r.oclIsKindOf(domain::Type) and  r.oclAsType(domain::Type).name = 'Search criterias') )");
+			
+			
+			
+			@SuppressWarnings("unchecked")
+			Collection<domain.Primitive> map = (Collection<domain.Primitive>) ocl
+					.evaluate(obj, query);
+
+			if (map.size() != 0)
+				return map.iterator().next();
+
+		} catch (Exception e) {
+			LogUtil.log(e);
+		}
+		return null;
+
+	}
+	
 	public domain.TypeElement findStringType(Object obj) {
 		try {
 			@SuppressWarnings("rawtypes")
@@ -567,6 +596,7 @@ public class QueryHelper {
 		return null;
 
 	}
+	
 
 	public domain.TypeElement findIntegerType(Object obj) {
 		try {

@@ -90,6 +90,9 @@ domain  {
 	TypeDefinition "d3aaa3c1-ce4f-4b19-9e05-30631fe679cd" {
 		parent: Package "dd77a443-471b-441e-88bf-3f3f092f372c"
 		types: 
+	    Type "9ec6d2e0-4002-11e4-916c-0800200c9a66" {
+		  name: "Search criterias"
+	    } ,
 		Type "50dcca84-4d2c-4fe2-baad-56afdf1be76d" {
 			name: "BaseType"
 			attributes: 
@@ -135,13 +138,96 @@ domain  {
 				name: "expiredDate"
 			}
 		}, 
-		Type "2957c51c-68e7-4d1e-b8b7-cbe7ccdbe13f" {
-			name: "EJB Entity CRAD Service"
-		}, 
-		Type "8ef14552-bc20-4e0f-b53d-cc472e16f71c" {
-			name: "JPA Entity CRAD Service"
-		}
-	}
+	    Type "2b2e1b10-400a-11e4-916c-0800200c9a66" {
+		    name: "List of Base Type"
+	    } ,
+        Type "2957c51c-68e7-4d1e-b8b7-cbe7ccdbe13f" {
+		    name: "JPA Entity CRAD Service"
+		    operations: 
+		    Operation "40b112a0-4008-11e4-916c-0800200c9a66" {
+			   name: "create"
+			   returnValue: 
+			    ReturnValue "b8038800-4009-11e4-916c-0800200c9a66" {
+				    packageRef: Package "dd77a443-471b-441e-88bf-3f3f092f372c"
+				    typeRef: TypeElement "50dcca84-4d2c-4fe2-baad-56afdf1be76d"
+			    }
+		    }, 
+		    Operation "6fb841e0-4008-11e4-916c-0800200c9a66" {
+			    name: "find"
+			    parameters: 
+			    Parameter "790b57a0-4008-11e4-916c-0800200c9a66" {
+				    packageRef: Package "dd77a443-471b-441e-88bf-3f3f092f372c"
+				    typeRef: TypeElement "9ec6d2e0-4002-11e4-916c-0800200c9a66"
+				    name: "search"
+			    }, 
+			    Parameter "823b06e0-4008-11e4-916c-0800200c9a66" {
+				    packageRef: Package "9fcd56c0-2fe7-445a-864e-9550f1b901c2"
+				    typeRef: TypeElement "2829901f-e985-4786-96ff-852230536694"
+				    name: "startIndex"
+				    order: 2
+			    }, 
+			    Parameter "8cc19390-4008-11e4-916c-0800200c9a66" {
+				    packageRef: Package "9fcd56c0-2fe7-445a-864e-9550f1b901c2"
+				    typeRef: TypeElement "2829901f-e985-4786-96ff-852230536694"
+				    name: "endIndex"
+				    order: 3
+			    }, 
+			    Parameter "97d8a070-4008-11e4-916c-0800200c9a66" {
+				    packageRef: Package "9fcd56c0-2fe7-445a-864e-9550f1b901c2"
+				    typeRef: TypeElement "e370b9d1-a6fb-4a40-88e2-8845be441438"
+				    name: "className"
+				    order: 4
+			    }
+			    returnValue: 
+			    ReturnValue "a34ac5a0-4008-11e4-916c-0800200c9a66" {
+				    packageRef: Package "e8faa4f9-a654-40f5-bdf5-454f90f2af19"
+				    typeRef: TypeElement "2b2e1b10-400a-11e4-916c-0800200c9a66"
+			    }
+		    }, 
+		    Operation "b14bfa20-4008-11e4-916c-0800200c9a66" {
+			    name: "insert"
+			    parameters: 
+			    Parameter "b7ea5020-4008-11e4-916c-0800200c9a66" {
+				    packageRef: Package "dd77a443-471b-441e-88bf-3f3f092f372c"
+				    typeRef: TypeElement "50dcca84-4d2c-4fe2-baad-56afdf1be76d"
+				    name: "obj"
+			    }
+			    returnValue: 
+			    ReturnValue "c20b6440-4008-11e4-916c-0800200c9a66" {
+				    packageRef: Package "9fcd56c0-2fe7-445a-864e-9550f1b901c2"
+				    typeRef: TypeElement "90b18156-de6d-42d1-b350-925e44a0e4cc"
+			    }
+		    }, 
+		    Operation "caf1fc90-4008-11e4-916c-0800200c9a66" {
+			    name: "update"
+			    parameters: 
+			    Parameter "7c4f4d20-400a-11e4-916c-0800200c9a66" {
+				    packageRef: Package "dd77a443-471b-441e-88bf-3f3f092f372c"
+				    typeRef: TypeElement "50dcca84-4d2c-4fe2-baad-56afdf1be76d"
+				    name: "obj"
+			    }
+			    returnValue: 
+			    ReturnValue "d1b566c0-4008-11e4-916c-0800200c9a66" {
+				    packageRef: Package "9fcd56c0-2fe7-445a-864e-9550f1b901c2"
+				    typeRef: TypeElement "90b18156-de6d-42d1-b350-925e44a0e4cc"
+			    }
+		    }, 
+		    Operation "dbacf9e0-4008-11e4-916c-0800200c9a66" {
+			    name: "remove"
+			    parameters: 
+			    Parameter "73df4460-400a-11e4-916c-0800200c9a66" {
+				    packageRef: Package "dd77a443-471b-441e-88bf-3f3f092f372c"
+				    typeRef: TypeElement "50dcca84-4d2c-4fe2-baad-56afdf1be76d"
+				    name: "obj"
+			    }
+			    returnValue: 
+			    ReturnValue "e49bcf90-4008-11e4-916c-0800200c9a66" {
+				    packageRef: Package "dd77a443-471b-441e-88bf-3f3f092f372c"
+				    typeRef: TypeElement "50dcca84-4d2c-4fe2-baad-56afdf1be76d"
+			    }
+		    }
+	     } 
+	    }
 	
 TypeDefinition "Uniq_115091ed-0c7c-4eae-be06-8496210d4b84" {
 	parent: Package "e8faa4f9-a654-40f5-bdf5-454f90f2af19"
@@ -182,9 +268,6 @@ TypeDefinition "Uniq_115091ed-0c7c-4eae-be06-8496210d4b84" {
 	Type "Comp_692cc400-912b-471d-84f5-15f08a7ec191" {
 		name: "List of Companys"
 	} ,
-	Type "Comp_3eb3dfbb-0905-40f4-b629-6472c6503589" {
-		name: "Search criterias for Companys"
-	} ,
 	
 	Type "Comp_25a85943-6b6b-4ca0-a223-e031e30c5563" {
 		name: "Companys query service"
@@ -205,8 +288,8 @@ TypeDefinition "Uniq_115091ed-0c7c-4eae-be06-8496210d4b84" {
 			name: "find"
 			parameters: 
 			Parameter "Comp_77a159a3-8d3e-47db-affa-16faaa50edba" {
-				packageRef: Package "e8faa4f9-a654-40f5-bdf5-454f90f2af19"
-				typeRef: TypeElement "Comp_3eb3dfbb-0905-40f4-b629-6472c6503589"
+				packageRef: Package "dd77a443-471b-441e-88bf-3f3f092f372c"
+				typeRef: TypeElement "9ec6d2e0-4002-11e4-916c-0800200c9a66"
 				name: "search"
 			}, 
 			Parameter "Comp_08819d7d-ef3b-4590-b6dd-5c21920ce9f0" {
@@ -328,8 +411,8 @@ TypeDefinition "Uniq_115091ed-0c7c-4eae-be06-8496210d4b84" {
 			name: "find"
 			parameters: 
 			Parameter "Comp_e24109a4-a84f-4607-8d57-23b2c6630b43" {
-				packageRef: Package "e8faa4f9-a654-40f5-bdf5-454f90f2af19"
-				typeRef: TypeElement "Comp_3eb3dfbb-0905-40f4-b629-6472c6503589"
+				packageRef: Package "dd77a443-471b-441e-88bf-3f3f092f372c"
+				typeRef: TypeElement "9ec6d2e0-4002-11e4-916c-0800200c9a66"
 				name: "search"
 			}, 
 			Parameter "Comp_caebc035-26e7-4eb4-8212-99463bd48970" {
@@ -418,8 +501,8 @@ TypeDefinition "Uniq_115091ed-0c7c-4eae-be06-8496210d4b84" {
 			name: "find"
 			parameters: 
 			Parameter "Comp_2527c4a9-4542-417d-bfa0-50313d5eed51" {
-				packageRef: Package "e8faa4f9-a654-40f5-bdf5-454f90f2af19"
-				typeRef: TypeElement "Comp_3eb3dfbb-0905-40f4-b629-6472c6503589"
+				packageRef: Package "dd77a443-471b-441e-88bf-3f3f092f372c"
+				typeRef: TypeElement "9ec6d2e0-4002-11e4-916c-0800200c9a66"
 				name: "search"
 			}, 
 			Parameter "Comp_e9110d0b-6386-4f88-af1a-90a6679b1b90" {
@@ -530,10 +613,6 @@ TypeDefinition "Uniq_115091ed-0c7c-4eae-be06-8496210d4b84" {
 	Type "Cntr_692cc400-912b-471d-84f5-15f08a7ec191" {
 		name: "List of Countrys"
 	} ,
-	Type "Cntr_3eb3dfbb-0905-40f4-b629-6472c6503589" {
-		name: "Search criterias for Countrys"
-	} ,
-	
 	Type "Cntr_25a85943-6b6b-4ca0-a223-e031e30c5563" {
 		name: "Countrys query service"
 		classifiers: 
@@ -553,8 +632,8 @@ TypeDefinition "Uniq_115091ed-0c7c-4eae-be06-8496210d4b84" {
 			name: "find"
 			parameters: 
 			Parameter "Cntr_77a159a3-8d3e-47db-affa-16faaa50edba" {
-				packageRef: Package "e8faa4f9-a654-40f5-bdf5-454f90f2af19"
-				typeRef: TypeElement "Cntr_3eb3dfbb-0905-40f4-b629-6472c6503589"
+				packageRef: Package "dd77a443-471b-441e-88bf-3f3f092f372c"
+				typeRef: TypeElement "9ec6d2e0-4002-11e4-916c-0800200c9a66"
 				name: "search"
 			}, 
 			Parameter "Cntr_08819d7d-ef3b-4590-b6dd-5c21920ce9f0" {
@@ -676,8 +755,8 @@ TypeDefinition "Uniq_115091ed-0c7c-4eae-be06-8496210d4b84" {
 			name: "find"
 			parameters: 
 			Parameter "Cntr_e24109a4-a84f-4607-8d57-23b2c6630b43" {
-				packageRef: Package "e8faa4f9-a654-40f5-bdf5-454f90f2af19"
-				typeRef: TypeElement "Cntr_3eb3dfbb-0905-40f4-b629-6472c6503589"
+				packageRef: Package "dd77a443-471b-441e-88bf-3f3f092f372c"
+				typeRef: TypeElement "9ec6d2e0-4002-11e4-916c-0800200c9a66"
 				name: "search"
 			}, 
 			Parameter "Cntr_caebc035-26e7-4eb4-8212-99463bd48970" {
@@ -766,8 +845,8 @@ TypeDefinition "Uniq_115091ed-0c7c-4eae-be06-8496210d4b84" {
 			name: "find"
 			parameters: 
 			Parameter "Cntr_2527c4a9-4542-417d-bfa0-50313d5eed51" {
-				packageRef: Package "e8faa4f9-a654-40f5-bdf5-454f90f2af19"
-				typeRef: TypeElement "Cntr_3eb3dfbb-0905-40f4-b629-6472c6503589"
+				packageRef: Package "dd77a443-471b-441e-88bf-3f3f092f372c"
+				typeRef: TypeElement "9ec6d2e0-4002-11e4-916c-0800200c9a66"
 				name: "search"
 			}, 
 			Parameter "Cntr_e9110d0b-6386-4f88-af1a-90a6679b1b90" {
@@ -876,9 +955,6 @@ TypeDefinition "Uniq_115091ed-0c7c-4eae-be06-8496210d4b84" {
 	Type "State_692cc400-912b-471d-84f5-15f08a7ec191" {
 		name: "List of States"
 	} ,
-	Type "State_3eb3dfbb-0905-40f4-b629-6472c6503589" {
-		name: "Search criterias for States"
-	} ,
 	
 	Type "State_25a85943-6b6b-4ca0-a223-e031e30c5563" {
 		name: "States query service"
@@ -899,8 +975,8 @@ TypeDefinition "Uniq_115091ed-0c7c-4eae-be06-8496210d4b84" {
 			name: "find"
 			parameters: 
 			Parameter "State_77a159a3-8d3e-47db-affa-16faaa50edba" {
-				packageRef: Package "e8faa4f9-a654-40f5-bdf5-454f90f2af19"
-				typeRef: TypeElement "State_3eb3dfbb-0905-40f4-b629-6472c6503589"
+				packageRef: Package "dd77a443-471b-441e-88bf-3f3f092f372c"
+				typeRef: TypeElement "9ec6d2e0-4002-11e4-916c-0800200c9a66"
 				name: "search"
 			}, 
 			Parameter "State_08819d7d-ef3b-4590-b6dd-5c21920ce9f0" {
@@ -1022,8 +1098,8 @@ TypeDefinition "Uniq_115091ed-0c7c-4eae-be06-8496210d4b84" {
 			name: "find"
 			parameters: 
 			Parameter "State_e24109a4-a84f-4607-8d57-23b2c6630b43" {
-				packageRef: Package "e8faa4f9-a654-40f5-bdf5-454f90f2af19"
-				typeRef: TypeElement "State_3eb3dfbb-0905-40f4-b629-6472c6503589"
+				packageRef: Package "dd77a443-471b-441e-88bf-3f3f092f372c"
+				typeRef: TypeElement "9ec6d2e0-4002-11e4-916c-0800200c9a66"
 				name: "search"
 			}, 
 			Parameter "State_caebc035-26e7-4eb4-8212-99463bd48970" {
@@ -1112,8 +1188,8 @@ TypeDefinition "Uniq_115091ed-0c7c-4eae-be06-8496210d4b84" {
 			name: "find"
 			parameters: 
 			Parameter "State_2527c4a9-4542-417d-bfa0-50313d5eed51" {
-				packageRef: Package "e8faa4f9-a654-40f5-bdf5-454f90f2af19"
-				typeRef: TypeElement "State_3eb3dfbb-0905-40f4-b629-6472c6503589"
+				packageRef: Package "dd77a443-471b-441e-88bf-3f3f092f372c"
+				typeRef: TypeElement "9ec6d2e0-4002-11e4-916c-0800200c9a66"
 				name: "search"
 			}, 
 			Parameter "State_e9110d0b-6386-4f88-af1a-90a6679b1b90" {
@@ -1223,9 +1299,6 @@ TypeDefinition "Uniq_115091ed-0c7c-4eae-be06-8496210d4b84" {
 	Type "City_692cc400-912b-471d-84f5-15f08a7ec191" {
 		name: "List of Citys"
 	} ,
-	Type "City_3eb3dfbb-0905-40f4-b629-6472c6503589" {
-		name: "Search criterias for Citys"
-	} ,
 	
 	Type "City_25a85943-6b6b-4ca0-a223-e031e30c5563" {
 		name: "Citys query service"
@@ -1246,8 +1319,8 @@ TypeDefinition "Uniq_115091ed-0c7c-4eae-be06-8496210d4b84" {
 			name: "find"
 			parameters: 
 			Parameter "City_77a159a3-8d3e-47db-affa-16faaa50edba" {
-				packageRef: Package "e8faa4f9-a654-40f5-bdf5-454f90f2af19"
-				typeRef: TypeElement "City_3eb3dfbb-0905-40f4-b629-6472c6503589"
+				packageRef: Package "dd77a443-471b-441e-88bf-3f3f092f372c"
+				typeRef: TypeElement "9ec6d2e0-4002-11e4-916c-0800200c9a66"
 				name: "search"
 			}, 
 			Parameter "City_08819d7d-ef3b-4590-b6dd-5c21920ce9f0" {
@@ -1369,8 +1442,8 @@ TypeDefinition "Uniq_115091ed-0c7c-4eae-be06-8496210d4b84" {
 			name: "find"
 			parameters: 
 			Parameter "City_e24109a4-a84f-4607-8d57-23b2c6630b43" {
-				packageRef: Package "e8faa4f9-a654-40f5-bdf5-454f90f2af19"
-				typeRef: TypeElement "City_3eb3dfbb-0905-40f4-b629-6472c6503589"
+				packageRef: Package "dd77a443-471b-441e-88bf-3f3f092f372c"
+				typeRef: TypeElement "9ec6d2e0-4002-11e4-916c-0800200c9a66"
 				name: "search"
 			}, 
 			Parameter "City_caebc035-26e7-4eb4-8212-99463bd48970" {
@@ -1459,8 +1532,8 @@ TypeDefinition "Uniq_115091ed-0c7c-4eae-be06-8496210d4b84" {
 			name: "find"
 			parameters: 
 			Parameter "City_2527c4a9-4542-417d-bfa0-50313d5eed51" {
-				packageRef: Package "e8faa4f9-a654-40f5-bdf5-454f90f2af19"
-				typeRef: TypeElement "City_3eb3dfbb-0905-40f4-b629-6472c6503589"
+				packageRef: Package "dd77a443-471b-441e-88bf-3f3f092f372c"
+				typeRef: TypeElement "9ec6d2e0-4002-11e4-916c-0800200c9a66"
 				name: "search"
 			}, 
 			Parameter "City_e9110d0b-6386-4f88-af1a-90a6679b1b90" {
@@ -1567,9 +1640,6 @@ TypeDefinition "Uniq_115091ed-0c7c-4eae-be06-8496210d4b84" {
 	Type "Str_692cc400-912b-471d-84f5-15f08a7ec191" {
 		name: "List of Streets"
 	} ,
-	Type "Str_3eb3dfbb-0905-40f4-b629-6472c6503589" {
-		name: "Search criterias for Streets"
-	} ,
 	
 	Type "Str_25a85943-6b6b-4ca0-a223-e031e30c5563" {
 		name: "Streets query service"
@@ -1590,8 +1660,8 @@ TypeDefinition "Uniq_115091ed-0c7c-4eae-be06-8496210d4b84" {
 			name: "find"
 			parameters: 
 			Parameter "Str_77a159a3-8d3e-47db-affa-16faaa50edba" {
-				packageRef: Package "e8faa4f9-a654-40f5-bdf5-454f90f2af19"
-				typeRef: TypeElement "Str_3eb3dfbb-0905-40f4-b629-6472c6503589"
+				packageRef: Package "dd77a443-471b-441e-88bf-3f3f092f372c"
+				typeRef: TypeElement "9ec6d2e0-4002-11e4-916c-0800200c9a66"
 				name: "search"
 			}, 
 			Parameter "Str_08819d7d-ef3b-4590-b6dd-5c21920ce9f0" {
@@ -1713,8 +1783,8 @@ TypeDefinition "Uniq_115091ed-0c7c-4eae-be06-8496210d4b84" {
 			name: "find"
 			parameters: 
 			Parameter "Str_e24109a4-a84f-4607-8d57-23b2c6630b43" {
-				packageRef: Package "e8faa4f9-a654-40f5-bdf5-454f90f2af19"
-				typeRef: TypeElement "Str_3eb3dfbb-0905-40f4-b629-6472c6503589"
+				packageRef: Package "dd77a443-471b-441e-88bf-3f3f092f372c"
+				typeRef: TypeElement "9ec6d2e0-4002-11e4-916c-0800200c9a66"
 				name: "search"
 			}, 
 			Parameter "Str_caebc035-26e7-4eb4-8212-99463bd48970" {
@@ -1803,8 +1873,8 @@ TypeDefinition "Uniq_115091ed-0c7c-4eae-be06-8496210d4b84" {
 			name: "find"
 			parameters: 
 			Parameter "Str_2527c4a9-4542-417d-bfa0-50313d5eed51" {
-				packageRef: Package "e8faa4f9-a654-40f5-bdf5-454f90f2af19"
-				typeRef: TypeElement "Str_3eb3dfbb-0905-40f4-b629-6472c6503589"
+				packageRef: Package "dd77a443-471b-441e-88bf-3f3f092f372c"
+				typeRef: TypeElement "9ec6d2e0-4002-11e4-916c-0800200c9a66"
 				name: "search"
 			}, 
 			Parameter "Str_e9110d0b-6386-4f88-af1a-90a6679b1b90" {
@@ -1923,9 +1993,6 @@ TypeDefinition "Uniq_115091ed-0c7c-4eae-be06-8496210d4b84" {
 	Type "Dep_692cc400-912b-471d-84f5-15f08a7ec191" {
 		name: "List of Departments"
 	} ,
-	Type "Dep_3eb3dfbb-0905-40f4-b629-6472c6503589" {
-		name: "Search criterias for Departments"
-	} ,
 	
 	Type "Dep_25a85943-6b6b-4ca0-a223-e031e30c5563" {
 		name: "Departments query service"
@@ -1946,8 +2013,8 @@ TypeDefinition "Uniq_115091ed-0c7c-4eae-be06-8496210d4b84" {
 			name: "find"
 			parameters: 
 			Parameter "Dep_77a159a3-8d3e-47db-affa-16faaa50edba" {
-				packageRef: Package "e8faa4f9-a654-40f5-bdf5-454f90f2af19"
-				typeRef: TypeElement "Dep_3eb3dfbb-0905-40f4-b629-6472c6503589"
+				packageRef: Package "dd77a443-471b-441e-88bf-3f3f092f372c"
+				typeRef: TypeElement "9ec6d2e0-4002-11e4-916c-0800200c9a66"
 				name: "search"
 			}, 
 			Parameter "Dep_08819d7d-ef3b-4590-b6dd-5c21920ce9f0" {
@@ -2069,8 +2136,8 @@ TypeDefinition "Uniq_115091ed-0c7c-4eae-be06-8496210d4b84" {
 			name: "find"
 			parameters: 
 			Parameter "Dep_e24109a4-a84f-4607-8d57-23b2c6630b43" {
-				packageRef: Package "e8faa4f9-a654-40f5-bdf5-454f90f2af19"
-				typeRef: TypeElement "Dep_3eb3dfbb-0905-40f4-b629-6472c6503589"
+				packageRef: Package "dd77a443-471b-441e-88bf-3f3f092f372c"
+				typeRef: TypeElement "9ec6d2e0-4002-11e4-916c-0800200c9a66"
 				name: "search"
 			}, 
 			Parameter "Dep_caebc035-26e7-4eb4-8212-99463bd48970" {
@@ -2159,8 +2226,8 @@ TypeDefinition "Uniq_115091ed-0c7c-4eae-be06-8496210d4b84" {
 			name: "find"
 			parameters: 
 			Parameter "Dep_2527c4a9-4542-417d-bfa0-50313d5eed51" {
-				packageRef: Package "e8faa4f9-a654-40f5-bdf5-454f90f2af19"
-				typeRef: TypeElement "Dep_3eb3dfbb-0905-40f4-b629-6472c6503589"
+				packageRef: Package "dd77a443-471b-441e-88bf-3f3f092f372c"
+				typeRef: TypeElement "9ec6d2e0-4002-11e4-916c-0800200c9a66"
 				name: "search"
 			}, 
 			Parameter "Dep_e9110d0b-6386-4f88-af1a-90a6679b1b90" {
@@ -2308,9 +2375,6 @@ TypeDefinition "Uniq_115091ed-0c7c-4eae-be06-8496210d4b84" {
 	Type "Emp_2814d4c5-b26a-4f3e-b1dc-c400f54b494e" {
 		name: "List of Employees"
 	} ,
-	Type "Emp_cff56a6e-6d9a-41dc-8ff7-d3d6d0c85cdb" {
-		name: "Search criterias for Employees"
-	} ,
 	Type "Emp_984ec018-e02b-47e0-a720-40c00663b5c6" {
 		name: "Employees query service"
 		classifiers: 
@@ -2330,8 +2394,8 @@ TypeDefinition "Uniq_115091ed-0c7c-4eae-be06-8496210d4b84" {
 			name: "find"
 			parameters: 
 			Parameter "Emp_38def6df-a9a4-4638-ac28-a972eff6cacb" {
-				packageRef: Package "e8faa4f9-a654-40f5-bdf5-454f90f2af19"
-				typeRef: TypeElement "Emp_cff56a6e-6d9a-41dc-8ff7-d3d6d0c85cdb"
+				packageRef: Package "dd77a443-471b-441e-88bf-3f3f092f372c"
+				typeRef: TypeElement "9ec6d2e0-4002-11e4-916c-0800200c9a66"
 				name: "search"
 			}, 
 			Parameter "Emp_10b795b0-47ec-4859-845b-d9cbd8d9c1d0" {
@@ -2453,8 +2517,8 @@ TypeDefinition "Uniq_115091ed-0c7c-4eae-be06-8496210d4b84" {
 		name: "find"
 		parameters: 
 		Parameter "Emp_7f08b836-63c7-443d-bcd9-0b583ee61f6b" {
-			packageRef: Package "e8faa4f9-a654-40f5-bdf5-454f90f2af19"
-			typeRef: TypeElement "Emp_cff56a6e-6d9a-41dc-8ff7-d3d6d0c85cdb"
+			packageRef: Package "dd77a443-471b-441e-88bf-3f3f092f372c"
+			typeRef: TypeElement "9ec6d2e0-4002-11e4-916c-0800200c9a66"
 			name: "search"
 		}, 
 		Parameter "Emp_30afd63d-266d-406a-a864-487e69faf636" {
@@ -2543,8 +2607,8 @@ TypeDefinition "Uniq_115091ed-0c7c-4eae-be06-8496210d4b84" {
 			name: "find"
 			parameters: 
 			Parameter "Emp_9639398a-b943-4b3c-a1b9-08406d1b3d43" {
-				packageRef: Package "e8faa4f9-a654-40f5-bdf5-454f90f2af19"
-				typeRef: TypeElement "Emp_cff56a6e-6d9a-41dc-8ff7-d3d6d0c85cdb"
+				packageRef: Package "dd77a443-471b-441e-88bf-3f3f092f372c"
+				typeRef: TypeElement "9ec6d2e0-4002-11e4-916c-0800200c9a66"
 				name: "search"
 			}, 
 			Parameter "Emp_956e022e-f639-41c8-879b-ed6356971e8f" {
@@ -2655,9 +2719,6 @@ TypeDefinition "Uniq_115091ed-0c7c-4eae-be06-8496210d4b84" {
 	Type "Vhc_692cc400-912b-471d-84f5-15f08a7ec191" {
 		name: "List of Vehicles"
 	} ,
-	Type "Vhc_3eb3dfbb-0905-40f4-b629-6472c6503589" {
-		name: "Search criterias for Vehicles"
-	} ,
 	
 	Type "Vhc_25a85943-6b6b-4ca0-a223-e031e30c5563" {
 		name: "Vehicles query service"
@@ -2678,8 +2739,8 @@ TypeDefinition "Uniq_115091ed-0c7c-4eae-be06-8496210d4b84" {
 			name: "find"
 			parameters: 
 			Parameter "Vhc_77a159a3-8d3e-47db-affa-16faaa50edba" {
-				packageRef: Package "e8faa4f9-a654-40f5-bdf5-454f90f2af19"
-				typeRef: TypeElement "Vhc_3eb3dfbb-0905-40f4-b629-6472c6503589"
+				packageRef: Package "dd77a443-471b-441e-88bf-3f3f092f372c"
+				typeRef: TypeElement "9ec6d2e0-4002-11e4-916c-0800200c9a66"
 				name: "search"
 			}, 
 			Parameter "Vhc_08819d7d-ef3b-4590-b6dd-5c21920ce9f0" {
@@ -2801,8 +2862,8 @@ TypeDefinition "Uniq_115091ed-0c7c-4eae-be06-8496210d4b84" {
 			name: "find"
 			parameters: 
 			Parameter "Vhc_e24109a4-a84f-4607-8d57-23b2c6630b43" {
-				packageRef: Package "e8faa4f9-a654-40f5-bdf5-454f90f2af19"
-				typeRef: TypeElement "Vhc_3eb3dfbb-0905-40f4-b629-6472c6503589"
+				packageRef: Package "dd77a443-471b-441e-88bf-3f3f092f372c"
+				typeRef: TypeElement "9ec6d2e0-4002-11e4-916c-0800200c9a66"
 				name: "search"
 			}, 
 			Parameter "Vhc_caebc035-26e7-4eb4-8212-99463bd48970" {
@@ -2891,8 +2952,8 @@ TypeDefinition "Uniq_115091ed-0c7c-4eae-be06-8496210d4b84" {
 			name: "find"
 			parameters: 
 			Parameter "Vhc_2527c4a9-4542-417d-bfa0-50313d5eed51" {
-				packageRef: Package "e8faa4f9-a654-40f5-bdf5-454f90f2af19"
-				typeRef: TypeElement "Vhc_3eb3dfbb-0905-40f4-b629-6472c6503589"
+				packageRef: Package "dd77a443-471b-441e-88bf-3f3f092f372c"
+				typeRef: TypeElement "9ec6d2e0-4002-11e4-916c-0800200c9a66"
 				name: "search"
 			}, 
 			Parameter "Vhc_e9110d0b-6386-4f88-af1a-90a6679b1b90" {
@@ -2966,10 +3027,5 @@ TypeDefinition "Uniq_115091ed-0c7c-4eae-be06-8496210d4b84" {
 		packageRef: Package "dd77a443-471b-441e-88bf-3f3f092f372c"
 		typeRef: TypeElement "2957c51c-68e7-4d1e-b8b7-cbe7ccdbe13f"
 	} 
-
-
-
-	
   }	
-																																									
 }																																									

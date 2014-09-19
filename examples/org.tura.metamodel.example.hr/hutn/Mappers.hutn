@@ -101,6 +101,20 @@ domain  {
 	Mappers "35c625c3-5c19-4681-ac50-eb8581a54cc1" {
 		parent: ApplicationMappers "hr.domain#d29466f4-8d55-4047-b6ba-fc1a830db2a1"
 		mappers: 
+		
+		JavaMapper "6ab7ebd0-4005-11e4-916c-0800200c9a66" {
+			serviceLayer: true
+			uiLayer: true
+			packageRef: Package "hr.domain#dd77a443-471b-441e-88bf-3f3f092f372c"
+			typeRef: TypeElement "hr.domain#9ec6d2e0-4002-11e4-916c-0800200c9a66"
+			mappedToPackageName: "com.octo.java.sql.query"
+			mappedToClassName: "SelectQuery"
+			artifactId: "java-sql-dsl"
+			groupId: "com.octo.java.sql"
+			version: "0.1.1-SNAPSHOT"
+		}, 
+		
+		
 //-----------------------Departments ----------------------------		
 		JavaMapper "JavaMapper12" {
 			uiLayer: true
@@ -157,17 +171,6 @@ domain  {
 			typeRef: TypeElement "hr.domain#Dep_692cc400-912b-471d-84f5-15f08a7ec191"
 			mappedToPackageName: "java.util"
 			mappedToClassName: "List<org.elsoft.platform.hr.objects.DepartmentsDAO>"
-		}, 
-		JavaMapper "JavaMapper19" {
-			serviceLayer: true
-			uiLayer: true
-			packageRef: Package "hr.domain#e8faa4f9-a654-40f5-bdf5-454f90f2af19"
-			typeRef: TypeElement "hr.domain#Dep_3eb3dfbb-0905-40f4-b629-6472c6503589"
-			mappedToPackageName: "com.octo.java.sql.query"
-			mappedToClassName: "SelectQuery"
-			artifactId: "java-sql-dsl"
-			groupId: "com.octo.java.sql"
-			version: "0.1.1-SNAPSHOT"
 		}, 
 //-----------------------Employee ----------------------------		
 		JavaMapper "JavaMapper20" {
@@ -237,17 +240,6 @@ domain  {
 			mappedToPackageName: "java.util"
 			mappedToClassName: "List<org.elsoft.platform.hr.objects.EmployeesDAO>"
 		}, 
-		JavaMapper "JavaMapper28" {
-			serviceLayer: true
-			uiLayer: true
-			packageRef: Package "hr.domain#e8faa4f9-a654-40f5-bdf5-454f90f2af19"
-			typeRef: TypeElement "hr.domain#Emp_cff56a6e-6d9a-41dc-8ff7-d3d6d0c85cdb"
-			mappedToPackageName: "com.octo.java.sql.query"
-			mappedToClassName: "SelectQuery"
-			artifactId: "java-sql-dsl"
-			groupId: "com.octo.java.sql"
-			version: "0.1.1-SNAPSHOT"
-		},
 //-----------------------Company ----------------------------		
 		JavaMapper "JavaMapper29" {
 			uiLayer: true
@@ -305,17 +297,6 @@ domain  {
 			mappedToPackageName: "java.util"
 			mappedToClassName: "List<org.elsoft.platform.hr.objects.CompanyDAO>"
 		}, 
-		JavaMapper "JavaMapper36" {
-			serviceLayer: true
-			uiLayer: true
-			packageRef: Package "hr.domain#e8faa4f9-a654-40f5-bdf5-454f90f2af19"
-			typeRef: TypeElement "hr.domain#Comp_3eb3dfbb-0905-40f4-b629-6472c6503589"
-			mappedToPackageName: "com.octo.java.sql.query"
-			mappedToClassName: "SelectQuery"
-			artifactId: "java-sql-dsl"
-			groupId: "com.octo.java.sql"
-			version: "0.1.1-SNAPSHOT"
-		} ,
 //-----------------------Country ----------------------------		
 		JavaMapper "JavaMapper37" {
 			uiLayer: true
@@ -372,17 +353,6 @@ domain  {
 			typeRef: TypeElement "hr.domain#Cntr_692cc400-912b-471d-84f5-15f08a7ec191"
 			mappedToPackageName: "java.util"
 			mappedToClassName: "List<org.elsoft.platform.hr.objects.CountryDAO>"
-		}, 
-		JavaMapper "JavaMapper44" {
-			serviceLayer: true
-			uiLayer: true
-			packageRef: Package "hr.domain#e8faa4f9-a654-40f5-bdf5-454f90f2af19"
-			typeRef: TypeElement "hr.domain#Cntr_3eb3dfbb-0905-40f4-b629-6472c6503589"
-			mappedToPackageName: "com.octo.java.sql.query"
-			mappedToClassName: "SelectQuery"
-			artifactId: "java-sql-dsl"
-			groupId: "com.octo.java.sql"
-			version: "0.1.1-SNAPSHOT"
 		}, 
 //-----------------------State ----------------------------		
 		JavaMapper "JavaMapper45" {
@@ -441,17 +411,6 @@ domain  {
 			mappedToPackageName: "java.util"
 			mappedToClassName: "List<org.elsoft.platform.hr.objects.StateDAO>"
 		}, 
-		JavaMapper "JavaMapper52" {
-			serviceLayer: true
-			uiLayer: true
-			packageRef: Package "hr.domain#e8faa4f9-a654-40f5-bdf5-454f90f2af19"
-			typeRef: TypeElement "hr.domain#State_3eb3dfbb-0905-40f4-b629-6472c6503589"
-			mappedToPackageName: "com.octo.java.sql.query"
-			mappedToClassName: "SelectQuery"
-			artifactId: "java-sql-dsl"
-			groupId: "com.octo.java.sql"
-			version: "0.1.1-SNAPSHOT"
-		} ,
 		
 //-----------------------City ----------------------------		
 		JavaMapper "JavaMapper53" {
@@ -510,17 +469,6 @@ domain  {
 			mappedToPackageName: "java.util"
 			mappedToClassName: "List<org.elsoft.platform.hr.objects.CityDAO>"
 		}, 
-		JavaMapper "JavaMapper60" {
-			serviceLayer: true
-			uiLayer: true
-			packageRef: Package "hr.domain#e8faa4f9-a654-40f5-bdf5-454f90f2af19"
-			typeRef: TypeElement "hr.domain#City_3eb3dfbb-0905-40f4-b629-6472c6503589"
-			mappedToPackageName: "com.octo.java.sql.query"
-			mappedToClassName: "SelectQuery"
-			artifactId: "java-sql-dsl"
-			groupId: "com.octo.java.sql"
-			version: "0.1.1-SNAPSHOT"
-		} ,
 
 //-----------------------Street ----------------------------		
 		JavaMapper "JavaMapper61" {
@@ -579,17 +527,6 @@ domain  {
 			mappedToPackageName: "java.util"
 			mappedToClassName: "List<org.elsoft.platform.hr.objects.StreetDAO>"
 		}, 
-		JavaMapper "JavaMapper68" {
-			serviceLayer: true
-			uiLayer: true
-			packageRef: Package "hr.domain#e8faa4f9-a654-40f5-bdf5-454f90f2af19"
-			typeRef: TypeElement "hr.domain#Str_3eb3dfbb-0905-40f4-b629-6472c6503589"
-			mappedToPackageName: "com.octo.java.sql.query"
-			mappedToClassName: "SelectQuery"
-			artifactId: "java-sql-dsl"
-			groupId: "com.octo.java.sql"
-			version: "0.1.1-SNAPSHOT"
-		} ,
 
 //-----------------------Vehicle ----------------------------		
 		JavaMapper "JavaMapper69" {
@@ -647,18 +584,7 @@ domain  {
 			typeRef: TypeElement "hr.domain#Vhc_692cc400-912b-471d-84f5-15f08a7ec191"
 			mappedToPackageName: "java.util"
 			mappedToClassName: "List<org.elsoft.platform.hr.objects.VehicleDAO>"
-		}, 
-		JavaMapper "JavaMapper76" {
-			serviceLayer: true
-			uiLayer: true
-			packageRef: Package "hr.domain#e8faa4f9-a654-40f5-bdf5-454f90f2af19"
-			typeRef: TypeElement "hr.domain#Vhc_3eb3dfbb-0905-40f4-b629-6472c6503589"
-			mappedToPackageName: "com.octo.java.sql.query"
-			mappedToClassName: "SelectQuery"
-			artifactId: "java-sql-dsl"
-			groupId: "com.octo.java.sql"
-			version: "0.1.1-SNAPSHOT"
-		} 
+		}
 		
 	}
 }

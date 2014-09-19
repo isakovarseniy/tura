@@ -19,10 +19,11 @@ public class DataControlProvider implements IWorkbenchAdapter ,IReturnTypeProvid
 
 		QueryHelper qh = new QueryHelper();
 		
-		ls.add(new DataControlFakeAttribute("query", qh.findIntegerType(o)));
 		ls.add(new DataControlFakeAttribute("startIndex", qh.findIntegerType(o)));
 		ls.add(new DataControlFakeAttribute("endindex", qh.findIntegerType(o)));
+		ls.add(new DataControlFakeAttribute("query", qh.findSearchCriteriaType(o)));
 
+		
 		if (ctr.getCreate() != null  && ctr.getCreate().getMethodRef() != null)
 			ls.add( new  TriggerHolder( "CreateTrigger" , ctr.getCreate()));
 
