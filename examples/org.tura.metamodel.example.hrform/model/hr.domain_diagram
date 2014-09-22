@@ -90,7 +90,7 @@
       <styles xmi:type="notation:FontStyle" xmi:id="_ibL9k0AUEeS3t5FTnZZMrg" fontName="Lucida Grande"/>
       <styles xmi:type="notation:HintedDiagramLinkStyle" xmi:id="_ibL9lEAUEeS3t5FTnZZMrg"/>
       <element xmi:type="tura.domain:ApplicationMappers" href="hr.domain#bd625d91-80b6-42b4-bfd3-9311a0f32026"/>
-      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ibL9lUAUEeS3t5FTnZZMrg" x="252"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ibL9lUAUEeS3t5FTnZZMrg" x="365"/>
     </children>
     <children xmi:type="notation:Node" xmi:id="_kBxg4EAUEeS3t5FTnZZMrg" type="802003">
       <children xmi:type="notation:DecorationNode" xmi:id="_kBxg5UAUEeS3t5FTnZZMrg" type="805006"/>

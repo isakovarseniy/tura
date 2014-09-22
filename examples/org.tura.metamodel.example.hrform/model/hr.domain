@@ -13,7 +13,7 @@
     </domainApplications>
   </tura.domain:Domain>
   <tura.domain:Application uid="a5fbccfd-c3e9-440c-a68d-551035ebf03a" parent="/0/@domainApplications/@applications.0">
-    <applicationRecipes uid="f9514377-08f6-4c90-939e-17075d3239fd" name="Application recipes">
+    <applicationRecipes columns="2" uid="f9514377-08f6-4c90-939e-17075d3239fd" name="Application recipes">
       <recipes uid="Hr_recipe" name="Hr recipe" recipes="e0a24138-9ba7-44dd-8b87-d1b01751c642"/>
       <recipes uid="Hr_recipe_Package_processing" name="Hr recipe Package processing" recipes="d2517ae2-db04-4b91-acc4-b19b80cf1449"/>
     </applicationRecipes>
@@ -1105,7 +1105,7 @@
         <returnValue packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="90b18156-de6d-42d1-b350-925e44a0e4cc"/>
       </operations>
       <operations uid="47552a78-2c82-45b2-a939-04758c33ba09" name="update">
-        <parameters packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="2829901f-e985-4786-96ff-852230536694" uid="e18c7f9c-51a7-463e-ba7f-8f43b611dfea" name="obj"/>
+        <parameters packageRef="e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="f81fc484-ab31-4ce6-9bb1-01bb7409cbd6" uid="e18c7f9c-51a7-463e-ba7f-8f43b611dfea" name="obj"/>
         <returnValue packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="90b18156-de6d-42d1-b350-925e44a0e4cc"/>
       </operations>
       <operations uid="148d03d5-2b1c-4576-ba49-953da3266a0d" name="remove">
