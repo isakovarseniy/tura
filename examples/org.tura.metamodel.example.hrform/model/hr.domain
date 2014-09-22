@@ -1028,6 +1028,7 @@
     <types xsi:type="tura.domain:TypeReference" uid="Vhc_TypeReference2" packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="2957c51c-68e7-4d1e-b8b7-cbe7ccdbe13f"/>
     <types xsi:type="tura.domain:TypeReference" uid="af80ba59-faf0-4334-83f7-1853870b329b" packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="50dcca84-4d2c-4fe2-baad-56afdf1be76d" fakePackageName="Base package" fakeTypeName="BaseType"/>
     <types xsi:type="tura.domain:Type" uid="f81fc484-ab31-4ce6-9bb1-01bb7409cbd6" name="File type">
+      <classifiers uid="509444b4-653d-48d4-8ab2-d1947b6b9de0" hint="bf57ae0e-a725-4c7c-b178-ebbf640b2375"/>
       <attributes packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="e370b9d1-a6fb-4a40-88e2-8845be441438" fakePackageName="Primitive package" fakeTypeName="String" uid="fafb0424-6c51-40e3-ac1c-a0d357abe0e5" name="fileName"/>
       <attributes packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="6f5f3825-6695-4b7e-b07c-76ea31fa40e0" fakePackageName="Primitive package" fakeTypeName="Boolean" uid="ae07cb59-2225-4ead-a2ea-167f3265653c" name="directory"/>
       <attributes packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="2829901f-e985-4786-96ff-852230536694" fakePackageName="Primitive package" fakeTypeName="Integer" uid="d9fe597e-dca9-442b-aa9d-631f97f00de3" name="size"/>
@@ -1037,6 +1038,7 @@
     </types>
     <types xsi:type="tura.domain:Type" uid="2ec99bf7-e2da-4b3a-84a9-5472346afb62" name="List of  files"/>
     <types xsi:type="tura.domain:Type" uid="a54f0d07-f3d2-475b-9f0e-52e3b9eb7464" name="File query service remote">
+      <classifiers uid="74538809-a86e-4b2c-91f7-fb88622113ba" hint="43bcf7f7-df80-41c6-a67c-a85c5722f25f"/>
       <operations uid="09ea0216-745c-4dbb-986e-43eb84e30e00" name="create">
         <returnValue packageRef="e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="f81fc484-ab31-4ce6-9bb1-01bb7409cbd6"/>
       </operations>
@@ -1061,6 +1063,7 @@
       </operations>
     </types>
     <types xsi:type="tura.domain:Type" uid="8f7fc7d1-e47d-422f-94d4-ef71703aefcf" name="File query service local">
+      <classifiers uid="beb884ba-7b7c-49a8-8712-968c4e0acbda" hint="e887a98a-c56d-455b-956e-bdbe57da2d14"/>
       <operations uid="1bdb7efd-cd30-4b1f-a946-d9c4577ffc9d" name="create">
         <returnValue packageRef="e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="f81fc484-ab31-4ce6-9bb1-01bb7409cbd6"/>
       </operations>
@@ -1086,6 +1089,7 @@
     </types>
     <types xsi:type="tura.domain:TypeReference" uid="1bc23137-4dc8-4fb3-b8dd-a0a8d2f5b85f" packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="2957c51c-68e7-4d1e-b8b7-cbe7ccdbe13f" fakePackageName="Base package" fakeTypeName="JPA Entity CRAD Service"/>
     <types xsi:type="tura.domain:Type" uid="686f89c2-76ca-4906-9ebd-8e977ec33f04" name="File query service">
+      <classifiers uid="c61a74f1-aaac-4d05-92df-2fbb8129de90" hint="6ea5878f-e938-4e8b-990c-dbbbb2460dd9"/>
       <operations uid="b5ff66f8-dfd3-4e50-8c14-06de26aaa771" name="create">
         <returnValue packageRef="e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="f81fc484-ab31-4ce6-9bb1-01bb7409cbd6"/>
       </operations>
@@ -1194,6 +1198,13 @@
     <mappers xsi:type="tura.domain:JavaMapper" uid="JavaMapper73" serviceLayer="true" packageRef="e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="Vhc_f8c0591c-d9c2-4897-97fa-536fadf94cbf" mappedToPackageName="org.elsoft.platform.hr.services" mappedToClassName="VehicleServiceRemote"/>
     <mappers xsi:type="tura.domain:JavaMapper" uid="JavaMapper74" serviceLayer="true" packageRef="e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="Vhc_30bb8955-d333-429b-a7ae-777f1a62e767" mappedToPackageName="org.elsoft.platform.hr.services" mappedToClassName="VehicleServiceLocal"/>
     <mappers xsi:type="tura.domain:JavaMapper" uid="JavaMapper75" serviceLayer="true" uiLayer="true" packageRef="e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="Vhc_692cc400-912b-471d-84f5-15f08a7ec191" mappedToPackageName="java.util" mappedToClassName="List&lt;org.elsoft.platform.hr.objects.VehicleDAO>"/>
+    <mappers xsi:type="tura.domain:JavaMapper" uid="959a104a-f235-4c76-a404-a6096fa9d67c" uiLayer="true" packageRef="e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="f81fc484-ab31-4ce6-9bb1-01bb7409cbd6" fakePackageName="HR package" fakeTypeName="File type" mappedToPackageName="org.elsoft.platform.hr.files" mappedToClassName="FileDAO" artifactId="Model-Manufacturing-BackOffice-HR-client" groupId="org.elsoft.platform.Manufacturing.BackOffice" version="1.0"/>
+    <mappers xsi:type="tura.domain:JavaMapper" uid="6cca89e8-d60f-40af-aade-54f991fe6cce" serviceLayer="true" packageRef="e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="f81fc484-ab31-4ce6-9bb1-01bb7409cbd6" fakePackageName="HR package" fakeTypeName="File type" mappedToPackageName="org.elsoft.platform.hr.objects" mappedToClassName="FileDAO"/>
+    <mappers xsi:type="tura.domain:JavaMapper" uid="68de87b1-92c5-4351-829f-284d501be3cf" uiLayer="true" packageRef="e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="686f89c2-76ca-4906-9ebd-8e977ec33f04" fakePackageName="HR package" fakeTypeName="File query service" mappedToPackageName="org.elsoft.platform.hr.files.impl" mappedToClassName="FileService" artifactId="Model-Manufacturing-BackOffice-HR-client" groupId="org.elsoft.platform.Manufacturing.BackOffice" version="1.0"/>
+    <mappers xsi:type="tura.domain:JavaMapper" uid="8707b216-d9cc-4c9c-ac52-f9b4ef809dd3" serviceLayer="true" packageRef="e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="686f89c2-76ca-4906-9ebd-8e977ec33f04" fakePackageName="HR package" fakeTypeName="File query service" mappedToPackageName="org.elsoft.platform.hr.services.impl" mappedToClassName="FileService"/>
+    <mappers xsi:type="tura.domain:JavaMapper" uid="39c7d8fc-34dd-4c55-9f7f-964f5d1ea1de" serviceLayer="true" packageRef="e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="a54f0d07-f3d2-475b-9f0e-52e3b9eb7464" fakePackageName="HR package" fakeTypeName="File query service remote" mappedToPackageName="org.elsoft.platform.hr.services" mappedToClassName="FileServiceRemote"/>
+    <mappers xsi:type="tura.domain:JavaMapper" uid="beeef9eb-4450-4d1b-a87c-10435d602727" serviceLayer="true" packageRef="e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="8f7fc7d1-e47d-422f-94d4-ef71703aefcf" fakePackageName="HR package" fakeTypeName="File query service local" mappedToPackageName="org.elsoft.platform.hr.services" mappedToClassName="FileServiceLocal"/>
+    <mappers xsi:type="tura.domain:JavaMapper" uid="347bb4f3-5b5a-4739-8c3b-c3bb5b796476" serviceLayer="true" uiLayer="true" packageRef="e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="2ec99bf7-e2da-4b3a-84a9-5472346afb62" fakePackageName="HR package" fakeTypeName="List of  files" mappedToPackageName="java.util" mappedToClassName="List&lt;org.elsoft.platform.hr.objects.FileDAO>"/>
   </tura.domain:Mappers>
   <tura.domain:Recipes uid="e0a24138-9ba7-44dd-8b87-d1b01751c642" parent="Hr_recipe">
     <recipe uid="f89d43e4-5d8d-4437-ad00-188328a43ed0" infrastructures="080702f2-6a78-43d2-8987-c923fe681415">
@@ -1311,9 +1322,9 @@
     <infrastructures uid="080702f2-6a78-43d2-8987-c923fe681415" recipe="f89d43e4-5d8d-4437-ad00-188328a43ed0" name="Development" recipeConfig="7958c7b0-aaca-436d-aec4-20dcc6de9529"/>
   </tura.domain:Recipes>
   <tura.domain:Recipes uid="d2517ae2-db04-4b91-acc4-b19b80cf1449" parent="Hr_recipe_Package_processing">
-    <recipe uid="85c10e4e-451d-458d-84e5-e9458ed38cd7" infrastructures="491ea860-1d5f-4fd4-9d0a-a31ca685ef74">
+    <recipe mappers="0d86886f-6d6e-49e1-a123-d063d2d9bd22 d29466f4-8d55-4047-b6ba-fc1a830db2a1" uid="85c10e4e-451d-458d-84e5-e9458ed38cd7" infrastructures="491ea860-1d5f-4fd4-9d0a-a31ca685ef74">
       <ingredients uid="c4f71314-fb71-494b-b4c3-5753fc9a21cb" name="Java Service ingredient">
-        <components xsi:type="tura.domain:JavaComponent" uid="e3be8013-56ff-4a17-8f4c-c4001c83d8cb" name="HR Services" componentRoot="/Users/arseniy/generatedCode/serviceLayer" artifactId="hrservice" groupId="org.tura.example.service" version="1.0" basePackage="org.tura.example.service">
+        <components xsi:type="tura.domain:JavaComponent" columns="3" uid="e3be8013-56ff-4a17-8f4c-c4001c83d8cb" name="HR Services" componentRoot="/Users/arseniy/generatedCode/serviceLayer" artifactId="hrservice" groupId="org.tura.example.service" version="1.0" basePackage="org.tura.example.service">
           <mappers uid="ae46d972-aa23-4741-a773-a9a2a4b1ad3f" domainArtifactRef="edb48357-89bd-4570-aaf7-e49d7bb75e57" artifactRef="3120ee13-0394-4d5c-990f-79d7a124ffea" name="Process all entity in the package ">
             <queries uid="Get entities" name="Get entities" queryRef="b085d97d-aa68-4ad1-9933-b68ebe84d17b">
               <variables uid="3812566d-1593-4b25-b7d8-4603b6f501f1" queryParamRef="c7b8f2f1-e8d5-4a6d-b29d-a1684a6a5612" value="HR package"/>
@@ -1359,16 +1370,16 @@
             </queries>
           </mappers>
           <mappers uid="df53c239-b773-4f6d-b2f4-485979ec48be" domainArtifactRef="bf6005f8-bcb9-4c2a-b3e5-49468794367a" artifactRef="aa171d89-662b-49ac-8e66-afb2af7874fa" name="Maven pom EJB Service"/>
-          <mappers uid="99ba65a3-2f2e-4f79-aff5-b65c7c0cea52" domainArtifactRef="1d4b5afc-284f-4eb2-81ab-859af4fb84f1" artifactRef="6ad40124-cc0a-4fac-845b-1f57dfdf0c1d" name="Maven Builder">
+          <mappers uid="99ba65a3-2f2e-4f79-aff5-b65c7c0cea52" domainArtifactRef="1d4b5afc-284f-4eb2-81ab-859af4fb84f1" artifactRef="6ad40124-cc0a-4fac-845b-1f57dfdf0c1d" name="Maven Builder" artifactExecutionString="bash /Users/arseniy/generatedCode/serviceLayer/hrservice/builder.sh">
             <specifiers uid="fc8167e3-8aa2-4e67-b1d5-63f87fea0134" specifierRef="31634bd0-9876-45d3-aefe-11c3eeceb6f9" valueRef="68eccc09-2c35-41b8-b59c-82635242fad8"/>
           </mappers>
-          <mappers uid="9d210863-a285-4eef-814a-384b12505557" domainArtifactRef="bf6005f8-bcb9-4c2a-b3e5-49468794367a" artifactRef="5836dd1c-ae55-41bb-99d5-eb6ebe395e9a" name="GlassFish ejb webservice deployer">
+          <mappers uid="9d210863-a285-4eef-814a-384b12505557" domainArtifactRef="bf6005f8-bcb9-4c2a-b3e5-49468794367a" artifactRef="5836dd1c-ae55-41bb-99d5-eb6ebe395e9a" name="GlassFish ejb webservice deployer" artifactExecutionString="bash /Users/arseniy/generatedCode/serviceLayer/hrservice/deployer.sh">
             <specifiers uid="4b584846-4d02-423d-adf3-f9a1dd48da0a" specifierRef="6811fcf9-b8d9-4fe3-b187-0915b7a52a40" valueRef="c41b9412-2245-410f-ab51-d529e92aa398"/>
           </mappers>
         </components>
       </ingredients>
       <ingredients uid="b1674ec2-dbd5-42af-a8e1-f6e0c055d3ab" name="Java Service proxy client ingredient">
-        <components xsi:type="tura.domain:JavaComponent" uid="42ef7d98-fc16-4413-bc7b-b5f18f85ff90" name="HR Services proxy client" componentRoot="/Users/arseniy/generatedCode/serviceLayer" artifactId="hrservice-proxy-client" groupId="org.tura.example.service" version="1.0" basePackage="org.tura.example.service">
+        <components xsi:type="tura.domain:JavaComponent" columns="3" uid="42ef7d98-fc16-4413-bc7b-b5f18f85ff90" name="HR Services proxy client" componentRoot="/Users/arseniy/generatedCode/serviceLayer" artifactId="hrservice-proxy-client" groupId="org.tura.example.service" version="1.0" basePackage="org.tura.example.service">
           <mappers uid="72ffecf7-598e-4120-8c5d-a38bd06fe7ef" domainArtifactRef="bf6005f8-bcb9-4c2a-b3e5-49468794367a" artifactRef="04dfe55c-f5bf-458a-8c75-de52c8930218" name="Maven pom EJB Service proxy client">
             <queries uid="Get Departments query service remote" name="Get Departments query service remote" queryRef="208a25a0-3748-42e9-a539-f5d854043249" groupCode="a.remote">
               <variables uid="49633529-4872-4370-a47b-865b4887053a" queryParamRef="86063280-dca0-474e-9cd5-e8bb800b72fc" value="HR package"/>
@@ -1387,7 +1398,7 @@
               <variables uid="c0126a11-8c84-49c2-bf3a-0e8a674da891" queryParamRef="86063280-dca0-474e-9cd5-e8bb800b72fc" value="HR package"/>
             </queries>
           </mappers>
-          <mappers uid="001f7bcb-4763-4329-adf6-0b04b3cb76af" domainArtifactRef="1d4b5afc-284f-4eb2-81ab-859af4fb84f1" artifactRef="6ad40124-cc0a-4fac-845b-1f57dfdf0c1d" name="Maven Builder">
+          <mappers uid="001f7bcb-4763-4329-adf6-0b04b3cb76af" domainArtifactRef="1d4b5afc-284f-4eb2-81ab-859af4fb84f1" artifactRef="6ad40124-cc0a-4fac-845b-1f57dfdf0c1d" name="Maven Builder" artifactExecutionString="bash /Users/arseniy/generatedCode/serviceLayer/hrservice-proxy-client/builder.sh">
             <specifiers uid="cf730579-f66f-4a47-8298-8211aace2576" specifierRef="31634bd0-9876-45d3-aefe-11c3eeceb6f9" valueRef="68eccc09-2c35-41b8-b59c-82635242fad8"/>
           </mappers>
         </components>

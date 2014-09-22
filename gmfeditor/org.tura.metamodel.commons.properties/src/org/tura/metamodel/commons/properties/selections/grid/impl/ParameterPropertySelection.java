@@ -157,7 +157,7 @@ public class ParameterPropertySelection extends GridProperty {
 								+ "select(r|(r.oclIsKindOf(domain::Type) and  r.oclAsType(domain::Type).name <> null)  "
 								+ "or (r.oclIsKindOf(domain::Primitive) and  r.oclAsType(domain::Primitive).name <> null)"
 								+ "or (r.oclIsKindOf(domain::Enumarator) and  r.oclAsType(domain::Enumarator).name <> null)"
-								+ ")");
+								+ ")->sortedBy(r|r.name)");
 
 				Collection<domain.TypeElement> map = (Collection<domain.TypeElement>) ocl
 						.evaluate(pkg, query);
