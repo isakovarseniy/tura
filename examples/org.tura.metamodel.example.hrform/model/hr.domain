@@ -1424,6 +1424,7 @@
   </tura.domain:Recipes>
   <tura.domain:UIPackage uid="63d7b545-e3cb-4b2e-8597-44c6734d825b" parent="c65cfe9e-8e33-4160-beef-4a3a96d5b2c1">
     <forms uid="7f769667-17ea-4c7f-8d81-c68b9cccd8ff" name="HR controller">
+      <view uid="22583c7e-b599-447f-a6e1-08123b25a1a5" name="View" view="2ddd76f4-bbd2-4337-8cae-45d77d9170ab"/>
       <datacontrols uid="60346910-0b2a-4fed-b397-25731ca3a1df" name="Data control" formControl="5541fdd1-fedb-45ba-ab74-966e737af3a6"/>
     </forms>
   </tura.domain:UIPackage>
@@ -1487,6 +1488,8 @@
           <value uid="cbb33e4d-cd13-42a2-81d6-d4f80b6f49b2" value="org.elsoft.platform.hr.objects.CompanyDAO"/>
         </parameters>
       </search>
+      <artificialFields packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="e370b9d1-a6fb-4a40-88e2-8845be441438" fakePackageName="Primitive package" fakeTypeName="String" uid="9ec8a0b1-3ba4-4cb3-a698-0cd9561396ba" name="testfield1"/>
+      <artificialFields packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="2829901f-e985-4786-96ff-852230536694" fakePackageName="Primitive package" fakeTypeName="Integer" uid="f7d2fdf2-3ea6-4f60-95dc-b85dfe64d1c5" name="testField2"/>
     </controls>
     <controls uid="cd1cab1c-1781-4867-85b8-84d9f465f989" name="Country">
       <create packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="2957c51c-68e7-4d1e-b8b7-cbe7ccdbe13f" fakePackageName="Base package" fakeTypeName="JPA Entity CRAD Service" methodRef="40b112a0-4008-11e4-916c-0800200c9a66" fakeMethod="create" uid="9963c6a1-841a-4daf-97e2-d3d7538a4924">
@@ -1917,7 +1920,7 @@
     <relations uid="920bd4f6-ad39-4ad6-9a74-7b4c31cec2d6" master="0feddc04-1241-40fa-a9f3-35089d2cf4c5" detail="7787cfd3-a689-4089-8689-7c149a1a3a34"/>
   </tura.domain:Controls>
   <tura.domain:Artifacts uid="e15bf32f-16b2-4b20-bceb-f9866c131ad9" parent="5945624b-20f3-47f9-9cb1-d0dc8df9491a">
-    <artifacts uid="d597c2ba-7f76-4769-a0e5-f9828833760f" name="Data control">
+    <artifacts uid="d597c2ba-7f76-4769-a0e5-f9828833760f" name="Data control" template="platform:/plugin/org.tura.metamodel.wizard.generation/template/mvc/model/mainModel.egl">
       <modelQuery uid="bba9824e-a43b-4c96-b926-fb63a606127a" name="Query form" query="domain::DomainApplication.allInstances()->select(r|r.oclAsType(domain::DomainApplication).name='${Application}').oclAsType(domain::DomainApplication).application.applicationUILayer.applicationUIPackages->select(r|r.oclAsType(domain::ApplicationUIPackage).name='${UIPackage}').uipackage.forms">
         <parameters uid="6dbc30b8-95cd-4776-90de-d7b5ce5df2f8" name="Application"/>
         <parameters uid="ee8b0895-06c0-4ed3-99cf-8998cdfaeaa7" name="UIPackage"/>
@@ -1929,7 +1932,7 @@
     </artifacts>
   </tura.domain:Artifacts>
   <tura.domain:Recipes uid="780d51bf-e928-4fb4-a228-4371d8fe439d" parent="fc4a8a78-b68c-4020-bb95-ab6d773b5486">
-    <recipe uid="6cb40735-2e80-4221-9ab5-31d646aff979" infrastructures="81bafabb-45d9-48af-9283-6ffc90afbda3">
+    <recipe mappers="d29466f4-8d55-4047-b6ba-fc1a830db2a1 0d86886f-6d6e-49e1-a123-d063d2d9bd22" uid="6cb40735-2e80-4221-9ab5-31d646aff979" infrastructures="81bafabb-45d9-48af-9283-6ffc90afbda3">
       <ingredients uid="b27a7b7b-ba51-48d1-8f56-af453722dcd3" name="Form ingredient" layer="UILayer">
         <components xsi:type="tura.domain:JavaComponent" uid="44a5e8a3-a54c-4792-903c-a984627f6218" name="UI component" componentRoot="/Users/arseniyi/generatedCode/uiLayer" artifactId="hrform" groupId="org.tura.example.ui" version="1.0" basePackage="org.tura.example.ui">
           <mappers uid="5c3c0b94-aa71-4da9-923f-3460706b5394" domainArtifactRef="5945624b-20f3-47f9-9cb1-d0dc8df9491a" artifactRef="d597c2ba-7f76-4769-a0e5-f9828833760f" name="Process all datacontrol in ui package">
@@ -1944,4 +1947,15 @@
     </recipe>
     <infrastructures uid="81bafabb-45d9-48af-9283-6ffc90afbda3" recipe="6cb40735-2e80-4221-9ab5-31d646aff979" name="Development"/>
   </tura.domain:Recipes>
+  <tura.domain:Views uid="2ddd76f4-bbd2-4337-8cae-45d77d9170ab" parent="22583c7e-b599-447f-a6e1-08123b25a1a5">
+    <canvases xsi:type="tura.domain:Window" uid="7d1cb326-89e4-4280-9b72-567945d73b6f">
+      <viewElement xsi:type="tura.domain:ViewPort" uid="85ddb627-63bd-4cad-aa67-603a5460874a"/>
+      <viewElement xsi:type="tura.domain:ViewArea" uid="a17a5a86-e327-4d64-8e00-372e95e2f80d" name="v1" canvasView="2eb3f59e-2044-44ae-86ae-5a2dfd2dd37d"/>
+    </canvases>
+  </tura.domain:Views>
+  <tura.domain:CanvasView uid="2eb3f59e-2044-44ae-86ae-5a2dfd2dd37d" parent="a17a5a86-e327-4d64-8e00-372e95e2f80d">
+    <baseCanvas uid="796ed6e0-7747-45a2-ad03-ddc4cbaf2434">
+      <children xsi:type="tura.domain:InputText" uid="5ab8396c-cb9c-4d01-89aa-6f732b9862d1" sourcePointer="d45e9605-3706-493c-8422-3f7b8b6ea2ed" sourceCast="Comp_52ffccb7-cea6-49de-ba4b-7437f1da3369"/>
+    </baseCanvas>
+  </tura.domain:CanvasView>
 </xmi:XMI>

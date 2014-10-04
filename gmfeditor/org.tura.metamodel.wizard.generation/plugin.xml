@@ -36,10 +36,28 @@
    <extension
          point="org.eclipse.epsilon.common.dt.tool">
      <tool
+            class="org.tura.metamodel.commons.QueryHelper"
+            defaultName="QueryHelper">
+      </tool>
+   </extension>
+
+
+   <extension
+         point="org.eclipse.epsilon.common.dt.tool">
+     <tool
             class="org.eclipse.epsilon.egl.formatter.language.XmlFormatter"
             defaultName="XmlFormatter">
       </tool>
    </extension>
+
+   <extension
+         point="org.eclipse.epsilon.common.dt.tool">
+     <tool
+            class="org.tura.metamodel.commons.Helper"
+            defaultName="Helper">
+      </tool>
+   </extension>
+
 
 
 </plugin>

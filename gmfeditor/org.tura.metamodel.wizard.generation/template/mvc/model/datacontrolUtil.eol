@@ -1,0 +1,44 @@
+import "platform:/plugin/org.tura.metamodel.wizard.generation/template/commons/typeElementUtil.eol";
+ 
+
+operation DataControl processTriggers( ) { 
+
+}
+
+operation DataControl processKeys( ) { 
+
+        var util = new Native('org.tura.metamodel.commons.Util');
+        
+        var tp = self.create.methodRef.returnValue.typeRef;
+        var keys = new Native('java.util.ArrayList');
+        var operations = new Native('java.util.HashMap');
+        var attributes = new Native('java.util.HashMap');
+        
+        var helper = new Native('org.tura.metamodel.commons.Helper');
+        helper.addOperations(operations, attributes,tp);
+
+         for (attribute in attributes.values){
+               if (attribute.pk == true ){
+                  keys.add(attribute);
+               }
+         }
+        self.~keys = keys;
+}
+
+
+
+operation DataControl processArtificialFields(recipe:Recipe, ingredient :Ingredient ) { 
+        var util = new Native('org.tura.metamodel.commons.Util');
+
+        var artificialFields = self.artificialFields;
+        for (  field in artificialFields){
+           field.typeRef.mappingType2Java(recipe,ingredient);
+        }
+}
+
+operation DataControl processRelations( ) { 
+
+}
+
+operation DataControl processSearchOrder(){
+}

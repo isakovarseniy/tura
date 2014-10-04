@@ -308,12 +308,34 @@
              id="property.tab.domain.control.relations"
              label="Relation"/>
 
+            <propertyTab
+             category="domain"
+             id="property.tab.domain.control.artifitialFieldType"
+             label="Type"/>
+
+
        </propertyTabs>
        </extension>
     
     <extension point="org.eclipse.ui.views.properties.tabbed.propertySections" id="org.tura.metamodel.diagram.control.propsections">
       <?gmfgen generated="true"?>   
       <propertySections contributorId="org.tura.metamodel.diagram.control">
+      
+      
+           <propertySection
+               tab="property.tab.domain.control.artifitialFieldType"
+               class="org.tura.metamodel.commons.properties.selections.dropdown.PackageNamePropertySection"
+               id="property.tab.domain.control.artifitialFieldType.packageref">
+              <input type="control.diagram.edit.parts.ArtificialFieldEditPart"/>             
+           </propertySection>        
+
+          <propertySection
+               afterSection="property.tab.domain.control.artifitialFieldType.packageref"
+               tab="property.tab.domain.control.artifitialFieldType"
+               class="org.tura.metamodel.commons.properties.selections.dropdown.TypeNamePropertySection"
+               id="property.tab.domain.control.artifitialFieldType.typeref">
+              <input type="control.diagram.edit.parts.ArtificialFieldEditPart"/>             
+           </propertySection>  
       
           <propertySection
                tab="property.tab.domain.control.serviceref"
