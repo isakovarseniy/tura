@@ -30,7 +30,7 @@
          for (control in controls){
          
 
-           control.processKeys();
+           control.processKeys(recipe,ingredient);
            control.processArtificialFields(recipe,ingredient);
 
            control.processTriggers();

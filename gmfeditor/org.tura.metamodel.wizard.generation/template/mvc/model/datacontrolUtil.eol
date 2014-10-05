@@ -5,11 +5,21 @@ operation DataControl processTriggers( ) {
 
 }
 
-operation DataControl processKeys( ) { 
+operation DataControl processKeys(recipe:Recipe, ingredient :Ingredient ) { 
 
         var util = new Native('org.tura.metamodel.commons.Util');
         
         var tp = self.create.methodRef.returnValue.typeRef;
+        
+        var basetype = tp;
+        if (self.baseType <> null)
+             basetype = self.baseType;
+             
+        basetype.mappingType2Java(recipe,ingredient);
+        self.~baseclass = basetype.~class;
+        self.~basepackage = basetype.~package;
+        self.~basefullName = basetype.~fullName;     
+        
         var keys = new Native('java.util.ArrayList');
         var operations = new Native('java.util.HashMap');
         var attributes = new Native('java.util.HashMap');
