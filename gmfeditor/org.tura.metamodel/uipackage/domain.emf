@@ -1057,6 +1057,7 @@ class Root{
 class DataControl {
     id attr EString uid;
    attr EString name;
+   ref Type baseType;
    ref Controls#controls parent;
    @gmf.compartment(layout="list")
    val PREQueryTrigger preQueryTrigger;

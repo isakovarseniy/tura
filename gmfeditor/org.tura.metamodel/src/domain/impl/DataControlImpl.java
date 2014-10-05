@@ -16,6 +16,7 @@ import domain.PREInsertTrigger;
 import domain.PREQueryTrigger;
 import domain.PREUpdateTrigger;
 import domain.SearchTrigger;
+import domain.Type;
 import domain.UpdateTrigger;
 
 import java.util.Collection;
@@ -44,6 +45,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link domain.impl.DataControlImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.impl.DataControlImpl#getName <em>Name</em>}</li>
+ *   <li>{@link domain.impl.DataControlImpl#getBaseType <em>Base Type</em>}</li>
  *   <li>{@link domain.impl.DataControlImpl#getParent <em>Parent</em>}</li>
  *   <li>{@link domain.impl.DataControlImpl#getPreQueryTrigger <em>Pre Query Trigger</em>}</li>
  *   <li>{@link domain.impl.DataControlImpl#getPostQueryTrigger <em>Post Query Trigger</em>}</li>
@@ -103,6 +105,16 @@ public class DataControlImpl extends EObjectImpl implements DataControl
    * @ordered
    */
   protected String name = NAME_EDEFAULT;
+
+  /**
+   * The cached value of the '{@link #getBaseType() <em>Base Type</em>}' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getBaseType()
+   * @generated
+   * @ordered
+   */
+  protected Type baseType;
 
   /**
    * The cached value of the '{@link #getPreQueryTrigger() <em>Pre Query Trigger</em>}' containment reference.
@@ -289,6 +301,49 @@ public class DataControlImpl extends EObjectImpl implements DataControl
     name = newName;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.DATA_CONTROL__NAME, oldName, name));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Type getBaseType()
+  {
+    if (baseType != null && baseType.eIsProxy())
+    {
+      InternalEObject oldBaseType = (InternalEObject)baseType;
+      baseType = (Type)eResolveProxy(oldBaseType);
+      if (baseType != oldBaseType)
+      {
+        if (eNotificationRequired())
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, DomainPackage.DATA_CONTROL__BASE_TYPE, oldBaseType, baseType));
+      }
+    }
+    return baseType;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Type basicGetBaseType()
+  {
+    return baseType;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setBaseType(Type newBaseType)
+  {
+    Type oldBaseType = baseType;
+    baseType = newBaseType;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.DATA_CONTROL__BASE_TYPE, oldBaseType, baseType));
   }
 
   /**
@@ -969,6 +1024,9 @@ public class DataControlImpl extends EObjectImpl implements DataControl
         return getUid();
       case DomainPackage.DATA_CONTROL__NAME:
         return getName();
+      case DomainPackage.DATA_CONTROL__BASE_TYPE:
+        if (resolve) return getBaseType();
+        return basicGetBaseType();
       case DomainPackage.DATA_CONTROL__PARENT:
         return getParent();
       case DomainPackage.DATA_CONTROL__PRE_QUERY_TRIGGER:
@@ -1015,6 +1073,9 @@ public class DataControlImpl extends EObjectImpl implements DataControl
         return;
       case DomainPackage.DATA_CONTROL__NAME:
         setName((String)newValue);
+        return;
+      case DomainPackage.DATA_CONTROL__BASE_TYPE:
+        setBaseType((Type)newValue);
         return;
       case DomainPackage.DATA_CONTROL__PARENT:
         setParent((Controls)newValue);
@@ -1076,6 +1137,9 @@ public class DataControlImpl extends EObjectImpl implements DataControl
       case DomainPackage.DATA_CONTROL__NAME:
         setName(NAME_EDEFAULT);
         return;
+      case DomainPackage.DATA_CONTROL__BASE_TYPE:
+        setBaseType((Type)null);
+        return;
       case DomainPackage.DATA_CONTROL__PARENT:
         setParent((Controls)null);
         return;
@@ -1133,6 +1197,8 @@ public class DataControlImpl extends EObjectImpl implements DataControl
         return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
       case DomainPackage.DATA_CONTROL__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+      case DomainPackage.DATA_CONTROL__BASE_TYPE:
+        return baseType != null;
       case DomainPackage.DATA_CONTROL__PARENT:
         return getParent() != null;
       case DomainPackage.DATA_CONTROL__PRE_QUERY_TRIGGER:

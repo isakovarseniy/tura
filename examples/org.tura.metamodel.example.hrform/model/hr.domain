@@ -1429,7 +1429,7 @@
     </forms>
   </tura.domain:UIPackage>
   <tura.domain:Controls uid="5541fdd1-fedb-45ba-ab74-966e737af3a6" parent="60346910-0b2a-4fed-b397-25731ca3a1df">
-    <controls uid="d45e9605-3706-493c-8422-3f7b8b6ea2ed" name="Company">
+    <controls uid="d45e9605-3706-493c-8422-3f7b8b6ea2ed" name="Company" baseType="Comp_52ffccb7-cea6-49de-ba4b-7437f1da3369">
       <create packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="2957c51c-68e7-4d1e-b8b7-cbe7ccdbe13f" fakePackageName="Base package" fakeTypeName="JPA Entity CRAD Service" methodRef="40b112a0-4008-11e4-916c-0800200c9a66" fakeMethod="create" uid="8432e75c-3e68-43f0-94d0-c38cf73840e5">
         <parameters uid="8bbb8779-0fb8-422a-9f8b-6727fc100543" parameter="9150e8ca-6703-4e2c-a2e0-479f42987fa5">
           <value uid="8488e68c-70d9-420e-ae3d-ab981b5447eb" value="org.elsoft.platform.hr.objects.CompanyDAO"/>

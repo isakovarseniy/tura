@@ -8,13 +8,18 @@ import java.util.LinkedHashMap;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.tura.metamodel.commons.QueryHelper;
+import org.tura.metamodel.commons.properties.selections.dropdown.impl.DataControlBaseType;
 
 import domain.DataControl;
 import domain.Type;
 
-public abstract class AbstractCastPropertySelection extends
-		AbstractDependentEnumerationPropertySection {
+public class BaseTypePropertySelection extends AbstractDependentEnumerationPropertySection{
 
+	protected void init(){
+		dropDownDataSupplier = new DataControlBaseType();
+	}
+	
+	
 	protected String getLabelText() {
 		return "Cast type";//$NON-NLS-1$
 	}
@@ -34,18 +39,14 @@ public abstract class AbstractCastPropertySelection extends
 			if (dc == null || dc.getCreate() == null)
 				return values;
 
-			if ((dc.getCreate().getMethodRef() == null
-					|| dc.getCreate().getMethodRef().getReturnValue() == null || dc
-					.getCreate().getMethodRef().getReturnValue().getTypeRef() == null)
-					&& (dc.getBaseType() == null))
-
+			if (dc.getCreate().getMethodRef() == null
+					|| dc.getCreate().getMethodRef().getReturnValue() == null
+					|| dc.getCreate().getMethodRef().getReturnValue()
+							.getTypeRef() == null)
 				return values;
 
 			domain.Type type = (Type) dc.getCreate().getMethodRef()
 					.getReturnValue().getTypeRef();
-			
-			if (dc.getBaseType() != null)
-				type = dc.getBaseType();
 
 			ArrayList<domain.Type> typeTree = new ArrayList<>();
 			new QueryHelper().getInheritTypes(typeTree, type);
@@ -68,5 +69,6 @@ public abstract class AbstractCastPropertySelection extends
 	public EObject getModel(EStructuralFeature feature) {
 		return getEObject();
 	}
-
+	
+	
 }

@@ -69,6 +69,7 @@ public class DataControlItemProvider
 
       addUidPropertyDescriptor(object);
       addNamePropertyDescriptor(object);
+      addBaseTypePropertyDescriptor(object);
     }
     return itemPropertyDescriptors;
   }
@@ -115,6 +116,29 @@ public class DataControlItemProvider
          false,
          false,
          ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+         null,
+         null));
+  }
+
+  /**
+   * This adds a property descriptor for the Base Type feature.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected void addBaseTypePropertyDescriptor(Object object)
+  {
+    itemPropertyDescriptors.add
+      (createItemPropertyDescriptor
+        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+         getResourceLocator(),
+         getString("_UI_DataControl_baseType_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_DataControl_baseType_feature", "_UI_DataControl_type"),
+         DomainPackage.Literals.DATA_CONTROL__BASE_TYPE,
+         true,
+         false,
+         true,
+         null,
          null,
          null));
   }

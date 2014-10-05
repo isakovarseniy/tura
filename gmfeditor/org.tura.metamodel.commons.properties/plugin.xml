@@ -313,6 +313,10 @@
              id="property.tab.domain.control.artifitialFieldType"
              label="Type"/>
 
+            <propertyTab
+             category="domain"
+             id="property.tab.domain.control.basetype"
+             label="Base type"/>
 
        </propertyTabs>
        </extension>
@@ -320,6 +324,14 @@
     <extension point="org.eclipse.ui.views.properties.tabbed.propertySections" id="org.tura.metamodel.diagram.control.propsections">
       <?gmfgen generated="true"?>   
       <propertySections contributorId="org.tura.metamodel.diagram.control">
+     
+     
+           <propertySection
+               tab="property.tab.domain.control.basetype"
+               class="org.tura.metamodel.commons.properties.selections.dropdown.BaseTypePropertySelection"
+               id="property.tab.domain.control.basetype">
+              <input type="control.diagram.edit.parts.DataControlEditPart"/>             
+           </propertySection>        
       
       
            <propertySection
