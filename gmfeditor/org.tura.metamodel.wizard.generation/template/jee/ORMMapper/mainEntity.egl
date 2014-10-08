@@ -19,7 +19,7 @@
     var entityBean : Template = TemplateFactory.load("platform:/plugin/org.tura.metamodel.wizard.generation/template/jee/ORMMapper/entity.egl");
     entityBean.setFormatter(f);
     
-    var path = component.getComponentRoot+"/"+component.getArtifactId+"/"+component.getArtifactId()+"-ejb/src/main/java/"+type.~package.replaceAll("\\.","\\/")+"/";  
+    var path = component.getComponentRoot+"/"+component.getArtifactId()+"-ejb/src/main/java/"+type.~package.replaceAll("\\.","\\/")+"/";  
     entityBean.populate("type",type);
     entityBean.populate("recipe",recipe);
     entityBean.populate("ingredient",ingredient);

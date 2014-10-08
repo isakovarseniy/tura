@@ -15,10 +15,10 @@
 
 
          var tech = model_mapper.getSpecifiers().get(0);
-         var controlGen : Template = TemplateFactory.load("platform:/plugin/org.tura.metamodel.wizard.generation/template/mvc/model/"+tech.getValueRef().getValue()+"/datacontrol.egl");
+         var controlGen : Template = TemplateFactory.load("platform:/plugin/org.tura.metamodel.wizard.generation/template/mvc/model/"+tech.getValueRef().getValue()+"/controlset.egl");
          controlGen.setFormatter(f);
     
-         var path = component.getComponentRoot+"/"+component.getArtifactId+"/"+component.getArtifactId()+"/src/main/java/"+component.basePackage.replaceAll("\\.","\\/")+"/";  
+         var path = component.getComponentRoot+"/"+component.getArtifactId()+"/src/main/java/"+component.basePackage.replaceAll("\\.","\\/")+"/";  
          controlGen.populate("recipe",recipe);
          controlGen.populate("ingredient",ingredient);
          controlGen.populate("component",component);
@@ -33,8 +33,8 @@
            control.processKeys(recipe,ingredient);
            control.processArtificialFields(recipe,ingredient);
 
-           control.processTriggers();
-           control.processRelations();
+           control.processTriggers(recipe,ingredient);
+           control.processRelations(recipe,ingredient);
            control.processSearchOrder();
            
            controlGen.populate("control",control);

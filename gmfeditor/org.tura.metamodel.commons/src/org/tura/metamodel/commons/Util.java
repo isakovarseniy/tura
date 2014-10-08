@@ -12,6 +12,7 @@ import java.util.List;
 import java.util.Set;
 
 import org.apache.commons.lang.StringUtils;
+import org.eclipse.core.runtime.Platform;
 import org.eclipse.core.runtime.preferences.IEclipsePreferences;
 import org.eclipse.core.runtime.preferences.InstanceScope;
 import org.eclipse.emf.ecore.EClassifier;
@@ -24,27 +25,46 @@ import org.eclipse.ocl.ecore.Constraint;
 import org.eclipse.ocl.ecore.EcoreEnvironmentFactory;
 import org.eclipse.ocl.expressions.OCLExpression;
 import org.eclipse.ocl.helper.OCLHelper;
+import org.eclipse.ui.model.IWorkbenchAdapter;
 
 import org.tura.metamodel.commons.preferences.IPreferenceConstants;
-
 
 import freemarker.template.*;
 import domain.DomainPackage;
 
 public class Util {
 
-	
-	public boolean ifInternalElement( EObject element){
-		
+	public boolean ifInternalElement(EObject element) {
+
 		EObject top = element.eContainer();
-		if (top == null )
+		if (top == null)
 			return false;
-        if (top instanceof domain.Table)
-        	return true;
-        
-        return ifInternalElement(top);
-		
+		if (top instanceof domain.Table)
+			return true;
+
+		return ifInternalElement(top);
+
 	}
+
+	public static String buildExpression(domain.ContextValue contextValue) {
+		if (!contextValue.isConstant())
+			return contextValue.getValue();
+
+		String value = "";
+		int i = 0;
+		for (Iterator<domain.ExpressionPart> itr = contextValue.getExpression()
+				.iterator(); itr.hasNext(); i++) {
+			domain.ExpressionPart exp = itr.next();
+			IWorkbenchAdapter adapter = (IWorkbenchAdapter) Platform
+					.getAdapterManager().getAdapter(exp.getObjRef(),
+							IWorkbenchAdapter.class);
+			if (i != 0)
+				value = value + ".";
+			value = value + adapter.getLabel(exp.getObjRef());
+		}
+		return value;
+	}
+
 	public static boolean mapperRecognizer(Set<domain.Mapper> mappers,
 			domain.Ingredient ingredient) {
 
@@ -65,7 +85,8 @@ public class Util {
 			domain.Ingredient ingredient, domain.TypeElement typeElement)
 			throws Exception {
 
-		for (Iterator<domain.TypeMapper> itr = mappers.iterator(); itr.hasNext();) {
+		for (Iterator<domain.TypeMapper> itr = mappers.iterator(); itr
+				.hasNext();) {
 			domain.TypeMapper mapper = itr.next();
 
 			int ui = mapper.isUiLayer() ? 1 : 0;
@@ -89,12 +110,12 @@ public class Util {
 			strQuery = strQuery.replaceAll("\\$\\{"
 					+ var.getQueryParamRef().getName() + "\\}", var.getValue());
 		}
-		IEclipsePreferences pref =InstanceScope.INSTANCE.getNode("org.tura.metamodel.commons.preferences");
-		if ( "true".equals(pref.get(IPreferenceConstants.DEBUGING,"false"))){
-			LogUtil.logInfo("Query : "+strQuery);
+		IEclipsePreferences pref = InstanceScope.INSTANCE
+				.getNode("org.tura.metamodel.commons.preferences");
+		if ("true".equals(pref.get(IPreferenceConstants.DEBUGING, "false"))) {
+			LogUtil.logInfo("Query : " + strQuery);
 		}
-		
-		
+
 		return executeQuery(strQuery, eobj);
 	}
 
@@ -163,39 +184,43 @@ public class Util {
 		out.close();
 	}
 
-	public static void println(Object obj){
+	public static void println(Object obj) {
 		System.out.println(obj);
 	}
-	
+
 	public static EglTemplate loadTemplate(String templateFile,
 			HashMap<String, Object> parameters, EglTemplateFactory factory)
 			throws Exception {
 
-        /* Create and adjust the configuration */
-        Configuration cfg = new Configuration();
+		/* Create and adjust the configuration */
+		Configuration cfg = new Configuration();
 
-        cfg.setObjectWrapper(new DefaultObjectWrapper());
-        cfg.setDefaultEncoding("UTF-8");
-        cfg.setTemplateExceptionHandler(TemplateExceptionHandler.HTML_DEBUG_HANDLER);
-        cfg.setTemplateLoader(new FreeMarkeResourceLoader());
-        cfg.setLocalizedLookup(false);
+		cfg.setObjectWrapper(new DefaultObjectWrapper());
+		cfg.setDefaultEncoding("UTF-8");
+		cfg.setTemplateExceptionHandler(TemplateExceptionHandler.HTML_DEBUG_HANDLER);
+		cfg.setTemplateLoader(new FreeMarkeResourceLoader());
+		cfg.setLocalizedLookup(false);
 
-        Template t = cfg.getTemplate(templateFile);
+		Template t = cfg.getTemplate(templateFile);
 
 		StringWriter writer = new StringWriter();
 		t.process(parameters, writer);
 
-		IEclipsePreferences pref =InstanceScope.INSTANCE.getNode("org.tura.metamodel.commons.preferences");
-		if ( "true".equals(pref.get(IPreferenceConstants.LOG_TEMPLATES,"false"))){
-			LogUtil.logInfo("Template"+templateFile+" : \n"+writer.toString());
+		IEclipsePreferences pref = InstanceScope.INSTANCE
+				.getNode("org.tura.metamodel.commons.preferences");
+		if ("true"
+				.equals(pref.get(IPreferenceConstants.LOG_TEMPLATES, "false"))) {
+			LogUtil.logInfo("Template" + templateFile + " : \n"
+					+ writer.toString());
 		}
-		
+
 		EglTemplate egltemplate = factory.prepare(writer.toString());
 
 		if (egltemplate == null || !egltemplate.getParseProblems().isEmpty()) {
 			if (egltemplate != null)
-				LogUtil.logInfo("Error during pursing template"+templateFile+  " : \n"+writer.toString());
-			throw new Exception( egltemplate.getParseProblems().toString()); 
+				LogUtil.logInfo("Error during pursing template" + templateFile
+						+ " : \n" + writer.toString());
+			throw new Exception(egltemplate.getParseProblems().toString());
 		}
 
 		for (Iterator<String> itr = parameters.keySet().iterator(); itr

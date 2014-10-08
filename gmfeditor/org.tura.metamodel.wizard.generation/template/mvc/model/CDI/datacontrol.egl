@@ -1,0 +1,178 @@
+[%
+     var util = new Native('org.tura.metamodel.commons.Util');
+%]
+package  [%=component.basePackage%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%].datacontrol;  
+
+@javax.inject.Named("[%=util.mergeAndCapitalize(control.name).toLowerCase()%]")
+public class [%=util.mergeAndCapitalize(control.name)%]DC extends org.tura.platform.datacontrol.DataControl <[%=control.~basefullName%]> {
+
+    [%
+    var i = 0;
+    for (methodProvider in control.~provider.keySet()){
+    %]
+    private [%=methodProvider%] provider_[%=i%];
+    [%
+     i = i+1;
+    }
+    %] 
+
+	public  [%=util.mergeAndCapitalize(control.name)%]DC() throws Exception {
+		super();
+	}
+	
+	@javax.annotation.PostConstruct
+	public void init() throws IllegalArgumentException, IllegalAccessException {
+
+    [%
+    var i = 0;
+    for (methodProvider in control.~provider.keySet()){
+       for (method in control.~provider.get(methodProvider)) {
+    %]
+    
+		this.[%=method%]Command.setProvider(provider_[%=i%]);
+		this.[%=method%]Command.setDatacontrol(this);
+    [%
+      }
+     i = i+1;
+    }
+    %] 
+		org.tura.platform.datacontrol.DataControlFactory.buildConnection(this);
+
+	}	
+
+
+	@javax.inject.Inject
+	public void setKeys(
+			@org.tura.platform.datacontrol.annotations.Keys(fields = { 
+    [%
+    var i = 0;
+    for (key in control.~keys){
+        if (i <> 0 ){ %],[%}%]
+			@org.tura.platform.datacontrol.annotations.Key(field = "[%=key.name%] ") 
+    [%
+     i = i+1;
+    }
+    %] 
+			}) java.util.List<String> keys) {
+		this.keys = keys;
+	}
+
+
+	@javax.inject.Inject
+	public void setArtificialProperties(
+			@org.tura.platform.datacontrol.annotations.ArtificialFields(fields = {
+   [%
+    var i = 0;
+    for (artificialField in control.artificialFields){
+        if (i <> 0 ){ %],[%}%]
+			@org.tura.platform.datacontrol.annotations.ArtificialField(field = "[%=artificialField.name%]" , type = [%=artificialField.typeRef.~fullName%].class) 
+    [%
+     i = i+1;
+    }
+    %] 
+	 }) java.util.List<org.tura.platform.datacontrol.metainfo.ArtificialProperty> properties) {
+		this.artificialProperties = properties;
+	}
+
+	@Override
+	@javax.inject.Inject
+	public void setElResolver(org.tura.platform.datacontrol.ELResolver elResolver) {
+		this.elResolver = elResolver;
+	}
+
+	@Override
+	@javax.inject.Inject
+	public void setCreateCommand(
+			@org.tura.platform.datacontrol.annotations.Create(objectAction = "[%=control.create.methodRef.name%]", parameters = @org.tura.platform.datacontrol.annotations.Parameters(value = { 
+   [%
+    var i = 0;
+    for (param in control.create.parameters){
+        if (i <> 0 ){ %],[%}%]
+			@org.tura.platform.datacontrol.annotations.Parameter(name = "[%=param.parameter.name%]", value = "[%=param.~result%]", type = [%=param.parameter.typeRef.~fullName%].class) 
+    [%
+     i = i+1;
+    }
+    %] 
+			})) org.tura.platform.datacontrol.command.CreateCommand createCommand) {
+		this.createCommand = createCommand;
+	}
+
+	@Override
+	@Inject
+	public void setInsertCommand(
+			@Insert(objectAction = "insert", parameters = @Parameters(value = { @Parameter(name = "obj", expression = "company.currentObject", type = TuraObject.class) })) InsertCommand insertCommand) {
+		this.insertCommand = insertCommand;
+	}
+
+	@Override
+	@Inject
+	public void setUpdateCommand(
+			@Update(objectAction = "update", parameters = @Parameters(value = { @Parameter(name = "obj", expression = "company.currentObject", type = TuraObject.class) })) UpdateCommand updateCommand) {
+		this.updateCommand = updateCommand;
+	}
+
+	@Override
+	@Inject
+	public void setDeleteCommand(
+			@Delete(objectAction = "remove", parameters = @Parameters(value = { @Parameter(name = "obj", expression = "company.currentObject", type = TuraObject.class) })) DeleteCommand deleteCommand) {
+		this.deleteCommand = deleteCommand;
+	}
+
+	@Override
+	@Inject
+	public void setSearchCommand(
+			@Search(objectAction = "find", parameters = @Parameters(value = {
+					@Parameter(name = "dslQuery", type = SelectQuery.class, expression = "company.query"),
+					@Parameter(name = "startindex", type = Integer.class, expression = "company.startIndex"),
+					@Parameter(name = "endindex", type = Integer.class, expression = "company.endIndex"),
+					@Parameter(name = "objectClass", type = String.class, value = "org.tura.platform.hr.objects.CompanyDAO") })) SearchCommand searchCommand) {
+		this.searchCommand = searchCommand;
+	}
+
+
+
+
+	@Override
+	@javax.inject.Inject
+	public void setPreQueryTrigger(
+			@org.tura.platform.datacontrol.annotations.PreQuery("[%=util.mergeAndCapitalize(control.name).toLowerCase()%]") org.tura.platform.datacontrol.command.PreQueryTrigger preQueryTrigger) {
+		this.preQueryTrigger = preQueryTrigger;
+	}
+
+	@Override
+	@javax.inject.Inject
+	public void setPostQueryTrigger(
+			@org.tura.platform.datacontrol.annotations.PostQuery("[%=util.mergeAndCapitalize(control.name).toLowerCase()%]") org.tura.platform.datacontrol.command.PostQueryTrigger postQueryTrigger) {
+		this.postQueryTrigger = postQueryTrigger;
+	}
+
+	@Override
+	@javax.inject.Inject
+	public void setPostCreateTrigger(
+			@org.tura.platform.datacontrol.annotations.PostCreate("[%=util.mergeAndCapitalize(control.name).toLowerCase()%]") org.tura.platform.datacontrol.command.PostCreateTrigger postCreateTrigger) {
+		this.postCreateTrigger = postCreateTrigger;
+	}
+
+	@Override
+	@javax.inject.Inject
+	public void setPreDeleteTrigger(
+			@org.tura.platform.datacontrol.annotations.PreDelete("[%=util.mergeAndCapitalize(control.name).toLowerCase()%]") org.tura.platform.datacontrol.command.PreDeleteTrigger preDeleteTrigger) {
+		this.preDeleteTrigger = preDeleteTrigger;
+	}
+
+	@Override
+	@javax.inject.Inject
+	public void setPreInsertTrigger(
+			@org.tura.platform.datacontrol.annotations.PreInsert("[%=util.mergeAndCapitalize(control.name).toLowerCase()%]") org.tura.platform.datacontrol.command.PreInsertTrigger preInsertTrigger) {
+		this.preInsertTrigger = preInsertTrigger;
+	}
+
+	@Override
+	@javax.inject.Inject
+	public void setPreUpdateTrigger(
+			@org.tura.platform.datacontrol.annotations.PreUpdate("[%=util.mergeAndCapitalize(control.name).toLowerCase()%]") org.tura.platform.datacontrol.command.PreUpdateTrigger preUpdateTrigger) {
+		this.preUpdateTrigger = preUpdateTrigger;
+	}
+
+	
+}

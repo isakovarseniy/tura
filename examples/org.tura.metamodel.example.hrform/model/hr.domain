@@ -1151,7 +1151,7 @@
     <mappers xsi:type="tura.domain:JavaMapper" uid="JavaMapper17" serviceLayer="true" packageRef="e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="Dep_30bb8955-d333-429b-a7ae-777f1a62e767" mappedToPackageName="org.elsoft.platform.hr.services" mappedToClassName="DepartmentsServiceLocal"/>
     <mappers xsi:type="tura.domain:JavaMapper" uid="JavaMapper18" serviceLayer="true" uiLayer="true" packageRef="e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="Dep_692cc400-912b-471d-84f5-15f08a7ec191" mappedToPackageName="java.util" mappedToClassName="List&lt;org.elsoft.platform.hr.objects.DepartmentsDAO>"/>
     <mappers xsi:type="tura.domain:JavaMapper" uid="JavaMapper20" uiLayer="true" packageRef="e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="Emp_dd5f2ada-dfef-49f4-99c9-77ee2bd72f13" mappedToPackageName="org.elsoft.platform.hr.employees" mappedToClassName="EmployeesDAO" artifactId="Model-Manufacturing-BackOffice-HR-client" groupId="org.elsoft.platform.Manufacturing.BackOffice" version="1.0"/>
-    <mappers xsi:type="tura.domain:JavaMapper" uid="JavaMapper21" serviceLayer="true" uiLayer="true" packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="50dcca84-4d2c-4fe2-baad-56afdf1be76d" mappedToPackageName="org.elsoft.platform.metamodel.objects" mappedToClassName="ELsoftObject" artifactId="commons-platform-datastructure" groupId="org.elsoft.platform" version="1.0"/>
+    <mappers xsi:type="tura.domain:JavaMapper" uid="JavaMapper21" serviceLayer="true" uiLayer="true" packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="50dcca84-4d2c-4fe2-baad-56afdf1be76d" mappedToPackageName="org.tura.platform.persistence" mappedToClassName="TuraObject" artifactId="commons-persistence" groupId="org.tura.platform" version="2.0"/>
     <mappers xsi:type="tura.domain:JavaMapper" uid="JavaMapper22" serviceLayer="true" packageRef="e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="Emp_dd5f2ada-dfef-49f4-99c9-77ee2bd72f13" mappedToPackageName="org.elsoft.platform.hr.objects" mappedToClassName="EmployeesDAO"/>
     <mappers xsi:type="tura.domain:JavaMapper" uid="JavaMapper23" uiLayer="true" packageRef="e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="Emp_984ec018-e02b-47e0-a720-40c00663b5c6" mappedToPackageName="org.elsoft.platform.hr.employees.impl" mappedToClassName="EmployeesService" artifactId="Model-Manufacturing-BackOffice-HR-client" groupId="org.elsoft.platform.Manufacturing.BackOffice" version="1.0"/>
     <mappers xsi:type="tura.domain:JavaMapper" uid="JavaMapper24" serviceLayer="true" packageRef="e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="Emp_984ec018-e02b-47e0-a720-40c00663b5c6" mappedToPackageName="org.elsoft.platform.hr.services.impl" mappedToClassName="EmployeesService"/>
@@ -1207,6 +1207,7 @@
     <mappers xsi:type="tura.domain:JavaMapper" uid="39c7d8fc-34dd-4c55-9f7f-964f5d1ea1de" serviceLayer="true" packageRef="e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="a54f0d07-f3d2-475b-9f0e-52e3b9eb7464" fakePackageName="HR package" fakeTypeName="File query service remote" mappedToPackageName="org.elsoft.platform.hr.services" mappedToClassName="FileServiceRemote"/>
     <mappers xsi:type="tura.domain:JavaMapper" uid="beeef9eb-4450-4d1b-a87c-10435d602727" serviceLayer="true" packageRef="e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="8f7fc7d1-e47d-422f-94d4-ef71703aefcf" fakePackageName="HR package" fakeTypeName="File query service local" mappedToPackageName="org.elsoft.platform.hr.services" mappedToClassName="FileServiceLocal"/>
     <mappers xsi:type="tura.domain:JavaMapper" uid="347bb4f3-5b5a-4739-8c3b-c3bb5b796476" serviceLayer="true" uiLayer="true" packageRef="e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="2ec99bf7-e2da-4b3a-84a9-5472346afb62" fakePackageName="HR package" fakeTypeName="List of  files" mappedToPackageName="java.util" mappedToClassName="List&lt;org.elsoft.platform.hr.objects.FileDAO>"/>
+    <mappers xsi:type="tura.domain:JavaMapper" uid="49b627a0-c834-4b55-b0ad-a727254011f9" serviceLayer="true" uiLayer="true" packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="2957c51c-68e7-4d1e-b8b7-cbe7ccdbe13f" fakePackageName="Base package" fakeTypeName="JPA Entity CRAD Service" mappedToPackageName="org.tura.platform.commons.jpa" mappedToClassName="TuraJPAEntityService" artifactId="commons-jpa" groupId="org.tura.platform" libraryName=""/>
   </tura.domain:Mappers>
   <tura.domain:Recipes uid="e0a24138-9ba7-44dd-8b87-d1b01751c642" parent="Hr_recipe">
     <recipe mappers="0d86886f-6d6e-49e1-a123-d063d2d9bd22 d29466f4-8d55-4047-b6ba-fc1a830db2a1" uid="f89d43e4-5d8d-4437-ad00-188328a43ed0" infrastructures="080702f2-6a78-43d2-8987-c923fe681415">
@@ -1498,8 +1499,8 @@
         </parameters>
       </create>
       <insert packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="2957c51c-68e7-4d1e-b8b7-cbe7ccdbe13f" fakePackageName="Base package" fakeTypeName="JPA Entity CRAD Service" methodRef="b14bfa20-4008-11e4-916c-0800200c9a66" fakeMethod="insert" uid="2d2b4d08-785f-4ed7-89a4-4dc1adaa3b82">
-        <parameters uid="eebb9e40-a2f3-4b7a-80d3-5cff32f5497b" parameter="b7ea5020-4008-11e4-916c-0800200c9a66">
-          <value uid="f9963a5a-ba49-4600-84ae-23225c2a948d" constant="true" value="Data controls.Country.currentObject">
+        <parameters uid="6650203e-1af9-430e-9f00-97e63133e3a7" parameter="b7ea5020-4008-11e4-916c-0800200c9a66">
+          <value uid="91375806-e1c6-4d95-9b9b-b507c4b67a7e" constant="true" value="Data controls.Country.currentObject">
             <expression objRef="5541fdd1-fedb-45ba-ab74-966e737af3a6"/>
             <expression objRef="cd1cab1c-1781-4867-85b8-84d9f465f989" order="1"/>
             <expression order="2"/>
@@ -1507,8 +1508,8 @@
         </parameters>
       </insert>
       <update packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="2957c51c-68e7-4d1e-b8b7-cbe7ccdbe13f" fakePackageName="Base package" fakeTypeName="JPA Entity CRAD Service" methodRef="caf1fc90-4008-11e4-916c-0800200c9a66" fakeMethod="update" uid="eab735d2-ee01-4e6b-a026-26990955d1eb">
-        <parameters uid="cd9efc23-6fab-46b4-8254-4bdf413f1feb" parameter="7c4f4d20-400a-11e4-916c-0800200c9a66">
-          <value uid="19910f7b-d3c2-436b-b55e-c312e7e233ac" constant="true" value="Data controls.Country.currentObject">
+        <parameters uid="ae4239de-ccc4-47d3-b1fc-9d3423c4fd51" parameter="7c4f4d20-400a-11e4-916c-0800200c9a66">
+          <value uid="792436ac-347d-4337-a938-6f97205717b9" constant="true" value="Data controls.Country.currentObject">
             <expression objRef="5541fdd1-fedb-45ba-ab74-966e737af3a6"/>
             <expression objRef="cd1cab1c-1781-4867-85b8-84d9f465f989" order="1"/>
             <expression order="2"/>
@@ -1911,6 +1912,66 @@
         </parameters>
       </search>
     </controls>
+    <controls uid="34ec885b-a2e1-4c4a-8987-f56c9e935e86" name="Files">
+      <create packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="2957c51c-68e7-4d1e-b8b7-cbe7ccdbe13f" fakePackageName="Base package" fakeTypeName="JPA Entity CRAD Service" methodRef="40b112a0-4008-11e4-916c-0800200c9a66" fakeMethod="create" uid="2018a2dd-c305-47ee-97c3-ddb532d0e7a6">
+        <parameters uid="913a84c8-3c79-410b-9946-66eb5e40b288" parameter="9150e8ca-6703-4e2c-a2e0-479f42987fa5">
+          <value uid="8eebb506-5c20-45a1-9119-0e3bf7228a32" value="org.elsoft.platform.hr.objects.FileDAO"/>
+        </parameters>
+      </create>
+      <insert packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="2957c51c-68e7-4d1e-b8b7-cbe7ccdbe13f" fakePackageName="Base package" fakeTypeName="JPA Entity CRAD Service" methodRef="b14bfa20-4008-11e4-916c-0800200c9a66" fakeMethod="insert" uid="4e30542c-8b10-4ce5-83be-a55b424b25f2">
+        <parameters uid="96cd55f8-ec4f-453e-a7a2-bf4569a9ff23" parameter="b7ea5020-4008-11e4-916c-0800200c9a66">
+          <value uid="9d0d83ba-f67e-4331-a35f-b25ca9cb2d9d" constant="true" value="Data controls.Files.currentObject">
+            <expression objRef="5541fdd1-fedb-45ba-ab74-966e737af3a6"/>
+            <expression objRef="34ec885b-a2e1-4c4a-8987-f56c9e935e86" order="1"/>
+            <expression order="2"/>
+          </value>
+        </parameters>
+      </insert>
+      <update packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="2957c51c-68e7-4d1e-b8b7-cbe7ccdbe13f" fakePackageName="Base package" fakeTypeName="JPA Entity CRAD Service" methodRef="caf1fc90-4008-11e4-916c-0800200c9a66" fakeMethod="update" uid="caf18265-1c0e-4fd3-9884-0c1dacfc920a">
+        <parameters uid="27dc6bed-c576-433b-917b-4f6fffc22aa5" parameter="7c4f4d20-400a-11e4-916c-0800200c9a66">
+          <value uid="554fd478-e828-4ff6-af63-c84da74a8fc1" constant="true" value="Data controls.Files.currentObject">
+            <expression objRef="5541fdd1-fedb-45ba-ab74-966e737af3a6"/>
+            <expression objRef="34ec885b-a2e1-4c4a-8987-f56c9e935e86" order="1"/>
+            <expression order="2"/>
+          </value>
+        </parameters>
+      </update>
+      <remove packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="2957c51c-68e7-4d1e-b8b7-cbe7ccdbe13f" fakePackageName="Base package" fakeTypeName="JPA Entity CRAD Service" methodRef="dbacf9e0-4008-11e4-916c-0800200c9a66" fakeMethod="remove" uid="76879d1b-6276-42d9-a59f-d70bf1ec33ef">
+        <parameters uid="6f87388f-9d50-4dad-bf6c-e754cf74010c" parameter="73df4460-400a-11e4-916c-0800200c9a66">
+          <value uid="1db7d58b-29df-48cf-ade4-d909c4c99a39" constant="true" value="Data controls.Files.currentObject">
+            <expression objRef="5541fdd1-fedb-45ba-ab74-966e737af3a6"/>
+            <expression objRef="34ec885b-a2e1-4c4a-8987-f56c9e935e86" order="1"/>
+            <expression order="2"/>
+          </value>
+        </parameters>
+      </remove>
+      <search packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="2957c51c-68e7-4d1e-b8b7-cbe7ccdbe13f" fakePackageName="Base package" fakeTypeName="JPA Entity CRAD Service" methodRef="6fb841e0-4008-11e4-916c-0800200c9a66" fakeMethod="find" uid="bb67c177-97b2-4fa5-abdf-5d70bfcfc97b">
+        <parameters uid="6e468a00-bf00-47d5-a5b2-15320fafaf77" parameter="790b57a0-4008-11e4-916c-0800200c9a66">
+          <value uid="af08d950-6be7-4851-9cb9-387e771cf585" constant="true" value="Data controls.Files.query">
+            <expression objRef="5541fdd1-fedb-45ba-ab74-966e737af3a6"/>
+            <expression objRef="34ec885b-a2e1-4c4a-8987-f56c9e935e86" order="1"/>
+            <expression order="2"/>
+          </value>
+        </parameters>
+        <parameters uid="67372f8b-fd73-434e-a69e-d66d002dba58" parameter="823b06e0-4008-11e4-916c-0800200c9a66">
+          <value uid="254581ec-0dc2-4735-bd6e-b7db4ae9051c" constant="true" value="Data controls.Files.startIndex">
+            <expression objRef="5541fdd1-fedb-45ba-ab74-966e737af3a6"/>
+            <expression objRef="34ec885b-a2e1-4c4a-8987-f56c9e935e86" order="1"/>
+            <expression order="2"/>
+          </value>
+        </parameters>
+        <parameters uid="e0d0ae0e-f2b9-49fa-9db6-38f1a00863e0" parameter="8cc19390-4008-11e4-916c-0800200c9a66">
+          <value uid="e467796d-268a-40a7-b238-d261eda08ee4" constant="true" value="Data controls.Files.endindex">
+            <expression objRef="5541fdd1-fedb-45ba-ab74-966e737af3a6"/>
+            <expression objRef="34ec885b-a2e1-4c4a-8987-f56c9e935e86" order="1"/>
+            <expression order="2"/>
+          </value>
+        </parameters>
+        <parameters uid="c9040573-5984-49f6-b759-407639e4bf3d" parameter="97d8a070-4008-11e4-916c-0800200c9a66">
+          <value uid="a96f6260-6972-4944-8e32-665cd92c2bf7" value="org.elsoft.platform.hr.objects.FileDAO"/>
+        </parameters>
+      </search>
+    </controls>
     <relations uid="972f0d1f-f8cf-40b6-aaf9-e2381520c106" master="d45e9605-3706-493c-8422-3f7b8b6ea2ed" detail="cd1cab1c-1781-4867-85b8-84d9f465f989"/>
     <relations uid="3b59dfbd-f908-471a-9845-4c75102b113e" master="cd1cab1c-1781-4867-85b8-84d9f465f989" detail="f77b6e6d-41a3-4fb5-8ab9-85b2b76191ec" isTree="true"/>
     <relations uid="8b4d68a8-ac54-48fd-b48b-ad8f701f44fb" master="f77b6e6d-41a3-4fb5-8ab9-85b2b76191ec" detail="8d431a55-eddc-42cb-8397-588243cfb255" isTree="true"/>
@@ -1918,6 +1979,8 @@
     <relations uid="25c92731-b5a8-47d0-b365-ec9a91e9ef92" master="b4d21da3-17fa-49e6-ab0e-a8cd3bd9d01d" detail="0feddc04-1241-40fa-a9f3-35089d2cf4c5"/>
     <relations uid="155bcb14-c965-4841-a8eb-c1ed973fd3ca" master="0feddc04-1241-40fa-a9f3-35089d2cf4c5" detail="0b115ae0-7710-49f2-bb74-45fa6af58c8e"/>
     <relations uid="920bd4f6-ad39-4ad6-9a74-7b4c31cec2d6" master="0feddc04-1241-40fa-a9f3-35089d2cf4c5" detail="7787cfd3-a689-4089-8689-7c149a1a3a34"/>
+    <relations uid="ad6d0aa1-f9f4-4328-bcbc-4f155e52df14" master="0b115ae0-7710-49f2-bb74-45fa6af58c8e" detail="34ec885b-a2e1-4c4a-8987-f56c9e935e86"/>
+    <relations uid="4b1f6d1c-c9a1-42ed-b818-424c580f42dd" master="34ec885b-a2e1-4c4a-8987-f56c9e935e86" detail="34ec885b-a2e1-4c4a-8987-f56c9e935e86" isTree="true"/>
   </tura.domain:Controls>
   <tura.domain:Artifacts uid="e15bf32f-16b2-4b20-bceb-f9866c131ad9" parent="5945624b-20f3-47f9-9cb1-d0dc8df9491a">
     <artifacts uid="d597c2ba-7f76-4769-a0e5-f9828833760f" name="Data control" template="platform:/plugin/org.tura.metamodel.wizard.generation/template/mvc/model/mainModel.egl">

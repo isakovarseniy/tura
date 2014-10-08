@@ -1,0 +1,21 @@
+[%
+     var util = new Native('org.tura.metamodel.commons.Util');
+
+    var f = new Native("org.tura.metamodel.wizard.infrastructure.JavaFormatter"); 
+    var datacontrol : Template = TemplateFactory.load("platform:/plugin/org.tura.metamodel.wizard.generation/template/mvc/model/CDI/datacontrol.egl");
+    datacontrol.setFormatter(f);
+
+
+    datacontrol.populate("recipe",recipe);
+    datacontrol.populate("ingredient",ingredient);
+    datacontrol.populate("component",component);
+    datacontrol.populate("model_mapper",model_mapper);
+    datacontrol.populate("form",form);
+    datacontrol.populate("control",control);
+
+    var buffer = datacontrol.process();
+
+    util.saveFile( path+util.mergeAndCapitalize(form.name).toLowerCase()+"/datacontrol/"  , util.mergeAndCapitalize(control.name) + "DC.java",buffer);   
+
+
+%]

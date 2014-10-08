@@ -1,9 +1,62 @@
 import "platform:/plugin/org.tura.metamodel.wizard.generation/template/commons/typeElementUtil.eol";
  
 
-operation DataControl processTriggers( ) { 
+operation DataControl processTriggers(recipe:Recipe, ingredient :Ingredient ) { 
 
+        var provider = new Native('java.util.HashMap');
+        self.~provider=provider;
+
+        self.create.processTrigger(recipe,ingredient);
+        var array = new Native('java.util.ArrayList');
+        array.add("create");
+        provider.put(self.create.typeRef.~fullName,array);   
+
+        self.insert.processTrigger(recipe,ingredient);
+        array = provider.get(self.insert.typeRef.~fullName);   
+        if (array = null){
+           array = new Native('java.util.ArrayList');
+           provider.put(self.insert.typeRef.~fullName,array);   
+         }
+        array.add("insert");
+        
+        self.update.processTrigger(recipe,ingredient);
+        array = provider.get(self.update.typeRef.~fullName);   
+        if (array = null){
+           array = new Native('java.util.ArrayList');
+           provider.put(self.update.typeRef.~fullName,array);   
+         }
+        array.add("update");
+
+        self.remove.processTrigger(recipe,ingredient);
+        array = provider.get(self.remove.typeRef.~fullName);   
+        if (array = null){
+           array = new Native('java.util.ArrayList');
+           provider.put(self.remove.typeRef.~fullName,array);   
+         }
+        array.add("delete");
+
+        self.search.processTrigger(recipe,ingredient);
+        array = provider.get(self.search.typeRef.~fullName);   
+        if (array = null){
+           array = new Native('java.util.ArrayList');
+           provider.put(self.search.typeRef.~fullName,array);   
+         }
+        array.add("search");
+        
+        
 }
+
+
+operation Trigger processTrigger(recipe:Recipe, ingredient :Ingredient){
+        var util = new Native('org.tura.metamodel.commons.Util');
+        self.typeRef.mappingType2Java(recipe,ingredient);
+        for (parameter in self.parameters){
+            parameter.~result =  util.buildExpression(parameter.value);
+util.println( parameter.~result);            
+            parameter.parameter.typeRef.mappingType2Java(recipe,ingredient);
+        }
+}
+
 
 operation DataControl processKeys(recipe:Recipe, ingredient :Ingredient ) { 
 
@@ -11,11 +64,8 @@ operation DataControl processKeys(recipe:Recipe, ingredient :Ingredient ) {
         
         var tp = self.create.methodRef.returnValue.typeRef;
         
-        var basetype = tp;
-        if (self.baseType <> null)
-             basetype = self.baseType;
-             
-        basetype.mappingType2Java(recipe,ingredient);
+        var basetype = self.getBaseClass(recipe,ingredient);
+        
         self.~baseclass = basetype.~class;
         self.~basepackage = basetype.~package;
         self.~basefullName = basetype.~fullName;     
@@ -38,7 +88,6 @@ operation DataControl processKeys(recipe:Recipe, ingredient :Ingredient ) {
 
 
 operation DataControl processArtificialFields(recipe:Recipe, ingredient :Ingredient ) { 
-        var util = new Native('org.tura.metamodel.commons.Util');
 
         var artificialFields = self.artificialFields;
         for (  field in artificialFields){
@@ -46,9 +95,50 @@ operation DataControl processArtificialFields(recipe:Recipe, ingredient :Ingredi
         }
 }
 
-operation DataControl processRelations( ) { 
-
+operation DataControl processRelations( recipe:Recipe, ingredient :Ingredient) { 
+        var util = new Native('org.tura.metamodel.commons.Util');
+        var treeRoots =   domain::Relation.allInstances()->select(r|r.isTree=true)->collect(w|w.master)->reject(q|domain::Relation.allInstances()->select(r|r.isTree=true)->collect(w|w.detail)->includes(q));
+        treeRoots.addAll(domain::Relation.allInstances()->select(r|r.isTree=true and  r.master=r.detail)->collect(w|w.master));
+        for ( treeRoot in treeRoots ){
+           var objectTrack =  new Native('java.util.ArrayList');     
+            treeRoot.~dependArray = new Native('java.util.ArrayList');    
+            treeRoot.~treeRoot=true;       
+            treeRoot.findDependecies(objectTrack, treeRoot,recipe,ingredient);
+        }
 }
 
+
+operation DataControl findDependecies ( objectTrack, treeRoot: DataControl,recipe:Recipe, ingredient :Ingredient){
+         if (objectTrack.contains(self) )
+              return;
+        
+        objectTrack.add(self);
+        var listOfDependent = domain::Relation.allInstances()->select(r|r.isTree=false and r.master = self)->collect(w|w.detail);
+        for (dependent in listOfDependent){
+            treeRoot.~dependArray.add(dependent.name);
+            if (dependent.~dependObject == null)
+                dependent.~dependObject = new Native('java.util.ArrayList');  
+            dependent.~dependObject.add(dependent.getBaseClass(recipe,ingredient));
+        }      
+              
+        var listOfTreeNodes = domain::Relation.allInstances()->select(r|r.isTree=true and r.master = self)->collect(w|w.detail);
+        for (treeNode in listOfTreeNodes){
+               treeNode.findDependecies(objectTrack, treeRoot,recipe,ingredient);
+        }
+}
+
+operation DataControl getBaseClass(recipe:Recipe, ingredient :Ingredient)  : Type{
+    
+       var base = self.create.methodRef.returnValue.typeRef;
+        if (self.baseType <> null)
+             base = self.baseType;
+        base.mappingType2Java(recipe,ingredient);
+        return base;
+ 
+ }
+
 operation DataControl processSearchOrder(){
+
+//Default search and order criteria is not implemented on metamodel level
+
 }
