@@ -1972,15 +1972,33 @@
         </parameters>
       </search>
     </controls>
-    <relations uid="972f0d1f-f8cf-40b6-aaf9-e2381520c106" master="d45e9605-3706-493c-8422-3f7b8b6ea2ed" detail="cd1cab1c-1781-4867-85b8-84d9f465f989"/>
-    <relations uid="3b59dfbd-f908-471a-9845-4c75102b113e" master="cd1cab1c-1781-4867-85b8-84d9f465f989" detail="f77b6e6d-41a3-4fb5-8ab9-85b2b76191ec" isTree="true"/>
-    <relations uid="8b4d68a8-ac54-48fd-b48b-ad8f701f44fb" master="f77b6e6d-41a3-4fb5-8ab9-85b2b76191ec" detail="8d431a55-eddc-42cb-8397-588243cfb255" isTree="true"/>
-    <relations uid="9bf2f600-8749-4056-9046-a598b05a27ba" master="8d431a55-eddc-42cb-8397-588243cfb255" detail="b4d21da3-17fa-49e6-ab0e-a8cd3bd9d01d" isTree="true"/>
-    <relations uid="25c92731-b5a8-47d0-b365-ec9a91e9ef92" master="b4d21da3-17fa-49e6-ab0e-a8cd3bd9d01d" detail="0feddc04-1241-40fa-a9f3-35089d2cf4c5"/>
-    <relations uid="155bcb14-c965-4841-a8eb-c1ed973fd3ca" master="0feddc04-1241-40fa-a9f3-35089d2cf4c5" detail="0b115ae0-7710-49f2-bb74-45fa6af58c8e"/>
-    <relations uid="920bd4f6-ad39-4ad6-9a74-7b4c31cec2d6" master="0feddc04-1241-40fa-a9f3-35089d2cf4c5" detail="7787cfd3-a689-4089-8689-7c149a1a3a34"/>
-    <relations uid="ad6d0aa1-f9f4-4328-bcbc-4f155e52df14" master="0b115ae0-7710-49f2-bb74-45fa6af58c8e" detail="34ec885b-a2e1-4c4a-8987-f56c9e935e86"/>
-    <relations uid="4b1f6d1c-c9a1-42ed-b818-424c580f42dd" master="34ec885b-a2e1-4c4a-8987-f56c9e935e86" detail="34ec885b-a2e1-4c4a-8987-f56c9e935e86" isTree="true"/>
+    <relations uid="972f0d1f-f8cf-40b6-aaf9-e2381520c106" master="d45e9605-3706-493c-8422-3f7b8b6ea2ed" detail="cd1cab1c-1781-4867-85b8-84d9f465f989">
+      <links uid="6d31041c-362e-4dd3-ad97-0288b77d1659" masterField="32e932b5-e86f-43a3-96c1-8b919c740eb6" detailField="4ff34e6a-5c01-4656-9a98-32a95c0babea"/>
+    </relations>
+    <relations uid="3b59dfbd-f908-471a-9845-4c75102b113e" master="cd1cab1c-1781-4867-85b8-84d9f465f989" detail="f77b6e6d-41a3-4fb5-8ab9-85b2b76191ec" isTree="true">
+      <links uid="07be0a96-0246-454f-916d-4b92db95f279" masterField="32e932b5-e86f-43a3-96c1-8b919c740eb6" detailField="4ff34e6a-5c01-4656-9a98-32a95c0babea"/>
+    </relations>
+    <relations uid="8b4d68a8-ac54-48fd-b48b-ad8f701f44fb" master="f77b6e6d-41a3-4fb5-8ab9-85b2b76191ec" detail="8d431a55-eddc-42cb-8397-588243cfb255" isTree="true">
+      <links uid="df690b34-2d37-4c85-959a-0d12bbf69422" masterField="32e932b5-e86f-43a3-96c1-8b919c740eb6" detailField="4ff34e6a-5c01-4656-9a98-32a95c0babea"/>
+    </relations>
+    <relations uid="9bf2f600-8749-4056-9046-a598b05a27ba" master="8d431a55-eddc-42cb-8397-588243cfb255" detail="b4d21da3-17fa-49e6-ab0e-a8cd3bd9d01d" isTree="true">
+      <links uid="1db1bcde-0273-4063-bc46-36ede0dbe23d" masterField="32e932b5-e86f-43a3-96c1-8b919c740eb6" detailField="4ff34e6a-5c01-4656-9a98-32a95c0babea"/>
+    </relations>
+    <relations uid="25c92731-b5a8-47d0-b365-ec9a91e9ef92" master="b4d21da3-17fa-49e6-ab0e-a8cd3bd9d01d" detail="0feddc04-1241-40fa-a9f3-35089d2cf4c5">
+      <links uid="0a48f6db-7d94-4976-841c-1dcb0aedf99e" masterField="32e932b5-e86f-43a3-96c1-8b919c740eb6" detailField="4ff34e6a-5c01-4656-9a98-32a95c0babea"/>
+    </relations>
+    <relations uid="155bcb14-c965-4841-a8eb-c1ed973fd3ca" master="0feddc04-1241-40fa-a9f3-35089d2cf4c5" detail="0b115ae0-7710-49f2-bb74-45fa6af58c8e">
+      <links uid="29e295d4-34e4-429b-8663-d2e7ff1678cb" masterField="32e932b5-e86f-43a3-96c1-8b919c740eb6" detailField="4ff34e6a-5c01-4656-9a98-32a95c0babea"/>
+    </relations>
+    <relations uid="920bd4f6-ad39-4ad6-9a74-7b4c31cec2d6" master="0feddc04-1241-40fa-a9f3-35089d2cf4c5" detail="7787cfd3-a689-4089-8689-7c149a1a3a34">
+      <links uid="af9cb07a-7d8b-4f44-8056-d9ffaab90774" masterField="32e932b5-e86f-43a3-96c1-8b919c740eb6" detailField="4ff34e6a-5c01-4656-9a98-32a95c0babea"/>
+    </relations>
+    <relations uid="ad6d0aa1-f9f4-4328-bcbc-4f155e52df14" master="0b115ae0-7710-49f2-bb74-45fa6af58c8e" detail="34ec885b-a2e1-4c4a-8987-f56c9e935e86">
+      <links uid="b02c3fbb-33fb-4be1-8957-ba4abe011767" masterField="32e932b5-e86f-43a3-96c1-8b919c740eb6" detailField="4ff34e6a-5c01-4656-9a98-32a95c0babea"/>
+    </relations>
+    <relations uid="4b1f6d1c-c9a1-42ed-b818-424c580f42dd" master="34ec885b-a2e1-4c4a-8987-f56c9e935e86" detail="34ec885b-a2e1-4c4a-8987-f56c9e935e86" isTree="true">
+      <links uid="0ac27e60-50c8-4410-8863-8b1ebed0ebf6" masterField="32e932b5-e86f-43a3-96c1-8b919c740eb6" detailField="4ff34e6a-5c01-4656-9a98-32a95c0babea"/>
+    </relations>
   </tura.domain:Controls>
   <tura.domain:Artifacts uid="e15bf32f-16b2-4b20-bceb-f9866c131ad9" parent="5945624b-20f3-47f9-9cb1-d0dc8df9491a">
     <artifacts uid="d597c2ba-7f76-4769-a0e5-f9828833760f" name="Data control" template="platform:/plugin/org.tura.metamodel.wizard.generation/template/mvc/model/mainModel.egl">

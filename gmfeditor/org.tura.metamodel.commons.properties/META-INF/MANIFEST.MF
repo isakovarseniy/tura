@@ -35,8 +35,6 @@ Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Export-Package: org.tura.metamodel.commons.properties,
  org.tura.metamodel.commons.properties.selections,
- org.tura.metamodel.commons.properties.selections.adapters,
- org.tura.metamodel.commons.properties.selections.adapters.helper,
  org.tura.metamodel.commons.properties.selections.context,
  org.tura.metamodel.commons.properties.selections.context.impl,
  org.tura.metamodel.commons.properties.selections.dropdown,

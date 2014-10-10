@@ -12,7 +12,6 @@ import java.util.List;
 import java.util.Set;
 
 import org.apache.commons.lang.StringUtils;
-import org.eclipse.core.runtime.Platform;
 import org.eclipse.core.runtime.preferences.IEclipsePreferences;
 import org.eclipse.core.runtime.preferences.InstanceScope;
 import org.eclipse.emf.ecore.EClassifier;
@@ -25,12 +24,13 @@ import org.eclipse.ocl.ecore.Constraint;
 import org.eclipse.ocl.ecore.EcoreEnvironmentFactory;
 import org.eclipse.ocl.expressions.OCLExpression;
 import org.eclipse.ocl.helper.OCLHelper;
-import org.eclipse.ui.model.IWorkbenchAdapter;
-
 import org.tura.metamodel.commons.preferences.IPreferenceConstants;
 
-import freemarker.template.*;
 import domain.DomainPackage;
+import freemarker.template.Configuration;
+import freemarker.template.DefaultObjectWrapper;
+import freemarker.template.Template;
+import freemarker.template.TemplateExceptionHandler;
 
 public class Util {
 
@@ -47,22 +47,25 @@ public class Util {
 	}
 
 	public static String buildExpression(domain.ContextValue contextValue) {
-		if (!contextValue.isConstant())
-			return contextValue.getValue();
 
-		String value = "";
-		int i = 0;
-		for (Iterator<domain.ExpressionPart> itr = contextValue.getExpression()
-				.iterator(); itr.hasNext(); i++) {
-			domain.ExpressionPart exp = itr.next();
-			IWorkbenchAdapter adapter = (IWorkbenchAdapter) Platform
-					.getAdapterManager().getAdapter(exp.getObjRef(),
-							IWorkbenchAdapter.class);
-			if (i != 0)
-				value = value + ".";
-			value = value + adapter.getLabel(exp.getObjRef());
-		}
-		return value;
+		return contextValue.getValue();
+		
+//		if (!contextValue.isConstant())
+//			return contextValue.getValue();
+//
+//		String value = "";
+//		int i = 0;
+//		for (Iterator<domain.ExpressionPart> itr = contextValue.getExpression()
+//				.iterator(); itr.hasNext(); i++) {
+//			domain.ExpressionPart exp = itr.next();
+//			IWorkbenchAdapter adapter = (IWorkbenchAdapter) Platform
+//					.getAdapterManager().getAdapter(exp.getObjRef(),
+//							IWorkbenchAdapter.class);
+//			if (i != 0)
+//				value = value + ".";
+//			value = value + adapter.getLabel(exp.getObjRef());
+//		}
+//		return value;
 	}
 
 	public static boolean mapperRecognizer(Set<domain.Mapper> mappers,

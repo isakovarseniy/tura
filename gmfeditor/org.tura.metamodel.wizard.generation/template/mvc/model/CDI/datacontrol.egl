@@ -15,6 +15,18 @@ public class [%=util.mergeAndCapitalize(control.name)%]DC extends org.tura.platf
      i = i+1;
     }
     %] 
+    
+
+    [%
+     var relations = domain::Relation.allInstances()->select(r|r.master= control);   
+    for (relation in relations){
+    %]
+	@javax.inject.Inject
+	private javax.enterprise.inject.Instance<[%=util.mergeAndCapitalize(relation.detail.name)%]DC> [%=util.mergeAndCapitalize(relation.detail.name).toLowerCase()%]producer;
+    [%
+    }
+    %] 
+    
 
 	public  [%=util.mergeAndCapitalize(control.name)%]DC() throws Exception {
 		super();
@@ -39,7 +51,6 @@ public class [%=util.mergeAndCapitalize(control.name)%]DC extends org.tura.platf
 		org.tura.platform.datacontrol.DataControlFactory.buildConnection(this);
 
 	}	
-
 
 	@javax.inject.Inject
 	public void setKeys(
@@ -100,37 +111,70 @@ public class [%=util.mergeAndCapitalize(control.name)%]DC extends org.tura.platf
 	@Override
 	@Inject
 	public void setInsertCommand(
-			@Insert(objectAction = "insert", parameters = @Parameters(value = { @Parameter(name = "obj", expression = "company.currentObject", type = TuraObject.class) })) InsertCommand insertCommand) {
+			@org.tura.platform.datacontrol.annotations.Insert(objectAction = "[%=control.insert.methodRef.name%]", parameters = @org.tura.platform.datacontrol.annotations.Parameters(value = {
+   [%
+    var i = 0;
+    for (param in control.insert.parameters){
+        if (i <> 0 ){ %],[%}%]
+			@org.tura.platform.datacontrol.annotations.Parameter(name = "[%=param.parameter.name%]", value = "[%=param.~result%]", type = [%=param.parameter.typeRef.~fullName%].class) 
+    [%
+     i = i+1;
+    }
+    %] 
+			 })) org.tura.platform.datacontrol.command.InsertCommand insertCommand) {
 		this.insertCommand = insertCommand;
 	}
 
 	@Override
 	@Inject
 	public void setUpdateCommand(
-			@Update(objectAction = "update", parameters = @Parameters(value = { @Parameter(name = "obj", expression = "company.currentObject", type = TuraObject.class) })) UpdateCommand updateCommand) {
+			@org.tura.platform.datacontrol.annotations.Update(objectAction = "[%=control.update.methodRef.name%]", parameters = @org.tura.platform.datacontrol.annotations.Parameters(value = {
+   [%
+    var i = 0;
+    for (param in control.update.parameters){
+        if (i <> 0 ){ %],[%}%]
+			@org.tura.platform.datacontrol.annotations.Parameter(name = "[%=param.parameter.name%]", value = "[%=param.~result%]", type = [%=param.parameter.typeRef.~fullName%].class) 
+    [%
+     i = i+1;
+    }
+    %] 
+			  })) org.tura.platform.datacontrol.command.UpdateCommand updateCommand) {
 		this.updateCommand = updateCommand;
 	}
 
 	@Override
 	@Inject
 	public void setDeleteCommand(
-			@Delete(objectAction = "remove", parameters = @Parameters(value = { @Parameter(name = "obj", expression = "company.currentObject", type = TuraObject.class) })) DeleteCommand deleteCommand) {
+			@org.tura.platform.datacontrol.annotations.Delete(objectAction = "[%=control.remove.methodRef.name%]", parameters = @org.tura.platform.datacontrol.annotations.Parameters(value = {
+   [%
+    var i = 0;
+    for (param in control.remove.parameters){
+        if (i <> 0 ){ %],[%}%]
+			@org.tura.platform.datacontrol.annotations.Parameter(name = "[%=param.parameter.name%]", value = "[%=param.~result%]", type = [%=param.parameter.typeRef.~fullName%].class) 
+    [%
+     i = i+1;
+    }
+    %] 
+			 })) org.tura.platform.datacontrol.command.DeleteCommand deleteCommand) {
 		this.deleteCommand = deleteCommand;
 	}
 
 	@Override
 	@Inject
 	public void setSearchCommand(
-			@Search(objectAction = "find", parameters = @Parameters(value = {
-					@Parameter(name = "dslQuery", type = SelectQuery.class, expression = "company.query"),
-					@Parameter(name = "startindex", type = Integer.class, expression = "company.startIndex"),
-					@Parameter(name = "endindex", type = Integer.class, expression = "company.endIndex"),
-					@Parameter(name = "objectClass", type = String.class, value = "org.tura.platform.hr.objects.CompanyDAO") })) SearchCommand searchCommand) {
+			@org.tura.platform.datacontrol.annotations.Search(objectAction = "[%=control.remove.methodRef.name%]", parameters = @org.tura.platform.datacontrol.annotations.Parameters(value = {
+   [%
+    var i = 0;
+    for (param in control.search.parameters){
+        if (i <> 0 ){ %],[%}%]
+			@org.tura.platform.datacontrol.annotations.Parameter(name = "[%=param.parameter.name%]", value = "[%=param.~result%]", type = [%=param.parameter.typeRef.~fullName%].class) 
+    [%
+     i = i+1;
+    }
+    %] 
+					})) org.tura.platform.datacontrol.command.SearchCommand searchCommand) {
 		this.searchCommand = searchCommand;
 	}
-
-
-
 
 	@Override
 	@javax.inject.Inject
@@ -174,5 +218,39 @@ public class [%=util.mergeAndCapitalize(control.name)%]DC extends org.tura.platf
 		this.preUpdateTrigger = preUpdateTrigger;
 	}
 
+    [%
+    for (relation in relations){
+    %]
+	@org.tura.platform.datacontrol.annotations.Factory
+	@org.tura.platform.datacontrol.annotations.Connection(connectionName = "[%=util.mergeAndCapitalize(relation.master.name).toLowerCase()%]2[%=util.mergeAndCapitalize(relation.detail.name).toLowerCase()%]", links = { 
+    [%
+    for (link in relation.links){
+    %]
+	@org.tura.platform.datacontrol.annotations.Link(field1 = "[%=link.masterField.name%]", field2 = "[%=link.detailField.name%]")
+    [%
+    }
+    %] 
+	 })
+	public org.tura.platform.datacontrol.IDataControl get[%=util.mergeAndCapitalize(relation.master.name)%]2[%=util.mergeAndCapitalize(relation.detail.name)%]() {
+		org.tura.platform.datacontrol.IDataControl dc = [%=util.mergeAndCapitalize(relation.detail.name).toLowerCase()%]producer.get();
+		getElResolver().setValue("[%=util.mergeAndCapitalize(relation.detail.name).toLowerCase()%]", dc);
+		return dc;
+	}
+    [%
+    }
+    %] 
+    
+ 	@Override
+	public void createChild(org.tura.platform.datacontrol.IDataControl dc, String relName, org.tura.platform.datacontrol.metainfo.Relation relation) {
+    [%
+    for (relation in relations){
+    %]
+       if ("[%=util.mergeAndCapitalize(relation.master.name).toLowerCase()%]2[%=util.mergeAndCapitalize(relation.detail.name).toLowerCase()%]".equals(relName))
+		relation.setChild(this.get[%=util.mergeAndCapitalize(relation.master.name)%]2[%=util.mergeAndCapitalize(relation.detail.name)%]()) ;
+    [%
+    }
+    %] 
+	}
+    
 	
 }

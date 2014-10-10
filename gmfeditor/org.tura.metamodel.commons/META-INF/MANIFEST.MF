@@ -16,7 +16,9 @@ Export-Package:
  org.tura.metamodel.commons,
  org.tura.metamodel.commons.editparts,
  org.tura.metamodel.commons.figures,
- org.tura.metamodel.commons.initdiagram
+ org.tura.metamodel.commons.initdiagram,
+ org.tura.metamodel.commons.properties.selections.adapters,
+ org.tura.metamodel.commons.properties.selections.adapters.helper
 Import-Package: org.eclipse.draw2d,
  org.eclipse.draw2d.geometry,
  org.eclipse.emf.common.command,
