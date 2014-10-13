@@ -169,6 +169,8 @@ public class DataControlItemProvider
       childrenFeatures.add(DomainPackage.Literals.DATA_CONTROL__REMOVE);
       childrenFeatures.add(DomainPackage.Literals.DATA_CONTROL__SEARCH);
       childrenFeatures.add(DomainPackage.Literals.DATA_CONTROL__ARTIFICIAL_FIELDS);
+      childrenFeatures.add(DomainPackage.Literals.DATA_CONTROL__DEFAULT_SEARCH);
+      childrenFeatures.add(DomainPackage.Literals.DATA_CONTROL__DEFAULT_ORDER_BY);
     }
     return childrenFeatures;
   }
@@ -244,6 +246,8 @@ public class DataControlItemProvider
       case DomainPackage.DATA_CONTROL__REMOVE:
       case DomainPackage.DATA_CONTROL__SEARCH:
       case DomainPackage.DATA_CONTROL__ARTIFICIAL_FIELDS:
+      case DomainPackage.DATA_CONTROL__DEFAULT_SEARCH:
+      case DomainPackage.DATA_CONTROL__DEFAULT_ORDER_BY:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
         return;
     }
@@ -321,6 +325,222 @@ public class DataControlItemProvider
       (createChildParameter
         (DomainPackage.Literals.DATA_CONTROL__ARTIFICIAL_FIELDS,
          DomainFactory.eINSTANCE.createArtificialField()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (DomainPackage.Literals.DATA_CONTROL__DEFAULT_SEARCH,
+         DomainFactory.eINSTANCE.createTrigger()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (DomainPackage.Literals.DATA_CONTROL__DEFAULT_SEARCH,
+         DomainFactory.eINSTANCE.createViewPortTrigger()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (DomainPackage.Literals.DATA_CONTROL__DEFAULT_SEARCH,
+         DomainFactory.eINSTANCE.createContextParameters()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (DomainPackage.Literals.DATA_CONTROL__DEFAULT_SEARCH,
+         DomainFactory.eINSTANCE.createContext()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (DomainPackage.Literals.DATA_CONTROL__DEFAULT_SEARCH,
+         DomainFactory.eINSTANCE.createActionElement()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (DomainPackage.Literals.DATA_CONTROL__DEFAULT_SEARCH,
+         DomainFactory.eINSTANCE.createButton()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (DomainPackage.Literals.DATA_CONTROL__DEFAULT_SEARCH,
+         DomainFactory.eINSTANCE.createPREFormTrigger()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (DomainPackage.Literals.DATA_CONTROL__DEFAULT_SEARCH,
+         DomainFactory.eINSTANCE.createPREQueryTrigger()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (DomainPackage.Literals.DATA_CONTROL__DEFAULT_SEARCH,
+         DomainFactory.eINSTANCE.createPOSTQueryTrigger()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (DomainPackage.Literals.DATA_CONTROL__DEFAULT_SEARCH,
+         DomainFactory.eINSTANCE.createPREInsertTrigger()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (DomainPackage.Literals.DATA_CONTROL__DEFAULT_SEARCH,
+         DomainFactory.eINSTANCE.createPREDeleteTrigger()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (DomainPackage.Literals.DATA_CONTROL__DEFAULT_SEARCH,
+         DomainFactory.eINSTANCE.createPOSTCreateTrigger()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (DomainPackage.Literals.DATA_CONTROL__DEFAULT_SEARCH,
+         DomainFactory.eINSTANCE.createPREUpdateTrigger()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (DomainPackage.Literals.DATA_CONTROL__DEFAULT_SEARCH,
+         DomainFactory.eINSTANCE.createCreateTrigger()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (DomainPackage.Literals.DATA_CONTROL__DEFAULT_SEARCH,
+         DomainFactory.eINSTANCE.createInsertTrigger()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (DomainPackage.Literals.DATA_CONTROL__DEFAULT_SEARCH,
+         DomainFactory.eINSTANCE.createUpdateTrigger()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (DomainPackage.Literals.DATA_CONTROL__DEFAULT_SEARCH,
+         DomainFactory.eINSTANCE.createDeleteTrigger()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (DomainPackage.Literals.DATA_CONTROL__DEFAULT_SEARCH,
+         DomainFactory.eINSTANCE.createSearchTrigger()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (DomainPackage.Literals.DATA_CONTROL__DEFAULT_ORDER_BY,
+         DomainFactory.eINSTANCE.createTrigger()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (DomainPackage.Literals.DATA_CONTROL__DEFAULT_ORDER_BY,
+         DomainFactory.eINSTANCE.createViewPortTrigger()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (DomainPackage.Literals.DATA_CONTROL__DEFAULT_ORDER_BY,
+         DomainFactory.eINSTANCE.createContextParameters()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (DomainPackage.Literals.DATA_CONTROL__DEFAULT_ORDER_BY,
+         DomainFactory.eINSTANCE.createContext()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (DomainPackage.Literals.DATA_CONTROL__DEFAULT_ORDER_BY,
+         DomainFactory.eINSTANCE.createActionElement()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (DomainPackage.Literals.DATA_CONTROL__DEFAULT_ORDER_BY,
+         DomainFactory.eINSTANCE.createButton()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (DomainPackage.Literals.DATA_CONTROL__DEFAULT_ORDER_BY,
+         DomainFactory.eINSTANCE.createPREFormTrigger()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (DomainPackage.Literals.DATA_CONTROL__DEFAULT_ORDER_BY,
+         DomainFactory.eINSTANCE.createPREQueryTrigger()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (DomainPackage.Literals.DATA_CONTROL__DEFAULT_ORDER_BY,
+         DomainFactory.eINSTANCE.createPOSTQueryTrigger()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (DomainPackage.Literals.DATA_CONTROL__DEFAULT_ORDER_BY,
+         DomainFactory.eINSTANCE.createPREInsertTrigger()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (DomainPackage.Literals.DATA_CONTROL__DEFAULT_ORDER_BY,
+         DomainFactory.eINSTANCE.createPREDeleteTrigger()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (DomainPackage.Literals.DATA_CONTROL__DEFAULT_ORDER_BY,
+         DomainFactory.eINSTANCE.createPOSTCreateTrigger()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (DomainPackage.Literals.DATA_CONTROL__DEFAULT_ORDER_BY,
+         DomainFactory.eINSTANCE.createPREUpdateTrigger()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (DomainPackage.Literals.DATA_CONTROL__DEFAULT_ORDER_BY,
+         DomainFactory.eINSTANCE.createCreateTrigger()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (DomainPackage.Literals.DATA_CONTROL__DEFAULT_ORDER_BY,
+         DomainFactory.eINSTANCE.createInsertTrigger()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (DomainPackage.Literals.DATA_CONTROL__DEFAULT_ORDER_BY,
+         DomainFactory.eINSTANCE.createUpdateTrigger()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (DomainPackage.Literals.DATA_CONTROL__DEFAULT_ORDER_BY,
+         DomainFactory.eINSTANCE.createDeleteTrigger()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (DomainPackage.Literals.DATA_CONTROL__DEFAULT_ORDER_BY,
+         DomainFactory.eINSTANCE.createSearchTrigger()));
+  }
+
+  /**
+   * This returns the label text for {@link org.eclipse.emf.edit.command.CreateChildCommand}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String getCreateChildText(Object owner, Object feature, Object child, Collection<?> selection)
+  {
+    Object childFeature = feature;
+    Object childObject = child;
+
+    boolean qualify =
+      childFeature == DomainPackage.Literals.DATA_CONTROL__PRE_QUERY_TRIGGER ||
+      childFeature == DomainPackage.Literals.DATA_CONTROL__DEFAULT_SEARCH ||
+      childFeature == DomainPackage.Literals.DATA_CONTROL__DEFAULT_ORDER_BY ||
+      childFeature == DomainPackage.Literals.DATA_CONTROL__POST_QUERY_TRIGGER ||
+      childFeature == DomainPackage.Literals.DATA_CONTROL__PRE_INSERT_TRIGGER ||
+      childFeature == DomainPackage.Literals.DATA_CONTROL__PRE_DELETE_TRIGGER ||
+      childFeature == DomainPackage.Literals.DATA_CONTROL__POST_CREATE_TRIGGER ||
+      childFeature == DomainPackage.Literals.DATA_CONTROL__PRE_UPDATE_TRIGGER ||
+      childFeature == DomainPackage.Literals.DATA_CONTROL__CREATE ||
+      childFeature == DomainPackage.Literals.DATA_CONTROL__INSERT ||
+      childFeature == DomainPackage.Literals.DATA_CONTROL__UPDATE ||
+      childFeature == DomainPackage.Literals.DATA_CONTROL__REMOVE ||
+      childFeature == DomainPackage.Literals.DATA_CONTROL__SEARCH;
+
+    if (qualify)
+    {
+      return getString
+        ("_UI_CreateChild_text2",
+         new Object[] { getTypeText(childObject), getFeatureText(childFeature), getTypeText(owner) });
+    }
+    return super.getCreateChildText(owner, feature, child, selection);
   }
 
   /**

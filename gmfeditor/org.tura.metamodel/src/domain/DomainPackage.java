@@ -6433,13 +6433,13 @@ public interface DomainPackage extends EPackage
   int CONTEXT_PARAMETER__UID = 0;
 
   /**
-   * The feature id for the '<em><b>Parameter</b></em>' reference.
+   * The feature id for the '<em><b>Ref Obj</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CONTEXT_PARAMETER__PARAMETER = 1;
+  int CONTEXT_PARAMETER__REF_OBJ = 1;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' containment reference.
@@ -9979,13 +9979,31 @@ public interface DomainPackage extends EPackage
   int DATA_CONTROL__ARTIFICIAL_FIELDS = 15;
 
   /**
+   * The feature id for the '<em><b>Default Search</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DATA_CONTROL__DEFAULT_SEARCH = 16;
+
+  /**
+   * The feature id for the '<em><b>Default Order By</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DATA_CONTROL__DEFAULT_ORDER_BY = 17;
+
+  /**
    * The number of structural features of the '<em>Data Control</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int DATA_CONTROL_FEATURE_COUNT = 16;
+  int DATA_CONTROL_FEATURE_COUNT = 18;
 
   /**
    * The meta object id for the '{@link domain.impl.RelationImpl <em>Relation</em>}' class.
@@ -15642,15 +15660,15 @@ public interface DomainPackage extends EPackage
   EAttribute getContextParameter_Uid();
 
   /**
-   * Returns the meta object for the reference '{@link domain.ContextParameter#getParameter <em>Parameter</em>}'.
+   * Returns the meta object for the reference '{@link domain.ContextParameter#getRefObj <em>Ref Obj</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Parameter</em>'.
-   * @see domain.ContextParameter#getParameter()
+   * @return the meta object for the reference '<em>Ref Obj</em>'.
+   * @see domain.ContextParameter#getRefObj()
    * @see #getContextParameter()
    * @generated
    */
-  EReference getContextParameter_Parameter();
+  EReference getContextParameter_RefObj();
 
   /**
    * Returns the meta object for the containment reference '{@link domain.ContextParameter#getValue <em>Value</em>}'.
@@ -16791,6 +16809,28 @@ public interface DomainPackage extends EPackage
    * @generated
    */
   EReference getDataControl_ArtificialFields();
+
+  /**
+   * Returns the meta object for the containment reference '{@link domain.DataControl#getDefaultSearch <em>Default Search</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Default Search</em>'.
+   * @see domain.DataControl#getDefaultSearch()
+   * @see #getDataControl()
+   * @generated
+   */
+  EReference getDataControl_DefaultSearch();
+
+  /**
+   * Returns the meta object for the containment reference '{@link domain.DataControl#getDefaultOrderBy <em>Default Order By</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Default Order By</em>'.
+   * @see domain.DataControl#getDefaultOrderBy()
+   * @see #getDataControl()
+   * @generated
+   */
+  EReference getDataControl_DefaultOrderBy();
 
   /**
    * Returns the meta object for class '{@link domain.Relation <em>Relation</em>}'.
@@ -21220,12 +21260,12 @@ public interface DomainPackage extends EPackage
     EAttribute CONTEXT_PARAMETER__UID = eINSTANCE.getContextParameter_Uid();
 
     /**
-     * The meta object literal for the '<em><b>Parameter</b></em>' reference feature.
+     * The meta object literal for the '<em><b>Ref Obj</b></em>' reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference CONTEXT_PARAMETER__PARAMETER = eINSTANCE.getContextParameter_Parameter();
+    EReference CONTEXT_PARAMETER__REF_OBJ = eINSTANCE.getContextParameter_RefObj();
 
     /**
      * The meta object literal for the '<em><b>Value</b></em>' containment reference feature.
@@ -22156,6 +22196,22 @@ public interface DomainPackage extends EPackage
      * @generated
      */
     EReference DATA_CONTROL__ARTIFICIAL_FIELDS = eINSTANCE.getDataControl_ArtificialFields();
+
+    /**
+     * The meta object literal for the '<em><b>Default Search</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference DATA_CONTROL__DEFAULT_SEARCH = eINSTANCE.getDataControl_DefaultSearch();
+
+    /**
+     * The meta object literal for the '<em><b>Default Order By</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference DATA_CONTROL__DEFAULT_ORDER_BY = eINSTANCE.getDataControl_DefaultOrderBy();
 
     /**
      * The meta object literal for the '{@link domain.impl.RelationImpl <em>Relation</em>}' class.

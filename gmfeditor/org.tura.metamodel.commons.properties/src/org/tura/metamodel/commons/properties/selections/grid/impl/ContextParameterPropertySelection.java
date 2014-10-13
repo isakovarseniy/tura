@@ -30,6 +30,7 @@ import org.tura.metamodel.commons.QueryHelper;
 import org.tura.metamodel.commons.properties.selections.adapters.IReturnTypeProvider;
 import org.tura.metamodel.commons.properties.selections.adapters.helper.TreeRoot;
 import org.tura.metamodel.commons.properties.selections.adapters.helper.TriggerHolder;
+import org.tura.metamodel.commons.properties.selections.grid.DataSource;
 import org.tura.metamodel.commons.properties.selections.grid.GridColumn;
 import org.tura.metamodel.commons.properties.selections.grid.GridProperty;
 
@@ -41,9 +42,9 @@ import domain.TypeElement;
 import domain.TypeReference;
 import domain.Views;
 
-public class ContextParameterPropertySelection extends GridProperty {
+public abstract class ContextParameterPropertySelection extends GridProperty {
 
-	private List<GridColumn> columnList;
+	protected List<GridColumn> columnList;
 
 	@Override
 	public EObject getModel() {
@@ -51,9 +52,12 @@ public class ContextParameterPropertySelection extends GridProperty {
 	}
 
 	public ContextParameterPropertySelection() {
-		ds = new ContextParameterrDS(this);
+		ds = getDS();
 	}
-
+	
+	public abstract String contextRefNameExtreactor(domain.ContextParameter obj);
+	public abstract domain.TypeElement contextRefTypeExtreactor(domain.ContextParameter obj);
+	protected abstract DataSource getDS();
 
 	@Override
 	public List<GridColumn> getColumns() {
@@ -85,7 +89,6 @@ public class ContextParameterPropertySelection extends GridProperty {
 		private int col;
 
 		private Table table;
-		@SuppressWarnings("unused")
 		private GridProperty property;
 
 		public ParameterColumn(Table table, GridProperty property, int col) {
@@ -123,8 +126,8 @@ public class ContextParameterPropertySelection extends GridProperty {
 		public Object getValue(Object element) {
 			String result = "";
 			domain.ContextParameter task = (domain.ContextParameter) element;
-			if (task.getParameter().getName() != null)
-				result = task.getParameter().getName();
+			if (  ((ContextParameterPropertySelection) property).contextRefNameExtreactor(task) != null)
+				result = ((ContextParameterPropertySelection) property).contextRefNameExtreactor(task);
 			return result;
 		}
 
@@ -377,7 +380,7 @@ public class ContextParameterPropertySelection extends GridProperty {
 	public void updateExpressionValue(EditingDomain editingDomain,
 			domain.ContextParameter param, TreePath path) {
 
-		if (param.getParameter().getTypeRef() == null) {
+		if (contextRefNameExtreactor(param)== null) {
 			showError("Parameter type is undefined");
 			return;
 		}
@@ -405,7 +408,7 @@ public class ContextParameterPropertySelection extends GridProperty {
 	private boolean checkType(domain.ContextParameter param,
 			domain.TypeElement type) {
 
-		if (type.getUid().equals(param.getParameter().getTypeRef().getUid()))
+		if (type.getUid().equals(contextRefTypeExtreactor(param).getUid()))
 			return true;
 		else {
 			if (type instanceof TypeReference)

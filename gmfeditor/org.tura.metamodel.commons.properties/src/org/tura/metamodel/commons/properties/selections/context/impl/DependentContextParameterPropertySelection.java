@@ -9,7 +9,7 @@ import org.tura.metamodel.commons.properties.selections.grid.impl.ContextParamet
 import domain.ContextValue;
 import domain.DomainPackage;
 
-public class DependentContextParameterPropertySelection extends
+public abstract class DependentContextParameterPropertySelection extends
 		ContextParameterPropertySelection {
 
 	private AdapterImpl adapter;

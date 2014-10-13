@@ -1266,7 +1266,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="ContextParameter">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="parameter" eType="#//Parameter"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="refObj" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="#//ContextValue"
         containment="true"/>
   </eClassifiers>
@@ -1642,6 +1642,10 @@
         <details key="layout" value="list"/>
       </eAnnotations>
     </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="defaultSearch" eType="#//ContextParameters"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="defaultOrderBy" eType="#//ContextParameters"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Relation">
     <eAnnotations source="gmf.link">

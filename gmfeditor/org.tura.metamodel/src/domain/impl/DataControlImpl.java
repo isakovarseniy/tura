@@ -3,6 +3,7 @@
 package domain.impl;
 
 import domain.ArtificialField;
+import domain.ContextParameters;
 import domain.Controls;
 import domain.CreateTrigger;
 import domain.DataControl;
@@ -59,6 +60,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link domain.impl.DataControlImpl#getRemove <em>Remove</em>}</li>
  *   <li>{@link domain.impl.DataControlImpl#getSearch <em>Search</em>}</li>
  *   <li>{@link domain.impl.DataControlImpl#getArtificialFields <em>Artificial Fields</em>}</li>
+ *   <li>{@link domain.impl.DataControlImpl#getDefaultSearch <em>Default Search</em>}</li>
+ *   <li>{@link domain.impl.DataControlImpl#getDefaultOrderBy <em>Default Order By</em>}</li>
  * </ul>
  * </p>
  *
@@ -235,6 +238,26 @@ public class DataControlImpl extends EObjectImpl implements DataControl
    * @ordered
    */
   protected EList<ArtificialField> artificialFields;
+
+  /**
+   * The cached value of the '{@link #getDefaultSearch() <em>Default Search</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getDefaultSearch()
+   * @generated
+   * @ordered
+   */
+  protected ContextParameters defaultSearch;
+
+  /**
+   * The cached value of the '{@link #getDefaultOrderBy() <em>Default Order By</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getDefaultOrderBy()
+   * @generated
+   * @ordered
+   */
+  protected ContextParameters defaultOrderBy;
 
   /**
    * <!-- begin-user-doc -->
@@ -938,6 +961,102 @@ public class DataControlImpl extends EObjectImpl implements DataControl
    * <!-- end-user-doc -->
    * @generated
    */
+  public ContextParameters getDefaultSearch()
+  {
+    return defaultSearch;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetDefaultSearch(ContextParameters newDefaultSearch, NotificationChain msgs)
+  {
+    ContextParameters oldDefaultSearch = defaultSearch;
+    defaultSearch = newDefaultSearch;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DomainPackage.DATA_CONTROL__DEFAULT_SEARCH, oldDefaultSearch, newDefaultSearch);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setDefaultSearch(ContextParameters newDefaultSearch)
+  {
+    if (newDefaultSearch != defaultSearch)
+    {
+      NotificationChain msgs = null;
+      if (defaultSearch != null)
+        msgs = ((InternalEObject)defaultSearch).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DomainPackage.DATA_CONTROL__DEFAULT_SEARCH, null, msgs);
+      if (newDefaultSearch != null)
+        msgs = ((InternalEObject)newDefaultSearch).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - DomainPackage.DATA_CONTROL__DEFAULT_SEARCH, null, msgs);
+      msgs = basicSetDefaultSearch(newDefaultSearch, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.DATA_CONTROL__DEFAULT_SEARCH, newDefaultSearch, newDefaultSearch));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ContextParameters getDefaultOrderBy()
+  {
+    return defaultOrderBy;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetDefaultOrderBy(ContextParameters newDefaultOrderBy, NotificationChain msgs)
+  {
+    ContextParameters oldDefaultOrderBy = defaultOrderBy;
+    defaultOrderBy = newDefaultOrderBy;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DomainPackage.DATA_CONTROL__DEFAULT_ORDER_BY, oldDefaultOrderBy, newDefaultOrderBy);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setDefaultOrderBy(ContextParameters newDefaultOrderBy)
+  {
+    if (newDefaultOrderBy != defaultOrderBy)
+    {
+      NotificationChain msgs = null;
+      if (defaultOrderBy != null)
+        msgs = ((InternalEObject)defaultOrderBy).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DomainPackage.DATA_CONTROL__DEFAULT_ORDER_BY, null, msgs);
+      if (newDefaultOrderBy != null)
+        msgs = ((InternalEObject)newDefaultOrderBy).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - DomainPackage.DATA_CONTROL__DEFAULT_ORDER_BY, null, msgs);
+      msgs = basicSetDefaultOrderBy(newDefaultOrderBy, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.DATA_CONTROL__DEFAULT_ORDER_BY, newDefaultOrderBy, newDefaultOrderBy));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @SuppressWarnings("unchecked")
   @Override
   public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs)
@@ -990,6 +1109,10 @@ public class DataControlImpl extends EObjectImpl implements DataControl
         return basicSetSearch(null, msgs);
       case DomainPackage.DATA_CONTROL__ARTIFICIAL_FIELDS:
         return ((InternalEList<?>)getArtificialFields()).basicRemove(otherEnd, msgs);
+      case DomainPackage.DATA_CONTROL__DEFAULT_SEARCH:
+        return basicSetDefaultSearch(null, msgs);
+      case DomainPackage.DATA_CONTROL__DEFAULT_ORDER_BY:
+        return basicSetDefaultOrderBy(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -1053,6 +1176,10 @@ public class DataControlImpl extends EObjectImpl implements DataControl
         return getSearch();
       case DomainPackage.DATA_CONTROL__ARTIFICIAL_FIELDS:
         return getArtificialFields();
+      case DomainPackage.DATA_CONTROL__DEFAULT_SEARCH:
+        return getDefaultSearch();
+      case DomainPackage.DATA_CONTROL__DEFAULT_ORDER_BY:
+        return getDefaultOrderBy();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -1117,6 +1244,12 @@ public class DataControlImpl extends EObjectImpl implements DataControl
         getArtificialFields().clear();
         getArtificialFields().addAll((Collection<? extends ArtificialField>)newValue);
         return;
+      case DomainPackage.DATA_CONTROL__DEFAULT_SEARCH:
+        setDefaultSearch((ContextParameters)newValue);
+        return;
+      case DomainPackage.DATA_CONTROL__DEFAULT_ORDER_BY:
+        setDefaultOrderBy((ContextParameters)newValue);
+        return;
     }
     super.eSet(featureID, newValue);
   }
@@ -1179,6 +1312,12 @@ public class DataControlImpl extends EObjectImpl implements DataControl
       case DomainPackage.DATA_CONTROL__ARTIFICIAL_FIELDS:
         getArtificialFields().clear();
         return;
+      case DomainPackage.DATA_CONTROL__DEFAULT_SEARCH:
+        setDefaultSearch((ContextParameters)null);
+        return;
+      case DomainPackage.DATA_CONTROL__DEFAULT_ORDER_BY:
+        setDefaultOrderBy((ContextParameters)null);
+        return;
     }
     super.eUnset(featureID);
   }
@@ -1225,6 +1364,10 @@ public class DataControlImpl extends EObjectImpl implements DataControl
         return search != null;
       case DomainPackage.DATA_CONTROL__ARTIFICIAL_FIELDS:
         return artificialFields != null && !artificialFields.isEmpty();
+      case DomainPackage.DATA_CONTROL__DEFAULT_SEARCH:
+        return defaultSearch != null;
+      case DomainPackage.DATA_CONTROL__DEFAULT_ORDER_BY:
+        return defaultOrderBy != null;
     }
     return super.eIsSet(featureID);
   }

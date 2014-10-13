@@ -2,19 +2,17 @@
  */
 package domain.impl;
 
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.InternalEObject;
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.EObjectImpl;
+
 import domain.ContextParameter;
 import domain.ContextValue;
 import domain.DomainPackage;
-import domain.Parameter;
-
-import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
-
-import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
-
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.EObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -24,7 +22,7 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * The following features are implemented:
  * <ul>
  *   <li>{@link domain.impl.ContextParameterImpl#getUid <em>Uid</em>}</li>
- *   <li>{@link domain.impl.ContextParameterImpl#getParameter <em>Parameter</em>}</li>
+ *   <li>{@link domain.impl.ContextParameterImpl#getRefObj <em>Ref Obj</em>}</li>
  *   <li>{@link domain.impl.ContextParameterImpl#getValue <em>Value</em>}</li>
  * </ul>
  * </p>
@@ -54,14 +52,14 @@ public class ContextParameterImpl extends EObjectImpl implements ContextParamete
   protected String uid = UID_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getParameter() <em>Parameter</em>}' reference.
+   * The cached value of the '{@link #getRefObj() <em>Ref Obj</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getParameter()
+   * @see #getRefObj()
    * @generated
    * @ordered
    */
-  protected Parameter parameter;
+  protected EObject refObj;
 
   /**
    * The cached value of the '{@link #getValue() <em>Value</em>}' containment reference.
@@ -122,19 +120,19 @@ public class ContextParameterImpl extends EObjectImpl implements ContextParamete
    * <!-- end-user-doc -->
    * @generated
    */
-  public Parameter getParameter()
+  public EObject getRefObj()
   {
-    if (parameter != null && parameter.eIsProxy())
+    if (refObj != null && refObj.eIsProxy())
     {
-      InternalEObject oldParameter = (InternalEObject)parameter;
-      parameter = (Parameter)eResolveProxy(oldParameter);
-      if (parameter != oldParameter)
+      InternalEObject oldRefObj = (InternalEObject)refObj;
+      refObj = eResolveProxy(oldRefObj);
+      if (refObj != oldRefObj)
       {
         if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, DomainPackage.CONTEXT_PARAMETER__PARAMETER, oldParameter, parameter));
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, DomainPackage.CONTEXT_PARAMETER__REF_OBJ, oldRefObj, refObj));
       }
     }
-    return parameter;
+    return refObj;
   }
 
   /**
@@ -142,9 +140,9 @@ public class ContextParameterImpl extends EObjectImpl implements ContextParamete
    * <!-- end-user-doc -->
    * @generated
    */
-  public Parameter basicGetParameter()
+  public EObject basicGetRefObj()
   {
-    return parameter;
+    return refObj;
   }
 
   /**
@@ -152,12 +150,12 @@ public class ContextParameterImpl extends EObjectImpl implements ContextParamete
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setParameter(Parameter newParameter)
+  public void setRefObj(EObject newRefObj)
   {
-    Parameter oldParameter = parameter;
-    parameter = newParameter;
+    EObject oldRefObj = refObj;
+    refObj = newRefObj;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.CONTEXT_PARAMETER__PARAMETER, oldParameter, parameter));
+      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.CONTEXT_PARAMETER__REF_OBJ, oldRefObj, refObj));
   }
 
   /**
@@ -236,9 +234,9 @@ public class ContextParameterImpl extends EObjectImpl implements ContextParamete
     {
       case DomainPackage.CONTEXT_PARAMETER__UID:
         return getUid();
-      case DomainPackage.CONTEXT_PARAMETER__PARAMETER:
-        if (resolve) return getParameter();
-        return basicGetParameter();
+      case DomainPackage.CONTEXT_PARAMETER__REF_OBJ:
+        if (resolve) return getRefObj();
+        return basicGetRefObj();
       case DomainPackage.CONTEXT_PARAMETER__VALUE:
         return getValue();
     }
@@ -258,8 +256,8 @@ public class ContextParameterImpl extends EObjectImpl implements ContextParamete
       case DomainPackage.CONTEXT_PARAMETER__UID:
         setUid((String)newValue);
         return;
-      case DomainPackage.CONTEXT_PARAMETER__PARAMETER:
-        setParameter((Parameter)newValue);
+      case DomainPackage.CONTEXT_PARAMETER__REF_OBJ:
+        setRefObj((EObject)newValue);
         return;
       case DomainPackage.CONTEXT_PARAMETER__VALUE:
         setValue((ContextValue)newValue);
@@ -281,8 +279,8 @@ public class ContextParameterImpl extends EObjectImpl implements ContextParamete
       case DomainPackage.CONTEXT_PARAMETER__UID:
         setUid(UID_EDEFAULT);
         return;
-      case DomainPackage.CONTEXT_PARAMETER__PARAMETER:
-        setParameter((Parameter)null);
+      case DomainPackage.CONTEXT_PARAMETER__REF_OBJ:
+        setRefObj((EObject)null);
         return;
       case DomainPackage.CONTEXT_PARAMETER__VALUE:
         setValue((ContextValue)null);
@@ -303,8 +301,8 @@ public class ContextParameterImpl extends EObjectImpl implements ContextParamete
     {
       case DomainPackage.CONTEXT_PARAMETER__UID:
         return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
-      case DomainPackage.CONTEXT_PARAMETER__PARAMETER:
-        return parameter != null;
+      case DomainPackage.CONTEXT_PARAMETER__REF_OBJ:
+        return refObj != null;
       case DomainPackage.CONTEXT_PARAMETER__VALUE:
         return value != null;
     }

@@ -4,12 +4,24 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.edit.command.SetCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.gmf.runtime.diagram.ui.parts.DiagramEditor;
+import org.tura.metamodel.commons.properties.selections.grid.DataSource;
 
 import domain.DomainFactory;
 import domain.DomainPackage;
 
 public class ReadOnlyParameterPropertySelection extends DependentContextParameterPropertySelection{
 
+	
+	@Override
+	public String contextRefNameExtreactor(domain.ContextParameter  obj) {
+		return ((domain.Parameter) obj.getRefObj()).getName();
+	}
+
+	@Override
+	public domain.TypeElement contextRefTypeExtreactor(domain.ContextParameter  obj) {
+		return ((domain.Parameter) obj.getRefObj()).getTypeRef();
+	}
+	
 	
 	@Override
 	public EObject getModel() {
@@ -28,6 +40,11 @@ public class ReadOnlyParameterPropertySelection extends DependentContextParamete
 
 		return el.getReadOnly();
 
+	}
+
+	@Override
+	protected DataSource getDS() {
+		return new ContextDS(this);
 	}
 	
 }

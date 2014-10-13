@@ -844,7 +844,7 @@ class StyleClass{
 
 class ContextParameter{
     id attr EString uid;
-   ref Parameter parameter;
+   ref EObject refObj;
    val ContextValue value;
 }
 
@@ -1053,6 +1053,7 @@ class Root{
    val PREFormTrigger preFormTrigger;
 }
 
+
 @gmf.node(label="name",border.color="0,0,0",color="241,238,203")
 class DataControl {
     id attr EString uid;
@@ -1084,7 +1085,9 @@ class DataControl {
 
    @gmf.compartment(layout="list")
    val ArtificialField[*]#parent artificialFields;   
-   
+
+   val ContextParameters defaultSearch;
+   val ContextParameters defaultOrderBy;
     
 }
 

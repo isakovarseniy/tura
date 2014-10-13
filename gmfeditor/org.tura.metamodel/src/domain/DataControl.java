@@ -30,6 +30,8 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link domain.DataControl#getRemove <em>Remove</em>}</li>
  *   <li>{@link domain.DataControl#getSearch <em>Search</em>}</li>
  *   <li>{@link domain.DataControl#getArtificialFields <em>Artificial Fields</em>}</li>
+ *   <li>{@link domain.DataControl#getDefaultSearch <em>Default Search</em>}</li>
+ *   <li>{@link domain.DataControl#getDefaultOrderBy <em>Default Order By</em>}</li>
  * </ul>
  * </p>
  *
@@ -460,5 +462,57 @@ public interface DataControl extends EObject
    * @generated
    */
   EList<ArtificialField> getArtificialFields();
+
+  /**
+   * Returns the value of the '<em><b>Default Search</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Default Search</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Default Search</em>' containment reference.
+   * @see #setDefaultSearch(ContextParameters)
+   * @see domain.DomainPackage#getDataControl_DefaultSearch()
+   * @model containment="true"
+   * @generated
+   */
+  ContextParameters getDefaultSearch();
+
+  /**
+   * Sets the value of the '{@link domain.DataControl#getDefaultSearch <em>Default Search</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Default Search</em>' containment reference.
+   * @see #getDefaultSearch()
+   * @generated
+   */
+  void setDefaultSearch(ContextParameters value);
+
+  /**
+   * Returns the value of the '<em><b>Default Order By</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Default Order By</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Default Order By</em>' containment reference.
+   * @see #setDefaultOrderBy(ContextParameters)
+   * @see domain.DomainPackage#getDataControl_DefaultOrderBy()
+   * @model containment="true"
+   * @generated
+   */
+  ContextParameters getDefaultOrderBy();
+
+  /**
+   * Sets the value of the '{@link domain.DataControl#getDefaultOrderBy <em>Default Order By</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Default Order By</em>' containment reference.
+   * @see #getDefaultOrderBy()
+   * @generated
+   */
+  void setDefaultOrderBy(ContextParameters value);
 
 } // DataControl

@@ -18,7 +18,7 @@ import org.eclipse.ui.views.properties.tabbed.TabbedPropertySheetPage;
 public abstract class AbstractTuraPropertySection extends
 		AbstractPropertySection {
 
-	protected EObject getEObject() {
+	public EObject getEObject() {
 		return eObject;
 	}
 

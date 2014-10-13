@@ -36,6 +36,7 @@ import domain.Views;
 
 public class QueryHelper {
 
+	
 	public List<domain.Language> findLanguages(Object obj) {
 
 		try {
@@ -369,8 +370,8 @@ public class QueryHelper {
 			for (int i = 0; i < trgParameters.size(); i++) {
 				ContextParameter trgParam = trgParameters.get(i);
 				domain.Parameter param = parameters.get(i);
-				if (trgParam.getParameter() == null
-						|| !trgParam.getParameter().getUid()
+				if (trgParam.getRefObj() == null
+						|| !((domain.Parameter) trgParam.getRefObj()).getUid()
 								.equals(param.getUid())) {
 					removeParameters.addAll(trgParameters);
 					renewParameters = true;
@@ -382,7 +383,7 @@ public class QueryHelper {
 			for (int i = 0; i < parameters.size(); i++) {
 				ContextParameter trgParam = DomainFactory.eINSTANCE
 						.createContextParameter();
-				trgParam.setParameter(parameters.get(i));
+				trgParam.setRefObj(parameters.get(i));
 				trgParam.setUid(UUID.randomUUID().toString());
 				addParameters.add(trgParam);
 				ContextValue value = DomainFactory.eINSTANCE
@@ -473,10 +474,10 @@ public class QueryHelper {
 
 		@Override
 		public int compare(ContextParameter o1, ContextParameter o2) {
-			if (o1.getParameter() == null || o2.getParameter() == null)
+			if (o1.getRefObj() == null || o2.getRefObj() == null)
 				return -1;
-			return new Integer(o1.getParameter().getOrder())
-					.compareTo(new Integer(o2.getParameter().getOrder()));
+			return new Integer(((domain.Parameter) o1.getRefObj()).getOrder())
+					.compareTo(new Integer(((domain.Parameter) o2.getRefObj()).getOrder()));
 		}
 
 	}

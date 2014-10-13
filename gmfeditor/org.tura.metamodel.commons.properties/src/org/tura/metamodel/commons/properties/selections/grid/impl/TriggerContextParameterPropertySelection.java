@@ -10,6 +10,7 @@ import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.internal.views.properties.tabbed.view.TabbedPropertyComposite;
+import org.tura.metamodel.commons.properties.selections.grid.DataSource;
 
 import domain.DomainPackage;
 
@@ -73,4 +74,21 @@ public class TriggerContextParameterPropertySelection extends
 		return domain.MethodPointer.class;
 	}
 
+	
+	@Override
+	public String contextRefNameExtreactor(domain.ContextParameter  obj) {
+		return ((domain.Parameter) obj.getRefObj()).getName();
+	}
+
+	@Override
+	public domain.TypeElement contextRefTypeExtreactor(domain.ContextParameter  obj) {
+		return ((domain.Parameter) obj.getRefObj()).getTypeRef();
+	}
+
+	@Override
+	protected DataSource getDS() {
+		return new TriggerContextParameterDS(this);
+	}
+	
+	
 }

@@ -318,6 +318,17 @@
              id="property.tab.domain.control.basetype"
              label="Base type"/>
 
+            <propertyTab
+             category="domain"
+             id="property.tab.domain.control.defaultOrderBy"
+             label="Default order by"/>
+
+            <propertyTab
+             category="domain"
+             id="property.tab.domain.control.defaultSearch"
+             label="Default search"/>
+
+
        </propertyTabs>
        </extension>
     
@@ -333,6 +344,20 @@
               <input type="control.diagram.edit.parts.DataControlEditPart"/>             
            </propertySection>        
       
+
+           <propertySection
+               tab="property.tab.domain.control.defaultSearch"
+               class="org.tura.metamodel.commons.properties.selections.grid.impl.DefaultSearchPropertySelection"
+               id="property.tab.domain.control.defaultSearch">
+              <input type="control.diagram.edit.parts.DataControlEditPart"/>             
+           </propertySection>        
+
+           <propertySection
+               tab="property.tab.domain.control.defaultOrderBy"
+               class="org.tura.metamodel.commons.properties.selections.grid.impl.DefaultOrderByPropertySelection"
+               id="property.tab.domain.control.defaultOrderBy">
+              <input type="control.diagram.edit.parts.DataControlEditPart"/>             
+           </propertySection>        
       
            <propertySection
                tab="property.tab.domain.control.artifitialFieldType"

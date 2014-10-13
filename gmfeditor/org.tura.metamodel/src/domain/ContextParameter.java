@@ -13,7 +13,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * <ul>
  *   <li>{@link domain.ContextParameter#getUid <em>Uid</em>}</li>
- *   <li>{@link domain.ContextParameter#getParameter <em>Parameter</em>}</li>
+ *   <li>{@link domain.ContextParameter#getRefObj <em>Ref Obj</em>}</li>
  *   <li>{@link domain.ContextParameter#getValue <em>Value</em>}</li>
  * </ul>
  * </p>
@@ -51,30 +51,30 @@ public interface ContextParameter extends EObject
   void setUid(String value);
 
   /**
-   * Returns the value of the '<em><b>Parameter</b></em>' reference.
+   * Returns the value of the '<em><b>Ref Obj</b></em>' reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Parameter</em>' reference isn't clear,
+   * If the meaning of the '<em>Ref Obj</em>' reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Parameter</em>' reference.
-   * @see #setParameter(Parameter)
-   * @see domain.DomainPackage#getContextParameter_Parameter()
+   * @return the value of the '<em>Ref Obj</em>' reference.
+   * @see #setRefObj(EObject)
+   * @see domain.DomainPackage#getContextParameter_RefObj()
    * @model
    * @generated
    */
-  Parameter getParameter();
+  EObject getRefObj();
 
   /**
-   * Sets the value of the '{@link domain.ContextParameter#getParameter <em>Parameter</em>}' reference.
+   * Sets the value of the '{@link domain.ContextParameter#getRefObj <em>Ref Obj</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Parameter</em>' reference.
-   * @see #getParameter()
+   * @param value the new value of the '<em>Ref Obj</em>' reference.
+   * @see #getRefObj()
    * @generated
    */
-  void setParameter(Parameter value);
+  void setRefObj(EObject value);
 
   /**
    * Returns the value of the '<em><b>Value</b></em>' containment reference.

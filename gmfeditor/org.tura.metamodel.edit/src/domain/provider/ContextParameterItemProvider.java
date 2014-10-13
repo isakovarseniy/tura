@@ -68,7 +68,7 @@ public class ContextParameterItemProvider
       super.getPropertyDescriptors(object);
 
       addUidPropertyDescriptor(object);
-      addParameterPropertyDescriptor(object);
+      addRefObjPropertyDescriptor(object);
     }
     return itemPropertyDescriptors;
   }
@@ -97,20 +97,20 @@ public class ContextParameterItemProvider
   }
 
   /**
-   * This adds a property descriptor for the Parameter feature.
+   * This adds a property descriptor for the Ref Obj feature.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected void addParameterPropertyDescriptor(Object object)
+  protected void addRefObjPropertyDescriptor(Object object)
   {
     itemPropertyDescriptors.add
       (createItemPropertyDescriptor
         (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
          getResourceLocator(),
-         getString("_UI_ContextParameter_parameter_feature"),
-         getString("_UI_PropertyDescriptor_description", "_UI_ContextParameter_parameter_feature", "_UI_ContextParameter_type"),
-         DomainPackage.Literals.CONTEXT_PARAMETER__PARAMETER,
+         getString("_UI_ContextParameter_refObj_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_ContextParameter_refObj_feature", "_UI_ContextParameter_type"),
+         DomainPackage.Literals.CONTEXT_PARAMETER__REF_OBJ,
          true,
          false,
          true,

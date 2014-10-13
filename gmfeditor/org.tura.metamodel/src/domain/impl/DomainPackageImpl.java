@@ -5708,7 +5708,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getContextParameter_Parameter()
+  public EReference getContextParameter_RefObj()
   {
     return (EReference)contextParameterEClass.getEStructuralFeatures().get(1);
   }
@@ -6781,6 +6781,26 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
   public EReference getDataControl_ArtificialFields()
   {
     return (EReference)dataControlEClass.getEStructuralFeatures().get(15);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getDataControl_DefaultSearch()
+  {
+    return (EReference)dataControlEClass.getEStructuralFeatures().get(16);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getDataControl_DefaultOrderBy()
+  {
+    return (EReference)dataControlEClass.getEStructuralFeatures().get(17);
   }
 
   /**
@@ -7930,7 +7950,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
 
     contextParameterEClass = createEClass(CONTEXT_PARAMETER);
     createEAttribute(contextParameterEClass, CONTEXT_PARAMETER__UID);
-    createEReference(contextParameterEClass, CONTEXT_PARAMETER__PARAMETER);
+    createEReference(contextParameterEClass, CONTEXT_PARAMETER__REF_OBJ);
     createEReference(contextParameterEClass, CONTEXT_PARAMETER__VALUE);
 
     contextValueEClass = createEClass(CONTEXT_VALUE);
@@ -8075,6 +8095,8 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     createEReference(dataControlEClass, DATA_CONTROL__REMOVE);
     createEReference(dataControlEClass, DATA_CONTROL__SEARCH);
     createEReference(dataControlEClass, DATA_CONTROL__ARTIFICIAL_FIELDS);
+    createEReference(dataControlEClass, DATA_CONTROL__DEFAULT_SEARCH);
+    createEReference(dataControlEClass, DATA_CONTROL__DEFAULT_ORDER_BY);
 
     relationEClass = createEClass(RELATION);
     createEAttribute(relationEClass, RELATION__UID);
@@ -8837,7 +8859,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
 
     initEClass(contextParameterEClass, ContextParameter.class, "ContextParameter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getContextParameter_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, ContextParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getContextParameter_Parameter(), this.getParameter(), null, "parameter", null, 0, 1, ContextParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getContextParameter_RefObj(), ecorePackage.getEObject(), null, "refObj", null, 0, 1, ContextParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getContextParameter_Value(), this.getContextValue(), null, "value", null, 0, 1, ContextParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(contextValueEClass, ContextValue.class, "ContextValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -8982,6 +9004,8 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     initEReference(getDataControl_Remove(), this.getDeleteTrigger(), null, "remove", null, 0, 1, DataControl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getDataControl_Search(), this.getSearchTrigger(), null, "search", null, 0, 1, DataControl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getDataControl_ArtificialFields(), this.getArtificialField(), this.getArtificialField_Parent(), "artificialFields", null, 0, -1, DataControl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDataControl_DefaultSearch(), this.getContextParameters(), null, "defaultSearch", null, 0, 1, DataControl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDataControl_DefaultOrderBy(), this.getContextParameters(), null, "defaultOrderBy", null, 0, 1, DataControl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(relationEClass, Relation.class, "Relation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getRelation_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, Relation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
