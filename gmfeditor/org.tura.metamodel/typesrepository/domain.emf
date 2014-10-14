@@ -475,6 +475,15 @@ enum PlatformLayers{
    UILayer = 2;
 }
 
+enum Comparator{
+    EQ;
+    NEQ;
+    GT;
+    GEQ;
+    LT;
+    LEQ;
+}
+
 @gmf.node(label="name",border.color="0,0,0",color="255,239,222")
 class Recipe extends UsingMappers{
     id attr EString uid;
@@ -845,6 +854,7 @@ class StyleClass{
 class ContextParameter{
     id attr EString uid;
    ref EObject refObj;
+   attr Comparator operation;
    val ContextValue value;
 }
 

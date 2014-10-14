@@ -165,7 +165,7 @@ public abstract class ContextParameterPropertySelection extends GridProperty {
 	class IsExpressioinColumn implements GridColumn {
 
 		// Set the table column property names
-		private final String ISEXPRESSIOIN_COLUMN = "IsExpression";
+		private final String ISCONSTANT_COLUMN = "Is Constant";
 		private int col;
 
 		private Table table;
@@ -181,14 +181,14 @@ public abstract class ContextParameterPropertySelection extends GridProperty {
 		@Override
 		public TableColumn createColumn() {
 			TableColumn column = new TableColumn(table, SWT.LEFT, col);
-			column.setText(ISEXPRESSIOIN_COLUMN);
+			column.setText(ISCONSTANT_COLUMN);
 			column.setWidth(80);
 			return column;
 		}
 
 		@Override
 		public String getName() {
-			return ISEXPRESSIOIN_COLUMN;
+			return ISCONSTANT_COLUMN;
 		}
 
 		@Override
@@ -310,7 +310,7 @@ public abstract class ContextParameterPropertySelection extends GridProperty {
 		public boolean isModify(Object element, String property) {
 			domain.ContextParameter obj = (domain.ContextParameter) element;
 			CellEditor editor;
-			if (obj.getValue().isConstant()) {
+			if (!obj.getValue().isConstant()) {
 				editor = new TextAndDialogCellEditor(table);
 				((TextAndDialogCellEditor) editor)
 						.setRootObject(getContextRoot());

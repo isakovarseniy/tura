@@ -6442,13 +6442,22 @@ public interface DomainPackage extends EPackage
   int CONTEXT_PARAMETER__REF_OBJ = 1;
 
   /**
+   * The feature id for the '<em><b>Operation</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONTEXT_PARAMETER__OPERATION = 2;
+
+  /**
    * The feature id for the '<em><b>Value</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CONTEXT_PARAMETER__VALUE = 2;
+  int CONTEXT_PARAMETER__VALUE = 3;
 
   /**
    * The number of structural features of the '<em>Context Parameter</em>' class.
@@ -6457,7 +6466,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int CONTEXT_PARAMETER_FEATURE_COUNT = 3;
+  int CONTEXT_PARAMETER_FEATURE_COUNT = 4;
 
   /**
    * The meta object id for the '{@link domain.impl.ContextValueImpl <em>Context Value</em>}' class.
@@ -10839,6 +10848,17 @@ public interface DomainPackage extends EPackage
    * @generated
    */
   int PLATFORM_LAYERS = 162;
+
+
+  /**
+   * The meta object id for the '{@link domain.Comparator <em>Comparator</em>}' enum.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see domain.Comparator
+   * @see domain.impl.DomainPackageImpl#getComparator()
+   * @generated
+   */
+  int COMPARATOR = 163;
 
 
   /**
@@ -15671,6 +15691,17 @@ public interface DomainPackage extends EPackage
   EReference getContextParameter_RefObj();
 
   /**
+   * Returns the meta object for the attribute '{@link domain.ContextParameter#getOperation <em>Operation</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Operation</em>'.
+   * @see domain.ContextParameter#getOperation()
+   * @see #getContextParameter()
+   * @generated
+   */
+  EAttribute getContextParameter_Operation();
+
+  /**
    * Returns the meta object for the containment reference '{@link domain.ContextParameter#getValue <em>Value</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -17431,6 +17462,16 @@ public interface DomainPackage extends EPackage
    * @generated
    */
   EEnum getPlatformLayers();
+
+  /**
+   * Returns the meta object for enum '{@link domain.Comparator <em>Comparator</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for enum '<em>Comparator</em>'.
+   * @see domain.Comparator
+   * @generated
+   */
+  EEnum getComparator();
 
   /**
    * Returns the factory that creates the instances of the model.
@@ -21268,6 +21309,14 @@ public interface DomainPackage extends EPackage
     EReference CONTEXT_PARAMETER__REF_OBJ = eINSTANCE.getContextParameter_RefObj();
 
     /**
+     * The meta object literal for the '<em><b>Operation</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute CONTEXT_PARAMETER__OPERATION = eINSTANCE.getContextParameter_Operation();
+
+    /**
      * The meta object literal for the '<em><b>Value</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -22692,6 +22741,16 @@ public interface DomainPackage extends EPackage
      * @generated
      */
     EEnum PLATFORM_LAYERS = eINSTANCE.getPlatformLayers();
+
+    /**
+     * The meta object literal for the '{@link domain.Comparator <em>Comparator</em>}' enum.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see domain.Comparator
+     * @see domain.impl.DomainPackageImpl#getComparator()
+     * @generated
+     */
+    EEnum COMPARATOR = eINSTANCE.getComparator();
 
   }
 

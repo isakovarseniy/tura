@@ -30,6 +30,6 @@ public @interface DefaultSearchCriteria {
 	String field();
 	Class<?> type();
 	Operator comparator();
-	String value();
-	String expression();
+	String value() default "";
+	String expression() default "";
 }

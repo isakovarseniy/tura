@@ -697,6 +697,14 @@
     <eLiterals name="ServiceLayer" value="1"/>
     <eLiterals name="UILayer" value="2"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="Comparator">
+    <eLiterals name="EQ"/>
+    <eLiterals name="NEQ" value="1"/>
+    <eLiterals name="GT" value="2"/>
+    <eLiterals name="GEQ" value="3"/>
+    <eLiterals name="LT" value="4"/>
+    <eLiterals name="LEQ" value="5"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Recipe" eSuperTypes="#//UsingMappers">
     <eAnnotations source="gmf.node">
       <details key="label" value="name"/>
@@ -1267,6 +1275,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="refObj" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="operation" eType="#//Comparator"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="#//ContextValue"
         containment="true"/>
   </eClassifiers>

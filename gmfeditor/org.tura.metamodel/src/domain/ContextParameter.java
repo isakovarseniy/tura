@@ -14,6 +14,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link domain.ContextParameter#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.ContextParameter#getRefObj <em>Ref Obj</em>}</li>
+ *   <li>{@link domain.ContextParameter#getOperation <em>Operation</em>}</li>
  *   <li>{@link domain.ContextParameter#getValue <em>Value</em>}</li>
  * </ul>
  * </p>
@@ -75,6 +76,35 @@ public interface ContextParameter extends EObject
    * @generated
    */
   void setRefObj(EObject value);
+
+  /**
+   * Returns the value of the '<em><b>Operation</b></em>' attribute.
+   * The literals are from the enumeration {@link domain.Comparator}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Operation</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Operation</em>' attribute.
+   * @see domain.Comparator
+   * @see #setOperation(Comparator)
+   * @see domain.DomainPackage#getContextParameter_Operation()
+   * @model
+   * @generated
+   */
+  Comparator getOperation();
+
+  /**
+   * Sets the value of the '{@link domain.ContextParameter#getOperation <em>Operation</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Operation</em>' attribute.
+   * @see domain.Comparator
+   * @see #getOperation()
+   * @generated
+   */
+  void setOperation(Comparator value);
 
   /**
    * Returns the value of the '<em><b>Value</b></em>' containment reference.

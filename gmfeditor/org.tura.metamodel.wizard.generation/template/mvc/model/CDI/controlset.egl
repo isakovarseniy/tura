@@ -18,4 +18,23 @@
     util.saveFile( path+util.mergeAndCapitalize(form.name).toLowerCase()+"/datacontrol/"  , util.mergeAndCapitalize(control.name) + "DC.java",buffer);   
 
 
+     if (control.~treeRoot <> null){
+
+         var treedatacontrol : Template = TemplateFactory.load("platform:/plugin/org.tura.metamodel.wizard.generation/template/mvc/model/CDI/treedatacontrol.egl");
+         treedatacontrol.setFormatter(f);
+
+
+         treedatacontrol.populate("recipe",recipe);
+         treedatacontrol.populate("ingredient",ingredient);
+         treedatacontrol.populate("component",component);
+         treedatacontrol.populate("model_mapper",model_mapper);
+         treedatacontrol.populate("form",form);
+         treedatacontrol.populate("control",control);
+
+         buffer = treedatacontrol.process();
+
+         util.saveFile( path+util.mergeAndCapitalize(form.name).toLowerCase()+"/datacontrol/"  , "TreeRoot"+util.mergeAndCapitalize(control.name) + "DC.java",buffer);   
+
+   }
+
 %]

@@ -35,7 +35,7 @@
 
            control.processTriggers(recipe,ingredient);
            control.processRelations(recipe,ingredient);
-           control.processSearchOrder();
+           control.processDefaultQuery(recipe,ingredient);
            
            controlGen.populate("control",control);
            controlGen.process();

@@ -242,6 +242,8 @@ public class DomainFactoryImpl extends EFactoryImpl implements DomainFactory
     {
       case DomainPackage.PLATFORM_LAYERS:
         return createPlatformLayersFromString(eDataType, initialValue);
+      case DomainPackage.COMPARATOR:
+        return createComparatorFromString(eDataType, initialValue);
       default:
         throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
     }
@@ -259,6 +261,8 @@ public class DomainFactoryImpl extends EFactoryImpl implements DomainFactory
     {
       case DomainPackage.PLATFORM_LAYERS:
         return convertPlatformLayersToString(eDataType, instanceValue);
+      case DomainPackage.COMPARATOR:
+        return convertComparatorToString(eDataType, instanceValue);
       default:
         throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
     }
@@ -2064,6 +2068,28 @@ public class DomainFactoryImpl extends EFactoryImpl implements DomainFactory
    * @generated
    */
   public String convertPlatformLayersToString(EDataType eDataType, Object instanceValue)
+  {
+    return instanceValue == null ? null : instanceValue.toString();
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Comparator createComparatorFromString(EDataType eDataType, String initialValue)
+  {
+    Comparator result = Comparator.get(initialValue);
+    if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+    return result;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String convertComparatorToString(EDataType eDataType, Object instanceValue)
   {
     return instanceValue == null ? null : instanceValue.toString();
   }

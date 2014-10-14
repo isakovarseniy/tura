@@ -1161,6 +1161,13 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
   private EEnum platformLayersEEnum = null;
 
   /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EEnum comparatorEEnum = null;
+
+  /**
    * Creates an instance of the model <b>Package</b>, registered with
    * {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the package
    * package URI value.
@@ -5718,9 +5725,19 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EAttribute getContextParameter_Operation()
+  {
+    return (EAttribute)contextParameterEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EReference getContextParameter_Value()
   {
-    return (EReference)contextParameterEClass.getEStructuralFeatures().get(2);
+    return (EReference)contextParameterEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -7368,6 +7385,16 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EEnum getComparator()
+  {
+    return comparatorEEnum;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public DomainFactory getDomainFactory()
   {
     return (DomainFactory)getEFactoryInstance();
@@ -7951,6 +7978,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     contextParameterEClass = createEClass(CONTEXT_PARAMETER);
     createEAttribute(contextParameterEClass, CONTEXT_PARAMETER__UID);
     createEReference(contextParameterEClass, CONTEXT_PARAMETER__REF_OBJ);
+    createEAttribute(contextParameterEClass, CONTEXT_PARAMETER__OPERATION);
     createEReference(contextParameterEClass, CONTEXT_PARAMETER__VALUE);
 
     contextValueEClass = createEClass(CONTEXT_VALUE);
@@ -8170,6 +8198,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
 
     // Create enums
     platformLayersEEnum = createEEnum(PLATFORM_LAYERS);
+    comparatorEEnum = createEEnum(COMPARATOR);
   }
 
   /**
@@ -8860,6 +8889,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     initEClass(contextParameterEClass, ContextParameter.class, "ContextParameter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getContextParameter_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, ContextParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getContextParameter_RefObj(), ecorePackage.getEObject(), null, "refObj", null, 0, 1, ContextParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getContextParameter_Operation(), this.getComparator(), "operation", null, 0, 1, ContextParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getContextParameter_Value(), this.getContextValue(), null, "value", null, 0, 1, ContextParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(contextValueEClass, ContextValue.class, "ContextValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -9081,6 +9111,14 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     initEEnum(platformLayersEEnum, PlatformLayers.class, "PlatformLayers");
     addEEnumLiteral(platformLayersEEnum, PlatformLayers.SERVICE_LAYER);
     addEEnumLiteral(platformLayersEEnum, PlatformLayers.UI_LAYER);
+
+    initEEnum(comparatorEEnum, Comparator.class, "Comparator");
+    addEEnumLiteral(comparatorEEnum, Comparator.EQ);
+    addEEnumLiteral(comparatorEEnum, Comparator.NEQ);
+    addEEnumLiteral(comparatorEEnum, Comparator.GT);
+    addEEnumLiteral(comparatorEEnum, Comparator.GEQ);
+    addEEnumLiteral(comparatorEEnum, Comparator.LT);
+    addEEnumLiteral(comparatorEEnum, Comparator.LEQ);
 
     // Create resource
     createResource(eNS_URI);

@@ -27,6 +27,7 @@ import org.tura.metamodel.commons.properties.selections.grid.GridColumn;
 import org.tura.metamodel.commons.properties.selections.grid.GridProperty;
 
 import domain.Attribute;
+import domain.Comparator;
 import domain.DataControl;
 import domain.DomainFactory;
 import domain.DomainPackage;
@@ -38,14 +39,16 @@ public class DefaultSearchPropertySelection extends
 
 	@Override
 	public EObject getModel() {
-		if (((domain.DataControl) getEObject()).getDefaultSearch() == null){
+		if (((domain.DataControl) getEObject()).getDefaultSearch() == null) {
 			EditingDomain editingDomain = ((DiagramEditor) this.getPart())
 					.getEditingDomain();
 
-			domain.ContextParameters  ctx = DomainFactory.eINSTANCE.createContextParameters();
+			domain.ContextParameters ctx = DomainFactory.eINSTANCE
+					.createContextParameters();
 			editingDomain.getCommandStack().execute(
-					SetCommand.create(editingDomain, getEObject(), DomainPackage.eINSTANCE
-							.getDataControl_DefaultSearch(), ctx));
+					SetCommand.create(editingDomain, getEObject(),
+							DomainPackage.eINSTANCE
+									.getDataControl_DefaultSearch(), ctx));
 		}
 		return ((domain.DataControl) getEObject()).getDefaultSearch();
 	}
@@ -55,8 +58,9 @@ public class DefaultSearchPropertySelection extends
 		if (columnList == null) {
 			columnList = new ArrayList<GridColumn>();
 			columnList.add(new FieldsColumn(table, this, 0));
-			columnList.add(new IsExpressioinColumn(table, this, 1));
-			columnList.add(new ValueColumn(table, this, 2));
+			columnList.add(new OperationColumn(table, this, 1));
+			columnList.add(new IsExpressioinColumn(table, this, 2));
+			columnList.add(new ValueColumn(table, this, 3));
 		}
 		return columnList;
 	}
@@ -206,10 +210,11 @@ public class DefaultSearchPropertySelection extends
 		public void modify(Object element, Object value) {
 
 			TableItem item = (TableItem) element;
-			domain.ContextParameter opt = (domain.ContextParameter) item.getData();
+			domain.ContextParameter opt = (domain.ContextParameter) item
+					.getData();
 
 			domain.DataControl dc = (DataControl) property.getEObject();
-			
+
 			String valueString = ((ComboBoxCellEditor) (tableViewer
 					.getCellEditors()[col])).getItems()[(int) value];
 
@@ -222,7 +227,8 @@ public class DefaultSearchPropertySelection extends
 			if (dc.getBaseType() != null)
 				t = dc.getBaseType();
 
-			List<domain.Attribute> choicesOptions = new InitOption().initOptions(t);
+			List<domain.Attribute> choicesOptions = new InitOption()
+					.initOptions(t);
 
 			for (Iterator<domain.Attribute> itr = choicesOptions.iterator(); itr
 					.hasNext();) {
@@ -234,7 +240,8 @@ public class DefaultSearchPropertySelection extends
 					editingDomain.getCommandStack().execute(
 							SetCommand.create(editingDomain, opt,
 									DomainPackage.eINSTANCE
-											.getContextParameter_RefObj(), option));
+											.getContextParameter_RefObj(),
+									option));
 					break;
 				}
 			}
@@ -283,13 +290,122 @@ public class DefaultSearchPropertySelection extends
 
 	}
 
+	class OperationColumn implements GridColumn {
+
+		// Set the table column property names
+		private final String OPERATION_COLUMN = "Operation";
+		private int col;
+
+		private Table table;
+		@SuppressWarnings("unused")
+		private GridProperty property;
+
+		public OperationColumn(Table table, GridProperty property, int col) {
+			this.table = table;
+			this.property = property;
+			this.col = col;
+		}
+
+		@Override
+		public TableColumn createColumn() {
+			TableColumn column = new TableColumn(table, SWT.LEFT, col);
+			column.setText(OPERATION_COLUMN);
+			column.setWidth(80);
+			return column;
+		}
+
+		@Override
+		public String getName() {
+			return OPERATION_COLUMN;
+		}
+
+		@Override
+		public CellEditor getEditor() {
+
+			ArrayList<String> choices = new ArrayList<String>();
+			for (Comparator cmpval : Comparator.values()) {
+				choices.add(cmpval.getName());
+			}
+			ComboBoxCellEditor comboBoxCellEditor = new ComboBoxCellEditor(
+					table, choices.toArray(new String[choices.size()]),
+					SWT.READ_ONLY);
+			return comboBoxCellEditor;
+		}
+
+		@Override
+		public int compareOptions(Object o1, Object o2) {
+			return 0;
+		}
+
+		@Override
+		public Object getValue(Object element) {
+			domain.ContextParameter task = (domain.ContextParameter) element;
+
+			ComboBoxCellEditor editor = ((ComboBoxCellEditor) (tableViewer
+					.getCellEditors()[col]));
+			String[] choicesOptions = editor.getItems();
+
+			int result = new Integer(0);
+			int i = choicesOptions.length - 1;
+            String  optValue = task.getOperation().getName();
+			
+			while (!optValue.equals(choicesOptions[i])
+					&& i > 0)
+				--i;
+			result = new Integer(i);
+
+			return result;
+
+		}
+
+		@Override
+		public void modify(Object element, Object value) {
+
+			TableItem item = (TableItem) element;
+			domain.ContextParameter opt = (domain.ContextParameter) item
+					.getData();
+			
+			ComboBoxCellEditor editor = ((ComboBoxCellEditor) (tableViewer
+					.getCellEditors()[col]));
+			String[] choicesOptions = editor.getItems();
+			
+			Comparator cmp = Comparator.valueOf(choicesOptions[(int) value]);
+
+			EditingDomain editingDomain = ((DiagramEditor) getPart())
+					.getEditingDomain();
+			/* apply the property change to single selected object */
+			editingDomain.getCommandStack().execute(
+					SetCommand.create(editingDomain, opt,
+							DomainPackage.eINSTANCE
+									.getContextParameter_Operation(), cmp));
+
+		}
+
+		@Override
+		public boolean isModify(Object element, String property) {
+			return true;
+		}
+
+		@Override
+		public Object getText(Object element) {
+			ComboBoxCellEditor editor = ((ComboBoxCellEditor) (tableViewer
+					.getCellEditors()[col]));
+			String[] choicesOptions = editor.getItems();
+
+			
+			return choicesOptions[ (int) getValue(element)];
+		}
+
+	}
+
 	@Override
-	public String contextRefNameExtreactor(domain.ContextParameter  obj) {
+	public String contextRefNameExtreactor(domain.ContextParameter obj) {
 		return ((domain.Attribute) obj.getRefObj()).getName();
 	}
 
 	@Override
-	public domain.TypeElement contextRefTypeExtreactor(domain.ContextParameter  obj) {
+	public domain.TypeElement contextRefTypeExtreactor(
+			domain.ContextParameter obj) {
 		return ((domain.Attribute) obj.getRefObj()).getTypeRef();
 	}
 

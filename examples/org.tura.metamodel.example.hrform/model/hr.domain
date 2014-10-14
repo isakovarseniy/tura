@@ -1433,12 +1433,12 @@
     <controls uid="d45e9605-3706-493c-8422-3f7b8b6ea2ed" name="Company" baseType="Comp_52ffccb7-cea6-49de-ba4b-7437f1da3369">
       <create packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="2957c51c-68e7-4d1e-b8b7-cbe7ccdbe13f" fakePackageName="Base package" fakeTypeName="JPA Entity CRAD Service" methodRef="40b112a0-4008-11e4-916c-0800200c9a66" fakeMethod="create" uid="8432e75c-3e68-43f0-94d0-c38cf73840e5">
         <parameters uid="8bbb8779-0fb8-422a-9f8b-6727fc100543" refObj="9150e8ca-6703-4e2c-a2e0-479f42987fa5">
-          <value uid="8488e68c-70d9-420e-ae3d-ab981b5447eb" value="org.elsoft.platform.hr.objects.CompanyDAO"/>
+          <value uid="8488e68c-70d9-420e-ae3d-ab981b5447eb" constant="true" value="org.elsoft.platform.hr.objects.CompanyDAO"/>
         </parameters>
       </create>
       <insert packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="2957c51c-68e7-4d1e-b8b7-cbe7ccdbe13f" fakePackageName="Base package" fakeTypeName="JPA Entity CRAD Service" methodRef="b14bfa20-4008-11e4-916c-0800200c9a66" fakeMethod="insert" uid="be912950-8e24-445c-8f06-0416773c2a5d">
         <parameters uid="d165b0c9-ba02-4496-9ce4-903b064a8472" refObj="b7ea5020-4008-11e4-916c-0800200c9a66">
-          <value uid="c5837649-05ce-40bf-acf4-a6351426947f" constant="true" value="Data controls.Company.currentObject">
+          <value uid="c5837649-05ce-40bf-acf4-a6351426947f" value="Data controls.Company.currentObject">
             <expression objRef="5541fdd1-fedb-45ba-ab74-966e737af3a6"/>
             <expression objRef="d45e9605-3706-493c-8422-3f7b8b6ea2ed" order="1"/>
             <expression order="2"/>
@@ -1447,7 +1447,7 @@
       </insert>
       <update packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="2957c51c-68e7-4d1e-b8b7-cbe7ccdbe13f" fakePackageName="Base package" fakeTypeName="JPA Entity CRAD Service" methodRef="caf1fc90-4008-11e4-916c-0800200c9a66" fakeMethod="update" uid="91394238-27e0-4087-bc00-6a46b3b1e7b7">
         <parameters uid="2af053d0-72bc-4cb2-9a4f-3dac46f9777f" refObj="7c4f4d20-400a-11e4-916c-0800200c9a66">
-          <value uid="f3e94916-6268-4934-a173-9b578d57abab" constant="true" value="Data controls.Company.currentObject">
+          <value uid="f3e94916-6268-4934-a173-9b578d57abab" value="Data controls.Company.currentObject">
             <expression objRef="5541fdd1-fedb-45ba-ab74-966e737af3a6"/>
             <expression objRef="d45e9605-3706-493c-8422-3f7b8b6ea2ed" order="1"/>
             <expression order="2"/>
@@ -1456,7 +1456,7 @@
       </update>
       <remove packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="2957c51c-68e7-4d1e-b8b7-cbe7ccdbe13f" fakePackageName="Base package" fakeTypeName="JPA Entity CRAD Service" methodRef="dbacf9e0-4008-11e4-916c-0800200c9a66" fakeMethod="remove" uid="468bffd4-991d-40a1-8aed-8e0eb5e55c52">
         <parameters uid="7ac71732-3af3-4a11-a1df-abec7a23a59a" refObj="73df4460-400a-11e4-916c-0800200c9a66">
-          <value uid="9b659aaf-fb95-4aef-8181-4cc5feaa8667" constant="true" value="Data controls.Company.currentObject">
+          <value uid="9b659aaf-fb95-4aef-8181-4cc5feaa8667" value="Data controls.Company.currentObject">
             <expression objRef="5541fdd1-fedb-45ba-ab74-966e737af3a6"/>
             <expression objRef="d45e9605-3706-493c-8422-3f7b8b6ea2ed" order="1"/>
             <expression order="2"/>
@@ -1465,42 +1465,58 @@
       </remove>
       <search packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="2957c51c-68e7-4d1e-b8b7-cbe7ccdbe13f" fakePackageName="Base package" fakeTypeName="JPA Entity CRAD Service" methodRef="6fb841e0-4008-11e4-916c-0800200c9a66" fakeMethod="find" uid="5f8be1c2-a37e-4d9a-b570-ccf5d02a8e6e">
         <parameters uid="7f0db87c-1223-4520-a3b8-85ddcffb791f" refObj="790b57a0-4008-11e4-916c-0800200c9a66">
-          <value uid="7b158b93-3319-4ebf-a357-75d5836c754a" constant="true" value="Data controls.Company.query">
+          <value uid="7b158b93-3319-4ebf-a357-75d5836c754a" value="Data controls.Company.query">
             <expression objRef="5541fdd1-fedb-45ba-ab74-966e737af3a6"/>
             <expression objRef="d45e9605-3706-493c-8422-3f7b8b6ea2ed" order="1"/>
             <expression order="2"/>
           </value>
         </parameters>
         <parameters uid="df3795b7-7d45-4ef5-a82d-a5907f6f352b" refObj="823b06e0-4008-11e4-916c-0800200c9a66">
-          <value uid="4d00d5ce-bebc-4642-be22-3b26ef103206" constant="true" value="Data controls.Company.startIndex">
+          <value uid="4d00d5ce-bebc-4642-be22-3b26ef103206" value="Data controls.Company.startIndex">
             <expression objRef="5541fdd1-fedb-45ba-ab74-966e737af3a6"/>
             <expression objRef="d45e9605-3706-493c-8422-3f7b8b6ea2ed" order="1"/>
             <expression order="2"/>
           </value>
         </parameters>
         <parameters uid="9ce177ca-611c-4f36-8edf-efb75dfce805" refObj="8cc19390-4008-11e4-916c-0800200c9a66">
-          <value uid="4ecae3eb-59cd-495d-8178-7fce2d98b1f5" constant="true" value="Data controls.Company.endindex">
+          <value uid="4ecae3eb-59cd-495d-8178-7fce2d98b1f5" value="Data controls.Company.endindex">
             <expression objRef="5541fdd1-fedb-45ba-ab74-966e737af3a6"/>
             <expression objRef="d45e9605-3706-493c-8422-3f7b8b6ea2ed" order="1"/>
             <expression order="2"/>
           </value>
         </parameters>
         <parameters uid="0413ba0d-f65f-425e-84e5-c03a7fd285b2" refObj="97d8a070-4008-11e4-916c-0800200c9a66">
-          <value uid="cbb33e4d-cd13-42a2-81d6-d4f80b6f49b2" value="org.elsoft.platform.hr.objects.CompanyDAO"/>
+          <value uid="cbb33e4d-cd13-42a2-81d6-d4f80b6f49b2" constant="true" value="org.elsoft.platform.hr.objects.CompanyDAO"/>
         </parameters>
       </search>
       <artificialFields packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="e370b9d1-a6fb-4a40-88e2-8845be441438" fakePackageName="Primitive package" fakeTypeName="String" uid="9ec8a0b1-3ba4-4cb3-a698-0cd9561396ba" name="testfield1"/>
       <artificialFields packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="2829901f-e985-4786-96ff-852230536694" fakePackageName="Primitive package" fakeTypeName="Integer" uid="f7d2fdf2-3ea6-4f60-95dc-b85dfe64d1c5" name="testField2"/>
+      <defaultSearch>
+        <parameters uid="a23ab9a3-6293-45e2-939c-77f431e902a3" refObj="32e932b5-e86f-43a3-96c1-8b919c740eb6">
+          <value uid="1c33fc6a-fd1b-4590-be8b-14fe0c818c0f" value="Data controls.Country.currentObject.Base package::BaseType.parentId">
+            <expression objRef="5541fdd1-fedb-45ba-ab74-966e737af3a6"/>
+            <expression objRef="cd1cab1c-1781-4867-85b8-84d9f465f989" order="1"/>
+            <expression order="2"/>
+            <expression objRef="50dcca84-4d2c-4fe2-baad-56afdf1be76d" order="3"/>
+            <expression objRef="4ff34e6a-5c01-4656-9a98-32a95c0babea" order="4"/>
+          </value>
+        </parameters>
+      </defaultSearch>
+      <defaultOrderBy>
+        <parameters uid="7f9f0277-4d59-4c8c-aa48-302eaa0c96db" refObj="32e932b5-e86f-43a3-96c1-8b919c740eb6">
+          <value uid="cfcec332-ac1d-41e0-b3a3-c3cc742fa7d2" constant="true" value="asc"/>
+        </parameters>
+      </defaultOrderBy>
     </controls>
     <controls uid="cd1cab1c-1781-4867-85b8-84d9f465f989" name="Country">
       <create packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="2957c51c-68e7-4d1e-b8b7-cbe7ccdbe13f" fakePackageName="Base package" fakeTypeName="JPA Entity CRAD Service" methodRef="40b112a0-4008-11e4-916c-0800200c9a66" fakeMethod="create" uid="9963c6a1-841a-4daf-97e2-d3d7538a4924">
         <parameters uid="b2cef88a-e8dd-4c2e-9c9a-62ac9a680e1d" refObj="9150e8ca-6703-4e2c-a2e0-479f42987fa5">
-          <value uid="8e4f6c94-f9cf-495f-952d-e060377d57ab" value="org.elsoft.platform.hr.objects.CountryDAO"/>
+          <value uid="8e4f6c94-f9cf-495f-952d-e060377d57ab" constant="true" value="org.elsoft.platform.hr.objects.CountryDAO"/>
         </parameters>
       </create>
       <insert packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="2957c51c-68e7-4d1e-b8b7-cbe7ccdbe13f" fakePackageName="Base package" fakeTypeName="JPA Entity CRAD Service" methodRef="b14bfa20-4008-11e4-916c-0800200c9a66" fakeMethod="insert" uid="2d2b4d08-785f-4ed7-89a4-4dc1adaa3b82">
         <parameters uid="6650203e-1af9-430e-9f00-97e63133e3a7" refObj="b7ea5020-4008-11e4-916c-0800200c9a66">
-          <value uid="91375806-e1c6-4d95-9b9b-b507c4b67a7e" constant="true" value="Data controls.Country.currentObject">
+          <value uid="91375806-e1c6-4d95-9b9b-b507c4b67a7e" value="Data controls.Country.currentObject">
             <expression objRef="5541fdd1-fedb-45ba-ab74-966e737af3a6"/>
             <expression objRef="cd1cab1c-1781-4867-85b8-84d9f465f989" order="1"/>
             <expression order="2"/>
@@ -1509,7 +1525,7 @@
       </insert>
       <update packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="2957c51c-68e7-4d1e-b8b7-cbe7ccdbe13f" fakePackageName="Base package" fakeTypeName="JPA Entity CRAD Service" methodRef="caf1fc90-4008-11e4-916c-0800200c9a66" fakeMethod="update" uid="eab735d2-ee01-4e6b-a026-26990955d1eb">
         <parameters uid="ae4239de-ccc4-47d3-b1fc-9d3423c4fd51" refObj="7c4f4d20-400a-11e4-916c-0800200c9a66">
-          <value uid="792436ac-347d-4337-a938-6f97205717b9" constant="true" value="Data controls.Country.currentObject">
+          <value uid="792436ac-347d-4337-a938-6f97205717b9" value="Data controls.Country.currentObject">
             <expression objRef="5541fdd1-fedb-45ba-ab74-966e737af3a6"/>
             <expression objRef="cd1cab1c-1781-4867-85b8-84d9f465f989" order="1"/>
             <expression order="2"/>
@@ -1518,7 +1534,7 @@
       </update>
       <remove packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="2957c51c-68e7-4d1e-b8b7-cbe7ccdbe13f" fakePackageName="Base package" fakeTypeName="JPA Entity CRAD Service" methodRef="dbacf9e0-4008-11e4-916c-0800200c9a66" fakeMethod="remove" uid="efbe236b-41ca-4da3-8c54-1fa5d4451998">
         <parameters uid="45454ceb-6035-49f5-9228-e0fc335a4760" refObj="73df4460-400a-11e4-916c-0800200c9a66">
-          <value uid="6332ee8f-92c5-4c27-92ac-dba57ea508bd" constant="true" value="Data controls.Country.currentObject">
+          <value uid="6332ee8f-92c5-4c27-92ac-dba57ea508bd" value="Data controls.Country.currentObject">
             <expression objRef="5541fdd1-fedb-45ba-ab74-966e737af3a6"/>
             <expression objRef="cd1cab1c-1781-4867-85b8-84d9f465f989" order="1"/>
             <expression order="2"/>
@@ -1527,40 +1543,41 @@
       </remove>
       <search packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="2957c51c-68e7-4d1e-b8b7-cbe7ccdbe13f" fakePackageName="Base package" fakeTypeName="JPA Entity CRAD Service" methodRef="6fb841e0-4008-11e4-916c-0800200c9a66" fakeMethod="find" uid="76f3e7cc-42eb-4531-b731-d9afc2de24d6">
         <parameters uid="d6041298-3aa9-48c5-9ccb-d306317ca16b" refObj="790b57a0-4008-11e4-916c-0800200c9a66">
-          <value uid="4fb24cf3-3211-4e8c-b172-a752d6c15ec8" constant="true" value="Data controls.Country.query">
+          <value uid="4fb24cf3-3211-4e8c-b172-a752d6c15ec8" value="Data controls.Country.query">
             <expression objRef="5541fdd1-fedb-45ba-ab74-966e737af3a6"/>
             <expression objRef="cd1cab1c-1781-4867-85b8-84d9f465f989" order="1"/>
             <expression order="2"/>
           </value>
         </parameters>
         <parameters uid="85771469-9169-4f46-b700-ebf80750699e" refObj="823b06e0-4008-11e4-916c-0800200c9a66">
-          <value uid="21eeea3c-2e97-4d1c-a819-9e1e896d6a20" constant="true" value="Data controls.Country.startIndex">
+          <value uid="21eeea3c-2e97-4d1c-a819-9e1e896d6a20" value="Data controls.Country.startIndex">
             <expression objRef="5541fdd1-fedb-45ba-ab74-966e737af3a6"/>
             <expression objRef="cd1cab1c-1781-4867-85b8-84d9f465f989" order="1"/>
             <expression order="2"/>
           </value>
         </parameters>
         <parameters uid="676486ad-6de0-4d2a-93b1-7b6361d95065" refObj="8cc19390-4008-11e4-916c-0800200c9a66">
-          <value uid="f3815713-78e5-4287-9ec7-15d8a501928c" constant="true" value="Data controls.Country.endindex">
+          <value uid="f3815713-78e5-4287-9ec7-15d8a501928c" value="Data controls.Country.endindex">
             <expression objRef="5541fdd1-fedb-45ba-ab74-966e737af3a6"/>
             <expression objRef="cd1cab1c-1781-4867-85b8-84d9f465f989" order="1"/>
             <expression order="2"/>
           </value>
         </parameters>
         <parameters uid="00cd50ed-b005-4ba3-bf10-873723f9fff0" refObj="97d8a070-4008-11e4-916c-0800200c9a66">
-          <value uid="0f937ece-a430-4d72-98bc-903e9852f004" value="org.elsoft.platform.hr.objects.CountryDAO"/>
+          <value uid="0f937ece-a430-4d72-98bc-903e9852f004" constant="true" value="org.elsoft.platform.hr.objects.CountryDAO"/>
         </parameters>
       </search>
+      <defaultSearch/>
     </controls>
     <controls uid="f77b6e6d-41a3-4fb5-8ab9-85b2b76191ec" name="State">
       <create packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="2957c51c-68e7-4d1e-b8b7-cbe7ccdbe13f" fakePackageName="Base package" fakeTypeName="JPA Entity CRAD Service" methodRef="40b112a0-4008-11e4-916c-0800200c9a66" fakeMethod="create" uid="5a601dff-fe13-4626-8f2e-2d7c8437f9d2">
         <parameters uid="2561c1cb-493c-4e8a-944f-4fc7edd148a0" refObj="9150e8ca-6703-4e2c-a2e0-479f42987fa5">
-          <value uid="0fe4f90f-9d55-4ca9-820c-1c0eb5058d23" value="org.elsoft.platform.hr.objects.StateDAO"/>
+          <value uid="0fe4f90f-9d55-4ca9-820c-1c0eb5058d23" constant="true" value="org.elsoft.platform.hr.objects.StateDAO"/>
         </parameters>
       </create>
       <insert packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="2957c51c-68e7-4d1e-b8b7-cbe7ccdbe13f" fakePackageName="Base package" fakeTypeName="JPA Entity CRAD Service" methodRef="b14bfa20-4008-11e4-916c-0800200c9a66" fakeMethod="insert" uid="d691db61-c12e-4697-8d19-e8bf42003b42">
         <parameters uid="8abe5262-e93c-405a-abc0-bd011e1374f1" refObj="b7ea5020-4008-11e4-916c-0800200c9a66">
-          <value uid="d5ce184a-4ce1-4e37-b27b-546444becccf" constant="true" value="Data controls.State.currentObject">
+          <value uid="d5ce184a-4ce1-4e37-b27b-546444becccf" value="Data controls.State.currentObject">
             <expression objRef="5541fdd1-fedb-45ba-ab74-966e737af3a6"/>
             <expression objRef="f77b6e6d-41a3-4fb5-8ab9-85b2b76191ec" order="1"/>
             <expression order="2"/>
@@ -1569,7 +1586,7 @@
       </insert>
       <update packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="2957c51c-68e7-4d1e-b8b7-cbe7ccdbe13f" fakePackageName="Base package" fakeTypeName="JPA Entity CRAD Service" methodRef="caf1fc90-4008-11e4-916c-0800200c9a66" fakeMethod="update" uid="c00ca5da-9729-488f-a9f4-ed60297f789d">
         <parameters uid="14dd14f3-ac11-4a5a-8e1f-d2902394f113" refObj="7c4f4d20-400a-11e4-916c-0800200c9a66">
-          <value uid="f3b8e9d4-a892-4d39-ab55-d684b7d473c1" constant="true" value="Data controls.State.currentObject">
+          <value uid="f3b8e9d4-a892-4d39-ab55-d684b7d473c1" value="Data controls.State.currentObject">
             <expression objRef="5541fdd1-fedb-45ba-ab74-966e737af3a6"/>
             <expression objRef="f77b6e6d-41a3-4fb5-8ab9-85b2b76191ec" order="1"/>
             <expression order="2"/>
@@ -1578,7 +1595,7 @@
       </update>
       <remove packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="2957c51c-68e7-4d1e-b8b7-cbe7ccdbe13f" fakePackageName="Base package" fakeTypeName="JPA Entity CRAD Service" methodRef="dbacf9e0-4008-11e4-916c-0800200c9a66" fakeMethod="remove" uid="290c52ac-baa4-44fa-9c4b-f0dea067612e">
         <parameters uid="99c6adb2-8320-4f36-b5a8-6c77ff48811c" refObj="73df4460-400a-11e4-916c-0800200c9a66">
-          <value uid="ae9a690b-4864-4dea-ba02-81158a773d30" constant="true" value="Data controls.State.currentObject">
+          <value uid="ae9a690b-4864-4dea-ba02-81158a773d30" value="Data controls.State.currentObject">
             <expression objRef="5541fdd1-fedb-45ba-ab74-966e737af3a6"/>
             <expression objRef="f77b6e6d-41a3-4fb5-8ab9-85b2b76191ec" order="1"/>
             <expression order="2"/>
@@ -1587,40 +1604,40 @@
       </remove>
       <search packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="2957c51c-68e7-4d1e-b8b7-cbe7ccdbe13f" fakePackageName="Base package" fakeTypeName="JPA Entity CRAD Service" methodRef="6fb841e0-4008-11e4-916c-0800200c9a66" fakeMethod="find" uid="659d81da-3a48-4e77-9754-dd5cec393642">
         <parameters uid="36f5e60f-bf1f-4e3d-8328-9c24a36455e6" refObj="790b57a0-4008-11e4-916c-0800200c9a66">
-          <value uid="6c17b50d-f6bc-448a-a10a-0a842d7e88fb" constant="true" value="Data controls.State.query">
+          <value uid="6c17b50d-f6bc-448a-a10a-0a842d7e88fb" value="Data controls.State.query">
             <expression objRef="5541fdd1-fedb-45ba-ab74-966e737af3a6"/>
             <expression objRef="f77b6e6d-41a3-4fb5-8ab9-85b2b76191ec" order="1"/>
             <expression order="2"/>
           </value>
         </parameters>
         <parameters uid="6da7daac-ed45-42b1-9827-9b4f72ff5182" refObj="823b06e0-4008-11e4-916c-0800200c9a66">
-          <value uid="59eff2de-e33c-44db-94a1-e51542f22fff" constant="true" value="Data controls.Country.startIndex">
+          <value uid="59eff2de-e33c-44db-94a1-e51542f22fff" value="Data controls.Country.startIndex">
             <expression objRef="5541fdd1-fedb-45ba-ab74-966e737af3a6"/>
             <expression objRef="cd1cab1c-1781-4867-85b8-84d9f465f989" order="1"/>
             <expression order="2"/>
           </value>
         </parameters>
         <parameters uid="029e398b-8570-4ffc-8d3e-18a448ce8ffe" refObj="8cc19390-4008-11e4-916c-0800200c9a66">
-          <value uid="7a83713b-edf8-407e-ad2c-c6295fd985dd" constant="true" value="Data controls.State.endindex">
+          <value uid="7a83713b-edf8-407e-ad2c-c6295fd985dd" value="Data controls.State.endindex">
             <expression objRef="5541fdd1-fedb-45ba-ab74-966e737af3a6"/>
             <expression objRef="f77b6e6d-41a3-4fb5-8ab9-85b2b76191ec" order="1"/>
             <expression order="2"/>
           </value>
         </parameters>
         <parameters uid="bc66629f-e6ba-448c-8761-5329f878b9fd" refObj="97d8a070-4008-11e4-916c-0800200c9a66">
-          <value uid="7d80f9a0-bf39-4fba-b378-d05fa5a3d85c" value="org.elsoft.platform.hr.objects.StateDAO"/>
+          <value uid="7d80f9a0-bf39-4fba-b378-d05fa5a3d85c" constant="true" value="org.elsoft.platform.hr.objects.StateDAO"/>
         </parameters>
       </search>
     </controls>
     <controls uid="8d431a55-eddc-42cb-8397-588243cfb255" name="City">
       <create packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="2957c51c-68e7-4d1e-b8b7-cbe7ccdbe13f" fakePackageName="Base package" fakeTypeName="JPA Entity CRAD Service" methodRef="40b112a0-4008-11e4-916c-0800200c9a66" fakeMethod="create" uid="34a45fce-3c59-44ea-bcac-a5a8d0e165e6">
         <parameters uid="e0adcee9-a2ea-43a0-a622-c833c6a5f1c9" refObj="9150e8ca-6703-4e2c-a2e0-479f42987fa5">
-          <value uid="24e48b4a-1a66-4e94-94f4-7ae2c7a76eb8" value="org.elsoft.platform.hr.objects.CityDAO"/>
+          <value uid="24e48b4a-1a66-4e94-94f4-7ae2c7a76eb8" constant="true" value="org.elsoft.platform.hr.objects.CityDAO"/>
         </parameters>
       </create>
       <insert packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="2957c51c-68e7-4d1e-b8b7-cbe7ccdbe13f" fakePackageName="Base package" fakeTypeName="JPA Entity CRAD Service" methodRef="b14bfa20-4008-11e4-916c-0800200c9a66" fakeMethod="insert" uid="6ea7aab7-6e1d-4a68-b9fe-0f245a4171c6">
         <parameters uid="e76938c5-700f-4f4d-9808-68284bb93419" refObj="b7ea5020-4008-11e4-916c-0800200c9a66">
-          <value uid="e877f9a0-263d-49ee-ae8f-e1ad4c1b5ec3" constant="true" value="Data controls.City.currentObject">
+          <value uid="e877f9a0-263d-49ee-ae8f-e1ad4c1b5ec3" value="Data controls.City.currentObject">
             <expression objRef="5541fdd1-fedb-45ba-ab74-966e737af3a6"/>
             <expression objRef="8d431a55-eddc-42cb-8397-588243cfb255" order="1"/>
             <expression order="2"/>
@@ -1629,7 +1646,7 @@
       </insert>
       <update packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="2957c51c-68e7-4d1e-b8b7-cbe7ccdbe13f" fakePackageName="Base package" fakeTypeName="JPA Entity CRAD Service" methodRef="caf1fc90-4008-11e4-916c-0800200c9a66" fakeMethod="update" uid="14942efc-6b41-4517-9136-1e1f04f10035">
         <parameters uid="59c436e4-8ad6-4486-99d3-1c96cbb96f00" refObj="7c4f4d20-400a-11e4-916c-0800200c9a66">
-          <value uid="f7769224-b4da-441e-ae62-fb911f83a804" constant="true" value="Data controls.City.currentObject">
+          <value uid="f7769224-b4da-441e-ae62-fb911f83a804" value="Data controls.City.currentObject">
             <expression objRef="5541fdd1-fedb-45ba-ab74-966e737af3a6"/>
             <expression objRef="8d431a55-eddc-42cb-8397-588243cfb255" order="1"/>
             <expression order="2"/>
@@ -1638,7 +1655,7 @@
       </update>
       <remove packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="2957c51c-68e7-4d1e-b8b7-cbe7ccdbe13f" fakePackageName="Base package" fakeTypeName="JPA Entity CRAD Service" methodRef="dbacf9e0-4008-11e4-916c-0800200c9a66" fakeMethod="remove" uid="a852f45b-cc3d-47c5-a7aa-7e266e99636e">
         <parameters uid="c1a44b40-b6da-41ff-abad-9bd40c76cfd9" refObj="73df4460-400a-11e4-916c-0800200c9a66">
-          <value uid="9565316e-29b0-4c40-896f-d049ed28c732" constant="true" value="Data controls.City.currentObject">
+          <value uid="9565316e-29b0-4c40-896f-d049ed28c732" value="Data controls.City.currentObject">
             <expression objRef="5541fdd1-fedb-45ba-ab74-966e737af3a6"/>
             <expression objRef="8d431a55-eddc-42cb-8397-588243cfb255" order="1"/>
             <expression order="2"/>
@@ -1647,40 +1664,40 @@
       </remove>
       <search packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="2957c51c-68e7-4d1e-b8b7-cbe7ccdbe13f" fakePackageName="Base package" fakeTypeName="JPA Entity CRAD Service" methodRef="6fb841e0-4008-11e4-916c-0800200c9a66" fakeMethod="find" uid="743acc11-e1b8-4947-8c1e-a8da16da7056">
         <parameters uid="062b4f4f-57d7-4278-a6bc-ecbe3dcf48ba" refObj="790b57a0-4008-11e4-916c-0800200c9a66">
-          <value uid="fee5cf6b-e156-4195-9784-932af2cb44ab" constant="true" value="Data controls.City.query">
+          <value uid="fee5cf6b-e156-4195-9784-932af2cb44ab" value="Data controls.City.query">
             <expression objRef="5541fdd1-fedb-45ba-ab74-966e737af3a6"/>
             <expression objRef="8d431a55-eddc-42cb-8397-588243cfb255" order="1"/>
             <expression order="2"/>
           </value>
         </parameters>
         <parameters uid="6c4d2397-68ff-4d6e-88c8-b2a15da83967" refObj="823b06e0-4008-11e4-916c-0800200c9a66">
-          <value uid="0bacec45-c7c5-43b0-b466-d1d87d918c2b" constant="true" value="Data controls.City.startIndex">
+          <value uid="0bacec45-c7c5-43b0-b466-d1d87d918c2b" value="Data controls.City.startIndex">
             <expression objRef="5541fdd1-fedb-45ba-ab74-966e737af3a6"/>
             <expression objRef="8d431a55-eddc-42cb-8397-588243cfb255" order="1"/>
             <expression order="2"/>
           </value>
         </parameters>
         <parameters uid="fbb23ee6-8144-48b5-86e4-2ad301275dbb" refObj="8cc19390-4008-11e4-916c-0800200c9a66">
-          <value uid="0cb6611b-a867-4a9c-ad97-7ceb7402c5a0" constant="true" value="Data controls.City.endindex">
+          <value uid="0cb6611b-a867-4a9c-ad97-7ceb7402c5a0" value="Data controls.City.endindex">
             <expression objRef="5541fdd1-fedb-45ba-ab74-966e737af3a6"/>
             <expression objRef="8d431a55-eddc-42cb-8397-588243cfb255" order="1"/>
             <expression order="2"/>
           </value>
         </parameters>
         <parameters uid="de2f1658-dcd1-4eba-a336-9f8a34b71185" refObj="97d8a070-4008-11e4-916c-0800200c9a66">
-          <value uid="1249574a-8a90-401f-b63c-a3d0a87533ee" value="org.elsoft.platform.hr.objects.CityDAO"/>
+          <value uid="1249574a-8a90-401f-b63c-a3d0a87533ee" constant="true" value="org.elsoft.platform.hr.objects.CityDAO"/>
         </parameters>
       </search>
     </controls>
     <controls uid="b4d21da3-17fa-49e6-ab0e-a8cd3bd9d01d" name="Street">
       <create packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="2957c51c-68e7-4d1e-b8b7-cbe7ccdbe13f" fakePackageName="Base package" fakeTypeName="JPA Entity CRAD Service" methodRef="40b112a0-4008-11e4-916c-0800200c9a66" fakeMethod="create" uid="5854e526-56a2-4f19-9b6a-1306d33c62b4">
         <parameters uid="0eccf97e-3faf-46a7-a30b-d7517ac521c0" refObj="9150e8ca-6703-4e2c-a2e0-479f42987fa5">
-          <value uid="1832af57-8934-4392-8b7e-06dd9b0fe8fa" value="org.elsoft.platform.hr.objects.StreetDAO"/>
+          <value uid="1832af57-8934-4392-8b7e-06dd9b0fe8fa" constant="true" value="org.elsoft.platform.hr.objects.StreetDAO"/>
         </parameters>
       </create>
       <insert packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="2957c51c-68e7-4d1e-b8b7-cbe7ccdbe13f" fakePackageName="Base package" fakeTypeName="JPA Entity CRAD Service" methodRef="b14bfa20-4008-11e4-916c-0800200c9a66" fakeMethod="insert" uid="c4ca3182-9944-4b2a-b428-f6560a36e210">
         <parameters uid="536bedd3-d560-4398-b110-6d9707f38778" refObj="b7ea5020-4008-11e4-916c-0800200c9a66">
-          <value uid="b8fb367d-5117-4e9d-9901-712d1747b417" constant="true" value="Data controls.Street.currentObject">
+          <value uid="b8fb367d-5117-4e9d-9901-712d1747b417" value="Data controls.Street.currentObject">
             <expression objRef="5541fdd1-fedb-45ba-ab74-966e737af3a6"/>
             <expression objRef="b4d21da3-17fa-49e6-ab0e-a8cd3bd9d01d" order="1"/>
             <expression order="2"/>
@@ -1689,7 +1706,7 @@
       </insert>
       <update packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="2957c51c-68e7-4d1e-b8b7-cbe7ccdbe13f" fakePackageName="Base package" fakeTypeName="JPA Entity CRAD Service" methodRef="caf1fc90-4008-11e4-916c-0800200c9a66" fakeMethod="update" uid="397779c6-fea5-47cc-9922-349e5793a2a5">
         <parameters uid="ee379313-6f98-4ad0-9c45-b898717218fb" refObj="7c4f4d20-400a-11e4-916c-0800200c9a66">
-          <value uid="c6aa6c96-8786-4070-af72-371c5108d7b0" constant="true" value="Data controls.Street.currentObject">
+          <value uid="c6aa6c96-8786-4070-af72-371c5108d7b0" value="Data controls.Street.currentObject">
             <expression objRef="5541fdd1-fedb-45ba-ab74-966e737af3a6"/>
             <expression objRef="b4d21da3-17fa-49e6-ab0e-a8cd3bd9d01d" order="1"/>
             <expression order="2"/>
@@ -1698,7 +1715,7 @@
       </update>
       <remove packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="2957c51c-68e7-4d1e-b8b7-cbe7ccdbe13f" fakePackageName="Base package" fakeTypeName="JPA Entity CRAD Service" methodRef="dbacf9e0-4008-11e4-916c-0800200c9a66" fakeMethod="remove" uid="f44eb949-f0da-499a-abf0-24b895cb49ba">
         <parameters uid="d524a036-1513-41f8-9843-ce5fd9f4947c" refObj="73df4460-400a-11e4-916c-0800200c9a66">
-          <value uid="88cb9f1f-0563-4756-89a6-529f02d41b81" constant="true" value="Data controls.Street.currentObject">
+          <value uid="88cb9f1f-0563-4756-89a6-529f02d41b81" value="Data controls.Street.currentObject">
             <expression objRef="5541fdd1-fedb-45ba-ab74-966e737af3a6"/>
             <expression objRef="b4d21da3-17fa-49e6-ab0e-a8cd3bd9d01d" order="1"/>
             <expression order="2"/>
@@ -1707,40 +1724,40 @@
       </remove>
       <search packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="2957c51c-68e7-4d1e-b8b7-cbe7ccdbe13f" fakePackageName="Base package" fakeTypeName="JPA Entity CRAD Service" methodRef="6fb841e0-4008-11e4-916c-0800200c9a66" fakeMethod="find" uid="70469eb6-ede9-4a47-8dfa-32e43cc247cb">
         <parameters uid="91cc8a18-cd68-4a16-9a40-4d9087b99dc5" refObj="790b57a0-4008-11e4-916c-0800200c9a66">
-          <value uid="67eabbbc-d735-4f20-869f-1e0c90bccc4b" constant="true" value="Data controls.City.query">
+          <value uid="67eabbbc-d735-4f20-869f-1e0c90bccc4b" value="Data controls.City.query">
             <expression objRef="5541fdd1-fedb-45ba-ab74-966e737af3a6"/>
             <expression objRef="8d431a55-eddc-42cb-8397-588243cfb255" order="1"/>
             <expression order="2"/>
           </value>
         </parameters>
         <parameters uid="e6c86f53-083f-481f-a1c6-65e1a332c790" refObj="823b06e0-4008-11e4-916c-0800200c9a66">
-          <value uid="7b2f0a76-5da4-4e0c-8309-23691acaa193" constant="true" value="Data controls.City.startIndex">
+          <value uid="7b2f0a76-5da4-4e0c-8309-23691acaa193" value="Data controls.City.startIndex">
             <expression objRef="5541fdd1-fedb-45ba-ab74-966e737af3a6"/>
             <expression objRef="8d431a55-eddc-42cb-8397-588243cfb255" order="1"/>
             <expression order="2"/>
           </value>
         </parameters>
         <parameters uid="84ce5f60-37f5-4c51-b2ac-eda18418e273" refObj="8cc19390-4008-11e4-916c-0800200c9a66">
-          <value uid="69c4cb1b-19a4-40c8-a1cb-3c5e0d6677dc" constant="true" value="Data controls.Street.endindex">
+          <value uid="69c4cb1b-19a4-40c8-a1cb-3c5e0d6677dc" value="Data controls.Street.endindex">
             <expression objRef="5541fdd1-fedb-45ba-ab74-966e737af3a6"/>
             <expression objRef="b4d21da3-17fa-49e6-ab0e-a8cd3bd9d01d" order="1"/>
             <expression order="2"/>
           </value>
         </parameters>
         <parameters uid="25498810-37d0-484f-b8a9-a8e261941471" refObj="97d8a070-4008-11e4-916c-0800200c9a66">
-          <value uid="364b4ccb-5aef-4ac7-b95a-664b24842445" value="org.elsoft.platform.hr.objects.StreetDAO"/>
+          <value uid="364b4ccb-5aef-4ac7-b95a-664b24842445" constant="true" value="org.elsoft.platform.hr.objects.StreetDAO"/>
         </parameters>
       </search>
     </controls>
     <controls uid="0feddc04-1241-40fa-a9f3-35089d2cf4c5" name="Department">
       <create packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="2957c51c-68e7-4d1e-b8b7-cbe7ccdbe13f" fakePackageName="Base package" fakeTypeName="JPA Entity CRAD Service" methodRef="40b112a0-4008-11e4-916c-0800200c9a66" fakeMethod="create" uid="f84d75ec-98bc-4e08-ac93-1ab07ffca3e3">
         <parameters uid="895902fc-bca8-4e4e-bc0a-01e749b3bfa6" refObj="9150e8ca-6703-4e2c-a2e0-479f42987fa5">
-          <value uid="1518409f-45bd-4494-831e-9184490648d3" value="org.elsoft.platform.hr.objects.DepartmentsDAO"/>
+          <value uid="1518409f-45bd-4494-831e-9184490648d3" constant="true" value="org.elsoft.platform.hr.objects.DepartmentsDAO"/>
         </parameters>
       </create>
       <insert packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="2957c51c-68e7-4d1e-b8b7-cbe7ccdbe13f" fakePackageName="Base package" fakeTypeName="JPA Entity CRAD Service" methodRef="b14bfa20-4008-11e4-916c-0800200c9a66" fakeMethod="insert" uid="b88c4444-d133-4a0f-a3a6-bdbafed71061">
         <parameters uid="74c44845-f439-41e3-b83f-d6e0041e6abd" refObj="b7ea5020-4008-11e4-916c-0800200c9a66">
-          <value uid="11fb24b6-525c-47f3-aab8-65e483e7214c" constant="true" value="Data controls.Department.currentObject">
+          <value uid="11fb24b6-525c-47f3-aab8-65e483e7214c" value="Data controls.Department.currentObject">
             <expression objRef="5541fdd1-fedb-45ba-ab74-966e737af3a6"/>
             <expression objRef="0feddc04-1241-40fa-a9f3-35089d2cf4c5" order="1"/>
             <expression order="2"/>
@@ -1749,7 +1766,7 @@
       </insert>
       <update packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="2957c51c-68e7-4d1e-b8b7-cbe7ccdbe13f" fakePackageName="Base package" fakeTypeName="JPA Entity CRAD Service" methodRef="caf1fc90-4008-11e4-916c-0800200c9a66" fakeMethod="update" uid="5da95926-adbf-421b-a8de-64b2708fcf47">
         <parameters uid="8a3255f8-cf74-47b0-9556-e26646030008" refObj="7c4f4d20-400a-11e4-916c-0800200c9a66">
-          <value uid="7b04b494-81f9-41db-9ed9-0f49a0d6a1e4" constant="true" value="Data controls.Department.currentObject">
+          <value uid="7b04b494-81f9-41db-9ed9-0f49a0d6a1e4" value="Data controls.Department.currentObject">
             <expression objRef="5541fdd1-fedb-45ba-ab74-966e737af3a6"/>
             <expression objRef="0feddc04-1241-40fa-a9f3-35089d2cf4c5" order="1"/>
             <expression order="2"/>
@@ -1758,7 +1775,7 @@
       </update>
       <remove packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="2957c51c-68e7-4d1e-b8b7-cbe7ccdbe13f" fakePackageName="Base package" fakeTypeName="JPA Entity CRAD Service" methodRef="dbacf9e0-4008-11e4-916c-0800200c9a66" fakeMethod="remove" uid="46ab0554-a23b-4576-a589-3a1cbf0c57c7">
         <parameters uid="53f96352-3744-4acf-b894-4f5e67b7d7cb" refObj="73df4460-400a-11e4-916c-0800200c9a66">
-          <value uid="135581e4-abcd-4a12-946b-ba7960bcc3be" constant="true" value="Data controls.Department.currentObject">
+          <value uid="135581e4-abcd-4a12-946b-ba7960bcc3be" value="Data controls.Department.currentObject">
             <expression objRef="5541fdd1-fedb-45ba-ab74-966e737af3a6"/>
             <expression objRef="0feddc04-1241-40fa-a9f3-35089d2cf4c5" order="1"/>
             <expression order="2"/>
@@ -1767,40 +1784,40 @@
       </remove>
       <search packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="2957c51c-68e7-4d1e-b8b7-cbe7ccdbe13f" fakePackageName="Base package" fakeTypeName="JPA Entity CRAD Service" methodRef="6fb841e0-4008-11e4-916c-0800200c9a66" fakeMethod="find" uid="e6df5fdb-e3a7-4d1a-b3b2-f95cdc31e4c2">
         <parameters uid="3d92979f-ed27-4723-9834-8e6def4f78d2" refObj="790b57a0-4008-11e4-916c-0800200c9a66">
-          <value uid="f06e2345-670f-4444-bd19-24dc2057ebbc" constant="true" value="Data controls.Department.query">
+          <value uid="f06e2345-670f-4444-bd19-24dc2057ebbc" value="Data controls.Department.query">
             <expression objRef="5541fdd1-fedb-45ba-ab74-966e737af3a6"/>
             <expression objRef="0feddc04-1241-40fa-a9f3-35089d2cf4c5" order="1"/>
             <expression order="2"/>
           </value>
         </parameters>
         <parameters uid="83ffec86-4f37-4664-9a21-da79da86b66c" refObj="823b06e0-4008-11e4-916c-0800200c9a66">
-          <value uid="6bcf79d1-9695-4b68-981c-676f6bd525a1" constant="true" value="Data controls.Department.startIndex">
+          <value uid="6bcf79d1-9695-4b68-981c-676f6bd525a1" value="Data controls.Department.startIndex">
             <expression objRef="5541fdd1-fedb-45ba-ab74-966e737af3a6"/>
             <expression objRef="0feddc04-1241-40fa-a9f3-35089d2cf4c5" order="1"/>
             <expression order="2"/>
           </value>
         </parameters>
         <parameters uid="0b38b933-d8ee-44ea-9ae3-aa9c531186f8" refObj="8cc19390-4008-11e4-916c-0800200c9a66">
-          <value uid="4606e9df-f8b9-4c5f-9132-0c02f17e4732" constant="true" value="Data controls.Department.endindex">
+          <value uid="4606e9df-f8b9-4c5f-9132-0c02f17e4732" value="Data controls.Department.endindex">
             <expression objRef="5541fdd1-fedb-45ba-ab74-966e737af3a6"/>
             <expression objRef="0feddc04-1241-40fa-a9f3-35089d2cf4c5" order="1"/>
             <expression order="2"/>
           </value>
         </parameters>
         <parameters uid="187b477d-83f4-45be-b02c-1246f78f0234" refObj="97d8a070-4008-11e4-916c-0800200c9a66">
-          <value uid="3979502b-e47e-4cc4-939d-61508886989a" value="org.elsoft.platform.hr.objects.DepartmentsDAO"/>
+          <value uid="3979502b-e47e-4cc4-939d-61508886989a" constant="true" value="org.elsoft.platform.hr.objects.DepartmentsDAO"/>
         </parameters>
       </search>
     </controls>
     <controls uid="0b115ae0-7710-49f2-bb74-45fa6af58c8e" name="Employee">
       <create packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="2957c51c-68e7-4d1e-b8b7-cbe7ccdbe13f" fakePackageName="Base package" fakeTypeName="JPA Entity CRAD Service" methodRef="40b112a0-4008-11e4-916c-0800200c9a66" fakeMethod="create" uid="2d640832-13e6-4750-88f1-b50126aac085">
         <parameters uid="559c3b96-cabf-4ae0-8e5e-1857257b55fc" refObj="9150e8ca-6703-4e2c-a2e0-479f42987fa5">
-          <value uid="a4c1f592-1a20-4216-8c7e-905832baadef" value="org.elsoft.platform.hr.objects.EmployeesDAO"/>
+          <value uid="a4c1f592-1a20-4216-8c7e-905832baadef" constant="true" value="org.elsoft.platform.hr.objects.EmployeesDAO"/>
         </parameters>
       </create>
       <insert packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="2957c51c-68e7-4d1e-b8b7-cbe7ccdbe13f" fakePackageName="Base package" fakeTypeName="JPA Entity CRAD Service" methodRef="b14bfa20-4008-11e4-916c-0800200c9a66" fakeMethod="insert" uid="3b55579f-14dc-4030-b90f-e257be5ca6e5">
         <parameters uid="ebc47e7e-a6bc-4e8f-a021-1114abdc4228" refObj="b7ea5020-4008-11e4-916c-0800200c9a66">
-          <value uid="a88c1a6d-6d5b-43e0-b75b-b8cdef57cedb" constant="true" value="Data controls.Employee.currentObject">
+          <value uid="a88c1a6d-6d5b-43e0-b75b-b8cdef57cedb" value="Data controls.Employee.currentObject">
             <expression objRef="5541fdd1-fedb-45ba-ab74-966e737af3a6"/>
             <expression objRef="0b115ae0-7710-49f2-bb74-45fa6af58c8e" order="1"/>
             <expression order="2"/>
@@ -1809,7 +1826,7 @@
       </insert>
       <update packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="2957c51c-68e7-4d1e-b8b7-cbe7ccdbe13f" fakePackageName="Base package" fakeTypeName="JPA Entity CRAD Service" methodRef="caf1fc90-4008-11e4-916c-0800200c9a66" fakeMethod="update" uid="5d5e7809-b559-410f-82f1-5a2f48bd916b">
         <parameters uid="1b7547e4-e456-4874-a643-08979a669aa3" refObj="7c4f4d20-400a-11e4-916c-0800200c9a66">
-          <value uid="4f8afeab-dc62-470a-b208-f9303a124e49" constant="true" value="Data controls.Employee.currentObject">
+          <value uid="4f8afeab-dc62-470a-b208-f9303a124e49" value="Data controls.Employee.currentObject">
             <expression objRef="5541fdd1-fedb-45ba-ab74-966e737af3a6"/>
             <expression objRef="0b115ae0-7710-49f2-bb74-45fa6af58c8e" order="1"/>
             <expression order="2"/>
@@ -1818,7 +1835,7 @@
       </update>
       <remove packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="2957c51c-68e7-4d1e-b8b7-cbe7ccdbe13f" fakePackageName="Base package" fakeTypeName="JPA Entity CRAD Service" methodRef="dbacf9e0-4008-11e4-916c-0800200c9a66" fakeMethod="remove" uid="77bde1ba-76b6-479d-b1de-05db158b04c2">
         <parameters uid="d00f50e8-f194-4eb8-8fad-28667dcdd23a" refObj="73df4460-400a-11e4-916c-0800200c9a66">
-          <value uid="6de8ec49-8f0d-46b5-bfc8-c24d7f6c6202" constant="true" value="Data controls.Employee.currentObject">
+          <value uid="6de8ec49-8f0d-46b5-bfc8-c24d7f6c6202" value="Data controls.Employee.currentObject">
             <expression objRef="5541fdd1-fedb-45ba-ab74-966e737af3a6"/>
             <expression objRef="0b115ae0-7710-49f2-bb74-45fa6af58c8e" order="1"/>
             <expression order="2"/>
@@ -1827,28 +1844,28 @@
       </remove>
       <search packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="2957c51c-68e7-4d1e-b8b7-cbe7ccdbe13f" fakePackageName="Base package" fakeTypeName="JPA Entity CRAD Service" methodRef="6fb841e0-4008-11e4-916c-0800200c9a66" fakeMethod="find" uid="c3726c19-f164-485c-9beb-f681d7b065d3">
         <parameters uid="b999bb87-8db7-4d08-83e1-4f259771fd36" refObj="790b57a0-4008-11e4-916c-0800200c9a66">
-          <value uid="a66bb0f6-e9e7-45b1-8d31-22f505f3ccc3" constant="true" value="Data controls.Employee.query">
+          <value uid="a66bb0f6-e9e7-45b1-8d31-22f505f3ccc3" value="Data controls.Employee.query">
             <expression objRef="5541fdd1-fedb-45ba-ab74-966e737af3a6"/>
             <expression objRef="0b115ae0-7710-49f2-bb74-45fa6af58c8e" order="1"/>
             <expression order="2"/>
           </value>
         </parameters>
         <parameters uid="782e0608-4e02-4f7d-89e7-e5fb32e44c81" refObj="823b06e0-4008-11e4-916c-0800200c9a66">
-          <value uid="285742e4-27eb-43e1-807b-441471a8fff8" constant="true" value="Data controls.Employee.startIndex">
+          <value uid="285742e4-27eb-43e1-807b-441471a8fff8" value="Data controls.Employee.startIndex">
             <expression objRef="5541fdd1-fedb-45ba-ab74-966e737af3a6"/>
             <expression objRef="0b115ae0-7710-49f2-bb74-45fa6af58c8e" order="1"/>
             <expression order="2"/>
           </value>
         </parameters>
         <parameters uid="c6e8b9a3-9c49-48d5-b6ec-974daf81e7cf" refObj="8cc19390-4008-11e4-916c-0800200c9a66">
-          <value uid="bb234b67-e5d9-4657-995d-6f36ca1cf4db" constant="true" value="Data controls.Employee.endindex">
+          <value uid="bb234b67-e5d9-4657-995d-6f36ca1cf4db" value="Data controls.Employee.endindex">
             <expression objRef="5541fdd1-fedb-45ba-ab74-966e737af3a6"/>
             <expression objRef="0b115ae0-7710-49f2-bb74-45fa6af58c8e" order="1"/>
             <expression order="2"/>
           </value>
         </parameters>
         <parameters uid="2e369011-0f2f-4f8e-aff3-0eaa994179b8" refObj="97d8a070-4008-11e4-916c-0800200c9a66">
-          <value uid="177d0ce1-c086-45ef-bbb7-05e2b7f80463" value="org.elsoft.platform.hr.objects.EmployeesDAO"/>
+          <value uid="177d0ce1-c086-45ef-bbb7-05e2b7f80463" constant="true" value="org.elsoft.platform.hr.objects.EmployeesDAO"/>
         </parameters>
       </search>
       <defaultSearch/>
@@ -1856,12 +1873,12 @@
     <controls uid="7787cfd3-a689-4089-8689-7c149a1a3a34" name="Vehicle">
       <create packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="2957c51c-68e7-4d1e-b8b7-cbe7ccdbe13f" fakePackageName="Base package" fakeTypeName="JPA Entity CRAD Service" methodRef="40b112a0-4008-11e4-916c-0800200c9a66" fakeMethod="create" uid="5b1e6f0e-21c7-4be1-8955-1030bdab833c">
         <parameters uid="983dece5-632e-44d9-9c6f-2091e7222c4d" refObj="9150e8ca-6703-4e2c-a2e0-479f42987fa5">
-          <value uid="9da7ed07-bdf3-431a-a66f-5d98ea12161b" value="org.elsoft.platform.hr.objects.VehicleDAO"/>
+          <value uid="9da7ed07-bdf3-431a-a66f-5d98ea12161b" constant="true" value="org.elsoft.platform.hr.objects.VehicleDAO"/>
         </parameters>
       </create>
       <insert packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="2957c51c-68e7-4d1e-b8b7-cbe7ccdbe13f" fakePackageName="Base package" fakeTypeName="JPA Entity CRAD Service" methodRef="b14bfa20-4008-11e4-916c-0800200c9a66" fakeMethod="insert" uid="88b31ec6-255b-40bf-80ab-30524bacf064">
         <parameters uid="d6571e1a-4b9c-447f-897f-abaa996779bc" refObj="b7ea5020-4008-11e4-916c-0800200c9a66">
-          <value uid="f4dce91a-1b48-44f0-8f7f-be70f69686b2" constant="true" value="Data controls.Vehicle.currentObject">
+          <value uid="f4dce91a-1b48-44f0-8f7f-be70f69686b2" value="Data controls.Vehicle.currentObject">
             <expression objRef="5541fdd1-fedb-45ba-ab74-966e737af3a6"/>
             <expression objRef="7787cfd3-a689-4089-8689-7c149a1a3a34" order="1"/>
             <expression order="2"/>
@@ -1870,7 +1887,7 @@
       </insert>
       <update packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="2957c51c-68e7-4d1e-b8b7-cbe7ccdbe13f" fakePackageName="Base package" fakeTypeName="JPA Entity CRAD Service" methodRef="caf1fc90-4008-11e4-916c-0800200c9a66" fakeMethod="update" uid="e6c2e226-2c24-4492-bf9b-2529a093dad5">
         <parameters uid="ebe4609f-e2e2-4d27-bd08-4892d5e8fc26" refObj="7c4f4d20-400a-11e4-916c-0800200c9a66">
-          <value uid="6fe20084-1745-4047-a1ce-a033d141390b" constant="true" value="Data controls.Vehicle.currentObject">
+          <value uid="6fe20084-1745-4047-a1ce-a033d141390b" value="Data controls.Vehicle.currentObject">
             <expression objRef="5541fdd1-fedb-45ba-ab74-966e737af3a6"/>
             <expression objRef="7787cfd3-a689-4089-8689-7c149a1a3a34" order="1"/>
             <expression order="2"/>
@@ -1879,7 +1896,7 @@
       </update>
       <remove packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="2957c51c-68e7-4d1e-b8b7-cbe7ccdbe13f" fakePackageName="Base package" fakeTypeName="JPA Entity CRAD Service" methodRef="dbacf9e0-4008-11e4-916c-0800200c9a66" fakeMethod="remove" uid="12170c14-dc5a-49fb-bbf3-a5d7c4b0d83f">
         <parameters uid="26e734f0-7f3f-45de-8cb7-01245812b42f" refObj="73df4460-400a-11e4-916c-0800200c9a66">
-          <value uid="78c3326e-9136-4d1e-91b0-41b7a194d69f" constant="true" value="Data controls.Vehicle.currentObject">
+          <value uid="78c3326e-9136-4d1e-91b0-41b7a194d69f" value="Data controls.Vehicle.currentObject">
             <expression objRef="5541fdd1-fedb-45ba-ab74-966e737af3a6"/>
             <expression objRef="7787cfd3-a689-4089-8689-7c149a1a3a34" order="1"/>
             <expression order="2"/>
@@ -1888,40 +1905,40 @@
       </remove>
       <search packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="2957c51c-68e7-4d1e-b8b7-cbe7ccdbe13f" fakePackageName="Base package" fakeTypeName="JPA Entity CRAD Service" methodRef="6fb841e0-4008-11e4-916c-0800200c9a66" fakeMethod="find" uid="0ae4de65-3ecd-4ed4-9e43-9747b739af06">
         <parameters uid="7c4c5e0a-014b-4ebe-aced-114a4944eff6" refObj="790b57a0-4008-11e4-916c-0800200c9a66">
-          <value uid="a222bda9-e13b-49e5-a0ba-a6ac1134127c" constant="true" value="Data controls.Vehicle.query">
+          <value uid="a222bda9-e13b-49e5-a0ba-a6ac1134127c" value="Data controls.Vehicle.query">
             <expression objRef="5541fdd1-fedb-45ba-ab74-966e737af3a6"/>
             <expression objRef="7787cfd3-a689-4089-8689-7c149a1a3a34" order="1"/>
             <expression order="2"/>
           </value>
         </parameters>
         <parameters uid="767ffb7d-5320-49dc-9b6c-47e64c5f89ee" refObj="823b06e0-4008-11e4-916c-0800200c9a66">
-          <value uid="c8feb70e-9d3d-4ca1-a23b-47730a89fe28" constant="true" value="Data controls.Vehicle.startIndex">
+          <value uid="c8feb70e-9d3d-4ca1-a23b-47730a89fe28" value="Data controls.Vehicle.startIndex">
             <expression objRef="5541fdd1-fedb-45ba-ab74-966e737af3a6"/>
             <expression objRef="7787cfd3-a689-4089-8689-7c149a1a3a34" order="1"/>
             <expression order="2"/>
           </value>
         </parameters>
         <parameters uid="a019033b-e542-4808-ac21-800f984a480e" refObj="8cc19390-4008-11e4-916c-0800200c9a66">
-          <value uid="245ce177-0f4a-4d6c-9444-07e2fb221a4c" constant="true" value="Data controls.Vehicle.endindex">
+          <value uid="245ce177-0f4a-4d6c-9444-07e2fb221a4c" value="Data controls.Vehicle.endindex">
             <expression objRef="5541fdd1-fedb-45ba-ab74-966e737af3a6"/>
             <expression objRef="7787cfd3-a689-4089-8689-7c149a1a3a34" order="1"/>
             <expression order="2"/>
           </value>
         </parameters>
         <parameters uid="1511c0e3-5b1c-4c33-a971-1cfaf0ce3b47" refObj="97d8a070-4008-11e4-916c-0800200c9a66">
-          <value uid="aaa09c79-b5b5-482b-b5bb-54b8cde5cb0b" value="org.elsoft.platform.hr.objects.VehicleDAO"/>
+          <value uid="aaa09c79-b5b5-482b-b5bb-54b8cde5cb0b" constant="true" value="org.elsoft.platform.hr.objects.VehicleDAO"/>
         </parameters>
       </search>
     </controls>
     <controls uid="34ec885b-a2e1-4c4a-8987-f56c9e935e86" name="Files">
       <create packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="2957c51c-68e7-4d1e-b8b7-cbe7ccdbe13f" fakePackageName="Base package" fakeTypeName="JPA Entity CRAD Service" methodRef="40b112a0-4008-11e4-916c-0800200c9a66" fakeMethod="create" uid="2018a2dd-c305-47ee-97c3-ddb532d0e7a6">
         <parameters uid="913a84c8-3c79-410b-9946-66eb5e40b288" refObj="9150e8ca-6703-4e2c-a2e0-479f42987fa5">
-          <value uid="8eebb506-5c20-45a1-9119-0e3bf7228a32" value="org.elsoft.platform.hr.objects.FileDAO"/>
+          <value uid="8eebb506-5c20-45a1-9119-0e3bf7228a32" constant="true" value="org.elsoft.platform.hr.objects.FileDAO"/>
         </parameters>
       </create>
       <insert packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="2957c51c-68e7-4d1e-b8b7-cbe7ccdbe13f" fakePackageName="Base package" fakeTypeName="JPA Entity CRAD Service" methodRef="b14bfa20-4008-11e4-916c-0800200c9a66" fakeMethod="insert" uid="4e30542c-8b10-4ce5-83be-a55b424b25f2">
         <parameters uid="96cd55f8-ec4f-453e-a7a2-bf4569a9ff23" refObj="b7ea5020-4008-11e4-916c-0800200c9a66">
-          <value uid="9d0d83ba-f67e-4331-a35f-b25ca9cb2d9d" constant="true" value="Data controls.Files.currentObject">
+          <value uid="9d0d83ba-f67e-4331-a35f-b25ca9cb2d9d" value="Data controls.Files.currentObject">
             <expression objRef="5541fdd1-fedb-45ba-ab74-966e737af3a6"/>
             <expression objRef="34ec885b-a2e1-4c4a-8987-f56c9e935e86" order="1"/>
             <expression order="2"/>
@@ -1930,7 +1947,7 @@
       </insert>
       <update packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="2957c51c-68e7-4d1e-b8b7-cbe7ccdbe13f" fakePackageName="Base package" fakeTypeName="JPA Entity CRAD Service" methodRef="caf1fc90-4008-11e4-916c-0800200c9a66" fakeMethod="update" uid="caf18265-1c0e-4fd3-9884-0c1dacfc920a">
         <parameters uid="27dc6bed-c576-433b-917b-4f6fffc22aa5" refObj="7c4f4d20-400a-11e4-916c-0800200c9a66">
-          <value uid="554fd478-e828-4ff6-af63-c84da74a8fc1" constant="true" value="Data controls.Files.currentObject">
+          <value uid="554fd478-e828-4ff6-af63-c84da74a8fc1" value="Data controls.Files.currentObject">
             <expression objRef="5541fdd1-fedb-45ba-ab74-966e737af3a6"/>
             <expression objRef="34ec885b-a2e1-4c4a-8987-f56c9e935e86" order="1"/>
             <expression order="2"/>
@@ -1939,7 +1956,7 @@
       </update>
       <remove packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="2957c51c-68e7-4d1e-b8b7-cbe7ccdbe13f" fakePackageName="Base package" fakeTypeName="JPA Entity CRAD Service" methodRef="dbacf9e0-4008-11e4-916c-0800200c9a66" fakeMethod="remove" uid="76879d1b-6276-42d9-a59f-d70bf1ec33ef">
         <parameters uid="6f87388f-9d50-4dad-bf6c-e754cf74010c" refObj="73df4460-400a-11e4-916c-0800200c9a66">
-          <value uid="1db7d58b-29df-48cf-ade4-d909c4c99a39" constant="true" value="Data controls.Files.currentObject">
+          <value uid="1db7d58b-29df-48cf-ade4-d909c4c99a39" value="Data controls.Files.currentObject">
             <expression objRef="5541fdd1-fedb-45ba-ab74-966e737af3a6"/>
             <expression objRef="34ec885b-a2e1-4c4a-8987-f56c9e935e86" order="1"/>
             <expression order="2"/>
@@ -1948,28 +1965,28 @@
       </remove>
       <search packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="2957c51c-68e7-4d1e-b8b7-cbe7ccdbe13f" fakePackageName="Base package" fakeTypeName="JPA Entity CRAD Service" methodRef="6fb841e0-4008-11e4-916c-0800200c9a66" fakeMethod="find" uid="bb67c177-97b2-4fa5-abdf-5d70bfcfc97b">
         <parameters uid="6e468a00-bf00-47d5-a5b2-15320fafaf77" refObj="790b57a0-4008-11e4-916c-0800200c9a66">
-          <value uid="af08d950-6be7-4851-9cb9-387e771cf585" constant="true" value="Data controls.Files.query">
+          <value uid="af08d950-6be7-4851-9cb9-387e771cf585" value="Data controls.Files.query">
             <expression objRef="5541fdd1-fedb-45ba-ab74-966e737af3a6"/>
             <expression objRef="34ec885b-a2e1-4c4a-8987-f56c9e935e86" order="1"/>
             <expression order="2"/>
           </value>
         </parameters>
         <parameters uid="67372f8b-fd73-434e-a69e-d66d002dba58" refObj="823b06e0-4008-11e4-916c-0800200c9a66">
-          <value uid="254581ec-0dc2-4735-bd6e-b7db4ae9051c" constant="true" value="Data controls.Files.startIndex">
+          <value uid="254581ec-0dc2-4735-bd6e-b7db4ae9051c" value="Data controls.Files.startIndex">
             <expression objRef="5541fdd1-fedb-45ba-ab74-966e737af3a6"/>
             <expression objRef="34ec885b-a2e1-4c4a-8987-f56c9e935e86" order="1"/>
             <expression order="2"/>
           </value>
         </parameters>
         <parameters uid="e0d0ae0e-f2b9-49fa-9db6-38f1a00863e0" refObj="8cc19390-4008-11e4-916c-0800200c9a66">
-          <value uid="e467796d-268a-40a7-b238-d261eda08ee4" constant="true" value="Data controls.Files.endindex">
+          <value uid="e467796d-268a-40a7-b238-d261eda08ee4" value="Data controls.Files.endindex">
             <expression objRef="5541fdd1-fedb-45ba-ab74-966e737af3a6"/>
             <expression objRef="34ec885b-a2e1-4c4a-8987-f56c9e935e86" order="1"/>
             <expression order="2"/>
           </value>
         </parameters>
         <parameters uid="c9040573-5984-49f6-b759-407639e4bf3d" refObj="97d8a070-4008-11e4-916c-0800200c9a66">
-          <value uid="a96f6260-6972-4944-8e32-665cd92c2bf7" value="org.elsoft.platform.hr.objects.FileDAO"/>
+          <value uid="a96f6260-6972-4944-8e32-665cd92c2bf7" constant="true" value="org.elsoft.platform.hr.objects.FileDAO"/>
         </parameters>
       </search>
       <defaultSearch/>

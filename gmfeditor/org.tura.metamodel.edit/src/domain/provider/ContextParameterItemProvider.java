@@ -69,6 +69,7 @@ public class ContextParameterItemProvider
 
       addUidPropertyDescriptor(object);
       addRefObjPropertyDescriptor(object);
+      addOperationPropertyDescriptor(object);
     }
     return itemPropertyDescriptors;
   }
@@ -115,6 +116,29 @@ public class ContextParameterItemProvider
          false,
          true,
          null,
+         null,
+         null));
+  }
+
+  /**
+   * This adds a property descriptor for the Operation feature.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected void addOperationPropertyDescriptor(Object object)
+  {
+    itemPropertyDescriptors.add
+      (createItemPropertyDescriptor
+        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+         getResourceLocator(),
+         getString("_UI_ContextParameter_operation_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_ContextParameter_operation_feature", "_UI_ContextParameter_type"),
+         DomainPackage.Literals.CONTEXT_PARAMETER__OPERATION,
+         true,
+         false,
+         false,
+         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
          null,
          null));
   }
@@ -194,6 +218,7 @@ public class ContextParameterItemProvider
     switch (notification.getFeatureID(ContextParameter.class))
     {
       case DomainPackage.CONTEXT_PARAMETER__UID:
+      case DomainPackage.CONTEXT_PARAMETER__OPERATION:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
         return;
       case DomainPackage.CONTEXT_PARAMETER__VALUE:

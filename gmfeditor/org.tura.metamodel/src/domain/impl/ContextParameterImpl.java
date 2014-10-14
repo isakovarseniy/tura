@@ -2,6 +2,7 @@
  */
 package domain.impl;
 
+import domain.Comparator;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
@@ -23,6 +24,7 @@ import domain.DomainPackage;
  * <ul>
  *   <li>{@link domain.impl.ContextParameterImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.impl.ContextParameterImpl#getRefObj <em>Ref Obj</em>}</li>
+ *   <li>{@link domain.impl.ContextParameterImpl#getOperation <em>Operation</em>}</li>
  *   <li>{@link domain.impl.ContextParameterImpl#getValue <em>Value</em>}</li>
  * </ul>
  * </p>
@@ -60,6 +62,26 @@ public class ContextParameterImpl extends EObjectImpl implements ContextParamete
    * @ordered
    */
   protected EObject refObj;
+
+  /**
+   * The default value of the '{@link #getOperation() <em>Operation</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getOperation()
+   * @generated
+   * @ordered
+   */
+  protected static final Comparator OPERATION_EDEFAULT = Comparator.EQ;
+
+  /**
+   * The cached value of the '{@link #getOperation() <em>Operation</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getOperation()
+   * @generated
+   * @ordered
+   */
+  protected Comparator operation = OPERATION_EDEFAULT;
 
   /**
    * The cached value of the '{@link #getValue() <em>Value</em>}' containment reference.
@@ -163,6 +185,29 @@ public class ContextParameterImpl extends EObjectImpl implements ContextParamete
    * <!-- end-user-doc -->
    * @generated
    */
+  public Comparator getOperation()
+  {
+    return operation;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setOperation(Comparator newOperation)
+  {
+    Comparator oldOperation = operation;
+    operation = newOperation == null ? OPERATION_EDEFAULT : newOperation;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.CONTEXT_PARAMETER__OPERATION, oldOperation, operation));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public ContextValue getValue()
   {
     return value;
@@ -237,6 +282,8 @@ public class ContextParameterImpl extends EObjectImpl implements ContextParamete
       case DomainPackage.CONTEXT_PARAMETER__REF_OBJ:
         if (resolve) return getRefObj();
         return basicGetRefObj();
+      case DomainPackage.CONTEXT_PARAMETER__OPERATION:
+        return getOperation();
       case DomainPackage.CONTEXT_PARAMETER__VALUE:
         return getValue();
     }
@@ -258,6 +305,9 @@ public class ContextParameterImpl extends EObjectImpl implements ContextParamete
         return;
       case DomainPackage.CONTEXT_PARAMETER__REF_OBJ:
         setRefObj((EObject)newValue);
+        return;
+      case DomainPackage.CONTEXT_PARAMETER__OPERATION:
+        setOperation((Comparator)newValue);
         return;
       case DomainPackage.CONTEXT_PARAMETER__VALUE:
         setValue((ContextValue)newValue);
@@ -282,6 +332,9 @@ public class ContextParameterImpl extends EObjectImpl implements ContextParamete
       case DomainPackage.CONTEXT_PARAMETER__REF_OBJ:
         setRefObj((EObject)null);
         return;
+      case DomainPackage.CONTEXT_PARAMETER__OPERATION:
+        setOperation(OPERATION_EDEFAULT);
+        return;
       case DomainPackage.CONTEXT_PARAMETER__VALUE:
         setValue((ContextValue)null);
         return;
@@ -303,6 +356,8 @@ public class ContextParameterImpl extends EObjectImpl implements ContextParamete
         return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
       case DomainPackage.CONTEXT_PARAMETER__REF_OBJ:
         return refObj != null;
+      case DomainPackage.CONTEXT_PARAMETER__OPERATION:
+        return operation != OPERATION_EDEFAULT;
       case DomainPackage.CONTEXT_PARAMETER__VALUE:
         return value != null;
     }
@@ -322,6 +377,8 @@ public class ContextParameterImpl extends EObjectImpl implements ContextParamete
     StringBuffer result = new StringBuffer(super.toString());
     result.append(" (uid: ");
     result.append(uid);
+    result.append(", operation: ");
+    result.append(operation);
     result.append(')');
     return result.toString();
   }

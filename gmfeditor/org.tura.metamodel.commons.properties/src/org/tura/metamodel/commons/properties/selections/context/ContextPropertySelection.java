@@ -64,7 +64,7 @@ public abstract class ContextPropertySelection extends
 	protected CLabel nameLabel1;
 	private TreePath[] treePath;
 
-	private String MESSAGE = "is Expression";
+	private String MESSAGE = "is constant";
 
 	public void createControls(Composite parent,
 			TabbedPropertySheetPage aTabbedPropertySheetPage) {
@@ -194,7 +194,7 @@ public abstract class ContextPropertySelection extends
 
 	private void configure() {
 		domain.Context obj = (Context) getModel();
-		if (obj.isConstant()) {
+		if (! obj.isConstant()) {
 			text1.setVisible(true);
 			nameLabel1.setVisible(true);
 			btnDialog.setVisible(true);

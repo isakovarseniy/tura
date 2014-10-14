@@ -1,6 +1,15 @@
 import "platform:/plugin/org.tura.metamodel.wizard.generation/template/commons/typeElementUtil.eol";
  
 
+
+operation DataControl processDefaultQuery(recipe:Recipe, ingredient :Ingredient ) { 
+
+      if ( self.defaultSearch<> null)
+            self.defaultSearch.processParameters(recipe,ingredient);
+      if ( self.defaultOrderBy<> null)
+       self.defaultOrderBy.processParameters(recipe,ingredient);
+}
+
 operation DataControl processTriggers(recipe:Recipe, ingredient :Ingredient ) { 
 
         var provider = new Native('java.util.HashMap');
@@ -50,12 +59,17 @@ operation DataControl processTriggers(recipe:Recipe, ingredient :Ingredient ) {
 operation Trigger processTrigger(recipe:Recipe, ingredient :Ingredient){
         var util = new Native('org.tura.metamodel.commons.Util');
         self.typeRef.mappingType2Java(recipe,ingredient);
+        self.processParameters(recipe,ingredient);
+}
+
+operation ContextParameters processParameters(recipe:Recipe, ingredient :Ingredient){
+        var util = new Native('org.tura.metamodel.commons.Util');
         for (parameter in self.parameters){
             parameter.~result =  util.buildExpression(parameter.value);
-util.println( parameter.~result);            
-            parameter.parameter.typeRef.mappingType2Java(recipe,ingredient);
+            parameter.refObj.typeRef.mappingType2Java(recipe,ingredient);
         }
 }
+
 
 
 operation DataControl processKeys(recipe:Recipe, ingredient :Ingredient ) { 
@@ -105,6 +119,15 @@ operation DataControl processRelations( recipe:Recipe, ingredient :Ingredient) {
             treeRoot.~treeRoot=true;       
             treeRoot.findDependecies(objectTrack, treeRoot,recipe,ingredient);
         }
+        
+        var incomeRelations = domain::Relation.allInstances()->select(r|r.isTree=true and r.eContainer() = self.parent  and r.detail=self );
+        if  (incomeRelations.size() <> 0){
+            var outcomeRelations = domain::Relation.allInstances()->select(r|r.isTree=false and r.eContainer() = self.parent  and r.master=self );
+            for ( relation in outcomeRelations){
+               relation.~dependency = true;
+            }
+        }
+        
 }
 
 
@@ -136,9 +159,3 @@ operation DataControl getBaseClass(recipe:Recipe, ingredient :Ingredient)  : Typ
         return base;
  
  }
-
-operation DataControl processSearchOrder(){
-
-//Default search and order criteria is not implemented on metamodel level
-
-}
