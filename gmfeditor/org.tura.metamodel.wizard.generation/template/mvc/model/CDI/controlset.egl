@@ -37,4 +37,22 @@
 
    }
 
+
+         var producercontrol : Template = TemplateFactory.load("platform:/plugin/org.tura.metamodel.wizard.generation/template/mvc/model/CDI/producer.egl");
+         producercontrol.setFormatter(f);
+
+
+         producercontrol.populate("recipe",recipe);
+         producercontrol.populate("ingredient",ingredient);
+         producercontrol.populate("component",component);
+         producercontrol.populate("model_mapper",model_mapper);
+         producercontrol.populate("form",form);
+         producercontrol.populate("control",control);
+
+         buffer = producercontrol.process();
+
+         util.saveFile( path+util.mergeAndCapitalize(form.name).toLowerCase()+"/producer/"  , util.mergeAndCapitalize(control.name) + "Producer.java",buffer);   
+
+
+
 %]
