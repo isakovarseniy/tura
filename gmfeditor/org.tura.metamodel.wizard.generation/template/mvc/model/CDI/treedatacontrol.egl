@@ -4,7 +4,7 @@
 %]
 package  [%=component.basePackage%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%].datacontrol;  
 
-@javax.inject.Named("TreeRoot[%=util.mergeAndCapitalize(control.name).toLowerCase()%]")
+@javax.inject.Named("treeRoot[%=util.mergeAndCapitalize(control.name).toLowerCase()%]")
 public class TreeRoot[%=util.mergeAndCapitalize(control.name)%]DC extends org.tura.platform.datacontrol.TreeDataControl {
 
 	@javax.inject.Inject
@@ -16,9 +16,18 @@ public class TreeRoot[%=util.mergeAndCapitalize(control.name)%]DC extends org.tu
 	@Override
 	@javax.inject.Inject
 	public void setDependency(
-			@Dependencies(dependency = { 
-			@Dependency(expression = "") }
-			) List<DependecyProperty> dependency) {
+			@org.tura.platform.datacontrol.annotations.Dependencies(dependency = { 
+    [%
+    var i = 0;
+    for (depend in control.~dependArray){
+     if (i <> 0 ){ %],[%}%]
+			@org.tura.platform.datacontrol.annotations.Dependency(expression = "[%=util.mergeAndCapitalize(depend).toLowerCase()%]") 
+    [%
+     i = i+1;
+    }
+    %] 
+			
+			}) java.util.List<org.tura.platform.datacontrol.metainfo.DependecyProperty> dependency) {
 		this.dependency = dependency;
 	}
 
