@@ -2030,6 +2030,10 @@
         <options uid="3c98f39c-3406-4eaf-aa48-e9f8450f07db" value="Spring"/>
         <options uid="d746f08a-a1f0-4b81-907a-bf65ef936a8e" value="CDI"/>
       </specifiers>
+      <specifiers uid="6cf7c6cf-5261-4eef-af34-5c153e789430" name="Environment">
+        <options uid="d04898e6-1e83-4bde-82fa-223a07623b92" value="JSE"/>
+        <options uid="1b800057-4205-4852-ae56-f48caead1343" value="JEE"/>
+      </specifiers>
     </artifacts>
   </tura.domain:Artifacts>
   <tura.domain:Recipes uid="780d51bf-e928-4fb4-a228-4371d8fe439d" parent="fc4a8a78-b68c-4020-bb95-ab6d773b5486">
@@ -2038,6 +2042,7 @@
         <components xsi:type="tura.domain:JavaComponent" uid="44a5e8a3-a54c-4792-903c-a984627f6218" name="UI component" componentRoot="/Users/arseniyi/generatedCode/uiLayer" artifactId="hrform" groupId="org.tura.example.ui" version="1.0" basePackage="org.tura.example.ui">
           <mappers uid="5c3c0b94-aa71-4da9-923f-3460706b5394" domainArtifactRef="5945624b-20f3-47f9-9cb1-d0dc8df9491a" artifactRef="d597c2ba-7f76-4769-a0e5-f9828833760f" name="Process all datacontrol in ui package">
             <specifiers specifierRef="ef7f8f56-76ad-4842-8484-9e6bc1e2dc6a" valueRef="d746f08a-a1f0-4b81-907a-bf65ef936a8e"/>
+            <specifiers specifierRef="6cf7c6cf-5261-4eef-af34-5c153e789430" valueRef="d04898e6-1e83-4bde-82fa-223a07623b92"/>
             <queries uid="7b568990-2c4b-41d7-b5d2-be3e0609ca79" queryRef="bba9824e-a43b-4c96-b926-fb63a606127a">
               <variables queryParamRef="ee8b0895-06c0-4ed3-99cf-8998cdfaeaa7" value="Hr manager"/>
               <variables queryParamRef="6dbc30b8-95cd-4776-90de-d7b5ce5df2f8" value="HR application"/>

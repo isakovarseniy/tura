@@ -15,7 +15,7 @@
 
     var buffer = datacontrol.process();
 
-    util.saveFile( path+util.mergeAndCapitalize(form.name).toLowerCase()+"/datacontrol/"  , util.mergeAndCapitalize(control.name) + "DC.java",buffer);   
+    util.saveFile( javaPath+util.mergeAndCapitalize(form.name).toLowerCase()+"/datacontrol/"  , util.mergeAndCapitalize(control.name) + "DC.java",buffer);   
 
 
      if (control.~treeRoot <> null){
@@ -33,7 +33,7 @@
 
          buffer = treedatacontrol.process();
 
-         util.saveFile( path+util.mergeAndCapitalize(form.name).toLowerCase()+"/datacontrol/"  , "TreeRoot"+util.mergeAndCapitalize(control.name) + "DC.java",buffer);   
+         util.saveFile( javaPath+util.mergeAndCapitalize(form.name).toLowerCase()+"/datacontrol/"  , "TreeRoot"+util.mergeAndCapitalize(control.name) + "DC.java",buffer);   
 
    }
 
@@ -51,8 +51,38 @@
 
          buffer = producercontrol.process();
 
-         util.saveFile( path+util.mergeAndCapitalize(form.name).toLowerCase()+"/producer/"  , util.mergeAndCapitalize(control.name) + "Producer.java",buffer);   
+         util.saveFile( javaPath+util.mergeAndCapitalize(form.name).toLowerCase()+"/producer/"  , util.mergeAndCapitalize(control.name) + "Producer.java",buffer);   
 
 
+         var beansxml : Template = TemplateFactory.load("platform:/plugin/org.tura.metamodel.wizard.generation/template/mvc/model/CDI/beans-xml.egl");
+         beansxml.setFormatter(f);
+
+
+         beansxml.populate("recipe",recipe);
+         beansxml.populate("ingredient",ingredient);
+         beansxml.populate("component",component);
+         beansxml.populate("model_mapper",model_mapper);
+         beansxml.populate("form",form);
+         beansxml.populate("control",control);
+
+
+         buffer = beansxml.process();
+         util.saveFile( resourcePath+"/META-INF/"  , "beans.xml",buffer);   
+
+        var hash = new Native("java.util.HashMap"); 
+         hash.put("recipe",recipe);
+         hash.put("ingredient",ingredient);
+         hash.put("component",component);
+         hash.put("model_mapper",model_mapper);
+         hash.put("form",form);
+         hash.put("control",control);
+         
+         var commandstack : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.wizard.generation/template/mvc/model/CDI/commandstack.egl",hash,TemplateFactory);
+         commandstack.setFormatter(f);
+
+
+         buffer = commandstack.process();
+         util.saveFile( javaPath+util.mergeAndCapitalize(form.name).toLowerCase()+"/datacontrol/"  , "CDICommandStack.java",buffer);   
 
 %]
+

@@ -44,8 +44,8 @@ public class CDICommandStack extends CommandStack{
 	}
 
 
-	public EntityManager getEm() {
-		return em;
-	}
+//	public EntityManager getEm() {
+//		return em;
+//	}
 
 }

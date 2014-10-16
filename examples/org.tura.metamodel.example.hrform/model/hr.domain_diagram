@@ -2999,6 +2999,13 @@
           <element xmi:type="tura.domain:Specifier" href="hr.domain#ef7f8f56-76ad-4842-8484-9e6bc1e2dc6a"/>
           <layoutConstraint xmi:type="notation:Bounds" xmi:id="__lXnM0s1EeSgyK5lbf2W4Q"/>
         </children>
+        <children xmi:type="notation:Node" xmi:id="_Pi17oFVqEeSwdpGLFjaYjw" type="703003">
+          <children xmi:type="notation:DecorationNode" xmi:id="_Pi3JwFVqEeSwdpGLFjaYjw" type="705003"/>
+          <styles xmi:type="notation:DescriptionStyle" xmi:id="_Pi17oVVqEeSwdpGLFjaYjw"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_Pi17olVqEeSwdpGLFjaYjw" fontName="Lucida Grande"/>
+          <element xmi:type="tura.domain:Specifier" href="hr.domain#6cf7c6cf-5261-4eef-af34-5c153e789430"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Pi17o1VqEeSwdpGLFjaYjw"/>
+        </children>
         <styles xmi:type="notation:SortingStyle" xmi:id="_wysdEUs1EeSgyK5lbf2W4Q"/>
         <styles xmi:type="notation:FilteringStyle" xmi:id="_wysdEks1EeSgyK5lbf2W4Q"/>
       </children>

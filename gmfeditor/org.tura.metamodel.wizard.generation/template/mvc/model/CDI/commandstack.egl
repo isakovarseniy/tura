@@ -1,0 +1,37 @@
+<#assign percent = "%" >
+<#assign start = "[" >
+<#assign end = "]" >
+${start}${percent} 
+<#list  model_mapper.getSpecifiers()  as tech >
+import "platform:/plugin/org.tura.metamodel.wizard.generation/template/technologies/${tech.getValueRef().getValue()}.egl";
+</#list>
+${percent}${end}
+[%
+     var util = new Native('org.tura.metamodel.commons.Util');
+%]
+package  [%=component.basePackage%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%].datacontrol;  
+
+@javax.inject.Named("CommandStack")
+[%=commandstack_scope()%]
+public class CDICommandStack extends org.tura.platform.datacontrol.CommandStack{
+     
+     [%=commandstack_entitymanagerinit()%]
+     
+	@Override
+	public void beginTransaction() {
+		em.getTransaction().begin();
+
+	}
+
+	@Override
+	public void commitTransaction() {
+		em.getTransaction().commit();
+
+	}
+
+	@Override
+	public void rallbackTransaction() {
+		em.getTransaction().rollback();
+	}
+
+}

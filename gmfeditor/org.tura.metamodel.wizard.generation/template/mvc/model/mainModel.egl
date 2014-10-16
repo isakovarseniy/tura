@@ -18,12 +18,14 @@
          var controlGen : Template = TemplateFactory.load("platform:/plugin/org.tura.metamodel.wizard.generation/template/mvc/model/"+tech.getValueRef().getValue()+"/controlset.egl");
          controlGen.setFormatter(f);
     
-         var path = component.getComponentRoot+"/"+component.getArtifactId()+"/src/main/java/"+component.basePackage.replaceAll("\\.","\\/")+"/";  
+         var javaPath = component.getComponentRoot+"/"+component.getArtifactId()+"/src/main/java/"+component.basePackage.replaceAll("\\.","\\/")+"/";  
+         var resourcePath =  component.getComponentRoot+"/"+component.getArtifactId()+"/src/main/resources/";
          controlGen.populate("recipe",recipe);
          controlGen.populate("ingredient",ingredient);
          controlGen.populate("component",component);
          controlGen.populate("model_mapper",model_mapper);
-         controlGen.populate("path",path);
+         controlGen.populate("javaPath",javaPath);
+         controlGen.populate("resourcePath",resourcePath);
          controlGen.populate("form",form);
          
          var controls =  form.datacontrols.formControl.controls;

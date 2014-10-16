@@ -1,0 +1,17 @@
+[% @template
+operation  commandstack_entitymanagerinit() {
+%]
+   @javax.persistence.PersistenceContext(unitName = "HRServices")
+	private javax.persistence.EntityManager em;
+[%
+}
+%]
+
+
+[% @template
+operation  commandstack_scope() {
+%]
+@javax.enterprise.context.SessionScoped
+[%
+}
+%]
