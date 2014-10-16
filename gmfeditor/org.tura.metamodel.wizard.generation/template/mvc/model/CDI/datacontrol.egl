@@ -6,6 +6,7 @@ package  [%=component.basePackage%].[%=util.mergeAndCapitalize(form.name).toLowe
 @javax.inject.Named("[%=util.mergeAndCapitalize(control.name).toLowerCase()%]")
 public class [%=util.mergeAndCapitalize(control.name)%]DC extends org.tura.platform.datacontrol.DataControl <[%=control.~basefullName%]> {
 
+	@javax.inject.Inject
     [%
     var i = 0;
     for (methodProvider in control.~provider.keySet()){
