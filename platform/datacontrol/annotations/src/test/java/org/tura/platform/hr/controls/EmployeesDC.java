@@ -143,7 +143,7 @@ public class EmployeesDC extends DataControl<EmployeesDAO>{
 			@Query(base = @Base(clazz = EmployeesDAO.class), 
 			      search = @DefaultSearchCriterias(criterias = { }), 
 				   orders = @DefaultOrderBys(orders = { 
-					     @DefaultOrderBy(field = "objId", type = SelectQuery.Order.ASC) })) SelectQuery selectQuery) {
+					     @DefaultOrderBy(field = "objId", order = SelectQuery.Order.ASC) })) SelectQuery selectQuery) {
 		this.defaultQuery = selectQuery;
 	}
 

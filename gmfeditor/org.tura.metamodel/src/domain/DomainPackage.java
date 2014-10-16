@@ -10015,6 +10015,89 @@ public interface DomainPackage extends EPackage
   int DATA_CONTROL_FEATURE_COUNT = 18;
 
   /**
+   * The meta object id for the '{@link domain.impl.OrdersImpl <em>Orders</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see domain.impl.OrdersImpl
+   * @see domain.impl.DomainPackageImpl#getOrders()
+   * @generated
+   */
+  int ORDERS = 147;
+
+  /**
+   * The feature id for the '<em><b>Uid</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ORDERS__UID = 0;
+
+  /**
+   * The feature id for the '<em><b>Order Rules</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ORDERS__ORDER_RULES = 1;
+
+  /**
+   * The number of structural features of the '<em>Orders</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ORDERS_FEATURE_COUNT = 2;
+
+  /**
+   * The meta object id for the '{@link domain.impl.OrderByImpl <em>Order By</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see domain.impl.OrderByImpl
+   * @see domain.impl.DomainPackageImpl#getOrderBy()
+   * @generated
+   */
+  int ORDER_BY = 148;
+
+  /**
+   * The feature id for the '<em><b>Uid</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ORDER_BY__UID = 0;
+
+  /**
+   * The feature id for the '<em><b>Ref Obj</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ORDER_BY__REF_OBJ = 1;
+
+  /**
+   * The feature id for the '<em><b>Order</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ORDER_BY__ORDER = 2;
+
+  /**
+   * The number of structural features of the '<em>Order By</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ORDER_BY_FEATURE_COUNT = 3;
+
+  /**
    * The meta object id for the '{@link domain.impl.RelationImpl <em>Relation</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -10022,7 +10105,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getRelation()
    * @generated
    */
-  int RELATION = 147;
+  int RELATION = 149;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -10095,7 +10178,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getArtificialField()
    * @generated
    */
-  int ARTIFICIAL_FIELD = 148;
+  int ARTIFICIAL_FIELD = 150;
 
   /**
    * The feature id for the '<em><b>Package Ref</b></em>' reference.
@@ -10177,7 +10260,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getLink()
    * @generated
    */
-  int LINK = 149;
+  int LINK = 151;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -10232,7 +10315,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getApplicationInfrastructureLayer()
    * @generated
    */
-  int APPLICATION_INFRASTRUCTURE_LAYER = 150;
+  int APPLICATION_INFRASTRUCTURE_LAYER = 152;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -10287,7 +10370,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getEnterpriseInfrastructure()
    * @generated
    */
-  int ENTERPRISE_INFRASTRUCTURE = 151;
+  int ENTERPRISE_INFRASTRUCTURE = 153;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -10342,7 +10425,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getDatacenter()
    * @generated
    */
-  int DATACENTER = 152;
+  int DATACENTER = 154;
 
   /**
    * The feature id for the '<em><b>Columns</b></em>' attribute.
@@ -10406,7 +10489,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getSubsystem()
    * @generated
    */
-  int SUBSYSTEM = 153;
+  int SUBSYSTEM = 155;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -10461,7 +10544,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getInfrastructureLayer()
    * @generated
    */
-  int INFRASTRUCTURE_LAYER = 154;
+  int INFRASTRUCTURE_LAYER = 156;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -10516,7 +10599,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getInfrastructureConnection()
    * @generated
    */
-  int INFRASTRUCTURE_CONNECTION = 155;
+  int INFRASTRUCTURE_CONNECTION = 157;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -10562,7 +10645,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getInfrastructureComponent()
    * @generated
    */
-  int INFRASTRUCTURE_COMPONENT = 156;
+  int INFRASTRUCTURE_COMPONENT = 158;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -10608,7 +10691,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getServer()
    * @generated
    */
-  int SERVER = 157;
+  int SERVER = 159;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -10654,7 +10737,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getRouter()
    * @generated
    */
-  int ROUTER = 158;
+  int ROUTER = 160;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -10700,7 +10783,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getHub()
    * @generated
    */
-  int HUB = 159;
+  int HUB = 161;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -10746,7 +10829,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getStorage()
    * @generated
    */
-  int STORAGE = 160;
+  int STORAGE = 162;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -10792,7 +10875,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getServerClaster()
    * @generated
    */
-  int SERVER_CLASTER = 161;
+  int SERVER_CLASTER = 163;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -10847,7 +10930,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getPlatformLayers()
    * @generated
    */
-  int PLATFORM_LAYERS = 162;
+  int PLATFORM_LAYERS = 164;
 
 
   /**
@@ -10858,7 +10941,18 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getComparator()
    * @generated
    */
-  int COMPARATOR = 163;
+  int COMPARATOR = 165;
+
+
+  /**
+   * The meta object id for the '{@link domain.Order <em>Order</em>}' enum.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see domain.Order
+   * @see domain.impl.DomainPackageImpl#getOrder()
+   * @generated
+   */
+  int ORDER = 166;
 
 
   /**
@@ -16864,6 +16958,81 @@ public interface DomainPackage extends EPackage
   EReference getDataControl_DefaultOrderBy();
 
   /**
+   * Returns the meta object for class '{@link domain.Orders <em>Orders</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Orders</em>'.
+   * @see domain.Orders
+   * @generated
+   */
+  EClass getOrders();
+
+  /**
+   * Returns the meta object for the attribute '{@link domain.Orders#getUid <em>Uid</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Uid</em>'.
+   * @see domain.Orders#getUid()
+   * @see #getOrders()
+   * @generated
+   */
+  EAttribute getOrders_Uid();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link domain.Orders#getOrderRules <em>Order Rules</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Order Rules</em>'.
+   * @see domain.Orders#getOrderRules()
+   * @see #getOrders()
+   * @generated
+   */
+  EReference getOrders_OrderRules();
+
+  /**
+   * Returns the meta object for class '{@link domain.OrderBy <em>Order By</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Order By</em>'.
+   * @see domain.OrderBy
+   * @generated
+   */
+  EClass getOrderBy();
+
+  /**
+   * Returns the meta object for the attribute '{@link domain.OrderBy#getUid <em>Uid</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Uid</em>'.
+   * @see domain.OrderBy#getUid()
+   * @see #getOrderBy()
+   * @generated
+   */
+  EAttribute getOrderBy_Uid();
+
+  /**
+   * Returns the meta object for the reference '{@link domain.OrderBy#getRefObj <em>Ref Obj</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Ref Obj</em>'.
+   * @see domain.OrderBy#getRefObj()
+   * @see #getOrderBy()
+   * @generated
+   */
+  EReference getOrderBy_RefObj();
+
+  /**
+   * Returns the meta object for the attribute '{@link domain.OrderBy#getOrder <em>Order</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Order</em>'.
+   * @see domain.OrderBy#getOrder()
+   * @see #getOrderBy()
+   * @generated
+   */
+  EAttribute getOrderBy_Order();
+
+  /**
    * Returns the meta object for class '{@link domain.Relation <em>Relation</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -17472,6 +17641,16 @@ public interface DomainPackage extends EPackage
    * @generated
    */
   EEnum getComparator();
+
+  /**
+   * Returns the meta object for enum '{@link domain.Order <em>Order</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for enum '<em>Order</em>'.
+   * @see domain.Order
+   * @generated
+   */
+  EEnum getOrder();
 
   /**
    * Returns the factory that creates the instances of the model.
@@ -22263,6 +22442,66 @@ public interface DomainPackage extends EPackage
     EReference DATA_CONTROL__DEFAULT_ORDER_BY = eINSTANCE.getDataControl_DefaultOrderBy();
 
     /**
+     * The meta object literal for the '{@link domain.impl.OrdersImpl <em>Orders</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see domain.impl.OrdersImpl
+     * @see domain.impl.DomainPackageImpl#getOrders()
+     * @generated
+     */
+    EClass ORDERS = eINSTANCE.getOrders();
+
+    /**
+     * The meta object literal for the '<em><b>Uid</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ORDERS__UID = eINSTANCE.getOrders_Uid();
+
+    /**
+     * The meta object literal for the '<em><b>Order Rules</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ORDERS__ORDER_RULES = eINSTANCE.getOrders_OrderRules();
+
+    /**
+     * The meta object literal for the '{@link domain.impl.OrderByImpl <em>Order By</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see domain.impl.OrderByImpl
+     * @see domain.impl.DomainPackageImpl#getOrderBy()
+     * @generated
+     */
+    EClass ORDER_BY = eINSTANCE.getOrderBy();
+
+    /**
+     * The meta object literal for the '<em><b>Uid</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ORDER_BY__UID = eINSTANCE.getOrderBy_Uid();
+
+    /**
+     * The meta object literal for the '<em><b>Ref Obj</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ORDER_BY__REF_OBJ = eINSTANCE.getOrderBy_RefObj();
+
+    /**
+     * The meta object literal for the '<em><b>Order</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ORDER_BY__ORDER = eINSTANCE.getOrderBy_Order();
+
+    /**
      * The meta object literal for the '{@link domain.impl.RelationImpl <em>Relation</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -22751,6 +22990,16 @@ public interface DomainPackage extends EPackage
      * @generated
      */
     EEnum COMPARATOR = eINSTANCE.getComparator();
+
+    /**
+     * The meta object literal for the '{@link domain.Order <em>Order</em>}' enum.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see domain.Order
+     * @see domain.impl.DomainPackageImpl#getOrder()
+     * @generated
+     */
+    EEnum ORDER = eINSTANCE.getOrder();
 
   }
 

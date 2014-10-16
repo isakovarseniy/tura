@@ -3749,6 +3749,56 @@ public class DomainItemProviderAdapterFactory extends DomainAdapterFactory imple
   }
 
   /**
+   * This keeps track of the one adapter used for all {@link domain.Orders} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected OrdersItemProvider ordersItemProvider;
+
+  /**
+   * This creates an adapter for a {@link domain.Orders}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createOrdersAdapter()
+  {
+    if (ordersItemProvider == null)
+    {
+      ordersItemProvider = new OrdersItemProvider(this);
+    }
+
+    return ordersItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link domain.OrderBy} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected OrderByItemProvider orderByItemProvider;
+
+  /**
+   * This creates an adapter for a {@link domain.OrderBy}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createOrderByAdapter()
+  {
+    if (orderByItemProvider == null)
+    {
+      orderByItemProvider = new OrderByItemProvider(this);
+    }
+
+    return orderByItemProvider;
+  }
+
+  /**
    * This keeps track of the one adapter used for all {@link domain.Relation} instances.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -4381,6 +4431,8 @@ public class DomainItemProviderAdapterFactory extends DomainAdapterFactory imple
     if (searchTriggerItemProvider != null) searchTriggerItemProvider.dispose();
     if (rootItemProvider != null) rootItemProvider.dispose();
     if (dataControlItemProvider != null) dataControlItemProvider.dispose();
+    if (ordersItemProvider != null) ordersItemProvider.dispose();
+    if (orderByItemProvider != null) orderByItemProvider.dispose();
     if (relationItemProvider != null) relationItemProvider.dispose();
     if (artificialFieldItemProvider != null) artificialFieldItemProvider.dispose();
     if (linkItemProvider != null) linkItemProvider.dispose();

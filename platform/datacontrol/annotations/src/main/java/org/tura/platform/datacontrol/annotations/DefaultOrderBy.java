@@ -22,10 +22,11 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 import java.lang.annotation.Retention;
 import java.lang.annotation.Target;
 
+import com.octo.java.sql.query.SelectQuery.Order;
+
 @Retention(RUNTIME)
 @Target({ FIELD, PARAMETER})
 public @interface DefaultOrderBy {
 	String field();
-	String value() default "";
-	String expression() default "";
+	Order order();
 }

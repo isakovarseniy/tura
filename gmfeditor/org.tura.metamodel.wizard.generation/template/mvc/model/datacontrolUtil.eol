@@ -6,8 +6,6 @@ operation DataControl processDefaultQuery(recipe:Recipe, ingredient :Ingredient 
 
       if ( self.defaultSearch<> null)
             self.defaultSearch.processParameters(recipe,ingredient);
-      if ( self.defaultOrderBy<> null)
-       self.defaultOrderBy.processParameters(recipe,ingredient);
 }
 
 operation DataControl processTriggers(recipe:Recipe, ingredient :Ingredient ) { 

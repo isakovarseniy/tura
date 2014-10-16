@@ -484,6 +484,11 @@ enum Comparator{
     LEQ;
 }
 
+enum Order {
+   ASC;
+   DESC;
+}
+
 @gmf.node(label="name",border.color="0,0,0",color="255,239,222")
 class Recipe extends UsingMappers{
     id attr EString uid;
@@ -1097,8 +1102,19 @@ class DataControl {
    val ArtificialField[*]#parent artificialFields;   
 
    val ContextParameters defaultSearch;
-   val ContextParameters defaultOrderBy;
+   val Orders defaultOrderBy;
     
+}
+
+class Orders{
+    id attr EString uid;
+    val OrderBy[*] orderRules;
+}
+
+class OrderBy{
+    id attr EString uid;
+    ref EObject refObj;
+    attr Order order;
 }
 
 @gmf.link(source="master", target="detail", style="dash", target.decoration="arrow")

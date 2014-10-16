@@ -59,6 +59,7 @@ public class StreetDC extends DataControl<StreetDAO> {
 	@Inject
 	private TuraJPAEntityService provider;
 
+	@SuppressWarnings("unused")
 	@Inject
 	private Instance<StreetDC> streetcproducers;
 
@@ -148,7 +149,7 @@ public class StreetDC extends DataControl<StreetDAO> {
 	@Override
 	@Inject
 	public void setDefaultQuery(
-			@Query(base = @Base(clazz = StreetDAO.class), search = @DefaultSearchCriterias(criterias = {}), orders = @DefaultOrderBys(orders = { @DefaultOrderBy(field = "objId", type = SelectQuery.Order.ASC) })) SelectQuery selectQuery) {
+			@Query(base = @Base(clazz = StreetDAO.class), search = @DefaultSearchCriterias(criterias = {}), orders = @DefaultOrderBys(orders = { @DefaultOrderBy(field = "objId", order = SelectQuery.Order.ASC) })) SelectQuery selectQuery) {
 		this.defaultQuery = selectQuery;
 	}
 

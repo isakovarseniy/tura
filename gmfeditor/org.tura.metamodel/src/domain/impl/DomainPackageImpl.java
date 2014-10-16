@@ -2,6 +2,174 @@
  */
 package domain.impl;
 
+import domain.ActionElement;
+import domain.Application;
+import domain.ApplicationInfrastructureLayer;
+import domain.ApplicationMapper;
+import domain.ApplicationMappers;
+import domain.ApplicationMessages;
+import domain.ApplicationRecipe;
+import domain.ApplicationRecipes;
+import domain.ApplicationRole;
+import domain.ApplicationStyle;
+import domain.ApplicationUILayer;
+import domain.ApplicationUIPackage;
+import domain.Artifact;
+import domain.ArtifactRef;
+import domain.Artifacts;
+import domain.ArtificialField;
+import domain.Attribute;
+import domain.Button;
+import domain.CSSMapper;
+import domain.Canvas;
+import domain.CanvasFrame;
+import domain.CanvasView;
+import domain.Categorized;
+import domain.CheckBox;
+import domain.ChildrenHolder;
+import domain.Classifier;
+import domain.Column;
+import domain.Comparator;
+import domain.Component;
+import domain.ConfigVariable;
+import domain.Configuration;
+import domain.Context;
+import domain.ContextParameter;
+import domain.ContextParameters;
+import domain.ContextValue;
+import domain.ContinuousIintegration;
+import domain.Controls;
+import domain.CreateTrigger;
+import domain.DataControl;
+import domain.Datacenter;
+import domain.DefaultCavas;
+import domain.DeleteTrigger;
+import domain.DeploymentComponent;
+import domain.DeploymentComponents;
+import domain.DeploymentSequence;
+import domain.DeploymentStarStep;
+import domain.Domain;
+import domain.DomainApplication;
+import domain.DomainApplications;
+import domain.DomainArtifact;
+import domain.DomainArtifacts;
+import domain.DomainFactory;
+import domain.DomainPackage;
+import domain.DomainTypes;
+import domain.DropDownSelection;
+import domain.EJBService;
+import domain.EnterpriseInfrastructure;
+import domain.EnumAttribute;
+import domain.Enumarator;
+import domain.ExpressionPart;
+import domain.Form;
+import domain.FormDataControls;
+import domain.FormView;
+import domain.GenerationHint;
+import domain.Group;
+import domain.HTMLLayerHolder;
+import domain.Hub;
+import domain.Infrastructure;
+import domain.InfrastructureComponent;
+import domain.InfrastructureConnection;
+import domain.InfrastructureLayer;
+import domain.Ingredient;
+import domain.InputElement;
+import domain.InputText;
+import domain.InsertTrigger;
+import domain.JPAService;
+import domain.JavaComponent;
+import domain.JavaMapper;
+import domain.JavaScriptMapper;
+import domain.Label;
+import domain.Language;
+import domain.LanguageRef;
+import domain.LayerHolder;
+import domain.Link;
+import domain.Mapper;
+import domain.Mappers;
+import domain.MappingSpecifier;
+import domain.Message;
+import domain.MessageLibrary;
+import domain.Messages;
+import domain.MethodPointer;
+import domain.ModelMapper;
+import domain.ModelQuery;
+import domain.MultiLangLabel;
+import domain.ORMEntity;
+import domain.Operation;
+import domain.Option;
+import domain.OptionSelection;
+import domain.Order;
+import domain.OrderBy;
+import domain.Orders;
+import domain.OutputText;
+import domain.POSTCreateTrigger;
+import domain.POSTQueryTrigger;
+import domain.PREDeleteTrigger;
+import domain.PREFormTrigger;
+import domain.PREInsertTrigger;
+import domain.PREQueryTrigger;
+import domain.PREUpdateTrigger;
+import domain.Parameter;
+import domain.PlatformLayers;
+import domain.Primitive;
+import domain.Property;
+import domain.Query;
+import domain.QueryParameter;
+import domain.QueryVariable;
+import domain.Recipe;
+import domain.Recipes;
+import domain.Relation;
+import domain.ReturnValue;
+import domain.Role;
+import domain.RoleMapper;
+import domain.Roles;
+import domain.Root;
+import domain.Router;
+import domain.SearchTrigger;
+import domain.Selection;
+import domain.Server;
+import domain.ServerClaster;
+import domain.SourcesPointer;
+import domain.Specifier;
+import domain.Storage;
+import domain.Style;
+import domain.StyleClass;
+import domain.StyleElement;
+import domain.StyleLibrary;
+import domain.StyleSet;
+import domain.Styles;
+import domain.StylesPackage;
+import domain.Subsystem;
+import domain.TabCanvas;
+import domain.TabPage;
+import domain.TabPagesInheritance;
+import domain.Table;
+import domain.Translation;
+import domain.Tree;
+import domain.Trigger;
+import domain.Type;
+import domain.TypeDefinition;
+import domain.TypeElement;
+import domain.TypeExtension;
+import domain.TypeMapper;
+import domain.TypePointer;
+import domain.TypeReference;
+import domain.Types;
+import domain.TypesRepository;
+import domain.UIPackage;
+import domain.Uielement;
+import domain.UpdateTrigger;
+import domain.UsingMappers;
+import domain.ViewArea;
+import domain.ViewElement;
+import domain.ViewInheritance;
+import domain.ViewPort;
+import domain.ViewPortHolder;
+import domain.ViewPortTrigger;
+import domain.Views;
+import domain.Window;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EEnum;
@@ -1053,6 +1221,20 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  private EClass ordersEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass orderByEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   private EClass relationEClass = null;
 
   /**
@@ -1166,6 +1348,13 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * @generated
    */
   private EEnum comparatorEEnum = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EEnum orderEEnum = null;
 
   /**
    * Creates an instance of the model <b>Package</b>, registered with
@@ -6825,6 +7014,76 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EClass getOrders()
+  {
+    return ordersEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getOrders_Uid()
+  {
+    return (EAttribute)ordersEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getOrders_OrderRules()
+  {
+    return (EReference)ordersEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getOrderBy()
+  {
+    return orderByEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getOrderBy_Uid()
+  {
+    return (EAttribute)orderByEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getOrderBy_RefObj()
+  {
+    return (EReference)orderByEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getOrderBy_Order()
+  {
+    return (EAttribute)orderByEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getRelation()
   {
     return relationEClass;
@@ -7388,6 +7647,16 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
   public EEnum getComparator()
   {
     return comparatorEEnum;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EEnum getOrder()
+  {
+    return orderEEnum;
   }
 
   /**
@@ -8126,6 +8395,15 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     createEReference(dataControlEClass, DATA_CONTROL__DEFAULT_SEARCH);
     createEReference(dataControlEClass, DATA_CONTROL__DEFAULT_ORDER_BY);
 
+    ordersEClass = createEClass(ORDERS);
+    createEAttribute(ordersEClass, ORDERS__UID);
+    createEReference(ordersEClass, ORDERS__ORDER_RULES);
+
+    orderByEClass = createEClass(ORDER_BY);
+    createEAttribute(orderByEClass, ORDER_BY__UID);
+    createEReference(orderByEClass, ORDER_BY__REF_OBJ);
+    createEAttribute(orderByEClass, ORDER_BY__ORDER);
+
     relationEClass = createEClass(RELATION);
     createEAttribute(relationEClass, RELATION__UID);
     createEAttribute(relationEClass, RELATION__NAME);
@@ -8199,6 +8477,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     // Create enums
     platformLayersEEnum = createEEnum(PLATFORM_LAYERS);
     comparatorEEnum = createEEnum(COMPARATOR);
+    orderEEnum = createEEnum(ORDER);
   }
 
   /**
@@ -9035,7 +9314,16 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     initEReference(getDataControl_Search(), this.getSearchTrigger(), null, "search", null, 0, 1, DataControl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getDataControl_ArtificialFields(), this.getArtificialField(), this.getArtificialField_Parent(), "artificialFields", null, 0, -1, DataControl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getDataControl_DefaultSearch(), this.getContextParameters(), null, "defaultSearch", null, 0, 1, DataControl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getDataControl_DefaultOrderBy(), this.getContextParameters(), null, "defaultOrderBy", null, 0, 1, DataControl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDataControl_DefaultOrderBy(), this.getOrders(), null, "defaultOrderBy", null, 0, 1, DataControl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(ordersEClass, Orders.class, "Orders", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getOrders_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, Orders.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getOrders_OrderRules(), this.getOrderBy(), null, "orderRules", null, 0, -1, Orders.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(orderByEClass, OrderBy.class, "OrderBy", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getOrderBy_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, OrderBy.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getOrderBy_RefObj(), ecorePackage.getEObject(), null, "refObj", null, 0, 1, OrderBy.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getOrderBy_Order(), this.getOrder(), "order", null, 0, 1, OrderBy.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(relationEClass, Relation.class, "Relation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getRelation_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, Relation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -9119,6 +9407,10 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     addEEnumLiteral(comparatorEEnum, Comparator.GEQ);
     addEEnumLiteral(comparatorEEnum, Comparator.LT);
     addEEnumLiteral(comparatorEEnum, Comparator.LEQ);
+
+    initEEnum(orderEEnum, Order.class, "Order");
+    addEEnumLiteral(orderEEnum, Order.ASC);
+    addEEnumLiteral(orderEEnum, Order.DESC);
 
     // Create resource
     createResource(eNS_URI);

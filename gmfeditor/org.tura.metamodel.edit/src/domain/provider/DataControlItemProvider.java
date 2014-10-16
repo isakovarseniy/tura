@@ -419,92 +419,7 @@ public class DataControlItemProvider
     newChildDescriptors.add
       (createChildParameter
         (DomainPackage.Literals.DATA_CONTROL__DEFAULT_ORDER_BY,
-         DomainFactory.eINSTANCE.createTrigger()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (DomainPackage.Literals.DATA_CONTROL__DEFAULT_ORDER_BY,
-         DomainFactory.eINSTANCE.createViewPortTrigger()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (DomainPackage.Literals.DATA_CONTROL__DEFAULT_ORDER_BY,
-         DomainFactory.eINSTANCE.createContextParameters()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (DomainPackage.Literals.DATA_CONTROL__DEFAULT_ORDER_BY,
-         DomainFactory.eINSTANCE.createContext()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (DomainPackage.Literals.DATA_CONTROL__DEFAULT_ORDER_BY,
-         DomainFactory.eINSTANCE.createActionElement()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (DomainPackage.Literals.DATA_CONTROL__DEFAULT_ORDER_BY,
-         DomainFactory.eINSTANCE.createButton()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (DomainPackage.Literals.DATA_CONTROL__DEFAULT_ORDER_BY,
-         DomainFactory.eINSTANCE.createPREFormTrigger()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (DomainPackage.Literals.DATA_CONTROL__DEFAULT_ORDER_BY,
-         DomainFactory.eINSTANCE.createPREQueryTrigger()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (DomainPackage.Literals.DATA_CONTROL__DEFAULT_ORDER_BY,
-         DomainFactory.eINSTANCE.createPOSTQueryTrigger()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (DomainPackage.Literals.DATA_CONTROL__DEFAULT_ORDER_BY,
-         DomainFactory.eINSTANCE.createPREInsertTrigger()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (DomainPackage.Literals.DATA_CONTROL__DEFAULT_ORDER_BY,
-         DomainFactory.eINSTANCE.createPREDeleteTrigger()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (DomainPackage.Literals.DATA_CONTROL__DEFAULT_ORDER_BY,
-         DomainFactory.eINSTANCE.createPOSTCreateTrigger()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (DomainPackage.Literals.DATA_CONTROL__DEFAULT_ORDER_BY,
-         DomainFactory.eINSTANCE.createPREUpdateTrigger()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (DomainPackage.Literals.DATA_CONTROL__DEFAULT_ORDER_BY,
-         DomainFactory.eINSTANCE.createCreateTrigger()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (DomainPackage.Literals.DATA_CONTROL__DEFAULT_ORDER_BY,
-         DomainFactory.eINSTANCE.createInsertTrigger()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (DomainPackage.Literals.DATA_CONTROL__DEFAULT_ORDER_BY,
-         DomainFactory.eINSTANCE.createUpdateTrigger()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (DomainPackage.Literals.DATA_CONTROL__DEFAULT_ORDER_BY,
-         DomainFactory.eINSTANCE.createDeleteTrigger()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (DomainPackage.Literals.DATA_CONTROL__DEFAULT_ORDER_BY,
-         DomainFactory.eINSTANCE.createSearchTrigger()));
+         DomainFactory.eINSTANCE.createOrders()));
   }
 
   /**
@@ -522,7 +437,6 @@ public class DataControlItemProvider
     boolean qualify =
       childFeature == DomainPackage.Literals.DATA_CONTROL__PRE_QUERY_TRIGGER ||
       childFeature == DomainPackage.Literals.DATA_CONTROL__DEFAULT_SEARCH ||
-      childFeature == DomainPackage.Literals.DATA_CONTROL__DEFAULT_ORDER_BY ||
       childFeature == DomainPackage.Literals.DATA_CONTROL__POST_QUERY_TRIGGER ||
       childFeature == DomainPackage.Literals.DATA_CONTROL__PRE_INSERT_TRIGGER ||
       childFeature == DomainPackage.Literals.DATA_CONTROL__PRE_DELETE_TRIGGER ||

@@ -10,6 +10,8 @@ import domain.DataControl;
 import domain.DeleteTrigger;
 import domain.DomainPackage;
 import domain.InsertTrigger;
+import domain.Orders;
+import domain.OrderBy;
 import domain.POSTCreateTrigger;
 import domain.POSTQueryTrigger;
 import domain.PREDeleteTrigger;
@@ -33,6 +35,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -257,7 +260,7 @@ public class DataControlImpl extends EObjectImpl implements DataControl
    * @generated
    * @ordered
    */
-  protected ContextParameters defaultOrderBy;
+  protected Orders defaultOrderBy;
 
   /**
    * <!-- begin-user-doc -->
@@ -1009,7 +1012,7 @@ public class DataControlImpl extends EObjectImpl implements DataControl
    * <!-- end-user-doc -->
    * @generated
    */
-  public ContextParameters getDefaultOrderBy()
+  public Orders getDefaultOrderBy()
   {
     return defaultOrderBy;
   }
@@ -1019,9 +1022,9 @@ public class DataControlImpl extends EObjectImpl implements DataControl
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetDefaultOrderBy(ContextParameters newDefaultOrderBy, NotificationChain msgs)
+  public NotificationChain basicSetDefaultOrderBy(Orders newDefaultOrderBy, NotificationChain msgs)
   {
-    ContextParameters oldDefaultOrderBy = defaultOrderBy;
+    Orders oldDefaultOrderBy = defaultOrderBy;
     defaultOrderBy = newDefaultOrderBy;
     if (eNotificationRequired())
     {
@@ -1036,7 +1039,7 @@ public class DataControlImpl extends EObjectImpl implements DataControl
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setDefaultOrderBy(ContextParameters newDefaultOrderBy)
+  public void setDefaultOrderBy(Orders newDefaultOrderBy)
   {
     if (newDefaultOrderBy != defaultOrderBy)
     {
@@ -1248,7 +1251,7 @@ public class DataControlImpl extends EObjectImpl implements DataControl
         setDefaultSearch((ContextParameters)newValue);
         return;
       case DomainPackage.DATA_CONTROL__DEFAULT_ORDER_BY:
-        setDefaultOrderBy((ContextParameters)newValue);
+        setDefaultOrderBy((Orders)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -1316,7 +1319,7 @@ public class DataControlImpl extends EObjectImpl implements DataControl
         setDefaultSearch((ContextParameters)null);
         return;
       case DomainPackage.DATA_CONTROL__DEFAULT_ORDER_BY:
-        setDefaultOrderBy((ContextParameters)null);
+        setDefaultOrderBy((Orders)null);
         return;
     }
     super.eUnset(featureID);

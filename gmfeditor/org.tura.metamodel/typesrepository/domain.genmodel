@@ -17,6 +17,10 @@
       <genEnumLiterals ecoreEnumLiteral="domain.ecore#//Comparator/LT"/>
       <genEnumLiterals ecoreEnumLiteral="domain.ecore#//Comparator/LEQ"/>
     </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="domain.ecore#//Order">
+      <genEnumLiterals ecoreEnumLiteral="domain.ecore#//Order/ASC"/>
+      <genEnumLiterals ecoreEnumLiteral="domain.ecore#//Order/DESC"/>
+    </genEnums>
     <genClasses ecoreClass="domain.ecore#//Domain">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//Domain/uid"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//Domain/domainArtifacts"/>
@@ -702,6 +706,15 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//DataControl/artificialFields"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//DataControl/defaultSearch"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//DataControl/defaultOrderBy"/>
+    </genClasses>
+    <genClasses ecoreClass="domain.ecore#//Orders">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//Orders/uid"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//Orders/orderRules"/>
+    </genClasses>
+    <genClasses ecoreClass="domain.ecore#//OrderBy">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//OrderBy/uid"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference domain.ecore#//OrderBy/refObj"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//OrderBy/order"/>
     </genClasses>
     <genClasses ecoreClass="domain.ecore#//Relation">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//Relation/uid"/>

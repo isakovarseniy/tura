@@ -121,7 +121,7 @@ public class DataControlFactory {
 
 			query.orderBy(order.field());
 
-			if (order.type().equals(Order.ASC))
+			if (order.order().equals(Order.ASC))
 				query.asc();
 			else
 				query.desc();

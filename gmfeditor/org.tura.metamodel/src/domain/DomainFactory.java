@@ -1346,6 +1346,24 @@ public interface DomainFactory extends EFactory
   DataControl createDataControl();
 
   /**
+   * Returns a new object of class '<em>Orders</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Orders</em>'.
+   * @generated
+   */
+  Orders createOrders();
+
+  /**
+   * Returns a new object of class '<em>Order By</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Order By</em>'.
+   * @generated
+   */
+  OrderBy createOrderBy();
+
+  /**
    * Returns a new object of class '<em>Relation</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

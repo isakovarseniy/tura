@@ -1503,9 +1503,7 @@
         </parameters>
       </defaultSearch>
       <defaultOrderBy>
-        <parameters uid="7f9f0277-4d59-4c8c-aa48-302eaa0c96db" refObj="32e932b5-e86f-43a3-96c1-8b919c740eb6">
-          <value uid="cfcec332-ac1d-41e0-b3a3-c3cc742fa7d2" constant="true" value="asc"/>
-        </parameters>
+        <orderRules uid="c1094c94-1e84-44e5-8ceb-47da2047664f" refObj="32e932b5-e86f-43a3-96c1-8b919c740eb6" order="DESC"/>
       </defaultOrderBy>
     </controls>
     <controls uid="cd1cab1c-1781-4867-85b8-84d9f465f989" name="Country">
@@ -1568,6 +1566,7 @@
         </parameters>
       </search>
       <defaultSearch/>
+      <defaultOrderBy/>
     </controls>
     <controls uid="f77b6e6d-41a3-4fb5-8ab9-85b2b76191ec" name="State">
       <create packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="2957c51c-68e7-4d1e-b8b7-cbe7ccdbe13f" fakePackageName="Base package" fakeTypeName="JPA Entity CRAD Service" methodRef="40b112a0-4008-11e4-916c-0800200c9a66" fakeMethod="create" uid="5a601dff-fe13-4626-8f2e-2d7c8437f9d2">
@@ -1628,6 +1627,7 @@
           <value uid="7d80f9a0-bf39-4fba-b378-d05fa5a3d85c" constant="true" value="org.elsoft.platform.hr.objects.StateDAO"/>
         </parameters>
       </search>
+      <defaultOrderBy/>
     </controls>
     <controls uid="8d431a55-eddc-42cb-8397-588243cfb255" name="City">
       <create packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="2957c51c-68e7-4d1e-b8b7-cbe7ccdbe13f" fakePackageName="Base package" fakeTypeName="JPA Entity CRAD Service" methodRef="40b112a0-4008-11e4-916c-0800200c9a66" fakeMethod="create" uid="34a45fce-3c59-44ea-bcac-a5a8d0e165e6">

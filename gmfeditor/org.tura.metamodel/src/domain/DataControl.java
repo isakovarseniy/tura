@@ -498,12 +498,12 @@ public interface DataControl extends EObject
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Default Order By</em>' containment reference.
-   * @see #setDefaultOrderBy(ContextParameters)
+   * @see #setDefaultOrderBy(Orders)
    * @see domain.DomainPackage#getDataControl_DefaultOrderBy()
    * @model containment="true"
    * @generated
    */
-  ContextParameters getDefaultOrderBy();
+  Orders getDefaultOrderBy();
 
   /**
    * Sets the value of the '{@link domain.DataControl#getDefaultOrderBy <em>Default Order By</em>}' containment reference.
@@ -513,6 +513,6 @@ public interface DataControl extends EObject
    * @see #getDefaultOrderBy()
    * @generated
    */
-  void setDefaultOrderBy(ContextParameters value);
+  void setDefaultOrderBy(Orders value);
 
 } // DataControl

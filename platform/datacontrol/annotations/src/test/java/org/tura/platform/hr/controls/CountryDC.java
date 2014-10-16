@@ -151,7 +151,7 @@ public class CountryDC extends DataControl<CountryDAO> {
 	@Override
 	@Inject
 	public void setDefaultQuery(
-			@Query(base = @Base(clazz = CountryDAO.class), search = @DefaultSearchCriterias(criterias = { }), orders = @DefaultOrderBys(orders = { @DefaultOrderBy(field = "objId", type = SelectQuery.Order.ASC) })) SelectQuery selectQuery) {
+			@Query(base = @Base(clazz = CountryDAO.class), search = @DefaultSearchCriterias(criterias = { }), orders = @DefaultOrderBys(orders = { @DefaultOrderBy(field = "objId", order = SelectQuery.Order.ASC) })) SelectQuery selectQuery) {
 		this.defaultQuery = selectQuery;
 	}
 
