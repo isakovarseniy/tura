@@ -1,32 +1,33 @@
+<#assign percent = "%" >
+<#assign start = "[" >
+<#assign end = "]" >
+${start}${percent} 
+<#list  model_mapper.getSpecifiers()  as tech >
+import "platform:/plugin/org.tura.metamodel.wizard.generation/template/technologies/${tech.getValueRef().getValue()}.egl";
+</#list>
+import "platform:/plugin/org.tura.metamodel.wizard.generation/template/mvc/model/datacontrolUtil.eol";
+${percent}${end}
 [%
 
-    import "platform:/plugin/org.tura.metamodel.wizard.generation/template/mvc/model/datacontrolUtil.eol";
-
      var util = new Native('org.tura.metamodel.commons.Util');
-     var f = new Native("org.tura.metamodel.wizard.infrastructure.JavaFormatter"); 
-
      var forms = util.runQuery(model_mapper,"Query form",model_mapper);
-
-
 
     if (forms.size() <> 0 ){
  
        for (form in forms){
 
-
-         var tech = model_mapper.getSpecifiers().get(0);
-         var controlGen : Template = TemplateFactory.load("platform:/plugin/org.tura.metamodel.wizard.generation/template/mvc/model/"+tech.getValueRef().getValue()+"/controlset.egl");
-         controlGen.setFormatter(f);
-    
+         var hash = new Native("java.util.HashMap"); 
+   
          var javaPath = component.getComponentRoot+"/"+component.getArtifactId()+"/src/main/java/"+component.basePackage.replaceAll("\\.","\\/")+"/";  
          var resourcePath =  component.getComponentRoot+"/"+component.getArtifactId()+"/src/main/resources/";
-         controlGen.populate("recipe",recipe);
-         controlGen.populate("ingredient",ingredient);
-         controlGen.populate("component",component);
-         controlGen.populate("model_mapper",model_mapper);
-         controlGen.populate("javaPath",javaPath);
-         controlGen.populate("resourcePath",resourcePath);
-         controlGen.populate("form",form);
+
+         hash.put("recipe",recipe);
+         hash.put("ingredient",ingredient);
+         hash.put("component",component);
+         hash.put("model_mapper",model_mapper);
+         hash.put("javaPath",javaPath);
+         hash.put("resourcePath",resourcePath);
+         hash.put("form",form);
          
          var controls =  form.datacontrols.formControl.controls;
          for (control in controls){
@@ -39,8 +40,9 @@
            control.processRelations(recipe,ingredient);
            control.processDefaultQuery(recipe,ingredient);
            
-           controlGen.populate("control",control);
-           controlGen.process();
+           hash.put("control",control);
+
+           datacontrolgeneration(hash);
            
          }
          

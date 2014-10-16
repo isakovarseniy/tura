@@ -1,0 +1,48 @@
+[% @template
+operation  datacontrolgeneration(hash) {
+
+     var util = new Native('org.tura.metamodel.commons.Util');
+
+    var f = new Native("org.tura.metamodel.wizard.infrastructure.JavaFormatter"); 
+    var recipe = hash.get("recipe");
+    var ingredient =  hash.get("ingredient");
+    var  component = hash.get("component");
+    var  model_mapper = hash.get("model_mapper");
+    var javaPath = hash.get("javaPath");
+    var resourcePath = hash.get("resourcePath");
+    var form = hash.get("form");    
+    var control = hash.get("control");
+    
+    var datacontrol : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.wizard.generation/template/technologies/CDI/datacontrol.egl",hash,TemplateFactory);
+    datacontrol.setFormatter(f);
+    var buffer = datacontrol.process();
+    util.saveFile( javaPath+util.mergeAndCapitalize(form.name).toLowerCase()+"/datacontrol/"  , util.mergeAndCapitalize(control.name) + "DC.java",buffer);   
+
+
+     if (control.~treeRoot <> null){
+
+         var treedatacontrol : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.wizard.generation/template/technologies/CDI/treedatacontrol.egl",hash,TemplateFactory);
+         treedatacontrol.setFormatter(f);
+         buffer = treedatacontrol.process();
+         util.saveFile( javaPath+util.mergeAndCapitalize(form.name).toLowerCase()+"/datacontrol/"  , "TreeRoot"+util.mergeAndCapitalize(control.name) + "DC.java",buffer);   
+
+    }
+
+         var producercontrol : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.wizard.generation/template/technologies/CDI/producer.egl",hash,TemplateFactory);
+         producercontrol.setFormatter(f);
+         buffer = producercontrol.process();
+         util.saveFile( javaPath+util.mergeAndCapitalize(form.name).toLowerCase()+"/producer/"  , util.mergeAndCapitalize(control.name) + "Producer.java",buffer);   
+
+
+         var beansxml : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.wizard.generation/template/technologies/CDI/beans-xml.egl",hash,TemplateFactory);
+         beansxml.setFormatter(f);
+         buffer = beansxml.process();
+         util.saveFile( resourcePath+"/META-INF/"  , "beans.xml",buffer);   
+
+         var commandstack : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.wizard.generation/template/technologies/CDI/commandstack.egl",hash,TemplateFactory);
+         commandstack.setFormatter(f);
+         buffer = commandstack.process();
+         util.saveFile( javaPath+util.mergeAndCapitalize(form.name).toLowerCase()+"/datacontrol/"  , "CDICommandStack.java",buffer);   
+  }
+%]
+
