@@ -140,7 +140,7 @@
     </artifacts>
   </tura.domain:Artifacts>
   <tura.domain:Artifacts uid="ec71bdb8-8365-492b-a974-5db4672bc0c0" parent="edb48357-89bd-4570-aaf7-e49d7bb75e57">
-    <artifacts uid="327f881c-6227-4ff4-9527-67b2ac881f02" name="entityObject" template="platform:/plugin/org.tura.metamodel.wizard.generation/template/pim/mainEntity.egl">
+    <artifacts uid="327f881c-6227-4ff4-9527-67b2ac881f02" name="entityObject" template="platform:/plugin/org.tura.metamodel.wizard.generation/template/pit/mainEntity.egl">
       <modelQuery uid="d96c66dd-48c6-44f6-9f21-08c401f67ba6" name="Query type" query="domain::Package.allInstances()->select(r|r.oclAsType(domain::Package).name='${Package name}').oclAsType(domain::Package).typedefinition.types->select(r|(r.oclIsKindOf(domain::Type) and  r.oclAsType(domain::Type).name = '${Type name}')  or (r.oclIsKindOf(domain::Primitive) and  r.oclAsType(domain::Primitive).name = '${Type name}') or (r.oclIsKindOf(domain::Enumarator) and  r.oclAsType(domain::Enumarator).name = '${Type name}') )">
         <parameters uid="4f3bbd33-b9ec-4bda-b273-6a67b726693c" name="Type name"/>
         <parameters uid="fdbde223-93e9-46a4-aaa4-11281a2919b0" name="Package name"/>
@@ -149,7 +149,7 @@
       <hints uid="2fe9fdd8-3fec-4a11-9ed5-a79c64373895" name="Extends"/>
       <hints uid="bf57ae0e-a725-4c7c-b178-ebbf640b2375" name="Entity"/>
     </artifacts>
-    <artifacts uid="3120ee13-0394-4d5c-990f-79d7a124ffea" name="Package of Entity objects" template="platform:/plugin/org.tura.metamodel.wizard.generation/template/pim/mainPackageEntity.egl">
+    <artifacts uid="3120ee13-0394-4d5c-990f-79d7a124ffea" name="Package of Entity objects" template="platform:/plugin/org.tura.metamodel.wizard.generation/template/pit/mainPackageEntity.egl">
       <modelQuery uid="b085d97d-aa68-4ad1-9933-b68ebe84d17b" name="Query type" query="domain::Package.allInstances()->select(r|r.oclAsType(domain::Package).name='${Package name}').oclAsType(domain::Package).typedefinition.types->select(r|((r.oclIsKindOf(domain::Type ) ) )).oclAsType(domain::Categorized).classifiers->select(c|c.hint.name='${Hint}' and c.hint.oclAsType(ecore::EObject).eContainer().oclAsType(domain::Artifact).name = '${Artifact}' and  c.hint.oclAsType(ecore::EObject).eContainer().oclAsType(domain::Artifact).parent.oclAsType(domain::Artifacts).parent.oclAsType(domain::DomainArtifact).name = '${ArtifactLib}' )->collect(c|c.oclAsType(ecore::EObject).eContainer())">
         <parameters uid="c7b8f2f1-e8d5-4a6d-b29d-a1684a6a5612" name="Package name"/>
         <parameters uid="d83f8a30-0edd-4f2e-a9aa-4148019ad7fb" name="ArtifactLib"/>
@@ -2021,7 +2021,7 @@
     </relations>
   </tura.domain:Controls>
   <tura.domain:Artifacts uid="e15bf32f-16b2-4b20-bceb-f9866c131ad9" parent="5945624b-20f3-47f9-9cb1-d0dc8df9491a">
-    <artifacts uid="d597c2ba-7f76-4769-a0e5-f9828833760f" name="Data control" template="platform:/plugin/org.tura.metamodel.wizard.generation/template/pim/mvc/model/mainModel.egl">
+    <artifacts uid="d597c2ba-7f76-4769-a0e5-f9828833760f" name="Data control" template="platform:/plugin/org.tura.metamodel.wizard.generation/template/pit/mvc/model/mainModel.egl">
       <modelQuery uid="bba9824e-a43b-4c96-b926-fb63a606127a" name="Query form" query="domain::DomainApplication.allInstances()->select(r|r.oclAsType(domain::DomainApplication).name='${Application}').oclAsType(domain::DomainApplication).application.applicationUILayer.applicationUIPackages->select(r|r.oclAsType(domain::ApplicationUIPackage).name='${UIPackage}').uipackage.forms">
         <parameters uid="6dbc30b8-95cd-4776-90de-d7b5ce5df2f8" name="Application"/>
         <parameters uid="ee8b0895-06c0-4ed3-99cf-8998cdfaeaa7" name="UIPackage"/>

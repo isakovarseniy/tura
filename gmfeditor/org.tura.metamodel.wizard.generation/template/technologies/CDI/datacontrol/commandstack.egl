@@ -2,7 +2,7 @@
 <#assign start = "[" >
 <#assign end = "]" >
 ${start}${percent} 
-import "platform:/plugin/org.tura.metamodel.wizard.generation/template/psm/${Environment}.egl";
+import "platform:/plugin/org.tura.metamodel.wizard.generation/template/technologies/${Environment}.egl";
 ${percent}${end}
 [%
      var util = new Native('org.tura.metamodel.commons.Util');

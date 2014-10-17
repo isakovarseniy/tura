@@ -3,9 +3,6 @@
   
      var util = new Native('org.tura.metamodel.commons.Util');
      var type;
-     var typeRemote;
-     var typeLocal;
-     var typeGeneric;
      var f = new Native("org.tura.metamodel.wizard.infrastructure.JavaFormatter"); 
 
     var types = util.runQuery(model_mapper,"Query type",model_mapper);
@@ -14,7 +11,7 @@
        for (type in types){
           type.mappingType2Java(recipe,ingredient);
        
-         var entityBean : Template = TemplateFactory.load("platform:/plugin/org.tura.metamodel.wizard.generation/template/psm/ORM/entity.egl");
+         var entityBean : Template = TemplateFactory.load("platform:/plugin/org.tura.metamodel.wizard.generation/template/technologies/ORM/entity.egl");
          entityBean.setFormatter(f);
     
          var path = component.getComponentRoot+"/"+component.getArtifactId+"/"+component.getArtifactId()+"-ejb/src/main/java/"+type.~package.replaceAll("\\.","\\/")+"/";  
@@ -23,7 +20,6 @@
          entityBean.populate("ingredient",ingredient);
          entityBean.populate("component",component);
          entityBean.populate("model_mapper",model_mapper);
-         entityBean.populate("typeGeneric",typeGeneric);
      
         var buffer = entityBean.process();
         util.saveFile( path, type.~class + ".java",buffer);   
