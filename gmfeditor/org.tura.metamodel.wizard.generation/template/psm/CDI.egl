@@ -2,6 +2,7 @@
 operation  datacontrolgeneration(hash) {
 
      var util = new Native('org.tura.metamodel.commons.Util');
+     
 
     var f = new Native("org.tura.metamodel.wizard.infrastructure.JavaFormatter"); 
     var recipe = hash.get("recipe");
@@ -12,6 +13,9 @@ operation  datacontrolgeneration(hash) {
     var resourcePath = hash.get("resourcePath");
     var form = hash.get("form");    
     var control = hash.get("control");
+     util.populateTechnologies(hash,model_mapper);
+
+
     
     var datacontrol : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.wizard.generation/template/psm/CDI/datacontrol/datacontrol.egl",hash,TemplateFactory);
     datacontrol.setFormatter(f);

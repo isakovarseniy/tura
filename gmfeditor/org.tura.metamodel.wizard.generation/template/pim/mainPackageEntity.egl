@@ -14,7 +14,7 @@
        for (type in types){
           type.mappingType2Java(recipe,ingredient);
        
-         var entityBean : Template = TemplateFactory.load("platform:/plugin/org.tura.metamodel.wizard.generation/template/jee/ORMMapper/entity.egl");
+         var entityBean : Template = TemplateFactory.load("platform:/plugin/org.tura.metamodel.wizard.generation/template/psm/ORM/entity.egl");
          entityBean.setFormatter(f);
     
          var path = component.getComponentRoot+"/"+component.getArtifactId+"/"+component.getArtifactId()+"-ejb/src/main/java/"+type.~package.replaceAll("\\.","\\/")+"/";  

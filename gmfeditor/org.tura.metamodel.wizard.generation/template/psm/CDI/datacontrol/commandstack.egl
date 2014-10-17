@@ -2,9 +2,7 @@
 <#assign start = "[" >
 <#assign end = "]" >
 ${start}${percent} 
-<#list  model_mapper.getSpecifiers()  as tech >
-import "platform:/plugin/org.tura.metamodel.wizard.generation/template/psm/${tech.getValueRef().getValue()}.egl";
-</#list>
+import "platform:/plugin/org.tura.metamodel.wizard.generation/template/psm/${Environment}.egl";
 ${percent}${end}
 [%
      var util = new Native('org.tura.metamodel.commons.Util');

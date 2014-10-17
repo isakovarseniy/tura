@@ -60,7 +60,7 @@ public class GMFGeneration {
 		if (conf != null){
   		   for (Iterator<domain.Property> itr = conf.getProperties().iterator(); itr.hasNext();){
 			  domain.Property prop = itr.next();
-			  configuration.put(prop.getConfVarRef().getName().replace(' ', '_'), prop.getValue());
+			  configuration.put(prop.getConfVarRef().getName(), prop.getValue());
 		   }
 		   if (conf.getConfigExtension() != null)
 			   getConfiguratioin(conf.getConfigExtension(),configuration);
