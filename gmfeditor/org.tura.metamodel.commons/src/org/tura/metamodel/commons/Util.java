@@ -9,6 +9,7 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 import org.apache.commons.lang.StringUtils;
@@ -191,6 +192,20 @@ public class Util {
 		System.out.println(obj);
 	}
 
+	
+	public static void populateTechnologies(EglTemplate template, domain.ModelMapper mapper){
+		for (  domain.MappingSpecifier tech : mapper.getSpecifiers()){
+			template.populate(tech.getSpecifierRef().getName().replace(' ', '_'),	tech.getValueRef().getValue());
+		}
+	}
+	
+	public static void populateTechnologies(Map<String,Object> hash, domain.ModelMapper mapper){
+		for (  domain.MappingSpecifier tech : mapper.getSpecifiers()){
+			hash.put(tech.getSpecifierRef().getName().replace(' ', '_'),	tech.getValueRef().getValue());
+		}
+	}
+	
+	
 	public static EglTemplate loadTemplate(String templateFile,
 			HashMap<String, Object> parameters, EglTemplateFactory factory)
 			throws Exception {

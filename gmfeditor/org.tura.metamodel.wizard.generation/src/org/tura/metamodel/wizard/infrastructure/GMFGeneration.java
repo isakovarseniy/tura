@@ -60,7 +60,7 @@ public class GMFGeneration {
 		if (conf != null){
   		   for (Iterator<domain.Property> itr = conf.getProperties().iterator(); itr.hasNext();){
 			  domain.Property prop = itr.next();
-			  configuration.put(prop.getConfVarRef().getName(), prop.getValue());
+			  configuration.put(prop.getConfVarRef().getName().replace(' ', '_'), prop.getValue());
 		   }
 		   if (conf.getConfigExtension() != null)
 			   getConfiguratioin(conf.getConfigExtension(),configuration);
@@ -106,6 +106,7 @@ public class GMFGeneration {
 									  parameters.put("model_mapper", mapper);
 									  parameters.put("configuration",configuration);
 									  
+									  Util.populateTechnologies(parameters, mapper);
 									  template=Util.loadTemplate(templatePath, parameters, factory);
 									  
 									   if (template != null && template.getParseProblems().isEmpty() ){

@@ -3,9 +3,9 @@
 <#assign end = "]" >
 ${start}${percent} 
 <#list  model_mapper.getSpecifiers()  as tech >
-import "platform:/plugin/org.tura.metamodel.wizard.generation/template/technologies/${tech.getValueRef().getValue()}.egl";
+import "platform:/plugin/org.tura.metamodel.wizard.generation/template/psm/${tech.getValueRef().getValue()}.egl";
 </#list>
-import "platform:/plugin/org.tura.metamodel.wizard.generation/template/mvc/model/datacontrolUtil.eol";
+import "platform:/plugin/org.tura.metamodel.wizard.generation/template/pim/mvc/model/datacontrolUtil.eol";
 ${percent}${end}
 [%
 

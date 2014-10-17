@@ -2021,7 +2021,7 @@
     </relations>
   </tura.domain:Controls>
   <tura.domain:Artifacts uid="e15bf32f-16b2-4b20-bceb-f9866c131ad9" parent="5945624b-20f3-47f9-9cb1-d0dc8df9491a">
-    <artifacts uid="d597c2ba-7f76-4769-a0e5-f9828833760f" name="Data control" template="platform:/plugin/org.tura.metamodel.wizard.generation/template/mvc/model/mainModel.egl">
+    <artifacts uid="d597c2ba-7f76-4769-a0e5-f9828833760f" name="Data control" template="platform:/plugin/org.tura.metamodel.wizard.generation/template/pim/mvc/model/mainModel.egl">
       <modelQuery uid="bba9824e-a43b-4c96-b926-fb63a606127a" name="Query form" query="domain::DomainApplication.allInstances()->select(r|r.oclAsType(domain::DomainApplication).name='${Application}').oclAsType(domain::DomainApplication).application.applicationUILayer.applicationUIPackages->select(r|r.oclAsType(domain::ApplicationUIPackage).name='${UIPackage}').uipackage.forms">
         <parameters uid="6dbc30b8-95cd-4776-90de-d7b5ce5df2f8" name="Application"/>
         <parameters uid="ee8b0895-06c0-4ed3-99cf-8998cdfaeaa7" name="UIPackage"/>
