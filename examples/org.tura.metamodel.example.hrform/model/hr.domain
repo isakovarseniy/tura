@@ -53,34 +53,12 @@
     </artifacts>
   </tura.domain:Artifacts>
   <tura.domain:Artifacts uid="e26c4095-ebd6-48b4-917a-11026d3e511f" parent="bf6005f8-bcb9-4c2a-b3e5-49468794367a">
-    <artifacts uid="3c5b8283-1d08-47d8-ba3b-96b405638aa1" name="Service Bean" template="platform:/plugin/org.tura.metamodel.wizard.generation/template/jee/ejb-ws/mainEjb.egl">
-      <modelQuery uid="0982ca45-101e-4314-923d-10b2cc27574b" name="Query type" query="domain::Package.allInstances()->select(r|r.oclAsType(domain::Package).name='${Package name}').oclAsType(domain::Package).typedefinition.types->select(r|(r.oclIsKindOf(domain::Type) and  r.oclAsType(domain::Type).name = '${Type name}')  or (r.oclIsKindOf(domain::Primitive) and  r.oclAsType(domain::Primitive).name = '${Type name}') or (r.oclIsKindOf(domain::Enumarator) and  r.oclAsType(domain::Enumarator).name = '${Type name}') )">
-        <parameters uid="2e52e14e-12f9-4f32-86c9-8f5cbdebde4f" name="Type name"/>
-        <parameters uid="b46df788-9753-4352-8ef6-20bb0ecf3763" name="Package name"/>
-      </modelQuery>
-      <hints uid="6ea5878f-e938-4e8b-990c-dbbbb2460dd9" name="EJBService"/>
-      <hints uid="43bcf7f7-df80-41c6-a67c-a85c5722f25f" name="EJBRemoteInterface"/>
-      <hints uid="e887a98a-c56d-455b-956e-bdbe57da2d14" name="EJBLocalInterface"/>
-      <hints uid="4529ca6e-e57b-4e9f-80f7-215832b613e0" name="Generics"/>
-    </artifacts>
     <artifacts uid="04dfe55c-f5bf-458a-8c75-de52c8930218" name="Maven pom EJB Service proxy client" template="platform:/plugin/org.tura.metamodel.wizard.generation/template/jee/ejb-ws/mainMavenPom_EJBService_ProxyClient.egl">
       <configVariables uid="6c69f631-c365-4a78-8777-350ea19beed8" name="Application server IP"/>
       <configVariables uid="2671048d-b872-45e6-97b1-69896b381d0d" name="Application server port"/>
       <modelQuery uid="208a25a0-3748-42e9-a539-f5d854043249" name="Query type" query="domain::Package.allInstances()->select(r|r.oclAsType(domain::Package).name='${Package name}').oclAsType(domain::Package).typedefinition.types->select(r|(r.oclIsKindOf(domain::Type) and  r.oclAsType(domain::Type).name = '${Type name}')  or (r.oclIsKindOf(domain::Primitive) and  r.oclAsType(domain::Primitive).name = '${Type name}') or (r.oclIsKindOf(domain::Enumarator) and  r.oclAsType(domain::Enumarator).name = '${Type name}') )">
         <parameters uid="8fcd2f36-54fd-4255-8eda-3da8835f17fa" name="Type name"/>
         <parameters uid="86063280-dca0-474e-9cd5-e8bb800b72fc" name="Package name"/>
-      </modelQuery>
-    </artifacts>
-    <artifacts uid="5485bd50-6285-4cfd-ab94-ea4dfeccaad7" name="Remote Interface" template="platform:/plugin/org.tura.metamodel.wizard.generation/template/jee/ejb-ws/mainEjbRemoteInterface.egl">
-      <modelQuery uid="dfb902ee-1772-4cca-9c43-2de3dae5cfbf" name="Query type" query="domain::Package.allInstances()->select(r|r.oclAsType(domain::Package).name='${Package name}').oclAsType(domain::Package).typedefinition.types->select(r|(r.oclIsKindOf(domain::Type) and  r.oclAsType(domain::Type).name = '${Type name}')  or (r.oclIsKindOf(domain::Primitive) and  r.oclAsType(domain::Primitive).name = '${Type name}') or (r.oclIsKindOf(domain::Enumarator) and  r.oclAsType(domain::Enumarator).name = '${Type name}') )">
-        <parameters uid="fde94e4d-4b2c-49e7-89b6-7ff9b2edb478" name="Type name"/>
-        <parameters uid="8ed3f35b-979b-4c90-9231-e90c8a421505" name="Package name"/>
-      </modelQuery>
-    </artifacts>
-    <artifacts uid="9a6d5b5a-6a51-4b25-9c61-ed0225e2d998" name="Local Interface" template="platform:/plugin/org.tura.metamodel.wizard.generation/template/jee/ejb-ws/mainEjbLocalInterface.egl">
-      <modelQuery uid="b5f0e24b-aae7-4e55-968b-acd403d0144a" name="Query type" query="domain::Package.allInstances()->select(r|r.oclAsType(domain::Package).name='${Package name}').oclAsType(domain::Package).typedefinition.types->select(r|(r.oclIsKindOf(domain::Type) and  r.oclAsType(domain::Type).name = '${Type name}')  or (r.oclIsKindOf(domain::Primitive) and  r.oclAsType(domain::Primitive).name = '${Type name}') or (r.oclIsKindOf(domain::Enumarator) and  r.oclAsType(domain::Enumarator).name = '${Type name}') )">
-        <parameters uid="8d0bcd81-0da5-4932-8f61-a81660c60149" name="Type name"/>
-        <parameters uid="36ab7d97-f845-4573-aa41-2234c10e243b" name="Package name"/>
       </modelQuery>
     </artifacts>
     <artifacts uid="aa171d89-662b-49ac-8e66-afb2af7874fa" name="Maven pom EJB Service" template="platform:/plugin/org.tura.metamodel.wizard.generation/template/jee/ejb-ws/mainMavenPom_EJBService.egl"/>
@@ -114,29 +92,24 @@
         <options uid="9ff1373d-394a-45e4-ae54-6b9790762de1" value="Window"/>
       </specifiers>
     </artifacts>
-    <artifacts uid="a4797bb9-d8cf-43a1-a6ac-3192a7c6f597" name="Package of EJB Service" template="platform:/plugin/org.tura.metamodel.wizard.generation/template/jee/ejb-ws/mainPackageEJBServices.egl">
-      <modelQuery uid="150373a6-59e2-415e-9301-42fc1a8eda42" name="Query type" query="domain::Package.allInstances()->select(r|r.oclAsType(domain::Package).name='${Package name}').oclAsType(domain::Package).typedefinition.types->select(r|((r.oclIsKindOf(domain::Type ) ) )).oclAsType(domain::Categorized).classifiers->select(c|c.hint.name='${Hint}' and c.hint.oclAsType(ecore::EObject).eContainer().oclAsType(domain::Artifact).name = '${Artifact}' and  c.hint.oclAsType(ecore::EObject).eContainer().oclAsType(domain::Artifact).parent.oclAsType(domain::Artifacts).parent.oclAsType(domain::DomainArtifact).name = '${ArtifactLib}' )->collect(c|c.oclAsType(ecore::EObject).eContainer())">
+    <artifacts uid="a4797bb9-d8cf-43a1-a6ac-3192a7c6f597" name="Service" template="platform:/plugin/org.tura.metamodel.wizard.generation/template/pit/mainServices.egl">
+      <modelQuery uid="150373a6-59e2-415e-9301-42fc1a8eda42" name="Query package of types" query="domain::Package.allInstances()->select(r|r.oclAsType(domain::Package).name='${Package name}').oclAsType(domain::Package).typedefinition.types->select(r|((r.oclIsKindOf(domain::Type ) ) )).oclAsType(domain::Categorized).classifiers->select(c|c.hint.name='${Hint}' and c.hint.oclAsType(ecore::EObject).eContainer().oclAsType(domain::Artifact).name = '${Artifact}' and  c.hint.oclAsType(ecore::EObject).eContainer().oclAsType(domain::Artifact).parent.oclAsType(domain::Artifacts).parent.oclAsType(domain::DomainArtifact).name = '${ArtifactLib}' )->collect(c|c.oclAsType(ecore::EObject).eContainer())">
         <parameters uid="b0da5698-b6af-421a-a6ca-2696eba1d624" name="Package name"/>
         <parameters uid="ca1fdea8-49fc-4256-ad54-d022a80f8ede" name="ArtifactLib"/>
         <parameters uid="c297467c-1c9f-4e86-b4a7-c887f810fe97" name="Artifact"/>
         <parameters uid="c53a1366-24d5-48d1-a41f-28eb1e2a8346" name="Hint"/>
       </modelQuery>
-    </artifacts>
-    <artifacts uid="47429db8-1f90-461b-a922-6405c6286274" name="Package of Remote EJB interface" template="platform:/plugin/org.tura.metamodel.wizard.generation/template/jee/ejb-ws/mainPackageRemoteEJBInterface.egl">
-      <modelQuery uid="656122b2-8eed-4398-a0cd-3769c774329e" name="Query type" query="domain::Package.allInstances()->select(r|r.oclAsType(domain::Package).name='${Package name}').oclAsType(domain::Package).typedefinition.types->select(r|((r.oclIsKindOf(domain::Type ) ) )).oclAsType(domain::Categorized).classifiers->select(c|c.hint.name='${Hint}' and c.hint.oclAsType(ecore::EObject).eContainer().oclAsType(domain::Artifact).name = '${Artifact}' and  c.hint.oclAsType(ecore::EObject).eContainer().oclAsType(domain::Artifact).parent.oclAsType(domain::Artifacts).parent.oclAsType(domain::DomainArtifact).name = '${ArtifactLib}' )->collect(c|c.oclAsType(ecore::EObject).eContainer())">
-        <parameters uid="ea45c14d-9d63-4e38-85ab-f318ac8b4155" name="Package name"/>
-        <parameters uid="8e7f90d6-ae86-4640-9b2d-a89acc6c7004" name="ArtifactLib"/>
-        <parameters uid="f5b5cb9c-95c3-4917-bcad-6a73c253f68f" name="Artifact"/>
-        <parameters uid="175a49c9-5ea6-480d-82e2-a667164cf08d" name="Hint"/>
+      <modelQuery uid="30ae1569-0fee-4c24-89d1-423d7b52f32a" name="Query type" query="domain::Package.allInstances()->select(r|r.oclAsType(domain::Package).name='${Package name}').oclAsType(domain::Package).typedefinition.types->select(r|(r.oclIsKindOf(domain::Type) and  r.oclAsType(domain::Type).name = '${Type name}')  or (r.oclIsKindOf(domain::Primitive) and  r.oclAsType(domain::Primitive).name = '${Type name}') or (r.oclIsKindOf(domain::Enumarator) and  r.oclAsType(domain::Enumarator).name = '${Type name}') )">
+        <parameters uid="4c1c426f-0913-4efe-be67-778b0fcc920d" name="Package name"/>
+        <parameters uid="1f705cc8-d31c-41c7-9d25-8f87893304f5" name="Type name"/>
       </modelQuery>
-    </artifacts>
-    <artifacts uid="da884031-5205-4ff8-8604-da3e06c35832" name="Package of Local EJB interface" template="platform:/plugin/org.tura.metamodel.wizard.generation/template/jee/ejb-ws/mainPackageLocalEJBInterface.egl">
-      <modelQuery uid="a36fbbe1-efe4-478d-8fcf-cc940a0cc502" name="Query type" query="domain::Package.allInstances()->select(r|r.oclAsType(domain::Package).name='${Package name}').oclAsType(domain::Package).typedefinition.types->select(r|((r.oclIsKindOf(domain::Type ) ) )).oclAsType(domain::Categorized).classifiers->select(c|c.hint.name='${Hint}' and c.hint.oclAsType(ecore::EObject).eContainer().oclAsType(domain::Artifact).name = '${Artifact}' and  c.hint.oclAsType(ecore::EObject).eContainer().oclAsType(domain::Artifact).parent.oclAsType(domain::Artifacts).parent.oclAsType(domain::DomainArtifact).name = '${ArtifactLib}' )->collect(c|c.oclAsType(ecore::EObject).eContainer())">
-        <parameters uid="82c2b0fd-7fb3-4402-b58b-a78c7913abc4" name="Package name"/>
-        <parameters uid="a084f274-5939-4452-8780-204d8e20b468" name="ArtifactLib"/>
-        <parameters uid="47c16e01-34e8-474a-8384-d7fe4c4ace64" name="Artifact"/>
-        <parameters uid="429b0809-4cc6-4423-9c54-8a9e06e69b2b" name="Hint"/>
-      </modelQuery>
+      <specifiers uid="b846f3c1-80cc-449a-b68f-bbf718477dc2" name="Service implementation">
+        <options uid="a0c38cb5-1b9c-45ae-8271-1bdd233ef8d4" value="EJB-WS"/>
+      </specifiers>
+      <hints uid="9ba4639b-73e2-484a-a8d4-b23d3c1f999b" name="EJBRemoteInterface" applyedClass=""/>
+      <hints uid="0a956d6e-2679-46f3-9358-dba1781f0cbd" name="EJBLocalInterface"/>
+      <hints uid="ff44d9e7-d5a5-42d4-8744-089721da820e" name="Generics"/>
+      <hints uid="11f99455-8fbd-451c-9c45-232fec79da1d" name="EJBService"/>
     </artifacts>
   </tura.domain:Artifacts>
   <tura.domain:Artifacts uid="ec71bdb8-8365-492b-a974-5db4672bc0c0" parent="edb48357-89bd-4570-aaf7-e49d7bb75e57">
@@ -145,17 +118,18 @@
         <parameters uid="4f3bbd33-b9ec-4bda-b273-6a67b726693c" name="Type name"/>
         <parameters uid="fdbde223-93e9-46a4-aaa4-11281a2919b0" name="Package name"/>
       </modelQuery>
+      <modelQuery uid="09cd4b78-183e-4275-a467-94db2e09840a" name="Query package of types" query="domain::Package.allInstances()->select(r|r.oclAsType(domain::Package).name='${Package name}').oclAsType(domain::Package).typedefinition.types->select(r|((r.oclIsKindOf(domain::Type ) ) )).oclAsType(domain::Categorized).classifiers->select(c|c.hint.name='${Hint}' and c.hint.oclAsType(ecore::EObject).eContainer().oclAsType(domain::Artifact).name = '${Artifact}' and  c.hint.oclAsType(ecore::EObject).eContainer().oclAsType(domain::Artifact).parent.oclAsType(domain::Artifacts).parent.oclAsType(domain::DomainArtifact).name = '${ArtifactLib}' )->collect(c|c.oclAsType(ecore::EObject).eContainer())">
+        <parameters uid="1786300e-0f28-4ed8-bf41-6b13cfb82e2a" name="Artifact"/>
+        <parameters uid="bb75a0c8-eb1f-41cd-9419-0160768bb280" name="ArtifactLib"/>
+        <parameters uid="53b47808-f7ad-44d0-8343-47e850b28be5" name="Hint"/>
+        <parameters uid="be44f082-3418-4fd0-aa86-8c4a85221ece" name="Package name"/>
+      </modelQuery>
+      <specifiers uid="a21e9bfd-b89f-4bf7-b6a3-307cf37be687" name="Entity implementation">
+        <options uid="4f777ca5-ac80-4568-8029-2658f241658a" value="ORM"/>
+      </specifiers>
       <hints uid="652c130e-7f7e-4676-a370-2455f3615470" name="Implements"/>
       <hints uid="2fe9fdd8-3fec-4a11-9ed5-a79c64373895" name="Extends"/>
       <hints uid="bf57ae0e-a725-4c7c-b178-ebbf640b2375" name="Entity"/>
-    </artifacts>
-    <artifacts uid="3120ee13-0394-4d5c-990f-79d7a124ffea" name="Package of Entity objects" template="platform:/plugin/org.tura.metamodel.wizard.generation/template/pit/mainPackageEntity.egl">
-      <modelQuery uid="b085d97d-aa68-4ad1-9933-b68ebe84d17b" name="Query type" query="domain::Package.allInstances()->select(r|r.oclAsType(domain::Package).name='${Package name}').oclAsType(domain::Package).typedefinition.types->select(r|((r.oclIsKindOf(domain::Type ) ) )).oclAsType(domain::Categorized).classifiers->select(c|c.hint.name='${Hint}' and c.hint.oclAsType(ecore::EObject).eContainer().oclAsType(domain::Artifact).name = '${Artifact}' and  c.hint.oclAsType(ecore::EObject).eContainer().oclAsType(domain::Artifact).parent.oclAsType(domain::Artifacts).parent.oclAsType(domain::DomainArtifact).name = '${ArtifactLib}' )->collect(c|c.oclAsType(ecore::EObject).eContainer())">
-        <parameters uid="c7b8f2f1-e8d5-4a6d-b29d-a1684a6a5612" name="Package name"/>
-        <parameters uid="d83f8a30-0edd-4f2e-a9aa-4148019ad7fb" name="ArtifactLib"/>
-        <parameters uid="6b02cc19-d4b2-4d1c-9773-b4ecb1559efd" name="Artifact"/>
-        <parameters uid="8691a5e2-4d11-4916-ad75-9d62e97d0bd2" name="Hint"/>
-      </modelQuery>
     </artifacts>
   </tura.domain:Artifacts>
   <tura.domain:Artifacts uid="76c5c93b-9847-4bee-8968-bb19afbb1896" parent="1d4b5afc-284f-4eb2-81ab-859af4fb84f1">
@@ -246,7 +220,7 @@
     <types xsi:type="tura.domain:TypeReference" uid="Comp_eb76b6af-9330-4f5b-b46c-8b732b8fe354" packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="50dcca84-4d2c-4fe2-baad-56afdf1be76d"/>
     <types xsi:type="tura.domain:Type" uid="Comp_692cc400-912b-471d-84f5-15f08a7ec191" name="List of Companys"/>
     <types xsi:type="tura.domain:Type" uid="Comp_25a85943-6b6b-4ca0-a223-e031e30c5563" name="Companys query service">
-      <classifiers uid="Comp_99c0f3c6-d7bc-4bce-abdb-4882c283879c" hint="6ea5878f-e938-4e8b-990c-dbbbb2460dd9"/>
+      <classifiers uid="Comp_99c0f3c6-d7bc-4bce-abdb-4882c283879c" hint="11f99455-8fbd-451c-9c45-232fec79da1d"/>
       <operations uid="Comp_25e3ad11-7c03-40a0-8f16-3bd73e3995e3" name="create">
         <returnValue packageRef="e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="Comp_52ffccb7-cea6-49de-ba4b-7437f1da3369"/>
       </operations>
@@ -276,14 +250,14 @@
         <classifiers uid="Comp_2609ff9a-ccb7-4aa6-b23a-76aca2ee442b" hint="652c130e-7f7e-4676-a370-2455f3615470"/>
       </extension>
       <extension uid="Comp_TypeExtension4" source="Comp_25a85943-6b6b-4ca0-a223-e031e30c5563" target="Comp_52ffccb7-cea6-49de-ba4b-7437f1da3369">
-        <classifiers uid="Comp_dc219655-adc0-4029-b35c-897e715563fe" hint="4529ca6e-e57b-4e9f-80f7-215832b613e0"/>
+        <classifiers uid="Comp_dc219655-adc0-4029-b35c-897e715563fe" hint="ff44d9e7-d5a5-42d4-8744-089721da820e"/>
       </extension>
       <extension uid="Comp_TypeExtension5" source="Comp_25a85943-6b6b-4ca0-a223-e031e30c5563" target="Comp_TypeReference2">
         <classifiers uid="Comp_557c5691-367f-49de-895c-d2d83b85342c" hint="2fe9fdd8-3fec-4a11-9ed5-a79c64373895"/>
       </extension>
     </types>
     <types xsi:type="tura.domain:Type" uid="Comp_f8c0591c-d9c2-4897-97fa-536fadf94cbf" name="Companys query service remote">
-      <classifiers uid="Comp_7b9bdcc1-c2ff-42b2-a103-e7e0a5e7a4c6" hint="43bcf7f7-df80-41c6-a67c-a85c5722f25f"/>
+      <classifiers uid="Comp_7b9bdcc1-c2ff-42b2-a103-e7e0a5e7a4c6" hint="9ba4639b-73e2-484a-a8d4-b23d3c1f999b"/>
       <operations uid="Comp_aab2312e-3840-47bd-ab51-3adff8fa9a5e" name="create">
         <returnValue packageRef="e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="Comp_52ffccb7-cea6-49de-ba4b-7437f1da3369"/>
       </operations>
@@ -308,7 +282,7 @@
       </operations>
     </types>
     <types xsi:type="tura.domain:Type" uid="Comp_30bb8955-d333-429b-a7ae-777f1a62e767" name="Companys query service local">
-      <classifiers uid="Comp_a32c29d7-47a3-40f4-9541-6914537c75b6" hint="e887a98a-c56d-455b-956e-bdbe57da2d14"/>
+      <classifiers uid="Comp_a32c29d7-47a3-40f4-9541-6914537c75b6" hint="0a956d6e-2679-46f3-9358-dba1781f0cbd"/>
       <operations uid="Comp_908f3a45-5328-43b4-9cfd-a77b23d1cf47" name="create">
         <returnValue packageRef="e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="Comp_52ffccb7-cea6-49de-ba4b-7437f1da3369"/>
       </operations>
@@ -344,7 +318,7 @@
     <types xsi:type="tura.domain:TypeReference" uid="Cntr_eb76b6af-9330-4f5b-b46c-8b732b8fe354" packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="50dcca84-4d2c-4fe2-baad-56afdf1be76d"/>
     <types xsi:type="tura.domain:Type" uid="Cntr_692cc400-912b-471d-84f5-15f08a7ec191" name="List of Countrys"/>
     <types xsi:type="tura.domain:Type" uid="Cntr_25a85943-6b6b-4ca0-a223-e031e30c5563" name="Countrys query service">
-      <classifiers uid="Cntr_99c0f3c6-d7bc-4bce-abdb-4882c283879c" hint="6ea5878f-e938-4e8b-990c-dbbbb2460dd9"/>
+      <classifiers uid="Cntr_99c0f3c6-d7bc-4bce-abdb-4882c283879c" hint="11f99455-8fbd-451c-9c45-232fec79da1d"/>
       <operations uid="Cntr_25e3ad11-7c03-40a0-8f16-3bd73e3995e3" name="create">
         <returnValue packageRef="e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="Cntr_52ffccb7-cea6-49de-ba4b-7437f1da3369"/>
       </operations>
@@ -374,14 +348,14 @@
         <classifiers uid="Cntr_2609ff9a-ccb7-4aa6-b23a-76aca2ee442b" hint="652c130e-7f7e-4676-a370-2455f3615470"/>
       </extension>
       <extension uid="Cntr_TypeExtension4" source="Cntr_25a85943-6b6b-4ca0-a223-e031e30c5563" target="Cntr_52ffccb7-cea6-49de-ba4b-7437f1da3369">
-        <classifiers uid="Cntr_dc219655-adc0-4029-b35c-897e715563fe" hint="4529ca6e-e57b-4e9f-80f7-215832b613e0"/>
+        <classifiers uid="Cntr_dc219655-adc0-4029-b35c-897e715563fe" hint="ff44d9e7-d5a5-42d4-8744-089721da820e"/>
       </extension>
       <extension uid="Cntr_TypeExtension5" source="Cntr_25a85943-6b6b-4ca0-a223-e031e30c5563" target="Cntr_TypeReference2">
         <classifiers uid="Cntr_557c5691-367f-49de-895c-d2d83b85342c" hint="2fe9fdd8-3fec-4a11-9ed5-a79c64373895"/>
       </extension>
     </types>
     <types xsi:type="tura.domain:Type" uid="Cntr_f8c0591c-d9c2-4897-97fa-536fadf94cbf" name="Countrys query service remote">
-      <classifiers uid="Cntr_7b9bdcc1-c2ff-42b2-a103-e7e0a5e7a4c6" hint="43bcf7f7-df80-41c6-a67c-a85c5722f25f"/>
+      <classifiers uid="Cntr_7b9bdcc1-c2ff-42b2-a103-e7e0a5e7a4c6" hint="9ba4639b-73e2-484a-a8d4-b23d3c1f999b"/>
       <operations uid="Cntr_aab2312e-3840-47bd-ab51-3adff8fa9a5e" name="create">
         <returnValue packageRef="e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="Cntr_52ffccb7-cea6-49de-ba4b-7437f1da3369"/>
       </operations>
@@ -406,7 +380,7 @@
       </operations>
     </types>
     <types xsi:type="tura.domain:Type" uid="Cntr_30bb8955-d333-429b-a7ae-777f1a62e767" name="Countrys query service local">
-      <classifiers uid="Cntr_a32c29d7-47a3-40f4-9541-6914537c75b6" hint="e887a98a-c56d-455b-956e-bdbe57da2d14"/>
+      <classifiers uid="Cntr_a32c29d7-47a3-40f4-9541-6914537c75b6" hint="0a956d6e-2679-46f3-9358-dba1781f0cbd"/>
       <operations uid="Cntr_908f3a45-5328-43b4-9cfd-a77b23d1cf47" name="create">
         <returnValue packageRef="e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="Cntr_52ffccb7-cea6-49de-ba4b-7437f1da3369"/>
       </operations>
@@ -442,7 +416,7 @@
     <types xsi:type="tura.domain:TypeReference" uid="State_eb76b6af-9330-4f5b-b46c-8b732b8fe354" packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="50dcca84-4d2c-4fe2-baad-56afdf1be76d"/>
     <types xsi:type="tura.domain:Type" uid="State_692cc400-912b-471d-84f5-15f08a7ec191" name="List of States"/>
     <types xsi:type="tura.domain:Type" uid="State_25a85943-6b6b-4ca0-a223-e031e30c5563" name="States query service">
-      <classifiers uid="State_99c0f3c6-d7bc-4bce-abdb-4882c283879c" hint="6ea5878f-e938-4e8b-990c-dbbbb2460dd9"/>
+      <classifiers uid="State_99c0f3c6-d7bc-4bce-abdb-4882c283879c" hint="11f99455-8fbd-451c-9c45-232fec79da1d"/>
       <operations uid="State_25e3ad11-7c03-40a0-8f16-3bd73e3995e3" name="create">
         <returnValue packageRef="e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="State_52ffccb7-cea6-49de-ba4b-7437f1da3369"/>
       </operations>
@@ -472,14 +446,14 @@
         <classifiers uid="State_2609ff9a-ccb7-4aa6-b23a-76aca2ee442b" hint="652c130e-7f7e-4676-a370-2455f3615470"/>
       </extension>
       <extension uid="State_TypeExtension4" source="State_25a85943-6b6b-4ca0-a223-e031e30c5563" target="State_52ffccb7-cea6-49de-ba4b-7437f1da3369">
-        <classifiers uid="State_dc219655-adc0-4029-b35c-897e715563fe" hint="4529ca6e-e57b-4e9f-80f7-215832b613e0"/>
+        <classifiers uid="State_dc219655-adc0-4029-b35c-897e715563fe" hint="ff44d9e7-d5a5-42d4-8744-089721da820e"/>
       </extension>
       <extension uid="State_TypeExtension5" source="State_25a85943-6b6b-4ca0-a223-e031e30c5563" target="State_TypeReference2">
         <classifiers uid="State_557c5691-367f-49de-895c-d2d83b85342c" hint="2fe9fdd8-3fec-4a11-9ed5-a79c64373895"/>
       </extension>
     </types>
     <types xsi:type="tura.domain:Type" uid="State_f8c0591c-d9c2-4897-97fa-536fadf94cbf" name="States query service remote">
-      <classifiers uid="State_7b9bdcc1-c2ff-42b2-a103-e7e0a5e7a4c6" hint="43bcf7f7-df80-41c6-a67c-a85c5722f25f"/>
+      <classifiers uid="State_7b9bdcc1-c2ff-42b2-a103-e7e0a5e7a4c6" hint="9ba4639b-73e2-484a-a8d4-b23d3c1f999b"/>
       <operations uid="State_aab2312e-3840-47bd-ab51-3adff8fa9a5e" name="create">
         <returnValue packageRef="e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="State_52ffccb7-cea6-49de-ba4b-7437f1da3369"/>
       </operations>
@@ -504,7 +478,7 @@
       </operations>
     </types>
     <types xsi:type="tura.domain:Type" uid="State_30bb8955-d333-429b-a7ae-777f1a62e767" name="States query service local">
-      <classifiers uid="State_a32c29d7-47a3-40f4-9541-6914537c75b6" hint="e887a98a-c56d-455b-956e-bdbe57da2d14"/>
+      <classifiers uid="State_a32c29d7-47a3-40f4-9541-6914537c75b6" hint="0a956d6e-2679-46f3-9358-dba1781f0cbd"/>
       <operations uid="State_908f3a45-5328-43b4-9cfd-a77b23d1cf47" name="create">
         <returnValue packageRef="e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="State_52ffccb7-cea6-49de-ba4b-7437f1da3369"/>
       </operations>
@@ -540,7 +514,7 @@
     <types xsi:type="tura.domain:TypeReference" uid="City_eb76b6af-9330-4f5b-b46c-8b732b8fe354" packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="50dcca84-4d2c-4fe2-baad-56afdf1be76d"/>
     <types xsi:type="tura.domain:Type" uid="City_692cc400-912b-471d-84f5-15f08a7ec191" name="List of Citys"/>
     <types xsi:type="tura.domain:Type" uid="City_25a85943-6b6b-4ca0-a223-e031e30c5563" name="Citys query service">
-      <classifiers uid="City_99c0f3c6-d7bc-4bce-abdb-4882c283879c" hint="6ea5878f-e938-4e8b-990c-dbbbb2460dd9"/>
+      <classifiers uid="City_99c0f3c6-d7bc-4bce-abdb-4882c283879c" hint="11f99455-8fbd-451c-9c45-232fec79da1d"/>
       <operations uid="City_25e3ad11-7c03-40a0-8f16-3bd73e3995e3" name="create">
         <returnValue packageRef="e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="City_52ffccb7-cea6-49de-ba4b-7437f1da3369"/>
       </operations>
@@ -570,14 +544,14 @@
         <classifiers uid="City_2609ff9a-ccb7-4aa6-b23a-76aca2ee442b" hint="652c130e-7f7e-4676-a370-2455f3615470"/>
       </extension>
       <extension uid="City_TypeExtension4" source="City_25a85943-6b6b-4ca0-a223-e031e30c5563" target="City_52ffccb7-cea6-49de-ba4b-7437f1da3369">
-        <classifiers uid="City_dc219655-adc0-4029-b35c-897e715563fe" hint="4529ca6e-e57b-4e9f-80f7-215832b613e0"/>
+        <classifiers uid="City_dc219655-adc0-4029-b35c-897e715563fe" hint="ff44d9e7-d5a5-42d4-8744-089721da820e"/>
       </extension>
       <extension uid="City_TypeExtension5" source="City_25a85943-6b6b-4ca0-a223-e031e30c5563" target="City_TypeReference2">
         <classifiers uid="City_557c5691-367f-49de-895c-d2d83b85342c" hint="2fe9fdd8-3fec-4a11-9ed5-a79c64373895"/>
       </extension>
     </types>
     <types xsi:type="tura.domain:Type" uid="City_f8c0591c-d9c2-4897-97fa-536fadf94cbf" name="Citys query service remote">
-      <classifiers uid="City_7b9bdcc1-c2ff-42b2-a103-e7e0a5e7a4c6" hint="43bcf7f7-df80-41c6-a67c-a85c5722f25f"/>
+      <classifiers uid="City_7b9bdcc1-c2ff-42b2-a103-e7e0a5e7a4c6" hint="9ba4639b-73e2-484a-a8d4-b23d3c1f999b"/>
       <operations uid="City_aab2312e-3840-47bd-ab51-3adff8fa9a5e" name="create">
         <returnValue packageRef="e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="City_52ffccb7-cea6-49de-ba4b-7437f1da3369"/>
       </operations>
@@ -602,7 +576,7 @@
       </operations>
     </types>
     <types xsi:type="tura.domain:Type" uid="City_30bb8955-d333-429b-a7ae-777f1a62e767" name="Citys query service local">
-      <classifiers uid="City_a32c29d7-47a3-40f4-9541-6914537c75b6" hint="e887a98a-c56d-455b-956e-bdbe57da2d14"/>
+      <classifiers uid="City_a32c29d7-47a3-40f4-9541-6914537c75b6" hint="0a956d6e-2679-46f3-9358-dba1781f0cbd"/>
       <operations uid="City_908f3a45-5328-43b4-9cfd-a77b23d1cf47" name="create">
         <returnValue packageRef="e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="City_52ffccb7-cea6-49de-ba4b-7437f1da3369"/>
       </operations>
@@ -637,7 +611,7 @@
     <types xsi:type="tura.domain:TypeReference" uid="Str_eb76b6af-9330-4f5b-b46c-8b732b8fe354" packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="50dcca84-4d2c-4fe2-baad-56afdf1be76d"/>
     <types xsi:type="tura.domain:Type" uid="Str_692cc400-912b-471d-84f5-15f08a7ec191" name="List of Streets"/>
     <types xsi:type="tura.domain:Type" uid="Str_25a85943-6b6b-4ca0-a223-e031e30c5563" name="Streets query service">
-      <classifiers uid="Str_99c0f3c6-d7bc-4bce-abdb-4882c283879c" hint="6ea5878f-e938-4e8b-990c-dbbbb2460dd9"/>
+      <classifiers uid="Str_99c0f3c6-d7bc-4bce-abdb-4882c283879c" hint="11f99455-8fbd-451c-9c45-232fec79da1d"/>
       <operations uid="Str_25e3ad11-7c03-40a0-8f16-3bd73e3995e3" name="create">
         <returnValue packageRef="e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="Str_52ffccb7-cea6-49de-ba4b-7437f1da3369"/>
       </operations>
@@ -667,14 +641,14 @@
         <classifiers uid="Str_2609ff9a-ccb7-4aa6-b23a-76aca2ee442b" hint="652c130e-7f7e-4676-a370-2455f3615470"/>
       </extension>
       <extension uid="Str_TypeExtension4" source="Str_25a85943-6b6b-4ca0-a223-e031e30c5563" target="Str_52ffccb7-cea6-49de-ba4b-7437f1da3369">
-        <classifiers uid="Str_dc219655-adc0-4029-b35c-897e715563fe" hint="4529ca6e-e57b-4e9f-80f7-215832b613e0"/>
+        <classifiers uid="Str_dc219655-adc0-4029-b35c-897e715563fe" hint="ff44d9e7-d5a5-42d4-8744-089721da820e"/>
       </extension>
       <extension uid="Str_TypeExtension5" source="Str_25a85943-6b6b-4ca0-a223-e031e30c5563" target="Str_TypeReference2">
         <classifiers uid="Str_557c5691-367f-49de-895c-d2d83b85342c" hint="2fe9fdd8-3fec-4a11-9ed5-a79c64373895"/>
       </extension>
     </types>
     <types xsi:type="tura.domain:Type" uid="Str_f8c0591c-d9c2-4897-97fa-536fadf94cbf" name="Streets query service remote">
-      <classifiers uid="Str_7b9bdcc1-c2ff-42b2-a103-e7e0a5e7a4c6" hint="43bcf7f7-df80-41c6-a67c-a85c5722f25f"/>
+      <classifiers uid="Str_7b9bdcc1-c2ff-42b2-a103-e7e0a5e7a4c6" hint="9ba4639b-73e2-484a-a8d4-b23d3c1f999b"/>
       <operations uid="Str_aab2312e-3840-47bd-ab51-3adff8fa9a5e" name="create">
         <returnValue packageRef="e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="Str_52ffccb7-cea6-49de-ba4b-7437f1da3369"/>
       </operations>
@@ -699,7 +673,7 @@
       </operations>
     </types>
     <types xsi:type="tura.domain:Type" uid="Str_30bb8955-d333-429b-a7ae-777f1a62e767" name="Streets query service local">
-      <classifiers uid="Str_a32c29d7-47a3-40f4-9541-6914537c75b6" hint="e887a98a-c56d-455b-956e-bdbe57da2d14"/>
+      <classifiers uid="Str_a32c29d7-47a3-40f4-9541-6914537c75b6" hint="0a956d6e-2679-46f3-9358-dba1781f0cbd"/>
       <operations uid="Str_908f3a45-5328-43b4-9cfd-a77b23d1cf47" name="create">
         <returnValue packageRef="e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="Str_52ffccb7-cea6-49de-ba4b-7437f1da3369"/>
       </operations>
@@ -737,7 +711,7 @@
     <types xsi:type="tura.domain:TypeReference" uid="Dep_eb76b6af-9330-4f5b-b46c-8b732b8fe354" packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="50dcca84-4d2c-4fe2-baad-56afdf1be76d"/>
     <types xsi:type="tura.domain:Type" uid="Dep_692cc400-912b-471d-84f5-15f08a7ec191" name="List of Departments"/>
     <types xsi:type="tura.domain:Type" uid="Dep_25a85943-6b6b-4ca0-a223-e031e30c5563" name="Departments query service">
-      <classifiers uid="Dep_99c0f3c6-d7bc-4bce-abdb-4882c283879c" hint="6ea5878f-e938-4e8b-990c-dbbbb2460dd9"/>
+      <classifiers uid="Dep_99c0f3c6-d7bc-4bce-abdb-4882c283879c" hint="11f99455-8fbd-451c-9c45-232fec79da1d"/>
       <operations uid="Dep_25e3ad11-7c03-40a0-8f16-3bd73e3995e3" name="create">
         <returnValue packageRef="e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="Dep_52ffccb7-cea6-49de-ba4b-7437f1da3369"/>
       </operations>
@@ -767,14 +741,14 @@
         <classifiers uid="Dep_2609ff9a-ccb7-4aa6-b23a-76aca2ee442b" hint="652c130e-7f7e-4676-a370-2455f3615470"/>
       </extension>
       <extension uid="Dep_TypeExtension4" source="Dep_25a85943-6b6b-4ca0-a223-e031e30c5563" target="Dep_52ffccb7-cea6-49de-ba4b-7437f1da3369">
-        <classifiers uid="Dep_dc219655-adc0-4029-b35c-897e715563fe" hint="4529ca6e-e57b-4e9f-80f7-215832b613e0"/>
+        <classifiers uid="Dep_dc219655-adc0-4029-b35c-897e715563fe" hint="ff44d9e7-d5a5-42d4-8744-089721da820e"/>
       </extension>
       <extension uid="Dep_TypeExtension5" source="Dep_25a85943-6b6b-4ca0-a223-e031e30c5563" target="Dep_TypeReference2">
         <classifiers uid="Dep_557c5691-367f-49de-895c-d2d83b85342c" hint="2fe9fdd8-3fec-4a11-9ed5-a79c64373895"/>
       </extension>
     </types>
     <types xsi:type="tura.domain:Type" uid="Dep_f8c0591c-d9c2-4897-97fa-536fadf94cbf" name="Departments query service remote">
-      <classifiers uid="Dep_7b9bdcc1-c2ff-42b2-a103-e7e0a5e7a4c6" hint="43bcf7f7-df80-41c6-a67c-a85c5722f25f"/>
+      <classifiers uid="Dep_7b9bdcc1-c2ff-42b2-a103-e7e0a5e7a4c6" hint="9ba4639b-73e2-484a-a8d4-b23d3c1f999b"/>
       <operations uid="Dep_aab2312e-3840-47bd-ab51-3adff8fa9a5e" name="create">
         <returnValue packageRef="e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="Dep_52ffccb7-cea6-49de-ba4b-7437f1da3369"/>
       </operations>
@@ -799,7 +773,7 @@
       </operations>
     </types>
     <types xsi:type="tura.domain:Type" uid="Dep_30bb8955-d333-429b-a7ae-777f1a62e767" name="Departments query service local">
-      <classifiers uid="Dep_a32c29d7-47a3-40f4-9541-6914537c75b6" hint="e887a98a-c56d-455b-956e-bdbe57da2d14"/>
+      <classifiers uid="Dep_a32c29d7-47a3-40f4-9541-6914537c75b6" hint="0a956d6e-2679-46f3-9358-dba1781f0cbd"/>
       <operations uid="Dep_908f3a45-5328-43b4-9cfd-a77b23d1cf47" name="create">
         <returnValue packageRef="e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="Dep_52ffccb7-cea6-49de-ba4b-7437f1da3369"/>
       </operations>
@@ -843,7 +817,7 @@
     <types xsi:type="tura.domain:TypeReference" uid="Emp_f85d674e-5f0a-4ccd-9e43-f26357d85168" packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="50dcca84-4d2c-4fe2-baad-56afdf1be76d"/>
     <types xsi:type="tura.domain:Type" uid="Emp_2814d4c5-b26a-4f3e-b1dc-c400f54b494e" name="List of Employees"/>
     <types xsi:type="tura.domain:Type" uid="Emp_984ec018-e02b-47e0-a720-40c00663b5c6" name="Employees query service">
-      <classifiers uid="Emp_ba2d61a7-f66a-4e05-acbc-76558ec1ad4d" hint="6ea5878f-e938-4e8b-990c-dbbbb2460dd9"/>
+      <classifiers uid="Emp_ba2d61a7-f66a-4e05-acbc-76558ec1ad4d" hint="11f99455-8fbd-451c-9c45-232fec79da1d"/>
       <operations uid="Emp_4f57c552-8343-4142-95da-b77958d767e3" name="create">
         <returnValue packageRef="e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="Emp_dd5f2ada-dfef-49f4-99c9-77ee2bd72f13"/>
       </operations>
@@ -873,14 +847,14 @@
         <classifiers uid="Emp_8e909d93-a998-4c8f-86a8-487552d4a234" hint="652c130e-7f7e-4676-a370-2455f3615470"/>
       </extension>
       <extension uid="Emp_TypeExtension9" source="Emp_984ec018-e02b-47e0-a720-40c00663b5c6" target="Emp_dd5f2ada-dfef-49f4-99c9-77ee2bd72f13">
-        <classifiers uid="Emp_74139310-0b00-4e10-86ad-0eada536b00c" hint="4529ca6e-e57b-4e9f-80f7-215832b613e0"/>
+        <classifiers uid="Emp_74139310-0b00-4e10-86ad-0eada536b00c" hint="ff44d9e7-d5a5-42d4-8744-089721da820e"/>
       </extension>
       <extension uid="Emp_TypeExtension10" source="Emp_984ec018-e02b-47e0-a720-40c00663b5c6" target="Emp_TypeReference4">
         <classifiers uid="Emp_fa24e061-0d2d-4999-baf4-2185da700047" hint="2fe9fdd8-3fec-4a11-9ed5-a79c64373895"/>
       </extension>
     </types>
     <types xsi:type="tura.domain:Type" uid="Emp_d2a066ad-d36f-45ea-911e-253a2f804f09" name="Employees query service local">
-      <classifiers uid="Emp_35c58537-4bd2-4ffb-8dc2-fb19de9a1677" hint="e887a98a-c56d-455b-956e-bdbe57da2d14"/>
+      <classifiers uid="Emp_35c58537-4bd2-4ffb-8dc2-fb19de9a1677" hint="0a956d6e-2679-46f3-9358-dba1781f0cbd"/>
       <operations uid="Emp_c6b53fe6-3caf-4147-b8e9-55b59150967a" name="create">
         <returnValue packageRef="e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="Emp_dd5f2ada-dfef-49f4-99c9-77ee2bd72f13"/>
       </operations>
@@ -905,7 +879,7 @@
       </operations>
     </types>
     <types xsi:type="tura.domain:Type" uid="Emp_d9a6e035-db1b-47b5-be3d-1bec6a97eed0" name="Employees query service remote">
-      <classifiers uid="Emp_daa415ee-6d04-441d-aeb9-d6cdd776a373" hint="43bcf7f7-df80-41c6-a67c-a85c5722f25f"/>
+      <classifiers uid="Emp_daa415ee-6d04-441d-aeb9-d6cdd776a373" hint="9ba4639b-73e2-484a-a8d4-b23d3c1f999b"/>
       <operations uid="Emp_7180cd5e-ca92-4753-a588-2f23a0881a81" name="create">
         <returnValue packageRef="e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="Emp_dd5f2ada-dfef-49f4-99c9-77ee2bd72f13"/>
       </operations>
@@ -941,7 +915,7 @@
     <types xsi:type="tura.domain:TypeReference" uid="Vhc_eb76b6af-9330-4f5b-b46c-8b732b8fe354" packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="50dcca84-4d2c-4fe2-baad-56afdf1be76d"/>
     <types xsi:type="tura.domain:Type" uid="Vhc_692cc400-912b-471d-84f5-15f08a7ec191" name="List of Vehicles"/>
     <types xsi:type="tura.domain:Type" uid="Vhc_25a85943-6b6b-4ca0-a223-e031e30c5563" name="Vehicles query service">
-      <classifiers uid="Vhc_99c0f3c6-d7bc-4bce-abdb-4882c283879c" hint="6ea5878f-e938-4e8b-990c-dbbbb2460dd9"/>
+      <classifiers uid="Vhc_99c0f3c6-d7bc-4bce-abdb-4882c283879c" hint="11f99455-8fbd-451c-9c45-232fec79da1d"/>
       <operations uid="Vhc_25e3ad11-7c03-40a0-8f16-3bd73e3995e3" name="create">
         <returnValue packageRef="e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="Vhc_52ffccb7-cea6-49de-ba4b-7437f1da3369"/>
       </operations>
@@ -971,14 +945,14 @@
         <classifiers uid="Vhc_2609ff9a-ccb7-4aa6-b23a-76aca2ee442b" hint="652c130e-7f7e-4676-a370-2455f3615470"/>
       </extension>
       <extension uid="TypeExtension4" source="Vhc_25a85943-6b6b-4ca0-a223-e031e30c5563" target="Vhc_52ffccb7-cea6-49de-ba4b-7437f1da3369">
-        <classifiers uid="Vhc_dc219655-adc0-4029-b35c-897e715563fe" hint="4529ca6e-e57b-4e9f-80f7-215832b613e0"/>
+        <classifiers uid="Vhc_dc219655-adc0-4029-b35c-897e715563fe" hint="ff44d9e7-d5a5-42d4-8744-089721da820e"/>
       </extension>
       <extension uid="Vhc_TypeExtension5" source="Vhc_25a85943-6b6b-4ca0-a223-e031e30c5563" target="Vhc_TypeReference2">
         <classifiers uid="Vhc_557c5691-367f-49de-895c-d2d83b85342c" hint="2fe9fdd8-3fec-4a11-9ed5-a79c64373895"/>
       </extension>
     </types>
     <types xsi:type="tura.domain:Type" uid="Vhc_f8c0591c-d9c2-4897-97fa-536fadf94cbf" name="Vehicles query service remote">
-      <classifiers uid="Vhc_7b9bdcc1-c2ff-42b2-a103-e7e0a5e7a4c6" hint="43bcf7f7-df80-41c6-a67c-a85c5722f25f"/>
+      <classifiers uid="Vhc_7b9bdcc1-c2ff-42b2-a103-e7e0a5e7a4c6" hint="9ba4639b-73e2-484a-a8d4-b23d3c1f999b"/>
       <operations uid="Vhc_aab2312e-3840-47bd-ab51-3adff8fa9a5e" name="create">
         <returnValue packageRef="e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="Vhc_52ffccb7-cea6-49de-ba4b-7437f1da3369"/>
       </operations>
@@ -1003,7 +977,7 @@
       </operations>
     </types>
     <types xsi:type="tura.domain:Type" uid="Vhc_30bb8955-d333-429b-a7ae-777f1a62e767" name="Vehicles query service local">
-      <classifiers uid="Vhc_a32c29d7-47a3-40f4-9541-6914537c75b6" hint="e887a98a-c56d-455b-956e-bdbe57da2d14"/>
+      <classifiers uid="Vhc_a32c29d7-47a3-40f4-9541-6914537c75b6" hint="0a956d6e-2679-46f3-9358-dba1781f0cbd"/>
       <operations uid="Vhc_908f3a45-5328-43b4-9cfd-a77b23d1cf47" name="create">
         <returnValue packageRef="e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="Vhc_52ffccb7-cea6-49de-ba4b-7437f1da3369"/>
       </operations>
@@ -1040,7 +1014,7 @@
     </types>
     <types xsi:type="tura.domain:Type" uid="2ec99bf7-e2da-4b3a-84a9-5472346afb62" name="List of  files"/>
     <types xsi:type="tura.domain:Type" uid="a54f0d07-f3d2-475b-9f0e-52e3b9eb7464" name="File query service remote">
-      <classifiers uid="74538809-a86e-4b2c-91f7-fb88622113ba" hint="43bcf7f7-df80-41c6-a67c-a85c5722f25f"/>
+      <classifiers uid="74538809-a86e-4b2c-91f7-fb88622113ba" hint="9ba4639b-73e2-484a-a8d4-b23d3c1f999b"/>
       <operations uid="09ea0216-745c-4dbb-986e-43eb84e30e00" name="create">
         <returnValue packageRef="e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="f81fc484-ab31-4ce6-9bb1-01bb7409cbd6"/>
       </operations>
@@ -1065,7 +1039,7 @@
       </operations>
     </types>
     <types xsi:type="tura.domain:Type" uid="8f7fc7d1-e47d-422f-94d4-ef71703aefcf" name="File query service local">
-      <classifiers uid="beb884ba-7b7c-49a8-8712-968c4e0acbda" hint="e887a98a-c56d-455b-956e-bdbe57da2d14"/>
+      <classifiers uid="beb884ba-7b7c-49a8-8712-968c4e0acbda" hint="0a956d6e-2679-46f3-9358-dba1781f0cbd"/>
       <operations uid="1bdb7efd-cd30-4b1f-a946-d9c4577ffc9d" name="create">
         <returnValue packageRef="e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="f81fc484-ab31-4ce6-9bb1-01bb7409cbd6"/>
       </operations>
@@ -1091,7 +1065,7 @@
     </types>
     <types xsi:type="tura.domain:TypeReference" uid="1bc23137-4dc8-4fb3-b8dd-a0a8d2f5b85f" packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="2957c51c-68e7-4d1e-b8b7-cbe7ccdbe13f" fakePackageName="Base package" fakeTypeName="JPA Entity CRAD Service"/>
     <types xsi:type="tura.domain:Type" uid="686f89c2-76ca-4906-9ebd-8e977ec33f04" name="File query service">
-      <classifiers uid="c61a74f1-aaac-4d05-92df-2fbb8129de90" hint="6ea5878f-e938-4e8b-990c-dbbbb2460dd9"/>
+      <classifiers uid="c61a74f1-aaac-4d05-92df-2fbb8129de90" hint="11f99455-8fbd-451c-9c45-232fec79da1d"/>
       <operations uid="b5ff66f8-dfd3-4e50-8c14-06de26aaa771" name="create">
         <returnValue packageRef="e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="f81fc484-ab31-4ce6-9bb1-01bb7409cbd6"/>
       </operations>
@@ -1124,7 +1098,7 @@
         <classifiers uid="5cd9097c-d2e9-462a-8243-258105bb9fe1" hint="652c130e-7f7e-4676-a370-2455f3615470"/>
       </extension>
       <extension uid="8a9ed10f-0eb7-4cfd-9468-d398ffd91e19" source="686f89c2-76ca-4906-9ebd-8e977ec33f04" target="f81fc484-ab31-4ce6-9bb1-01bb7409cbd6">
-        <classifiers uid="f1d433d5-13fc-4f20-8cfd-d2afbe8b2214" hint="4529ca6e-e57b-4e9f-80f7-215832b613e0"/>
+        <classifiers uid="f1d433d5-13fc-4f20-8cfd-d2afbe8b2214" hint="ff44d9e7-d5a5-42d4-8744-089721da820e"/>
       </extension>
     </types>
   </tura.domain:TypeDefinition>
@@ -1211,102 +1185,39 @@
   </tura.domain:Mappers>
   <tura.domain:Recipes uid="e0a24138-9ba7-44dd-8b87-d1b01751c642" parent="Hr_recipe">
     <recipe mappers="0d86886f-6d6e-49e1-a123-d063d2d9bd22 d29466f4-8d55-4047-b6ba-fc1a830db2a1" uid="f89d43e4-5d8d-4437-ad00-188328a43ed0" infrastructures="080702f2-6a78-43d2-8987-c923fe681415">
-      <ingredients uid="18ddb859-9e6a-4841-a1de-d7a56a58dc99" name="Java Service ingredient">
-        <components xsi:type="tura.domain:JavaComponent" columns="3" uid="399ff625-e169-4315-9832-bea40ec7c633" name="HR Services" componentRoot="/Users/arseniyi/generatedCode/serviceLayer" artifactId="hrservice" groupId="org.tura.example.service" version="1.0" basePackage="org.tura.example.service">
-          <mappers uid="79461435-6eff-483f-bb26-d5199d0e1403" domainArtifactRef="edb48357-89bd-4570-aaf7-e49d7bb75e57" artifactRef="327f881c-6227-4ff4-9527-67b2ac881f02" name="Department Type">
-            <queries uid="Get Department Type1" name="Get Department Type" queryRef="d96c66dd-48c6-44f6-9f21-08c401f67ba6">
-              <variables uid="b7cd34ef-9cd4-4dae-8685-f13020050213" queryParamRef="fdbde223-93e9-46a4-aaa4-11281a2919b0" value="HR package"/>
-              <variables uid="b57df7af-3579-44d3-9b14-a02f9ffe5669" queryParamRef="4f3bbd33-b9ec-4bda-b273-6a67b726693c" value="Department Type"/>
+      <ingredients columns="2" uid="18ddb859-9e6a-4841-a1de-d7a56a58dc99" name="Java Service ingredient">
+        <components xsi:type="tura.domain:JavaComponent" columns="3" uid="399ff625-e169-4315-9832-bea40ec7c633" name="HR Objects" componentRoot="/Users/arseniyi/generatedCode/serviceLayer" artifactId="hr-objects" groupId="org.tura.example.service" version="1.0" basePackage="org.tura.example.service">
+          <mappers uid="79461435-6eff-483f-bb26-d5199d0e1403" domainArtifactRef="edb48357-89bd-4570-aaf7-e49d7bb75e57" artifactRef="327f881c-6227-4ff4-9527-67b2ac881f02" name="Entity generation">
+            <specifiers specifierRef="a21e9bfd-b89f-4bf7-b6a3-307cf37be687" valueRef="4f777ca5-ac80-4568-8029-2658f241658a"/>
+            <queries uid="Get Department Type1" name="Get type NA" queryRef="d96c66dd-48c6-44f6-9f21-08c401f67ba6">
+              <variables uid="b7cd34ef-9cd4-4dae-8685-f13020050213" queryParamRef="fdbde223-93e9-46a4-aaa4-11281a2919b0" value="NA"/>
+              <variables uid="b57df7af-3579-44d3-9b14-a02f9ffe5669" queryParamRef="4f3bbd33-b9ec-4bda-b273-6a67b726693c" value="NA"/>
+            </queries>
+            <queries uid="ba4f29f4-f924-4ee9-b494-f9bce742824b" name="Get package NA" queryRef="09cd4b78-183e-4275-a467-94db2e09840a">
+              <variables queryParamRef="1786300e-0f28-4ed8-bf41-6b13cfb82e2a" value="entityObject"/>
+              <variables queryParamRef="53b47808-f7ad-44d0-8343-47e850b28be5" value="Entity"/>
+              <variables queryParamRef="be44f082-3418-4fd0-aa86-8c4a85221ece" value="HR package"/>
+              <variables queryParamRef="bb75a0c8-eb1f-41cd-9419-0160768bb280" value="ORMEntity"/>
             </queries>
           </mappers>
-          <mappers uid="a76b9599-5112-4e4e-b64d-85e4e7fd1aee" domainArtifactRef="edb48357-89bd-4570-aaf7-e49d7bb75e57" artifactRef="327f881c-6227-4ff4-9527-67b2ac881f02" name="Employee Type">
-            <queries uid="Get Employee Type1" name="Get Employee Type" queryRef="d96c66dd-48c6-44f6-9f21-08c401f67ba6">
-              <variables uid="QueryVariable3" queryParamRef="fdbde223-93e9-46a4-aaa4-11281a2919b0" value="HR package"/>
-              <variables uid="2323ced7-51d7-4adb-84f2-a835f5eb47e6" queryParamRef="4f3bbd33-b9ec-4bda-b273-6a67b726693c" value="Employee Type"/>
+        </components>
+        <components xsi:type="tura.domain:JavaComponent" columns="3" uid="fc35a68c-7e61-4da1-b56a-decec132af12" name="HR Services" componentRoot="/Users/arseniyi/generatedCode/serviceLayer" artifactId="hr-services" groupId="org.tura.example.service" version="1.0" basePackage="org.tura.example.service">
+          <mappers uid="75884c21-6763-4a61-bf03-3b51f82a88c6" domainArtifactRef="bf6005f8-bcb9-4c2a-b3e5-49468794367a" artifactRef="a4797bb9-d8cf-43a1-a6ac-3192a7c6f597" name="EJB service generation">
+            <specifiers specifierRef="b846f3c1-80cc-449a-b68f-bbf718477dc2" valueRef="a0c38cb5-1b9c-45ae-8271-1bdd233ef8d4"/>
+            <queries uid="Get Employees query service1" name="Get type NA" queryRef="30ae1569-0fee-4c24-89d1-423d7b52f32a">
+              <variables queryParamRef="4c1c426f-0913-4efe-be67-778b0fcc920d" value="NA"/>
+              <variables queryParamRef="1f705cc8-d31c-41c7-9d25-8f87893304f5" value="NA"/>
             </queries>
-          </mappers>
-          <mappers uid="e1efbda9-5001-43a1-bde7-d0b329d1793b" domainArtifactRef="bf6005f8-bcb9-4c2a-b3e5-49468794367a" artifactRef="3c5b8283-1d08-47d8-ba3b-96b405638aa1" name="Departments query service">
-            <queries uid="Get Departments query service1" name="Get Departments query service" queryRef="0982ca45-101e-4314-923d-10b2cc27574b">
-              <variables uid="c5c8be28-bc41-411f-a822-a31aa096c173" queryParamRef="b46df788-9753-4352-8ef6-20bb0ecf3763" value="HR package"/>
-              <variables uid="12ba33bd-1788-4963-88b1-6c2d18554340" queryParamRef="2e52e14e-12f9-4f32-86c9-8f5cbdebde4f" value="Departments query service"/>
+            <queries uid="d157c17f-44cd-4203-80b7-0c11d4461a55" name="Get Package HR package" queryRef="150373a6-59e2-415e-9301-42fc1a8eda42">
+              <variables queryParamRef="ca1fdea8-49fc-4256-ad54-d022a80f8ede" value="EJBService"/>
+              <variables queryParamRef="b0da5698-b6af-421a-a6ca-2696eba1d624" value="HR package"/>
+              <variables queryParamRef="c53a1366-24d5-48d1-a41f-28eb1e2a8346" value="EJBService"/>
+              <variables queryParamRef="c297467c-1c9f-4e86-b4a7-c887f810fe97" value="Service"/>
             </queries>
-          </mappers>
-          <mappers uid="75884c21-6763-4a61-bf03-3b51f82a88c6" domainArtifactRef="bf6005f8-bcb9-4c2a-b3e5-49468794367a" artifactRef="3c5b8283-1d08-47d8-ba3b-96b405638aa1" name="Employees query service">
-            <queries uid="Get Employees query service1" name="Get Employees query service" queryRef="0982ca45-101e-4314-923d-10b2cc27574b">
-              <variables uid="062a0629-9afc-49d0-97cf-437c36068d98" queryParamRef="b46df788-9753-4352-8ef6-20bb0ecf3763" value="HR package"/>
-              <variables uid="ec1c7ea6-daa9-4623-9666-2cac97412d22" queryParamRef="2e52e14e-12f9-4f32-86c9-8f5cbdebde4f" value="Employees query service"/>
-            </queries>
-          </mappers>
-          <mappers uid="a9469868-9fb0-44b6-9948-b48c6e822a99" domainArtifactRef="bf6005f8-bcb9-4c2a-b3e5-49468794367a" artifactRef="20d3f932-c6b8-40df-9001-b3c0daaf6c86" name="Persistence.xml">
-            <specifiers uid="acc99c03-d05d-4c58-98b4-9db29f19cfd9" specifierRef="fe074bfa-3f0e-4b09-80fb-9b7b8f1bfdbc" valueRef="16fa5962-f152-410b-bb52-377d11325bd3"/>
-            <specifiers uid="c47fb229-d77f-45ac-ae0b-f3468528b7a3" specifierRef="47cfe2e3-f5e7-46df-9fe5-db299263318c" valueRef="9bbf2ac9-d963-4567-99b5-ae10b5f2dc1c"/>
-            <queries uid="Get Employee Type2" name="Get Employee Type" queryRef="33f876bb-d950-4b54-93cf-8a869ef321cd">
-              <variables uid="b3ae7d8e-4d5b-40d3-906e-8a6eff2bf0cf" queryParamRef="97d2c830-e4db-4e67-ad46-a90a530ce768" value="HR package"/>
-              <variables uid="d8b95425-7be9-4d8a-bce6-9c95b867d95a" queryParamRef="dfe0a7d4-62be-4cc4-8507-3cbc62f51c6f" value="Employee Type"/>
-            </queries>
-            <queries uid="Get Department Type2" name="Get Department Type" queryRef="33f876bb-d950-4b54-93cf-8a869ef321cd">
-              <variables uid="1f8cccc1-01e9-40a7-9f4e-176bc9457a9a" queryParamRef="97d2c830-e4db-4e67-ad46-a90a530ce768" value="HR package"/>
-              <variables uid="6e79eb96-fc7f-4a2e-a43d-3152483bccca" queryParamRef="dfe0a7d4-62be-4cc4-8507-3cbc62f51c6f" value="Department Type"/>
-            </queries>
-          </mappers>
-          <mappers uid="c19cea49-6212-48d3-bdc2-9f45434c19ba" domainArtifactRef="bf6005f8-bcb9-4c2a-b3e5-49468794367a" artifactRef="5485bd50-6285-4cfd-ab94-ea4dfeccaad7" name="Employees query service remote">
-            <queries uid="Get Employees query service remote2" name="Get Employees query service remote" queryRef="dfb902ee-1772-4cca-9c43-2de3dae5cfbf">
-              <variables uid="0115a852-2a74-49e3-8d19-c4b4d3df69cc" queryParamRef="8ed3f35b-979b-4c90-9231-e90c8a421505" value="HR package"/>
-              <variables uid="19869686-b181-4cd5-b1e1-af86c3bbc158" queryParamRef="fde94e4d-4b2c-49e7-89b6-7ff9b2edb478" value="Employees query service remote"/>
-            </queries>
-          </mappers>
-          <mappers uid="9527dee2-9f99-4e2a-a150-a49df72887da" domainArtifactRef="bf6005f8-bcb9-4c2a-b3e5-49468794367a" artifactRef="9a6d5b5a-6a51-4b25-9c61-ed0225e2d998" name="Employees query service local">
-            <queries uid="Get Employees query service local" name="Get Employees query service local" queryRef="b5f0e24b-aae7-4e55-968b-acd403d0144a">
-              <variables uid="79e01041-e486-4003-9e59-cd49da466c34" queryParamRef="36ab7d97-f845-4573-aa41-2234c10e243b" value="HR package"/>
-              <variables uid="358abcb3-1624-4394-b1a1-6ce96572c086" queryParamRef="8d0bcd81-0da5-4932-8f61-a81660c60149" value="Employees query service local"/>
-            </queries>
-          </mappers>
-          <mappers uid="713c9862-b182-43c4-8be8-9100824665a2" domainArtifactRef="bf6005f8-bcb9-4c2a-b3e5-49468794367a" artifactRef="5485bd50-6285-4cfd-ab94-ea4dfeccaad7" name="Departments query service remote">
-            <queries uid="Get Departments query service remote1" name="Get Departments query service remote" queryRef="dfb902ee-1772-4cca-9c43-2de3dae5cfbf">
-              <variables uid="6d6d7f89-0dd2-4201-b930-75c657e041ed" queryParamRef="8ed3f35b-979b-4c90-9231-e90c8a421505" value="HR package"/>
-              <variables uid="34113b79-7c66-4eb2-b036-cc711a17750b" queryParamRef="fde94e4d-4b2c-49e7-89b6-7ff9b2edb478" value="Departments query service remote"/>
-            </queries>
-          </mappers>
-          <mappers uid="6d3fe88-3371-4027-aece-ab0d8458ea5a" domainArtifactRef="bf6005f8-bcb9-4c2a-b3e5-49468794367a" artifactRef="9a6d5b5a-6a51-4b25-9c61-ed0225e2d998" name="Departments query service local">
-            <queries uid="Get Departments query service local" name="Get Departments query service local" queryRef="b5f0e24b-aae7-4e55-968b-acd403d0144a">
-              <variables uid="e259e823-ec45-4eea-bf06-b8f603ccb058" queryParamRef="36ab7d97-f845-4573-aa41-2234c10e243b" value="HR package"/>
-              <variables uid="ebde25d8-6a79-4225-a1ec-7ed827790ed9" queryParamRef="8d0bcd81-0da5-4932-8f61-a81660c60149" value="Departments query service local"/>
-            </queries>
-          </mappers>
-          <mappers uid="bbf849d1-2ffa-4352-b836-42741cf0895b" domainArtifactRef="bf6005f8-bcb9-4c2a-b3e5-49468794367a" artifactRef="aa171d89-662b-49ac-8e66-afb2af7874fa" name="Maven pom EJB Service"/>
-          <mappers uid="bc71d4e9-5a47-4f9f-808b-278d29dd5178" domainArtifactRef="1d4b5afc-284f-4eb2-81ab-859af4fb84f1" artifactRef="6ad40124-cc0a-4fac-845b-1f57dfdf0c1d" name="Maven Builder" artifactExecutionString="bash /Users/arseniyi/generatedCode/serviceLayer/hrservice/builder.sh">
-            <specifiers uid="49129a33-1c92-4068-b71e-cfcae3255a12" specifierRef="31634bd0-9876-45d3-aefe-11c3eeceb6f9" valueRef="68eccc09-2c35-41b8-b59c-82635242fad8"/>
-          </mappers>
-          <mappers uid="6a38c668-5689-45e9-81ae-ac5258870aa8" domainArtifactRef="bf6005f8-bcb9-4c2a-b3e5-49468794367a" artifactRef="5836dd1c-ae55-41bb-99d5-eb6ebe395e9a" name="GlassFish ejb webservice deployer" artifactExecutionString="bash /Users/arseniyi/generatedCode/serviceLayer/hrservice/deployer.sh">
-            <specifiers uid="61aa546d-fb18-4178-b9ce-d00ae0d79104" specifierRef="6811fcf9-b8d9-4fe3-b187-0915b7a52a40" valueRef="c41b9412-2245-410f-ab51-d529e92aa398"/>
           </mappers>
         </components>
       </ingredients>
-      <ingredients uid="81ff3004-d13f-4bcc-b472-1240972b7243" name="Java Service proxy client ingredient">
-        <components xsi:type="tura.domain:JavaComponent" columns="3" uid="22170718-9198-4a7e-8973-f6301c72dc5a" name="HR Services proxy client" componentRoot="/Users/arseniyi/generatedCode/serviceLayer" artifactId="hrservice-proxy-client" groupId="org.tura.example.service" version="1.0" basePackage="org.tura.example.service">
-          <mappers uid="95a20ba0-4514-4ec7-95d5-68ea5dc75dd5" domainArtifactRef="bf6005f8-bcb9-4c2a-b3e5-49468794367a" artifactRef="04dfe55c-f5bf-458a-8c75-de52c8930218" name="Maven pom EJB Service proxy client">
-            <queries uid="Get Departments query service remote2" name="Get Departments query service remote" queryRef="208a25a0-3748-42e9-a539-f5d854043249" groupCode="a.remote">
-              <variables uid="49657538-50b3-43d4-b72f-eadb5ba383e8" queryParamRef="86063280-dca0-474e-9cd5-e8bb800b72fc" value="HR package"/>
-              <variables uid="e68f3da6-58d5-4fc6-acde-11bb9563d871" queryParamRef="8fcd2f36-54fd-4255-8eda-3da8835f17fa" value="Departments query service remote"/>
-            </queries>
-            <queries uid="Get Departments query service2" name="Get Departments query service" queryRef="208a25a0-3748-42e9-a539-f5d854043249" groupCode="a.impl">
-              <variables uid="de3f9b17-c727-4f22-aa6b-6f3d61e79bcf" queryParamRef="86063280-dca0-474e-9cd5-e8bb800b72fc" value="HR package"/>
-              <variables uid="19d790ec-c3e5-4bae-8a48-f6736434b770" queryParamRef="8fcd2f36-54fd-4255-8eda-3da8835f17fa" value="Departments query service"/>
-            </queries>
-            <queries uid="Get Employees query service remote" name="Get Employees query service remote" queryRef="208a25a0-3748-42e9-a539-f5d854043249" groupCode="b.remote">
-              <variables uid="dfb221f7-35e4-443b-bd86-256096b79cf7" queryParamRef="86063280-dca0-474e-9cd5-e8bb800b72fc" value="HR package"/>
-              <variables uid="2b6c6571-6d20-4dee-aa69-80c39528bbc2" queryParamRef="8fcd2f36-54fd-4255-8eda-3da8835f17fa" value="Employees query service remote"/>
-            </queries>
-            <queries uid="Get Employees query service2" name="Get Employees query service" queryRef="208a25a0-3748-42e9-a539-f5d854043249" groupCode="b.impl">
-              <variables uid="abc94be8-e318-49a5-a853-a1a8cd1ae2d5" queryParamRef="8fcd2f36-54fd-4255-8eda-3da8835f17fa" value="Employees query service"/>
-              <variables uid="b12c0dc0-0bd2-4077-9ca4-9a880781fbd6" queryParamRef="86063280-dca0-474e-9cd5-e8bb800b72fc" value="HR package"/>
-            </queries>
-          </mappers>
-          <mappers uid="26599cc2-af8e-4d01-b3fc-aebd5f0006c5" domainArtifactRef="1d4b5afc-284f-4eb2-81ab-859af4fb84f1" artifactRef="6ad40124-cc0a-4fac-845b-1f57dfdf0c1d" name="Maven Builder" artifactExecutionString="bash /Users/arseniyi/generatedCode/serviceLayer/hrservice-proxy-client/builder.sh">
-            <specifiers uid="9b99b50f-2830-46eb-a09c-85af1a36c796" specifierRef="31634bd0-9876-45d3-aefe-11c3eeceb6f9" valueRef="68eccc09-2c35-41b8-b59c-82635242fad8"/>
-          </mappers>
-        </components>
-      </ingredients>
+      <ingredients uid="81ff3004-d13f-4bcc-b472-1240972b7243" name="Java Service proxy client ingredient"/>
     </recipe>
     <configurations uid="7958c7b0-aaca-436d-aec4-20dcc6de9529" infrastructure="080702f2-6a78-43d2-8987-c923fe681415">
       <properties uid="92c00781-9885-49e2-a5ac-d8361965a21b" confVarRef="9040caf7-fece-440f-bdad-5e598adfd243" value="localhost"/>
@@ -1328,8 +1239,8 @@
     <recipe mappers="0d86886f-6d6e-49e1-a123-d063d2d9bd22 d29466f4-8d55-4047-b6ba-fc1a830db2a1" uid="85c10e4e-451d-458d-84e5-e9458ed38cd7" infrastructures="491ea860-1d5f-4fd4-9d0a-a31ca685ef74">
       <ingredients uid="c4f71314-fb71-494b-b4c3-5753fc9a21cb" name="Java Service ingredient">
         <components xsi:type="tura.domain:JavaComponent" columns="3" uid="e3be8013-56ff-4a17-8f4c-c4001c83d8cb" name="HR Services" componentRoot="/Users/arseniyi/generatedCode/serviceLayer" artifactId="hrservice" groupId="org.tura.example.service" version="1.0" basePackage="org.tura.example.service">
-          <mappers uid="ae46d972-aa23-4741-a773-a9a2a4b1ad3f" domainArtifactRef="edb48357-89bd-4570-aaf7-e49d7bb75e57" artifactRef="3120ee13-0394-4d5c-990f-79d7a124ffea" name="Process all entity in the package ">
-            <queries uid="Get entities" name="Get entities" queryRef="b085d97d-aa68-4ad1-9933-b68ebe84d17b">
+          <mappers uid="ae46d972-aa23-4741-a773-a9a2a4b1ad3f" domainArtifactRef="edb48357-89bd-4570-aaf7-e49d7bb75e57" name="Process all entity in the package ">
+            <queries uid="Get entities" name="Get entities">
               <variables uid="3812566d-1593-4b25-b7d8-4603b6f501f1" queryParamRef="c7b8f2f1-e8d5-4a6d-b29d-a1684a6a5612" value="HR package"/>
               <variables uid="a9e8bbc9-3926-40b2-83cb-6366eaefbfba" queryParamRef="6b02cc19-d4b2-4d1c-9773-b4ecb1559efd" value="entityObject"/>
               <variables uid="4207daf5-83b7-4748-a7da-77dbb076ce06" queryParamRef="d83f8a30-0edd-4f2e-a9aa-4148019ad7fb" value="ORMEntity"/>
@@ -1337,6 +1248,7 @@
             </queries>
           </mappers>
           <mappers uid="013e8758-8209-4988-8305-047bd932f41d" domainArtifactRef="bf6005f8-bcb9-4c2a-b3e5-49468794367a" artifactRef="a4797bb9-d8cf-43a1-a6ac-3192a7c6f597" name="Process all services in the package">
+            <specifiers specifierRef="b846f3c1-80cc-449a-b68f-bbf718477dc2"/>
             <queries uid="Get services" name="Get services" queryRef="150373a6-59e2-415e-9301-42fc1a8eda42">
               <variables uid="5a2801b6-ab29-4793-b390-101c1bd67eb1" queryParamRef="b0da5698-b6af-421a-a6ca-2696eba1d624" value="HR package"/>
               <variables uid="40c92292-f4eb-4c6f-83ea-a8c686465321" queryParamRef="c297467c-1c9f-4e86-b4a7-c887f810fe97" value="Service Bean"/>
@@ -1356,20 +1268,20 @@
               <variables uid="da697e87-6954-4ffd-a0dc-8b36ddbb9ba2" queryParamRef="dfe0a7d4-62be-4cc4-8507-3cbc62f51c6f" value="Department Type"/>
             </queries>
           </mappers>
-          <mappers uid="a65c6c5c-fb6d-4f11-b881-9d215de6fcfc" domainArtifactRef="bf6005f8-bcb9-4c2a-b3e5-49468794367a" artifactRef="47429db8-1f90-461b-a922-6405c6286274" name="Process all remote interfacse">
-            <queries uid="Get remote interfaces" name="Get remote interfaces" queryRef="656122b2-8eed-4398-a0cd-3769c774329e">
-              <variables uid="79f37ca3-a638-4df9-b183-b53a0fc453b7" queryParamRef="ea45c14d-9d63-4e38-85ab-f318ac8b4155" value="HR package"/>
-              <variables uid="c4b295fc-64b0-4660-adb9-198f71ae3f6b" queryParamRef="f5b5cb9c-95c3-4917-bcad-6a73c253f68f" value="Service Bean"/>
-              <variables uid="169c8cd8-65bd-4ce6-beea-92734440f485" queryParamRef="8e7f90d6-ae86-4640-9b2d-a89acc6c7004" value="EJBService"/>
-              <variables uid="f085f2cd-d0f7-4e92-90a3-373d0c678d92" queryParamRef="175a49c9-5ea6-480d-82e2-a667164cf08d" value="EJBRemoteInterface"/>
+          <mappers uid="a65c6c5c-fb6d-4f11-b881-9d215de6fcfc" domainArtifactRef="bf6005f8-bcb9-4c2a-b3e5-49468794367a" name="Process all remote interfacse">
+            <queries uid="Get remote interfaces" name="Get remote interfaces">
+              <variables uid="79f37ca3-a638-4df9-b183-b53a0fc453b7" value="HR package"/>
+              <variables uid="c4b295fc-64b0-4660-adb9-198f71ae3f6b" value="Service Bean"/>
+              <variables uid="169c8cd8-65bd-4ce6-beea-92734440f485" value="EJBService"/>
+              <variables uid="f085f2cd-d0f7-4e92-90a3-373d0c678d92" value="EJBRemoteInterface"/>
             </queries>
           </mappers>
-          <mappers uid="13c7d833-ec95-4b70-bbf2-0ef2c6d82c1b" domainArtifactRef="bf6005f8-bcb9-4c2a-b3e5-49468794367a" artifactRef="da884031-5205-4ff8-8604-da3e06c35832" name="Process all local interfacse">
-            <queries uid="Get all local interfaces" name="Get all local interfaces" queryRef="a36fbbe1-efe4-478d-8fcf-cc940a0cc502">
-              <variables uid="47e617ca-c2ef-4560-961f-8eef5428c947" queryParamRef="82c2b0fd-7fb3-4402-b58b-a78c7913abc4" value="HR package"/>
-              <variables uid="142fa1a8-4a91-4952-8c13-9a9047a856e1" queryParamRef="47c16e01-34e8-474a-8384-d7fe4c4ace64" value="Service Bean"/>
-              <variables uid="1ede6671-c1ce-441b-815f-e7abf045382c" queryParamRef="a084f274-5939-4452-8780-204d8e20b468" value="EJBService"/>
-              <variables uid="21fe5d31-195f-4b16-b156-0ee5182faccd" queryParamRef="429b0809-4cc6-4423-9c54-8a9e06e69b2b" value="EJBLocalInterface"/>
+          <mappers uid="13c7d833-ec95-4b70-bbf2-0ef2c6d82c1b" domainArtifactRef="bf6005f8-bcb9-4c2a-b3e5-49468794367a" name="Process all local interfacse">
+            <queries uid="Get all local interfaces" name="Get all local interfaces">
+              <variables uid="47e617ca-c2ef-4560-961f-8eef5428c947" value="HR package"/>
+              <variables uid="142fa1a8-4a91-4952-8c13-9a9047a856e1" value="Service Bean"/>
+              <variables uid="1ede6671-c1ce-441b-815f-e7abf045382c" value="EJBService"/>
+              <variables uid="21fe5d31-195f-4b16-b156-0ee5182faccd" value="EJBLocalInterface"/>
             </queries>
           </mappers>
           <mappers uid="df53c239-b773-4f6d-b2f4-485979ec48be" domainArtifactRef="bf6005f8-bcb9-4c2a-b3e5-49468794367a" artifactRef="aa171d89-662b-49ac-8e66-afb2af7874fa" name="Maven pom EJB Service"/>

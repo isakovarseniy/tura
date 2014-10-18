@@ -1,6 +1,11 @@
 operation Categorized findClassifier( artifactLib:String, artifact: String, classifier : String) { 
 
+      var util = new Native('org.tura.metamodel.commons.Util');
+ 
       for (hint in self.getClassifiers()){
+           if (hint.getHint()= null )
+                 return false;
+           
            if (classifier.equals(hint.getHint.getName())){
                if ( artifact.equals(  hint.getHint.eContainer().getName)){
                   if ( artifactLib.equals( hint.getHint.eContainer().getParent().getParent().getName()) ){
