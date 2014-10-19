@@ -1,0 +1,30 @@
+<#assign percent = "%" >
+<#assign start = "[" >
+<#assign end = "]" >
+${start}${percent} 
+import "platform:/plugin/org.tura.metamodel.wizard.generation/template/technologies/ORM/${JPA_implementation}.egl";
+import "platform:/plugin/org.tura.metamodel.wizard.generation/template/technologies/Database/${Database_type}.egl";
+ ${percent}${end}
+
+[%
+     var util = new Native('org.tura.metamodel.commons.Util');
+%]
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.0">
+
+	<persistence-unit name="[%=util.mergeAndCapitalize(component.name)%]">
+
+		<provider>[%=persistence_jpaprovider()%]</provider>
+		
+		<jta-data-source>[%=configuration.get("jndi access string")%]</jta-data-source>
+[%
+        for (jar in libraries.keySet()) {
+%]
+        <jar-file>[%=jar%]</jar-file>
+[%       
+        }
+%]   
+		[%=persistence_jpaproperties(configuration)%]
+
+	</persistence-unit>
+</persistence>

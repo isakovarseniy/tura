@@ -17,6 +17,7 @@ package domain;
  *   <li>{@link domain.JavaMapper#getGroupId <em>Group Id</em>}</li>
  *   <li>{@link domain.JavaMapper#getVersion <em>Version</em>}</li>
  *   <li>{@link domain.JavaMapper#getLibraryName <em>Library Name</em>}</li>
+ *   <li>{@link domain.JavaMapper#getArtifactType <em>Artifact Type</em>}</li>
  * </ul>
  * </p>
  *
@@ -181,5 +182,32 @@ public interface JavaMapper extends TypeMapper
    * @generated
    */
   void setLibraryName(String value);
+
+  /**
+   * Returns the value of the '<em><b>Artifact Type</b></em>' attribute.
+   * The default value is <code>"jar"</code>.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Artifact Type</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Artifact Type</em>' attribute.
+   * @see #setArtifactType(String)
+   * @see domain.DomainPackage#getJavaMapper_ArtifactType()
+   * @model default="jar"
+   * @generated
+   */
+  String getArtifactType();
+
+  /**
+   * Sets the value of the '{@link domain.JavaMapper#getArtifactType <em>Artifact Type</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Artifact Type</em>' attribute.
+   * @see #getArtifactType()
+   * @generated
+   */
+  void setArtifactType(String value);
 
 } // JavaMapper

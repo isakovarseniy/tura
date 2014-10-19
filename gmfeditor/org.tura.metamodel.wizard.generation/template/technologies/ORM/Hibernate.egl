@@ -9,3 +9,12 @@ operation  persistence_jpaproperties(configuration) {
 [%
 }
 %]
+
+[% @template
+operation  persistence_jpaprovider() {
+%]
+org.hibernate.ejb.HibernatePersistence
+[%
+}
+%]
+

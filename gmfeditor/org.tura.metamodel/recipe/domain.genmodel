@@ -274,6 +274,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//JavaMapper/groupId"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//JavaMapper/version"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//JavaMapper/libraryName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//JavaMapper/artifactType"/>
     </genClasses>
     <genClasses ecoreClass="domain.ecore#//JavaScriptMapper">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//JavaScriptMapper/libraryUrl"/>

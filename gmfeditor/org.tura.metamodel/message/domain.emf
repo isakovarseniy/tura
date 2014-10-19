@@ -390,6 +390,7 @@ class JavaMapper extends TypeMapper{
    attr EString groupId;
    attr EString version;
    attr EString libraryName;
+   attr EString artifactType = "jar";
 }
 
 

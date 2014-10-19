@@ -13,3 +13,11 @@ operation  persistence_jpaproperties(configuration) {
 [%
 }
 %]
+
+[% @template
+operation  persistence_jpaprovider() {
+%]
+oracle.toplink.essentials.PersistenceProvider
+[%
+}
+%]

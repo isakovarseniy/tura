@@ -21,6 +21,14 @@ operation TypeElement mappingType2Java( recipe:Recipe, ingredient :Ingredient) {
                  self.~artifactId=type.artifactId;
                  self.~groupId=type.groupId;
                  self.~version= type.version;
+                 if (type.libraryName <> null)
+                     self.~library = type.libraryName;
+                 else{
+                    if ( type.artifactId<> null and type.version <> null )
+                        self.~library=type.artifactId+"-"+type.version+"."+type.artifactType;
+                    else
+                        self.~library=null;
+                 }    
               }  
           }    
      }

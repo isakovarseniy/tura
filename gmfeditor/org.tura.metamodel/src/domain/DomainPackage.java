@@ -2862,13 +2862,22 @@ public interface DomainPackage extends EPackage
   int JAVA_MAPPER__LIBRARY_NAME = TYPE_MAPPER_FEATURE_COUNT + 5;
 
   /**
+   * The feature id for the '<em><b>Artifact Type</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int JAVA_MAPPER__ARTIFACT_TYPE = TYPE_MAPPER_FEATURE_COUNT + 6;
+
+  /**
    * The number of structural features of the '<em>Java Mapper</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int JAVA_MAPPER_FEATURE_COUNT = TYPE_MAPPER_FEATURE_COUNT + 6;
+  int JAVA_MAPPER_FEATURE_COUNT = TYPE_MAPPER_FEATURE_COUNT + 7;
 
   /**
    * The meta object id for the '{@link domain.impl.JavaScriptMapperImpl <em>Java Script Mapper</em>}' class.
@@ -13217,6 +13226,17 @@ public interface DomainPackage extends EPackage
   EAttribute getJavaMapper_LibraryName();
 
   /**
+   * Returns the meta object for the attribute '{@link domain.JavaMapper#getArtifactType <em>Artifact Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Artifact Type</em>'.
+   * @see domain.JavaMapper#getArtifactType()
+   * @see #getJavaMapper()
+   * @generated
+   */
+  EAttribute getJavaMapper_ArtifactType();
+
+  /**
    * Returns the meta object for class '{@link domain.JavaScriptMapper <em>Java Script Mapper</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -19452,6 +19472,14 @@ public interface DomainPackage extends EPackage
      * @generated
      */
     EAttribute JAVA_MAPPER__LIBRARY_NAME = eINSTANCE.getJavaMapper_LibraryName();
+
+    /**
+     * The meta object literal for the '<em><b>Artifact Type</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute JAVA_MAPPER__ARTIFACT_TYPE = eINSTANCE.getJavaMapper_ArtifactType();
 
     /**
      * The meta object literal for the '{@link domain.impl.JavaScriptMapperImpl <em>Java Script Mapper</em>}' class.

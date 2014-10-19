@@ -67,6 +67,7 @@ public class JavaMapperItemProvider
       addGroupIdPropertyDescriptor(object);
       addVersionPropertyDescriptor(object);
       addLibraryNamePropertyDescriptor(object);
+      addArtifactTypePropertyDescriptor(object);
     }
     return itemPropertyDescriptors;
   }
@@ -210,6 +211,29 @@ public class JavaMapperItemProvider
   }
 
   /**
+   * This adds a property descriptor for the Artifact Type feature.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected void addArtifactTypePropertyDescriptor(Object object)
+  {
+    itemPropertyDescriptors.add
+      (createItemPropertyDescriptor
+        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+         getResourceLocator(),
+         getString("_UI_JavaMapper_artifactType_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_JavaMapper_artifactType_feature", "_UI_JavaMapper_type"),
+         DomainPackage.Literals.JAVA_MAPPER__ARTIFACT_TYPE,
+         true,
+         false,
+         false,
+         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+         null,
+         null));
+  }
+
+  /**
    * This returns JavaMapper.gif.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -256,6 +280,7 @@ public class JavaMapperItemProvider
       case DomainPackage.JAVA_MAPPER__GROUP_ID:
       case DomainPackage.JAVA_MAPPER__VERSION:
       case DomainPackage.JAVA_MAPPER__LIBRARY_NAME:
+      case DomainPackage.JAVA_MAPPER__ARTIFACT_TYPE:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
         return;
     }
