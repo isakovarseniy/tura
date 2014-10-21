@@ -2,7 +2,7 @@
      var util = new Native('org.tura.metamodel.commons.Util');
 
     var f = new Native("org.tura.metamodel.wizard.infrastructure.JavaFormatter"); 
-    var datacontrol : Template = TemplateFactory.load("platform:/plugin/org.tura.metamodel.wizard.generation/template/mvc/model/CDI/datacontrol.egl");
+    var datacontrol : Template = TemplateFactory.load("platform:/plugin/org.tura.metamodel.wizard.generation/template/technologies/JEE/CDI/datacontrol.egl");
     datacontrol.setFormatter(f);
 
 
@@ -20,7 +20,7 @@
 
      if (control.~treeRoot <> null){
 
-         var treedatacontrol : Template = TemplateFactory.load("platform:/plugin/org.tura.metamodel.wizard.generation/template/mvc/model/CDI/treedatacontrol.egl");
+         var treedatacontrol : Template = TemplateFactory.load("platform:/plugin/org.tura.metamodel.wizard.generation/template/technologies/JEE/CDI/treedatacontrol.egl");
          treedatacontrol.setFormatter(f);
 
 
@@ -38,7 +38,7 @@
    }
 
 
-         var producercontrol : Template = TemplateFactory.load("platform:/plugin/org.tura.metamodel.wizard.generation/template/mvc/model/CDI/producer.egl");
+         var producercontrol : Template = TemplateFactory.load("platform:/plugin/org.tura.metamodel.wizard.generation/template/technologies/JEE/CDI/producer.egl");
          producercontrol.setFormatter(f);
 
 
@@ -54,7 +54,7 @@
          util.saveFile( javaPath+util.mergeAndCapitalize(form.name).toLowerCase()+"/producer/"  , util.mergeAndCapitalize(control.name) + "Producer.java",buffer);   
 
 
-         var beansxml : Template = TemplateFactory.load("platform:/plugin/org.tura.metamodel.wizard.generation/template/mvc/model/CDI/beans-xml.egl");
+         var beansxml : Template = TemplateFactory.load("platform:/plugin/org.tura.metamodel.wizard.generation/template/technologies/JEE/CDI/beans-xml.egl");
          beansxml.setFormatter(f);
 
 
@@ -77,7 +77,7 @@
          hash.put("form",form);
          hash.put("control",control);
          
-         var commandstack : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.wizard.generation/template/mvc/model/CDI/commandstack.egl",hash,TemplateFactory);
+         var commandstack : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.wizard.generation/template/technologies/JEE/CDI/commandstack.egl",hash,TemplateFactory);
          commandstack.setFormatter(f);
 
 

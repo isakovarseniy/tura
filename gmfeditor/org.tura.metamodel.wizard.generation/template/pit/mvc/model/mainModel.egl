@@ -3,7 +3,7 @@
 <#assign end = "]" >
 ${start}${percent} 
 import "platform:/plugin/org.tura.metamodel.wizard.generation/template/technologies/${Model_management_framework}.egl";
-import "platform:/plugin/org.tura.metamodel.wizard.generation/template/pim/mvc/model/datacontrolUtil.eol";
+import "platform:/plugin/org.tura.metamodel.wizard.generation/template/pit/mvc/model/datacontrolUtil.eol";
 ${percent}${end}
 [%
 

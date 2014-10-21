@@ -1932,7 +1932,7 @@
       </modelQuery>
       <specifiers uid="ef7f8f56-76ad-4842-8484-9e6bc1e2dc6a" name="Model management framework">
         <options uid="3c98f39c-3406-4eaf-aa48-e9f8450f07db" value="Spring"/>
-        <options uid="d746f08a-a1f0-4b81-907a-bf65ef936a8e" value="CDI"/>
+        <options uid="d746f08a-a1f0-4b81-907a-bf65ef936a8e" value="JEE/CDI"/>
       </specifiers>
       <specifiers uid="6cf7c6cf-5261-4eef-af34-5c153e789430" name="Environment">
         <options uid="d04898e6-1e83-4bde-82fa-223a07623b92" value="JSE"/>
