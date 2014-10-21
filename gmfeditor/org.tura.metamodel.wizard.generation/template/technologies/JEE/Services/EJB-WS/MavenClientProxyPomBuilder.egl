@@ -1,0 +1,69 @@
+[%
+ import "platform:/plugin/org.tura.metamodel.wizard.generation/template/commons/categorizedUtil.eol";
+ import "platform:/plugin/org.tura.metamodel.wizard.generation/template/commons/typeElementUtil.eol";
+%]
+		<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+			xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+			<modelVersion>4.0.0</modelVersion>
+
+			<groupId>[%=component.getGroupId()%]</groupId>
+			<artifactId>[%=component.getArtifactId()%]</artifactId>
+			<version>[%=component.getVersion()%]</version>
+
+			<packaging>pom</packaging>
+
+			<name>[%=component.getName()%]:: Layer - DataSource - Proxy</name>
+
+
+			<dependencies>
+
+				<dependency>
+					<groupId>javax</groupId>
+					<artifactId>javaee-api</artifactId>
+					<version>6.0</version>
+					<scope>provided</scope>
+				</dependency>
+
+			</dependencies>
+
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.codehaus.mojo</groupId>
+						<artifactId>jaxws-maven-plugin</artifactId>
+						<version>1.10</version>
+						<executions>
+                        [%
+                           var typeRemote;
+                           var typeLocal;
+                           var typeGeneric;
+                           var typeExtens;
+                           for (type in alltypes ){
+                                  type.mappingType2Java(recipe,ingredient);
+                                 for (  extension in type.getExtension() ){
+                                  if (extension.findClassifier("ORMEntity","entityObject","Implements")){
+                                       var target = extension.getTarget();
+                                       if (target.findClassifier("EJBService","Service","EJBRemoteInterface")){
+                                           typeRemote = target;
+                                           typeRemote.mappingType2Java(recipe,ingredient);
+                                        }
+                                  }
+                               }
+%]						
+								<execution>
+									<id>[%=typeRemote.~class%]Wsdl</id>
+									<goals>
+										<goal>wsimport</goal>
+									</goals>
+									<configuration>
+										<wsdlUrls>
+											<wsdlUrl>http://[%=configuration.get("Application server IP")%]:[%=configuration.get("Application server port")%]/[%=typeRemote.~class%]/[%=type.~class%]?wsdl</wsdlUrl>
+										</wsdlUrls>
+									</configuration>
+								</execution>
+                          [%}%]
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</project>

@@ -12,9 +12,7 @@
 
 
 
-			<groupId>[%=component.getGroupId()%]</groupId>
 			<artifactId>[%=component.getArtifactId()%]-ear</artifactId>
-			<version>[%=component.getVersion()%]</version>
 
 			<packaging>ear</packaging>
 

@@ -3,6 +3,25 @@ import "platform:/plugin/org.tura.metamodel.wizard.generation/template/commons/t
 %]
 
 [% @template
+operation  maven_entity_build_runner(hash) {
+
+    var util = new Native('org.tura.metamodel.commons.Util');
+     
+    var configuration = hash.get("configuration");
+    var component = hash.get("component");
+    var path = component.getComponentRoot+"/"+component.getArtifactId;  
+    var model_mapper = hash.get("model_mapper");
+ %]
+[%=mavenBuilder_mavenCleanInstall(configuration, component.getComponentRoot+"/"+component.getArtifactId)%]
+[%    
+
+    model_mapper.artifactExecutionString=  os_shell_executor()+" "+path+"/"+"builder."+os_batch_extension();
+    util.saveFile( path, "builder."+os_batch_extension(),out.toString());   
+}
+%]
+
+
+[% @template
 operation  maven_entity_builder(hash) {
 
 

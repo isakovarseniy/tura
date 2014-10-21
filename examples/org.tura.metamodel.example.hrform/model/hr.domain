@@ -4,7 +4,6 @@
     <domainArtifacts columns="4" uid="6f4c10d5-1762-4d4b-99f4-3c031a203f2b" name="Domain artifacts">
       <domainArtifact xsi:type="tura.domain:EJBService" uid="bf6005f8-bcb9-4c2a-b3e5-49468794367a" name="EJBService" artifact="e26c4095-ebd6-48b4-917a-11026d3e511f"/>
       <domainArtifact xsi:type="tura.domain:ORMEntity" uid="edb48357-89bd-4570-aaf7-e49d7bb75e57" name="ORMEntity" artifact="ec71bdb8-8365-492b-a974-5db4672bc0c0"/>
-      <domainArtifact xsi:type="tura.domain:ContinuousIintegration" uid="1d4b5afc-284f-4eb2-81ab-859af4fb84f1" name="Continuous integration" artifact="76c5c93b-9847-4bee-8968-bb19afbb1896"/>
       <domainArtifact uid="5945624b-20f3-47f9-9cb1-d0dc8df9491a" name="UIGeneration" artifact="e15bf32f-16b2-4b20-bceb-f9866c131ad9"/>
     </domainArtifacts>
     <domainTypes uid="5b26b14a-ae2f-4ac1-a04f-fbd45eab1344" name="Domain types" typesrepository="acbcf3e3-7b19-4349-9993-12a9fe3e753a"/>
@@ -27,15 +26,27 @@
   </tura.domain:Application>
   <tura.domain:Artifacts uid="cfc1509d-db2a-4863-becd-7540552cf00b"/>
   <tura.domain:Artifacts uid="e26c4095-ebd6-48b4-917a-11026d3e511f" parent="bf6005f8-bcb9-4c2a-b3e5-49468794367a">
-    <artifacts uid="04dfe55c-f5bf-458a-8c75-de52c8930218" name="Maven pom EJB Service proxy client" template="platform:/plugin/org.tura.metamodel.wizard.generation/template/jee/ejb-ws/mainMavenPom_EJBService_ProxyClient.egl">
+    <artifacts uid="04dfe55c-f5bf-458a-8c75-de52c8930218" name="Build proxy client" template="platform:/plugin/org.tura.metamodel.wizard.generation/template/pit/mainProxyServicesBuilder.egl">
       <configVariables uid="6c69f631-c365-4a78-8777-350ea19beed8" name="Application server IP"/>
       <configVariables uid="2671048d-b872-45e6-97b1-69896b381d0d" name="Application server port"/>
       <modelQuery uid="208a25a0-3748-42e9-a539-f5d854043249" name="Query type" query="domain::Package.allInstances()->select(r|r.oclAsType(domain::Package).name='${Package name}').oclAsType(domain::Package).typedefinition.types->select(r|(r.oclIsKindOf(domain::Type) and  r.oclAsType(domain::Type).name = '${Type name}')  or (r.oclIsKindOf(domain::Primitive) and  r.oclAsType(domain::Primitive).name = '${Type name}') or (r.oclIsKindOf(domain::Enumarator) and  r.oclAsType(domain::Enumarator).name = '${Type name}') )">
         <parameters uid="8fcd2f36-54fd-4255-8eda-3da8835f17fa" name="Type name"/>
         <parameters uid="86063280-dca0-474e-9cd5-e8bb800b72fc" name="Package name"/>
       </modelQuery>
+      <modelQuery uid="b9bfed5d-625a-4532-a8ca-25af24eb703f" name="Query package of types" query="domain::Package.allInstances()->select(r|r.oclAsType(domain::Package).name='${Package name}').oclAsType(domain::Package).typedefinition.types->select(r|((r.oclIsKindOf(domain::Type ) ) )).oclAsType(domain::Categorized).classifiers->select(c|c.hint.name='${Hint}' and c.hint.oclAsType(ecore::EObject).eContainer().oclAsType(domain::Artifact).name = '${Artifact}' and  c.hint.oclAsType(ecore::EObject).eContainer().oclAsType(domain::Artifact).parent.oclAsType(domain::Artifacts).parent.oclAsType(domain::DomainArtifact).name = '${ArtifactLib}' )->collect(c|c.oclAsType(ecore::EObject).eContainer())">
+        <parameters uid="fea9efdc-6ada-45f2-aca8-5f540f1d470a" name="Artifact"/>
+        <parameters uid="b3d29274-4d99-4543-84ed-fab16c705c2f" name="ArtifactLib"/>
+        <parameters uid="dbe89fca-78a8-4567-8b7e-4bebff2e9e92" name="Hint"/>
+        <parameters uid="68c03192-b082-4d14-8b19-cf02fc0e92d7" name="Package name"/>
+      </modelQuery>
+      <specifiers uid="6a30b4b3-a2ac-42ab-8c5c-5824ca8a6d15" name="Service implementation">
+        <options uid="48d472a9-e8ba-497e-9ae8-a321427fa09f" value="JEE/Services/EJB-WS"/>
+      </specifiers>
+      <specifiers uid="c473f706-d8a9-47b4-9c9b-97c11b26b1dc" name="Builder implementation">
+        <options uid="411f7dee-b5c0-4f0f-8217-65f42187d6da" value="JSE/Builder/Ant"/>
+        <options uid="03080e44-e41b-48f8-ba9b-f5d6e6d392fb" value="JSE/Builder/Maven"/>
+      </specifiers>
     </artifacts>
-    <artifacts uid="aa171d89-662b-49ac-8e66-afb2af7874fa" name="Maven pom EJB Service" template="platform:/plugin/org.tura.metamodel.wizard.generation/template/jee/ejb-ws/mainMavenPom_EJBService.egl"/>
     <artifacts uid="5836dd1c-ae55-41bb-99d5-eb6ebe395e9a" name="GlassFish ejb webservice deployer" template="platform:/plugin/org.tura.metamodel.wizard.generation/template/jee/ejb-ws/mainGlassfishDeployer.egl">
       <configVariables uid="9f809420-5098-495f-9e64-d4e49e364de3" name="GlassFish home"/>
       <configVariables uid="1b2c5718-ab8c-4ff7-93f7-422e22e7d284" name="GlassFish admin port"/>
@@ -81,6 +92,33 @@
       <specifiers uid="18bfaf6a-e8b3-4e32-b31a-14c9eb61627f" name="Builder implementation">
         <options uid="573bdb90-a9a6-46c6-8fdf-7c140183282f" value="JSE/Builder/Ant"/>
         <options uid="5a4a9bc2-446b-43c4-8bc9-bec4a52c688e" value="JSE/Builder/Maven"/>
+      </specifiers>
+    </artifacts>
+    <artifacts uid="571b9d90-488b-49c6-91e9-e268f4c0a51e" name="Service build runner" template="platform:/plugin/org.tura.metamodel.wizard.generation/template/pit/mainServiceBuildRunner.egl">
+      <configVariables uid="d133115a-dab4-4a27-b2c1-6ec0aa3613eb" name="Maven location"/>
+      <specifiers uid="ab48feee-36c1-418e-a4ab-6ee693ad7879" name="Service implementation">
+        <options uid="5e2d1cca-dcaf-4dbe-890d-cb686e63dc91" value="JEE/Services/EJB-WS"/>
+      </specifiers>
+      <specifiers uid="f3a9a16f-a790-41fc-9374-05784ce6a126" name="OS">
+        <options uid="1bfd24ff-14c5-45ef-a239-f3460941c90c" value="OS/Unix"/>
+        <options uid="eda6f084-3edb-402d-a337-0cb5b6343b30" value="OS/Windows"/>
+      </specifiers>
+      <specifiers uid="592607ac-a6a5-4daf-8650-06f4b51b4f9f" name="Builder implementation">
+        <options uid="ae5bb026-b1df-4dfc-8ed7-eb6f83529e95" value="JSE/Builder/Ant"/>
+        <options uid="6632281c-6bf2-49fb-ac91-7f2cc90779e5" value="JSE/Builder/Maven"/>
+      </specifiers>
+    </artifacts>
+    <artifacts uid="000d19ec-3240-4fd5-93e2-8da60141454e" name="Proxy services build runner" template="platform:/plugin/org.tura.metamodel.wizard.generation/template/pit/mainProxyClientServiceBuildRunner.egl">
+      <specifiers uid="7cdedcb3-964f-4ad6-8ea8-9fccc1fe60bd" name="Service implementation">
+        <options uid="565eeb05-47c3-4173-aa35-aa5682d2c22c" value="JEE/Services/EJB-WS"/>
+      </specifiers>
+      <specifiers uid="dd36dee0-c3b1-43ef-8d24-f10ac7156ccb" name="OS">
+        <options uid="adf7f2c5-c08f-4e39-b638-bc2900ac7372" value="OS/Unix"/>
+        <options uid="d40ad0ef-4b69-4815-b07a-6407215ed57b" value="OS/Windows"/>
+      </specifiers>
+      <specifiers uid="1bdfbea4-f92c-4ca5-853c-1b623533c2cf" name="Builder implementation">
+        <options uid="c244cf77-c15c-4f72-8e3e-d6950e946f22" value="JSE/Builder/Ant"/>
+        <options uid="e8ebe995-7b0f-4389-bc19-0d4189248497" value="JSE/Builder/Maven"/>
       </specifiers>
     </artifacts>
   </tura.domain:Artifacts>
@@ -149,16 +187,21 @@
         <options uid="2e838b0b-b8e3-49e1-ab1f-95440232367d" value="JSE/Builder/Ant"/>
       </specifiers>
     </artifacts>
-  </tura.domain:Artifacts>
-  <tura.domain:Artifacts uid="76c5c93b-9847-4bee-8968-bb19afbb1896" parent="1d4b5afc-284f-4eb2-81ab-859af4fb84f1">
-    <artifacts uid="6ad40124-cc0a-4fac-845b-1f57dfdf0c1d" name="Maven Builder" template="platform:/plugin/org.tura.metamodel.wizard.generation/template/continuousIntegration/mainMavenBuilder.egl">
-      <configVariables uid="556dc253-8846-4fa7-8c10-e58484fd320e" name="Maven location"/>
-      <specifiers uid="31634bd0-9876-45d3-aefe-11c3eeceb6f9" name="OS">
-        <options uid="68eccc09-2c35-41b8-b59c-82635242fad8" value="Unix"/>
-        <options uid="603ac27a-da62-40d5-b820-cb39289c6979" value="Window"/>
+    <artifacts uid="e7dcf281-a775-4281-96aa-fcd2c3591508" name="Build runner" template="platform:/plugin/org.tura.metamodel.wizard.generation/template/pit/mainEntityBuildRunner.egl">
+      <specifiers uid="fa03b96b-1a8b-4793-8223-9f5c558038e0" name="Entity implementation">
+        <options uid="0bd59747-b761-466a-8ff8-7a9da20a640f" value="JEE/JPA"/>
+      </specifiers>
+      <specifiers uid="80ea26a9-8fbd-4bee-b7fa-94493375b1cf" name="Builder implementation">
+        <options uid="d3ffec4c-6d12-4584-b83b-e14de3a1f2fb" value="JSE/Builder/Ant"/>
+        <options uid="462f4f54-2cc4-4b59-bba8-0c50d3da51da" value="JSE/Builder/Maven"/>
+      </specifiers>
+      <specifiers uid="957331de-340a-49e8-a2fd-a52a9a975ef1" name="OS">
+        <options uid="edc968ae-54f0-4e53-8c5b-fcaa74717ece" value="OS/Unix"/>
+        <options uid="5f562977-da6d-4385-9f73-4edb65a67752" value="OS/Windows"/>
       </specifiers>
     </artifacts>
   </tura.domain:Artifacts>
+  <tura.domain:Artifacts uid="76c5c93b-9847-4bee-8968-bb19afbb1896"/>
   <tura.domain:TypesRepository uid="acbcf3e3-7b19-4349-9993-12a9fe3e753a" parent="5b26b14a-ae2f-4ac1-a04f-fbd45eab1344">
     <typeDefinition columns="3" uid="221291dc-9bcb-4876-8e6f-38f03f4560a2">
       <packages uid="9fcd56c0-2fe7-445a-864e-9550f1b901c2" name="Primitive package" typedefinition="29bf33f0-cf65-44c3-89d9-0f63b8cf9b1d"/>
@@ -1239,6 +1282,11 @@
               <variables queryParamRef="d2266a0a-8eba-4550-8a22-d35e229bb585" value="ORMEntity"/>
             </queries>
           </mappers>
+          <mappers uid="3b5947e3-71e1-4c1d-b674-353dd43f41a6" domainArtifactRef="edb48357-89bd-4570-aaf7-e49d7bb75e57" artifactRef="e7dcf281-a775-4281-96aa-fcd2c3591508" name="Entity build runner" artifactExecutionString="bash /Users/arseniyi/generatedCode/serviceLayer/hr-objects/builder.sh">
+            <specifiers specifierRef="957331de-340a-49e8-a2fd-a52a9a975ef1" valueRef="edc968ae-54f0-4e53-8c5b-fcaa74717ece"/>
+            <specifiers specifierRef="80ea26a9-8fbd-4bee-b7fa-94493375b1cf" valueRef="462f4f54-2cc4-4b59-bba8-0c50d3da51da"/>
+            <specifiers specifierRef="fa03b96b-1a8b-4793-8223-9f5c558038e0" valueRef="0bd59747-b761-466a-8ff8-7a9da20a640f"/>
+          </mappers>
         </components>
         <components xsi:type="tura.domain:JavaComponent" columns="3" uid="fc35a68c-7e61-4da1-b56a-decec132af12" name="HR Services" componentRoot="/Users/arseniyi/generatedCode/serviceLayer" artifactId="hr-services" groupId="org.tura.example.service" version="1.0" basePackage="org.tura.example.service">
           <mappers uid="75884c21-6763-4a61-bf03-3b51f82a88c6" domainArtifactRef="bf6005f8-bcb9-4c2a-b3e5-49468794367a" artifactRef="a4797bb9-d8cf-43a1-a6ac-3192a7c6f597" name="EJB service generation">
@@ -1306,9 +1354,36 @@
               <variables queryParamRef="70e46257-5f01-459c-b032-dd60d47dc87f" value="ORMEntity"/>
             </queries>
           </mappers>
+          <mappers uid="cd8ef29d-25da-450d-a764-231f954e82d8" domainArtifactRef="bf6005f8-bcb9-4c2a-b3e5-49468794367a" artifactRef="571b9d90-488b-49c6-91e9-e268f4c0a51e" name="Service build runner" artifactExecutionString="bash /Users/arseniyi/generatedCode/serviceLayer/hr-services/builder.sh">
+            <specifiers specifierRef="ab48feee-36c1-418e-a4ab-6ee693ad7879" valueRef="5e2d1cca-dcaf-4dbe-890d-cb686e63dc91"/>
+            <specifiers specifierRef="f3a9a16f-a790-41fc-9374-05784ce6a126" valueRef="1bfd24ff-14c5-45ef-a239-f3460941c90c"/>
+            <specifiers specifierRef="592607ac-a6a5-4daf-8650-06f4b51b4f9f" valueRef="6632281c-6bf2-49fb-ac91-7f2cc90779e5"/>
+          </mappers>
         </components>
       </ingredients>
-      <ingredients uid="81ff3004-d13f-4bcc-b472-1240972b7243" name="Java Service proxy client ingredient"/>
+      <ingredients columns="2" uid="81ff3004-d13f-4bcc-b472-1240972b7243" name="Java Service proxy client ingredient" layer="UILayer">
+        <components xsi:type="tura.domain:JavaComponent" columns="2" uid="158c2976-cb50-4e21-aa02-8b014c1f7339" name="HR services proxy client" componentRoot="/Users/arseniyi/generatedCode/uiLayer" artifactId="hr-services-proxy-client" groupId="org.tura.example.service" version="1.0">
+          <mappers uid="ddafc040-f834-49b4-8b80-238836901845" domainArtifactRef="bf6005f8-bcb9-4c2a-b3e5-49468794367a" artifactRef="04dfe55c-f5bf-458a-8c75-de52c8930218" name="Builder generator">
+            <specifiers specifierRef="6a30b4b3-a2ac-42ab-8c5c-5824ca8a6d15" valueRef="48d472a9-e8ba-497e-9ae8-a321427fa09f"/>
+            <specifiers specifierRef="c473f706-d8a9-47b4-9c9b-97c11b26b1dc" valueRef="03080e44-e41b-48f8-ba9b-f5d6e6d392fb"/>
+            <queries uid="ce6d75b1-32b8-4453-9238-1ec426f93541" name="Get NA object" queryRef="208a25a0-3748-42e9-a539-f5d854043249">
+              <variables queryParamRef="86063280-dca0-474e-9cd5-e8bb800b72fc" value="NA"/>
+              <variables queryParamRef="8fcd2f36-54fd-4255-8eda-3da8835f17fa" value="NA"/>
+            </queries>
+            <queries uid="94a5003a-c831-4a6f-8f14-5dbd3cf94b90" name="Get package HR package services" queryRef="b9bfed5d-625a-4532-a8ca-25af24eb703f">
+              <variables queryParamRef="fea9efdc-6ada-45f2-aca8-5f540f1d470a" value="Service"/>
+              <variables queryParamRef="68c03192-b082-4d14-8b19-cf02fc0e92d7" value="HR package"/>
+              <variables queryParamRef="b3d29274-4d99-4543-84ed-fab16c705c2f" value="EJBService"/>
+              <variables queryParamRef="dbe89fca-78a8-4567-8b7e-4bebff2e9e92" value="EJBService"/>
+            </queries>
+          </mappers>
+          <mappers uid="9e13dabb-e93d-464c-acc7-594dff514fd4" domainArtifactRef="bf6005f8-bcb9-4c2a-b3e5-49468794367a" artifactRef="000d19ec-3240-4fd5-93e2-8da60141454e" name="Proxy client build runner" artifactExecutionString="bash /Users/arseniyi/generatedCode/uiLayer/hr-services-proxy-client/builder.sh">
+            <specifiers specifierRef="1bdfbea4-f92c-4ca5-853c-1b623533c2cf" valueRef="e8ebe995-7b0f-4389-bc19-0d4189248497"/>
+            <specifiers specifierRef="dd36dee0-c3b1-43ef-8d24-f10ac7156ccb" valueRef="adf7f2c5-c08f-4e39-b638-bc2900ac7372"/>
+            <specifiers specifierRef="7cdedcb3-964f-4ad6-8ea8-9fccc1fe60bd" valueRef="565eeb05-47c3-4173-aa35-aa5682d2c22c"/>
+          </mappers>
+        </components>
+      </ingredients>
     </recipe>
     <configurations uid="7958c7b0-aaca-436d-aec4-20dcc6de9529" infrastructure="080702f2-6a78-43d2-8987-c923fe681415">
       <properties uid="92c00781-9885-49e2-a5ac-d8361965a21b" confVarRef="9040caf7-fece-440f-bdad-5e598adfd243" value="localhost"/>
@@ -1317,7 +1392,7 @@
       <properties uid="d5bc7148-44cc-446f-93ee-bea860f1fea7" confVarRef="618186f9-7c62-47cf-82f7-3b295a85ca9f" value="postgres"/>
       <properties uid="d1367677-df35-4554-9d03-62a58fa94cc0" confVarRef="a52e5078-3017-43a0-b571-f58150f8ffd2" value="hr"/>
       <properties uid="d40e63c3-4a21-4f90-a5c6-a2dcef0499eb" confVarRef="57dea534-b8f3-4546-8a63-cc15dfedcd94" value="jdbc/hrDS"/>
-      <properties uid="dfacc619-2223-4b17-abd2-d8a6a2e49785" confVarRef="556dc253-8846-4fa7-8c10-e58484fd320e" value="/tools/apache-maven-3.1.1"/>
+      <properties uid="dfacc619-2223-4b17-abd2-d8a6a2e49785" confVarRef="d133115a-dab4-4a27-b2c1-6ec0aa3613eb" value="/tools/apache-maven-3.1.1" fakeName=""/>
       <properties uid="0b4e455d-1a87-404d-aa1c-da6d4550517b" confVarRef="9f809420-5098-495f-9e64-d4e49e364de3" value="/glassfish3"/>
       <properties uid="8cfbba12-e04c-4327-aab9-6957ffc0a09a" confVarRef="1b2c5718-ab8c-4ff7-93f7-422e22e7d284" value="4848"/>
       <properties uid="9ef8f2f3-92d7-4fca-b3d9-3f8946f518ee" confVarRef="d0478242-5a9b-44db-bafd-92f09b6ff8db" value="domain1"/>

@@ -3,11 +3,13 @@ operation  mavenBuilder_mavenCleanInstall(configuration,path) {
 %]
 #!/bin/sh
   
-  cd "[%=path%]"
-  "[%=configuration.get('Maven location')%]"/bin/mvn clean install
+cd "[%=path%]"
+"[%=configuration.get('Maven location')%]"/bin/mvn clean install
 [%
 }
+%]
 
+[%
 operation  os_batch_extension():String{
              return "sh";
 }
