@@ -12,8 +12,6 @@
      var type;
      var f = new Native("org.tura.metamodel.wizard.infrastructure.JavaFormatter"); 
 
-util.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"+lib.toString());
-
      var types = util.runQuery(model_mapper,"Query type",model_mapper);
      if (types <> null and types.size <> 0 )
          alltypes.addAll(types); 
@@ -37,15 +35,15 @@ util.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"+lib.toSt
      hash.put("types",alltypes);
      hash.put("libraries",lib);
 
-util.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"+lib.toString());
-     
+    util.populateTechnologies(hash,model_mapper);
+
   
-//     var persistence : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.wizard.generation/template/technologies/ORM/persistence-xml.egl",hash,TemplateFactory);
-//     var f = new Native("org.eclipse.epsilon.egl.formatter.language.XmlFormatter"); 
-//     persistence.setFormatter(f);
+     var persistence : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.wizard.generation/template/technologies/JEE/JPA/persistence-xml.egl",hash,TemplateFactory);
+     var f = new Native("org.eclipse.epsilon.egl.formatter.language.XmlFormatter"); 
+     persistence.setFormatter(f);
     
-//     var path = component.getComponentRoot+"/"+component.getArtifactId+"/src/main/resources/META-INF/";  
-//     var buffer = persistence.process();
-//     util.saveFile( path, "persistence.xml",buffer); 
+     var path = component.getComponentRoot+"/"+component.getArtifactId+"/src/main/resources/META-INF/";  
+     var buffer = persistence.process();
+     util.saveFile( path, "persistence.xml",buffer); 
  %]
 

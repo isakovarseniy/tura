@@ -2,10 +2,10 @@
 <#assign start = "[" >
 <#assign end = "]" >
 ${start}${percent} 
-<#list  model_mapper.getSpecifiers()  as tech >
-import "platform:/plugin/org.tura.metamodel.wizard.generation/template/technologies/${tech.getValueRef().getValue()}.egl";
-</#list>
-${percent}${end}
+import "platform:/plugin/org.tura.metamodel.wizard.generation/template/technologies/${JPA_implementation}.egl";
+import "platform:/plugin/org.tura.metamodel.wizard.generation/template/technologies/${Database_type}.egl";
+ ${percent}${end}
+
 [%
      var util = new Native('org.tura.metamodel.commons.Util');
 %]
@@ -14,11 +14,16 @@ ${percent}${end}
 
 	<persistence-unit name="[%=util.mergeAndCapitalize(component.name)%]">
 
-		<provider>org.hibernate.ejb.HibernatePersistence</provider>
+		<provider>[%=persistence_jpaprovider()%]</provider>
 		
 		<jta-data-source>[%=configuration.get("jndi access string")%]</jta-data-source>
-        <jar-file>commons-platform-ejb-1.0.jar</jar-file>
-        <class>org.elsoft.platform.persistence.ObjectsID</class>
+[%
+        for (jar in libraries.keySet()) {
+%]
+        <jar-file>[%=jar%]</jar-file>
+[%       
+        }
+%]   
 		[%=persistence_jpaproperties(configuration)%]
 
 	</persistence-unit>

@@ -2,19 +2,20 @@
 <#assign start = "[" >
 <#assign end = "]" >
 ${start}${percent} 
-import "platform:/plugin/org.tura.metamodel.wizard.generation/template/technologies/${Service_implementation}.egl";
-import "platform:/plugin/org.tura.metamodel.wizard.generation/template/commons/categorizedUtil.eol";
- import "platform:/plugin/org.tura.metamodel.wizard.generation/template/commons/typeElementUtil.eol";
+import "platform:/plugin/org.tura.metamodel.wizard.generation/template/technologies/${Entity_implementation}/builder.egl";
+import "platform:/plugin/org.tura.metamodel.wizard.generation/template/technologies/${Builder_implementation}.egl";
+import "platform:/plugin/org.tura.metamodel.wizard.generation/template/commons/typeElementUtil.eol";
  ${percent}${end}
- [%
 
+[%
+  
      var util = new Native('org.tura.metamodel.commons.Util');
      var alltypes = new Native('java.util.ArrayList');
      var hash = new Native('java.util.HashMap');
-     var type;
 
-     
-     
+     var type;
+     var f = new Native("org.tura.metamodel.wizard.infrastructure.JavaFormatter"); 
+
      var types = util.runQuery(model_mapper,"Query type",model_mapper);
      if (types <> null and types.size <> 0 )
          alltypes.addAll(types); 
@@ -22,25 +23,17 @@ import "platform:/plugin/org.tura.metamodel.wizard.generation/template/commons/c
      if (types <> null and types.size <> 0 )
          alltypes.addAll(types); 
 
-     if (alltypes.size() <> 0 ){
 
-       for (type in alltypes){
-       
-        type.mappingType2Java(recipe,ingredient);
-    
-       var path = component.getComponentRoot+"/"+component.getArtifactId()+"/src/main/java/";  
-       hash.put("type",type);
+    if (alltypes.size() <> 0 ){
+ 
        hash.put("recipe",recipe);
        hash.put("ingredient",ingredient);
        hash.put("component",component);
        hash.put("model_mapper",model_mapper);
-       hash.put("path",path);
-
-       servicegeneration(hash);
-       
-       }
-    }    
-
- %]   
- 
- 
+       hash.put("configuration",configuration);
+       hash.put("types",alltypes);
+       hash.put("alltypes",alltypes);
+     
+       entity_builder(hash);
+    }
+%]

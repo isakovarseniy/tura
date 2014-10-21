@@ -13,7 +13,7 @@ operation  entitygeneration(hash) {
     
     util.populateTechnologies(hash,model_mapper);
 
-    var entityBean : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.wizard.generation/template/technologies/ORM/entity.egl",hash,TemplateFactory);
+    var entityBean : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.wizard.generation/template/technologies/JEE/JPA/entity.egl",hash,TemplateFactory);
     entityBean.setFormatter(f);
     var buffer = entityBean.process();
     util.saveFile( path+type.~package.replaceAll("\\.","\\/"), type.~class + ".java",buffer);   

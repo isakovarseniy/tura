@@ -1,0 +1,7 @@
+[% @template
+operation  entity_builder(hash) {
+    
+         maven_entity_builder(hash);
+ 
+}
+%]
