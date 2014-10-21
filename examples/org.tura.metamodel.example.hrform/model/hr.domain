@@ -64,6 +64,25 @@
       <hints uid="ff44d9e7-d5a5-42d4-8744-089721da820e" name="Generics"/>
       <hints uid="11f99455-8fbd-451c-9c45-232fec79da1d" name="EJBService"/>
     </artifacts>
+    <artifacts uid="93dc04cd-1d0a-415c-ae37-0563bbb92a41" name="Build service" template="platform:/plugin/org.tura.metamodel.wizard.generation/template/pit/mainServiceBuilder.egl">
+      <modelQuery uid="d04fbcd6-ca05-487f-bc82-0cea7b931183" name="Query package of types" query="domain::Package.allInstances()->select(r|r.oclAsType(domain::Package).name='${Package name}').oclAsType(domain::Package).typedefinition.types->select(r|((r.oclIsKindOf(domain::Type ) ) )).oclAsType(domain::Categorized).classifiers->select(c|c.hint.name='${Hint}' and c.hint.oclAsType(ecore::EObject).eContainer().oclAsType(domain::Artifact).name = '${Artifact}' and  c.hint.oclAsType(ecore::EObject).eContainer().oclAsType(domain::Artifact).parent.oclAsType(domain::Artifacts).parent.oclAsType(domain::DomainArtifact).name = '${ArtifactLib}' )->collect(c|c.oclAsType(ecore::EObject).eContainer())">
+        <parameters uid="e9bf0d6f-0ea4-452b-a7cb-e3a99b98a1ea" name="Artifact"/>
+        <parameters uid="70e46257-5f01-459c-b032-dd60d47dc87f" name="ArtifactLib"/>
+        <parameters uid="69b3999a-5dc6-45d5-b4b7-afaf89590054" name="Hint"/>
+        <parameters uid="87abd1da-cde6-47c0-8a8c-cfa57aa2f7dd" name="Package name"/>
+      </modelQuery>
+      <modelQuery uid="de1f4f8c-b108-4a10-a576-ffe71936f6b3" name="Query type" query="domain::Package.allInstances()->select(r|r.oclAsType(domain::Package).name='${Package name}').oclAsType(domain::Package).typedefinition.types->select(r|(r.oclIsKindOf(domain::Type) and  r.oclAsType(domain::Type).name = '${Type name}')  or (r.oclIsKindOf(domain::Primitive) and  r.oclAsType(domain::Primitive).name = '${Type name}') or (r.oclIsKindOf(domain::Enumarator) and  r.oclAsType(domain::Enumarator).name = '${Type name}') )">
+        <parameters uid="2086907b-e840-44ef-9ba6-3a7e411519e9" name="Package name"/>
+        <parameters uid="7ca20a76-ee55-4051-8ee8-e65632295cb6" name="Type name"/>
+      </modelQuery>
+      <specifiers uid="1cd89cbf-a409-4ba4-b1c7-fa7306062df0" name="Service implementation">
+        <options uid="7e4eb854-3231-4d8a-89c0-2ca00088550a" value="JEE/Services/EJB-WS"/>
+      </specifiers>
+      <specifiers uid="18bfaf6a-e8b3-4e32-b31a-14c9eb61627f" name="Builder implementation">
+        <options uid="573bdb90-a9a6-46c6-8fdf-7c140183282f" value="JSE/Builder/Ant"/>
+        <options uid="5a4a9bc2-446b-43c4-8bc9-bec4a52c688e" value="JSE/Builder/Maven"/>
+      </specifiers>
+    </artifacts>
   </tura.domain:Artifacts>
   <tura.domain:Artifacts uid="ec71bdb8-8365-492b-a974-5db4672bc0c0" parent="edb48357-89bd-4570-aaf7-e49d7bb75e57">
     <artifacts uid="327f881c-6227-4ff4-9527-67b2ac881f02" name="entityObject" template="platform:/plugin/org.tura.metamodel.wizard.generation/template/pit/mainEntity.egl">
@@ -1253,6 +1272,38 @@
               <variables queryParamRef="ef789342-0a88-4618-85e7-0fa2b01f1b36" value="Base package"/>
               <variables queryParamRef="87c1c616-79f3-452d-b88d-8761795f4bbc" value="entityObject"/>
               <variables queryParamRef="5cb28e0b-218c-487c-8697-1c4773f9c4e8" value="ORMEntity"/>
+            </queries>
+          </mappers>
+          <mappers uid="719a29a5-f6fd-4501-9d0c-468cfce97eab" domainArtifactRef="bf6005f8-bcb9-4c2a-b3e5-49468794367a" artifactRef="93dc04cd-1d0a-415c-ae37-0563bbb92a41" name="Build generation">
+            <specifiers specifierRef="1cd89cbf-a409-4ba4-b1c7-fa7306062df0" valueRef="7e4eb854-3231-4d8a-89c0-2ca00088550a"/>
+            <specifiers specifierRef="18bfaf6a-e8b3-4e32-b31a-14c9eb61627f" valueRef="5a4a9bc2-446b-43c4-8bc9-bec4a52c688e"/>
+            <queries uid="6275b095-11a3-41be-a57a-7dbafafdf107" name="Get NA object" queryRef="de1f4f8c-b108-4a10-a576-ffe71936f6b3">
+              <variables queryParamRef="7ca20a76-ee55-4051-8ee8-e65632295cb6" value="NA"/>
+              <variables queryParamRef="2086907b-e840-44ef-9ba6-3a7e411519e9" value="NA"/>
+            </queries>
+            <queries uid="8186e285-d217-42d9-9db8-87d0e3017638" name="Get package HR package services" queryRef="d04fbcd6-ca05-487f-bc82-0cea7b931183">
+              <variables queryParamRef="69b3999a-5dc6-45d5-b4b7-afaf89590054" value="EJBService"/>
+              <variables queryParamRef="87abd1da-cde6-47c0-8a8c-cfa57aa2f7dd" value="HR package"/>
+              <variables queryParamRef="e9bf0d6f-0ea4-452b-a7cb-e3a99b98a1ea" value="Service"/>
+              <variables queryParamRef="70e46257-5f01-459c-b032-dd60d47dc87f" value="EJBService"/>
+            </queries>
+            <queries uid="0273b87c-a515-415f-930a-605808c9b02a" name="Get base package services" queryRef="d04fbcd6-ca05-487f-bc82-0cea7b931183">
+              <variables queryParamRef="69b3999a-5dc6-45d5-b4b7-afaf89590054" value="EJBService"/>
+              <variables queryParamRef="87abd1da-cde6-47c0-8a8c-cfa57aa2f7dd" value="Base package"/>
+              <variables queryParamRef="e9bf0d6f-0ea4-452b-a7cb-e3a99b98a1ea" value="Service"/>
+              <variables queryParamRef="70e46257-5f01-459c-b032-dd60d47dc87f" value="EJBService"/>
+            </queries>
+            <queries uid="a2771afd-24d9-4fe8-b51c-f32d7de88d55" name="Get package HR package entities" queryRef="d04fbcd6-ca05-487f-bc82-0cea7b931183">
+              <variables queryParamRef="69b3999a-5dc6-45d5-b4b7-afaf89590054" value="Entity"/>
+              <variables queryParamRef="87abd1da-cde6-47c0-8a8c-cfa57aa2f7dd" value="HR package"/>
+              <variables queryParamRef="e9bf0d6f-0ea4-452b-a7cb-e3a99b98a1ea" value="entityObject"/>
+              <variables queryParamRef="70e46257-5f01-459c-b032-dd60d47dc87f" value="ORMEntity"/>
+            </queries>
+            <queries uid="57a22764-d99b-44ef-9da4-0724d36ab6b7" name="Get package Base package entities" queryRef="d04fbcd6-ca05-487f-bc82-0cea7b931183">
+              <variables queryParamRef="69b3999a-5dc6-45d5-b4b7-afaf89590054" value="Entity"/>
+              <variables queryParamRef="87abd1da-cde6-47c0-8a8c-cfa57aa2f7dd" value="Base package"/>
+              <variables queryParamRef="e9bf0d6f-0ea4-452b-a7cb-e3a99b98a1ea" value="entityObject"/>
+              <variables queryParamRef="70e46257-5f01-459c-b032-dd60d47dc87f" value="ORMEntity"/>
             </queries>
           </mappers>
         </components>

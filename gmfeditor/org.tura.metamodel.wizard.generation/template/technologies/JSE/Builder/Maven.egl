@@ -5,3 +5,12 @@ operation  entity_builder(hash) {
  
 }
 %]
+
+
+[% @template
+operation  service_builder(hash) {
+    
+         maven_service_builder(hash);
+ 
+}
+%]

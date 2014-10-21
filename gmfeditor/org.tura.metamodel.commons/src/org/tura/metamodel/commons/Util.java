@@ -4,6 +4,9 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.StringWriter;
+import java.nio.file.FileSystems;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
@@ -11,6 +14,8 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+
+import static java.nio.file.StandardCopyOption.*;
 
 import org.apache.commons.lang.StringUtils;
 import org.eclipse.core.runtime.preferences.IEclipsePreferences;
@@ -47,6 +52,14 @@ public class Util {
 
 	}
 
+	public static void move(String src, String dst) throws IOException{
+		Path srcPath = FileSystems.getDefault().getPath(src);
+		Path dstPath = FileSystems.getDefault().getPath(dst);
+
+		Files.move(srcPath, dstPath, REPLACE_EXISTING);
+		
+	}
+	
 	public static String buildExpression(domain.ContextValue contextValue) {
 
 		return contextValue.getValue();

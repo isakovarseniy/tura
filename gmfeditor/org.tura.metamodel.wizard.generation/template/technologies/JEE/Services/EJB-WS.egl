@@ -4,7 +4,7 @@
 %]
 
 [% @template
-operation  servicegeneration(hash) {
+operation  service_generation(hash) {
 
     var util = new Native('org.tura.metamodel.commons.Util');
     var f = new Native("org.tura.metamodel.wizard.infrastructure.JavaFormatter"); 
@@ -18,7 +18,8 @@ operation  servicegeneration(hash) {
     var ingredient =  hash.get("ingredient");
     var  component = hash.get("component");
     var  model_mapper = hash.get("model_mapper");
-    var path = hash.get("path");
+ 
+     var path = component.getComponentRoot+"/"+component.getArtifactId()+"/"+component.getArtifactId()+"-ejb/src/main/java/";  
     
     util.populateTechnologies(hash,model_mapper);
 
@@ -74,7 +75,6 @@ operation  servicegeneration(hash) {
     remoteinterface.setFormatter(f);
     var buffer = remoteinterface.process();
     util.saveFile( path+typeRemote.~package.replaceAll("\\.","\\/"), typeRemote.~class + ".java",buffer);   
-
 
   }
 %]

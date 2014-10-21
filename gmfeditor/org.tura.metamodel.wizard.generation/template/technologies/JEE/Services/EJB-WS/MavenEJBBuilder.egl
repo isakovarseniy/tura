@@ -5,7 +5,7 @@
 			<modelVersion>4.0.0</modelVersion>
 
 			<groupId>[%=component.getGroupId()%]</groupId>
-			<artifactId>[%=component.getArtifactId()%]</artifactId>
+			<artifactId>[%=component.getArtifactId()%]-ejb</artifactId>
 			<version>[%=component.getVersion()%]</version>
 
 			<packaging>ejb</packaging>
@@ -19,6 +19,20 @@
 					<version>6.0</version>
 					<scope>provided</scope>
 				</dependency>
+
+				<dependency>
+                    <groupId>com.octo.java.sql</groupId>
+                    <artifactId>java-sql-dsl</artifactId>
+                     <version>0.1.1-SNAPSHOT</version>
+				</dependency>
+
+				<dependency>
+	                 <groupId>org.tura.platform</groupId>
+	                 <artifactId>commons-jpa</artifactId>
+                     <version>2.0</version>
+				</dependency>
+
+
 
        [% for (type in lib.values()) { %]
 				<dependency>
@@ -39,6 +53,11 @@
 
 
 			<build>
+              <resources>
+                 <resource>
+                    <directory>../src/main/resources</directory>
+                  </resource>
+                </resources>	
 				<plugins>
 					<plugin>
 						<artifactId>maven-ejb-plugin</artifactId>
