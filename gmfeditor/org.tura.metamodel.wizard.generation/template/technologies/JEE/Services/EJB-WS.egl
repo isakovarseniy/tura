@@ -29,17 +29,17 @@ operation  service_generation(hash) {
                  typeExtens = extension.getTarget();
                  typeExtens.mappingType2Java(recipe,ingredient);
         } 
-        if (extension.findClassifier("EJBService","Service","Generics")){
+        if (extension.findClassifier("Service","Service","Generics")){
                  typeGeneric = extension.getTarget();
                  typeGeneric.mappingType2Java(recipe,ingredient);
         }
         if (extension.findClassifier("ORMEntity","entityObject","Implements")){
                  var target = extension.getTarget();
-                 if (target.findClassifier("EJBService","Service","EJBRemoteInterface")){
+                 if (target.findClassifier("Service","Service","EJBRemoteInterface")){
                     typeRemote = target;
                     typeRemote.mappingType2Java(recipe,ingredient);
                  }
-                 if (target.findClassifier("EJBService","Service","EJBLocalInterface")){
+                 if (target.findClassifier("Service","Service","EJBLocalInterface")){
                     typeLocal = target;
                     typeLocal.mappingType2Java(recipe,ingredient);
                  }

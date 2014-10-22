@@ -2,7 +2,7 @@
 <xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tura.domain="http://tura.org/2013/v1/domain">
   <tura.domain:Domain uid="f7da5889-f65e-4b5c-820a-388210b59a66">
     <domainArtifacts columns="4" uid="6f4c10d5-1762-4d4b-99f4-3c031a203f2b" name="Domain artifacts">
-      <domainArtifact xsi:type="tura.domain:EJBService" uid="bf6005f8-bcb9-4c2a-b3e5-49468794367a" name="EJBService" artifact="e26c4095-ebd6-48b4-917a-11026d3e511f"/>
+      <domainArtifact xsi:type="tura.domain:EJBService" uid="bf6005f8-bcb9-4c2a-b3e5-49468794367a" name="Service" artifact="e26c4095-ebd6-48b4-917a-11026d3e511f"/>
       <domainArtifact xsi:type="tura.domain:ORMEntity" uid="edb48357-89bd-4570-aaf7-e49d7bb75e57" name="ORMEntity" artifact="ec71bdb8-8365-492b-a974-5db4672bc0c0"/>
       <domainArtifact uid="5945624b-20f3-47f9-9cb1-d0dc8df9491a" name="UIGeneration" artifact="e15bf32f-16b2-4b20-bceb-f9866c131ad9"/>
     </domainArtifacts>
@@ -1296,7 +1296,7 @@
               <variables queryParamRef="1f705cc8-d31c-41c7-9d25-8f87893304f5" value="NA"/>
             </queries>
             <queries uid="d157c17f-44cd-4203-80b7-0c11d4461a55" name="Get Package HR package" queryRef="150373a6-59e2-415e-9301-42fc1a8eda42">
-              <variables queryParamRef="ca1fdea8-49fc-4256-ad54-d022a80f8ede" value="EJBService"/>
+              <variables queryParamRef="ca1fdea8-49fc-4256-ad54-d022a80f8ede" value="Service"/>
               <variables queryParamRef="b0da5698-b6af-421a-a6ca-2696eba1d624" value="HR package"/>
               <variables queryParamRef="c53a1366-24d5-48d1-a41f-28eb1e2a8346" value="EJBService"/>
               <variables queryParamRef="c297467c-1c9f-4e86-b4a7-c887f810fe97" value="Service"/>
@@ -1333,13 +1333,13 @@
               <variables queryParamRef="69b3999a-5dc6-45d5-b4b7-afaf89590054" value="EJBService"/>
               <variables queryParamRef="87abd1da-cde6-47c0-8a8c-cfa57aa2f7dd" value="HR package"/>
               <variables queryParamRef="e9bf0d6f-0ea4-452b-a7cb-e3a99b98a1ea" value="Service"/>
-              <variables queryParamRef="70e46257-5f01-459c-b032-dd60d47dc87f" value="EJBService"/>
+              <variables queryParamRef="70e46257-5f01-459c-b032-dd60d47dc87f" value="Service"/>
             </queries>
             <queries uid="0273b87c-a515-415f-930a-605808c9b02a" name="Get base package services" queryRef="d04fbcd6-ca05-487f-bc82-0cea7b931183">
               <variables queryParamRef="69b3999a-5dc6-45d5-b4b7-afaf89590054" value="EJBService"/>
               <variables queryParamRef="87abd1da-cde6-47c0-8a8c-cfa57aa2f7dd" value="Base package"/>
               <variables queryParamRef="e9bf0d6f-0ea4-452b-a7cb-e3a99b98a1ea" value="Service"/>
-              <variables queryParamRef="70e46257-5f01-459c-b032-dd60d47dc87f" value="EJBService"/>
+              <variables queryParamRef="70e46257-5f01-459c-b032-dd60d47dc87f" value="Service"/>
             </queries>
             <queries uid="a2771afd-24d9-4fe8-b51c-f32d7de88d55" name="Get package HR package entities" queryRef="d04fbcd6-ca05-487f-bc82-0cea7b931183">
               <variables queryParamRef="69b3999a-5dc6-45d5-b4b7-afaf89590054" value="Entity"/>
@@ -1373,7 +1373,7 @@
             <queries uid="94a5003a-c831-4a6f-8f14-5dbd3cf94b90" name="Get package HR package services" queryRef="b9bfed5d-625a-4532-a8ca-25af24eb703f">
               <variables queryParamRef="fea9efdc-6ada-45f2-aca8-5f540f1d470a" value="Service"/>
               <variables queryParamRef="68c03192-b082-4d14-8b19-cf02fc0e92d7" value="HR package"/>
-              <variables queryParamRef="b3d29274-4d99-4543-84ed-fab16c705c2f" value="EJBService"/>
+              <variables queryParamRef="b3d29274-4d99-4543-84ed-fab16c705c2f" value="Service"/>
               <variables queryParamRef="dbe89fca-78a8-4567-8b7e-4bebff2e9e92" value="EJBService"/>
             </queries>
           </mappers>
