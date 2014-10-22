@@ -101,7 +101,7 @@
       </specifiers>
     </artifacts>
     <artifacts uid="571b9d90-488b-49c6-91e9-e268f4c0a51e" name="Service build runner" template="platform:/plugin/org.tura.metamodel.wizard.generation/template/pit/Service/mainServiceBuildRunner.egl">
-      <configVariables uid="d133115a-dab4-4a27-b2c1-6ec0aa3613eb" name="Maven location"/>
+      <configVariables uid="d133115a-dab4-4a27-b2c1-6ec0aa3613eb" name="Builder location"/>
       <specifiers uid="ab48feee-36c1-418e-a4ab-6ee693ad7879" name="Service implementation">
         <options uid="5e2d1cca-dcaf-4dbe-890d-cb686e63dc91" value="JEE/Services/EJB-WS"/>
       </specifiers>
@@ -194,6 +194,7 @@
       </specifiers>
     </artifacts>
     <artifacts uid="e7dcf281-a775-4281-96aa-fcd2c3591508" name="Build runner" template="platform:/plugin/org.tura.metamodel.wizard.generation/template/pit/ORM/mainEntityBuildRunner.egl">
+      <configVariables uid="0280c31d-3c59-47a6-95ad-161fe363fc3b" name="Builder location"/>
       <specifiers uid="fa03b96b-1a8b-4793-8223-9f5c558038e0" name="Entity implementation">
         <options uid="0bd59747-b761-466a-8ff8-7a9da20a640f" value="JEE/JPA"/>
       </specifiers>
@@ -1308,7 +1309,7 @@
               <variables queryParamRef="c297467c-1c9f-4e86-b4a7-c887f810fe97" value="Service"/>
             </queries>
           </mappers>
-          <mappers uid="ceedd54c-33a4-48a5-829e-47324468df3e" domainArtifactRef="edb48357-89bd-4570-aaf7-e49d7bb75e57" artifactRef="20d3f932-c6b8-40df-9001-b3c0daaf6c86" name="persistence.xml">
+          <mappers uid="ceedd54c-33a4-48a5-829e-47324468df3e" domainArtifactRef="edb48357-89bd-4570-aaf7-e49d7bb75e57" artifactRef="20d3f932-c6b8-40df-9001-b3c0daaf6c86" name="persistence.xml" artifactRoot="hr-services-ejb">
             <specifiers specifierRef="fe074bfa-3f0e-4b09-80fb-9b7b8f1bfdbc" valueRef="16fa5962-f152-410b-bb52-377d11325bd3"/>
             <specifiers specifierRef="47cfe2e3-f5e7-46df-9fe5-db299263318c" valueRef="9bbf2ac9-d963-4567-99b5-ae10b5f2dc1c"/>
             <queries uid="b97aa8cc-3e3a-48e3-8a9c-a040928a860f" name="Get NA object" queryRef="33f876bb-d950-4b54-93cf-8a869ef321cd">
@@ -1365,7 +1366,7 @@
             <specifiers specifierRef="f3a9a16f-a790-41fc-9374-05784ce6a126" valueRef="1bfd24ff-14c5-45ef-a239-f3460941c90c"/>
             <specifiers specifierRef="592607ac-a6a5-4daf-8650-06f4b51b4f9f" valueRef="6632281c-6bf2-49fb-ac91-7f2cc90779e5"/>
           </mappers>
-          <mappers uid="eff0cfb3-df5e-4aa4-b9e2-8b833b5e698e" domainArtifactRef="bf6005f8-bcb9-4c2a-b3e5-49468794367a" artifactRef="5836dd1c-ae55-41bb-99d5-eb6ebe395e9a" name="Service deployer">
+          <mappers uid="eff0cfb3-df5e-4aa4-b9e2-8b833b5e698e" domainArtifactRef="bf6005f8-bcb9-4c2a-b3e5-49468794367a" artifactRef="5836dd1c-ae55-41bb-99d5-eb6ebe395e9a" name="Service deployer" artifactExecutionString="bash /Users/arseniyi/generatedCode/serviceLayer/hr-services/deployer.sh">
             <specifiers specifierRef="6811fcf9-b8d9-4fe3-b187-0915b7a52a40" valueRef="c41b9412-2245-410f-ab51-d529e92aa398"/>
             <specifiers specifierRef="a7f87e87-f5e1-4050-994b-58c139dc182e" valueRef="350a7efb-be48-4012-8fdc-b2f2f3b2c8ba"/>
             <specifiers specifierRef="a2cac06d-1bb9-49e7-a0b3-fa183ce9d04b" valueRef="75a2369c-88fd-4aa2-9f08-f0601f989a51"/>
@@ -1409,6 +1410,7 @@
       <properties uid="9ef8f2f3-92d7-4fca-b3d9-3f8946f518ee" confVarRef="d0478242-5a9b-44db-bafd-92f09b6ff8db" value="domain1"/>
       <properties uid="f08ac5d1-cacb-43ec-8b24-fbd47cdc7893" confVarRef="6c69f631-c365-4a78-8777-350ea19beed8" value="localhost"/>
       <properties uid="19401792-8d13-427b-9c31-71b93496e07e" confVarRef="2671048d-b872-45e6-97b1-69896b381d0d" value="8080"/>
+      <properties uid="df7ce4ae-e76b-4623-8c2d-177831b8b929" confVarRef="0280c31d-3c59-47a6-95ad-161fe363fc3b" value="/tools/apache-maven-3.1.1"/>
     </configurations>
     <infrastructures uid="080702f2-6a78-43d2-8987-c923fe681415" recipe="f89d43e4-5d8d-4437-ad00-188328a43ed0" name="Development" recipeConfig="7958c7b0-aaca-436d-aec4-20dcc6de9529"/>
   </tura.domain:Recipes>

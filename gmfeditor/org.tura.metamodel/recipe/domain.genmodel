@@ -368,6 +368,7 @@
     </genClasses>
     <genClasses ecoreClass="domain.ecore#//ModelMapper">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//ModelMapper/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//ModelMapper/artifactRoot"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference domain.ecore#//ModelMapper/parent"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//ModelMapper/specifiers"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//ModelMapper/queries"/>
@@ -390,7 +391,6 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//Query/name"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference domain.ecore#//Query/queryRef"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//Query/variables"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//Query/groupCode"/>
     </genClasses>
     <genClasses ecoreClass="domain.ecore#//QueryVariable">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//QueryVariable/uid"/>

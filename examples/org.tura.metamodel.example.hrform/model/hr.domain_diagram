@@ -3786,6 +3786,13 @@
     <children xmi:type="notation:Node" xmi:id="_AQ7eMFlDEeSaCYQvZPPBpw" type="702001">
       <children xmi:type="notation:DecorationNode" xmi:id="_AQ8FQFlDEeSaCYQvZPPBpw" type="705004"/>
       <children xmi:type="notation:BasicCompartment" xmi:id="_AQ8FQVlDEeSaCYQvZPPBpw" type="707001">
+        <children xmi:type="notation:Node" xmi:id="_a53HMFmcEeS8zpaHW-tX9Q" type="703004">
+          <children xmi:type="notation:DecorationNode" xmi:id="_a53uQFmcEeS8zpaHW-tX9Q" type="705005"/>
+          <styles xmi:type="notation:DescriptionStyle" xmi:id="_a53HMVmcEeS8zpaHW-tX9Q"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_a53HMlmcEeS8zpaHW-tX9Q" fontName="Lucida Grande"/>
+          <element xmi:type="tura.domain:ConfigVariable" href="hr.domain#0280c31d-3c59-47a6-95ad-161fe363fc3b"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_a53HM1mcEeS8zpaHW-tX9Q"/>
+        </children>
         <styles xmi:type="notation:SortingStyle" xmi:id="_AQ8FQllDEeSaCYQvZPPBpw"/>
         <styles xmi:type="notation:FilteringStyle" xmi:id="_AQ8FQ1lDEeSaCYQvZPPBpw"/>
       </children>

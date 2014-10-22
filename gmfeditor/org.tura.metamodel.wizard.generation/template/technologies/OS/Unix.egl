@@ -4,7 +4,7 @@ operation  mavenBuilder_mavenCleanInstall(configuration,path) {
 #!/bin/sh
   
 cd "[%=path%]"
-"[%=configuration.get('Maven location')%]"/bin/mvn clean install
+"[%=configuration.get('Builder location')%]"/bin/mvn clean install
 [%
 }
 %]

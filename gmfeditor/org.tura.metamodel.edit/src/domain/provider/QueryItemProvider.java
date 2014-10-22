@@ -71,7 +71,6 @@ public class QueryItemProvider
       addModelQueryPropertyDescriptor(object);
       addNamePropertyDescriptor(object);
       addQueryRefPropertyDescriptor(object);
-      addGroupCodePropertyDescriptor(object);
     }
     return itemPropertyDescriptors;
   }
@@ -169,29 +168,6 @@ public class QueryItemProvider
   }
 
   /**
-   * This adds a property descriptor for the Group Code feature.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected void addGroupCodePropertyDescriptor(Object object)
-  {
-    itemPropertyDescriptors.add
-      (createItemPropertyDescriptor
-        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-         getResourceLocator(),
-         getString("_UI_Query_groupCode_feature"),
-         getString("_UI_PropertyDescriptor_description", "_UI_Query_groupCode_feature", "_UI_Query_type"),
-         DomainPackage.Literals.QUERY__GROUP_CODE,
-         true,
-         false,
-         false,
-         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-         null,
-         null));
-  }
-
-  /**
    * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
    * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
    * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -267,7 +243,6 @@ public class QueryItemProvider
     {
       case DomainPackage.QUERY__UID:
       case DomainPackage.QUERY__NAME:
-      case DomainPackage.QUERY__GROUP_CODE:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
         return;
       case DomainPackage.QUERY__VARIABLES:

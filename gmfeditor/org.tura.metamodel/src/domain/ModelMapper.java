@@ -13,6 +13,7 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * <ul>
  *   <li>{@link domain.ModelMapper#getName <em>Name</em>}</li>
+ *   <li>{@link domain.ModelMapper#getArtifactRoot <em>Artifact Root</em>}</li>
  *   <li>{@link domain.ModelMapper#getParent <em>Parent</em>}</li>
  *   <li>{@link domain.ModelMapper#getSpecifiers <em>Specifiers</em>}</li>
  *   <li>{@link domain.ModelMapper#getQueries <em>Queries</em>}</li>
@@ -51,6 +52,32 @@ public interface ModelMapper extends ArtifactRef
    * @generated
    */
   void setName(String value);
+
+  /**
+   * Returns the value of the '<em><b>Artifact Root</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Artifact Root</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Artifact Root</em>' attribute.
+   * @see #setArtifactRoot(String)
+   * @see domain.DomainPackage#getModelMapper_ArtifactRoot()
+   * @model
+   * @generated
+   */
+  String getArtifactRoot();
+
+  /**
+   * Sets the value of the '{@link domain.ModelMapper#getArtifactRoot <em>Artifact Root</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Artifact Root</em>' attribute.
+   * @see #getArtifactRoot()
+   * @generated
+   */
+  void setArtifactRoot(String value);
 
   /**
    * Returns the value of the '<em><b>Parent</b></em>' container reference.

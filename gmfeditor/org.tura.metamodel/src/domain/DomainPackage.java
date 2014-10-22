@@ -4031,13 +4031,22 @@ public interface DomainPackage extends EPackage
   int MODEL_MAPPER__NAME = ARTIFACT_REF_FEATURE_COUNT + 0;
 
   /**
+   * The feature id for the '<em><b>Artifact Root</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MODEL_MAPPER__ARTIFACT_ROOT = ARTIFACT_REF_FEATURE_COUNT + 1;
+
+  /**
    * The feature id for the '<em><b>Parent</b></em>' container reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MODEL_MAPPER__PARENT = ARTIFACT_REF_FEATURE_COUNT + 1;
+  int MODEL_MAPPER__PARENT = ARTIFACT_REF_FEATURE_COUNT + 2;
 
   /**
    * The feature id for the '<em><b>Specifiers</b></em>' containment reference list.
@@ -4046,7 +4055,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int MODEL_MAPPER__SPECIFIERS = ARTIFACT_REF_FEATURE_COUNT + 2;
+  int MODEL_MAPPER__SPECIFIERS = ARTIFACT_REF_FEATURE_COUNT + 3;
 
   /**
    * The feature id for the '<em><b>Queries</b></em>' containment reference list.
@@ -4055,7 +4064,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int MODEL_MAPPER__QUERIES = ARTIFACT_REF_FEATURE_COUNT + 3;
+  int MODEL_MAPPER__QUERIES = ARTIFACT_REF_FEATURE_COUNT + 4;
 
   /**
    * The feature id for the '<em><b>Artifact Execution String</b></em>' attribute.
@@ -4064,7 +4073,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int MODEL_MAPPER__ARTIFACT_EXECUTION_STRING = ARTIFACT_REF_FEATURE_COUNT + 4;
+  int MODEL_MAPPER__ARTIFACT_EXECUTION_STRING = ARTIFACT_REF_FEATURE_COUNT + 5;
 
   /**
    * The number of structural features of the '<em>Model Mapper</em>' class.
@@ -4073,7 +4082,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int MODEL_MAPPER_FEATURE_COUNT = ARTIFACT_REF_FEATURE_COUNT + 5;
+  int MODEL_MAPPER_FEATURE_COUNT = ARTIFACT_REF_FEATURE_COUNT + 6;
 
   /**
    * The meta object id for the '{@link domain.impl.PropertyImpl <em>Property</em>}' class.
@@ -4232,22 +4241,13 @@ public interface DomainPackage extends EPackage
   int QUERY__VARIABLES = 4;
 
   /**
-   * The feature id for the '<em><b>Group Code</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int QUERY__GROUP_CODE = 5;
-
-  /**
    * The number of structural features of the '<em>Query</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int QUERY_FEATURE_COUNT = 6;
+  int QUERY_FEATURE_COUNT = 5;
 
   /**
    * The meta object id for the '{@link domain.impl.QueryVariableImpl <em>Query Variable</em>}' class.
@@ -14068,6 +14068,17 @@ public interface DomainPackage extends EPackage
   EAttribute getModelMapper_Name();
 
   /**
+   * Returns the meta object for the attribute '{@link domain.ModelMapper#getArtifactRoot <em>Artifact Root</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Artifact Root</em>'.
+   * @see domain.ModelMapper#getArtifactRoot()
+   * @see #getModelMapper()
+   * @generated
+   */
+  EAttribute getModelMapper_ArtifactRoot();
+
+  /**
    * Returns the meta object for the container reference '{@link domain.ModelMapper#getParent <em>Parent</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -14272,17 +14283,6 @@ public interface DomainPackage extends EPackage
    * @generated
    */
   EReference getQuery_Variables();
-
-  /**
-   * Returns the meta object for the attribute '{@link domain.Query#getGroupCode <em>Group Code</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Group Code</em>'.
-   * @see domain.Query#getGroupCode()
-   * @see #getQuery()
-   * @generated
-   */
-  EAttribute getQuery_GroupCode();
 
   /**
    * Returns the meta object for class '{@link domain.QueryVariable <em>Query Variable</em>}'.
@@ -20130,6 +20130,14 @@ public interface DomainPackage extends EPackage
     EAttribute MODEL_MAPPER__NAME = eINSTANCE.getModelMapper_Name();
 
     /**
+     * The meta object literal for the '<em><b>Artifact Root</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute MODEL_MAPPER__ARTIFACT_ROOT = eINSTANCE.getModelMapper_ArtifactRoot();
+
+    /**
      * The meta object literal for the '<em><b>Parent</b></em>' container reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -20286,14 +20294,6 @@ public interface DomainPackage extends EPackage
      * @generated
      */
     EReference QUERY__VARIABLES = eINSTANCE.getQuery_Variables();
-
-    /**
-     * The meta object literal for the '<em><b>Group Code</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute QUERY__GROUP_CODE = eINSTANCE.getQuery_GroupCode();
 
     /**
      * The meta object literal for the '{@link domain.impl.QueryVariableImpl <em>Query Variable</em>}' class.

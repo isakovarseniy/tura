@@ -65,6 +65,7 @@ public class ModelMapperItemProvider
       super.getPropertyDescriptors(object);
 
       addNamePropertyDescriptor(object);
+      addArtifactRootPropertyDescriptor(object);
       addArtifactExecutionStringPropertyDescriptor(object);
     }
     return itemPropertyDescriptors;
@@ -85,6 +86,29 @@ public class ModelMapperItemProvider
          getString("_UI_ModelMapper_name_feature"),
          getString("_UI_PropertyDescriptor_description", "_UI_ModelMapper_name_feature", "_UI_ModelMapper_type"),
          DomainPackage.Literals.MODEL_MAPPER__NAME,
+         true,
+         false,
+         false,
+         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+         null,
+         null));
+  }
+
+  /**
+   * This adds a property descriptor for the Artifact Root feature.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected void addArtifactRootPropertyDescriptor(Object object)
+  {
+    itemPropertyDescriptors.add
+      (createItemPropertyDescriptor
+        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+         getResourceLocator(),
+         getString("_UI_ModelMapper_artifactRoot_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_ModelMapper_artifactRoot_feature", "_UI_ModelMapper_type"),
+         DomainPackage.Literals.MODEL_MAPPER__ARTIFACT_ROOT,
          true,
          false,
          false,
@@ -192,6 +216,7 @@ public class ModelMapperItemProvider
     switch (notification.getFeatureID(ModelMapper.class))
     {
       case DomainPackage.MODEL_MAPPER__NAME:
+      case DomainPackage.MODEL_MAPPER__ARTIFACT_ROOT:
       case DomainPackage.MODEL_MAPPER__ARTIFACT_EXECUTION_STRING:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
         return;

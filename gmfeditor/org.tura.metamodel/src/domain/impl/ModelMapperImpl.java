@@ -32,6 +32,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * <ul>
  *   <li>{@link domain.impl.ModelMapperImpl#getName <em>Name</em>}</li>
+ *   <li>{@link domain.impl.ModelMapperImpl#getArtifactRoot <em>Artifact Root</em>}</li>
  *   <li>{@link domain.impl.ModelMapperImpl#getParent <em>Parent</em>}</li>
  *   <li>{@link domain.impl.ModelMapperImpl#getSpecifiers <em>Specifiers</em>}</li>
  *   <li>{@link domain.impl.ModelMapperImpl#getQueries <em>Queries</em>}</li>
@@ -62,6 +63,26 @@ public class ModelMapperImpl extends ArtifactRefImpl implements ModelMapper
    * @ordered
    */
   protected String name = NAME_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #getArtifactRoot() <em>Artifact Root</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getArtifactRoot()
+   * @generated
+   * @ordered
+   */
+  protected static final String ARTIFACT_ROOT_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getArtifactRoot() <em>Artifact Root</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getArtifactRoot()
+   * @generated
+   * @ordered
+   */
+  protected String artifactRoot = ARTIFACT_ROOT_EDEFAULT;
 
   /**
    * The cached value of the '{@link #getSpecifiers() <em>Specifiers</em>}' containment reference list.
@@ -145,6 +166,29 @@ public class ModelMapperImpl extends ArtifactRefImpl implements ModelMapper
     name = newName;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.MODEL_MAPPER__NAME, oldName, name));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String getArtifactRoot()
+  {
+    return artifactRoot;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setArtifactRoot(String newArtifactRoot)
+  {
+    String oldArtifactRoot = artifactRoot;
+    artifactRoot = newArtifactRoot;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.MODEL_MAPPER__ARTIFACT_ROOT, oldArtifactRoot, artifactRoot));
   }
 
   /**
@@ -309,6 +353,8 @@ public class ModelMapperImpl extends ArtifactRefImpl implements ModelMapper
     {
       case DomainPackage.MODEL_MAPPER__NAME:
         return getName();
+      case DomainPackage.MODEL_MAPPER__ARTIFACT_ROOT:
+        return getArtifactRoot();
       case DomainPackage.MODEL_MAPPER__PARENT:
         return getParent();
       case DomainPackage.MODEL_MAPPER__SPECIFIERS:
@@ -334,6 +380,9 @@ public class ModelMapperImpl extends ArtifactRefImpl implements ModelMapper
     {
       case DomainPackage.MODEL_MAPPER__NAME:
         setName((String)newValue);
+        return;
+      case DomainPackage.MODEL_MAPPER__ARTIFACT_ROOT:
+        setArtifactRoot((String)newValue);
         return;
       case DomainPackage.MODEL_MAPPER__PARENT:
         setParent((Component)newValue);
@@ -366,6 +415,9 @@ public class ModelMapperImpl extends ArtifactRefImpl implements ModelMapper
       case DomainPackage.MODEL_MAPPER__NAME:
         setName(NAME_EDEFAULT);
         return;
+      case DomainPackage.MODEL_MAPPER__ARTIFACT_ROOT:
+        setArtifactRoot(ARTIFACT_ROOT_EDEFAULT);
+        return;
       case DomainPackage.MODEL_MAPPER__PARENT:
         setParent((Component)null);
         return;
@@ -394,6 +446,8 @@ public class ModelMapperImpl extends ArtifactRefImpl implements ModelMapper
     {
       case DomainPackage.MODEL_MAPPER__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+      case DomainPackage.MODEL_MAPPER__ARTIFACT_ROOT:
+        return ARTIFACT_ROOT_EDEFAULT == null ? artifactRoot != null : !ARTIFACT_ROOT_EDEFAULT.equals(artifactRoot);
       case DomainPackage.MODEL_MAPPER__PARENT:
         return getParent() != null;
       case DomainPackage.MODEL_MAPPER__SPECIFIERS:
@@ -419,6 +473,8 @@ public class ModelMapperImpl extends ArtifactRefImpl implements ModelMapper
     StringBuffer result = new StringBuffer(super.toString());
     result.append(" (name: ");
     result.append(name);
+    result.append(", artifactRoot: ");
+    result.append(artifactRoot);
     result.append(", artifactExecutionString: ");
     result.append(artifactExecutionString);
     result.append(')');

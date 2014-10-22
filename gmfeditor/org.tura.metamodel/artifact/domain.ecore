@@ -836,6 +836,7 @@
       <details key="color" value="192,192,192"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="artifactRoot" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//Component"
         eOpposite="#//Component/mappers"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="specifiers" upperBound="-1"
@@ -880,7 +881,6 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="queryRef" eType="#//ModelQuery"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="variables" upperBound="-1"
         eType="#//QueryVariable" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="groupCode" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="QueryVariable">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"

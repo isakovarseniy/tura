@@ -555,6 +555,7 @@ class Configuration{
 @gmf.node(label="name",border.color="0,0,0",color="192,192,192")
 class ModelMapper extends ArtifactRef{
    attr EString name;
+   attr EString artifactRoot;
    ref Component#mappers parent;
    val MappingSpecifier[*] specifiers;
    @gmf.compartment(layout="list")
@@ -583,7 +584,6 @@ class Query{
    attr EString name;
    ref ModelQuery queryRef;
    val QueryVariable[*] variables;
-   attr EString groupCode;
 }
 
 class QueryVariable{

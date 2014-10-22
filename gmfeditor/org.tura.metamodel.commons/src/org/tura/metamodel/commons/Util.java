@@ -153,19 +153,19 @@ public class Util {
 
 	}
 
-	public static GroupBy runQueryWithGrouping(domain.ModelMapper mapper,
-			String queryName, EObject eobj) throws Exception {
-		GroupBy result = new GroupBy();
-		for (Iterator<domain.Query> itr = mapper.getQueries().iterator(); itr
-				.hasNext();) {
-			domain.Query query = itr.next();
-			if (query.getQueryRef().getName().equals(queryName)) {
-				Collection<?> ls = (Collection<?>) runQuery(query, eobj);
-				result.add(query.getGroupCode(), ls);
-			}
-		}
-		return result;
-	}
+//	public static GroupBy runQueryWithGrouping(domain.ModelMapper mapper,
+//			String queryName, EObject eobj) throws Exception {
+//		GroupBy result = new GroupBy();
+//		for (Iterator<domain.Query> itr = mapper.getQueries().iterator(); itr
+//				.hasNext();) {
+//			domain.Query query = itr.next();
+//			if (query.getQueryRef().getName().equals(queryName)) {
+//				Collection<?> ls = (Collection<?>) runQuery(query, eobj);
+//				result.add(query.getGroupCode(), ls);
+//			}
+//		}
+//		return result;
+//	}
 
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	private static Object executeQuery(String strQuery, EObject eobj)
