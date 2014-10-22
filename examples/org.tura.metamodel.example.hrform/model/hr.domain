@@ -26,7 +26,7 @@
   </tura.domain:Application>
   <tura.domain:Artifacts uid="cfc1509d-db2a-4863-becd-7540552cf00b"/>
   <tura.domain:Artifacts uid="e26c4095-ebd6-48b4-917a-11026d3e511f" parent="bf6005f8-bcb9-4c2a-b3e5-49468794367a">
-    <artifacts uid="04dfe55c-f5bf-458a-8c75-de52c8930218" name="Build proxy client" template="platform:/plugin/org.tura.metamodel.wizard.generation/template/pit/mainProxyServicesBuilder.egl">
+    <artifacts uid="04dfe55c-f5bf-458a-8c75-de52c8930218" name="Build proxy client" template="platform:/plugin/org.tura.metamodel.wizard.generation/template/pit/Service/mainProxyServicesBuilder.egl">
       <configVariables uid="6c69f631-c365-4a78-8777-350ea19beed8" name="Application server IP"/>
       <configVariables uid="2671048d-b872-45e6-97b1-69896b381d0d" name="Application server port"/>
       <modelQuery uid="208a25a0-3748-42e9-a539-f5d854043249" name="Query type" query="domain::Package.allInstances()->select(r|r.oclAsType(domain::Package).name='${Package name}').oclAsType(domain::Package).typedefinition.types->select(r|(r.oclIsKindOf(domain::Type) and  r.oclAsType(domain::Type).name = '${Type name}')  or (r.oclIsKindOf(domain::Primitive) and  r.oclAsType(domain::Primitive).name = '${Type name}') or (r.oclIsKindOf(domain::Enumarator) and  r.oclAsType(domain::Enumarator).name = '${Type name}') )">
@@ -56,7 +56,7 @@
         <options uid="9ff1373d-394a-45e4-ae54-6b9790762de1" value="Window"/>
       </specifiers>
     </artifacts>
-    <artifacts uid="a4797bb9-d8cf-43a1-a6ac-3192a7c6f597" name="Service" template="platform:/plugin/org.tura.metamodel.wizard.generation/template/pit/mainServices.egl">
+    <artifacts uid="a4797bb9-d8cf-43a1-a6ac-3192a7c6f597" name="Service" template="platform:/plugin/org.tura.metamodel.wizard.generation/template/pit/Service/mainServices.egl">
       <modelQuery uid="150373a6-59e2-415e-9301-42fc1a8eda42" name="Query package of types" query="domain::Package.allInstances()->select(r|r.oclAsType(domain::Package).name='${Package name}').oclAsType(domain::Package).typedefinition.types->select(r|((r.oclIsKindOf(domain::Type ) ) )).oclAsType(domain::Categorized).classifiers->select(c|c.hint.name='${Hint}' and c.hint.oclAsType(ecore::EObject).eContainer().oclAsType(domain::Artifact).name = '${Artifact}' and  c.hint.oclAsType(ecore::EObject).eContainer().oclAsType(domain::Artifact).parent.oclAsType(domain::Artifacts).parent.oclAsType(domain::DomainArtifact).name = '${ArtifactLib}' )->collect(c|c.oclAsType(ecore::EObject).eContainer())">
         <parameters uid="b0da5698-b6af-421a-a6ca-2696eba1d624" name="Package name"/>
         <parameters uid="ca1fdea8-49fc-4256-ad54-d022a80f8ede" name="ArtifactLib"/>
@@ -75,7 +75,7 @@
       <hints uid="ff44d9e7-d5a5-42d4-8744-089721da820e" name="Generics"/>
       <hints uid="11f99455-8fbd-451c-9c45-232fec79da1d" name="EJBService"/>
     </artifacts>
-    <artifacts uid="93dc04cd-1d0a-415c-ae37-0563bbb92a41" name="Build service" template="platform:/plugin/org.tura.metamodel.wizard.generation/template/pit/mainServiceBuilder.egl">
+    <artifacts uid="93dc04cd-1d0a-415c-ae37-0563bbb92a41" name="Build service" template="platform:/plugin/org.tura.metamodel.wizard.generation/template/pit/Service/mainServiceBuilder.egl">
       <modelQuery uid="d04fbcd6-ca05-487f-bc82-0cea7b931183" name="Query package of types" query="domain::Package.allInstances()->select(r|r.oclAsType(domain::Package).name='${Package name}').oclAsType(domain::Package).typedefinition.types->select(r|((r.oclIsKindOf(domain::Type ) ) )).oclAsType(domain::Categorized).classifiers->select(c|c.hint.name='${Hint}' and c.hint.oclAsType(ecore::EObject).eContainer().oclAsType(domain::Artifact).name = '${Artifact}' and  c.hint.oclAsType(ecore::EObject).eContainer().oclAsType(domain::Artifact).parent.oclAsType(domain::Artifacts).parent.oclAsType(domain::DomainArtifact).name = '${ArtifactLib}' )->collect(c|c.oclAsType(ecore::EObject).eContainer())">
         <parameters uid="e9bf0d6f-0ea4-452b-a7cb-e3a99b98a1ea" name="Artifact"/>
         <parameters uid="70e46257-5f01-459c-b032-dd60d47dc87f" name="ArtifactLib"/>
@@ -94,7 +94,7 @@
         <options uid="5a4a9bc2-446b-43c4-8bc9-bec4a52c688e" value="JSE/Builder/Maven"/>
       </specifiers>
     </artifacts>
-    <artifacts uid="571b9d90-488b-49c6-91e9-e268f4c0a51e" name="Service build runner" template="platform:/plugin/org.tura.metamodel.wizard.generation/template/pit/mainServiceBuildRunner.egl">
+    <artifacts uid="571b9d90-488b-49c6-91e9-e268f4c0a51e" name="Service build runner" template="platform:/plugin/org.tura.metamodel.wizard.generation/template/pit/Service/mainServiceBuildRunner.egl">
       <configVariables uid="d133115a-dab4-4a27-b2c1-6ec0aa3613eb" name="Maven location"/>
       <specifiers uid="ab48feee-36c1-418e-a4ab-6ee693ad7879" name="Service implementation">
         <options uid="5e2d1cca-dcaf-4dbe-890d-cb686e63dc91" value="JEE/Services/EJB-WS"/>
@@ -108,7 +108,7 @@
         <options uid="6632281c-6bf2-49fb-ac91-7f2cc90779e5" value="JSE/Builder/Maven"/>
       </specifiers>
     </artifacts>
-    <artifacts uid="000d19ec-3240-4fd5-93e2-8da60141454e" name="Proxy services build runner" template="platform:/plugin/org.tura.metamodel.wizard.generation/template/pit/mainProxyClientServiceBuildRunner.egl">
+    <artifacts uid="000d19ec-3240-4fd5-93e2-8da60141454e" name="Proxy services build runner" template="platform:/plugin/org.tura.metamodel.wizard.generation/template/pit/Service/mainProxyClientServiceBuildRunner.egl">
       <specifiers uid="7cdedcb3-964f-4ad6-8ea8-9fccc1fe60bd" name="Service implementation">
         <options uid="565eeb05-47c3-4173-aa35-aa5682d2c22c" value="JEE/Services/EJB-WS"/>
       </specifiers>
@@ -123,7 +123,7 @@
     </artifacts>
   </tura.domain:Artifacts>
   <tura.domain:Artifacts uid="ec71bdb8-8365-492b-a974-5db4672bc0c0" parent="edb48357-89bd-4570-aaf7-e49d7bb75e57">
-    <artifacts uid="327f881c-6227-4ff4-9527-67b2ac881f02" name="entityObject" template="platform:/plugin/org.tura.metamodel.wizard.generation/template/pit/mainEntity.egl">
+    <artifacts uid="327f881c-6227-4ff4-9527-67b2ac881f02" name="entityObject" template="platform:/plugin/org.tura.metamodel.wizard.generation/template/pit/ORM/mainEntity.egl">
       <modelQuery uid="d96c66dd-48c6-44f6-9f21-08c401f67ba6" name="Query type" query="domain::Package.allInstances()->select(r|r.oclAsType(domain::Package).name='${Package name}').oclAsType(domain::Package).typedefinition.types->select(r|(r.oclIsKindOf(domain::Type) and  r.oclAsType(domain::Type).name = '${Type name}')  or (r.oclIsKindOf(domain::Primitive) and  r.oclAsType(domain::Primitive).name = '${Type name}') or (r.oclIsKindOf(domain::Enumarator) and  r.oclAsType(domain::Enumarator).name = '${Type name}') )">
         <parameters uid="4f3bbd33-b9ec-4bda-b273-6a67b726693c" name="Type name"/>
         <parameters uid="fdbde223-93e9-46a4-aaa4-11281a2919b0" name="Package name"/>
@@ -168,7 +168,7 @@
         <options uid="3e579378-6ffb-4dbe-a9bc-3fd3854cd96e" value="Database/MySQL"/>
       </specifiers>
     </artifacts>
-    <artifacts uid="460e6fc2-30b8-4ce5-9790-8bfdec46386d" name="Build entity" template="platform:/plugin/org.tura.metamodel.wizard.generation/template/pit/mainEntityBuilder.egl">
+    <artifacts uid="460e6fc2-30b8-4ce5-9790-8bfdec46386d" name="Build entity" template="platform:/plugin/org.tura.metamodel.wizard.generation/template/pit/ORM/mainEntityBuilder.egl">
       <modelQuery uid="863de561-cc20-4c8b-a05a-8695a4d87793" name="Query type" query="domain::Package.allInstances()->select(r|r.oclAsType(domain::Package).name='${Package name}').oclAsType(domain::Package).typedefinition.types->select(r|(r.oclIsKindOf(domain::Type) and  r.oclAsType(domain::Type).name = '${Type name}')  or (r.oclIsKindOf(domain::Primitive) and  r.oclAsType(domain::Primitive).name = '${Type name}') or (r.oclIsKindOf(domain::Enumarator) and  r.oclAsType(domain::Enumarator).name = '${Type name}') )">
         <parameters uid="3b856fe2-7ead-4816-b1f2-cb76af98b26a" name="Package name"/>
         <parameters uid="4442f333-2776-4ed8-8f92-23e2679baf5e" name="Type name"/>
@@ -187,7 +187,7 @@
         <options uid="2e838b0b-b8e3-49e1-ab1f-95440232367d" value="JSE/Builder/Ant"/>
       </specifiers>
     </artifacts>
-    <artifacts uid="e7dcf281-a775-4281-96aa-fcd2c3591508" name="Build runner" template="platform:/plugin/org.tura.metamodel.wizard.generation/template/pit/mainEntityBuildRunner.egl">
+    <artifacts uid="e7dcf281-a775-4281-96aa-fcd2c3591508" name="Build runner" template="platform:/plugin/org.tura.metamodel.wizard.generation/template/pit/ORM/mainEntityBuildRunner.egl">
       <specifiers uid="fa03b96b-1a8b-4793-8223-9f5c558038e0" name="Entity implementation">
         <options uid="0bd59747-b761-466a-8ff8-7a9da20a640f" value="JEE/JPA"/>
       </specifiers>
