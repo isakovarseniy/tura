@@ -19,13 +19,12 @@ operation  os_shell_executor():String{
 }
 
 @template
-operation glassfishdeploy_ejbwebservice(configuration,path,component) {
+operation glassfishdeploy(configuration,path,archive) {
 %]
 #!/bin/sh
-  
-  cd "[%=path%]"
-  "[%=configuration.get('GlassFish home')%]"/bin/asadmin deploy ./[%=component.getArtifactId()%]-ear/target/[%=component.getArtifactId()%]-ear-[%=component.getVersion()%].ear
 
+cd "[%=path%]"
+"[%=configuration.get('Application server home')%]"/bin/asadmin deploy ./[%=archive%]
 [%
 }
 %]

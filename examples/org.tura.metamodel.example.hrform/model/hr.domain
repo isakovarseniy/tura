@@ -47,13 +47,19 @@
         <options uid="03080e44-e41b-48f8-ba9b-f5d6e6d392fb" value="JSE/Builder/Maven"/>
       </specifiers>
     </artifacts>
-    <artifacts uid="5836dd1c-ae55-41bb-99d5-eb6ebe395e9a" name="GlassFish ejb webservice deployer" template="platform:/plugin/org.tura.metamodel.wizard.generation/template/jee/ejb-ws/mainGlassfishDeployer.egl">
-      <configVariables uid="9f809420-5098-495f-9e64-d4e49e364de3" name="GlassFish home"/>
-      <configVariables uid="1b2c5718-ab8c-4ff7-93f7-422e22e7d284" name="GlassFish admin port"/>
-      <configVariables uid="d0478242-5a9b-44db-bafd-92f09b6ff8db" name="GlassFish domain"/>
+    <artifacts uid="5836dd1c-ae55-41bb-99d5-eb6ebe395e9a" name="Service deployer" template="platform:/plugin/org.tura.metamodel.wizard.generation/template/pit/Service/mainServiceDeployment.egl">
+      <configVariables uid="9f809420-5098-495f-9e64-d4e49e364de3" name="Application server home"/>
+      <configVariables uid="1b2c5718-ab8c-4ff7-93f7-422e22e7d284" name="Application server admin port"/>
+      <configVariables uid="d0478242-5a9b-44db-bafd-92f09b6ff8db" name="Application server domain"/>
       <specifiers uid="6811fcf9-b8d9-4fe3-b187-0915b7a52a40" name="OS">
-        <options uid="c41b9412-2245-410f-ab51-d529e92aa398" value="Unix"/>
-        <options uid="9ff1373d-394a-45e4-ae54-6b9790762de1" value="Window"/>
+        <options uid="c41b9412-2245-410f-ab51-d529e92aa398" value="OS/Unix"/>
+        <options uid="9ff1373d-394a-45e4-ae54-6b9790762de1" value="OS/Windows"/>
+      </specifiers>
+      <specifiers uid="a7f87e87-f5e1-4050-994b-58c139dc182e" name="Service implementation">
+        <options uid="350a7efb-be48-4012-8fdc-b2f2f3b2c8ba" value="JEE/Services/EJB-WS"/>
+      </specifiers>
+      <specifiers uid="a2cac06d-1bb9-49e7-a0b3-fa183ce9d04b" name="Deployment environment">
+        <options uid="75a2369c-88fd-4aa2-9f08-f0601f989a51" value="JEE/AppServer/GlassFish.v3"/>
       </specifiers>
     </artifacts>
     <artifacts uid="a4797bb9-d8cf-43a1-a6ac-3192a7c6f597" name="Service" template="platform:/plugin/org.tura.metamodel.wizard.generation/template/pit/Service/mainServices.egl">
@@ -1358,6 +1364,11 @@
             <specifiers specifierRef="ab48feee-36c1-418e-a4ab-6ee693ad7879" valueRef="5e2d1cca-dcaf-4dbe-890d-cb686e63dc91"/>
             <specifiers specifierRef="f3a9a16f-a790-41fc-9374-05784ce6a126" valueRef="1bfd24ff-14c5-45ef-a239-f3460941c90c"/>
             <specifiers specifierRef="592607ac-a6a5-4daf-8650-06f4b51b4f9f" valueRef="6632281c-6bf2-49fb-ac91-7f2cc90779e5"/>
+          </mappers>
+          <mappers uid="eff0cfb3-df5e-4aa4-b9e2-8b833b5e698e" domainArtifactRef="bf6005f8-bcb9-4c2a-b3e5-49468794367a" artifactRef="5836dd1c-ae55-41bb-99d5-eb6ebe395e9a" name="Service deployer">
+            <specifiers specifierRef="6811fcf9-b8d9-4fe3-b187-0915b7a52a40" valueRef="c41b9412-2245-410f-ab51-d529e92aa398"/>
+            <specifiers specifierRef="a7f87e87-f5e1-4050-994b-58c139dc182e" valueRef="350a7efb-be48-4012-8fdc-b2f2f3b2c8ba"/>
+            <specifiers specifierRef="a2cac06d-1bb9-49e7-a0b3-fa183ce9d04b" valueRef="75a2369c-88fd-4aa2-9f08-f0601f989a51"/>
           </mappers>
         </components>
       </ingredients>

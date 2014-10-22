@@ -115,6 +115,12 @@ operation maven_proxy_client_build_runner(hash){
 }
 %]
 
+[% @template
+operation service_deployment(hash){
+         ear_deployment(hash);     
+}
+%]
+
 
 [% @template
 operation  ant_entity_builder(hash) {
