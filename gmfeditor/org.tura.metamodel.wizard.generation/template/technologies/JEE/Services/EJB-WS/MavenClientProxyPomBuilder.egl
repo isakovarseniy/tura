@@ -57,7 +57,7 @@
 									</goals>
 									<configuration>
 										<wsdlUrls>
-											<wsdlUrl>http://[%=configuration.get("Application server IP")%]:[%=configuration.get("Application server port")%]/[%=typeRemote.~class%]/[%=type.~class%]?wsdl</wsdlUrl>
+											<wsdlUrl>http://[%=configuration.get("Application server IP")%]:[%=configuration.get("Application server port")%]/[%=typeRemote.~class%]/[%=type.~class.replace('Remote_Service','')%]?wsdl</wsdlUrl>
 										</wsdlUrls>
 									</configuration>
 								</execution>

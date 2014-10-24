@@ -18,7 +18,7 @@
     </applicationRecipes>
     <applicationMappers columns="2" uid="bd625d91-80b6-42b4-bfd3-9311a0f32026" name="Application mapper">
       <mappers uid="0d86886f-6d6e-49e1-a123-d063d2d9bd22" name="Primitives mapper" mapper="e5ddc4b2-b9bc-4fb3-928a-2cb53fcc0d2d"/>
-      <mappers uid="d29466f4-8d55-4047-b6ba-fc1a830db2a1" name="HR types mapper( EJB-WS)" mapper="35c625c3-5c19-4681-ac50-eb8581a54cc1"/>
+      <mappers uid="d29466f4-8d55-4047-b6ba-fc1a830db2a1" name="HR types mapper" mapper="35c625c3-5c19-4681-ac50-eb8581a54cc1"/>
     </applicationMappers>
     <applicationUILayer uid="f8d4b412-d69a-46c7-bf26-2ac0ec31117e">
       <applicationUIPackages uid="c65cfe9e-8e33-4160-beef-4a3a96d5b2c1" name="Hr manager" uipackage="63d7b545-e3cb-4b2e-8597-44c6734d825b"/>
@@ -1257,12 +1257,12 @@
     <mappers xsi:type="tura.domain:JavaMapper" uid="99875c1d-84cc-4d21-b7e1-afb141d36828" uiLayer="true" packageRef="e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="Cntr_f8c0591c-d9c2-4897-97fa-536fadf94cbf" fakePackageName="HR package" fakeTypeName="Countrys query service remote" mappedToPackageName="org.elsoft.platform.hr.services.impl" mappedToClassName="CountryServiceRemote" artifactId="hr-services-proxy-client" groupId="org.tura.example.service" version="1.0"/>
     <mappers xsi:type="tura.domain:JavaMapper" uid="81db35bd-0e39-47a2-aa94-1039ddcd3303" uiLayer="true" packageRef="e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="State_f8c0591c-d9c2-4897-97fa-536fadf94cbf" fakePackageName="HR package" fakeTypeName="States query service remote" mappedToPackageName="org.elsoft.platform.hr.services.impl" mappedToClassName="StateServiceRemote" artifactId="hr-services-proxy-client" groupId="org.tura.example.service" version="1.0"/>
     <mappers xsi:type="tura.domain:JavaMapper" uid="fc7c45bd-1f02-4cfc-95bf-9acaf6aa9dcd" uiLayer="true" packageRef="e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="City_f8c0591c-d9c2-4897-97fa-536fadf94cbf" fakePackageName="HR package" fakeTypeName="Citys query service remote" mappedToPackageName="org.elsoft.platform.hr.services.impl" mappedToClassName="CityServiceRemote" artifactId="hr-services-proxy-client" groupId="org.tura.example.service" version="1.0"/>
-    <mappers xsi:type="tura.domain:JavaMapper" uid="c5aaf372-01b3-4325-97dc-b23d1d207d7e" uiLayer="true" packageRef="e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="Str_f8c0591c-d9c2-4897-97fa-536fadf94cbf" fakePackageName="HR package" fakeTypeName="Streets query service remote" mappedToPackageName="org.elsoft.platform.hr.services.impl" mappedToClassName="StreetServiceRemote" artifactId="hr-services-proxy-client" groupId="org.tura.example.service" version="1.0"/>
+    <mappers xsi:type="tura.domain:JavaMapper" uid="c5aaf372-01b3-4325-97dc-b23d1d207d7e" uiLayer="true" packageRef="e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="State_f8c0591c-d9c2-4897-97fa-536fadf94cbf" fakePackageName="HR package" fakeTypeName="States query service remote" mappedToPackageName="org.elsoft.platform.hr.services.impl" mappedToClassName="StreetServiceRemote" artifactId="hr-services-proxy-client" groupId="org.tura.example.service" version="1.0"/>
     <mappers xsi:type="tura.domain:JavaMapper" uid="34dfa638-0f1f-4693-8c2c-073b10e592d2" uiLayer="true" packageRef="e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="Vhc_f8c0591c-d9c2-4897-97fa-536fadf94cbf" fakePackageName="HR package" fakeTypeName="Vehicles query service remote" mappedToPackageName="org.elsoft.platform.hr.services.impl" mappedToClassName="VehicleServiceRemote" artifactId="hr-services-proxy-client" groupId="org.tura.example.service" version="1.0"/>
     <mappers xsi:type="tura.domain:JavaMapper" uid="3b23b122-4080-49df-9a9d-d509149131be" uiLayer="true" packageRef="e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="a54f0d07-f3d2-475b-9f0e-52e3b9eb7464" fakePackageName="HR package" fakeTypeName="File query service remote" mappedToPackageName="org.elsoft.platform.hr.services.impl" mappedToClassName="FileServiceRemote" artifactId="hr-services-proxy-client" groupId="org.tura.example.service" version="1.0"/>
   </tura.domain:Mappers>
   <tura.domain:Recipes uid="e0a24138-9ba7-44dd-8b87-d1b01751c642" parent="Hr_recipe">
-    <recipe mappers="0d86886f-6d6e-49e1-a123-d063d2d9bd22 d29466f4-8d55-4047-b6ba-fc1a830db2a1" uid="f89d43e4-5d8d-4437-ad00-188328a43ed0" infrastructures="080702f2-6a78-43d2-8987-c923fe681415" deployment="f611d83d-edd3-42df-a8bd-78ba7e88b7d9">
+    <recipe mappers="0d86886f-6d6e-49e1-a123-d063d2d9bd22 d29466f4-8d55-4047-b6ba-fc1a830db2a1" uid="f89d43e4-5d8d-4437-ad00-188328a43ed0" infrastructures="080702f2-6a78-43d2-8987-c923fe681415">
       <ingredients columns="2" uid="18ddb859-9e6a-4841-a1de-d7a56a58dc99" name="Java Service ingredient">
         <components xsi:type="tura.domain:JavaComponent" columns="3" uid="399ff625-e169-4315-9832-bea40ec7c633" name="HR Objects" componentRoot="/Users/arseniyi/generatedCode/serviceLayer" artifactId="hr-objects" groupId="org.tura.example.service" version="1.0" basePackage="org.tura.example.service">
           <mappers uid="79461435-6eff-483f-bb26-d5199d0e1403" domainArtifactRef="edb48357-89bd-4570-aaf7-e49d7bb75e57" artifactRef="327f881c-6227-4ff4-9527-67b2ac881f02" name="Entity generation">
@@ -1413,24 +1413,15 @@
       <properties uid="d5bc7148-44cc-446f-93ee-bea860f1fea7" confVarRef="618186f9-7c62-47cf-82f7-3b295a85ca9f" value="postgres"/>
       <properties uid="d1367677-df35-4554-9d03-62a58fa94cc0" confVarRef="a52e5078-3017-43a0-b571-f58150f8ffd2" value="hr"/>
       <properties uid="d40e63c3-4a21-4f90-a5c6-a2dcef0499eb" confVarRef="57dea534-b8f3-4546-8a63-cc15dfedcd94" value="jdbc/hrDS"/>
-      <properties uid="dfacc619-2223-4b17-abd2-d8a6a2e49785" confVarRef="d133115a-dab4-4a27-b2c1-6ec0aa3613eb" value="/Users/arseniyi/tools/apache-maven-3.2.2" fakeName=""/>
-      <properties uid="0b4e455d-1a87-404d-aa1c-da6d4550517b" confVarRef="9f809420-5098-495f-9e64-d4e49e364de3" value="/Users/arseniyi/glassfish3"/>
+      <properties uid="dfacc619-2223-4b17-abd2-d8a6a2e49785" confVarRef="d133115a-dab4-4a27-b2c1-6ec0aa3613eb" value="/tools/apache-maven-3.1.1" fakeName=""/>
+      <properties uid="0b4e455d-1a87-404d-aa1c-da6d4550517b" confVarRef="9f809420-5098-495f-9e64-d4e49e364de3" value="/glassfish3"/>
       <properties uid="8cfbba12-e04c-4327-aab9-6957ffc0a09a" confVarRef="1b2c5718-ab8c-4ff7-93f7-422e22e7d284" value="4848"/>
       <properties uid="9ef8f2f3-92d7-4fca-b3d9-3f8946f518ee" confVarRef="d0478242-5a9b-44db-bafd-92f09b6ff8db" value="domain1"/>
       <properties uid="f08ac5d1-cacb-43ec-8b24-fbd47cdc7893" confVarRef="6c69f631-c365-4a78-8777-350ea19beed8" value="localhost"/>
       <properties uid="19401792-8d13-427b-9c31-71b93496e07e" confVarRef="2671048d-b872-45e6-97b1-69896b381d0d" value="8080"/>
-      <properties uid="df7ce4ae-e76b-4623-8c2d-177831b8b929" confVarRef="0280c31d-3c59-47a6-95ad-161fe363fc3b" value="/Users/arseniyi/tools/apache-maven-3.2.2"/>
+      <properties uid="df7ce4ae-e76b-4623-8c2d-177831b8b929" confVarRef="0280c31d-3c59-47a6-95ad-161fe363fc3b" value="/tools/apache-maven-3.1.1"/>
     </configurations>
     <infrastructures uid="080702f2-6a78-43d2-8987-c923fe681415" recipe="f89d43e4-5d8d-4437-ad00-188328a43ed0" name="Development" recipeConfig="7958c7b0-aaca-436d-aec4-20dcc6de9529"/>
-    <deployment uid="f611d83d-edd3-42df-a8bd-78ba7e88b7d9" name="Deployment">
-      <deploymentComponents uid="ff28402c-bdc0-4c14-a112-3d3a20562da0">
-        <deplymentStep uid="8d398e98-d2dc-442a-80c9-b7d8967e7c1f" name="Java Service ingredient:HR Objects:Entity build runner" mapper="3b5947e3-71e1-4c1d-b674-353dd43f41a6" deploymentComponentLink="f666aaf2-16f3-467d-a1ef-a2ff2d79a8c8"/>
-        <deplymentStep uid="f666aaf2-16f3-467d-a1ef-a2ff2d79a8c8" name="Java Service ingredient:HR Services:Service build runner" mapper="cd8ef29d-25da-450d-a764-231f954e82d8" deploymentComponentLink="b367fa72-6c5f-4091-ac86-c123075a7fcf"/>
-        <deplymentStep uid="b367fa72-6c5f-4091-ac86-c123075a7fcf" name="Java Service ingredient:HR Services:Service deployer" mapper="eff0cfb3-df5e-4aa4-b9e2-8b833b5e698e" deploymentComponentLink="4c8eed0d-f908-4489-824e-3bfccf863168"/>
-        <deplymentStep uid="4c8eed0d-f908-4489-824e-3bfccf863168" name="Java Service proxy client ingredient:HR services proxy client:Proxy client build runner" mapper="9e13dabb-e93d-464c-acc7-594dff514fd4"/>
-        <startSeq uid="cfe68518-c748-4609-956e-364b9d882517" firstStep="8d398e98-d2dc-442a-80c9-b7d8967e7c1f"/>
-      </deploymentComponents>
-    </deployment>
   </tura.domain:Recipes>
   <tura.domain:Recipes uid="d2517ae2-db04-4b91-acc4-b19b80cf1449"/>
   <tura.domain:UIPackage uid="63d7b545-e3cb-4b2e-8597-44c6734d825b" parent="c65cfe9e-8e33-4160-beef-4a3a96d5b2c1">
@@ -2074,5 +2065,4 @@
       <children xsi:type="tura.domain:InputText" uid="5ab8396c-cb9c-4d01-89aa-6f732b9862d1" sourcePointer="d45e9605-3706-493c-8422-3f7b8b6ea2ed" sourceCast="Comp_52ffccb7-cea6-49de-ba4b-7437f1da3369"/>
     </baseCanvas>
   </tura.domain:CanvasView>
-  <tura.domain:DeploymentComponents uid="66e58865-f833-4cf9-9134-fb691096e931"/>
 </xmi:XMI>

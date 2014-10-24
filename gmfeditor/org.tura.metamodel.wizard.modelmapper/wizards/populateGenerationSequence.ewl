@@ -26,7 +26,7 @@ wizard PopulateGenerationSequence{
             recipe.deployment.deploymentComponents.startSeq.uid = uuid.randomUUID().toString();
        }
 	   
-	   var mapper=recipe.deployment.deploymentComponents.deplymentStep.selectOne(r|r.deploymentComponent=self.uid);
+	   var mapper=recipe.deployment.deploymentComponents.deplymentStep.selectOne(r|r.deploymentComponentLink=self.uid);
 	   if (mapper=null){
 	       var deploymentComponent = new DeploymentComponent;
            deploymentComponent.uid=uuid.randomUUID().toString();

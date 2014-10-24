@@ -1,0 +1,85 @@
+import "platform:/plugin/org.tura.metamodel.wizard.generation/template/commons/categorizedUtil.eol";
+ 
+ context domain::JavaMapper {
+
+  constraint ifServiceOnserviceLayer {
+       
+      guard :  self.parent.parent.name="HR types mapper" and self.serviceLayer and self.typeRef.parent.parent.name="HR package" and self.typeRef.findClassifier("Service","Service","EJBService")
+      check : 1 = 2
+      message : 'fix for serviceLayer ' + self.typeRef.name 
+      fix { 
+         title : self.typeRef.name
+          do {
+             self.groupId ="org.tura.example.service";
+             self.artifactId ="hr-services-ejb";
+             self.version ="1.0";
+          }
+      }
+  }
+
+  constraint ifServiceOnuiLayer {
+      guard :  self.parent.parent.name="HR types mapper" and self.uiLayer and self.typeRef.parent.parent.name="HR package" and self.typeRef.findClassifier("Service","Service","EJBService")
+      check : 1 = 2
+      message : 'fix for uiLayer ' + self.typeRef.name 
+      fix { 
+         title : self.typeRef.name
+          do {
+             self.groupId ="org.tura.example.service";
+             self.artifactId ="hr-services-proxy-client";
+             self.version ="1.0";
+             self.mappedToPackageName="org.elsoft.platform.hr.services.impl";
+             self.mappedToClassName=self.mappedToClassName+"Remote_Service";
+          }
+      }
+  }
+
+  constraint ifRemoteInterfaceOnuiLayer {
+      guard :  self.parent.parent.name="HR types mapper" and self.uiLayer and self.typeRef.parent.parent.name="HR package" and self.typeRef.findClassifier("Service","Service","EJBRemoteInterface")
+      check : 1 = 2
+      message : 'fix for uiLayer ' + self.typeRef.name 
+      fix { 
+         title : self.typeRef.name
+          do {
+             self.groupId ="org.tura.example.service";
+             self.artifactId ="hr-services-proxy-client";
+             self.version ="1.0";
+             self.mappedToPackageName="org.elsoft.platform.hr.services.impl";
+          }
+      }
+  }
+
+  constraint ifEntityOnserviceLayer {
+      guard :  self.parent.parent.name="HR types mapper" and self.serviceLayer and self.typeRef.parent.parent.name="HR package" and self.typeRef.findClassifier("ORMEntity","entityObject","Entity")
+      check : 1 = 2
+      message : 'fix for serviceLayer ' + self.typeRef.name 
+      fix { 
+         title : self.typeRef.name
+          do {
+             self.groupId ="org.tura.example.service";
+             self.artifactId ="hr-objects";
+             self.version ="1.0";
+             self.mappedToPackageName="org.elsoft.platform.hr.objects";
+          }
+      }
+  }
+
+
+  constraint ifEntityOnuiLayer {
+      guard :  self.parent.parent.name="HR types mapper" and self.uiLayer and self.typeRef.parent.parent.name="HR package" and self.typeRef.findClassifier("ORMEntity","entityObject","Entity")
+      check : 1 = 2
+      message : 'fix for uiLayer ' + self.typeRef.name 
+      fix { 
+         title : self.typeRef.name
+          do {
+             self.groupId ="org.tura.example.service";
+             self.artifactId ="hr-services-proxy-client";
+             self.version ="1.0";
+             self.mappedToPackageName="org.elsoft.platform.hr.services";
+          }
+      }
+  }
+
+
+
+}
+
