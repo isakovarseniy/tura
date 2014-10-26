@@ -1,0 +1,35 @@
+<#assign percent = "%" >
+<#assign start = "[" >
+<#assign end = "]" >
+${start}${percent} 
+import "platform:/plugin/org.tura.metamodel.wizard.generation/template/technologies/${Environment}.egl";
+${percent}${end}
+[%
+     var util = new Native('org.tura.metamodel.commons.Util');
+%]
+package  [%=component.basePackage%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%].datacontrol;  
+
+@javax.inject.Named("elResolver")
+[%=elresolver_scope()%]
+public class ELResolverImpl extends org.tura.platform.datacontrol.ELResolver{
+
+	private javax.el.ExpressionFactory ef;
+	private javax.el.ELContext context;
+
+[%=elresolver_init()%]
+
+	public Object getValue(String exp) {
+		javax.el.ValueExpression ve = ef.createValueExpression(context, "${"+exp+"}",
+				Object.class);
+		return ve.getValue(context);
+
+	}
+
+	public void setValue(String exp, Object value) {
+		javax.el.ValueExpression ve = ef.createValueExpression(context, "${"+exp+"}",
+				Object.class);
+		ve.setValue(context,value);
+	}
+
+
+}

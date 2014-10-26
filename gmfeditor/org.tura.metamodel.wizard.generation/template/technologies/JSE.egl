@@ -22,3 +22,23 @@ operation  commandstack_scope() {
 [%
 }
 %]
+
+
+[% @template
+operation  elresolver_init() {
+%]
+	public ELResolverImpl() {
+		ef = new de.odysseus.el.ExpressionFactoryImpl();
+		context = new de.odysseus.el.util.SimpleContext();
+	}    
+[%
+}
+%]
+
+[% @template
+operation  elresolver_scope() {
+%]
+@javax.enterprise.context.ApplicationScoped
+[%
+}
+%]

@@ -17,7 +17,7 @@ operation  datacontrolgeneration(hash) {
 
 
     
-    var datacontrol : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.wizard.generation/template/technologies/JEE/CDI//datacontrol/datacontrol.egl",hash,TemplateFactory);
+    var datacontrol : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.wizard.generation/template/technologies/JEE/CDI/datacontrol/datacontrol.egl",hash,TemplateFactory);
     datacontrol.setFormatter(f);
     var buffer = datacontrol.process();
     util.saveFile( javaPath+util.mergeAndCapitalize(form.name).toLowerCase()+"/datacontrol/"  , util.mergeAndCapitalize(control.name) + "DC.java",buffer);   
@@ -25,28 +25,36 @@ operation  datacontrolgeneration(hash) {
 
      if (control.~treeRoot <> null){
 
-         var treedatacontrol : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.wizard.generation/template/technologies/JEE/CDI//datacontrol/treedatacontrol.egl",hash,TemplateFactory);
+         var treedatacontrol : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.wizard.generation/template/technologies/JEE/CDI/datacontrol/treedatacontrol.egl",hash,TemplateFactory);
          treedatacontrol.setFormatter(f);
          buffer = treedatacontrol.process();
          util.saveFile( javaPath+util.mergeAndCapitalize(form.name).toLowerCase()+"/datacontrol/"  , "TreeRoot"+util.mergeAndCapitalize(control.name) + "DC.java",buffer);   
 
     }
 
-         var producercontrol : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.wizard.generation/template/technologies/JEE/CDI//datacontrol/producer.egl",hash,TemplateFactory);
+         var producercontrol : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.wizard.generation/template/technologies/JEE/CDI/datacontrol/producer.egl",hash,TemplateFactory);
          producercontrol.setFormatter(f);
          buffer = producercontrol.process();
          util.saveFile( javaPath+util.mergeAndCapitalize(form.name).toLowerCase()+"/producer/"  , util.mergeAndCapitalize(control.name) + "Producer.java",buffer);   
 
 
-         var beansxml : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.wizard.generation/template/technologies/JEE/CDI//datacontrol/beans-xml.egl",hash,TemplateFactory);
+         var beansxml : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.wizard.generation/template/technologies/JEE/CDI/datacontrol/beans-xml.egl",hash,TemplateFactory);
          beansxml.setFormatter(f);
          buffer = beansxml.process();
          util.saveFile( resourcePath+"/META-INF/"  , "beans.xml",buffer);   
 
-         var commandstack : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.wizard.generation/template/technologies/JEE/CDI//datacontrol/commandstack.egl",hash,TemplateFactory);
+         var commandstack : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.wizard.generation/template/technologies/JEE/CDI/datacontrol/commandstack.egl",hash,TemplateFactory);
          commandstack.setFormatter(f);
          buffer = commandstack.process();
          util.saveFile( javaPath+util.mergeAndCapitalize(form.name).toLowerCase()+"/datacontrol/"  , "CDICommandStack.java",buffer);   
+
+
+         var commandstack : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.wizard.generation/template/technologies/JEE/CDI/datacontrol/elresolver.egl",hash,TemplateFactory);
+         commandstack.setFormatter(f);
+         buffer = commandstack.process();
+         util.saveFile( javaPath+util.mergeAndCapitalize(form.name).toLowerCase()+"/datacontrol/"  , "ELResolverImpl.java",buffer);   
+
+
   }
 %]
 
