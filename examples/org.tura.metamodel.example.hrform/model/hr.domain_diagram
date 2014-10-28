@@ -1108,6 +1108,14 @@
           <element xmi:type="tura.domain:Package" href="hr.domain#e8faa4f9-a654-40f5-bdf5-454f90f2af19"/>
           <layoutConstraint xmi:type="notation:Bounds" xmi:id="_M71me0AcEeS3t5FTnZZMrg" x="333" y="3"/>
         </children>
+        <children xmi:type="notation:Node" xmi:id="_aWLr0F5REeS91YrxXg3Sag" type="203002">
+          <children xmi:type="notation:DecorationNode" xmi:id="_aWMS5F5REeS91YrxXg3Sag" type="205002"/>
+          <styles xmi:type="notation:DescriptionStyle" xmi:id="_aWMS4F5REeS91YrxXg3Sag"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_aWMS4V5REeS91YrxXg3Sag" fontName="Lucida Grande"/>
+          <styles xmi:type="notation:HintedDiagramLinkStyle" xmi:id="_aWMS4l5REeS91YrxXg3Sag" diagramLink="_kRUfQF5REeS91YrxXg3Sag" hint="Typedefinition"/>
+          <element xmi:type="tura.domain:Package" href="hr.domain#f7896b5b-7f62-4232-9357-5d1d8ab0471f"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_aWMS415REeS91YrxXg3Sag" x="301" y="10"/>
+        </children>
       </children>
       <styles xmi:type="notation:DescriptionStyle" xmi:id="_M7zKMUAcEeS3t5FTnZZMrg"/>
       <styles xmi:type="notation:FontStyle" xmi:id="_M7zKMkAcEeS3t5FTnZZMrg" fontName="Lucida Grande"/>
@@ -4314,5 +4322,38 @@
   <notation:Diagram xmi:id="_X5ALMFxCEeSMKenjhYJzvA" type="Typedefinition" measurementUnit="Pixel">
     <styles xmi:type="notation:DiagramStyle" xmi:id="_X5ALMVxCEeSMKenjhYJzvA"/>
     <element xmi:type="tura.domain:TypeDefinition" href="hr.domain#29bf33f0-cf65-44c3-89d9-0f63b8cf9b1d"/>
+  </notation:Diagram>
+  <notation:Diagram xmi:id="_kRUfQF5REeS91YrxXg3Sag" type="Typedefinition" measurementUnit="Pixel">
+    <children xmi:type="notation:Node" xmi:id="_lbmhEF5REeS91YrxXg3Sag" type="102001">
+      <children xmi:type="notation:DecorationNode" xmi:id="_lbmhFF5REeS91YrxXg3Sag" type="105001"/>
+      <styles xmi:type="notation:DescriptionStyle" xmi:id="_lbmhEV5REeS91YrxXg3Sag"/>
+      <styles xmi:type="notation:FontStyle" xmi:id="_lbmhEl5REeS91YrxXg3Sag" fontName="Lucida Grande"/>
+      <element xmi:type="tura.domain:TypeReference" href="hr.domain#e99cfeee-23e9-4fb1-a200-f4067468e977"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_lbmhE15REeS91YrxXg3Sag" x="306" y="72"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_qYD0AF5REeS91YrxXg3Sag" type="102002">
+      <children xmi:type="notation:DecorationNode" xmi:id="_qYD0BV5REeS91YrxXg3Sag" type="105006"/>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_qYD0Bl5REeS91YrxXg3Sag" type="107001">
+        <styles xmi:type="notation:SortingStyle" xmi:id="_qYD0B15REeS91YrxXg3Sag"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_qYD0CF5REeS91YrxXg3Sag"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_qYD0CV5REeS91YrxXg3Sag" type="107002">
+        <styles xmi:type="notation:SortingStyle" xmi:id="_qYD0Cl5REeS91YrxXg3Sag"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_qYD0C15REeS91YrxXg3Sag"/>
+      </children>
+      <styles xmi:type="notation:DescriptionStyle" xmi:id="_qYD0AV5REeS91YrxXg3Sag"/>
+      <styles xmi:type="notation:FontStyle" xmi:id="_qYD0Al5REeS91YrxXg3Sag" fontName="Lucida Grande"/>
+      <styles xmi:type="notation:HintedDiagramLinkStyle" xmi:id="_qYD0A15REeS91YrxXg3Sag"/>
+      <element xmi:type="tura.domain:Type" href="hr.domain#bceadb47-a323-417f-8c19-19afe45872a1"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_qYD0BF5REeS91YrxXg3Sag" x="342" y="198"/>
+    </children>
+    <styles xmi:type="notation:DiagramStyle" xmi:id="_kRUfQV5REeS91YrxXg3Sag"/>
+    <element xmi:type="tura.domain:TypeDefinition" href="hr.domain#c9574970-474a-403a-9224-f91bc2f8fe7a"/>
+    <edges xmi:type="notation:Connector" xmi:id="_tpPQ4F5REeS91YrxXg3Sag" type="104001" source="_qYD0AF5REeS91YrxXg3Sag" target="_lbmhEF5REeS91YrxXg3Sag">
+      <styles xmi:type="notation:FontStyle" xmi:id="_tpPQ4V5REeS91YrxXg3Sag" fontName="Lucida Grande"/>
+      <element xmi:type="tura.domain:TypeExtension" href="hr.domain#c06f72d8-55a9-42e6-8734-bd112e8c478d"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_tpPQ4l5REeS91YrxXg3Sag" points="[0, -3, -2, 106]$[0, -89, -2, 20]"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_tpRGEF5REeS91YrxXg3Sag" id="(0.539568345323741,0.05)"/>
+    </edges>
   </notation:Diagram>
 </xmi:XMI>

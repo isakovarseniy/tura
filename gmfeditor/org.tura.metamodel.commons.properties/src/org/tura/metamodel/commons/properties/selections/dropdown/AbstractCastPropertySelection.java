@@ -49,6 +49,8 @@ public abstract class AbstractCastPropertySelection extends
 
 			ArrayList<domain.Type> typeTree = new ArrayList<>();
 			new QueryHelper().getInheritTypes(typeTree, type);
+			//add basetype
+			typeTree.add(type);
 
 			for (Iterator<domain.Type> itr = typeTree.iterator(); itr.hasNext();) {
 				domain.Type p = itr.next();

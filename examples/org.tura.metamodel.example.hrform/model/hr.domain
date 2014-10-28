@@ -221,6 +221,7 @@
       <packages uid="9fcd56c0-2fe7-445a-864e-9550f1b901c2" name="Primitive package" typedefinition="29bf33f0-cf65-44c3-89d9-0f63b8cf9b1d"/>
       <packages uid="dd77a443-471b-441e-88bf-3f3f092f372c" name="Base package" typedefinition="d3aaa3c1-ce4f-4b19-9e05-30631fe679cd"/>
       <packages uid="e8faa4f9-a654-40f5-bdf5-454f90f2af19" name="HR package" typedefinition="Uniq_115091ed-0c7c-4eae-be06-8496210d4b84"/>
+      <packages uid="f7896b5b-7f62-4232-9357-5d1d8ab0471f" name="Universal JPA service" typedefinition="c9574970-474a-403a-9224-f91bc2f8fe7a"/>
     </typeDefinition>
   </tura.domain:TypesRepository>
   <tura.domain:TypeDefinition uid="29bf33f0-cf65-44c3-89d9-0f63b8cf9b1d" parent="9fcd56c0-2fe7-445a-864e-9550f1b901c2">
@@ -287,7 +288,7 @@
   <tura.domain:TypeDefinition uid="Uniq_115091ed-0c7c-4eae-be06-8496210d4b84" parent="e8faa4f9-a654-40f5-bdf5-454f90f2af19">
     <types xsi:type="tura.domain:Type" uid="Comp_52ffccb7-cea6-49de-ba4b-7437f1da3369" name="Company Type">
       <classifiers uid="Comp_03eabbe7-b921-4ce7-a2a4-78b65cc0bda8" hint="bf57ae0e-a725-4c7c-b178-ebbf640b2375"/>
-      <attributes packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="e370b9d1-a6fb-4a40-88e2-8845be441438" uid="Comp_7982905f-4f83-472f-8551-80e30e34934c" name="CompanyName"/>
+      <attributes packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="e370b9d1-a6fb-4a40-88e2-8845be441438" uid="Comp_7982905f-4f83-472f-8551-80e30e34934c" name="companyName"/>
       <attributes packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="7b7c554c-a1ad-4e6e-8c91-20df7d6530f8" uid="Comp_84d12c71-8ea0-47f8-ab40-36ef71389fa1" name="countryId"/>
       <extension uid="Comp_TypeExtension1" source="Comp_52ffccb7-cea6-49de-ba4b-7437f1da3369" target="Comp_eb76b6af-9330-4f5b-b46c-8b732b8fe354">
         <classifiers uid="Comp_30a3e710-436b-41a7-9649-0311b2fe1ef7" hint="2fe9fdd8-3fec-4a11-9ed5-a79c64373895"/>
@@ -2131,4 +2132,10 @@
     <mappers xsi:type="tura.domain:JavaMapper" uid="d032b375-f6e9-4784-8cb5-8a3bed1b9a12" uiLayer="true" packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="2b2e1b10-400a-11e4-916c-0800200c9a66" fakePackageName="Base package" fakeTypeName="List of Base Type" mappedToPackageName="java.util" mappedToClassName="List&lt;org.tura.platform.persistence.TuraObject>"/>
     <mappers xsi:type="tura.domain:JavaMapper" uid="cd058e0b-a144-4b4f-b58d-324f50bed61a" uiLayer="true" packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="9ec6d2e0-4002-11e4-916c-0800200c9a66" fakePackageName="Base package" fakeTypeName="Search criterias" mappedToPackageName="com.octo.java.sql.query" mappedToClassName="SelectQuery" artifactId="java-sql-dsl" groupId="com.octo.java.sql" version="0.1.1-SNAPSHOT"/>
   </tura.domain:Mappers>
+  <tura.domain:TypeDefinition uid="c9574970-474a-403a-9224-f91bc2f8fe7a" parent="f7896b5b-7f62-4232-9357-5d1d8ab0471f">
+    <types xsi:type="tura.domain:TypeReference" uid="e99cfeee-23e9-4fb1-a200-f4067468e977" packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="2957c51c-68e7-4d1e-b8b7-cbe7ccdbe13f" fakePackageName="Base package" fakeTypeName="JPA Entity CRAD Service"/>
+    <types xsi:type="tura.domain:Type" uid="bceadb47-a323-417f-8c19-19afe45872a1" name="Universal JPA service">
+      <extension uid="c06f72d8-55a9-42e6-8734-bd112e8c478d" source="bceadb47-a323-417f-8c19-19afe45872a1" target="e99cfeee-23e9-4fb1-a200-f4067468e977"/>
+    </types>
+  </tura.domain:TypeDefinition>
 </xmi:XMI>

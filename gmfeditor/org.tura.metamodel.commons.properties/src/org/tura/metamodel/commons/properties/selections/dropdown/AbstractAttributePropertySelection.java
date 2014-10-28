@@ -42,6 +42,9 @@ public abstract class AbstractAttributePropertySelection extends
 			domain.Type type = (Type) dc.getCreate().getMethodRef()
 					.getReturnValue().getTypeRef();
 
+			if (dc.getBaseType() !=null)
+				type=dc.getBaseType();
+			
 			if (dropDownDataSupplier.getWatchPointObject(getModel())[1] != null)
 			   type = (Type) dropDownDataSupplier.getWatchPointObject(getModel())[1]; 
 
