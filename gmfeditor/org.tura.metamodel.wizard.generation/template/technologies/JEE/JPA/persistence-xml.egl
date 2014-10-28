@@ -16,7 +16,9 @@ import "platform:/plugin/org.tura.metamodel.wizard.generation/template/technolog
 
 		<provider>[%=persistence_jpaprovider()%]</provider>
 		
-		<jta-data-source>[%=configuration.get("jndi access string")%]</jta-data-source>
+[%    if (Connection.equals("JNDI")){%]
+		   <jta-data-source>[%=configuration.get("jndi access string")%]</jta-data-source>
+[%   } %]		
 [%
         for (jar in libraries.keySet()) {
 %]
@@ -24,7 +26,7 @@ import "platform:/plugin/org.tura.metamodel.wizard.generation/template/technolog
 [%       
         }
 %]   
-		[%=persistence_jpaproperties(configuration)%]
+		[%=persistence_jpaproperties(Connection,configuration)%]
 
 	</persistence-unit>
 </persistence>
