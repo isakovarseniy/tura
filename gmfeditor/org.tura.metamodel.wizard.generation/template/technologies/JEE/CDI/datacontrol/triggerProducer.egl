@@ -6,7 +6,7 @@ package  [%=component.basePackage%].[%=util.mergeAndCapitalize(form.name).toLowe
 
 
 
-public class [%=util.mergeAndCapitalize(control.name)%]Producer {
+public class [%=util.mergeAndCapitalize(control.name)%]TriggerProducer {
 
  	@javax.enterprise.inject.Produces @org.tura.platform.datacontrol.annotations.PreQuery("[%=util.mergeAndCapitalize(control.name).toLowerCase()%]")
 	public org.tura.platform.datacontrol.command.PreQueryTrigger getPreQueryTrigger( javax.enterprise.inject.spi.InjectionPoint injectionPoint) {

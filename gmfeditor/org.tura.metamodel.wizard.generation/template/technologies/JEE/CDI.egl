@@ -32,10 +32,10 @@ operation  datacontrolgeneration(hash) {
 
     }
 
-         var producercontrol : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.wizard.generation/template/technologies/JEE/CDI/datacontrol/producer.egl",hash,TemplateFactory);
+         var producercontrol : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.wizard.generation/template/technologies/JEE/CDI/datacontrol/triggerProducer.egl",hash,TemplateFactory);
          producercontrol.setFormatter(f);
          buffer = producercontrol.process();
-         util.saveFile( javaPath+util.mergeAndCapitalize(form.name).toLowerCase()+"/producer/"  , util.mergeAndCapitalize(control.name) + "Producer.java",buffer);   
+         util.saveFile( javaPath+util.mergeAndCapitalize(form.name).toLowerCase()+"/producer/"  , util.mergeAndCapitalize(control.name) + "TriggerProducer.java",buffer);   
 
 
          var beansxml : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.wizard.generation/template/technologies/JEE/CDI/datacontrol/beans-xml.egl",hash,TemplateFactory);
