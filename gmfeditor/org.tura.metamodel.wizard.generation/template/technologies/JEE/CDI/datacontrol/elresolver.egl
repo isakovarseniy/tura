@@ -13,10 +13,10 @@ package  [%=component.basePackage%].[%=util.mergeAndCapitalize(form.name).toLowe
 [%=elresolver_scope()%]
 public class ELResolverImpl extends org.tura.platform.datacontrol.ELResolver{
 
+	@javax.inject.Inject
 	private javax.el.ExpressionFactory ef;
+	@javax.inject.Inject
 	private javax.el.ELContext context;
-
-[%=elresolver_init()%]
 
 	public Object getValue(String exp) {
 		javax.el.ValueExpression ve = ef.createValueExpression(context, "${"+exp+"}",

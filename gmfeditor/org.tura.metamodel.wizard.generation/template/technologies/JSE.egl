@@ -1,21 +1,4 @@
 [% @template
-operation  commandstack_entitymanagerinit() {
-%]
-	private javax.persistence.EntityManager em;
-	
-    public void setEntityManager(javax.persistence.EntityManager em){
-         this.em=em;
-    }
-    
-    public javax.persistence.EntityManager getEntityManager(){
-         return em;
-    }
-    
-[%
-}
-%]
-
-[% @template
 operation  commandstack_scope() {
 %]
 @javax.enterprise.context.ApplicationScoped
@@ -23,17 +6,6 @@ operation  commandstack_scope() {
 }
 %]
 
-
-[% @template
-operation  elresolver_init() {
-%]
-	public ELResolverImpl() {
-		ef = new de.odysseus.el.ExpressionFactoryImpl();
-		context = new de.odysseus.el.util.SimpleContext();
-	}    
-[%
-}
-%]
 
 [% @template
 operation  elresolver_scope() {
