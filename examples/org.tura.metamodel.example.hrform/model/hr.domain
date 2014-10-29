@@ -2072,10 +2072,6 @@
         <options uid="6b0e89e5-8628-49a6-98bf-b125b206dd4d" value="JEE/CDI"/>
         <options uid="2b014fb2-f093-41be-b747-b25f15e75156" value="Spring"/>
       </specifiers>
-      <specifiers uid="c8c231b4-8dfa-42df-bda5-6e70d71551cb" name="Environment">
-        <options uid="a45c798f-715c-47d2-98b7-85008380a5e9" value="JEE"/>
-        <options uid="6e356dd1-eba2-46cb-a56d-40f9b408246e" value="JSE"/>
-      </specifiers>
       <specifiers uid="741c9449-5abe-40f7-8dc9-fd15fb1c9680" name="Service implementation">
         <options uid="6d9068b8-e721-46b5-beb1-fbca1b3f7935" value="JEE/Services/EJB-WS"/>
         <options uid="3309af92-cc56-4e33-8068-81f23b432831" value="JEE/Services/UNIVERSAL-JPA"/>
@@ -2119,7 +2115,6 @@
           </mappers>
           <mappers uid="8fba4b70-da2d-42cd-a054-3930d715e823" domainArtifactRef="5945624b-20f3-47f9-9cb1-d0dc8df9491a" artifactRef="53a25731-a3bd-4158-81d1-70a4cab4c22c" name="Universal service">
             <specifiers specifierRef="3ee3d178-4bab-46e0-928e-508089f4dc2c" valueRef="6b0e89e5-8628-49a6-98bf-b125b206dd4d"/>
-            <specifiers specifierRef="c8c231b4-8dfa-42df-bda5-6e70d71551cb" valueRef="6e356dd1-eba2-46cb-a56d-40f9b408246e"/>
             <specifiers specifierRef="741c9449-5abe-40f7-8dc9-fd15fb1c9680" valueRef="3309af92-cc56-4e33-8068-81f23b432831"/>
             <queries uid="76b7a57c-5a4c-4ba7-8e48-f771eeaf6de6" name="Query NA type" queryRef="b925f051-ca27-4d9f-9445-e87d7f79ce84">
               <variables queryParamRef="7425c708-e132-4008-90a1-4e3af0c44101" value="NA"/>

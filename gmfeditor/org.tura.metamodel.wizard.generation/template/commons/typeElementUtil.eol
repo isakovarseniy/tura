@@ -8,9 +8,15 @@ operation TypeElement mappingType2Java( recipe:Recipe, ingredient :Ingredient) {
 
 
     for( appmapper in appmappers ){
-          var set = appmapper.mapper.mappers.select(r|r.typeRef.uid=self.uid);
+         var selfUID = self.uid;
+         var tp = self;
+         if (self.isTypeOf(domain::TypeReference)){
+             selfUID = self.typeRef.uid;
+             tp = self.typeRef;
+         }
+          var set = appmapper.mapper.mappers.select(r|r.typeRef.uid= selfUID);
           if ( set.size() <> 0 ){
-              var type =  util.mapType(set,ingredient,self) ;
+              var type =  util.mapType(set,ingredient,tp) ;
               if ( type <> null){
                  self.~class=type.mappedToClassName;
                  self.~package= type.mappedToPackageName;
