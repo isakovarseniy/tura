@@ -13,7 +13,7 @@ operation  commandstack_scope() {
 [% @template
 operation  elresolver_scope() {
 %]
-@javax.enterprise.context.SessionScoped
+@javax.enterprise.context.RequestScoped
 [%
 }
 %]
