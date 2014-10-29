@@ -1,0 +1,35 @@
+[% @template
+operation  cdi_service_wrapper_generation(hash) {
+
+    var util = new Native('org.tura.metamodel.commons.Util');
+    var f = new Native("org.tura.metamodel.wizard.infrastructure.JavaFormatter"); 
+    var target;
+        
+    var type =  hash.get("type");
+    var recipe = hash.get("recipe");
+    var ingredient =  hash.get("ingredient");
+    var  component = hash.get("component");
+    var  model_mapper = hash.get("model_mapper");
+ 
+     var path = component.getComponentRoot+"/"+component.getArtifactId()+"/src/main/java/";  
+    
+    util.populateTechnologies(hash,model_mapper);
+
+
+    for (  extension in type.getExtension() ){
+        if (extension.findClassifier("UIGeneration","Service wrapper","Extended service")){
+                 target = extension.getTarget();
+                 target.mappingType2Java(recipe,ingredient);
+           }
+    }
+    
+    hash.put("type",type);
+    hash.put("extendedService",target);
+
+    var wrapper : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.wizard.generation/template/technologies/JEE/Services/UNIVERSAL-JPA/cdiProxyWrapper.egl",hash,TemplateFactory);
+    wrapper.setFormatter(f);
+    var buffer = wrapper.process();
+    util.saveFile( path+type.~package.replaceAll("\\.","\\/"), type.~class + ".java",buffer);   
+
+  }
+%]

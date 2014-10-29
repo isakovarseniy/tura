@@ -1,4 +1,13 @@
 [% @template
+operation  service_wrapper_generation(hash) {
+
+     cdi_service_wrapper_generation(hash);
+
+  }
+%]
+
+
+[% @template
 operation  datacontrolgeneration(hash) {
 
      var util = new Native('org.tura.metamodel.commons.Util');

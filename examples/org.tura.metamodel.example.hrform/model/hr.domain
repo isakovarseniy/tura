@@ -2057,19 +2057,31 @@
         <options uid="1b800057-4205-4852-ae56-f48caead1343" value="JEE"/>
       </specifiers>
     </artifacts>
-    <artifacts uid="4c033281-ee1f-40ba-97d3-f0a216c36ef1" name="Universal service">
-      <modelQuery uid="7adf112d-e292-4e36-9053-e63d9b10274c" name="Query type" query="domain::Package.allInstances()->select(r|r.oclAsType(domain::Package).name='${Package name}').oclAsType(domain::Package).typedefinition.types->select(r|(r.oclIsKindOf(domain::Type) and  r.oclAsType(domain::Type).name = '${Type name}')  or (r.oclIsKindOf(domain::Primitive) and  r.oclAsType(domain::Primitive).name = '${Type name}') or (r.oclIsKindOf(domain::Enumarator) and  r.oclAsType(domain::Enumarator).name = '${Type name}') )">
-        <parameters uid="18a656b3-faea-4154-9b39-9d67fca79445" name="Package name"/>
-        <parameters uid="0fa9f67f-e3cc-489c-a80c-47a246b9d37b" name="Type name"/>
+    <artifacts uid="53a25731-a3bd-4158-81d1-70a4cab4c22c" name="Service wrapper" template="platform:/plugin/org.tura.metamodel.wizard.generation/template/pit/mvc/model/mainServiceWrapper.egl">
+      <modelQuery uid="273cc7dd-85f8-430f-ac43-cad73dc0e847" name="Query package of types" query="domain::Package.allInstances()->select(r|r.oclAsType(domain::Package).name='${Package name}').oclAsType(domain::Package).typedefinition.types->select(r|((r.oclIsKindOf(domain::Type ) ) )).oclAsType(domain::Categorized).classifiers->select(c|c.hint.name='${Hint}' and c.hint.oclAsType(ecore::EObject).eContainer().oclAsType(domain::Artifact).name = '${Artifact}' and  c.hint.oclAsType(ecore::EObject).eContainer().oclAsType(domain::Artifact).parent.oclAsType(domain::Artifacts).parent.oclAsType(domain::DomainArtifact).name = '${ArtifactLib}' )->collect(c|c.oclAsType(ecore::EObject).eContainer())">
+        <parameters uid="bbb2310c-3490-4d0a-91a7-5315a09d67ce" name="Artifact"/>
+        <parameters uid="3ac24526-fd51-402c-bb22-b3f5c1c17578" name="ArtifactLib"/>
+        <parameters uid="0ae9eee3-bcdb-4370-be2c-27620c06825a" name="Hint"/>
+        <parameters uid="6d17ac61-9fff-4ec6-b018-2cbd66412adf" name="Package name"/>
       </modelQuery>
-      <specifiers uid="73613735-d208-45fc-a2e6-cd0d68592fc4" name="Model management framework">
-        <options uid="9b1f9003-a1c4-4465-bcbc-fa027f85c112" value="JEE/CDI"/>
-        <options uid="fd6e6dc8-1857-4f4c-a515-a5103df974bb" value="Spring"/>
+      <modelQuery uid="b925f051-ca27-4d9f-9445-e87d7f79ce84" name="Query type" query="domain::Package.allInstances()->select(r|r.oclAsType(domain::Package).name='${Package name}').oclAsType(domain::Package).typedefinition.types->select(r|(r.oclIsKindOf(domain::Type) and  r.oclAsType(domain::Type).name = '${Type name}')  or (r.oclIsKindOf(domain::Primitive) and  r.oclAsType(domain::Primitive).name = '${Type name}') or (r.oclIsKindOf(domain::Enumarator) and  r.oclAsType(domain::Enumarator).name = '${Type name}') )">
+        <parameters uid="d39ee714-0496-40bc-8145-d6e653476abe" name="Package name"/>
+        <parameters uid="7425c708-e132-4008-90a1-4e3af0c44101" name="Type name"/>
+      </modelQuery>
+      <specifiers uid="3ee3d178-4bab-46e0-928e-508089f4dc2c" name="Model management framework">
+        <options uid="6b0e89e5-8628-49a6-98bf-b125b206dd4d" value="JEE/CDI"/>
+        <options uid="2b014fb2-f093-41be-b747-b25f15e75156" value="Spring"/>
       </specifiers>
-      <specifiers uid="87a459ed-e17a-4f6e-8575-d5358e85f34a" name="Environment">
-        <options uid="67164b98-c7db-413d-9a56-0e6e909432c6" value="JEE"/>
-        <options uid="4ec340a2-96cb-437e-831c-91369e5e6fbb" value="JSE"/>
+      <specifiers uid="c8c231b4-8dfa-42df-bda5-6e70d71551cb" name="Environment">
+        <options uid="a45c798f-715c-47d2-98b7-85008380a5e9" value="JEE"/>
+        <options uid="6e356dd1-eba2-46cb-a56d-40f9b408246e" value="JSE"/>
       </specifiers>
+      <specifiers uid="741c9449-5abe-40f7-8dc9-fd15fb1c9680" name="Service implementation">
+        <options uid="6d9068b8-e721-46b5-beb1-fbca1b3f7935" value="JEE/Services/EJB-WS"/>
+        <options uid="3309af92-cc56-4e33-8068-81f23b432831" value="JEE/Services/UNIVERSAL-JPA"/>
+      </specifiers>
+      <hints uid="7886c715-304c-4a75-8fcc-21117819a873" name="Wrapper"/>
+      <hints uid="a737df52-c421-4423-b369-d2e7c3431c21" name="Extended service"/>
     </artifacts>
   </tura.domain:Artifacts>
   <tura.domain:Recipes uid="780d51bf-e928-4fb4-a228-4371d8fe439d" parent="fc4a8a78-b68c-4020-bb95-ab6d773b5486">
@@ -2105,12 +2117,19 @@
               <variables queryParamRef="87c1c616-79f3-452d-b88d-8761795f4bbc" value="entityObject"/>
             </queries>
           </mappers>
-          <mappers uid="8fba4b70-da2d-42cd-a054-3930d715e823" domainArtifactRef="5945624b-20f3-47f9-9cb1-d0dc8df9491a" artifactRef="4c033281-ee1f-40ba-97d3-f0a216c36ef1" name="Universal service">
-            <specifiers specifierRef="73613735-d208-45fc-a2e6-cd0d68592fc4" valueRef="9b1f9003-a1c4-4465-bcbc-fa027f85c112"/>
-            <specifiers specifierRef="87a459ed-e17a-4f6e-8575-d5358e85f34a" valueRef="4ec340a2-96cb-437e-831c-91369e5e6fbb"/>
-            <queries uid="76b7a57c-5a4c-4ba7-8e48-f771eeaf6de6" name="" queryRef="7adf112d-e292-4e36-9053-e63d9b10274c">
-              <variables queryParamRef="0fa9f67f-e3cc-489c-a80c-47a246b9d37b" value="Universal JPA service"/>
-              <variables queryParamRef="18a656b3-faea-4154-9b39-9d67fca79445" value="Universal JPA service"/>
+          <mappers uid="8fba4b70-da2d-42cd-a054-3930d715e823" domainArtifactRef="5945624b-20f3-47f9-9cb1-d0dc8df9491a" artifactRef="53a25731-a3bd-4158-81d1-70a4cab4c22c" name="Universal service">
+            <specifiers specifierRef="3ee3d178-4bab-46e0-928e-508089f4dc2c" valueRef="6b0e89e5-8628-49a6-98bf-b125b206dd4d"/>
+            <specifiers specifierRef="c8c231b4-8dfa-42df-bda5-6e70d71551cb" valueRef="6e356dd1-eba2-46cb-a56d-40f9b408246e"/>
+            <specifiers specifierRef="741c9449-5abe-40f7-8dc9-fd15fb1c9680" valueRef="3309af92-cc56-4e33-8068-81f23b432831"/>
+            <queries uid="76b7a57c-5a4c-4ba7-8e48-f771eeaf6de6" name="Query NA type" queryRef="b925f051-ca27-4d9f-9445-e87d7f79ce84">
+              <variables queryParamRef="7425c708-e132-4008-90a1-4e3af0c44101" value="NA"/>
+              <variables queryParamRef="d39ee714-0496-40bc-8145-d6e653476abe" value="NA"/>
+            </queries>
+            <queries uid="c1ca7ae2-0e19-4a07-b6e9-4cfd30ed512b" name="Query package of wrappers" queryRef="273cc7dd-85f8-430f-ac43-cad73dc0e847">
+              <variables queryParamRef="0ae9eee3-bcdb-4370-be2c-27620c06825a" value="Wrapper"/>
+              <variables queryParamRef="3ac24526-fd51-402c-bb22-b3f5c1c17578" value="UIGeneration"/>
+              <variables queryParamRef="6d17ac61-9fff-4ec6-b018-2cbd66412adf" value="Universal JPA service"/>
+              <variables queryParamRef="bbb2310c-3490-4d0a-91a7-5315a09d67ce" value="Service wrapper"/>
             </queries>
           </mappers>
         </components>
@@ -2159,7 +2178,10 @@
   <tura.domain:TypeDefinition uid="c9574970-474a-403a-9224-f91bc2f8fe7a" parent="f7896b5b-7f62-4232-9357-5d1d8ab0471f">
     <types xsi:type="tura.domain:TypeReference" uid="e99cfeee-23e9-4fb1-a200-f4067468e977" packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="2957c51c-68e7-4d1e-b8b7-cbe7ccdbe13f" fakePackageName="Base package" fakeTypeName="JPA Entity CRAD Service"/>
     <types xsi:type="tura.domain:Type" uid="bceadb47-a323-417f-8c19-19afe45872a1" name="Universal JPA service">
-      <extension uid="c06f72d8-55a9-42e6-8734-bd112e8c478d" source="bceadb47-a323-417f-8c19-19afe45872a1" target="e99cfeee-23e9-4fb1-a200-f4067468e977"/>
+      <classifiers uid="8415216d-2d76-4f5c-8808-3e4d9f864ce2" hint="7886c715-304c-4a75-8fcc-21117819a873"/>
+      <extension uid="c06f72d8-55a9-42e6-8734-bd112e8c478d" source="bceadb47-a323-417f-8c19-19afe45872a1" target="e99cfeee-23e9-4fb1-a200-f4067468e977">
+        <classifiers uid="c3617dd4-1479-4257-a722-35b3e6d32bf2" hint="a737df52-c421-4423-b369-d2e7c3431c21"/>
+      </extension>
     </types>
   </tura.domain:TypeDefinition>
 </xmi:XMI>
