@@ -1,7 +1,7 @@
 [% @template
-operation  service_wrapper_generation(hash) {
+operation  service_producer_generation(hash) {
 
-     cdi_service_wrapper_generation(hash);
+     cdi_service_producer_generation(hash);
 
   }
 %]

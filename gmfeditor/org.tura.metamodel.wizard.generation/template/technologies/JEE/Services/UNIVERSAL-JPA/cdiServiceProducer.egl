@@ -1,0 +1,19 @@
+[%
+     var util = new Native('org.tura.metamodel.commons.Util');
+%]
+package  [%=component.basePackage%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%].producer;  
+public class  [%=type.~class%]ServiceProducer{
+
+
+    @javax.persistence.PersistenceContext(unitName="[%=util.mergeAndCapitalize(component.name)%]")
+    private javax.persistence.EntityManager em;
+
+	@Produces
+	public org.tura.platform.commons.jpa.TuraJPAEntityService getTuraJPAEntityService(){
+		org.tura.platform.commons.jpa.TuraJPAEntityService service = new org.tura.platform.commons.jpa.TuraJPAEntityService();
+		service.setEntityManager(em);
+		return service;
+	}
+
+
+}

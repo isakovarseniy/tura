@@ -221,7 +221,6 @@
       <packages uid="9fcd56c0-2fe7-445a-864e-9550f1b901c2" name="Primitive package" typedefinition="29bf33f0-cf65-44c3-89d9-0f63b8cf9b1d"/>
       <packages uid="dd77a443-471b-441e-88bf-3f3f092f372c" name="Base package" typedefinition="d3aaa3c1-ce4f-4b19-9e05-30631fe679cd"/>
       <packages uid="e8faa4f9-a654-40f5-bdf5-454f90f2af19" name="HR package" typedefinition="Uniq_115091ed-0c7c-4eae-be06-8496210d4b84"/>
-      <packages uid="f7896b5b-7f62-4232-9357-5d1d8ab0471f" name="Universal JPA service" typedefinition="c9574970-474a-403a-9224-f91bc2f8fe7a"/>
     </typeDefinition>
   </tura.domain:TypesRepository>
   <tura.domain:TypeDefinition uid="29bf33f0-cf65-44c3-89d9-0f63b8cf9b1d" parent="9fcd56c0-2fe7-445a-864e-9550f1b901c2">
@@ -1452,62 +1451,62 @@
   </tura.domain:UIPackage>
   <tura.domain:Controls uid="5541fdd1-fedb-45ba-ab74-966e737af3a6" parent="60346910-0b2a-4fed-b397-25731ca3a1df">
     <controls uid="d45e9605-3706-493c-8422-3f7b8b6ea2ed" name="Company" baseType="Comp_52ffccb7-cea6-49de-ba4b-7437f1da3369">
-      <create packageRef="f7896b5b-7f62-4232-9357-5d1d8ab0471f" typeRef="bceadb47-a323-417f-8c19-19afe45872a1" fakePackageName="Universal JPA service" fakeTypeName="Universal JPA service" methodRef="40b112a0-4008-11e4-916c-0800200c9a66" fakeMethod="create" uid="8432e75c-3e68-43f0-94d0-c38cf73840e5">
-        <parameters uid="11c75e81-fd88-47fe-9915-0b3461395f34" refObj="9150e8ca-6703-4e2c-a2e0-479f42987fa5">
-          <value uid="cf245800-056a-4976-b920-35c26feaee23" constant="true" value="org.elsoft.platform.hr.objects.CompanyDAO"/>
+      <create packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="2957c51c-68e7-4d1e-b8b7-cbe7ccdbe13f" fakePackageName="Base package" fakeTypeName="JPA Entity CRAD Service" methodRef="40b112a0-4008-11e4-916c-0800200c9a66" fakeMethod="create" uid="8432e75c-3e68-43f0-94d0-c38cf73840e5">
+        <parameters uid="80b8b8d8-50dd-4cc8-92e7-d2852ba64d3c" refObj="9150e8ca-6703-4e2c-a2e0-479f42987fa5">
+          <value uid="459ce8d2-b4ec-4ad2-b662-a4fbb0d5fc6e" constant="true" value="org.elsoft.platform.hr.objects.CompanyDAO"/>
         </parameters>
       </create>
-      <insert packageRef="f7896b5b-7f62-4232-9357-5d1d8ab0471f" typeRef="bceadb47-a323-417f-8c19-19afe45872a1" fakePackageName="Universal JPA service" fakeTypeName="Universal JPA service" methodRef="b14bfa20-4008-11e4-916c-0800200c9a66" fakeMethod="insert" uid="be912950-8e24-445c-8f06-0416773c2a5d">
-        <parameters uid="1e387d56-6d3d-4d07-a363-9d4112323baf" refObj="b7ea5020-4008-11e4-916c-0800200c9a66">
-          <value uid="05d3c579-e71d-49ad-b0d8-8f81f63220c2" value="Data controls.Company.currentObject">
+      <insert packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="2957c51c-68e7-4d1e-b8b7-cbe7ccdbe13f" fakePackageName="Base package" fakeTypeName="JPA Entity CRAD Service" methodRef="b14bfa20-4008-11e4-916c-0800200c9a66" fakeMethod="insert" uid="be912950-8e24-445c-8f06-0416773c2a5d">
+        <parameters uid="7cbda17f-1038-4d22-a7f1-4e62480d3d1b" refObj="b7ea5020-4008-11e4-916c-0800200c9a66">
+          <value uid="df28540c-19f6-42e2-b950-387e073255eb" value="Data controls.Company.currentObject">
             <expression objRef="5541fdd1-fedb-45ba-ab74-966e737af3a6"/>
             <expression objRef="d45e9605-3706-493c-8422-3f7b8b6ea2ed" order="1"/>
             <expression order="2"/>
           </value>
         </parameters>
       </insert>
-      <update packageRef="f7896b5b-7f62-4232-9357-5d1d8ab0471f" typeRef="bceadb47-a323-417f-8c19-19afe45872a1" fakePackageName="Universal JPA service" fakeTypeName="Universal JPA service" methodRef="caf1fc90-4008-11e4-916c-0800200c9a66" fakeMethod="update" uid="91394238-27e0-4087-bc00-6a46b3b1e7b7">
-        <parameters uid="76f5f4b6-821b-4fe0-b12b-933ffc60298e" refObj="7c4f4d20-400a-11e4-916c-0800200c9a66">
-          <value uid="bb728044-b405-4831-a4c0-24d796f77b6a" value="Data controls.Company.currentObject">
+      <update packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="2957c51c-68e7-4d1e-b8b7-cbe7ccdbe13f" fakePackageName="Base package" fakeTypeName="JPA Entity CRAD Service" methodRef="caf1fc90-4008-11e4-916c-0800200c9a66" fakeMethod="update" uid="91394238-27e0-4087-bc00-6a46b3b1e7b7">
+        <parameters uid="06a64277-1966-4cfb-ac7f-21e9a96e41ba" refObj="7c4f4d20-400a-11e4-916c-0800200c9a66">
+          <value uid="f639e67c-3ba7-43d2-b446-d72b314baf23" value="Data controls.Company.currentObject">
             <expression objRef="5541fdd1-fedb-45ba-ab74-966e737af3a6"/>
             <expression objRef="d45e9605-3706-493c-8422-3f7b8b6ea2ed" order="1"/>
             <expression order="2"/>
           </value>
         </parameters>
       </update>
-      <remove packageRef="f7896b5b-7f62-4232-9357-5d1d8ab0471f" typeRef="bceadb47-a323-417f-8c19-19afe45872a1" fakePackageName="Universal JPA service" fakeTypeName="Universal JPA service" methodRef="dbacf9e0-4008-11e4-916c-0800200c9a66" fakeMethod="remove" uid="468bffd4-991d-40a1-8aed-8e0eb5e55c52">
-        <parameters uid="9ee824fa-0e31-4541-b09c-9efb50a3e201" refObj="73df4460-400a-11e4-916c-0800200c9a66">
-          <value uid="c600dff4-fd79-4f97-8dd0-2bca40c3d304" value="Data controls.Company.currentObject">
+      <remove packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="2957c51c-68e7-4d1e-b8b7-cbe7ccdbe13f" fakePackageName="Base package" fakeTypeName="JPA Entity CRAD Service" methodRef="dbacf9e0-4008-11e4-916c-0800200c9a66" fakeMethod="remove" uid="468bffd4-991d-40a1-8aed-8e0eb5e55c52">
+        <parameters uid="b704adce-7812-4cf0-b9e5-ad64b4e21476" refObj="73df4460-400a-11e4-916c-0800200c9a66">
+          <value uid="4dde51d3-d59b-4fd5-bef0-620a212c4be0" value="Data controls.Company.currentObject">
             <expression objRef="5541fdd1-fedb-45ba-ab74-966e737af3a6"/>
             <expression objRef="d45e9605-3706-493c-8422-3f7b8b6ea2ed" order="1"/>
             <expression order="2"/>
           </value>
         </parameters>
       </remove>
-      <search packageRef="f7896b5b-7f62-4232-9357-5d1d8ab0471f" typeRef="bceadb47-a323-417f-8c19-19afe45872a1" fakePackageName="Universal JPA service" fakeTypeName="Universal JPA service" methodRef="6fb841e0-4008-11e4-916c-0800200c9a66" fakeMethod="find" uid="5f8be1c2-a37e-4d9a-b570-ccf5d02a8e6e">
-        <parameters uid="7269465b-fe74-46e9-b706-e8b830423a45" refObj="790b57a0-4008-11e4-916c-0800200c9a66">
-          <value uid="a2b28408-9bb4-4f44-b46c-c3dceafcf99e" value="Data controls.Company.query">
+      <search packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="2957c51c-68e7-4d1e-b8b7-cbe7ccdbe13f" fakePackageName="Base package" fakeTypeName="JPA Entity CRAD Service" methodRef="6fb841e0-4008-11e4-916c-0800200c9a66" fakeMethod="find" uid="5f8be1c2-a37e-4d9a-b570-ccf5d02a8e6e">
+        <parameters uid="4c5dfa4d-96fe-4602-879a-d0b63508f051" refObj="790b57a0-4008-11e4-916c-0800200c9a66">
+          <value uid="a8c23e0d-720e-44d5-81e5-c0d29d2e4ea2" value="Data controls.Company.query">
             <expression objRef="5541fdd1-fedb-45ba-ab74-966e737af3a6"/>
             <expression objRef="d45e9605-3706-493c-8422-3f7b8b6ea2ed" order="1"/>
             <expression order="2"/>
           </value>
         </parameters>
-        <parameters uid="b75b0b57-4a42-495a-b266-cd33628a9749" refObj="823b06e0-4008-11e4-916c-0800200c9a66">
-          <value uid="36e923b7-b228-4b03-817e-f0cd460fed63" value="Data controls.Company.startIndex">
+        <parameters uid="d5833e91-2f11-47a1-a413-237348becad0" refObj="823b06e0-4008-11e4-916c-0800200c9a66">
+          <value uid="5ab03f76-70a4-4c64-857c-56186d1c91f5" value="Data controls.Company.startIndex">
             <expression objRef="5541fdd1-fedb-45ba-ab74-966e737af3a6"/>
             <expression objRef="d45e9605-3706-493c-8422-3f7b8b6ea2ed" order="1"/>
             <expression order="2"/>
           </value>
         </parameters>
-        <parameters uid="0b55fd5f-8256-4eec-ad8b-1b10868a74ff" refObj="8cc19390-4008-11e4-916c-0800200c9a66">
-          <value uid="1d9f5414-0a2f-44f5-a490-4b69e6cc444f" value="Data controls.Company.endindex">
+        <parameters uid="e6780323-9093-4755-9750-f4ad03160a22" refObj="8cc19390-4008-11e4-916c-0800200c9a66">
+          <value uid="d2f7af4e-ec0d-4d9c-b92c-e9149e5d9fdd" value="Data controls.Company.endindex">
             <expression objRef="5541fdd1-fedb-45ba-ab74-966e737af3a6"/>
             <expression objRef="d45e9605-3706-493c-8422-3f7b8b6ea2ed" order="1"/>
             <expression order="2"/>
           </value>
         </parameters>
-        <parameters uid="ddc783b2-cf70-4f2e-908a-d6e5bc94e97e" refObj="97d8a070-4008-11e4-916c-0800200c9a66">
-          <value uid="29d32c73-8fe4-4fb5-9ff4-80a814462d9d" constant="true" value="org.elsoft.platform.hr.objects.CompanyDAO"/>
+        <parameters uid="9b97762c-f23b-4011-a16f-6ac932479c7b" refObj="97d8a070-4008-11e4-916c-0800200c9a66">
+          <value uid="1c2dce29-3609-4c9d-bcf0-67b4012f743e" constant="true" value="org.elsoft.platform.hr.objects.CompanyDAO"/>
         </parameters>
       </search>
       <artificialFields packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="e370b9d1-a6fb-4a40-88e2-8845be441438" fakePackageName="Primitive package" fakeTypeName="String" uid="9ec8a0b1-3ba4-4cb3-a698-0cd9561396ba" name="testfield1"/>
@@ -1528,487 +1527,487 @@
       </defaultOrderBy>
     </controls>
     <controls uid="cd1cab1c-1781-4867-85b8-84d9f465f989" name="Country">
-      <create packageRef="f7896b5b-7f62-4232-9357-5d1d8ab0471f" typeRef="bceadb47-a323-417f-8c19-19afe45872a1" fakePackageName="Universal JPA service" fakeTypeName="Universal JPA service" methodRef="40b112a0-4008-11e4-916c-0800200c9a66" fakeMethod="create" uid="9963c6a1-841a-4daf-97e2-d3d7538a4924">
-        <parameters uid="1790abc5-6f88-49f5-98f1-27b8fd022462" refObj="9150e8ca-6703-4e2c-a2e0-479f42987fa5">
-          <value uid="bd18123c-a65e-430e-8862-9662e5df1953" constant="true" value="org.elsoft.platform.hr.objects.CountryDAO"/>
+      <create packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="2957c51c-68e7-4d1e-b8b7-cbe7ccdbe13f" fakePackageName="Base package" fakeTypeName="JPA Entity CRAD Service" methodRef="40b112a0-4008-11e4-916c-0800200c9a66" fakeMethod="create" uid="9963c6a1-841a-4daf-97e2-d3d7538a4924">
+        <parameters uid="ceeebfd3-bcba-4e6c-89a9-b522d8190938" refObj="9150e8ca-6703-4e2c-a2e0-479f42987fa5">
+          <value uid="360d9906-2e11-4f41-8f34-94dd75518dcf" constant="true" value="org.elsoft.platform.hr.objects.CountryDAO"/>
         </parameters>
       </create>
-      <insert packageRef="f7896b5b-7f62-4232-9357-5d1d8ab0471f" typeRef="bceadb47-a323-417f-8c19-19afe45872a1" fakePackageName="Universal JPA service" fakeTypeName="Universal JPA service" methodRef="b14bfa20-4008-11e4-916c-0800200c9a66" fakeMethod="insert" uid="2d2b4d08-785f-4ed7-89a4-4dc1adaa3b82">
-        <parameters uid="322baf4e-3a2a-442d-9947-f2334d5916d7" refObj="b7ea5020-4008-11e4-916c-0800200c9a66">
-          <value uid="6b17346f-e591-4477-8cca-4c4efc3a6a39" value="Data controls.Country.currentObject">
+      <insert packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="2957c51c-68e7-4d1e-b8b7-cbe7ccdbe13f" fakePackageName="Base package" fakeTypeName="JPA Entity CRAD Service" methodRef="b14bfa20-4008-11e4-916c-0800200c9a66" fakeMethod="insert" uid="2d2b4d08-785f-4ed7-89a4-4dc1adaa3b82">
+        <parameters uid="942e1bb2-e08f-42de-960b-82b63c347c59" refObj="b7ea5020-4008-11e4-916c-0800200c9a66">
+          <value uid="05931758-4d20-4fe2-a927-6ed48c6844e2" value="Data controls.Country.currentObject">
             <expression objRef="5541fdd1-fedb-45ba-ab74-966e737af3a6"/>
             <expression objRef="cd1cab1c-1781-4867-85b8-84d9f465f989" order="1"/>
             <expression order="2"/>
           </value>
         </parameters>
       </insert>
-      <update packageRef="f7896b5b-7f62-4232-9357-5d1d8ab0471f" typeRef="bceadb47-a323-417f-8c19-19afe45872a1" fakePackageName="Universal JPA service" fakeTypeName="Universal JPA service" methodRef="caf1fc90-4008-11e4-916c-0800200c9a66" fakeMethod="update" uid="eab735d2-ee01-4e6b-a026-26990955d1eb">
-        <parameters uid="2c9f260d-2c4e-4237-82b7-abc204299613" refObj="7c4f4d20-400a-11e4-916c-0800200c9a66">
-          <value uid="c7c46605-647c-4deb-b861-0195fb7e541c" value="Data controls.Country.currentObject">
+      <update packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="2957c51c-68e7-4d1e-b8b7-cbe7ccdbe13f" fakePackageName="Base package" fakeTypeName="JPA Entity CRAD Service" methodRef="caf1fc90-4008-11e4-916c-0800200c9a66" fakeMethod="update" uid="eab735d2-ee01-4e6b-a026-26990955d1eb">
+        <parameters uid="8065908c-54e8-4cb7-a9fc-e560467fcc89" refObj="7c4f4d20-400a-11e4-916c-0800200c9a66">
+          <value uid="b3c506f7-382d-4181-badd-a0ffa8867e71" value="Data controls.Country.currentObject">
             <expression objRef="5541fdd1-fedb-45ba-ab74-966e737af3a6"/>
             <expression objRef="cd1cab1c-1781-4867-85b8-84d9f465f989" order="1"/>
             <expression order="2"/>
           </value>
         </parameters>
       </update>
-      <remove packageRef="f7896b5b-7f62-4232-9357-5d1d8ab0471f" typeRef="bceadb47-a323-417f-8c19-19afe45872a1" fakePackageName="Universal JPA service" fakeTypeName="Universal JPA service" methodRef="dbacf9e0-4008-11e4-916c-0800200c9a66" fakeMethod="remove" uid="efbe236b-41ca-4da3-8c54-1fa5d4451998">
-        <parameters uid="d730b0d5-e6e9-43a0-b2f3-7eff05f43519" refObj="73df4460-400a-11e4-916c-0800200c9a66">
-          <value uid="47b351b9-312b-4125-810f-af16eb5fc257" value="Data controls.Country.currentObject">
+      <remove packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="2957c51c-68e7-4d1e-b8b7-cbe7ccdbe13f" fakePackageName="Base package" fakeTypeName="JPA Entity CRAD Service" methodRef="dbacf9e0-4008-11e4-916c-0800200c9a66" fakeMethod="remove" uid="efbe236b-41ca-4da3-8c54-1fa5d4451998">
+        <parameters uid="56641f53-fe62-4586-b7da-01c4f76fc8a9" refObj="73df4460-400a-11e4-916c-0800200c9a66">
+          <value uid="d13f7de3-d0c5-43ca-abab-f28b2dc735a5" value="Data controls.Country.currentObject">
             <expression objRef="5541fdd1-fedb-45ba-ab74-966e737af3a6"/>
             <expression objRef="cd1cab1c-1781-4867-85b8-84d9f465f989" order="1"/>
             <expression order="2"/>
           </value>
         </parameters>
       </remove>
-      <search packageRef="f7896b5b-7f62-4232-9357-5d1d8ab0471f" typeRef="bceadb47-a323-417f-8c19-19afe45872a1" fakePackageName="Universal JPA service" fakeTypeName="Universal JPA service" methodRef="6fb841e0-4008-11e4-916c-0800200c9a66" fakeMethod="find" uid="76f3e7cc-42eb-4531-b731-d9afc2de24d6">
-        <parameters uid="04b96f5b-07f1-4f26-93b4-40770e054788" refObj="790b57a0-4008-11e4-916c-0800200c9a66">
-          <value uid="e66660a9-cddb-4af3-89fc-c244c8732a5a" value="Data controls.Country.query">
+      <search packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="2957c51c-68e7-4d1e-b8b7-cbe7ccdbe13f" fakePackageName="Base package" fakeTypeName="JPA Entity CRAD Service" methodRef="6fb841e0-4008-11e4-916c-0800200c9a66" fakeMethod="find" uid="76f3e7cc-42eb-4531-b731-d9afc2de24d6">
+        <parameters uid="804132bb-b79b-4a00-a7d7-2076e865d33c" refObj="790b57a0-4008-11e4-916c-0800200c9a66">
+          <value uid="034132bc-0f82-45b4-be09-8ac7143c0469" value="Data controls.Country.query">
             <expression objRef="5541fdd1-fedb-45ba-ab74-966e737af3a6"/>
             <expression objRef="cd1cab1c-1781-4867-85b8-84d9f465f989" order="1"/>
             <expression order="2"/>
           </value>
         </parameters>
-        <parameters uid="067a2e8d-f0fd-49d9-b1b6-371acaeb8ea0" refObj="823b06e0-4008-11e4-916c-0800200c9a66">
-          <value uid="69c38cdd-c450-4240-8883-8dcdd9587329" value="Data controls.Country.startIndex">
+        <parameters uid="1d1cf148-886c-4602-b837-4f42e5792d69" refObj="823b06e0-4008-11e4-916c-0800200c9a66">
+          <value uid="aff4673f-02fb-4c10-8a6d-ab1cc28088e3" value="Data controls.Country.startIndex">
             <expression objRef="5541fdd1-fedb-45ba-ab74-966e737af3a6"/>
             <expression objRef="cd1cab1c-1781-4867-85b8-84d9f465f989" order="1"/>
             <expression order="2"/>
           </value>
         </parameters>
-        <parameters uid="4fa5bf26-7e2b-46fd-8972-f5647f19c0ac" refObj="8cc19390-4008-11e4-916c-0800200c9a66">
-          <value uid="016722e7-a0fd-4f83-90f2-3e85c74ef787" value="Data controls.Country.endindex">
+        <parameters uid="2b1b25ee-05b5-426f-bb45-927ef9594dca" refObj="8cc19390-4008-11e4-916c-0800200c9a66">
+          <value uid="d6805218-683d-469c-8ad6-209661b19772" value="Data controls.Country.endindex">
             <expression objRef="5541fdd1-fedb-45ba-ab74-966e737af3a6"/>
             <expression objRef="cd1cab1c-1781-4867-85b8-84d9f465f989" order="1"/>
             <expression order="2"/>
           </value>
         </parameters>
-        <parameters uid="e62c5c7a-e913-4b73-a4cf-b86e9da4e2f5" refObj="97d8a070-4008-11e4-916c-0800200c9a66">
-          <value uid="aa9a298c-a848-47f3-ac43-c7e3c4c29abe" constant="true" value="org.elsoft.platform.hr.objects.CountryDAO"/>
+        <parameters uid="d795237c-1042-4bef-8e90-9fe50ff6063a" refObj="97d8a070-4008-11e4-916c-0800200c9a66">
+          <value uid="e7a94db6-54df-4841-b5f6-5a089e4931b9" constant="true" value="org.elsoft.platform.hr.objects.CountryDAO"/>
         </parameters>
       </search>
       <defaultSearch/>
       <defaultOrderBy/>
     </controls>
     <controls uid="f77b6e6d-41a3-4fb5-8ab9-85b2b76191ec" name="State">
-      <create packageRef="f7896b5b-7f62-4232-9357-5d1d8ab0471f" typeRef="bceadb47-a323-417f-8c19-19afe45872a1" fakePackageName="Universal JPA service" fakeTypeName="Universal JPA service" methodRef="40b112a0-4008-11e4-916c-0800200c9a66" fakeMethod="create" uid="5a601dff-fe13-4626-8f2e-2d7c8437f9d2">
-        <parameters uid="156ba2fc-02ad-4386-a21d-8aaf544e964f" refObj="9150e8ca-6703-4e2c-a2e0-479f42987fa5">
-          <value uid="1dbecd89-0bf6-44c2-b472-91585ae25f0f" constant="true" value="org.elsoft.platform.hr.objects.StateDAO"/>
+      <create packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="2957c51c-68e7-4d1e-b8b7-cbe7ccdbe13f" fakePackageName="Base package" fakeTypeName="JPA Entity CRAD Service" methodRef="40b112a0-4008-11e4-916c-0800200c9a66" fakeMethod="create" uid="5a601dff-fe13-4626-8f2e-2d7c8437f9d2">
+        <parameters uid="d4a40060-7f8e-4343-83f6-0344bee321f8" refObj="9150e8ca-6703-4e2c-a2e0-479f42987fa5">
+          <value uid="89e892f3-9f11-4b2d-8878-55386bbc5d53" constant="true" value="org.elsoft.platform.hr.objects.StateDAO"/>
         </parameters>
       </create>
-      <insert packageRef="f7896b5b-7f62-4232-9357-5d1d8ab0471f" typeRef="bceadb47-a323-417f-8c19-19afe45872a1" fakePackageName="Universal JPA service" fakeTypeName="Universal JPA service" methodRef="b14bfa20-4008-11e4-916c-0800200c9a66" fakeMethod="insert" uid="d691db61-c12e-4697-8d19-e8bf42003b42">
-        <parameters uid="542e9eef-6be1-41f1-9fa6-7c442015ffb5" refObj="b7ea5020-4008-11e4-916c-0800200c9a66">
-          <value uid="13610470-e7ad-4ed7-a81c-63675628a1e3" value="Data controls.State.currentObject">
+      <insert packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="2957c51c-68e7-4d1e-b8b7-cbe7ccdbe13f" fakePackageName="Base package" fakeTypeName="JPA Entity CRAD Service" methodRef="b14bfa20-4008-11e4-916c-0800200c9a66" fakeMethod="insert" uid="d691db61-c12e-4697-8d19-e8bf42003b42">
+        <parameters uid="76590915-65c6-4899-a925-52cdbd63093e" refObj="b7ea5020-4008-11e4-916c-0800200c9a66">
+          <value uid="b31cbacb-4637-4c6e-ae1b-65bb55b4ea2e" value="Data controls.State.currentObject">
             <expression objRef="5541fdd1-fedb-45ba-ab74-966e737af3a6"/>
             <expression objRef="f77b6e6d-41a3-4fb5-8ab9-85b2b76191ec" order="1"/>
             <expression order="2"/>
           </value>
         </parameters>
       </insert>
-      <update packageRef="f7896b5b-7f62-4232-9357-5d1d8ab0471f" typeRef="bceadb47-a323-417f-8c19-19afe45872a1" fakePackageName="Universal JPA service" fakeTypeName="Universal JPA service" methodRef="caf1fc90-4008-11e4-916c-0800200c9a66" fakeMethod="update" uid="c00ca5da-9729-488f-a9f4-ed60297f789d">
-        <parameters uid="a0e8c842-7c7b-4e57-92dc-059d2da12114" refObj="7c4f4d20-400a-11e4-916c-0800200c9a66">
-          <value uid="17647c60-3317-42e4-ba8a-8001fd859328" value="Data controls.State.currentObject">
+      <update packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="2957c51c-68e7-4d1e-b8b7-cbe7ccdbe13f" fakePackageName="Base package" fakeTypeName="JPA Entity CRAD Service" methodRef="caf1fc90-4008-11e4-916c-0800200c9a66" fakeMethod="update" uid="c00ca5da-9729-488f-a9f4-ed60297f789d">
+        <parameters uid="dcb8ae65-2b1a-48ab-8d16-cb3c2f539c1b" refObj="7c4f4d20-400a-11e4-916c-0800200c9a66">
+          <value uid="9dd5ce5f-9a44-4c33-8146-087cfea06d4a" value="Data controls.State.currentObject">
             <expression objRef="5541fdd1-fedb-45ba-ab74-966e737af3a6"/>
             <expression objRef="f77b6e6d-41a3-4fb5-8ab9-85b2b76191ec" order="1"/>
             <expression order="2"/>
           </value>
         </parameters>
       </update>
-      <remove packageRef="f7896b5b-7f62-4232-9357-5d1d8ab0471f" typeRef="bceadb47-a323-417f-8c19-19afe45872a1" fakePackageName="Universal JPA service" fakeTypeName="Universal JPA service" methodRef="dbacf9e0-4008-11e4-916c-0800200c9a66" fakeMethod="remove" uid="290c52ac-baa4-44fa-9c4b-f0dea067612e">
-        <parameters uid="b48833b4-63d3-4aca-a4f7-17f1e9d4b7cb" refObj="73df4460-400a-11e4-916c-0800200c9a66">
-          <value uid="115f4a02-532e-4f2b-a313-9943917695d3" value="Data controls.State.currentObject">
+      <remove packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="2957c51c-68e7-4d1e-b8b7-cbe7ccdbe13f" fakePackageName="Base package" fakeTypeName="JPA Entity CRAD Service" methodRef="dbacf9e0-4008-11e4-916c-0800200c9a66" fakeMethod="remove" uid="290c52ac-baa4-44fa-9c4b-f0dea067612e">
+        <parameters uid="4256b647-1ef7-4af8-9924-2cee8bfc9ea3" refObj="73df4460-400a-11e4-916c-0800200c9a66">
+          <value uid="93f6dda2-af59-4d30-bce6-3e95fb749f05" value="Data controls.State.currentObject">
             <expression objRef="5541fdd1-fedb-45ba-ab74-966e737af3a6"/>
             <expression objRef="f77b6e6d-41a3-4fb5-8ab9-85b2b76191ec" order="1"/>
             <expression order="2"/>
           </value>
         </parameters>
       </remove>
-      <search packageRef="f7896b5b-7f62-4232-9357-5d1d8ab0471f" typeRef="bceadb47-a323-417f-8c19-19afe45872a1" fakePackageName="Universal JPA service" fakeTypeName="Universal JPA service" methodRef="6fb841e0-4008-11e4-916c-0800200c9a66" fakeMethod="find" uid="659d81da-3a48-4e77-9754-dd5cec393642">
-        <parameters uid="497075c6-3597-4984-afa5-e7ede19a5243" refObj="790b57a0-4008-11e4-916c-0800200c9a66">
-          <value uid="4414432d-4879-4616-94d3-cd8ab6c1e4a8" value="Data controls.State.query">
+      <search packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="2957c51c-68e7-4d1e-b8b7-cbe7ccdbe13f" fakePackageName="Base package" fakeTypeName="JPA Entity CRAD Service" methodRef="6fb841e0-4008-11e4-916c-0800200c9a66" fakeMethod="find" uid="659d81da-3a48-4e77-9754-dd5cec393642">
+        <parameters uid="93176908-289c-4212-b27e-0c2585a4ee2d" refObj="790b57a0-4008-11e4-916c-0800200c9a66">
+          <value uid="515ae292-6a16-4111-be73-56153538658b" value="Data controls.State.query">
             <expression objRef="5541fdd1-fedb-45ba-ab74-966e737af3a6"/>
             <expression objRef="f77b6e6d-41a3-4fb5-8ab9-85b2b76191ec" order="1"/>
             <expression order="2"/>
           </value>
         </parameters>
-        <parameters uid="be6fa3bb-ad01-430a-a56d-6b89a8023201" refObj="823b06e0-4008-11e4-916c-0800200c9a66">
-          <value uid="80900122-72fd-46d6-9209-0bb4e05b15e4" value="Data controls.State.startIndex">
+        <parameters uid="1123974b-c2d0-43d0-aa92-034e466de026" refObj="823b06e0-4008-11e4-916c-0800200c9a66">
+          <value uid="35103bb5-a160-4f4d-9092-6fefe1ae0ea1" value="Data controls.State.startIndex">
             <expression objRef="5541fdd1-fedb-45ba-ab74-966e737af3a6"/>
             <expression objRef="f77b6e6d-41a3-4fb5-8ab9-85b2b76191ec" order="1"/>
             <expression order="2"/>
           </value>
         </parameters>
-        <parameters uid="e4cbb970-e8c7-4b06-b570-51f27ae3f85f" refObj="8cc19390-4008-11e4-916c-0800200c9a66">
-          <value uid="e5aa8b04-ae41-489a-8c59-f844f26b310f" value="Data controls.State.endindex">
+        <parameters uid="29bd2f7b-b28e-4ae3-b6e1-ea129a51dc0b" refObj="8cc19390-4008-11e4-916c-0800200c9a66">
+          <value uid="fe564544-e1b9-4032-b6f5-44b78d730b87" value="Data controls.State.endindex">
             <expression objRef="5541fdd1-fedb-45ba-ab74-966e737af3a6"/>
             <expression objRef="f77b6e6d-41a3-4fb5-8ab9-85b2b76191ec" order="1"/>
             <expression order="2"/>
           </value>
         </parameters>
-        <parameters uid="3c244a98-6f93-44cb-989c-2b50e0887484" refObj="97d8a070-4008-11e4-916c-0800200c9a66">
-          <value uid="a29e9eba-da1d-4c51-80a7-ea4f5b6b5974" constant="true" value="org.elsoft.platform.hr.objects.StateDAO"/>
+        <parameters uid="0c2e222b-dd31-4b28-ac5d-7fa26db6beb7" refObj="97d8a070-4008-11e4-916c-0800200c9a66">
+          <value uid="351cf928-c7bb-4415-9643-3251dea52c7f" constant="true" value="org.elsoft.platform.hr.objects.StateDAO"/>
         </parameters>
       </search>
       <defaultOrderBy/>
     </controls>
     <controls uid="8d431a55-eddc-42cb-8397-588243cfb255" name="City">
-      <create packageRef="f7896b5b-7f62-4232-9357-5d1d8ab0471f" typeRef="bceadb47-a323-417f-8c19-19afe45872a1" fakePackageName="Universal JPA service" fakeTypeName="Universal JPA service" methodRef="40b112a0-4008-11e4-916c-0800200c9a66" fakeMethod="create" uid="34a45fce-3c59-44ea-bcac-a5a8d0e165e6">
-        <parameters uid="fdb35b61-4d46-42e1-b154-aa296eae277a" refObj="9150e8ca-6703-4e2c-a2e0-479f42987fa5">
-          <value uid="58edd4f1-bdb9-43a8-9760-b2db4f8c2bf7" constant="true" value="org.elsoft.platform.hr.objects.CityDAO"/>
+      <create packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="2957c51c-68e7-4d1e-b8b7-cbe7ccdbe13f" fakePackageName="Base package" fakeTypeName="JPA Entity CRAD Service" methodRef="40b112a0-4008-11e4-916c-0800200c9a66" fakeMethod="create" uid="34a45fce-3c59-44ea-bcac-a5a8d0e165e6">
+        <parameters uid="81f36481-4b2e-4fab-be46-570c05d9a7e9" refObj="9150e8ca-6703-4e2c-a2e0-479f42987fa5">
+          <value uid="20402c11-499b-4eb6-8609-a455c6a6934f" constant="true" value="org.elsoft.platform.hr.objects.CityDAO"/>
         </parameters>
       </create>
-      <insert packageRef="f7896b5b-7f62-4232-9357-5d1d8ab0471f" typeRef="bceadb47-a323-417f-8c19-19afe45872a1" fakePackageName="Universal JPA service" fakeTypeName="Universal JPA service" methodRef="b14bfa20-4008-11e4-916c-0800200c9a66" fakeMethod="insert" uid="6ea7aab7-6e1d-4a68-b9fe-0f245a4171c6">
-        <parameters uid="cb0d60e0-eb20-473f-b08b-cd7ee203f757" refObj="b7ea5020-4008-11e4-916c-0800200c9a66">
-          <value uid="94d17ca2-04e8-4c55-9776-58c5d918df7e" value="Data controls.City.currentObject">
+      <insert packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="2957c51c-68e7-4d1e-b8b7-cbe7ccdbe13f" fakePackageName="Base package" fakeTypeName="JPA Entity CRAD Service" methodRef="b14bfa20-4008-11e4-916c-0800200c9a66" fakeMethod="insert" uid="6ea7aab7-6e1d-4a68-b9fe-0f245a4171c6">
+        <parameters uid="e63f354e-08e8-42d5-9ade-97b2bca9a65d" refObj="b7ea5020-4008-11e4-916c-0800200c9a66">
+          <value uid="1cd5fbeb-aba6-4459-8809-893802a97a1c" value="Data controls.City.currentObject">
             <expression objRef="5541fdd1-fedb-45ba-ab74-966e737af3a6"/>
             <expression objRef="8d431a55-eddc-42cb-8397-588243cfb255" order="1"/>
             <expression order="2"/>
           </value>
         </parameters>
       </insert>
-      <update packageRef="f7896b5b-7f62-4232-9357-5d1d8ab0471f" typeRef="bceadb47-a323-417f-8c19-19afe45872a1" fakePackageName="Universal JPA service" fakeTypeName="Universal JPA service" methodRef="caf1fc90-4008-11e4-916c-0800200c9a66" fakeMethod="update" uid="14942efc-6b41-4517-9136-1e1f04f10035">
-        <parameters uid="26b307c7-c002-480e-b099-89df0120078b" refObj="7c4f4d20-400a-11e4-916c-0800200c9a66">
-          <value uid="857cde9c-b0df-4f14-b9d1-b21a1c8edd4d" value="Data controls.City.currentObject">
+      <update packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="2957c51c-68e7-4d1e-b8b7-cbe7ccdbe13f" fakePackageName="Base package" fakeTypeName="JPA Entity CRAD Service" methodRef="caf1fc90-4008-11e4-916c-0800200c9a66" fakeMethod="update" uid="14942efc-6b41-4517-9136-1e1f04f10035">
+        <parameters uid="b28cd603-473f-4268-9cbe-8fd3d64fce88" refObj="7c4f4d20-400a-11e4-916c-0800200c9a66">
+          <value uid="66ffa30b-d25c-42e3-a8cc-1f99087950ff" value="Data controls.City.currentObject">
             <expression objRef="5541fdd1-fedb-45ba-ab74-966e737af3a6"/>
             <expression objRef="8d431a55-eddc-42cb-8397-588243cfb255" order="1"/>
             <expression order="2"/>
           </value>
         </parameters>
       </update>
-      <remove packageRef="f7896b5b-7f62-4232-9357-5d1d8ab0471f" typeRef="bceadb47-a323-417f-8c19-19afe45872a1" fakePackageName="Universal JPA service" fakeTypeName="Universal JPA service" methodRef="dbacf9e0-4008-11e4-916c-0800200c9a66" fakeMethod="remove" uid="a852f45b-cc3d-47c5-a7aa-7e266e99636e">
-        <parameters uid="af64d931-97ac-4303-8ff0-1a96ce710652" refObj="73df4460-400a-11e4-916c-0800200c9a66">
-          <value uid="21b0dae6-1648-4747-9fde-4f51dcafb834" value="Data controls.City.currentObject">
+      <remove packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="2957c51c-68e7-4d1e-b8b7-cbe7ccdbe13f" fakePackageName="Base package" fakeTypeName="JPA Entity CRAD Service" methodRef="dbacf9e0-4008-11e4-916c-0800200c9a66" fakeMethod="remove" uid="a852f45b-cc3d-47c5-a7aa-7e266e99636e">
+        <parameters uid="e92f7b24-cb38-4838-bf38-eb3dddda4f78" refObj="73df4460-400a-11e4-916c-0800200c9a66">
+          <value uid="01669fe1-6bca-4714-b086-05c478e28b75" value="Data controls.City.currentObject">
             <expression objRef="5541fdd1-fedb-45ba-ab74-966e737af3a6"/>
             <expression objRef="8d431a55-eddc-42cb-8397-588243cfb255" order="1"/>
             <expression order="2"/>
           </value>
         </parameters>
       </remove>
-      <search packageRef="f7896b5b-7f62-4232-9357-5d1d8ab0471f" typeRef="bceadb47-a323-417f-8c19-19afe45872a1" fakePackageName="Universal JPA service" fakeTypeName="Universal JPA service" methodRef="6fb841e0-4008-11e4-916c-0800200c9a66" fakeMethod="find" uid="743acc11-e1b8-4947-8c1e-a8da16da7056">
-        <parameters uid="abcc219e-40f2-404a-992b-68c80f170486" refObj="790b57a0-4008-11e4-916c-0800200c9a66">
-          <value uid="3a54b4ef-f0be-478c-871a-075320813381" value="Data controls.City.query">
+      <search packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="2957c51c-68e7-4d1e-b8b7-cbe7ccdbe13f" fakePackageName="Base package" fakeTypeName="JPA Entity CRAD Service" methodRef="6fb841e0-4008-11e4-916c-0800200c9a66" fakeMethod="find" uid="743acc11-e1b8-4947-8c1e-a8da16da7056">
+        <parameters uid="a6a691bc-b992-4865-b039-4cabd42fbb2b" refObj="790b57a0-4008-11e4-916c-0800200c9a66">
+          <value uid="a2d96353-b531-4d10-bc7b-45ff578293bb" value="Data controls.City.query">
             <expression objRef="5541fdd1-fedb-45ba-ab74-966e737af3a6"/>
             <expression objRef="8d431a55-eddc-42cb-8397-588243cfb255" order="1"/>
             <expression order="2"/>
           </value>
         </parameters>
-        <parameters uid="57bcfad7-cd67-4af5-9e38-aceb9c51336e" refObj="823b06e0-4008-11e4-916c-0800200c9a66">
-          <value uid="39364925-7f6c-4ac0-bce1-726d2b89dec7" value="Data controls.City.startIndex">
+        <parameters uid="3182df4a-f927-44b0-a1f6-fd7949fe6879" refObj="823b06e0-4008-11e4-916c-0800200c9a66">
+          <value uid="951522fc-c92b-4ef9-adac-313ce743eac2" value="Data controls.City.startIndex">
             <expression objRef="5541fdd1-fedb-45ba-ab74-966e737af3a6"/>
             <expression objRef="8d431a55-eddc-42cb-8397-588243cfb255" order="1"/>
             <expression order="2"/>
           </value>
         </parameters>
-        <parameters uid="3ad2599e-5085-4d75-a7f7-644498ac4bbd" refObj="8cc19390-4008-11e4-916c-0800200c9a66">
-          <value uid="3a7b9c11-63cc-400b-b72e-964b84a43052" value="Data controls.City.endindex">
+        <parameters uid="8609449c-d6ca-435c-b28d-f38ee5b8e2d0" refObj="8cc19390-4008-11e4-916c-0800200c9a66">
+          <value uid="c1e73a74-6508-482f-ae7f-e9fce16cfdc3" value="Data controls.City.endindex">
             <expression objRef="5541fdd1-fedb-45ba-ab74-966e737af3a6"/>
             <expression objRef="8d431a55-eddc-42cb-8397-588243cfb255" order="1"/>
             <expression order="2"/>
           </value>
         </parameters>
-        <parameters uid="86ace825-9f27-48c6-8545-30f4b635ca52" refObj="97d8a070-4008-11e4-916c-0800200c9a66">
-          <value uid="08ef3236-e8d4-4b1f-bce2-c50e32dc123f" constant="true" value="org.elsoft.platform.hr.objects.CityDAO"/>
+        <parameters uid="3887906c-faec-4b38-8da7-113959942455" refObj="97d8a070-4008-11e4-916c-0800200c9a66">
+          <value uid="050b1f09-bf0b-4b46-803a-51e4e6831b73" constant="true" value="org.elsoft.platform.hr.objects.CityDAO"/>
         </parameters>
       </search>
     </controls>
     <controls uid="b4d21da3-17fa-49e6-ab0e-a8cd3bd9d01d" name="Street">
-      <create packageRef="f7896b5b-7f62-4232-9357-5d1d8ab0471f" typeRef="bceadb47-a323-417f-8c19-19afe45872a1" fakePackageName="Universal JPA service" fakeTypeName="Universal JPA service" methodRef="40b112a0-4008-11e4-916c-0800200c9a66" fakeMethod="create" uid="5854e526-56a2-4f19-9b6a-1306d33c62b4">
-        <parameters uid="f1b631d9-ddfc-4add-8912-eeabf03eb6af" refObj="9150e8ca-6703-4e2c-a2e0-479f42987fa5">
-          <value uid="bb188db7-5bf3-4f9b-8103-10d33df2b14f" constant="true" value="org.elsoft.platform.hr.objects.StreetDAO"/>
+      <create packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="2957c51c-68e7-4d1e-b8b7-cbe7ccdbe13f" fakePackageName="Base package" fakeTypeName="JPA Entity CRAD Service" methodRef="40b112a0-4008-11e4-916c-0800200c9a66" fakeMethod="create" uid="5854e526-56a2-4f19-9b6a-1306d33c62b4">
+        <parameters uid="9e8f99c3-b72f-4ff7-b180-26edd522adb2" refObj="9150e8ca-6703-4e2c-a2e0-479f42987fa5">
+          <value uid="1bcbc0a1-4c24-4594-81db-4850c037f863" constant="true" value="org.elsoft.platform.hr.objects.StreetDAO"/>
         </parameters>
       </create>
-      <insert packageRef="f7896b5b-7f62-4232-9357-5d1d8ab0471f" typeRef="bceadb47-a323-417f-8c19-19afe45872a1" fakePackageName="Universal JPA service" fakeTypeName="Universal JPA service" methodRef="b14bfa20-4008-11e4-916c-0800200c9a66" fakeMethod="insert" uid="c4ca3182-9944-4b2a-b428-f6560a36e210">
-        <parameters uid="7d9ff87b-43d4-4d34-840a-4c096aedf8f2" refObj="b7ea5020-4008-11e4-916c-0800200c9a66">
-          <value uid="d3986dc7-a326-46d3-bb7d-5ddb4764c48f" value="Data controls.Street.currentObject">
+      <insert packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="2957c51c-68e7-4d1e-b8b7-cbe7ccdbe13f" fakePackageName="Base package" fakeTypeName="JPA Entity CRAD Service" methodRef="b14bfa20-4008-11e4-916c-0800200c9a66" fakeMethod="insert" uid="c4ca3182-9944-4b2a-b428-f6560a36e210">
+        <parameters uid="55b91acb-8e33-4510-8ba2-08fa54e39e04" refObj="b7ea5020-4008-11e4-916c-0800200c9a66">
+          <value uid="e199bf12-d8fe-4348-963a-e15bada6a371" value="Data controls.Street.currentObject">
             <expression objRef="5541fdd1-fedb-45ba-ab74-966e737af3a6"/>
             <expression objRef="b4d21da3-17fa-49e6-ab0e-a8cd3bd9d01d" order="1"/>
             <expression order="2"/>
           </value>
         </parameters>
       </insert>
-      <update packageRef="f7896b5b-7f62-4232-9357-5d1d8ab0471f" typeRef="bceadb47-a323-417f-8c19-19afe45872a1" fakePackageName="Universal JPA service" fakeTypeName="Universal JPA service" methodRef="caf1fc90-4008-11e4-916c-0800200c9a66" fakeMethod="update" uid="397779c6-fea5-47cc-9922-349e5793a2a5">
-        <parameters uid="6d295444-fa82-498b-a77f-63565a1dc9a5" refObj="7c4f4d20-400a-11e4-916c-0800200c9a66">
-          <value uid="34c53a1b-d308-4e9e-9603-5f42abfbb7f9" value="Data controls.Street.currentObject">
+      <update packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="2957c51c-68e7-4d1e-b8b7-cbe7ccdbe13f" fakePackageName="Base package" fakeTypeName="JPA Entity CRAD Service" methodRef="caf1fc90-4008-11e4-916c-0800200c9a66" fakeMethod="update" uid="397779c6-fea5-47cc-9922-349e5793a2a5">
+        <parameters uid="bf1b549b-ca44-47c3-843d-5cc42536fe28" refObj="7c4f4d20-400a-11e4-916c-0800200c9a66">
+          <value uid="deb24c02-4f46-461e-b1fc-0261fd8745b5" value="Data controls.Street.currentObject">
             <expression objRef="5541fdd1-fedb-45ba-ab74-966e737af3a6"/>
             <expression objRef="b4d21da3-17fa-49e6-ab0e-a8cd3bd9d01d" order="1"/>
             <expression order="2"/>
           </value>
         </parameters>
       </update>
-      <remove packageRef="f7896b5b-7f62-4232-9357-5d1d8ab0471f" typeRef="bceadb47-a323-417f-8c19-19afe45872a1" fakePackageName="Universal JPA service" fakeTypeName="Universal JPA service" methodRef="dbacf9e0-4008-11e4-916c-0800200c9a66" fakeMethod="remove" uid="f44eb949-f0da-499a-abf0-24b895cb49ba">
-        <parameters uid="11cb9f49-beda-4bc7-8178-8b616af727da" refObj="73df4460-400a-11e4-916c-0800200c9a66">
-          <value uid="8b28f143-8531-4e1e-b381-7a3e44a66b86" value="Data controls.Street.currentObject">
+      <remove packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="2957c51c-68e7-4d1e-b8b7-cbe7ccdbe13f" fakePackageName="Base package" fakeTypeName="JPA Entity CRAD Service" methodRef="dbacf9e0-4008-11e4-916c-0800200c9a66" fakeMethod="remove" uid="f44eb949-f0da-499a-abf0-24b895cb49ba">
+        <parameters uid="f8bfa874-7327-4086-8f4f-ff0a12297c06" refObj="73df4460-400a-11e4-916c-0800200c9a66">
+          <value uid="fff29b2b-f8b7-4eab-bcd0-156a3d7da28c" value="Data controls.Street.currentObject">
             <expression objRef="5541fdd1-fedb-45ba-ab74-966e737af3a6"/>
             <expression objRef="b4d21da3-17fa-49e6-ab0e-a8cd3bd9d01d" order="1"/>
             <expression order="2"/>
           </value>
         </parameters>
       </remove>
-      <search packageRef="f7896b5b-7f62-4232-9357-5d1d8ab0471f" typeRef="bceadb47-a323-417f-8c19-19afe45872a1" fakePackageName="Universal JPA service" fakeTypeName="Universal JPA service" methodRef="6fb841e0-4008-11e4-916c-0800200c9a66" fakeMethod="find" uid="70469eb6-ede9-4a47-8dfa-32e43cc247cb">
-        <parameters uid="1f3b4996-9ea2-4775-b58e-52207aca239b" refObj="790b57a0-4008-11e4-916c-0800200c9a66">
-          <value uid="8d7e0014-aca0-41ff-8ea4-7fc51653cb87" value="Data controls.Street.query">
+      <search packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="2957c51c-68e7-4d1e-b8b7-cbe7ccdbe13f" fakePackageName="Base package" fakeTypeName="JPA Entity CRAD Service" methodRef="6fb841e0-4008-11e4-916c-0800200c9a66" fakeMethod="find" uid="70469eb6-ede9-4a47-8dfa-32e43cc247cb">
+        <parameters uid="16610173-8e34-4742-82cc-bebd65694837" refObj="790b57a0-4008-11e4-916c-0800200c9a66">
+          <value uid="a72fc951-098b-4c89-a22e-2939b567df5c" value="Data controls.Street.query">
             <expression objRef="5541fdd1-fedb-45ba-ab74-966e737af3a6"/>
             <expression objRef="b4d21da3-17fa-49e6-ab0e-a8cd3bd9d01d" order="1"/>
             <expression order="2"/>
           </value>
         </parameters>
-        <parameters uid="75c00f3c-6c13-4f09-8d92-de4ea6698a8c" refObj="823b06e0-4008-11e4-916c-0800200c9a66">
-          <value uid="459c0192-6d20-4c4c-ba36-cab297aa4575" value="Data controls.Street.startIndex">
+        <parameters uid="528df305-8a13-4b0e-a54b-8cc387929a83" refObj="823b06e0-4008-11e4-916c-0800200c9a66">
+          <value uid="91168b38-a140-49a5-b213-21fb913478d3" value="Data controls.Street.startIndex">
             <expression objRef="5541fdd1-fedb-45ba-ab74-966e737af3a6"/>
             <expression objRef="b4d21da3-17fa-49e6-ab0e-a8cd3bd9d01d" order="1"/>
             <expression order="2"/>
           </value>
         </parameters>
-        <parameters uid="1fb29f87-a7b4-4624-8926-41e6069669be" refObj="8cc19390-4008-11e4-916c-0800200c9a66">
-          <value uid="cee45958-6b88-42ae-9ff1-d80d1e6cb988" value="Data controls.Street.endindex">
+        <parameters uid="324403de-877e-419d-b895-e41e201f996c" refObj="8cc19390-4008-11e4-916c-0800200c9a66">
+          <value uid="073d9db1-3418-4ddf-95ee-d73395cf3c86" value="Data controls.Street.endindex">
             <expression objRef="5541fdd1-fedb-45ba-ab74-966e737af3a6"/>
             <expression objRef="b4d21da3-17fa-49e6-ab0e-a8cd3bd9d01d" order="1"/>
             <expression order="2"/>
           </value>
         </parameters>
-        <parameters uid="eb0cfb04-186b-4bf3-b659-980f68e91d16" refObj="97d8a070-4008-11e4-916c-0800200c9a66">
-          <value uid="7af63893-0a72-400e-9308-0e94a44fec6a" constant="true" value="org.elsoft.platform.hr.objects.StreetDAO"/>
+        <parameters uid="ed0b0374-702f-4cf2-a1ae-77a577478a32" refObj="97d8a070-4008-11e4-916c-0800200c9a66">
+          <value uid="69e22c30-0e90-4e36-8c4c-655afb9dd63c" constant="true" value="org.elsoft.platform.hr.objects.StreetDAO"/>
         </parameters>
       </search>
     </controls>
     <controls uid="0feddc04-1241-40fa-a9f3-35089d2cf4c5" name="Department">
-      <create packageRef="f7896b5b-7f62-4232-9357-5d1d8ab0471f" typeRef="bceadb47-a323-417f-8c19-19afe45872a1" fakePackageName="Universal JPA service" fakeTypeName="Universal JPA service" methodRef="40b112a0-4008-11e4-916c-0800200c9a66" fakeMethod="create" uid="f84d75ec-98bc-4e08-ac93-1ab07ffca3e3">
-        <parameters uid="66680705-7f7a-4e8e-8e2e-d2c2a016079c" refObj="9150e8ca-6703-4e2c-a2e0-479f42987fa5">
-          <value uid="ecac522e-dd27-43e7-8315-e48ac13d3e22" constant="true" value="org.elsoft.platform.hr.objects.DepartmentsDAO"/>
+      <create packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="2957c51c-68e7-4d1e-b8b7-cbe7ccdbe13f" fakePackageName="Base package" fakeTypeName="JPA Entity CRAD Service" methodRef="40b112a0-4008-11e4-916c-0800200c9a66" fakeMethod="create" uid="f84d75ec-98bc-4e08-ac93-1ab07ffca3e3">
+        <parameters uid="85649180-e39e-49e4-bea9-eb7880b2877b" refObj="9150e8ca-6703-4e2c-a2e0-479f42987fa5">
+          <value uid="83f31914-943d-401c-8e8f-8b1958bfbb42" constant="true" value="org.elsoft.platform.hr.objects.DepartmentsDAO"/>
         </parameters>
       </create>
-      <insert packageRef="f7896b5b-7f62-4232-9357-5d1d8ab0471f" typeRef="bceadb47-a323-417f-8c19-19afe45872a1" fakePackageName="Universal JPA service" fakeTypeName="Universal JPA service" methodRef="b14bfa20-4008-11e4-916c-0800200c9a66" fakeMethod="insert" uid="b88c4444-d133-4a0f-a3a6-bdbafed71061">
-        <parameters uid="3a53e40b-cf8d-427e-8b59-c79e46d3ff9d" refObj="b7ea5020-4008-11e4-916c-0800200c9a66">
-          <value uid="093523b5-92f3-49d0-8762-6440d43eb81b" value="Data controls.Department.currentObject">
+      <insert packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="2957c51c-68e7-4d1e-b8b7-cbe7ccdbe13f" fakePackageName="Base package" fakeTypeName="JPA Entity CRAD Service" methodRef="b14bfa20-4008-11e4-916c-0800200c9a66" fakeMethod="insert" uid="b88c4444-d133-4a0f-a3a6-bdbafed71061">
+        <parameters uid="d7b0bd01-1a8e-49dd-aa3c-fc77db381eff" refObj="b7ea5020-4008-11e4-916c-0800200c9a66">
+          <value uid="3c499d27-0f99-4faa-b1b1-dd44af0e73e3" value="Data controls.Department.currentObject">
             <expression objRef="5541fdd1-fedb-45ba-ab74-966e737af3a6"/>
             <expression objRef="0feddc04-1241-40fa-a9f3-35089d2cf4c5" order="1"/>
             <expression order="2"/>
           </value>
         </parameters>
       </insert>
-      <update packageRef="f7896b5b-7f62-4232-9357-5d1d8ab0471f" typeRef="bceadb47-a323-417f-8c19-19afe45872a1" fakePackageName="Universal JPA service" fakeTypeName="Universal JPA service" methodRef="caf1fc90-4008-11e4-916c-0800200c9a66" fakeMethod="update" uid="5da95926-adbf-421b-a8de-64b2708fcf47">
-        <parameters uid="54a7d1f0-7d21-40f7-9b40-be060ef5c2d0" refObj="7c4f4d20-400a-11e4-916c-0800200c9a66">
-          <value uid="eaa98359-0a92-49db-b45e-ca585a808ba7" value="Data controls.Department.currentObject">
+      <update packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="2957c51c-68e7-4d1e-b8b7-cbe7ccdbe13f" fakePackageName="Base package" fakeTypeName="JPA Entity CRAD Service" methodRef="caf1fc90-4008-11e4-916c-0800200c9a66" fakeMethod="update" uid="5da95926-adbf-421b-a8de-64b2708fcf47">
+        <parameters uid="4ab6ba61-58e5-4420-9215-f658edf3bff8" refObj="7c4f4d20-400a-11e4-916c-0800200c9a66">
+          <value uid="9e9b360d-8763-4e0d-a514-b9699029200a" value="Data controls.Department.currentObject">
             <expression objRef="5541fdd1-fedb-45ba-ab74-966e737af3a6"/>
             <expression objRef="0feddc04-1241-40fa-a9f3-35089d2cf4c5" order="1"/>
             <expression order="2"/>
           </value>
         </parameters>
       </update>
-      <remove packageRef="f7896b5b-7f62-4232-9357-5d1d8ab0471f" typeRef="bceadb47-a323-417f-8c19-19afe45872a1" fakePackageName="Universal JPA service" fakeTypeName="Universal JPA service" methodRef="dbacf9e0-4008-11e4-916c-0800200c9a66" fakeMethod="remove" uid="46ab0554-a23b-4576-a589-3a1cbf0c57c7">
-        <parameters uid="d98adac6-c879-4173-8dad-0d4d9ae80c67" refObj="73df4460-400a-11e4-916c-0800200c9a66">
-          <value uid="f80c30ac-0071-4e18-be79-e0d81e036fbb" value="Data controls.Department.currentObject">
+      <remove packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="2957c51c-68e7-4d1e-b8b7-cbe7ccdbe13f" fakePackageName="Base package" fakeTypeName="JPA Entity CRAD Service" methodRef="dbacf9e0-4008-11e4-916c-0800200c9a66" fakeMethod="remove" uid="46ab0554-a23b-4576-a589-3a1cbf0c57c7">
+        <parameters uid="0b9dbcc6-6b1b-469b-b8a3-e857505da838" refObj="73df4460-400a-11e4-916c-0800200c9a66">
+          <value uid="ede352fd-fa96-4af9-8ba9-46490b9629de" value="Data controls.Department.currentObject">
             <expression objRef="5541fdd1-fedb-45ba-ab74-966e737af3a6"/>
             <expression objRef="0feddc04-1241-40fa-a9f3-35089d2cf4c5" order="1"/>
             <expression order="2"/>
           </value>
         </parameters>
       </remove>
-      <search packageRef="f7896b5b-7f62-4232-9357-5d1d8ab0471f" typeRef="bceadb47-a323-417f-8c19-19afe45872a1" fakePackageName="Universal JPA service" fakeTypeName="Universal JPA service" methodRef="6fb841e0-4008-11e4-916c-0800200c9a66" fakeMethod="find" uid="e6df5fdb-e3a7-4d1a-b3b2-f95cdc31e4c2">
-        <parameters uid="0fb86720-cf5d-4bb3-9e90-855aa23b2fdf" refObj="790b57a0-4008-11e4-916c-0800200c9a66">
-          <value uid="03122c2a-6fcc-4f77-b920-3f530c8b0433" value="Data controls.Department.query">
+      <search packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="2957c51c-68e7-4d1e-b8b7-cbe7ccdbe13f" fakePackageName="Base package" fakeTypeName="JPA Entity CRAD Service" methodRef="6fb841e0-4008-11e4-916c-0800200c9a66" fakeMethod="find" uid="e6df5fdb-e3a7-4d1a-b3b2-f95cdc31e4c2">
+        <parameters uid="1f9417bd-6512-4db6-be46-d8a050facb0a" refObj="790b57a0-4008-11e4-916c-0800200c9a66">
+          <value uid="c6967a44-4828-449c-a1e4-8d9363a7a852" value="Data controls.Department.query">
             <expression objRef="5541fdd1-fedb-45ba-ab74-966e737af3a6"/>
             <expression objRef="0feddc04-1241-40fa-a9f3-35089d2cf4c5" order="1"/>
             <expression order="2"/>
           </value>
         </parameters>
-        <parameters uid="c4170cef-df3c-4ce0-97c6-da3a46047910" refObj="823b06e0-4008-11e4-916c-0800200c9a66">
-          <value uid="17c60384-1022-479d-9a11-67a4bb485c1b" value="Data controls.Department.startIndex">
+        <parameters uid="9ed41174-73d1-4145-8704-13e4118a4eaf" refObj="823b06e0-4008-11e4-916c-0800200c9a66">
+          <value uid="95564c70-6ebb-4951-b803-c0595cded945" value="Data controls.Department.startIndex">
             <expression objRef="5541fdd1-fedb-45ba-ab74-966e737af3a6"/>
             <expression objRef="0feddc04-1241-40fa-a9f3-35089d2cf4c5" order="1"/>
             <expression order="2"/>
           </value>
         </parameters>
-        <parameters uid="ab7b9f87-07e0-400f-a8e0-2b1389ee2208" refObj="8cc19390-4008-11e4-916c-0800200c9a66">
-          <value uid="6c2ccef7-ad22-4161-b062-39790dd647b6" value="Data controls.Department.endindex">
+        <parameters uid="2cdfeb38-dabf-4993-bc79-63a2d03e3f78" refObj="8cc19390-4008-11e4-916c-0800200c9a66">
+          <value uid="08415078-ae2c-405f-bb61-ff9f8eae09da" value="Data controls.Department.endindex">
             <expression objRef="5541fdd1-fedb-45ba-ab74-966e737af3a6"/>
             <expression objRef="0feddc04-1241-40fa-a9f3-35089d2cf4c5" order="1"/>
             <expression order="2"/>
           </value>
         </parameters>
-        <parameters uid="97da8d27-f0c8-4f2d-879d-072906705746" refObj="97d8a070-4008-11e4-916c-0800200c9a66">
-          <value uid="bf5ae8a1-bc4d-42c9-9e6a-7c5dbaef5134" constant="true" value="org.elsoft.platform.hr.objects.DepartmentsDAO"/>
+        <parameters uid="03f4ccc6-137c-4f56-b6af-422cbe01e035" refObj="97d8a070-4008-11e4-916c-0800200c9a66">
+          <value uid="72af469c-f521-4f97-9cdb-0abcafe0efc7" constant="true" value="org.elsoft.platform.hr.objects.DepartmentsDAO"/>
         </parameters>
       </search>
       <defaultSearch/>
     </controls>
     <controls uid="0b115ae0-7710-49f2-bb74-45fa6af58c8e" name="Employee">
-      <create packageRef="f7896b5b-7f62-4232-9357-5d1d8ab0471f" typeRef="bceadb47-a323-417f-8c19-19afe45872a1" fakePackageName="Universal JPA service" fakeTypeName="Universal JPA service" methodRef="40b112a0-4008-11e4-916c-0800200c9a66" fakeMethod="create" uid="2d640832-13e6-4750-88f1-b50126aac085">
-        <parameters uid="a2773cfd-7e62-4b84-8d0f-19f388cab963" refObj="9150e8ca-6703-4e2c-a2e0-479f42987fa5">
-          <value uid="7aac2209-7083-476c-9171-0bd81baceb41" constant="true" value="org.elsoft.platform.hr.objects.EmployeesDAO"/>
+      <create packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="2957c51c-68e7-4d1e-b8b7-cbe7ccdbe13f" fakePackageName="Base package" fakeTypeName="JPA Entity CRAD Service" methodRef="40b112a0-4008-11e4-916c-0800200c9a66" fakeMethod="create" uid="2d640832-13e6-4750-88f1-b50126aac085">
+        <parameters uid="4ddfb5d5-22c8-4abe-9f91-2de349bdae88" refObj="9150e8ca-6703-4e2c-a2e0-479f42987fa5">
+          <value uid="dcc8288a-bf86-47f8-ba1b-08b1f2d089a7" constant="true" value="org.elsoft.platform.hr.objects.EmployeesDAO"/>
         </parameters>
       </create>
-      <insert packageRef="f7896b5b-7f62-4232-9357-5d1d8ab0471f" typeRef="bceadb47-a323-417f-8c19-19afe45872a1" fakePackageName="Universal JPA service" fakeTypeName="Universal JPA service" methodRef="b14bfa20-4008-11e4-916c-0800200c9a66" fakeMethod="insert" uid="3b55579f-14dc-4030-b90f-e257be5ca6e5">
-        <parameters uid="715756fd-3b25-49ca-afbc-bcd99a3f1c31" refObj="b7ea5020-4008-11e4-916c-0800200c9a66">
-          <value uid="c055dee3-2949-4ef2-8191-6dda21965753" value="Data controls.Employee.currentObject">
+      <insert packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="2957c51c-68e7-4d1e-b8b7-cbe7ccdbe13f" fakePackageName="Base package" fakeTypeName="JPA Entity CRAD Service" methodRef="b14bfa20-4008-11e4-916c-0800200c9a66" fakeMethod="insert" uid="3b55579f-14dc-4030-b90f-e257be5ca6e5">
+        <parameters uid="f39a2bf8-f3e1-4a1e-ad8b-7ac313271846" refObj="b7ea5020-4008-11e4-916c-0800200c9a66">
+          <value uid="609d993e-41e6-4bc2-baa7-65b5218abf5a" value="Data controls.Employee.currentObject">
             <expression objRef="5541fdd1-fedb-45ba-ab74-966e737af3a6"/>
             <expression objRef="0b115ae0-7710-49f2-bb74-45fa6af58c8e" order="1"/>
             <expression order="2"/>
           </value>
         </parameters>
       </insert>
-      <update packageRef="f7896b5b-7f62-4232-9357-5d1d8ab0471f" typeRef="bceadb47-a323-417f-8c19-19afe45872a1" fakePackageName="Universal JPA service" fakeTypeName="Universal JPA service" methodRef="caf1fc90-4008-11e4-916c-0800200c9a66" fakeMethod="update" uid="5d5e7809-b559-410f-82f1-5a2f48bd916b">
-        <parameters uid="8282fb96-bf2c-4644-8505-dee5a4b3b854" refObj="7c4f4d20-400a-11e4-916c-0800200c9a66">
-          <value uid="38eef795-3bd5-4cda-a9a0-2b17e70b1921" value="Data controls.Employee.currentObject">
+      <update packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="2957c51c-68e7-4d1e-b8b7-cbe7ccdbe13f" fakePackageName="Base package" fakeTypeName="JPA Entity CRAD Service" methodRef="caf1fc90-4008-11e4-916c-0800200c9a66" fakeMethod="update" uid="5d5e7809-b559-410f-82f1-5a2f48bd916b">
+        <parameters uid="6978336c-2ba4-4f11-8fec-5a8a139eba67" refObj="7c4f4d20-400a-11e4-916c-0800200c9a66">
+          <value uid="c4646d8e-abf1-4cfd-a72d-e044f3c1f4ab" value="Data controls.Employee.currentObject">
             <expression objRef="5541fdd1-fedb-45ba-ab74-966e737af3a6"/>
             <expression objRef="0b115ae0-7710-49f2-bb74-45fa6af58c8e" order="1"/>
             <expression order="2"/>
           </value>
         </parameters>
       </update>
-      <remove packageRef="f7896b5b-7f62-4232-9357-5d1d8ab0471f" typeRef="bceadb47-a323-417f-8c19-19afe45872a1" fakePackageName="Universal JPA service" fakeTypeName="Universal JPA service" methodRef="dbacf9e0-4008-11e4-916c-0800200c9a66" fakeMethod="remove" uid="77bde1ba-76b6-479d-b1de-05db158b04c2">
-        <parameters uid="c5eb8e75-9289-4f40-b954-8358dd9eccf8" refObj="73df4460-400a-11e4-916c-0800200c9a66">
-          <value uid="5e3be33a-7cc1-4f6d-88ba-204f79027b33" value="Data controls.Employee.currentObject">
+      <remove packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="2957c51c-68e7-4d1e-b8b7-cbe7ccdbe13f" fakePackageName="Base package" fakeTypeName="JPA Entity CRAD Service" methodRef="dbacf9e0-4008-11e4-916c-0800200c9a66" fakeMethod="remove" uid="77bde1ba-76b6-479d-b1de-05db158b04c2">
+        <parameters uid="9f99911c-1b46-43a8-aea7-a7580ce35014" refObj="73df4460-400a-11e4-916c-0800200c9a66">
+          <value uid="2d2725cb-370b-48bc-a950-1fa902fbb39b" value="Data controls.Employee.currentObject">
             <expression objRef="5541fdd1-fedb-45ba-ab74-966e737af3a6"/>
             <expression objRef="0b115ae0-7710-49f2-bb74-45fa6af58c8e" order="1"/>
             <expression order="2"/>
           </value>
         </parameters>
       </remove>
-      <search packageRef="f7896b5b-7f62-4232-9357-5d1d8ab0471f" typeRef="bceadb47-a323-417f-8c19-19afe45872a1" fakePackageName="Universal JPA service" fakeTypeName="Universal JPA service" methodRef="6fb841e0-4008-11e4-916c-0800200c9a66" fakeMethod="find" uid="c3726c19-f164-485c-9beb-f681d7b065d3">
-        <parameters uid="e851a6d4-18c5-45fd-b54b-c7776b89efda" refObj="790b57a0-4008-11e4-916c-0800200c9a66">
-          <value uid="ffe77071-fdef-4227-94f7-8280fef2d24d" value="Data controls.Employee.query">
+      <search packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="2957c51c-68e7-4d1e-b8b7-cbe7ccdbe13f" fakePackageName="Base package" fakeTypeName="JPA Entity CRAD Service" methodRef="6fb841e0-4008-11e4-916c-0800200c9a66" fakeMethod="find" uid="c3726c19-f164-485c-9beb-f681d7b065d3">
+        <parameters uid="47db37b2-3b33-4338-87c3-62c05cc6aa08" refObj="790b57a0-4008-11e4-916c-0800200c9a66">
+          <value uid="b41dbff8-37a0-4707-946d-3a13b7e5ca3d" value="Data controls.Employee.query">
             <expression objRef="5541fdd1-fedb-45ba-ab74-966e737af3a6"/>
             <expression objRef="0b115ae0-7710-49f2-bb74-45fa6af58c8e" order="1"/>
             <expression order="2"/>
           </value>
         </parameters>
-        <parameters uid="daad02d8-a44d-48c1-9540-2f4b87f00a0b" refObj="823b06e0-4008-11e4-916c-0800200c9a66">
-          <value uid="95c46e76-594b-4298-a8e7-722e4f0b4ec3" value="Data controls.Employee.startIndex">
+        <parameters uid="468f1e36-e25f-4fbf-9e09-178498bd41d2" refObj="823b06e0-4008-11e4-916c-0800200c9a66">
+          <value uid="04ac8d59-00af-48c3-855a-93033d165e35" value="Data controls.Employee.startIndex">
             <expression objRef="5541fdd1-fedb-45ba-ab74-966e737af3a6"/>
             <expression objRef="0b115ae0-7710-49f2-bb74-45fa6af58c8e" order="1"/>
             <expression order="2"/>
           </value>
         </parameters>
-        <parameters uid="1fc0619f-094f-4fc2-9beb-185b4aa2ab01" refObj="8cc19390-4008-11e4-916c-0800200c9a66">
-          <value uid="e5a6f07c-8bda-44ea-b3a1-47354bcd6914" value="Data controls.Employee.endindex">
+        <parameters uid="7d8ed185-b6a5-4b80-8e95-26e2aaae00d5" refObj="8cc19390-4008-11e4-916c-0800200c9a66">
+          <value uid="59106eff-9b6c-4fe9-a5ba-1bea411b04ee" value="Data controls.Employee.endindex">
             <expression objRef="5541fdd1-fedb-45ba-ab74-966e737af3a6"/>
             <expression objRef="0b115ae0-7710-49f2-bb74-45fa6af58c8e" order="1"/>
             <expression order="2"/>
           </value>
         </parameters>
-        <parameters uid="487d568b-8209-4f50-b195-d104f537af02" refObj="97d8a070-4008-11e4-916c-0800200c9a66">
-          <value uid="7bb400b3-5454-498d-b203-761b439c56d4" constant="true" value="org.elsoft.platform.hr.objects.EmployeesDAO"/>
+        <parameters uid="cfb91a5a-be6f-4934-aff4-accd875c31b1" refObj="97d8a070-4008-11e4-916c-0800200c9a66">
+          <value uid="e1be3e04-2f06-4b85-bc21-a7aaa57949a4" constant="true" value="org.elsoft.platform.hr.objects.EmployeesDAO"/>
         </parameters>
       </search>
       <defaultSearch/>
     </controls>
     <controls uid="7787cfd3-a689-4089-8689-7c149a1a3a34" name="Vehicle">
-      <create packageRef="f7896b5b-7f62-4232-9357-5d1d8ab0471f" typeRef="bceadb47-a323-417f-8c19-19afe45872a1" fakePackageName="Universal JPA service" fakeTypeName="Universal JPA service" methodRef="40b112a0-4008-11e4-916c-0800200c9a66" fakeMethod="create" uid="5b1e6f0e-21c7-4be1-8955-1030bdab833c">
-        <parameters uid="8d645ed2-3d23-4cfa-8134-24781cdabb54" refObj="9150e8ca-6703-4e2c-a2e0-479f42987fa5">
-          <value uid="82b0c048-7c79-45d0-b996-469164912019" constant="true" value="org.elsoft.platform.hr.objects.VehicleDAO"/>
+      <create packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="2957c51c-68e7-4d1e-b8b7-cbe7ccdbe13f" fakePackageName="Base package" fakeTypeName="JPA Entity CRAD Service" methodRef="40b112a0-4008-11e4-916c-0800200c9a66" fakeMethod="create" uid="5b1e6f0e-21c7-4be1-8955-1030bdab833c">
+        <parameters uid="09ad9417-554b-47dd-9f79-9913e77b661c" refObj="9150e8ca-6703-4e2c-a2e0-479f42987fa5">
+          <value uid="47fa1a8d-1c27-4c06-ae53-b9a20287bed5" constant="true" value="org.elsoft.platform.hr.objects.VehicleDAO"/>
         </parameters>
       </create>
-      <insert packageRef="f7896b5b-7f62-4232-9357-5d1d8ab0471f" typeRef="bceadb47-a323-417f-8c19-19afe45872a1" fakePackageName="Universal JPA service" fakeTypeName="Universal JPA service" methodRef="b14bfa20-4008-11e4-916c-0800200c9a66" fakeMethod="insert" uid="88b31ec6-255b-40bf-80ab-30524bacf064">
-        <parameters uid="2b640ae6-dc25-4cfd-a055-e934d980a783" refObj="b7ea5020-4008-11e4-916c-0800200c9a66">
-          <value uid="842178f8-095b-42b1-aeea-ab78e786a560" value="Data controls.Vehicle.currentObject">
+      <insert packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="2957c51c-68e7-4d1e-b8b7-cbe7ccdbe13f" fakePackageName="Base package" fakeTypeName="JPA Entity CRAD Service" methodRef="b14bfa20-4008-11e4-916c-0800200c9a66" fakeMethod="insert" uid="88b31ec6-255b-40bf-80ab-30524bacf064">
+        <parameters uid="cafce309-c7bc-40d0-88d4-c87547d91fcd" refObj="b7ea5020-4008-11e4-916c-0800200c9a66">
+          <value uid="307306f9-67ca-450c-b614-c52897042413" value="Data controls.Vehicle.currentObject">
             <expression objRef="5541fdd1-fedb-45ba-ab74-966e737af3a6"/>
             <expression objRef="7787cfd3-a689-4089-8689-7c149a1a3a34" order="1"/>
             <expression order="2"/>
           </value>
         </parameters>
       </insert>
-      <update packageRef="f7896b5b-7f62-4232-9357-5d1d8ab0471f" typeRef="bceadb47-a323-417f-8c19-19afe45872a1" fakePackageName="Universal JPA service" fakeTypeName="Universal JPA service" methodRef="caf1fc90-4008-11e4-916c-0800200c9a66" fakeMethod="update" uid="e6c2e226-2c24-4492-bf9b-2529a093dad5">
-        <parameters uid="f18d8cb9-dc2c-4ffe-987d-0da19e8d5242" refObj="7c4f4d20-400a-11e4-916c-0800200c9a66">
-          <value uid="c4f0c172-4212-4e6b-9b40-66733bf93490" value="Data controls.Vehicle.currentObject">
+      <update packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="2957c51c-68e7-4d1e-b8b7-cbe7ccdbe13f" fakePackageName="Base package" fakeTypeName="JPA Entity CRAD Service" methodRef="caf1fc90-4008-11e4-916c-0800200c9a66" fakeMethod="update" uid="e6c2e226-2c24-4492-bf9b-2529a093dad5">
+        <parameters uid="5b24b7c9-16b9-451d-a94d-ef585a83fd92" refObj="7c4f4d20-400a-11e4-916c-0800200c9a66">
+          <value uid="e24e7568-15cb-443e-8b36-61f5ade22f7d" value="Data controls.Vehicle.currentObject">
             <expression objRef="5541fdd1-fedb-45ba-ab74-966e737af3a6"/>
             <expression objRef="7787cfd3-a689-4089-8689-7c149a1a3a34" order="1"/>
             <expression order="2"/>
           </value>
         </parameters>
       </update>
-      <remove packageRef="f7896b5b-7f62-4232-9357-5d1d8ab0471f" typeRef="bceadb47-a323-417f-8c19-19afe45872a1" fakePackageName="Universal JPA service" fakeTypeName="Universal JPA service" methodRef="dbacf9e0-4008-11e4-916c-0800200c9a66" fakeMethod="remove" uid="12170c14-dc5a-49fb-bbf3-a5d7c4b0d83f">
-        <parameters uid="72130d33-2312-46c7-bca1-4d63fd979cc9" refObj="73df4460-400a-11e4-916c-0800200c9a66">
-          <value uid="e469ac0c-db49-4f8f-a5dd-eb885210c674" value="Data controls.Vehicle.currentObject">
+      <remove packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="2957c51c-68e7-4d1e-b8b7-cbe7ccdbe13f" fakePackageName="Base package" fakeTypeName="JPA Entity CRAD Service" methodRef="dbacf9e0-4008-11e4-916c-0800200c9a66" fakeMethod="remove" uid="12170c14-dc5a-49fb-bbf3-a5d7c4b0d83f">
+        <parameters uid="ecb1011f-969e-4ad7-9f23-5e65c4bf5983" refObj="73df4460-400a-11e4-916c-0800200c9a66">
+          <value uid="616f303e-723a-4510-b01e-e4e8255226be" value="Data controls.Vehicle.currentObject">
             <expression objRef="5541fdd1-fedb-45ba-ab74-966e737af3a6"/>
             <expression objRef="7787cfd3-a689-4089-8689-7c149a1a3a34" order="1"/>
             <expression order="2"/>
           </value>
         </parameters>
       </remove>
-      <search packageRef="f7896b5b-7f62-4232-9357-5d1d8ab0471f" typeRef="bceadb47-a323-417f-8c19-19afe45872a1" fakePackageName="Universal JPA service" fakeTypeName="Universal JPA service" methodRef="6fb841e0-4008-11e4-916c-0800200c9a66" fakeMethod="find" uid="0ae4de65-3ecd-4ed4-9e43-9747b739af06">
-        <parameters uid="d4aa1b99-3f9c-4afd-a3a9-a69ec157b124" refObj="790b57a0-4008-11e4-916c-0800200c9a66">
-          <value uid="457625e7-15c6-4b08-9583-61a9f65975c6" value="Data controls.Vehicle.query">
+      <search packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="2957c51c-68e7-4d1e-b8b7-cbe7ccdbe13f" fakePackageName="Base package" fakeTypeName="JPA Entity CRAD Service" methodRef="6fb841e0-4008-11e4-916c-0800200c9a66" fakeMethod="find" uid="0ae4de65-3ecd-4ed4-9e43-9747b739af06">
+        <parameters uid="d4989a2a-cf6f-411d-88e0-e8ff631fcc05" refObj="790b57a0-4008-11e4-916c-0800200c9a66">
+          <value uid="9cc00799-cb88-4e0a-a6be-47cac78287bc" value="Data controls.Vehicle.query">
             <expression objRef="5541fdd1-fedb-45ba-ab74-966e737af3a6"/>
             <expression objRef="7787cfd3-a689-4089-8689-7c149a1a3a34" order="1"/>
             <expression order="2"/>
           </value>
         </parameters>
-        <parameters uid="3f3306e6-7dc6-4986-aa01-99a08ff17447" refObj="823b06e0-4008-11e4-916c-0800200c9a66">
-          <value uid="c3945e2c-7b83-478c-b5b6-638c4b058e18" value="Data controls.Vehicle.startIndex">
+        <parameters uid="625b0062-3fc0-4de4-b15d-81e2fa815cd6" refObj="823b06e0-4008-11e4-916c-0800200c9a66">
+          <value uid="63679eb4-1b63-4345-830c-81c4b6a74e1a" value="Data controls.Vehicle.startIndex">
             <expression objRef="5541fdd1-fedb-45ba-ab74-966e737af3a6"/>
             <expression objRef="7787cfd3-a689-4089-8689-7c149a1a3a34" order="1"/>
             <expression order="2"/>
           </value>
         </parameters>
-        <parameters uid="b7a61add-526a-4b81-b86e-c49686ab3c03" refObj="8cc19390-4008-11e4-916c-0800200c9a66">
-          <value uid="ae19fb9a-fead-4a1c-8ccd-d5298465dab9" value="Data controls.Vehicle.endindex">
+        <parameters uid="44ced318-24db-428e-b215-44015c3d083f" refObj="8cc19390-4008-11e4-916c-0800200c9a66">
+          <value uid="9071079d-4c22-4f6f-be93-20e0cf0abbf1" value="Data controls.Vehicle.endindex">
             <expression objRef="5541fdd1-fedb-45ba-ab74-966e737af3a6"/>
             <expression objRef="7787cfd3-a689-4089-8689-7c149a1a3a34" order="1"/>
             <expression order="2"/>
           </value>
         </parameters>
-        <parameters uid="59c6c098-97f0-4f10-861b-581fbf47d0c8" refObj="97d8a070-4008-11e4-916c-0800200c9a66">
-          <value uid="3d9575d6-d1c9-45bb-9d97-e266ddf5fcb0" constant="true" value="org.elsoft.platform.hr.objects.VehicleDAO"/>
+        <parameters uid="303c371a-4ef3-4926-ab88-62961cd91c83" refObj="97d8a070-4008-11e4-916c-0800200c9a66">
+          <value uid="5a3d3eb5-e906-402a-8a9d-356ad84f708d" constant="true" value="org.elsoft.platform.hr.objects.VehicleDAO"/>
         </parameters>
       </search>
     </controls>
     <controls uid="34ec885b-a2e1-4c4a-8987-f56c9e935e86" name="Files">
-      <create packageRef="f7896b5b-7f62-4232-9357-5d1d8ab0471f" typeRef="bceadb47-a323-417f-8c19-19afe45872a1" fakePackageName="Universal JPA service" fakeTypeName="Universal JPA service" methodRef="40b112a0-4008-11e4-916c-0800200c9a66" fakeMethod="create" uid="2018a2dd-c305-47ee-97c3-ddb532d0e7a6">
-        <parameters uid="75681008-5397-47c3-8698-b5553a7c9590" refObj="9150e8ca-6703-4e2c-a2e0-479f42987fa5">
-          <value uid="65a938f9-8cbc-44f8-9133-b3a6bf7bf088" constant="true" value="org.elsoft.platform.hr.objects.FileDAO"/>
+      <create packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="2957c51c-68e7-4d1e-b8b7-cbe7ccdbe13f" fakePackageName="Base package" fakeTypeName="JPA Entity CRAD Service" methodRef="40b112a0-4008-11e4-916c-0800200c9a66" fakeMethod="create" uid="2018a2dd-c305-47ee-97c3-ddb532d0e7a6">
+        <parameters uid="1cd29549-6bfd-4af1-a8a3-c2ba9bfad200" refObj="9150e8ca-6703-4e2c-a2e0-479f42987fa5">
+          <value uid="805d642c-ba74-4258-9fac-02dbca45d0d6" constant="true" value="org.elsoft.platform.hr.objects.FileDAO"/>
         </parameters>
       </create>
-      <insert packageRef="f7896b5b-7f62-4232-9357-5d1d8ab0471f" typeRef="bceadb47-a323-417f-8c19-19afe45872a1" fakePackageName="Universal JPA service" fakeTypeName="Universal JPA service" methodRef="b14bfa20-4008-11e4-916c-0800200c9a66" fakeMethod="insert" uid="4e30542c-8b10-4ce5-83be-a55b424b25f2">
-        <parameters uid="b6c0f20f-4368-4016-8dcd-7cea5e0d675a" refObj="b7ea5020-4008-11e4-916c-0800200c9a66">
-          <value uid="f3e1c517-2d41-4c15-9a16-49b271ece303" value="Data controls.Files.currentObject">
+      <insert packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="2957c51c-68e7-4d1e-b8b7-cbe7ccdbe13f" fakePackageName="Base package" fakeTypeName="JPA Entity CRAD Service" methodRef="b14bfa20-4008-11e4-916c-0800200c9a66" fakeMethod="insert" uid="4e30542c-8b10-4ce5-83be-a55b424b25f2">
+        <parameters uid="ddf8b2fc-2c65-43ce-8f1a-446d78740755" refObj="b7ea5020-4008-11e4-916c-0800200c9a66">
+          <value uid="d90b3dd6-cad4-4108-b168-e42d8774101b" value="Data controls.Files.currentObject">
             <expression objRef="5541fdd1-fedb-45ba-ab74-966e737af3a6"/>
             <expression objRef="34ec885b-a2e1-4c4a-8987-f56c9e935e86" order="1"/>
             <expression order="2"/>
           </value>
         </parameters>
       </insert>
-      <update packageRef="f7896b5b-7f62-4232-9357-5d1d8ab0471f" typeRef="bceadb47-a323-417f-8c19-19afe45872a1" fakePackageName="Universal JPA service" fakeTypeName="Universal JPA service" methodRef="caf1fc90-4008-11e4-916c-0800200c9a66" fakeMethod="update" uid="caf18265-1c0e-4fd3-9884-0c1dacfc920a">
-        <parameters uid="314f33a1-b7a1-4fff-829c-47721647eccf" refObj="7c4f4d20-400a-11e4-916c-0800200c9a66">
-          <value uid="8e248b00-e6c3-462c-9175-103c115ab4e7" value="Data controls.Files.currentObject">
+      <update packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="2957c51c-68e7-4d1e-b8b7-cbe7ccdbe13f" fakePackageName="Base package" fakeTypeName="JPA Entity CRAD Service" methodRef="caf1fc90-4008-11e4-916c-0800200c9a66" fakeMethod="update" uid="caf18265-1c0e-4fd3-9884-0c1dacfc920a">
+        <parameters uid="3886d902-f71a-4934-81a1-d92f81172fe8" refObj="7c4f4d20-400a-11e4-916c-0800200c9a66">
+          <value uid="ff3b3c96-b0a5-4658-a1e5-c5e260a3d487" value="Data controls.Files.currentObject">
             <expression objRef="5541fdd1-fedb-45ba-ab74-966e737af3a6"/>
             <expression objRef="34ec885b-a2e1-4c4a-8987-f56c9e935e86" order="1"/>
             <expression order="2"/>
           </value>
         </parameters>
       </update>
-      <remove packageRef="f7896b5b-7f62-4232-9357-5d1d8ab0471f" typeRef="bceadb47-a323-417f-8c19-19afe45872a1" fakePackageName="Universal JPA service" fakeTypeName="Universal JPA service" methodRef="dbacf9e0-4008-11e4-916c-0800200c9a66" fakeMethod="remove" uid="76879d1b-6276-42d9-a59f-d70bf1ec33ef">
-        <parameters uid="a2d93797-d4e2-47f6-b1e5-39fe7d602713" refObj="73df4460-400a-11e4-916c-0800200c9a66">
-          <value uid="9a4293e3-e41f-42a8-8660-7be971d99a9e" value="Data controls.Files.currentObject">
+      <remove packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="2957c51c-68e7-4d1e-b8b7-cbe7ccdbe13f" fakePackageName="Base package" fakeTypeName="JPA Entity CRAD Service" methodRef="dbacf9e0-4008-11e4-916c-0800200c9a66" fakeMethod="remove" uid="76879d1b-6276-42d9-a59f-d70bf1ec33ef">
+        <parameters uid="9755ba82-7065-4d52-89f7-18a4f1238cfb" refObj="73df4460-400a-11e4-916c-0800200c9a66">
+          <value uid="34bab30b-a8dc-4a6e-837c-d45d5190f0e7" value="Data controls.Files.currentObject">
             <expression objRef="5541fdd1-fedb-45ba-ab74-966e737af3a6"/>
             <expression objRef="34ec885b-a2e1-4c4a-8987-f56c9e935e86" order="1"/>
             <expression order="2"/>
           </value>
         </parameters>
       </remove>
-      <search packageRef="f7896b5b-7f62-4232-9357-5d1d8ab0471f" typeRef="bceadb47-a323-417f-8c19-19afe45872a1" fakePackageName="Universal JPA service" fakeTypeName="Universal JPA service" methodRef="6fb841e0-4008-11e4-916c-0800200c9a66" fakeMethod="find" uid="bb67c177-97b2-4fa5-abdf-5d70bfcfc97b">
-        <parameters uid="d9ec7750-6b39-4790-bd7c-e840eac34106" refObj="790b57a0-4008-11e4-916c-0800200c9a66">
-          <value uid="75fc93f2-32a8-4700-af0f-e0dcc26be24d" value="Data controls.Files.query">
+      <search packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="2957c51c-68e7-4d1e-b8b7-cbe7ccdbe13f" fakePackageName="Base package" fakeTypeName="JPA Entity CRAD Service" methodRef="6fb841e0-4008-11e4-916c-0800200c9a66" fakeMethod="find" uid="bb67c177-97b2-4fa5-abdf-5d70bfcfc97b">
+        <parameters uid="3bf7730e-abf7-4f4b-8896-defa853b2583" refObj="790b57a0-4008-11e4-916c-0800200c9a66">
+          <value uid="bb4178d2-506a-41b7-9591-a3a2ac50468e" value="Data controls.Files.query">
             <expression objRef="5541fdd1-fedb-45ba-ab74-966e737af3a6"/>
             <expression objRef="34ec885b-a2e1-4c4a-8987-f56c9e935e86" order="1"/>
             <expression order="2"/>
           </value>
         </parameters>
-        <parameters uid="764751ae-ac75-4877-a89c-00477fb60264" refObj="823b06e0-4008-11e4-916c-0800200c9a66">
-          <value uid="58ffdbc0-3838-44a2-944e-caf65dc122e3" value="Data controls.Files.startIndex">
+        <parameters uid="903310d2-e69d-441f-a622-3a591438af71" refObj="823b06e0-4008-11e4-916c-0800200c9a66">
+          <value uid="16d5ad20-5951-40af-849d-b551bdf48e42" value="Data controls.Files.startIndex">
             <expression objRef="5541fdd1-fedb-45ba-ab74-966e737af3a6"/>
             <expression objRef="34ec885b-a2e1-4c4a-8987-f56c9e935e86" order="1"/>
             <expression order="2"/>
           </value>
         </parameters>
-        <parameters uid="342ea6a4-2387-4dd2-a874-46ef6a10c096" refObj="8cc19390-4008-11e4-916c-0800200c9a66">
-          <value uid="0be8974b-1f03-4da5-a598-c2c16440c996" value="Data controls.Files.endindex">
+        <parameters uid="7056eb45-54c2-4be7-8b95-440154e8eb71" refObj="8cc19390-4008-11e4-916c-0800200c9a66">
+          <value uid="99cfb397-9ccb-423d-9aab-ba56f7653562" value="Data controls.Files.endindex">
             <expression objRef="5541fdd1-fedb-45ba-ab74-966e737af3a6"/>
             <expression objRef="34ec885b-a2e1-4c4a-8987-f56c9e935e86" order="1"/>
             <expression order="2"/>
           </value>
         </parameters>
-        <parameters uid="7f4ff7cb-5cf4-4046-9d65-349b280309cf" refObj="97d8a070-4008-11e4-916c-0800200c9a66">
-          <value uid="41d5ab18-0222-4c55-b5c0-49fb7aa65882" constant="true" value="org.elsoft.platform.hr.objects.FileDAO"/>
+        <parameters uid="36a50742-ccc1-42ae-8565-5642a59ce928" refObj="97d8a070-4008-11e4-916c-0800200c9a66">
+          <value uid="e65e24a3-e0b8-42dd-afa7-5bf674ce6aa3" constant="true" value="org.elsoft.platform.hr.objects.FileDAO"/>
         </parameters>
       </search>
       <defaultSearch/>
@@ -2057,7 +2056,7 @@
         <options uid="1b800057-4205-4852-ae56-f48caead1343" value="JEE"/>
       </specifiers>
     </artifacts>
-    <artifacts uid="53a25731-a3bd-4158-81d1-70a4cab4c22c" name="Service wrapper" template="platform:/plugin/org.tura.metamodel.wizard.generation/template/pit/mvc/model/mainServiceWrapper.egl">
+    <artifacts uid="53a25731-a3bd-4158-81d1-70a4cab4c22c" name="Service producer" template="platform:/plugin/org.tura.metamodel.wizard.generation/template/pit/mvc/model/mainServiceProducer.egl">
       <modelQuery uid="273cc7dd-85f8-430f-ac43-cad73dc0e847" name="Query package of types" query="domain::Package.allInstances()->select(r|r.oclAsType(domain::Package).name='${Package name}').oclAsType(domain::Package).typedefinition.types->select(r|((r.oclIsKindOf(domain::Type ) ) )).oclAsType(domain::Categorized).classifiers->select(c|c.hint.name='${Hint}' and c.hint.oclAsType(ecore::EObject).eContainer().oclAsType(domain::Artifact).name = '${Artifact}' and  c.hint.oclAsType(ecore::EObject).eContainer().oclAsType(domain::Artifact).parent.oclAsType(domain::Artifacts).parent.oclAsType(domain::DomainArtifact).name = '${ArtifactLib}' )->collect(c|c.oclAsType(ecore::EObject).eContainer())">
         <parameters uid="bbb2310c-3490-4d0a-91a7-5315a09d67ce" name="Artifact"/>
         <parameters uid="3ac24526-fd51-402c-bb22-b3f5c1c17578" name="ArtifactLib"/>
@@ -2068,6 +2067,10 @@
         <parameters uid="d39ee714-0496-40bc-8145-d6e653476abe" name="Package name"/>
         <parameters uid="7425c708-e132-4008-90a1-4e3af0c44101" name="Type name"/>
       </modelQuery>
+      <modelQuery uid="13c455aa-256a-4cdc-bb7d-c7f5ef62ae02" name="Query form" query="domain::DomainApplication.allInstances()->select(r|r.oclAsType(domain::DomainApplication).name='${Application}').oclAsType(domain::DomainApplication).application.applicationUILayer.applicationUIPackages->select(r|r.oclAsType(domain::ApplicationUIPackage).name='${UIPackage}').uipackage.forms">
+        <parameters uid="84abb27c-ea7f-4007-808c-28a7fc24e932" name="Application"/>
+        <parameters uid="e9513e0c-62c7-4e9d-b249-866d23d84e89" name="UIPackage"/>
+      </modelQuery>
       <specifiers uid="3ee3d178-4bab-46e0-928e-508089f4dc2c" name="Model management framework">
         <options uid="6b0e89e5-8628-49a6-98bf-b125b206dd4d" value="JEE/CDI"/>
         <options uid="2b014fb2-f093-41be-b747-b25f15e75156" value="Spring"/>
@@ -2076,8 +2079,6 @@
         <options uid="6d9068b8-e721-46b5-beb1-fbca1b3f7935" value="JEE/Services/EJB-WS"/>
         <options uid="3309af92-cc56-4e33-8068-81f23b432831" value="JEE/Services/UNIVERSAL-JPA"/>
       </specifiers>
-      <hints uid="7886c715-304c-4a75-8fcc-21117819a873" name="Wrapper"/>
-      <hints uid="a737df52-c421-4423-b369-d2e7c3431c21" name="Extended service"/>
     </artifacts>
   </tura.domain:Artifacts>
   <tura.domain:Recipes uid="780d51bf-e928-4fb4-a228-4371d8fe439d" parent="fc4a8a78-b68c-4020-bb95-ab6d773b5486">
@@ -2113,18 +2114,22 @@
               <variables queryParamRef="87c1c616-79f3-452d-b88d-8761795f4bbc" value="entityObject"/>
             </queries>
           </mappers>
-          <mappers uid="8fba4b70-da2d-42cd-a054-3930d715e823" domainArtifactRef="5945624b-20f3-47f9-9cb1-d0dc8df9491a" artifactRef="53a25731-a3bd-4158-81d1-70a4cab4c22c" name="Universal service">
+          <mappers uid="8fba4b70-da2d-42cd-a054-3930d715e823" domainArtifactRef="5945624b-20f3-47f9-9cb1-d0dc8df9491a" artifactRef="53a25731-a3bd-4158-81d1-70a4cab4c22c" name="Service producers ">
             <specifiers specifierRef="3ee3d178-4bab-46e0-928e-508089f4dc2c" valueRef="6b0e89e5-8628-49a6-98bf-b125b206dd4d"/>
             <specifiers specifierRef="741c9449-5abe-40f7-8dc9-fd15fb1c9680" valueRef="3309af92-cc56-4e33-8068-81f23b432831"/>
-            <queries uid="76b7a57c-5a4c-4ba7-8e48-f771eeaf6de6" name="Query NA type" queryRef="b925f051-ca27-4d9f-9445-e87d7f79ce84">
-              <variables queryParamRef="7425c708-e132-4008-90a1-4e3af0c44101" value="NA"/>
-              <variables queryParamRef="d39ee714-0496-40bc-8145-d6e653476abe" value="NA"/>
+            <queries uid="76b7a57c-5a4c-4ba7-8e48-f771eeaf6de6" name="Query JPA Entity CRAD Service" queryRef="b925f051-ca27-4d9f-9445-e87d7f79ce84">
+              <variables queryParamRef="7425c708-e132-4008-90a1-4e3af0c44101" value="JPA Entity CRAD Service"/>
+              <variables queryParamRef="d39ee714-0496-40bc-8145-d6e653476abe" value="Base package"/>
             </queries>
-            <queries uid="c1ca7ae2-0e19-4a07-b6e9-4cfd30ed512b" name="Query package of wrappers" queryRef="273cc7dd-85f8-430f-ac43-cad73dc0e847">
-              <variables queryParamRef="0ae9eee3-bcdb-4370-be2c-27620c06825a" value="Wrapper"/>
-              <variables queryParamRef="3ac24526-fd51-402c-bb22-b3f5c1c17578" value="UIGeneration"/>
-              <variables queryParamRef="6d17ac61-9fff-4ec6-b018-2cbd66412adf" value="Universal JPA service"/>
-              <variables queryParamRef="bbb2310c-3490-4d0a-91a7-5315a09d67ce" value="Service wrapper"/>
+            <queries uid="c1ca7ae2-0e19-4a07-b6e9-4cfd30ed512b" name="Query package NA" queryRef="273cc7dd-85f8-430f-ac43-cad73dc0e847">
+              <variables queryParamRef="0ae9eee3-bcdb-4370-be2c-27620c06825a" value="NA"/>
+              <variables queryParamRef="3ac24526-fd51-402c-bb22-b3f5c1c17578" value="NA"/>
+              <variables queryParamRef="6d17ac61-9fff-4ec6-b018-2cbd66412adf" value="NA"/>
+              <variables queryParamRef="bbb2310c-3490-4d0a-91a7-5315a09d67ce" value="NA"/>
+            </queries>
+            <queries uid="15f4f36e-b123-43fb-9bbb-b79fa1ce94aa" name="Query form" queryRef="13c455aa-256a-4cdc-bb7d-c7f5ef62ae02">
+              <variables queryParamRef="84abb27c-ea7f-4007-808c-28a7fc24e932" value="HR application"/>
+              <variables queryParamRef="e9513e0c-62c7-4e9d-b249-866d23d84e89" value="Hr manager"/>
             </queries>
           </mappers>
         </components>
@@ -2168,15 +2173,6 @@
     <mappers xsi:type="tura.domain:JavaMapper" uid="4a9847e3-793f-4d2b-a755-d9f8639dcc01" uiLayer="true" packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="2957c51c-68e7-4d1e-b8b7-cbe7ccdbe13f" fakePackageName="Base package" fakeTypeName="JPA Entity CRAD Service" mappedToPackageName="org.tura.platform.commons.jpa" mappedToClassName="TuraJPAEntityService" artifactId="commons-jpa" groupId="org.tura.platform" version="2.0"/>
     <mappers xsi:type="tura.domain:JavaMapper" uid="d032b375-f6e9-4784-8cb5-8a3bed1b9a12" uiLayer="true" packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="2b2e1b10-400a-11e4-916c-0800200c9a66" fakePackageName="Base package" fakeTypeName="List of Base Type" mappedToPackageName="java.util" mappedToClassName="List&lt;org.tura.platform.persistence.TuraObject>"/>
     <mappers xsi:type="tura.domain:JavaMapper" uid="cd058e0b-a144-4b4f-b58d-324f50bed61a" uiLayer="true" packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="9ec6d2e0-4002-11e4-916c-0800200c9a66" fakePackageName="Base package" fakeTypeName="Search criterias" mappedToPackageName="com.octo.java.sql.query" mappedToClassName="SelectQuery" artifactId="java-sql-dsl" groupId="com.octo.java.sql" version="0.1.1-SNAPSHOT"/>
-    <mappers xsi:type="tura.domain:JavaMapper" uid="35d0bd3d-5c9f-4d34-a5a9-ab818607b3f5" uiLayer="true" packageRef="f7896b5b-7f62-4232-9357-5d1d8ab0471f" typeRef="bceadb47-a323-417f-8c19-19afe45872a1" fakePackageName="Universal JPA service" fakeTypeName="Universal JPA service" mappedToPackageName="org.elsoft.platform.hr.impl.service" mappedToClassName="UnService"/>
   </tura.domain:Mappers>
-  <tura.domain:TypeDefinition uid="c9574970-474a-403a-9224-f91bc2f8fe7a" parent="f7896b5b-7f62-4232-9357-5d1d8ab0471f">
-    <types xsi:type="tura.domain:TypeReference" uid="e99cfeee-23e9-4fb1-a200-f4067468e977" packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="2957c51c-68e7-4d1e-b8b7-cbe7ccdbe13f" fakePackageName="Base package" fakeTypeName="JPA Entity CRAD Service"/>
-    <types xsi:type="tura.domain:Type" uid="bceadb47-a323-417f-8c19-19afe45872a1" name="Universal JPA service">
-      <classifiers uid="8415216d-2d76-4f5c-8808-3e4d9f864ce2" hint="7886c715-304c-4a75-8fcc-21117819a873"/>
-      <extension uid="c06f72d8-55a9-42e6-8734-bd112e8c478d" source="bceadb47-a323-417f-8c19-19afe45872a1" target="e99cfeee-23e9-4fb1-a200-f4067468e977">
-        <classifiers uid="c3617dd4-1479-4257-a722-35b3e6d32bf2" hint="a737df52-c421-4423-b369-d2e7c3431c21"/>
-      </extension>
-    </types>
-  </tura.domain:TypeDefinition>
+  <tura.domain:TypeDefinition uid="c9574970-474a-403a-9224-f91bc2f8fe7a"/>
 </xmi:XMI>
