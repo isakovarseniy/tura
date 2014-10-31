@@ -8,7 +8,7 @@ package [%=type.~package%];
 
 
 @javax.ejb.Local
-public interface  [%=type.~class%]  {
+public interface  [%=type.~class%]Local  {
 
 [%for ( method in type.operations){ %]    
  [%=method.generate(recipe,ingredient,typeGeneric)%]

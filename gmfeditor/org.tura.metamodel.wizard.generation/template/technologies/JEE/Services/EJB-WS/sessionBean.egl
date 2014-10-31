@@ -6,10 +6,8 @@
 package [%=type.~package%];  
 
 @javax.ejb.Stateless
-[%if (typeRemote <> null){%]
-@javax.jws.WebService(endpointInterface = "[%=typeRemote.~fullName%]",serviceName="[%=typeRemote.~class%]")
-[%}%]
-public class  [%=type.~class%]  extends org.tura.platform.commons.jpa.TuraJPAEntityService [%if (typeRemote <> null or typeLocal <> null) {%]  implements  [%} if (typeRemote <> null ){%]  [%=typeRemote.~fullName%] [%} if (typeLocal <> null ){ if (typeRemote <> null ){%],[%}%] [%=typeLocal.~fullName%] [%}%]{
+@javax.jws.WebService(endpointInterface = "[%=type.~fullName%]",serviceName="[%=type.~class%]Remote")
+public class  [%=type.~class%]  extends org.tura.platform.commons.jpa.TuraJPAEntityService  implements   [%=type.~fullName%]Remote, [%=type.~fullName%]Local {
 
     @javax.persistence.PersistenceContext(unitName="[%=util.mergeAndCapitalize(component.name)%]")
     private javax.persistence.EntityManager em;

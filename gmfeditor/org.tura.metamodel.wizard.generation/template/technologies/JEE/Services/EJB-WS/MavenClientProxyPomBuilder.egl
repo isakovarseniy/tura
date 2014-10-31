@@ -40,24 +40,15 @@
                            var typeExtens;
                            for (type in alltypes ){
                                   type.mappingType2Java(recipe,ingredient);
-                                 for (  extension in type.getExtension() ){
-                                  if (extension.findClassifier("ORMEntity","entityObject","Implements")){
-                                       var target = extension.getTarget();
-                                       if (target.findClassifier("Service","Service","EJBRemoteInterface")){
-                                           typeRemote = target;
-                                           typeRemote.mappingType2Java(recipe,ingredient);
-                                        }
-                                  }
-                               }
 %]						
 								<execution>
-									<id>[%=typeRemote.~class%]Wsdl</id>
+									<id>[%=type.~class%]Wsdl</id>
 									<goals>
 										<goal>wsimport</goal>
 									</goals>
 									<configuration>
 										<wsdlUrls>
-											<wsdlUrl>http://[%=configuration.get("Application server IP")%]:[%=configuration.get("Application server port")%]/[%=typeRemote.~class%]/[%=type.~class.replace('Remote_Service','')%]?wsdl</wsdlUrl>
+											<wsdlUrl>http://[%=configuration.get("Application server IP")%]:[%=configuration.get("Application server port")%]/[%=type.~class%]/[%=type.~class.replace('Remote_Service','')%]?wsdl</wsdlUrl>
 										</wsdlUrls>
 									</configuration>
 								</execution>

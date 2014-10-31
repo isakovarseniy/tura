@@ -9,7 +9,7 @@ package [%=type.~package%];
 
 @javax.ejb.Remote
 @javax.jws.WebService
-public interface  [%=type.~class%]  {
+public interface  [%=type.~class%]Remote  {
 
 [%for ( method in type.operations){ %]    
  [%=method.generate(recipe,ingredient,typeGeneric)%]

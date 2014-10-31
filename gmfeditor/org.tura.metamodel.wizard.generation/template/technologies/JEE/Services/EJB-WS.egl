@@ -23,58 +23,30 @@ operation  service_generation(hash) {
     
     util.populateTechnologies(hash,model_mapper);
 
-
     for (  extension in type.getExtension() ){
-        if (extension.findClassifier("ORMEntity","entityObject","Extends")){
-                 typeExtens = extension.getTarget();
-                 typeExtens.mappingType2Java(recipe,ingredient);
-        } 
         if (extension.findClassifier("Service","Service","Generics")){
                  typeGeneric = extension.getTarget();
                  typeGeneric.mappingType2Java(recipe,ingredient);
         }
-        if (extension.findClassifier("ORMEntity","entityObject","Implements")){
-                 var target = extension.getTarget();
-                 if (target.findClassifier("Service","Service","EJBRemoteInterface")){
-                    typeRemote = target;
-                    typeRemote.mappingType2Java(recipe,ingredient);
-                 }
-                 if (target.findClassifier("Service","Service","EJBLocalInterface")){
-                    typeLocal = target;
-                    typeLocal.mappingType2Java(recipe,ingredient);
-                 }
-           }
     }
     
-    hash.put("typeRemote",typeRemote);
-    hash.put("typeLocal",typeLocal);
     hash.put("typeGeneric",typeGeneric);
-    hash.put("typeExtens",typeExtens);
 
     var sessionBean : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.wizard.generation/template/technologies/JEE/Services/EJB-WS/sessionBean.egl",hash,TemplateFactory);
     sessionBean.setFormatter(f);
     var buffer = sessionBean.process();
     util.saveFile( path+type.~package.replaceAll("\\.","\\/"), type.~class + ".java",buffer);   
 
-
-
-    hash.remove("typeRemote");
-    hash.remove("typeLocal");
-    hash.remove("typeGeneric");
-    hash.remove("typeExtens");
-
-    hash.put("type",typeLocal);
     var localinterface : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.wizard.generation/template/technologies/JEE/Services/EJB-WS/localInterface.egl",hash,TemplateFactory);
     localinterface.setFormatter(f);
     var buffer = localinterface.process();
-    util.saveFile( path+typeLocal.~package.replaceAll("\\.","\\/"), typeLocal.~class + ".java",buffer);   
+    util.saveFile( path+type.~package.replaceAll("\\.","\\/"), type.~class + "Local.java",buffer);   
 
 
-    hash.put("type",typeRemote);
     var remoteinterface : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.wizard.generation/template/technologies/JEE/Services/EJB-WS/remoteinterface.egl",hash,TemplateFactory);
     remoteinterface.setFormatter(f);
     var buffer = remoteinterface.process();
-    util.saveFile( path+typeRemote.~package.replaceAll("\\.","\\/"), typeRemote.~class + ".java",buffer);   
+    util.saveFile( path+type.~package.replaceAll("\\.","\\/"), type.~class + "Remote.java",buffer);   
 
   }
 %]
