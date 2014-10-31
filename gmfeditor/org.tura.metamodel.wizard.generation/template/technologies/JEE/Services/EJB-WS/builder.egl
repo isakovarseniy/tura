@@ -33,11 +33,11 @@ operation  maven_service_builder(hash) {
     var util = new Native('org.tura.metamodel.commons.Util');
     var lib = new Native('java.util.HashMap');
 
-     var currentLib = component.getArtifactId()+"-"+component.getVersion()+".jar";
+     var currentLib = component.getArtifactId()+"-ejb-"+component.getVersion()+".jar";
      for (type in alltypes){
         type.mappingType2Java(recipe,ingredient);
         if (type.~library <> null and type.~library.equals(currentLib)<>true ){
-            lib.put(type.~library,type);
+              lib.put(type.~library,type);
         }
      }
 
