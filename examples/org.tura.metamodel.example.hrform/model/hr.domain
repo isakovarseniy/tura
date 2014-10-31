@@ -77,8 +77,6 @@
       <specifiers uid="b846f3c1-80cc-449a-b68f-bbf718477dc2" name="Service implementation">
         <options uid="a0c38cb5-1b9c-45ae-8271-1bdd233ef8d4" value="JEE/Services/EJB-WS"/>
       </specifiers>
-      <hints uid="9ba4639b-73e2-484a-a8d4-b23d3c1f999b" name="EJBRemoteInterface" applyedClass=""/>
-      <hints uid="0a956d6e-2679-46f3-9358-dba1781f0cbd" name="EJBLocalInterface"/>
       <hints uid="ff44d9e7-d5a5-42d4-8744-089721da820e" name="Generics"/>
       <hints uid="11f99455-8fbd-451c-9c45-232fec79da1d" name="EJBService"/>
     </artifacts>
