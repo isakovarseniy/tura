@@ -581,6 +581,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//ExpressionPart/uid"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference domain.ecore#//ExpressionPart/objRef"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//ExpressionPart/order"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//ExpressionPart/expressionType"/>
     </genClasses>
     <genClasses ecoreClass="domain.ecore#//ContextParameters">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//ContextParameters/parameters"/>

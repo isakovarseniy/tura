@@ -442,6 +442,11 @@ public abstract class ContextParameterPropertySelection extends GridProperty {
 				part.setObjRef(((TriggerHolder) path.getSegment(i))
 						.getTrigger());
 
+			if (part.getObjRef() != null)
+				part.setExpressionType(part.getObjRef().getClass().getSimpleName());
+			else
+				part.setExpressionType(path.getSegment(i).getClass().getSimpleName());
+			
 			part.setOrder(i);
 			ls.add(part);
 

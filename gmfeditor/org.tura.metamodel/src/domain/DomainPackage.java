@@ -6570,13 +6570,22 @@ public interface DomainPackage extends EPackage
   int EXPRESSION_PART__ORDER = 2;
 
   /**
+   * The feature id for the '<em><b>Expression Type</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXPRESSION_PART__EXPRESSION_TYPE = 3;
+
+  /**
    * The number of structural features of the '<em>Expression Part</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int EXPRESSION_PART_FEATURE_COUNT = 3;
+  int EXPRESSION_PART_FEATURE_COUNT = 4;
 
   /**
    * The meta object id for the '{@link domain.impl.ContextParametersImpl <em>Context Parameters</em>}' class.
@@ -15924,6 +15933,17 @@ public interface DomainPackage extends EPackage
   EAttribute getExpressionPart_Order();
 
   /**
+   * Returns the meta object for the attribute '{@link domain.ExpressionPart#getExpressionType <em>Expression Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Expression Type</em>'.
+   * @see domain.ExpressionPart#getExpressionType()
+   * @see #getExpressionPart()
+   * @generated
+   */
+  EAttribute getExpressionPart_ExpressionType();
+
+  /**
    * Returns the meta object for class '{@link domain.ContextParameters <em>Context Parameters</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -21606,6 +21626,14 @@ public interface DomainPackage extends EPackage
      * @generated
      */
     EAttribute EXPRESSION_PART__ORDER = eINSTANCE.getExpressionPart_Order();
+
+    /**
+     * The meta object literal for the '<em><b>Expression Type</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute EXPRESSION_PART__EXPRESSION_TYPE = eINSTANCE.getExpressionPart_ExpressionType();
 
     /**
      * The meta object literal for the '{@link domain.impl.ContextParametersImpl <em>Context Parameters</em>}' class.

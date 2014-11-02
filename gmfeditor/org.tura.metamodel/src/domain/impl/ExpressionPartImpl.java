@@ -24,6 +24,7 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  *   <li>{@link domain.impl.ExpressionPartImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.impl.ExpressionPartImpl#getObjRef <em>Obj Ref</em>}</li>
  *   <li>{@link domain.impl.ExpressionPartImpl#getOrder <em>Order</em>}</li>
+ *   <li>{@link domain.impl.ExpressionPartImpl#getExpressionType <em>Expression Type</em>}</li>
  * </ul>
  * </p>
  *
@@ -80,6 +81,26 @@ public class ExpressionPartImpl extends EObjectImpl implements ExpressionPart
    * @ordered
    */
   protected int order = ORDER_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #getExpressionType() <em>Expression Type</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getExpressionType()
+   * @generated
+   * @ordered
+   */
+  protected static final String EXPRESSION_TYPE_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getExpressionType() <em>Expression Type</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getExpressionType()
+   * @generated
+   * @ordered
+   */
+  protected String expressionType = EXPRESSION_TYPE_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -196,6 +217,29 @@ public class ExpressionPartImpl extends EObjectImpl implements ExpressionPart
    * <!-- end-user-doc -->
    * @generated
    */
+  public String getExpressionType()
+  {
+    return expressionType;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setExpressionType(String newExpressionType)
+  {
+    String oldExpressionType = expressionType;
+    expressionType = newExpressionType;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.EXPRESSION_PART__EXPRESSION_TYPE, oldExpressionType, expressionType));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
@@ -208,6 +252,8 @@ public class ExpressionPartImpl extends EObjectImpl implements ExpressionPart
         return basicGetObjRef();
       case DomainPackage.EXPRESSION_PART__ORDER:
         return getOrder();
+      case DomainPackage.EXPRESSION_PART__EXPRESSION_TYPE:
+        return getExpressionType();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -230,6 +276,9 @@ public class ExpressionPartImpl extends EObjectImpl implements ExpressionPart
         return;
       case DomainPackage.EXPRESSION_PART__ORDER:
         setOrder((Integer)newValue);
+        return;
+      case DomainPackage.EXPRESSION_PART__EXPRESSION_TYPE:
+        setExpressionType((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -254,6 +303,9 @@ public class ExpressionPartImpl extends EObjectImpl implements ExpressionPart
       case DomainPackage.EXPRESSION_PART__ORDER:
         setOrder(ORDER_EDEFAULT);
         return;
+      case DomainPackage.EXPRESSION_PART__EXPRESSION_TYPE:
+        setExpressionType(EXPRESSION_TYPE_EDEFAULT);
+        return;
     }
     super.eUnset(featureID);
   }
@@ -274,6 +326,8 @@ public class ExpressionPartImpl extends EObjectImpl implements ExpressionPart
         return objRef != null;
       case DomainPackage.EXPRESSION_PART__ORDER:
         return order != ORDER_EDEFAULT;
+      case DomainPackage.EXPRESSION_PART__EXPRESSION_TYPE:
+        return EXPRESSION_TYPE_EDEFAULT == null ? expressionType != null : !EXPRESSION_TYPE_EDEFAULT.equals(expressionType);
     }
     return super.eIsSet(featureID);
   }
@@ -293,6 +347,8 @@ public class ExpressionPartImpl extends EObjectImpl implements ExpressionPart
     result.append(uid);
     result.append(", order: ");
     result.append(order);
+    result.append(", expressionType: ");
+    result.append(expressionType);
     result.append(')');
     return result.toString();
   }

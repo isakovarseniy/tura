@@ -67,6 +67,7 @@ public class ExpressionPartItemProvider
       addUidPropertyDescriptor(object);
       addObjRefPropertyDescriptor(object);
       addOrderPropertyDescriptor(object);
+      addExpressionTypePropertyDescriptor(object);
     }
     return itemPropertyDescriptors;
   }
@@ -141,6 +142,29 @@ public class ExpressionPartItemProvider
   }
 
   /**
+   * This adds a property descriptor for the Expression Type feature.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected void addExpressionTypePropertyDescriptor(Object object)
+  {
+    itemPropertyDescriptors.add
+      (createItemPropertyDescriptor
+        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+         getResourceLocator(),
+         getString("_UI_ExpressionPart_expressionType_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_ExpressionPart_expressionType_feature", "_UI_ExpressionPart_type"),
+         DomainPackage.Literals.EXPRESSION_PART__EXPRESSION_TYPE,
+         true,
+         false,
+         false,
+         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+         null,
+         null));
+  }
+
+  /**
    * This returns ExpressionPart.gif.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -183,6 +207,7 @@ public class ExpressionPartItemProvider
     {
       case DomainPackage.EXPRESSION_PART__UID:
       case DomainPackage.EXPRESSION_PART__ORDER:
+      case DomainPackage.EXPRESSION_PART__EXPRESSION_TYPE:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
         return;
     }

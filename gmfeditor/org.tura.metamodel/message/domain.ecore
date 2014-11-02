@@ -1298,6 +1298,7 @@
         iD="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="objRef" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="order" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="expressionType" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ContextParameters">
     <eStructuralFeatures xsi:type="ecore:EReference" name="parameters" upperBound="-1"

@@ -874,7 +874,8 @@ class ContextValue{
 class ExpressionPart{
    id attr EString uid;
    ref EObject objRef;
-   attr EInt order;   
+   attr EInt order;
+   attr EString expressionType;   
 }
 
 class ContextParameters {

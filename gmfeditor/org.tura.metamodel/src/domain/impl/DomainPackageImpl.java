@@ -5866,6 +5866,16 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EAttribute getExpressionPart_ExpressionType()
+  {
+    return (EAttribute)expressionPartEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getContextParameters()
   {
     return contextParametersEClass;
@@ -8103,6 +8113,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     createEAttribute(expressionPartEClass, EXPRESSION_PART__UID);
     createEReference(expressionPartEClass, EXPRESSION_PART__OBJ_REF);
     createEAttribute(expressionPartEClass, EXPRESSION_PART__ORDER);
+    createEAttribute(expressionPartEClass, EXPRESSION_PART__EXPRESSION_TYPE);
 
     contextParametersEClass = createEClass(CONTEXT_PARAMETERS);
     createEReference(contextParametersEClass, CONTEXT_PARAMETERS__PARAMETERS);
@@ -9025,6 +9036,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     initEAttribute(getExpressionPart_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, ExpressionPart.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getExpressionPart_ObjRef(), ecorePackage.getEObject(), null, "objRef", null, 0, 1, ExpressionPart.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getExpressionPart_Order(), ecorePackage.getEInt(), "order", null, 0, 1, ExpressionPart.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getExpressionPart_ExpressionType(), ecorePackage.getEString(), "expressionType", null, 0, 1, ExpressionPart.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(contextParametersEClass, ContextParameters.class, "ContextParameters", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getContextParameters_Parameters(), this.getContextParameter(), null, "parameters", null, 0, -1, ContextParameters.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

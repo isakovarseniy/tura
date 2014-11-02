@@ -15,6 +15,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link domain.ExpressionPart#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.ExpressionPart#getObjRef <em>Obj Ref</em>}</li>
  *   <li>{@link domain.ExpressionPart#getOrder <em>Order</em>}</li>
+ *   <li>{@link domain.ExpressionPart#getExpressionType <em>Expression Type</em>}</li>
  * </ul>
  * </p>
  *
@@ -101,5 +102,31 @@ public interface ExpressionPart extends EObject
    * @generated
    */
   void setOrder(int value);
+
+  /**
+   * Returns the value of the '<em><b>Expression Type</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Expression Type</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Expression Type</em>' attribute.
+   * @see #setExpressionType(String)
+   * @see domain.DomainPackage#getExpressionPart_ExpressionType()
+   * @model
+   * @generated
+   */
+  String getExpressionType();
+
+  /**
+   * Sets the value of the '{@link domain.ExpressionPart#getExpressionType <em>Expression Type</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Expression Type</em>' attribute.
+   * @see #getExpressionType()
+   * @generated
+   */
+  void setExpressionType(String value);
 
 } // ExpressionPart
