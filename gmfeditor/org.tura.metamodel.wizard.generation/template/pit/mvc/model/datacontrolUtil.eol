@@ -130,6 +130,9 @@ operation DataControl processRelations( recipe:Recipe, ingredient :Ingredient) {
 
 
 operation DataControl findDependecies ( objectTrack, treeRoot: DataControl,recipe:Recipe, ingredient :Ingredient){
+
+        var util = new Native('org.tura.metamodel.commons.Util');
+
          if (objectTrack.contains(self) )
               return;
         
@@ -139,7 +142,9 @@ operation DataControl findDependecies ( objectTrack, treeRoot: DataControl,recip
             treeRoot.~dependArray.add(dependent.name);
             if (dependent.~dependObject == null)
                 dependent.~dependObject = new Native('java.util.ArrayList');  
-            dependent.~dependObject.add(dependent.getBaseClass(recipe,ingredient));
+    // self is master datacontrol            
+            dependent.~dependObject.add(self.getBaseClass(recipe,ingredient).~fullName);
+            
         }      
               
         var listOfTreeNodes = domain::Relation.allInstances()->select(r|r.isTree=true and r.master = self)->collect(w|w.detail);

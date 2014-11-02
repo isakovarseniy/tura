@@ -62,18 +62,18 @@ public abstract class TreeDataControl implements IDataControl {
 		root.handleChangeMusterCurrentRecordNotification(newCurrentObject);
 	}
 	
-	protected void notifyChageRecordAll(Object newCurrentObject){
+	protected void notifyChageRecordAll(Object newCurrentObject) throws TuraException{
 		notifyChangeRecordLiteners(newCurrentObject);
 		notifyDependencyListeners(newCurrentObject);
 	}
 
-	private void notifyChangeRecordLiteners(Object newCurrentObject) {
+	private void notifyChangeRecordLiteners(Object newCurrentObject) throws TuraException {
 		for (ChangeRecordListener listener : chageRecordLiteners) {
 			listener.handleChangeRecord(this, newCurrentObject);
 		}
 	}
 	
-	private void notifyDependencyListeners(Object newCurrentObject){
+	private void notifyDependencyListeners(Object newCurrentObject) throws TuraException{
 		for (DependecyProperty dep : dependency ){
 			ChangeRecordListener listener = (ChangeRecordListener) root.getElResolver().getValue(dep.getExpression());
 			listener.handleChangeRecord(this, newCurrentObject);

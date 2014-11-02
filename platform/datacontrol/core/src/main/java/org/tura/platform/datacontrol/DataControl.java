@@ -65,7 +65,7 @@ public abstract class DataControl<T>  extends MetaInfoHolder implements IDataCon
 		notifyDependencyListeners(newCurrentObject);
 	}
 
-	private void notifyDependencyListeners(Object newCurrentObject){
+	private void notifyDependencyListeners(Object newCurrentObject) throws TuraException{
 		for (DependecyProperty dep : dependency ){
 			ChangeRecordListener listener = (ChangeRecordListener) getElResolver().getValue(dep.getExpression());
 			listener.handleChangeRecord(this, newCurrentObject);
@@ -73,7 +73,7 @@ public abstract class DataControl<T>  extends MetaInfoHolder implements IDataCon
 	}
 	
 	
-	private void notifyChangeRecordLiteners(T newCurrentObject) {
+	private void notifyChangeRecordLiteners(T newCurrentObject) throws TuraException {
 		for (ChangeRecordListener listener : chageRecordLiteners) {
 			listener.handleChangeRecord(this, newCurrentObject);
 		}

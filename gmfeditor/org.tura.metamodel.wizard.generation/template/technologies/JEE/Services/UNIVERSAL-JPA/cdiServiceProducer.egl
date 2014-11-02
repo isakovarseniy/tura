@@ -8,7 +8,7 @@ public class  [%=type.~class%]ServiceProducer{
     @javax.persistence.PersistenceContext(unitName="[%=util.mergeAndCapitalize(component.name)%]")
     private javax.persistence.EntityManager em;
 
-	@Produces
+	@javax.enterprise.inject.Produces
 	public org.tura.platform.commons.jpa.TuraJPAEntityService getTuraJPAEntityService(){
 		org.tura.platform.commons.jpa.TuraJPAEntityService service = new org.tura.platform.commons.jpa.TuraJPAEntityService();
 		service.setEntityManager(em);

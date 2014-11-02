@@ -11,7 +11,7 @@ ${percent}${end}
      var forms = util.runQuery(model_mapper,"Query form",model_mapper);
 
     if (forms.size() <> 0 ){
- 
+       var i = 0;
        for (form in forms){
 
          var hash = new Native("java.util.HashMap"); 
@@ -35,9 +35,14 @@ ${percent}${end}
            control.processArtificialFields(recipe,ingredient);
 
            control.processTriggers(recipe,ingredient);
-           control.processRelations(recipe,ingredient);
-           control.processDefaultQuery(recipe,ingredient);
            
+           //Process relations only ones for all datacontrols;
+           if (i = 0 )
+              control.processRelations(recipe,ingredient);
+           
+           i=i+1;   
+
+           control.processDefaultQuery(recipe,ingredient);
            hash.put("control",control);
 
            datacontrolgeneration(hash);

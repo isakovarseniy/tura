@@ -4,7 +4,28 @@
 package  [%=component.basePackage%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%].datacontrol;  
 
 @javax.inject.Named("[%=util.mergeAndCapitalize(control.name).toLowerCase()%]")
-public class [%=util.mergeAndCapitalize(control.name)%]DC extends org.tura.platform.datacontrol.DataControl <[%=control.~basefullName%]> {
+public class [%=util.mergeAndCapitalize(control.name)%]DC extends org.tura.platform.datacontrol.DataControl <[%=control.~basefullName%]> [%if (control.~dependObject.isDefined()){%] implements org.tura.platform.datacontrol.ChangeRecordListener [%}%]{
+
+    [%
+    if (control.~dependObject.isDefined()){%]
+    @Override
+	public void handleChangeRecord(org.tura.platform.datacontrol.IDataControl dc , Object newCurrentObject) throws org.tura.platform.datacontrol.commons.TuraException{
+    [%
+      var i = 0;
+      for (depend in control.~dependObject){
+        if (i <> 0 ){ %],[%}%]
+		if (newCurrentObject instanceof [%=depend%]){
+			this.handleChangeMusterCurrentRecordNotification(newCurrentObject);
+		}
+    [%
+        i = i+1;
+      }
+    %] 
+	}     
+   [%
+    }
+    %] 
+
 
 	@javax.inject.Inject
     [%
