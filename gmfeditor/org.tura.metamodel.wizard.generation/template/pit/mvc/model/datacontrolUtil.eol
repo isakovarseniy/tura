@@ -1,4 +1,5 @@
 import "platform:/plugin/org.tura.metamodel.wizard.generation/template/commons/typeElementUtil.eol";
+import "platform:/plugin/org.tura.metamodel.wizard.generation/template/commons/buildExpression.eol";
  
 
 
@@ -63,7 +64,7 @@ operation Trigger processTrigger(recipe:Recipe, ingredient :Ingredient){
 operation ContextParameters processParameters(recipe:Recipe, ingredient :Ingredient){
         var util = new Native('org.tura.metamodel.commons.Util');
         for (parameter in self.parameters){
-            parameter.~result =  util.buildExpression(parameter.value);
+            parameter.~result =  buildExpression(parameter.value);
             parameter.refObj.typeRef.mappingType2Java(recipe,ingredient);
         }
 }

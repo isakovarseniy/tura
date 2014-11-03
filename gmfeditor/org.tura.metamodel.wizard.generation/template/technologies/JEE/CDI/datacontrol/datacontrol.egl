@@ -186,7 +186,7 @@ public class [%=util.mergeAndCapitalize(control.name)%]DC extends org.tura.platf
 	@Override
 	@Inject
 	public void setSearchCommand(
-			@org.tura.platform.datacontrol.annotations.Search(objectAction = "[%=control.remove.methodRef.name%]", parameters = @org.tura.platform.datacontrol.annotations.Parameters(value = {
+			@org.tura.platform.datacontrol.annotations.Search(objectAction = "[%=control.search.methodRef.name%]", parameters = @org.tura.platform.datacontrol.annotations.Parameters(value = {
    [%
     var i = 0;
     for (param in control.search.parameters){

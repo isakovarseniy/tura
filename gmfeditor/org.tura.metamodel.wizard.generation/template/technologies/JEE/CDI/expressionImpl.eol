@@ -1,0 +1,118 @@
+
+operation  ApplicationRoleImpl(expression:String, contextValue : ContextValue, paramId: Integer, array ) : String {
+   if (expression <> "")
+     expression = expression+".";
+   return expression+array.get(paramId);
+}
+
+operation ArtifactImpl(expression:String, contextValue : ContextValue, paramId: Integer , array ) : String {
+   if (expression <> "")
+     expression = expression+".";
+   return expression+array.get(paramId);
+}
+
+operation AttributeImpl(expression:String, contextValue : ContextValue, paramId: Integer , array ) : String {
+   if (expression <> "")
+     expression = expression+".";
+   return expression+array.get(paramId);
+}
+
+operation ControlsImpl(expression:String, contextValue : ContextValue, paramId: Integer , array ) : String {
+   return expression;
+}
+
+operation DataControlFakeAttribute(expression:String, contextValue : ContextValue, paramId: Integer , array ) : String {
+   if (expression <> "")
+     expression = expression+".";
+   return expression+array.get(paramId);
+}
+
+operation DataControlFakeMethod(expression:String, contextValue : ContextValue, paramId: Integer , array ) : String {
+   if (expression <> "")
+     expression = expression+".";
+   return expression+array.get(paramId);
+}
+
+operation DataControlImpl(expression:String, contextValue : ContextValue, paramId: Integer , array ) : String {
+   if (expression <> "")
+     expression = expression+".";
+   return expression+contextValue.expression.get(paramId).objRef.name;
+}
+
+operation DomainArtifactImpl(expression:String, contextValue : ContextValue, paramId: Integer , array ) : String {
+   if (expression <> "")
+     expression = expression+".";
+   return expression+array.get(paramId);
+}
+
+operation DomainArtifactsImpl(expression:String, contextValue : ContextValue, paramId: Integer , array ) : String {
+   if (expression <> "")
+     expression = expression+".";
+   return expression+array.get(paramId);
+}
+
+operation GroupImpl(expression:String, contextValue : ContextValue, paramId: Integer , array ) : String {
+   if (expression <> "")
+     expression = expression+".";
+   return expression+array.get(paramId);
+}
+
+operation MessageLibraryImpl(expression:String, contextValue : ContextValue, paramId: Integer , array ) : String {
+   if (expression <> "")
+     expression = expression+".";
+   return expression+array.get(paramId);
+}
+
+operation MessageImpl(expression:String, contextValue : ContextValue, paramId: Integer , array ) : String {
+   if (expression <> "")
+     expression = expression+".";
+   return expression+array.get(paramId);
+}
+
+operation MessagesImpl(expression:String, contextValue : ContextValue, paramId: Integer , array ) : String {
+   if (expression <> "")
+     expression = expression+".";
+   return expression+array.get(paramId);
+}
+
+operation OperationImpl(expression:String, contextValue : ContextValue, paramId: Integer , array ) : String {
+   if (expression <> "")
+     expression = expression+".";
+   return expression+array.get(paramId);
+}
+
+operation PackageImpl(expression:String, contextValue : ContextValue, paramId: Integer , array ) : String {
+   if (expression <> "")
+     expression = expression+".";
+   return expression+array.get(paramId);
+}
+
+operation RoleImpl(expression:String, contextValue : ContextValue, paramId: Integer , array ) : String {
+   if (expression <> "")
+     expression = expression+".";
+   return expression+array.get(paramId);
+}
+
+operation RolesImpl(expression:String, contextValue : ContextValue, paramId: Integer , array ) : String {
+   if (expression <> "")
+     expression = expression+".";
+   return expression+array.get(paramId);
+}
+
+operation TriggerImpl(expression:String, contextValue : ContextValue, paramId: Integer , array ) : String {
+   if (expression <> "")
+     expression = expression+".";
+   return expression+array.get(paramId);
+}
+
+operation TypeElementImpl(expression:String, contextValue : ContextValue, paramId: Integer , array ) : String {
+   if (expression <> "")
+     expression = expression+".";
+   return expression+array.get(paramId);
+}
+
+operation TypesImpl(expression:String, contextValue : ContextValue, paramId: Integer , array ) : String {
+   if (expression <> "")
+     expression = expression+".";
+   return expression+array.get(paramId);
+}

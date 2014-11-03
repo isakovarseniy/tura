@@ -916,9 +916,9 @@
       </remove>
       <search packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="2957c51c-68e7-4d1e-b8b7-cbe7ccdbe13f" fakePackageName="Base package" fakeTypeName="JPA Entity CRAD Service" methodRef="6fb841e0-4008-11e4-916c-0800200c9a66" fakeMethod="find" uid="5f8be1c2-a37e-4d9a-b570-ccf5d02a8e6e">
         <parameters uid="4c5dfa4d-96fe-4602-879a-d0b63508f051" refObj="790b57a0-4008-11e4-916c-0800200c9a66">
-          <value uid="a8c23e0d-720e-44d5-81e5-c0d29d2e4ea2" value="Data controls.Country.query">
+          <value uid="a8c23e0d-720e-44d5-81e5-c0d29d2e4ea2" value="Data controls.Company.query">
             <expression objRef="5541fdd1-fedb-45ba-ab74-966e737af3a6" expressionType="ControlsImpl"/>
-            <expression objRef="cd1cab1c-1781-4867-85b8-84d9f465f989" order="1" expressionType="DataControlImpl"/>
+            <expression objRef="d45e9605-3706-493c-8422-3f7b8b6ea2ed" order="1" expressionType="DataControlImpl"/>
             <expression order="2" expressionType="DataControlFakeAttribute"/>
           </value>
         </parameters>
