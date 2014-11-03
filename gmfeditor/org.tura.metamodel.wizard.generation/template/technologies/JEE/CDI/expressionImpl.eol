@@ -36,7 +36,9 @@ operation DataControlFakeMethod(expression:String, contextValue : ContextValue, 
 operation DataControlImpl(expression:String, contextValue : ContextValue, paramId: Integer , array ) : String {
    if (expression <> "")
      expression = expression+".";
-   return expression+contextValue.expression.get(paramId).objRef.name;
+
+    var util = new Native('org.tura.metamodel.commons.Util');
+    return expression+util.mergeAndCapitalize(contextValue.expression.get(paramId).objRef.name).toLowerCase();
 }
 
 operation DomainArtifactImpl(expression:String, contextValue : ContextValue, paramId: Integer , array ) : String {
