@@ -1,5 +1,6 @@
 package org.tura.platform.hr.controls;
 
+import org.elsoft.platform.hr.objects.DepartmentsDAO;
 import org.tura.platform.datacontrol.DataControl;
 import org.tura.platform.datacontrol.ELResolver;
 import org.tura.platform.datacontrol.IDataControl;
@@ -15,7 +16,6 @@ import org.tura.platform.datacontrol.command.PreUpdateTrigger;
 import org.tura.platform.datacontrol.command.SearchCommand;
 import org.tura.platform.datacontrol.command.UpdateCommand;
 import org.tura.platform.datacontrol.metainfo.Relation;
-import org.tura.platform.hr.objects.DepartmentsDAO;
 
 import com.octo.java.sql.query.SelectQuery;
 

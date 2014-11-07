@@ -6,8 +6,8 @@
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
 		
          <class>org.tura.platform.persistence.ObjectsID</class>
-         <class>org.tura.platform.hr.objects.DepartmentsDAO</class>
-         <class>org.tura.platform.hr.objects.EmployeesDAO</class>
+         <class>org.elsoft.platform.hr.objects.DepartmentsDAO</class>
+         <class>org.elsoft.platform.hr.objects.EmployeesDAO</class>
       
 		<properties>
 			<property name="javax.persistence.jdbc.driver" value="org.hsqldb.jdbcDriver" />
@@ -24,8 +24,8 @@
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
 		
         <class>org.tura.platform.persistence.ObjectsID</class>
-         <class>org.tura.platform.hr.objects.DepartmentsDAO</class>
-         <class>org.tura.platform.hr.objects.EmployeesDAO</class>
+         <class>org.elsoft.platform.hr.objects.DepartmentsDAO</class>
+         <class>org.elsoft.platform.hr.objects.EmployeesDAO</class>
        
 		<properties>
 			<property name="javax.persistence.jdbc.driver" value="org.hsqldb.jdbcDriver" />

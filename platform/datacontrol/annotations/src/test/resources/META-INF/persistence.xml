@@ -2,17 +2,17 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
 	version="2.0">
-	<persistence-unit name="CDIUnit" transaction-type="RESOURCE_LOCAL">
+	<persistence-unit name="UIComponent" transaction-type="RESOURCE_LOCAL">
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
 		
          <class>org.tura.platform.persistence.ObjectsID</class>
-         <class>org.tura.platform.hr.objects.DepartmentsDAO</class>
-         <class>org.tura.platform.hr.objects.EmployeesDAO</class>
-         <class>org.tura.platform.hr.objects.CityDAO</class>
-         <class>org.tura.platform.hr.objects.CompanyDAO</class>
-         <class>org.tura.platform.hr.objects.CountryDAO</class>
-         <class>org.tura.platform.hr.objects.StateDAO</class>
-         <class>org.tura.platform.hr.objects.StreetDAO</class>
+         <class>org.elsoft.platform.hr.objects.DepartmentsDAO</class>
+         <class>org.elsoft.platform.hr.objects.EmployeesDAO</class>
+         <class>org.elsoft.platform.hr.objects.CityDAO</class>
+         <class>org.elsoft.platform.hr.objects.CompanyDAO</class>
+         <class>org.elsoft.platform.hr.objects.CountryDAO</class>
+         <class>org.elsoft.platform.hr.objects.StateDAO</class>
+         <class>org.elsoft.platform.hr.objects.StreetDAO</class>
       
 		<properties>
 			<property name="javax.persistence.jdbc.driver" value="org.hsqldb.jdbcDriver" />

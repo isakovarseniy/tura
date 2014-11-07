@@ -9,6 +9,8 @@ import java.util.logging.Logger;
 
 import javax.persistence.EntityManager;
 
+import org.elsoft.platform.hr.objects.DepartmentsDAO;
+import org.elsoft.platform.hr.objects.EmployeesDAO;
 import org.junit.Test;
 import org.tura.platform.datacontrol.DataControl;
 import org.tura.platform.datacontrol.metainfo.PropertyLink;
@@ -17,8 +19,6 @@ import org.tura.platform.datacontrol.shift.ShiftConstants;
 import org.tura.platform.hr.init.DepartmentsInit;
 import org.tura.platform.hr.init.EmployesesInit;
 import org.tura.platform.hr.init.FactoryDC;
-import org.tura.platform.hr.objects.DepartmentsDAO;
-import org.tura.platform.hr.objects.EmployeesDAO;
 
 import com.octo.java.sql.exp.Operator;
 

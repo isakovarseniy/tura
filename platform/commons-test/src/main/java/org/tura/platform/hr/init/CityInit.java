@@ -2,7 +2,8 @@ package org.tura.platform.hr.init;
 
 import javax.persistence.EntityManager;
 
-import org.tura.platform.hr.objects.CityDAO;
+import org.elsoft.platform.hr.objects.CityDAO;
+
 
 public class CityInit {
 	private EntityManager em;

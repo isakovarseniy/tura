@@ -6,7 +6,8 @@ import java.util.Date;
 
 import javax.persistence.EntityManager;
 
-import org.tura.platform.hr.objects.EmployeesDAO;
+import org.elsoft.platform.hr.objects.EmployeesDAO;
+
 
 public class EmployesesInit {
 

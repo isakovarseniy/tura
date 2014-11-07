@@ -2,7 +2,8 @@ package org.tura.platform.hr.init;
 
 import javax.persistence.EntityManager;
 
-import org.tura.platform.hr.objects.CountryDAO;
+import org.elsoft.platform.hr.objects.CountryDAO;
+
 
 public class CountryInit {
 

@@ -2,7 +2,8 @@ package org.tura.platform.hr.init;
 
 import javax.persistence.EntityManager;
 
-import org.tura.platform.hr.objects.StreetDAO;
+import org.elsoft.platform.hr.objects.StreetDAO;
+
 
 public class StreetInit {
 	private EntityManager em;

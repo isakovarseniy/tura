@@ -7,6 +7,8 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
+import org.elsoft.platform.hr.objects.DepartmentsDAO;
+import org.elsoft.platform.hr.objects.EmployeesDAO;
 import org.hibernate.cfg.Configuration;
 import org.tura.platform.commons.jpa.TuraJPAEntityService;
 import org.tura.platform.datacontrol.CommandStack;
@@ -20,8 +22,6 @@ import org.tura.platform.datacontrol.command.SearchCommand;
 import org.tura.platform.datacontrol.command.UpdateCommand;
 import org.tura.platform.hr.controls.DepartmentsDC;
 import org.tura.platform.hr.controls.EmployeesDC;
-import org.tura.platform.hr.objects.DepartmentsDAO;
-import org.tura.platform.hr.objects.EmployeesDAO;
 import org.tura.platform.persistence.TuraObject;
 
 import com.octo.java.sql.query.QueryException;
