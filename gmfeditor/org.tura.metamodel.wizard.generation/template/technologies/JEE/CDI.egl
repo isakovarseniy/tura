@@ -63,6 +63,10 @@ operation  datacontrolgeneration(hash) {
          buffer = commandstack.process();
          util.saveFile( javaPath+util.mergeAndCapitalize(form.name).toLowerCase()+"/datacontrol/"  , "ELResolverImpl.java",buffer);   
 
+         var entityproducer : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.wizard.generation/template/technologies/"+hash.get("Environment")+"/CDI/entityManagerProducer.egl",hash,TemplateFactory);
+         entityproducer.setFormatter(f);
+         buffer = entityproducer.process();
+         util.saveFile( javaPath+util.mergeAndCapitalize(form.name).toLowerCase()+"/producer/"  , "EntityManagerProducer.java",buffer);   
 
   }
 %]

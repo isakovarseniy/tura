@@ -1,9 +1,17 @@
+<#assign percent = "%" >
+<#assign start = "[" >
+<#assign end = "]" >
+${start}${percent} 
+import "platform:/plugin/org.tura.metamodel.wizard.generation/template/technologies/${Environment}.egl";
+${percent}${end}
+
 [%
      var util = new Native('org.tura.metamodel.commons.Util');
 %]
 package  [%=component.basePackage%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%].datacontrol;  
 
 @javax.inject.Named("[%=util.mergeAndCapitalize(control.name).toLowerCase()%]")
+[%=datacontrol_scope()%]
 public class [%=util.mergeAndCapitalize(control.name)%]DC extends org.tura.platform.datacontrol.DataControl <[%=control.~basefullName%]> [%if (control.~dependObject.isDefined()){%] implements org.tura.platform.datacontrol.ChangeRecordListener [%}%]{
 
     [%
@@ -45,7 +53,7 @@ public class [%=util.mergeAndCapitalize(control.name)%]DC extends org.tura.platf
       if (relation.~dependency =  null){
     %]
 	@javax.inject.Inject
-	private javax.enterprise.inject.Instance<[%=util.mergeAndCapitalize(relation.detail.name)%]DC> [%=util.mergeAndCapitalize(relation.detail.name).toLowerCase()%]producer;
+	private javax.enterprise.inject.Instance<[%if (relation.detail.~treeRoot=true){%]TreeRoot[%}%][%=util.mergeAndCapitalize(relation.detail.name)%]DC> [%=util.mergeAndCapitalize(relation.detail.name).toLowerCase()%]producer;
     [%
      }
     }
@@ -83,7 +91,7 @@ public class [%=util.mergeAndCapitalize(control.name)%]DC extends org.tura.platf
     var i = 0;
     for (key in control.~keys){
         if (i <> 0 ){ %],[%}%]
-			@org.tura.platform.datacontrol.annotations.Key(field = "[%=key.name%] ") 
+			@org.tura.platform.datacontrol.annotations.Key(field = "[%=key.name%]") 
     [%
      i = i+1;
     }
@@ -114,6 +122,13 @@ public class [%=util.mergeAndCapitalize(control.name)%]DC extends org.tura.platf
 	public void setElResolver(org.tura.platform.datacontrol.ELResolver elResolver) {
 		this.elResolver = elResolver;
 	}
+
+
+	@Inject
+	public void setCommandStack(org.tura.platform.datacontrol.CommandStack commandStack) {
+		this.commandStack = commandStack;
+	}
+
 
 	@Override
 	@javax.inject.Inject
@@ -260,7 +275,6 @@ public class [%=util.mergeAndCapitalize(control.name)%]DC extends org.tura.platf
 	 })
 	public org.tura.platform.datacontrol.IDataControl get[%=util.mergeAndCapitalize(relation.master.name)%]2[%=util.mergeAndCapitalize(relation.detail.name)%]() {
 		org.tura.platform.datacontrol.IDataControl dc = [%=util.mergeAndCapitalize(relation.detail.name).toLowerCase()%]producer.get();
-		getElResolver().setValue("[%=util.mergeAndCapitalize(relation.detail.name).toLowerCase()%]", dc);
 		return dc;
 	}
     [%
@@ -303,7 +317,7 @@ public class [%=util.mergeAndCapitalize(control.name)%]DC extends org.tura.platf
 			orders = @org.tura.platform.datacontrol.annotations.DefaultOrderBys(orders = { 
   [%
     var i = 0;
-    if (control.defaultOrderBy <> null) {
+    if (control.defaultOrderBy <> null  and control.defaultOrderBy.size() <> 0) {
     for (param in control.defaultOrderBy.orderRules){
         if (i <> 0 ){ %],[%}%]
 			@org.tura.platform.datacontrol.annotations.DefaultOrderBy(field = "[%=param.refObj.name%]", order =  com.octo.java.sql.query.SelectQuery.Order.[%=param.order%] ) 

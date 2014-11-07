@@ -14,3 +14,12 @@ operation  elresolver_scope() {
 [%
 }
 %]
+
+
+[% @template
+operation  datacontrol_scope() {
+%]
+@javax.enterprise.context.ApplicationScoped
+[%
+}
+%]

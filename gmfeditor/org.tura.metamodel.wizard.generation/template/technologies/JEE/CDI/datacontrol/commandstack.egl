@@ -13,7 +13,7 @@ package  [%=component.basePackage%].[%=util.mergeAndCapitalize(form.name).toLowe
 [%=commandstack_scope()%]
 public class CDICommandStack extends org.tura.platform.datacontrol.CommandStack{
      
-   @javax.persistence.PersistenceContext(unitName = "[%=util.mergeAndCapitalize(component.name)%]")
+	@javax.inject.Inject
 	private javax.persistence.EntityManager em;
      
 	@Override

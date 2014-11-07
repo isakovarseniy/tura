@@ -10,7 +10,6 @@ public class TreeRoot[%=util.mergeAndCapitalize(control.name)%]DC extends org.tu
 	@javax.inject.Inject
 	public void setRoot([%=util.mergeAndCapitalize(control.name)%]DC root) {
 		super.setRoot(root);
-		root.getElResolver().setValue("[%=util.mergeAndCapitalize(control.name).toLowerCase()%]", root);
 	}
 
 	@Override

@@ -5,7 +5,7 @@ package  [%=component.basePackage%].[%=util.mergeAndCapitalize(form.name).toLowe
 public class  [%=type.~class%]ServiceProducer{
 
 
-    @javax.persistence.PersistenceContext(unitName="[%=util.mergeAndCapitalize(component.name)%]")
+    @javax.inject.Inject
     private javax.persistence.EntityManager em;
 
 	@javax.enterprise.inject.Produces

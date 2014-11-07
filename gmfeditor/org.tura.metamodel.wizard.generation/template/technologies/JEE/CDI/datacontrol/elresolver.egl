@@ -19,14 +19,14 @@ public class ELResolverImpl implements org.tura.platform.datacontrol.ELResolver{
 	private javax.el.ELContext context;
 
 	public Object getValue(String exp) {
-		javax.el.ValueExpression ve = ef.createValueExpression(context, "${"+exp+"}",
+		javax.el.ValueExpression ve = ef.createValueExpression(context, "$"+ "{"+exp+"}",
 				Object.class);
 		return ve.getValue(context);
 
 	}
 
 	public void setValue(String exp, Object value) {
-		javax.el.ValueExpression ve = ef.createValueExpression(context, "${"+exp+"}",
+		javax.el.ValueExpression ve = ef.createValueExpression(context,"$"+ "{"+exp+"}",
 				Object.class);
 		ve.setValue(context,value);
 	}

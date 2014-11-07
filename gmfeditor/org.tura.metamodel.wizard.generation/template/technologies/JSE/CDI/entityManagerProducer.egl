@@ -1,0 +1,28 @@
+[%
+     var util = new Native('org.tura.metamodel.commons.Util');
+
+%]
+package  [%=component.basePackage%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%].producer;  
+
+@javax.enterprise.context.ApplicationScoped
+public class EntityManagerProducer {
+	
+	private javax.persistence.EntityManager em;	
+
+	@javax.enterprise.inject.Produces
+	public javax.persistence.EntityManager getEntityManager(javax.enterprise.inject.spi.InjectionPoint injectionPoint) {
+		if (em != null)
+			return em; 
+		org.hibernate.cfg.Configuration config = new org.hibernate.cfg.Configuration();
+		config.addResource("META-INF/persistence.xml");
+		javax.persistence.EntityManagerFactory emf = javax.persistence.Persistence.createEntityManagerFactory(
+				"[%=util.mergeAndCapitalize(component.name)%]", config.getProperties());
+		em = emf.createEntityManager();
+
+		return em;
+	}
+
+}
+
+
+
