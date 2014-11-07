@@ -1,0 +1,32 @@
+<#assign percent = "%" >
+<#assign start = "[" >
+<#assign end = "]" >
+${start}${percent} 
+import "platform:/plugin/org.tura.metamodel.wizard.generation/template/technologies/${Environment}.egl";
+${percent}${end}
+
+[%
+     var util = new Native('org.tura.metamodel.commons.Util');
+%]
+package  [%=component.basePackage%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%].datacontrol;  
+
+@javax.inject.Named("beanFactory")
+[%=datacontrol_scope()%]
+public class BeanFactory {
+
+[%
+     var controls =  form.datacontrols.formControl.controls;
+     for (control in controls){
+         var relations = domain::Relation.allInstances()->select(r|r.master= control);   
+         for ( relation in relations ){
+         if (relation.~dependency =  null and relation.isTree = false){ %] 
+          public     [%=component.basePackage%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%].datacontrol.[%if (relation.detail.~treeRoot=true){%]TreeRoot[%}%][%=util.mergeAndCapitalize(relation.detail.name)%]DC   get[%if (relation.detail.~treeRoot=true){%]TreeRoot[%}%][%=util.mergeAndCapitalize(relation.detail.name)%]DC(){
+               [%=component.basePackage%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%].datacontrol.[%=util.mergeAndCapitalize(relation.master.name)%]DC  master=  get[%=util.mergeAndCapitalize(relation.master.name)%]DC();
+               return ([%=component.basePackage%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%].datacontrol.[%if (relation.detail.~treeRoot=true){%]TreeRoot[%}%][%=util.mergeAndCapitalize(relation.detail.name)%]DC)master.get[%=util.mergeAndCapitalize(relation.master.name)%]2[%=util.mergeAndCapitalize(relation.detail.name)%]();
+          }
+         [%}
+         }
+     }    
+%]
+
+}

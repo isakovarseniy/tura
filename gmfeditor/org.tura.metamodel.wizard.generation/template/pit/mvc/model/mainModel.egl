@@ -30,7 +30,6 @@ ${percent}${end}
          
          var controls =  form.datacontrols.formControl.controls;
          for (control in controls){
-         
 
            control.processKeys(recipe,ingredient);
            control.processArtificialFields(recipe,ingredient);
@@ -44,15 +43,10 @@ ${percent}${end}
            i=i+1;   
 
            control.processDefaultQuery(recipe,ingredient);
-           hash.put("control",control);
-
-           datacontrolgeneration(hash);
            
          }
-         
-     
+         datacontrolgeneration(hash);
        }
-
      }  
 
 %]
