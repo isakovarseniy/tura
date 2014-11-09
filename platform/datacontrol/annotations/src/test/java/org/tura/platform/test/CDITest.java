@@ -13,6 +13,7 @@ import org.elsoft.platform.hr.objects.StateDAO;
 import org.jboss.weld.environment.se.Weld;
 import org.jboss.weld.environment.se.WeldContainer;
 import org.junit.Test;
+import org.tura.example.ui.hrcontroller.datacontrol.BeanFactory;
 import org.tura.example.ui.hrcontroller.datacontrol.CompanyDC;
 import org.tura.example.ui.hrcontroller.datacontrol.TreeRootCountryDC;
 import org.tura.platform.hr.init.CityInit;
@@ -56,7 +57,9 @@ public class CDITest {
 	@Test
 	public void getCountryControl() {
 		try {
-			CompanyDC companyDC = weld.instance().select(CompanyDC.class).get();
+			BeanFactory bf = weld.instance().select(BeanFactory.class).get();
+
+			CompanyDC companyDC  = bf.getCompanyDC();
 
 			companyDC.getCurrentObject();
 			TreeRootCountryDC locationDC = (TreeRootCountryDC) companyDC
@@ -80,11 +83,11 @@ public class CDITest {
 	@Test
 	public void setPath() {
 		try {
-			CompanyDC companyDC = weld.instance().select(CompanyDC.class).get();
-
-			companyDC.getCurrentObject();
-			TreeRootCountryDC locationDC = (TreeRootCountryDC) companyDC
-					.getCompany2Country();
+			
+			BeanFactory bf = weld.instance().select(BeanFactory.class).get();
+			CompanyDC companyDC  = bf.getCompanyDC();
+			
+			TreeRootCountryDC locationDC = bf.getTreeRootCountryDC();
 			locationDC.setCurrentPosition(new int[] { 1, 12 });
 
 			StateDAO row = (StateDAO) locationDC.getCurrentObject();

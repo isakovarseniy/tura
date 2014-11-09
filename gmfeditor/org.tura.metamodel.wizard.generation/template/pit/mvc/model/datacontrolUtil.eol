@@ -110,6 +110,12 @@ operation DataControl processArtificialFields(recipe:Recipe, ingredient :Ingredi
 
 operation DataControl processRelations( recipe:Recipe, ingredient :Ingredient) { 
         var util = new Native('org.tura.metamodel.commons.Util');
+        
+       var masterscontrol = domain::DataControl.allInstances()->select(r|r.eContainer() = self.parent )->reject(q|domain::Relation.allInstances()->select(r|r.eContainer() = self.parent )->collect(w|w.detail)->includes(q));        
+        for ( master in masterscontrol ){
+            master.~masterControl = true;
+        }        
+        
         var treeRoots =   domain::Relation.allInstances()->select(r|r.isTree=true and r.eContainer() = self.parent )->collect(w|w.master)->reject(q|domain::Relation.allInstances()->select(r|r.isTree=true and r.eContainer() = self.parent)->collect(w|w.detail)->includes(q));
         treeRoots.addAll(domain::Relation.allInstances()->select(r|r.isTree=true and  r.master=r.detail and r.eContainer() = self.parent)->collect(w|w.master));
         for ( treeRoot in treeRoots ){
@@ -145,7 +151,7 @@ operation DataControl findDependecies ( objectTrack, treeRoot: DataControl,recip
                 dependent.~dependObject = new Native('java.util.ArrayList');  
     // self is master datacontrol            
             dependent.~dependObject.add(self.getBaseClass(recipe,ingredient).~fullName);
-            
+            dependent.~masterRoot=treeRoot;
         }      
               
         var listOfTreeNodes = domain::Relation.allInstances()->select(r|r.isTree=true and r.master = self)->collect(w|w.detail);
