@@ -8,6 +8,7 @@ import java.util.logging.Logger;
 
 import javax.persistence.EntityManager;
 
+import org.elsoft.platform.hr.objects.CompanyDAO;
 import org.elsoft.platform.hr.objects.CountryDAO;
 import org.elsoft.platform.hr.objects.StateDAO;
 import org.jboss.weld.environment.se.Weld;
@@ -86,16 +87,18 @@ public class CDITest {
 			
 			BeanFactory bf = weld.instance().select(BeanFactory.class).get();
 			CompanyDC companyDC  = bf.getCompanyDC();
+			companyDC.getCurrentObject();
+			companyDC.nextObject();
 			
+			CompanyDAO company = companyDC.getCurrentObject();
+			assertEquals(company.getObjId(), new Long(2));
+
 			TreeRootCountryDC locationDC = bf.getTreeRootCountryDC();
-			locationDC.setCurrentPosition(new int[] { 1, 12 });
+			boolean isSet = locationDC.setCurrentPosition(new int[] { 0,2 });
+			assertEquals(isSet, true);
 
 			StateDAO row = (StateDAO) locationDC.getCurrentObject();
-			assertEquals(row.getObjId(), new Long(13));
-
-			companyDC.nextObject();
-			CountryDAO country = (CountryDAO) locationDC.getCurrentObject();
-			assertEquals(country.getObjId(), new Long(2));
+			assertEquals(row.getObjId(), new Long(8));
 
 		} catch (Exception e) {
 			e.printStackTrace();

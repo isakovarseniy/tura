@@ -263,6 +263,7 @@ public abstract class DataControl<T>  extends MetaInfoHolder implements IDataCon
 		}
 		if (position  < pager.listSize()){
 			this.currentPosition = (int)crtPosition;
+			notifyChageRecordAll(getCurrentObject());
 			return true;
 		}
 		else

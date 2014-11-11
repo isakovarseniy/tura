@@ -253,6 +253,7 @@ public class CityDC extends DataControl<CityDAO> {
     public void createChild(IDataControl dc, String relName, Relation relation) {
         if ("city2street".equals(relName)) {
             relation.setChild(this.getCity2Street());
+            this.addChildren("city2street", relation);
         }
     }
 

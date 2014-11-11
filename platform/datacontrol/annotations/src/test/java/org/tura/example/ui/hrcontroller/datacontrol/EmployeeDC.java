@@ -253,6 +253,7 @@ public class EmployeeDC extends DataControl<EmployeesDAO> {
     public void createChild(IDataControl dc, String relName, Relation relation) {
         if ("employee2files".equals(relName)) {
             relation.setChild(this.getEmployee2Files());
+            this.addChildren("employee2files", relation);
         }
     }
 

@@ -252,6 +252,7 @@ public class FilesDC extends DataControl<FileDAO> {
     public void createChild(IDataControl dc, String relName, Relation relation) {
         if ("files2files".equals(relName)) {
             relation.setChild(this.getFiles2Files());
+            this.addChildren("files2files", relation);
         }
     }
 

@@ -253,6 +253,7 @@ public class StreetDC extends DataControl<StreetDAO> {
     public void createChild(IDataControl dc, String relName, Relation relation) {
         if ("street2department".equals(relName)) {
             relation.setChild(this.getStreet2Department());
+            this.addChildren("street2department", relation);
         }
     }
 

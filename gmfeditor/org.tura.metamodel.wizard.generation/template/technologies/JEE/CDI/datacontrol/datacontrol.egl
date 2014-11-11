@@ -288,8 +288,10 @@ public class [%=util.mergeAndCapitalize(control.name)%]DC extends org.tura.platf
     for (relation in relations){
       if (relation.~dependency =  null){
     %]
-       if ("[%=util.mergeAndCapitalize(relation.master.name).toLowerCase()%]2[%=util.mergeAndCapitalize(relation.detail.name).toLowerCase()%]".equals(relName))
+       if ("[%=util.mergeAndCapitalize(relation.master.name).toLowerCase()%]2[%=util.mergeAndCapitalize(relation.detail.name).toLowerCase()%]".equals(relName)){
 		relation.setChild(this.get[%=util.mergeAndCapitalize(relation.master.name)%]2[%=util.mergeAndCapitalize(relation.detail.name)%]()) ;
+		this.addChildren("[%=util.mergeAndCapitalize(relation.master.name).toLowerCase()%]2[%=util.mergeAndCapitalize(relation.detail.name).toLowerCase()%]",relation);
+		}
     [%
       }
     }

@@ -276,9 +276,11 @@ public class DepartmentDC extends DataControl<DepartmentsDAO>
     public void createChild(IDataControl dc, String relName, Relation relation) {
         if ("department2employee".equals(relName)) {
             relation.setChild(this.getDepartment2Employee());
+            this.addChildren("department2employee", relation);
         }
         if ("department2vehicle".equals(relName)) {
             relation.setChild(this.getDepartment2Vehicle());
+            this.addChildren("department2vehicle", relation);
         }
     }
 

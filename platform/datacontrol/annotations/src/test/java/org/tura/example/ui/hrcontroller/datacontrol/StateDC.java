@@ -252,6 +252,7 @@ public class StateDC extends DataControl<StateDAO> {
     public void createChild(IDataControl dc, String relName, Relation relation) {
         if ("state2city".equals(relName)) {
             relation.setChild(this.getState2City());
+            this.addChildren("state2city", relation);
         }
     }
 

@@ -257,6 +257,7 @@ public class CompanyDC extends DataControl<CompanyDAO> {
     public void createChild(IDataControl dc, String relName, Relation relation) {
         if ("company2country".equals(relName)) {
             relation.setChild(this.getCompany2Country());
+            this.addChildren("company2country", relation);
         }
     }
 
