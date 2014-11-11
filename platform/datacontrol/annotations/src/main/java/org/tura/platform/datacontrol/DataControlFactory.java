@@ -226,6 +226,7 @@ public class DataControlFactory {
 		for (Dependency d : dependencies.dependency()) {
 			DependecyProperty property = new DependecyProperty();
 			property.setExpression(d.expression());
+			list.add(property);
 		}		
 		return list;
 	}

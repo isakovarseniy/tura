@@ -18,7 +18,7 @@ public class CityInit {
 		create(1L,"City 1 State 1 Ct 1",1L);
 		create(2L,"City 2 State 4 Ct 1", 4L);
 		create(3L,"City 1 State 4 Ct 2",9L);
-		create(4L,"City 2 State 5 Ct 2",10L);
+		create(4L,"City 2 State 5 Ct 2",9L);
 		
 		em.getTransaction().commit();
 
