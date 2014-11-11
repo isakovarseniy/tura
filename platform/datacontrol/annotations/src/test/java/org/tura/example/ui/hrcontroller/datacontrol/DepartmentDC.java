@@ -16,6 +16,7 @@ import org.tura.platform.datacontrol.annotations.Connection;
 import org.tura.platform.datacontrol.annotations.Create;
 import org.tura.platform.datacontrol.annotations.DefaultOrderBy;
 import org.tura.platform.datacontrol.annotations.DefaultOrderBys;
+import org.tura.platform.datacontrol.annotations.DefaultSearchCriteria;
 import org.tura.platform.datacontrol.annotations.DefaultSearchCriterias;
 import org.tura.platform.datacontrol.annotations.Delete;
 import org.tura.platform.datacontrol.annotations.Factory;
@@ -59,6 +60,7 @@ import javax.enterprise.inject.Instance;
 import javax.inject.Inject;
 import javax.inject.Named;
 
+import com.octo.java.sql.exp.Operator;
 import com.octo.java.sql.query.SelectQuery;
 
 @Named("department")
@@ -289,6 +291,8 @@ public class DepartmentDC extends DataControl<DepartmentsDAO>
     public void setDefaultQuery(
         @Query(base = @Base(clazz = DepartmentsDAO.class)
     , search = @DefaultSearchCriterias(criterias =  {
+        @DefaultSearchCriteria(field = "parentId", comparator = Operator.EQ, expression = "street.currentObject.objId", type = Long.class)
+
     }
     )
     , orders = @DefaultOrderBys(orders =  {

@@ -10,17 +10,14 @@ import org.tura.platform.datacontrol.ELResolver;
 import org.tura.platform.datacontrol.IDataControl;
 import org.tura.platform.datacontrol.annotations.ArtificialFields;
 import org.tura.platform.datacontrol.annotations.Base;
-import org.tura.platform.datacontrol.annotations.Connection;
 import org.tura.platform.datacontrol.annotations.Create;
 import org.tura.platform.datacontrol.annotations.DefaultOrderBy;
 import org.tura.platform.datacontrol.annotations.DefaultOrderBys;
 import org.tura.platform.datacontrol.annotations.DefaultSearchCriterias;
 import org.tura.platform.datacontrol.annotations.Delete;
-import org.tura.platform.datacontrol.annotations.Factory;
 import org.tura.platform.datacontrol.annotations.Insert;
 import org.tura.platform.datacontrol.annotations.Key;
 import org.tura.platform.datacontrol.annotations.Keys;
-import org.tura.platform.datacontrol.annotations.Link;
 import org.tura.platform.datacontrol.annotations.Parameter;
 import org.tura.platform.datacontrol.annotations.Parameters;
 import org.tura.platform.datacontrol.annotations.PostCreate;
@@ -52,7 +49,6 @@ import java.util.List;
 import javax.annotation.PostConstruct;
 
 import javax.enterprise.context.ApplicationScoped;
-import javax.enterprise.inject.Instance;
 
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -64,8 +60,6 @@ import com.octo.java.sql.query.SelectQuery;
 public class StreetDC extends DataControl<StreetDAO> {
     @Inject
     private TuraJPAEntityService provider_0;
-    @Inject
-    private Instance<DepartmentDC> departmentproducer;
 
     public StreetDC() throws Exception {
         super();
@@ -239,22 +233,8 @@ public class StreetDC extends DataControl<StreetDAO> {
         this.preUpdateTrigger = preUpdateTrigger;
     }
 
-    @Factory
-    @Connection(connectionName = "street2department", links =  {
-        @Link(field1 = "objId", field2 = "parentId")
-    }
-    )
-    public IDataControl getStreet2Department() {
-        IDataControl dc = departmentproducer.get();
-        return dc;
-    }
-
     @Override
     public void createChild(IDataControl dc, String relName, Relation relation) {
-        if ("street2department".equals(relName)) {
-            relation.setChild(this.getStreet2Department());
-            this.addChildren("street2department", relation);
-        }
     }
 
     @Override

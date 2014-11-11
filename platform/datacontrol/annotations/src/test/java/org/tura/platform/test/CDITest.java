@@ -117,6 +117,9 @@ public class CDITest {
 			CompanyDAO company =  companyDC.getCurrentObject();
 			assertEquals(company.getObjId(), new Long(2));
 
+			DepartmentDC departmentDC = bf.getDepartmentDC();
+
+			
 			TreeRootCountryDC locationDC = bf.getTreeRootCountryDC();
 			boolean isSet = locationDC.setCurrentPosition(new int[] { 0, 3,1,2 });
 			assertEquals(isSet, true);
@@ -124,7 +127,6 @@ public class CDITest {
 			StreetDAO row = (StreetDAO) locationDC.getCurrentObject();
 			assertEquals(row.getObjId(), new Long(12));
 
-			DepartmentDC departmentDC = bf.getDepartmentDC();
 			DepartmentsDAO department =  departmentDC.getCurrentObject();
 			assertEquals(department.getObjId(), new Long(12));
 			
