@@ -167,7 +167,7 @@ public abstract class TreeDataControl implements IDataControl {
 
 		}
 		currentObject = obj;
-		notifyChangeRecordLiteners(obj);
+		notifyChageRecordAll(obj);
 		return true;
 	}
 
