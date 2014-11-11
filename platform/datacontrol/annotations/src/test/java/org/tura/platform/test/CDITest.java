@@ -15,7 +15,9 @@ import org.elsoft.platform.hr.objects.StateDAO;
 import org.elsoft.platform.hr.objects.StreetDAO;
 import org.jboss.weld.environment.se.Weld;
 import org.jboss.weld.environment.se.WeldContainer;
+import org.junit.FixMethodOrder;
 import org.junit.Test;
+import org.junit.runners.MethodSorters;
 import org.tura.example.ui.hrcontroller.datacontrol.BeanFactory;
 import org.tura.example.ui.hrcontroller.datacontrol.CompanyDC;
 import org.tura.example.ui.hrcontroller.datacontrol.DepartmentDC;
@@ -28,6 +30,7 @@ import org.tura.platform.hr.init.EmployesesInit;
 import org.tura.platform.hr.init.StateInit;
 import org.tura.platform.hr.init.StreetInit;
 
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class CDITest {
 
 	private static Logger logger;
@@ -60,7 +63,7 @@ public class CDITest {
 	}
 
 	@Test
-	public void getCountryControl() {
+	public void a0_getCountryControl() {
 		try {
 			BeanFactory bf = weld.instance().select(BeanFactory.class).get();
 
@@ -85,7 +88,7 @@ public class CDITest {
 	}
 
 	@Test
-	public void setPath() {
+	public void a1_setPath() {
 		try {
 
 			BeanFactory bf = weld.instance().select(BeanFactory.class).get();
@@ -110,10 +113,11 @@ public class CDITest {
 	}
 
 	@Test
-	public void dependency() {
+	public void a2_dependency() {
 		try {
 			BeanFactory bf = weld.instance().select(BeanFactory.class).get();
 			CompanyDC companyDC = bf.getCompanyDC();
+			companyDC.nextObject();
 			CompanyDAO company =  companyDC.getCurrentObject();
 			assertEquals(company.getObjId(), new Long(2));
 
@@ -128,7 +132,7 @@ public class CDITest {
 			assertEquals(row.getObjId(), new Long(12));
 
 			DepartmentsDAO department =  departmentDC.getCurrentObject();
-			assertEquals(department.getObjId(), new Long(12));
+			assertEquals(department.getObjId(), new Long(200));
 			
 			
 		} catch (Exception e) {

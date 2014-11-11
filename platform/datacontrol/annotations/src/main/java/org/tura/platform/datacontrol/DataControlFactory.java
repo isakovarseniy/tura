@@ -107,11 +107,15 @@ public class DataControlFactory {
 
 			ConditionConverter.valueOf(condition).getRestriction(query,
 					c(criteria.field()));
-
-			Constructor<?> constructor = criteria.type().getConstructor(
-					String.class);
-			Object obj = constructor.newInstance(criteria.value());
-
+			Object obj = null;
+			if (criteria.expression() == null) {
+				Constructor<?> constructor = criteria.type().getConstructor(
+						String.class);
+				obj = constructor.newInstance(criteria.value());
+			}else{
+				obj = "#{"+criteria.expression()+"}";
+			}
+			
 			query.op(Operator.valueOf(criteria.comparator().name()), obj);
 
 			condition = "AND";
@@ -216,21 +220,21 @@ public class DataControlFactory {
 	}
 
 	@Produces
-	public List<DependecyProperty> getDependencies(InjectionPoint injectionPoint){
-	
-		Dependencies dependencies = injectionPoint.getAnnotated().getAnnotation(
-				Dependencies.class);
+	public List<DependecyProperty> getDependencies(InjectionPoint injectionPoint) {
+
+		Dependencies dependencies = injectionPoint.getAnnotated()
+				.getAnnotation(Dependencies.class);
 
 		ArrayList<DependecyProperty> list = new ArrayList<>();
-		
+
 		for (Dependency d : dependencies.dependency()) {
 			DependecyProperty property = new DependecyProperty();
 			property.setExpression(d.expression());
 			list.add(property);
-		}		
+		}
 		return list;
 	}
-	
+
 	private void parametersBuilder(Parameters parameters, Command cmd)
 			throws NoSuchMethodException, SecurityException,
 			InstantiationException, IllegalAccessException,

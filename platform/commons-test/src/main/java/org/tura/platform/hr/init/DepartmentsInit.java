@@ -53,6 +53,8 @@ public class DepartmentsInit {
 		dpt.setDepartmentName(departmentName);
 		dpt.setManagerId(managerId);
 		dpt.setLocationId(locationId);
+		dpt.setParentId(locationId);
+		
 
 		em.persist(dpt);
 		return dpt;
