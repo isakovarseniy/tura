@@ -136,14 +136,19 @@ operation DataControl findDependecies ( objectTrack, treeRoot: DataControl,recip
               return;
         
         objectTrack.add(self);
-        var listOfDependent = domain::Relation.allInstances()->select(r|r.isTree=false and r.master = self)->collect(w|w.detail);
-        for (dependent in listOfDependent){
+        var listOfRelarions = domain::Relation.allInstances()->select(r|r.isTree=false and r.master = self);
+        for (rel in listOfRelarions){
+            var dependent = rel.detail;
             treeRoot.~dependArray.add(dependent.name);
             if (dependent.~dependObject == null)
                 dependent.~dependObject = new Native('java.util.ArrayList');  
     // self is master datacontrol            
             dependent.~dependObject.add(self.getBaseClass(recipe,ingredient).~fullName);
             dependent.~masterRoot=treeRoot;
+            dependent.~relation=rel;
+            for ( lnk in rel.links ){
+                lnk.masterField.typeRef.mappingType2Java(recipe,ingredient);
+            }
         }      
               
         var listOfTreeNodes = domain::Relation.allInstances()->select(r|r.isTree=true and r.master = self)->collect(w|w.detail);
