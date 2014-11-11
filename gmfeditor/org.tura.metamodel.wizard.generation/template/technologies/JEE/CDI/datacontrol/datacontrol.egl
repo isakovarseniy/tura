@@ -50,7 +50,7 @@ public class [%=util.mergeAndCapitalize(control.name)%]DC extends org.tura.platf
     [%
      var relations = domain::Relation.allInstances()->select(r|r.master= control);   
     for (relation in relations){
-      if (relation.~dependency =  null){
+      if (not relation.detail.~dependObject.isDefined()){
     %]
 	@javax.inject.Inject
 	private javax.enterprise.inject.Instance<[%if (relation.detail.~treeRoot=true){%]TreeRoot[%}%][%=util.mergeAndCapitalize(relation.detail.name)%]DC> [%=util.mergeAndCapitalize(relation.detail.name).toLowerCase()%]producer;
@@ -259,7 +259,7 @@ public class [%=util.mergeAndCapitalize(control.name)%]DC extends org.tura.platf
 
     [%
     for (relation in relations){
-      if (relation.~dependency =  null){
+      if (not relation.detail.~dependObject.isDefined()){
     %]
 	@org.tura.platform.datacontrol.annotations.Factory
 	@org.tura.platform.datacontrol.annotations.Connection(connectionName = "[%=util.mergeAndCapitalize(relation.master.name).toLowerCase()%]2[%=util.mergeAndCapitalize(relation.detail.name).toLowerCase()%]", links = { 
@@ -286,7 +286,7 @@ public class [%=util.mergeAndCapitalize(control.name)%]DC extends org.tura.platf
 	public void createChild(org.tura.platform.datacontrol.IDataControl dc, String relName, org.tura.platform.datacontrol.metainfo.Relation relation) {
     [%
     for (relation in relations){
-      if (relation.~dependency =  null){
+      if (not relation.detail.~dependObject.isDefined()){
     %]
        if ("[%=util.mergeAndCapitalize(relation.master.name).toLowerCase()%]2[%=util.mergeAndCapitalize(relation.detail.name).toLowerCase()%]".equals(relName)){
 		relation.setChild(this.get[%=util.mergeAndCapitalize(relation.master.name)%]2[%=util.mergeAndCapitalize(relation.detail.name)%]()) ;

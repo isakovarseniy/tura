@@ -125,14 +125,6 @@ operation DataControl processRelations( recipe:Recipe, ingredient :Ingredient) {
             treeRoot.findDependecies(objectTrack, treeRoot,recipe,ingredient);
         }
         
-        var incomeRelations = domain::Relation.allInstances()->select(r|r.isTree=true and r.eContainer() = self.parent  and r.detail=self );
-        if  (incomeRelations.size() <> 0){
-            var outcomeRelations = domain::Relation.allInstances()->select(r|r.isTree=false and r.eContainer() = self.parent  and r.master=self );
-            for ( relation in outcomeRelations){
-               relation.~dependency = true;
-            }
-        }
-        
 }
 
 
