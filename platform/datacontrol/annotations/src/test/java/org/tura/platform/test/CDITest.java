@@ -1,6 +1,7 @@
 package org.tura.platform.test;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
 import static org.junit.Assert.fail;
 
 import java.text.ParseException;
@@ -122,7 +123,11 @@ public class CDITest {
 			assertEquals(company.getObjId(), new Long(2));
 
 			DepartmentDC departmentDC = bf.getDepartmentDC();
-
+//			assertEquals(departmentDC.isBlocked(), true);
+			
+			DepartmentsDAO department = departmentDC.getCurrentObject();
+//			assertNull(department);
+			
 			
 			TreeRootCountryDC locationDC = bf.getTreeRootCountryDC();
 			boolean isSet = locationDC.setCurrentPosition(new int[] { 0, 3,1,2 });
@@ -131,8 +136,16 @@ public class CDITest {
 			StreetDAO row = (StreetDAO) locationDC.getCurrentObject();
 			assertEquals(row.getObjId(), new Long(12));
 
-			DepartmentsDAO department =  departmentDC.getCurrentObject();
+			department =  departmentDC.getCurrentObject();
 			assertEquals(department.getObjId(), new Long(200));
+
+			isSet = locationDC.setCurrentPosition(new int[] { 0, 3,1 });
+			assertEquals(isSet, true);
+
+//			assertEquals(departmentDC.isBlocked(), true);
+			
+			department = departmentDC.getCurrentObject();
+			assertNull(department);
 			
 			
 		} catch (Exception e) {
