@@ -68,7 +68,7 @@ public class CDITest {
 		try {
 			BeanFactory bf = weld.instance().select(BeanFactory.class).get();
 
-			CompanyDC companyDC = bf.getCompanyDC();
+			CompanyDC companyDC = bf.getCompany();
 
 			companyDC.getCurrentObject();
 			TreeRootCountryDC locationDC = (TreeRootCountryDC) companyDC
@@ -93,14 +93,14 @@ public class CDITest {
 		try {
 
 			BeanFactory bf = weld.instance().select(BeanFactory.class).get();
-			CompanyDC companyDC = bf.getCompanyDC();
+			CompanyDC companyDC = bf.getCompany();
 			companyDC.getCurrentObject();
 			companyDC.nextObject();
 
 			CompanyDAO company = companyDC.getCurrentObject();
 			assertEquals(company.getObjId(), new Long(2));
 
-			TreeRootCountryDC locationDC = bf.getTreeRootCountryDC();
+			TreeRootCountryDC locationDC = bf.getTreeRootCountry();
 			boolean isSet = locationDC.setCurrentPosition(new int[] { 0,2 });
 			assertEquals(isSet, true);
 
@@ -117,19 +117,19 @@ public class CDITest {
 	public void a2_dependency() {
 		try {
 			BeanFactory bf = weld.instance().select(BeanFactory.class).get();
-			CompanyDC companyDC = bf.getCompanyDC();
+			CompanyDC companyDC = bf.getCompany();
 			companyDC.nextObject();
 			CompanyDAO company =  companyDC.getCurrentObject();
 			assertEquals(company.getObjId(), new Long(2));
 
-			DepartmentDC departmentDC = bf.getDepartmentDC();
+			DepartmentDC departmentDC = bf.getDepartment();
 			assertEquals(departmentDC.isBlocked(), true);
 			
 			DepartmentsDAO department = departmentDC.getCurrentObject();
 			assertNull(department);
 			
 			
-			TreeRootCountryDC locationDC = bf.getTreeRootCountryDC();
+			TreeRootCountryDC locationDC = bf.getTreeRootCountry();
 			boolean isSet = locationDC.setCurrentPosition(new int[] { 0, 3,1,2 });
 			assertEquals(isSet, true);
 
