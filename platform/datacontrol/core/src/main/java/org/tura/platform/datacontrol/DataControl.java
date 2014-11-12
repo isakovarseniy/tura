@@ -21,6 +21,8 @@ public abstract class DataControl<T>  extends MetaInfoHolder implements IDataCon
 	private static boolean SCROLL_DOWN = true;
 	private static boolean SCROLL_UP = false;
 	private static String id = UUID.randomUUID().toString();
+	
+	protected boolean blocked = false;
 
 	private ArrayList<ChangeRecordListener> chageRecordLiteners = new ArrayList<>();
 
@@ -50,6 +52,13 @@ public abstract class DataControl<T>  extends MetaInfoHolder implements IDataCon
 
 	public void handleChangeMusterCurrentRecordNotification(
 			Object newCurrentObject) throws TuraException {
+		if (newCurrentObject == null){
+			blocked = true;
+			notifyChageRecordAll(null);
+			return;
+		}
+		
+		blocked = false;
 		pager.cleanPager();
 		currentPosition = 0;
 		pager.setScrollDirection(SCROLL_DOWN);
@@ -92,11 +101,17 @@ public abstract class DataControl<T>  extends MetaInfoHolder implements IDataCon
 	}
 
 	public T getCurrentObject() throws TuraException {
+		if (blocked)
+			return null;
+		
 		pager.setScrollDirection(SCROLL_DOWN);
 		return pager.getObject(currentPosition);
 	}
 
 	public boolean hasNext() throws TuraException {
+		if (blocked)
+			return false;
+		
 		if (pager.listSize() == -1)
 			getCurrentObject();
 
@@ -115,6 +130,9 @@ public abstract class DataControl<T>  extends MetaInfoHolder implements IDataCon
 	}
 
 	public void nextObject() throws TuraException {
+		if (blocked)
+			return;
+		
 		if (pager.listSize() == -1)
 			getCurrentObject();
 
@@ -134,6 +152,9 @@ public abstract class DataControl<T>  extends MetaInfoHolder implements IDataCon
 	}
 
 	public boolean hasPrev() {
+		if (blocked)
+			return false;
+		
 		if (currentPosition > 0)
 			return true;
 		else
@@ -142,6 +163,9 @@ public abstract class DataControl<T>  extends MetaInfoHolder implements IDataCon
 	}
 
 	public void prevObject() throws TuraException {
+		if (blocked)
+			return;
+		
 		if (currentPosition > 0) {
 			currentPosition--;
 			pager.setScrollDirection(SCROLL_UP);
@@ -151,6 +175,8 @@ public abstract class DataControl<T>  extends MetaInfoHolder implements IDataCon
 	}
 
 	public void removeObject() throws Exception {
+		if (blocked)
+			return;		
 
 		for (String relName : getRelationsName()) {
 			Relation rel = this.getChild(relName);
@@ -185,6 +211,9 @@ public abstract class DataControl<T>  extends MetaInfoHolder implements IDataCon
 	}
 
 	public void removeAll() throws Exception {
+		if (blocked)
+			return;
+		
 		T obj = null;
 		int i = 0;
 		pager.setScrollDirection(SCROLL_DOWN);
@@ -201,6 +230,9 @@ public abstract class DataControl<T>  extends MetaInfoHolder implements IDataCon
 	}
 
 	public T createObject() throws TuraException {
+		if (blocked)
+			return null;		
+		
 		// Refresh tree
 		pager.setScrollDirection(SCROLL_DOWN);
 		pager.getObject(currentPosition);
@@ -243,12 +275,17 @@ public abstract class DataControl<T>  extends MetaInfoHolder implements IDataCon
 	}
 
 	public int getCurrentPosition() {
+		if (blocked)
+			return -1;
+		
 		return currentPosition;
 	}
 
 	@Override
 	public boolean setCurrentPosition(Object crtPosition) throws TuraException {
-
+		if (blocked)
+			return false;
+		
 		if (pager.listSize() == -1)
 			getCurrentObject();
 		
@@ -315,6 +352,10 @@ public abstract class DataControl<T>  extends MetaInfoHolder implements IDataCon
 
 	public String getId() {
 		return id;
+	}
+
+	public boolean isBlocked() {
+		return blocked;
 	}
 
 }

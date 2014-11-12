@@ -123,10 +123,10 @@ public class CDITest {
 			assertEquals(company.getObjId(), new Long(2));
 
 			DepartmentDC departmentDC = bf.getDepartmentDC();
-//			assertEquals(departmentDC.isBlocked(), true);
+			assertEquals(departmentDC.isBlocked(), true);
 			
 			DepartmentsDAO department = departmentDC.getCurrentObject();
-//			assertNull(department);
+			assertNull(department);
 			
 			
 			TreeRootCountryDC locationDC = bf.getTreeRootCountryDC();
@@ -142,7 +142,7 @@ public class CDITest {
 			isSet = locationDC.setCurrentPosition(new int[] { 0, 3,1 });
 			assertEquals(isSet, true);
 
-//			assertEquals(departmentDC.isBlocked(), true);
+			assertEquals(departmentDC.isBlocked(), true);
 			
 			department = departmentDC.getCurrentObject();
 			assertNull(department);

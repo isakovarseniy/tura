@@ -20,6 +20,8 @@ public abstract class TreeDataControl implements IDataControl {
 	private Object currentObject;
 	private int criticalSection;
 
+	protected boolean blocked = false;
+	
 	private DataControl<?> root;
 
 	public DataControl<?> getRoot() {
@@ -57,6 +59,12 @@ public abstract class TreeDataControl implements IDataControl {
 	@Override
 	public void handleChangeMusterCurrentRecordNotification(
 			Object newCurrentObject) throws TuraException {
+		if (newCurrentObject == null){
+			blocked = true;
+			notifyChageRecordAll(null);
+		}
+		
+		blocked = false;		
 		treeRelation.setMasterCurrentObject(newCurrentObject);
 		currentObject = null;
 		root.handleChangeMusterCurrentRecordNotification(newCurrentObject);
@@ -86,6 +94,9 @@ public abstract class TreeDataControl implements IDataControl {
 
 	@Override
 	public Object getCurrentObject() throws TuraException {
+		if (blocked)
+			return null;
+		
 		if (criticalSection > 0)
 			return null;
 		try {
@@ -105,6 +116,9 @@ public abstract class TreeDataControl implements IDataControl {
 
 	@Override
 	public Object createObject() throws TuraException {
+		if (blocked)
+			return null;		
+		
 		try {
 			BeanWrapper w = ((BeanWrapper) Reflection.call(currentObject,
 					"getWrapper"));
@@ -125,6 +139,9 @@ public abstract class TreeDataControl implements IDataControl {
 
 	@Override
 	public void removeObject() throws Exception {
+		if (blocked)
+			return;
+		
 		BeanWrapper w = ((BeanWrapper) Reflection.call(currentObject,
 				"getWrapper"));
 		DataControl<?> dc = w.getDatacontrol();
@@ -134,6 +151,9 @@ public abstract class TreeDataControl implements IDataControl {
 
 	@Override
 	public void removeAll() throws Exception {
+		if (blocked)
+			return;		
+		
 		BeanWrapper w = ((BeanWrapper) Reflection.call(currentObject,
 				"getWrapper"));
 		DataControl<?> dc = w.getDatacontrol();
@@ -142,6 +162,9 @@ public abstract class TreeDataControl implements IDataControl {
 	}
 
 	public boolean setCurrentPosition(Object o) throws TuraException {
+		if (blocked)
+			return false;		
+		
 		int[] path = (int[]) o;
 		IDataControl current = root;
 		Object obj = null;
@@ -188,6 +211,10 @@ public abstract class TreeDataControl implements IDataControl {
 	@Override
 	public void setDependency(List<DependecyProperty> dependency) {
 		this.dependency = dependency;
+	}
+
+	public boolean isBlocked() {
+		return blocked;
 	}
 
 }
