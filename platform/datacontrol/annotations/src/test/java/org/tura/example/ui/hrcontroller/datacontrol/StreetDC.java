@@ -61,6 +61,7 @@ public class StreetDC extends DataControl<StreetDAO> {
 
     public StreetDC() throws Exception {
         super();
+
     }
 
     @PostConstruct

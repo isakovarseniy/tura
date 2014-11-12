@@ -14,49 +14,49 @@ public class BeanFactory {
     @Inject
     ELResolver elResolver;
 
-    public CompanyDC getCompanyDC() {
+    public CompanyDC getCompany() {
         return (CompanyDC) elResolver.getValue("company");
     }
 
-    public TreeRootCountryDC getTreeRootCountryDC() {
+    public TreeRootCountryDC getTreeRootCountry() {
         try {
-            CompanyDC master = getCompanyDC();
+            CompanyDC master = getCompany();
             return (TreeRootCountryDC) master.getCompany2Country();
         } catch (TuraException e) {
             return null;
         }
     }
 
-    public DepartmentDC getDepartmentDC() {
+    public DepartmentDC getDepartment() {
         try {
-            getTreeRootCountryDC().getCurrentObject();
+            getTreeRootCountry().getCurrentObject();
             return (DepartmentDC) elResolver.getValue("department");
         } catch (TuraException e) {
             return null;
         }
     }
 
-    public EmployeeDC getEmployeeDC() {
+    public EmployeeDC getEmployee() {
         try {
-            DepartmentDC master = getDepartmentDC();
+            DepartmentDC master = getDepartment();
             return (EmployeeDC) master.getDepartment2Employee();
         } catch (TuraException e) {
             return null;
         }
     }
 
-    public VehicleDC getVehicleDC() {
+    public VehicleDC getVehicle() {
         try {
-            DepartmentDC master = getDepartmentDC();
+            DepartmentDC master = getDepartment();
             return (VehicleDC) master.getDepartment2Vehicle();
         } catch (TuraException e) {
             return null;
         }
     }
 
-    public TreeRootFilesDC getTreeRootFilesDC() {
+    public TreeRootFilesDC getTreeRootFiles() {
         try {
-            EmployeeDC master = getEmployeeDC();
+            EmployeeDC master = getEmployee();
             return (TreeRootFilesDC) master.getEmployee2Files();
         } catch (TuraException e) {
             return null;

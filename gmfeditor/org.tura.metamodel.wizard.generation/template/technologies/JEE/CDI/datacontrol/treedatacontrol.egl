@@ -1,3 +1,10 @@
+<#assign percent = "%" >
+<#assign start = "[" >
+<#assign end = "]" >
+${start}${percent} 
+import "platform:/plugin/org.tura.metamodel.wizard.generation/template/technologies/${Environment}.egl";
+${percent}${end}
+
 [%
      var util = new Native('org.tura.metamodel.commons.Util');
 
@@ -5,6 +12,7 @@
 package  [%=component.basePackage%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%].datacontrol;  
 
 @javax.inject.Named("treeRoot[%=util.mergeAndCapitalize(control.name).toLowerCase()%]")
+[%=datacontrol_scope()%]
 public class TreeRoot[%=util.mergeAndCapitalize(control.name)%]DC extends org.tura.platform.datacontrol.TreeDataControl {
 
 	@javax.inject.Inject

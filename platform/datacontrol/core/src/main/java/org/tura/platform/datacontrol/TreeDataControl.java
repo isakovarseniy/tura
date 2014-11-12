@@ -198,7 +198,7 @@ public abstract class TreeDataControl implements IDataControl {
 	}
 
 	@Override
-	public final void createChild(String relationName) throws TuraException {
+	public void createChild(String relationName) throws TuraException {
 		throw new TuraException(
 				"Tree data contol cannot has master - detail relations");
 	}

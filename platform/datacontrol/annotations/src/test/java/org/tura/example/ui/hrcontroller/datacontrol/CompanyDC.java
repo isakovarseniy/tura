@@ -69,6 +69,7 @@ public class CompanyDC extends DataControl<CompanyDAO> {
 
     public CompanyDC() throws Exception {
         super();
+
     }
 
     @PostConstruct

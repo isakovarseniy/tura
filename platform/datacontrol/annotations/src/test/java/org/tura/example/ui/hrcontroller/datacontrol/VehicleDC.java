@@ -61,6 +61,7 @@ public class VehicleDC extends DataControl<VehicleDAO> {
 
     public VehicleDC() throws Exception {
         super();
+
     }
 
     @PostConstruct

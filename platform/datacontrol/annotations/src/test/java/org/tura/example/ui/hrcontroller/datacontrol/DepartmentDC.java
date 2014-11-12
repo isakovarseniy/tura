@@ -75,6 +75,8 @@ public class DepartmentDC extends DataControl<DepartmentsDAO>
 
     public DepartmentDC() throws Exception {
         super();
+        blocked = true;
+
     }
 
     @Override
@@ -306,7 +308,7 @@ public class DepartmentDC extends DataControl<DepartmentsDAO>
     public void setDefaultQuery(
         @Query(base = @Base(clazz = DepartmentsDAO.class)
     , search = @DefaultSearchCriterias(criterias =  {
-        @DefaultSearchCriteria(field = "parentId", comparator = Operator.EQ, expression = "street.currentObject.objId", type = Long.class)
+        @DefaultSearchCriteria(field = "parentId", comparator = Operator.EQ, expression = "treeRootcountry.currentObject.objId", type = Long.class)
 
     }
     )

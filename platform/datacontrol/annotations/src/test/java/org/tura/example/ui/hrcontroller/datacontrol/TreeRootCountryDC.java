@@ -7,10 +7,13 @@ import org.tura.platform.datacontrol.metainfo.DependecyProperty;
 
 import java.util.List;
 
+import javax.enterprise.context.ApplicationScoped;
+
 import javax.inject.Inject;
 import javax.inject.Named;
 
 @Named("treeRootcountry")
+@ApplicationScoped
 public class TreeRootCountryDC extends TreeDataControl {
     @Inject
     public void setRoot(CountryDC root) {

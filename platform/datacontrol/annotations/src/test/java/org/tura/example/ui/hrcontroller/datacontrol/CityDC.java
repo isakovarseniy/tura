@@ -68,6 +68,7 @@ public class CityDC extends DataControl<CityDAO> {
 
     public CityDC() throws Exception {
         super();
+
     }
 
     @PostConstruct

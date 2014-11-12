@@ -67,6 +67,7 @@ public class CountryDC extends DataControl<CountryDAO> {
 
     public CountryDC() throws Exception {
         super();
+
     }
 
     @PostConstruct

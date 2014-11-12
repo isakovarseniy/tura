@@ -67,6 +67,7 @@ public class StateDC extends DataControl<StateDAO> {
 
     public StateDC() throws Exception {
         super();
+
     }
 
     @PostConstruct

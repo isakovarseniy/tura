@@ -68,6 +68,7 @@ public class EmployeeDC extends DataControl<EmployeesDAO> {
 
     public EmployeeDC() throws Exception {
         super();
+
     }
 
     @PostConstruct
