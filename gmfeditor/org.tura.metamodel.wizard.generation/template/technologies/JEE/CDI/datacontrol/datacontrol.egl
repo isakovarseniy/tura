@@ -257,11 +257,14 @@ public class [%=util.mergeAndCapitalize(control.name)%]DC extends org.tura.platf
 		this.preUpdateTrigger = preUpdateTrigger;
 	}
 
+ 	@javax.inject.Inject
+	public void setRelations(
+   @org.tura.platform.datacontrol.annotations.Connections(connections={
     [%
+     var j = 0;
     for (relation in relations){
       if (not relation.detail.~dependObject.isDefined()){
-    %]
-	@org.tura.platform.datacontrol.annotations.Factory
+       if (j <> 0 ){ %],[%}%]
 	@org.tura.platform.datacontrol.annotations.Connection(connectionName = "[%=util.mergeAndCapitalize(relation.master.name).toLowerCase()%]2[%=util.mergeAndCapitalize(relation.detail.name).toLowerCase()%]", links = { 
     [%
      var i = 0;
@@ -270,12 +273,31 @@ public class [%=util.mergeAndCapitalize(control.name)%]DC extends org.tura.platf
 	@org.tura.platform.datacontrol.annotations.Link(field1 = "[%=link.masterField.name%]", field2 = "[%=link.detailField.name%]")
     [%
      i = i+1;
+      }%]
+	 })
+     [%}
+    %] 
+    [%
+     j = j+1;
     }
     %] 
 	 })
-	public org.tura.platform.datacontrol.IDataControl get[%=util.mergeAndCapitalize(relation.master.name)%]2[%=util.mergeAndCapitalize(relation.detail.name)%]() {
-		org.tura.platform.datacontrol.IDataControl dc = [%=util.mergeAndCapitalize(relation.detail.name).toLowerCase()%]producer.get();
-		return dc;
+     java.util.Map<String, org.tura.platform.datacontrol.metainfo.Relation> relations){
+      	for (String relationName : relations.keySet()){
+    		this.addChildren(relationName, relations.get(relationName));
+    	}
+     
+     }
+    
+
+    [%
+    for (relation in relations){
+      if (not relation.detail.~dependObject.isDefined()){
+    %]
+	public org.tura.platform.datacontrol.IDataControl get[%=util.mergeAndCapitalize(relation.master.name)%]2[%=util.mergeAndCapitalize(relation.detail.name)%]()  throws org.tura.platform.datacontrol.commons.TuraException{
+		createChild("[%=util.mergeAndCapitalize(relation.master.name).toLowerCase()%]2[%=util.mergeAndCapitalize(relation.detail.name).toLowerCase()%]");
+		Relation relation = this.getChild("[%=util.mergeAndCapitalize(relation.master.name).toLowerCase()%]2[%=util.mergeAndCapitalize(relation.detail.name).toLowerCase()%]");
+		return relation.getChild();
 	}
     [%
      }
@@ -283,19 +305,24 @@ public class [%=util.mergeAndCapitalize(control.name)%]DC extends org.tura.platf
     %] 
     
  	@Override
-	public void createChild(org.tura.platform.datacontrol.IDataControl dc, String relName, org.tura.platform.datacontrol.metainfo.Relation relation) {
+	public void createChild( String relName) throws org.tura.platform.datacontrol.commons.TuraException{
+		org.tura.platform.datacontrol.metainfo.Relation relation = this.getChild(relName);
+		if (relation.getChild() == null) {
+			org.tura.platform.datacontrol.IDataControl dc = null;
     [%
     for (relation in relations){
       if (not relation.detail.~dependObject.isDefined()){
     %]
        if ("[%=util.mergeAndCapitalize(relation.master.name).toLowerCase()%]2[%=util.mergeAndCapitalize(relation.detail.name).toLowerCase()%]".equals(relName)){
-		relation.setChild(this.get[%=util.mergeAndCapitalize(relation.master.name)%]2[%=util.mergeAndCapitalize(relation.detail.name)%]()) ;
-		this.addChildren("[%=util.mergeAndCapitalize(relation.master.name).toLowerCase()%]2[%=util.mergeAndCapitalize(relation.detail.name).toLowerCase()%]",relation);
+		dc = [%=util.mergeAndCapitalize(relation.detail.name).toLowerCase()%]producer.get();
 		}
     [%
       }
     }
     %] 
+ 			relation.setChild(dc);
+			relation.setMasterCurrentObject(getCurrentObject());
+ 		}
 	}
     
 	@Override

@@ -12,12 +12,12 @@ import org.tura.platform.datacontrol.annotations.ArtificialField;
 import org.tura.platform.datacontrol.annotations.ArtificialFields;
 import org.tura.platform.datacontrol.annotations.Base;
 import org.tura.platform.datacontrol.annotations.Connection;
+import org.tura.platform.datacontrol.annotations.Connections;
 import org.tura.platform.datacontrol.annotations.Create;
 import org.tura.platform.datacontrol.annotations.DefaultOrderBy;
 import org.tura.platform.datacontrol.annotations.DefaultOrderBys;
 import org.tura.platform.datacontrol.annotations.DefaultSearchCriterias;
 import org.tura.platform.datacontrol.annotations.Delete;
-import org.tura.platform.datacontrol.annotations.Factory;
 import org.tura.platform.datacontrol.annotations.Insert;
 import org.tura.platform.datacontrol.annotations.Key;
 import org.tura.platform.datacontrol.annotations.Keys;
@@ -49,6 +49,7 @@ import org.tura.platform.datacontrol.metainfo.Relation;
 import org.tura.platform.persistence.TuraObject;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.annotation.PostConstruct;
 
@@ -243,21 +244,41 @@ public class CompanyDC extends DataControl<CompanyDAO> {
         this.preUpdateTrigger = preUpdateTrigger;
     }
 
-    @Factory
-    @Connection(connectionName = "company2country", links =  {
-        @Link(field1 = "objId", field2 = "parentId")
+    @Inject
+    public void setRelations(
+        @Connections(connections =  {
+        @Connection(connectionName = "company2country", links =  {
+            @Link(field1 = "objId", field2 = "parentId")
+        }
+        )
+
     }
     )
-    public IDataControl getCompany2Country() {
-        IDataControl dc = countryproducer.get();
-        return dc;
+    Map<String, Relation> relations) {
+        for (String relationName : relations.keySet()) {
+            this.addChildren(relationName, relations.get(relationName));
+        }
+    }
+
+    public IDataControl getCompany2Country()
+        throws org.tura.platform.datacontrol.commons.TuraException {
+        createChild("company2country");
+        Relation relation = this.getChild("company2country");
+        return relation.getChild();
     }
 
     @Override
-    public void createChild(IDataControl dc, String relName, Relation relation) {
-        if ("company2country".equals(relName)) {
-            relation.setChild(this.getCompany2Country());
-            this.addChildren("company2country", relation);
+    public void createChild(String relName)
+        throws org.tura.platform.datacontrol.commons.TuraException {
+        Relation relation = this.getChild(relName);
+        if (relation.getChild() == null) {
+            IDataControl dc = null;
+            if ("company2country".equals(relName)) {
+                dc = countryproducer.get();
+            }
+
+            relation.setChild(dc);
+            relation.setMasterCurrentObject(getCurrentObject());
         }
     }
 

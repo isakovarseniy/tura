@@ -22,7 +22,7 @@ public interface IDataControl {
 
 	public void removeAll() throws Exception;
 	
-	public  void createChild(IDataControl dc, String  relName, Relation relation) throws TuraException;
+	public  void createChild(String  relName) throws TuraException;
 
 	public void setParent(Relation relation);
 	

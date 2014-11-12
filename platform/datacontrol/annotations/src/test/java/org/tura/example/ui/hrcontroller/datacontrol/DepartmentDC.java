@@ -13,13 +13,13 @@ import org.tura.platform.datacontrol.IDataControl;
 import org.tura.platform.datacontrol.annotations.ArtificialFields;
 import org.tura.platform.datacontrol.annotations.Base;
 import org.tura.platform.datacontrol.annotations.Connection;
+import org.tura.platform.datacontrol.annotations.Connections;
 import org.tura.platform.datacontrol.annotations.Create;
 import org.tura.platform.datacontrol.annotations.DefaultOrderBy;
 import org.tura.platform.datacontrol.annotations.DefaultOrderBys;
 import org.tura.platform.datacontrol.annotations.DefaultSearchCriteria;
 import org.tura.platform.datacontrol.annotations.DefaultSearchCriterias;
 import org.tura.platform.datacontrol.annotations.Delete;
-import org.tura.platform.datacontrol.annotations.Factory;
 import org.tura.platform.datacontrol.annotations.Insert;
 import org.tura.platform.datacontrol.annotations.Key;
 import org.tura.platform.datacontrol.annotations.Keys;
@@ -51,6 +51,7 @@ import org.tura.platform.datacontrol.metainfo.Relation;
 import org.tura.platform.persistence.TuraObject;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.annotation.PostConstruct;
 
@@ -254,35 +255,55 @@ public class DepartmentDC extends DataControl<DepartmentsDAO>
         this.preUpdateTrigger = preUpdateTrigger;
     }
 
-    @Factory
-    @Connection(connectionName = "department2employee", links =  {
-        @Link(field1 = "objId", field2 = "parentId")
+    @Inject
+    public void setRelations(
+        @Connections(connections =  {
+        @Connection(connectionName = "department2employee", links =  {
+            @Link(field1 = "objId", field2 = "parentId")
+        }
+        )
+        , @Connection(connectionName = "department2vehicle", links =  {
+            @Link(field1 = "objId", field2 = "parentId")
+        }
+        )
+
     }
     )
-    public IDataControl getDepartment2Employee() {
-        IDataControl dc = employeeproducer.get();
-        return dc;
+    Map<String, Relation> relations) {
+        for (String relationName : relations.keySet()) {
+            this.addChildren(relationName, relations.get(relationName));
+        }
     }
 
-    @Factory
-    @Connection(connectionName = "department2vehicle", links =  {
-        @Link(field1 = "objId", field2 = "parentId")
+    public IDataControl getDepartment2Employee()
+        throws org.tura.platform.datacontrol.commons.TuraException {
+        createChild("department2employee");
+        Relation relation = this.getChild("department2employee");
+        return relation.getChild();
     }
-    )
-    public IDataControl getDepartment2Vehicle() {
-        IDataControl dc = vehicleproducer.get();
-        return dc;
+
+    public IDataControl getDepartment2Vehicle()
+        throws org.tura.platform.datacontrol.commons.TuraException {
+        createChild("department2vehicle");
+        Relation relation = this.getChild("department2vehicle");
+        return relation.getChild();
     }
 
     @Override
-    public void createChild(IDataControl dc, String relName, Relation relation) {
-        if ("department2employee".equals(relName)) {
-            relation.setChild(this.getDepartment2Employee());
-            this.addChildren("department2employee", relation);
-        }
-        if ("department2vehicle".equals(relName)) {
-            relation.setChild(this.getDepartment2Vehicle());
-            this.addChildren("department2vehicle", relation);
+    public void createChild(String relName)
+        throws org.tura.platform.datacontrol.commons.TuraException {
+        Relation relation = this.getChild(relName);
+        if (relation.getChild() == null) {
+            IDataControl dc = null;
+            if ("department2employee".equals(relName)) {
+                dc = employeeproducer.get();
+            }
+            if ("department2vehicle".equals(relName)) {
+                dc = vehicleproducer.get();
+            }
+
+            relation.setChild(dc);
+            relation.setMasterCurrentObject(getCurrentObject());
         }
     }
 

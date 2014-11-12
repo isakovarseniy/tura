@@ -11,12 +11,12 @@ import org.tura.platform.datacontrol.IDataControl;
 import org.tura.platform.datacontrol.annotations.ArtificialFields;
 import org.tura.platform.datacontrol.annotations.Base;
 import org.tura.platform.datacontrol.annotations.Connection;
+import org.tura.platform.datacontrol.annotations.Connections;
 import org.tura.platform.datacontrol.annotations.Create;
 import org.tura.platform.datacontrol.annotations.DefaultOrderBy;
 import org.tura.platform.datacontrol.annotations.DefaultOrderBys;
 import org.tura.platform.datacontrol.annotations.DefaultSearchCriterias;
 import org.tura.platform.datacontrol.annotations.Delete;
-import org.tura.platform.datacontrol.annotations.Factory;
 import org.tura.platform.datacontrol.annotations.Insert;
 import org.tura.platform.datacontrol.annotations.Key;
 import org.tura.platform.datacontrol.annotations.Keys;
@@ -48,6 +48,7 @@ import org.tura.platform.datacontrol.metainfo.Relation;
 import org.tura.platform.persistence.TuraObject;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.annotation.PostConstruct;
 
@@ -239,21 +240,41 @@ public class CityDC extends DataControl<CityDAO> {
         this.preUpdateTrigger = preUpdateTrigger;
     }
 
-    @Factory
-    @Connection(connectionName = "city2street", links =  {
-        @Link(field1 = "objId", field2 = "parentId")
+    @Inject
+    public void setRelations(
+        @Connections(connections =  {
+        @Connection(connectionName = "city2street", links =  {
+            @Link(field1 = "objId", field2 = "parentId")
+        }
+        )
+
     }
     )
-    public IDataControl getCity2Street() {
-        IDataControl dc = streetproducer.get();
-        return dc;
+    Map<String, Relation> relations) {
+        for (String relationName : relations.keySet()) {
+            this.addChildren(relationName, relations.get(relationName));
+        }
+    }
+
+    public IDataControl getCity2Street()
+        throws org.tura.platform.datacontrol.commons.TuraException {
+        createChild("city2street");
+        Relation relation = this.getChild("city2street");
+        return relation.getChild();
     }
 
     @Override
-    public void createChild(IDataControl dc, String relName, Relation relation) {
-        if ("city2street".equals(relName)) {
-            relation.setChild(this.getCity2Street());
-            this.addChildren("city2street", relation);
+    public void createChild(String relName)
+        throws org.tura.platform.datacontrol.commons.TuraException {
+        Relation relation = this.getChild(relName);
+        if (relation.getChild() == null) {
+            IDataControl dc = null;
+            if ("city2street".equals(relName)) {
+                dc = streetproducer.get();
+            }
+
+            relation.setChild(dc);
+            relation.setMasterCurrentObject(getCurrentObject());
         }
     }
 

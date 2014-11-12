@@ -3,7 +3,6 @@ package org.tura.platform.hr.controls;
 import org.elsoft.platform.hr.objects.DepartmentsDAO;
 import org.tura.platform.datacontrol.DataControl;
 import org.tura.platform.datacontrol.ELResolver;
-import org.tura.platform.datacontrol.IDataControl;
 import org.tura.platform.datacontrol.command.CreateCommand;
 import org.tura.platform.datacontrol.command.DeleteCommand;
 import org.tura.platform.datacontrol.command.InsertCommand;
@@ -15,7 +14,6 @@ import org.tura.platform.datacontrol.command.PreQueryTrigger;
 import org.tura.platform.datacontrol.command.PreUpdateTrigger;
 import org.tura.platform.datacontrol.command.SearchCommand;
 import org.tura.platform.datacontrol.command.UpdateCommand;
-import org.tura.platform.datacontrol.metainfo.Relation;
 
 import com.octo.java.sql.query.SelectQuery;
 
@@ -96,7 +94,7 @@ public class DepartmentsDC extends DataControl<DepartmentsDAO> {
 	}
 
 	@Override
-	public void createChild(IDataControl dc, String  relName,Relation relation) {
+	public void createChild( String  relName) {
 	}
 
 //	@Override

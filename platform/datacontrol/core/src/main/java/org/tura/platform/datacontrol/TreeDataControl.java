@@ -61,25 +61,28 @@ public abstract class TreeDataControl implements IDataControl {
 		currentObject = null;
 		root.handleChangeMusterCurrentRecordNotification(newCurrentObject);
 	}
-	
-	protected void notifyChageRecordAll(Object newCurrentObject) throws TuraException{
+
+	protected void notifyChageRecordAll(Object newCurrentObject)
+			throws TuraException {
 		notifyChangeRecordLiteners(newCurrentObject);
 		notifyDependencyListeners(newCurrentObject);
 	}
 
-	private void notifyChangeRecordLiteners(Object newCurrentObject) throws TuraException {
+	private void notifyChangeRecordLiteners(Object newCurrentObject)
+			throws TuraException {
 		for (ChangeRecordListener listener : chageRecordLiteners) {
 			listener.handleChangeRecord(this, newCurrentObject);
 		}
 	}
-	
-	private void notifyDependencyListeners(Object newCurrentObject) throws TuraException{
-		for (DependecyProperty dep : dependency ){
-			ChangeRecordListener listener = (ChangeRecordListener) root.getElResolver().getValue(dep.getExpression());
+
+	private void notifyDependencyListeners(Object newCurrentObject)
+			throws TuraException {
+		for (DependecyProperty dep : dependency) {
+			ChangeRecordListener listener = (ChangeRecordListener) root
+					.getElResolver().getValue(dep.getExpression());
 			listener.handleChangeRecord(this, newCurrentObject);
 		}
 	}
-	
 
 	@Override
 	public Object getCurrentObject() throws TuraException {
@@ -154,7 +157,7 @@ public abstract class TreeDataControl implements IDataControl {
 						String relationName = names.iterator().next();
 						Relation rel = current.getChild(relationName);
 						if (rel.getChild() == null)
-							current.createChild(current, relationName, rel);
+							current.createChild(relationName);
 						current = rel.getChild();
 
 					} else {
@@ -172,8 +175,7 @@ public abstract class TreeDataControl implements IDataControl {
 	}
 
 	@Override
-	public final void createChild(IDataControl dc, String relationName,
-			Relation relation) throws TuraException {
+	public final void createChild(String relationName) throws TuraException {
 		throw new TuraException(
 				"Tree data contol cannot has master - detail relations");
 	}
@@ -187,6 +189,5 @@ public abstract class TreeDataControl implements IDataControl {
 	public void setDependency(List<DependecyProperty> dependency) {
 		this.dependency = dependency;
 	}
-	
-	
+
 }

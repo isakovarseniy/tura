@@ -19,9 +19,12 @@ public class BeanFactory {
     }
 
     public TreeRootCountryDC getTreeRootCountryDC() {
-        CompanyDC master = getCompanyDC();
-        return (TreeRootCountryDC) master.getCompany2Country();
-
+        try {
+            CompanyDC master = getCompanyDC();
+            return (TreeRootCountryDC) master.getCompany2Country();
+        } catch (TuraException e) {
+            return null;
+        }
     }
 
     public DepartmentDC getDepartmentDC() {
@@ -34,20 +37,29 @@ public class BeanFactory {
     }
 
     public EmployeeDC getEmployeeDC() {
-        DepartmentDC master = getDepartmentDC();
-        return (EmployeeDC) master.getDepartment2Employee();
-
+        try {
+            DepartmentDC master = getDepartmentDC();
+            return (EmployeeDC) master.getDepartment2Employee();
+        } catch (TuraException e) {
+            return null;
+        }
     }
 
     public VehicleDC getVehicleDC() {
-        DepartmentDC master = getDepartmentDC();
-        return (VehicleDC) master.getDepartment2Vehicle();
-
+        try {
+            DepartmentDC master = getDepartmentDC();
+            return (VehicleDC) master.getDepartment2Vehicle();
+        } catch (TuraException e) {
+            return null;
+        }
     }
 
     public TreeRootFilesDC getTreeRootFilesDC() {
-        EmployeeDC master = getEmployeeDC();
-        return (TreeRootFilesDC) master.getEmployee2Files();
-
+        try {
+            EmployeeDC master = getEmployeeDC();
+            return (TreeRootFilesDC) master.getEmployee2Files();
+        } catch (TuraException e) {
+            return null;
+        }
     }
 }

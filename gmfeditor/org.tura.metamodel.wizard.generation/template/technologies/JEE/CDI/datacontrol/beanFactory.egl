@@ -35,8 +35,12 @@ public class BeanFactory {
          if (relation.isTree = false){%]
           public     [%=component.basePackage%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%].datacontrol.[%if (relation.detail.~treeRoot=true){%]TreeRoot[%}%][%=util.mergeAndCapitalize(relation.detail.name)%]DC   get[%if (relation.detail.~treeRoot=true){%]TreeRoot[%}%][%=util.mergeAndCapitalize(relation.detail.name)%]DC(){
        [%if (relation.detail.~dependObject =  null ){ %] 
+          try {
                [%=component.basePackage%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%].datacontrol.[%=util.mergeAndCapitalize(relation.master.name)%]DC  master=  get[%=util.mergeAndCapitalize(relation.master.name)%]DC();
                return ([%=component.basePackage%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%].datacontrol.[%if (relation.detail.~treeRoot=true){%]TreeRoot[%}%][%=util.mergeAndCapitalize(relation.detail.name)%]DC)master.get[%=util.mergeAndCapitalize(relation.master.name)%]2[%=util.mergeAndCapitalize(relation.detail.name)%]();
+		     } catch (org.tura.platform.datacontrol.commons.TuraException e) {
+			   return null;
+		     }
          [%}%]
 
        [%if (relation.detail.~dependObject <>  null ){ %] 
