@@ -257,14 +257,10 @@ public class [%=util.mergeAndCapitalize(control.name)%]DC extends org.tura.platf
 		this.preUpdateTrigger = preUpdateTrigger;
 	}
 
- 	@javax.inject.Inject
-	public void setRelations(
-   @org.tura.platform.datacontrol.annotations.Connections(connections={
     [%
-     var j = 0;
     for (relation in relations){
       if (not relation.detail.~dependObject.isDefined()){
-       if (j <> 0 ){ %],[%}%]
+    %]
 	@org.tura.platform.datacontrol.annotations.Connection(connectionName = "[%=util.mergeAndCapitalize(relation.master.name).toLowerCase()%]2[%=util.mergeAndCapitalize(relation.detail.name).toLowerCase()%]", links = { 
     [%
      var i = 0;
@@ -273,27 +269,8 @@ public class [%=util.mergeAndCapitalize(control.name)%]DC extends org.tura.platf
 	@org.tura.platform.datacontrol.annotations.Link(field1 = "[%=link.masterField.name%]", field2 = "[%=link.detailField.name%]")
     [%
      i = i+1;
-      }%]
-	 })
-     [%}
-    %] 
-    [%
-     j = j+1;
-    }
-    %] 
-	 })
-     java.util.Map<String, org.tura.platform.datacontrol.metainfo.Relation> relations){
-      	for (String relationName : relations.keySet()){
-    		this.addChildren(relationName, relations.get(relationName));
-    	}
-     
-     }
-    
-
-    [%
-    for (relation in relations){
-      if (not relation.detail.~dependObject.isDefined()){
-    %]
+      }%]    
+  	})    
 	public org.tura.platform.datacontrol.IDataControl get[%=util.mergeAndCapitalize(relation.master.name)%]2[%=util.mergeAndCapitalize(relation.detail.name)%]()  throws org.tura.platform.datacontrol.commons.TuraException{
 		createChild("[%=util.mergeAndCapitalize(relation.master.name).toLowerCase()%]2[%=util.mergeAndCapitalize(relation.detail.name).toLowerCase()%]");
 		Relation relation = this.getChild("[%=util.mergeAndCapitalize(relation.master.name).toLowerCase()%]2[%=util.mergeAndCapitalize(relation.detail.name).toLowerCase()%]");
@@ -322,6 +299,8 @@ public class [%=util.mergeAndCapitalize(control.name)%]DC extends org.tura.platf
     %] 
  			relation.setChild(dc);
 			relation.setMasterCurrentObject(getCurrentObject());
+			dc.setParent(relation);
+			
  		}
 	}
     

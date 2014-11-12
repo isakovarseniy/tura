@@ -10,7 +10,6 @@ import org.tura.platform.datacontrol.ELResolver;
 import org.tura.platform.datacontrol.IDataControl;
 import org.tura.platform.datacontrol.annotations.ArtificialFields;
 import org.tura.platform.datacontrol.annotations.Base;
-import org.tura.platform.datacontrol.annotations.Connections;
 import org.tura.platform.datacontrol.annotations.Create;
 import org.tura.platform.datacontrol.annotations.DefaultOrderBy;
 import org.tura.platform.datacontrol.annotations.DefaultOrderBys;
@@ -46,7 +45,6 @@ import org.tura.platform.datacontrol.metainfo.Relation;
 import org.tura.platform.persistence.TuraObject;
 
 import java.util.List;
-import java.util.Map;
 
 import javax.annotation.PostConstruct;
 
@@ -235,17 +233,6 @@ public class VehicleDC extends DataControl<VehicleDAO> {
         this.preUpdateTrigger = preUpdateTrigger;
     }
 
-    @Inject
-    public void setRelations(
-        @Connections(connections =  {
-    }
-    )
-    Map<String, Relation> relations) {
-        for (String relationName : relations.keySet()) {
-            this.addChildren(relationName, relations.get(relationName));
-        }
-    }
-
     @Override
     public void createChild(String relName)
         throws org.tura.platform.datacontrol.commons.TuraException {
@@ -255,6 +242,8 @@ public class VehicleDC extends DataControl<VehicleDAO> {
 
             relation.setChild(dc);
             relation.setMasterCurrentObject(getCurrentObject());
+            dc.setParent(relation);
+
         }
     }
 

@@ -12,7 +12,6 @@ import org.tura.platform.datacontrol.annotations.ArtificialField;
 import org.tura.platform.datacontrol.annotations.ArtificialFields;
 import org.tura.platform.datacontrol.annotations.Base;
 import org.tura.platform.datacontrol.annotations.Connection;
-import org.tura.platform.datacontrol.annotations.Connections;
 import org.tura.platform.datacontrol.annotations.Create;
 import org.tura.platform.datacontrol.annotations.DefaultOrderBy;
 import org.tura.platform.datacontrol.annotations.DefaultOrderBys;
@@ -49,7 +48,6 @@ import org.tura.platform.datacontrol.metainfo.Relation;
 import org.tura.platform.persistence.TuraObject;
 
 import java.util.List;
-import java.util.Map;
 
 import javax.annotation.PostConstruct;
 
@@ -244,22 +242,11 @@ public class CompanyDC extends DataControl<CompanyDAO> {
         this.preUpdateTrigger = preUpdateTrigger;
     }
 
-    @Inject
-    public void setRelations(
-        @Connections(connections =  {
-        @Connection(connectionName = "company2country", links =  {
-            @Link(field1 = "objId", field2 = "parentId")
-        }
-        )
+    @Connection(connectionName = "company2country", links =  {
+        @Link(field1 = "objId", field2 = "parentId")
 
     }
     )
-    Map<String, Relation> relations) {
-        for (String relationName : relations.keySet()) {
-            this.addChildren(relationName, relations.get(relationName));
-        }
-    }
-
     public IDataControl getCompany2Country()
         throws org.tura.platform.datacontrol.commons.TuraException {
         createChild("company2country");
@@ -279,6 +266,8 @@ public class CompanyDC extends DataControl<CompanyDAO> {
 
             relation.setChild(dc);
             relation.setMasterCurrentObject(getCurrentObject());
+            dc.setParent(relation);
+
         }
     }
 

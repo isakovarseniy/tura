@@ -11,7 +11,6 @@ import org.tura.platform.datacontrol.IDataControl;
 import org.tura.platform.datacontrol.annotations.ArtificialFields;
 import org.tura.platform.datacontrol.annotations.Base;
 import org.tura.platform.datacontrol.annotations.Connection;
-import org.tura.platform.datacontrol.annotations.Connections;
 import org.tura.platform.datacontrol.annotations.Create;
 import org.tura.platform.datacontrol.annotations.DefaultOrderBys;
 import org.tura.platform.datacontrol.annotations.DefaultSearchCriterias;
@@ -47,7 +46,6 @@ import org.tura.platform.datacontrol.metainfo.Relation;
 import org.tura.platform.persistence.TuraObject;
 
 import java.util.List;
-import java.util.Map;
 
 import javax.annotation.PostConstruct;
 
@@ -239,22 +237,11 @@ public class FilesDC extends DataControl<FileDAO> {
         this.preUpdateTrigger = preUpdateTrigger;
     }
 
-    @Inject
-    public void setRelations(
-        @Connections(connections =  {
-        @Connection(connectionName = "files2files", links =  {
-            @Link(field1 = "objId", field2 = "parentId")
-        }
-        )
+    @Connection(connectionName = "files2files", links =  {
+        @Link(field1 = "objId", field2 = "parentId")
 
     }
     )
-    Map<String, Relation> relations) {
-        for (String relationName : relations.keySet()) {
-            this.addChildren(relationName, relations.get(relationName));
-        }
-    }
-
     public IDataControl getFiles2Files()
         throws org.tura.platform.datacontrol.commons.TuraException {
         createChild("files2files");
@@ -274,6 +261,8 @@ public class FilesDC extends DataControl<FileDAO> {
 
             relation.setChild(dc);
             relation.setMasterCurrentObject(getCurrentObject());
+            dc.setParent(relation);
+
         }
     }
 

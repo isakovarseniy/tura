@@ -13,7 +13,6 @@ import org.tura.platform.datacontrol.IDataControl;
 import org.tura.platform.datacontrol.annotations.ArtificialFields;
 import org.tura.platform.datacontrol.annotations.Base;
 import org.tura.platform.datacontrol.annotations.Connection;
-import org.tura.platform.datacontrol.annotations.Connections;
 import org.tura.platform.datacontrol.annotations.Create;
 import org.tura.platform.datacontrol.annotations.DefaultOrderBy;
 import org.tura.platform.datacontrol.annotations.DefaultOrderBys;
@@ -51,7 +50,6 @@ import org.tura.platform.datacontrol.metainfo.Relation;
 import org.tura.platform.persistence.TuraObject;
 
 import java.util.List;
-import java.util.Map;
 
 import javax.annotation.PostConstruct;
 
@@ -255,26 +253,11 @@ public class DepartmentDC extends DataControl<DepartmentsDAO>
         this.preUpdateTrigger = preUpdateTrigger;
     }
 
-    @Inject
-    public void setRelations(
-        @Connections(connections =  {
-        @Connection(connectionName = "department2employee", links =  {
-            @Link(field1 = "objId", field2 = "parentId")
-        }
-        )
-        , @Connection(connectionName = "department2vehicle", links =  {
-            @Link(field1 = "objId", field2 = "parentId")
-        }
-        )
+    @Connection(connectionName = "department2employee", links =  {
+        @Link(field1 = "objId", field2 = "parentId")
 
     }
     )
-    Map<String, Relation> relations) {
-        for (String relationName : relations.keySet()) {
-            this.addChildren(relationName, relations.get(relationName));
-        }
-    }
-
     public IDataControl getDepartment2Employee()
         throws org.tura.platform.datacontrol.commons.TuraException {
         createChild("department2employee");
@@ -282,6 +265,11 @@ public class DepartmentDC extends DataControl<DepartmentsDAO>
         return relation.getChild();
     }
 
+    @Connection(connectionName = "department2vehicle", links =  {
+        @Link(field1 = "objId", field2 = "parentId")
+
+    }
+    )
     public IDataControl getDepartment2Vehicle()
         throws org.tura.platform.datacontrol.commons.TuraException {
         createChild("department2vehicle");
@@ -304,6 +292,8 @@ public class DepartmentDC extends DataControl<DepartmentsDAO>
 
             relation.setChild(dc);
             relation.setMasterCurrentObject(getCurrentObject());
+            dc.setParent(relation);
+
         }
     }
 
