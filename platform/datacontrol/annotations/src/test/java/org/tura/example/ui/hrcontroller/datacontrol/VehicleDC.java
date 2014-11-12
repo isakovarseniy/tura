@@ -7,7 +7,6 @@ import org.tura.platform.datacontrol.CommandStack;
 import org.tura.platform.datacontrol.DataControl;
 import org.tura.platform.datacontrol.DataControlFactory;
 import org.tura.platform.datacontrol.ELResolver;
-import org.tura.platform.datacontrol.IDataControl;
 import org.tura.platform.datacontrol.annotations.ArtificialFields;
 import org.tura.platform.datacontrol.annotations.Base;
 import org.tura.platform.datacontrol.annotations.Create;
@@ -41,7 +40,6 @@ import org.tura.platform.datacontrol.command.PreUpdateTrigger;
 import org.tura.platform.datacontrol.command.SearchCommand;
 import org.tura.platform.datacontrol.command.UpdateCommand;
 import org.tura.platform.datacontrol.metainfo.ArtificialProperty;
-import org.tura.platform.datacontrol.metainfo.Relation;
 import org.tura.platform.persistence.TuraObject;
 
 import java.util.List;
@@ -236,15 +234,6 @@ public class VehicleDC extends DataControl<VehicleDAO> {
     @Override
     public void createChild(String relName)
         throws org.tura.platform.datacontrol.commons.TuraException {
-        Relation relation = this.getChild(relName);
-        if (relation.getChild() == null) {
-            IDataControl dc = null;
-
-            relation.setChild(dc);
-            relation.setMasterCurrentObject(getCurrentObject());
-            dc.setParent(relation);
-
-        }
     }
 
     @Override

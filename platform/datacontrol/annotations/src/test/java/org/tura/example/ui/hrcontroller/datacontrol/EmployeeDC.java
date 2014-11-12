@@ -261,9 +261,9 @@ public class EmployeeDC extends DataControl<EmployeesDAO> {
             }
 
             relation.setChild(dc);
-            relation.setMasterCurrentObject(getCurrentObject());
             dc.setParent(relation);
-
+            relation.setMasterCurrentObject(getCurrentObject());
+            dc.handleChangeMusterCurrentRecordNotification(relation.getMasterCurrentObject());
         }
     }
 

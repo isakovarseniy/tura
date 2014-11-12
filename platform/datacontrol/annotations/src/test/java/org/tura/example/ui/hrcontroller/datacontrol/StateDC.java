@@ -260,9 +260,9 @@ public class StateDC extends DataControl<StateDAO> {
             }
 
             relation.setChild(dc);
-            relation.setMasterCurrentObject(getCurrentObject());
             dc.setParent(relation);
-
+            relation.setMasterCurrentObject(getCurrentObject());
+            dc.handleChangeMusterCurrentRecordNotification(relation.getMasterCurrentObject());
         }
     }
 

@@ -283,13 +283,18 @@ public class [%=util.mergeAndCapitalize(control.name)%]DC extends org.tura.platf
     
  	@Override
 	public void createChild( String relName) throws org.tura.platform.datacontrol.commons.TuraException{
-		org.tura.platform.datacontrol.metainfo.Relation relation = this.getChild(relName);
-		if (relation.getChild() == null) {
-			org.tura.platform.datacontrol.IDataControl dc = null;
+
     [%
+    var i = 0;
     for (relation in relations){
       if (not relation.detail.~dependObject.isDefined()){
     %]
+       [%if (i = 0 ){%]
+		org.tura.platform.datacontrol.metainfo.Relation relation = this.getChild(relName);
+		if (relation.getChild() == null) {
+			org.tura.platform.datacontrol.IDataControl dc = null;       
+       [% i = 1;
+       }%]
        if ("[%=util.mergeAndCapitalize(relation.master.name).toLowerCase()%]2[%=util.mergeAndCapitalize(relation.detail.name).toLowerCase()%]".equals(relName)){
 		dc = [%=util.mergeAndCapitalize(relation.detail.name).toLowerCase()%]producer.get();
 		}
@@ -297,11 +302,14 @@ public class [%=util.mergeAndCapitalize(control.name)%]DC extends org.tura.platf
       }
     }
     %] 
- 			relation.setChild(dc);
-			relation.setMasterCurrentObject(getCurrentObject());
-			dc.setParent(relation);
-			
+       [%if (i = 1 ){%]
+
+            relation.setChild(dc);
+            dc.setParent(relation);
+            relation.setMasterCurrentObject(getCurrentObject());
+            dc.handleChangeMusterCurrentRecordNotification(relation.getMasterCurrentObject());
  		}
+   [%}%]			
 	}
     
 	@Override

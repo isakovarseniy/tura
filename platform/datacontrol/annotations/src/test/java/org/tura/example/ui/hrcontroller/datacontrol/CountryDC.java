@@ -260,9 +260,9 @@ public class CountryDC extends DataControl<CountryDAO> {
             }
 
             relation.setChild(dc);
-            relation.setMasterCurrentObject(getCurrentObject());
             dc.setParent(relation);
-
+            relation.setMasterCurrentObject(getCurrentObject());
+            dc.handleChangeMusterCurrentRecordNotification(relation.getMasterCurrentObject());
         }
     }
 
