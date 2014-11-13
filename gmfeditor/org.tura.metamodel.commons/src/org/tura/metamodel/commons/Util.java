@@ -168,6 +168,16 @@ public class Util {
 		return StringUtils.join(ls);
 	}
 
+	public static String mergeAndUnCapitalize(String name) {
+		String[] ls = StringUtils.split(name, " ");
+		for (int i = 0; i < ls.length; i++) {
+			ls[i] = StringUtils.capitalize(ls[i]);
+		}
+		return StringUtils.uncapitalize( StringUtils.join(ls));
+	}
+	
+	
+	
 	public static void saveFile(String path, String fileName, String in)
 			throws IOException {
 
