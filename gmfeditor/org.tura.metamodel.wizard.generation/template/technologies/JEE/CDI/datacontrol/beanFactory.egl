@@ -13,15 +13,38 @@ package  [%=component.basePackage%].[%=util.mergeAndCapitalize(form.name).toLowe
 @javax.inject.Named("beanFactory")
 [%=datacontrol_scope()%]
 public class BeanFactory {
-    @javax.inject.Inject
-    org.tura.platform.datacontrol.ELResolver elResolver;
+    [%
+     var controls =  form.datacontrols.formControl.controls;
+     for (control in controls){
+       if (control.~masterControl = true){%]
+       	@javax.inject.Inject
+	   private javax.enterprise.inject.Instance<[%=typeName(control, component, form)%]> [%=propertyName(control)%]producer;
+       private [%=typeName(control, component, form)%] [%=propertyName(control)%];
+       [%}
+     }    
+    %]
+    
+ [%
+     for (control in controls){
+         var relations = domain::Relation.allInstances()->select(r|r.master= control);   
+         for ( relation in relations ){
+           if (relation.detail.~dependObject <>  null ){ %] 
+       	@javax.inject.Inject
+	   private javax.enterprise.inject.Instance<[%=typeName(relation.detail, component, form)%]> [%=propertyName(relation.detail)%]producer;
+       private [%=typeName(relation.detail, component, form)%] [%=propertyName(relation.detail)%];
+
+     [%}
+       }
+     } %]    
     
     [%
      var controls =  form.datacontrols.formControl.controls;
      for (control in controls){
        if (control.~masterControl = true){%]
-          public     [%=component.basePackage%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%].datacontrol.[%if (control.~treeRoot=true){%]TreeRoot[%}%][%=util.mergeAndCapitalize(control.name)%]DC   get[%if (control.~treeRoot=true){%]TreeRoot[%}%][%=util.mergeAndCapitalize(control.name)%](){
-               return ([%=component.basePackage%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%].datacontrol.[%if (control.~treeRoot=true){%]TreeRoot[%}%][%=util.mergeAndCapitalize(control.name)%]DC) elResolver.getValue("[%if (control.~treeRoot=true){%]treeRoot[%}%][%=util.mergeAndCapitalize(control.name).toLowerCase()%]");
+          public    [%=typeName(control, component, form)%]  [%=methodName(control)%](){
+               if ([%=propertyName(control)%] == null)
+                  [%=propertyName(control)%] = [%=propertyName(control)%]producer.get();
+               return [%=propertyName(control)%];
          }
        [%}
      }    
@@ -33,11 +56,11 @@ public class BeanFactory {
          var relations = domain::Relation.allInstances()->select(r|r.master= control);   
          for ( relation in relations ){
          if (relation.isTree = false){%]
-          public     [%=component.basePackage%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%].datacontrol.[%if (relation.detail.~treeRoot=true){%]TreeRoot[%}%][%=util.mergeAndCapitalize(relation.detail.name)%]DC   get[%if (relation.detail.~treeRoot=true){%]TreeRoot[%}%][%=util.mergeAndCapitalize(relation.detail.name)%](){
+          public    [%=typeName(relation.detail, component, form)%]  [%=methodName(relation.detail)%](){
        [%if (relation.detail.~dependObject =  null ){ %] 
           try {
-               [%=component.basePackage%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%].datacontrol.[%=util.mergeAndCapitalize(relation.master.name)%]DC  master=  get[%=util.mergeAndCapitalize(relation.master.name)%]();
-               return ([%=component.basePackage%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%].datacontrol.[%if (relation.detail.~treeRoot=true){%]TreeRoot[%}%][%=util.mergeAndCapitalize(relation.detail.name)%]DC)master.get[%=util.mergeAndCapitalize(relation.master.name)%]2[%=util.mergeAndCapitalize(relation.detail.name)%]();
+               [%=typeName(relation.master, component, form)%] master =  [%=methodName(relation.master)%]();
+               return ( [%=typeName(relation.detail, component, form)%] )master.get[%=util.mergeAndCapitalize(relation.master.name)%]2[%=util.mergeAndCapitalize(relation.detail.name)%]();
 		     } catch (org.tura.platform.datacontrol.commons.TuraException e) {
 			   return null;
 		     }
@@ -45,8 +68,11 @@ public class BeanFactory {
 
        [%if (relation.detail.~dependObject <>  null ){ %] 
           try {
-               getTreeRoot[%=util.mergeAndCapitalize(relation.detail.~masterRoot.name)%]().getCurrentObject();
-               return ([%=component.basePackage%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%].datacontrol.[%=util.mergeAndCapitalize(relation.detail.name)%]DC) elResolver.getValue("[%=util.mergeAndCapitalize(relation.detail.name).toLowerCase()%]");
+               if ([%=propertyName(relation.detail)%] == null){
+                  getTreeRoot[%=util.mergeAndCapitalize(relation.detail.~masterRoot.name)%]().getCurrentObject();
+                  [%=propertyName(relation.detail)%] = [%=propertyName(relation.detail)%]producer.get();
+               }
+               return [%=propertyName(relation.detail)%];
 		     } catch (org.tura.platform.datacontrol.commons.TuraException e) {
 			   return null;
 		     }
@@ -55,11 +81,31 @@ public class BeanFactory {
           [%}
          }
      }    
-     
-     
 %]
 
-   
-
-
 }
+
+
+[% @template
+operation methodName(dc:DataControl) {
+     var util = new Native('org.tura.metamodel.commons.Util');
+%]
+   get[%if (dc.~treeRoot=true){%]TreeRoot[%}%][%=util.mergeAndCapitalize(dc.name)%]
+ [%} %]
+
+[% @template
+operation typeName(dc:DataControl, component: Component, form:Form) {
+     var util = new Native('org.tura.metamodel.commons.Util');
+%]
+  [%=component.basePackage%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%].datacontrol.[%if (dc.~treeRoot=true){%]TreeRoot[%}%][%=util.mergeAndCapitalize(dc.name)%]DC 
+ [%} %]
+ 
+ [% @template
+operation propertyName(dc:DataControl) {
+     var util = new Native('org.tura.metamodel.commons.Util');
+%]
+   [%if (dc.~treeRoot=true){%]treeRoot[%=util.mergeAndCapitalize(dc.name)%][%} else {%][%=util.mergeAndUnCapitalize(dc.name)%][%}%]
+ [%} %]
+ 
+ 
+
