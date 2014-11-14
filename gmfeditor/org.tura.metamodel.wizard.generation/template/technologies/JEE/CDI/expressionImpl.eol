@@ -18,7 +18,9 @@ operation AttributeImpl(expression:String, contextValue : ContextValue, paramId:
 }
 
 operation ControlsImpl(expression:String, contextValue : ContextValue, paramId: Integer , array ) : String {
-   return expression;
+   if (expression <> "")
+     expression = expression+".";
+   return expression+"beanFactory";
 }
 
 operation DataControlFakeAttribute(expression:String, contextValue : ContextValue, paramId: Integer , array ) : String {
@@ -38,7 +40,15 @@ operation DataControlImpl(expression:String, contextValue : ContextValue, paramI
      expression = expression+".";
 
     var util = new Native('org.tura.metamodel.commons.Util');
-    return expression+util.mergeAndCapitalize(contextValue.expression.get(paramId).objRef.name).toLowerCase();
+    
+    var masters =  domain::Relation.allInstances()->select(r|r.isTree=true and r.detail = contextValue.expression.get(paramId).objRef )->collect(w|w.master);
+    var roots = domain::Relation.allInstances()->select(r|r.isTree=true and r.master = contextValue.expression.get(paramId).objRef )->collect(w|w.detail);
+    if (masters.size() = 0 and roots.size = 0 )  {
+         return expression+util.mergeAndUnCapitalize(contextValue.expression.get(paramId).objRef.name);
+    }else{
+       var dc = contextValue.expression.get(paramId).objRef.findTreeRoot();
+       return    expression+"treeRoot"+ util.mergeAndCapitalize(dc.name)+".currentControl";
+    }
 }
 
 operation DomainArtifactImpl(expression:String, contextValue : ContextValue, paramId: Integer , array ) : String {
@@ -118,3 +128,16 @@ operation TypesImpl(expression:String, contextValue : ContextValue, paramId: Int
      expression = expression+".";
    return expression+array.get(paramId);
 }
+
+
+operation DataControl findTreeRoot(  ) : DataControl {
+      var masters =  domain::Relation.allInstances()->select(r|r.isTree=true and  r.detail = self )->collect(w|w.master);
+      for ( master in masters ){
+         if (master = self )
+            return self;
+            
+         return master.findTreeRoot();   
+      }
+     return self;
+}
+
