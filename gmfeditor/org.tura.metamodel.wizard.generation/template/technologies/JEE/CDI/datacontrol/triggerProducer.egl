@@ -2,43 +2,43 @@
      var util = new Native('org.tura.metamodel.commons.Util');
 
 %]
-package  [%=component.basePackage%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%].producer;  
+package  [%=component.basePackage%].[%=util.mergeAndCapitalize(form.name)%].producer;  
 
 
 
 public class [%=util.mergeAndCapitalize(control.name)%]TriggerProducer {
 
- 	@javax.enterprise.inject.Produces @org.tura.platform.datacontrol.annotations.PreQuery("[%=util.mergeAndCapitalize(control.name).toLowerCase()%]")
+ 	@javax.enterprise.inject.Produces @org.tura.platform.datacontrol.annotations.PreQuery("[%=util.mergeAndUnCapitalize(control.name)%]")
 	public org.tura.platform.datacontrol.command.PreQueryTrigger getPreQueryTrigger( javax.enterprise.inject.spi.InjectionPoint injectionPoint) {
 		return null;
 
 	}
 
-	@javax.enterprise.inject.Produces @org.tura.platform.datacontrol.annotations.PostQuery("[%=util.mergeAndCapitalize(control.name).toLowerCase()%]")
+	@javax.enterprise.inject.Produces @org.tura.platform.datacontrol.annotations.PostQuery("[%=util.mergeAndUnCapitalize(control.name)%]")
 	public org.tura.platform.datacontrol.command.PostQueryTrigger getPostQueryTrigger(javax.enterprise.inject.spi.InjectionPoint injectionPoint) {
 		return null;
 
 	}
 
-	@javax.enterprise.inject.Produces @org.tura.platform.datacontrol.annotations.PostCreate("[%=util.mergeAndCapitalize(control.name).toLowerCase()%]")
+	@javax.enterprise.inject.Produces @org.tura.platform.datacontrol.annotations.PostCreate("[%=util.mergeAndUnCapitalize(control.name)%]")
 	public org.tura.platform.datacontrol.command.PostCreateTrigger getPostCreateTrigger(javax.enterprise.inject.spi.InjectionPoint injectionPoint) {
 		return null;
 
 	}
 
-	@javax.enterprise.inject.Produces @org.tura.platform.datacontrol.annotations.PreDelete("[%=util.mergeAndCapitalize(control.name).toLowerCase()%]")
+	@javax.enterprise.inject.Produces @org.tura.platform.datacontrol.annotations.PreDelete("[%=util.mergeAndUnCapitalize(control.name)%]")
 	public org.tura.platform.datacontrol.command.PreDeleteTrigger getPreDeleteTrigger(javax.enterprise.inject.spi.InjectionPoint injectionPoint) {
 		return null;
 
 	}
 
-	@javax.enterprise.inject.Produces @org.tura.platform.datacontrol.annotations.PreInsert("[%=util.mergeAndCapitalize(control.name).toLowerCase()%]")
+	@javax.enterprise.inject.Produces @org.tura.platform.datacontrol.annotations.PreInsert("[%=util.mergeAndUnCapitalize(control.name)%]")
 	public org.tura.platform.datacontrol.command.PreInsertTrigger getPreInsertTrigger(javax.enterprise.inject.spi.InjectionPoint injectionPoint) {
 		return null;
 
 	}
 
-	@javax.enterprise.inject.Produces @org.tura.platform.datacontrol.annotations.PreUpdate("[%=util.mergeAndCapitalize(control.name).toLowerCase()%]")
+	@javax.enterprise.inject.Produces @org.tura.platform.datacontrol.annotations.PreUpdate("[%=util.mergeAndUnCapitalize(control.name)%]")
 	public org.tura.platform.datacontrol.command.PreUpdateTrigger getPreUpdateTrigger(javax.enterprise.inject.spi.InjectionPoint injectionPoint) {
 		return null;
 

@@ -1,5 +1,6 @@
 package org.tura.platform.datacontrol;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
@@ -19,9 +20,10 @@ public abstract class TreeDataControl implements IDataControl {
 	private ArrayList<ChangeRecordListener> chageRecordLiteners = new ArrayList<>();
 	private Object currentObject;
 	private int criticalSection;
+	private IDataControl current;
 
 	protected boolean blocked = false;
-	
+
 	private DataControl<?> root;
 
 	public DataControl<?> getRoot() {
@@ -59,15 +61,19 @@ public abstract class TreeDataControl implements IDataControl {
 	@Override
 	public void handleChangeMusterCurrentRecordNotification(
 			Object newCurrentObject) throws TuraException {
-		if (newCurrentObject == null){
+		if (newCurrentObject == null) {
 			blocked = true;
 			notifyChageRecordAll(null);
 		}
-		
-		blocked = false;		
+
+		blocked = false;
 		treeRelation.setMasterCurrentObject(newCurrentObject);
 		currentObject = null;
 		root.handleChangeMusterCurrentRecordNotification(newCurrentObject);
+	}
+
+	public IDataControl getCurrentControl() {
+		return current;
 	}
 
 	protected void notifyChageRecordAll(Object newCurrentObject)
@@ -96,7 +102,7 @@ public abstract class TreeDataControl implements IDataControl {
 	public Object getCurrentObject() throws TuraException {
 		if (blocked)
 			return null;
-		
+
 		if (criticalSection > 0)
 			return null;
 		try {
@@ -117,8 +123,8 @@ public abstract class TreeDataControl implements IDataControl {
 	@Override
 	public Object createObject() throws TuraException {
 		if (blocked)
-			return null;		
-		
+			return null;
+
 		try {
 			BeanWrapper w = ((BeanWrapper) Reflection.call(currentObject,
 					"getWrapper"));
@@ -141,7 +147,7 @@ public abstract class TreeDataControl implements IDataControl {
 	public void removeObject() throws Exception {
 		if (blocked)
 			return;
-		
+
 		BeanWrapper w = ((BeanWrapper) Reflection.call(currentObject,
 				"getWrapper"));
 		DataControl<?> dc = w.getDatacontrol();
@@ -152,8 +158,8 @@ public abstract class TreeDataControl implements IDataControl {
 	@Override
 	public void removeAll() throws Exception {
 		if (blocked)
-			return;		
-		
+			return;
+
 		BeanWrapper w = ((BeanWrapper) Reflection.call(currentObject,
 				"getWrapper"));
 		DataControl<?> dc = w.getDatacontrol();
@@ -161,12 +167,13 @@ public abstract class TreeDataControl implements IDataControl {
 		notifyChangeRecordLiteners(dc.getCurrentObject());
 	}
 
-	public boolean setCurrentPosition(Object o) throws TuraException {
+	public synchronized boolean setCurrentPosition(Object o)
+			throws TuraException {
 		if (blocked)
-			return false;		
-		
+			return false;
+
 		int[] path = (int[]) o;
-		IDataControl current = root;
+		current = root;
 		Object obj = null;
 		for (int i = 0; i < path.length; i++) {
 			int key = path[i];
@@ -184,10 +191,31 @@ public abstract class TreeDataControl implements IDataControl {
 						current = rel.getChild();
 
 					} else {
+						BeanWrapper w;
+						try {
+							w = ((BeanWrapper) Reflection.call(currentObject,
+									"getWrapper"));
+							current = w.getDatacontrol();
+						} catch (NoSuchMethodException | SecurityException
+								| IllegalAccessException
+								| IllegalArgumentException
+								| InvocationTargetException e) {
+							throw new TuraException(e);
+						}
 						return false;
 					}
 				}
 			} else {
+				BeanWrapper w;
+				try {
+					w = ((BeanWrapper) Reflection.call(currentObject,
+							"getWrapper"));
+					current = w.getDatacontrol();
+				} catch (NoSuchMethodException | SecurityException
+						| IllegalAccessException | IllegalArgumentException
+						| InvocationTargetException e) {
+					throw new TuraException(e);
+				}
 				return false;
 			}
 

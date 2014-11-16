@@ -27,7 +27,7 @@ public class TreeRoot[%=util.mergeAndCapitalize(control.name)%]DC extends org.tu
     var i = 0;
     for (depend in control.~dependArray){
      if (i <> 0 ){ %],[%}%]
-			@org.tura.platform.datacontrol.annotations.Dependency(expression = "[%=util.mergeAndCapitalize(depend).toLowerCase()%]") 
+			@org.tura.platform.datacontrol.annotations.Dependency(expression = "[%=depend%]") 
     [%
      i = i+1;
     }

@@ -55,7 +55,7 @@ public class [%=util.mergeAndCapitalize(control.name)%]DC extends org.tura.platf
       if (not relation.detail.~dependObject.isDefined()){
     %]
 	@javax.inject.Inject
-	private javax.enterprise.inject.Instance<[%if (relation.detail.~treeRoot=true){%]TreeRoot[%}%][%=util.mergeAndCapitalize(relation.detail.name)%]DC> [%=util.mergeAndCapitalize(relation.detail.name).toLowerCase()%]producer;
+	private javax.enterprise.inject.Instance<[%if (relation.detail.~treeRoot=true){%]TreeRoot[%}%][%=util.mergeAndCapitalize(relation.detail.name)%]DC> [%=util.mergeAndUnCapitalize(relation.detail.name)%]producer;
     [%
      }
     }
@@ -224,42 +224,42 @@ public class [%=util.mergeAndCapitalize(control.name)%]DC extends org.tura.platf
 	@Override
 	@javax.inject.Inject
 	public void setPreQueryTrigger(
-			@org.tura.platform.datacontrol.annotations.PreQuery("[%=util.mergeAndCapitalize(control.name).toLowerCase()%]") org.tura.platform.datacontrol.command.PreQueryTrigger preQueryTrigger) {
+			@org.tura.platform.datacontrol.annotations.PreQuery("[%=util.mergeAndUnCapitalize(control.name)%]") org.tura.platform.datacontrol.command.PreQueryTrigger preQueryTrigger) {
 		this.preQueryTrigger = preQueryTrigger;
 	}
 
 	@Override
 	@javax.inject.Inject
 	public void setPostQueryTrigger(
-			@org.tura.platform.datacontrol.annotations.PostQuery("[%=util.mergeAndCapitalize(control.name).toLowerCase()%]") org.tura.platform.datacontrol.command.PostQueryTrigger postQueryTrigger) {
+			@org.tura.platform.datacontrol.annotations.PostQuery("[%=util.mergeAndUnCapitalize(control.name)%]") org.tura.platform.datacontrol.command.PostQueryTrigger postQueryTrigger) {
 		this.postQueryTrigger = postQueryTrigger;
 	}
 
 	@Override
 	@javax.inject.Inject
 	public void setPostCreateTrigger(
-			@org.tura.platform.datacontrol.annotations.PostCreate("[%=util.mergeAndCapitalize(control.name).toLowerCase()%]") org.tura.platform.datacontrol.command.PostCreateTrigger postCreateTrigger) {
+			@org.tura.platform.datacontrol.annotations.PostCreate("[%=util.mergeAndUnCapitalize(control.name)%]") org.tura.platform.datacontrol.command.PostCreateTrigger postCreateTrigger) {
 		this.postCreateTrigger = postCreateTrigger;
 	}
 
 	@Override
 	@javax.inject.Inject
 	public void setPreDeleteTrigger(
-			@org.tura.platform.datacontrol.annotations.PreDelete("[%=util.mergeAndCapitalize(control.name).toLowerCase()%]") org.tura.platform.datacontrol.command.PreDeleteTrigger preDeleteTrigger) {
+			@org.tura.platform.datacontrol.annotations.PreDelete("[%=util.mergeAndUnCapitalize(control.name)%]") org.tura.platform.datacontrol.command.PreDeleteTrigger preDeleteTrigger) {
 		this.preDeleteTrigger = preDeleteTrigger;
 	}
 
 	@Override
 	@javax.inject.Inject
 	public void setPreInsertTrigger(
-			@org.tura.platform.datacontrol.annotations.PreInsert("[%=util.mergeAndCapitalize(control.name).toLowerCase()%]") org.tura.platform.datacontrol.command.PreInsertTrigger preInsertTrigger) {
+			@org.tura.platform.datacontrol.annotations.PreInsert("[%=util.mergeAndUnCapitalize(control.name)%]") org.tura.platform.datacontrol.command.PreInsertTrigger preInsertTrigger) {
 		this.preInsertTrigger = preInsertTrigger;
 	}
 
 	@Override
 	@javax.inject.Inject
 	public void setPreUpdateTrigger(
-			@org.tura.platform.datacontrol.annotations.PreUpdate("[%=util.mergeAndCapitalize(control.name).toLowerCase()%]") org.tura.platform.datacontrol.command.PreUpdateTrigger preUpdateTrigger) {
+			@org.tura.platform.datacontrol.annotations.PreUpdate("[%=util.mergeAndUnCapitalize(control.name)%]") org.tura.platform.datacontrol.command.PreUpdateTrigger preUpdateTrigger) {
 		this.preUpdateTrigger = preUpdateTrigger;
 	}
 
@@ -267,7 +267,7 @@ public class [%=util.mergeAndCapitalize(control.name)%]DC extends org.tura.platf
     for (relation in relations){
       if (not relation.detail.~dependObject.isDefined()){
     %]
-	@org.tura.platform.datacontrol.annotations.Connection(connectionName = "[%=util.mergeAndCapitalize(relation.master.name).toLowerCase()%]2[%=util.mergeAndCapitalize(relation.detail.name).toLowerCase()%]", links = { 
+	@org.tura.platform.datacontrol.annotations.Connection(connectionName = "[%=util.mergeAndUnCapitalize(relation.master.name)%]2[%=util.mergeAndUnCapitalize(relation.detail.name)%]", links = { 
     [%
      var i = 0;
      for (link in relation.links){
@@ -278,8 +278,8 @@ public class [%=util.mergeAndCapitalize(control.name)%]DC extends org.tura.platf
       }%]    
   	})    
 	public org.tura.platform.datacontrol.IDataControl get[%=util.mergeAndCapitalize(relation.master.name)%]2[%=util.mergeAndCapitalize(relation.detail.name)%]()  throws org.tura.platform.datacontrol.commons.TuraException{
-		createChild("[%=util.mergeAndCapitalize(relation.master.name).toLowerCase()%]2[%=util.mergeAndCapitalize(relation.detail.name).toLowerCase()%]");
-		Relation relation = this.getChild("[%=util.mergeAndCapitalize(relation.master.name).toLowerCase()%]2[%=util.mergeAndCapitalize(relation.detail.name).toLowerCase()%]");
+		createChild("[%=util.mergeAndUnCapitalize(relation.master.name)%]2[%=util.mergeAndUnCapitalize(relation.detail.name)%]");
+		Relation relation = this.getChild("[%=util.mergeAndUnCapitalize(relation.master.name)%]2[%=util.mergeAndUnCapitalize(relation.detail.name)%]");
 		return relation.getChild();
 	}
     [%
@@ -301,8 +301,8 @@ public class [%=util.mergeAndCapitalize(control.name)%]DC extends org.tura.platf
 			org.tura.platform.datacontrol.IDataControl dc = null;       
        [% i = 1;
        }%]
-       if ("[%=util.mergeAndCapitalize(relation.master.name).toLowerCase()%]2[%=util.mergeAndCapitalize(relation.detail.name).toLowerCase()%]".equals(relName)){
-		dc = [%=util.mergeAndCapitalize(relation.detail.name).toLowerCase()%]producer.get();
+       if ("[%=util.mergeAndUnCapitalize(relation.master.name)%]2[%=util.mergeAndUnCapitalize(relation.detail.name)%]".equals(relName)){
+		dc = [%=util.mergeAndUnCapitalize(relation.detail.name)%]producer.get();
 		}
     [%
       }

@@ -176,6 +176,26 @@ public class Util {
 		return StringUtils.uncapitalize( StringUtils.join(ls));
 	}
 	
+	public ArtificialContextValue createArtificialContextValue(domain.DataControl dc){
+
+		ArtificialContextValue cv = new ArtificialContextValue();
+		cv.setValue("Data control."+dc.getName());
+		
+		ArtificialExpressionPart ex = new ArtificialExpressionPart();
+		ex.setOrder(0);
+		ex.setExpressionType("ControlsImpl");
+		cv.getExpression().add(ex);
+		
+		ex = new ArtificialExpressionPart();
+		ex.setOrder(1);
+		ex.setExpressionType("DataControlImpl");
+		ex.setObjRef(dc);
+		cv.getExpression().add(ex);
+		
+		return cv;
+		
+	}	
+	
 	public ArtificialContextValue createArtificialContextValue(domain.DataControl dc, domain.Link lnk){
 		ArtificialContextValue cv = new ArtificialContextValue();
 		cv.setValue("Data control."+dc.getName()+".currentObject."+ lnk.getMasterField() );
