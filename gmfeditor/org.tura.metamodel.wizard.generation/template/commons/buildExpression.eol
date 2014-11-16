@@ -1,4 +1,4 @@
-operation  buildExpression( contextValue : ContextValue) : String {
+operation  buildExpression( contextValue ) : String {
       if (contextValue.constant = true )
            return contextValue.value;
            

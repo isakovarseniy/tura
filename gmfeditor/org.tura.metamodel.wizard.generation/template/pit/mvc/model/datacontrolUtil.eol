@@ -148,6 +148,7 @@ operation DataControl findDependecies ( objectTrack, treeRoot: DataControl,recip
             dependent.~relation=rel;
             for ( lnk in rel.links ){
                 lnk.masterField.typeRef.mappingType2Java(recipe,ingredient);
+                lnk.~result = buildExpression ( util.createArtificialContextValue(rel.master,lnk));
             }
         }      
               

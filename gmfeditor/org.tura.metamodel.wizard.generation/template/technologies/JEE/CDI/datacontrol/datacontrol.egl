@@ -330,7 +330,7 @@ public class [%=util.mergeAndCapitalize(control.name)%]DC extends org.tura.platf
     if (control.~relation.isDefined()){
       for (link in control.~relation.links){
        if (i <> 0 ){ %],[%}%]
-			@org.tura.platform.datacontrol.annotations.DefaultSearchCriteria(field = "[%=link.detailField.name%]",  comparator=com.octo.java.sql.exp.Operator.EQ ,  expression = "[%if (control.~masterRoot.isDefined()){%]treeRoot[%=util.mergeAndCapitalize(control.~masterRoot.name).toLowerCase()%][%} else {%][%=util.mergeAndCapitalize(control.~relation.master.name).toLowerCase()%][%}%].currentObject.[%=link.masterField.name%]"  , type =[%=link.masterField.typeRef.~fullName%].class) 
+			@org.tura.platform.datacontrol.annotations.DefaultSearchCriteria(field = "[%=link.detailField.name%]",  comparator=com.octo.java.sql.exp.Operator.EQ ,  expression = "[%=link.~result%]"  , type =[%=link.masterField.typeRef.~fullName%].class) 
  [%
        i = i+1;
       } 

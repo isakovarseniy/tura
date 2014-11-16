@@ -176,7 +176,36 @@ public class Util {
 		return StringUtils.uncapitalize( StringUtils.join(ls));
 	}
 	
+	public ArtificialContextValue createArtificialContextValue(domain.DataControl dc, domain.Link lnk){
+		ArtificialContextValue cv = new ArtificialContextValue();
+		cv.setValue("Data control."+dc.getName()+".currentObject."+ lnk.getMasterField() );
+		
+		ArtificialExpressionPart ex = new ArtificialExpressionPart();
+		ex.setOrder(0);
+		ex.setExpressionType("ControlsImpl");
+		cv.getExpression().add(ex);
+		
+		ex = new ArtificialExpressionPart();
+		ex.setOrder(1);
+		ex.setExpressionType("DataControlImpl");
+		ex.setObjRef(dc);
+		cv.getExpression().add(ex);
+		
+
+		ex = new ArtificialExpressionPart();
+		ex.setOrder(2);
+		ex.setExpressionType("DataControlFakeMethod");
+		cv.getExpression().add(ex);
 	
+		ex = new ArtificialExpressionPart();
+		ex.setOrder(3);
+		ex.setObjRef(lnk.getMasterField());
+		ex.setExpressionType("AttributeImpl");
+		cv.getExpression().add(ex);
+		
+		
+		return cv;
+	}
 	
 	public static void saveFile(String path, String fileName, String in)
 			throws IOException {
