@@ -19,7 +19,6 @@ public abstract class TreeDataControl implements IDataControl {
 	protected HashMap<String, Relation> children = new HashMap<String, Relation>();
 	private ArrayList<ChangeRecordListener> chageRecordLiteners = new ArrayList<>();
 	private Object currentObject;
-	private int criticalSection;
 	private IDataControl current;
 
 	protected boolean blocked = false;
@@ -99,24 +98,13 @@ public abstract class TreeDataControl implements IDataControl {
 	}
 
 	@Override
-	public Object getCurrentObject() throws TuraException {
+	public synchronized Object getCurrentObject() throws TuraException {
 		if (blocked)
 			return null;
-
-		try {
-			criticalSection++;
-			
-			if (criticalSection > 1)
-				return null;
-			if (currentObject == null) {
-				treeRelation.setMasterCurrentObject(parent
-						.getMasterCurrentObject());
-				currentObject = root.getCurrentObject();
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		} finally {
-			criticalSection--;
+		if (currentObject == null) {
+			treeRelation
+					.setMasterCurrentObject(parent.getMasterCurrentObject());
+			currentObject = root.getCurrentObject();
 		}
 		return currentObject;
 	}
