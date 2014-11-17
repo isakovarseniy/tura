@@ -103,10 +103,11 @@ public abstract class TreeDataControl implements IDataControl {
 		if (blocked)
 			return null;
 
-		if (criticalSection > 0)
-			return null;
 		try {
 			criticalSection++;
+			
+			if (criticalSection > 1)
+				return null;
 			if (currentObject == null) {
 				treeRelation.setMasterCurrentObject(parent
 						.getMasterCurrentObject());
