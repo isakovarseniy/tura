@@ -35,5 +35,11 @@ public interface IDataControl {
 	public List<DependecyProperty> getDependency();
 
 	public void setDependency(List<DependecyProperty> dependency);
+	
+	public TreeDataControl getTreeContext() ;
+	
+	public void  setTreeContext(TreeDataControl tdc) ;
+	
+	
 
 }

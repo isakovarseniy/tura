@@ -10,21 +10,20 @@ import java.util.List;
 import javax.enterprise.context.ApplicationScoped;
 
 import javax.inject.Inject;
-import javax.inject.Named;
 
-@Named("treeRootcountry")
 @ApplicationScoped
 public class TreeRootCountryDC extends TreeDataControl {
     @Inject
     public void setRoot(CountryDC root) {
         super.setRoot(root);
+        root.setTreeContext(this);
     }
 
     @Override
     @Inject
     public void setDependency(
         @Dependencies(dependency =  {
-        @Dependency(expression = "department")
+        @Dependency(expression = "beanFactory.department")
 
     }
     )

@@ -12,6 +12,7 @@ import org.tura.platform.datacontrol.annotations.ArtificialFields;
 import org.tura.platform.datacontrol.annotations.Base;
 import org.tura.platform.datacontrol.annotations.Connection;
 import org.tura.platform.datacontrol.annotations.Create;
+import org.tura.platform.datacontrol.annotations.DCProxy;
 import org.tura.platform.datacontrol.annotations.DefaultOrderBys;
 import org.tura.platform.datacontrol.annotations.DefaultSearchCriterias;
 import org.tura.platform.datacontrol.annotations.Delete;
@@ -53,12 +54,11 @@ import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.inject.Instance;
 
 import javax.inject.Inject;
-import javax.inject.Named;
 
 import com.octo.java.sql.query.SelectQuery;
 
-@Named("country")
 @ApplicationScoped
+@DCProxy
 public class CountryDC extends DataControl<CountryDAO> {
     @Inject
     private TuraJPAEntityService provider_0;
@@ -139,7 +139,7 @@ public class CountryDC extends DataControl<CountryDAO> {
     @Inject
     public void setInsertCommand(
         @Insert(objectAction = "insert", parameters = @Parameters(value =  {
-        @Parameter(name = "obj", expression = "country.currentObject", type = TuraObject.class)
+        @Parameter(name = "obj", expression = "beanFactory.treeRootCountry.currentControl.currentObject", type = TuraObject.class)
 
     }
     )
@@ -152,7 +152,7 @@ public class CountryDC extends DataControl<CountryDAO> {
     @Inject
     public void setUpdateCommand(
         @Update(objectAction = "update", parameters = @Parameters(value =  {
-        @Parameter(name = "obj", expression = "country.currentObject", type = TuraObject.class)
+        @Parameter(name = "obj", expression = "beanFactory.treeRootCountry.currentControl.currentObject", type = TuraObject.class)
 
     }
     )
@@ -165,7 +165,7 @@ public class CountryDC extends DataControl<CountryDAO> {
     @Inject
     public void setDeleteCommand(
         @Delete(objectAction = "remove", parameters = @Parameters(value =  {
-        @Parameter(name = "obj", expression = "country.currentObject", type = TuraObject.class)
+        @Parameter(name = "obj", expression = "beanFactory.treeRootCountry.currentControl.currentObject", type = TuraObject.class)
 
     }
     )
@@ -178,9 +178,9 @@ public class CountryDC extends DataControl<CountryDAO> {
     @Inject
     public void setSearchCommand(
         @Search(objectAction = "find", parameters = @Parameters(value =  {
-        @Parameter(name = "search", expression = "country.query", type = SelectQuery.class)
-        , @Parameter(name = "startIndex", expression = "country.startIndex", type = Integer.class)
-        , @Parameter(name = "endIndex", expression = "country.endIndex", type = Integer.class)
+        @Parameter(name = "search", expression = "beanFactory.treeRootCountry.currentControl.query", type = SelectQuery.class)
+        , @Parameter(name = "startIndex", expression = "beanFactory.treeRootCountry.currentControl.startIndex", type = Integer.class)
+        , @Parameter(name = "endIndex", expression = "beanFactory.treeRootCountry.currentControl.endIndex", type = Integer.class)
         , @Parameter(name = "className", value = "org.elsoft.platform.hr.objects.CountryDAO", type = String.class)
 
     }
@@ -262,6 +262,7 @@ public class CountryDC extends DataControl<CountryDAO> {
 
             relation.setChild(dc);
             dc.setParent(relation);
+            dc.setTreeContext(this.getTreeContext());
             relation.setMasterCurrentObject(getCurrentObject());
             dc.handleChangeMusterCurrentRecordNotification(relation.getMasterCurrentObject());
         }

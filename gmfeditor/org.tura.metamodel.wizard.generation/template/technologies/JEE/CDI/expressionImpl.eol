@@ -52,6 +52,16 @@ operation DataControlImpl(expression:String, contextValue , paramId: Integer , a
     }
 }
 
+operation TreeDataControlImpl(expression:String, contextValue , paramId: Integer , array ) : String {
+   if (expression <> "")
+     expression = expression+".";
+    var util = new Native('org.tura.metamodel.commons.Util');
+    var dc = contextValue.expression.get(paramId).objRef.findTreeRoot();
+
+   return    expression+"treeRoot"+ util.mergeAndCapitalize(dc.name);
+}
+
+
 operation DomainArtifactImpl(expression:String, contextValue , paramId: Integer , array ) : String {
    if (expression <> "")
      expression = expression+".";

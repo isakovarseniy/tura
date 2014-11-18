@@ -19,7 +19,7 @@ public abstract class TreeDataControl implements IDataControl {
 	protected HashMap<String, Relation> children = new HashMap<String, Relation>();
 	private ArrayList<ChangeRecordListener> chageRecordLiteners = new ArrayList<>();
 	private Object currentObject;
-	private IDataControl current;
+	private IDataControl currentControl;
 
 	protected boolean blocked = false;
 
@@ -72,7 +72,11 @@ public abstract class TreeDataControl implements IDataControl {
 	}
 
 	public IDataControl getCurrentControl() {
-		return current;
+		return currentControl;
+	}
+
+	public void setCurrentControl(IDataControl currentControl) {
+		this.currentControl = currentControl;
 	}
 
 	protected void notifyChageRecordAll(Object newCurrentObject)
@@ -162,7 +166,7 @@ public abstract class TreeDataControl implements IDataControl {
 			return false;
 
 		int[] path = (int[]) o;
-		current = root;
+		IDataControl current = root;
 		Object obj = null;
 		for (int i = 0; i < path.length; i++) {
 			int key = path[i];
@@ -232,6 +236,13 @@ public abstract class TreeDataControl implements IDataControl {
 
 	public boolean isBlocked() {
 		return blocked;
+	}
+
+	public TreeDataControl getTreeContext()  {
+		return null;
+	}
+
+	public void setTreeContext(TreeDataControl tdc)  {
 	}
 
 }

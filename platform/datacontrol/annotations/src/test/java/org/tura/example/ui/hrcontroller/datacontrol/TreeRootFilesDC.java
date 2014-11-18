@@ -9,14 +9,13 @@ import java.util.List;
 import javax.enterprise.context.ApplicationScoped;
 
 import javax.inject.Inject;
-import javax.inject.Named;
 
-@Named("treeRootfiles")
 @ApplicationScoped
 public class TreeRootFilesDC extends TreeDataControl {
     @Inject
     public void setRoot(FilesDC root) {
         super.setRoot(root);
+        root.setTreeContext(this);
     }
 
     @Override

@@ -33,6 +33,7 @@ operation  buildExpression( contextValue ) : String {
           case "TriggerImpl":                     resultExpression = TriggerImpl(resultExpression,contextValue,i,tokenArray);
           case "TypeElementImpl":            resultExpression = TypeElementImpl(resultExpression,contextValue,i,tokenArray);
           case "TypesImpl":                       resultExpression = TypesImpl(resultExpression,contextValue,i,tokenArray);
+          case "TreeDataControlImpl":      resultExpression = TreeDataControlImpl(resultExpression,contextValue,i,tokenArray);
 
         }
         i = i +1;

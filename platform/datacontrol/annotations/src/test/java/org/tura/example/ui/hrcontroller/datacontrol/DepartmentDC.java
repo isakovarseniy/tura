@@ -14,6 +14,7 @@ import org.tura.platform.datacontrol.annotations.ArtificialFields;
 import org.tura.platform.datacontrol.annotations.Base;
 import org.tura.platform.datacontrol.annotations.Connection;
 import org.tura.platform.datacontrol.annotations.Create;
+import org.tura.platform.datacontrol.annotations.DCProxy;
 import org.tura.platform.datacontrol.annotations.DefaultOrderBy;
 import org.tura.platform.datacontrol.annotations.DefaultOrderBys;
 import org.tura.platform.datacontrol.annotations.DefaultSearchCriteria;
@@ -57,13 +58,12 @@ import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.inject.Instance;
 
 import javax.inject.Inject;
-import javax.inject.Named;
 
 import com.octo.java.sql.exp.Operator;
 import com.octo.java.sql.query.SelectQuery;
 
-@Named("department")
 @ApplicationScoped
+@DCProxy
 public class DepartmentDC extends DataControl<DepartmentsDAO>
     implements ChangeRecordListener {
     @Inject
@@ -160,7 +160,7 @@ public class DepartmentDC extends DataControl<DepartmentsDAO>
     @Inject
     public void setInsertCommand(
         @Insert(objectAction = "insert", parameters = @Parameters(value =  {
-        @Parameter(name = "obj", expression = "department.currentObject", type = TuraObject.class)
+        @Parameter(name = "obj", expression = "beanFactory.department.currentObject", type = TuraObject.class)
 
     }
     )
@@ -173,7 +173,7 @@ public class DepartmentDC extends DataControl<DepartmentsDAO>
     @Inject
     public void setUpdateCommand(
         @Update(objectAction = "update", parameters = @Parameters(value =  {
-        @Parameter(name = "obj", expression = "department.currentObject", type = TuraObject.class)
+        @Parameter(name = "obj", expression = "beanFactory.department.currentObject", type = TuraObject.class)
 
     }
     )
@@ -186,7 +186,7 @@ public class DepartmentDC extends DataControl<DepartmentsDAO>
     @Inject
     public void setDeleteCommand(
         @Delete(objectAction = "remove", parameters = @Parameters(value =  {
-        @Parameter(name = "obj", expression = "department.currentObject", type = TuraObject.class)
+        @Parameter(name = "obj", expression = "beanFactory.department.currentObject", type = TuraObject.class)
 
     }
     )
@@ -199,9 +199,9 @@ public class DepartmentDC extends DataControl<DepartmentsDAO>
     @Inject
     public void setSearchCommand(
         @Search(objectAction = "find", parameters = @Parameters(value =  {
-        @Parameter(name = "search", expression = "department.query", type = SelectQuery.class)
-        , @Parameter(name = "startIndex", expression = "department.startIndex", type = Integer.class)
-        , @Parameter(name = "endIndex", expression = "department.endIndex", type = Integer.class)
+        @Parameter(name = "search", expression = "beanFactory.department.query", type = SelectQuery.class)
+        , @Parameter(name = "startIndex", expression = "beanFactory.department.startIndex", type = Integer.class)
+        , @Parameter(name = "endIndex", expression = "beanFactory.department.endIndex", type = Integer.class)
         , @Parameter(name = "className", value = "org.elsoft.platform.hr.objects.DepartmentsDAO", type = String.class)
 
     }
@@ -298,6 +298,7 @@ public class DepartmentDC extends DataControl<DepartmentsDAO>
 
             relation.setChild(dc);
             dc.setParent(relation);
+            dc.setTreeContext(this.getTreeContext());
             relation.setMasterCurrentObject(getCurrentObject());
             dc.handleChangeMusterCurrentRecordNotification(relation.getMasterCurrentObject());
         }
@@ -308,7 +309,7 @@ public class DepartmentDC extends DataControl<DepartmentsDAO>
     public void setDefaultQuery(
         @Query(base = @Base(clazz = DepartmentsDAO.class)
     , search = @DefaultSearchCriterias(criterias =  {
-        @DefaultSearchCriteria(field = "parentId", comparator = Operator.EQ, expression = "treeRootcountry.currentObject.objId", type = Long.class)
+        @DefaultSearchCriteria(field = "parentId", comparator = Operator.EQ, expression = "beanFactory.treeRootCountry.currentObject.objId", type = Long.class)
 
     }
     )

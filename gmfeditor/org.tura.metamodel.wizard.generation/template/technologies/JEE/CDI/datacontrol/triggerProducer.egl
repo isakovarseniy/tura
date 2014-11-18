@@ -2,7 +2,7 @@
      var util = new Native('org.tura.metamodel.commons.Util');
 
 %]
-package  [%=component.basePackage%].[%=util.mergeAndCapitalize(form.name)%].producer;  
+package  [%=component.basePackage%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%].producer;  
 
 
 

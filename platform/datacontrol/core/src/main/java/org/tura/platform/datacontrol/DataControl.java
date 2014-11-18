@@ -23,6 +23,7 @@ public abstract class DataControl<T>  extends MetaInfoHolder implements IDataCon
 	private static String id = UUID.randomUUID().toString();
 	
 	protected boolean blocked = false;
+	private TreeDataControl treeDataControl;
 
 	private ArrayList<ChangeRecordListener> chageRecordLiteners = new ArrayList<>();
 
@@ -358,4 +359,13 @@ public abstract class DataControl<T>  extends MetaInfoHolder implements IDataCon
 		return blocked;
 	}
 
+	public TreeDataControl getTreeContext() {
+		return treeDataControl;
+	}
+	
+	public void  setTreeContext(TreeDataControl tdc) {
+		treeDataControl = tdc;
+	}
+	
+	
 }

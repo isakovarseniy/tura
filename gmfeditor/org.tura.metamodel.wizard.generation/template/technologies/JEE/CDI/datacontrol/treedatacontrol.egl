@@ -15,8 +15,9 @@ package  [%=component.basePackage%].[%=util.mergeAndCapitalize(form.name).toLowe
 public class TreeRoot[%=util.mergeAndCapitalize(control.name)%]DC extends org.tura.platform.datacontrol.TreeDataControl {
 
 	@javax.inject.Inject
-	public void setRoot([%=util.mergeAndCapitalize(control.name)%]DC root) {
+	public void setRoot([%=util.mergeAndCapitalize(control.name)%]DC root)  {
 		super.setRoot(root);
+		root.setTreeContext(this);
 	}
 
 	@Override

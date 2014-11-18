@@ -11,6 +11,7 @@ ${percent}${end}
 package  [%=component.basePackage%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%].datacontrol;  
 
 [%=datacontrol_scope()%]
+@org.tura.platform.datacontrol.annotations.DCProxy
 public class [%=util.mergeAndCapitalize(control.name)%]DC extends org.tura.platform.datacontrol.DataControl <[%=control.~basefullName%]> [%if (control.~dependObject.isDefined()){%] implements org.tura.platform.datacontrol.ChangeRecordListener [%}%]{
 
     [%
@@ -312,6 +313,7 @@ public class [%=util.mergeAndCapitalize(control.name)%]DC extends org.tura.platf
 
             relation.setChild(dc);
             dc.setParent(relation);
+            dc.setTreeContext(this.getTreeContext());
             relation.setMasterCurrentObject(getCurrentObject());
             dc.handleChangeMusterCurrentRecordNotification(relation.getMasterCurrentObject());
  		}

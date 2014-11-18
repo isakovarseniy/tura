@@ -71,8 +71,7 @@ public class CDITest {
 			CompanyDC companyDC = bf.getCompany();
 
 			companyDC.getCurrentObject();
-			TreeRootCountryDC locationDC = (TreeRootCountryDC) companyDC
-					.getCompany2Country();
+			TreeRootCountryDC locationDC = bf.getTreeRootCountry();
 
 			CountryDAO row = (CountryDAO) locationDC.getCurrentObject();
 			assertEquals(row.getObjId(), new Long(1));

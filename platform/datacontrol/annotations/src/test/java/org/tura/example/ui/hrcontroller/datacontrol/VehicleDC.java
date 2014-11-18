@@ -10,6 +10,7 @@ import org.tura.platform.datacontrol.ELResolver;
 import org.tura.platform.datacontrol.annotations.ArtificialFields;
 import org.tura.platform.datacontrol.annotations.Base;
 import org.tura.platform.datacontrol.annotations.Create;
+import org.tura.platform.datacontrol.annotations.DCProxy;
 import org.tura.platform.datacontrol.annotations.DefaultOrderBy;
 import org.tura.platform.datacontrol.annotations.DefaultOrderBys;
 import org.tura.platform.datacontrol.annotations.DefaultSearchCriterias;
@@ -49,12 +50,11 @@ import javax.annotation.PostConstruct;
 import javax.enterprise.context.ApplicationScoped;
 
 import javax.inject.Inject;
-import javax.inject.Named;
 
 import com.octo.java.sql.query.SelectQuery;
 
-@Named("vehicle")
 @ApplicationScoped
+@DCProxy
 public class VehicleDC extends DataControl<VehicleDAO> {
     @Inject
     private TuraJPAEntityService provider_0;
@@ -133,7 +133,7 @@ public class VehicleDC extends DataControl<VehicleDAO> {
     @Inject
     public void setInsertCommand(
         @Insert(objectAction = "insert", parameters = @Parameters(value =  {
-        @Parameter(name = "obj", expression = "vehicle.currentObject", type = TuraObject.class)
+        @Parameter(name = "obj", expression = "beanFactory.vehicle.currentObject", type = TuraObject.class)
 
     }
     )
@@ -146,7 +146,7 @@ public class VehicleDC extends DataControl<VehicleDAO> {
     @Inject
     public void setUpdateCommand(
         @Update(objectAction = "update", parameters = @Parameters(value =  {
-        @Parameter(name = "obj", expression = "vehicle.currentObject", type = TuraObject.class)
+        @Parameter(name = "obj", expression = "beanFactory.vehicle.currentObject", type = TuraObject.class)
 
     }
     )
@@ -159,7 +159,7 @@ public class VehicleDC extends DataControl<VehicleDAO> {
     @Inject
     public void setDeleteCommand(
         @Delete(objectAction = "remove", parameters = @Parameters(value =  {
-        @Parameter(name = "obj", expression = "vehicle.currentObject", type = TuraObject.class)
+        @Parameter(name = "obj", expression = "beanFactory.vehicle.currentObject", type = TuraObject.class)
 
     }
     )
@@ -172,9 +172,9 @@ public class VehicleDC extends DataControl<VehicleDAO> {
     @Inject
     public void setSearchCommand(
         @Search(objectAction = "find", parameters = @Parameters(value =  {
-        @Parameter(name = "search", expression = "vehicle.query", type = SelectQuery.class)
-        , @Parameter(name = "startIndex", expression = "vehicle.startIndex", type = Integer.class)
-        , @Parameter(name = "endIndex", expression = "vehicle.endIndex", type = Integer.class)
+        @Parameter(name = "search", expression = "beanFactory.vehicle.query", type = SelectQuery.class)
+        , @Parameter(name = "startIndex", expression = "beanFactory.vehicle.startIndex", type = Integer.class)
+        , @Parameter(name = "endIndex", expression = "beanFactory.vehicle.endIndex", type = Integer.class)
         , @Parameter(name = "className", value = "org.elsoft.platform.hr.objects.VehicleDAO", type = String.class)
 
     }

@@ -207,7 +207,7 @@ public class Util {
 		
 		ex = new ArtificialExpressionPart();
 		ex.setOrder(1);
-		ex.setExpressionType("DataControlImpl");
+		ex.setExpressionType("TreeDataControlImpl");
 		ex.setObjRef(dc);
 		cv.getExpression().add(ex);
 		

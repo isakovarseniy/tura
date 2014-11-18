@@ -1,9 +1,9 @@
 package org.tura.example.ui.hrcontroller.datacontrol;
 
-import org.tura.platform.datacontrol.ELResolver;
 import org.tura.platform.datacontrol.commons.TuraException;
 
 import javax.enterprise.context.ApplicationScoped;
+import javax.enterprise.inject.Instance;
 
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -12,10 +12,17 @@ import javax.inject.Named;
 @ApplicationScoped
 public class BeanFactory {
     @Inject
-    ELResolver elResolver;
+    private Instance<CompanyDC> companyproducer;
+    private CompanyDC company;
+    @Inject
+    private Instance<DepartmentDC> departmentproducer;
+    private DepartmentDC department;
 
     public CompanyDC getCompany() {
-        return (CompanyDC) elResolver.getValue("company");
+        if (company == null) {
+            company = companyproducer.get();
+        }
+        return company;
     }
 
     public TreeRootCountryDC getTreeRootCountry() {
@@ -29,8 +36,11 @@ public class BeanFactory {
 
     public DepartmentDC getDepartment() {
         try {
-            getTreeRootCountry().getCurrentObject();
-            return (DepartmentDC) elResolver.getValue("department");
+            if (department == null) {
+                getTreeRootCountry().getCurrentObject();
+                department = departmentproducer.get();
+            }
+            return department;
         } catch (TuraException e) {
             return null;
         }
