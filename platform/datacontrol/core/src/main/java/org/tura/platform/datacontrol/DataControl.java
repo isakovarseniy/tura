@@ -307,17 +307,10 @@ public abstract class DataControl<T>  extends MetaInfoHolder implements IDataCon
 		
 	}
 
-	/**
-	 * @return the commandStack
-	 */
 	public CommandStack getCommandStack() {
 		return commandStack;
 	}
 
-	/**
-	 * @param commandStack
-	 *            the commandStack to set
-	 */
 	public void setCommandStack(CommandStack commandStack) {
 		this.commandStack = commandStack;
 	}
@@ -365,6 +358,10 @@ public abstract class DataControl<T>  extends MetaInfoHolder implements IDataCon
 	
 	public void  setTreeContext(TreeDataControl tdc) {
 		treeDataControl = tdc;
+	}
+	
+	public List<T> getScroller(){
+		return new Scroller<T>(pager);
 	}
 	
 	

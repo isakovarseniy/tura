@@ -24,6 +24,7 @@
     <applicationUILayer uid="f8d4b412-d69a-46c7-bf26-2ac0ec31117e">
       <applicationUIPackages uid="c65cfe9e-8e33-4160-beef-4a3a96d5b2c1" name="Hr manager" uipackage="63d7b545-e3cb-4b2e-8597-44c6734d825b"/>
     </applicationUILayer>
+    <applicationMessages uid="39c0cb8c-3370-4a8b-9dc8-f988c6c3a565" name="Application Messages" messages="af03a493-0ca4-486c-945f-5bfc2fdf35bd"/>
   </tura.domain:Application>
   <tura.domain:Artifacts uid="cfc1509d-db2a-4863-becd-7540552cf00b"/>
   <tura.domain:Artifacts uid="e26c4095-ebd6-48b4-917a-11026d3e511f" parent="bf6005f8-bcb9-4c2a-b3e5-49468794367a">
@@ -1572,16 +1573,11 @@
     <infrastructures uid="81bafabb-45d9-48af-9283-6ffc90afbda3" recipe="6cb40735-2e80-4221-9ab5-31d646aff979" name="Development" recipeConfig="a2357108-13c5-455e-824c-78102bd6bfe1"/>
   </tura.domain:Recipes>
   <tura.domain:Views uid="2ddd76f4-bbd2-4337-8cae-45d77d9170ab" parent="22583c7e-b599-447f-a6e1-08123b25a1a5">
-    <canvases xsi:type="tura.domain:Window" uid="7d1cb326-89e4-4280-9b72-567945d73b6f">
-      <viewElement xsi:type="tura.domain:ViewPort" uid="85ddb627-63bd-4cad-aa67-603a5460874a"/>
-      <viewElement xsi:type="tura.domain:ViewArea" uid="a17a5a86-e327-4d64-8e00-372e95e2f80d" name="v1" canvasView="2eb3f59e-2044-44ae-86ae-5a2dfd2dd37d"/>
+    <canvases xsi:type="tura.domain:Window" uid="7d1cb326-89e4-4280-9b72-567945d73b6f" name="HR Controller">
+      <multiLangLabel/>
     </canvases>
   </tura.domain:Views>
-  <tura.domain:CanvasView uid="2eb3f59e-2044-44ae-86ae-5a2dfd2dd37d" parent="a17a5a86-e327-4d64-8e00-372e95e2f80d">
-    <baseCanvas uid="796ed6e0-7747-45a2-ad03-ddc4cbaf2434">
-      <children xsi:type="tura.domain:InputText" uid="5ab8396c-cb9c-4d01-89aa-6f732b9862d1" sourcePointer="d45e9605-3706-493c-8422-3f7b8b6ea2ed" sourceCast="Comp_52ffccb7-cea6-49de-ba4b-7437f1da3369"/>
-    </baseCanvas>
-  </tura.domain:CanvasView>
+  <tura.domain:CanvasView uid="2eb3f59e-2044-44ae-86ae-5a2dfd2dd37d"/>
   <tura.domain:DeploymentComponents uid="66e58865-f833-4cf9-9134-fb691096e931"/>
   <tura.domain:Mappers uid="34e530a4-fb8a-403a-a54b-b1153e4c2717" parent="236f541c-3271-4e57-a60e-1769390bf194">
     <mappers xsi:type="tura.domain:JavaMapper" uid="77c53463-1622-4ee7-85e8-b5408ed11eb4" uiLayer="true" packageRef="e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="City_52ffccb7-cea6-49de-ba4b-7437f1da3369" fakePackageName="HR package" fakeTypeName="City Type" mappedToPackageName="org.elsoft.platform.hr.objects" mappedToClassName="CityDAO" artifactId="hr-objects" groupId="org.tura.example.service" version="1.0"/>
@@ -1599,4 +1595,9 @@
     <mappers xsi:type="tura.domain:JavaMapper" uid="cd058e0b-a144-4b4f-b58d-324f50bed61a" uiLayer="true" packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="9ec6d2e0-4002-11e4-916c-0800200c9a66" fakePackageName="Base package" fakeTypeName="Search criterias" mappedToPackageName="com.octo.java.sql.query" mappedToClassName="SelectQuery" artifactId="java-sql-dsl" groupId="com.octo.java.sql" version="0.1.1-SNAPSHOT"/>
   </tura.domain:Mappers>
   <tura.domain:TypeDefinition uid="c9574970-474a-403a-9224-f91bc2f8fe7a"/>
+  <tura.domain:Messages uid="af03a493-0ca4-486c-945f-5bfc2fdf35bd" parent="39c0cb8c-3370-4a8b-9dc8-f988c6c3a565">
+    <messageLibraries uid="5772ddee-a83b-41c9-8f34-c442412e1013" name="HR Controller">
+      <messages uid="f994c763-7bfb-4952-b00f-b730b5d67043" name="MAIN_WINDOW_LABEL"/>
+    </messageLibraries>
+  </tura.domain:Messages>
 </xmi:XMI>
