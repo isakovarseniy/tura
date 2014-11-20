@@ -8,6 +8,7 @@ import java.util.IdentityHashMap;
 import java.util.Map;
 import java.util.Set;
 
+import message.diagram.edit.parts.LanguageEditPart;
 import message.diagram.edit.parts.MessageEditPart;
 import message.diagram.edit.parts.MessageLibraryEditPart;
 import message.diagram.edit.parts.MessagesEditPart;
@@ -60,6 +61,11 @@ public class DomainElementTypes {
 	 * @generated
 	 */
 	public static final IElementType MessageLibrary_1702001 = getElementType("org.tura.metamodel.diagram.message.MessageLibrary_1702001"); //$NON-NLS-1$
+	/**
+	 * @generated
+	 */
+	public static final IElementType Language_1702002 = getElementType("org.tura.metamodel.diagram.message.Language_1702002"); //$NON-NLS-1$
+
 	/**
 	 * @generated
 	 */
@@ -182,6 +188,9 @@ public class DomainElementTypes {
 			elements.put(MessageLibrary_1702001,
 					DomainPackage.eINSTANCE.getMessageLibrary());
 
+			elements.put(Language_1702002,
+					DomainPackage.eINSTANCE.getLanguage());
+
 			elements.put(Message_1703004, DomainPackage.eINSTANCE.getMessage());
 		}
 		return (ENamedElement) elements.get(type);
@@ -202,6 +211,7 @@ public class DomainElementTypes {
 			KNOWN_ELEMENT_TYPES = new HashSet<IElementType>();
 			KNOWN_ELEMENT_TYPES.add(Messages_1701000);
 			KNOWN_ELEMENT_TYPES.add(MessageLibrary_1702001);
+			KNOWN_ELEMENT_TYPES.add(Language_1702002);
 			KNOWN_ELEMENT_TYPES.add(Message_1703004);
 		}
 		return KNOWN_ELEMENT_TYPES.contains(elementType);
@@ -216,6 +226,8 @@ public class DomainElementTypes {
 			return Messages_1701000;
 		case MessageLibraryEditPart.VISUAL_ID:
 			return MessageLibrary_1702001;
+		case LanguageEditPart.VISUAL_ID:
+			return Language_1702002;
 		case MessageEditPart.VISUAL_ID:
 			return Message_1703004;
 		}

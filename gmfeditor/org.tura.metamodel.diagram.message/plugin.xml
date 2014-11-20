@@ -258,7 +258,7 @@
          </object>
          <context viewClass="org.eclipse.gmf.runtime.notation.Node" containerViews="referencing-diagrams"/>
          <context viewClass="org.eclipse.gmf.runtime.notation.Diagram" semanticHints="Message"/>
-         <context viewClass="org.eclipse.gmf.runtime.notation.Node" semanticHints="1702001,1703004"/>
+         <context viewClass="org.eclipse.gmf.runtime.notation.Node" semanticHints="1702001,1702002,1703004"/>
          <context viewClass="org.eclipse.gmf.runtime.notation.Edge" semanticHints=""/>
       </viewProvider>
    </extension>
@@ -271,13 +271,13 @@
             <method name="getType()" value="Message"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-nodes">
-            <method name="getType()" value="1702001,1703004"/>
+            <method name="getType()" value="1702001,1702002,1703004"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Edge" id="generated-links">
             <method name="getType()" value=""/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-labels">
-            <method name="getType()" value="1705002,1705005"/>
+            <method name="getType()" value="1705002,1705006,1705005"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-compartments">
             <method name="getType()" value="1707001"/>
@@ -292,7 +292,8 @@
          <Priority name="Lowest"/>
          <object class="message.diagram.edit.parts.MessagesEditPart" id="Messages_1701000"/>
          <object class="message.diagram.edit.parts.MessageLibraryEditPart" id="MessageLibrary_1702001"/>
-         <context elements="Messages_1701000,MessageLibrary_1702001"/>
+         <object class="message.diagram.edit.parts.LanguageEditPart" id="Language_1702002"/>
+         <context elements="Messages_1701000,MessageLibrary_1702001,Language_1702002"/>
       </modelingAssistantProvider>
    </extension>
 
@@ -315,7 +316,7 @@
       <decoratorProvider class="message.diagram.providers.DomainShortcutsDecoratorProvider">
          <Priority name="Lowest"/>
          <object class="org.eclipse.gmf.runtime.notation.Node(org.eclipse.gmf.runtime.notation)" id="generated-top-nodes">
-            <method name="getType()" value="1702001"/>
+            <method name="getType()" value="1702001,1702002"/>
          </object>
          <context decoratorTargets="generated-top-nodes"/>
       </decoratorProvider>
@@ -341,6 +342,16 @@
                eclass="MessageLibrary"
                edithelper="message.diagram.edit.helpers.MessageLibraryEditHelper">
             <param name="semanticHint" value="1702001"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://tura.org/2013/v1/domain">
+         <metamodelType
+               id="org.tura.metamodel.diagram.message.Language_1702002"
+               name="%metatype.name.Language_1702002"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="Language"
+               edithelper="message.diagram.edit.helpers.LanguageEditHelper">
+            <param name="semanticHint" value="1702002"/>
          </metamodelType>
       </metamodel>
       <metamodel nsURI="http://tura.org/2013/v1/domain">
@@ -371,6 +382,7 @@
       <binding context="SharedClientContext">
          <elementType ref="org.tura.metamodel.diagram.message.Messages_1701000"/>
          <elementType ref="org.tura.metamodel.diagram.message.MessageLibrary_1702001"/>
+         <elementType ref="org.tura.metamodel.diagram.message.Language_1702002"/>
          <elementType ref="org.tura.metamodel.diagram.message.Message_1703004"/>
          <advice ref="org.eclipse.gmf.runtime.diagram.core.advice.notationDepdendents"/>
       </binding>

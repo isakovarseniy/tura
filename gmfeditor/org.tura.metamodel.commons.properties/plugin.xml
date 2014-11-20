@@ -633,6 +633,8 @@
               <input type="canvas.diagram.edit.parts.TreeEditPart"/>
               <input type="canvas.diagram.edit.parts.ButtonEditPart"/>
               <input type="canvas.diagram.edit.parts.LabelEditPart"/>
+              <input type="canvas.diagram.edit.parts.ColumnEditPart"/>
+              
            </propertySection>        
 
 

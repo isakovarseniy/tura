@@ -23,6 +23,8 @@ attributeFigure.setPreferredSize ( preferredSize);
 
 
 -- remove unavailabels tools
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='Language');
+delete tool;
 var tool = GmfTool!CreationTool.all.selectOne(r|r.title='ApplicationRole');
 delete tool;
 var tool = GmfTool!CreationTool.all.selectOne(r|r.title='ApplicationStyle');

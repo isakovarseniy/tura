@@ -3,12 +3,15 @@
  */
 package message.diagram.providers;
 
+import message.diagram.edit.parts.LanguageEditPart;
+import message.diagram.edit.parts.LanguageLangEditPart;
 import message.diagram.edit.parts.MessageEditPart;
 import message.diagram.edit.parts.MessageLibraryEditPart;
 import message.diagram.edit.parts.MessageLibraryMessageLibraryMessagesCompartmentEditPart;
 import message.diagram.edit.parts.MessageLibraryNameEditPart;
 import message.diagram.edit.parts.MessageNameEditPart;
 import message.diagram.edit.parts.MessagesEditPart;
+import message.diagram.edit.parts.WrappingLabelEditPart;
 import message.diagram.part.DomainVisualIDRegistry;
 
 import org.eclipse.core.runtime.IAdaptable;
@@ -137,6 +140,7 @@ public class DomainViewProvider extends AbstractProvider implements
 				}
 				switch (visualID) {
 				case MessageLibraryEditPart.VISUAL_ID:
+				case LanguageEditPart.VISUAL_ID:
 				case MessageEditPart.VISUAL_ID:
 					if (domainElement == null
 							|| visualID != DomainVisualIDRegistry
@@ -151,6 +155,7 @@ public class DomainViewProvider extends AbstractProvider implements
 			}
 		}
 		return MessageLibraryEditPart.VISUAL_ID == visualID
+				|| LanguageEditPart.VISUAL_ID == visualID
 				|| MessageEditPart.VISUAL_ID == visualID;
 	}
 
@@ -211,6 +216,9 @@ public class DomainViewProvider extends AbstractProvider implements
 		case MessageLibraryEditPart.VISUAL_ID:
 			return createMessageLibrary_1702001(domainElement, containerView,
 					index, persisted, preferencesHint);
+		case LanguageEditPart.VISUAL_ID:
+			return createLanguage_1702002(domainElement, containerView, index,
+					persisted, preferencesHint);
 		case MessageEditPart.VISUAL_ID:
 			return createMessage_1703004(domainElement, containerView, index,
 					persisted, preferencesHint);
@@ -276,6 +284,43 @@ public class DomainViewProvider extends AbstractProvider implements
 				DomainVisualIDRegistry
 						.getType(MessageLibraryMessageLibraryMessagesCompartmentEditPart.VISUAL_ID),
 				true, false, true, true);
+		return node;
+	}
+
+	/**
+	 * @generated
+	 */
+	public Node createLanguage_1702002(EObject domainElement,
+			View containerView, int index, boolean persisted,
+			PreferencesHint preferencesHint) {
+		Node node = NotationFactory.eINSTANCE.createNode();
+		node.getStyles()
+				.add(NotationFactory.eINSTANCE.createDescriptionStyle());
+		node.getStyles().add(NotationFactory.eINSTANCE.createFontStyle());
+		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
+		node.setType(DomainVisualIDRegistry.getType(LanguageEditPart.VISUAL_ID));
+		ViewUtil.insertChildView(containerView, node, index, persisted);
+		node.setElement(domainElement);
+		stampShortcut(containerView, node);
+		// initializeFromPreferences 
+		final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint
+				.getPreferenceStore();
+		FontStyle nodeFontStyle = (FontStyle) node
+				.getStyle(NotationPackage.Literals.FONT_STYLE);
+		if (nodeFontStyle != null) {
+			FontData fontData = PreferenceConverter.getFontData(prefStore,
+					IPreferenceConstants.PREF_DEFAULT_FONT);
+			nodeFontStyle.setFontName(fontData.getName());
+			nodeFontStyle.setFontHeight(fontData.getHeight());
+			nodeFontStyle.setBold((fontData.getStyle() & SWT.BOLD) != 0);
+			nodeFontStyle.setItalic((fontData.getStyle() & SWT.ITALIC) != 0);
+			org.eclipse.swt.graphics.RGB fontRGB = PreferenceConverter
+					.getColor(prefStore, IPreferenceConstants.PREF_FONT_COLOR);
+			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB)
+					.intValue());
+		}
+		Node label1705006 = createLabel(node,
+				DomainVisualIDRegistry.getType(LanguageLangEditPart.VISUAL_ID));
 		return node;
 	}
 

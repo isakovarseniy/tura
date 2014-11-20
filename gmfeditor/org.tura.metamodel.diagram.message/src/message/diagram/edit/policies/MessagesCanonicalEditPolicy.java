@@ -6,10 +6,13 @@ package message.diagram.edit.policies;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
+import java.util.Set;
+import message.diagram.edit.parts.LanguageEditPart;
 import message.diagram.edit.parts.MessageLibraryEditPart;
 import message.diagram.part.DomainDiagramUpdater;
 import message.diagram.part.DomainNodeDescriptor;
@@ -40,6 +43,11 @@ public class MessagesCanonicalEditPolicy extends CanonicalEditPolicy {
 	/**
 	 * @generated
 	 */
+	private Set<EStructuralFeature> myFeaturesToSynchronize;
+
+	/**
+	 * @generated
+	 */
 	protected void refreshOnActivate() {
 		// Need to activate editpart children before invoking the canonical refresh for EditParts to add event listeners
 		List<?> c = getHost().getChildren();
@@ -52,8 +60,15 @@ public class MessagesCanonicalEditPolicy extends CanonicalEditPolicy {
 	/**
 	 * @generated
 	 */
-	protected EStructuralFeature getFeatureToSynchronize() {
-		return DomainPackage.eINSTANCE.getMessages_MessageLibraries();
+	protected Set getFeaturesToSynchronize() {
+		if (myFeaturesToSynchronize == null) {
+			myFeaturesToSynchronize = new HashSet<EStructuralFeature>();
+			myFeaturesToSynchronize.add(DomainPackage.eINSTANCE
+					.getMessages_MessageLibraries());
+			myFeaturesToSynchronize.add(DomainPackage.eINSTANCE
+					.getMessages_Languages());
+		}
+		return myFeaturesToSynchronize;
 	}
 
 	/**
@@ -87,8 +102,9 @@ public class MessagesCanonicalEditPolicy extends CanonicalEditPolicy {
 	 * @generated
 	 */
 	private boolean isMyDiagramElement(View view) {
-		return MessageLibraryEditPart.VISUAL_ID == DomainVisualIDRegistry
-				.getVisualID(view);
+		int visualID = DomainVisualIDRegistry.getVisualID(view);
+		return visualID == MessageLibraryEditPart.VISUAL_ID
+				|| visualID == LanguageEditPart.VISUAL_ID;
 	}
 
 	/**

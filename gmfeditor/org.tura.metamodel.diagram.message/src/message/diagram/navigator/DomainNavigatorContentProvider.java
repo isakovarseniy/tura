@@ -10,6 +10,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedList;
 
+import message.diagram.edit.parts.LanguageEditPart;
 import message.diagram.edit.parts.MessageEditPart;
 import message.diagram.edit.parts.MessageLibraryEditPart;
 import message.diagram.edit.parts.MessageLibraryMessageLibraryMessagesCompartmentEditPart;
@@ -244,6 +245,10 @@ public class DomainNavigatorContentProvider implements ICommonContentProvider {
 			connectedViews = getChildrenByType(Collections.singleton(sv),
 					DomainVisualIDRegistry
 							.getType(MessageLibraryEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(Collections.singleton(sv),
+					DomainVisualIDRegistry.getType(LanguageEditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
 			return result.toArray();

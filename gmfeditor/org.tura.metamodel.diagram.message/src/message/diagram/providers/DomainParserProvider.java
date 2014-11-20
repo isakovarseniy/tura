@@ -3,8 +3,10 @@
  */
 package message.diagram.providers;
 
+import message.diagram.edit.parts.LanguageLangEditPart;
 import message.diagram.edit.parts.MessageLibraryNameEditPart;
 import message.diagram.edit.parts.MessageNameEditPart;
+import message.diagram.edit.parts.WrappingLabelEditPart;
 import message.diagram.parsers.MessageFormatParser;
 import message.diagram.part.DomainVisualIDRegistry;
 
@@ -50,6 +52,24 @@ public class DomainParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
+	private IParser languageLang_1705006Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getLanguageLang_1705006Parser() {
+		if (languageLang_1705006Parser == null) {
+			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE
+					.getLanguage_Lang() };
+			MessageFormatParser parser = new MessageFormatParser(features);
+			languageLang_1705006Parser = parser;
+		}
+		return languageLang_1705006Parser;
+	}
+
+	/**
+	 * @generated
+	 */
 	private IParser messageName_1705005Parser;
 
 	/**
@@ -72,6 +92,8 @@ public class DomainParserProvider extends AbstractProvider implements
 		switch (visualID) {
 		case MessageLibraryNameEditPart.VISUAL_ID:
 			return getMessageLibraryName_1705002Parser();
+		case LanguageLangEditPart.VISUAL_ID:
+			return getLanguageLang_1705006Parser();
 		case MessageNameEditPart.VISUAL_ID:
 			return getMessageName_1705005Parser();
 		}

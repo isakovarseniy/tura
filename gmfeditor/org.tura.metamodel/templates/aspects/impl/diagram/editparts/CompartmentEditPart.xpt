@@ -19,6 +19,8 @@
             «EXPAND compartmentHTMLLayout-»
 		«ELSEIF editPartClassName.indexOf('ViewElementCompartmentEditPart') > 0-»
             «EXPAND compartmentHTMLLayout-»
+		«ELSEIF editPartClassName.indexOf('ChildrenCompartment3EditPart') > 0-»
+            «EXPAND compartmentHTMLLayout-»
 		«ELSEIF editPartClassName.indexOf('ChildrenCompartment2EditPart') > 0-»
             «EXPAND compartmentHTMLLayout-»
 		«ELSEIF editPartClassName.indexOf('ChildrenCompartmentEditPart') > 0-»

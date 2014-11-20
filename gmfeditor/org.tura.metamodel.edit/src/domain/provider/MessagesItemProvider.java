@@ -134,6 +134,7 @@ public class MessagesItemProvider
     {
       super.getChildrenFeatures(object);
       childrenFeatures.add(DomainPackage.Literals.MESSAGES__MESSAGE_LIBRARIES);
+      childrenFeatures.add(DomainPackage.Literals.MESSAGES__LANGUAGES);
     }
     return childrenFeatures;
   }
@@ -197,6 +198,7 @@ public class MessagesItemProvider
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
         return;
       case DomainPackage.MESSAGES__MESSAGE_LIBRARIES:
+      case DomainPackage.MESSAGES__LANGUAGES:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
         return;
     }
@@ -219,6 +221,11 @@ public class MessagesItemProvider
       (createChildParameter
         (DomainPackage.Literals.MESSAGES__MESSAGE_LIBRARIES,
          DomainFactory.eINSTANCE.createMessageLibrary()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (DomainPackage.Literals.MESSAGES__LANGUAGES,
+         DomainFactory.eINSTANCE.createLanguage()));
   }
 
   /**

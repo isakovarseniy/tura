@@ -3,11 +3,14 @@
  */
 package message.diagram.navigator;
 
+import message.diagram.edit.parts.LanguageEditPart;
+import message.diagram.edit.parts.LanguageLangEditPart;
 import message.diagram.edit.parts.MessageEditPart;
 import message.diagram.edit.parts.MessageLibraryEditPart;
 import message.diagram.edit.parts.MessageLibraryNameEditPart;
 import message.diagram.edit.parts.MessageNameEditPart;
 import message.diagram.edit.parts.MessagesEditPart;
+import message.diagram.edit.parts.WrappingLabelEditPart;
 import message.diagram.part.DomainDiagramEditorPlugin;
 import message.diagram.part.DomainVisualIDRegistry;
 import message.diagram.providers.DomainElementTypes;
@@ -105,6 +108,9 @@ public class DomainNavigatorLabelProvider extends LabelProvider implements
 		case MessageLibraryEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?TopLevelNode?http://tura.org/2013/v1/domain?MessageLibrary", DomainElementTypes.MessageLibrary_1702001); //$NON-NLS-1$
+		case LanguageEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?TopLevelNode?http://tura.org/2013/v1/domain?Language", DomainElementTypes.Language_1702002); //$NON-NLS-1$
 		case MessageEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Node?http://tura.org/2013/v1/domain?Message", DomainElementTypes.Message_1703004); //$NON-NLS-1$
@@ -172,6 +178,8 @@ public class DomainNavigatorLabelProvider extends LabelProvider implements
 			return getMessages_1701000Text(view);
 		case MessageLibraryEditPart.VISUAL_ID:
 			return getMessageLibrary_1702001Text(view);
+		case LanguageEditPart.VISUAL_ID:
+			return getLanguage_1702002Text(view);
 		case MessageEditPart.VISUAL_ID:
 			return getMessage_1703004Text(view);
 		}
@@ -208,6 +216,25 @@ public class DomainNavigatorLabelProvider extends LabelProvider implements
 		} else {
 			DomainDiagramEditorPlugin.getInstance().logError(
 					"Parser was not found for label " + 1705002); //$NON-NLS-1$
+			return ""; //$NON-NLS-1$
+		}
+	}
+
+	/**
+	 * @generated
+	 */
+	private String getLanguage_1702002Text(View view) {
+		IParser parser = DomainParserProvider.getParser(
+				DomainElementTypes.Language_1702002,
+				view.getElement() != null ? view.getElement() : view,
+				DomainVisualIDRegistry.getType(LanguageLangEditPart.VISUAL_ID));
+		if (parser != null) {
+			return parser.getPrintString(new EObjectAdapter(
+					view.getElement() != null ? view.getElement() : view),
+					ParserOptions.NONE.intValue());
+		} else {
+			DomainDiagramEditorPlugin.getInstance().logError(
+					"Parser was not found for label " + 1705006); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 	}

@@ -2019,13 +2019,22 @@ public interface DomainPackage extends EPackage
   int MESSAGES__MESSAGE_LIBRARIES = 2;
 
   /**
+   * The feature id for the '<em><b>Languages</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MESSAGES__LANGUAGES = 3;
+
+  /**
    * The number of structural features of the '<em>Messages</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MESSAGES_FEATURE_COUNT = 3;
+  int MESSAGES_FEATURE_COUNT = 4;
 
   /**
    * The meta object id for the '{@link domain.impl.MessageLibraryImpl <em>Message Library</em>}' class.
@@ -12579,6 +12588,17 @@ public interface DomainPackage extends EPackage
   EReference getMessages_MessageLibraries();
 
   /**
+   * Returns the meta object for the containment reference list '{@link domain.Messages#getLanguages <em>Languages</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Languages</em>'.
+   * @see domain.Messages#getLanguages()
+   * @see #getMessages()
+   * @generated
+   */
+  EReference getMessages_Languages();
+
+  /**
    * Returns the meta object for class '{@link domain.MessageLibrary <em>Message Library</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -18974,6 +18994,14 @@ public interface DomainPackage extends EPackage
      * @generated
      */
     EReference MESSAGES__MESSAGE_LIBRARIES = eINSTANCE.getMessages_MessageLibraries();
+
+    /**
+     * The meta object literal for the '<em><b>Languages</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference MESSAGES__LANGUAGES = eINSTANCE.getMessages_Languages();
 
     /**
      * The meta object literal for the '{@link domain.impl.MessageLibraryImpl <em>Message Library</em>}' class.

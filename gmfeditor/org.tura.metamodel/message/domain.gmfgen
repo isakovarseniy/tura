@@ -144,6 +144,58 @@
         </modelFacet>
       </labels>
     </topLevelNodes>
+    <topLevelNodes
+        visualID="1702002"
+        editPartClassName="LanguageEditPart"
+        itemSemanticEditPolicyClassName="LanguageItemSemanticEditPolicy"
+        canonicalEditPolicyClassName="LanguageCanonicalEditPolicy"
+        graphicalNodeEditPolicyClassName="LanguageGraphicalNodeEditPolicy"
+        createCommandClassName="LanguageCreateCommand">
+      <diagramRunTimeClass
+          href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+      <elementType
+          xsi:type="gmfgen:MetamodelType"
+          editHelperClassName="LanguageEditHelper"/>
+      <viewmap
+          xsi:type="gmfgen:InnerClassViewmap"
+          className="LanguageFigure"
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class LanguageFigure extends org.eclipse.draw2d.RoundedRectangle {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureLanguageLabelFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public LanguageFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setCornerDimensions(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(8)&#xA;, getMapMode().DPtoLP(8)&#xA;));&#xA;&#x9;this.setForegroundColor(THIS_FORE&#xA;);&#xA;&#x9;this.setBackgroundColor(THIS_BACK&#xA;);&#xA;this.setBorder(new org.eclipse.draw2d.MarginBorder(getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;));&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureLanguageLabelFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureLanguageLabelFigure.setText(&quot;Language&quot;);&#xA;&#xA;fFigureLanguageLabelFigure.setFont(FFIGURELANGUAGELABELFIGURE_FONT);&#xA;&#xA;&#xA;&#xA;this.add(fFigureLanguageLabelFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureLanguageLabelFigure() {&#xA;&#x9;&#x9;return fFigureLanguageLabelFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_FORE = new org.eclipse.swt.graphics.Color(null, 0, 0, 0);&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_BACK = new org.eclipse.swt.graphics.Color(null, 255, 239, 222);&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Font FFIGURELANGUAGELABELFIGURE_FONT = new org.eclipse.swt.graphics.Font(org.eclipse.swt.widgets.Display.getCurrent(), &quot;Palatino&quot;, 12, org.eclipse.swt.SWT.ITALIC);&#xA;&#xA;">
+        <attributes
+            xsi:type="gmfgen:StyleAttributes"
+            fixedForeground="true"
+            fixedBackground="true"/>
+      </viewmap>
+      <modelFacet>
+        <metaClass
+            href="domain.genmodel#//domain/Language"/>
+        <containmentMetaFeature
+            href="domain.genmodel#//domain/Messages/languages"/>
+        <childMetaFeature
+            href="domain.genmodel#//domain/Messages/languages"/>
+      </modelFacet>
+      <labels
+          visualID="1705006"
+          editPartClassName="LanguageLangEditPart"
+          itemSemanticEditPolicyClassName="LanguageLangItemSemanticEditPolicy"
+          elementIcon="true">
+        <diagramRunTimeClass
+            href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+        <viewmap
+            xsi:type="gmfgen:ParentAssignedViewmap"
+            getterName="getFigureLanguageLabelFigure"
+            figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel">
+          <attributes
+              xsi:type="gmfgen:StyleAttributes"
+              fixedFont="true"/>
+        </viewmap>
+        <modelFacet
+            xsi:type="gmfgen:FeatureLabelModelFacet"
+            parser="//@labelParsers/@implementations.0">
+          <metaFeatures
+              href="domain.genmodel#//domain/Language/lang"/>
+        </modelFacet>
+      </labels>
+    </topLevelNodes>
     <compartments
         visualID="1707001"
         editPartClassName="MessageLibraryMessageLibraryMessagesCompartmentEditPart"
@@ -164,6 +216,11 @@
       <groups
           title="Objects"
           collapse="true">
+        <entries
+            xsi:type="gmfgen:ToolEntry"
+            title="Language"
+            description="Create new Language"
+            genNodes="//@diagram/@topLevelNodes.1"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
             title="Message"
@@ -219,6 +276,9 @@
     <childReferences
         parent="//@diagram"
         child="//@diagram/@topLevelNodes.0"/>
+    <childReferences
+        parent="//@diagram"
+        child="//@diagram/@topLevelNodes.1"/>
   </navigator>
   <diagramUpdater/>
   <propertySheet>
@@ -246,7 +306,7 @@
       extensibleViaService="true">
     <implementations
         xsi:type="gmfgen:PredefinedParser"
-        uses="//@diagram/@childNodes.0/@labels.0/@modelFacet //@diagram/@topLevelNodes.0/@labels.0/@modelFacet"/>
+        uses="//@diagram/@childNodes.0/@labels.0/@modelFacet //@diagram/@topLevelNodes.0/@labels.0/@modelFacet //@diagram/@topLevelNodes.1/@labels.0/@modelFacet"/>
   </labelParsers>
   <contextMenus
       context="//@diagram">

@@ -1574,8 +1574,40 @@
   </tura.domain:Recipes>
   <tura.domain:Views uid="2ddd76f4-bbd2-4337-8cae-45d77d9170ab" parent="22583c7e-b599-447f-a6e1-08123b25a1a5">
     <canvases xsi:type="tura.domain:Window" uid="7d1cb326-89e4-4280-9b72-567945d73b6f" name="HR Controller">
-      <multiLangLabel/>
+      <viewElement xsi:type="tura.domain:ViewArea" uid="e018aa58-2660-4bba-a75d-1674147458e7" name="Company-deprtment" canvasView="86803f23-9d44-4ebc-81e9-9a63b4a770ac"/>
+      <viewElement xsi:type="tura.domain:ViewPort" uid="001b7a93-ecab-4975-bee8-80ff8038d124" name="Frame for emploee details"/>
+      <multiLangLabel value="Messages.HR Controller.MAIN_WINDOW_LABEL">
+        <expression objRef="af03a493-0ca4-486c-945f-5bfc2fdf35bd" expressionType="MessagesImpl"/>
+        <expression objRef="5772ddee-a83b-41c9-8f34-c442412e1013" order="1" expressionType="MessageLibraryImpl"/>
+        <expression objRef="f994c763-7bfb-4952-b00f-b730b5d67043" order="2" expressionType="MessageImpl"/>
+      </multiLangLabel>
     </canvases>
+    <canvases xsi:type="tura.domain:TabCanvas" uid="c77769b5-0b24-4a83-b9ab-8e3635c3d913" name="Employee details">
+      <multiLangLabel value="Messages.HR Controller.EMPLOEE_DETAILS">
+        <expression objRef="af03a493-0ca4-486c-945f-5bfc2fdf35bd" expressionType="MessagesImpl"/>
+        <expression objRef="5772ddee-a83b-41c9-8f34-c442412e1013" order="1" expressionType="MessageLibraryImpl"/>
+        <expression objRef="0970a383-857c-43fa-abf8-370b7eedc37b" order="2" expressionType="MessageImpl"/>
+      </multiLangLabel>
+    </canvases>
+    <canvases xsi:type="tura.domain:TabPage" uid="6fb4cb14-2476-434d-8db9-7d7425982c83" name="Files">
+      <viewElement xsi:type="tura.domain:ViewArea" uid="7aeb66b3-9eb3-4e90-a155-2c1a13577072" name="File tree"/>
+      <multiLangLabel value="Messages.HR Controller.FILES_TAB">
+        <expression objRef="af03a493-0ca4-486c-945f-5bfc2fdf35bd" expressionType="MessagesImpl"/>
+        <expression objRef="5772ddee-a83b-41c9-8f34-c442412e1013" order="1" expressionType="MessageLibraryImpl"/>
+        <expression objRef="058cc4a7-f21d-42fd-aab0-7960a6d5d264" order="2" expressionType="MessageImpl"/>
+      </multiLangLabel>
+    </canvases>
+    <canvases xsi:type="tura.domain:TabPage" uid="14993ad6-c07e-4480-bf18-bf8266961109" name="Employees">
+      <viewElement xsi:type="tura.domain:ViewArea" uid="74869096-8b7b-4155-8594-096e1d7f9c39" name="Employee table"/>
+      <multiLangLabel value="Messages.HR Controller.EMPLOYEES_TAB">
+        <expression objRef="af03a493-0ca4-486c-945f-5bfc2fdf35bd" expressionType="MessagesImpl"/>
+        <expression objRef="5772ddee-a83b-41c9-8f34-c442412e1013" order="1" expressionType="MessageLibraryImpl"/>
+        <expression objRef="54ebdd70-5fb8-472e-b6fc-ffe42c72d02a" order="2" expressionType="MessageImpl"/>
+      </multiLangLabel>
+    </canvases>
+    <viewInheritances uid="1210acb3-7c91-4095-add0-a37f4f33f3e1" source="001b7a93-ecab-4975-bee8-80ff8038d124" target="c77769b5-0b24-4a83-b9ab-8e3635c3d913"/>
+    <tabPagesInheritances uid="d985923c-6783-4312-9c35-ba24224932da" source="c77769b5-0b24-4a83-b9ab-8e3635c3d913" target="6fb4cb14-2476-434d-8db9-7d7425982c83"/>
+    <tabPagesInheritances uid="c30f4494-be73-42be-af50-ecbb582267f0" source="c77769b5-0b24-4a83-b9ab-8e3635c3d913" target="14993ad6-c07e-4480-bf18-bf8266961109"/>
   </tura.domain:Views>
   <tura.domain:CanvasView uid="2eb3f59e-2044-44ae-86ae-5a2dfd2dd37d"/>
   <tura.domain:DeploymentComponents uid="66e58865-f833-4cf9-9134-fb691096e931"/>
@@ -1597,7 +1629,110 @@
   <tura.domain:TypeDefinition uid="c9574970-474a-403a-9224-f91bc2f8fe7a"/>
   <tura.domain:Messages uid="af03a493-0ca4-486c-945f-5bfc2fdf35bd" parent="39c0cb8c-3370-4a8b-9dc8-f988c6c3a565">
     <messageLibraries uid="5772ddee-a83b-41c9-8f34-c442412e1013" name="HR Controller">
-      <messages uid="f994c763-7bfb-4952-b00f-b730b5d67043" name="MAIN_WINDOW_LABEL"/>
+      <libLanguages uid="5f566f06-7d99-4d79-986d-b42bdfb2b6a0" lang="2160c4e8-6839-4e94-a225-162cc9210518"/>
+      <messages uid="f994c763-7bfb-4952-b00f-b730b5d67043" name="MAIN_WINDOW_LABEL">
+        <translatioins uid="037ed539-71f3-44b6-9a40-589108748410" translation="HR Controller form" lang="5f566f06-7d99-4d79-986d-b42bdfb2b6a0"/>
+      </messages>
+      <messages uid="0970a383-857c-43fa-abf8-370b7eedc37b" name="EMPLOEE_DETAILS">
+        <translatioins uid="43cda364-ea69-4b85-aee4-b533e90fa334" translation="Employee details" lang="5f566f06-7d99-4d79-986d-b42bdfb2b6a0"/>
+      </messages>
+      <messages uid="54ebdd70-5fb8-472e-b6fc-ffe42c72d02a" name="EMPLOYEES_TAB">
+        <translatioins uid="c28d3a59-1abd-4fea-9d50-00513cac6a44" translation="Employees" lang="5f566f06-7d99-4d79-986d-b42bdfb2b6a0"/>
+      </messages>
+      <messages uid="058cc4a7-f21d-42fd-aab0-7960a6d5d264" name="FILES_TAB">
+        <translatioins uid="1222f63a-d1c0-4f63-8587-4776598ccf4a" translation="Files" lang="5f566f06-7d99-4d79-986d-b42bdfb2b6a0"/>
+      </messages>
+      <messages uid="50badfae-ddaf-4827-9504-56af80c2dfa8" name="DEPARTMENT_TABLE">
+        <translatioins uid="81a507f5-0657-4aec-b69c-409094438d13" translation="Departments" lang="5f566f06-7d99-4d79-986d-b42bdfb2b6a0"/>
+      </messages>
+      <messages uid="e221741c-8996-4db6-9ece-346741336859" name="COMPANIES_TABLE">
+        <translatioins uid="c5b2c34f-6bbc-4641-8eb3-1a8b06726dee" translation="Companies" lang="5f566f06-7d99-4d79-986d-b42bdfb2b6a0"/>
+      </messages>
+      <messages uid="9e8ac4a5-5023-44f2-af6f-56c62c679fa3" name="LOCATIONS_TREE">
+        <translatioins uid="340a3565-18e1-4102-8962-5e2e431c8a20" translation="Locations" lang="5f566f06-7d99-4d79-986d-b42bdfb2b6a0"/>
+      </messages>
+      <messages uid="e1e774e4-d7f9-4b12-8021-67b17f803772" name="COMPANIES_TABLE_COMPANY_NAME_COLUMN">
+        <translatioins uid="5c94dfaa-8056-401b-9c84-ad8459174ce8" translation="Company name" lang="5f566f06-7d99-4d79-986d-b42bdfb2b6a0"/>
+      </messages>
+      <messages uid="152b0762-39a4-4995-ba49-efb5a3c75f07" name="COMPANIES_TABLE_DESCRIPTION_COLUMN">
+        <translatioins uid="6d46a3da-9117-4196-9835-dc077c19e8a9" translation="Description" lang="5f566f06-7d99-4d79-986d-b42bdfb2b6a0"/>
+      </messages>
+      <messages uid="62de9606-e73e-4b3e-a141-55f33ac9fc0c" name="DEPARTMENTS_TABLE_DEPARTMENT_NAME_COLUMN">
+        <translatioins uid="38f43d2d-2032-4c61-8e93-b4e8e04ef3a7" translation="Department name" lang="5f566f06-7d99-4d79-986d-b42bdfb2b6a0"/>
+      </messages>
+      <messages uid="6ed1145f-7e04-4f8e-9d07-c44035b4f397" name="DEPARTMENTS_TABLE_DEPARTMENT_DESCRIPTION_COLUMN">
+        <translatioins uid="ff87d041-d70f-423b-ae9b-0c09c2403071" translation="Description" lang="5f566f06-7d99-4d79-986d-b42bdfb2b6a0"/>
+      </messages>
+      <messages uid="2ee3ce29-6cd8-467b-88e2-01ef98298484" name="DEPARTMENTS_TABLE_ID_COLUMN">
+        <translatioins uid="bc42b93d-3a8e-4a8b-a428-afdfa5420449" translation="Department ID" lang="5f566f06-7d99-4d79-986d-b42bdfb2b6a0"/>
+      </messages>
     </messageLibraries>
+    <languages uid="2160c4e8-6839-4e94-a225-162cc9210518" lang="English" code="en"/>
   </tura.domain:Messages>
+  <tura.domain:CanvasView uid="86803f23-9d44-4ebc-81e9-9a63b4a770ac" parent="e018aa58-2660-4bba-a75d-1674147458e7">
+    <baseCanvas uid="c5f8ac47-356e-4c17-84db-fcf0a5037ca7">
+      <children xsi:type="tura.domain:LayerHolder" uid="cae32081-1631-4110-9d0f-5a5b1cd5e23a" columns="2">
+        <children xsi:type="tura.domain:Table" uid="92ea6c50-dc39-4ba0-bb76-b3ca2e161fe5" columns="2" label="Companies">
+          <multiLangLabel value="Messages.HR Controller.COMPANIES_TABLE">
+            <expression objRef="af03a493-0ca4-486c-945f-5bfc2fdf35bd" expressionType="MessagesImpl"/>
+            <expression objRef="5772ddee-a83b-41c9-8f34-c442412e1013" order="1" expressionType="MessageLibraryImpl"/>
+            <expression objRef="e221741c-8996-4db6-9ece-346741336859" order="2" expressionType="MessageImpl"/>
+          </multiLangLabel>
+          <cols uid="6bcddd06-702c-4844-9916-cc27cb352c5c" label="Company name">
+            <multiLangLabel value="Messages.HR Controller.COMPANIES_TABLE_COMPANY_NAME_COLUMN">
+              <expression objRef="af03a493-0ca4-486c-945f-5bfc2fdf35bd" expressionType="MessagesImpl"/>
+              <expression objRef="5772ddee-a83b-41c9-8f34-c442412e1013" order="1" expressionType="MessageLibraryImpl"/>
+              <expression objRef="e1e774e4-d7f9-4b12-8021-67b17f803772" order="2" expressionType="MessageImpl"/>
+            </multiLangLabel>
+          </cols>
+          <cols uid="0aebc5a9-faa3-48e6-8889-dd3b7045811c" label="Description">
+            <multiLangLabel value="Messages.HR Controller.COMPANIES_TABLE_DESCRIPTION_COLUMN">
+              <expression objRef="af03a493-0ca4-486c-945f-5bfc2fdf35bd" expressionType="MessagesImpl"/>
+              <expression objRef="5772ddee-a83b-41c9-8f34-c442412e1013" order="1" expressionType="MessageLibraryImpl"/>
+              <expression objRef="152b0762-39a4-4995-ba49-efb5a3c75f07" order="2" expressionType="MessageImpl"/>
+            </multiLangLabel>
+          </cols>
+        </children>
+        <children xsi:type="tura.domain:Tree" uid="8309417c-3168-4ea5-9e46-bc9acd83f87f" label="Locations">
+          <multiLangLabel value="Messages.HR Controller.LOCATIONS_TREE">
+            <expression objRef="af03a493-0ca4-486c-945f-5bfc2fdf35bd" expressionType="MessagesImpl"/>
+            <expression objRef="5772ddee-a83b-41c9-8f34-c442412e1013" order="1" expressionType="MessageLibraryImpl"/>
+            <expression objRef="9e8ac4a5-5023-44f2-af6f-56c62c679fa3" order="2" expressionType="MessageImpl"/>
+          </multiLangLabel>
+        </children>
+      </children>
+      <children xsi:type="tura.domain:Table" uid="1ee2b71b-9a1a-4655-8562-b01bd84fe5e5" columns="3" label="Departments">
+        <style/>
+        <enabled/>
+        <required/>
+        <readOnly/>
+        <multiLangLabel value="Messages.HR Controller.DEPARTMENT_TABLE">
+          <expression objRef="af03a493-0ca4-486c-945f-5bfc2fdf35bd" expressionType="MessagesImpl"/>
+          <expression objRef="5772ddee-a83b-41c9-8f34-c442412e1013" order="1" expressionType="MessageLibraryImpl"/>
+          <expression objRef="50badfae-ddaf-4827-9504-56af80c2dfa8" order="2" expressionType="MessageImpl"/>
+        </multiLangLabel>
+        <cols uid="4377a2a6-b081-4263-a745-229a848472e4" label="Department name">
+          <multiLangLabel value="Messages.HR Controller.DEPARTMENTS_TABLE_DEPARTMENT_NAME_COLUMN">
+            <expression objRef="af03a493-0ca4-486c-945f-5bfc2fdf35bd" expressionType="MessagesImpl"/>
+            <expression objRef="5772ddee-a83b-41c9-8f34-c442412e1013" order="1" expressionType="MessageLibraryImpl"/>
+            <expression objRef="62de9606-e73e-4b3e-a141-55f33ac9fc0c" order="2" expressionType="MessageImpl"/>
+          </multiLangLabel>
+        </cols>
+        <cols uid="11d633a4-2258-4284-abfb-d4c10055208d" label="Description">
+          <multiLangLabel value="Messages.HR Controller.DEPARTMENTS_TABLE_DEPARTMENT_DESCRIPTION_COLUMN">
+            <expression objRef="af03a493-0ca4-486c-945f-5bfc2fdf35bd" expressionType="MessagesImpl"/>
+            <expression objRef="5772ddee-a83b-41c9-8f34-c442412e1013" order="1" expressionType="MessageLibraryImpl"/>
+            <expression objRef="6ed1145f-7e04-4f8e-9d07-c44035b4f397" order="2" expressionType="MessageImpl"/>
+          </multiLangLabel>
+        </cols>
+        <cols uid="9d597873-7f7a-4e7e-86e0-db36782ff56b" label="Department ID">
+          <multiLangLabel value="Messages.HR Controller.DEPARTMENTS_TABLE_ID_COLUMN">
+            <expression objRef="af03a493-0ca4-486c-945f-5bfc2fdf35bd" expressionType="MessagesImpl"/>
+            <expression objRef="5772ddee-a83b-41c9-8f34-c442412e1013" order="1" expressionType="MessageLibraryImpl"/>
+            <expression objRef="2ee3ce29-6cd8-467b-88e2-01ef98298484" order="2" expressionType="MessageImpl"/>
+          </multiLangLabel>
+        </cols>
+      </children>
+    </baseCanvas>
+  </tura.domain:CanvasView>
 </xmi:XMI>

@@ -22,7 +22,6 @@ import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableColumn;
 import org.eclipse.swt.widgets.TableItem;
 import org.eclipse.ui.views.properties.tabbed.TabbedPropertySheetPage;
-import org.tura.metamodel.commons.QueryHelper;
 import org.tura.metamodel.commons.properties.selections.grid.GridColumn;
 import org.tura.metamodel.commons.properties.selections.grid.GridProperty;
 
@@ -150,9 +149,8 @@ public class AvailableLanguagesPropertySelection extends GridProperty {
 			return 0;
 		}
 
-		private List<domain.Language> initOptions(Object obj) {
-			return new QueryHelper().findLanguages(obj);
-
+		private List<domain.Language> initOptions(domain.LanguageRef opt) {
+			return ((domain.Messages)  (opt.eContainer().eContainer())).getLanguages();
 		}
 
 		@Override

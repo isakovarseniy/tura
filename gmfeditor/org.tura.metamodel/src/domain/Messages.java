@@ -17,6 +17,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link domain.Messages#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.Messages#getParent <em>Parent</em>}</li>
  *   <li>{@link domain.Messages#getMessageLibraries <em>Message Libraries</em>}</li>
+ *   <li>{@link domain.Messages#getLanguages <em>Languages</em>}</li>
  * </ul>
  * </p>
  *
@@ -95,5 +96,21 @@ public interface Messages extends EObject
    * @generated
    */
   EList<MessageLibrary> getMessageLibraries();
+
+  /**
+   * Returns the value of the '<em><b>Languages</b></em>' containment reference list.
+   * The list contents are of type {@link domain.Language}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Languages</em>' containment reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Languages</em>' containment reference list.
+   * @see domain.DomainPackage#getMessages_Languages()
+   * @model containment="true"
+   * @generated
+   */
+  EList<Language> getLanguages();
 
 } // Messages

@@ -3,6 +3,7 @@
  */
 package message.diagram.edit.policies;
 
+import message.diagram.edit.commands.LanguageCreateCommand;
 import message.diagram.edit.commands.MessageLibraryCreateCommand;
 import message.diagram.providers.DomainElementTypes;
 
@@ -32,6 +33,9 @@ public class MessagesItemSemanticEditPolicy extends
 	protected Command getCreateCommand(CreateElementRequest req) {
 		if (DomainElementTypes.MessageLibrary_1702001 == req.getElementType()) {
 			return getGEFWrapper(new MessageLibraryCreateCommand(req));
+		}
+		if (DomainElementTypes.Language_1702002 == req.getElementType()) {
+			return getGEFWrapper(new LanguageCreateCommand(req));
 		}
 		return super.getCreateCommand(req);
 	}

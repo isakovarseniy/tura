@@ -36,20 +36,36 @@ public class DomainPaletteFactory {
 		PaletteDrawer paletteContainer = new PaletteDrawer(
 				Messages.Objects1Group_title);
 		paletteContainer.setId("createObjects1Group"); //$NON-NLS-1$
-		paletteContainer.add(createMessage1CreationTool());
-		paletteContainer.add(createMessageLibrary2CreationTool());
+		paletteContainer.add(createLanguage1CreationTool());
+		paletteContainer.add(createMessage2CreationTool());
+		paletteContainer.add(createMessageLibrary3CreationTool());
 		return paletteContainer;
 	}
 
 	/**
 	 * @generated
 	 */
-	private ToolEntry createMessage1CreationTool() {
+	private ToolEntry createLanguage1CreationTool() {
 		NodeToolEntry entry = new NodeToolEntry(
-				Messages.Message1CreationTool_title,
-				Messages.Message1CreationTool_desc,
+				Messages.Language1CreationTool_title,
+				Messages.Language1CreationTool_desc,
+				Collections.singletonList(DomainElementTypes.Language_1702002));
+		entry.setId("createLanguage1CreationTool"); //$NON-NLS-1$
+		entry.setSmallIcon(DomainElementTypes
+				.getImageDescriptor(DomainElementTypes.Language_1702002));
+		entry.setLargeIcon(entry.getSmallIcon());
+		return entry;
+	}
+
+	/**
+	 * @generated
+	 */
+	private ToolEntry createMessage2CreationTool() {
+		NodeToolEntry entry = new NodeToolEntry(
+				Messages.Message2CreationTool_title,
+				Messages.Message2CreationTool_desc,
 				Collections.singletonList(DomainElementTypes.Message_1703004));
-		entry.setId("createMessage1CreationTool"); //$NON-NLS-1$
+		entry.setId("createMessage2CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(DomainElementTypes
 				.getImageDescriptor(DomainElementTypes.Message_1703004));
 		entry.setLargeIcon(entry.getSmallIcon());
@@ -59,13 +75,13 @@ public class DomainPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createMessageLibrary2CreationTool() {
+	private ToolEntry createMessageLibrary3CreationTool() {
 		NodeToolEntry entry = new NodeToolEntry(
-				Messages.MessageLibrary2CreationTool_title,
-				Messages.MessageLibrary2CreationTool_desc,
+				Messages.MessageLibrary3CreationTool_title,
+				Messages.MessageLibrary3CreationTool_desc,
 				Collections
 						.singletonList(DomainElementTypes.MessageLibrary_1702001));
-		entry.setId("createMessageLibrary2CreationTool"); //$NON-NLS-1$
+		entry.setId("createMessageLibrary3CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(DomainElementTypes
 				.getImageDescriptor(DomainElementTypes.MessageLibrary_1702001));
 		entry.setLargeIcon(entry.getSmallIcon());

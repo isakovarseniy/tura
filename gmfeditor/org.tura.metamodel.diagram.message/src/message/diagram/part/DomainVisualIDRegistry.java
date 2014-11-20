@@ -3,6 +3,8 @@
  */
 package message.diagram.part;
 
+import message.diagram.edit.parts.LanguageEditPart;
+import message.diagram.edit.parts.LanguageLangEditPart;
 import message.diagram.edit.parts.MessageEditPart;
 import message.diagram.edit.parts.MessageLibraryEditPart;
 import message.diagram.edit.parts.MessageLibraryMessageLibraryMessagesCompartmentEditPart;
@@ -10,6 +12,7 @@ import message.diagram.edit.parts.MessageLibraryNameEditPart;
 import message.diagram.edit.parts.MessageNameEditPart;
 import message.diagram.edit.parts.MessagesEditPart;
 
+import message.diagram.edit.parts.WrappingLabelEditPart;
 import org.eclipse.core.runtime.Platform;
 import org.eclipse.emf.ecore.EAnnotation;
 import org.eclipse.emf.ecore.EObject;
@@ -133,6 +136,10 @@ public class DomainVisualIDRegistry {
 					domainElement.eClass())) {
 				return MessageLibraryEditPart.VISUAL_ID;
 			}
+			if (DomainPackage.eINSTANCE.getLanguage().isSuperTypeOf(
+					domainElement.eClass())) {
+				return LanguageEditPart.VISUAL_ID;
+			}
 			break;
 		case MessageLibraryMessageLibraryMessagesCompartmentEditPart.VISUAL_ID:
 			if (DomainPackage.eINSTANCE.getMessage().isSuperTypeOf(
@@ -170,12 +177,20 @@ public class DomainVisualIDRegistry {
 			if (MessageLibraryEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
+			if (LanguageEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
 			break;
 		case MessageLibraryEditPart.VISUAL_ID:
 			if (MessageLibraryNameEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			if (MessageLibraryMessageLibraryMessagesCompartmentEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case LanguageEditPart.VISUAL_ID:
+			if (LanguageLangEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -246,6 +261,7 @@ public class DomainVisualIDRegistry {
 		switch (visualID) {
 		case MessagesEditPart.VISUAL_ID:
 			return false;
+		case LanguageEditPart.VISUAL_ID:
 		case MessageEditPart.VISUAL_ID:
 			return true;
 		default:

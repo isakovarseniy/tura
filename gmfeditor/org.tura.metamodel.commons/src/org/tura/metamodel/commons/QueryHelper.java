@@ -37,35 +37,6 @@ import domain.Views;
 public class QueryHelper {
 
 	
-	public List<domain.Language> findLanguages(Object obj) {
-
-		try {
-			@SuppressWarnings("rawtypes")
-			OCL ocl = OCL.newInstance(EcoreEnvironmentFactory.INSTANCE);
-			@SuppressWarnings("unchecked")
-			OCLHelper<EClassifier, ?, ?, Constraint> helper = ocl
-					.createOCLHelper();
-			helper.setContext(DomainPackage.eINSTANCE.getEClassifier("Domain"));
-
-			OCLExpression<EClassifier> query = helper
-					.createQuery("domain::Language.allInstances()");
-
-			@SuppressWarnings("unchecked")
-			Collection<domain.Language> map = (Collection<domain.Language>) ocl
-					.evaluate(obj, query);
-
-			ArrayList<domain.Language> ls = new ArrayList<domain.Language>();
-			ls.addAll(map);
-
-			return ls;
-
-		} catch (Exception e) {
-			LogUtil.log(e);
-		}
-		return null;
-
-	}
-
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public Object[] findMappingSpecifiers(domain.ModelMapper eObject,
 			EObject types) throws Exception {

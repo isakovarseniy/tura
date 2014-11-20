@@ -34,6 +34,12 @@ public class DomainEditPartFactory implements EditPartFactory {
 			case MessageLibraryNameEditPart.VISUAL_ID:
 				return new MessageLibraryNameEditPart(view);
 
+			case LanguageEditPart.VISUAL_ID:
+				return new LanguageEditPart(view);
+
+			case LanguageLangEditPart.VISUAL_ID:
+				return new LanguageLangEditPart(view);
+
 			case MessageEditPart.VISUAL_ID:
 				return new MessageEditPart(view);
 

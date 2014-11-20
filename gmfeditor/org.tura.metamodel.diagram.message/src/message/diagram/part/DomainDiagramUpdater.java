@@ -8,6 +8,7 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
+import message.diagram.edit.parts.LanguageEditPart;
 import message.diagram.edit.parts.MessageEditPart;
 import message.diagram.edit.parts.MessageLibraryEditPart;
 import message.diagram.edit.parts.MessageLibraryMessageLibraryMessagesCompartmentEditPart;
@@ -16,6 +17,7 @@ import message.diagram.edit.parts.MessagesEditPart;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.gmf.tooling.runtime.update.DiagramUpdater;
 
+import domain.Language;
 import domain.Message;
 import domain.MessageLibrary;
 import domain.Messages;
@@ -66,6 +68,16 @@ public class DomainDiagramUpdater {
 				continue;
 			}
 		}
+		for (Iterator<?> it = modelElement.getLanguages().iterator(); it
+				.hasNext();) {
+			Language childElement = (Language) it.next();
+			int visualID = DomainVisualIDRegistry.getNodeVisualID(view,
+					childElement);
+			if (visualID == LanguageEditPart.VISUAL_ID) {
+				result.add(new DomainNodeDescriptor(childElement, visualID));
+				continue;
+			}
+		}
 		return result;
 	}
 
@@ -106,6 +118,8 @@ public class DomainDiagramUpdater {
 			return getMessages_1701000ContainedLinks(view);
 		case MessageLibraryEditPart.VISUAL_ID:
 			return getMessageLibrary_1702001ContainedLinks(view);
+		case LanguageEditPart.VISUAL_ID:
+			return getLanguage_1702002ContainedLinks(view);
 		case MessageEditPart.VISUAL_ID:
 			return getMessage_1703004ContainedLinks(view);
 		}
@@ -119,6 +133,8 @@ public class DomainDiagramUpdater {
 		switch (DomainVisualIDRegistry.getVisualID(view)) {
 		case MessageLibraryEditPart.VISUAL_ID:
 			return getMessageLibrary_1702001IncomingLinks(view);
+		case LanguageEditPart.VISUAL_ID:
+			return getLanguage_1702002IncomingLinks(view);
 		case MessageEditPart.VISUAL_ID:
 			return getMessage_1703004IncomingLinks(view);
 		}
@@ -132,6 +148,8 @@ public class DomainDiagramUpdater {
 		switch (DomainVisualIDRegistry.getVisualID(view)) {
 		case MessageLibraryEditPart.VISUAL_ID:
 			return getMessageLibrary_1702001OutgoingLinks(view);
+		case LanguageEditPart.VISUAL_ID:
+			return getLanguage_1702002OutgoingLinks(view);
 		case MessageEditPart.VISUAL_ID:
 			return getMessage_1703004OutgoingLinks(view);
 		}
@@ -157,6 +175,14 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
+	public static List<DomainLinkDescriptor> getLanguage_1702002ContainedLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
 	public static List<DomainLinkDescriptor> getMessage_1703004ContainedLinks(
 			View view) {
 		return Collections.emptyList();
@@ -173,6 +199,14 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
+	public static List<DomainLinkDescriptor> getLanguage_1702002IncomingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
 	public static List<DomainLinkDescriptor> getMessage_1703004IncomingLinks(
 			View view) {
 		return Collections.emptyList();
@@ -182,6 +216,14 @@ public class DomainDiagramUpdater {
 	 * @generated
 	 */
 	public static List<DomainLinkDescriptor> getMessageLibrary_1702001OutgoingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<DomainLinkDescriptor> getLanguage_1702002OutgoingLinks(
 			View view) {
 		return Collections.emptyList();
 	}

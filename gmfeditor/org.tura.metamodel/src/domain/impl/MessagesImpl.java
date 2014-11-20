@@ -4,6 +4,7 @@ package domain.impl;
 
 import domain.ApplicationMessages;
 import domain.DomainPackage;
+import domain.Language;
 import domain.MessageLibrary;
 import domain.Messages;
 
@@ -33,6 +34,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link domain.impl.MessagesImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.impl.MessagesImpl#getParent <em>Parent</em>}</li>
  *   <li>{@link domain.impl.MessagesImpl#getMessageLibraries <em>Message Libraries</em>}</li>
+ *   <li>{@link domain.impl.MessagesImpl#getLanguages <em>Languages</em>}</li>
  * </ul>
  * </p>
  *
@@ -79,6 +81,16 @@ public class MessagesImpl extends EObjectImpl implements Messages
    * @ordered
    */
   protected EList<MessageLibrary> messageLibraries;
+
+  /**
+   * The cached value of the '{@link #getLanguages() <em>Languages</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getLanguages()
+   * @generated
+   * @ordered
+   */
+  protected EList<Language> languages;
 
   /**
    * <!-- begin-user-doc -->
@@ -211,6 +223,20 @@ public class MessagesImpl extends EObjectImpl implements Messages
    * <!-- end-user-doc -->
    * @generated
    */
+  public EList<Language> getLanguages()
+  {
+    if (languages == null)
+    {
+      languages = new EObjectContainmentEList<Language>(Language.class, this, DomainPackage.MESSAGES__LANGUAGES);
+    }
+    return languages;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
@@ -238,6 +264,8 @@ public class MessagesImpl extends EObjectImpl implements Messages
         return basicSetParent(null, msgs);
       case DomainPackage.MESSAGES__MESSAGE_LIBRARIES:
         return ((InternalEList<?>)getMessageLibraries()).basicRemove(otherEnd, msgs);
+      case DomainPackage.MESSAGES__LANGUAGES:
+        return ((InternalEList<?>)getLanguages()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -259,6 +287,8 @@ public class MessagesImpl extends EObjectImpl implements Messages
         return basicGetParent();
       case DomainPackage.MESSAGES__MESSAGE_LIBRARIES:
         return getMessageLibraries();
+      case DomainPackage.MESSAGES__LANGUAGES:
+        return getLanguages();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -284,6 +314,10 @@ public class MessagesImpl extends EObjectImpl implements Messages
         getMessageLibraries().clear();
         getMessageLibraries().addAll((Collection<? extends MessageLibrary>)newValue);
         return;
+      case DomainPackage.MESSAGES__LANGUAGES:
+        getLanguages().clear();
+        getLanguages().addAll((Collection<? extends Language>)newValue);
+        return;
     }
     super.eSet(featureID, newValue);
   }
@@ -307,6 +341,9 @@ public class MessagesImpl extends EObjectImpl implements Messages
       case DomainPackage.MESSAGES__MESSAGE_LIBRARIES:
         getMessageLibraries().clear();
         return;
+      case DomainPackage.MESSAGES__LANGUAGES:
+        getLanguages().clear();
+        return;
     }
     super.eUnset(featureID);
   }
@@ -327,6 +364,8 @@ public class MessagesImpl extends EObjectImpl implements Messages
         return parent != null;
       case DomainPackage.MESSAGES__MESSAGE_LIBRARIES:
         return messageLibraries != null && !messageLibraries.isEmpty();
+      case DomainPackage.MESSAGES__LANGUAGES:
+        return languages != null && !languages.isEmpty();
     }
     return super.eIsSet(featureID);
   }

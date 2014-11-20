@@ -2746,6 +2746,16 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EReference getMessages_Languages()
+  {
+    return (EReference)messagesEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getMessageLibrary()
   {
     return messageLibraryEClass;
@@ -7723,6 +7733,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     createEAttribute(messagesEClass, MESSAGES__UID);
     createEReference(messagesEClass, MESSAGES__PARENT);
     createEReference(messagesEClass, MESSAGES__MESSAGE_LIBRARIES);
+    createEReference(messagesEClass, MESSAGES__LANGUAGES);
 
     messageLibraryEClass = createEClass(MESSAGE_LIBRARY);
     createEAttribute(messageLibraryEClass, MESSAGE_LIBRARY__UID);
@@ -8646,6 +8657,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     initEAttribute(getMessages_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, Messages.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getMessages_Parent(), this.getApplicationMessages(), this.getApplicationMessages_Messages(), "parent", null, 0, 1, Messages.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getMessages_MessageLibraries(), this.getMessageLibrary(), null, "messageLibraries", null, 0, -1, Messages.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getMessages_Languages(), this.getLanguage(), null, "languages", null, 0, -1, Messages.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(messageLibraryEClass, MessageLibrary.class, "MessageLibrary", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getMessageLibrary_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, MessageLibrary.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -9328,7 +9340,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
-       });																																																																																																																																																																													
+       });																																																																																																																																																																														
   }
 
   /**
@@ -9345,7 +9357,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
-       });																																																																																																																																																																												
+       });																																																																																																																																																																													
   }
 
   /**
@@ -9595,6 +9607,15 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        "label", "name",
        "border.color", "0,0,0",
        "color", "255,237,85"
+       });		
+    addAnnotation
+      (languageEClass, 
+       source, 
+       new String[] 
+       {
+       "label", "lang",
+       "border.color", "0,0,0",
+       "color", "255,239,222"
        });			
     addAnnotation
       (roleEClass, 
@@ -10350,7 +10371,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        new String[] 
        {
        "layout", "list"
-       });										
+       });											
     addAnnotation
       (getStyleLibrary_Styles(), 
        source, 
@@ -10596,7 +10617,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
-       });																																																																																																																																																																
+       });																																																																																																																																																																	
   }
 
   /**
@@ -10613,7 +10634,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
-       });																																																																																																																																																					
+       });																																																																																																																																																						
   }
 
   /**
@@ -10630,7 +10651,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
-       });																																																																																																																																						
+       });																																																																																																																																							
   }
 
   /**
@@ -10641,7 +10662,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    */
   protected void createGmf_7Annotations()
   {
-    String source = "gmf.diagram.roles";																																													
+    String source = "gmf.diagram.roles";																																														
     addAnnotation
       (rolesEClass, 
        source, 
@@ -10658,7 +10679,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    */
   protected void createGmf_8Annotations()
   {
-    String source = "gmf.link";																																																
+    String source = "gmf.link";																																																	
     addAnnotation
       (getGroup_Group2Group(), 
        source, 
@@ -10788,7 +10809,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    */
   protected void createGmf_9Annotations()
   {
-    String source = "gmf.diagram.style";																																																		
+    String source = "gmf.diagram.style";																																																			
     addAnnotation
       (stylesEClass, 
        source, 
@@ -10805,7 +10826,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    */
   protected void createGmf_10Annotations()
   {
-    String source = "gmf.diagram.mapper";																																																						
+    String source = "gmf.diagram.mapper";																																																							
     addAnnotation
       (mappersEClass, 
        source, 
@@ -10822,7 +10843,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    */
   protected void createGmf_11Annotations()
   {
-    String source = "gmf.diagram.recipe";																																																											
+    String source = "gmf.diagram.recipe";																																																												
     addAnnotation
       (recipesEClass, 
        source, 
@@ -10839,7 +10860,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    */
   protected void createGmf_12Annotations()
   {
-    String source = "gmf.diagram.deployment";																																																													
+    String source = "gmf.diagram.deployment";																																																														
     addAnnotation
       (deploymentComponentsEClass, 
        source, 
@@ -10856,7 +10877,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    */
   protected void createGmf_13Annotations()
   {
-    String source = "gmf.diagram.typedefinition";																																																																																			
+    String source = "gmf.diagram.typedefinition";																																																																																				
     addAnnotation
       (typeDefinitionEClass, 
        source, 
@@ -10873,7 +10894,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    */
   protected void createGmf_14Annotations()
   {
-    String source = "gmf.diagram.typesrepository";																																																																																															
+    String source = "gmf.diagram.typesrepository";																																																																																																
     addAnnotation
       (typesRepositoryEClass, 
        source, 
@@ -10890,7 +10911,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    */
   protected void createGmf_15Annotations()
   {
-    String source = "gmf.diagram.uipackage";																																																																																																			
+    String source = "gmf.diagram.uipackage";																																																																																																				
     addAnnotation
       (uiPackageEClass, 
        source, 
@@ -10907,7 +10928,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    */
   protected void createGmf_16Annotations()
   {
-    String source = "gmf.diagram.view";																																																																																																								
+    String source = "gmf.diagram.view";																																																																																																									
     addAnnotation
       (viewsEClass, 
        source, 
@@ -10924,7 +10945,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    */
   protected void createGmf_17Annotations()
   {
-    String source = "gmf.diagram.canvas";																																																																																																																					
+    String source = "gmf.diagram.canvas";																																																																																																																						
     addAnnotation
       (canvasViewEClass, 
        source, 
@@ -10941,7 +10962,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    */
   protected void createGmf_18Annotations()
   {
-    String source = "gmf.diagram.control";																																																																																																																																			
+    String source = "gmf.diagram.control";																																																																																																																																				
     addAnnotation
       (controlsEClass, 
        source, 
@@ -10958,7 +10979,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    */
   protected void createGmf_19Annotations()
   {
-    String source = "gmf.diagram.infarastructure";																																																																																																																																																																		
+    String source = "gmf.diagram.infarastructure";																																																																																																																																																																			
     addAnnotation
       (enterpriseInfrastructureEClass, 
        source, 

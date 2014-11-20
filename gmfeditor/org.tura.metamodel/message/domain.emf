@@ -279,6 +279,7 @@ class Messages{
     id attr EString uid;
     ref ApplicationMessages#messages parent;
     val MessageLibrary[*]  messageLibraries;
+    val Language[*] languages;
 }
 
 
@@ -310,6 +311,7 @@ class Translation{
 }
 
 
+@gmf.node(label="lang",border.color="0,0,0",color="255,239,222")
 class Language{
     id attr EString uid;
    attr EString lang;

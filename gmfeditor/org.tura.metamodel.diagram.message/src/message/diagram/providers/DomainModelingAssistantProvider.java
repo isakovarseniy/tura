@@ -41,8 +41,9 @@ public class DomainModelingAssistantProvider extends ModelingAssistantProvider {
 		IGraphicalEditPart editPart = (IGraphicalEditPart) host
 				.getAdapter(IGraphicalEditPart.class);
 		if (editPart instanceof MessagesEditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(1);
+			ArrayList<IElementType> types = new ArrayList<IElementType>(2);
 			types.add(DomainElementTypes.MessageLibrary_1702001);
+			types.add(DomainElementTypes.Language_1702002);
 			return types;
 		}
 		if (editPart instanceof MessageLibraryEditPart) {
