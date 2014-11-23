@@ -1,23 +1,15 @@
 package org.tura.metamodel.commons.properties.selections.adapters;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.ui.model.IWorkbenchAdapter;
+import org.tura.metamodel.commons.properties.selections.adapters.helper.DataControlHolder;
 
-public class ControlsProvider implements IWorkbenchAdapter  ,IReturnTypeProvider{
+public class DataControlHolderProvider implements IWorkbenchAdapter  ,IReturnTypeProvider{
 
 	@Override
 	public Object[] getChildren(Object o) {
-		ArrayList<domain.DataControl> ls = new ArrayList<>();
-		for (Iterator<domain.DataControl> itr = ((domain.Controls) o)
-				.getControls().iterator(); itr.hasNext();) {
-			domain.DataControl ctl = itr.next();
-			if (ctl.getName() != null)
-				ls.add(ctl);
-		}
-		return ls.toArray();
+		DataControlHolder h = (DataControlHolder) o;
+		return h.getControls().toArray();
 	}
 
 	@Override

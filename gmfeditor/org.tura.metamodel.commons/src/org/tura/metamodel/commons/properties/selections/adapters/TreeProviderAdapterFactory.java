@@ -4,7 +4,9 @@ import org.eclipse.core.runtime.IAdapterFactory;
 import org.eclipse.ui.model.IWorkbenchAdapter;
 import org.tura.metamodel.commons.properties.selections.adapters.helper.DataControlFakeAttribute;
 import org.tura.metamodel.commons.properties.selections.adapters.helper.DataControlFakeMethod;
+import org.tura.metamodel.commons.properties.selections.adapters.helper.DataControlHolder;
 import org.tura.metamodel.commons.properties.selections.adapters.helper.TreeRoot;
+import org.tura.metamodel.commons.properties.selections.adapters.helper.TreeRootDataControlHolder;
 import org.tura.metamodel.commons.properties.selections.adapters.helper.TriggerHolder;
 
 public class TreeProviderAdapterFactory implements IAdapterFactory {
@@ -13,7 +15,8 @@ public class TreeProviderAdapterFactory implements IAdapterFactory {
 	private static final Class[] TYPES = { IWorkbenchAdapter.class, IReturnTypeProvider.class};
 
 	private TreeRootProvider treeRootProvider;
-	private ControlsProvider controlsProvider;
+	private DataControlHolderProvider dataControlHolderProvider;
+	private TreeRootDataControlHolderProvider treeRootDataControlHolder;
 	private DataControlProvider dataControlProvider;
 	private TriggerProvider triggerProvider;
 	private TypeElementProvider typeElementProvider;
@@ -45,8 +48,10 @@ public class TreeProviderAdapterFactory implements IAdapterFactory {
 		if (adapterType == IWorkbenchAdapter.class || adapterType == IReturnTypeProvider.class) {
 			if (adaptableObject instanceof TreeRoot)
 				return getTreeRootProvider();
-			if (adaptableObject instanceof domain.Controls)
-				return getControlsProvider();
+			if (adaptableObject instanceof DataControlHolder)
+				return getDataControlHolderProvider();
+			if (adaptableObject instanceof TreeRootDataControlHolder)
+				return getTreeRootDataControlHolderProvider();
 			if (adaptableObject instanceof domain.DataControl)
 				return getDataControlProvider();
 			if (adaptableObject instanceof TriggerHolder)
@@ -135,12 +140,20 @@ public class TreeProviderAdapterFactory implements IAdapterFactory {
 		return treeRootProvider;
 	}
 
-	protected ControlsProvider getControlsProvider() {
-		if (controlsProvider == null)
-			controlsProvider = new ControlsProvider();
-		return controlsProvider;
+	protected DataControlHolderProvider getDataControlHolderProvider() {
+		if (dataControlHolderProvider == null)
+			dataControlHolderProvider = new DataControlHolderProvider();
+		return dataControlHolderProvider;
 	}
 
+	
+	protected TreeRootDataControlHolderProvider getTreeRootDataControlHolderProvider() {
+		if (treeRootDataControlHolder == null)
+			treeRootDataControlHolder = new TreeRootDataControlHolderProvider();
+		return treeRootDataControlHolder;
+	}
+	
+	
 	protected DataControlProvider getDataControlProvider() {
 		if (dataControlProvider == null)
 			dataControlProvider = new DataControlProvider();

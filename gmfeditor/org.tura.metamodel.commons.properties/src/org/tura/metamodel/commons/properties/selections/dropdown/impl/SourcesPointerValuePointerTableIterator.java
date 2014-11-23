@@ -2,7 +2,7 @@ package org.tura.metamodel.commons.properties.selections.dropdown.impl;
 
 import org.eclipse.emf.ecore.EObject;
 
-public class SourcesPointerValuePointerExternalIterator  extends SourcesPointerValuePointer{
+public class SourcesPointerValuePointerTableIterator  extends SourcesPointerValuePointer{
 
 	
 	public Object[] getWatchPointObject(Object eObject) {
@@ -12,7 +12,7 @@ public class SourcesPointerValuePointerExternalIterator  extends SourcesPointerV
 			eobj = eobj.eContainer();
 			if (eobj == null )
 				return new Object []{};
-		}while  (!(eobj instanceof domain.Table || eobj instanceof domain.Tree)) ;
+		}while  (!(eobj instanceof domain.Table )) ;
 		
 		return new Object[] {((domain.SourcesPointer) eobj).getSourcePointer(),
 				((domain.SourcesPointer) eobj).getSourceCast()

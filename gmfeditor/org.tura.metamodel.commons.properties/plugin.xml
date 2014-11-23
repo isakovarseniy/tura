@@ -878,7 +878,7 @@
 
              <propertySection
                tab="property.tab.domain.canvas.sourcepointer"
-               class="org.tura.metamodel.commons.properties.selections.dropdown.ValuePointerAttributePropertySelectionExternalIterator"
+               class="org.tura.metamodel.commons.properties.selections.dropdown.ValuePointerAttributePropertySelectionTableIterator"
                id="org.tura.metamodel.diagram.canvas.sourcepointer.valuepointer.externaliterator">
 
               <input type="canvas.diagram.edit.parts.CheckBox2EditPart"/>

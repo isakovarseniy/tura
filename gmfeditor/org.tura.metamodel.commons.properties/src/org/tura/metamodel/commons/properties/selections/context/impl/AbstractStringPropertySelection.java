@@ -10,9 +10,7 @@ import org.tura.metamodel.commons.properties.selections.adapters.IReturnTypeProv
 import org.tura.metamodel.commons.properties.selections.adapters.helper.TreeRoot;
 import org.tura.metamodel.commons.properties.selections.context.ContextPropertySelection;
 
-import domain.Form;
 import domain.TypeElement;
-import domain.Views;
 
 public abstract class AbstractStringPropertySelection extends
 		ContextPropertySelection {
@@ -29,40 +27,22 @@ public abstract class AbstractStringPropertySelection extends
 		DiagramImpl root = (DiagramImpl) this.getEditPart().getRoot()
 				.getContents().getModel();
 
-		domain.Controls controls = null;
-		domain.Form frm = null;
-		if (root.getElement() instanceof domain.Controls) {
-			frm = (Form) ((domain.Controls) root.getElement()).getParent()
-					.eContainer();
-		}
-		if (root.getElement() instanceof domain.CanvasView) {
-			domain.Views views = (Views) ((domain.CanvasView) root.getElement())
-					.getParent().eContainer().eContainer();
-			frm = ((domain.Form) (views.getParent().eContainer()));
-		}
-
-		if (root.getElement() instanceof domain.Views) {
-			domain.Views views = (Views) root.getElement();
-			frm = ((domain.Form) (views.getParent().eContainer()));
-		}
-
-		if (frm.getDatacontrols() != null) {
-			controls = frm.getDatacontrols().getFormControl();
-			rootOfTree.addChild(controls);
-		}
-
 		try {
+			for (Object obj : new QueryHelper().getControlsList(root))
+				rootOfTree.addChild(obj);
+
 			rootOfTree.addChild(new QueryHelper().getTypesRepository(root
 					.getElement()));
 		} catch (Exception e) {
+			
+			e.printStackTrace();
 			// ignore
 		}
-		domain.Application app = ((domain.UIPackage) (frm.eContainer()))
-				.getParent().getParent().getParent();
 
-		if (app.getApplicationMessages() != null
-				&& app.getApplicationMessages().getMessages() != null) {
-			rootOfTree.addChild(app.getApplicationMessages().getMessages());
+		Object obj = new QueryHelper().getMessages(root);
+
+		if (obj != null) {
+			rootOfTree.addChild(obj);
 		}
 		return rootOfTree;
 	}

@@ -18,17 +18,21 @@ import org.eclipse.emf.edit.command.RemoveCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.validation.internal.modeled.model.validation.Constraint;
 import org.eclipse.epsilon.common.dt.util.LogUtil;
+import org.eclipse.gmf.runtime.notation.impl.DiagramImpl;
 import org.eclipse.ocl.OCL;
 import org.eclipse.ocl.ParserException;
 import org.eclipse.ocl.ecore.EcoreEnvironmentFactory;
 import org.eclipse.ocl.expressions.OCLExpression;
 import org.eclipse.ocl.helper.OCLHelper;
 import org.tura.metamodel.commons.initdiagram.InitDiagram;
+import org.tura.metamodel.commons.properties.selections.adapters.helper.DataControlHolder;
+import org.tura.metamodel.commons.properties.selections.adapters.helper.TreeRootDataControlHolder;
 
 import domain.ContextParameter;
 import domain.ContextValue;
 import domain.DomainFactory;
 import domain.DomainPackage;
+import domain.Form;
 import domain.Parameter;
 import domain.Type;
 import domain.Types;
@@ -36,7 +40,159 @@ import domain.Views;
 
 public class QueryHelper {
 
-	
+	public Object getApplicationRoles(DiagramImpl root) {
+		domain.Form frm = getForm(root);
+
+		return ((domain.UIPackage) frm.eContainer()).getParent().getParent()
+				.getParent().getApplicationRole();
+	}
+
+	public Object getMessages(DiagramImpl root) {
+		domain.Form frm = getForm(root);
+
+		domain.Application app = ((domain.UIPackage) (frm.eContainer()))
+				.getParent().getParent().getParent();
+
+		return app.getApplicationMessages().getMessages();
+	}
+
+	private domain.Form getForm(DiagramImpl root) {
+		domain.Form frm = null;
+
+		if (root.getElement() instanceof domain.Controls) {
+			frm = (Form) ((domain.Controls) root.getElement()).getParent()
+					.eContainer();
+		}
+
+		if (root.getElement() instanceof domain.CanvasView) {
+
+			domain.Views views = (Views) (((domain.CanvasView) root
+					.getElement()).getParent().eContainer().eContainer());
+
+			frm = (domain.Form) (views.getParent().eContainer());
+
+		}
+
+		if (root.getElement() instanceof domain.Views) {
+			domain.Views views = (Views) root.getElement();
+			frm = (domain.Form) (views.getParent().eContainer());
+		}
+
+		return frm;
+	}
+
+	@SuppressWarnings({ "unchecked", "rawtypes" })
+	public List<?> getControlsList(DiagramImpl root) throws Exception {
+
+		domain.Controls controls = null;
+		domain.Form frm = getForm(root);
+		ArrayList ls = new ArrayList();
+
+		if (root.getElement() instanceof domain.CanvasView
+				|| root.getElement() instanceof domain.Views) {
+
+			TreeRootDataControlHolder th = new TreeRootDataControlHolder();
+			th.getControls().addAll(findTreeRootControls(frm));
+			ls.add(th);
+
+			DataControlHolder dh = new DataControlHolder();
+			dh.getControls().addAll(findMasterControls(frm));
+			dh.getControls().addAll(findDetailAndDependencyControls(frm));
+			ls.add(dh);
+		}
+
+		if (root.getElement() instanceof domain.Controls) {
+			controls = frm.getDatacontrols().getFormControl();
+			DataControlHolder dh = new DataControlHolder();
+			dh.getControls().addAll(controls.getControls());
+			ls.add(dh);
+		}
+
+		return ls;
+	}
+
+	@SuppressWarnings({ "rawtypes", "unchecked" })
+	public Collection<domain.DataControl> findTreeRootControls(domain.Form frm)
+			throws Exception {
+
+		OCL ocl = OCL.newInstance(EcoreEnvironmentFactory.INSTANCE);
+		OCLHelper<EClassifier, ?, ?, Constraint> helper = ocl.createOCLHelper();
+		helper.setContext(DomainPackage.eINSTANCE.getEClassifier("Domain"));
+
+		OCLExpression<EClassifier> query = helper
+				.createQuery("domain::Relation.allInstances()->select(r|r.isTree=true and r.oclAsType(ecore::EObject).eContainer().oclAsType(domain::Controls).uid = '"
+						+ frm.getDatacontrols().getFormControl().getUid()
+						+ "')->collect(w|w.master)->reject(q|domain::Relation.allInstances()->select(r|r.isTree=true and r.oclAsType(ecore::EObject).eContainer().oclAsType(domain::Controls).uid = '"
+						+ frm.getDatacontrols().getFormControl().getUid()
+						+ "')->collect(w|w.detail)->includes(q))");
+
+		Collection<domain.DataControl> map = (Collection<domain.DataControl>) ocl
+				.evaluate(frm, query);
+
+		query = helper
+				.createQuery("domain::Relation.allInstances()->select(r|r.isTree=true and  r.master=r.detail and r.oclAsType(ecore::EObject).eContainer().oclAsType(domain::Controls).uid = '"
+						+ frm.getDatacontrols().getFormControl().getUid()
+						+ "')->collect(w|w.master)");
+
+		Collection<domain.DataControl> map1 = (Collection<domain.DataControl>) ocl
+				.evaluate(frm, query);
+
+		ArrayList<domain.DataControl> ls = new ArrayList<>();
+		ls.addAll(map);
+		ls.addAll(map1);
+
+		return ls;
+
+	}
+
+	@SuppressWarnings({ "rawtypes", "unchecked" })
+	public Collection<domain.DataControl> findMasterControls(domain.Form frm)
+			throws Exception {
+
+		OCL ocl = OCL.newInstance(EcoreEnvironmentFactory.INSTANCE);
+		OCLHelper<EClassifier, ?, ?, Constraint> helper = ocl.createOCLHelper();
+		helper.setContext(DomainPackage.eINSTANCE.getEClassifier("Domain"));
+
+		OCLExpression<EClassifier> query = helper
+				.createQuery("domain::DataControl.allInstances()->select(r|r.oclAsType(ecore::EObject).eContainer().oclAsType(domain::Controls).uid = '"
+						+ frm.getDatacontrols().getFormControl().getUid()
+						+ "' )->reject(q|domain::Relation.allInstances()->select(r|r.oclAsType(ecore::EObject).eContainer().oclAsType(domain::Controls).uid = '"
+						+ frm.getDatacontrols().getFormControl().getUid()
+						+ "' )->collect(w|w.detail)->includes(q))");
+
+		Collection<domain.DataControl> map = ((Collection<domain.DataControl>) ocl
+				.evaluate(frm, query));
+
+		for (domain.DataControl obj : findTreeRootControls(frm))
+			map.remove(obj);
+		
+		return map;
+
+	}
+
+	@SuppressWarnings({ "rawtypes", "unchecked" })
+	public Collection<domain.DataControl> findDetailAndDependencyControls(
+			domain.Form frm) throws Exception {
+
+		OCL ocl = OCL.newInstance(EcoreEnvironmentFactory.INSTANCE);
+		OCLHelper<EClassifier, ?, ?, Constraint> helper = ocl.createOCLHelper();
+		helper.setContext(DomainPackage.eINSTANCE.getEClassifier("Domain"));
+
+		OCLExpression<EClassifier> query = helper
+				.createQuery("domain::Relation.allInstances()->select(r|r.isTree=false and r.oclAsType(ecore::EObject).eContainer().oclAsType(domain::Controls).uid = '"
+						+ frm.getDatacontrols().getFormControl().getUid()
+						+ "')->collect(w|w.detail)");
+
+		Collection<domain.DataControl> map = (Collection<domain.DataControl>) ocl
+				.evaluate(frm, query);
+
+		for (domain.DataControl obj : findTreeRootControls(frm))
+			map.remove(obj);
+
+		return map;
+
+	}
+
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public Object[] findMappingSpecifiers(domain.ModelMapper eObject,
 			EObject types) throws Exception {
@@ -411,7 +567,8 @@ public class QueryHelper {
 	}
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
-	public domain.DomainArtifacts getDomainArtifact(EObject obj) throws Exception {
+	public domain.DomainArtifacts getDomainArtifact(EObject obj)
+			throws Exception {
 		OCL ocl = OCL.newInstance(EcoreEnvironmentFactory.INSTANCE);
 		OCLHelper<EClassifier, ?, ?, Constraint> helper = ocl.createOCLHelper();
 		helper.setContext(DomainPackage.eINSTANCE.getEClassifier("Domain"));
@@ -419,8 +576,8 @@ public class QueryHelper {
 		OCLExpression<EClassifier> query = helper
 				.createQuery("domain::DomainArtifacts.allInstances()");
 
-		Collection<domain.DomainArtifacts> map = (Collection<domain.DomainArtifacts>) ocl.evaluate(
-				obj, query);
+		Collection<domain.DomainArtifacts> map = (Collection<domain.DomainArtifacts>) ocl
+				.evaluate(obj, query);
 		if (map != null && map.size() != 0)
 			return (domain.DomainArtifacts) map.toArray()[0];
 
@@ -428,8 +585,6 @@ public class QueryHelper {
 
 	}
 
-	
-	
 	class ParameterComparator implements Comparator<domain.Parameter> {
 
 		@Override
@@ -448,7 +603,8 @@ public class QueryHelper {
 			if (o1.getRefObj() == null || o2.getRefObj() == null)
 				return -1;
 			return new Integer(((domain.Parameter) o1.getRefObj()).getOrder())
-					.compareTo(new Integer(((domain.Parameter) o2.getRefObj()).getOrder()));
+					.compareTo(new Integer(((domain.Parameter) o2.getRefObj())
+							.getOrder()));
 		}
 
 	}
@@ -523,11 +679,11 @@ public class QueryHelper {
 			helper.setContext(DomainPackage.eINSTANCE.getEClassifier("Domain"));
 
 			OCLExpression<EClassifier> query = helper
-					.createQuery( "domain::Package.allInstances()->select(r|r.oclAsType(domain::Package).name='"+ InitDiagram.BASE_PACKAGE + "').oclAsType(domain::Package)."
-			+"typedefinition.types->select(r|(r.oclIsKindOf(domain::Type) and  r.oclAsType(domain::Type).name = 'Search criterias') )");
-			
-			
-			
+					.createQuery("domain::Package.allInstances()->select(r|r.oclAsType(domain::Package).name='"
+							+ InitDiagram.BASE_PACKAGE
+							+ "').oclAsType(domain::Package)."
+							+ "typedefinition.types->select(r|(r.oclIsKindOf(domain::Type) and  r.oclAsType(domain::Type).name = 'Search criterias') )");
+
 			@SuppressWarnings("unchecked")
 			Collection<domain.Primitive> map = (Collection<domain.Primitive>) ocl
 					.evaluate(obj, query);
@@ -541,7 +697,7 @@ public class QueryHelper {
 		return null;
 
 	}
-	
+
 	public domain.TypeElement findStringType(Object obj) {
 		try {
 			@SuppressWarnings("rawtypes")
@@ -568,7 +724,6 @@ public class QueryHelper {
 		return null;
 
 	}
-	
 
 	public domain.TypeElement findIntegerType(Object obj) {
 		try {
@@ -596,9 +751,7 @@ public class QueryHelper {
 		return null;
 
 	}
-	
-	
-	
+
 	public domain.TypeElement findBooleanType(Object obj) {
 		try {
 			@SuppressWarnings("rawtypes")
@@ -664,7 +817,7 @@ public class QueryHelper {
 					domain.ViewArea viewarea = itr.next();
 					if (viewarea.getCanvasView() != null)
 						findNick(nickNamed, viewarea.getCanvasView()
-								.getBaseCanvas(),obj);
+								.getBaseCanvas(), obj);
 				}
 			}
 
@@ -684,15 +837,17 @@ public class QueryHelper {
 
 	}
 
-	private void findNick(List<domain.Uielement> list, domain.LayerHolder holder,domain.Uielement exception) {
+	private void findNick(List<domain.Uielement> list,
+			domain.LayerHolder holder, domain.Uielement exception) {
 		for (Iterator<domain.Uielement> itr = holder.getChildren().iterator(); itr
 				.hasNext();) {
 
 			domain.Uielement el = itr.next();
 			if (el instanceof domain.LayerHolder)
-				findNick(list, (domain.LayerHolder) el,exception);
+				findNick(list, (domain.LayerHolder) el, exception);
 
-			if (el.getNickname() != null && !el.getUid().equals(exception.getUid()))
+			if (el.getNickname() != null
+					&& !el.getUid().equals(exception.getUid()))
 				list.add(el);
 		}
 	}

@@ -54,9 +54,12 @@ public abstract class ContextParameterPropertySelection extends GridProperty {
 	public ContextParameterPropertySelection() {
 		ds = getDS();
 	}
-	
+
 	public abstract String contextRefNameExtreactor(domain.ContextParameter obj);
-	public abstract domain.TypeElement contextRefTypeExtreactor(domain.ContextParameter obj);
+
+	public abstract domain.TypeElement contextRefTypeExtreactor(
+			domain.ContextParameter obj);
+
 	protected abstract DataSource getDS();
 
 	@Override
@@ -126,8 +129,10 @@ public abstract class ContextParameterPropertySelection extends GridProperty {
 		public Object getValue(Object element) {
 			String result = "";
 			domain.ContextParameter task = (domain.ContextParameter) element;
-			if (  ((ContextParameterPropertySelection) property).contextRefNameExtreactor(task) != null)
-				result = ((ContextParameterPropertySelection) property).contextRefNameExtreactor(task);
+			if (((ContextParameterPropertySelection) property)
+					.contextRefNameExtreactor(task) != null)
+				result = ((ContextParameterPropertySelection) property)
+						.contextRefNameExtreactor(task);
 			return result;
 		}
 
@@ -335,52 +340,32 @@ public abstract class ContextParameterPropertySelection extends GridProperty {
 		DiagramImpl root = (DiagramImpl) this.getEditPart().getRoot()
 				.getContents().getModel();
 
-		domain.Controls controls = null;
-		domain.Form frm = null;
-		if (root.getElement() instanceof domain.Controls) {
-			frm = (Form) ((domain.Controls) root.getElement()).getParent()
-					.eContainer();
-		}
-		if (root.getElement() instanceof domain.CanvasView) {
-
-			domain.Views views = (Views) (((domain.CanvasView) root
-					.getElement()).getParent().eContainer().eContainer());
-
-			frm = (domain.Form) (views.getParent().eContainer());
-		}
-
-		if (root.getElement() instanceof domain.Views) {
-
-			domain.Views views = (Views) root.getElement();
-			frm = (domain.Form) (views.getParent().eContainer());
-		}
-
-		
-		if (frm.getDatacontrols() != null) {
-			controls = frm.getDatacontrols().getFormControl();
-			rootOfTree.addChild(controls);
-		}
-
-		domain.ApplicationRole appRole = ((domain.UIPackage) frm.eContainer())
-				.getParent().getParent().getParent().getApplicationRole();
-
-		if (appRole != null) {
-			rootOfTree.addChild(appRole);
-		}
-
 		try {
+			for (Object obj : new QueryHelper().getControlsList(root))
+				rootOfTree.addChild(obj);
+
+			rootOfTree.addChild(new QueryHelper().getTypesRepository(root
+					.getElement()));
+
 			rootOfTree.addChild(new QueryHelper().getTypesRepository(root
 					.getElement()));
 		} catch (Exception e) {
 			// ignore
 		}
+
+		Object obj = new QueryHelper().getApplicationRoles(root);
+
+		if (obj != null) {
+			rootOfTree.addChild(obj);
+		}
+
 		return rootOfTree;
 	}
 
 	public void updateExpressionValue(EditingDomain editingDomain,
 			domain.ContextParameter param, TreePath path) {
 
-		if (contextRefNameExtreactor(param)== null) {
+		if (contextRefNameExtreactor(param) == null) {
 			showError("Parameter type is undefined");
 			return;
 		}
@@ -443,10 +428,12 @@ public abstract class ContextParameterPropertySelection extends GridProperty {
 						.getTrigger());
 
 			if (part.getObjRef() != null)
-				part.setExpressionType(part.getObjRef().getClass().getSimpleName());
+				part.setExpressionType(part.getObjRef().getClass()
+						.getSimpleName());
 			else
-				part.setExpressionType(path.getSegment(i).getClass().getSimpleName());
-			
+				part.setExpressionType(path.getSegment(i).getClass()
+						.getSimpleName());
+
 			part.setOrder(i);
 			ls.add(part);
 
