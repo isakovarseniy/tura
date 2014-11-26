@@ -1091,6 +1091,7 @@ public class DomainSwitch<T> extends Switch<T>
         Tree tree = (Tree)theEObject;
         T result = caseTree(tree);
         if (result == null) result = caseSourcesPointer(tree);
+        if (result == null) result = caseHTMLLayerHolder(tree);
         if (result == null) result = caseMultiLangLabel(tree);
         if (result == null) result = caseUielement(tree);
         if (result == null) result = caseStyleElement(tree);

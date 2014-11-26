@@ -18,6 +18,7 @@ import org.eclipse.gmf.runtime.notation.View;
 
 import canvas.diagram.edit.parts.ButtonLabel2EditPart;
 import canvas.diagram.edit.parts.ButtonLabelEditPart;
+import canvas.diagram.edit.parts.ColumnLabel2EditPart;
 import canvas.diagram.edit.parts.ColumnLabelEditPart;
 import canvas.diagram.edit.parts.LabelLabel2EditPart;
 import canvas.diagram.edit.parts.LabelLabelEditPart;
@@ -51,24 +52,6 @@ public class DomainParserProvider extends AbstractProvider implements
 			buttonLabel_1605006Parser = parser;
 		}
 		return buttonLabel_1605006Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	private IParser labelLabel_1605001Parser;
-
-	/**
-	 * @generated
-	 */
-	private IParser getLabelLabel_1605001Parser() {
-		if (labelLabel_1605001Parser == null) {
-			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE
-					.getLabel_Label() };
-			MessageFormatParser parser = new MessageFormatParser(features);
-			labelLabel_1605001Parser = parser;
-		}
-		return labelLabel_1605001Parser;
 	}
 
 	/**
@@ -128,24 +111,6 @@ public class DomainParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	private IParser labelLabel_1605002Parser;
-
-	/**
-	 * @generated
-	 */
-	private IParser getLabelLabel_1605002Parser() {
-		if (labelLabel_1605002Parser == null) {
-			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE
-					.getLabel_Label() };
-			MessageFormatParser parser = new MessageFormatParser(features);
-			labelLabel_1605002Parser = parser;
-		}
-		return labelLabel_1605002Parser;
-	}
-
-	/**
-	 * @generated
-	 */
 	private IParser tableLabel_1605007Parser;
 
 	/**
@@ -159,24 +124,6 @@ public class DomainParserProvider extends AbstractProvider implements
 			tableLabel_1605007Parser = parser;
 		}
 		return tableLabel_1605007Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	private IParser treeLabel_1605005Parser;
-
-	/**
-	 * @generated
-	 */
-	private IParser getTreeLabel_1605005Parser() {
-		if (treeLabel_1605005Parser == null) {
-			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE
-					.getTree_Label() };
-			MessageFormatParser parser = new MessageFormatParser(features);
-			treeLabel_1605005Parser = parser;
-		}
-		return treeLabel_1605005Parser;
 	}
 
 	/**
@@ -200,6 +147,78 @@ public class DomainParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
+	private IParser columnLabel_1605012Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getColumnLabel_1605012Parser() {
+		if (columnLabel_1605012Parser == null) {
+			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE
+					.getColumn_Label() };
+			MessageFormatParser parser = new MessageFormatParser(features);
+			columnLabel_1605012Parser = parser;
+		}
+		return columnLabel_1605012Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	private IParser treeLabel_1605005Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getTreeLabel_1605005Parser() {
+		if (treeLabel_1605005Parser == null) {
+			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE
+					.getTree_Label() };
+			MessageFormatParser parser = new MessageFormatParser(features);
+			treeLabel_1605005Parser = parser;
+		}
+		return treeLabel_1605005Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	private IParser labelLabel_1605001Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getLabelLabel_1605001Parser() {
+		if (labelLabel_1605001Parser == null) {
+			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE
+					.getLabel_Label() };
+			MessageFormatParser parser = new MessageFormatParser(features);
+			labelLabel_1605001Parser = parser;
+		}
+		return labelLabel_1605001Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	private IParser labelLabel_1605002Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getLabelLabel_1605002Parser() {
+		if (labelLabel_1605002Parser == null) {
+			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE
+					.getLabel_Label() };
+			MessageFormatParser parser = new MessageFormatParser(features);
+			labelLabel_1605002Parser = parser;
+		}
+		return labelLabel_1605002Parser;
+	}
+
+	/**
+	 * @generated
+	 */
 	protected IParser getParser(int visualID) {
 		switch (visualID) {
 		case ButtonLabelEditPart.VISUAL_ID:
@@ -213,11 +232,13 @@ public class DomainParserProvider extends AbstractProvider implements
 		case TableLabel2EditPart.VISUAL_ID:
 			return getTableLabel_1605007Parser();
 		case TreeLabelEditPart.VISUAL_ID:
+			return getTreeLabel_1605008Parser();
+		case ColumnLabel2EditPart.VISUAL_ID:
+			return getColumnLabel_1605012Parser();
+		case TreeLabel2EditPart.VISUAL_ID:
 			return getTreeLabel_1605005Parser();
 		case LabelLabelEditPart.VISUAL_ID:
 			return getLabelLabel_1605001Parser();
-		case TreeLabel2EditPart.VISUAL_ID:
-			return getTreeLabel_1605008Parser();
 		case LabelLabel2EditPart.VISUAL_ID:
 			return getLabelLabel_1605002Parser();
 		}

@@ -4,7 +4,6 @@
 package canvas.diagram.part;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 import org.eclipse.gef.Tool;
@@ -88,10 +87,12 @@ public class DomainPaletteFactory {
 	 * @generated
 	 */
 	private ToolEntry createColumn3CreationTool() {
+		ArrayList<IElementType> types = new ArrayList<IElementType>(2);
+		types.add(DomainElementTypes.Column_1603024);
+		types.add(DomainElementTypes.Column_1603026);
 		NodeToolEntry entry = new NodeToolEntry(
 				Messages.Column3CreationTool_title,
-				Messages.Column3CreationTool_desc,
-				Collections.singletonList(DomainElementTypes.Column_1603024));
+				Messages.Column3CreationTool_desc, types);
 		entry.setId("createColumn3CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(DomainDiagramEditorPlugin
 				.findImageDescriptor("/org.tura.metamodel.commons/icons/column.png")); //$NON-NLS-1$
@@ -207,8 +208,8 @@ public class DomainPaletteFactory {
 	 */
 	private ToolEntry createTree10CreationTool() {
 		ArrayList<IElementType> types = new ArrayList<IElementType>(2);
-		types.add(DomainElementTypes.Tree_1603016);
 		types.add(DomainElementTypes.Tree_1603022);
+		types.add(DomainElementTypes.Tree_1603016);
 		NodeToolEntry entry = new NodeToolEntry(
 				Messages.Tree10CreationTool_title,
 				Messages.Tree10CreationTool_desc, types);

@@ -23,6 +23,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <ul>
  *   <li>{@link domain.impl.OptionSelectionImpl#getOptionPointer <em>Option Pointer</em>}</li>
  *   <li>{@link domain.impl.OptionSelectionImpl#getOptionCast <em>Option Cast</em>}</li>
+ *   <li>{@link domain.impl.OptionSelectionImpl#getOptionCastDataControl <em>Option Cast Data Control</em>}</li>
  * </ul>
  * </p>
  *
@@ -49,6 +50,16 @@ public class OptionSelectionImpl extends InputElementImpl implements OptionSelec
    * @ordered
    */
   protected Type optionCast;
+
+  /**
+   * The cached value of the '{@link #getOptionCastDataControl() <em>Option Cast Data Control</em>}' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getOptionCastDataControl()
+   * @generated
+   * @ordered
+   */
+  protected DataControl optionCastDataControl;
 
   /**
    * <!-- begin-user-doc -->
@@ -162,6 +173,49 @@ public class OptionSelectionImpl extends InputElementImpl implements OptionSelec
    * <!-- end-user-doc -->
    * @generated
    */
+  public DataControl getOptionCastDataControl()
+  {
+    if (optionCastDataControl != null && optionCastDataControl.eIsProxy())
+    {
+      InternalEObject oldOptionCastDataControl = (InternalEObject)optionCastDataControl;
+      optionCastDataControl = (DataControl)eResolveProxy(oldOptionCastDataControl);
+      if (optionCastDataControl != oldOptionCastDataControl)
+      {
+        if (eNotificationRequired())
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, DomainPackage.OPTION_SELECTION__OPTION_CAST_DATA_CONTROL, oldOptionCastDataControl, optionCastDataControl));
+      }
+    }
+    return optionCastDataControl;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public DataControl basicGetOptionCastDataControl()
+  {
+    return optionCastDataControl;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setOptionCastDataControl(DataControl newOptionCastDataControl)
+  {
+    DataControl oldOptionCastDataControl = optionCastDataControl;
+    optionCastDataControl = newOptionCastDataControl;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.OPTION_SELECTION__OPTION_CAST_DATA_CONTROL, oldOptionCastDataControl, optionCastDataControl));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
@@ -173,6 +227,9 @@ public class OptionSelectionImpl extends InputElementImpl implements OptionSelec
       case DomainPackage.OPTION_SELECTION__OPTION_CAST:
         if (resolve) return getOptionCast();
         return basicGetOptionCast();
+      case DomainPackage.OPTION_SELECTION__OPTION_CAST_DATA_CONTROL:
+        if (resolve) return getOptionCastDataControl();
+        return basicGetOptionCastDataControl();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -192,6 +249,9 @@ public class OptionSelectionImpl extends InputElementImpl implements OptionSelec
         return;
       case DomainPackage.OPTION_SELECTION__OPTION_CAST:
         setOptionCast((Type)newValue);
+        return;
+      case DomainPackage.OPTION_SELECTION__OPTION_CAST_DATA_CONTROL:
+        setOptionCastDataControl((DataControl)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -213,6 +273,9 @@ public class OptionSelectionImpl extends InputElementImpl implements OptionSelec
       case DomainPackage.OPTION_SELECTION__OPTION_CAST:
         setOptionCast((Type)null);
         return;
+      case DomainPackage.OPTION_SELECTION__OPTION_CAST_DATA_CONTROL:
+        setOptionCastDataControl((DataControl)null);
+        return;
     }
     super.eUnset(featureID);
   }
@@ -231,6 +294,8 @@ public class OptionSelectionImpl extends InputElementImpl implements OptionSelec
         return optionPointer != null;
       case DomainPackage.OPTION_SELECTION__OPTION_CAST:
         return optionCast != null;
+      case DomainPackage.OPTION_SELECTION__OPTION_CAST_DATA_CONTROL:
+        return optionCastDataControl != null;
     }
     return super.eIsSet(featureID);
   }

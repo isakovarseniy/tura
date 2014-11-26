@@ -3,6 +3,7 @@ package org.tura.metamodel.commons.properties.selections.adapters;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.ui.model.IWorkbenchAdapter;
 import org.tura.metamodel.commons.properties.selections.adapters.helper.DataControlFakeMethod;
+import org.tura.metamodel.commons.properties.selections.adapters.helper.ExtendedType;
 
 public class DataControlFakeMethodProvider  implements IWorkbenchAdapter ,IReturnTypeProvider{
 
@@ -15,7 +16,11 @@ public class DataControlFakeMethodProvider  implements IWorkbenchAdapter ,IRetur
 	@Override
 	public Object[] getChildren(Object o) {
 		DataControlFakeMethod attr = (DataControlFakeMethod) o;
-		return new Object[]{attr.getType()};
+		ExtendedType  ex = new ExtendedType(attr.getType());
+		for (domain.ArtificialField f : attr.getDc().getArtificialFields()){
+			ex.getLs().add(f);
+		}
+		return new Object[]{ex};
 	}
 
 	@Override

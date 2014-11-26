@@ -60,14 +60,16 @@ public class SourcesPointerValuePointer implements DropDownDataSupplier {
 
 	public Object[] getWatchPointObject(Object eObject) {
 		return new Object[] {((domain.SourcesPointer) eObject).getSourcePointer(),
-				((domain.SourcesPointer) eObject).getSourceCast()
+				((domain.SourcesPointer) eObject).getSourceCast(),
+				((domain.SourcesPointer) eObject).getSourceCastDataControl()
 				};
 	}
 
 	public EStructuralFeature[] getWatchPointFeature() {
 		return new EStructuralFeature[] 
 				{ DomainPackage.eINSTANCE.getSourcesPointer_SourcePointer(),
-				  DomainPackage.eINSTANCE.getSourcesPointer_SourceCast()
+				  DomainPackage.eINSTANCE.getSourcesPointer_SourceCast(),
+				  DomainPackage.eINSTANCE.getSourcesPointer_SourceCastDataControl()
 				};
 	}
 

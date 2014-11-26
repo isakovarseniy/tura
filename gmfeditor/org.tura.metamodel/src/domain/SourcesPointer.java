@@ -15,6 +15,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link domain.SourcesPointer#getSourcePointer <em>Source Pointer</em>}</li>
  *   <li>{@link domain.SourcesPointer#getValuePointer <em>Value Pointer</em>}</li>
  *   <li>{@link domain.SourcesPointer#getSourceCast <em>Source Cast</em>}</li>
+ *   <li>{@link domain.SourcesPointer#getSourceCastDataControl <em>Source Cast Data Control</em>}</li>
  * </ul>
  * </p>
  *
@@ -101,5 +102,31 @@ public interface SourcesPointer extends Uielement
    * @generated
    */
   void setSourceCast(Type value);
+
+  /**
+   * Returns the value of the '<em><b>Source Cast Data Control</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Source Cast Data Control</em>' reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Source Cast Data Control</em>' reference.
+   * @see #setSourceCastDataControl(DataControl)
+   * @see domain.DomainPackage#getSourcesPointer_SourceCastDataControl()
+   * @model
+   * @generated
+   */
+  DataControl getSourceCastDataControl();
+
+  /**
+   * Sets the value of the '{@link domain.SourcesPointer#getSourceCastDataControl <em>Source Cast Data Control</em>}' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Source Cast Data Control</em>' reference.
+   * @see #getSourceCastDataControl()
+   * @generated
+   */
+  void setSourceCastDataControl(DataControl value);
 
 } // SourcesPointer

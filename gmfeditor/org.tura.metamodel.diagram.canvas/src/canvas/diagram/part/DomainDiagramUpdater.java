@@ -16,6 +16,8 @@ import canvas.diagram.edit.parts.ButtonEditPart;
 import canvas.diagram.edit.parts.CanvasViewEditPart;
 import canvas.diagram.edit.parts.CheckBox2EditPart;
 import canvas.diagram.edit.parts.CheckBoxEditPart;
+import canvas.diagram.edit.parts.Column2EditPart;
+import canvas.diagram.edit.parts.ColumnColumnElementCompartment2EditPart;
 import canvas.diagram.edit.parts.ColumnColumnElementCompartmentEditPart;
 import canvas.diagram.edit.parts.ColumnEditPart;
 import canvas.diagram.edit.parts.DropDownSelection2EditPart;
@@ -38,10 +40,13 @@ import canvas.diagram.edit.parts.TableTableColsCompartment2EditPart;
 import canvas.diagram.edit.parts.TableTableColsCompartmentEditPart;
 import canvas.diagram.edit.parts.Tree2EditPart;
 import canvas.diagram.edit.parts.TreeEditPart;
+import canvas.diagram.edit.parts.TreeTreeColsCompartment2EditPart;
+import canvas.diagram.edit.parts.TreeTreeColsCompartmentEditPart;
 import domain.CanvasView;
 import domain.Column;
 import domain.LayerHolder;
 import domain.Table;
+import domain.Tree;
 import domain.Uielement;
 
 /**
@@ -72,8 +77,14 @@ public class DomainDiagramUpdater {
 			return getColumnColumnElementCompartment_1607011SemanticChildren(view);
 		case TableTableColsCompartment2EditPart.VISUAL_ID:
 			return getTableTableColsCompartment_1607010SemanticChildren(view);
+		case TreeTreeColsCompartmentEditPart.VISUAL_ID:
+			return getTreeTreeColsCompartment_1607014SemanticChildren(view);
+		case ColumnColumnElementCompartment2EditPart.VISUAL_ID:
+			return getColumnColumnElementCompartment_1607015SemanticChildren(view);
 		case LayerHolderLayerHolderChildrenCompartment2EditPart.VISUAL_ID:
 			return getLayerHolderLayerHolderChildrenCompartment_1607009SemanticChildren(view);
+		case TreeTreeColsCompartment2EditPart.VISUAL_ID:
+			return getTreeTreeColsCompartment_1607012SemanticChildren(view);
 		case LayerHolderLayerHolderChildrenCompartment3EditPart.VISUAL_ID:
 			return getLayerHolderLayerHolderChildrenCompartment_1607008SemanticChildren(view);
 		}
@@ -132,6 +143,10 @@ public class DomainDiagramUpdater {
 				result.add(new DomainNodeDescriptor(childElement, visualID));
 				continue;
 			}
+			if (visualID == Tree2EditPart.VISUAL_ID) {
+				result.add(new DomainNodeDescriptor(childElement, visualID));
+				continue;
+			}
 			if (visualID == LayerHolder3EditPart.VISUAL_ID) {
 				result.add(new DomainNodeDescriptor(childElement, visualID));
 				continue;
@@ -145,10 +160,6 @@ public class DomainDiagramUpdater {
 				continue;
 			}
 			if (visualID == CheckBoxEditPart.VISUAL_ID) {
-				result.add(new DomainNodeDescriptor(childElement, visualID));
-				continue;
-			}
-			if (visualID == TreeEditPart.VISUAL_ID) {
 				result.add(new DomainNodeDescriptor(childElement, visualID));
 				continue;
 			}
@@ -213,6 +224,9 @@ public class DomainDiagramUpdater {
 			if (visualID == Table2EditPart.VISUAL_ID) {
 				result.add(new DomainNodeDescriptor(childElement, visualID));
 			}
+			if (visualID == TreeEditPart.VISUAL_ID) {
+				result.add(new DomainNodeDescriptor(childElement, visualID));
+			}
 			if (visualID == LayerHolder2EditPart.VISUAL_ID) {
 				result.add(new DomainNodeDescriptor(childElement, visualID));
 			}
@@ -223,9 +237,6 @@ public class DomainDiagramUpdater {
 				result.add(new DomainNodeDescriptor(childElement, visualID));
 			}
 			if (visualID == CheckBox2EditPart.VISUAL_ID) {
-				result.add(new DomainNodeDescriptor(childElement, visualID));
-			}
-			if (visualID == Tree2EditPart.VISUAL_ID) {
 				result.add(new DomainNodeDescriptor(childElement, visualID));
 			}
 			if (visualID == Label2EditPart.VISUAL_ID) {
@@ -264,6 +275,81 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
+	public static List<DomainNodeDescriptor> getTreeTreeColsCompartment_1607014SemanticChildren(
+			View view) {
+		if (false == view.eContainer() instanceof View) {
+			return Collections.emptyList();
+		}
+		View containerView = (View) view.eContainer();
+		if (!containerView.isSetElement()) {
+			return Collections.emptyList();
+		}
+		Tree modelElement = (Tree) containerView.getElement();
+		LinkedList<DomainNodeDescriptor> result = new LinkedList<DomainNodeDescriptor>();
+		for (Iterator<?> it = modelElement.getCols().iterator(); it.hasNext();) {
+			Column childElement = (Column) it.next();
+			int visualID = DomainVisualIDRegistry.getNodeVisualID(view,
+					childElement);
+			if (visualID == Column2EditPart.VISUAL_ID) {
+				result.add(new DomainNodeDescriptor(childElement, visualID));
+				continue;
+			}
+		}
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<DomainNodeDescriptor> getColumnColumnElementCompartment_1607015SemanticChildren(
+			View view) {
+		if (false == view.eContainer() instanceof View) {
+			return Collections.emptyList();
+		}
+		View containerView = (View) view.eContainer();
+		if (!containerView.isSetElement()) {
+			return Collections.emptyList();
+		}
+		Column modelElement = (Column) containerView.getElement();
+		LinkedList<DomainNodeDescriptor> result = new LinkedList<DomainNodeDescriptor>();
+		{
+			Uielement childElement = modelElement.getElement();
+			int visualID = DomainVisualIDRegistry.getNodeVisualID(view,
+					childElement);
+			if (visualID == Button2EditPart.VISUAL_ID) {
+				result.add(new DomainNodeDescriptor(childElement, visualID));
+			}
+			if (visualID == DropDownSelection2EditPart.VISUAL_ID) {
+				result.add(new DomainNodeDescriptor(childElement, visualID));
+			}
+			if (visualID == Table2EditPart.VISUAL_ID) {
+				result.add(new DomainNodeDescriptor(childElement, visualID));
+			}
+			if (visualID == TreeEditPart.VISUAL_ID) {
+				result.add(new DomainNodeDescriptor(childElement, visualID));
+			}
+			if (visualID == LayerHolder2EditPart.VISUAL_ID) {
+				result.add(new DomainNodeDescriptor(childElement, visualID));
+			}
+			if (visualID == InputText2EditPart.VISUAL_ID) {
+				result.add(new DomainNodeDescriptor(childElement, visualID));
+			}
+			if (visualID == OutputText2EditPart.VISUAL_ID) {
+				result.add(new DomainNodeDescriptor(childElement, visualID));
+			}
+			if (visualID == CheckBox2EditPart.VISUAL_ID) {
+				result.add(new DomainNodeDescriptor(childElement, visualID));
+			}
+			if (visualID == Label2EditPart.VISUAL_ID) {
+				result.add(new DomainNodeDescriptor(childElement, visualID));
+			}
+		}
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
 	public static List<DomainNodeDescriptor> getLayerHolderLayerHolderChildrenCompartment_1607009SemanticChildren(
 			View view) {
 		if (false == view.eContainer() instanceof View) {
@@ -292,6 +378,10 @@ public class DomainDiagramUpdater {
 				result.add(new DomainNodeDescriptor(childElement, visualID));
 				continue;
 			}
+			if (visualID == Tree2EditPart.VISUAL_ID) {
+				result.add(new DomainNodeDescriptor(childElement, visualID));
+				continue;
+			}
 			if (visualID == LayerHolder3EditPart.VISUAL_ID) {
 				result.add(new DomainNodeDescriptor(childElement, visualID));
 				continue;
@@ -308,11 +398,33 @@ public class DomainDiagramUpdater {
 				result.add(new DomainNodeDescriptor(childElement, visualID));
 				continue;
 			}
-			if (visualID == TreeEditPart.VISUAL_ID) {
+			if (visualID == LabelEditPart.VISUAL_ID) {
 				result.add(new DomainNodeDescriptor(childElement, visualID));
 				continue;
 			}
-			if (visualID == LabelEditPart.VISUAL_ID) {
+		}
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<DomainNodeDescriptor> getTreeTreeColsCompartment_1607012SemanticChildren(
+			View view) {
+		if (false == view.eContainer() instanceof View) {
+			return Collections.emptyList();
+		}
+		View containerView = (View) view.eContainer();
+		if (!containerView.isSetElement()) {
+			return Collections.emptyList();
+		}
+		Tree modelElement = (Tree) containerView.getElement();
+		LinkedList<DomainNodeDescriptor> result = new LinkedList<DomainNodeDescriptor>();
+		for (Iterator<?> it = modelElement.getCols().iterator(); it.hasNext();) {
+			Column childElement = (Column) it.next();
+			int visualID = DomainVisualIDRegistry.getNodeVisualID(view,
+					childElement);
+			if (visualID == Column2EditPart.VISUAL_ID) {
 				result.add(new DomainNodeDescriptor(childElement, visualID));
 				continue;
 			}
@@ -351,6 +463,10 @@ public class DomainDiagramUpdater {
 				result.add(new DomainNodeDescriptor(childElement, visualID));
 				continue;
 			}
+			if (visualID == Tree2EditPart.VISUAL_ID) {
+				result.add(new DomainNodeDescriptor(childElement, visualID));
+				continue;
+			}
 			if (visualID == LayerHolder3EditPart.VISUAL_ID) {
 				result.add(new DomainNodeDescriptor(childElement, visualID));
 				continue;
@@ -364,10 +480,6 @@ public class DomainDiagramUpdater {
 				continue;
 			}
 			if (visualID == CheckBoxEditPart.VISUAL_ID) {
-				result.add(new DomainNodeDescriptor(childElement, visualID));
-				continue;
-			}
-			if (visualID == TreeEditPart.VISUAL_ID) {
 				result.add(new DomainNodeDescriptor(childElement, visualID));
 				continue;
 			}
@@ -402,8 +514,14 @@ public class DomainDiagramUpdater {
 			return getDropDownSelection_1603010ContainedLinks(view);
 		case Table2EditPart.VISUAL_ID:
 			return getTable_1603021ContainedLinks(view);
+		case TreeEditPart.VISUAL_ID:
+			return getTree_1603022ContainedLinks(view);
+		case Column2EditPart.VISUAL_ID:
+			return getColumn_1603026ContainedLinks(view);
 		case LayerHolder2EditPart.VISUAL_ID:
 			return getLayerHolder_1603020ContainedLinks(view);
+		case Tree2EditPart.VISUAL_ID:
+			return getTree_1603016ContainedLinks(view);
 		case LayerHolder3EditPart.VISUAL_ID:
 			return getLayerHolder_1603019ContainedLinks(view);
 		case InputTextEditPart.VISUAL_ID:
@@ -412,8 +530,6 @@ public class DomainDiagramUpdater {
 			return getOutputText_1603006ContainedLinks(view);
 		case CheckBoxEditPart.VISUAL_ID:
 			return getCheckBox_1603007ContainedLinks(view);
-		case TreeEditPart.VISUAL_ID:
-			return getTree_1603016ContainedLinks(view);
 		case LabelEditPart.VISUAL_ID:
 			return getLabel_1603005ContainedLinks(view);
 		case InputText2EditPart.VISUAL_ID:
@@ -422,8 +538,6 @@ public class DomainDiagramUpdater {
 			return getOutputText_1603014ContainedLinks(view);
 		case CheckBox2EditPart.VISUAL_ID:
 			return getCheckBox_1603015ContainedLinks(view);
-		case Tree2EditPart.VISUAL_ID:
-			return getTree_1603022ContainedLinks(view);
 		case Label2EditPart.VISUAL_ID:
 			return getLabel_1603013ContainedLinks(view);
 		}
@@ -451,8 +565,14 @@ public class DomainDiagramUpdater {
 			return getDropDownSelection_1603010IncomingLinks(view);
 		case Table2EditPart.VISUAL_ID:
 			return getTable_1603021IncomingLinks(view);
+		case TreeEditPart.VISUAL_ID:
+			return getTree_1603022IncomingLinks(view);
+		case Column2EditPart.VISUAL_ID:
+			return getColumn_1603026IncomingLinks(view);
 		case LayerHolder2EditPart.VISUAL_ID:
 			return getLayerHolder_1603020IncomingLinks(view);
+		case Tree2EditPart.VISUAL_ID:
+			return getTree_1603016IncomingLinks(view);
 		case LayerHolder3EditPart.VISUAL_ID:
 			return getLayerHolder_1603019IncomingLinks(view);
 		case InputTextEditPart.VISUAL_ID:
@@ -461,8 +581,6 @@ public class DomainDiagramUpdater {
 			return getOutputText_1603006IncomingLinks(view);
 		case CheckBoxEditPart.VISUAL_ID:
 			return getCheckBox_1603007IncomingLinks(view);
-		case TreeEditPart.VISUAL_ID:
-			return getTree_1603016IncomingLinks(view);
 		case LabelEditPart.VISUAL_ID:
 			return getLabel_1603005IncomingLinks(view);
 		case InputText2EditPart.VISUAL_ID:
@@ -471,8 +589,6 @@ public class DomainDiagramUpdater {
 			return getOutputText_1603014IncomingLinks(view);
 		case CheckBox2EditPart.VISUAL_ID:
 			return getCheckBox_1603015IncomingLinks(view);
-		case Tree2EditPart.VISUAL_ID:
-			return getTree_1603022IncomingLinks(view);
 		case Label2EditPart.VISUAL_ID:
 			return getLabel_1603013IncomingLinks(view);
 		}
@@ -500,8 +616,14 @@ public class DomainDiagramUpdater {
 			return getDropDownSelection_1603010OutgoingLinks(view);
 		case Table2EditPart.VISUAL_ID:
 			return getTable_1603021OutgoingLinks(view);
+		case TreeEditPart.VISUAL_ID:
+			return getTree_1603022OutgoingLinks(view);
+		case Column2EditPart.VISUAL_ID:
+			return getColumn_1603026OutgoingLinks(view);
 		case LayerHolder2EditPart.VISUAL_ID:
 			return getLayerHolder_1603020OutgoingLinks(view);
+		case Tree2EditPart.VISUAL_ID:
+			return getTree_1603016OutgoingLinks(view);
 		case LayerHolder3EditPart.VISUAL_ID:
 			return getLayerHolder_1603019OutgoingLinks(view);
 		case InputTextEditPart.VISUAL_ID:
@@ -510,8 +632,6 @@ public class DomainDiagramUpdater {
 			return getOutputText_1603006OutgoingLinks(view);
 		case CheckBoxEditPart.VISUAL_ID:
 			return getCheckBox_1603007OutgoingLinks(view);
-		case TreeEditPart.VISUAL_ID:
-			return getTree_1603016OutgoingLinks(view);
 		case LabelEditPart.VISUAL_ID:
 			return getLabel_1603005OutgoingLinks(view);
 		case InputText2EditPart.VISUAL_ID:
@@ -520,8 +640,6 @@ public class DomainDiagramUpdater {
 			return getOutputText_1603014OutgoingLinks(view);
 		case CheckBox2EditPart.VISUAL_ID:
 			return getCheckBox_1603015OutgoingLinks(view);
-		case Tree2EditPart.VISUAL_ID:
-			return getTree_1603022OutgoingLinks(view);
 		case Label2EditPart.VISUAL_ID:
 			return getLabel_1603013OutgoingLinks(view);
 		}
@@ -603,7 +721,31 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
+	public static List<DomainLinkDescriptor> getTree_1603022ContainedLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<DomainLinkDescriptor> getColumn_1603026ContainedLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
 	public static List<DomainLinkDescriptor> getLayerHolder_1603020ContainedLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<DomainLinkDescriptor> getTree_1603016ContainedLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -643,14 +785,6 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getTree_1603016ContainedLinks(
-			View view) {
-		return Collections.emptyList();
-	}
-
-	/**
-	 * @generated
-	 */
 	public static List<DomainLinkDescriptor> getLabel_1603005ContainedLinks(
 			View view) {
 		return Collections.emptyList();
@@ -676,14 +810,6 @@ public class DomainDiagramUpdater {
 	 * @generated
 	 */
 	public static List<DomainLinkDescriptor> getCheckBox_1603015ContainedLinks(
-			View view) {
-		return Collections.emptyList();
-	}
-
-	/**
-	 * @generated
-	 */
-	public static List<DomainLinkDescriptor> getTree_1603022ContainedLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -763,7 +889,31 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
+	public static List<DomainLinkDescriptor> getTree_1603022IncomingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<DomainLinkDescriptor> getColumn_1603026IncomingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
 	public static List<DomainLinkDescriptor> getLayerHolder_1603020IncomingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<DomainLinkDescriptor> getTree_1603016IncomingLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -803,14 +953,6 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getTree_1603016IncomingLinks(
-			View view) {
-		return Collections.emptyList();
-	}
-
-	/**
-	 * @generated
-	 */
 	public static List<DomainLinkDescriptor> getLabel_1603005IncomingLinks(
 			View view) {
 		return Collections.emptyList();
@@ -836,14 +978,6 @@ public class DomainDiagramUpdater {
 	 * @generated
 	 */
 	public static List<DomainLinkDescriptor> getCheckBox_1603015IncomingLinks(
-			View view) {
-		return Collections.emptyList();
-	}
-
-	/**
-	 * @generated
-	 */
-	public static List<DomainLinkDescriptor> getTree_1603022IncomingLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -923,7 +1057,31 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
+	public static List<DomainLinkDescriptor> getTree_1603022OutgoingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<DomainLinkDescriptor> getColumn_1603026OutgoingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
 	public static List<DomainLinkDescriptor> getLayerHolder_1603020OutgoingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<DomainLinkDescriptor> getTree_1603016OutgoingLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -963,14 +1121,6 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getTree_1603016OutgoingLinks(
-			View view) {
-		return Collections.emptyList();
-	}
-
-	/**
-	 * @generated
-	 */
 	public static List<DomainLinkDescriptor> getLabel_1603005OutgoingLinks(
 			View view) {
 		return Collections.emptyList();
@@ -996,14 +1146,6 @@ public class DomainDiagramUpdater {
 	 * @generated
 	 */
 	public static List<DomainLinkDescriptor> getCheckBox_1603015OutgoingLinks(
-			View view) {
-		return Collections.emptyList();
-	}
-
-	/**
-	 * @generated
-	 */
-	public static List<DomainLinkDescriptor> getTree_1603022OutgoingLinks(
 			View view) {
 		return Collections.emptyList();
 	}

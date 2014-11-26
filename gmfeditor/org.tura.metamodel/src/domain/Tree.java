@@ -2,6 +2,8 @@
  */
 package domain;
 
+import org.eclipse.emf.common.util.EList;
+
 
 /**
  * <!-- begin-user-doc -->
@@ -13,6 +15,7 @@ package domain;
  * <ul>
  *   <li>{@link domain.Tree#getLabel <em>Label</em>}</li>
  *   <li>{@link domain.Tree#getImage <em>Image</em>}</li>
+ *   <li>{@link domain.Tree#getCols <em>Cols</em>}</li>
  * </ul>
  * </p>
  *
@@ -20,7 +23,7 @@ package domain;
  * @model annotation="gmf.node label='label' tool.small.bundle='org.tura.metamodel.commons' tool.small.path='icons/tree.png'"
  * @generated
  */
-public interface Tree extends SourcesPointer, MultiLangLabel
+public interface Tree extends SourcesPointer, HTMLLayerHolder, MultiLangLabel
 {
   /**
    * Returns the value of the '<em><b>Label</b></em>' attribute.
@@ -73,5 +76,21 @@ public interface Tree extends SourcesPointer, MultiLangLabel
    * @generated
    */
   void setImage(Context value);
+
+  /**
+   * Returns the value of the '<em><b>Cols</b></em>' containment reference list.
+   * The list contents are of type {@link domain.Column}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Cols</em>' containment reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Cols</em>' containment reference list.
+   * @see domain.DomainPackage#getTree_Cols()
+   * @model containment="true"
+   * @generated
+   */
+  EList<Column> getCols();
 
 } // Tree

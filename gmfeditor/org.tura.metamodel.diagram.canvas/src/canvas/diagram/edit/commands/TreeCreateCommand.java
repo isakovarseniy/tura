@@ -15,7 +15,7 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.ConfigureRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 import org.eclipse.gmf.runtime.notation.View;
 
-import domain.ChildrenHolder;
+import domain.Column;
 import domain.DomainFactory;
 import domain.Tree;
 
@@ -48,6 +48,10 @@ public class TreeCreateCommand extends EditElementCommand {
 	 * @generated
 	 */
 	public boolean canExecute() {
+		Column container = (Column) getElementToEdit();
+		if (container.getElement() != null) {
+			return false;
+		}
 		return true;
 
 	}
@@ -59,8 +63,8 @@ public class TreeCreateCommand extends EditElementCommand {
 			IAdaptable info) throws ExecutionException {
 		Tree newElement = DomainFactory.eINSTANCE.createTree();
 
-		ChildrenHolder owner = (ChildrenHolder) getElementToEdit();
-		owner.getChildren().add(newElement);
+		Column owner = (Column) getElementToEdit();
+		owner.setElement(newElement);
 
 		newElement.setUid(java.util.UUID.randomUUID().toString());
 

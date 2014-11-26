@@ -604,6 +604,7 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference domain.ecore#//SourcesPointer/sourcePointer"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference domain.ecore#//SourcesPointer/valuePointer"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference domain.ecore#//SourcesPointer/sourceCast"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference domain.ecore#//SourcesPointer/sourceCastDataControl"/>
     </genClasses>
     <genClasses ecoreClass="domain.ecore#//ActionElement"/>
     <genClasses ecoreClass="domain.ecore#//InputElement"/>
@@ -614,6 +615,7 @@
     <genClasses ecoreClass="domain.ecore#//OptionSelection">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference domain.ecore#//OptionSelection/optionPointer"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference domain.ecore#//OptionSelection/optionCast"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference domain.ecore#//OptionSelection/optionCastDataControl"/>
     </genClasses>
     <genClasses ecoreClass="domain.ecore#//LayerHolder"/>
     <genClasses ecoreClass="domain.ecore#//InputText"/>
@@ -637,6 +639,7 @@
     <genClasses ecoreClass="domain.ecore#//Tree">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//Tree/label"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//Tree/image"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//Tree/cols"/>
     </genClasses>
     <genClasses ecoreClass="domain.ecore#//Button">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//Button/label"/>

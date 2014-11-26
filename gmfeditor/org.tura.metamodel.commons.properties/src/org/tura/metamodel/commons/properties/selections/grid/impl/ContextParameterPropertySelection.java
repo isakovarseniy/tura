@@ -36,11 +36,9 @@ import org.tura.metamodel.commons.properties.selections.grid.GridProperty;
 
 import domain.DomainFactory;
 import domain.DomainPackage;
-import domain.Form;
 import domain.Type;
 import domain.TypeElement;
 import domain.TypeReference;
-import domain.Views;
 
 public abstract class ContextParameterPropertySelection extends GridProperty {
 

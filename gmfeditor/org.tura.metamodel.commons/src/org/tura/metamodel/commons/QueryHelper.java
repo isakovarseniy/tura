@@ -26,6 +26,7 @@ import org.eclipse.ocl.expressions.OCLExpression;
 import org.eclipse.ocl.helper.OCLHelper;
 import org.tura.metamodel.commons.initdiagram.InitDiagram;
 import org.tura.metamodel.commons.properties.selections.adapters.helper.DataControlHolder;
+import org.tura.metamodel.commons.properties.selections.adapters.helper.TreeDataControl;
 import org.tura.metamodel.commons.properties.selections.adapters.helper.TreeRootDataControlHolder;
 
 import domain.ContextParameter;
@@ -56,7 +57,7 @@ public class QueryHelper {
 		return app.getApplicationMessages().getMessages();
 	}
 
-	private domain.Form getForm(DiagramImpl root) {
+	public domain.Form getForm(DiagramImpl root) {
 		domain.Form frm = null;
 
 		if (root.getElement() instanceof domain.Controls) {
@@ -79,6 +80,30 @@ public class QueryHelper {
 		}
 
 		return frm;
+	}
+
+	@SuppressWarnings({ "unchecked", "rawtypes" })
+	public void getTreeLeafs(List<domain.DataControl> ls,
+			domain.DataControl root) throws Exception {
+
+        ls.add(root);
+        
+		OCL ocl = OCL.newInstance(EcoreEnvironmentFactory.INSTANCE);
+		OCLHelper<EClassifier, ?, ?, Constraint> helper = ocl.createOCLHelper();
+		helper.setContext(DomainPackage.eINSTANCE.getEClassifier("Domain"));
+
+		OCLExpression<EClassifier> query = helper
+				.createQuery("domain::Relation.allInstances()->select(r|r.isTree=true and r.master.uid ='"
+						+ root.getUid() + "')->collect(r|r.detail)");
+
+		Collection<domain.DataControl> map = (Collection<domain.DataControl>) ocl
+				.evaluate(root, query);
+
+		for (domain.DataControl dc : map) {
+			if (!ls.contains(dc)) {
+				getTreeLeafs(ls, dc);
+			}
+		}
 	}
 
 	@SuppressWarnings({ "unchecked", "rawtypes" })
@@ -112,7 +137,7 @@ public class QueryHelper {
 	}
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
-	public Collection<domain.DataControl> findTreeRootControls(domain.Form frm)
+	public Collection<TreeDataControl> findTreeRootControls(domain.Form frm)
 			throws Exception {
 
 		OCL ocl = OCL.newInstance(EcoreEnvironmentFactory.INSTANCE);
@@ -137,9 +162,11 @@ public class QueryHelper {
 		Collection<domain.DataControl> map1 = (Collection<domain.DataControl>) ocl
 				.evaluate(frm, query);
 
-		ArrayList<domain.DataControl> ls = new ArrayList<>();
-		ls.addAll(map);
-		ls.addAll(map1);
+		ArrayList<TreeDataControl> ls = new ArrayList<>();
+		for (domain.DataControl dc : map)
+			ls.add(new TreeDataControl(dc));
+		for (domain.DataControl dc : map1)
+			ls.add(new TreeDataControl(dc));
 
 		return ls;
 
@@ -163,9 +190,9 @@ public class QueryHelper {
 		Collection<domain.DataControl> map = ((Collection<domain.DataControl>) ocl
 				.evaluate(frm, query));
 
-		for (domain.DataControl obj : findTreeRootControls(frm))
-			map.remove(obj);
-		
+		for (TreeDataControl obj : findTreeRootControls(frm))
+			map.remove(obj.getDc());
+
 		return map;
 
 	}
@@ -186,8 +213,8 @@ public class QueryHelper {
 		Collection<domain.DataControl> map = (Collection<domain.DataControl>) ocl
 				.evaluate(frm, query);
 
-		for (domain.DataControl obj : findTreeRootControls(frm))
-			map.remove(obj);
+		for (TreeDataControl obj : findTreeRootControls(frm))
+			map.remove(obj.getDc());
 
 		return map;
 

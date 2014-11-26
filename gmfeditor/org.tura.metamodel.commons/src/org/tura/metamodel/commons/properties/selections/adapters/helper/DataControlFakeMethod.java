@@ -4,10 +4,20 @@ public class DataControlFakeMethod {
 
 	private String name;
 	private domain.TypeElement type;
+	private domain.DataControl dc;
 	
-	public DataControlFakeMethod(String name,domain.TypeElement type){
+	public DataControlFakeMethod(String name,domain.TypeElement type,domain.DataControl dc){
 		this.name=name;
 		this.type=type;
+		this.dc=dc;
+	}
+
+	public domain.DataControl getDc() {
+		return dc;
+	}
+
+	public void setDc(domain.DataControl dc) {
+		this.dc = dc;
 	}
 
 	public String getName() {

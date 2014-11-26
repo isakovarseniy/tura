@@ -61,6 +61,7 @@ public class OptionSelectionItemProvider
 
       addOptionPointerPropertyDescriptor(object);
       addOptionCastPropertyDescriptor(object);
+      addOptionCastDataControlPropertyDescriptor(object);
     }
     return itemPropertyDescriptors;
   }
@@ -103,6 +104,29 @@ public class OptionSelectionItemProvider
          getString("_UI_OptionSelection_optionCast_feature"),
          getString("_UI_PropertyDescriptor_description", "_UI_OptionSelection_optionCast_feature", "_UI_OptionSelection_type"),
          DomainPackage.Literals.OPTION_SELECTION__OPTION_CAST,
+         true,
+         false,
+         true,
+         null,
+         null,
+         null));
+  }
+
+  /**
+   * This adds a property descriptor for the Option Cast Data Control feature.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected void addOptionCastDataControlPropertyDescriptor(Object object)
+  {
+    itemPropertyDescriptors.add
+      (createItemPropertyDescriptor
+        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+         getResourceLocator(),
+         getString("_UI_OptionSelection_optionCastDataControl_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_OptionSelection_optionCastDataControl_feature", "_UI_OptionSelection_type"),
+         DomainPackage.Literals.OPTION_SELECTION__OPTION_CAST_DATA_CONTROL,
          true,
          false,
          true,

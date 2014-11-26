@@ -1335,6 +1335,8 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="sourcePointer" eType="#//DataControl"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="valuePointer" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="sourceCast" eType="#//Type"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sourceCastDataControl"
+        eType="#//DataControl"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ActionElement" eSuperTypes="#//Uielement #//Trigger"/>
   <eClassifiers xsi:type="ecore:EClass" name="InputElement" eSuperTypes="#//SourcesPointer"/>
@@ -1345,6 +1347,8 @@
   <eClassifiers xsi:type="ecore:EClass" name="OptionSelection" eSuperTypes="#//InputElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="optionPointer" eType="#//DataControl"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="optionCast" eType="#//Type"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="optionCastDataControl"
+        eType="#//DataControl"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="LayerHolder" eSuperTypes="#//Uielement #//ChildrenHolder #//HTMLLayerHolder">
     <eAnnotations source="gmf.node">
@@ -1424,7 +1428,7 @@
       <eAnnotations source="gmf.compartment"/>
     </eStructuralFeatures>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Tree" eSuperTypes="#//SourcesPointer #//MultiLangLabel">
+  <eClassifiers xsi:type="ecore:EClass" name="Tree" eSuperTypes="#//SourcesPointer #//HTMLLayerHolder #//MultiLangLabel">
     <eAnnotations source="gmf.node">
       <details key="label" value="label"/>
       <details key="tool.small.bundle" value="org.tura.metamodel.commons"/>
@@ -1433,6 +1437,10 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="label" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="image" eType="#//Context"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="cols" upperBound="-1" eType="#//Column"
+        containment="true">
+      <eAnnotations source="gmf.compartment"/>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Button" eSuperTypes="#//ActionElement #//MultiLangLabel">
     <eAnnotations source="gmf.node">

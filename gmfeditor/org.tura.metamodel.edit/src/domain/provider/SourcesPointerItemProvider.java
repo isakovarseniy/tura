@@ -62,6 +62,7 @@ public class SourcesPointerItemProvider
       addSourcePointerPropertyDescriptor(object);
       addValuePointerPropertyDescriptor(object);
       addSourceCastPropertyDescriptor(object);
+      addSourceCastDataControlPropertyDescriptor(object);
     }
     return itemPropertyDescriptors;
   }
@@ -127,6 +128,29 @@ public class SourcesPointerItemProvider
          getString("_UI_SourcesPointer_sourceCast_feature"),
          getString("_UI_PropertyDescriptor_description", "_UI_SourcesPointer_sourceCast_feature", "_UI_SourcesPointer_type"),
          DomainPackage.Literals.SOURCES_POINTER__SOURCE_CAST,
+         true,
+         false,
+         true,
+         null,
+         null,
+         null));
+  }
+
+  /**
+   * This adds a property descriptor for the Source Cast Data Control feature.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected void addSourceCastDataControlPropertyDescriptor(Object object)
+  {
+    itemPropertyDescriptors.add
+      (createItemPropertyDescriptor
+        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+         getResourceLocator(),
+         getString("_UI_SourcesPointer_sourceCastDataControl_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_SourcesPointer_sourceCastDataControl_feature", "_UI_SourcesPointer_type"),
+         DomainPackage.Literals.SOURCES_POINTER__SOURCE_CAST_DATA_CONTROL,
          true,
          false,
          true,

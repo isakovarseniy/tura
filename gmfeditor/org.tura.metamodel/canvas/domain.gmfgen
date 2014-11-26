@@ -39,7 +39,7 @@
         canonicalEditPolicyClassName="ButtonCanonicalEditPolicy"
         graphicalNodeEditPolicyClassName="ButtonGraphicalNodeEditPolicy"
         createCommandClassName="ButtonCreateCommand"
-        containers="//@diagram/@compartments.0 //@diagram/@compartments.4 //@diagram/@compartments.5">
+        containers="//@diagram/@compartments.0 //@diagram/@compartments.6 //@diagram/@compartments.8">
       <diagramRunTimeClass
           href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
@@ -86,7 +86,7 @@
         canonicalEditPolicyClassName="DropDownSelectionCanonicalEditPolicy"
         graphicalNodeEditPolicyClassName="DropDownSelectionGraphicalNodeEditPolicy"
         createCommandClassName="DropDownSelectionCreateCommand"
-        containers="//@diagram/@compartments.0 //@diagram/@compartments.4 //@diagram/@compartments.5">
+        containers="//@diagram/@compartments.0 //@diagram/@compartments.6 //@diagram/@compartments.8">
       <diagramRunTimeClass
           href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
@@ -112,7 +112,7 @@
         compartments="//@diagram/@compartments.1"
         graphicalNodeEditPolicyClassName="TableGraphicalNodeEditPolicy"
         createCommandClassName="TableCreateCommand"
-        containers="//@diagram/@compartments.4 //@diagram/@compartments.5 //@diagram/@compartments.0">
+        containers="//@diagram/@compartments.6 //@diagram/@compartments.8 //@diagram/@compartments.0">
       <diagramRunTimeClass
           href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
@@ -213,7 +213,7 @@
         canonicalEditPolicyClassName="Button2CanonicalEditPolicy"
         graphicalNodeEditPolicyClassName="Button2GraphicalNodeEditPolicy"
         createCommandClassName="Button2CreateCommand"
-        containers="//@diagram/@compartments.2">
+        containers="//@diagram/@compartments.2 //@diagram/@compartments.5">
       <diagramRunTimeClass
           href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
@@ -260,7 +260,7 @@
         canonicalEditPolicyClassName="DropDownSelection2CanonicalEditPolicy"
         graphicalNodeEditPolicyClassName="DropDownSelection2GraphicalNodeEditPolicy"
         createCommandClassName="DropDownSelection2CreateCommand"
-        containers="//@diagram/@compartments.2">
+        containers="//@diagram/@compartments.2 //@diagram/@compartments.5">
       <diagramRunTimeClass
           href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
@@ -286,7 +286,7 @@
         compartments="//@diagram/@compartments.3"
         graphicalNodeEditPolicyClassName="Table2GraphicalNodeEditPolicy"
         createCommandClassName="Table2CreateCommand"
-        containers="//@diagram/@compartments.2">
+        containers="//@diagram/@compartments.2 //@diagram/@compartments.5">
       <diagramRunTimeClass
           href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
@@ -330,14 +330,116 @@
       </labels>
     </childNodes>
     <childNodes
+        visualID="1603022"
+        editPartClassName="TreeEditPart"
+        itemSemanticEditPolicyClassName="TreeItemSemanticEditPolicy"
+        canonicalEditPolicyClassName="TreeCanonicalEditPolicy"
+        compartments="//@diagram/@compartments.4"
+        graphicalNodeEditPolicyClassName="TreeGraphicalNodeEditPolicy"
+        createCommandClassName="TreeCreateCommand"
+        containers="//@diagram/@compartments.5 //@diagram/@compartments.2">
+      <diagramRunTimeClass
+          href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+      <elementType
+          xsi:type="gmfgen:MetamodelType"
+          editHelperClassName="TreeEditHelper"/>
+      <viewmap
+          xsi:type="gmfgen:InnerClassViewmap"
+          className="TreeFigure"
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class TreeFigure extends org.eclipse.draw2d.RoundedRectangle {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureTreeLabelFigure; &#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.RectangleFigure fTreeColsCompartmentFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public TreeFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setCornerDimensions(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(8)&#xA;, getMapMode().DPtoLP(8)&#xA;));&#xA;this.setBorder(new org.eclipse.draw2d.MarginBorder(getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;));&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureTreeLabelFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureTreeLabelFigure.setText(&quot;Tree&quot;);&#xA;&#xA;fFigureTreeLabelFigure.setFont(FFIGURETREELABELFIGURE_FONT);&#xA;&#xA;&#xA;fFigureTreeLabelFigure.setMaximumSize(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(10000)&#xA;, getMapMode().DPtoLP(50)&#xA;));&#xA;&#xA;this.add(fFigureTreeLabelFigure);&#xA;&#xA;&#xA;&#xA;fTreeColsCompartmentFigure = new org.eclipse.draw2d.RectangleFigure();&#xA;&#xA;fTreeColsCompartmentFigure.setOutline(false);&#xA;&#xA;this.add(fTreeColsCompartmentFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureTreeLabelFigure() {&#xA;&#x9;&#x9;return fFigureTreeLabelFigure;&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.draw2d.RectangleFigure getTreeColsCompartmentFigure() {&#xA;&#x9;&#x9;return fTreeColsCompartmentFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Font FFIGURETREELABELFIGURE_FONT = new org.eclipse.swt.graphics.Font(org.eclipse.swt.widgets.Display.getCurrent(), &quot;Palatino&quot;, 12, org.eclipse.swt.SWT.ITALIC);&#xA;&#xA;"/>
+      <behaviour
+          xsi:type="gmfgen:OpenDiagramBehaviour"/>
+      <modelFacet>
+        <metaClass
+            href="domain.genmodel#//domain/Tree"/>
+        <containmentMetaFeature
+            href="domain.genmodel#//domain/Column/element"/>
+        <childMetaFeature
+            href="domain.genmodel#//domain/Column/element"/>
+      </modelFacet>
+      <labels
+          visualID="1605008"
+          editPartClassName="TreeLabelEditPart"
+          itemSemanticEditPolicyClassName="TreeLabelItemSemanticEditPolicy"
+          elementIcon="true">
+        <diagramRunTimeClass
+            href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+        <viewmap
+            xsi:type="gmfgen:ParentAssignedViewmap"
+            getterName="getFigureTreeLabelFigure"
+            figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel">
+          <attributes
+              xsi:type="gmfgen:StyleAttributes"
+              fixedFont="true"/>
+        </viewmap>
+        <modelFacet
+            xsi:type="gmfgen:FeatureLabelModelFacet"
+            parser="//@labelParsers/@implementations.0">
+          <metaFeatures
+              href="domain.genmodel#//domain/Tree/label"/>
+        </modelFacet>
+      </labels>
+    </childNodes>
+    <childNodes
+        visualID="1603026"
+        editPartClassName="Column2EditPart"
+        itemSemanticEditPolicyClassName="Column2ItemSemanticEditPolicy"
+        canonicalEditPolicyClassName="Column2CanonicalEditPolicy"
+        compartments="//@diagram/@compartments.5"
+        graphicalNodeEditPolicyClassName="Column2GraphicalNodeEditPolicy"
+        createCommandClassName="Column2CreateCommand"
+        containers="//@diagram/@compartments.7 //@diagram/@compartments.4">
+      <diagramRunTimeClass
+          href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+      <elementType
+          xsi:type="gmfgen:SpecializationType"
+          metamodelType="//@diagram/@childNodes.3/@elementType"/>
+      <viewmap
+          xsi:type="gmfgen:InnerClassViewmap"
+          className="ColumnFigure"
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class ColumnFigure extends org.eclipse.draw2d.RoundedRectangle {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureColumnLabelFigure; &#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.RectangleFigure fColumnElementCompartmentFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public ColumnFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setCornerDimensions(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(8)&#xA;, getMapMode().DPtoLP(8)&#xA;));&#xA;this.setBorder(new org.eclipse.draw2d.MarginBorder(getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;));&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureColumnLabelFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureColumnLabelFigure.setText(&quot;Column&quot;);&#xA;&#xA;fFigureColumnLabelFigure.setFont(FFIGURECOLUMNLABELFIGURE_FONT);&#xA;&#xA;&#xA;fFigureColumnLabelFigure.setMaximumSize(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(10000)&#xA;, getMapMode().DPtoLP(50)&#xA;));&#xA;&#xA;this.add(fFigureColumnLabelFigure);&#xA;&#xA;&#xA;&#xA;fColumnElementCompartmentFigure = new org.eclipse.draw2d.RectangleFigure();&#xA;&#xA;fColumnElementCompartmentFigure.setOutline(false);&#xA;&#xA;this.add(fColumnElementCompartmentFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureColumnLabelFigure() {&#xA;&#x9;&#x9;return fFigureColumnLabelFigure;&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.draw2d.RectangleFigure getColumnElementCompartmentFigure() {&#xA;&#x9;&#x9;return fColumnElementCompartmentFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Font FFIGURECOLUMNLABELFIGURE_FONT = new org.eclipse.swt.graphics.Font(org.eclipse.swt.widgets.Display.getCurrent(), &quot;Palatino&quot;, 12, org.eclipse.swt.SWT.ITALIC);&#xA;&#xA;"/>
+      <behaviour
+          xsi:type="gmfgen:OpenDiagramBehaviour"/>
+      <modelFacet>
+        <metaClass
+            href="domain.genmodel#//domain/Column"/>
+        <containmentMetaFeature
+            href="domain.genmodel#//domain/Tree/cols"/>
+        <childMetaFeature
+            href="domain.genmodel#//domain/Tree/cols"/>
+      </modelFacet>
+      <labels
+          visualID="1605012"
+          editPartClassName="ColumnLabel2EditPart"
+          itemSemanticEditPolicyClassName="ColumnLabel2ItemSemanticEditPolicy"
+          elementIcon="true">
+        <diagramRunTimeClass
+            href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+        <viewmap
+            xsi:type="gmfgen:ParentAssignedViewmap"
+            getterName="getFigureColumnLabelFigure"
+            figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel">
+          <attributes
+              xsi:type="gmfgen:StyleAttributes"
+              fixedFont="true"/>
+        </viewmap>
+        <modelFacet
+            xsi:type="gmfgen:FeatureLabelModelFacet"
+            parser="//@labelParsers/@implementations.0">
+          <metaFeatures
+              href="domain.genmodel#//domain/Column/label"/>
+        </modelFacet>
+      </labels>
+    </childNodes>
+    <childNodes
         visualID="1603020"
         editPartClassName="LayerHolder2EditPart"
         itemSemanticEditPolicyClassName="LayerHolder2ItemSemanticEditPolicy"
         canonicalEditPolicyClassName="LayerHolder2CanonicalEditPolicy"
-        compartments="//@diagram/@compartments.4"
+        compartments="//@diagram/@compartments.6"
         graphicalNodeEditPolicyClassName="LayerHolder2GraphicalNodeEditPolicy"
         createCommandClassName="LayerHolder2CreateCommand"
-        containers="//@diagram/@compartments.2">
+        containers="//@diagram/@compartments.5 //@diagram/@compartments.2">
       <diagramRunTimeClass
           href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
@@ -359,14 +461,65 @@
       </modelFacet>
     </childNodes>
     <childNodes
+        visualID="1603016"
+        editPartClassName="Tree2EditPart"
+        itemSemanticEditPolicyClassName="Tree2ItemSemanticEditPolicy"
+        canonicalEditPolicyClassName="Tree2CanonicalEditPolicy"
+        compartments="//@diagram/@compartments.7"
+        graphicalNodeEditPolicyClassName="Tree2GraphicalNodeEditPolicy"
+        createCommandClassName="Tree2CreateCommand"
+        containers="//@diagram/@compartments.6 //@diagram/@compartments.8 //@diagram/@compartments.0">
+      <diagramRunTimeClass
+          href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+      <elementType
+          xsi:type="gmfgen:SpecializationType"
+          metamodelType="//@diagram/@childNodes.7/@elementType"/>
+      <viewmap
+          xsi:type="gmfgen:InnerClassViewmap"
+          className="TreeFigure"
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class TreeFigure extends org.eclipse.draw2d.RoundedRectangle {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureTreeLabelFigure; &#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.RectangleFigure fTreeColsCompartmentFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public TreeFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setCornerDimensions(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(8)&#xA;, getMapMode().DPtoLP(8)&#xA;));&#xA;this.setBorder(new org.eclipse.draw2d.MarginBorder(getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;));&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureTreeLabelFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureTreeLabelFigure.setText(&quot;Tree&quot;);&#xA;&#xA;fFigureTreeLabelFigure.setFont(FFIGURETREELABELFIGURE_FONT);&#xA;&#xA;&#xA;fFigureTreeLabelFigure.setMaximumSize(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(10000)&#xA;, getMapMode().DPtoLP(50)&#xA;));&#xA;&#xA;this.add(fFigureTreeLabelFigure);&#xA;&#xA;&#xA;&#xA;fTreeColsCompartmentFigure = new org.eclipse.draw2d.RectangleFigure();&#xA;&#xA;fTreeColsCompartmentFigure.setOutline(false);&#xA;&#xA;this.add(fTreeColsCompartmentFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureTreeLabelFigure() {&#xA;&#x9;&#x9;return fFigureTreeLabelFigure;&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.draw2d.RectangleFigure getTreeColsCompartmentFigure() {&#xA;&#x9;&#x9;return fTreeColsCompartmentFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Font FFIGURETREELABELFIGURE_FONT = new org.eclipse.swt.graphics.Font(org.eclipse.swt.widgets.Display.getCurrent(), &quot;Palatino&quot;, 12, org.eclipse.swt.SWT.ITALIC);&#xA;&#xA;"/>
+      <behaviour
+          xsi:type="gmfgen:OpenDiagramBehaviour"/>
+      <modelFacet>
+        <metaClass
+            href="domain.genmodel#//domain/Tree"/>
+        <containmentMetaFeature
+            href="domain.genmodel#//domain/ChildrenHolder/children"/>
+        <childMetaFeature
+            href="domain.genmodel#//domain/ChildrenHolder/children"/>
+      </modelFacet>
+      <labels
+          visualID="1605005"
+          editPartClassName="TreeLabel2EditPart"
+          itemSemanticEditPolicyClassName="TreeLabel2ItemSemanticEditPolicy"
+          elementIcon="true">
+        <diagramRunTimeClass
+            href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+        <viewmap
+            xsi:type="gmfgen:ParentAssignedViewmap"
+            getterName="getFigureTreeLabelFigure"
+            figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel">
+          <attributes
+              xsi:type="gmfgen:StyleAttributes"
+              fixedFont="true"/>
+        </viewmap>
+        <modelFacet
+            xsi:type="gmfgen:FeatureLabelModelFacet"
+            parser="//@labelParsers/@implementations.0">
+          <metaFeatures
+              href="domain.genmodel#//domain/Tree/label"/>
+        </modelFacet>
+      </labels>
+    </childNodes>
+    <childNodes
         visualID="1603019"
         editPartClassName="LayerHolder3EditPart"
         itemSemanticEditPolicyClassName="LayerHolder3ItemSemanticEditPolicy"
         canonicalEditPolicyClassName="LayerHolder3CanonicalEditPolicy"
-        compartments="//@diagram/@compartments.5"
+        compartments="//@diagram/@compartments.8"
         graphicalNodeEditPolicyClassName="LayerHolder3GraphicalNodeEditPolicy"
         createCommandClassName="LayerHolder3CreateCommand"
-        containers="//@diagram/@compartments.5 //@diagram/@compartments.4 //@diagram/@compartments.0">
+        containers="//@diagram/@compartments.8 //@diagram/@compartments.6 //@diagram/@compartments.0">
       <diagramRunTimeClass
           href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
@@ -394,7 +547,7 @@
         canonicalEditPolicyClassName="InputTextCanonicalEditPolicy"
         graphicalNodeEditPolicyClassName="InputTextGraphicalNodeEditPolicy"
         createCommandClassName="InputTextCreateCommand"
-        containers="//@diagram/@compartments.5 //@diagram/@compartments.4 //@diagram/@compartments.0">
+        containers="//@diagram/@compartments.8 //@diagram/@compartments.6 //@diagram/@compartments.0">
       <diagramRunTimeClass
           href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
@@ -419,7 +572,7 @@
         canonicalEditPolicyClassName="OutputTextCanonicalEditPolicy"
         graphicalNodeEditPolicyClassName="OutputTextGraphicalNodeEditPolicy"
         createCommandClassName="OutputTextCreateCommand"
-        containers="//@diagram/@compartments.5 //@diagram/@compartments.4 //@diagram/@compartments.0">
+        containers="//@diagram/@compartments.8 //@diagram/@compartments.6 //@diagram/@compartments.0">
       <diagramRunTimeClass
           href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
@@ -444,7 +597,7 @@
         canonicalEditPolicyClassName="CheckBoxCanonicalEditPolicy"
         graphicalNodeEditPolicyClassName="CheckBoxGraphicalNodeEditPolicy"
         createCommandClassName="CheckBoxCreateCommand"
-        containers="//@diagram/@compartments.5 //@diagram/@compartments.4 //@diagram/@compartments.0">
+        containers="//@diagram/@compartments.8 //@diagram/@compartments.6 //@diagram/@compartments.0">
       <diagramRunTimeClass
           href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
@@ -463,61 +616,13 @@
       </modelFacet>
     </childNodes>
     <childNodes
-        visualID="1603016"
-        editPartClassName="TreeEditPart"
-        itemSemanticEditPolicyClassName="TreeItemSemanticEditPolicy"
-        canonicalEditPolicyClassName="TreeCanonicalEditPolicy"
-        graphicalNodeEditPolicyClassName="TreeGraphicalNodeEditPolicy"
-        createCommandClassName="TreeCreateCommand"
-        containers="//@diagram/@compartments.5 //@diagram/@compartments.4 //@diagram/@compartments.0">
-      <diagramRunTimeClass
-          href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
-      <elementType
-          xsi:type="gmfgen:MetamodelType"
-          editHelperClassName="TreeEditHelper"/>
-      <viewmap
-          xsi:type="gmfgen:InnerClassViewmap"
-          className="TreeFigure"
-          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class TreeFigure extends org.eclipse.draw2d.RoundedRectangle {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureTreeLabelFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public TreeFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setCornerDimensions(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(8)&#xA;, getMapMode().DPtoLP(8)&#xA;));&#xA;this.setBorder(new org.eclipse.draw2d.MarginBorder(getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;));&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureTreeLabelFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureTreeLabelFigure.setText(&quot;Tree&quot;);&#xA;&#xA;fFigureTreeLabelFigure.setFont(FFIGURETREELABELFIGURE_FONT);&#xA;&#xA;&#xA;&#xA;this.add(fFigureTreeLabelFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureTreeLabelFigure() {&#xA;&#x9;&#x9;return fFigureTreeLabelFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Font FFIGURETREELABELFIGURE_FONT = new org.eclipse.swt.graphics.Font(org.eclipse.swt.widgets.Display.getCurrent(), &quot;Palatino&quot;, 12, org.eclipse.swt.SWT.ITALIC);&#xA;&#xA;"/>
-      <modelFacet>
-        <metaClass
-            href="domain.genmodel#//domain/Tree"/>
-        <containmentMetaFeature
-            href="domain.genmodel#//domain/ChildrenHolder/children"/>
-        <childMetaFeature
-            href="domain.genmodel#//domain/ChildrenHolder/children"/>
-      </modelFacet>
-      <labels
-          visualID="1605005"
-          editPartClassName="TreeLabelEditPart"
-          itemSemanticEditPolicyClassName="TreeLabelItemSemanticEditPolicy"
-          elementIcon="true">
-        <diagramRunTimeClass
-            href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
-        <viewmap
-            xsi:type="gmfgen:ParentAssignedViewmap"
-            getterName="getFigureTreeLabelFigure"
-            figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel">
-          <attributes
-              xsi:type="gmfgen:StyleAttributes"
-              fixedFont="true"/>
-        </viewmap>
-        <modelFacet
-            xsi:type="gmfgen:FeatureLabelModelFacet"
-            parser="//@labelParsers/@implementations.0">
-          <metaFeatures
-              href="domain.genmodel#//domain/Tree/label"/>
-        </modelFacet>
-      </labels>
-    </childNodes>
-    <childNodes
         visualID="1603005"
         editPartClassName="LabelEditPart"
         itemSemanticEditPolicyClassName="LabelItemSemanticEditPolicy"
         canonicalEditPolicyClassName="LabelCanonicalEditPolicy"
         graphicalNodeEditPolicyClassName="LabelGraphicalNodeEditPolicy"
         createCommandClassName="LabelCreateCommand"
-        containers="//@diagram/@compartments.5 //@diagram/@compartments.4 //@diagram/@compartments.0">
+        containers="//@diagram/@compartments.8 //@diagram/@compartments.6 //@diagram/@compartments.0">
       <diagramRunTimeClass
           href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
@@ -569,12 +674,12 @@
         canonicalEditPolicyClassName="InputText2CanonicalEditPolicy"
         graphicalNodeEditPolicyClassName="InputText2GraphicalNodeEditPolicy"
         createCommandClassName="InputText2CreateCommand"
-        containers="//@diagram/@compartments.2">
+        containers="//@diagram/@compartments.5 //@diagram/@compartments.2">
       <diagramRunTimeClass
           href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
           xsi:type="gmfgen:SpecializationType"
-          metamodelType="//@diagram/@childNodes.9/@elementType"/>
+          metamodelType="//@diagram/@childNodes.12/@elementType"/>
       <viewmap
           xsi:type="gmfgen:FigureViewmap"
           figureQualifiedClassName="org.tura.metamodel.commons.figures.InputTextFigure"/>
@@ -594,12 +699,12 @@
         canonicalEditPolicyClassName="OutputText2CanonicalEditPolicy"
         graphicalNodeEditPolicyClassName="OutputText2GraphicalNodeEditPolicy"
         createCommandClassName="OutputText2CreateCommand"
-        containers="//@diagram/@compartments.2">
+        containers="//@diagram/@compartments.5 //@diagram/@compartments.2">
       <diagramRunTimeClass
           href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
           xsi:type="gmfgen:SpecializationType"
-          metamodelType="//@diagram/@childNodes.10/@elementType"/>
+          metamodelType="//@diagram/@childNodes.13/@elementType"/>
       <viewmap
           xsi:type="gmfgen:FigureViewmap"
           figureQualifiedClassName="org.tura.metamodel.commons.figures.OutputTextFigure"/>
@@ -619,12 +724,12 @@
         canonicalEditPolicyClassName="CheckBox2CanonicalEditPolicy"
         graphicalNodeEditPolicyClassName="CheckBox2GraphicalNodeEditPolicy"
         createCommandClassName="CheckBox2CreateCommand"
-        containers="//@diagram/@compartments.2">
+        containers="//@diagram/@compartments.5 //@diagram/@compartments.2">
       <diagramRunTimeClass
           href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
           xsi:type="gmfgen:SpecializationType"
-          metamodelType="//@diagram/@childNodes.11/@elementType"/>
+          metamodelType="//@diagram/@childNodes.14/@elementType"/>
       <viewmap
           xsi:type="gmfgen:FigureViewmap"
           figureQualifiedClassName="org.tura.metamodel.commons.figures.CheckBoxFigure"/>
@@ -638,66 +743,18 @@
       </modelFacet>
     </childNodes>
     <childNodes
-        visualID="1603022"
-        editPartClassName="Tree2EditPart"
-        itemSemanticEditPolicyClassName="Tree2ItemSemanticEditPolicy"
-        canonicalEditPolicyClassName="Tree2CanonicalEditPolicy"
-        graphicalNodeEditPolicyClassName="Tree2GraphicalNodeEditPolicy"
-        createCommandClassName="Tree2CreateCommand"
-        containers="//@diagram/@compartments.2">
-      <diagramRunTimeClass
-          href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
-      <elementType
-          xsi:type="gmfgen:SpecializationType"
-          metamodelType="//@diagram/@childNodes.12/@elementType"/>
-      <viewmap
-          xsi:type="gmfgen:InnerClassViewmap"
-          className="TreeFigure"
-          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class TreeFigure extends org.eclipse.draw2d.RoundedRectangle {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureTreeLabelFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public TreeFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setCornerDimensions(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(8)&#xA;, getMapMode().DPtoLP(8)&#xA;));&#xA;this.setBorder(new org.eclipse.draw2d.MarginBorder(getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;));&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureTreeLabelFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureTreeLabelFigure.setText(&quot;Tree&quot;);&#xA;&#xA;fFigureTreeLabelFigure.setFont(FFIGURETREELABELFIGURE_FONT);&#xA;&#xA;&#xA;&#xA;this.add(fFigureTreeLabelFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureTreeLabelFigure() {&#xA;&#x9;&#x9;return fFigureTreeLabelFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Font FFIGURETREELABELFIGURE_FONT = new org.eclipse.swt.graphics.Font(org.eclipse.swt.widgets.Display.getCurrent(), &quot;Palatino&quot;, 12, org.eclipse.swt.SWT.ITALIC);&#xA;&#xA;"/>
-      <modelFacet>
-        <metaClass
-            href="domain.genmodel#//domain/Tree"/>
-        <containmentMetaFeature
-            href="domain.genmodel#//domain/Column/element"/>
-        <childMetaFeature
-            href="domain.genmodel#//domain/Column/element"/>
-      </modelFacet>
-      <labels
-          visualID="1605008"
-          editPartClassName="TreeLabel2EditPart"
-          itemSemanticEditPolicyClassName="TreeLabel2ItemSemanticEditPolicy"
-          elementIcon="true">
-        <diagramRunTimeClass
-            href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
-        <viewmap
-            xsi:type="gmfgen:ParentAssignedViewmap"
-            getterName="getFigureTreeLabelFigure"
-            figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel">
-          <attributes
-              xsi:type="gmfgen:StyleAttributes"
-              fixedFont="true"/>
-        </viewmap>
-        <modelFacet
-            xsi:type="gmfgen:FeatureLabelModelFacet"
-            parser="//@labelParsers/@implementations.0">
-          <metaFeatures
-              href="domain.genmodel#//domain/Tree/label"/>
-        </modelFacet>
-      </labels>
-    </childNodes>
-    <childNodes
         visualID="1603013"
         editPartClassName="Label2EditPart"
         itemSemanticEditPolicyClassName="Label2ItemSemanticEditPolicy"
         canonicalEditPolicyClassName="Label2CanonicalEditPolicy"
         graphicalNodeEditPolicyClassName="Label2GraphicalNodeEditPolicy"
         createCommandClassName="Label2CreateCommand"
-        containers="//@diagram/@compartments.2">
+        containers="//@diagram/@compartments.5 //@diagram/@compartments.2">
       <diagramRunTimeClass
           href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
           xsi:type="gmfgen:SpecializationType"
-          metamodelType="//@diagram/@childNodes.13/@elementType"/>
+          metamodelType="//@diagram/@childNodes.15/@elementType"/>
       <viewmap
           xsi:type="gmfgen:InnerClassViewmap"
           className="LabelFigure"
@@ -770,7 +827,7 @@
         editPartClassName="LayerHolderLayerHolderChildrenCompartmentEditPart"
         itemSemanticEditPolicyClassName="LayerHolderLayerHolderChildrenCompartmentItemSemanticEditPolicy"
         canonicalEditPolicyClassName="LayerHolderLayerHolderChildrenCompartmentCanonicalEditPolicy"
-        childNodes="//@diagram/@childNodes.0 //@diagram/@childNodes.1 //@diagram/@childNodes.2 //@diagram/@childNodes.8 //@diagram/@childNodes.9 //@diagram/@childNodes.10 //@diagram/@childNodes.11 //@diagram/@childNodes.12 //@diagram/@childNodes.13"
+        childNodes="//@diagram/@childNodes.0 //@diagram/@childNodes.1 //@diagram/@childNodes.2 //@diagram/@childNodes.10 //@diagram/@childNodes.11 //@diagram/@childNodes.12 //@diagram/@childNodes.13 //@diagram/@childNodes.14 //@diagram/@childNodes.15"
         title="LayerHolderChildrenCompartment"
         needsTitle="false"
         node="//@diagram/@topLevelNodes.0"
@@ -804,7 +861,7 @@
         editPartClassName="ColumnColumnElementCompartmentEditPart"
         itemSemanticEditPolicyClassName="ColumnColumnElementCompartmentItemSemanticEditPolicy"
         canonicalEditPolicyClassName="ColumnColumnElementCompartmentCanonicalEditPolicy"
-        childNodes="//@diagram/@childNodes.4 //@diagram/@childNodes.5 //@diagram/@childNodes.6 //@diagram/@childNodes.7 //@diagram/@childNodes.14 //@diagram/@childNodes.15 //@diagram/@childNodes.16 //@diagram/@childNodes.17 //@diagram/@childNodes.18"
+        childNodes="//@diagram/@childNodes.4 //@diagram/@childNodes.5 //@diagram/@childNodes.6 //@diagram/@childNodes.7 //@diagram/@childNodes.9 //@diagram/@childNodes.16 //@diagram/@childNodes.17 //@diagram/@childNodes.18 //@diagram/@childNodes.19"
         title="ColumnElementCompartment"
         needsTitle="false"
         node="//@diagram/@childNodes.3">
@@ -833,14 +890,47 @@
           figureQualifiedClassName="org.eclipse.draw2d.RectangleFigure"/>
     </compartments>
     <compartments
+        visualID="1607014"
+        editPartClassName="TreeTreeColsCompartmentEditPart"
+        itemSemanticEditPolicyClassName="TreeTreeColsCompartmentItemSemanticEditPolicy"
+        canonicalEditPolicyClassName="TreeTreeColsCompartmentCanonicalEditPolicy"
+        childNodes="//@diagram/@childNodes.8"
+        title="TreeColsCompartment"
+        needsTitle="false"
+        node="//@diagram/@childNodes.7"
+        listLayout="false">
+      <diagramRunTimeClass
+          href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+      <viewmap
+          xsi:type="gmfgen:ParentAssignedViewmap"
+          getterName="getTreeColsCompartmentFigure"
+          figureQualifiedClassName="org.eclipse.draw2d.RectangleFigure"/>
+    </compartments>
+    <compartments
+        visualID="1607015"
+        editPartClassName="ColumnColumnElementCompartment2EditPart"
+        itemSemanticEditPolicyClassName="ColumnColumnElementCompartment2ItemSemanticEditPolicy"
+        canonicalEditPolicyClassName="ColumnColumnElementCompartment2CanonicalEditPolicy"
+        childNodes="//@diagram/@childNodes.4 //@diagram/@childNodes.5 //@diagram/@childNodes.6 //@diagram/@childNodes.7 //@diagram/@childNodes.9 //@diagram/@childNodes.16 //@diagram/@childNodes.17 //@diagram/@childNodes.18 //@diagram/@childNodes.19"
+        title="ColumnElementCompartment"
+        needsTitle="false"
+        node="//@diagram/@childNodes.8">
+      <diagramRunTimeClass
+          href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+      <viewmap
+          xsi:type="gmfgen:ParentAssignedViewmap"
+          getterName="getColumnElementCompartmentFigure"
+          figureQualifiedClassName="org.eclipse.draw2d.RectangleFigure"/>
+    </compartments>
+    <compartments
         visualID="1607009"
         editPartClassName="LayerHolderLayerHolderChildrenCompartment2EditPart"
         itemSemanticEditPolicyClassName="LayerHolderLayerHolderChildrenCompartment2ItemSemanticEditPolicy"
         canonicalEditPolicyClassName="LayerHolderLayerHolderChildrenCompartment2CanonicalEditPolicy"
-        childNodes="//@diagram/@childNodes.0 //@diagram/@childNodes.1 //@diagram/@childNodes.2 //@diagram/@childNodes.8 //@diagram/@childNodes.9 //@diagram/@childNodes.10 //@diagram/@childNodes.11 //@diagram/@childNodes.12 //@diagram/@childNodes.13"
+        childNodes="//@diagram/@childNodes.0 //@diagram/@childNodes.1 //@diagram/@childNodes.2 //@diagram/@childNodes.10 //@diagram/@childNodes.11 //@diagram/@childNodes.12 //@diagram/@childNodes.13 //@diagram/@childNodes.14 //@diagram/@childNodes.15"
         title="LayerHolderChildrenCompartment"
         needsTitle="false"
-        node="//@diagram/@childNodes.7"
+        node="//@diagram/@childNodes.9"
         listLayout="false">
       <diagramRunTimeClass
           href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
@@ -850,14 +940,31 @@
           figureQualifiedClassName="org.eclipse.draw2d.RectangleFigure"/>
     </compartments>
     <compartments
+        visualID="1607012"
+        editPartClassName="TreeTreeColsCompartment2EditPart"
+        itemSemanticEditPolicyClassName="TreeTreeColsCompartment2ItemSemanticEditPolicy"
+        canonicalEditPolicyClassName="TreeTreeColsCompartment2CanonicalEditPolicy"
+        childNodes="//@diagram/@childNodes.8"
+        title="TreeColsCompartment"
+        needsTitle="false"
+        node="//@diagram/@childNodes.10"
+        listLayout="false">
+      <diagramRunTimeClass
+          href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+      <viewmap
+          xsi:type="gmfgen:ParentAssignedViewmap"
+          getterName="getTreeColsCompartmentFigure"
+          figureQualifiedClassName="org.eclipse.draw2d.RectangleFigure"/>
+    </compartments>
+    <compartments
         visualID="1607008"
         editPartClassName="LayerHolderLayerHolderChildrenCompartment3EditPart"
         itemSemanticEditPolicyClassName="LayerHolderLayerHolderChildrenCompartment3ItemSemanticEditPolicy"
         canonicalEditPolicyClassName="LayerHolderLayerHolderChildrenCompartment3CanonicalEditPolicy"
-        childNodes="//@diagram/@childNodes.0 //@diagram/@childNodes.1 //@diagram/@childNodes.2 //@diagram/@childNodes.8 //@diagram/@childNodes.9 //@diagram/@childNodes.10 //@diagram/@childNodes.11 //@diagram/@childNodes.12 //@diagram/@childNodes.13"
+        childNodes="//@diagram/@childNodes.0 //@diagram/@childNodes.1 //@diagram/@childNodes.2 //@diagram/@childNodes.10 //@diagram/@childNodes.11 //@diagram/@childNodes.12 //@diagram/@childNodes.13 //@diagram/@childNodes.14 //@diagram/@childNodes.15"
         title="LayerHolderChildrenCompartment"
         needsTitle="false"
-        node="//@diagram/@childNodes.8"
+        node="//@diagram/@childNodes.11"
         listLayout="false">
       <diagramRunTimeClass
           href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
@@ -881,13 +988,13 @@
             title="CheckBox"
             description="Create new CheckBox"
             smallIconPath="/org.tura.metamodel.commons/icons/checkbox.png"
-            genNodes="//@diagram/@childNodes.11 //@diagram/@childNodes.16"/>
+            genNodes="//@diagram/@childNodes.14 //@diagram/@childNodes.18"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
             title="Column"
             description="Create new Column"
             smallIconPath="/org.tura.metamodel.commons/icons/column.png"
-            genNodes="//@diagram/@childNodes.3"/>
+            genNodes="//@diagram/@childNodes.3 //@diagram/@childNodes.8"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
             title="DropDownSelection"
@@ -899,25 +1006,25 @@
             title="InputText"
             description="Create new InputText"
             smallIconPath="/org.tura.metamodel.commons/icons/inputtext.png"
-            genNodes="//@diagram/@childNodes.9 //@diagram/@childNodes.14"/>
+            genNodes="//@diagram/@childNodes.12 //@diagram/@childNodes.16"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
             title="Label"
             description="Create new Label"
             smallIconPath="/org.tura.metamodel.commons/icons/label.png"
-            genNodes="//@diagram/@childNodes.13 //@diagram/@childNodes.18"/>
+            genNodes="//@diagram/@childNodes.15 //@diagram/@childNodes.19"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
             title="LayerHolder"
             description="Create new LayerHolder"
             smallIconPath="/org.tura.metamodel.commons/icons/layerholder.png"
-            genNodes="//@diagram/@topLevelNodes.0 //@diagram/@childNodes.7 //@diagram/@childNodes.8"/>
+            genNodes="//@diagram/@topLevelNodes.0 //@diagram/@childNodes.9 //@diagram/@childNodes.11"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
             title="OutputText"
             description="Create new OutputText"
             smallIconPath="/org.tura.metamodel.commons/icons/outputtext.png"
-            genNodes="//@diagram/@childNodes.10 //@diagram/@childNodes.15"/>
+            genNodes="//@diagram/@childNodes.13 //@diagram/@childNodes.17"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
             title="Table"
@@ -929,7 +1036,7 @@
             title="Tree"
             description="Create new Tree"
             smallIconPath="/org.tura.metamodel.commons/icons/tree.png"
-            genNodes="//@diagram/@childNodes.12 //@diagram/@childNodes.17"/>
+            genNodes="//@diagram/@childNodes.7 //@diagram/@childNodes.10"/>
       </groups>
     </palette>
     <preferencePages
@@ -988,68 +1095,98 @@
         parent="//@diagram/@childNodes.3"
         child="//@diagram/@childNodes.6"/>
     <childReferences
-        parent="//@diagram/@childNodes.7"
+        parent="//@diagram/@childNodes.8"
+        child="//@diagram/@childNodes.4"/>
+    <childReferences
+        parent="//@diagram/@childNodes.8"
+        child="//@diagram/@childNodes.5"/>
+    <childReferences
+        parent="//@diagram/@childNodes.8"
+        child="//@diagram/@childNodes.6"/>
+    <childReferences
+        parent="//@diagram/@childNodes.8"
+        child="//@diagram/@childNodes.7"/>
+    <childReferences
+        parent="//@diagram/@childNodes.9"
         child="//@diagram/@childNodes.0"/>
     <childReferences
-        parent="//@diagram/@childNodes.7"
+        parent="//@diagram/@childNodes.9"
         child="//@diagram/@childNodes.1"/>
     <childReferences
-        parent="//@diagram/@childNodes.7"
+        parent="//@diagram/@childNodes.9"
         child="//@diagram/@childNodes.2"/>
     <childReferences
-        parent="//@diagram/@childNodes.8"
-        child="//@diagram/@childNodes.0"/>
-    <childReferences
-        parent="//@diagram/@childNodes.8"
-        child="//@diagram/@childNodes.1"/>
-    <childReferences
-        parent="//@diagram/@childNodes.8"
-        child="//@diagram/@childNodes.2"/>
-    <childReferences
-        parent="//@diagram/@childNodes.8"
+        parent="//@diagram/@childNodes.10"
         child="//@diagram/@childNodes.8"/>
+    <childReferences
+        parent="//@diagram/@childNodes.9"
+        child="//@diagram/@childNodes.10"/>
+    <childReferences
+        parent="//@diagram/@childNodes.11"
+        child="//@diagram/@childNodes.0"/>
+    <childReferences
+        parent="//@diagram/@childNodes.11"
+        child="//@diagram/@childNodes.1"/>
+    <childReferences
+        parent="//@diagram/@childNodes.11"
+        child="//@diagram/@childNodes.2"/>
+    <childReferences
+        parent="//@diagram/@childNodes.11"
+        child="//@diagram/@childNodes.10"/>
+    <childReferences
+        parent="//@diagram/@childNodes.11"
+        child="//@diagram/@childNodes.11"/>
+    <childReferences
+        parent="//@diagram/@childNodes.11"
+        child="//@diagram/@childNodes.12"/>
+    <childReferences
+        parent="//@diagram/@childNodes.11"
+        child="//@diagram/@childNodes.13"/>
+    <childReferences
+        parent="//@diagram/@childNodes.11"
+        child="//@diagram/@childNodes.14"/>
+    <childReferences
+        parent="//@diagram/@childNodes.11"
+        child="//@diagram/@childNodes.15"/>
+    <childReferences
+        parent="//@diagram/@childNodes.9"
+        child="//@diagram/@childNodes.11"/>
+    <childReferences
+        parent="//@diagram/@childNodes.9"
+        child="//@diagram/@childNodes.12"/>
+    <childReferences
+        parent="//@diagram/@childNodes.9"
+        child="//@diagram/@childNodes.13"/>
+    <childReferences
+        parent="//@diagram/@childNodes.9"
+        child="//@diagram/@childNodes.14"/>
+    <childReferences
+        parent="//@diagram/@childNodes.9"
+        child="//@diagram/@childNodes.15"/>
     <childReferences
         parent="//@diagram/@childNodes.8"
         child="//@diagram/@childNodes.9"/>
     <childReferences
         parent="//@diagram/@childNodes.8"
-        child="//@diagram/@childNodes.10"/>
+        child="//@diagram/@childNodes.16"/>
     <childReferences
         parent="//@diagram/@childNodes.8"
-        child="//@diagram/@childNodes.11"/>
+        child="//@diagram/@childNodes.17"/>
     <childReferences
         parent="//@diagram/@childNodes.8"
-        child="//@diagram/@childNodes.12"/>
+        child="//@diagram/@childNodes.18"/>
     <childReferences
         parent="//@diagram/@childNodes.8"
-        child="//@diagram/@childNodes.13"/>
+        child="//@diagram/@childNodes.19"/>
     <childReferences
         parent="//@diagram/@childNodes.7"
         child="//@diagram/@childNodes.8"/>
-    <childReferences
-        parent="//@diagram/@childNodes.7"
-        child="//@diagram/@childNodes.9"/>
-    <childReferences
-        parent="//@diagram/@childNodes.7"
-        child="//@diagram/@childNodes.10"/>
-    <childReferences
-        parent="//@diagram/@childNodes.7"
-        child="//@diagram/@childNodes.11"/>
-    <childReferences
-        parent="//@diagram/@childNodes.7"
-        child="//@diagram/@childNodes.12"/>
-    <childReferences
-        parent="//@diagram/@childNodes.7"
-        child="//@diagram/@childNodes.13"/>
     <childReferences
         parent="//@diagram/@childNodes.3"
         child="//@diagram/@childNodes.7"/>
     <childReferences
         parent="//@diagram/@childNodes.3"
-        child="//@diagram/@childNodes.14"/>
-    <childReferences
-        parent="//@diagram/@childNodes.3"
-        child="//@diagram/@childNodes.15"/>
+        child="//@diagram/@childNodes.9"/>
     <childReferences
         parent="//@diagram/@childNodes.3"
         child="//@diagram/@childNodes.16"/>
@@ -1060,17 +1197,14 @@
         parent="//@diagram/@childNodes.3"
         child="//@diagram/@childNodes.18"/>
     <childReferences
+        parent="//@diagram/@childNodes.3"
+        child="//@diagram/@childNodes.19"/>
+    <childReferences
         parent="//@diagram/@childNodes.2"
         child="//@diagram/@childNodes.3"/>
     <childReferences
         parent="//@diagram/@topLevelNodes.0"
         child="//@diagram/@childNodes.2"/>
-    <childReferences
-        parent="//@diagram/@topLevelNodes.0"
-        child="//@diagram/@childNodes.8"/>
-    <childReferences
-        parent="//@diagram/@topLevelNodes.0"
-        child="//@diagram/@childNodes.9"/>
     <childReferences
         parent="//@diagram/@topLevelNodes.0"
         child="//@diagram/@childNodes.10"/>
@@ -1083,6 +1217,12 @@
     <childReferences
         parent="//@diagram/@topLevelNodes.0"
         child="//@diagram/@childNodes.13"/>
+    <childReferences
+        parent="//@diagram/@topLevelNodes.0"
+        child="//@diagram/@childNodes.14"/>
+    <childReferences
+        parent="//@diagram/@topLevelNodes.0"
+        child="//@diagram/@childNodes.15"/>
     <childReferences
         parent="//@diagram"
         child="//@diagram/@topLevelNodes.0"/>
@@ -1113,7 +1253,7 @@
       extensibleViaService="true">
     <implementations
         xsi:type="gmfgen:PredefinedParser"
-        uses="//@diagram/@childNodes.0/@labels.0/@modelFacet //@diagram/@childNodes.4/@labels.0/@modelFacet //@diagram/@childNodes.6/@labels.0/@modelFacet //@diagram/@childNodes.12/@labels.0/@modelFacet //@diagram/@childNodes.13/@labels.0/@modelFacet //@diagram/@childNodes.17/@labels.0/@modelFacet //@diagram/@childNodes.18/@labels.0/@modelFacet //@diagram/@childNodes.3/@labels.0/@modelFacet //@diagram/@childNodes.2/@labels.0/@modelFacet"/>
+        uses="//@diagram/@childNodes.0/@labels.0/@modelFacet //@diagram/@childNodes.4/@labels.0/@modelFacet //@diagram/@childNodes.6/@labels.0/@modelFacet //@diagram/@childNodes.10/@labels.0/@modelFacet //@diagram/@childNodes.15/@labels.0/@modelFacet //@diagram/@childNodes.19/@labels.0/@modelFacet //@diagram/@childNodes.8/@labels.0/@modelFacet //@diagram/@childNodes.7/@labels.0/@modelFacet //@diagram/@childNodes.3/@labels.0/@modelFacet //@diagram/@childNodes.2/@labels.0/@modelFacet"/>
   </labelParsers>
   <contextMenus
       context="//@diagram">

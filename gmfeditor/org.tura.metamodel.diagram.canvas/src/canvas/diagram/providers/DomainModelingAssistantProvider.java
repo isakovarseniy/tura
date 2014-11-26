@@ -25,12 +25,15 @@ import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.dialogs.ElementListSelectionDialog;
 
 import canvas.diagram.edit.parts.CanvasViewEditPart;
+import canvas.diagram.edit.parts.Column2EditPart;
 import canvas.diagram.edit.parts.ColumnEditPart;
 import canvas.diagram.edit.parts.LayerHolderLayerHolderChildrenCompartment2EditPart;
 import canvas.diagram.edit.parts.LayerHolderLayerHolderChildrenCompartment3EditPart;
 import canvas.diagram.edit.parts.LayerHolderLayerHolderChildrenCompartmentEditPart;
 import canvas.diagram.edit.parts.TableTableColsCompartment2EditPart;
 import canvas.diagram.edit.parts.TableTableColsCompartmentEditPart;
+import canvas.diagram.edit.parts.TreeTreeColsCompartment2EditPart;
+import canvas.diagram.edit.parts.TreeTreeColsCompartmentEditPart;
 import canvas.diagram.part.DomainDiagramEditorPlugin;
 import canvas.diagram.part.Messages;
 
@@ -55,11 +58,24 @@ public class DomainModelingAssistantProvider extends ModelingAssistantProvider {
 			types.add(DomainElementTypes.Button_1603023);
 			types.add(DomainElementTypes.DropDownSelection_1603010);
 			types.add(DomainElementTypes.Table_1603021);
+			types.add(DomainElementTypes.Tree_1603022);
 			types.add(DomainElementTypes.LayerHolder_1603020);
 			types.add(DomainElementTypes.InputText_1603012);
 			types.add(DomainElementTypes.OutputText_1603014);
 			types.add(DomainElementTypes.CheckBox_1603015);
+			types.add(DomainElementTypes.Label_1603013);
+			return types;
+		}
+		if (editPart instanceof Column2EditPart) {
+			ArrayList<IElementType> types = new ArrayList<IElementType>(9);
+			types.add(DomainElementTypes.Button_1603023);
+			types.add(DomainElementTypes.DropDownSelection_1603010);
+			types.add(DomainElementTypes.Table_1603021);
 			types.add(DomainElementTypes.Tree_1603022);
+			types.add(DomainElementTypes.LayerHolder_1603020);
+			types.add(DomainElementTypes.InputText_1603012);
+			types.add(DomainElementTypes.OutputText_1603014);
+			types.add(DomainElementTypes.CheckBox_1603015);
 			types.add(DomainElementTypes.Label_1603013);
 			return types;
 		}
@@ -68,11 +84,11 @@ public class DomainModelingAssistantProvider extends ModelingAssistantProvider {
 			types.add(DomainElementTypes.Button_1603017);
 			types.add(DomainElementTypes.DropDownSelection_1603002);
 			types.add(DomainElementTypes.Table_1603008);
+			types.add(DomainElementTypes.Tree_1603016);
 			types.add(DomainElementTypes.LayerHolder_1603019);
 			types.add(DomainElementTypes.InputText_1603004);
 			types.add(DomainElementTypes.OutputText_1603006);
 			types.add(DomainElementTypes.CheckBox_1603007);
-			types.add(DomainElementTypes.Tree_1603016);
 			types.add(DomainElementTypes.Label_1603005);
 			return types;
 		}
@@ -86,17 +102,27 @@ public class DomainModelingAssistantProvider extends ModelingAssistantProvider {
 			types.add(DomainElementTypes.Column_1603024);
 			return types;
 		}
+		if (editPart instanceof TreeTreeColsCompartmentEditPart) {
+			ArrayList<IElementType> types = new ArrayList<IElementType>(1);
+			types.add(DomainElementTypes.Column_1603026);
+			return types;
+		}
 		if (editPart instanceof LayerHolderLayerHolderChildrenCompartment2EditPart) {
 			ArrayList<IElementType> types = new ArrayList<IElementType>(9);
 			types.add(DomainElementTypes.Button_1603017);
 			types.add(DomainElementTypes.DropDownSelection_1603002);
 			types.add(DomainElementTypes.Table_1603008);
+			types.add(DomainElementTypes.Tree_1603016);
 			types.add(DomainElementTypes.LayerHolder_1603019);
 			types.add(DomainElementTypes.InputText_1603004);
 			types.add(DomainElementTypes.OutputText_1603006);
 			types.add(DomainElementTypes.CheckBox_1603007);
-			types.add(DomainElementTypes.Tree_1603016);
 			types.add(DomainElementTypes.Label_1603005);
+			return types;
+		}
+		if (editPart instanceof TreeTreeColsCompartment2EditPart) {
+			ArrayList<IElementType> types = new ArrayList<IElementType>(1);
+			types.add(DomainElementTypes.Column_1603026);
 			return types;
 		}
 		if (editPart instanceof LayerHolderLayerHolderChildrenCompartment3EditPart) {
@@ -104,11 +130,11 @@ public class DomainModelingAssistantProvider extends ModelingAssistantProvider {
 			types.add(DomainElementTypes.Button_1603017);
 			types.add(DomainElementTypes.DropDownSelection_1603002);
 			types.add(DomainElementTypes.Table_1603008);
+			types.add(DomainElementTypes.Tree_1603016);
 			types.add(DomainElementTypes.LayerHolder_1603019);
 			types.add(DomainElementTypes.InputText_1603004);
 			types.add(DomainElementTypes.OutputText_1603006);
 			types.add(DomainElementTypes.CheckBox_1603007);
-			types.add(DomainElementTypes.Tree_1603016);
 			types.add(DomainElementTypes.Label_1603005);
 			return types;
 		}

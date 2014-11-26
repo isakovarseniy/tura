@@ -371,7 +371,22 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
+	public static String TreeTreeColsCompartmentEditPart_title;
+
+	/**
+	 * @generated
+	 */
+	public static String ColumnColumnElementCompartment2EditPart_title;
+
+	/**
+	 * @generated
+	 */
 	public static String LayerHolderLayerHolderChildrenCompartment2EditPart_title;
+
+	/**
+	 * @generated
+	 */
+	public static String TreeTreeColsCompartment2EditPart_title;
 
 	/**
 	 * @generated

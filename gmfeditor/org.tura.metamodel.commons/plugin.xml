@@ -142,5 +142,25 @@
                  <adapter type="org.tura.metamodel.commons.properties.selections.adapters.IReturnTypeProvider"/> 
       </factory>
 
+      <factory  adaptableType="org.tura.metamodel.commons.properties.selections.adapters.helper.TreeDataControl"
+             class="org.tura.metamodel.commons.properties.selections.adapters.TreeProviderAdapterFactory">
+                 <adapter type="org.eclipse.ui.model.IWorkbenchAdapter"/> 
+                 <adapter type="org.tura.metamodel.commons.properties.selections.adapters.IReturnTypeProvider"/> 
+      </factory>
+
+      <factory  adaptableType="org.tura.metamodel.commons.properties.selections.adapters.helper.ExtendedType"
+             class="org.tura.metamodel.commons.properties.selections.adapters.TreeProviderAdapterFactory">
+                 <adapter type="org.eclipse.ui.model.IWorkbenchAdapter"/> 
+                 <adapter type="org.tura.metamodel.commons.properties.selections.adapters.IReturnTypeProvider"/> 
+      </factory>      
+
+      <factory  adaptableType="domain.ArtificialField"
+             class="org.tura.metamodel.commons.properties.selections.adapters.TreeProviderAdapterFactory">
+                 <adapter type="org.eclipse.ui.model.IWorkbenchAdapter"/> 
+                 <adapter type="org.tura.metamodel.commons.properties.selections.adapters.IReturnTypeProvider"/> 
+      </factory>      
+
+
+
 </extension>
 </plugin>

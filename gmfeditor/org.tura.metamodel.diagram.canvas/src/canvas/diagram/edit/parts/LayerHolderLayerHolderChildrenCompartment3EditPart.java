@@ -17,8 +17,8 @@ import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.gmf.runtime.notation.impl.NodeImpl;
 import org.eclipse.gmf.tooling.runtime.edit.policies.reparent.CreationEditPolicyWithCustomReparent;
-
 import org.tura.metamodel.commons.editparts.HTMLLikeLayout;
+
 import canvas.diagram.edit.policies.LayerHolderLayerHolderChildrenCompartment3CanonicalEditPolicy;
 import canvas.diagram.edit.policies.LayerHolderLayerHolderChildrenCompartment3ItemSemanticEditPolicy;
 import canvas.diagram.part.DomainVisualIDRegistry;

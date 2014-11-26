@@ -61,7 +61,7 @@ public class TreeLabelEditPart extends CompartmentEditPart implements
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 1605005;
+	public static final int VISUAL_ID = 1605008;
 
 	/**
 	 * @generated
@@ -313,7 +313,7 @@ public class TreeLabelEditPart extends CompartmentEditPart implements
 		if (parser == null) {
 			parser = DomainParserProvider
 					.getParser(
-							DomainElementTypes.Tree_1603016,
+							DomainElementTypes.Tree_1603022,
 							getParserElement(),
 							DomainVisualIDRegistry
 									.getType(canvas.diagram.edit.parts.TreeLabelEditPart.VISUAL_ID));

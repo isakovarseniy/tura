@@ -1707,7 +1707,7 @@
   <tura.domain:CanvasView uid="86803f23-9d44-4ebc-81e9-9a63b4a770ac" parent="e018aa58-2660-4bba-a75d-1674147458e7">
     <baseCanvas uid="c5f8ac47-356e-4c17-84db-fcf0a5037ca7">
       <children xsi:type="tura.domain:LayerHolder" uid="cae32081-1631-4110-9d0f-5a5b1cd5e23a" columns="2">
-        <children xsi:type="tura.domain:Table" uid="92ea6c50-dc39-4ba0-bb76-b3ca2e161fe5" sourcePointer="d45e9605-3706-493c-8422-3f7b8b6ea2ed" columns="2" label="Companies">
+        <children xsi:type="tura.domain:Table" uid="92ea6c50-dc39-4ba0-bb76-b3ca2e161fe5" sourcePointer="d45e9605-3706-493c-8422-3f7b8b6ea2ed" sourceCastDataControl="d45e9605-3706-493c-8422-3f7b8b6ea2ed" columns="2" label="Companies">
           <multiLangLabel value="Messages.HR Controller.COMPANIES_TABLE">
             <expression objRef="af03a493-0ca4-486c-945f-5bfc2fdf35bd" expressionType="MessagesImpl"/>
             <expression objRef="5772ddee-a83b-41c9-8f34-c442412e1013" order="1" expressionType="MessageLibraryImpl"/>
@@ -1730,16 +1730,11 @@
             <element xsi:type="tura.domain:InputText" uid="e4d5d6df-6b5d-4ede-ad11-8e857d3cd87e" valuePointer="a3f007de-ce4a-4510-bc86-52f20eee5325"/>
           </cols>
         </children>
-        <children xsi:type="tura.domain:Tree" uid="8309417c-3168-4ea5-9e46-bc9acd83f87f" sourcePointer="cd1cab1c-1781-4867-85b8-84d9f465f989" label="Locations">
-          <style/>
-          <enabled/>
-          <required/>
-          <readOnly/>
-          <multiLangLabel value="Messages.HR Controller.LOCATIONS_TREE">
-            <expression objRef="af03a493-0ca4-486c-945f-5bfc2fdf35bd" expressionType="MessagesImpl"/>
-            <expression objRef="5772ddee-a83b-41c9-8f34-c442412e1013" order="1" expressionType="MessageLibraryImpl"/>
-            <expression objRef="9e8ac4a5-5023-44f2-af6f-56c62c679fa3" order="2" expressionType="MessageImpl"/>
-          </multiLangLabel>
+        <children xsi:type="tura.domain:Tree" uid="bee23d39-6e59-450f-b696-94cf4c907c86">
+          <multiLangLabel/>
+          <cols uid="490f4dcd-4e49-4b66-88e5-c155aa28761a">
+            <element xsi:type="tura.domain:OutputText" uid="a467047a-bfd7-49a6-bc29-ef0770e63e78"/>
+          </cols>
         </children>
       </children>
       <children xsi:type="tura.domain:Table" uid="1ee2b71b-9a1a-4655-8562-b01bd84fe5e5" sourcePointer="0feddc04-1241-40fa-a9f3-35089d2cf4c5" columns="3" label="Departments">

@@ -32,7 +32,7 @@ import canvas.diagram.edit.parts.LabelEditPart;
 import canvas.diagram.edit.parts.LayerHolder3EditPart;
 import canvas.diagram.edit.parts.OutputTextEditPart;
 import canvas.diagram.edit.parts.TableEditPart;
-import canvas.diagram.edit.parts.TreeEditPart;
+import canvas.diagram.edit.parts.Tree2EditPart;
 import canvas.diagram.part.DomainDiagramUpdater;
 import canvas.diagram.part.DomainNodeDescriptor;
 import canvas.diagram.part.DomainVisualIDRegistry;
@@ -96,11 +96,11 @@ public class LayerHolderLayerHolderChildrenCompartment3CanonicalEditPolicy
 		case ButtonEditPart.VISUAL_ID:
 		case DropDownSelectionEditPart.VISUAL_ID:
 		case TableEditPart.VISUAL_ID:
+		case Tree2EditPart.VISUAL_ID:
 		case LayerHolder3EditPart.VISUAL_ID:
 		case InputTextEditPart.VISUAL_ID:
 		case OutputTextEditPart.VISUAL_ID:
 		case CheckBoxEditPart.VISUAL_ID:
-		case TreeEditPart.VISUAL_ID:
 		case LabelEditPart.VISUAL_ID:
 			return true;
 		}

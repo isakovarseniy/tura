@@ -1,6 +1,7 @@
 package org.tura.metamodel.commons.properties.selections.dropdown.impl;
 
 import java.util.HashMap;
+import java.util.List;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
@@ -25,12 +26,17 @@ public class OptionSelectionOptionCast implements DropDownDataSupplier {
 		return name;
 	}
 
+	@SuppressWarnings("unchecked")
 	public Object getFeatureValue(Object eObject,
 			HashMap<String, Object> values, EStructuralFeature feature,
 			Object... obj) {
 		if (feature.equals(DomainPackage.eINSTANCE
 				.getOptionSelection_OptionCast()))
-			return values.get(obj[0]);
+			return ((List<Object>) values.get(obj[0])).get(1);
+
+		if (feature.equals(DomainPackage.eINSTANCE
+				.getOptionSelection_OptionCastDataControl()))
+			return ((List<Object>) values.get(obj[0])).get(0);
 
 		return null;
 	}
@@ -40,8 +46,8 @@ public class OptionSelectionOptionCast implements DropDownDataSupplier {
 		if (((domain.OptionSelection) eObject).getOptionCast() == null)
 			return false;
 
-		String name = (((domain.OptionSelection) eObject)
-				.getOptionCast()).getName();
+		String name = (((domain.OptionSelection) eObject).getOptionCast())
+				.getName();
 
 		if (name == null)
 			return false;
@@ -49,11 +55,13 @@ public class OptionSelectionOptionCast implements DropDownDataSupplier {
 	}
 
 	public Object[] getWatchPointObject(Object eObject) {
-		return new Object[]{((domain.OptionSelection) eObject).getOptionPointer()};
+		return new Object[] { ((domain.OptionSelection) eObject)
+				.getOptionPointer() };
 	}
 
 	public EStructuralFeature[] getWatchPointFeature() {
-		return new EStructuralFeature[] {DomainPackage.eINSTANCE.getOptionSelection_OptionPointer()};
+		return new EStructuralFeature[] { DomainPackage.eINSTANCE
+				.getOptionSelection_OptionPointer() };
 	}
 
 	public Class<?> getExpectedClass() {

@@ -3,10 +3,21 @@ package org.tura.metamodel.commons.properties.selections.adapters.helper;
 public class DataControlFakeAttribute {
 	private String name;
 	private domain.TypeElement type;
-	
-	public DataControlFakeAttribute(String name,domain.TypeElement type){
-		this.name=name;
-		this.type=type;
+	private domain.DataControl dc;
+
+	public domain.DataControl getDc() {
+		return dc;
+	}
+
+	public void setDc(domain.DataControl dc) {
+		this.dc = dc;
+	}
+
+	public DataControlFakeAttribute(String name, domain.TypeElement type,
+			domain.DataControl dc) {
+		this.name = name;
+		this.type = type;
+		this.dc = dc;
 	}
 
 	public String getName() {

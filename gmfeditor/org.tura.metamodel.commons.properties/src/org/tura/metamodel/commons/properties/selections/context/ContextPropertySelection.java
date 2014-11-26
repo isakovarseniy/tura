@@ -160,7 +160,6 @@ public abstract class ContextPropertySelection extends
 		btnDialog.setText("Context");
 		data = new FormData();
 		data.left = new FormAttachment(text1, 0);
-		data.right = new FormAttachment(text1, 400);
 		data.top = new FormAttachment(text1, 0, SWT.CENTER);
 		btnDialog.setLayoutData(data);
 

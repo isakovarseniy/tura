@@ -60,14 +60,16 @@ public class SelectionValueOptionPointer implements DropDownDataSupplier {
 
 	public Object[] getWatchPointObject(Object eObject) {
 		return new Object[] {((domain.OptionSelection) eObject).getOptionPointer(),
-				((domain.OptionSelection) eObject).getOptionCast()
+				((domain.OptionSelection) eObject).getOptionCast(),
+				((domain.OptionSelection) eObject).getOptionCastDataControl()
 				};
 	}
 
 	public EStructuralFeature[] getWatchPointFeature() {
 		return new EStructuralFeature[] 
 				{ DomainPackage.eINSTANCE.getOptionSelection_OptionPointer(),
-				  DomainPackage.eINSTANCE.getOptionSelection_OptionCast()
+				  DomainPackage.eINSTANCE.getOptionSelection_OptionCast(),
+				  DomainPackage.eINSTANCE.getOptionSelection_OptionCastDataControl()
 				};
 	}
 

@@ -33,12 +33,27 @@ import org.eclipse.ocl.helper.OCLHelper;
 import org.tura.metamodel.commons.preferences.IPreferenceConstants;
 
 import domain.DomainPackage;
+import domain.Type;
 import freemarker.template.Configuration;
 import freemarker.template.DefaultObjectWrapper;
 import freemarker.template.Template;
 import freemarker.template.TemplateExceptionHandler;
 
 public class Util {
+
+	public static domain.TypeElement getBase(domain.DataControl dc) {
+		if ((dc.getCreate().getMethodRef() == null
+				|| dc.getCreate().getMethodRef().getReturnValue() == null || dc
+				.getCreate().getMethodRef().getReturnValue().getTypeRef() == null)
+				&& (dc.getBaseType() == null))
+			return null;
+
+		domain.Type type = (Type) dc.getCreate().getMethodRef()
+				.getReturnValue().getTypeRef();
+		
+		return type;
+
+	}
 
 	public boolean ifInternalElement(EObject element) {
 
@@ -52,14 +67,14 @@ public class Util {
 
 	}
 
-	public static void move(String src, String dst) throws IOException{
+	public static void move(String src, String dst) throws IOException {
 		Path srcPath = FileSystems.getDefault().getPath(src);
 		Path dstPath = FileSystems.getDefault().getPath(dst);
 
 		Files.move(srcPath, dstPath, REPLACE_EXISTING);
-		
+
 	}
-	
+
 	public static boolean mapperRecognizer(Set<domain.Mapper> mappers,
 			domain.Ingredient ingredient) {
 
@@ -131,19 +146,19 @@ public class Util {
 
 	}
 
-//	public static GroupBy runQueryWithGrouping(domain.ModelMapper mapper,
-//			String queryName, EObject eobj) throws Exception {
-//		GroupBy result = new GroupBy();
-//		for (Iterator<domain.Query> itr = mapper.getQueries().iterator(); itr
-//				.hasNext();) {
-//			domain.Query query = itr.next();
-//			if (query.getQueryRef().getName().equals(queryName)) {
-//				Collection<?> ls = (Collection<?>) runQuery(query, eobj);
-//				result.add(query.getGroupCode(), ls);
-//			}
-//		}
-//		return result;
-//	}
+	// public static GroupBy runQueryWithGrouping(domain.ModelMapper mapper,
+	// String queryName, EObject eobj) throws Exception {
+	// GroupBy result = new GroupBy();
+	// for (Iterator<domain.Query> itr = mapper.getQueries().iterator(); itr
+	// .hasNext();) {
+	// domain.Query query = itr.next();
+	// if (query.getQueryRef().getName().equals(queryName)) {
+	// Collection<?> ls = (Collection<?>) runQuery(query, eobj);
+	// result.add(query.getGroupCode(), ls);
+	// }
+	// }
+	// return result;
+	// }
 
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	private static Object executeQuery(String strQuery, EObject eobj)
@@ -173,60 +188,61 @@ public class Util {
 		for (int i = 0; i < ls.length; i++) {
 			ls[i] = StringUtils.capitalize(ls[i]);
 		}
-		return StringUtils.uncapitalize( StringUtils.join(ls));
+		return StringUtils.uncapitalize(StringUtils.join(ls));
 	}
-	
-	public ArtificialContextValue createArtificialContextValue(domain.DataControl dc){
+
+	public ArtificialContextValue createArtificialContextValue(
+			domain.DataControl dc) {
 
 		ArtificialContextValue cv = new ArtificialContextValue();
-		cv.setValue("Data control."+dc.getName());
-		
+		cv.setValue("Data control." + dc.getName());
+
 		ArtificialExpressionPart ex = new ArtificialExpressionPart();
 		ex.setOrder(0);
 		ex.setExpressionType("ControlsImpl");
 		cv.getExpression().add(ex);
-		
+
 		ex = new ArtificialExpressionPart();
 		ex.setOrder(1);
 		ex.setExpressionType("DataControlImpl");
 		ex.setObjRef(dc);
 		cv.getExpression().add(ex);
-		
+
 		return cv;
-		
-	}	
-	
-	public ArtificialContextValue createArtificialContextValue(domain.DataControl dc, domain.Link lnk){
+
+	}
+
+	public ArtificialContextValue createArtificialContextValue(
+			domain.DataControl dc, domain.Link lnk) {
 		ArtificialContextValue cv = new ArtificialContextValue();
-		cv.setValue("Data control."+dc.getName()+".currentObject."+ lnk.getMasterField() );
-		
+		cv.setValue("Data control." + dc.getName() + ".currentObject."
+				+ lnk.getMasterField());
+
 		ArtificialExpressionPart ex = new ArtificialExpressionPart();
 		ex.setOrder(0);
 		ex.setExpressionType("ControlsImpl");
 		cv.getExpression().add(ex);
-		
+
 		ex = new ArtificialExpressionPart();
 		ex.setOrder(1);
 		ex.setExpressionType("TreeDataControlImpl");
 		ex.setObjRef(dc);
 		cv.getExpression().add(ex);
-		
 
 		ex = new ArtificialExpressionPart();
 		ex.setOrder(2);
 		ex.setExpressionType("DataControlFakeMethod");
 		cv.getExpression().add(ex);
-	
+
 		ex = new ArtificialExpressionPart();
 		ex.setOrder(3);
 		ex.setObjRef(lnk.getMasterField());
 		ex.setExpressionType("AttributeImpl");
 		cv.getExpression().add(ex);
-		
-		
+
 		return cv;
 	}
-	
+
 	public static void saveFile(String path, String fileName, String in)
 			throws IOException {
 
@@ -242,20 +258,22 @@ public class Util {
 		System.out.println(obj);
 	}
 
-	
-	public static void populateTechnologies(EglTemplate template, domain.ModelMapper mapper){
-		for (  domain.MappingSpecifier tech : mapper.getSpecifiers()){
-			template.populate(tech.getSpecifierRef().getName().replace(' ', '_'),	tech.getValueRef().getValue());
+	public static void populateTechnologies(EglTemplate template,
+			domain.ModelMapper mapper) {
+		for (domain.MappingSpecifier tech : mapper.getSpecifiers()) {
+			template.populate(tech.getSpecifierRef().getName()
+					.replace(' ', '_'), tech.getValueRef().getValue());
 		}
 	}
-	
-	public static void populateTechnologies(Map<String,Object> hash, domain.ModelMapper mapper){
-		for (  domain.MappingSpecifier tech : mapper.getSpecifiers()){
-			hash.put(tech.getSpecifierRef().getName().replace(' ', '_'),	tech.getValueRef().getValue());
+
+	public static void populateTechnologies(Map<String, Object> hash,
+			domain.ModelMapper mapper) {
+		for (domain.MappingSpecifier tech : mapper.getSpecifiers()) {
+			hash.put(tech.getSpecifierRef().getName().replace(' ', '_'), tech
+					.getValueRef().getValue());
 		}
 	}
-	
-	
+
 	public static EglTemplate loadTemplate(String templateFile,
 			HashMap<String, Object> parameters, EglTemplateFactory factory)
 			throws Exception {

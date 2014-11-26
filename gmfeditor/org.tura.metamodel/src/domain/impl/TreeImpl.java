@@ -2,18 +2,24 @@
  */
 package domain.impl;
 
+import domain.Column;
 import domain.Context;
 import domain.DomainPackage;
+import domain.HTMLLayerHolder;
 import domain.MultiLangLabel;
 import domain.Tree;
 
+import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -22,9 +28,11 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <p>
  * The following features are implemented:
  * <ul>
+ *   <li>{@link domain.impl.TreeImpl#getColumns <em>Columns</em>}</li>
  *   <li>{@link domain.impl.TreeImpl#getMultiLangLabel <em>Multi Lang Label</em>}</li>
  *   <li>{@link domain.impl.TreeImpl#getLabel <em>Label</em>}</li>
  *   <li>{@link domain.impl.TreeImpl#getImage <em>Image</em>}</li>
+ *   <li>{@link domain.impl.TreeImpl#getCols <em>Cols</em>}</li>
  * </ul>
  * </p>
  *
@@ -32,6 +40,26 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  */
 public class TreeImpl extends SourcesPointerImpl implements Tree
 {
+  /**
+   * The default value of the '{@link #getColumns() <em>Columns</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getColumns()
+   * @generated
+   * @ordered
+   */
+  protected static final int COLUMNS_EDEFAULT = 1;
+
+  /**
+   * The cached value of the '{@link #getColumns() <em>Columns</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getColumns()
+   * @generated
+   * @ordered
+   */
+  protected int columns = COLUMNS_EDEFAULT;
+
   /**
    * The cached value of the '{@link #getMultiLangLabel() <em>Multi Lang Label</em>}' containment reference.
    * <!-- begin-user-doc -->
@@ -73,6 +101,16 @@ public class TreeImpl extends SourcesPointerImpl implements Tree
   protected Context image;
 
   /**
+   * The cached value of the '{@link #getCols() <em>Cols</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getCols()
+   * @generated
+   * @ordered
+   */
+  protected EList<Column> cols;
+
+  /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -91,6 +129,29 @@ public class TreeImpl extends SourcesPointerImpl implements Tree
   protected EClass eStaticClass()
   {
     return DomainPackage.Literals.TREE;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public int getColumns()
+  {
+    return columns;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setColumns(int newColumns)
+  {
+    int oldColumns = columns;
+    columns = newColumns;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.TREE__COLUMNS, oldColumns, columns));
   }
 
   /**
@@ -217,6 +278,20 @@ public class TreeImpl extends SourcesPointerImpl implements Tree
    * <!-- end-user-doc -->
    * @generated
    */
+  public EList<Column> getCols()
+  {
+    if (cols == null)
+    {
+      cols = new EObjectContainmentEList<Column>(Column.class, this, DomainPackage.TREE__COLS);
+    }
+    return cols;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
@@ -226,6 +301,8 @@ public class TreeImpl extends SourcesPointerImpl implements Tree
         return basicSetMultiLangLabel(null, msgs);
       case DomainPackage.TREE__IMAGE:
         return basicSetImage(null, msgs);
+      case DomainPackage.TREE__COLS:
+        return ((InternalEList<?>)getCols()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -240,12 +317,16 @@ public class TreeImpl extends SourcesPointerImpl implements Tree
   {
     switch (featureID)
     {
+      case DomainPackage.TREE__COLUMNS:
+        return getColumns();
       case DomainPackage.TREE__MULTI_LANG_LABEL:
         return getMultiLangLabel();
       case DomainPackage.TREE__LABEL:
         return getLabel();
       case DomainPackage.TREE__IMAGE:
         return getImage();
+      case DomainPackage.TREE__COLS:
+        return getCols();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -255,11 +336,15 @@ public class TreeImpl extends SourcesPointerImpl implements Tree
    * <!-- end-user-doc -->
    * @generated
    */
+  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
     switch (featureID)
     {
+      case DomainPackage.TREE__COLUMNS:
+        setColumns((Integer)newValue);
+        return;
       case DomainPackage.TREE__MULTI_LANG_LABEL:
         setMultiLangLabel((Context)newValue);
         return;
@@ -268,6 +353,10 @@ public class TreeImpl extends SourcesPointerImpl implements Tree
         return;
       case DomainPackage.TREE__IMAGE:
         setImage((Context)newValue);
+        return;
+      case DomainPackage.TREE__COLS:
+        getCols().clear();
+        getCols().addAll((Collection<? extends Column>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -283,6 +372,9 @@ public class TreeImpl extends SourcesPointerImpl implements Tree
   {
     switch (featureID)
     {
+      case DomainPackage.TREE__COLUMNS:
+        setColumns(COLUMNS_EDEFAULT);
+        return;
       case DomainPackage.TREE__MULTI_LANG_LABEL:
         setMultiLangLabel((Context)null);
         return;
@@ -291,6 +383,9 @@ public class TreeImpl extends SourcesPointerImpl implements Tree
         return;
       case DomainPackage.TREE__IMAGE:
         setImage((Context)null);
+        return;
+      case DomainPackage.TREE__COLS:
+        getCols().clear();
         return;
     }
     super.eUnset(featureID);
@@ -306,12 +401,16 @@ public class TreeImpl extends SourcesPointerImpl implements Tree
   {
     switch (featureID)
     {
+      case DomainPackage.TREE__COLUMNS:
+        return columns != COLUMNS_EDEFAULT;
       case DomainPackage.TREE__MULTI_LANG_LABEL:
         return multiLangLabel != null;
       case DomainPackage.TREE__LABEL:
         return LABEL_EDEFAULT == null ? label != null : !LABEL_EDEFAULT.equals(label);
       case DomainPackage.TREE__IMAGE:
         return image != null;
+      case DomainPackage.TREE__COLS:
+        return cols != null && !cols.isEmpty();
     }
     return super.eIsSet(featureID);
   }
@@ -324,6 +423,14 @@ public class TreeImpl extends SourcesPointerImpl implements Tree
   @Override
   public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass)
   {
+    if (baseClass == HTMLLayerHolder.class)
+    {
+      switch (derivedFeatureID)
+      {
+        case DomainPackage.TREE__COLUMNS: return DomainPackage.HTML_LAYER_HOLDER__COLUMNS;
+        default: return -1;
+      }
+    }
     if (baseClass == MultiLangLabel.class)
     {
       switch (derivedFeatureID)
@@ -343,6 +450,14 @@ public class TreeImpl extends SourcesPointerImpl implements Tree
   @Override
   public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass)
   {
+    if (baseClass == HTMLLayerHolder.class)
+    {
+      switch (baseFeatureID)
+      {
+        case DomainPackage.HTML_LAYER_HOLDER__COLUMNS: return DomainPackage.TREE__COLUMNS;
+        default: return -1;
+      }
+    }
     if (baseClass == MultiLangLabel.class)
     {
       switch (baseFeatureID)
@@ -365,7 +480,9 @@ public class TreeImpl extends SourcesPointerImpl implements Tree
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (label: ");
+    result.append(" (columns: ");
+    result.append(columns);
+    result.append(", label: ");
     result.append(label);
     result.append(')');
     return result.toString();

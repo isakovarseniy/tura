@@ -6056,6 +6056,16 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EReference getSourcesPointer_SourceCastDataControl()
+  {
+    return (EReference)sourcesPointerEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getActionElement()
   {
     return actionElementEClass;
@@ -6129,6 +6139,16 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
   public EReference getOptionSelection_OptionCast()
   {
     return (EReference)optionSelectionEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getOptionSelection_OptionCastDataControl()
+  {
+    return (EReference)optionSelectionEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -6309,6 +6329,16 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
   public EReference getTree_Image()
   {
     return (EReference)treeEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getTree_Cols()
+  {
+    return (EReference)treeEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -8147,6 +8177,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     createEReference(sourcesPointerEClass, SOURCES_POINTER__SOURCE_POINTER);
     createEReference(sourcesPointerEClass, SOURCES_POINTER__VALUE_POINTER);
     createEReference(sourcesPointerEClass, SOURCES_POINTER__SOURCE_CAST);
+    createEReference(sourcesPointerEClass, SOURCES_POINTER__SOURCE_CAST_DATA_CONTROL);
 
     actionElementEClass = createEClass(ACTION_ELEMENT);
 
@@ -8159,6 +8190,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     optionSelectionEClass = createEClass(OPTION_SELECTION);
     createEReference(optionSelectionEClass, OPTION_SELECTION__OPTION_POINTER);
     createEReference(optionSelectionEClass, OPTION_SELECTION__OPTION_CAST);
+    createEReference(optionSelectionEClass, OPTION_SELECTION__OPTION_CAST_DATA_CONTROL);
 
     layerHolderEClass = createEClass(LAYER_HOLDER);
 
@@ -8186,6 +8218,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     treeEClass = createEClass(TREE);
     createEAttribute(treeEClass, TREE__LABEL);
     createEReference(treeEClass, TREE__IMAGE);
+    createEReference(treeEClass, TREE__COLS);
 
     buttonEClass = createEClass(BUTTON);
     createEAttribute(buttonEClass, BUTTON__LABEL);
@@ -8449,6 +8482,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     tableEClass.getESuperTypes().add(this.getHTMLLayerHolder());
     tableEClass.getESuperTypes().add(this.getMultiLangLabel());
     treeEClass.getESuperTypes().add(this.getSourcesPointer());
+    treeEClass.getESuperTypes().add(this.getHTMLLayerHolder());
     treeEClass.getESuperTypes().add(this.getMultiLangLabel());
     buttonEClass.getESuperTypes().add(this.getActionElement());
     buttonEClass.getESuperTypes().add(this.getMultiLangLabel());
@@ -9071,6 +9105,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     initEReference(getSourcesPointer_SourcePointer(), this.getDataControl(), null, "sourcePointer", null, 0, 1, SourcesPointer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getSourcesPointer_ValuePointer(), ecorePackage.getEObject(), null, "valuePointer", null, 0, 1, SourcesPointer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getSourcesPointer_SourceCast(), this.getType(), null, "sourceCast", null, 0, 1, SourcesPointer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getSourcesPointer_SourceCastDataControl(), this.getDataControl(), null, "sourceCastDataControl", null, 0, 1, SourcesPointer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(actionElementEClass, ActionElement.class, "ActionElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -9083,6 +9118,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     initEClass(optionSelectionEClass, OptionSelection.class, "OptionSelection", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getOptionSelection_OptionPointer(), this.getDataControl(), null, "optionPointer", null, 0, 1, OptionSelection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getOptionSelection_OptionCast(), this.getType(), null, "optionCast", null, 0, 1, OptionSelection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getOptionSelection_OptionCastDataControl(), this.getDataControl(), null, "optionCastDataControl", null, 0, 1, OptionSelection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(layerHolderEClass, LayerHolder.class, "LayerHolder", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -9110,6 +9146,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     initEClass(treeEClass, Tree.class, "Tree", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getTree_Label(), ecorePackage.getEString(), "label", null, 0, 1, Tree.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getTree_Image(), this.getContext(), null, "image", null, 0, 1, Tree.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getTree_Cols(), this.getColumn(), null, "cols", null, 0, -1, Tree.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(buttonEClass, Button.class, "Button", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getButton_Label(), ecorePackage.getEString(), "label", null, 0, 1, Button.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -9340,7 +9377,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
-       });																																																																																																																																																																														
+       });																																																																																																																																																																															
   }
 
   /**
@@ -9357,7 +9394,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
-       });																																																																																																																																																																													
+       });																																																																																																																																																																														
   }
 
   /**
@@ -10050,7 +10087,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        "label", "label",
        "tool.small.bundle", "org.tura.metamodel.commons",
        "tool.small.path", "icons/tree.png"
-       });		
+       });			
     addAnnotation
       (buttonEClass, 
        source, 
@@ -10484,7 +10521,13 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
-       });																		
+       });			
+    addAnnotation
+      (getTree_Cols(), 
+       source, 
+       new String[] 
+       {
+       });																	
     addAnnotation
       (getRoot_PreFormTrigger(), 
        source, 
@@ -10617,7 +10660,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
-       });																																																																																																																																																																	
+       });																																																																																																																																																																		
   }
 
   /**
@@ -10634,7 +10677,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
-       });																																																																																																																																																						
+       });																																																																																																																																																							
   }
 
   /**
@@ -10651,7 +10694,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
-       });																																																																																																																																							
+       });																																																																																																																																								
   }
 
   /**
@@ -10668,7 +10711,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
-       });																																																																																																																																		
+       });																																																																																																																																			
   }
 
   /**
@@ -10779,7 +10822,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        "color", "238,16,16",
        "width", "2",
        "target.decoration", "arrow"
-       });																																													
+       });																																														
     addAnnotation
       (relationEClass, 
        source, 
@@ -10815,7 +10858,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
-       });																																																																																																																													
+       });																																																																																																																														
   }
 
   /**
@@ -10832,7 +10875,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
-       });																																																																																																																									
+       });																																																																																																																										
   }
 
   /**
@@ -10849,7 +10892,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
-       });																																																																																																																				
+       });																																																																																																																					
   }
 
   /**
@@ -10866,7 +10909,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
-       });																																																																																																																		
+       });																																																																																																																			
   }
 
   /**
@@ -10883,7 +10926,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
-       });																																																																																												
+       });																																																																																													
   }
 
   /**
@@ -10900,7 +10943,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
-       });																																																																																
+       });																																																																																	
   }
 
   /**
@@ -10917,7 +10960,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
-       });																																																																												
+       });																																																																													
   }
 
   /**
@@ -10934,7 +10977,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
-       });																																																																							
+       });																																																																								
   }
 
   /**
@@ -10951,7 +10994,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
-       });																																																										
+       });																																																											
   }
 
   /**
@@ -10962,7 +11005,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    */
   protected void createGmf_18Annotations()
   {
-    String source = "gmf.diagram.control";																																																																																																																																				
+    String source = "gmf.diagram.control";																																																																																																																																					
     addAnnotation
       (controlsEClass, 
        source, 
@@ -10979,7 +11022,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    */
   protected void createGmf_19Annotations()
   {
-    String source = "gmf.diagram.infarastructure";																																																																																																																																																																			
+    String source = "gmf.diagram.infarastructure";																																																																																																																																																																				
     addAnnotation
       (enterpriseInfrastructureEClass, 
        source, 

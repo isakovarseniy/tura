@@ -1,13 +1,17 @@
 package org.tura.metamodel.commons.properties.selections.dropdown;
 
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.LinkedHashMap;
-import java.util.List;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
-import org.eclipse.gmf.runtime.notation.Diagram;
+import org.eclipse.gmf.runtime.notation.impl.DiagramImpl;
+import org.tura.metamodel.commons.QueryHelper;
+import org.tura.metamodel.commons.properties.selections.adapters.DataControlProvider;
+import org.tura.metamodel.commons.properties.selections.adapters.TreeDataControlProvider;
+import org.tura.metamodel.commons.properties.selections.adapters.helper.DataControlHolder;
+import org.tura.metamodel.commons.properties.selections.adapters.helper.TreeDataControl;
+import org.tura.metamodel.commons.properties.selections.adapters.helper.TreeRootDataControlHolder;
 
 public abstract class AbstractDataControlPropertySelection extends
 		AbstractEnumerationPropertySection {
@@ -18,28 +22,31 @@ public abstract class AbstractDataControlPropertySelection extends
 
 	protected HashMap<String, ?> getEnumerationFeatureValues() {
 		if (values == null) {
-			values = new LinkedHashMap<String, Object>();
-			Diagram diagram = (Diagram) editPart.getRoot().getContents()
-					.getModel();
-			domain.ViewArea viewArea = ((domain.CanvasView) diagram
-					.getElement()).getParent();
-			domain.Views views = (domain.Views) viewArea.eContainer()
-					.eContainer();
+			try {
+				values = new LinkedHashMap<String, Object>();
+				DiagramImpl root = (DiagramImpl) editPart.getRoot()
+						.getContents().getModel();
 
-			if (((domain.Form) views.getParent().eContainer())
-					.getDatacontrols() != null
-					&& ((domain.Form) views.getParent().eContainer())
-							.getDatacontrols().getFormControl() != null) {
-
-				List<domain.DataControl> dc = ((domain.Form) views.getParent()
-						.eContainer()).getDatacontrols().getFormControl()
-						.getControls();
-				for (Iterator<domain.DataControl> i = dc.iterator(); i
-						.hasNext();) {
-					domain.DataControl p = i.next();
-					if (p.getName() != null)
-						values.put(p.getName(), p);
+				for (Object obj : new QueryHelper().getControlsList(root)) {
+					if (obj instanceof TreeRootDataControlHolder) {
+						TreeRootDataControlHolder th = (TreeRootDataControlHolder) obj;
+						TreeDataControlProvider provider = new TreeDataControlProvider();
+						for (TreeDataControl tdc : th.getControls()) {
+							if (provider.getLabel(tdc) != null)
+								values.put(provider.getLabel(tdc), tdc.getDc());
+						}
+					}
+					if (obj instanceof DataControlHolder) {
+						DataControlHolder dh = (DataControlHolder) obj;
+						DataControlProvider provider = new DataControlProvider();
+						for (domain.DataControl dc : dh.getControls()) {
+							if (provider.getLabel(dc) != null)
+								values.put(provider.getLabel(dc), dc);
+						}
+					}
 				}
+			} catch (Exception e) {
+
 			}
 		}
 		return values;
@@ -49,6 +56,7 @@ public abstract class AbstractDataControlPropertySelection extends
 	public EObject getModel() {
 		return getEObject();
 	}
+
 	@Override
 	public EObject getModel(EStructuralFeature feature) {
 		return getEObject();

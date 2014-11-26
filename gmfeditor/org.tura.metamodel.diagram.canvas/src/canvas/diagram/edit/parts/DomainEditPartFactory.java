@@ -67,8 +67,26 @@ public class DomainEditPartFactory implements EditPartFactory {
 			case TableLabel2EditPart.VISUAL_ID:
 				return new TableLabel2EditPart(view);
 
+			case TreeEditPart.VISUAL_ID:
+				return new TreeEditPart(view);
+
+			case TreeLabelEditPart.VISUAL_ID:
+				return new TreeLabelEditPart(view);
+
+			case Column2EditPart.VISUAL_ID:
+				return new Column2EditPart(view);
+
+			case ColumnLabel2EditPart.VISUAL_ID:
+				return new ColumnLabel2EditPart(view);
+
 			case LayerHolder2EditPart.VISUAL_ID:
 				return new LayerHolder2EditPart(view);
+
+			case Tree2EditPart.VISUAL_ID:
+				return new Tree2EditPart(view);
+
+			case TreeLabel2EditPart.VISUAL_ID:
+				return new TreeLabel2EditPart(view);
 
 			case LayerHolder3EditPart.VISUAL_ID:
 				return new LayerHolder3EditPart(view);
@@ -81,12 +99,6 @@ public class DomainEditPartFactory implements EditPartFactory {
 
 			case CheckBoxEditPart.VISUAL_ID:
 				return new CheckBoxEditPart(view);
-
-			case TreeEditPart.VISUAL_ID:
-				return new TreeEditPart(view);
-
-			case TreeLabelEditPart.VISUAL_ID:
-				return new TreeLabelEditPart(view);
 
 			case LabelEditPart.VISUAL_ID:
 				return new LabelEditPart(view);
@@ -102,12 +114,6 @@ public class DomainEditPartFactory implements EditPartFactory {
 
 			case CheckBox2EditPart.VISUAL_ID:
 				return new CheckBox2EditPart(view);
-
-			case Tree2EditPart.VISUAL_ID:
-				return new Tree2EditPart(view);
-
-			case TreeLabel2EditPart.VISUAL_ID:
-				return new TreeLabel2EditPart(view);
 
 			case Label2EditPart.VISUAL_ID:
 				return new Label2EditPart(view);
@@ -128,9 +134,18 @@ public class DomainEditPartFactory implements EditPartFactory {
 			case TableTableColsCompartment2EditPart.VISUAL_ID:
 				return new TableTableColsCompartment2EditPart(view);
 
+			case TreeTreeColsCompartmentEditPart.VISUAL_ID:
+				return new TreeTreeColsCompartmentEditPart(view);
+
+			case ColumnColumnElementCompartment2EditPart.VISUAL_ID:
+				return new ColumnColumnElementCompartment2EditPart(view);
+
 			case LayerHolderLayerHolderChildrenCompartment2EditPart.VISUAL_ID:
 				return new LayerHolderLayerHolderChildrenCompartment2EditPart(
 						view);
+
+			case TreeTreeColsCompartment2EditPart.VISUAL_ID:
+				return new TreeTreeColsCompartment2EditPart(view);
 
 			case LayerHolderLayerHolderChildrenCompartment3EditPart.VISUAL_ID:
 				return new LayerHolderLayerHolderChildrenCompartment3EditPart(

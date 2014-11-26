@@ -24,6 +24,7 @@ import canvas.diagram.edit.parts.ButtonEditPart;
 import canvas.diagram.edit.parts.CanvasViewEditPart;
 import canvas.diagram.edit.parts.CheckBox2EditPart;
 import canvas.diagram.edit.parts.CheckBoxEditPart;
+import canvas.diagram.edit.parts.Column2EditPart;
 import canvas.diagram.edit.parts.ColumnEditPart;
 import canvas.diagram.edit.parts.DropDownSelection2EditPart;
 import canvas.diagram.edit.parts.DropDownSelectionEditPart;
@@ -84,10 +85,6 @@ public class DomainElementTypes {
 	/**
 	 * @generated
 	 */
-	public static final IElementType Label_1603005 = getElementType("org.tura.metamodel.diagram.canvas.Label_1603005"); //$NON-NLS-1$
-	/**
-	 * @generated
-	 */
 	public static final IElementType DropDownSelection_1603002 = getElementType("org.tura.metamodel.diagram.canvas.DropDownSelection_1603002"); //$NON-NLS-1$
 	/**
 	 * @generated
@@ -104,10 +101,6 @@ public class DomainElementTypes {
 	/**
 	 * @generated
 	 */
-	public static final IElementType Label_1603013 = getElementType("org.tura.metamodel.diagram.canvas.Label_1603013"); //$NON-NLS-1$
-	/**
-	 * @generated
-	 */
 	public static final IElementType DropDownSelection_1603010 = getElementType("org.tura.metamodel.diagram.canvas.DropDownSelection_1603010"); //$NON-NLS-1$
 	/**
 	 * @generated
@@ -116,7 +109,19 @@ public class DomainElementTypes {
 	/**
 	 * @generated
 	 */
+	public static final IElementType Tree_1603022 = getElementType("org.tura.metamodel.diagram.canvas.Tree_1603022"); //$NON-NLS-1$
+	/**
+	 * @generated
+	 */
+	public static final IElementType Column_1603026 = getElementType("org.tura.metamodel.diagram.canvas.Column_1603026"); //$NON-NLS-1$
+	/**
+	 * @generated
+	 */
 	public static final IElementType LayerHolder_1603020 = getElementType("org.tura.metamodel.diagram.canvas.LayerHolder_1603020"); //$NON-NLS-1$
+	/**
+	 * @generated
+	 */
+	public static final IElementType Tree_1603016 = getElementType("org.tura.metamodel.diagram.canvas.Tree_1603016"); //$NON-NLS-1$
 	/**
 	 * @generated
 	 */
@@ -136,7 +141,7 @@ public class DomainElementTypes {
 	/**
 	 * @generated
 	 */
-	public static final IElementType Tree_1603016 = getElementType("org.tura.metamodel.diagram.canvas.Tree_1603016"); //$NON-NLS-1$
+	public static final IElementType Label_1603005 = getElementType("org.tura.metamodel.diagram.canvas.Label_1603005"); //$NON-NLS-1$
 	/**
 	 * @generated
 	 */
@@ -152,7 +157,7 @@ public class DomainElementTypes {
 	/**
 	 * @generated
 	 */
-	public static final IElementType Tree_1603022 = getElementType("org.tura.metamodel.diagram.canvas.Tree_1603022"); //$NON-NLS-1$
+	public static final IElementType Label_1603013 = getElementType("org.tura.metamodel.diagram.canvas.Label_1603013"); //$NON-NLS-1$
 
 	/**
 	 * @generated
@@ -287,8 +292,14 @@ public class DomainElementTypes {
 
 			elements.put(Table_1603021, DomainPackage.eINSTANCE.getTable());
 
+			elements.put(Tree_1603022, DomainPackage.eINSTANCE.getTree());
+
+			elements.put(Column_1603026, DomainPackage.eINSTANCE.getColumn());
+
 			elements.put(LayerHolder_1603020,
 					DomainPackage.eINSTANCE.getLayerHolder());
+
+			elements.put(Tree_1603016, DomainPackage.eINSTANCE.getTree());
 
 			elements.put(LayerHolder_1603019,
 					DomainPackage.eINSTANCE.getLayerHolder());
@@ -302,8 +313,6 @@ public class DomainElementTypes {
 			elements.put(CheckBox_1603007,
 					DomainPackage.eINSTANCE.getCheckBox());
 
-			elements.put(Tree_1603016, DomainPackage.eINSTANCE.getTree());
-
 			elements.put(Label_1603005, DomainPackage.eINSTANCE.getLabel());
 
 			elements.put(InputText_1603012,
@@ -314,8 +323,6 @@ public class DomainElementTypes {
 
 			elements.put(CheckBox_1603015,
 					DomainPackage.eINSTANCE.getCheckBox());
-
-			elements.put(Tree_1603022, DomainPackage.eINSTANCE.getTree());
 
 			elements.put(Label_1603013, DomainPackage.eINSTANCE.getLabel());
 		}
@@ -344,17 +351,18 @@ public class DomainElementTypes {
 			KNOWN_ELEMENT_TYPES.add(Button_1603023);
 			KNOWN_ELEMENT_TYPES.add(DropDownSelection_1603010);
 			KNOWN_ELEMENT_TYPES.add(Table_1603021);
+			KNOWN_ELEMENT_TYPES.add(Tree_1603022);
+			KNOWN_ELEMENT_TYPES.add(Column_1603026);
 			KNOWN_ELEMENT_TYPES.add(LayerHolder_1603020);
+			KNOWN_ELEMENT_TYPES.add(Tree_1603016);
 			KNOWN_ELEMENT_TYPES.add(LayerHolder_1603019);
 			KNOWN_ELEMENT_TYPES.add(InputText_1603004);
 			KNOWN_ELEMENT_TYPES.add(OutputText_1603006);
 			KNOWN_ELEMENT_TYPES.add(CheckBox_1603007);
-			KNOWN_ELEMENT_TYPES.add(Tree_1603016);
 			KNOWN_ELEMENT_TYPES.add(Label_1603005);
 			KNOWN_ELEMENT_TYPES.add(InputText_1603012);
 			KNOWN_ELEMENT_TYPES.add(OutputText_1603014);
 			KNOWN_ELEMENT_TYPES.add(CheckBox_1603015);
-			KNOWN_ELEMENT_TYPES.add(Tree_1603022);
 			KNOWN_ELEMENT_TYPES.add(Label_1603013);
 		}
 		return KNOWN_ELEMENT_TYPES.contains(elementType);
@@ -383,8 +391,14 @@ public class DomainElementTypes {
 			return DropDownSelection_1603010;
 		case Table2EditPart.VISUAL_ID:
 			return Table_1603021;
+		case TreeEditPart.VISUAL_ID:
+			return Tree_1603022;
+		case Column2EditPart.VISUAL_ID:
+			return Column_1603026;
 		case LayerHolder2EditPart.VISUAL_ID:
 			return LayerHolder_1603020;
+		case Tree2EditPart.VISUAL_ID:
+			return Tree_1603016;
 		case LayerHolder3EditPart.VISUAL_ID:
 			return LayerHolder_1603019;
 		case InputTextEditPart.VISUAL_ID:
@@ -393,8 +407,6 @@ public class DomainElementTypes {
 			return OutputText_1603006;
 		case CheckBoxEditPart.VISUAL_ID:
 			return CheckBox_1603007;
-		case TreeEditPart.VISUAL_ID:
-			return Tree_1603016;
 		case LabelEditPart.VISUAL_ID:
 			return Label_1603005;
 		case InputText2EditPart.VISUAL_ID:
@@ -403,8 +415,6 @@ public class DomainElementTypes {
 			return OutputText_1603014;
 		case CheckBox2EditPart.VISUAL_ID:
 			return CheckBox_1603015;
-		case Tree2EditPart.VISUAL_ID:
-			return Tree_1603022;
 		case Label2EditPart.VISUAL_ID:
 			return Label_1603013;
 		}

@@ -27,6 +27,10 @@
             «EXPAND compartmentHTMLLayout-»
 		«ELSEIF editPartClassName.indexOf('TableColsCompartmentEditPart') > 0-»
             «EXPAND compartmentHTMLLayout-»
+		«ELSEIF editPartClassName.indexOf('TreeColsCompartmentEditPart') > 0-»
+            «EXPAND compartmentHTMLLayout-»
+		«ELSEIF editPartClassName.indexOf('TreeColsCompartment2EditPart') > 0-»
+            «EXPAND compartmentHTMLLayout-»
 		«ELSEIF editPartClassName.indexOf('StylesPackageCompartmentEditPart') > 0-»
             «EXPAND compartmentHTMLLayout-»
 		«ELSEIF editPartClassName.indexOf('ApplicationUIPackagesCompartmentEditPart') > 0-»

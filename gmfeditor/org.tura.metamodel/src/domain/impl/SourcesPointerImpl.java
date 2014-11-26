@@ -25,6 +25,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *   <li>{@link domain.impl.SourcesPointerImpl#getSourcePointer <em>Source Pointer</em>}</li>
  *   <li>{@link domain.impl.SourcesPointerImpl#getValuePointer <em>Value Pointer</em>}</li>
  *   <li>{@link domain.impl.SourcesPointerImpl#getSourceCast <em>Source Cast</em>}</li>
+ *   <li>{@link domain.impl.SourcesPointerImpl#getSourceCastDataControl <em>Source Cast Data Control</em>}</li>
  * </ul>
  * </p>
  *
@@ -61,6 +62,16 @@ public class SourcesPointerImpl extends UielementImpl implements SourcesPointer
    * @ordered
    */
   protected Type sourceCast;
+
+  /**
+   * The cached value of the '{@link #getSourceCastDataControl() <em>Source Cast Data Control</em>}' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getSourceCastDataControl()
+   * @generated
+   * @ordered
+   */
+  protected DataControl sourceCastDataControl;
 
   /**
    * <!-- begin-user-doc -->
@@ -217,6 +228,49 @@ public class SourcesPointerImpl extends UielementImpl implements SourcesPointer
    * <!-- end-user-doc -->
    * @generated
    */
+  public DataControl getSourceCastDataControl()
+  {
+    if (sourceCastDataControl != null && sourceCastDataControl.eIsProxy())
+    {
+      InternalEObject oldSourceCastDataControl = (InternalEObject)sourceCastDataControl;
+      sourceCastDataControl = (DataControl)eResolveProxy(oldSourceCastDataControl);
+      if (sourceCastDataControl != oldSourceCastDataControl)
+      {
+        if (eNotificationRequired())
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, DomainPackage.SOURCES_POINTER__SOURCE_CAST_DATA_CONTROL, oldSourceCastDataControl, sourceCastDataControl));
+      }
+    }
+    return sourceCastDataControl;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public DataControl basicGetSourceCastDataControl()
+  {
+    return sourceCastDataControl;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setSourceCastDataControl(DataControl newSourceCastDataControl)
+  {
+    DataControl oldSourceCastDataControl = sourceCastDataControl;
+    sourceCastDataControl = newSourceCastDataControl;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.SOURCES_POINTER__SOURCE_CAST_DATA_CONTROL, oldSourceCastDataControl, sourceCastDataControl));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
@@ -231,6 +285,9 @@ public class SourcesPointerImpl extends UielementImpl implements SourcesPointer
       case DomainPackage.SOURCES_POINTER__SOURCE_CAST:
         if (resolve) return getSourceCast();
         return basicGetSourceCast();
+      case DomainPackage.SOURCES_POINTER__SOURCE_CAST_DATA_CONTROL:
+        if (resolve) return getSourceCastDataControl();
+        return basicGetSourceCastDataControl();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -253,6 +310,9 @@ public class SourcesPointerImpl extends UielementImpl implements SourcesPointer
         return;
       case DomainPackage.SOURCES_POINTER__SOURCE_CAST:
         setSourceCast((Type)newValue);
+        return;
+      case DomainPackage.SOURCES_POINTER__SOURCE_CAST_DATA_CONTROL:
+        setSourceCastDataControl((DataControl)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -277,6 +337,9 @@ public class SourcesPointerImpl extends UielementImpl implements SourcesPointer
       case DomainPackage.SOURCES_POINTER__SOURCE_CAST:
         setSourceCast((Type)null);
         return;
+      case DomainPackage.SOURCES_POINTER__SOURCE_CAST_DATA_CONTROL:
+        setSourceCastDataControl((DataControl)null);
+        return;
     }
     super.eUnset(featureID);
   }
@@ -297,6 +360,8 @@ public class SourcesPointerImpl extends UielementImpl implements SourcesPointer
         return valuePointer != null;
       case DomainPackage.SOURCES_POINTER__SOURCE_CAST:
         return sourceCast != null;
+      case DomainPackage.SOURCES_POINTER__SOURCE_CAST_DATA_CONTROL:
+        return sourceCastDataControl != null;
     }
     return super.eIsSet(featureID);
   }

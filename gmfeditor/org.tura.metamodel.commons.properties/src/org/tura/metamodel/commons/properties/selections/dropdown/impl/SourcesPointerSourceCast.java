@@ -1,6 +1,7 @@
 package org.tura.metamodel.commons.properties.selections.dropdown.impl;
 
 import java.util.HashMap;
+import java.util.List;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
@@ -12,8 +13,10 @@ public class SourcesPointerSourceCast implements DropDownDataSupplier {
 
 	public EStructuralFeature[] getFeature() {
 
-		return new EStructuralFeature[] { DomainPackage.eINSTANCE
-				.getSourcesPointer_SourceCast() };
+		return new EStructuralFeature[] {
+				DomainPackage.eINSTANCE.getSourcesPointer_SourceCast(),
+				DomainPackage.eINSTANCE
+						.getSourcesPointer_SourceCastDataControl() };
 	}
 
 	public String getFeatureAsText(Object eObject) {
@@ -25,12 +28,17 @@ public class SourcesPointerSourceCast implements DropDownDataSupplier {
 		return name;
 	}
 
+	@SuppressWarnings("unchecked")
 	public Object getFeatureValue(Object eObject,
 			HashMap<String, Object> values, EStructuralFeature feature,
 			Object... obj) {
 		if (feature.equals(DomainPackage.eINSTANCE
 				.getSourcesPointer_SourceCast()))
-			return values.get(obj[0]);
+			return ((List<Object>)values.get(obj[0])).get(1);
+
+		if (feature.equals(DomainPackage.eINSTANCE
+				.getSourcesPointer_SourceCastDataControl()))
+			return ((List<Object>)values.get(obj[0])).get(0);
 
 		return null;
 	}
@@ -40,8 +48,8 @@ public class SourcesPointerSourceCast implements DropDownDataSupplier {
 		if (((domain.SourcesPointer) eObject).getSourceCast() == null)
 			return false;
 
-		String name = (((domain.SourcesPointer) eObject)
-				.getSourceCast()).getName();
+		String name = (((domain.SourcesPointer) eObject).getSourceCast())
+				.getName();
 
 		if (name == null)
 			return false;
@@ -49,11 +57,13 @@ public class SourcesPointerSourceCast implements DropDownDataSupplier {
 	}
 
 	public Object[] getWatchPointObject(Object eObject) {
-		return new Object[]{((domain.SourcesPointer) eObject).getSourcePointer()};
+		return new Object[] { ((domain.SourcesPointer) eObject)
+				.getSourcePointer() };
 	}
 
 	public EStructuralFeature[] getWatchPointFeature() {
-		return new EStructuralFeature[] {DomainPackage.eINSTANCE.getSourcesPointer_SourcePointer()};
+		return new EStructuralFeature[] { DomainPackage.eINSTANCE
+				.getSourcesPointer_SourcePointer() };
 	}
 
 	public Class<?> getExpectedClass() {

@@ -112,13 +112,13 @@
               </children>
               <children
                   compartment="//@nodes.0/@ownedChild/@children.2/@ownedChild/@children.0/@ownedChild/@compartments.0"
-                  referencedChild="//@nodes.0/@ownedChild">
+                  referencedChild="//@nodes.0/@ownedChild/@children.3/@ownedChild">
                 <containmentFeature
                     href="domain.ecore#//Column/element"/>
               </children>
               <children
                   compartment="//@nodes.0/@ownedChild/@children.2/@ownedChild/@children.0/@ownedChild/@compartments.0"
-                  referencedChild="//@nodes.0/@ownedChild/@children.4/@ownedChild">
+                  referencedChild="//@nodes.0/@ownedChild">
                 <containmentFeature
                     href="domain.ecore#//Column/element"/>
               </children>
@@ -157,6 +157,39 @@
               children="//@nodes.0/@ownedChild/@children.2/@ownedChild/@children.0">
             <compartment
                 href="domain.gmfgraph#TableColsCompartment"/>
+          </compartments>
+        </ownedChild>
+      </children>
+      <children
+          compartment="//@nodes.0/@ownedChild/@compartments.0">
+        <containmentFeature
+            href="domain.ecore#//ChildrenHolder/children"/>
+        <ownedChild
+            relatedDiagrams="//@diagram">
+          <domainMetaElement
+              href="domain.ecore#//Tree"/>
+          <labelMappings
+              xsi:type="gmfmap:FeatureLabelMapping">
+            <diagramLabel
+                href="domain.gmfgraph#TreeLabel"/>
+            <features
+                href="domain.ecore#//Tree/label"/>
+          </labelMappings>
+          <tool
+              xsi:type="gmftool:CreationTool"
+              href="domain.gmftool#//@palette/@tools.0/@tools.9"/>
+          <diagramNode
+              href="domain.gmfgraph#Tree"/>
+          <children
+              compartment="//@nodes.0/@ownedChild/@children.3/@ownedChild/@compartments.0"
+              referencedChild="//@nodes.0/@ownedChild/@children.2/@ownedChild/@children.0/@ownedChild">
+            <containmentFeature
+                href="domain.ecore#//Tree/cols"/>
+          </children>
+          <compartments
+              children="//@nodes.0/@ownedChild/@children.3/@ownedChild/@children.0">
+            <compartment
+                href="domain.gmfgraph#TreeColsCompartment"/>
           </compartments>
         </ownedChild>
       </children>
@@ -206,27 +239,6 @@
               href="domain.gmftool#//@palette/@tools.0/@tools.1"/>
           <diagramNode
               href="domain.gmfgraph#CheckBox"/>
-        </ownedChild>
-      </children>
-      <children
-          compartment="//@nodes.0/@ownedChild/@compartments.0">
-        <containmentFeature
-            href="domain.ecore#//ChildrenHolder/children"/>
-        <ownedChild>
-          <domainMetaElement
-              href="domain.ecore#//Tree"/>
-          <labelMappings
-              xsi:type="gmfmap:FeatureLabelMapping">
-            <diagramLabel
-                href="domain.gmfgraph#TreeLabel"/>
-            <features
-                href="domain.ecore#//Tree/label"/>
-          </labelMappings>
-          <tool
-              xsi:type="gmftool:CreationTool"
-              href="domain.gmftool#//@palette/@tools.0/@tools.9"/>
-          <diagramNode
-              href="domain.gmfgraph#Tree"/>
         </ownedChild>
       </children>
       <children

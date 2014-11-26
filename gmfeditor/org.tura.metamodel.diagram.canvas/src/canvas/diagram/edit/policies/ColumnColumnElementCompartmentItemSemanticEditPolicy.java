@@ -14,7 +14,7 @@ import canvas.diagram.edit.commands.Label2CreateCommand;
 import canvas.diagram.edit.commands.LayerHolder2CreateCommand;
 import canvas.diagram.edit.commands.OutputText2CreateCommand;
 import canvas.diagram.edit.commands.Table2CreateCommand;
-import canvas.diagram.edit.commands.Tree2CreateCommand;
+import canvas.diagram.edit.commands.TreeCreateCommand;
 import canvas.diagram.providers.DomainElementTypes;
 
 /**
@@ -44,6 +44,9 @@ public class ColumnColumnElementCompartmentItemSemanticEditPolicy extends
 		if (DomainElementTypes.Table_1603021 == req.getElementType()) {
 			return getGEFWrapper(new Table2CreateCommand(req));
 		}
+		if (DomainElementTypes.Tree_1603022 == req.getElementType()) {
+			return getGEFWrapper(new TreeCreateCommand(req));
+		}
 		if (DomainElementTypes.LayerHolder_1603020 == req.getElementType()) {
 			return getGEFWrapper(new LayerHolder2CreateCommand(req));
 		}
@@ -55,9 +58,6 @@ public class ColumnColumnElementCompartmentItemSemanticEditPolicy extends
 		}
 		if (DomainElementTypes.CheckBox_1603015 == req.getElementType()) {
 			return getGEFWrapper(new CheckBox2CreateCommand(req));
-		}
-		if (DomainElementTypes.Tree_1603022 == req.getElementType()) {
-			return getGEFWrapper(new Tree2CreateCommand(req));
 		}
 		if (DomainElementTypes.Label_1603013 == req.getElementType()) {
 			return getGEFWrapper(new Label2CreateCommand(req));

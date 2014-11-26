@@ -2,12 +2,14 @@ package org.tura.metamodel.commons.properties.selections.dropdown;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.LinkedHashMap;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.gmf.runtime.notation.impl.DiagramImpl;
 import org.tura.metamodel.commons.QueryHelper;
+import org.tura.metamodel.commons.properties.selections.adapters.TypeElementProvider;
+import org.tura.metamodel.commons.properties.selections.adapters.helper.TreeDataControl;
 
 import domain.DataControl;
 import domain.Type;
@@ -19,6 +21,7 @@ public abstract class AbstractCastPropertySelection extends
 		return "Cast type";//$NON-NLS-1$
 	}
 
+	@SuppressWarnings({ "unchecked", "rawtypes", "serial" })
 	protected HashMap<String, Object> getEnumerationFeatureValues() {
 		if (dropDownDataSupplier == null)
 			init();
@@ -29,33 +32,61 @@ public abstract class AbstractCastPropertySelection extends
 			if (dropDownDataSupplier.getWatchPointObject(getModel()) == null)
 				return values;
 
-			domain.DataControl dc = (DataControl) dropDownDataSupplier
+			QueryHelper helper = new QueryHelper();
+			DiagramImpl root = (DiagramImpl) editPart.getRoot().getContents()
+					.getModel();
+			domain.Form frm = helper.getForm(root);
+
+			domain.DataControl ndc = (DataControl) dropDownDataSupplier
 					.getWatchPointObject(getModel())[0];
-			if (dc == null || dc.getCreate() == null)
-				return values;
 
-			if ((dc.getCreate().getMethodRef() == null
-					|| dc.getCreate().getMethodRef().getReturnValue() == null || dc
-					.getCreate().getMethodRef().getReturnValue().getTypeRef() == null)
-					&& (dc.getBaseType() == null))
+			ArrayList<domain.DataControl> controls = new ArrayList<>();
+			boolean treeRoot = false;
 
-				return values;
+			try {
 
-			domain.Type type = (Type) dc.getCreate().getMethodRef()
-					.getReturnValue().getTypeRef();
-			
-			if (dc.getBaseType() != null)
-				type = dc.getBaseType();
+				for (TreeDataControl tdc : helper.findTreeRootControls(frm)) {
+					if (tdc.getDc().equals(ndc)) {
+						treeRoot = true;
+						break;
+					}
+				}
+				if (treeRoot) {
+					helper.getTreeLeafs(controls, ndc);
+				} else
+					controls.add(ndc);
+			} catch (Exception e) {
 
-			ArrayList<domain.Type> typeTree = new ArrayList<>();
-			new QueryHelper().getInheritTypes(typeTree, type);
-			//add basetype
-			typeTree.add(type);
+			}
 
-			for (Iterator<domain.Type> itr = typeTree.iterator(); itr.hasNext();) {
-				domain.Type p = itr.next();
-				if (p.getName() != null)
-					values.put(p.getName(), p);
+			for (final domain.DataControl dc : controls) {
+				if (dc == null || dc.getCreate() == null)
+					return values;
+
+				if ((dc.getCreate().getMethodRef() == null
+						|| dc.getCreate().getMethodRef().getReturnValue() == null || dc
+						.getCreate().getMethodRef().getReturnValue()
+						.getTypeRef() == null)
+						&& (dc.getBaseType() == null))
+
+					return values;
+
+				domain.Type type = (Type) dc.getCreate().getMethodRef()
+						.getReturnValue().getTypeRef();
+
+				if (dc.getBaseType() != null)
+					type = dc.getBaseType();
+
+				ArrayList<domain.Type> typeTree = new ArrayList<>();
+				new QueryHelper().getInheritTypes(typeTree, type);
+				// add basetype
+				typeTree.add(type);
+
+				TypeElementProvider provider = new TypeElementProvider();
+				for (final domain.Type p : typeTree) {
+					if (provider.getLabel(p) != null)
+						values.put(provider.getLabel(p),  new ArrayList(){{add(dc);add(p);}} );
+				}
 			}
 		}
 		return values;

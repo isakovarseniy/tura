@@ -20,12 +20,16 @@ public class DataControlProvider implements IWorkbenchAdapter ,IReturnTypeProvid
 
 		QueryHelper qh = new QueryHelper();
 		
-		ls.add(new DataControlFakeAttribute("startIndex", qh.findIntegerType(o)));
-		ls.add(new DataControlFakeAttribute("endIndex", qh.findIntegerType(o)));
-		ls.add(new DataControlFakeAttribute("query", qh.findSearchCriteriaType(o)));
+		ls.add(new DataControlFakeAttribute("startIndex", qh.findIntegerType(o),ctr));
+		ls.add(new DataControlFakeAttribute("endIndex", qh.findIntegerType(o),ctr));
+		ls.add(new DataControlFakeAttribute("query", qh.findSearchCriteriaType(o),ctr));
 
-		if (ctr.getCreate() != null  && ctr.getCreate().getMethodRef() != null)
-			ls.add( new  DataControlFakeMethod( "currentObject" , ctr.getCreate().getMethodRef().getReturnValue().getTypeRef()));
+		if (ctr.getCreate() != null  && ctr.getCreate().getMethodRef() != null){
+			domain.TypeElement type = ctr.getCreate().getMethodRef().getReturnValue().getTypeRef();
+			if (ctr.getBaseType() != null)
+				type = ctr.getBaseType() ;
+			ls.add( new  DataControlFakeMethod( "currentObject" , type,ctr));
+		}
 		
 		if (ctr.getCreate() != null  && ctr.getCreate().getMethodRef() != null)
 			ls.add( new  TriggerHolder( "CreateTrigger" , ctr.getCreate()));

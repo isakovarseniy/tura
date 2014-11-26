@@ -907,6 +907,8 @@ class SourcesPointer extends Uielement{
    ref DataControl sourcePointer;
    ref EObject valuePointer;
    ref Type sourceCast;
+   // to support tree structure
+   ref DataControl sourceCastDataControl;
 }
 
 class ActionElement extends Uielement , Trigger {
@@ -923,6 +925,8 @@ class Selection extends StyleElement{
 class OptionSelection extends InputElement {
    ref DataControl optionPointer;
    ref Type optionCast;
+   // to support tree structure
+   ref DataControl optionCastDataControl;
 }
 
 @gmf.node(label.placement="none",tool.small.bundle="org.tura.metamodel.commons",tool.small.path="icons/layerholder.png")
@@ -971,9 +975,11 @@ class Table extends SourcesPointer,HTMLLayerHolder,MultiLangLabel{
 }
 
 @gmf.node(label="label",tool.small.bundle="org.tura.metamodel.commons",tool.small.path="icons/tree.png")
-class Tree extends SourcesPointer,MultiLangLabel{
+class Tree extends SourcesPointer,HTMLLayerHolder,MultiLangLabel{
    attr EString label;
    val Context image;
+    @gmf.compartment
+    val Column[*] cols;
 }
 
 @gmf.node(figure="org.tura.metamodel.commons.figures.ButtonFigure",label.icon="false",label="label",tool.small.bundle="org.tura.metamodel.commons",tool.small.path="icons/button.png")

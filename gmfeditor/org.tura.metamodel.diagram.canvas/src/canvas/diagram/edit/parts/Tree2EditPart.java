@@ -5,6 +5,7 @@ package canvas.diagram.edit.parts;
 
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.MarginBorder;
+import org.eclipse.draw2d.RectangleFigure;
 import org.eclipse.draw2d.RoundedRectangle;
 import org.eclipse.draw2d.Shape;
 import org.eclipse.draw2d.StackLayout;
@@ -29,6 +30,7 @@ import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.Font;
 import org.eclipse.swt.widgets.Display;
 
+import canvas.diagram.edit.policies.OpenDiagramEditPolicy;
 import canvas.diagram.edit.policies.Tree2ItemSemanticEditPolicy;
 import canvas.diagram.part.DomainVisualIDRegistry;
 
@@ -40,7 +42,7 @@ public class Tree2EditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 1603022;
+	public static final int VISUAL_ID = 1603016;
 
 	/**
 	 * @generated
@@ -67,6 +69,8 @@ public class Tree2EditPart extends ShapeNodeEditPart {
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
 				new Tree2ItemSemanticEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
+		installEditPolicy(EditPolicyRoles.OPEN_ROLE,
+				new OpenDiagramEditPolicy());
 		// XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
 		// removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
 	}
@@ -120,6 +124,13 @@ public class Tree2EditPart extends ShapeNodeEditPart {
 					.getFigureTreeLabelFigure());
 			return true;
 		}
+		if (childEditPart instanceof TreeTreeColsCompartment2EditPart) {
+			IFigure pane = getPrimaryShape().getTreeColsCompartmentFigure();
+			setupContentPane(pane); // FIXME each comparment should handle his content pane in his own way 
+			pane.add(((TreeTreeColsCompartment2EditPart) childEditPart)
+					.getFigure());
+			return true;
+		}
 		return false;
 	}
 
@@ -128,6 +139,12 @@ public class Tree2EditPart extends ShapeNodeEditPart {
 	 */
 	protected boolean removeFixedChild(EditPart childEditPart) {
 		if (childEditPart instanceof TreeLabel2EditPart) {
+			return true;
+		}
+		if (childEditPart instanceof TreeTreeColsCompartment2EditPart) {
+			IFigure pane = getPrimaryShape().getTreeColsCompartmentFigure();
+			pane.remove(((TreeTreeColsCompartment2EditPart) childEditPart)
+					.getFigure());
 			return true;
 		}
 		return false;
@@ -157,6 +174,9 @@ public class Tree2EditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected IFigure getContentPaneFor(IGraphicalEditPart editPart) {
+		if (editPart instanceof TreeTreeColsCompartment2EditPart) {
+			return getPrimaryShape().getTreeColsCompartmentFigure();
+		}
 		return getContentPane();
 	}
 
@@ -263,6 +283,10 @@ public class Tree2EditPart extends ShapeNodeEditPart {
 		 * @generated
 		 */
 		private WrappingLabel fFigureTreeLabelFigure;
+		/**
+		 * @generated
+		 */
+		private RectangleFigure fTreeColsCompartmentFigure;
 
 		/**
 		 * @generated
@@ -287,7 +311,16 @@ public class Tree2EditPart extends ShapeNodeEditPart {
 
 			fFigureTreeLabelFigure.setFont(FFIGURETREELABELFIGURE_FONT);
 
+			fFigureTreeLabelFigure.setMaximumSize(new Dimension(getMapMode()
+					.DPtoLP(10000), getMapMode().DPtoLP(50)));
+
 			this.add(fFigureTreeLabelFigure);
+
+			fTreeColsCompartmentFigure = new RectangleFigure();
+
+			fTreeColsCompartmentFigure.setOutline(false);
+
+			this.add(fTreeColsCompartmentFigure);
 
 		}
 
@@ -296,6 +329,13 @@ public class Tree2EditPart extends ShapeNodeEditPart {
 		 */
 		public WrappingLabel getFigureTreeLabelFigure() {
 			return fFigureTreeLabelFigure;
+		}
+
+		/**
+		 * @generated
+		 */
+		public RectangleFigure getTreeColsCompartmentFigure() {
+			return fTreeColsCompartmentFigure;
 		}
 
 	}

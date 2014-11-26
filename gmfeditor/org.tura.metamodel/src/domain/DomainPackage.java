@@ -6926,13 +6926,22 @@ public interface DomainPackage extends EPackage
   int SOURCES_POINTER__SOURCE_CAST = UIELEMENT_FEATURE_COUNT + 2;
 
   /**
+   * The feature id for the '<em><b>Source Cast Data Control</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SOURCES_POINTER__SOURCE_CAST_DATA_CONTROL = UIELEMENT_FEATURE_COUNT + 3;
+
+  /**
    * The number of structural features of the '<em>Sources Pointer</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int SOURCES_POINTER_FEATURE_COUNT = UIELEMENT_FEATURE_COUNT + 3;
+  int SOURCES_POINTER_FEATURE_COUNT = UIELEMENT_FEATURE_COUNT + 4;
 
   /**
    * The meta object id for the '{@link domain.impl.ActionElementImpl <em>Action Element</em>}' class.
@@ -7198,6 +7207,15 @@ public interface DomainPackage extends EPackage
   int INPUT_ELEMENT__SOURCE_CAST = SOURCES_POINTER__SOURCE_CAST;
 
   /**
+   * The feature id for the '<em><b>Source Cast Data Control</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INPUT_ELEMENT__SOURCE_CAST_DATA_CONTROL = SOURCES_POINTER__SOURCE_CAST_DATA_CONTROL;
+
+  /**
    * The number of structural features of the '<em>Input Element</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -7371,6 +7389,15 @@ public interface DomainPackage extends EPackage
   int OPTION_SELECTION__SOURCE_CAST = INPUT_ELEMENT__SOURCE_CAST;
 
   /**
+   * The feature id for the '<em><b>Source Cast Data Control</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OPTION_SELECTION__SOURCE_CAST_DATA_CONTROL = INPUT_ELEMENT__SOURCE_CAST_DATA_CONTROL;
+
+  /**
    * The feature id for the '<em><b>Option Pointer</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -7389,13 +7416,22 @@ public interface DomainPackage extends EPackage
   int OPTION_SELECTION__OPTION_CAST = INPUT_ELEMENT_FEATURE_COUNT + 1;
 
   /**
+   * The feature id for the '<em><b>Option Cast Data Control</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OPTION_SELECTION__OPTION_CAST_DATA_CONTROL = INPUT_ELEMENT_FEATURE_COUNT + 2;
+
+  /**
    * The number of structural features of the '<em>Option Selection</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int OPTION_SELECTION_FEATURE_COUNT = INPUT_ELEMENT_FEATURE_COUNT + 2;
+  int OPTION_SELECTION_FEATURE_COUNT = INPUT_ELEMENT_FEATURE_COUNT + 3;
 
   /**
    * The meta object id for the '{@link domain.impl.LayerHolderImpl <em>Layer Holder</em>}' class.
@@ -7614,6 +7650,15 @@ public interface DomainPackage extends EPackage
    * @ordered
    */
   int INPUT_TEXT__SOURCE_CAST = INPUT_ELEMENT__SOURCE_CAST;
+
+  /**
+   * The feature id for the '<em><b>Source Cast Data Control</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INPUT_TEXT__SOURCE_CAST_DATA_CONTROL = INPUT_ELEMENT__SOURCE_CAST_DATA_CONTROL;
 
   /**
    * The number of structural features of the '<em>Input Text</em>' class.
@@ -7843,6 +7888,15 @@ public interface DomainPackage extends EPackage
   int OUTPUT_TEXT__SOURCE_CAST = INPUT_ELEMENT__SOURCE_CAST;
 
   /**
+   * The feature id for the '<em><b>Source Cast Data Control</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OUTPUT_TEXT__SOURCE_CAST_DATA_CONTROL = INPUT_ELEMENT__SOURCE_CAST_DATA_CONTROL;
+
+  /**
    * The number of structural features of the '<em>Output Text</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -7959,6 +8013,15 @@ public interface DomainPackage extends EPackage
    * @ordered
    */
   int CHECK_BOX__SOURCE_CAST = INPUT_ELEMENT__SOURCE_CAST;
+
+  /**
+   * The feature id for the '<em><b>Source Cast Data Control</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CHECK_BOX__SOURCE_CAST_DATA_CONTROL = INPUT_ELEMENT__SOURCE_CAST_DATA_CONTROL;
 
   /**
    * The number of structural features of the '<em>Check Box</em>' class.
@@ -8079,6 +8142,15 @@ public interface DomainPackage extends EPackage
   int DROP_DOWN_SELECTION__SOURCE_CAST = OPTION_SELECTION__SOURCE_CAST;
 
   /**
+   * The feature id for the '<em><b>Source Cast Data Control</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DROP_DOWN_SELECTION__SOURCE_CAST_DATA_CONTROL = OPTION_SELECTION__SOURCE_CAST_DATA_CONTROL;
+
+  /**
    * The feature id for the '<em><b>Option Pointer</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -8095,6 +8167,15 @@ public interface DomainPackage extends EPackage
    * @ordered
    */
   int DROP_DOWN_SELECTION__OPTION_CAST = OPTION_SELECTION__OPTION_CAST;
+
+  /**
+   * The feature id for the '<em><b>Option Cast Data Control</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DROP_DOWN_SELECTION__OPTION_CAST_DATA_CONTROL = OPTION_SELECTION__OPTION_CAST_DATA_CONTROL;
 
   /**
    * The feature id for the '<em><b>Selection</b></em>' containment reference.
@@ -8297,6 +8378,15 @@ public interface DomainPackage extends EPackage
   int TABLE__SOURCE_CAST = SOURCES_POINTER__SOURCE_CAST;
 
   /**
+   * The feature id for the '<em><b>Source Cast Data Control</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TABLE__SOURCE_CAST_DATA_CONTROL = SOURCES_POINTER__SOURCE_CAST_DATA_CONTROL;
+
+  /**
    * The feature id for the '<em><b>Columns</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -8451,13 +8541,31 @@ public interface DomainPackage extends EPackage
   int TREE__SOURCE_CAST = SOURCES_POINTER__SOURCE_CAST;
 
   /**
+   * The feature id for the '<em><b>Source Cast Data Control</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TREE__SOURCE_CAST_DATA_CONTROL = SOURCES_POINTER__SOURCE_CAST_DATA_CONTROL;
+
+  /**
+   * The feature id for the '<em><b>Columns</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TREE__COLUMNS = SOURCES_POINTER_FEATURE_COUNT + 0;
+
+  /**
    * The feature id for the '<em><b>Multi Lang Label</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int TREE__MULTI_LANG_LABEL = SOURCES_POINTER_FEATURE_COUNT + 0;
+  int TREE__MULTI_LANG_LABEL = SOURCES_POINTER_FEATURE_COUNT + 1;
 
   /**
    * The feature id for the '<em><b>Label</b></em>' attribute.
@@ -8466,7 +8574,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int TREE__LABEL = SOURCES_POINTER_FEATURE_COUNT + 1;
+  int TREE__LABEL = SOURCES_POINTER_FEATURE_COUNT + 2;
 
   /**
    * The feature id for the '<em><b>Image</b></em>' containment reference.
@@ -8475,7 +8583,16 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int TREE__IMAGE = SOURCES_POINTER_FEATURE_COUNT + 2;
+  int TREE__IMAGE = SOURCES_POINTER_FEATURE_COUNT + 3;
+
+  /**
+   * The feature id for the '<em><b>Cols</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TREE__COLS = SOURCES_POINTER_FEATURE_COUNT + 4;
 
   /**
    * The number of structural features of the '<em>Tree</em>' class.
@@ -8484,7 +8601,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int TREE_FEATURE_COUNT = SOURCES_POINTER_FEATURE_COUNT + 3;
+  int TREE_FEATURE_COUNT = SOURCES_POINTER_FEATURE_COUNT + 5;
 
   /**
    * The meta object id for the '{@link domain.impl.ButtonImpl <em>Button</em>}' class.
@@ -16146,6 +16263,17 @@ public interface DomainPackage extends EPackage
   EReference getSourcesPointer_SourceCast();
 
   /**
+   * Returns the meta object for the reference '{@link domain.SourcesPointer#getSourceCastDataControl <em>Source Cast Data Control</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Source Cast Data Control</em>'.
+   * @see domain.SourcesPointer#getSourceCastDataControl()
+   * @see #getSourcesPointer()
+   * @generated
+   */
+  EReference getSourcesPointer_SourceCastDataControl();
+
+  /**
    * Returns the meta object for class '{@link domain.ActionElement <em>Action Element</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -16228,6 +16356,17 @@ public interface DomainPackage extends EPackage
    * @generated
    */
   EReference getOptionSelection_OptionCast();
+
+  /**
+   * Returns the meta object for the reference '{@link domain.OptionSelection#getOptionCastDataControl <em>Option Cast Data Control</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Option Cast Data Control</em>'.
+   * @see domain.OptionSelection#getOptionCastDataControl()
+   * @see #getOptionSelection()
+   * @generated
+   */
+  EReference getOptionSelection_OptionCastDataControl();
 
   /**
    * Returns the meta object for class '{@link domain.LayerHolder <em>Layer Holder</em>}'.
@@ -16417,6 +16556,17 @@ public interface DomainPackage extends EPackage
    * @generated
    */
   EReference getTree_Image();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link domain.Tree#getCols <em>Cols</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Cols</em>'.
+   * @see domain.Tree#getCols()
+   * @see #getTree()
+   * @generated
+   */
+  EReference getTree_Cols();
 
   /**
    * Returns the meta object for class '{@link domain.Button <em>Button</em>}'.
@@ -21810,6 +21960,14 @@ public interface DomainPackage extends EPackage
     EReference SOURCES_POINTER__SOURCE_CAST = eINSTANCE.getSourcesPointer_SourceCast();
 
     /**
+     * The meta object literal for the '<em><b>Source Cast Data Control</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SOURCES_POINTER__SOURCE_CAST_DATA_CONTROL = eINSTANCE.getSourcesPointer_SourceCastDataControl();
+
+    /**
      * The meta object literal for the '{@link domain.impl.ActionElementImpl <em>Action Element</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -21880,6 +22038,14 @@ public interface DomainPackage extends EPackage
      * @generated
      */
     EReference OPTION_SELECTION__OPTION_CAST = eINSTANCE.getOptionSelection_OptionCast();
+
+    /**
+     * The meta object literal for the '<em><b>Option Cast Data Control</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference OPTION_SELECTION__OPTION_CAST_DATA_CONTROL = eINSTANCE.getOptionSelection_OptionCastDataControl();
 
     /**
      * The meta object literal for the '{@link domain.impl.LayerHolderImpl <em>Layer Holder</em>}' class.
@@ -22042,6 +22208,14 @@ public interface DomainPackage extends EPackage
      * @generated
      */
     EReference TREE__IMAGE = eINSTANCE.getTree_Image();
+
+    /**
+     * The meta object literal for the '<em><b>Cols</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference TREE__COLS = eINSTANCE.getTree_Cols();
 
     /**
      * The meta object literal for the '{@link domain.impl.ButtonImpl <em>Button</em>}' class.

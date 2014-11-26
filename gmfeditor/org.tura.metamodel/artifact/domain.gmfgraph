@@ -2752,16 +2752,26 @@
               xsi:type="gmfgraph:Label"
               name="TreeLabelFigure"
               text="Tree">
+            <maximumSize
+                dx="10000"
+                dy="50"/>
             <font
                 xsi:type="gmfgraph:BasicFont"
                 faceName="Palatino"
                 height="12"
                 style="ITALIC"/>
           </children>
+          <children
+              xsi:type="gmfgraph:Rectangle"
+              name="TreeColsCompartmentFigure"
+              outline="false"/>
         </actualFigure>
         <accessors
             accessor="getFigureTreeLabelFigure"
             figure="/0/@figures.0/@descriptors.76/@actualFigure/@children.0"/>
+        <accessors
+            accessor="getTreeColsCompartmentFigure"
+            figure="/0/@figures.0/@descriptors.76/@actualFigure/@children.1"/>
       </descriptors>
       <descriptors
           name="ButtonFigure">
@@ -4378,6 +4388,11 @@
         figure="TableFigure"
         collapsible="true"
         accessor="/0/@figures.0/@descriptors.75/@accessors.1"/>
+    <compartments
+        name="TreeColsCompartment"
+        figure="TreeFigure"
+        collapsible="true"
+        accessor="/0/@figures.0/@descriptors.76/@accessors.1"/>
     <compartments
         name="RootPreFormTriggerCompartment"
         figure="RootFigure"

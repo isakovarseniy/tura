@@ -5,6 +5,8 @@ import org.eclipse.ui.model.IWorkbenchAdapter;
 import org.tura.metamodel.commons.properties.selections.adapters.helper.DataControlFakeAttribute;
 import org.tura.metamodel.commons.properties.selections.adapters.helper.DataControlFakeMethod;
 import org.tura.metamodel.commons.properties.selections.adapters.helper.DataControlHolder;
+import org.tura.metamodel.commons.properties.selections.adapters.helper.ExtendedType;
+import org.tura.metamodel.commons.properties.selections.adapters.helper.TreeDataControl;
 import org.tura.metamodel.commons.properties.selections.adapters.helper.TreeRoot;
 import org.tura.metamodel.commons.properties.selections.adapters.helper.TreeRootDataControlHolder;
 import org.tura.metamodel.commons.properties.selections.adapters.helper.TriggerHolder;
@@ -14,6 +16,7 @@ public class TreeProviderAdapterFactory implements IAdapterFactory {
 	@SuppressWarnings("rawtypes")
 	private static final Class[] TYPES = { IWorkbenchAdapter.class, IReturnTypeProvider.class};
 
+	private ArtificialFieldProvider artificialFieldProvider;
 	private TreeRootProvider treeRootProvider;
 	private DataControlHolderProvider dataControlHolderProvider;
 	private TreeRootDataControlHolderProvider treeRootDataControlHolder;
@@ -36,6 +39,8 @@ public class TreeProviderAdapterFactory implements IAdapterFactory {
 	private GeneratioinHintProvider generatioinHintProvider;
 	private DataControlFakeAttributeProvider dataControlFakeAttributeProvider;
 	private DataControlFakeMethodProvider dataControlFakeMethodProvider;
+	private TreeDataControlProvider treeDataControlProvider;
+	private ExtendedTypeProvider extendedTypeProvider;
 	
 
 	@SuppressWarnings("rawtypes")
@@ -90,11 +95,24 @@ public class TreeProviderAdapterFactory implements IAdapterFactory {
 				return  getDataControlFakeAttributeProvider();
 			if (adaptableObject instanceof DataControlFakeMethod)
 				return  getDataControlFakeMethodProvider();
+			if (adaptableObject instanceof TreeDataControl)
+				return  getTreeDataControlProvider();
+			if (adaptableObject instanceof ExtendedType)
+				return  getExtendedTypeProvider();
+			if (adaptableObject instanceof domain.ArtificialField)
+				return  getArtificialFieldProvider();
 			
 		}
 		return null;
 	}
 
+	protected TreeDataControlProvider getTreeDataControlProvider() {
+		if (treeDataControlProvider == null)
+			treeDataControlProvider = new TreeDataControlProvider();
+		return treeDataControlProvider;
+	}
+		
+	
 
 	protected DataControlFakeAttributeProvider getDataControlFakeAttributeProvider() {
 		if (dataControlFakeAttributeProvider == null)
@@ -235,5 +253,16 @@ public class TreeProviderAdapterFactory implements IAdapterFactory {
 		return messageLibraryProvider;
 	}
 	
+	protected ExtendedTypeProvider getExtendedTypeProvider() {
+		if (extendedTypeProvider == null)
+			extendedTypeProvider = new ExtendedTypeProvider();
+		return extendedTypeProvider;
+	}
+
+	protected ArtificialFieldProvider getArtificialFieldProvider() {
+		if (artificialFieldProvider == null)
+			artificialFieldProvider = new ArtificialFieldProvider();
+		return artificialFieldProvider;
+	}	
 	
 }

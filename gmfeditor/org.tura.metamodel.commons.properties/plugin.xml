@@ -630,7 +630,7 @@
                class="org.tura.metamodel.commons.properties.selections.context.impl.MultiLangLabelPropertySelection"
                id="property.tab.domain.canvas.uielement.mulilanglabel">
               <input type="canvas.diagram.edit.parts.TableEditPart"/>
-              <input type="canvas.diagram.edit.parts.TreeEditPart"/>
+              <input type="canvas.diagram.edit.parts.Tree2EditPart"/>
               <input type="canvas.diagram.edit.parts.ButtonEditPart"/>
               <input type="canvas.diagram.edit.parts.LabelEditPart"/>
               <input type="canvas.diagram.edit.parts.ColumnEditPart"/>
