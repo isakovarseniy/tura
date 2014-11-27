@@ -1730,11 +1730,15 @@
             <element xsi:type="tura.domain:InputText" uid="e4d5d6df-6b5d-4ede-ad11-8e857d3cd87e" valuePointer="a3f007de-ce4a-4510-bc86-52f20eee5325"/>
           </cols>
         </children>
-        <children xsi:type="tura.domain:Tree" uid="bee23d39-6e59-450f-b696-94cf4c907c86" sourcePointer="cd1cab1c-1781-4867-85b8-84d9f465f989">
+        <children xsi:type="tura.domain:Tree" uid="bee23d39-6e59-450f-b696-94cf4c907c86" nickname="" sourcePointer="cd1cab1c-1781-4867-85b8-84d9f465f989" label="Location">
           <style/>
-          <multiLangLabel/>
+          <multiLangLabel value="Messages.HR Controller.LOCATIONS_TREE">
+            <expression objRef="af03a493-0ca4-486c-945f-5bfc2fdf35bd" expressionType="MessagesImpl"/>
+            <expression objRef="5772ddee-a83b-41c9-8f34-c442412e1013" order="1" expressionType="MessageLibraryImpl"/>
+            <expression objRef="9e8ac4a5-5023-44f2-af6f-56c62c679fa3" order="2" expressionType="MessageImpl"/>
+          </multiLangLabel>
           <cols uid="490f4dcd-4e49-4b66-88e5-c155aa28761a">
-            <element xsi:type="tura.domain:OutputText" uid="a467047a-bfd7-49a6-bc29-ef0770e63e78" valuePointer="1d6f2af5-d0e2-42fb-8fd1-f5fc4d367317"/>
+            <element xsi:type="tura.domain:OutputText" uid="a467047a-bfd7-49a6-bc29-ef0770e63e78" valuePointer="State_7982905f-4f83-472f-8551-80e30e34934c" sourceCast="State_52ffccb7-cea6-49de-ba4b-7437f1da3369" sourceCastDataControl="f77b6e6d-41a3-4fb5-8ab9-85b2b76191ec"/>
           </cols>
         </children>
       </children>
@@ -1754,7 +1758,7 @@
             <expression objRef="5772ddee-a83b-41c9-8f34-c442412e1013" order="1" expressionType="MessageLibraryImpl"/>
             <expression objRef="62de9606-e73e-4b3e-a141-55f33ac9fc0c" order="2" expressionType="MessageImpl"/>
           </multiLangLabel>
-          <element xsi:type="tura.domain:InputText" uid="db3a1f7f-4310-48c8-86fa-cc4948ca9c78" valuePointer="Dep_7982905f-4f83-472f-8551-80e30e34934c"/>
+          <element xsi:type="tura.domain:InputText" uid="db3a1f7f-4310-48c8-86fa-cc4948ca9c78" valuePointer="Dep_7982905f-4f83-472f-8551-80e30e34934c" sourceCastDataControl="0feddc04-1241-40fa-a9f3-35089d2cf4c5"/>
         </cols>
         <cols uid="11d633a4-2258-4284-abfb-d4c10055208d" label="Description">
           <multiLangLabel value="Messages.HR Controller.DEPARTMENTS_TABLE_DEPARTMENT_DESCRIPTION_COLUMN">

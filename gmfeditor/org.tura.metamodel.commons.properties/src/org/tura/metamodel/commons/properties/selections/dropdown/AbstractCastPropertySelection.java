@@ -8,6 +8,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.gmf.runtime.notation.impl.DiagramImpl;
 import org.tura.metamodel.commons.QueryHelper;
+import org.tura.metamodel.commons.Util;
 import org.tura.metamodel.commons.properties.selections.adapters.TypeElementProvider;
 import org.tura.metamodel.commons.properties.selections.adapters.helper.TreeDataControl;
 
@@ -71,11 +72,7 @@ public abstract class AbstractCastPropertySelection extends
 
 					return values;
 
-				domain.Type type = (Type) dc.getCreate().getMethodRef()
-						.getReturnValue().getTypeRef();
-
-				if (dc.getBaseType() != null)
-					type = dc.getBaseType();
+				Type type = (Type) Util.getBase(dc);
 
 				ArrayList<domain.Type> typeTree = new ArrayList<>();
 				new QueryHelper().getInheritTypes(typeTree, type);
@@ -85,7 +82,12 @@ public abstract class AbstractCastPropertySelection extends
 				TypeElementProvider provider = new TypeElementProvider();
 				for (final domain.Type p : typeTree) {
 					if (provider.getLabel(p) != null)
-						values.put(provider.getLabel(p),  new ArrayList(){{add(dc);add(p);}} );
+						values.put(provider.getLabel(p), new ArrayList() {
+							{
+								add(dc);
+								add(p);
+							}
+						});
 				}
 			}
 		}

@@ -856,18 +856,30 @@
                class="org.tura.metamodel.commons.properties.selections.dropdown.SourceCastPropertySelection"
                afterSection="org.tura.metamodel.diagram.canvas.sourcepointer.datacontrol"
                id="org.tura.metamodel.diagram.canvas.sourcepointer.sourcecast">
+ 
               <input type="canvas.diagram.edit.parts.CheckBoxEditPart"/>
               <input type="canvas.diagram.edit.parts.InputTextEditPart"/>
               <input type="canvas.diagram.edit.parts.OutputTextEditPart"/>
-              <input type="canvas.diagram.edit.parts.TableEditPart"/>
-              <input type="canvas.diagram.edit.parts.TreeEditPart"/>
               <input type="canvas.diagram.edit.parts.DropDownSelectionEditPart"/>
 
            </propertySection>        
 
              <propertySection
                tab="property.tab.domain.canvas.sourcepointer"
-               class="org.tura.metamodel.commons.properties.selections.dropdown.ValuePointerAttributePropertySelectionTableIterator"
+               class="org.tura.metamodel.commons.properties.selections.dropdown.SourceCastPropertySelectionExternalIterator"
+               afterSection="org.tura.metamodel.diagram.canvas.sourcepointer.datacontrol"
+               id="org.tura.metamodel.diagram.canvas.sourcepointer.sourcecast">
+ 
+              <input type="canvas.diagram.edit.parts.CheckBox2EditPart"/>
+              <input type="canvas.diagram.edit.parts.InputText2EditPart"/>
+              <input type="canvas.diagram.edit.parts.OutputText2EditPart"/>
+              <input type="canvas.diagram.edit.parts.DropDownSelection2EditPart"/>
+
+           </propertySection>     
+
+             <propertySection
+               tab="property.tab.domain.canvas.sourcepointer"
+               class="org.tura.metamodel.commons.properties.selections.dropdown.ValuePointerAttributePropertySelectionExternalIterator"
                id="org.tura.metamodel.diagram.canvas.sourcepointer.valuepointer.externaliterator">
 
               <input type="canvas.diagram.edit.parts.CheckBox2EditPart"/>

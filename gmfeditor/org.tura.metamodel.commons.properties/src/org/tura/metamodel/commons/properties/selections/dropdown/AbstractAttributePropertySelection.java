@@ -50,7 +50,8 @@ public abstract class AbstractAttributePropertySelection extends
 			Map<String, ArrayList<Object>> artificialFields = new HashMap<>();
 			int threshold = 1000;
 
-			if (dropDownDataSupplier.getWatchPointObject(getModel())[1] != null) {
+			if (dropDownDataSupplier.getWatchPointObject(getModel())[1] != null
+					&& dropDownDataSupplier.getWatchPointObject(getModel())[2] != null) {
 				domain.TypeElement type = (Type) dropDownDataSupplier
 						.getWatchPointObject(getModel())[1];
 				domain.DataControl dc = (domain.DataControl) dropDownDataSupplier
