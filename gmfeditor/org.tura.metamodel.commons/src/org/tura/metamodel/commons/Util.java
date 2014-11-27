@@ -51,6 +51,9 @@ public class Util {
 		domain.Type type = (Type) dc.getCreate().getMethodRef()
 				.getReturnValue().getTypeRef();
 		
+		if (dc.getBaseType() != null)
+			type = dc.getBaseType();
+		
 		return type;
 
 	}

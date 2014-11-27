@@ -1730,10 +1730,11 @@
             <element xsi:type="tura.domain:InputText" uid="e4d5d6df-6b5d-4ede-ad11-8e857d3cd87e" valuePointer="a3f007de-ce4a-4510-bc86-52f20eee5325"/>
           </cols>
         </children>
-        <children xsi:type="tura.domain:Tree" uid="bee23d39-6e59-450f-b696-94cf4c907c86">
+        <children xsi:type="tura.domain:Tree" uid="bee23d39-6e59-450f-b696-94cf4c907c86" sourcePointer="cd1cab1c-1781-4867-85b8-84d9f465f989">
+          <style/>
           <multiLangLabel/>
           <cols uid="490f4dcd-4e49-4b66-88e5-c155aa28761a">
-            <element xsi:type="tura.domain:OutputText" uid="a467047a-bfd7-49a6-bc29-ef0770e63e78"/>
+            <element xsi:type="tura.domain:OutputText" uid="a467047a-bfd7-49a6-bc29-ef0770e63e78" valuePointer="1d6f2af5-d0e2-42fb-8fd1-f5fc4d367317"/>
           </cols>
         </children>
       </children>

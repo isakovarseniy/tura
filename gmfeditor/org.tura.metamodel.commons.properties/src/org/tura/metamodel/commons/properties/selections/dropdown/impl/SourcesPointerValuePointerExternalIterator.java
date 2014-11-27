@@ -12,7 +12,7 @@ public class SourcesPointerValuePointerExternalIterator  extends SourcesPointerV
 			eobj = eobj.eContainer();
 			if (eobj == null )
 				return new Object []{};
-		}while  (!(eobj instanceof domain.Table )|| !(eobj instanceof domain.Tree )) ;
+		}while  (!(eobj instanceof domain.Table )&& !(eobj instanceof domain.Tree )) ;
 		
 		return new Object[] {((domain.SourcesPointer) eobj).getSourcePointer(),
 				((domain.SourcesPointer) eobj).getSourceCast(),

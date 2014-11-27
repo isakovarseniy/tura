@@ -68,8 +68,8 @@ public abstract class AbstractAttributePropertySelection extends
 					}
 					if (treeRoot) {
 						ArrayList<domain.DataControl> controls = new ArrayList<>();
-						threshold = controls.size();
 						helper.getTreeLeafs(controls, ndc);
+						threshold = controls.size();
 						for (domain.DataControl dc : controls) {
 							domain.TypeElement type = Util.getBase(dc);
 							if (type != null)
@@ -143,7 +143,7 @@ public abstract class AbstractAttributePropertySelection extends
 			} else {
 				ArrayList<Object> ls = operations.get(key);
 				int i = (int) ls.get(1);
-				ls.set(1, i++);
+				ls.set(1, ++i);
 			}
 		}
 
@@ -158,7 +158,7 @@ public abstract class AbstractAttributePropertySelection extends
 			} else {
 				ArrayList<Object> ls = attributes.get(key);
 				int i = (int) ls.get(1);
-				ls.set(1, i++);
+				ls.set(1, ++i);
 			}
 		}
 
@@ -174,7 +174,7 @@ public abstract class AbstractAttributePropertySelection extends
 			} else {
 				ArrayList<Object> ls = artificialFields.get(key);
 				int i = (int) ls.get(1);
-				ls.set(1, i++);
+				ls.set(1, ++i);
 			}
 		}
 	}
