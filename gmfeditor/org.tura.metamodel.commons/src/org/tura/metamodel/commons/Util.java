@@ -25,12 +25,14 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.epsilon.common.dt.util.LogUtil;
 import org.eclipse.epsilon.egl.EglTemplate;
 import org.eclipse.epsilon.egl.EglTemplateFactory;
+import org.eclipse.gmf.runtime.notation.impl.DiagramImpl;
 import org.eclipse.ocl.OCL;
 import org.eclipse.ocl.ecore.Constraint;
 import org.eclipse.ocl.ecore.EcoreEnvironmentFactory;
 import org.eclipse.ocl.expressions.OCLExpression;
 import org.eclipse.ocl.helper.OCLHelper;
 import org.tura.metamodel.commons.preferences.IPreferenceConstants;
+import org.tura.metamodel.commons.properties.selections.adapters.helper.TreeDataControl;
 
 import domain.DomainPackage;
 import domain.Type;
@@ -58,6 +60,20 @@ public class Util {
 
 	}
 
+	public static boolean ifDataControlIsTreeRoot(domain.DataControl dc , DiagramImpl diagram ) throws Exception{
+
+		QueryHelper helper = new QueryHelper();
+		domain.Form frm = helper.getForm(diagram);
+		for (TreeDataControl tdc : helper.findTreeRootControls(frm)) {
+			if (tdc.getDc().equals(dc)) {
+				return true;
+			}
+		}
+		
+		return false;
+		
+	}
+	
 	public boolean ifInternalElement(EObject element) {
 
 		EObject top = element.eContainer();
@@ -65,6 +81,8 @@ public class Util {
 			return false;
 		if (top instanceof domain.Table)
 			return true;
+		if (top instanceof domain.Tree)
+			return true;		
 
 		return ifInternalElement(top);
 

@@ -2,12 +2,24 @@ package org.tura.metamodel.commons.properties.selections.dropdown.impl;
 
 import java.util.HashMap;
 
+import org.eclipse.core.runtime.Platform;
 import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.gmf.runtime.notation.impl.DiagramImpl;
+import org.eclipse.ui.model.IWorkbenchAdapter;
+import org.tura.metamodel.commons.Util;
+import org.tura.metamodel.commons.properties.selections.AbstractTuraPropertySection;
+import org.tura.metamodel.commons.properties.selections.adapters.helper.TreeDataControl;
 import org.tura.metamodel.commons.properties.selections.dropdown.DropDownDataSupplier;
 
 import domain.DomainPackage;
 
 public class SourcesPointerSourcePointer implements DropDownDataSupplier {
+
+	private AbstractTuraPropertySection property;
+
+	public SourcesPointerSourcePointer(AbstractTuraPropertySection property) {
+		this.property = property;
+	}
 
 	@Override
 	public EStructuralFeature[] getFeature() {
@@ -17,10 +29,27 @@ public class SourcesPointerSourcePointer implements DropDownDataSupplier {
 
 	@Override
 	public String getFeatureAsText(Object eObject) {
-		if (((domain.SourcesPointer) eObject).getSourcePointer() != null)
-			return ((domain.SourcesPointer) eObject).getSourcePointer()
-					.getName();
-		else
+		if (((domain.SourcesPointer) eObject).getSourcePointer() != null) {
+			DiagramImpl root = (DiagramImpl) property.getEditPart().getRoot()
+					.getContents().getModel();
+			domain.DataControl dc = ((domain.SourcesPointer) eObject)
+					.getSourcePointer();
+			try {
+				Object obj;
+				if (Util.ifDataControlIsTreeRoot(dc, root)) {
+					obj = new TreeDataControl(dc);
+				} else {
+					obj = dc;
+				}
+				IWorkbenchAdapter adapter = (IWorkbenchAdapter) Platform
+						.getAdapterManager().getAdapter(obj,
+								IWorkbenchAdapter.class);
+				return adapter.getLabel(obj);
+
+			} catch (Exception e) {
+				return "";
+			}
+		} else
 			return "";
 	}
 
@@ -49,16 +78,15 @@ public class SourcesPointerSourcePointer implements DropDownDataSupplier {
 	}
 
 	public Object[] getWatchPointObject(Object eObject) {
-		return new Object[]{};
+		return new Object[] {};
 	}
 
 	public EStructuralFeature[] getWatchPointFeature() {
-		return new EStructuralFeature[] { };
+		return new EStructuralFeature[] {};
 	}
 
 	public Class<?> getExpectedClass() {
 		return null;
 	}
 
-	
 }

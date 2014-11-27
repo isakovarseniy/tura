@@ -86,8 +86,8 @@ public class QueryHelper {
 	public void getTreeLeafs(List<domain.DataControl> ls,
 			domain.DataControl root) throws Exception {
 
-        ls.add(root);
-        
+		ls.add(root);
+
 		OCL ocl = OCL.newInstance(EcoreEnvironmentFactory.INSTANCE);
 		OCLHelper<EClassifier, ?, ?, Constraint> helper = ocl.createOCLHelper();
 		helper.setContext(DomainPackage.eINSTANCE.getEClassifier("Domain"));
@@ -109,29 +109,17 @@ public class QueryHelper {
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public List<?> getControlsList(DiagramImpl root) throws Exception {
 
-		domain.Controls controls = null;
 		domain.Form frm = getForm(root);
 		ArrayList ls = new ArrayList();
 
-		if (root.getElement() instanceof domain.CanvasView
-				|| root.getElement() instanceof domain.Views) {
+		TreeRootDataControlHolder th = new TreeRootDataControlHolder();
+		th.getControls().addAll(findTreeRootControls(frm));
+		ls.add(th);
 
-			TreeRootDataControlHolder th = new TreeRootDataControlHolder();
-			th.getControls().addAll(findTreeRootControls(frm));
-			ls.add(th);
-
-			DataControlHolder dh = new DataControlHolder();
-			dh.getControls().addAll(findMasterControls(frm));
-			dh.getControls().addAll(findDetailAndDependencyControls(frm));
-			ls.add(dh);
-		}
-
-		if (root.getElement() instanceof domain.Controls) {
-			controls = frm.getDatacontrols().getFormControl();
-			DataControlHolder dh = new DataControlHolder();
-			dh.getControls().addAll(controls.getControls());
-			ls.add(dh);
-		}
+		DataControlHolder dh = new DataControlHolder();
+		dh.getControls().addAll(findMasterControls(frm));
+		dh.getControls().addAll(findDetailAndDependencyControls(frm));
+		ls.add(dh);
 
 		return ls;
 	}

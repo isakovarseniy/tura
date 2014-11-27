@@ -10,7 +10,6 @@ import org.eclipse.gmf.runtime.notation.impl.DiagramImpl;
 import org.tura.metamodel.commons.QueryHelper;
 import org.tura.metamodel.commons.Util;
 import org.tura.metamodel.commons.properties.selections.adapters.TypeElementProvider;
-import org.tura.metamodel.commons.properties.selections.adapters.helper.TreeDataControl;
 
 import domain.DataControl;
 import domain.Type;
@@ -36,23 +35,14 @@ public abstract class AbstractCastPropertySelection extends
 			QueryHelper helper = new QueryHelper();
 			DiagramImpl root = (DiagramImpl) editPart.getRoot().getContents()
 					.getModel();
-			domain.Form frm = helper.getForm(root);
 
 			domain.DataControl ndc = (DataControl) dropDownDataSupplier
 					.getWatchPointObject(getModel())[0];
 
 			ArrayList<domain.DataControl> controls = new ArrayList<>();
-			boolean treeRoot = false;
 
 			try {
-
-				for (TreeDataControl tdc : helper.findTreeRootControls(frm)) {
-					if (tdc.getDc().equals(ndc)) {
-						treeRoot = true;
-						break;
-					}
-				}
-				if (treeRoot) {
+				if (Util.ifDataControlIsTreeRoot(ndc,root)) {
 					helper.getTreeLeafs(controls, ndc);
 				} else
 					controls.add(ndc);

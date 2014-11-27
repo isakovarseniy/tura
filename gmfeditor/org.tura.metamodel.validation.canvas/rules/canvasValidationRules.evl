@@ -2,7 +2,7 @@ context SourcesPointer{
 
   constraint HasSourcePointer {
 
-      guard: not (new Native('org.tura.metamodel.commons.Util')).ifInternalElement(self) and not self.isKindOf(domain::Table)
+      guard: not (new Native('org.tura.metamodel.commons.Util')).ifInternalElement(self) and not self.isKindOf(domain::Table) and not self.isKindOf(domain::Tree)
       check :  self.sourcePointer.isDefined()
 
       message : 'Undefined data control name for  ' + self.eClass().name + ' is not allowed'
@@ -11,7 +11,7 @@ context SourcesPointer{
 
   constraint HasValuePointer {
   
-      guard:   not self.isKindOf(domain::Table)
+      guard:   not self.isKindOf(domain::Table) and not self.isKindOf(domain::Tree)
       check :  self.valuePointer.isDefined()
 
       message : 'Undefined attribute name for  ' + self.eClass().name + ' is not allowed'

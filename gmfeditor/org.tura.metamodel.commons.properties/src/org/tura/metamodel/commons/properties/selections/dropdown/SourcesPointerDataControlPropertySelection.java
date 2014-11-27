@@ -6,7 +6,7 @@ public class SourcesPointerDataControlPropertySelection extends
 		AbstractDataControlPropertySelection {
 
 	protected void init() {
-		dropDownDataSupplier = new SourcesPointerSourcePointer();
+		dropDownDataSupplier = new SourcesPointerSourcePointer(this);
 	}
 
 }
