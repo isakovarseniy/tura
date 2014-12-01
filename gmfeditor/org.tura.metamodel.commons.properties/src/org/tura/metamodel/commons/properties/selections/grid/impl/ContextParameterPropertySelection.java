@@ -406,6 +406,11 @@ public abstract class ContextParameterPropertySelection extends GridProperty {
 							return true;
 						}
 					}
+					if (typeElement instanceof domain.TypeReference) {
+						if (checkType(param, ((domain.TypeReference)typeElement).getTypeRef()) ) {
+							return true;
+						}
+					}
 				}
 			} else
 				return false;
