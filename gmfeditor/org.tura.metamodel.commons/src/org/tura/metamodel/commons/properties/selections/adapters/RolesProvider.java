@@ -3,15 +3,12 @@ package org.tura.metamodel.commons.properties.selections.adapters;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.ui.model.IWorkbenchAdapter;
 
-import domain.Types;
-
 public class RolesProvider implements IWorkbenchAdapter  ,IReturnTypeProvider{
 
 	@Override
 	public Object[] getChildren(Object o) {
-		domain.Types tps = (Types) o;
-		tps.getPackages();
-		return tps.getPackages().toArray();
+		domain.Roles tps = (domain.Roles) o;
+		return tps.getRoles().toArray();
 	}
 
 	@Override
@@ -21,7 +18,7 @@ public class RolesProvider implements IWorkbenchAdapter  ,IReturnTypeProvider{
 
 	@Override
 	public String getLabel(Object o) {
-		return "Packages";
+		return "Roles";
 	}
 
 	@Override

@@ -216,11 +216,11 @@ public class Util {
 			domain.DataControl dc) {
 
 		ArtificialContextValue cv = new ArtificialContextValue();
-		cv.setValue("Data control." + dc.getName());
+		cv.setValue("Data controls." + mergeAndUnCapitalize(dc.getName()));
 
 		ArtificialExpressionPart ex = new ArtificialExpressionPart();
 		ex.setOrder(0);
-		ex.setExpressionType("ControlsImpl");
+		ex.setExpressionType("DataControlHolder");
 		cv.getExpression().add(ex);
 
 		ex = new ArtificialExpressionPart();
@@ -233,30 +233,40 @@ public class Util {
 
 	}
 
-	public ArtificialContextValue createArtificialContextValue(
+	public ArtificialContextValue createTreeArtificialContextValue(
 			domain.DataControl dc, domain.Link lnk) {
 		ArtificialContextValue cv = new ArtificialContextValue();
-		cv.setValue("Data control." + dc.getName() + ".currentObject."
+		cv.setValue("Tree data controls.TreeControl." + mergeAndCapitalize(dc.getName()) + ".currentObject."
 				+ lnk.getMasterField());
 
 		ArtificialExpressionPart ex = new ArtificialExpressionPart();
 		ex.setOrder(0);
-		ex.setExpressionType("ControlsImpl");
+		ex.setExpressionType("TreeRootDataControlHolder");
 		cv.getExpression().add(ex);
 
-		ex = new ArtificialExpressionPart();
+		 ex = new ArtificialExpressionPart();
 		ex.setOrder(1);
-		ex.setExpressionType("TreeDataControlImpl");
+		ex.setExpressionType("TreeDataControl");
+		cv.getExpression().add(ex);
+		
+		ex = new ArtificialExpressionPart();
+		ex.setOrder(2);
+		ex.setExpressionType("DataControlImpl");
 		ex.setObjRef(dc);
 		cv.getExpression().add(ex);
 
 		ex = new ArtificialExpressionPart();
-		ex.setOrder(2);
+		ex.setOrder(3);
 		ex.setExpressionType("DataControlFakeMethod");
 		cv.getExpression().add(ex);
 
 		ex = new ArtificialExpressionPart();
-		ex.setOrder(3);
+		ex.setOrder(4);
+		ex.setExpressionType("ExtendedType");
+		cv.getExpression().add(ex);
+
+		ex = new ArtificialExpressionPart();
+		ex.setOrder(5);
 		ex.setObjRef(lnk.getMasterField());
 		ex.setExpressionType("AttributeImpl");
 		cv.getExpression().add(ex);

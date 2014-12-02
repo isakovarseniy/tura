@@ -41,6 +41,7 @@ public class TreeProviderAdapterFactory implements IAdapterFactory {
 	private DataControlFakeMethodProvider dataControlFakeMethodProvider;
 	private TreeDataControlProvider treeDataControlProvider;
 	private ExtendedTypeProvider extendedTypeProvider;
+	private RolesProvider rolesProvider;
 	
 
 	@SuppressWarnings("rawtypes")
@@ -101,6 +102,8 @@ public class TreeProviderAdapterFactory implements IAdapterFactory {
 				return  getExtendedTypeProvider();
 			if (adaptableObject instanceof domain.ArtificialField)
 				return  getArtificialFieldProvider();
+			if (adaptableObject instanceof domain.Roles)
+				return  getRolesProvider();
 			
 		}
 		return null;
@@ -263,6 +266,12 @@ public class TreeProviderAdapterFactory implements IAdapterFactory {
 		if (artificialFieldProvider == null)
 			artificialFieldProvider = new ArtificialFieldProvider();
 		return artificialFieldProvider;
+	}	
+
+	protected RolesProvider getRolesProvider() {
+		if (rolesProvider == null)
+			rolesProvider = new RolesProvider();
+		return rolesProvider;
 	}	
 	
 }

@@ -342,19 +342,17 @@ public abstract class ContextParameterPropertySelection extends GridProperty {
 			for (Object obj : new QueryHelper().getControlsList(root))
 				rootOfTree.addChild(obj);
 
-			rootOfTree.addChild(new QueryHelper().getTypesRepository(root
-					.getElement()));
+			Object obj = new QueryHelper()
+					.getTypesRepository(root.getElement());
+			if (obj != null)
+				rootOfTree.addChild(obj);
 
-			rootOfTree.addChild(new QueryHelper().getTypesRepository(root
-					.getElement()));
+			obj = new QueryHelper().getApplicationRoles(root);
+			if (obj != null)
+				rootOfTree.addChild(obj);
+
 		} catch (Exception e) {
 			// ignore
-		}
-
-		Object obj = new QueryHelper().getApplicationRoles(root);
-
-		if (obj != null) {
-			rootOfTree.addChild(obj);
 		}
 
 		return rootOfTree;
@@ -407,7 +405,9 @@ public abstract class ContextParameterPropertySelection extends GridProperty {
 						}
 					}
 					if (typeElement instanceof domain.TypeReference) {
-						if (checkType(param, ((domain.TypeReference)typeElement).getTypeRef()) ) {
+						if (checkType(param,
+								((domain.TypeReference) typeElement)
+										.getTypeRef())) {
 							return true;
 						}
 					}

@@ -1757,7 +1757,9 @@
               <expression objRef="5772ddee-a83b-41c9-8f34-c442412e1013" order="1" expressionType="MessageLibraryImpl"/>
               <expression objRef="152b0762-39a4-4995-ba49-efb5a3c75f07" order="2" expressionType="MessageImpl"/>
             </multiLangLabel>
-            <element xsi:type="tura.domain:InputText" uid="e4d5d6df-6b5d-4ede-ad11-8e857d3cd87e" valuePointer="a3f007de-ce4a-4510-bc86-52f20eee5325"/>
+            <element xsi:type="tura.domain:InputText" uid="e4d5d6df-6b5d-4ede-ad11-8e857d3cd87e" valuePointer="a3f007de-ce4a-4510-bc86-52f20eee5325">
+              <required/>
+            </element>
           </cols>
         </children>
         <children xsi:type="tura.domain:Tree" uid="bee23d39-6e59-450f-b696-94cf4c907c86" nickname="" sourcePointer="cd1cab1c-1781-4867-85b8-84d9f465f989" label="Location">

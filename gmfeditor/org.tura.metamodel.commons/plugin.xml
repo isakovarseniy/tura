@@ -71,11 +71,6 @@
                  <adapter type="org.eclipse.ui.model.IWorkbenchAdapter"/> 
                  <adapter type="org.tura.metamodel.commons.properties.selections.adapters.IReturnTypeProvider"/> 
       </factory>
-     <factory  adaptableType="domain.ApplicationRole"
-             class="org.tura.metamodel.commons.properties.selections.adapters.TreeProviderAdapterFactory">
-                 <adapter type="org.eclipse.ui.model.IWorkbenchAdapter"/> 
-                 <adapter type="org.tura.metamodel.commons.properties.selections.adapters.IReturnTypeProvider"/> 
-      </factory>
      <factory  adaptableType="domain.Role"
              class="org.tura.metamodel.commons.properties.selections.adapters.TreeProviderAdapterFactory">
                  <adapter type="org.eclipse.ui.model.IWorkbenchAdapter"/> 
@@ -160,6 +155,11 @@
                  <adapter type="org.tura.metamodel.commons.properties.selections.adapters.IReturnTypeProvider"/> 
       </factory>      
 
+      <factory  adaptableType="domain.Roles"
+             class="org.tura.metamodel.commons.properties.selections.adapters.TreeProviderAdapterFactory">
+                 <adapter type="org.eclipse.ui.model.IWorkbenchAdapter"/> 
+                 <adapter type="org.tura.metamodel.commons.properties.selections.adapters.IReturnTypeProvider"/> 
+      </factory>      
 
 
 </extension>

@@ -43,9 +43,11 @@ public class QueryHelper {
 
 	public Object getApplicationRoles(DiagramImpl root) {
 		domain.Form frm = getForm(root);
-
-		return ((domain.UIPackage) frm.eContainer()).getParent().getParent()
-				.getParent().getApplicationRole();
+		domain.Application app = ((domain.UIPackage) frm.eContainer())
+				.getParent().getParent().getParent();
+		if (app.getApplicationRole() != null)
+			return app.getApplicationRole().getRoles();
+		return null;
 	}
 
 	public Object getMessages(DiagramImpl root) {
@@ -53,8 +55,10 @@ public class QueryHelper {
 
 		domain.Application app = ((domain.UIPackage) (frm.eContainer()))
 				.getParent().getParent().getParent();
+		if (app.getApplicationMessages() != null)
+			return app.getApplicationMessages().getMessages();
 
-		return app.getApplicationMessages().getMessages();
+		return null;
 	}
 
 	public domain.Form getForm(DiagramImpl root) {
