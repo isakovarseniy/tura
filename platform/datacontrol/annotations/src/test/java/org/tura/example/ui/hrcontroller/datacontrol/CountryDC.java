@@ -139,7 +139,7 @@ public class CountryDC extends DataControl<CountryDAO> {
     @Inject
     public void setInsertCommand(
         @Insert(objectAction = "insert", parameters = @Parameters(value =  {
-        @Parameter(name = "obj", expression = "beanFactory.treeRootCountry.currentControl.currentObject", type = TuraObject.class)
+        @Parameter(name = "obj", expression = "beanFactory.treeRootCountry.currentObject", type = TuraObject.class)
 
     }
     )
@@ -152,7 +152,7 @@ public class CountryDC extends DataControl<CountryDAO> {
     @Inject
     public void setUpdateCommand(
         @Update(objectAction = "update", parameters = @Parameters(value =  {
-        @Parameter(name = "obj", expression = "beanFactory.treeRootCountry.currentControl.currentObject", type = TuraObject.class)
+        @Parameter(name = "obj", expression = "beanFactory.treeRootCountry.currentObject", type = TuraObject.class)
 
     }
     )
@@ -165,7 +165,7 @@ public class CountryDC extends DataControl<CountryDAO> {
     @Inject
     public void setDeleteCommand(
         @Delete(objectAction = "remove", parameters = @Parameters(value =  {
-        @Parameter(name = "obj", expression = "beanFactory.treeRootCountry.currentControl.currentObject", type = TuraObject.class)
+        @Parameter(name = "obj", expression = "beanFactory.treeRootCountry.currentObject", type = TuraObject.class)
 
     }
     )
