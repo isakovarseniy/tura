@@ -7,7 +7,7 @@ Bundle-ClassPath: .
 Bundle-Activator: canvas.diagram.part.DomainDiagramEditorPlugin
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
-Export-Package: canvas.diagram.edit.parts, 
+Export-Package: canvas.diagram.edit.parts,
  canvas.diagram.part,
  canvas.diagram.providers
 Require-Bundle: org.eclipse.core.runtime,

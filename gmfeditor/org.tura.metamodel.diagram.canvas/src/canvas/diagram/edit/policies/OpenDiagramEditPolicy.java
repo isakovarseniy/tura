@@ -143,7 +143,7 @@ public class OpenDiagramEditPolicy extends OpenEditPolicy {
 			diagramFacet.setDiagramLink(d);
 			assert diagramFacet.eResource() != null;
 			diagramFacet.eResource().getContents().add(d);
-			org.eclipse.emf.ecore.EObject container = diagramFacet.eContainer();
+			EObject container = diagramFacet.eContainer();
 			while (container instanceof View) {
 				((View) container).persist();
 				container = container.eContainer();
@@ -185,7 +185,7 @@ public class OpenDiagramEditPolicy extends OpenEditPolicy {
 		/**
 		 * @generated
 		 */
-		protected org.eclipse.emf.ecore.EObject getDiagramDomainElement() {
+		protected EObject getDiagramDomainElement() {
 			// use same element as associated with EP
 			return ((View) diagramFacet.eContainer()).getElement();
 		}
