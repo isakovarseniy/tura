@@ -191,6 +191,12 @@ public abstract class Query<T extends Query<T>> implements Visitable {
   }
 
   @SuppressWarnings("unchecked")
+  public T whereReset(){
+	  whereClause = null;
+	   return (T) this;
+  }
+  
+  @SuppressWarnings("unchecked")
   public T where(final Column column) {
     whereClause = new OpExp(column);
     return (T) this;

@@ -36,7 +36,7 @@ public class SelectQuery extends Query<SelectQuery> {
   protected final Object[] columns;
   protected String[] tables;
   private final List<JoinClause> joinClauses = new ArrayList<JoinClause>();
-  private final Map<String, Order> orderBy = new LinkedHashMap<String, Order>();
+  private Map<String, Order> orderBy = new LinkedHashMap<String, Order>();
   private Long limit = null;
   private String lastOrderByColumn = null;
   private boolean lastOrderByNeeded = true;
@@ -82,6 +82,13 @@ public class SelectQuery extends Query<SelectQuery> {
     return this;
   }
 
+  public SelectQuery orderByReset() {
+	    this.orderBy = new LinkedHashMap<String, Order>();
+	    lastOrderByColumn = null;
+	    return this;
+	  }
+
+  
   public SelectQuery orderBy(final String value, final boolean isOrderByNeeded) {
     lastOrderByNeeded = isOrderByNeeded;
     if (isOrderByNeeded) {
@@ -89,6 +96,8 @@ public class SelectQuery extends Query<SelectQuery> {
     }
     return this;
   }
+  
+  
 
   public SelectQuery desc() throws QueryGrammarException {
     if (!lastOrderByNeeded) {
