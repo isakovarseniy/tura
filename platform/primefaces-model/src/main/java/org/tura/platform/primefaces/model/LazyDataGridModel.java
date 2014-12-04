@@ -18,14 +18,45 @@ import com.octo.java.sql.query.SelectQuery;
 public class LazyDataGridModel<T> extends LazyDataModel<T> {
 
 	private static final long serialVersionUID = -3916551980941958271L;
-	private DataControl<?> dc;
+	private DataControl<?> datacontrol;
 	private java.util.logging.Logger logger;
+	@SuppressWarnings("rawtypes")
+	private List datasource;
 
-	public List<T> load(int first, int pageSize, String sortField,
+	public DataControl<?> getDatacontrol() {
+		return datacontrol;
+	}
+
+	public void setDatacontrol(DataControl<?> datacontrol) {
+		this.datacontrol = datacontrol;
+	}
+	
+	public java.util.logging.Logger getLogger() {
+		return logger;
+	}
+
+	public void setLogger(java.util.logging.Logger logger) {
+		this.logger = logger;
+	}
+
+	@SuppressWarnings({ "unchecked", "rawtypes" })
+	public List load(int first, int pageSize, String sortField,
 			SortOrder sortOrder, Map<String, Object> filters) {
-		ArrayList<T> ls = new ArrayList<T>();
+
+		SortMeta sortMeta = new SortMeta();
+		sortMeta.setSortField(sortField);
+		sortMeta.setSortOrder(sortOrder);
+		ArrayList<SortMeta> multiSortMeta = new ArrayList<>();
+
+		return load(first, pageSize, multiSortMeta, filters);
+	}
+
+	@SuppressWarnings({ "unchecked", "rawtypes" })
+	public List load(int first, int pageSize, List<SortMeta> multiSortMeta,
+			Map<String, Object> filters) {
+		ArrayList datasource = new ArrayList();
 		try {
-			SelectQuery query = dc.getQuery();
+			SelectQuery query = datacontrol.getQuery();
 			query.whereReset();
 			query.orderByReset();
 
@@ -38,32 +69,34 @@ public class LazyDataGridModel<T> extends LazyDataModel<T> {
 				condition = "AND";
 			}
 
-			query.orderBy(sortField);
+			for (SortMeta sortField : multiSortMeta) {
+				query.orderBy(sortField.getSortField());
 
-			if (sortOrder.equals(SortOrder.ASCENDING))
-				query.asc();
-			else
-				query.desc();
-			
+				if (sortField.getSortOrder().equals(SortOrder.ASCENDING))
+					query.asc();
+				else
+					query.desc();
+			}
+			List<?> scroler = datacontrol.getScroller();
+			int j = first + pageSize;
+
+			for (int i = first, k = 0; i < j; i++, k++)
+				datasource.add( new Object[]{i,k,scroler.get(i)});
+
 		} catch (Exception e) {
 			logger.fine(e.getMessage());
 		}
-		return ls;
+		return datasource;
 	}
 
-	public List<T> load(int first, int pageSize, List<SortMeta> multiSortMeta,
-			Map<String, Object> filters) {
-		throw new UnsupportedOperationException(
-				"Lazy loading is not implemented.");
-	}
-
+	@SuppressWarnings("unchecked")
 	public T getRowData(String rowKey) {
-		throw new UnsupportedOperationException(
-				"getRowData(String rowKey) must be implemented when basic rowKey algorithm is not used.");
+		return (T) ((Object[])(datasource.get(new Integer(rowKey))))[2];
 	}
 
 	public Object getRowKey(T object) {
-		throw new UnsupportedOperationException(
-				"getRowKey(T object) must be implemented when basic rowKey algorithm is not used.");
+		Object[] array = (Object[]) object;
+		return array[1];
+		
 	}
 }
