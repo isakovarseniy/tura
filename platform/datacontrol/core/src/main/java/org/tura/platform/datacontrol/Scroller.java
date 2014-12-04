@@ -23,7 +23,7 @@ public class Scroller<T>  extends AbstractList<T> {
 
 	@Override
 	public int size() {
-		return pager.listSize();
+		return (int)pager.actualListSize();
 	}
 
 }

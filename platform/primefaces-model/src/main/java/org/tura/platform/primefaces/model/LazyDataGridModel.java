@@ -23,6 +23,11 @@ public class LazyDataGridModel<T> extends LazyDataModel<T> {
 	@SuppressWarnings("rawtypes")
 	private List datasource;
 
+	
+	public int getRowCount() {
+		return datacontrol.getScroller().size();
+	}
+	
 	public DataControl<?> getDatacontrol() {
 		return datacontrol;
 	}

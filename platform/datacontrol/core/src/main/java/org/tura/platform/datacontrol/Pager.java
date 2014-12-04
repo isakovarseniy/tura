@@ -65,6 +65,10 @@ public class Pager<T> {
 		return entities.size();
 	}
 
+	public long actualListSize() {
+		return entities.getActualRowNumber();
+	}
+	
 	private boolean prepareQuery() throws NoSuchMethodException,
 			SecurityException, ClassNotFoundException, InstantiationException,
 			IllegalAccessException, IllegalArgumentException,
