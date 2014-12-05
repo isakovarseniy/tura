@@ -1537,6 +1537,17 @@
         <options uid="3309af92-cc56-4e33-8068-81f23b432831" value="JEE/Services/UNIVERSAL-JPA"/>
       </specifiers>
     </artifacts>
+    <artifacts uid="91baf89f-60ba-4074-a47a-0c8d5f6b2877" name="View" template="platform:/plugin/org.tura.metamodel.wizard.generation/template/pit/mvc/view/mainView.egl">
+      <modelQuery uid="fe5b2bc4-040d-490b-97af-e6511696e169" name="Query form" query="domain::DomainApplication.allInstances()->select(r|r.oclAsType(domain::DomainApplication).name='${Application}').oclAsType(domain::DomainApplication).application.applicationUILayer.applicationUIPackages->select(r|r.oclAsType(domain::ApplicationUIPackage).name='${UIPackage}').uipackage.forms">
+        <parameters uid="053c56ff-924b-4a5c-bf78-8c49bbdb48b7" name="Application"/>
+        <parameters uid="cab0a320-7347-4066-bcd7-a66c87f56e94" name="UIPackage"/>
+      </modelQuery>
+      <specifiers uid="5fe66e3c-599f-42d3-9f6c-78ebf2e41346" name="View implementation">
+        <options uid="e3af28e6-d625-4a99-bdda-2b578d78a341" value="JEE/JSF/PrimeFaces"/>
+        <options uid="f82ae6d4-b72e-47cd-b923-60a7711772a4" value="JEE/JSF/RichFaces"/>
+        <options uid="609aea3a-2b93-465c-bccf-f7816b200e9e" value="JEE/JSF/ICEFaces"/>
+      </specifiers>
+    </artifacts>
   </tura.domain:Artifacts>
   <tura.domain:Recipes uid="780d51bf-e928-4fb4-a228-4371d8fe439d" parent="fc4a8a78-b68c-4020-bb95-ab6d773b5486">
     <recipe mappers="0d86886f-6d6e-49e1-a123-d063d2d9bd22 236f541c-3271-4e57-a60e-1769390bf194" uid="6cb40735-2e80-4221-9ab5-31d646aff979" infrastructures="81bafabb-45d9-48af-9283-6ffc90afbda3">
@@ -1587,6 +1598,13 @@
             <queries uid="15f4f36e-b123-43fb-9bbb-b79fa1ce94aa" name="Query form" queryRef="13c455aa-256a-4cdc-bb7d-c7f5ef62ae02">
               <variables queryParamRef="84abb27c-ea7f-4007-808c-28a7fc24e932" value="HR application"/>
               <variables queryParamRef="e9513e0c-62c7-4e9d-b249-866d23d84e89" value="Hr manager"/>
+            </queries>
+          </mappers>
+          <mappers uid="d49fa8b1-5f7c-4728-a313-e44f985d1860" domainArtifactRef="5945624b-20f3-47f9-9cb1-d0dc8df9491a" artifactRef="91baf89f-60ba-4074-a47a-0c8d5f6b2877" name="Process all form's views">
+            <specifiers specifierRef="5fe66e3c-599f-42d3-9f6c-78ebf2e41346" valueRef="e3af28e6-d625-4a99-bdda-2b578d78a341"/>
+            <queries uid="55f49365-3012-4c34-8d11-5836da6036e1" name="Query form" queryRef="fe5b2bc4-040d-490b-97af-e6511696e169">
+              <variables queryParamRef="053c56ff-924b-4a5c-bf78-8c49bbdb48b7" value="HR application"/>
+              <variables queryParamRef="cab0a320-7347-4066-bcd7-a66c87f56e94" value="Hr manager"/>
             </queries>
           </mappers>
         </components>
