@@ -1,0 +1,6 @@
+[%@template
+operation TabCanvas draw(hash) { 
+     var util = new Native('org.tura.metamodel.commons.Util');
+               util.println("TabCanvas = "+self.name);
+}
+%]

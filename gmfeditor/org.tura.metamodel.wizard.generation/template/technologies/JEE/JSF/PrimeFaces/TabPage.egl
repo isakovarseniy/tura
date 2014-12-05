@@ -1,0 +1,6 @@
+[%@template
+operation TabPage draw(hash) { 
+     var util = new Native('org.tura.metamodel.commons.Util');
+               util.println("TabPage = "+self.name);
+}
+%]

@@ -1,0 +1,10 @@
+[%
+import "platform:/plugin/org.tura.metamodel.wizard.generation/template/technologies/JEE/JSF.egl";
+import "platform:/plugin/org.tura.metamodel.wizard.generation/template/technologies/JEE/JSF/PrimeFaces/Window.egl";
+import "platform:/plugin/org.tura.metamodel.wizard.generation/template/technologies/JEE/JSF/PrimeFaces/Canvas.egl";
+import "platform:/plugin/org.tura.metamodel.wizard.generation/template/technologies/JEE/JSF/PrimeFaces/TabCanvas.egl";
+import "platform:/plugin/org.tura.metamodel.wizard.generation/template/technologies/JEE/JSF/PrimeFaces/TabPage.egl";
+import "platform:/plugin/org.tura.metamodel.wizard.generation/template/technologies/JEE/JSF/PrimeFaces/ViewArea.egl";
+import "platform:/plugin/org.tura.metamodel.wizard.generation/template/technologies/JEE/JSF/PrimeFaces/ViewPort.egl";
+%]
+

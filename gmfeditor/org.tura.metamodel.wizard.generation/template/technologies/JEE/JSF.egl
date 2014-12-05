@@ -1,0 +1,17 @@
+[%
+operation  viewgeneration(hash) {
+    var form = hash.get("form");    
+      for (canvas in form.view.view.canvases){
+              canvas.draw(hash);   
+      }
+}
+
+%]
+
+
+
+[%@template
+operation multiLangLabel(multiLang : domain::Context){
+%]TBD[%
+}
+%]

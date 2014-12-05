@@ -1,0 +1,34 @@
+<#assign percent = "%" >
+<#assign start = "[" >
+<#assign end = "]" >
+${start}${percent} 
+import "platform:/plugin/org.tura.metamodel.wizard.generation/template/technologies/${View_implementation}.egl";
+${percent}${end}
+[%
+
+     var util = new Native('org.tura.metamodel.commons.Util');
+     var forms = util.runQuery(model_mapper,"Query form",model_mapper);
+
+    if (forms.size() <> 0 ){
+       for (form in forms){
+
+         var hash = new Native("java.util.HashMap"); 
+   
+         var javaPath = component.getComponentRoot+"/"+component.getArtifactId()+"/src/main/java/"+component.basePackage.replaceAll("\\.","\\/")+"/";  
+         var resourcePath =  component.getComponentRoot+"/"+component.getArtifactId()+"/src/main/resources/";
+         var webapp =  component.getComponentRoot+"/"+component.getArtifactId()+"/src/main/webapp/";
+
+         hash.put("recipe",recipe);
+         hash.put("ingredient",ingredient);
+         hash.put("component",component);
+         hash.put("model_mapper",model_mapper);
+         hash.put("javaPath",javaPath);
+         hash.put("resourcePath",resourcePath);
+         hash.put("webapp",webapp);
+         hash.put("form",form);
+         
+         viewgeneration(hash);
+       }
+     }  
+
+%]
