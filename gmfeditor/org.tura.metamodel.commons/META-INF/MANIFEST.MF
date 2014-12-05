@@ -4,22 +4,15 @@ Bundle-Name: %pluginName
 Bundle-SymbolicName: org.tura.metamodel.commons; singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Export-Package: 
- org.apache.commons.lang,
- org.apache.commons.lang.builder,
- org.apache.commons.lang.enums,
- org.apache.commons.lang.exception,
- org.apache.commons.lang.math,
- org.apache.commons.lang.mutable,
- org.apache.commons.lang.reflect,
- org.apache.commons.lang.text,
- org.apache.commons.lang.time,
  org.tura.metamodel.commons,
  org.tura.metamodel.commons.editparts,
  org.tura.metamodel.commons.figures,
  org.tura.metamodel.commons.initdiagram,
  org.tura.metamodel.commons.properties.selections.adapters,
  org.tura.metamodel.commons.properties.selections.adapters.helper
-Import-Package: org.eclipse.draw2d,
+Import-Package: domain,
+ org.apache.commons.lang;version="2.6.0",
+ org.eclipse.draw2d,
  org.eclipse.draw2d.geometry,
  org.eclipse.emf.common.command,
  org.eclipse.emf.common.ui.celleditor,
@@ -32,8 +25,7 @@ Import-Package: org.eclipse.draw2d,
  org.eclipse.gmf.runtime.diagram.ui.layout,
  org.eclipse.ui.ide,
  org.eclipse.ui.views.properties,
- org.eclipse.ui.views.properties.tabbed,
- domain
+ org.eclipse.ui.views.properties.tabbed
 Require-Bundle: org.eclipse.ui;bundle-version="3.103.0",
  org.eclipse.ui.browser;bundle-version="3.4.0",
  org.eclipse.ui.views.properties.tabbed;bundle-version="3.5.300",
@@ -48,7 +40,6 @@ Require-Bundle: org.eclipse.ui;bundle-version="3.103.0",
  org.eclipse.epsilon.egl.engine;bundle-version="1.0.0",
  org.tura.metamodel.commons.preferences;bundle-version="1.0.0"
 Bundle-ClassPath: .,
- lib/commons-lang-2.6.jar,
  lib/freemarker-2.3.20.jar
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-Activator: org.tura.metamodel.Activator

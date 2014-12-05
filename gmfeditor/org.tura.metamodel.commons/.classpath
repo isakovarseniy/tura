@@ -8,6 +8,5 @@
 			<accessrule kind="accessible" pattern="freemarker/cache/**"/>
 		</accessrules>
 	</classpathentry>
-	<classpathentry kind="lib" path="lib/commons-lang-2.6.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
