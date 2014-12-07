@@ -2,6 +2,8 @@
 operation  viewgeneration(hash) {
     var form = hash.get("form");    
       for (canvas in form.view.view.canvases){
+     var util = new Native('org.tura.metamodel.commons.Util');
+      util.println("----------->"+canvas.name);
               canvas.draw(hash);   
       }
 }
@@ -12,6 +14,12 @@ operation  viewgeneration(hash) {
 
 [%@template
 operation multiLangLabel(multiLang : domain::Context){
+%]TBD[%
+}
+%]
+
+[%@template
+operation domain::Uielement  uiElementAttributes(hash){
 %]TBD[%
 }
 %]

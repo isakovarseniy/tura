@@ -1,6 +1,24 @@
 [%@template
-operation TabPage draw(hash) { 
-     var util = new Native('org.tura.metamodel.commons.Util');
-               util.println("TabPage = "+self.name);
+operation  TabPage draw(hash) { 
+%]
+     [%=self.generateBody(hash)%]     
+[%
+}
+%]
+
+
+[%@template
+operation TabPage generateBody(hash){
+%]
+<p:tab title="[%=multiLangLabel(self.multiLangLabel)%]">
+[%
+                for (element in self.viewElement){
+%]                
+                    [%=element.draw(hash)%]
+[%
+                }  
+%]	
+</<p:tab>
+[%
 }
 %]

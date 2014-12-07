@@ -1,7 +1,23 @@
 [%@template
-operation Canvas drow() { 
+operation  Canvas draw(hash) { 
      var util = new Native('org.tura.metamodel.commons.Util');
-               util.println("Canvas = "+self.name);
+     var webapp = hash.get("webapp");   
+     var form = hash.get("form");   
+%]
+     [%=self.generateBody(hash)%]     
+[%
+     util.saveFile( webapp+"/"+util.mergeAndCapitalize(form.name).toLowerCase(),  util.mergeAndCapitalize(self.name)+".xhtml",out.toString());   
+     
+}
+%]
 
+
+[%@template
+operation Canvas generateBody(hash){
+                for (element in self.viewElement){
+%]                
+                    [%=element.draw(hash)%]
+[%
+                }  
 }
 %]

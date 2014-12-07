@@ -1,6 +1,28 @@
 [%@template
-operation TabCanvas draw(hash) { 
+operation  TabCanvas draw(hash) { 
      var util = new Native('org.tura.metamodel.commons.Util');
-               util.println("TabCanvas = "+self.name);
+     var webapp = hash.get("webapp");   
+     var form = hash.get("form");   
+%]
+     [%=self.generateBody(hash)%]     
+[%
+     util.saveFile( webapp+"/"+util.mergeAndCapitalize(form.name).toLowerCase(),  util.mergeAndCapitalize(self.name)+".xhtml",out.toString());   
+}
+%]
+
+
+[%@template
+operation TabCanvas generateBody(hash){
+%]
+<p:tabView>
+[%
+                for (element in TabPagesInheritance->allInstances()->select(r|r.source.uid = self.uid)->collect(q|q.target)){
+%]                
+                    [%=element.draw(hash)%]
+[%
+                }  
+%]					
+</<p:tabView>
+[%
 }
 %]

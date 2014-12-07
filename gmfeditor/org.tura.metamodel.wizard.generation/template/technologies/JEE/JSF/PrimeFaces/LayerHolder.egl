@@ -1,0 +1,7 @@
+[%@template
+operation domain::LayerHolder draw(hash) { 
+     var util = new Native('org.tura.metamodel.commons.Util');
+               util.println("LayerHolder = "+self.uid);
+
+}
+%]

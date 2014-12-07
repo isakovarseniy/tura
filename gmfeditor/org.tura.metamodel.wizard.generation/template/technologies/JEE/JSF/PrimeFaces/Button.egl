@@ -1,0 +1,7 @@
+[%@template
+operation Button draw(hash) { 
+     var util = new Native('org.tura.metamodel.commons.Util');
+               util.println("Batton = "+self.name);
+
+}
+%]
