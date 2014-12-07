@@ -14,6 +14,6 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface ViewElement extends EObject
+public interface ViewElement extends StyleElement
 {
 } // ViewElement

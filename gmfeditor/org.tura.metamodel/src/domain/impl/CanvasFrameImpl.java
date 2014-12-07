@@ -26,7 +26,7 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  *
  * @generated
  */
-public class CanvasFrameImpl extends EObjectImpl implements CanvasFrame
+public class CanvasFrameImpl extends StyleElementImpl implements CanvasFrame
 {
   /**
    * The default value of the '{@link #getUid() <em>Uid</em>}' attribute.

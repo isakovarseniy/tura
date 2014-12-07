@@ -15,16 +15,8 @@ import junit.textui.TestRunner;
  * <!-- end-user-doc -->
  * @generated
  */
-public class ViewElementTest extends TestCase
+public class ViewElementTest extends StyleElementTest
 {
-
-  /**
-   * The fixture for this View Element test case.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected ViewElement fixture = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -48,25 +40,15 @@ public class ViewElementTest extends TestCase
   }
 
   /**
-   * Sets the fixture for this View Element test case.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected void setFixture(ViewElement fixture)
-  {
-    this.fixture = fixture;
-  }
-
-  /**
    * Returns the fixture for this View Element test case.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
+  @Override
   protected ViewElement getFixture()
   {
-    return fixture;
+    return (ViewElement)fixture;
   }
 
   /**

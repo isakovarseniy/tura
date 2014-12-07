@@ -1137,7 +1137,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="multiLangLabel" eType="#//Context"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="CanvasFrame">
+  <eClassifiers xsi:type="ecore:EClass" name="CanvasFrame" eSuperTypes="#//StyleElement">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -1151,7 +1151,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="DefaultCavas">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="defaultCanvas" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ViewElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ViewElement" eSuperTypes="#//StyleElement"/>
   <eClassifiers xsi:type="ecore:EClass" name="Canvas" eSuperTypes="#//CanvasFrame #//ViewPortHolder #//DefaultCavas #//MultiLangLabel">
     <eAnnotations source="gmf.node">
       <details key="label" value="name"/>

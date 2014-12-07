@@ -18,7 +18,7 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  *
  * @generated
  */
-public class ViewElementImpl extends EObjectImpl implements ViewElement
+public class ViewElementImpl extends StyleElementImpl implements ViewElement
 {
   /**
    * <!-- begin-user-doc -->

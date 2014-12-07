@@ -756,7 +756,7 @@ class MultiLangLabel{
    val Context multiLangLabel;
 }
 
-class CanvasFrame{
+class CanvasFrame extends StyleElement{
     id attr EString uid;
    attr EString name;
 }
@@ -770,7 +770,7 @@ class DefaultCavas{
    attr boolean defaultCanvas;
 }
 
-class ViewElement{
+class ViewElement extends StyleElement {
    
 }
 

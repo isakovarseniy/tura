@@ -507,6 +507,10 @@
              id="property.tab.domain.frmview"
              label="Trigger"/>
              
+          <propertyTab
+             category="domain"
+             id="org.tura.metamodel.diagram.frmview.styleset"
+             label="Style set"/>
              
           <propertyTab
              category="domain"
@@ -520,6 +524,37 @@
       <?gmfgen generated="true"?>   
  
       <propertySections contributorId="org.tura.metamodel.diagram.frmview">
+
+             <propertySection
+               tab="org.tura.metamodel.diagram.frmview.styleset"
+               class="org.tura.metamodel.commons.properties.selections.input.StylePropertySelection"
+               id="org.tura.metamodel.diagram.frmview.style">
+              
+              <input type="frmview.diagram.edit.parts.CanvasEditPart"/>
+              <input type="frmview.diagram.edit.parts.WindowEditPart"/>
+              <input type="frmview.diagram.edit.parts.TabCanvasEditPart"/>
+              <input type="frmview.diagram.edit.parts.TabPageEditPart"/>
+              
+              <input type="frmview.diagram.edit.parts.ViewAreaEditPart"/>
+              <input type="frmview.diagram.edit.parts.ViewPortEditPart"/>
+              
+           </propertySection>    
+
+             <propertySection
+               tab="org.tura.metamodel.diagram.frmview.styleset"
+               class="org.tura.metamodel.commons.properties.selections.grid.impl.StyleClassPropertySelection"
+               afterSection="org.tura.metamodel.diagram.frmview.style"
+               id="org.tura.metamodel.diagram.frmview.styleclass">
+
+              <input type="frmview.diagram.edit.parts.CanvasEditPart"/>
+              <input type="frmview.diagram.edit.parts.WindowEditPart"/>
+              <input type="frmview.diagram.edit.parts.TabCanvasEditPart"/>
+              <input type="frmview.diagram.edit.parts.TabPageEditPart"/>
+              
+              <input type="frmview.diagram.edit.parts.ViewAreaEditPart"/>
+              <input type="frmview.diagram.edit.parts.ViewPortEditPart"/>
+           </propertySection>        
+
 
             <propertySection
                tab="property.tab.domain.frmview.mulilanglabel"

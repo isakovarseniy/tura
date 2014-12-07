@@ -21,7 +21,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface CanvasFrame extends EObject
+public interface CanvasFrame extends StyleElement
 {
   /**
    * Returns the value of the '<em><b>Uid</b></em>' attribute.

@@ -5496,33 +5496,6 @@ public interface DomainPackage extends EPackage
   int CANVAS_FRAME = 91;
 
   /**
-   * The feature id for the '<em><b>Uid</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CANVAS_FRAME__UID = 0;
-
-  /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CANVAS_FRAME__NAME = 1;
-
-  /**
-   * The number of structural features of the '<em>Canvas Frame</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CANVAS_FRAME_FEATURE_COUNT = 2;
-
-  /**
    * The meta object id for the '{@link domain.impl.ViewPortHolderImpl <em>View Port Holder</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -5531,6 +5504,308 @@ public interface DomainPackage extends EPackage
    * @generated
    */
   int VIEW_PORT_HOLDER = 92;
+
+  /**
+   * The meta object id for the '{@link domain.impl.DefaultCavasImpl <em>Default Cavas</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see domain.impl.DefaultCavasImpl
+   * @see domain.impl.DomainPackageImpl#getDefaultCavas()
+   * @generated
+   */
+  int DEFAULT_CAVAS = 93;
+
+  /**
+   * The meta object id for the '{@link domain.impl.ViewElementImpl <em>View Element</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see domain.impl.ViewElementImpl
+   * @see domain.impl.DomainPackageImpl#getViewElement()
+   * @generated
+   */
+  int VIEW_ELEMENT = 94;
+
+  /**
+   * The meta object id for the '{@link domain.impl.CanvasImpl <em>Canvas</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see domain.impl.CanvasImpl
+   * @see domain.impl.DomainPackageImpl#getCanvas()
+   * @generated
+   */
+  int CANVAS = 95;
+
+  /**
+   * The meta object id for the '{@link domain.impl.WindowImpl <em>Window</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see domain.impl.WindowImpl
+   * @see domain.impl.DomainPackageImpl#getWindow()
+   * @generated
+   */
+  int WINDOW = 96;
+
+  /**
+   * The meta object id for the '{@link domain.impl.TabCanvasImpl <em>Tab Canvas</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see domain.impl.TabCanvasImpl
+   * @see domain.impl.DomainPackageImpl#getTabCanvas()
+   * @generated
+   */
+  int TAB_CANVAS = 97;
+
+  /**
+   * The meta object id for the '{@link domain.impl.TabPageImpl <em>Tab Page</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see domain.impl.TabPageImpl
+   * @see domain.impl.DomainPackageImpl#getTabPage()
+   * @generated
+   */
+  int TAB_PAGE = 98;
+
+  /**
+   * The meta object id for the '{@link domain.impl.ViewPortImpl <em>View Port</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see domain.impl.ViewPortImpl
+   * @see domain.impl.DomainPackageImpl#getViewPort()
+   * @generated
+   */
+  int VIEW_PORT = 99;
+
+  /**
+   * The meta object id for the '{@link domain.impl.ViewAreaImpl <em>View Area</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see domain.impl.ViewAreaImpl
+   * @see domain.impl.DomainPackageImpl#getViewArea()
+   * @generated
+   */
+  int VIEW_AREA = 100;
+
+  /**
+   * The meta object id for the '{@link domain.impl.TriggerImpl <em>Trigger</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see domain.impl.TriggerImpl
+   * @see domain.impl.DomainPackageImpl#getTrigger()
+   * @generated
+   */
+  int TRIGGER = 132;
+
+  /**
+   * The meta object id for the '{@link domain.impl.ViewPortTriggerImpl <em>View Port Trigger</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see domain.impl.ViewPortTriggerImpl
+   * @see domain.impl.DomainPackageImpl#getViewPortTrigger()
+   * @generated
+   */
+  int VIEW_PORT_TRIGGER = 101;
+
+  /**
+   * The meta object id for the '{@link domain.impl.ViewInheritanceImpl <em>View Inheritance</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see domain.impl.ViewInheritanceImpl
+   * @see domain.impl.DomainPackageImpl#getViewInheritance()
+   * @generated
+   */
+  int VIEW_INHERITANCE = 102;
+
+  /**
+   * The meta object id for the '{@link domain.impl.TabPagesInheritanceImpl <em>Tab Pages Inheritance</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see domain.impl.TabPagesInheritanceImpl
+   * @see domain.impl.DomainPackageImpl#getTabPagesInheritance()
+   * @generated
+   */
+  int TAB_PAGES_INHERITANCE = 103;
+
+  /**
+   * The meta object id for the '{@link domain.impl.FormDataControlsImpl <em>Form Data Controls</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see domain.impl.FormDataControlsImpl
+   * @see domain.impl.DomainPackageImpl#getFormDataControls()
+   * @generated
+   */
+  int FORM_DATA_CONTROLS = 104;
+
+  /**
+   * The meta object id for the '{@link domain.impl.CanvasViewImpl <em>Canvas View</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see domain.impl.CanvasViewImpl
+   * @see domain.impl.DomainPackageImpl#getCanvasView()
+   * @generated
+   */
+  int CANVAS_VIEW = 105;
+
+  /**
+   * The meta object id for the '{@link domain.impl.StyleImpl <em>Style</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see domain.impl.StyleImpl
+   * @see domain.impl.DomainPackageImpl#getStyle()
+   * @generated
+   */
+  int STYLE = 106;
+
+  /**
+   * The meta object id for the '{@link domain.impl.ChildrenHolderImpl <em>Children Holder</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see domain.impl.ChildrenHolderImpl
+   * @see domain.impl.DomainPackageImpl#getChildrenHolder()
+   * @generated
+   */
+  int CHILDREN_HOLDER = 107;
+
+  /**
+   * The meta object id for the '{@link domain.impl.StyleClassImpl <em>Style Class</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see domain.impl.StyleClassImpl
+   * @see domain.impl.DomainPackageImpl#getStyleClass()
+   * @generated
+   */
+  int STYLE_CLASS = 108;
+
+  /**
+   * The meta object id for the '{@link domain.impl.ContextParameterImpl <em>Context Parameter</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see domain.impl.ContextParameterImpl
+   * @see domain.impl.DomainPackageImpl#getContextParameter()
+   * @generated
+   */
+  int CONTEXT_PARAMETER = 109;
+
+  /**
+   * The meta object id for the '{@link domain.impl.ContextValueImpl <em>Context Value</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see domain.impl.ContextValueImpl
+   * @see domain.impl.DomainPackageImpl#getContextValue()
+   * @generated
+   */
+  int CONTEXT_VALUE = 110;
+
+  /**
+   * The meta object id for the '{@link domain.impl.ExpressionPartImpl <em>Expression Part</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see domain.impl.ExpressionPartImpl
+   * @see domain.impl.DomainPackageImpl#getExpressionPart()
+   * @generated
+   */
+  int EXPRESSION_PART = 111;
+
+  /**
+   * The meta object id for the '{@link domain.impl.ContextParametersImpl <em>Context Parameters</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see domain.impl.ContextParametersImpl
+   * @see domain.impl.DomainPackageImpl#getContextParameters()
+   * @generated
+   */
+  int CONTEXT_PARAMETERS = 112;
+
+  /**
+   * The meta object id for the '{@link domain.impl.ContextImpl <em>Context</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see domain.impl.ContextImpl
+   * @see domain.impl.DomainPackageImpl#getContext()
+   * @generated
+   */
+  int CONTEXT = 113;
+
+  /**
+   * The meta object id for the '{@link domain.impl.StyleElementImpl <em>Style Element</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see domain.impl.StyleElementImpl
+   * @see domain.impl.DomainPackageImpl#getStyleElement()
+   * @generated
+   */
+  int STYLE_ELEMENT = 114;
+
+  /**
+   * The feature id for the '<em><b>Style</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STYLE_ELEMENT__STYLE = 0;
+
+  /**
+   * The feature id for the '<em><b>Style Class</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STYLE_ELEMENT__STYLE_CLASS = 1;
+
+  /**
+   * The number of structural features of the '<em>Style Element</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STYLE_ELEMENT_FEATURE_COUNT = 2;
+
+  /**
+   * The feature id for the '<em><b>Style</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CANVAS_FRAME__STYLE = STYLE_ELEMENT__STYLE;
+
+  /**
+   * The feature id for the '<em><b>Style Class</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CANVAS_FRAME__STYLE_CLASS = STYLE_ELEMENT__STYLE_CLASS;
+
+  /**
+   * The feature id for the '<em><b>Uid</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CANVAS_FRAME__UID = STYLE_ELEMENT_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CANVAS_FRAME__NAME = STYLE_ELEMENT_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>Canvas Frame</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CANVAS_FRAME_FEATURE_COUNT = STYLE_ELEMENT_FEATURE_COUNT + 2;
 
   /**
    * The feature id for the '<em><b>Columns</b></em>' attribute.
@@ -5560,16 +5835,6 @@ public interface DomainPackage extends EPackage
   int VIEW_PORT_HOLDER_FEATURE_COUNT = HTML_LAYER_HOLDER_FEATURE_COUNT + 1;
 
   /**
-   * The meta object id for the '{@link domain.impl.DefaultCavasImpl <em>Default Cavas</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see domain.impl.DefaultCavasImpl
-   * @see domain.impl.DomainPackageImpl#getDefaultCavas()
-   * @generated
-   */
-  int DEFAULT_CAVAS = 93;
-
-  /**
    * The feature id for the '<em><b>Default Canvas</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -5588,14 +5853,22 @@ public interface DomainPackage extends EPackage
   int DEFAULT_CAVAS_FEATURE_COUNT = 1;
 
   /**
-   * The meta object id for the '{@link domain.impl.ViewElementImpl <em>View Element</em>}' class.
+   * The feature id for the '<em><b>Style</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see domain.impl.ViewElementImpl
-   * @see domain.impl.DomainPackageImpl#getViewElement()
    * @generated
+   * @ordered
    */
-  int VIEW_ELEMENT = 94;
+  int VIEW_ELEMENT__STYLE = STYLE_ELEMENT__STYLE;
+
+  /**
+   * The feature id for the '<em><b>Style Class</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int VIEW_ELEMENT__STYLE_CLASS = STYLE_ELEMENT__STYLE_CLASS;
 
   /**
    * The number of structural features of the '<em>View Element</em>' class.
@@ -5604,17 +5877,25 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int VIEW_ELEMENT_FEATURE_COUNT = 0;
+  int VIEW_ELEMENT_FEATURE_COUNT = STYLE_ELEMENT_FEATURE_COUNT + 0;
 
   /**
-   * The meta object id for the '{@link domain.impl.CanvasImpl <em>Canvas</em>}' class.
+   * The feature id for the '<em><b>Style</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see domain.impl.CanvasImpl
-   * @see domain.impl.DomainPackageImpl#getCanvas()
    * @generated
+   * @ordered
    */
-  int CANVAS = 95;
+  int CANVAS__STYLE = CANVAS_FRAME__STYLE;
+
+  /**
+   * The feature id for the '<em><b>Style Class</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CANVAS__STYLE_CLASS = CANVAS_FRAME__STYLE_CLASS;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -5680,14 +5961,22 @@ public interface DomainPackage extends EPackage
   int CANVAS_FEATURE_COUNT = CANVAS_FRAME_FEATURE_COUNT + 4;
 
   /**
-   * The meta object id for the '{@link domain.impl.WindowImpl <em>Window</em>}' class.
+   * The feature id for the '<em><b>Style</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see domain.impl.WindowImpl
-   * @see domain.impl.DomainPackageImpl#getWindow()
    * @generated
+   * @ordered
    */
-  int WINDOW = 96;
+  int WINDOW__STYLE = CANVAS_FRAME__STYLE;
+
+  /**
+   * The feature id for the '<em><b>Style Class</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int WINDOW__STYLE_CLASS = CANVAS_FRAME__STYLE_CLASS;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -5744,14 +6033,22 @@ public interface DomainPackage extends EPackage
   int WINDOW_FEATURE_COUNT = CANVAS_FRAME_FEATURE_COUNT + 3;
 
   /**
-   * The meta object id for the '{@link domain.impl.TabCanvasImpl <em>Tab Canvas</em>}' class.
+   * The feature id for the '<em><b>Style</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see domain.impl.TabCanvasImpl
-   * @see domain.impl.DomainPackageImpl#getTabCanvas()
    * @generated
+   * @ordered
    */
-  int TAB_CANVAS = 97;
+  int TAB_CANVAS__STYLE = CANVAS_FRAME__STYLE;
+
+  /**
+   * The feature id for the '<em><b>Style Class</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TAB_CANVAS__STYLE_CLASS = CANVAS_FRAME__STYLE_CLASS;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -5799,14 +6096,22 @@ public interface DomainPackage extends EPackage
   int TAB_CANVAS_FEATURE_COUNT = CANVAS_FRAME_FEATURE_COUNT + 2;
 
   /**
-   * The meta object id for the '{@link domain.impl.TabPageImpl <em>Tab Page</em>}' class.
+   * The feature id for the '<em><b>Style</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see domain.impl.TabPageImpl
-   * @see domain.impl.DomainPackageImpl#getTabPage()
    * @generated
+   * @ordered
    */
-  int TAB_PAGE = 98;
+  int TAB_PAGE__STYLE = CANVAS_FRAME__STYLE;
+
+  /**
+   * The feature id for the '<em><b>Style Class</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TAB_PAGE__STYLE_CLASS = CANVAS_FRAME__STYLE_CLASS;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -5863,14 +6168,22 @@ public interface DomainPackage extends EPackage
   int TAB_PAGE_FEATURE_COUNT = CANVAS_FRAME_FEATURE_COUNT + 3;
 
   /**
-   * The meta object id for the '{@link domain.impl.ViewPortImpl <em>View Port</em>}' class.
+   * The feature id for the '<em><b>Style</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see domain.impl.ViewPortImpl
-   * @see domain.impl.DomainPackageImpl#getViewPort()
    * @generated
+   * @ordered
    */
-  int VIEW_PORT = 99;
+  int VIEW_PORT__STYLE = VIEW_ELEMENT__STYLE;
+
+  /**
+   * The feature id for the '<em><b>Style Class</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int VIEW_PORT__STYLE_CLASS = VIEW_ELEMENT__STYLE_CLASS;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -5909,14 +6222,22 @@ public interface DomainPackage extends EPackage
   int VIEW_PORT_FEATURE_COUNT = VIEW_ELEMENT_FEATURE_COUNT + 3;
 
   /**
-   * The meta object id for the '{@link domain.impl.ViewAreaImpl <em>View Area</em>}' class.
+   * The feature id for the '<em><b>Style</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see domain.impl.ViewAreaImpl
-   * @see domain.impl.DomainPackageImpl#getViewArea()
    * @generated
+   * @ordered
    */
-  int VIEW_AREA = 100;
+  int VIEW_AREA__STYLE = VIEW_ELEMENT__STYLE;
+
+  /**
+   * The feature id for the '<em><b>Style Class</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int VIEW_AREA__STYLE_CLASS = VIEW_ELEMENT__STYLE_CLASS;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -5953,16 +6274,6 @@ public interface DomainPackage extends EPackage
    * @ordered
    */
   int VIEW_AREA_FEATURE_COUNT = VIEW_ELEMENT_FEATURE_COUNT + 3;
-
-  /**
-   * The meta object id for the '{@link domain.impl.TriggerImpl <em>Trigger</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see domain.impl.TriggerImpl
-   * @see domain.impl.DomainPackageImpl#getTrigger()
-   * @generated
-   */
-  int TRIGGER = 132;
 
   /**
    * The feature id for the '<em><b>Package Ref</b></em>' reference.
@@ -6035,16 +6346,6 @@ public interface DomainPackage extends EPackage
    * @ordered
    */
   int TRIGGER_FEATURE_COUNT = METHOD_POINTER_FEATURE_COUNT + 1;
-
-  /**
-   * The meta object id for the '{@link domain.impl.ViewPortTriggerImpl <em>View Port Trigger</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see domain.impl.ViewPortTriggerImpl
-   * @see domain.impl.DomainPackageImpl#getViewPortTrigger()
-   * @generated
-   */
-  int VIEW_PORT_TRIGGER = 101;
 
   /**
    * The feature id for the '<em><b>Package Ref</b></em>' reference.
@@ -6128,16 +6429,6 @@ public interface DomainPackage extends EPackage
   int VIEW_PORT_TRIGGER_FEATURE_COUNT = TRIGGER_FEATURE_COUNT + 1;
 
   /**
-   * The meta object id for the '{@link domain.impl.ViewInheritanceImpl <em>View Inheritance</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see domain.impl.ViewInheritanceImpl
-   * @see domain.impl.DomainPackageImpl#getViewInheritance()
-   * @generated
-   */
-  int VIEW_INHERITANCE = 102;
-
-  /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -6172,16 +6463,6 @@ public interface DomainPackage extends EPackage
    * @ordered
    */
   int VIEW_INHERITANCE_FEATURE_COUNT = 3;
-
-  /**
-   * The meta object id for the '{@link domain.impl.TabPagesInheritanceImpl <em>Tab Pages Inheritance</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see domain.impl.TabPagesInheritanceImpl
-   * @see domain.impl.DomainPackageImpl#getTabPagesInheritance()
-   * @generated
-   */
-  int TAB_PAGES_INHERITANCE = 103;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -6220,16 +6501,6 @@ public interface DomainPackage extends EPackage
   int TAB_PAGES_INHERITANCE_FEATURE_COUNT = 3;
 
   /**
-   * The meta object id for the '{@link domain.impl.FormDataControlsImpl <em>Form Data Controls</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see domain.impl.FormDataControlsImpl
-   * @see domain.impl.DomainPackageImpl#getFormDataControls()
-   * @generated
-   */
-  int FORM_DATA_CONTROLS = 104;
-
-  /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -6264,16 +6535,6 @@ public interface DomainPackage extends EPackage
    * @ordered
    */
   int FORM_DATA_CONTROLS_FEATURE_COUNT = 3;
-
-  /**
-   * The meta object id for the '{@link domain.impl.CanvasViewImpl <em>Canvas View</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see domain.impl.CanvasViewImpl
-   * @see domain.impl.DomainPackageImpl#getCanvasView()
-   * @generated
-   */
-  int CANVAS_VIEW = 105;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -6312,16 +6573,6 @@ public interface DomainPackage extends EPackage
   int CANVAS_VIEW_FEATURE_COUNT = 3;
 
   /**
-   * The meta object id for the '{@link domain.impl.StyleImpl <em>Style</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see domain.impl.StyleImpl
-   * @see domain.impl.DomainPackageImpl#getStyle()
-   * @generated
-   */
-  int STYLE = 106;
-
-  /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -6349,16 +6600,6 @@ public interface DomainPackage extends EPackage
   int STYLE_FEATURE_COUNT = 2;
 
   /**
-   * The meta object id for the '{@link domain.impl.ChildrenHolderImpl <em>Children Holder</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see domain.impl.ChildrenHolderImpl
-   * @see domain.impl.DomainPackageImpl#getChildrenHolder()
-   * @generated
-   */
-  int CHILDREN_HOLDER = 107;
-
-  /**
    * The feature id for the '<em><b>Children</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -6375,16 +6616,6 @@ public interface DomainPackage extends EPackage
    * @ordered
    */
   int CHILDREN_HOLDER_FEATURE_COUNT = 1;
-
-  /**
-   * The meta object id for the '{@link domain.impl.StyleClassImpl <em>Style Class</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see domain.impl.StyleClassImpl
-   * @see domain.impl.DomainPackageImpl#getStyleClass()
-   * @generated
-   */
-  int STYLE_CLASS = 108;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -6432,16 +6663,6 @@ public interface DomainPackage extends EPackage
   int STYLE_CLASS_FEATURE_COUNT = 4;
 
   /**
-   * The meta object id for the '{@link domain.impl.ContextParameterImpl <em>Context Parameter</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see domain.impl.ContextParameterImpl
-   * @see domain.impl.DomainPackageImpl#getContextParameter()
-   * @generated
-   */
-  int CONTEXT_PARAMETER = 109;
-
-  /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -6485,16 +6706,6 @@ public interface DomainPackage extends EPackage
    * @ordered
    */
   int CONTEXT_PARAMETER_FEATURE_COUNT = 4;
-
-  /**
-   * The meta object id for the '{@link domain.impl.ContextValueImpl <em>Context Value</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see domain.impl.ContextValueImpl
-   * @see domain.impl.DomainPackageImpl#getContextValue()
-   * @generated
-   */
-  int CONTEXT_VALUE = 110;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -6542,16 +6753,6 @@ public interface DomainPackage extends EPackage
   int CONTEXT_VALUE_FEATURE_COUNT = 4;
 
   /**
-   * The meta object id for the '{@link domain.impl.ExpressionPartImpl <em>Expression Part</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see domain.impl.ExpressionPartImpl
-   * @see domain.impl.DomainPackageImpl#getExpressionPart()
-   * @generated
-   */
-  int EXPRESSION_PART = 111;
-
-  /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -6597,16 +6798,6 @@ public interface DomainPackage extends EPackage
   int EXPRESSION_PART_FEATURE_COUNT = 4;
 
   /**
-   * The meta object id for the '{@link domain.impl.ContextParametersImpl <em>Context Parameters</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see domain.impl.ContextParametersImpl
-   * @see domain.impl.DomainPackageImpl#getContextParameters()
-   * @generated
-   */
-  int CONTEXT_PARAMETERS = 112;
-
-  /**
    * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -6623,16 +6814,6 @@ public interface DomainPackage extends EPackage
    * @ordered
    */
   int CONTEXT_PARAMETERS_FEATURE_COUNT = 1;
-
-  /**
-   * The meta object id for the '{@link domain.impl.ContextImpl <em>Context</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see domain.impl.ContextImpl
-   * @see domain.impl.DomainPackageImpl#getContext()
-   * @generated
-   */
-  int CONTEXT = 113;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -6687,43 +6868,6 @@ public interface DomainPackage extends EPackage
    * @ordered
    */
   int CONTEXT_FEATURE_COUNT = CONTEXT_VALUE_FEATURE_COUNT + 1;
-
-  /**
-   * The meta object id for the '{@link domain.impl.StyleElementImpl <em>Style Element</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see domain.impl.StyleElementImpl
-   * @see domain.impl.DomainPackageImpl#getStyleElement()
-   * @generated
-   */
-  int STYLE_ELEMENT = 114;
-
-  /**
-   * The feature id for the '<em><b>Style</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int STYLE_ELEMENT__STYLE = 0;
-
-  /**
-   * The feature id for the '<em><b>Style Class</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int STYLE_ELEMENT__STYLE_CLASS = 1;
-
-  /**
-   * The number of structural features of the '<em>Style Element</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int STYLE_ELEMENT_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link domain.impl.UielementImpl <em>Uielement</em>}' class.

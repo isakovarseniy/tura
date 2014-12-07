@@ -15,16 +15,8 @@ import junit.textui.TestRunner;
  * <!-- end-user-doc -->
  * @generated
  */
-public class CanvasFrameTest extends TestCase
+public class CanvasFrameTest extends StyleElementTest
 {
-
-  /**
-   * The fixture for this Canvas Frame test case.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected CanvasFrame fixture = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -48,25 +40,15 @@ public class CanvasFrameTest extends TestCase
   }
 
   /**
-   * Sets the fixture for this Canvas Frame test case.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected void setFixture(CanvasFrame fixture)
-  {
-    this.fixture = fixture;
-  }
-
-  /**
    * Returns the fixture for this Canvas Frame test case.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
+  @Override
   protected CanvasFrame getFixture()
   {
-    return fixture;
+    return (CanvasFrame)fixture;
   }
 
   /**
