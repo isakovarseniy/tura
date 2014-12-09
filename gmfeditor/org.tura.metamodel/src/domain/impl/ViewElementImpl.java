@@ -2,12 +2,10 @@
  */
 package domain.impl;
 
-import domain.DomainPackage;
-import domain.ViewElement;
-
 import org.eclipse.emf.ecore.EClass;
 
-import org.eclipse.emf.ecore.impl.EObjectImpl;
+import domain.DomainPackage;
+import domain.ViewElement;
 
 /**
  * <!-- begin-user-doc -->

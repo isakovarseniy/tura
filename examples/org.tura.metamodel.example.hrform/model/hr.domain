@@ -1548,6 +1548,19 @@
         <options uid="609aea3a-2b93-465c-bccf-f7816b200e9e" value="JEE/JSF/ICEFaces"/>
       </specifiers>
     </artifacts>
+    <artifacts uid="2f77f16f-292a-436d-ad5f-b44f7ccdc406" name="Message provider" template="platform:/plugin/org.tura.metamodel.wizard.generation/template/pit/mvc/view/mainMessageLibrary.egl">
+      <modelQuery uid="047e5872-2382-4f5e-be88-939369234b8d" name="Query message library" query="domain::DomainApplication.allInstances()->select(r|r.oclAsType(domain::DomainApplication).name='${Application}').oclAsType(domain::DomainApplication).application.applicationMessages.messages">
+        <parameters uid="0f4d9b48-852a-463c-8fa3-6536891618cc" name="Application"/>
+      </modelQuery>
+      <specifiers uid="a0a3495c-0093-4cbd-af12-afd7b71eb82b" name="View implementation">
+        <options uid="f0d13ee0-2c7c-4f15-94a5-4dc27c8e7c43" value="JEE/JSF"/>
+      </specifiers>
+    </artifacts>
+    <artifacts uid="aba2e0d3-582f-4587-b4e9-dae6b0d4a508" name="faces-config.xml" template="platform:/plugin/org.tura.metamodel.wizard.generation/template/technologies/JEE/JSF/mainFaces-config-xml.egl">
+      <modelQuery uid="8d7c9384-ed1a-4a96-866c-54dccc8f06cd" name="Query message library" query="domain::DomainApplication.allInstances()->select(r|r.oclAsType(domain::DomainApplication).name='${Application}').oclAsType(domain::DomainApplication).application.applicationMessages.messages">
+        <parameters uid="7a90b2c9-911d-485c-a2bc-e9f656b4734d" name="Application"/>
+      </modelQuery>
+    </artifacts>
   </tura.domain:Artifacts>
   <tura.domain:Recipes uid="780d51bf-e928-4fb4-a228-4371d8fe439d" parent="fc4a8a78-b68c-4020-bb95-ab6d773b5486">
     <recipe mappers="0d86886f-6d6e-49e1-a123-d063d2d9bd22 236f541c-3271-4e57-a60e-1769390bf194" uid="6cb40735-2e80-4221-9ab5-31d646aff979" infrastructures="81bafabb-45d9-48af-9283-6ffc90afbda3">
@@ -1605,6 +1618,17 @@
             <queries uid="55f49365-3012-4c34-8d11-5836da6036e1" name="Query form" queryRef="fe5b2bc4-040d-490b-97af-e6511696e169">
               <variables queryParamRef="053c56ff-924b-4a5c-bf78-8c49bbdb48b7" value="HR application"/>
               <variables queryParamRef="cab0a320-7347-4066-bcd7-a66c87f56e94" value="Hr manager"/>
+            </queries>
+          </mappers>
+          <mappers uid="47628b03-fbc9-492b-b65b-3f753e010b2e" domainArtifactRef="5945624b-20f3-47f9-9cb1-d0dc8df9491a" artifactRef="2f77f16f-292a-436d-ad5f-b44f7ccdc406" name="Messages generation">
+            <specifiers specifierRef="a0a3495c-0093-4cbd-af12-afd7b71eb82b" valueRef="f0d13ee0-2c7c-4f15-94a5-4dc27c8e7c43"/>
+            <queries uid="e7193563-5959-4aba-81c5-cf2a67fc5527" name="Query message libraries of application" queryRef="047e5872-2382-4f5e-be88-939369234b8d">
+              <variables queryParamRef="0f4d9b48-852a-463c-8fa3-6536891618cc" value="HR application"/>
+            </queries>
+          </mappers>
+          <mappers uid="216cf4bf-8c24-4875-9002-1072e96e4a84" domainArtifactRef="5945624b-20f3-47f9-9cb1-d0dc8df9491a" artifactRef="aba2e0d3-582f-4587-b4e9-dae6b0d4a508" name="faces-config.xml">
+            <queries uid="b526e6aa-68ce-4505-9f0e-888cd4ffa96a" name="Query message libraries of application" queryRef="8d7c9384-ed1a-4a96-866c-54dccc8f06cd">
+              <variables queryParamRef="7a90b2c9-911d-485c-a2bc-e9f656b4734d" value="HR application"/>
             </queries>
           </mappers>
         </components>
