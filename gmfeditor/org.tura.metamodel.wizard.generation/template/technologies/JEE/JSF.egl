@@ -20,6 +20,14 @@ operation multiLangLabel(multiLang : domain::Context){
 
 [%@template
 operation domain::Uielement  uiElementAttributes(hash){
+%]TBD[%=self.styleAttributes(hash)%][%
+}
+%]
+
+[%@template
+operation domain::StyleElement  styleAttributes(hash){
 %]TBD[%
 }
 %]
+
+

@@ -31,7 +31,7 @@ operation domain::Window generateBody(hash){
 
 				<h:body>
 					<h:form id="window">
-                         <p:panelGrid columns="[%=self.columns%]">
+                         <p:panelGrid columns="[%=self.columns%]"  [%=self.styleAttributes(hash)%] >
 [%
                 for (element in self.viewElement){
 %]                
