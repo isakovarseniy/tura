@@ -1,22 +1,31 @@
 [%
 operation  viewgeneration(hash) {
-    var form = hash.get("form");    
+      var form = hash.get("form");   
+      var  javaPath =  hash.get("javaPath");  
+      var util = new Native('org.tura.metamodel.commons.Util');
+      var allPorts = new Native('java.util.ArrayList'); 
+
       for (canvas in form.view.view.canvases){
-     var util = new Native('org.tura.metamodel.commons.Util');
-      util.println("----------->"+canvas.name);
+              if (not canvas.isKindOf(domain::TabCanvas) ){
+                  var ports = canvas.viewElement->select(p|p.isKindOf(domain::ViewPort)); 
+                   allPorts.addAll(ports);
+              }
               canvas.draw(hash);   
       }
-}
 
+ 
+      hash.put("allPorts",allPorts);
+      var f = new Native("org.tura.metamodel.wizard.infrastructure.JavaFormatter");
+             
+      var viewportclass : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.wizard.generation/template/technologies/JEE/JSF/viewPortHolderClass.egl",hash,TemplateFactory);
+      viewportclass.setFormatter(f);
+      var buffer = viewportclass.process();
+      util.saveFile( javaPath+util.mergeAndCapitalize(form.name).toLowerCase()+"/viewmodel/"  , "ViewPortHolder.java",buffer);   
+
+
+}
 %]
 
-
-
-[%@template
-operation multiLangLabel(multiLang : domain::Context){
-%]TBD[%
-}
-%]
 
 [%@template
 operation domain::Uielement  uiElementAttributes(hash){
@@ -29,5 +38,3 @@ operation domain::StyleElement  styleAttributes(hash){
 %]TBD[%
 }
 %]
-
-

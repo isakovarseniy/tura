@@ -23,10 +23,10 @@ operation domain::Window generateBody(hash){
 			<f:view contentType="text/html">
 				<h:head>
 					<title>
-						<ui:insert name="title">[%=multiLangLabel(self.multiLangLabel)%]</ui:insert>
+						<ui:insert name="title">#{[%=buildParameterizedExpression(self.multiLangLabel)%]}</ui:insert>
 					</title>
 					<meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
-					<ui:insert name="head">[%=multiLangLabel(self.multiLangLabel)%]</ui:insert>
+					<ui:insert name="head">#{[%=buildParameterizedExpression(self.multiLangLabel)%]}</ui:insert>
 				</h:head>
 
 				<h:body>

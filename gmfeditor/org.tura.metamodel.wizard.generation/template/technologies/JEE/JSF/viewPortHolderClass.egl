@@ -1,0 +1,37 @@
+[%
+     var util = new Native('org.tura.metamodel.commons.Util');
+%]
+package  [%=component.basePackage%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%].viewmodel;
+@javax.faces.bean.ManagedBean(name = "viewPortHolder")
+@javax.faces.bean.ViewScoped
+public class ViewPortHolder{
+[%
+      for (port in allPorts){
+      var canvases = ViewInheritance->allInstances()->select(vi|vi.source=port);
+      var canvas = "";
+      if (canvases <> null and canvases.size <> 0){
+        canvas = util.mergeAndCapitalize(canvases.get(0).target.name);
+      }
+      
+%]      
+       private String [%=util.mergeAndUnCapitalize(port.name)%] = "/[%=util.mergeAndCapitalize(form.name).toLowerCase()%]/[%=canvas%].xhtml";
+      
+[%      
+      }
+%]
+
+[%
+      for (port in allPorts){
+%]      
+       public  String get[%=util.mergeAndCapitalize(port.name)%](){
+           return  [%=util.mergeAndUnCapitalize(port.name)%];
+       }
+      
+       public  String set[%=util.mergeAndCapitalize(port.name)%](String  [%=util.mergeAndUnCapitalize(port.name)%]){
+           this.[%=util.mergeAndUnCapitalize(port.name)%] =  [%=util.mergeAndUnCapitalize(port.name)%];
+       }      
+[%      
+      }
+%]
+
+}

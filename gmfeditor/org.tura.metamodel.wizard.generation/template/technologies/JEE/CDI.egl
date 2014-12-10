@@ -14,6 +14,8 @@ operation  datacontrolgeneration(hash) {
      
 
     var f = new Native("org.tura.metamodel.wizard.infrastructure.JavaFormatter"); 
+    var x = new Native("org.eclipse.epsilon.egl.formatter.language.XmlFormatter"); 
+    
     var recipe = hash.get("recipe");
     var ingredient =  hash.get("ingredient");
     var  component = hash.get("component");
@@ -50,7 +52,7 @@ operation  datacontrolgeneration(hash) {
 
 
     var beansxml : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.wizard.generation/template/technologies/JEE/CDI/datacontrol/beans-xml.egl",hash,TemplateFactory);
-    beansxml.setFormatter(f);
+    beansxml.setFormatter(x);
     buffer = beansxml.process();
     util.saveFile( resourcePath+"/META-INF/"  , "beans.xml",buffer);   
 

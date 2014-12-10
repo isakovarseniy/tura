@@ -3,6 +3,7 @@
 <#assign end = "]" >
 ${start}${percent} 
 import "platform:/plugin/org.tura.metamodel.wizard.generation/template/technologies/${View_implementation}.egl";
+import "platform:/plugin/org.tura.metamodel.wizard.generation/template/commons/buildExpression.eol";
 ${percent}${end}
 [%
 

@@ -10,7 +10,7 @@ operation  TabPage draw(hash) {
 [%@template
 operation TabPage generateBody(hash){
 %]
-<p:tab title="[%=multiLangLabel(self.multiLangLabel)%]"  [%=self.styleAttributes(hash)%]>
+<p:tab title="#{[%=buildParameterizedExpression(self.multiLangLabel)%]}"  [%=self.styleAttributes(hash)%]>
 [%
                 for (element in self.viewElement){
 %]                

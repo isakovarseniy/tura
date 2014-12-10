@@ -1,6 +1,8 @@
 [%@template
 operation ViewPort draw(hash) { 
      var util = new Native('org.tura.metamodel.commons.Util');
-               util.println("ViewPort = "+self.name);
+%]
+		<ui:include src="#{viewPortHolder.[%=util.mergeAndUnCapitalize(self.name)%]}"/>
+[%               
 }
 %]

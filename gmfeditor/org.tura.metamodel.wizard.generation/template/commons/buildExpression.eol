@@ -1,4 +1,22 @@
-operation  buildExpression( contextValue ) : String {
+operation buildParameterizedExpression(context : domain::Context ) : String {
+           var result = buildExpression(context);
+           if (context.parameters <> null and context.parameters.size() <> 0 ){
+              result = result + "(";
+              var i = 0;
+               for (parameter  in context.parameters){
+                  if ( i <> 0)
+                     result = result + ",";
+                  result = result + buildExpression(parameter.value);
+                  i = 1;
+               }
+              result = result + ")";
+           }
+         return result;  
+}
+
+
+
+operation  buildExpression( contextValue) : String {
       if (contextValue.constant = true )
            return contextValue.value;
            

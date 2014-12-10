@@ -1,5 +1,6 @@
 [%
 import "platform:/plugin/org.tura.metamodel.wizard.generation/template/technologies/JEE/JSF.egl";
+import "platform:/plugin/org.tura.metamodel.wizard.generation/template/technologies/JEE/JSF/expressionImpl.eol";
 import "platform:/plugin/org.tura.metamodel.wizard.generation/template/technologies/JEE/JSF/PrimeFaces/Window.egl";
 import "platform:/plugin/org.tura.metamodel.wizard.generation/template/technologies/JEE/JSF/PrimeFaces/Canvas.egl";
 import "platform:/plugin/org.tura.metamodel.wizard.generation/template/technologies/JEE/JSF/PrimeFaces/TabCanvas.egl";
