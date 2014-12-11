@@ -4,7 +4,9 @@ operation  Canvas draw(hash) {
      var webapp = hash.get("webapp");   
      var form = hash.get("form");   
 %]
+     <p:panelGrid columns="1"  [%=self.styleAttributes(hash)%] >
      [%=self.generateBody(hash)%]     
+     </p:panelGrid>
 [%
      util.saveFile( webapp+"/"+util.mergeAndCapitalize(form.name).toLowerCase(),  util.mergeAndCapitalize(self.name)+".xhtml",out.toString());   
      
