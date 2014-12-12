@@ -1,6 +1,33 @@
 [%@template
-operation Table draw(hash) { 
+operation domain::Table draw(hash) { 
      var util = new Native('org.tura.metamodel.commons.Util');
-               util.println("Table = "+self.uid);
+     hash.put("context","tree");
+%]
+     [%=self.generateBody(hash)%]     
+[%
+     hash.put("context",null);
+}
+%]
+
+
+
+[%@template
+operation domain::Table generateBody(hash){
+%]
+	<p:dataTable var="row" id="tura[%=self.uid%]" [%=self.styleAttributes(hash)%] [%=self.enabled(hash)%] 
+		value="#{viewmodel.getModel('[%=self.uid%]','table', [%=buildExpression(util.createArtificialContextValue(self.sourcePointer))%])}"
+		paginator="true" rows="[%=self.rowNumber%]" lazy="true"
+		paginatorTemplate="{RowsPerPageDropdown}  {PreviousPageLink}  {NextPageLink}"
+		rowsPerPageTemplate="5,10,15" selectionMode="single"   rowKey="#{row}">
+[%
+                for (element in self.cols){
+%]                
+                    [%=element.draw(hash)%]
+[%
+                }  
+%]				
+		
+		</p:dataTable>	
+[%
 }
 %]
