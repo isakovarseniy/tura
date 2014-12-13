@@ -8558,13 +8558,22 @@ public interface DomainPackage extends EPackage
   int TABLE__LABEL = SOURCES_POINTER_FEATURE_COUNT + 2;
 
   /**
+   * The feature id for the '<em><b>Row Number</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TABLE__ROW_NUMBER = SOURCES_POINTER_FEATURE_COUNT + 3;
+
+  /**
    * The feature id for the '<em><b>Cols</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int TABLE__COLS = SOURCES_POINTER_FEATURE_COUNT + 3;
+  int TABLE__COLS = SOURCES_POINTER_FEATURE_COUNT + 4;
 
   /**
    * The number of structural features of the '<em>Table</em>' class.
@@ -8573,7 +8582,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int TABLE_FEATURE_COUNT = SOURCES_POINTER_FEATURE_COUNT + 4;
+  int TABLE_FEATURE_COUNT = SOURCES_POINTER_FEATURE_COUNT + 5;
 
   /**
    * The meta object id for the '{@link domain.impl.TreeImpl <em>Tree</em>}' class.
@@ -16659,6 +16668,17 @@ public interface DomainPackage extends EPackage
   EAttribute getTable_Label();
 
   /**
+   * Returns the meta object for the attribute '{@link domain.Table#getRowNumber <em>Row Number</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Row Number</em>'.
+   * @see domain.Table#getRowNumber()
+   * @see #getTable()
+   * @generated
+   */
+  EAttribute getTable_RowNumber();
+
+  /**
    * Returns the meta object for the containment reference list '{@link domain.Table#getCols <em>Cols</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -22318,6 +22338,14 @@ public interface DomainPackage extends EPackage
      * @generated
      */
     EAttribute TABLE__LABEL = eINSTANCE.getTable_Label();
+
+    /**
+     * The meta object literal for the '<em><b>Row Number</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute TABLE__ROW_NUMBER = eINSTANCE.getTable_RowNumber();
 
     /**
      * The meta object literal for the '<em><b>Cols</b></em>' containment reference list feature.

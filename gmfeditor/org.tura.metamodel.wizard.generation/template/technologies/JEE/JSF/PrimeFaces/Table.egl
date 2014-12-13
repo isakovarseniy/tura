@@ -1,6 +1,5 @@
 [%@template
 operation domain::Table draw(hash) { 
-     var util = new Native('org.tura.metamodel.commons.Util');
      hash.put("context","tree");
 %]
      [%=self.generateBody(hash)%]     
@@ -13,6 +12,7 @@ operation domain::Table draw(hash) {
 
 [%@template
 operation domain::Table generateBody(hash){
+     var util = new Native('org.tura.metamodel.commons.Util');
 %]
 	<p:dataTable var="row" id="tura[%=self.uid%]" [%=self.styleAttributes(hash)%] [%=self.enabled(hash)%] 
 		value="#{viewmodel.getModel('[%=self.uid%]','table', [%=buildExpression(util.createArtificialContextValue(self.sourcePointer))%])}"

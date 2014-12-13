@@ -1,7 +1,7 @@
 [%@template
 operation DropDownSelection draw(hash) { 
      var util = new Native('org.tura.metamodel.commons.Util');
-               util.println("DropDownSelection = "+self.name);
+               util.println("DropDownSelection = "+self.uid);
 
 }
 %]

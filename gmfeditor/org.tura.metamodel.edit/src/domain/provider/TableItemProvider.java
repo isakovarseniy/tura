@@ -66,6 +66,7 @@ public class TableItemProvider
 
       addColumnsPropertyDescriptor(object);
       addLabelPropertyDescriptor(object);
+      addRowNumberPropertyDescriptor(object);
     }
     return itemPropertyDescriptors;
   }
@@ -112,6 +113,29 @@ public class TableItemProvider
          false,
          false,
          ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+         null,
+         null));
+  }
+
+  /**
+   * This adds a property descriptor for the Row Number feature.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected void addRowNumberPropertyDescriptor(Object object)
+  {
+    itemPropertyDescriptors.add
+      (createItemPropertyDescriptor
+        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+         getResourceLocator(),
+         getString("_UI_Table_rowNumber_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_Table_rowNumber_feature", "_UI_Table_type"),
+         DomainPackage.Literals.TABLE__ROW_NUMBER,
+         true,
+         false,
+         false,
+         ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
          null,
          null));
   }
@@ -193,6 +217,7 @@ public class TableItemProvider
     {
       case DomainPackage.TABLE__COLUMNS:
       case DomainPackage.TABLE__LABEL:
+      case DomainPackage.TABLE__ROW_NUMBER:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
         return;
       case DomainPackage.TABLE__MULTI_LANG_LABEL:

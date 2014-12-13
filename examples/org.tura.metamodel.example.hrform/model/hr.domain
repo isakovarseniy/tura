@@ -1811,8 +1811,8 @@
             <expression objRef="5772ddee-a83b-41c9-8f34-c442412e1013" order="1" expressionType="MessageLibraryImpl"/>
             <expression objRef="9e8ac4a5-5023-44f2-af6f-56c62c679fa3" order="2" expressionType="MessageImpl"/>
           </multiLangLabel>
-          <cols uid="490f4dcd-4e49-4b66-88e5-c155aa28761a">
-            <element xsi:type="tura.domain:OutputText" uid="a467047a-bfd7-49a6-bc29-ef0770e63e78" valuePointer="State_7982905f-4f83-472f-8551-80e30e34934c" sourceCast="State_52ffccb7-cea6-49de-ba4b-7437f1da3369" sourceCastDataControl="f77b6e6d-41a3-4fb5-8ab9-85b2b76191ec"/>
+          <cols uid="5e5bd550-97e0-4d71-a50c-ca103fa10355">
+            <element xsi:type="tura.domain:OutputText" uid="11000d5e-b6ba-4b1a-9396-6549d6a40d2e" valuePointer="State_7982905f-4f83-472f-8551-80e30e34934c" sourceCast="State_52ffccb7-cea6-49de-ba4b-7437f1da3369" sourceCastDataControl="f77b6e6d-41a3-4fb5-8ab9-85b2b76191ec"/>
           </cols>
         </children>
       </children>
@@ -1943,7 +1943,16 @@
   </tura.domain:CanvasView>
   <tura.domain:CanvasView uid="8bb728a4-b532-465e-82ea-fe2612b5a1a1" parent="7aeb66b3-9eb3-4e90-a155-2c1a13577072">
     <baseCanvas uid="50f32416-d7ec-41a5-8d7e-405950accbfb">
-      <children xsi:type="tura.domain:Tree" uid="086f882c-3151-4b43-bc51-074b57db28c6" sourcePointer="34ec885b-a2e1-4c4a-8987-f56c9e935e86" label="Files"/>
+      <children xsi:type="tura.domain:Tree" uid="f4a4f9dd-de14-42f5-b3bf-1b844653672f" sourcePointer="34ec885b-a2e1-4c4a-8987-f56c9e935e86">
+        <multiLangLabel value="Messages.HR Controller.FILES_TREE">
+          <expression objRef="af03a493-0ca4-486c-945f-5bfc2fdf35bd" expressionType="MessagesImpl"/>
+          <expression objRef="5772ddee-a83b-41c9-8f34-c442412e1013" order="1" expressionType="MessageLibraryImpl"/>
+          <expression objRef="785af55a-35e6-42bf-9398-7b3d039bca11" order="2" expressionType="MessageImpl"/>
+        </multiLangLabel>
+        <cols uid="23367d09-cff1-4cab-80ea-16daa3298653">
+          <element xsi:type="tura.domain:OutputText" uid="b759c0d1-44c6-4951-ac9a-9327f3ec88a6" valuePointer="fafb0424-6c51-40e3-ac1c-a0d357abe0e5" sourceCast="f81fc484-ab31-4ce6-9bb1-01bb7409cbd6" sourceCastDataControl="34ec885b-a2e1-4c4a-8987-f56c9e935e86"/>
+        </cols>
+      </children>
     </baseCanvas>
   </tura.domain:CanvasView>
 </xmi:XMI>

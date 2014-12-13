@@ -1,6 +1,57 @@
 [%@template
-operation Tree draw(hash) { 
+operation domain::Tree draw(hash) { 
+     hash.put("context","tree");
+     if ( self .cols <> null and self.cols.size() = 1){
+%]
+     [%=self.generateTreeBody(hash)%]     
+[%
+}
+     if ( self .cols <> null and self.cols.size() > 1){
+%]
+     [%=self.generateTreeTableBody(hash)%]     
+[%
+}
+     hash.put("context",null);
+}
+%]
+
+
+[%@template
+operation domain::Tree generateTreeBody(hash){
      var util = new Native('org.tura.metamodel.commons.Util');
-               util.println("Tree = "+self.uid);
+%]
+	<p:tree id="tura[%=self.uid%]" [%=self.styleAttributes(hash)%] [%=self.enabled(hash)%]
+		value="#{viewmodel.getModel('[%=self.uid%]','tree', [%=buildExpression(util.createArtificialTreeContextValue(self.sourcePointer))%])}"
+		var="row" dynamic="true" cache="false" selectionMode="single"
+		selection="#{viewmodel.getModel('[%=self.uid%]','tree', [%=buildExpression(util.createArtificialTreeContextValue(self.sourcePointer))%]).selectedNode}">
+
+		<p:ajax event="expand" 
+			listener="#{viewmodel.getModel('[%=self.uid%]','tree', [%=buildExpression(util.createArtificialTreeContextValue(self.sourcePointer))%]).onNodeExpand}" />
+
+		<p:ajax event="collapse"
+			listener=#{viewmodel.getModel('[%=self.uid%]','tree', [%=buildExpression(util.createArtificialTreeContextValue(self.sourcePointer))%]).onNodeCollapse}" />
+			
+		<p:ajax event="unselect" 
+			listener="#{viewmodel.getModel('[%=self.uid%]','tree', [%=buildExpression(util.createArtificialTreeContextValue(self.sourcePointer))%]).onNodeUnselect}" />
+
+		<p:treeNode>
+[%
+                for (element in self.cols){
+%]                
+                    [%=element.draw(hash)%]
+[%
+                }  
+%]				
+
+		</p:treeNode>
+	</p:tree>
+
+[%     
+}
+%]
+
+[%@template
+operation domain::Tree generateTreeTableBody(hash){
+     var util = new Native('org.tura.metamodel.commons.Util');
 }
 %]

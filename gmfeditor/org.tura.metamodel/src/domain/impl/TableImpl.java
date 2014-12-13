@@ -34,6 +34,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link domain.impl.TableImpl#getColumns <em>Columns</em>}</li>
  *   <li>{@link domain.impl.TableImpl#getMultiLangLabel <em>Multi Lang Label</em>}</li>
  *   <li>{@link domain.impl.TableImpl#getLabel <em>Label</em>}</li>
+ *   <li>{@link domain.impl.TableImpl#getRowNumber <em>Row Number</em>}</li>
  *   <li>{@link domain.impl.TableImpl#getCols <em>Cols</em>}</li>
  * </ul>
  * </p>
@@ -91,6 +92,26 @@ public class TableImpl extends SourcesPointerImpl implements Table
    * @ordered
    */
   protected String label = LABEL_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #getRowNumber() <em>Row Number</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getRowNumber()
+   * @generated
+   * @ordered
+   */
+  protected static final int ROW_NUMBER_EDEFAULT = 0;
+
+  /**
+   * The cached value of the '{@link #getRowNumber() <em>Row Number</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getRowNumber()
+   * @generated
+   * @ordered
+   */
+  protected int rowNumber = ROW_NUMBER_EDEFAULT;
 
   /**
    * The cached value of the '{@link #getCols() <em>Cols</em>}' containment reference list.
@@ -222,6 +243,29 @@ public class TableImpl extends SourcesPointerImpl implements Table
    * <!-- end-user-doc -->
    * @generated
    */
+  public int getRowNumber()
+  {
+    return rowNumber;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setRowNumber(int newRowNumber)
+  {
+    int oldRowNumber = rowNumber;
+    rowNumber = newRowNumber;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.TABLE__ROW_NUMBER, oldRowNumber, rowNumber));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EList<Column> getCols()
   {
     if (cols == null)
@@ -265,6 +309,8 @@ public class TableImpl extends SourcesPointerImpl implements Table
         return getMultiLangLabel();
       case DomainPackage.TABLE__LABEL:
         return getLabel();
+      case DomainPackage.TABLE__ROW_NUMBER:
+        return getRowNumber();
       case DomainPackage.TABLE__COLS:
         return getCols();
     }
@@ -290,6 +336,9 @@ public class TableImpl extends SourcesPointerImpl implements Table
         return;
       case DomainPackage.TABLE__LABEL:
         setLabel((String)newValue);
+        return;
+      case DomainPackage.TABLE__ROW_NUMBER:
+        setRowNumber((Integer)newValue);
         return;
       case DomainPackage.TABLE__COLS:
         getCols().clear();
@@ -318,6 +367,9 @@ public class TableImpl extends SourcesPointerImpl implements Table
       case DomainPackage.TABLE__LABEL:
         setLabel(LABEL_EDEFAULT);
         return;
+      case DomainPackage.TABLE__ROW_NUMBER:
+        setRowNumber(ROW_NUMBER_EDEFAULT);
+        return;
       case DomainPackage.TABLE__COLS:
         getCols().clear();
         return;
@@ -341,6 +393,8 @@ public class TableImpl extends SourcesPointerImpl implements Table
         return multiLangLabel != null;
       case DomainPackage.TABLE__LABEL:
         return LABEL_EDEFAULT == null ? label != null : !LABEL_EDEFAULT.equals(label);
+      case DomainPackage.TABLE__ROW_NUMBER:
+        return rowNumber != ROW_NUMBER_EDEFAULT;
       case DomainPackage.TABLE__COLS:
         return cols != null && !cols.isEmpty();
     }
@@ -416,6 +470,8 @@ public class TableImpl extends SourcesPointerImpl implements Table
     result.append(columns);
     result.append(", label: ");
     result.append(label);
+    result.append(", rowNumber: ");
+    result.append(rowNumber);
     result.append(')');
     return result.toString();
   }

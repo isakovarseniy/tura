@@ -1,34 +1,15 @@
 [%@template
 operation Column draw(hash) { 
      var util = new Native('org.tura.metamodel.commons.Util');
-     var ctx = hash.get("context");
-     if ("tree".equils(ctx)){
 %]
-     [%=self.generateTreeBody(hash)%]     
-[%
-    }
-     if ("table".equils(ctx)){
-%]
-     [%=self.generateTableBody(hash)%]     
-[%
-    }
-}
-%]
-
-
-[%@template
-operation domain::Table generateTableBody(hash){
-%]
-           <p:column [%=self.styleAttributes(hash)%]>  
-                    [%=self.element.draw(hash)%]
-            </p:column>   
+     [%=self.generateBody(hash)%]     
 [%
 }
 %]
 
 
 [%@template
-operation domain::Table generateTreeBody(hash){
+operation domain::Column generateBody(hash){
 %]
            <p:column [%=self.styleAttributes(hash)%]>  
                     [%=self.element.draw(hash)%]

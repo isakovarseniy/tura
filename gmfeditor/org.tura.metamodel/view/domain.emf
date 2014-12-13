@@ -970,6 +970,7 @@ class Column extends StyleElement,MultiLangLabel{
 @gmf.node(label="label",tool.small.bundle="org.tura.metamodel.commons",tool.small.path="icons/table.png")
 class Table extends SourcesPointer,HTMLLayerHolder,MultiLangLabel{
    attr EString label;
+   attr EInt rowNumber;
    @gmf.compartment
     val Column[*] cols;
 }

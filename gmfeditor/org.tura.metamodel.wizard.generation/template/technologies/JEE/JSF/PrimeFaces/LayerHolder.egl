@@ -1,7 +1,20 @@
 [%@template
-operation domain::LayerHolder draw(hash) { 
-     var util = new Native('org.tura.metamodel.commons.Util');
-               util.println("LayerHolder = "+self.uid);
+operation  domain::LayerHolder  draw(hash) { 
+%]
+     <p:panelGrid columns=" [%=self.columns%]"  [%=self.styleAttributes(hash)%] >
+     [%=self.generateBody(hash)%]     
+     </p:panelGrid>
+[%
+}
+%]
 
+
+[%@template
+operation domain::LayerHolder  generateBody(hash){
+                for (element in self.children){
+%]                
+                    [%=element.draw(hash)%]
+[%
+                }  
 }
 %]

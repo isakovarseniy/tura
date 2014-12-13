@@ -38,3 +38,10 @@ operation domain::StyleElement  styleAttributes(hash){
 %]TBD[%
 }
 %]
+
+
+[%@template
+operation domain::Uielement  enabled(hash){
+%]TBD[%
+}
+%]
