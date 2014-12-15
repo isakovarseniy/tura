@@ -1812,7 +1812,7 @@
             <expression objRef="9e8ac4a5-5023-44f2-af6f-56c62c679fa3" order="2" expressionType="MessageImpl"/>
           </multiLangLabel>
           <cols uid="5e5bd550-97e0-4d71-a50c-ca103fa10355">
-            <element xsi:type="tura.domain:OutputText" uid="11000d5e-b6ba-4b1a-9396-6549d6a40d2e" valuePointer="State_7982905f-4f83-472f-8551-80e30e34934c" sourceCast="State_52ffccb7-cea6-49de-ba4b-7437f1da3369" sourceCastDataControl="f77b6e6d-41a3-4fb5-8ab9-85b2b76191ec"/>
+            <element xsi:type="tura.domain:OutputText" uid="11000d5e-b6ba-4b1a-9396-6549d6a40d2e" valuePointer="Cntr_7982905f-4f83-472f-8551-80e30e34934c" sourceCast="Cntr_52ffccb7-cea6-49de-ba4b-7437f1da3369" sourceCastDataControl="cd1cab1c-1781-4867-85b8-84d9f465f989"/>
           </cols>
         </children>
       </children>

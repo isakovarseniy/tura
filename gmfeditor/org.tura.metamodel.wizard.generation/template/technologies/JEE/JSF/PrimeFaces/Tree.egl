@@ -21,18 +21,18 @@ operation domain::Tree generateTreeBody(hash){
      var util = new Native('org.tura.metamodel.commons.Util');
 %]
 	<p:tree id="tura[%=self.uid%]" [%=self.styleAttributes(hash)%] [%=self.enabled(hash)%]
-		value="#{viewmodel.getModel('[%=self.uid%]','tree', [%=buildExpression(util.createArtificialTreeContextValue(self.sourcePointer))%])}"
+		value="#{viewmodel.getModel('[%=self.uid%]','tree', [%=buildExpression(util.createTreeArtificialContextValue(self.sourcePointer))%])}"
 		var="row" dynamic="true" cache="false" selectionMode="single"
-		selection="#{viewmodel.getModel('[%=self.uid%]','tree', [%=buildExpression(util.createArtificialTreeContextValue(self.sourcePointer))%]).selectedNode}">
+		selection="#{viewmodel.getModel('[%=self.uid%]','tree', [%=buildExpression(util.createTreeArtificialContextValue(self.sourcePointer))%]).selectedNode}">
 
 		<p:ajax event="expand" 
-			listener="#{viewmodel.getModel('[%=self.uid%]','tree', [%=buildExpression(util.createArtificialTreeContextValue(self.sourcePointer))%]).onNodeExpand}" />
+			listener="#{viewmodel.getModel('[%=self.uid%]','tree', [%=buildExpression(util.createTreeArtificialContextValue(self.sourcePointer))%]).onNodeExpand}" />
 
 		<p:ajax event="collapse"
-			listener=#{viewmodel.getModel('[%=self.uid%]','tree', [%=buildExpression(util.createArtificialTreeContextValue(self.sourcePointer))%]).onNodeCollapse}" />
+			listener=#{viewmodel.getModel('[%=self.uid%]','tree', [%=buildExpression(util.createTreeArtificialContextValue(self.sourcePointer))%]).onNodeCollapse}" />
 			
 		<p:ajax event="unselect" 
-			listener="#{viewmodel.getModel('[%=self.uid%]','tree', [%=buildExpression(util.createArtificialTreeContextValue(self.sourcePointer))%]).onNodeUnselect}" />
+			listener="#{viewmodel.getModel('[%=self.uid%]','tree', [%=buildExpression(util.createTreeArtificialContextValue(self.sourcePointer))%]).onNodeUnselect}" />
 
 		<p:treeNode>
 [%
