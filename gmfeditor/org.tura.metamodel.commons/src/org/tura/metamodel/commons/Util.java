@@ -1,5 +1,7 @@
 package org.tura.metamodel.commons;
 
+import static java.nio.file.StandardCopyOption.REPLACE_EXISTING;
+
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -14,8 +16,6 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-
-import static java.nio.file.StandardCopyOption.*;
 
 import org.apache.commons.lang.StringUtils;
 import org.eclipse.core.runtime.preferences.IEclipsePreferences;
@@ -52,15 +52,16 @@ public class Util {
 
 		domain.Type type = (Type) dc.getCreate().getMethodRef()
 				.getReturnValue().getTypeRef();
-		
+
 		if (dc.getBaseType() != null)
 			type = dc.getBaseType();
-		
+
 		return type;
 
 	}
 
-	public static boolean ifDataControlIsTreeRoot(domain.DataControl dc , DiagramImpl diagram ) throws Exception{
+	public static boolean ifDataControlIsTreeRoot(domain.DataControl dc,
+			DiagramImpl diagram) throws Exception {
 
 		QueryHelper helper = new QueryHelper();
 		domain.Form frm = helper.getForm(diagram);
@@ -69,11 +70,23 @@ public class Util {
 				return true;
 			}
 		}
-		
+
 		return false;
-		
+
 	}
-	
+
+	public static boolean ifDataControlIsTreeRoot(domain.DataControl dc)
+			throws Exception {
+		QueryHelper helper = new QueryHelper();
+		domain.Form frm = helper.getForm(dc);
+		for (TreeDataControl tdc : helper.findTreeRootControls(frm)) {
+			if (tdc.getDc().equals(dc)) {
+				return true;
+			}
+		}
+		return false;
+	}
+
 	public boolean ifInternalElement(EObject element) {
 
 		EObject top = element.eContainer();
@@ -82,7 +95,7 @@ public class Util {
 		if (top instanceof domain.Table)
 			return true;
 		if (top instanceof domain.Tree)
-			return true;		
+			return true;
 
 		return ifInternalElement(top);
 
@@ -213,49 +226,44 @@ public class Util {
 	}
 
 	public ArtificialContextValue createArtificialContextValue(
-			domain.DataControl dc) {
+			domain.DataControl dc, domain.DataControl root, Object obj)
+			throws Exception {
 
-		ArtificialContextValue cv = new ArtificialContextValue();
-		cv.setValue("Data controls." + mergeAndUnCapitalize(dc.getName()));
-
-		ArtificialExpressionPart ex = new ArtificialExpressionPart();
-		ex.setOrder(0);
-		ex.setExpressionType("DataControlHolder");
-		cv.getExpression().add(ex);
-
-		ex = new ArtificialExpressionPart();
-		ex.setOrder(1);
-		ex.setExpressionType("DataControlImpl");
-		ex.setObjRef(dc);
-		cv.getExpression().add(ex);
-
-		return cv;
-
+		if (ifDataControlIsTreeRoot(root)) {
+			return createTreeControlAccess(dc, obj);
+		} else {
+			return createControlAccess(dc, obj);
+		}
 	}
 
-	public ArtificialContextValue createTreeArtificialContextValue(
+	private ArtificialContextValue createTreeControlAccess(
+			domain.DataControl dc, Object obj) throws Exception {
+		if (obj == null)
+			return createTreeControlAccess(dc);
+
+		if (obj instanceof domain.Link)
+			return createTreeControlAccess(dc, (domain.Link) obj);
+
+		throw new Exception("Method createTreeControlAccess for parameter "
+				+ obj.getClass().getName() + " is not implemented");
+	}
+
+	private ArtificialContextValue createControlAccess(domain.DataControl dc,
+			Object obj) throws Exception {
+		if (obj == null)
+			return createControlAccess(dc);
+
+		throw new Exception("Method createControlAccess for parameter "
+				+ obj.getClass().getName() + " is not implemented");
+	}
+
+	private ArtificialContextValue createTreeControlAccess(
 			domain.DataControl dc, domain.Link lnk) {
-		ArtificialContextValue cv = new ArtificialContextValue();
-		cv.setValue("Tree data controls.TreeControl." + mergeAndCapitalize(dc.getName()) + ".currentObject."
-				+ lnk.getMasterField());
+		ArtificialContextValue cv = createTreeControlAccess(dc);
+
+		cv.setValue(cv.getValue() + ".currentObject." + lnk.getMasterField());
 
 		ArtificialExpressionPart ex = new ArtificialExpressionPart();
-		ex.setOrder(0);
-		ex.setExpressionType("TreeRootDataControlHolder");
-		cv.getExpression().add(ex);
-
-		 ex = new ArtificialExpressionPart();
-		ex.setOrder(1);
-		ex.setExpressionType("TreeDataControl");
-		cv.getExpression().add(ex);
-		
-		ex = new ArtificialExpressionPart();
-		ex.setOrder(2);
-		ex.setExpressionType("DataControlImpl");
-		ex.setObjRef(dc);
-		cv.getExpression().add(ex);
-
-		ex = new ArtificialExpressionPart();
 		ex.setOrder(3);
 		ex.setExpressionType("DataControlFakeMethod");
 		cv.getExpression().add(ex);
@@ -272,7 +280,114 @@ public class Util {
 		cv.getExpression().add(ex);
 
 		return cv;
+
 	}
+
+	private ArtificialContextValue createTreeControlAccess(domain.DataControl dc) {
+		ArtificialContextValue cv = new ArtificialContextValue();
+		cv.setValue("Tree data controls.TreeControl."
+				+ mergeAndCapitalize(dc.getName()));
+
+		ArtificialExpressionPart ex = new ArtificialExpressionPart();
+		ex.setOrder(0);
+		ex.setExpressionType("TreeRootDataControlHolder");
+		cv.getExpression().add(ex);
+
+		ex = new ArtificialExpressionPart();
+		ex.setOrder(1);
+		ex.setExpressionType("TreeDataControl");
+		cv.getExpression().add(ex);
+
+		 ex = new ArtificialExpressionPart();
+		 ex.setOrder(2);
+		 ex.setExpressionType("DataControlImpl");
+		 ex.setObjRef(dc);
+		 cv.getExpression().add(ex);
+		
+		
+		return cv;
+	}
+
+	private ArtificialContextValue createControlAccess(domain.DataControl dc) {
+		ArtificialContextValue cv = new ArtificialContextValue();
+		cv.setValue("Data controls." + mergeAndUnCapitalize(dc.getName()));
+
+		ArtificialExpressionPart ex = new ArtificialExpressionPart();
+		ex.setOrder(0);
+		ex.setExpressionType("DataControlHolder");
+		cv.getExpression().add(ex);
+
+		ex = new ArtificialExpressionPart();
+		ex.setOrder(1);
+		ex.setExpressionType("DataControlImpl");
+		ex.setObjRef(dc);
+		cv.getExpression().add(ex);
+
+		return cv;
+	}
+
+	// public ArtificialContextValue createArtificialContextValue(
+	// domain.DataControl dc) {
+	//
+	// ArtificialContextValue cv = new ArtificialContextValue();
+	// cv.setValue("Data controls." + mergeAndUnCapitalize(dc.getName()));
+	//
+	// ArtificialExpressionPart ex = new ArtificialExpressionPart();
+	// ex.setOrder(0);
+	// ex.setExpressionType("DataControlHolder");
+	// cv.getExpression().add(ex);
+	//
+	// ex = new ArtificialExpressionPart();
+	// ex.setOrder(1);
+	// ex.setExpressionType("DataControlImpl");
+	// ex.setObjRef(dc);
+	// cv.getExpression().add(ex);
+	//
+	// return cv;
+	//
+	// }
+
+	// public ArtificialContextValue createTreeArtificialContextValue(
+	// domain.DataControl dc, domain.Link lnk) {
+	// ArtificialContextValue cv = new ArtificialContextValue();
+	// cv.setValue("Tree data controls.TreeControl."
+	// + mergeAndCapitalize(dc.getName()) + ".currentObject."
+	// + lnk.getMasterField());
+	//
+	// ArtificialExpressionPart ex = new ArtificialExpressionPart();
+	// ex.setOrder(0);
+	// ex.setExpressionType("TreeRootDataControlHolder");
+	// cv.getExpression().add(ex);
+	//
+	// ex = new ArtificialExpressionPart();
+	// ex.setOrder(1);
+	// ex.setExpressionType("TreeDataControl");
+	// cv.getExpression().add(ex);
+	//
+	// ex = new ArtificialExpressionPart();
+	// ex.setOrder(2);
+	// ex.setExpressionType("DataControlImpl");
+	// ex.setObjRef(dc);
+	// cv.getExpression().add(ex);
+	//
+	// ex = new ArtificialExpressionPart();
+	// ex.setOrder(3);
+	// ex.setExpressionType("DataControlFakeMethod");
+	// cv.getExpression().add(ex);
+	//
+	// ex = new ArtificialExpressionPart();
+	// ex.setOrder(4);
+	// ex.setExpressionType("ExtendedType");
+	// cv.getExpression().add(ex);
+	//
+	// ex = new ArtificialExpressionPart();
+	// ex.setOrder(5);
+	// ex.setObjRef(lnk.getMasterField());
+	// ex.setExpressionType("AttributeImpl");
+	// cv.getExpression().add(ex);
+	//
+	// return cv;
+	// }
 
 	public static void saveFile(String path, String fileName, String in)
 			throws IOException {

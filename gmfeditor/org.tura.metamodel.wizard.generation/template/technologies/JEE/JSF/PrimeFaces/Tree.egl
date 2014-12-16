@@ -20,19 +20,19 @@ operation domain::Tree draw(hash) {
 operation domain::Tree generateTreeBody(hash){
      var util = new Native('org.tura.metamodel.commons.Util');
 %]
-	<p:tree id="tura[%=self.uid%]" [%=self.styleAttributes(hash)%] [%=self.enabled(hash)%]
-		value="#{viewmodel.getModel('[%=self.uid%]','tree', [%=buildExpression(util.createTreeArtificialContextValue(self.sourcePointer))%])}"
+	<p:tree id="tura[%=self.uid.replaceAll("\\-","_")%]" [%=self.styleAttributes(hash)%] [%=self.enabled(hash)%]
+		value="#{viewmodel.getModel('[%=self.uid.replaceAll("\\-","_")%]','tree', [%=buildExpression(util.createArtificialContextValue(self.sourcePointer,self.sourcePointer.findTreeRoot(),null))%])}"
 		var="row" dynamic="true" cache="false" selectionMode="single"
-		selection="#{viewmodel.getModel('[%=self.uid%]','tree', [%=buildExpression(util.createTreeArtificialContextValue(self.sourcePointer))%]).selectedNode}">
+		selection="#{viewmodel.getModel('[%=self.uid.replaceAll("\\-","_")%]','tree', [%=buildExpression(util.createArtificialContextValue(self.sourcePointer,self.sourcePointer.findTreeRoot(),null))%]).selectedNode}">
 
 		<p:ajax event="expand" 
-			listener="#{viewmodel.getModel('[%=self.uid%]','tree', [%=buildExpression(util.createTreeArtificialContextValue(self.sourcePointer))%]).onNodeExpand}" />
+			listener="#{viewmodel.getModel('[%=self.uid.replaceAll("\\-","_")%]','tree', [%=buildExpression(util.createArtificialContextValue(self.sourcePointer,self.sourcePointer.findTreeRoot(),null))%]).onNodeExpand}" />
 
 		<p:ajax event="collapse"
-			listener=#{viewmodel.getModel('[%=self.uid%]','tree', [%=buildExpression(util.createTreeArtificialContextValue(self.sourcePointer))%]).onNodeCollapse}" />
+			listener="#{viewmodel.getModel('[%=self.uid.replaceAll("\\-","_")%]','tree', [%=buildExpression(util.createArtificialContextValue(self.sourcePointer,self.sourcePointer.findTreeRoot(),null))%]).onNodeCollapse}" />
 			
 		<p:ajax event="unselect" 
-			listener="#{viewmodel.getModel('[%=self.uid%]','tree', [%=buildExpression(util.createTreeArtificialContextValue(self.sourcePointer))%]).onNodeUnselect}" />
+			listener="#{viewmodel.getModel('[%=self.uid.replaceAll("\\-","_")%]','tree', [%=buildExpression(util.createArtificialContextValue(self.sourcePointer,self.sourcePointer.findTreeRoot(),null))%]).onNodeUnselect}" />
 
 		<p:treeNode>
 [%

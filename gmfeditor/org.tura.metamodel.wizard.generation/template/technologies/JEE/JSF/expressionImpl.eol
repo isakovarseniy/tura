@@ -155,15 +155,3 @@ operation  RolesImpl(expression:String, contextValue , paramId: Integer, array )
      expression = expression+".";
    return expression+array.get(paramId);
 }
-
-operation DataControl findTreeRoot(  ) : DataControl {
-      var masters =  domain::Relation.allInstances()->select(r|r.isTree=true and  r.detail = self )->collect(w|w.master);
-      for ( master in masters ){
-         if (master = self )
-            return self;
-            
-         return master.findTreeRoot();   
-      }
-     return self;
-}
-

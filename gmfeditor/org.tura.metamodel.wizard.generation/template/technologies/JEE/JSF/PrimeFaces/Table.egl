@@ -2,7 +2,7 @@
 operation domain::Table draw(hash) { 
      hash.put("context","tree");
 %]
-     [%=self.generateBody(hash)%]     
+     [%//=self.generateBody(hash)%]     
 [%
      hash.put("context",null);
 }
@@ -14,8 +14,8 @@ operation domain::Table draw(hash) {
 operation domain::Table generateBody(hash){
      var util = new Native('org.tura.metamodel.commons.Util');
 %]
-	<p:dataTable var="row" id="tura[%=self.uid%]" [%=self.styleAttributes(hash)%] [%=self.enabled(hash)%] 
-		value="#{viewmodel.getModel('[%=self.uid%]','table', [%=buildExpression(util.createArtificialContextValue(self.sourcePointer))%])}"
+	<p:dataTable var="row" id="tura[%=self.uid.replaceAll("\\-","_")%]" [%=self.styleAttributes(hash)%] [%=self.enabled(hash)%] 
+		value="#{viewmodel.getModel('[%=self.uid.replaceAll("\\-","_")%]','table', [%=buildExpression(util.createArtificialContextValue(self.sourcePointer,self.sourcePointer.findTreeRoot(), null))%])}"
 		paginator="true" rows="[%=self.rowNumber%]" lazy="true"
 		paginatorTemplate="{RowsPerPageDropdown}  {PreviousPageLink}  {NextPageLink}"
 		rowsPerPageTemplate="5,10,15" selectionMode="single"   rowKey="#{row}">

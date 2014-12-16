@@ -61,6 +61,11 @@ public class QueryHelper {
 		return null;
 	}
 
+	
+	public domain.Form getForm(domain.DataControl dc) {
+		return (Form) dc.getParent().getParent().eContainer();
+	}	
+	
 	public domain.Form getForm(DiagramImpl root) {
 		domain.Form frm = null;
 
