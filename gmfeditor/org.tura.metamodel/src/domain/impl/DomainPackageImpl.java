@@ -2,174 +2,6 @@
  */
 package domain.impl;
 
-import domain.ActionElement;
-import domain.Application;
-import domain.ApplicationInfrastructureLayer;
-import domain.ApplicationMapper;
-import domain.ApplicationMappers;
-import domain.ApplicationMessages;
-import domain.ApplicationRecipe;
-import domain.ApplicationRecipes;
-import domain.ApplicationRole;
-import domain.ApplicationStyle;
-import domain.ApplicationUILayer;
-import domain.ApplicationUIPackage;
-import domain.Artifact;
-import domain.ArtifactRef;
-import domain.Artifacts;
-import domain.ArtificialField;
-import domain.Attribute;
-import domain.Button;
-import domain.CSSMapper;
-import domain.Canvas;
-import domain.CanvasFrame;
-import domain.CanvasView;
-import domain.Categorized;
-import domain.CheckBox;
-import domain.ChildrenHolder;
-import domain.Classifier;
-import domain.Column;
-import domain.Comparator;
-import domain.Component;
-import domain.ConfigVariable;
-import domain.Configuration;
-import domain.Context;
-import domain.ContextParameter;
-import domain.ContextParameters;
-import domain.ContextValue;
-import domain.ContinuousIintegration;
-import domain.Controls;
-import domain.CreateTrigger;
-import domain.DataControl;
-import domain.Datacenter;
-import domain.DefaultCavas;
-import domain.DeleteTrigger;
-import domain.DeploymentComponent;
-import domain.DeploymentComponents;
-import domain.DeploymentSequence;
-import domain.DeploymentStarStep;
-import domain.Domain;
-import domain.DomainApplication;
-import domain.DomainApplications;
-import domain.DomainArtifact;
-import domain.DomainArtifacts;
-import domain.DomainFactory;
-import domain.DomainPackage;
-import domain.DomainTypes;
-import domain.DropDownSelection;
-import domain.EJBService;
-import domain.EnterpriseInfrastructure;
-import domain.EnumAttribute;
-import domain.Enumarator;
-import domain.ExpressionPart;
-import domain.Form;
-import domain.FormDataControls;
-import domain.FormView;
-import domain.GenerationHint;
-import domain.Group;
-import domain.HTMLLayerHolder;
-import domain.Hub;
-import domain.Infrastructure;
-import domain.InfrastructureComponent;
-import domain.InfrastructureConnection;
-import domain.InfrastructureLayer;
-import domain.Ingredient;
-import domain.InputElement;
-import domain.InputText;
-import domain.InsertTrigger;
-import domain.JPAService;
-import domain.JavaComponent;
-import domain.JavaMapper;
-import domain.JavaScriptMapper;
-import domain.Label;
-import domain.Language;
-import domain.LanguageRef;
-import domain.LayerHolder;
-import domain.Link;
-import domain.Mapper;
-import domain.Mappers;
-import domain.MappingSpecifier;
-import domain.Message;
-import domain.MessageLibrary;
-import domain.Messages;
-import domain.MethodPointer;
-import domain.ModelMapper;
-import domain.ModelQuery;
-import domain.MultiLangLabel;
-import domain.ORMEntity;
-import domain.Operation;
-import domain.Option;
-import domain.OptionSelection;
-import domain.Order;
-import domain.OrderBy;
-import domain.Orders;
-import domain.OutputText;
-import domain.POSTCreateTrigger;
-import domain.POSTQueryTrigger;
-import domain.PREDeleteTrigger;
-import domain.PREFormTrigger;
-import domain.PREInsertTrigger;
-import domain.PREQueryTrigger;
-import domain.PREUpdateTrigger;
-import domain.Parameter;
-import domain.PlatformLayers;
-import domain.Primitive;
-import domain.Property;
-import domain.Query;
-import domain.QueryParameter;
-import domain.QueryVariable;
-import domain.Recipe;
-import domain.Recipes;
-import domain.Relation;
-import domain.ReturnValue;
-import domain.Role;
-import domain.RoleMapper;
-import domain.Roles;
-import domain.Root;
-import domain.Router;
-import domain.SearchTrigger;
-import domain.Selection;
-import domain.Server;
-import domain.ServerClaster;
-import domain.SourcesPointer;
-import domain.Specifier;
-import domain.Storage;
-import domain.Style;
-import domain.StyleClass;
-import domain.StyleElement;
-import domain.StyleLibrary;
-import domain.StyleSet;
-import domain.Styles;
-import domain.StylesPackage;
-import domain.Subsystem;
-import domain.TabCanvas;
-import domain.TabPage;
-import domain.TabPagesInheritance;
-import domain.Table;
-import domain.Translation;
-import domain.Tree;
-import domain.Trigger;
-import domain.Type;
-import domain.TypeDefinition;
-import domain.TypeElement;
-import domain.TypeExtension;
-import domain.TypeMapper;
-import domain.TypePointer;
-import domain.TypeReference;
-import domain.Types;
-import domain.TypesRepository;
-import domain.UIPackage;
-import domain.Uielement;
-import domain.UpdateTrigger;
-import domain.UsingMappers;
-import domain.ViewArea;
-import domain.ViewElement;
-import domain.ViewInheritance;
-import domain.ViewPort;
-import domain.ViewPortHolder;
-import domain.ViewPortTrigger;
-import domain.Views;
-import domain.Window;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EEnum;
@@ -934,21 +766,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass styleEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   private EClass childrenHolderEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass styleClassEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -5804,36 +5622,6 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getStyle()
-  {
-    return styleEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getStyle_Uid()
-  {
-    return (EAttribute)styleEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getStyle_Style()
-  {
-    return (EAttribute)styleEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EClass getChildrenHolder()
   {
     return childrenHolderEClass;
@@ -5847,56 +5635,6 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
   public EReference getChildrenHolder_Children()
   {
     return (EReference)childrenHolderEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getStyleClass()
-  {
-    return styleClassEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getStyleClass_Uid()
-  {
-    return (EAttribute)styleClassEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getStyleClass_StylesPackage()
-  {
-    return (EReference)styleClassEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getStyleClass_Library()
-  {
-    return (EReference)styleClassEClass.getEStructuralFeatures().get(2);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getStyleClass_StyleSet()
-  {
-    return (EReference)styleClassEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -8303,18 +8041,8 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     createEReference(canvasViewEClass, CANVAS_VIEW__PARENT);
     createEReference(canvasViewEClass, CANVAS_VIEW__BASE_CANVAS);
 
-    styleEClass = createEClass(STYLE);
-    createEAttribute(styleEClass, STYLE__UID);
-    createEAttribute(styleEClass, STYLE__STYLE);
-
     childrenHolderEClass = createEClass(CHILDREN_HOLDER);
     createEReference(childrenHolderEClass, CHILDREN_HOLDER__CHILDREN);
-
-    styleClassEClass = createEClass(STYLE_CLASS);
-    createEAttribute(styleClassEClass, STYLE_CLASS__UID);
-    createEReference(styleClassEClass, STYLE_CLASS__STYLES_PACKAGE);
-    createEReference(styleClassEClass, STYLE_CLASS__LIBRARY);
-    createEReference(styleClassEClass, STYLE_CLASS__STYLE_SET);
 
     contextParameterEClass = createEClass(CONTEXT_PARAMETER);
     createEAttribute(contextParameterEClass, CONTEXT_PARAMETER__UID);
@@ -9234,18 +8962,8 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     initEReference(getCanvasView_Parent(), this.getViewArea(), this.getViewArea_CanvasView(), "parent", null, 0, 1, CanvasView.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getCanvasView_BaseCanvas(), this.getLayerHolder(), null, "baseCanvas", null, 0, 1, CanvasView.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(styleEClass, Style.class, "Style", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getStyle_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, Style.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getStyle_Style(), ecorePackage.getEString(), "style", null, 0, 1, Style.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
     initEClass(childrenHolderEClass, ChildrenHolder.class, "ChildrenHolder", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getChildrenHolder_Children(), this.getUielement(), null, "children", null, 0, -1, ChildrenHolder.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(styleClassEClass, StyleClass.class, "StyleClass", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getStyleClass_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, StyleClass.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getStyleClass_StylesPackage(), this.getStylesPackage(), null, "stylesPackage", null, 0, 1, StyleClass.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getStyleClass_Library(), this.getStyleLibrary(), null, "library", null, 0, 1, StyleClass.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getStyleClass_StyleSet(), this.getStyleSet(), null, "styleSet", null, 0, 1, StyleClass.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(contextParameterEClass, ContextParameter.class, "ContextParameter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getContextParameter_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, ContextParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -9271,8 +8989,8 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     initEClass(contextEClass, Context.class, "Context", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(styleElementEClass, StyleElement.class, "StyleElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getStyleElement_Style(), this.getStyle(), null, "style", null, 0, 1, StyleElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getStyleElement_StyleClass(), this.getStyleClass(), null, "styleClass", null, 0, -1, StyleElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getStyleElement_Style(), this.getContext(), null, "style", null, 0, 1, StyleElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getStyleElement_StyleClass(), this.getContext(), null, "styleClass", null, 0, -1, StyleElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(uielementEClass, Uielement.class, "Uielement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getUielement_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, Uielement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

@@ -2724,31 +2724,6 @@ public class DomainItemProviderAdapterFactory extends DomainAdapterFactory imple
   }
 
   /**
-   * This keeps track of the one adapter used for all {@link domain.Style} instances.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected StyleItemProvider styleItemProvider;
-
-  /**
-   * This creates an adapter for a {@link domain.Style}.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public Adapter createStyleAdapter()
-  {
-    if (styleItemProvider == null)
-    {
-      styleItemProvider = new StyleItemProvider(this);
-    }
-
-    return styleItemProvider;
-  }
-
-  /**
    * This keeps track of the one adapter used for all {@link domain.ChildrenHolder} instances.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -2771,31 +2746,6 @@ public class DomainItemProviderAdapterFactory extends DomainAdapterFactory imple
     }
 
     return childrenHolderItemProvider;
-  }
-
-  /**
-   * This keeps track of the one adapter used for all {@link domain.StyleClass} instances.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected StyleClassItemProvider styleClassItemProvider;
-
-  /**
-   * This creates an adapter for a {@link domain.StyleClass}.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public Adapter createStyleClassAdapter()
-  {
-    if (styleClassItemProvider == null)
-    {
-      styleClassItemProvider = new StyleClassItemProvider(this);
-    }
-
-    return styleClassItemProvider;
   }
 
   /**
@@ -4390,9 +4340,7 @@ public class DomainItemProviderAdapterFactory extends DomainAdapterFactory imple
     if (tabPagesInheritanceItemProvider != null) tabPagesInheritanceItemProvider.dispose();
     if (formDataControlsItemProvider != null) formDataControlsItemProvider.dispose();
     if (canvasViewItemProvider != null) canvasViewItemProvider.dispose();
-    if (styleItemProvider != null) styleItemProvider.dispose();
     if (childrenHolderItemProvider != null) childrenHolderItemProvider.dispose();
-    if (styleClassItemProvider != null) styleClassItemProvider.dispose();
     if (contextParameterItemProvider != null) contextParameterItemProvider.dispose();
     if (contextValueItemProvider != null) contextValueItemProvider.dispose();
     if (expressionPartItemProvider != null) expressionPartItemProvider.dispose();

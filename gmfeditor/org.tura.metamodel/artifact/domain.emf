@@ -842,21 +842,9 @@ class CanvasView{
    val LayerHolder  baseCanvas; 
 }
 
-class Style{
-    id attr EString uid;
-    attr EString style;
-}
-
 class ChildrenHolder{
    @gmf.compartment
    val Uielement [*] children; 
-}
-
-class StyleClass{
-    id attr EString uid;
-    ref StylesPackage stylesPackage;
-    ref StyleLibrary library;
-    ref StyleSet styleSet;
 }
 
 class ContextParameter{
@@ -890,8 +878,8 @@ class Context extends ContextValue, ContextParameters{
 
 
 class StyleElement{
-    val Style style;
-    val StyleClass[*] styleClass;
+    val Context style;
+    val Context[*] styleClass;
 }
 
 class Uielement extends StyleElement{

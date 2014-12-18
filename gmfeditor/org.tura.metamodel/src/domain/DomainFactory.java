@@ -977,15 +977,6 @@ public interface DomainFactory extends EFactory
   CanvasView createCanvasView();
 
   /**
-   * Returns a new object of class '<em>Style</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Style</em>'.
-   * @generated
-   */
-  Style createStyle();
-
-  /**
    * Returns a new object of class '<em>Children Holder</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -993,15 +984,6 @@ public interface DomainFactory extends EFactory
    * @generated
    */
   ChildrenHolder createChildrenHolder();
-
-  /**
-   * Returns a new object of class '<em>Style Class</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Style Class</em>'.
-   * @generated
-   */
-  StyleClass createStyleClass();
 
   /**
    * Returns a new object of class '<em>Context Parameter</em>'.

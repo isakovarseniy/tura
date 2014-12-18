@@ -34,12 +34,12 @@ public interface StyleElement extends EObject
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Style</em>' containment reference.
-   * @see #setStyle(Style)
+   * @see #setStyle(Context)
    * @see domain.DomainPackage#getStyleElement_Style()
    * @model containment="true"
    * @generated
    */
-  Style getStyle();
+  Context getStyle();
 
   /**
    * Sets the value of the '{@link domain.StyleElement#getStyle <em>Style</em>}' containment reference.
@@ -49,11 +49,11 @@ public interface StyleElement extends EObject
    * @see #getStyle()
    * @generated
    */
-  void setStyle(Style value);
+  void setStyle(Context value);
 
   /**
    * Returns the value of the '<em><b>Style Class</b></em>' containment reference list.
-   * The list contents are of type {@link domain.StyleClass}.
+   * The list contents are of type {@link domain.Context}.
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Style Class</em>' containment reference list isn't clear,
@@ -65,6 +65,6 @@ public interface StyleElement extends EObject
    * @model containment="true"
    * @generated
    */
-  EList<StyleClass> getStyleClass();
+  EList<Context> getStyleClass();
 
 } // StyleElement

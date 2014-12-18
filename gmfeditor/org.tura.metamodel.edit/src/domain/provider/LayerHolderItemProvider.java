@@ -272,6 +272,8 @@ public class LayerHolderItemProvider
     Object childObject = child;
 
     boolean qualify =
+      childFeature == DomainPackage.Literals.STYLE_ELEMENT__STYLE ||
+      childFeature == DomainPackage.Literals.STYLE_ELEMENT__STYLE_CLASS ||
       childFeature == DomainPackage.Literals.UIELEMENT__ENABLED ||
       childFeature == DomainPackage.Literals.UIELEMENT__REQUIRED ||
       childFeature == DomainPackage.Literals.UIELEMENT__READ_ONLY;
