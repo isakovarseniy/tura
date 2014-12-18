@@ -1,7 +1,7 @@
 [%@template
 operation ViewArea draw(hash) { 
 %]
-<p:panelGrid columns="[%=self.canvasView.baseCanvas.columns%]" [%=self.canvasView.baseCanvas.uiElementAttributes(hash)%]>
+<p:panelGrid columns="[%=self.canvasView.baseCanvas.columns%]" [%=self.canvasView.baseCanvas.styleAttributes(hash)%]>
 [%
                 for (element in self.canvasView.baseCanvas.children){
 %]                

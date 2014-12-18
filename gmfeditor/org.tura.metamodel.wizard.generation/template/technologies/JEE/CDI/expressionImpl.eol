@@ -77,22 +77,19 @@ operation RoleImpl(expression:String, contextValue , paramId: Integer , array ) 
 }
 
 operation MessageLibraryImpl(expression:String, contextValue , paramId: Integer , array ) : String {
-   if (expression <> "")
-     expression = expression+".";
-   return expression+array.get(paramId);
+     var util = new Native('org.tura.metamodel.commons.Util');
+     var library = contextValue.expression.get(paramId).objRef;
+     
+   return util.mergeAndCapitalize(library.name);
 }
 
 operation MessagesImpl(expression:String, contextValue , paramId: Integer , array ) : String {
-   if (expression <> "")
-     expression = expression+".";
-   return expression+array.get(paramId);
+   return "";
 }
 
 
 operation MessageImpl(expression:String, contextValue , paramId: Integer , array ) : String {
-   if (expression <> "")
-     expression = expression+".";
-   return expression+array.get(paramId);
+   return expression+"["+array.get(paramId).replaceAll(" ","")+"]";
 }
 
 operation DomainArtifactsImpl(expression:String, contextValue , paramId: Integer , array ) : String {

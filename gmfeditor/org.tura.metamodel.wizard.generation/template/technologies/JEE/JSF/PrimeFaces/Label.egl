@@ -2,6 +2,8 @@
 operation Label draw(hash) { 
      var util = new Native('org.tura.metamodel.commons.Util');
                util.println("Label = "+self.uid);
-
+%]
+	<h:outputText [%=self.uiElementAttributes(hash)%]  value="${[%=buildParameterizedExpression(self.multiLangLabel)%]}" />
+[%
 }
 %]

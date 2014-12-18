@@ -1,7 +1,16 @@
 [%@template
-operation OutputText draw(hash) { 
+operation domain::OutputText  draw(hash) { 
      var util = new Native('org.tura.metamodel.commons.Util');
-               util.println("OutputText = "+self.uid);
-
+     var value;
+     hash.put("readonly","true");
+     if (hash.get("context") == null )
+         value = buildExpression(util.createArtificialContextValue(self.sourcePointer,self.sourcePointer.findTreeRoot(),self.valuePointer));
+     else
+         value =  "row."+self.valuePointer.name;  
+ %]
+<p:inputText  id="tura[%=self.uid.replaceAll("\\-","_")%]" value="#{[%=value%]}"   [%=self.uiElementAttributes(hash)%]>
+</p:inputText>
+[%
+     hash.put("readonly",null);
 }
 %]

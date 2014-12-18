@@ -252,6 +252,9 @@ public class Util {
 			Object obj) throws Exception {
 		if (obj == null)
 			return createControlAccess(dc);
+		if (obj instanceof domain.Attribute)
+			return createControlAccess(dc,(domain.Attribute)obj);
+		
 
 		throw new Exception("Method createControlAccess for parameter "
 				+ obj.getClass().getName() + " is not implemented");
@@ -326,6 +329,33 @@ public class Util {
 		return cv;
 	}
 
+	
+	private ArtificialContextValue createControlAccess(domain.DataControl dc, domain.Attribute attribute) {
+		ArtificialContextValue cv = createControlAccess(dc);
+
+		cv.setValue(cv.getValue() + ".currentObject." + attribute.getName());
+
+		ArtificialExpressionPart ex = new ArtificialExpressionPart();
+		ex.setOrder(2);
+		ex.setExpressionType("DataControlFakeMethod");
+		cv.getExpression().add(ex);
+
+		ex = new ArtificialExpressionPart();
+		ex.setOrder(3);
+		ex.setExpressionType("ExtendedType");
+		cv.getExpression().add(ex);
+
+		ex = new ArtificialExpressionPart();
+		ex.setOrder(4);
+		ex.setObjRef(attribute);
+		ex.setExpressionType("AttributeImpl");
+		cv.getExpression().add(ex);
+
+		return cv;
+	}	
+	
+	
+	
 	// public ArtificialContextValue createArtificialContextValue(
 	// domain.DataControl dc) {
 	//

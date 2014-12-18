@@ -2,7 +2,7 @@
 operation domain::Table draw(hash) { 
      hash.put("context","tree");
 %]
-     [%//=self.generateBody(hash)%]     
+     [%=self.generateBody(hash)%]     
 [%
      hash.put("context",null);
 }

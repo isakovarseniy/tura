@@ -4,7 +4,8 @@ operation  viewgeneration(hash) {
       var  javaPath =  hash.get("javaPath");  
       var util = new Native('org.tura.metamodel.commons.Util');
       var allPorts = new Native('java.util.ArrayList'); 
-
+      
+      
       for (canvas in form.view.view.canvases){
               if (not canvas.isKindOf(domain::TabCanvas) ){
                   var ports = canvas.viewElement->select(p|p.isKindOf(domain::ViewPort)); 
@@ -21,16 +22,14 @@ operation  viewgeneration(hash) {
       viewportclass.setFormatter(f);
       var buffer = viewportclass.process();
       util.saveFile( javaPath+util.mergeAndCapitalize(form.name).toLowerCase()+"/viewmodel/"  , "ViewPortHolder.java",buffer);   
-
-
 }
 %]
 
 
 [%@template
 operation domain::Uielement  uiElementAttributes(hash){
-%]TBD[%=self.styleAttributes(hash)%][%
-}
+%]TBD[%=self.styleAttributes(hash)%] [%=self.enabled(hash)%] [%=self.required(hash)%] [%if (hash.get("readonly") <> null){%] readonly="[%=hash.get("readonly")%]"[%}else{%][%=self.readonly(hash)%][%}%]
+[%}
 %]
 
 [%@template
@@ -42,6 +41,19 @@ operation domain::StyleElement  styleAttributes(hash){
 
 [%@template
 operation domain::Uielement  enabled(hash){
+%]TBD[%
+}
+%]
+
+[%@template
+operation domain::Uielement  required(hash){
+%]TBD[%
+}
+%]
+
+
+[%@template
+operation domain::Uielement  readonly(hash){
 %]TBD[%
 }
 %]

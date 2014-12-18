@@ -1,7 +1,14 @@
 [%@template
 operation InputText draw(hash) { 
      var util = new Native('org.tura.metamodel.commons.Util');
-               util.println("InputText = "+self.uid);
-
+     var value;
+     if (hash.get("context") == null )
+         value = buildExpression(util.createArtificialContextValue(self.sourcePointer,self.sourcePointer.findTreeRoot(),self.valuePointer));
+     else
+         value =  "row."+self.valuePointer.name;  
+ %]
+<p:inputText   id="tura[%=self.uid.replaceAll("\\-","_")%]" value="#{[%=value%]}"   [%=self.uiElementAttributes(hash)%]>
+</p:inputText>
+[%
 }
 %]

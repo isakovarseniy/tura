@@ -1,6 +1,6 @@
 [%
 import "platform:/plugin/org.tura.metamodel.wizard.generation/template/technologies/JEE/JSF.egl";
-import "platform:/plugin/org.tura.metamodel.wizard.generation/template/technologies/JEE/JSF/expressionImpl.eol";
+import "platform:/plugin/org.tura.metamodel.wizard.generation/template/technologies/JEE/CDI/expressionImpl.eol";
 import "platform:/plugin/org.tura.metamodel.wizard.generation/template/technologies/JEE/JSF/PrimeFaces/Window.egl";
 import "platform:/plugin/org.tura.metamodel.wizard.generation/template/technologies/JEE/JSF/PrimeFaces/Canvas.egl";
 import "platform:/plugin/org.tura.metamodel.wizard.generation/template/technologies/JEE/JSF/PrimeFaces/TabCanvas.egl";
@@ -19,8 +19,6 @@ import "platform:/plugin/org.tura.metamodel.wizard.generation/template/technolog
 import "platform:/plugin/org.tura.metamodel.wizard.generation/template/technologies/JEE/JSF/PrimeFaces/OutputText.egl";
 import "platform:/plugin/org.tura.metamodel.wizard.generation/template/technologies/JEE/JSF/PrimeFaces/Table.egl";
 import "platform:/plugin/org.tura.metamodel.wizard.generation/template/technologies/JEE/JSF/PrimeFaces/Tree.egl";
-
-
 
 %]
 
