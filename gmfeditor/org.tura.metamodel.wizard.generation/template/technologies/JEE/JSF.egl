@@ -30,32 +30,37 @@ operation  viewgeneration(hash) {
 
 [%@template
 operation domain::Uielement  uiElementAttributes(hash){
-%]TBD[%=self.styleAttributes(hash)%] [%=self.enabled(hash)%] [%=self.required(hash)%] [%if (hash.get("readonly") <> null){%] readonly="[%=hash.get("readonly")%]"[%}else{%][%=self.readonly(hash)%][%}%]
+%][%=self.styleAttributes(hash)%] [%=self.enabled(hash)%] [%=self.required(hash)%] [%if (hash.get("readonly") <> null){%] readonly="[%=hash.get("readonly")%]"[%}else{%][%=self.readonly(hash)%][%}%]
 [%}
 %]
 
 [%@template
 operation domain::StyleElement  styleAttributes(hash){
-%]TBD[%
+     if (self.style <> null)%]style="[%=buildParameterizedExpression(self.style)%]}"[%
+     if (styleClass.size()<> null){%]styleClass="[%
+      var first = 0;
+      for (class in styleClass ){ if ( first = 0){%],[%}%][%=buildParameterizedExpression(class)%][%} 
+     %]"[%
+     }
 }
 %]
 
 
 [%@template
 operation domain::Uielement  enabled(hash){
-%]TBD[%
+     if (self.enabled <> null)%]enabled="[%=buildParameterizedExpression(self.enabled)%]}"[%
 }
 %]
 
 [%@template
 operation domain::Uielement  required(hash){
-%]TBD[%
+     if (self.required <> null)%]required="[%=buildParameterizedExpression(self.required)%]}"[%
 }
 %]
 
 
 [%@template
 operation domain::Uielement  readonly(hash){
-%]TBD[%
+     if (self.readOnly <> null)%]readonly="[%=buildParameterizedExpression(self.readOnly)%]}"[%
 }
 %]
