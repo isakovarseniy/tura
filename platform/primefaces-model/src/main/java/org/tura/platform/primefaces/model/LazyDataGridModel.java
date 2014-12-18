@@ -84,6 +84,8 @@ public class LazyDataGridModel<T> extends LazyDataModel<T> {
 			}
 			List<?> scroler = datacontrol.getScroller();
 			int j = first + pageSize;
+			if (j >= scroler.size())
+				j = scroler.size();
 
 			for (int i = first, k = 0; i < j; i++, k++)
 				datasource.add( new Object[]{i,k,scroler.get(i)});

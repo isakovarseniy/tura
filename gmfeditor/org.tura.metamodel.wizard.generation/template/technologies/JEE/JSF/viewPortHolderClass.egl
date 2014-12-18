@@ -27,7 +27,7 @@ public class ViewPortHolder{
            return  [%=util.mergeAndUnCapitalize(port.name)%];
        }
       
-       public  String set[%=util.mergeAndCapitalize(port.name)%](String  [%=util.mergeAndUnCapitalize(port.name)%]){
+       public  void set[%=util.mergeAndCapitalize(port.name)%](String  [%=util.mergeAndUnCapitalize(port.name)%]){
            this.[%=util.mergeAndUnCapitalize(port.name)%] =  [%=util.mergeAndUnCapitalize(port.name)%];
        }      
 [%      

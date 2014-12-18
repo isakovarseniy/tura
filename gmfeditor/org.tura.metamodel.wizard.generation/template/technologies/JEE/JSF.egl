@@ -4,8 +4,7 @@ operation  viewgeneration(hash) {
       var  javaPath =  hash.get("javaPath");  
       var util = new Native('org.tura.metamodel.commons.Util');
       var allPorts = new Native('java.util.ArrayList'); 
-      
-      
+
       for (canvas in form.view.view.canvases){
               if (not canvas.isKindOf(domain::TabCanvas) ){
                   var ports = canvas.viewElement->select(p|p.isKindOf(domain::ViewPort)); 
@@ -21,7 +20,10 @@ operation  viewgeneration(hash) {
       var viewportclass : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.wizard.generation/template/technologies/JEE/JSF/viewPortHolderClass.egl",hash,TemplateFactory);
       viewportclass.setFormatter(f);
       var buffer = viewportclass.process();
-      util.saveFile( javaPath+util.mergeAndCapitalize(form.name).toLowerCase()+"/viewmodel/"  , "ViewPortHolder.java",buffer);   
+      util.saveFile( javaPath+util.mergeAndCapitalize(form.name).toLowerCase()+"/viewmodel/"  , "ViewPortHolder.java",buffer);  
+      
+      
+      web_xml(hash) ;
 }
 %]
 
