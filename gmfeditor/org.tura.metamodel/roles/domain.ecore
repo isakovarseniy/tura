@@ -1303,8 +1303,8 @@
   <eClassifiers xsi:type="ecore:EClass" name="StyleElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="style" eType="#//Context"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="styleClass" upperBound="-1"
-        eType="#//Context" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="styleClass" eType="#//ContextParameters"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Uielement" eSuperTypes="#//StyleElement">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"

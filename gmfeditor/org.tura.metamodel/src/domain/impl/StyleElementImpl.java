@@ -2,25 +2,17 @@
  */
 package domain.impl;
 
-import domain.Context;
-import domain.DomainPackage;
-import domain.StyleElement;
-
-import java.util.Collection;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
-import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.InternalEList;
+import domain.Context;
+import domain.ContextParameters;
+import domain.DomainPackage;
+import domain.StyleElement;
 
 /**
  * <!-- begin-user-doc -->
@@ -49,14 +41,14 @@ public class StyleElementImpl extends EObjectImpl implements StyleElement
   protected Context style;
 
   /**
-   * The cached value of the '{@link #getStyleClass() <em>Style Class</em>}' containment reference list.
+   * The cached value of the '{@link #getStyleClass() <em>Style Class</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getStyleClass()
    * @generated
    * @ordered
    */
-  protected EList<Context> styleClass;
+  protected ContextParameters styleClass;
 
   /**
    * <!-- begin-user-doc -->
@@ -132,13 +124,47 @@ public class StyleElementImpl extends EObjectImpl implements StyleElement
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Context> getStyleClass()
+  public ContextParameters getStyleClass()
   {
-    if (styleClass == null)
-    {
-      styleClass = new EObjectContainmentEList<Context>(Context.class, this, DomainPackage.STYLE_ELEMENT__STYLE_CLASS);
-    }
     return styleClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetStyleClass(ContextParameters newStyleClass, NotificationChain msgs)
+  {
+    ContextParameters oldStyleClass = styleClass;
+    styleClass = newStyleClass;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DomainPackage.STYLE_ELEMENT__STYLE_CLASS, oldStyleClass, newStyleClass);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setStyleClass(ContextParameters newStyleClass)
+  {
+    if (newStyleClass != styleClass)
+    {
+      NotificationChain msgs = null;
+      if (styleClass != null)
+        msgs = ((InternalEObject)styleClass).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DomainPackage.STYLE_ELEMENT__STYLE_CLASS, null, msgs);
+      if (newStyleClass != null)
+        msgs = ((InternalEObject)newStyleClass).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - DomainPackage.STYLE_ELEMENT__STYLE_CLASS, null, msgs);
+      msgs = basicSetStyleClass(newStyleClass, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.STYLE_ELEMENT__STYLE_CLASS, newStyleClass, newStyleClass));
   }
 
   /**
@@ -154,7 +180,7 @@ public class StyleElementImpl extends EObjectImpl implements StyleElement
       case DomainPackage.STYLE_ELEMENT__STYLE:
         return basicSetStyle(null, msgs);
       case DomainPackage.STYLE_ELEMENT__STYLE_CLASS:
-        return ((InternalEList<?>)getStyleClass()).basicRemove(otherEnd, msgs);
+        return basicSetStyleClass(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -182,7 +208,6 @@ public class StyleElementImpl extends EObjectImpl implements StyleElement
    * <!-- end-user-doc -->
    * @generated
    */
-  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
@@ -192,8 +217,7 @@ public class StyleElementImpl extends EObjectImpl implements StyleElement
         setStyle((Context)newValue);
         return;
       case DomainPackage.STYLE_ELEMENT__STYLE_CLASS:
-        getStyleClass().clear();
-        getStyleClass().addAll((Collection<? extends Context>)newValue);
+        setStyleClass((ContextParameters)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -213,7 +237,7 @@ public class StyleElementImpl extends EObjectImpl implements StyleElement
         setStyle((Context)null);
         return;
       case DomainPackage.STYLE_ELEMENT__STYLE_CLASS:
-        getStyleClass().clear();
+        setStyleClass((ContextParameters)null);
         return;
     }
     super.eUnset(featureID);
@@ -232,7 +256,7 @@ public class StyleElementImpl extends EObjectImpl implements StyleElement
       case DomainPackage.STYLE_ELEMENT__STYLE:
         return style != null;
       case DomainPackage.STYLE_ELEMENT__STYLE_CLASS:
-        return styleClass != null && !styleClass.isEmpty();
+        return styleClass != null;
     }
     return super.eIsSet(featureID);
   }

@@ -5725,7 +5725,7 @@ public interface DomainPackage extends EPackage
   int STYLE_ELEMENT__STYLE = 0;
 
   /**
-   * The feature id for the '<em><b>Style Class</b></em>' containment reference list.
+   * The feature id for the '<em><b>Style Class</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -5752,7 +5752,7 @@ public interface DomainPackage extends EPackage
   int CANVAS_FRAME__STYLE = STYLE_ELEMENT__STYLE;
 
   /**
-   * The feature id for the '<em><b>Style Class</b></em>' containment reference list.
+   * The feature id for the '<em><b>Style Class</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -5842,7 +5842,7 @@ public interface DomainPackage extends EPackage
   int VIEW_ELEMENT__STYLE = STYLE_ELEMENT__STYLE;
 
   /**
-   * The feature id for the '<em><b>Style Class</b></em>' containment reference list.
+   * The feature id for the '<em><b>Style Class</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -5869,7 +5869,7 @@ public interface DomainPackage extends EPackage
   int CANVAS__STYLE = CANVAS_FRAME__STYLE;
 
   /**
-   * The feature id for the '<em><b>Style Class</b></em>' containment reference list.
+   * The feature id for the '<em><b>Style Class</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -5950,7 +5950,7 @@ public interface DomainPackage extends EPackage
   int WINDOW__STYLE = CANVAS_FRAME__STYLE;
 
   /**
-   * The feature id for the '<em><b>Style Class</b></em>' containment reference list.
+   * The feature id for the '<em><b>Style Class</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -6022,7 +6022,7 @@ public interface DomainPackage extends EPackage
   int TAB_CANVAS__STYLE = CANVAS_FRAME__STYLE;
 
   /**
-   * The feature id for the '<em><b>Style Class</b></em>' containment reference list.
+   * The feature id for the '<em><b>Style Class</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -6085,7 +6085,7 @@ public interface DomainPackage extends EPackage
   int TAB_PAGE__STYLE = CANVAS_FRAME__STYLE;
 
   /**
-   * The feature id for the '<em><b>Style Class</b></em>' containment reference list.
+   * The feature id for the '<em><b>Style Class</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -6157,7 +6157,7 @@ public interface DomainPackage extends EPackage
   int VIEW_PORT__STYLE = VIEW_ELEMENT__STYLE;
 
   /**
-   * The feature id for the '<em><b>Style Class</b></em>' containment reference list.
+   * The feature id for the '<em><b>Style Class</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -6211,7 +6211,7 @@ public interface DomainPackage extends EPackage
   int VIEW_AREA__STYLE = VIEW_ELEMENT__STYLE;
 
   /**
-   * The feature id for the '<em><b>Style Class</b></em>' containment reference list.
+   * The feature id for the '<em><b>Style Class</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -6797,7 +6797,7 @@ public interface DomainPackage extends EPackage
   int UIELEMENT__STYLE = STYLE_ELEMENT__STYLE;
 
   /**
-   * The feature id for the '<em><b>Style Class</b></em>' containment reference list.
+   * The feature id for the '<em><b>Style Class</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -6888,7 +6888,7 @@ public interface DomainPackage extends EPackage
   int SOURCES_POINTER__STYLE = UIELEMENT__STYLE;
 
   /**
-   * The feature id for the '<em><b>Style Class</b></em>' containment reference list.
+   * The feature id for the '<em><b>Style Class</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -7015,7 +7015,7 @@ public interface DomainPackage extends EPackage
   int ACTION_ELEMENT__STYLE = UIELEMENT__STYLE;
 
   /**
-   * The feature id for the '<em><b>Style Class</b></em>' containment reference list.
+   * The feature id for the '<em><b>Style Class</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -7169,7 +7169,7 @@ public interface DomainPackage extends EPackage
   int INPUT_ELEMENT__STYLE = SOURCES_POINTER__STYLE;
 
   /**
-   * The feature id for the '<em><b>Style Class</b></em>' containment reference list.
+   * The feature id for the '<em><b>Style Class</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -7296,7 +7296,7 @@ public interface DomainPackage extends EPackage
   int SELECTION__STYLE = STYLE_ELEMENT__STYLE;
 
   /**
-   * The feature id for the '<em><b>Style Class</b></em>' containment reference list.
+   * The feature id for the '<em><b>Style Class</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -7351,7 +7351,7 @@ public interface DomainPackage extends EPackage
   int OPTION_SELECTION__STYLE = INPUT_ELEMENT__STYLE;
 
   /**
-   * The feature id for the '<em><b>Style Class</b></em>' containment reference list.
+   * The feature id for the '<em><b>Style Class</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -7505,7 +7505,7 @@ public interface DomainPackage extends EPackage
   int LAYER_HOLDER__STYLE = UIELEMENT__STYLE;
 
   /**
-   * The feature id for the '<em><b>Style Class</b></em>' containment reference list.
+   * The feature id for the '<em><b>Style Class</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -7614,7 +7614,7 @@ public interface DomainPackage extends EPackage
   int INPUT_TEXT__STYLE = INPUT_ELEMENT__STYLE;
 
   /**
-   * The feature id for the '<em><b>Style Class</b></em>' containment reference list.
+   * The feature id for the '<em><b>Style Class</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -7741,7 +7741,7 @@ public interface DomainPackage extends EPackage
   int LABEL__STYLE = UIELEMENT__STYLE;
 
   /**
-   * The feature id for the '<em><b>Style Class</b></em>' containment reference list.
+   * The feature id for the '<em><b>Style Class</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -7850,7 +7850,7 @@ public interface DomainPackage extends EPackage
   int OUTPUT_TEXT__STYLE = INPUT_ELEMENT__STYLE;
 
   /**
-   * The feature id for the '<em><b>Style Class</b></em>' containment reference list.
+   * The feature id for the '<em><b>Style Class</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -7977,7 +7977,7 @@ public interface DomainPackage extends EPackage
   int CHECK_BOX__STYLE = INPUT_ELEMENT__STYLE;
 
   /**
-   * The feature id for the '<em><b>Style Class</b></em>' containment reference list.
+   * The feature id for the '<em><b>Style Class</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -8104,7 +8104,7 @@ public interface DomainPackage extends EPackage
   int DROP_DOWN_SELECTION__STYLE = OPTION_SELECTION__STYLE;
 
   /**
-   * The feature id for the '<em><b>Style Class</b></em>' containment reference list.
+   * The feature id for the '<em><b>Style Class</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -8267,7 +8267,7 @@ public interface DomainPackage extends EPackage
   int COLUMN__STYLE = STYLE_ELEMENT__STYLE;
 
   /**
-   * The feature id for the '<em><b>Style Class</b></em>' containment reference list.
+   * The feature id for the '<em><b>Style Class</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -8340,7 +8340,7 @@ public interface DomainPackage extends EPackage
   int TABLE__STYLE = SOURCES_POINTER__STYLE;
 
   /**
-   * The feature id for the '<em><b>Style Class</b></em>' containment reference list.
+   * The feature id for the '<em><b>Style Class</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -8512,7 +8512,7 @@ public interface DomainPackage extends EPackage
   int TREE__STYLE = SOURCES_POINTER__STYLE;
 
   /**
-   * The feature id for the '<em><b>Style Class</b></em>' containment reference list.
+   * The feature id for the '<em><b>Style Class</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -8684,7 +8684,7 @@ public interface DomainPackage extends EPackage
   int BUTTON__STYLE = ACTION_ELEMENT__STYLE;
 
   /**
-   * The feature id for the '<em><b>Style Class</b></em>' containment reference list.
+   * The feature id for the '<em><b>Style Class</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -16108,10 +16108,10 @@ public interface DomainPackage extends EPackage
   EReference getStyleElement_Style();
 
   /**
-   * Returns the meta object for the containment reference list '{@link domain.StyleElement#getStyleClass <em>Style Class</em>}'.
+   * Returns the meta object for the containment reference '{@link domain.StyleElement#getStyleClass <em>Style Class</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Style Class</em>'.
+   * @return the meta object for the containment reference '<em>Style Class</em>'.
    * @see domain.StyleElement#getStyleClass()
    * @see #getStyleElement()
    * @generated
@@ -21778,7 +21778,7 @@ public interface DomainPackage extends EPackage
     EReference STYLE_ELEMENT__STYLE = eINSTANCE.getStyleElement_Style();
 
     /**
-     * The meta object literal for the '<em><b>Style Class</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Style Class</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated

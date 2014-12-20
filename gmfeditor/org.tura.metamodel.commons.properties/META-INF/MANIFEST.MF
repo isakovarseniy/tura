@@ -40,6 +40,5 @@ Export-Package: org.tura.metamodel.commons.properties,
  org.tura.metamodel.commons.properties.selections.dropdown,
  org.tura.metamodel.commons.properties.selections.dropdown.impl,
  org.tura.metamodel.commons.properties.selections.grid,
- org.tura.metamodel.commons.properties.selections.grid.impl,
- org.tura.metamodel.commons.properties.selections.input
+ org.tura.metamodel.commons.properties.selections.grid.impl
 Import-Package: org.eclipse.epsilon.common.dt.util

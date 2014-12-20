@@ -233,7 +233,8 @@ public class ViewPortItemProvider
 
     boolean qualify =
       childFeature == DomainPackage.Literals.STYLE_ELEMENT__STYLE ||
-      childFeature == DomainPackage.Literals.STYLE_ELEMENT__STYLE_CLASS;
+      childFeature == DomainPackage.Literals.STYLE_ELEMENT__STYLE_CLASS ||
+      childFeature == DomainPackage.Literals.VIEW_PORT__VIEW_PORT_TRIGGER;
 
     if (qualify)
     {

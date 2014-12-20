@@ -169,7 +169,92 @@ public class StyleElementItemProvider
     newChildDescriptors.add
       (createChildParameter
         (DomainPackage.Literals.STYLE_ELEMENT__STYLE_CLASS,
+         DomainFactory.eINSTANCE.createTrigger()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (DomainPackage.Literals.STYLE_ELEMENT__STYLE_CLASS,
+         DomainFactory.eINSTANCE.createViewPortTrigger()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (DomainPackage.Literals.STYLE_ELEMENT__STYLE_CLASS,
+         DomainFactory.eINSTANCE.createContextParameters()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (DomainPackage.Literals.STYLE_ELEMENT__STYLE_CLASS,
          DomainFactory.eINSTANCE.createContext()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (DomainPackage.Literals.STYLE_ELEMENT__STYLE_CLASS,
+         DomainFactory.eINSTANCE.createActionElement()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (DomainPackage.Literals.STYLE_ELEMENT__STYLE_CLASS,
+         DomainFactory.eINSTANCE.createButton()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (DomainPackage.Literals.STYLE_ELEMENT__STYLE_CLASS,
+         DomainFactory.eINSTANCE.createPREFormTrigger()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (DomainPackage.Literals.STYLE_ELEMENT__STYLE_CLASS,
+         DomainFactory.eINSTANCE.createPREQueryTrigger()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (DomainPackage.Literals.STYLE_ELEMENT__STYLE_CLASS,
+         DomainFactory.eINSTANCE.createPOSTQueryTrigger()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (DomainPackage.Literals.STYLE_ELEMENT__STYLE_CLASS,
+         DomainFactory.eINSTANCE.createPREInsertTrigger()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (DomainPackage.Literals.STYLE_ELEMENT__STYLE_CLASS,
+         DomainFactory.eINSTANCE.createPREDeleteTrigger()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (DomainPackage.Literals.STYLE_ELEMENT__STYLE_CLASS,
+         DomainFactory.eINSTANCE.createPOSTCreateTrigger()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (DomainPackage.Literals.STYLE_ELEMENT__STYLE_CLASS,
+         DomainFactory.eINSTANCE.createPREUpdateTrigger()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (DomainPackage.Literals.STYLE_ELEMENT__STYLE_CLASS,
+         DomainFactory.eINSTANCE.createCreateTrigger()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (DomainPackage.Literals.STYLE_ELEMENT__STYLE_CLASS,
+         DomainFactory.eINSTANCE.createInsertTrigger()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (DomainPackage.Literals.STYLE_ELEMENT__STYLE_CLASS,
+         DomainFactory.eINSTANCE.createUpdateTrigger()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (DomainPackage.Literals.STYLE_ELEMENT__STYLE_CLASS,
+         DomainFactory.eINSTANCE.createDeleteTrigger()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (DomainPackage.Literals.STYLE_ELEMENT__STYLE_CLASS,
+         DomainFactory.eINSTANCE.createSearchTrigger()));
   }
 
   /**

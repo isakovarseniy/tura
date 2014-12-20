@@ -37,9 +37,9 @@ operation domain::Uielement  uiElementAttributes(hash){
 [%@template
 operation domain::StyleElement  styleAttributes(hash){
      if (self.style <> null)%]style="[%=buildParameterizedExpression(self.style)%]}"[%
-     if (styleClass.size()<> null){%]styleClass="[%
+     if (styleClass <> null){%]styleClass="[%
       var first = 0;
-      for (class in styleClass ){ if ( first = 0){%],[%}%][%=buildParameterizedExpression(class)%][%} 
+      for (class in styleClass.parameters ){ if ( first = 0){%],[%}%][%=buildParameterizedExpression(class)%][%} 
      %]"[%
      }
 }
