@@ -879,7 +879,7 @@ class Context extends ContextValue, ContextParameters{
 
 class StyleElement{
     val Context style;
-    val Context[*] styleClass;
+    val ContextParameter[*] styleClass;
 }
 
 class Uielement extends StyleElement{

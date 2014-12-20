@@ -527,7 +527,7 @@
 
              <propertySection
                tab="org.tura.metamodel.diagram.frmview.styleset"
-               class="org.tura.metamodel.commons.properties.selections.input.StylePropertySelection"
+               class="org.tura.metamodel.commons.properties.selections.context.impl.StylePropertySelection"
                id="org.tura.metamodel.diagram.frmview.style">
               
               <input type="frmview.diagram.edit.parts.CanvasEditPart"/>
@@ -812,7 +812,7 @@
 
              <propertySection
                tab="property.tab.domain.canvas.uielement.styleset"
-               class="org.tura.metamodel.commons.properties.selections.input.StylePropertySelection"
+               class="org.tura.metamodel.commons.properties.selections.context.impl.StylePropertySelection"
                id="org.tura.metamodel.diagram.canvas.sourcepointer.style">
               <input type="canvas.diagram.edit.parts.CheckBoxEditPart"/>
               <input type="canvas.diagram.edit.parts.InputTextEditPart"/>
@@ -833,7 +833,7 @@
            </propertySection>        
 
 
-             <propertySection
+             <!-- propertySection
                tab="property.tab.domain.canvas.uielement.styleset"
                class="org.tura.metamodel.commons.properties.selections.grid.impl.StyleClassPropertySelection"
                afterSection="org.tura.metamodel.diagram.canvas.sourcepointer.style"
@@ -854,7 +854,7 @@
               <input type="canvas.diagram.edit.parts.DropDownSelection2EditPart"/>
               <input type="canvas.diagram.edit.parts.Button2EditPart"/>
   
-           </propertySection>        
+           </propertySection-->        
 
 
              <propertySection
