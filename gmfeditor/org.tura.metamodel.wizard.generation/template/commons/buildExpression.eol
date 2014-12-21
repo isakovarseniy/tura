@@ -1,4 +1,6 @@
 operation buildParameterizedExpression(context : domain::Context ) : String {
+           if (context = null or context.value = null)
+             return ""; 
            var result = buildExpression(context);
            if (context.parameters <> null and context.parameters.size() <> 0 ){
               result = result + "(";

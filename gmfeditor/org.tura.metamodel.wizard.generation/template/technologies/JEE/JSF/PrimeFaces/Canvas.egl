@@ -8,6 +8,8 @@ operation  Canvas draw(hash) {
      [%=self.generateBody(hash)%]     
      </p:panelGrid>
 [%
+     var x = new Native("org.eclipse.epsilon.egl.formatter.language.XmlFormatter"); 
+     out.formatWith(x);
      util.saveFile( webapp+"/"+util.mergeAndCapitalize(form.name).toLowerCase(),  util.mergeAndCapitalize(self.name)+".xhtml",out.toString());   
      
 }
