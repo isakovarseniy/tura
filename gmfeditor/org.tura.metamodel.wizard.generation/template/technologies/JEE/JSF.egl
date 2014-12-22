@@ -36,10 +36,20 @@ operation domain::Uielement  uiElementAttributes(hash){
 
 [%@template
 operation domain::StyleElement  styleAttributes(hash){
-     if (self.style <> null  and  self.style.value <> null  ){%]style="[%=buildParameterizedExpression(self.style)%]"[%}
+     if (self.style <> null  and  self.style.value <> null  ){
+        var value = buildParameterizedExpression(self.style);
+        if (self.style.constant = false )
+           value="#{"+value+"}";
+     
+     %]style="[%=value%]"[%}
+
      if (self.styleClass <> null and self.styleClass.value  ){%]styleClass="[%
       var first = 0;
-      for (class in self.styleClass.parameters ){ if ( first = 0){%],[%}%][%=buildParameterizedExpression(class)%][%} 
+      for (class in self.styleClass.parameters ){ 
+          if ( first = 0){%],[%}
+         var value = buildParameterizedExpression(class);
+         if (class.constant = false )
+              value="#{"+value+"}";%][%=buildParameterizedExpression(class)%][%} 
      %]"[%
      }
 }
@@ -48,19 +58,34 @@ operation domain::StyleElement  styleAttributes(hash){
 
 [%@template
 operation domain::Uielement  enabled(hash){
-     if (self.enabled <> null and self.enabled.value <> null){%]enabled="[%=buildParameterizedExpression(self.enabled)%]"[%}
+     if (self.enabled <> null and self.enabled.value <> null){
+         var value = buildParameterizedExpression(self.enabled);
+         if (self.enabled.constant = false )
+            value = "#{"+value+"}";
+            
+     %]enabled="[%=value%]"[%}
 }
 %]
 
 [%@template
 operation domain::Uielement  required(hash){
-     if (self.required <> null  and self.required.value <> null){%]required="[%=buildParameterizedExpression(self.required)%]"[%}
+     if (self.required <> null  and self.required.value <> null){
+         var value = buildParameterizedExpression(self.required);
+         if (self.required.constant = false )
+            value = "#{"+value+"}";
+            
+     %]required="[%=value%]"[%}
 }
 %]
 
 
 [%@template
 operation domain::Uielement  readonly(hash){
-     if (self.readOnly <> null  and self.readOnly.value <> null){%]readonly="[%=buildParameterizedExpression(self.readOnly)%]"[%}
+     if (self.readOnly <> null  and self.readOnly.value <> null){
+          var value = buildParameterizedExpression(self.readOnly);
+          if (self.readOnly.constant = false )
+            value = "#{"+value+"}";
+            
+     %]readonly="[%=value%]"[%}
 }
 %]
