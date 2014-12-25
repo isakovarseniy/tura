@@ -5,7 +5,6 @@ ${start}${percent}
 import "platform:/plugin/org.tura.metamodel.wizard.generation/template/technologies/${JPA_implementation}.egl";
 import "platform:/plugin/org.tura.metamodel.wizard.generation/template/technologies/${Database_type}.egl";
  ${percent}${end}
-
 [%
      var util = new Native('org.tura.metamodel.commons.Util');
 %]

@@ -1,7 +1,7 @@
 [%@template
 operation  domain::LayerHolder  draw(hash) { 
 %]
-     <p:panelGrid columns=" [%=self.columns%]"  [%=self.styleAttributes(hash)%] >
+     <p:panelGrid columns="[%=self.columns%]"  [%=self.styleAttributes(hash)%] >
      [%=self.generateBody(hash)%]     
      </p:panelGrid>
 [%

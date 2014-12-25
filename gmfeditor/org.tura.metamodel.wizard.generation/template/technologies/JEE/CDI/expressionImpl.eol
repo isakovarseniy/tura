@@ -89,7 +89,7 @@ operation MessagesImpl(expression:String, contextValue , paramId: Integer , arra
 
 
 operation MessageImpl(expression:String, contextValue , paramId: Integer , array ) : String {
-   return expression+"["+array.get(paramId).replaceAll(" ","")+"]";
+   return expression+"['"+array.get(paramId).replaceAll(" ","")+"']";
 }
 
 operation DomainArtifactsImpl(expression:String, contextValue , paramId: Integer , array ) : String {

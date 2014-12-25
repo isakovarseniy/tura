@@ -10,8 +10,17 @@ operation Column draw(hash) {
 
 [%@template
 operation domain::Column generateBody(hash){
+     var title = buildParameterizedExpression(self.multiLangLabel);
+     if (title <> "" and self.multiLangLabel <> null and self.multiLangLabel.constant = false )
+        title = "#{"+title+"}";
+        
+     if (title <> "" )
+        title = "headerText=\"" + title + "\"";
+     else
+        title="";   
+        
 %]
-           <p:column [%=self.styleAttributes(hash)%]>  
+           <p:column [%=title%] [%=self.styleAttributes(hash)%]>  
                     [%=self.element.draw(hash)%]
             </p:column>   
 [%

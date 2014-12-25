@@ -16,7 +16,8 @@ operation  TabCanvas draw(hash) {
 [%@template
 operation TabCanvas generateBody(hash){
 %]
-<p:tabView  [%=self.styleAttributes(hash)%]>
+<p:tabView  xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core" xmlns:ui="http://java.sun.com/jsf/facelets"
+			xmlns:p="http://primefaces.org/ui" xmlns:i="http://primefaces.prime.com.tr/touch" [%=self.styleAttributes(hash)%]>
 [%
                 for (element in TabPagesInheritance->allInstances()->select(r|r.source.uid = self.uid)->collect(q|q.target)){
 %]                
@@ -24,7 +25,7 @@ operation TabCanvas generateBody(hash){
 [%
                 }  
 %]					
-</<p:tabView>
+</p:tabView>
 [%
 }
 %]
