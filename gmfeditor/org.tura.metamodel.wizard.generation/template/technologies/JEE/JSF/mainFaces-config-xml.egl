@@ -1,6 +1,13 @@
+<#assign percent = "%" >
+<#assign start = "[" >
+<#assign end = "]" >
+${start}${percent} 
+import "platform:/plugin/org.tura.metamodel.wizard.generation/template/technologies/${View_implementation}/faces-config-xml.egl";
+${percent}${end}
 [%
      var util = new Native('org.tura.metamodel.commons.Util');
      var appMsgLibs = util.runQuery(model_mapper,"Query message library",model_mapper);
+     var hash = new Native('java.util.HashMap');
 
     if (appMsgLibs.size() <> 0 ){
     
@@ -15,6 +22,8 @@
               xmlns="http://java.sun.com/xml/ns/javaee" 
               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
               xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_2_0.xsd">
+    [%=faces_config(hash)%]        
+	
     <application>
 [%
        for ( library in appMsg.messageLibraries){

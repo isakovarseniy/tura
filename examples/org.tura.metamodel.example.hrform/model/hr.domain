@@ -1560,6 +1560,11 @@
       <modelQuery uid="8d7c9384-ed1a-4a96-866c-54dccc8f06cd" name="Query message library" query="domain::DomainApplication.allInstances()->select(r|r.oclAsType(domain::DomainApplication).name='${Application}').oclAsType(domain::DomainApplication).application.applicationMessages.messages">
         <parameters uid="7a90b2c9-911d-485c-a2bc-e9f656b4734d" name="Application"/>
       </modelQuery>
+      <specifiers uid="fb807a21-7aaa-480c-aa25-86f8528bdc16" name="View implementation">
+        <options uid="e03cb153-f808-4a7d-86eb-9f148c65b726" value="JEE/JSF/ICEFaces"/>
+        <options uid="ac33a36f-af2d-4428-bbd1-d67a0e295c03" value="JEE/JSF/PrimeFaces"/>
+        <options uid="7191e55b-c351-4fdf-b8bb-e58a9bbb38a1" value="JEE/JSF/RichFaces"/>
+      </specifiers>
     </artifacts>
   </tura.domain:Artifacts>
   <tura.domain:Recipes uid="780d51bf-e928-4fb4-a228-4371d8fe439d" parent="fc4a8a78-b68c-4020-bb95-ab6d773b5486">
@@ -1627,6 +1632,7 @@
             </queries>
           </mappers>
           <mappers uid="216cf4bf-8c24-4875-9002-1072e96e4a84" domainArtifactRef="5945624b-20f3-47f9-9cb1-d0dc8df9491a" artifactRef="aba2e0d3-582f-4587-b4e9-dae6b0d4a508" name="faces-config.xml">
+            <specifiers specifierRef="fb807a21-7aaa-480c-aa25-86f8528bdc16" valueRef="ac33a36f-af2d-4428-bbd1-d67a0e295c03"/>
             <queries uid="b526e6aa-68ce-4505-9f0e-888cd4ffa96a" name="Query message libraries of application" queryRef="8d7c9384-ed1a-4a96-866c-54dccc8f06cd">
               <variables queryParamRef="7a90b2c9-911d-485c-a2bc-e9f656b4734d" value="HR application"/>
             </queries>

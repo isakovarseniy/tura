@@ -29,6 +29,7 @@
 		<version.josql>2.2</version.josql>
 		<version.weld>2.1.1.Final</version.weld>
 		<version.primefaces>5.1</version.primefaces>
+		<version.primefaces-model>2.0</version.primefaces-model>
 
 	</properties>
 
@@ -172,6 +173,12 @@
 				<artifactId>primefaces</artifactId>
 				<version>${version.primefaces}</version>
 			</dependency>
+			
+		<dependency>
+			<groupId>org.tura.platform</groupId>
+			<artifactId>primefaces-model</artifactId>
+				<version>${version.primefaces-model}</version>
+		</dependency>			
 
 		</dependencies>
 

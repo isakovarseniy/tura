@@ -4,7 +4,10 @@
 package  [%=component.basePackage%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%].viewmodel;
 @javax.faces.bean.ManagedBean(name = "viewPortHolder")
 @javax.faces.bean.ViewScoped
-public class ViewPortHolder{
+public class ViewPortHolder implements java.io.Serializable{
+
+	private static final long serialVersionUID = 1L;
+
 [%
       for (port in allPorts){
       var canvases = ViewInheritance->allInstances()->select(vi|vi.source=port);

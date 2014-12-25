@@ -1,0 +1,12 @@
+[%@template
+operation  faces_config(hash) { %]
+    <managed-bean>
+		<managed-bean-name>viewmodel</managed-bean-name>
+		<managed-bean-class>org.tura.platform.primefaces.model.ViewModel</managed-bean-class>
+		<managed-bean-scope>view</managed-bean-scope>
+	</managed-bean>          
+[%
+}
+%]
+	
+

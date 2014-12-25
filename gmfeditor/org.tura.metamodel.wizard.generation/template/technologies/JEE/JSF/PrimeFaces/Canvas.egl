@@ -4,8 +4,11 @@ operation  Canvas draw(hash) {
      var webapp = hash.get("webapp");   
      var form = hash.get("form");   
 %]
-     <p:panelGrid columns="1"  xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core" xmlns:ui="http://java.sun.com/jsf/facelets"
-			xmlns:p="http://primefaces.org/ui" xmlns:i="http://primefaces.prime.com.tr/touch"  [%=self.styleAttributes(hash)%] >
+     <p:panelGrid columns="1"  xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:p="http://primefaces.org/ui"  [%=self.styleAttributes(hash)%] >
      [%=self.generateBody(hash)%]     
      </p:panelGrid>
 [%

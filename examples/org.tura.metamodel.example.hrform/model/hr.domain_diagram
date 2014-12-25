@@ -3083,6 +3083,13 @@
         <styles xmi:type="notation:FilteringStyle" xmi:id="_McROm3_jEeSVl930Anw27Q"/>
       </children>
       <children xmi:type="notation:BasicCompartment" xmi:id="_McROnH_jEeSVl930Anw27Q" type="707003">
+        <children xmi:type="notation:Node" xmi:id="_YIp7YIxTEeSNl92io7qLZQ" type="703003">
+          <children xmi:type="notation:DecorationNode" xmi:id="_YIrJgIxTEeSNl92io7qLZQ" type="705003"/>
+          <styles xmi:type="notation:DescriptionStyle" xmi:id="_YIp7YYxTEeSNl92io7qLZQ"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_YIp7YoxTEeSNl92io7qLZQ" fontName="Lucida Grande"/>
+          <element xmi:type="tura.domain:Specifier" href="hr.domain#fb807a21-7aaa-480c-aa25-86f8528bdc16"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_YIp7Y4xTEeSNl92io7qLZQ"/>
+        </children>
         <styles xmi:type="notation:SortingStyle" xmi:id="_McROnX_jEeSVl930Anw27Q"/>
         <styles xmi:type="notation:FilteringStyle" xmi:id="_McROnn_jEeSVl930Anw27Q"/>
       </children>
