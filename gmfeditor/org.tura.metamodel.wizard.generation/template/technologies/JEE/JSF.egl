@@ -2,6 +2,7 @@
 operation  viewgeneration(hash) {
       var form = hash.get("form");   
       var  javaPath =  hash.get("javaPath");  
+      var webapp = hash.get("webapp");
       var util = new Native('org.tura.metamodel.commons.Util');
       var allPorts = new Native('java.util.ArrayList'); 
 
@@ -16,12 +17,29 @@ operation  viewgeneration(hash) {
  
       hash.put("allPorts",allPorts);
       var f = new Native("org.tura.metamodel.wizard.infrastructure.JavaFormatter");
+      var x = new Native("org.eclipse.epsilon.egl.formatter.language.XmlFormatter"); 
              
       var viewportclass : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.wizard.generation/template/technologies/JEE/JSF/viewPortHolderClass.egl",hash,TemplateFactory);
       viewportclass.setFormatter(f);
       var buffer = viewportclass.process();
       util.saveFile( javaPath+util.mergeAndCapitalize(form.name).toLowerCase()+"/viewmodel/"  , "ViewPortHolder.java",buffer);  
       
+      var logproducer : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.wizard.generation/template/technologies/JEE/JSF/loggerProducer.egl",hash,TemplateFactory);
+      logproducer.setFormatter(f);
+      var buffer = logproducer.process();
+      util.saveFile( javaPath+util.mergeAndCapitalize(form.name).toLowerCase()+"/producer/"  , "LoggerProducer.java",buffer);  
+      
+      
+      var expproducer : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.wizard.generation/template/technologies/JEE/JSF/expressionsProducer.egl",hash,TemplateFactory);
+      expproducer.setFormatter(f);
+      var buffer = expproducer.process();
+      util.saveFile( javaPath+util.mergeAndCapitalize(form.name).toLowerCase()+"/producer/"  , "ExpressionsProducer.java",buffer);  
+      
+      
+     var beansxml : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.wizard.generation/template/technologies/JEE/CDI/datacontrol/beans-xml.egl",hash,TemplateFactory);
+     beansxml.setFormatter(x);
+     buffer = beansxml.process();
+     util.saveFile( webapp+"/WEB-INF/"  , "beans.xml",buffer);        
       
       web_xml(hash) ;
 }
