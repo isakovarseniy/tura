@@ -11,8 +11,10 @@ package  [%=component.basePackage%].[%=util.mergeAndCapitalize(form.name).toLowe
 
 @javax.inject.Named("CommandStack")
 [%=commandstack_scope()%]
-public class CDICommandStack extends org.tura.platform.datacontrol.CommandStack{
-     
+public class CDICommandStack extends org.tura.platform.datacontrol.CommandStack  implements java.io.Serializable {
+
+	private static final long serialVersionUID = 1L;
+
 	@javax.inject.Inject
 	private javax.persistence.EntityManager em;
      

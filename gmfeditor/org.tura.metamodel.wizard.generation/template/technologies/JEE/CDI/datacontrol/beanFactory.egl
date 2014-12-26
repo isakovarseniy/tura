@@ -12,7 +12,9 @@ package  [%=component.basePackage%].[%=util.mergeAndCapitalize(form.name).toLowe
 
 @javax.inject.Named("beanFactory")
 [%=datacontrol_scope()%]
-public class BeanFactory {
+public class BeanFactory  implements java.io.Serializable {
+	private static final long serialVersionUID = 1L;
+
     [%
      var controls =  form.datacontrols.formControl.controls;
      for (control in controls){

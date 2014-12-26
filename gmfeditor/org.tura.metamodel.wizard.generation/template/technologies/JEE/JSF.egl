@@ -24,12 +24,6 @@ operation  viewgeneration(hash) {
       var buffer = viewportclass.process();
       util.saveFile( javaPath+util.mergeAndCapitalize(form.name).toLowerCase()+"/viewmodel/"  , "ViewPortHolder.java",buffer);  
       
-      var logproducer : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.wizard.generation/template/technologies/JEE/JSF/loggerProducer.egl",hash,TemplateFactory);
-      logproducer.setFormatter(f);
-      var buffer = logproducer.process();
-      util.saveFile( javaPath+util.mergeAndCapitalize(form.name).toLowerCase()+"/producer/"  , "LoggerProducer.java",buffer);  
-      
-      
       var expproducer : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.wizard.generation/template/technologies/JEE/JSF/expressionsProducer.egl",hash,TemplateFactory);
       expproducer.setFormatter(f);
       var buffer = expproducer.process();

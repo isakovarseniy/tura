@@ -4,10 +4,9 @@
 %]
 package  [%=component.basePackage%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%].producer;  
 
-@javax.enterprise.context.ViewScoped
 public class EntityManagerProducer {
 
-    @PersistenceUnit(unitName="[%=util.mergeAndCapitalize(component.name)%]")
+    @javax.persistence.PersistenceUnit(unitName="[%=util.mergeAndCapitalize(component.name)%]")
     javax.persistence.EntityManager em;
 
 	@javax.enterprise.inject.Produces

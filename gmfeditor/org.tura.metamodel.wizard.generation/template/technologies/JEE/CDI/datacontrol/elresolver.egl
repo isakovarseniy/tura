@@ -11,8 +11,9 @@ package  [%=component.basePackage%].[%=util.mergeAndCapitalize(form.name).toLowe
 
 @javax.inject.Named("elResolver")
 [%=elresolver_scope()%]
-public class ELResolverImpl implements org.tura.platform.datacontrol.ELResolver{
-
+public class ELResolverImpl implements org.tura.platform.datacontrol.ELResolver, java.io.Serializable {
+	private static final long serialVersionUID = 1L;
+	
 	@javax.inject.Inject
 	private javax.el.ExpressionFactory ef;
 	@javax.inject.Inject

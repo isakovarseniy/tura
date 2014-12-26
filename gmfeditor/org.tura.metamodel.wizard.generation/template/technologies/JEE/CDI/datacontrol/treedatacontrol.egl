@@ -12,7 +12,9 @@ ${percent}${end}
 package  [%=component.basePackage%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%].datacontrol;  
 
 [%=datacontrol_scope()%]
-public class TreeRoot[%=util.mergeAndCapitalize(control.name)%]DC extends org.tura.platform.datacontrol.TreeDataControl {
+public class TreeRoot[%=util.mergeAndCapitalize(control.name)%]DC extends org.tura.platform.datacontrol.TreeDataControl  implements java.io.Serializable{
+
+	private static final long serialVersionUID = 1L;
 
 	@javax.inject.Inject
 	public void setRoot([%=util.mergeAndCapitalize(control.name)%]DC root)  {

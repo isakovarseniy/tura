@@ -12,7 +12,12 @@ package  [%=component.basePackage%].[%=util.mergeAndCapitalize(form.name).toLowe
 
 [%=datacontrol_scope()%]
 @org.tura.platform.datacontrol.annotations.DCProxy
-public class [%=util.mergeAndCapitalize(control.name)%]DC extends org.tura.platform.datacontrol.DataControl <[%=control.~basefullName%]> [%if (control.~dependObject.isDefined()){%] implements org.tura.platform.datacontrol.ChangeRecordListener [%}%]{
+public class [%=util.mergeAndCapitalize(control.name)%]DC extends org.tura.platform.datacontrol.DataControl <[%=control.~basefullName%]>  implements java.io.Serializable [%if (control.~dependObject.isDefined()){%] , org.tura.platform.datacontrol.ChangeRecordListener [%}%]{
+
+	private static final long serialVersionUID = 1L;
+	
+	private transient @javax.inject.Inject java.util.logging.Logger logger;
+
 
     [%
     if (control.~dependObject.isDefined()){%]
@@ -72,7 +77,8 @@ public class [%=util.mergeAndCapitalize(control.name)%]DC extends org.tura.platf
 	}
 	
 	@javax.annotation.PostConstruct
-	public void init() throws IllegalArgumentException, IllegalAccessException {
+	public void init() {
+     try{
 
     [%
     var i = 0;
@@ -88,7 +94,9 @@ public class [%=util.mergeAndCapitalize(control.name)%]DC extends org.tura.platf
     }
     %] 
 		org.tura.platform.datacontrol.DataControlFactory.buildConnection(this);
-
+      }catch(Exception e){
+         	logger.fine(e.getMessage());
+      }
 	}	
 
 	@javax.inject.Inject

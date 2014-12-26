@@ -20,8 +20,7 @@ public class ViewModel {
 	private HashMap<String, Object> modelHolder = new HashMap<>();
 
 	@SuppressWarnings("rawtypes")
-	public Object getModel(String modelId, String expression, String modelType,
-			Object... parameters) {
+	public Object getModel(String modelId,  String modelType,String expression) {
 
 		Object model = modelHolder.get(modelId);
 		if (model != null)
