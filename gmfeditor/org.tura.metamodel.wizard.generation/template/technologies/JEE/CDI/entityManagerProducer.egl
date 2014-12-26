@@ -1,16 +1,33 @@
+<#assign percent = "%" >
+<#assign start = "[" >
+<#assign end = "]" >
+${start}${percent} 
+import "platform:/plugin/org.tura.metamodel.wizard.generation/template/technologies/${Environment}.egl";
+${percent}${end}
 [%
      var util = new Native('org.tura.metamodel.commons.Util');
 
 %]
 package  [%=component.basePackage%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%].producer;  
 
-public class EntityManagerProducer {
+[%=datacontrol_scope()%]
+public class EntityManagerProducer  implements java.io.Serializable {
 
-    @javax.persistence.PersistenceContext(unitName="[%=util.mergeAndCapitalize(component.name)%]")
-    javax.persistence.EntityManager em;
+	private static final long serialVersionUID = 1L;
+	
+	private javax.persistence.EntityManager em;	
 
 	@javax.enterprise.inject.Produces
 	public javax.persistence.EntityManager getEntityManager(javax.enterprise.inject.spi.InjectionPoint injectionPoint) {
-	   return em;
-    }
+		if (em != null)
+			return em; 
+		org.hibernate.cfg.Configuration config = new org.hibernate.cfg.Configuration();
+		config.addResource("META-INF/persistence.xml");
+		javax.persistence.EntityManagerFactory emf = javax.persistence.Persistence.createEntityManagerFactory(
+				"[%=util.mergeAndCapitalize(component.name)%]", config.getProperties());
+		em = emf.createEntityManager();
+
+		return em;
+	}
+
 }

@@ -3145,13 +3145,6 @@
                       <element xmi:type="tura.domain:Query" href="hr.domain#bbfd9c35-7dbf-43ea-a72b-808aadf1bf7a"/>
                       <layoutConstraint xmi:type="notation:Bounds" xmi:id="___7lEV41EeSXQIJAaGs7Ng"/>
                     </children>
-                    <children xmi:type="notation:Node" xmi:id="_JDOxkF42EeSXQIJAaGs7Ng" type="303004">
-                      <children xmi:type="notation:DecorationNode" xmi:id="_JDOxlF42EeSXQIJAaGs7Ng" type="305001"/>
-                      <styles xmi:type="notation:DescriptionStyle" xmi:id="_JDOxkV42EeSXQIJAaGs7Ng"/>
-                      <styles xmi:type="notation:FontStyle" xmi:id="_JDOxkl42EeSXQIJAaGs7Ng" fontName="Lucida Grande"/>
-                      <element xmi:type="tura.domain:Query" href="hr.domain#33bb70dc-6763-4280-98d5-637c251cb2d3"/>
-                      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_JDOxk142EeSXQIJAaGs7Ng"/>
-                    </children>
                     <children xmi:type="notation:Node" xmi:id="_Ugdp4F42EeSXQIJAaGs7Ng" type="303004">
                       <children xmi:type="notation:DecorationNode" xmi:id="_Ugdp5F42EeSXQIJAaGs7Ng" type="305001"/>
                       <styles xmi:type="notation:DescriptionStyle" xmi:id="_Ugdp4V42EeSXQIJAaGs7Ng"/>

@@ -1587,17 +1587,11 @@
               <variables queryParamRef="dfe0a7d4-62be-4cc4-8507-3cbc62f51c6f" value="NA"/>
               <variables queryParamRef="97d2c830-e4db-4e67-ad46-a90a530ce768" value="NA"/>
             </queries>
-            <queries uid="33bb70dc-6763-4280-98d5-637c251cb2d3" name="Get package HR package" queryRef="4d87c616-25ee-4815-9803-f6bf21be2840">
-              <variables queryParamRef="60329795-7cb7-4d67-97a7-f208accbe7a0" value="Entity"/>
-              <variables queryParamRef="5cb28e0b-218c-487c-8697-1c4773f9c4e8" value="ORMEntity"/>
-              <variables queryParamRef="ef789342-0a88-4618-85e7-0fa2b01f1b36" value="HR package"/>
-              <variables queryParamRef="87c1c616-79f3-452d-b88d-8761795f4bbc" value="entityObject"/>
-            </queries>
             <queries uid="cb287391-c207-4ebc-bc8e-30940b1632e5" name="Get package Base package" queryRef="4d87c616-25ee-4815-9803-f6bf21be2840">
-              <variables queryParamRef="60329795-7cb7-4d67-97a7-f208accbe7a0" value="Entity"/>
-              <variables queryParamRef="5cb28e0b-218c-487c-8697-1c4773f9c4e8" value="ORMEntity"/>
-              <variables queryParamRef="ef789342-0a88-4618-85e7-0fa2b01f1b36" value="Base package"/>
-              <variables queryParamRef="87c1c616-79f3-452d-b88d-8761795f4bbc" value="entityObject"/>
+              <variables queryParamRef="60329795-7cb7-4d67-97a7-f208accbe7a0" value="NA"/>
+              <variables queryParamRef="5cb28e0b-218c-487c-8697-1c4773f9c4e8" value="NA"/>
+              <variables queryParamRef="ef789342-0a88-4618-85e7-0fa2b01f1b36" value="NA"/>
+              <variables queryParamRef="87c1c616-79f3-452d-b88d-8761795f4bbc" value="NA"/>
             </queries>
           </mappers>
           <mappers uid="8fba4b70-da2d-42cd-a054-3930d715e823" domainArtifactRef="5945624b-20f3-47f9-9cb1-d0dc8df9491a" artifactRef="53a25731-a3bd-4158-81d1-70a4cab4c22c" name="Service producers ">
@@ -1643,7 +1637,7 @@
     <configurations uid="a2357108-13c5-455e-824c-78102bd6bfe1" infrastructure="81bafabb-45d9-48af-9283-6ffc90afbda3">
       <properties uid="663bc48f-0d46-4ba8-b7ce-136e538060da" confVarRef="a52e5078-3017-43a0-b571-f58150f8ffd2" value="hr"/>
       <properties uid="62746f6c-496e-407d-be8b-0af2d94b1a52" confVarRef="cd17301e-820b-4c33-b955-9cc0a938fe81" value="5432"/>
-      <properties uid="c7c66d66-5cb6-45e6-836c-5bbee4928230" confVarRef="58ebee50-6a39-4ce0-b6f4-aab51c5bf239" value="arseniyi"/>
+      <properties uid="c7c66d66-5cb6-45e6-836c-5bbee4928230" confVarRef="58ebee50-6a39-4ce0-b6f4-aab51c5bf239" value="arseniy"/>
       <properties uid="0a66ae5a-5e79-40ec-a043-983bfa0d099c" confVarRef="9040caf7-fece-440f-bdad-5e598adfd243" value="localhost"/>
       <properties uid="56897480-3b06-44a1-8e98-e17e6183387c" confVarRef="57dea534-b8f3-4546-8a63-cc15dfedcd94" value="jdbc/hrDS"/>
       <properties uid="60a9dab1-d560-4d14-8003-407b470f1b3f" confVarRef="618186f9-7c62-47cf-82f7-3b295a85ca9f" value="postgres"/>
