@@ -15,6 +15,7 @@
  ******************************************************************************/
 package org.tura.platform.commons.jpa;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -27,7 +28,10 @@ import org.tura.platform.persistence.TuraObject;
 import com.octo.java.sql.query.SelectQuery;
 import static com.octo.java.sql.query.Query.c;
 
-public class TuraJPAEntityService {
+public class TuraJPAEntityService  implements Serializable{
+	
+	private static final long serialVersionUID = 1L;
+
 	private EntityManager em;
 
 	public void setEntityManager(EntityManager em) {

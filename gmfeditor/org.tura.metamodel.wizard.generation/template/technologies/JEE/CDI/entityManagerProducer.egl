@@ -6,7 +6,7 @@ package  [%=component.basePackage%].[%=util.mergeAndCapitalize(form.name).toLowe
 
 public class EntityManagerProducer {
 
-    @javax.persistence.PersistenceUnit(unitName="[%=util.mergeAndCapitalize(component.name)%]")
+    @javax.persistence.PersistenceContext(unitName="[%=util.mergeAndCapitalize(component.name)%]")
     javax.persistence.EntityManager em;
 
 	@javax.enterprise.inject.Produces

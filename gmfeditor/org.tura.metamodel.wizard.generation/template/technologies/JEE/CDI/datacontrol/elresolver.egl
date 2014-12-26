@@ -15,9 +15,9 @@ public class ELResolverImpl implements org.tura.platform.datacontrol.ELResolver,
 	private static final long serialVersionUID = 1L;
 	
 	@javax.inject.Inject
-	private javax.el.ExpressionFactory ef;
+	private transient javax.el.ExpressionFactory ef;
 	@javax.inject.Inject
-	private javax.el.ELContext context;
+	private transient javax.el.ELContext context;
 
 	public Object getValue(String exp) {
 		javax.el.ValueExpression ve = ef.createValueExpression(context, "$"+ "{"+exp+"}",
