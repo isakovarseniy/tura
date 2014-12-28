@@ -4,8 +4,12 @@ operation DropDownSelection draw(hash) {
      var value;
      if (hash.get("context") == null )
          value = buildExpression(util.createArtificialContextValue(self.sourcePointer,self.sourcePointer.findTreeRoot(),self.valuePointer));
-     else
-         value =  "row."+self.valuePointer.name;  
+     else{
+          if (hash.get("context").equals("table") )
+               value =  "row[2]."+self.valuePointer.name;  
+          if (hash.get("context").equals("tree") )
+               value =  "row[2]."+self.valuePointer.name;  
+     }
  %]
  <p:selectOneMenu id="tura[%=self.uid.replaceAll("\\-","_")%]" [%=self.uiElementAttributes(hash)%] value="#{[%=value%]}">
 	<f:selectItems  value="#{viewmodel.getModel('[%=self.uid.replaceAll("\\-","_")%]','options', [%=buildExpression(util.createArtificialContextValue(self.optionPointer,self.optionPointer.findTreeRoot(),null))%],[%=self.displayOptionPointer.name%],[%=self.valueOptionPointer.name%])}"/>

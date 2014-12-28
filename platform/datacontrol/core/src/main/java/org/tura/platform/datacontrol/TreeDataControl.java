@@ -31,6 +31,7 @@ public abstract class TreeDataControl implements IDataControl {
 
 	public void setRoot(DataControl<?> root) {
 		this.root = root;
+		this.currentControl = root;
 		root.setParent(treeRelation);
 	}
 

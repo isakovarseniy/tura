@@ -1,19 +1,23 @@
 package org.tura.platform.primefaces.model;
 
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.logging.Logger;
 
-import javax.faces.bean.ViewScoped;
+import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
+import javax.inject.Named;
 
 import org.tura.platform.datacontrol.DataControl;
 import org.tura.platform.datacontrol.TreeDataControl;
 
 @ViewScoped
-public class ViewModel {
+@Named("viewmodel")
+public class ViewModel  implements Serializable {
+    private static final long serialVersionUID = 1L;
 
 	@Inject
-	private Logger logger;
+	private transient Logger logger;
 	private HashMap<String, Object> modelHolder = new HashMap<>();
 
 	@SuppressWarnings("rawtypes")

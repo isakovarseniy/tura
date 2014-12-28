@@ -1,6 +1,6 @@
 [%@template
 operation domain::Table draw(hash) { 
-     hash.put("context","tree");
+     hash.put("context","table");
 %]
      [%=self.generateBody(hash)%]     
 [%

@@ -856,7 +856,7 @@
       <properties uid="d1367677-df35-4554-9d03-62a58fa94cc0" confVarRef="a52e5078-3017-43a0-b571-f58150f8ffd2" value="hr"/>
       <properties uid="d40e63c3-4a21-4f90-a5c6-a2dcef0499eb" confVarRef="57dea534-b8f3-4546-8a63-cc15dfedcd94" value="jdbc/hrDS"/>
       <properties uid="dfacc619-2223-4b17-abd2-d8a6a2e49785" confVarRef="d133115a-dab4-4a27-b2c1-6ec0aa3613eb" value="/Users/arseniyi/tools/apache-maven-3.2.2" fakeName=""/>
-      <properties uid="0b4e455d-1a87-404d-aa1c-da6d4550517b" confVarRef="9f809420-5098-495f-9e64-d4e49e364de3" value="/Users/arseniyi/glassfish3"/>
+      <properties uid="0b4e455d-1a87-404d-aa1c-da6d4550517b" confVarRef="9f809420-5098-495f-9e64-d4e49e364de3" value="/Users/arseniyi/glassfish4"/>
       <properties uid="8cfbba12-e04c-4327-aab9-6957ffc0a09a" confVarRef="1b2c5718-ab8c-4ff7-93f7-422e22e7d284" value="4848"/>
       <properties uid="9ef8f2f3-92d7-4fca-b3d9-3f8946f518ee" confVarRef="d0478242-5a9b-44db-bafd-92f09b6ff8db" value="domain1"/>
       <properties uid="f08ac5d1-cacb-43ec-8b24-fbd47cdc7893" confVarRef="6c69f631-c365-4a78-8777-350ea19beed8" value="localhost"/>
@@ -1779,7 +1779,7 @@
   <tura.domain:CanvasView uid="86803f23-9d44-4ebc-81e9-9a63b4a770ac" parent="e018aa58-2660-4bba-a75d-1674147458e7">
     <baseCanvas uid="c5f8ac47-356e-4c17-84db-fcf0a5037ca7">
       <children xsi:type="tura.domain:LayerHolder" uid="cae32081-1631-4110-9d0f-5a5b1cd5e23a" columns="2">
-        <children xsi:type="tura.domain:Table" uid="92ea6c50-dc39-4ba0-bb76-b3ca2e161fe5" sourcePointer="d45e9605-3706-493c-8422-3f7b8b6ea2ed" sourceCastDataControl="d45e9605-3706-493c-8422-3f7b8b6ea2ed" columns="2" label="Companies">
+        <children xsi:type="tura.domain:Table" uid="92ea6c50-dc39-4ba0-bb76-b3ca2e161fe5" sourcePointer="d45e9605-3706-493c-8422-3f7b8b6ea2ed" sourceCastDataControl="d45e9605-3706-493c-8422-3f7b8b6ea2ed" columns="2" label="Companies" rowNumber="5">
           <style/>
           <multiLangLabel value="Messages.HR Controller.COMPANIES_TABLE">
             <expression objRef="af03a493-0ca4-486c-945f-5bfc2fdf35bd" expressionType="MessagesImpl"/>

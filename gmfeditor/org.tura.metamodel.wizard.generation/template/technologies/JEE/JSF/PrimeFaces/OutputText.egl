@@ -5,8 +5,12 @@ operation domain::OutputText  draw(hash) {
      hash.put("readonly","true");
      if (hash.get("context") == null )
          value = buildExpression(util.createArtificialContextValue(self.sourcePointer,self.sourcePointer.findTreeRoot(),self.valuePointer));
-     else
-         value =  "row."+self.valuePointer.name;  
+     else{
+          if (hash.get("context").equals("table") )
+               value =  "row[2]."+self.valuePointer.name;  
+          if (hash.get("context").equals("tree") )
+               value =  "row[2]."+self.valuePointer.name;  
+     }
  %]
 <p:inputText  id="tura[%=self.uid.replaceAll("\\-","_")%]" value="#{[%=value%]}"   [%=self.uiElementAttributes(hash)%]>
 </p:inputText>

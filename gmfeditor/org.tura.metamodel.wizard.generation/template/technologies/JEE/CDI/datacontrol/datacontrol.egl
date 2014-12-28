@@ -10,7 +10,6 @@ ${percent}${end}
 %]
 package  [%=component.basePackage%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%].datacontrol;  
 
-[%=datacontrol_scope()%]
 @org.tura.platform.datacontrol.annotations.DCProxy
 public class [%=util.mergeAndCapitalize(control.name)%]DC extends org.tura.platform.datacontrol.DataControl <[%=control.~basefullName%]>  implements java.io.Serializable [%if (control.~dependObject.isDefined()){%] , org.tura.platform.datacontrol.ChangeRecordListener [%}%]{
 
