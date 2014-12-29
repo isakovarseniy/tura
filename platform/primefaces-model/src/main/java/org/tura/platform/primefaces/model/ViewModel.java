@@ -28,12 +28,13 @@ public class ViewModel  implements Serializable {
 			return model;
 
 		if ("grid".equals(modelType))
-			return getGridModel((DataControl) obj, logger);
+			model = getGridModel((DataControl) obj, logger);
 
 		if ("tree".equals(modelType))
-			return getTreeModel((TreeDataControl) obj);
+			model =  getTreeModel((TreeDataControl) obj);
 
-		return null;
+		modelHolder.put(modelId, model);
+		return model;
 
 	}
 

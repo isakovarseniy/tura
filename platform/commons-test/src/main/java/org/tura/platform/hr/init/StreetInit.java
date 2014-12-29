@@ -44,7 +44,7 @@ public class StreetInit {
 		StreetDAO dpt = new StreetDAO();
 		dpt.setObjId(obj_id);
 		dpt.setParentId(city_id);
-		dpt.setStreetName(streetName);
+		dpt.setName(streetName);
 		em.persist(dpt);
 		return dpt;
 

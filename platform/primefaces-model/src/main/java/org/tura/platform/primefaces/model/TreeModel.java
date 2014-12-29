@@ -26,15 +26,16 @@ public class TreeModel {
 	@SuppressWarnings("rawtypes")
 	public TreeNode getRoot() throws Exception {
 		if (root == null) {
-			root = new DefaultTreeNode("Root", null);
+			root = new DefaultTreeNode(new Root(), null);
 
 			dc.setCurrentPosition(new int[] { 0 });
 			if (dc.getCurrentControl() != null) {
 				List scroler = ((DataControl) dc.getCurrentControl())
 						.getScroller();
 				for (int i = 0; i < scroler.size(); i++) {
-					new DefaultTreeNode(new Object[] { i, scroler.get(i) },
-							root);
+					DefaultTreeNode leaf = new DefaultTreeNode(new Object[] {
+							i, scroler.get(i) }, root);
+					new DefaultTreeNode(new Fake(), leaf);
 				}
 			}
 		}
@@ -53,13 +54,22 @@ public class TreeModel {
 
 		TreeNode runner = selectedNode;
 		List<Integer> path = new ArrayList<Integer>();
-		do {
+		while (true) {
+			if (runner.getData() instanceof Root)
+				break;
 			Object[] data = (Object[]) runner.getData();
 			path.add((Integer) data[0]);
-		} while (runner.getParent() != null);
+			if (runner.getParent() != null)
+				runner = runner.getParent();
+		}
 		Collections.reverse(path);
+		int [] p = new int[path.size()];
+		
+		for ( int i = 0 ; i < path.size(); i++   ){
+			p[i] = path.get(i).intValue();
+		}
 
-		dc.setCurrentPosition(path.toArray(new Integer[path.size()]));
+		dc.setCurrentPosition(p);
 
 	}
 
@@ -69,8 +79,9 @@ public class TreeModel {
 				.getSource();
 		TreeNode expnode = object.getRowNode();
 		setSelectedNode(expnode);
-
-		expnode.getChildren().clear();
+   
+       expnode.getChildren().clear();
+		
 		List scroler = ((DataControl) dc.getCurrentControl()).getScroller();
 		for (int i = 0; i < scroler.size(); i++) {
 			new DefaultTreeNode(new Object[] { i, scroler.get(i) }, expnode);
@@ -98,6 +109,14 @@ public class TreeModel {
 	}
 
 	public void onNodeUnselect(NodeUnselectEvent event) {
+	}
+
+	class Root {
+
+	}
+
+	class Fake {
+
 	}
 
 }

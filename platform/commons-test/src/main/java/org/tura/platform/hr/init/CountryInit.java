@@ -27,7 +27,7 @@ public class CountryInit {
 	private CountryDAO create(Long obj_id, String countryName, Long companyid) {
 		CountryDAO dpt = new CountryDAO();
 		dpt.setObjId(obj_id);
-		dpt.setCountryName(countryName);
+		dpt.setName(countryName);
 		dpt.setParentId(companyid);
 		em.persist(dpt);
 		return dpt;

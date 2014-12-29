@@ -9,7 +9,7 @@ operation domain::OutputText  draw(hash) {
           if (hash.get("context").equals("table") )
                value =  "row[2]."+self.valuePointer.name;  
           if (hash.get("context").equals("tree") )
-               value =  "row[2]."+self.valuePointer.name;  
+               value =  "row[1]."+self.valuePointer.name;  
      }
  %]
 <p:inputText  id="tura[%=self.uid.replaceAll("\\-","_")%]" value="#{[%=value%]}"   [%=self.uiElementAttributes(hash)%]>

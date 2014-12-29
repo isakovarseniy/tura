@@ -1315,7 +1315,7 @@
       <styles xmi:type="notation:FontStyle" xmi:id="_viv_MkBgEeSxmLdYE8SvSQ" fontName="Lucida Grande"/>
       <styles xmi:type="notation:HintedDiagramLinkStyle" xmi:id="_viv_M0BgEeSxmLdYE8SvSQ"/>
       <element xmi:type="tura.domain:Type" href="hr.domain#State_25a85943-6b6b-4ca0-a223-e031e30c5563"/>
-      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_viv_NEBgEeSxmLdYE8SvSQ" x="872" y="271"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_viv_NEBgEeSxmLdYE8SvSQ" x="855" y="270"/>
     </children>
     <children xmi:type="notation:Node" xmi:id="_vixNUUBgEeSxmLdYE8SvSQ" type="102002">
       <children xmi:type="notation:DecorationNode" xmi:id="_vixNVkBgEeSxmLdYE8SvSQ" type="105006"/>

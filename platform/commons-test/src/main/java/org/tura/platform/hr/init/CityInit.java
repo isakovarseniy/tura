@@ -28,7 +28,7 @@ public class CityInit {
 		CityDAO dpt = new CityDAO();
 		dpt.setObjId(obj_id);
 		dpt.setParentId(state_id);
-		dpt.setCityName(cityName);
+		dpt.setName(cityName);
 		em.persist(dpt);
 		return dpt;
 

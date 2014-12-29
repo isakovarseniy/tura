@@ -12,24 +12,14 @@ import javax.persistence.Table;
 @Table(name = "COUNTRYDAO")
 public class CountryDAO extends TuraObject implements Serializable {
     private static final long serialVersionUID = -1L;
-    @Column(name = "COUNTRYNAME")
-    private String CountryName;
-    @Column(name = "STATEID")
-    private Long stateId;
+    @Column(name = "NAME")
+    private String name;
 
-    public void setCountryName(String CountryName) {
-        this.CountryName = CountryName;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getCountryName() {
-        return CountryName;
-    }
-
-    public void setStateId(Long stateId) {
-        this.stateId = stateId;
-    }
-
-    public Long getStateId() {
-        return stateId;
+    public String getName() {
+        return name;
     }
 }

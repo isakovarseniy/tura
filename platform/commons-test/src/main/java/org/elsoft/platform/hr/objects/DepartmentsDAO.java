@@ -20,6 +20,8 @@ public class DepartmentsDAO extends TuraObject implements Serializable {
     private Long managerId;
     @Column(name = "LOCATIONID")
     private Long locationId;
+    @Column(name = "DESCRIPTION")
+    private String description;
 
     public void setDepartmentId(Long departmentId) {
         this.departmentId = departmentId;
@@ -51,5 +53,13 @@ public class DepartmentsDAO extends TuraObject implements Serializable {
 
     public Long getLocationId() {
         return locationId;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getDescription() {
+        return description;
     }
 }

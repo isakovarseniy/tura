@@ -46,7 +46,7 @@ public class StateInit {
 		StateDAO dpt = new StateDAO();
 		dpt.setObjId(obj_id);
 		dpt.setParentId(country_id);
-		dpt.setStateName(stateName);
+		dpt.setName(stateName);
 		em.persist(dpt);
 		return dpt;
 

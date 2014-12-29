@@ -325,8 +325,7 @@
     </types>
     <types xsi:type="tura.domain:Type" uid="Cntr_52ffccb7-cea6-49de-ba4b-7437f1da3369" name="Country Type">
       <classifiers uid="Cntr_03eabbe7-b921-4ce7-a2a4-78b65cc0bda8" hint="bf57ae0e-a725-4c7c-b178-ebbf640b2375"/>
-      <attributes packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="e370b9d1-a6fb-4a40-88e2-8845be441438" fakeTypeName="" uid="Cntr_7982905f-4f83-472f-8551-80e30e34934c" name="countryName"/>
-      <attributes packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="7b7c554c-a1ad-4e6e-8c91-20df7d6530f8" uid="Cntr_84d12c71-8ea0-47f8-ab40-36ef71389fa1" name="stateId"/>
+      <attributes packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="e370b9d1-a6fb-4a40-88e2-8845be441438" fakeTypeName="" uid="Cntr_7982905f-4f83-472f-8551-80e30e34934c" name="name"/>
       <extension uid="Cntr_TypeExtension1" source="Cntr_52ffccb7-cea6-49de-ba4b-7437f1da3369" target="Cntr_eb76b6af-9330-4f5b-b46c-8b732b8fe354">
         <classifiers uid="Cntr_30a3e710-436b-41a7-9649-0311b2fe1ef7" hint="2fe9fdd8-3fec-4a11-9ed5-a79c64373895"/>
       </extension>
@@ -363,8 +362,7 @@
     </types>
     <types xsi:type="tura.domain:Type" uid="State_52ffccb7-cea6-49de-ba4b-7437f1da3369" name="State Type">
       <classifiers uid="State_03eabbe7-b921-4ce7-a2a4-78b65cc0bda8" hint="bf57ae0e-a725-4c7c-b178-ebbf640b2375"/>
-      <attributes packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="e370b9d1-a6fb-4a40-88e2-8845be441438" uid="State_7982905f-4f83-472f-8551-80e30e34934c" name="stateName"/>
-      <attributes packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="7b7c554c-a1ad-4e6e-8c91-20df7d6530f8" uid="State_a898ef4f-3c81-405b-a712-fa513b0e5754" name="cityId"/>
+      <attributes packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="e370b9d1-a6fb-4a40-88e2-8845be441438" uid="State_7982905f-4f83-472f-8551-80e30e34934c" name="name"/>
       <extension uid="State_TypeExtension1" source="State_52ffccb7-cea6-49de-ba4b-7437f1da3369" target="State_eb76b6af-9330-4f5b-b46c-8b732b8fe354">
         <classifiers uid="State_30a3e710-436b-41a7-9649-0311b2fe1ef7" hint="2fe9fdd8-3fec-4a11-9ed5-a79c64373895"/>
       </extension>
@@ -401,8 +399,7 @@
     </types>
     <types xsi:type="tura.domain:Type" uid="City_52ffccb7-cea6-49de-ba4b-7437f1da3369" name="City Type">
       <classifiers uid="City_03eabbe7-b921-4ce7-a2a4-78b65cc0bda8" hint="bf57ae0e-a725-4c7c-b178-ebbf640b2375"/>
-      <attributes packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="e370b9d1-a6fb-4a40-88e2-8845be441438" uid="City_7982905f-4f83-472f-8551-80e30e34934c" name="cityName"/>
-      <attributes packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="7b7c554c-a1ad-4e6e-8c91-20df7d6530f8" uid="City_a898ef4f-3c81-405b-a712-fa513b0e5754" name="streetId"/>
+      <attributes packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="e370b9d1-a6fb-4a40-88e2-8845be441438" uid="City_7982905f-4f83-472f-8551-80e30e34934c" name="name"/>
       <extension uid="City_TypeExtension1" source="City_52ffccb7-cea6-49de-ba4b-7437f1da3369" target="City_eb76b6af-9330-4f5b-b46c-8b732b8fe354">
         <classifiers uid="City_30a3e710-436b-41a7-9649-0311b2fe1ef7" hint="2fe9fdd8-3fec-4a11-9ed5-a79c64373895"/>
       </extension>
@@ -439,7 +436,7 @@
     </types>
     <types xsi:type="tura.domain:Type" uid="Str_52ffccb7-cea6-49de-ba4b-7437f1da3369" name="Street Type">
       <classifiers uid="Str_03eabbe7-b921-4ce7-a2a4-78b65cc0bda8" hint="bf57ae0e-a725-4c7c-b178-ebbf640b2375"/>
-      <attributes packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="e370b9d1-a6fb-4a40-88e2-8845be441438" uid="Str_7982905f-4f83-472f-8551-80e30e34934c" name="StreetName"/>
+      <attributes packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="e370b9d1-a6fb-4a40-88e2-8845be441438" uid="Str_7982905f-4f83-472f-8551-80e30e34934c" name="name"/>
       <extension uid="Str_TypeExtension1" source="Str_52ffccb7-cea6-49de-ba4b-7437f1da3369" target="Str_eb76b6af-9330-4f5b-b46c-8b732b8fe354">
         <classifiers uid="Str_30a3e710-436b-41a7-9649-0311b2fe1ef7" hint="2fe9fdd8-3fec-4a11-9ed5-a79c64373895"/>
       </extension>
@@ -1813,11 +1810,14 @@
             <expression objRef="9e8ac4a5-5023-44f2-af6f-56c62c679fa3" order="2" expressionType="MessageImpl"/>
           </multiLangLabel>
           <cols uid="5e5bd550-97e0-4d71-a50c-ca103fa10355">
-            <element xsi:type="tura.domain:OutputText" uid="11000d5e-b6ba-4b1a-9396-6549d6a40d2e" valuePointer="Cntr_7982905f-4f83-472f-8551-80e30e34934c" sourceCast="Cntr_52ffccb7-cea6-49de-ba4b-7437f1da3369" sourceCastDataControl="cd1cab1c-1781-4867-85b8-84d9f465f989"/>
+            <element xsi:type="tura.domain:OutputText" uid="11000d5e-b6ba-4b1a-9396-6549d6a40d2e" valuePointer="Cntr_7982905f-4f83-472f-8551-80e30e34934c" sourceCast="Cntr_52ffccb7-cea6-49de-ba4b-7437f1da3369" sourceCastDataControl="cd1cab1c-1781-4867-85b8-84d9f465f989">
+              <required/>
+              <readOnly/>
+            </element>
           </cols>
         </children>
       </children>
-      <children xsi:type="tura.domain:Table" uid="1ee2b71b-9a1a-4655-8562-b01bd84fe5e5" sourcePointer="0feddc04-1241-40fa-a9f3-35089d2cf4c5" columns="3" label="Departments">
+      <children xsi:type="tura.domain:Table" uid="1ee2b71b-9a1a-4655-8562-b01bd84fe5e5" nickname="" sourcePointer="0feddc04-1241-40fa-a9f3-35089d2cf4c5" columns="3" label="Departments" rowNumber="5">
         <style/>
         <enabled/>
         <required/>

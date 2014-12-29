@@ -16,6 +16,8 @@ public class CompanyDAO extends TuraObject implements Serializable {
     private String companyName;
     @Column(name = "COUNTRYID")
     private Long countryId;
+    @Column(name = "DESCRIPTION")
+    private String description;
 
     public void setCompanyName(String companyName) {
         this.companyName = companyName;
@@ -31,5 +33,13 @@ public class CompanyDAO extends TuraObject implements Serializable {
 
     public Long getCountryId() {
         return countryId;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getDescription() {
+        return description;
     }
 }
