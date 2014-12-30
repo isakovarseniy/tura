@@ -10,8 +10,11 @@ import org.primefaces.event.NodeSelectEvent;
 import org.primefaces.event.NodeUnselectEvent;
 import org.primefaces.model.DefaultTreeNode;
 import org.primefaces.model.TreeNode;
+import org.tura.platform.datacontrol.BeanWrapper;
 import org.tura.platform.datacontrol.DataControl;
+import org.tura.platform.datacontrol.IDataControl;
 import org.tura.platform.datacontrol.TreeDataControl;
+import org.tura.platform.datacontrol.commons.Reflection;
 
 public class TreeModel {
 
@@ -80,12 +83,26 @@ public class TreeModel {
 		TreeNode expnode = object.getRowNode();
 		setSelectedNode(expnode);
    
-       expnode.getChildren().clear();
+		Object[] data = (Object[]) expnode.getData();
+		Object obj = data[1];
 		
-		List scroler = ((DataControl) dc.getCurrentControl()).getScroller();
-		for (int i = 0; i < scroler.size(); i++) {
-			new DefaultTreeNode(new Object[] { i, scroler.get(i) }, expnode);
-		}
+		BeanWrapper w = (BeanWrapper) Reflection.call(obj, "getWrapper");
+
+		IDataControl curdc =  w.getDatacontrol();
+
+        expnode.getChildren().clear();
+		
+        for ( String relationName :  curdc.getRelationsName() ){
+        	  curdc.createChild(relationName);
+        	  IDataControl chdc =  curdc.getChild(relationName).getChild();
+        	  
+      		List scroler = ((DataControl) chdc).getScroller();
+    		for (int i = 0; i < scroler.size(); i++) {
+    			DefaultTreeNode leaf = new DefaultTreeNode(new Object[] { i, scroler.get(i) }, expnode);
+    			new DefaultTreeNode(new Fake(), leaf);
+    		}        	
+        }
+
 	}
 
 	public void onNodeCollapse(NodeCollapseEvent event) {
@@ -93,10 +110,8 @@ public class TreeModel {
 				.getSource();
 		TreeNode collapseNode = object.getRowNode();
 
-		int i = collapseNode.getChildren().size();
-		for (int j = 0; j < i; j++)
-			collapseNode.getChildren().remove(0);
-
+		collapseNode.getChildren().clear();
+		new DefaultTreeNode(new Fake(), collapseNode);
 		collapseNode.setExpanded(false);
 
 	}

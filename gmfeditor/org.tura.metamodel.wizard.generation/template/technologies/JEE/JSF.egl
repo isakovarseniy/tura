@@ -29,12 +29,6 @@ operation  viewgeneration(hash) {
       var buffer = expproducer.process();
       util.saveFile( javaPath+util.mergeAndCapitalize(form.name).toLowerCase()+"/producer/"  , "ExpressionsProducer.java",buffer);  
       
-      
-     var beansxml : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.wizard.generation/template/technologies/JEE/CDI/datacontrol/beans-xml.egl",hash,TemplateFactory);
-     beansxml.setFormatter(x);
-     buffer = beansxml.process();
-     util.saveFile( webapp+"/WEB-INF/"  , "beans.xml",buffer);        
-      
       web_xml(hash) ;
 }
 %]
