@@ -12,7 +12,7 @@ operation domain::OutputText  draw(hash) {
                value =  "row[1]."+self.valuePointer.name;  
      }
  %]
-<p:inputText  id="tura[%=self.uid.replaceAll("\\-","_")%]" value="#{[%=value%]}"   [%=self.uiElementAttributes(hash)%]>
+<p:inputText  id="[%=self.mkuid()%]" value="#{[%=value%]}"   [%=self.uiElementAttributes(hash)%]>
 </p:inputText>
 [%
      hash.put("readonly",null);

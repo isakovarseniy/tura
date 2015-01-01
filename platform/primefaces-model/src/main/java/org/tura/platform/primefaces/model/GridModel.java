@@ -23,8 +23,9 @@ public class GridModel {
 		return lazyModel;
 	}
 
-	public void setSelected(Object obj) {
-		Object[] array = (Object[]) obj;
+	public void setSelected(org.primefaces.event.SelectEvent event) {
+		
+		Object[] array = (Object[]) event.getObject();
 		try {
 			dc.setCurrentPosition(array[0]);
 		} catch (TuraException e) {
