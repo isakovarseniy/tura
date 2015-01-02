@@ -99,9 +99,9 @@ insert into hr.departmentsdao(obj_id,parent_id, departmentname,departmentid) val
 insert into hr.departmentsdao(obj_id,parent_id, departmentname,departmentid) values(27,16,'Department 27', 100027);
 
 
-update hr.companydao set version=0;
-update hr.countrydao set version=0;
-update hr.statedao set version=0;
-update hr.citydao set version=0;
-update hr.streetdao set version=0;
-update hr.departmentsdao set version=0;
+update hr.companydao set optlock=0;
+update hr.countrydao set optlock=0;
+update hr.statedao set optlock=0;
+update hr.citydao set optlock=0;
+update hr.streetdao set optlock=0;
+update hr.departmentsdao set optlock=0;
