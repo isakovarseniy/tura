@@ -23,6 +23,10 @@ public class Relation {
 
 	private ArrayList<PropertyLink> links = new ArrayList<PropertyLink>();
 
+
+	public IDataControl getParent() {
+		return parent;
+	}	
 	public void setParent(IDataControl parent) {
 		this.parent = parent;
 	}

@@ -11,10 +11,12 @@ import org.primefaces.event.NodeUnselectEvent;
 import org.primefaces.model.DefaultTreeNode;
 import org.primefaces.model.TreeNode;
 import org.tura.platform.datacontrol.BeanWrapper;
+import org.tura.platform.datacontrol.ChangeRecordListener;
 import org.tura.platform.datacontrol.DataControl;
 import org.tura.platform.datacontrol.IDataControl;
 import org.tura.platform.datacontrol.TreeDataControl;
 import org.tura.platform.datacontrol.commons.Reflection;
+import org.tura.platform.datacontrol.commons.TuraException;
 
 public class TreeModel {
 
@@ -24,6 +26,7 @@ public class TreeModel {
 
 	public TreeModel(TreeDataControl dc) {
 		this.dc = dc;
+		dc.addMusterCurrentRecordChageLiteners(new RecordListener());
 	}
 
 	@SuppressWarnings("rawtypes")
@@ -132,6 +135,17 @@ public class TreeModel {
 
 	class Fake {
 
+	}
+	
+	class RecordListener implements  ChangeRecordListener{
+
+		@Override
+		public void handleChangeRecord(IDataControl dc, Object newCurrentObject)
+				throws TuraException {
+System.out.println(newCurrentObject)	;	
+           root = null;
+		}
+		
 	}
 
 }

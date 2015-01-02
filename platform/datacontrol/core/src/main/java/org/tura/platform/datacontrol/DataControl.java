@@ -16,16 +16,18 @@ import org.tura.platform.datacontrol.shift.ShiftControl;
 
 import com.octo.java.sql.query.SelectQuery;
 
-public abstract class DataControl<T>  extends MetaInfoHolder implements IDataControl{
+public abstract class DataControl<T> extends MetaInfoHolder implements
+		IDataControl {
 
 	private static boolean SCROLL_DOWN = true;
 	private static boolean SCROLL_UP = false;
 	private static String id = UUID.randomUUID().toString();
-	
+
 	protected boolean blocked = false;
 	private TreeDataControl treeDataControl;
 
 	private ArrayList<ChangeRecordListener> chageRecordLiteners = new ArrayList<>();
+	private ArrayList<ChangeRecordListener> musterCurrentRecordChageLiteners = new ArrayList<>();
 
 	private SelectQuery query;
 
@@ -44,6 +46,11 @@ public abstract class DataControl<T>  extends MetaInfoHolder implements IDataCon
 		chageRecordLiteners.add(listener);
 	}
 
+	public void addMusterCurrentRecordChageLiteners(
+			ChangeRecordListener listener) {
+		musterCurrentRecordChageLiteners.add(listener);
+	}
+
 	public void forceRefresh() throws TuraException {
 		currentPosition = 0;
 		pager.cleanPager();
@@ -53,16 +60,17 @@ public abstract class DataControl<T>  extends MetaInfoHolder implements IDataCon
 
 	public void handleChangeMusterCurrentRecordNotification(
 			Object newCurrentObject) throws TuraException {
-		if (newCurrentObject == null){
+		if (newCurrentObject == null) {
 			blocked = true;
 			notifyChageRecordAll(null);
 			return;
 		}
-		
+
 		blocked = false;
 		pager.cleanPager();
 		currentPosition = 0;
 		pager.setScrollDirection(SCROLL_DOWN);
+		notifyMusterCurrentRecordChageLiteners(newCurrentObject);
 		notifyChageRecordAll(pager.getObject(currentPosition));
 	}
 
@@ -73,15 +81,17 @@ public abstract class DataControl<T>  extends MetaInfoHolder implements IDataCon
 		notifyDependencyListeners(newCurrentObject);
 	}
 
-	private void notifyDependencyListeners(Object newCurrentObject) throws TuraException{
-		for (DependecyProperty dep : dependency ){
-			ChangeRecordListener listener = (ChangeRecordListener) getElResolver().getValue(dep.getExpression());
+	private void notifyDependencyListeners(Object newCurrentObject)
+			throws TuraException {
+		for (DependecyProperty dep : dependency) {
+			ChangeRecordListener listener = (ChangeRecordListener) getElResolver()
+					.getValue(dep.getExpression());
 			listener.handleChangeRecord(this, newCurrentObject);
 		}
 	}
-	
-	
-	private void notifyChangeRecordLiteners(T newCurrentObject) throws TuraException {
+
+	private void notifyChangeRecordLiteners(T newCurrentObject)
+			throws TuraException {
 		for (ChangeRecordListener listener : chageRecordLiteners) {
 			listener.handleChangeRecord(this, newCurrentObject);
 		}
@@ -97,6 +107,13 @@ public abstract class DataControl<T>  extends MetaInfoHolder implements IDataCon
 		}
 	}
 
+	private void notifyMusterCurrentRecordChageLiteners(Object newCurrentObject)
+			throws TuraException {
+		for (ChangeRecordListener listener : musterCurrentRecordChageLiteners) {
+			listener.handleChangeRecord(this, newCurrentObject);
+		}
+	}
+
 	public ELResolver getElResolver() {
 		return elResolver;
 	}
@@ -104,7 +121,7 @@ public abstract class DataControl<T>  extends MetaInfoHolder implements IDataCon
 	public T getCurrentObject() throws TuraException {
 		if (blocked)
 			return null;
-		
+
 		pager.setScrollDirection(SCROLL_DOWN);
 		return pager.getObject(currentPosition);
 	}
@@ -112,7 +129,7 @@ public abstract class DataControl<T>  extends MetaInfoHolder implements IDataCon
 	public boolean hasNext() throws TuraException {
 		if (blocked)
 			return false;
-		
+
 		if (pager.listSize() == -1)
 			getCurrentObject();
 
@@ -133,7 +150,7 @@ public abstract class DataControl<T>  extends MetaInfoHolder implements IDataCon
 	public void nextObject() throws TuraException {
 		if (blocked)
 			return;
-		
+
 		if (pager.listSize() == -1)
 			getCurrentObject();
 
@@ -155,7 +172,7 @@ public abstract class DataControl<T>  extends MetaInfoHolder implements IDataCon
 	public boolean hasPrev() {
 		if (blocked)
 			return false;
-		
+
 		if (currentPosition > 0)
 			return true;
 		else
@@ -166,7 +183,7 @@ public abstract class DataControl<T>  extends MetaInfoHolder implements IDataCon
 	public void prevObject() throws TuraException {
 		if (blocked)
 			return;
-		
+
 		if (currentPosition > 0) {
 			currentPosition--;
 			pager.setScrollDirection(SCROLL_UP);
@@ -177,7 +194,7 @@ public abstract class DataControl<T>  extends MetaInfoHolder implements IDataCon
 
 	public void removeObject() throws Exception {
 		if (blocked)
-			return;		
+			return;
 
 		for (String relName : getRelationsName()) {
 			Relation rel = this.getChild(relName);
@@ -214,7 +231,7 @@ public abstract class DataControl<T>  extends MetaInfoHolder implements IDataCon
 	public void removeAll() throws Exception {
 		if (blocked)
 			return;
-		
+
 		T obj = null;
 		int i = 0;
 		pager.setScrollDirection(SCROLL_DOWN);
@@ -232,8 +249,8 @@ public abstract class DataControl<T>  extends MetaInfoHolder implements IDataCon
 
 	public T createObject() throws TuraException {
 		if (blocked)
-			return null;		
-		
+			return null;
+
 		// Refresh tree
 		pager.setScrollDirection(SCROLL_DOWN);
 		pager.getObject(currentPosition);
@@ -278,7 +295,7 @@ public abstract class DataControl<T>  extends MetaInfoHolder implements IDataCon
 	public int getCurrentPosition() {
 		if (blocked)
 			return -1;
-		
+
 		return currentPosition;
 	}
 
@@ -286,25 +303,24 @@ public abstract class DataControl<T>  extends MetaInfoHolder implements IDataCon
 	public boolean setCurrentPosition(Object crtPosition) throws TuraException {
 		if (blocked)
 			return false;
-		
+
 		if (pager.listSize() == -1)
 			getCurrentObject();
-		
+
 		int position;
 		try {
-			position = (int) pager.getShifter()
-					.getObject((int)crtPosition, true);
+			position = (int) pager.getShifter().getObject((int) crtPosition,
+					true);
 		} catch (Exception e) {
 			throw new TuraException(e);
 		}
-		if (position  < pager.listSize()){
-			this.currentPosition = (int)crtPosition;
+		if (position < pager.listSize()) {
+			this.currentPosition = (int) crtPosition;
 			notifyChageRecordAll(getCurrentObject());
 			return true;
-		}
-		else
+		} else
 			return false;
-		
+
 	}
 
 	public CommandStack getCommandStack() {
@@ -355,14 +371,13 @@ public abstract class DataControl<T>  extends MetaInfoHolder implements IDataCon
 	public TreeDataControl getTreeContext() {
 		return treeDataControl;
 	}
-	
-	public void  setTreeContext(TreeDataControl tdc) {
+
+	public void setTreeContext(TreeDataControl tdc) {
 		treeDataControl = tdc;
 	}
-	
-	public List<T> getScroller(){
+
+	public List<T> getScroller() {
 		return new Scroller<T>(pager);
 	}
-	
-	
+
 }

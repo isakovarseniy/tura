@@ -18,6 +18,8 @@ public abstract class TreeDataControl implements IDataControl {
 	private Relation treeRelation = new Relation();
 	protected HashMap<String, Relation> children = new HashMap<String, Relation>();
 	private ArrayList<ChangeRecordListener> chageRecordLiteners = new ArrayList<>();
+	private ArrayList<ChangeRecordListener> musterCurrentRecordChageLiteners = new ArrayList<>();
+
 	private Object currentObject;
 	private IDataControl currentControl;
 
@@ -59,6 +61,12 @@ public abstract class TreeDataControl implements IDataControl {
 	}
 
 	@Override
+	public void addMusterCurrentRecordChageLiteners(
+			ChangeRecordListener listener) {
+		musterCurrentRecordChageLiteners.add(listener);
+	}
+
+	@Override
 	public void handleChangeMusterCurrentRecordNotification(
 			Object newCurrentObject) throws TuraException {
 		if (newCurrentObject == null) {
@@ -70,6 +78,16 @@ public abstract class TreeDataControl implements IDataControl {
 		treeRelation.setMasterCurrentObject(newCurrentObject);
 		currentObject = null;
 		root.handleChangeMusterCurrentRecordNotification(newCurrentObject);
+
+		notifyMusterCurrentRecordChageLiteners(newCurrentObject);
+		notifyChageRecordAll(getCurrentObject());
+	}
+
+	private void notifyMusterCurrentRecordChageLiteners(Object newCurrentObject)
+			throws TuraException {
+		for (ChangeRecordListener listener : musterCurrentRecordChageLiteners) {
+			listener.handleChangeRecord(this, newCurrentObject);
+		}
 	}
 
 	public IDataControl getCurrentControl() {
@@ -239,11 +257,16 @@ public abstract class TreeDataControl implements IDataControl {
 		return blocked;
 	}
 
-	public TreeDataControl getTreeContext()  {
+	public TreeDataControl getTreeContext() {
 		return null;
 	}
 
-	public void setTreeContext(TreeDataControl tdc)  {
+	public void setTreeContext(TreeDataControl tdc) {
+	}
+
+	@Override
+	public Relation getParent() {
+		return parent;
 	}
 
 }

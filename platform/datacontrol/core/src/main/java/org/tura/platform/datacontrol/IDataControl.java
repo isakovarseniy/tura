@@ -11,6 +11,8 @@ public interface IDataControl {
 
 	public void addChageRecordLiteners(ChangeRecordListener listener);
 
+	public void addMusterCurrentRecordChageLiteners(ChangeRecordListener listener);
+
 	public void handleChangeMusterCurrentRecordNotification(
 			Object newCurrentObject) throws TuraException;
 
@@ -39,6 +41,8 @@ public interface IDataControl {
 	public TreeDataControl getTreeContext() ;
 	
 	public void  setTreeContext(TreeDataControl tdc) ;
+	
+	public Relation getParent();
 	
 	
 
