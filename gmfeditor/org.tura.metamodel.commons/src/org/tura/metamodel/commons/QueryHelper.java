@@ -872,8 +872,10 @@ public class QueryHelper {
 				.hasNext();) {
 
 			domain.Uielement el = itr.next();
-			if (el instanceof domain.LayerHolder)
+			if (el instanceof domain.LayerHolder){
 				findNick(list, (domain.LayerHolder) el, exception);
+				continue;
+			}
 
 			if (el.getNickname() != null
 					&& !el.getUid().equals(exception.getUid()))

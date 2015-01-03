@@ -1888,7 +1888,7 @@
         </cols>
       </children>
       <children xsi:type="tura.domain:LayerHolder" uid="b6ea57cf-cfe8-478b-8052-8bf7e870eecb">
-        <children xsi:type="tura.domain:Table" uid="ef04d378-387f-4d8b-9d9c-631f54604252" sourcePointer="0b115ae0-7710-49f2-bb74-45fa6af58c8e" columns="3" label="Employes" rowNumber="5">
+        <children xsi:type="tura.domain:Table" uid="ef04d378-387f-4d8b-9d9c-631f54604252" onEventRefreshArea="4211cd6a-7dcd-46df-b7b2-9d49c374e0ce" sourcePointer="0b115ae0-7710-49f2-bb74-45fa6af58c8e" columns="3" label="Employes" rowNumber="5">
           <multiLangLabel value="Messages.HR Controller.EMP_TABLE">
             <expression objRef="af03a493-0ca4-486c-945f-5bfc2fdf35bd" expressionType="MessagesImpl"/>
             <expression objRef="5772ddee-a83b-41c9-8f34-c442412e1013" order="1" expressionType="MessageLibraryImpl"/>
@@ -1919,7 +1919,7 @@
             <element xsi:type="tura.domain:InputText" uid="ae1ca50c-b9a0-4bbd-9b74-9d6e10936da7" valuePointer="Emp_5218cbef-904f-4469-94f8-141b0742985e"/>
           </cols>
         </children>
-        <children xsi:type="tura.domain:LayerHolder" uid="9f4fda7f-de98-41ad-85de-027aacc547ff" columns="3">
+        <children xsi:type="tura.domain:LayerHolder" uid="9f4fda7f-de98-41ad-85de-027aacc547ff" nickname="emplInfo" columns="3">
           <children xsi:type="tura.domain:OutputText" uid="aea90e5a-e883-456e-952a-8bab3f1b1dc4" sourcePointer="0b115ae0-7710-49f2-bb74-45fa6af58c8e" valuePointer="Emp_97c41a52-78c3-422f-ae56-c81eb04a899c"/>
           <children xsi:type="tura.domain:OutputText" uid="239b4114-6644-4b98-8d6e-a7b1ea5c6b9f" sourcePointer="0b115ae0-7710-49f2-bb74-45fa6af58c8e" valuePointer="Emp_d3f4f447-e522-4da6-82d4-70c4add09a66"/>
           <children xsi:type="tura.domain:InputText" uid="19801db0-d37e-473f-a33d-3176d264358b" sourcePointer="0b115ae0-7710-49f2-bb74-45fa6af58c8e" valuePointer="Emp_bdf0412e-246e-4d81-8109-ffa32f0a2ab3"/>

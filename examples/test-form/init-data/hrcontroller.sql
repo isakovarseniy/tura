@@ -4,6 +4,9 @@ truncate table hr.statedao;
 truncate table hr.citydao;
 truncate table hr.streetdao;
 truncate table hr.departmentsdao;
+truncate table hr.employeesdao;
+truncate table hr.vehicledao;
+
 
 insert into hr.companydao (obj_id,companyname, countryid) values (1101, 'Company A', 1);
 insert into hr.companydao (obj_id,companyname, countryid) values (1102, 'Company B', 2);
@@ -112,26 +115,33 @@ insert into hr.departmentsdao(obj_id,parent_id, departmentname,departmentid) val
 insert into hr.departmentsdao(obj_id,parent_id, departmentname,departmentid) values(1637,1501,'Department 2-10', 100210);
 
 
-insert into hr.employeesdao(obj_id,parent_id,firstname,lastname,salary,managerid,hiredate) values(1701,1601,'First Name 1', 'Last Name 1', 1000, 1,'2000-01-01');
-insert into hr.employeesdao(obj_id,parent_id,firstname,lastname,salary,managerid,hiredate) values(1702,1601,'First Name 2', 'Last Name 2', 1000, 1,'2000-01-01');
+insert into hr.employeesdao(obj_id,parent_id,firstname,lastname,salary,managerid,hiredate) values(1701,1601,'First Name 1', 'Last Name 1', 1001, 1,'2000-01-01');
+insert into hr.employeesdao(obj_id,parent_id,firstname,lastname,salary,managerid,hiredate) values(1702,1601,'First Name 2', 'Last Name 2', 1002, 1,'2000-01-01');
 
-insert into hr.employeesdao(obj_id,parent_id,firstname,lastname,salary,managerid,hiredate) values(1703,1602,'First Name 3', 'Last Name 3', 1000, 1,'2000-01-01');
-insert into hr.employeesdao(obj_id,parent_id,firstname,lastname,salary,managerid,hiredate) values(1704,1602,'First Name 4', 'Last Name 4', 1000, 1,'2000-01-01');
+insert into hr.employeesdao(obj_id,parent_id,firstname,lastname,salary,managerid,hiredate) values(1703,1602,'First Name 3', 'Last Name 3', 1003, 1,'2000-01-01');
+insert into hr.employeesdao(obj_id,parent_id,firstname,lastname,salary,managerid,hiredate) values(1704,1602,'First Name 4', 'Last Name 4', 1004, 1,'2000-01-01');
 
-insert into hr.employeesdao(obj_id,parent_id,firstname,lastname,salary,managerid,hiredate) values(1705,1603,'First Name 5', 'Last Name 5', 1000, 1,'2000-01-01');
-insert into hr.employeesdao(obj_id,parent_id,firstname,lastname,salary,managerid,hiredate) values(1706,1603,'First Name 6', 'Last Name 6', 1000, 1,'2000-01-01');
+insert into hr.employeesdao(obj_id,parent_id,firstname,lastname,salary,managerid,hiredate) values(1705,1603,'First Name 5', 'Last Name 5', 1005, 1,'2000-01-01');
+insert into hr.employeesdao(obj_id,parent_id,firstname,lastname,salary,managerid,hiredate) values(1706,1603,'First Name 6', 'Last Name 6', 1006, 1,'2000-01-01');
 
-insert into hr.employeesdao(obj_id,parent_id,firstname,lastname,salary,managerid,hiredate) values(1707,1604,'First Name 7', 'Last Name 7', 1000, 1,'2000-01-01');
-insert into hr.employeesdao(obj_id,parent_id,firstname,lastname,salary,managerid,hiredate) values(1708,1604,'First Name 8', 'Last Name 8', 1000, 1,'2000-01-01');
+insert into hr.employeesdao(obj_id,parent_id,firstname,lastname,salary,managerid,hiredate) values(1707,1604,'First Name 7', 'Last Name 7', 1007, 1,'2000-01-01');
+insert into hr.employeesdao(obj_id,parent_id,firstname,lastname,salary,managerid,hiredate) values(1708,1604,'First Name 8', 'Last Name 8', 1008, 1,'2000-01-01');
 
-insert into hr.employeesdao(obj_id,parent_id,firstname,lastname,salary,managerid,hiredate) values(1709,1605,'First Name 9', 'Last Name 9', 1000, 1,'2000-01-01');
-insert into hr.employeesdao(obj_id,parent_id,firstname,lastname,salary,managerid,hiredate) values(1710,1605,'First Name 10', 'Last Name 10', 1000, 1,'2000-01-01');
+insert into hr.employeesdao(obj_id,parent_id,firstname,lastname,salary,managerid,hiredate) values(1709,1605,'First Name 9', 'Last Name 9', 1009, 1,'2000-01-01');
+insert into hr.employeesdao(obj_id,parent_id,firstname,lastname,salary,managerid,hiredate) values(1710,1605,'First Name 10', 'Last Name 10', 1010, 1,'2000-01-01');
 
-insert into hr.employeesdao(obj_id,parent_id,firstname,lastname,salary,managerid,hiredate) values(1711,1605,'First Name 11', 'Last Name 11', 1000, 1,'2000-01-01');
-insert into hr.employeesdao(obj_id,parent_id,firstname,lastname,salary,managerid,hiredate) values(1712,1605,'First Name 12', 'Last Name 12', 1000, 1,'2000-01-01');
+insert into hr.employeesdao(obj_id,parent_id,firstname,lastname,salary,managerid,hiredate) values(1711,1605,'First Name 11', 'Last Name 11', 1011, 1,'2000-01-01');
+insert into hr.employeesdao(obj_id,parent_id,firstname,lastname,salary,managerid,hiredate) values(1712,1605,'First Name 12', 'Last Name 12', 1012, 1,'2000-01-01');
 
-insert into hr.employeesdao(obj_id,parent_id,firstname,lastname,salary,managerid,hiredate) values(1713,1605,'First Name 13', 'Last Name 13', 1000, 1,'2000-01-01');
-insert into hr.employeesdao(obj_id,parent_id,firstname,lastname,salary,managerid,hiredate) values(1714,1605,'First Name 14', 'Last Name 14', 1000, 1,'2000-01-01');
+insert into hr.employeesdao(obj_id,parent_id,firstname,lastname,salary,managerid,hiredate) values(1713,1605,'First Name 13', 'Last Name 13', 1013, 1,'2000-01-01');
+insert into hr.employeesdao(obj_id,parent_id,firstname,lastname,salary,managerid,hiredate) values(1714,1605,'First Name 14', 'Last Name 14', 1014, 1,'2000-01-01');
+
+
+insert into hr.vehicledao(obj_id,parent_id,platenumber,vehiclemaker) values(1801,1601,'111111','Honda');
+insert into hr.vehicledao(obj_id,parent_id,platenumber,vehiclemaker) values(1802,1601,'222222','Toyota');
+
+insert into hr.vehicledao(obj_id,parent_id,platenumber,vehiclemaker) values(1803,1602,'333333','Ford');
+insert into hr.vehicledao(obj_id,parent_id,platenumber,vehiclemaker) values(1804,1602,'444444','Reno');
 
 
 update hr.companydao set optlock=0;
@@ -141,3 +151,4 @@ update hr.citydao set optlock=0;
 update hr.streetdao set optlock=0;
 update hr.departmentsdao set optlock=0;
 update hr.employeesdao set optlock=0;
+update hr.vehicledao set optlock=0;
