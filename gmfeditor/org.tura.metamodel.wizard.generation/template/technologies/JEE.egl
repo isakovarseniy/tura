@@ -2,7 +2,7 @@
 [% @template
 operation  commandstack_scope() {
 %]
-@javax.enterprise.context.SessionScoped
+@javax.faces.view.ViewScoped
 [%
 }
 %]
