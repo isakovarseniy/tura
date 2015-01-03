@@ -863,6 +863,11 @@ public class QueryHelper {
 
 	private void findNick(List<domain.Uielement> list,
 			domain.LayerHolder holder, domain.Uielement exception) {
+		
+		if (holder.getNickname() != null
+				&& !holder.getUid().equals(exception.getUid()))
+			list.add(holder);
+		
 		for (Iterator<domain.Uielement> itr = holder.getChildren().iterator(); itr
 				.hasNext();) {
 

@@ -14,7 +14,7 @@ operation domain::Table draw(hash) {
 operation domain::Table generateBody(hash){
      var util = new Native('org.tura.metamodel.commons.Util');
 %]
-	<p:dataTable var="row" id="[%=self.mkuid()%]" [%=self.styleAttributes(hash)%] [%=self.enabled(hash)%] 
+	<p:dataTable [%=self.mkUIDBinding()%] [%=self.styleAttributes(hash)%] [%=self.enabled(hash)%] var="row" 
 		value="#{viewmodel.getModel('[%=self.mkuid()%]','grid', [%=buildExpression(util.createArtificialContextValue(self.sourcePointer,self.sourcePointer.findTreeRoot(), null))%]).getLazyModel()}"
 		paginator="true" rows="[%=self.rowNumber%]" lazy="true"
 		paginatorTemplate="{RowsPerPageDropdown}  {PreviousPageLink}  {NextPageLink}"

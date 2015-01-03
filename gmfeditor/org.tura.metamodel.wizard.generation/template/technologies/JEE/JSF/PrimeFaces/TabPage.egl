@@ -19,7 +19,7 @@ operation TabPage generateBody(hash){
         title="";   
         
 %]
-<p:tab [%=title%] [%=self.styleAttributes(hash)%]>
+<p:tab [%=title%] [%=self.mkUIDBinding()%]  [%=self.styleAttributes(hash)%]>
 [%
                 for (element in self.viewElement){
 %]                

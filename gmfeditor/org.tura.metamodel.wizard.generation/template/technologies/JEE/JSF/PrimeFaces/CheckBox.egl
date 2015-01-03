@@ -11,7 +11,7 @@ operation CheckBox draw(hash) {
                value =  "row[1]."+self.valuePointer.name;  
      }
  %]
-<p:selectBooleanCheckbox  id="[%=self.mkuid()%]" value="#{[%=value%]}" [%=self.uiElementAttributes(hash)%] >
+<p:selectBooleanCheckbox  [%=self.mkUIDBinding()%] value="#{[%=value%]}" [%=self.uiElementAttributes(hash)%] >
 </p:selectBooleanCheckbox>
 [%
 }

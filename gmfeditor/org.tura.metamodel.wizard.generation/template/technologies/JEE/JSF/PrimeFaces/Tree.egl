@@ -20,7 +20,7 @@ operation domain::Tree draw(hash) {
 operation domain::Tree generateTreeBody(hash){
      var util = new Native('org.tura.metamodel.commons.Util');
 %]
-	<p:tree id="[%=self.mkuid()%]" [%=self.styleAttributes(hash)%] [%=self.enabled(hash)%]
+	<p:tree [%=self.mkUIDBinding()%] [%=self.styleAttributes(hash)%] [%=self.enabled(hash)%]
 		value="#{viewmodel.getModel('[%=self.mkuid()%]','tree', [%=buildExpression(util.createArtificialContextValue(self.sourcePointer,self.sourcePointer.findTreeRoot(),null))%]).root}"
 		var="row" dynamic="true" cache="false" selectionMode="single"
 		selection="#{viewmodel.getModel('[%=self.mkuid()%]','tree', [%=buildExpression(util.createArtificialContextValue(self.sourcePointer,self.sourcePointer.findTreeRoot(),null))%]).selectedNode}">

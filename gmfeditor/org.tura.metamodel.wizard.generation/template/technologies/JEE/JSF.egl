@@ -102,4 +102,21 @@ operation domain::Uielement  mkuid(){
 }
 %]
 
+[%@template
+operation domain::CanvasFrame mkuid(){
+%]tura[%=self.uid.replaceAll("\\-","_")%][%
+}
+%]
 
+
+[%@template
+operation domain::Uielement  mkUIDBinding(){
+%]id="[%=self.mkuid()%]" binding="#{[%=self.mkuid()%]}"[%
+}
+%]
+
+[%@template
+operation domain::CanvasFrame  mkUIDBinding(){
+%]id="[%=self.mkuid()%]" binding="#{[%=self.mkuid()%]}"[%
+}
+%]

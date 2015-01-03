@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.HashMap;
 import java.util.logging.Logger;
 
+import javax.faces.component.UIComponent;
 import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -13,15 +14,32 @@ import org.tura.platform.datacontrol.TreeDataControl;
 
 @ViewScoped
 @Named("viewmodel")
-public class ViewModel  implements Serializable {
-    private static final long serialVersionUID = 1L;
+public class ViewModel implements Serializable {
+	private static final long serialVersionUID = 1L;
 
 	@Inject
 	private transient Logger logger;
 	private HashMap<String, Object> modelHolder = new HashMap<>();
 
+	public String getClientId(Object obj) {
+		UIComponent uc = (UIComponent) obj;
+		String path = uc.getId();
+		if (uc.getClientId() != null)
+			path = uc.getClientId();
+
+		while (uc.getClientId() == null) {
+			uc = uc.getParent();
+			String id = uc.getId();
+			if (uc.getClientId() != null)
+				id = uc.getClientId();
+			path = id + ":" + path;
+		}
+
+		return ":"+path;
+	}
+
 	@SuppressWarnings("rawtypes")
-	public Object getModel(String modelId,  String modelType,Object obj) {
+	public Object getModel(String modelId, String modelType, Object obj) {
 
 		Object model = modelHolder.get(modelId);
 		if (model != null)
@@ -31,7 +49,7 @@ public class ViewModel  implements Serializable {
 			model = getGridModel((DataControl) obj, logger);
 
 		if ("tree".equals(modelType))
-			model =  getTreeModel((TreeDataControl) obj);
+			model = getTreeModel((TreeDataControl) obj);
 
 		modelHolder.put(modelId, model);
 		return model;

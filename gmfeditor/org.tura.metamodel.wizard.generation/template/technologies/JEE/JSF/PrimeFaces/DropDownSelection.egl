@@ -11,7 +11,7 @@ operation DropDownSelection draw(hash) {
                 value =  "row[1]."+self.valuePointer.name;  
     }
  %]
- <p:selectOneMenu id="[%=self.mkuid()%]" [%=self.uiElementAttributes(hash)%] value="#{[%=value%]}">
+ <p:selectOneMenu [%=self.mkUIDBinding()%] [%=self.uiElementAttributes(hash)%] value="#{[%=value%]}">
 	<f:selectItems  value="#{viewmodel.getModel('[%=self.mkuid()%]','options', [%=buildExpression(util.createArtificialContextValue(self.optionPointer,self.optionPointer.findTreeRoot(),null))%],[%=self.displayOptionPointer.name%],[%=self.valueOptionPointer.name%])}"/>
 </p:selectOneMenu>
  [%
