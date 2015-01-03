@@ -34,6 +34,11 @@ operation domain::Tree generateTreeBody(hash){
 		<p:ajax event="unselect" 
 			listener="#{viewmodel.getModel('[%=self.mkuid()%]','tree', [%=buildExpression(util.createArtificialContextValue(self.sourcePointer,self.sourcePointer.findTreeRoot(),null))%]).onNodeUnselect}" />
 
+
+		<p:ajax event="select" 
+			listener="#{viewmodel.getModel('[%=self.mkuid()%]','tree', [%=buildExpression(util.createArtificialContextValue(self.sourcePointer,self.sourcePointer.findTreeRoot(),null))%]).onNodeSelect}"  [%=self.refreshArias()%] />
+
+
 		<p:treeNode>
 [%
                 for (element in self.cols){

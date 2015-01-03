@@ -35,6 +35,7 @@ public class [%=util.mergeAndCapitalize(control.name)%]DC extends org.tura.platf
         i = i+1;
       }
     %] 
+     this.handleChangeMusterCurrentRecordNotification(newCurrentObject);
      blocked = true;
 	}     
    [%

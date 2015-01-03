@@ -142,7 +142,6 @@ public class TreeModel {
 		@Override
 		public void handleChangeRecord(IDataControl dc, Object newCurrentObject)
 				throws TuraException {
-System.out.println(newCurrentObject)	;	
            root = null;
 		}
 		

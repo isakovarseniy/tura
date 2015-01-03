@@ -32,7 +32,7 @@ operation   domain::Uielement  refreshArias() {
        if ( first = 1){
          %],[% 
        }
-       %]#{[%=nicarea.mkuid()%].clientId}[%  
+       %]:window:[%=nicarea.mkuid()%][%  
        first=1;
     }%]"[%
 }

@@ -20,7 +20,8 @@ import com.octo.java.sql.query.SelectQuery;
 public class LazyDataGridModel<T> extends LazyDataModel<T> {
 
 	private static final long serialVersionUID = -3916551980941958271L;
-	private DataControl<?> datacontrol;
+	@SuppressWarnings("rawtypes")
+	private DataControl datacontrol;
 	private java.util.logging.Logger logger;
 	@SuppressWarnings("rawtypes")
 	private List datasource;
@@ -29,11 +30,13 @@ public class LazyDataGridModel<T> extends LazyDataModel<T> {
 		return datacontrol.getScroller().size();
 	}
 
-	public DataControl<?> getDatacontrol() {
+	@SuppressWarnings("rawtypes")
+	public DataControl getDatacontrol() {
 		return datacontrol;
 	}
 
-	public void setDatacontrol(DataControl<?> datacontrol) {
+	@SuppressWarnings("rawtypes")
+	public void setDatacontrol(DataControl datacontrol) {
 		this.datacontrol = datacontrol;
 	}
 
