@@ -6,6 +6,7 @@ truncate table hr.streetdao;
 truncate table hr.departmentsdao;
 truncate table hr.employeesdao;
 truncate table hr.vehicledao;
+truncate table hr.filedao;
 
 
 insert into hr.companydao (obj_id,companyname, countryid) values (1101, 'Company A', 1);
@@ -144,6 +145,19 @@ insert into hr.vehicledao(obj_id,parent_id,platenumber,vehiclemaker) values(1803
 insert into hr.vehicledao(obj_id,parent_id,platenumber,vehiclemaker) values(1804,1602,'444444','Reno');
 
 
+insert into hr.filedao(obj_id,parent_id,filename,directory,size) values(1901,1701,'Dir1', true, 0);
+insert into hr.filedao(obj_id,parent_id,filename,directory,size) values(1902,1901,'file1', false, 100);
+insert into hr.filedao(obj_id,parent_id,filename,directory,size) values(1903,1901,'file2', false, 100);
+insert into hr.filedao(obj_id,parent_id,filename,directory,size) values(1904,1901,'file3', false, 100);
+
+insert into hr.filedao(obj_id,parent_id,filename,directory,size) values(1905,1702,'Dir2', true, 0);
+insert into hr.filedao(obj_id,parent_id,filename,directory,size) values(1906,1905,'file4', false, 100);
+insert into hr.filedao(obj_id,parent_id,filename,directory,size) values(1907,1905,'file5', false, 100);
+insert into hr.filedao(obj_id,parent_id,filename,directory,size) values(1908,1905,'file6', false, 100);
+
+
+
+
 update hr.companydao set optlock=0;
 update hr.countrydao set optlock=0;
 update hr.statedao set optlock=0;
@@ -152,3 +166,4 @@ update hr.streetdao set optlock=0;
 update hr.departmentsdao set optlock=0;
 update hr.employeesdao set optlock=0;
 update hr.vehicledao set optlock=0;
+update hr.filedao set optlock=0;

@@ -61,7 +61,7 @@ public class [%=util.mergeAndCapitalize(control.name)%]DC extends org.tura.platf
       if (not relation.detail.~dependObject.isDefined()){
     %]
 	@javax.inject.Inject
-	private javax.enterprise.inject.Instance<[%if (relation.detail.~treeRoot=true){%]TreeRoot[%}%][%=util.mergeAndCapitalize(relation.detail.name)%]DC> [%=util.mergeAndUnCapitalize(relation.detail.name)%]producer;
+	private javax.enterprise.inject.Instance<[%if (relation.detail.~treeRoot=true and relation.isTree <> true){%]TreeRoot[%}%][%=util.mergeAndCapitalize(relation.detail.name)%]DC> [%=util.mergeAndUnCapitalize(relation.detail.name)%]producer;
     [%
      }
     }

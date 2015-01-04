@@ -1782,7 +1782,7 @@
   <tura.domain:CanvasView uid="86803f23-9d44-4ebc-81e9-9a63b4a770ac" parent="e018aa58-2660-4bba-a75d-1674147458e7">
     <baseCanvas uid="c5f8ac47-356e-4c17-84db-fcf0a5037ca7">
       <children xsi:type="tura.domain:LayerHolder" uid="cae32081-1631-4110-9d0f-5a5b1cd5e23a" columns="2">
-        <children xsi:type="tura.domain:Table" uid="92ea6c50-dc39-4ba0-bb76-b3ca2e161fe5" onEventRefreshArea="bee23d39-6e59-450f-b696-94cf4c907c86 1ee2b71b-9a1a-4655-8562-b01bd84fe5e5 4211cd6a-7dcd-46df-b7b2-9d49c374e0ce" sourcePointer="d45e9605-3706-493c-8422-3f7b8b6ea2ed" sourceCastDataControl="d45e9605-3706-493c-8422-3f7b8b6ea2ed" columns="2" label="Companies" rowNumber="5">
+        <children xsi:type="tura.domain:Table" uid="92ea6c50-dc39-4ba0-bb76-b3ca2e161fe5" onEventRefreshArea="bee23d39-6e59-450f-b696-94cf4c907c86 1ee2b71b-9a1a-4655-8562-b01bd84fe5e5 4211cd6a-7dcd-46df-b7b2-9d49c374e0ce 50f32416-d7ec-41a5-8d7e-405950accbfb" sourcePointer="d45e9605-3706-493c-8422-3f7b8b6ea2ed" sourceCastDataControl="d45e9605-3706-493c-8422-3f7b8b6ea2ed" columns="2" label="Companies" rowNumber="5">
           <style/>
           <multiLangLabel value="Messages.HR Controller.COMPANIES_TABLE">
             <expression objRef="af03a493-0ca4-486c-945f-5bfc2fdf35bd" expressionType="MessagesImpl"/>
@@ -1808,7 +1808,7 @@
             </element>
           </cols>
         </children>
-        <children xsi:type="tura.domain:Tree" uid="bee23d39-6e59-450f-b696-94cf4c907c86" nickname="LocationTree" onEventRefreshArea="1ee2b71b-9a1a-4655-8562-b01bd84fe5e5 4211cd6a-7dcd-46df-b7b2-9d49c374e0ce" sourcePointer="cd1cab1c-1781-4867-85b8-84d9f465f989" label="Location">
+        <children xsi:type="tura.domain:Tree" uid="bee23d39-6e59-450f-b696-94cf4c907c86" nickname="LocationTree" onEventRefreshArea="1ee2b71b-9a1a-4655-8562-b01bd84fe5e5 4211cd6a-7dcd-46df-b7b2-9d49c374e0ce 50f32416-d7ec-41a5-8d7e-405950accbfb" sourcePointer="cd1cab1c-1781-4867-85b8-84d9f465f989" label="Location">
           <style/>
           <multiLangLabel value="Messages.HR Controller.LOCATIONS_TREE">
             <expression objRef="af03a493-0ca4-486c-945f-5bfc2fdf35bd" expressionType="MessagesImpl"/>
@@ -1823,7 +1823,7 @@
           </cols>
         </children>
       </children>
-      <children xsi:type="tura.domain:Table" uid="1ee2b71b-9a1a-4655-8562-b01bd84fe5e5" nickname="DepartmentGrid" onEventRefreshArea="4211cd6a-7dcd-46df-b7b2-9d49c374e0ce" sourcePointer="0feddc04-1241-40fa-a9f3-35089d2cf4c5" columns="3" label="Departments" rowNumber="5">
+      <children xsi:type="tura.domain:Table" uid="1ee2b71b-9a1a-4655-8562-b01bd84fe5e5" nickname="DepartmentGrid" onEventRefreshArea="4211cd6a-7dcd-46df-b7b2-9d49c374e0ce 50f32416-d7ec-41a5-8d7e-405950accbfb" sourcePointer="0feddc04-1241-40fa-a9f3-35089d2cf4c5" columns="3" label="Departments" rowNumber="5">
         <style/>
         <enabled/>
         <required/>
@@ -1888,7 +1888,7 @@
         </cols>
       </children>
       <children xsi:type="tura.domain:LayerHolder" uid="b6ea57cf-cfe8-478b-8052-8bf7e870eecb">
-        <children xsi:type="tura.domain:Table" uid="ef04d378-387f-4d8b-9d9c-631f54604252" onEventRefreshArea="4211cd6a-7dcd-46df-b7b2-9d49c374e0ce" sourcePointer="0b115ae0-7710-49f2-bb74-45fa6af58c8e" columns="3" label="Employes" rowNumber="5">
+        <children xsi:type="tura.domain:Table" uid="ef04d378-387f-4d8b-9d9c-631f54604252" onEventRefreshArea="9f4fda7f-de98-41ad-85de-027aacc547ff 50f32416-d7ec-41a5-8d7e-405950accbfb" sourcePointer="0b115ae0-7710-49f2-bb74-45fa6af58c8e" columns="3" label="Employes" rowNumber="5">
           <multiLangLabel value="Messages.HR Controller.EMP_TABLE">
             <expression objRef="af03a493-0ca4-486c-945f-5bfc2fdf35bd" expressionType="MessagesImpl"/>
             <expression objRef="5772ddee-a83b-41c9-8f34-c442412e1013" order="1" expressionType="MessageLibraryImpl"/>
@@ -1949,7 +1949,7 @@
     </baseCanvas>
   </tura.domain:CanvasView>
   <tura.domain:CanvasView uid="8bb728a4-b532-465e-82ea-fe2612b5a1a1" parent="7aeb66b3-9eb3-4e90-a155-2c1a13577072">
-    <baseCanvas uid="50f32416-d7ec-41a5-8d7e-405950accbfb">
+    <baseCanvas uid="50f32416-d7ec-41a5-8d7e-405950accbfb" nickname="EmplFiles">
       <children xsi:type="tura.domain:Tree" uid="f4a4f9dd-de14-42f5-b3bf-1b844653672f" sourcePointer="34ec885b-a2e1-4c4a-8987-f56c9e935e86">
         <multiLangLabel value="Messages.HR Controller.FILES_TREE">
           <expression objRef="af03a493-0ca4-486c-945f-5bfc2fdf35bd" expressionType="MessagesImpl"/>
