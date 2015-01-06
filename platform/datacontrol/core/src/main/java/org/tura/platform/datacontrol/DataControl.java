@@ -62,6 +62,7 @@ public abstract class DataControl<T> extends MetaInfoHolder implements
 			Object newCurrentObject) throws TuraException {
 		if (newCurrentObject == null) {
 			blocked = true;
+			pager.cleanPager();
 			notifyChageRecordAll(null);
 			return;
 		}

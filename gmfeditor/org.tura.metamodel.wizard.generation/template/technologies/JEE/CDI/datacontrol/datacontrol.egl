@@ -27,16 +27,14 @@ public class [%=util.mergeAndCapitalize(control.name)%]DC extends org.tura.platf
       for (depend in control.~dependObject){
         if (i <> 0 ){ %],[%}%]
 		if (newCurrentObject instanceof [%=depend%]){
-		    blocked = false;
-			this.handleChangeMusterCurrentRecordNotification(newCurrentObject);
-			return;
-		}
+            this.handleChangeMusterCurrentRecordNotification(newCurrentObject);
+        }else{
+            this.handleChangeMusterCurrentRecordNotification(null);
+        }
     [%
         i = i+1;
       }
     %] 
-     this.handleChangeMusterCurrentRecordNotification(newCurrentObject);
-     blocked = true;
 	}     
    [%
     }

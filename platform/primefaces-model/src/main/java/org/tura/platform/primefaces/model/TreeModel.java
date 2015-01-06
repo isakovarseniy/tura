@@ -35,15 +35,13 @@ public class TreeModel {
 			root = new DefaultTreeNode(new Root(), null);
 
 			dc.setCurrentPosition(new int[] { 0 });
-			if (dc.getCurrentControl() != null) {
-				List scroler = ((DataControl) dc.getCurrentControl())
+				List scroler = ((DataControl) dc.getRoot())
 						.getScroller();
 				for (int i = 0; i < scroler.size(); i++) {
 					DefaultTreeNode leaf = new DefaultTreeNode(new Object[] {
 							i, scroler.get(i) }, root);
 					new DefaultTreeNode(new Fake(), leaf);
 				}
-			}
 		}
 
 		return root;
