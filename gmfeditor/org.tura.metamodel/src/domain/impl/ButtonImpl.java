@@ -24,6 +24,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <ul>
  *   <li>{@link domain.impl.ButtonImpl#getMultiLangLabel <em>Multi Lang Label</em>}</li>
  *   <li>{@link domain.impl.ButtonImpl#getLabel <em>Label</em>}</li>
+ *   <li>{@link domain.impl.ButtonImpl#getIcon <em>Icon</em>}</li>
  * </ul>
  * </p>
  *
@@ -60,6 +61,16 @@ public class ButtonImpl extends ActionElementImpl implements Button
    * @ordered
    */
   protected String label = LABEL_EDEFAULT;
+
+  /**
+   * The cached value of the '{@link #getIcon() <em>Icon</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getIcon()
+   * @generated
+   * @ordered
+   */
+  protected Context icon;
 
   /**
    * <!-- begin-user-doc -->
@@ -158,6 +169,54 @@ public class ButtonImpl extends ActionElementImpl implements Button
    * <!-- end-user-doc -->
    * @generated
    */
+  public Context getIcon()
+  {
+    return icon;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetIcon(Context newIcon, NotificationChain msgs)
+  {
+    Context oldIcon = icon;
+    icon = newIcon;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DomainPackage.BUTTON__ICON, oldIcon, newIcon);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setIcon(Context newIcon)
+  {
+    if (newIcon != icon)
+    {
+      NotificationChain msgs = null;
+      if (icon != null)
+        msgs = ((InternalEObject)icon).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DomainPackage.BUTTON__ICON, null, msgs);
+      if (newIcon != null)
+        msgs = ((InternalEObject)newIcon).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - DomainPackage.BUTTON__ICON, null, msgs);
+      msgs = basicSetIcon(newIcon, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.BUTTON__ICON, newIcon, newIcon));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
@@ -165,6 +224,8 @@ public class ButtonImpl extends ActionElementImpl implements Button
     {
       case DomainPackage.BUTTON__MULTI_LANG_LABEL:
         return basicSetMultiLangLabel(null, msgs);
+      case DomainPackage.BUTTON__ICON:
+        return basicSetIcon(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -183,6 +244,8 @@ public class ButtonImpl extends ActionElementImpl implements Button
         return getMultiLangLabel();
       case DomainPackage.BUTTON__LABEL:
         return getLabel();
+      case DomainPackage.BUTTON__ICON:
+        return getIcon();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -202,6 +265,9 @@ public class ButtonImpl extends ActionElementImpl implements Button
         return;
       case DomainPackage.BUTTON__LABEL:
         setLabel((String)newValue);
+        return;
+      case DomainPackage.BUTTON__ICON:
+        setIcon((Context)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -223,6 +289,9 @@ public class ButtonImpl extends ActionElementImpl implements Button
       case DomainPackage.BUTTON__LABEL:
         setLabel(LABEL_EDEFAULT);
         return;
+      case DomainPackage.BUTTON__ICON:
+        setIcon((Context)null);
+        return;
     }
     super.eUnset(featureID);
   }
@@ -241,6 +310,8 @@ public class ButtonImpl extends ActionElementImpl implements Button
         return multiLangLabel != null;
       case DomainPackage.BUTTON__LABEL:
         return LABEL_EDEFAULT == null ? label != null : !LABEL_EDEFAULT.equals(label);
+      case DomainPackage.BUTTON__ICON:
+        return icon != null;
     }
     return super.eIsSet(featureID);
   }

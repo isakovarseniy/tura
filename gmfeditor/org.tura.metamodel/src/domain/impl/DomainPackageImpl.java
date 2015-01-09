@@ -2,6 +2,172 @@
  */
 package domain.impl;
 
+import domain.ActionElement;
+import domain.Application;
+import domain.ApplicationInfrastructureLayer;
+import domain.ApplicationMapper;
+import domain.ApplicationMappers;
+import domain.ApplicationMessages;
+import domain.ApplicationRecipe;
+import domain.ApplicationRecipes;
+import domain.ApplicationRole;
+import domain.ApplicationStyle;
+import domain.ApplicationUILayer;
+import domain.ApplicationUIPackage;
+import domain.Artifact;
+import domain.ArtifactRef;
+import domain.Artifacts;
+import domain.ArtificialField;
+import domain.Attribute;
+import domain.Button;
+import domain.CSSMapper;
+import domain.Canvas;
+import domain.CanvasFrame;
+import domain.CanvasView;
+import domain.Categorized;
+import domain.CheckBox;
+import domain.ChildrenHolder;
+import domain.Classifier;
+import domain.Column;
+import domain.Comparator;
+import domain.Component;
+import domain.ConfigVariable;
+import domain.Configuration;
+import domain.Context;
+import domain.ContextParameter;
+import domain.ContextParameters;
+import domain.ContextValue;
+import domain.ContinuousIintegration;
+import domain.Controls;
+import domain.CreateTrigger;
+import domain.DataControl;
+import domain.Datacenter;
+import domain.DefaultCavas;
+import domain.DeleteTrigger;
+import domain.DeploymentComponent;
+import domain.DeploymentComponents;
+import domain.DeploymentSequence;
+import domain.DeploymentStarStep;
+import domain.Domain;
+import domain.DomainApplication;
+import domain.DomainApplications;
+import domain.DomainArtifact;
+import domain.DomainArtifacts;
+import domain.DomainFactory;
+import domain.DomainPackage;
+import domain.DomainTypes;
+import domain.DropDownSelection;
+import domain.EJBService;
+import domain.EnterpriseInfrastructure;
+import domain.EnumAttribute;
+import domain.Enumarator;
+import domain.ExpressionPart;
+import domain.Form;
+import domain.FormDataControls;
+import domain.FormView;
+import domain.GenerationHint;
+import domain.Group;
+import domain.HTMLLayerHolder;
+import domain.Hub;
+import domain.Infrastructure;
+import domain.InfrastructureComponent;
+import domain.InfrastructureConnection;
+import domain.InfrastructureLayer;
+import domain.Ingredient;
+import domain.InputElement;
+import domain.InputText;
+import domain.InsertTrigger;
+import domain.JPAService;
+import domain.JavaComponent;
+import domain.JavaMapper;
+import domain.JavaScriptMapper;
+import domain.Label;
+import domain.Language;
+import domain.LanguageRef;
+import domain.LayerHolder;
+import domain.Link;
+import domain.Mapper;
+import domain.Mappers;
+import domain.MappingSpecifier;
+import domain.Message;
+import domain.MessageLibrary;
+import domain.Messages;
+import domain.MethodPointer;
+import domain.ModelMapper;
+import domain.ModelQuery;
+import domain.MultiLangLabel;
+import domain.ORMEntity;
+import domain.Operation;
+import domain.Option;
+import domain.OptionSelection;
+import domain.Order;
+import domain.OrderBy;
+import domain.Orders;
+import domain.OutputText;
+import domain.POSTCreateTrigger;
+import domain.POSTQueryTrigger;
+import domain.PREDeleteTrigger;
+import domain.PREFormTrigger;
+import domain.PREInsertTrigger;
+import domain.PREQueryTrigger;
+import domain.PREUpdateTrigger;
+import domain.Parameter;
+import domain.PlatformLayers;
+import domain.Primitive;
+import domain.Property;
+import domain.Query;
+import domain.QueryParameter;
+import domain.QueryVariable;
+import domain.Recipe;
+import domain.Recipes;
+import domain.Relation;
+import domain.ReturnValue;
+import domain.Role;
+import domain.RoleMapper;
+import domain.Roles;
+import domain.Root;
+import domain.Router;
+import domain.SearchTrigger;
+import domain.Selection;
+import domain.Server;
+import domain.ServerClaster;
+import domain.SourcesPointer;
+import domain.Specifier;
+import domain.Storage;
+import domain.StyleElement;
+import domain.StyleLibrary;
+import domain.StyleSet;
+import domain.Styles;
+import domain.StylesPackage;
+import domain.Subsystem;
+import domain.TabCanvas;
+import domain.TabPage;
+import domain.TabPagesInheritance;
+import domain.Table;
+import domain.Translation;
+import domain.Tree;
+import domain.Trigger;
+import domain.Type;
+import domain.TypeDefinition;
+import domain.TypeElement;
+import domain.TypeExtension;
+import domain.TypeMapper;
+import domain.TypePointer;
+import domain.TypeReference;
+import domain.Types;
+import domain.TypesRepository;
+import domain.UIPackage;
+import domain.Uielement;
+import domain.UpdateTrigger;
+import domain.UsingMappers;
+import domain.ViewArea;
+import domain.ViewElement;
+import domain.ViewInheritance;
+import domain.ViewPort;
+import domain.ViewPortHolder;
+import domain.ViewPortTrigger;
+import domain.Views;
+import domain.Window;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EEnum;
@@ -6282,6 +6448,16 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EReference getButton_Icon()
+  {
+    return (EReference)buttonEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getControls()
   {
     return controlsEClass;
@@ -8129,6 +8305,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
 
     buttonEClass = createEClass(BUTTON);
     createEAttribute(buttonEClass, BUTTON__LABEL);
+    createEReference(buttonEClass, BUTTON__ICON);
 
     controlsEClass = createEClass(CONTROLS);
     createEAttribute(controlsEClass, CONTROLS__UID);
@@ -9050,6 +9227,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
 
     initEClass(buttonEClass, Button.class, "Button", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getButton_Label(), ecorePackage.getEString(), "label", null, 0, 1, Button.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getButton_Icon(), this.getContext(), null, "icon", null, 0, 1, Button.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(controlsEClass, Controls.class, "Controls", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getControls_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, Controls.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

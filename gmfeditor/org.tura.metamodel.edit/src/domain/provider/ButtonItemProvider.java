@@ -107,6 +107,7 @@ public class ButtonItemProvider
     {
       super.getChildrenFeatures(object);
       childrenFeatures.add(DomainPackage.Literals.MULTI_LANG_LABEL__MULTI_LANG_LABEL);
+      childrenFeatures.add(DomainPackage.Literals.BUTTON__ICON);
     }
     return childrenFeatures;
   }
@@ -170,6 +171,7 @@ public class ButtonItemProvider
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
         return;
       case DomainPackage.BUTTON__MULTI_LANG_LABEL:
+      case DomainPackage.BUTTON__ICON:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
         return;
     }
@@ -192,6 +194,11 @@ public class ButtonItemProvider
       (createChildParameter
         (DomainPackage.Literals.MULTI_LANG_LABEL__MULTI_LANG_LABEL,
          DomainFactory.eINSTANCE.createContext()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (DomainPackage.Literals.BUTTON__ICON,
+         DomainFactory.eINSTANCE.createContext()));
   }
 
   /**
@@ -212,7 +219,8 @@ public class ButtonItemProvider
       childFeature == DomainPackage.Literals.UIELEMENT__ENABLED ||
       childFeature == DomainPackage.Literals.UIELEMENT__REQUIRED ||
       childFeature == DomainPackage.Literals.UIELEMENT__READ_ONLY ||
-      childFeature == DomainPackage.Literals.MULTI_LANG_LABEL__MULTI_LANG_LABEL;
+      childFeature == DomainPackage.Literals.MULTI_LANG_LABEL__MULTI_LANG_LABEL ||
+      childFeature == DomainPackage.Literals.BUTTON__ICON;
 
     if (qualify)
     {

@@ -8828,13 +8828,22 @@ public interface DomainPackage extends EPackage
   int BUTTON__LABEL = ACTION_ELEMENT_FEATURE_COUNT + 1;
 
   /**
+   * The feature id for the '<em><b>Icon</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BUTTON__ICON = ACTION_ELEMENT_FEATURE_COUNT + 2;
+
+  /**
    * The number of structural features of the '<em>Button</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int BUTTON_FEATURE_COUNT = ACTION_ELEMENT_FEATURE_COUNT + 2;
+  int BUTTON_FEATURE_COUNT = ACTION_ELEMENT_FEATURE_COUNT + 3;
 
   /**
    * The meta object id for the '{@link domain.impl.ControlsImpl <em>Controls</em>}' class.
@@ -16576,6 +16585,17 @@ public interface DomainPackage extends EPackage
   EAttribute getButton_Label();
 
   /**
+   * Returns the meta object for the containment reference '{@link domain.Button#getIcon <em>Icon</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Icon</em>'.
+   * @see domain.Button#getIcon()
+   * @see #getButton()
+   * @generated
+   */
+  EReference getButton_Icon();
+
+  /**
    * Returns the meta object for class '{@link domain.Controls <em>Controls</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -22160,6 +22180,14 @@ public interface DomainPackage extends EPackage
      * @generated
      */
     EAttribute BUTTON__LABEL = eINSTANCE.getButton_Label();
+
+    /**
+     * The meta object literal for the '<em><b>Icon</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference BUTTON__ICON = eINSTANCE.getButton_Icon();
 
     /**
      * The meta object literal for the '{@link domain.impl.ControlsImpl <em>Controls</em>}' class.

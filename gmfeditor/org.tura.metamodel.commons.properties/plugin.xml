@@ -649,6 +649,11 @@
              category="domain"
              id="property.tab.domain.canvas.uielement.mulilanglabel"
              label="Multi lang label"/>
+             
+           <propertyTab
+             category="domain"
+             id="property.tab.domain.canvas.uielement.icon"
+             label="Icon"/>
     
           </propertyTabs>
        </extension>
@@ -658,6 +663,15 @@
       <?gmfgen generated="true"?>   
  
       <propertySections contributorId="org.tura.metamodel.diagram.canvas">
+
+
+
+            <propertySection
+               tab="property.tab.domain.canvas.uielement.icon"
+               class="org.tura.metamodel.commons.properties.selections.context.impl.ButtonIconPropertySelection"
+               id="property.tab.domain.canvas.uielement.button.icon">
+              <input type="canvas.diagram.edit.parts.ButtonEditPart"/>
+           </propertySection>        
 
 
             <propertySection
