@@ -62,6 +62,19 @@ public class QueryHelper {
 	}
 
 	
+	public Object getApplicationStyle(DiagramImpl root) {
+		domain.Form frm = getForm(root);
+
+		domain.Application app = ((domain.UIPackage) (frm.eContainer()))
+				.getParent().getParent().getParent();
+		if (app.getApplicationStyle() != null)
+			return app.getApplicationStyle();
+
+		return null;
+	}
+	
+	
+	
 	public domain.Form getForm(domain.DataControl dc) {
 		return (Form) dc.getParent().getParent().eContainer();
 	}	

@@ -24,6 +24,9 @@
     <applicationUILayer uid="f8d4b412-d69a-46c7-bf26-2ac0ec31117e">
       <applicationUIPackages uid="c65cfe9e-8e33-4160-beef-4a3a96d5b2c1" name="Hr manager" uipackage="63d7b545-e3cb-4b2e-8597-44c6734d825b"/>
     </applicationUILayer>
+    <applicationStyle uid="c7379293-bc50-4b7e-8cc9-917bc2dd97aa">
+      <stylesPackage uid="a9b99a7f-03c7-4b89-82c2-b3e1f0f326d2" name="HR styles" styles="6da490f4-c32b-448d-8679-8d5e994f0ebb"/>
+    </applicationStyle>
     <applicationMessages uid="39c0cb8c-3370-4a8b-9dc8-f988c6c3a565" name="Application Messages" messages="af03a493-0ca4-486c-945f-5bfc2fdf35bd"/>
   </tura.domain:Application>
   <tura.domain:Artifacts uid="cfc1509d-db2a-4863-becd-7540552cf00b"/>
@@ -1826,7 +1829,12 @@
                 <expression objRef="5772ddee-a83b-41c9-8f34-c442412e1013" order="1" expressionType="MessageLibraryImpl"/>
                 <expression objRef="e78a2519-b2a8-4082-867e-e2fedb2bfc97" order="2" expressionType="MessageImpl"/>
               </multiLangLabel>
-              <icon constant="true" value="ui-icon-plus"/>
+              <icon value="Application styles.HR styles.HR Controller styles.Add row button">
+                <expression objRef="c7379293-bc50-4b7e-8cc9-917bc2dd97aa" expressionType="ApplicationStyleImpl"/>
+                <expression objRef="a9b99a7f-03c7-4b89-82c2-b3e1f0f326d2" order="1" expressionType="StylesPackageImpl"/>
+                <expression objRef="bc917c9e-7594-4ff8-9157-a9e6cf5ac5f5" order="2" expressionType="StyleLibraryImpl"/>
+                <expression objRef="e92845fc-7570-455f-9580-623183bccc0f" order="3" expressionType="StyleSetImpl"/>
+              </icon>
             </children>
             <children xsi:type="tura.domain:Button" uid="71ffc838-d31e-458b-a18c-3cd49a7efdff" label="Remove">
               <style/>
@@ -1836,7 +1844,12 @@
                 <expression objRef="5772ddee-a83b-41c9-8f34-c442412e1013" order="1" expressionType="MessageLibraryImpl"/>
                 <expression objRef="8a832c5c-aa0c-4eea-a10a-2203bea1beb0" order="2" expressionType="MessageImpl"/>
               </multiLangLabel>
-              <icon constant="true" value="ui-icon-minus"/>
+              <icon value="Application styles.HR styles.HR Controller styles.Remove row button">
+                <expression objRef="c7379293-bc50-4b7e-8cc9-917bc2dd97aa" expressionType="ApplicationStyleImpl"/>
+                <expression objRef="a9b99a7f-03c7-4b89-82c2-b3e1f0f326d2" order="1" expressionType="StylesPackageImpl"/>
+                <expression objRef="bc917c9e-7594-4ff8-9157-a9e6cf5ac5f5" order="2" expressionType="StyleLibraryImpl"/>
+                <expression objRef="a1d3f2ac-caea-4f0b-a523-59edc4fd19b5" order="3" expressionType="StyleSetImpl"/>
+              </icon>
             </children>
           </children>
         </children>
@@ -1858,11 +1871,21 @@
           <children xsi:type="tura.domain:LayerHolder" uid="2bf0762f-87b6-4f24-8f59-8abb67706538" columns="2">
             <children xsi:type="tura.domain:Button" uid="47e6bf87-614a-496f-8583-80003ebe457b" label="Add">
               <multiLangLabel/>
-              <icon constant="true" value="ui-icon-plus"/>
+              <icon value="Application styles.HR styles.HR Controller styles.Add row button">
+                <expression objRef="c7379293-bc50-4b7e-8cc9-917bc2dd97aa" expressionType="ApplicationStyleImpl"/>
+                <expression objRef="a9b99a7f-03c7-4b89-82c2-b3e1f0f326d2" order="1" expressionType="StylesPackageImpl"/>
+                <expression objRef="bc917c9e-7594-4ff8-9157-a9e6cf5ac5f5" order="2" expressionType="StyleLibraryImpl"/>
+                <expression objRef="e92845fc-7570-455f-9580-623183bccc0f" order="3" expressionType="StyleSetImpl"/>
+              </icon>
             </children>
             <children xsi:type="tura.domain:Button" uid="150d42d7-bfb4-416e-b9d1-116640bcef5b" label="Remove">
               <multiLangLabel/>
-              <icon constant="true" value="ui-icon-minus"/>
+              <icon value="Application styles.HR styles.HR Controller styles.Remove row button">
+                <expression objRef="c7379293-bc50-4b7e-8cc9-917bc2dd97aa" expressionType="ApplicationStyleImpl"/>
+                <expression objRef="a9b99a7f-03c7-4b89-82c2-b3e1f0f326d2" order="1" expressionType="StylesPackageImpl"/>
+                <expression objRef="bc917c9e-7594-4ff8-9157-a9e6cf5ac5f5" order="2" expressionType="StyleLibraryImpl"/>
+                <expression objRef="a1d3f2ac-caea-4f0b-a523-59edc4fd19b5" order="3" expressionType="StyleSetImpl"/>
+              </icon>
             </children>
           </children>
         </children>
@@ -1908,11 +1931,21 @@
         <children xsi:type="tura.domain:LayerHolder" uid="0f9a66ee-431e-4775-ae42-a1c129766afe" columns="2">
           <children xsi:type="tura.domain:Button" uid="017c5844-2d2d-4d04-adab-9795ccc7d279" label="Add">
             <multiLangLabel/>
-            <icon constant="true" value="ui-icon-plus"/>
+            <icon value="Application styles.HR styles.HR Controller styles.Add row button">
+              <expression objRef="c7379293-bc50-4b7e-8cc9-917bc2dd97aa" expressionType="ApplicationStyleImpl"/>
+              <expression objRef="a9b99a7f-03c7-4b89-82c2-b3e1f0f326d2" order="1" expressionType="StylesPackageImpl"/>
+              <expression objRef="bc917c9e-7594-4ff8-9157-a9e6cf5ac5f5" order="2" expressionType="StyleLibraryImpl"/>
+              <expression objRef="e92845fc-7570-455f-9580-623183bccc0f" order="3" expressionType="StyleSetImpl"/>
+            </icon>
           </children>
           <children xsi:type="tura.domain:Button" uid="e26926e0-8b69-4ea3-b06a-1a708a6f75d2" label="Remove">
             <multiLangLabel/>
-            <icon constant="true" value="ui-icon-minus"/>
+            <icon value="Application styles.HR styles.HR Controller styles.Remove row button">
+              <expression objRef="c7379293-bc50-4b7e-8cc9-917bc2dd97aa" expressionType="ApplicationStyleImpl"/>
+              <expression objRef="a9b99a7f-03c7-4b89-82c2-b3e1f0f326d2" order="1" expressionType="StylesPackageImpl"/>
+              <expression objRef="bc917c9e-7594-4ff8-9157-a9e6cf5ac5f5" order="2" expressionType="StyleLibraryImpl"/>
+              <expression objRef="a1d3f2ac-caea-4f0b-a523-59edc4fd19b5" order="3" expressionType="StyleSetImpl"/>
+            </icon>
           </children>
         </children>
       </children>
@@ -1981,11 +2014,21 @@
         <children xsi:type="tura.domain:LayerHolder" uid="03aad52b-f6b0-4bc8-bc0c-834732fbd04a" columns="2">
           <children xsi:type="tura.domain:Button" uid="d0195e50-4473-4e3f-adf3-6ffbebdf23d1" label="Add">
             <multiLangLabel/>
-            <icon constant="true" value="ui-icon-plus"/>
+            <icon value="Application styles.HR styles.HR Controller styles.Add row button">
+              <expression objRef="c7379293-bc50-4b7e-8cc9-917bc2dd97aa" expressionType="ApplicationStyleImpl"/>
+              <expression objRef="a9b99a7f-03c7-4b89-82c2-b3e1f0f326d2" order="1" expressionType="StylesPackageImpl"/>
+              <expression objRef="bc917c9e-7594-4ff8-9157-a9e6cf5ac5f5" order="2" expressionType="StyleLibraryImpl"/>
+              <expression objRef="e92845fc-7570-455f-9580-623183bccc0f" order="3" expressionType="StyleSetImpl"/>
+            </icon>
           </children>
           <children xsi:type="tura.domain:Button" uid="bed2e9b4-8057-418d-9b68-c752a7a750da" label="Remove">
             <multiLangLabel/>
-            <icon constant="true" value="ui-icon-minus"/>
+            <icon value="Application styles.HR styles.HR Controller styles.Remove row button">
+              <expression objRef="c7379293-bc50-4b7e-8cc9-917bc2dd97aa" expressionType="ApplicationStyleImpl"/>
+              <expression objRef="a9b99a7f-03c7-4b89-82c2-b3e1f0f326d2" order="1" expressionType="StylesPackageImpl"/>
+              <expression objRef="bc917c9e-7594-4ff8-9157-a9e6cf5ac5f5" order="2" expressionType="StyleLibraryImpl"/>
+              <expression objRef="a1d3f2ac-caea-4f0b-a523-59edc4fd19b5" order="3" expressionType="StyleSetImpl"/>
+            </icon>
           </children>
         </children>
       </children>
@@ -2016,11 +2059,21 @@
         <children xsi:type="tura.domain:LayerHolder" uid="b483209f-9016-48c5-80fe-7eccd6704a29" columns="2">
           <children xsi:type="tura.domain:Button" uid="f2d22046-ef03-427e-87be-06a1e0b2c9cf" label="Add">
             <multiLangLabel/>
-            <icon constant="true" value="ui-icon-plus"/>
+            <icon value="Application styles.HR styles.HR Controller styles.Add row button">
+              <expression objRef="c7379293-bc50-4b7e-8cc9-917bc2dd97aa" expressionType="ApplicationStyleImpl"/>
+              <expression objRef="a9b99a7f-03c7-4b89-82c2-b3e1f0f326d2" order="1" expressionType="StylesPackageImpl"/>
+              <expression objRef="bc917c9e-7594-4ff8-9157-a9e6cf5ac5f5" order="2" expressionType="StyleLibraryImpl"/>
+              <expression objRef="e92845fc-7570-455f-9580-623183bccc0f" order="3" expressionType="StyleSetImpl"/>
+            </icon>
           </children>
           <children xsi:type="tura.domain:Button" uid="7081be8a-9eb0-496f-92ba-15d0ffed7d56" label="Remove">
             <multiLangLabel/>
-            <icon constant="true" value="ui-icon-minus"/>
+            <icon value="Application styles.HR styles.HR Controller styles.Remove row button">
+              <expression objRef="c7379293-bc50-4b7e-8cc9-917bc2dd97aa" expressionType="ApplicationStyleImpl"/>
+              <expression objRef="a9b99a7f-03c7-4b89-82c2-b3e1f0f326d2" order="1" expressionType="StylesPackageImpl"/>
+              <expression objRef="bc917c9e-7594-4ff8-9157-a9e6cf5ac5f5" order="2" expressionType="StyleLibraryImpl"/>
+              <expression objRef="a1d3f2ac-caea-4f0b-a523-59edc4fd19b5" order="3" expressionType="StyleSetImpl"/>
+            </icon>
           </children>
         </children>
       </children>
@@ -2042,14 +2095,32 @@
         <children xsi:type="tura.domain:LayerHolder" uid="cd1a44a1-6f75-400e-bcae-2c94f0c49251" columns="2">
           <children xsi:type="tura.domain:Button" uid="53375dbe-d9fa-436c-80c6-cf2b1f54c00c" label="Add">
             <multiLangLabel/>
-            <icon constant="true" value="ui-icon-plus"/>
+            <icon value="Application styles.HR styles.HR Controller styles.Add row button">
+              <expression objRef="c7379293-bc50-4b7e-8cc9-917bc2dd97aa" expressionType="ApplicationStyleImpl"/>
+              <expression objRef="a9b99a7f-03c7-4b89-82c2-b3e1f0f326d2" order="1" expressionType="StylesPackageImpl"/>
+              <expression objRef="bc917c9e-7594-4ff8-9157-a9e6cf5ac5f5" order="2" expressionType="StyleLibraryImpl"/>
+              <expression objRef="e92845fc-7570-455f-9580-623183bccc0f" order="3" expressionType="StyleSetImpl"/>
+            </icon>
           </children>
           <children xsi:type="tura.domain:Button" uid="adf18db7-7688-42c5-9e69-67fd45c6d13f" label="Remove">
             <multiLangLabel/>
-            <icon constant="true" value="ui-icon-minus"/>
+            <icon value="Application styles.HR styles.HR Controller styles.Remove row button">
+              <expression objRef="c7379293-bc50-4b7e-8cc9-917bc2dd97aa" expressionType="ApplicationStyleImpl"/>
+              <expression objRef="a9b99a7f-03c7-4b89-82c2-b3e1f0f326d2" order="1" expressionType="StylesPackageImpl"/>
+              <expression objRef="bc917c9e-7594-4ff8-9157-a9e6cf5ac5f5" order="2" expressionType="StyleLibraryImpl"/>
+              <expression objRef="a1d3f2ac-caea-4f0b-a523-59edc4fd19b5" order="3" expressionType="StyleSetImpl"/>
+            </icon>
           </children>
         </children>
       </children>
     </baseCanvas>
   </tura.domain:CanvasView>
+  <tura.domain:Styles uid="6da490f4-c32b-448d-8679-8d5e994f0ebb" parent="a9b99a7f-03c7-4b89-82c2-b3e1f0f326d2">
+    <libraries uid="bc917c9e-7594-4ff8-9157-a9e6cf5ac5f5" name="HR Controller styles">
+      <styles uid="e92845fc-7570-455f-9580-623183bccc0f" name="Add row button"/>
+      <styles uid="a1d3f2ac-caea-4f0b-a523-59edc4fd19b5" name="Remove row button"/>
+      <styles uid="dfce4889-a037-4bb0-9cd3-9b3232911ea6" name="Save button"/>
+      <styles uid="fc5e4f10-6532-4be0-9e83-464c7d2877f4" name="RallBack button"/>
+    </libraries>
+  </tura.domain:Styles>
 </xmi:XMI>

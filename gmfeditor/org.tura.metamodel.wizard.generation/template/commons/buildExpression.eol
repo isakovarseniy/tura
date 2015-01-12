@@ -57,6 +57,12 @@ operation  buildExpression( contextValue) : String {
           case "TreeDataControl":               resultExpression = TreeDataControl(resultExpression,contextValue,i,tokenArray);
           case "ExtendedType":                   resultExpression = ExtendedType(resultExpression,contextValue,i,tokenArray);
           case "RolesImpl":                          resultExpression = RolesImpl(resultExpression,contextValue,i,tokenArray);
+          case"ApplicationStyleImpl":           resultExpression = ApplicationStyleImpl(resultExpression,contextValue,i,tokenArray);
+          case"StylesPackageImpl":             resultExpression = StylesPackageImpl(resultExpression,contextValue,i,tokenArray);
+          case"StyleLibraryImpl":                 resultExpression = StyleLibraryImpl(resultExpression,contextValue,i,tokenArray); 
+          case"StyleSetImpl":                       resultExpression = StyleSetImpl(resultExpression,contextValue,i,tokenArray);
+          
+          
         }
         i = i +1;
        }  

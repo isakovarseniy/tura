@@ -14,7 +14,8 @@ import org.tura.metamodel.commons.properties.selections.adapters.helper.TriggerH
 public class TreeProviderAdapterFactory implements IAdapterFactory {
 
 	@SuppressWarnings("rawtypes")
-	private static final Class[] TYPES = { IWorkbenchAdapter.class, IReturnTypeProvider.class};
+	private static final Class[] TYPES = { IWorkbenchAdapter.class,
+			IReturnTypeProvider.class };
 
 	private ArtificialFieldProvider artificialFieldProvider;
 	private TreeRootProvider treeRootProvider;
@@ -42,7 +43,11 @@ public class TreeProviderAdapterFactory implements IAdapterFactory {
 	private TreeDataControlProvider treeDataControlProvider;
 	private ExtendedTypeProvider extendedTypeProvider;
 	private RolesProvider rolesProvider;
-	
+
+	private ApplicationStyleProvider applicationStyleProvider;
+	private StylesPackageProvider stylesPackageProvider;
+	private StyleLibraryProvider styleLibraryProvider;
+	private StyleSetProvider styleSetProvider;
 
 	@SuppressWarnings("rawtypes")
 	public Class[] getAdapterList() {
@@ -51,7 +56,8 @@ public class TreeProviderAdapterFactory implements IAdapterFactory {
 
 	@SuppressWarnings("rawtypes")
 	public Object getAdapter(Object adaptableObject, Class adapterType) {
-		if (adapterType == IWorkbenchAdapter.class || adapterType == IReturnTypeProvider.class) {
+		if (adapterType == IWorkbenchAdapter.class
+				|| adapterType == IReturnTypeProvider.class) {
 			if (adaptableObject instanceof TreeRoot)
 				return getTreeRootProvider();
 			if (adaptableObject instanceof DataControlHolder)
@@ -87,23 +93,31 @@ public class TreeProviderAdapterFactory implements IAdapterFactory {
 			if (adaptableObject instanceof domain.DomainArtifacts)
 				return getDomainArtifactsProvider();
 			if (adaptableObject instanceof domain.DomainArtifact)
-				return  getDomainArtifactProvider();
+				return getDomainArtifactProvider();
 			if (adaptableObject instanceof domain.Artifact)
-				return  getArtifactProvider();
+				return getArtifactProvider();
 			if (adaptableObject instanceof domain.GenerationHint)
-				return  getGeneratioinHintProvider();
+				return getGeneratioinHintProvider();
 			if (adaptableObject instanceof DataControlFakeAttribute)
-				return  getDataControlFakeAttributeProvider();
+				return getDataControlFakeAttributeProvider();
 			if (adaptableObject instanceof DataControlFakeMethod)
-				return  getDataControlFakeMethodProvider();
+				return getDataControlFakeMethodProvider();
 			if (adaptableObject instanceof TreeDataControl)
-				return  getTreeDataControlProvider();
+				return getTreeDataControlProvider();
 			if (adaptableObject instanceof ExtendedType)
-				return  getExtendedTypeProvider();
+				return getExtendedTypeProvider();
 			if (adaptableObject instanceof domain.ArtificialField)
-				return  getArtificialFieldProvider();
+				return getArtificialFieldProvider();
 			if (adaptableObject instanceof domain.Roles)
-				return  getRolesProvider();
+				return getRolesProvider();
+			if (adaptableObject instanceof domain.ApplicationStyle)
+				return getApplicationStyleProvider();
+			if (adaptableObject instanceof domain.StylesPackage)
+				return getStylesPackageProvider();
+			if (adaptableObject instanceof domain.StyleLibrary)
+				return getStyleLibraryProvider();
+			if (adaptableObject instanceof domain.StyleSet)
+				return getStyleSetProvider();
 			
 		}
 		return null;
@@ -114,22 +128,19 @@ public class TreeProviderAdapterFactory implements IAdapterFactory {
 			treeDataControlProvider = new TreeDataControlProvider();
 		return treeDataControlProvider;
 	}
-		
-	
 
 	protected DataControlFakeAttributeProvider getDataControlFakeAttributeProvider() {
 		if (dataControlFakeAttributeProvider == null)
 			dataControlFakeAttributeProvider = new DataControlFakeAttributeProvider();
 		return dataControlFakeAttributeProvider;
 	}
-	
 
 	protected DataControlFakeMethodProvider getDataControlFakeMethodProvider() {
 		if (dataControlFakeMethodProvider == null)
 			dataControlFakeMethodProvider = new DataControlFakeMethodProvider();
 		return dataControlFakeMethodProvider;
 	}
-	
+
 	protected DomainArtifactsProvider getDomainArtifactsProvider() {
 		if (domainArtifactsProvider == null)
 			domainArtifactsProvider = new DomainArtifactsProvider();
@@ -141,7 +152,7 @@ public class TreeProviderAdapterFactory implements IAdapterFactory {
 			domainArtifactProvider = new DomainArtifactProvider();
 		return domainArtifactProvider;
 	}
-	
+
 	protected ArtifactProvider getArtifactProvider() {
 		if (artifactProvider == null)
 			artifactProvider = new ArtifactProvider();
@@ -153,8 +164,7 @@ public class TreeProviderAdapterFactory implements IAdapterFactory {
 			generatioinHintProvider = new GeneratioinHintProvider();
 		return generatioinHintProvider;
 	}
-	
-	
+
 	protected TreeRootProvider getTreeRootProvider() {
 		if (treeRootProvider == null)
 			treeRootProvider = new TreeRootProvider();
@@ -167,20 +177,17 @@ public class TreeProviderAdapterFactory implements IAdapterFactory {
 		return dataControlHolderProvider;
 	}
 
-	
 	protected TreeRootDataControlHolderProvider getTreeRootDataControlHolderProvider() {
 		if (treeRootDataControlHolder == null)
 			treeRootDataControlHolder = new TreeRootDataControlHolderProvider();
 		return treeRootDataControlHolder;
 	}
-	
-	
+
 	protected DataControlProvider getDataControlProvider() {
 		if (dataControlProvider == null)
 			dataControlProvider = new DataControlProvider();
 		return dataControlProvider;
 	}
-
 
 	protected TriggerProvider getTriggerProvider() {
 		if (triggerProvider == null)
@@ -193,7 +200,6 @@ public class TreeProviderAdapterFactory implements IAdapterFactory {
 			typeElementProvider = new TypeElementProvider();
 		return typeElementProvider;
 	}
-
 
 	protected AttributeProvider getAttributeProvider() {
 		if (attributeProvider == null)
@@ -212,7 +218,6 @@ public class TreeProviderAdapterFactory implements IAdapterFactory {
 			typesProvider = new TypesProvider();
 		return typesProvider;
 	}
-
 
 	protected PackageProvider getPackageProvider() {
 		if (packageProvider == null)
@@ -243,7 +248,7 @@ public class TreeProviderAdapterFactory implements IAdapterFactory {
 			messageProvider = new MessageProvider();
 		return messageProvider;
 	}
-	
+
 	protected MessagesProvider getMessagesProvider() {
 		if (messagesProvider == null)
 			messagesProvider = new MessagesProvider();
@@ -255,7 +260,7 @@ public class TreeProviderAdapterFactory implements IAdapterFactory {
 			messageLibraryProvider = new MessageLibraryProvider();
 		return messageLibraryProvider;
 	}
-	
+
 	protected ExtendedTypeProvider getExtendedTypeProvider() {
 		if (extendedTypeProvider == null)
 			extendedTypeProvider = new ExtendedTypeProvider();
@@ -266,12 +271,38 @@ public class TreeProviderAdapterFactory implements IAdapterFactory {
 		if (artificialFieldProvider == null)
 			artificialFieldProvider = new ArtificialFieldProvider();
 		return artificialFieldProvider;
-	}	
+	}
 
 	protected RolesProvider getRolesProvider() {
 		if (rolesProvider == null)
 			rolesProvider = new RolesProvider();
 		return rolesProvider;
-	}	
+	}
+
+	protected ApplicationStyleProvider getApplicationStyleProvider(){
+		if (applicationStyleProvider == null)
+			applicationStyleProvider = new ApplicationStyleProvider();
+		return applicationStyleProvider;		
+	}
+	
+	
+	protected StylesPackageProvider getStylesPackageProvider(){
+		if (stylesPackageProvider == null)
+			stylesPackageProvider = new StylesPackageProvider();
+		return stylesPackageProvider;		
+	}
+	
+
+	protected StyleLibraryProvider getStyleLibraryProvider(){
+		if (styleLibraryProvider == null)
+			styleLibraryProvider = new StyleLibraryProvider();
+		return styleLibraryProvider;		
+	}
+	
+	protected StyleSetProvider getStyleSetProvider(){
+		if (styleSetProvider == null)
+			styleSetProvider = new StyleSetProvider();
+		return styleSetProvider;		
+	}
 	
 }

@@ -225,6 +225,15 @@ public class Util {
 		return StringUtils.uncapitalize(StringUtils.join(ls));
 	}
 
+	
+	public static String dashmergeAndUnCapitalize(String name) {
+		String[] ls = StringUtils.split(name, " ");
+		for (int i = 0; i < ls.length; i++) {
+			ls[i] = ls[i].toLowerCase();
+		}
+		return StringUtils.join(ls,'-');
+	}	
+	
 	public ArtificialContextValue createArtificialContextValue(
 			domain.DataControl dc, domain.DataControl root, Object obj)
 			throws Exception {

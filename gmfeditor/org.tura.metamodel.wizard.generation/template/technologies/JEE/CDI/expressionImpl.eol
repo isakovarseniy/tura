@@ -150,8 +150,34 @@ operation TreeDataControl(expression:String, contextValue , paramId: Integer , a
 operation ExtendedType(expression:String, contextValue , paramId: Integer , array ) : String {
    return expression;
 }
+
 operation  RolesImpl(expression:String, contextValue , paramId: Integer, array ) : String {
    if (expression <> "")
      expression = expression+".";
    return expression+array.get(paramId);
 }
+
+operation  ApplicationStyleImpl(expression:String, contextValue , paramId: Integer, array ) : String {
+   return expression;
+}
+
+operation  StylesPackageImpl(expression:String, contextValue , paramId: Integer, array ) : String {
+   return expression;
+}
+
+operation  StyleLibraryImpl(expression:String, contextValue , paramId: Integer, array ) : String {
+   return expression;
+}
+
+operation  StyleSetImpl(expression:String, contextValue , paramId: Integer, array ) : String {
+     var util = new Native('org.tura.metamodel.commons.Util');
+     var set = contextValue.expression.get(paramId).objRef;
+     
+   return util.dashmergeAndUnCapitalize(set.name);
+}     
+
+
+
+
+
+
