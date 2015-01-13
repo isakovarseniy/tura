@@ -29,14 +29,14 @@
 
       check :  self.stylePackage.isDefined()
 
-      message :  'Undefined stype package  ' + self.refName() + ' is not allowed'
+      message :  'Undefined stype package  ' + self + ' is not allowed'
   }
  
   constraint HasStyleLibraryRef {
 
       check :  self.styleLibrary.isDefined()
 
-      message :  'Undefined stype library  ' + self.refName() + ' is not allowed'
+      message :  'Undefined stype library  ' + self.stylePackage + ' is not allowed'
   }
 
 

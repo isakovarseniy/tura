@@ -14,7 +14,7 @@ operation TypeElement mappingType2Java( recipe:Recipe, ingredient :Ingredient) {
              selfUID = self.typeRef.uid;
              tp = self.typeRef;
          }
-          var set = appmapper.mapper.mappers.select(r|r.typeRef.uid= selfUID);
+          var set = appmapper.mapper.mappers.select(r|r.isKindOf(JavaMapper) and r.typeRef.uid= selfUID);
           if ( set.size() <> 0 ){
               var type =  util.mapType(set,ingredient,tp) ;
               if ( type <> null){

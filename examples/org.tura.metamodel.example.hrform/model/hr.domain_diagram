@@ -3885,6 +3885,13 @@
       <element xmi:type="tura.domain:JavaMapper" href="hr.domain#cd058e0b-a144-4b4f-b58d-324f50bed61a"/>
       <layoutConstraint xmi:type="notation:Bounds" xmi:id="_1DvQY1vcEeSIFeKHUo5mkw" x="72" y="252"/>
     </children>
+    <children xmi:type="notation:Node" xmi:id="_tJdpEJq0EeS3fLgPbIJe8g" type="402004">
+      <children xmi:type="notation:DecorationNode" xmi:id="_tJeQIJq0EeS3fLgPbIJe8g" type="405004"/>
+      <styles xmi:type="notation:DescriptionStyle" xmi:id="_tJdpEZq0EeS3fLgPbIJe8g"/>
+      <styles xmi:type="notation:FontStyle" xmi:id="_tJdpEpq0EeS3fLgPbIJe8g" fontName="Lucida Grande"/>
+      <element xmi:type="tura.domain:CSSMapper" href="hr.domain#712202c6-d02b-4fda-91b0-bdb5ddb8ada1"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_tJdpE5q0EeS3fLgPbIJe8g" x="585" y="225"/>
+    </children>
     <styles xmi:type="notation:DiagramStyle" xmi:id="_ImiXEVvcEeSIFeKHUo5mkw"/>
     <element xmi:type="tura.domain:Mappers" href="hr.domain#34e530a4-fb8a-403a-a54b-b1153e4c2717"/>
   </notation:Diagram>

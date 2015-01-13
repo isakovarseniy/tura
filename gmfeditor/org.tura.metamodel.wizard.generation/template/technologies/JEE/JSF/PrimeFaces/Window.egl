@@ -16,6 +16,10 @@ operation  domain::Window draw(hash) {
 [%@template
 operation domain::Window generateBody(hash){
 
+     var form = hash.get("form");   
+     var recipe =  hash.get("recipe");
+     var ingredient  = hash.get("ingredient");
+
      var title = buildParameterizedExpression(self.multiLangLabel);
      if (title <> "" and self.multiLangLabel <> null and self.multiLangLabel.constant = false )
         title = "#{"+title+"}";
@@ -38,6 +42,21 @@ operation domain::Window generateBody(hash){
 				</h:head>
 
 				<h:body>
+				
+[%
+
+		var app = form.eContainer().getParent().getParent().getParent();
+		if (app.getApplicationStyle() <> null){
+            for (pkg in app.getApplicationStyle().stylesPackage ){
+               if (pkg.styles <> null ){
+                 for (lib in pkg.styles.libraries ){
+                 lib.mappingStyleLibrary2CSS(recipe, ingredient );
+              %]<h:outputStylesheet library="css" name="[%=lib.~url%]" />[%
+                 }
+               }
+            }
+		}
+%]				
 					<h:form id="window">
                          <p:panelGrid [%=self.mkUIDBinding()%] columns="[%=self.columns%]"  [%=self.styleAttributes(hash)%] >
 [%
