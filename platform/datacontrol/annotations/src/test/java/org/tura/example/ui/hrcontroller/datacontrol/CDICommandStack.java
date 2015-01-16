@@ -2,6 +2,8 @@ package org.tura.example.ui.hrcontroller.datacontrol;
 
 import org.tura.platform.datacontrol.CommandStack;
 
+import java.io.Serializable;
+
 import javax.enterprise.context.ApplicationScoped;
 
 import javax.inject.Inject;
@@ -11,7 +13,8 @@ import javax.persistence.EntityManager;
 
 @Named("CommandStack")
 @ApplicationScoped
-public class CDICommandStack extends CommandStack {
+public class CDICommandStack extends CommandStack implements Serializable {
+    private static final long serialVersionUID = 1L;
     @Inject
     private EntityManager em;
 

@@ -21,22 +21,22 @@ operation domain::Tree generateTreeBody(hash){
      var util = new Native('org.tura.metamodel.commons.Util');
 %]
 	<p:tree [%=self.mkUIDBinding()%] [%=self.styleAttributes(hash)%] [%=self.enabled(hash)%]
-		value="#{viewmodel.getModel('[%=self.mkuid()%]','tree', [%=buildExpression(util.createArtificialContextValue(self.sourcePointer,self.sourcePointer.findTreeRoot(),null))%]).root}"
+		value="#{viewmodel.getModel('[%=self.mkuid()%]','tree', [%=util.bracketRemover(buildExpression(util.createArtificialContextValue(self.sourcePointer,self.sourcePointer.findTreeRoot(),null)))%]).root}"
 		var="row" dynamic="true" cache="false" selectionMode="single"
-		selection="#{viewmodel.getModel('[%=self.mkuid()%]','tree', [%=buildExpression(util.createArtificialContextValue(self.sourcePointer,self.sourcePointer.findTreeRoot(),null))%]).selectedNode}">
+		selection="#{viewmodel.getModel('[%=self.mkuid()%]','tree', [%=util.bracketRemover(buildExpression(util.createArtificialContextValue(self.sourcePointer,self.sourcePointer.findTreeRoot(),null)))%]).selectedNode}">
 
 		<p:ajax event="expand" 
-			listener="#{viewmodel.getModel('[%=self.mkuid()%]','tree', [%=buildExpression(util.createArtificialContextValue(self.sourcePointer,self.sourcePointer.findTreeRoot(),null))%]).onNodeExpand}" />
+			listener="#{viewmodel.getModel('[%=self.mkuid()%]','tree', [%=util.bracketRemover(buildExpression(util.createArtificialContextValue(self.sourcePointer,self.sourcePointer.findTreeRoot(),null)))%]).onNodeExpand}" />
 
 		<p:ajax event="collapse"
-			listener="#{viewmodel.getModel('[%=self.mkuid()%]','tree', [%=buildExpression(util.createArtificialContextValue(self.sourcePointer,self.sourcePointer.findTreeRoot(),null))%]).onNodeCollapse}" />
+			listener="#{viewmodel.getModel('[%=self.mkuid()%]','tree', [%=util.bracketRemover(buildExpression(util.createArtificialContextValue(self.sourcePointer,self.sourcePointer.findTreeRoot(),null)))%]).onNodeCollapse}" />
 			
 		<p:ajax event="unselect" 
-			listener="#{viewmodel.getModel('[%=self.mkuid()%]','tree', [%=buildExpression(util.createArtificialContextValue(self.sourcePointer,self.sourcePointer.findTreeRoot(),null))%]).onNodeUnselect}" />
+			listener="#{viewmodel.getModel('[%=self.mkuid()%]','tree', [%=util.bracketRemover(buildExpression(util.createArtificialContextValue(self.sourcePointer,self.sourcePointer.findTreeRoot(),null)))%]).onNodeUnselect}" />
 
 
 		<p:ajax event="select" 
-			listener="#{viewmodel.getModel('[%=self.mkuid()%]','tree', [%=buildExpression(util.createArtificialContextValue(self.sourcePointer,self.sourcePointer.findTreeRoot(),null))%]).onNodeSelect}"  [%=self.refreshArias()%] />
+			listener="#{viewmodel.getModel('[%=self.mkuid()%]','tree', [%=util.bracketRemover(buildExpression(util.createArtificialContextValue(self.sourcePointer,self.sourcePointer.findTreeRoot(),null)))%]).onNodeSelect}"  [%=self.refreshArias()%] />
 
 
 		<p:treeNode>

@@ -2,6 +2,8 @@ package org.tura.example.ui.hrcontroller.datacontrol;
 
 import org.tura.platform.datacontrol.commons.TuraException;
 
+import java.io.Serializable;
+
 import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.inject.Instance;
 
@@ -10,7 +12,8 @@ import javax.inject.Named;
 
 @Named("beanFactory")
 @ApplicationScoped
-public class BeanFactory {
+public class BeanFactory implements Serializable {
+    private static final long serialVersionUID = 1L;
     @Inject
     private Instance<CompanyDC> companyproducer;
     private CompanyDC company;

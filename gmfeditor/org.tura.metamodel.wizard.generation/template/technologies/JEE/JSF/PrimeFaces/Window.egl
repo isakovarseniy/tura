@@ -21,8 +21,6 @@ operation domain::Window generateBody(hash){
      var ingredient  = hash.get("ingredient");
 
      var title = buildParameterizedExpression(self.multiLangLabel);
-     if (title <> "" and self.multiLangLabel <> null and self.multiLangLabel.constant = false )
-        title = "#{"+title+"}";
         
 %]
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">

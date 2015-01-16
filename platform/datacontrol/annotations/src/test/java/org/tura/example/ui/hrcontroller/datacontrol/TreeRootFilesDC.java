@@ -4,14 +4,15 @@ import org.tura.platform.datacontrol.TreeDataControl;
 import org.tura.platform.datacontrol.annotations.Dependencies;
 import org.tura.platform.datacontrol.metainfo.DependecyProperty;
 
-import java.util.List;
+import java.io.Serializable;
 
-import javax.enterprise.context.ApplicationScoped;
+import java.util.List;
 
 import javax.inject.Inject;
 
-@ApplicationScoped
-public class TreeRootFilesDC extends TreeDataControl {
+public class TreeRootFilesDC extends TreeDataControl implements Serializable {
+    private static final long serialVersionUID = 1L;
+
     @Inject
     public void setRoot(FilesDC root) {
         super.setRoot(root);

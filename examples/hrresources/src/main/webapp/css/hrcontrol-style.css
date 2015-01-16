@@ -1,0 +1,14 @@
+.add-btn {
+    background-image: url("#{resource['images/add-icon.png']}") !important;
+    width: 16px;
+    height: 16px;
+    background-position: 0px 0px;
+}
+
+
+.delete-btn {
+    background-image: url("#{resource['images/delete-icon.png']}") !important;
+    width: 16px;
+    height: 16px;
+    background-position: 0px 0px;
+}

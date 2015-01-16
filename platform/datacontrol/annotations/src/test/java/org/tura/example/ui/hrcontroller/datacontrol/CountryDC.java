@@ -46,20 +46,24 @@ import org.tura.platform.datacontrol.metainfo.ArtificialProperty;
 import org.tura.platform.datacontrol.metainfo.Relation;
 import org.tura.platform.persistence.TuraObject;
 
+import java.io.Serializable;
+
 import java.util.List;
+import java.util.logging.Logger;
 
 import javax.annotation.PostConstruct;
 
-import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.inject.Instance;
 
 import javax.inject.Inject;
 
 import com.octo.java.sql.query.SelectQuery;
 
-@ApplicationScoped
 @DCProxy
-public class CountryDC extends DataControl<CountryDAO> {
+public class CountryDC extends DataControl<CountryDAO> implements Serializable {
+    private static final long serialVersionUID = 1L;
+    @Inject
+    private transient Logger logger;
     @Inject
     private TuraJPAEntityService provider_0;
     @Inject
@@ -71,24 +75,27 @@ public class CountryDC extends DataControl<CountryDAO> {
     }
 
     @PostConstruct
-    public void init() throws IllegalArgumentException, IllegalAccessException {
-        this.createCommand.setProvider(provider_0);
-        this.createCommand.setDatacontrol(this);
+    public void init() {
+        try {
+            this.createCommand.setProvider(provider_0);
+            this.createCommand.setDatacontrol(this);
 
-        this.insertCommand.setProvider(provider_0);
-        this.insertCommand.setDatacontrol(this);
+            this.insertCommand.setProvider(provider_0);
+            this.insertCommand.setDatacontrol(this);
 
-        this.updateCommand.setProvider(provider_0);
-        this.updateCommand.setDatacontrol(this);
+            this.updateCommand.setProvider(provider_0);
+            this.updateCommand.setDatacontrol(this);
 
-        this.deleteCommand.setProvider(provider_0);
-        this.deleteCommand.setDatacontrol(this);
+            this.deleteCommand.setProvider(provider_0);
+            this.deleteCommand.setDatacontrol(this);
 
-        this.searchCommand.setProvider(provider_0);
-        this.searchCommand.setDatacontrol(this);
+            this.searchCommand.setProvider(provider_0);
+            this.searchCommand.setDatacontrol(this);
 
-        DataControlFactory.buildConnection(this);
-
+            DataControlFactory.buildConnection(this);
+        } catch (Exception e) {
+            logger.fine(e.getMessage());
+        }
     }
 
     @Inject
@@ -139,7 +146,7 @@ public class CountryDC extends DataControl<CountryDAO> {
     @Inject
     public void setInsertCommand(
         @Insert(objectAction = "insert", parameters = @Parameters(value =  {
-        @Parameter(name = "obj", expression = "beanFactory.treeRootCountry.currentObject", type = TuraObject.class)
+        @Parameter(name = "obj", expression = "#{beanFactory.treeRootCountry.currentObject}", type = TuraObject.class)
 
     }
     )
@@ -152,7 +159,7 @@ public class CountryDC extends DataControl<CountryDAO> {
     @Inject
     public void setUpdateCommand(
         @Update(objectAction = "update", parameters = @Parameters(value =  {
-        @Parameter(name = "obj", expression = "beanFactory.treeRootCountry.currentObject", type = TuraObject.class)
+        @Parameter(name = "obj", expression = "#{beanFactory.treeRootCountry.currentObject}", type = TuraObject.class)
 
     }
     )
@@ -165,7 +172,7 @@ public class CountryDC extends DataControl<CountryDAO> {
     @Inject
     public void setDeleteCommand(
         @Delete(objectAction = "remove", parameters = @Parameters(value =  {
-        @Parameter(name = "obj", expression = "beanFactory.treeRootCountry.currentObject", type = TuraObject.class)
+        @Parameter(name = "obj", expression = "#{beanFactory.treeRootCountry.currentObject}", type = TuraObject.class)
 
     }
     )
@@ -178,9 +185,9 @@ public class CountryDC extends DataControl<CountryDAO> {
     @Inject
     public void setSearchCommand(
         @Search(objectAction = "find", parameters = @Parameters(value =  {
-        @Parameter(name = "search", expression = "beanFactory.treeRootCountry.currentControl.query", type = SelectQuery.class)
-        , @Parameter(name = "startIndex", expression = "beanFactory.treeRootCountry.currentControl.startIndex", type = Integer.class)
-        , @Parameter(name = "endIndex", expression = "beanFactory.treeRootCountry.currentControl.endIndex", type = Integer.class)
+        @Parameter(name = "search", expression = "#{beanFactory.treeRootCountry.currentControl.query}", type = SelectQuery.class)
+        , @Parameter(name = "startIndex", expression = "#{beanFactory.treeRootCountry.currentControl.startIndex}", type = Integer.class)
+        , @Parameter(name = "endIndex", expression = "#{beanFactory.treeRootCountry.currentControl.endIndex}", type = Integer.class)
         , @Parameter(name = "className", value = "org.elsoft.platform.hr.objects.CountryDAO", type = String.class)
 
     }

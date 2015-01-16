@@ -43,6 +43,24 @@ import freemarker.template.TemplateExceptionHandler;
 
 public class Util {
 
+	
+	public static String bracketRemover(String str){
+		if ("#{".equals(str.substring(0, 2))){
+			str = str.substring(2);
+			str = str.substring(0,str.length()-1);
+		}
+		return str;
+	}
+	
+	public static String apostropheRemover(String str){
+		if ("'".equals(str.substring(0, 1))){
+			str = str.substring(1);
+			str = str.substring(0,str.length()-1);
+		}
+		return str;
+		
+	}
+	
 	public static domain.TypeElement getBase(domain.DataControl dc) {
 		if ((dc.getCreate().getMethodRef() == null
 				|| dc.getCreate().getMethodRef().getReturnValue() == null || dc

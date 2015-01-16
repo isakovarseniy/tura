@@ -15,11 +15,11 @@ operation domain::Table generateBody(hash){
      var util = new Native('org.tura.metamodel.commons.Util');
 %]
 	<p:dataTable [%=self.mkUIDBinding()%] [%=self.styleAttributes(hash)%] [%=self.enabled(hash)%] var="row" 
-		value="#{viewmodel.getModel('[%=self.mkuid()%]','grid', [%=buildExpression(util.createArtificialContextValue(self.sourcePointer,self.sourcePointer.findTreeRoot(), null))%]).getLazyModel()}"
+		value="#{viewmodel.getModel('[%=self.mkuid()%]','grid', [%=util.bracketRemover(buildExpression(util.createArtificialContextValue(self.sourcePointer,self.sourcePointer.findTreeRoot(), null)))%]).getLazyModel()}"
 		paginator="true" rows="[%=self.rowNumber%]" lazy="true"
 		paginatorTemplate="{RowsPerPageDropdown}  {PreviousPageLink}  {NextPageLink}"
 		rowsPerPageTemplate="5,10,15" selectionMode="single"   rowKey="#{row}">
-		<p:ajax event="rowSelect" listener="#{viewmodel.getModel('[%=self.mkuid()%]','grid', [%=buildExpression(util.createArtificialContextValue(self.sourcePointer,self.sourcePointer.findTreeRoot(), null))%]).setSelected}" [%=self.refreshArias()%]/>
+		<p:ajax event="rowSelect" listener="#{viewmodel.getModel('[%=self.mkuid()%]','grid', [%=util.bracketRemover( buildExpression(util.createArtificialContextValue(self.sourcePointer,self.sourcePointer.findTreeRoot(), null)))%]).setSelected}" [%=self.refreshArias()%]/>
 		
 [%
                 for (element in self.cols){

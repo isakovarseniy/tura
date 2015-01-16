@@ -1,23 +1,8 @@
 [%@template
 operation Button draw(hash) { 
      var util = new Native('org.tura.metamodel.commons.Util');
-     var title = buildParameterizedExpression(self.multiLangLabel);
-     if (title <> "" and self.multiLangLabel <> null and self.multiLangLabel.constant = false )
-        title = "#{"+title+"}";
-        
-     if (title <> "" )
-        title = "value=\"" + title + "\"";
-     else
-        title="";   
-
-     var icon = buildParameterizedExpression(self.icon);
-     if (icon <> "" and self.icon <> null and self.icon.constant = false )
-        icon = "#{"+icon+"}";
-        
-     if (icon <> "" )
-        icon = "icon=\"" + icon + "\"";
-     else
-        icon="";   
+     var title =  "value=\"" + buildParameterizedExpression(self.multiLangLabel) + "\"";  
+     var icon = "icon=\""+util.apostropheRemover(buildParameterizedExpression(self.icon))+"\"";
 
  %]
 <p:commandButton [%=title%] [%=self.mkUIDBinding()%] [%=self.uiElementAttributes(hash)%]   [%=icon%] />

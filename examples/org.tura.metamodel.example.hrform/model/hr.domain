@@ -15,6 +15,7 @@
     <applicationRecipes columns="2" uid="f9514377-08f6-4c90-939e-17075d3239fd" name="Application recipes">
       <recipes uid="Hr_recipe" name="Hr recipe" recipes="e0a24138-9ba7-44dd-8b87-d1b01751c642"/>
       <recipes uid="fc4a8a78-b68c-4020-bb95-ab6d773b5486" name="Form generation" recipes="780d51bf-e928-4fb4-a228-4371d8fe439d"/>
+      <recipes uid="643f117b-2ee8-49cd-b1ff-6123bc465259" name="DataControls for JSE" recipes="ea1699b1-79f1-4e4d-9342-3ba1cf05a54d"/>
     </applicationRecipes>
     <applicationMappers columns="2" uid="bd625d91-80b6-42b4-bfd3-9311a0f32026" name="Application mapper">
       <mappers uid="0d86886f-6d6e-49e1-a123-d063d2d9bd22" name="Primitives mapper" mapper="e5ddc4b2-b9bc-4fb3-928a-2cb53fcc0d2d"/>
@@ -2124,4 +2125,21 @@
       <styles uid="fc5e4f10-6532-4be0-9e83-464c7d2877f4" name="RallBack button"/>
     </libraries>
   </tura.domain:Styles>
+  <tura.domain:Recipes uid="ea1699b1-79f1-4e4d-9342-3ba1cf05a54d" parent="643f117b-2ee8-49cd-b1ff-6123bc465259">
+    <recipe mappers="0d86886f-6d6e-49e1-a123-d063d2d9bd22 236f541c-3271-4e57-a60e-1769390bf194" uid="91ea9fb6-03c6-49dd-9548-62e08e1ceb5d" infrastructures="b1124955-833d-4a6d-a446-254b52411192">
+      <ingredients uid="bf57465e-eda2-45ef-b929-42242f0e22c0" name="DataControl component" layer="UILayer">
+        <components xsi:type="tura.domain:JavaComponent" uid="6f62421a-c057-425f-8350-76d6d562ff13" name="UIComponent" componentRoot="/Users/arseniyi/generatedCode/test" artifactId="hrform" groupId="org.tura.example.ui" version="1.0" basePackage="org.tura.example.ui">
+          <mappers uid="be592138-aa34-49f4-8df1-7bc3a85464e3" domainArtifactRef="5945624b-20f3-47f9-9cb1-d0dc8df9491a" artifactRef="d597c2ba-7f76-4769-a0e5-f9828833760f" name="Process all DataControl in UI package">
+            <specifiers specifierRef="ef7f8f56-76ad-4842-8484-9e6bc1e2dc6a" valueRef="d746f08a-a1f0-4b81-907a-bf65ef936a8e"/>
+            <specifiers specifierRef="6cf7c6cf-5261-4eef-af34-5c153e789430" valueRef="d04898e6-1e83-4bde-82fa-223a07623b92"/>
+            <queries uid="f2a34108-7917-409a-9ccd-2e330ae55654" queryRef="bba9824e-a43b-4c96-b926-fb63a606127a">
+              <variables queryParamRef="6dbc30b8-95cd-4776-90de-d7b5ce5df2f8" value="HR application"/>
+              <variables queryParamRef="ee8b0895-06c0-4ed3-99cf-8998cdfaeaa7" value="Hr manager"/>
+            </queries>
+          </mappers>
+        </components>
+      </ingredients>
+    </recipe>
+    <infrastructures uid="b1124955-833d-4a6d-a446-254b52411192" recipe="91ea9fb6-03c6-49dd-9548-62e08e1ceb5d" name="Development"/>
+  </tura.domain:Recipes>
 </xmi:XMI>

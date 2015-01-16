@@ -5,14 +5,15 @@ import org.tura.platform.datacontrol.annotations.Dependencies;
 import org.tura.platform.datacontrol.annotations.Dependency;
 import org.tura.platform.datacontrol.metainfo.DependecyProperty;
 
-import java.util.List;
+import java.io.Serializable;
 
-import javax.enterprise.context.ApplicationScoped;
+import java.util.List;
 
 import javax.inject.Inject;
 
-@ApplicationScoped
-public class TreeRootCountryDC extends TreeDataControl {
+public class TreeRootCountryDC extends TreeDataControl implements Serializable {
+    private static final long serialVersionUID = 1L;
+
     @Inject
     public void setRoot(CountryDC root) {
         super.setRoot(root);
@@ -23,7 +24,7 @@ public class TreeRootCountryDC extends TreeDataControl {
     @Inject
     public void setDependency(
         @Dependencies(dependency =  {
-        @Dependency(expression = "beanFactory.department")
+        @Dependency(expression = "#{beanFactory.department}")
 
     }
     )
