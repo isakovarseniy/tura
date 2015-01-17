@@ -1,13 +1,13 @@
-.add-btn {
-    background-image: url("#{resource['images/add-icon.png']}") !important;
+.add-row-button {
+    background-image: url(http://localhost:8080/hrresources-2.0/images/add-icon.png) !important;
     width: 16px;
     height: 16px;
     background-position: 0px 0px;
 }
 
 
-.delete-btn {
-    background-image: url("#{resource['images/delete-icon.png']}") !important;
+.remove-row-button {
+    background-image: url(http://localhost:8080/hrresources-2.0/images/delete-icon.png) !important;
     width: 16px;
     height: 16px;
     background-position: 0px 0px;

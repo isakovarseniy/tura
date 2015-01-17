@@ -49,7 +49,9 @@ operation domain::Window generateBody(hash){
                if (pkg.styles <> null ){
                  for (lib in pkg.styles.libraries ){
                  lib.mappingStyleLibrary2CSS(recipe, ingredient );
+                 if (lib.~url.isDefined()){
               %]<h:outputStylesheet library="css" name="[%=lib.~url%]" />[%
+                  }
                  }
                }
             }
