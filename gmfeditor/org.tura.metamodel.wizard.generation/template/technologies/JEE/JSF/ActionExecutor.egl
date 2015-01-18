@@ -1,0 +1,74 @@
+[%@template
+operation   actionExecutor(hash) { 
+     var util = new Native('org.tura.metamodel.commons.Util');
+     var recipe = hash.get("recipe");
+     var ingredient = hash.get("ingredient");
+     var component = hash.get("component");
+     var form = hash.get("form");
+     var actionElements = hash.get("actionElements");
+     var  javaPath =  hash.get("javaPath");  
+ %]
+
+package  [%=component.basePackage%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%].action;
+
+
+public class ActionExecutor{
+private java.util.HashMap<String,Object> hash = new  java.util.HashMap<String,Object>();
+[%
+     var map = new Native('java.util.HashMap'); 
+
+     var counter = 0;
+     for ( action in actionElements){
+         if (action.typeRef <> null ){
+             var type = action.typeRef;
+             type.mappingType2Java(recipe,ingredient);
+          if (type.~fullName.isDefined() and map.get(type.~fullName) = null) {
+                 type.~counter = counter;
+                 counter = counter+1;
+                 map.put(type.~fullName,type);
+            }     
+         }
+     }   
+     
+     for ( type in map.values()){
+%]
+	@javax.inject.Inject
+	private javax.enterprise.inject.Instance<[%=type.~fullName%]> exec_[%=type.~counter%];
+[%         
+      }
+%]
+     public ActionExecutor(){
+[%      
+     for ( action in actionElements){
+        if (action.typeRef <> null){
+%]
+      hash.put("[%=action.uid%]",new Object[]{
+            new Class[]{},
+            new Object[]{[%
+           if (action.parameters <> null and action.parameters.size() <> 0 ){
+              var i = 0;
+               for (parameter  in action.parameters){
+                  if ( i <> 0)
+                     %],[%
+                  %][%=buildExpression(parameter.value)%][%
+                  i = 1;
+               }
+           }
+            %]},
+            exec_[%=map.get(action.typeRef.~fullName).~counter%].get(),
+            "[%=util.mergeAndUnCapitalize(action.methodRef.name)%]"
+         }
+      );
+
+[%     
+      }
+     }      
+%]
+   }
+}  
+[%
+      var f = new Native("org.tura.metamodel.wizard.infrastructure.JavaFormatter");
+      out.formatWith(f);
+      util.saveFile( javaPath+util.mergeAndCapitalize(form.name).toLowerCase()+"/action/"  , "ActionExecutor.java",out.toString());  
+}
+%]

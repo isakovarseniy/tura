@@ -5,6 +5,9 @@ operation  viewgeneration(hash) {
       var webapp = hash.get("webapp");
       var util = new Native('org.tura.metamodel.commons.Util');
       var allPorts = new Native('java.util.ArrayList'); 
+      var actionElements = new Native('java.util.ArrayList'); 
+      hash.put("actionElements",actionElements);
+      
 
       for (canvas in form.view.view.canvases){
               if (not canvas.isKindOf(domain::TabCanvas) ){
@@ -29,7 +32,13 @@ operation  viewgeneration(hash) {
       var buffer = expproducer.process();
       util.saveFile( javaPath+util.mergeAndCapitalize(form.name).toLowerCase()+"/producer/"  , "ExpressionsProducer.java",buffer);  
       
+      var actionproducer : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.wizard.generation/template/technologies/JEE/JSF/ActionProducer.egl",hash,TemplateFactory);
+      actionproducer.setFormatter(f);
+      var buffer = actionproducer.process();
+      util.saveFile( javaPath+util.mergeAndCapitalize(form.name).toLowerCase()+"/producer/"  , "ActionProducer.java",buffer);  
+ 
       web_xml(hash) ;
+      actionExecutor(hash);
 }
 %]
 

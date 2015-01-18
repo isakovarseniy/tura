@@ -1,6 +1,9 @@
 [%@template
 operation Button draw(hash) { 
      var util = new Native('org.tura.metamodel.commons.Util');
+     
+     hash.get("actionElements").add(self);
+     
      var title =  "value=\"" + buildParameterizedExpression(self.multiLangLabel) + "\"";  
      var icon = "icon=\""+util.apostropheRemover(buildParameterizedExpression(self.icon))+"\"";
 

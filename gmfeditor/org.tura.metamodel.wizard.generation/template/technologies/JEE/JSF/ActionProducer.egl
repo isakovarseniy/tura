@@ -1,0 +1,35 @@
+[%
+import "platform:/plugin/org.tura.metamodel.wizard.generation/template/commons/typeElementUtil.eol";
+
+     var util = new Native('org.tura.metamodel.commons.Util');
+
+%]
+package  [%=component.basePackage%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%].producer;  
+
+import javax.enterprise.inject.Produces;
+
+public class ActionProducer{
+
+[%
+     var map = new Native('java.util.HashMap'); 
+
+     for ( action in actionElements){
+         if (action.typeRef <> null ){
+             var type = action.typeRef;
+             type.mappingType2Java(recipe,ingredient);
+          if (type.~fullName.isDefined()) 
+                 map.put(type.~fullName.isDefined(),type);
+         }
+     }          
+
+     for ( type in map.values()){
+%]
+	@Produces
+	public [%=type.~fullName%] get[%=type.~class%](){
+	    return new [%=type.~fullName%]();
+	}
+[%         
+      }
+%]
+
+}

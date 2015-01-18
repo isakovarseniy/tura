@@ -39,10 +39,10 @@ public abstract class AbstractCastPropertySelection extends
 			domain.DataControl ndc = (DataControl) dropDownDataSupplier
 					.getWatchPointObject(getModel())[0];
 
-			ArrayList<domain.DataControl> controls = new ArrayList<>();
+			ArrayList<Object> controls = new ArrayList<>();
 
 			try {
-				if (Util.ifDataControlIsTreeRoot(ndc,root)) {
+				if (Util.ifDataControlIsTreeRoot(ndc, root)) {
 					helper.getTreeLeafs(controls, ndc);
 				} else
 					controls.add(ndc);
@@ -50,7 +50,8 @@ public abstract class AbstractCastPropertySelection extends
 
 			}
 
-			for (final domain.DataControl dc : controls) {
+			for (Object obj : controls) {
+				final domain.DataControl dc = (DataControl) obj;
 				if (dc == null || dc.getCreate() == null)
 					return values;
 

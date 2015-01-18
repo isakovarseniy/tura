@@ -68,10 +68,11 @@ public abstract class AbstractAttributePropertySelection extends
 						}
 					}
 					if (treeRoot) {
-						ArrayList<domain.DataControl> controls = new ArrayList<>();
+						ArrayList<Object> controls = new ArrayList<>();
 						helper.getTreeLeafs(controls, ndc);
 						threshold = controls.size();
-						for (domain.DataControl dc : controls) {
+						for (Object obj : controls) {
+							domain.DataControl dc = (DataControl) obj;
 							domain.TypeElement type = Util.getBase(dc);
 							if (type != null)
 								addOperation(operations, attributes,

@@ -22,7 +22,11 @@ import "platform:/plugin/org.tura.metamodel.wizard.generation/template/technolog
 
 import "platform:/plugin/org.tura.metamodel.wizard.generation/template/technologies/JEE/JSF/PrimeFaces/web-xml.egl";
 
+import "platform:/plugin/org.tura.metamodel.wizard.generation/template/technologies/JEE/JSF/ActionExecutor.egl";
+
 import "platform:/plugin/org.tura.metamodel.wizard.generation/template/commons/styleLibraryElementUtil.eol";
+import "platform:/plugin/org.tura.metamodel.wizard.generation/template/commons/typeElementUtil.eol";
+
 
 @template
 operation   domain::Uielement  refreshArias() {

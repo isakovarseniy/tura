@@ -79,7 +79,7 @@ operation  datacontrolgeneration(hash) {
     util.saveFile( javaPath+util.mergeAndCapitalize(form.name).toLowerCase()+"/datacontrol/"  , "BeanFactory.java",buffer);   
 
 
-      var logproducer : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.wizard.generation/template/technologies/JEE/JSF/loggerProducer.egl",hash,TemplateFactory);
+      var logproducer : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.wizard.generation/template/technologies/JEE/CDI/loggerProducer.egl",hash,TemplateFactory);
       logproducer.setFormatter(f);
       var buffer = logproducer.process();
       util.saveFile( javaPath+util.mergeAndCapitalize(form.name).toLowerCase()+"/producer/"  , "LoggerProducer.java",buffer);  
