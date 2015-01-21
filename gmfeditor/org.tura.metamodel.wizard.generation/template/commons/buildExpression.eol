@@ -21,7 +21,7 @@ operation buildParameterizedExpression(context : domain::Context ) : String {
 operation  buildExpression( contextValue) : String {
       if (contextValue.constant = true )
            return contextValue.value;
-           
+
        var i : Integer = 0;    
        var resultExpression : String = ""; 
        var tokenizer = new Native("java.util.StringTokenizer")(contextValue.value,"."); 

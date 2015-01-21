@@ -4090,6 +4090,13 @@
       <element xmi:type="tura.domain:JavaMapper" href="hr.domain#963dce3c-fcc6-4388-9dc6-c084f6f4fdae"/>
       <layoutConstraint xmi:type="notation:Bounds" xmi:id="_MH0tM58fEeS6PPt_GXE48Q" x="589" y="214"/>
     </children>
+    <children xmi:type="notation:Node" xmi:id="_zLl4oKBcEeSkPIPUqhROmw" type="402001">
+      <children xmi:type="notation:DecorationNode" xmi:id="_zLnGwKBcEeSkPIPUqhROmw" type="405001"/>
+      <styles xmi:type="notation:DescriptionStyle" xmi:id="_zLl4oaBcEeSkPIPUqhROmw"/>
+      <styles xmi:type="notation:FontStyle" xmi:id="_zLl4oqBcEeSkPIPUqhROmw" fontName="Lucida Grande"/>
+      <element xmi:type="tura.domain:JavaMapper" href="hr.domain#922fccb2-695f-4062-b5b3-953c717851ec"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_zLl4o6BcEeSkPIPUqhROmw" x="588" y="282"/>
+    </children>
     <styles xmi:type="notation:DiagramStyle" xmi:id="_ImiXEVvcEeSIFeKHUo5mkw"/>
     <element xmi:type="tura.domain:Mappers" href="hr.domain#34e530a4-fb8a-403a-a54b-b1153e4c2717"/>
   </notation:Diagram>

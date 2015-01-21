@@ -1739,6 +1739,7 @@
     <mappers xsi:type="tura.domain:JavaMapper" uid="d032b375-f6e9-4784-8cb5-8a3bed1b9a12" uiLayer="true" packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="2b2e1b10-400a-11e4-916c-0800200c9a66" fakePackageName="Base package" fakeTypeName="List of Base Type" mappedToPackageName="java.util" mappedToClassName="List&lt;org.tura.platform.persistence.TuraObject>"/>
     <mappers xsi:type="tura.domain:JavaMapper" uid="cd058e0b-a144-4b4f-b58d-324f50bed61a" uiLayer="true" packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="9ec6d2e0-4002-11e4-916c-0800200c9a66" fakePackageName="Base package" fakeTypeName="Search criterias" mappedToPackageName="com.octo.java.sql.query" mappedToClassName="SelectQuery" artifactId="java-sql-dsl" groupId="com.octo.java.sql" version="0.1.1-SNAPSHOT"/>
     <mappers xsi:type="tura.domain:JavaMapper" uid="963dce3c-fcc6-4388-9dc6-c084f6f4fdae" uiLayer="true" packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="97a1a7c3-5e08-48b1-82d0-8a35fa5a13e9" fakePackageName="Base package" fakeTypeName="System library" mappedToPackageName="org.tura.platform.primefaces.lib" mappedToClassName="SystemLibrary" artifactId="primefaces-model" groupId="org.tura.platform" version="2.0"/>
+    <mappers xsi:type="tura.domain:JavaMapper" uid="922fccb2-695f-4062-b5b3-953c717851ec" uiLayer="true" packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="7de77bc8-f109-43e4-95fe-0f2ca7a9f1d0" fakePackageName="Base package" fakeTypeName="General data control" mappedToPackageName="org.tura.platform.datacontrol" mappedToClassName="IDataControl" artifactId="core" groupId="org.tura.platform.datacontrol" version="2.0" libraryName=""/>
   </tura.domain:Mappers>
   <tura.domain:TypeDefinition uid="c9574970-474a-403a-9224-f91bc2f8fe7a"/>
   <tura.domain:Messages uid="af03a493-0ca4-486c-945f-5bfc2fdf35bd" parent="39c0cb8c-3370-4a8b-9dc8-f988c6c3a565">
@@ -1927,6 +1928,7 @@
           </children>
           <children xsi:type="tura.domain:LayerHolder" uid="2bf0762f-87b6-4f24-8f59-8abb67706538" columns="2">
             <children xsi:type="tura.domain:Button" uid="47e6bf87-614a-496f-8583-80003ebe457b" packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="97a1a7c3-5e08-48b1-82d0-8a35fa5a13e9" fakePackageName="Base package" fakeTypeName="System library" methodRef="111886f3-7b14-4394-9454-3e2df8cd55e7" fakeMethod="Create row" label="Add">
+              <enabled/>
               <parameters uid="3ad8b186-3619-42b9-a9df-d8efc28025fa" refObj="96c4a5f8-171b-412b-98b8-23f37e1c5d68">
                 <value uid="636f0f04-fa9c-4cf9-9398-30bcce30c38e" value="Tree data controls.TreeCountry">
                   <expression expressionType="TreeRootDataControlHolder"/>

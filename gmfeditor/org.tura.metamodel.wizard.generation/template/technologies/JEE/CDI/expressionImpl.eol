@@ -109,9 +109,10 @@ operation DataControlFakeMethod(expression:String, contextValue , paramId: Integ
 }
 
 operation TreeDataControl(expression:String, contextValue , paramId: Integer , array ) : String {
-    var dc = contextValue.expression.get(paramId+1).objRef.findTreeRoot();
-    contextValue.expression.get(paramId+1).~treeDC = dc;
-
+    if (contextValue.expression.size() > paramId+1 and contextValue.expression.get(paramId+1).expressionType.equals("DataControlImpl") ){
+       var dc = contextValue.expression.get(paramId+1).objRef.findTreeRoot();
+       contextValue.expression.get(paramId+1).~treeDC = dc;
+    }
     return expression;
 }
 
