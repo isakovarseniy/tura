@@ -18,6 +18,7 @@ operation TypeElement mappingType2Java( recipe:Recipe, ingredient :Ingredient) {
           if ( set.size() <> 0 ){
               var type =  util.mapType(set,ingredient,tp) ;
               if ( type <> null){
+                 self.~mapper="Type2Java";
                  self.~class=type.mappedToClassName;
                  self.~package= type.mappedToPackageName;
                  if (type.mappedToPackageName <>'')
@@ -39,3 +40,27 @@ operation TypeElement mappingType2Java( recipe:Recipe, ingredient :Ingredient) {
           }    
      }
 } 
+
+
+operation TypeElement mappingType2JavaScript( recipe:Recipe, ingredient :Ingredient) { 
+
+    var appmappers =   new Native('java.util.ArrayList');  
+    var util = new Native('org.tura.metamodel.commons.Util');
+    
+    appmappers.addAll(recipe.mappers);
+    appmappers.addAll(ingredient.mappers);
+
+    for( appmapper in appmappers ){
+         var set = appmapper.mapper.mappers.select(r|r.isKindOf(JavaScriptMapper) and  r.typeRef.uid= self.uid);
+          if ( set.size() <> 0 ){
+            for( s in set){
+             self.~mapper="Type2JavaScript";
+             self.~url=s.libraryUrl;
+             break;
+             }
+           }
+    }
+}
+
+
+

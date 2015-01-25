@@ -39,6 +39,7 @@ operation  viewgeneration(hash) {
  
       web_xml(hash) ;
       actionExecutor(hash);
+      scriptGenerator(hash);
 }
 %]
 

@@ -11,9 +11,25 @@ operation   actionExecutor(hash) {
 
 package  [%=component.basePackage%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%].action;
 
+import org.tura.platform.datacontrol.ELResolver;
+
+import java.lang.reflect.Method;
+import java.util.ArrayList;
+import java.util.logging.Logger;
+
+import javax.faces.event.ActionEvent;
+
+import javax.inject.Inject;
 
 public class ActionExecutor{
-private java.util.HashMap<String,Object> hash = new  java.util.HashMap<String,Object>();
+
+	@Inject
+	private Logger logger;
+
+	@Inject
+	private ELResolver elResolver;
+    
+    private java.util.HashMap<String,Object> hash = new  java.util.HashMap<String,Object>();
 [%
      var map = new Native('java.util.HashMap'); 
 
@@ -40,9 +56,9 @@ private java.util.HashMap<String,Object> hash = new  java.util.HashMap<String,Ob
      public ActionExecutor(){
 [%      
      for ( action in actionElements){
-        if (action.typeRef <> null){
+        if (action.typeRef <> null and action.typeRef.~fullName.isDefined()){
 %]
-      hash.put("[%=action.uid%]",new Object[]{
+      hash.put("[%=action.mkuid()%]",new Object[]{
             new Class[]{[%
            if (action.parameters <> null and action.parameters.size() <> 0 ){
               var i = 0;
@@ -77,6 +93,32 @@ private java.util.HashMap<String,Object> hash = new  java.util.HashMap<String,Ob
      }      
 %]
    }
+   
+	@SuppressWarnings("unchecked")
+	public void eventListener(ActionEvent event) {
+
+		try {
+			String id = event.getComponent().getClientId();
+			Object[] array = (Object[]) hash.get(id);
+
+			Method method = array[2].getClass().getMethod((String) (array[3]),
+					(Class[]) array[0]);
+			@SuppressWarnings("rawtypes")
+			ArrayList objects = new ArrayList();
+			for (String expression : (String[]) array[1]) {
+				Object obj = expression;
+				if ("#{".equals(expression.substring(0, 2))) {
+					obj = elResolver.getValue(expression);
+				}
+				objects.add(obj);
+			}
+			method.invoke(array[2], objects.toArray());
+		} catch (Exception e) {
+			logger.fine(e.getMessage());
+		}
+
+	}
+   
 }  
 [%
       var f = new Native("org.tura.metamodel.wizard.infrastructure.JavaFormatter");

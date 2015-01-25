@@ -45,6 +45,9 @@ public class Util {
 
 	
 	public static String bracketRemover(String str){
+		if (str.length() < 2 )
+			return str;
+
 		if ("#{".equals(str.substring(0, 2))){
 			str = str.substring(2);
 			str = str.substring(0,str.length()-1);
@@ -53,6 +56,9 @@ public class Util {
 	}
 	
 	public static String apostropheRemover(String str){
+		if (str.length() < 1 )
+			return str;
+			
 		if ("'".equals(str.substring(0, 1))){
 			str = str.substring(1);
 			str = str.substring(0,str.length()-1);
