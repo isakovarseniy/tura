@@ -11,6 +11,7 @@ operation   scriptGenerator(hash) {
 
 package  [%=component.basePackage%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%].action;
 
+@javax.inject.Named("scriptGenerator")
 public class ScriptGenerator{
 
 	@javax.inject.Inject
@@ -58,28 +59,30 @@ public class ScriptGenerator{
 %]
    }
    
-	public String scriptBuilder(String clientId) {
-		String result="";
-		try {
-			Object[] array = (Object[]) hash.get(clientId);
+    public String scriptBuilder(String clientId) {
+        String result = "";
+        try {
+            Object[] array = (Object[]) hash.get(clientId);
 
-			result = (String) array[1] + "(";
-			int i = 0;
-			for (String expression : (String[]) array[0]) {
-				if (i != 0)
-					result = result + ",";
-				Object obj = expression;
-				if ("#{".equals(expression.substring(0, 2))) {
-					obj = elResolver.getValue(expression);
-				}
-				result = result + obj.toString();
-			}
-             result =result+")";
- 		} catch (Exception e) {
-			logger.fine(e.getMessage());
-		}
-		return result;
-	}
+            result = (String) array[1] + "(";
+            int i = 0;
+            for (Object element : (Object[]) array[0]) {
+                if (i != 0) {
+                    result = result + ",";
+                }
+                Object obj = element;
+                String expression = (String) element;
+                if ("#{".equals(expression.substring(0, 2))) {
+                    obj = elResolver.getValue(expression);
+                }
+                result = result + obj.toString();
+            }
+            result = result + ")";
+        } catch (Exception e) {
+            logger.fine(e.getMessage());
+        }
+        return result;
+    }
    
 }
 [%

@@ -21,10 +21,13 @@ import javax.faces.event.ActionEvent;
 
 import javax.inject.Inject;
 
-public class ActionExecutor{
+@javax.inject.Named("actionExecutor")
+public class ActionExecutor  implements java.io.Serializable {
+
+	private static final long serialVersionUID = 1L;
 
 	@Inject
-	private Logger logger;
+	private transient Logger logger;
 
 	@Inject
 	private ELResolver elResolver;
@@ -49,11 +52,12 @@ public class ActionExecutor{
      for ( type in map.values()){
 %]
 	@javax.inject.Inject
-	private javax.enterprise.inject.Instance<[%=type.~fullName%]> exec_[%=type.~counter%];
+	private transient javax.enterprise.inject.Instance<[%=type.~fullName%]> exec_[%=type.~counter%];
 [%         
       }
 %]
-     public ActionExecutor(){
+	@javax.annotation.PostConstruct
+	public void init() {
 [%      
      for ( action in actionElements){
         if (action.typeRef <> null and action.typeRef.~fullName.isDefined()){
