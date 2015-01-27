@@ -75,7 +75,7 @@ public class ScriptGenerator{
                 if ("#{".equals(expression.substring(0, 2))) {
                     obj = elResolver.getValue(expression);
                 }
-                result = result + obj.toString();
+                result = result + "'"+obj.toString()+"'";
             }
             result = result + ")";
         } catch (Exception e) {

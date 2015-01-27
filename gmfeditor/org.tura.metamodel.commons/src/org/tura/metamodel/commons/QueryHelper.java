@@ -815,6 +815,36 @@ public class QueryHelper {
 		return null;
 
 	}
+	
+	
+	public domain.TypeElement findBaseType(Object obj) {
+		try {
+			@SuppressWarnings("rawtypes")
+			OCL ocl = OCL.newInstance(EcoreEnvironmentFactory.INSTANCE);
+			@SuppressWarnings("unchecked")
+			OCLHelper<EClassifier, ?, ?, Constraint> helper = ocl
+					.createOCLHelper();
+			helper.setContext(DomainPackage.eINSTANCE.getEClassifier("Domain"));
+
+			OCLExpression<EClassifier> query = helper
+					.createQuery("domain::Package.allInstances()->select(r|r.oclAsType(domain::Package).name='"
+							+ InitDiagram.BASE_PACKAGE
+							+ "').oclAsType(domain::Package)."
+							+ "typedefinition.types->select(r|(r.oclIsKindOf(domain::Type) and  r.oclAsType(domain::Type).name = 'BaseType') )");
+
+			@SuppressWarnings("unchecked")
+			Collection<domain.TypeElement> map = (Collection<domain.TypeElement>) ocl
+					.evaluate(obj, query);
+
+			if (map.size() != 0)
+				return map.iterator().next();
+
+		} catch (Exception e) {
+			LogUtil.log(e);
+		}
+		return null;
+	}
+	
 
 	public domain.TypeElement findDataControlType(Object obj) {
 		try {

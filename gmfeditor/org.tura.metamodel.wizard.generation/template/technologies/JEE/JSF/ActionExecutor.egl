@@ -98,31 +98,31 @@ public class ActionExecutor  implements java.io.Serializable {
 %]
    }
    
-	@SuppressWarnings("unchecked")
-	public void eventListener(ActionEvent event) {
+    @SuppressWarnings("unchecked")
+    public void eventListener(ActionEvent event) {
+        try {
+            String id = event.getComponent().getClientId();
+            id = id.substring(id.lastIndexOf(':')+1);
+            Object[] array = (Object[]) hash.get(id);
 
-		try {
-			String id = event.getComponent().getClientId();
-			Object[] array = (Object[]) hash.get(id);
-
-			Method method = array[2].getClass().getMethod((String) (array[3]),
-					(Class[]) array[0]);
-			@SuppressWarnings("rawtypes")
-			ArrayList objects = new ArrayList();
-			for (String expression : (String[]) array[1]) {
-				Object obj = expression;
-				if ("#{".equals(expression.substring(0, 2))) {
-					obj = elResolver.getValue(expression);
-				}
-				objects.add(obj);
-			}
-			method.invoke(array[2], objects.toArray());
-		} catch (Exception e) {
-			logger.fine(e.getMessage());
-		}
-
-	}
-   
+            Method method =
+                array[2].getClass()
+                        .getMethod((String) (array[3]), (Class[]) array[0]);
+            @SuppressWarnings("rawtypes")
+            ArrayList objects = new ArrayList();
+            for (Object exp : (Object[]) array[1]) {
+                Object obj = exp;
+                String expression = (String) exp;
+                if ("#{".equals(expression.substring(0, 2))) {
+                    obj = elResolver.getValue(expression);
+                }
+                objects.add(obj);
+            }
+            method.invoke(array[2], objects.toArray());
+        } catch (Exception e) {
+            logger.fine(e.getMessage());
+        }
+    }
 }  
 [%
       var f = new Native("org.tura.metamodel.wizard.infrastructure.JavaFormatter");
