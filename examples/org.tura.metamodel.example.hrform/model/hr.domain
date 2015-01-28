@@ -1569,6 +1569,7 @@
       </specifiers>
     </artifacts>
     <artifacts uid="91baf89f-60ba-4074-a47a-0c8d5f6b2877" name="View" template="platform:/plugin/org.tura.metamodel.wizard.generation/template/pit/mvc/view/mainView.egl">
+      <configVariables uid="3165ef35-24f6-44f9-9ad1-1c89771ff777" name="Resource library location"/>
       <modelQuery uid="fe5b2bc4-040d-490b-97af-e6511696e169" name="Query form" query="domain::DomainApplication.allInstances()->select(r|r.oclAsType(domain::DomainApplication).name='${Application}').oclAsType(domain::DomainApplication).application.applicationUILayer.applicationUIPackages->select(r|r.oclAsType(domain::ApplicationUIPackage).name='${UIPackage}').uipackage.forms">
         <parameters uid="053c56ff-924b-4a5c-bf78-8c49bbdb48b7" name="Application"/>
         <parameters uid="cab0a320-7347-4066-bcd7-a66c87f56e94" name="UIPackage"/>
@@ -1674,6 +1675,7 @@
       <properties uid="60a9dab1-d560-4d14-8003-407b470f1b3f" confVarRef="618186f9-7c62-47cf-82f7-3b295a85ca9f" value="postgres"/>
       <properties uid="304abca1-4cf9-4e0f-a4a5-a7f1a935bdb1" confVarRef="2e8c1ce3-aade-4c15-a7cd-ea9f5de5bd8e" value="jdbc:postgresql://localhost:5432/postgres"/>
       <properties uid="3f8cbc65-8b23-4394-a991-c114ea6ba94c" confVarRef="6ef3c0da-e95b-40a7-8b52-bd0c185543c1" value="org.postgresql.Driver"/>
+      <properties uid="ab46b3e9-58e2-436e-bdca-5b73687038f2" confVarRef="3165ef35-24f6-44f9-9ad1-1c89771ff777" value="http://localhost:8080/hrresources-2.0"/>
     </configurations>
     <infrastructures uid="81bafabb-45d9-48af-9283-6ffc90afbda3" recipe="6cb40735-2e80-4221-9ab5-31d646aff979" name="Development" recipeConfig="a2357108-13c5-455e-824c-78102bd6bfe1"/>
   </tura.domain:Recipes>
@@ -1741,7 +1743,7 @@
     <mappers xsi:type="tura.domain:JavaMapper" uid="cd058e0b-a144-4b4f-b58d-324f50bed61a" uiLayer="true" packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="9ec6d2e0-4002-11e4-916c-0800200c9a66" fakePackageName="Base package" fakeTypeName="Search criterias" mappedToPackageName="com.octo.java.sql.query" mappedToClassName="SelectQuery" artifactId="java-sql-dsl" groupId="com.octo.java.sql" version="0.1.1-SNAPSHOT"/>
     <mappers xsi:type="tura.domain:JavaMapper" uid="963dce3c-fcc6-4388-9dc6-c084f6f4fdae" uiLayer="true" packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="97a1a7c3-5e08-48b1-82d0-8a35fa5a13e9" fakePackageName="Base package" fakeTypeName="System library" mappedToPackageName="org.tura.platform.primefaces.lib" mappedToClassName="SystemLibrary" artifactId="primefaces-model" groupId="org.tura.platform" version="2.0"/>
     <mappers xsi:type="tura.domain:JavaMapper" uid="922fccb2-695f-4062-b5b3-953c717851ec" uiLayer="true" packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="7de77bc8-f109-43e4-95fe-0f2ca7a9f1d0" fakePackageName="Base package" fakeTypeName="General data control" mappedToPackageName="org.tura.platform.datacontrol" mappedToClassName="IDataControl" artifactId="core" groupId="org.tura.platform.datacontrol" version="2.0" libraryName=""/>
-    <mappers xsi:type="tura.domain:JavaScriptMapper" uid="6b22c160-af59-4606-ac3c-f43db9619dd0" uiLayer="true" packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="971e11a5-49d4-402d-9ae4-4233c366a542" fakePackageName="Base package" fakeTypeName="Client system library" libraryUrl="/clientSystemLibrary.js"/>
+    <mappers xsi:type="tura.domain:JavaScriptMapper" uid="6b22c160-af59-4606-ac3c-f43db9619dd0" uiLayer="true" packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="971e11a5-49d4-402d-9ae4-4233c366a542" fakePackageName="Base package" fakeTypeName="Client system library" libraryUrl="clientSystemLibrary.js"/>
   </tura.domain:Mappers>
   <tura.domain:TypeDefinition uid="c9574970-474a-403a-9224-f91bc2f8fe7a"/>
   <tura.domain:Messages uid="af03a493-0ca4-486c-945f-5bfc2fdf35bd" parent="39c0cb8c-3370-4a8b-9dc8-f988c6c3a565">

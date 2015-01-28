@@ -27,6 +27,7 @@ ${percent}${end}
          hash.put("resourcePath",resourcePath);
          hash.put("webapp",webapp);
          hash.put("form",form);
+         hash.put("configuration",configuration);
          
          viewgeneration(hash);
        }

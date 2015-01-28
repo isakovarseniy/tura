@@ -25,6 +25,8 @@ ${percent}${end}
     [%=faces_config(hash)%]        
 	
     <application>
+    <resource-handler>org.tura.platform.primefaces.resourcehandler.OmniResourceHandlerWrapper</resource-handler>
+    
 [%
        for ( library in appMsg.messageLibraries){
 %]        

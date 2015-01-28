@@ -69,6 +69,17 @@ operation domain::Window generateBody(hash){
                          </p:panelGrid>
 					</h:form>
 				</h:body>
+[%      
+     var actionElements = hash.get("actionElements");
+     for ( action in actionElements){
+      if (action.methodRef <> null  and  action.typeRef.~url.isDefined()){  
+%]
+      <h:outputScript library="js" name="[%=action.typeRef.~url%]" targer="head"></h:outputScript>
+[%     
+      }
+     }      
+%]
+				
 			</f:view>
 		</html>
 [%

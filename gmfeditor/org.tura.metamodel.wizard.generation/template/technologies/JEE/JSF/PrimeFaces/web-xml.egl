@@ -3,6 +3,7 @@ operation  web_xml(hash) {
      var util = new Native('org.tura.metamodel.commons.Util');
      var component = hash.get("component");
      var webapp =  component.getComponentRoot+"/"+component.getArtifactId()+"/src/main/webapp/WEB-INF";
+     var configuration = hash.get("configuration");
 %]
 <web-app xmlns="http://java.sun.com/xml/ns/javaee"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -51,6 +52,20 @@ operation  web_xml(hash) {
     <param-name>javax.faces.STATE_SAVING_METHOD</param-name>
     <param-value>server</param-value>
   </context-param>
+  
+  
+  <context-param>
+     <param-name>org.omnifaces.CDN_RESOURCE_HANDLER_URLS</param-name>
+     <param-value>
+     js:*=[%=configuration.get("Resource library location")%]/js/*,
+     images:*=[%=configuration.get("Resource library location")%]/images/*,
+     css:*=[%=configuration.get("Resource library location")%]/css/*     
+     </param-value>
+ </context-param>  
+ 
+ 
+  
+  
 </web-app>
 [%
      util.saveFile( webapp,"web.xml",out.toString());   
