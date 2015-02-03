@@ -189,6 +189,13 @@
         <styles xmi:type="notation:FilteringStyle" xmi:id="_uPR7sqtJEeSgxLZlz1KXmg"/>
       </children>
       <children xmi:type="notation:BasicCompartment" xmi:id="_uPR7s6tJEeSgxLZlz1KXmg" type="1007003">
+        <children xmi:type="notation:Node" xmi:id="_RzCD4KtREeSATvIal6IXYQ" type="1003003">
+          <children xmi:type="notation:DecorationNode" xmi:id="_RzCD5KtREeSATvIal6IXYQ" type="1005005"/>
+          <styles xmi:type="notation:DescriptionStyle" xmi:id="_RzCD4atREeSATvIal6IXYQ"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_RzCD4qtREeSATvIal6IXYQ" fontName="Lucida Grande"/>
+          <element xmi:type="tura.domain:FormParameter" href="hr.domain#23ecd0a3-c904-407f-a9fd-06c75ac3ee43"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_RzCD46tREeSATvIal6IXYQ"/>
+        </children>
         <styles xmi:type="notation:SortingStyle" xmi:id="_uPR7tKtJEeSgxLZlz1KXmg"/>
         <styles xmi:type="notation:FilteringStyle" xmi:id="_uPR7tatJEeSgxLZlz1KXmg"/>
       </children>
@@ -196,7 +203,7 @@
       <styles xmi:type="notation:FontStyle" xmi:id="_uPRUoqtJEeSgxLZlz1KXmg" fontName="Lucida Grande"/>
       <styles xmi:type="notation:HintedDiagramLinkStyle" xmi:id="_uPRUo6tJEeSgxLZlz1KXmg"/>
       <element xmi:type="tura.domain:Form" href="hr.domain#7f769667-17ea-4c7f-8d81-c68b9cccd8ff"/>
-      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_uPRUpKtJEeSgxLZlz1KXmg" x="279" y="99"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_uPRUpKtJEeSgxLZlz1KXmg" x="261" y="99"/>
     </children>
     <styles xmi:type="notation:DiagramStyle" xmi:id="_uAstIatJEeSgxLZlz1KXmg"/>
     <element xmi:type="tura.domain:UIPackage" href="hr.domain#63d7b545-e3cb-4b2e-8597-44c6734d825b"/>

@@ -912,6 +912,7 @@
     <forms uid="7f769667-17ea-4c7f-8d81-c68b9cccd8ff" name="HR controller">
       <view uid="22583c7e-b599-447f-a6e1-08123b25a1a5" name="View" view="2ddd76f4-bbd2-4337-8cae-45d77d9170ab"/>
       <datacontrols uid="60346910-0b2a-4fed-b397-25731ca3a1df" name="Data control" formControl="5541fdd1-fedb-45ba-ab74-966e737af3a6"/>
+      <parameters packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="e370b9d1-a6fb-4a40-88e2-8845be441438" fakePackageName="Primitive package" fakeTypeName="String" uid="23ecd0a3-c904-407f-a9fd-06c75ac3ee43" name="var1"/>
     </forms>
   </tura.domain:UIPackage>
   <tura.domain:Controls uid="5541fdd1-fedb-45ba-ab74-966e737af3a6" parent="60346910-0b2a-4fed-b397-25731ca3a1df">

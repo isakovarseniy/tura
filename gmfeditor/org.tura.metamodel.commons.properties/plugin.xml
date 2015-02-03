@@ -1030,5 +1030,40 @@
   </extension>  
 
 
+      <extension point="org.eclipse.ui.views.properties.tabbed.propertyTabs" id="org.tura.metamodel.diagram.uipackage.proptabs">
+      <?gmfgen generated="true"?>   
+      <propertyTabs contributorId="org.tura.metamodel.diagram.uipackage">
+          <propertyTab
+             category="domain"
+             id="property.tab.domain.uipackage.formparameters.sourcepointer"
+             label="Types"/>
+ 
+          </propertyTabs>
+       </extension>
+
+    <extension point="org.eclipse.ui.views.properties.tabbed.propertySections" id="org.tura.metamodel.diagram.uipackagel.propsections">
+      <?gmfgen generated="true"?>   
+ 
+      <propertySections contributorId="org.tura.metamodel.diagram.uipackage">
+
+          <propertySection
+               tab="property.tab.domain.uipackage.formparameters.sourcepointer"
+               class="org.tura.metamodel.commons.properties.selections.dropdown.PackageNamePropertySection"
+               id="property.tab.domain.uipackage.formparameters.sourcepointer.package">
+              <input type="uipackage.diagram.edit.parts.FormParameterEditPart"/>
+           </propertySection>        
+ 
+          <propertySection
+               afterSection="property.tab.domain.uipackage.formparameters.sourcepointer.package"
+               tab="property.tab.domain.uipackage.formparameters.sourcepointer"
+               class="org.tura.metamodel.commons.properties.selections.dropdown.TypeNamePropertySection"
+               id="property.tab.domain.uipackage.formparameters.sourcepointer.type">
+              <input type="uipackage.diagram.edit.parts.FormParameterEditPart"/>
+         </propertySection>        
+      
+ 
+          </propertySections>
+       </extension>
+
 
 </plugin>
