@@ -328,14 +328,33 @@
              id="property.tab.domain.control.defaultSearch"
              label="Default search"/>
 
-
+            <propertyTab
+             category="domain"
+             id="property.tab.domain.control.formvariables"
+             label="Type"/>
+             
        </propertyTabs>
        </extension>
     
     <extension point="org.eclipse.ui.views.properties.tabbed.propertySections" id="org.tura.metamodel.diagram.control.propsections">
       <?gmfgen generated="true"?>   
       <propertySections contributorId="org.tura.metamodel.diagram.control">
-     
+
+
+          <propertySection
+               tab="property.tab.domain.control.formvariables"
+               class="org.tura.metamodel.commons.properties.selections.dropdown.PackageNamePropertySection"
+               id="property.tab.domain.control.formvariable.package">
+              <input type="control.diagram.edit.parts.FormVariableEditPart"/>
+           </propertySection>        
+ 
+          <propertySection
+               afterSection="property.tab.domain.control.formvariable.package"
+               tab="property.tab.domain.control.formvariables"
+               class="org.tura.metamodel.commons.properties.selections.dropdown.TypeNamePropertySection"
+               id="property.tab.domain.control.formvariable.type">
+              <input type="control.diagram.edit.parts.FormVariableEditPart"/>
+         </propertySection>        
      
            <propertySection
                tab="property.tab.domain.control.basetype"

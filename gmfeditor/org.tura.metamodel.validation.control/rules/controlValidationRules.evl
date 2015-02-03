@@ -17,6 +17,27 @@ context ArtificialField{
 
 }
 
+
+context FormVariable{
+
+  constraint HasName {
+
+      check :  self.name.isDefined()
+
+      message : 'Unnamed ' + self.eClass().name + ' not allowed'
+
+  }
+   constraint UniqueName{
+
+      guard : self.satisfies("HasName")
+      check : self.eContainer().variables.select(r|r.isKindOf(FormVariable) and r.name=self.name).size() = 1
+      message : 'FormVariable name  ' + self.name + ' is not unique'
+   
+   } 
+
+}
+
+
  context DataControl {
 
   constraint HasName {
