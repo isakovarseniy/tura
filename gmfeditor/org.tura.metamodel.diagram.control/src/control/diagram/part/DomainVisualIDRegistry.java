@@ -31,6 +31,8 @@ import control.diagram.edit.parts.DataControlEditPart;
 import control.diagram.edit.parts.DataControlNameEditPart;
 import control.diagram.edit.parts.DeleteTriggerEditPart;
 import control.diagram.edit.parts.DeleteTriggerFakeMethodEditPart;
+import control.diagram.edit.parts.FormVariableEditPart;
+import control.diagram.edit.parts.FormVariableNameEditPart;
 import control.diagram.edit.parts.InsertTriggerEditPart;
 import control.diagram.edit.parts.InsertTriggerFakeMethodEditPart;
 import control.diagram.edit.parts.POSTCreateTriggerEditPart;
@@ -51,6 +53,7 @@ import control.diagram.edit.parts.RelationEditPart;
 import control.diagram.edit.parts.RootEditPart;
 import control.diagram.edit.parts.RootNameEditPart;
 import control.diagram.edit.parts.RootRootPreFormTriggerCompartmentEditPart;
+import control.diagram.edit.parts.RootRootVariablesCompartmentEditPart;
 import control.diagram.edit.parts.SearchTriggerEditPart;
 import control.diagram.edit.parts.SearchTriggerFakeMethodEditPart;
 import control.diagram.edit.parts.UpdateTriggerEditPart;
@@ -182,6 +185,12 @@ public class DomainVisualIDRegistry {
 				return PREFormTriggerEditPart.VISUAL_ID;
 			}
 			break;
+		case RootRootVariablesCompartmentEditPart.VISUAL_ID:
+			if (DomainPackage.eINSTANCE.getFormVariable().isSuperTypeOf(
+					domainElement.eClass())) {
+				return FormVariableEditPart.VISUAL_ID;
+			}
+			break;
 		case DataControlDataControlPreQueryTriggerCompartmentEditPart.VISUAL_ID:
 			if (DomainPackage.eINSTANCE.getPREQueryTrigger().isSuperTypeOf(
 					domainElement.eClass())) {
@@ -295,6 +304,9 @@ public class DomainVisualIDRegistry {
 			if (RootRootPreFormTriggerCompartmentEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
+			if (RootRootVariablesCompartmentEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
 			break;
 		case DataControlEditPart.VISUAL_ID:
 			if (DataControlNameEditPart.VISUAL_ID == nodeVisualID) {
@@ -339,6 +351,11 @@ public class DomainVisualIDRegistry {
 			break;
 		case PREFormTriggerEditPart.VISUAL_ID:
 			if (PREFormTriggerFakeMethodEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case FormVariableEditPart.VISUAL_ID:
+			if (FormVariableNameEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -404,6 +421,11 @@ public class DomainVisualIDRegistry {
 			break;
 		case RootRootPreFormTriggerCompartmentEditPart.VISUAL_ID:
 			if (PREFormTriggerEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case RootRootVariablesCompartmentEditPart.VISUAL_ID:
+			if (FormVariableEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -514,6 +536,7 @@ public class DomainVisualIDRegistry {
 	public static boolean isCompartmentVisualID(int visualID) {
 		switch (visualID) {
 		case RootRootPreFormTriggerCompartmentEditPart.VISUAL_ID:
+		case RootRootVariablesCompartmentEditPart.VISUAL_ID:
 		case DataControlDataControlPreQueryTriggerCompartmentEditPart.VISUAL_ID:
 		case DataControlDataControlPostQueryTriggerCompartmentEditPart.VISUAL_ID:
 		case DataControlDataControlPreInsertTriggerCompartmentEditPart.VISUAL_ID:
@@ -553,6 +576,7 @@ public class DomainVisualIDRegistry {
 		case UpdateTriggerEditPart.VISUAL_ID:
 		case DeleteTriggerEditPart.VISUAL_ID:
 		case SearchTriggerEditPart.VISUAL_ID:
+		case FormVariableEditPart.VISUAL_ID:
 			return true;
 		default:
 			break;

@@ -20,6 +20,7 @@ import control.diagram.edit.parts.ArtificialFieldNameEditPart;
 import control.diagram.edit.parts.CreateTriggerFakeMethodEditPart;
 import control.diagram.edit.parts.DataControlNameEditPart;
 import control.diagram.edit.parts.DeleteTriggerFakeMethodEditPart;
+import control.diagram.edit.parts.FormVariableNameEditPart;
 import control.diagram.edit.parts.InsertTriggerFakeMethodEditPart;
 import control.diagram.edit.parts.POSTCreateTriggerFakeMethodEditPart;
 import control.diagram.edit.parts.POSTQueryTriggerFakeMethodEditPart;
@@ -93,6 +94,24 @@ public class DomainParserProvider extends AbstractProvider implements
 			pREFormTriggerFakeMethod_1105001Parser = parser;
 		}
 		return pREFormTriggerFakeMethod_1105001Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	private IParser formVariableName_1105019Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getFormVariableName_1105019Parser() {
+		if (formVariableName_1105019Parser == null) {
+			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE
+					.getFormVariable_Name() };
+			MessageFormatParser parser = new MessageFormatParser(features);
+			formVariableName_1105019Parser = parser;
+		}
+		return formVariableName_1105019Parser;
 	}
 
 	/**
@@ -322,6 +341,8 @@ public class DomainParserProvider extends AbstractProvider implements
 			return getDataControlName_1105007Parser();
 		case PREFormTriggerFakeMethodEditPart.VISUAL_ID:
 			return getPREFormTriggerFakeMethod_1105001Parser();
+		case FormVariableNameEditPart.VISUAL_ID:
+			return getFormVariableName_1105019Parser();
 		case PREQueryTriggerFakeMethodEditPart.VISUAL_ID:
 			return getPREQueryTriggerFakeMethod_1105003Parser();
 		case POSTQueryTriggerFakeMethodEditPart.VISUAL_ID:

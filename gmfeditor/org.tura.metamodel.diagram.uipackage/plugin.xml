@@ -258,7 +258,7 @@
          </object>
          <context viewClass="org.eclipse.gmf.runtime.notation.Node" containerViews="referencing-diagrams"/>
          <context viewClass="org.eclipse.gmf.runtime.notation.Diagram" semanticHints="UIPackage"/>
-         <context viewClass="org.eclipse.gmf.runtime.notation.Node" semanticHints="1002002,1003001,1003002"/>
+         <context viewClass="org.eclipse.gmf.runtime.notation.Node" semanticHints="1002002,1003003,1003001,1003002"/>
          <context viewClass="org.eclipse.gmf.runtime.notation.Edge" semanticHints=""/>
       </viewProvider>
    </extension>
@@ -271,16 +271,16 @@
             <method name="getType()" value="UIPackage"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-nodes">
-            <method name="getType()" value="1002002,1003001,1003002"/>
+            <method name="getType()" value="1002002,1003003,1003001,1003002"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Edge" id="generated-links">
             <method name="getType()" value=""/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-labels">
-            <method name="getType()" value="1005002,1005003,1005004"/>
+            <method name="getType()" value="1005002,1005005,1005003,1005004"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-compartments">
-            <method name="getType()" value="1007001,1007002"/>
+            <method name="getType()" value="1007001,1007002,1007003"/>
          </object>
          <context views="generated-diagram,generated-nodes,generated-links,generated-labels,generated-compartments"/>
       </editpartProvider>
@@ -345,6 +345,16 @@
       </metamodel>
       <metamodel nsURI="http://tura.org/2013/v1/domain">
          <metamodelType
+               id="org.tura.metamodel.diagram.uipackage.FormParameter_1003003"
+               name="%metatype.name.FormParameter_1003003"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="FormParameter"
+               edithelper="uipackage.diagram.edit.helpers.FormParameterEditHelper">
+            <param name="semanticHint" value="1003003"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://tura.org/2013/v1/domain">
+         <metamodelType
                id="org.tura.metamodel.diagram.uipackage.FormView_1003001"
                name="%metatype.name.FormView_1003001"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
@@ -381,6 +391,7 @@
       <binding context="SharedClientContext">
          <elementType ref="org.tura.metamodel.diagram.uipackage.UIPackage_1001000"/>
          <elementType ref="org.tura.metamodel.diagram.uipackage.Form_1002002"/>
+         <elementType ref="org.tura.metamodel.diagram.uipackage.FormParameter_1003003"/>
          <elementType ref="org.tura.metamodel.diagram.uipackage.FormView_1003001"/>
          <elementType ref="org.tura.metamodel.diagram.uipackage.FormDataControls_1003002"/>
          <advice ref="org.eclipse.gmf.runtime.diagram.core.advice.notationDepdendents"/>

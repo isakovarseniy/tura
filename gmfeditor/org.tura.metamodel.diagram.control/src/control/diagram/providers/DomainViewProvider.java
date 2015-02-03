@@ -65,6 +65,8 @@ import control.diagram.edit.parts.DataControlEditPart;
 import control.diagram.edit.parts.DataControlNameEditPart;
 import control.diagram.edit.parts.DeleteTriggerEditPart;
 import control.diagram.edit.parts.DeleteTriggerFakeMethodEditPart;
+import control.diagram.edit.parts.FormVariableEditPart;
+import control.diagram.edit.parts.FormVariableNameEditPart;
 import control.diagram.edit.parts.InsertTriggerEditPart;
 import control.diagram.edit.parts.InsertTriggerFakeMethodEditPart;
 import control.diagram.edit.parts.POSTCreateTriggerEditPart;
@@ -85,6 +87,7 @@ import control.diagram.edit.parts.RelationEditPart;
 import control.diagram.edit.parts.RootEditPart;
 import control.diagram.edit.parts.RootNameEditPart;
 import control.diagram.edit.parts.RootRootPreFormTriggerCompartmentEditPart;
+import control.diagram.edit.parts.RootRootVariablesCompartmentEditPart;
 import control.diagram.edit.parts.SearchTriggerEditPart;
 import control.diagram.edit.parts.SearchTriggerFakeMethodEditPart;
 import control.diagram.edit.parts.UpdateTriggerEditPart;
@@ -184,6 +187,7 @@ public class DomainViewProvider extends AbstractProvider implements
 				case RootEditPart.VISUAL_ID:
 				case DataControlEditPart.VISUAL_ID:
 				case PREFormTriggerEditPart.VISUAL_ID:
+				case FormVariableEditPart.VISUAL_ID:
 				case PREQueryTriggerEditPart.VISUAL_ID:
 				case POSTQueryTriggerEditPart.VISUAL_ID:
 				case PREInsertTriggerEditPart.VISUAL_ID:
@@ -211,6 +215,7 @@ public class DomainViewProvider extends AbstractProvider implements
 		return RootEditPart.VISUAL_ID == visualID
 				|| DataControlEditPart.VISUAL_ID == visualID
 				|| PREFormTriggerEditPart.VISUAL_ID == visualID
+				|| FormVariableEditPart.VISUAL_ID == visualID
 				|| PREQueryTriggerEditPart.VISUAL_ID == visualID
 				|| POSTQueryTriggerEditPart.VISUAL_ID == visualID
 				|| PREInsertTriggerEditPart.VISUAL_ID == visualID
@@ -287,6 +292,9 @@ public class DomainViewProvider extends AbstractProvider implements
 					index, persisted, preferencesHint);
 		case PREFormTriggerEditPart.VISUAL_ID:
 			return createPREFormTrigger_1103001(domainElement, containerView,
+					index, persisted, preferencesHint);
+		case FormVariableEditPart.VISUAL_ID:
+			return createFormVariable_1103017(domainElement, containerView,
 					index, persisted, preferencesHint);
 		case PREQueryTriggerEditPart.VISUAL_ID:
 			return createPREQueryTrigger_1103002(domainElement, containerView,
@@ -385,6 +393,11 @@ public class DomainViewProvider extends AbstractProvider implements
 				node,
 				DomainVisualIDRegistry
 						.getType(RootRootPreFormTriggerCompartmentEditPart.VISUAL_ID),
+				true, false, true, true);
+		createCompartment(
+				node,
+				DomainVisualIDRegistry
+						.getType(RootRootVariablesCompartmentEditPart.VISUAL_ID),
 				true, false, true, true);
 		return node;
 	}
@@ -525,6 +538,44 @@ public class DomainViewProvider extends AbstractProvider implements
 		Node label1105001 = createLabel(node,
 				DomainVisualIDRegistry
 						.getType(PREFormTriggerFakeMethodEditPart.VISUAL_ID));
+		return node;
+	}
+
+	/**
+	 * @generated
+	 */
+	public Node createFormVariable_1103017(EObject domainElement,
+			View containerView, int index, boolean persisted,
+			PreferencesHint preferencesHint) {
+		Node node = NotationFactory.eINSTANCE.createNode();
+		node.getStyles()
+				.add(NotationFactory.eINSTANCE.createDescriptionStyle());
+		node.getStyles().add(NotationFactory.eINSTANCE.createFontStyle());
+		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
+		node.setType(DomainVisualIDRegistry
+				.getType(FormVariableEditPart.VISUAL_ID));
+		ViewUtil.insertChildView(containerView, node, index, persisted);
+		node.setElement(domainElement);
+		// initializeFromPreferences 
+		final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint
+				.getPreferenceStore();
+		FontStyle nodeFontStyle = (FontStyle) node
+				.getStyle(NotationPackage.Literals.FONT_STYLE);
+		if (nodeFontStyle != null) {
+			FontData fontData = PreferenceConverter.getFontData(prefStore,
+					IPreferenceConstants.PREF_DEFAULT_FONT);
+			nodeFontStyle.setFontName(fontData.getName());
+			nodeFontStyle.setFontHeight(fontData.getHeight());
+			nodeFontStyle.setBold((fontData.getStyle() & SWT.BOLD) != 0);
+			nodeFontStyle.setItalic((fontData.getStyle() & SWT.ITALIC) != 0);
+			org.eclipse.swt.graphics.RGB fontRGB = PreferenceConverter
+					.getColor(prefStore, IPreferenceConstants.PREF_FONT_COLOR);
+			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB)
+					.intValue());
+		}
+		Node label1105019 = createLabel(node,
+				DomainVisualIDRegistry
+						.getType(FormVariableNameEditPart.VISUAL_ID));
 		return node;
 	}
 

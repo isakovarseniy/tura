@@ -33,6 +33,63 @@
     <domainDiagramElement
         href="domain.genmodel#//domain/UIPackage"/>
     <childNodes
+        visualID="1003003"
+        editPartClassName="FormParameterEditPart"
+        itemSemanticEditPolicyClassName="FormParameterItemSemanticEditPolicy"
+        canonicalEditPolicyClassName="FormParameterCanonicalEditPolicy"
+        graphicalNodeEditPolicyClassName="FormParameterGraphicalNodeEditPolicy"
+        createCommandClassName="FormParameterCreateCommand"
+        containers="//@diagram/@compartments.2">
+      <diagramRunTimeClass
+          href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+      <elementType
+          xsi:type="gmfgen:MetamodelType"
+          editHelperClassName="FormParameterEditHelper"/>
+      <viewmap
+          xsi:type="gmfgen:InnerClassViewmap"
+          className="FormParameterFigure"
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class FormParameterFigure extends org.eclipse.draw2d.RoundedRectangle {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureFormParameterLabelFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public FormParameterFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setCornerDimensions(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(8)&#xA;, getMapMode().DPtoLP(8)&#xA;));&#xA;this.setOutline(false);&#xA;&#x9;this.setForegroundColor(THIS_FORE&#xA;);&#xA;&#x9;this.setBackgroundColor(THIS_BACK&#xA;);&#xA;this.setPreferredSize(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(200)&#xA;, getMapMode().DPtoLP(16)&#xA;));&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureFormParameterLabelFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureFormParameterLabelFigure.setText(&quot;FormParameter&quot;);&#xA;&#xA;fFigureFormParameterLabelFigure.setFont(FFIGUREFORMPARAMETERLABELFIGURE_FONT);&#xA;&#xA;&#xA;&#xA;this.add(fFigureFormParameterLabelFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureFormParameterLabelFigure() {&#xA;&#x9;&#x9;return fFigureFormParameterLabelFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_FORE = new org.eclipse.swt.graphics.Color(null, 0, 0, 0);&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_BACK = new org.eclipse.swt.graphics.Color(null, 241, 238, 203);&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Font FFIGUREFORMPARAMETERLABELFIGURE_FONT = new org.eclipse.swt.graphics.Font(org.eclipse.swt.widgets.Display.getCurrent(), &quot;Palatino&quot;, 12, org.eclipse.swt.SWT.ITALIC);&#xA;&#xA;">
+        <attributes
+            xsi:type="gmfgen:StyleAttributes"
+            fixedForeground="true"
+            fixedBackground="true"/>
+        <attributes
+            xsi:type="gmfgen:DefaultSizeAttributes"
+            width="200"
+            height="16"/>
+      </viewmap>
+      <modelFacet>
+        <metaClass
+            href="domain.genmodel#//domain/FormParameter"/>
+        <containmentMetaFeature
+            href="domain.genmodel#//domain/Form/parameters"/>
+        <childMetaFeature
+            href="domain.genmodel#//domain/Form/parameters"/>
+      </modelFacet>
+      <labels
+          visualID="1005005"
+          editPartClassName="FormParameterNameEditPart"
+          itemSemanticEditPolicyClassName="FormParameterNameItemSemanticEditPolicy"
+          elementIcon="true">
+        <diagramRunTimeClass
+            href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+        <viewmap
+            xsi:type="gmfgen:ParentAssignedViewmap"
+            getterName="getFigureFormParameterLabelFigure"
+            figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel">
+          <attributes
+              xsi:type="gmfgen:StyleAttributes"
+              fixedFont="true"/>
+        </viewmap>
+        <modelFacet
+            xsi:type="gmfgen:FeatureLabelModelFacet"
+            parser="//@labelParsers/@implementations.0">
+          <metaFeatures
+              href="domain.genmodel#//domain/FormParameter/name"/>
+        </modelFacet>
+      </labels>
+    </childNodes>
+    <childNodes
         visualID="1003001"
         editPartClassName="FormViewEditPart"
         itemSemanticEditPolicyClassName="FormViewItemSemanticEditPolicy"
@@ -153,7 +210,7 @@
         editPartClassName="FormEditPart"
         itemSemanticEditPolicyClassName="FormItemSemanticEditPolicy"
         canonicalEditPolicyClassName="FormCanonicalEditPolicy"
-        compartments="//@diagram/@compartments.0 //@diagram/@compartments.1"
+        compartments="//@diagram/@compartments.0 //@diagram/@compartments.1 //@diagram/@compartments.2"
         graphicalNodeEditPolicyClassName="FormGraphicalNodeEditPolicy"
         createCommandClassName="FormCreateCommand">
       <diagramRunTimeClass
@@ -164,7 +221,7 @@
       <viewmap
           xsi:type="gmfgen:InnerClassViewmap"
           className="FormFigure"
-          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class FormFigure extends org.eclipse.draw2d.RoundedRectangle {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureFormLabelFigure; &#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.RectangleFigure fFormViewCompartmentFigure; &#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.RectangleFigure fFormDatacontrolsCompartmentFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public FormFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setCornerDimensions(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(8)&#xA;, getMapMode().DPtoLP(8)&#xA;));&#xA;&#x9;this.setForegroundColor(THIS_FORE&#xA;);&#xA;&#x9;this.setBackgroundColor(THIS_BACK&#xA;);&#xA;this.setBorder(new org.eclipse.draw2d.MarginBorder(getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;));&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureFormLabelFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureFormLabelFigure.setText(&quot;Form&quot;);&#xA;&#xA;fFigureFormLabelFigure.setFont(FFIGUREFORMLABELFIGURE_FONT);&#xA;&#xA;&#xA;fFigureFormLabelFigure.setMaximumSize(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(10000)&#xA;, getMapMode().DPtoLP(50)&#xA;));&#xA;&#xA;this.add(fFigureFormLabelFigure);&#xA;&#xA;&#xA;&#xA;fFormViewCompartmentFigure = new org.eclipse.draw2d.RectangleFigure();&#xA;&#xA;fFormViewCompartmentFigure.setOutline(false);&#xA;&#xA;this.add(fFormViewCompartmentFigure);&#xA;&#xA;&#xA;&#xA;fFormDatacontrolsCompartmentFigure = new org.eclipse.draw2d.RectangleFigure();&#xA;&#xA;fFormDatacontrolsCompartmentFigure.setOutline(false);&#xA;&#xA;this.add(fFormDatacontrolsCompartmentFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureFormLabelFigure() {&#xA;&#x9;&#x9;return fFigureFormLabelFigure;&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.draw2d.RectangleFigure getFormViewCompartmentFigure() {&#xA;&#x9;&#x9;return fFormViewCompartmentFigure;&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.draw2d.RectangleFigure getFormDatacontrolsCompartmentFigure() {&#xA;&#x9;&#x9;return fFormDatacontrolsCompartmentFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_FORE = new org.eclipse.swt.graphics.Color(null, 0, 0, 0);&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_BACK = new org.eclipse.swt.graphics.Color(null, 241, 238, 203);&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Font FFIGUREFORMLABELFIGURE_FONT = new org.eclipse.swt.graphics.Font(org.eclipse.swt.widgets.Display.getCurrent(), &quot;Palatino&quot;, 12, org.eclipse.swt.SWT.ITALIC);&#xA;&#xA;">
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class FormFigure extends org.eclipse.draw2d.RoundedRectangle {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureFormLabelFigure; &#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.RectangleFigure fFormViewCompartmentFigure; &#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.RectangleFigure fFormDatacontrolsCompartmentFigure; &#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.RectangleFigure fFormParametersCompartmentFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public FormFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setCornerDimensions(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(8)&#xA;, getMapMode().DPtoLP(8)&#xA;));&#xA;&#x9;this.setForegroundColor(THIS_FORE&#xA;);&#xA;&#x9;this.setBackgroundColor(THIS_BACK&#xA;);&#xA;this.setBorder(new org.eclipse.draw2d.MarginBorder(getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;));&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureFormLabelFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureFormLabelFigure.setText(&quot;Form&quot;);&#xA;&#xA;fFigureFormLabelFigure.setFont(FFIGUREFORMLABELFIGURE_FONT);&#xA;&#xA;&#xA;fFigureFormLabelFigure.setMaximumSize(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(10000)&#xA;, getMapMode().DPtoLP(50)&#xA;));&#xA;&#xA;this.add(fFigureFormLabelFigure);&#xA;&#xA;&#xA;&#xA;fFormViewCompartmentFigure = new org.eclipse.draw2d.RectangleFigure();&#xA;&#xA;fFormViewCompartmentFigure.setOutline(false);&#xA;&#xA;this.add(fFormViewCompartmentFigure);&#xA;&#xA;&#xA;&#xA;fFormDatacontrolsCompartmentFigure = new org.eclipse.draw2d.RectangleFigure();&#xA;&#xA;fFormDatacontrolsCompartmentFigure.setOutline(false);&#xA;&#xA;this.add(fFormDatacontrolsCompartmentFigure);&#xA;&#xA;&#xA;&#xA;fFormParametersCompartmentFigure = new org.eclipse.draw2d.RectangleFigure();&#xA;&#xA;fFormParametersCompartmentFigure.setOutline(false);&#xA;&#xA;this.add(fFormParametersCompartmentFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureFormLabelFigure() {&#xA;&#x9;&#x9;return fFigureFormLabelFigure;&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.draw2d.RectangleFigure getFormViewCompartmentFigure() {&#xA;&#x9;&#x9;return fFormViewCompartmentFigure;&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.draw2d.RectangleFigure getFormDatacontrolsCompartmentFigure() {&#xA;&#x9;&#x9;return fFormDatacontrolsCompartmentFigure;&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.draw2d.RectangleFigure getFormParametersCompartmentFigure() {&#xA;&#x9;&#x9;return fFormParametersCompartmentFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_FORE = new org.eclipse.swt.graphics.Color(null, 0, 0, 0);&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_BACK = new org.eclipse.swt.graphics.Color(null, 241, 238, 203);&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Font FFIGUREFORMLABELFIGURE_FONT = new org.eclipse.swt.graphics.Font(org.eclipse.swt.widgets.Display.getCurrent(), &quot;Palatino&quot;, 12, org.eclipse.swt.SWT.ITALIC);&#xA;&#xA;">
         <attributes
             xsi:type="gmfgen:StyleAttributes"
             fixedForeground="true"
@@ -208,7 +265,7 @@
         editPartClassName="FormFormViewCompartmentEditPart"
         itemSemanticEditPolicyClassName="FormFormViewCompartmentItemSemanticEditPolicy"
         canonicalEditPolicyClassName="FormFormViewCompartmentCanonicalEditPolicy"
-        childNodes="//@diagram/@childNodes.0"
+        childNodes="//@diagram/@childNodes.1"
         title="FormViewCompartment"
         needsTitle="false"
         node="//@diagram/@topLevelNodes.0">
@@ -224,7 +281,7 @@
         editPartClassName="FormFormDatacontrolsCompartmentEditPart"
         itemSemanticEditPolicyClassName="FormFormDatacontrolsCompartmentItemSemanticEditPolicy"
         canonicalEditPolicyClassName="FormFormDatacontrolsCompartmentCanonicalEditPolicy"
-        childNodes="//@diagram/@childNodes.1"
+        childNodes="//@diagram/@childNodes.2"
         title="FormDatacontrolsCompartment"
         needsTitle="false"
         node="//@diagram/@topLevelNodes.0">
@@ -233,6 +290,22 @@
       <viewmap
           xsi:type="gmfgen:ParentAssignedViewmap"
           getterName="getFormDatacontrolsCompartmentFigure"
+          figureQualifiedClassName="org.eclipse.draw2d.RectangleFigure"/>
+    </compartments>
+    <compartments
+        visualID="1007003"
+        editPartClassName="FormFormParametersCompartmentEditPart"
+        itemSemanticEditPolicyClassName="FormFormParametersCompartmentItemSemanticEditPolicy"
+        canonicalEditPolicyClassName="FormFormParametersCompartmentCanonicalEditPolicy"
+        childNodes="//@diagram/@childNodes.0"
+        title="FormParametersCompartment"
+        needsTitle="false"
+        node="//@diagram/@topLevelNodes.0">
+      <diagramRunTimeClass
+          href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+      <viewmap
+          xsi:type="gmfgen:ParentAssignedViewmap"
+          getterName="getFormParametersCompartmentFigure"
           figureQualifiedClassName="org.eclipse.draw2d.RectangleFigure"/>
     </compartments>
     <palette>
@@ -248,12 +321,17 @@
             xsi:type="gmfgen:ToolEntry"
             title="FormDataControls"
             description="Create new FormDataControls"
-            genNodes="//@diagram/@childNodes.1"/>
+            genNodes="//@diagram/@childNodes.2"/>
+        <entries
+            xsi:type="gmfgen:ToolEntry"
+            title="FormParameter"
+            description="Create new FormParameter"
+            genNodes="//@diagram/@childNodes.0"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
             title="FormView"
             description="Create new FormView"
-            genNodes="//@diagram/@childNodes.0"/>
+            genNodes="//@diagram/@childNodes.1"/>
       </groups>
     </palette>
     <preferencePages
@@ -300,6 +378,9 @@
         parent="//@diagram/@topLevelNodes.0"
         child="//@diagram/@childNodes.1"/>
     <childReferences
+        parent="//@diagram/@topLevelNodes.0"
+        child="//@diagram/@childNodes.2"/>
+    <childReferences
         parent="//@diagram"
         child="//@diagram/@topLevelNodes.0"/>
   </navigator>
@@ -329,7 +410,7 @@
       extensibleViaService="true">
     <implementations
         xsi:type="gmfgen:PredefinedParser"
-        uses="//@diagram/@childNodes.0/@labels.0/@modelFacet //@diagram/@childNodes.1/@labels.0/@modelFacet //@diagram/@topLevelNodes.0/@labels.0/@modelFacet"/>
+        uses="//@diagram/@childNodes.0/@labels.0/@modelFacet //@diagram/@childNodes.1/@labels.0/@modelFacet //@diagram/@childNodes.2/@labels.0/@modelFacet //@diagram/@topLevelNodes.0/@labels.0/@modelFacet"/>
   </labelParsers>
   <contextMenus
       context="//@diagram">

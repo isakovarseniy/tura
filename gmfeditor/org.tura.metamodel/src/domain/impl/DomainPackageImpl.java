@@ -2,6 +2,174 @@
  */
 package domain.impl;
 
+import domain.ActionElement;
+import domain.Application;
+import domain.ApplicationInfrastructureLayer;
+import domain.ApplicationMapper;
+import domain.ApplicationMappers;
+import domain.ApplicationMessages;
+import domain.ApplicationRecipe;
+import domain.ApplicationRecipes;
+import domain.ApplicationRole;
+import domain.ApplicationStyle;
+import domain.ApplicationUILayer;
+import domain.ApplicationUIPackage;
+import domain.Artifact;
+import domain.ArtifactRef;
+import domain.Artifacts;
+import domain.ArtificialField;
+import domain.Attribute;
+import domain.Button;
+import domain.CSSMapper;
+import domain.Canvas;
+import domain.CanvasFrame;
+import domain.CanvasView;
+import domain.Categorized;
+import domain.CheckBox;
+import domain.ChildrenHolder;
+import domain.Classifier;
+import domain.Column;
+import domain.Comparator;
+import domain.Component;
+import domain.ConfigVariable;
+import domain.Configuration;
+import domain.Context;
+import domain.ContextParameter;
+import domain.ContextParameters;
+import domain.ContextValue;
+import domain.ContinuousIintegration;
+import domain.Controls;
+import domain.CreateTrigger;
+import domain.DataControl;
+import domain.Datacenter;
+import domain.DefaultCavas;
+import domain.DeleteTrigger;
+import domain.DeploymentComponent;
+import domain.DeploymentComponents;
+import domain.DeploymentSequence;
+import domain.DeploymentStarStep;
+import domain.Domain;
+import domain.DomainApplication;
+import domain.DomainApplications;
+import domain.DomainArtifact;
+import domain.DomainArtifacts;
+import domain.DomainFactory;
+import domain.DomainPackage;
+import domain.DomainTypes;
+import domain.DropDownSelection;
+import domain.EJBService;
+import domain.EnterpriseInfrastructure;
+import domain.EnumAttribute;
+import domain.Enumarator;
+import domain.ExpressionPart;
+import domain.Form;
+import domain.FormDataControls;
+import domain.FormParameter;
+import domain.FormVariable;
+import domain.FormView;
+import domain.GenerationHint;
+import domain.Group;
+import domain.HTMLLayerHolder;
+import domain.Hub;
+import domain.Infrastructure;
+import domain.InfrastructureComponent;
+import domain.InfrastructureConnection;
+import domain.InfrastructureLayer;
+import domain.Ingredient;
+import domain.InputElement;
+import domain.InputText;
+import domain.InsertTrigger;
+import domain.JPAService;
+import domain.JavaComponent;
+import domain.JavaMapper;
+import domain.JavaScriptMapper;
+import domain.Label;
+import domain.Language;
+import domain.LanguageRef;
+import domain.LayerHolder;
+import domain.Link;
+import domain.Mapper;
+import domain.Mappers;
+import domain.MappingSpecifier;
+import domain.Message;
+import domain.MessageLibrary;
+import domain.Messages;
+import domain.MethodPointer;
+import domain.ModelMapper;
+import domain.ModelQuery;
+import domain.MultiLangLabel;
+import domain.ORMEntity;
+import domain.Operation;
+import domain.Option;
+import domain.OptionSelection;
+import domain.Order;
+import domain.OrderBy;
+import domain.Orders;
+import domain.OutputText;
+import domain.POSTCreateTrigger;
+import domain.POSTQueryTrigger;
+import domain.PREDeleteTrigger;
+import domain.PREFormTrigger;
+import domain.PREInsertTrigger;
+import domain.PREQueryTrigger;
+import domain.PREUpdateTrigger;
+import domain.Parameter;
+import domain.PlatformLayers;
+import domain.Primitive;
+import domain.Property;
+import domain.Query;
+import domain.QueryParameter;
+import domain.QueryVariable;
+import domain.Recipe;
+import domain.Recipes;
+import domain.Relation;
+import domain.ReturnValue;
+import domain.Role;
+import domain.RoleMapper;
+import domain.Roles;
+import domain.Root;
+import domain.Router;
+import domain.SearchTrigger;
+import domain.Selection;
+import domain.Server;
+import domain.ServerClaster;
+import domain.SourcesPointer;
+import domain.Specifier;
+import domain.Storage;
+import domain.StyleElement;
+import domain.StyleLibrary;
+import domain.StyleSet;
+import domain.Styles;
+import domain.StylesPackage;
+import domain.Subsystem;
+import domain.TabCanvas;
+import domain.TabPage;
+import domain.TabPagesInheritance;
+import domain.Table;
+import domain.Translation;
+import domain.Tree;
+import domain.Trigger;
+import domain.Type;
+import domain.TypeDefinition;
+import domain.TypeElement;
+import domain.TypeExtension;
+import domain.TypeMapper;
+import domain.TypePointer;
+import domain.TypeReference;
+import domain.Types;
+import domain.TypesRepository;
+import domain.UIPackage;
+import domain.Uielement;
+import domain.UpdateTrigger;
+import domain.UsingMappers;
+import domain.ViewArea;
+import domain.ViewElement;
+import domain.ViewInheritance;
+import domain.ViewPort;
+import domain.ViewPortHolder;
+import domain.ViewPortTrigger;
+import domain.Views;
+import domain.Window;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EEnum;
@@ -640,6 +808,13 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  private EClass formParameterEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   private EClass formViewEClass = null;
 
   /**
@@ -1026,6 +1201,13 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * @generated
    */
   private EClass rootEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass formVariableEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -5122,6 +5304,46 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EReference getForm_Parameters()
+  {
+    return (EReference)formEClass.getEStructuralFeatures().get(4);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getFormParameter()
+  {
+    return formParameterEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getFormParameter_Uid()
+  {
+    return (EAttribute)formParameterEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getFormParameter_Name()
+  {
+    return (EAttribute)formParameterEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getFormView()
   {
     return formViewEClass;
@@ -6642,6 +6864,46 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EReference getRoot_Variables()
+  {
+    return (EReference)rootEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getFormVariable()
+  {
+    return formVariableEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getFormVariable_Uid()
+  {
+    return (EAttribute)formVariableEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getFormVariable_Name()
+  {
+    return (EAttribute)formVariableEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getDataControl()
   {
     return dataControlEClass;
@@ -7982,6 +8244,11 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     createEAttribute(formEClass, FORM__NAME);
     createEReference(formEClass, FORM__VIEW);
     createEReference(formEClass, FORM__DATACONTROLS);
+    createEReference(formEClass, FORM__PARAMETERS);
+
+    formParameterEClass = createEClass(FORM_PARAMETER);
+    createEAttribute(formParameterEClass, FORM_PARAMETER__UID);
+    createEAttribute(formParameterEClass, FORM_PARAMETER__NAME);
 
     formViewEClass = createEClass(FORM_VIEW);
     createEAttribute(formViewEClass, FORM_VIEW__UID);
@@ -8190,6 +8457,11 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     createEAttribute(rootEClass, ROOT__UID);
     createEAttribute(rootEClass, ROOT__NAME);
     createEReference(rootEClass, ROOT__PRE_FORM_TRIGGER);
+    createEReference(rootEClass, ROOT__VARIABLES);
+
+    formVariableEClass = createEClass(FORM_VARIABLE);
+    createEAttribute(formVariableEClass, FORM_VARIABLE__UID);
+    createEAttribute(formVariableEClass, FORM_VARIABLE__NAME);
 
     dataControlEClass = createEClass(DATA_CONTROL);
     createEAttribute(dataControlEClass, DATA_CONTROL__UID);
@@ -8359,6 +8631,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     returnValueEClass.getESuperTypes().add(this.getTypePointer());
     enumaratorEClass.getESuperTypes().add(this.getTypeElement());
     typesEClass.getESuperTypes().add(this.getHTMLLayerHolder());
+    formParameterEClass.getESuperTypes().add(this.getTypePointer());
     canvasFrameEClass.getESuperTypes().add(this.getStyleElement());
     viewPortHolderEClass.getESuperTypes().add(this.getHTMLLayerHolder());
     viewElementEClass.getESuperTypes().add(this.getStyleElement());
@@ -8420,6 +8693,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     updateTriggerEClass.getESuperTypes().add(this.getTrigger());
     deleteTriggerEClass.getESuperTypes().add(this.getTrigger());
     searchTriggerEClass.getESuperTypes().add(this.getTrigger());
+    formVariableEClass.getESuperTypes().add(this.getTypePointer());
     artificialFieldEClass.getESuperTypes().add(this.getTypePointer());
     datacenterEClass.getESuperTypes().add(this.getHTMLLayerHolder());
     serverEClass.getESuperTypes().add(this.getInfrastructureComponent());
@@ -8904,6 +9178,11 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     initEAttribute(getForm_Name(), ecorePackage.getEString(), "name", null, 0, 1, Form.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getForm_View(), this.getFormView(), null, "view", null, 0, 1, Form.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getForm_Datacontrols(), this.getFormDataControls(), null, "datacontrols", null, 0, 1, Form.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getForm_Parameters(), this.getFormParameter(), null, "parameters", null, 0, -1, Form.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(formParameterEClass, FormParameter.class, "FormParameter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getFormParameter_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, FormParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getFormParameter_Name(), ecorePackage.getEString(), "name", null, 0, 1, FormParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(formViewEClass, FormView.class, "FormView", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getFormView_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, FormView.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -9112,6 +9391,11 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     initEAttribute(getRoot_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, Root.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getRoot_Name(), ecorePackage.getEString(), "name", null, 0, 1, Root.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getRoot_PreFormTrigger(), this.getPREFormTrigger(), null, "preFormTrigger", null, 0, 1, Root.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getRoot_Variables(), this.getFormVariable(), null, "variables", null, 0, -1, Root.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(formVariableEClass, FormVariable.class, "FormVariable", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getFormVariable_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, FormVariable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getFormVariable_Name(), ecorePackage.getEString(), "name", null, 0, 1, FormVariable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(dataControlEClass, DataControl.class, "DataControl", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getDataControl_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, DataControl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -9289,7 +9573,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
-       });																																																																																																																																																																															
+       });																																																																																																																																																																																			
   }
 
   /**
@@ -9306,7 +9590,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
-       });																																																																																																																																																																														
+       });																																																																																																																																																																																		
   }
 
   /**
@@ -9832,7 +10116,16 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        "label", "name",
        "border.color", "0,0,0",
        "color", "241,238,203"
-       });				
+       });					
+    addAnnotation
+      (formParameterEClass, 
+       source, 
+       new String[] 
+       {
+       "label", "name",
+       "border.color", "0,0,0",
+       "color", "241,238,203"
+       });		
     addAnnotation
       (formViewEClass, 
        source, 
@@ -10127,7 +10420,16 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        "label", "name",
        "border.color", "0,0,0",
        "color", "241,238,203"
-       });			
+       });				
+    addAnnotation
+      (formVariableEClass, 
+       source, 
+       new String[] 
+       {
+       "label", "name",
+       "border.color", "0,0,0",
+       "color", "241,238,203"
+       });		
     addAnnotation
       (dataControlEClass, 
        source, 
@@ -10401,7 +10703,14 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        new String[] 
        {
        "layout", "list"
-       });				
+       });		
+    addAnnotation
+      (getForm_Parameters(), 
+       source, 
+       new String[] 
+       {
+       "layout", "list"
+       });					
     addAnnotation
       (getViewPortHolder_ViewElement(), 
        source, 
@@ -10446,7 +10755,14 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        new String[] 
        {
        "layout", "list"
-       });			
+       });		
+    addAnnotation
+      (getRoot_Variables(), 
+       source, 
+       new String[] 
+       {
+       "layout", "list"
+       });				
     addAnnotation
       (getDataControl_PreQueryTrigger(), 
        source, 
@@ -10572,7 +10888,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
-       });																																																																																																																																																																		
+       });																																																																																																																																																																						
   }
 
   /**
@@ -10589,7 +10905,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
-       });																																																																																																																																																							
+       });																																																																																																																																																											
   }
 
   /**
@@ -10606,7 +10922,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
-       });																																																																																																																																								
+       });																																																																																																																																												
   }
 
   /**
@@ -10623,7 +10939,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
-       });																																																																																																																																			
+       });																																																																																																																																							
   }
 
   /**
@@ -10710,7 +11026,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        "style", "dot",
        "width", "2",
        "target.decoration", "closedarrow"
-       });																										
+       });																												
     addAnnotation
       (viewInheritanceEClass, 
        source, 
@@ -10734,7 +11050,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        "color", "238,16,16",
        "width", "2",
        "target.decoration", "arrow"
-       });																																														
+       });																																																
     addAnnotation
       (relationEClass, 
        source, 
@@ -10770,7 +11086,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
-       });																																																																																																																														
+       });																																																																																																																																		
   }
 
   /**
@@ -10787,7 +11103,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
-       });																																																																																																																										
+       });																																																																																																																														
   }
 
   /**
@@ -10804,7 +11120,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
-       });																																																																																																																					
+       });																																																																																																																									
   }
 
   /**
@@ -10821,7 +11137,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
-       });																																																																																																																			
+       });																																																																																																																							
   }
 
   /**
@@ -10838,7 +11154,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
-       });																																																																																													
+       });																																																																																																	
   }
 
   /**
@@ -10855,7 +11171,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
-       });																																																																																	
+       });																																																																																					
   }
 
   /**
@@ -10872,7 +11188,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
-       });																																																																													
+       });																																																																																	
   }
 
   /**
@@ -10883,13 +11199,13 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    */
   protected void createGmf_16Annotations()
   {
-    String source = "gmf.diagram.view";																																																																																																									
+    String source = "gmf.diagram.view";																																																																																																											
     addAnnotation
       (viewsEClass, 
        source, 
        new String[] 
        {
-       });																																																																								
+       });																																																																										
   }
 
   /**
@@ -10900,13 +11216,13 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    */
   protected void createGmf_17Annotations()
   {
-    String source = "gmf.diagram.canvas";																																																																																																																						
+    String source = "gmf.diagram.canvas";																																																																																																																								
     addAnnotation
       (canvasViewEClass, 
        source, 
        new String[] 
        {
-       });																																																											
+       });																																																													
   }
 
   /**
@@ -10917,13 +11233,13 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    */
   protected void createGmf_18Annotations()
   {
-    String source = "gmf.diagram.control";																																																																																																																																					
+    String source = "gmf.diagram.control";																																																																																																																																							
     addAnnotation
       (controlsEClass, 
        source, 
        new String[] 
        {
-       });																																												
+       });																																														
   }
 
   /**
@@ -10934,7 +11250,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    */
   protected void createGmf_19Annotations()
   {
-    String source = "gmf.diagram.infarastructure";																																																																																																																																																																				
+    String source = "gmf.diagram.infarastructure";																																																																																																																																																																								
     addAnnotation
       (enterpriseInfrastructureEClass, 
        source, 

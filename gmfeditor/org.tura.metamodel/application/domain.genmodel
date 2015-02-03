@@ -489,6 +489,11 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//Form/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//Form/view"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//Form/datacontrols"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//Form/parameters"/>
+    </genClasses>
+    <genClasses ecoreClass="domain.ecore#//FormParameter">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//FormParameter/uid"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//FormParameter/name"/>
     </genClasses>
     <genClasses ecoreClass="domain.ecore#//FormView">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//FormView/uid"/>
@@ -684,6 +689,11 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//Root/uid"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//Root/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//Root/preFormTrigger"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//Root/variables"/>
+    </genClasses>
+    <genClasses ecoreClass="domain.ecore#//FormVariable">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//FormVariable/uid"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//FormVariable/name"/>
     </genClasses>
     <genClasses ecoreClass="domain.ecore#//DataControl">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//DataControl/uid"/>

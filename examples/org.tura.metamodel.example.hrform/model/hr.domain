@@ -915,6 +915,9 @@
     </forms>
   </tura.domain:UIPackage>
   <tura.domain:Controls uid="5541fdd1-fedb-45ba-ab74-966e737af3a6" parent="60346910-0b2a-4fed-b397-25731ca3a1df">
+    <root uid="5aea4714-7635-43bd-a361-b2ae8711af5b">
+      <preFormTrigger uid="9fc93b84-655f-4fea-ac1b-ade7fee1a376"/>
+    </root>
     <controls uid="d45e9605-3706-493c-8422-3f7b8b6ea2ed" name="Company" baseType="Comp_52ffccb7-cea6-49de-ba4b-7437f1da3369">
       <create packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="2957c51c-68e7-4d1e-b8b7-cbe7ccdbe13f" fakePackageName="Base package" fakeTypeName="JPA Entity CRAD Service" methodRef="40b112a0-4008-11e4-916c-0800200c9a66" fakeMethod="create" uid="8432e75c-3e68-43f0-94d0-c38cf73840e5">
         <parameters uid="80b8b8d8-50dd-4cc8-92e7-d2852ba64d3c" refObj="9150e8ca-6703-4e2c-a2e0-479f42987fa5">

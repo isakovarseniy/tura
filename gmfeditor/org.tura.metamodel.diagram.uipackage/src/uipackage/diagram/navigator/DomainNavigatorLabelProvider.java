@@ -24,6 +24,8 @@ import uipackage.diagram.edit.parts.FormDataControlsEditPart;
 import uipackage.diagram.edit.parts.FormDataControlsNameEditPart;
 import uipackage.diagram.edit.parts.FormEditPart;
 import uipackage.diagram.edit.parts.FormNameEditPart;
+import uipackage.diagram.edit.parts.FormParameterEditPart;
+import uipackage.diagram.edit.parts.FormParameterNameEditPart;
 import uipackage.diagram.edit.parts.FormViewEditPart;
 import uipackage.diagram.edit.parts.FormViewNameEditPart;
 import uipackage.diagram.edit.parts.UIPackageEditPart;
@@ -106,6 +108,9 @@ public class DomainNavigatorLabelProvider extends LabelProvider implements
 		case FormEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?TopLevelNode?http://tura.org/2013/v1/domain?Form", DomainElementTypes.Form_1002002); //$NON-NLS-1$
+		case FormParameterEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Node?http://tura.org/2013/v1/domain?FormParameter", DomainElementTypes.FormParameter_1003003); //$NON-NLS-1$
 		case FormViewEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Node?http://tura.org/2013/v1/domain?FormView", DomainElementTypes.FormView_1003001); //$NON-NLS-1$
@@ -176,6 +181,8 @@ public class DomainNavigatorLabelProvider extends LabelProvider implements
 			return getUIPackage_1001000Text(view);
 		case FormEditPart.VISUAL_ID:
 			return getForm_1002002Text(view);
+		case FormParameterEditPart.VISUAL_ID:
+			return getFormParameter_1003003Text(view);
 		case FormViewEditPart.VISUAL_ID:
 			return getFormView_1003001Text(view);
 		case FormDataControlsEditPart.VISUAL_ID:
@@ -213,6 +220,26 @@ public class DomainNavigatorLabelProvider extends LabelProvider implements
 		} else {
 			DomainDiagramEditorPlugin.getInstance().logError(
 					"Parser was not found for label " + 1005002); //$NON-NLS-1$
+			return ""; //$NON-NLS-1$
+		}
+	}
+
+	/**
+	 * @generated
+	 */
+	private String getFormParameter_1003003Text(View view) {
+		IParser parser = DomainParserProvider.getParser(
+				DomainElementTypes.FormParameter_1003003,
+				view.getElement() != null ? view.getElement() : view,
+				DomainVisualIDRegistry
+						.getType(FormParameterNameEditPart.VISUAL_ID));
+		if (parser != null) {
+			return parser.getPrintString(new EObjectAdapter(
+					view.getElement() != null ? view.getElement() : view),
+					ParserOptions.NONE.intValue());
+		} else {
+			DomainDiagramEditorPlugin.getInstance().logError(
+					"Parser was not found for label " + 1005005); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 	}

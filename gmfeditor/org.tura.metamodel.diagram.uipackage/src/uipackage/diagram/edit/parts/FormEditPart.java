@@ -149,6 +149,14 @@ public class FormEditPart extends ShapeNodeEditPart {
 					.getFigure());
 			return true;
 		}
+		if (childEditPart instanceof FormFormParametersCompartmentEditPart) {
+			IFigure pane = getPrimaryShape()
+					.getFormParametersCompartmentFigure();
+			setupContentPane(pane); // FIXME each comparment should handle his content pane in his own way 
+			pane.add(((FormFormParametersCompartmentEditPart) childEditPart)
+					.getFigure());
+			return true;
+		}
 		return false;
 	}
 
@@ -169,6 +177,13 @@ public class FormEditPart extends ShapeNodeEditPart {
 			IFigure pane = getPrimaryShape()
 					.getFormDatacontrolsCompartmentFigure();
 			pane.remove(((FormFormDatacontrolsCompartmentEditPart) childEditPart)
+					.getFigure());
+			return true;
+		}
+		if (childEditPart instanceof FormFormParametersCompartmentEditPart) {
+			IFigure pane = getPrimaryShape()
+					.getFormParametersCompartmentFigure();
+			pane.remove(((FormFormParametersCompartmentEditPart) childEditPart)
 					.getFigure());
 			return true;
 		}
@@ -204,6 +219,9 @@ public class FormEditPart extends ShapeNodeEditPart {
 		}
 		if (editPart instanceof FormFormDatacontrolsCompartmentEditPart) {
 			return getPrimaryShape().getFormDatacontrolsCompartmentFigure();
+		}
+		if (editPart instanceof FormFormParametersCompartmentEditPart) {
+			return getPrimaryShape().getFormParametersCompartmentFigure();
 		}
 		return getContentPane();
 	}
@@ -320,6 +338,10 @@ public class FormEditPart extends ShapeNodeEditPart {
 				return getChildBySemanticHint(DomainVisualIDRegistry
 						.getType(FormFormDatacontrolsCompartmentEditPart.VISUAL_ID));
 			}
+			if (type == DomainElementTypes.FormParameter_1003003) {
+				return getChildBySemanticHint(DomainVisualIDRegistry
+						.getType(FormFormParametersCompartmentEditPart.VISUAL_ID));
+			}
 		}
 		return super.getTargetEditPart(request);
 	}
@@ -354,6 +376,11 @@ public class FormEditPart extends ShapeNodeEditPart {
 		 * @generated
 		 */
 		private RectangleFigure fFormDatacontrolsCompartmentFigure;
+
+		/**
+		 * @generated
+		 */
+		private RectangleFigure fFormParametersCompartmentFigure;
 
 		/**
 		 * @generated
@@ -397,6 +424,12 @@ public class FormEditPart extends ShapeNodeEditPart {
 
 			this.add(fFormDatacontrolsCompartmentFigure);
 
+			fFormParametersCompartmentFigure = new RectangleFigure();
+
+			fFormParametersCompartmentFigure.setOutline(false);
+
+			this.add(fFormParametersCompartmentFigure);
+
 		}
 
 		/**
@@ -418,6 +451,13 @@ public class FormEditPart extends ShapeNodeEditPart {
 		 */
 		public RectangleFigure getFormDatacontrolsCompartmentFigure() {
 			return fFormDatacontrolsCompartmentFigure;
+		}
+
+		/**
+		 * @generated
+		 */
+		public RectangleFigure getFormParametersCompartmentFigure() {
+			return fFormParametersCompartmentFigure;
 		}
 
 	}

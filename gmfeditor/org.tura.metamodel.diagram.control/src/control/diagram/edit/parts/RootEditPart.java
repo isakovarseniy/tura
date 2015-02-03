@@ -142,6 +142,14 @@ public class RootEditPart extends ShapeNodeEditPart {
 					.getFigure());
 			return true;
 		}
+		if (childEditPart instanceof RootRootVariablesCompartmentEditPart) {
+			IFigure pane = getPrimaryShape()
+					.getRootVariablesCompartmentFigure();
+			setupContentPane(pane); // FIXME each comparment should handle his content pane in his own way 
+			pane.add(((RootRootVariablesCompartmentEditPart) childEditPart)
+					.getFigure());
+			return true;
+		}
 		return false;
 	}
 
@@ -156,6 +164,13 @@ public class RootEditPart extends ShapeNodeEditPart {
 			IFigure pane = getPrimaryShape()
 					.getRootPreFormTriggerCompartmentFigure();
 			pane.remove(((RootRootPreFormTriggerCompartmentEditPart) childEditPart)
+					.getFigure());
+			return true;
+		}
+		if (childEditPart instanceof RootRootVariablesCompartmentEditPart) {
+			IFigure pane = getPrimaryShape()
+					.getRootVariablesCompartmentFigure();
+			pane.remove(((RootRootVariablesCompartmentEditPart) childEditPart)
 					.getFigure());
 			return true;
 		}
@@ -188,6 +203,9 @@ public class RootEditPart extends ShapeNodeEditPart {
 	protected IFigure getContentPaneFor(IGraphicalEditPart editPart) {
 		if (editPart instanceof RootRootPreFormTriggerCompartmentEditPart) {
 			return getPrimaryShape().getRootPreFormTriggerCompartmentFigure();
+		}
+		if (editPart instanceof RootRootVariablesCompartmentEditPart) {
+			return getPrimaryShape().getRootVariablesCompartmentFigure();
 		}
 		return getContentPane();
 	}
@@ -300,6 +318,10 @@ public class RootEditPart extends ShapeNodeEditPart {
 				return getChildBySemanticHint(DomainVisualIDRegistry
 						.getType(RootRootPreFormTriggerCompartmentEditPart.VISUAL_ID));
 			}
+			if (type == DomainElementTypes.FormVariable_1103017) {
+				return getChildBySemanticHint(DomainVisualIDRegistry
+						.getType(RootRootVariablesCompartmentEditPart.VISUAL_ID));
+			}
 		}
 		return super.getTargetEditPart(request);
 	}
@@ -330,6 +352,11 @@ public class RootEditPart extends ShapeNodeEditPart {
 		 * @generated
 		 */
 		private RectangleFigure fRootPreFormTriggerCompartmentFigure;
+
+		/**
+		 * @generated
+		 */
+		private RectangleFigure fRootVariablesCompartmentFigure;
 
 		/**
 		 * @generated
@@ -367,6 +394,12 @@ public class RootEditPart extends ShapeNodeEditPart {
 
 			this.add(fRootPreFormTriggerCompartmentFigure);
 
+			fRootVariablesCompartmentFigure = new RectangleFigure();
+
+			fRootVariablesCompartmentFigure.setOutline(false);
+
+			this.add(fRootVariablesCompartmentFigure);
+
 		}
 
 		/**
@@ -381,6 +414,13 @@ public class RootEditPart extends ShapeNodeEditPart {
 		 */
 		public RectangleFigure getRootPreFormTriggerCompartmentFigure() {
 			return fRootPreFormTriggerCompartmentFigure;
+		}
+
+		/**
+		 * @generated
+		 */
+		public RectangleFigure getRootVariablesCompartmentFigure() {
+			return fRootVariablesCompartmentFigure;
 		}
 
 	}

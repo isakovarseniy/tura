@@ -14,8 +14,11 @@ import uipackage.diagram.edit.parts.FormDataControlsEditPart;
 import uipackage.diagram.edit.parts.FormDataControlsNameEditPart;
 import uipackage.diagram.edit.parts.FormEditPart;
 import uipackage.diagram.edit.parts.FormFormDatacontrolsCompartmentEditPart;
+import uipackage.diagram.edit.parts.FormFormParametersCompartmentEditPart;
 import uipackage.diagram.edit.parts.FormFormViewCompartmentEditPart;
 import uipackage.diagram.edit.parts.FormNameEditPart;
+import uipackage.diagram.edit.parts.FormParameterEditPart;
+import uipackage.diagram.edit.parts.FormParameterNameEditPart;
 import uipackage.diagram.edit.parts.FormViewEditPart;
 import uipackage.diagram.edit.parts.FormViewNameEditPart;
 import uipackage.diagram.edit.parts.UIPackageEditPart;
@@ -148,6 +151,12 @@ public class DomainVisualIDRegistry {
 				return FormDataControlsEditPart.VISUAL_ID;
 			}
 			break;
+		case FormFormParametersCompartmentEditPart.VISUAL_ID:
+			if (DomainPackage.eINSTANCE.getFormParameter().isSuperTypeOf(
+					domainElement.eClass())) {
+				return FormParameterEditPart.VISUAL_ID;
+			}
+			break;
 		}
 		return -1;
 	}
@@ -189,6 +198,14 @@ public class DomainVisualIDRegistry {
 			if (FormFormDatacontrolsCompartmentEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
+			if (FormFormParametersCompartmentEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case FormParameterEditPart.VISUAL_ID:
+			if (FormParameterNameEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
 			break;
 		case FormViewEditPart.VISUAL_ID:
 			if (FormViewNameEditPart.VISUAL_ID == nodeVisualID) {
@@ -207,6 +224,11 @@ public class DomainVisualIDRegistry {
 			break;
 		case FormFormDatacontrolsCompartmentEditPart.VISUAL_ID:
 			if (FormDataControlsEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case FormFormParametersCompartmentEditPart.VISUAL_ID:
+			if (FormParameterEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -254,6 +276,7 @@ public class DomainVisualIDRegistry {
 		switch (visualID) {
 		case FormFormViewCompartmentEditPart.VISUAL_ID:
 		case FormFormDatacontrolsCompartmentEditPart.VISUAL_ID:
+		case FormFormParametersCompartmentEditPart.VISUAL_ID:
 			return true;
 		default:
 			break;
@@ -270,6 +293,7 @@ public class DomainVisualIDRegistry {
 			return false;
 		case FormViewEditPart.VISUAL_ID:
 		case FormDataControlsEditPart.VISUAL_ID:
+		case FormParameterEditPart.VISUAL_ID:
 			return true;
 		default:
 			break;

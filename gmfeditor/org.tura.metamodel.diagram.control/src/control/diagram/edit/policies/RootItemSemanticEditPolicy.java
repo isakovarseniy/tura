@@ -15,8 +15,10 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.DestroyElementRequest;
 import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.View;
 
+import control.diagram.edit.parts.FormVariableEditPart;
 import control.diagram.edit.parts.PREFormTriggerEditPart;
 import control.diagram.edit.parts.RootRootPreFormTriggerCompartmentEditPart;
+import control.diagram.edit.parts.RootRootVariablesCompartmentEditPart;
 import control.diagram.part.DomainVisualIDRegistry;
 import control.diagram.providers.DomainElementTypes;
 
@@ -68,6 +70,21 @@ public class RootItemSemanticEditPolicy extends
 					Node cnode = (Node) cit.next();
 					switch (DomainVisualIDRegistry.getVisualID(cnode)) {
 					case PREFormTriggerEditPart.VISUAL_ID:
+						cmd.add(new DestroyElementCommand(
+								new DestroyElementRequest(getEditingDomain(),
+										cnode.getElement(), false))); // directlyOwned: true
+						// don't need explicit deletion of cnode as parent's view deletion would clean child views as well 
+						// cmd.add(new org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(), cnode));
+						break;
+					}
+				}
+				break;
+			case RootRootVariablesCompartmentEditPart.VISUAL_ID:
+				for (Iterator<?> cit = node.getChildren().iterator(); cit
+						.hasNext();) {
+					Node cnode = (Node) cit.next();
+					switch (DomainVisualIDRegistry.getVisualID(cnode)) {
+					case FormVariableEditPart.VISUAL_ID:
 						cmd.add(new DestroyElementCommand(
 								new DestroyElementRequest(getEditingDomain(),
 										cnode.getElement(), false))); // directlyOwned: true

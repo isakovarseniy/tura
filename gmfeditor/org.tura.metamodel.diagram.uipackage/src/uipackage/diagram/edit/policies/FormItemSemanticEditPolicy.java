@@ -17,7 +17,9 @@ import org.eclipse.gmf.runtime.notation.View;
 
 import uipackage.diagram.edit.parts.FormDataControlsEditPart;
 import uipackage.diagram.edit.parts.FormFormDatacontrolsCompartmentEditPart;
+import uipackage.diagram.edit.parts.FormFormParametersCompartmentEditPart;
 import uipackage.diagram.edit.parts.FormFormViewCompartmentEditPart;
+import uipackage.diagram.edit.parts.FormParameterEditPart;
 import uipackage.diagram.edit.parts.FormViewEditPart;
 import uipackage.diagram.part.DomainVisualIDRegistry;
 import uipackage.diagram.providers.DomainElementTypes;
@@ -85,6 +87,21 @@ public class FormItemSemanticEditPolicy extends
 					Node cnode = (Node) cit.next();
 					switch (DomainVisualIDRegistry.getVisualID(cnode)) {
 					case FormDataControlsEditPart.VISUAL_ID:
+						cmd.add(new DestroyElementCommand(
+								new DestroyElementRequest(getEditingDomain(),
+										cnode.getElement(), false))); // directlyOwned: true
+						// don't need explicit deletion of cnode as parent's view deletion would clean child views as well 
+						// cmd.add(new org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(), cnode));
+						break;
+					}
+				}
+				break;
+			case FormFormParametersCompartmentEditPart.VISUAL_ID:
+				for (Iterator<?> cit = node.getChildren().iterator(); cit
+						.hasNext();) {
+					Node cnode = (Node) cit.next();
+					switch (DomainVisualIDRegistry.getVisualID(cnode)) {
+					case FormParameterEditPart.VISUAL_ID:
 						cmd.add(new DestroyElementCommand(
 								new DestroyElementRequest(getEditingDomain(),
 										cnode.getElement(), false))); // directlyOwned: true

@@ -2,6 +2,7 @@
  */
 package domain;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -15,6 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link domain.Root#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.Root#getName <em>Name</em>}</li>
  *   <li>{@link domain.Root#getPreFormTrigger <em>Pre Form Trigger</em>}</li>
+ *   <li>{@link domain.Root#getVariables <em>Variables</em>}</li>
  * </ul>
  * </p>
  *
@@ -102,5 +104,22 @@ public interface Root extends EObject
    * @generated
    */
   void setPreFormTrigger(PREFormTrigger value);
+
+  /**
+   * Returns the value of the '<em><b>Variables</b></em>' containment reference list.
+   * The list contents are of type {@link domain.FormVariable}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Variables</em>' containment reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Variables</em>' containment reference list.
+   * @see domain.DomainPackage#getRoot_Variables()
+   * @model containment="true"
+   *        annotation="gmf.compartment layout='list'"
+   * @generated
+   */
+  EList<FormVariable> getVariables();
 
 } // Root

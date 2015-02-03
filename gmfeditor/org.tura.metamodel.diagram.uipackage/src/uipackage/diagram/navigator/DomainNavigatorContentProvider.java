@@ -31,7 +31,9 @@ import org.eclipse.ui.navigator.ICommonContentProvider;
 import uipackage.diagram.edit.parts.FormDataControlsEditPart;
 import uipackage.diagram.edit.parts.FormEditPart;
 import uipackage.diagram.edit.parts.FormFormDatacontrolsCompartmentEditPart;
+import uipackage.diagram.edit.parts.FormFormParametersCompartmentEditPart;
 import uipackage.diagram.edit.parts.FormFormViewCompartmentEditPart;
+import uipackage.diagram.edit.parts.FormParameterEditPart;
 import uipackage.diagram.edit.parts.FormViewEditPart;
 import uipackage.diagram.edit.parts.UIPackageEditPart;
 import uipackage.diagram.part.DomainVisualIDRegistry;
@@ -254,6 +256,15 @@ public class DomainNavigatorContentProvider implements ICommonContentProvider {
 			LinkedList<DomainAbstractNavigatorItem> result = new LinkedList<DomainAbstractNavigatorItem>();
 			Node sv = (Node) view;
 			Collection<View> connectedViews;
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					DomainVisualIDRegistry
+							.getType(FormFormParametersCompartmentEditPart.VISUAL_ID));
+			connectedViews = getChildrenByType(connectedViews,
+					DomainVisualIDRegistry
+							.getType(FormParameterEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
 			connectedViews = getChildrenByType(Collections.singleton(sv),
 					DomainVisualIDRegistry
 							.getType(FormFormViewCompartmentEditPart.VISUAL_ID));

@@ -18,6 +18,7 @@ import org.eclipse.gmf.runtime.notation.View;
 
 import uipackage.diagram.edit.parts.FormDataControlsNameEditPart;
 import uipackage.diagram.edit.parts.FormNameEditPart;
+import uipackage.diagram.edit.parts.FormParameterNameEditPart;
 import uipackage.diagram.edit.parts.FormViewNameEditPart;
 import uipackage.diagram.parsers.MessageFormatParser;
 import uipackage.diagram.part.DomainVisualIDRegistry;
@@ -45,6 +46,24 @@ public class DomainParserProvider extends AbstractProvider implements
 			formName_1005002Parser = parser;
 		}
 		return formName_1005002Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	private IParser formParameterName_1005005Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getFormParameterName_1005005Parser() {
+		if (formParameterName_1005005Parser == null) {
+			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE
+					.getFormParameter_Name() };
+			MessageFormatParser parser = new MessageFormatParser(features);
+			formParameterName_1005005Parser = parser;
+		}
+		return formParameterName_1005005Parser;
 	}
 
 	/**
@@ -90,6 +109,8 @@ public class DomainParserProvider extends AbstractProvider implements
 		switch (visualID) {
 		case FormNameEditPart.VISUAL_ID:
 			return getFormName_1005002Parser();
+		case FormParameterNameEditPart.VISUAL_ID:
+			return getFormParameterName_1005005Parser();
 		case FormViewNameEditPart.VISUAL_ID:
 			return getFormViewName_1005003Parser();
 		case FormDataControlsNameEditPart.VISUAL_ID:

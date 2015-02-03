@@ -134,6 +134,7 @@ public class RootItemProvider
     {
       super.getChildrenFeatures(object);
       childrenFeatures.add(DomainPackage.Literals.ROOT__PRE_FORM_TRIGGER);
+      childrenFeatures.add(DomainPackage.Literals.ROOT__VARIABLES);
     }
     return childrenFeatures;
   }
@@ -198,6 +199,7 @@ public class RootItemProvider
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
         return;
       case DomainPackage.ROOT__PRE_FORM_TRIGGER:
+      case DomainPackage.ROOT__VARIABLES:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
         return;
     }
@@ -220,6 +222,11 @@ public class RootItemProvider
       (createChildParameter
         (DomainPackage.Literals.ROOT__PRE_FORM_TRIGGER,
          DomainFactory.eINSTANCE.createPREFormTrigger()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (DomainPackage.Literals.ROOT__VARIABLES,
+         DomainFactory.eINSTANCE.createFormVariable()));
   }
 
   /**

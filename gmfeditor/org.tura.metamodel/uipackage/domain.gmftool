@@ -30,6 +30,15 @@
       </tools>
       <tools
           xsi:type="gmftool:CreationTool"
+          title="FormParameter"
+          description="Create new FormParameter">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
           title="FormView"
           description="Create new FormView">
         <smallIcon

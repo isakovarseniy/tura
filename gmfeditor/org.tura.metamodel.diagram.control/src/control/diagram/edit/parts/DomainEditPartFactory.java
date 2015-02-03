@@ -46,6 +46,12 @@ public class DomainEditPartFactory implements EditPartFactory {
 			case PREFormTriggerFakeMethodEditPart.VISUAL_ID:
 				return new PREFormTriggerFakeMethodEditPart(view);
 
+			case FormVariableEditPart.VISUAL_ID:
+				return new FormVariableEditPart(view);
+
+			case FormVariableNameEditPart.VISUAL_ID:
+				return new FormVariableNameEditPart(view);
+
 			case PREQueryTriggerEditPart.VISUAL_ID:
 				return new PREQueryTriggerEditPart(view);
 
@@ -120,6 +126,9 @@ public class DomainEditPartFactory implements EditPartFactory {
 
 			case RootRootPreFormTriggerCompartmentEditPart.VISUAL_ID:
 				return new RootRootPreFormTriggerCompartmentEditPart(view);
+
+			case RootRootVariablesCompartmentEditPart.VISUAL_ID:
+				return new RootRootVariablesCompartmentEditPart(view);
 
 			case DataControlDataControlPreQueryTriggerCompartmentEditPart.VISUAL_ID:
 				return new DataControlDataControlPreQueryTriggerCompartmentEditPart(

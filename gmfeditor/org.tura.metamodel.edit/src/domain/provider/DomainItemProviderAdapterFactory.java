@@ -2274,6 +2274,31 @@ public class DomainItemProviderAdapterFactory extends DomainAdapterFactory imple
   }
 
   /**
+   * This keeps track of the one adapter used for all {@link domain.FormParameter} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected FormParameterItemProvider formParameterItemProvider;
+
+  /**
+   * This creates an adapter for a {@link domain.FormParameter}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createFormParameterAdapter()
+  {
+    if (formParameterItemProvider == null)
+    {
+      formParameterItemProvider = new FormParameterItemProvider(this);
+    }
+
+    return formParameterItemProvider;
+  }
+
+  /**
    * This keeps track of the one adapter used for all {@link domain.FormView} instances.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -3674,6 +3699,31 @@ public class DomainItemProviderAdapterFactory extends DomainAdapterFactory imple
   }
 
   /**
+   * This keeps track of the one adapter used for all {@link domain.FormVariable} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected FormVariableItemProvider formVariableItemProvider;
+
+  /**
+   * This creates an adapter for a {@link domain.FormVariable}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createFormVariableAdapter()
+  {
+    if (formVariableItemProvider == null)
+    {
+      formVariableItemProvider = new FormVariableItemProvider(this);
+    }
+
+    return formVariableItemProvider;
+  }
+
+  /**
    * This keeps track of the one adapter used for all {@link domain.DataControl} instances.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -4322,6 +4372,7 @@ public class DomainItemProviderAdapterFactory extends DomainAdapterFactory imple
     if (packageItemProvider != null) packageItemProvider.dispose();
     if (uiPackageItemProvider != null) uiPackageItemProvider.dispose();
     if (formItemProvider != null) formItemProvider.dispose();
+    if (formParameterItemProvider != null) formParameterItemProvider.dispose();
     if (formViewItemProvider != null) formViewItemProvider.dispose();
     if (viewsItemProvider != null) viewsItemProvider.dispose();
     if (multiLangLabelItemProvider != null) multiLangLabelItemProvider.dispose();
@@ -4378,6 +4429,7 @@ public class DomainItemProviderAdapterFactory extends DomainAdapterFactory imple
     if (deleteTriggerItemProvider != null) deleteTriggerItemProvider.dispose();
     if (searchTriggerItemProvider != null) searchTriggerItemProvider.dispose();
     if (rootItemProvider != null) rootItemProvider.dispose();
+    if (formVariableItemProvider != null) formVariableItemProvider.dispose();
     if (dataControlItemProvider != null) dataControlItemProvider.dispose();
     if (ordersItemProvider != null) ordersItemProvider.dispose();
     if (orderByItemProvider != null) orderByItemProvider.dispose();

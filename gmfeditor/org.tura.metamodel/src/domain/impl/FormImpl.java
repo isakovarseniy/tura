@@ -5,16 +5,21 @@ package domain.impl;
 import domain.DomainPackage;
 import domain.Form;
 import domain.FormDataControls;
+import domain.FormParameter;
 import domain.FormView;
 
+import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -27,6 +32,7 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  *   <li>{@link domain.impl.FormImpl#getName <em>Name</em>}</li>
  *   <li>{@link domain.impl.FormImpl#getView <em>View</em>}</li>
  *   <li>{@link domain.impl.FormImpl#getDatacontrols <em>Datacontrols</em>}</li>
+ *   <li>{@link domain.impl.FormImpl#getParameters <em>Parameters</em>}</li>
  * </ul>
  * </p>
  *
@@ -93,6 +99,16 @@ public class FormImpl extends EObjectImpl implements Form
    * @ordered
    */
   protected FormDataControls datacontrols;
+
+  /**
+   * The cached value of the '{@link #getParameters() <em>Parameters</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getParameters()
+   * @generated
+   * @ordered
+   */
+  protected EList<FormParameter> parameters;
 
   /**
    * <!-- begin-user-doc -->
@@ -262,6 +278,20 @@ public class FormImpl extends EObjectImpl implements Form
    * <!-- end-user-doc -->
    * @generated
    */
+  public EList<FormParameter> getParameters()
+  {
+    if (parameters == null)
+    {
+      parameters = new EObjectContainmentEList<FormParameter>(FormParameter.class, this, DomainPackage.FORM__PARAMETERS);
+    }
+    return parameters;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
@@ -271,6 +301,8 @@ public class FormImpl extends EObjectImpl implements Form
         return basicSetView(null, msgs);
       case DomainPackage.FORM__DATACONTROLS:
         return basicSetDatacontrols(null, msgs);
+      case DomainPackage.FORM__PARAMETERS:
+        return ((InternalEList<?>)getParameters()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -293,6 +325,8 @@ public class FormImpl extends EObjectImpl implements Form
         return getView();
       case DomainPackage.FORM__DATACONTROLS:
         return getDatacontrols();
+      case DomainPackage.FORM__PARAMETERS:
+        return getParameters();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -302,6 +336,7 @@ public class FormImpl extends EObjectImpl implements Form
    * <!-- end-user-doc -->
    * @generated
    */
+  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
@@ -318,6 +353,10 @@ public class FormImpl extends EObjectImpl implements Form
         return;
       case DomainPackage.FORM__DATACONTROLS:
         setDatacontrols((FormDataControls)newValue);
+        return;
+      case DomainPackage.FORM__PARAMETERS:
+        getParameters().clear();
+        getParameters().addAll((Collection<? extends FormParameter>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -345,6 +384,9 @@ public class FormImpl extends EObjectImpl implements Form
       case DomainPackage.FORM__DATACONTROLS:
         setDatacontrols((FormDataControls)null);
         return;
+      case DomainPackage.FORM__PARAMETERS:
+        getParameters().clear();
+        return;
     }
     super.eUnset(featureID);
   }
@@ -367,6 +409,8 @@ public class FormImpl extends EObjectImpl implements Form
         return view != null;
       case DomainPackage.FORM__DATACONTROLS:
         return datacontrols != null;
+      case DomainPackage.FORM__PARAMETERS:
+        return parameters != null && !parameters.isEmpty();
     }
     return super.eIsSet(featureID);
   }

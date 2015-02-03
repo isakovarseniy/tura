@@ -5,7 +5,27 @@ for (  label in GmfGraph!Label.all ){
   label.font.faceName="Palatino";  
   label.font.height	 = 12;
 }
+
+
+-- Find the FormParameter figure
+var attributeFigure = GmfGraph!RoundedRectangle.all.selectOne(r|r.name = 'FormParameterFigure');
+
+-- ... delete its border
+delete attributeFigure.border;
+
+-- ... set its outline to false
+attributeFigure.setOutline ( false);
+
+-- ... and add a preferred size to it
+var preferredSize = new GmfGraph!Dimension;
+preferredSize.dx = 200;
+preferredSize.dy = 16;
+attributeFigure.setPreferredSize ( preferredSize);
+
+
 -- remove unavailabels tools
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='FormVariable');
+delete tool;
 var tool = GmfTool!CreationTool.all.selectOne(r|r.title='Language');
 delete tool;
 var tool = GmfTool!CreationTool.all.selectOne(r|r.title='Table');

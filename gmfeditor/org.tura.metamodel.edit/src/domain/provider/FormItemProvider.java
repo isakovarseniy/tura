@@ -135,6 +135,7 @@ public class FormItemProvider
       super.getChildrenFeatures(object);
       childrenFeatures.add(DomainPackage.Literals.FORM__VIEW);
       childrenFeatures.add(DomainPackage.Literals.FORM__DATACONTROLS);
+      childrenFeatures.add(DomainPackage.Literals.FORM__PARAMETERS);
     }
     return childrenFeatures;
   }
@@ -200,6 +201,7 @@ public class FormItemProvider
         return;
       case DomainPackage.FORM__VIEW:
       case DomainPackage.FORM__DATACONTROLS:
+      case DomainPackage.FORM__PARAMETERS:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
         return;
     }
@@ -227,6 +229,11 @@ public class FormItemProvider
       (createChildParameter
         (DomainPackage.Literals.FORM__DATACONTROLS,
          DomainFactory.eINSTANCE.createFormDataControls()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (DomainPackage.Literals.FORM__PARAMETERS,
+         DomainFactory.eINSTANCE.createFormParameter()));
   }
 
   /**

@@ -15,6 +15,9 @@
     <compartmentTraces
         visualID="7002"
         queryText="true"/>
+    <compartmentTraces
+        visualID="7003"
+        queryText="true"/>
   </nodeTraces>
   <childNodeTraces
       visualID="3001"
@@ -28,6 +31,13 @@
       queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://tura.org/2013/v1/domain' and _eClass_.name = 'FormDataControls') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://tura.org/2013/v1/domain' and _eClass_.name = 'Form') and _containmentMF_.name = 'datacontrols')">
     <nodeLabelTraces
         visualID="5004"
+        queryText="true"/>
+  </childNodeTraces>
+  <childNodeTraces
+      visualID="3003"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://tura.org/2013/v1/domain' and _eClass_.name = 'FormParameter') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://tura.org/2013/v1/domain' and _eClass_.name = 'Form') and _containmentMF_.name = 'parameters')">
+    <nodeLabelTraces
+        visualID="5005"
         queryText="true"/>
   </childNodeTraces>
 </trace:TraceModel>

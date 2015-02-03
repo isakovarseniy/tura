@@ -33,6 +33,7 @@ import control.diagram.edit.parts.DataControlDataControlSearchCompartmentEditPar
 import control.diagram.edit.parts.DataControlDataControlUpdateCompartmentEditPart;
 import control.diagram.edit.parts.DataControlEditPart;
 import control.diagram.edit.parts.DeleteTriggerEditPart;
+import control.diagram.edit.parts.FormVariableEditPart;
 import control.diagram.edit.parts.InsertTriggerEditPart;
 import control.diagram.edit.parts.POSTCreateTriggerEditPart;
 import control.diagram.edit.parts.POSTQueryTriggerEditPart;
@@ -44,6 +45,7 @@ import control.diagram.edit.parts.PREUpdateTriggerEditPart;
 import control.diagram.edit.parts.RelationEditPart;
 import control.diagram.edit.parts.RootEditPart;
 import control.diagram.edit.parts.RootRootPreFormTriggerCompartmentEditPart;
+import control.diagram.edit.parts.RootRootVariablesCompartmentEditPart;
 import control.diagram.edit.parts.SearchTriggerEditPart;
 import control.diagram.edit.parts.UpdateTriggerEditPart;
 import control.diagram.providers.DomainElementTypes;
@@ -53,6 +55,7 @@ import domain.CreateTrigger;
 import domain.DataControl;
 import domain.DeleteTrigger;
 import domain.DomainPackage;
+import domain.FormVariable;
 import domain.InsertTrigger;
 import domain.POSTCreateTrigger;
 import domain.POSTQueryTrigger;
@@ -88,6 +91,8 @@ public class DomainDiagramUpdater {
 			return getControls_1101000SemanticChildren(view);
 		case RootRootPreFormTriggerCompartmentEditPart.VISUAL_ID:
 			return getRootRootPreFormTriggerCompartment_1107001SemanticChildren(view);
+		case RootRootVariablesCompartmentEditPart.VISUAL_ID:
+			return getRootRootVariablesCompartment_1107014SemanticChildren(view);
 		case DataControlDataControlPreQueryTriggerCompartmentEditPart.VISUAL_ID:
 			return getDataControlDataControlPreQueryTriggerCompartment_1107002SemanticChildren(view);
 		case DataControlDataControlPostQueryTriggerCompartmentEditPart.VISUAL_ID:
@@ -167,6 +172,33 @@ public class DomainDiagramUpdater {
 					childElement);
 			if (visualID == PREFormTriggerEditPart.VISUAL_ID) {
 				result.add(new DomainNodeDescriptor(childElement, visualID));
+			}
+		}
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<DomainNodeDescriptor> getRootRootVariablesCompartment_1107014SemanticChildren(
+			View view) {
+		if (false == view.eContainer() instanceof View) {
+			return Collections.emptyList();
+		}
+		View containerView = (View) view.eContainer();
+		if (!containerView.isSetElement()) {
+			return Collections.emptyList();
+		}
+		Root modelElement = (Root) containerView.getElement();
+		LinkedList<DomainNodeDescriptor> result = new LinkedList<DomainNodeDescriptor>();
+		for (Iterator<?> it = modelElement.getVariables().iterator(); it
+				.hasNext();) {
+			FormVariable childElement = (FormVariable) it.next();
+			int visualID = DomainVisualIDRegistry.getNodeVisualID(view,
+					childElement);
+			if (visualID == FormVariableEditPart.VISUAL_ID) {
+				result.add(new DomainNodeDescriptor(childElement, visualID));
+				continue;
 			}
 		}
 		return result;
@@ -488,6 +520,8 @@ public class DomainDiagramUpdater {
 			return getDataControl_1102002ContainedLinks(view);
 		case PREFormTriggerEditPart.VISUAL_ID:
 			return getPREFormTrigger_1103001ContainedLinks(view);
+		case FormVariableEditPart.VISUAL_ID:
+			return getFormVariable_1103017ContainedLinks(view);
 		case PREQueryTriggerEditPart.VISUAL_ID:
 			return getPREQueryTrigger_1103002ContainedLinks(view);
 		case POSTQueryTriggerEditPart.VISUAL_ID:
@@ -529,6 +563,8 @@ public class DomainDiagramUpdater {
 			return getDataControl_1102002IncomingLinks(view);
 		case PREFormTriggerEditPart.VISUAL_ID:
 			return getPREFormTrigger_1103001IncomingLinks(view);
+		case FormVariableEditPart.VISUAL_ID:
+			return getFormVariable_1103017IncomingLinks(view);
 		case PREQueryTriggerEditPart.VISUAL_ID:
 			return getPREQueryTrigger_1103002IncomingLinks(view);
 		case POSTQueryTriggerEditPart.VISUAL_ID:
@@ -570,6 +606,8 @@ public class DomainDiagramUpdater {
 			return getDataControl_1102002OutgoingLinks(view);
 		case PREFormTriggerEditPart.VISUAL_ID:
 			return getPREFormTrigger_1103001OutgoingLinks(view);
+		case FormVariableEditPart.VISUAL_ID:
+			return getFormVariable_1103017OutgoingLinks(view);
 		case PREQueryTriggerEditPart.VISUAL_ID:
 			return getPREQueryTrigger_1103002OutgoingLinks(view);
 		case POSTQueryTriggerEditPart.VISUAL_ID:
@@ -631,6 +669,14 @@ public class DomainDiagramUpdater {
 	 * @generated
 	 */
 	public static List<DomainLinkDescriptor> getPREFormTrigger_1103001ContainedLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<DomainLinkDescriptor> getFormVariable_1103017ContainedLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -772,6 +818,14 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
+	public static List<DomainLinkDescriptor> getFormVariable_1103017IncomingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
 	public static List<DomainLinkDescriptor> getPREQueryTrigger_1103002IncomingLinks(
 			View view) {
 		return Collections.emptyList();
@@ -896,6 +950,14 @@ public class DomainDiagramUpdater {
 	 * @generated
 	 */
 	public static List<DomainLinkDescriptor> getPREFormTrigger_1103001OutgoingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<DomainLinkDescriptor> getFormVariable_1103017OutgoingLinks(
 			View view) {
 		return Collections.emptyList();
 	}

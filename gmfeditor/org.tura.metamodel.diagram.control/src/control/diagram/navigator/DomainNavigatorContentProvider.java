@@ -45,6 +45,7 @@ import control.diagram.edit.parts.DataControlDataControlSearchCompartmentEditPar
 import control.diagram.edit.parts.DataControlDataControlUpdateCompartmentEditPart;
 import control.diagram.edit.parts.DataControlEditPart;
 import control.diagram.edit.parts.DeleteTriggerEditPart;
+import control.diagram.edit.parts.FormVariableEditPart;
 import control.diagram.edit.parts.InsertTriggerEditPart;
 import control.diagram.edit.parts.POSTCreateTriggerEditPart;
 import control.diagram.edit.parts.POSTQueryTriggerEditPart;
@@ -56,6 +57,7 @@ import control.diagram.edit.parts.PREUpdateTriggerEditPart;
 import control.diagram.edit.parts.RelationEditPart;
 import control.diagram.edit.parts.RootEditPart;
 import control.diagram.edit.parts.RootRootPreFormTriggerCompartmentEditPart;
+import control.diagram.edit.parts.RootRootVariablesCompartmentEditPart;
 import control.diagram.edit.parts.SearchTriggerEditPart;
 import control.diagram.edit.parts.UpdateTriggerEditPart;
 import control.diagram.part.DomainVisualIDRegistry;
@@ -292,6 +294,57 @@ public class DomainNavigatorContentProvider implements ICommonContentProvider {
 			return result.toArray();
 		}
 
+		case ControlsEditPart.VISUAL_ID: {
+			LinkedList<DomainAbstractNavigatorItem> result = new LinkedList<DomainAbstractNavigatorItem>();
+			result.addAll(getForeignShortcuts((Diagram) view, parentElement));
+			Diagram sv = (Diagram) view;
+			DomainNavigatorGroup links = new DomainNavigatorGroup(
+					Messages.NavigatorGroupName_Controls_1101000_links,
+					"icons/linksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getChildrenByType(Collections.singleton(sv),
+					DomainVisualIDRegistry.getType(RootEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(Collections.singleton(sv),
+					DomainVisualIDRegistry
+							.getType(DataControlEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getDiagramLinksByType(Collections.singleton(sv),
+					DomainVisualIDRegistry.getType(RelationEditPart.VISUAL_ID));
+			links.addChildren(createNavigatorItems(connectedViews, links, false));
+			if (!links.isEmpty()) {
+				result.add(links);
+			}
+			return result.toArray();
+		}
+
+		case RootEditPart.VISUAL_ID: {
+			LinkedList<DomainAbstractNavigatorItem> result = new LinkedList<DomainAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			Collection<View> connectedViews;
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					DomainVisualIDRegistry
+							.getType(RootRootPreFormTriggerCompartmentEditPart.VISUAL_ID));
+			connectedViews = getChildrenByType(connectedViews,
+					DomainVisualIDRegistry
+							.getType(PREFormTriggerEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					DomainVisualIDRegistry
+							.getType(RootRootVariablesCompartmentEditPart.VISUAL_ID));
+			connectedViews = getChildrenByType(connectedViews,
+					DomainVisualIDRegistry
+							.getType(FormVariableEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			return result.toArray();
+		}
+
 		case DataControlEditPart.VISUAL_ID: {
 			LinkedList<DomainAbstractNavigatorItem> result = new LinkedList<DomainAbstractNavigatorItem>();
 			Node sv = (Node) view;
@@ -423,48 +476,6 @@ public class DomainNavigatorContentProvider implements ICommonContentProvider {
 			}
 			if (!outgoinglinks.isEmpty()) {
 				result.add(outgoinglinks);
-			}
-			return result.toArray();
-		}
-
-		case RootEditPart.VISUAL_ID: {
-			LinkedList<DomainAbstractNavigatorItem> result = new LinkedList<DomainAbstractNavigatorItem>();
-			Node sv = (Node) view;
-			Collection<View> connectedViews;
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					DomainVisualIDRegistry
-							.getType(RootRootPreFormTriggerCompartmentEditPart.VISUAL_ID));
-			connectedViews = getChildrenByType(connectedViews,
-					DomainVisualIDRegistry
-							.getType(PREFormTriggerEditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			return result.toArray();
-		}
-
-		case ControlsEditPart.VISUAL_ID: {
-			LinkedList<DomainAbstractNavigatorItem> result = new LinkedList<DomainAbstractNavigatorItem>();
-			result.addAll(getForeignShortcuts((Diagram) view, parentElement));
-			Diagram sv = (Diagram) view;
-			DomainNavigatorGroup links = new DomainNavigatorGroup(
-					Messages.NavigatorGroupName_Controls_1101000_links,
-					"icons/linksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection<View> connectedViews;
-			connectedViews = getChildrenByType(Collections.singleton(sv),
-					DomainVisualIDRegistry.getType(RootEditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getChildrenByType(Collections.singleton(sv),
-					DomainVisualIDRegistry
-							.getType(DataControlEditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getDiagramLinksByType(Collections.singleton(sv),
-					DomainVisualIDRegistry.getType(RelationEditPart.VISUAL_ID));
-			links.addChildren(createNavigatorItems(connectedViews, links, false));
-			if (!links.isEmpty()) {
-				result.add(links);
 			}
 			return result.toArray();
 		}

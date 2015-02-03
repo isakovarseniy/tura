@@ -3,17 +3,22 @@
 package domain.impl;
 
 import domain.DomainPackage;
+import domain.FormVariable;
 import domain.PREFormTrigger;
 import domain.Root;
 
+import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -25,6 +30,7 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  *   <li>{@link domain.impl.RootImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.impl.RootImpl#getName <em>Name</em>}</li>
  *   <li>{@link domain.impl.RootImpl#getPreFormTrigger <em>Pre Form Trigger</em>}</li>
+ *   <li>{@link domain.impl.RootImpl#getVariables <em>Variables</em>}</li>
  * </ul>
  * </p>
  *
@@ -81,6 +87,16 @@ public class RootImpl extends EObjectImpl implements Root
    * @ordered
    */
   protected PREFormTrigger preFormTrigger;
+
+  /**
+   * The cached value of the '{@link #getVariables() <em>Variables</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getVariables()
+   * @generated
+   * @ordered
+   */
+  protected EList<FormVariable> variables;
 
   /**
    * <!-- begin-user-doc -->
@@ -202,6 +218,20 @@ public class RootImpl extends EObjectImpl implements Root
    * <!-- end-user-doc -->
    * @generated
    */
+  public EList<FormVariable> getVariables()
+  {
+    if (variables == null)
+    {
+      variables = new EObjectContainmentEList<FormVariable>(FormVariable.class, this, DomainPackage.ROOT__VARIABLES);
+    }
+    return variables;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
@@ -209,6 +239,8 @@ public class RootImpl extends EObjectImpl implements Root
     {
       case DomainPackage.ROOT__PRE_FORM_TRIGGER:
         return basicSetPreFormTrigger(null, msgs);
+      case DomainPackage.ROOT__VARIABLES:
+        return ((InternalEList<?>)getVariables()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -229,6 +261,8 @@ public class RootImpl extends EObjectImpl implements Root
         return getName();
       case DomainPackage.ROOT__PRE_FORM_TRIGGER:
         return getPreFormTrigger();
+      case DomainPackage.ROOT__VARIABLES:
+        return getVariables();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -238,6 +272,7 @@ public class RootImpl extends EObjectImpl implements Root
    * <!-- end-user-doc -->
    * @generated
    */
+  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
@@ -251,6 +286,10 @@ public class RootImpl extends EObjectImpl implements Root
         return;
       case DomainPackage.ROOT__PRE_FORM_TRIGGER:
         setPreFormTrigger((PREFormTrigger)newValue);
+        return;
+      case DomainPackage.ROOT__VARIABLES:
+        getVariables().clear();
+        getVariables().addAll((Collection<? extends FormVariable>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -275,6 +314,9 @@ public class RootImpl extends EObjectImpl implements Root
       case DomainPackage.ROOT__PRE_FORM_TRIGGER:
         setPreFormTrigger((PREFormTrigger)null);
         return;
+      case DomainPackage.ROOT__VARIABLES:
+        getVariables().clear();
+        return;
     }
     super.eUnset(featureID);
   }
@@ -295,6 +337,8 @@ public class RootImpl extends EObjectImpl implements Root
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case DomainPackage.ROOT__PRE_FORM_TRIGGER:
         return preFormTrigger != null;
+      case DomainPackage.ROOT__VARIABLES:
+        return variables != null && !variables.isEmpty();
     }
     return super.eIsSet(featureID);
   }

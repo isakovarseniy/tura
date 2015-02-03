@@ -815,6 +815,15 @@ public interface DomainFactory extends EFactory
   Form createForm();
 
   /**
+   * Returns a new object of class '<em>Form Parameter</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Form Parameter</em>'.
+   * @generated
+   */
+  FormParameter createFormParameter();
+
+  /**
    * Returns a new object of class '<em>Form View</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1317,6 +1326,15 @@ public interface DomainFactory extends EFactory
    * @generated
    */
   Root createRoot();
+
+  /**
+   * Returns a new object of class '<em>Form Variable</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Form Variable</em>'.
+   * @generated
+   */
+  FormVariable createFormVariable();
 
   /**
    * Returns a new object of class '<em>Data Control</em>'.

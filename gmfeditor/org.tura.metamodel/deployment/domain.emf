@@ -732,7 +732,15 @@ class Form{
    val FormView view;
    @gmf.compartment(layout="list")
    val FormDataControls datacontrols;
+   @gmf.compartment(layout="list")
+   val FormParameter[*] parameters;
    
+}
+
+@gmf.node(label="name",border.color="0,0,0",color="241,238,203")
+class FormParameter extends TypePointer{
+    id attr EString uid;
+   attr EString name;
 }
 
 @gmf.node(label="name",border.color="0,0,0",color="241,238,203")
@@ -1066,6 +1074,14 @@ class Root{
    attr EString name;
    @gmf.compartment(layout="list")
    val PREFormTrigger preFormTrigger;
+   @gmf.compartment(layout="list")
+   val FormVariable[*] variables;
+}
+
+@gmf.node(label="name",border.color="0,0,0",color="241,238,203")
+class FormVariable extends TypePointer{
+    id attr EString uid;
+   attr EString name;
 }
 
 

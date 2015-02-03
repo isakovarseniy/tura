@@ -48,8 +48,9 @@ public class DomainModelingAssistantProvider extends ModelingAssistantProvider {
 			return types;
 		}
 		if (editPart instanceof RootEditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(1);
+			ArrayList<IElementType> types = new ArrayList<IElementType>(2);
 			types.add(DomainElementTypes.PREFormTrigger_1103001);
+			types.add(DomainElementTypes.FormVariable_1103017);
 			return types;
 		}
 		if (editPart instanceof DataControlEditPart) {

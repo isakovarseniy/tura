@@ -39,6 +39,7 @@ import control.diagram.edit.parts.ControlsEditPart;
 import control.diagram.edit.parts.CreateTriggerEditPart;
 import control.diagram.edit.parts.DataControlEditPart;
 import control.diagram.edit.parts.DeleteTriggerEditPart;
+import control.diagram.edit.parts.FormVariableEditPart;
 import control.diagram.edit.parts.InsertTriggerEditPart;
 import control.diagram.edit.parts.POSTCreateTriggerEditPart;
 import control.diagram.edit.parts.POSTQueryTriggerEditPart;
@@ -316,6 +317,14 @@ public class ControlsCanonicalEditPolicy extends CanonicalEditPolicy {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(DomainDiagramUpdater
 						.getPREFormTrigger_1103001ContainedLinks(view));
+			}
+			domain2NotationMap.putView(view.getElement(), view);
+			break;
+		}
+		case FormVariableEditPart.VISUAL_ID: {
+			if (!domain2NotationMap.containsKey(view.getElement())) {
+				result.addAll(DomainDiagramUpdater
+						.getFormVariable_1103017ContainedLinks(view));
 			}
 			domain2NotationMap.putView(view.getElement(), view);
 			break;

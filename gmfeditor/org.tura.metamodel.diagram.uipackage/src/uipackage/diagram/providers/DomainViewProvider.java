@@ -43,8 +43,11 @@ import uipackage.diagram.edit.parts.FormDataControlsEditPart;
 import uipackage.diagram.edit.parts.FormDataControlsNameEditPart;
 import uipackage.diagram.edit.parts.FormEditPart;
 import uipackage.diagram.edit.parts.FormFormDatacontrolsCompartmentEditPart;
+import uipackage.diagram.edit.parts.FormFormParametersCompartmentEditPart;
 import uipackage.diagram.edit.parts.FormFormViewCompartmentEditPart;
 import uipackage.diagram.edit.parts.FormNameEditPart;
+import uipackage.diagram.edit.parts.FormParameterEditPart;
+import uipackage.diagram.edit.parts.FormParameterNameEditPart;
 import uipackage.diagram.edit.parts.FormViewEditPart;
 import uipackage.diagram.edit.parts.FormViewNameEditPart;
 import uipackage.diagram.edit.parts.UIPackageEditPart;
@@ -141,6 +144,7 @@ public class DomainViewProvider extends AbstractProvider implements
 				}
 				switch (visualID) {
 				case FormEditPart.VISUAL_ID:
+				case FormParameterEditPart.VISUAL_ID:
 				case FormViewEditPart.VISUAL_ID:
 				case FormDataControlsEditPart.VISUAL_ID:
 					if (domainElement == null
@@ -156,6 +160,7 @@ public class DomainViewProvider extends AbstractProvider implements
 			}
 		}
 		return FormEditPart.VISUAL_ID == visualID
+				|| FormParameterEditPart.VISUAL_ID == visualID
 				|| FormViewEditPart.VISUAL_ID == visualID
 				|| FormDataControlsEditPart.VISUAL_ID == visualID;
 	}
@@ -217,6 +222,9 @@ public class DomainViewProvider extends AbstractProvider implements
 		case FormEditPart.VISUAL_ID:
 			return createForm_1002002(domainElement, containerView, index,
 					persisted, preferencesHint);
+		case FormParameterEditPart.VISUAL_ID:
+			return createFormParameter_1003003(domainElement, containerView,
+					index, persisted, preferencesHint);
 		case FormViewEditPart.VISUAL_ID:
 			return createFormView_1003001(domainElement, containerView, index,
 					persisted, preferencesHint);
@@ -286,6 +294,49 @@ public class DomainViewProvider extends AbstractProvider implements
 				DomainVisualIDRegistry
 						.getType(FormFormDatacontrolsCompartmentEditPart.VISUAL_ID),
 				true, false, true, true);
+		createCompartment(
+				node,
+				DomainVisualIDRegistry
+						.getType(FormFormParametersCompartmentEditPart.VISUAL_ID),
+				true, false, true, true);
+		return node;
+	}
+
+	/**
+	 * @generated
+	 */
+	public Node createFormParameter_1003003(EObject domainElement,
+			View containerView, int index, boolean persisted,
+			PreferencesHint preferencesHint) {
+		Node node = NotationFactory.eINSTANCE.createNode();
+		node.getStyles()
+				.add(NotationFactory.eINSTANCE.createDescriptionStyle());
+		node.getStyles().add(NotationFactory.eINSTANCE.createFontStyle());
+		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
+		node.setType(DomainVisualIDRegistry
+				.getType(FormParameterEditPart.VISUAL_ID));
+		ViewUtil.insertChildView(containerView, node, index, persisted);
+		node.setElement(domainElement);
+		// initializeFromPreferences 
+		final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint
+				.getPreferenceStore();
+		FontStyle nodeFontStyle = (FontStyle) node
+				.getStyle(NotationPackage.Literals.FONT_STYLE);
+		if (nodeFontStyle != null) {
+			FontData fontData = PreferenceConverter.getFontData(prefStore,
+					IPreferenceConstants.PREF_DEFAULT_FONT);
+			nodeFontStyle.setFontName(fontData.getName());
+			nodeFontStyle.setFontHeight(fontData.getHeight());
+			nodeFontStyle.setBold((fontData.getStyle() & SWT.BOLD) != 0);
+			nodeFontStyle.setItalic((fontData.getStyle() & SWT.ITALIC) != 0);
+			org.eclipse.swt.graphics.RGB fontRGB = PreferenceConverter
+					.getColor(prefStore, IPreferenceConstants.PREF_FONT_COLOR);
+			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB)
+					.intValue());
+		}
+		Node label1005005 = createLabel(node,
+				DomainVisualIDRegistry
+						.getType(FormParameterNameEditPart.VISUAL_ID));
 		return node;
 	}
 

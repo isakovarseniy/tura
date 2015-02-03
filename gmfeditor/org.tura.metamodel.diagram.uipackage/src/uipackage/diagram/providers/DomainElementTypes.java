@@ -21,6 +21,7 @@ import org.eclipse.swt.graphics.Image;
 
 import uipackage.diagram.edit.parts.FormDataControlsEditPart;
 import uipackage.diagram.edit.parts.FormEditPart;
+import uipackage.diagram.edit.parts.FormParameterEditPart;
 import uipackage.diagram.edit.parts.FormViewEditPart;
 import uipackage.diagram.edit.parts.UIPackageEditPart;
 import uipackage.diagram.part.DomainDiagramEditorPlugin;
@@ -60,6 +61,11 @@ public class DomainElementTypes {
 	 * @generated
 	 */
 	public static final IElementType Form_1002002 = getElementType("org.tura.metamodel.diagram.uipackage.Form_1002002"); //$NON-NLS-1$
+	/**
+	 * @generated
+	 */
+	public static final IElementType FormParameter_1003003 = getElementType("org.tura.metamodel.diagram.uipackage.FormParameter_1003003"); //$NON-NLS-1$
+
 	/**
 	 * @generated
 	 */
@@ -185,6 +191,9 @@ public class DomainElementTypes {
 
 			elements.put(Form_1002002, DomainPackage.eINSTANCE.getForm());
 
+			elements.put(FormParameter_1003003,
+					DomainPackage.eINSTANCE.getFormParameter());
+
 			elements.put(FormView_1003001,
 					DomainPackage.eINSTANCE.getFormView());
 
@@ -209,6 +218,7 @@ public class DomainElementTypes {
 			KNOWN_ELEMENT_TYPES = new HashSet<IElementType>();
 			KNOWN_ELEMENT_TYPES.add(UIPackage_1001000);
 			KNOWN_ELEMENT_TYPES.add(Form_1002002);
+			KNOWN_ELEMENT_TYPES.add(FormParameter_1003003);
 			KNOWN_ELEMENT_TYPES.add(FormView_1003001);
 			KNOWN_ELEMENT_TYPES.add(FormDataControls_1003002);
 		}
@@ -224,6 +234,8 @@ public class DomainElementTypes {
 			return UIPackage_1001000;
 		case FormEditPart.VISUAL_ID:
 			return Form_1002002;
+		case FormParameterEditPart.VISUAL_ID:
+			return FormParameter_1003003;
 		case FormViewEditPart.VISUAL_ID:
 			return FormView_1003001;
 		case FormDataControlsEditPart.VISUAL_ID:

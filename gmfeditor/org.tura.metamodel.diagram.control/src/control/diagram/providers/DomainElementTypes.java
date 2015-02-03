@@ -24,6 +24,7 @@ import control.diagram.edit.parts.ControlsEditPart;
 import control.diagram.edit.parts.CreateTriggerEditPart;
 import control.diagram.edit.parts.DataControlEditPart;
 import control.diagram.edit.parts.DeleteTriggerEditPart;
+import control.diagram.edit.parts.FormVariableEditPart;
 import control.diagram.edit.parts.InsertTriggerEditPart;
 import control.diagram.edit.parts.POSTCreateTriggerEditPart;
 import control.diagram.edit.parts.POSTQueryTriggerEditPart;
@@ -81,6 +82,11 @@ public class DomainElementTypes {
 	 * @generated
 	 */
 	public static final IElementType PREFormTrigger_1103001 = getElementType("org.tura.metamodel.diagram.control.PREFormTrigger_1103001"); //$NON-NLS-1$
+	/**
+	 * @generated
+	 */
+	public static final IElementType FormVariable_1103017 = getElementType("org.tura.metamodel.diagram.control.FormVariable_1103017"); //$NON-NLS-1$
+
 	/**
 	 * @generated
 	 */
@@ -256,6 +262,9 @@ public class DomainElementTypes {
 			elements.put(PREFormTrigger_1103001,
 					DomainPackage.eINSTANCE.getPREFormTrigger());
 
+			elements.put(FormVariable_1103017,
+					DomainPackage.eINSTANCE.getFormVariable());
+
 			elements.put(PREQueryTrigger_1103002,
 					DomainPackage.eINSTANCE.getPREQueryTrigger());
 
@@ -315,6 +324,7 @@ public class DomainElementTypes {
 			KNOWN_ELEMENT_TYPES.add(Root_1102001);
 			KNOWN_ELEMENT_TYPES.add(DataControl_1102002);
 			KNOWN_ELEMENT_TYPES.add(PREFormTrigger_1103001);
+			KNOWN_ELEMENT_TYPES.add(FormVariable_1103017);
 			KNOWN_ELEMENT_TYPES.add(PREQueryTrigger_1103002);
 			KNOWN_ELEMENT_TYPES.add(POSTQueryTrigger_1103003);
 			KNOWN_ELEMENT_TYPES.add(PREInsertTrigger_1103004);
@@ -345,6 +355,8 @@ public class DomainElementTypes {
 			return DataControl_1102002;
 		case PREFormTriggerEditPart.VISUAL_ID:
 			return PREFormTrigger_1103001;
+		case FormVariableEditPart.VISUAL_ID:
+			return FormVariable_1103017;
 		case PREQueryTriggerEditPart.VISUAL_ID:
 			return PREQueryTrigger_1103002;
 		case POSTQueryTriggerEditPart.VISUAL_ID:

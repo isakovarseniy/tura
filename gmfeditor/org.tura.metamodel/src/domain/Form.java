@@ -2,6 +2,7 @@
  */
 package domain;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -16,6 +17,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link domain.Form#getName <em>Name</em>}</li>
  *   <li>{@link domain.Form#getView <em>View</em>}</li>
  *   <li>{@link domain.Form#getDatacontrols <em>Datacontrols</em>}</li>
+ *   <li>{@link domain.Form#getParameters <em>Parameters</em>}</li>
  * </ul>
  * </p>
  *
@@ -130,5 +132,22 @@ public interface Form extends EObject
    * @generated
    */
   void setDatacontrols(FormDataControls value);
+
+  /**
+   * Returns the value of the '<em><b>Parameters</b></em>' containment reference list.
+   * The list contents are of type {@link domain.FormParameter}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Parameters</em>' containment reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Parameters</em>' containment reference list.
+   * @see domain.DomainPackage#getForm_Parameters()
+   * @model containment="true"
+   *        annotation="gmf.compartment layout='list'"
+   * @generated
+   */
+  EList<FormParameter> getParameters();
 
 } // Form

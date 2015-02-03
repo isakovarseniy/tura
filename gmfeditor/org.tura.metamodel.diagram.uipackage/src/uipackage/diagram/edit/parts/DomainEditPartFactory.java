@@ -34,6 +34,12 @@ public class DomainEditPartFactory implements EditPartFactory {
 			case FormNameEditPart.VISUAL_ID:
 				return new FormNameEditPart(view);
 
+			case FormParameterEditPart.VISUAL_ID:
+				return new FormParameterEditPart(view);
+
+			case FormParameterNameEditPart.VISUAL_ID:
+				return new FormParameterNameEditPart(view);
+
 			case FormViewEditPart.VISUAL_ID:
 				return new FormViewEditPart(view);
 
@@ -51,6 +57,9 @@ public class DomainEditPartFactory implements EditPartFactory {
 
 			case FormFormDatacontrolsCompartmentEditPart.VISUAL_ID:
 				return new FormFormDatacontrolsCompartmentEditPart(view);
+
+			case FormFormParametersCompartmentEditPart.VISUAL_ID:
+				return new FormFormParametersCompartmentEditPart(view);
 			}
 		}
 		return createUnrecognizedEditPart(context, model);

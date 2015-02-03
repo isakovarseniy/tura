@@ -271,12 +271,22 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String FormView3CreationTool_title;
+	public static String FormParameter3CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String FormView3CreationTool_desc;
+	public static String FormParameter3CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String FormView4CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String FormView4CreationTool_desc;
 
 	/**
 	 * @generated
@@ -287,6 +297,11 @@ public class Messages extends NLS {
 	 * @generated
 	 */
 	public static String FormFormDatacontrolsCompartmentEditPart_title;
+
+	/**
+	 * @generated
+	 */
+	public static String FormFormParametersCompartmentEditPart_title;
 
 	/**
 	 * @generated

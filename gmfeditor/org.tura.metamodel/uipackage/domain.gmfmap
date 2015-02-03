@@ -25,6 +25,27 @@
       <diagramNode
           href="domain.gmfgraph#Form"/>
       <children
+          compartment="//@nodes.0/@ownedChild/@compartments.2">
+        <containmentFeature
+            href="domain.ecore#//Form/parameters"/>
+        <ownedChild>
+          <domainMetaElement
+              href="domain.ecore#//FormParameter"/>
+          <labelMappings
+              xsi:type="gmfmap:FeatureLabelMapping">
+            <diagramLabel
+                href="domain.gmfgraph#FormParameterLabel"/>
+            <features
+                href="domain.ecore#//FormParameter/name"/>
+          </labelMappings>
+          <tool
+              xsi:type="gmftool:CreationTool"
+              href="domain.gmftool#//@palette/@tools.0/@tools.2"/>
+          <diagramNode
+              href="domain.gmfgraph#FormParameter"/>
+        </ownedChild>
+      </children>
+      <children
           compartment="//@nodes.0/@ownedChild/@compartments.0">
         <containmentFeature
             href="domain.ecore#//Form/view"/>
@@ -40,7 +61,7 @@
           </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
-              href="domain.gmftool#//@palette/@tools.0/@tools.2"/>
+              href="domain.gmftool#//@palette/@tools.0/@tools.3"/>
           <diagramNode
               href="domain.gmfgraph#FormView"/>
         </ownedChild>
@@ -67,14 +88,19 @@
         </ownedChild>
       </children>
       <compartments
-          children="//@nodes.0/@ownedChild/@children.0">
+          children="//@nodes.0/@ownedChild/@children.1">
         <compartment
             href="domain.gmfgraph#FormViewCompartment"/>
       </compartments>
       <compartments
-          children="//@nodes.0/@ownedChild/@children.1">
+          children="//@nodes.0/@ownedChild/@children.2">
         <compartment
             href="domain.gmfgraph#FormDatacontrolsCompartment"/>
+      </compartments>
+      <compartments
+          children="//@nodes.0/@ownedChild/@children.0">
+        <compartment
+            href="domain.gmfgraph#FormParametersCompartment"/>
       </compartments>
     </ownedChild>
   </nodes>
