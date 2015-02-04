@@ -13,6 +13,7 @@ package domain;
  * <ul>
  *   <li>{@link domain.FormVariable#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.FormVariable#getName <em>Name</em>}</li>
+ *   <li>{@link domain.FormVariable#getParamRef <em>Param Ref</em>}</li>
  * </ul>
  * </p>
  *
@@ -73,5 +74,31 @@ public interface FormVariable extends TypePointer
    * @generated
    */
   void setName(String value);
+
+  /**
+   * Returns the value of the '<em><b>Param Ref</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Param Ref</em>' reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Param Ref</em>' reference.
+   * @see #setParamRef(FormParameter)
+   * @see domain.DomainPackage#getFormVariable_ParamRef()
+   * @model
+   * @generated
+   */
+  FormParameter getParamRef();
+
+  /**
+   * Sets the value of the '{@link domain.FormVariable#getParamRef <em>Param Ref</em>}' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Param Ref</em>' reference.
+   * @see #getParamRef()
+   * @generated
+   */
+  void setParamRef(FormParameter value);
 
 } // FormVariable

@@ -333,12 +333,26 @@
              id="property.tab.domain.control.formvariables"
              label="Type"/>
              
+            <propertyTab
+             category="domain"
+             id="property.tab.domain.control.formparameters"
+             label="Mapping parameters"/>
+
        </propertyTabs>
        </extension>
     
     <extension point="org.eclipse.ui.views.properties.tabbed.propertySections" id="org.tura.metamodel.diagram.control.propsections">
       <?gmfgen generated="true"?>   
       <propertySections contributorId="org.tura.metamodel.diagram.control">
+
+
+          <propertySection
+               tab="property.tab.domain.control.formparameters"
+               class="org.tura.metamodel.commons.properties.selections.dropdown.FormParametersPropertySelection"
+               id="property.tab.domain.control.formvariable.parameters">
+              <input type="control.diagram.edit.parts.FormVariableEditPart"/>
+           </propertySection>        
+
 
 
           <propertySection

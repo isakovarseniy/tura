@@ -13,49 +13,50 @@ import domain.*;
  * <!-- begin-user-doc --> The <b>Adapter Factory</b> for the model. It provides
  * an adapter <code>createXXX</code> method for each class of the model. <!--
  * end-user-doc -->
- * 
  * @see domain.DomainPackage
  * @generated
  */
 public class DomainAdapterFactory extends AdapterFactoryImpl {
 	/**
-	 * The cached model package. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
+   * The cached model package.
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
+   * @generated
+   */
 	protected static DomainPackage modelPackage;
 
 	/**
-	 * Creates an instance of the adapter factory. <!-- begin-user-doc --> <!--
+   * Creates an instance of the adapter factory.
+   * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
-	 * @generated
-	 */
+   * @generated
+   */
 	public DomainAdapterFactory() {
-		if (modelPackage == null) {
-			modelPackage = DomainPackage.eINSTANCE;
-		}
-	}
+    if (modelPackage == null)
+    {
+      modelPackage = DomainPackage.eINSTANCE;
+    }
+  }
 
 	/**
-	 * Returns whether this factory is applicable for the type of the object.
-	 * <!-- begin-user-doc --> This implementation returns <code>true</code> if
+   * Returns whether this factory is applicable for the type of the object.
+   * <!-- begin-user-doc --> This implementation returns <code>true</code> if
 	 * the object is either the model's package or is an instance object of the
 	 * model. <!-- end-user-doc -->
-	 * 
-	 * @return whether this factory is applicable for the type of the object.
-	 * @generated
-	 */
+   * @return whether this factory is applicable for the type of the object.
+   * @generated
+   */
 	@Override
 	public boolean isFactoryForType(Object object) {
-		if (object == modelPackage) {
-			return true;
-		}
-		if (object instanceof EObject) {
-			return ((EObject) object).eClass().getEPackage() == modelPackage;
-		}
-		return false;
-	}
+    if (object == modelPackage)
+    {
+      return true;
+    }
+    if (object instanceof EObject)
+    {
+      return ((EObject)object).eClass().getEPackage() == modelPackage;
+    }
+    return false;
+  }
 
 	/**
 	 * The switch that delegates to the <code>createXXX</code> methods. <!--
@@ -63,850 +64,847 @@ public class DomainAdapterFactory extends AdapterFactoryImpl {
 	 * 
 	 * @generated
 	 */
-	protected DomainSwitch<Adapter> modelSwitch = new DomainSwitch<Adapter>() {
-		@Override
-		public Adapter caseDomain(Domain object) {
-			return createDomainAdapter();
-		}
-
-		@Override
-		public Adapter caseHTMLLayerHolder(HTMLLayerHolder object) {
-			return createHTMLLayerHolderAdapter();
-		}
-
-		@Override
-		public Adapter caseCategorized(Categorized object) {
-			return createCategorizedAdapter();
-		}
-
-		@Override
-		public Adapter caseClassifier(Classifier object) {
-			return createClassifierAdapter();
-		}
-
-		@Override
-		public Adapter caseDomainArtifacts(DomainArtifacts object) {
-			return createDomainArtifactsAdapter();
-		}
-
-		@Override
-		public Adapter caseDomainTypes(DomainTypes object) {
-			return createDomainTypesAdapter();
-		}
-
-		@Override
-		public Adapter caseDomainApplications(DomainApplications object) {
-			return createDomainApplicationsAdapter();
-		}
-
-		@Override
-		public Adapter caseDomainApplication(DomainApplication object) {
-			return createDomainApplicationAdapter();
-		}
-
-		@Override
-		public Adapter caseDomainArtifact(DomainArtifact object) {
-			return createDomainArtifactAdapter();
-		}
-
-		@Override
-		public Adapter caseORMEntity(ORMEntity object) {
-			return createORMEntityAdapter();
-		}
-
-		@Override
-		public Adapter caseJPAService(JPAService object) {
-			return createJPAServiceAdapter();
-		}
-
-		@Override
-		public Adapter caseEJBService(EJBService object) {
-			return createEJBServiceAdapter();
-		}
-
-		@Override
-		public Adapter caseContinuousIintegration(ContinuousIintegration object) {
-			return createContinuousIintegrationAdapter();
-		}
-
-		@Override
-		public Adapter caseArtifacts(Artifacts object) {
-			return createArtifactsAdapter();
-		}
-
-		@Override
-		public Adapter caseArtifact(Artifact object) {
-			return createArtifactAdapter();
-		}
-
-		@Override
-		public Adapter caseGenerationHint(GenerationHint object) {
-			return createGenerationHintAdapter();
-		}
-
-		@Override
-		public Adapter caseConfigVariable(ConfigVariable object) {
-			return createConfigVariableAdapter();
-		}
-
-		@Override
-		public Adapter caseModelQuery(ModelQuery object) {
-			return createModelQueryAdapter();
-		}
-
-		@Override
-		public Adapter caseQueryParameter(QueryParameter object) {
-			return createQueryParameterAdapter();
-		}
-
-		@Override
-		public Adapter caseSpecifier(Specifier object) {
-			return createSpecifierAdapter();
-		}
-
-		@Override
-		public Adapter caseOption(Option object) {
-			return createOptionAdapter();
-		}
-
-		@Override
-		public Adapter caseApplication(Application object) {
-			return createApplicationAdapter();
-		}
-
-		@Override
-		public Adapter caseApplicationMessages(ApplicationMessages object) {
-			return createApplicationMessagesAdapter();
-		}
-
-		@Override
-		public Adapter caseApplicationRole(ApplicationRole object) {
-			return createApplicationRoleAdapter();
-		}
-
-		@Override
-		public Adapter caseApplicationStyle(ApplicationStyle object) {
-			return createApplicationStyleAdapter();
-		}
-
-		@Override
-		public Adapter caseStylesPackage(StylesPackage object) {
-			return createStylesPackageAdapter();
-		}
-
-		@Override
-		public Adapter caseApplicationUILayer(ApplicationUILayer object) {
-			return createApplicationUILayerAdapter();
-		}
-
-		@Override
-		public Adapter caseApplicationUIPackage(ApplicationUIPackage object) {
-			return createApplicationUIPackageAdapter();
-		}
-
-		@Override
-		public Adapter caseApplicationRecipes(ApplicationRecipes object) {
-			return createApplicationRecipesAdapter();
-		}
-
-		@Override
-		public Adapter caseApplicationRecipe(ApplicationRecipe object) {
-			return createApplicationRecipeAdapter();
-		}
-
-		@Override
-		public Adapter caseApplicationMappers(ApplicationMappers object) {
-			return createApplicationMappersAdapter();
-		}
-
-		@Override
-		public Adapter caseApplicationMapper(ApplicationMapper object) {
-			return createApplicationMapperAdapter();
-		}
-
-		@Override
-		public Adapter caseMethodPointer(MethodPointer object) {
-			return createMethodPointerAdapter();
-		}
-
-		@Override
-		public Adapter caseMessages(Messages object) {
-			return createMessagesAdapter();
-		}
-
-		@Override
-		public Adapter caseMessageLibrary(MessageLibrary object) {
-			return createMessageLibraryAdapter();
-		}
-
-		@Override
-		public Adapter caseLanguageRef(LanguageRef object) {
-			return createLanguageRefAdapter();
-		}
-
-		@Override
-		public Adapter caseMessage(Message object) {
-			return createMessageAdapter();
-		}
-
-		@Override
-		public Adapter caseTranslation(Translation object) {
-			return createTranslationAdapter();
-		}
-
-		@Override
-		public Adapter caseLanguage(Language object) {
-			return createLanguageAdapter();
-		}
-
-		@Override
-		public Adapter caseRoles(Roles object) {
-			return createRolesAdapter();
-		}
-
-		@Override
-		public Adapter caseRole(Role object) {
-			return createRoleAdapter();
-		}
-
-		@Override
-		public Adapter caseGroup(Group object) {
-			return createGroupAdapter();
-		}
-
-		@Override
-		public Adapter caseStyles(Styles object) {
-			return createStylesAdapter();
-		}
-
-		@Override
-		public Adapter caseStyleLibrary(StyleLibrary object) {
-			return createStyleLibraryAdapter();
-		}
-
-		@Override
-		public Adapter caseStyleSet(StyleSet object) {
-			return createStyleSetAdapter();
-		}
-
-		@Override
-		public Adapter caseMappers(Mappers object) {
-			return createMappersAdapter();
-		}
-
-		@Override
-		public Adapter caseMapper(Mapper object) {
-			return createMapperAdapter();
-		}
-
-		@Override
-		public Adapter caseTypeMapper(TypeMapper object) {
-			return createTypeMapperAdapter();
-		}
-
-		@Override
-		public Adapter caseJavaMapper(JavaMapper object) {
-			return createJavaMapperAdapter();
-		}
-
-		@Override
-		public Adapter caseJavaScriptMapper(JavaScriptMapper object) {
-			return createJavaScriptMapperAdapter();
-		}
-
-		@Override
-		public Adapter caseCSSMapper(CSSMapper object) {
-			return createCSSMapperAdapter();
-		}
-
-		@Override
-		public Adapter caseRoleMapper(RoleMapper object) {
-			return createRoleMapperAdapter();
-		}
-
-		@Override
-		public Adapter caseRecipes(Recipes object) {
-			return createRecipesAdapter();
-		}
-
-		@Override
-		public Adapter caseDeploymentSequence(DeploymentSequence object) {
-			return createDeploymentSequenceAdapter();
-		}
-
-		@Override
-		public Adapter caseDeploymentComponents(DeploymentComponents object) {
-			return createDeploymentComponentsAdapter();
-		}
-
-		@Override
-		public Adapter caseDeploymentComponent(DeploymentComponent object) {
-			return createDeploymentComponentAdapter();
-		}
-
-		@Override
-		public Adapter caseDeploymentStarStep(DeploymentStarStep object) {
-			return createDeploymentStarStepAdapter();
-		}
-
-		@Override
-		public Adapter caseUsingMappers(UsingMappers object) {
-			return createUsingMappersAdapter();
-		}
-
-		@Override
-		public Adapter caseRecipe(Recipe object) {
-			return createRecipeAdapter();
-		}
-
-		@Override
-		public Adapter caseIngredient(Ingredient object) {
-			return createIngredientAdapter();
-		}
-
-		@Override
-		public Adapter caseComponent(Component object) {
-			return createComponentAdapter();
-		}
-
-		@Override
-		public Adapter caseJavaComponent(JavaComponent object) {
-			return createJavaComponentAdapter();
-		}
-
-		@Override
-		public Adapter caseInfrastructure(Infrastructure object) {
-			return createInfrastructureAdapter();
-		}
-
-		@Override
-		public Adapter caseConfiguration(Configuration object) {
-			return createConfigurationAdapter();
-		}
-
-		@Override
-		public Adapter caseModelMapper(ModelMapper object) {
-			return createModelMapperAdapter();
-		}
-
-		@Override
-		public Adapter caseProperty(Property object) {
-			return createPropertyAdapter();
-		}
-
-		@Override
-		public Adapter caseMappingSpecifier(MappingSpecifier object) {
-			return createMappingSpecifierAdapter();
-		}
-
-		@Override
-		public Adapter caseQuery(Query object) {
-			return createQueryAdapter();
-		}
-
-		@Override
-		public Adapter caseQueryVariable(QueryVariable object) {
-			return createQueryVariableAdapter();
-		}
-
-		@Override
-		public Adapter caseArtifactRef(ArtifactRef object) {
-			return createArtifactRefAdapter();
-		}
-
-		@Override
-		public Adapter caseTypePointer(TypePointer object) {
-			return createTypePointerAdapter();
-		}
-
-		@Override
-		public Adapter caseTypeDefinition(TypeDefinition object) {
-			return createTypeDefinitionAdapter();
-		}
-
-		@Override
-		public Adapter caseTypeElement(TypeElement object) {
-			return createTypeElementAdapter();
-		}
-
-		@Override
-		public Adapter casePrimitive(Primitive object) {
-			return createPrimitiveAdapter();
-		}
-
-		@Override
-		public Adapter caseType(Type object) {
-			return createTypeAdapter();
-		}
-
-		@Override
-		public Adapter caseTypeReference(TypeReference object) {
-			return createTypeReferenceAdapter();
-		}
-
-		@Override
-		public Adapter caseTypeExtension(TypeExtension object) {
-			return createTypeExtensionAdapter();
-		}
-
-		@Override
-		public Adapter caseAttribute(Attribute object) {
-			return createAttributeAdapter();
-		}
-
-		@Override
-		public Adapter caseOperation(Operation object) {
-			return createOperationAdapter();
-		}
-
-		@Override
-		public Adapter caseParameter(Parameter object) {
-			return createParameterAdapter();
-		}
-
-		@Override
-		public Adapter caseReturnValue(ReturnValue object) {
-			return createReturnValueAdapter();
-		}
-
-		@Override
-		public Adapter caseEnumarator(Enumarator object) {
-			return createEnumaratorAdapter();
-		}
-
-		@Override
-		public Adapter caseEnumAttribute(EnumAttribute object) {
-			return createEnumAttributeAdapter();
-		}
-
-		@Override
-		public Adapter caseTypesRepository(TypesRepository object) {
-			return createTypesRepositoryAdapter();
-		}
-
-		@Override
-		public Adapter caseTypes(Types object) {
-			return createTypesAdapter();
-		}
-
-		@Override
-		public Adapter casePackage(domain.Package object) {
-			return createPackageAdapter();
-		}
-
-		@Override
-		public Adapter caseUIPackage(UIPackage object) {
-			return createUIPackageAdapter();
-		}
-
-		@Override
-		public Adapter caseForm(Form object) {
-			return createFormAdapter();
-		}
-
-		@Override
-		public Adapter caseFormParameter(FormParameter object) {
-			return createFormParameterAdapter();
-		}
-
-		@Override
-		public Adapter caseFormView(FormView object) {
-			return createFormViewAdapter();
-		}
-
-		@Override
-		public Adapter caseViews(Views object) {
-			return createViewsAdapter();
-		}
-
-		@Override
-		public Adapter caseMultiLangLabel(MultiLangLabel object) {
-			return createMultiLangLabelAdapter();
-		}
-
-		@Override
-		public Adapter caseCanvasFrame(CanvasFrame object) {
-			return createCanvasFrameAdapter();
-		}
-
-		@Override
-		public Adapter caseViewPortHolder(ViewPortHolder object) {
-			return createViewPortHolderAdapter();
-		}
-
-		@Override
-		public Adapter caseDefaultCavas(DefaultCavas object) {
-			return createDefaultCavasAdapter();
-		}
-
-		@Override
-		public Adapter caseViewElement(ViewElement object) {
-			return createViewElementAdapter();
-		}
-
-		@Override
-		public Adapter caseCanvas(Canvas object) {
-			return createCanvasAdapter();
-		}
-
-		@Override
-		public Adapter caseWindow(Window object) {
-			return createWindowAdapter();
-		}
-
-		@Override
-		public Adapter caseTabCanvas(TabCanvas object) {
-			return createTabCanvasAdapter();
-		}
-
-		@Override
-		public Adapter caseTabPage(TabPage object) {
-			return createTabPageAdapter();
-		}
-
-		@Override
-		public Adapter caseViewPort(ViewPort object) {
-			return createViewPortAdapter();
-		}
-
-		@Override
-		public Adapter caseViewArea(ViewArea object) {
-			return createViewAreaAdapter();
-		}
-
-		@Override
-		public Adapter caseViewPortTrigger(ViewPortTrigger object) {
-			return createViewPortTriggerAdapter();
-		}
-
-		@Override
-		public Adapter caseViewInheritance(ViewInheritance object) {
-			return createViewInheritanceAdapter();
-		}
-
-		@Override
-		public Adapter caseTabPagesInheritance(TabPagesInheritance object) {
-			return createTabPagesInheritanceAdapter();
-		}
-
-		@Override
-		public Adapter caseFormDataControls(FormDataControls object) {
-			return createFormDataControlsAdapter();
-		}
-
-		@Override
-		public Adapter caseCanvasView(CanvasView object) {
-			return createCanvasViewAdapter();
-		}
-
-		@Override
-		public Adapter caseChildrenHolder(ChildrenHolder object) {
-			return createChildrenHolderAdapter();
-		}
-
-		@Override
-		public Adapter caseContextParameter(ContextParameter object) {
-			return createContextParameterAdapter();
-		}
-
-		@Override
-		public Adapter caseContextValue(ContextValue object) {
-			return createContextValueAdapter();
-		}
-
-		@Override
-		public Adapter caseExpressionPart(ExpressionPart object) {
-			return createExpressionPartAdapter();
-		}
-
-		@Override
-		public Adapter caseContextParameters(ContextParameters object) {
-			return createContextParametersAdapter();
-		}
-
-		@Override
-		public Adapter caseContext(Context object) {
-			return createContextAdapter();
-		}
-
-		@Override
-		public Adapter caseStyleElement(StyleElement object) {
-			return createStyleElementAdapter();
-		}
-
-		@Override
-		public Adapter caseUielement(Uielement object) {
-			return createUielementAdapter();
-		}
-
-		@Override
-		public Adapter caseSourcesPointer(SourcesPointer object) {
-			return createSourcesPointerAdapter();
-		}
-
-		@Override
-		public Adapter caseActionElement(ActionElement object) {
-			return createActionElementAdapter();
-		}
-
-		@Override
-		public Adapter caseInputElement(InputElement object) {
-			return createInputElementAdapter();
-		}
-
-		@Override
-		public Adapter caseSelection(Selection object) {
-			return createSelectionAdapter();
-		}
-
-		@Override
-		public Adapter caseOptionSelection(OptionSelection object) {
-			return createOptionSelectionAdapter();
-		}
-
-		@Override
-		public Adapter caseLayerHolder(LayerHolder object) {
-			return createLayerHolderAdapter();
-		}
-
-		@Override
-		public Adapter caseInputText(InputText object) {
-			return createInputTextAdapter();
-		}
-
-		@Override
-		public Adapter caseLabel(Label object) {
-			return createLabelAdapter();
-		}
-
-		@Override
-		public Adapter caseOutputText(OutputText object) {
-			return createOutputTextAdapter();
-		}
-
-		@Override
-		public Adapter caseCheckBox(CheckBox object) {
-			return createCheckBoxAdapter();
-		}
-
-		@Override
-		public Adapter caseDropDownSelection(DropDownSelection object) {
-			return createDropDownSelectionAdapter();
-		}
-
-		@Override
-		public Adapter caseColumn(Column object) {
-			return createColumnAdapter();
-		}
-
-		@Override
-		public Adapter caseTable(Table object) {
-			return createTableAdapter();
-		}
-
-		@Override
-		public Adapter caseTree(Tree object) {
-			return createTreeAdapter();
-		}
-
-		@Override
-		public Adapter caseButton(Button object) {
-			return createButtonAdapter();
-		}
-
-		@Override
-		public Adapter caseControls(Controls object) {
-			return createControlsAdapter();
-		}
-
-		@Override
-		public Adapter caseTrigger(Trigger object) {
-			return createTriggerAdapter();
-		}
-
-		@Override
-		public Adapter casePREFormTrigger(PREFormTrigger object) {
-			return createPREFormTriggerAdapter();
-		}
-
-		@Override
-		public Adapter casePREQueryTrigger(PREQueryTrigger object) {
-			return createPREQueryTriggerAdapter();
-		}
-
-		@Override
-		public Adapter casePOSTQueryTrigger(POSTQueryTrigger object) {
-			return createPOSTQueryTriggerAdapter();
-		}
-
-		@Override
-		public Adapter casePREInsertTrigger(PREInsertTrigger object) {
-			return createPREInsertTriggerAdapter();
-		}
-
-		@Override
-		public Adapter casePREDeleteTrigger(PREDeleteTrigger object) {
-			return createPREDeleteTriggerAdapter();
-		}
-
-		@Override
-		public Adapter casePOSTCreateTrigger(POSTCreateTrigger object) {
-			return createPOSTCreateTriggerAdapter();
-		}
-
-		@Override
-		public Adapter casePREUpdateTrigger(PREUpdateTrigger object) {
-			return createPREUpdateTriggerAdapter();
-		}
-
-		@Override
-		public Adapter caseCreateTrigger(CreateTrigger object) {
-			return createCreateTriggerAdapter();
-		}
-
-		@Override
-		public Adapter caseInsertTrigger(InsertTrigger object) {
-			return createInsertTriggerAdapter();
-		}
-
-		@Override
-		public Adapter caseUpdateTrigger(UpdateTrigger object) {
-			return createUpdateTriggerAdapter();
-		}
-
-		@Override
-		public Adapter caseDeleteTrigger(DeleteTrigger object) {
-			return createDeleteTriggerAdapter();
-		}
-
-		@Override
-		public Adapter caseSearchTrigger(SearchTrigger object) {
-			return createSearchTriggerAdapter();
-		}
-
-		@Override
-		public Adapter caseRoot(Root object) {
-			return createRootAdapter();
-		}
-
-		@Override
-		public Adapter caseFormVariable(FormVariable object) {
-			return createFormVariableAdapter();
-		}
-
-		@Override
-		public Adapter caseDataControl(DataControl object) {
-			return createDataControlAdapter();
-		}
-
-		@Override
-		public Adapter caseOrders(Orders object) {
-			return createOrdersAdapter();
-		}
-
-		@Override
-		public Adapter caseOrderBy(OrderBy object) {
-			return createOrderByAdapter();
-		}
-
-		@Override
-		public Adapter caseRelation(Relation object) {
-			return createRelationAdapter();
-		}
-
-		@Override
-		public Adapter caseArtificialField(ArtificialField object) {
-			return createArtificialFieldAdapter();
-		}
-
-		@Override
-		public Adapter caseLink(Link object) {
-			return createLinkAdapter();
-		}
-
-		@Override
-		public Adapter caseApplicationInfrastructureLayer(
-				ApplicationInfrastructureLayer object) {
-			return createApplicationInfrastructureLayerAdapter();
-		}
-
-		@Override
-		public Adapter caseEnterpriseInfrastructure(
-				EnterpriseInfrastructure object) {
-			return createEnterpriseInfrastructureAdapter();
-		}
-
-		@Override
-		public Adapter caseDatacenter(Datacenter object) {
-			return createDatacenterAdapter();
-		}
-
-		@Override
-		public Adapter caseSubsystem(Subsystem object) {
-			return createSubsystemAdapter();
-		}
-
-		@Override
-		public Adapter caseInfrastructureLayer(InfrastructureLayer object) {
-			return createInfrastructureLayerAdapter();
-		}
-
-		@Override
-		public Adapter caseInfrastructureConnection(
-				InfrastructureConnection object) {
-			return createInfrastructureConnectionAdapter();
-		}
-
-		@Override
-		public Adapter caseInfrastructureComponent(
-				InfrastructureComponent object) {
-			return createInfrastructureComponentAdapter();
-		}
-
-		@Override
-		public Adapter caseServer(Server object) {
-			return createServerAdapter();
-		}
-
-		@Override
-		public Adapter caseRouter(Router object) {
-			return createRouterAdapter();
-		}
-
-		@Override
-		public Adapter caseHub(Hub object) {
-			return createHubAdapter();
-		}
-
-		@Override
-		public Adapter caseStorage(Storage object) {
-			return createStorageAdapter();
-		}
-
-		@Override
-		public Adapter caseServerClaster(ServerClaster object) {
-			return createServerClasterAdapter();
-		}
-
-		@Override
-		public Adapter defaultCase(EObject object) {
-			return createEObjectAdapter();
-		}
-	};
+	protected DomainSwitch<Adapter> modelSwitch = new DomainSwitch<Adapter>()
+    {
+      @Override
+      public Adapter caseDomain(Domain object)
+      {
+        return createDomainAdapter();
+      }
+      @Override
+      public Adapter caseHTMLLayerHolder(HTMLLayerHolder object)
+      {
+        return createHTMLLayerHolderAdapter();
+      }
+      @Override
+      public Adapter caseCategorized(Categorized object)
+      {
+        return createCategorizedAdapter();
+      }
+      @Override
+      public Adapter caseClassifier(Classifier object)
+      {
+        return createClassifierAdapter();
+      }
+      @Override
+      public Adapter caseDomainArtifacts(DomainArtifacts object)
+      {
+        return createDomainArtifactsAdapter();
+      }
+      @Override
+      public Adapter caseDomainTypes(DomainTypes object)
+      {
+        return createDomainTypesAdapter();
+      }
+      @Override
+      public Adapter caseDomainApplications(DomainApplications object)
+      {
+        return createDomainApplicationsAdapter();
+      }
+      @Override
+      public Adapter caseDomainApplication(DomainApplication object)
+      {
+        return createDomainApplicationAdapter();
+      }
+      @Override
+      public Adapter caseDomainArtifact(DomainArtifact object)
+      {
+        return createDomainArtifactAdapter();
+      }
+      @Override
+      public Adapter caseORMEntity(ORMEntity object)
+      {
+        return createORMEntityAdapter();
+      }
+      @Override
+      public Adapter caseJPAService(JPAService object)
+      {
+        return createJPAServiceAdapter();
+      }
+      @Override
+      public Adapter caseEJBService(EJBService object)
+      {
+        return createEJBServiceAdapter();
+      }
+      @Override
+      public Adapter caseContinuousIintegration(ContinuousIintegration object)
+      {
+        return createContinuousIintegrationAdapter();
+      }
+      @Override
+      public Adapter caseArtifacts(Artifacts object)
+      {
+        return createArtifactsAdapter();
+      }
+      @Override
+      public Adapter caseArtifact(Artifact object)
+      {
+        return createArtifactAdapter();
+      }
+      @Override
+      public Adapter caseGenerationHint(GenerationHint object)
+      {
+        return createGenerationHintAdapter();
+      }
+      @Override
+      public Adapter caseConfigVariable(ConfigVariable object)
+      {
+        return createConfigVariableAdapter();
+      }
+      @Override
+      public Adapter caseModelQuery(ModelQuery object)
+      {
+        return createModelQueryAdapter();
+      }
+      @Override
+      public Adapter caseQueryParameter(QueryParameter object)
+      {
+        return createQueryParameterAdapter();
+      }
+      @Override
+      public Adapter caseSpecifier(Specifier object)
+      {
+        return createSpecifierAdapter();
+      }
+      @Override
+      public Adapter caseOption(Option object)
+      {
+        return createOptionAdapter();
+      }
+      @Override
+      public Adapter caseApplication(Application object)
+      {
+        return createApplicationAdapter();
+      }
+      @Override
+      public Adapter caseApplicationMessages(ApplicationMessages object)
+      {
+        return createApplicationMessagesAdapter();
+      }
+      @Override
+      public Adapter caseApplicationRole(ApplicationRole object)
+      {
+        return createApplicationRoleAdapter();
+      }
+      @Override
+      public Adapter caseApplicationStyle(ApplicationStyle object)
+      {
+        return createApplicationStyleAdapter();
+      }
+      @Override
+      public Adapter caseStylesPackage(StylesPackage object)
+      {
+        return createStylesPackageAdapter();
+      }
+      @Override
+      public Adapter caseApplicationUILayer(ApplicationUILayer object)
+      {
+        return createApplicationUILayerAdapter();
+      }
+      @Override
+      public Adapter caseApplicationUIPackage(ApplicationUIPackage object)
+      {
+        return createApplicationUIPackageAdapter();
+      }
+      @Override
+      public Adapter caseApplicationRecipes(ApplicationRecipes object)
+      {
+        return createApplicationRecipesAdapter();
+      }
+      @Override
+      public Adapter caseApplicationRecipe(ApplicationRecipe object)
+      {
+        return createApplicationRecipeAdapter();
+      }
+      @Override
+      public Adapter caseApplicationMappers(ApplicationMappers object)
+      {
+        return createApplicationMappersAdapter();
+      }
+      @Override
+      public Adapter caseApplicationMapper(ApplicationMapper object)
+      {
+        return createApplicationMapperAdapter();
+      }
+      @Override
+      public Adapter caseMethodPointer(MethodPointer object)
+      {
+        return createMethodPointerAdapter();
+      }
+      @Override
+      public Adapter caseMessages(Messages object)
+      {
+        return createMessagesAdapter();
+      }
+      @Override
+      public Adapter caseMessageLibrary(MessageLibrary object)
+      {
+        return createMessageLibraryAdapter();
+      }
+      @Override
+      public Adapter caseLanguageRef(LanguageRef object)
+      {
+        return createLanguageRefAdapter();
+      }
+      @Override
+      public Adapter caseMessage(Message object)
+      {
+        return createMessageAdapter();
+      }
+      @Override
+      public Adapter caseTranslation(Translation object)
+      {
+        return createTranslationAdapter();
+      }
+      @Override
+      public Adapter caseLanguage(Language object)
+      {
+        return createLanguageAdapter();
+      }
+      @Override
+      public Adapter caseRoles(Roles object)
+      {
+        return createRolesAdapter();
+      }
+      @Override
+      public Adapter caseRole(Role object)
+      {
+        return createRoleAdapter();
+      }
+      @Override
+      public Adapter caseGroup(Group object)
+      {
+        return createGroupAdapter();
+      }
+      @Override
+      public Adapter caseStyles(Styles object)
+      {
+        return createStylesAdapter();
+      }
+      @Override
+      public Adapter caseStyleLibrary(StyleLibrary object)
+      {
+        return createStyleLibraryAdapter();
+      }
+      @Override
+      public Adapter caseStyleSet(StyleSet object)
+      {
+        return createStyleSetAdapter();
+      }
+      @Override
+      public Adapter caseMappers(Mappers object)
+      {
+        return createMappersAdapter();
+      }
+      @Override
+      public Adapter caseMapper(Mapper object)
+      {
+        return createMapperAdapter();
+      }
+      @Override
+      public Adapter caseTypeMapper(TypeMapper object)
+      {
+        return createTypeMapperAdapter();
+      }
+      @Override
+      public Adapter caseJavaMapper(JavaMapper object)
+      {
+        return createJavaMapperAdapter();
+      }
+      @Override
+      public Adapter caseJavaScriptMapper(JavaScriptMapper object)
+      {
+        return createJavaScriptMapperAdapter();
+      }
+      @Override
+      public Adapter caseCSSMapper(CSSMapper object)
+      {
+        return createCSSMapperAdapter();
+      }
+      @Override
+      public Adapter caseRoleMapper(RoleMapper object)
+      {
+        return createRoleMapperAdapter();
+      }
+      @Override
+      public Adapter caseRecipes(Recipes object)
+      {
+        return createRecipesAdapter();
+      }
+      @Override
+      public Adapter caseDeploymentSequence(DeploymentSequence object)
+      {
+        return createDeploymentSequenceAdapter();
+      }
+      @Override
+      public Adapter caseDeploymentComponents(DeploymentComponents object)
+      {
+        return createDeploymentComponentsAdapter();
+      }
+      @Override
+      public Adapter caseDeploymentComponent(DeploymentComponent object)
+      {
+        return createDeploymentComponentAdapter();
+      }
+      @Override
+      public Adapter caseDeploymentStarStep(DeploymentStarStep object)
+      {
+        return createDeploymentStarStepAdapter();
+      }
+      @Override
+      public Adapter caseUsingMappers(UsingMappers object)
+      {
+        return createUsingMappersAdapter();
+      }
+      @Override
+      public Adapter caseRecipe(Recipe object)
+      {
+        return createRecipeAdapter();
+      }
+      @Override
+      public Adapter caseIngredient(Ingredient object)
+      {
+        return createIngredientAdapter();
+      }
+      @Override
+      public Adapter caseComponent(Component object)
+      {
+        return createComponentAdapter();
+      }
+      @Override
+      public Adapter caseJavaComponent(JavaComponent object)
+      {
+        return createJavaComponentAdapter();
+      }
+      @Override
+      public Adapter caseInfrastructure(Infrastructure object)
+      {
+        return createInfrastructureAdapter();
+      }
+      @Override
+      public Adapter caseConfiguration(Configuration object)
+      {
+        return createConfigurationAdapter();
+      }
+      @Override
+      public Adapter caseModelMapper(ModelMapper object)
+      {
+        return createModelMapperAdapter();
+      }
+      @Override
+      public Adapter caseProperty(Property object)
+      {
+        return createPropertyAdapter();
+      }
+      @Override
+      public Adapter caseMappingSpecifier(MappingSpecifier object)
+      {
+        return createMappingSpecifierAdapter();
+      }
+      @Override
+      public Adapter caseQuery(Query object)
+      {
+        return createQueryAdapter();
+      }
+      @Override
+      public Adapter caseQueryVariable(QueryVariable object)
+      {
+        return createQueryVariableAdapter();
+      }
+      @Override
+      public Adapter caseArtifactRef(ArtifactRef object)
+      {
+        return createArtifactRefAdapter();
+      }
+      @Override
+      public Adapter caseTypePointer(TypePointer object)
+      {
+        return createTypePointerAdapter();
+      }
+      @Override
+      public Adapter caseTypeDefinition(TypeDefinition object)
+      {
+        return createTypeDefinitionAdapter();
+      }
+      @Override
+      public Adapter caseTypeElement(TypeElement object)
+      {
+        return createTypeElementAdapter();
+      }
+      @Override
+      public Adapter casePrimitive(Primitive object)
+      {
+        return createPrimitiveAdapter();
+      }
+      @Override
+      public Adapter caseType(Type object)
+      {
+        return createTypeAdapter();
+      }
+      @Override
+      public Adapter caseTypeReference(TypeReference object)
+      {
+        return createTypeReferenceAdapter();
+      }
+      @Override
+      public Adapter caseTypeExtension(TypeExtension object)
+      {
+        return createTypeExtensionAdapter();
+      }
+      @Override
+      public Adapter caseAttribute(Attribute object)
+      {
+        return createAttributeAdapter();
+      }
+      @Override
+      public Adapter caseOperation(Operation object)
+      {
+        return createOperationAdapter();
+      }
+      @Override
+      public Adapter caseParameter(Parameter object)
+      {
+        return createParameterAdapter();
+      }
+      @Override
+      public Adapter caseReturnValue(ReturnValue object)
+      {
+        return createReturnValueAdapter();
+      }
+      @Override
+      public Adapter caseEnumarator(Enumarator object)
+      {
+        return createEnumaratorAdapter();
+      }
+      @Override
+      public Adapter caseEnumAttribute(EnumAttribute object)
+      {
+        return createEnumAttributeAdapter();
+      }
+      @Override
+      public Adapter caseTypesRepository(TypesRepository object)
+      {
+        return createTypesRepositoryAdapter();
+      }
+      @Override
+      public Adapter caseTypes(Types object)
+      {
+        return createTypesAdapter();
+      }
+      @Override
+      public Adapter casePackage(domain.Package object)
+      {
+        return createPackageAdapter();
+      }
+      @Override
+      public Adapter caseUIPackage(UIPackage object)
+      {
+        return createUIPackageAdapter();
+      }
+      @Override
+      public Adapter caseForm(Form object)
+      {
+        return createFormAdapter();
+      }
+      @Override
+      public Adapter caseFormParameter(FormParameter object)
+      {
+        return createFormParameterAdapter();
+      }
+      @Override
+      public Adapter caseFormView(FormView object)
+      {
+        return createFormViewAdapter();
+      }
+      @Override
+      public Adapter caseViews(Views object)
+      {
+        return createViewsAdapter();
+      }
+      @Override
+      public Adapter caseMultiLangLabel(MultiLangLabel object)
+      {
+        return createMultiLangLabelAdapter();
+      }
+      @Override
+      public Adapter caseCanvasFrame(CanvasFrame object)
+      {
+        return createCanvasFrameAdapter();
+      }
+      @Override
+      public Adapter caseViewPortHolder(ViewPortHolder object)
+      {
+        return createViewPortHolderAdapter();
+      }
+      @Override
+      public Adapter caseDefaultCavas(DefaultCavas object)
+      {
+        return createDefaultCavasAdapter();
+      }
+      @Override
+      public Adapter caseViewElement(ViewElement object)
+      {
+        return createViewElementAdapter();
+      }
+      @Override
+      public Adapter caseCanvas(Canvas object)
+      {
+        return createCanvasAdapter();
+      }
+      @Override
+      public Adapter caseWindow(Window object)
+      {
+        return createWindowAdapter();
+      }
+      @Override
+      public Adapter caseTabCanvas(TabCanvas object)
+      {
+        return createTabCanvasAdapter();
+      }
+      @Override
+      public Adapter caseTabPage(TabPage object)
+      {
+        return createTabPageAdapter();
+      }
+      @Override
+      public Adapter caseViewPort(ViewPort object)
+      {
+        return createViewPortAdapter();
+      }
+      @Override
+      public Adapter caseViewArea(ViewArea object)
+      {
+        return createViewAreaAdapter();
+      }
+      @Override
+      public Adapter caseViewPortTrigger(ViewPortTrigger object)
+      {
+        return createViewPortTriggerAdapter();
+      }
+      @Override
+      public Adapter caseViewInheritance(ViewInheritance object)
+      {
+        return createViewInheritanceAdapter();
+      }
+      @Override
+      public Adapter caseTabPagesInheritance(TabPagesInheritance object)
+      {
+        return createTabPagesInheritanceAdapter();
+      }
+      @Override
+      public Adapter caseFormDataControls(FormDataControls object)
+      {
+        return createFormDataControlsAdapter();
+      }
+      @Override
+      public Adapter caseCanvasView(CanvasView object)
+      {
+        return createCanvasViewAdapter();
+      }
+      @Override
+      public Adapter caseChildrenHolder(ChildrenHolder object)
+      {
+        return createChildrenHolderAdapter();
+      }
+      @Override
+      public Adapter caseContextParameter(ContextParameter object)
+      {
+        return createContextParameterAdapter();
+      }
+      @Override
+      public Adapter caseContextValue(ContextValue object)
+      {
+        return createContextValueAdapter();
+      }
+      @Override
+      public Adapter caseExpressionPart(ExpressionPart object)
+      {
+        return createExpressionPartAdapter();
+      }
+      @Override
+      public Adapter caseContextParameters(ContextParameters object)
+      {
+        return createContextParametersAdapter();
+      }
+      @Override
+      public Adapter caseContext(Context object)
+      {
+        return createContextAdapter();
+      }
+      @Override
+      public Adapter caseStyleElement(StyleElement object)
+      {
+        return createStyleElementAdapter();
+      }
+      @Override
+      public Adapter caseUielement(Uielement object)
+      {
+        return createUielementAdapter();
+      }
+      @Override
+      public Adapter caseSourcesPointer(SourcesPointer object)
+      {
+        return createSourcesPointerAdapter();
+      }
+      @Override
+      public Adapter caseActionElement(ActionElement object)
+      {
+        return createActionElementAdapter();
+      }
+      @Override
+      public Adapter caseInputElement(InputElement object)
+      {
+        return createInputElementAdapter();
+      }
+      @Override
+      public Adapter caseSelection(Selection object)
+      {
+        return createSelectionAdapter();
+      }
+      @Override
+      public Adapter caseOptionSelection(OptionSelection object)
+      {
+        return createOptionSelectionAdapter();
+      }
+      @Override
+      public Adapter caseLayerHolder(LayerHolder object)
+      {
+        return createLayerHolderAdapter();
+      }
+      @Override
+      public Adapter caseInputText(InputText object)
+      {
+        return createInputTextAdapter();
+      }
+      @Override
+      public Adapter caseLabel(Label object)
+      {
+        return createLabelAdapter();
+      }
+      @Override
+      public Adapter caseOutputText(OutputText object)
+      {
+        return createOutputTextAdapter();
+      }
+      @Override
+      public Adapter caseCheckBox(CheckBox object)
+      {
+        return createCheckBoxAdapter();
+      }
+      @Override
+      public Adapter caseDropDownSelection(DropDownSelection object)
+      {
+        return createDropDownSelectionAdapter();
+      }
+      @Override
+      public Adapter caseColumn(Column object)
+      {
+        return createColumnAdapter();
+      }
+      @Override
+      public Adapter caseTable(Table object)
+      {
+        return createTableAdapter();
+      }
+      @Override
+      public Adapter caseTree(Tree object)
+      {
+        return createTreeAdapter();
+      }
+      @Override
+      public Adapter caseButton(Button object)
+      {
+        return createButtonAdapter();
+      }
+      @Override
+      public Adapter caseControls(Controls object)
+      {
+        return createControlsAdapter();
+      }
+      @Override
+      public Adapter caseTrigger(Trigger object)
+      {
+        return createTriggerAdapter();
+      }
+      @Override
+      public Adapter casePREFormTrigger(PREFormTrigger object)
+      {
+        return createPREFormTriggerAdapter();
+      }
+      @Override
+      public Adapter casePREQueryTrigger(PREQueryTrigger object)
+      {
+        return createPREQueryTriggerAdapter();
+      }
+      @Override
+      public Adapter casePOSTQueryTrigger(POSTQueryTrigger object)
+      {
+        return createPOSTQueryTriggerAdapter();
+      }
+      @Override
+      public Adapter casePREInsertTrigger(PREInsertTrigger object)
+      {
+        return createPREInsertTriggerAdapter();
+      }
+      @Override
+      public Adapter casePREDeleteTrigger(PREDeleteTrigger object)
+      {
+        return createPREDeleteTriggerAdapter();
+      }
+      @Override
+      public Adapter casePOSTCreateTrigger(POSTCreateTrigger object)
+      {
+        return createPOSTCreateTriggerAdapter();
+      }
+      @Override
+      public Adapter casePREUpdateTrigger(PREUpdateTrigger object)
+      {
+        return createPREUpdateTriggerAdapter();
+      }
+      @Override
+      public Adapter caseCreateTrigger(CreateTrigger object)
+      {
+        return createCreateTriggerAdapter();
+      }
+      @Override
+      public Adapter caseInsertTrigger(InsertTrigger object)
+      {
+        return createInsertTriggerAdapter();
+      }
+      @Override
+      public Adapter caseUpdateTrigger(UpdateTrigger object)
+      {
+        return createUpdateTriggerAdapter();
+      }
+      @Override
+      public Adapter caseDeleteTrigger(DeleteTrigger object)
+      {
+        return createDeleteTriggerAdapter();
+      }
+      @Override
+      public Adapter caseSearchTrigger(SearchTrigger object)
+      {
+        return createSearchTriggerAdapter();
+      }
+      @Override
+      public Adapter caseRoot(Root object)
+      {
+        return createRootAdapter();
+      }
+      @Override
+      public Adapter caseFormVariable(FormVariable object)
+      {
+        return createFormVariableAdapter();
+      }
+      @Override
+      public Adapter caseDataControl(DataControl object)
+      {
+        return createDataControlAdapter();
+      }
+      @Override
+      public Adapter caseOrders(Orders object)
+      {
+        return createOrdersAdapter();
+      }
+      @Override
+      public Adapter caseOrderBy(OrderBy object)
+      {
+        return createOrderByAdapter();
+      }
+      @Override
+      public Adapter caseRelation(Relation object)
+      {
+        return createRelationAdapter();
+      }
+      @Override
+      public Adapter caseArtificialField(ArtificialField object)
+      {
+        return createArtificialFieldAdapter();
+      }
+      @Override
+      public Adapter caseLink(Link object)
+      {
+        return createLinkAdapter();
+      }
+      @Override
+      public Adapter caseApplicationInfrastructureLayer(ApplicationInfrastructureLayer object)
+      {
+        return createApplicationInfrastructureLayerAdapter();
+      }
+      @Override
+      public Adapter caseEnterpriseInfrastructure(EnterpriseInfrastructure object)
+      {
+        return createEnterpriseInfrastructureAdapter();
+      }
+      @Override
+      public Adapter caseDatacenter(Datacenter object)
+      {
+        return createDatacenterAdapter();
+      }
+      @Override
+      public Adapter caseSubsystem(Subsystem object)
+      {
+        return createSubsystemAdapter();
+      }
+      @Override
+      public Adapter caseInfrastructureLayer(InfrastructureLayer object)
+      {
+        return createInfrastructureLayerAdapter();
+      }
+      @Override
+      public Adapter caseInfrastructureConnection(InfrastructureConnection object)
+      {
+        return createInfrastructureConnectionAdapter();
+      }
+      @Override
+      public Adapter caseInfrastructureComponent(InfrastructureComponent object)
+      {
+        return createInfrastructureComponentAdapter();
+      }
+      @Override
+      public Adapter caseServer(Server object)
+      {
+        return createServerAdapter();
+      }
+      @Override
+      public Adapter caseRouter(Router object)
+      {
+        return createRouterAdapter();
+      }
+      @Override
+      public Adapter caseHub(Hub object)
+      {
+        return createHubAdapter();
+      }
+      @Override
+      public Adapter caseStorage(Storage object)
+      {
+        return createStorageAdapter();
+      }
+      @Override
+      public Adapter caseServerClaster(ServerClaster object)
+      {
+        return createServerClasterAdapter();
+      }
+      @Override
+      public Adapter defaultCase(EObject object)
+      {
+        return createEObjectAdapter();
+      }
+    };
 
 	/**
-	 * Creates an adapter for the <code>target</code>. <!-- begin-user-doc -->
+   * Creates an adapter for the <code>target</code>.
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
-	 * @param target
-	 *            the object to adapt.
-	 * @return the adapter for the <code>target</code>.
-	 * @generated
-	 */
+   * @param target the object to adapt.
+   * @return the adapter for the <code>target</code>.
+   * @generated
+   */
 	@Override
 	public Adapter createAdapter(Notifier target) {
-		return modelSwitch.doSwitch((EObject) target);
-	}
+    return modelSwitch.doSwitch((EObject)target);
+  }
 
 	/**
 	 * Creates a new adapter for an object of class '{@link domain.Domain
@@ -920,8 +918,8 @@ public class DomainAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createDomainAdapter() {
-		return null;
-	}
+    return null;
+  }
 
 	/**
 	 * Creates a new adapter for an object of class '
@@ -935,53 +933,50 @@ public class DomainAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createHTMLLayerHolderAdapter() {
-		return null;
-	}
+    return null;
+  }
 
 	/**
-	 * Creates a new adapter for an object of class '{@link domain.Categorized
-	 * <em>Categorized</em>}'. <!-- begin-user-doc --> This default
+   * Creates a new adapter for an object of class '{@link domain.Categorized <em>Categorized</em>}'.
+   * <!-- begin-user-doc --> This default
 	 * implementation returns null so that we can easily ignore cases; it's
 	 * useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
-	 * 
-	 * @return the new adapter.
-	 * @see domain.Categorized
-	 * @generated
-	 */
+   * @return the new adapter.
+   * @see domain.Categorized
+   * @generated
+   */
 	public Adapter createCategorizedAdapter() {
-		return null;
-	}
+    return null;
+  }
 
 	/**
-	 * Creates a new adapter for an object of class '{@link domain.Classifier
-	 * <em>Classifier</em>}'. <!-- begin-user-doc --> This default
+   * Creates a new adapter for an object of class '{@link domain.Classifier <em>Classifier</em>}'.
+   * <!-- begin-user-doc --> This default
 	 * implementation returns null so that we can easily ignore cases; it's
 	 * useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
-	 * 
-	 * @return the new adapter.
-	 * @see domain.Classifier
-	 * @generated
-	 */
+   * @return the new adapter.
+   * @see domain.Classifier
+   * @generated
+   */
 	public Adapter createClassifierAdapter() {
-		return null;
-	}
+    return null;
+  }
 
 	/**
-	 * Creates a new adapter for an object of class '
-	 * {@link domain.DomainArtifacts <em>Artifacts</em>}'. <!-- begin-user-doc
+   * Creates a new adapter for an object of class '{@link domain.DomainArtifacts <em>Artifacts</em>}'.
+   * <!-- begin-user-doc
 	 * --> This default implementation returns null so that we can easily ignore
 	 * cases; it's useful to ignore a case when inheritance will catch all the
 	 * cases anyway. <!-- end-user-doc -->
-	 * 
-	 * @return the new adapter.
-	 * @see domain.DomainArtifacts
-	 * @generated
-	 */
+   * @return the new adapter.
+   * @see domain.DomainArtifacts
+   * @generated
+   */
 	public Adapter createDomainArtifactsAdapter() {
-		return null;
-	}
+    return null;
+  }
 
 	/**
 	 * Creates a new adapter for an object of class '{@link domain.DomainTypes
@@ -995,8 +990,8 @@ public class DomainAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createDomainTypesAdapter() {
-		return null;
-	}
+    return null;
+  }
 
 	/**
 	 * Creates a new adapter for an object of class '
@@ -1010,8 +1005,8 @@ public class DomainAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createDomainApplicationsAdapter() {
-		return null;
-	}
+    return null;
+  }
 
 	/**
 	 * Creates a new adapter for an object of class '
@@ -1025,83 +1020,77 @@ public class DomainAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createDomainApplicationAdapter() {
-		return null;
-	}
+    return null;
+  }
 
 	/**
-	 * Creates a new adapter for an object of class '
-	 * {@link domain.DomainArtifact <em>Artifact</em>}'. <!-- begin-user-doc -->
+   * Creates a new adapter for an object of class '{@link domain.DomainArtifact <em>Artifact</em>}'.
+   * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore
 	 * cases; it's useful to ignore a case when inheritance will catch all the
 	 * cases anyway. <!-- end-user-doc -->
-	 * 
-	 * @return the new adapter.
-	 * @see domain.DomainArtifact
-	 * @generated
-	 */
+   * @return the new adapter.
+   * @see domain.DomainArtifact
+   * @generated
+   */
 	public Adapter createDomainArtifactAdapter() {
-		return null;
-	}
+    return null;
+  }
 
 	/**
-	 * Creates a new adapter for an object of class '{@link domain.ORMEntity
-	 * <em>ORM Entity</em>}'. <!-- begin-user-doc --> This default
+   * Creates a new adapter for an object of class '{@link domain.ORMEntity <em>ORM Entity</em>}'.
+   * <!-- begin-user-doc --> This default
 	 * implementation returns null so that we can easily ignore cases; it's
 	 * useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
-	 * 
-	 * @return the new adapter.
-	 * @see domain.ORMEntity
-	 * @generated
-	 */
+   * @return the new adapter.
+   * @see domain.ORMEntity
+   * @generated
+   */
 	public Adapter createORMEntityAdapter() {
-		return null;
-	}
+    return null;
+  }
 
 	/**
-	 * Creates a new adapter for an object of class '{@link domain.JPAService
-	 * <em>JPA Service</em>}'. <!-- begin-user-doc --> This default
+   * Creates a new adapter for an object of class '{@link domain.JPAService <em>JPA Service</em>}'.
+   * <!-- begin-user-doc --> This default
 	 * implementation returns null so that we can easily ignore cases; it's
 	 * useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
-	 * 
-	 * @return the new adapter.
-	 * @see domain.JPAService
-	 * @generated
-	 */
+   * @return the new adapter.
+   * @see domain.JPAService
+   * @generated
+   */
 	public Adapter createJPAServiceAdapter() {
-		return null;
-	}
+    return null;
+  }
 
 	/**
-	 * Creates a new adapter for an object of class '{@link domain.EJBService
-	 * <em>EJB Service</em>}'. <!-- begin-user-doc --> This default
+   * Creates a new adapter for an object of class '{@link domain.EJBService <em>EJB Service</em>}'.
+   * <!-- begin-user-doc --> This default
 	 * implementation returns null so that we can easily ignore cases; it's
 	 * useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
-	 * 
-	 * @return the new adapter.
-	 * @see domain.EJBService
-	 * @generated
-	 */
+   * @return the new adapter.
+   * @see domain.EJBService
+   * @generated
+   */
 	public Adapter createEJBServiceAdapter() {
-		return null;
-	}
+    return null;
+  }
 
 	/**
-	 * Creates a new adapter for an object of class '
-	 * {@link domain.ContinuousIintegration <em>Continuous Iintegration</em>}'.
-	 * <!-- begin-user-doc --> This default implementation returns null so that
+   * Creates a new adapter for an object of class '{@link domain.ContinuousIintegration <em>Continuous Iintegration</em>}'.
+   * <!-- begin-user-doc --> This default implementation returns null so that
 	 * we can easily ignore cases; it's useful to ignore a case when inheritance
 	 * will catch all the cases anyway. <!-- end-user-doc -->
-	 * 
-	 * @return the new adapter.
-	 * @see domain.ContinuousIintegration
-	 * @generated
-	 */
+   * @return the new adapter.
+   * @see domain.ContinuousIintegration
+   * @generated
+   */
 	public Adapter createContinuousIintegrationAdapter() {
-		return null;
-	}
+    return null;
+  }
 
 	/**
 	 * Creates a new adapter for an object of class '{@link domain.Artifacts
@@ -1115,8 +1104,8 @@ public class DomainAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createArtifactsAdapter() {
-		return null;
-	}
+    return null;
+  }
 
 	/**
 	 * Creates a new adapter for an object of class '{@link domain.Artifact
@@ -1130,8 +1119,8 @@ public class DomainAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createArtifactAdapter() {
-		return null;
-	}
+    return null;
+  }
 
 	/**
 	 * Creates a new adapter for an object of class '
@@ -1145,8 +1134,8 @@ public class DomainAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createGenerationHintAdapter() {
-		return null;
-	}
+    return null;
+  }
 
 	/**
 	 * Creates a new adapter for an object of class '
@@ -1160,23 +1149,22 @@ public class DomainAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createConfigVariableAdapter() {
-		return null;
-	}
+    return null;
+  }
 
 	/**
-	 * Creates a new adapter for an object of class '{@link domain.ModelQuery
-	 * <em>Model Query</em>}'. <!-- begin-user-doc --> This default
+   * Creates a new adapter for an object of class '{@link domain.ModelQuery <em>Model Query</em>}'.
+   * <!-- begin-user-doc --> This default
 	 * implementation returns null so that we can easily ignore cases; it's
 	 * useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
-	 * 
-	 * @return the new adapter.
-	 * @see domain.ModelQuery
-	 * @generated
-	 */
+   * @return the new adapter.
+   * @see domain.ModelQuery
+   * @generated
+   */
 	public Adapter createModelQueryAdapter() {
-		return null;
-	}
+    return null;
+  }
 
 	/**
 	 * Creates a new adapter for an object of class '
@@ -1190,8 +1178,8 @@ public class DomainAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createQueryParameterAdapter() {
-		return null;
-	}
+    return null;
+  }
 
 	/**
 	 * Creates a new adapter for an object of class '{@link domain.Specifier
@@ -1205,8 +1193,8 @@ public class DomainAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createSpecifierAdapter() {
-		return null;
-	}
+    return null;
+  }
 
 	/**
 	 * Creates a new adapter for an object of class '{@link domain.Option
@@ -1220,23 +1208,22 @@ public class DomainAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createOptionAdapter() {
-		return null;
-	}
+    return null;
+  }
 
 	/**
-	 * Creates a new adapter for an object of class '{@link domain.Application
-	 * <em>Application</em>}'. <!-- begin-user-doc --> This default
+   * Creates a new adapter for an object of class '{@link domain.Application <em>Application</em>}'.
+   * <!-- begin-user-doc --> This default
 	 * implementation returns null so that we can easily ignore cases; it's
 	 * useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
-	 * 
-	 * @return the new adapter.
-	 * @see domain.Application
-	 * @generated
-	 */
+   * @return the new adapter.
+   * @see domain.Application
+   * @generated
+   */
 	public Adapter createApplicationAdapter() {
-		return null;
-	}
+    return null;
+  }
 
 	/**
 	 * Creates a new adapter for an object of class '
@@ -1250,8 +1237,8 @@ public class DomainAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createApplicationMessagesAdapter() {
-		return null;
-	}
+    return null;
+  }
 
 	/**
 	 * Creates a new adapter for an object of class '
@@ -1265,8 +1252,8 @@ public class DomainAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createApplicationRoleAdapter() {
-		return null;
-	}
+    return null;
+  }
 
 	/**
 	 * Creates a new adapter for an object of class '
@@ -1280,8 +1267,8 @@ public class DomainAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createApplicationStyleAdapter() {
-		return null;
-	}
+    return null;
+  }
 
 	/**
 	 * Creates a new adapter for an object of class '
@@ -1295,8 +1282,8 @@ public class DomainAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createStylesPackageAdapter() {
-		return null;
-	}
+    return null;
+  }
 
 	/**
 	 * Creates a new adapter for an object of class '
@@ -1310,23 +1297,21 @@ public class DomainAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createApplicationUILayerAdapter() {
-		return null;
-	}
+    return null;
+  }
 
 	/**
-	 * Creates a new adapter for an object of class '
-	 * {@link domain.ApplicationUIPackage <em>Application UI Package</em>}'.
-	 * <!-- begin-user-doc --> This default implementation returns null so that
+   * Creates a new adapter for an object of class '{@link domain.ApplicationUIPackage <em>Application UI Package</em>}'.
+   * <!-- begin-user-doc --> This default implementation returns null so that
 	 * we can easily ignore cases; it's useful to ignore a case when inheritance
 	 * will catch all the cases anyway. <!-- end-user-doc -->
-	 * 
-	 * @return the new adapter.
-	 * @see domain.ApplicationUIPackage
-	 * @generated
-	 */
+   * @return the new adapter.
+   * @see domain.ApplicationUIPackage
+   * @generated
+   */
 	public Adapter createApplicationUIPackageAdapter() {
-		return null;
-	}
+    return null;
+  }
 
 	/**
 	 * Creates a new adapter for an object of class '
@@ -1340,8 +1325,8 @@ public class DomainAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createApplicationRecipesAdapter() {
-		return null;
-	}
+    return null;
+  }
 
 	/**
 	 * Creates a new adapter for an object of class '
@@ -1355,8 +1340,8 @@ public class DomainAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createApplicationRecipeAdapter() {
-		return null;
-	}
+    return null;
+  }
 
 	/**
 	 * Creates a new adapter for an object of class '
@@ -1370,8 +1355,8 @@ public class DomainAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createApplicationMappersAdapter() {
-		return null;
-	}
+    return null;
+  }
 
 	/**
 	 * Creates a new adapter for an object of class '
@@ -1385,8 +1370,8 @@ public class DomainAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createApplicationMapperAdapter() {
-		return null;
-	}
+    return null;
+  }
 
 	/**
 	 * Creates a new adapter for an object of class '
@@ -1400,8 +1385,8 @@ public class DomainAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createMethodPointerAdapter() {
-		return null;
-	}
+    return null;
+  }
 
 	/**
 	 * Creates a new adapter for an object of class '{@link domain.Messages
@@ -1415,8 +1400,8 @@ public class DomainAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createMessagesAdapter() {
-		return null;
-	}
+    return null;
+  }
 
 	/**
 	 * Creates a new adapter for an object of class '
@@ -1430,23 +1415,22 @@ public class DomainAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createMessageLibraryAdapter() {
-		return null;
-	}
+    return null;
+  }
 
 	/**
-	 * Creates a new adapter for an object of class '{@link domain.LanguageRef
-	 * <em>Language Ref</em>}'. <!-- begin-user-doc --> This default
+   * Creates a new adapter for an object of class '{@link domain.LanguageRef <em>Language Ref</em>}'.
+   * <!-- begin-user-doc --> This default
 	 * implementation returns null so that we can easily ignore cases; it's
 	 * useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
-	 * 
-	 * @return the new adapter.
-	 * @see domain.LanguageRef
-	 * @generated
-	 */
+   * @return the new adapter.
+   * @see domain.LanguageRef
+   * @generated
+   */
 	public Adapter createLanguageRefAdapter() {
-		return null;
-	}
+    return null;
+  }
 
 	/**
 	 * Creates a new adapter for an object of class '{@link domain.Message
@@ -1460,23 +1444,22 @@ public class DomainAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createMessageAdapter() {
-		return null;
-	}
+    return null;
+  }
 
 	/**
-	 * Creates a new adapter for an object of class '{@link domain.Translation
-	 * <em>Translation</em>}'. <!-- begin-user-doc --> This default
+   * Creates a new adapter for an object of class '{@link domain.Translation <em>Translation</em>}'.
+   * <!-- begin-user-doc --> This default
 	 * implementation returns null so that we can easily ignore cases; it's
 	 * useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
-	 * 
-	 * @return the new adapter.
-	 * @see domain.Translation
-	 * @generated
-	 */
+   * @return the new adapter.
+   * @see domain.Translation
+   * @generated
+   */
 	public Adapter createTranslationAdapter() {
-		return null;
-	}
+    return null;
+  }
 
 	/**
 	 * Creates a new adapter for an object of class '{@link domain.Language
@@ -1490,8 +1473,8 @@ public class DomainAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createLanguageAdapter() {
-		return null;
-	}
+    return null;
+  }
 
 	/**
 	 * Creates a new adapter for an object of class '{@link domain.Roles
@@ -1505,8 +1488,8 @@ public class DomainAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createRolesAdapter() {
-		return null;
-	}
+    return null;
+  }
 
 	/**
 	 * Creates a new adapter for an object of class '{@link domain.Role
@@ -1520,8 +1503,8 @@ public class DomainAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createRoleAdapter() {
-		return null;
-	}
+    return null;
+  }
 
 	/**
 	 * Creates a new adapter for an object of class '{@link domain.Group
@@ -1535,8 +1518,8 @@ public class DomainAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createGroupAdapter() {
-		return null;
-	}
+    return null;
+  }
 
 	/**
 	 * Creates a new adapter for an object of class '{@link domain.Styles
@@ -1550,23 +1533,22 @@ public class DomainAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createStylesAdapter() {
-		return null;
-	}
+    return null;
+  }
 
 	/**
-	 * Creates a new adapter for an object of class '{@link domain.StyleLibrary
-	 * <em>Style Library</em>}'. <!-- begin-user-doc --> This default
+   * Creates a new adapter for an object of class '{@link domain.StyleLibrary <em>Style Library</em>}'.
+   * <!-- begin-user-doc --> This default
 	 * implementation returns null so that we can easily ignore cases; it's
 	 * useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
-	 * 
-	 * @return the new adapter.
-	 * @see domain.StyleLibrary
-	 * @generated
-	 */
+   * @return the new adapter.
+   * @see domain.StyleLibrary
+   * @generated
+   */
 	public Adapter createStyleLibraryAdapter() {
-		return null;
-	}
+    return null;
+  }
 
 	/**
 	 * Creates a new adapter for an object of class '{@link domain.StyleSet
@@ -1580,8 +1562,8 @@ public class DomainAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createStyleSetAdapter() {
-		return null;
-	}
+    return null;
+  }
 
 	/**
 	 * Creates a new adapter for an object of class '{@link domain.Mappers
@@ -1595,8 +1577,8 @@ public class DomainAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createMappersAdapter() {
-		return null;
-	}
+    return null;
+  }
 
 	/**
 	 * Creates a new adapter for an object of class '{@link domain.Mapper
@@ -1610,38 +1592,36 @@ public class DomainAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createMapperAdapter() {
-		return null;
-	}
+    return null;
+  }
 
 	/**
-	 * Creates a new adapter for an object of class '{@link domain.TypeMapper
-	 * <em>Type Mapper</em>}'. <!-- begin-user-doc --> This default
+   * Creates a new adapter for an object of class '{@link domain.TypeMapper <em>Type Mapper</em>}'.
+   * <!-- begin-user-doc --> This default
 	 * implementation returns null so that we can easily ignore cases; it's
 	 * useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
-	 * 
-	 * @return the new adapter.
-	 * @see domain.TypeMapper
-	 * @generated
-	 */
+   * @return the new adapter.
+   * @see domain.TypeMapper
+   * @generated
+   */
 	public Adapter createTypeMapperAdapter() {
-		return null;
-	}
+    return null;
+  }
 
 	/**
-	 * Creates a new adapter for an object of class '{@link domain.JavaMapper
-	 * <em>Java Mapper</em>}'. <!-- begin-user-doc --> This default
+   * Creates a new adapter for an object of class '{@link domain.JavaMapper <em>Java Mapper</em>}'.
+   * <!-- begin-user-doc --> This default
 	 * implementation returns null so that we can easily ignore cases; it's
 	 * useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
-	 * 
-	 * @return the new adapter.
-	 * @see domain.JavaMapper
-	 * @generated
-	 */
+   * @return the new adapter.
+   * @see domain.JavaMapper
+   * @generated
+   */
 	public Adapter createJavaMapperAdapter() {
-		return null;
-	}
+    return null;
+  }
 
 	/**
 	 * Creates a new adapter for an object of class '
@@ -1655,38 +1635,36 @@ public class DomainAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createJavaScriptMapperAdapter() {
-		return null;
-	}
+    return null;
+  }
 
 	/**
-	 * Creates a new adapter for an object of class '{@link domain.CSSMapper
-	 * <em>CSS Mapper</em>}'. <!-- begin-user-doc --> This default
+   * Creates a new adapter for an object of class '{@link domain.CSSMapper <em>CSS Mapper</em>}'.
+   * <!-- begin-user-doc --> This default
 	 * implementation returns null so that we can easily ignore cases; it's
 	 * useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
-	 * 
-	 * @return the new adapter.
-	 * @see domain.CSSMapper
-	 * @generated
-	 */
+   * @return the new adapter.
+   * @see domain.CSSMapper
+   * @generated
+   */
 	public Adapter createCSSMapperAdapter() {
-		return null;
-	}
+    return null;
+  }
 
 	/**
-	 * Creates a new adapter for an object of class '{@link domain.RoleMapper
-	 * <em>Role Mapper</em>}'. <!-- begin-user-doc --> This default
+   * Creates a new adapter for an object of class '{@link domain.RoleMapper <em>Role Mapper</em>}'.
+   * <!-- begin-user-doc --> This default
 	 * implementation returns null so that we can easily ignore cases; it's
 	 * useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
-	 * 
-	 * @return the new adapter.
-	 * @see domain.RoleMapper
-	 * @generated
-	 */
+   * @return the new adapter.
+   * @see domain.RoleMapper
+   * @generated
+   */
 	public Adapter createRoleMapperAdapter() {
-		return null;
-	}
+    return null;
+  }
 
 	/**
 	 * Creates a new adapter for an object of class '{@link domain.Recipes
@@ -1700,8 +1678,8 @@ public class DomainAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createRecipesAdapter() {
-		return null;
-	}
+    return null;
+  }
 
 	/**
 	 * Creates a new adapter for an object of class '
@@ -1715,8 +1693,8 @@ public class DomainAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createDeploymentSequenceAdapter() {
-		return null;
-	}
+    return null;
+  }
 
 	/**
 	 * Creates a new adapter for an object of class '
@@ -1730,8 +1708,8 @@ public class DomainAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createDeploymentComponentsAdapter() {
-		return null;
-	}
+    return null;
+  }
 
 	/**
 	 * Creates a new adapter for an object of class '
@@ -1745,8 +1723,8 @@ public class DomainAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createDeploymentComponentAdapter() {
-		return null;
-	}
+    return null;
+  }
 
 	/**
 	 * Creates a new adapter for an object of class '
@@ -1760,23 +1738,22 @@ public class DomainAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createDeploymentStarStepAdapter() {
-		return null;
-	}
+    return null;
+  }
 
 	/**
-	 * Creates a new adapter for an object of class '{@link domain.UsingMappers
-	 * <em>Using Mappers</em>}'. <!-- begin-user-doc --> This default
+   * Creates a new adapter for an object of class '{@link domain.UsingMappers <em>Using Mappers</em>}'.
+   * <!-- begin-user-doc --> This default
 	 * implementation returns null so that we can easily ignore cases; it's
 	 * useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
-	 * 
-	 * @return the new adapter.
-	 * @see domain.UsingMappers
-	 * @generated
-	 */
+   * @return the new adapter.
+   * @see domain.UsingMappers
+   * @generated
+   */
 	public Adapter createUsingMappersAdapter() {
-		return null;
-	}
+    return null;
+  }
 
 	/**
 	 * Creates a new adapter for an object of class '{@link domain.Recipe
@@ -1790,23 +1767,22 @@ public class DomainAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createRecipeAdapter() {
-		return null;
-	}
+    return null;
+  }
 
 	/**
-	 * Creates a new adapter for an object of class '{@link domain.Ingredient
-	 * <em>Ingredient</em>}'. <!-- begin-user-doc --> This default
+   * Creates a new adapter for an object of class '{@link domain.Ingredient <em>Ingredient</em>}'.
+   * <!-- begin-user-doc --> This default
 	 * implementation returns null so that we can easily ignore cases; it's
 	 * useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
-	 * 
-	 * @return the new adapter.
-	 * @see domain.Ingredient
-	 * @generated
-	 */
+   * @return the new adapter.
+   * @see domain.Ingredient
+   * @generated
+   */
 	public Adapter createIngredientAdapter() {
-		return null;
-	}
+    return null;
+  }
 
 	/**
 	 * Creates a new adapter for an object of class '{@link domain.Component
@@ -1820,8 +1796,8 @@ public class DomainAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createComponentAdapter() {
-		return null;
-	}
+    return null;
+  }
 
 	/**
 	 * Creates a new adapter for an object of class '
@@ -1835,8 +1811,8 @@ public class DomainAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createJavaComponentAdapter() {
-		return null;
-	}
+    return null;
+  }
 
 	/**
 	 * Creates a new adapter for an object of class '
@@ -1850,38 +1826,36 @@ public class DomainAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createInfrastructureAdapter() {
-		return null;
-	}
+    return null;
+  }
 
 	/**
-	 * Creates a new adapter for an object of class '
-	 * {@link domain.Configuration <em>Configuration</em>}'. <!-- begin-user-doc
+   * Creates a new adapter for an object of class '{@link domain.Configuration <em>Configuration</em>}'.
+   * <!-- begin-user-doc
 	 * --> This default implementation returns null so that we can easily ignore
 	 * cases; it's useful to ignore a case when inheritance will catch all the
 	 * cases anyway. <!-- end-user-doc -->
-	 * 
-	 * @return the new adapter.
-	 * @see domain.Configuration
-	 * @generated
-	 */
+   * @return the new adapter.
+   * @see domain.Configuration
+   * @generated
+   */
 	public Adapter createConfigurationAdapter() {
-		return null;
-	}
+    return null;
+  }
 
 	/**
-	 * Creates a new adapter for an object of class '{@link domain.ModelMapper
-	 * <em>Model Mapper</em>}'. <!-- begin-user-doc --> This default
+   * Creates a new adapter for an object of class '{@link domain.ModelMapper <em>Model Mapper</em>}'.
+   * <!-- begin-user-doc --> This default
 	 * implementation returns null so that we can easily ignore cases; it's
 	 * useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
-	 * 
-	 * @return the new adapter.
-	 * @see domain.ModelMapper
-	 * @generated
-	 */
+   * @return the new adapter.
+   * @see domain.ModelMapper
+   * @generated
+   */
 	public Adapter createModelMapperAdapter() {
-		return null;
-	}
+    return null;
+  }
 
 	/**
 	 * Creates a new adapter for an object of class '{@link domain.Property
@@ -1895,8 +1869,8 @@ public class DomainAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createPropertyAdapter() {
-		return null;
-	}
+    return null;
+  }
 
 	/**
 	 * Creates a new adapter for an object of class '
@@ -1910,8 +1884,8 @@ public class DomainAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createMappingSpecifierAdapter() {
-		return null;
-	}
+    return null;
+  }
 
 	/**
 	 * Creates a new adapter for an object of class '{@link domain.Query
@@ -1925,8 +1899,8 @@ public class DomainAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createQueryAdapter() {
-		return null;
-	}
+    return null;
+  }
 
 	/**
 	 * Creates a new adapter for an object of class '
@@ -1940,38 +1914,36 @@ public class DomainAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createQueryVariableAdapter() {
-		return null;
-	}
+    return null;
+  }
 
 	/**
-	 * Creates a new adapter for an object of class '{@link domain.ArtifactRef
-	 * <em>Artifact Ref</em>}'. <!-- begin-user-doc --> This default
+   * Creates a new adapter for an object of class '{@link domain.ArtifactRef <em>Artifact Ref</em>}'.
+   * <!-- begin-user-doc --> This default
 	 * implementation returns null so that we can easily ignore cases; it's
 	 * useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
-	 * 
-	 * @return the new adapter.
-	 * @see domain.ArtifactRef
-	 * @generated
-	 */
+   * @return the new adapter.
+   * @see domain.ArtifactRef
+   * @generated
+   */
 	public Adapter createArtifactRefAdapter() {
-		return null;
-	}
+    return null;
+  }
 
 	/**
-	 * Creates a new adapter for an object of class '{@link domain.TypePointer
-	 * <em>Type Pointer</em>}'. <!-- begin-user-doc --> This default
+   * Creates a new adapter for an object of class '{@link domain.TypePointer <em>Type Pointer</em>}'.
+   * <!-- begin-user-doc --> This default
 	 * implementation returns null so that we can easily ignore cases; it's
 	 * useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
-	 * 
-	 * @return the new adapter.
-	 * @see domain.TypePointer
-	 * @generated
-	 */
+   * @return the new adapter.
+   * @see domain.TypePointer
+   * @generated
+   */
 	public Adapter createTypePointerAdapter() {
-		return null;
-	}
+    return null;
+  }
 
 	/**
 	 * Creates a new adapter for an object of class '
@@ -1985,23 +1957,22 @@ public class DomainAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createTypeDefinitionAdapter() {
-		return null;
-	}
+    return null;
+  }
 
 	/**
-	 * Creates a new adapter for an object of class '{@link domain.TypeElement
-	 * <em>Type Element</em>}'. <!-- begin-user-doc --> This default
+   * Creates a new adapter for an object of class '{@link domain.TypeElement <em>Type Element</em>}'.
+   * <!-- begin-user-doc --> This default
 	 * implementation returns null so that we can easily ignore cases; it's
 	 * useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
-	 * 
-	 * @return the new adapter.
-	 * @see domain.TypeElement
-	 * @generated
-	 */
+   * @return the new adapter.
+   * @see domain.TypeElement
+   * @generated
+   */
 	public Adapter createTypeElementAdapter() {
-		return null;
-	}
+    return null;
+  }
 
 	/**
 	 * Creates a new adapter for an object of class '{@link domain.Primitive
@@ -2015,8 +1986,8 @@ public class DomainAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createPrimitiveAdapter() {
-		return null;
-	}
+    return null;
+  }
 
 	/**
 	 * Creates a new adapter for an object of class '{@link domain.Type
@@ -2030,8 +2001,8 @@ public class DomainAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createTypeAdapter() {
-		return null;
-	}
+    return null;
+  }
 
 	/**
 	 * Creates a new adapter for an object of class '
@@ -2045,8 +2016,8 @@ public class DomainAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createTypeReferenceAdapter() {
-		return null;
-	}
+    return null;
+  }
 
 	/**
 	 * Creates a new adapter for an object of class '
@@ -2060,8 +2031,8 @@ public class DomainAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createTypeExtensionAdapter() {
-		return null;
-	}
+    return null;
+  }
 
 	/**
 	 * Creates a new adapter for an object of class '{@link domain.Attribute
@@ -2075,8 +2046,8 @@ public class DomainAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createAttributeAdapter() {
-		return null;
-	}
+    return null;
+  }
 
 	/**
 	 * Creates a new adapter for an object of class '{@link domain.Operation
@@ -2090,8 +2061,8 @@ public class DomainAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createOperationAdapter() {
-		return null;
-	}
+    return null;
+  }
 
 	/**
 	 * Creates a new adapter for an object of class '{@link domain.Parameter
@@ -2105,38 +2076,36 @@ public class DomainAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createParameterAdapter() {
-		return null;
-	}
+    return null;
+  }
 
 	/**
-	 * Creates a new adapter for an object of class '{@link domain.ReturnValue
-	 * <em>Return Value</em>}'. <!-- begin-user-doc --> This default
+   * Creates a new adapter for an object of class '{@link domain.ReturnValue <em>Return Value</em>}'.
+   * <!-- begin-user-doc --> This default
 	 * implementation returns null so that we can easily ignore cases; it's
 	 * useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
-	 * 
-	 * @return the new adapter.
-	 * @see domain.ReturnValue
-	 * @generated
-	 */
+   * @return the new adapter.
+   * @see domain.ReturnValue
+   * @generated
+   */
 	public Adapter createReturnValueAdapter() {
-		return null;
-	}
+    return null;
+  }
 
 	/**
-	 * Creates a new adapter for an object of class '{@link domain.Enumarator
-	 * <em>Enumarator</em>}'. <!-- begin-user-doc --> This default
+   * Creates a new adapter for an object of class '{@link domain.Enumarator <em>Enumarator</em>}'.
+   * <!-- begin-user-doc --> This default
 	 * implementation returns null so that we can easily ignore cases; it's
 	 * useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
-	 * 
-	 * @return the new adapter.
-	 * @see domain.Enumarator
-	 * @generated
-	 */
+   * @return the new adapter.
+   * @see domain.Enumarator
+   * @generated
+   */
 	public Adapter createEnumaratorAdapter() {
-		return null;
-	}
+    return null;
+  }
 
 	/**
 	 * Creates a new adapter for an object of class '
@@ -2150,8 +2119,8 @@ public class DomainAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createEnumAttributeAdapter() {
-		return null;
-	}
+    return null;
+  }
 
 	/**
 	 * Creates a new adapter for an object of class '
@@ -2165,8 +2134,8 @@ public class DomainAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createTypesRepositoryAdapter() {
-		return null;
-	}
+    return null;
+  }
 
 	/**
 	 * Creates a new adapter for an object of class '{@link domain.Types
@@ -2180,8 +2149,8 @@ public class DomainAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createTypesAdapter() {
-		return null;
-	}
+    return null;
+  }
 
 	/**
 	 * Creates a new adapter for an object of class '{@link domain.Package
@@ -2195,23 +2164,22 @@ public class DomainAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createPackageAdapter() {
-		return null;
-	}
+    return null;
+  }
 
 	/**
-	 * Creates a new adapter for an object of class '{@link domain.UIPackage
-	 * <em>UI Package</em>}'. <!-- begin-user-doc --> This default
+   * Creates a new adapter for an object of class '{@link domain.UIPackage <em>UI Package</em>}'.
+   * <!-- begin-user-doc --> This default
 	 * implementation returns null so that we can easily ignore cases; it's
 	 * useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
-	 * 
-	 * @return the new adapter.
-	 * @see domain.UIPackage
-	 * @generated
-	 */
+   * @return the new adapter.
+   * @see domain.UIPackage
+   * @generated
+   */
 	public Adapter createUIPackageAdapter() {
-		return null;
-	}
+    return null;
+  }
 
 	/**
 	 * Creates a new adapter for an object of class '{@link domain.Form
@@ -2225,8 +2193,8 @@ public class DomainAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createFormAdapter() {
-		return null;
-	}
+    return null;
+  }
 
 	/**
 	 * Creates a new adapter for an object of class '
@@ -2240,8 +2208,8 @@ public class DomainAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createFormParameterAdapter() {
-		return null;
-	}
+    return null;
+  }
 
 	/**
 	 * Creates a new adapter for an object of class '{@link domain.FormView
@@ -2255,8 +2223,8 @@ public class DomainAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createFormViewAdapter() {
-		return null;
-	}
+    return null;
+  }
 
 	/**
 	 * Creates a new adapter for an object of class '{@link domain.Views
@@ -2270,8 +2238,8 @@ public class DomainAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createViewsAdapter() {
-		return null;
-	}
+    return null;
+  }
 
 	/**
 	 * Creates a new adapter for an object of class '
@@ -2285,23 +2253,22 @@ public class DomainAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createMultiLangLabelAdapter() {
-		return null;
-	}
+    return null;
+  }
 
 	/**
-	 * Creates a new adapter for an object of class '{@link domain.CanvasFrame
-	 * <em>Canvas Frame</em>}'. <!-- begin-user-doc --> This default
+   * Creates a new adapter for an object of class '{@link domain.CanvasFrame <em>Canvas Frame</em>}'.
+   * <!-- begin-user-doc --> This default
 	 * implementation returns null so that we can easily ignore cases; it's
 	 * useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
-	 * 
-	 * @return the new adapter.
-	 * @see domain.CanvasFrame
-	 * @generated
-	 */
+   * @return the new adapter.
+   * @see domain.CanvasFrame
+   * @generated
+   */
 	public Adapter createCanvasFrameAdapter() {
-		return null;
-	}
+    return null;
+  }
 
 	/**
 	 * Creates a new adapter for an object of class '
@@ -2315,38 +2282,36 @@ public class DomainAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createViewPortHolderAdapter() {
-		return null;
-	}
+    return null;
+  }
 
 	/**
-	 * Creates a new adapter for an object of class '{@link domain.DefaultCavas
-	 * <em>Default Cavas</em>}'. <!-- begin-user-doc --> This default
+   * Creates a new adapter for an object of class '{@link domain.DefaultCavas <em>Default Cavas</em>}'.
+   * <!-- begin-user-doc --> This default
 	 * implementation returns null so that we can easily ignore cases; it's
 	 * useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
-	 * 
-	 * @return the new adapter.
-	 * @see domain.DefaultCavas
-	 * @generated
-	 */
+   * @return the new adapter.
+   * @see domain.DefaultCavas
+   * @generated
+   */
 	public Adapter createDefaultCavasAdapter() {
-		return null;
-	}
+    return null;
+  }
 
 	/**
-	 * Creates a new adapter for an object of class '{@link domain.ViewElement
-	 * <em>View Element</em>}'. <!-- begin-user-doc --> This default
+   * Creates a new adapter for an object of class '{@link domain.ViewElement <em>View Element</em>}'.
+   * <!-- begin-user-doc --> This default
 	 * implementation returns null so that we can easily ignore cases; it's
 	 * useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
-	 * 
-	 * @return the new adapter.
-	 * @see domain.ViewElement
-	 * @generated
-	 */
+   * @return the new adapter.
+   * @see domain.ViewElement
+   * @generated
+   */
 	public Adapter createViewElementAdapter() {
-		return null;
-	}
+    return null;
+  }
 
 	/**
 	 * Creates a new adapter for an object of class '{@link domain.Canvas
@@ -2360,8 +2325,8 @@ public class DomainAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createCanvasAdapter() {
-		return null;
-	}
+    return null;
+  }
 
 	/**
 	 * Creates a new adapter for an object of class '{@link domain.Window
@@ -2375,23 +2340,22 @@ public class DomainAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createWindowAdapter() {
-		return null;
-	}
+    return null;
+  }
 
 	/**
-	 * Creates a new adapter for an object of class '{@link domain.TabCanvas
-	 * <em>Tab Canvas</em>}'. <!-- begin-user-doc --> This default
+   * Creates a new adapter for an object of class '{@link domain.TabCanvas <em>Tab Canvas</em>}'.
+   * <!-- begin-user-doc --> This default
 	 * implementation returns null so that we can easily ignore cases; it's
 	 * useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
-	 * 
-	 * @return the new adapter.
-	 * @see domain.TabCanvas
-	 * @generated
-	 */
+   * @return the new adapter.
+   * @see domain.TabCanvas
+   * @generated
+   */
 	public Adapter createTabCanvasAdapter() {
-		return null;
-	}
+    return null;
+  }
 
 	/**
 	 * Creates a new adapter for an object of class '{@link domain.TabPage
@@ -2405,8 +2369,8 @@ public class DomainAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createTabPageAdapter() {
-		return null;
-	}
+    return null;
+  }
 
 	/**
 	 * Creates a new adapter for an object of class '{@link domain.ViewPort
@@ -2420,8 +2384,8 @@ public class DomainAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createViewPortAdapter() {
-		return null;
-	}
+    return null;
+  }
 
 	/**
 	 * Creates a new adapter for an object of class '{@link domain.ViewArea
@@ -2435,8 +2399,8 @@ public class DomainAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createViewAreaAdapter() {
-		return null;
-	}
+    return null;
+  }
 
 	/**
 	 * Creates a new adapter for an object of class '
@@ -2450,8 +2414,8 @@ public class DomainAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createViewPortTriggerAdapter() {
-		return null;
-	}
+    return null;
+  }
 
 	/**
 	 * Creates a new adapter for an object of class '
@@ -2465,8 +2429,8 @@ public class DomainAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createViewInheritanceAdapter() {
-		return null;
-	}
+    return null;
+  }
 
 	/**
 	 * Creates a new adapter for an object of class '
@@ -2480,8 +2444,8 @@ public class DomainAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createTabPagesInheritanceAdapter() {
-		return null;
-	}
+    return null;
+  }
 
 	/**
 	 * Creates a new adapter for an object of class '
@@ -2495,23 +2459,22 @@ public class DomainAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createFormDataControlsAdapter() {
-		return null;
-	}
+    return null;
+  }
 
 	/**
-	 * Creates a new adapter for an object of class '{@link domain.CanvasView
-	 * <em>Canvas View</em>}'. <!-- begin-user-doc --> This default
+   * Creates a new adapter for an object of class '{@link domain.CanvasView <em>Canvas View</em>}'.
+   * <!-- begin-user-doc --> This default
 	 * implementation returns null so that we can easily ignore cases; it's
 	 * useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
-	 * 
-	 * @return the new adapter.
-	 * @see domain.CanvasView
-	 * @generated
-	 */
+   * @return the new adapter.
+   * @see domain.CanvasView
+   * @generated
+   */
 	public Adapter createCanvasViewAdapter() {
-		return null;
-	}
+    return null;
+  }
 
 	/**
 	 * Creates a new adapter for an object of class '
@@ -2525,8 +2488,8 @@ public class DomainAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createChildrenHolderAdapter() {
-		return null;
-	}
+    return null;
+  }
 
 	/**
 	 * Creates a new adapter for an object of class '
@@ -2540,23 +2503,22 @@ public class DomainAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createContextParameterAdapter() {
-		return null;
-	}
+    return null;
+  }
 
 	/**
-	 * Creates a new adapter for an object of class '{@link domain.ContextValue
-	 * <em>Context Value</em>}'. <!-- begin-user-doc --> This default
+   * Creates a new adapter for an object of class '{@link domain.ContextValue <em>Context Value</em>}'.
+   * <!-- begin-user-doc --> This default
 	 * implementation returns null so that we can easily ignore cases; it's
 	 * useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
-	 * 
-	 * @return the new adapter.
-	 * @see domain.ContextValue
-	 * @generated
-	 */
+   * @return the new adapter.
+   * @see domain.ContextValue
+   * @generated
+   */
 	public Adapter createContextValueAdapter() {
-		return null;
-	}
+    return null;
+  }
 
 	/**
 	 * Creates a new adapter for an object of class '
@@ -2570,8 +2532,8 @@ public class DomainAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createExpressionPartAdapter() {
-		return null;
-	}
+    return null;
+  }
 
 	/**
 	 * Creates a new adapter for an object of class '
@@ -2585,8 +2547,8 @@ public class DomainAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createContextParametersAdapter() {
-		return null;
-	}
+    return null;
+  }
 
 	/**
 	 * Creates a new adapter for an object of class '{@link domain.Context
@@ -2600,23 +2562,22 @@ public class DomainAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createContextAdapter() {
-		return null;
-	}
+    return null;
+  }
 
 	/**
-	 * Creates a new adapter for an object of class '{@link domain.StyleElement
-	 * <em>Style Element</em>}'. <!-- begin-user-doc --> This default
+   * Creates a new adapter for an object of class '{@link domain.StyleElement <em>Style Element</em>}'.
+   * <!-- begin-user-doc --> This default
 	 * implementation returns null so that we can easily ignore cases; it's
 	 * useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
-	 * 
-	 * @return the new adapter.
-	 * @see domain.StyleElement
-	 * @generated
-	 */
+   * @return the new adapter.
+   * @see domain.StyleElement
+   * @generated
+   */
 	public Adapter createStyleElementAdapter() {
-		return null;
-	}
+    return null;
+  }
 
 	/**
 	 * Creates a new adapter for an object of class '{@link domain.Uielement
@@ -2630,8 +2591,8 @@ public class DomainAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createUielementAdapter() {
-		return null;
-	}
+    return null;
+  }
 
 	/**
 	 * Creates a new adapter for an object of class '
@@ -2645,8 +2606,8 @@ public class DomainAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createSourcesPointerAdapter() {
-		return null;
-	}
+    return null;
+  }
 
 	/**
 	 * Creates a new adapter for an object of class '
@@ -2660,23 +2621,22 @@ public class DomainAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createActionElementAdapter() {
-		return null;
-	}
+    return null;
+  }
 
 	/**
-	 * Creates a new adapter for an object of class '{@link domain.InputElement
-	 * <em>Input Element</em>}'. <!-- begin-user-doc --> This default
+   * Creates a new adapter for an object of class '{@link domain.InputElement <em>Input Element</em>}'.
+   * <!-- begin-user-doc --> This default
 	 * implementation returns null so that we can easily ignore cases; it's
 	 * useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
-	 * 
-	 * @return the new adapter.
-	 * @see domain.InputElement
-	 * @generated
-	 */
+   * @return the new adapter.
+   * @see domain.InputElement
+   * @generated
+   */
 	public Adapter createInputElementAdapter() {
-		return null;
-	}
+    return null;
+  }
 
 	/**
 	 * Creates a new adapter for an object of class '{@link domain.Selection
@@ -2690,8 +2650,8 @@ public class DomainAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createSelectionAdapter() {
-		return null;
-	}
+    return null;
+  }
 
 	/**
 	 * Creates a new adapter for an object of class '
@@ -2705,38 +2665,36 @@ public class DomainAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createOptionSelectionAdapter() {
-		return null;
-	}
+    return null;
+  }
 
 	/**
-	 * Creates a new adapter for an object of class '{@link domain.LayerHolder
-	 * <em>Layer Holder</em>}'. <!-- begin-user-doc --> This default
+   * Creates a new adapter for an object of class '{@link domain.LayerHolder <em>Layer Holder</em>}'.
+   * <!-- begin-user-doc --> This default
 	 * implementation returns null so that we can easily ignore cases; it's
 	 * useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
-	 * 
-	 * @return the new adapter.
-	 * @see domain.LayerHolder
-	 * @generated
-	 */
+   * @return the new adapter.
+   * @see domain.LayerHolder
+   * @generated
+   */
 	public Adapter createLayerHolderAdapter() {
-		return null;
-	}
+    return null;
+  }
 
 	/**
-	 * Creates a new adapter for an object of class '{@link domain.InputText
-	 * <em>Input Text</em>}'. <!-- begin-user-doc --> This default
+   * Creates a new adapter for an object of class '{@link domain.InputText <em>Input Text</em>}'.
+   * <!-- begin-user-doc --> This default
 	 * implementation returns null so that we can easily ignore cases; it's
 	 * useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
-	 * 
-	 * @return the new adapter.
-	 * @see domain.InputText
-	 * @generated
-	 */
+   * @return the new adapter.
+   * @see domain.InputText
+   * @generated
+   */
 	public Adapter createInputTextAdapter() {
-		return null;
-	}
+    return null;
+  }
 
 	/**
 	 * Creates a new adapter for an object of class '{@link domain.Label
@@ -2750,23 +2708,22 @@ public class DomainAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createLabelAdapter() {
-		return null;
-	}
+    return null;
+  }
 
 	/**
-	 * Creates a new adapter for an object of class '{@link domain.OutputText
-	 * <em>Output Text</em>}'. <!-- begin-user-doc --> This default
+   * Creates a new adapter for an object of class '{@link domain.OutputText <em>Output Text</em>}'.
+   * <!-- begin-user-doc --> This default
 	 * implementation returns null so that we can easily ignore cases; it's
 	 * useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
-	 * 
-	 * @return the new adapter.
-	 * @see domain.OutputText
-	 * @generated
-	 */
+   * @return the new adapter.
+   * @see domain.OutputText
+   * @generated
+   */
 	public Adapter createOutputTextAdapter() {
-		return null;
-	}
+    return null;
+  }
 
 	/**
 	 * Creates a new adapter for an object of class '{@link domain.CheckBox
@@ -2780,8 +2737,8 @@ public class DomainAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createCheckBoxAdapter() {
-		return null;
-	}
+    return null;
+  }
 
 	/**
 	 * Creates a new adapter for an object of class '
@@ -2795,8 +2752,8 @@ public class DomainAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createDropDownSelectionAdapter() {
-		return null;
-	}
+    return null;
+  }
 
 	/**
 	 * Creates a new adapter for an object of class '{@link domain.Column
@@ -2810,8 +2767,8 @@ public class DomainAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createColumnAdapter() {
-		return null;
-	}
+    return null;
+  }
 
 	/**
 	 * Creates a new adapter for an object of class '{@link domain.Table
@@ -2825,8 +2782,8 @@ public class DomainAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createTableAdapter() {
-		return null;
-	}
+    return null;
+  }
 
 	/**
 	 * Creates a new adapter for an object of class '{@link domain.Tree
@@ -2840,8 +2797,8 @@ public class DomainAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createTreeAdapter() {
-		return null;
-	}
+    return null;
+  }
 
 	/**
 	 * Creates a new adapter for an object of class '{@link domain.Button
@@ -2855,8 +2812,8 @@ public class DomainAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createButtonAdapter() {
-		return null;
-	}
+    return null;
+  }
 
 	/**
 	 * Creates a new adapter for an object of class '{@link domain.Controls
@@ -2870,8 +2827,8 @@ public class DomainAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createControlsAdapter() {
-		return null;
-	}
+    return null;
+  }
 
 	/**
 	 * Creates a new adapter for an object of class '{@link domain.Trigger
@@ -2885,8 +2842,8 @@ public class DomainAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createTriggerAdapter() {
-		return null;
-	}
+    return null;
+  }
 
 	/**
 	 * Creates a new adapter for an object of class '
@@ -2900,8 +2857,8 @@ public class DomainAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createPREFormTriggerAdapter() {
-		return null;
-	}
+    return null;
+  }
 
 	/**
 	 * Creates a new adapter for an object of class '
@@ -2915,8 +2872,8 @@ public class DomainAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createPREQueryTriggerAdapter() {
-		return null;
-	}
+    return null;
+  }
 
 	/**
 	 * Creates a new adapter for an object of class '
@@ -2930,8 +2887,8 @@ public class DomainAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createPOSTQueryTriggerAdapter() {
-		return null;
-	}
+    return null;
+  }
 
 	/**
 	 * Creates a new adapter for an object of class '
@@ -2945,8 +2902,8 @@ public class DomainAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createPREInsertTriggerAdapter() {
-		return null;
-	}
+    return null;
+  }
 
 	/**
 	 * Creates a new adapter for an object of class '
@@ -2960,8 +2917,8 @@ public class DomainAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createPREDeleteTriggerAdapter() {
-		return null;
-	}
+    return null;
+  }
 
 	/**
 	 * Creates a new adapter for an object of class '
@@ -2975,8 +2932,8 @@ public class DomainAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createPOSTCreateTriggerAdapter() {
-		return null;
-	}
+    return null;
+  }
 
 	/**
 	 * Creates a new adapter for an object of class '
@@ -2990,8 +2947,8 @@ public class DomainAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createPREUpdateTriggerAdapter() {
-		return null;
-	}
+    return null;
+  }
 
 	/**
 	 * Creates a new adapter for an object of class '
@@ -3005,8 +2962,8 @@ public class DomainAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createCreateTriggerAdapter() {
-		return null;
-	}
+    return null;
+  }
 
 	/**
 	 * Creates a new adapter for an object of class '
@@ -3020,8 +2977,8 @@ public class DomainAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createInsertTriggerAdapter() {
-		return null;
-	}
+    return null;
+  }
 
 	/**
 	 * Creates a new adapter for an object of class '
@@ -3035,8 +2992,8 @@ public class DomainAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createUpdateTriggerAdapter() {
-		return null;
-	}
+    return null;
+  }
 
 	/**
 	 * Creates a new adapter for an object of class '
@@ -3050,8 +3007,8 @@ public class DomainAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createDeleteTriggerAdapter() {
-		return null;
-	}
+    return null;
+  }
 
 	/**
 	 * Creates a new adapter for an object of class '
@@ -3065,8 +3022,8 @@ public class DomainAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createSearchTriggerAdapter() {
-		return null;
-	}
+    return null;
+  }
 
 	/**
 	 * Creates a new adapter for an object of class '{@link domain.Root
@@ -3080,38 +3037,36 @@ public class DomainAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createRootAdapter() {
-		return null;
-	}
+    return null;
+  }
 
 	/**
-	 * Creates a new adapter for an object of class '{@link domain.FormVariable
-	 * <em>Form Variable</em>}'. <!-- begin-user-doc --> This default
+   * Creates a new adapter for an object of class '{@link domain.FormVariable <em>Form Variable</em>}'.
+   * <!-- begin-user-doc --> This default
 	 * implementation returns null so that we can easily ignore cases; it's
 	 * useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
-	 * 
-	 * @return the new adapter.
-	 * @see domain.FormVariable
-	 * @generated
-	 */
+   * @return the new adapter.
+   * @see domain.FormVariable
+   * @generated
+   */
 	public Adapter createFormVariableAdapter() {
-		return null;
-	}
+    return null;
+  }
 
 	/**
-	 * Creates a new adapter for an object of class '{@link domain.DataControl
-	 * <em>Data Control</em>}'. <!-- begin-user-doc --> This default
+   * Creates a new adapter for an object of class '{@link domain.DataControl <em>Data Control</em>}'.
+   * <!-- begin-user-doc --> This default
 	 * implementation returns null so that we can easily ignore cases; it's
 	 * useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
-	 * 
-	 * @return the new adapter.
-	 * @see domain.DataControl
-	 * @generated
-	 */
+   * @return the new adapter.
+   * @see domain.DataControl
+   * @generated
+   */
 	public Adapter createDataControlAdapter() {
-		return null;
-	}
+    return null;
+  }
 
 	/**
 	 * Creates a new adapter for an object of class '{@link domain.Orders
@@ -3125,8 +3080,8 @@ public class DomainAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createOrdersAdapter() {
-		return null;
-	}
+    return null;
+  }
 
 	/**
 	 * Creates a new adapter for an object of class '{@link domain.OrderBy
@@ -3140,8 +3095,8 @@ public class DomainAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createOrderByAdapter() {
-		return null;
-	}
+    return null;
+  }
 
 	/**
 	 * Creates a new adapter for an object of class '{@link domain.Relation
@@ -3155,8 +3110,8 @@ public class DomainAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createRelationAdapter() {
-		return null;
-	}
+    return null;
+  }
 
 	/**
 	 * Creates a new adapter for an object of class '
@@ -3170,8 +3125,8 @@ public class DomainAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createArtificialFieldAdapter() {
-		return null;
-	}
+    return null;
+  }
 
 	/**
 	 * Creates a new adapter for an object of class '{@link domain.Link
@@ -3185,55 +3140,50 @@ public class DomainAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createLinkAdapter() {
-		return null;
-	}
+    return null;
+  }
 
 	/**
-	 * Creates a new adapter for an object of class '
-	 * {@link domain.ApplicationInfrastructureLayer
-	 * <em>Application Infrastructure Layer</em>}'. <!-- begin-user-doc --> This
+   * Creates a new adapter for an object of class '{@link domain.ApplicationInfrastructureLayer <em>Application Infrastructure Layer</em>}'.
+   * <!-- begin-user-doc --> This
 	 * default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases
 	 * anyway. <!-- end-user-doc -->
-	 * 
-	 * @return the new adapter.
-	 * @see domain.ApplicationInfrastructureLayer
-	 * @generated
-	 */
+   * @return the new adapter.
+   * @see domain.ApplicationInfrastructureLayer
+   * @generated
+   */
 	public Adapter createApplicationInfrastructureLayerAdapter() {
-		return null;
-	}
+    return null;
+  }
 
 	/**
-	 * Creates a new adapter for an object of class '
-	 * {@link domain.EnterpriseInfrastructure
-	 * <em>Enterprise Infrastructure</em>}'. <!-- begin-user-doc --> This
+   * Creates a new adapter for an object of class '{@link domain.EnterpriseInfrastructure <em>Enterprise Infrastructure</em>}'.
+   * <!-- begin-user-doc --> This
 	 * default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases
 	 * anyway. <!-- end-user-doc -->
-	 * 
-	 * @return the new adapter.
-	 * @see domain.EnterpriseInfrastructure
-	 * @generated
-	 */
+   * @return the new adapter.
+   * @see domain.EnterpriseInfrastructure
+   * @generated
+   */
 	public Adapter createEnterpriseInfrastructureAdapter() {
-		return null;
-	}
+    return null;
+  }
 
 	/**
-	 * Creates a new adapter for an object of class '{@link domain.Datacenter
-	 * <em>Datacenter</em>}'. <!-- begin-user-doc --> This default
+   * Creates a new adapter for an object of class '{@link domain.Datacenter <em>Datacenter</em>}'.
+   * <!-- begin-user-doc --> This default
 	 * implementation returns null so that we can easily ignore cases; it's
 	 * useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
-	 * 
-	 * @return the new adapter.
-	 * @see domain.Datacenter
-	 * @generated
-	 */
+   * @return the new adapter.
+   * @see domain.Datacenter
+   * @generated
+   */
 	public Adapter createDatacenterAdapter() {
-		return null;
-	}
+    return null;
+  }
 
 	/**
 	 * Creates a new adapter for an object of class '{@link domain.Subsystem
@@ -3247,8 +3197,8 @@ public class DomainAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createSubsystemAdapter() {
-		return null;
-	}
+    return null;
+  }
 
 	/**
 	 * Creates a new adapter for an object of class '
@@ -3262,39 +3212,35 @@ public class DomainAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createInfrastructureLayerAdapter() {
-		return null;
-	}
+    return null;
+  }
 
 	/**
-	 * Creates a new adapter for an object of class '
-	 * {@link domain.InfrastructureConnection
-	 * <em>Infrastructure Connection</em>}'. <!-- begin-user-doc --> This
+   * Creates a new adapter for an object of class '{@link domain.InfrastructureConnection <em>Infrastructure Connection</em>}'.
+   * <!-- begin-user-doc --> This
 	 * default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases
 	 * anyway. <!-- end-user-doc -->
-	 * 
-	 * @return the new adapter.
-	 * @see domain.InfrastructureConnection
-	 * @generated
-	 */
+   * @return the new adapter.
+   * @see domain.InfrastructureConnection
+   * @generated
+   */
 	public Adapter createInfrastructureConnectionAdapter() {
-		return null;
-	}
+    return null;
+  }
 
 	/**
-	 * Creates a new adapter for an object of class '
-	 * {@link domain.InfrastructureComponent <em>Infrastructure Component</em>}
-	 * '. <!-- begin-user-doc --> This default implementation returns null so
+   * Creates a new adapter for an object of class '{@link domain.InfrastructureComponent <em>Infrastructure Component</em>}'.
+   * <!-- begin-user-doc --> This default implementation returns null so
 	 * that we can easily ignore cases; it's useful to ignore a case when
 	 * inheritance will catch all the cases anyway. <!-- end-user-doc -->
-	 * 
-	 * @return the new adapter.
-	 * @see domain.InfrastructureComponent
-	 * @generated
-	 */
+   * @return the new adapter.
+   * @see domain.InfrastructureComponent
+   * @generated
+   */
 	public Adapter createInfrastructureComponentAdapter() {
-		return null;
-	}
+    return null;
+  }
 
 	/**
 	 * Creates a new adapter for an object of class '{@link domain.Server
@@ -3308,8 +3254,8 @@ public class DomainAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createServerAdapter() {
-		return null;
-	}
+    return null;
+  }
 
 	/**
 	 * Creates a new adapter for an object of class '{@link domain.Router
@@ -3323,8 +3269,8 @@ public class DomainAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createRouterAdapter() {
-		return null;
-	}
+    return null;
+  }
 
 	/**
 	 * Creates a new adapter for an object of class '{@link domain.Hub
@@ -3338,8 +3284,8 @@ public class DomainAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createHubAdapter() {
-		return null;
-	}
+    return null;
+  }
 
 	/**
 	 * Creates a new adapter for an object of class '{@link domain.Storage
@@ -3353,8 +3299,8 @@ public class DomainAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createStorageAdapter() {
-		return null;
-	}
+    return null;
+  }
 
 	/**
 	 * Creates a new adapter for an object of class '
@@ -3368,18 +3314,18 @@ public class DomainAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createServerClasterAdapter() {
-		return null;
-	}
+    return null;
+  }
 
 	/**
-	 * Creates a new adapter for the default case. <!-- begin-user-doc --> This
+   * Creates a new adapter for the default case.
+   * <!-- begin-user-doc --> This
 	 * default implementation returns null. <!-- end-user-doc -->
-	 * 
-	 * @return the new adapter.
-	 * @generated
-	 */
+   * @return the new adapter.
+   * @generated
+   */
 	public Adapter createEObjectAdapter() {
-		return null;
-	}
+    return null;
+  }
 
 } // DomainAdapterFactory

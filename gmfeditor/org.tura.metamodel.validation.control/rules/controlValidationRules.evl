@@ -35,6 +35,14 @@ context FormVariable{
    
    } 
 
+   constraint CheckParameterType{
+
+      guard : self.satisfies("UniqueName") and self.paramRef.isDefined() and self.paramRef.typeRef.isDefined() and self.typeRef.isDefined()
+      check : self.paramRef.typeRef.uid = self. typeRef.uid
+      message : 'FormVariable ' + self.name + ' has different type then '+self.paramRef.name
+   
+   } 
+
 }
 
 

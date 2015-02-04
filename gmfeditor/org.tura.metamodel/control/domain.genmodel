@@ -694,6 +694,7 @@
     <genClasses ecoreClass="domain.ecore#//FormVariable">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//FormVariable/uid"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//FormVariable/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference domain.ecore#//FormVariable/paramRef"/>
     </genClasses>
     <genClasses ecoreClass="domain.ecore#//DataControl">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//DataControl/uid"/>

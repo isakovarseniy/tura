@@ -1082,6 +1082,7 @@ class Root{
 class FormVariable extends TypePointer{
     id attr EString uid;
    attr EString name;
+   ref FormParameter paramRef;
 }
 
 

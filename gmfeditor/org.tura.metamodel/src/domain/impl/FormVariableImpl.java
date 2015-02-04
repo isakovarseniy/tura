@@ -3,12 +3,14 @@
 package domain.impl;
 
 import domain.DomainPackage;
+import domain.FormParameter;
 import domain.FormVariable;
 
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
@@ -20,6 +22,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <ul>
  *   <li>{@link domain.impl.FormVariableImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.impl.FormVariableImpl#getName <em>Name</em>}</li>
+ *   <li>{@link domain.impl.FormVariableImpl#getParamRef <em>Param Ref</em>}</li>
  * </ul>
  * </p>
  *
@@ -66,6 +69,16 @@ public class FormVariableImpl extends TypePointerImpl implements FormVariable
    * @ordered
    */
   protected String name = NAME_EDEFAULT;
+
+  /**
+   * The cached value of the '{@link #getParamRef() <em>Param Ref</em>}' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getParamRef()
+   * @generated
+   * @ordered
+   */
+  protected FormParameter paramRef;
 
   /**
    * <!-- begin-user-doc -->
@@ -139,6 +152,49 @@ public class FormVariableImpl extends TypePointerImpl implements FormVariable
    * <!-- end-user-doc -->
    * @generated
    */
+  public FormParameter getParamRef()
+  {
+    if (paramRef != null && paramRef.eIsProxy())
+    {
+      InternalEObject oldParamRef = (InternalEObject)paramRef;
+      paramRef = (FormParameter)eResolveProxy(oldParamRef);
+      if (paramRef != oldParamRef)
+      {
+        if (eNotificationRequired())
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, DomainPackage.FORM_VARIABLE__PARAM_REF, oldParamRef, paramRef));
+      }
+    }
+    return paramRef;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public FormParameter basicGetParamRef()
+  {
+    return paramRef;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setParamRef(FormParameter newParamRef)
+  {
+    FormParameter oldParamRef = paramRef;
+    paramRef = newParamRef;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.FORM_VARIABLE__PARAM_REF, oldParamRef, paramRef));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
@@ -148,6 +204,9 @@ public class FormVariableImpl extends TypePointerImpl implements FormVariable
         return getUid();
       case DomainPackage.FORM_VARIABLE__NAME:
         return getName();
+      case DomainPackage.FORM_VARIABLE__PARAM_REF:
+        if (resolve) return getParamRef();
+        return basicGetParamRef();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -167,6 +226,9 @@ public class FormVariableImpl extends TypePointerImpl implements FormVariable
         return;
       case DomainPackage.FORM_VARIABLE__NAME:
         setName((String)newValue);
+        return;
+      case DomainPackage.FORM_VARIABLE__PARAM_REF:
+        setParamRef((FormParameter)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -188,6 +250,9 @@ public class FormVariableImpl extends TypePointerImpl implements FormVariable
       case DomainPackage.FORM_VARIABLE__NAME:
         setName(NAME_EDEFAULT);
         return;
+      case DomainPackage.FORM_VARIABLE__PARAM_REF:
+        setParamRef((FormParameter)null);
+        return;
     }
     super.eUnset(featureID);
   }
@@ -206,6 +271,8 @@ public class FormVariableImpl extends TypePointerImpl implements FormVariable
         return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
       case DomainPackage.FORM_VARIABLE__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+      case DomainPackage.FORM_VARIABLE__PARAM_REF:
+        return paramRef != null;
     }
     return super.eIsSet(featureID);
   }

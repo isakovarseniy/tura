@@ -10203,13 +10203,22 @@ public interface DomainPackage extends EPackage
   int FORM_VARIABLE__NAME = TYPE_POINTER_FEATURE_COUNT + 1;
 
   /**
+   * The feature id for the '<em><b>Param Ref</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FORM_VARIABLE__PARAM_REF = TYPE_POINTER_FEATURE_COUNT + 2;
+
+  /**
    * The number of structural features of the '<em>Form Variable</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int FORM_VARIABLE_FEATURE_COUNT = TYPE_POINTER_FEATURE_COUNT + 2;
+  int FORM_VARIABLE_FEATURE_COUNT = TYPE_POINTER_FEATURE_COUNT + 3;
 
   /**
    * The meta object id for the '{@link domain.impl.DataControlImpl <em>Data Control</em>}' class.
@@ -17216,6 +17225,17 @@ public interface DomainPackage extends EPackage
   EAttribute getFormVariable_Name();
 
   /**
+   * Returns the meta object for the reference '{@link domain.FormVariable#getParamRef <em>Param Ref</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Param Ref</em>'.
+   * @see domain.FormVariable#getParamRef()
+   * @see #getFormVariable()
+   * @generated
+   */
+  EReference getFormVariable_ParamRef();
+
+  /**
    * Returns the meta object for class '{@link domain.DataControl <em>Data Control</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -22816,6 +22836,14 @@ public interface DomainPackage extends EPackage
      * @generated
      */
     EAttribute FORM_VARIABLE__NAME = eINSTANCE.getFormVariable_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Param Ref</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference FORM_VARIABLE__PARAM_REF = eINSTANCE.getFormVariable_ParamRef();
 
     /**
      * The meta object literal for the '{@link domain.impl.DataControlImpl <em>Data Control</em>}' class.

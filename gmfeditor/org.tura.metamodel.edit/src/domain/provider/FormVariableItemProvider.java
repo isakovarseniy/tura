@@ -63,6 +63,7 @@ public class FormVariableItemProvider
 
       addUidPropertyDescriptor(object);
       addNamePropertyDescriptor(object);
+      addParamRefPropertyDescriptor(object);
     }
     return itemPropertyDescriptors;
   }
@@ -109,6 +110,29 @@ public class FormVariableItemProvider
          false,
          false,
          ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+         null,
+         null));
+  }
+
+  /**
+   * This adds a property descriptor for the Param Ref feature.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected void addParamRefPropertyDescriptor(Object object)
+  {
+    itemPropertyDescriptors.add
+      (createItemPropertyDescriptor
+        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+         getResourceLocator(),
+         getString("_UI_FormVariable_paramRef_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_FormVariable_paramRef_feature", "_UI_FormVariable_type"),
+         DomainPackage.Literals.FORM_VARIABLE__PARAM_REF,
+         true,
+         false,
+         true,
+         null,
          null,
          null));
   }

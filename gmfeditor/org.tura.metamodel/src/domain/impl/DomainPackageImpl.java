@@ -6736,6 +6736,16 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EReference getFormVariable_ParamRef()
+  {
+    return (EReference)formVariableEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getDataControl()
   {
     return dataControlEClass;
@@ -8294,6 +8304,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     formVariableEClass = createEClass(FORM_VARIABLE);
     createEAttribute(formVariableEClass, FORM_VARIABLE__UID);
     createEAttribute(formVariableEClass, FORM_VARIABLE__NAME);
+    createEReference(formVariableEClass, FORM_VARIABLE__PARAM_REF);
 
     dataControlEClass = createEClass(DATA_CONTROL);
     createEAttribute(dataControlEClass, DATA_CONTROL__UID);
@@ -9228,6 +9239,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     initEClass(formVariableEClass, FormVariable.class, "FormVariable", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getFormVariable_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, FormVariable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getFormVariable_Name(), ecorePackage.getEString(), "name", null, 0, 1, FormVariable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getFormVariable_ParamRef(), this.getFormParameter(), null, "paramRef", null, 0, 1, FormVariable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(dataControlEClass, DataControl.class, "DataControl", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getDataControl_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, DataControl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

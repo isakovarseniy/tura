@@ -189,6 +189,13 @@
         <styles xmi:type="notation:FilteringStyle" xmi:id="_uPR7sqtJEeSgxLZlz1KXmg"/>
       </children>
       <children xmi:type="notation:BasicCompartment" xmi:id="_uPR7s6tJEeSgxLZlz1KXmg" type="1007003">
+        <children xmi:type="notation:Node" xmi:id="_BbtFgKwUEeS5kpCwMnG6ow" type="1003003">
+          <children xmi:type="notation:DecorationNode" xmi:id="_BbtskKwUEeS5kpCwMnG6ow" type="1005005"/>
+          <styles xmi:type="notation:DescriptionStyle" xmi:id="_BbtFgawUEeS5kpCwMnG6ow"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_BbtFgqwUEeS5kpCwMnG6ow" fontName="Lucida Grande"/>
+          <element xmi:type="tura.domain:FormParameter" href="hr.domain#29fc2ee9-2554-4db1-b651-b4c66c472316"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_BbtFg6wUEeS5kpCwMnG6ow"/>
+        </children>
         <styles xmi:type="notation:SortingStyle" xmi:id="_uPR7tKtJEeSgxLZlz1KXmg"/>
         <styles xmi:type="notation:FilteringStyle" xmi:id="_uPR7tatJEeSgxLZlz1KXmg"/>
       </children>
