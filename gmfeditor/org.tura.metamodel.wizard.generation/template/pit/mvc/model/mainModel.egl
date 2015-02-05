@@ -28,7 +28,9 @@ ${percent}${end}
          hash.put("resourcePath",resourcePath);
          hash.put("form",form);
          
+         form.datacontrols.formControl.processRootElement(recipe,ingredient);
          var controls =  form.datacontrols.formControl.controls;
+         
          for (control in controls){
 
            control.processKeys(recipe,ingredient);

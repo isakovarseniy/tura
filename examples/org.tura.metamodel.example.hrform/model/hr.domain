@@ -917,7 +917,6 @@
   </tura.domain:UIPackage>
   <tura.domain:Controls uid="5541fdd1-fedb-45ba-ab74-966e737af3a6" parent="60346910-0b2a-4fed-b397-25731ca3a1df">
     <root uid="5aea4714-7635-43bd-a361-b2ae8711af5b">
-      <preFormTrigger uid="9fc93b84-655f-4fea-ac1b-ade7fee1a376"/>
       <variables packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="e370b9d1-a6fb-4a40-88e2-8845be441438" fakePackageName="Primitive package" fakeTypeName="String" uid="3c62c7d0-70dd-479c-8147-fd1520479bae" name="var1" paramRef="29fc2ee9-2554-4db1-b651-b4c66c472316"/>
     </root>
     <controls uid="d45e9605-3706-493c-8422-3f7b8b6ea2ed" name="Company" baseType="Comp_52ffccb7-cea6-49de-ba4b-7437f1da3369">

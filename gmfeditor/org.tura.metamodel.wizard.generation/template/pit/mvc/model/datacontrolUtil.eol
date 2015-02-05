@@ -3,6 +3,19 @@ import "platform:/plugin/org.tura.metamodel.wizard.generation/template/commons/b
  
 
 
+operation Controls processRootElement(recipe:Recipe, ingredient :Ingredient ) { 
+    if (self.root.isDefined()){
+ 	   for ( frmvar in self.root.variables){
+ 	      if ( frmvar.typeRef <> null)
+ 	          frmvar.typeRef.mappingType2Java(recipe,ingredient);
+ 	      if (frmvar.paramRef<> null and frmvar.paramRef.typeRef <> null  )    
+ 	         frmvar.paramRef.typeRef.mappingType2Java(recipe,ingredient);
+	   }
+       if (self.root.preFormTrigger.isDefined()) 	         
+ 	        self.root.preFormTrigger.processTrigger(recipe,ingredient);
+    }
+}
+
 operation DataControl processDefaultQuery(recipe:Recipe, ingredient :Ingredient ) { 
 
       if ( self.defaultSearch<> null)
@@ -50,15 +63,15 @@ operation DataControl processTriggers(recipe:Recipe, ingredient :Ingredient ) {
            provider.put(self.search.typeRef.~fullName,array);   
          }
         array.add("search");
-        
-        
 }
 
 
 operation Trigger processTrigger(recipe:Recipe, ingredient :Ingredient){
         var util = new Native('org.tura.metamodel.commons.Util');
-        self.typeRef.mappingType2Java(recipe,ingredient);
-        self.processParameters(recipe,ingredient);
+        if (self.typeRef.isDefined()){
+          self.typeRef.mappingType2Java(recipe,ingredient);
+          self.processParameters(recipe,ingredient);
+        }
 }
 
 operation ContextParameters processParameters(recipe:Recipe, ingredient :Ingredient){

@@ -10,10 +10,66 @@ ${percent}${end}
 %]
 package  [%=component.basePackage%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%].datacontrol;  
 
+import java.util.logging.Logger;
+import org.tura.platform.datacontrol.commons.TuraException;
+import javax.inject.Inject;
+
 @javax.inject.Named("beanFactory")
 [%=datacontrol_scope()%]
 public class BeanFactory  implements java.io.Serializable {
 	private static final long serialVersionUID = 1L;
+
+	@Inject
+	private transient Logger logger;
+	
+	
+	[%
+	var root = form.datacontrols.formControl.root;
+	if (root <> null){
+	   for ( frmvar in root.variables){
+	   %]
+	   private [%=frmvar.typeRef.~fullName%] [%=util.mergeAndUnCapitalize(frmvar.name)%];
+	   [%
+	   }
+	}
+	%]
+	private javax.enterprise.inject.Instance<org.tura.platform.datacontrol.command.PreFormTrigger> preFormTrigger;
+	[%
+	var root = form.datacontrols.formControl.root;
+	if (root <> null){
+	   for ( frmvar in root.variables){
+	   %]
+	   public [%=frmvar.typeRef.~fullName%] get[%=util.mergeAndCapitalize(frmvar.name)%](){
+	              return this.[%=util.mergeAndUnCapitalize(frmvar.name)%];
+	   }
+	   
+	   public  void set[%=util.mergeAndCapitalize(frmvar.name)%]( [%=frmvar.typeRef.~fullName%] [%=util.mergeAndUnCapitalize(frmvar.name)%]){
+	              this.[%=util.mergeAndUnCapitalize(frmvar.name)%] = [%=util.mergeAndUnCapitalize(frmvar.name)%];
+	   }
+	   [%
+	   }
+	}
+	%]	
+ 	@javax.annotation.PostConstruct
+	public void init() {
+		try {
+	[%
+	if (root <> null  ){
+	   for ( frmvar in root.variables){
+	   %]
+        [%=util.mergeAndUnCapitalize(frmvar.name)%] = ([%=frmvar.typeRef.~fullName%]) javax.faces.context.FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("[%=frmvar.paramRef.name%]");	   
+	   [%
+	   }
+	}
+	%]
+		
+			org.tura.platform.datacontrol.command.PreFormTrigger trigger = preFormTrigger.get();
+			if (trigger != null)
+				trigger.execute();
+		} catch (TuraException e) {
+			logger.fine(e.getMessage());
+		}	   
+    }
 
     [%
      var controls =  form.datacontrols.formControl.controls;
@@ -64,6 +120,7 @@ public class BeanFactory  implements java.io.Serializable {
                [%=typeName(relation.master, component, form)%] master =  [%=methodName(relation.master)%]();
                return ( [%=typeName(relation.detail, component, form)%] )master.get[%=util.mergeAndCapitalize(relation.master.name)%]2[%=util.mergeAndCapitalize(relation.detail.name)%]();
 		     } catch (org.tura.platform.datacontrol.commons.TuraException e) {
+			   logger.fine(e.getMessage());
 			   return null;
 		     }
          [%}%]
@@ -76,6 +133,7 @@ public class BeanFactory  implements java.io.Serializable {
                }
                return [%=propertyName(relation.detail)%];
 		     } catch (org.tura.platform.datacontrol.commons.TuraException e) {
+   			   logger.fine(e.getMessage());
 			   return null;
 		     }
          [%}%]
