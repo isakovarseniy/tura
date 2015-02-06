@@ -84,6 +84,10 @@ operation  datacontrolgeneration(hash) {
       var buffer = logproducer.process();
       util.saveFile( javaPath+util.mergeAndCapitalize(form.name).toLowerCase()+"/producer/"  , "LoggerProducer.java",buffer);  
 
+      var factoryInitProducer : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.wizard.generation/template/technologies/JEE/CDI/factoryInitProducer.egl",hash,TemplateFactory);
+      factoryInitProducer.setFormatter(f);
+      var buffer = factoryInitProducer.process();
+      util.saveFile( javaPath+util.mergeAndCapitalize(form.name).toLowerCase()+"/producer/"  , "FactoryInitializeTriggerProducer.java",buffer);  
 
   }
 %]

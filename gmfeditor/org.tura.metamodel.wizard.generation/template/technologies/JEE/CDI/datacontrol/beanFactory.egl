@@ -33,7 +33,7 @@ public class BeanFactory  implements java.io.Serializable {
 	   }
 	}
 	%]
-	private javax.enterprise.inject.Instance<org.tura.platform.datacontrol.command.PreFormTrigger> preFormTrigger;
+	private javax.enterprise.inject.Instance<org.tura.platform.datacontrol.command.FactoryInitializeTrigger> factoryInitializeTrigger;
 	[%
 	var root = form.datacontrols.formControl.root;
 	if (root <> null){
@@ -53,19 +53,9 @@ public class BeanFactory  implements java.io.Serializable {
  	@javax.annotation.PostConstruct
 	public void init() {
 		try {
-	[%
-	if (root <> null  ){
-	   for ( frmvar in root.variables){
-	   %]
-        [%=util.mergeAndUnCapitalize(frmvar.name)%] = ([%=frmvar.typeRef.~fullName%]) javax.faces.context.FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("[%=frmvar.paramRef.name%]");	   
-	   [%
-	   }
-	}
-	%]
-		
-			org.tura.platform.datacontrol.command.PreFormTrigger trigger = preFormTrigger.get();
+			org.tura.platform.datacontrol.command.FactoryInitializeTrigger trigger = factoryInitializeTrigger.get();
 			if (trigger != null)
-				trigger.execute();
+				trigger.execute(this);
 		} catch (TuraException e) {
 			logger.fine(e.getMessage());
 		}	   
