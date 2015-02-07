@@ -351,6 +351,9 @@ public abstract class ContextParameterPropertySelection extends GridProperty {
 			if (obj != null)
 				rootOfTree.addChild(obj);
 
+			rootOfTree.addChild(new QueryHelper().getRootControl(root));
+			
+			
 		} catch (Exception e) {
 			// ignore
 		}

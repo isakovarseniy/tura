@@ -146,6 +146,13 @@ public class QueryHelper {
 		return ls;
 	}
 
+	
+	public Object getRootControl(DiagramImpl root) throws Exception {
+		domain.Form frm = getForm(root);
+		return frm.getDatacontrols().getFormControl().getRoot();
+	}
+	
+	
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public Collection<TreeDataControl> findTreeRootControls(domain.Form frm)
 			throws Exception {

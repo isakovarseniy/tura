@@ -1909,12 +1909,9 @@
             <children xsi:type="tura.domain:Button" uid="3f03fa7e-3db9-4d75-a973-d107235686f1" packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="971e11a5-49d4-402d-9ae4-4233c366a542" fakePackageName="Base package" fakeTypeName="Client system library" methodRef="90a31bb6-4c1e-4106-8d8c-616dc9888a78" fakeMethod="Test JS" label="JS Test">
               <style/>
               <parameters uid="62edf914-d5bc-45fd-a691-3313c97df530" refObj="b4b4777c-89d5-4a65-a5a8-6946f31a8803">
-                <value uid="8c4d0139-0d5d-43dc-8086-c3b7c5d62e87" value="Data controls.Company.currentObject.HR package::Company Type.companyName">
-                  <expression expressionType="DataControlHolder"/>
-                  <expression objRef="d45e9605-3706-493c-8422-3f7b8b6ea2ed" order="1" expressionType="DataControlImpl"/>
-                  <expression order="2" expressionType="DataControlFakeMethod"/>
-                  <expression order="3" expressionType="ExtendedType"/>
-                  <expression objRef="Comp_7982905f-4f83-472f-8551-80e30e34934c" order="4" expressionType="AttributeImpl"/>
+                <value uid="8c4d0139-0d5d-43dc-8086-c3b7c5d62e87" value="Form variables.var1">
+                  <expression objRef="5aea4714-7635-43bd-a361-b2ae8711af5b" expressionType="RootImpl"/>
+                  <expression objRef="3c62c7d0-70dd-479c-8147-fd1520479bae" order="1" expressionType="FormVariableImpl"/>
                 </value>
               </parameters>
               <multiLangLabel/>

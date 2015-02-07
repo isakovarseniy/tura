@@ -144,8 +144,15 @@ operation  StyleSetImpl(expression:String, contextValue , paramId: Integer, arra
      
 }     
 
+operation  RootImpl(expression:String, contextValue , paramId: Integer, array ) : String {
+   return "#{beanFactory.<holder>}";
+}     
 
+operation  FormVariableImpl(expression:String, contextValue , paramId: Integer, array ) : String {
+     var util = new Native('org.tura.metamodel.commons.Util');
 
-
+     return expression.replaceAll("<holder>", util.mergeAndUnCapitalize( array.get(paramId))+".<holder>");
+     
+}   
 
 

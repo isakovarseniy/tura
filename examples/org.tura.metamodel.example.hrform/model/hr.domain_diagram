@@ -173,6 +173,14 @@
     <children xmi:type="notation:Node" xmi:id="_uPRUoKtJEeSgxLZlz1KXmg" type="1002002">
       <children xmi:type="notation:DecorationNode" xmi:id="_uPRUpatJEeSgxLZlz1KXmg" type="1005002"/>
       <children xmi:type="notation:BasicCompartment" xmi:id="_uPRUpqtJEeSgxLZlz1KXmg" type="1007001">
+        <children xmi:type="notation:Node" xmi:id="_P3tbcK7aEeS8PcPZMEfr4w" type="1003001">
+          <children xmi:type="notation:DecorationNode" xmi:id="_P3uCgK7aEeS8PcPZMEfr4w" type="1005003"/>
+          <styles xmi:type="notation:DescriptionStyle" xmi:id="_P3tbca7aEeS8PcPZMEfr4w"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_P3tbcq7aEeS8PcPZMEfr4w" fontName="Lucida Grande"/>
+          <styles xmi:type="notation:HintedDiagramLinkStyle" xmi:id="_P3tbc67aEeS8PcPZMEfr4w" diagramLink="_Qt5ckK7aEeS8PcPZMEfr4w" hint="FrmView"/>
+          <element xmi:type="tura.domain:FormView" href="hr.domain#22583c7e-b599-447f-a6e1-08123b25a1a5"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_P3tbdK7aEeS8PcPZMEfr4w"/>
+        </children>
         <styles xmi:type="notation:SortingStyle" xmi:id="_uPRUp6tJEeSgxLZlz1KXmg"/>
         <styles xmi:type="notation:FilteringStyle" xmi:id="_uPRUqKtJEeSgxLZlz1KXmg"/>
       </children>
@@ -1283,5 +1291,74 @@
     </children>
     <styles xmi:type="notation:DiagramStyle" xmi:id="_O19dgatLEeSa3pLqjDXWvA"/>
     <element xmi:type="tura.domain:Controls" href="hr.domain#5541fdd1-fedb-45ba-ab74-966e737af3a6"/>
+  </notation:Diagram>
+  <notation:Diagram xmi:id="_Qt5ckK7aEeS8PcPZMEfr4w" type="FrmView" measurementUnit="Pixel">
+    <children xmi:type="notation:Node" xmi:id="_RI-2EK7aEeS8PcPZMEfr4w" type="1302007">
+      <children xmi:type="notation:DecorationNode" xmi:id="_RI_dIK7aEeS8PcPZMEfr4w" type="1305010"/>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_RI_dIa7aEeS8PcPZMEfr4w" type="1307008">
+        <children xmi:type="notation:Node" xmi:id="_RJHY8K7aEeS8PcPZMEfr4w" type="1303005">
+          <children xmi:type="notation:DecorationNode" xmi:id="_RJHY9a7aEeS8PcPZMEfr4w" type="1305013"/>
+          <styles xmi:type="notation:DescriptionStyle" xmi:id="_RJHY8a7aEeS8PcPZMEfr4w"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_RJHY8q7aEeS8PcPZMEfr4w" fontName="Lucida Grande"/>
+          <styles xmi:type="notation:HintedDiagramLinkStyle" xmi:id="_RJHY867aEeS8PcPZMEfr4w" diagramLink="_VlT3cK7aEeS8PcPZMEfr4w" hint="Canvas"/>
+          <element xmi:type="tura.domain:ViewArea" href="hr.domain#e018aa58-2660-4bba-a75d-1674147458e7"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_RJHY9K7aEeS8PcPZMEfr4w" y="3"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_RJIAAK7aEeS8PcPZMEfr4w" type="1303004">
+          <children xmi:type="notation:DecorationNode" xmi:id="_RJIABa7aEeS8PcPZMEfr4w" type="1305012"/>
+          <children xmi:type="notation:BasicCompartment" xmi:id="_RJIABq7aEeS8PcPZMEfr4w" type="1307009">
+            <styles xmi:type="notation:SortingStyle" xmi:id="_RJIAB67aEeS8PcPZMEfr4w"/>
+            <styles xmi:type="notation:FilteringStyle" xmi:id="_RJIACK7aEeS8PcPZMEfr4w"/>
+          </children>
+          <styles xmi:type="notation:DescriptionStyle" xmi:id="_RJIAAa7aEeS8PcPZMEfr4w"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_RJIAAq7aEeS8PcPZMEfr4w" fontName="Lucida Grande"/>
+          <styles xmi:type="notation:HintedDiagramLinkStyle" xmi:id="_RJIAA67aEeS8PcPZMEfr4w"/>
+          <element xmi:type="tura.domain:ViewPort" href="hr.domain#001b7a93-ecab-4975-bee8-80ff8038d124"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_RJIABK7aEeS8PcPZMEfr4w" x="198" y="3"/>
+        </children>
+      </children>
+      <styles xmi:type="notation:DescriptionStyle" xmi:id="_RI-2Ea7aEeS8PcPZMEfr4w"/>
+      <styles xmi:type="notation:FontStyle" xmi:id="_RI-2Eq7aEeS8PcPZMEfr4w" fontName="Lucida Grande"/>
+      <styles xmi:type="notation:HintedDiagramLinkStyle" xmi:id="_RI-2E67aEeS8PcPZMEfr4w"/>
+      <element xmi:type="tura.domain:Window" href="hr.domain#7d1cb326-89e4-4280-9b72-567945d73b6f"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_RI-2FK7aEeS8PcPZMEfr4w" x="270" y="9"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_RI_dIq7aEeS8PcPZMEfr4w" type="1302008">
+      <children xmi:type="notation:DecorationNode" xmi:id="_RI_dJq7aEeS8PcPZMEfr4w" type="1305011"/>
+      <styles xmi:type="notation:DescriptionStyle" xmi:id="_RI_dI67aEeS8PcPZMEfr4w"/>
+      <styles xmi:type="notation:FontStyle" xmi:id="_RI_dJK7aEeS8PcPZMEfr4w" fontName="Lucida Grande"/>
+      <element xmi:type="tura.domain:TabCanvas" href="hr.domain#c77769b5-0b24-4a83-b9ab-8e3635c3d913"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_RI_dJa7aEeS8PcPZMEfr4w" x="306" y="243"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_RJAEMK7aEeS8PcPZMEfr4w" type="1302002">
+      <children xmi:type="notation:DecorationNode" xmi:id="_RJAENa7aEeS8PcPZMEfr4w" type="1305002"/>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_RJAENq7aEeS8PcPZMEfr4w" type="1307003"/>
+      <styles xmi:type="notation:DescriptionStyle" xmi:id="_RJAEMa7aEeS8PcPZMEfr4w"/>
+      <styles xmi:type="notation:FontStyle" xmi:id="_RJAEMq7aEeS8PcPZMEfr4w" fontName="Lucida Grande"/>
+      <styles xmi:type="notation:HintedDiagramLinkStyle" xmi:id="_RJAEM67aEeS8PcPZMEfr4w"/>
+      <element xmi:type="tura.domain:TabPage" href="hr.domain#6fb4cb14-2476-434d-8db9-7d7425982c83"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_RJAENK7aEeS8PcPZMEfr4w" x="144" y="342"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_RJDHgK7aEeS8PcPZMEfr4w" type="1302002">
+      <children xmi:type="notation:DecorationNode" xmi:id="_RJDHha7aEeS8PcPZMEfr4w" type="1305002"/>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_RJDHhq7aEeS8PcPZMEfr4w" type="1307003"/>
+      <styles xmi:type="notation:DescriptionStyle" xmi:id="_RJDHga7aEeS8PcPZMEfr4w"/>
+      <styles xmi:type="notation:FontStyle" xmi:id="_RJDHgq7aEeS8PcPZMEfr4w" fontName="Lucida Grande"/>
+      <styles xmi:type="notation:HintedDiagramLinkStyle" xmi:id="_RJDHg67aEeS8PcPZMEfr4w"/>
+      <element xmi:type="tura.domain:TabPage" href="hr.domain#14993ad6-c07e-4480-bf18-bf8266961109"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_RJDHhK7aEeS8PcPZMEfr4w" x="432" y="342"/>
+    </children>
+    <styles xmi:type="notation:DiagramStyle" xmi:id="_Qt5cka7aEeS8PcPZMEfr4w"/>
+    <element xmi:type="tura.domain:Views" href="hr.domain#2ddd76f4-bbd2-4337-8cae-45d77d9170ab"/>
+  </notation:Diagram>
+  <notation:Diagram xmi:id="_VlT3cK7aEeS8PcPZMEfr4w" type="Canvas" measurementUnit="Pixel">
+    <children xmi:type="notation:Shape" xmi:id="_WCY1AK7aEeS8PcPZMEfr4w" type="1602003" fontName="Lucida Grande">
+      <children xmi:type="notation:BasicCompartment" xmi:id="_WCZcEK7aEeS8PcPZMEfr4w" type="1607007"/>
+      <styles xmi:type="notation:HintedDiagramLinkStyle" xmi:id="_WCY1Aa7aEeS8PcPZMEfr4w"/>
+      <element xmi:type="tura.domain:LayerHolder" href="hr.domain#c5f8ac47-356e-4c17-84db-fcf0a5037ca7"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_WCY1Aq7aEeS8PcPZMEfr4w" x="135" y="81"/>
+    </children>
+    <styles xmi:type="notation:DiagramStyle" xmi:id="_VlT3ca7aEeS8PcPZMEfr4w"/>
+    <element xmi:type="tura.domain:CanvasView" href="hr.domain#86803f23-9d44-4ebc-81e9-9a63b4a770ac"/>
   </notation:Diagram>
 </xmi:XMI>

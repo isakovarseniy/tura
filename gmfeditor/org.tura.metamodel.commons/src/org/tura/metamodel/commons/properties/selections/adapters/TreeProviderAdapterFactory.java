@@ -43,11 +43,13 @@ public class TreeProviderAdapterFactory implements IAdapterFactory {
 	private TreeDataControlProvider treeDataControlProvider;
 	private ExtendedTypeProvider extendedTypeProvider;
 	private RolesProvider rolesProvider;
-
 	private ApplicationStyleProvider applicationStyleProvider;
 	private StylesPackageProvider stylesPackageProvider;
 	private StyleLibraryProvider styleLibraryProvider;
 	private StyleSetProvider styleSetProvider;
+	private FormVariableProvider formVariableProvider;
+	private FormVariablesProvider formVariablesProvider;
+	
 
 	@SuppressWarnings("rawtypes")
 	public Class[] getAdapterList() {
@@ -118,7 +120,10 @@ public class TreeProviderAdapterFactory implements IAdapterFactory {
 				return getStyleLibraryProvider();
 			if (adaptableObject instanceof domain.StyleSet)
 				return getStyleSetProvider();
-			
+			if (adaptableObject instanceof domain.Root)
+				return getFormVariablesProvider();
+			if (adaptableObject instanceof domain.FormVariable)
+				return getFormVariableProvider();
 		}
 		return null;
 	}
@@ -305,4 +310,16 @@ public class TreeProviderAdapterFactory implements IAdapterFactory {
 		return styleSetProvider;		
 	}
 	
+	protected FormVariablesProvider getFormVariablesProvider(){
+		if (formVariablesProvider == null)
+			formVariablesProvider = new FormVariablesProvider();
+		return formVariablesProvider;		
+	}
+	
+	protected FormVariableProvider getFormVariableProvider(){
+		if (formVariableProvider == null)
+			formVariableProvider = new FormVariableProvider();
+		return formVariableProvider;		
+		
+	}
 }

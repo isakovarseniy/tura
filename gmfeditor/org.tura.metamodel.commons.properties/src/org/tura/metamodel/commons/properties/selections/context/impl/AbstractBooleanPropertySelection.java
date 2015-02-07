@@ -33,6 +33,9 @@ public abstract class AbstractBooleanPropertySelection extends
 
 			rootOfTree.addChild(new QueryHelper().getTypesRepository(root
 					.getElement()));
+			
+			rootOfTree.addChild(new QueryHelper().getRootControl(root));
+			
 		} catch (Exception e) {
 			// ignore
 		}

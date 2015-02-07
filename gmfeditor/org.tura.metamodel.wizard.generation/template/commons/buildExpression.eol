@@ -61,7 +61,8 @@ operation  buildExpression( contextValue) : String {
           case"StylesPackageImpl":             resultExpression = StylesPackageImpl(resultExpression,contextValue,i,tokenArray);
           case"StyleLibraryImpl":                 resultExpression = StyleLibraryImpl(resultExpression,contextValue,i,tokenArray); 
           case"StyleSetImpl":                       resultExpression = StyleSetImpl(resultExpression,contextValue,i,tokenArray);
-          
+          case"RootImpl":                             resultExpression = RootImpl(resultExpression,contextValue,i,tokenArray);
+          case"FormVariableImpl":               resultExpression = FormVariableImpl(resultExpression,contextValue,i,tokenArray);
           
         }
         i = i +1;

@@ -33,6 +33,7 @@ public class BeanFactory  implements java.io.Serializable {
 	   }
 	}
 	%]
+	@Inject
 	private javax.enterprise.inject.Instance<org.tura.platform.datacontrol.command.FactoryInitializeTrigger> factoryInitializeTrigger;
 	[%
 	var root = form.datacontrols.formControl.root;

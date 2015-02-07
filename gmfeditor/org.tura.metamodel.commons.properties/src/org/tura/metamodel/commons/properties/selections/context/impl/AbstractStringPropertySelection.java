@@ -33,6 +33,9 @@ public abstract class AbstractStringPropertySelection extends
 
 			rootOfTree.addChild(new QueryHelper().getTypesRepository(root
 					.getElement()));
+			
+			rootOfTree.addChild(new QueryHelper().getRootControl(root));
+			
 		} catch (Exception e) {
 			
 			e.printStackTrace();
