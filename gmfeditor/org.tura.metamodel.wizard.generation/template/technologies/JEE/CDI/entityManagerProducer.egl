@@ -11,6 +11,8 @@ ${percent}${end}
 package  [%=component.basePackage%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%].producer;  
 
 [%=datacontrol_scope()%]
+@javax.enterprise.inject.Alternative
+@javax.annotation.Priority(0)
 public class EntityManagerProducer  implements java.io.Serializable {
 
 	private static final long serialVersionUID = 1L;

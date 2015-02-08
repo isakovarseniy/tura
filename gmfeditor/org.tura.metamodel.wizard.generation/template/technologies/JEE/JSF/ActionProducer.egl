@@ -8,6 +8,8 @@ package  [%=component.basePackage%].[%=util.mergeAndCapitalize(form.name).toLowe
 
 import javax.enterprise.inject.Produces;
 
+@javax.enterprise.inject.Alternative
+@javax.annotation.Priority(0)
 public class ActionProducer{
 
 [%

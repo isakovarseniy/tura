@@ -7,6 +7,8 @@ package  [%=component.basePackage%].[%=util.mergeAndCapitalize(form.name).toLowe
 import javax.enterprise.inject.Produces;
 import javax.enterprise.inject.spi.InjectionPoint;
 
+@javax.enterprise.inject.Alternative
+@javax.annotation.Priority(0)
 public class FactoryInitializeTriggerProducer {
 
 	@Produces

@@ -5,7 +5,8 @@
 package  [%=component.basePackage%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%].producer;  
 
 
-
+@javax.enterprise.inject.Alternative
+@javax.annotation.Priority(0)
 public class [%=util.mergeAndCapitalize(control.name)%]TriggerProducer {
 
  	@javax.enterprise.inject.Produces @org.tura.platform.datacontrol.annotations.PreQuery("[%=util.mergeAndUnCapitalize(control.name)%]")

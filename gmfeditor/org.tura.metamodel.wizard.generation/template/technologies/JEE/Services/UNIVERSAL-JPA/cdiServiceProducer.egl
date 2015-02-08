@@ -2,8 +2,11 @@
      var util = new Native('org.tura.metamodel.commons.Util');
 %]
 package  [%=component.basePackage%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%].producer;  
-public class  [%=type.~class%]ServiceProducer{
 
+
+@javax.enterprise.inject.Alternative
+@javax.annotation.Priority(0)
+public class  [%=type.~class%]ServiceProducer{
 
     @javax.inject.Inject
     private javax.persistence.EntityManager em;
