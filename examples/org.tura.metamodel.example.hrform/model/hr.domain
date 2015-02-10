@@ -1690,7 +1690,11 @@
         <style/>
         <styleClass/>
       </viewElement>
-      <viewElement xsi:type="tura.domain:ViewPort" uid="001b7a93-ecab-4975-bee8-80ff8038d124" name="Frame for emploee details"/>
+      <viewElement xsi:type="tura.domain:ViewPort" uid="001b7a93-ecab-4975-bee8-80ff8038d124" name="Frame for emploee details">
+        <style/>
+        <styleClass/>
+        <viewPortTrigger uid="976b9f48-aa27-4082-ad70-b043727ec16d"/>
+      </viewElement>
       <multiLangLabel value="Messages.HR Controller.MAIN_WINDOW_LABEL">
         <expression objRef="af03a493-0ca4-486c-945f-5bfc2fdf35bd" expressionType="MessagesImpl"/>
         <expression objRef="5772ddee-a83b-41c9-8f34-c442412e1013" order="1" expressionType="MessageLibraryImpl"/>
@@ -1726,7 +1730,33 @@
         <expression objRef="54ebdd70-5fb8-472e-b6fc-ffe42c72d02a" order="2" expressionType="MessageImpl"/>
       </multiLangLabel>
     </canvases>
+    <canvases xsi:type="tura.domain:Canvas" uid="0b549b2b-507c-473a-b3df-3d02444ed823" name="Country details">
+      <viewElement xsi:type="tura.domain:ViewArea" uid="45f17fd5-a2c3-4249-9a91-f85b33e2f62b" name="Country" canvasView="02aa4f59-2533-427b-84dc-f428e20156de"/>
+      <multiLangLabel/>
+    </canvases>
+    <canvases xsi:type="tura.domain:Canvas" uid="2779bc17-3f90-480d-a562-049bd91bb53c" name="State details">
+      <viewElement xsi:type="tura.domain:ViewArea" uid="ea1f1a62-9ce9-4faf-ba0a-b224e233db8e" name="State" canvasView="76bda61e-f0a5-46ee-88a4-f7dfd3914a33">
+        <style/>
+        <styleClass/>
+      </viewElement>
+    </canvases>
+    <canvases xsi:type="tura.domain:Canvas" uid="ba2ade2b-9934-4af6-b4b2-0a95ea23b738" name="City details">
+      <viewElement xsi:type="tura.domain:ViewArea" uid="a32c35b9-6e1f-4c5c-bfb5-1ec155053cc1" name="City" canvasView="c429a829-7657-4a99-8305-95638653ae52">
+        <style/>
+        <styleClass/>
+      </viewElement>
+    </canvases>
+    <canvases xsi:type="tura.domain:Canvas" uid="65ce6a3b-bb30-405e-abd8-eec4db7fb755" name="Company details">
+      <viewElement xsi:type="tura.domain:ViewArea" uid="8bba67e5-b653-4042-aa0c-747711b2c11b" name="Company" canvasView="34bf2120-22f2-438b-9bfa-6ffa1cbda861">
+        <style/>
+        <styleClass/>
+      </viewElement>
+    </canvases>
     <viewInheritances uid="1210acb3-7c91-4095-add0-a37f4f33f3e1" source="001b7a93-ecab-4975-bee8-80ff8038d124" target="c77769b5-0b24-4a83-b9ab-8e3635c3d913"/>
+    <viewInheritances uid="cdad33a5-7869-48f4-b53e-140211e5beb2" source="001b7a93-ecab-4975-bee8-80ff8038d124" target="0b549b2b-507c-473a-b3df-3d02444ed823"/>
+    <viewInheritances uid="880ba8f0-028a-4aa3-aeef-b6b73239f7a8" source="001b7a93-ecab-4975-bee8-80ff8038d124" target="2779bc17-3f90-480d-a562-049bd91bb53c"/>
+    <viewInheritances uid="2ba09b4a-eaf4-496e-936a-c718f991411a" source="001b7a93-ecab-4975-bee8-80ff8038d124" target="ba2ade2b-9934-4af6-b4b2-0a95ea23b738"/>
+    <viewInheritances uid="57208c79-2575-4f86-95b8-25bf1fd270f2" source="001b7a93-ecab-4975-bee8-80ff8038d124" target="65ce6a3b-bb30-405e-abd8-eec4db7fb755"/>
     <tabPagesInheritances uid="d985923c-6783-4312-9c35-ba24224932da" source="c77769b5-0b24-4a83-b9ab-8e3635c3d913" target="6fb4cb14-2476-434d-8db9-7d7425982c83"/>
     <tabPagesInheritances uid="c30f4494-be73-42be-af50-ecbb582267f0" source="c77769b5-0b24-4a83-b9ab-8e3635c3d913" target="14993ad6-c07e-4480-bf18-bf8266961109"/>
   </tura.domain:Views>
@@ -1828,6 +1858,24 @@
       </messages>
       <messages uid="8a832c5c-aa0c-4eea-a10a-2203bea1beb0" name="REMOVE_BUTTON">
         <translatioins uid="fad574fd-9c6e-4755-a5f5-28c5cb9dfb6f" translation="Remove" lang="5f566f06-7d99-4d79-986d-b42bdfb2b6a0"/>
+      </messages>
+      <messages uid="e554177a-bf1e-4c8b-a77a-88150ff896e2" name="COUNTRY_DETAILS">
+        <translatioins uid="09ca9305-bc61-4139-bf2d-1d74615b9af7" translation="Country details" lang="5f566f06-7d99-4d79-986d-b42bdfb2b6a0"/>
+      </messages>
+      <messages uid="bc545138-dca4-4259-b5f2-ee07910a78ea" name="STATE_DETAILS">
+        <translatioins uid="9024aaa4-e863-4833-8981-98b913d709a8" translation="State details" lang="5f566f06-7d99-4d79-986d-b42bdfb2b6a0"/>
+      </messages>
+      <messages uid="b31effa8-4cd3-4a4a-947a-3a7b7f610a26" name="STATE_LABEL">
+        <translatioins uid="6a2a6527-af51-4801-8100-15328342c2cc" translation="State" lang="5f566f06-7d99-4d79-986d-b42bdfb2b6a0"/>
+      </messages>
+      <messages uid="6bd17707-d4e9-4693-a61c-8793c83c1cec" name="CITY_DETAILS">
+        <translatioins uid="e5a53802-a2af-4dc2-a25c-b6a2ca80d7c2" translation="City details" lang="5f566f06-7d99-4d79-986d-b42bdfb2b6a0"/>
+      </messages>
+      <messages uid="4c96ed80-624f-4ecb-a07c-bed4931a389d" name="CITY_LABEL">
+        <translatioins uid="e5e09b1e-b11a-4f4f-aac9-b7afd70d9b41" translation="City" lang="5f566f06-7d99-4d79-986d-b42bdfb2b6a0"/>
+      </messages>
+      <messages uid="3c9d5f18-58ea-4e9a-a877-c2535bf00f27" name="COMPANY_DETAILS">
+        <translatioins uid="13d01eb8-d29d-4854-8959-a27d7b6ca424" translation="Company details" lang="5f566f06-7d99-4d79-986d-b42bdfb2b6a0"/>
       </messages>
     </messageLibraries>
     <languages uid="2160c4e8-6839-4e94-a225-162cc9210518" lang="English" code="en"/>
@@ -2259,4 +2307,102 @@
     </recipe>
     <infrastructures uid="b1124955-833d-4a6d-a446-254b52411192" recipe="91ea9fb6-03c6-49dd-9548-62e08e1ceb5d" name="Development"/>
   </tura.domain:Recipes>
+  <tura.domain:CanvasView uid="02aa4f59-2533-427b-84dc-f428e20156de" parent="45f17fd5-a2c3-4249-9a91-f85b33e2f62b">
+    <baseCanvas uid="eeba30df-13d3-4e8f-b1f6-541829be0a33">
+      <children xsi:type="tura.domain:Label" uid="70fa14fa-a1af-4cb9-9c13-5c4bfcc9a31b" label="Country details">
+        <multiLangLabel value="Messages.HR Controller.COUNTRY_DETAILS">
+          <expression objRef="af03a493-0ca4-486c-945f-5bfc2fdf35bd" expressionType="MessagesImpl"/>
+          <expression objRef="5772ddee-a83b-41c9-8f34-c442412e1013" order="1" expressionType="MessageLibraryImpl"/>
+          <expression objRef="e554177a-bf1e-4c8b-a77a-88150ff896e2" order="2" expressionType="MessageImpl"/>
+        </multiLangLabel>
+      </children>
+      <children xsi:type="tura.domain:LayerHolder" uid="570b19d0-42fe-4cf5-b6ab-f55ee150a060" columns="2">
+        <children xsi:type="tura.domain:Label" uid="a1e28272-5e68-44c0-9b5f-43a108ec0982" label="Country">
+          <multiLangLabel value="Messages.HR Controller.COMPANIES_TABLE">
+            <expression objRef="af03a493-0ca4-486c-945f-5bfc2fdf35bd" expressionType="MessagesImpl"/>
+            <expression objRef="5772ddee-a83b-41c9-8f34-c442412e1013" order="1" expressionType="MessageLibraryImpl"/>
+            <expression objRef="e221741c-8996-4db6-9ece-346741336859" order="2" expressionType="MessageImpl"/>
+          </multiLangLabel>
+        </children>
+        <children xsi:type="tura.domain:OutputText" uid="ad90930f-64e0-4353-b91f-f8dc66724f2b" sourcePointer="cd1cab1c-1781-4867-85b8-84d9f465f989" valuePointer="Cntr_7982905f-4f83-472f-8551-80e30e34934c" sourceCast="Cntr_52ffccb7-cea6-49de-ba4b-7437f1da3369" sourceCastDataControl="cd1cab1c-1781-4867-85b8-84d9f465f989">
+          <required/>
+        </children>
+      </children>
+    </baseCanvas>
+  </tura.domain:CanvasView>
+  <tura.domain:CanvasView uid="76bda61e-f0a5-46ee-88a4-f7dfd3914a33" parent="ea1f1a62-9ce9-4faf-ba0a-b224e233db8e">
+    <baseCanvas uid="9120c587-f616-42d7-91a6-de50ff90cc06">
+      <children xsi:type="tura.domain:Label" uid="e41bf619-e12b-4fd8-b6ad-ecdf8a4e37f3" label="State detail">
+        <multiLangLabel value="Messages.HR Controller.STATE_DETAILS">
+          <expression objRef="af03a493-0ca4-486c-945f-5bfc2fdf35bd" expressionType="MessagesImpl"/>
+          <expression objRef="5772ddee-a83b-41c9-8f34-c442412e1013" order="1" expressionType="MessageLibraryImpl"/>
+          <expression objRef="bc545138-dca4-4259-b5f2-ee07910a78ea" order="2" expressionType="MessageImpl"/>
+        </multiLangLabel>
+      </children>
+      <children xsi:type="tura.domain:LayerHolder" uid="82138310-5179-4369-a237-b7988c8a7d56" columns="2">
+        <children xsi:type="tura.domain:Label" uid="729fc1ed-105d-407c-ad0d-efc22f84b80d" label="State">
+          <multiLangLabel value="Messages.HR Controller.STATE_LABEL">
+            <expression objRef="af03a493-0ca4-486c-945f-5bfc2fdf35bd" expressionType="MessagesImpl"/>
+            <expression objRef="5772ddee-a83b-41c9-8f34-c442412e1013" order="1" expressionType="MessageLibraryImpl"/>
+            <expression objRef="b31effa8-4cd3-4a4a-947a-3a7b7f610a26" order="2" expressionType="MessageImpl"/>
+          </multiLangLabel>
+        </children>
+        <children xsi:type="tura.domain:OutputText" uid="aa601f70-d2d0-4785-aa58-b69eb4d5edf3" sourcePointer="cd1cab1c-1781-4867-85b8-84d9f465f989" valuePointer="State_7982905f-4f83-472f-8551-80e30e34934c" sourceCast="State_52ffccb7-cea6-49de-ba4b-7437f1da3369" sourceCastDataControl="f77b6e6d-41a3-4fb5-8ab9-85b2b76191ec">
+          <required/>
+        </children>
+      </children>
+    </baseCanvas>
+  </tura.domain:CanvasView>
+  <tura.domain:CanvasView uid="c429a829-7657-4a99-8305-95638653ae52" parent="a32c35b9-6e1f-4c5c-bfb5-1ec155053cc1">
+    <baseCanvas uid="f3225edc-c834-4bb6-96c4-13896640f2bd">
+      <children xsi:type="tura.domain:Label" uid="5ea83346-7338-4760-974d-6bf7fd784f27" label="City details">
+        <multiLangLabel value="Messages.HR Controller.CITY_DETAILS">
+          <expression objRef="af03a493-0ca4-486c-945f-5bfc2fdf35bd" expressionType="MessagesImpl"/>
+          <expression objRef="5772ddee-a83b-41c9-8f34-c442412e1013" order="1" expressionType="MessageLibraryImpl"/>
+          <expression objRef="6bd17707-d4e9-4693-a61c-8793c83c1cec" order="2" expressionType="MessageImpl"/>
+        </multiLangLabel>
+      </children>
+      <children xsi:type="tura.domain:LayerHolder" uid="aa40c5ec-96de-40aa-935a-e9c91de06511" columns="2">
+        <children xsi:type="tura.domain:Label" uid="024bcb56-9770-44c2-b82b-113769b52adc" label="City">
+          <multiLangLabel value="Messages.HR Controller.CITY_LABEL">
+            <expression objRef="af03a493-0ca4-486c-945f-5bfc2fdf35bd" expressionType="MessagesImpl"/>
+            <expression objRef="5772ddee-a83b-41c9-8f34-c442412e1013" order="1" expressionType="MessageLibraryImpl"/>
+            <expression objRef="4c96ed80-624f-4ecb-a07c-bed4931a389d" order="2" expressionType="MessageImpl"/>
+          </multiLangLabel>
+        </children>
+        <children xsi:type="tura.domain:OutputText" uid="23292454-67e6-4816-8d7d-9ba13f5f9508" sourcePointer="cd1cab1c-1781-4867-85b8-84d9f465f989" valuePointer="Cntr_7982905f-4f83-472f-8551-80e30e34934c"/>
+      </children>
+    </baseCanvas>
+  </tura.domain:CanvasView>
+  <tura.domain:CanvasView uid="34bf2120-22f2-438b-9bfa-6ffa1cbda861" parent="8bba67e5-b653-4042-aa0c-747711b2c11b">
+    <baseCanvas uid="781fd7ed-07b9-483c-b247-c91c6bcdf0a7">
+      <children xsi:type="tura.domain:Label" uid="8e51fdf2-640d-4a11-9788-4fc7fa2b1bed" label="Company details">
+        <multiLangLabel value="Messages.HR Controller.COMPANY_DETAILS">
+          <expression objRef="af03a493-0ca4-486c-945f-5bfc2fdf35bd" expressionType="MessagesImpl"/>
+          <expression objRef="5772ddee-a83b-41c9-8f34-c442412e1013" order="1" expressionType="MessageLibraryImpl"/>
+          <expression objRef="3c9d5f18-58ea-4e9a-a877-c2535bf00f27" order="2" expressionType="MessageImpl"/>
+        </multiLangLabel>
+      </children>
+      <children xsi:type="tura.domain:LayerHolder" uid="c21e4d30-d20e-4c52-bec9-a9c3794b6dba" columns="2">
+        <children xsi:type="tura.domain:Label" uid="30cc4808-b68d-4201-bcf1-f3b60aa93647" label="Company">
+          <multiLangLabel value="Messages.HR Controller.COMPANIES_TABLE_COMPANY_NAME_COLUMN">
+            <expression objRef="af03a493-0ca4-486c-945f-5bfc2fdf35bd" expressionType="MessagesImpl"/>
+            <expression objRef="5772ddee-a83b-41c9-8f34-c442412e1013" order="1" expressionType="MessageLibraryImpl"/>
+            <expression objRef="e1e774e4-d7f9-4b12-8021-67b17f803772" order="2" expressionType="MessageImpl"/>
+          </multiLangLabel>
+        </children>
+        <children xsi:type="tura.domain:OutputText" uid="b83ab64b-cc31-4ff6-b7c1-639f02d71e5c" sourcePointer="d45e9605-3706-493c-8422-3f7b8b6ea2ed" valuePointer="Comp_7982905f-4f83-472f-8551-80e30e34934c">
+          <required/>
+        </children>
+        <children xsi:type="tura.domain:Label" uid="702f12c3-5e4d-44a2-b778-8b036ce0c1de" label="Description">
+          <multiLangLabel value="Messages.HR Controller.COMPANIES_TABLE_DESCRIPTION_COLUMN">
+            <expression objRef="af03a493-0ca4-486c-945f-5bfc2fdf35bd" expressionType="MessagesImpl"/>
+            <expression objRef="5772ddee-a83b-41c9-8f34-c442412e1013" order="1" expressionType="MessageLibraryImpl"/>
+            <expression objRef="152b0762-39a4-4995-ba49-efb5a3c75f07" order="2" expressionType="MessageImpl"/>
+          </multiLangLabel>
+        </children>
+        <children xsi:type="tura.domain:OutputText" uid="f124cdeb-7e4d-4c1f-bced-f5e63c3b926d" sourcePointer="d45e9605-3706-493c-8422-3f7b8b6ea2ed" valuePointer="a3f007de-ce4a-4510-bc86-52f20eee5325"/>
+      </children>
+    </baseCanvas>
+  </tura.domain:CanvasView>
 </xmi:XMI>
