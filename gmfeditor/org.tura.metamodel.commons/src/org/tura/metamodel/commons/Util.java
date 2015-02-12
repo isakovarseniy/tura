@@ -277,6 +277,10 @@ public class Util {
 		if (obj instanceof domain.Link)
 			return createTreeControlAccess(dc, (domain.Link) obj);
 
+		if (obj instanceof domain.Attribute)
+			return createTreeControlAccess(dc, (domain.Attribute) obj);
+
+		
 		throw new Exception("Method createTreeControlAccess for parameter "
 				+ obj.getClass().getName() + " is not implemented");
 	}
@@ -292,7 +296,35 @@ public class Util {
 		throw new Exception("Method createControlAccess for parameter "
 				+ obj.getClass().getName() + " is not implemented");
 	}
+	
+	
+	private ArtificialContextValue createTreeControlAccess(
+			domain.DataControl dc, domain.Attribute attr){
+		
+		ArtificialContextValue cv = createTreeControlAccess(dc);
 
+		cv.setValue(cv.getValue() + ".currentObject." + attr.getName());
+
+		ArtificialExpressionPart ex = new ArtificialExpressionPart();
+		ex.setOrder(3);
+		ex.setExpressionType("DataControlFakeMethod");
+		cv.getExpression().add(ex);
+
+		ex = new ArtificialExpressionPart();
+		ex.setOrder(4);
+		ex.setExpressionType("ExtendedType");
+		cv.getExpression().add(ex);
+
+		ex = new ArtificialExpressionPart();
+		ex.setOrder(5);
+		ex.setObjRef(attr);
+		ex.setExpressionType("AttributeImpl");
+		cv.getExpression().add(ex);		
+
+		return cv;
+	
+	}
+	
 	private ArtificialContextValue createTreeControlAccess(
 			domain.DataControl dc, domain.Link lnk) {
 		ArtificialContextValue cv = createTreeControlAccess(dc);

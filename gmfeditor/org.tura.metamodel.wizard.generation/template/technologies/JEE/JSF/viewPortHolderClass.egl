@@ -26,14 +26,12 @@ public class ViewPortHolder implements java.io.Serializable{
 
 [%
       for (port in allPorts){
-         if (port.viewPortTrigger.isDefined()){
 %]      
        @javax.inject.Inject
        @org.tura.platform.datacontrol.annotations.Selector("[%=util.mergeAndCapitalize(form.name).toLowerCase()%]")
        @org.tura.platform.datacontrol.annotations.ViewPortTrigger("[%=util.mergeAndUnCapitalize(port.name)%]")
       private  javax.enterprise.inject.Instance<org.tura.platform.datacontrol.command.ViewPortCommand>  trigger[%=util.mergeAndCapitalize(port.name)%];
 [%     
-       } 
       }
 %]
 
@@ -41,13 +39,12 @@ public class ViewPortHolder implements java.io.Serializable{
       for (port in allPorts){
 %]      
        public  String get[%=util.mergeAndCapitalize(port.name)%](){
-        [%if (port.viewPortTrigger.isDefined()){%]
             org.tura.platform.datacontrol.command.ViewPortCommand trigger =  trigger[%=util.mergeAndCapitalize(port.name)%].get();
-            trigger.setCurrentViewPort( this.[%=util.mergeAndUnCapitalize(port.name)%]);
-            return  (String) trigger.execute(); 
-        [%}else{%] 
+            if (trigger != null){
+               trigger.setCurrentViewPort( this.[%=util.mergeAndUnCapitalize(port.name)%]);
+               [%=util.mergeAndUnCapitalize(port.name)%] = (String) trigger.execute();
+            }
            return  [%=util.mergeAndUnCapitalize(port.name)%];
-       [%}%]    
        }
       
        public  void set[%=util.mergeAndCapitalize(port.name)%](String  [%=util.mergeAndUnCapitalize(port.name)%]){

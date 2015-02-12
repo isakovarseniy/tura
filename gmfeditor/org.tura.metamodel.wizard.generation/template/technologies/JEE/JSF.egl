@@ -37,6 +37,11 @@ operation  viewgeneration(hash) {
       var buffer = actionproducer.process();
       util.saveFile( javaPath+util.mergeAndCapitalize(form.name).toLowerCase()+"/producer/"  , "ActionProducer.java",buffer);  
  
+      var viewporttriggerproducer : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.wizard.generation/template/technologies/JEE/JSF/viewPortTriggerProducer.egl",hash,TemplateFactory);
+      viewporttriggerproducer.setFormatter(f);
+      var buffer = viewporttriggerproducer.process();
+      util.saveFile( javaPath+util.mergeAndCapitalize(form.name).toLowerCase()+"/producer/"  , "ViewPortTriggerProducer.java",buffer);  
+ 
       web_xml(hash) ;
       actionExecutor(hash);
       scriptGenerator(hash);

@@ -1693,7 +1693,6 @@
       <viewElement xsi:type="tura.domain:ViewPort" uid="001b7a93-ecab-4975-bee8-80ff8038d124" name="Frame for emploee details">
         <style/>
         <styleClass/>
-        <viewPortTrigger uid="976b9f48-aa27-4082-ad70-b043727ec16d"/>
       </viewElement>
       <multiLangLabel value="Messages.HR Controller.MAIN_WINDOW_LABEL">
         <expression objRef="af03a493-0ca4-486c-945f-5bfc2fdf35bd" expressionType="MessagesImpl"/>
