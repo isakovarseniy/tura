@@ -20,12 +20,22 @@
 			<artifactId>javaee-api</artifactId>
 			<scope>provided</scope>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>org.tura.platform.datacontrol</groupId>
 			<artifactId>core</artifactId>
 		</dependency>
-				
+
+		<dependency>
+			<groupId>org.tura.platform.datacontrol</groupId>
+			<artifactId>annotations</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.tura.platform</groupId>
+			<artifactId>primefaces-model</artifactId>
+		</dependency>
+
 	</dependencies>
 
 </project>

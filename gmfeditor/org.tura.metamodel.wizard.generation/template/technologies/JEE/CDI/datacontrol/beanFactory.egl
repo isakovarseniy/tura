@@ -34,6 +34,7 @@ public class BeanFactory  implements java.io.Serializable {
 	}
 	%]
 	@Inject
+	@org.tura.platform.datacontrol.annotations.Selector("[%=util.mergeAndCapitalize(form.name).toLowerCase()%]") 
 	private javax.enterprise.inject.Instance<org.tura.platform.datacontrol.command.FactoryInitializeTrigger> factoryInitializeTrigger;
 	[%
 	var root = form.datacontrols.formControl.root;
