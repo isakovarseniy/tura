@@ -22,20 +22,23 @@ public class ViewModel implements Serializable {
 	private HashMap<String, Object> modelHolder = new HashMap<>();
 
 	public String getClientId(Object obj) {
-		UIComponent uc = (UIComponent) obj;
-		String path = uc.getId();
-		if (uc.getClientId() != null)
-			path = uc.getClientId();
-
-		while (uc.getClientId() == null) {
-			uc = uc.getParent();
-			String id = uc.getId();
+		if (obj != null) {
+			UIComponent uc = (UIComponent) obj;
+			String path = uc.getId();
 			if (uc.getClientId() != null)
-				id = uc.getClientId();
-			path = id + ":" + path;
-		}
+				path = uc.getClientId();
 
-		return ":"+path;
+			while (uc.getClientId() == null) {
+				uc = uc.getParent();
+				String id = uc.getId();
+				if (uc.getClientId() != null)
+					id = uc.getClientId();
+				path = id + ":" + path;
+			}
+
+			return ":" + path;
+		} else
+			return "";
 	}
 
 	@SuppressWarnings("rawtypes")

@@ -2,7 +2,7 @@
 operation Label draw(hash) { 
      var util = new Native('org.tura.metamodel.commons.Util');
 %]
-	<h:outputText [%=self.uiElementAttributes(hash)%]  value="[%=buildParameterizedExpression(self.multiLangLabel)%]" />
+	<h:outputText  [%=self.mkUIDBinding()%] [%=self.uiElementAttributes(hash)%]  value="[%=buildParameterizedExpression(self.multiLangLabel)%]" />
 [%
 }
 %]
