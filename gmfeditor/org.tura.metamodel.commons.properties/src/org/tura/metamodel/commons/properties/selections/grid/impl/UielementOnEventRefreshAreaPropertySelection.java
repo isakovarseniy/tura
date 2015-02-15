@@ -1,7 +1,6 @@
 package org.tura.metamodel.commons.properties.selections.grid.impl;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 import org.eclipse.emf.ecore.EObject;
