@@ -178,32 +178,27 @@ public class UielementOnEventRefreshAreaPropertySelection extends GridProperty {
 										.getModel(), DomainPackage.eINSTANCE
 										.getUielement_OnEventRefreshArea(), ls));
 			} else {
+				ArrayList<domain.NickNamed> ls = new ArrayList<domain.NickNamed>();
 				Uielement uie = (Uielement) property.getModel();
-				for (Iterator<domain.NickNamed>  itr = uie.getOnEventRefreshArea().iterator(); itr.hasNext();){
-					domain.NickNamed ev = itr.next();
-
+				for (domain.NickNamed ev : uie.getOnEventRefreshArea()) {
 					String elUID = null;
 					if (ev instanceof domain.Uielement) {
-						elUID  = ((domain.Uielement) ev).getUid();
+						elUID = ((domain.Uielement) ev).getUid();
 					}
 					if (ev instanceof domain.ViewPort) {
-						elUID  = ((domain.ViewPort) ev).getUid();
+						elUID = ((domain.ViewPort) ev).getUid();
 					}
-					
-					if (elUID.equals(opt.getUid())){
 
-						ArrayList<domain.NickNamed> ls = new ArrayList<domain.NickNamed>();
+					if (elUID.equals(opt.getUid()))
 						ls.add(ev);
-						
-						editingDomain
+
+				}
+				editingDomain
 						.getCommandStack()
 						.execute(
 								RemoveCommand.create(editingDomain, property
 										.getModel(), DomainPackage.eINSTANCE
 										.getUielement_OnEventRefreshArea(), ls));
-						
-					}
-				}
 
 			}
 
