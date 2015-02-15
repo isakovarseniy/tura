@@ -37,7 +37,7 @@ operation  viewgeneration(hash) {
       var buffer = actionproducer.process();
       util.saveFile( javaPath+util.mergeAndCapitalize(form.name).toLowerCase()+"/producer/"  , "ActionProducer.java",buffer);  
  
-      var viewporttriggerproducer : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.wizard.generation/template/technologies/JEE/JSF/viewPortTriggerProducer.egl",hash,TemplateFactory);
+     var viewporttriggerproducer : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.wizard.generation/template/technologies/JEE/JSF/viewPortTriggerProducer.egl",hash,TemplateFactory);
       viewporttriggerproducer.setFormatter(f);
       var buffer = viewporttriggerproducer.process();
       util.saveFile( javaPath+util.mergeAndCapitalize(form.name).toLowerCase()+"/producer/"  , "ViewPortTriggerProducer.java",buffer);  
@@ -117,6 +117,13 @@ operation domain::Uielement  mkuid(){
 }
 %]
 
+
+[%@template
+operation domain::ViewPort  mkuid(){
+%]tura[%=self.uid.replaceAll("\\-","_")%][%
+}
+%]
+
 [%@template
 operation domain::CanvasFrame mkuid(){
 %]tura[%=self.uid.replaceAll("\\-","_")%][%
@@ -132,6 +139,12 @@ operation domain::Uielement  mkUIDBinding(){
 
 [%@template
 operation domain::CanvasFrame  mkUIDBinding(){
+%]id="[%=self.mkuid()%]" binding="#{[%=self.mkuid()%]}"[%
+}
+%]
+
+[%@template
+operation domain::ViewPort  mkUIDBinding(){
 %]id="[%=self.mkuid()%]" binding="#{[%=self.mkuid()%]}"[%
 }
 %]

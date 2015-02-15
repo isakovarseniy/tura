@@ -1690,7 +1690,7 @@
         <style/>
         <styleClass/>
       </viewElement>
-      <viewElement xsi:type="tura.domain:ViewPort" nickname="sdfsdf" uid="ce2aedb4-2308-40d7-b9aa-c9819da6e0f4" name="Frame for emploee details">
+      <viewElement xsi:type="tura.domain:ViewPort" nickname="details" uid="ce2aedb4-2308-40d7-b9aa-c9819da6e0f4" name="Details">
         <style/>
         <styleClass/>
       </viewElement>
@@ -1746,16 +1746,30 @@
       </viewElement>
     </canvases>
     <canvases xsi:type="tura.domain:Canvas" uid="65ce6a3b-bb30-405e-abd8-eec4db7fb755" name="Company details">
+      <style/>
+      <styleClass/>
       <viewElement xsi:type="tura.domain:ViewArea" uid="8bba67e5-b653-4042-aa0c-747711b2c11b" name="Company" canvasView="34bf2120-22f2-438b-9bfa-6ffa1cbda861">
         <style/>
         <styleClass/>
       </viewElement>
     </canvases>
-    <viewInheritances uid="d734b275-094c-44c9-9a52-5f21f67e72ec" source="ce2aedb4-2308-40d7-b9aa-c9819da6e0f4" target="c77769b5-0b24-4a83-b9ab-8e3635c3d913"/>
-    <viewInheritances uid="689bf224-a0fd-44e7-bebf-9c2f32edfddc" source="ce2aedb4-2308-40d7-b9aa-c9819da6e0f4" target="0b549b2b-507c-473a-b3df-3d02444ed823"/>
-    <viewInheritances uid="b3d26895-4f4f-43de-9ad4-8bf841e63003" source="ce2aedb4-2308-40d7-b9aa-c9819da6e0f4" target="2779bc17-3f90-480d-a562-049bd91bb53c"/>
-    <viewInheritances uid="86a590a7-bcb4-4b7b-9561-f77fe2bb1e26" source="ce2aedb4-2308-40d7-b9aa-c9819da6e0f4" target="ba2ade2b-9934-4af6-b4b2-0a95ea23b738"/>
-    <viewInheritances uid="aa498399-3fc4-48e6-80ac-b28e2866a681" source="ce2aedb4-2308-40d7-b9aa-c9819da6e0f4" target="65ce6a3b-bb30-405e-abd8-eec4db7fb755"/>
+    <canvases xsi:type="tura.domain:Canvas" uid="a9e6459f-9f3c-4d0c-b498-683216d98108" name="Departments details">
+      <viewElement xsi:type="tura.domain:ViewArea" uid="b3b4dd7d-23bd-42a7-bce4-30bf17c73cb1" name="Departments" canvasView="22bbeeeb-0324-4275-87f4-7785074f76a6">
+        <style/>
+        <styleClass/>
+      </viewElement>
+      <viewElement xsi:type="tura.domain:ViewPort" uid="df0ec442-fd69-454f-8ece-9d1ea34c074e" name="Frame for emploee details">
+        <style/>
+        <styleClass/>
+      </viewElement>
+      <multiLangLabel/>
+    </canvases>
+    <viewInheritances uid="2dc1ab34-ee89-4f95-83f9-b457a11baab4" source="df0ec442-fd69-454f-8ece-9d1ea34c074e" target="c77769b5-0b24-4a83-b9ab-8e3635c3d913"/>
+    <viewInheritances uid="d7bc97d7-057a-44ed-bc73-4f4764e73ec9" source="ce2aedb4-2308-40d7-b9aa-c9819da6e0f4" target="0b549b2b-507c-473a-b3df-3d02444ed823"/>
+    <viewInheritances uid="b18f47fc-4187-4ef0-928f-aa3477ddc10d" source="ce2aedb4-2308-40d7-b9aa-c9819da6e0f4" target="2779bc17-3f90-480d-a562-049bd91bb53c"/>
+    <viewInheritances uid="7ecef443-e2df-40d1-87eb-05f1197fb946" source="ce2aedb4-2308-40d7-b9aa-c9819da6e0f4" target="ba2ade2b-9934-4af6-b4b2-0a95ea23b738"/>
+    <viewInheritances uid="ee0bc1c9-7f78-4fb6-a343-fe6ae5b17c41" source="ce2aedb4-2308-40d7-b9aa-c9819da6e0f4" target="65ce6a3b-bb30-405e-abd8-eec4db7fb755"/>
+    <viewInheritances uid="7fe9426a-6db4-45d4-9820-aa5905e9810f" source="ce2aedb4-2308-40d7-b9aa-c9819da6e0f4" target="a9e6459f-9f3c-4d0c-b498-683216d98108"/>
     <tabPagesInheritances uid="d985923c-6783-4312-9c35-ba24224932da" source="c77769b5-0b24-4a83-b9ab-8e3635c3d913" target="6fb4cb14-2476-434d-8db9-7d7425982c83"/>
     <tabPagesInheritances uid="c30f4494-be73-42be-af50-ecbb582267f0" source="c77769b5-0b24-4a83-b9ab-8e3635c3d913" target="14993ad6-c07e-4480-bf18-bf8266961109"/>
   </tura.domain:Views>
@@ -1883,7 +1897,7 @@
     <baseCanvas uid="c5f8ac47-356e-4c17-84db-fcf0a5037ca7">
       <children xsi:type="tura.domain:LayerHolder" uid="cae32081-1631-4110-9d0f-5a5b1cd5e23a" columns="2">
         <children xsi:type="tura.domain:LayerHolder" uid="b4779d71-722f-48ae-98c1-4d1e12202f93">
-          <children xsi:type="tura.domain:Table" uid="92ea6c50-dc39-4ba0-bb76-b3ca2e161fe5" onEventRefreshArea="bee23d39-6e59-450f-b696-94cf4c907c86 1ee2b71b-9a1a-4655-8562-b01bd84fe5e5 4211cd6a-7dcd-46df-b7b2-9d49c374e0ce ce2aedb4-2308-40d7-b9aa-c9819da6e0f4" sourcePointer="d45e9605-3706-493c-8422-3f7b8b6ea2ed" sourceCastDataControl="d45e9605-3706-493c-8422-3f7b8b6ea2ed" columns="2" label="Companies" rowNumber="5">
+          <children xsi:type="tura.domain:Table" uid="92ea6c50-dc39-4ba0-bb76-b3ca2e161fe5" onEventRefreshArea="bee23d39-6e59-450f-b696-94cf4c907c86 ce2aedb4-2308-40d7-b9aa-c9819da6e0f4" sourcePointer="d45e9605-3706-493c-8422-3f7b8b6ea2ed" sourceCastDataControl="d45e9605-3706-493c-8422-3f7b8b6ea2ed" columns="2" label="Companies" rowNumber="5">
             <style/>
             <enabled/>
             <multiLangLabel value="Messages.HR Controller.COMPANIES_TABLE">
@@ -1967,7 +1981,7 @@
           </children>
         </children>
         <children xsi:type="tura.domain:LayerHolder" uid="80fa16f1-1108-4250-90c0-ce981cc4e53a">
-          <children xsi:type="tura.domain:Tree" nickname="LocationTree" uid="bee23d39-6e59-450f-b696-94cf4c907c86" onEventRefreshArea="1ee2b71b-9a1a-4655-8562-b01bd84fe5e5 4211cd6a-7dcd-46df-b7b2-9d49c374e0ce 50f32416-d7ec-41a5-8d7e-405950accbfb" sourcePointer="cd1cab1c-1781-4867-85b8-84d9f465f989" label="Location">
+          <children xsi:type="tura.domain:Tree" nickname="LocationTree" uid="bee23d39-6e59-450f-b696-94cf4c907c86" sourcePointer="cd1cab1c-1781-4867-85b8-84d9f465f989" label="Location">
             <style/>
             <multiLangLabel value="Messages.HR Controller.LOCATIONS_TREE">
               <expression objRef="af03a493-0ca4-486c-945f-5bfc2fdf35bd" expressionType="MessagesImpl"/>
@@ -2027,91 +2041,6 @@
                 <expression objRef="a1d3f2ac-caea-4f0b-a523-59edc4fd19b5" order="3" expressionType="StyleSetImpl"/>
               </icon>
             </children>
-          </children>
-        </children>
-      </children>
-      <children xsi:type="tura.domain:LayerHolder" uid="7715c7e0-fd2a-4af2-8c9e-c9a5924847e1">
-        <children xsi:type="tura.domain:Table" nickname="DepartmentGrid" uid="1ee2b71b-9a1a-4655-8562-b01bd84fe5e5" onEventRefreshArea="4211cd6a-7dcd-46df-b7b2-9d49c374e0ce 50f32416-d7ec-41a5-8d7e-405950accbfb" sourcePointer="0feddc04-1241-40fa-a9f3-35089d2cf4c5" columns="3" label="Departments" rowNumber="5">
-          <style/>
-          <enabled/>
-          <required/>
-          <readOnly/>
-          <multiLangLabel value="Messages.HR Controller.DEPARTMENT_TABLE">
-            <expression objRef="af03a493-0ca4-486c-945f-5bfc2fdf35bd" expressionType="MessagesImpl"/>
-            <expression objRef="5772ddee-a83b-41c9-8f34-c442412e1013" order="1" expressionType="MessageLibraryImpl"/>
-            <expression objRef="50badfae-ddaf-4827-9504-56af80c2dfa8" order="2" expressionType="MessageImpl"/>
-          </multiLangLabel>
-          <cols uid="4377a2a6-b081-4263-a745-229a848472e4" label="Department name">
-            <multiLangLabel value="Messages.HR Controller.DEPARTMENTS_TABLE_DEPARTMENT_NAME_COLUMN">
-              <expression objRef="af03a493-0ca4-486c-945f-5bfc2fdf35bd" expressionType="MessagesImpl"/>
-              <expression objRef="5772ddee-a83b-41c9-8f34-c442412e1013" order="1" expressionType="MessageLibraryImpl"/>
-              <expression objRef="62de9606-e73e-4b3e-a141-55f33ac9fc0c" order="2" expressionType="MessageImpl"/>
-            </multiLangLabel>
-            <element xsi:type="tura.domain:InputText" uid="db3a1f7f-4310-48c8-86fa-cc4948ca9c78" valuePointer="Dep_7982905f-4f83-472f-8551-80e30e34934c" sourceCastDataControl="0feddc04-1241-40fa-a9f3-35089d2cf4c5"/>
-          </cols>
-          <cols uid="11d633a4-2258-4284-abfb-d4c10055208d" label="Description">
-            <multiLangLabel value="Messages.HR Controller.DEPARTMENTS_TABLE_DEPARTMENT_DESCRIPTION_COLUMN">
-              <expression objRef="af03a493-0ca4-486c-945f-5bfc2fdf35bd" expressionType="MessagesImpl"/>
-              <expression objRef="5772ddee-a83b-41c9-8f34-c442412e1013" order="1" expressionType="MessageLibraryImpl"/>
-              <expression objRef="6ed1145f-7e04-4f8e-9d07-c44035b4f397" order="2" expressionType="MessageImpl"/>
-            </multiLangLabel>
-            <element xsi:type="tura.domain:InputText" uid="6381fd97-fd67-4584-ac5d-13dc4356ecf3" valuePointer="a3f007de-ce4a-4510-bc86-52f20eee5325">
-              <required/>
-            </element>
-          </cols>
-          <cols uid="9d597873-7f7a-4e7e-86e0-db36782ff56b" label="Department ID">
-            <multiLangLabel value="Messages.HR Controller.DEPARTMENTS_TABLE_ID_COLUMN">
-              <expression objRef="af03a493-0ca4-486c-945f-5bfc2fdf35bd" expressionType="MessagesImpl"/>
-              <expression objRef="5772ddee-a83b-41c9-8f34-c442412e1013" order="1" expressionType="MessageLibraryImpl"/>
-              <expression objRef="2ee3ce29-6cd8-467b-88e2-01ef98298484" order="2" expressionType="MessageImpl"/>
-            </multiLangLabel>
-            <element xsi:type="tura.domain:InputText" uid="937ac48d-2ce0-4fe7-b312-30eb079e1ef8" valuePointer="Dep_4229ac85-ee1b-46c1-87d7-b23abcc416c9"/>
-          </cols>
-        </children>
-        <children xsi:type="tura.domain:LayerHolder" uid="0f9a66ee-431e-4775-ae42-a1c129766afe" columns="2">
-          <children xsi:type="tura.domain:Button" uid="017c5844-2d2d-4d04-adab-9795ccc7d279" packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="97a1a7c3-5e08-48b1-82d0-8a35fa5a13e9" fakePackageName="Base package" fakeTypeName="System library" methodRef="111886f3-7b14-4394-9454-3e2df8cd55e7" fakeMethod="Create row" label="Add">
-            <parameters uid="e976550e-9488-453b-8123-878c510354c0" refObj="96c4a5f8-171b-412b-98b8-23f37e1c5d68">
-              <value uid="43d950a0-7bb2-4fc2-980f-22a062d40e0d" value="Data controls.Department">
-                <expression expressionType="DataControlHolder"/>
-                <expression objRef="0feddc04-1241-40fa-a9f3-35089d2cf4c5" order="1" expressionType="DataControlImpl"/>
-              </value>
-            </parameters>
-            <parameters uid="13ba0bdc-d37b-4519-a138-4499d903b5fd">
-              <value uid="1b436132-734c-4417-a14c-40fb3d199641" value="Data controls.Department.currentIndex">
-                <expression expressionType="DataControlHolder"/>
-                <expression objRef="0feddc04-1241-40fa-a9f3-35089d2cf4c5" order="1" expressionType="DataControlImpl"/>
-                <expression order="2" expressionType="DataControlFakeMethod"/>
-              </value>
-            </parameters>
-            <multiLangLabel/>
-            <icon value="Application styles.HR styles.HR Controller styles.Add row button">
-              <expression objRef="c7379293-bc50-4b7e-8cc9-917bc2dd97aa" expressionType="ApplicationStyleImpl"/>
-              <expression objRef="a9b99a7f-03c7-4b89-82c2-b3e1f0f326d2" order="1" expressionType="StylesPackageImpl"/>
-              <expression objRef="bc917c9e-7594-4ff8-9157-a9e6cf5ac5f5" order="2" expressionType="StyleLibraryImpl"/>
-              <expression objRef="e92845fc-7570-455f-9580-623183bccc0f" order="3" expressionType="StyleSetImpl"/>
-            </icon>
-          </children>
-          <children xsi:type="tura.domain:Button" uid="e26926e0-8b69-4ea3-b06a-1a708a6f75d2" packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="97a1a7c3-5e08-48b1-82d0-8a35fa5a13e9" fakePackageName="Base package" fakeTypeName="System library" methodRef="22be5074-5d5e-4f52-916b-e802b8825b06" fakeMethod="Remove row" label="Remove">
-            <parameters uid="ec5c2b2d-c56a-4fe4-aa9c-f42640968faf" refObj="76475fdc-384e-4bef-afd5-a1b0a14a4162">
-              <value uid="8c998f63-2a69-4a10-b4c1-f592a7b12751" value="Data controls.Department">
-                <expression expressionType="DataControlHolder"/>
-                <expression objRef="0feddc04-1241-40fa-a9f3-35089d2cf4c5" order="1" expressionType="DataControlImpl"/>
-              </value>
-            </parameters>
-            <parameters uid="7b9224c2-d685-4c61-8887-14c9e16a94fd">
-              <value uid="7c036191-b19c-4b7f-8ec8-7e107ac2817c" value="Data controls.Department.currentIndex">
-                <expression expressionType="DataControlHolder"/>
-                <expression objRef="0feddc04-1241-40fa-a9f3-35089d2cf4c5" order="1" expressionType="DataControlImpl"/>
-                <expression order="2" expressionType="DataControlFakeMethod"/>
-              </value>
-            </parameters>
-            <multiLangLabel/>
-            <icon value="Application styles.HR styles.HR Controller styles.Remove row button">
-              <expression objRef="c7379293-bc50-4b7e-8cc9-917bc2dd97aa" expressionType="ApplicationStyleImpl"/>
-              <expression objRef="a9b99a7f-03c7-4b89-82c2-b3e1f0f326d2" order="1" expressionType="StylesPackageImpl"/>
-              <expression objRef="bc917c9e-7594-4ff8-9157-a9e6cf5ac5f5" order="2" expressionType="StyleLibraryImpl"/>
-              <expression objRef="a1d3f2ac-caea-4f0b-a523-59edc4fd19b5" order="3" expressionType="StyleSetImpl"/>
-            </icon>
           </children>
         </children>
       </children>
@@ -2401,6 +2330,49 @@
           </multiLangLabel>
         </children>
         <children xsi:type="tura.domain:OutputText" uid="f124cdeb-7e4d-4c1f-bced-f5e63c3b926d" sourcePointer="d45e9605-3706-493c-8422-3f7b8b6ea2ed" valuePointer="a3f007de-ce4a-4510-bc86-52f20eee5325"/>
+      </children>
+    </baseCanvas>
+  </tura.domain:CanvasView>
+  <tura.domain:CanvasView uid="22bbeeeb-0324-4275-87f4-7785074f76a6" parent="b3b4dd7d-23bd-42a7-bce4-30bf17c73cb1">
+    <baseCanvas uid="27f09091-5de2-4ee7-84cd-2eafc010dfe2">
+      <children xsi:type="tura.domain:Table" uid="4764435e-ca02-4771-a456-6454cada2e94" sourcePointer="0feddc04-1241-40fa-a9f3-35089d2cf4c5" columns="3" label="Department">
+        <multiLangLabel value="Messages.HR Controller.DEPARTMENT_TABLE">
+          <expression objRef="af03a493-0ca4-486c-945f-5bfc2fdf35bd" expressionType="MessagesImpl"/>
+          <expression objRef="5772ddee-a83b-41c9-8f34-c442412e1013" order="1" expressionType="MessageLibraryImpl"/>
+          <expression objRef="50badfae-ddaf-4827-9504-56af80c2dfa8" order="2" expressionType="MessageImpl"/>
+        </multiLangLabel>
+        <cols uid="f19ec210-28a7-49eb-a43d-ac8dd72bec2c" label="Department name">
+          <multiLangLabel value="Messages.HR Controller.DEPARTMENTS_TABLE_DEPARTMENT_NAME_COLUMN">
+            <expression objRef="af03a493-0ca4-486c-945f-5bfc2fdf35bd" expressionType="MessagesImpl"/>
+            <expression objRef="5772ddee-a83b-41c9-8f34-c442412e1013" order="1" expressionType="MessageLibraryImpl"/>
+            <expression objRef="62de9606-e73e-4b3e-a141-55f33ac9fc0c" order="2" expressionType="MessageImpl"/>
+          </multiLangLabel>
+          <element xsi:type="tura.domain:InputText" uid="8eb1610e-75c6-433b-aa7a-32109d49b6d2" valuePointer="Dep_7982905f-4f83-472f-8551-80e30e34934c"/>
+        </cols>
+        <cols uid="1b065ba0-93ce-4d04-9586-ffda7693bb85" label="Description">
+          <multiLangLabel value="Messages.HR Controller.DEPARTMENTS_TABLE_DEPARTMENT_DESCRIPTION_COLUMN">
+            <expression objRef="af03a493-0ca4-486c-945f-5bfc2fdf35bd" expressionType="MessagesImpl"/>
+            <expression objRef="5772ddee-a83b-41c9-8f34-c442412e1013" order="1" expressionType="MessageLibraryImpl"/>
+            <expression objRef="6ed1145f-7e04-4f8e-9d07-c44035b4f397" order="2" expressionType="MessageImpl"/>
+          </multiLangLabel>
+          <element xsi:type="tura.domain:InputText" uid="df20b437-bc25-43c0-a348-af260a15f712" valuePointer="Dep_7982905f-4f83-472f-8551-80e30e34934c"/>
+        </cols>
+        <cols uid="b9c5f856-805a-47d5-ab2e-5eb17e573ac5" label="Department ID">
+          <multiLangLabel value="Messages.HR Controller.DEPARTMENTS_TABLE_ID_COLUMN">
+            <expression objRef="af03a493-0ca4-486c-945f-5bfc2fdf35bd" expressionType="MessagesImpl"/>
+            <expression objRef="5772ddee-a83b-41c9-8f34-c442412e1013" order="1" expressionType="MessageLibraryImpl"/>
+            <expression objRef="2ee3ce29-6cd8-467b-88e2-01ef98298484" order="2" expressionType="MessageImpl"/>
+          </multiLangLabel>
+          <element xsi:type="tura.domain:InputText" uid="853518eb-6b7c-425c-84a7-cab0f0129ee2" valuePointer="Dep_4229ac85-ee1b-46c1-87d7-b23abcc416c9"/>
+        </cols>
+      </children>
+      <children xsi:type="tura.domain:LayerHolder" uid="3ccaa275-74b1-43a9-a7fd-e3b9b4ddcb09" columns="2">
+        <children xsi:type="tura.domain:Button" uid="c7589992-3b7e-46e4-95f1-4511e23fc6e4" label="Add">
+          <multiLangLabel/>
+        </children>
+        <children xsi:type="tura.domain:Button" uid="09d9b156-1263-42e6-b057-7ee206d55548" label="Remove">
+          <multiLangLabel/>
+        </children>
       </children>
     </baseCanvas>
   </tura.domain:CanvasView>

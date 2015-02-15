@@ -2,7 +2,11 @@
 operation ViewPort draw(hash) { 
      var util = new Native('org.tura.metamodel.commons.Util');
 %]
+
+<p:panelGrid   [%=self.mkUIDBinding()%]  columns="1">
 		<ui:include src="#{viewPortHolder.[%=util.mergeAndUnCapitalize(self.name)%]}"/>
+</p:panelGrid>
+		
 [%               
 }
 %]
