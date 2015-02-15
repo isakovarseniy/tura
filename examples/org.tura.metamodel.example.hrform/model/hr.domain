@@ -1981,7 +1981,7 @@
           </children>
         </children>
         <children xsi:type="tura.domain:LayerHolder" uid="80fa16f1-1108-4250-90c0-ce981cc4e53a">
-          <children xsi:type="tura.domain:Tree" nickname="LocationTree" uid="bee23d39-6e59-450f-b696-94cf4c907c86" sourcePointer="cd1cab1c-1781-4867-85b8-84d9f465f989" label="Location">
+          <children xsi:type="tura.domain:Tree" nickname="LocationTree" uid="bee23d39-6e59-450f-b696-94cf4c907c86" onEventRefreshArea="ce2aedb4-2308-40d7-b9aa-c9819da6e0f4" sourcePointer="cd1cab1c-1781-4867-85b8-84d9f465f989" label="Location">
             <style/>
             <multiLangLabel value="Messages.HR Controller.LOCATIONS_TREE">
               <expression objRef="af03a493-0ca4-486c-945f-5bfc2fdf35bd" expressionType="MessagesImpl"/>

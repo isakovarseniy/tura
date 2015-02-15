@@ -64,7 +64,7 @@ operation domain::StyleElement  styleAttributes(hash){
      
      %]style="[%=value%]"[%}
 
-     if (self.styleClass <> null and self.styleClass.value  ){%]styleClass="[%
+     if (self.styleClass <> null  and self.styleClass.parameters <> null  ){%]styleClass="[%
       var first = 0;
       for (class in self.styleClass.parameters ){ 
           if ( first = 0){%],[%}

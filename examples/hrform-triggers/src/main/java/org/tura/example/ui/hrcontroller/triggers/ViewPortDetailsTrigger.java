@@ -7,6 +7,7 @@ import javax.inject.Inject;
 import org.elsoft.platform.hr.objects.CityDAO;
 import org.elsoft.platform.hr.objects.CountryDAO;
 import org.elsoft.platform.hr.objects.StateDAO;
+import org.elsoft.platform.hr.objects.StreetDAO;
 import org.tura.platform.datacontrol.ELResolver;
 import org.tura.platform.datacontrol.annotations.Selector;
 import org.tura.platform.datacontrol.annotations.ViewPortTrigger;
@@ -15,8 +16,8 @@ import org.tura.platform.datacontrol.command.ViewPortCommand;
 @Alternative
 @Priority(10)
 @Selector("hrcontroller")
-@ViewPortTrigger("frameForEmploeeDetails")
-public class ViewPortFrameForEmploeeDetailsTrigger extends ViewPortCommand {
+@ViewPortTrigger("details")
+public class ViewPortDetailsTrigger extends ViewPortCommand {
 	 
 	@Inject
 	ELResolver elResolver;
@@ -34,6 +35,9 @@ public class ViewPortFrameForEmploeeDetailsTrigger extends ViewPortCommand {
 		if (obj instanceof CityDAO)
 			return "/hrcontroller/CityDetails.xhtml";
 		
+		if (obj instanceof StreetDAO)
+			return "/hrcontroller/EmployeeDetails.xhtml";
+
 		return this.port;
 	}
 
