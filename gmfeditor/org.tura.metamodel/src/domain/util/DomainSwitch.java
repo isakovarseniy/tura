@@ -839,6 +839,7 @@ public class DomainSwitch<T> extends Switch<T>
         ViewPort viewPort = (ViewPort)theEObject;
         T result = caseViewPort(viewPort);
         if (result == null) result = caseViewElement(viewPort);
+        if (result == null) result = caseNickNamed(viewPort);
         if (result == null) result = caseStyleElement(viewPort);
         if (result == null) result = defaultCase(theEObject);
         return result;
@@ -942,11 +943,19 @@ public class DomainSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case DomainPackage.NICK_NAMED:
+      {
+        NickNamed nickNamed = (NickNamed)theEObject;
+        T result = caseNickNamed(nickNamed);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case DomainPackage.UIELEMENT:
       {
         Uielement uielement = (Uielement)theEObject;
         T result = caseUielement(uielement);
         if (result == null) result = caseStyleElement(uielement);
+        if (result == null) result = caseNickNamed(uielement);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -956,6 +965,7 @@ public class DomainSwitch<T> extends Switch<T>
         T result = caseSourcesPointer(sourcesPointer);
         if (result == null) result = caseUielement(sourcesPointer);
         if (result == null) result = caseStyleElement(sourcesPointer);
+        if (result == null) result = caseNickNamed(sourcesPointer);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -966,6 +976,7 @@ public class DomainSwitch<T> extends Switch<T>
         if (result == null) result = caseUielement(actionElement);
         if (result == null) result = caseTrigger(actionElement);
         if (result == null) result = caseStyleElement(actionElement);
+        if (result == null) result = caseNickNamed(actionElement);
         if (result == null) result = caseMethodPointer(actionElement);
         if (result == null) result = caseContextParameters(actionElement);
         if (result == null) result = caseTypePointer(actionElement);
@@ -979,6 +990,7 @@ public class DomainSwitch<T> extends Switch<T>
         if (result == null) result = caseSourcesPointer(inputElement);
         if (result == null) result = caseUielement(inputElement);
         if (result == null) result = caseStyleElement(inputElement);
+        if (result == null) result = caseNickNamed(inputElement);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -998,6 +1010,7 @@ public class DomainSwitch<T> extends Switch<T>
         if (result == null) result = caseSourcesPointer(optionSelection);
         if (result == null) result = caseUielement(optionSelection);
         if (result == null) result = caseStyleElement(optionSelection);
+        if (result == null) result = caseNickNamed(optionSelection);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -1009,6 +1022,7 @@ public class DomainSwitch<T> extends Switch<T>
         if (result == null) result = caseChildrenHolder(layerHolder);
         if (result == null) result = caseHTMLLayerHolder(layerHolder);
         if (result == null) result = caseStyleElement(layerHolder);
+        if (result == null) result = caseNickNamed(layerHolder);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -1020,6 +1034,7 @@ public class DomainSwitch<T> extends Switch<T>
         if (result == null) result = caseSourcesPointer(inputText);
         if (result == null) result = caseUielement(inputText);
         if (result == null) result = caseStyleElement(inputText);
+        if (result == null) result = caseNickNamed(inputText);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -1030,6 +1045,7 @@ public class DomainSwitch<T> extends Switch<T>
         if (result == null) result = caseUielement(label);
         if (result == null) result = caseMultiLangLabel(label);
         if (result == null) result = caseStyleElement(label);
+        if (result == null) result = caseNickNamed(label);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -1041,6 +1057,7 @@ public class DomainSwitch<T> extends Switch<T>
         if (result == null) result = caseSourcesPointer(outputText);
         if (result == null) result = caseUielement(outputText);
         if (result == null) result = caseStyleElement(outputText);
+        if (result == null) result = caseNickNamed(outputText);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -1052,6 +1069,7 @@ public class DomainSwitch<T> extends Switch<T>
         if (result == null) result = caseSourcesPointer(checkBox);
         if (result == null) result = caseUielement(checkBox);
         if (result == null) result = caseStyleElement(checkBox);
+        if (result == null) result = caseNickNamed(checkBox);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -1064,6 +1082,7 @@ public class DomainSwitch<T> extends Switch<T>
         if (result == null) result = caseSourcesPointer(dropDownSelection);
         if (result == null) result = caseUielement(dropDownSelection);
         if (result == null) result = caseStyleElement(dropDownSelection);
+        if (result == null) result = caseNickNamed(dropDownSelection);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -1085,6 +1104,7 @@ public class DomainSwitch<T> extends Switch<T>
         if (result == null) result = caseMultiLangLabel(table);
         if (result == null) result = caseUielement(table);
         if (result == null) result = caseStyleElement(table);
+        if (result == null) result = caseNickNamed(table);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -1097,6 +1117,7 @@ public class DomainSwitch<T> extends Switch<T>
         if (result == null) result = caseMultiLangLabel(tree);
         if (result == null) result = caseUielement(tree);
         if (result == null) result = caseStyleElement(tree);
+        if (result == null) result = caseNickNamed(tree);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -1109,6 +1130,7 @@ public class DomainSwitch<T> extends Switch<T>
         if (result == null) result = caseUielement(button);
         if (result == null) result = caseTrigger(button);
         if (result == null) result = caseStyleElement(button);
+        if (result == null) result = caseNickNamed(button);
         if (result == null) result = caseMethodPointer(button);
         if (result == null) result = caseContextParameters(button);
         if (result == null) result = caseTypePointer(button);
@@ -3236,6 +3258,22 @@ public class DomainSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseStyleElement(StyleElement object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Nick Named</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Nick Named</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseNickNamed(NickNamed object)
   {
     return null;
   }

@@ -4,6 +4,7 @@ package domain.impl;
 
 import domain.Context;
 import domain.DomainPackage;
+import domain.NickNamed;
 import domain.Uielement;
 
 import java.util.Collection;
@@ -27,8 +28,8 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link domain.impl.UielementImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.impl.UielementImpl#getNickname <em>Nickname</em>}</li>
+ *   <li>{@link domain.impl.UielementImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.impl.UielementImpl#getEnabled <em>Enabled</em>}</li>
  *   <li>{@link domain.impl.UielementImpl#getRequired <em>Required</em>}</li>
  *   <li>{@link domain.impl.UielementImpl#getReadOnly <em>Read Only</em>}</li>
@@ -40,26 +41,6 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  */
 public class UielementImpl extends StyleElementImpl implements Uielement
 {
-  /**
-   * The default value of the '{@link #getUid() <em>Uid</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getUid()
-   * @generated
-   * @ordered
-   */
-  protected static final String UID_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getUid() <em>Uid</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getUid()
-   * @generated
-   * @ordered
-   */
-  protected String uid = UID_EDEFAULT;
-
   /**
    * The default value of the '{@link #getNickname() <em>Nickname</em>}' attribute.
    * <!-- begin-user-doc -->
@@ -79,6 +60,26 @@ public class UielementImpl extends StyleElementImpl implements Uielement
    * @ordered
    */
   protected String nickname = NICKNAME_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #getUid() <em>Uid</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getUid()
+   * @generated
+   * @ordered
+   */
+  protected static final String UID_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getUid() <em>Uid</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getUid()
+   * @generated
+   * @ordered
+   */
+  protected String uid = UID_EDEFAULT;
 
   /**
    * The cached value of the '{@link #getEnabled() <em>Enabled</em>}' containment reference.
@@ -118,7 +119,7 @@ public class UielementImpl extends StyleElementImpl implements Uielement
    * @generated
    * @ordered
    */
-  protected EList<Uielement> onEventRefreshArea;
+  protected EList<NickNamed> onEventRefreshArea;
 
   /**
    * <!-- begin-user-doc -->
@@ -336,11 +337,11 @@ public class UielementImpl extends StyleElementImpl implements Uielement
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Uielement> getOnEventRefreshArea()
+  public EList<NickNamed> getOnEventRefreshArea()
   {
     if (onEventRefreshArea == null)
     {
-      onEventRefreshArea = new EObjectResolvingEList<Uielement>(Uielement.class, this, DomainPackage.UIELEMENT__ON_EVENT_REFRESH_AREA);
+      onEventRefreshArea = new EObjectResolvingEList<NickNamed>(NickNamed.class, this, DomainPackage.UIELEMENT__ON_EVENT_REFRESH_AREA);
     }
     return onEventRefreshArea;
   }
@@ -375,10 +376,10 @@ public class UielementImpl extends StyleElementImpl implements Uielement
   {
     switch (featureID)
     {
-      case DomainPackage.UIELEMENT__UID:
-        return getUid();
       case DomainPackage.UIELEMENT__NICKNAME:
         return getNickname();
+      case DomainPackage.UIELEMENT__UID:
+        return getUid();
       case DomainPackage.UIELEMENT__ENABLED:
         return getEnabled();
       case DomainPackage.UIELEMENT__REQUIRED:
@@ -402,11 +403,11 @@ public class UielementImpl extends StyleElementImpl implements Uielement
   {
     switch (featureID)
     {
-      case DomainPackage.UIELEMENT__UID:
-        setUid((String)newValue);
-        return;
       case DomainPackage.UIELEMENT__NICKNAME:
         setNickname((String)newValue);
+        return;
+      case DomainPackage.UIELEMENT__UID:
+        setUid((String)newValue);
         return;
       case DomainPackage.UIELEMENT__ENABLED:
         setEnabled((Context)newValue);
@@ -419,7 +420,7 @@ public class UielementImpl extends StyleElementImpl implements Uielement
         return;
       case DomainPackage.UIELEMENT__ON_EVENT_REFRESH_AREA:
         getOnEventRefreshArea().clear();
-        getOnEventRefreshArea().addAll((Collection<? extends Uielement>)newValue);
+        getOnEventRefreshArea().addAll((Collection<? extends NickNamed>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -435,11 +436,11 @@ public class UielementImpl extends StyleElementImpl implements Uielement
   {
     switch (featureID)
     {
-      case DomainPackage.UIELEMENT__UID:
-        setUid(UID_EDEFAULT);
-        return;
       case DomainPackage.UIELEMENT__NICKNAME:
         setNickname(NICKNAME_EDEFAULT);
+        return;
+      case DomainPackage.UIELEMENT__UID:
+        setUid(UID_EDEFAULT);
         return;
       case DomainPackage.UIELEMENT__ENABLED:
         setEnabled((Context)null);
@@ -467,10 +468,10 @@ public class UielementImpl extends StyleElementImpl implements Uielement
   {
     switch (featureID)
     {
-      case DomainPackage.UIELEMENT__UID:
-        return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
       case DomainPackage.UIELEMENT__NICKNAME:
         return NICKNAME_EDEFAULT == null ? nickname != null : !NICKNAME_EDEFAULT.equals(nickname);
+      case DomainPackage.UIELEMENT__UID:
+        return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
       case DomainPackage.UIELEMENT__ENABLED:
         return enabled != null;
       case DomainPackage.UIELEMENT__REQUIRED:
@@ -489,15 +490,53 @@ public class UielementImpl extends StyleElementImpl implements Uielement
    * @generated
    */
   @Override
+  public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass)
+  {
+    if (baseClass == NickNamed.class)
+    {
+      switch (derivedFeatureID)
+      {
+        case DomainPackage.UIELEMENT__NICKNAME: return DomainPackage.NICK_NAMED__NICKNAME;
+        default: return -1;
+      }
+    }
+    return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass)
+  {
+    if (baseClass == NickNamed.class)
+    {
+      switch (baseFeatureID)
+      {
+        case DomainPackage.NICK_NAMED__NICKNAME: return DomainPackage.UIELEMENT__NICKNAME;
+        default: return -1;
+      }
+    }
+    return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public String toString()
   {
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (uid: ");
-    result.append(uid);
-    result.append(", nickname: ");
+    result.append(" (nickname: ");
     result.append(nickname);
+    result.append(", uid: ");
+    result.append(uid);
     result.append(')');
     return result.toString();
   }

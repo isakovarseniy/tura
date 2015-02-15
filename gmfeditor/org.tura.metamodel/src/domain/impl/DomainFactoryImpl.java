@@ -14,7 +14,6 @@ import domain.*;
 /**
  * <!-- begin-user-doc -->
  * An implementation of the model <b>Factory</b>.
- * <!-- end-user-doc -->
  * @generated
  */
 public class DomainFactoryImpl extends EFactoryImpl implements DomainFactory
@@ -177,6 +176,7 @@ public class DomainFactoryImpl extends EFactoryImpl implements DomainFactory
       case DomainPackage.CONTEXT_PARAMETERS: return createContextParameters();
       case DomainPackage.CONTEXT: return createContext();
       case DomainPackage.STYLE_ELEMENT: return createStyleElement();
+      case DomainPackage.NICK_NAMED: return createNickNamed();
       case DomainPackage.UIELEMENT: return createUielement();
       case DomainPackage.SOURCES_POINTER: return createSourcesPointer();
       case DomainPackage.ACTION_ELEMENT: return createActionElement();
@@ -1526,6 +1526,17 @@ public class DomainFactoryImpl extends EFactoryImpl implements DomainFactory
   {
     StyleElementImpl styleElement = new StyleElementImpl();
     return styleElement;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NickNamed createNickNamed()
+  {
+    NickNamedImpl nickNamed = new NickNamedImpl();
+    return nickNamed;
   }
 
   /**

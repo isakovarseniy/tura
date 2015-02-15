@@ -1049,6 +1049,15 @@ public interface DomainFactory extends EFactory
   StyleElement createStyleElement();
 
   /**
+   * Returns a new object of class '<em>Nick Named</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Nick Named</em>'.
+   * @generated
+   */
+  NickNamed createNickNamed();
+
+  /**
    * Returns a new object of class '<em>Uielement</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

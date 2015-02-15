@@ -64,8 +64,8 @@ public class UielementItemProvider
     {
       super.getPropertyDescriptors(object);
 
-      addUidPropertyDescriptor(object);
       addNicknamePropertyDescriptor(object);
+      addUidPropertyDescriptor(object);
       addOnEventRefreshAreaPropertyDescriptor(object);
     }
     return itemPropertyDescriptors;
@@ -106,9 +106,9 @@ public class UielementItemProvider
       (createItemPropertyDescriptor
         (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
          getResourceLocator(),
-         getString("_UI_Uielement_nickname_feature"),
-         getString("_UI_PropertyDescriptor_description", "_UI_Uielement_nickname_feature", "_UI_Uielement_type"),
-         DomainPackage.Literals.UIELEMENT__NICKNAME,
+         getString("_UI_NickNamed_nickname_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_NickNamed_nickname_feature", "_UI_NickNamed_type"),
+         DomainPackage.Literals.NICK_NAMED__NICKNAME,
          true,
          false,
          false,
@@ -216,8 +216,8 @@ public class UielementItemProvider
 
     switch (notification.getFeatureID(Uielement.class))
     {
-      case DomainPackage.UIELEMENT__UID:
       case DomainPackage.UIELEMENT__NICKNAME:
+      case DomainPackage.UIELEMENT__UID:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
         return;
       case DomainPackage.UIELEMENT__ENABLED:

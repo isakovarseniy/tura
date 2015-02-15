@@ -13,7 +13,6 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * <ul>
  *   <li>{@link domain.Uielement#getUid <em>Uid</em>}</li>
- *   <li>{@link domain.Uielement#getNickname <em>Nickname</em>}</li>
  *   <li>{@link domain.Uielement#getEnabled <em>Enabled</em>}</li>
  *   <li>{@link domain.Uielement#getRequired <em>Required</em>}</li>
  *   <li>{@link domain.Uielement#getReadOnly <em>Read Only</em>}</li>
@@ -25,7 +24,7 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface Uielement extends StyleElement
+public interface Uielement extends StyleElement, NickNamed
 {
   /**
    * Returns the value of the '<em><b>Uid</b></em>' attribute.
@@ -52,32 +51,6 @@ public interface Uielement extends StyleElement
    * @generated
    */
   void setUid(String value);
-
-  /**
-   * Returns the value of the '<em><b>Nickname</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Nickname</em>' attribute isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Nickname</em>' attribute.
-   * @see #setNickname(String)
-   * @see domain.DomainPackage#getUielement_Nickname()
-   * @model
-   * @generated
-   */
-  String getNickname();
-
-  /**
-   * Sets the value of the '{@link domain.Uielement#getNickname <em>Nickname</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Nickname</em>' attribute.
-   * @see #getNickname()
-   * @generated
-   */
-  void setNickname(String value);
 
   /**
    * Returns the value of the '<em><b>Enabled</b></em>' containment reference.
@@ -159,7 +132,7 @@ public interface Uielement extends StyleElement
 
   /**
    * Returns the value of the '<em><b>On Event Refresh Area</b></em>' reference list.
-   * The list contents are of type {@link domain.Uielement}.
+   * The list contents are of type {@link domain.NickNamed}.
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>On Event Refresh Area</em>' reference list isn't clear,
@@ -171,6 +144,6 @@ public interface Uielement extends StyleElement
    * @model
    * @generated
    */
-  EList<Uielement> getOnEventRefreshArea();
+  EList<NickNamed> getOnEventRefreshArea();
 
 } // Uielement

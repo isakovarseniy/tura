@@ -5675,7 +5675,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getTrigger()
    * @generated
    */
-  int TRIGGER = 131;
+  int TRIGGER = 132;
 
   /**
    * The meta object id for the '{@link domain.impl.ViewPortTriggerImpl <em>View Port Trigger</em>}' class.
@@ -6248,13 +6248,22 @@ public interface DomainPackage extends EPackage
   int VIEW_PORT__STYLE_CLASS = VIEW_ELEMENT__STYLE_CLASS;
 
   /**
+   * The feature id for the '<em><b>Nickname</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int VIEW_PORT__NICKNAME = VIEW_ELEMENT_FEATURE_COUNT + 0;
+
+  /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int VIEW_PORT__UID = VIEW_ELEMENT_FEATURE_COUNT + 0;
+  int VIEW_PORT__UID = VIEW_ELEMENT_FEATURE_COUNT + 1;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -6263,7 +6272,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int VIEW_PORT__NAME = VIEW_ELEMENT_FEATURE_COUNT + 1;
+  int VIEW_PORT__NAME = VIEW_ELEMENT_FEATURE_COUNT + 2;
 
   /**
    * The feature id for the '<em><b>View Port Trigger</b></em>' containment reference.
@@ -6272,7 +6281,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int VIEW_PORT__VIEW_PORT_TRIGGER = VIEW_ELEMENT_FEATURE_COUNT + 2;
+  int VIEW_PORT__VIEW_PORT_TRIGGER = VIEW_ELEMENT_FEATURE_COUNT + 3;
 
   /**
    * The number of structural features of the '<em>View Port</em>' class.
@@ -6281,7 +6290,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int VIEW_PORT_FEATURE_COUNT = VIEW_ELEMENT_FEATURE_COUNT + 3;
+  int VIEW_PORT_FEATURE_COUNT = VIEW_ELEMENT_FEATURE_COUNT + 4;
 
   /**
    * The feature id for the '<em><b>Style</b></em>' containment reference.
@@ -6860,6 +6869,34 @@ public interface DomainPackage extends EPackage
   int CONTEXT_FEATURE_COUNT = CONTEXT_VALUE_FEATURE_COUNT + 1;
 
   /**
+   * The meta object id for the '{@link domain.impl.NickNamedImpl <em>Nick Named</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see domain.impl.NickNamedImpl
+   * @see domain.impl.DomainPackageImpl#getNickNamed()
+   * @generated
+   */
+  int NICK_NAMED = 114;
+
+  /**
+   * The feature id for the '<em><b>Nickname</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NICK_NAMED__NICKNAME = 0;
+
+  /**
+   * The number of structural features of the '<em>Nick Named</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NICK_NAMED_FEATURE_COUNT = 1;
+
+  /**
    * The meta object id for the '{@link domain.impl.UielementImpl <em>Uielement</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -6867,7 +6904,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getUielement()
    * @generated
    */
-  int UIELEMENT = 114;
+  int UIELEMENT = 115;
 
   /**
    * The feature id for the '<em><b>Style</b></em>' containment reference.
@@ -6888,22 +6925,22 @@ public interface DomainPackage extends EPackage
   int UIELEMENT__STYLE_CLASS = STYLE_ELEMENT__STYLE_CLASS;
 
   /**
-   * The feature id for the '<em><b>Uid</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int UIELEMENT__UID = STYLE_ELEMENT_FEATURE_COUNT + 0;
-
-  /**
    * The feature id for the '<em><b>Nickname</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int UIELEMENT__NICKNAME = STYLE_ELEMENT_FEATURE_COUNT + 1;
+  int UIELEMENT__NICKNAME = STYLE_ELEMENT_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Uid</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int UIELEMENT__UID = STYLE_ELEMENT_FEATURE_COUNT + 1;
 
   /**
    * The feature id for the '<em><b>Enabled</b></em>' containment reference.
@@ -6958,7 +6995,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getSourcesPointer()
    * @generated
    */
-  int SOURCES_POINTER = 115;
+  int SOURCES_POINTER = 116;
 
   /**
    * The feature id for the '<em><b>Style</b></em>' containment reference.
@@ -6979,15 +7016,6 @@ public interface DomainPackage extends EPackage
   int SOURCES_POINTER__STYLE_CLASS = UIELEMENT__STYLE_CLASS;
 
   /**
-   * The feature id for the '<em><b>Uid</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SOURCES_POINTER__UID = UIELEMENT__UID;
-
-  /**
    * The feature id for the '<em><b>Nickname</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -6995,6 +7023,15 @@ public interface DomainPackage extends EPackage
    * @ordered
    */
   int SOURCES_POINTER__NICKNAME = UIELEMENT__NICKNAME;
+
+  /**
+   * The feature id for the '<em><b>Uid</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SOURCES_POINTER__UID = UIELEMENT__UID;
 
   /**
    * The feature id for the '<em><b>Enabled</b></em>' containment reference.
@@ -7085,7 +7122,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getActionElement()
    * @generated
    */
-  int ACTION_ELEMENT = 116;
+  int ACTION_ELEMENT = 117;
 
   /**
    * The feature id for the '<em><b>Style</b></em>' containment reference.
@@ -7106,15 +7143,6 @@ public interface DomainPackage extends EPackage
   int ACTION_ELEMENT__STYLE_CLASS = UIELEMENT__STYLE_CLASS;
 
   /**
-   * The feature id for the '<em><b>Uid</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ACTION_ELEMENT__UID = UIELEMENT__UID;
-
-  /**
    * The feature id for the '<em><b>Nickname</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -7122,6 +7150,15 @@ public interface DomainPackage extends EPackage
    * @ordered
    */
   int ACTION_ELEMENT__NICKNAME = UIELEMENT__NICKNAME;
+
+  /**
+   * The feature id for the '<em><b>Uid</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ACTION_ELEMENT__UID = UIELEMENT__UID;
 
   /**
    * The feature id for the '<em><b>Enabled</b></em>' containment reference.
@@ -7239,7 +7276,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getInputElement()
    * @generated
    */
-  int INPUT_ELEMENT = 117;
+  int INPUT_ELEMENT = 118;
 
   /**
    * The feature id for the '<em><b>Style</b></em>' containment reference.
@@ -7260,15 +7297,6 @@ public interface DomainPackage extends EPackage
   int INPUT_ELEMENT__STYLE_CLASS = SOURCES_POINTER__STYLE_CLASS;
 
   /**
-   * The feature id for the '<em><b>Uid</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int INPUT_ELEMENT__UID = SOURCES_POINTER__UID;
-
-  /**
    * The feature id for the '<em><b>Nickname</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -7276,6 +7304,15 @@ public interface DomainPackage extends EPackage
    * @ordered
    */
   int INPUT_ELEMENT__NICKNAME = SOURCES_POINTER__NICKNAME;
+
+  /**
+   * The feature id for the '<em><b>Uid</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INPUT_ELEMENT__UID = SOURCES_POINTER__UID;
 
   /**
    * The feature id for the '<em><b>Enabled</b></em>' containment reference.
@@ -7366,7 +7403,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getSelection()
    * @generated
    */
-  int SELECTION = 118;
+  int SELECTION = 119;
 
   /**
    * The feature id for the '<em><b>Style</b></em>' containment reference.
@@ -7421,7 +7458,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getOptionSelection()
    * @generated
    */
-  int OPTION_SELECTION = 119;
+  int OPTION_SELECTION = 120;
 
   /**
    * The feature id for the '<em><b>Style</b></em>' containment reference.
@@ -7442,15 +7479,6 @@ public interface DomainPackage extends EPackage
   int OPTION_SELECTION__STYLE_CLASS = INPUT_ELEMENT__STYLE_CLASS;
 
   /**
-   * The feature id for the '<em><b>Uid</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int OPTION_SELECTION__UID = INPUT_ELEMENT__UID;
-
-  /**
    * The feature id for the '<em><b>Nickname</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -7458,6 +7486,15 @@ public interface DomainPackage extends EPackage
    * @ordered
    */
   int OPTION_SELECTION__NICKNAME = INPUT_ELEMENT__NICKNAME;
+
+  /**
+   * The feature id for the '<em><b>Uid</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OPTION_SELECTION__UID = INPUT_ELEMENT__UID;
 
   /**
    * The feature id for the '<em><b>Enabled</b></em>' containment reference.
@@ -7575,7 +7612,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getLayerHolder()
    * @generated
    */
-  int LAYER_HOLDER = 120;
+  int LAYER_HOLDER = 121;
 
   /**
    * The feature id for the '<em><b>Style</b></em>' containment reference.
@@ -7596,15 +7633,6 @@ public interface DomainPackage extends EPackage
   int LAYER_HOLDER__STYLE_CLASS = UIELEMENT__STYLE_CLASS;
 
   /**
-   * The feature id for the '<em><b>Uid</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int LAYER_HOLDER__UID = UIELEMENT__UID;
-
-  /**
    * The feature id for the '<em><b>Nickname</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -7612,6 +7640,15 @@ public interface DomainPackage extends EPackage
    * @ordered
    */
   int LAYER_HOLDER__NICKNAME = UIELEMENT__NICKNAME;
+
+  /**
+   * The feature id for the '<em><b>Uid</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LAYER_HOLDER__UID = UIELEMENT__UID;
 
   /**
    * The feature id for the '<em><b>Enabled</b></em>' containment reference.
@@ -7684,7 +7721,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getInputText()
    * @generated
    */
-  int INPUT_TEXT = 121;
+  int INPUT_TEXT = 122;
 
   /**
    * The feature id for the '<em><b>Style</b></em>' containment reference.
@@ -7705,15 +7742,6 @@ public interface DomainPackage extends EPackage
   int INPUT_TEXT__STYLE_CLASS = INPUT_ELEMENT__STYLE_CLASS;
 
   /**
-   * The feature id for the '<em><b>Uid</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int INPUT_TEXT__UID = INPUT_ELEMENT__UID;
-
-  /**
    * The feature id for the '<em><b>Nickname</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -7721,6 +7749,15 @@ public interface DomainPackage extends EPackage
    * @ordered
    */
   int INPUT_TEXT__NICKNAME = INPUT_ELEMENT__NICKNAME;
+
+  /**
+   * The feature id for the '<em><b>Uid</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INPUT_TEXT__UID = INPUT_ELEMENT__UID;
 
   /**
    * The feature id for the '<em><b>Enabled</b></em>' containment reference.
@@ -7811,7 +7848,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getLabel()
    * @generated
    */
-  int LABEL = 122;
+  int LABEL = 123;
 
   /**
    * The feature id for the '<em><b>Style</b></em>' containment reference.
@@ -7832,15 +7869,6 @@ public interface DomainPackage extends EPackage
   int LABEL__STYLE_CLASS = UIELEMENT__STYLE_CLASS;
 
   /**
-   * The feature id for the '<em><b>Uid</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int LABEL__UID = UIELEMENT__UID;
-
-  /**
    * The feature id for the '<em><b>Nickname</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -7848,6 +7876,15 @@ public interface DomainPackage extends EPackage
    * @ordered
    */
   int LABEL__NICKNAME = UIELEMENT__NICKNAME;
+
+  /**
+   * The feature id for the '<em><b>Uid</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LABEL__UID = UIELEMENT__UID;
 
   /**
    * The feature id for the '<em><b>Enabled</b></em>' containment reference.
@@ -7920,7 +7957,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getOutputText()
    * @generated
    */
-  int OUTPUT_TEXT = 123;
+  int OUTPUT_TEXT = 124;
 
   /**
    * The feature id for the '<em><b>Style</b></em>' containment reference.
@@ -7941,15 +7978,6 @@ public interface DomainPackage extends EPackage
   int OUTPUT_TEXT__STYLE_CLASS = INPUT_ELEMENT__STYLE_CLASS;
 
   /**
-   * The feature id for the '<em><b>Uid</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int OUTPUT_TEXT__UID = INPUT_ELEMENT__UID;
-
-  /**
    * The feature id for the '<em><b>Nickname</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -7957,6 +7985,15 @@ public interface DomainPackage extends EPackage
    * @ordered
    */
   int OUTPUT_TEXT__NICKNAME = INPUT_ELEMENT__NICKNAME;
+
+  /**
+   * The feature id for the '<em><b>Uid</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OUTPUT_TEXT__UID = INPUT_ELEMENT__UID;
 
   /**
    * The feature id for the '<em><b>Enabled</b></em>' containment reference.
@@ -8047,7 +8084,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getCheckBox()
    * @generated
    */
-  int CHECK_BOX = 124;
+  int CHECK_BOX = 125;
 
   /**
    * The feature id for the '<em><b>Style</b></em>' containment reference.
@@ -8068,15 +8105,6 @@ public interface DomainPackage extends EPackage
   int CHECK_BOX__STYLE_CLASS = INPUT_ELEMENT__STYLE_CLASS;
 
   /**
-   * The feature id for the '<em><b>Uid</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CHECK_BOX__UID = INPUT_ELEMENT__UID;
-
-  /**
    * The feature id for the '<em><b>Nickname</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -8084,6 +8112,15 @@ public interface DomainPackage extends EPackage
    * @ordered
    */
   int CHECK_BOX__NICKNAME = INPUT_ELEMENT__NICKNAME;
+
+  /**
+   * The feature id for the '<em><b>Uid</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CHECK_BOX__UID = INPUT_ELEMENT__UID;
 
   /**
    * The feature id for the '<em><b>Enabled</b></em>' containment reference.
@@ -8174,7 +8211,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getDropDownSelection()
    * @generated
    */
-  int DROP_DOWN_SELECTION = 125;
+  int DROP_DOWN_SELECTION = 126;
 
   /**
    * The feature id for the '<em><b>Style</b></em>' containment reference.
@@ -8195,15 +8232,6 @@ public interface DomainPackage extends EPackage
   int DROP_DOWN_SELECTION__STYLE_CLASS = OPTION_SELECTION__STYLE_CLASS;
 
   /**
-   * The feature id for the '<em><b>Uid</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DROP_DOWN_SELECTION__UID = OPTION_SELECTION__UID;
-
-  /**
    * The feature id for the '<em><b>Nickname</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -8211,6 +8239,15 @@ public interface DomainPackage extends EPackage
    * @ordered
    */
   int DROP_DOWN_SELECTION__NICKNAME = OPTION_SELECTION__NICKNAME;
+
+  /**
+   * The feature id for the '<em><b>Uid</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DROP_DOWN_SELECTION__UID = OPTION_SELECTION__UID;
 
   /**
    * The feature id for the '<em><b>Enabled</b></em>' containment reference.
@@ -8337,7 +8374,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getColumn()
    * @generated
    */
-  int COLUMN = 126;
+  int COLUMN = 127;
 
   /**
    * The feature id for the '<em><b>Style</b></em>' containment reference.
@@ -8410,7 +8447,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getTable()
    * @generated
    */
-  int TABLE = 127;
+  int TABLE = 128;
 
   /**
    * The feature id for the '<em><b>Style</b></em>' containment reference.
@@ -8431,15 +8468,6 @@ public interface DomainPackage extends EPackage
   int TABLE__STYLE_CLASS = SOURCES_POINTER__STYLE_CLASS;
 
   /**
-   * The feature id for the '<em><b>Uid</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int TABLE__UID = SOURCES_POINTER__UID;
-
-  /**
    * The feature id for the '<em><b>Nickname</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -8447,6 +8475,15 @@ public interface DomainPackage extends EPackage
    * @ordered
    */
   int TABLE__NICKNAME = SOURCES_POINTER__NICKNAME;
+
+  /**
+   * The feature id for the '<em><b>Uid</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TABLE__UID = SOURCES_POINTER__UID;
 
   /**
    * The feature id for the '<em><b>Enabled</b></em>' containment reference.
@@ -8582,7 +8619,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getTree()
    * @generated
    */
-  int TREE = 128;
+  int TREE = 129;
 
   /**
    * The feature id for the '<em><b>Style</b></em>' containment reference.
@@ -8603,15 +8640,6 @@ public interface DomainPackage extends EPackage
   int TREE__STYLE_CLASS = SOURCES_POINTER__STYLE_CLASS;
 
   /**
-   * The feature id for the '<em><b>Uid</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int TREE__UID = SOURCES_POINTER__UID;
-
-  /**
    * The feature id for the '<em><b>Nickname</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -8619,6 +8647,15 @@ public interface DomainPackage extends EPackage
    * @ordered
    */
   int TREE__NICKNAME = SOURCES_POINTER__NICKNAME;
+
+  /**
+   * The feature id for the '<em><b>Uid</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TREE__UID = SOURCES_POINTER__UID;
 
   /**
    * The feature id for the '<em><b>Enabled</b></em>' containment reference.
@@ -8754,7 +8791,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getButton()
    * @generated
    */
-  int BUTTON = 129;
+  int BUTTON = 130;
 
   /**
    * The feature id for the '<em><b>Style</b></em>' containment reference.
@@ -8775,15 +8812,6 @@ public interface DomainPackage extends EPackage
   int BUTTON__STYLE_CLASS = ACTION_ELEMENT__STYLE_CLASS;
 
   /**
-   * The feature id for the '<em><b>Uid</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int BUTTON__UID = ACTION_ELEMENT__UID;
-
-  /**
    * The feature id for the '<em><b>Nickname</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -8791,6 +8819,15 @@ public interface DomainPackage extends EPackage
    * @ordered
    */
   int BUTTON__NICKNAME = ACTION_ELEMENT__NICKNAME;
+
+  /**
+   * The feature id for the '<em><b>Uid</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BUTTON__UID = ACTION_ELEMENT__UID;
 
   /**
    * The feature id for the '<em><b>Enabled</b></em>' containment reference.
@@ -8935,7 +8972,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getControls()
    * @generated
    */
-  int CONTROLS = 130;
+  int CONTROLS = 131;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -8999,7 +9036,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getPREFormTrigger()
    * @generated
    */
-  int PRE_FORM_TRIGGER = 132;
+  int PRE_FORM_TRIGGER = 133;
 
   /**
    * The feature id for the '<em><b>Package Ref</b></em>' reference.
@@ -9090,7 +9127,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getPREQueryTrigger()
    * @generated
    */
-  int PRE_QUERY_TRIGGER = 133;
+  int PRE_QUERY_TRIGGER = 134;
 
   /**
    * The feature id for the '<em><b>Package Ref</b></em>' reference.
@@ -9181,7 +9218,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getPOSTQueryTrigger()
    * @generated
    */
-  int POST_QUERY_TRIGGER = 134;
+  int POST_QUERY_TRIGGER = 135;
 
   /**
    * The feature id for the '<em><b>Package Ref</b></em>' reference.
@@ -9272,7 +9309,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getPREInsertTrigger()
    * @generated
    */
-  int PRE_INSERT_TRIGGER = 135;
+  int PRE_INSERT_TRIGGER = 136;
 
   /**
    * The feature id for the '<em><b>Package Ref</b></em>' reference.
@@ -9363,7 +9400,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getPREDeleteTrigger()
    * @generated
    */
-  int PRE_DELETE_TRIGGER = 136;
+  int PRE_DELETE_TRIGGER = 137;
 
   /**
    * The feature id for the '<em><b>Package Ref</b></em>' reference.
@@ -9454,7 +9491,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getPOSTCreateTrigger()
    * @generated
    */
-  int POST_CREATE_TRIGGER = 137;
+  int POST_CREATE_TRIGGER = 138;
 
   /**
    * The feature id for the '<em><b>Package Ref</b></em>' reference.
@@ -9545,7 +9582,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getPREUpdateTrigger()
    * @generated
    */
-  int PRE_UPDATE_TRIGGER = 138;
+  int PRE_UPDATE_TRIGGER = 139;
 
   /**
    * The feature id for the '<em><b>Package Ref</b></em>' reference.
@@ -9636,7 +9673,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getCreateTrigger()
    * @generated
    */
-  int CREATE_TRIGGER = 139;
+  int CREATE_TRIGGER = 140;
 
   /**
    * The feature id for the '<em><b>Package Ref</b></em>' reference.
@@ -9727,7 +9764,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getInsertTrigger()
    * @generated
    */
-  int INSERT_TRIGGER = 140;
+  int INSERT_TRIGGER = 141;
 
   /**
    * The feature id for the '<em><b>Package Ref</b></em>' reference.
@@ -9818,7 +9855,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getUpdateTrigger()
    * @generated
    */
-  int UPDATE_TRIGGER = 141;
+  int UPDATE_TRIGGER = 142;
 
   /**
    * The feature id for the '<em><b>Package Ref</b></em>' reference.
@@ -9909,7 +9946,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getDeleteTrigger()
    * @generated
    */
-  int DELETE_TRIGGER = 142;
+  int DELETE_TRIGGER = 143;
 
   /**
    * The feature id for the '<em><b>Package Ref</b></em>' reference.
@@ -10000,7 +10037,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getSearchTrigger()
    * @generated
    */
-  int SEARCH_TRIGGER = 143;
+  int SEARCH_TRIGGER = 144;
 
   /**
    * The feature id for the '<em><b>Package Ref</b></em>' reference.
@@ -10091,7 +10128,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getRoot()
    * @generated
    */
-  int ROOT = 144;
+  int ROOT = 145;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -10146,7 +10183,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getFormVariable()
    * @generated
    */
-  int FORM_VARIABLE = 145;
+  int FORM_VARIABLE = 146;
 
   /**
    * The feature id for the '<em><b>Package Ref</b></em>' reference.
@@ -10228,7 +10265,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getDataControl()
    * @generated
    */
-  int DATA_CONTROL = 146;
+  int DATA_CONTROL = 147;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -10409,7 +10446,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getOrders()
    * @generated
    */
-  int ORDERS = 147;
+  int ORDERS = 148;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -10446,7 +10483,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getOrderBy()
    * @generated
    */
-  int ORDER_BY = 148;
+  int ORDER_BY = 149;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -10492,7 +10529,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getRelation()
    * @generated
    */
-  int RELATION = 149;
+  int RELATION = 150;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -10565,7 +10602,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getArtificialField()
    * @generated
    */
-  int ARTIFICIAL_FIELD = 150;
+  int ARTIFICIAL_FIELD = 151;
 
   /**
    * The feature id for the '<em><b>Package Ref</b></em>' reference.
@@ -10647,7 +10684,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getLink()
    * @generated
    */
-  int LINK = 151;
+  int LINK = 152;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -10702,7 +10739,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getApplicationInfrastructureLayer()
    * @generated
    */
-  int APPLICATION_INFRASTRUCTURE_LAYER = 152;
+  int APPLICATION_INFRASTRUCTURE_LAYER = 153;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -10757,7 +10794,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getEnterpriseInfrastructure()
    * @generated
    */
-  int ENTERPRISE_INFRASTRUCTURE = 153;
+  int ENTERPRISE_INFRASTRUCTURE = 154;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -10812,7 +10849,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getDatacenter()
    * @generated
    */
-  int DATACENTER = 154;
+  int DATACENTER = 155;
 
   /**
    * The feature id for the '<em><b>Columns</b></em>' attribute.
@@ -10876,7 +10913,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getSubsystem()
    * @generated
    */
-  int SUBSYSTEM = 155;
+  int SUBSYSTEM = 156;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -10931,7 +10968,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getInfrastructureLayer()
    * @generated
    */
-  int INFRASTRUCTURE_LAYER = 156;
+  int INFRASTRUCTURE_LAYER = 157;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -10986,7 +11023,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getInfrastructureConnection()
    * @generated
    */
-  int INFRASTRUCTURE_CONNECTION = 157;
+  int INFRASTRUCTURE_CONNECTION = 158;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -11032,7 +11069,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getInfrastructureComponent()
    * @generated
    */
-  int INFRASTRUCTURE_COMPONENT = 158;
+  int INFRASTRUCTURE_COMPONENT = 159;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -11078,7 +11115,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getServer()
    * @generated
    */
-  int SERVER = 159;
+  int SERVER = 160;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -11124,7 +11161,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getRouter()
    * @generated
    */
-  int ROUTER = 160;
+  int ROUTER = 161;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -11170,7 +11207,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getHub()
    * @generated
    */
-  int HUB = 161;
+  int HUB = 162;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -11216,7 +11253,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getStorage()
    * @generated
    */
-  int STORAGE = 162;
+  int STORAGE = 163;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -11262,7 +11299,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getServerClaster()
    * @generated
    */
-  int SERVER_CLASTER = 163;
+  int SERVER_CLASTER = 164;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -11317,7 +11354,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getPlatformLayers()
    * @generated
    */
-  int PLATFORM_LAYERS = 164;
+  int PLATFORM_LAYERS = 165;
 
 
   /**
@@ -11328,7 +11365,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getComparator()
    * @generated
    */
-  int COMPARATOR = 165;
+  int COMPARATOR = 166;
 
 
   /**
@@ -11339,7 +11376,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getOrder()
    * @generated
    */
-  int ORDER = 166;
+  int ORDER = 167;
 
 
   /**
@@ -16344,6 +16381,27 @@ public interface DomainPackage extends EPackage
   EReference getStyleElement_StyleClass();
 
   /**
+   * Returns the meta object for class '{@link domain.NickNamed <em>Nick Named</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Nick Named</em>'.
+   * @see domain.NickNamed
+   * @generated
+   */
+  EClass getNickNamed();
+
+  /**
+   * Returns the meta object for the attribute '{@link domain.NickNamed#getNickname <em>Nickname</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Nickname</em>'.
+   * @see domain.NickNamed#getNickname()
+   * @see #getNickNamed()
+   * @generated
+   */
+  EAttribute getNickNamed_Nickname();
+
+  /**
    * Returns the meta object for class '{@link domain.Uielement <em>Uielement</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -16363,17 +16421,6 @@ public interface DomainPackage extends EPackage
    * @generated
    */
   EAttribute getUielement_Uid();
-
-  /**
-   * Returns the meta object for the attribute '{@link domain.Uielement#getNickname <em>Nickname</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Nickname</em>'.
-   * @see domain.Uielement#getNickname()
-   * @see #getUielement()
-   * @generated
-   */
-  EAttribute getUielement_Nickname();
 
   /**
    * Returns the meta object for the containment reference '{@link domain.Uielement#getEnabled <em>Enabled</em>}'.
@@ -22110,6 +22157,24 @@ public interface DomainPackage extends EPackage
     EReference STYLE_ELEMENT__STYLE_CLASS = eINSTANCE.getStyleElement_StyleClass();
 
     /**
+     * The meta object literal for the '{@link domain.impl.NickNamedImpl <em>Nick Named</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see domain.impl.NickNamedImpl
+     * @see domain.impl.DomainPackageImpl#getNickNamed()
+     * @generated
+     */
+    EClass NICK_NAMED = eINSTANCE.getNickNamed();
+
+    /**
+     * The meta object literal for the '<em><b>Nickname</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute NICK_NAMED__NICKNAME = eINSTANCE.getNickNamed_Nickname();
+
+    /**
      * The meta object literal for the '{@link domain.impl.UielementImpl <em>Uielement</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -22126,14 +22191,6 @@ public interface DomainPackage extends EPackage
      * @generated
      */
     EAttribute UIELEMENT__UID = eINSTANCE.getUielement_Uid();
-
-    /**
-     * The meta object literal for the '<em><b>Nickname</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute UIELEMENT__NICKNAME = eINSTANCE.getUielement_Nickname();
 
     /**
      * The meta object literal for the '<em><b>Enabled</b></em>' containment reference feature.

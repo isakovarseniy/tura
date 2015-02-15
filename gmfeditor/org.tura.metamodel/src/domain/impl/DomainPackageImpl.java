@@ -822,6 +822,13 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  private EClass nickNamedEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   private EClass uielementEClass = null;
 
   /**
@@ -5906,6 +5913,26 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EClass getNickNamed()
+  {
+    return nickNamedEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getNickNamed_Nickname()
+  {
+    return (EAttribute)nickNamedEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getUielement()
   {
     return uielementEClass;
@@ -5926,19 +5953,9 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getUielement_Nickname()
-  {
-    return (EAttribute)uielementEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EReference getUielement_Enabled()
   {
-    return (EReference)uielementEClass.getEStructuralFeatures().get(2);
+    return (EReference)uielementEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -5948,7 +5965,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    */
   public EReference getUielement_Required()
   {
-    return (EReference)uielementEClass.getEStructuralFeatures().get(3);
+    return (EReference)uielementEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -5958,7 +5975,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    */
   public EReference getUielement_ReadOnly()
   {
-    return (EReference)uielementEClass.getEStructuralFeatures().get(4);
+    return (EReference)uielementEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -5968,7 +5985,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    */
   public EReference getUielement_OnEventRefreshArea()
   {
-    return (EReference)uielementEClass.getEStructuralFeatures().get(5);
+    return (EReference)uielementEClass.getEStructuralFeatures().get(4);
   }
 
   /**
@@ -8190,9 +8207,11 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     createEReference(styleElementEClass, STYLE_ELEMENT__STYLE);
     createEReference(styleElementEClass, STYLE_ELEMENT__STYLE_CLASS);
 
+    nickNamedEClass = createEClass(NICK_NAMED);
+    createEAttribute(nickNamedEClass, NICK_NAMED__NICKNAME);
+
     uielementEClass = createEClass(UIELEMENT);
     createEAttribute(uielementEClass, UIELEMENT__UID);
-    createEAttribute(uielementEClass, UIELEMENT__NICKNAME);
     createEReference(uielementEClass, UIELEMENT__ENABLED);
     createEReference(uielementEClass, UIELEMENT__REQUIRED);
     createEReference(uielementEClass, UIELEMENT__READ_ONLY);
@@ -8492,11 +8511,13 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     tabPageEClass.getESuperTypes().add(this.getViewPortHolder());
     tabPageEClass.getESuperTypes().add(this.getMultiLangLabel());
     viewPortEClass.getESuperTypes().add(this.getViewElement());
+    viewPortEClass.getESuperTypes().add(this.getNickNamed());
     viewAreaEClass.getESuperTypes().add(this.getViewElement());
     viewPortTriggerEClass.getESuperTypes().add(this.getTrigger());
     contextEClass.getESuperTypes().add(this.getContextValue());
     contextEClass.getESuperTypes().add(this.getContextParameters());
     uielementEClass.getESuperTypes().add(this.getStyleElement());
+    uielementEClass.getESuperTypes().add(this.getNickNamed());
     sourcesPointerEClass.getESuperTypes().add(this.getUielement());
     actionElementEClass.getESuperTypes().add(this.getUielement());
     actionElementEClass.getESuperTypes().add(this.getTrigger());
@@ -9125,13 +9146,15 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     initEReference(getStyleElement_Style(), this.getContext(), null, "style", null, 0, 1, StyleElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getStyleElement_StyleClass(), this.getContextParameters(), null, "styleClass", null, 0, 1, StyleElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+    initEClass(nickNamedEClass, NickNamed.class, "NickNamed", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getNickNamed_Nickname(), ecorePackage.getEString(), "nickname", null, 0, 1, NickNamed.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
     initEClass(uielementEClass, Uielement.class, "Uielement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getUielement_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, Uielement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getUielement_Nickname(), ecorePackage.getEString(), "nickname", null, 0, 1, Uielement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getUielement_Enabled(), this.getContext(), null, "enabled", null, 0, 1, Uielement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getUielement_Required(), this.getContext(), null, "required", null, 0, 1, Uielement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getUielement_ReadOnly(), this.getContext(), null, "readOnly", null, 0, 1, Uielement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getUielement_OnEventRefreshArea(), this.getUielement(), null, "onEventRefreshArea", null, 0, -1, Uielement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getUielement_OnEventRefreshArea(), this.getNickNamed(), null, "onEventRefreshArea", null, 0, -1, Uielement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(sourcesPointerEClass, SourcesPointer.class, "SourcesPointer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getSourcesPointer_SourcePointer(), this.getDataControl(), null, "sourcePointer", null, 0, 1, SourcesPointer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

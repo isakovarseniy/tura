@@ -3,6 +3,7 @@
 package domain.impl;
 
 import domain.DomainPackage;
+import domain.NickNamed;
 import domain.ViewPort;
 import domain.ViewPortTrigger;
 
@@ -21,6 +22,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <p>
  * The following features are implemented:
  * <ul>
+ *   <li>{@link domain.impl.ViewPortImpl#getNickname <em>Nickname</em>}</li>
  *   <li>{@link domain.impl.ViewPortImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.impl.ViewPortImpl#getName <em>Name</em>}</li>
  *   <li>{@link domain.impl.ViewPortImpl#getViewPortTrigger <em>View Port Trigger</em>}</li>
@@ -31,6 +33,26 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  */
 public class ViewPortImpl extends ViewElementImpl implements ViewPort
 {
+  /**
+   * The default value of the '{@link #getNickname() <em>Nickname</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getNickname()
+   * @generated
+   * @ordered
+   */
+  protected static final String NICKNAME_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getNickname() <em>Nickname</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getNickname()
+   * @generated
+   * @ordered
+   */
+  protected String nickname = NICKNAME_EDEFAULT;
+
   /**
    * The default value of the '{@link #getUid() <em>Uid</em>}' attribute.
    * <!-- begin-user-doc -->
@@ -100,6 +122,29 @@ public class ViewPortImpl extends ViewElementImpl implements ViewPort
   protected EClass eStaticClass()
   {
     return DomainPackage.Literals.VIEW_PORT;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String getNickname()
+  {
+    return nickname;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setNickname(String newNickname)
+  {
+    String oldNickname = nickname;
+    nickname = newNickname;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.VIEW_PORT__NICKNAME, oldNickname, nickname));
   }
 
   /**
@@ -222,6 +267,8 @@ public class ViewPortImpl extends ViewElementImpl implements ViewPort
   {
     switch (featureID)
     {
+      case DomainPackage.VIEW_PORT__NICKNAME:
+        return getNickname();
       case DomainPackage.VIEW_PORT__UID:
         return getUid();
       case DomainPackage.VIEW_PORT__NAME:
@@ -242,6 +289,9 @@ public class ViewPortImpl extends ViewElementImpl implements ViewPort
   {
     switch (featureID)
     {
+      case DomainPackage.VIEW_PORT__NICKNAME:
+        setNickname((String)newValue);
+        return;
       case DomainPackage.VIEW_PORT__UID:
         setUid((String)newValue);
         return;
@@ -265,6 +315,9 @@ public class ViewPortImpl extends ViewElementImpl implements ViewPort
   {
     switch (featureID)
     {
+      case DomainPackage.VIEW_PORT__NICKNAME:
+        setNickname(NICKNAME_EDEFAULT);
+        return;
       case DomainPackage.VIEW_PORT__UID:
         setUid(UID_EDEFAULT);
         return;
@@ -288,6 +341,8 @@ public class ViewPortImpl extends ViewElementImpl implements ViewPort
   {
     switch (featureID)
     {
+      case DomainPackage.VIEW_PORT__NICKNAME:
+        return NICKNAME_EDEFAULT == null ? nickname != null : !NICKNAME_EDEFAULT.equals(nickname);
       case DomainPackage.VIEW_PORT__UID:
         return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
       case DomainPackage.VIEW_PORT__NAME:
@@ -304,12 +359,52 @@ public class ViewPortImpl extends ViewElementImpl implements ViewPort
    * @generated
    */
   @Override
+  public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass)
+  {
+    if (baseClass == NickNamed.class)
+    {
+      switch (derivedFeatureID)
+      {
+        case DomainPackage.VIEW_PORT__NICKNAME: return DomainPackage.NICK_NAMED__NICKNAME;
+        default: return -1;
+      }
+    }
+    return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass)
+  {
+    if (baseClass == NickNamed.class)
+    {
+      switch (baseFeatureID)
+      {
+        case DomainPackage.NICK_NAMED__NICKNAME: return DomainPackage.VIEW_PORT__NICKNAME;
+        default: return -1;
+      }
+    }
+    return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public String toString()
   {
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (uid: ");
+    result.append(" (nickname: ");
+    result.append(nickname);
+    result.append(", uid: ");
     result.append(uid);
     result.append(", name: ");
     result.append(name);

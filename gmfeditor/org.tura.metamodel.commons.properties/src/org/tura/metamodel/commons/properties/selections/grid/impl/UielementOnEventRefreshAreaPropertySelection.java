@@ -91,7 +91,7 @@ public class UielementOnEventRefreshAreaPropertySelection extends GridProperty {
 		@Override
 		public Object getValue(Object element) {
 			UielementOnEventRefreshAreaDS.Area opt = (UielementOnEventRefreshAreaDS.Area) element;
-			return opt.getUielement().getNickname();
+			return opt.getElement().getNickname();
 		}
 
 		@Override
@@ -168,8 +168,8 @@ public class UielementOnEventRefreshAreaPropertySelection extends GridProperty {
 					.getEditingDomain();
 
 			if (refreshable) {
-				ArrayList<domain.Uielement> ls = new ArrayList<domain.Uielement>();
-				ls.add(opt.getUielement());
+				ArrayList<domain.NickNamed> ls = new ArrayList<domain.NickNamed>();
+				ls.add(opt.getElement());
 
 				editingDomain
 						.getCommandStack()
@@ -179,11 +179,20 @@ public class UielementOnEventRefreshAreaPropertySelection extends GridProperty {
 										.getUielement_OnEventRefreshArea(), ls));
 			} else {
 				Uielement uie = (Uielement) property.getModel();
-				for (Iterator<domain.Uielement>  itr = uie.getOnEventRefreshArea().iterator(); itr.hasNext();){
-					domain.Uielement ev = itr.next();
-					if (ev.getUid().equals(opt.getUielement().getUid())){
+				for (Iterator<domain.NickNamed>  itr = uie.getOnEventRefreshArea().iterator(); itr.hasNext();){
+					domain.NickNamed ev = itr.next();
 
-						ArrayList<domain.Uielement> ls = new ArrayList<domain.Uielement>();
+					String elUID = null;
+					if (ev instanceof domain.Uielement) {
+						elUID  = ((domain.Uielement) ev).getUid();
+					}
+					if (ev instanceof domain.ViewPort) {
+						elUID  = ((domain.ViewPort) ev).getUid();
+					}
+					
+					if (elUID.equals(opt.getUid())){
+
+						ArrayList<domain.NickNamed> ls = new ArrayList<domain.NickNamed>();
 						ls.add(ev);
 						
 						editingDomain

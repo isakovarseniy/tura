@@ -940,8 +940,18 @@ public class QueryHelper {
 			Collection<domain.ViewArea> map = (Collection<domain.ViewArea>) ocl
 					.evaluate(obj, query);
 
-			ArrayList<domain.Uielement> nickNamed = new ArrayList<domain.Uielement>();
-			ArrayList<domain.Uielement> remove = new ArrayList<domain.Uielement>();
+			query = helper
+					.createQuery("domain::Views.allInstances()->select(r|r.oclAsType(domain::Views).uid = '"
+							+ views.getUid()
+							+ "').canvases->select(c|c.oclIsKindOf(domain::ViewPortHolder))->collect(v|v.oclAsType(domain::ViewPortHolder).viewElement)->select(q|q.oclIsKindOf(domain::NickNamed) and q.oclAsType(domain::NickNamed).nickname <> null and  q.oclAsType(domain::NickNamed).nickname <> '')");
+
+			@SuppressWarnings("unchecked")
+			Collection<domain.NickNamed> map1 = (Collection<domain.NickNamed>) ocl
+					.evaluate(obj, query);
+
+			
+			ArrayList<domain.NickNamed> nickNamed = new ArrayList<domain.NickNamed>();
+			ArrayList<domain.NickNamed> remove = new ArrayList<domain.NickNamed>();
 
 			if (map.size() != 0) {
 				for (Iterator<domain.ViewArea> itr = map.iterator(); itr
@@ -952,10 +962,11 @@ public class QueryHelper {
 								.getBaseCanvas(), obj);
 				}
 			}
-
-			for (Iterator<domain.Uielement> itr1 = obj.getOnEventRefreshArea()
+			nickNamed.addAll(map1);
+			
+			for (Iterator<domain.NickNamed> itr1 = obj.getOnEventRefreshArea()
 					.iterator(); itr1.hasNext();) {
-				domain.Uielement ref = itr1.next();
+				domain.NickNamed ref = itr1.next();
 
 				if (ref.getNickname() == null || "".equals(ref.getNickname()))
 					remove.add(ref);
@@ -969,7 +980,7 @@ public class QueryHelper {
 
 	}
 
-	private void findNick(List<domain.Uielement> list,
+	private void findNick(List<domain.NickNamed> list,
 			domain.LayerHolder holder, domain.Uielement exception) {
 		
 		if (holder.getNickname() != null

@@ -637,6 +637,11 @@ public class DomainAdapterFactory extends AdapterFactoryImpl {
         return createStyleElementAdapter();
       }
       @Override
+      public Adapter caseNickNamed(NickNamed object)
+      {
+        return createNickNamedAdapter();
+      }
+      @Override
       public Adapter caseUielement(Uielement object)
       {
         return createUielementAdapter();
@@ -2580,6 +2585,21 @@ public class DomainAdapterFactory extends AdapterFactoryImpl {
   }
 
 	/**
+   * Creates a new adapter for an object of class '{@link domain.NickNamed <em>Nick Named</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see domain.NickNamed
+   * @generated
+   */
+  public Adapter createNickNamedAdapter()
+  {
+    return null;
+  }
+
+  /**
 	 * Creates a new adapter for an object of class '{@link domain.Uielement
 	 * <em>Uielement</em>}'. <!-- begin-user-doc --> This default implementation
 	 * returns null so that we can easily ignore cases; it's useful to ignore a

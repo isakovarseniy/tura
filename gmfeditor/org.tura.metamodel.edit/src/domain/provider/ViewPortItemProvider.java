@@ -64,10 +64,34 @@ public class ViewPortItemProvider
     {
       super.getPropertyDescriptors(object);
 
+      addNicknamePropertyDescriptor(object);
       addUidPropertyDescriptor(object);
       addNamePropertyDescriptor(object);
     }
     return itemPropertyDescriptors;
+  }
+
+  /**
+   * This adds a property descriptor for the Nickname feature.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected void addNicknamePropertyDescriptor(Object object)
+  {
+    itemPropertyDescriptors.add
+      (createItemPropertyDescriptor
+        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+         getResourceLocator(),
+         getString("_UI_NickNamed_nickname_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_NickNamed_nickname_feature", "_UI_NickNamed_type"),
+         DomainPackage.Literals.NICK_NAMED__NICKNAME,
+         true,
+         false,
+         false,
+         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+         null,
+         null));
   }
 
   /**
@@ -190,6 +214,7 @@ public class ViewPortItemProvider
 
     switch (notification.getFeatureID(ViewPort.class))
     {
+      case DomainPackage.VIEW_PORT__NICKNAME:
       case DomainPackage.VIEW_PORT__UID:
       case DomainPackage.VIEW_PORT__NAME:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));

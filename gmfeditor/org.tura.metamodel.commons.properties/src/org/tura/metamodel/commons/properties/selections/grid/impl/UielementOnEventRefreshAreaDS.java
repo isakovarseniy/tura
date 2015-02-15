@@ -39,34 +39,50 @@ public class UielementOnEventRefreshAreaDS extends DataSource {
 
 		try {
 
-			Object[] result = (new QueryHelper()).findRefreshedAeas(
-					(domain.Uielement) property.getModel());
+			Object[] result = (new QueryHelper())
+					.findRefreshedAeas((domain.Uielement) property.getModel());
 
 			@SuppressWarnings("unchecked")
-			List<domain.Uielement> allAreas = (List<domain.Uielement>) result[0];
+			List<domain.NickNamed> allAreas = (List<domain.NickNamed>) result[0];
 			@SuppressWarnings("unchecked")
-			List<domain.Uielement> removeAreas = (List<domain.Uielement>) result[1];
+			List<domain.NickNamed> removeAreas = (List<domain.NickNamed>) result[1];
 
-			
 			// Remove
-				editingDomain.getCommandStack().execute(
-						RemoveCommand.create(editingDomain,
-								property.getModel(),
-								DomainPackage.eINSTANCE.getUielement_OnEventRefreshArea(),
-								removeAreas));
+			editingDomain.getCommandStack().execute(
+					RemoveCommand.create(editingDomain, property.getModel(),
+							DomainPackage.eINSTANCE
+									.getUielement_OnEventRefreshArea(),
+							removeAreas));
 
-				HashMap<String, domain.Uielement> map = new HashMap<String, domain.Uielement> ();
-				for (Iterator<domain.Uielement> itr = ((domain.Uielement)(property.getModel())).getOnEventRefreshArea().iterator(); itr.hasNext() ; ){
-					domain.Uielement event = itr.next();
-					map.put(event.getUid(), event);
+			HashMap<String, domain.NickNamed> map = new HashMap<String, domain.NickNamed>();
+			for (Iterator<domain.NickNamed> itr = ((domain.Uielement) (property
+					.getModel())).getOnEventRefreshArea().iterator(); itr
+					.hasNext();) {
+				domain.NickNamed event = itr.next();
+				if (event instanceof domain.Uielement) {
+					map.put( ((domain.Uielement) event).getUid(), event);
 				}
-				
+				if (event instanceof domain.ViewPort) {
+					map.put( ((domain.ViewPort) event).getUid(), event);
+				}
+			}
+
 			ArrayList<Object> rows = new ArrayList<Object>();
-			for (Iterator<domain.Uielement> i = allAreas.iterator(); i.hasNext();) {
-				domain.Uielement p = i.next();
+			for (Iterator<domain.NickNamed> i = allAreas.iterator(); i
+					.hasNext();) {
+				domain.NickNamed p = i.next();
 				Area a = new Area();
-				a.setUielement(p);
-				a.setRefreshed(map.containsKey(p.getUid()));
+				a.setElement(p);
+				if (p instanceof domain.Uielement) {
+					a.setRefreshed(map.containsKey(((domain.Uielement) p)
+							.getUid()));
+					a.setUid(((domain.Uielement) p).getUid());
+				}
+				if (p instanceof domain.ViewPort) {
+					a.setRefreshed(map.containsKey(((domain.ViewPort) p)
+							.getUid()));
+					a.setUid(((domain.ViewPort) p).getUid());
+				}
 				rows.add(a);
 			}
 
@@ -85,22 +101,33 @@ public class UielementOnEventRefreshAreaDS extends DataSource {
 	}
 
 	public class Area {
-		private  domain.Uielement uielement;
+		private domain.NickNamed element;
 		private boolean refreshed;
-		
-		public domain.Uielement getUielement() {
-			return uielement;
+		private String uid;
+
+		public domain.NickNamed getElement() {
+			return element;
 		}
-		public void setUielement(domain.Uielement uielement) {
-			this.uielement = uielement;
+
+		public void setElement(domain.NickNamed element) {
+			this.element = element;
 		}
+
 		public boolean isRefreshed() {
 			return refreshed;
 		}
+
 		public void setRefreshed(boolean refreshed) {
 			this.refreshed = refreshed;
 		}
-			
-		
+
+		public String getUid() {
+			return uid;
+		}
+
+		public void setUid(String uid) {
+			this.uid = uid;
+		}
+
 	}
 }

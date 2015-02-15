@@ -799,7 +799,7 @@ class TabPage extends CanvasFrame,ViewPortHolder,MultiLangLabel{
 }
 
 @gmf.node(label="name",border.color="0,0,0",color="192,192,192")
-class ViewPort extends ViewElement{
+class ViewPort extends ViewElement,NickNamed{
     id attr EString uid;
    attr EString name;
   @gmf.compartment(layout="list")
@@ -890,13 +890,16 @@ class StyleElement{
     val ContextParameters styleClass;
 }
 
-class Uielement extends StyleElement{
-    id attr EString uid;
+class NickNamed{
     attr EString nickname;
+}
+
+class Uielement extends StyleElement,NickNamed{
+    id attr EString uid;
     val Context enabled;
     val Context required;
     val Context readOnly;
-    ref Uielement[*] onEventRefreshArea;
+    ref NickNamed[*] onEventRefreshArea;
 }
 
 class SourcesPointer extends Uielement{

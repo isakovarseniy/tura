@@ -1196,7 +1196,7 @@
       <details key="color" value="192,192,192"/>
     </eAnnotations>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ViewPort" eSuperTypes="#//ViewElement">
+  <eClassifiers xsi:type="ecore:EClass" name="ViewPort" eSuperTypes="#//ViewElement #//NickNamed">
     <eAnnotations source="gmf.node">
       <details key="label" value="name"/>
       <details key="border.color" value="0,0,0"/>
@@ -1322,10 +1322,12 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="styleClass" eType="#//ContextParameters"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Uielement" eSuperTypes="#//StyleElement">
+  <eClassifiers xsi:type="ecore:EClass" name="NickNamed">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="nickname" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Uielement" eSuperTypes="#//StyleElement #//NickNamed">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="nickname" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="enabled" eType="#//Context"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="required" eType="#//Context"
@@ -1333,7 +1335,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="readOnly" eType="#//Context"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="onEventRefreshArea" upperBound="-1"
-        eType="#//Uielement"/>
+        eType="#//NickNamed"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SourcesPointer" eSuperTypes="#//Uielement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="sourcePointer" eType="#//DataControl"/>
