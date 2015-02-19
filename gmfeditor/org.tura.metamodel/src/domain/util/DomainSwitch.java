@@ -956,6 +956,7 @@ public class DomainSwitch<T> extends Switch<T>
         T result = caseUielement(uielement);
         if (result == null) result = caseStyleElement(uielement);
         if (result == null) result = caseNickNamed(uielement);
+        if (result == null) result = caseCategorized(uielement);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -966,6 +967,7 @@ public class DomainSwitch<T> extends Switch<T>
         if (result == null) result = caseUielement(sourcesPointer);
         if (result == null) result = caseStyleElement(sourcesPointer);
         if (result == null) result = caseNickNamed(sourcesPointer);
+        if (result == null) result = caseCategorized(sourcesPointer);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -977,6 +979,7 @@ public class DomainSwitch<T> extends Switch<T>
         if (result == null) result = caseTrigger(actionElement);
         if (result == null) result = caseStyleElement(actionElement);
         if (result == null) result = caseNickNamed(actionElement);
+        if (result == null) result = caseCategorized(actionElement);
         if (result == null) result = caseMethodPointer(actionElement);
         if (result == null) result = caseContextParameters(actionElement);
         if (result == null) result = caseTypePointer(actionElement);
@@ -991,6 +994,7 @@ public class DomainSwitch<T> extends Switch<T>
         if (result == null) result = caseUielement(inputElement);
         if (result == null) result = caseStyleElement(inputElement);
         if (result == null) result = caseNickNamed(inputElement);
+        if (result == null) result = caseCategorized(inputElement);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -1011,6 +1015,7 @@ public class DomainSwitch<T> extends Switch<T>
         if (result == null) result = caseUielement(optionSelection);
         if (result == null) result = caseStyleElement(optionSelection);
         if (result == null) result = caseNickNamed(optionSelection);
+        if (result == null) result = caseCategorized(optionSelection);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -1023,6 +1028,7 @@ public class DomainSwitch<T> extends Switch<T>
         if (result == null) result = caseHTMLLayerHolder(layerHolder);
         if (result == null) result = caseStyleElement(layerHolder);
         if (result == null) result = caseNickNamed(layerHolder);
+        if (result == null) result = caseCategorized(layerHolder);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -1035,6 +1041,7 @@ public class DomainSwitch<T> extends Switch<T>
         if (result == null) result = caseUielement(inputText);
         if (result == null) result = caseStyleElement(inputText);
         if (result == null) result = caseNickNamed(inputText);
+        if (result == null) result = caseCategorized(inputText);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -1046,6 +1053,7 @@ public class DomainSwitch<T> extends Switch<T>
         if (result == null) result = caseMultiLangLabel(label);
         if (result == null) result = caseStyleElement(label);
         if (result == null) result = caseNickNamed(label);
+        if (result == null) result = caseCategorized(label);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -1058,6 +1066,7 @@ public class DomainSwitch<T> extends Switch<T>
         if (result == null) result = caseUielement(outputText);
         if (result == null) result = caseStyleElement(outputText);
         if (result == null) result = caseNickNamed(outputText);
+        if (result == null) result = caseCategorized(outputText);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -1070,6 +1079,7 @@ public class DomainSwitch<T> extends Switch<T>
         if (result == null) result = caseUielement(checkBox);
         if (result == null) result = caseStyleElement(checkBox);
         if (result == null) result = caseNickNamed(checkBox);
+        if (result == null) result = caseCategorized(checkBox);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -1083,6 +1093,7 @@ public class DomainSwitch<T> extends Switch<T>
         if (result == null) result = caseUielement(dropDownSelection);
         if (result == null) result = caseStyleElement(dropDownSelection);
         if (result == null) result = caseNickNamed(dropDownSelection);
+        if (result == null) result = caseCategorized(dropDownSelection);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -1092,6 +1103,7 @@ public class DomainSwitch<T> extends Switch<T>
         T result = caseColumn(column);
         if (result == null) result = caseStyleElement(column);
         if (result == null) result = caseMultiLangLabel(column);
+        if (result == null) result = caseCategorized(column);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -1105,6 +1117,7 @@ public class DomainSwitch<T> extends Switch<T>
         if (result == null) result = caseUielement(table);
         if (result == null) result = caseStyleElement(table);
         if (result == null) result = caseNickNamed(table);
+        if (result == null) result = caseCategorized(table);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -1118,6 +1131,7 @@ public class DomainSwitch<T> extends Switch<T>
         if (result == null) result = caseUielement(tree);
         if (result == null) result = caseStyleElement(tree);
         if (result == null) result = caseNickNamed(tree);
+        if (result == null) result = caseCategorized(tree);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -1131,6 +1145,7 @@ public class DomainSwitch<T> extends Switch<T>
         if (result == null) result = caseTrigger(button);
         if (result == null) result = caseStyleElement(button);
         if (result == null) result = caseNickNamed(button);
+        if (result == null) result = caseCategorized(button);
         if (result == null) result = caseMethodPointer(button);
         if (result == null) result = caseContextParameters(button);
         if (result == null) result = caseTypePointer(button);

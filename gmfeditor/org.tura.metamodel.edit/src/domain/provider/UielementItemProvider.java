@@ -154,6 +154,7 @@ public class UielementItemProvider
     if (childrenFeatures == null)
     {
       super.getChildrenFeatures(object);
+      childrenFeatures.add(DomainPackage.Literals.CATEGORIZED__CLASSIFIERS);
       childrenFeatures.add(DomainPackage.Literals.UIELEMENT__ENABLED);
       childrenFeatures.add(DomainPackage.Literals.UIELEMENT__REQUIRED);
       childrenFeatures.add(DomainPackage.Literals.UIELEMENT__READ_ONLY);
@@ -220,6 +221,7 @@ public class UielementItemProvider
       case DomainPackage.UIELEMENT__UID:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
         return;
+      case DomainPackage.UIELEMENT__CLASSIFIERS:
       case DomainPackage.UIELEMENT__ENABLED:
       case DomainPackage.UIELEMENT__REQUIRED:
       case DomainPackage.UIELEMENT__READ_ONLY:
@@ -240,6 +242,11 @@ public class UielementItemProvider
   protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object)
   {
     super.collectNewChildDescriptors(newChildDescriptors, object);
+
+    newChildDescriptors.add
+      (createChildParameter
+        (DomainPackage.Literals.CATEGORIZED__CLASSIFIERS,
+         DomainFactory.eINSTANCE.createClassifier()));
 
     newChildDescriptors.add
       (createChildParameter

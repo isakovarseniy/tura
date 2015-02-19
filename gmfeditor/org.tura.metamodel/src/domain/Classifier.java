@@ -14,6 +14,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link domain.Classifier#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.Classifier#getHint <em>Hint</em>}</li>
+ *   <li>{@link domain.Classifier#getDetails <em>Details</em>}</li>
  * </ul>
  * </p>
  *
@@ -74,5 +75,31 @@ public interface Classifier extends EObject
    * @generated
    */
   void setHint(GenerationHint value);
+
+  /**
+   * Returns the value of the '<em><b>Details</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Details</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Details</em>' attribute.
+   * @see #setDetails(String)
+   * @see domain.DomainPackage#getClassifier_Details()
+   * @model
+   * @generated
+   */
+  String getDetails();
+
+  /**
+   * Sets the value of the '{@link domain.Classifier#getDetails <em>Details</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Details</em>' attribute.
+   * @see #getDetails()
+   * @generated
+   */
+  void setDetails(String value);
 
 } // Classifier

@@ -8,8 +8,9 @@ plugin.id = 'org.tura.metamodel.diagram.canvas';
 
 
 // Change figure for Button element 
-var innerClass = GmfGen!InnerClassViewmap.all.select(n|n.ClassName = 'ButtonFigure').first;
+for (innerClass in GmfGen!InnerClassViewmap.all.select(n|n.ClassName = 'ButtonFigure') ){
 innerClass.classBody=innerClass.classBody.replace('new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel\\(\\);','new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel(); fFigureButtonLabelFigure.setAlignment(2);');
+}
 
 
 -- distinct visual ID

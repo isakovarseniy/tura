@@ -2,6 +2,8 @@
  */
 package domain.impl;
 
+import domain.Categorized;
+import domain.Classifier;
 import domain.Context;
 import domain.DomainPackage;
 import domain.NickNamed;
@@ -19,7 +21,9 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -29,6 +33,7 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  * The following features are implemented:
  * <ul>
  *   <li>{@link domain.impl.UielementImpl#getNickname <em>Nickname</em>}</li>
+ *   <li>{@link domain.impl.UielementImpl#getClassifiers <em>Classifiers</em>}</li>
  *   <li>{@link domain.impl.UielementImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.impl.UielementImpl#getEnabled <em>Enabled</em>}</li>
  *   <li>{@link domain.impl.UielementImpl#getRequired <em>Required</em>}</li>
@@ -60,6 +65,16 @@ public class UielementImpl extends StyleElementImpl implements Uielement
    * @ordered
    */
   protected String nickname = NICKNAME_EDEFAULT;
+
+  /**
+   * The cached value of the '{@link #getClassifiers() <em>Classifiers</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getClassifiers()
+   * @generated
+   * @ordered
+   */
+  protected EList<Classifier> classifiers;
 
   /**
    * The default value of the '{@link #getUid() <em>Uid</em>}' attribute.
@@ -186,6 +201,20 @@ public class UielementImpl extends StyleElementImpl implements Uielement
     nickname = newNickname;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.UIELEMENT__NICKNAME, oldNickname, nickname));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EList<Classifier> getClassifiers()
+  {
+    if (classifiers == null)
+    {
+      classifiers = new EObjectContainmentEList<Classifier>(Classifier.class, this, DomainPackage.UIELEMENT__CLASSIFIERS);
+    }
+    return classifiers;
   }
 
   /**
@@ -356,6 +385,8 @@ public class UielementImpl extends StyleElementImpl implements Uielement
   {
     switch (featureID)
     {
+      case DomainPackage.UIELEMENT__CLASSIFIERS:
+        return ((InternalEList<?>)getClassifiers()).basicRemove(otherEnd, msgs);
       case DomainPackage.UIELEMENT__ENABLED:
         return basicSetEnabled(null, msgs);
       case DomainPackage.UIELEMENT__REQUIRED:
@@ -378,6 +409,8 @@ public class UielementImpl extends StyleElementImpl implements Uielement
     {
       case DomainPackage.UIELEMENT__NICKNAME:
         return getNickname();
+      case DomainPackage.UIELEMENT__CLASSIFIERS:
+        return getClassifiers();
       case DomainPackage.UIELEMENT__UID:
         return getUid();
       case DomainPackage.UIELEMENT__ENABLED:
@@ -405,6 +438,10 @@ public class UielementImpl extends StyleElementImpl implements Uielement
     {
       case DomainPackage.UIELEMENT__NICKNAME:
         setNickname((String)newValue);
+        return;
+      case DomainPackage.UIELEMENT__CLASSIFIERS:
+        getClassifiers().clear();
+        getClassifiers().addAll((Collection<? extends Classifier>)newValue);
         return;
       case DomainPackage.UIELEMENT__UID:
         setUid((String)newValue);
@@ -439,6 +476,9 @@ public class UielementImpl extends StyleElementImpl implements Uielement
       case DomainPackage.UIELEMENT__NICKNAME:
         setNickname(NICKNAME_EDEFAULT);
         return;
+      case DomainPackage.UIELEMENT__CLASSIFIERS:
+        getClassifiers().clear();
+        return;
       case DomainPackage.UIELEMENT__UID:
         setUid(UID_EDEFAULT);
         return;
@@ -470,6 +510,8 @@ public class UielementImpl extends StyleElementImpl implements Uielement
     {
       case DomainPackage.UIELEMENT__NICKNAME:
         return NICKNAME_EDEFAULT == null ? nickname != null : !NICKNAME_EDEFAULT.equals(nickname);
+      case DomainPackage.UIELEMENT__CLASSIFIERS:
+        return classifiers != null && !classifiers.isEmpty();
       case DomainPackage.UIELEMENT__UID:
         return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
       case DomainPackage.UIELEMENT__ENABLED:
@@ -500,6 +542,14 @@ public class UielementImpl extends StyleElementImpl implements Uielement
         default: return -1;
       }
     }
+    if (baseClass == Categorized.class)
+    {
+      switch (derivedFeatureID)
+      {
+        case DomainPackage.UIELEMENT__CLASSIFIERS: return DomainPackage.CATEGORIZED__CLASSIFIERS;
+        default: return -1;
+      }
+    }
     return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
   }
 
@@ -516,6 +566,14 @@ public class UielementImpl extends StyleElementImpl implements Uielement
       switch (baseFeatureID)
       {
         case DomainPackage.NICK_NAMED__NICKNAME: return DomainPackage.UIELEMENT__NICKNAME;
+        default: return -1;
+      }
+    }
+    if (baseClass == Categorized.class)
+    {
+      switch (baseFeatureID)
+      {
+        case DomainPackage.CATEGORIZED__CLASSIFIERS: return DomainPackage.UIELEMENT__CLASSIFIERS;
         default: return -1;
       }
     }

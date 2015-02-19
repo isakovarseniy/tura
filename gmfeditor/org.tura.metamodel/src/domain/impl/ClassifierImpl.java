@@ -23,6 +23,7 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * <ul>
  *   <li>{@link domain.impl.ClassifierImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.impl.ClassifierImpl#getHint <em>Hint</em>}</li>
+ *   <li>{@link domain.impl.ClassifierImpl#getDetails <em>Details</em>}</li>
  * </ul>
  * </p>
  *
@@ -59,6 +60,26 @@ public class ClassifierImpl extends EObjectImpl implements Classifier
    * @ordered
    */
   protected GenerationHint hint;
+
+  /**
+   * The default value of the '{@link #getDetails() <em>Details</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getDetails()
+   * @generated
+   * @ordered
+   */
+  protected static final String DETAILS_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getDetails() <em>Details</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getDetails()
+   * @generated
+   * @ordered
+   */
+  protected String details = DETAILS_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -152,6 +173,29 @@ public class ClassifierImpl extends EObjectImpl implements Classifier
    * <!-- end-user-doc -->
    * @generated
    */
+  public String getDetails()
+  {
+    return details;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setDetails(String newDetails)
+  {
+    String oldDetails = details;
+    details = newDetails;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.CLASSIFIER__DETAILS, oldDetails, details));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
@@ -162,6 +206,8 @@ public class ClassifierImpl extends EObjectImpl implements Classifier
       case DomainPackage.CLASSIFIER__HINT:
         if (resolve) return getHint();
         return basicGetHint();
+      case DomainPackage.CLASSIFIER__DETAILS:
+        return getDetails();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -181,6 +227,9 @@ public class ClassifierImpl extends EObjectImpl implements Classifier
         return;
       case DomainPackage.CLASSIFIER__HINT:
         setHint((GenerationHint)newValue);
+        return;
+      case DomainPackage.CLASSIFIER__DETAILS:
+        setDetails((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -202,6 +251,9 @@ public class ClassifierImpl extends EObjectImpl implements Classifier
       case DomainPackage.CLASSIFIER__HINT:
         setHint((GenerationHint)null);
         return;
+      case DomainPackage.CLASSIFIER__DETAILS:
+        setDetails(DETAILS_EDEFAULT);
+        return;
     }
     super.eUnset(featureID);
   }
@@ -220,6 +272,8 @@ public class ClassifierImpl extends EObjectImpl implements Classifier
         return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
       case DomainPackage.CLASSIFIER__HINT:
         return hint != null;
+      case DomainPackage.CLASSIFIER__DETAILS:
+        return DETAILS_EDEFAULT == null ? details != null : !DETAILS_EDEFAULT.equals(details);
     }
     return super.eIsSet(featureID);
   }
@@ -237,6 +291,8 @@ public class ClassifierImpl extends EObjectImpl implements Classifier
     StringBuffer result = new StringBuffer(super.toString());
     result.append(" (uid: ");
     result.append(uid);
+    result.append(", details: ");
+    result.append(details);
     result.append(')');
     return result.toString();
   }

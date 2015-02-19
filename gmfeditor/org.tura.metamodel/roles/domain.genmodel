@@ -36,6 +36,7 @@
     <genClasses ecoreClass="domain.ecore#//Classifier">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//Classifier/uid"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference domain.ecore#//Classifier/hint"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//Classifier/details"/>
     </genClasses>
     <genClasses ecoreClass="domain.ecore#//DomainArtifacts">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//DomainArtifacts/uid"/>

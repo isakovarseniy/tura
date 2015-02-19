@@ -66,6 +66,7 @@ public class ClassifierItemProvider
 
       addUidPropertyDescriptor(object);
       addHintPropertyDescriptor(object);
+      addDetailsPropertyDescriptor(object);
     }
     return itemPropertyDescriptors;
   }
@@ -117,6 +118,29 @@ public class ClassifierItemProvider
   }
 
   /**
+   * This adds a property descriptor for the Details feature.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected void addDetailsPropertyDescriptor(Object object)
+  {
+    itemPropertyDescriptors.add
+      (createItemPropertyDescriptor
+        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+         getResourceLocator(),
+         getString("_UI_Classifier_details_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_Classifier_details_feature", "_UI_Classifier_type"),
+         DomainPackage.Literals.CLASSIFIER__DETAILS,
+         true,
+         false,
+         false,
+         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+         null,
+         null));
+  }
+
+  /**
    * This returns Classifier.gif.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -158,6 +182,7 @@ public class ClassifierItemProvider
     switch (notification.getFeatureID(Classifier.class))
     {
       case DomainPackage.CLASSIFIER__UID:
+      case DomainPackage.CLASSIFIER__DETAILS:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
         return;
     }

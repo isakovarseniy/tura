@@ -688,6 +688,10 @@
              id="property.tab.domain.canvas.uielement.icon"
              label="Icon"/>
     
+           <propertyTab
+             category="domain"
+             id="property.tab.domain.canvas.uielement.classifier"
+             label="Hint"/>    
           </propertyTabs>
        </extension>
 
@@ -697,6 +701,29 @@
  
       <propertySections contributorId="org.tura.metamodel.diagram.canvas">
 
+          <propertySection
+               tab="property.tab.domain.canvas.uielement.classifier"
+               class="org.tura.metamodel.commons.properties.selections.grid.impl.CategorizedPropertySelection"
+               id="property.tab.domain.canvas.uielement.classifier">
+ 
+               <input type="canvas.diagram.edit.parts.TableEditPart"/>
+              <input type="canvas.diagram.edit.parts.Tree2EditPart"/>
+              <input type="canvas.diagram.edit.parts.ButtonEditPart"/>
+              <input type="canvas.diagram.edit.parts.LabelEditPart"/>
+              <input type="canvas.diagram.edit.parts.ColumnEditPart"/>
+ 
+ 
+             <input type="canvas.diagram.edit.parts.CheckBoxEditPart"/>
+              <input type="canvas.diagram.edit.parts.InputTextEditPart"/>
+              <input type="canvas.diagram.edit.parts.OutputTextEditPart"/>
+              <input type="canvas.diagram.edit.parts.DropDownSelectionEditPart"/>
+ 
+               <input type="canvas.diagram.edit.parts.CheckBox2EditPart"/>
+              <input type="canvas.diagram.edit.parts.InputText2EditPart"/>
+              <input type="canvas.diagram.edit.parts.OutputText2EditPart"/>
+              <input type="canvas.diagram.edit.parts.DropDownSelection2EditPart"/>
+              <input type="canvas.diagram.edit.parts.Button2EditPart"/>
+            </propertySection>        
 
 
             <propertySection

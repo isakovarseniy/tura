@@ -2,19 +2,25 @@
  */
 package domain.impl;
 
+import domain.Categorized;
+import domain.Classifier;
 import domain.Column;
 import domain.Context;
 import domain.DomainPackage;
 import domain.MultiLangLabel;
 import domain.Uielement;
 
+import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -24,6 +30,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * The following features are implemented:
  * <ul>
  *   <li>{@link domain.impl.ColumnImpl#getMultiLangLabel <em>Multi Lang Label</em>}</li>
+ *   <li>{@link domain.impl.ColumnImpl#getClassifiers <em>Classifiers</em>}</li>
  *   <li>{@link domain.impl.ColumnImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.impl.ColumnImpl#getLabel <em>Label</em>}</li>
  *   <li>{@link domain.impl.ColumnImpl#getElement <em>Element</em>}</li>
@@ -43,6 +50,16 @@ public class ColumnImpl extends StyleElementImpl implements Column
    * @ordered
    */
   protected Context multiLangLabel;
+
+  /**
+   * The cached value of the '{@link #getClassifiers() <em>Classifiers</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getClassifiers()
+   * @generated
+   * @ordered
+   */
+  protected EList<Classifier> classifiers;
 
   /**
    * The default value of the '{@link #getUid() <em>Uid</em>}' attribute.
@@ -168,6 +185,20 @@ public class ColumnImpl extends StyleElementImpl implements Column
    * <!-- end-user-doc -->
    * @generated
    */
+  public EList<Classifier> getClassifiers()
+  {
+    if (classifiers == null)
+    {
+      classifiers = new EObjectContainmentEList<Classifier>(Classifier.class, this, DomainPackage.COLUMN__CLASSIFIERS);
+    }
+    return classifiers;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public String getUid()
   {
     return uid;
@@ -269,6 +300,8 @@ public class ColumnImpl extends StyleElementImpl implements Column
     {
       case DomainPackage.COLUMN__MULTI_LANG_LABEL:
         return basicSetMultiLangLabel(null, msgs);
+      case DomainPackage.COLUMN__CLASSIFIERS:
+        return ((InternalEList<?>)getClassifiers()).basicRemove(otherEnd, msgs);
       case DomainPackage.COLUMN__ELEMENT:
         return basicSetElement(null, msgs);
     }
@@ -287,6 +320,8 @@ public class ColumnImpl extends StyleElementImpl implements Column
     {
       case DomainPackage.COLUMN__MULTI_LANG_LABEL:
         return getMultiLangLabel();
+      case DomainPackage.COLUMN__CLASSIFIERS:
+        return getClassifiers();
       case DomainPackage.COLUMN__UID:
         return getUid();
       case DomainPackage.COLUMN__LABEL:
@@ -302,6 +337,7 @@ public class ColumnImpl extends StyleElementImpl implements Column
    * <!-- end-user-doc -->
    * @generated
    */
+  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
@@ -309,6 +345,10 @@ public class ColumnImpl extends StyleElementImpl implements Column
     {
       case DomainPackage.COLUMN__MULTI_LANG_LABEL:
         setMultiLangLabel((Context)newValue);
+        return;
+      case DomainPackage.COLUMN__CLASSIFIERS:
+        getClassifiers().clear();
+        getClassifiers().addAll((Collection<? extends Classifier>)newValue);
         return;
       case DomainPackage.COLUMN__UID:
         setUid((String)newValue);
@@ -336,6 +376,9 @@ public class ColumnImpl extends StyleElementImpl implements Column
       case DomainPackage.COLUMN__MULTI_LANG_LABEL:
         setMultiLangLabel((Context)null);
         return;
+      case DomainPackage.COLUMN__CLASSIFIERS:
+        getClassifiers().clear();
+        return;
       case DomainPackage.COLUMN__UID:
         setUid(UID_EDEFAULT);
         return;
@@ -361,6 +404,8 @@ public class ColumnImpl extends StyleElementImpl implements Column
     {
       case DomainPackage.COLUMN__MULTI_LANG_LABEL:
         return multiLangLabel != null;
+      case DomainPackage.COLUMN__CLASSIFIERS:
+        return classifiers != null && !classifiers.isEmpty();
       case DomainPackage.COLUMN__UID:
         return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
       case DomainPackage.COLUMN__LABEL:
@@ -387,6 +432,14 @@ public class ColumnImpl extends StyleElementImpl implements Column
         default: return -1;
       }
     }
+    if (baseClass == Categorized.class)
+    {
+      switch (derivedFeatureID)
+      {
+        case DomainPackage.COLUMN__CLASSIFIERS: return DomainPackage.CATEGORIZED__CLASSIFIERS;
+        default: return -1;
+      }
+    }
     return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
   }
 
@@ -403,6 +456,14 @@ public class ColumnImpl extends StyleElementImpl implements Column
       switch (baseFeatureID)
       {
         case DomainPackage.MULTI_LANG_LABEL__MULTI_LANG_LABEL: return DomainPackage.COLUMN__MULTI_LANG_LABEL;
+        default: return -1;
+      }
+    }
+    if (baseClass == Categorized.class)
+    {
+      switch (baseFeatureID)
+      {
+        case DomainPackage.CATEGORIZED__CLASSIFIERS: return DomainPackage.COLUMN__CLASSIFIERS;
         default: return -1;
       }
     }

@@ -197,13 +197,22 @@ public interface DomainPackage extends EPackage
   int CLASSIFIER__HINT = 1;
 
   /**
+   * The feature id for the '<em><b>Details</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CLASSIFIER__DETAILS = 2;
+
+  /**
    * The number of structural features of the '<em>Classifier</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CLASSIFIER_FEATURE_COUNT = 2;
+  int CLASSIFIER_FEATURE_COUNT = 3;
 
   /**
    * The meta object id for the '{@link domain.impl.DomainArtifactsImpl <em>Artifacts</em>}' class.
@@ -6934,13 +6943,22 @@ public interface DomainPackage extends EPackage
   int UIELEMENT__NICKNAME = STYLE_ELEMENT_FEATURE_COUNT + 0;
 
   /**
+   * The feature id for the '<em><b>Classifiers</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int UIELEMENT__CLASSIFIERS = STYLE_ELEMENT_FEATURE_COUNT + 1;
+
+  /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int UIELEMENT__UID = STYLE_ELEMENT_FEATURE_COUNT + 1;
+  int UIELEMENT__UID = STYLE_ELEMENT_FEATURE_COUNT + 2;
 
   /**
    * The feature id for the '<em><b>Enabled</b></em>' containment reference.
@@ -6949,7 +6967,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int UIELEMENT__ENABLED = STYLE_ELEMENT_FEATURE_COUNT + 2;
+  int UIELEMENT__ENABLED = STYLE_ELEMENT_FEATURE_COUNT + 3;
 
   /**
    * The feature id for the '<em><b>Required</b></em>' containment reference.
@@ -6958,7 +6976,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int UIELEMENT__REQUIRED = STYLE_ELEMENT_FEATURE_COUNT + 3;
+  int UIELEMENT__REQUIRED = STYLE_ELEMENT_FEATURE_COUNT + 4;
 
   /**
    * The feature id for the '<em><b>Read Only</b></em>' containment reference.
@@ -6967,7 +6985,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int UIELEMENT__READ_ONLY = STYLE_ELEMENT_FEATURE_COUNT + 4;
+  int UIELEMENT__READ_ONLY = STYLE_ELEMENT_FEATURE_COUNT + 5;
 
   /**
    * The feature id for the '<em><b>On Event Refresh Area</b></em>' reference list.
@@ -6976,7 +6994,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int UIELEMENT__ON_EVENT_REFRESH_AREA = STYLE_ELEMENT_FEATURE_COUNT + 5;
+  int UIELEMENT__ON_EVENT_REFRESH_AREA = STYLE_ELEMENT_FEATURE_COUNT + 6;
 
   /**
    * The number of structural features of the '<em>Uielement</em>' class.
@@ -6985,7 +7003,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int UIELEMENT_FEATURE_COUNT = STYLE_ELEMENT_FEATURE_COUNT + 6;
+  int UIELEMENT_FEATURE_COUNT = STYLE_ELEMENT_FEATURE_COUNT + 7;
 
   /**
    * The meta object id for the '{@link domain.impl.SourcesPointerImpl <em>Sources Pointer</em>}' class.
@@ -7023,6 +7041,15 @@ public interface DomainPackage extends EPackage
    * @ordered
    */
   int SOURCES_POINTER__NICKNAME = UIELEMENT__NICKNAME;
+
+  /**
+   * The feature id for the '<em><b>Classifiers</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SOURCES_POINTER__CLASSIFIERS = UIELEMENT__CLASSIFIERS;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -7150,6 +7177,15 @@ public interface DomainPackage extends EPackage
    * @ordered
    */
   int ACTION_ELEMENT__NICKNAME = UIELEMENT__NICKNAME;
+
+  /**
+   * The feature id for the '<em><b>Classifiers</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ACTION_ELEMENT__CLASSIFIERS = UIELEMENT__CLASSIFIERS;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -7304,6 +7340,15 @@ public interface DomainPackage extends EPackage
    * @ordered
    */
   int INPUT_ELEMENT__NICKNAME = SOURCES_POINTER__NICKNAME;
+
+  /**
+   * The feature id for the '<em><b>Classifiers</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INPUT_ELEMENT__CLASSIFIERS = SOURCES_POINTER__CLASSIFIERS;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -7488,6 +7533,15 @@ public interface DomainPackage extends EPackage
   int OPTION_SELECTION__NICKNAME = INPUT_ELEMENT__NICKNAME;
 
   /**
+   * The feature id for the '<em><b>Classifiers</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OPTION_SELECTION__CLASSIFIERS = INPUT_ELEMENT__CLASSIFIERS;
+
+  /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -7642,6 +7696,15 @@ public interface DomainPackage extends EPackage
   int LAYER_HOLDER__NICKNAME = UIELEMENT__NICKNAME;
 
   /**
+   * The feature id for the '<em><b>Classifiers</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LAYER_HOLDER__CLASSIFIERS = UIELEMENT__CLASSIFIERS;
+
+  /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -7749,6 +7812,15 @@ public interface DomainPackage extends EPackage
    * @ordered
    */
   int INPUT_TEXT__NICKNAME = INPUT_ELEMENT__NICKNAME;
+
+  /**
+   * The feature id for the '<em><b>Classifiers</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INPUT_TEXT__CLASSIFIERS = INPUT_ELEMENT__CLASSIFIERS;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -7878,6 +7950,15 @@ public interface DomainPackage extends EPackage
   int LABEL__NICKNAME = UIELEMENT__NICKNAME;
 
   /**
+   * The feature id for the '<em><b>Classifiers</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LABEL__CLASSIFIERS = UIELEMENT__CLASSIFIERS;
+
+  /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -7985,6 +8066,15 @@ public interface DomainPackage extends EPackage
    * @ordered
    */
   int OUTPUT_TEXT__NICKNAME = INPUT_ELEMENT__NICKNAME;
+
+  /**
+   * The feature id for the '<em><b>Classifiers</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OUTPUT_TEXT__CLASSIFIERS = INPUT_ELEMENT__CLASSIFIERS;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -8114,6 +8204,15 @@ public interface DomainPackage extends EPackage
   int CHECK_BOX__NICKNAME = INPUT_ELEMENT__NICKNAME;
 
   /**
+   * The feature id for the '<em><b>Classifiers</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CHECK_BOX__CLASSIFIERS = INPUT_ELEMENT__CLASSIFIERS;
+
+  /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -8239,6 +8338,15 @@ public interface DomainPackage extends EPackage
    * @ordered
    */
   int DROP_DOWN_SELECTION__NICKNAME = OPTION_SELECTION__NICKNAME;
+
+  /**
+   * The feature id for the '<em><b>Classifiers</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DROP_DOWN_SELECTION__CLASSIFIERS = OPTION_SELECTION__CLASSIFIERS;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -8404,13 +8512,22 @@ public interface DomainPackage extends EPackage
   int COLUMN__MULTI_LANG_LABEL = STYLE_ELEMENT_FEATURE_COUNT + 0;
 
   /**
+   * The feature id for the '<em><b>Classifiers</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COLUMN__CLASSIFIERS = STYLE_ELEMENT_FEATURE_COUNT + 1;
+
+  /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int COLUMN__UID = STYLE_ELEMENT_FEATURE_COUNT + 1;
+  int COLUMN__UID = STYLE_ELEMENT_FEATURE_COUNT + 2;
 
   /**
    * The feature id for the '<em><b>Label</b></em>' attribute.
@@ -8419,7 +8536,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int COLUMN__LABEL = STYLE_ELEMENT_FEATURE_COUNT + 2;
+  int COLUMN__LABEL = STYLE_ELEMENT_FEATURE_COUNT + 3;
 
   /**
    * The feature id for the '<em><b>Element</b></em>' containment reference.
@@ -8428,7 +8545,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int COLUMN__ELEMENT = STYLE_ELEMENT_FEATURE_COUNT + 3;
+  int COLUMN__ELEMENT = STYLE_ELEMENT_FEATURE_COUNT + 4;
 
   /**
    * The number of structural features of the '<em>Column</em>' class.
@@ -8437,7 +8554,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int COLUMN_FEATURE_COUNT = STYLE_ELEMENT_FEATURE_COUNT + 4;
+  int COLUMN_FEATURE_COUNT = STYLE_ELEMENT_FEATURE_COUNT + 5;
 
   /**
    * The meta object id for the '{@link domain.impl.TableImpl <em>Table</em>}' class.
@@ -8475,6 +8592,15 @@ public interface DomainPackage extends EPackage
    * @ordered
    */
   int TABLE__NICKNAME = SOURCES_POINTER__NICKNAME;
+
+  /**
+   * The feature id for the '<em><b>Classifiers</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TABLE__CLASSIFIERS = SOURCES_POINTER__CLASSIFIERS;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -8649,6 +8775,15 @@ public interface DomainPackage extends EPackage
   int TREE__NICKNAME = SOURCES_POINTER__NICKNAME;
 
   /**
+   * The feature id for the '<em><b>Classifiers</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TREE__CLASSIFIERS = SOURCES_POINTER__CLASSIFIERS;
+
+  /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -8819,6 +8954,15 @@ public interface DomainPackage extends EPackage
    * @ordered
    */
   int BUTTON__NICKNAME = ACTION_ELEMENT__NICKNAME;
+
+  /**
+   * The feature id for the '<em><b>Classifiers</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BUTTON__CLASSIFIERS = ACTION_ELEMENT__CLASSIFIERS;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -11506,6 +11650,17 @@ public interface DomainPackage extends EPackage
    * @generated
    */
   EReference getClassifier_Hint();
+
+  /**
+   * Returns the meta object for the attribute '{@link domain.Classifier#getDetails <em>Details</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Details</em>'.
+   * @see domain.Classifier#getDetails()
+   * @see #getClassifier()
+   * @generated
+   */
+  EAttribute getClassifier_Details();
 
   /**
    * Returns the meta object for class '{@link domain.DomainArtifacts <em>Artifacts</em>}'.
@@ -18311,6 +18466,14 @@ public interface DomainPackage extends EPackage
      * @generated
      */
     EReference CLASSIFIER__HINT = eINSTANCE.getClassifier_Hint();
+
+    /**
+     * The meta object literal for the '<em><b>Details</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute CLASSIFIER__DETAILS = eINSTANCE.getClassifier_Details();
 
     /**
      * The meta object literal for the '{@link domain.impl.DomainArtifactsImpl <em>Artifacts</em>}' class.

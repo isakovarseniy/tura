@@ -24,6 +24,7 @@ class Categorized{
 class Classifier{
     id attr EString uid;
     ref GenerationHint hint;
+    attr EString details;
 }
 
 @gmf.node(label="name",border.color="0,0,0",color="255,239,222")
@@ -894,7 +895,7 @@ class NickNamed{
     attr EString nickname;
 }
 
-class Uielement extends StyleElement,NickNamed{
+class Uielement extends StyleElement,NickNamed,Categorized{
     id attr EString uid;
     val Context enabled;
     val Context required;
@@ -959,7 +960,7 @@ class DropDownSelection extends OptionSelection {
 }
 
 @gmf.node(label="label",tool.small.bundle="org.tura.metamodel.commons",tool.small.path="icons/column.png")
-class Column extends StyleElement,MultiLangLabel{
+class Column extends StyleElement,MultiLangLabel, Categorized{
     id attr EString uid;
    attr EString label;
    @gmf.compartment(layout="list")

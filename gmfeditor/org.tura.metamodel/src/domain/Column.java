@@ -21,7 +21,7 @@ package domain;
  * @model annotation="gmf.node label='label' tool.small.bundle='org.tura.metamodel.commons' tool.small.path='icons/column.png'"
  * @generated
  */
-public interface Column extends StyleElement, MultiLangLabel
+public interface Column extends StyleElement, MultiLangLabel, Categorized
 {
   /**
    * Returns the value of the '<em><b>Uid</b></em>' attribute.

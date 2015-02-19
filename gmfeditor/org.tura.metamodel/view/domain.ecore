@@ -25,6 +25,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="hint" eType="#//GenerationHint"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="details" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DomainArtifacts" eSuperTypes="#//HTMLLayerHolder">
     <eAnnotations source="gmf.node">
@@ -1325,7 +1326,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="NickNamed">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="nickname" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Uielement" eSuperTypes="#//StyleElement #//NickNamed">
+  <eClassifiers xsi:type="ecore:EClass" name="Uielement" eSuperTypes="#//StyleElement #//NickNamed #//Categorized">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="enabled" eType="#//Context"
@@ -1406,7 +1407,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="selection" eType="#//Selection"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Column" eSuperTypes="#//StyleElement #//MultiLangLabel">
+  <eClassifiers xsi:type="ecore:EClass" name="Column" eSuperTypes="#//StyleElement #//MultiLangLabel #//Categorized">
     <eAnnotations source="gmf.node">
       <details key="label" value="label"/>
       <details key="tool.small.bundle" value="org.tura.metamodel.commons"/>

@@ -131,6 +131,7 @@ public class ColumnItemProvider
     {
       super.getChildrenFeatures(object);
       childrenFeatures.add(DomainPackage.Literals.MULTI_LANG_LABEL__MULTI_LANG_LABEL);
+      childrenFeatures.add(DomainPackage.Literals.CATEGORIZED__CLASSIFIERS);
       childrenFeatures.add(DomainPackage.Literals.COLUMN__ELEMENT);
     }
     return childrenFeatures;
@@ -196,6 +197,7 @@ public class ColumnItemProvider
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
         return;
       case DomainPackage.COLUMN__MULTI_LANG_LABEL:
+      case DomainPackage.COLUMN__CLASSIFIERS:
       case DomainPackage.COLUMN__ELEMENT:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
         return;
@@ -219,6 +221,11 @@ public class ColumnItemProvider
       (createChildParameter
         (DomainPackage.Literals.MULTI_LANG_LABEL__MULTI_LANG_LABEL,
          DomainFactory.eINSTANCE.createContext()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (DomainPackage.Literals.CATEGORIZED__CLASSIFIERS,
+         DomainFactory.eINSTANCE.createClassifier()));
 
     newChildDescriptors.add
       (createChildParameter

@@ -275,6 +275,7 @@ public class Button2EditPart extends ShapeNodeEditPart {
 		private void createContents() {
 
 			fFigureButtonLabelFigure = new WrappingLabel();
+			fFigureButtonLabelFigure.setAlignment(2);
 
 			fFigureButtonLabelFigure.setText("Button");
 

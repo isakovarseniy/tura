@@ -398,7 +398,7 @@
       <classifiers uid="State_03eabbe7-b921-4ce7-a2a4-78b65cc0bda8" hint="bf57ae0e-a725-4c7c-b178-ebbf640b2375"/>
       <attributes packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="e370b9d1-a6fb-4a40-88e2-8845be441438" uid="State_7982905f-4f83-472f-8551-80e30e34934c" name="name"/>
       <extension uid="State_TypeExtension1" source="State_52ffccb7-cea6-49de-ba4b-7437f1da3369" target="State_eb76b6af-9330-4f5b-b46c-8b732b8fe354">
-        <classifiers uid="State_30a3e710-436b-41a7-9649-0311b2fe1ef7" hint="2fe9fdd8-3fec-4a11-9ed5-a79c64373895"/>
+        <classifiers uid="State_30a3e710-436b-41a7-9649-0311b2fe1ef7" hint="2fe9fdd8-3fec-4a11-9ed5-a79c64373895" details=""/>
       </extension>
     </types>
     <types xsi:type="tura.domain:TypeReference" uid="State_eb76b6af-9330-4f5b-b46c-8b732b8fe354" packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="50dcca84-4d2c-4fe2-baad-56afdf1be76d"/>
@@ -1603,6 +1603,13 @@
         <options uid="7191e55b-c351-4fdf-b8bb-e58a9bbb38a1" value="JEE/JSF/RichFaces"/>
       </specifiers>
     </artifacts>
+    <artifacts uid="8d7cc659-7ce7-4299-94b0-9a0fc5248177" name="JSF">
+      <hints uid="a249c5f0-5bc1-4c3c-a8d7-3b49156211c7" name="immediate"/>
+      <hints uid="0a80d7c7-cf37-46c2-8804-665afda89f73" name="parameter"/>
+    </artifacts>
+    <artifacts uid="297535b2-a50c-411c-9014-4d739432685b" name="Primefaces">
+      <hints uid="21d9dc34-d2cb-4b87-ab39-94afefd6765c" name="row number selector"/>
+    </artifacts>
   </tura.domain:Artifacts>
   <tura.domain:Recipes uid="780d51bf-e928-4fb4-a228-4371d8fe439d" parent="fc4a8a78-b68c-4020-bb95-ab6d773b5486">
     <recipe mappers="0d86886f-6d6e-49e1-a123-d063d2d9bd22 236f541c-3271-4e57-a60e-1769390bf194" uid="6cb40735-2e80-4221-9ab5-31d646aff979" infrastructures="81bafabb-45d9-48af-9283-6ffc90afbda3">
@@ -1890,6 +1897,9 @@
       <messages uid="3c9d5f18-58ea-4e9a-a877-c2535bf00f27" name="COMPANY_DETAILS">
         <translatioins uid="13d01eb8-d29d-4854-8959-a27d7b6ca424" translation="Company details" lang="5f566f06-7d99-4d79-986d-b42bdfb2b6a0"/>
       </messages>
+      <messages uid="6dcdd799-490e-4e4b-9a8b-319824c3df09" name="COMPANY_TABLE_VIEW_DETAILS">
+        <translatioins uid="087d4a7f-eec0-4dbc-8e60-9a5209cd9bc9" translation="View company's details" lang="5f566f06-7d99-4d79-986d-b42bdfb2b6a0"/>
+      </messages>
     </messageLibraries>
     <languages uid="2160c4e8-6839-4e94-a225-162cc9210518" lang="English" code="en"/>
   </tura.domain:Messages>
@@ -1897,8 +1907,9 @@
     <baseCanvas uid="c5f8ac47-356e-4c17-84db-fcf0a5037ca7">
       <children xsi:type="tura.domain:LayerHolder" uid="cae32081-1631-4110-9d0f-5a5b1cd5e23a" columns="2">
         <children xsi:type="tura.domain:LayerHolder" uid="b4779d71-722f-48ae-98c1-4d1e12202f93">
-          <children xsi:type="tura.domain:Table" uid="92ea6c50-dc39-4ba0-bb76-b3ca2e161fe5" onEventRefreshArea="bee23d39-6e59-450f-b696-94cf4c907c86 ce2aedb4-2308-40d7-b9aa-c9819da6e0f4" sourcePointer="d45e9605-3706-493c-8422-3f7b8b6ea2ed" sourceCastDataControl="d45e9605-3706-493c-8422-3f7b8b6ea2ed" columns="2" label="Companies" rowNumber="5">
+          <children xsi:type="tura.domain:Table" uid="92ea6c50-dc39-4ba0-bb76-b3ca2e161fe5" onEventRefreshArea="bee23d39-6e59-450f-b696-94cf4c907c86 ce2aedb4-2308-40d7-b9aa-c9819da6e0f4" sourcePointer="d45e9605-3706-493c-8422-3f7b8b6ea2ed" sourceCastDataControl="d45e9605-3706-493c-8422-3f7b8b6ea2ed" columns="3" label="Companies" rowNumber="5">
             <style/>
+            <classifiers uid="bbe77e69-5dc3-4413-9f07-7043568f59e2" hint="21d9dc34-d2cb-4b87-ab39-94afefd6765c" details="5,10"/>
             <enabled/>
             <multiLangLabel value="Messages.HR Controller.COMPANIES_TABLE">
               <expression objRef="af03a493-0ca4-486c-945f-5bfc2fdf35bd" expressionType="MessagesImpl"/>
@@ -1923,6 +1934,17 @@
               </multiLangLabel>
               <element xsi:type="tura.domain:InputText" uid="e4d5d6df-6b5d-4ede-ad11-8e857d3cd87e" valuePointer="a3f007de-ce4a-4510-bc86-52f20eee5325">
                 <required/>
+              </element>
+            </cols>
+            <cols uid="09a71dab-c445-42a0-a178-6ca43af215f0" label="View company's details">
+              <multiLangLabel value="Messages.HR Controller.COMPANY_TABLE_VIEW_DETAILS">
+                <expression objRef="af03a493-0ca4-486c-945f-5bfc2fdf35bd" expressionType="MessagesImpl"/>
+                <expression objRef="5772ddee-a83b-41c9-8f34-c442412e1013" order="1" expressionType="MessageLibraryImpl"/>
+                <expression objRef="6dcdd799-490e-4e4b-9a8b-319824c3df09" order="2" expressionType="MessageImpl"/>
+              </multiLangLabel>
+              <element xsi:type="tura.domain:Button" uid="6be54d96-3b43-4bfb-b2dc-6599b98b77ae">
+                <classifiers uid="8dcdde3e-8897-42b2-868d-3ea97b6b8fc4" hint="0a80d7c7-cf37-46c2-8804-665afda89f73" details="#{row}"/>
+                <classifiers uid="0a4ad4f9-4abb-4094-8932-dbe9748068e2" hint="a249c5f0-5bc1-4c3c-a8d7-3b49156211c7"/>
               </element>
             </cols>
           </children>

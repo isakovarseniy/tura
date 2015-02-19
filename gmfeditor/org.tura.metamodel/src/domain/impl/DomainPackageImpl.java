@@ -1383,6 +1383,16 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EAttribute getClassifier_Details()
+  {
+    return (EAttribute)classifierEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getDomainArtifacts()
   {
     return domainArtifactsEClass;
@@ -7643,6 +7653,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     classifierEClass = createEClass(CLASSIFIER);
     createEAttribute(classifierEClass, CLASSIFIER__UID);
     createEReference(classifierEClass, CLASSIFIER__HINT);
+    createEAttribute(classifierEClass, CLASSIFIER__DETAILS);
 
     domainArtifactsEClass = createEClass(DOMAIN_ARTIFACTS);
     createEAttribute(domainArtifactsEClass, DOMAIN_ARTIFACTS__UID);
@@ -8518,6 +8529,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     contextEClass.getESuperTypes().add(this.getContextParameters());
     uielementEClass.getESuperTypes().add(this.getStyleElement());
     uielementEClass.getESuperTypes().add(this.getNickNamed());
+    uielementEClass.getESuperTypes().add(this.getCategorized());
     sourcesPointerEClass.getESuperTypes().add(this.getUielement());
     actionElementEClass.getESuperTypes().add(this.getUielement());
     actionElementEClass.getESuperTypes().add(this.getTrigger());
@@ -8535,6 +8547,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     dropDownSelectionEClass.getESuperTypes().add(this.getOptionSelection());
     columnEClass.getESuperTypes().add(this.getStyleElement());
     columnEClass.getESuperTypes().add(this.getMultiLangLabel());
+    columnEClass.getESuperTypes().add(this.getCategorized());
     tableEClass.getESuperTypes().add(this.getSourcesPointer());
     tableEClass.getESuperTypes().add(this.getHTMLLayerHolder());
     tableEClass.getESuperTypes().add(this.getMultiLangLabel());
@@ -8582,6 +8595,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     initEClass(classifierEClass, Classifier.class, "Classifier", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getClassifier_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, Classifier.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getClassifier_Hint(), this.getGenerationHint(), null, "hint", null, 0, 1, Classifier.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getClassifier_Details(), ecorePackage.getEString(), "details", null, 0, 1, Classifier.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(domainArtifactsEClass, DomainArtifacts.class, "DomainArtifacts", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getDomainArtifacts_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, DomainArtifacts.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
