@@ -14,16 +14,29 @@ operation Button draw(hash) {
         type.mappingType2Java(recipe,ingredient);
         type.mappingType2JavaScript(recipe,ingredient);
      }
+     var immediate = "";
+     if (self.findClassifier('UIGeneration','JSF','immediate')){
+        immediate = "immediate=\"true\"";
+     }
+     
+     
 
  %]
-<p:commandButton [%=title%] [%=self.mkUIDBinding()%] [%=self.uiElementAttributes(hash)%][%  
+<p:commandButton  [%=immediate%]  [%=title%] [%=self.mkUIDBinding()%] [%=self.uiElementAttributes(hash)%][%  
       if (type <> null  and type.~mapper.isDefined() and "Type2JavaScript".equals(type.~mapper) ){
          %]onclick="#{scriptGenerator.scriptBuilder('[%=self.mkuid()%]')}"[%
       }
       if (type <> null and type.~mapper.isDefined() and "Type2Java".equals(type.~mapper) ){
          %]actionListener="#{actionExecutor.eventListener}"[%
       }
-%] [%=icon%] />
+%] [%=icon%] >
+[%
+        for (param in self.findAllClassifiers('UIGeneration','JSF','parameter')){%]
+             [%=param.details%]        
+        [%
+        }
+%]
+</p:commandButton>
  [%
 }
 %]

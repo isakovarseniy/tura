@@ -8,7 +8,7 @@
           <children xmi:type="notation:DecorationNode" xmi:id="_3ctUlatJEeSgxLZlz1KXmg" type="505008"/>
           <styles xmi:type="notation:DescriptionStyle" xmi:id="_3ctUkatJEeSgxLZlz1KXmg"/>
           <styles xmi:type="notation:FontStyle" xmi:id="_3ctUkqtJEeSgxLZlz1KXmg" fontName="Lucida Grande"/>
-          <styles xmi:type="notation:HintedDiagramLinkStyle" xmi:id="_3ctUk6tJEeSgxLZlz1KXmg" hint="Artifact"/>
+          <styles xmi:type="notation:HintedDiagramLinkStyle" xmi:id="_3ctUk6tJEeSgxLZlz1KXmg" diagramLink="_XnpPsLirEeSmiPwPn-B_qw" hint="Artifact"/>
           <element xmi:type="tura.domain:EJBService" href="hr.domain#bf6005f8-bcb9-4c2a-b3e5-49468794367a"/>
           <layoutConstraint xmi:type="notation:Bounds" xmi:id="_3ctUlKtJEeSgxLZlz1KXmg" y="3"/>
         </children>
@@ -2879,5 +2879,9 @@
     </children>
     <styles xmi:type="notation:DiagramStyle" xmi:id="_J279IbfgEeSgNOvTzdQqew"/>
     <element xmi:type="tura.domain:Artifacts" href="hr.domain#e15bf32f-16b2-4b20-bceb-f9866c131ad9"/>
+  </notation:Diagram>
+  <notation:Diagram xmi:id="_XnpPsLirEeSmiPwPn-B_qw" type="Artifact" measurementUnit="Pixel">
+    <styles xmi:type="notation:DiagramStyle" xmi:id="_XnpPsbirEeSmiPwPn-B_qw"/>
+    <element xmi:type="tura.domain:Artifacts" href="hr.domain#e26c4095-ebd6-48b4-917a-11026d3e511f"/>
   </notation:Diagram>
 </xmi:XMI>

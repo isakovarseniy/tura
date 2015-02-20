@@ -9,10 +9,31 @@ operation Categorized findClassifier( artifactLib:String, artifact: String, clas
            if (classifier.equals(hint.getHint.getName())){
                if ( artifact.equals(  hint.getHint.eContainer().getName)){
                   if ( artifactLib.equals( hint.getHint.eContainer().getParent().getParent().getName()) ){
+                     self.~hintDetails=hint.details;
                      return true;
                   }
                }
            }
       }
       return false;
+}
+
+operation Categorized findAllClassifiers( artifactLib:String, artifact: String, classifier : String) { 
+
+      var util = new Native('org.tura.metamodel.commons.Util');
+      var list = new Native('java.util.ArrayList');
+ 
+      for (hint in self.getClassifiers()){
+           if (hint.getHint()= null )
+                 return false;
+           
+           if (classifier.equals(hint.getHint.getName())){
+               if ( artifact.equals(  hint.getHint.eContainer().getName)){
+                  if ( artifactLib.equals( hint.getHint.eContainer().getParent().getParent().getName()) ){
+                     list.add(hint);
+                  }
+               }
+           }
+      }
+      return list;
 }

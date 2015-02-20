@@ -1909,7 +1909,7 @@
         <children xsi:type="tura.domain:LayerHolder" uid="b4779d71-722f-48ae-98c1-4d1e12202f93">
           <children xsi:type="tura.domain:Table" uid="92ea6c50-dc39-4ba0-bb76-b3ca2e161fe5" onEventRefreshArea="bee23d39-6e59-450f-b696-94cf4c907c86 ce2aedb4-2308-40d7-b9aa-c9819da6e0f4" sourcePointer="d45e9605-3706-493c-8422-3f7b8b6ea2ed" sourceCastDataControl="d45e9605-3706-493c-8422-3f7b8b6ea2ed" columns="3" label="Companies" rowNumber="5">
             <style/>
-            <classifiers uid="bbe77e69-5dc3-4413-9f07-7043568f59e2" hint="21d9dc34-d2cb-4b87-ab39-94afefd6765c" details="5,10"/>
+            <classifiers uid="bbe77e69-5dc3-4413-9f07-7043568f59e2" hint="21d9dc34-d2cb-4b87-ab39-94afefd6765c" details="&quot;5,10&quot;"/>
             <enabled/>
             <multiLangLabel value="Messages.HR Controller.COMPANIES_TABLE">
               <expression objRef="af03a493-0ca4-486c-945f-5bfc2fdf35bd" expressionType="MessagesImpl"/>
@@ -1943,7 +1943,7 @@
                 <expression objRef="6dcdd799-490e-4e4b-9a8b-319824c3df09" order="2" expressionType="MessageImpl"/>
               </multiLangLabel>
               <element xsi:type="tura.domain:Button" uid="6be54d96-3b43-4bfb-b2dc-6599b98b77ae">
-                <classifiers uid="8dcdde3e-8897-42b2-868d-3ea97b6b8fc4" hint="0a80d7c7-cf37-46c2-8804-665afda89f73" details="#{row}"/>
+                <classifiers uid="8dcdde3e-8897-42b2-868d-3ea97b6b8fc4" hint="0a80d7c7-cf37-46c2-8804-665afda89f73" details="&lt;f:attribute name=&quot;param1&quot; value=&quot;#{row}&quot; />"/>
                 <classifiers uid="0a4ad4f9-4abb-4094-8932-dbe9748068e2" hint="a249c5f0-5bc1-4c3c-a8d7-3b49156211c7"/>
               </element>
             </cols>
