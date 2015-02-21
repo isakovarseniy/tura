@@ -1040,6 +1040,7 @@
                class="org.tura.metamodel.commons.properties.selections.dropdown.PackageNamePropertySection"
                id="org.tura.metamodel.diagram.canvas.actioin.packagename">
               <input type="canvas.diagram.edit.parts.ButtonEditPart"/>
+              <input type="canvas.diagram.edit.parts.Button2EditPart"/>
            </propertySection>        
 
              <propertySection
@@ -1048,6 +1049,7 @@
                class="org.tura.metamodel.commons.properties.selections.dropdown.TypeRefTypeNamePropertySection"
                id="org.tura.metamodel.diagram.canvas.actioin.typeref">
               <input type="canvas.diagram.edit.parts.ButtonEditPart"/>
+              <input type="canvas.diagram.edit.parts.Button2EditPart"/>
            </propertySection>        
 
              <propertySection
@@ -1056,6 +1058,7 @@
                class="org.tura.metamodel.commons.properties.selections.dropdown.MethodNamePropertySection"
                id="org.tura.metamodel.diagram.canvas.actioin.methodname">
               <input type="canvas.diagram.edit.parts.ButtonEditPart"/>
+              <input type="canvas.diagram.edit.parts.Button2EditPart"/>
            </propertySection>        
 
              <propertySection
@@ -1064,6 +1067,7 @@
                class="org.tura.metamodel.commons.properties.selections.grid.impl.TriggerContextParameterPropertySelection"
                id="org.tura.metamodel.diagram.canvas.actioin.parameters">
               <input type="canvas.diagram.edit.parts.ButtonEditPart"/>
+              <input type="canvas.diagram.edit.parts.Button2EditPart"/>
            </propertySection>        
 
 

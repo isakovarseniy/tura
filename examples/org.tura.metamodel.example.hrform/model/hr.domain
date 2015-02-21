@@ -669,6 +669,11 @@
         <classifiers uid="28b88f24-4a92-4304-bd2b-eeff179a655d" hint="ff44d9e7-d5a5-42d4-8744-089721da820e"/>
       </extension>
     </types>
+    <types xsi:type="tura.domain:Type" uid="c4654ad8-156f-4706-bda2-791ed81fcdea" name="Action executor">
+      <operations uid="5368d958-0a1b-4785-9681-47bcf5224d8d" name="openCompanyDetailsPopup">
+        <returnValue packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="90b18156-de6d-42d1-b350-925e44a0e4cc"/>
+      </operations>
+    </types>
   </tura.domain:TypeDefinition>
   <tura.domain:Mappers uid="e5ddc4b2-b9bc-4fb3-928a-2cb53fcc0d2d" parent="0d86886f-6d6e-49e1-a123-d063d2d9bd22">
     <mappers xsi:type="tura.domain:JavaMapper" uid="f77c09eb-aef3-4ebd-bb99-eb19ab9c40d6" serviceLayer="true" uiLayer="true" packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="e370b9d1-a6fb-4a40-88e2-8845be441438" mappedToPackageName="java.lang" mappedToClassName="String"/>
@@ -917,7 +922,8 @@
   </tura.domain:UIPackage>
   <tura.domain:Controls uid="5541fdd1-fedb-45ba-ab74-966e737af3a6" parent="60346910-0b2a-4fed-b397-25731ca3a1df">
     <root uid="5aea4714-7635-43bd-a361-b2ae8711af5b">
-      <variables packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="e370b9d1-a6fb-4a40-88e2-8845be441438" fakePackageName="Primitive package" fakeTypeName="String" uid="3c62c7d0-70dd-479c-8147-fd1520479bae" name="var1" paramRef="29fc2ee9-2554-4db1-b651-b4c66c472316"/>
+      <variables packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="7b7c554c-a1ad-4e6e-8c91-20df7d6530f8" fakePackageName="Primitive package" fakeTypeName="Long" uid="e521fc9c-5580-404a-aaff-dbccef13eb59" name="cmpId"/>
+      <variables packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="e370b9d1-a6fb-4a40-88e2-8845be441438" fakePackageName="Primitive package" fakeTypeName="String" uid="7ef63886-d369-40e0-8cc2-1e0160478677" name="var1" paramRef="29fc2ee9-2554-4db1-b651-b4c66c472316"/>
     </root>
     <controls uid="d45e9605-3706-493c-8422-3f7b8b6ea2ed" name="Company" baseType="Comp_52ffccb7-cea6-49de-ba4b-7437f1da3369">
       <create packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="2957c51c-68e7-4d1e-b8b7-cbe7ccdbe13f" fakePackageName="Base package" fakeTypeName="JPA Entity CRAD Service" methodRef="40b112a0-4008-11e4-916c-0800200c9a66" fakeMethod="create" uid="8432e75c-3e68-43f0-94d0-c38cf73840e5">
@@ -1506,6 +1512,75 @@
       <defaultSearch/>
       <defaultOrderBy/>
     </controls>
+    <controls uid="659ef9c4-06fb-48cb-a385-4424988c7872" name="Popup Company DC Provider" baseType="Comp_52ffccb7-cea6-49de-ba4b-7437f1da3369">
+      <create packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="2957c51c-68e7-4d1e-b8b7-cbe7ccdbe13f" fakePackageName="Base package" fakeTypeName="JPA Entity CRAD Service" methodRef="40b112a0-4008-11e4-916c-0800200c9a66" fakeMethod="create" uid="45bdb3bf-64aa-4549-8151-09a1234cbc89">
+        <parameters uid="78ee001d-8fab-43ff-bb63-cc1dadc280d0" refObj="9150e8ca-6703-4e2c-a2e0-479f42987fa5">
+          <value uid="2ed97ddf-96f2-4331-9e7c-05bafc72dcea" constant="true" value="org.elsoft.platform.hr.objects.CompanyDAO"/>
+        </parameters>
+      </create>
+      <insert packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="2957c51c-68e7-4d1e-b8b7-cbe7ccdbe13f" fakePackageName="Base package" fakeTypeName="JPA Entity CRAD Service" methodRef="b14bfa20-4008-11e4-916c-0800200c9a66" fakeMethod="insert" uid="a3c98e64-f440-46b0-a9cd-5fa9ef331668">
+        <parameters uid="c56b89b9-fd28-4641-b6c9-a4b3d2614409" refObj="b7ea5020-4008-11e4-916c-0800200c9a66">
+          <value uid="c6203128-9ddc-45ab-ba57-93391df73c12" value="Data controls.Popup Company DC Provider.currentObject">
+            <expression expressionType="DataControlHolder"/>
+            <expression objRef="659ef9c4-06fb-48cb-a385-4424988c7872" order="1" expressionType="DataControlImpl"/>
+            <expression order="2" expressionType="DataControlFakeMethod"/>
+          </value>
+        </parameters>
+      </insert>
+      <update packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="2957c51c-68e7-4d1e-b8b7-cbe7ccdbe13f" fakePackageName="Base package" fakeTypeName="JPA Entity CRAD Service" methodRef="caf1fc90-4008-11e4-916c-0800200c9a66" fakeMethod="update" uid="21ec16b9-f6b5-402a-88b6-f7ce13244da0">
+        <parameters uid="bbcf8fa2-c43c-4d42-8d10-991f197961a2" refObj="7c4f4d20-400a-11e4-916c-0800200c9a66">
+          <value uid="9872a53d-aa39-408f-a1ec-c0b72a4a2708" value="Data controls.Popup Company DC Provider.currentObject">
+            <expression expressionType="DataControlHolder"/>
+            <expression objRef="659ef9c4-06fb-48cb-a385-4424988c7872" order="1" expressionType="DataControlImpl"/>
+            <expression order="2" expressionType="DataControlFakeMethod"/>
+          </value>
+        </parameters>
+      </update>
+      <remove packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="2957c51c-68e7-4d1e-b8b7-cbe7ccdbe13f" fakePackageName="Base package" fakeTypeName="JPA Entity CRAD Service" methodRef="dbacf9e0-4008-11e4-916c-0800200c9a66" fakeMethod="remove" uid="3c253732-02cd-4017-a574-8bf4dd97e7da">
+        <parameters uid="c93b74fa-435f-43b9-a190-890048dc1bc8" refObj="73df4460-400a-11e4-916c-0800200c9a66">
+          <value uid="7caafbff-6dfd-4951-a0fc-6a0b0d075931" value="Data controls.Popup Company DC Provider.currentObject">
+            <expression expressionType="DataControlHolder"/>
+            <expression objRef="659ef9c4-06fb-48cb-a385-4424988c7872" order="1" expressionType="DataControlImpl"/>
+            <expression order="2" expressionType="DataControlFakeMethod"/>
+          </value>
+        </parameters>
+      </remove>
+      <search packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="2957c51c-68e7-4d1e-b8b7-cbe7ccdbe13f" fakePackageName="Base package" fakeTypeName="JPA Entity CRAD Service" methodRef="6fb841e0-4008-11e4-916c-0800200c9a66" fakeMethod="find" uid="8bdae323-39e6-48de-ac5d-f92fcddf3040">
+        <parameters uid="60edc9af-eb8b-4af7-bd3b-d58747df4047" refObj="790b57a0-4008-11e4-916c-0800200c9a66">
+          <value uid="b7b767da-5657-4286-9baa-5aeb93b6ca02" value="Data controls.Popup Company DC Provider.query">
+            <expression expressionType="DataControlHolder"/>
+            <expression objRef="659ef9c4-06fb-48cb-a385-4424988c7872" order="1" expressionType="DataControlImpl"/>
+            <expression order="2" expressionType="DataControlFakeAttribute"/>
+          </value>
+        </parameters>
+        <parameters uid="a9af2b23-1ae3-4a54-9527-f8b68b1a4290" refObj="823b06e0-4008-11e4-916c-0800200c9a66">
+          <value uid="7da4fbdf-29a4-41f4-9178-6c4dd379a168" value="Data controls.Popup Company DC Provider.start Index">
+            <expression expressionType="DataControlHolder"/>
+            <expression objRef="659ef9c4-06fb-48cb-a385-4424988c7872" order="1" expressionType="DataControlImpl"/>
+            <expression order="2" expressionType="DataControlFakeAttribute"/>
+          </value>
+        </parameters>
+        <parameters uid="53409e78-8f69-4946-a15b-31102d17219f" refObj="8cc19390-4008-11e4-916c-0800200c9a66">
+          <value uid="d1706792-cfe2-4f7f-86e6-17278602cc4a" value="Data controls.Popup Company DC Provider.end Index">
+            <expression expressionType="DataControlHolder"/>
+            <expression objRef="659ef9c4-06fb-48cb-a385-4424988c7872" order="1" expressionType="DataControlImpl"/>
+            <expression order="2" expressionType="DataControlFakeAttribute"/>
+          </value>
+        </parameters>
+        <parameters uid="b73c9e8d-825d-42ed-9103-f453373daa6c" refObj="97d8a070-4008-11e4-916c-0800200c9a66">
+          <value uid="20ad7dab-3171-4e5c-8717-4b7c4e681ce8" constant="true" value="org.elsoft.platform.hr.objects.CompanyDAO"/>
+        </parameters>
+      </search>
+      <defaultSearch>
+        <parameters uid="7911c600-c578-46c9-826d-fcd0dde71da1" refObj="32e932b5-e86f-43a3-96c1-8b919c740eb6">
+          <value uid="c0559191-d738-40b6-aaaa-695a56de04a4" value="Form variables.cmpId">
+            <expression objRef="5aea4714-7635-43bd-a361-b2ae8711af5b" expressionType="RootImpl"/>
+            <expression objRef="e521fc9c-5580-404a-aaff-dbccef13eb59" order="1" expressionType="FormVariableImpl"/>
+          </value>
+        </parameters>
+      </defaultSearch>
+      <defaultOrderBy/>
+    </controls>
     <relations uid="972f0d1f-f8cf-40b6-aaf9-e2381520c106" master="d45e9605-3706-493c-8422-3f7b8b6ea2ed" detail="cd1cab1c-1781-4867-85b8-84d9f465f989">
       <links uid="6d31041c-362e-4dd3-ad97-0288b77d1659" masterField="32e932b5-e86f-43a3-96c1-8b919c740eb6" detailField="4ff34e6a-5c01-4656-9a98-32a95c0babea"/>
     </relations>
@@ -1799,6 +1874,7 @@
     <mappers xsi:type="tura.domain:JavaMapper" uid="963dce3c-fcc6-4388-9dc6-c084f6f4fdae" uiLayer="true" packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="97a1a7c3-5e08-48b1-82d0-8a35fa5a13e9" fakePackageName="Base package" fakeTypeName="System library" mappedToPackageName="org.tura.platform.primefaces.lib" mappedToClassName="SystemLibrary" artifactId="primefaces-model" groupId="org.tura.platform" version="2.0"/>
     <mappers xsi:type="tura.domain:JavaMapper" uid="922fccb2-695f-4062-b5b3-953c717851ec" uiLayer="true" packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="7de77bc8-f109-43e4-95fe-0f2ca7a9f1d0" fakePackageName="Base package" fakeTypeName="General data control" mappedToPackageName="org.tura.platform.datacontrol" mappedToClassName="IDataControl" artifactId="core" groupId="org.tura.platform.datacontrol" version="2.0" libraryName=""/>
     <mappers xsi:type="tura.domain:JavaScriptMapper" uid="6b22c160-af59-4606-ac3c-f43db9619dd0" uiLayer="true" packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="971e11a5-49d4-402d-9ae4-4233c366a542" fakePackageName="Base package" fakeTypeName="Client system library" libraryUrl="clientSystemLibrary.js"/>
+    <mappers xsi:type="tura.domain:JavaMapper" uid="3349b9b4-1613-4331-ac71-2002be5890a6" uiLayer="true" packageRef="e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="c4654ad8-156f-4706-bda2-791ed81fcdea" fakePackageName="HR package" fakeTypeName="Action executor" mappedToPackageName="org.tura.example.ui.hrcontroller.actions" mappedToClassName="Actions" libraryName=""/>
   </tura.domain:Mappers>
   <tura.domain:TypeDefinition uid="c9574970-474a-403a-9224-f91bc2f8fe7a"/>
   <tura.domain:Messages uid="af03a493-0ca4-486c-945f-5bfc2fdf35bd" parent="39c0cb8c-3370-4a8b-9dc8-f988c6c3a565">
@@ -1942,7 +2018,7 @@
                 <expression objRef="5772ddee-a83b-41c9-8f34-c442412e1013" order="1" expressionType="MessageLibraryImpl"/>
                 <expression objRef="6dcdd799-490e-4e4b-9a8b-319824c3df09" order="2" expressionType="MessageImpl"/>
               </multiLangLabel>
-              <element xsi:type="tura.domain:Button" uid="6be54d96-3b43-4bfb-b2dc-6599b98b77ae">
+              <element xsi:type="tura.domain:Button" uid="6be54d96-3b43-4bfb-b2dc-6599b98b77ae" packageRef="e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="c4654ad8-156f-4706-bda2-791ed81fcdea" fakePackageName="HR package" fakeTypeName="Action executor" methodRef="5368d958-0a1b-4785-9681-47bcf5224d8d" fakeMethod="openCompanyDetailsPopup">
                 <classifiers uid="8dcdde3e-8897-42b2-868d-3ea97b6b8fc4" hint="0a80d7c7-cf37-46c2-8804-665afda89f73" details="&lt;f:attribute name=&quot;param1&quot; value=&quot;#{row}&quot; />"/>
                 <classifiers uid="0a4ad4f9-4abb-4094-8932-dbe9748068e2" hint="a249c5f0-5bc1-4c3c-a8d7-3b49156211c7"/>
               </element>
@@ -1994,7 +2070,7 @@
               <parameters uid="62edf914-d5bc-45fd-a691-3313c97df530" refObj="b4b4777c-89d5-4a65-a5a8-6946f31a8803">
                 <value uid="8c4d0139-0d5d-43dc-8086-c3b7c5d62e87" value="Form variables.var1">
                   <expression objRef="5aea4714-7635-43bd-a361-b2ae8711af5b" expressionType="RootImpl"/>
-                  <expression objRef="3c62c7d0-70dd-479c-8147-fd1520479bae" order="1" expressionType="FormVariableImpl"/>
+                  <expression order="1" expressionType="FormVariableImpl"/>
                 </value>
               </parameters>
               <multiLangLabel/>

@@ -118,6 +118,8 @@ public class ActionExecutor  implements java.io.Serializable {
                 }
                 objects.add(obj);
             }
+            if (array[2] instanceof org.tura.platform.primefaces.lib.EventAccessor)
+             ((org.tura.platform.primefaces.lib.EventAccessor)array[2]).setEvent(event);
             method.invoke(array[2], objects.toArray());
         } catch (Exception e) {
             logger.fine(e.getMessage());

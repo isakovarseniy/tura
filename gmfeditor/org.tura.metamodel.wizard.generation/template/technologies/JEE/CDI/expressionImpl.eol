@@ -85,6 +85,7 @@ operation  GeneratioinHintImpl(expression:String, contextValue , paramId: Intege
 }
 
 operation DataControlFakeAttribute(expression:String, contextValue , paramId: Integer , array ) : String {
+      var util = new Native('org.tura.metamodel.commons.Util');
        if (contextValue.expression.get(paramId-1).~treeDC <> null){
             if (array.get(paramId) <> "currentObject")
               return expression.replaceAll("<holder>", "currentControl."+array.get(paramId)+".<holder>");
@@ -92,11 +93,12 @@ operation DataControlFakeAttribute(expression:String, contextValue , paramId: In
               return expression.replaceAll("<holder>", "currentObject"+".<holder>");
         }
         else{
-              return expression.replaceAll("<holder>", array.get(paramId)+".<holder>");
+              return expression.replaceAll("<holder>", util.mergeAndUnCapitalize(array.get(paramId))+".<holder>");
         }
 }
 
 operation DataControlFakeMethod(expression:String, contextValue , paramId: Integer , array ) : String {
+       var util = new Native('org.tura.metamodel.commons.Util');
        if (contextValue.expression.get(paramId-1).~treeDC <> null){
             if (array.get(paramId) <> "currentObject")
               return expression.replaceAll("<holder>", "currentControl."+array.get(paramId)+".<holder>");
@@ -104,7 +106,7 @@ operation DataControlFakeMethod(expression:String, contextValue , paramId: Integ
               return expression.replaceAll("<holder>", "currentObject"+".<holder>");
         }
         else{
-              return expression.replaceAll("<holder>", array.get(paramId)+".<holder>");
+              return expression.replaceAll("<holder>", util.mergeAndUnCapitalize(array.get(paramId))+".<holder>");
         }
 }
 
