@@ -19,8 +19,8 @@ public class TreeDataControlProvider implements IWorkbenchAdapter,
 
 	@Override
 	public Object getReturnType(Object o) {
-		TreeDataControl tdc = (TreeDataControl) o;
-		return new QueryHelper().findTreeDataControlType(tdc.getDc());
+//Must return null !!!!!!!!!!		
+		return null;
 	}
 
 	@Override

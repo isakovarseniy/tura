@@ -1060,7 +1060,7 @@
       <styles xmi:type="notation:FontStyle" xmi:id="_PS_-0qtLEeSa3pLqjDXWvA" fontName="Lucida Grande"/>
       <styles xmi:type="notation:HintedDiagramLinkStyle" xmi:id="_PS_-06tLEeSa3pLqjDXWvA"/>
       <element xmi:type="tura.domain:Root" href="hr.domain#5aea4714-7635-43bd-a361-b2ae8711af5b"/>
-      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_PS_-1KtLEeSa3pLqjDXWvA" x="279" y="405"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_PS_-1KtLEeSa3pLqjDXWvA" x="270" y="414"/>
     </children>
     <children xmi:type="notation:Node" xmi:id="_PTAl56tLEeSa3pLqjDXWvA" type="1102002">
       <children xmi:type="notation:DecorationNode" xmi:id="_PTBM8KtLEeSa3pLqjDXWvA" type="1105007"/>

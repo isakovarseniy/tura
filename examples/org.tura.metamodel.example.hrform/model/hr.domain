@@ -2096,17 +2096,11 @@
           <children xsi:type="tura.domain:LayerHolder" uid="2bf0762f-87b6-4f24-8f59-8abb67706538" columns="2">
             <children xsi:type="tura.domain:Button" uid="47e6bf87-614a-496f-8583-80003ebe457b" packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="97a1a7c3-5e08-48b1-82d0-8a35fa5a13e9" fakePackageName="Base package" fakeTypeName="System library" methodRef="111886f3-7b14-4394-9454-3e2df8cd55e7" fakeMethod="Create row" label="Add">
               <enabled/>
-              <parameters uid="3ad8b186-3619-42b9-a9df-d8efc28025fa" refObj="96c4a5f8-171b-412b-98b8-23f37e1c5d68">
-                <value uid="636f0f04-fa9c-4cf9-9398-30bcce30c38e" value="Tree data controls.TreeCountry">
+              <parameters uid="89f8be6e-8fb0-409f-b42b-ce2468d3a3d2" refObj="96c4a5f8-171b-412b-98b8-23f37e1c5d68">
+                <value uid="a1bcc046-bd9d-49c0-af5e-c015dd88b416" value="Tree data controls.TreeCountry.Country">
                   <expression expressionType="TreeRootDataControlHolder"/>
                   <expression order="1" expressionType="TreeDataControl"/>
-                </value>
-              </parameters>
-              <parameters uid="887edf44-9674-43b4-a44e-8d02ecd3801a">
-                <value uid="63f5e785-d145-4cdf-85e7-0c172bda1df7" value="Tree data controls.TreeCountry.currentIndex">
-                  <expression expressionType="TreeRootDataControlHolder"/>
-                  <expression order="1" expressionType="TreeDataControl"/>
-                  <expression order="2" expressionType="DataControlFakeMethod"/>
+                  <expression objRef="cd1cab1c-1781-4867-85b8-84d9f465f989" order="2" expressionType="DataControlImpl"/>
                 </value>
               </parameters>
               <multiLangLabel/>
@@ -2118,17 +2112,11 @@
               </icon>
             </children>
             <children xsi:type="tura.domain:Button" uid="150d42d7-bfb4-416e-b9d1-116640bcef5b" packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="97a1a7c3-5e08-48b1-82d0-8a35fa5a13e9" fakePackageName="Base package" fakeTypeName="System library" methodRef="22be5074-5d5e-4f52-916b-e802b8825b06" fakeMethod="Remove row" label="Remove">
-              <parameters uid="f05bd046-2997-42bf-89b2-e4113c61a217" refObj="76475fdc-384e-4bef-afd5-a1b0a14a4162">
-                <value uid="fdb9c6b7-05d6-4056-bd65-f3856cb2abd4" value="Tree data controls.TreeCountry">
+              <parameters uid="f77fe8a7-6dee-4e0e-8e3a-75323c2abd09" refObj="76475fdc-384e-4bef-afd5-a1b0a14a4162">
+                <value uid="d7bd0733-d8ab-4a34-bed9-bf0808d75977" value="Tree data controls.TreeCountry.Country">
                   <expression expressionType="TreeRootDataControlHolder"/>
                   <expression order="1" expressionType="TreeDataControl"/>
-                </value>
-              </parameters>
-              <parameters uid="b2bb90dd-61da-4a6d-aef8-bf38cb3133ae">
-                <value uid="def898e1-109d-4cb6-9fe7-59ea634cef36" value="Tree data controls.TreeCountry.currentIndex">
-                  <expression expressionType="TreeRootDataControlHolder"/>
-                  <expression order="1" expressionType="TreeDataControl"/>
-                  <expression order="2" expressionType="DataControlFakeMethod"/>
+                  <expression objRef="cd1cab1c-1781-4867-85b8-84d9f465f989" order="2" expressionType="DataControlImpl"/>
                 </value>
               </parameters>
               <multiLangLabel/>
