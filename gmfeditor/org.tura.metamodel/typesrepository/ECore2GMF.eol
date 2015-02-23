@@ -21,6 +21,8 @@ preferredSize.dy = 16;
 attributeFigure.setPreferredSize ( preferredSize);
 
 -- remove unavailabels tools
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='ActionTrigger');
+delete tool;
 var tool = GmfTool!CreationTool.all.selectOne(r|r.title='FormVariable');
 delete tool;
 var tool = GmfTool!CreationTool.all.selectOne(r|r.title='FormParameter');
