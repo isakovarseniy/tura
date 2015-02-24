@@ -20,6 +20,8 @@ import org.eclipse.ui.IMemento;
 import org.eclipse.ui.navigator.ICommonContentExtensionSite;
 import org.eclipse.ui.navigator.ICommonLabelProvider;
 
+import canvas.diagram.edit.parts.ActionTriggerEditPart;
+import canvas.diagram.edit.parts.ActionTriggerFakeMethodEditPart;
 import canvas.diagram.edit.parts.Button2EditPart;
 import canvas.diagram.edit.parts.ButtonEditPart;
 import canvas.diagram.edit.parts.ButtonLabel2EditPart;
@@ -136,9 +138,6 @@ public class DomainNavigatorLabelProvider extends LabelProvider implements
 		case LayerHolderEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?TopLevelNode?http://tura.org/2013/v1/domain?LayerHolder", DomainElementTypes.LayerHolder_1602003); //$NON-NLS-1$
-		case ButtonEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Node?http://tura.org/2013/v1/domain?Button", DomainElementTypes.Button_1603017); //$NON-NLS-1$
 		case DropDownSelectionEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Node?http://tura.org/2013/v1/domain?DropDownSelection", DomainElementTypes.DropDownSelection_1603002); //$NON-NLS-1$
@@ -148,9 +147,6 @@ public class DomainNavigatorLabelProvider extends LabelProvider implements
 		case ColumnEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Node?http://tura.org/2013/v1/domain?Column", DomainElementTypes.Column_1603024); //$NON-NLS-1$
-		case Button2EditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Node?http://tura.org/2013/v1/domain?Button", DomainElementTypes.Button_1603023); //$NON-NLS-1$
 		case DropDownSelection2EditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Node?http://tura.org/2013/v1/domain?DropDownSelection", DomainElementTypes.DropDownSelection_1603010); //$NON-NLS-1$
@@ -181,6 +177,12 @@ public class DomainNavigatorLabelProvider extends LabelProvider implements
 		case CheckBoxEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Node?http://tura.org/2013/v1/domain?CheckBox", DomainElementTypes.CheckBox_1603007); //$NON-NLS-1$
+		case ButtonEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Node?http://tura.org/2013/v1/domain?Button", DomainElementTypes.Button_1603017); //$NON-NLS-1$
+		case ActionTriggerEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Node?http://tura.org/2013/v1/domain?ActionTrigger", DomainElementTypes.ActionTrigger_1603027); //$NON-NLS-1$
 		case LabelEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Node?http://tura.org/2013/v1/domain?Label", DomainElementTypes.Label_1603005); //$NON-NLS-1$
@@ -193,6 +195,9 @@ public class DomainNavigatorLabelProvider extends LabelProvider implements
 		case CheckBox2EditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Node?http://tura.org/2013/v1/domain?CheckBox", DomainElementTypes.CheckBox_1603015); //$NON-NLS-1$
+		case Button2EditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Node?http://tura.org/2013/v1/domain?Button", DomainElementTypes.Button_1603023); //$NON-NLS-1$
 		case Label2EditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Node?http://tura.org/2013/v1/domain?Label", DomainElementTypes.Label_1603013); //$NON-NLS-1$
@@ -260,16 +265,12 @@ public class DomainNavigatorLabelProvider extends LabelProvider implements
 			return getCanvasView_1601000Text(view);
 		case LayerHolderEditPart.VISUAL_ID:
 			return getLayerHolder_1602003Text(view);
-		case ButtonEditPart.VISUAL_ID:
-			return getButton_1603017Text(view);
 		case DropDownSelectionEditPart.VISUAL_ID:
 			return getDropDownSelection_1603002Text(view);
 		case TableEditPart.VISUAL_ID:
 			return getTable_1603008Text(view);
 		case ColumnEditPart.VISUAL_ID:
 			return getColumn_1603024Text(view);
-		case Button2EditPart.VISUAL_ID:
-			return getButton_1603023Text(view);
 		case DropDownSelection2EditPart.VISUAL_ID:
 			return getDropDownSelection_1603010Text(view);
 		case Table2EditPart.VISUAL_ID:
@@ -290,6 +291,10 @@ public class DomainNavigatorLabelProvider extends LabelProvider implements
 			return getOutputText_1603006Text(view);
 		case CheckBoxEditPart.VISUAL_ID:
 			return getCheckBox_1603007Text(view);
+		case ButtonEditPart.VISUAL_ID:
+			return getButton_1603017Text(view);
+		case ActionTriggerEditPart.VISUAL_ID:
+			return getActionTrigger_1603027Text(view);
 		case LabelEditPart.VISUAL_ID:
 			return getLabel_1603005Text(view);
 		case InputText2EditPart.VISUAL_ID:
@@ -298,6 +303,8 @@ public class DomainNavigatorLabelProvider extends LabelProvider implements
 			return getOutputText_1603014Text(view);
 		case CheckBox2EditPart.VISUAL_ID:
 			return getCheckBox_1603015Text(view);
+		case Button2EditPart.VISUAL_ID:
+			return getButton_1603023Text(view);
 		case Label2EditPart.VISUAL_ID:
 			return getLabel_1603013Text(view);
 		}
@@ -347,6 +354,26 @@ public class DomainNavigatorLabelProvider extends LabelProvider implements
 		} else {
 			DomainDiagramEditorPlugin.getInstance().logError(
 					"Parser was not found for label " + 1605006); //$NON-NLS-1$
+			return ""; //$NON-NLS-1$
+		}
+	}
+
+	/**
+	 * @generated
+	 */
+	private String getActionTrigger_1603027Text(View view) {
+		IParser parser = DomainParserProvider.getParser(
+				DomainElementTypes.ActionTrigger_1603027,
+				view.getElement() != null ? view.getElement() : view,
+				DomainVisualIDRegistry
+						.getType(ActionTriggerFakeMethodEditPart.VISUAL_ID));
+		if (parser != null) {
+			return parser.getPrintString(new EObjectAdapter(
+					view.getElement() != null ? view.getElement() : view),
+					ParserOptions.NONE.intValue());
+		} else {
+			DomainDiagramEditorPlugin.getInstance().logError(
+					"Parser was not found for label " + 1605013); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 	}

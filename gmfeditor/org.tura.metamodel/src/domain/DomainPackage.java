@@ -5684,7 +5684,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getTrigger()
    * @generated
    */
-  int TRIGGER = 132;
+  int TRIGGER = 133;
 
   /**
    * The meta object id for the '{@link domain.impl.ViewPortTriggerImpl <em>View Port Trigger</em>}' class.
@@ -7233,67 +7233,13 @@ public interface DomainPackage extends EPackage
   int ACTION_ELEMENT__ON_EVENT_REFRESH_AREA = UIELEMENT__ON_EVENT_REFRESH_AREA;
 
   /**
-   * The feature id for the '<em><b>Package Ref</b></em>' reference.
+   * The feature id for the '<em><b>Triggers</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ACTION_ELEMENT__PACKAGE_REF = UIELEMENT_FEATURE_COUNT + 0;
-
-  /**
-   * The feature id for the '<em><b>Type Ref</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ACTION_ELEMENT__TYPE_REF = UIELEMENT_FEATURE_COUNT + 1;
-
-  /**
-   * The feature id for the '<em><b>Fake Package Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ACTION_ELEMENT__FAKE_PACKAGE_NAME = UIELEMENT_FEATURE_COUNT + 2;
-
-  /**
-   * The feature id for the '<em><b>Fake Type Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ACTION_ELEMENT__FAKE_TYPE_NAME = UIELEMENT_FEATURE_COUNT + 3;
-
-  /**
-   * The feature id for the '<em><b>Method Ref</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ACTION_ELEMENT__METHOD_REF = UIELEMENT_FEATURE_COUNT + 4;
-
-  /**
-   * The feature id for the '<em><b>Fake Method</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ACTION_ELEMENT__FAKE_METHOD = UIELEMENT_FEATURE_COUNT + 5;
-
-  /**
-   * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ACTION_ELEMENT__PARAMETERS = UIELEMENT_FEATURE_COUNT + 6;
+  int ACTION_ELEMENT__TRIGGERS = UIELEMENT_FEATURE_COUNT + 0;
 
   /**
    * The number of structural features of the '<em>Action Element</em>' class.
@@ -7302,7 +7248,107 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ACTION_ELEMENT_FEATURE_COUNT = UIELEMENT_FEATURE_COUNT + 7;
+  int ACTION_ELEMENT_FEATURE_COUNT = UIELEMENT_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link domain.impl.ActionTriggerImpl <em>Action Trigger</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see domain.impl.ActionTriggerImpl
+   * @see domain.impl.DomainPackageImpl#getActionTrigger()
+   * @generated
+   */
+  int ACTION_TRIGGER = 118;
+
+  /**
+   * The feature id for the '<em><b>Package Ref</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ACTION_TRIGGER__PACKAGE_REF = TRIGGER__PACKAGE_REF;
+
+  /**
+   * The feature id for the '<em><b>Type Ref</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ACTION_TRIGGER__TYPE_REF = TRIGGER__TYPE_REF;
+
+  /**
+   * The feature id for the '<em><b>Fake Package Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ACTION_TRIGGER__FAKE_PACKAGE_NAME = TRIGGER__FAKE_PACKAGE_NAME;
+
+  /**
+   * The feature id for the '<em><b>Fake Type Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ACTION_TRIGGER__FAKE_TYPE_NAME = TRIGGER__FAKE_TYPE_NAME;
+
+  /**
+   * The feature id for the '<em><b>Method Ref</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ACTION_TRIGGER__METHOD_REF = TRIGGER__METHOD_REF;
+
+  /**
+   * The feature id for the '<em><b>Fake Method</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ACTION_TRIGGER__FAKE_METHOD = TRIGGER__FAKE_METHOD;
+
+  /**
+   * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ACTION_TRIGGER__PARAMETERS = TRIGGER__PARAMETERS;
+
+  /**
+   * The feature id for the '<em><b>Classifiers</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ACTION_TRIGGER__CLASSIFIERS = TRIGGER_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Uid</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ACTION_TRIGGER__UID = TRIGGER_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>Action Trigger</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ACTION_TRIGGER_FEATURE_COUNT = TRIGGER_FEATURE_COUNT + 2;
 
   /**
    * The meta object id for the '{@link domain.impl.InputElementImpl <em>Input Element</em>}' class.
@@ -7312,7 +7358,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getInputElement()
    * @generated
    */
-  int INPUT_ELEMENT = 118;
+  int INPUT_ELEMENT = 119;
 
   /**
    * The feature id for the '<em><b>Style</b></em>' containment reference.
@@ -7448,7 +7494,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getSelection()
    * @generated
    */
-  int SELECTION = 119;
+  int SELECTION = 120;
 
   /**
    * The feature id for the '<em><b>Style</b></em>' containment reference.
@@ -7503,7 +7549,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getOptionSelection()
    * @generated
    */
-  int OPTION_SELECTION = 120;
+  int OPTION_SELECTION = 121;
 
   /**
    * The feature id for the '<em><b>Style</b></em>' containment reference.
@@ -7666,7 +7712,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getLayerHolder()
    * @generated
    */
-  int LAYER_HOLDER = 121;
+  int LAYER_HOLDER = 122;
 
   /**
    * The feature id for the '<em><b>Style</b></em>' containment reference.
@@ -7784,7 +7830,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getInputText()
    * @generated
    */
-  int INPUT_TEXT = 122;
+  int INPUT_TEXT = 123;
 
   /**
    * The feature id for the '<em><b>Style</b></em>' containment reference.
@@ -7920,7 +7966,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getLabel()
    * @generated
    */
-  int LABEL = 123;
+  int LABEL = 124;
 
   /**
    * The feature id for the '<em><b>Style</b></em>' containment reference.
@@ -8038,7 +8084,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getOutputText()
    * @generated
    */
-  int OUTPUT_TEXT = 124;
+  int OUTPUT_TEXT = 125;
 
   /**
    * The feature id for the '<em><b>Style</b></em>' containment reference.
@@ -8174,7 +8220,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getCheckBox()
    * @generated
    */
-  int CHECK_BOX = 125;
+  int CHECK_BOX = 126;
 
   /**
    * The feature id for the '<em><b>Style</b></em>' containment reference.
@@ -8310,7 +8356,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getDropDownSelection()
    * @generated
    */
-  int DROP_DOWN_SELECTION = 126;
+  int DROP_DOWN_SELECTION = 127;
 
   /**
    * The feature id for the '<em><b>Style</b></em>' containment reference.
@@ -8482,7 +8528,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getColumn()
    * @generated
    */
-  int COLUMN = 127;
+  int COLUMN = 128;
 
   /**
    * The feature id for the '<em><b>Style</b></em>' containment reference.
@@ -8521,13 +8567,22 @@ public interface DomainPackage extends EPackage
   int COLUMN__CLASSIFIERS = STYLE_ELEMENT_FEATURE_COUNT + 1;
 
   /**
+   * The feature id for the '<em><b>Columns</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COLUMN__COLUMNS = STYLE_ELEMENT_FEATURE_COUNT + 2;
+
+  /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int COLUMN__UID = STYLE_ELEMENT_FEATURE_COUNT + 2;
+  int COLUMN__UID = STYLE_ELEMENT_FEATURE_COUNT + 3;
 
   /**
    * The feature id for the '<em><b>Label</b></em>' attribute.
@@ -8536,7 +8591,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int COLUMN__LABEL = STYLE_ELEMENT_FEATURE_COUNT + 3;
+  int COLUMN__LABEL = STYLE_ELEMENT_FEATURE_COUNT + 4;
 
   /**
    * The feature id for the '<em><b>Element</b></em>' containment reference.
@@ -8545,7 +8600,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int COLUMN__ELEMENT = STYLE_ELEMENT_FEATURE_COUNT + 4;
+  int COLUMN__ELEMENT = STYLE_ELEMENT_FEATURE_COUNT + 5;
 
   /**
    * The number of structural features of the '<em>Column</em>' class.
@@ -8554,7 +8609,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int COLUMN_FEATURE_COUNT = STYLE_ELEMENT_FEATURE_COUNT + 5;
+  int COLUMN_FEATURE_COUNT = STYLE_ELEMENT_FEATURE_COUNT + 6;
 
   /**
    * The meta object id for the '{@link domain.impl.TableImpl <em>Table</em>}' class.
@@ -8564,7 +8619,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getTable()
    * @generated
    */
-  int TABLE = 128;
+  int TABLE = 129;
 
   /**
    * The feature id for the '<em><b>Style</b></em>' containment reference.
@@ -8745,7 +8800,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getTree()
    * @generated
    */
-  int TREE = 129;
+  int TREE = 130;
 
   /**
    * The feature id for the '<em><b>Style</b></em>' containment reference.
@@ -8926,7 +8981,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getButton()
    * @generated
    */
-  int BUTTON = 130;
+  int BUTTON = 131;
 
   /**
    * The feature id for the '<em><b>Style</b></em>' containment reference.
@@ -9010,67 +9065,13 @@ public interface DomainPackage extends EPackage
   int BUTTON__ON_EVENT_REFRESH_AREA = ACTION_ELEMENT__ON_EVENT_REFRESH_AREA;
 
   /**
-   * The feature id for the '<em><b>Package Ref</b></em>' reference.
+   * The feature id for the '<em><b>Triggers</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int BUTTON__PACKAGE_REF = ACTION_ELEMENT__PACKAGE_REF;
-
-  /**
-   * The feature id for the '<em><b>Type Ref</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int BUTTON__TYPE_REF = ACTION_ELEMENT__TYPE_REF;
-
-  /**
-   * The feature id for the '<em><b>Fake Package Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int BUTTON__FAKE_PACKAGE_NAME = ACTION_ELEMENT__FAKE_PACKAGE_NAME;
-
-  /**
-   * The feature id for the '<em><b>Fake Type Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int BUTTON__FAKE_TYPE_NAME = ACTION_ELEMENT__FAKE_TYPE_NAME;
-
-  /**
-   * The feature id for the '<em><b>Method Ref</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int BUTTON__METHOD_REF = ACTION_ELEMENT__METHOD_REF;
-
-  /**
-   * The feature id for the '<em><b>Fake Method</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int BUTTON__FAKE_METHOD = ACTION_ELEMENT__FAKE_METHOD;
-
-  /**
-   * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int BUTTON__PARAMETERS = ACTION_ELEMENT__PARAMETERS;
+  int BUTTON__TRIGGERS = ACTION_ELEMENT__TRIGGERS;
 
   /**
    * The feature id for the '<em><b>Multi Lang Label</b></em>' containment reference.
@@ -9116,7 +9117,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getControls()
    * @generated
    */
-  int CONTROLS = 131;
+  int CONTROLS = 132;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -9180,7 +9181,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getPREFormTrigger()
    * @generated
    */
-  int PRE_FORM_TRIGGER = 133;
+  int PRE_FORM_TRIGGER = 134;
 
   /**
    * The feature id for the '<em><b>Package Ref</b></em>' reference.
@@ -9271,7 +9272,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getPREQueryTrigger()
    * @generated
    */
-  int PRE_QUERY_TRIGGER = 134;
+  int PRE_QUERY_TRIGGER = 135;
 
   /**
    * The feature id for the '<em><b>Package Ref</b></em>' reference.
@@ -9362,7 +9363,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getPOSTQueryTrigger()
    * @generated
    */
-  int POST_QUERY_TRIGGER = 135;
+  int POST_QUERY_TRIGGER = 136;
 
   /**
    * The feature id for the '<em><b>Package Ref</b></em>' reference.
@@ -9453,7 +9454,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getPREInsertTrigger()
    * @generated
    */
-  int PRE_INSERT_TRIGGER = 136;
+  int PRE_INSERT_TRIGGER = 137;
 
   /**
    * The feature id for the '<em><b>Package Ref</b></em>' reference.
@@ -9544,7 +9545,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getPREDeleteTrigger()
    * @generated
    */
-  int PRE_DELETE_TRIGGER = 137;
+  int PRE_DELETE_TRIGGER = 138;
 
   /**
    * The feature id for the '<em><b>Package Ref</b></em>' reference.
@@ -9635,7 +9636,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getPOSTCreateTrigger()
    * @generated
    */
-  int POST_CREATE_TRIGGER = 138;
+  int POST_CREATE_TRIGGER = 139;
 
   /**
    * The feature id for the '<em><b>Package Ref</b></em>' reference.
@@ -9726,7 +9727,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getPREUpdateTrigger()
    * @generated
    */
-  int PRE_UPDATE_TRIGGER = 139;
+  int PRE_UPDATE_TRIGGER = 140;
 
   /**
    * The feature id for the '<em><b>Package Ref</b></em>' reference.
@@ -9817,7 +9818,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getCreateTrigger()
    * @generated
    */
-  int CREATE_TRIGGER = 140;
+  int CREATE_TRIGGER = 141;
 
   /**
    * The feature id for the '<em><b>Package Ref</b></em>' reference.
@@ -9908,7 +9909,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getInsertTrigger()
    * @generated
    */
-  int INSERT_TRIGGER = 141;
+  int INSERT_TRIGGER = 142;
 
   /**
    * The feature id for the '<em><b>Package Ref</b></em>' reference.
@@ -9999,7 +10000,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getUpdateTrigger()
    * @generated
    */
-  int UPDATE_TRIGGER = 142;
+  int UPDATE_TRIGGER = 143;
 
   /**
    * The feature id for the '<em><b>Package Ref</b></em>' reference.
@@ -10090,7 +10091,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getDeleteTrigger()
    * @generated
    */
-  int DELETE_TRIGGER = 143;
+  int DELETE_TRIGGER = 144;
 
   /**
    * The feature id for the '<em><b>Package Ref</b></em>' reference.
@@ -10181,7 +10182,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getSearchTrigger()
    * @generated
    */
-  int SEARCH_TRIGGER = 144;
+  int SEARCH_TRIGGER = 145;
 
   /**
    * The feature id for the '<em><b>Package Ref</b></em>' reference.
@@ -10272,7 +10273,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getRoot()
    * @generated
    */
-  int ROOT = 145;
+  int ROOT = 146;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -10327,7 +10328,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getFormVariable()
    * @generated
    */
-  int FORM_VARIABLE = 146;
+  int FORM_VARIABLE = 147;
 
   /**
    * The feature id for the '<em><b>Package Ref</b></em>' reference.
@@ -10409,7 +10410,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getDataControl()
    * @generated
    */
-  int DATA_CONTROL = 147;
+  int DATA_CONTROL = 148;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -10590,7 +10591,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getOrders()
    * @generated
    */
-  int ORDERS = 148;
+  int ORDERS = 149;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -10627,7 +10628,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getOrderBy()
    * @generated
    */
-  int ORDER_BY = 149;
+  int ORDER_BY = 150;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -10673,7 +10674,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getRelation()
    * @generated
    */
-  int RELATION = 150;
+  int RELATION = 151;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -10746,7 +10747,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getArtificialField()
    * @generated
    */
-  int ARTIFICIAL_FIELD = 151;
+  int ARTIFICIAL_FIELD = 152;
 
   /**
    * The feature id for the '<em><b>Package Ref</b></em>' reference.
@@ -10828,7 +10829,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getLink()
    * @generated
    */
-  int LINK = 152;
+  int LINK = 153;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -10883,7 +10884,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getApplicationInfrastructureLayer()
    * @generated
    */
-  int APPLICATION_INFRASTRUCTURE_LAYER = 153;
+  int APPLICATION_INFRASTRUCTURE_LAYER = 154;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -10938,7 +10939,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getEnterpriseInfrastructure()
    * @generated
    */
-  int ENTERPRISE_INFRASTRUCTURE = 154;
+  int ENTERPRISE_INFRASTRUCTURE = 155;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -10993,7 +10994,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getDatacenter()
    * @generated
    */
-  int DATACENTER = 155;
+  int DATACENTER = 156;
 
   /**
    * The feature id for the '<em><b>Columns</b></em>' attribute.
@@ -11057,7 +11058,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getSubsystem()
    * @generated
    */
-  int SUBSYSTEM = 156;
+  int SUBSYSTEM = 157;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -11112,7 +11113,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getInfrastructureLayer()
    * @generated
    */
-  int INFRASTRUCTURE_LAYER = 157;
+  int INFRASTRUCTURE_LAYER = 158;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -11167,7 +11168,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getInfrastructureConnection()
    * @generated
    */
-  int INFRASTRUCTURE_CONNECTION = 158;
+  int INFRASTRUCTURE_CONNECTION = 159;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -11213,7 +11214,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getInfrastructureComponent()
    * @generated
    */
-  int INFRASTRUCTURE_COMPONENT = 159;
+  int INFRASTRUCTURE_COMPONENT = 160;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -11259,7 +11260,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getServer()
    * @generated
    */
-  int SERVER = 160;
+  int SERVER = 161;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -11305,7 +11306,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getRouter()
    * @generated
    */
-  int ROUTER = 161;
+  int ROUTER = 162;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -11351,7 +11352,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getHub()
    * @generated
    */
-  int HUB = 162;
+  int HUB = 163;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -11397,7 +11398,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getStorage()
    * @generated
    */
-  int STORAGE = 163;
+  int STORAGE = 164;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -11443,7 +11444,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getServerClaster()
    * @generated
    */
-  int SERVER_CLASTER = 164;
+  int SERVER_CLASTER = 165;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -11498,7 +11499,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getPlatformLayers()
    * @generated
    */
-  int PLATFORM_LAYERS = 165;
+  int PLATFORM_LAYERS = 166;
 
 
   /**
@@ -11509,7 +11510,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getComparator()
    * @generated
    */
-  int COMPARATOR = 166;
+  int COMPARATOR = 167;
 
 
   /**
@@ -11520,7 +11521,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getOrder()
    * @generated
    */
-  int ORDER = 167;
+  int ORDER = 168;
 
 
   /**
@@ -16684,6 +16685,38 @@ public interface DomainPackage extends EPackage
    * @generated
    */
   EClass getActionElement();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link domain.ActionElement#getTriggers <em>Triggers</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Triggers</em>'.
+   * @see domain.ActionElement#getTriggers()
+   * @see #getActionElement()
+   * @generated
+   */
+  EReference getActionElement_Triggers();
+
+  /**
+   * Returns the meta object for class '{@link domain.ActionTrigger <em>Action Trigger</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Action Trigger</em>'.
+   * @see domain.ActionTrigger
+   * @generated
+   */
+  EClass getActionTrigger();
+
+  /**
+   * Returns the meta object for the attribute '{@link domain.ActionTrigger#getUid <em>Uid</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Uid</em>'.
+   * @see domain.ActionTrigger#getUid()
+   * @see #getActionTrigger()
+   * @generated
+   */
+  EAttribute getActionTrigger_Uid();
 
   /**
    * Returns the meta object for class '{@link domain.InputElement <em>Input Element</em>}'.
@@ -22438,6 +22471,32 @@ public interface DomainPackage extends EPackage
      * @generated
      */
     EClass ACTION_ELEMENT = eINSTANCE.getActionElement();
+
+    /**
+     * The meta object literal for the '<em><b>Triggers</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ACTION_ELEMENT__TRIGGERS = eINSTANCE.getActionElement_Triggers();
+
+    /**
+     * The meta object literal for the '{@link domain.impl.ActionTriggerImpl <em>Action Trigger</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see domain.impl.ActionTriggerImpl
+     * @see domain.impl.DomainPackageImpl#getActionTrigger()
+     * @generated
+     */
+    EClass ACTION_TRIGGER = eINSTANCE.getActionTrigger();
+
+    /**
+     * The meta object literal for the '<em><b>Uid</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ACTION_TRIGGER__UID = eINSTANCE.getActionTrigger_Uid();
 
     /**
      * The meta object literal for the '{@link domain.impl.InputElementImpl <em>Input Element</em>}' class.

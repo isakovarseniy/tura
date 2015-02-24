@@ -5,6 +5,10 @@
 
 		«IF editPartClassName.indexOf('PackagesCompartmentEditPart') > 0-»
            «EXPAND compartmentHTMLLayout-»
+		«ELSEIF editPartClassName.indexOf('ColumnElementCompartmentEditPart') > 0-»
+           «EXPAND compartmentHTMLLayout-»
+		«ELSEIF editPartClassName.indexOf('ColumnElementCompartment2EditPart') > 0-»
+           «EXPAND compartmentHTMLLayout-»
 		«ELSEIF editPartClassName.indexOf('DomainArtifactCompartmentEditPart') > 0-»
            «EXPAND compartmentHTMLLayout-»
 		«ELSEIF editPartClassName.indexOf('ApplicationsCompartmentEditPart') > 0-»

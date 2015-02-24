@@ -2018,20 +2018,16 @@
                 <expression objRef="5772ddee-a83b-41c9-8f34-c442412e1013" order="1" expressionType="MessageLibraryImpl"/>
                 <expression objRef="6dcdd799-490e-4e4b-9a8b-319824c3df09" order="2" expressionType="MessageImpl"/>
               </multiLangLabel>
-              <element xsi:type="tura.domain:Button" uid="6be54d96-3b43-4bfb-b2dc-6599b98b77ae" packageRef="e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="c4654ad8-156f-4706-bda2-791ed81fcdea" fakePackageName="HR package" fakeTypeName="Action executor" methodRef="5368d958-0a1b-4785-9681-47bcf5224d8d" fakeMethod="openCompanyDetailsPopup">
-                <classifiers uid="8dcdde3e-8897-42b2-868d-3ea97b6b8fc4" hint="0a80d7c7-cf37-46c2-8804-665afda89f73" details="&lt;f:attribute name=&quot;param1&quot; value=&quot;#{row}&quot; />"/>
-                <classifiers uid="0a4ad4f9-4abb-4094-8932-dbe9748068e2" hint="a249c5f0-5bc1-4c3c-a8d7-3b49156211c7"/>
+              <element xsi:type="tura.domain:Button" uid="75e7ef4b-c6d2-443f-a6b6-1821a1b0573c">
+                <style/>
+                <classifiers uid="6250498a-35cc-4213-bdbc-a02bf6a7e27c" hint="0a80d7c7-cf37-46c2-8804-665afda89f73" details="&lt;f:attribute name=&quot;param1&quot; value=&quot;#{row}&quot; />"/>
+                <classifiers uid="4e2b1da0-9b5b-4e22-b172-3b919ca6152a" hint="a249c5f0-5bc1-4c3c-a8d7-3b49156211c7"/>
+                <triggers packageRef="e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="c4654ad8-156f-4706-bda2-791ed81fcdea" fakePackageName="HR package" fakeTypeName="Action executor" methodRef="5368d958-0a1b-4785-9681-47bcf5224d8d" fakeMethod="openCompanyDetailsPopup" uid="5b8b550a-60bb-4ddb-bf90-25c87761c62b"/>
               </element>
             </cols>
           </children>
           <children xsi:type="tura.domain:LayerHolder" uid="f0ad97d0-f821-4159-8276-2c3cd955cf38" columns="2">
-            <children xsi:type="tura.domain:Button" uid="0233c086-c837-4de8-8900-8b4bb37ced89" packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="97a1a7c3-5e08-48b1-82d0-8a35fa5a13e9" fakePackageName="Base package" fakeTypeName="System library" methodRef="111886f3-7b14-4394-9454-3e2df8cd55e7" fakeMethod="Create row" label="Add">
-              <parameters uid="c5cef989-82fd-4533-8f02-efa3cdc41fee" refObj="96c4a5f8-171b-412b-98b8-23f37e1c5d68">
-                <value uid="b62726e6-c476-4b43-8dcd-847867c5717a" value="Data controls.Company">
-                  <expression expressionType="DataControlHolder"/>
-                  <expression objRef="d45e9605-3706-493c-8422-3f7b8b6ea2ed" order="1" expressionType="DataControlImpl"/>
-                </value>
-              </parameters>
+            <children xsi:type="tura.domain:Button" uid="0233c086-c837-4de8-8900-8b4bb37ced89" label="Add">
               <multiLangLabel value="Messages.HR Controller.ADD_BUTTON">
                 <expression objRef="af03a493-0ca4-486c-945f-5bfc2fdf35bd" expressionType="MessagesImpl"/>
                 <expression objRef="5772ddee-a83b-41c9-8f34-c442412e1013" order="1" expressionType="MessageLibraryImpl"/>
@@ -2044,15 +2040,9 @@
                 <expression objRef="e92845fc-7570-455f-9580-623183bccc0f" order="3" expressionType="StyleSetImpl"/>
               </icon>
             </children>
-            <children xsi:type="tura.domain:Button" uid="71ffc838-d31e-458b-a18c-3cd49a7efdff" packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="97a1a7c3-5e08-48b1-82d0-8a35fa5a13e9" fakePackageName="Base package" fakeTypeName="System library" methodRef="22be5074-5d5e-4f52-916b-e802b8825b06" fakeMethod="Remove row" label="Remove">
+            <children xsi:type="tura.domain:Button" uid="71ffc838-d31e-458b-a18c-3cd49a7efdff" label="Remove">
               <style/>
               <enabled/>
-              <parameters uid="ae4bd5af-9b7a-4266-a365-62db97874849" refObj="76475fdc-384e-4bef-afd5-a1b0a14a4162">
-                <value uid="17348367-69e7-491d-8408-76e9e50e8d13" value="Data controls.Company">
-                  <expression expressionType="DataControlHolder"/>
-                  <expression objRef="d45e9605-3706-493c-8422-3f7b8b6ea2ed" order="1" expressionType="DataControlImpl"/>
-                </value>
-              </parameters>
               <multiLangLabel value="Messages.HR Controller.REMOVE_BUTTON">
                 <expression objRef="af03a493-0ca4-486c-945f-5bfc2fdf35bd" expressionType="MessagesImpl"/>
                 <expression objRef="5772ddee-a83b-41c9-8f34-c442412e1013" order="1" expressionType="MessageLibraryImpl"/>
@@ -2065,14 +2055,8 @@
                 <expression objRef="a1d3f2ac-caea-4f0b-a523-59edc4fd19b5" order="3" expressionType="StyleSetImpl"/>
               </icon>
             </children>
-            <children xsi:type="tura.domain:Button" uid="3f03fa7e-3db9-4d75-a973-d107235686f1" packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="971e11a5-49d4-402d-9ae4-4233c366a542" fakePackageName="Base package" fakeTypeName="Client system library" methodRef="90a31bb6-4c1e-4106-8d8c-616dc9888a78" fakeMethod="Test JS" label="JS Test">
+            <children xsi:type="tura.domain:Button" uid="3f03fa7e-3db9-4d75-a973-d107235686f1" label="JS Test">
               <style/>
-              <parameters uid="62edf914-d5bc-45fd-a691-3313c97df530" refObj="b4b4777c-89d5-4a65-a5a8-6946f31a8803">
-                <value uid="8c4d0139-0d5d-43dc-8086-c3b7c5d62e87" value="Form variables.var1">
-                  <expression objRef="5aea4714-7635-43bd-a361-b2ae8711af5b" expressionType="RootImpl"/>
-                  <expression order="1" expressionType="FormVariableImpl"/>
-                </value>
-              </parameters>
               <multiLangLabel/>
               <icon/>
             </children>
@@ -2094,15 +2078,8 @@
             </cols>
           </children>
           <children xsi:type="tura.domain:LayerHolder" uid="2bf0762f-87b6-4f24-8f59-8abb67706538" columns="2">
-            <children xsi:type="tura.domain:Button" uid="47e6bf87-614a-496f-8583-80003ebe457b" packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="97a1a7c3-5e08-48b1-82d0-8a35fa5a13e9" fakePackageName="Base package" fakeTypeName="System library" methodRef="111886f3-7b14-4394-9454-3e2df8cd55e7" fakeMethod="Create row" label="Add">
+            <children xsi:type="tura.domain:Button" uid="47e6bf87-614a-496f-8583-80003ebe457b" label="Add">
               <enabled/>
-              <parameters uid="89f8be6e-8fb0-409f-b42b-ce2468d3a3d2" refObj="96c4a5f8-171b-412b-98b8-23f37e1c5d68">
-                <value uid="a1bcc046-bd9d-49c0-af5e-c015dd88b416" value="Tree data controls.TreeCountry.Country">
-                  <expression expressionType="TreeRootDataControlHolder"/>
-                  <expression order="1" expressionType="TreeDataControl"/>
-                  <expression objRef="cd1cab1c-1781-4867-85b8-84d9f465f989" order="2" expressionType="DataControlImpl"/>
-                </value>
-              </parameters>
               <multiLangLabel/>
               <icon value="Application styles.HR styles.HR Controller styles.Add row button">
                 <expression objRef="c7379293-bc50-4b7e-8cc9-917bc2dd97aa" expressionType="ApplicationStyleImpl"/>
@@ -2111,14 +2088,7 @@
                 <expression objRef="e92845fc-7570-455f-9580-623183bccc0f" order="3" expressionType="StyleSetImpl"/>
               </icon>
             </children>
-            <children xsi:type="tura.domain:Button" uid="150d42d7-bfb4-416e-b9d1-116640bcef5b" packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="97a1a7c3-5e08-48b1-82d0-8a35fa5a13e9" fakePackageName="Base package" fakeTypeName="System library" methodRef="22be5074-5d5e-4f52-916b-e802b8825b06" fakeMethod="Remove row" label="Remove">
-              <parameters uid="f77fe8a7-6dee-4e0e-8e3a-75323c2abd09" refObj="76475fdc-384e-4bef-afd5-a1b0a14a4162">
-                <value uid="d7bd0733-d8ab-4a34-bed9-bf0808d75977" value="Tree data controls.TreeCountry.Country">
-                  <expression expressionType="TreeRootDataControlHolder"/>
-                  <expression order="1" expressionType="TreeDataControl"/>
-                  <expression objRef="cd1cab1c-1781-4867-85b8-84d9f465f989" order="2" expressionType="DataControlImpl"/>
-                </value>
-              </parameters>
+            <children xsi:type="tura.domain:Button" uid="150d42d7-bfb4-416e-b9d1-116640bcef5b" label="Remove">
               <multiLangLabel/>
               <icon value="Application styles.HR styles.HR Controller styles.Remove row button">
                 <expression objRef="c7379293-bc50-4b7e-8cc9-917bc2dd97aa" expressionType="ApplicationStyleImpl"/>

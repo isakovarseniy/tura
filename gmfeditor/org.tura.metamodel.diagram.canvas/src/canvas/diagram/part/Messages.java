@@ -251,102 +251,112 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String Button1CreationTool_title;
+	public static String ActionTrigger1CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Button1CreationTool_desc;
+	public static String ActionTrigger1CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String CheckBox2CreationTool_title;
+	public static String Button2CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String CheckBox2CreationTool_desc;
+	public static String Button2CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String Column3CreationTool_title;
+	public static String CheckBox3CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Column3CreationTool_desc;
+	public static String CheckBox3CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String DropDownSelection4CreationTool_title;
+	public static String Column4CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String DropDownSelection4CreationTool_desc;
+	public static String Column4CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String InputText5CreationTool_title;
+	public static String DropDownSelection5CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String InputText5CreationTool_desc;
+	public static String DropDownSelection5CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String Label6CreationTool_title;
+	public static String InputText6CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Label6CreationTool_desc;
+	public static String InputText6CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String LayerHolder7CreationTool_title;
+	public static String Label7CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String LayerHolder7CreationTool_desc;
+	public static String Label7CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String OutputText8CreationTool_title;
+	public static String LayerHolder8CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String OutputText8CreationTool_desc;
+	public static String LayerHolder8CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String Table9CreationTool_title;
+	public static String OutputText9CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Table9CreationTool_desc;
+	public static String OutputText9CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String Tree10CreationTool_title;
+	public static String Table10CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Tree10CreationTool_desc;
+	public static String Table10CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String Tree11CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String Tree11CreationTool_desc;
 
 	/**
 	 * @generated
@@ -392,6 +402,16 @@ public class Messages extends NLS {
 	 * @generated
 	 */
 	public static String LayerHolderLayerHolderChildrenCompartment3EditPart_title;
+
+	/**
+	 * @generated
+	 */
+	public static String ButtonButtonTriggersCompartmentEditPart_title;
+
+	/**
+	 * @generated
+	 */
+	public static String ButtonButtonTriggersCompartment2EditPart_title;
 
 	/**
 	 * @generated

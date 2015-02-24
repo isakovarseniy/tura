@@ -657,6 +657,11 @@ public class DomainAdapterFactory extends AdapterFactoryImpl {
         return createActionElementAdapter();
       }
       @Override
+      public Adapter caseActionTrigger(ActionTrigger object)
+      {
+        return createActionTriggerAdapter();
+      }
+      @Override
       public Adapter caseInputElement(InputElement object)
       {
         return createInputElementAdapter();
@@ -2645,6 +2650,21 @@ public class DomainAdapterFactory extends AdapterFactoryImpl {
   }
 
 	/**
+   * Creates a new adapter for an object of class '{@link domain.ActionTrigger <em>Action Trigger</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see domain.ActionTrigger
+   * @generated
+   */
+  public Adapter createActionTriggerAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link domain.InputElement <em>Input Element</em>}'.
    * <!-- begin-user-doc --> This default
 	 * implementation returns null so that we can easily ignore cases; it's

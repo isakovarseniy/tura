@@ -180,6 +180,7 @@ public class DomainFactoryImpl extends EFactoryImpl implements DomainFactory
       case DomainPackage.UIELEMENT: return createUielement();
       case DomainPackage.SOURCES_POINTER: return createSourcesPointer();
       case DomainPackage.ACTION_ELEMENT: return createActionElement();
+      case DomainPackage.ACTION_TRIGGER: return createActionTrigger();
       case DomainPackage.INPUT_ELEMENT: return createInputElement();
       case DomainPackage.SELECTION: return createSelection();
       case DomainPackage.OPTION_SELECTION: return createOptionSelection();
@@ -1570,6 +1571,17 @@ public class DomainFactoryImpl extends EFactoryImpl implements DomainFactory
   {
     ActionElementImpl actionElement = new ActionElementImpl();
     return actionElement;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ActionTrigger createActionTrigger()
+  {
+    ActionTriggerImpl actionTrigger = new ActionTriggerImpl();
+    return actionTrigger;
   }
 
   /**

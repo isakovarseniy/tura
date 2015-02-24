@@ -102,6 +102,12 @@ public class DomainNavigatorLabelProvider extends LabelProvider implements
 	 */
 	public Image getImage(View view) {
 		switch (DomainVisualIDRegistry.getVisualID(view)) {
+		case DeploymentStarStepEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?TopLevelNode?http://tura.org/2013/v1/domain?DeploymentStarStep", DomainElementTypes.DeploymentStarStep_902002); //$NON-NLS-1$
+		case DeploymentComponentDeploymentComponentLinkEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Link?http://tura.org/2013/v1/domain?DeploymentComponent?deploymentComponentLink", DomainElementTypes.DeploymentComponentDeploymentComponentLink_904014); //$NON-NLS-1$
 		case DeploymentComponentEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?TopLevelNode?http://tura.org/2013/v1/domain?DeploymentComponent", DomainElementTypes.DeploymentComponent_902001); //$NON-NLS-1$
@@ -111,12 +117,6 @@ public class DomainNavigatorLabelProvider extends LabelProvider implements
 		case DeploymentComponentsEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Diagram?http://tura.org/2013/v1/domain?DeploymentComponents", DomainElementTypes.DeploymentComponents_901000); //$NON-NLS-1$
-		case DeploymentStarStepEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?TopLevelNode?http://tura.org/2013/v1/domain?DeploymentStarStep", DomainElementTypes.DeploymentStarStep_902002); //$NON-NLS-1$
-		case DeploymentComponentDeploymentComponentLinkEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Link?http://tura.org/2013/v1/domain?DeploymentComponent?deploymentComponentLink", DomainElementTypes.DeploymentComponentDeploymentComponentLink_904014); //$NON-NLS-1$
 		case DeploymentStarStepFirstStepEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Link?http://tura.org/2013/v1/domain?DeploymentStarStep?firstStep", DomainElementTypes.DeploymentStarStepFirstStep_904008); //$NON-NLS-1$
@@ -180,16 +180,16 @@ public class DomainNavigatorLabelProvider extends LabelProvider implements
 			return getUnresolvedDomainElementProxyText(view);
 		}
 		switch (DomainVisualIDRegistry.getVisualID(view)) {
+		case DeploymentStarStepEditPart.VISUAL_ID:
+			return getDeploymentStarStep_902002Text(view);
+		case DeploymentComponentDeploymentComponentLinkEditPart.VISUAL_ID:
+			return getDeploymentComponentDeploymentComponentLink_904014Text(view);
 		case DeploymentComponentEditPart.VISUAL_ID:
 			return getDeploymentComponent_902001Text(view);
 		case RecipeDeploymentEditPart.VISUAL_ID:
 			return getRecipeDeployment_904013Text(view);
 		case DeploymentComponentsEditPart.VISUAL_ID:
 			return getDeploymentComponents_901000Text(view);
-		case DeploymentStarStepEditPart.VISUAL_ID:
-			return getDeploymentStarStep_902002Text(view);
-		case DeploymentComponentDeploymentComponentLinkEditPart.VISUAL_ID:
-			return getDeploymentComponentDeploymentComponentLink_904014Text(view);
 		case DeploymentStarStepFirstStepEditPart.VISUAL_ID:
 			return getDeploymentStarStepFirstStep_904008Text(view);
 		}

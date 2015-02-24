@@ -1085,6 +1085,15 @@ public interface DomainFactory extends EFactory
   ActionElement createActionElement();
 
   /**
+   * Returns a new object of class '<em>Action Trigger</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Action Trigger</em>'.
+   * @generated
+   */
+  ActionTrigger createActionTrigger();
+
+  /**
    * Returns a new object of class '<em>Input Element</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

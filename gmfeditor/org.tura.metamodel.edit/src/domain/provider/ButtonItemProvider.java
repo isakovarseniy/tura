@@ -220,7 +220,8 @@ public class ButtonItemProvider
       childFeature == DomainPackage.Literals.UIELEMENT__REQUIRED ||
       childFeature == DomainPackage.Literals.UIELEMENT__READ_ONLY ||
       childFeature == DomainPackage.Literals.MULTI_LANG_LABEL__MULTI_LANG_LABEL ||
-      childFeature == DomainPackage.Literals.BUTTON__ICON;
+      childFeature == DomainPackage.Literals.BUTTON__ICON ||
+      childFeature == DomainPackage.Literals.ACTION_ELEMENT__TRIGGERS;
 
     if (qualify)
     {

@@ -3024,6 +3024,31 @@ public class DomainItemProviderAdapterFactory extends DomainAdapterFactory imple
   }
 
   /**
+   * This keeps track of the one adapter used for all {@link domain.ActionTrigger} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected ActionTriggerItemProvider actionTriggerItemProvider;
+
+  /**
+   * This creates an adapter for a {@link domain.ActionTrigger}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createActionTriggerAdapter()
+  {
+    if (actionTriggerItemProvider == null)
+    {
+      actionTriggerItemProvider = new ActionTriggerItemProvider(this);
+    }
+
+    return actionTriggerItemProvider;
+  }
+
+  /**
    * This keeps track of the one adapter used for all {@link domain.InputElement} instances.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -4427,6 +4452,7 @@ public class DomainItemProviderAdapterFactory extends DomainAdapterFactory imple
     if (uielementItemProvider != null) uielementItemProvider.dispose();
     if (sourcesPointerItemProvider != null) sourcesPointerItemProvider.dispose();
     if (actionElementItemProvider != null) actionElementItemProvider.dispose();
+    if (actionTriggerItemProvider != null) actionTriggerItemProvider.dispose();
     if (inputElementItemProvider != null) inputElementItemProvider.dispose();
     if (selectionItemProvider != null) selectionItemProvider.dispose();
     if (optionSelectionItemProvider != null) optionSelectionItemProvider.dispose();

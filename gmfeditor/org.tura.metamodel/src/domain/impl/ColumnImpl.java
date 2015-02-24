@@ -7,6 +7,7 @@ import domain.Classifier;
 import domain.Column;
 import domain.Context;
 import domain.DomainPackage;
+import domain.HTMLLayerHolder;
 import domain.MultiLangLabel;
 import domain.Uielement;
 
@@ -31,6 +32,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link domain.impl.ColumnImpl#getMultiLangLabel <em>Multi Lang Label</em>}</li>
  *   <li>{@link domain.impl.ColumnImpl#getClassifiers <em>Classifiers</em>}</li>
+ *   <li>{@link domain.impl.ColumnImpl#getColumns <em>Columns</em>}</li>
  *   <li>{@link domain.impl.ColumnImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.impl.ColumnImpl#getLabel <em>Label</em>}</li>
  *   <li>{@link domain.impl.ColumnImpl#getElement <em>Element</em>}</li>
@@ -60,6 +62,26 @@ public class ColumnImpl extends StyleElementImpl implements Column
    * @ordered
    */
   protected EList<Classifier> classifiers;
+
+  /**
+   * The default value of the '{@link #getColumns() <em>Columns</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getColumns()
+   * @generated
+   * @ordered
+   */
+  protected static final int COLUMNS_EDEFAULT = 1;
+
+  /**
+   * The cached value of the '{@link #getColumns() <em>Columns</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getColumns()
+   * @generated
+   * @ordered
+   */
+  protected int columns = COLUMNS_EDEFAULT;
 
   /**
    * The default value of the '{@link #getUid() <em>Uid</em>}' attribute.
@@ -199,6 +221,29 @@ public class ColumnImpl extends StyleElementImpl implements Column
    * <!-- end-user-doc -->
    * @generated
    */
+  public int getColumns()
+  {
+    return columns;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setColumns(int newColumns)
+  {
+    int oldColumns = columns;
+    columns = newColumns;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.COLUMN__COLUMNS, oldColumns, columns));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public String getUid()
   {
     return uid;
@@ -322,6 +367,8 @@ public class ColumnImpl extends StyleElementImpl implements Column
         return getMultiLangLabel();
       case DomainPackage.COLUMN__CLASSIFIERS:
         return getClassifiers();
+      case DomainPackage.COLUMN__COLUMNS:
+        return getColumns();
       case DomainPackage.COLUMN__UID:
         return getUid();
       case DomainPackage.COLUMN__LABEL:
@@ -349,6 +396,9 @@ public class ColumnImpl extends StyleElementImpl implements Column
       case DomainPackage.COLUMN__CLASSIFIERS:
         getClassifiers().clear();
         getClassifiers().addAll((Collection<? extends Classifier>)newValue);
+        return;
+      case DomainPackage.COLUMN__COLUMNS:
+        setColumns((Integer)newValue);
         return;
       case DomainPackage.COLUMN__UID:
         setUid((String)newValue);
@@ -379,6 +429,9 @@ public class ColumnImpl extends StyleElementImpl implements Column
       case DomainPackage.COLUMN__CLASSIFIERS:
         getClassifiers().clear();
         return;
+      case DomainPackage.COLUMN__COLUMNS:
+        setColumns(COLUMNS_EDEFAULT);
+        return;
       case DomainPackage.COLUMN__UID:
         setUid(UID_EDEFAULT);
         return;
@@ -406,6 +459,8 @@ public class ColumnImpl extends StyleElementImpl implements Column
         return multiLangLabel != null;
       case DomainPackage.COLUMN__CLASSIFIERS:
         return classifiers != null && !classifiers.isEmpty();
+      case DomainPackage.COLUMN__COLUMNS:
+        return columns != COLUMNS_EDEFAULT;
       case DomainPackage.COLUMN__UID:
         return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
       case DomainPackage.COLUMN__LABEL:
@@ -440,6 +495,14 @@ public class ColumnImpl extends StyleElementImpl implements Column
         default: return -1;
       }
     }
+    if (baseClass == HTMLLayerHolder.class)
+    {
+      switch (derivedFeatureID)
+      {
+        case DomainPackage.COLUMN__COLUMNS: return DomainPackage.HTML_LAYER_HOLDER__COLUMNS;
+        default: return -1;
+      }
+    }
     return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
   }
 
@@ -467,6 +530,14 @@ public class ColumnImpl extends StyleElementImpl implements Column
         default: return -1;
       }
     }
+    if (baseClass == HTMLLayerHolder.class)
+    {
+      switch (baseFeatureID)
+      {
+        case DomainPackage.HTML_LAYER_HOLDER__COLUMNS: return DomainPackage.COLUMN__COLUMNS;
+        default: return -1;
+      }
+    }
     return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
   }
 
@@ -481,7 +552,9 @@ public class ColumnImpl extends StyleElementImpl implements Column
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (uid: ");
+    result.append(" (columns: ");
+    result.append(columns);
+    result.append(", uid: ");
     result.append(uid);
     result.append(", label: ");
     result.append(label);

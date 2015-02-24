@@ -31,12 +31,6 @@ public class DomainEditPartFactory implements EditPartFactory {
 			case LayerHolderEditPart.VISUAL_ID:
 				return new LayerHolderEditPart(view);
 
-			case ButtonEditPart.VISUAL_ID:
-				return new ButtonEditPart(view);
-
-			case ButtonLabelEditPart.VISUAL_ID:
-				return new ButtonLabelEditPart(view);
-
 			case DropDownSelectionEditPart.VISUAL_ID:
 				return new DropDownSelectionEditPart(view);
 
@@ -51,12 +45,6 @@ public class DomainEditPartFactory implements EditPartFactory {
 
 			case ColumnLabelEditPart.VISUAL_ID:
 				return new ColumnLabelEditPart(view);
-
-			case Button2EditPart.VISUAL_ID:
-				return new Button2EditPart(view);
-
-			case ButtonLabel2EditPart.VISUAL_ID:
-				return new ButtonLabel2EditPart(view);
 
 			case DropDownSelection2EditPart.VISUAL_ID:
 				return new DropDownSelection2EditPart(view);
@@ -100,6 +88,18 @@ public class DomainEditPartFactory implements EditPartFactory {
 			case CheckBoxEditPart.VISUAL_ID:
 				return new CheckBoxEditPart(view);
 
+			case ButtonEditPart.VISUAL_ID:
+				return new ButtonEditPart(view);
+
+			case ButtonLabelEditPart.VISUAL_ID:
+				return new ButtonLabelEditPart(view);
+
+			case ActionTriggerEditPart.VISUAL_ID:
+				return new ActionTriggerEditPart(view);
+
+			case ActionTriggerFakeMethodEditPart.VISUAL_ID:
+				return new ActionTriggerFakeMethodEditPart(view);
+
 			case LabelEditPart.VISUAL_ID:
 				return new LabelEditPart(view);
 
@@ -114,6 +114,12 @@ public class DomainEditPartFactory implements EditPartFactory {
 
 			case CheckBox2EditPart.VISUAL_ID:
 				return new CheckBox2EditPart(view);
+
+			case Button2EditPart.VISUAL_ID:
+				return new Button2EditPart(view);
+
+			case ButtonLabel2EditPart.VISUAL_ID:
+				return new ButtonLabel2EditPart(view);
 
 			case Label2EditPart.VISUAL_ID:
 				return new Label2EditPart(view);
@@ -150,6 +156,12 @@ public class DomainEditPartFactory implements EditPartFactory {
 			case LayerHolderLayerHolderChildrenCompartment3EditPart.VISUAL_ID:
 				return new LayerHolderLayerHolderChildrenCompartment3EditPart(
 						view);
+
+			case ButtonButtonTriggersCompartmentEditPart.VISUAL_ID:
+				return new ButtonButtonTriggersCompartmentEditPart(view);
+
+			case ButtonButtonTriggersCompartment2EditPart.VISUAL_ID:
+				return new ButtonButtonTriggersCompartment2EditPart(view);
 			}
 		}
 		return createUnrecognizedEditPart(context, model);

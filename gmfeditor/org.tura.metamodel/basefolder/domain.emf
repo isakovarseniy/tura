@@ -968,10 +968,10 @@ class DropDownSelection extends OptionSelection {
 }
 
 @gmf.node(label="label",tool.small.bundle="org.tura.metamodel.commons",tool.small.path="icons/column.png")
-class Column extends StyleElement,MultiLangLabel, Categorized{
+class Column extends StyleElement,MultiLangLabel, Categorized,HTMLLayerHolder{
     id attr EString uid;
    attr EString label;
-   @gmf.compartment(layout="list")
+   @gmf.compartment
    val Uielement element;   
 }
 

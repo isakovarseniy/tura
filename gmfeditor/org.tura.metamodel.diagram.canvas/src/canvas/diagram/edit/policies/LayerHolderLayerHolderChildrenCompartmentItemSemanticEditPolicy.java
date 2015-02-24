@@ -34,9 +34,6 @@ public class LayerHolderLayerHolderChildrenCompartmentItemSemanticEditPolicy
 	 * @generated
 	 */
 	protected Command getCreateCommand(CreateElementRequest req) {
-		if (DomainElementTypes.Button_1603017 == req.getElementType()) {
-			return getGEFWrapper(new ButtonCreateCommand(req));
-		}
 		if (DomainElementTypes.DropDownSelection_1603002 == req
 				.getElementType()) {
 			return getGEFWrapper(new DropDownSelectionCreateCommand(req));
@@ -58,6 +55,9 @@ public class LayerHolderLayerHolderChildrenCompartmentItemSemanticEditPolicy
 		}
 		if (DomainElementTypes.CheckBox_1603007 == req.getElementType()) {
 			return getGEFWrapper(new CheckBoxCreateCommand(req));
+		}
+		if (DomainElementTypes.Button_1603017 == req.getElementType()) {
+			return getGEFWrapper(new ButtonCreateCommand(req));
 		}
 		if (DomainElementTypes.Label_1603005 == req.getElementType()) {
 			return getGEFWrapper(new LabelCreateCommand(req));

@@ -976,13 +976,21 @@ public class DomainSwitch<T> extends Switch<T>
         ActionElement actionElement = (ActionElement)theEObject;
         T result = caseActionElement(actionElement);
         if (result == null) result = caseUielement(actionElement);
-        if (result == null) result = caseTrigger(actionElement);
         if (result == null) result = caseStyleElement(actionElement);
         if (result == null) result = caseNickNamed(actionElement);
         if (result == null) result = caseCategorized(actionElement);
-        if (result == null) result = caseMethodPointer(actionElement);
-        if (result == null) result = caseContextParameters(actionElement);
-        if (result == null) result = caseTypePointer(actionElement);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DomainPackage.ACTION_TRIGGER:
+      {
+        ActionTrigger actionTrigger = (ActionTrigger)theEObject;
+        T result = caseActionTrigger(actionTrigger);
+        if (result == null) result = caseTrigger(actionTrigger);
+        if (result == null) result = caseCategorized(actionTrigger);
+        if (result == null) result = caseMethodPointer(actionTrigger);
+        if (result == null) result = caseContextParameters(actionTrigger);
+        if (result == null) result = caseTypePointer(actionTrigger);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -1104,6 +1112,7 @@ public class DomainSwitch<T> extends Switch<T>
         if (result == null) result = caseStyleElement(column);
         if (result == null) result = caseMultiLangLabel(column);
         if (result == null) result = caseCategorized(column);
+        if (result == null) result = caseHTMLLayerHolder(column);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -1142,13 +1151,9 @@ public class DomainSwitch<T> extends Switch<T>
         if (result == null) result = caseActionElement(button);
         if (result == null) result = caseMultiLangLabel(button);
         if (result == null) result = caseUielement(button);
-        if (result == null) result = caseTrigger(button);
         if (result == null) result = caseStyleElement(button);
         if (result == null) result = caseNickNamed(button);
         if (result == null) result = caseCategorized(button);
-        if (result == null) result = caseMethodPointer(button);
-        if (result == null) result = caseContextParameters(button);
-        if (result == null) result = caseTypePointer(button);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -3337,6 +3342,22 @@ public class DomainSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseActionElement(ActionElement object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Action Trigger</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Action Trigger</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseActionTrigger(ActionTrigger object)
   {
     return null;
   }

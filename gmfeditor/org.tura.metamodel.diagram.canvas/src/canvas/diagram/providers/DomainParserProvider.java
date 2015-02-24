@@ -16,6 +16,7 @@ import org.eclipse.gmf.runtime.emf.type.core.IElementType;
 import org.eclipse.gmf.runtime.emf.ui.services.parser.ParserHintAdapter;
 import org.eclipse.gmf.runtime.notation.View;
 
+import canvas.diagram.edit.parts.ActionTriggerFakeMethodEditPart;
 import canvas.diagram.edit.parts.ButtonLabel2EditPart;
 import canvas.diagram.edit.parts.ButtonLabelEditPart;
 import canvas.diagram.edit.parts.ColumnLabel2EditPart;
@@ -52,6 +53,24 @@ public class DomainParserProvider extends AbstractProvider implements
 			buttonLabel_1605006Parser = parser;
 		}
 		return buttonLabel_1605006Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	private IParser actionTriggerFakeMethod_1605013Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getActionTriggerFakeMethod_1605013Parser() {
+		if (actionTriggerFakeMethod_1605013Parser == null) {
+			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE
+					.getMethodPointer_FakeMethod() };
+			MessageFormatParser parser = new MessageFormatParser(features);
+			actionTriggerFakeMethod_1605013Parser = parser;
+		}
+		return actionTriggerFakeMethod_1605013Parser;
 	}
 
 	/**
@@ -221,14 +240,10 @@ public class DomainParserProvider extends AbstractProvider implements
 	 */
 	protected IParser getParser(int visualID) {
 		switch (visualID) {
-		case ButtonLabelEditPart.VISUAL_ID:
-			return getButtonLabel_1605006Parser();
 		case TableLabelEditPart.VISUAL_ID:
 			return getTableLabel_1605004Parser();
 		case ColumnLabelEditPart.VISUAL_ID:
 			return getColumnLabel_1605010Parser();
-		case ButtonLabel2EditPart.VISUAL_ID:
-			return getButtonLabel_1605009Parser();
 		case TableLabel2EditPart.VISUAL_ID:
 			return getTableLabel_1605007Parser();
 		case TreeLabelEditPart.VISUAL_ID:
@@ -237,8 +252,14 @@ public class DomainParserProvider extends AbstractProvider implements
 			return getColumnLabel_1605012Parser();
 		case TreeLabel2EditPart.VISUAL_ID:
 			return getTreeLabel_1605005Parser();
+		case ButtonLabelEditPart.VISUAL_ID:
+			return getButtonLabel_1605006Parser();
+		case ActionTriggerFakeMethodEditPart.VISUAL_ID:
+			return getActionTriggerFakeMethod_1605013Parser();
 		case LabelLabelEditPart.VISUAL_ID:
 			return getLabelLabel_1605001Parser();
+		case ButtonLabel2EditPart.VISUAL_ID:
+			return getButtonLabel_1605009Parser();
 		case LabelLabel2EditPart.VISUAL_ID:
 			return getLabelLabel_1605002Parser();
 		}

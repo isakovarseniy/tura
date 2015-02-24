@@ -34,9 +34,6 @@ public class ColumnColumnElementCompartment2ItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	protected Command getCreateCommand(CreateElementRequest req) {
-		if (DomainElementTypes.Button_1603023 == req.getElementType()) {
-			return getGEFWrapper(new Button2CreateCommand(req));
-		}
 		if (DomainElementTypes.DropDownSelection_1603010 == req
 				.getElementType()) {
 			return getGEFWrapper(new DropDownSelection2CreateCommand(req));
@@ -58,6 +55,9 @@ public class ColumnColumnElementCompartment2ItemSemanticEditPolicy extends
 		}
 		if (DomainElementTypes.CheckBox_1603015 == req.getElementType()) {
 			return getGEFWrapper(new CheckBox2CreateCommand(req));
+		}
+		if (DomainElementTypes.Button_1603023 == req.getElementType()) {
+			return getGEFWrapper(new Button2CreateCommand(req));
 		}
 		if (DomainElementTypes.Label_1603013 == req.getElementType()) {
 			return getGEFWrapper(new Label2CreateCommand(req));

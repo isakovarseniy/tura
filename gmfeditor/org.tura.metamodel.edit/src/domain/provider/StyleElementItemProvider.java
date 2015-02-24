@@ -189,12 +189,7 @@ public class StyleElementItemProvider
     newChildDescriptors.add
       (createChildParameter
         (DomainPackage.Literals.STYLE_ELEMENT__STYLE_CLASS,
-         DomainFactory.eINSTANCE.createActionElement()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (DomainPackage.Literals.STYLE_ELEMENT__STYLE_CLASS,
-         DomainFactory.eINSTANCE.createButton()));
+         DomainFactory.eINSTANCE.createActionTrigger()));
 
     newChildDescriptors.add
       (createChildParameter

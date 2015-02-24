@@ -70,9 +70,6 @@ public class ColumnEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected void createDefaultEditPolicies() {
-		installEditPolicy(EditPolicyRoles.CREATION_ROLE,
-				new CreationEditPolicyWithCustomReparent(
-						DomainVisualIDRegistry.TYPED_INSTANCE));
 		super.createDefaultEditPolicies();
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
 				new ColumnItemSemanticEditPolicy());
@@ -282,56 +279,6 @@ public class ColumnEditPart extends ShapeNodeEditPart {
 	public EditPart getPrimaryChildEditPart() {
 		return getChildBySemanticHint(DomainVisualIDRegistry
 				.getType(ColumnLabelEditPart.VISUAL_ID));
-	}
-
-	/**
-	 * @generated
-	 */
-	public EditPart getTargetEditPart(Request request) {
-		if (request instanceof CreateViewAndElementRequest) {
-			CreateElementRequestAdapter adapter = ((CreateViewAndElementRequest) request)
-					.getViewAndElementDescriptor()
-					.getCreateElementRequestAdapter();
-			IElementType type = (IElementType) adapter
-					.getAdapter(IElementType.class);
-			if (type == DomainElementTypes.Button_1603023) {
-				return getChildBySemanticHint(DomainVisualIDRegistry
-						.getType(ColumnColumnElementCompartmentEditPart.VISUAL_ID));
-			}
-			if (type == DomainElementTypes.DropDownSelection_1603010) {
-				return getChildBySemanticHint(DomainVisualIDRegistry
-						.getType(ColumnColumnElementCompartmentEditPart.VISUAL_ID));
-			}
-			if (type == DomainElementTypes.Table_1603021) {
-				return getChildBySemanticHint(DomainVisualIDRegistry
-						.getType(ColumnColumnElementCompartmentEditPart.VISUAL_ID));
-			}
-			if (type == DomainElementTypes.Tree_1603022) {
-				return getChildBySemanticHint(DomainVisualIDRegistry
-						.getType(ColumnColumnElementCompartmentEditPart.VISUAL_ID));
-			}
-			if (type == DomainElementTypes.LayerHolder_1603020) {
-				return getChildBySemanticHint(DomainVisualIDRegistry
-						.getType(ColumnColumnElementCompartmentEditPart.VISUAL_ID));
-			}
-			if (type == DomainElementTypes.InputText_1603012) {
-				return getChildBySemanticHint(DomainVisualIDRegistry
-						.getType(ColumnColumnElementCompartmentEditPart.VISUAL_ID));
-			}
-			if (type == DomainElementTypes.OutputText_1603014) {
-				return getChildBySemanticHint(DomainVisualIDRegistry
-						.getType(ColumnColumnElementCompartmentEditPart.VISUAL_ID));
-			}
-			if (type == DomainElementTypes.CheckBox_1603015) {
-				return getChildBySemanticHint(DomainVisualIDRegistry
-						.getType(ColumnColumnElementCompartmentEditPart.VISUAL_ID));
-			}
-			if (type == DomainElementTypes.Label_1603013) {
-				return getChildBySemanticHint(DomainVisualIDRegistry
-						.getType(ColumnColumnElementCompartmentEditPart.VISUAL_ID));
-			}
-		}
-		return super.getTargetEditPart(request);
 	}
 
 	/**

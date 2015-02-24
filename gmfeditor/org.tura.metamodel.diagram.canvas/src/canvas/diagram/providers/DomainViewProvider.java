@@ -39,7 +39,11 @@ import org.eclipse.jface.preference.PreferenceConverter;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.FontData;
 
+import canvas.diagram.edit.parts.ActionTriggerEditPart;
+import canvas.diagram.edit.parts.ActionTriggerFakeMethodEditPart;
 import canvas.diagram.edit.parts.Button2EditPart;
+import canvas.diagram.edit.parts.ButtonButtonTriggersCompartment2EditPart;
+import canvas.diagram.edit.parts.ButtonButtonTriggersCompartmentEditPart;
 import canvas.diagram.edit.parts.ButtonEditPart;
 import canvas.diagram.edit.parts.ButtonLabel2EditPart;
 import canvas.diagram.edit.parts.ButtonLabelEditPart;
@@ -173,7 +177,6 @@ public class DomainViewProvider extends AbstractProvider implements
 				}
 				switch (visualID) {
 				case LayerHolderEditPart.VISUAL_ID:
-				case ButtonEditPart.VISUAL_ID:
 				case DropDownSelectionEditPart.VISUAL_ID:
 				case TableEditPart.VISUAL_ID:
 				case ColumnEditPart.VISUAL_ID:
@@ -181,8 +184,9 @@ public class DomainViewProvider extends AbstractProvider implements
 				case InputTextEditPart.VISUAL_ID:
 				case OutputTextEditPart.VISUAL_ID:
 				case CheckBoxEditPart.VISUAL_ID:
+				case ButtonEditPart.VISUAL_ID:
+				case ActionTriggerEditPart.VISUAL_ID:
 				case LabelEditPart.VISUAL_ID:
-				case Button2EditPart.VISUAL_ID:
 				case DropDownSelection2EditPart.VISUAL_ID:
 				case Table2EditPart.VISUAL_ID:
 				case Column2EditPart.VISUAL_ID:
@@ -192,6 +196,7 @@ public class DomainViewProvider extends AbstractProvider implements
 				case InputText2EditPart.VISUAL_ID:
 				case OutputText2EditPart.VISUAL_ID:
 				case CheckBox2EditPart.VISUAL_ID:
+				case Button2EditPart.VISUAL_ID:
 				case Label2EditPart.VISUAL_ID:
 					if (domainElement == null
 							|| visualID != DomainVisualIDRegistry
@@ -206,11 +211,9 @@ public class DomainViewProvider extends AbstractProvider implements
 			}
 		}
 		return LayerHolderEditPart.VISUAL_ID == visualID
-				|| ButtonEditPart.VISUAL_ID == visualID
 				|| DropDownSelectionEditPart.VISUAL_ID == visualID
 				|| TableEditPart.VISUAL_ID == visualID
 				|| ColumnEditPart.VISUAL_ID == visualID
-				|| Button2EditPart.VISUAL_ID == visualID
 				|| DropDownSelection2EditPart.VISUAL_ID == visualID
 				|| Table2EditPart.VISUAL_ID == visualID
 				|| TreeEditPart.VISUAL_ID == visualID
@@ -221,10 +224,13 @@ public class DomainViewProvider extends AbstractProvider implements
 				|| InputTextEditPart.VISUAL_ID == visualID
 				|| OutputTextEditPart.VISUAL_ID == visualID
 				|| CheckBoxEditPart.VISUAL_ID == visualID
+				|| ButtonEditPart.VISUAL_ID == visualID
+				|| ActionTriggerEditPart.VISUAL_ID == visualID
 				|| LabelEditPart.VISUAL_ID == visualID
 				|| InputText2EditPart.VISUAL_ID == visualID
 				|| OutputText2EditPart.VISUAL_ID == visualID
 				|| CheckBox2EditPart.VISUAL_ID == visualID
+				|| Button2EditPart.VISUAL_ID == visualID
 				|| Label2EditPart.VISUAL_ID == visualID;
 	}
 
@@ -285,9 +291,6 @@ public class DomainViewProvider extends AbstractProvider implements
 		case LayerHolderEditPart.VISUAL_ID:
 			return createLayerHolder_1602003(domainElement, containerView,
 					index, persisted, preferencesHint);
-		case ButtonEditPart.VISUAL_ID:
-			return createButton_1603017(domainElement, containerView, index,
-					persisted, preferencesHint);
 		case DropDownSelectionEditPart.VISUAL_ID:
 			return createDropDownSelection_1603002(domainElement,
 					containerView, index, persisted, preferencesHint);
@@ -296,9 +299,6 @@ public class DomainViewProvider extends AbstractProvider implements
 					persisted, preferencesHint);
 		case ColumnEditPart.VISUAL_ID:
 			return createColumn_1603024(domainElement, containerView, index,
-					persisted, preferencesHint);
-		case Button2EditPart.VISUAL_ID:
-			return createButton_1603023(domainElement, containerView, index,
 					persisted, preferencesHint);
 		case DropDownSelection2EditPart.VISUAL_ID:
 			return createDropDownSelection_1603010(domainElement,
@@ -330,6 +330,12 @@ public class DomainViewProvider extends AbstractProvider implements
 		case CheckBoxEditPart.VISUAL_ID:
 			return createCheckBox_1603007(domainElement, containerView, index,
 					persisted, preferencesHint);
+		case ButtonEditPart.VISUAL_ID:
+			return createButton_1603017(domainElement, containerView, index,
+					persisted, preferencesHint);
+		case ActionTriggerEditPart.VISUAL_ID:
+			return createActionTrigger_1603027(domainElement, containerView,
+					index, persisted, preferencesHint);
 		case LabelEditPart.VISUAL_ID:
 			return createLabel_1603005(domainElement, containerView, index,
 					persisted, preferencesHint);
@@ -341,6 +347,9 @@ public class DomainViewProvider extends AbstractProvider implements
 					index, persisted, preferencesHint);
 		case CheckBox2EditPart.VISUAL_ID:
 			return createCheckBox_1603015(domainElement, containerView, index,
+					persisted, preferencesHint);
+		case Button2EditPart.VISUAL_ID:
+			return createButton_1603023(domainElement, containerView, index,
 					persisted, preferencesHint);
 		case Label2EditPart.VISUAL_ID:
 			return createLabel_1603013(domainElement, containerView, index,
@@ -421,6 +430,8 @@ public class DomainViewProvider extends AbstractProvider implements
 	public Node createButton_1603017(EObject domainElement, View containerView,
 			int index, boolean persisted, PreferencesHint preferencesHint) {
 		Shape node = NotationFactory.eINSTANCE.createShape();
+		node.getStyles().add(
+				NotationFactory.eINSTANCE.createHintedDiagramLinkStyle());
 		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
 		node.setType(DomainVisualIDRegistry.getType(ButtonEditPart.VISUAL_ID));
 		ViewUtil.insertChildView(containerView, node, index, persisted);
@@ -455,6 +466,57 @@ public class DomainViewProvider extends AbstractProvider implements
 				FigureUtilities.RGBToInteger(fillRGB));
 		Node label1605006 = createLabel(node,
 				DomainVisualIDRegistry.getType(ButtonLabelEditPart.VISUAL_ID));
+		createCompartment(
+				node,
+				DomainVisualIDRegistry
+						.getType(ButtonButtonTriggersCompartmentEditPart.VISUAL_ID),
+				true, false, true, true);
+		return node;
+	}
+
+	/**
+	 * @generated
+	 */
+	public Node createActionTrigger_1603027(EObject domainElement,
+			View containerView, int index, boolean persisted,
+			PreferencesHint preferencesHint) {
+		Shape node = NotationFactory.eINSTANCE.createShape();
+		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
+		node.setType(DomainVisualIDRegistry
+				.getType(ActionTriggerEditPart.VISUAL_ID));
+		ViewUtil.insertChildView(containerView, node, index, persisted);
+		node.setElement(domainElement);
+		// initializeFromPreferences 
+		final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint
+				.getPreferenceStore();
+
+		org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(
+				prefStore, IPreferenceConstants.PREF_LINE_COLOR);
+		ViewUtil.setStructuralFeatureValue(node,
+				NotationPackage.eINSTANCE.getLineStyle_LineColor(),
+				FigureUtilities.RGBToInteger(lineRGB));
+		FontStyle nodeFontStyle = (FontStyle) node
+				.getStyle(NotationPackage.Literals.FONT_STYLE);
+		if (nodeFontStyle != null) {
+			FontData fontData = PreferenceConverter.getFontData(prefStore,
+					IPreferenceConstants.PREF_DEFAULT_FONT);
+			nodeFontStyle.setFontName(fontData.getName());
+			nodeFontStyle.setFontHeight(fontData.getHeight());
+			nodeFontStyle.setBold((fontData.getStyle() & SWT.BOLD) != 0);
+			nodeFontStyle.setItalic((fontData.getStyle() & SWT.ITALIC) != 0);
+			org.eclipse.swt.graphics.RGB fontRGB = PreferenceConverter
+					.getColor(prefStore, IPreferenceConstants.PREF_FONT_COLOR);
+			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB)
+					.intValue());
+		}
+		org.eclipse.swt.graphics.RGB fillRGB = PreferenceConverter.getColor(
+				prefStore, IPreferenceConstants.PREF_FILL_COLOR);
+		ViewUtil.setStructuralFeatureValue(node,
+				NotationPackage.eINSTANCE.getFillStyle_FillColor(),
+				FigureUtilities.RGBToInteger(fillRGB));
+		Node label1605013 = createLabel(node,
+				DomainVisualIDRegistry
+						.getType(ActionTriggerFakeMethodEditPart.VISUAL_ID));
 		return node;
 	}
 
@@ -596,7 +658,7 @@ public class DomainViewProvider extends AbstractProvider implements
 				node,
 				DomainVisualIDRegistry
 						.getType(ColumnColumnElementCompartmentEditPart.VISUAL_ID),
-				true, false, true, true);
+				true, false, false, false);
 		return node;
 	}
 
@@ -606,6 +668,8 @@ public class DomainViewProvider extends AbstractProvider implements
 	public Node createButton_1603023(EObject domainElement, View containerView,
 			int index, boolean persisted, PreferencesHint preferencesHint) {
 		Shape node = NotationFactory.eINSTANCE.createShape();
+		node.getStyles().add(
+				NotationFactory.eINSTANCE.createHintedDiagramLinkStyle());
 		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
 		node.setType(DomainVisualIDRegistry.getType(Button2EditPart.VISUAL_ID));
 		ViewUtil.insertChildView(containerView, node, index, persisted);
@@ -640,6 +704,11 @@ public class DomainViewProvider extends AbstractProvider implements
 				FigureUtilities.RGBToInteger(fillRGB));
 		Node label1605009 = createLabel(node,
 				DomainVisualIDRegistry.getType(ButtonLabel2EditPart.VISUAL_ID));
+		createCompartment(
+				node,
+				DomainVisualIDRegistry
+						.getType(ButtonButtonTriggersCompartment2EditPart.VISUAL_ID),
+				true, false, true, true);
 		return node;
 	}
 
@@ -830,7 +899,7 @@ public class DomainViewProvider extends AbstractProvider implements
 				node,
 				DomainVisualIDRegistry
 						.getType(ColumnColumnElementCompartment2EditPart.VISUAL_ID),
-				true, false, true, true);
+				true, false, false, false);
 		return node;
 	}
 

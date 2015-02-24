@@ -911,8 +911,16 @@ class SourcesPointer extends Uielement{
    ref DataControl sourceCastDataControl;
 }
 
-class ActionElement extends Uielement , Trigger {
+class ActionElement extends Uielement  {
+  @gmf.compartment(layout="list")
+ val ActionTrigger[*] triggers;
 }
+
+@gmf.node(label="fakeMethod")
+class ActionTrigger extends Trigger , Categorized{
+    id attr EString uid;
+}
+
 
 class InputElement extends SourcesPointer {
 }
@@ -960,10 +968,10 @@ class DropDownSelection extends OptionSelection {
 }
 
 @gmf.node(label="label",tool.small.bundle="org.tura.metamodel.commons",tool.small.path="icons/column.png")
-class Column extends StyleElement,MultiLangLabel, Categorized{
+class Column extends StyleElement,MultiLangLabel, Categorized,HTMLLayerHolder{
     id attr EString uid;
    attr EString label;
-   @gmf.compartment(layout="list")
+   @gmf.compartment
    val Uielement element;   
 }
 
@@ -983,7 +991,7 @@ class Tree extends SourcesPointer,HTMLLayerHolder,MultiLangLabel{
     val Column[*] cols;
 }
 
-@gmf.node(figure="org.tura.metamodel.commons.figures.ButtonFigure",label.icon="false",label="label",tool.small.bundle="org.tura.metamodel.commons",tool.small.path="icons/button.png")
+@gmf.node(label="label",tool.small.bundle="org.tura.metamodel.commons",tool.small.path="icons/button.png")
 class Button extends ActionElement,MultiLangLabel{
    attr EString label;
    val Context icon;   

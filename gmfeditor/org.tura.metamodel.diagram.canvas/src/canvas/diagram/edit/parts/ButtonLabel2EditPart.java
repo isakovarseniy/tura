@@ -199,7 +199,11 @@ public class ButtonLabel2EditPart extends CompartmentEditPart implements
 	 * @generated
 	 */
 	protected Image getLabelIcon() {
-		return null;
+		EObject parserElement = getParserElement();
+		if (parserElement == null) {
+			return null;
+		}
+		return DomainElementTypes.getImage(parserElement.eClass());
 	}
 
 	/**

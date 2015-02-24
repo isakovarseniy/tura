@@ -349,12 +349,7 @@ public class DataControlItemProvider
     newChildDescriptors.add
       (createChildParameter
         (DomainPackage.Literals.DATA_CONTROL__DEFAULT_SEARCH,
-         DomainFactory.eINSTANCE.createActionElement()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (DomainPackage.Literals.DATA_CONTROL__DEFAULT_SEARCH,
-         DomainFactory.eINSTANCE.createButton()));
+         DomainFactory.eINSTANCE.createActionTrigger()));
 
     newChildDescriptors.add
       (createChildParameter

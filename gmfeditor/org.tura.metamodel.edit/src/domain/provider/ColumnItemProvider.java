@@ -64,10 +64,34 @@ public class ColumnItemProvider
     {
       super.getPropertyDescriptors(object);
 
+      addColumnsPropertyDescriptor(object);
       addUidPropertyDescriptor(object);
       addLabelPropertyDescriptor(object);
     }
     return itemPropertyDescriptors;
+  }
+
+  /**
+   * This adds a property descriptor for the Columns feature.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected void addColumnsPropertyDescriptor(Object object)
+  {
+    itemPropertyDescriptors.add
+      (createItemPropertyDescriptor
+        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+         getResourceLocator(),
+         getString("_UI_HTMLLayerHolder_columns_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_HTMLLayerHolder_columns_feature", "_UI_HTMLLayerHolder_type"),
+         DomainPackage.Literals.HTML_LAYER_HOLDER__COLUMNS,
+         true,
+         false,
+         false,
+         ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
+         null,
+         null));
   }
 
   /**
@@ -172,10 +196,8 @@ public class ColumnItemProvider
   @Override
   public String getText(Object object)
   {
-    String label = ((Column)object).getUid();
-    return label == null || label.length() == 0 ?
-      getString("_UI_Column_type") :
-      getString("_UI_Column_type") + " " + label;
+    Column column = (Column)object;
+    return getString("_UI_Column_type") + " " + column.getColumns();
   }
 
   /**
@@ -192,6 +214,7 @@ public class ColumnItemProvider
 
     switch (notification.getFeatureID(Column.class))
     {
+      case DomainPackage.COLUMN__COLUMNS:
       case DomainPackage.COLUMN__UID:
       case DomainPackage.COLUMN__LABEL:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
@@ -313,8 +336,7 @@ public class ColumnItemProvider
     boolean qualify =
       childFeature == DomainPackage.Literals.STYLE_ELEMENT__STYLE ||
       childFeature == DomainPackage.Literals.STYLE_ELEMENT__STYLE_CLASS ||
-      childFeature == DomainPackage.Literals.MULTI_LANG_LABEL__MULTI_LANG_LABEL ||
-      childFeature == DomainPackage.Literals.COLUMN__ELEMENT;
+      childFeature == DomainPackage.Literals.MULTI_LANG_LABEL__MULTI_LANG_LABEL;
 
     if (qualify)
     {
