@@ -38,8 +38,9 @@ public class ActionExecutor  implements java.io.Serializable {
 
      var counter = 0;
      for ( action in actionElements){
-         if (action.typeRef <> null ){
-             var type = action.typeRef;
+       for( trigger in  action.triggers ){
+         if (trigger.typeRef <> null ){
+             var type = trigger.typeRef;
              type.mappingType2Java(recipe,ingredient);
           if (type.~fullName.isDefined() and map.get(type.~fullName) = null) {
                  type.~counter = counter;
@@ -47,6 +48,7 @@ public class ActionExecutor  implements java.io.Serializable {
                  map.put(type.~fullName,type);
             }     
          }
+       }
      }   
      
      for ( type in map.values()){
@@ -60,13 +62,14 @@ public class ActionExecutor  implements java.io.Serializable {
 	public void init() {
 [%      
      for ( action in actionElements){
-        if (action.typeRef <> null and action.typeRef.~fullName.isDefined()){
+        for( trigger in  action.triggers ){
+         if (trigger.typeRef <> null and trigger.typeRef.~fullName.isDefined()){
 %]
-      hash.put("[%=action.mkuid()%]",new Object[]{
+      hash.put("[%=trigger.mkuid()%]",new Object[]{
             new Class[]{[%
-           if (action.parameters <> null and action.parameters.size() <> 0 ){
+           if (trigger.parameters <> null and trigger.parameters.size() <> 0 ){
               var i = 0;
-               for (parameter  in action.methodRef.parameters){
+               for (parameter  in trigger.methodRef.parameters){
                   var type = parameter.typeRef;
                   type.mappingType2Java(recipe,ingredient);
                   if ( i <> 0)
@@ -77,9 +80,9 @@ public class ActionExecutor  implements java.io.Serializable {
            }
             %]},
             new Object[]{[%
-           if (action.parameters <> null and action.parameters.size() <> 0 ){
+           if (trigger.parameters <> null and trigger.parameters.size() <> 0 ){
               var i = 0;
-               for (parameter  in action.parameters){
+               for (parameter  in trigger.parameters){
                   if ( i <> 0)
                      %],[%
                   %]"[%=buildExpression(parameter.value)%]"[%
@@ -87,13 +90,14 @@ public class ActionExecutor  implements java.io.Serializable {
                }
            }
             %]},
-            exec_[%=map.get(action.typeRef.~fullName).~counter%].get(),
-            "[%=util.mergeAndUnCapitalize(action.methodRef.name)%]"
+            exec_[%=map.get(trigger.typeRef.~fullName).~counter%].get(),
+            "[%=util.mergeAndUnCapitalize(trigger.methodRef.name)%]"
          }
       );
-
 [%     
-      }
+       }
+     } 
+      
      }      
 %]
    }

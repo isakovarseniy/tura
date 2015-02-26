@@ -71,13 +71,19 @@ operation domain::Window generateBody(hash){
 				</h:body>
 [%      
      var actionElements = hash.get("actionElements");
+     var urlHash = new Native('java.util.HashMap');
      for ( action in actionElements){
-      if (action.methodRef <> null  and  action.typeRef.~url.isDefined()){  
-%]
-      <h:outputScript library="js" name="[%=action.typeRef.~url%]" targer="head"></h:outputScript>
-[%     
+        for (trigger in action.triggers){
+           if (trigger.methodRef <> null  and  trigger.typeRef.~url.isDefined()){  
+           urlHash.put(trigger.typeRef.~url,trigger.typeRef.~url);
+       }
       }
      }      
+        for (url in urlHash.values()){
+%]
+      <h:outputScript library="js" name="[%=url%]" targer="head"></h:outputScript>
+[% 
+ }    
 %]
 				
 			</f:view>

@@ -16,12 +16,14 @@ public class ActionProducer{
      var map = new Native('java.util.HashMap'); 
 
      for ( action in actionElements){
-         if (action.typeRef <> null ){
-             var type = action.typeRef;
+        for (trigger in action.triggers ){
+         if (trigger.typeRef <> null ){
+             var type = trigger.typeRef;
              type.mappingType2Java(recipe,ingredient);
           if (type.~fullName.isDefined()) 
                  map.put(type.~fullName.isDefined(),type);
          }
+       } 
      }          
 
      for ( type in map.values()){

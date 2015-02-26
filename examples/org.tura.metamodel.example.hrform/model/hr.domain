@@ -315,6 +315,14 @@
         <parameters packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="e370b9d1-a6fb-4a40-88e2-8845be441438" uid="b4b4777c-89d5-4a65-a5a8-6946f31a8803" name="label"/>
         <returnValue packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="90b18156-de6d-42d1-b350-925e44a0e4cc"/>
       </operations>
+      <operations uid="d537b7d3-64b3-4260-9b69-0762bd897aff" name="showpopup">
+        <parameters packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="e370b9d1-a6fb-4a40-88e2-8845be441438" uid="22a33e94-d1ef-4dd2-8932-5ada440b5107" name="popupCanvasVar"/>
+        <returnValue packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="90b18156-de6d-42d1-b350-925e44a0e4cc"/>
+      </operations>
+      <operations uid="2e403bcd-3e46-4e16-afea-e01cdeb7e247" name="hidepopup">
+        <parameters packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="e370b9d1-a6fb-4a40-88e2-8845be441438" uid="1fb4b6f8-f78c-4f15-af74-fcc94f18be31" name="popupCanvasVar"/>
+        <returnValue packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="90b18156-de6d-42d1-b350-925e44a0e4cc"/>
+      </operations>
     </types>
   </tura.domain:TypeDefinition>
   <tura.domain:TypeDefinition uid="Uniq_115091ed-0c7c-4eae-be06-8496210d4b84" parent="e8faa4f9-a654-40f5-bdf5-454f90f2af19">
@@ -1681,6 +1689,8 @@
     <artifacts uid="8d7cc659-7ce7-4299-94b0-9a0fc5248177" name="JSF">
       <hints uid="a249c5f0-5bc1-4c3c-a8d7-3b49156211c7" name="immediate"/>
       <hints uid="0a80d7c7-cf37-46c2-8804-665afda89f73" name="parameter"/>
+      <hints uid="d8ff5239-74cb-46e9-a93b-eb95a50b6728" name="trigger.onclick"/>
+      <hints uid="97b65510-1aaf-43b1-b505-99eb0c3dfdf0" name="trigger.oncomplete"/>
     </artifacts>
     <artifacts uid="297535b2-a50c-411c-9014-4d739432685b" name="Primefaces">
       <hints uid="21d9dc34-d2cb-4b87-ab39-94afefd6765c" name="row number selector"/>
@@ -2024,6 +2034,12 @@
                 <classifiers uid="4e2b1da0-9b5b-4e22-b172-3b919ca6152a" hint="a249c5f0-5bc1-4c3c-a8d7-3b49156211c7"/>
                 <enabled/>
                 <triggers packageRef="e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="c4654ad8-156f-4706-bda2-791ed81fcdea" fakePackageName="HR package" fakeTypeName="Action executor" methodRef="5368d958-0a1b-4785-9681-47bcf5224d8d" fakeMethod="openCompanyDetailsPopup" uid="5b8b550a-60bb-4ddb-bf90-25c87761c62b"/>
+                <triggers packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="971e11a5-49d4-402d-9ae4-4233c366a542" fakePackageName="Base package" fakeTypeName="Client system library" methodRef="d537b7d3-64b3-4260-9b69-0762bd897aff" fakeMethod="showpopup" uid="57ec691c-e5df-4443-843b-91de51b146dd">
+                  <parameters uid="f9dac8ec-d153-49c5-9aa2-7fe29efca4c9" refObj="22a33e94-d1ef-4dd2-8932-5ada440b5107">
+                    <value uid="e9c09628-1492-47a0-a76d-0851b3cc2100" constant="true" value="companyPopUpVar"/>
+                  </parameters>
+                  <classifiers uid="070f90b2-ffb1-4a52-8631-5f5ae5578855" hint="97b65510-1aaf-43b1-b505-99eb0c3dfdf0"/>
+                </triggers>
               </element>
             </cols>
           </children>
@@ -2058,6 +2074,15 @@
             </children>
             <children xsi:type="tura.domain:Button" uid="3f03fa7e-3db9-4d75-a973-d107235686f1" label="JS Test">
               <style/>
+              <triggers packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="971e11a5-49d4-402d-9ae4-4233c366a542" fakePackageName="Base package" fakeTypeName="Client system library" methodRef="90a31bb6-4c1e-4106-8d8c-616dc9888a78" fakeMethod="Test JS" uid="0cef1837-0695-4aab-9944-6df75c51f911">
+                <parameters uid="a4cb660e-da3d-4c7e-9d99-24bacaa1c393" refObj="b4b4777c-89d5-4a65-a5a8-6946f31a8803">
+                  <value uid="0974e614-df5d-4bde-807c-459521659d08" value="Form variables.var1">
+                    <expression objRef="5aea4714-7635-43bd-a361-b2ae8711af5b" expressionType="RootImpl"/>
+                    <expression objRef="7ef63886-d369-40e0-8cc2-1e0160478677" order="1" expressionType="FormVariableImpl"/>
+                  </value>
+                </parameters>
+                <classifiers uid="8ad18a20-31a7-4098-a1f4-2ae1d3cc3988" hint="d8ff5239-74cb-46e9-a93b-eb95a50b6728"/>
+              </triggers>
               <multiLangLabel/>
               <icon/>
             </children>

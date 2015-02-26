@@ -130,6 +130,13 @@ operation domain::CanvasFrame mkuid(){
 }
 %]
 
+[%@template
+operation domain::ActionTrigger mkuid(){
+%]tura[%=self.uid.replaceAll("\\-","_")%][%
+}
+%]
+
+
 
 [%@template
 operation domain::Uielement  mkUIDBinding(){
@@ -148,3 +155,6 @@ operation domain::ViewPort  mkUIDBinding(){
 %]id="[%=self.mkuid()%]" binding="#{[%=self.mkuid()%]}"[%
 }
 %]
+
+
+

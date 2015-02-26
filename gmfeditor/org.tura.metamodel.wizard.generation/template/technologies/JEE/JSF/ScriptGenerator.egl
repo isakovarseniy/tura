@@ -25,23 +25,27 @@ public class ScriptGenerator{
      var map = new Native('java.util.HashMap'); 
 
      for ( action in actionElements){
-         if (action.typeRef <> null ){
-             var type = action.typeRef;
+       for( trigger in  action.triggers ){
+         if (trigger.typeRef <> null ){
+             var type = trigger.typeRef;
              type.mappingType2JavaScript(recipe,ingredient);
          }
+      }
      }
 %]
 
      public ScriptGenerator(){
 [%      
      for ( action in actionElements){
-      if (action.methodRef <> null  and  action.typeRef.~url.isDefined()){  
+      for( trigger in  action.triggers ){
+     
+       if (trigger.methodRef <> null  and  trigger.typeRef.~url.isDefined()){  
 %]
-      hash.put("[%=action.mkuid()%]",new Object[]{
+      hash.put("[%=trigger.mkuid()%]",new Object[]{
             new Object[]{[%
-           if (action.parameters <> null and action.parameters.size() <> 0 ){
+           if (trigger.parameters <> null and trigger.parameters.size() <> 0 ){
               var i = 0;
-               for (parameter  in action.parameters){
+               for (parameter  in trigger.parameters){
                   if ( i <> 0)
                      %],[%
                   %]"[%=buildExpression(parameter.value)%]"[%
@@ -49,13 +53,13 @@ public class ScriptGenerator{
                }
            }
             %]},
-            "[%=util.mergeAndUnCapitalize(action.methodRef.name)%]"
+            "[%=util.mergeAndUnCapitalize(trigger.methodRef.name)%]"
          }
       );
-
 [%     
       }
-     }      
+     } 
+    }      
 %]
    }
    

@@ -9,12 +9,8 @@ operation Button draw(hash) {
      var title =  "value=\"" + buildParameterizedExpression(self.multiLangLabel) + "\"";  
      var icon = "icon=\""+util.apostropheRemover(buildParameterizedExpression(self.icon))+"\"";
  
-      var type = self.typeRef;
-      if (type <> null ){
-        type.mappingType2Java(recipe,ingredient);
-        type.mappingType2JavaScript(recipe,ingredient);
-     }
      var immediate = "";
+     var eventListener="";
      if (self.findClassifier('UIGeneration','JSF','immediate')){
         immediate = "immediate=\"true\"";
      }
@@ -23,14 +19,34 @@ operation Button draw(hash) {
 
  %]
 <p:commandButton  [%=immediate%]  [%=title%] [%=self.mkUIDBinding()%] [%=self.uiElementAttributes(hash)%][%  
-      if (type <> null  and type.~mapper.isDefined() and "Type2JavaScript".equals(type.~mapper) ){
-         %]onclick="#{scriptGenerator.scriptBuilder('[%=self.mkuid()%]')}"[%
-      }
-      if (type <> null and type.~mapper.isDefined() and "Type2Java".equals(type.~mapper) ){
-         %]actionListener="#{actionExecutor.eventListener}"[%
+       for ( trigger in  self.triggers){
+          var type = trigger.typeRef;
+          if (type <> null ){
+             type.mappingType2Java(recipe,ingredient);
+             type.mappingType2JavaScript(recipe,ingredient);
+           }
+           if (trigger.findClassifier('UIGeneration','JSF','trigger.onclick') and type <> null  and type.~mapper.isDefined() and "Type2JavaScript".equals(type.~mapper) ){
+             %]onclick="#{scriptGenerator.scriptBuilder('[%=trigger.mkuid()%]')}"[%
+           }else{      
+              if (trigger.findClassifier('UIGeneration','JSF','trigger.oncomplete') and type <> null  and type.~mapper.isDefined() and "Type2JavaScript".equals(type.~mapper)){
+                %]oncomplete="#{scriptGenerator.scriptBuilder('[%=trigger.mkuid()%]')}"[%
+              }
+              else{
+                if (type <> null and type.~mapper.isDefined() and "Type2Java".equals(type.~mapper) ){
+           %]actionListener="#{actionExecutor.eventListener}"[%
+              }
+            }      
+         }
       }
 %] [%=icon%] >
 [%
+       for ( trigger in  self.triggers){
+          if (not trigger.findClassifier('UIGeneration','JSF','trigger.onclick') and not trigger.findClassifier('UIGeneration','JSF','trigger.oncomplete')){%]
+				<f:attribute name="actionExecutor" value="[%=trigger.mkuid()%]" />        
+[%
+          }
+       }
+
         for (param in self.findAllClassifiers('UIGeneration','JSF','parameter')){%]
              [%=param.details%]        
         [%

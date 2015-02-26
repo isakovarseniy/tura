@@ -723,6 +723,8 @@
               <input type="canvas.diagram.edit.parts.OutputText2EditPart"/>
               <input type="canvas.diagram.edit.parts.DropDownSelection2EditPart"/>
               <input type="canvas.diagram.edit.parts.Button2EditPart"/>
+              <input type="canvas.diagram.edit.parts.ActionTriggerEditPart"/>
+              
             </propertySection>        
 
 
