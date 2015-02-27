@@ -105,8 +105,8 @@ public class ActionExecutor  implements java.io.Serializable {
     @SuppressWarnings("unchecked")
     public void eventListener(ActionEvent event) {
         try {
-            String id = event.getComponent().getClientId();
-            id = id.substring(id.lastIndexOf(':')+1);
+        	String id = (String) event.getComponent().getAttributes()
+					.get("actionExecutor");
             Object[] array = (Object[]) hash.get(id);
 
             Method method =

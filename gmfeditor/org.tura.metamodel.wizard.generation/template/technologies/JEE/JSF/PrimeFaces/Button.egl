@@ -6,8 +6,8 @@ operation Button draw(hash) {
      
      hash.get("actionElements").add(self);
      
-     var title =  "value=\"" + buildParameterizedExpression(self.multiLangLabel) + "\"";  
-     var icon = "icon=\""+util.apostropheRemover(buildParameterizedExpression(self.icon))+"\"";
+     var title =  " value=\"" + buildParameterizedExpression(self.multiLangLabel) + "\" ";  
+     var icon = " icon=\""+util.apostropheRemover(buildParameterizedExpression(self.icon))+"\" ";
  
      var immediate = "";
      var eventListener="";
@@ -26,14 +26,14 @@ operation Button draw(hash) {
              type.mappingType2JavaScript(recipe,ingredient);
            }
            if (trigger.findClassifier('UIGeneration','JSF','trigger.onclick') and type <> null  and type.~mapper.isDefined() and "Type2JavaScript".equals(type.~mapper) ){
-             %]onclick="#{scriptGenerator.scriptBuilder('[%=trigger.mkuid()%]')}"[%
+             %] onclick="#{scriptGenerator.scriptBuilder('[%=trigger.mkuid()%]')}"[%
            }else{      
               if (trigger.findClassifier('UIGeneration','JSF','trigger.oncomplete') and type <> null  and type.~mapper.isDefined() and "Type2JavaScript".equals(type.~mapper)){
-                %]oncomplete="#{scriptGenerator.scriptBuilder('[%=trigger.mkuid()%]')}"[%
+                %] oncomplete="#{scriptGenerator.scriptBuilder('[%=trigger.mkuid()%]')}"[%
               }
               else{
                 if (type <> null and type.~mapper.isDefined() and "Type2Java".equals(type.~mapper) ){
-           %]actionListener="#{actionExecutor.eventListener}"[%
+           %] actionListener="#{actionExecutor.eventListener}"[%
               }
             }      
          }
