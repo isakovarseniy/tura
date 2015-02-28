@@ -38,7 +38,7 @@ operation Button draw(hash) {
             }      
          }
       }
-%] [%=icon%] >
+%] [%=icon%]    [%=self.refreshArias()%] >
 [%
        for ( trigger in  self.triggers){
           if (not trigger.findClassifier('UIGeneration','JSF','trigger.onclick') and not trigger.findClassifier('UIGeneration','JSF','trigger.oncomplete')){%]

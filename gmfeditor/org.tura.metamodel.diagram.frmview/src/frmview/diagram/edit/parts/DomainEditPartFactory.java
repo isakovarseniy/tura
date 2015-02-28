@@ -28,6 +28,12 @@ public class DomainEditPartFactory implements EditPartFactory {
 			case ViewsEditPart.VISUAL_ID:
 				return new ViewsEditPart(view);
 
+			case PopupCanvasEditPart.VISUAL_ID:
+				return new PopupCanvasEditPart(view);
+
+			case PopupCanvasNameEditPart.VISUAL_ID:
+				return new PopupCanvasNameEditPart(view);
+
 			case CanvasEditPart.VISUAL_ID:
 				return new CanvasEditPart(view);
 
@@ -70,12 +76,16 @@ public class DomainEditPartFactory implements EditPartFactory {
 			case ViewAreaNameEditPart.VISUAL_ID:
 				return new ViewAreaNameEditPart(view);
 
-			case CanvasCanvasViewElementCompartmentEditPart.VISUAL_ID:
-				return new CanvasCanvasViewElementCompartmentEditPart(view);
+			case PopupCanvasPopupCanvasViewElementCompartmentEditPart.VISUAL_ID:
+				return new PopupCanvasPopupCanvasViewElementCompartmentEditPart(
+						view);
 
 			case ViewPortViewPortViewPortTriggerCompartmentEditPart.VISUAL_ID:
 				return new ViewPortViewPortViewPortTriggerCompartmentEditPart(
 						view);
+
+			case CanvasCanvasViewElementCompartmentEditPart.VISUAL_ID:
+				return new CanvasCanvasViewElementCompartmentEditPart(view);
 
 			case WindowWindowViewElementCompartmentEditPart.VISUAL_ID:
 				return new WindowWindowViewElementCompartmentEditPart(view);

@@ -158,6 +158,7 @@ public class DomainFactoryImpl extends EFactoryImpl implements DomainFactory
       case DomainPackage.VIEW_PORT_HOLDER: return createViewPortHolder();
       case DomainPackage.DEFAULT_CAVAS: return createDefaultCavas();
       case DomainPackage.VIEW_ELEMENT: return createViewElement();
+      case DomainPackage.POPUP_CANVAS: return createPopupCanvas();
       case DomainPackage.CANVAS: return createCanvas();
       case DomainPackage.WINDOW: return createWindow();
       case DomainPackage.TAB_CANVAS: return createTabCanvas();
@@ -1329,6 +1330,17 @@ public class DomainFactoryImpl extends EFactoryImpl implements DomainFactory
   {
     ViewElementImpl viewElement = new ViewElementImpl();
     return viewElement;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public PopupCanvas createPopupCanvas()
+  {
+    PopupCanvasImpl popupCanvas = new PopupCanvasImpl();
+    return popupCanvas;
   }
 
   /**

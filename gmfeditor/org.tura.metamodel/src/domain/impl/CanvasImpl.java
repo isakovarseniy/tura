@@ -3,6 +3,8 @@
 package domain.impl;
 
 import domain.Canvas;
+import domain.Categorized;
+import domain.Classifier;
 import domain.Context;
 import domain.DefaultCavas;
 import domain.DomainPackage;
@@ -37,6 +39,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link domain.impl.CanvasImpl#getViewElement <em>View Element</em>}</li>
  *   <li>{@link domain.impl.CanvasImpl#isDefaultCanvas <em>Default Canvas</em>}</li>
  *   <li>{@link domain.impl.CanvasImpl#getMultiLangLabel <em>Multi Lang Label</em>}</li>
+ *   <li>{@link domain.impl.CanvasImpl#getClassifiers <em>Classifiers</em>}</li>
  * </ul>
  * </p>
  *
@@ -103,6 +106,16 @@ public class CanvasImpl extends CanvasFrameImpl implements Canvas
    * @ordered
    */
   protected Context multiLangLabel;
+
+  /**
+   * The cached value of the '{@link #getClassifiers() <em>Classifiers</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getClassifiers()
+   * @generated
+   * @ordered
+   */
+  protected EList<Classifier> classifiers;
 
   /**
    * <!-- begin-user-doc -->
@@ -238,6 +251,20 @@ public class CanvasImpl extends CanvasFrameImpl implements Canvas
    * <!-- end-user-doc -->
    * @generated
    */
+  public EList<Classifier> getClassifiers()
+  {
+    if (classifiers == null)
+    {
+      classifiers = new EObjectContainmentEList<Classifier>(Classifier.class, this, DomainPackage.CANVAS__CLASSIFIERS);
+    }
+    return classifiers;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
@@ -247,6 +274,8 @@ public class CanvasImpl extends CanvasFrameImpl implements Canvas
         return ((InternalEList<?>)getViewElement()).basicRemove(otherEnd, msgs);
       case DomainPackage.CANVAS__MULTI_LANG_LABEL:
         return basicSetMultiLangLabel(null, msgs);
+      case DomainPackage.CANVAS__CLASSIFIERS:
+        return ((InternalEList<?>)getClassifiers()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -269,6 +298,8 @@ public class CanvasImpl extends CanvasFrameImpl implements Canvas
         return isDefaultCanvas();
       case DomainPackage.CANVAS__MULTI_LANG_LABEL:
         return getMultiLangLabel();
+      case DomainPackage.CANVAS__CLASSIFIERS:
+        return getClassifiers();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -297,6 +328,10 @@ public class CanvasImpl extends CanvasFrameImpl implements Canvas
       case DomainPackage.CANVAS__MULTI_LANG_LABEL:
         setMultiLangLabel((Context)newValue);
         return;
+      case DomainPackage.CANVAS__CLASSIFIERS:
+        getClassifiers().clear();
+        getClassifiers().addAll((Collection<? extends Classifier>)newValue);
+        return;
     }
     super.eSet(featureID, newValue);
   }
@@ -323,6 +358,9 @@ public class CanvasImpl extends CanvasFrameImpl implements Canvas
       case DomainPackage.CANVAS__MULTI_LANG_LABEL:
         setMultiLangLabel((Context)null);
         return;
+      case DomainPackage.CANVAS__CLASSIFIERS:
+        getClassifiers().clear();
+        return;
     }
     super.eUnset(featureID);
   }
@@ -345,6 +383,8 @@ public class CanvasImpl extends CanvasFrameImpl implements Canvas
         return defaultCanvas != DEFAULT_CANVAS_EDEFAULT;
       case DomainPackage.CANVAS__MULTI_LANG_LABEL:
         return multiLangLabel != null;
+      case DomainPackage.CANVAS__CLASSIFIERS:
+        return classifiers != null && !classifiers.isEmpty();
     }
     return super.eIsSet(featureID);
   }
@@ -389,6 +429,14 @@ public class CanvasImpl extends CanvasFrameImpl implements Canvas
         default: return -1;
       }
     }
+    if (baseClass == Categorized.class)
+    {
+      switch (derivedFeatureID)
+      {
+        case DomainPackage.CANVAS__CLASSIFIERS: return DomainPackage.CATEGORIZED__CLASSIFIERS;
+        default: return -1;
+      }
+    }
     return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
   }
 
@@ -429,6 +477,14 @@ public class CanvasImpl extends CanvasFrameImpl implements Canvas
       switch (baseFeatureID)
       {
         case DomainPackage.MULTI_LANG_LABEL__MULTI_LANG_LABEL: return DomainPackage.CANVAS__MULTI_LANG_LABEL;
+        default: return -1;
+      }
+    }
+    if (baseClass == Categorized.class)
+    {
+      switch (baseFeatureID)
+      {
+        case DomainPackage.CATEGORIZED__CLASSIFIERS: return DomainPackage.CANVAS__CLASSIFIERS;
         default: return -1;
       }
     }

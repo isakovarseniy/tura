@@ -21,6 +21,7 @@ import org.eclipse.swt.graphics.Image;
 
 import domain.DomainPackage;
 import frmview.diagram.edit.parts.CanvasEditPart;
+import frmview.diagram.edit.parts.PopupCanvasEditPart;
 import frmview.diagram.edit.parts.TabCanvasEditPart;
 import frmview.diagram.edit.parts.TabPageEditPart;
 import frmview.diagram.edit.parts.TabPagesInheritanceEditPart;
@@ -62,6 +63,11 @@ public class DomainElementTypes {
 	 * @generated
 	 */
 	public static final IElementType Views_1301000 = getElementType("org.tura.metamodel.diagram.frmview.Views_1301000"); //$NON-NLS-1$
+	/**
+	 * @generated
+	 */
+	public static final IElementType PopupCanvas_1302009 = getElementType("org.tura.metamodel.diagram.frmview.PopupCanvas_1302009"); //$NON-NLS-1$
+
 	/**
 	 * @generated
 	 */
@@ -212,6 +218,9 @@ public class DomainElementTypes {
 
 			elements.put(Views_1301000, DomainPackage.eINSTANCE.getViews());
 
+			elements.put(PopupCanvas_1302009,
+					DomainPackage.eINSTANCE.getPopupCanvas());
+
 			elements.put(Canvas_1302003, DomainPackage.eINSTANCE.getCanvas());
 
 			elements.put(Window_1302007, DomainPackage.eINSTANCE.getWindow());
@@ -253,6 +262,7 @@ public class DomainElementTypes {
 		if (KNOWN_ELEMENT_TYPES == null) {
 			KNOWN_ELEMENT_TYPES = new HashSet<IElementType>();
 			KNOWN_ELEMENT_TYPES.add(Views_1301000);
+			KNOWN_ELEMENT_TYPES.add(PopupCanvas_1302009);
 			KNOWN_ELEMENT_TYPES.add(Canvas_1302003);
 			KNOWN_ELEMENT_TYPES.add(Window_1302007);
 			KNOWN_ELEMENT_TYPES.add(TabPage_1302002);
@@ -273,6 +283,8 @@ public class DomainElementTypes {
 		switch (visualID) {
 		case ViewsEditPart.VISUAL_ID:
 			return Views_1301000;
+		case PopupCanvasEditPart.VISUAL_ID:
+			return PopupCanvas_1302009;
 		case CanvasEditPart.VISUAL_ID:
 			return Canvas_1302003;
 		case WindowEditPart.VISUAL_ID:

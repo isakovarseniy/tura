@@ -522,6 +522,9 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//DefaultCavas/defaultCanvas"/>
     </genClasses>
     <genClasses ecoreClass="domain.ecore#//ViewElement"/>
+    <genClasses ecoreClass="domain.ecore#//PopupCanvas">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//PopupCanvas/modal"/>
+    </genClasses>
     <genClasses ecoreClass="domain.ecore#//Canvas"/>
     <genClasses ecoreClass="domain.ecore#//Window"/>
     <genClasses ecoreClass="domain.ecore#//TabCanvas"/>

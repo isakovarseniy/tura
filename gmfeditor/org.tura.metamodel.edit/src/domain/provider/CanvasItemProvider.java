@@ -132,6 +132,7 @@ public class CanvasItemProvider
       super.getChildrenFeatures(object);
       childrenFeatures.add(DomainPackage.Literals.VIEW_PORT_HOLDER__VIEW_ELEMENT);
       childrenFeatures.add(DomainPackage.Literals.MULTI_LANG_LABEL__MULTI_LANG_LABEL);
+      childrenFeatures.add(DomainPackage.Literals.CATEGORIZED__CLASSIFIERS);
     }
     return childrenFeatures;
   }
@@ -197,6 +198,7 @@ public class CanvasItemProvider
         return;
       case DomainPackage.CANVAS__VIEW_ELEMENT:
       case DomainPackage.CANVAS__MULTI_LANG_LABEL:
+      case DomainPackage.CANVAS__CLASSIFIERS:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
         return;
     }
@@ -234,6 +236,11 @@ public class CanvasItemProvider
       (createChildParameter
         (DomainPackage.Literals.MULTI_LANG_LABEL__MULTI_LANG_LABEL,
          DomainFactory.eINSTANCE.createContext()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (DomainPackage.Literals.CATEGORIZED__CLASSIFIERS,
+         DomainFactory.eINSTANCE.createClassifier()));
   }
 
   /**

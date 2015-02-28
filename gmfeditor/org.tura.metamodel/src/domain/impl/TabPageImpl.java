@@ -2,6 +2,8 @@
  */
 package domain.impl;
 
+import domain.Categorized;
+import domain.Classifier;
 import domain.Context;
 import domain.DomainPackage;
 import domain.HTMLLayerHolder;
@@ -35,6 +37,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link domain.impl.TabPageImpl#getColumns <em>Columns</em>}</li>
  *   <li>{@link domain.impl.TabPageImpl#getViewElement <em>View Element</em>}</li>
  *   <li>{@link domain.impl.TabPageImpl#getMultiLangLabel <em>Multi Lang Label</em>}</li>
+ *   <li>{@link domain.impl.TabPageImpl#getClassifiers <em>Classifiers</em>}</li>
  * </ul>
  * </p>
  *
@@ -81,6 +84,16 @@ public class TabPageImpl extends CanvasFrameImpl implements TabPage
    * @ordered
    */
   protected Context multiLangLabel;
+
+  /**
+   * The cached value of the '{@link #getClassifiers() <em>Classifiers</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getClassifiers()
+   * @generated
+   * @ordered
+   */
+  protected EList<Classifier> classifiers;
 
   /**
    * <!-- begin-user-doc -->
@@ -193,6 +206,20 @@ public class TabPageImpl extends CanvasFrameImpl implements TabPage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EList<Classifier> getClassifiers()
+  {
+    if (classifiers == null)
+    {
+      classifiers = new EObjectContainmentEList<Classifier>(Classifier.class, this, DomainPackage.TAB_PAGE__CLASSIFIERS);
+    }
+    return classifiers;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
@@ -202,6 +229,8 @@ public class TabPageImpl extends CanvasFrameImpl implements TabPage
         return ((InternalEList<?>)getViewElement()).basicRemove(otherEnd, msgs);
       case DomainPackage.TAB_PAGE__MULTI_LANG_LABEL:
         return basicSetMultiLangLabel(null, msgs);
+      case DomainPackage.TAB_PAGE__CLASSIFIERS:
+        return ((InternalEList<?>)getClassifiers()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -222,6 +251,8 @@ public class TabPageImpl extends CanvasFrameImpl implements TabPage
         return getViewElement();
       case DomainPackage.TAB_PAGE__MULTI_LANG_LABEL:
         return getMultiLangLabel();
+      case DomainPackage.TAB_PAGE__CLASSIFIERS:
+        return getClassifiers();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -247,6 +278,10 @@ public class TabPageImpl extends CanvasFrameImpl implements TabPage
       case DomainPackage.TAB_PAGE__MULTI_LANG_LABEL:
         setMultiLangLabel((Context)newValue);
         return;
+      case DomainPackage.TAB_PAGE__CLASSIFIERS:
+        getClassifiers().clear();
+        getClassifiers().addAll((Collection<? extends Classifier>)newValue);
+        return;
     }
     super.eSet(featureID, newValue);
   }
@@ -270,6 +305,9 @@ public class TabPageImpl extends CanvasFrameImpl implements TabPage
       case DomainPackage.TAB_PAGE__MULTI_LANG_LABEL:
         setMultiLangLabel((Context)null);
         return;
+      case DomainPackage.TAB_PAGE__CLASSIFIERS:
+        getClassifiers().clear();
+        return;
     }
     super.eUnset(featureID);
   }
@@ -290,6 +328,8 @@ public class TabPageImpl extends CanvasFrameImpl implements TabPage
         return viewElement != null && !viewElement.isEmpty();
       case DomainPackage.TAB_PAGE__MULTI_LANG_LABEL:
         return multiLangLabel != null;
+      case DomainPackage.TAB_PAGE__CLASSIFIERS:
+        return classifiers != null && !classifiers.isEmpty();
     }
     return super.eIsSet(featureID);
   }
@@ -326,6 +366,14 @@ public class TabPageImpl extends CanvasFrameImpl implements TabPage
         default: return -1;
       }
     }
+    if (baseClass == Categorized.class)
+    {
+      switch (derivedFeatureID)
+      {
+        case DomainPackage.TAB_PAGE__CLASSIFIERS: return DomainPackage.CATEGORIZED__CLASSIFIERS;
+        default: return -1;
+      }
+    }
     return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
   }
 
@@ -358,6 +406,14 @@ public class TabPageImpl extends CanvasFrameImpl implements TabPage
       switch (baseFeatureID)
       {
         case DomainPackage.MULTI_LANG_LABEL__MULTI_LANG_LABEL: return DomainPackage.TAB_PAGE__MULTI_LANG_LABEL;
+        default: return -1;
+      }
+    }
+    if (baseClass == Categorized.class)
+    {
+      switch (baseFeatureID)
+      {
+        case DomainPackage.CATEGORIZED__CLASSIFIERS: return DomainPackage.TAB_PAGE__CLASSIFIERS;
         default: return -1;
       }
     }

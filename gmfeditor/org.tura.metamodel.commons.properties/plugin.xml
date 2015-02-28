@@ -550,6 +550,11 @@
              id="property.tab.domain.frmview.mulilanglabel"
              label="Multi lang label"/>
              
+          <propertyTab
+             category="domain"
+             id="property.tab.domain.frmview.classifier"
+             label="Hintsl"/>
+
       </propertyTabs>
      </extension>  
 
@@ -557,6 +562,22 @@
       <?gmfgen generated="true"?>   
  
       <propertySections contributorId="org.tura.metamodel.diagram.frmview">
+
+
+          <propertySection
+               tab="property.tab.domain.frmview.classifier"
+               class="org.tura.metamodel.commons.properties.selections.grid.impl.CategorizedPropertySelection"
+               id="org.tura.metamodel.diagram.frmview.classifier">
+
+              <input type="frmview.diagram.edit.parts.CanvasEditPart"/>
+              <input type="frmview.diagram.edit.parts.WindowEditPart"/>
+              <input type="frmview.diagram.edit.parts.TabCanvasEditPart"/>
+              <input type="frmview.diagram.edit.parts.TabPageEditPart"/>
+              <input type="frmview.diagram.edit.parts.PopupCanvasEditPart"/>
+              
+            </propertySection>        
+
+
 
              <propertySection
                tab="org.tura.metamodel.diagram.frmview.styleset"
@@ -567,6 +588,7 @@
               <input type="frmview.diagram.edit.parts.WindowEditPart"/>
               <input type="frmview.diagram.edit.parts.TabCanvasEditPart"/>
               <input type="frmview.diagram.edit.parts.TabPageEditPart"/>
+               <input type="frmview.diagram.edit.parts.PopupCanvasEditPart"/>
               
               <input type="frmview.diagram.edit.parts.ViewAreaEditPart"/>
               <input type="frmview.diagram.edit.parts.ViewPortEditPart"/>
@@ -583,6 +605,7 @@
               <input type="frmview.diagram.edit.parts.WindowEditPart"/>
               <input type="frmview.diagram.edit.parts.TabCanvasEditPart"/>
               <input type="frmview.diagram.edit.parts.TabPageEditPart"/>
+               <input type="frmview.diagram.edit.parts.PopupCanvasEditPart"/>
               
               <input type="frmview.diagram.edit.parts.ViewAreaEditPart"/>
               <input type="frmview.diagram.edit.parts.ViewPortEditPart"/>
@@ -597,6 +620,7 @@
               <input type="frmview.diagram.edit.parts.WindowEditPart"/>
               <input type="frmview.diagram.edit.parts.TabCanvasEditPart"/>
               <input type="frmview.diagram.edit.parts.TabPageEditPart"/>
+              <input type="frmview.diagram.edit.parts.PopupCanvasEditPart"/>
            </propertySection>        
 
 

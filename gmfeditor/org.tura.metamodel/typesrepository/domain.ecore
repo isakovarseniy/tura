@@ -1169,28 +1169,36 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="defaultCanvas" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ViewElement" eSuperTypes="#//StyleElement"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Canvas" eSuperTypes="#//CanvasFrame #//ViewPortHolder #//DefaultCavas #//MultiLangLabel">
+  <eClassifiers xsi:type="ecore:EClass" name="PopupCanvas" eSuperTypes="#//CanvasFrame #//ViewPortHolder #//DefaultCavas #//MultiLangLabel #//Categorized">
+    <eAnnotations source="gmf.node">
+      <details key="label" value="name"/>
+      <details key="border.color" value="0,0,0"/>
+      <details key="color" value="192,192,192"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="modal" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Canvas" eSuperTypes="#//CanvasFrame #//ViewPortHolder #//DefaultCavas #//MultiLangLabel #//Categorized">
     <eAnnotations source="gmf.node">
       <details key="label" value="name"/>
       <details key="border.color" value="0,0,0"/>
       <details key="color" value="192,192,192"/>
     </eAnnotations>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Window" eSuperTypes="#//CanvasFrame #//ViewPortHolder #//MultiLangLabel">
+  <eClassifiers xsi:type="ecore:EClass" name="Window" eSuperTypes="#//CanvasFrame #//ViewPortHolder #//MultiLangLabel #//Categorized">
     <eAnnotations source="gmf.node">
       <details key="label" value="name"/>
       <details key="border.color" value="0,0,0"/>
       <details key="color" value="192,192,192"/>
     </eAnnotations>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="TabCanvas" eSuperTypes="#//CanvasFrame #//DefaultCavas #//MultiLangLabel">
+  <eClassifiers xsi:type="ecore:EClass" name="TabCanvas" eSuperTypes="#//CanvasFrame #//DefaultCavas #//MultiLangLabel #//Categorized">
     <eAnnotations source="gmf.node">
       <details key="label" value="name"/>
       <details key="border.color" value="0,0,0"/>
       <details key="color" value="192,192,192"/>
     </eAnnotations>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="TabPage" eSuperTypes="#//CanvasFrame #//ViewPortHolder #//MultiLangLabel">
+  <eClassifiers xsi:type="ecore:EClass" name="TabPage" eSuperTypes="#//CanvasFrame #//ViewPortHolder #//MultiLangLabel #//Categorized">
     <eAnnotations source="gmf.node">
       <details key="label" value="name"/>
       <details key="border.color" value="0,0,0"/>

@@ -227,6 +227,11 @@ public class ViewsItemProvider
     newChildDescriptors.add
       (createChildParameter
         (DomainPackage.Literals.VIEWS__CANVASES,
+         DomainFactory.eINSTANCE.createPopupCanvas()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (DomainPackage.Literals.VIEWS__CANVASES,
          DomainFactory.eINSTANCE.createCanvas()));
 
     newChildDescriptors.add

@@ -34,6 +34,7 @@ import org.eclipse.gmf.tooling.runtime.update.UpdaterLinkDescriptor;
 
 import domain.DomainPackage;
 import frmview.diagram.edit.parts.CanvasEditPart;
+import frmview.diagram.edit.parts.PopupCanvasEditPart;
 import frmview.diagram.edit.parts.TabCanvasEditPart;
 import frmview.diagram.edit.parts.TabPageEditPart;
 import frmview.diagram.edit.parts.TabPagesInheritanceEditPart;
@@ -105,6 +106,7 @@ public class ViewsCanonicalEditPolicy extends CanonicalEditPolicy {
 	private boolean isMyDiagramElement(View view) {
 		int visualID = DomainVisualIDRegistry.getVisualID(view);
 		switch (visualID) {
+		case PopupCanvasEditPart.VISUAL_ID:
 		case CanvasEditPart.VISUAL_ID:
 		case WindowEditPart.VISUAL_ID:
 		case TabPageEditPart.VISUAL_ID:
@@ -276,6 +278,14 @@ public class ViewsCanonicalEditPolicy extends CanonicalEditPolicy {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(DomainDiagramUpdater
 						.getViews_1301000ContainedLinks(view));
+			}
+			domain2NotationMap.putView(view.getElement(), view);
+			break;
+		}
+		case PopupCanvasEditPart.VISUAL_ID: {
+			if (!domain2NotationMap.containsKey(view.getElement())) {
+				result.addAll(DomainDiagramUpdater
+						.getPopupCanvas_1302009ContainedLinks(view));
 			}
 			domain2NotationMap.putView(view.getElement(), view);
 			break;

@@ -13,6 +13,6 @@ package domain;
  * @model annotation="gmf.node label='name' border.color='0,0,0' color='192,192,192'"
  * @generated
  */
-public interface Canvas extends CanvasFrame, ViewPortHolder, DefaultCavas, MultiLangLabel
+public interface Canvas extends CanvasFrame, ViewPortHolder, DefaultCavas, MultiLangLabel, Categorized
 {
 } // Canvas

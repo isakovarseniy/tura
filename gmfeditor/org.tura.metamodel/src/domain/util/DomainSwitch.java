@@ -786,6 +786,20 @@ public class DomainSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case DomainPackage.POPUP_CANVAS:
+      {
+        PopupCanvas popupCanvas = (PopupCanvas)theEObject;
+        T result = casePopupCanvas(popupCanvas);
+        if (result == null) result = caseCanvasFrame(popupCanvas);
+        if (result == null) result = caseViewPortHolder(popupCanvas);
+        if (result == null) result = caseDefaultCavas(popupCanvas);
+        if (result == null) result = caseMultiLangLabel(popupCanvas);
+        if (result == null) result = caseCategorized(popupCanvas);
+        if (result == null) result = caseStyleElement(popupCanvas);
+        if (result == null) result = caseHTMLLayerHolder(popupCanvas);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case DomainPackage.CANVAS:
       {
         Canvas canvas = (Canvas)theEObject;
@@ -794,6 +808,7 @@ public class DomainSwitch<T> extends Switch<T>
         if (result == null) result = caseViewPortHolder(canvas);
         if (result == null) result = caseDefaultCavas(canvas);
         if (result == null) result = caseMultiLangLabel(canvas);
+        if (result == null) result = caseCategorized(canvas);
         if (result == null) result = caseStyleElement(canvas);
         if (result == null) result = caseHTMLLayerHolder(canvas);
         if (result == null) result = defaultCase(theEObject);
@@ -806,6 +821,7 @@ public class DomainSwitch<T> extends Switch<T>
         if (result == null) result = caseCanvasFrame(window);
         if (result == null) result = caseViewPortHolder(window);
         if (result == null) result = caseMultiLangLabel(window);
+        if (result == null) result = caseCategorized(window);
         if (result == null) result = caseStyleElement(window);
         if (result == null) result = caseHTMLLayerHolder(window);
         if (result == null) result = defaultCase(theEObject);
@@ -818,6 +834,7 @@ public class DomainSwitch<T> extends Switch<T>
         if (result == null) result = caseCanvasFrame(tabCanvas);
         if (result == null) result = caseDefaultCavas(tabCanvas);
         if (result == null) result = caseMultiLangLabel(tabCanvas);
+        if (result == null) result = caseCategorized(tabCanvas);
         if (result == null) result = caseStyleElement(tabCanvas);
         if (result == null) result = defaultCase(theEObject);
         return result;
@@ -829,6 +846,7 @@ public class DomainSwitch<T> extends Switch<T>
         if (result == null) result = caseCanvasFrame(tabPage);
         if (result == null) result = caseViewPortHolder(tabPage);
         if (result == null) result = caseMultiLangLabel(tabPage);
+        if (result == null) result = caseCategorized(tabPage);
         if (result == null) result = caseStyleElement(tabPage);
         if (result == null) result = caseHTMLLayerHolder(tabPage);
         if (result == null) result = defaultCase(theEObject);
@@ -2990,6 +3008,22 @@ public class DomainSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseViewElement(ViewElement object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Popup Canvas</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Popup Canvas</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T casePopupCanvas(PopupCanvas object)
   {
     return null;
   }

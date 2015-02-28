@@ -696,6 +696,13 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  private EClass popupCanvasEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   private EClass canvasEClass = null;
 
   /**
@@ -5400,6 +5407,26 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EClass getPopupCanvas()
+  {
+    return popupCanvasEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getPopupCanvas_Modal()
+  {
+    return (EAttribute)popupCanvasEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getCanvas()
   {
     return canvasEClass;
@@ -8184,6 +8211,9 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
 
     viewElementEClass = createEClass(VIEW_ELEMENT);
 
+    popupCanvasEClass = createEClass(POPUP_CANVAS);
+    createEAttribute(popupCanvasEClass, POPUP_CANVAS__MODAL);
+
     canvasEClass = createEClass(CANVAS);
 
     windowEClass = createEClass(WINDOW);
@@ -8549,19 +8579,28 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     canvasFrameEClass.getESuperTypes().add(this.getStyleElement());
     viewPortHolderEClass.getESuperTypes().add(this.getHTMLLayerHolder());
     viewElementEClass.getESuperTypes().add(this.getStyleElement());
+    popupCanvasEClass.getESuperTypes().add(this.getCanvasFrame());
+    popupCanvasEClass.getESuperTypes().add(this.getViewPortHolder());
+    popupCanvasEClass.getESuperTypes().add(this.getDefaultCavas());
+    popupCanvasEClass.getESuperTypes().add(this.getMultiLangLabel());
+    popupCanvasEClass.getESuperTypes().add(this.getCategorized());
     canvasEClass.getESuperTypes().add(this.getCanvasFrame());
     canvasEClass.getESuperTypes().add(this.getViewPortHolder());
     canvasEClass.getESuperTypes().add(this.getDefaultCavas());
     canvasEClass.getESuperTypes().add(this.getMultiLangLabel());
+    canvasEClass.getESuperTypes().add(this.getCategorized());
     windowEClass.getESuperTypes().add(this.getCanvasFrame());
     windowEClass.getESuperTypes().add(this.getViewPortHolder());
     windowEClass.getESuperTypes().add(this.getMultiLangLabel());
+    windowEClass.getESuperTypes().add(this.getCategorized());
     tabCanvasEClass.getESuperTypes().add(this.getCanvasFrame());
     tabCanvasEClass.getESuperTypes().add(this.getDefaultCavas());
     tabCanvasEClass.getESuperTypes().add(this.getMultiLangLabel());
+    tabCanvasEClass.getESuperTypes().add(this.getCategorized());
     tabPageEClass.getESuperTypes().add(this.getCanvasFrame());
     tabPageEClass.getESuperTypes().add(this.getViewPortHolder());
     tabPageEClass.getESuperTypes().add(this.getMultiLangLabel());
+    tabPageEClass.getESuperTypes().add(this.getCategorized());
     viewPortEClass.getESuperTypes().add(this.getViewElement());
     viewPortEClass.getESuperTypes().add(this.getNickNamed());
     viewAreaEClass.getESuperTypes().add(this.getViewElement());
@@ -9132,6 +9171,9 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
 
     initEClass(viewElementEClass, ViewElement.class, "ViewElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
+    initEClass(popupCanvasEClass, PopupCanvas.class, "PopupCanvas", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getPopupCanvas_Modal(), ecorePackage.getEBoolean(), "modal", null, 0, 1, PopupCanvas.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
     initEClass(canvasEClass, Canvas.class, "Canvas", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(windowEClass, Window.class, "Window", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -9501,7 +9543,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
-       });																																																																																																																																																																																					
+       });																																																																																																																																																																																						
   }
 
   /**
@@ -9518,7 +9560,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
-       });																																																																																																																																																																																				
+       });																																																																																																																																																																																					
   }
 
   /**
@@ -10063,6 +10105,15 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        "border.color", "0,0,0",
        "color", "241,238,203"
        });				
+    addAnnotation
+      (popupCanvasEClass, 
+       source, 
+       new String[] 
+       {
+       "label", "name",
+       "border.color", "0,0,0",
+       "color", "192,192,192"
+       });		
     addAnnotation
       (canvasEClass, 
        source, 
@@ -10649,7 +10700,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
-       });							
+       });								
     addAnnotation
       (getViewPort_ViewPortTrigger(), 
        source, 
@@ -10827,7 +10878,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
-       });																																																																																																																																																																								
+       });																																																																																																																																																																									
   }
 
   /**
@@ -10844,7 +10895,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
-       });																																																																																																																																																													
+       });																																																																																																																																																														
   }
 
   /**
@@ -10861,7 +10912,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
-       });																																																																																																																																														
+       });																																																																																																																																															
   }
 
   /**
@@ -10878,7 +10929,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
-       });																																																																																																																																									
+       });																																																																																																																																										
   }
 
   /**
@@ -10965,7 +11016,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        "style", "dot",
        "width", "2",
        "target.decoration", "closedarrow"
-       });																												
+       });																													
     addAnnotation
       (viewInheritanceEClass, 
        source, 
@@ -11025,7 +11076,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
-       });																																																																																																																																				
+       });																																																																																																																																					
   }
 
   /**
@@ -11042,7 +11093,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
-       });																																																																																																																																
+       });																																																																																																																																	
   }
 
   /**
@@ -11059,7 +11110,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
-       });																																																																																																																											
+       });																																																																																																																												
   }
 
   /**
@@ -11076,7 +11127,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
-       });																																																																																																																									
+       });																																																																																																																										
   }
 
   /**
@@ -11093,7 +11144,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
-       });																																																																																																			
+       });																																																																																																				
   }
 
   /**
@@ -11110,7 +11161,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
-       });																																																																																							
+       });																																																																																								
   }
 
   /**
@@ -11127,7 +11178,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
-       });																																																																																			
+       });																																																																																				
   }
 
   /**
@@ -11144,7 +11195,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
-       });																																																																												
+       });																																																																													
   }
 
   /**
@@ -11155,7 +11206,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    */
   protected void createGmf_17Annotations()
   {
-    String source = "gmf.diagram.canvas";																																																																																																																								
+    String source = "gmf.diagram.canvas";																																																																																																																									
     addAnnotation
       (canvasViewEClass, 
        source, 
@@ -11172,7 +11223,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    */
   protected void createGmf_18Annotations()
   {
-    String source = "gmf.diagram.control";																																																																																																																																									
+    String source = "gmf.diagram.control";																																																																																																																																										
     addAnnotation
       (controlsEClass, 
        source, 
@@ -11189,7 +11240,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    */
   protected void createGmf_19Annotations()
   {
-    String source = "gmf.diagram.infarastructure";																																																																																																																																																																										
+    String source = "gmf.diagram.infarastructure";																																																																																																																																																																											
     addAnnotation
       (enterpriseInfrastructureEClass, 
        source, 

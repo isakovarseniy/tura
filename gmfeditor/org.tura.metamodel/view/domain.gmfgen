@@ -40,7 +40,7 @@
         compartments="//@diagram/@compartments.1"
         graphicalNodeEditPolicyClassName="ViewPortGraphicalNodeEditPolicy"
         createCommandClassName="ViewPortCreateCommand"
-        containers="//@diagram/@compartments.0 //@diagram/@compartments.2 //@diagram/@compartments.3">
+        containers="//@diagram/@compartments.0 //@diagram/@compartments.2 //@diagram/@compartments.3 //@diagram/@compartments.4">
       <diagramRunTimeClass
           href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
@@ -152,7 +152,7 @@
         canonicalEditPolicyClassName="ViewAreaCanonicalEditPolicy"
         graphicalNodeEditPolicyClassName="ViewAreaGraphicalNodeEditPolicy"
         createCommandClassName="ViewAreaCreateCommand"
-        containers="//@diagram/@compartments.0 //@diagram/@compartments.2 //@diagram/@compartments.3">
+        containers="//@diagram/@compartments.0 //@diagram/@compartments.2 //@diagram/@compartments.3 //@diagram/@compartments.4">
       <diagramRunTimeClass
           href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
@@ -204,11 +204,66 @@
       </labels>
     </childNodes>
     <topLevelNodes
+        visualID="1302009"
+        editPartClassName="PopupCanvasEditPart"
+        itemSemanticEditPolicyClassName="PopupCanvasItemSemanticEditPolicy"
+        canonicalEditPolicyClassName="PopupCanvasCanonicalEditPolicy"
+        compartments="//@diagram/@compartments.0"
+        graphicalNodeEditPolicyClassName="PopupCanvasGraphicalNodeEditPolicy"
+        createCommandClassName="PopupCanvasCreateCommand">
+      <diagramRunTimeClass
+          href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+      <elementType
+          xsi:type="gmfgen:MetamodelType"
+          editHelperClassName="PopupCanvasEditHelper"/>
+      <viewmap
+          xsi:type="gmfgen:InnerClassViewmap"
+          className="PopupCanvasFigure"
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class PopupCanvasFigure extends org.eclipse.draw2d.RoundedRectangle {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigurePopupCanvasLabelFigure; &#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.RectangleFigure fPopupCanvasViewElementCompartmentFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public PopupCanvasFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setCornerDimensions(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(8)&#xA;, getMapMode().DPtoLP(8)&#xA;));&#xA;&#x9;this.setForegroundColor(THIS_FORE&#xA;);&#xA;&#x9;this.setBackgroundColor(THIS_BACK&#xA;);&#xA;this.setBorder(new org.eclipse.draw2d.MarginBorder(getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;));&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigurePopupCanvasLabelFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigurePopupCanvasLabelFigure.setText(&quot;PopupCanvas&quot;);&#xA;&#xA;fFigurePopupCanvasLabelFigure.setFont(FFIGUREPOPUPCANVASLABELFIGURE_FONT);&#xA;&#xA;&#xA;fFigurePopupCanvasLabelFigure.setMaximumSize(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(10000)&#xA;, getMapMode().DPtoLP(50)&#xA;));&#xA;&#xA;this.add(fFigurePopupCanvasLabelFigure);&#xA;&#xA;&#xA;&#xA;fPopupCanvasViewElementCompartmentFigure = new org.eclipse.draw2d.RectangleFigure();&#xA;&#xA;fPopupCanvasViewElementCompartmentFigure.setOutline(false);&#xA;&#xA;this.add(fPopupCanvasViewElementCompartmentFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigurePopupCanvasLabelFigure() {&#xA;&#x9;&#x9;return fFigurePopupCanvasLabelFigure;&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.draw2d.RectangleFigure getPopupCanvasViewElementCompartmentFigure() {&#xA;&#x9;&#x9;return fPopupCanvasViewElementCompartmentFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_FORE = new org.eclipse.swt.graphics.Color(null, 0, 0, 0);&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_BACK = new org.eclipse.swt.graphics.Color(null, 192, 192, 192);&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Font FFIGUREPOPUPCANVASLABELFIGURE_FONT = new org.eclipse.swt.graphics.Font(org.eclipse.swt.widgets.Display.getCurrent(), &quot;Palatino&quot;, 12, org.eclipse.swt.SWT.ITALIC);&#xA;&#xA;">
+        <attributes
+            xsi:type="gmfgen:StyleAttributes"
+            fixedForeground="true"
+            fixedBackground="true"/>
+      </viewmap>
+      <behaviour
+          xsi:type="gmfgen:OpenDiagramBehaviour"/>
+      <modelFacet>
+        <metaClass
+            href="domain.genmodel#//domain/PopupCanvas"/>
+        <containmentMetaFeature
+            href="domain.genmodel#//domain/Views/canvases"/>
+        <childMetaFeature
+            href="domain.genmodel#//domain/Views/canvases"/>
+      </modelFacet>
+      <labels
+          visualID="1305014"
+          editPartClassName="PopupCanvasNameEditPart"
+          itemSemanticEditPolicyClassName="PopupCanvasNameItemSemanticEditPolicy"
+          elementIcon="true">
+        <diagramRunTimeClass
+            href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+        <viewmap
+            xsi:type="gmfgen:ParentAssignedViewmap"
+            getterName="getFigurePopupCanvasLabelFigure"
+            figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel">
+          <attributes
+              xsi:type="gmfgen:StyleAttributes"
+              fixedFont="true"/>
+        </viewmap>
+        <modelFacet
+            xsi:type="gmfgen:FeatureLabelModelFacet"
+            parser="//@labelParsers/@implementations.0">
+          <metaFeatures
+              href="domain.genmodel#//domain/CanvasFrame/name"/>
+        </modelFacet>
+      </labels>
+    </topLevelNodes>
+    <topLevelNodes
         visualID="1302003"
         editPartClassName="CanvasEditPart"
         itemSemanticEditPolicyClassName="CanvasItemSemanticEditPolicy"
         canonicalEditPolicyClassName="CanvasCanonicalEditPolicy"
-        compartments="//@diagram/@compartments.0"
+        compartments="//@diagram/@compartments.2"
         graphicalNodeEditPolicyClassName="CanvasGraphicalNodeEditPolicy"
         createCommandClassName="CanvasCreateCommand">
       <diagramRunTimeClass
@@ -263,7 +318,7 @@
         editPartClassName="WindowEditPart"
         itemSemanticEditPolicyClassName="WindowItemSemanticEditPolicy"
         canonicalEditPolicyClassName="WindowCanonicalEditPolicy"
-        compartments="//@diagram/@compartments.2"
+        compartments="//@diagram/@compartments.3"
         graphicalNodeEditPolicyClassName="WindowGraphicalNodeEditPolicy"
         createCommandClassName="WindowCreateCommand">
       <diagramRunTimeClass
@@ -318,7 +373,7 @@
         editPartClassName="TabPageEditPart"
         itemSemanticEditPolicyClassName="TabPageItemSemanticEditPolicy"
         canonicalEditPolicyClassName="TabPageCanonicalEditPolicy"
-        compartments="//@diagram/@compartments.3"
+        compartments="//@diagram/@compartments.4"
         graphicalNodeEditPolicyClassName="TabPageGraphicalNodeEditPolicy"
         createCommandClassName="TabPageCreateCommand">
       <diagramRunTimeClass
@@ -487,12 +542,12 @@
       </modelFacet>
     </links>
     <compartments
-        visualID="1307004"
-        editPartClassName="CanvasCanvasViewElementCompartmentEditPart"
-        itemSemanticEditPolicyClassName="CanvasCanvasViewElementCompartmentItemSemanticEditPolicy"
-        canonicalEditPolicyClassName="CanvasCanvasViewElementCompartmentCanonicalEditPolicy"
+        visualID="1307010"
+        editPartClassName="PopupCanvasPopupCanvasViewElementCompartmentEditPart"
+        itemSemanticEditPolicyClassName="PopupCanvasPopupCanvasViewElementCompartmentItemSemanticEditPolicy"
+        canonicalEditPolicyClassName="PopupCanvasPopupCanvasViewElementCompartmentCanonicalEditPolicy"
         childNodes="//@diagram/@childNodes.0 //@diagram/@childNodes.2"
-        title="CanvasViewElementCompartment"
+        title="PopupCanvasViewElementCompartment"
         needsTitle="false"
         node="//@diagram/@topLevelNodes.0"
         listLayout="false">
@@ -500,7 +555,7 @@
           href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <viewmap
           xsi:type="gmfgen:ParentAssignedViewmap"
-          getterName="getCanvasViewElementCompartmentFigure"
+          getterName="getPopupCanvasViewElementCompartmentFigure"
           figureQualifiedClassName="org.eclipse.draw2d.RectangleFigure"/>
     </compartments>
     <compartments
@@ -520,6 +575,23 @@
           figureQualifiedClassName="org.eclipse.draw2d.RectangleFigure"/>
     </compartments>
     <compartments
+        visualID="1307004"
+        editPartClassName="CanvasCanvasViewElementCompartmentEditPart"
+        itemSemanticEditPolicyClassName="CanvasCanvasViewElementCompartmentItemSemanticEditPolicy"
+        canonicalEditPolicyClassName="CanvasCanvasViewElementCompartmentCanonicalEditPolicy"
+        childNodes="//@diagram/@childNodes.0 //@diagram/@childNodes.2"
+        title="CanvasViewElementCompartment"
+        needsTitle="false"
+        node="//@diagram/@topLevelNodes.1"
+        listLayout="false">
+      <diagramRunTimeClass
+          href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+      <viewmap
+          xsi:type="gmfgen:ParentAssignedViewmap"
+          getterName="getCanvasViewElementCompartmentFigure"
+          figureQualifiedClassName="org.eclipse.draw2d.RectangleFigure"/>
+    </compartments>
+    <compartments
         visualID="1307008"
         editPartClassName="WindowWindowViewElementCompartmentEditPart"
         itemSemanticEditPolicyClassName="WindowWindowViewElementCompartmentItemSemanticEditPolicy"
@@ -527,7 +599,7 @@
         childNodes="//@diagram/@childNodes.0 //@diagram/@childNodes.2"
         title="WindowViewElementCompartment"
         needsTitle="false"
-        node="//@diagram/@topLevelNodes.1"
+        node="//@diagram/@topLevelNodes.2"
         listLayout="false">
       <diagramRunTimeClass
           href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
@@ -544,7 +616,7 @@
         childNodes="//@diagram/@childNodes.0 //@diagram/@childNodes.2"
         title="TabPageViewElementCompartment"
         needsTitle="false"
-        node="//@diagram/@topLevelNodes.2"
+        node="//@diagram/@topLevelNodes.3"
         listLayout="false">
       <diagramRunTimeClass
           href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
@@ -561,17 +633,22 @@
             xsi:type="gmfgen:ToolEntry"
             title="Canvas"
             description="Create new Canvas"
+            genNodes="//@diagram/@topLevelNodes.1"/>
+        <entries
+            xsi:type="gmfgen:ToolEntry"
+            title="PopupCanvas"
+            description="Create new PopupCanvas"
             genNodes="//@diagram/@topLevelNodes.0"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
             title="TabCanvas"
             description="Create new TabCanvas"
-            genNodes="//@diagram/@topLevelNodes.3"/>
+            genNodes="//@diagram/@topLevelNodes.4"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
             title="TabPage"
             description="Create new TabPage"
-            genNodes="//@diagram/@topLevelNodes.2"/>
+            genNodes="//@diagram/@topLevelNodes.3"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
             title="ViewArea"
@@ -591,7 +668,7 @@
             xsi:type="gmfgen:ToolEntry"
             title="Window"
             description="Create new Window"
-            genNodes="//@diagram/@topLevelNodes.1"/>
+            genNodes="//@diagram/@topLevelNodes.2"/>
       </groups>
       <groups
           title="Connections"
@@ -677,8 +754,17 @@
         parent="//@diagram"
         child="//@diagram/@topLevelNodes.2"/>
     <childReferences
+        parent="//@diagram/@topLevelNodes.3"
+        child="//@diagram/@childNodes.0"/>
+    <childReferences
+        parent="//@diagram/@topLevelNodes.3"
+        child="//@diagram/@childNodes.2"/>
+    <childReferences
         parent="//@diagram"
         child="//@diagram/@topLevelNodes.3"/>
+    <childReferences
+        parent="//@diagram"
+        child="//@diagram/@topLevelNodes.4"/>
     <childReferences
         parent="//@diagram"
         child="//@diagram/@links.0"
@@ -734,6 +820,18 @@
         groupIcon="icons/incomingLinksNavigatorGroup.gif"/>
     <childReferences
         parent="//@diagram/@links.0"
+        child="//@diagram/@topLevelNodes.4"
+        referenceType="out_target"
+        groupName="target"
+        groupIcon="icons/linkTargetNavigatorGroup.gif"/>
+    <childReferences
+        parent="//@diagram/@topLevelNodes.4"
+        child="//@diagram/@links.0"
+        referenceType="in_source"
+        groupName="incoming links"
+        groupIcon="icons/incomingLinksNavigatorGroup.gif"/>
+    <childReferences
+        parent="//@diagram/@links.0"
         child="//@diagram/@childNodes.0"
         referenceType="in_source"
         groupName="source"
@@ -751,24 +849,24 @@
         groupIcon="icons/linksNavigatorGroup.gif"/>
     <childReferences
         parent="//@diagram/@links.1"
-        child="//@diagram/@topLevelNodes.2"
+        child="//@diagram/@topLevelNodes.3"
         referenceType="out_target"
         groupName="target"
         groupIcon="icons/linkTargetNavigatorGroup.gif"/>
     <childReferences
-        parent="//@diagram/@topLevelNodes.2"
+        parent="//@diagram/@topLevelNodes.3"
         child="//@diagram/@links.1"
         referenceType="in_source"
         groupName="incoming links"
         groupIcon="icons/incomingLinksNavigatorGroup.gif"/>
     <childReferences
         parent="//@diagram/@links.1"
-        child="//@diagram/@topLevelNodes.3"
+        child="//@diagram/@topLevelNodes.4"
         referenceType="in_source"
         groupName="source"
         groupIcon="icons/linkSourceNavigatorGroup.gif"/>
     <childReferences
-        parent="//@diagram/@topLevelNodes.3"
+        parent="//@diagram/@topLevelNodes.4"
         child="//@diagram/@links.1"
         referenceType="out_target"
         groupName="outgoing links"
@@ -800,7 +898,7 @@
       extensibleViaService="true">
     <implementations
         xsi:type="gmfgen:PredefinedParser"
-        uses="//@diagram/@childNodes.1/@labels.0/@modelFacet //@diagram/@childNodes.0/@labels.0/@modelFacet //@diagram/@childNodes.2/@labels.0/@modelFacet //@diagram/@topLevelNodes.0/@labels.0/@modelFacet //@diagram/@topLevelNodes.1/@labels.0/@modelFacet //@diagram/@topLevelNodes.2/@labels.0/@modelFacet //@diagram/@topLevelNodes.3/@labels.0/@modelFacet"/>
+        uses="//@diagram/@childNodes.1/@labels.0/@modelFacet //@diagram/@childNodes.0/@labels.0/@modelFacet //@diagram/@childNodes.2/@labels.0/@modelFacet //@diagram/@topLevelNodes.0/@labels.0/@modelFacet //@diagram/@topLevelNodes.1/@labels.0/@modelFacet //@diagram/@topLevelNodes.2/@labels.0/@modelFacet //@diagram/@topLevelNodes.3/@labels.0/@modelFacet //@diagram/@topLevelNodes.4/@labels.0/@modelFacet"/>
   </labelParsers>
   <contextMenus
       context="//@diagram">

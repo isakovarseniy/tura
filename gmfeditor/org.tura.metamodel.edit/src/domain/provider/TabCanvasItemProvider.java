@@ -107,6 +107,7 @@ public class TabCanvasItemProvider
     {
       super.getChildrenFeatures(object);
       childrenFeatures.add(DomainPackage.Literals.MULTI_LANG_LABEL__MULTI_LANG_LABEL);
+      childrenFeatures.add(DomainPackage.Literals.CATEGORIZED__CLASSIFIERS);
     }
     return childrenFeatures;
   }
@@ -170,6 +171,7 @@ public class TabCanvasItemProvider
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
         return;
       case DomainPackage.TAB_CANVAS__MULTI_LANG_LABEL:
+      case DomainPackage.TAB_CANVAS__CLASSIFIERS:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
         return;
     }
@@ -192,6 +194,11 @@ public class TabCanvasItemProvider
       (createChildParameter
         (DomainPackage.Literals.MULTI_LANG_LABEL__MULTI_LANG_LABEL,
          DomainFactory.eINSTANCE.createContext()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (DomainPackage.Literals.CATEGORIZED__CLASSIFIERS,
+         DomainFactory.eINSTANCE.createClassifier()));
   }
 
   /**

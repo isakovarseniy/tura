@@ -304,6 +304,9 @@ public class ViewPortEditPart extends ShapeNodeEditPart {
 	public List<IElementType> getMARelTypesOnSourceAndTarget(
 			IGraphicalEditPart targetEditPart) {
 		LinkedList<IElementType> types = new LinkedList<IElementType>();
+		if (targetEditPart instanceof PopupCanvasEditPart) {
+			types.add(DomainElementTypes.ViewInheritance_1304001);
+		}
 		if (targetEditPart instanceof CanvasEditPart) {
 			types.add(DomainElementTypes.ViewInheritance_1304001);
 		}
@@ -325,6 +328,7 @@ public class ViewPortEditPart extends ShapeNodeEditPart {
 	public List<IElementType> getMATypesForTarget(IElementType relationshipType) {
 		LinkedList<IElementType> types = new LinkedList<IElementType>();
 		if (relationshipType == DomainElementTypes.ViewInheritance_1304001) {
+			types.add(DomainElementTypes.PopupCanvas_1302009);
 			types.add(DomainElementTypes.Canvas_1302003);
 			types.add(DomainElementTypes.Window_1302007);
 			types.add(DomainElementTypes.TabPage_1302002);

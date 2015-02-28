@@ -266,62 +266,72 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String TabCanvas2CreationTool_title;
+	public static String PopupCanvas2CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String TabCanvas2CreationTool_desc;
+	public static String PopupCanvas2CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String TabPage3CreationTool_title;
+	public static String TabCanvas3CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String TabPage3CreationTool_desc;
+	public static String TabCanvas3CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String ViewArea4CreationTool_title;
+	public static String TabPage4CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String ViewArea4CreationTool_desc;
+	public static String TabPage4CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String ViewPort5CreationTool_title;
+	public static String ViewArea5CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String ViewPort5CreationTool_desc;
+	public static String ViewArea5CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String ViewPortTrigger6CreationTool_title;
+	public static String ViewPort6CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String ViewPortTrigger6CreationTool_desc;
+	public static String ViewPort6CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String Window7CreationTool_title;
+	public static String ViewPortTrigger7CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Window7CreationTool_desc;
+	public static String ViewPortTrigger7CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String Window8CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String Window8CreationTool_desc;
 
 	/**
 	 * @generated
@@ -342,6 +352,11 @@ public class Messages extends NLS {
 	 * @generated
 	 */
 	public static String ViewInheritance2CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String PopupCanvasPopupCanvasViewElementCompartmentEditPart_title;
 
 	/**
 	 * @generated
@@ -367,6 +382,11 @@ public class Messages extends NLS {
 	 * @generated
 	 */
 	public static String CommandName_OpenDiagram;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_PopupCanvas_1302009_incominglinks;
 
 	/**
 	 * @generated

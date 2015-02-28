@@ -887,6 +887,15 @@ public interface DomainFactory extends EFactory
   ViewElement createViewElement();
 
   /**
+   * Returns a new object of class '<em>Popup Canvas</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Popup Canvas</em>'.
+   * @generated
+   */
+  PopupCanvas createPopupCanvas();
+
+  /**
    * Returns a new object of class '<em>Canvas</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

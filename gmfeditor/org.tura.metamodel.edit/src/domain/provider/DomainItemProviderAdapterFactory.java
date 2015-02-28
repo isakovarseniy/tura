@@ -2474,6 +2474,31 @@ public class DomainItemProviderAdapterFactory extends DomainAdapterFactory imple
   }
 
   /**
+   * This keeps track of the one adapter used for all {@link domain.PopupCanvas} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected PopupCanvasItemProvider popupCanvasItemProvider;
+
+  /**
+   * This creates an adapter for a {@link domain.PopupCanvas}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createPopupCanvasAdapter()
+  {
+    if (popupCanvasItemProvider == null)
+    {
+      popupCanvasItemProvider = new PopupCanvasItemProvider(this);
+    }
+
+    return popupCanvasItemProvider;
+  }
+
+  /**
    * This keeps track of the one adapter used for all {@link domain.Canvas} instances.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -4430,6 +4455,7 @@ public class DomainItemProviderAdapterFactory extends DomainAdapterFactory imple
     if (viewPortHolderItemProvider != null) viewPortHolderItemProvider.dispose();
     if (defaultCavasItemProvider != null) defaultCavasItemProvider.dispose();
     if (viewElementItemProvider != null) viewElementItemProvider.dispose();
+    if (popupCanvasItemProvider != null) popupCanvasItemProvider.dispose();
     if (canvasItemProvider != null) canvasItemProvider.dispose();
     if (windowItemProvider != null) windowItemProvider.dispose();
     if (tabCanvasItemProvider != null) tabCanvasItemProvider.dispose();

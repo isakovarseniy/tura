@@ -15,6 +15,9 @@ import domain.Views;
 import frmview.diagram.edit.parts.CanvasCanvasViewElementCompartmentEditPart;
 import frmview.diagram.edit.parts.CanvasEditPart;
 import frmview.diagram.edit.parts.CanvasNameEditPart;
+import frmview.diagram.edit.parts.PopupCanvasEditPart;
+import frmview.diagram.edit.parts.PopupCanvasNameEditPart;
+import frmview.diagram.edit.parts.PopupCanvasPopupCanvasViewElementCompartmentEditPart;
 import frmview.diagram.edit.parts.TabCanvasEditPart;
 import frmview.diagram.edit.parts.TabCanvasNameEditPart;
 import frmview.diagram.edit.parts.TabPageEditPart;
@@ -143,6 +146,10 @@ public class DomainVisualIDRegistry {
 		}
 		switch (containerVisualID) {
 		case ViewsEditPart.VISUAL_ID:
+			if (DomainPackage.eINSTANCE.getPopupCanvas().isSuperTypeOf(
+					domainElement.eClass())) {
+				return PopupCanvasEditPart.VISUAL_ID;
+			}
 			if (DomainPackage.eINSTANCE.getCanvas().isSuperTypeOf(
 					domainElement.eClass())) {
 				return CanvasEditPart.VISUAL_ID;
@@ -160,7 +167,7 @@ public class DomainVisualIDRegistry {
 				return TabCanvasEditPart.VISUAL_ID;
 			}
 			break;
-		case CanvasCanvasViewElementCompartmentEditPart.VISUAL_ID:
+		case PopupCanvasPopupCanvasViewElementCompartmentEditPart.VISUAL_ID:
 			if (DomainPackage.eINSTANCE.getViewPort().isSuperTypeOf(
 					domainElement.eClass())) {
 				return ViewPortEditPart.VISUAL_ID;
@@ -174,6 +181,16 @@ public class DomainVisualIDRegistry {
 			if (DomainPackage.eINSTANCE.getViewPortTrigger().isSuperTypeOf(
 					domainElement.eClass())) {
 				return ViewPortTriggerEditPart.VISUAL_ID;
+			}
+			break;
+		case CanvasCanvasViewElementCompartmentEditPart.VISUAL_ID:
+			if (DomainPackage.eINSTANCE.getViewPort().isSuperTypeOf(
+					domainElement.eClass())) {
+				return ViewPortEditPart.VISUAL_ID;
+			}
+			if (DomainPackage.eINSTANCE.getViewArea().isSuperTypeOf(
+					domainElement.eClass())) {
+				return ViewAreaEditPart.VISUAL_ID;
 			}
 			break;
 		case WindowWindowViewElementCompartmentEditPart.VISUAL_ID:
@@ -223,6 +240,9 @@ public class DomainVisualIDRegistry {
 		}
 		switch (containerVisualID) {
 		case ViewsEditPart.VISUAL_ID:
+			if (PopupCanvasEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
 			if (CanvasEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
@@ -233,6 +253,14 @@ public class DomainVisualIDRegistry {
 				return true;
 			}
 			if (TabCanvasEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case PopupCanvasEditPart.VISUAL_ID:
+			if (PopupCanvasNameEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (PopupCanvasPopupCanvasViewElementCompartmentEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -283,7 +311,7 @@ public class DomainVisualIDRegistry {
 				return true;
 			}
 			break;
-		case CanvasCanvasViewElementCompartmentEditPart.VISUAL_ID:
+		case PopupCanvasPopupCanvasViewElementCompartmentEditPart.VISUAL_ID:
 			if (ViewPortEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
@@ -293,6 +321,14 @@ public class DomainVisualIDRegistry {
 			break;
 		case ViewPortViewPortViewPortTriggerCompartmentEditPart.VISUAL_ID:
 			if (ViewPortTriggerEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case CanvasCanvasViewElementCompartmentEditPart.VISUAL_ID:
+			if (ViewPortEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (ViewAreaEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -362,8 +398,9 @@ public class DomainVisualIDRegistry {
 	 */
 	public static boolean isCompartmentVisualID(int visualID) {
 		switch (visualID) {
-		case CanvasCanvasViewElementCompartmentEditPart.VISUAL_ID:
+		case PopupCanvasPopupCanvasViewElementCompartmentEditPart.VISUAL_ID:
 		case ViewPortViewPortViewPortTriggerCompartmentEditPart.VISUAL_ID:
+		case CanvasCanvasViewElementCompartmentEditPart.VISUAL_ID:
 		case WindowWindowViewElementCompartmentEditPart.VISUAL_ID:
 		case TabPageTabPageViewElementCompartmentEditPart.VISUAL_ID:
 			return true;

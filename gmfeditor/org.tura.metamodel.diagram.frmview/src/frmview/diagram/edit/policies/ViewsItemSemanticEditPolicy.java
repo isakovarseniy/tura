@@ -11,6 +11,7 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.DuplicateElementsRequest;
 
 import frmview.diagram.edit.commands.CanvasCreateCommand;
+import frmview.diagram.edit.commands.PopupCanvasCreateCommand;
 import frmview.diagram.edit.commands.TabCanvasCreateCommand;
 import frmview.diagram.edit.commands.TabPageCreateCommand;
 import frmview.diagram.edit.commands.WindowCreateCommand;
@@ -33,6 +34,9 @@ public class ViewsItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	protected Command getCreateCommand(CreateElementRequest req) {
+		if (DomainElementTypes.PopupCanvas_1302009 == req.getElementType()) {
+			return getGEFWrapper(new PopupCanvasCreateCommand(req));
+		}
 		if (DomainElementTypes.Canvas_1302003 == req.getElementType()) {
 			return getGEFWrapper(new CanvasCreateCommand(req));
 		}

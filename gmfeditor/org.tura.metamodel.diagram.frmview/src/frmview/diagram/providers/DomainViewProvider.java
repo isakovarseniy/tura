@@ -47,6 +47,9 @@ import org.eclipse.swt.graphics.FontData;
 import frmview.diagram.edit.parts.CanvasCanvasViewElementCompartmentEditPart;
 import frmview.diagram.edit.parts.CanvasEditPart;
 import frmview.diagram.edit.parts.CanvasNameEditPart;
+import frmview.diagram.edit.parts.PopupCanvasEditPart;
+import frmview.diagram.edit.parts.PopupCanvasNameEditPart;
+import frmview.diagram.edit.parts.PopupCanvasPopupCanvasViewElementCompartmentEditPart;
 import frmview.diagram.edit.parts.TabCanvasEditPart;
 import frmview.diagram.edit.parts.TabCanvasNameEditPart;
 import frmview.diagram.edit.parts.TabPageEditPart;
@@ -157,6 +160,7 @@ public class DomainViewProvider extends AbstractProvider implements
 					return false; // foreign diagram
 				}
 				switch (visualID) {
+				case PopupCanvasEditPart.VISUAL_ID:
 				case CanvasEditPart.VISUAL_ID:
 				case WindowEditPart.VISUAL_ID:
 				case TabPageEditPart.VISUAL_ID:
@@ -176,7 +180,8 @@ public class DomainViewProvider extends AbstractProvider implements
 				}
 			}
 		}
-		return CanvasEditPart.VISUAL_ID == visualID
+		return PopupCanvasEditPart.VISUAL_ID == visualID
+				|| CanvasEditPart.VISUAL_ID == visualID
 				|| WindowEditPart.VISUAL_ID == visualID
 				|| TabPageEditPart.VISUAL_ID == visualID
 				|| TabCanvasEditPart.VISUAL_ID == visualID
@@ -239,6 +244,9 @@ public class DomainViewProvider extends AbstractProvider implements
 			visualID = DomainVisualIDRegistry.getVisualID(semanticHint);
 		}
 		switch (visualID) {
+		case PopupCanvasEditPart.VISUAL_ID:
+			return createPopupCanvas_1302009(domainElement, containerView,
+					index, persisted, preferencesHint);
 		case CanvasEditPart.VISUAL_ID:
 			return createCanvas_1302003(domainElement, containerView, index,
 					persisted, preferencesHint);
@@ -285,6 +293,52 @@ public class DomainViewProvider extends AbstractProvider implements
 		}
 		// can never happen, provided #provides(CreateEdgeViewOperation) is correct
 		return null;
+	}
+
+	/**
+	 * @generated
+	 */
+	public Node createPopupCanvas_1302009(EObject domainElement,
+			View containerView, int index, boolean persisted,
+			PreferencesHint preferencesHint) {
+		Node node = NotationFactory.eINSTANCE.createNode();
+		node.getStyles()
+				.add(NotationFactory.eINSTANCE.createDescriptionStyle());
+		node.getStyles().add(NotationFactory.eINSTANCE.createFontStyle());
+		node.getStyles().add(
+				NotationFactory.eINSTANCE.createHintedDiagramLinkStyle());
+		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
+		node.setType(DomainVisualIDRegistry
+				.getType(PopupCanvasEditPart.VISUAL_ID));
+		ViewUtil.insertChildView(containerView, node, index, persisted);
+		node.setElement(domainElement);
+		stampShortcut(containerView, node);
+		// initializeFromPreferences 
+		final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint
+				.getPreferenceStore();
+		FontStyle nodeFontStyle = (FontStyle) node
+				.getStyle(NotationPackage.Literals.FONT_STYLE);
+		if (nodeFontStyle != null) {
+			FontData fontData = PreferenceConverter.getFontData(prefStore,
+					IPreferenceConstants.PREF_DEFAULT_FONT);
+			nodeFontStyle.setFontName(fontData.getName());
+			nodeFontStyle.setFontHeight(fontData.getHeight());
+			nodeFontStyle.setBold((fontData.getStyle() & SWT.BOLD) != 0);
+			nodeFontStyle.setItalic((fontData.getStyle() & SWT.ITALIC) != 0);
+			org.eclipse.swt.graphics.RGB fontRGB = PreferenceConverter
+					.getColor(prefStore, IPreferenceConstants.PREF_FONT_COLOR);
+			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB)
+					.intValue());
+		}
+		Node label1305014 = createLabel(node,
+				DomainVisualIDRegistry
+						.getType(PopupCanvasNameEditPart.VISUAL_ID));
+		createCompartment(
+				node,
+				DomainVisualIDRegistry
+						.getType(PopupCanvasPopupCanvasViewElementCompartmentEditPart.VISUAL_ID),
+				true, false, false, false);
+		return node;
 	}
 
 	/**

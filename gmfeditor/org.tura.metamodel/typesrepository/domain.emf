@@ -783,20 +783,26 @@ class ViewElement extends StyleElement {
    
 }
 
+
 @gmf.node(label="name",border.color="0,0,0",color="192,192,192")
-class Canvas extends CanvasFrame,ViewPortHolder,DefaultCavas, MultiLangLabel{
+class PopupCanvas extends CanvasFrame,ViewPortHolder,DefaultCavas, MultiLangLabel,Categorized {
+   attr boolean modal;
 }
 
 @gmf.node(label="name",border.color="0,0,0",color="192,192,192")
-class Window extends CanvasFrame,ViewPortHolder,MultiLangLabel{
+class Canvas extends CanvasFrame,ViewPortHolder,DefaultCavas, MultiLangLabel,Categorized {
 }
 
 @gmf.node(label="name",border.color="0,0,0",color="192,192,192")
-class TabCanvas extends CanvasFrame,DefaultCavas,MultiLangLabel{
+class Window extends CanvasFrame,ViewPortHolder,MultiLangLabel,Categorized {
 }
 
 @gmf.node(label="name",border.color="0,0,0",color="192,192,192")
-class TabPage extends CanvasFrame,ViewPortHolder,MultiLangLabel{
+class TabCanvas extends CanvasFrame,DefaultCavas,MultiLangLabel,Categorized {
+}
+
+@gmf.node(label="name",border.color="0,0,0",color="192,192,192")
+class TabPage extends CanvasFrame,ViewPortHolder,MultiLangLabel,Categorized {
 }
 
 @gmf.node(label="name",border.color="0,0,0",color="192,192,192")

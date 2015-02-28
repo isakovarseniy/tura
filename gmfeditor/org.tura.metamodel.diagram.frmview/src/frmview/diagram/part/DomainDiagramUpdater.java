@@ -19,6 +19,7 @@ import org.eclipse.gmf.tooling.runtime.update.DiagramUpdater;
 import domain.Canvas;
 import domain.CanvasFrame;
 import domain.DomainPackage;
+import domain.PopupCanvas;
 import domain.TabCanvas;
 import domain.TabPage;
 import domain.TabPagesInheritance;
@@ -30,6 +31,8 @@ import domain.Views;
 import domain.Window;
 import frmview.diagram.edit.parts.CanvasCanvasViewElementCompartmentEditPart;
 import frmview.diagram.edit.parts.CanvasEditPart;
+import frmview.diagram.edit.parts.PopupCanvasEditPart;
+import frmview.diagram.edit.parts.PopupCanvasPopupCanvasViewElementCompartmentEditPart;
 import frmview.diagram.edit.parts.TabCanvasEditPart;
 import frmview.diagram.edit.parts.TabPageEditPart;
 import frmview.diagram.edit.parts.TabPageTabPageViewElementCompartmentEditPart;
@@ -64,10 +67,12 @@ public class DomainDiagramUpdater {
 		switch (DomainVisualIDRegistry.getVisualID(view)) {
 		case ViewsEditPart.VISUAL_ID:
 			return getViews_1301000SemanticChildren(view);
-		case CanvasCanvasViewElementCompartmentEditPart.VISUAL_ID:
-			return getCanvasCanvasViewElementCompartment_1307004SemanticChildren(view);
+		case PopupCanvasPopupCanvasViewElementCompartmentEditPart.VISUAL_ID:
+			return getPopupCanvasPopupCanvasViewElementCompartment_1307010SemanticChildren(view);
 		case ViewPortViewPortViewPortTriggerCompartmentEditPart.VISUAL_ID:
 			return getViewPortViewPortViewPortTriggerCompartment_1307009SemanticChildren(view);
+		case CanvasCanvasViewElementCompartmentEditPart.VISUAL_ID:
+			return getCanvasCanvasViewElementCompartment_1307004SemanticChildren(view);
 		case WindowWindowViewElementCompartmentEditPart.VISUAL_ID:
 			return getWindowWindowViewElementCompartment_1307008SemanticChildren(view);
 		case TabPageTabPageViewElementCompartmentEditPart.VISUAL_ID:
@@ -91,6 +96,10 @@ public class DomainDiagramUpdater {
 			CanvasFrame childElement = (CanvasFrame) it.next();
 			int visualID = DomainVisualIDRegistry.getNodeVisualID(view,
 					childElement);
+			if (visualID == PopupCanvasEditPart.VISUAL_ID) {
+				result.add(new DomainNodeDescriptor(childElement, visualID));
+				continue;
+			}
 			if (visualID == CanvasEditPart.VISUAL_ID) {
 				result.add(new DomainNodeDescriptor(childElement, visualID));
 				continue;
@@ -104,6 +113,37 @@ public class DomainDiagramUpdater {
 				continue;
 			}
 			if (visualID == TabCanvasEditPart.VISUAL_ID) {
+				result.add(new DomainNodeDescriptor(childElement, visualID));
+				continue;
+			}
+		}
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<DomainNodeDescriptor> getPopupCanvasPopupCanvasViewElementCompartment_1307010SemanticChildren(
+			View view) {
+		if (false == view.eContainer() instanceof View) {
+			return Collections.emptyList();
+		}
+		View containerView = (View) view.eContainer();
+		if (!containerView.isSetElement()) {
+			return Collections.emptyList();
+		}
+		PopupCanvas modelElement = (PopupCanvas) containerView.getElement();
+		LinkedList<DomainNodeDescriptor> result = new LinkedList<DomainNodeDescriptor>();
+		for (Iterator<?> it = modelElement.getViewElement().iterator(); it
+				.hasNext();) {
+			ViewElement childElement = (ViewElement) it.next();
+			int visualID = DomainVisualIDRegistry.getNodeVisualID(view,
+					childElement);
+			if (visualID == ViewPortEditPart.VISUAL_ID) {
+				result.add(new DomainNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == ViewAreaEditPart.VISUAL_ID) {
 				result.add(new DomainNodeDescriptor(childElement, visualID));
 				continue;
 			}
@@ -236,6 +276,8 @@ public class DomainDiagramUpdater {
 		switch (DomainVisualIDRegistry.getVisualID(view)) {
 		case ViewsEditPart.VISUAL_ID:
 			return getViews_1301000ContainedLinks(view);
+		case PopupCanvasEditPart.VISUAL_ID:
+			return getPopupCanvas_1302009ContainedLinks(view);
 		case CanvasEditPart.VISUAL_ID:
 			return getCanvas_1302003ContainedLinks(view);
 		case WindowEditPart.VISUAL_ID:
@@ -263,6 +305,8 @@ public class DomainDiagramUpdater {
 	 */
 	public static List<DomainLinkDescriptor> getIncomingLinks(View view) {
 		switch (DomainVisualIDRegistry.getVisualID(view)) {
+		case PopupCanvasEditPart.VISUAL_ID:
+			return getPopupCanvas_1302009IncomingLinks(view);
 		case CanvasEditPart.VISUAL_ID:
 			return getCanvas_1302003IncomingLinks(view);
 		case WindowEditPart.VISUAL_ID:
@@ -290,6 +334,8 @@ public class DomainDiagramUpdater {
 	 */
 	public static List<DomainLinkDescriptor> getOutgoingLinks(View view) {
 		switch (DomainVisualIDRegistry.getVisualID(view)) {
+		case PopupCanvasEditPart.VISUAL_ID:
+			return getPopupCanvas_1302009OutgoingLinks(view);
 		case CanvasEditPart.VISUAL_ID:
 			return getCanvas_1302003OutgoingLinks(view);
 		case WindowEditPart.VISUAL_ID:
@@ -322,6 +368,14 @@ public class DomainDiagramUpdater {
 		result.addAll(getContainedTypeModelFacetLinks_ViewInheritance_1304001(modelElement));
 		result.addAll(getContainedTypeModelFacetLinks_TabPagesInheritance_1304002(modelElement));
 		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<DomainLinkDescriptor> getPopupCanvas_1302009ContainedLinks(
+			View view) {
+		return Collections.emptyList();
 	}
 
 	/**
@@ -394,6 +448,20 @@ public class DomainDiagramUpdater {
 	public static List<DomainLinkDescriptor> getTabPagesInheritance_1304002ContainedLinks(
 			View view) {
 		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<DomainLinkDescriptor> getPopupCanvas_1302009IncomingLinks(
+			View view) {
+		PopupCanvas modelElement = (PopupCanvas) view.getElement();
+		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+				.find(view.eResource().getResourceSet().getResources());
+		LinkedList<DomainLinkDescriptor> result = new LinkedList<DomainLinkDescriptor>();
+		result.addAll(getIncomingTypeModelFacetLinks_ViewInheritance_1304001(
+				modelElement, crossReferences));
+		return result;
 	}
 
 	/**
@@ -490,6 +558,14 @@ public class DomainDiagramUpdater {
 	 * @generated
 	 */
 	public static List<DomainLinkDescriptor> getTabPagesInheritance_1304002IncomingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<DomainLinkDescriptor> getPopupCanvas_1302009OutgoingLinks(
 			View view) {
 		return Collections.emptyList();
 	}

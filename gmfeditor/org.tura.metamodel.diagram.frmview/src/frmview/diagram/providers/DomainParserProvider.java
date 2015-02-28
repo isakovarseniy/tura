@@ -18,6 +18,7 @@ import org.eclipse.gmf.runtime.notation.View;
 
 import domain.DomainPackage;
 import frmview.diagram.edit.parts.CanvasNameEditPart;
+import frmview.diagram.edit.parts.PopupCanvasNameEditPart;
 import frmview.diagram.edit.parts.TabCanvasNameEditPart;
 import frmview.diagram.edit.parts.TabPageNameEditPart;
 import frmview.diagram.edit.parts.ViewAreaNameEditPart;
@@ -32,6 +33,24 @@ import frmview.diagram.part.DomainVisualIDRegistry;
  */
 public class DomainParserProvider extends AbstractProvider implements
 		IParserProvider {
+
+	/**
+	 * @generated
+	 */
+	private IParser popupCanvasName_1305014Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getPopupCanvasName_1305014Parser() {
+		if (popupCanvasName_1305014Parser == null) {
+			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE
+					.getCanvasFrame_Name() };
+			MessageFormatParser parser = new MessageFormatParser(features);
+			popupCanvasName_1305014Parser = parser;
+		}
+		return popupCanvasName_1305014Parser;
+	}
 
 	/**
 	 * @generated
@@ -164,6 +183,8 @@ public class DomainParserProvider extends AbstractProvider implements
 	 */
 	protected IParser getParser(int visualID) {
 		switch (visualID) {
+		case PopupCanvasNameEditPart.VISUAL_ID:
+			return getPopupCanvasName_1305014Parser();
 		case CanvasNameEditPart.VISUAL_ID:
 			return getCanvasName_1305003Parser();
 		case WindowNameEditPart.VISUAL_ID:

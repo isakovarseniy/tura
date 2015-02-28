@@ -547,6 +547,11 @@ public class DomainAdapterFactory extends AdapterFactoryImpl {
         return createViewElementAdapter();
       }
       @Override
+      public Adapter casePopupCanvas(PopupCanvas object)
+      {
+        return createPopupCanvasAdapter();
+      }
+      @Override
       public Adapter caseCanvas(Canvas object)
       {
         return createCanvasAdapter();
@@ -2324,6 +2329,21 @@ public class DomainAdapterFactory extends AdapterFactoryImpl {
   }
 
 	/**
+   * Creates a new adapter for an object of class '{@link domain.PopupCanvas <em>Popup Canvas</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see domain.PopupCanvas
+   * @generated
+   */
+  public Adapter createPopupCanvasAdapter()
+  {
+    return null;
+  }
+
+  /**
 	 * Creates a new adapter for an object of class '{@link domain.Canvas
 	 * <em>Canvas</em>}'. <!-- begin-user-doc --> This default implementation
 	 * returns null so that we can easily ignore cases; it's useful to ignore a

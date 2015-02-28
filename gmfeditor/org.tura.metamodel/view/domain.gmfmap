@@ -12,19 +12,19 @@
     <ownedChild
         relatedDiagrams="//@diagram">
       <domainMetaElement
-          href="domain.ecore#//Canvas"/>
+          href="domain.ecore#//PopupCanvas"/>
       <labelMappings
           xsi:type="gmfmap:FeatureLabelMapping">
         <diagramLabel
-            href="domain.gmfgraph#CanvasLabel"/>
+            href="domain.gmfgraph#PopupCanvasLabel"/>
         <features
             href="domain.ecore#//CanvasFrame/name"/>
       </labelMappings>
       <tool
           xsi:type="gmftool:CreationTool"
-          href="domain.gmftool#//@palette/@tools.0/@tools.0"/>
+          href="domain.gmftool#//@palette/@tools.0/@tools.1"/>
       <diagramNode
-          href="domain.gmfgraph#Canvas"/>
+          href="domain.gmfgraph#PopupCanvas"/>
       <children
           compartment="//@nodes.0/@ownedChild/@compartments.0">
         <containmentFeature
@@ -42,7 +42,7 @@
           </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
-              href="domain.gmftool#//@palette/@tools.0/@tools.4"/>
+              href="domain.gmftool#//@palette/@tools.0/@tools.5"/>
           <diagramNode
               href="domain.gmfgraph#ViewPort"/>
           <children
@@ -61,7 +61,7 @@
               </labelMappings>
               <tool
                   xsi:type="gmftool:CreationTool"
-                  href="domain.gmftool#//@palette/@tools.0/@tools.5"/>
+                  href="domain.gmftool#//@palette/@tools.0/@tools.6"/>
               <diagramNode
                   href="domain.gmfgraph#ViewPortTrigger"/>
             </ownedChild>
@@ -89,13 +89,51 @@
           </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
-              href="domain.gmftool#//@palette/@tools.0/@tools.3"/>
+              href="domain.gmftool#//@palette/@tools.0/@tools.4"/>
           <diagramNode
               href="domain.gmfgraph#ViewArea"/>
         </ownedChild>
       </children>
       <compartments
           children="//@nodes.0/@ownedChild/@children.0 //@nodes.0/@ownedChild/@children.1">
+        <compartment
+            href="domain.gmfgraph#PopupCanvasViewElementCompartment"/>
+      </compartments>
+    </ownedChild>
+  </nodes>
+  <nodes>
+    <containmentFeature
+        href="domain.ecore#//Views/canvases"/>
+    <ownedChild
+        relatedDiagrams="//@diagram">
+      <domainMetaElement
+          href="domain.ecore#//Canvas"/>
+      <labelMappings
+          xsi:type="gmfmap:FeatureLabelMapping">
+        <diagramLabel
+            href="domain.gmfgraph#CanvasLabel"/>
+        <features
+            href="domain.ecore#//CanvasFrame/name"/>
+      </labelMappings>
+      <tool
+          xsi:type="gmftool:CreationTool"
+          href="domain.gmftool#//@palette/@tools.0/@tools.0"/>
+      <diagramNode
+          href="domain.gmfgraph#Canvas"/>
+      <children
+          compartment="//@nodes.1/@ownedChild/@compartments.0"
+          referencedChild="//@nodes.0/@ownedChild/@children.0/@ownedChild">
+        <containmentFeature
+            href="domain.ecore#//ViewPortHolder/viewElement"/>
+      </children>
+      <children
+          compartment="//@nodes.1/@ownedChild/@compartments.0"
+          referencedChild="//@nodes.0/@ownedChild/@children.1/@ownedChild">
+        <containmentFeature
+            href="domain.ecore#//ViewPortHolder/viewElement"/>
+      </children>
+      <compartments
+          children="//@nodes.1/@ownedChild/@children.0 //@nodes.1/@ownedChild/@children.1">
         <compartment
             href="domain.gmfgraph#CanvasViewElementCompartment"/>
       </compartments>
@@ -117,23 +155,23 @@
       </labelMappings>
       <tool
           xsi:type="gmftool:CreationTool"
-          href="domain.gmftool#//@palette/@tools.0/@tools.6"/>
+          href="domain.gmftool#//@palette/@tools.0/@tools.7"/>
       <diagramNode
           href="domain.gmfgraph#Window"/>
       <children
-          compartment="//@nodes.1/@ownedChild/@compartments.0"
+          compartment="//@nodes.2/@ownedChild/@compartments.0"
           referencedChild="//@nodes.0/@ownedChild/@children.0/@ownedChild">
         <containmentFeature
             href="domain.ecore#//ViewPortHolder/viewElement"/>
       </children>
       <children
-          compartment="//@nodes.1/@ownedChild/@compartments.0"
+          compartment="//@nodes.2/@ownedChild/@compartments.0"
           referencedChild="//@nodes.0/@ownedChild/@children.1/@ownedChild">
         <containmentFeature
             href="domain.ecore#//ViewPortHolder/viewElement"/>
       </children>
       <compartments
-          children="//@nodes.1/@ownedChild/@children.0 //@nodes.1/@ownedChild/@children.1">
+          children="//@nodes.2/@ownedChild/@children.0 //@nodes.2/@ownedChild/@children.1">
         <compartment
             href="domain.gmfgraph#WindowViewElementCompartment"/>
       </compartments>
@@ -155,23 +193,23 @@
       </labelMappings>
       <tool
           xsi:type="gmftool:CreationTool"
-          href="domain.gmftool#//@palette/@tools.0/@tools.2"/>
+          href="domain.gmftool#//@palette/@tools.0/@tools.3"/>
       <diagramNode
           href="domain.gmfgraph#TabPage"/>
       <children
-          compartment="//@nodes.2/@ownedChild/@compartments.0"
+          compartment="//@nodes.3/@ownedChild/@compartments.0"
           referencedChild="//@nodes.0/@ownedChild/@children.0/@ownedChild">
         <containmentFeature
             href="domain.ecore#//ViewPortHolder/viewElement"/>
       </children>
       <children
-          compartment="//@nodes.2/@ownedChild/@compartments.0"
+          compartment="//@nodes.3/@ownedChild/@compartments.0"
           referencedChild="//@nodes.0/@ownedChild/@children.1/@ownedChild">
         <containmentFeature
             href="domain.ecore#//ViewPortHolder/viewElement"/>
       </children>
       <compartments
-          children="//@nodes.2/@ownedChild/@children.0 //@nodes.2/@ownedChild/@children.1">
+          children="//@nodes.3/@ownedChild/@children.0 //@nodes.3/@ownedChild/@children.1">
         <compartment
             href="domain.gmfgraph#TabPageViewElementCompartment"/>
       </compartments>
@@ -192,7 +230,7 @@
       </labelMappings>
       <tool
           xsi:type="gmftool:CreationTool"
-          href="domain.gmftool#//@palette/@tools.0/@tools.1"/>
+          href="domain.gmftool#//@palette/@tools.0/@tools.2"/>
       <diagramNode
           href="domain.gmfgraph#TabCanvas"/>
     </ownedChild>

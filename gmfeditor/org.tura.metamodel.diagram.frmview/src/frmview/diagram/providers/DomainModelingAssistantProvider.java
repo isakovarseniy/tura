@@ -26,6 +26,8 @@ import org.eclipse.ui.dialogs.ElementListSelectionDialog;
 
 import frmview.diagram.edit.parts.CanvasCanvasViewElementCompartmentEditPart;
 import frmview.diagram.edit.parts.CanvasEditPart;
+import frmview.diagram.edit.parts.PopupCanvasEditPart;
+import frmview.diagram.edit.parts.PopupCanvasPopupCanvasViewElementCompartmentEditPart;
 import frmview.diagram.edit.parts.TabCanvasEditPart;
 import frmview.diagram.edit.parts.TabPageEditPart;
 import frmview.diagram.edit.parts.TabPageTabPageViewElementCompartmentEditPart;
@@ -48,7 +50,8 @@ public class DomainModelingAssistantProvider extends ModelingAssistantProvider {
 		IGraphicalEditPart editPart = (IGraphicalEditPart) host
 				.getAdapter(IGraphicalEditPart.class);
 		if (editPart instanceof ViewsEditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(4);
+			ArrayList<IElementType> types = new ArrayList<IElementType>(5);
+			types.add(DomainElementTypes.PopupCanvas_1302009);
 			types.add(DomainElementTypes.Canvas_1302003);
 			types.add(DomainElementTypes.Window_1302007);
 			types.add(DomainElementTypes.TabPage_1302002);
@@ -58,6 +61,12 @@ public class DomainModelingAssistantProvider extends ModelingAssistantProvider {
 		if (editPart instanceof ViewPortEditPart) {
 			ArrayList<IElementType> types = new ArrayList<IElementType>(1);
 			types.add(DomainElementTypes.ViewPortTrigger_1303002);
+			return types;
+		}
+		if (editPart instanceof PopupCanvasPopupCanvasViewElementCompartmentEditPart) {
+			ArrayList<IElementType> types = new ArrayList<IElementType>(2);
+			types.add(DomainElementTypes.ViewPort_1303004);
+			types.add(DomainElementTypes.ViewArea_1303005);
 			return types;
 		}
 		if (editPart instanceof CanvasCanvasViewElementCompartmentEditPart) {
@@ -102,6 +111,10 @@ public class DomainModelingAssistantProvider extends ModelingAssistantProvider {
 	public List getRelTypesOnTarget(IAdaptable target) {
 		IGraphicalEditPart targetEditPart = (IGraphicalEditPart) target
 				.getAdapter(IGraphicalEditPart.class);
+		if (targetEditPart instanceof PopupCanvasEditPart) {
+			return ((PopupCanvasEditPart) targetEditPart)
+					.getMARelTypesOnTarget();
+		}
 		if (targetEditPart instanceof CanvasEditPart) {
 			return ((CanvasEditPart) targetEditPart).getMARelTypesOnTarget();
 		}
@@ -144,6 +157,10 @@ public class DomainModelingAssistantProvider extends ModelingAssistantProvider {
 			IElementType relationshipType) {
 		IGraphicalEditPart targetEditPart = (IGraphicalEditPart) target
 				.getAdapter(IGraphicalEditPart.class);
+		if (targetEditPart instanceof PopupCanvasEditPart) {
+			return ((PopupCanvasEditPart) targetEditPart)
+					.getMATypesForSource(relationshipType);
+		}
 		if (targetEditPart instanceof CanvasEditPart) {
 			return ((CanvasEditPart) targetEditPart)
 					.getMATypesForSource(relationshipType);

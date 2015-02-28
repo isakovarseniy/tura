@@ -7,5 +7,5 @@ function hidepopup(canvas){
 }
 
 function showpopup(canvas){
-	alert('2');
+	PF(canvas).show();
 }
