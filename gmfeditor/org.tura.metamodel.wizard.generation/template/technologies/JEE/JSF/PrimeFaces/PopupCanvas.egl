@@ -15,7 +15,7 @@ operation  domain::PopupCanvas draw(hash) {
         xmlns:h="http://java.sun.com/jsf/html"
         xmlns:f="http://java.sun.com/jsf/core"
         xmlns:ui="http://java.sun.com/jsf/facelets"
-        xmlns:p="http://primefaces.org/ui"  [%=modal%] [%=widvar%]  [%=self.mkUIDBinding()%] [%=self.styleAttributes(hash)%]  columns="1" >
+        xmlns:p="http://primefaces.org/ui" dynamic="true" [%=modal%] [%=widvar%]  [%=self.mkUIDBinding()%] [%=self.styleAttributes(hash)%]  columns="1" >
      [%=self.generateBody(hash)%]     
      </p:dialog>
 [%
