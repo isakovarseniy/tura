@@ -293,7 +293,7 @@ public abstract class DataControl<T> extends MetaInfoHolder implements
 		return objWrp;
 	}
 
-	public int getCurrentPosition() {
+	public Integer getCurrentPosition() {
 		if (blocked)
 			return -1;
 

@@ -30,6 +30,8 @@ public interface IDataControl {
 	
 	public boolean setCurrentPosition(Object obj) throws TuraException;
 	
+	public Object getCurrentPosition() throws TuraException;
+	
 	public Collection<String> getRelationsName();
 	
 	public Relation getChild(String relationName);

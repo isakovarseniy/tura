@@ -33,7 +33,8 @@ public class GridModel {
 
 		Object[] array = (Object[]) event.getObject();
 		try {
-			dc.setCurrentPosition(array[0]);
+			if (!dc.getCurrentPosition().equals(array[0]))
+			    dc.setCurrentPosition(array[0]);
 		} catch (TuraException e) {
 			logger.fine(e.getMessage());
 		}

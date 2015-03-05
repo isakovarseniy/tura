@@ -22,6 +22,7 @@ public abstract class TreeDataControl implements IDataControl {
 
 	private Object currentObject;
 	private IDataControl currentControl;
+	private Object currentPosition;
 
 	protected boolean blocked = false;
 
@@ -35,6 +36,7 @@ public abstract class TreeDataControl implements IDataControl {
 		this.root = root;
 		this.currentControl = root;
 		root.setParent(treeRelation);
+		currentPosition = new Object[]{0};
 	}
 
 	@Override
@@ -233,8 +235,15 @@ public abstract class TreeDataControl implements IDataControl {
 
 		}
 		currentObject = obj;
+		currentPosition = o;
 		notifyChageRecordAll(obj);
+		
 		return true;
+	}
+	
+	@Override
+	public Object getCurrentPosition(){
+		return currentPosition;
 	}
 
 	@Override
