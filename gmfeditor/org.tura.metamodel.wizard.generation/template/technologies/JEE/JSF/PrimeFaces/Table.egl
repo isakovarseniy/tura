@@ -24,7 +24,7 @@ operation domain::Table generateBody(hash){
 		value="#{viewmodel.getModel('[%=self.mkuid()%]','grid', [%=util.bracketRemover(buildExpression(util.createArtificialContextValue(self.sourcePointer,self.sourcePointer.findTreeRoot(), null)))%]).getLazyModel()}"
 		paginator="true" rows="[%=self.rowNumber%]" lazy="true"
 		paginatorTemplate="{RowsPerPageDropdown}  {PreviousPageLink}  {NextPageLink}"
-		rowsPerPageTemplate=[%=selector%] selectionMode="single"   rowKey="#{row}">
+		rowsPerPageTemplate=[%=selector%] selectionMode="single"   rowKey="#{row[0]}">
 		<p:ajax event="rowSelect" listener="#{viewmodel.getModel('[%=self.mkuid()%]','grid', [%=util.bracketRemover( buildExpression(util.createArtificialContextValue(self.sourcePointer,self.sourcePointer.findTreeRoot(), null)))%]).setSelected}" [%=self.refreshArias()%]/>
 		
 [%

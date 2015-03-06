@@ -681,6 +681,9 @@
       <operations uid="5368d958-0a1b-4785-9681-47bcf5224d8d" name="openCompanyDetailsPopup">
         <returnValue packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="90b18156-de6d-42d1-b350-925e44a0e4cc"/>
       </operations>
+      <operations uid="bf119b85-c597-4642-8522-b51b95e9c7b8" name="saveApplication">
+        <returnValue packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="90b18156-de6d-42d1-b350-925e44a0e4cc"/>
+      </operations>
     </types>
   </tura.domain:TypeDefinition>
   <tura.domain:Mappers uid="e5ddc4b2-b9bc-4fb3-928a-2cb53fcc0d2d" parent="0d86886f-6d6e-49e1-a123-d063d2d9bd22">
@@ -1999,6 +2002,12 @@
       <messages uid="6dcdd799-490e-4e4b-9a8b-319824c3df09" name="COMPANY_TABLE_VIEW_DETAILS">
         <translatioins uid="087d4a7f-eec0-4dbc-8e60-9a5209cd9bc9" translation="View company's details" lang="5f566f06-7d99-4d79-986d-b42bdfb2b6a0"/>
       </messages>
+      <messages uid="1a28eeca-a9e2-4de5-9d05-cc1d5660491a" name="SAVE_BUTTON">
+        <translatioins uid="dc4c6b9f-b6f4-4aaf-a974-97b19f5850f3" translation="Save" lang="5f566f06-7d99-4d79-986d-b42bdfb2b6a0"/>
+      </messages>
+      <messages uid="05b18ec6-8d14-4eb6-82ca-6cc37735bd2a" name="RALLBACK_BUTTON">
+        <translatioins uid="3e7189fd-5d9a-4220-a26b-174dfe6a9044" translation="RallBack" lang="5f566f06-7d99-4d79-986d-b42bdfb2b6a0"/>
+      </messages>
     </messageLibraries>
     <languages uid="2160c4e8-6839-4e94-a225-162cc9210518" lang="English" code="en"/>
   </tura.domain:Messages>
@@ -2136,6 +2145,23 @@
               </icon>
             </children>
           </children>
+        </children>
+      </children>
+      <children xsi:type="tura.domain:LayerHolder" uid="ecbb80f7-e997-4adf-bb0b-9aa8a2e2b0a5" columns="2">
+        <children xsi:type="tura.domain:Button" uid="1c158a9e-628f-43de-b721-5b4155baa65e" label="Save">
+          <triggers packageRef="e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="c4654ad8-156f-4706-bda2-791ed81fcdea" fakePackageName="HR package" fakeTypeName="Action executor" methodRef="bf119b85-c597-4642-8522-b51b95e9c7b8" fakeMethod="saveApplication" uid="e70804b0-feb5-44e1-b89b-515e1a171767"/>
+          <multiLangLabel value="Messages.HR Controller.SAVE_BUTTON">
+            <expression objRef="af03a493-0ca4-486c-945f-5bfc2fdf35bd" expressionType="MessagesImpl"/>
+            <expression objRef="5772ddee-a83b-41c9-8f34-c442412e1013" order="1" expressionType="MessageLibraryImpl"/>
+            <expression objRef="1a28eeca-a9e2-4de5-9d05-cc1d5660491a" order="2" expressionType="MessageImpl"/>
+          </multiLangLabel>
+        </children>
+        <children xsi:type="tura.domain:Button" uid="6ac93981-fd61-4ab4-9ca6-7a3e39852932" label="Rallback">
+          <multiLangLabel value="Messages.HR Controller.RALLBACK_BUTTON">
+            <expression objRef="af03a493-0ca4-486c-945f-5bfc2fdf35bd" expressionType="MessagesImpl"/>
+            <expression objRef="5772ddee-a83b-41c9-8f34-c442412e1013" order="1" expressionType="MessageLibraryImpl"/>
+            <expression objRef="05b18ec6-8d14-4eb6-82ca-6cc37735bd2a" order="2" expressionType="MessageImpl"/>
+          </multiLangLabel>
         </children>
       </children>
     </baseCanvas>
@@ -2429,7 +2455,7 @@
   </tura.domain:CanvasView>
   <tura.domain:CanvasView uid="22bbeeeb-0324-4275-87f4-7785074f76a6" parent="b3b4dd7d-23bd-42a7-bce4-30bf17c73cb1">
     <baseCanvas uid="27f09091-5de2-4ee7-84cd-2eafc010dfe2">
-      <children xsi:type="tura.domain:Table" uid="4764435e-ca02-4771-a456-6454cada2e94" sourcePointer="0feddc04-1241-40fa-a9f3-35089d2cf4c5" columns="3" label="Department">
+      <children xsi:type="tura.domain:Table" uid="4764435e-ca02-4771-a456-6454cada2e94" onEventRefreshArea="4211cd6a-7dcd-46df-b7b2-9d49c374e0ce 50f32416-d7ec-41a5-8d7e-405950accbfb" sourcePointer="0feddc04-1241-40fa-a9f3-35089d2cf4c5" columns="3" label="Department" rowNumber="5">
         <multiLangLabel value="Messages.HR Controller.DEPARTMENT_TABLE">
           <expression objRef="af03a493-0ca4-486c-945f-5bfc2fdf35bd" expressionType="MessagesImpl"/>
           <expression objRef="5772ddee-a83b-41c9-8f34-c442412e1013" order="1" expressionType="MessageLibraryImpl"/>

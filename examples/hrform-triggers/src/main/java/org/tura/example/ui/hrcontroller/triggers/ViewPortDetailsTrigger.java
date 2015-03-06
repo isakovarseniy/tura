@@ -36,7 +36,7 @@ public class ViewPortDetailsTrigger extends ViewPortCommand {
 			return "/hrcontroller/CityDetails.xhtml";
 		
 		if (obj instanceof StreetDAO)
-			return "/hrcontroller/EmployeeDetails.xhtml";
+			return "/hrcontroller/DepartmentsDetails.xhtml";
 
 		return this.port;
 	}

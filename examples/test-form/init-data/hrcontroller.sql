@@ -37,7 +37,7 @@ insert into hr.citydao (obj_id,parent_id, name) values (1407, 1304 , 'City 7');
 insert into hr.citydao (obj_id,parent_id, name) values (1408, 1304 , 'City 8');
 
 insert into hr.streetdao (obj_id,parent_id, name) values (1501, 1401 , 'Street 1');
-insert into hr.streetdao (obj_id,parent_id, name) values (1502, 1401 , 'Street 1');
+insert into hr.streetdao (obj_id,parent_id, name) values (1502, 1401 , 'Street 2');
 
 insert into hr.streetdao (obj_id,parent_id, name) values (1503, 1402 , 'Street 3');
 insert into hr.streetdao (obj_id,parent_id, name) values (1504, 1402 , 'Street 4');

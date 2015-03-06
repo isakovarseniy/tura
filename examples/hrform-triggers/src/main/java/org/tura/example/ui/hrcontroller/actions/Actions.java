@@ -3,6 +3,7 @@ package org.tura.example.ui.hrcontroller.actions;
 import javax.faces.event.ActionEvent;
 import javax.inject.Inject;
 
+import org.tura.platform.datacontrol.CommandStack;
 import org.tura.platform.datacontrol.DataControl;
 import org.tura.platform.datacontrol.ELResolver;
 import org.tura.platform.datacontrol.commons.Reflection;
@@ -14,6 +15,9 @@ public class Actions implements EventAccessor {
 
 	@Inject
 	ELResolver elResolver;
+
+	@Inject
+	CommandStack commandStack;
 
 	@SuppressWarnings("rawtypes")
 	public void openCompanyDetailsPopup() {
@@ -28,7 +32,16 @@ public class Actions implements EventAccessor {
 			Reflection.call(bf, "setCmpId", ((TuraObject) (row[2])).getObjId());
 			dc.forceRefresh();
 		} catch (Exception e) {
-			System.out.println("");
+			e.printStackTrace();
+		}
+		System.out.println("");
+	}
+
+	public void saveApplication() {
+		try {
+			commandStack.commitCommand();
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
 		System.out.println("");
 	}

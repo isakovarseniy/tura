@@ -46,7 +46,16 @@ context Selection{
 
   }
 
+}
 
+context Table{
+
+  constraint RowNumberNot0 {
+
+      check :  self.rowNumber <> 0
+      message : 'Number of column cannot be 0  ' + self.label +' table'
+
+  }
 }
 
 
