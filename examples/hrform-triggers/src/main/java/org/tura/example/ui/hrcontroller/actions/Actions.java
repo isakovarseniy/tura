@@ -31,6 +31,7 @@ public class Actions implements EventAccessor {
 			Object bf = elResolver.getValue("#{beanFactory}");
 			Reflection.call(bf, "setCmpId", ((TuraObject) (row[2])).getObjId());
 			dc.forceRefresh();
+			dc.cleanShifter();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
