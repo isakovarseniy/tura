@@ -40,7 +40,7 @@ public abstract class TreeDataControl implements IDataControl {
 	}
 
 	@Override
-	public void setParent(Relation parent) {
+	public void setParent(Relation parent) throws TuraException {
 		this.parent = parent;
 		treeRelation.setParent(this);
 		treeRelation.setChild(root);

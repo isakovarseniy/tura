@@ -36,16 +36,17 @@ public class Relation {
 		this.parent = parent;
 	}
 
-	public IDataControl getChild() throws TuraException {
+	public IDataControl getChild()  {
+		return child;
+
+	}
+
+	public void setChild(IDataControl child) throws TuraException {
 		try{
-			return  DataControlWrapper.newInstance(child) ;
+			this.child = DataControlWrapper.newInstance(child);
 		}catch(Exception e){
 			throw new TuraException(e);
 		}
-	}
-
-	public void setChild(IDataControl child) {
-		this.child = child;
 	}
 
 	public void setLink(String parentProp, String childProp) {

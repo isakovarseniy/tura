@@ -26,7 +26,7 @@ public interface IDataControl {
 	
 	public  void createChild(String  relName) throws TuraException;
 
-	public void setParent(Relation relation);
+	public void setParent(Relation relation) throws TuraException;
 	
 	public boolean setCurrentPosition(Object obj) throws TuraException;
 	
