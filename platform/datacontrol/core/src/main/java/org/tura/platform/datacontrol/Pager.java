@@ -44,21 +44,22 @@ public class Pager<T> {
 	private LazyList<T> entities = new LazyList<>();
 	private DataControl<T> datacontrol;
 	private boolean direction;
-	private HashMap <String , ShiftControl> shifterHash = new HashMap <>();
+	private HashMap<String, ShiftControl> shifterHash = new HashMap<>();
+	private ShiftControl shifter;
 
 	public Pager(DataControl<T> datacontrol) {
 		this.datacontrol = datacontrol;
 		loadStep = PlatformConfig.LOADSTEP;
 	}
 
-	
-	public void cleanShifter(){
-		shifterHash = new HashMap <>();
+	public void cleanShifter() {
+		shifterHash = new HashMap<>();
 	}
-	
-	public void cleanPager() {
+
+	public void cleanPager() throws TuraException {
 		entities = new LazyList<>();
 		startIndex = 0;
+		createShifter();
 	}
 
 	public int listSize() {
@@ -68,15 +69,14 @@ public class Pager<T> {
 	public long actualListSize() {
 		return entities.getActualRowNumber();
 	}
-	
+
 	private boolean prepareQuery() throws NoSuchMethodException,
 			SecurityException, ClassNotFoundException, InstantiationException,
 			IllegalAccessException, IllegalArgumentException,
 			InvocationTargetException, QueryException, TuraException {
 
-		
 		Cloner cloner = new Cloner();
-		datacontrol.setQuery( cloner.deepClone( datacontrol.getDefaultQuery()));
+		datacontrol.setQuery(cloner.deepClone(datacontrol.getDefaultQuery()));
 
 		Collection<SearchCriteria> sc = null;
 
@@ -92,7 +92,8 @@ public class Pager<T> {
 				if (!criteria.getValue().equals(Constants.UNDEFINED_PARAMETER)) {
 					ConditionConverter.valueOf(condition).getRestriction(query,
 							c(criteria.getName()));
-					query.op(Operator.valueOf(criteria.getComparator()) , criteria.getValue()) ;
+					query.op(Operator.valueOf(criteria.getComparator()),
+							criteria.getValue());
 
 				} else {
 					return false;
@@ -153,9 +154,9 @@ public class Pager<T> {
 			if (obj instanceof Integer)
 				index = (int) obj;
 
-			if (obj == int.class || obj instanceof Integer){
+			if (obj == int.class || obj instanceof Integer) {
 				try {
-					return  getEntity(index);
+					return getEntity(index);
 				} catch (NoSuchMethodException e) {
 					throw new TuraException(e);
 				} catch (SecurityException e) {
@@ -204,7 +205,7 @@ public class Pager<T> {
 		calculateShift(sindex);
 
 		try {
-			
+
 			if (!prepareQuery())
 				return null;
 
@@ -337,17 +338,30 @@ public class Pager<T> {
 	}
 
 	public ShiftControl getShifter() throws TuraException {
-	   String key="default";	
-		if (datacontrol.getParent() != null){
-			Object obj = datacontrol.getParent().getMasterCurrentObject();
-			key = datacontrol.getObjectKey(obj);
-		}
-		ShiftControl shifter = shifterHash.get(key);
-		if (shifter == null){
-			shifter = new ShiftControl();
-			shifterHash.put(key, shifter);
+		if (shifter == null) {
+			createShifter();
 		}
 		return shifter;
+	}
+
+	private void createShifter() throws TuraException {
+		try {
+			String key = "default";
+			if (datacontrol.getParent() != null) {
+				Object obj = datacontrol.getParent().getMasterCurrentObject();
+				if (obj != null) {
+					BeanWrapper w = (BeanWrapper) Reflection.call(obj,
+							"getWrapper");
+					key = w.getDatacontrol().getObjectKey(obj);
+				}
+			}
+			shifter = shifterHash.get(key);
+			if (shifter == null) {
+				shifter = new ShiftControl(shifterHash, key);
+			}
+		} catch (Exception e) {
+			throw new TuraException(e);
+		}
 	}
 
 }

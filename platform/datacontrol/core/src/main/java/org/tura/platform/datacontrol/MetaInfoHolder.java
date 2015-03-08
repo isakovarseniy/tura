@@ -16,6 +16,7 @@ import org.tura.platform.datacontrol.command.PreQueryTrigger;
 import org.tura.platform.datacontrol.command.PreUpdateTrigger;
 import org.tura.platform.datacontrol.command.SearchCommand;
 import org.tura.platform.datacontrol.command.UpdateCommand;
+import org.tura.platform.datacontrol.commons.TuraException;
 import org.tura.platform.datacontrol.metainfo.ArtificialProperty;
 import org.tura.platform.datacontrol.metainfo.DependecyProperty;
 import org.tura.platform.datacontrol.metainfo.Relation;
@@ -61,7 +62,7 @@ public abstract class MetaInfoHolder {
 	public abstract void setElResolver(ELResolver elResolver);
 	
 	
-	public void addChildren(String relationName, Relation relation) {
+	public void addChildren(String relationName, Relation relation) throws TuraException {
 		children.put(relationName, relation);
 		relation.setParent((IDataControl) this);
 		if (relation.getChild() != null)

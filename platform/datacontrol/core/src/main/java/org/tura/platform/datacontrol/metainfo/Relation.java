@@ -7,6 +7,7 @@ import java.util.Iterator;
 import java.util.List;
 
 import org.apache.commons.lang.StringUtils;
+import org.tura.platform.datacontrol.DataControlWrapper;
 import org.tura.platform.datacontrol.IDataControl;
 import org.tura.platform.datacontrol.commons.Constants;
 import org.tura.platform.datacontrol.commons.SearchCriteria;
@@ -24,15 +25,23 @@ public class Relation {
 	private ArrayList<PropertyLink> links = new ArrayList<PropertyLink>();
 
 
-	public IDataControl getParent() {
-		return parent;
+	public IDataControl getParent() throws TuraException {
+		try{
+			return  DataControlWrapper.newInstance(parent) ;
+		}catch(Exception e){
+			throw new TuraException(e);
+		}
 	}	
 	public void setParent(IDataControl parent) {
 		this.parent = parent;
 	}
 
-	public IDataControl getChild() {
-		return child;
+	public IDataControl getChild() throws TuraException {
+		try{
+			return  DataControlWrapper.newInstance(child) ;
+		}catch(Exception e){
+			throw new TuraException(e);
+		}
 	}
 
 	public void setChild(IDataControl child) {
@@ -57,7 +66,7 @@ public class Relation {
 
 	public Object getMasterCurrentObject() throws TuraException {
 		if (masterCurrentObject == null)
-			masterCurrentObject = parent.getCurrentObject();
+			masterCurrentObject = getParent().getCurrentObject();
 		return masterCurrentObject;
 	}
 
@@ -77,7 +86,7 @@ public class Relation {
 
 		Iterator<PropertyLink> itr = links.iterator();
 		if (masterCurrentObject == null)
-			masterCurrentObject = parent.getCurrentObject();
+			masterCurrentObject = getParent().getCurrentObject();
 		if (masterCurrentObject != null) {
 			while (itr.hasNext()) {
 				PropertyLink lnk = itr.next();

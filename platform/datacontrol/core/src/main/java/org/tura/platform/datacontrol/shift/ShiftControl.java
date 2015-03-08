@@ -1,6 +1,7 @@
 package org.tura.platform.datacontrol.shift;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.logging.Logger;
 
 import org.josql.Query;
@@ -15,6 +16,8 @@ import org.tura.platform.datacontrol.shift.rules.UpdateRulesFactory;
 public class ShiftControl {
 
 	private Logger logger;
+	private HashMap<String, ShiftControl> shifterHash= new HashMap<>();
+	private String key;
 
 	public ShiftControl() {
 
@@ -22,6 +25,11 @@ public class ShiftControl {
 
 	public ShiftControl(Logger logger) {
 		this.logger = logger;
+	}
+
+	public ShiftControl(HashMap<String, ShiftControl> shifterHash, String key) {
+		this.shifterHash = shifterHash;
+		this.key = key;
 	}
 
 	private ArrayList<Element> shiftTracker = new ArrayList<>();
@@ -68,9 +76,39 @@ public class ShiftControl {
 		shiftTracker = new ArrayList<>();
 	}
 
-	@SuppressWarnings("unchecked")
 	public void add(int position, Object obj) throws QueryExecutionException,
 			QueryParseException, InstantiationException, IllegalAccessException {
+
+		addOperation(position,obj);
+		checkShifterRegistration();
+	}
+
+	public void update(int position, Object obj)
+			throws QueryExecutionException, QueryParseException,
+			InstantiationException, IllegalAccessException {
+
+		updateOperation(position, obj);
+		checkShifterRegistration();
+		
+	}
+
+	public void remove(int position) throws QueryExecutionException,
+			QueryParseException, InstantiationException, IllegalAccessException {
+		removeOperation(position);
+		checkShifterRegistration();
+	}
+
+	private void checkShifterRegistration(){
+		if (shifterHash.get(key) == null){
+			shifterHash.put(key, this);
+		}
+	}
+	
+	
+	@SuppressWarnings("unchecked")
+	private void addOperation(int position, Object obj)
+			throws QueryExecutionException, QueryParseException,
+			InstantiationException, IllegalAccessException {
 		Query query = new Query();
 		query.parse(ShiftConstants.SELECT_FOR_SHIFT);
 		query.setVariable("position", new Integer(position));
@@ -93,7 +131,7 @@ public class ShiftControl {
 	}
 
 	@SuppressWarnings("unchecked")
-	public void update(int position, Object obj)
+	private void updateOperation(int position, Object obj)
 			throws QueryExecutionException, QueryParseException,
 			InstantiationException, IllegalAccessException {
 		Query query = new Query();
@@ -119,7 +157,7 @@ public class ShiftControl {
 	}
 
 	@SuppressWarnings("unchecked")
-	public void remove(int position) throws QueryExecutionException,
+	private void removeOperation(int position) throws QueryExecutionException,
 			QueryParseException, InstantiationException, IllegalAccessException {
 		Query query = new Query();
 		query.parse(ShiftConstants.SELECT_FOR_SHIFT);

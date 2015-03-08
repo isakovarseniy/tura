@@ -38,6 +38,7 @@ import org.tura.platform.datacontrol.command.InsertCommand;
 import org.tura.platform.datacontrol.command.SearchCommand;
 import org.tura.platform.datacontrol.command.UpdateCommand;
 import org.tura.platform.datacontrol.commons.ConditionConverter;
+import org.tura.platform.datacontrol.commons.TuraException;
 import org.tura.platform.datacontrol.metainfo.ArtificialProperty;
 import org.tura.platform.datacontrol.metainfo.DependecyProperty;
 import org.tura.platform.datacontrol.metainfo.PropertyLink;
@@ -257,7 +258,7 @@ public class DataControlFactory {
 	}
 
 	public static void buildConnection(DataControl<?> masterDC)
-			throws IllegalArgumentException, IllegalAccessException {
+			throws IllegalArgumentException, IllegalAccessException, TuraException {
 
 		Method[] methods = masterDC.getClass().getDeclaredMethods();
 		for (Method method : methods) {
