@@ -323,6 +323,14 @@
         <parameters packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="e370b9d1-a6fb-4a40-88e2-8845be441438" uid="1fb4b6f8-f78c-4f15-af74-fcc94f18be31" name="popupCanvasVar"/>
         <returnValue packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="90b18156-de6d-42d1-b350-925e44a0e4cc"/>
       </operations>
+      <operations uid="bcb6a433-6c40-4250-82cd-c552456e66bf" name="addRow">
+        <parameters packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="76fe6802-305f-4973-a750-b102d9559fc2" uid="bbf6c66c-5bb3-494d-82d1-1e05a85650ac" name="data control"/>
+        <returnValue packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="90b18156-de6d-42d1-b350-925e44a0e4cc"/>
+      </operations>
+      <operations uid="87fe4340-1eb2-43b5-bd32-6edb41dc0cd2" name="removeRow">
+        <parameters packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="76fe6802-305f-4973-a750-b102d9559fc2" uid="0bdb72cf-f251-44ec-99ec-9fb2817d1a24" name="data control"/>
+        <returnValue packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="90b18156-de6d-42d1-b350-925e44a0e4cc"/>
+      </operations>
     </types>
   </tura.domain:TypeDefinition>
   <tura.domain:TypeDefinition uid="Uniq_115091ed-0c7c-4eae-be06-8496210d4b84" parent="e8faa4f9-a654-40f5-bdf5-454f90f2af19">
@@ -2015,7 +2023,7 @@
     <baseCanvas uid="c5f8ac47-356e-4c17-84db-fcf0a5037ca7">
       <children xsi:type="tura.domain:LayerHolder" uid="cae32081-1631-4110-9d0f-5a5b1cd5e23a" columns="2">
         <children xsi:type="tura.domain:LayerHolder" uid="b4779d71-722f-48ae-98c1-4d1e12202f93">
-          <children xsi:type="tura.domain:Table" uid="92ea6c50-dc39-4ba0-bb76-b3ca2e161fe5" onEventRefreshArea="bee23d39-6e59-450f-b696-94cf4c907c86 ce2aedb4-2308-40d7-b9aa-c9819da6e0f4" sourcePointer="d45e9605-3706-493c-8422-3f7b8b6ea2ed" sourceCastDataControl="d45e9605-3706-493c-8422-3f7b8b6ea2ed" columns="3" label="Companies" rowNumber="5">
+          <children xsi:type="tura.domain:Table" nickname="companies" uid="92ea6c50-dc39-4ba0-bb76-b3ca2e161fe5" onEventRefreshArea="bee23d39-6e59-450f-b696-94cf4c907c86 ce2aedb4-2308-40d7-b9aa-c9819da6e0f4" sourcePointer="d45e9605-3706-493c-8422-3f7b8b6ea2ed" sourceCastDataControl="d45e9605-3706-493c-8422-3f7b8b6ea2ed" columns="3" label="Companies" rowNumber="5">
             <style/>
             <classifiers uid="bbe77e69-5dc3-4413-9f07-7043568f59e2" hint="21d9dc34-d2cb-4b87-ab39-94afefd6765c" details="&quot;5,10&quot;"/>
             <enabled/>
@@ -2065,7 +2073,16 @@
             </cols>
           </children>
           <children xsi:type="tura.domain:LayerHolder" uid="f0ad97d0-f821-4159-8276-2c3cd955cf38" columns="2">
-            <children xsi:type="tura.domain:Button" uid="0233c086-c837-4de8-8900-8b4bb37ced89" label="Add">
+            <children xsi:type="tura.domain:Button" uid="0233c086-c837-4de8-8900-8b4bb37ced89" onEventRefreshArea="bee23d39-6e59-450f-b696-94cf4c907c86 ce2aedb4-2308-40d7-b9aa-c9819da6e0f4 92ea6c50-dc39-4ba0-bb76-b3ca2e161fe5" label="Add">
+              <style/>
+              <triggers packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="97a1a7c3-5e08-48b1-82d0-8a35fa5a13e9" fakePackageName="Base package" fakeTypeName="System library" methodRef="111886f3-7b14-4394-9454-3e2df8cd55e7" fakeMethod="Create row" uid="5d05a734-26b5-4263-81f7-0629e8cfad8a">
+                <parameters uid="b7420da8-37a6-4103-b7c7-93fb097538c7" refObj="96c4a5f8-171b-412b-98b8-23f37e1c5d68">
+                  <value uid="182240a7-3036-4782-adb6-00c13d7274c9" value="Data controls.Company">
+                    <expression expressionType="DataControlHolder"/>
+                    <expression objRef="d45e9605-3706-493c-8422-3f7b8b6ea2ed" order="1" expressionType="DataControlImpl"/>
+                  </value>
+                </parameters>
+              </triggers>
               <multiLangLabel value="Messages.HR Controller.ADD_BUTTON">
                 <expression objRef="af03a493-0ca4-486c-945f-5bfc2fdf35bd" expressionType="MessagesImpl"/>
                 <expression objRef="5772ddee-a83b-41c9-8f34-c442412e1013" order="1" expressionType="MessageLibraryImpl"/>
@@ -2078,9 +2095,17 @@
                 <expression objRef="e92845fc-7570-455f-9580-623183bccc0f" order="3" expressionType="StyleSetImpl"/>
               </icon>
             </children>
-            <children xsi:type="tura.domain:Button" uid="71ffc838-d31e-458b-a18c-3cd49a7efdff" label="Remove">
+            <children xsi:type="tura.domain:Button" uid="71ffc838-d31e-458b-a18c-3cd49a7efdff" onEventRefreshArea="bee23d39-6e59-450f-b696-94cf4c907c86 ce2aedb4-2308-40d7-b9aa-c9819da6e0f4 92ea6c50-dc39-4ba0-bb76-b3ca2e161fe5" label="Remove">
               <style/>
               <enabled/>
+              <triggers packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="97a1a7c3-5e08-48b1-82d0-8a35fa5a13e9" fakePackageName="Base package" fakeTypeName="System library" methodRef="22be5074-5d5e-4f52-916b-e802b8825b06" fakeMethod="Remove row" uid="d68509f9-9a9d-4a9d-9097-4ae4fbdf2e3d">
+                <parameters uid="ffbb75b4-8e59-4477-96db-7f07c6bf7d9c" refObj="76475fdc-384e-4bef-afd5-a1b0a14a4162">
+                  <value uid="4257d48f-a45a-4cfb-a92f-3be38f23fa46" value="Data controls.Company">
+                    <expression expressionType="DataControlHolder"/>
+                    <expression objRef="d45e9605-3706-493c-8422-3f7b8b6ea2ed" order="1" expressionType="DataControlImpl"/>
+                  </value>
+                </parameters>
+              </triggers>
               <multiLangLabel value="Messages.HR Controller.REMOVE_BUTTON">
                 <expression objRef="af03a493-0ca4-486c-945f-5bfc2fdf35bd" expressionType="MessagesImpl"/>
                 <expression objRef="5772ddee-a83b-41c9-8f34-c442412e1013" order="1" expressionType="MessageLibraryImpl"/>

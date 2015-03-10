@@ -8,6 +8,12 @@ import java.util.List;
 
 import org.tura.platform.datacontrol.commons.Reflection;
 import org.tura.platform.datacontrol.commons.TuraException;
+import org.tura.platform.datacontrol.event.ControlRefreshedEvent;
+import org.tura.platform.datacontrol.event.Event;
+import org.tura.platform.datacontrol.event.MasterRowChangedEvent;
+import org.tura.platform.datacontrol.event.RowChangedEvent;
+import org.tura.platform.datacontrol.event.RowCreatedEvent;
+import org.tura.platform.datacontrol.event.RowRemovedEvent;
 import org.tura.platform.datacontrol.metainfo.DependecyProperty;
 import org.tura.platform.datacontrol.metainfo.Relation;
 
@@ -17,8 +23,8 @@ public abstract class TreeDataControl implements IDataControl {
 	private Relation parent;
 	private Relation treeRelation = new Relation();
 	protected HashMap<String, Relation> children = new HashMap<String, Relation>();
-	private ArrayList<ChangeRecordListener> chageRecordLiteners = new ArrayList<>();
-	private ArrayList<ChangeRecordListener> musterCurrentRecordChageLiteners = new ArrayList<>();
+	
+	private ArrayList<EventListener> eventLiteners = new ArrayList<>();
 
 	private Object currentObject;
 	private IDataControl currentControl;
@@ -57,22 +63,17 @@ public abstract class TreeDataControl implements IDataControl {
 		return children.keySet();
 	}
 
-	@Override
-	public void addChageRecordLiteners(ChangeRecordListener listener) {
-		chageRecordLiteners.add(listener);
+	
+	public void addEventLiteners(EventListener listener) {
+		eventLiteners.add(listener);
 	}
-
-	@Override
-	public void addMusterCurrentRecordChageLiteners(
-			ChangeRecordListener listener) {
-		musterCurrentRecordChageLiteners.add(listener);
-	}
-
+	
 	@Override
 	public void handleChangeMusterCurrentRecordNotification(
 			Object newCurrentObject) throws TuraException {
 		if (newCurrentObject == null) {
 			blocked = true;
+			notifyLiteners(new ControlRefreshedEvent(this));
 			notifyChageRecordAll(null);
 		}
 
@@ -81,15 +82,8 @@ public abstract class TreeDataControl implements IDataControl {
 		currentObject = null;
 		root.handleChangeMusterCurrentRecordNotification(newCurrentObject);
 
-		notifyMusterCurrentRecordChageLiteners(newCurrentObject);
+		notifyLiteners(new MasterRowChangedEvent(this, newCurrentObject));
 		notifyChageRecordAll(getCurrentObject());
-	}
-
-	private void notifyMusterCurrentRecordChageLiteners(Object newCurrentObject)
-			throws TuraException {
-		for (ChangeRecordListener listener : musterCurrentRecordChageLiteners) {
-			listener.handleChangeRecord(this, newCurrentObject);
-		}
 	}
 
 	public IDataControl getCurrentControl() {
@@ -102,16 +96,15 @@ public abstract class TreeDataControl implements IDataControl {
 
 	protected void notifyChageRecordAll(Object newCurrentObject)
 			throws TuraException {
-		notifyChangeRecordLiteners(newCurrentObject);
 		notifyDependencyListeners(newCurrentObject);
 	}
 
-	private void notifyChangeRecordLiteners(Object newCurrentObject)
-			throws TuraException {
-		for (ChangeRecordListener listener : chageRecordLiteners) {
-			listener.handleChangeRecord(this, newCurrentObject);
+	
+	private void notifyLiteners(Event event) throws TuraException {
+		for (EventListener listener : eventLiteners) {
+			listener.handleEventListenr(event);
 		}
-	}
+	}	
 
 	private void notifyDependencyListeners(Object newCurrentObject)
 			throws TuraException {
@@ -149,6 +142,7 @@ public abstract class TreeDataControl implements IDataControl {
 		}
 
 		if (currentObject != null) {
+			notifyLiteners(new RowCreatedEvent(this, currentObject));			
 			notifyChageRecordAll(currentObject);
 		} else {
 			throw new TuraException(
@@ -166,6 +160,7 @@ public abstract class TreeDataControl implements IDataControl {
 				"getWrapper"));
 		DataControl<?> dc = w.getDatacontrol();
 		dc.removeObject();
+		notifyLiteners(new RowRemovedEvent(this));
 		notifyChageRecordAll(dc.getCurrentObject());
 	}
 
@@ -178,7 +173,9 @@ public abstract class TreeDataControl implements IDataControl {
 				"getWrapper"));
 		DataControl<?> dc = w.getDatacontrol();
 		dc.removeAll();
-		notifyChangeRecordLiteners(dc.getCurrentObject());
+		
+		notifyLiteners(new RowRemovedEvent(this));
+		notifyChageRecordAll(null);
 	}
 
 	public synchronized boolean setCurrentPosition(Object o)
@@ -236,6 +233,7 @@ public abstract class TreeDataControl implements IDataControl {
 		}
 		currentObject = obj;
 		currentPosition = o;
+		notifyLiteners(new RowChangedEvent(this));
 		notifyChageRecordAll(obj);
 		
 		return true;

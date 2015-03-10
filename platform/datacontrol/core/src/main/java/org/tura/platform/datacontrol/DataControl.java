@@ -10,6 +10,12 @@ import org.tura.platform.datacontrol.commons.Constants;
 import org.tura.platform.datacontrol.commons.Reflection;
 import org.tura.platform.datacontrol.commons.SearchCriteria;
 import org.tura.platform.datacontrol.commons.TuraException;
+import org.tura.platform.datacontrol.event.ControlRefreshedEvent;
+import org.tura.platform.datacontrol.event.Event;
+import org.tura.platform.datacontrol.event.MasterRowChangedEvent;
+import org.tura.platform.datacontrol.event.RowChangedEvent;
+import org.tura.platform.datacontrol.event.RowCreatedEvent;
+import org.tura.platform.datacontrol.event.RowRemovedEvent;
 import org.tura.platform.datacontrol.metainfo.DependecyProperty;
 import org.tura.platform.datacontrol.metainfo.Relation;
 import org.tura.platform.datacontrol.shift.ShiftControl;
@@ -26,8 +32,7 @@ public abstract class DataControl<T> extends MetaInfoHolder implements
 	protected boolean blocked = false;
 	private TreeDataControl treeDataControl;
 
-	private ArrayList<ChangeRecordListener> chageRecordLiteners = new ArrayList<>();
-	private ArrayList<ChangeRecordListener> musterCurrentRecordChageLiteners = new ArrayList<>();
+	private ArrayList<EventListener> eventLiteners = new ArrayList<>();
 
 	private SelectQuery query;
 
@@ -42,19 +47,15 @@ public abstract class DataControl<T> extends MetaInfoHolder implements
 		this.pager = new Pager<T>(this);
 	}
 
-	public void addChageRecordLiteners(ChangeRecordListener listener) {
-		chageRecordLiteners.add(listener);
-	}
-
-	public void addMusterCurrentRecordChageLiteners(
-			ChangeRecordListener listener) {
-		musterCurrentRecordChageLiteners.add(listener);
+	public void addEventLiteners(EventListener listener) {
+		eventLiteners.add(listener);
 	}
 
 	public void forceRefresh() throws TuraException {
 		currentPosition = 0;
 		pager.cleanPager();
 		pager.setScrollDirection(SCROLL_DOWN);
+		notifyLiteners(new ControlRefreshedEvent(this));
 		notifyChageRecordAll(pager.getObject(currentPosition));
 	}
 
@@ -63,6 +64,7 @@ public abstract class DataControl<T> extends MetaInfoHolder implements
 		if (newCurrentObject == null) {
 			blocked = true;
 			pager.cleanPager();
+			notifyLiteners(new MasterRowChangedEvent(this, null));
 			notifyChageRecordAll(null);
 			return;
 		}
@@ -71,14 +73,13 @@ public abstract class DataControl<T> extends MetaInfoHolder implements
 		pager.cleanPager();
 		currentPosition = 0;
 		pager.setScrollDirection(SCROLL_DOWN);
-		notifyMusterCurrentRecordChageLiteners(newCurrentObject);
+		notifyLiteners(new MasterRowChangedEvent(this, newCurrentObject));
 		notifyChageRecordAll(pager.getObject(currentPosition));
 	}
 
 	protected void notifyChageRecordAll(T newCurrentObject)
 			throws TuraException {
 		notifyChildrenDataControlsChangeCurrentRecord(newCurrentObject);
-		notifyChangeRecordLiteners(newCurrentObject);
 		notifyDependencyListeners(newCurrentObject);
 	}
 
@@ -91,10 +92,9 @@ public abstract class DataControl<T> extends MetaInfoHolder implements
 		}
 	}
 
-	private void notifyChangeRecordLiteners(T newCurrentObject)
-			throws TuraException {
-		for (ChangeRecordListener listener : chageRecordLiteners) {
-			listener.handleChangeRecord(this, newCurrentObject);
+	private void notifyLiteners(Event event) throws TuraException {
+		for (EventListener listener : eventLiteners) {
+			listener.handleEventListenr(event);
 		}
 	}
 
@@ -105,13 +105,6 @@ public abstract class DataControl<T> extends MetaInfoHolder implements
 			if (relation.getChild() != null)
 				((IDataControl) relation.getChild())
 						.handleChangeMusterCurrentRecordNotification(newCurrentObject);
-		}
-	}
-
-	private void notifyMusterCurrentRecordChageLiteners(Object newCurrentObject)
-			throws TuraException {
-		for (ChangeRecordListener listener : musterCurrentRecordChageLiteners) {
-			listener.handleChangeRecord(this, newCurrentObject);
 		}
 	}
 
@@ -166,6 +159,7 @@ public abstract class DataControl<T> extends MetaInfoHolder implements
 			currentPosition++;
 			pager.setScrollDirection(SCROLL_DOWN);
 			T newRecord = pager.getObject(currentPosition);
+			notifyLiteners(new RowChangedEvent(this));
 			notifyChageRecordAll(newRecord);
 		}
 	}
@@ -189,6 +183,7 @@ public abstract class DataControl<T> extends MetaInfoHolder implements
 			currentPosition--;
 			pager.setScrollDirection(SCROLL_UP);
 			T newRecord = pager.getObject(currentPosition);
+			notifyLiteners(new RowChangedEvent(this));
 			notifyChageRecordAll(newRecord);
 		}
 	}
@@ -211,6 +206,7 @@ public abstract class DataControl<T> extends MetaInfoHolder implements
 		this.pager.remove(currentPosition);
 		if (currentPosition == pager.listSize())
 			currentPosition--;
+		notifyLiteners(new RowRemovedEvent(this));
 		notifyChageRecordAll(getCurrentObject());
 	}
 
@@ -245,6 +241,9 @@ public abstract class DataControl<T> extends MetaInfoHolder implements
 				obj = pager.getObject(i);
 			}
 		} while (obj != null);
+
+		notifyLiteners(new RowRemovedEvent(this));
+		notifyChageRecordAll(null);
 
 	}
 
@@ -285,6 +284,7 @@ public abstract class DataControl<T> extends MetaInfoHolder implements
 						}
 					}
 				}
+				notifyLiteners(new RowCreatedEvent(this,getCurrentObject()));
 				notifyChageRecordAll(getCurrentObject());
 			}
 		} catch (Exception e) {
@@ -317,6 +317,7 @@ public abstract class DataControl<T> extends MetaInfoHolder implements
 		}
 		if (position < pager.listSize()) {
 			this.currentPosition = (int) crtPosition;
+			notifyLiteners(new RowChangedEvent(this));
 			notifyChageRecordAll(getCurrentObject());
 			return true;
 		} else

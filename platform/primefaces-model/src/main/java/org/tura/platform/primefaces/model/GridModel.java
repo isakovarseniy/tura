@@ -2,10 +2,12 @@ package org.tura.platform.primefaces.model;
 
 import java.util.logging.Logger;
 
-import org.tura.platform.datacontrol.ChangeRecordListener;
 import org.tura.platform.datacontrol.DataControl;
-import org.tura.platform.datacontrol.IDataControl;
+import org.tura.platform.datacontrol.EventListener;
 import org.tura.platform.datacontrol.commons.TuraException;
+import org.tura.platform.datacontrol.event.Event;
+import org.tura.platform.datacontrol.event.MasterRowChangedEvent;
+import org.tura.platform.datacontrol.event.RowRemovedEvent;
 
 public class GridModel {
 	private LazyDataGridModel<?> lazyModel;
@@ -17,7 +19,7 @@ public class GridModel {
 	public GridModel(DataControl dc, Logger logger) {
 		this.dc = dc;
 		this.logger = logger;
-		dc.addMusterCurrentRecordChageLiteners(new RecordListener());
+		dc.addEventLiteners(new RecordListener());
 
 		lazyModel = new LazyDataGridModel();
 		lazyModel.setDatacontrol(dc);
@@ -34,21 +36,22 @@ public class GridModel {
 		Object[] array = (Object[]) event.getObject();
 		try {
 			if (!dc.getCurrentPosition().equals(array[0]))
-			    dc.setCurrentPosition(array[0]);
+				dc.setCurrentPosition(array[0]);
 		} catch (TuraException e) {
 			logger.fine(e.getMessage());
 		}
 	}
 
-	class RecordListener implements ChangeRecordListener {
+	class RecordListener implements EventListener {
 
-		@Override
 		@SuppressWarnings("rawtypes")
-		public void handleChangeRecord(IDataControl dc, Object newCurrentObject)
-				throws TuraException {
-			lazyModel = new LazyDataGridModel();
-			lazyModel.setDatacontrol((DataControl) dc);
-			lazyModel.setLogger(logger);
+		@Override
+		public void handleEventListenr(Event event) throws TuraException {
+			if (event instanceof MasterRowChangedEvent || event instanceof RowRemovedEvent) {
+				lazyModel = new LazyDataGridModel();
+				lazyModel.setDatacontrol((DataControl) event.getSource());
+				lazyModel.setLogger(logger);
+			}
 		}
 
 	}
