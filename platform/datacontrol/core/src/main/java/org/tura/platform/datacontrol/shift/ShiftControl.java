@@ -18,7 +18,14 @@ public class ShiftControl {
 	private Logger logger;
 	private HashMap<String, ShiftControl> shifterHash= new HashMap<>();
 	private String key;
+	private int addOpr;
+	private int removeOpr;
+	
 
+	public int getCorrection(){
+		return addOpr-removeOpr;
+	}
+	
 	public ShiftControl() {
 
 	}
@@ -81,6 +88,7 @@ public class ShiftControl {
 
 		addOperation(position,obj);
 		checkShifterRegistration();
+		addOpr++;
 	}
 
 	public void update(int position, Object obj)
@@ -96,6 +104,7 @@ public class ShiftControl {
 			QueryParseException, InstantiationException, IllegalAccessException {
 		removeOperation(position);
 		checkShifterRegistration();
+		removeOpr++;
 	}
 
 	private void checkShifterRegistration(){

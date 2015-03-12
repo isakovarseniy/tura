@@ -47,17 +47,7 @@ public class LazyList<T> extends AbstractList<T> {
 
 	@Override
 	public void add(int index, T t) {
-		Map<Integer, T> map = new HashMap<Integer, T>();
-		for (Integer i : loaded.keySet()) {
-			T obj = loaded.get(i);
-			if (i >= index)
-				map.put(i + 1, obj);
-			else
-				map.put(i, obj);
-		}
-		map.put(index, t);
-		numResults++;
-		loaded = map;
+		throw new RuntimeException("Unsupported operation");
 	}
 
 	@Override
@@ -70,26 +60,7 @@ public class LazyList<T> extends AbstractList<T> {
 	
 	@Override
 	public T remove(int index) {
-        get(index);		
-		
-		Map<Integer, T> map = new HashMap<Integer, T>();
-		T result = null;
-		for (Integer i : loaded.keySet()) {
-			T obj = loaded.get(i);
-
-			if (i == index) {
-				result = obj;
-				continue;
-			}
-			if (i > index)
-				map.put(i - 1, obj);
-			else
-				map.put(i, obj);
-		}
-		loaded = map;
-		numResults--;
-		return result;
-
+		throw new RuntimeException("Unsupported operation");
 	}
 
 	@Override

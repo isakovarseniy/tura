@@ -143,9 +143,20 @@ public class SingleDataControlTest {
 			dc.getElResolver().setValue("departments", dc);
 			dc.setPageSize(5);
 			dc.getCurrentObject();
+			
+			int beforeRemove = dc.getScroller().size();
+			
 			for (int i = 0; i < 4; i++) {
 				dc.removeObject();
 			}
+			
+			int afterRemove = dc.getScroller().size();
+			
+			int diff = beforeRemove - afterRemove;
+			
+			assertEquals(diff, 4 );
+			
+			
 			dc.getShifter().setLogger(logger);
 			dc.getShifter().print(ShiftConstants.SELECT_ORDERBY_ACTUALPOSITION);
 			dc.forceRefresh();
@@ -256,11 +267,20 @@ public class SingleDataControlTest {
 				dc.nextObject();
 			}
 
+			int beforeRemove = dc.getScroller().size();
+			
 			DepartmentsDAO d1 = dc.createObject();
 			assertEquals(d1.getDepartmentName(), "test");
 			DepartmentsDAO d2 = dc.createObject();
 			assertEquals(d2.getDepartmentName(), "test");
 
+			
+			int afterRemove = dc.getScroller().size();
+			
+			int diff = beforeRemove - afterRemove;
+			
+			assertEquals(diff, -2 );
+			
 			d1.setDepartmentName("d1");
 			d2.setDepartmentName("d2");
 

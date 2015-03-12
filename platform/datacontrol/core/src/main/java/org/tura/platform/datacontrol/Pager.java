@@ -67,7 +67,7 @@ public class Pager<T> {
 	}
 
 	public long actualListSize() {
-		return entities.getActualRowNumber();
+		return entities.getActualRowNumber()+shifter.getCorrection();
 	}
 
 	private boolean prepareQuery() throws NoSuchMethodException,
