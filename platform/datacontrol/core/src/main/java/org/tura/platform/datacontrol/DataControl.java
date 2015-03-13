@@ -94,7 +94,7 @@ public abstract class DataControl<T> extends MetaInfoHolder implements
 
 	private void notifyLiteners(Event event) throws TuraException {
 		for (EventListener listener : eventLiteners) {
-			listener.handleEventListenr(event);
+			listener.handleEventListener(event);
 		}
 	}
 
@@ -192,6 +192,12 @@ public abstract class DataControl<T> extends MetaInfoHolder implements
 		if (blocked)
 			return;
 
+		if (treeDataControl != null ){
+			int[] treePosition =  (int[]) treeDataControl.getCurrentPosition();
+			int[] newTreePosition = new int[treePosition.length+1];
+			System.arraycopy(treePosition, 0, newTreePosition, 0, treePosition.length);
+			treeDataControl.setCurrentPosition(newTreePosition);
+		}
 		for (String relName : getRelationsName()) {
 			Relation rel = this.getChild(relName);
 
@@ -203,10 +209,18 @@ public abstract class DataControl<T> extends MetaInfoHolder implements
 					&& (rel.getChild().getCurrentObject() != null))
 				rel.getChild().removeAll();
 		}
+		RowRemovedEvent event =   new RowRemovedEvent(this,pager.getObject(currentPosition));
 		this.pager.remove(currentPosition);
 		if (currentPosition == pager.listSize())
 			currentPosition--;
-		notifyLiteners(new RowRemovedEvent(this));
+		
+		if (treeDataControl != null ){
+			int[] treePosition =  (int[]) treeDataControl.getCurrentPosition();
+			int[] newTreePosition = new int[treePosition.length-1];
+			System.arraycopy(treePosition, 0, newTreePosition, 0, treePosition.length-1);
+			treeDataControl.setCurrentPosition(newTreePosition);
+		}		
+		notifyLiteners(event);
 		notifyChageRecordAll(getCurrentObject());
 	}
 
@@ -230,21 +244,12 @@ public abstract class DataControl<T> extends MetaInfoHolder implements
 			return;
 
 		T obj = null;
-		int i = 0;
 		pager.setScrollDirection(SCROLL_DOWN);
 		do {
-			obj = pager.getObject(i);
+			obj = getCurrentObject();
 			if (obj != null)
 				removeObject();
-			else {
-				i++;
-				obj = pager.getObject(i);
-			}
 		} while (obj != null);
-
-		notifyLiteners(new RowRemovedEvent(this));
-		notifyChageRecordAll(null);
-
 	}
 
 	public T createObject() throws TuraException {
@@ -376,6 +381,7 @@ public abstract class DataControl<T> extends MetaInfoHolder implements
 
 	public void setTreeContext(TreeDataControl tdc) {
 		treeDataControl = tdc;
+		this.addEventLiteners(treeDataControl);
 	}
 
 	public List<T> getScroller() {

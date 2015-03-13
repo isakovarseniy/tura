@@ -17,7 +17,7 @@ import org.tura.platform.datacontrol.event.RowRemovedEvent;
 import org.tura.platform.datacontrol.metainfo.DependecyProperty;
 import org.tura.platform.datacontrol.metainfo.Relation;
 
-public abstract class TreeDataControl implements IDataControl {
+public abstract class TreeDataControl implements IDataControl , EventListener{
 
 	protected List<DependecyProperty> dependency = new ArrayList<DependecyProperty>();
 	private Relation parent;
@@ -28,7 +28,7 @@ public abstract class TreeDataControl implements IDataControl {
 
 	private Object currentObject;
 	private IDataControl currentControl;
-	private Object currentPosition;
+	private int[] currentPosition;
 
 	protected boolean blocked = false;
 
@@ -42,7 +42,7 @@ public abstract class TreeDataControl implements IDataControl {
 		this.root = root;
 		this.currentControl = root;
 		root.setParent(treeRelation);
-		currentPosition = new Object[]{0};
+		currentPosition = new int[]{0};
 	}
 
 	@Override
@@ -102,7 +102,7 @@ public abstract class TreeDataControl implements IDataControl {
 	
 	private void notifyLiteners(Event event) throws TuraException {
 		for (EventListener listener : eventLiteners) {
-			listener.handleEventListenr(event);
+			listener.handleEventListener(event);
 		}
 	}	
 
@@ -160,7 +160,7 @@ public abstract class TreeDataControl implements IDataControl {
 				"getWrapper"));
 		DataControl<?> dc = w.getDatacontrol();
 		dc.removeObject();
-		notifyLiteners(new RowRemovedEvent(this));
+
 		notifyChageRecordAll(dc.getCurrentObject());
 	}
 
@@ -172,9 +172,9 @@ public abstract class TreeDataControl implements IDataControl {
 		BeanWrapper w = ((BeanWrapper) Reflection.call(currentObject,
 				"getWrapper"));
 		DataControl<?> dc = w.getDatacontrol();
+
 		dc.removeAll();
 		
-		notifyLiteners(new RowRemovedEvent(this));
 		notifyChageRecordAll(null);
 	}
 
@@ -232,7 +232,7 @@ public abstract class TreeDataControl implements IDataControl {
 
 		}
 		currentObject = obj;
-		currentPosition = o;
+		currentPosition = (int[]) o;
 		notifyLiteners(new RowChangedEvent(this));
 		notifyChageRecordAll(obj);
 		
@@ -276,4 +276,9 @@ public abstract class TreeDataControl implements IDataControl {
 		return parent;
 	}
 
+	@Override
+	public void handleEventListener(Event event) throws TuraException {
+		notifyLiteners(event);
+	}	
+	
 }

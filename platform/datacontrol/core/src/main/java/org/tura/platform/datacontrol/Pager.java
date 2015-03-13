@@ -219,7 +219,7 @@ public class Pager<T> {
 				datacontrol.getCommandStack().commitTransaction();
 			}
 
-			if (entities.getFragmentSize() != 0) {
+			if (entities.getFragmentSize() != 0 && index < entities.getActualRowNumber() ) {
 				return getEntity(index);
 			} else {
 				return null;
