@@ -203,6 +203,9 @@ public class CDITest {
 			companyDC.addEventLiteners(tracer);
 			
 			bf.getTreeRootCountry().addEventLiteners(tracer);
+
+			bf.getTreeRootCountry().setCurrentPosition(new int[]{0});
+			
 			
 			companyDC.nextObject();
 			companyDC.getCurrentObject();
