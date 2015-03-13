@@ -157,7 +157,7 @@ public class TreeModel {
 
 	class RecordListener implements EventListener {
 		@Override
-		public void handleEventListenr(Event event) throws TuraException {
+		public void handleEventListener(Event event) throws TuraException {
 			if (event instanceof MasterRowChangedEvent) {
 				root = null;
 			}

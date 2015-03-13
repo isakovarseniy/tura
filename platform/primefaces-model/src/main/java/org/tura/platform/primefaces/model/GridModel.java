@@ -46,7 +46,7 @@ public class GridModel {
 
 		@SuppressWarnings("rawtypes")
 		@Override
-		public void handleEventListenr(Event event) throws TuraException {
+		public void handleEventListener(Event event) throws TuraException {
 			if (event instanceof MasterRowChangedEvent || event instanceof RowRemovedEvent) {
 				lazyModel = new LazyDataGridModel();
 				lazyModel.setDatacontrol((DataControl) event.getSource());
