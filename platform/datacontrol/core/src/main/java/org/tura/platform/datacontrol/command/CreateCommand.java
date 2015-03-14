@@ -1,6 +1,8 @@
 package org.tura.platform.datacontrol.command;
 
+
 import org.tura.platform.datacontrol.DataControl;
+import org.tura.platform.datacontrol.Util;
 
 public class CreateCommand extends Command {
 
@@ -20,8 +22,10 @@ public class CreateCommand extends Command {
 
 		Object obj = callMethod();
 
-		if (obj != null)
+		if (obj != null){
+			obj = Util.convertobject(obj, getDatacontrol());
 			this.getDatacontrol().getShifter().add(this.getDatacontrol().getCurrentPosition(), obj);
+		}
 
 		if (obj != null && this.getDatacontrol().getPostCreateTrigger() != null)
 			this.getDatacontrol().getPostCreateTrigger().execute(this.getDatacontrol(), obj);

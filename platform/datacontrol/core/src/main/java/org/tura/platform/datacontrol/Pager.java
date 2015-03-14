@@ -124,10 +124,10 @@ public class Pager<T> {
 			datacontrol.getCommandStack().beginTransaction();
 
 			Object obj = datacontrol.getCreateCommand().execute();
-			obj = convertobject((T) obj);
-
-			BeanWrapper w = (BeanWrapper) Reflection.call(obj, "getWrapper");
-			w.setInsertMode(true);
+//			obj = convertobject((T) obj);
+//
+//			BeanWrapper w = (BeanWrapper) Reflection.call(obj, "getWrapper");
+//			w.setInsertMode(true);
 
 			return (T) obj;
 
@@ -273,7 +273,7 @@ public class Pager<T> {
 			return (T) t;
 
 		} catch (Exception e) {
-			Object el = convertobject(t);
+			Object el =  Util.convertobject(t,this.datacontrol);
 			entities.set((index), (T) el);
 
 			if (datacontrol.getPostQueryTrigger() != null)
@@ -283,21 +283,21 @@ public class Pager<T> {
 		}
 	}
 
-	@SuppressWarnings("unchecked")
-	private T convertobject(T obj) throws NoSuchMethodException,
-			SecurityException, InstantiationException, IllegalAccessException,
-			IllegalArgumentException, InvocationTargetException {
-
-		Object wrapper = BeanWrapper.newInstance(obj.getClass(),
-				this.getDataControl());
-		BeanWrapper w = (BeanWrapper) Reflection.call(wrapper, "getWrapper");
-
-		w.setObj(obj);
-		w.setDatacontrol(datacontrol);
-
-		return (T) wrapper;
-
-	}
+//	@SuppressWarnings("unchecked")
+//	private T convertobject(T obj) throws NoSuchMethodException,
+//			SecurityException, InstantiationException, IllegalAccessException,
+//			IllegalArgumentException, InvocationTargetException {
+//
+//		Object wrapper = BeanWrapper.newInstance(obj.getClass(),
+//				this.getDataControl());
+//		BeanWrapper w = (BeanWrapper) Reflection.call(wrapper, "getWrapper");
+//
+//		w.setObj(obj);
+//		w.setDatacontrol(datacontrol);
+//
+//		return (T) wrapper;
+//
+//	}
 
 	public T remove(int i) throws TuraException {
 		try {

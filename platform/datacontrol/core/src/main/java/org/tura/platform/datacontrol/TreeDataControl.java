@@ -159,8 +159,10 @@ public abstract class TreeDataControl implements IDataControl , EventListener{
 		BeanWrapper w = ((BeanWrapper) Reflection.call(currentObject,
 				"getWrapper"));
 		DataControl<?> dc = w.getDatacontrol();
-		dc.removeObject();
 
+		RowRemovedEvent event = new RowRemovedEvent(this, currentObject);
+		dc.removeObject();
+		notifyLiteners(event);
 		notifyChageRecordAll(dc.getCurrentObject());
 	}
 
@@ -178,6 +180,7 @@ public abstract class TreeDataControl implements IDataControl , EventListener{
 
 		dc.removeAll();
 		
+		notifyLiteners(new RowRemovedEvent(this, null));
 		notifyChageRecordAll(null);
 	}
 

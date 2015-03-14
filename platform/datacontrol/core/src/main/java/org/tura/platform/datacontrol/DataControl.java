@@ -94,7 +94,8 @@ public abstract class DataControl<T> extends MetaInfoHolder implements
 
 	private void notifyLiteners(Event event) throws TuraException {
 		for (EventListener listener : eventLiteners) {
-			listener.handleEventListener(event);
+			if (listener != null )
+			     listener.handleEventListener(event);
 		}
 	}
 

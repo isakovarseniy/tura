@@ -7,6 +7,7 @@ import org.tura.platform.datacontrol.EventListener;
 import org.tura.platform.datacontrol.commons.TuraException;
 import org.tura.platform.datacontrol.event.Event;
 import org.tura.platform.datacontrol.event.MasterRowChangedEvent;
+import org.tura.platform.datacontrol.event.RowCreatedEvent;
 import org.tura.platform.datacontrol.event.RowRemovedEvent;
 
 public class GridModel {
@@ -14,17 +15,20 @@ public class GridModel {
 	@SuppressWarnings("rawtypes")
 	private DataControl dc;
 	private Logger logger;
+	private Boolean resetCurentPosition = false;
 
+	
 	@SuppressWarnings("rawtypes")
 	public GridModel(DataControl dc, Logger logger) {
 		this.dc = dc;
 		this.logger = logger;
-		dc.addEventLiteners(new RecordListener());
 
 		lazyModel = new LazyDataGridModel();
 		lazyModel.setDatacontrol(dc);
 		lazyModel.setLogger(logger);
 
+		dc.addEventLiteners(new RecordListener());
+		
 	}
 
 	public LazyDataGridModel<?> getLazyModel() {
@@ -35,7 +39,8 @@ public class GridModel {
 
 		Object[] array = (Object[]) event.getObject();
 		try {
-			if (!dc.getCurrentPosition().equals(array[0]))
+			if (!dc.getCurrentPosition().equals(array[0]) || resetCurentPosition )
+				resetCurentPosition = false;
 				dc.setCurrentPosition(array[0]);
 		} catch (TuraException e) {
 			logger.fine(e.getMessage());
@@ -52,6 +57,9 @@ public class GridModel {
 				lazyModel.setDatacontrol((DataControl) event.getSource());
 				lazyModel.setLogger(logger);
 			}
+			if (event instanceof RowCreatedEvent || event instanceof RowRemovedEvent) {
+				resetCurentPosition = true;
+			}			
 		}
 
 	}
