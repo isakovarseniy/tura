@@ -169,9 +169,12 @@ public abstract class TreeDataControl implements IDataControl , EventListener{
 		if (blocked)
 			return;
 
+		setCurrentPosition(new int[]{0});
+
 		BeanWrapper w = ((BeanWrapper) Reflection.call(currentObject,
 				"getWrapper"));
 		DataControl<?> dc = w.getDatacontrol();
+
 
 		dc.removeAll();
 		
