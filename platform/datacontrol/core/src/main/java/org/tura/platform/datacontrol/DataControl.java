@@ -27,7 +27,7 @@ public abstract class DataControl<T> extends MetaInfoHolder implements
 
 	private static boolean SCROLL_DOWN = true;
 	private static boolean SCROLL_UP = false;
-	private static String id = UUID.randomUUID().toString();
+	private String id = UUID.randomUUID().toString();
 
 	protected boolean blocked = false;
 	private TreeDataControl treeDataControl;
@@ -57,6 +57,10 @@ public abstract class DataControl<T> extends MetaInfoHolder implements
 		pager.setScrollDirection(SCROLL_DOWN);
 		notifyLiteners(new ControlRefreshedEvent(this));
 		notifyChageRecordAll(pager.getObject(currentPosition));
+	}
+	
+	public void rallbackChanges() {
+		pager.cleanShifter();
 	}
 
 	public void handleChangeMusterCurrentRecordNotification(

@@ -54,6 +54,7 @@ public class Pager<T> {
 
 	public void cleanShifter() {
 		shifterHash = new HashMap<>();
+		shifter = null;
 	}
 
 	public void cleanPager() throws TuraException {
@@ -124,10 +125,6 @@ public class Pager<T> {
 			datacontrol.getCommandStack().beginTransaction();
 
 			Object obj = datacontrol.getCreateCommand().execute();
-//			obj = convertobject((T) obj);
-//
-//			BeanWrapper w = (BeanWrapper) Reflection.call(obj, "getWrapper");
-//			w.setInsertMode(true);
 
 			return (T) obj;
 
@@ -282,22 +279,6 @@ public class Pager<T> {
 			return (T) el;
 		}
 	}
-
-//	@SuppressWarnings("unchecked")
-//	private T convertobject(T obj) throws NoSuchMethodException,
-//			SecurityException, InstantiationException, IllegalAccessException,
-//			IllegalArgumentException, InvocationTargetException {
-//
-//		Object wrapper = BeanWrapper.newInstance(obj.getClass(),
-//				this.getDataControl());
-//		BeanWrapper w = (BeanWrapper) Reflection.call(wrapper, "getWrapper");
-//
-//		w.setObj(obj);
-//		w.setDatacontrol(datacontrol);
-//
-//		return (T) wrapper;
-//
-//	}
 
 	public T remove(int i) throws TuraException {
 		try {
