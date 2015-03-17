@@ -72,6 +72,9 @@ public class TuraJPAEntityService  implements Serializable{
 		}
 		long numResults = (long) query.getSingleResult();
 
+		for (Object obj : ls){
+			em.detach(obj);
+		}
 		return new LazyList(ls, numResults, startIndex);
 
 	}

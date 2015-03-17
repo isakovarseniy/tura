@@ -163,7 +163,6 @@ public class CDITest {
 
 	}
 
-	@Ignore
 	@Test
 	public void a4_rallback() {
 		try {
