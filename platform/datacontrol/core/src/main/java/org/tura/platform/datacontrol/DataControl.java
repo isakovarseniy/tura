@@ -59,10 +59,6 @@ public abstract class DataControl<T> extends MetaInfoHolder implements
 		notifyChageRecordAll(pager.getObject(currentPosition));
 	}
 	
-	public void rallbackChanges() {
-		pager.cleanShifter();
-	}
-
 	public void handleChangeMusterCurrentRecordNotification(
 			Object newCurrentObject) throws TuraException {
 		if (newCurrentObject == null) {
@@ -96,7 +92,7 @@ public abstract class DataControl<T> extends MetaInfoHolder implements
 		}
 	}
 
-	private void notifyLiteners(Event event) throws TuraException {
+	public void notifyLiteners(Event event) throws TuraException {
 		for (EventListener listener : eventLiteners) {
 			if (listener != null )
 			     listener.handleEventListener(event);

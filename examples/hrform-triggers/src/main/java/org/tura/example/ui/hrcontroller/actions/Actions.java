@@ -47,6 +47,20 @@ public class Actions implements EventAccessor {
 		System.out.println("");
 	}
 
+	
+	public void rallbackApplication() {
+		try {
+			DataControl dc;
+			commandStack.rallbackCommand();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		System.out.println("");
+	}
+
+	
+	
 	@Override
 	public void setEvent(ActionEvent event) {
 		this.event = event;

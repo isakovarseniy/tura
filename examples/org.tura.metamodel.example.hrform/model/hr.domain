@@ -692,6 +692,9 @@
       <operations uid="bf119b85-c597-4642-8522-b51b95e9c7b8" name="saveApplication">
         <returnValue packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="90b18156-de6d-42d1-b350-925e44a0e4cc"/>
       </operations>
+      <operations uid="f199d2af-fd03-45f9-b34f-3cff9b9b4e56" name="rallbackApplication">
+        <returnValue packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="90b18156-de6d-42d1-b350-925e44a0e4cc"/>
+      </operations>
     </types>
   </tura.domain:TypeDefinition>
   <tura.domain:Mappers uid="e5ddc4b2-b9bc-4fb3-928a-2cb53fcc0d2d" parent="0d86886f-6d6e-49e1-a123-d063d2d9bd22">
@@ -2181,7 +2184,8 @@
             <expression objRef="1a28eeca-a9e2-4de5-9d05-cc1d5660491a" order="2" expressionType="MessageImpl"/>
           </multiLangLabel>
         </children>
-        <children xsi:type="tura.domain:Button" uid="6ac93981-fd61-4ab4-9ca6-7a3e39852932" label="Rallback">
+        <children xsi:type="tura.domain:Button" uid="6ac93981-fd61-4ab4-9ca6-7a3e39852932" onEventRefreshArea="92ea6c50-dc39-4ba0-bb76-b3ca2e161fe5 bee23d39-6e59-450f-b696-94cf4c907c86 ce2aedb4-2308-40d7-b9aa-c9819da6e0f4" label="Rallback">
+          <triggers packageRef="e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="c4654ad8-156f-4706-bda2-791ed81fcdea" fakePackageName="HR package" fakeTypeName="Action executor" methodRef="f199d2af-fd03-45f9-b34f-3cff9b9b4e56" fakeMethod="rallbackApplication" uid="da074ad4-f531-4d77-8a79-f6efa058189a"/>
           <multiLangLabel value="Messages.HR Controller.RALLBACK_BUTTON">
             <expression objRef="af03a493-0ca4-486c-945f-5bfc2fdf35bd" expressionType="MessagesImpl"/>
             <expression objRef="5772ddee-a83b-41c9-8f34-c442412e1013" order="1" expressionType="MessageLibraryImpl"/>

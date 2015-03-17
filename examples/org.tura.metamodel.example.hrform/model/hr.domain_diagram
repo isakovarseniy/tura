@@ -2101,6 +2101,11 @@
             <children xmi:type="notation:Shape" xmi:id="_y4VVAMFDEeSrmYUb8zCa3A" type="1603017" fontName="Lucida Grande">
               <children xmi:type="notation:DecorationNode" xmi:id="_y4V8EMFDEeSrmYUb8zCa3A" type="1605006"/>
               <children xmi:type="notation:BasicCompartment" xmi:id="_y4V8EcFDEeSrmYUb8zCa3A" type="1607016" collapsed="true">
+                <children xmi:type="notation:Shape" xmi:id="_rv6hUMw6EeSefMKDfxU5yQ" type="1603027" fontName="Lucida Grande">
+                  <children xmi:type="notation:DecorationNode" xmi:id="_rv7IYMw6EeSefMKDfxU5yQ" type="1605013"/>
+                  <element xmi:type="tura.domain:ActionTrigger" href="hr.domain#da074ad4-f531-4d77-8a79-f6efa058189a"/>
+                  <layoutConstraint xmi:type="notation:Bounds" xmi:id="_rv6hUcw6EeSefMKDfxU5yQ"/>
+                </children>
                 <styles xmi:type="notation:SortingStyle" xmi:id="_y4V8EsFDEeSrmYUb8zCa3A"/>
                 <styles xmi:type="notation:FilteringStyle" xmi:id="_y4V8E8FDEeSrmYUb8zCa3A"/>
               </children>
@@ -2784,6 +2789,13 @@
           <styles xmi:type="notation:FontStyle" xmi:id="_JnGBYsFDEeSrmYUb8zCa3A" fontName="Lucida Grande"/>
           <element xmi:type="tura.domain:Operation" href="hr.domain#bf119b85-c597-4642-8522-b51b95e9c7b8"/>
           <layoutConstraint xmi:type="notation:Bounds" xmi:id="_JnGBY8FDEeSrmYUb8zCa3A"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_wg5ZgMw5EeSefMKDfxU5yQ" type="103002">
+          <children xmi:type="notation:DecorationNode" xmi:id="_wg5ZhMw5EeSefMKDfxU5yQ" type="105005"/>
+          <styles xmi:type="notation:DescriptionStyle" xmi:id="_wg5Zgcw5EeSefMKDfxU5yQ"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_wg5Zgsw5EeSefMKDfxU5yQ" fontName="Lucida Grande"/>
+          <element xmi:type="tura.domain:Operation" href="hr.domain#f199d2af-fd03-45f9-b34f-3cff9b9b4e56"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_wg5Zg8w5EeSefMKDfxU5yQ"/>
         </children>
         <styles xmi:type="notation:SortingStyle" xmi:id="_WbMndblrEeSdIclQOnPVEA"/>
         <styles xmi:type="notation:FilteringStyle" xmi:id="_WbMndrlrEeSdIclQOnPVEA"/>

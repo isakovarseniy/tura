@@ -26,18 +26,37 @@ public abstract class CommandStack {
 
 
 	private ArrayList<Command> transaction = new ArrayList<Command>();
+	private HashMap<String, DataControl<?>> gostTracking = new HashMap<>();
 	
 	public void addTransaction(Command cmd) throws TuraException {
 		this.transaction.add(cmd);
 	}
 	
+	public void addGostTrackingDataControl(DataControl<?> dc) throws TuraException {
+		this.gostTracking.put(dc.getId(),dc);
+	}
+	
+	
 	public void rallbackCommand() throws Exception {
 
-		Iterator<Command> itr = transaction.iterator();
-		while (itr.hasNext()) {
-			Command cmd = itr.next();
-			cmd.getDatacontrol().forceRefresh();
+       HashMap <String, DataControl< ?>> hash = new HashMap<>();		
+		
+		for ( Command cmd :  transaction ) {
+			hash.put(cmd.getDatacontrol().getId(), cmd.getDatacontrol());
 		}
+		
+		for ( String key :  gostTracking.keySet() ) {
+			hash.put(key, gostTracking.get(key));
+		}
+		
+		for ( DataControl<?> dc :  hash.values() ) {
+			dc.cleanShifter();
+		}
+
+		for ( DataControl<?> dc :  hash.values() ) {
+			dc.forceRefresh();
+		}
+		
 		transaction = new ArrayList<Command>();
 	}
 

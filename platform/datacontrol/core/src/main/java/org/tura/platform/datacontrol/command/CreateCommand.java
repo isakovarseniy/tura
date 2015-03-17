@@ -25,6 +25,7 @@ public class CreateCommand extends Command {
 		if (obj != null){
 			obj = Util.convertobject(obj, getDatacontrol());
 			this.getDatacontrol().getShifter().add(this.getDatacontrol().getCurrentPosition(), obj);
+			this.getDatacontrol().getCommandStack().addGostTrackingDataControl(this.getDatacontrol());
 		}
 
 		if (obj != null && this.getDatacontrol().getPostCreateTrigger() != null)
