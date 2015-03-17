@@ -35,7 +35,6 @@ public class Actions implements EventAccessor {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		System.out.println("");
 	}
 
 	public void saveApplication() {
@@ -44,19 +43,15 @@ public class Actions implements EventAccessor {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		System.out.println("");
 	}
 
 	
 	public void rallbackApplication() {
 		try {
-			DataControl dc;
 			commandStack.rallbackCommand();
-			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		System.out.println("");
 	}
 
 	
