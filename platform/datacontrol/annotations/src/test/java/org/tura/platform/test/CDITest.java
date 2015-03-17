@@ -20,7 +20,6 @@ import org.elsoft.platform.hr.objects.StreetDAO;
 import org.jboss.weld.environment.se.Weld;
 import org.jboss.weld.environment.se.WeldContainer;
 import org.junit.FixMethodOrder;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
 import org.tura.example.ui.hrcontroller.datacontrol.BeanFactory;
