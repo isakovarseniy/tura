@@ -20,12 +20,9 @@ public class ShiftControl {
 	private String key;
 	private int addOpr;
 	private int removeOpr;
+	private long actualRowNumber = -1L;
 	
 
-	public int getCorrection(){
-		return addOpr-removeOpr;
-	}
-	
 	public ShiftControl() {
 
 	}
@@ -105,6 +102,23 @@ public class ShiftControl {
 		removeOperation(position);
 		checkShifterRegistration();
 		removeOpr++;
+	}
+
+	/**
+	 * @return the actualRowNumber
+	 */
+	public long getActualRowNumber() {
+		if (actualRowNumber == -1)
+			return addOpr-removeOpr;
+			
+		return actualRowNumber+addOpr-removeOpr;
+	}
+
+	/**
+	 * @param actualRowNumber the actualRowNumber to set
+	 */
+	public void setActualRowNumber(long actualRowNumber) {
+		this.actualRowNumber = actualRowNumber;
 	}
 
 	private void checkShifterRegistration(){

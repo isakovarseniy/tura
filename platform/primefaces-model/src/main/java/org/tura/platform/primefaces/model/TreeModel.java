@@ -19,6 +19,8 @@ import org.tura.platform.datacontrol.commons.Reflection;
 import org.tura.platform.datacontrol.commons.TuraException;
 import org.tura.platform.datacontrol.event.Event;
 import org.tura.platform.datacontrol.event.MasterRowChangedEvent;
+import org.tura.platform.datacontrol.event.RowCreatedEvent;
+import org.tura.platform.datacontrol.event.RowRemovedEvent;
 
 public class TreeModel {
 
@@ -30,6 +32,7 @@ public class TreeModel {
 		this.dc = dc;
 		dc.addEventLiteners(new RecordListener());
 	}
+	
 
 	@SuppressWarnings("rawtypes")
 	public TreeNode getRoot() throws Exception {
@@ -56,6 +59,7 @@ public class TreeModel {
 
 		if (selectedNode == null)
 			return;
+		this.selectedNode = selectedNode; 
 
 		TreeNode runner = selectedNode;
 		List<Integer> path = new ArrayList<Integer>();
@@ -161,6 +165,33 @@ public class TreeModel {
 			if (event instanceof MasterRowChangedEvent  && event.getSource() instanceof TreeDataControl ) {
 				root = null;
 			}
+			if (event instanceof RowCreatedEvent  && event.getSource() instanceof DataControl ) {
+				TreeNode parent =  selectedNode.getParent();
+				parent.setSelected(true);
+				parent.getChildren().clear();
+				List<?> scroler =  ((DataControl<?>)(event.getSource())).getScroller();
+				for (int i = 0; i < scroler.size(); i++) {
+					DefaultTreeNode leaf = new DefaultTreeNode(new Object[] { i,
+							scroler.get(i) }, parent);
+					new DefaultTreeNode(new Fake(), leaf);
+				}
+				
+			}
+			if (event instanceof RowRemovedEvent && event.getSource() instanceof DataControl ) {
+				TreeNode parent =  selectedNode.getParent();
+				parent.setSelected(true);
+				parent.getChildren().clear();
+				List<?> scroler =  ((DataControl<?>)(event.getSource())).getScroller();
+				for (int i = 0; i < scroler.size(); i++) {
+					DefaultTreeNode leaf = new DefaultTreeNode(new Object[] { i,
+							scroler.get(i) }, parent);
+					new DefaultTreeNode(new Fake(), leaf);
+				}
+				if (parent.getChildren().size() == 0)
+					new DefaultTreeNode(new Fake(), parent);				
+			}
+			
+			
 		}
 
 	}

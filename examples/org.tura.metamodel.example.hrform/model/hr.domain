@@ -695,6 +695,10 @@
       <operations uid="f199d2af-fd03-45f9-b34f-3cff9b9b4e56" name="rallbackApplication">
         <returnValue packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="90b18156-de6d-42d1-b350-925e44a0e4cc"/>
       </operations>
+      <operations uid="8a9e6244-1bd4-4be0-89ed-4fd759f7ef2e" name="createChildRow">
+        <parameters packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="7de77bc8-f109-43e4-95fe-0f2ca7a9f1d0" uid="a4b169f9-9766-4ccb-8d4a-536e7624eeb8" name="datacontrol"/>
+        <returnValue packageRef="e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="Vhc_52ffccb7-cea6-49de-ba4b-7437f1da3369"/>
+      </operations>
     </types>
   </tura.domain:TypeDefinition>
   <tura.domain:Mappers uid="e5ddc4b2-b9bc-4fb3-928a-2cb53fcc0d2d" parent="0d86886f-6d6e-49e1-a123-d063d2d9bd22">
@@ -2019,6 +2023,12 @@
       <messages uid="05b18ec6-8d14-4eb6-82ca-6cc37735bd2a" name="RALLBACK_BUTTON">
         <translatioins uid="3e7189fd-5d9a-4220-a26b-174dfe6a9044" translation="RallBack" lang="5f566f06-7d99-4d79-986d-b42bdfb2b6a0"/>
       </messages>
+      <messages uid="20cb2233-dc66-4231-a174-6937e29ddcc1" name="ADD_CHILD_BUTTON">
+        <translatioins uid="46be4e37-c079-4f1a-add7-198bf4b96120" translation="Add child" lang="5f566f06-7d99-4d79-986d-b42bdfb2b6a0"/>
+      </messages>
+      <messages uid="3ff359d1-cde6-4fe5-be1b-8bda76473dc6" name="SHOW_PARAMETER_BUTTON">
+        <translatioins uid="d8d4ed37-574a-4413-a389-30975f10ca4a" translation="Show form parameter" lang="5f566f06-7d99-4d79-986d-b42bdfb2b6a0"/>
+      </messages>
     </messageLibraries>
     <languages uid="2160c4e8-6839-4e94-a225-162cc9210518" lang="English" code="en"/>
   </tura.domain:Messages>
@@ -2132,7 +2142,11 @@
                 </parameters>
                 <classifiers uid="8ad18a20-31a7-4098-a1f4-2ae1d3cc3988" hint="d8ff5239-74cb-46e9-a93b-eb95a50b6728"/>
               </triggers>
-              <multiLangLabel/>
+              <multiLangLabel value="Messages.HR Controller.SHOW_PARAMETER_BUTTON">
+                <expression objRef="af03a493-0ca4-486c-945f-5bfc2fdf35bd" expressionType="MessagesImpl"/>
+                <expression objRef="5772ddee-a83b-41c9-8f34-c442412e1013" order="1" expressionType="MessageLibraryImpl"/>
+                <expression objRef="3ff359d1-cde6-4fe5-be1b-8bda76473dc6" order="2" expressionType="MessageImpl"/>
+              </multiLangLabel>
               <icon/>
             </children>
           </children>
@@ -2146,16 +2160,26 @@
               <expression objRef="9e8ac4a5-5023-44f2-af6f-56c62c679fa3" order="2" expressionType="MessageImpl"/>
             </multiLangLabel>
             <cols uid="5e5bd550-97e0-4d71-a50c-ca103fa10355">
-              <element xsi:type="tura.domain:OutputText" uid="11000d5e-b6ba-4b1a-9396-6549d6a40d2e" valuePointer="Cntr_7982905f-4f83-472f-8551-80e30e34934c" sourceCast="Cntr_52ffccb7-cea6-49de-ba4b-7437f1da3369" sourceCastDataControl="cd1cab1c-1781-4867-85b8-84d9f465f989">
-                <required/>
-                <readOnly/>
-              </element>
+              <element xsi:type="tura.domain:InputText" uid="24d66827-6d4d-42c5-b9d3-da3bc515cb8a" valuePointer="Cntr_7982905f-4f83-472f-8551-80e30e34934c"/>
             </cols>
           </children>
           <children xsi:type="tura.domain:LayerHolder" uid="2bf0762f-87b6-4f24-8f59-8abb67706538" columns="2">
-            <children xsi:type="tura.domain:Button" uid="47e6bf87-614a-496f-8583-80003ebe457b" label="Add">
+            <children xsi:type="tura.domain:Button" uid="47e6bf87-614a-496f-8583-80003ebe457b" onEventRefreshArea="bee23d39-6e59-450f-b696-94cf4c907c86 ce2aedb4-2308-40d7-b9aa-c9819da6e0f4" label="Add">
               <enabled/>
-              <multiLangLabel/>
+              <triggers packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="97a1a7c3-5e08-48b1-82d0-8a35fa5a13e9" fakePackageName="Base package" fakeTypeName="System library" methodRef="111886f3-7b14-4394-9454-3e2df8cd55e7" fakeMethod="Create row" uid="e2677971-a233-4d51-bff5-219d09df4220">
+                <parameters uid="b341f2c6-d812-4d17-9367-e71648651871" refObj="96c4a5f8-171b-412b-98b8-23f37e1c5d68">
+                  <value uid="378d5065-acc6-415d-842d-0e2235d2e469" value="Tree data controls.TreeCountry.Country">
+                    <expression expressionType="TreeRootDataControlHolder"/>
+                    <expression order="1" expressionType="TreeDataControl"/>
+                    <expression objRef="cd1cab1c-1781-4867-85b8-84d9f465f989" order="2" expressionType="DataControlImpl"/>
+                  </value>
+                </parameters>
+              </triggers>
+              <multiLangLabel value="Messages.HR Controller.ADD_BUTTON">
+                <expression objRef="af03a493-0ca4-486c-945f-5bfc2fdf35bd" expressionType="MessagesImpl"/>
+                <expression objRef="5772ddee-a83b-41c9-8f34-c442412e1013" order="1" expressionType="MessageLibraryImpl"/>
+                <expression objRef="e78a2519-b2a8-4082-867e-e2fedb2bfc97" order="2" expressionType="MessageImpl"/>
+              </multiLangLabel>
               <icon value="Application styles.HR styles.HR Controller styles.Add row button">
                 <expression objRef="c7379293-bc50-4b7e-8cc9-917bc2dd97aa" expressionType="ApplicationStyleImpl"/>
                 <expression objRef="a9b99a7f-03c7-4b89-82c2-b3e1f0f326d2" order="1" expressionType="StylesPackageImpl"/>
@@ -2163,13 +2187,48 @@
                 <expression objRef="e92845fc-7570-455f-9580-623183bccc0f" order="3" expressionType="StyleSetImpl"/>
               </icon>
             </children>
-            <children xsi:type="tura.domain:Button" uid="150d42d7-bfb4-416e-b9d1-116640bcef5b" label="Remove">
-              <multiLangLabel/>
+            <children xsi:type="tura.domain:Button" uid="150d42d7-bfb4-416e-b9d1-116640bcef5b" onEventRefreshArea="bee23d39-6e59-450f-b696-94cf4c907c86 ce2aedb4-2308-40d7-b9aa-c9819da6e0f4" label="Remove">
+              <triggers packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="97a1a7c3-5e08-48b1-82d0-8a35fa5a13e9" fakePackageName="Base package" fakeTypeName="System library" methodRef="22be5074-5d5e-4f52-916b-e802b8825b06" fakeMethod="Remove row" uid="a45dbf31-3834-428a-8c39-cc8449112b16">
+                <parameters uid="e65d58f3-d310-4cae-94e0-89019accede1" refObj="76475fdc-384e-4bef-afd5-a1b0a14a4162">
+                  <value uid="d49dda0b-2cdb-433f-9b9e-4e6a537bc717" value="Tree data controls.TreeCountry.Country">
+                    <expression expressionType="TreeRootDataControlHolder"/>
+                    <expression order="1" expressionType="TreeDataControl"/>
+                    <expression objRef="cd1cab1c-1781-4867-85b8-84d9f465f989" order="2" expressionType="DataControlImpl"/>
+                  </value>
+                </parameters>
+              </triggers>
+              <multiLangLabel value="Messages.HR Controller.REMOVE_BUTTON">
+                <expression objRef="af03a493-0ca4-486c-945f-5bfc2fdf35bd" expressionType="MessagesImpl"/>
+                <expression objRef="5772ddee-a83b-41c9-8f34-c442412e1013" order="1" expressionType="MessageLibraryImpl"/>
+                <expression objRef="8a832c5c-aa0c-4eea-a10a-2203bea1beb0" order="2" expressionType="MessageImpl"/>
+              </multiLangLabel>
               <icon value="Application styles.HR styles.HR Controller styles.Remove row button">
                 <expression objRef="c7379293-bc50-4b7e-8cc9-917bc2dd97aa" expressionType="ApplicationStyleImpl"/>
                 <expression objRef="a9b99a7f-03c7-4b89-82c2-b3e1f0f326d2" order="1" expressionType="StylesPackageImpl"/>
                 <expression objRef="bc917c9e-7594-4ff8-9157-a9e6cf5ac5f5" order="2" expressionType="StyleLibraryImpl"/>
                 <expression objRef="a1d3f2ac-caea-4f0b-a523-59edc4fd19b5" order="3" expressionType="StyleSetImpl"/>
+              </icon>
+            </children>
+            <children xsi:type="tura.domain:Button" uid="33530ac1-01b9-4f9a-ad4a-4153d107ee43" onEventRefreshArea="bee23d39-6e59-450f-b696-94cf4c907c86 ce2aedb4-2308-40d7-b9aa-c9819da6e0f4" label="Add child">
+              <triggers packageRef="e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="c4654ad8-156f-4706-bda2-791ed81fcdea" fakePackageName="HR package" fakeTypeName="Action executor" methodRef="8a9e6244-1bd4-4be0-89ed-4fd759f7ef2e" fakeMethod="createChildRow" uid="e83a3f73-7ef1-445f-b127-85f483954043">
+                <parameters uid="15c69adc-7a25-45f6-b3d1-31385b72ef88" refObj="a4b169f9-9766-4ccb-8d4a-536e7624eeb8">
+                  <value uid="be147cda-bab6-4435-9151-923b058006a3" value="Tree data controls.TreeCountry.Country">
+                    <expression expressionType="TreeRootDataControlHolder"/>
+                    <expression order="1" expressionType="TreeDataControl"/>
+                    <expression objRef="cd1cab1c-1781-4867-85b8-84d9f465f989" order="2" expressionType="DataControlImpl"/>
+                  </value>
+                </parameters>
+              </triggers>
+              <multiLangLabel value="Messages.HR Controller.ADD_CHILD_BUTTON">
+                <expression objRef="af03a493-0ca4-486c-945f-5bfc2fdf35bd" expressionType="MessagesImpl"/>
+                <expression objRef="5772ddee-a83b-41c9-8f34-c442412e1013" order="1" expressionType="MessageLibraryImpl"/>
+                <expression objRef="20cb2233-dc66-4231-a174-6937e29ddcc1" order="2" expressionType="MessageImpl"/>
+              </multiLangLabel>
+              <icon value="Application styles.HR styles.HR Controller styles.ui-icon-plus">
+                <expression objRef="c7379293-bc50-4b7e-8cc9-917bc2dd97aa" expressionType="ApplicationStyleImpl"/>
+                <expression objRef="a9b99a7f-03c7-4b89-82c2-b3e1f0f326d2" order="1" expressionType="StylesPackageImpl"/>
+                <expression objRef="bc917c9e-7594-4ff8-9157-a9e6cf5ac5f5" order="2" expressionType="StyleLibraryImpl"/>
+                <expression objRef="e92845fc-7570-455f-9580-623183bccc0f" order="3" expressionType="StyleSetImpl"/>
               </icon>
             </children>
           </children>

@@ -25,5 +25,9 @@ public class Scroller<T>  extends AbstractList<T> {
 	public int size() {
 		return (int)pager.actualListSize();
 	}
+	
+	protected Pager<T>  getPager(){
+		return pager;
+	}
 
 }

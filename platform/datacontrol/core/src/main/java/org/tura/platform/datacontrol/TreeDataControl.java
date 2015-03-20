@@ -17,13 +17,13 @@ import org.tura.platform.datacontrol.event.RowRemovedEvent;
 import org.tura.platform.datacontrol.metainfo.DependecyProperty;
 import org.tura.platform.datacontrol.metainfo.Relation;
 
-public abstract class TreeDataControl implements IDataControl , EventListener{
+public abstract class TreeDataControl implements IDataControl, EventListener {
 
 	protected List<DependecyProperty> dependency = new ArrayList<DependecyProperty>();
 	private Relation parent;
 	private Relation treeRelation = new Relation();
 	protected HashMap<String, Relation> children = new HashMap<String, Relation>();
-	
+
 	private ArrayList<EventListener> eventLiteners = new ArrayList<>();
 
 	private Object currentObject;
@@ -42,7 +42,7 @@ public abstract class TreeDataControl implements IDataControl , EventListener{
 		this.root = root;
 		this.currentControl = root;
 		root.setParent(treeRelation);
-		currentPosition = new int[]{0};
+		currentPosition = new int[] { 0 };
 	}
 
 	@Override
@@ -63,11 +63,10 @@ public abstract class TreeDataControl implements IDataControl , EventListener{
 		return children.keySet();
 	}
 
-	
 	public void addEventLiteners(EventListener listener) {
 		eventLiteners.add(listener);
 	}
-	
+
 	@Override
 	public void handleChangeMusterCurrentRecordNotification(
 			Object newCurrentObject) throws TuraException {
@@ -99,12 +98,11 @@ public abstract class TreeDataControl implements IDataControl , EventListener{
 		notifyDependencyListeners(newCurrentObject);
 	}
 
-	
 	private void notifyLiteners(Event event) throws TuraException {
 		for (EventListener listener : eventLiteners) {
 			listener.handleEventListener(event);
 		}
-	}	
+	}
 
 	private void notifyDependencyListeners(Object newCurrentObject)
 			throws TuraException {
@@ -127,6 +125,32 @@ public abstract class TreeDataControl implements IDataControl , EventListener{
 		return currentObject;
 	}
 
+	public Object createChildObject(String relationName) throws TuraException {
+		if (blocked)
+			return null;
+		Object obj = null;
+		try {
+			BeanWrapper w = ((BeanWrapper) Reflection.call(currentObject,
+					"getWrapper"));
+			DataControl<?> dc = w.getDatacontrol();
+
+			Relation rel = dc.getChild(relationName);
+			if (rel.getChild() == null)
+				dc.createChild(relationName);
+			obj = rel.getChild().createObject();
+		} catch (Exception e) {
+			throw new TuraException(e);
+		}
+
+		if (obj != null) {
+			notifyLiteners(new RowCreatedEvent(this, obj));
+			return obj;
+		}
+		throw new TuraException(
+				"Error during creation new object for tree data control");
+
+	}
+
 	@Override
 	public Object createObject() throws TuraException {
 		if (blocked)
@@ -142,7 +166,7 @@ public abstract class TreeDataControl implements IDataControl , EventListener{
 		}
 
 		if (currentObject != null) {
-			notifyLiteners(new RowCreatedEvent(this, currentObject));			
+			notifyLiteners(new RowCreatedEvent(this, currentObject));
 			notifyChageRecordAll(currentObject);
 		} else {
 			throw new TuraException(
@@ -171,15 +195,14 @@ public abstract class TreeDataControl implements IDataControl , EventListener{
 		if (blocked)
 			return;
 
-		setCurrentPosition(new int[]{0});
+		setCurrentPosition(new int[] { 0 });
 
 		BeanWrapper w = ((BeanWrapper) Reflection.call(currentObject,
 				"getWrapper"));
 		DataControl<?> dc = w.getDatacontrol();
 
-
 		dc.removeAll();
-		
+
 		notifyLiteners(new RowRemovedEvent(this, null));
 		notifyChageRecordAll(null);
 	}
@@ -241,12 +264,12 @@ public abstract class TreeDataControl implements IDataControl , EventListener{
 		currentPosition = (int[]) o;
 		notifyLiteners(new RowChangedEvent(this));
 		notifyChageRecordAll(obj);
-		
+
 		return true;
 	}
-	
+
 	@Override
-	public Object getCurrentPosition(){
+	public Object getCurrentPosition() {
 		return currentPosition;
 	}
 
@@ -285,6 +308,6 @@ public abstract class TreeDataControl implements IDataControl , EventListener{
 	@Override
 	public void handleEventListener(Event event) throws TuraException {
 		notifyLiteners(event);
-	}	
-	
+	}
+
 }

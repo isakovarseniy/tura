@@ -3,10 +3,14 @@ package org.tura.example.ui.hrcontroller.actions;
 import javax.faces.event.ActionEvent;
 import javax.inject.Inject;
 
+import org.tura.platform.datacontrol.BeanWrapper;
 import org.tura.platform.datacontrol.CommandStack;
 import org.tura.platform.datacontrol.DataControl;
 import org.tura.platform.datacontrol.ELResolver;
+import org.tura.platform.datacontrol.IDataControl;
+import org.tura.platform.datacontrol.TreeDataControl;
 import org.tura.platform.datacontrol.commons.Reflection;
+import org.tura.platform.datacontrol.commons.TuraException;
 import org.tura.platform.persistence.TuraObject;
 import org.tura.platform.primefaces.lib.EventAccessor;
 
@@ -45,7 +49,6 @@ public class Actions implements EventAccessor {
 		}
 	}
 
-	
 	public void rallbackApplication() {
 		try {
 			commandStack.rallbackCommand();
@@ -54,8 +57,20 @@ public class Actions implements EventAccessor {
 		}
 	}
 
-	
-	
+	public void createChildRow(IDataControl datacontrol) {
+		try {
+			TreeDataControl tdc = (TreeDataControl) datacontrol;
+			BeanWrapper w = ((BeanWrapper) Reflection.call(
+					tdc.getCurrentObject(), "getWrapper"));
+			DataControl<?> dc = w.getDatacontrol();
+			String rel = dc.getRelationsName().iterator().next();
+			if (rel != null)
+				tdc.createChildObject(rel);
+		} catch (Exception e) {
+
+		}
+	}
+
 	@Override
 	public void setEvent(ActionEvent event) {
 		this.event = event;

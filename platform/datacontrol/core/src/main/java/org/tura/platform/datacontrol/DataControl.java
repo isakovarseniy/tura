@@ -38,13 +38,17 @@ public abstract class DataControl<T> extends MetaInfoHolder implements
 
 	private Pager<T> pager;
 	private int currentPosition = 0;
+	
+	private Scroller<T> scroller;
 
 	protected Object comandResultHolder;
 
 	protected CommandStack commandStack;
 
+	@SuppressWarnings({ "unchecked" })
 	public DataControl() throws Exception {
 		this.pager = new Pager<T>(this);
+		this.scroller = (Scroller<T>) ScrollerWrapper.newInstance(new Scroller<T>(pager));
 	}
 
 	public void addEventLiteners(EventListener listener) {
@@ -386,7 +390,7 @@ public abstract class DataControl<T> extends MetaInfoHolder implements
 	}
 
 	public List<T> getScroller() {
-		return new Scroller<T>(pager);
+		return scroller;
 	}
 
 }

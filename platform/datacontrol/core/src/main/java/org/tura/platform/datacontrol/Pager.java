@@ -68,7 +68,7 @@ public class Pager<T> {
 	}
 
 	public long actualListSize() {
-		return entities.getActualRowNumber()+shifter.getCorrection();
+		return shifter.getActualRowNumber();
 	}
 
 	private boolean prepareQuery() throws NoSuchMethodException,
@@ -211,6 +211,7 @@ public class Pager<T> {
 
 				entities = (LazyList<T>) datacontrol.getSearchCommand()
 						.execute();
+				shifter.setActualRowNumber(entities.getActualRowNumber());
 
 			} finally {
 				datacontrol.getCommandStack().commitTransaction();

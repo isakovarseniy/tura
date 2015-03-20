@@ -1,6 +1,5 @@
 package org.tura.platform.datacontrol.command;
 
-import org.tura.platform.datacontrol.BeanWrapper;
 import org.tura.platform.datacontrol.DataControl;
 import org.tura.platform.datacontrol.Util;
 import org.tura.platform.datacontrol.commons.Reflection;
