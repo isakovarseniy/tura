@@ -1,6 +1,7 @@
 package org.tura.platform.primefaces.model;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
@@ -32,7 +33,6 @@ public class TreeModel {
 		this.dc = dc;
 		dc.addEventLiteners(new RecordListener());
 	}
-	
 
 	@SuppressWarnings("rawtypes")
 	public TreeNode getRoot() throws Exception {
@@ -45,6 +45,11 @@ public class TreeModel {
 				DefaultTreeNode leaf = new DefaultTreeNode(new Object[] { i,
 						scroler.get(i) }, root);
 				new DefaultTreeNode(new Fake(), leaf);
+			}
+
+			if (root.getChildren().size() != 0
+					&& !(root.getChildren().get(0).getData() instanceof Fake)) {
+				selectedNode = root.getChildren().get(0);
 			}
 		}
 
@@ -59,9 +64,17 @@ public class TreeModel {
 
 		if (selectedNode == null)
 			return;
-		this.selectedNode = selectedNode; 
+		this.selectedNode = selectedNode;
 
-		TreeNode runner = selectedNode;
+		int [] p = getPath(selectedNode);
+		if (!compareArrays((int[]) dc.getCurrentPosition(), p))
+			dc.setCurrentPosition(p);
+
+	}
+
+	private int[] getPath(TreeNode node ){
+		
+		TreeNode runner = node;
 		List<Integer> path = new ArrayList<Integer>();
 		while (true) {
 			if (runner.getData() instanceof Root)
@@ -78,11 +91,9 @@ public class TreeModel {
 			p[i] = path.get(i).intValue();
 		}
 
-		if (!compareArrays((int[]) dc.getCurrentPosition(), p))
-			dc.setCurrentPosition(p);
-
+		return p;
 	}
-
+	
 	@SuppressWarnings("rawtypes")
 	public void onNodeExpand(NodeExpandEvent event) throws Exception {
 		org.primefaces.component.tree.Tree object = (org.primefaces.component.tree.Tree) event
@@ -162,38 +173,109 @@ public class TreeModel {
 	class RecordListener implements EventListener {
 		@Override
 		public void handleEventListener(Event event) throws TuraException {
-			if (event instanceof MasterRowChangedEvent  && event.getSource() instanceof TreeDataControl ) {
+			if (event instanceof MasterRowChangedEvent
+					&& event.getSource() instanceof TreeDataControl) {
 				root = null;
 			}
-			if (event instanceof RowCreatedEvent  && event.getSource() instanceof DataControl ) {
-				TreeNode parent =  selectedNode.getParent();
-				parent.setSelected(true);
-				parent.getChildren().clear();
-				List<?> scroler =  ((DataControl<?>)(event.getSource())).getScroller();
-				for (int i = 0; i < scroler.size(); i++) {
-					DefaultTreeNode leaf = new DefaultTreeNode(new Object[] { i,
-							scroler.get(i) }, parent);
-					new DefaultTreeNode(new Fake(), leaf);
+			if (event instanceof RowCreatedEvent
+					&& event.getSource() instanceof DataControl) {
+				try {
+					TreeNode parent = null;
+					if (selectedNode == null) {
+						parent = root;
+					} else {
+						Object[] data = (Object[]) selectedNode.getData();
+						Object obj = data[1];
+						BeanWrapper w = ((BeanWrapper) Reflection.call(obj,
+								"getWrapper"));
+						DataControl<?> currentDc = w.getDatacontrol();
+
+						if (currentDc.getId().equals(
+								((DataControl<?>) (event.getSource())).getId()))
+							parent = selectedNode.getParent();
+						else
+							parent = selectedNode;
+					}
+
+					parent.setExpanded(true);
+					parent.getChildren().clear();
+					List<?> scroler = ((DataControl<?>) (event.getSource()))
+							.getScroller();
+					for (int i = 0; i < scroler.size(); i++) {
+						DefaultTreeNode leaf = new DefaultTreeNode(
+								new Object[] { i, scroler.get(i) }, parent);
+						new DefaultTreeNode(new Fake(), leaf);
+					}
+					
+					parent.setSelected(true);
+					setSelectedNode(parent);
+				} catch (Exception e) {
+
 				}
+			}
+			if (event instanceof RowRemovedEvent
+					&& event.getSource() instanceof TreeDataControl) {
+				try {
+
+					if (selectedNode == null
+							|| (selectedNode != null && selectedNode
+									.getChildren().get(0).getData() instanceof Root)) {
+						return;
+					}
+					
+					int [] p = getPath(selectedNode);
 				
-			}
-			if (event instanceof RowRemovedEvent && event.getSource() instanceof DataControl ) {
-				TreeNode parent =  selectedNode.getParent();
-				parent.setSelected(true);
-				parent.getChildren().clear();
-				List<?> scroler =  ((DataControl<?>)(event.getSource())).getScroller();
-				for (int i = 0; i < scroler.size(); i++) {
-					DefaultTreeNode leaf = new DefaultTreeNode(new Object[] { i,
-							scroler.get(i) }, parent);
-					new DefaultTreeNode(new Fake(), leaf);
+					TreeNode parent = selectedNode.getParent();
+					parent.setExpanded(true);
+					parent.getChildren().clear();
+
+					Object[] data = (Object[]) selectedNode.getData();
+					Object obj = data[1];
+					
+					BeanWrapper w = ((BeanWrapper) Reflection.call(obj,
+							"getWrapper"));
+					DataControl<?> currentDc = w.getDatacontrol();
+					List<?> scroller = currentDc.getScroller();
+
+					for (int i = 0; i < scroller.size(); i++) {
+						DefaultTreeNode leaf = new DefaultTreeNode(
+								new Object[] { i, scroller.get(i) }, parent);
+						new DefaultTreeNode(new Fake(), leaf);
+					}
+					
+					cleanSelection(root);
+					if (parent.getChildren().size() ==  0){
+						p = Arrays.copyOf(p, p.length-1);
+						parent.setSelected(true);
+						setSelectedNode(parent);
+					}else{
+						int lastIndex = p[p.length-1];
+						if (lastIndex  == parent.getChildren().size() ){
+							lastIndex--;
+							p[p.length-1] = lastIndex;
+						}
+						parent.getChildren().get(lastIndex).setSelected(true);
+						setSelectedNode(parent.getChildren().get(lastIndex));
+					}
+					
+					if (parent.getChildren().size() == 0){
+						new DefaultTreeNode(new Fake(), parent);
+						parent.setExpanded(false);
+					}
+
+				} catch (Exception e) {
+
 				}
-				if (parent.getChildren().size() == 0)
-					new DefaultTreeNode(new Fake(), parent);				
+
 			}
-			
-			
 		}
-
+		private void cleanSelection( TreeNode node){
+			for (TreeNode child : node.getChildren()){
+				child.setSelected(false);
+				if (child.isExpanded() ){
+					cleanSelection(child);
+				}
+			}
+		}
 	}
-
 }

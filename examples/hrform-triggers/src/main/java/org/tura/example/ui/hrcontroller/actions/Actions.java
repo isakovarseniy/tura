@@ -10,7 +10,6 @@ import org.tura.platform.datacontrol.ELResolver;
 import org.tura.platform.datacontrol.IDataControl;
 import org.tura.platform.datacontrol.TreeDataControl;
 import org.tura.platform.datacontrol.commons.Reflection;
-import org.tura.platform.datacontrol.commons.TuraException;
 import org.tura.platform.persistence.TuraObject;
 import org.tura.platform.primefaces.lib.EventAccessor;
 
