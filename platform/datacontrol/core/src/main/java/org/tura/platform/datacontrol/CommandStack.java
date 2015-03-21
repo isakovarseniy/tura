@@ -21,6 +21,7 @@ import java.util.Iterator;
 
 import org.tura.platform.datacontrol.command.Command;
 import org.tura.platform.datacontrol.commons.TuraException;
+import org.tura.platform.datacontrol.event.ControlRallbackEvent;
 
 public abstract class CommandStack {
 
@@ -55,6 +56,7 @@ public abstract class CommandStack {
 
 		for ( DataControl<?> dc :  hash.values() ) {
 			dc.forceRefresh();
+			dc.notifyLiteners(new ControlRallbackEvent(dc));
 		}
 		
 		transaction = new ArrayList<Command>();

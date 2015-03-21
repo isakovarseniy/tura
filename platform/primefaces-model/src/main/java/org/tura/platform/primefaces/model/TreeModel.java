@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import java.util.logging.Logger;
 
 import org.primefaces.event.NodeCollapseEvent;
 import org.primefaces.event.NodeExpandEvent;
@@ -18,6 +19,7 @@ import org.tura.platform.datacontrol.IDataControl;
 import org.tura.platform.datacontrol.TreeDataControl;
 import org.tura.platform.datacontrol.commons.Reflection;
 import org.tura.platform.datacontrol.commons.TuraException;
+import org.tura.platform.datacontrol.event.ControlRallbackEvent;
 import org.tura.platform.datacontrol.event.Event;
 import org.tura.platform.datacontrol.event.MasterRowChangedEvent;
 import org.tura.platform.datacontrol.event.RowCreatedEvent;
@@ -28,10 +30,13 @@ public class TreeModel {
 	private TreeNode root;
 	private TreeNode selectedNode;
 	private TreeDataControl dc;
+	private Logger logger;
 
-	public TreeModel(TreeDataControl dc) {
+
+	public TreeModel(TreeDataControl dc, Logger logger) {
 		this.dc = dc;
 		dc.addEventLiteners(new RecordListener());
+		this.logger = logger;
 	}
 
 	@SuppressWarnings("rawtypes")
@@ -177,6 +182,10 @@ public class TreeModel {
 					&& event.getSource() instanceof TreeDataControl) {
 				root = null;
 			}
+			if (event instanceof ControlRallbackEvent
+					&& event.getSource() instanceof DataControl) {
+				root = null;
+			}
 			if (event instanceof RowCreatedEvent
 					&& event.getSource() instanceof TreeDataControl) {
 				try {
@@ -216,7 +225,7 @@ public class TreeModel {
 					selectedNode.setSelected(true);
 					setSelectedNode(selectedNode);
 				} catch (Exception e) {
-
+					logger.fine(e.getMessage());
 				}
 			}
 			if (event instanceof RowRemovedEvent
@@ -270,7 +279,7 @@ public class TreeModel {
 					}
 
 				} catch (Exception e) {
-
+					logger.fine(e.getMessage());
 				}
 
 			}

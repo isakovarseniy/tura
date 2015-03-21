@@ -65,7 +65,7 @@ public class ViewModel implements Serializable {
 	}
 
 	private TreeModel getTreeModel(TreeDataControl dc) {
-		return new TreeModel(dc);
+		return new TreeModel(dc,logger);
 	}
 
 }
