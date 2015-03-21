@@ -64,7 +64,7 @@ public class Pager<T> {
 	}
 
 	public int listSize() {
-		return entities.size();
+		return (int) shifter.getPersistedRowNumber();
 	}
 
 	public long actualListSize() {

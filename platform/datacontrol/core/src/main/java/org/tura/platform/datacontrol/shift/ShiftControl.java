@@ -104,6 +104,14 @@ public class ShiftControl {
 		removeOpr++;
 	}
 
+
+	/**
+	 * @return the actualRowNumber
+	 */
+	public long getPersistedRowNumber() {
+		return actualRowNumber;
+	}	
+	
 	/**
 	 * @return the actualRowNumber
 	 */
