@@ -22,9 +22,9 @@ import "platform:/plugin/org.tura.metamodel.wizard.generation/template/technolog
 		   <jta-data-source>[%=configuration.get("jndi access string")%]</jta-data-source>
 [%   } %]		
 [%
-        for (jar in libraries.keySet()) {
+        for (class in classes) {
 %]
-        <jar-file>[%=jar%]</jar-file>
+        <class>[%=class%]</class>
 [%       
         }
 %]   

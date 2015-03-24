@@ -686,6 +686,7 @@
       </extension>
     </types>
     <types xsi:type="tura.domain:Type" uid="c4654ad8-156f-4706-bda2-791ed81fcdea" name="Action executor">
+      <classifiers uid="e6c7f226-7118-4992-a2a6-565c708efbff" hint="cf9f4b41-ca24-4ef3-a564-6067bfafee67"/>
       <operations uid="5368d958-0a1b-4785-9681-47bcf5224d8d" name="openCompanyDetailsPopup">
         <returnValue packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="90b18156-de6d-42d1-b350-925e44a0e4cc"/>
       </operations>
@@ -1709,10 +1710,30 @@
       <hints uid="0a80d7c7-cf37-46c2-8804-665afda89f73" name="parameter"/>
       <hints uid="d8ff5239-74cb-46e9-a93b-eb95a50b6728" name="trigger.onclick"/>
       <hints uid="97b65510-1aaf-43b1-b505-99eb0c3dfdf0" name="trigger.oncomplete"/>
+      <hints uid="cf9f4b41-ca24-4ef3-a564-6067bfafee67" name="trigger.library"/>
     </artifacts>
     <artifacts uid="297535b2-a50c-411c-9014-4d739432685b" name="Primefaces">
       <hints uid="21d9dc34-d2cb-4b87-ab39-94afefd6765c" name="row number selector"/>
       <hints uid="b21dc9b3-20fd-42ff-bb82-79acc378d3e5" name="widget.var"/>
+    </artifacts>
+    <artifacts uid="46114178-7c60-4f25-bf31-4aa27a1b96af" name="Build MVC application" template="platform:/plugin/org.tura.metamodel.wizard.generation/template/pit/mvc/mainMVCApplicationBuilder.egl">
+      <modelQuery uid="188555d2-e437-4b17-ae85-a4f4597ad013" name="Query package of types" query="domain::Package.allInstances()->select(r|r.oclAsType(domain::Package).name='${Package name}').oclAsType(domain::Package).typedefinition.types->select(r|((r.oclIsKindOf(domain::Type ) ) )).oclAsType(domain::Categorized).classifiers->select(c|c.hint.name='${Hint}' and c.hint.oclAsType(ecore::EObject).eContainer().oclAsType(domain::Artifact).name = '${Artifact}' and  c.hint.oclAsType(ecore::EObject).eContainer().oclAsType(domain::Artifact).parent.oclAsType(domain::Artifacts).parent.oclAsType(domain::DomainArtifact).name = '${ArtifactLib}' )->collect(c|c.oclAsType(ecore::EObject).eContainer())">
+        <parameters uid="6fb0907b-ba5d-4954-bdc9-8c174e44c0a0" name="Artifact"/>
+        <parameters uid="55397cd2-f33b-43b3-b033-3c4ca5e9a714" name="ArtifactLib"/>
+        <parameters uid="78b18336-435a-4a3d-bc1b-3fae1dfb385b" name="Hint"/>
+        <parameters uid="5d27dc6d-474d-48c2-bb14-ca7d390430f5" name="Package name"/>
+      </modelQuery>
+      <modelQuery uid="ddb22166-e7e3-4f0b-8260-fe09d16f47b0" name="Query type" query="domain::Package.allInstances()->select(r|r.oclAsType(domain::Package).name='${Package name}').oclAsType(domain::Package).typedefinition.types->select(r|(r.oclIsKindOf(domain::Type) and  r.oclAsType(domain::Type).name = '${Type name}')  or (r.oclIsKindOf(domain::Primitive) and  r.oclAsType(domain::Primitive).name = '${Type name}') or (r.oclIsKindOf(domain::Enumarator) and  r.oclAsType(domain::Enumarator).name = '${Type name}') )">
+        <parameters uid="a8380e66-d89a-4e24-81ad-64df9457a5e0" name="Package name"/>
+        <parameters uid="6f6c8d57-871f-4e0b-9ade-0989c55add70" name="Type name"/>
+      </modelQuery>
+      <specifiers uid="e01f58bb-662f-47cf-a666-208c75a7245c" name="Builder implementation">
+        <options uid="5638ad73-9a8e-46b4-a492-0aaaefd809d2" value="JSE/Builder/Ant"/>
+        <options uid="8d9b9845-4aa5-4834-8473-c31b17721e31" value="JSE/Builder/Maven"/>
+      </specifiers>
+      <specifiers uid="9ed9cb8e-5232-447d-946e-78481528c5f2" name="MVC application implementation">
+        <options uid="9e726870-1ea0-4f4d-badf-d9709e0915dd" value="JEE/JSF/PrimeFaces"/>
+      </specifiers>
     </artifacts>
   </tura.domain:Artifacts>
   <tura.domain:Recipes uid="780d51bf-e928-4fb4-a228-4371d8fe439d" parent="fc4a8a78-b68c-4020-bb95-ab6d773b5486">
@@ -1736,10 +1757,16 @@
               <variables queryParamRef="97d2c830-e4db-4e67-ad46-a90a530ce768" value="NA"/>
             </queries>
             <queries uid="cb287391-c207-4ebc-bc8e-30940b1632e5" name="Get package Base package" queryRef="4d87c616-25ee-4815-9803-f6bf21be2840">
-              <variables queryParamRef="60329795-7cb7-4d67-97a7-f208accbe7a0" value="NA"/>
-              <variables queryParamRef="5cb28e0b-218c-487c-8697-1c4773f9c4e8" value="NA"/>
-              <variables queryParamRef="ef789342-0a88-4618-85e7-0fa2b01f1b36" value="NA"/>
-              <variables queryParamRef="87c1c616-79f3-452d-b88d-8761795f4bbc" value="NA"/>
+              <variables queryParamRef="60329795-7cb7-4d67-97a7-f208accbe7a0" value="Entity"/>
+              <variables queryParamRef="5cb28e0b-218c-487c-8697-1c4773f9c4e8" value="ORMEntity"/>
+              <variables queryParamRef="ef789342-0a88-4618-85e7-0fa2b01f1b36" value="Base package"/>
+              <variables queryParamRef="87c1c616-79f3-452d-b88d-8761795f4bbc" value="entityObject"/>
+            </queries>
+            <queries uid="6e95f5a2-f9d1-4e88-9875-0c050ac1107a" name="Get package HR package" queryRef="4d87c616-25ee-4815-9803-f6bf21be2840">
+              <variables queryParamRef="ef789342-0a88-4618-85e7-0fa2b01f1b36" value="HR package"/>
+              <variables queryParamRef="87c1c616-79f3-452d-b88d-8761795f4bbc" value="entityObject"/>
+              <variables queryParamRef="5cb28e0b-218c-487c-8697-1c4773f9c4e8" value="ORMEntity"/>
+              <variables queryParamRef="60329795-7cb7-4d67-97a7-f208accbe7a0" value="Entity"/>
             </queries>
           </mappers>
           <mappers uid="8fba4b70-da2d-42cd-a054-3930d715e823" domainArtifactRef="5945624b-20f3-47f9-9cb1-d0dc8df9491a" artifactRef="53a25731-a3bd-4158-81d1-70a4cab4c22c" name="Service producers ">
@@ -1777,6 +1804,26 @@
             <specifiers specifierRef="fb807a21-7aaa-480c-aa25-86f8528bdc16" valueRef="ac33a36f-af2d-4428-bbd1-d67a0e295c03"/>
             <queries uid="b526e6aa-68ce-4505-9f0e-888cd4ffa96a" name="Query message libraries of application" queryRef="8d7c9384-ed1a-4a96-866c-54dccc8f06cd">
               <variables queryParamRef="7a90b2c9-911d-485c-a2bc-e9f656b4734d" value="HR application"/>
+            </queries>
+          </mappers>
+          <mappers uid="13d652b7-50d4-4af0-b251-0f4dcc0719c5" domainArtifactRef="5945624b-20f3-47f9-9cb1-d0dc8df9491a" artifactRef="46114178-7c60-4f25-bf31-4aa27a1b96af" name="Build application">
+            <specifiers specifierRef="9ed9cb8e-5232-447d-946e-78481528c5f2" valueRef="9e726870-1ea0-4f4d-badf-d9709e0915dd"/>
+            <specifiers specifierRef="e01f58bb-662f-47cf-a666-208c75a7245c" valueRef="8d9b9845-4aa5-4834-8473-c31b17721e31"/>
+            <queries uid="227884af-48a6-4adc-a8c0-d25961cd60a5" name="Get NA object" queryRef="ddb22166-e7e3-4f0b-8260-fe09d16f47b0">
+              <variables queryParamRef="6f6c8d57-871f-4e0b-9ade-0989c55add70" value="NA"/>
+              <variables queryParamRef="a8380e66-d89a-4e24-81ad-64df9457a5e0" value="NA"/>
+            </queries>
+            <queries uid="660c0677-5dbf-4fc1-86b7-f7ebc4a0ca9e" name="Get HR package entities" queryRef="188555d2-e437-4b17-ae85-a4f4597ad013">
+              <variables queryParamRef="5d27dc6d-474d-48c2-bb14-ca7d390430f5" value="HR package"/>
+              <variables queryParamRef="78b18336-435a-4a3d-bc1b-3fae1dfb385b" value="Entity"/>
+              <variables queryParamRef="55397cd2-f33b-43b3-b033-3c4ca5e9a714" value="ORMEntity"/>
+              <variables queryParamRef="6fb0907b-ba5d-4954-bdc9-8c174e44c0a0" value="entityObject"/>
+            </queries>
+            <queries uid="4548c68c-d51e-41ba-ae10-ca557208b218" name="Get HR form trigger" queryRef="188555d2-e437-4b17-ae85-a4f4597ad013">
+              <variables queryParamRef="5d27dc6d-474d-48c2-bb14-ca7d390430f5" value="HR package"/>
+              <variables queryParamRef="78b18336-435a-4a3d-bc1b-3fae1dfb385b" value="trigger.library"/>
+              <variables queryParamRef="55397cd2-f33b-43b3-b033-3c4ca5e9a714" value="UIGeneration"/>
+              <variables queryParamRef="6fb0907b-ba5d-4954-bdc9-8c174e44c0a0" value="JSF"/>
             </queries>
           </mappers>
         </components>
@@ -1915,7 +1962,7 @@
     <mappers xsi:type="tura.domain:JavaMapper" uid="963dce3c-fcc6-4388-9dc6-c084f6f4fdae" uiLayer="true" packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="97a1a7c3-5e08-48b1-82d0-8a35fa5a13e9" fakePackageName="Base package" fakeTypeName="System library" mappedToPackageName="org.tura.platform.primefaces.lib" mappedToClassName="SystemLibrary" artifactId="primefaces-model" groupId="org.tura.platform" version="2.0"/>
     <mappers xsi:type="tura.domain:JavaMapper" uid="922fccb2-695f-4062-b5b3-953c717851ec" uiLayer="true" packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="7de77bc8-f109-43e4-95fe-0f2ca7a9f1d0" fakePackageName="Base package" fakeTypeName="General data control" mappedToPackageName="org.tura.platform.datacontrol" mappedToClassName="IDataControl" artifactId="core" groupId="org.tura.platform.datacontrol" version="2.0" libraryName=""/>
     <mappers xsi:type="tura.domain:JavaScriptMapper" uid="6b22c160-af59-4606-ac3c-f43db9619dd0" uiLayer="true" packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="971e11a5-49d4-402d-9ae4-4233c366a542" fakePackageName="Base package" fakeTypeName="Client system library" libraryUrl="clientSystemLibrary.js"/>
-    <mappers xsi:type="tura.domain:JavaMapper" uid="3349b9b4-1613-4331-ac71-2002be5890a6" uiLayer="true" packageRef="e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="c4654ad8-156f-4706-bda2-791ed81fcdea" fakePackageName="HR package" fakeTypeName="Action executor" mappedToPackageName="org.tura.example.ui.hrcontroller.actions" mappedToClassName="Actions" libraryName=""/>
+    <mappers xsi:type="tura.domain:JavaMapper" uid="3349b9b4-1613-4331-ac71-2002be5890a6" uiLayer="true" packageRef="e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="c4654ad8-156f-4706-bda2-791ed81fcdea" fakePackageName="HR package" fakeTypeName="Action executor" mappedToPackageName="org.tura.example.ui.hrcontroller.actions" mappedToClassName="Actions" artifactId="triggers" groupId="org.tura.example.service.hrform" version="2.0" libraryName=""/>
   </tura.domain:Mappers>
   <tura.domain:TypeDefinition uid="c9574970-474a-403a-9224-f91bc2f8fe7a"/>
   <tura.domain:Messages uid="af03a493-0ca4-486c-945f-5bfc2fdf35bd" parent="39c0cb8c-3370-4a8b-9dc8-f988c6c3a565">

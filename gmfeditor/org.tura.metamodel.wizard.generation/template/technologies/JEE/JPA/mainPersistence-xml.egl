@@ -5,7 +5,7 @@
      var util = new Native('org.tura.metamodel.commons.Util');
      var alltypes = new Native('java.util.ArrayList');
      var hash = new Native('java.util.HashMap');
-     var lib = new Native('java.util.HashMap');
+     var classes = new Native('java.util.ArrayList');
      
      
 
@@ -23,8 +23,8 @@
  
        for (type in alltypes){
           type.mappingType2Java(recipe,ingredient);
-          if (type.~library <> null)
-              lib.put(type.~library,type);
+          if (type.~fullName <> null)
+              classes.add(type.~fullName);
        }
      }
      hash.put("recipe",recipe);
@@ -33,7 +33,7 @@
      hash.put("model_mapper",model_mapper);
      hash.put("configuration",configuration);
      hash.put("types",alltypes);
-     hash.put("libraries",lib);
+     hash.put("classes",classes);
 
     util.populateTechnologies(hash,model_mapper);
 

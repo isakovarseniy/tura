@@ -17,6 +17,15 @@ operation  service_builder(hash) {
 
 
 [% @template
+operation  mvc_application_builder(hash) {
+    
+         maven_mvc_application_builder(hash);
+ 
+}
+%]
+
+
+[% @template
 operation  entity_build_runner(hash) {
     
          maven_entity_build_runner(hash);
