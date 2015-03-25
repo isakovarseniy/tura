@@ -24,7 +24,7 @@ operation glassfishdeploy(configuration,path,archive) {
 #!/bin/sh
 
 cd "[%=path%]"
-"[%=configuration.get('Application server home')%]"/bin/asadmin deploy ./[%=archive%]
+"[%=configuration.get('Application server home')%]"/bin/asadmin deploy  --force=true  ./[%=archive%]
 [%
 }
 %]

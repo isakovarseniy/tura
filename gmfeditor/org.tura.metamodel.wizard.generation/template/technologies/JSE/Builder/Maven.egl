@@ -17,6 +17,16 @@ operation  service_builder(hash) {
 
 
 [% @template
+operation  proxy_client_builder(hash) {
+    
+         maven_proxy_client_builder(hash);
+ 
+}
+%]
+
+
+
+[% @template
 operation  mvc_application_builder(hash) {
     
          maven_mvc_application_builder(hash);
@@ -41,13 +51,17 @@ operation  service_build_runner(hash) {
 }
 %]
 
+
+
 [% @template
-operation  proxy_client_builder(hash) {
+operation  mvc_build_runner(hash) {
     
-         maven_proxy_client_builder(hash);
+         maven_mvc_build_runner(hash);
  
 }
 %]
+
+
 
 
 [% @template
