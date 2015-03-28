@@ -8,13 +8,13 @@ import org.eclipse.core.resources.IFile;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.util.Diagnostician;
 import org.eclipse.emf.workspace.util.WorkspaceSynchronizer;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.DiagramEditPart;
 import org.eclipse.gmf.runtime.emf.core.util.EMFCoreUtil;
 import org.eclipse.gmf.runtime.notation.View;
 import org.tura.metamodel.commons.Util;
 import org.tura.metamodel.validatioin.TuraCompositeEValidator;
+import org.tura.metamodel.validatioin.TuraDiagnostician;
 import org.tura.metamodel.validatioin.TuraValidator;
 
 import recipe.diagram.part.DomainDiagramEditorPlugin;
@@ -41,8 +41,7 @@ public class GMFValidation {
 	}
 
 	public void validate(DiagramEditPart diagramEditPart, View view) {
-		IFile target = view.eResource() != null ? WorkspaceSynchronizer
-				.getFile(view.eResource()) : null;
+		IFile target = view.eResource() != null ? WorkspaceSynchronizer.getFile(view.eResource()) : null;
 		if (target != null) {
 			DomainMarkerNavigationProvider.deleteMarkers(target);
 		}
@@ -52,13 +51,12 @@ public class GMFValidation {
 		}
 	}
 
-
 	@SuppressWarnings("unchecked")
 	private Diagnostic[] runGMFValidator(View target) {
 
 		if (target.isSetElement() && target.getElement() != null) {
 
-			Diagnostician diagnostician = new Diagnostician() {
+			TuraDiagnostician diagnostician = new TuraDiagnostician() {
 
 				public String getObjectLabel(EObject eObject) {
 					return EMFCoreUtil.getQualifiedName(eObject, true);
@@ -68,8 +66,7 @@ public class GMFValidation {
 
 			// Validate recipe
 			monitor.beginTask("Recipe validation", 1);
-			domain.Recipes recipes = (Recipes) target.getElement();
-			diag.add(diagnostician.validate(recipes));
+			diag.add(diagnostician.validate(target));
 			monitor.worked(1);
 			monitor.done();
 
@@ -84,54 +81,39 @@ public class GMFValidation {
 				Indicator.clean();
 				TuraCompositeEValidator.runTime = 1;
 
+				domain.Recipes recipes = (Recipes) target.getElement();
 				Indicator.currentRecipe = recipes.getRecipe();
-				for (Iterator<Ingredient> itr = recipes.getRecipe()
-						.getIngredients().iterator(); itr.hasNext();) {
+				for (Iterator<Ingredient> itr = recipes.getRecipe().getIngredients().iterator(); itr.hasNext();) {
 					Ingredient ingredient = itr.next();
 					Indicator.currentIngredient = ingredient;
-					for (Iterator<domain.Component> itrComp = ingredient
-							.getComponents().iterator(); itrComp.hasNext();) {
+					for (Iterator<domain.Component> itrComp = ingredient.getComponents().iterator(); itrComp.hasNext();) {
 						domain.Component comp = itrComp.next();
 						Indicator.currentComponent = comp;
-						monitor.beginTask(
-								"Component validation:" + comp.getName(), comp
-										.getMappers().size());
-						for (Iterator<domain.ModelMapper> itrMap = comp
-								.getMappers().iterator(); itrMap.hasNext();) {
+						monitor.beginTask("Component validation:" + comp.getName(), comp.getMappers().size());
+						for (Iterator<domain.ModelMapper> itrMap = comp.getMappers().iterator(); itrMap.hasNext();) {
 							domain.ModelMapper mapper = itrMap.next();
 							Indicator.currentModelMapper = mapper;
-							monitor.subTask("Mapper validetion :"
-									+ mapper.getName());
-							for (Iterator<domain.Query> itrQuery = mapper
-									.getQueries().iterator(); itrQuery
-									.hasNext();) {
+							monitor.subTask("Mapper validetion :" + mapper.getName());
+							for (Iterator<domain.Query> itrQuery = mapper.getQueries().iterator(); itrQuery.hasNext();) {
 								domain.Query query = itrQuery.next();
 								Indicator.currentQuery = query;
-								if (query.getQueryRef() != null
-										&& query.getQueryRef().getQuery() != null
+								if (query.getQueryRef() != null && query.getQueryRef().getQuery() != null
 										&& query.getQueryRef().getQuery() != null) {
 									try {
-										Object result = Util.runQuery(query,
-												mapper);
+										Object result = Util.runQuery(query, mapper);
 										if (result == null)
 											continue;
 										if (result instanceof Collection) {
 											for (EObject obj : ((Collection<EObject>) result)) {
-												diag.add(diagnostician
-														.validate(obj));
+												diag.add(diagnostician.validateObject(obj));
 											}
 										}
 										if (result instanceof EObject) {
-											diag.add(diagnostician
-													.validate((EObject) result));
+											diag.add(diagnostician.validateObject((EObject) result));
 										}
 
 									} catch (Exception e) {
-										DomainDiagramEditorPlugin
-												.getInstance()
-												.logError(
-														"Validation action failed",
-														e);
+										DomainDiagramEditorPlugin.getInstance().logError("Validation action failed", e);
 										validationError = true;
 									}
 								}
@@ -143,9 +125,10 @@ public class GMFValidation {
 				}
 			} finally {
 				TuraCompositeEValidator.runTime = 0;
+				TuraDiagnostician.cleanupResources();
 			}
 
-			for (Diagnostic d :  diag) {
+			for (Diagnostic d : diag) {
 				if (d.getSeverity() == Diagnostic.ERROR)
 					validationError = true;
 			}

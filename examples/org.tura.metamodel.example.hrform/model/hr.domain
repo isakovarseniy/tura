@@ -702,6 +702,7 @@
         <returnValue packageRef="e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="Vhc_52ffccb7-cea6-49de-ba4b-7437f1da3369"/>
       </operations>
     </types>
+    <types xsi:type="tura.domain:Type" uid="804fa960-b845-4d81-84f1-e847459f2d71"/>
   </tura.domain:TypeDefinition>
   <tura.domain:Mappers uid="e5ddc4b2-b9bc-4fb3-928a-2cb53fcc0d2d" parent="0d86886f-6d6e-49e1-a123-d063d2d9bd22">
     <mappers xsi:type="tura.domain:JavaMapper" uid="f77c09eb-aef3-4ebd-bb99-eb19ab9c40d6" serviceLayer="true" uiLayer="true" packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="e370b9d1-a6fb-4a40-88e2-8845be441438" mappedToPackageName="java.lang" mappedToClassName="String"/>
