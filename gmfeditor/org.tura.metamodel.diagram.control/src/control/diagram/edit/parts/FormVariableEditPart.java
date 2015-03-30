@@ -3,12 +3,17 @@
  */
 package control.diagram.edit.parts;
 
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.MarginBorder;
 import org.eclipse.draw2d.RoundedRectangle;
 import org.eclipse.draw2d.Shape;
 import org.eclipse.draw2d.StackLayout;
 import org.eclipse.draw2d.geometry.Dimension;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.edit.command.SetCommand;
+import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPolicy;
 import org.eclipse.gef.Request;
@@ -29,8 +34,11 @@ import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.Font;
 import org.eclipse.swt.widgets.Display;
 
+import org.tura.metamodel.commons.editparts.OrderedDefaultSizeNodeFigure;
 import control.diagram.edit.policies.FormVariableItemSemanticEditPolicy;
 import control.diagram.part.DomainVisualIDRegistry;
+import domain.DomainPackage;
+import domain.Orderable;
 
 /**
  * @generated
@@ -64,8 +72,7 @@ public class FormVariableEditPart extends ShapeNodeEditPart {
 	 */
 	protected void createDefaultEditPolicies() {
 		super.createDefaultEditPolicies();
-		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
-				new FormVariableItemSemanticEditPolicy());
+		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE, new FormVariableItemSemanticEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
 		// XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
 		// removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
@@ -78,8 +85,7 @@ public class FormVariableEditPart extends ShapeNodeEditPart {
 		org.eclipse.gmf.runtime.diagram.ui.editpolicies.LayoutEditPolicy lep = new org.eclipse.gmf.runtime.diagram.ui.editpolicies.LayoutEditPolicy() {
 
 			protected EditPolicy createChildEditPolicy(EditPart child) {
-				EditPolicy result = child
-						.getEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE);
+				EditPolicy result = child.getEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE);
 				if (result == null) {
 					result = new NonResizableEditPolicy();
 				}
@@ -116,9 +122,7 @@ public class FormVariableEditPart extends ShapeNodeEditPart {
 	 */
 	protected boolean addFixedChild(EditPart childEditPart) {
 		if (childEditPart instanceof FormVariableNameEditPart) {
-			((FormVariableNameEditPart) childEditPart)
-					.setLabel(getPrimaryShape()
-							.getFigureFormVariableLabelFigure());
+			((FormVariableNameEditPart) childEditPart).setLabel(getPrimaryShape().getFigureFormVariableLabelFigure());
 			return true;
 		}
 		return false;
@@ -165,7 +169,22 @@ public class FormVariableEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected NodeFigure createNodePlate() {
-		DefaultSizeNodeFigure result = new DefaultSizeNodeFigure(200, 16);
+		DefaultSizeNodeFigure result = new OrderedDefaultSizeNodeFigure(200, 16);
+		result.addPropertyChangeListener("order", new PropertyChangeListener() {
+
+			@Override
+			public void propertyChange(PropertyChangeEvent evt) {
+				EObject obj = ((View) getModel()).getElement();
+				if (obj instanceof Orderable) {
+					EditingDomain editingDomain = getEditingDomain();
+					editingDomain.getCommandStack().execute(
+							SetCommand.create(editingDomain, obj, DomainPackage.eINSTANCE.getOrderable_Order(),
+									evt.getNewValue()));
+
+				}
+			}
+		});
+
 		return result;
 	}
 
@@ -251,8 +270,7 @@ public class FormVariableEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	public EditPart getPrimaryChildEditPart() {
-		return getChildBySemanticHint(DomainVisualIDRegistry
-				.getType(FormVariableNameEditPart.VISUAL_ID));
+		return getChildBySemanticHint(DomainVisualIDRegistry.getType(FormVariableNameEditPart.VISUAL_ID));
 	}
 
 	/**
@@ -269,13 +287,11 @@ public class FormVariableEditPart extends ShapeNodeEditPart {
 		 * @generated
 		 */
 		public FormVariableFigure() {
-			this.setCornerDimensions(new Dimension(getMapMode().DPtoLP(8),
-					getMapMode().DPtoLP(8)));
+			this.setCornerDimensions(new Dimension(getMapMode().DPtoLP(8), getMapMode().DPtoLP(8)));
 			this.setOutline(false);
 			this.setForegroundColor(THIS_FORE);
 			this.setBackgroundColor(THIS_BACK);
-			this.setPreferredSize(new Dimension(getMapMode().DPtoLP(200),
-					getMapMode().DPtoLP(16)));
+			this.setPreferredSize(new Dimension(getMapMode().DPtoLP(200), getMapMode().DPtoLP(16)));
 			createContents();
 		}
 
@@ -288,8 +304,7 @@ public class FormVariableEditPart extends ShapeNodeEditPart {
 
 			fFigureFormVariableLabelFigure.setText("FormVariable");
 
-			fFigureFormVariableLabelFigure
-					.setFont(FFIGUREFORMVARIABLELABELFIGURE_FONT);
+			fFigureFormVariableLabelFigure.setFont(FFIGUREFORMVARIABLELABELFIGURE_FONT);
 
 			this.add(fFigureFormVariableLabelFigure);
 
@@ -317,7 +332,6 @@ public class FormVariableEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	static final Font FFIGUREFORMVARIABLELABELFIGURE_FONT = new Font(
-			Display.getCurrent(), "Palatino", 12, SWT.ITALIC);
+	static final Font FFIGUREFORMVARIABLELABELFIGURE_FONT = new Font(Display.getCurrent(), "Palatino", 12, SWT.ITALIC);
 
 }

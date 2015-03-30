@@ -83,8 +83,7 @@ public class DomainVisualIDRegistry {
 				return -1;
 			}
 		}
-		return canvas.diagram.part.DomainVisualIDRegistry.getVisualID(view
-				.getType());
+		return canvas.diagram.part.DomainVisualIDRegistry.getVisualID(view.getType());
 	}
 
 	/**
@@ -109,11 +108,9 @@ public class DomainVisualIDRegistry {
 		try {
 			return Integer.parseInt(type);
 		} catch (NumberFormatException e) {
-			if (Boolean.TRUE.toString().equalsIgnoreCase(
-					Platform.getDebugOption(DEBUG_KEY))) {
+			if (Boolean.TRUE.toString().equalsIgnoreCase(Platform.getDebugOption(DEBUG_KEY))) {
 				DomainDiagramEditorPlugin.getInstance().logError(
-						"Unable to parse view type as a visualID number: "
-								+ type);
+						"Unable to parse view type as a visualID number: " + type);
 			}
 		}
 		return -1;
@@ -133,8 +130,7 @@ public class DomainVisualIDRegistry {
 		if (domainElement == null) {
 			return -1;
 		}
-		if (DomainPackage.eINSTANCE.getCanvasView().isSuperTypeOf(
-				domainElement.eClass())
+		if (DomainPackage.eINSTANCE.getCanvasView().isSuperTypeOf(domainElement.eClass())
 				&& isDiagram((CanvasView) domainElement)) {
 			return CanvasViewEditPart.VISUAL_ID;
 		}
@@ -148,16 +144,13 @@ public class DomainVisualIDRegistry {
 		if (domainElement == null) {
 			return -1;
 		}
-		String containerModelID = canvas.diagram.part.DomainVisualIDRegistry
-				.getModelID(containerView);
-		if (!CanvasViewEditPart.MODEL_ID.equals(containerModelID)
-				&& !"domain".equals(containerModelID)) { //$NON-NLS-1$
+		String containerModelID = canvas.diagram.part.DomainVisualIDRegistry.getModelID(containerView);
+		if (!CanvasViewEditPart.MODEL_ID.equals(containerModelID) && !"domain".equals(containerModelID)) { //$NON-NLS-1$
 			return -1;
 		}
 		int containerVisualID;
 		if (CanvasViewEditPart.MODEL_ID.equals(containerModelID)) {
-			containerVisualID = canvas.diagram.part.DomainVisualIDRegistry
-					.getVisualID(containerView);
+			containerVisualID = canvas.diagram.part.DomainVisualIDRegistry.getVisualID(containerView);
 		} else {
 			if (containerView instanceof Diagram) {
 				containerVisualID = CanvasViewEditPart.VISUAL_ID;
@@ -167,234 +160,182 @@ public class DomainVisualIDRegistry {
 		}
 		switch (containerVisualID) {
 		case CanvasViewEditPart.VISUAL_ID:
-			if (DomainPackage.eINSTANCE.getLayerHolder().isSuperTypeOf(
-					domainElement.eClass())) {
+			if (DomainPackage.eINSTANCE.getLayerHolder().isSuperTypeOf(domainElement.eClass())) {
 				return LayerHolderEditPart.VISUAL_ID;
 			}
 			break;
 		case LayerHolderLayerHolderChildrenCompartmentEditPart.VISUAL_ID:
-			if (DomainPackage.eINSTANCE.getDropDownSelection().isSuperTypeOf(
-					domainElement.eClass())) {
+			if (DomainPackage.eINSTANCE.getDropDownSelection().isSuperTypeOf(domainElement.eClass())) {
 				return DropDownSelectionEditPart.VISUAL_ID;
 			}
-			if (DomainPackage.eINSTANCE.getTable().isSuperTypeOf(
-					domainElement.eClass())) {
+			if (DomainPackage.eINSTANCE.getTable().isSuperTypeOf(domainElement.eClass())) {
 				return TableEditPart.VISUAL_ID;
 			}
-			if (DomainPackage.eINSTANCE.getTree().isSuperTypeOf(
-					domainElement.eClass())) {
+			if (DomainPackage.eINSTANCE.getTree().isSuperTypeOf(domainElement.eClass())) {
 				return Tree2EditPart.VISUAL_ID;
 			}
-			if (DomainPackage.eINSTANCE.getLayerHolder().isSuperTypeOf(
-					domainElement.eClass())) {
+			if (DomainPackage.eINSTANCE.getLayerHolder().isSuperTypeOf(domainElement.eClass())) {
 				return LayerHolder3EditPart.VISUAL_ID;
 			}
-			if (DomainPackage.eINSTANCE.getInputText().isSuperTypeOf(
-					domainElement.eClass())) {
+			if (DomainPackage.eINSTANCE.getInputText().isSuperTypeOf(domainElement.eClass())) {
 				return InputTextEditPart.VISUAL_ID;
 			}
-			if (DomainPackage.eINSTANCE.getOutputText().isSuperTypeOf(
-					domainElement.eClass())) {
+			if (DomainPackage.eINSTANCE.getOutputText().isSuperTypeOf(domainElement.eClass())) {
 				return OutputTextEditPart.VISUAL_ID;
 			}
-			if (DomainPackage.eINSTANCE.getCheckBox().isSuperTypeOf(
-					domainElement.eClass())) {
+			if (DomainPackage.eINSTANCE.getCheckBox().isSuperTypeOf(domainElement.eClass())) {
 				return CheckBoxEditPart.VISUAL_ID;
 			}
-			if (DomainPackage.eINSTANCE.getButton().isSuperTypeOf(
-					domainElement.eClass())) {
+			if (DomainPackage.eINSTANCE.getButton().isSuperTypeOf(domainElement.eClass())) {
 				return ButtonEditPart.VISUAL_ID;
 			}
-			if (DomainPackage.eINSTANCE.getLabel().isSuperTypeOf(
-					domainElement.eClass())) {
+			if (DomainPackage.eINSTANCE.getLabel().isSuperTypeOf(domainElement.eClass())) {
 				return LabelEditPart.VISUAL_ID;
 			}
 			break;
 		case TableTableColsCompartmentEditPart.VISUAL_ID:
-			if (DomainPackage.eINSTANCE.getColumn().isSuperTypeOf(
-					domainElement.eClass())) {
+			if (DomainPackage.eINSTANCE.getColumn().isSuperTypeOf(domainElement.eClass())) {
 				return ColumnEditPart.VISUAL_ID;
 			}
 			break;
 		case ColumnColumnElementCompartmentEditPart.VISUAL_ID:
-			if (DomainPackage.eINSTANCE.getDropDownSelection().isSuperTypeOf(
-					domainElement.eClass())) {
+			if (DomainPackage.eINSTANCE.getDropDownSelection().isSuperTypeOf(domainElement.eClass())) {
 				return DropDownSelection2EditPart.VISUAL_ID;
 			}
-			if (DomainPackage.eINSTANCE.getTable().isSuperTypeOf(
-					domainElement.eClass())) {
+			if (DomainPackage.eINSTANCE.getTable().isSuperTypeOf(domainElement.eClass())) {
 				return Table2EditPart.VISUAL_ID;
 			}
-			if (DomainPackage.eINSTANCE.getTree().isSuperTypeOf(
-					domainElement.eClass())) {
+			if (DomainPackage.eINSTANCE.getTree().isSuperTypeOf(domainElement.eClass())) {
 				return TreeEditPart.VISUAL_ID;
 			}
-			if (DomainPackage.eINSTANCE.getLayerHolder().isSuperTypeOf(
-					domainElement.eClass())) {
+			if (DomainPackage.eINSTANCE.getLayerHolder().isSuperTypeOf(domainElement.eClass())) {
 				return LayerHolder2EditPart.VISUAL_ID;
 			}
-			if (DomainPackage.eINSTANCE.getInputText().isSuperTypeOf(
-					domainElement.eClass())) {
+			if (DomainPackage.eINSTANCE.getInputText().isSuperTypeOf(domainElement.eClass())) {
 				return InputText2EditPart.VISUAL_ID;
 			}
-			if (DomainPackage.eINSTANCE.getOutputText().isSuperTypeOf(
-					domainElement.eClass())) {
+			if (DomainPackage.eINSTANCE.getOutputText().isSuperTypeOf(domainElement.eClass())) {
 				return OutputText2EditPart.VISUAL_ID;
 			}
-			if (DomainPackage.eINSTANCE.getCheckBox().isSuperTypeOf(
-					domainElement.eClass())) {
+			if (DomainPackage.eINSTANCE.getCheckBox().isSuperTypeOf(domainElement.eClass())) {
 				return CheckBox2EditPart.VISUAL_ID;
 			}
-			if (DomainPackage.eINSTANCE.getButton().isSuperTypeOf(
-					domainElement.eClass())) {
+			if (DomainPackage.eINSTANCE.getButton().isSuperTypeOf(domainElement.eClass())) {
 				return Button2EditPart.VISUAL_ID;
 			}
-			if (DomainPackage.eINSTANCE.getLabel().isSuperTypeOf(
-					domainElement.eClass())) {
+			if (DomainPackage.eINSTANCE.getLabel().isSuperTypeOf(domainElement.eClass())) {
 				return Label2EditPart.VISUAL_ID;
 			}
 			break;
 		case TableTableColsCompartment2EditPart.VISUAL_ID:
-			if (DomainPackage.eINSTANCE.getColumn().isSuperTypeOf(
-					domainElement.eClass())) {
+			if (DomainPackage.eINSTANCE.getColumn().isSuperTypeOf(domainElement.eClass())) {
 				return ColumnEditPart.VISUAL_ID;
 			}
 			break;
 		case TreeTreeColsCompartmentEditPart.VISUAL_ID:
-			if (DomainPackage.eINSTANCE.getColumn().isSuperTypeOf(
-					domainElement.eClass())) {
+			if (DomainPackage.eINSTANCE.getColumn().isSuperTypeOf(domainElement.eClass())) {
 				return Column2EditPart.VISUAL_ID;
 			}
 			break;
 		case ColumnColumnElementCompartment2EditPart.VISUAL_ID:
-			if (DomainPackage.eINSTANCE.getDropDownSelection().isSuperTypeOf(
-					domainElement.eClass())) {
+			if (DomainPackage.eINSTANCE.getDropDownSelection().isSuperTypeOf(domainElement.eClass())) {
 				return DropDownSelection2EditPart.VISUAL_ID;
 			}
-			if (DomainPackage.eINSTANCE.getTable().isSuperTypeOf(
-					domainElement.eClass())) {
+			if (DomainPackage.eINSTANCE.getTable().isSuperTypeOf(domainElement.eClass())) {
 				return Table2EditPart.VISUAL_ID;
 			}
-			if (DomainPackage.eINSTANCE.getTree().isSuperTypeOf(
-					domainElement.eClass())) {
+			if (DomainPackage.eINSTANCE.getTree().isSuperTypeOf(domainElement.eClass())) {
 				return TreeEditPart.VISUAL_ID;
 			}
-			if (DomainPackage.eINSTANCE.getLayerHolder().isSuperTypeOf(
-					domainElement.eClass())) {
+			if (DomainPackage.eINSTANCE.getLayerHolder().isSuperTypeOf(domainElement.eClass())) {
 				return LayerHolder2EditPart.VISUAL_ID;
 			}
-			if (DomainPackage.eINSTANCE.getInputText().isSuperTypeOf(
-					domainElement.eClass())) {
+			if (DomainPackage.eINSTANCE.getInputText().isSuperTypeOf(domainElement.eClass())) {
 				return InputText2EditPart.VISUAL_ID;
 			}
-			if (DomainPackage.eINSTANCE.getOutputText().isSuperTypeOf(
-					domainElement.eClass())) {
+			if (DomainPackage.eINSTANCE.getOutputText().isSuperTypeOf(domainElement.eClass())) {
 				return OutputText2EditPart.VISUAL_ID;
 			}
-			if (DomainPackage.eINSTANCE.getCheckBox().isSuperTypeOf(
-					domainElement.eClass())) {
+			if (DomainPackage.eINSTANCE.getCheckBox().isSuperTypeOf(domainElement.eClass())) {
 				return CheckBox2EditPart.VISUAL_ID;
 			}
-			if (DomainPackage.eINSTANCE.getButton().isSuperTypeOf(
-					domainElement.eClass())) {
+			if (DomainPackage.eINSTANCE.getButton().isSuperTypeOf(domainElement.eClass())) {
 				return Button2EditPart.VISUAL_ID;
 			}
-			if (DomainPackage.eINSTANCE.getLabel().isSuperTypeOf(
-					domainElement.eClass())) {
+			if (DomainPackage.eINSTANCE.getLabel().isSuperTypeOf(domainElement.eClass())) {
 				return Label2EditPart.VISUAL_ID;
 			}
 			break;
 		case LayerHolderLayerHolderChildrenCompartment2EditPart.VISUAL_ID:
-			if (DomainPackage.eINSTANCE.getDropDownSelection().isSuperTypeOf(
-					domainElement.eClass())) {
+			if (DomainPackage.eINSTANCE.getDropDownSelection().isSuperTypeOf(domainElement.eClass())) {
 				return DropDownSelectionEditPart.VISUAL_ID;
 			}
-			if (DomainPackage.eINSTANCE.getTable().isSuperTypeOf(
-					domainElement.eClass())) {
+			if (DomainPackage.eINSTANCE.getTable().isSuperTypeOf(domainElement.eClass())) {
 				return TableEditPart.VISUAL_ID;
 			}
-			if (DomainPackage.eINSTANCE.getTree().isSuperTypeOf(
-					domainElement.eClass())) {
+			if (DomainPackage.eINSTANCE.getTree().isSuperTypeOf(domainElement.eClass())) {
 				return Tree2EditPart.VISUAL_ID;
 			}
-			if (DomainPackage.eINSTANCE.getLayerHolder().isSuperTypeOf(
-					domainElement.eClass())) {
+			if (DomainPackage.eINSTANCE.getLayerHolder().isSuperTypeOf(domainElement.eClass())) {
 				return LayerHolder3EditPart.VISUAL_ID;
 			}
-			if (DomainPackage.eINSTANCE.getInputText().isSuperTypeOf(
-					domainElement.eClass())) {
+			if (DomainPackage.eINSTANCE.getInputText().isSuperTypeOf(domainElement.eClass())) {
 				return InputTextEditPart.VISUAL_ID;
 			}
-			if (DomainPackage.eINSTANCE.getOutputText().isSuperTypeOf(
-					domainElement.eClass())) {
+			if (DomainPackage.eINSTANCE.getOutputText().isSuperTypeOf(domainElement.eClass())) {
 				return OutputTextEditPart.VISUAL_ID;
 			}
-			if (DomainPackage.eINSTANCE.getCheckBox().isSuperTypeOf(
-					domainElement.eClass())) {
+			if (DomainPackage.eINSTANCE.getCheckBox().isSuperTypeOf(domainElement.eClass())) {
 				return CheckBoxEditPart.VISUAL_ID;
 			}
-			if (DomainPackage.eINSTANCE.getButton().isSuperTypeOf(
-					domainElement.eClass())) {
+			if (DomainPackage.eINSTANCE.getButton().isSuperTypeOf(domainElement.eClass())) {
 				return ButtonEditPart.VISUAL_ID;
 			}
-			if (DomainPackage.eINSTANCE.getLabel().isSuperTypeOf(
-					domainElement.eClass())) {
+			if (DomainPackage.eINSTANCE.getLabel().isSuperTypeOf(domainElement.eClass())) {
 				return LabelEditPart.VISUAL_ID;
 			}
 			break;
 		case TreeTreeColsCompartment2EditPart.VISUAL_ID:
-			if (DomainPackage.eINSTANCE.getColumn().isSuperTypeOf(
-					domainElement.eClass())) {
+			if (DomainPackage.eINSTANCE.getColumn().isSuperTypeOf(domainElement.eClass())) {
 				return Column2EditPart.VISUAL_ID;
 			}
 			break;
 		case LayerHolderLayerHolderChildrenCompartment3EditPart.VISUAL_ID:
-			if (DomainPackage.eINSTANCE.getDropDownSelection().isSuperTypeOf(
-					domainElement.eClass())) {
+			if (DomainPackage.eINSTANCE.getDropDownSelection().isSuperTypeOf(domainElement.eClass())) {
 				return DropDownSelectionEditPart.VISUAL_ID;
 			}
-			if (DomainPackage.eINSTANCE.getTable().isSuperTypeOf(
-					domainElement.eClass())) {
+			if (DomainPackage.eINSTANCE.getTable().isSuperTypeOf(domainElement.eClass())) {
 				return TableEditPart.VISUAL_ID;
 			}
-			if (DomainPackage.eINSTANCE.getTree().isSuperTypeOf(
-					domainElement.eClass())) {
+			if (DomainPackage.eINSTANCE.getTree().isSuperTypeOf(domainElement.eClass())) {
 				return Tree2EditPart.VISUAL_ID;
 			}
-			if (DomainPackage.eINSTANCE.getLayerHolder().isSuperTypeOf(
-					domainElement.eClass())) {
+			if (DomainPackage.eINSTANCE.getLayerHolder().isSuperTypeOf(domainElement.eClass())) {
 				return LayerHolder3EditPart.VISUAL_ID;
 			}
-			if (DomainPackage.eINSTANCE.getInputText().isSuperTypeOf(
-					domainElement.eClass())) {
+			if (DomainPackage.eINSTANCE.getInputText().isSuperTypeOf(domainElement.eClass())) {
 				return InputTextEditPart.VISUAL_ID;
 			}
-			if (DomainPackage.eINSTANCE.getOutputText().isSuperTypeOf(
-					domainElement.eClass())) {
+			if (DomainPackage.eINSTANCE.getOutputText().isSuperTypeOf(domainElement.eClass())) {
 				return OutputTextEditPart.VISUAL_ID;
 			}
-			if (DomainPackage.eINSTANCE.getCheckBox().isSuperTypeOf(
-					domainElement.eClass())) {
+			if (DomainPackage.eINSTANCE.getCheckBox().isSuperTypeOf(domainElement.eClass())) {
 				return CheckBoxEditPart.VISUAL_ID;
 			}
-			if (DomainPackage.eINSTANCE.getButton().isSuperTypeOf(
-					domainElement.eClass())) {
+			if (DomainPackage.eINSTANCE.getButton().isSuperTypeOf(domainElement.eClass())) {
 				return ButtonEditPart.VISUAL_ID;
 			}
-			if (DomainPackage.eINSTANCE.getLabel().isSuperTypeOf(
-					domainElement.eClass())) {
+			if (DomainPackage.eINSTANCE.getLabel().isSuperTypeOf(domainElement.eClass())) {
 				return LabelEditPart.VISUAL_ID;
 			}
 			break;
 		case ButtonButtonTriggersCompartmentEditPart.VISUAL_ID:
-			if (DomainPackage.eINSTANCE.getActionTrigger().isSuperTypeOf(
-					domainElement.eClass())) {
+			if (DomainPackage.eINSTANCE.getActionTrigger().isSuperTypeOf(domainElement.eClass())) {
 				return ActionTriggerEditPart.VISUAL_ID;
 			}
 			break;
 		case ButtonButtonTriggersCompartment2EditPart.VISUAL_ID:
-			if (DomainPackage.eINSTANCE.getActionTrigger().isSuperTypeOf(
-					domainElement.eClass())) {
+			if (DomainPackage.eINSTANCE.getActionTrigger().isSuperTypeOf(domainElement.eClass())) {
 				return ActionTriggerEditPart.VISUAL_ID;
 			}
 			break;
@@ -406,16 +347,13 @@ public class DomainVisualIDRegistry {
 	 * @generated
 	 */
 	public static boolean canCreateNode(View containerView, int nodeVisualID) {
-		String containerModelID = canvas.diagram.part.DomainVisualIDRegistry
-				.getModelID(containerView);
-		if (!CanvasViewEditPart.MODEL_ID.equals(containerModelID)
-				&& !"domain".equals(containerModelID)) { //$NON-NLS-1$
+		String containerModelID = canvas.diagram.part.DomainVisualIDRegistry.getModelID(containerView);
+		if (!CanvasViewEditPart.MODEL_ID.equals(containerModelID) && !"domain".equals(containerModelID)) { //$NON-NLS-1$
 			return false;
 		}
 		int containerVisualID;
 		if (CanvasViewEditPart.MODEL_ID.equals(containerModelID)) {
-			containerVisualID = canvas.diagram.part.DomainVisualIDRegistry
-					.getVisualID(containerView);
+			containerVisualID = canvas.diagram.part.DomainVisualIDRegistry.getVisualID(containerView);
 		} else {
 			if (containerView instanceof Diagram) {
 				containerVisualID = CanvasViewEditPart.VISUAL_ID;
@@ -725,8 +663,7 @@ public class DomainVisualIDRegistry {
 	/**
 	 * @generated
 	 */
-	public static boolean checkNodeVisualID(View containerView,
-			EObject domainElement, int candidate) {
+	public static boolean checkNodeVisualID(View containerView, EObject domainElement, int candidate) {
 		if (candidate == -1) {
 			//unrecognized id is always bad
 			return false;
@@ -808,16 +745,14 @@ public class DomainVisualIDRegistry {
 		 */
 		@Override
 		public int getNodeVisualID(View containerView, EObject domainElement) {
-			return canvas.diagram.part.DomainVisualIDRegistry.getNodeVisualID(
-					containerView, domainElement);
+			return canvas.diagram.part.DomainVisualIDRegistry.getNodeVisualID(containerView, domainElement);
 		}
 
 		/**
 		 * @generated
 		 */
 		@Override
-		public boolean checkNodeVisualID(View containerView,
-				EObject domainElement, int candidate) {
+		public boolean checkNodeVisualID(View containerView, EObject domainElement, int candidate) {
 			return canvas.diagram.part.DomainVisualIDRegistry
 					.checkNodeVisualID(containerView, domainElement, candidate);
 		}
@@ -827,8 +762,7 @@ public class DomainVisualIDRegistry {
 		 */
 		@Override
 		public boolean isCompartmentVisualID(int visualID) {
-			return canvas.diagram.part.DomainVisualIDRegistry
-					.isCompartmentVisualID(visualID);
+			return canvas.diagram.part.DomainVisualIDRegistry.isCompartmentVisualID(visualID);
 		}
 
 		/**
@@ -836,8 +770,7 @@ public class DomainVisualIDRegistry {
 		 */
 		@Override
 		public boolean isSemanticLeafVisualID(int visualID) {
-			return canvas.diagram.part.DomainVisualIDRegistry
-					.isSemanticLeafVisualID(visualID);
+			return canvas.diagram.part.DomainVisualIDRegistry.isSemanticLeafVisualID(visualID);
 		}
 	};
 

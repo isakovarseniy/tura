@@ -19,8 +19,7 @@ import frmview.diagram.edit.policies.TabPagesInheritanceItemSemanticEditPolicy;
 /**
  * @generated
  */
-public class TabPagesInheritanceEditPart extends ConnectionNodeEditPart
-		implements ITreeBranchEditPart {
+public class TabPagesInheritanceEditPart extends ConnectionNodeEditPart implements ITreeBranchEditPart {
 
 	/**
 	 * @generated
@@ -39,8 +38,7 @@ public class TabPagesInheritanceEditPart extends ConnectionNodeEditPart
 	 */
 	protected void createDefaultEditPolicies() {
 		super.createDefaultEditPolicies();
-		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
-				new TabPagesInheritanceItemSemanticEditPolicy());
+		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE, new TabPagesInheritanceItemSemanticEditPolicy());
 	}
 
 	/**

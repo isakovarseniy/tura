@@ -8,6 +8,7 @@ import domain.Context;
 import domain.DomainPackage;
 import domain.HTMLLayerHolder;
 import domain.MultiLangLabel;
+import domain.Orderable;
 import domain.TabPage;
 import domain.ViewElement;
 import domain.ViewPortHolder;
@@ -38,6 +39,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link domain.impl.TabPageImpl#getViewElement <em>View Element</em>}</li>
  *   <li>{@link domain.impl.TabPageImpl#getMultiLangLabel <em>Multi Lang Label</em>}</li>
  *   <li>{@link domain.impl.TabPageImpl#getClassifiers <em>Classifiers</em>}</li>
+ *   <li>{@link domain.impl.TabPageImpl#getOrder <em>Order</em>}</li>
  * </ul>
  * </p>
  *
@@ -94,6 +96,26 @@ public class TabPageImpl extends CanvasFrameImpl implements TabPage
    * @ordered
    */
   protected EList<Classifier> classifiers;
+
+  /**
+   * The default value of the '{@link #getOrder() <em>Order</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getOrder()
+   * @generated
+   * @ordered
+   */
+  protected static final int ORDER_EDEFAULT = 0;
+
+  /**
+   * The cached value of the '{@link #getOrder() <em>Order</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getOrder()
+   * @generated
+   * @ordered
+   */
+  protected int order = ORDER_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -220,6 +242,29 @@ public class TabPageImpl extends CanvasFrameImpl implements TabPage
    * <!-- end-user-doc -->
    * @generated
    */
+  public int getOrder()
+  {
+    return order;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setOrder(int newOrder)
+  {
+    int oldOrder = order;
+    order = newOrder;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.TAB_PAGE__ORDER, oldOrder, order));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
@@ -253,6 +298,8 @@ public class TabPageImpl extends CanvasFrameImpl implements TabPage
         return getMultiLangLabel();
       case DomainPackage.TAB_PAGE__CLASSIFIERS:
         return getClassifiers();
+      case DomainPackage.TAB_PAGE__ORDER:
+        return getOrder();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -282,6 +329,9 @@ public class TabPageImpl extends CanvasFrameImpl implements TabPage
         getClassifiers().clear();
         getClassifiers().addAll((Collection<? extends Classifier>)newValue);
         return;
+      case DomainPackage.TAB_PAGE__ORDER:
+        setOrder((Integer)newValue);
+        return;
     }
     super.eSet(featureID, newValue);
   }
@@ -308,6 +358,9 @@ public class TabPageImpl extends CanvasFrameImpl implements TabPage
       case DomainPackage.TAB_PAGE__CLASSIFIERS:
         getClassifiers().clear();
         return;
+      case DomainPackage.TAB_PAGE__ORDER:
+        setOrder(ORDER_EDEFAULT);
+        return;
     }
     super.eUnset(featureID);
   }
@@ -330,6 +383,8 @@ public class TabPageImpl extends CanvasFrameImpl implements TabPage
         return multiLangLabel != null;
       case DomainPackage.TAB_PAGE__CLASSIFIERS:
         return classifiers != null && !classifiers.isEmpty();
+      case DomainPackage.TAB_PAGE__ORDER:
+        return order != ORDER_EDEFAULT;
     }
     return super.eIsSet(featureID);
   }
@@ -371,6 +426,14 @@ public class TabPageImpl extends CanvasFrameImpl implements TabPage
       switch (derivedFeatureID)
       {
         case DomainPackage.TAB_PAGE__CLASSIFIERS: return DomainPackage.CATEGORIZED__CLASSIFIERS;
+        default: return -1;
+      }
+    }
+    if (baseClass == Orderable.class)
+    {
+      switch (derivedFeatureID)
+      {
+        case DomainPackage.TAB_PAGE__ORDER: return DomainPackage.ORDERABLE__ORDER;
         default: return -1;
       }
     }
@@ -417,6 +480,14 @@ public class TabPageImpl extends CanvasFrameImpl implements TabPage
         default: return -1;
       }
     }
+    if (baseClass == Orderable.class)
+    {
+      switch (baseFeatureID)
+      {
+        case DomainPackage.ORDERABLE__ORDER: return DomainPackage.TAB_PAGE__ORDER;
+        default: return -1;
+      }
+    }
     return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
   }
 
@@ -433,6 +504,8 @@ public class TabPageImpl extends CanvasFrameImpl implements TabPage
     StringBuffer result = new StringBuffer(super.toString());
     result.append(" (columns: ");
     result.append(columns);
+    result.append(", order: ");
+    result.append(order);
     result.append(')');
     return result.toString();
   }

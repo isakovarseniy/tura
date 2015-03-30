@@ -7,6 +7,7 @@ import domain.Classifier;
 import domain.Context;
 import domain.DomainPackage;
 import domain.NickNamed;
+import domain.Orderable;
 import domain.Uielement;
 
 import java.util.Collection;
@@ -34,6 +35,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link domain.impl.UielementImpl#getNickname <em>Nickname</em>}</li>
  *   <li>{@link domain.impl.UielementImpl#getClassifiers <em>Classifiers</em>}</li>
+ *   <li>{@link domain.impl.UielementImpl#getOrder <em>Order</em>}</li>
  *   <li>{@link domain.impl.UielementImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.impl.UielementImpl#getEnabled <em>Enabled</em>}</li>
  *   <li>{@link domain.impl.UielementImpl#getRequired <em>Required</em>}</li>
@@ -75,6 +77,26 @@ public class UielementImpl extends StyleElementImpl implements Uielement
    * @ordered
    */
   protected EList<Classifier> classifiers;
+
+  /**
+   * The default value of the '{@link #getOrder() <em>Order</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getOrder()
+   * @generated
+   * @ordered
+   */
+  protected static final int ORDER_EDEFAULT = 0;
+
+  /**
+   * The cached value of the '{@link #getOrder() <em>Order</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getOrder()
+   * @generated
+   * @ordered
+   */
+  protected int order = ORDER_EDEFAULT;
 
   /**
    * The default value of the '{@link #getUid() <em>Uid</em>}' attribute.
@@ -215,6 +237,29 @@ public class UielementImpl extends StyleElementImpl implements Uielement
       classifiers = new EObjectContainmentEList<Classifier>(Classifier.class, this, DomainPackage.UIELEMENT__CLASSIFIERS);
     }
     return classifiers;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public int getOrder()
+  {
+    return order;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setOrder(int newOrder)
+  {
+    int oldOrder = order;
+    order = newOrder;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.UIELEMENT__ORDER, oldOrder, order));
   }
 
   /**
@@ -411,6 +456,8 @@ public class UielementImpl extends StyleElementImpl implements Uielement
         return getNickname();
       case DomainPackage.UIELEMENT__CLASSIFIERS:
         return getClassifiers();
+      case DomainPackage.UIELEMENT__ORDER:
+        return getOrder();
       case DomainPackage.UIELEMENT__UID:
         return getUid();
       case DomainPackage.UIELEMENT__ENABLED:
@@ -442,6 +489,9 @@ public class UielementImpl extends StyleElementImpl implements Uielement
       case DomainPackage.UIELEMENT__CLASSIFIERS:
         getClassifiers().clear();
         getClassifiers().addAll((Collection<? extends Classifier>)newValue);
+        return;
+      case DomainPackage.UIELEMENT__ORDER:
+        setOrder((Integer)newValue);
         return;
       case DomainPackage.UIELEMENT__UID:
         setUid((String)newValue);
@@ -479,6 +529,9 @@ public class UielementImpl extends StyleElementImpl implements Uielement
       case DomainPackage.UIELEMENT__CLASSIFIERS:
         getClassifiers().clear();
         return;
+      case DomainPackage.UIELEMENT__ORDER:
+        setOrder(ORDER_EDEFAULT);
+        return;
       case DomainPackage.UIELEMENT__UID:
         setUid(UID_EDEFAULT);
         return;
@@ -512,6 +565,8 @@ public class UielementImpl extends StyleElementImpl implements Uielement
         return NICKNAME_EDEFAULT == null ? nickname != null : !NICKNAME_EDEFAULT.equals(nickname);
       case DomainPackage.UIELEMENT__CLASSIFIERS:
         return classifiers != null && !classifiers.isEmpty();
+      case DomainPackage.UIELEMENT__ORDER:
+        return order != ORDER_EDEFAULT;
       case DomainPackage.UIELEMENT__UID:
         return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
       case DomainPackage.UIELEMENT__ENABLED:
@@ -550,6 +605,14 @@ public class UielementImpl extends StyleElementImpl implements Uielement
         default: return -1;
       }
     }
+    if (baseClass == Orderable.class)
+    {
+      switch (derivedFeatureID)
+      {
+        case DomainPackage.UIELEMENT__ORDER: return DomainPackage.ORDERABLE__ORDER;
+        default: return -1;
+      }
+    }
     return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
   }
 
@@ -577,6 +640,14 @@ public class UielementImpl extends StyleElementImpl implements Uielement
         default: return -1;
       }
     }
+    if (baseClass == Orderable.class)
+    {
+      switch (baseFeatureID)
+      {
+        case DomainPackage.ORDERABLE__ORDER: return DomainPackage.UIELEMENT__ORDER;
+        default: return -1;
+      }
+    }
     return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
   }
 
@@ -593,6 +664,8 @@ public class UielementImpl extends StyleElementImpl implements Uielement
     StringBuffer result = new StringBuffer(super.toString());
     result.append(" (nickname: ");
     result.append(nickname);
+    result.append(", order: ");
+    result.append(order);
     result.append(", uid: ");
     result.append(uid);
     result.append(')');

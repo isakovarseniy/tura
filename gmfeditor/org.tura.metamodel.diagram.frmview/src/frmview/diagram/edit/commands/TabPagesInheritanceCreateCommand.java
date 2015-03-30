@@ -45,8 +45,7 @@ public class TabPagesInheritanceCreateCommand extends EditElementCommand {
 	/**
 	 * @generated
 	 */
-	public TabPagesInheritanceCreateCommand(CreateRelationshipRequest request,
-			EObject source, EObject target) {
+	public TabPagesInheritanceCreateCommand(CreateRelationshipRequest request, EObject source, EObject target) {
 		super(request.getLabel(), null, request);
 		this.source = source;
 		this.target = target;
@@ -73,23 +72,19 @@ public class TabPagesInheritanceCreateCommand extends EditElementCommand {
 		if (getContainer() == null) {
 			return false;
 		}
-		return DomainBaseItemSemanticEditPolicy.getLinkConstraints()
-				.canCreateTabPagesInheritance_1304002(getContainer(),
-						getSource(), getTarget());
+		return DomainBaseItemSemanticEditPolicy.getLinkConstraints().canCreateTabPagesInheritance_1304002(
+				getContainer(), getSource(), getTarget());
 	}
 
 	/**
 	 * @generated
 	 */
-	protected CommandResult doExecuteWithResult(IProgressMonitor monitor,
-			IAdaptable info) throws ExecutionException {
+	protected CommandResult doExecuteWithResult(IProgressMonitor monitor, IAdaptable info) throws ExecutionException {
 		if (!canExecute()) {
-			throw new ExecutionException(
-					"Invalid arguments in create link command"); //$NON-NLS-1$
+			throw new ExecutionException("Invalid arguments in create link command"); //$NON-NLS-1$
 		}
 
-		TabPagesInheritance newElement = DomainFactory.eINSTANCE
-				.createTabPagesInheritance();
+		TabPagesInheritance newElement = DomainFactory.eINSTANCE.createTabPagesInheritance();
 		newElement.setUid(java.util.UUID.randomUUID().toString());
 		getContainer().getTabPagesInheritances().add(newElement);
 		newElement.setSource(getSource());
@@ -103,22 +98,15 @@ public class TabPagesInheritanceCreateCommand extends EditElementCommand {
 	/**
 	 * @generated
 	 */
-	protected void doConfigure(TabPagesInheritance newElement,
-			IProgressMonitor monitor, IAdaptable info)
+	protected void doConfigure(TabPagesInheritance newElement, IProgressMonitor monitor, IAdaptable info)
 			throws ExecutionException {
-		IElementType elementType = ((CreateElementRequest) getRequest())
-				.getElementType();
-		ConfigureRequest configureRequest = new ConfigureRequest(
-				getEditingDomain(), newElement, elementType);
-		configureRequest.setClientContext(((CreateElementRequest) getRequest())
-				.getClientContext());
+		IElementType elementType = ((CreateElementRequest) getRequest()).getElementType();
+		ConfigureRequest configureRequest = new ConfigureRequest(getEditingDomain(), newElement, elementType);
+		configureRequest.setClientContext(((CreateElementRequest) getRequest()).getClientContext());
 		configureRequest.addParameters(getRequest().getParameters());
-		configureRequest.setParameter(CreateRelationshipRequest.SOURCE,
-				getSource());
-		configureRequest.setParameter(CreateRelationshipRequest.TARGET,
-				getTarget());
-		ICommand configureCommand = elementType
-				.getEditCommand(configureRequest);
+		configureRequest.setParameter(CreateRelationshipRequest.SOURCE, getSource());
+		configureRequest.setParameter(CreateRelationshipRequest.TARGET, getTarget());
+		ICommand configureCommand = elementType.getEditCommand(configureRequest);
 		if (configureCommand != null && configureCommand.canExecute()) {
 			configureCommand.execute(monitor, info);
 		}
@@ -161,8 +149,7 @@ public class TabPagesInheritanceCreateCommand extends EditElementCommand {
 		// Find container element for the new link.
 		// Climb up by containment hierarchy starting from the source
 		// and return the first element that is instance of the container class.
-		for (EObject element = source; element != null; element = element
-				.eContainer()) {
+		for (EObject element = source; element != null; element = element.eContainer()) {
 			if (element instanceof Views) {
 				return (Views) element;
 			}

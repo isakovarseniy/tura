@@ -9,6 +9,7 @@ import domain.Context;
 import domain.DomainPackage;
 import domain.HTMLLayerHolder;
 import domain.MultiLangLabel;
+import domain.Orderable;
 import domain.Uielement;
 
 import java.util.Collection;
@@ -33,6 +34,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link domain.impl.ColumnImpl#getMultiLangLabel <em>Multi Lang Label</em>}</li>
  *   <li>{@link domain.impl.ColumnImpl#getClassifiers <em>Classifiers</em>}</li>
  *   <li>{@link domain.impl.ColumnImpl#getColumns <em>Columns</em>}</li>
+ *   <li>{@link domain.impl.ColumnImpl#getOrder <em>Order</em>}</li>
  *   <li>{@link domain.impl.ColumnImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.impl.ColumnImpl#getLabel <em>Label</em>}</li>
  *   <li>{@link domain.impl.ColumnImpl#getElement <em>Element</em>}</li>
@@ -82,6 +84,26 @@ public class ColumnImpl extends StyleElementImpl implements Column
    * @ordered
    */
   protected int columns = COLUMNS_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #getOrder() <em>Order</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getOrder()
+   * @generated
+   * @ordered
+   */
+  protected static final int ORDER_EDEFAULT = 0;
+
+  /**
+   * The cached value of the '{@link #getOrder() <em>Order</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getOrder()
+   * @generated
+   * @ordered
+   */
+  protected int order = ORDER_EDEFAULT;
 
   /**
    * The default value of the '{@link #getUid() <em>Uid</em>}' attribute.
@@ -244,6 +266,29 @@ public class ColumnImpl extends StyleElementImpl implements Column
    * <!-- end-user-doc -->
    * @generated
    */
+  public int getOrder()
+  {
+    return order;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setOrder(int newOrder)
+  {
+    int oldOrder = order;
+    order = newOrder;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.COLUMN__ORDER, oldOrder, order));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public String getUid()
   {
     return uid;
@@ -369,6 +414,8 @@ public class ColumnImpl extends StyleElementImpl implements Column
         return getClassifiers();
       case DomainPackage.COLUMN__COLUMNS:
         return getColumns();
+      case DomainPackage.COLUMN__ORDER:
+        return getOrder();
       case DomainPackage.COLUMN__UID:
         return getUid();
       case DomainPackage.COLUMN__LABEL:
@@ -399,6 +446,9 @@ public class ColumnImpl extends StyleElementImpl implements Column
         return;
       case DomainPackage.COLUMN__COLUMNS:
         setColumns((Integer)newValue);
+        return;
+      case DomainPackage.COLUMN__ORDER:
+        setOrder((Integer)newValue);
         return;
       case DomainPackage.COLUMN__UID:
         setUid((String)newValue);
@@ -432,6 +482,9 @@ public class ColumnImpl extends StyleElementImpl implements Column
       case DomainPackage.COLUMN__COLUMNS:
         setColumns(COLUMNS_EDEFAULT);
         return;
+      case DomainPackage.COLUMN__ORDER:
+        setOrder(ORDER_EDEFAULT);
+        return;
       case DomainPackage.COLUMN__UID:
         setUid(UID_EDEFAULT);
         return;
@@ -461,6 +514,8 @@ public class ColumnImpl extends StyleElementImpl implements Column
         return classifiers != null && !classifiers.isEmpty();
       case DomainPackage.COLUMN__COLUMNS:
         return columns != COLUMNS_EDEFAULT;
+      case DomainPackage.COLUMN__ORDER:
+        return order != ORDER_EDEFAULT;
       case DomainPackage.COLUMN__UID:
         return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
       case DomainPackage.COLUMN__LABEL:
@@ -503,6 +558,14 @@ public class ColumnImpl extends StyleElementImpl implements Column
         default: return -1;
       }
     }
+    if (baseClass == Orderable.class)
+    {
+      switch (derivedFeatureID)
+      {
+        case DomainPackage.COLUMN__ORDER: return DomainPackage.ORDERABLE__ORDER;
+        default: return -1;
+      }
+    }
     return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
   }
 
@@ -538,6 +601,14 @@ public class ColumnImpl extends StyleElementImpl implements Column
         default: return -1;
       }
     }
+    if (baseClass == Orderable.class)
+    {
+      switch (baseFeatureID)
+      {
+        case DomainPackage.ORDERABLE__ORDER: return DomainPackage.COLUMN__ORDER;
+        default: return -1;
+      }
+    }
     return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
   }
 
@@ -554,6 +625,8 @@ public class ColumnImpl extends StyleElementImpl implements Column
     StringBuffer result = new StringBuffer(super.toString());
     result.append(" (columns: ");
     result.append(columns);
+    result.append(", order: ");
+    result.append(order);
     result.append(", uid: ");
     result.append(uid);
     result.append(", label: ");

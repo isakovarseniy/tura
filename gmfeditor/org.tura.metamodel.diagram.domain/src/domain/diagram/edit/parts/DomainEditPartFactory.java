@@ -83,12 +83,10 @@ public class DomainEditPartFactory implements EditPartFactory {
 				return new DomainApplicationNameEditPart(view);
 
 			case DomainArtifactsDomainArtifactsDomainArtifactCompartmentEditPart.VISUAL_ID:
-				return new DomainArtifactsDomainArtifactsDomainArtifactCompartmentEditPart(
-						view);
+				return new DomainArtifactsDomainArtifactsDomainArtifactCompartmentEditPart(view);
 
 			case DomainApplicationsDomainApplicationsApplicationsCompartmentEditPart.VISUAL_ID:
-				return new DomainApplicationsDomainApplicationsApplicationsCompartmentEditPart(
-						view);
+				return new DomainApplicationsDomainApplicationsApplicationsCompartmentEditPart(view);
 			}
 		}
 		return createUnrecognizedEditPart(context, model);
@@ -105,10 +103,8 @@ public class DomainEditPartFactory implements EditPartFactory {
 	/**
 	 * @generated
 	 */
-	public static CellEditorLocator getTextCellEditorLocator(
-			ITextAwareEditPart source) {
-		return CellEditorLocatorAccess.INSTANCE
-				.getTextCellEditorLocator(source);
+	public static CellEditorLocator getTextCellEditorLocator(ITextAwareEditPart source) {
+		return CellEditorLocatorAccess.INSTANCE.getTextCellEditorLocator(source);
 	}
 
 }

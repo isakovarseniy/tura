@@ -39,8 +39,7 @@ import domain.DomainPackage;
 /**
  * @generated
  */
-public class DomainParserProvider extends AbstractProvider implements
-		IParserProvider {
+public class DomainParserProvider extends AbstractProvider implements IParserProvider {
 
 	/**
 	 * @generated
@@ -52,8 +51,7 @@ public class DomainParserProvider extends AbstractProvider implements
 	 */
 	private IParser getRootName_1105002Parser() {
 		if (rootName_1105002Parser == null) {
-			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE
-					.getRoot_Name() };
+			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE.getRoot_Name() };
 			MessageFormatParser parser = new MessageFormatParser(features);
 			rootName_1105002Parser = parser;
 		}
@@ -70,8 +68,7 @@ public class DomainParserProvider extends AbstractProvider implements
 	 */
 	private IParser getDataControlName_1105007Parser() {
 		if (dataControlName_1105007Parser == null) {
-			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE
-					.getDataControl_Name() };
+			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE.getDataControl_Name() };
 			MessageFormatParser parser = new MessageFormatParser(features);
 			dataControlName_1105007Parser = parser;
 		}
@@ -88,8 +85,7 @@ public class DomainParserProvider extends AbstractProvider implements
 	 */
 	private IParser getPREFormTriggerFakeMethod_1105001Parser() {
 		if (pREFormTriggerFakeMethod_1105001Parser == null) {
-			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE
-					.getMethodPointer_FakeMethod() };
+			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE.getMethodPointer_FakeMethod() };
 			MessageFormatParser parser = new MessageFormatParser(features);
 			pREFormTriggerFakeMethod_1105001Parser = parser;
 		}
@@ -106,8 +102,7 @@ public class DomainParserProvider extends AbstractProvider implements
 	 */
 	private IParser getFormVariableName_1105019Parser() {
 		if (formVariableName_1105019Parser == null) {
-			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE
-					.getFormVariable_Name() };
+			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE.getFormVariable_Name() };
 			MessageFormatParser parser = new MessageFormatParser(features);
 			formVariableName_1105019Parser = parser;
 		}
@@ -124,8 +119,7 @@ public class DomainParserProvider extends AbstractProvider implements
 	 */
 	private IParser getPREQueryTriggerFakeMethod_1105003Parser() {
 		if (pREQueryTriggerFakeMethod_1105003Parser == null) {
-			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE
-					.getMethodPointer_FakeMethod() };
+			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE.getMethodPointer_FakeMethod() };
 			MessageFormatParser parser = new MessageFormatParser(features);
 			pREQueryTriggerFakeMethod_1105003Parser = parser;
 		}
@@ -142,8 +136,7 @@ public class DomainParserProvider extends AbstractProvider implements
 	 */
 	private IParser getPOSTQueryTriggerFakeMethod_1105004Parser() {
 		if (pOSTQueryTriggerFakeMethod_1105004Parser == null) {
-			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE
-					.getMethodPointer_FakeMethod() };
+			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE.getMethodPointer_FakeMethod() };
 			MessageFormatParser parser = new MessageFormatParser(features);
 			pOSTQueryTriggerFakeMethod_1105004Parser = parser;
 		}
@@ -160,8 +153,7 @@ public class DomainParserProvider extends AbstractProvider implements
 	 */
 	private IParser getPREInsertTriggerFakeMethod_1105005Parser() {
 		if (pREInsertTriggerFakeMethod_1105005Parser == null) {
-			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE
-					.getMethodPointer_FakeMethod() };
+			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE.getMethodPointer_FakeMethod() };
 			MessageFormatParser parser = new MessageFormatParser(features);
 			pREInsertTriggerFakeMethod_1105005Parser = parser;
 		}
@@ -178,8 +170,7 @@ public class DomainParserProvider extends AbstractProvider implements
 	 */
 	private IParser getPREDeleteTriggerFakeMethod_1105006Parser() {
 		if (pREDeleteTriggerFakeMethod_1105006Parser == null) {
-			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE
-					.getMethodPointer_FakeMethod() };
+			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE.getMethodPointer_FakeMethod() };
 			MessageFormatParser parser = new MessageFormatParser(features);
 			pREDeleteTriggerFakeMethod_1105006Parser = parser;
 		}
@@ -196,8 +187,7 @@ public class DomainParserProvider extends AbstractProvider implements
 	 */
 	private IParser getPOSTCreateTriggerFakeMethod_1105013Parser() {
 		if (pOSTCreateTriggerFakeMethod_1105013Parser == null) {
-			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE
-					.getMethodPointer_FakeMethod() };
+			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE.getMethodPointer_FakeMethod() };
 			MessageFormatParser parser = new MessageFormatParser(features);
 			pOSTCreateTriggerFakeMethod_1105013Parser = parser;
 		}
@@ -214,8 +204,7 @@ public class DomainParserProvider extends AbstractProvider implements
 	 */
 	private IParser getPREUpdateTriggerFakeMethod_1105012Parser() {
 		if (pREUpdateTriggerFakeMethod_1105012Parser == null) {
-			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE
-					.getMethodPointer_FakeMethod() };
+			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE.getMethodPointer_FakeMethod() };
 			MessageFormatParser parser = new MessageFormatParser(features);
 			pREUpdateTriggerFakeMethod_1105012Parser = parser;
 		}
@@ -232,8 +221,7 @@ public class DomainParserProvider extends AbstractProvider implements
 	 */
 	private IParser getCreateTriggerFakeMethod_1105014Parser() {
 		if (createTriggerFakeMethod_1105014Parser == null) {
-			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE
-					.getMethodPointer_FakeMethod() };
+			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE.getMethodPointer_FakeMethod() };
 			MessageFormatParser parser = new MessageFormatParser(features);
 			createTriggerFakeMethod_1105014Parser = parser;
 		}
@@ -250,8 +238,7 @@ public class DomainParserProvider extends AbstractProvider implements
 	 */
 	private IParser getInsertTriggerFakeMethod_1105015Parser() {
 		if (insertTriggerFakeMethod_1105015Parser == null) {
-			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE
-					.getMethodPointer_FakeMethod() };
+			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE.getMethodPointer_FakeMethod() };
 			MessageFormatParser parser = new MessageFormatParser(features);
 			insertTriggerFakeMethod_1105015Parser = parser;
 		}
@@ -268,8 +255,7 @@ public class DomainParserProvider extends AbstractProvider implements
 	 */
 	private IParser getUpdateTriggerFakeMethod_1105016Parser() {
 		if (updateTriggerFakeMethod_1105016Parser == null) {
-			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE
-					.getMethodPointer_FakeMethod() };
+			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE.getMethodPointer_FakeMethod() };
 			MessageFormatParser parser = new MessageFormatParser(features);
 			updateTriggerFakeMethod_1105016Parser = parser;
 		}
@@ -286,8 +272,7 @@ public class DomainParserProvider extends AbstractProvider implements
 	 */
 	private IParser getDeleteTriggerFakeMethod_1105017Parser() {
 		if (deleteTriggerFakeMethod_1105017Parser == null) {
-			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE
-					.getMethodPointer_FakeMethod() };
+			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE.getMethodPointer_FakeMethod() };
 			MessageFormatParser parser = new MessageFormatParser(features);
 			deleteTriggerFakeMethod_1105017Parser = parser;
 		}
@@ -304,8 +289,7 @@ public class DomainParserProvider extends AbstractProvider implements
 	 */
 	private IParser getSearchTriggerFakeMethod_1105018Parser() {
 		if (searchTriggerFakeMethod_1105018Parser == null) {
-			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE
-					.getMethodPointer_FakeMethod() };
+			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE.getMethodPointer_FakeMethod() };
 			MessageFormatParser parser = new MessageFormatParser(features);
 			searchTriggerFakeMethod_1105018Parser = parser;
 		}
@@ -322,8 +306,7 @@ public class DomainParserProvider extends AbstractProvider implements
 	 */
 	private IParser getArtificialFieldName_1105010Parser() {
 		if (artificialFieldName_1105010Parser == null) {
-			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE
-					.getArtificialField_Name() };
+			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE.getArtificialField_Name() };
 			MessageFormatParser parser = new MessageFormatParser(features);
 			artificialFieldName_1105010Parser = parser;
 		}
@@ -375,10 +358,8 @@ public class DomainParserProvider extends AbstractProvider implements
 	 * Utility method that consults ParserService
 	 * @generated
 	 */
-	public static IParser getParser(IElementType type, EObject object,
-			String parserHint) {
-		return ParserService.getInstance().getParser(
-				new HintAdapter(type, object, parserHint));
+	public static IParser getParser(IElementType type, EObject object, String parserHint) {
+		return ParserService.getInstance().getParser(new HintAdapter(type, object, parserHint));
 	}
 
 	/**

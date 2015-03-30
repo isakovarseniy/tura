@@ -3,6 +3,8 @@
  */
 package control.diagram.edit.parts;
 
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
@@ -15,7 +17,10 @@ import org.eclipse.draw2d.Shape;
 import org.eclipse.draw2d.StackLayout;
 import org.eclipse.draw2d.geometry.Dimension;
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EcorePackage;
+import org.eclipse.emf.edit.command.SetCommand;
+import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPolicy;
 import org.eclipse.gef.Request;
@@ -40,10 +45,13 @@ import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.Font;
 import org.eclipse.swt.widgets.Display;
 
+import org.tura.metamodel.commons.editparts.OrderedDefaultSizeNodeFigure;
 import control.diagram.edit.policies.DataControlItemSemanticEditPolicy;
 import control.diagram.edit.policies.OpenDiagramEditPolicy;
 import control.diagram.part.DomainVisualIDRegistry;
 import control.diagram.providers.DomainElementTypes;
+import domain.DomainPackage;
+import domain.Orderable;
 
 /**
  * @generated
@@ -76,15 +84,12 @@ public class DataControlEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected void createDefaultEditPolicies() {
-		installEditPolicy(EditPolicyRoles.CREATION_ROLE,
-				new CreationEditPolicyWithCustomReparent(
-						DomainVisualIDRegistry.TYPED_INSTANCE));
+		installEditPolicy(EditPolicyRoles.CREATION_ROLE, new CreationEditPolicyWithCustomReparent(
+				DomainVisualIDRegistry.TYPED_INSTANCE));
 		super.createDefaultEditPolicies();
-		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
-				new DataControlItemSemanticEditPolicy());
+		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE, new DataControlItemSemanticEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
-		installEditPolicy(EditPolicyRoles.OPEN_ROLE,
-				new OpenDiagramEditPolicy());
+		installEditPolicy(EditPolicyRoles.OPEN_ROLE, new OpenDiagramEditPolicy());
 		// XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
 		// removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
 	}
@@ -96,8 +101,7 @@ public class DataControlEditPart extends ShapeNodeEditPart {
 		org.eclipse.gmf.runtime.diagram.ui.editpolicies.LayoutEditPolicy lep = new org.eclipse.gmf.runtime.diagram.ui.editpolicies.LayoutEditPolicy() {
 
 			protected EditPolicy createChildEditPolicy(EditPart child) {
-				EditPolicy result = child
-						.getEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE);
+				EditPolicy result = child.getEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE);
 				if (result == null) {
 					result = new NonResizableEditPolicy();
 				}
@@ -134,105 +138,79 @@ public class DataControlEditPart extends ShapeNodeEditPart {
 	 */
 	protected boolean addFixedChild(EditPart childEditPart) {
 		if (childEditPart instanceof DataControlNameEditPart) {
-			((DataControlNameEditPart) childEditPart)
-					.setLabel(getPrimaryShape()
-							.getFigureDataControlLabelFigure());
+			((DataControlNameEditPart) childEditPart).setLabel(getPrimaryShape().getFigureDataControlLabelFigure());
 			return true;
 		}
 		if (childEditPart instanceof DataControlDataControlPreQueryTriggerCompartmentEditPart) {
-			IFigure pane = getPrimaryShape()
-					.getDataControlPreQueryTriggerCompartmentFigure();
+			IFigure pane = getPrimaryShape().getDataControlPreQueryTriggerCompartmentFigure();
 			setupContentPane(pane); // FIXME each comparment should handle his content pane in his own way 
-			pane.add(((DataControlDataControlPreQueryTriggerCompartmentEditPart) childEditPart)
-					.getFigure());
+			pane.add(((DataControlDataControlPreQueryTriggerCompartmentEditPart) childEditPart).getFigure());
 			return true;
 		}
 		if (childEditPart instanceof DataControlDataControlPostQueryTriggerCompartmentEditPart) {
-			IFigure pane = getPrimaryShape()
-					.getDataControlPostQueryTriggerCompartmentFigure();
+			IFigure pane = getPrimaryShape().getDataControlPostQueryTriggerCompartmentFigure();
 			setupContentPane(pane); // FIXME each comparment should handle his content pane in his own way 
-			pane.add(((DataControlDataControlPostQueryTriggerCompartmentEditPart) childEditPart)
-					.getFigure());
+			pane.add(((DataControlDataControlPostQueryTriggerCompartmentEditPart) childEditPart).getFigure());
 			return true;
 		}
 		if (childEditPart instanceof DataControlDataControlPreInsertTriggerCompartmentEditPart) {
-			IFigure pane = getPrimaryShape()
-					.getDataControlPreInsertTriggerCompartmentFigure();
+			IFigure pane = getPrimaryShape().getDataControlPreInsertTriggerCompartmentFigure();
 			setupContentPane(pane); // FIXME each comparment should handle his content pane in his own way 
-			pane.add(((DataControlDataControlPreInsertTriggerCompartmentEditPart) childEditPart)
-					.getFigure());
+			pane.add(((DataControlDataControlPreInsertTriggerCompartmentEditPart) childEditPart).getFigure());
 			return true;
 		}
 		if (childEditPart instanceof DataControlDataControlPreDeleteTriggerCompartmentEditPart) {
-			IFigure pane = getPrimaryShape()
-					.getDataControlPreDeleteTriggerCompartmentFigure();
+			IFigure pane = getPrimaryShape().getDataControlPreDeleteTriggerCompartmentFigure();
 			setupContentPane(pane); // FIXME each comparment should handle his content pane in his own way 
-			pane.add(((DataControlDataControlPreDeleteTriggerCompartmentEditPart) childEditPart)
-					.getFigure());
+			pane.add(((DataControlDataControlPreDeleteTriggerCompartmentEditPart) childEditPart).getFigure());
 			return true;
 		}
 		if (childEditPart instanceof DataControlDataControlPostCreateTriggerCompartmentEditPart) {
-			IFigure pane = getPrimaryShape()
-					.getDataControlPostCreateTriggerCompartmentFigure();
+			IFigure pane = getPrimaryShape().getDataControlPostCreateTriggerCompartmentFigure();
 			setupContentPane(pane); // FIXME each comparment should handle his content pane in his own way 
-			pane.add(((DataControlDataControlPostCreateTriggerCompartmentEditPart) childEditPart)
-					.getFigure());
+			pane.add(((DataControlDataControlPostCreateTriggerCompartmentEditPart) childEditPart).getFigure());
 			return true;
 		}
 		if (childEditPart instanceof DataControlDataControlPreUpdateTriggerCompartmentEditPart) {
-			IFigure pane = getPrimaryShape()
-					.getDataControlPreUpdateTriggerCompartmentFigure();
+			IFigure pane = getPrimaryShape().getDataControlPreUpdateTriggerCompartmentFigure();
 			setupContentPane(pane); // FIXME each comparment should handle his content pane in his own way 
-			pane.add(((DataControlDataControlPreUpdateTriggerCompartmentEditPart) childEditPart)
-					.getFigure());
+			pane.add(((DataControlDataControlPreUpdateTriggerCompartmentEditPart) childEditPart).getFigure());
 			return true;
 		}
 		if (childEditPart instanceof DataControlDataControlCreateCompartmentEditPart) {
-			IFigure pane = getPrimaryShape()
-					.getDataControlCreateCompartmentFigure();
+			IFigure pane = getPrimaryShape().getDataControlCreateCompartmentFigure();
 			setupContentPane(pane); // FIXME each comparment should handle his content pane in his own way 
-			pane.add(((DataControlDataControlCreateCompartmentEditPart) childEditPart)
-					.getFigure());
+			pane.add(((DataControlDataControlCreateCompartmentEditPart) childEditPart).getFigure());
 			return true;
 		}
 		if (childEditPart instanceof DataControlDataControlInsertCompartmentEditPart) {
-			IFigure pane = getPrimaryShape()
-					.getDataControlInsertCompartmentFigure();
+			IFigure pane = getPrimaryShape().getDataControlInsertCompartmentFigure();
 			setupContentPane(pane); // FIXME each comparment should handle his content pane in his own way 
-			pane.add(((DataControlDataControlInsertCompartmentEditPart) childEditPart)
-					.getFigure());
+			pane.add(((DataControlDataControlInsertCompartmentEditPart) childEditPart).getFigure());
 			return true;
 		}
 		if (childEditPart instanceof DataControlDataControlUpdateCompartmentEditPart) {
-			IFigure pane = getPrimaryShape()
-					.getDataControlUpdateCompartmentFigure();
+			IFigure pane = getPrimaryShape().getDataControlUpdateCompartmentFigure();
 			setupContentPane(pane); // FIXME each comparment should handle his content pane in his own way 
-			pane.add(((DataControlDataControlUpdateCompartmentEditPart) childEditPart)
-					.getFigure());
+			pane.add(((DataControlDataControlUpdateCompartmentEditPart) childEditPart).getFigure());
 			return true;
 		}
 		if (childEditPart instanceof DataControlDataControlRemoveCompartmentEditPart) {
-			IFigure pane = getPrimaryShape()
-					.getDataControlRemoveCompartmentFigure();
+			IFigure pane = getPrimaryShape().getDataControlRemoveCompartmentFigure();
 			setupContentPane(pane); // FIXME each comparment should handle his content pane in his own way 
-			pane.add(((DataControlDataControlRemoveCompartmentEditPart) childEditPart)
-					.getFigure());
+			pane.add(((DataControlDataControlRemoveCompartmentEditPart) childEditPart).getFigure());
 			return true;
 		}
 		if (childEditPart instanceof DataControlDataControlSearchCompartmentEditPart) {
-			IFigure pane = getPrimaryShape()
-					.getDataControlSearchCompartmentFigure();
+			IFigure pane = getPrimaryShape().getDataControlSearchCompartmentFigure();
 			setupContentPane(pane); // FIXME each comparment should handle his content pane in his own way 
-			pane.add(((DataControlDataControlSearchCompartmentEditPart) childEditPart)
-					.getFigure());
+			pane.add(((DataControlDataControlSearchCompartmentEditPart) childEditPart).getFigure());
 			return true;
 		}
 		if (childEditPart instanceof DataControlDataControlArtificialFieldsCompartmentEditPart) {
-			IFigure pane = getPrimaryShape()
-					.getDataControlArtificialFieldsCompartmentFigure();
+			IFigure pane = getPrimaryShape().getDataControlArtificialFieldsCompartmentFigure();
 			setupContentPane(pane); // FIXME each comparment should handle his content pane in his own way 
-			pane.add(((DataControlDataControlArtificialFieldsCompartmentEditPart) childEditPart)
-					.getFigure());
+			pane.add(((DataControlDataControlArtificialFieldsCompartmentEditPart) childEditPart).getFigure());
 			return true;
 		}
 		return false;
@@ -246,87 +224,63 @@ public class DataControlEditPart extends ShapeNodeEditPart {
 			return true;
 		}
 		if (childEditPart instanceof DataControlDataControlPreQueryTriggerCompartmentEditPart) {
-			IFigure pane = getPrimaryShape()
-					.getDataControlPreQueryTriggerCompartmentFigure();
-			pane.remove(((DataControlDataControlPreQueryTriggerCompartmentEditPart) childEditPart)
-					.getFigure());
+			IFigure pane = getPrimaryShape().getDataControlPreQueryTriggerCompartmentFigure();
+			pane.remove(((DataControlDataControlPreQueryTriggerCompartmentEditPart) childEditPart).getFigure());
 			return true;
 		}
 		if (childEditPart instanceof DataControlDataControlPostQueryTriggerCompartmentEditPart) {
-			IFigure pane = getPrimaryShape()
-					.getDataControlPostQueryTriggerCompartmentFigure();
-			pane.remove(((DataControlDataControlPostQueryTriggerCompartmentEditPart) childEditPart)
-					.getFigure());
+			IFigure pane = getPrimaryShape().getDataControlPostQueryTriggerCompartmentFigure();
+			pane.remove(((DataControlDataControlPostQueryTriggerCompartmentEditPart) childEditPart).getFigure());
 			return true;
 		}
 		if (childEditPart instanceof DataControlDataControlPreInsertTriggerCompartmentEditPart) {
-			IFigure pane = getPrimaryShape()
-					.getDataControlPreInsertTriggerCompartmentFigure();
-			pane.remove(((DataControlDataControlPreInsertTriggerCompartmentEditPart) childEditPart)
-					.getFigure());
+			IFigure pane = getPrimaryShape().getDataControlPreInsertTriggerCompartmentFigure();
+			pane.remove(((DataControlDataControlPreInsertTriggerCompartmentEditPart) childEditPart).getFigure());
 			return true;
 		}
 		if (childEditPart instanceof DataControlDataControlPreDeleteTriggerCompartmentEditPart) {
-			IFigure pane = getPrimaryShape()
-					.getDataControlPreDeleteTriggerCompartmentFigure();
-			pane.remove(((DataControlDataControlPreDeleteTriggerCompartmentEditPart) childEditPart)
-					.getFigure());
+			IFigure pane = getPrimaryShape().getDataControlPreDeleteTriggerCompartmentFigure();
+			pane.remove(((DataControlDataControlPreDeleteTriggerCompartmentEditPart) childEditPart).getFigure());
 			return true;
 		}
 		if (childEditPart instanceof DataControlDataControlPostCreateTriggerCompartmentEditPart) {
-			IFigure pane = getPrimaryShape()
-					.getDataControlPostCreateTriggerCompartmentFigure();
-			pane.remove(((DataControlDataControlPostCreateTriggerCompartmentEditPart) childEditPart)
-					.getFigure());
+			IFigure pane = getPrimaryShape().getDataControlPostCreateTriggerCompartmentFigure();
+			pane.remove(((DataControlDataControlPostCreateTriggerCompartmentEditPart) childEditPart).getFigure());
 			return true;
 		}
 		if (childEditPart instanceof DataControlDataControlPreUpdateTriggerCompartmentEditPart) {
-			IFigure pane = getPrimaryShape()
-					.getDataControlPreUpdateTriggerCompartmentFigure();
-			pane.remove(((DataControlDataControlPreUpdateTriggerCompartmentEditPart) childEditPart)
-					.getFigure());
+			IFigure pane = getPrimaryShape().getDataControlPreUpdateTriggerCompartmentFigure();
+			pane.remove(((DataControlDataControlPreUpdateTriggerCompartmentEditPart) childEditPart).getFigure());
 			return true;
 		}
 		if (childEditPart instanceof DataControlDataControlCreateCompartmentEditPart) {
-			IFigure pane = getPrimaryShape()
-					.getDataControlCreateCompartmentFigure();
-			pane.remove(((DataControlDataControlCreateCompartmentEditPart) childEditPart)
-					.getFigure());
+			IFigure pane = getPrimaryShape().getDataControlCreateCompartmentFigure();
+			pane.remove(((DataControlDataControlCreateCompartmentEditPart) childEditPart).getFigure());
 			return true;
 		}
 		if (childEditPart instanceof DataControlDataControlInsertCompartmentEditPart) {
-			IFigure pane = getPrimaryShape()
-					.getDataControlInsertCompartmentFigure();
-			pane.remove(((DataControlDataControlInsertCompartmentEditPart) childEditPart)
-					.getFigure());
+			IFigure pane = getPrimaryShape().getDataControlInsertCompartmentFigure();
+			pane.remove(((DataControlDataControlInsertCompartmentEditPart) childEditPart).getFigure());
 			return true;
 		}
 		if (childEditPart instanceof DataControlDataControlUpdateCompartmentEditPart) {
-			IFigure pane = getPrimaryShape()
-					.getDataControlUpdateCompartmentFigure();
-			pane.remove(((DataControlDataControlUpdateCompartmentEditPart) childEditPart)
-					.getFigure());
+			IFigure pane = getPrimaryShape().getDataControlUpdateCompartmentFigure();
+			pane.remove(((DataControlDataControlUpdateCompartmentEditPart) childEditPart).getFigure());
 			return true;
 		}
 		if (childEditPart instanceof DataControlDataControlRemoveCompartmentEditPart) {
-			IFigure pane = getPrimaryShape()
-					.getDataControlRemoveCompartmentFigure();
-			pane.remove(((DataControlDataControlRemoveCompartmentEditPart) childEditPart)
-					.getFigure());
+			IFigure pane = getPrimaryShape().getDataControlRemoveCompartmentFigure();
+			pane.remove(((DataControlDataControlRemoveCompartmentEditPart) childEditPart).getFigure());
 			return true;
 		}
 		if (childEditPart instanceof DataControlDataControlSearchCompartmentEditPart) {
-			IFigure pane = getPrimaryShape()
-					.getDataControlSearchCompartmentFigure();
-			pane.remove(((DataControlDataControlSearchCompartmentEditPart) childEditPart)
-					.getFigure());
+			IFigure pane = getPrimaryShape().getDataControlSearchCompartmentFigure();
+			pane.remove(((DataControlDataControlSearchCompartmentEditPart) childEditPart).getFigure());
 			return true;
 		}
 		if (childEditPart instanceof DataControlDataControlArtificialFieldsCompartmentEditPart) {
-			IFigure pane = getPrimaryShape()
-					.getDataControlArtificialFieldsCompartmentFigure();
-			pane.remove(((DataControlDataControlArtificialFieldsCompartmentEditPart) childEditPart)
-					.getFigure());
+			IFigure pane = getPrimaryShape().getDataControlArtificialFieldsCompartmentFigure();
+			pane.remove(((DataControlDataControlArtificialFieldsCompartmentEditPart) childEditPart).getFigure());
 			return true;
 		}
 		return false;
@@ -357,28 +311,22 @@ public class DataControlEditPart extends ShapeNodeEditPart {
 	 */
 	protected IFigure getContentPaneFor(IGraphicalEditPart editPart) {
 		if (editPart instanceof DataControlDataControlPreQueryTriggerCompartmentEditPart) {
-			return getPrimaryShape()
-					.getDataControlPreQueryTriggerCompartmentFigure();
+			return getPrimaryShape().getDataControlPreQueryTriggerCompartmentFigure();
 		}
 		if (editPart instanceof DataControlDataControlPostQueryTriggerCompartmentEditPart) {
-			return getPrimaryShape()
-					.getDataControlPostQueryTriggerCompartmentFigure();
+			return getPrimaryShape().getDataControlPostQueryTriggerCompartmentFigure();
 		}
 		if (editPart instanceof DataControlDataControlPreInsertTriggerCompartmentEditPart) {
-			return getPrimaryShape()
-					.getDataControlPreInsertTriggerCompartmentFigure();
+			return getPrimaryShape().getDataControlPreInsertTriggerCompartmentFigure();
 		}
 		if (editPart instanceof DataControlDataControlPreDeleteTriggerCompartmentEditPart) {
-			return getPrimaryShape()
-					.getDataControlPreDeleteTriggerCompartmentFigure();
+			return getPrimaryShape().getDataControlPreDeleteTriggerCompartmentFigure();
 		}
 		if (editPart instanceof DataControlDataControlPostCreateTriggerCompartmentEditPart) {
-			return getPrimaryShape()
-					.getDataControlPostCreateTriggerCompartmentFigure();
+			return getPrimaryShape().getDataControlPostCreateTriggerCompartmentFigure();
 		}
 		if (editPart instanceof DataControlDataControlPreUpdateTriggerCompartmentEditPart) {
-			return getPrimaryShape()
-					.getDataControlPreUpdateTriggerCompartmentFigure();
+			return getPrimaryShape().getDataControlPreUpdateTriggerCompartmentFigure();
 		}
 		if (editPart instanceof DataControlDataControlCreateCompartmentEditPart) {
 			return getPrimaryShape().getDataControlCreateCompartmentFigure();
@@ -396,8 +344,7 @@ public class DataControlEditPart extends ShapeNodeEditPart {
 			return getPrimaryShape().getDataControlSearchCompartmentFigure();
 		}
 		if (editPart instanceof DataControlDataControlArtificialFieldsCompartmentEditPart) {
-			return getPrimaryShape()
-					.getDataControlArtificialFieldsCompartmentFigure();
+			return getPrimaryShape().getDataControlArtificialFieldsCompartmentFigure();
 		}
 		return getContentPane();
 	}
@@ -406,7 +353,22 @@ public class DataControlEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected NodeFigure createNodePlate() {
-		DefaultSizeNodeFigure result = new DefaultSizeNodeFigure(40, 40);
+		DefaultSizeNodeFigure result = new OrderedDefaultSizeNodeFigure(40, 40);
+		result.addPropertyChangeListener("order", new PropertyChangeListener() {
+
+			@Override
+			public void propertyChange(PropertyChangeEvent evt) {
+				EObject obj = ((View) getModel()).getElement();
+				if (obj instanceof Orderable) {
+					EditingDomain editingDomain = getEditingDomain();
+					editingDomain.getCommandStack().execute(
+							SetCommand.create(editingDomain, obj, DomainPackage.eINSTANCE.getOrderable_Order(),
+									evt.getNewValue()));
+
+				}
+			}
+		});
+
 		return result;
 	}
 
@@ -492,8 +454,7 @@ public class DataControlEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	public EditPart getPrimaryChildEditPart() {
-		return getChildBySemanticHint(DomainVisualIDRegistry
-				.getType(DataControlNameEditPart.VISUAL_ID));
+		return getChildBySemanticHint(DomainVisualIDRegistry.getType(DataControlNameEditPart.VISUAL_ID));
 	}
 
 	/**
@@ -508,8 +469,7 @@ public class DataControlEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	public List<IElementType> getMARelTypesOnSourceAndTarget(
-			IGraphicalEditPart targetEditPart) {
+	public List<IElementType> getMARelTypesOnSourceAndTarget(IGraphicalEditPart targetEditPart) {
 		LinkedList<IElementType> types = new LinkedList<IElementType>();
 		if (targetEditPart instanceof control.diagram.edit.parts.DataControlEditPart) {
 			types.add(DomainElementTypes.Relation_1104009);
@@ -553,11 +513,9 @@ public class DataControlEditPart extends ShapeNodeEditPart {
 	 */
 	public EditPart getTargetEditPart(Request request) {
 		if (request instanceof CreateViewAndElementRequest) {
-			CreateElementRequestAdapter adapter = ((CreateViewAndElementRequest) request)
-					.getViewAndElementDescriptor()
+			CreateElementRequestAdapter adapter = ((CreateViewAndElementRequest) request).getViewAndElementDescriptor()
 					.getCreateElementRequestAdapter();
-			IElementType type = (IElementType) adapter
-					.getAdapter(IElementType.class);
+			IElementType type = (IElementType) adapter.getAdapter(IElementType.class);
 			if (type == DomainElementTypes.PREQueryTrigger_1103002) {
 				return getChildBySemanticHint(DomainVisualIDRegistry
 						.getType(DataControlDataControlPreQueryTriggerCompartmentEditPart.VISUAL_ID));
@@ -615,8 +573,7 @@ public class DataControlEditPart extends ShapeNodeEditPart {
 	 */
 	protected void handleNotificationEvent(Notification event) {
 		if (event.getNotifier() == getModel()
-				&& EcorePackage.eINSTANCE.getEModelElement_EAnnotations()
-						.equals(event.getFeature())) {
+				&& EcorePackage.eINSTANCE.getEModelElement_EAnnotations().equals(event.getFeature())) {
 			handleMajorSemanticChange();
 		} else {
 			super.handleNotificationEvent(event);
@@ -685,12 +642,10 @@ public class DataControlEditPart extends ShapeNodeEditPart {
 		 * @generated
 		 */
 		public DataControlFigure() {
-			this.setCornerDimensions(new Dimension(getMapMode().DPtoLP(8),
-					getMapMode().DPtoLP(8)));
+			this.setCornerDimensions(new Dimension(getMapMode().DPtoLP(8), getMapMode().DPtoLP(8)));
 			this.setForegroundColor(THIS_FORE);
 			this.setBackgroundColor(THIS_BACK);
-			this.setBorder(new MarginBorder(getMapMode().DPtoLP(5),
-					getMapMode().DPtoLP(5), getMapMode().DPtoLP(5),
+			this.setBorder(new MarginBorder(getMapMode().DPtoLP(5), getMapMode().DPtoLP(5), getMapMode().DPtoLP(5),
 					getMapMode().DPtoLP(5)));
 			createContents();
 		}
@@ -704,11 +659,10 @@ public class DataControlEditPart extends ShapeNodeEditPart {
 
 			fFigureDataControlLabelFigure.setText("DataControl");
 
-			fFigureDataControlLabelFigure
-					.setFont(FFIGUREDATACONTROLLABELFIGURE_FONT);
+			fFigureDataControlLabelFigure.setFont(FFIGUREDATACONTROLLABELFIGURE_FONT);
 
-			fFigureDataControlLabelFigure.setMaximumSize(new Dimension(
-					getMapMode().DPtoLP(10000), getMapMode().DPtoLP(50)));
+			fFigureDataControlLabelFigure.setMaximumSize(new Dimension(getMapMode().DPtoLP(10000), getMapMode().DPtoLP(
+					50)));
 
 			this.add(fFigureDataControlLabelFigure);
 
@@ -892,7 +846,6 @@ public class DataControlEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	static final Font FFIGUREDATACONTROLLABELFIGURE_FONT = new Font(
-			Display.getCurrent(), "Palatino", 12, SWT.ITALIC);
+	static final Font FFIGUREDATACONTROLLABELFIGURE_FONT = new Font(Display.getCurrent(), "Palatino", 12, SWT.ITALIC);
 
 }

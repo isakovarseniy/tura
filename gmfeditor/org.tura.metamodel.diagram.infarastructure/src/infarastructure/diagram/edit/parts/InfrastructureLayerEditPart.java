@@ -7,6 +7,8 @@ import infarastructure.diagram.edit.policies.InfrastructureLayerItemSemanticEdit
 import infarastructure.diagram.edit.policies.OpenDiagramEditPolicy;
 import infarastructure.diagram.part.DomainVisualIDRegistry;
 
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.MarginBorder;
 import org.eclipse.draw2d.RectangleFigure;
@@ -14,6 +16,9 @@ import org.eclipse.draw2d.RoundedRectangle;
 import org.eclipse.draw2d.Shape;
 import org.eclipse.draw2d.StackLayout;
 import org.eclipse.draw2d.geometry.Dimension;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.edit.command.SetCommand;
+import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPolicy;
 import org.eclipse.gef.Request;
@@ -33,6 +38,9 @@ import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.Font;
 import org.eclipse.swt.widgets.Display;
+import org.tura.metamodel.commons.editparts.OrderedDefaultSizeNodeFigure;
+import domain.DomainPackage;
+import domain.Orderable;
 
 /**
  * @generated
@@ -66,11 +74,9 @@ public class InfrastructureLayerEditPart extends ShapeNodeEditPart {
 	 */
 	protected void createDefaultEditPolicies() {
 		super.createDefaultEditPolicies();
-		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
-				new InfrastructureLayerItemSemanticEditPolicy());
+		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE, new InfrastructureLayerItemSemanticEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
-		installEditPolicy(EditPolicyRoles.OPEN_ROLE,
-				new OpenDiagramEditPolicy());
+		installEditPolicy(EditPolicyRoles.OPEN_ROLE, new OpenDiagramEditPolicy());
 		// XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
 		// removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
 	}
@@ -82,8 +88,7 @@ public class InfrastructureLayerEditPart extends ShapeNodeEditPart {
 		org.eclipse.gmf.runtime.diagram.ui.editpolicies.LayoutEditPolicy lep = new org.eclipse.gmf.runtime.diagram.ui.editpolicies.LayoutEditPolicy() {
 
 			protected EditPolicy createChildEditPolicy(EditPart child) {
-				EditPolicy result = child
-						.getEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE);
+				EditPolicy result = child.getEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE);
 				if (result == null) {
 					result = new NonResizableEditPolicy();
 				}
@@ -120,14 +125,12 @@ public class InfrastructureLayerEditPart extends ShapeNodeEditPart {
 	 */
 	protected boolean addFixedChild(EditPart childEditPart) {
 		if (childEditPart instanceof InfrastructureLayerNameEditPart) {
-			((InfrastructureLayerNameEditPart) childEditPart)
-					.setLabel(getPrimaryShape()
-							.getFigureInfrastructureLayerLabelFigure());
+			((InfrastructureLayerNameEditPart) childEditPart).setLabel(getPrimaryShape()
+					.getFigureInfrastructureLayerLabelFigure());
 			return true;
 		}
 		if (childEditPart instanceof InfrastructureLayerInfrastructureLayerInfrastructureComponentCompartmentEditPart) {
-			IFigure pane = getPrimaryShape()
-					.getInfrastructureLayerInfrastructureComponentCompartmentFigure();
+			IFigure pane = getPrimaryShape().getInfrastructureLayerInfrastructureComponentCompartmentFigure();
 			setupContentPane(pane); // FIXME each comparment should handle his content pane in his own way 
 			pane.add(((InfrastructureLayerInfrastructureLayerInfrastructureComponentCompartmentEditPart) childEditPart)
 					.getFigure());
@@ -144,8 +147,7 @@ public class InfrastructureLayerEditPart extends ShapeNodeEditPart {
 			return true;
 		}
 		if (childEditPart instanceof InfrastructureLayerInfrastructureLayerInfrastructureComponentCompartmentEditPart) {
-			IFigure pane = getPrimaryShape()
-					.getInfrastructureLayerInfrastructureComponentCompartmentFigure();
+			IFigure pane = getPrimaryShape().getInfrastructureLayerInfrastructureComponentCompartmentFigure();
 			pane.remove(((InfrastructureLayerInfrastructureLayerInfrastructureComponentCompartmentEditPart) childEditPart)
 					.getFigure());
 			return true;
@@ -178,8 +180,7 @@ public class InfrastructureLayerEditPart extends ShapeNodeEditPart {
 	 */
 	protected IFigure getContentPaneFor(IGraphicalEditPart editPart) {
 		if (editPart instanceof InfrastructureLayerInfrastructureLayerInfrastructureComponentCompartmentEditPart) {
-			return getPrimaryShape()
-					.getInfrastructureLayerInfrastructureComponentCompartmentFigure();
+			return getPrimaryShape().getInfrastructureLayerInfrastructureComponentCompartmentFigure();
 		}
 		return getContentPane();
 	}
@@ -188,7 +189,22 @@ public class InfrastructureLayerEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected NodeFigure createNodePlate() {
-		DefaultSizeNodeFigure result = new DefaultSizeNodeFigure(40, 40);
+		DefaultSizeNodeFigure result = new OrderedDefaultSizeNodeFigure(40, 40);
+		result.addPropertyChangeListener("order", new PropertyChangeListener() {
+
+			@Override
+			public void propertyChange(PropertyChangeEvent evt) {
+				EObject obj = ((View) getModel()).getElement();
+				if (obj instanceof Orderable) {
+					EditingDomain editingDomain = getEditingDomain();
+					editingDomain.getCommandStack().execute(
+							SetCommand.create(editingDomain, obj, DomainPackage.eINSTANCE.getOrderable_Order(),
+									evt.getNewValue()));
+
+				}
+			}
+		});
+
 		return result;
 	}
 
@@ -274,8 +290,7 @@ public class InfrastructureLayerEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	public EditPart getPrimaryChildEditPart() {
-		return getChildBySemanticHint(DomainVisualIDRegistry
-				.getType(InfrastructureLayerNameEditPart.VISUAL_ID));
+		return getChildBySemanticHint(DomainVisualIDRegistry.getType(InfrastructureLayerNameEditPart.VISUAL_ID));
 	}
 
 	/**
@@ -296,10 +311,8 @@ public class InfrastructureLayerEditPart extends ShapeNodeEditPart {
 		 * @generated
 		 */
 		public InfrastructureLayerFigure() {
-			this.setCornerDimensions(new Dimension(getMapMode().DPtoLP(8),
-					getMapMode().DPtoLP(8)));
-			this.setBorder(new MarginBorder(getMapMode().DPtoLP(5),
-					getMapMode().DPtoLP(5), getMapMode().DPtoLP(5),
+			this.setCornerDimensions(new Dimension(getMapMode().DPtoLP(8), getMapMode().DPtoLP(8)));
+			this.setBorder(new MarginBorder(getMapMode().DPtoLP(5), getMapMode().DPtoLP(5), getMapMode().DPtoLP(5),
 					getMapMode().DPtoLP(5)));
 			createContents();
 		}
@@ -311,21 +324,18 @@ public class InfrastructureLayerEditPart extends ShapeNodeEditPart {
 
 			fFigureInfrastructureLayerLabelFigure = new WrappingLabel();
 
-			fFigureInfrastructureLayerLabelFigure
-					.setText("InfrastructureLayer");
+			fFigureInfrastructureLayerLabelFigure.setText("InfrastructureLayer");
 
-			fFigureInfrastructureLayerLabelFigure
-					.setFont(FFIGUREINFRASTRUCTURELAYERLABELFIGURE_FONT);
+			fFigureInfrastructureLayerLabelFigure.setFont(FFIGUREINFRASTRUCTURELAYERLABELFIGURE_FONT);
 
-			fFigureInfrastructureLayerLabelFigure.setMaximumSize(new Dimension(
-					getMapMode().DPtoLP(10000), getMapMode().DPtoLP(50)));
+			fFigureInfrastructureLayerLabelFigure.setMaximumSize(new Dimension(getMapMode().DPtoLP(10000), getMapMode()
+					.DPtoLP(50)));
 
 			this.add(fFigureInfrastructureLayerLabelFigure);
 
 			fInfrastructureLayerInfrastructureComponentCompartmentFigure = new RectangleFigure();
 
-			fInfrastructureLayerInfrastructureComponentCompartmentFigure
-					.setOutline(false);
+			fInfrastructureLayerInfrastructureComponentCompartmentFigure.setOutline(false);
 
 			this.add(fInfrastructureLayerInfrastructureComponentCompartmentFigure);
 
@@ -350,7 +360,7 @@ public class InfrastructureLayerEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	static final Font FFIGUREINFRASTRUCTURELAYERLABELFIGURE_FONT = new Font(
-			Display.getCurrent(), "Palatino", 12, SWT.ITALIC);
+	static final Font FFIGUREINFRASTRUCTURELAYERLABELFIGURE_FONT = new Font(Display.getCurrent(), "Palatino", 12,
+			SWT.ITALIC);
 
 }

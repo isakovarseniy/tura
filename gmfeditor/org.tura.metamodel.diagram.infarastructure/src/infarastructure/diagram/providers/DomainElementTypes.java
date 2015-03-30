@@ -125,26 +125,22 @@ public class DomainElementTypes {
 	/**
 	 * @generated
 	 */
-	private static ImageDescriptor getProvidedImageDescriptor(
-			ENamedElement element) {
+	private static ImageDescriptor getProvidedImageDescriptor(ENamedElement element) {
 		if (element instanceof EStructuralFeature) {
 			EStructuralFeature feature = ((EStructuralFeature) element);
 			EClass eContainingClass = feature.getEContainingClass();
 			EClassifier eType = feature.getEType();
 			if (eContainingClass != null && !eContainingClass.isAbstract()) {
 				element = eContainingClass;
-			} else if (eType instanceof EClass
-					&& !((EClass) eType).isAbstract()) {
+			} else if (eType instanceof EClass && !((EClass) eType).isAbstract()) {
 				element = eType;
 			}
 		}
 		if (element instanceof EClass) {
 			EClass eClass = (EClass) element;
 			if (!eClass.isAbstract()) {
-				return DomainDiagramEditorPlugin.getInstance()
-						.getItemImageDescriptor(
-								eClass.getEPackage().getEFactoryInstance()
-										.create(eClass));
+				return DomainDiagramEditorPlugin.getInstance().getItemImageDescriptor(
+						eClass.getEPackage().getEFactoryInstance().create(eClass));
 			}
 		}
 		// TODO : support structural features
@@ -216,17 +212,13 @@ public class DomainElementTypes {
 		if (elements == null) {
 			elements = new IdentityHashMap<IElementType, ENamedElement>();
 
-			elements.put(EnterpriseInfrastructure_1201000,
-					DomainPackage.eINSTANCE.getEnterpriseInfrastructure());
+			elements.put(EnterpriseInfrastructure_1201000, DomainPackage.eINSTANCE.getEnterpriseInfrastructure());
 
-			elements.put(Datacenter_1202002,
-					DomainPackage.eINSTANCE.getDatacenter());
+			elements.put(Datacenter_1202002, DomainPackage.eINSTANCE.getDatacenter());
 
-			elements.put(Subsystem_1203001,
-					DomainPackage.eINSTANCE.getSubsystem());
+			elements.put(Subsystem_1203001, DomainPackage.eINSTANCE.getSubsystem());
 
-			elements.put(InfrastructureLayer_1203002,
-					DomainPackage.eINSTANCE.getInfrastructureLayer());
+			elements.put(InfrastructureLayer_1203002, DomainPackage.eINSTANCE.getInfrastructureLayer());
 
 			elements.put(Server_1203003, DomainPackage.eINSTANCE.getServer());
 
@@ -236,13 +228,11 @@ public class DomainElementTypes {
 
 			elements.put(Storage_1203006, DomainPackage.eINSTANCE.getStorage());
 
-			elements.put(ServerClaster_1203007,
-					DomainPackage.eINSTANCE.getServerClaster());
+			elements.put(ServerClaster_1203007, DomainPackage.eINSTANCE.getServerClaster());
 
 			elements.put(Server_1203008, DomainPackage.eINSTANCE.getServer());
 
-			elements.put(InfrastructureConnection_1204009,
-					DomainPackage.eINSTANCE.getInfrastructureConnection());
+			elements.put(InfrastructureConnection_1204009, DomainPackage.eINSTANCE.getInfrastructureConnection());
 		}
 		return (ENamedElement) elements.get(type);
 	}

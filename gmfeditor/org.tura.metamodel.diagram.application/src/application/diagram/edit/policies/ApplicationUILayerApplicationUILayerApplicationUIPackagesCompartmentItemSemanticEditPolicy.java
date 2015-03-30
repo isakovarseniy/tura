@@ -12,8 +12,8 @@ import application.diagram.providers.DomainElementTypes;
 /**
  * @generated
  */
-public class ApplicationUILayerApplicationUILayerApplicationUIPackagesCompartmentItemSemanticEditPolicy
-		extends DomainBaseItemSemanticEditPolicy {
+public class ApplicationUILayerApplicationUILayerApplicationUIPackagesCompartmentItemSemanticEditPolicy extends
+		DomainBaseItemSemanticEditPolicy {
 
 	/**
 	 * @generated
@@ -26,8 +26,7 @@ public class ApplicationUILayerApplicationUILayerApplicationUIPackagesCompartmen
 	 * @generated
 	 */
 	protected Command getCreateCommand(CreateElementRequest req) {
-		if (DomainElementTypes.ApplicationUIPackage_803003 == req
-				.getElementType()) {
+		if (DomainElementTypes.ApplicationUIPackage_803003 == req.getElementType()) {
 			return getGEFWrapper(new ApplicationUIPackageCreateCommand(req));
 		}
 		return super.getCreateCommand(req);

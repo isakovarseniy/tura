@@ -33,8 +33,7 @@ import domain.DomainPackage;
 /**
  * @generated
  */
-public class DomainParserProvider extends AbstractProvider implements
-		IParserProvider {
+public class DomainParserProvider extends AbstractProvider implements IParserProvider {
 
 	/**
 	 * @generated
@@ -46,8 +45,7 @@ public class DomainParserProvider extends AbstractProvider implements
 	 */
 	private IParser getDatacenterName_1205002Parser() {
 		if (datacenterName_1205002Parser == null) {
-			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE
-					.getDatacenter_Name() };
+			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE.getDatacenter_Name() };
 			MessageFormatParser parser = new MessageFormatParser(features);
 			datacenterName_1205002Parser = parser;
 		}
@@ -64,8 +62,7 @@ public class DomainParserProvider extends AbstractProvider implements
 	 */
 	private IParser getSubsystemName_1205009Parser() {
 		if (subsystemName_1205009Parser == null) {
-			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE
-					.getSubsystem_Name() };
+			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE.getSubsystem_Name() };
 			MessageFormatParser parser = new MessageFormatParser(features);
 			subsystemName_1205009Parser = parser;
 		}
@@ -82,8 +79,7 @@ public class DomainParserProvider extends AbstractProvider implements
 	 */
 	private IParser getInfrastructureLayerName_1205008Parser() {
 		if (infrastructureLayerName_1205008Parser == null) {
-			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE
-					.getInfrastructureLayer_Name() };
+			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE.getInfrastructureLayer_Name() };
 			MessageFormatParser parser = new MessageFormatParser(features);
 			infrastructureLayerName_1205008Parser = parser;
 		}
@@ -100,8 +96,7 @@ public class DomainParserProvider extends AbstractProvider implements
 	 */
 	private IParser getServerName_1205003Parser() {
 		if (serverName_1205003Parser == null) {
-			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE
-					.getInfrastructureComponent_Name() };
+			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE.getInfrastructureComponent_Name() };
 			MessageFormatParser parser = new MessageFormatParser(features);
 			serverName_1205003Parser = parser;
 		}
@@ -118,8 +113,7 @@ public class DomainParserProvider extends AbstractProvider implements
 	 */
 	private IParser getRouterName_1205004Parser() {
 		if (routerName_1205004Parser == null) {
-			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE
-					.getInfrastructureComponent_Name() };
+			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE.getInfrastructureComponent_Name() };
 			MessageFormatParser parser = new MessageFormatParser(features);
 			routerName_1205004Parser = parser;
 		}
@@ -136,8 +130,7 @@ public class DomainParserProvider extends AbstractProvider implements
 	 */
 	private IParser getHubName_1205005Parser() {
 		if (hubName_1205005Parser == null) {
-			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE
-					.getInfrastructureComponent_Name() };
+			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE.getInfrastructureComponent_Name() };
 			MessageFormatParser parser = new MessageFormatParser(features);
 			hubName_1205005Parser = parser;
 		}
@@ -154,8 +147,7 @@ public class DomainParserProvider extends AbstractProvider implements
 	 */
 	private IParser getStorageName_1205006Parser() {
 		if (storageName_1205006Parser == null) {
-			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE
-					.getInfrastructureComponent_Name() };
+			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE.getInfrastructureComponent_Name() };
 			MessageFormatParser parser = new MessageFormatParser(features);
 			storageName_1205006Parser = parser;
 		}
@@ -172,8 +164,7 @@ public class DomainParserProvider extends AbstractProvider implements
 	 */
 	private IParser getServerClasterName_1205007Parser() {
 		if (serverClasterName_1205007Parser == null) {
-			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE
-					.getInfrastructureComponent_Name() };
+			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE.getInfrastructureComponent_Name() };
 			MessageFormatParser parser = new MessageFormatParser(features);
 			serverClasterName_1205007Parser = parser;
 		}
@@ -190,8 +181,7 @@ public class DomainParserProvider extends AbstractProvider implements
 	 */
 	private IParser getServerName_1205010Parser() {
 		if (serverName_1205010Parser == null) {
-			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE
-					.getInfrastructureComponent_Name() };
+			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE.getInfrastructureComponent_Name() };
 			MessageFormatParser parser = new MessageFormatParser(features);
 			serverName_1205010Parser = parser;
 		}
@@ -229,10 +219,8 @@ public class DomainParserProvider extends AbstractProvider implements
 	 * Utility method that consults ParserService
 	 * @generated
 	 */
-	public static IParser getParser(IElementType type, EObject object,
-			String parserHint) {
-		return ParserService.getInstance().getParser(
-				new HintAdapter(type, object, parserHint));
+	public static IParser getParser(IElementType type, EObject object, String parserHint) {
+		return ParserService.getInstance().getParser(new HintAdapter(type, object, parserHint));
 	}
 
 	/**

@@ -185,26 +185,22 @@ public class DomainElementTypes {
 	/**
 	 * @generated
 	 */
-	private static ImageDescriptor getProvidedImageDescriptor(
-			ENamedElement element) {
+	private static ImageDescriptor getProvidedImageDescriptor(ENamedElement element) {
 		if (element instanceof EStructuralFeature) {
 			EStructuralFeature feature = ((EStructuralFeature) element);
 			EClass eContainingClass = feature.getEContainingClass();
 			EClassifier eType = feature.getEType();
 			if (eContainingClass != null && !eContainingClass.isAbstract()) {
 				element = eContainingClass;
-			} else if (eType instanceof EClass
-					&& !((EClass) eType).isAbstract()) {
+			} else if (eType instanceof EClass && !((EClass) eType).isAbstract()) {
 				element = eType;
 			}
 		}
 		if (element instanceof EClass) {
 			EClass eClass = (EClass) element;
 			if (!eClass.isAbstract()) {
-				return DomainDiagramEditorPlugin.getInstance()
-						.getItemImageDescriptor(
-								eClass.getEPackage().getEFactoryInstance()
-										.create(eClass));
+				return DomainDiagramEditorPlugin.getInstance().getItemImageDescriptor(
+						eClass.getEPackage().getEFactoryInstance().create(eClass));
 			}
 		}
 		// TODO : support structural features
@@ -276,21 +272,17 @@ public class DomainElementTypes {
 		if (elements == null) {
 			elements = new IdentityHashMap<IElementType, ENamedElement>();
 
-			elements.put(CanvasView_1601000,
-					DomainPackage.eINSTANCE.getCanvasView());
+			elements.put(CanvasView_1601000, DomainPackage.eINSTANCE.getCanvasView());
 
-			elements.put(LayerHolder_1602003,
-					DomainPackage.eINSTANCE.getLayerHolder());
+			elements.put(LayerHolder_1602003, DomainPackage.eINSTANCE.getLayerHolder());
 
-			elements.put(DropDownSelection_1603002,
-					DomainPackage.eINSTANCE.getDropDownSelection());
+			elements.put(DropDownSelection_1603002, DomainPackage.eINSTANCE.getDropDownSelection());
 
 			elements.put(Table_1603008, DomainPackage.eINSTANCE.getTable());
 
 			elements.put(Column_1603024, DomainPackage.eINSTANCE.getColumn());
 
-			elements.put(DropDownSelection_1603010,
-					DomainPackage.eINSTANCE.getDropDownSelection());
+			elements.put(DropDownSelection_1603010, DomainPackage.eINSTANCE.getDropDownSelection());
 
 			elements.put(Table_1603021, DomainPackage.eINSTANCE.getTable());
 
@@ -298,38 +290,29 @@ public class DomainElementTypes {
 
 			elements.put(Column_1603026, DomainPackage.eINSTANCE.getColumn());
 
-			elements.put(LayerHolder_1603020,
-					DomainPackage.eINSTANCE.getLayerHolder());
+			elements.put(LayerHolder_1603020, DomainPackage.eINSTANCE.getLayerHolder());
 
 			elements.put(Tree_1603016, DomainPackage.eINSTANCE.getTree());
 
-			elements.put(LayerHolder_1603019,
-					DomainPackage.eINSTANCE.getLayerHolder());
+			elements.put(LayerHolder_1603019, DomainPackage.eINSTANCE.getLayerHolder());
 
-			elements.put(InputText_1603004,
-					DomainPackage.eINSTANCE.getInputText());
+			elements.put(InputText_1603004, DomainPackage.eINSTANCE.getInputText());
 
-			elements.put(OutputText_1603006,
-					DomainPackage.eINSTANCE.getOutputText());
+			elements.put(OutputText_1603006, DomainPackage.eINSTANCE.getOutputText());
 
-			elements.put(CheckBox_1603007,
-					DomainPackage.eINSTANCE.getCheckBox());
+			elements.put(CheckBox_1603007, DomainPackage.eINSTANCE.getCheckBox());
 
 			elements.put(Button_1603017, DomainPackage.eINSTANCE.getButton());
 
-			elements.put(ActionTrigger_1603027,
-					DomainPackage.eINSTANCE.getActionTrigger());
+			elements.put(ActionTrigger_1603027, DomainPackage.eINSTANCE.getActionTrigger());
 
 			elements.put(Label_1603005, DomainPackage.eINSTANCE.getLabel());
 
-			elements.put(InputText_1603012,
-					DomainPackage.eINSTANCE.getInputText());
+			elements.put(InputText_1603012, DomainPackage.eINSTANCE.getInputText());
 
-			elements.put(OutputText_1603014,
-					DomainPackage.eINSTANCE.getOutputText());
+			elements.put(OutputText_1603014, DomainPackage.eINSTANCE.getOutputText());
 
-			elements.put(CheckBox_1603015,
-					DomainPackage.eINSTANCE.getCheckBox());
+			elements.put(CheckBox_1603015, DomainPackage.eINSTANCE.getCheckBox());
 
 			elements.put(Button_1603023, DomainPackage.eINSTANCE.getButton());
 

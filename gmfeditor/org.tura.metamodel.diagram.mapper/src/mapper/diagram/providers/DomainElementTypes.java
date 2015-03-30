@@ -95,26 +95,22 @@ public class DomainElementTypes {
 	/**
 	 * @generated
 	 */
-	private static ImageDescriptor getProvidedImageDescriptor(
-			ENamedElement element) {
+	private static ImageDescriptor getProvidedImageDescriptor(ENamedElement element) {
 		if (element instanceof EStructuralFeature) {
 			EStructuralFeature feature = ((EStructuralFeature) element);
 			EClass eContainingClass = feature.getEContainingClass();
 			EClassifier eType = feature.getEType();
 			if (eContainingClass != null && !eContainingClass.isAbstract()) {
 				element = eContainingClass;
-			} else if (eType instanceof EClass
-					&& !((EClass) eType).isAbstract()) {
+			} else if (eType instanceof EClass && !((EClass) eType).isAbstract()) {
 				element = eType;
 			}
 		}
 		if (element instanceof EClass) {
 			EClass eClass = (EClass) element;
 			if (!eClass.isAbstract()) {
-				return DomainDiagramEditorPlugin.getInstance()
-						.getItemImageDescriptor(
-								eClass.getEPackage().getEFactoryInstance()
-										.create(eClass));
+				return DomainDiagramEditorPlugin.getInstance().getItemImageDescriptor(
+						eClass.getEPackage().getEFactoryInstance().create(eClass));
 			}
 		}
 		// TODO : support structural features
@@ -188,17 +184,13 @@ public class DomainElementTypes {
 
 			elements.put(Mappers_401000, DomainPackage.eINSTANCE.getMappers());
 
-			elements.put(JavaMapper_402001,
-					DomainPackage.eINSTANCE.getJavaMapper());
+			elements.put(JavaMapper_402001, DomainPackage.eINSTANCE.getJavaMapper());
 
-			elements.put(JavaScriptMapper_402003,
-					DomainPackage.eINSTANCE.getJavaScriptMapper());
+			elements.put(JavaScriptMapper_402003, DomainPackage.eINSTANCE.getJavaScriptMapper());
 
-			elements.put(CSSMapper_402004,
-					DomainPackage.eINSTANCE.getCSSMapper());
+			elements.put(CSSMapper_402004, DomainPackage.eINSTANCE.getCSSMapper());
 
-			elements.put(RoleMapper_402005,
-					DomainPackage.eINSTANCE.getRoleMapper());
+			elements.put(RoleMapper_402005, DomainPackage.eINSTANCE.getRoleMapper());
 		}
 		return (ENamedElement) elements.get(type);
 	}

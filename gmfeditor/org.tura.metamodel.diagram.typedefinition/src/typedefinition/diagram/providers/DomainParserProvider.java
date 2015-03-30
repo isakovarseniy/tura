@@ -30,8 +30,7 @@ import domain.DomainPackage;
 /**
  * @generated
  */
-public class DomainParserProvider extends AbstractProvider implements
-		IParserProvider {
+public class DomainParserProvider extends AbstractProvider implements IParserProvider {
 
 	/**
 	 * @generated
@@ -43,8 +42,7 @@ public class DomainParserProvider extends AbstractProvider implements
 	 */
 	private IParser getTypeReferenceFakePackageNameFakeTypeName_105001Parser() {
 		if (typeReferenceFakePackageNameFakeTypeName_105001Parser == null) {
-			EAttribute[] features = new EAttribute[] {
-					DomainPackage.eINSTANCE.getTypePointer_FakePackageName(),
+			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE.getTypePointer_FakePackageName(),
 					DomainPackage.eINSTANCE.getTypePointer_FakeTypeName() };
 			MessageFormatParser parser = new MessageFormatParser(features);
 			typeReferenceFakePackageNameFakeTypeName_105001Parser = parser;
@@ -62,8 +60,7 @@ public class DomainParserProvider extends AbstractProvider implements
 	 */
 	private IParser getPrimitiveName_105010Parser() {
 		if (primitiveName_105010Parser == null) {
-			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE
-					.getTypeElement_Name() };
+			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE.getTypeElement_Name() };
 			MessageFormatParser parser = new MessageFormatParser(features);
 			primitiveName_105010Parser = parser;
 		}
@@ -80,8 +77,7 @@ public class DomainParserProvider extends AbstractProvider implements
 	 */
 	private IParser getTypeName_105006Parser() {
 		if (typeName_105006Parser == null) {
-			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE
-					.getTypeElement_Name() };
+			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE.getTypeElement_Name() };
 			MessageFormatParser parser = new MessageFormatParser(features);
 			typeName_105006Parser = parser;
 		}
@@ -98,8 +94,7 @@ public class DomainParserProvider extends AbstractProvider implements
 	 */
 	private IParser getEnumaratorName_105011Parser() {
 		if (enumaratorName_105011Parser == null) {
-			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE
-					.getTypeElement_Name() };
+			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE.getTypeElement_Name() };
 			MessageFormatParser parser = new MessageFormatParser(features);
 			enumaratorName_105011Parser = parser;
 		}
@@ -116,8 +111,7 @@ public class DomainParserProvider extends AbstractProvider implements
 	 */
 	private IParser getAttributeName_105002Parser() {
 		if (attributeName_105002Parser == null) {
-			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE
-					.getAttribute_Name() };
+			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE.getAttribute_Name() };
 			MessageFormatParser parser = new MessageFormatParser(features);
 			attributeName_105002Parser = parser;
 		}
@@ -134,8 +128,7 @@ public class DomainParserProvider extends AbstractProvider implements
 	 */
 	private IParser getOperationName_105005Parser() {
 		if (operationName_105005Parser == null) {
-			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE
-					.getOperation_Name() };
+			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE.getOperation_Name() };
 			MessageFormatParser parser = new MessageFormatParser(features);
 			operationName_105005Parser = parser;
 		}
@@ -152,8 +145,7 @@ public class DomainParserProvider extends AbstractProvider implements
 	 */
 	private IParser getEnumAttributeName_105007Parser() {
 		if (enumAttributeName_105007Parser == null) {
-			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE
-					.getEnumAttribute_Name() };
+			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE.getEnumAttribute_Name() };
 			MessageFormatParser parser = new MessageFormatParser(features);
 			enumAttributeName_105007Parser = parser;
 		}
@@ -187,10 +179,8 @@ public class DomainParserProvider extends AbstractProvider implements
 	 * Utility method that consults ParserService
 	 * @generated
 	 */
-	public static IParser getParser(IElementType type, EObject object,
-			String parserHint) {
-		return ParserService.getInstance().getParser(
-				new HintAdapter(type, object, parserHint));
+	public static IParser getParser(IElementType type, EObject object, String parserHint) {
+		return ParserService.getInstance().getParser(new HintAdapter(type, object, parserHint));
 	}
 
 	/**

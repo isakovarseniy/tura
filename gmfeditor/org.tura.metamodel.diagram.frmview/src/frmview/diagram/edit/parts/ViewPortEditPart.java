@@ -3,6 +3,8 @@
  */
 package frmview.diagram.edit.parts;
 
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
@@ -14,6 +16,9 @@ import org.eclipse.draw2d.RoundedRectangle;
 import org.eclipse.draw2d.Shape;
 import org.eclipse.draw2d.StackLayout;
 import org.eclipse.draw2d.geometry.Dimension;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.edit.command.SetCommand;
+import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPolicy;
 import org.eclipse.gef.Request;
@@ -38,6 +43,9 @@ import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.Font;
 import org.eclipse.swt.widgets.Display;
 
+import org.tura.metamodel.commons.editparts.OrderedDefaultSizeNodeFigure;
+import domain.DomainPackage;
+import domain.Orderable;
 import frmview.diagram.edit.policies.OpenDiagramEditPolicy;
 import frmview.diagram.edit.policies.ViewPortItemSemanticEditPolicy;
 import frmview.diagram.part.DomainVisualIDRegistry;
@@ -74,15 +82,12 @@ public class ViewPortEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected void createDefaultEditPolicies() {
-		installEditPolicy(EditPolicyRoles.CREATION_ROLE,
-				new CreationEditPolicyWithCustomReparent(
-						DomainVisualIDRegistry.TYPED_INSTANCE));
+		installEditPolicy(EditPolicyRoles.CREATION_ROLE, new CreationEditPolicyWithCustomReparent(
+				DomainVisualIDRegistry.TYPED_INSTANCE));
 		super.createDefaultEditPolicies();
-		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
-				new ViewPortItemSemanticEditPolicy());
+		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE, new ViewPortItemSemanticEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
-		installEditPolicy(EditPolicyRoles.OPEN_ROLE,
-				new OpenDiagramEditPolicy());
+		installEditPolicy(EditPolicyRoles.OPEN_ROLE, new OpenDiagramEditPolicy());
 		// XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
 		// removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
 	}
@@ -94,8 +99,7 @@ public class ViewPortEditPart extends ShapeNodeEditPart {
 		org.eclipse.gmf.runtime.diagram.ui.editpolicies.LayoutEditPolicy lep = new org.eclipse.gmf.runtime.diagram.ui.editpolicies.LayoutEditPolicy() {
 
 			protected EditPolicy createChildEditPolicy(EditPart child) {
-				EditPolicy result = child
-						.getEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE);
+				EditPolicy result = child.getEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE);
 				if (result == null) {
 					result = new NonResizableEditPolicy();
 				}
@@ -132,16 +136,13 @@ public class ViewPortEditPart extends ShapeNodeEditPart {
 	 */
 	protected boolean addFixedChild(EditPart childEditPart) {
 		if (childEditPart instanceof ViewPortNameEditPart) {
-			((ViewPortNameEditPart) childEditPart).setLabel(getPrimaryShape()
-					.getFigureViewPortLabelFigure());
+			((ViewPortNameEditPart) childEditPart).setLabel(getPrimaryShape().getFigureViewPortLabelFigure());
 			return true;
 		}
 		if (childEditPart instanceof ViewPortViewPortViewPortTriggerCompartmentEditPart) {
-			IFigure pane = getPrimaryShape()
-					.getViewPortViewPortTriggerCompartmentFigure();
+			IFigure pane = getPrimaryShape().getViewPortViewPortTriggerCompartmentFigure();
 			setupContentPane(pane); // FIXME each comparment should handle his content pane in his own way 
-			pane.add(((ViewPortViewPortViewPortTriggerCompartmentEditPart) childEditPart)
-					.getFigure());
+			pane.add(((ViewPortViewPortViewPortTriggerCompartmentEditPart) childEditPart).getFigure());
 			return true;
 		}
 		return false;
@@ -155,10 +156,8 @@ public class ViewPortEditPart extends ShapeNodeEditPart {
 			return true;
 		}
 		if (childEditPart instanceof ViewPortViewPortViewPortTriggerCompartmentEditPart) {
-			IFigure pane = getPrimaryShape()
-					.getViewPortViewPortTriggerCompartmentFigure();
-			pane.remove(((ViewPortViewPortViewPortTriggerCompartmentEditPart) childEditPart)
-					.getFigure());
+			IFigure pane = getPrimaryShape().getViewPortViewPortTriggerCompartmentFigure();
+			pane.remove(((ViewPortViewPortViewPortTriggerCompartmentEditPart) childEditPart).getFigure());
 			return true;
 		}
 		return false;
@@ -189,8 +188,7 @@ public class ViewPortEditPart extends ShapeNodeEditPart {
 	 */
 	protected IFigure getContentPaneFor(IGraphicalEditPart editPart) {
 		if (editPart instanceof ViewPortViewPortViewPortTriggerCompartmentEditPart) {
-			return getPrimaryShape()
-					.getViewPortViewPortTriggerCompartmentFigure();
+			return getPrimaryShape().getViewPortViewPortTriggerCompartmentFigure();
 		}
 		return getContentPane();
 	}
@@ -199,7 +197,22 @@ public class ViewPortEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected NodeFigure createNodePlate() {
-		DefaultSizeNodeFigure result = new DefaultSizeNodeFigure(40, 40);
+		DefaultSizeNodeFigure result = new OrderedDefaultSizeNodeFigure(40, 40);
+		result.addPropertyChangeListener("order", new PropertyChangeListener() {
+
+			@Override
+			public void propertyChange(PropertyChangeEvent evt) {
+				EObject obj = ((View) getModel()).getElement();
+				if (obj instanceof Orderable) {
+					EditingDomain editingDomain = getEditingDomain();
+					editingDomain.getCommandStack().execute(
+							SetCommand.create(editingDomain, obj, DomainPackage.eINSTANCE.getOrderable_Order(),
+									evt.getNewValue()));
+
+				}
+			}
+		});
+
 		return result;
 	}
 
@@ -285,8 +298,7 @@ public class ViewPortEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	public EditPart getPrimaryChildEditPart() {
-		return getChildBySemanticHint(DomainVisualIDRegistry
-				.getType(ViewPortNameEditPart.VISUAL_ID));
+		return getChildBySemanticHint(DomainVisualIDRegistry.getType(ViewPortNameEditPart.VISUAL_ID));
 	}
 
 	/**
@@ -301,8 +313,7 @@ public class ViewPortEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	public List<IElementType> getMARelTypesOnSourceAndTarget(
-			IGraphicalEditPart targetEditPart) {
+	public List<IElementType> getMARelTypesOnSourceAndTarget(IGraphicalEditPart targetEditPart) {
 		LinkedList<IElementType> types = new LinkedList<IElementType>();
 		if (targetEditPart instanceof PopupCanvasEditPart) {
 			types.add(DomainElementTypes.ViewInheritance_1304001);
@@ -310,10 +321,10 @@ public class ViewPortEditPart extends ShapeNodeEditPart {
 		if (targetEditPart instanceof CanvasEditPart) {
 			types.add(DomainElementTypes.ViewInheritance_1304001);
 		}
-		if (targetEditPart instanceof WindowEditPart) {
+		if (targetEditPart instanceof TabPageEditPart) {
 			types.add(DomainElementTypes.ViewInheritance_1304001);
 		}
-		if (targetEditPart instanceof TabPageEditPart) {
+		if (targetEditPart instanceof WindowEditPart) {
 			types.add(DomainElementTypes.ViewInheritance_1304001);
 		}
 		if (targetEditPart instanceof TabCanvasEditPart) {
@@ -330,8 +341,8 @@ public class ViewPortEditPart extends ShapeNodeEditPart {
 		if (relationshipType == DomainElementTypes.ViewInheritance_1304001) {
 			types.add(DomainElementTypes.PopupCanvas_1302009);
 			types.add(DomainElementTypes.Canvas_1302003);
-			types.add(DomainElementTypes.Window_1302007);
 			types.add(DomainElementTypes.TabPage_1302002);
+			types.add(DomainElementTypes.Window_1302007);
 			types.add(DomainElementTypes.TabCanvas_1302008);
 		}
 		return types;
@@ -342,11 +353,9 @@ public class ViewPortEditPart extends ShapeNodeEditPart {
 	 */
 	public EditPart getTargetEditPart(Request request) {
 		if (request instanceof CreateViewAndElementRequest) {
-			CreateElementRequestAdapter adapter = ((CreateViewAndElementRequest) request)
-					.getViewAndElementDescriptor()
+			CreateElementRequestAdapter adapter = ((CreateViewAndElementRequest) request).getViewAndElementDescriptor()
 					.getCreateElementRequestAdapter();
-			IElementType type = (IElementType) adapter
-					.getAdapter(IElementType.class);
+			IElementType type = (IElementType) adapter.getAdapter(IElementType.class);
 			if (type == DomainElementTypes.ViewPortTrigger_1303002) {
 				return getChildBySemanticHint(DomainVisualIDRegistry
 						.getType(ViewPortViewPortViewPortTriggerCompartmentEditPart.VISUAL_ID));
@@ -373,12 +382,10 @@ public class ViewPortEditPart extends ShapeNodeEditPart {
 		 * @generated
 		 */
 		public ViewPortFigure() {
-			this.setCornerDimensions(new Dimension(getMapMode().DPtoLP(8),
-					getMapMode().DPtoLP(8)));
+			this.setCornerDimensions(new Dimension(getMapMode().DPtoLP(8), getMapMode().DPtoLP(8)));
 			this.setForegroundColor(THIS_FORE);
 			this.setBackgroundColor(THIS_BACK);
-			this.setBorder(new MarginBorder(getMapMode().DPtoLP(5),
-					getMapMode().DPtoLP(5), getMapMode().DPtoLP(5),
+			this.setBorder(new MarginBorder(getMapMode().DPtoLP(5), getMapMode().DPtoLP(5), getMapMode().DPtoLP(5),
 					getMapMode().DPtoLP(5)));
 			createContents();
 		}
@@ -394,8 +401,8 @@ public class ViewPortEditPart extends ShapeNodeEditPart {
 
 			fFigureViewPortLabelFigure.setFont(FFIGUREVIEWPORTLABELFIGURE_FONT);
 
-			fFigureViewPortLabelFigure.setMaximumSize(new Dimension(
-					getMapMode().DPtoLP(10000), getMapMode().DPtoLP(50)));
+			fFigureViewPortLabelFigure
+					.setMaximumSize(new Dimension(getMapMode().DPtoLP(10000), getMapMode().DPtoLP(50)));
 
 			this.add(fFigureViewPortLabelFigure);
 
@@ -436,7 +443,6 @@ public class ViewPortEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	static final Font FFIGUREVIEWPORTLABELFIGURE_FONT = new Font(
-			Display.getCurrent(), "Palatino", 12, SWT.ITALIC);
+	static final Font FFIGUREVIEWPORTLABELFIGURE_FONT = new Font(Display.getCurrent(), "Palatino", 12, SWT.ITALIC);
 
 }

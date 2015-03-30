@@ -34,8 +34,7 @@ public class DomainPaletteFactory {
 	 * @generated
 	 */
 	private PaletteContainer createObjects1Group() {
-		PaletteDrawer paletteContainer = new PaletteDrawer(
-				Messages.Objects1Group_title);
+		PaletteDrawer paletteContainer = new PaletteDrawer(Messages.Objects1Group_title);
 		paletteContainer.setId("createObjects1Group"); //$NON-NLS-1$
 		paletteContainer.add(createActionTrigger1CreationTool());
 		paletteContainer.add(createButton2CreationTool());
@@ -55,14 +54,11 @@ public class DomainPaletteFactory {
 	 * @generated
 	 */
 	private ToolEntry createActionTrigger1CreationTool() {
-		NodeToolEntry entry = new NodeToolEntry(
-				Messages.ActionTrigger1CreationTool_title,
+		NodeToolEntry entry = new NodeToolEntry(Messages.ActionTrigger1CreationTool_title,
 				Messages.ActionTrigger1CreationTool_desc,
-				Collections
-						.singletonList(DomainElementTypes.ActionTrigger_1603027));
+				Collections.singletonList(DomainElementTypes.ActionTrigger_1603027));
 		entry.setId("createActionTrigger1CreationTool"); //$NON-NLS-1$
-		entry.setSmallIcon(DomainElementTypes
-				.getImageDescriptor(DomainElementTypes.ActionTrigger_1603027));
+		entry.setSmallIcon(DomainElementTypes.getImageDescriptor(DomainElementTypes.ActionTrigger_1603027));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
@@ -74,9 +70,8 @@ public class DomainPaletteFactory {
 		ArrayList<IElementType> types = new ArrayList<IElementType>(2);
 		types.add(DomainElementTypes.Button_1603017);
 		types.add(DomainElementTypes.Button_1603023);
-		NodeToolEntry entry = new NodeToolEntry(
-				Messages.Button2CreationTool_title,
-				Messages.Button2CreationTool_desc, types);
+		NodeToolEntry entry = new NodeToolEntry(Messages.Button2CreationTool_title, Messages.Button2CreationTool_desc,
+				types);
 		entry.setId("createButton2CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(DomainDiagramEditorPlugin
 				.findImageDescriptor("/org.tura.metamodel.commons/icons/button.png")); //$NON-NLS-1$
@@ -91,8 +86,7 @@ public class DomainPaletteFactory {
 		ArrayList<IElementType> types = new ArrayList<IElementType>(2);
 		types.add(DomainElementTypes.CheckBox_1603007);
 		types.add(DomainElementTypes.CheckBox_1603015);
-		NodeToolEntry entry = new NodeToolEntry(
-				Messages.CheckBox3CreationTool_title,
+		NodeToolEntry entry = new NodeToolEntry(Messages.CheckBox3CreationTool_title,
 				Messages.CheckBox3CreationTool_desc, types);
 		entry.setId("createCheckBox3CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(DomainDiagramEditorPlugin
@@ -108,9 +102,8 @@ public class DomainPaletteFactory {
 		ArrayList<IElementType> types = new ArrayList<IElementType>(2);
 		types.add(DomainElementTypes.Column_1603024);
 		types.add(DomainElementTypes.Column_1603026);
-		NodeToolEntry entry = new NodeToolEntry(
-				Messages.Column4CreationTool_title,
-				Messages.Column4CreationTool_desc, types);
+		NodeToolEntry entry = new NodeToolEntry(Messages.Column4CreationTool_title, Messages.Column4CreationTool_desc,
+				types);
 		entry.setId("createColumn4CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(DomainDiagramEditorPlugin
 				.findImageDescriptor("/org.tura.metamodel.commons/icons/column.png")); //$NON-NLS-1$
@@ -125,8 +118,7 @@ public class DomainPaletteFactory {
 		ArrayList<IElementType> types = new ArrayList<IElementType>(2);
 		types.add(DomainElementTypes.DropDownSelection_1603002);
 		types.add(DomainElementTypes.DropDownSelection_1603010);
-		NodeToolEntry entry = new NodeToolEntry(
-				Messages.DropDownSelection5CreationTool_title,
+		NodeToolEntry entry = new NodeToolEntry(Messages.DropDownSelection5CreationTool_title,
 				Messages.DropDownSelection5CreationTool_desc, types);
 		entry.setId("createDropDownSelection5CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(DomainDiagramEditorPlugin
@@ -142,8 +134,7 @@ public class DomainPaletteFactory {
 		ArrayList<IElementType> types = new ArrayList<IElementType>(2);
 		types.add(DomainElementTypes.InputText_1603004);
 		types.add(DomainElementTypes.InputText_1603012);
-		NodeToolEntry entry = new NodeToolEntry(
-				Messages.InputText6CreationTool_title,
+		NodeToolEntry entry = new NodeToolEntry(Messages.InputText6CreationTool_title,
 				Messages.InputText6CreationTool_desc, types);
 		entry.setId("createInputText6CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(DomainDiagramEditorPlugin
@@ -159,12 +150,10 @@ public class DomainPaletteFactory {
 		ArrayList<IElementType> types = new ArrayList<IElementType>(2);
 		types.add(DomainElementTypes.Label_1603005);
 		types.add(DomainElementTypes.Label_1603013);
-		NodeToolEntry entry = new NodeToolEntry(
-				Messages.Label7CreationTool_title,
-				Messages.Label7CreationTool_desc, types);
+		NodeToolEntry entry = new NodeToolEntry(Messages.Label7CreationTool_title, Messages.Label7CreationTool_desc,
+				types);
 		entry.setId("createLabel7CreationTool"); //$NON-NLS-1$
-		entry.setSmallIcon(DomainDiagramEditorPlugin
-				.findImageDescriptor("/org.tura.metamodel.commons/icons/label.png")); //$NON-NLS-1$
+		entry.setSmallIcon(DomainDiagramEditorPlugin.findImageDescriptor("/org.tura.metamodel.commons/icons/label.png")); //$NON-NLS-1$
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
@@ -177,8 +166,7 @@ public class DomainPaletteFactory {
 		types.add(DomainElementTypes.LayerHolder_1602003);
 		types.add(DomainElementTypes.LayerHolder_1603020);
 		types.add(DomainElementTypes.LayerHolder_1603019);
-		NodeToolEntry entry = new NodeToolEntry(
-				Messages.LayerHolder8CreationTool_title,
+		NodeToolEntry entry = new NodeToolEntry(Messages.LayerHolder8CreationTool_title,
 				Messages.LayerHolder8CreationTool_desc, types);
 		entry.setId("createLayerHolder8CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(DomainDiagramEditorPlugin
@@ -194,8 +182,7 @@ public class DomainPaletteFactory {
 		ArrayList<IElementType> types = new ArrayList<IElementType>(2);
 		types.add(DomainElementTypes.OutputText_1603006);
 		types.add(DomainElementTypes.OutputText_1603014);
-		NodeToolEntry entry = new NodeToolEntry(
-				Messages.OutputText9CreationTool_title,
+		NodeToolEntry entry = new NodeToolEntry(Messages.OutputText9CreationTool_title,
 				Messages.OutputText9CreationTool_desc, types);
 		entry.setId("createOutputText9CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(DomainDiagramEditorPlugin
@@ -211,12 +198,10 @@ public class DomainPaletteFactory {
 		ArrayList<IElementType> types = new ArrayList<IElementType>(2);
 		types.add(DomainElementTypes.Table_1603008);
 		types.add(DomainElementTypes.Table_1603021);
-		NodeToolEntry entry = new NodeToolEntry(
-				Messages.Table10CreationTool_title,
-				Messages.Table10CreationTool_desc, types);
+		NodeToolEntry entry = new NodeToolEntry(Messages.Table10CreationTool_title, Messages.Table10CreationTool_desc,
+				types);
 		entry.setId("createTable10CreationTool"); //$NON-NLS-1$
-		entry.setSmallIcon(DomainDiagramEditorPlugin
-				.findImageDescriptor("/org.tura.metamodel.commons/icons/table.png")); //$NON-NLS-1$
+		entry.setSmallIcon(DomainDiagramEditorPlugin.findImageDescriptor("/org.tura.metamodel.commons/icons/table.png")); //$NON-NLS-1$
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
@@ -228,12 +213,10 @@ public class DomainPaletteFactory {
 		ArrayList<IElementType> types = new ArrayList<IElementType>(2);
 		types.add(DomainElementTypes.Tree_1603022);
 		types.add(DomainElementTypes.Tree_1603016);
-		NodeToolEntry entry = new NodeToolEntry(
-				Messages.Tree11CreationTool_title,
-				Messages.Tree11CreationTool_desc, types);
+		NodeToolEntry entry = new NodeToolEntry(Messages.Tree11CreationTool_title, Messages.Tree11CreationTool_desc,
+				types);
 		entry.setId("createTree11CreationTool"); //$NON-NLS-1$
-		entry.setSmallIcon(DomainDiagramEditorPlugin
-				.findImageDescriptor("/org.tura.metamodel.commons/icons/tree.png")); //$NON-NLS-1$
+		entry.setSmallIcon(DomainDiagramEditorPlugin.findImageDescriptor("/org.tura.metamodel.commons/icons/tree.png")); //$NON-NLS-1$
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
@@ -251,8 +234,7 @@ public class DomainPaletteFactory {
 		/**
 		 * @generated
 		 */
-		private NodeToolEntry(String title, String description,
-				List<IElementType> elementTypes) {
+		private NodeToolEntry(String title, String description, List<IElementType> elementTypes) {
 			super(title, description, null, null);
 			this.elementTypes = elementTypes;
 		}

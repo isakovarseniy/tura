@@ -13,8 +13,7 @@ import frmview.diagram.providers.DomainElementTypes;
 /**
  * @generated
  */
-public class TabPageTabPageViewElementCompartmentItemSemanticEditPolicy extends
-		DomainBaseItemSemanticEditPolicy {
+public class TabPageTabPageViewElementCompartmentItemSemanticEditPolicy extends DomainBaseItemSemanticEditPolicy {
 
 	/**
 	 * @generated

@@ -16,8 +16,7 @@ import canvas.diagram.providers.DomainElementTypes;
 /**
  * @generated
  */
-public class Label2ItemSemanticEditPolicy extends
-		DomainBaseItemSemanticEditPolicy {
+public class Label2ItemSemanticEditPolicy extends DomainBaseItemSemanticEditPolicy {
 
 	/**
 	 * @generated
@@ -31,8 +30,7 @@ public class Label2ItemSemanticEditPolicy extends
 	 */
 	protected Command getDestroyElementCommand(DestroyElementRequest req) {
 		View view = (View) getHost().getModel();
-		CompositeTransactionalCommand cmd = new CompositeTransactionalCommand(
-				getEditingDomain(), null);
+		CompositeTransactionalCommand cmd = new CompositeTransactionalCommand(getEditingDomain(), null);
 		cmd.setTransactionNestingEnabled(false);
 		EAnnotation annotation = view.getEAnnotation("Shortcut"); //$NON-NLS-1$
 		if (annotation == null) {

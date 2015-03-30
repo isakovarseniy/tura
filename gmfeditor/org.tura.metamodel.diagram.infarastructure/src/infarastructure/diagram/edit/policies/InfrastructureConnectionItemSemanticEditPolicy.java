@@ -12,8 +12,7 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.DestroyElementRequest;
 /**
  * @generated
  */
-public class InfrastructureConnectionItemSemanticEditPolicy extends
-		DomainBaseItemSemanticEditPolicy {
+public class InfrastructureConnectionItemSemanticEditPolicy extends DomainBaseItemSemanticEditPolicy {
 
 	/**
 	 * @generated

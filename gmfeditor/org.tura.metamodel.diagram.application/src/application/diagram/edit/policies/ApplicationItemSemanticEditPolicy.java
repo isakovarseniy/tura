@@ -22,8 +22,7 @@ import application.diagram.providers.DomainElementTypes;
 /**
  * @generated
  */
-public class ApplicationItemSemanticEditPolicy extends
-		DomainBaseItemSemanticEditPolicy {
+public class ApplicationItemSemanticEditPolicy extends DomainBaseItemSemanticEditPolicy {
 
 	/**
 	 * @generated
@@ -36,31 +35,25 @@ public class ApplicationItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	protected Command getCreateCommand(CreateElementRequest req) {
-		if (DomainElementTypes.ApplicationRecipes_802001 == req
-				.getElementType()) {
+		if (DomainElementTypes.ApplicationRecipes_802001 == req.getElementType()) {
 			return getGEFWrapper(new ApplicationRecipesCreateCommand(req));
 		}
-		if (DomainElementTypes.ApplicationMappers_802002 == req
-				.getElementType()) {
+		if (DomainElementTypes.ApplicationMappers_802002 == req.getElementType()) {
 			return getGEFWrapper(new ApplicationMappersCreateCommand(req));
 		}
-		if (DomainElementTypes.ApplicationUILayer_802003 == req
-				.getElementType()) {
+		if (DomainElementTypes.ApplicationUILayer_802003 == req.getElementType()) {
 			return getGEFWrapper(new ApplicationUILayerCreateCommand(req));
 		}
 		if (DomainElementTypes.ApplicationStyle_802005 == req.getElementType()) {
 			return getGEFWrapper(new ApplicationStyleCreateCommand(req));
 		}
-		if (DomainElementTypes.ApplicationInfrastructureLayer_802004 == req
-				.getElementType()) {
-			return getGEFWrapper(new ApplicationInfrastructureLayerCreateCommand(
-					req));
+		if (DomainElementTypes.ApplicationInfrastructureLayer_802004 == req.getElementType()) {
+			return getGEFWrapper(new ApplicationInfrastructureLayerCreateCommand(req));
 		}
 		if (DomainElementTypes.ApplicationRole_802006 == req.getElementType()) {
 			return getGEFWrapper(new ApplicationRoleCreateCommand(req));
 		}
-		if (DomainElementTypes.ApplicationMessages_802007 == req
-				.getElementType()) {
+		if (DomainElementTypes.ApplicationMessages_802007 == req.getElementType()) {
 			return getGEFWrapper(new ApplicationMessagesCreateCommand(req));
 		}
 		return super.getCreateCommand(req);
@@ -70,26 +63,20 @@ public class ApplicationItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	protected Command getDuplicateCommand(DuplicateElementsRequest req) {
-		TransactionalEditingDomain editingDomain = ((IGraphicalEditPart) getHost())
-				.getEditingDomain();
+		TransactionalEditingDomain editingDomain = ((IGraphicalEditPart) getHost()).getEditingDomain();
 		return getGEFWrapper(new DuplicateAnythingCommand(editingDomain, req));
 	}
 
 	/**
 	 * @generated
 	 */
-	private static class DuplicateAnythingCommand extends
-			DuplicateEObjectsCommand {
+	private static class DuplicateAnythingCommand extends DuplicateEObjectsCommand {
 
 		/**
 		 * @generated
 		 */
-		public DuplicateAnythingCommand(
-				TransactionalEditingDomain editingDomain,
-				DuplicateElementsRequest req) {
-			super(editingDomain, req.getLabel(), req
-					.getElementsToBeDuplicated(), req
-					.getAllDuplicatedElementsMap());
+		public DuplicateAnythingCommand(TransactionalEditingDomain editingDomain, DuplicateElementsRequest req) {
+			super(editingDomain, req.getLabel(), req.getElementsToBeDuplicated(), req.getAllDuplicatedElementsMap());
 		}
 
 	}

@@ -12,8 +12,8 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 /**
  * @generated
  */
-public class SubsystemSubsystemInfrastructureLayerCompartmentItemSemanticEditPolicy
-		extends DomainBaseItemSemanticEditPolicy {
+public class SubsystemSubsystemInfrastructureLayerCompartmentItemSemanticEditPolicy extends
+		DomainBaseItemSemanticEditPolicy {
 
 	/**
 	 * @generated
@@ -26,8 +26,7 @@ public class SubsystemSubsystemInfrastructureLayerCompartmentItemSemanticEditPol
 	 * @generated
 	 */
 	protected Command getCreateCommand(CreateElementRequest req) {
-		if (DomainElementTypes.InfrastructureLayer_1203002 == req
-				.getElementType()) {
+		if (DomainElementTypes.InfrastructureLayer_1203002 == req.getElementType()) {
 			return getGEFWrapper(new InfrastructureLayerCreateCommand(req));
 		}
 		return super.getCreateCommand(req);

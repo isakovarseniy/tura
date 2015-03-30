@@ -95,26 +95,22 @@ public class DomainElementTypes {
 	/**
 	 * @generated
 	 */
-	private static ImageDescriptor getProvidedImageDescriptor(
-			ENamedElement element) {
+	private static ImageDescriptor getProvidedImageDescriptor(ENamedElement element) {
 		if (element instanceof EStructuralFeature) {
 			EStructuralFeature feature = ((EStructuralFeature) element);
 			EClass eContainingClass = feature.getEContainingClass();
 			EClassifier eType = feature.getEType();
 			if (eContainingClass != null && !eContainingClass.isAbstract()) {
 				element = eContainingClass;
-			} else if (eType instanceof EClass
-					&& !((EClass) eType).isAbstract()) {
+			} else if (eType instanceof EClass && !((EClass) eType).isAbstract()) {
 				element = eType;
 			}
 		}
 		if (element instanceof EClass) {
 			EClass eClass = (EClass) element;
 			if (!eClass.isAbstract()) {
-				return DomainDiagramEditorPlugin.getInstance()
-						.getItemImageDescriptor(
-								eClass.getEPackage().getEFactoryInstance()
-										.create(eClass));
+				return DomainDiagramEditorPlugin.getInstance().getItemImageDescriptor(
+						eClass.getEPackage().getEFactoryInstance().create(eClass));
 			}
 		}
 		// TODO : support structural features
@@ -186,19 +182,15 @@ public class DomainElementTypes {
 		if (elements == null) {
 			elements = new IdentityHashMap<IElementType, ENamedElement>();
 
-			elements.put(UIPackage_1001000,
-					DomainPackage.eINSTANCE.getUIPackage());
+			elements.put(UIPackage_1001000, DomainPackage.eINSTANCE.getUIPackage());
 
 			elements.put(Form_1002002, DomainPackage.eINSTANCE.getForm());
 
-			elements.put(FormParameter_1003003,
-					DomainPackage.eINSTANCE.getFormParameter());
+			elements.put(FormParameter_1003003, DomainPackage.eINSTANCE.getFormParameter());
 
-			elements.put(FormView_1003001,
-					DomainPackage.eINSTANCE.getFormView());
+			elements.put(FormView_1003001, DomainPackage.eINSTANCE.getFormView());
 
-			elements.put(FormDataControls_1003002,
-					DomainPackage.eINSTANCE.getFormDataControls());
+			elements.put(FormDataControls_1003002, DomainPackage.eINSTANCE.getFormDataControls());
 		}
 		return (ENamedElement) elements.get(type);
 	}

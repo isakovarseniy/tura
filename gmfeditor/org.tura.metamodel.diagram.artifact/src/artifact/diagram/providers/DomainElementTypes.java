@@ -100,26 +100,22 @@ public class DomainElementTypes {
 	/**
 	 * @generated
 	 */
-	private static ImageDescriptor getProvidedImageDescriptor(
-			ENamedElement element) {
+	private static ImageDescriptor getProvidedImageDescriptor(ENamedElement element) {
 		if (element instanceof EStructuralFeature) {
 			EStructuralFeature feature = ((EStructuralFeature) element);
 			EClass eContainingClass = feature.getEContainingClass();
 			EClassifier eType = feature.getEType();
 			if (eContainingClass != null && !eContainingClass.isAbstract()) {
 				element = eContainingClass;
-			} else if (eType instanceof EClass
-					&& !((EClass) eType).isAbstract()) {
+			} else if (eType instanceof EClass && !((EClass) eType).isAbstract()) {
 				element = eType;
 			}
 		}
 		if (element instanceof EClass) {
 			EClass eClass = (EClass) element;
 			if (!eClass.isAbstract()) {
-				return DomainDiagramEditorPlugin.getInstance()
-						.getItemImageDescriptor(
-								eClass.getEPackage().getEFactoryInstance()
-										.create(eClass));
+				return DomainDiagramEditorPlugin.getInstance().getItemImageDescriptor(
+						eClass.getEPackage().getEFactoryInstance().create(eClass));
 			}
 		}
 		// TODO : support structural features
@@ -191,22 +187,17 @@ public class DomainElementTypes {
 		if (elements == null) {
 			elements = new IdentityHashMap<IElementType, ENamedElement>();
 
-			elements.put(Artifacts_701000,
-					DomainPackage.eINSTANCE.getArtifacts());
+			elements.put(Artifacts_701000, DomainPackage.eINSTANCE.getArtifacts());
 
 			elements.put(Artifact_702001, DomainPackage.eINSTANCE.getArtifact());
 
-			elements.put(ConfigVariable_703004,
-					DomainPackage.eINSTANCE.getConfigVariable());
+			elements.put(ConfigVariable_703004, DomainPackage.eINSTANCE.getConfigVariable());
 
-			elements.put(ModelQuery_703005,
-					DomainPackage.eINSTANCE.getModelQuery());
+			elements.put(ModelQuery_703005, DomainPackage.eINSTANCE.getModelQuery());
 
-			elements.put(Specifier_703003,
-					DomainPackage.eINSTANCE.getSpecifier());
+			elements.put(Specifier_703003, DomainPackage.eINSTANCE.getSpecifier());
 
-			elements.put(GenerationHint_703006,
-					DomainPackage.eINSTANCE.getGenerationHint());
+			elements.put(GenerationHint_703006, DomainPackage.eINSTANCE.getGenerationHint());
 		}
 		return (ENamedElement) elements.get(type);
 	}

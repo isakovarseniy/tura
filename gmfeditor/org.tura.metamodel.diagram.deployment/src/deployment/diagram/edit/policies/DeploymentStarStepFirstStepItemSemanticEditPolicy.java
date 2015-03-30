@@ -12,8 +12,7 @@ import deployment.diagram.providers.DomainElementTypes;
 /**
  * @generated
  */
-public class DeploymentStarStepFirstStepItemSemanticEditPolicy extends
-		DomainBaseItemSemanticEditPolicy {
+public class DeploymentStarStepFirstStepItemSemanticEditPolicy extends DomainBaseItemSemanticEditPolicy {
 
 	/**
 	 * @generated

@@ -41,8 +41,7 @@ public class DomainEditPartFactory implements EditPartFactory {
 				return new StyleSetNameEditPart(view);
 
 			case StyleLibraryStyleLibraryStylesCompartmentEditPart.VISUAL_ID:
-				return new StyleLibraryStyleLibraryStylesCompartmentEditPart(
-						view);
+				return new StyleLibraryStyleLibraryStylesCompartmentEditPart(view);
 			}
 		}
 		return createUnrecognizedEditPart(context, model);
@@ -59,10 +58,8 @@ public class DomainEditPartFactory implements EditPartFactory {
 	/**
 	 * @generated
 	 */
-	public static CellEditorLocator getTextCellEditorLocator(
-			ITextAwareEditPart source) {
-		return CellEditorLocatorAccess.INSTANCE
-				.getTextCellEditorLocator(source);
+	public static CellEditorLocator getTextCellEditorLocator(ITextAwareEditPart source) {
+		return CellEditorLocatorAccess.INSTANCE.getTextCellEditorLocator(source);
 	}
 
 }

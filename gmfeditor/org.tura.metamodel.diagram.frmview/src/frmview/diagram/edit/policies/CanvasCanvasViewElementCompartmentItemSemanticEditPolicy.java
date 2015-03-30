@@ -13,8 +13,7 @@ import frmview.diagram.providers.DomainElementTypes;
 /**
  * @generated
  */
-public class CanvasCanvasViewElementCompartmentItemSemanticEditPolicy extends
-		DomainBaseItemSemanticEditPolicy {
+public class CanvasCanvasViewElementCompartmentItemSemanticEditPolicy extends DomainBaseItemSemanticEditPolicy {
 
 	/**
 	 * @generated

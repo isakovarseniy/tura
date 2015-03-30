@@ -31,8 +31,7 @@ public class DomainDiagramUpdater {
 	 * @generated
 	 */
 	public static boolean isShortcutOrphaned(View view) {
-		return !view.isSetElement() || view.getElement() == null
-				|| view.getElement().eIsProxy();
+		return !view.isSetElement() || view.getElement() == null || view.getElement().eIsProxy();
 	}
 
 	/**
@@ -51,28 +50,23 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<DomainNodeDescriptor> getMessages_1701000SemanticChildren(
-			View view) {
+	public static List<DomainNodeDescriptor> getMessages_1701000SemanticChildren(View view) {
 		if (!view.isSetElement()) {
 			return Collections.emptyList();
 		}
 		Messages modelElement = (Messages) view.getElement();
 		LinkedList<DomainNodeDescriptor> result = new LinkedList<DomainNodeDescriptor>();
-		for (Iterator<?> it = modelElement.getMessageLibraries().iterator(); it
-				.hasNext();) {
+		for (Iterator<?> it = modelElement.getMessageLibraries().iterator(); it.hasNext();) {
 			MessageLibrary childElement = (MessageLibrary) it.next();
-			int visualID = DomainVisualIDRegistry.getNodeVisualID(view,
-					childElement);
+			int visualID = DomainVisualIDRegistry.getNodeVisualID(view, childElement);
 			if (visualID == MessageLibraryEditPart.VISUAL_ID) {
 				result.add(new DomainNodeDescriptor(childElement, visualID));
 				continue;
 			}
 		}
-		for (Iterator<?> it = modelElement.getLanguages().iterator(); it
-				.hasNext();) {
+		for (Iterator<?> it = modelElement.getLanguages().iterator(); it.hasNext();) {
 			Language childElement = (Language) it.next();
-			int visualID = DomainVisualIDRegistry.getNodeVisualID(view,
-					childElement);
+			int visualID = DomainVisualIDRegistry.getNodeVisualID(view, childElement);
 			if (visualID == LanguageEditPart.VISUAL_ID) {
 				result.add(new DomainNodeDescriptor(childElement, visualID));
 				continue;
@@ -93,14 +87,11 @@ public class DomainDiagramUpdater {
 		if (!containerView.isSetElement()) {
 			return Collections.emptyList();
 		}
-		MessageLibrary modelElement = (MessageLibrary) containerView
-				.getElement();
+		MessageLibrary modelElement = (MessageLibrary) containerView.getElement();
 		LinkedList<DomainNodeDescriptor> result = new LinkedList<DomainNodeDescriptor>();
-		for (Iterator<?> it = modelElement.getMessages().iterator(); it
-				.hasNext();) {
+		for (Iterator<?> it = modelElement.getMessages().iterator(); it.hasNext();) {
 			Message childElement = (Message) it.next();
-			int visualID = DomainVisualIDRegistry.getNodeVisualID(view,
-					childElement);
+			int visualID = DomainVisualIDRegistry.getNodeVisualID(view, childElement);
 			if (visualID == MessageEditPart.VISUAL_ID) {
 				result.add(new DomainNodeDescriptor(childElement, visualID));
 				continue;
@@ -159,80 +150,70 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getMessages_1701000ContainedLinks(
-			View view) {
+	public static List<DomainLinkDescriptor> getMessages_1701000ContainedLinks(View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getMessageLibrary_1702001ContainedLinks(
-			View view) {
+	public static List<DomainLinkDescriptor> getMessageLibrary_1702001ContainedLinks(View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getLanguage_1702002ContainedLinks(
-			View view) {
+	public static List<DomainLinkDescriptor> getLanguage_1702002ContainedLinks(View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getMessage_1703004ContainedLinks(
-			View view) {
+	public static List<DomainLinkDescriptor> getMessage_1703004ContainedLinks(View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getMessageLibrary_1702001IncomingLinks(
-			View view) {
+	public static List<DomainLinkDescriptor> getMessageLibrary_1702001IncomingLinks(View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getLanguage_1702002IncomingLinks(
-			View view) {
+	public static List<DomainLinkDescriptor> getLanguage_1702002IncomingLinks(View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getMessage_1703004IncomingLinks(
-			View view) {
+	public static List<DomainLinkDescriptor> getMessage_1703004IncomingLinks(View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getMessageLibrary_1702001OutgoingLinks(
-			View view) {
+	public static List<DomainLinkDescriptor> getMessageLibrary_1702001OutgoingLinks(View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getLanguage_1702002OutgoingLinks(
-			View view) {
+	public static List<DomainLinkDescriptor> getLanguage_1702002OutgoingLinks(View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getMessage_1703004OutgoingLinks(
-			View view) {
+	public static List<DomainLinkDescriptor> getMessage_1703004OutgoingLinks(View view) {
 		return Collections.emptyList();
 	}
 

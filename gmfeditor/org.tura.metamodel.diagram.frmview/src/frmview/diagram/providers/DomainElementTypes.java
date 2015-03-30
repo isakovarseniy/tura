@@ -125,26 +125,22 @@ public class DomainElementTypes {
 	/**
 	 * @generated
 	 */
-	private static ImageDescriptor getProvidedImageDescriptor(
-			ENamedElement element) {
+	private static ImageDescriptor getProvidedImageDescriptor(ENamedElement element) {
 		if (element instanceof EStructuralFeature) {
 			EStructuralFeature feature = ((EStructuralFeature) element);
 			EClass eContainingClass = feature.getEContainingClass();
 			EClassifier eType = feature.getEType();
 			if (eContainingClass != null && !eContainingClass.isAbstract()) {
 				element = eContainingClass;
-			} else if (eType instanceof EClass
-					&& !((EClass) eType).isAbstract()) {
+			} else if (eType instanceof EClass && !((EClass) eType).isAbstract()) {
 				element = eType;
 			}
 		}
 		if (element instanceof EClass) {
 			EClass eClass = (EClass) element;
 			if (!eClass.isAbstract()) {
-				return DomainDiagramEditorPlugin.getInstance()
-						.getItemImageDescriptor(
-								eClass.getEPackage().getEFactoryInstance()
-										.create(eClass));
+				return DomainDiagramEditorPlugin.getInstance().getItemImageDescriptor(
+						eClass.getEPackage().getEFactoryInstance().create(eClass));
 			}
 		}
 		// TODO : support structural features
@@ -218,32 +214,25 @@ public class DomainElementTypes {
 
 			elements.put(Views_1301000, DomainPackage.eINSTANCE.getViews());
 
-			elements.put(PopupCanvas_1302009,
-					DomainPackage.eINSTANCE.getPopupCanvas());
+			elements.put(PopupCanvas_1302009, DomainPackage.eINSTANCE.getPopupCanvas());
 
 			elements.put(Canvas_1302003, DomainPackage.eINSTANCE.getCanvas());
 
-			elements.put(Window_1302007, DomainPackage.eINSTANCE.getWindow());
-
 			elements.put(TabPage_1302002, DomainPackage.eINSTANCE.getTabPage());
 
-			elements.put(TabCanvas_1302008,
-					DomainPackage.eINSTANCE.getTabCanvas());
+			elements.put(Window_1302007, DomainPackage.eINSTANCE.getWindow());
 
-			elements.put(ViewPort_1303004,
-					DomainPackage.eINSTANCE.getViewPort());
+			elements.put(TabCanvas_1302008, DomainPackage.eINSTANCE.getTabCanvas());
 
-			elements.put(ViewPortTrigger_1303002,
-					DomainPackage.eINSTANCE.getViewPortTrigger());
+			elements.put(ViewPort_1303004, DomainPackage.eINSTANCE.getViewPort());
 
-			elements.put(ViewArea_1303005,
-					DomainPackage.eINSTANCE.getViewArea());
+			elements.put(ViewPortTrigger_1303002, DomainPackage.eINSTANCE.getViewPortTrigger());
 
-			elements.put(ViewInheritance_1304001,
-					DomainPackage.eINSTANCE.getViewInheritance());
+			elements.put(ViewArea_1303005, DomainPackage.eINSTANCE.getViewArea());
 
-			elements.put(TabPagesInheritance_1304002,
-					DomainPackage.eINSTANCE.getTabPagesInheritance());
+			elements.put(ViewInheritance_1304001, DomainPackage.eINSTANCE.getViewInheritance());
+
+			elements.put(TabPagesInheritance_1304002, DomainPackage.eINSTANCE.getTabPagesInheritance());
 		}
 		return (ENamedElement) elements.get(type);
 	}
@@ -264,8 +253,8 @@ public class DomainElementTypes {
 			KNOWN_ELEMENT_TYPES.add(Views_1301000);
 			KNOWN_ELEMENT_TYPES.add(PopupCanvas_1302009);
 			KNOWN_ELEMENT_TYPES.add(Canvas_1302003);
-			KNOWN_ELEMENT_TYPES.add(Window_1302007);
 			KNOWN_ELEMENT_TYPES.add(TabPage_1302002);
+			KNOWN_ELEMENT_TYPES.add(Window_1302007);
 			KNOWN_ELEMENT_TYPES.add(TabCanvas_1302008);
 			KNOWN_ELEMENT_TYPES.add(ViewPort_1303004);
 			KNOWN_ELEMENT_TYPES.add(ViewPortTrigger_1303002);
@@ -287,10 +276,10 @@ public class DomainElementTypes {
 			return PopupCanvas_1302009;
 		case CanvasEditPart.VISUAL_ID:
 			return Canvas_1302003;
-		case WindowEditPart.VISUAL_ID:
-			return Window_1302007;
 		case TabPageEditPart.VISUAL_ID:
 			return TabPage_1302002;
+		case WindowEditPart.VISUAL_ID:
+			return Window_1302007;
 		case TabCanvasEditPart.VISUAL_ID:
 			return TabCanvas_1302008;
 		case ViewPortEditPart.VISUAL_ID:

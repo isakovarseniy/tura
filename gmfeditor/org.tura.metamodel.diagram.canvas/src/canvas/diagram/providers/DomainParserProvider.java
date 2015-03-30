@@ -34,8 +34,7 @@ import domain.DomainPackage;
 /**
  * @generated
  */
-public class DomainParserProvider extends AbstractProvider implements
-		IParserProvider {
+public class DomainParserProvider extends AbstractProvider implements IParserProvider {
 
 	/**
 	 * @generated
@@ -47,8 +46,7 @@ public class DomainParserProvider extends AbstractProvider implements
 	 */
 	private IParser getButtonLabel_1605006Parser() {
 		if (buttonLabel_1605006Parser == null) {
-			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE
-					.getButton_Label() };
+			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE.getButton_Label() };
 			MessageFormatParser parser = new MessageFormatParser(features);
 			buttonLabel_1605006Parser = parser;
 		}
@@ -65,8 +63,7 @@ public class DomainParserProvider extends AbstractProvider implements
 	 */
 	private IParser getActionTriggerFakeMethod_1605013Parser() {
 		if (actionTriggerFakeMethod_1605013Parser == null) {
-			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE
-					.getMethodPointer_FakeMethod() };
+			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE.getMethodPointer_FakeMethod() };
 			MessageFormatParser parser = new MessageFormatParser(features);
 			actionTriggerFakeMethod_1605013Parser = parser;
 		}
@@ -83,8 +80,7 @@ public class DomainParserProvider extends AbstractProvider implements
 	 */
 	private IParser getTableLabel_1605004Parser() {
 		if (tableLabel_1605004Parser == null) {
-			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE
-					.getTable_Label() };
+			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE.getTable_Label() };
 			MessageFormatParser parser = new MessageFormatParser(features);
 			tableLabel_1605004Parser = parser;
 		}
@@ -101,8 +97,7 @@ public class DomainParserProvider extends AbstractProvider implements
 	 */
 	private IParser getColumnLabel_1605010Parser() {
 		if (columnLabel_1605010Parser == null) {
-			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE
-					.getColumn_Label() };
+			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE.getColumn_Label() };
 			MessageFormatParser parser = new MessageFormatParser(features);
 			columnLabel_1605010Parser = parser;
 		}
@@ -119,8 +114,7 @@ public class DomainParserProvider extends AbstractProvider implements
 	 */
 	private IParser getButtonLabel_1605009Parser() {
 		if (buttonLabel_1605009Parser == null) {
-			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE
-					.getButton_Label() };
+			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE.getButton_Label() };
 			MessageFormatParser parser = new MessageFormatParser(features);
 			buttonLabel_1605009Parser = parser;
 		}
@@ -137,8 +131,7 @@ public class DomainParserProvider extends AbstractProvider implements
 	 */
 	private IParser getTableLabel_1605007Parser() {
 		if (tableLabel_1605007Parser == null) {
-			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE
-					.getTable_Label() };
+			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE.getTable_Label() };
 			MessageFormatParser parser = new MessageFormatParser(features);
 			tableLabel_1605007Parser = parser;
 		}
@@ -155,8 +148,7 @@ public class DomainParserProvider extends AbstractProvider implements
 	 */
 	private IParser getTreeLabel_1605008Parser() {
 		if (treeLabel_1605008Parser == null) {
-			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE
-					.getTree_Label() };
+			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE.getTree_Label() };
 			MessageFormatParser parser = new MessageFormatParser(features);
 			treeLabel_1605008Parser = parser;
 		}
@@ -173,8 +165,7 @@ public class DomainParserProvider extends AbstractProvider implements
 	 */
 	private IParser getColumnLabel_1605012Parser() {
 		if (columnLabel_1605012Parser == null) {
-			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE
-					.getColumn_Label() };
+			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE.getColumn_Label() };
 			MessageFormatParser parser = new MessageFormatParser(features);
 			columnLabel_1605012Parser = parser;
 		}
@@ -191,8 +182,7 @@ public class DomainParserProvider extends AbstractProvider implements
 	 */
 	private IParser getTreeLabel_1605005Parser() {
 		if (treeLabel_1605005Parser == null) {
-			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE
-					.getTree_Label() };
+			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE.getTree_Label() };
 			MessageFormatParser parser = new MessageFormatParser(features);
 			treeLabel_1605005Parser = parser;
 		}
@@ -209,8 +199,7 @@ public class DomainParserProvider extends AbstractProvider implements
 	 */
 	private IParser getLabelLabel_1605001Parser() {
 		if (labelLabel_1605001Parser == null) {
-			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE
-					.getLabel_Label() };
+			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE.getLabel_Label() };
 			MessageFormatParser parser = new MessageFormatParser(features);
 			labelLabel_1605001Parser = parser;
 		}
@@ -227,8 +216,7 @@ public class DomainParserProvider extends AbstractProvider implements
 	 */
 	private IParser getLabelLabel_1605002Parser() {
 		if (labelLabel_1605002Parser == null) {
-			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE
-					.getLabel_Label() };
+			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE.getLabel_Label() };
 			MessageFormatParser parser = new MessageFormatParser(features);
 			labelLabel_1605002Parser = parser;
 		}
@@ -270,10 +258,8 @@ public class DomainParserProvider extends AbstractProvider implements
 	 * Utility method that consults ParserService
 	 * @generated
 	 */
-	public static IParser getParser(IElementType type, EObject object,
-			String parserHint) {
-		return ParserService.getInstance().getParser(
-				new HintAdapter(type, object, parserHint));
+	public static IParser getParser(IElementType type, EObject object, String parserHint) {
+		return ParserService.getInstance().getParser(new HintAdapter(type, object, parserHint));
 	}
 
 	/**

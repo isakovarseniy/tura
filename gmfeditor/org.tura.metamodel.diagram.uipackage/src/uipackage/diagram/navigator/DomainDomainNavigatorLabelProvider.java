@@ -21,8 +21,7 @@ public class DomainDomainNavigatorLabelProvider implements ICommonLabelProvider 
 	 * @generated
 	 */
 	private AdapterFactoryLabelProvider myAdapterFactoryLabelProvider = new AdapterFactoryLabelProvider(
-			DomainDiagramEditorPlugin.getInstance()
-					.getItemProvidersAdapterFactory());
+			DomainDiagramEditorPlugin.getInstance().getItemProvidersAdapterFactory());
 
 	/**
 	 * @generated
@@ -35,9 +34,7 @@ public class DomainDomainNavigatorLabelProvider implements ICommonLabelProvider 
 	 */
 	public Image getImage(Object element) {
 		if (element instanceof DomainDomainNavigatorItem) {
-			return myAdapterFactoryLabelProvider
-					.getImage(((DomainDomainNavigatorItem) element)
-							.getEObject());
+			return myAdapterFactoryLabelProvider.getImage(((DomainDomainNavigatorItem) element).getEObject());
 		}
 		return null;
 	}
@@ -47,8 +44,7 @@ public class DomainDomainNavigatorLabelProvider implements ICommonLabelProvider 
 	 */
 	public String getText(Object element) {
 		if (element instanceof DomainDomainNavigatorItem) {
-			return myAdapterFactoryLabelProvider
-					.getText(((DomainDomainNavigatorItem) element).getEObject());
+			return myAdapterFactoryLabelProvider.getText(((DomainDomainNavigatorItem) element).getEObject());
 		}
 		return null;
 	}

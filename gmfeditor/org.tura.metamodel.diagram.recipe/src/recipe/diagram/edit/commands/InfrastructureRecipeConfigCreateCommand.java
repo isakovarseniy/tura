@@ -33,8 +33,7 @@ public class InfrastructureRecipeConfigCreateCommand extends EditElementCommand 
 	/**
 	 * @generated
 	 */
-	public InfrastructureRecipeConfigCreateCommand(
-			CreateRelationshipRequest request, EObject source, EObject target) {
+	public InfrastructureRecipeConfigCreateCommand(CreateRelationshipRequest request, EObject source, EObject target) {
 		super(request.getLabel(), null, request);
 		this.source = source;
 		this.target = target;
@@ -57,19 +56,16 @@ public class InfrastructureRecipeConfigCreateCommand extends EditElementCommand 
 			return true; // link creation is in progress; source is not defined yet
 		}
 		// target may be null here but it's possible to check constraint
-		return DomainBaseItemSemanticEditPolicy.getLinkConstraints()
-				.canCreateInfrastructureRecipeConfig_304006(getSource(),
-						getTarget());
+		return DomainBaseItemSemanticEditPolicy.getLinkConstraints().canCreateInfrastructureRecipeConfig_304006(
+				getSource(), getTarget());
 	}
 
 	/**
 	 * @generated
 	 */
-	protected CommandResult doExecuteWithResult(IProgressMonitor monitor,
-			IAdaptable info) throws ExecutionException {
+	protected CommandResult doExecuteWithResult(IProgressMonitor monitor, IAdaptable info) throws ExecutionException {
 		if (!canExecute()) {
-			throw new ExecutionException(
-					"Invalid arguments in create link command"); //$NON-NLS-1$
+			throw new ExecutionException("Invalid arguments in create link command"); //$NON-NLS-1$
 		}
 
 		if (getSource() != null && getTarget() != null) {

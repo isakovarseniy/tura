@@ -16,8 +16,7 @@ import org.eclipse.ui.IWorkbenchPage;
 /**
  * @generated
  */
-public class DomainDiagramActionBarContributor extends
-		DiagramActionBarContributor {
+public class DomainDiagramActionBarContributor extends DiagramActionBarContributor {
 
 	/**
 	 * @generated
@@ -39,14 +38,11 @@ public class DomainDiagramActionBarContributor extends
 	public void init(IActionBars bars, IWorkbenchPage page) {
 		super.init(bars, page);
 		// print preview
-		IMenuManager fileMenu = bars.getMenuManager().findMenuUsingPath(
-				IWorkbenchActionConstants.M_FILE);
+		IMenuManager fileMenu = bars.getMenuManager().findMenuUsingPath(IWorkbenchActionConstants.M_FILE);
 		assert fileMenu != null;
-		IAction printPreviewAction = new RenderedPrintPreviewAction(
-				new EnhancedPrintActionHelper());
+		IAction printPreviewAction = new RenderedPrintPreviewAction(new EnhancedPrintActionHelper());
 		fileMenu.insertBefore("print", printPreviewAction); //$NON-NLS-1$
-		IMenuManager editMenu = bars.getMenuManager().findMenuUsingPath(
-				IWorkbenchActionConstants.M_EDIT);
+		IMenuManager editMenu = bars.getMenuManager().findMenuUsingPath(IWorkbenchActionConstants.M_EDIT);
 		assert editMenu != null;
 		if (editMenu.find("validationGroup") == null) { //$NON-NLS-1$
 			editMenu.add(new GroupMarker("validationGroup")); //$NON-NLS-1$

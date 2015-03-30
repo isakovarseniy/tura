@@ -39,8 +39,7 @@ public class DomainDiagramUpdater {
 	 * @generated
 	 */
 	public static boolean isShortcutOrphaned(View view) {
-		return !view.isSetElement() || view.getElement() == null
-				|| view.getElement().eIsProxy();
+		return !view.isSetElement() || view.getElement() == null || view.getElement().eIsProxy();
 	}
 
 	/**
@@ -61,8 +60,7 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<DomainNodeDescriptor> getDomain_501000SemanticChildren(
-			View view) {
+	public static List<DomainNodeDescriptor> getDomain_501000SemanticChildren(View view) {
 		if (!view.isSetElement()) {
 			return Collections.emptyList();
 		}
@@ -70,25 +68,21 @@ public class DomainDiagramUpdater {
 		LinkedList<DomainNodeDescriptor> result = new LinkedList<DomainNodeDescriptor>();
 		{
 			DomainArtifacts childElement = modelElement.getDomainArtifacts();
-			int visualID = DomainVisualIDRegistry.getNodeVisualID(view,
-					childElement);
+			int visualID = DomainVisualIDRegistry.getNodeVisualID(view, childElement);
 			if (visualID == DomainArtifactsEditPart.VISUAL_ID) {
 				result.add(new DomainNodeDescriptor(childElement, visualID));
 			}
 		}
 		{
-			DomainApplications childElement = modelElement
-					.getDomainApplications();
-			int visualID = DomainVisualIDRegistry.getNodeVisualID(view,
-					childElement);
+			DomainApplications childElement = modelElement.getDomainApplications();
+			int visualID = DomainVisualIDRegistry.getNodeVisualID(view, childElement);
 			if (visualID == DomainApplicationsEditPart.VISUAL_ID) {
 				result.add(new DomainNodeDescriptor(childElement, visualID));
 			}
 		}
 		{
 			DomainTypes childElement = modelElement.getDomainTypes();
-			int visualID = DomainVisualIDRegistry.getNodeVisualID(view,
-					childElement);
+			int visualID = DomainVisualIDRegistry.getNodeVisualID(view, childElement);
 			if (visualID == DomainTypesEditPart.VISUAL_ID) {
 				result.add(new DomainNodeDescriptor(childElement, visualID));
 			}
@@ -108,14 +102,11 @@ public class DomainDiagramUpdater {
 		if (!containerView.isSetElement()) {
 			return Collections.emptyList();
 		}
-		DomainArtifacts modelElement = (DomainArtifacts) containerView
-				.getElement();
+		DomainArtifacts modelElement = (DomainArtifacts) containerView.getElement();
 		LinkedList<DomainNodeDescriptor> result = new LinkedList<DomainNodeDescriptor>();
-		for (Iterator<?> it = modelElement.getDomainArtifact().iterator(); it
-				.hasNext();) {
+		for (Iterator<?> it = modelElement.getDomainArtifact().iterator(); it.hasNext();) {
 			DomainArtifact childElement = (DomainArtifact) it.next();
-			int visualID = DomainVisualIDRegistry.getNodeVisualID(view,
-					childElement);
+			int visualID = DomainVisualIDRegistry.getNodeVisualID(view, childElement);
 			if (visualID == ORMEntityEditPart.VISUAL_ID) {
 				result.add(new DomainNodeDescriptor(childElement, visualID));
 				continue;
@@ -152,14 +143,11 @@ public class DomainDiagramUpdater {
 		if (!containerView.isSetElement()) {
 			return Collections.emptyList();
 		}
-		DomainApplications modelElement = (DomainApplications) containerView
-				.getElement();
+		DomainApplications modelElement = (DomainApplications) containerView.getElement();
 		LinkedList<DomainNodeDescriptor> result = new LinkedList<DomainNodeDescriptor>();
-		for (Iterator<?> it = modelElement.getApplications().iterator(); it
-				.hasNext();) {
+		for (Iterator<?> it = modelElement.getApplications().iterator(); it.hasNext();) {
 			DomainApplication childElement = (DomainApplication) it.next();
-			int visualID = DomainVisualIDRegistry.getNodeVisualID(view,
-					childElement);
+			int visualID = DomainVisualIDRegistry.getNodeVisualID(view, childElement);
 			if (visualID == DomainApplicationEditPart.VISUAL_ID) {
 				result.add(new DomainNodeDescriptor(childElement, visualID));
 				continue;
@@ -254,224 +242,196 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getDomain_501000ContainedLinks(
-			View view) {
+	public static List<DomainLinkDescriptor> getDomain_501000ContainedLinks(View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getDomainArtifacts_502001ContainedLinks(
-			View view) {
+	public static List<DomainLinkDescriptor> getDomainArtifacts_502001ContainedLinks(View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getDomainApplications_502003ContainedLinks(
-			View view) {
+	public static List<DomainLinkDescriptor> getDomainApplications_502003ContainedLinks(View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getDomainTypes_502002ContainedLinks(
-			View view) {
+	public static List<DomainLinkDescriptor> getDomainTypes_502002ContainedLinks(View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getORMEntity_503003ContainedLinks(
-			View view) {
+	public static List<DomainLinkDescriptor> getORMEntity_503003ContainedLinks(View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getJPAService_503004ContainedLinks(
-			View view) {
+	public static List<DomainLinkDescriptor> getJPAService_503004ContainedLinks(View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getEJBService_503005ContainedLinks(
-			View view) {
+	public static List<DomainLinkDescriptor> getEJBService_503005ContainedLinks(View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getContinuousIintegration_503006ContainedLinks(
-			View view) {
+	public static List<DomainLinkDescriptor> getContinuousIintegration_503006ContainedLinks(View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getDomainArtifact_503002ContainedLinks(
-			View view) {
+	public static List<DomainLinkDescriptor> getDomainArtifact_503002ContainedLinks(View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getDomainApplication_503001ContainedLinks(
-			View view) {
+	public static List<DomainLinkDescriptor> getDomainApplication_503001ContainedLinks(View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getDomainArtifacts_502001IncomingLinks(
-			View view) {
+	public static List<DomainLinkDescriptor> getDomainArtifacts_502001IncomingLinks(View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getDomainApplications_502003IncomingLinks(
-			View view) {
+	public static List<DomainLinkDescriptor> getDomainApplications_502003IncomingLinks(View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getDomainTypes_502002IncomingLinks(
-			View view) {
+	public static List<DomainLinkDescriptor> getDomainTypes_502002IncomingLinks(View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getORMEntity_503003IncomingLinks(
-			View view) {
+	public static List<DomainLinkDescriptor> getORMEntity_503003IncomingLinks(View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getJPAService_503004IncomingLinks(
-			View view) {
+	public static List<DomainLinkDescriptor> getJPAService_503004IncomingLinks(View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getEJBService_503005IncomingLinks(
-			View view) {
+	public static List<DomainLinkDescriptor> getEJBService_503005IncomingLinks(View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getContinuousIintegration_503006IncomingLinks(
-			View view) {
+	public static List<DomainLinkDescriptor> getContinuousIintegration_503006IncomingLinks(View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getDomainArtifact_503002IncomingLinks(
-			View view) {
+	public static List<DomainLinkDescriptor> getDomainArtifact_503002IncomingLinks(View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getDomainApplication_503001IncomingLinks(
-			View view) {
+	public static List<DomainLinkDescriptor> getDomainApplication_503001IncomingLinks(View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getDomainArtifacts_502001OutgoingLinks(
-			View view) {
+	public static List<DomainLinkDescriptor> getDomainArtifacts_502001OutgoingLinks(View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getDomainApplications_502003OutgoingLinks(
-			View view) {
+	public static List<DomainLinkDescriptor> getDomainApplications_502003OutgoingLinks(View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getDomainTypes_502002OutgoingLinks(
-			View view) {
+	public static List<DomainLinkDescriptor> getDomainTypes_502002OutgoingLinks(View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getORMEntity_503003OutgoingLinks(
-			View view) {
+	public static List<DomainLinkDescriptor> getORMEntity_503003OutgoingLinks(View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getJPAService_503004OutgoingLinks(
-			View view) {
+	public static List<DomainLinkDescriptor> getJPAService_503004OutgoingLinks(View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getEJBService_503005OutgoingLinks(
-			View view) {
+	public static List<DomainLinkDescriptor> getEJBService_503005OutgoingLinks(View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getContinuousIintegration_503006OutgoingLinks(
-			View view) {
+	public static List<DomainLinkDescriptor> getContinuousIintegration_503006OutgoingLinks(View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getDomainArtifact_503002OutgoingLinks(
-			View view) {
+	public static List<DomainLinkDescriptor> getDomainArtifact_503002OutgoingLinks(View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getDomainApplication_503001OutgoingLinks(
-			View view) {
+	public static List<DomainLinkDescriptor> getDomainApplication_503001OutgoingLinks(View view) {
 		return Collections.emptyList();
 	}
 

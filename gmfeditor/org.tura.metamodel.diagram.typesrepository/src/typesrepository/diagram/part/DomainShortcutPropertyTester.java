@@ -22,8 +22,7 @@ public class DomainShortcutPropertyTester extends PropertyTester {
 	/**
 	 * @generated
 	 */
-	public boolean test(Object receiver, String method, Object[] args,
-			Object expectedValue) {
+	public boolean test(Object receiver, String method, Object[] args, Object expectedValue) {
 		if (false == receiver instanceof View) {
 			return false;
 		}
@@ -31,8 +30,7 @@ public class DomainShortcutPropertyTester extends PropertyTester {
 		if (SHORTCUT_PROPERTY.equals(method)) {
 			EAnnotation annotation = view.getEAnnotation("Shortcut"); //$NON-NLS-1$
 			if (annotation != null) {
-				return TypesRepositoryEditPart.MODEL_ID.equals(annotation
-						.getDetails().get("modelID")); //$NON-NLS-1$
+				return TypesRepositoryEditPart.MODEL_ID.equals(annotation.getDetails().get("modelID")); //$NON-NLS-1$
 			}
 		}
 		return false;

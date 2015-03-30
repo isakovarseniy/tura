@@ -12,8 +12,7 @@ import recipe.diagram.providers.DomainElementTypes;
 /**
  * @generated
  */
-public class RecipeDeploymentItemSemanticEditPolicy extends
-		DomainBaseItemSemanticEditPolicy {
+public class RecipeDeploymentItemSemanticEditPolicy extends DomainBaseItemSemanticEditPolicy {
 
 	/**
 	 * @generated

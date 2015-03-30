@@ -83,20 +83,16 @@ public class DomainEditPartFactory implements EditPartFactory {
 				return new ServerName2EditPart(view);
 
 			case DatacenterDatacenterSubsystemsCompartmentEditPart.VISUAL_ID:
-				return new DatacenterDatacenterSubsystemsCompartmentEditPart(
-						view);
+				return new DatacenterDatacenterSubsystemsCompartmentEditPart(view);
 
 			case SubsystemSubsystemInfrastructureLayerCompartmentEditPart.VISUAL_ID:
-				return new SubsystemSubsystemInfrastructureLayerCompartmentEditPart(
-						view);
+				return new SubsystemSubsystemInfrastructureLayerCompartmentEditPart(view);
 
 			case InfrastructureLayerInfrastructureLayerInfrastructureComponentCompartmentEditPart.VISUAL_ID:
-				return new InfrastructureLayerInfrastructureLayerInfrastructureComponentCompartmentEditPart(
-						view);
+				return new InfrastructureLayerInfrastructureLayerInfrastructureComponentCompartmentEditPart(view);
 
 			case ServerClasterServerClasterServersCompartmentEditPart.VISUAL_ID:
-				return new ServerClasterServerClasterServersCompartmentEditPart(
-						view);
+				return new ServerClasterServerClasterServersCompartmentEditPart(view);
 
 			case InfrastructureConnectionEditPart.VISUAL_ID:
 				return new InfrastructureConnectionEditPart(view);
@@ -117,10 +113,8 @@ public class DomainEditPartFactory implements EditPartFactory {
 	/**
 	 * @generated
 	 */
-	public static CellEditorLocator getTextCellEditorLocator(
-			ITextAwareEditPart source) {
-		return CellEditorLocatorAccess.INSTANCE
-				.getTextCellEditorLocator(source);
+	public static CellEditorLocator getTextCellEditorLocator(ITextAwareEditPart source) {
+		return CellEditorLocatorAccess.INSTANCE.getTextCellEditorLocator(source);
 	}
 
 }

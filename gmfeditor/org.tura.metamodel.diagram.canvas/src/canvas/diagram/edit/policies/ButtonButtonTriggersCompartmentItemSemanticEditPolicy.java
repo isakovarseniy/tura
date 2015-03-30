@@ -12,8 +12,7 @@ import canvas.diagram.providers.DomainElementTypes;
 /**
  * @generated
  */
-public class ButtonButtonTriggersCompartmentItemSemanticEditPolicy extends
-		DomainBaseItemSemanticEditPolicy {
+public class ButtonButtonTriggersCompartmentItemSemanticEditPolicy extends DomainBaseItemSemanticEditPolicy {
 
 	/**
 	 * @generated

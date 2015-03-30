@@ -12,8 +12,7 @@ import typesrepository.diagram.providers.DomainElementTypes;
 /**
  * @generated
  */
-public class TypesTypesPackagesCompartmentItemSemanticEditPolicy extends
-		DomainBaseItemSemanticEditPolicy {
+public class TypesTypesPackagesCompartmentItemSemanticEditPolicy extends DomainBaseItemSemanticEditPolicy {
 
 	/**
 	 * @generated

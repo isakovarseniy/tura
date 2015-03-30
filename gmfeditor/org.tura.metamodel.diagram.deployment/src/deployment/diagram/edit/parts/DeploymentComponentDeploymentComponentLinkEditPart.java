@@ -18,8 +18,8 @@ import deployment.diagram.edit.policies.DeploymentComponentDeploymentComponentLi
 /**
  * @generated
  */
-public class DeploymentComponentDeploymentComponentLinkEditPart extends
-		ConnectionNodeEditPart implements ITreeBranchEditPart {
+public class DeploymentComponentDeploymentComponentLinkEditPart extends ConnectionNodeEditPart implements
+		ITreeBranchEditPart {
 
 	/**
 	 * @generated
@@ -38,8 +38,7 @@ public class DeploymentComponentDeploymentComponentLinkEditPart extends
 	 */
 	protected void createDefaultEditPolicies() {
 		super.createDefaultEditPolicies();
-		installEditPolicy(
-				EditPolicyRoles.SEMANTIC_ROLE,
+		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
 				new DeploymentComponentDeploymentComponentLinkItemSemanticEditPolicy());
 	}
 
@@ -66,8 +65,7 @@ public class DeploymentComponentDeploymentComponentLinkEditPart extends
 	/**
 	 * @generated
 	 */
-	public class DeploymentComponentDeploymentComponentLinkFigure extends
-			PolylineConnectionEx {
+	public class DeploymentComponentDeploymentComponentLinkFigure extends PolylineConnectionEx {
 
 		/**
 		 * @generated

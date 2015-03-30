@@ -508,6 +508,9 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//Views/viewInheritances"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//Views/tabPagesInheritances"/>
     </genClasses>
+    <genClasses ecoreClass="domain.ecore#//Orderable">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//Orderable/order"/>
+    </genClasses>
     <genClasses ecoreClass="domain.ecore#//MultiLangLabel">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//MultiLangLabel/multiLangLabel"/>
     </genClasses>

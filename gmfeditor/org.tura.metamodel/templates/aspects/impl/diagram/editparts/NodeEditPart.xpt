@@ -1,0 +1,38 @@
+«IMPORT 'http://www.eclipse.org/gmf/2009/GenModel'»
+«IMPORT 'http://www.eclipse.org/gmf/2006/GraphicalDefinition'»
+«EXTENSION xpt::diagram::ViewmapAttributesUtils»
+«EXTENSION xpt::diagram::editparts::Utils»
+«EXTENSION xpt::diagram::Utils»
+
+«AROUND createNodePlate FOR gmfgen::GenNode-»
+	«EXPAND xpt::Common::generatedMemberComment»
+	protected org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure createNodePlate() {
+		org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure result = new org.tura.metamodel.commons.editparts.OrderedDefaultSizeNodeFigure(«IF getDiagram().isPixelMapMode()»«defaultSizeWidth(viewmap, 40)», «defaultSizeHeight(viewmap, 40)»«ELSE»getMapMode().DPtoLP(«defaultSizeWidth(viewmap, 40)»), getMapMode().DPtoLP(«defaultSizeHeight(viewmap, 40)»)«ENDIF»);
+		result.addPropertyChangeListener("order", new java.beans.PropertyChangeListener() {
+
+			@Override
+			public void propertyChange(java.beans.PropertyChangeEvent evt) {
+				org.eclipse.emf.ecore.EObject obj = ((org.eclipse.gmf.runtime.notation.View) getModel()).getElement();
+				if (obj instanceof domain.Orderable) {
+					org.eclipse.emf.edit.domain.EditingDomain editingDomain = getEditingDomain();
+					editingDomain.getCommandStack().execute(
+							org.eclipse.emf.edit.command.SetCommand.create(editingDomain, obj, domain.DomainPackage.eINSTANCE.getOrderable_Order(),
+									evt.getNewValue()));
+
+				}
+			}
+		});
+
+
+
+		«EXPAND setupNodePlate-»
+		return result;
+	}
+«ENDAROUND»
+
+«DEFINE setupNodePlate FOR gmfgen::GenNode»«ENDDEFINE»
+
+«DEFINE setupNodePlate FOR gmfgen::GenChildSideAffixedNode»
+	//FIXME: workaround for #154536
+	result.getBounds().setSize(result.getPreferredSize());
+«ENDDEFINE»

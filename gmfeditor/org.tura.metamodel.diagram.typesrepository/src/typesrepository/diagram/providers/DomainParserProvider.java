@@ -25,8 +25,7 @@ import domain.DomainPackage;
 /**
  * @generated
  */
-public class DomainParserProvider extends AbstractProvider implements
-		IParserProvider {
+public class DomainParserProvider extends AbstractProvider implements IParserProvider {
 
 	/**
 	 * @generated
@@ -38,8 +37,7 @@ public class DomainParserProvider extends AbstractProvider implements
 	 */
 	private IParser getTypesName_205004Parser() {
 		if (typesName_205004Parser == null) {
-			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE
-					.getTypes_Name() };
+			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE.getTypes_Name() };
 			MessageFormatParser parser = new MessageFormatParser(features);
 			typesName_205004Parser = parser;
 		}
@@ -56,8 +54,7 @@ public class DomainParserProvider extends AbstractProvider implements
 	 */
 	private IParser getPackageName_205002Parser() {
 		if (packageName_205002Parser == null) {
-			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE
-					.getPackage_Name() };
+			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE.getPackage_Name() };
 			MessageFormatParser parser = new MessageFormatParser(features);
 			packageName_205002Parser = parser;
 		}
@@ -81,10 +78,8 @@ public class DomainParserProvider extends AbstractProvider implements
 	 * Utility method that consults ParserService
 	 * @generated
 	 */
-	public static IParser getParser(IElementType type, EObject object,
-			String parserHint) {
-		return ParserService.getInstance().getParser(
-				new HintAdapter(type, object, parserHint));
+	public static IParser getParser(IElementType type, EObject object, String parserHint) {
+		return ParserService.getInstance().getParser(new HintAdapter(type, object, parserHint));
 	}
 
 	/**

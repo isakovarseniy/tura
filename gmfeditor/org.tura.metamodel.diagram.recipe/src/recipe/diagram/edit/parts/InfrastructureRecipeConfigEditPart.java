@@ -18,8 +18,7 @@ import recipe.diagram.edit.policies.InfrastructureRecipeConfigItemSemanticEditPo
 /**
  * @generated
  */
-public class InfrastructureRecipeConfigEditPart extends ConnectionNodeEditPart
-		implements ITreeBranchEditPart {
+public class InfrastructureRecipeConfigEditPart extends ConnectionNodeEditPart implements ITreeBranchEditPart {
 
 	/**
 	 * @generated
@@ -38,8 +37,7 @@ public class InfrastructureRecipeConfigEditPart extends ConnectionNodeEditPart
 	 */
 	protected void createDefaultEditPolicies() {
 		super.createDefaultEditPolicies();
-		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
-				new InfrastructureRecipeConfigItemSemanticEditPolicy());
+		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE, new InfrastructureRecipeConfigItemSemanticEditPolicy());
 	}
 
 	/**

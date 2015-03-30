@@ -13,8 +13,7 @@ import frmview.diagram.providers.DomainElementTypes;
 /**
  * @generated
  */
-public class WindowWindowViewElementCompartmentItemSemanticEditPolicy extends
-		DomainBaseItemSemanticEditPolicy {
+public class WindowWindowViewElementCompartmentItemSemanticEditPolicy extends DomainBaseItemSemanticEditPolicy {
 
 	/**
 	 * @generated

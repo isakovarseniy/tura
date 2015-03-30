@@ -12,8 +12,7 @@ import roles.diagram.providers.DomainElementTypes;
 /**
  * @generated
  */
-public class GroupGroup2GroupItemSemanticEditPolicy extends
-		DomainBaseItemSemanticEditPolicy {
+public class GroupGroup2GroupItemSemanticEditPolicy extends DomainBaseItemSemanticEditPolicy {
 
 	/**
 	 * @generated

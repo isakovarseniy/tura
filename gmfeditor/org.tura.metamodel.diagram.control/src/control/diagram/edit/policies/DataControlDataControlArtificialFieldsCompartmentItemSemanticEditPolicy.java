@@ -12,8 +12,8 @@ import control.diagram.providers.DomainElementTypes;
 /**
  * @generated
  */
-public class DataControlDataControlArtificialFieldsCompartmentItemSemanticEditPolicy
-		extends DomainBaseItemSemanticEditPolicy {
+public class DataControlDataControlArtificialFieldsCompartmentItemSemanticEditPolicy extends
+		DomainBaseItemSemanticEditPolicy {
 
 	/**
 	 * @generated

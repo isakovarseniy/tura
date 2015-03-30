@@ -12,8 +12,7 @@ import control.diagram.providers.DomainElementTypes;
 /**
  * @generated
  */
-public class RelationItemSemanticEditPolicy extends
-		DomainBaseItemSemanticEditPolicy {
+public class RelationItemSemanticEditPolicy extends DomainBaseItemSemanticEditPolicy {
 
 	/**
 	 * @generated

@@ -36,8 +36,7 @@ public class DomainDiagramUpdater {
 	 * @generated
 	 */
 	public static boolean isShortcutOrphaned(View view) {
-		return !view.isSetElement() || view.getElement() == null
-				|| view.getElement().eIsProxy();
+		return !view.isSetElement() || view.getElement() == null || view.getElement().eIsProxy();
 	}
 
 	/**
@@ -54,19 +53,15 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<DomainNodeDescriptor> getDeploymentComponents_901000SemanticChildren(
-			View view) {
+	public static List<DomainNodeDescriptor> getDeploymentComponents_901000SemanticChildren(View view) {
 		if (!view.isSetElement()) {
 			return Collections.emptyList();
 		}
-		DeploymentComponents modelElement = (DeploymentComponents) view
-				.getElement();
+		DeploymentComponents modelElement = (DeploymentComponents) view.getElement();
 		LinkedList<DomainNodeDescriptor> result = new LinkedList<DomainNodeDescriptor>();
-		for (Iterator<?> it = modelElement.getDeplymentStep().iterator(); it
-				.hasNext();) {
+		for (Iterator<?> it = modelElement.getDeplymentStep().iterator(); it.hasNext();) {
 			DeploymentComponent childElement = (DeploymentComponent) it.next();
-			int visualID = DomainVisualIDRegistry.getNodeVisualID(view,
-					childElement);
+			int visualID = DomainVisualIDRegistry.getNodeVisualID(view, childElement);
 			if (visualID == DeploymentComponentEditPart.VISUAL_ID) {
 				result.add(new DomainNodeDescriptor(childElement, visualID));
 				continue;
@@ -74,8 +69,7 @@ public class DomainDiagramUpdater {
 		}
 		{
 			DeploymentStarStep childElement = modelElement.getStartSeq();
-			int visualID = DomainVisualIDRegistry.getNodeVisualID(view,
-					childElement);
+			int visualID = DomainVisualIDRegistry.getNodeVisualID(view, childElement);
 			if (visualID == DeploymentStarStepEditPart.VISUAL_ID) {
 				result.add(new DomainNodeDescriptor(childElement, visualID));
 			}
@@ -127,18 +121,15 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getDeploymentComponents_901000ContainedLinks(
-			View view) {
+	public static List<DomainLinkDescriptor> getDeploymentComponents_901000ContainedLinks(View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getDeploymentComponent_902001ContainedLinks(
-			View view) {
-		DeploymentComponent modelElement = (DeploymentComponent) view
-				.getElement();
+	public static List<DomainLinkDescriptor> getDeploymentComponent_902001ContainedLinks(View view) {
+		DeploymentComponent modelElement = (DeploymentComponent) view.getElement();
 		LinkedList<DomainLinkDescriptor> result = new LinkedList<DomainLinkDescriptor>();
 		result.addAll(getOutgoingFeatureModelFacetLinks_DeploymentComponent_DeploymentComponentLink_904014(modelElement));
 		return result;
@@ -147,10 +138,8 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getDeploymentStarStep_902002ContainedLinks(
-			View view) {
-		DeploymentStarStep modelElement = (DeploymentStarStep) view
-				.getElement();
+	public static List<DomainLinkDescriptor> getDeploymentStarStep_902002ContainedLinks(View view) {
+		DeploymentStarStep modelElement = (DeploymentStarStep) view.getElement();
 		LinkedList<DomainLinkDescriptor> result = new LinkedList<DomainLinkDescriptor>();
 		result.addAll(getOutgoingFeatureModelFacetLinks_DeploymentStarStep_FirstStep_904008(modelElement));
 		return result;
@@ -159,35 +148,30 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getDeploymentComponent_902001IncomingLinks(
-			View view) {
-		DeploymentComponent modelElement = (DeploymentComponent) view
-				.getElement();
-		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
-				.find(view.eResource().getResourceSet().getResources());
+	public static List<DomainLinkDescriptor> getDeploymentComponent_902001IncomingLinks(View view) {
+		DeploymentComponent modelElement = (DeploymentComponent) view.getElement();
+		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer.find(view
+				.eResource().getResourceSet().getResources());
 		LinkedList<DomainLinkDescriptor> result = new LinkedList<DomainLinkDescriptor>();
 		result.addAll(getIncomingFeatureModelFacetLinks_DeploymentComponent_DeploymentComponentLink_904014(
 				modelElement, crossReferences));
-		result.addAll(getIncomingFeatureModelFacetLinks_DeploymentStarStep_FirstStep_904008(
-				modelElement, crossReferences));
+		result.addAll(getIncomingFeatureModelFacetLinks_DeploymentStarStep_FirstStep_904008(modelElement,
+				crossReferences));
 		return result;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getDeploymentStarStep_902002IncomingLinks(
-			View view) {
+	public static List<DomainLinkDescriptor> getDeploymentStarStep_902002IncomingLinks(View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getDeploymentComponent_902001OutgoingLinks(
-			View view) {
-		DeploymentComponent modelElement = (DeploymentComponent) view
-				.getElement();
+	public static List<DomainLinkDescriptor> getDeploymentComponent_902001OutgoingLinks(View view) {
+		DeploymentComponent modelElement = (DeploymentComponent) view.getElement();
 		LinkedList<DomainLinkDescriptor> result = new LinkedList<DomainLinkDescriptor>();
 		result.addAll(getOutgoingFeatureModelFacetLinks_DeploymentComponent_DeploymentComponentLink_904014(modelElement));
 		return result;
@@ -196,10 +180,8 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getDeploymentStarStep_902002OutgoingLinks(
-			View view) {
-		DeploymentStarStep modelElement = (DeploymentStarStep) view
-				.getElement();
+	public static List<DomainLinkDescriptor> getDeploymentStarStep_902002OutgoingLinks(View view) {
+		DeploymentStarStep modelElement = (DeploymentStarStep) view.getElement();
 		LinkedList<DomainLinkDescriptor> result = new LinkedList<DomainLinkDescriptor>();
 		result.addAll(getOutgoingFeatureModelFacetLinks_DeploymentStarStep_FirstStep_904008(modelElement));
 		return result;
@@ -209,17 +191,13 @@ public class DomainDiagramUpdater {
 	 * @generated
 	 */
 	private static Collection<DomainLinkDescriptor> getIncomingFeatureModelFacetLinks_DeploymentComponent_DeploymentComponentLink_904014(
-			DeploymentComponent target,
-			Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences) {
+			DeploymentComponent target, Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences) {
 		LinkedList<DomainLinkDescriptor> result = new LinkedList<DomainLinkDescriptor>();
-		Collection<EStructuralFeature.Setting> settings = crossReferences
-				.get(target);
+		Collection<EStructuralFeature.Setting> settings = crossReferences.get(target);
 		for (EStructuralFeature.Setting setting : settings) {
 			if (setting.getEStructuralFeature() == DomainPackage.eINSTANCE
 					.getDeploymentComponent_DeploymentComponentLink()) {
-				result.add(new DomainLinkDescriptor(
-						setting.getEObject(),
-						target,
+				result.add(new DomainLinkDescriptor(setting.getEObject(), target,
 						DomainElementTypes.DeploymentComponentDeploymentComponentLink_904014,
 						DeploymentComponentDeploymentComponentLinkEditPart.VISUAL_ID));
 			}
@@ -231,16 +209,12 @@ public class DomainDiagramUpdater {
 	 * @generated
 	 */
 	private static Collection<DomainLinkDescriptor> getIncomingFeatureModelFacetLinks_DeploymentStarStep_FirstStep_904008(
-			DeploymentComponent target,
-			Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences) {
+			DeploymentComponent target, Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences) {
 		LinkedList<DomainLinkDescriptor> result = new LinkedList<DomainLinkDescriptor>();
-		Collection<EStructuralFeature.Setting> settings = crossReferences
-				.get(target);
+		Collection<EStructuralFeature.Setting> settings = crossReferences.get(target);
 		for (EStructuralFeature.Setting setting : settings) {
-			if (setting.getEStructuralFeature() == DomainPackage.eINSTANCE
-					.getDeploymentStarStep_FirstStep()) {
-				result.add(new DomainLinkDescriptor(setting.getEObject(),
-						target,
+			if (setting.getEStructuralFeature() == DomainPackage.eINSTANCE.getDeploymentStarStep_FirstStep()) {
+				result.add(new DomainLinkDescriptor(setting.getEObject(), target,
 						DomainElementTypes.DeploymentStarStepFirstStep_904008,
 						DeploymentStarStepFirstStepEditPart.VISUAL_ID));
 			}
@@ -258,9 +232,7 @@ public class DomainDiagramUpdater {
 		if (destination == null) {
 			return result;
 		}
-		result.add(new DomainLinkDescriptor(
-				source,
-				destination,
+		result.add(new DomainLinkDescriptor(source, destination,
 				DomainElementTypes.DeploymentComponentDeploymentComponentLink_904014,
 				DeploymentComponentDeploymentComponentLinkEditPart.VISUAL_ID));
 		return result;
@@ -276,8 +248,7 @@ public class DomainDiagramUpdater {
 		if (destination == null) {
 			return result;
 		}
-		result.add(new DomainLinkDescriptor(source, destination,
-				DomainElementTypes.DeploymentStarStepFirstStep_904008,
+		result.add(new DomainLinkDescriptor(source, destination, DomainElementTypes.DeploymentStarStepFirstStep_904008,
 				DeploymentStarStepFirstStepEditPart.VISUAL_ID));
 		return result;
 	}

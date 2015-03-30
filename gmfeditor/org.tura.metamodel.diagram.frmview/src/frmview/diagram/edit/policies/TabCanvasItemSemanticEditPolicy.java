@@ -28,8 +28,7 @@ import frmview.diagram.providers.DomainElementTypes;
 /**
  * @generated
  */
-public class TabCanvasItemSemanticEditPolicy extends
-		DomainBaseItemSemanticEditPolicy {
+public class TabCanvasItemSemanticEditPolicy extends DomainBaseItemSemanticEditPolicy {
 
 	/**
 	 * @generated
@@ -43,14 +42,12 @@ public class TabCanvasItemSemanticEditPolicy extends
 	 */
 	protected Command getDestroyElementCommand(DestroyElementRequest req) {
 		View view = (View) getHost().getModel();
-		CompositeTransactionalCommand cmd = new CompositeTransactionalCommand(
-				getEditingDomain(), null);
+		CompositeTransactionalCommand cmd = new CompositeTransactionalCommand(getEditingDomain(), null);
 		cmd.setTransactionNestingEnabled(false);
 		for (Iterator<?> it = view.getTargetEdges().iterator(); it.hasNext();) {
 			Edge incomingLink = (Edge) it.next();
 			if (DomainVisualIDRegistry.getVisualID(incomingLink) == ViewInheritanceEditPart.VISUAL_ID) {
-				DestroyElementRequest r = new DestroyElementRequest(
-						incomingLink.getElement(), false);
+				DestroyElementRequest r = new DestroyElementRequest(incomingLink.getElement(), false);
 				cmd.add(new DestroyElementCommand(r));
 				cmd.add(new DeleteCommand(getEditingDomain(), incomingLink));
 				continue;
@@ -59,8 +56,7 @@ public class TabCanvasItemSemanticEditPolicy extends
 		for (Iterator<?> it = view.getSourceEdges().iterator(); it.hasNext();) {
 			Edge outgoingLink = (Edge) it.next();
 			if (DomainVisualIDRegistry.getVisualID(outgoingLink) == TabPagesInheritanceEditPart.VISUAL_ID) {
-				DestroyElementRequest r = new DestroyElementRequest(
-						outgoingLink.getElement(), false);
+				DestroyElementRequest r = new DestroyElementRequest(outgoingLink.getElement(), false);
 				cmd.add(new DestroyElementCommand(r));
 				cmd.add(new DeleteCommand(getEditingDomain(), outgoingLink));
 				continue;
@@ -84,22 +80,18 @@ public class TabCanvasItemSemanticEditPolicy extends
 	protected Command getCreateRelationshipCommand(CreateRelationshipRequest req) {
 		Command command = req.getTarget() == null ? getStartCreateRelationshipCommand(req)
 				: getCompleteCreateRelationshipCommand(req);
-		return command != null ? command : super
-				.getCreateRelationshipCommand(req);
+		return command != null ? command : super.getCreateRelationshipCommand(req);
 	}
 
 	/**
 	 * @generated
 	 */
-	protected Command getStartCreateRelationshipCommand(
-			CreateRelationshipRequest req) {
+	protected Command getStartCreateRelationshipCommand(CreateRelationshipRequest req) {
 		if (DomainElementTypes.ViewInheritance_1304001 == req.getElementType()) {
 			return null;
 		}
-		if (DomainElementTypes.TabPagesInheritance_1304002 == req
-				.getElementType()) {
-			return getGEFWrapper(new TabPagesInheritanceCreateCommand(req,
-					req.getSource(), req.getTarget()));
+		if (DomainElementTypes.TabPagesInheritance_1304002 == req.getElementType()) {
+			return getGEFWrapper(new TabPagesInheritanceCreateCommand(req, req.getSource(), req.getTarget()));
 		}
 		return null;
 	}
@@ -107,14 +99,11 @@ public class TabCanvasItemSemanticEditPolicy extends
 	/**
 	 * @generated
 	 */
-	protected Command getCompleteCreateRelationshipCommand(
-			CreateRelationshipRequest req) {
+	protected Command getCompleteCreateRelationshipCommand(CreateRelationshipRequest req) {
 		if (DomainElementTypes.ViewInheritance_1304001 == req.getElementType()) {
-			return getGEFWrapper(new ViewInheritanceCreateCommand(req,
-					req.getSource(), req.getTarget()));
+			return getGEFWrapper(new ViewInheritanceCreateCommand(req, req.getSource(), req.getTarget()));
 		}
-		if (DomainElementTypes.TabPagesInheritance_1304002 == req
-				.getElementType()) {
+		if (DomainElementTypes.TabPagesInheritance_1304002 == req.getElementType()) {
 			return null;
 		}
 		return null;
@@ -126,8 +115,7 @@ public class TabCanvasItemSemanticEditPolicy extends
 	 * 
 	 * @generated
 	 */
-	protected Command getReorientRelationshipCommand(
-			ReorientRelationshipRequest req) {
+	protected Command getReorientRelationshipCommand(ReorientRelationshipRequest req) {
 		switch (getVisualID(req)) {
 		case ViewInheritanceEditPart.VISUAL_ID:
 			return getGEFWrapper(new ViewInheritanceReorientCommand(req));

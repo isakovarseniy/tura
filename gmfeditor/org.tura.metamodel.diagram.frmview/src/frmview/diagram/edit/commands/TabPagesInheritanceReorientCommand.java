@@ -40,8 +40,7 @@ public class TabPagesInheritanceReorientCommand extends EditElementCommand {
 	/**
 	 * @generated
 	 */
-	public TabPagesInheritanceReorientCommand(
-			ReorientRelationshipRequest request) {
+	public TabPagesInheritanceReorientCommand(ReorientRelationshipRequest request) {
 		super(request.getLabel(), request.getRelationship(), request);
 		reorientDirection = request.getDirection();
 		oldEnd = request.getOldRelationshipEnd();
@@ -76,9 +75,8 @@ public class TabPagesInheritanceReorientCommand extends EditElementCommand {
 			return false;
 		}
 		Views container = (Views) getLink().eContainer();
-		return DomainBaseItemSemanticEditPolicy.getLinkConstraints()
-				.canExistTabPagesInheritance_1304002(container, getLink(),
-						getNewSource(), target);
+		return DomainBaseItemSemanticEditPolicy.getLinkConstraints().canExistTabPagesInheritance_1304002(container,
+				getLink(), getNewSource(), target);
 	}
 
 	/**
@@ -93,19 +91,16 @@ public class TabPagesInheritanceReorientCommand extends EditElementCommand {
 			return false;
 		}
 		Views container = (Views) getLink().eContainer();
-		return DomainBaseItemSemanticEditPolicy.getLinkConstraints()
-				.canExistTabPagesInheritance_1304002(container, getLink(),
-						source, getNewTarget());
+		return DomainBaseItemSemanticEditPolicy.getLinkConstraints().canExistTabPagesInheritance_1304002(container,
+				getLink(), source, getNewTarget());
 	}
 
 	/**
 	 * @generated
 	 */
-	protected CommandResult doExecuteWithResult(IProgressMonitor monitor,
-			IAdaptable info) throws ExecutionException {
+	protected CommandResult doExecuteWithResult(IProgressMonitor monitor, IAdaptable info) throws ExecutionException {
 		if (!canExecute()) {
-			throw new ExecutionException(
-					"Invalid arguments in reorient link command"); //$NON-NLS-1$
+			throw new ExecutionException("Invalid arguments in reorient link command"); //$NON-NLS-1$
 		}
 		if (reorientDirection == ReorientRelationshipRequest.REORIENT_SOURCE) {
 			return reorientSource();

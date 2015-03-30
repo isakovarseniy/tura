@@ -21,8 +21,7 @@ import frmview.diagram.edit.policies.ViewInheritanceItemSemanticEditPolicy;
 /**
  * @generated
  */
-public class ViewInheritanceEditPart extends ConnectionNodeEditPart implements
-		ITreeBranchEditPart {
+public class ViewInheritanceEditPart extends ConnectionNodeEditPart implements ITreeBranchEditPart {
 
 	/**
 	 * @generated
@@ -41,8 +40,7 @@ public class ViewInheritanceEditPart extends ConnectionNodeEditPart implements
 	 */
 	protected void createDefaultEditPolicies() {
 		super.createDefaultEditPolicies();
-		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
-				new ViewInheritanceItemSemanticEditPolicy());
+		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE, new ViewInheritanceItemSemanticEditPolicy());
 	}
 
 	/**

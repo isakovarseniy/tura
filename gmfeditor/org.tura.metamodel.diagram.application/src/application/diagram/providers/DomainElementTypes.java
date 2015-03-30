@@ -129,26 +129,22 @@ public class DomainElementTypes {
 	/**
 	 * @generated
 	 */
-	private static ImageDescriptor getProvidedImageDescriptor(
-			ENamedElement element) {
+	private static ImageDescriptor getProvidedImageDescriptor(ENamedElement element) {
 		if (element instanceof EStructuralFeature) {
 			EStructuralFeature feature = ((EStructuralFeature) element);
 			EClass eContainingClass = feature.getEContainingClass();
 			EClassifier eType = feature.getEType();
 			if (eContainingClass != null && !eContainingClass.isAbstract()) {
 				element = eContainingClass;
-			} else if (eType instanceof EClass
-					&& !((EClass) eType).isAbstract()) {
+			} else if (eType instanceof EClass && !((EClass) eType).isAbstract()) {
 				element = eType;
 			}
 		}
 		if (element instanceof EClass) {
 			EClass eClass = (EClass) element;
 			if (!eClass.isAbstract()) {
-				return DomainDiagramEditorPlugin.getInstance()
-						.getItemImageDescriptor(
-								eClass.getEPackage().getEFactoryInstance()
-										.create(eClass));
+				return DomainDiagramEditorPlugin.getInstance().getItemImageDescriptor(
+						eClass.getEPackage().getEFactoryInstance().create(eClass));
 			}
 		}
 		// TODO : support structural features
@@ -220,41 +216,30 @@ public class DomainElementTypes {
 		if (elements == null) {
 			elements = new IdentityHashMap<IElementType, ENamedElement>();
 
-			elements.put(Application_801000,
-					DomainPackage.eINSTANCE.getApplication());
+			elements.put(Application_801000, DomainPackage.eINSTANCE.getApplication());
 
-			elements.put(ApplicationRecipes_802001,
-					DomainPackage.eINSTANCE.getApplicationRecipes());
+			elements.put(ApplicationRecipes_802001, DomainPackage.eINSTANCE.getApplicationRecipes());
 
-			elements.put(ApplicationMappers_802002,
-					DomainPackage.eINSTANCE.getApplicationMappers());
+			elements.put(ApplicationMappers_802002, DomainPackage.eINSTANCE.getApplicationMappers());
 
-			elements.put(ApplicationUILayer_802003,
-					DomainPackage.eINSTANCE.getApplicationUILayer());
+			elements.put(ApplicationUILayer_802003, DomainPackage.eINSTANCE.getApplicationUILayer());
 
-			elements.put(ApplicationStyle_802005,
-					DomainPackage.eINSTANCE.getApplicationStyle());
+			elements.put(ApplicationStyle_802005, DomainPackage.eINSTANCE.getApplicationStyle());
 
 			elements.put(ApplicationInfrastructureLayer_802004,
 					DomainPackage.eINSTANCE.getApplicationInfrastructureLayer());
 
-			elements.put(ApplicationRole_802006,
-					DomainPackage.eINSTANCE.getApplicationRole());
+			elements.put(ApplicationRole_802006, DomainPackage.eINSTANCE.getApplicationRole());
 
-			elements.put(ApplicationMessages_802007,
-					DomainPackage.eINSTANCE.getApplicationMessages());
+			elements.put(ApplicationMessages_802007, DomainPackage.eINSTANCE.getApplicationMessages());
 
-			elements.put(ApplicationRecipe_803001,
-					DomainPackage.eINSTANCE.getApplicationRecipe());
+			elements.put(ApplicationRecipe_803001, DomainPackage.eINSTANCE.getApplicationRecipe());
 
-			elements.put(ApplicationMapper_803002,
-					DomainPackage.eINSTANCE.getApplicationMapper());
+			elements.put(ApplicationMapper_803002, DomainPackage.eINSTANCE.getApplicationMapper());
 
-			elements.put(ApplicationUIPackage_803003,
-					DomainPackage.eINSTANCE.getApplicationUIPackage());
+			elements.put(ApplicationUIPackage_803003, DomainPackage.eINSTANCE.getApplicationUIPackage());
 
-			elements.put(StylesPackage_803004,
-					DomainPackage.eINSTANCE.getStylesPackage());
+			elements.put(StylesPackage_803004, DomainPackage.eINSTANCE.getStylesPackage());
 		}
 		return (ENamedElement) elements.get(type);
 	}

@@ -22,8 +22,8 @@ import org.eclipse.gmf.tooling.runtime.edit.policies.reparent.CreationEditPolicy
 /**
  * @generated
  */
-public class InfrastructureLayerInfrastructureLayerInfrastructureComponentCompartmentEditPart
-		extends ShapeCompartmentEditPart {
+public class InfrastructureLayerInfrastructureLayerInfrastructureComponentCompartmentEditPart extends
+		ShapeCompartmentEditPart {
 
 	/**
 	 * @generated
@@ -33,8 +33,7 @@ public class InfrastructureLayerInfrastructureLayerInfrastructureComponentCompar
 	/**
 	 * @generated
 	 */
-	public InfrastructureLayerInfrastructureLayerInfrastructureComponentCompartmentEditPart(
-			View view) {
+	public InfrastructureLayerInfrastructureLayerInfrastructureComponentCompartmentEditPart(View view) {
 		super(view);
 	}
 
@@ -50,8 +49,7 @@ public class InfrastructureLayerInfrastructureLayerInfrastructureComponentCompar
 	 */
 
 	public IFigure createFigure() {
-		ResizableCompartmentFigure result = (ResizableCompartmentFigure) super
-				.createFigure();
+		ResizableCompartmentFigure result = (ResizableCompartmentFigure) super.createFigure();
 		result.setTitleVisibility(false);
 		return result;
 	}
@@ -61,18 +59,13 @@ public class InfrastructureLayerInfrastructureLayerInfrastructureComponentCompar
 	 */
 	protected void createDefaultEditPolicies() {
 		super.createDefaultEditPolicies();
-		installEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE,
-				new ResizableCompartmentEditPolicy());
-		installEditPolicy(
-				EditPolicyRoles.SEMANTIC_ROLE,
+		installEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE, new ResizableCompartmentEditPolicy());
+		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
 				new InfrastructureLayerInfrastructureLayerInfrastructureComponentCompartmentItemSemanticEditPolicy());
-		installEditPolicy(EditPolicyRoles.CREATION_ROLE,
-				new CreationEditPolicyWithCustomReparent(
-						DomainVisualIDRegistry.TYPED_INSTANCE));
-		installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE,
-				new DragDropEditPolicy());
-		installEditPolicy(
-				EditPolicyRoles.CANONICAL_ROLE,
+		installEditPolicy(EditPolicyRoles.CREATION_ROLE, new CreationEditPolicyWithCustomReparent(
+				DomainVisualIDRegistry.TYPED_INSTANCE));
+		installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE, new DragDropEditPolicy());
+		installEditPolicy(EditPolicyRoles.CANONICAL_ROLE,
 				new InfrastructureLayerInfrastructureLayerInfrastructureComponentCompartmentCanonicalEditPolicy());
 	}
 

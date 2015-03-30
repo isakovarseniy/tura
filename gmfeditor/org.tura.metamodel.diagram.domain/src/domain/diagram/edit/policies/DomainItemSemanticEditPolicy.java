@@ -18,8 +18,7 @@ import domain.diagram.providers.DomainElementTypes;
 /**
  * @generated
  */
-public class DomainItemSemanticEditPolicy extends
-		DomainBaseItemSemanticEditPolicy {
+public class DomainItemSemanticEditPolicy extends DomainBaseItemSemanticEditPolicy {
 
 	/**
 	 * @generated
@@ -35,8 +34,7 @@ public class DomainItemSemanticEditPolicy extends
 		if (DomainElementTypes.DomainArtifacts_502001 == req.getElementType()) {
 			return getGEFWrapper(new DomainArtifactsCreateCommand(req));
 		}
-		if (DomainElementTypes.DomainApplications_502003 == req
-				.getElementType()) {
+		if (DomainElementTypes.DomainApplications_502003 == req.getElementType()) {
 			return getGEFWrapper(new DomainApplicationsCreateCommand(req));
 		}
 		if (DomainElementTypes.DomainTypes_502002 == req.getElementType()) {
@@ -49,26 +47,20 @@ public class DomainItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	protected Command getDuplicateCommand(DuplicateElementsRequest req) {
-		TransactionalEditingDomain editingDomain = ((IGraphicalEditPart) getHost())
-				.getEditingDomain();
+		TransactionalEditingDomain editingDomain = ((IGraphicalEditPart) getHost()).getEditingDomain();
 		return getGEFWrapper(new DuplicateAnythingCommand(editingDomain, req));
 	}
 
 	/**
 	 * @generated
 	 */
-	private static class DuplicateAnythingCommand extends
-			DuplicateEObjectsCommand {
+	private static class DuplicateAnythingCommand extends DuplicateEObjectsCommand {
 
 		/**
 		 * @generated
 		 */
-		public DuplicateAnythingCommand(
-				TransactionalEditingDomain editingDomain,
-				DuplicateElementsRequest req) {
-			super(editingDomain, req.getLabel(), req
-					.getElementsToBeDuplicated(), req
-					.getAllDuplicatedElementsMap());
+		public DuplicateAnythingCommand(TransactionalEditingDomain editingDomain, DuplicateElementsRequest req) {
+			super(editingDomain, req.getLabel(), req.getElementsToBeDuplicated(), req.getAllDuplicatedElementsMap());
 		}
 
 	}

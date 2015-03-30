@@ -18,8 +18,7 @@ import domain.diagram.providers.DomainElementTypes;
 /**
  * @generated
  */
-public class DomainSheetLabelProvider extends BaseLabelProvider implements
-		ILabelProvider {
+public class DomainSheetLabelProvider extends BaseLabelProvider implements ILabelProvider {
 
 	/**
 	 * @generated
@@ -75,8 +74,7 @@ public class DomainSheetLabelProvider extends BaseLabelProvider implements
 			if (etype != null) {
 				return etype;
 			}
-			view = view.eContainer() instanceof View ? (View) view.eContainer()
-					: null;
+			view = view.eContainer() instanceof View ? (View) view.eContainer() : null;
 		}
 		return null;
 	}

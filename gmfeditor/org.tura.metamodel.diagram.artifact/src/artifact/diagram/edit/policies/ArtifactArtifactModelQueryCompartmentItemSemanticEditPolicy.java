@@ -12,8 +12,7 @@ import artifact.diagram.providers.DomainElementTypes;
 /**
  * @generated
  */
-public class ArtifactArtifactModelQueryCompartmentItemSemanticEditPolicy extends
-		DomainBaseItemSemanticEditPolicy {
+public class ArtifactArtifactModelQueryCompartmentItemSemanticEditPolicy extends DomainBaseItemSemanticEditPolicy {
 
 	/**
 	 * @generated

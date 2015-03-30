@@ -3,6 +3,8 @@
  */
 package deployment.diagram.edit.parts;
 
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
@@ -14,7 +16,10 @@ import org.eclipse.draw2d.Shape;
 import org.eclipse.draw2d.StackLayout;
 import org.eclipse.draw2d.geometry.Dimension;
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EcorePackage;
+import org.eclipse.emf.edit.command.SetCommand;
+import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPolicy;
 import org.eclipse.gef.Request;
@@ -36,9 +41,12 @@ import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.Font;
 import org.eclipse.swt.widgets.Display;
 
+import org.tura.metamodel.commons.editparts.OrderedDefaultSizeNodeFigure;
 import deployment.diagram.edit.policies.DeploymentComponentItemSemanticEditPolicy;
 import deployment.diagram.part.DomainVisualIDRegistry;
 import deployment.diagram.providers.DomainElementTypes;
+import domain.DomainPackage;
+import domain.Orderable;
 
 /**
  * @generated
@@ -72,8 +80,7 @@ public class DeploymentComponentEditPart extends ShapeNodeEditPart {
 	 */
 	protected void createDefaultEditPolicies() {
 		super.createDefaultEditPolicies();
-		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
-				new DeploymentComponentItemSemanticEditPolicy());
+		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE, new DeploymentComponentItemSemanticEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
 		// XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
 		// removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
@@ -86,8 +93,7 @@ public class DeploymentComponentEditPart extends ShapeNodeEditPart {
 		org.eclipse.gmf.runtime.diagram.ui.editpolicies.LayoutEditPolicy lep = new org.eclipse.gmf.runtime.diagram.ui.editpolicies.LayoutEditPolicy() {
 
 			protected EditPolicy createChildEditPolicy(EditPart child) {
-				EditPolicy result = child
-						.getEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE);
+				EditPolicy result = child.getEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE);
 				if (result == null) {
 					result = new NonResizableEditPolicy();
 				}
@@ -124,9 +130,8 @@ public class DeploymentComponentEditPart extends ShapeNodeEditPart {
 	 */
 	protected boolean addFixedChild(EditPart childEditPart) {
 		if (childEditPart instanceof DeploymentComponentNameEditPart) {
-			((DeploymentComponentNameEditPart) childEditPart)
-					.setLabel(getPrimaryShape()
-							.getFigureDeploymentComponentLabelFigure());
+			((DeploymentComponentNameEditPart) childEditPart).setLabel(getPrimaryShape()
+					.getFigureDeploymentComponentLabelFigure());
 			return true;
 		}
 		return false;
@@ -173,7 +178,22 @@ public class DeploymentComponentEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected NodeFigure createNodePlate() {
-		DefaultSizeNodeFigure result = new DefaultSizeNodeFigure(40, 40);
+		DefaultSizeNodeFigure result = new OrderedDefaultSizeNodeFigure(40, 40);
+		result.addPropertyChangeListener("order", new PropertyChangeListener() {
+
+			@Override
+			public void propertyChange(PropertyChangeEvent evt) {
+				EObject obj = ((View) getModel()).getElement();
+				if (obj instanceof Orderable) {
+					EditingDomain editingDomain = getEditingDomain();
+					editingDomain.getCommandStack().execute(
+							SetCommand.create(editingDomain, obj, DomainPackage.eINSTANCE.getOrderable_Order(),
+									evt.getNewValue()));
+
+				}
+			}
+		});
+
 		return result;
 	}
 
@@ -259,8 +279,7 @@ public class DeploymentComponentEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	public EditPart getPrimaryChildEditPart() {
-		return getChildBySemanticHint(DomainVisualIDRegistry
-				.getType(DeploymentComponentNameEditPart.VISUAL_ID));
+		return getChildBySemanticHint(DomainVisualIDRegistry.getType(DeploymentComponentNameEditPart.VISUAL_ID));
 	}
 
 	/**
@@ -275,8 +294,7 @@ public class DeploymentComponentEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	public List<IElementType> getMARelTypesOnSourceAndTarget(
-			IGraphicalEditPart targetEditPart) {
+	public List<IElementType> getMARelTypesOnSourceAndTarget(IGraphicalEditPart targetEditPart) {
 		LinkedList<IElementType> types = new LinkedList<IElementType>();
 		if (targetEditPart instanceof deployment.diagram.edit.parts.DeploymentComponentEditPart) {
 			types.add(DomainElementTypes.DeploymentComponentDeploymentComponentLink_904014);
@@ -323,8 +341,7 @@ public class DeploymentComponentEditPart extends ShapeNodeEditPart {
 	 */
 	protected void handleNotificationEvent(Notification event) {
 		if (event.getNotifier() == getModel()
-				&& EcorePackage.eINSTANCE.getEModelElement_EAnnotations()
-						.equals(event.getFeature())) {
+				&& EcorePackage.eINSTANCE.getEModelElement_EAnnotations().equals(event.getFeature())) {
 			handleMajorSemanticChange();
 		} else {
 			super.handleNotificationEvent(event);
@@ -345,12 +362,10 @@ public class DeploymentComponentEditPart extends ShapeNodeEditPart {
 		 * @generated
 		 */
 		public DeploymentComponentFigure() {
-			this.setCornerDimensions(new Dimension(getMapMode().DPtoLP(8),
-					getMapMode().DPtoLP(8)));
+			this.setCornerDimensions(new Dimension(getMapMode().DPtoLP(8), getMapMode().DPtoLP(8)));
 			this.setForegroundColor(THIS_FORE);
 			this.setBackgroundColor(THIS_BACK);
-			this.setBorder(new MarginBorder(getMapMode().DPtoLP(5),
-					getMapMode().DPtoLP(5), getMapMode().DPtoLP(5),
+			this.setBorder(new MarginBorder(getMapMode().DPtoLP(5), getMapMode().DPtoLP(5), getMapMode().DPtoLP(5),
 					getMapMode().DPtoLP(5)));
 			createContents();
 		}
@@ -362,11 +377,9 @@ public class DeploymentComponentEditPart extends ShapeNodeEditPart {
 
 			fFigureDeploymentComponentLabelFigure = new WrappingLabel();
 
-			fFigureDeploymentComponentLabelFigure
-					.setText("DeploymentComponent");
+			fFigureDeploymentComponentLabelFigure.setText("DeploymentComponent");
 
-			fFigureDeploymentComponentLabelFigure
-					.setFont(FFIGUREDEPLOYMENTCOMPONENTLABELFIGURE_FONT);
+			fFigureDeploymentComponentLabelFigure.setFont(FFIGUREDEPLOYMENTCOMPONENTLABELFIGURE_FONT);
 
 			this.add(fFigureDeploymentComponentLabelFigure);
 
@@ -394,7 +407,7 @@ public class DeploymentComponentEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	static final Font FFIGUREDEPLOYMENTCOMPONENTLABELFIGURE_FONT = new Font(
-			Display.getCurrent(), "Palatino", 12, SWT.ITALIC);
+	static final Font FFIGUREDEPLOYMENTCOMPONENTLABELFIGURE_FONT = new Font(Display.getCurrent(), "Palatino", 12,
+			SWT.ITALIC);
 
 }

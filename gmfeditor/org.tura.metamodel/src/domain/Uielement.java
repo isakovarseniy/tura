@@ -24,7 +24,7 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface Uielement extends StyleElement, NickNamed, Categorized
+public interface Uielement extends StyleElement, NickNamed, Categorized, Orderable
 {
   /**
    * Returns the value of the '<em><b>Uid</b></em>' attribute.

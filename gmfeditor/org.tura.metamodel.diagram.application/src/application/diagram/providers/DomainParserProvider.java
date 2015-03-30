@@ -34,8 +34,7 @@ import domain.DomainPackage;
 /**
  * @generated
  */
-public class DomainParserProvider extends AbstractProvider implements
-		IParserProvider {
+public class DomainParserProvider extends AbstractProvider implements IParserProvider {
 
 	/**
 	 * @generated
@@ -47,8 +46,7 @@ public class DomainParserProvider extends AbstractProvider implements
 	 */
 	private IParser getApplicationRecipesName_805002Parser() {
 		if (applicationRecipesName_805002Parser == null) {
-			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE
-					.getApplicationRecipes_Name() };
+			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE.getApplicationRecipes_Name() };
 			MessageFormatParser parser = new MessageFormatParser(features);
 			applicationRecipesName_805002Parser = parser;
 		}
@@ -65,8 +63,7 @@ public class DomainParserProvider extends AbstractProvider implements
 	 */
 	private IParser getApplicationMappersName_805004Parser() {
 		if (applicationMappersName_805004Parser == null) {
-			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE
-					.getApplicationMappers_Name() };
+			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE.getApplicationMappers_Name() };
 			MessageFormatParser parser = new MessageFormatParser(features);
 			applicationMappersName_805004Parser = parser;
 		}
@@ -83,8 +80,7 @@ public class DomainParserProvider extends AbstractProvider implements
 	 */
 	private IParser getApplicationUILayerName_805006Parser() {
 		if (applicationUILayerName_805006Parser == null) {
-			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE
-					.getApplicationUILayer_Name() };
+			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE.getApplicationUILayer_Name() };
 			MessageFormatParser parser = new MessageFormatParser(features);
 			applicationUILayerName_805006Parser = parser;
 		}
@@ -101,8 +97,7 @@ public class DomainParserProvider extends AbstractProvider implements
 	 */
 	private IParser getApplicationInfrastructureLayerName_805007Parser() {
 		if (applicationInfrastructureLayerName_805007Parser == null) {
-			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE
-					.getApplicationInfrastructureLayer_Name() };
+			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE.getApplicationInfrastructureLayer_Name() };
 			MessageFormatParser parser = new MessageFormatParser(features);
 			applicationInfrastructureLayerName_805007Parser = parser;
 		}
@@ -119,8 +114,7 @@ public class DomainParserProvider extends AbstractProvider implements
 	 */
 	private IParser getApplicationStyleName_805009Parser() {
 		if (applicationStyleName_805009Parser == null) {
-			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE
-					.getApplicationStyle_Name() };
+			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE.getApplicationStyle_Name() };
 			MessageFormatParser parser = new MessageFormatParser(features);
 			applicationStyleName_805009Parser = parser;
 		}
@@ -137,8 +131,7 @@ public class DomainParserProvider extends AbstractProvider implements
 	 */
 	private IParser getApplicationRoleName_805010Parser() {
 		if (applicationRoleName_805010Parser == null) {
-			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE
-					.getApplicationRole_Name() };
+			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE.getApplicationRole_Name() };
 			MessageFormatParser parser = new MessageFormatParser(features);
 			applicationRoleName_805010Parser = parser;
 		}
@@ -155,8 +148,7 @@ public class DomainParserProvider extends AbstractProvider implements
 	 */
 	private IParser getApplicationMessagesName_805012Parser() {
 		if (applicationMessagesName_805012Parser == null) {
-			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE
-					.getApplicationMessages_Name() };
+			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE.getApplicationMessages_Name() };
 			MessageFormatParser parser = new MessageFormatParser(features);
 			applicationMessagesName_805012Parser = parser;
 		}
@@ -173,8 +165,7 @@ public class DomainParserProvider extends AbstractProvider implements
 	 */
 	private IParser getApplicationRecipeName_805001Parser() {
 		if (applicationRecipeName_805001Parser == null) {
-			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE
-					.getApplicationRecipe_Name() };
+			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE.getApplicationRecipe_Name() };
 			MessageFormatParser parser = new MessageFormatParser(features);
 			applicationRecipeName_805001Parser = parser;
 		}
@@ -191,8 +182,7 @@ public class DomainParserProvider extends AbstractProvider implements
 	 */
 	private IParser getApplicationMapperName_805003Parser() {
 		if (applicationMapperName_805003Parser == null) {
-			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE
-					.getApplicationMapper_Name() };
+			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE.getApplicationMapper_Name() };
 			MessageFormatParser parser = new MessageFormatParser(features);
 			applicationMapperName_805003Parser = parser;
 		}
@@ -209,8 +199,7 @@ public class DomainParserProvider extends AbstractProvider implements
 	 */
 	private IParser getApplicationUIPackageName_805005Parser() {
 		if (applicationUIPackageName_805005Parser == null) {
-			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE
-					.getApplicationUIPackage_Name() };
+			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE.getApplicationUIPackage_Name() };
 			MessageFormatParser parser = new MessageFormatParser(features);
 			applicationUIPackageName_805005Parser = parser;
 		}
@@ -227,8 +216,7 @@ public class DomainParserProvider extends AbstractProvider implements
 	 */
 	private IParser getStylesPackageName_805008Parser() {
 		if (stylesPackageName_805008Parser == null) {
-			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE
-					.getStylesPackage_Name() };
+			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE.getStylesPackage_Name() };
 			MessageFormatParser parser = new MessageFormatParser(features);
 			stylesPackageName_805008Parser = parser;
 		}
@@ -270,10 +258,8 @@ public class DomainParserProvider extends AbstractProvider implements
 	 * Utility method that consults ParserService
 	 * @generated
 	 */
-	public static IParser getParser(IElementType type, EObject object,
-			String parserHint) {
-		return ParserService.getInstance().getParser(
-				new HintAdapter(type, object, parserHint));
+	public static IParser getParser(IElementType type, EObject object, String parserHint) {
+		return ParserService.getInstance().getParser(new HintAdapter(type, object, parserHint));
 	}
 
 	/**

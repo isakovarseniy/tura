@@ -12,8 +12,7 @@ import canvas.diagram.providers.DomainElementTypes;
 /**
  * @generated
  */
-public class TableTableColsCompartment2ItemSemanticEditPolicy extends
-		DomainBaseItemSemanticEditPolicy {
+public class TableTableColsCompartment2ItemSemanticEditPolicy extends DomainBaseItemSemanticEditPolicy {
 
 	/**
 	 * @generated

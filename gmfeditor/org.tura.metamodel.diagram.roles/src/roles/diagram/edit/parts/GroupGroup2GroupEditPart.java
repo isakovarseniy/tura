@@ -18,8 +18,7 @@ import roles.diagram.edit.policies.GroupGroup2GroupItemSemanticEditPolicy;
 /**
  * @generated
  */
-public class GroupGroup2GroupEditPart extends ConnectionNodeEditPart implements
-		ITreeBranchEditPart {
+public class GroupGroup2GroupEditPart extends ConnectionNodeEditPart implements ITreeBranchEditPart {
 
 	/**
 	 * @generated
@@ -38,8 +37,7 @@ public class GroupGroup2GroupEditPart extends ConnectionNodeEditPart implements
 	 */
 	protected void createDefaultEditPolicies() {
 		super.createDefaultEditPolicies();
-		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
-				new GroupGroup2GroupItemSemanticEditPolicy());
+		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE, new GroupGroup2GroupItemSemanticEditPolicy());
 	}
 
 	/**

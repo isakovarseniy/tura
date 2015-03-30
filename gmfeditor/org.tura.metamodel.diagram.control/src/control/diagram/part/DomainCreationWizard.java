@@ -83,8 +83,7 @@ public class DomainCreationWizard extends Wizard implements INewWizard {
 	/**
 	 * @generated
 	 */
-	public void setOpenNewlyCreatedDiagramEditor(
-			boolean openNewlyCreatedDiagramEditor) {
+	public void setOpenNewlyCreatedDiagramEditor(boolean openNewlyCreatedDiagramEditor) {
 		this.openNewlyCreatedDiagramEditor = openNewlyCreatedDiagramEditor;
 	}
 
@@ -104,32 +103,24 @@ public class DomainCreationWizard extends Wizard implements INewWizard {
 	 * @generated
 	 */
 	public void addPages() {
-		diagramModelFilePage = new DomainCreationWizardPage(
-				"DiagramModelFile", getSelection(), "control_diagram"); //$NON-NLS-1$ //$NON-NLS-2$
-		diagramModelFilePage
-				.setTitle(Messages.DomainCreationWizard_DiagramModelFilePageTitle);
-		diagramModelFilePage
-				.setDescription(Messages.DomainCreationWizard_DiagramModelFilePageDescription);
+		diagramModelFilePage = new DomainCreationWizardPage("DiagramModelFile", getSelection(), "control_diagram"); //$NON-NLS-1$ //$NON-NLS-2$
+		diagramModelFilePage.setTitle(Messages.DomainCreationWizard_DiagramModelFilePageTitle);
+		diagramModelFilePage.setDescription(Messages.DomainCreationWizard_DiagramModelFilePageDescription);
 		addPage(diagramModelFilePage);
 
-		domainModelFilePage = new DomainCreationWizardPage(
-				"DomainModelFile", getSelection(), "domain") { //$NON-NLS-1$ //$NON-NLS-2$
+		domainModelFilePage = new DomainCreationWizardPage("DomainModelFile", getSelection(), "domain") { //$NON-NLS-1$ //$NON-NLS-2$
 
 			public void setVisible(boolean visible) {
 				if (visible) {
 					String fileName = diagramModelFilePage.getFileName();
-					fileName = fileName.substring(0, fileName.length()
-							- ".control_diagram".length()); //$NON-NLS-1$
-					setFileName(DomainDiagramEditorUtil.getUniqueFileName(
-							getContainerFullPath(), fileName, "domain")); //$NON-NLS-1$
+					fileName = fileName.substring(0, fileName.length() - ".control_diagram".length()); //$NON-NLS-1$
+					setFileName(DomainDiagramEditorUtil.getUniqueFileName(getContainerFullPath(), fileName, "domain")); //$NON-NLS-1$
 				}
 				super.setVisible(visible);
 			}
 		};
-		domainModelFilePage
-				.setTitle(Messages.DomainCreationWizard_DomainModelFilePageTitle);
-		domainModelFilePage
-				.setDescription(Messages.DomainCreationWizard_DomainModelFilePageDescription);
+		domainModelFilePage.setTitle(Messages.DomainCreationWizard_DomainModelFilePageTitle);
+		domainModelFilePage.setDescription(Messages.DomainCreationWizard_DomainModelFilePageDescription);
 		addPage(domainModelFilePage);
 	}
 
@@ -139,17 +130,14 @@ public class DomainCreationWizard extends Wizard implements INewWizard {
 	public boolean performFinish() {
 		IRunnableWithProgress op = new WorkspaceModifyOperation(null) {
 
-			protected void execute(IProgressMonitor monitor)
-					throws CoreException, InterruptedException {
-				diagram = DomainDiagramEditorUtil.createDiagram(
-						diagramModelFilePage.getURI(),
+			protected void execute(IProgressMonitor monitor) throws CoreException, InterruptedException {
+				diagram = DomainDiagramEditorUtil.createDiagram(diagramModelFilePage.getURI(),
 						domainModelFilePage.getURI(), monitor);
 				if (isOpenNewlyCreatedDiagramEditor() && diagram != null) {
 					try {
 						DomainDiagramEditorUtil.openDiagram(diagram);
 					} catch (PartInitException e) {
-						ErrorDialog.openError(getContainer().getShell(),
-								Messages.DomainCreationWizardOpenEditorError,
+						ErrorDialog.openError(getContainer().getShell(), Messages.DomainCreationWizardOpenEditorError,
 								null, e.getStatus());
 					}
 				}
@@ -161,12 +149,10 @@ public class DomainCreationWizard extends Wizard implements INewWizard {
 			return false;
 		} catch (InvocationTargetException e) {
 			if (e.getTargetException() instanceof CoreException) {
-				ErrorDialog.openError(getContainer().getShell(),
-						Messages.DomainCreationWizardCreationError, null,
+				ErrorDialog.openError(getContainer().getShell(), Messages.DomainCreationWizardCreationError, null,
 						((CoreException) e.getTargetException()).getStatus());
 			} else {
-				DomainDiagramEditorPlugin.getInstance().logError(
-						"Error creating diagram", e.getTargetException()); //$NON-NLS-1$
+				DomainDiagramEditorPlugin.getInstance().logError("Error creating diagram", e.getTargetException()); //$NON-NLS-1$
 			}
 			return false;
 		}

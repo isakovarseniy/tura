@@ -91,26 +91,22 @@ public class DomainElementTypes {
 	/**
 	 * @generated
 	 */
-	private static ImageDescriptor getProvidedImageDescriptor(
-			ENamedElement element) {
+	private static ImageDescriptor getProvidedImageDescriptor(ENamedElement element) {
 		if (element instanceof EStructuralFeature) {
 			EStructuralFeature feature = ((EStructuralFeature) element);
 			EClass eContainingClass = feature.getEContainingClass();
 			EClassifier eType = feature.getEType();
 			if (eContainingClass != null && !eContainingClass.isAbstract()) {
 				element = eContainingClass;
-			} else if (eType instanceof EClass
-					&& !((EClass) eType).isAbstract()) {
+			} else if (eType instanceof EClass && !((EClass) eType).isAbstract()) {
 				element = eType;
 			}
 		}
 		if (element instanceof EClass) {
 			EClass eClass = (EClass) element;
 			if (!eClass.isAbstract()) {
-				return DomainDiagramEditorPlugin.getInstance()
-						.getItemImageDescriptor(
-								eClass.getEPackage().getEFactoryInstance()
-										.create(eClass));
+				return DomainDiagramEditorPlugin.getInstance().getItemImageDescriptor(
+						eClass.getEPackage().getEFactoryInstance().create(eClass));
 			}
 		}
 		// TODO : support structural features
@@ -182,14 +178,11 @@ public class DomainElementTypes {
 		if (elements == null) {
 			elements = new IdentityHashMap<IElementType, ENamedElement>();
 
-			elements.put(Messages_1701000,
-					DomainPackage.eINSTANCE.getMessages());
+			elements.put(Messages_1701000, DomainPackage.eINSTANCE.getMessages());
 
-			elements.put(MessageLibrary_1702001,
-					DomainPackage.eINSTANCE.getMessageLibrary());
+			elements.put(MessageLibrary_1702001, DomainPackage.eINSTANCE.getMessageLibrary());
 
-			elements.put(Language_1702002,
-					DomainPackage.eINSTANCE.getLanguage());
+			elements.put(Language_1702002, DomainPackage.eINSTANCE.getLanguage());
 
 			elements.put(Message_1703004, DomainPackage.eINSTANCE.getMessage());
 		}

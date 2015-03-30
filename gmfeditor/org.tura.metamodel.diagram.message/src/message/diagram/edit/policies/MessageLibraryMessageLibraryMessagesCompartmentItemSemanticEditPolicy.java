@@ -12,8 +12,8 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 /**
  * @generated
  */
-public class MessageLibraryMessageLibraryMessagesCompartmentItemSemanticEditPolicy
-		extends DomainBaseItemSemanticEditPolicy {
+public class MessageLibraryMessageLibraryMessagesCompartmentItemSemanticEditPolicy extends
+		DomainBaseItemSemanticEditPolicy {
 
 	/**
 	 * @generated

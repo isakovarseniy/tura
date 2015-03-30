@@ -13,8 +13,7 @@ import org.eclipse.swt.graphics.Image;
 /**
  * @generated
  */
-public class DomainIconProvider extends AbstractProvider implements
-		IIconProvider {
+public class DomainIconProvider extends AbstractProvider implements IIconProvider {
 
 	/**
 	 * @generated

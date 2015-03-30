@@ -45,8 +45,7 @@ public class InfrastructureConnectionCreateCommand extends EditElementCommand {
 	/**
 	 * @generated
 	 */
-	public InfrastructureConnectionCreateCommand(
-			CreateRelationshipRequest request, EObject source, EObject target) {
+	public InfrastructureConnectionCreateCommand(CreateRelationshipRequest request, EObject source, EObject target) {
 		super(request.getLabel(), null, request);
 		this.source = source;
 		this.target = target;
@@ -60,12 +59,10 @@ public class InfrastructureConnectionCreateCommand extends EditElementCommand {
 		if (source == null && target == null) {
 			return false;
 		}
-		if (source != null
-				&& false == source instanceof InfrastructureComponent) {
+		if (source != null && false == source instanceof InfrastructureComponent) {
 			return false;
 		}
-		if (target != null
-				&& false == target instanceof InfrastructureComponent) {
+		if (target != null && false == target instanceof InfrastructureComponent) {
 			return false;
 		}
 		if (getSource() == null) {
@@ -75,23 +72,19 @@ public class InfrastructureConnectionCreateCommand extends EditElementCommand {
 		if (getContainer() == null) {
 			return false;
 		}
-		return DomainBaseItemSemanticEditPolicy.getLinkConstraints()
-				.canCreateInfrastructureConnection_1204009(getContainer(),
-						getSource(), getTarget());
+		return DomainBaseItemSemanticEditPolicy.getLinkConstraints().canCreateInfrastructureConnection_1204009(
+				getContainer(), getSource(), getTarget());
 	}
 
 	/**
 	 * @generated
 	 */
-	protected CommandResult doExecuteWithResult(IProgressMonitor monitor,
-			IAdaptable info) throws ExecutionException {
+	protected CommandResult doExecuteWithResult(IProgressMonitor monitor, IAdaptable info) throws ExecutionException {
 		if (!canExecute()) {
-			throw new ExecutionException(
-					"Invalid arguments in create link command"); //$NON-NLS-1$
+			throw new ExecutionException("Invalid arguments in create link command"); //$NON-NLS-1$
 		}
 
-		InfrastructureConnection newElement = DomainFactory.eINSTANCE
-				.createInfrastructureConnection();
+		InfrastructureConnection newElement = DomainFactory.eINSTANCE.createInfrastructureConnection();
 		newElement.setUid(java.util.UUID.randomUUID().toString());
 		getContainer().getInfrastructureConnections().add(newElement);
 		newElement.setMaster(getSource());
@@ -105,22 +98,15 @@ public class InfrastructureConnectionCreateCommand extends EditElementCommand {
 	/**
 	 * @generated
 	 */
-	protected void doConfigure(InfrastructureConnection newElement,
-			IProgressMonitor monitor, IAdaptable info)
+	protected void doConfigure(InfrastructureConnection newElement, IProgressMonitor monitor, IAdaptable info)
 			throws ExecutionException {
-		IElementType elementType = ((CreateElementRequest) getRequest())
-				.getElementType();
-		ConfigureRequest configureRequest = new ConfigureRequest(
-				getEditingDomain(), newElement, elementType);
-		configureRequest.setClientContext(((CreateElementRequest) getRequest())
-				.getClientContext());
+		IElementType elementType = ((CreateElementRequest) getRequest()).getElementType();
+		ConfigureRequest configureRequest = new ConfigureRequest(getEditingDomain(), newElement, elementType);
+		configureRequest.setClientContext(((CreateElementRequest) getRequest()).getClientContext());
 		configureRequest.addParameters(getRequest().getParameters());
-		configureRequest.setParameter(CreateRelationshipRequest.SOURCE,
-				getSource());
-		configureRequest.setParameter(CreateRelationshipRequest.TARGET,
-				getTarget());
-		ICommand configureCommand = elementType
-				.getEditCommand(configureRequest);
+		configureRequest.setParameter(CreateRelationshipRequest.SOURCE, getSource());
+		configureRequest.setParameter(CreateRelationshipRequest.TARGET, getTarget());
+		ICommand configureCommand = elementType.getEditCommand(configureRequest);
 		if (configureCommand != null && configureCommand.canExecute()) {
 			configureCommand.execute(monitor, info);
 		}
@@ -159,13 +145,11 @@ public class InfrastructureConnectionCreateCommand extends EditElementCommand {
 	 * Modify with appropriate logic.
 	 * @generated
 	 */
-	private static EnterpriseInfrastructure deduceContainer(EObject source,
-			EObject target) {
+	private static EnterpriseInfrastructure deduceContainer(EObject source, EObject target) {
 		// Find container element for the new link.
 		// Climb up by containment hierarchy starting from the source
 		// and return the first element that is instance of the container class.
-		for (EObject element = source; element != null; element = element
-				.eContainer()) {
+		for (EObject element = source; element != null; element = element.eContainer()) {
 			if (element instanceof EnterpriseInfrastructure) {
 				return (EnterpriseInfrastructure) element;
 			}

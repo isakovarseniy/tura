@@ -24,8 +24,7 @@ public class DomainNavigatorItem extends DomainAbstractNavigatorItem {
 			public Object getAdapter(Object adaptableObject, Class adapterType) {
 				if (adaptableObject instanceof roles.diagram.navigator.DomainNavigatorItem
 						&& (adapterType == View.class || adapterType == EObject.class)) {
-					return ((roles.diagram.navigator.DomainNavigatorItem) adaptableObject)
-							.getView();
+					return ((roles.diagram.navigator.DomainNavigatorItem) adaptableObject).getView();
 				}
 				return null;
 			}
@@ -74,11 +73,8 @@ public class DomainNavigatorItem extends DomainAbstractNavigatorItem {
 	 */
 	public boolean equals(Object obj) {
 		if (obj instanceof roles.diagram.navigator.DomainNavigatorItem) {
-			return EcoreUtil
-					.getURI(getView())
-					.equals(EcoreUtil
-							.getURI(((roles.diagram.navigator.DomainNavigatorItem) obj)
-									.getView()));
+			return EcoreUtil.getURI(getView()).equals(
+					EcoreUtil.getURI(((roles.diagram.navigator.DomainNavigatorItem) obj).getView()));
 		}
 		return super.equals(obj);
 	}

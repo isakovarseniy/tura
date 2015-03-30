@@ -661,6 +661,13 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  private EClass orderableEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   private EClass multiLangLabelEClass = null;
 
   /**
@@ -5307,6 +5314,26 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EClass getOrderable()
+  {
+    return orderableEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getOrderable_Order()
+  {
+    return (EAttribute)orderableEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getMultiLangLabel()
   {
     return multiLangLabelEClass;
@@ -8196,6 +8223,9 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     createEReference(viewsEClass, VIEWS__VIEW_INHERITANCES);
     createEReference(viewsEClass, VIEWS__TAB_PAGES_INHERITANCES);
 
+    orderableEClass = createEClass(ORDERABLE);
+    createEAttribute(orderableEClass, ORDERABLE__ORDER);
+
     multiLangLabelEClass = createEClass(MULTI_LANG_LABEL);
     createEReference(multiLangLabelEClass, MULTI_LANG_LABEL__MULTI_LANG_LABEL);
 
@@ -8601,6 +8631,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     tabPageEClass.getESuperTypes().add(this.getViewPortHolder());
     tabPageEClass.getESuperTypes().add(this.getMultiLangLabel());
     tabPageEClass.getESuperTypes().add(this.getCategorized());
+    tabPageEClass.getESuperTypes().add(this.getOrderable());
     viewPortEClass.getESuperTypes().add(this.getViewElement());
     viewPortEClass.getESuperTypes().add(this.getNickNamed());
     viewAreaEClass.getESuperTypes().add(this.getViewElement());
@@ -8610,6 +8641,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     uielementEClass.getESuperTypes().add(this.getStyleElement());
     uielementEClass.getESuperTypes().add(this.getNickNamed());
     uielementEClass.getESuperTypes().add(this.getCategorized());
+    uielementEClass.getESuperTypes().add(this.getOrderable());
     sourcesPointerEClass.getESuperTypes().add(this.getUielement());
     actionElementEClass.getESuperTypes().add(this.getUielement());
     actionTriggerEClass.getESuperTypes().add(this.getTrigger());
@@ -8630,6 +8662,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     columnEClass.getESuperTypes().add(this.getMultiLangLabel());
     columnEClass.getESuperTypes().add(this.getCategorized());
     columnEClass.getESuperTypes().add(this.getHTMLLayerHolder());
+    columnEClass.getESuperTypes().add(this.getOrderable());
     tableEClass.getESuperTypes().add(this.getSourcesPointer());
     tableEClass.getESuperTypes().add(this.getHTMLLayerHolder());
     tableEClass.getESuperTypes().add(this.getMultiLangLabel());
@@ -9155,6 +9188,9 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     initEReference(getViews_Canvases(), this.getCanvasFrame(), null, "canvases", null, 0, -1, Views.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getViews_ViewInheritances(), this.getViewInheritance(), null, "viewInheritances", null, 0, -1, Views.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getViews_TabPagesInheritances(), this.getTabPagesInheritance(), null, "tabPagesInheritances", null, 0, -1, Views.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(orderableEClass, Orderable.class, "Orderable", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getOrderable_Order(), ecorePackage.getEInt(), "order", null, 0, 1, Orderable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(multiLangLabelEClass, MultiLangLabel.class, "MultiLangLabel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getMultiLangLabel_MultiLangLabel(), this.getContext(), null, "multiLangLabel", null, 0, 1, MultiLangLabel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

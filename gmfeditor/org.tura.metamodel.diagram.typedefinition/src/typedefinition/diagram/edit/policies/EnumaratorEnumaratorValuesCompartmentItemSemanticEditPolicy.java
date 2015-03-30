@@ -12,8 +12,7 @@ import typedefinition.diagram.providers.DomainElementTypes;
 /**
  * @generated
  */
-public class EnumaratorEnumaratorValuesCompartmentItemSemanticEditPolicy extends
-		DomainBaseItemSemanticEditPolicy {
+public class EnumaratorEnumaratorValuesCompartmentItemSemanticEditPolicy extends DomainBaseItemSemanticEditPolicy {
 
 	/**
 	 * @generated

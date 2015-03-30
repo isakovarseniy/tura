@@ -28,8 +28,7 @@ import domain.DomainPackage;
 /**
  * @generated
  */
-public class DomainParserProvider extends AbstractProvider implements
-		IParserProvider {
+public class DomainParserProvider extends AbstractProvider implements IParserProvider {
 
 	/**
 	 * @generated
@@ -41,8 +40,7 @@ public class DomainParserProvider extends AbstractProvider implements
 	 */
 	private IParser getJavaMapperFakePackageNameFakeTypeName_405001Parser() {
 		if (javaMapperFakePackageNameFakeTypeName_405001Parser == null) {
-			EAttribute[] features = new EAttribute[] {
-					DomainPackage.eINSTANCE.getTypePointer_FakePackageName(),
+			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE.getTypePointer_FakePackageName(),
 					DomainPackage.eINSTANCE.getTypePointer_FakeTypeName() };
 			MessageFormatParser parser = new MessageFormatParser(features);
 			javaMapperFakePackageNameFakeTypeName_405001Parser = parser;
@@ -60,8 +58,7 @@ public class DomainParserProvider extends AbstractProvider implements
 	 */
 	private IParser getJavaScriptMapperFakePackageNameFakeTypeName_405003Parser() {
 		if (javaScriptMapperFakePackageNameFakeTypeName_405003Parser == null) {
-			EAttribute[] features = new EAttribute[] {
-					DomainPackage.eINSTANCE.getTypePointer_FakePackageName(),
+			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE.getTypePointer_FakePackageName(),
 					DomainPackage.eINSTANCE.getTypePointer_FakeTypeName() };
 			MessageFormatParser parser = new MessageFormatParser(features);
 			javaScriptMapperFakePackageNameFakeTypeName_405003Parser = parser;
@@ -79,8 +76,7 @@ public class DomainParserProvider extends AbstractProvider implements
 	 */
 	private IParser getCSSMapperFakePackageNameFakeTypeName_405004Parser() {
 		if (cSSMapperFakePackageNameFakeTypeName_405004Parser == null) {
-			EAttribute[] features = new EAttribute[] {
-					DomainPackage.eINSTANCE.getCSSMapper_FakePackageName(),
+			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE.getCSSMapper_FakePackageName(),
 					DomainPackage.eINSTANCE.getCSSMapper_FakeTypeName() };
 			MessageFormatParser parser = new MessageFormatParser(features);
 			cSSMapperFakePackageNameFakeTypeName_405004Parser = parser;
@@ -98,8 +94,7 @@ public class DomainParserProvider extends AbstractProvider implements
 	 */
 	private IParser getRoleMapperFakeRoleName_405005Parser() {
 		if (roleMapperFakeRoleName_405005Parser == null) {
-			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE
-					.getRoleMapper_FakeRoleName() };
+			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE.getRoleMapper_FakeRoleName() };
 			MessageFormatParser parser = new MessageFormatParser(features);
 			roleMapperFakeRoleName_405005Parser = parser;
 		}
@@ -127,10 +122,8 @@ public class DomainParserProvider extends AbstractProvider implements
 	 * Utility method that consults ParserService
 	 * @generated
 	 */
-	public static IParser getParser(IElementType type, EObject object,
-			String parserHint) {
-		return ParserService.getInstance().getParser(
-				new HintAdapter(type, object, parserHint));
+	public static IParser getParser(IElementType type, EObject object, String parserHint) {
+		return ParserService.getInstance().getParser(new HintAdapter(type, object, parserHint));
 	}
 
 	/**

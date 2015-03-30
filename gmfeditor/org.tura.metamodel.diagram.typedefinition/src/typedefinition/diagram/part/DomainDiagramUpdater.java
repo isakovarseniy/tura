@@ -50,8 +50,7 @@ public class DomainDiagramUpdater {
 	 * @generated
 	 */
 	public static boolean isShortcutOrphaned(View view) {
-		return !view.isSetElement() || view.getElement() == null
-				|| view.getElement().eIsProxy();
+		return !view.isSetElement() || view.getElement() == null || view.getElement().eIsProxy();
 	}
 
 	/**
@@ -74,8 +73,7 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<DomainNodeDescriptor> getTypeDefinition_101000SemanticChildren(
-			View view) {
+	public static List<DomainNodeDescriptor> getTypeDefinition_101000SemanticChildren(View view) {
 		if (!view.isSetElement()) {
 			return Collections.emptyList();
 		}
@@ -83,8 +81,7 @@ public class DomainDiagramUpdater {
 		LinkedList<DomainNodeDescriptor> result = new LinkedList<DomainNodeDescriptor>();
 		for (Iterator<?> it = modelElement.getTypes().iterator(); it.hasNext();) {
 			TypeElement childElement = (TypeElement) it.next();
-			int visualID = DomainVisualIDRegistry.getNodeVisualID(view,
-					childElement);
+			int visualID = DomainVisualIDRegistry.getNodeVisualID(view, childElement);
 			if (visualID == TypeEditPart.VISUAL_ID) {
 				result.add(new DomainNodeDescriptor(childElement, visualID));
 				continue;
@@ -108,8 +105,7 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<DomainNodeDescriptor> getTypeTypeAttributesCompartment_107001SemanticChildren(
-			View view) {
+	public static List<DomainNodeDescriptor> getTypeTypeAttributesCompartment_107001SemanticChildren(View view) {
 		if (false == view.eContainer() instanceof View) {
 			return Collections.emptyList();
 		}
@@ -119,11 +115,9 @@ public class DomainDiagramUpdater {
 		}
 		Type modelElement = (Type) containerView.getElement();
 		LinkedList<DomainNodeDescriptor> result = new LinkedList<DomainNodeDescriptor>();
-		for (Iterator<?> it = modelElement.getAttributes().iterator(); it
-				.hasNext();) {
+		for (Iterator<?> it = modelElement.getAttributes().iterator(); it.hasNext();) {
 			Attribute childElement = (Attribute) it.next();
-			int visualID = DomainVisualIDRegistry.getNodeVisualID(view,
-					childElement);
+			int visualID = DomainVisualIDRegistry.getNodeVisualID(view, childElement);
 			if (visualID == AttributeEditPart.VISUAL_ID) {
 				result.add(new DomainNodeDescriptor(childElement, visualID));
 				continue;
@@ -135,8 +129,7 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<DomainNodeDescriptor> getTypeTypeOperationsCompartment_107002SemanticChildren(
-			View view) {
+	public static List<DomainNodeDescriptor> getTypeTypeOperationsCompartment_107002SemanticChildren(View view) {
 		if (false == view.eContainer() instanceof View) {
 			return Collections.emptyList();
 		}
@@ -146,11 +139,9 @@ public class DomainDiagramUpdater {
 		}
 		Type modelElement = (Type) containerView.getElement();
 		LinkedList<DomainNodeDescriptor> result = new LinkedList<DomainNodeDescriptor>();
-		for (Iterator<?> it = modelElement.getOperations().iterator(); it
-				.hasNext();) {
+		for (Iterator<?> it = modelElement.getOperations().iterator(); it.hasNext();) {
 			Operation childElement = (Operation) it.next();
-			int visualID = DomainVisualIDRegistry.getNodeVisualID(view,
-					childElement);
+			int visualID = DomainVisualIDRegistry.getNodeVisualID(view, childElement);
 			if (visualID == OperationEditPart.VISUAL_ID) {
 				result.add(new DomainNodeDescriptor(childElement, visualID));
 				continue;
@@ -162,8 +153,7 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<DomainNodeDescriptor> getEnumaratorEnumaratorValuesCompartment_107006SemanticChildren(
-			View view) {
+	public static List<DomainNodeDescriptor> getEnumaratorEnumaratorValuesCompartment_107006SemanticChildren(View view) {
 		if (false == view.eContainer() instanceof View) {
 			return Collections.emptyList();
 		}
@@ -175,8 +165,7 @@ public class DomainDiagramUpdater {
 		LinkedList<DomainNodeDescriptor> result = new LinkedList<DomainNodeDescriptor>();
 		for (Iterator<?> it = modelElement.getValues().iterator(); it.hasNext();) {
 			EnumAttribute childElement = (EnumAttribute) it.next();
-			int visualID = DomainVisualIDRegistry.getNodeVisualID(view,
-					childElement);
+			int visualID = DomainVisualIDRegistry.getNodeVisualID(view, childElement);
 			if (visualID == EnumAttributeEditPart.VISUAL_ID) {
 				result.add(new DomainNodeDescriptor(childElement, visualID));
 				continue;
@@ -265,32 +254,28 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getTypeDefinition_101000ContainedLinks(
-			View view) {
+	public static List<DomainLinkDescriptor> getTypeDefinition_101000ContainedLinks(View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getTypeReference_102001ContainedLinks(
-			View view) {
+	public static List<DomainLinkDescriptor> getTypeReference_102001ContainedLinks(View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getPrimitive_102004ContainedLinks(
-			View view) {
+	public static List<DomainLinkDescriptor> getPrimitive_102004ContainedLinks(View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getType_102002ContainedLinks(
-			View view) {
+	public static List<DomainLinkDescriptor> getType_102002ContainedLinks(View view) {
 		Type modelElement = (Type) view.getElement();
 		LinkedList<DomainLinkDescriptor> result = new LinkedList<DomainLinkDescriptor>();
 		result.addAll(getContainedTypeModelFacetLinks_TypeExtension_104001(modelElement));
@@ -300,136 +285,118 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getEnumarator_102005ContainedLinks(
-			View view) {
+	public static List<DomainLinkDescriptor> getEnumarator_102005ContainedLinks(View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getAttribute_103001ContainedLinks(
-			View view) {
+	public static List<DomainLinkDescriptor> getAttribute_103001ContainedLinks(View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getOperation_103002ContainedLinks(
-			View view) {
+	public static List<DomainLinkDescriptor> getOperation_103002ContainedLinks(View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getEnumAttribute_103005ContainedLinks(
-			View view) {
+	public static List<DomainLinkDescriptor> getEnumAttribute_103005ContainedLinks(View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getTypeExtension_104001ContainedLinks(
-			View view) {
+	public static List<DomainLinkDescriptor> getTypeExtension_104001ContainedLinks(View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getTypeReference_102001IncomingLinks(
-			View view) {
+	public static List<DomainLinkDescriptor> getTypeReference_102001IncomingLinks(View view) {
 		TypeReference modelElement = (TypeReference) view.getElement();
-		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
-				.find(view.eResource().getResourceSet().getResources());
+		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer.find(view
+				.eResource().getResourceSet().getResources());
 		LinkedList<DomainLinkDescriptor> result = new LinkedList<DomainLinkDescriptor>();
-		result.addAll(getIncomingTypeModelFacetLinks_TypeExtension_104001(
-				modelElement, crossReferences));
+		result.addAll(getIncomingTypeModelFacetLinks_TypeExtension_104001(modelElement, crossReferences));
 		return result;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getPrimitive_102004IncomingLinks(
-			View view) {
+	public static List<DomainLinkDescriptor> getPrimitive_102004IncomingLinks(View view) {
 		Primitive modelElement = (Primitive) view.getElement();
-		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
-				.find(view.eResource().getResourceSet().getResources());
+		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer.find(view
+				.eResource().getResourceSet().getResources());
 		LinkedList<DomainLinkDescriptor> result = new LinkedList<DomainLinkDescriptor>();
-		result.addAll(getIncomingTypeModelFacetLinks_TypeExtension_104001(
-				modelElement, crossReferences));
+		result.addAll(getIncomingTypeModelFacetLinks_TypeExtension_104001(modelElement, crossReferences));
 		return result;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getType_102002IncomingLinks(
-			View view) {
+	public static List<DomainLinkDescriptor> getType_102002IncomingLinks(View view) {
 		Type modelElement = (Type) view.getElement();
-		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
-				.find(view.eResource().getResourceSet().getResources());
+		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer.find(view
+				.eResource().getResourceSet().getResources());
 		LinkedList<DomainLinkDescriptor> result = new LinkedList<DomainLinkDescriptor>();
-		result.addAll(getIncomingTypeModelFacetLinks_TypeExtension_104001(
-				modelElement, crossReferences));
+		result.addAll(getIncomingTypeModelFacetLinks_TypeExtension_104001(modelElement, crossReferences));
 		return result;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getEnumarator_102005IncomingLinks(
-			View view) {
+	public static List<DomainLinkDescriptor> getEnumarator_102005IncomingLinks(View view) {
 		Enumarator modelElement = (Enumarator) view.getElement();
-		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
-				.find(view.eResource().getResourceSet().getResources());
+		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer.find(view
+				.eResource().getResourceSet().getResources());
 		LinkedList<DomainLinkDescriptor> result = new LinkedList<DomainLinkDescriptor>();
-		result.addAll(getIncomingTypeModelFacetLinks_TypeExtension_104001(
-				modelElement, crossReferences));
+		result.addAll(getIncomingTypeModelFacetLinks_TypeExtension_104001(modelElement, crossReferences));
 		return result;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getAttribute_103001IncomingLinks(
-			View view) {
+	public static List<DomainLinkDescriptor> getAttribute_103001IncomingLinks(View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getOperation_103002IncomingLinks(
-			View view) {
+	public static List<DomainLinkDescriptor> getOperation_103002IncomingLinks(View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getEnumAttribute_103005IncomingLinks(
-			View view) {
+	public static List<DomainLinkDescriptor> getEnumAttribute_103005IncomingLinks(View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getTypeExtension_104001IncomingLinks(
-			View view) {
+	public static List<DomainLinkDescriptor> getTypeExtension_104001IncomingLinks(View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getTypeReference_102001OutgoingLinks(
-			View view) {
+	public static List<DomainLinkDescriptor> getTypeReference_102001OutgoingLinks(View view) {
 		TypeReference modelElement = (TypeReference) view.getElement();
 		LinkedList<DomainLinkDescriptor> result = new LinkedList<DomainLinkDescriptor>();
 		result.addAll(getOutgoingTypeModelFacetLinks_TypeExtension_104001(modelElement));
@@ -439,8 +406,7 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getPrimitive_102004OutgoingLinks(
-			View view) {
+	public static List<DomainLinkDescriptor> getPrimitive_102004OutgoingLinks(View view) {
 		Primitive modelElement = (Primitive) view.getElement();
 		LinkedList<DomainLinkDescriptor> result = new LinkedList<DomainLinkDescriptor>();
 		result.addAll(getOutgoingTypeModelFacetLinks_TypeExtension_104001(modelElement));
@@ -450,8 +416,7 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getType_102002OutgoingLinks(
-			View view) {
+	public static List<DomainLinkDescriptor> getType_102002OutgoingLinks(View view) {
 		Type modelElement = (Type) view.getElement();
 		LinkedList<DomainLinkDescriptor> result = new LinkedList<DomainLinkDescriptor>();
 		result.addAll(getOutgoingTypeModelFacetLinks_TypeExtension_104001(modelElement));
@@ -461,8 +426,7 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getEnumarator_102005OutgoingLinks(
-			View view) {
+	public static List<DomainLinkDescriptor> getEnumarator_102005OutgoingLinks(View view) {
 		Enumarator modelElement = (Enumarator) view.getElement();
 		LinkedList<DomainLinkDescriptor> result = new LinkedList<DomainLinkDescriptor>();
 		result.addAll(getOutgoingTypeModelFacetLinks_TypeExtension_104001(modelElement));
@@ -472,56 +436,48 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getAttribute_103001OutgoingLinks(
-			View view) {
+	public static List<DomainLinkDescriptor> getAttribute_103001OutgoingLinks(View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getOperation_103002OutgoingLinks(
-			View view) {
+	public static List<DomainLinkDescriptor> getOperation_103002OutgoingLinks(View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getEnumAttribute_103005OutgoingLinks(
-			View view) {
+	public static List<DomainLinkDescriptor> getEnumAttribute_103005OutgoingLinks(View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getTypeExtension_104001OutgoingLinks(
-			View view) {
+	public static List<DomainLinkDescriptor> getTypeExtension_104001OutgoingLinks(View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	private static Collection<DomainLinkDescriptor> getContainedTypeModelFacetLinks_TypeExtension_104001(
-			Type container) {
+	private static Collection<DomainLinkDescriptor> getContainedTypeModelFacetLinks_TypeExtension_104001(Type container) {
 		LinkedList<DomainLinkDescriptor> result = new LinkedList<DomainLinkDescriptor>();
-		for (Iterator<?> links = container.getExtension().iterator(); links
-				.hasNext();) {
+		for (Iterator<?> links = container.getExtension().iterator(); links.hasNext();) {
 			EObject linkObject = (EObject) links.next();
 			if (false == linkObject instanceof TypeExtension) {
 				continue;
 			}
 			TypeExtension link = (TypeExtension) linkObject;
-			if (TypeExtensionEditPart.VISUAL_ID != DomainVisualIDRegistry
-					.getLinkWithClassVisualID(link)) {
+			if (TypeExtensionEditPart.VISUAL_ID != DomainVisualIDRegistry.getLinkWithClassVisualID(link)) {
 				continue;
 			}
 			TypeElement dst = link.getTarget();
 			TypeElement src = link.getSource();
-			result.add(new DomainLinkDescriptor(src, dst, link,
-					DomainElementTypes.TypeExtension_104001,
+			result.add(new DomainLinkDescriptor(src, dst, link, DomainElementTypes.TypeExtension_104001,
 					TypeExtensionEditPart.VISUAL_ID));
 		}
 		return result;
@@ -531,25 +487,20 @@ public class DomainDiagramUpdater {
 	 * @generated
 	 */
 	private static Collection<DomainLinkDescriptor> getIncomingTypeModelFacetLinks_TypeExtension_104001(
-			TypeElement target,
-			Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences) {
+			TypeElement target, Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences) {
 		LinkedList<DomainLinkDescriptor> result = new LinkedList<DomainLinkDescriptor>();
-		Collection<EStructuralFeature.Setting> settings = crossReferences
-				.get(target);
+		Collection<EStructuralFeature.Setting> settings = crossReferences.get(target);
 		for (EStructuralFeature.Setting setting : settings) {
-			if (setting.getEStructuralFeature() != DomainPackage.eINSTANCE
-					.getTypeExtension_Target()
+			if (setting.getEStructuralFeature() != DomainPackage.eINSTANCE.getTypeExtension_Target()
 					|| false == setting.getEObject() instanceof TypeExtension) {
 				continue;
 			}
 			TypeExtension link = (TypeExtension) setting.getEObject();
-			if (TypeExtensionEditPart.VISUAL_ID != DomainVisualIDRegistry
-					.getLinkWithClassVisualID(link)) {
+			if (TypeExtensionEditPart.VISUAL_ID != DomainVisualIDRegistry.getLinkWithClassVisualID(link)) {
 				continue;
 			}
 			TypeElement src = link.getSource();
-			result.add(new DomainLinkDescriptor(src, target, link,
-					DomainElementTypes.TypeExtension_104001,
+			result.add(new DomainLinkDescriptor(src, target, link, DomainElementTypes.TypeExtension_104001,
 					TypeExtensionEditPart.VISUAL_ID));
 		}
 		return result;
@@ -564,8 +515,7 @@ public class DomainDiagramUpdater {
 		// Find container element for the link.
 		// Climb up by containment hierarchy starting from the source
 		// and return the first element that is instance of the container class.
-		for (EObject element = source; element != null && container == null; element = element
-				.eContainer()) {
+		for (EObject element = source; element != null && container == null; element = element.eContainer()) {
 			if (element instanceof Type) {
 				container = (Type) element;
 			}
@@ -574,15 +524,13 @@ public class DomainDiagramUpdater {
 			return Collections.emptyList();
 		}
 		LinkedList<DomainLinkDescriptor> result = new LinkedList<DomainLinkDescriptor>();
-		for (Iterator<?> links = container.getExtension().iterator(); links
-				.hasNext();) {
+		for (Iterator<?> links = container.getExtension().iterator(); links.hasNext();) {
 			EObject linkObject = (EObject) links.next();
 			if (false == linkObject instanceof TypeExtension) {
 				continue;
 			}
 			TypeExtension link = (TypeExtension) linkObject;
-			if (TypeExtensionEditPart.VISUAL_ID != DomainVisualIDRegistry
-					.getLinkWithClassVisualID(link)) {
+			if (TypeExtensionEditPart.VISUAL_ID != DomainVisualIDRegistry.getLinkWithClassVisualID(link)) {
 				continue;
 			}
 			TypeElement dst = link.getTarget();
@@ -590,8 +538,7 @@ public class DomainDiagramUpdater {
 			if (src != source) {
 				continue;
 			}
-			result.add(new DomainLinkDescriptor(src, dst, link,
-					DomainElementTypes.TypeExtension_104001,
+			result.add(new DomainLinkDescriptor(src, dst, link, DomainElementTypes.TypeExtension_104001,
 					TypeExtensionEditPart.VISUAL_ID));
 		}
 		return result;

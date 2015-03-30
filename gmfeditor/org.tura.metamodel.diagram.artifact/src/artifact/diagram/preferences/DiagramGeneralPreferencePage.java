@@ -16,7 +16,6 @@ public class DiagramGeneralPreferencePage extends DiagramsPreferencePage {
 	 * @generated
 	 */
 	public DiagramGeneralPreferencePage() {
-		setPreferenceStore(DomainDiagramEditorPlugin.getInstance()
-				.getPreferenceStore());
+		setPreferenceStore(DomainDiagramEditorPlugin.getInstance().getPreferenceStore());
 	}
 }

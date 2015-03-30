@@ -12,8 +12,7 @@ import style.diagram.providers.DomainElementTypes;
 /**
  * @generated
  */
-public class StyleLibraryStyleLibraryStylesCompartmentItemSemanticEditPolicy
-		extends DomainBaseItemSemanticEditPolicy {
+public class StyleLibraryStyleLibraryStylesCompartmentItemSemanticEditPolicy extends DomainBaseItemSemanticEditPolicy {
 
 	/**
 	 * @generated

@@ -86,20 +86,16 @@ public class DomainEditPartFactory implements EditPartFactory {
 				return new RecipeRecipeIngredientsCompartmentEditPart(view);
 
 			case IngredientIngredientComponentsCompartmentEditPart.VISUAL_ID:
-				return new IngredientIngredientComponentsCompartmentEditPart(
-						view);
+				return new IngredientIngredientComponentsCompartmentEditPart(view);
 
 			case JavaComponentJavaComponentMappersCompartmentEditPart.VISUAL_ID:
-				return new JavaComponentJavaComponentMappersCompartmentEditPart(
-						view);
+				return new JavaComponentJavaComponentMappersCompartmentEditPart(view);
 
 			case ModelMapperModelMapperQueriesCompartmentEditPart.VISUAL_ID:
-				return new ModelMapperModelMapperQueriesCompartmentEditPart(
-						view);
+				return new ModelMapperModelMapperQueriesCompartmentEditPart(view);
 
 			case ConfigurationConfigurationPropertiesCompartmentEditPart.VISUAL_ID:
-				return new ConfigurationConfigurationPropertiesCompartmentEditPart(
-						view);
+				return new ConfigurationConfigurationPropertiesCompartmentEditPart(view);
 
 			case RecipeInfrastructuresEditPart.VISUAL_ID:
 				return new RecipeInfrastructuresEditPart(view);
@@ -135,10 +131,8 @@ public class DomainEditPartFactory implements EditPartFactory {
 	/**
 	 * @generated
 	 */
-	public static CellEditorLocator getTextCellEditorLocator(
-			ITextAwareEditPart source) {
-		return CellEditorLocatorAccess.INSTANCE
-				.getTextCellEditorLocator(source);
+	public static CellEditorLocator getTextCellEditorLocator(ITextAwareEditPart source) {
+		return CellEditorLocatorAccess.INSTANCE.getTextCellEditorLocator(source);
 	}
 
 }

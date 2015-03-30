@@ -128,8 +128,7 @@ public class DomainEditPartFactory implements EditPartFactory {
 				return new LabelLabel2EditPart(view);
 
 			case LayerHolderLayerHolderChildrenCompartmentEditPart.VISUAL_ID:
-				return new LayerHolderLayerHolderChildrenCompartmentEditPart(
-						view);
+				return new LayerHolderLayerHolderChildrenCompartmentEditPart(view);
 
 			case TableTableColsCompartmentEditPart.VISUAL_ID:
 				return new TableTableColsCompartmentEditPart(view);
@@ -147,15 +146,13 @@ public class DomainEditPartFactory implements EditPartFactory {
 				return new ColumnColumnElementCompartment2EditPart(view);
 
 			case LayerHolderLayerHolderChildrenCompartment2EditPart.VISUAL_ID:
-				return new LayerHolderLayerHolderChildrenCompartment2EditPart(
-						view);
+				return new LayerHolderLayerHolderChildrenCompartment2EditPart(view);
 
 			case TreeTreeColsCompartment2EditPart.VISUAL_ID:
 				return new TreeTreeColsCompartment2EditPart(view);
 
 			case LayerHolderLayerHolderChildrenCompartment3EditPart.VISUAL_ID:
-				return new LayerHolderLayerHolderChildrenCompartment3EditPart(
-						view);
+				return new LayerHolderLayerHolderChildrenCompartment3EditPart(view);
 
 			case ButtonButtonTriggersCompartmentEditPart.VISUAL_ID:
 				return new ButtonButtonTriggersCompartmentEditPart(view);
@@ -178,10 +175,8 @@ public class DomainEditPartFactory implements EditPartFactory {
 	/**
 	 * @generated
 	 */
-	public static CellEditorLocator getTextCellEditorLocator(
-			ITextAwareEditPart source) {
-		return CellEditorLocatorAccess.INSTANCE
-				.getTextCellEditorLocator(source);
+	public static CellEditorLocator getTextCellEditorLocator(ITextAwareEditPart source) {
+		return CellEditorLocatorAccess.INSTANCE.getTextCellEditorLocator(source);
 	}
 
 }

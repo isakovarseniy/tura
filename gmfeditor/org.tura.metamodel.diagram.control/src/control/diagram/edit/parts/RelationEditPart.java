@@ -18,8 +18,7 @@ import control.diagram.edit.policies.RelationItemSemanticEditPolicy;
 /**
  * @generated
  */
-public class RelationEditPart extends ConnectionNodeEditPart implements
-		ITreeBranchEditPart {
+public class RelationEditPart extends ConnectionNodeEditPart implements ITreeBranchEditPart {
 
 	/**
 	 * @generated
@@ -38,8 +37,7 @@ public class RelationEditPart extends ConnectionNodeEditPart implements
 	 */
 	protected void createDefaultEditPolicies() {
 		super.createDefaultEditPolicies();
-		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
-				new RelationItemSemanticEditPolicy());
+		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE, new RelationItemSemanticEditPolicy());
 	}
 
 	/**

@@ -20,8 +20,7 @@ import typedefinition.diagram.edit.policies.TypeExtensionItemSemanticEditPolicy;
 /**
  * @generated
  */
-public class TypeExtensionEditPart extends ConnectionNodeEditPart implements
-		ITreeBranchEditPart {
+public class TypeExtensionEditPart extends ConnectionNodeEditPart implements ITreeBranchEditPart {
 
 	/**
 	 * @generated
@@ -40,8 +39,7 @@ public class TypeExtensionEditPart extends ConnectionNodeEditPart implements
 	 */
 	protected void createDefaultEditPolicies() {
 		super.createDefaultEditPolicies();
-		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
-				new TypeExtensionItemSemanticEditPolicy());
+		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE, new TypeExtensionItemSemanticEditPolicy());
 	}
 
 	/**

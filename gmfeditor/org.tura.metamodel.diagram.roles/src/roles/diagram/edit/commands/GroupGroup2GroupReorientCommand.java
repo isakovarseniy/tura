@@ -43,8 +43,7 @@ public class GroupGroup2GroupReorientCommand extends EditElementCommand {
 	/**
 	 * @generated
 	 */
-	public GroupGroup2GroupReorientCommand(
-			ReorientReferenceRelationshipRequest request) {
+	public GroupGroup2GroupReorientCommand(ReorientReferenceRelationshipRequest request) {
 		super(request.getLabel(), null, request);
 		reorientDirection = request.getDirection();
 		referenceOwner = request.getReferenceOwner();
@@ -75,9 +74,8 @@ public class GroupGroup2GroupReorientCommand extends EditElementCommand {
 		if (!(oldEnd instanceof Group && newEnd instanceof Group)) {
 			return false;
 		}
-		return DomainBaseItemSemanticEditPolicy.getLinkConstraints()
-				.canExistGroupGroup2Group_1404003(getNewSource(),
-						getOldTarget());
+		return DomainBaseItemSemanticEditPolicy.getLinkConstraints().canExistGroupGroup2Group_1404003(getNewSource(),
+				getOldTarget());
 	}
 
 	/**
@@ -87,19 +85,16 @@ public class GroupGroup2GroupReorientCommand extends EditElementCommand {
 		if (!(oldEnd instanceof Group && newEnd instanceof Group)) {
 			return false;
 		}
-		return DomainBaseItemSemanticEditPolicy.getLinkConstraints()
-				.canExistGroupGroup2Group_1404003(getOldSource(),
-						getNewTarget());
+		return DomainBaseItemSemanticEditPolicy.getLinkConstraints().canExistGroupGroup2Group_1404003(getOldSource(),
+				getNewTarget());
 	}
 
 	/**
 	 * @generated
 	 */
-	protected CommandResult doExecuteWithResult(IProgressMonitor monitor,
-			IAdaptable info) throws ExecutionException {
+	protected CommandResult doExecuteWithResult(IProgressMonitor monitor, IAdaptable info) throws ExecutionException {
 		if (!canExecute()) {
-			throw new ExecutionException(
-					"Invalid arguments in reorient link command"); //$NON-NLS-1$
+			throw new ExecutionException("Invalid arguments in reorient link command"); //$NON-NLS-1$
 		}
 		if (reorientDirection == ReorientRelationshipRequest.REORIENT_SOURCE) {
 			return reorientSource();

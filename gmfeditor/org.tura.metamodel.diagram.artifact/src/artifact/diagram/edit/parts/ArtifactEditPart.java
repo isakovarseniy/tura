@@ -3,6 +3,8 @@
  */
 package artifact.diagram.edit.parts;
 
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.MarginBorder;
 import org.eclipse.draw2d.RectangleFigure;
@@ -11,7 +13,10 @@ import org.eclipse.draw2d.Shape;
 import org.eclipse.draw2d.StackLayout;
 import org.eclipse.draw2d.geometry.Dimension;
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EcorePackage;
+import org.eclipse.emf.edit.command.SetCommand;
+import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPolicy;
 import org.eclipse.gef.Request;
@@ -36,10 +41,13 @@ import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.Font;
 import org.eclipse.swt.widgets.Display;
 
+import org.tura.metamodel.commons.editparts.OrderedDefaultSizeNodeFigure;
 import artifact.diagram.edit.policies.ArtifactItemSemanticEditPolicy;
 import artifact.diagram.edit.policies.OpenDiagramEditPolicy;
 import artifact.diagram.part.DomainVisualIDRegistry;
 import artifact.diagram.providers.DomainElementTypes;
+import domain.DomainPackage;
+import domain.Orderable;
 
 /**
  * @generated
@@ -72,15 +80,12 @@ public class ArtifactEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected void createDefaultEditPolicies() {
-		installEditPolicy(EditPolicyRoles.CREATION_ROLE,
-				new CreationEditPolicyWithCustomReparent(
-						DomainVisualIDRegistry.TYPED_INSTANCE));
+		installEditPolicy(EditPolicyRoles.CREATION_ROLE, new CreationEditPolicyWithCustomReparent(
+				DomainVisualIDRegistry.TYPED_INSTANCE));
 		super.createDefaultEditPolicies();
-		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
-				new ArtifactItemSemanticEditPolicy());
+		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE, new ArtifactItemSemanticEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
-		installEditPolicy(EditPolicyRoles.OPEN_ROLE,
-				new OpenDiagramEditPolicy());
+		installEditPolicy(EditPolicyRoles.OPEN_ROLE, new OpenDiagramEditPolicy());
 		// XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
 		// removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
 	}
@@ -92,8 +97,7 @@ public class ArtifactEditPart extends ShapeNodeEditPart {
 		org.eclipse.gmf.runtime.diagram.ui.editpolicies.LayoutEditPolicy lep = new org.eclipse.gmf.runtime.diagram.ui.editpolicies.LayoutEditPolicy() {
 
 			protected EditPolicy createChildEditPolicy(EditPart child) {
-				EditPolicy result = child
-						.getEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE);
+				EditPolicy result = child.getEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE);
 				if (result == null) {
 					result = new NonResizableEditPolicy();
 				}
@@ -130,40 +134,31 @@ public class ArtifactEditPart extends ShapeNodeEditPart {
 	 */
 	protected boolean addFixedChild(EditPart childEditPart) {
 		if (childEditPart instanceof ArtifactNameEditPart) {
-			((ArtifactNameEditPart) childEditPart).setLabel(getPrimaryShape()
-					.getFigureArtifactLabelFigure());
+			((ArtifactNameEditPart) childEditPart).setLabel(getPrimaryShape().getFigureArtifactLabelFigure());
 			return true;
 		}
 		if (childEditPart instanceof ArtifactArtifactConfigVariablesCompartmentEditPart) {
-			IFigure pane = getPrimaryShape()
-					.getArtifactConfigVariablesCompartmentFigure();
+			IFigure pane = getPrimaryShape().getArtifactConfigVariablesCompartmentFigure();
 			setupContentPane(pane); // FIXME each comparment should handle his content pane in his own way 
-			pane.add(((ArtifactArtifactConfigVariablesCompartmentEditPart) childEditPart)
-					.getFigure());
+			pane.add(((ArtifactArtifactConfigVariablesCompartmentEditPart) childEditPart).getFigure());
 			return true;
 		}
 		if (childEditPart instanceof ArtifactArtifactModelQueryCompartmentEditPart) {
-			IFigure pane = getPrimaryShape()
-					.getArtifactModelQueryCompartmentFigure();
+			IFigure pane = getPrimaryShape().getArtifactModelQueryCompartmentFigure();
 			setupContentPane(pane); // FIXME each comparment should handle his content pane in his own way 
-			pane.add(((ArtifactArtifactModelQueryCompartmentEditPart) childEditPart)
-					.getFigure());
+			pane.add(((ArtifactArtifactModelQueryCompartmentEditPart) childEditPart).getFigure());
 			return true;
 		}
 		if (childEditPart instanceof ArtifactArtifactSpecifiersCompartmentEditPart) {
-			IFigure pane = getPrimaryShape()
-					.getArtifactSpecifiersCompartmentFigure();
+			IFigure pane = getPrimaryShape().getArtifactSpecifiersCompartmentFigure();
 			setupContentPane(pane); // FIXME each comparment should handle his content pane in his own way 
-			pane.add(((ArtifactArtifactSpecifiersCompartmentEditPart) childEditPart)
-					.getFigure());
+			pane.add(((ArtifactArtifactSpecifiersCompartmentEditPart) childEditPart).getFigure());
 			return true;
 		}
 		if (childEditPart instanceof ArtifactArtifactHintsCompartmentEditPart) {
-			IFigure pane = getPrimaryShape()
-					.getArtifactHintsCompartmentFigure();
+			IFigure pane = getPrimaryShape().getArtifactHintsCompartmentFigure();
 			setupContentPane(pane); // FIXME each comparment should handle his content pane in his own way 
-			pane.add(((ArtifactArtifactHintsCompartmentEditPart) childEditPart)
-					.getFigure());
+			pane.add(((ArtifactArtifactHintsCompartmentEditPart) childEditPart).getFigure());
 			return true;
 		}
 		return false;
@@ -177,31 +172,23 @@ public class ArtifactEditPart extends ShapeNodeEditPart {
 			return true;
 		}
 		if (childEditPart instanceof ArtifactArtifactConfigVariablesCompartmentEditPart) {
-			IFigure pane = getPrimaryShape()
-					.getArtifactConfigVariablesCompartmentFigure();
-			pane.remove(((ArtifactArtifactConfigVariablesCompartmentEditPart) childEditPart)
-					.getFigure());
+			IFigure pane = getPrimaryShape().getArtifactConfigVariablesCompartmentFigure();
+			pane.remove(((ArtifactArtifactConfigVariablesCompartmentEditPart) childEditPart).getFigure());
 			return true;
 		}
 		if (childEditPart instanceof ArtifactArtifactModelQueryCompartmentEditPart) {
-			IFigure pane = getPrimaryShape()
-					.getArtifactModelQueryCompartmentFigure();
-			pane.remove(((ArtifactArtifactModelQueryCompartmentEditPart) childEditPart)
-					.getFigure());
+			IFigure pane = getPrimaryShape().getArtifactModelQueryCompartmentFigure();
+			pane.remove(((ArtifactArtifactModelQueryCompartmentEditPart) childEditPart).getFigure());
 			return true;
 		}
 		if (childEditPart instanceof ArtifactArtifactSpecifiersCompartmentEditPart) {
-			IFigure pane = getPrimaryShape()
-					.getArtifactSpecifiersCompartmentFigure();
-			pane.remove(((ArtifactArtifactSpecifiersCompartmentEditPart) childEditPart)
-					.getFigure());
+			IFigure pane = getPrimaryShape().getArtifactSpecifiersCompartmentFigure();
+			pane.remove(((ArtifactArtifactSpecifiersCompartmentEditPart) childEditPart).getFigure());
 			return true;
 		}
 		if (childEditPart instanceof ArtifactArtifactHintsCompartmentEditPart) {
-			IFigure pane = getPrimaryShape()
-					.getArtifactHintsCompartmentFigure();
-			pane.remove(((ArtifactArtifactHintsCompartmentEditPart) childEditPart)
-					.getFigure());
+			IFigure pane = getPrimaryShape().getArtifactHintsCompartmentFigure();
+			pane.remove(((ArtifactArtifactHintsCompartmentEditPart) childEditPart).getFigure());
 			return true;
 		}
 		return false;
@@ -232,8 +219,7 @@ public class ArtifactEditPart extends ShapeNodeEditPart {
 	 */
 	protected IFigure getContentPaneFor(IGraphicalEditPart editPart) {
 		if (editPart instanceof ArtifactArtifactConfigVariablesCompartmentEditPart) {
-			return getPrimaryShape()
-					.getArtifactConfigVariablesCompartmentFigure();
+			return getPrimaryShape().getArtifactConfigVariablesCompartmentFigure();
 		}
 		if (editPart instanceof ArtifactArtifactModelQueryCompartmentEditPart) {
 			return getPrimaryShape().getArtifactModelQueryCompartmentFigure();
@@ -251,7 +237,22 @@ public class ArtifactEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected NodeFigure createNodePlate() {
-		DefaultSizeNodeFigure result = new DefaultSizeNodeFigure(40, 40);
+		DefaultSizeNodeFigure result = new OrderedDefaultSizeNodeFigure(40, 40);
+		result.addPropertyChangeListener("order", new PropertyChangeListener() {
+
+			@Override
+			public void propertyChange(PropertyChangeEvent evt) {
+				EObject obj = ((View) getModel()).getElement();
+				if (obj instanceof Orderable) {
+					EditingDomain editingDomain = getEditingDomain();
+					editingDomain.getCommandStack().execute(
+							SetCommand.create(editingDomain, obj, DomainPackage.eINSTANCE.getOrderable_Order(),
+									evt.getNewValue()));
+
+				}
+			}
+		});
+
 		return result;
 	}
 
@@ -337,8 +338,7 @@ public class ArtifactEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	public EditPart getPrimaryChildEditPart() {
-		return getChildBySemanticHint(DomainVisualIDRegistry
-				.getType(ArtifactNameEditPart.VISUAL_ID));
+		return getChildBySemanticHint(DomainVisualIDRegistry.getType(ArtifactNameEditPart.VISUAL_ID));
 	}
 
 	/**
@@ -346,11 +346,9 @@ public class ArtifactEditPart extends ShapeNodeEditPart {
 	 */
 	public EditPart getTargetEditPart(Request request) {
 		if (request instanceof CreateViewAndElementRequest) {
-			CreateElementRequestAdapter adapter = ((CreateViewAndElementRequest) request)
-					.getViewAndElementDescriptor()
+			CreateElementRequestAdapter adapter = ((CreateViewAndElementRequest) request).getViewAndElementDescriptor()
 					.getCreateElementRequestAdapter();
-			IElementType type = (IElementType) adapter
-					.getAdapter(IElementType.class);
+			IElementType type = (IElementType) adapter.getAdapter(IElementType.class);
 			if (type == DomainElementTypes.ConfigVariable_703004) {
 				return getChildBySemanticHint(DomainVisualIDRegistry
 						.getType(ArtifactArtifactConfigVariablesCompartmentEditPart.VISUAL_ID));
@@ -376,8 +374,7 @@ public class ArtifactEditPart extends ShapeNodeEditPart {
 	 */
 	protected void handleNotificationEvent(Notification event) {
 		if (event.getNotifier() == getModel()
-				&& EcorePackage.eINSTANCE.getEModelElement_EAnnotations()
-						.equals(event.getFeature())) {
+				&& EcorePackage.eINSTANCE.getEModelElement_EAnnotations().equals(event.getFeature())) {
 			handleMajorSemanticChange();
 		} else {
 			super.handleNotificationEvent(event);
@@ -415,12 +412,10 @@ public class ArtifactEditPart extends ShapeNodeEditPart {
 		 * @generated
 		 */
 		public ArtifactFigure() {
-			this.setCornerDimensions(new Dimension(getMapMode().DPtoLP(8),
-					getMapMode().DPtoLP(8)));
+			this.setCornerDimensions(new Dimension(getMapMode().DPtoLP(8), getMapMode().DPtoLP(8)));
 			this.setForegroundColor(THIS_FORE);
 			this.setBackgroundColor(THIS_BACK);
-			this.setBorder(new MarginBorder(getMapMode().DPtoLP(5),
-					getMapMode().DPtoLP(5), getMapMode().DPtoLP(5),
+			this.setBorder(new MarginBorder(getMapMode().DPtoLP(5), getMapMode().DPtoLP(5), getMapMode().DPtoLP(5),
 					getMapMode().DPtoLP(5)));
 			createContents();
 		}
@@ -436,8 +431,8 @@ public class ArtifactEditPart extends ShapeNodeEditPart {
 
 			fFigureArtifactLabelFigure.setFont(FFIGUREARTIFACTLABELFIGURE_FONT);
 
-			fFigureArtifactLabelFigure.setMaximumSize(new Dimension(
-					getMapMode().DPtoLP(10000), getMapMode().DPtoLP(50)));
+			fFigureArtifactLabelFigure
+					.setMaximumSize(new Dimension(getMapMode().DPtoLP(10000), getMapMode().DPtoLP(50)));
 
 			this.add(fFigureArtifactLabelFigure);
 
@@ -517,7 +512,6 @@ public class ArtifactEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	static final Font FFIGUREARTIFACTLABELFIGURE_FONT = new Font(
-			Display.getCurrent(), "Palatino", 12, SWT.ITALIC);
+	static final Font FFIGUREARTIFACTLABELFIGURE_FONT = new Font(Display.getCurrent(), "Palatino", 12, SWT.ITALIC);
 
 }

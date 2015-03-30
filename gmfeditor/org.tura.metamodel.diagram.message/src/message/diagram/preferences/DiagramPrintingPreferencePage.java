@@ -16,7 +16,6 @@ public class DiagramPrintingPreferencePage extends PrintingPreferencePage {
 	 * @generated
 	 */
 	public DiagramPrintingPreferencePage() {
-		setPreferenceStore(DomainDiagramEditorPlugin.getInstance()
-				.getPreferenceStore());
+		setPreferenceStore(DomainDiagramEditorPlugin.getInstance().getPreferenceStore());
 	}
 }

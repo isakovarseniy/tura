@@ -59,8 +59,7 @@ public class DomainEditPartFactory implements EditPartFactory {
 				return new GenerationHintNameEditPart(view);
 
 			case ArtifactArtifactConfigVariablesCompartmentEditPart.VISUAL_ID:
-				return new ArtifactArtifactConfigVariablesCompartmentEditPart(
-						view);
+				return new ArtifactArtifactConfigVariablesCompartmentEditPart(view);
 
 			case ArtifactArtifactModelQueryCompartmentEditPart.VISUAL_ID:
 				return new ArtifactArtifactModelQueryCompartmentEditPart(view);
@@ -86,10 +85,8 @@ public class DomainEditPartFactory implements EditPartFactory {
 	/**
 	 * @generated
 	 */
-	public static CellEditorLocator getTextCellEditorLocator(
-			ITextAwareEditPart source) {
-		return CellEditorLocatorAccess.INSTANCE
-				.getTextCellEditorLocator(source);
+	public static CellEditorLocator getTextCellEditorLocator(ITextAwareEditPart source) {
+		return CellEditorLocatorAccess.INSTANCE.getTextCellEditorLocator(source);
 	}
 
 }

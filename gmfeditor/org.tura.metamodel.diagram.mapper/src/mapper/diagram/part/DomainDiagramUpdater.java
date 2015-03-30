@@ -29,8 +29,7 @@ public class DomainDiagramUpdater {
 	 * @generated
 	 */
 	public static boolean isShortcutOrphaned(View view) {
-		return !view.isSetElement() || view.getElement() == null
-				|| view.getElement().eIsProxy();
+		return !view.isSetElement() || view.getElement() == null || view.getElement().eIsProxy();
 	}
 
 	/**
@@ -47,18 +46,15 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<DomainNodeDescriptor> getMappers_401000SemanticChildren(
-			View view) {
+	public static List<DomainNodeDescriptor> getMappers_401000SemanticChildren(View view) {
 		if (!view.isSetElement()) {
 			return Collections.emptyList();
 		}
 		Mappers modelElement = (Mappers) view.getElement();
 		LinkedList<DomainNodeDescriptor> result = new LinkedList<DomainNodeDescriptor>();
-		for (Iterator<?> it = modelElement.getMappers().iterator(); it
-				.hasNext();) {
+		for (Iterator<?> it = modelElement.getMappers().iterator(); it.hasNext();) {
 			Mapper childElement = (Mapper) it.next();
-			int visualID = DomainVisualIDRegistry.getNodeVisualID(view,
-					childElement);
+			int visualID = DomainVisualIDRegistry.getNodeVisualID(view, childElement);
 			if (visualID == JavaMapperEditPart.VISUAL_ID) {
 				result.add(new DomainNodeDescriptor(childElement, visualID));
 				continue;
@@ -135,104 +131,91 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getMappers_401000ContainedLinks(
-			View view) {
+	public static List<DomainLinkDescriptor> getMappers_401000ContainedLinks(View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getJavaMapper_402001ContainedLinks(
-			View view) {
+	public static List<DomainLinkDescriptor> getJavaMapper_402001ContainedLinks(View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getJavaScriptMapper_402003ContainedLinks(
-			View view) {
+	public static List<DomainLinkDescriptor> getJavaScriptMapper_402003ContainedLinks(View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getCSSMapper_402004ContainedLinks(
-			View view) {
+	public static List<DomainLinkDescriptor> getCSSMapper_402004ContainedLinks(View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getRoleMapper_402005ContainedLinks(
-			View view) {
+	public static List<DomainLinkDescriptor> getRoleMapper_402005ContainedLinks(View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getJavaMapper_402001IncomingLinks(
-			View view) {
+	public static List<DomainLinkDescriptor> getJavaMapper_402001IncomingLinks(View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getJavaScriptMapper_402003IncomingLinks(
-			View view) {
+	public static List<DomainLinkDescriptor> getJavaScriptMapper_402003IncomingLinks(View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getCSSMapper_402004IncomingLinks(
-			View view) {
+	public static List<DomainLinkDescriptor> getCSSMapper_402004IncomingLinks(View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getRoleMapper_402005IncomingLinks(
-			View view) {
+	public static List<DomainLinkDescriptor> getRoleMapper_402005IncomingLinks(View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getJavaMapper_402001OutgoingLinks(
-			View view) {
+	public static List<DomainLinkDescriptor> getJavaMapper_402001OutgoingLinks(View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getJavaScriptMapper_402003OutgoingLinks(
-			View view) {
+	public static List<DomainLinkDescriptor> getJavaScriptMapper_402003OutgoingLinks(View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getCSSMapper_402004OutgoingLinks(
-			View view) {
+	public static List<DomainLinkDescriptor> getCSSMapper_402004OutgoingLinks(View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getRoleMapper_402005OutgoingLinks(
-			View view) {
+	public static List<DomainLinkDescriptor> getRoleMapper_402005OutgoingLinks(View view) {
 		return Collections.emptyList();
 	}
 

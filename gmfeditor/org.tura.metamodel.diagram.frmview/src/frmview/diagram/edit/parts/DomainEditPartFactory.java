@@ -40,17 +40,17 @@ public class DomainEditPartFactory implements EditPartFactory {
 			case CanvasNameEditPart.VISUAL_ID:
 				return new CanvasNameEditPart(view);
 
-			case WindowEditPart.VISUAL_ID:
-				return new WindowEditPart(view);
-
-			case WindowNameEditPart.VISUAL_ID:
-				return new WindowNameEditPart(view);
-
 			case TabPageEditPart.VISUAL_ID:
 				return new TabPageEditPart(view);
 
 			case TabPageNameEditPart.VISUAL_ID:
 				return new TabPageNameEditPart(view);
+
+			case WindowEditPart.VISUAL_ID:
+				return new WindowEditPart(view);
+
+			case WindowNameEditPart.VISUAL_ID:
+				return new WindowNameEditPart(view);
 
 			case TabCanvasEditPart.VISUAL_ID:
 				return new TabCanvasEditPart(view);
@@ -77,21 +77,19 @@ public class DomainEditPartFactory implements EditPartFactory {
 				return new ViewAreaNameEditPart(view);
 
 			case PopupCanvasPopupCanvasViewElementCompartmentEditPart.VISUAL_ID:
-				return new PopupCanvasPopupCanvasViewElementCompartmentEditPart(
-						view);
+				return new PopupCanvasPopupCanvasViewElementCompartmentEditPart(view);
 
 			case ViewPortViewPortViewPortTriggerCompartmentEditPart.VISUAL_ID:
-				return new ViewPortViewPortViewPortTriggerCompartmentEditPart(
-						view);
+				return new ViewPortViewPortViewPortTriggerCompartmentEditPart(view);
 
 			case CanvasCanvasViewElementCompartmentEditPart.VISUAL_ID:
 				return new CanvasCanvasViewElementCompartmentEditPart(view);
 
-			case WindowWindowViewElementCompartmentEditPart.VISUAL_ID:
-				return new WindowWindowViewElementCompartmentEditPart(view);
-
 			case TabPageTabPageViewElementCompartmentEditPart.VISUAL_ID:
 				return new TabPageTabPageViewElementCompartmentEditPart(view);
+
+			case WindowWindowViewElementCompartmentEditPart.VISUAL_ID:
+				return new WindowWindowViewElementCompartmentEditPart(view);
 
 			case ViewInheritanceEditPart.VISUAL_ID:
 				return new ViewInheritanceEditPart(view);
@@ -115,10 +113,8 @@ public class DomainEditPartFactory implements EditPartFactory {
 	/**
 	 * @generated
 	 */
-	public static CellEditorLocator getTextCellEditorLocator(
-			ITextAwareEditPart source) {
-		return CellEditorLocatorAccess.INSTANCE
-				.getTextCellEditorLocator(source);
+	public static CellEditorLocator getTextCellEditorLocator(ITextAwareEditPart source) {
+		return CellEditorLocatorAccess.INSTANCE.getTextCellEditorLocator(source);
 	}
 
 }

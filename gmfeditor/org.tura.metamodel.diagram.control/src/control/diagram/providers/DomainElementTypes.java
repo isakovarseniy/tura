@@ -160,26 +160,22 @@ public class DomainElementTypes {
 	/**
 	 * @generated
 	 */
-	private static ImageDescriptor getProvidedImageDescriptor(
-			ENamedElement element) {
+	private static ImageDescriptor getProvidedImageDescriptor(ENamedElement element) {
 		if (element instanceof EStructuralFeature) {
 			EStructuralFeature feature = ((EStructuralFeature) element);
 			EClass eContainingClass = feature.getEContainingClass();
 			EClassifier eType = feature.getEType();
 			if (eContainingClass != null && !eContainingClass.isAbstract()) {
 				element = eContainingClass;
-			} else if (eType instanceof EClass
-					&& !((EClass) eType).isAbstract()) {
+			} else if (eType instanceof EClass && !((EClass) eType).isAbstract()) {
 				element = eType;
 			}
 		}
 		if (element instanceof EClass) {
 			EClass eClass = (EClass) element;
 			if (!eClass.isAbstract()) {
-				return DomainDiagramEditorPlugin.getInstance()
-						.getItemImageDescriptor(
-								eClass.getEPackage().getEFactoryInstance()
-										.create(eClass));
+				return DomainDiagramEditorPlugin.getInstance().getItemImageDescriptor(
+						eClass.getEPackage().getEFactoryInstance().create(eClass));
 			}
 		}
 		// TODO : support structural features
@@ -251,58 +247,41 @@ public class DomainElementTypes {
 		if (elements == null) {
 			elements = new IdentityHashMap<IElementType, ENamedElement>();
 
-			elements.put(Controls_1101000,
-					DomainPackage.eINSTANCE.getControls());
+			elements.put(Controls_1101000, DomainPackage.eINSTANCE.getControls());
 
 			elements.put(Root_1102001, DomainPackage.eINSTANCE.getRoot());
 
-			elements.put(DataControl_1102002,
-					DomainPackage.eINSTANCE.getDataControl());
+			elements.put(DataControl_1102002, DomainPackage.eINSTANCE.getDataControl());
 
-			elements.put(PREFormTrigger_1103001,
-					DomainPackage.eINSTANCE.getPREFormTrigger());
+			elements.put(PREFormTrigger_1103001, DomainPackage.eINSTANCE.getPREFormTrigger());
 
-			elements.put(FormVariable_1103017,
-					DomainPackage.eINSTANCE.getFormVariable());
+			elements.put(FormVariable_1103017, DomainPackage.eINSTANCE.getFormVariable());
 
-			elements.put(PREQueryTrigger_1103002,
-					DomainPackage.eINSTANCE.getPREQueryTrigger());
+			elements.put(PREQueryTrigger_1103002, DomainPackage.eINSTANCE.getPREQueryTrigger());
 
-			elements.put(POSTQueryTrigger_1103003,
-					DomainPackage.eINSTANCE.getPOSTQueryTrigger());
+			elements.put(POSTQueryTrigger_1103003, DomainPackage.eINSTANCE.getPOSTQueryTrigger());
 
-			elements.put(PREInsertTrigger_1103004,
-					DomainPackage.eINSTANCE.getPREInsertTrigger());
+			elements.put(PREInsertTrigger_1103004, DomainPackage.eINSTANCE.getPREInsertTrigger());
 
-			elements.put(PREDeleteTrigger_1103005,
-					DomainPackage.eINSTANCE.getPREDeleteTrigger());
+			elements.put(PREDeleteTrigger_1103005, DomainPackage.eINSTANCE.getPREDeleteTrigger());
 
-			elements.put(POSTCreateTrigger_1103011,
-					DomainPackage.eINSTANCE.getPOSTCreateTrigger());
+			elements.put(POSTCreateTrigger_1103011, DomainPackage.eINSTANCE.getPOSTCreateTrigger());
 
-			elements.put(PREUpdateTrigger_1103010,
-					DomainPackage.eINSTANCE.getPREUpdateTrigger());
+			elements.put(PREUpdateTrigger_1103010, DomainPackage.eINSTANCE.getPREUpdateTrigger());
 
-			elements.put(CreateTrigger_1103012,
-					DomainPackage.eINSTANCE.getCreateTrigger());
+			elements.put(CreateTrigger_1103012, DomainPackage.eINSTANCE.getCreateTrigger());
 
-			elements.put(InsertTrigger_1103013,
-					DomainPackage.eINSTANCE.getInsertTrigger());
+			elements.put(InsertTrigger_1103013, DomainPackage.eINSTANCE.getInsertTrigger());
 
-			elements.put(UpdateTrigger_1103014,
-					DomainPackage.eINSTANCE.getUpdateTrigger());
+			elements.put(UpdateTrigger_1103014, DomainPackage.eINSTANCE.getUpdateTrigger());
 
-			elements.put(DeleteTrigger_1103015,
-					DomainPackage.eINSTANCE.getDeleteTrigger());
+			elements.put(DeleteTrigger_1103015, DomainPackage.eINSTANCE.getDeleteTrigger());
 
-			elements.put(SearchTrigger_1103016,
-					DomainPackage.eINSTANCE.getSearchTrigger());
+			elements.put(SearchTrigger_1103016, DomainPackage.eINSTANCE.getSearchTrigger());
 
-			elements.put(ArtificialField_1103008,
-					DomainPackage.eINSTANCE.getArtificialField());
+			elements.put(ArtificialField_1103008, DomainPackage.eINSTANCE.getArtificialField());
 
-			elements.put(Relation_1104009,
-					DomainPackage.eINSTANCE.getRelation());
+			elements.put(Relation_1104009, DomainPackage.eINSTANCE.getRelation());
 		}
 		return (ENamedElement) elements.get(type);
 	}

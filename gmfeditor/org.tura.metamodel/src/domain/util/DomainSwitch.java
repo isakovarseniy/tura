@@ -748,6 +748,13 @@ public class DomainSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case DomainPackage.ORDERABLE:
+      {
+        Orderable orderable = (Orderable)theEObject;
+        T result = caseOrderable(orderable);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case DomainPackage.MULTI_LANG_LABEL:
       {
         MultiLangLabel multiLangLabel = (MultiLangLabel)theEObject;
@@ -847,6 +854,7 @@ public class DomainSwitch<T> extends Switch<T>
         if (result == null) result = caseViewPortHolder(tabPage);
         if (result == null) result = caseMultiLangLabel(tabPage);
         if (result == null) result = caseCategorized(tabPage);
+        if (result == null) result = caseOrderable(tabPage);
         if (result == null) result = caseStyleElement(tabPage);
         if (result == null) result = caseHTMLLayerHolder(tabPage);
         if (result == null) result = defaultCase(theEObject);
@@ -975,6 +983,7 @@ public class DomainSwitch<T> extends Switch<T>
         if (result == null) result = caseStyleElement(uielement);
         if (result == null) result = caseNickNamed(uielement);
         if (result == null) result = caseCategorized(uielement);
+        if (result == null) result = caseOrderable(uielement);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -986,6 +995,7 @@ public class DomainSwitch<T> extends Switch<T>
         if (result == null) result = caseStyleElement(sourcesPointer);
         if (result == null) result = caseNickNamed(sourcesPointer);
         if (result == null) result = caseCategorized(sourcesPointer);
+        if (result == null) result = caseOrderable(sourcesPointer);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -997,6 +1007,7 @@ public class DomainSwitch<T> extends Switch<T>
         if (result == null) result = caseStyleElement(actionElement);
         if (result == null) result = caseNickNamed(actionElement);
         if (result == null) result = caseCategorized(actionElement);
+        if (result == null) result = caseOrderable(actionElement);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -1021,6 +1032,7 @@ public class DomainSwitch<T> extends Switch<T>
         if (result == null) result = caseStyleElement(inputElement);
         if (result == null) result = caseNickNamed(inputElement);
         if (result == null) result = caseCategorized(inputElement);
+        if (result == null) result = caseOrderable(inputElement);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -1042,6 +1054,7 @@ public class DomainSwitch<T> extends Switch<T>
         if (result == null) result = caseStyleElement(optionSelection);
         if (result == null) result = caseNickNamed(optionSelection);
         if (result == null) result = caseCategorized(optionSelection);
+        if (result == null) result = caseOrderable(optionSelection);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -1055,6 +1068,7 @@ public class DomainSwitch<T> extends Switch<T>
         if (result == null) result = caseStyleElement(layerHolder);
         if (result == null) result = caseNickNamed(layerHolder);
         if (result == null) result = caseCategorized(layerHolder);
+        if (result == null) result = caseOrderable(layerHolder);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -1068,6 +1082,7 @@ public class DomainSwitch<T> extends Switch<T>
         if (result == null) result = caseStyleElement(inputText);
         if (result == null) result = caseNickNamed(inputText);
         if (result == null) result = caseCategorized(inputText);
+        if (result == null) result = caseOrderable(inputText);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -1080,6 +1095,7 @@ public class DomainSwitch<T> extends Switch<T>
         if (result == null) result = caseStyleElement(label);
         if (result == null) result = caseNickNamed(label);
         if (result == null) result = caseCategorized(label);
+        if (result == null) result = caseOrderable(label);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -1093,6 +1109,7 @@ public class DomainSwitch<T> extends Switch<T>
         if (result == null) result = caseStyleElement(outputText);
         if (result == null) result = caseNickNamed(outputText);
         if (result == null) result = caseCategorized(outputText);
+        if (result == null) result = caseOrderable(outputText);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -1106,6 +1123,7 @@ public class DomainSwitch<T> extends Switch<T>
         if (result == null) result = caseStyleElement(checkBox);
         if (result == null) result = caseNickNamed(checkBox);
         if (result == null) result = caseCategorized(checkBox);
+        if (result == null) result = caseOrderable(checkBox);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -1120,6 +1138,7 @@ public class DomainSwitch<T> extends Switch<T>
         if (result == null) result = caseStyleElement(dropDownSelection);
         if (result == null) result = caseNickNamed(dropDownSelection);
         if (result == null) result = caseCategorized(dropDownSelection);
+        if (result == null) result = caseOrderable(dropDownSelection);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -1131,6 +1150,7 @@ public class DomainSwitch<T> extends Switch<T>
         if (result == null) result = caseMultiLangLabel(column);
         if (result == null) result = caseCategorized(column);
         if (result == null) result = caseHTMLLayerHolder(column);
+        if (result == null) result = caseOrderable(column);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -1145,6 +1165,7 @@ public class DomainSwitch<T> extends Switch<T>
         if (result == null) result = caseStyleElement(table);
         if (result == null) result = caseNickNamed(table);
         if (result == null) result = caseCategorized(table);
+        if (result == null) result = caseOrderable(table);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -1159,6 +1180,7 @@ public class DomainSwitch<T> extends Switch<T>
         if (result == null) result = caseStyleElement(tree);
         if (result == null) result = caseNickNamed(tree);
         if (result == null) result = caseCategorized(tree);
+        if (result == null) result = caseOrderable(tree);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -1172,6 +1194,7 @@ public class DomainSwitch<T> extends Switch<T>
         if (result == null) result = caseStyleElement(button);
         if (result == null) result = caseNickNamed(button);
         if (result == null) result = caseCategorized(button);
+        if (result == null) result = caseOrderable(button);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -2928,6 +2951,22 @@ public class DomainSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseViews(Views object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Orderable</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Orderable</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseOrderable(Orderable object)
   {
     return null;
   }

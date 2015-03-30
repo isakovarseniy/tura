@@ -145,19 +145,19 @@
     <ownedChild
         relatedDiagrams="//@diagram">
       <domainMetaElement
-          href="domain.ecore#//Window"/>
+          href="domain.ecore#//TabPage"/>
       <labelMappings
           xsi:type="gmfmap:FeatureLabelMapping">
         <diagramLabel
-            href="domain.gmfgraph#WindowLabel"/>
+            href="domain.gmfgraph#TabPageLabel"/>
         <features
             href="domain.ecore#//CanvasFrame/name"/>
       </labelMappings>
       <tool
           xsi:type="gmftool:CreationTool"
-          href="domain.gmftool#//@palette/@tools.0/@tools.7"/>
+          href="domain.gmftool#//@palette/@tools.0/@tools.3"/>
       <diagramNode
-          href="domain.gmfgraph#Window"/>
+          href="domain.gmfgraph#TabPage"/>
       <children
           compartment="//@nodes.2/@ownedChild/@compartments.0"
           referencedChild="//@nodes.0/@ownedChild/@children.0/@ownedChild">
@@ -173,7 +173,7 @@
       <compartments
           children="//@nodes.2/@ownedChild/@children.0 //@nodes.2/@ownedChild/@children.1">
         <compartment
-            href="domain.gmfgraph#WindowViewElementCompartment"/>
+            href="domain.gmfgraph#TabPageViewElementCompartment"/>
       </compartments>
     </ownedChild>
   </nodes>
@@ -183,19 +183,19 @@
     <ownedChild
         relatedDiagrams="//@diagram">
       <domainMetaElement
-          href="domain.ecore#//TabPage"/>
+          href="domain.ecore#//Window"/>
       <labelMappings
           xsi:type="gmfmap:FeatureLabelMapping">
         <diagramLabel
-            href="domain.gmfgraph#TabPageLabel"/>
+            href="domain.gmfgraph#WindowLabel"/>
         <features
             href="domain.ecore#//CanvasFrame/name"/>
       </labelMappings>
       <tool
           xsi:type="gmftool:CreationTool"
-          href="domain.gmftool#//@palette/@tools.0/@tools.3"/>
+          href="domain.gmftool#//@palette/@tools.0/@tools.7"/>
       <diagramNode
-          href="domain.gmfgraph#TabPage"/>
+          href="domain.gmfgraph#Window"/>
       <children
           compartment="//@nodes.3/@ownedChild/@compartments.0"
           referencedChild="//@nodes.0/@ownedChild/@children.0/@ownedChild">
@@ -211,7 +211,7 @@
       <compartments
           children="//@nodes.3/@ownedChild/@children.0 //@nodes.3/@ownedChild/@children.1">
         <compartment
-            href="domain.gmfgraph#TabPageViewElementCompartment"/>
+            href="domain.gmfgraph#WindowViewElementCompartment"/>
       </compartments>
     </ownedChild>
   </nodes>

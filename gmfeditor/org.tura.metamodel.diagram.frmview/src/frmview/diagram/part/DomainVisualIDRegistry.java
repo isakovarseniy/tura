@@ -62,8 +62,7 @@ public class DomainVisualIDRegistry {
 				return -1;
 			}
 		}
-		return frmview.diagram.part.DomainVisualIDRegistry.getVisualID(view
-				.getType());
+		return frmview.diagram.part.DomainVisualIDRegistry.getVisualID(view.getType());
 	}
 
 	/**
@@ -88,11 +87,9 @@ public class DomainVisualIDRegistry {
 		try {
 			return Integer.parseInt(type);
 		} catch (NumberFormatException e) {
-			if (Boolean.TRUE.toString().equalsIgnoreCase(
-					Platform.getDebugOption(DEBUG_KEY))) {
+			if (Boolean.TRUE.toString().equalsIgnoreCase(Platform.getDebugOption(DEBUG_KEY))) {
 				DomainDiagramEditorPlugin.getInstance().logError(
-						"Unable to parse view type as a visualID number: "
-								+ type);
+						"Unable to parse view type as a visualID number: " + type);
 			}
 		}
 		return -1;
@@ -112,8 +109,7 @@ public class DomainVisualIDRegistry {
 		if (domainElement == null) {
 			return -1;
 		}
-		if (DomainPackage.eINSTANCE.getViews().isSuperTypeOf(
-				domainElement.eClass())
+		if (DomainPackage.eINSTANCE.getViews().isSuperTypeOf(domainElement.eClass())
 				&& isDiagram((Views) domainElement)) {
 			return ViewsEditPart.VISUAL_ID;
 		}
@@ -127,16 +123,13 @@ public class DomainVisualIDRegistry {
 		if (domainElement == null) {
 			return -1;
 		}
-		String containerModelID = frmview.diagram.part.DomainVisualIDRegistry
-				.getModelID(containerView);
-		if (!ViewsEditPart.MODEL_ID.equals(containerModelID)
-				&& !"domain".equals(containerModelID)) { //$NON-NLS-1$
+		String containerModelID = frmview.diagram.part.DomainVisualIDRegistry.getModelID(containerView);
+		if (!ViewsEditPart.MODEL_ID.equals(containerModelID) && !"domain".equals(containerModelID)) { //$NON-NLS-1$
 			return -1;
 		}
 		int containerVisualID;
 		if (ViewsEditPart.MODEL_ID.equals(containerModelID)) {
-			containerVisualID = frmview.diagram.part.DomainVisualIDRegistry
-					.getVisualID(containerView);
+			containerVisualID = frmview.diagram.part.DomainVisualIDRegistry.getVisualID(containerView);
 		} else {
 			if (containerView instanceof Diagram) {
 				containerVisualID = ViewsEditPart.VISUAL_ID;
@@ -146,70 +139,56 @@ public class DomainVisualIDRegistry {
 		}
 		switch (containerVisualID) {
 		case ViewsEditPart.VISUAL_ID:
-			if (DomainPackage.eINSTANCE.getPopupCanvas().isSuperTypeOf(
-					domainElement.eClass())) {
+			if (DomainPackage.eINSTANCE.getPopupCanvas().isSuperTypeOf(domainElement.eClass())) {
 				return PopupCanvasEditPart.VISUAL_ID;
 			}
-			if (DomainPackage.eINSTANCE.getCanvas().isSuperTypeOf(
-					domainElement.eClass())) {
+			if (DomainPackage.eINSTANCE.getCanvas().isSuperTypeOf(domainElement.eClass())) {
 				return CanvasEditPart.VISUAL_ID;
 			}
-			if (DomainPackage.eINSTANCE.getWindow().isSuperTypeOf(
-					domainElement.eClass())) {
-				return WindowEditPart.VISUAL_ID;
-			}
-			if (DomainPackage.eINSTANCE.getTabPage().isSuperTypeOf(
-					domainElement.eClass())) {
+			if (DomainPackage.eINSTANCE.getTabPage().isSuperTypeOf(domainElement.eClass())) {
 				return TabPageEditPart.VISUAL_ID;
 			}
-			if (DomainPackage.eINSTANCE.getTabCanvas().isSuperTypeOf(
-					domainElement.eClass())) {
+			if (DomainPackage.eINSTANCE.getWindow().isSuperTypeOf(domainElement.eClass())) {
+				return WindowEditPart.VISUAL_ID;
+			}
+			if (DomainPackage.eINSTANCE.getTabCanvas().isSuperTypeOf(domainElement.eClass())) {
 				return TabCanvasEditPart.VISUAL_ID;
 			}
 			break;
 		case PopupCanvasPopupCanvasViewElementCompartmentEditPart.VISUAL_ID:
-			if (DomainPackage.eINSTANCE.getViewPort().isSuperTypeOf(
-					domainElement.eClass())) {
+			if (DomainPackage.eINSTANCE.getViewPort().isSuperTypeOf(domainElement.eClass())) {
 				return ViewPortEditPart.VISUAL_ID;
 			}
-			if (DomainPackage.eINSTANCE.getViewArea().isSuperTypeOf(
-					domainElement.eClass())) {
+			if (DomainPackage.eINSTANCE.getViewArea().isSuperTypeOf(domainElement.eClass())) {
 				return ViewAreaEditPart.VISUAL_ID;
 			}
 			break;
 		case ViewPortViewPortViewPortTriggerCompartmentEditPart.VISUAL_ID:
-			if (DomainPackage.eINSTANCE.getViewPortTrigger().isSuperTypeOf(
-					domainElement.eClass())) {
+			if (DomainPackage.eINSTANCE.getViewPortTrigger().isSuperTypeOf(domainElement.eClass())) {
 				return ViewPortTriggerEditPart.VISUAL_ID;
 			}
 			break;
 		case CanvasCanvasViewElementCompartmentEditPart.VISUAL_ID:
-			if (DomainPackage.eINSTANCE.getViewPort().isSuperTypeOf(
-					domainElement.eClass())) {
+			if (DomainPackage.eINSTANCE.getViewPort().isSuperTypeOf(domainElement.eClass())) {
 				return ViewPortEditPart.VISUAL_ID;
 			}
-			if (DomainPackage.eINSTANCE.getViewArea().isSuperTypeOf(
-					domainElement.eClass())) {
-				return ViewAreaEditPart.VISUAL_ID;
-			}
-			break;
-		case WindowWindowViewElementCompartmentEditPart.VISUAL_ID:
-			if (DomainPackage.eINSTANCE.getViewPort().isSuperTypeOf(
-					domainElement.eClass())) {
-				return ViewPortEditPart.VISUAL_ID;
-			}
-			if (DomainPackage.eINSTANCE.getViewArea().isSuperTypeOf(
-					domainElement.eClass())) {
+			if (DomainPackage.eINSTANCE.getViewArea().isSuperTypeOf(domainElement.eClass())) {
 				return ViewAreaEditPart.VISUAL_ID;
 			}
 			break;
 		case TabPageTabPageViewElementCompartmentEditPart.VISUAL_ID:
-			if (DomainPackage.eINSTANCE.getViewPort().isSuperTypeOf(
-					domainElement.eClass())) {
+			if (DomainPackage.eINSTANCE.getViewPort().isSuperTypeOf(domainElement.eClass())) {
 				return ViewPortEditPart.VISUAL_ID;
 			}
-			if (DomainPackage.eINSTANCE.getViewArea().isSuperTypeOf(
-					domainElement.eClass())) {
+			if (DomainPackage.eINSTANCE.getViewArea().isSuperTypeOf(domainElement.eClass())) {
+				return ViewAreaEditPart.VISUAL_ID;
+			}
+			break;
+		case WindowWindowViewElementCompartmentEditPart.VISUAL_ID:
+			if (DomainPackage.eINSTANCE.getViewPort().isSuperTypeOf(domainElement.eClass())) {
+				return ViewPortEditPart.VISUAL_ID;
+			}
+			if (DomainPackage.eINSTANCE.getViewArea().isSuperTypeOf(domainElement.eClass())) {
 				return ViewAreaEditPart.VISUAL_ID;
 			}
 			break;
@@ -221,16 +200,13 @@ public class DomainVisualIDRegistry {
 	 * @generated
 	 */
 	public static boolean canCreateNode(View containerView, int nodeVisualID) {
-		String containerModelID = frmview.diagram.part.DomainVisualIDRegistry
-				.getModelID(containerView);
-		if (!ViewsEditPart.MODEL_ID.equals(containerModelID)
-				&& !"domain".equals(containerModelID)) { //$NON-NLS-1$
+		String containerModelID = frmview.diagram.part.DomainVisualIDRegistry.getModelID(containerView);
+		if (!ViewsEditPart.MODEL_ID.equals(containerModelID) && !"domain".equals(containerModelID)) { //$NON-NLS-1$
 			return false;
 		}
 		int containerVisualID;
 		if (ViewsEditPart.MODEL_ID.equals(containerModelID)) {
-			containerVisualID = frmview.diagram.part.DomainVisualIDRegistry
-					.getVisualID(containerView);
+			containerVisualID = frmview.diagram.part.DomainVisualIDRegistry.getVisualID(containerView);
 		} else {
 			if (containerView instanceof Diagram) {
 				containerVisualID = ViewsEditPart.VISUAL_ID;
@@ -246,10 +222,10 @@ public class DomainVisualIDRegistry {
 			if (CanvasEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
-			if (WindowEditPart.VISUAL_ID == nodeVisualID) {
+			if (TabPageEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
-			if (TabPageEditPart.VISUAL_ID == nodeVisualID) {
+			if (WindowEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			if (TabCanvasEditPart.VISUAL_ID == nodeVisualID) {
@@ -272,19 +248,19 @@ public class DomainVisualIDRegistry {
 				return true;
 			}
 			break;
-		case WindowEditPart.VISUAL_ID:
-			if (WindowNameEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			if (WindowWindowViewElementCompartmentEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			break;
 		case TabPageEditPart.VISUAL_ID:
 			if (TabPageNameEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			if (TabPageTabPageViewElementCompartmentEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case WindowEditPart.VISUAL_ID:
+			if (WindowNameEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (WindowWindowViewElementCompartmentEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -332,7 +308,7 @@ public class DomainVisualIDRegistry {
 				return true;
 			}
 			break;
-		case WindowWindowViewElementCompartmentEditPart.VISUAL_ID:
+		case TabPageTabPageViewElementCompartmentEditPart.VISUAL_ID:
 			if (ViewPortEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
@@ -340,7 +316,7 @@ public class DomainVisualIDRegistry {
 				return true;
 			}
 			break;
-		case TabPageTabPageViewElementCompartmentEditPart.VISUAL_ID:
+		case WindowWindowViewElementCompartmentEditPart.VISUAL_ID:
 			if (ViewPortEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
@@ -359,12 +335,10 @@ public class DomainVisualIDRegistry {
 		if (domainElement == null) {
 			return -1;
 		}
-		if (DomainPackage.eINSTANCE.getViewInheritance().isSuperTypeOf(
-				domainElement.eClass())) {
+		if (DomainPackage.eINSTANCE.getViewInheritance().isSuperTypeOf(domainElement.eClass())) {
 			return ViewInheritanceEditPart.VISUAL_ID;
 		}
-		if (DomainPackage.eINSTANCE.getTabPagesInheritance().isSuperTypeOf(
-				domainElement.eClass())) {
+		if (DomainPackage.eINSTANCE.getTabPagesInheritance().isSuperTypeOf(domainElement.eClass())) {
 			return TabPagesInheritanceEditPart.VISUAL_ID;
 		}
 		return -1;
@@ -383,8 +357,7 @@ public class DomainVisualIDRegistry {
 	/**
 	 * @generated
 	 */
-	public static boolean checkNodeVisualID(View containerView,
-			EObject domainElement, int candidate) {
+	public static boolean checkNodeVisualID(View containerView, EObject domainElement, int candidate) {
 		if (candidate == -1) {
 			//unrecognized id is always bad
 			return false;
@@ -401,8 +374,8 @@ public class DomainVisualIDRegistry {
 		case PopupCanvasPopupCanvasViewElementCompartmentEditPart.VISUAL_ID:
 		case ViewPortViewPortViewPortTriggerCompartmentEditPart.VISUAL_ID:
 		case CanvasCanvasViewElementCompartmentEditPart.VISUAL_ID:
-		case WindowWindowViewElementCompartmentEditPart.VISUAL_ID:
 		case TabPageTabPageViewElementCompartmentEditPart.VISUAL_ID:
+		case WindowWindowViewElementCompartmentEditPart.VISUAL_ID:
 			return true;
 		default:
 			break;
@@ -436,8 +409,7 @@ public class DomainVisualIDRegistry {
 		 */
 		@Override
 		public int getVisualID(View view) {
-			return frmview.diagram.part.DomainVisualIDRegistry
-					.getVisualID(view);
+			return frmview.diagram.part.DomainVisualIDRegistry.getVisualID(view);
 		}
 
 		/**
@@ -453,18 +425,16 @@ public class DomainVisualIDRegistry {
 		 */
 		@Override
 		public int getNodeVisualID(View containerView, EObject domainElement) {
-			return frmview.diagram.part.DomainVisualIDRegistry.getNodeVisualID(
-					containerView, domainElement);
+			return frmview.diagram.part.DomainVisualIDRegistry.getNodeVisualID(containerView, domainElement);
 		}
 
 		/**
 		 * @generated
 		 */
 		@Override
-		public boolean checkNodeVisualID(View containerView,
-				EObject domainElement, int candidate) {
-			return frmview.diagram.part.DomainVisualIDRegistry
-					.checkNodeVisualID(containerView, domainElement, candidate);
+		public boolean checkNodeVisualID(View containerView, EObject domainElement, int candidate) {
+			return frmview.diagram.part.DomainVisualIDRegistry.checkNodeVisualID(containerView, domainElement,
+					candidate);
 		}
 
 		/**
@@ -472,8 +442,7 @@ public class DomainVisualIDRegistry {
 		 */
 		@Override
 		public boolean isCompartmentVisualID(int visualID) {
-			return frmview.diagram.part.DomainVisualIDRegistry
-					.isCompartmentVisualID(visualID);
+			return frmview.diagram.part.DomainVisualIDRegistry.isCompartmentVisualID(visualID);
 		}
 
 		/**
@@ -481,8 +450,7 @@ public class DomainVisualIDRegistry {
 		 */
 		@Override
 		public boolean isSemanticLeafVisualID(int visualID) {
-			return frmview.diagram.part.DomainVisualIDRegistry
-					.isSemanticLeafVisualID(visualID);
+			return frmview.diagram.part.DomainVisualIDRegistry.isSemanticLeafVisualID(visualID);
 		}
 	};
 

@@ -18,8 +18,7 @@ import deployment.diagram.edit.policies.DeploymentStarStepFirstStepItemSemanticE
 /**
  * @generated
  */
-public class DeploymentStarStepFirstStepEditPart extends ConnectionNodeEditPart
-		implements ITreeBranchEditPart {
+public class DeploymentStarStepFirstStepEditPart extends ConnectionNodeEditPart implements ITreeBranchEditPart {
 
 	/**
 	 * @generated
@@ -38,8 +37,7 @@ public class DeploymentStarStepFirstStepEditPart extends ConnectionNodeEditPart
 	 */
 	protected void createDefaultEditPolicies() {
 		super.createDefaultEditPolicies();
-		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
-				new DeploymentStarStepFirstStepItemSemanticEditPolicy());
+		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE, new DeploymentStarStepFirstStepItemSemanticEditPolicy());
 	}
 
 	/**

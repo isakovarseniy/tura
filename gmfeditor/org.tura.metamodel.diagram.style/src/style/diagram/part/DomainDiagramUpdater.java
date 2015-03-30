@@ -28,8 +28,7 @@ public class DomainDiagramUpdater {
 	 * @generated
 	 */
 	public static boolean isShortcutOrphaned(View view) {
-		return !view.isSetElement() || view.getElement() == null
-				|| view.getElement().eIsProxy();
+		return !view.isSetElement() || view.getElement() == null || view.getElement().eIsProxy();
 	}
 
 	/**
@@ -48,18 +47,15 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<DomainNodeDescriptor> getStyles_1501000SemanticChildren(
-			View view) {
+	public static List<DomainNodeDescriptor> getStyles_1501000SemanticChildren(View view) {
 		if (!view.isSetElement()) {
 			return Collections.emptyList();
 		}
 		Styles modelElement = (Styles) view.getElement();
 		LinkedList<DomainNodeDescriptor> result = new LinkedList<DomainNodeDescriptor>();
-		for (Iterator<?> it = modelElement.getLibraries().iterator(); it
-				.hasNext();) {
+		for (Iterator<?> it = modelElement.getLibraries().iterator(); it.hasNext();) {
 			StyleLibrary childElement = (StyleLibrary) it.next();
-			int visualID = DomainVisualIDRegistry.getNodeVisualID(view,
-					childElement);
+			int visualID = DomainVisualIDRegistry.getNodeVisualID(view, childElement);
 			if (visualID == StyleLibraryEditPart.VISUAL_ID) {
 				result.add(new DomainNodeDescriptor(childElement, visualID));
 				continue;
@@ -84,8 +80,7 @@ public class DomainDiagramUpdater {
 		LinkedList<DomainNodeDescriptor> result = new LinkedList<DomainNodeDescriptor>();
 		for (Iterator<?> it = modelElement.getStyles().iterator(); it.hasNext();) {
 			StyleSet childElement = (StyleSet) it.next();
-			int visualID = DomainVisualIDRegistry.getNodeVisualID(view,
-					childElement);
+			int visualID = DomainVisualIDRegistry.getNodeVisualID(view, childElement);
 			if (visualID == StyleSetEditPart.VISUAL_ID) {
 				result.add(new DomainNodeDescriptor(childElement, visualID));
 				continue;
@@ -138,56 +133,49 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getStyles_1501000ContainedLinks(
-			View view) {
+	public static List<DomainLinkDescriptor> getStyles_1501000ContainedLinks(View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getStyleLibrary_1502001ContainedLinks(
-			View view) {
+	public static List<DomainLinkDescriptor> getStyleLibrary_1502001ContainedLinks(View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getStyleSet_1503001ContainedLinks(
-			View view) {
+	public static List<DomainLinkDescriptor> getStyleSet_1503001ContainedLinks(View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getStyleLibrary_1502001IncomingLinks(
-			View view) {
+	public static List<DomainLinkDescriptor> getStyleLibrary_1502001IncomingLinks(View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getStyleSet_1503001IncomingLinks(
-			View view) {
+	public static List<DomainLinkDescriptor> getStyleSet_1503001IncomingLinks(View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getStyleLibrary_1502001OutgoingLinks(
-			View view) {
+	public static List<DomainLinkDescriptor> getStyleLibrary_1502001OutgoingLinks(View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getStyleSet_1503001OutgoingLinks(
-			View view) {
+	public static List<DomainLinkDescriptor> getStyleSet_1503001OutgoingLinks(View view) {
 		return Collections.emptyList();
 	}
 

@@ -84,26 +84,22 @@ public class DomainElementTypes {
 	/**
 	 * @generated
 	 */
-	private static ImageDescriptor getProvidedImageDescriptor(
-			ENamedElement element) {
+	private static ImageDescriptor getProvidedImageDescriptor(ENamedElement element) {
 		if (element instanceof EStructuralFeature) {
 			EStructuralFeature feature = ((EStructuralFeature) element);
 			EClass eContainingClass = feature.getEContainingClass();
 			EClassifier eType = feature.getEType();
 			if (eContainingClass != null && !eContainingClass.isAbstract()) {
 				element = eContainingClass;
-			} else if (eType instanceof EClass
-					&& !((EClass) eType).isAbstract()) {
+			} else if (eType instanceof EClass && !((EClass) eType).isAbstract()) {
 				element = eType;
 			}
 		}
 		if (element instanceof EClass) {
 			EClass eClass = (EClass) element;
 			if (!eClass.isAbstract()) {
-				return DomainDiagramEditorPlugin.getInstance()
-						.getItemImageDescriptor(
-								eClass.getEPackage().getEFactoryInstance()
-										.create(eClass));
+				return DomainDiagramEditorPlugin.getInstance().getItemImageDescriptor(
+						eClass.getEPackage().getEFactoryInstance().create(eClass));
 			}
 		}
 		// TODO : support structural features
@@ -177,11 +173,9 @@ public class DomainElementTypes {
 
 			elements.put(Styles_1501000, DomainPackage.eINSTANCE.getStyles());
 
-			elements.put(StyleLibrary_1502001,
-					DomainPackage.eINSTANCE.getStyleLibrary());
+			elements.put(StyleLibrary_1502001, DomainPackage.eINSTANCE.getStyleLibrary());
 
-			elements.put(StyleSet_1503001,
-					DomainPackage.eINSTANCE.getStyleSet());
+			elements.put(StyleSet_1503001, DomainPackage.eINSTANCE.getStyleSet());
 		}
 		return (ENamedElement) elements.get(type);
 	}

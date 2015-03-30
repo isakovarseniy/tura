@@ -2349,6 +2349,31 @@ public class DomainItemProviderAdapterFactory extends DomainAdapterFactory imple
   }
 
   /**
+   * This keeps track of the one adapter used for all {@link domain.Orderable} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected OrderableItemProvider orderableItemProvider;
+
+  /**
+   * This creates an adapter for a {@link domain.Orderable}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createOrderableAdapter()
+  {
+    if (orderableItemProvider == null)
+    {
+      orderableItemProvider = new OrderableItemProvider(this);
+    }
+
+    return orderableItemProvider;
+  }
+
+  /**
    * This keeps track of the one adapter used for all {@link domain.MultiLangLabel} instances.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -4450,6 +4475,7 @@ public class DomainItemProviderAdapterFactory extends DomainAdapterFactory imple
     if (formParameterItemProvider != null) formParameterItemProvider.dispose();
     if (formViewItemProvider != null) formViewItemProvider.dispose();
     if (viewsItemProvider != null) viewsItemProvider.dispose();
+    if (orderableItemProvider != null) orderableItemProvider.dispose();
     if (multiLangLabelItemProvider != null) multiLangLabelItemProvider.dispose();
     if (canvasFrameItemProvider != null) canvasFrameItemProvider.dispose();
     if (viewPortHolderItemProvider != null) viewPortHolderItemProvider.dispose();

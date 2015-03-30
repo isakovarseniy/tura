@@ -18,8 +18,7 @@ import domain.DeploymentComponent;
 /**
  * @generated
  */
-public class DeploymentComponentDeploymentComponentLinkReorientCommand extends
-		EditElementCommand {
+public class DeploymentComponentDeploymentComponentLinkReorientCommand extends EditElementCommand {
 
 	/**
 	 * @generated
@@ -44,8 +43,7 @@ public class DeploymentComponentDeploymentComponentLinkReorientCommand extends
 	/**
 	 * @generated
 	 */
-	public DeploymentComponentDeploymentComponentLinkReorientCommand(
-			ReorientReferenceRelationshipRequest request) {
+	public DeploymentComponentDeploymentComponentLinkReorientCommand(ReorientReferenceRelationshipRequest request) {
 		super(request.getLabel(), null, request);
 		reorientDirection = request.getDirection();
 		referenceOwner = request.getReferenceOwner();
@@ -77,8 +75,7 @@ public class DeploymentComponentDeploymentComponentLinkReorientCommand extends
 			return false;
 		}
 		return DomainBaseItemSemanticEditPolicy.getLinkConstraints()
-				.canExistDeploymentComponentDeploymentComponentLink_904014(
-						getNewSource(), getOldTarget());
+				.canExistDeploymentComponentDeploymentComponentLink_904014(getNewSource(), getOldTarget());
 	}
 
 	/**
@@ -89,18 +86,15 @@ public class DeploymentComponentDeploymentComponentLinkReorientCommand extends
 			return false;
 		}
 		return DomainBaseItemSemanticEditPolicy.getLinkConstraints()
-				.canExistDeploymentComponentDeploymentComponentLink_904014(
-						getOldSource(), getNewTarget());
+				.canExistDeploymentComponentDeploymentComponentLink_904014(getOldSource(), getNewTarget());
 	}
 
 	/**
 	 * @generated
 	 */
-	protected CommandResult doExecuteWithResult(IProgressMonitor monitor,
-			IAdaptable info) throws ExecutionException {
+	protected CommandResult doExecuteWithResult(IProgressMonitor monitor, IAdaptable info) throws ExecutionException {
 		if (!canExecute()) {
-			throw new ExecutionException(
-					"Invalid arguments in reorient link command"); //$NON-NLS-1$
+			throw new ExecutionException("Invalid arguments in reorient link command"); //$NON-NLS-1$
 		}
 		if (reorientDirection == ReorientRelationshipRequest.REORIENT_SOURCE) {
 			return reorientSource();

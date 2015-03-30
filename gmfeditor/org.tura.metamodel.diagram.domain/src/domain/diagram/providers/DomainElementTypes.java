@@ -119,26 +119,22 @@ public class DomainElementTypes {
 	/**
 	 * @generated
 	 */
-	private static ImageDescriptor getProvidedImageDescriptor(
-			ENamedElement element) {
+	private static ImageDescriptor getProvidedImageDescriptor(ENamedElement element) {
 		if (element instanceof EStructuralFeature) {
 			EStructuralFeature feature = ((EStructuralFeature) element);
 			EClass eContainingClass = feature.getEContainingClass();
 			EClassifier eType = feature.getEType();
 			if (eContainingClass != null && !eContainingClass.isAbstract()) {
 				element = eContainingClass;
-			} else if (eType instanceof EClass
-					&& !((EClass) eType).isAbstract()) {
+			} else if (eType instanceof EClass && !((EClass) eType).isAbstract()) {
 				element = eType;
 			}
 		}
 		if (element instanceof EClass) {
 			EClass eClass = (EClass) element;
 			if (!eClass.isAbstract()) {
-				return DomainDiagramEditorPlugin.getInstance()
-						.getItemImageDescriptor(
-								eClass.getEPackage().getEFactoryInstance()
-										.create(eClass));
+				return DomainDiagramEditorPlugin.getInstance().getItemImageDescriptor(
+						eClass.getEPackage().getEFactoryInstance().create(eClass));
 			}
 		}
 		// TODO : support structural features
@@ -212,32 +208,23 @@ public class DomainElementTypes {
 
 			elements.put(Domain_501000, DomainPackage.eINSTANCE.getDomain());
 
-			elements.put(DomainArtifacts_502001,
-					DomainPackage.eINSTANCE.getDomainArtifacts());
+			elements.put(DomainArtifacts_502001, DomainPackage.eINSTANCE.getDomainArtifacts());
 
-			elements.put(DomainApplications_502003,
-					DomainPackage.eINSTANCE.getDomainApplications());
+			elements.put(DomainApplications_502003, DomainPackage.eINSTANCE.getDomainApplications());
 
-			elements.put(DomainTypes_502002,
-					DomainPackage.eINSTANCE.getDomainTypes());
+			elements.put(DomainTypes_502002, DomainPackage.eINSTANCE.getDomainTypes());
 
-			elements.put(ORMEntity_503003,
-					DomainPackage.eINSTANCE.getORMEntity());
+			elements.put(ORMEntity_503003, DomainPackage.eINSTANCE.getORMEntity());
 
-			elements.put(JPAService_503004,
-					DomainPackage.eINSTANCE.getJPAService());
+			elements.put(JPAService_503004, DomainPackage.eINSTANCE.getJPAService());
 
-			elements.put(EJBService_503005,
-					DomainPackage.eINSTANCE.getEJBService());
+			elements.put(EJBService_503005, DomainPackage.eINSTANCE.getEJBService());
 
-			elements.put(ContinuousIintegration_503006,
-					DomainPackage.eINSTANCE.getContinuousIintegration());
+			elements.put(ContinuousIintegration_503006, DomainPackage.eINSTANCE.getContinuousIintegration());
 
-			elements.put(DomainArtifact_503002,
-					DomainPackage.eINSTANCE.getDomainArtifact());
+			elements.put(DomainArtifact_503002, DomainPackage.eINSTANCE.getDomainArtifact());
 
-			elements.put(DomainApplication_503001,
-					DomainPackage.eINSTANCE.getDomainApplication());
+			elements.put(DomainApplication_503001, DomainPackage.eINSTANCE.getDomainApplication());
 		}
 		return (ENamedElement) elements.get(type);
 	}

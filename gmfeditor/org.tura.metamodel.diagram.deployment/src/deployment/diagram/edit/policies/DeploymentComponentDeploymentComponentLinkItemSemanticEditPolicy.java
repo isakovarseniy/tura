@@ -12,15 +12,13 @@ import deployment.diagram.providers.DomainElementTypes;
 /**
  * @generated
  */
-public class DeploymentComponentDeploymentComponentLinkItemSemanticEditPolicy
-		extends DomainBaseItemSemanticEditPolicy {
+public class DeploymentComponentDeploymentComponentLinkItemSemanticEditPolicy extends DomainBaseItemSemanticEditPolicy {
 
 	/**
 	 * @generated
 	 */
 	public DeploymentComponentDeploymentComponentLinkItemSemanticEditPolicy() {
-		super(
-				DomainElementTypes.DeploymentComponentDeploymentComponentLink_904014);
+		super(DomainElementTypes.DeploymentComponentDeploymentComponentLink_904014);
 	}
 
 	/**

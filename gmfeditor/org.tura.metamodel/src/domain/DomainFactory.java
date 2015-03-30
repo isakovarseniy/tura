@@ -842,6 +842,15 @@ public interface DomainFactory extends EFactory
   Views createViews();
 
   /**
+   * Returns a new object of class '<em>Orderable</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Orderable</em>'.
+   * @generated
+   */
+  Orderable createOrderable();
+
+  /**
    * Returns a new object of class '<em>Multi Lang Label</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

@@ -94,26 +94,22 @@ public class DomainElementTypes {
 	/**
 	 * @generated
 	 */
-	private static ImageDescriptor getProvidedImageDescriptor(
-			ENamedElement element) {
+	private static ImageDescriptor getProvidedImageDescriptor(ENamedElement element) {
 		if (element instanceof EStructuralFeature) {
 			EStructuralFeature feature = ((EStructuralFeature) element);
 			EClass eContainingClass = feature.getEContainingClass();
 			EClassifier eType = feature.getEType();
 			if (eContainingClass != null && !eContainingClass.isAbstract()) {
 				element = eContainingClass;
-			} else if (eType instanceof EClass
-					&& !((EClass) eType).isAbstract()) {
+			} else if (eType instanceof EClass && !((EClass) eType).isAbstract()) {
 				element = eType;
 			}
 		}
 		if (element instanceof EClass) {
 			EClass eClass = (EClass) element;
 			if (!eClass.isAbstract()) {
-				return DomainDiagramEditorPlugin.getInstance()
-						.getItemImageDescriptor(
-								eClass.getEPackage().getEFactoryInstance()
-										.create(eClass));
+				return DomainDiagramEditorPlugin.getInstance().getItemImageDescriptor(
+						eClass.getEPackage().getEFactoryInstance().create(eClass));
 			}
 		}
 		// TODO : support structural features
@@ -191,11 +187,9 @@ public class DomainElementTypes {
 
 			elements.put(Group_1402002, DomainPackage.eINSTANCE.getGroup());
 
-			elements.put(GroupGroup2Group_1404003,
-					DomainPackage.eINSTANCE.getGroup_Group2Group());
+			elements.put(GroupGroup2Group_1404003, DomainPackage.eINSTANCE.getGroup_Group2Group());
 
-			elements.put(GroupGroup2Role_1404005,
-					DomainPackage.eINSTANCE.getGroup_Group2Role());
+			elements.put(GroupGroup2Role_1404005, DomainPackage.eINSTANCE.getGroup_Group2Role());
 		}
 		return (ENamedElement) elements.get(type);
 	}

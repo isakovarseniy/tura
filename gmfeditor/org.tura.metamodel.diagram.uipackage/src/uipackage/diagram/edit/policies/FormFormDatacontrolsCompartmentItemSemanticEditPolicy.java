@@ -12,8 +12,7 @@ import uipackage.diagram.providers.DomainElementTypes;
 /**
  * @generated
  */
-public class FormFormDatacontrolsCompartmentItemSemanticEditPolicy extends
-		DomainBaseItemSemanticEditPolicy {
+public class FormFormDatacontrolsCompartmentItemSemanticEditPolicy extends DomainBaseItemSemanticEditPolicy {
 
 	/**
 	 * @generated

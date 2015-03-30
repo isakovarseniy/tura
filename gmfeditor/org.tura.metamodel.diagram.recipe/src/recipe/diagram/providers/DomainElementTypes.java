@@ -134,26 +134,22 @@ public class DomainElementTypes {
 	/**
 	 * @generated
 	 */
-	private static ImageDescriptor getProvidedImageDescriptor(
-			ENamedElement element) {
+	private static ImageDescriptor getProvidedImageDescriptor(ENamedElement element) {
 		if (element instanceof EStructuralFeature) {
 			EStructuralFeature feature = ((EStructuralFeature) element);
 			EClass eContainingClass = feature.getEContainingClass();
 			EClassifier eType = feature.getEType();
 			if (eContainingClass != null && !eContainingClass.isAbstract()) {
 				element = eContainingClass;
-			} else if (eType instanceof EClass
-					&& !((EClass) eType).isAbstract()) {
+			} else if (eType instanceof EClass && !((EClass) eType).isAbstract()) {
 				element = eType;
 			}
 		}
 		if (element instanceof EClass) {
 			EClass eClass = (EClass) element;
 			if (!eClass.isAbstract()) {
-				return DomainDiagramEditorPlugin.getInstance()
-						.getItemImageDescriptor(
-								eClass.getEPackage().getEFactoryInstance()
-										.create(eClass));
+				return DomainDiagramEditorPlugin.getInstance().getItemImageDescriptor(
+						eClass.getEPackage().getEFactoryInstance().create(eClass));
 			}
 		}
 		// TODO : support structural features
@@ -229,36 +225,27 @@ public class DomainElementTypes {
 
 			elements.put(Recipe_302001, DomainPackage.eINSTANCE.getRecipe());
 
-			elements.put(Configuration_302002,
-					DomainPackage.eINSTANCE.getConfiguration());
+			elements.put(Configuration_302002, DomainPackage.eINSTANCE.getConfiguration());
 
-			elements.put(Infrastructure_302003,
-					DomainPackage.eINSTANCE.getInfrastructure());
+			elements.put(Infrastructure_302003, DomainPackage.eINSTANCE.getInfrastructure());
 
-			elements.put(DeploymentSequence_302004,
-					DomainPackage.eINSTANCE.getDeploymentSequence());
+			elements.put(DeploymentSequence_302004, DomainPackage.eINSTANCE.getDeploymentSequence());
 
-			elements.put(Ingredient_303001,
-					DomainPackage.eINSTANCE.getIngredient());
+			elements.put(Ingredient_303001, DomainPackage.eINSTANCE.getIngredient());
 
-			elements.put(JavaComponent_303002,
-					DomainPackage.eINSTANCE.getJavaComponent());
+			elements.put(JavaComponent_303002, DomainPackage.eINSTANCE.getJavaComponent());
 
-			elements.put(ModelMapper_303003,
-					DomainPackage.eINSTANCE.getModelMapper());
+			elements.put(ModelMapper_303003, DomainPackage.eINSTANCE.getModelMapper());
 
 			elements.put(Query_303004, DomainPackage.eINSTANCE.getQuery());
 
 			elements.put(Property_303005, DomainPackage.eINSTANCE.getProperty());
 
-			elements.put(RecipeInfrastructures_304004,
-					DomainPackage.eINSTANCE.getRecipe_Infrastructures());
+			elements.put(RecipeInfrastructures_304004, DomainPackage.eINSTANCE.getRecipe_Infrastructures());
 
-			elements.put(RecipeDeployment_304013,
-					DomainPackage.eINSTANCE.getRecipe_Deployment());
+			elements.put(RecipeDeployment_304013, DomainPackage.eINSTANCE.getRecipe_Deployment());
 
-			elements.put(InfrastructureRecipeConfig_304006,
-					DomainPackage.eINSTANCE.getInfrastructure_RecipeConfig());
+			elements.put(InfrastructureRecipeConfig_304006, DomainPackage.eINSTANCE.getInfrastructure_RecipeConfig());
 		}
 		return (ENamedElement) elements.get(type);
 	}

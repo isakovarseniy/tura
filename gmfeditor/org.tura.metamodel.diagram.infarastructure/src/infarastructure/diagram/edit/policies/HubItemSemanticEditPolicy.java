@@ -39,14 +39,12 @@ public class HubItemSemanticEditPolicy extends DomainBaseItemSemanticEditPolicy 
 	 */
 	protected Command getDestroyElementCommand(DestroyElementRequest req) {
 		View view = (View) getHost().getModel();
-		CompositeTransactionalCommand cmd = new CompositeTransactionalCommand(
-				getEditingDomain(), null);
+		CompositeTransactionalCommand cmd = new CompositeTransactionalCommand(getEditingDomain(), null);
 		cmd.setTransactionNestingEnabled(false);
 		for (Iterator<?> it = view.getTargetEdges().iterator(); it.hasNext();) {
 			Edge incomingLink = (Edge) it.next();
 			if (DomainVisualIDRegistry.getVisualID(incomingLink) == InfrastructureConnectionEditPart.VISUAL_ID) {
-				DestroyElementRequest r = new DestroyElementRequest(
-						incomingLink.getElement(), false);
+				DestroyElementRequest r = new DestroyElementRequest(incomingLink.getElement(), false);
 				cmd.add(new DestroyElementCommand(r));
 				cmd.add(new DeleteCommand(getEditingDomain(), incomingLink));
 				continue;
@@ -55,8 +53,7 @@ public class HubItemSemanticEditPolicy extends DomainBaseItemSemanticEditPolicy 
 		for (Iterator<?> it = view.getSourceEdges().iterator(); it.hasNext();) {
 			Edge outgoingLink = (Edge) it.next();
 			if (DomainVisualIDRegistry.getVisualID(outgoingLink) == InfrastructureConnectionEditPart.VISUAL_ID) {
-				DestroyElementRequest r = new DestroyElementRequest(
-						outgoingLink.getElement(), false);
+				DestroyElementRequest r = new DestroyElementRequest(outgoingLink.getElement(), false);
 				cmd.add(new DestroyElementCommand(r));
 				cmd.add(new DeleteCommand(getEditingDomain(), outgoingLink));
 				continue;
@@ -80,19 +77,15 @@ public class HubItemSemanticEditPolicy extends DomainBaseItemSemanticEditPolicy 
 	protected Command getCreateRelationshipCommand(CreateRelationshipRequest req) {
 		Command command = req.getTarget() == null ? getStartCreateRelationshipCommand(req)
 				: getCompleteCreateRelationshipCommand(req);
-		return command != null ? command : super
-				.getCreateRelationshipCommand(req);
+		return command != null ? command : super.getCreateRelationshipCommand(req);
 	}
 
 	/**
 	 * @generated
 	 */
-	protected Command getStartCreateRelationshipCommand(
-			CreateRelationshipRequest req) {
-		if (DomainElementTypes.InfrastructureConnection_1204009 == req
-				.getElementType()) {
-			return getGEFWrapper(new InfrastructureConnectionCreateCommand(req,
-					req.getSource(), req.getTarget()));
+	protected Command getStartCreateRelationshipCommand(CreateRelationshipRequest req) {
+		if (DomainElementTypes.InfrastructureConnection_1204009 == req.getElementType()) {
+			return getGEFWrapper(new InfrastructureConnectionCreateCommand(req, req.getSource(), req.getTarget()));
 		}
 		return null;
 	}
@@ -100,12 +93,9 @@ public class HubItemSemanticEditPolicy extends DomainBaseItemSemanticEditPolicy 
 	/**
 	 * @generated
 	 */
-	protected Command getCompleteCreateRelationshipCommand(
-			CreateRelationshipRequest req) {
-		if (DomainElementTypes.InfrastructureConnection_1204009 == req
-				.getElementType()) {
-			return getGEFWrapper(new InfrastructureConnectionCreateCommand(req,
-					req.getSource(), req.getTarget()));
+	protected Command getCompleteCreateRelationshipCommand(CreateRelationshipRequest req) {
+		if (DomainElementTypes.InfrastructureConnection_1204009 == req.getElementType()) {
+			return getGEFWrapper(new InfrastructureConnectionCreateCommand(req, req.getSource(), req.getTarget()));
 		}
 		return null;
 	}
@@ -116,12 +106,10 @@ public class HubItemSemanticEditPolicy extends DomainBaseItemSemanticEditPolicy 
 	 * 
 	 * @generated
 	 */
-	protected Command getReorientRelationshipCommand(
-			ReorientRelationshipRequest req) {
+	protected Command getReorientRelationshipCommand(ReorientRelationshipRequest req) {
 		switch (getVisualID(req)) {
 		case InfrastructureConnectionEditPart.VISUAL_ID:
-			return getGEFWrapper(new InfrastructureConnectionReorientCommand(
-					req));
+			return getGEFWrapper(new InfrastructureConnectionReorientCommand(req));
 		}
 		return super.getReorientRelationshipCommand(req);
 	}

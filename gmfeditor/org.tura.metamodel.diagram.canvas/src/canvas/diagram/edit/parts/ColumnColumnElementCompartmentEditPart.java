@@ -29,8 +29,7 @@ import domain.HTMLLayerHolder;
 /**
  * @generated
  */
-public class ColumnColumnElementCompartmentEditPart extends
-		ShapeCompartmentEditPart {
+public class ColumnColumnElementCompartmentEditPart extends ShapeCompartmentEditPart {
 
 	/**
 	 * @generated
@@ -56,8 +55,7 @@ public class ColumnColumnElementCompartmentEditPart extends
 	 */
 
 	public IFigure createFigure() {
-		ResizableCompartmentFigure result = (ResizableCompartmentFigure) super
-				.createFigure();
+		ResizableCompartmentFigure result = (ResizableCompartmentFigure) super.createFigure();
 		result.setTitleVisibility(false);
 		HTMLLikeLayout layout = new HTMLLikeLayout();
 
@@ -77,18 +75,15 @@ public class ColumnColumnElementCompartmentEditPart extends
 	protected void handleNotificationEvent(Notification event) {
 
 		if (event.getNotifier() == getModel()
-				&& EcorePackage.eINSTANCE.getEModelElement_EAnnotations()
-						.equals(event.getFeature())) {
+				&& EcorePackage.eINSTANCE.getEModelElement_EAnnotations().equals(event.getFeature())) {
 			handleMajorSemanticChange();
 		} else {
-			if (event.getNotifier() instanceof HTMLLayerHolder
-					&& event.getFeature() instanceof EAttribute) {
+			if (event.getNotifier() instanceof HTMLLayerHolder && event.getFeature() instanceof EAttribute) {
 				EAttribute eAttribute = (EAttribute) event.getFeature();
 
 				if (eAttribute.getName().equalsIgnoreCase("columns")) {
 					ResizableCompartmentFigure figure = (ResizableCompartmentFigure) getFigure();
-					HTMLLikeLayout layout = (HTMLLikeLayout) figure
-							.getContentPane().getLayoutManager();
+					HTMLLikeLayout layout = (HTMLLikeLayout) figure.getContentPane().getLayoutManager();
 					layout.setColumns(event.getNewIntValue());
 					figure.getContentPane().revalidate();
 					figure.getUpdateManager().performUpdate();
@@ -105,17 +100,12 @@ public class ColumnColumnElementCompartmentEditPart extends
 	 */
 	protected void createDefaultEditPolicies() {
 		super.createDefaultEditPolicies();
-		installEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE,
-				new ResizableCompartmentEditPolicy());
-		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
-				new ColumnColumnElementCompartmentItemSemanticEditPolicy());
-		installEditPolicy(EditPolicyRoles.CREATION_ROLE,
-				new CreationEditPolicyWithCustomReparent(
-						DomainVisualIDRegistry.TYPED_INSTANCE));
-		installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE,
-				new DragDropEditPolicy());
-		installEditPolicy(EditPolicyRoles.CANONICAL_ROLE,
-				new ColumnColumnElementCompartmentCanonicalEditPolicy());
+		installEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE, new ResizableCompartmentEditPolicy());
+		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE, new ColumnColumnElementCompartmentItemSemanticEditPolicy());
+		installEditPolicy(EditPolicyRoles.CREATION_ROLE, new CreationEditPolicyWithCustomReparent(
+				DomainVisualIDRegistry.TYPED_INSTANCE));
+		installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE, new DragDropEditPolicy());
+		installEditPolicy(EditPolicyRoles.CANONICAL_ROLE, new ColumnColumnElementCompartmentCanonicalEditPolicy());
 	}
 
 	/**

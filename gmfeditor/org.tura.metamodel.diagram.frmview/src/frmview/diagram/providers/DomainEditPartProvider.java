@@ -125,8 +125,7 @@ public class DomainEditPartProvider extends AbstractEditPartProvider {
 	public synchronized boolean provides(IOperation operation) {
 		if (operation instanceof CreateGraphicEditPartOperation) {
 			View view = ((IEditPartOperation) operation).getView();
-			if (!ViewsEditPart.MODEL_ID.equals(DomainVisualIDRegistry
-					.getModelID(view))) {
+			if (!ViewsEditPart.MODEL_ID.equals(DomainVisualIDRegistry.getModelID(view))) {
 				return false;
 			}
 			if (isAllowCaching() && getCachedPart(view) != null) {

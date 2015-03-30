@@ -760,6 +760,9 @@ class Views{
    val TabPagesInheritance[*] tabPagesInheritances;
 }
 
+class Orderable{
+  attr EInt order; 
+}
 
 class MultiLangLabel{
    val Context multiLangLabel;
@@ -802,7 +805,7 @@ class TabCanvas extends CanvasFrame,DefaultCavas,MultiLangLabel,Categorized {
 }
 
 @gmf.node(label="name",border.color="0,0,0",color="192,192,192")
-class TabPage extends CanvasFrame,ViewPortHolder,MultiLangLabel,Categorized {
+class TabPage extends CanvasFrame,ViewPortHolder,MultiLangLabel,Categorized,Orderable {
 }
 
 @gmf.node(label="name",border.color="0,0,0",color="192,192,192")
@@ -901,7 +904,7 @@ class NickNamed{
     attr EString nickname;
 }
 
-class Uielement extends StyleElement,NickNamed,Categorized{
+class Uielement extends StyleElement,NickNamed,Categorized, Orderable{
     id attr EString uid;
     val Context enabled;
     val Context required;
@@ -974,7 +977,7 @@ class DropDownSelection extends OptionSelection {
 }
 
 @gmf.node(label="label",tool.small.bundle="org.tura.metamodel.commons",tool.small.path="icons/column.png")
-class Column extends StyleElement,MultiLangLabel, Categorized,HTMLLayerHolder{
+class Column extends StyleElement,MultiLangLabel, Categorized,HTMLLayerHolder,Orderable{
     id attr EString uid;
    attr EString label;
    @gmf.compartment

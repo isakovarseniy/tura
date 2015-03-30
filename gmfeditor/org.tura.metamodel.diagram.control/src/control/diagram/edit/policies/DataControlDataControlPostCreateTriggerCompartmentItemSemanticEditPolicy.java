@@ -12,8 +12,8 @@ import control.diagram.providers.DomainElementTypes;
 /**
  * @generated
  */
-public class DataControlDataControlPostCreateTriggerCompartmentItemSemanticEditPolicy
-		extends DomainBaseItemSemanticEditPolicy {
+public class DataControlDataControlPostCreateTriggerCompartmentItemSemanticEditPolicy extends
+		DomainBaseItemSemanticEditPolicy {
 
 	/**
 	 * @generated
@@ -26,8 +26,7 @@ public class DataControlDataControlPostCreateTriggerCompartmentItemSemanticEditP
 	 * @generated
 	 */
 	protected Command getCreateCommand(CreateElementRequest req) {
-		if (DomainElementTypes.POSTCreateTrigger_1103011 == req
-				.getElementType()) {
+		if (DomainElementTypes.POSTCreateTrigger_1103011 == req.getElementType()) {
 			return getGEFWrapper(new POSTCreateTriggerCreateCommand(req));
 		}
 		return super.getCreateCommand(req);

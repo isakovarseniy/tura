@@ -34,20 +34,15 @@ import domain.TypesRepository;
 /**
  * @generated
  */
-public class DomainNavigatorLabelProvider extends LabelProvider implements
-		ICommonLabelProvider, ITreePathLabelProvider {
+public class DomainNavigatorLabelProvider extends LabelProvider implements ICommonLabelProvider, ITreePathLabelProvider {
 
 	/**
 	 * @generated
 	 */
 	static {
-		DomainDiagramEditorPlugin
-				.getInstance()
-				.getImageRegistry()
+		DomainDiagramEditorPlugin.getInstance().getImageRegistry()
 				.put("Navigator?UnknownElement", ImageDescriptor.getMissingImageDescriptor()); //$NON-NLS-1$
-		DomainDiagramEditorPlugin
-				.getInstance()
-				.getImageRegistry()
+		DomainDiagramEditorPlugin.getInstance().getImageRegistry()
 				.put("Navigator?ImageNotFound", ImageDescriptor.getMissingImageDescriptor()); //$NON-NLS-1$
 	}
 
@@ -56,8 +51,7 @@ public class DomainNavigatorLabelProvider extends LabelProvider implements
 	 */
 	public void updateLabel(ViewerLabel label, TreePath elementPath) {
 		Object element = elementPath.getLastSegment();
-		if (element instanceof DomainNavigatorItem
-				&& !isOwnView(((DomainNavigatorItem) element).getView())) {
+		if (element instanceof DomainNavigatorItem && !isOwnView(((DomainNavigatorItem) element).getView())) {
 			return;
 		}
 		label.setText(getText(element));
@@ -70,8 +64,7 @@ public class DomainNavigatorLabelProvider extends LabelProvider implements
 	public Image getImage(Object element) {
 		if (element instanceof DomainNavigatorGroup) {
 			DomainNavigatorGroup group = (DomainNavigatorGroup) element;
-			return DomainDiagramEditorPlugin.getInstance().getBundledImage(
-					group.getIcon());
+			return DomainDiagramEditorPlugin.getInstance().getBundledImage(group.getIcon());
 		}
 
 		if (element instanceof DomainNavigatorItem) {
@@ -105,8 +98,7 @@ public class DomainNavigatorLabelProvider extends LabelProvider implements
 			return getImage(
 					"Navigator?TopLevelNode?http://tura.org/2013/v1/domain?Types", DomainElementTypes.Types_202001); //$NON-NLS-1$
 		case PackageEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Node?http://tura.org/2013/v1/domain?Package", DomainElementTypes.Package_203002); //$NON-NLS-1$
+			return getImage("Navigator?Node?http://tura.org/2013/v1/domain?Package", DomainElementTypes.Package_203002); //$NON-NLS-1$
 		}
 		return getImage("Navigator?UnknownElement", null); //$NON-NLS-1$
 	}
@@ -115,11 +107,9 @@ public class DomainNavigatorLabelProvider extends LabelProvider implements
 	 * @generated
 	 */
 	private Image getImage(String key, IElementType elementType) {
-		ImageRegistry imageRegistry = DomainDiagramEditorPlugin.getInstance()
-				.getImageRegistry();
+		ImageRegistry imageRegistry = DomainDiagramEditorPlugin.getInstance().getImageRegistry();
 		Image image = imageRegistry.get(key);
-		if (image == null && elementType != null
-				&& DomainElementTypes.isKnownElementType(elementType)) {
+		if (image == null && elementType != null && DomainElementTypes.isKnownElementType(elementType)) {
 			image = DomainElementTypes.getImage(elementType);
 			imageRegistry.put(key, image);
 		}
@@ -181,13 +171,11 @@ public class DomainNavigatorLabelProvider extends LabelProvider implements
 	 * @generated
 	 */
 	private String getTypesRepository_201000Text(View view) {
-		TypesRepository domainModelElement = (TypesRepository) view
-				.getElement();
+		TypesRepository domainModelElement = (TypesRepository) view.getElement();
 		if (domainModelElement != null) {
 			return domainModelElement.getUid();
 		} else {
-			DomainDiagramEditorPlugin.getInstance().logError(
-					"No domain element for view with visualID = " + 201000); //$NON-NLS-1$
+			DomainDiagramEditorPlugin.getInstance().logError("No domain element for view with visualID = " + 201000); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 	}
@@ -196,17 +184,14 @@ public class DomainNavigatorLabelProvider extends LabelProvider implements
 	 * @generated
 	 */
 	private String getTypes_202001Text(View view) {
-		IParser parser = DomainParserProvider.getParser(
-				DomainElementTypes.Types_202001,
+		IParser parser = DomainParserProvider.getParser(DomainElementTypes.Types_202001,
 				view.getElement() != null ? view.getElement() : view,
 				DomainVisualIDRegistry.getType(TypesNameEditPart.VISUAL_ID));
 		if (parser != null) {
-			return parser.getPrintString(new EObjectAdapter(
-					view.getElement() != null ? view.getElement() : view),
+			return parser.getPrintString(new EObjectAdapter(view.getElement() != null ? view.getElement() : view),
 					ParserOptions.NONE.intValue());
 		} else {
-			DomainDiagramEditorPlugin.getInstance().logError(
-					"Parser was not found for label " + 205004); //$NON-NLS-1$
+			DomainDiagramEditorPlugin.getInstance().logError("Parser was not found for label " + 205004); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 	}
@@ -215,17 +200,14 @@ public class DomainNavigatorLabelProvider extends LabelProvider implements
 	 * @generated
 	 */
 	private String getPackage_203002Text(View view) {
-		IParser parser = DomainParserProvider.getParser(
-				DomainElementTypes.Package_203002,
+		IParser parser = DomainParserProvider.getParser(DomainElementTypes.Package_203002,
 				view.getElement() != null ? view.getElement() : view,
 				DomainVisualIDRegistry.getType(PackageNameEditPart.VISUAL_ID));
 		if (parser != null) {
-			return parser.getPrintString(new EObjectAdapter(
-					view.getElement() != null ? view.getElement() : view),
+			return parser.getPrintString(new EObjectAdapter(view.getElement() != null ? view.getElement() : view),
 					ParserOptions.NONE.intValue());
 		} else {
-			DomainDiagramEditorPlugin.getInstance().logError(
-					"Parser was not found for label " + 205002); //$NON-NLS-1$
+			DomainDiagramEditorPlugin.getInstance().logError("Parser was not found for label " + 205002); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 	}
@@ -273,8 +255,7 @@ public class DomainNavigatorLabelProvider extends LabelProvider implements
 	 * @generated
 	 */
 	private boolean isOwnView(View view) {
-		return TypesRepositoryEditPart.MODEL_ID.equals(DomainVisualIDRegistry
-				.getModelID(view));
+		return TypesRepositoryEditPart.MODEL_ID.equals(DomainVisualIDRegistry.getModelID(view));
 	}
 
 }

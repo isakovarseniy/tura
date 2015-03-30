@@ -20,8 +20,7 @@ import canvas.diagram.providers.DomainElementTypes;
 /**
  * @generated
  */
-public class ColumnColumnElementCompartment2ItemSemanticEditPolicy extends
-		DomainBaseItemSemanticEditPolicy {
+public class ColumnColumnElementCompartment2ItemSemanticEditPolicy extends DomainBaseItemSemanticEditPolicy {
 
 	/**
 	 * @generated
@@ -34,8 +33,7 @@ public class ColumnColumnElementCompartment2ItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	protected Command getCreateCommand(CreateElementRequest req) {
-		if (DomainElementTypes.DropDownSelection_1603010 == req
-				.getElementType()) {
+		if (DomainElementTypes.DropDownSelection_1603010 == req.getElementType()) {
 			return getGEFWrapper(new DropDownSelection2CreateCommand(req));
 		}
 		if (DomainElementTypes.Table_1603021 == req.getElementType()) {

@@ -27,8 +27,7 @@ import domain.DomainPackage;
 /**
  * @generated
  */
-public class DomainParserProvider extends AbstractProvider implements
-		IParserProvider {
+public class DomainParserProvider extends AbstractProvider implements IParserProvider {
 
 	/**
 	 * @generated
@@ -40,8 +39,7 @@ public class DomainParserProvider extends AbstractProvider implements
 	 */
 	private IParser getFormName_1005002Parser() {
 		if (formName_1005002Parser == null) {
-			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE
-					.getForm_Name() };
+			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE.getForm_Name() };
 			MessageFormatParser parser = new MessageFormatParser(features);
 			formName_1005002Parser = parser;
 		}
@@ -58,8 +56,7 @@ public class DomainParserProvider extends AbstractProvider implements
 	 */
 	private IParser getFormParameterName_1005005Parser() {
 		if (formParameterName_1005005Parser == null) {
-			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE
-					.getFormParameter_Name() };
+			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE.getFormParameter_Name() };
 			MessageFormatParser parser = new MessageFormatParser(features);
 			formParameterName_1005005Parser = parser;
 		}
@@ -76,8 +73,7 @@ public class DomainParserProvider extends AbstractProvider implements
 	 */
 	private IParser getFormViewName_1005003Parser() {
 		if (formViewName_1005003Parser == null) {
-			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE
-					.getFormView_Name() };
+			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE.getFormView_Name() };
 			MessageFormatParser parser = new MessageFormatParser(features);
 			formViewName_1005003Parser = parser;
 		}
@@ -94,8 +90,7 @@ public class DomainParserProvider extends AbstractProvider implements
 	 */
 	private IParser getFormDataControlsName_1005004Parser() {
 		if (formDataControlsName_1005004Parser == null) {
-			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE
-					.getFormDataControls_Name() };
+			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE.getFormDataControls_Name() };
 			MessageFormatParser parser = new MessageFormatParser(features);
 			formDataControlsName_1005004Parser = parser;
 		}
@@ -123,10 +118,8 @@ public class DomainParserProvider extends AbstractProvider implements
 	 * Utility method that consults ParserService
 	 * @generated
 	 */
-	public static IParser getParser(IElementType type, EObject object,
-			String parserHint) {
-		return ParserService.getInstance().getParser(
-				new HintAdapter(type, object, parserHint));
+	public static IParser getParser(IElementType type, EObject object, String parserHint) {
+		return ParserService.getInstance().getParser(new HintAdapter(type, object, parserHint));
 	}
 
 	/**

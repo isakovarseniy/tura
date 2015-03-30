@@ -30,8 +30,7 @@ public class DomainValidationProvider {
 	/**
 	 * @generated
 	 */
-	public static void runWithConstraints(
-			TransactionalEditingDomain editingDomain, Runnable operation) {
+	public static void runWithConstraints(TransactionalEditingDomain editingDomain, Runnable operation) {
 		final Runnable op = operation;
 		Runnable task = new Runnable() {
 			public void run() {
@@ -47,8 +46,7 @@ public class DomainValidationProvider {
 			try {
 				editingDomain.runExclusive(task);
 			} catch (Exception e) {
-				DomainDiagramEditorPlugin.getInstance().logError(
-						"Validation failed", e); //$NON-NLS-1$
+				DomainDiagramEditorPlugin.getInstance().logError("Validation failed", e); //$NON-NLS-1$
 			}
 		} else {
 			task.run();
@@ -64,9 +62,7 @@ public class DomainValidationProvider {
 		}
 		if (object instanceof View) {
 			return constraintsActive
-					&& TypesRepositoryEditPart.MODEL_ID
-							.equals(DomainVisualIDRegistry
-									.getModelID((View) object));
+					&& TypesRepositoryEditPart.MODEL_ID.equals(DomainVisualIDRegistry.getModelID((View) object));
 		}
 		return true;
 	}

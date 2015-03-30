@@ -258,7 +258,7 @@
          </object>
          <context viewClass="org.eclipse.gmf.runtime.notation.Node" containerViews="referencing-diagrams"/>
          <context viewClass="org.eclipse.gmf.runtime.notation.Diagram" semanticHints="FrmView"/>
-         <context viewClass="org.eclipse.gmf.runtime.notation.Node" semanticHints="1302009,1302003,1302007,1302002,1302008,1303004,1303002,1303005"/>
+         <context viewClass="org.eclipse.gmf.runtime.notation.Node" semanticHints="1302009,1302003,1302002,1302007,1302008,1303004,1303002,1303005"/>
          <context viewClass="org.eclipse.gmf.runtime.notation.Edge" semanticHints="1304001,1304002"/>
       </viewProvider>
    </extension>
@@ -271,16 +271,16 @@
             <method name="getType()" value="FrmView"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-nodes">
-            <method name="getType()" value="1302009,1302003,1302007,1302002,1302008,1303004,1303002,1303005"/>
+            <method name="getType()" value="1302009,1302003,1302002,1302007,1302008,1303004,1303002,1303005"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Edge" id="generated-links">
             <method name="getType()" value="1304001,1304002"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-labels">
-            <method name="getType()" value="1305014,1305003,1305010,1305002,1305011,1305012,1305005,1305013"/>
+            <method name="getType()" value="1305014,1305003,1305002,1305010,1305011,1305012,1305005,1305013"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-compartments">
-            <method name="getType()" value="1307010,1307009,1307004,1307008,1307003"/>
+            <method name="getType()" value="1307010,1307009,1307004,1307003,1307008"/>
          </object>
          <context views="generated-diagram,generated-nodes,generated-links,generated-labels,generated-compartments"/>
       </editpartProvider>
@@ -293,10 +293,10 @@
          <object class="frmview.diagram.edit.parts.ViewsEditPart" id="Views_1301000"/>
          <object class="frmview.diagram.edit.parts.PopupCanvasEditPart" id="PopupCanvas_1302009"/>
          <object class="frmview.diagram.edit.parts.CanvasEditPart" id="Canvas_1302003"/>
-         <object class="frmview.diagram.edit.parts.WindowEditPart" id="Window_1302007"/>
          <object class="frmview.diagram.edit.parts.TabPageEditPart" id="TabPage_1302002"/>
+         <object class="frmview.diagram.edit.parts.WindowEditPart" id="Window_1302007"/>
          <object class="frmview.diagram.edit.parts.TabCanvasEditPart" id="TabCanvas_1302008"/>
-         <context elements="Views_1301000,PopupCanvas_1302009,Canvas_1302003,Window_1302007,TabPage_1302002,TabCanvas_1302008"/>
+         <context elements="Views_1301000,PopupCanvas_1302009,Canvas_1302003,TabPage_1302002,Window_1302007,TabCanvas_1302008"/>
       </modelingAssistantProvider>
    </extension>
 
@@ -319,7 +319,7 @@
       <decoratorProvider class="frmview.diagram.providers.DomainShortcutsDecoratorProvider">
          <Priority name="Lowest"/>
          <object class="org.eclipse.gmf.runtime.notation.Node(org.eclipse.gmf.runtime.notation)" id="generated-top-nodes">
-            <method name="getType()" value="1302009,1302003,1302007,1302002,1302008"/>
+            <method name="getType()" value="1302009,1302003,1302002,1302007,1302008"/>
          </object>
          <context decoratorTargets="generated-top-nodes"/>
       </decoratorProvider>
@@ -359,22 +359,22 @@
       </metamodel>
       <metamodel nsURI="http://tura.org/2013/v1/domain">
          <metamodelType
-               id="org.tura.metamodel.diagram.frmview.Window_1302007"
-               name="%metatype.name.Window_1302007"
-               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
-               eclass="Window"
-               edithelper="frmview.diagram.edit.helpers.WindowEditHelper">
-            <param name="semanticHint" value="1302007"/>
-         </metamodelType>
-      </metamodel>
-      <metamodel nsURI="http://tura.org/2013/v1/domain">
-         <metamodelType
                id="org.tura.metamodel.diagram.frmview.TabPage_1302002"
                name="%metatype.name.TabPage_1302002"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
                eclass="TabPage"
                edithelper="frmview.diagram.edit.helpers.TabPageEditHelper">
             <param name="semanticHint" value="1302002"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://tura.org/2013/v1/domain">
+         <metamodelType
+               id="org.tura.metamodel.diagram.frmview.Window_1302007"
+               name="%metatype.name.Window_1302007"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="Window"
+               edithelper="frmview.diagram.edit.helpers.WindowEditHelper">
+            <param name="semanticHint" value="1302007"/>
          </metamodelType>
       </metamodel>
       <metamodel nsURI="http://tura.org/2013/v1/domain">
@@ -456,8 +456,8 @@
          <elementType ref="org.tura.metamodel.diagram.frmview.Views_1301000"/>
          <elementType ref="org.tura.metamodel.diagram.frmview.PopupCanvas_1302009"/>
          <elementType ref="org.tura.metamodel.diagram.frmview.Canvas_1302003"/>
-         <elementType ref="org.tura.metamodel.diagram.frmview.Window_1302007"/>
          <elementType ref="org.tura.metamodel.diagram.frmview.TabPage_1302002"/>
+         <elementType ref="org.tura.metamodel.diagram.frmview.Window_1302007"/>
          <elementType ref="org.tura.metamodel.diagram.frmview.TabCanvas_1302008"/>
          <elementType ref="org.tura.metamodel.diagram.frmview.ViewPort_1303004"/>
          <elementType ref="org.tura.metamodel.diagram.frmview.ViewPortTrigger_1303002"/>

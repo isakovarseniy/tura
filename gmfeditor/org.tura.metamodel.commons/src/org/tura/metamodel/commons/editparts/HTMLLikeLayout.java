@@ -79,6 +79,15 @@ public class HTMLLikeLayout extends FreeFormLayoutEx {
 		List<IFigure> children = getChildren(parent);
 
 		Collections.sort(children, new Order());
+		int order = 0;
+		for (IFigure fig: children){
+			if (fig instanceof OrderedDefaultSizeNodeFigure ){
+				((OrderedDefaultSizeNodeFigure)fig).setOrder(order);
+			}
+			order++;
+		}
+		
+		
 		ArrayList<ArrayList<IFigure>> grid = new ArrayList<ArrayList<IFigure>>();
 
 		// Make grid

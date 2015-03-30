@@ -12,8 +12,7 @@ import frmview.diagram.providers.DomainElementTypes;
 /**
  * @generated
  */
-public class ViewPortViewPortViewPortTriggerCompartmentItemSemanticEditPolicy
-		extends DomainBaseItemSemanticEditPolicy {
+public class ViewPortViewPortViewPortTriggerCompartmentItemSemanticEditPolicy extends DomainBaseItemSemanticEditPolicy {
 
 	/**
 	 * @generated

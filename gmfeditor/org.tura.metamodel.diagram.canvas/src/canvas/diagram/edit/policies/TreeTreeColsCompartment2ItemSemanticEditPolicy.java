@@ -12,8 +12,7 @@ import canvas.diagram.providers.DomainElementTypes;
 /**
  * @generated
  */
-public class TreeTreeColsCompartment2ItemSemanticEditPolicy extends
-		DomainBaseItemSemanticEditPolicy {
+public class TreeTreeColsCompartment2ItemSemanticEditPolicy extends DomainBaseItemSemanticEditPolicy {
 
 	/**
 	 * @generated

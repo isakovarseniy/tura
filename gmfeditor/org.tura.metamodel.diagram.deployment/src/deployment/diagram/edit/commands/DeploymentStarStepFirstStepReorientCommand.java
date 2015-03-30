@@ -19,8 +19,7 @@ import domain.DeploymentStarStep;
 /**
  * @generated
  */
-public class DeploymentStarStepFirstStepReorientCommand extends
-		EditElementCommand {
+public class DeploymentStarStepFirstStepReorientCommand extends EditElementCommand {
 
 	/**
 	 * @generated
@@ -45,8 +44,7 @@ public class DeploymentStarStepFirstStepReorientCommand extends
 	/**
 	 * @generated
 	 */
-	public DeploymentStarStepFirstStepReorientCommand(
-			ReorientReferenceRelationshipRequest request) {
+	public DeploymentStarStepFirstStepReorientCommand(ReorientReferenceRelationshipRequest request) {
 		super(request.getLabel(), null, request);
 		reorientDirection = request.getDirection();
 		referenceOwner = request.getReferenceOwner();
@@ -77,9 +75,8 @@ public class DeploymentStarStepFirstStepReorientCommand extends
 		if (!(oldEnd instanceof DeploymentComponent && newEnd instanceof DeploymentStarStep)) {
 			return false;
 		}
-		return DomainBaseItemSemanticEditPolicy.getLinkConstraints()
-				.canExistDeploymentStarStepFirstStep_904008(getNewSource(),
-						getOldTarget());
+		return DomainBaseItemSemanticEditPolicy.getLinkConstraints().canExistDeploymentStarStepFirstStep_904008(
+				getNewSource(), getOldTarget());
 	}
 
 	/**
@@ -89,19 +86,16 @@ public class DeploymentStarStepFirstStepReorientCommand extends
 		if (!(oldEnd instanceof DeploymentComponent && newEnd instanceof DeploymentComponent)) {
 			return false;
 		}
-		return DomainBaseItemSemanticEditPolicy.getLinkConstraints()
-				.canExistDeploymentStarStepFirstStep_904008(getOldSource(),
-						getNewTarget());
+		return DomainBaseItemSemanticEditPolicy.getLinkConstraints().canExistDeploymentStarStepFirstStep_904008(
+				getOldSource(), getNewTarget());
 	}
 
 	/**
 	 * @generated
 	 */
-	protected CommandResult doExecuteWithResult(IProgressMonitor monitor,
-			IAdaptable info) throws ExecutionException {
+	protected CommandResult doExecuteWithResult(IProgressMonitor monitor, IAdaptable info) throws ExecutionException {
 		if (!canExecute()) {
-			throw new ExecutionException(
-					"Invalid arguments in reorient link command"); //$NON-NLS-1$
+			throw new ExecutionException("Invalid arguments in reorient link command"); //$NON-NLS-1$
 		}
 		if (reorientDirection == ReorientRelationshipRequest.REORIENT_SOURCE) {
 			return reorientSource();

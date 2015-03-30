@@ -17,8 +17,7 @@ import domain.DeploymentComponent;
 /**
  * @generated
  */
-public class DeploymentComponentDeploymentComponentLinkCreateCommand extends
-		EditElementCommand {
+public class DeploymentComponentDeploymentComponentLinkCreateCommand extends EditElementCommand {
 
 	/**
 	 * @generated
@@ -33,8 +32,8 @@ public class DeploymentComponentDeploymentComponentLinkCreateCommand extends
 	/**
 	 * @generated
 	 */
-	public DeploymentComponentDeploymentComponentLinkCreateCommand(
-			CreateRelationshipRequest request, EObject source, EObject target) {
+	public DeploymentComponentDeploymentComponentLinkCreateCommand(CreateRelationshipRequest request, EObject source,
+			EObject target) {
 		super(request.getLabel(), null, request);
 		this.source = source;
 		this.target = target;
@@ -58,18 +57,15 @@ public class DeploymentComponentDeploymentComponentLinkCreateCommand extends
 		}
 		// target may be null here but it's possible to check constraint
 		return DomainBaseItemSemanticEditPolicy.getLinkConstraints()
-				.canCreateDeploymentComponentDeploymentComponentLink_904014(
-						getSource(), getTarget());
+				.canCreateDeploymentComponentDeploymentComponentLink_904014(getSource(), getTarget());
 	}
 
 	/**
 	 * @generated
 	 */
-	protected CommandResult doExecuteWithResult(IProgressMonitor monitor,
-			IAdaptable info) throws ExecutionException {
+	protected CommandResult doExecuteWithResult(IProgressMonitor monitor, IAdaptable info) throws ExecutionException {
 		if (!canExecute()) {
-			throw new ExecutionException(
-					"Invalid arguments in create link command"); //$NON-NLS-1$
+			throw new ExecutionException("Invalid arguments in create link command"); //$NON-NLS-1$
 		}
 
 		if (getSource() != null && getTarget() != null) {

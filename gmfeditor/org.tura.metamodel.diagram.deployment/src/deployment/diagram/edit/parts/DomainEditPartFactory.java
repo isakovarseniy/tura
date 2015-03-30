@@ -41,19 +41,16 @@ public class DomainEditPartFactory implements EditPartFactory {
 				return new DeploymentStarStepNameEditPart(view);
 
 			case DeploymentComponentDeploymentComponentLinkEditPart.VISUAL_ID:
-				return new DeploymentComponentDeploymentComponentLinkEditPart(
-						view);
+				return new DeploymentComponentDeploymentComponentLinkEditPart(view);
 
 			case DeploymentComponentDeploymentComponentLinkExternalLabelEditPart.VISUAL_ID:
-				return new DeploymentComponentDeploymentComponentLinkExternalLabelEditPart(
-						view);
+				return new DeploymentComponentDeploymentComponentLinkExternalLabelEditPart(view);
 
 			case DeploymentStarStepFirstStepEditPart.VISUAL_ID:
 				return new DeploymentStarStepFirstStepEditPart(view);
 
 			case DeploymentStarStepFirstStepExternalLabelEditPart.VISUAL_ID:
-				return new DeploymentStarStepFirstStepExternalLabelEditPart(
-						view);
+				return new DeploymentStarStepFirstStepExternalLabelEditPart(view);
 
 			case RecipeDeploymentEditPart.VISUAL_ID:
 				return new RecipeDeploymentEditPart(view);
@@ -77,10 +74,8 @@ public class DomainEditPartFactory implements EditPartFactory {
 	/**
 	 * @generated
 	 */
-	public static CellEditorLocator getTextCellEditorLocator(
-			ITextAwareEditPart source) {
-		return CellEditorLocatorAccess.INSTANCE
-				.getTextCellEditorLocator(source);
+	public static CellEditorLocator getTextCellEditorLocator(ITextAwareEditPart source) {
+		return CellEditorLocatorAccess.INSTANCE.getTextCellEditorLocator(source);
 	}
 
 }

@@ -44,8 +44,7 @@ public class DomainVisualIDRegistry {
 				return -1;
 			}
 		}
-		return typesrepository.diagram.part.DomainVisualIDRegistry
-				.getVisualID(view.getType());
+		return typesrepository.diagram.part.DomainVisualIDRegistry.getVisualID(view.getType());
 	}
 
 	/**
@@ -70,11 +69,9 @@ public class DomainVisualIDRegistry {
 		try {
 			return Integer.parseInt(type);
 		} catch (NumberFormatException e) {
-			if (Boolean.TRUE.toString().equalsIgnoreCase(
-					Platform.getDebugOption(DEBUG_KEY))) {
+			if (Boolean.TRUE.toString().equalsIgnoreCase(Platform.getDebugOption(DEBUG_KEY))) {
 				DomainDiagramEditorPlugin.getInstance().logError(
-						"Unable to parse view type as a visualID number: "
-								+ type);
+						"Unable to parse view type as a visualID number: " + type);
 			}
 		}
 		return -1;
@@ -94,8 +91,7 @@ public class DomainVisualIDRegistry {
 		if (domainElement == null) {
 			return -1;
 		}
-		if (DomainPackage.eINSTANCE.getTypesRepository().isSuperTypeOf(
-				domainElement.eClass())
+		if (DomainPackage.eINSTANCE.getTypesRepository().isSuperTypeOf(domainElement.eClass())
 				&& isDiagram((TypesRepository) domainElement)) {
 			return TypesRepositoryEditPart.VISUAL_ID;
 		}
@@ -109,16 +105,13 @@ public class DomainVisualIDRegistry {
 		if (domainElement == null) {
 			return -1;
 		}
-		String containerModelID = typesrepository.diagram.part.DomainVisualIDRegistry
-				.getModelID(containerView);
-		if (!TypesRepositoryEditPart.MODEL_ID.equals(containerModelID)
-				&& !"domain".equals(containerModelID)) { //$NON-NLS-1$
+		String containerModelID = typesrepository.diagram.part.DomainVisualIDRegistry.getModelID(containerView);
+		if (!TypesRepositoryEditPart.MODEL_ID.equals(containerModelID) && !"domain".equals(containerModelID)) { //$NON-NLS-1$
 			return -1;
 		}
 		int containerVisualID;
 		if (TypesRepositoryEditPart.MODEL_ID.equals(containerModelID)) {
-			containerVisualID = typesrepository.diagram.part.DomainVisualIDRegistry
-					.getVisualID(containerView);
+			containerVisualID = typesrepository.diagram.part.DomainVisualIDRegistry.getVisualID(containerView);
 		} else {
 			if (containerView instanceof Diagram) {
 				containerVisualID = TypesRepositoryEditPart.VISUAL_ID;
@@ -128,14 +121,12 @@ public class DomainVisualIDRegistry {
 		}
 		switch (containerVisualID) {
 		case TypesRepositoryEditPart.VISUAL_ID:
-			if (DomainPackage.eINSTANCE.getTypes().isSuperTypeOf(
-					domainElement.eClass())) {
+			if (DomainPackage.eINSTANCE.getTypes().isSuperTypeOf(domainElement.eClass())) {
 				return TypesEditPart.VISUAL_ID;
 			}
 			break;
 		case TypesTypesPackagesCompartmentEditPart.VISUAL_ID:
-			if (DomainPackage.eINSTANCE.getPackage().isSuperTypeOf(
-					domainElement.eClass())) {
+			if (DomainPackage.eINSTANCE.getPackage().isSuperTypeOf(domainElement.eClass())) {
 				return PackageEditPart.VISUAL_ID;
 			}
 			break;
@@ -147,16 +138,13 @@ public class DomainVisualIDRegistry {
 	 * @generated
 	 */
 	public static boolean canCreateNode(View containerView, int nodeVisualID) {
-		String containerModelID = typesrepository.diagram.part.DomainVisualIDRegistry
-				.getModelID(containerView);
-		if (!TypesRepositoryEditPart.MODEL_ID.equals(containerModelID)
-				&& !"domain".equals(containerModelID)) { //$NON-NLS-1$
+		String containerModelID = typesrepository.diagram.part.DomainVisualIDRegistry.getModelID(containerView);
+		if (!TypesRepositoryEditPart.MODEL_ID.equals(containerModelID) && !"domain".equals(containerModelID)) { //$NON-NLS-1$
 			return false;
 		}
 		int containerVisualID;
 		if (TypesRepositoryEditPart.MODEL_ID.equals(containerModelID)) {
-			containerVisualID = typesrepository.diagram.part.DomainVisualIDRegistry
-					.getVisualID(containerView);
+			containerVisualID = typesrepository.diagram.part.DomainVisualIDRegistry.getVisualID(containerView);
 		} else {
 			if (containerView instanceof Diagram) {
 				containerVisualID = TypesRepositoryEditPart.VISUAL_ID;
@@ -215,8 +203,7 @@ public class DomainVisualIDRegistry {
 	/**
 	 * @generated
 	 */
-	public static boolean checkNodeVisualID(View containerView,
-			EObject domainElement, int candidate) {
+	public static boolean checkNodeVisualID(View containerView, EObject domainElement, int candidate) {
 		if (candidate == -1) {
 			//unrecognized id is always bad
 			return false;
@@ -262,8 +249,7 @@ public class DomainVisualIDRegistry {
 		 */
 		@Override
 		public int getVisualID(View view) {
-			return typesrepository.diagram.part.DomainVisualIDRegistry
-					.getVisualID(view);
+			return typesrepository.diagram.part.DomainVisualIDRegistry.getVisualID(view);
 		}
 
 		/**
@@ -271,8 +257,7 @@ public class DomainVisualIDRegistry {
 		 */
 		@Override
 		public String getModelID(View view) {
-			return typesrepository.diagram.part.DomainVisualIDRegistry
-					.getModelID(view);
+			return typesrepository.diagram.part.DomainVisualIDRegistry.getModelID(view);
 		}
 
 		/**
@@ -280,18 +265,16 @@ public class DomainVisualIDRegistry {
 		 */
 		@Override
 		public int getNodeVisualID(View containerView, EObject domainElement) {
-			return typesrepository.diagram.part.DomainVisualIDRegistry
-					.getNodeVisualID(containerView, domainElement);
+			return typesrepository.diagram.part.DomainVisualIDRegistry.getNodeVisualID(containerView, domainElement);
 		}
 
 		/**
 		 * @generated
 		 */
 		@Override
-		public boolean checkNodeVisualID(View containerView,
-				EObject domainElement, int candidate) {
-			return typesrepository.diagram.part.DomainVisualIDRegistry
-					.checkNodeVisualID(containerView, domainElement, candidate);
+		public boolean checkNodeVisualID(View containerView, EObject domainElement, int candidate) {
+			return typesrepository.diagram.part.DomainVisualIDRegistry.checkNodeVisualID(containerView, domainElement,
+					candidate);
 		}
 
 		/**
@@ -299,8 +282,7 @@ public class DomainVisualIDRegistry {
 		 */
 		@Override
 		public boolean isCompartmentVisualID(int visualID) {
-			return typesrepository.diagram.part.DomainVisualIDRegistry
-					.isCompartmentVisualID(visualID);
+			return typesrepository.diagram.part.DomainVisualIDRegistry.isCompartmentVisualID(visualID);
 		}
 
 		/**
@@ -308,8 +290,7 @@ public class DomainVisualIDRegistry {
 		 */
 		@Override
 		public boolean isSemanticLeafVisualID(int visualID) {
-			return typesrepository.diagram.part.DomainVisualIDRegistry
-					.isSemanticLeafVisualID(visualID);
+			return typesrepository.diagram.part.DomainVisualIDRegistry.isSemanticLeafVisualID(visualID);
 		}
 	};
 

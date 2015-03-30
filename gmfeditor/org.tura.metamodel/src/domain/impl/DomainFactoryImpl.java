@@ -153,6 +153,7 @@ public class DomainFactoryImpl extends EFactoryImpl implements DomainFactory
       case DomainPackage.FORM_PARAMETER: return createFormParameter();
       case DomainPackage.FORM_VIEW: return createFormView();
       case DomainPackage.VIEWS: return createViews();
+      case DomainPackage.ORDERABLE: return createOrderable();
       case DomainPackage.MULTI_LANG_LABEL: return createMultiLangLabel();
       case DomainPackage.CANVAS_FRAME: return createCanvasFrame();
       case DomainPackage.VIEW_PORT_HOLDER: return createViewPortHolder();
@@ -1275,6 +1276,17 @@ public class DomainFactoryImpl extends EFactoryImpl implements DomainFactory
   {
     ViewsImpl views = new ViewsImpl();
     return views;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Orderable createOrderable()
+  {
+    OrderableImpl orderable = new OrderableImpl();
+    return orderable;
   }
 
   /**

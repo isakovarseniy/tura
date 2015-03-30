@@ -522,6 +522,11 @@ public class DomainAdapterFactory extends AdapterFactoryImpl {
         return createViewsAdapter();
       }
       @Override
+      public Adapter caseOrderable(Orderable object)
+      {
+        return createOrderableAdapter();
+      }
+      @Override
       public Adapter caseMultiLangLabel(MultiLangLabel object)
       {
         return createMultiLangLabelAdapter();
@@ -2257,6 +2262,21 @@ public class DomainAdapterFactory extends AdapterFactoryImpl {
   }
 
 	/**
+   * Creates a new adapter for an object of class '{@link domain.Orderable <em>Orderable</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see domain.Orderable
+   * @generated
+   */
+  public Adapter createOrderableAdapter()
+  {
+    return null;
+  }
+
+  /**
 	 * Creates a new adapter for an object of class '
 	 * {@link domain.MultiLangLabel <em>Multi Lang Label</em>}'. <!--
 	 * begin-user-doc --> This default implementation returns null so that we

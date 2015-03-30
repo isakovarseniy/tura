@@ -65,6 +65,7 @@ public class UielementItemProvider
       super.getPropertyDescriptors(object);
 
       addNicknamePropertyDescriptor(object);
+      addOrderPropertyDescriptor(object);
       addUidPropertyDescriptor(object);
       addOnEventRefreshAreaPropertyDescriptor(object);
     }
@@ -113,6 +114,29 @@ public class UielementItemProvider
          false,
          false,
          ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+         null,
+         null));
+  }
+
+  /**
+   * This adds a property descriptor for the Order feature.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected void addOrderPropertyDescriptor(Object object)
+  {
+    itemPropertyDescriptors.add
+      (createItemPropertyDescriptor
+        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+         getResourceLocator(),
+         getString("_UI_Orderable_order_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_Orderable_order_feature", "_UI_Orderable_type"),
+         DomainPackage.Literals.ORDERABLE__ORDER,
+         true,
+         false,
+         false,
+         ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
          null,
          null));
   }
@@ -218,6 +242,7 @@ public class UielementItemProvider
     switch (notification.getFeatureID(Uielement.class))
     {
       case DomainPackage.UIELEMENT__NICKNAME:
+      case DomainPackage.UIELEMENT__ORDER:
       case DomainPackage.UIELEMENT__UID:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
         return;

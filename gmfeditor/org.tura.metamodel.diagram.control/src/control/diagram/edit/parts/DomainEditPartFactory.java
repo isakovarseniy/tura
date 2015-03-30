@@ -131,28 +131,22 @@ public class DomainEditPartFactory implements EditPartFactory {
 				return new RootRootVariablesCompartmentEditPart(view);
 
 			case DataControlDataControlPreQueryTriggerCompartmentEditPart.VISUAL_ID:
-				return new DataControlDataControlPreQueryTriggerCompartmentEditPart(
-						view);
+				return new DataControlDataControlPreQueryTriggerCompartmentEditPart(view);
 
 			case DataControlDataControlPostQueryTriggerCompartmentEditPart.VISUAL_ID:
-				return new DataControlDataControlPostQueryTriggerCompartmentEditPart(
-						view);
+				return new DataControlDataControlPostQueryTriggerCompartmentEditPart(view);
 
 			case DataControlDataControlPreInsertTriggerCompartmentEditPart.VISUAL_ID:
-				return new DataControlDataControlPreInsertTriggerCompartmentEditPart(
-						view);
+				return new DataControlDataControlPreInsertTriggerCompartmentEditPart(view);
 
 			case DataControlDataControlPreDeleteTriggerCompartmentEditPart.VISUAL_ID:
-				return new DataControlDataControlPreDeleteTriggerCompartmentEditPart(
-						view);
+				return new DataControlDataControlPreDeleteTriggerCompartmentEditPart(view);
 
 			case DataControlDataControlPostCreateTriggerCompartmentEditPart.VISUAL_ID:
-				return new DataControlDataControlPostCreateTriggerCompartmentEditPart(
-						view);
+				return new DataControlDataControlPostCreateTriggerCompartmentEditPart(view);
 
 			case DataControlDataControlPreUpdateTriggerCompartmentEditPart.VISUAL_ID:
-				return new DataControlDataControlPreUpdateTriggerCompartmentEditPart(
-						view);
+				return new DataControlDataControlPreUpdateTriggerCompartmentEditPart(view);
 
 			case DataControlDataControlCreateCompartmentEditPart.VISUAL_ID:
 				return new DataControlDataControlCreateCompartmentEditPart(view);
@@ -170,8 +164,7 @@ public class DomainEditPartFactory implements EditPartFactory {
 				return new DataControlDataControlSearchCompartmentEditPart(view);
 
 			case DataControlDataControlArtificialFieldsCompartmentEditPart.VISUAL_ID:
-				return new DataControlDataControlArtificialFieldsCompartmentEditPart(
-						view);
+				return new DataControlDataControlArtificialFieldsCompartmentEditPart(view);
 
 			case RelationEditPart.VISUAL_ID:
 				return new RelationEditPart(view);
@@ -192,10 +185,8 @@ public class DomainEditPartFactory implements EditPartFactory {
 	/**
 	 * @generated
 	 */
-	public static CellEditorLocator getTextCellEditorLocator(
-			ITextAwareEditPart source) {
-		return CellEditorLocatorAccess.INSTANCE
-				.getTextCellEditorLocator(source);
+	public static CellEditorLocator getTextCellEditorLocator(ITextAwareEditPart source) {
+		return CellEditorLocatorAccess.INSTANCE.getTextCellEditorLocator(source);
 	}
 
 }

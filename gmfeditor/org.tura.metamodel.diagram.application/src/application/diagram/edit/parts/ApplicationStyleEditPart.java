@@ -3,6 +3,8 @@
  */
 package application.diagram.edit.parts;
 
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.MarginBorder;
 import org.eclipse.draw2d.RectangleFigure;
@@ -11,7 +13,10 @@ import org.eclipse.draw2d.Shape;
 import org.eclipse.draw2d.StackLayout;
 import org.eclipse.draw2d.geometry.Dimension;
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EcorePackage;
+import org.eclipse.emf.edit.command.SetCommand;
+import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPolicy;
 import org.eclipse.gef.Request;
@@ -32,9 +37,12 @@ import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.Font;
 import org.eclipse.swt.widgets.Display;
 
+import org.tura.metamodel.commons.editparts.OrderedDefaultSizeNodeFigure;
 import application.diagram.edit.policies.ApplicationStyleItemSemanticEditPolicy;
 import application.diagram.edit.policies.OpenDiagramEditPolicy;
 import application.diagram.part.DomainVisualIDRegistry;
+import domain.DomainPackage;
+import domain.Orderable;
 
 /**
  * @generated
@@ -68,11 +76,9 @@ public class ApplicationStyleEditPart extends ShapeNodeEditPart {
 	 */
 	protected void createDefaultEditPolicies() {
 		super.createDefaultEditPolicies();
-		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
-				new ApplicationStyleItemSemanticEditPolicy());
+		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE, new ApplicationStyleItemSemanticEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
-		installEditPolicy(EditPolicyRoles.OPEN_ROLE,
-				new OpenDiagramEditPolicy());
+		installEditPolicy(EditPolicyRoles.OPEN_ROLE, new OpenDiagramEditPolicy());
 		// XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
 		// removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
 	}
@@ -84,8 +90,7 @@ public class ApplicationStyleEditPart extends ShapeNodeEditPart {
 		org.eclipse.gmf.runtime.diagram.ui.editpolicies.LayoutEditPolicy lep = new org.eclipse.gmf.runtime.diagram.ui.editpolicies.LayoutEditPolicy() {
 
 			protected EditPolicy createChildEditPolicy(EditPart child) {
-				EditPolicy result = child
-						.getEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE);
+				EditPolicy result = child.getEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE);
 				if (result == null) {
 					result = new NonResizableEditPolicy();
 				}
@@ -122,17 +127,14 @@ public class ApplicationStyleEditPart extends ShapeNodeEditPart {
 	 */
 	protected boolean addFixedChild(EditPart childEditPart) {
 		if (childEditPart instanceof ApplicationStyleNameEditPart) {
-			((ApplicationStyleNameEditPart) childEditPart)
-					.setLabel(getPrimaryShape()
-							.getFigureApplicationStyleLabelFigure());
+			((ApplicationStyleNameEditPart) childEditPart).setLabel(getPrimaryShape()
+					.getFigureApplicationStyleLabelFigure());
 			return true;
 		}
 		if (childEditPart instanceof ApplicationStyleApplicationStyleStylesPackageCompartmentEditPart) {
-			IFigure pane = getPrimaryShape()
-					.getApplicationStyleStylesPackageCompartmentFigure();
+			IFigure pane = getPrimaryShape().getApplicationStyleStylesPackageCompartmentFigure();
 			setupContentPane(pane); // FIXME each comparment should handle his content pane in his own way 
-			pane.add(((ApplicationStyleApplicationStyleStylesPackageCompartmentEditPart) childEditPart)
-					.getFigure());
+			pane.add(((ApplicationStyleApplicationStyleStylesPackageCompartmentEditPart) childEditPart).getFigure());
 			return true;
 		}
 		return false;
@@ -146,10 +148,8 @@ public class ApplicationStyleEditPart extends ShapeNodeEditPart {
 			return true;
 		}
 		if (childEditPart instanceof ApplicationStyleApplicationStyleStylesPackageCompartmentEditPart) {
-			IFigure pane = getPrimaryShape()
-					.getApplicationStyleStylesPackageCompartmentFigure();
-			pane.remove(((ApplicationStyleApplicationStyleStylesPackageCompartmentEditPart) childEditPart)
-					.getFigure());
+			IFigure pane = getPrimaryShape().getApplicationStyleStylesPackageCompartmentFigure();
+			pane.remove(((ApplicationStyleApplicationStyleStylesPackageCompartmentEditPart) childEditPart).getFigure());
 			return true;
 		}
 		return false;
@@ -180,8 +180,7 @@ public class ApplicationStyleEditPart extends ShapeNodeEditPart {
 	 */
 	protected IFigure getContentPaneFor(IGraphicalEditPart editPart) {
 		if (editPart instanceof ApplicationStyleApplicationStyleStylesPackageCompartmentEditPart) {
-			return getPrimaryShape()
-					.getApplicationStyleStylesPackageCompartmentFigure();
+			return getPrimaryShape().getApplicationStyleStylesPackageCompartmentFigure();
 		}
 		return getContentPane();
 	}
@@ -190,7 +189,22 @@ public class ApplicationStyleEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected NodeFigure createNodePlate() {
-		DefaultSizeNodeFigure result = new DefaultSizeNodeFigure(40, 40);
+		DefaultSizeNodeFigure result = new OrderedDefaultSizeNodeFigure(40, 40);
+		result.addPropertyChangeListener("order", new PropertyChangeListener() {
+
+			@Override
+			public void propertyChange(PropertyChangeEvent evt) {
+				EObject obj = ((View) getModel()).getElement();
+				if (obj instanceof Orderable) {
+					EditingDomain editingDomain = getEditingDomain();
+					editingDomain.getCommandStack().execute(
+							SetCommand.create(editingDomain, obj, DomainPackage.eINSTANCE.getOrderable_Order(),
+									evt.getNewValue()));
+
+				}
+			}
+		});
+
 		return result;
 	}
 
@@ -276,8 +290,7 @@ public class ApplicationStyleEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	public EditPart getPrimaryChildEditPart() {
-		return getChildBySemanticHint(DomainVisualIDRegistry
-				.getType(ApplicationStyleNameEditPart.VISUAL_ID));
+		return getChildBySemanticHint(DomainVisualIDRegistry.getType(ApplicationStyleNameEditPart.VISUAL_ID));
 	}
 
 	/**
@@ -285,8 +298,7 @@ public class ApplicationStyleEditPart extends ShapeNodeEditPart {
 	 */
 	protected void handleNotificationEvent(Notification event) {
 		if (event.getNotifier() == getModel()
-				&& EcorePackage.eINSTANCE.getEModelElement_EAnnotations()
-						.equals(event.getFeature())) {
+				&& EcorePackage.eINSTANCE.getEModelElement_EAnnotations().equals(event.getFeature())) {
 			handleMajorSemanticChange();
 		} else {
 			super.handleNotificationEvent(event);
@@ -311,12 +323,10 @@ public class ApplicationStyleEditPart extends ShapeNodeEditPart {
 		 * @generated
 		 */
 		public ApplicationStyleFigure() {
-			this.setCornerDimensions(new Dimension(getMapMode().DPtoLP(8),
-					getMapMode().DPtoLP(8)));
+			this.setCornerDimensions(new Dimension(getMapMode().DPtoLP(8), getMapMode().DPtoLP(8)));
 			this.setForegroundColor(THIS_FORE);
 			this.setBackgroundColor(THIS_BACK);
-			this.setBorder(new MarginBorder(getMapMode().DPtoLP(5),
-					getMapMode().DPtoLP(5), getMapMode().DPtoLP(5),
+			this.setBorder(new MarginBorder(getMapMode().DPtoLP(5), getMapMode().DPtoLP(5), getMapMode().DPtoLP(5),
 					getMapMode().DPtoLP(5)));
 			createContents();
 		}
@@ -330,11 +340,10 @@ public class ApplicationStyleEditPart extends ShapeNodeEditPart {
 
 			fFigureApplicationStyleLabelFigure.setText("ApplicationStyle");
 
-			fFigureApplicationStyleLabelFigure
-					.setFont(FFIGUREAPPLICATIONSTYLELABELFIGURE_FONT);
+			fFigureApplicationStyleLabelFigure.setFont(FFIGUREAPPLICATIONSTYLELABELFIGURE_FONT);
 
-			fFigureApplicationStyleLabelFigure.setMaximumSize(new Dimension(
-					getMapMode().DPtoLP(10000), getMapMode().DPtoLP(50)));
+			fFigureApplicationStyleLabelFigure.setMaximumSize(new Dimension(getMapMode().DPtoLP(10000), getMapMode()
+					.DPtoLP(50)));
 
 			this.add(fFigureApplicationStyleLabelFigure);
 
@@ -375,7 +384,7 @@ public class ApplicationStyleEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	static final Font FFIGUREAPPLICATIONSTYLELABELFIGURE_FONT = new Font(
-			Display.getCurrent(), "Palatino", 12, SWT.ITALIC);
+	static final Font FFIGUREAPPLICATIONSTYLELABELFIGURE_FONT = new Font(Display.getCurrent(), "Palatino", 12,
+			SWT.ITALIC);
 
 }

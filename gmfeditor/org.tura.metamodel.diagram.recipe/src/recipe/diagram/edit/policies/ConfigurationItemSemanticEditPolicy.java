@@ -31,8 +31,7 @@ import recipe.diagram.providers.DomainElementTypes;
 /**
  * @generated
  */
-public class ConfigurationItemSemanticEditPolicy extends
-		DomainBaseItemSemanticEditPolicy {
+public class ConfigurationItemSemanticEditPolicy extends DomainBaseItemSemanticEditPolicy {
 
 	/**
 	 * @generated
@@ -46,14 +45,12 @@ public class ConfigurationItemSemanticEditPolicy extends
 	 */
 	protected Command getDestroyElementCommand(DestroyElementRequest req) {
 		View view = (View) getHost().getModel();
-		CompositeTransactionalCommand cmd = new CompositeTransactionalCommand(
-				getEditingDomain(), null);
+		CompositeTransactionalCommand cmd = new CompositeTransactionalCommand(getEditingDomain(), null);
 		cmd.setTransactionNestingEnabled(false);
 		for (Iterator<?> it = view.getTargetEdges().iterator(); it.hasNext();) {
 			Edge incomingLink = (Edge) it.next();
 			if (DomainVisualIDRegistry.getVisualID(incomingLink) == InfrastructureRecipeConfigEditPart.VISUAL_ID) {
-				DestroyReferenceRequest r = new DestroyReferenceRequest(
-						incomingLink.getSource().getElement(), null,
+				DestroyReferenceRequest r = new DestroyReferenceRequest(incomingLink.getSource().getElement(), null,
 						incomingLink.getTarget().getElement(), false);
 				cmd.add(new DestroyReferenceCommand(r));
 				cmd.add(new DeleteCommand(getEditingDomain(), incomingLink));
@@ -82,14 +79,12 @@ public class ConfigurationItemSemanticEditPolicy extends
 			Node node = (Node) nit.next();
 			switch (DomainVisualIDRegistry.getVisualID(node)) {
 			case ConfigurationConfigurationPropertiesCompartmentEditPart.VISUAL_ID:
-				for (Iterator<?> cit = node.getChildren().iterator(); cit
-						.hasNext();) {
+				for (Iterator<?> cit = node.getChildren().iterator(); cit.hasNext();) {
 					Node cnode = (Node) cit.next();
 					switch (DomainVisualIDRegistry.getVisualID(cnode)) {
 					case PropertyEditPart.VISUAL_ID:
-						cmd.add(new DestroyElementCommand(
-								new DestroyElementRequest(getEditingDomain(),
-										cnode.getElement(), false))); // directlyOwned: true
+						cmd.add(new DestroyElementCommand(new DestroyElementRequest(getEditingDomain(), cnode
+								.getElement(), false))); // directlyOwned: true
 						// don't need explicit deletion of cnode as parent's view deletion would clean child views as well 
 						// cmd.add(new org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(), cnode));
 						break;
@@ -106,17 +101,14 @@ public class ConfigurationItemSemanticEditPolicy extends
 	protected Command getCreateRelationshipCommand(CreateRelationshipRequest req) {
 		Command command = req.getTarget() == null ? getStartCreateRelationshipCommand(req)
 				: getCompleteCreateRelationshipCommand(req);
-		return command != null ? command : super
-				.getCreateRelationshipCommand(req);
+		return command != null ? command : super.getCreateRelationshipCommand(req);
 	}
 
 	/**
 	 * @generated
 	 */
-	protected Command getStartCreateRelationshipCommand(
-			CreateRelationshipRequest req) {
-		if (DomainElementTypes.InfrastructureRecipeConfig_304006 == req
-				.getElementType()) {
+	protected Command getStartCreateRelationshipCommand(CreateRelationshipRequest req) {
+		if (DomainElementTypes.InfrastructureRecipeConfig_304006 == req.getElementType()) {
 			return null;
 		}
 		return null;
@@ -125,12 +117,9 @@ public class ConfigurationItemSemanticEditPolicy extends
 	/**
 	 * @generated
 	 */
-	protected Command getCompleteCreateRelationshipCommand(
-			CreateRelationshipRequest req) {
-		if (DomainElementTypes.InfrastructureRecipeConfig_304006 == req
-				.getElementType()) {
-			return getGEFWrapper(new InfrastructureRecipeConfigCreateCommand(
-					req, req.getSource(), req.getTarget()));
+	protected Command getCompleteCreateRelationshipCommand(CreateRelationshipRequest req) {
+		if (DomainElementTypes.InfrastructureRecipeConfig_304006 == req.getElementType()) {
+			return getGEFWrapper(new InfrastructureRecipeConfigCreateCommand(req, req.getSource(), req.getTarget()));
 		}
 		return null;
 	}
@@ -141,12 +130,10 @@ public class ConfigurationItemSemanticEditPolicy extends
 	 * 
 	 * @generated
 	 */
-	protected Command getReorientReferenceRelationshipCommand(
-			ReorientReferenceRelationshipRequest req) {
+	protected Command getReorientReferenceRelationshipCommand(ReorientReferenceRelationshipRequest req) {
 		switch (getVisualID(req)) {
 		case InfrastructureRecipeConfigEditPart.VISUAL_ID:
-			return getGEFWrapper(new InfrastructureRecipeConfigReorientCommand(
-					req));
+			return getGEFWrapper(new InfrastructureRecipeConfigReorientCommand(req));
 		}
 		return super.getReorientReferenceRelationshipCommand(req);
 	}

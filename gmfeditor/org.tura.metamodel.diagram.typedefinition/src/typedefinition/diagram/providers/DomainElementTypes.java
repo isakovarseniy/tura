@@ -114,26 +114,22 @@ public class DomainElementTypes {
 	/**
 	 * @generated
 	 */
-	private static ImageDescriptor getProvidedImageDescriptor(
-			ENamedElement element) {
+	private static ImageDescriptor getProvidedImageDescriptor(ENamedElement element) {
 		if (element instanceof EStructuralFeature) {
 			EStructuralFeature feature = ((EStructuralFeature) element);
 			EClass eContainingClass = feature.getEContainingClass();
 			EClassifier eType = feature.getEType();
 			if (eContainingClass != null && !eContainingClass.isAbstract()) {
 				element = eContainingClass;
-			} else if (eType instanceof EClass
-					&& !((EClass) eType).isAbstract()) {
+			} else if (eType instanceof EClass && !((EClass) eType).isAbstract()) {
 				element = eType;
 			}
 		}
 		if (element instanceof EClass) {
 			EClass eClass = (EClass) element;
 			if (!eClass.isAbstract()) {
-				return DomainDiagramEditorPlugin.getInstance()
-						.getItemImageDescriptor(
-								eClass.getEPackage().getEFactoryInstance()
-										.create(eClass));
+				return DomainDiagramEditorPlugin.getInstance().getItemImageDescriptor(
+						eClass.getEPackage().getEFactoryInstance().create(eClass));
 			}
 		}
 		// TODO : support structural features
@@ -205,31 +201,23 @@ public class DomainElementTypes {
 		if (elements == null) {
 			elements = new IdentityHashMap<IElementType, ENamedElement>();
 
-			elements.put(TypeDefinition_101000,
-					DomainPackage.eINSTANCE.getTypeDefinition());
+			elements.put(TypeDefinition_101000, DomainPackage.eINSTANCE.getTypeDefinition());
 
 			elements.put(Type_102002, DomainPackage.eINSTANCE.getType());
 
-			elements.put(TypeReference_102001,
-					DomainPackage.eINSTANCE.getTypeReference());
+			elements.put(TypeReference_102001, DomainPackage.eINSTANCE.getTypeReference());
 
-			elements.put(Primitive_102004,
-					DomainPackage.eINSTANCE.getPrimitive());
+			elements.put(Primitive_102004, DomainPackage.eINSTANCE.getPrimitive());
 
-			elements.put(Enumarator_102005,
-					DomainPackage.eINSTANCE.getEnumarator());
+			elements.put(Enumarator_102005, DomainPackage.eINSTANCE.getEnumarator());
 
-			elements.put(Attribute_103001,
-					DomainPackage.eINSTANCE.getAttribute());
+			elements.put(Attribute_103001, DomainPackage.eINSTANCE.getAttribute());
 
-			elements.put(Operation_103002,
-					DomainPackage.eINSTANCE.getOperation());
+			elements.put(Operation_103002, DomainPackage.eINSTANCE.getOperation());
 
-			elements.put(EnumAttribute_103005,
-					DomainPackage.eINSTANCE.getEnumAttribute());
+			elements.put(EnumAttribute_103005, DomainPackage.eINSTANCE.getEnumAttribute());
 
-			elements.put(TypeExtension_104001,
-					DomainPackage.eINSTANCE.getTypeExtension());
+			elements.put(TypeExtension_104001, DomainPackage.eINSTANCE.getTypeExtension());
 		}
 		return (ENamedElement) elements.get(type);
 	}

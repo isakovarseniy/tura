@@ -16,8 +16,8 @@ import domain.diagram.providers.DomainElementTypes;
 /**
  * @generated
  */
-public class DomainArtifactsDomainArtifactsDomainArtifactCompartmentItemSemanticEditPolicy
-		extends DomainBaseItemSemanticEditPolicy {
+public class DomainArtifactsDomainArtifactsDomainArtifactCompartmentItemSemanticEditPolicy extends
+		DomainBaseItemSemanticEditPolicy {
 
 	/**
 	 * @generated
@@ -39,8 +39,7 @@ public class DomainArtifactsDomainArtifactsDomainArtifactCompartmentItemSemantic
 		if (DomainElementTypes.EJBService_503005 == req.getElementType()) {
 			return getGEFWrapper(new EJBServiceCreateCommand(req));
 		}
-		if (DomainElementTypes.ContinuousIintegration_503006 == req
-				.getElementType()) {
+		if (DomainElementTypes.ContinuousIintegration_503006 == req.getElementType()) {
 			return getGEFWrapper(new ContinuousIintegrationCreateCommand(req));
 		}
 		if (DomainElementTypes.DomainArtifact_503002 == req.getElementType()) {

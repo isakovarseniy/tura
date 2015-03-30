@@ -43,4 +43,5 @@ Require-Bundle: org.eclipse.core.runtime,
  org.tura.metamodel.de.itemis.gmf.runtime.extensions;visibility:=reexport
 Eclipse-LazyStart: true
 Import-Package: de.itemis.gmf.runtime.editingdomain,
+ org.tura.metamodel.commons.editparts,
  org.tura.metamodel.validatioin

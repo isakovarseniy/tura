@@ -65,6 +65,7 @@ public class TabPageItemProvider
       super.getPropertyDescriptors(object);
 
       addColumnsPropertyDescriptor(object);
+      addOrderPropertyDescriptor(object);
     }
     return itemPropertyDescriptors;
   }
@@ -84,6 +85,29 @@ public class TabPageItemProvider
          getString("_UI_HTMLLayerHolder_columns_feature"),
          getString("_UI_PropertyDescriptor_description", "_UI_HTMLLayerHolder_columns_feature", "_UI_HTMLLayerHolder_type"),
          DomainPackage.Literals.HTML_LAYER_HOLDER__COLUMNS,
+         true,
+         false,
+         false,
+         ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
+         null,
+         null));
+  }
+
+  /**
+   * This adds a property descriptor for the Order feature.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected void addOrderPropertyDescriptor(Object object)
+  {
+    itemPropertyDescriptors.add
+      (createItemPropertyDescriptor
+        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+         getResourceLocator(),
+         getString("_UI_Orderable_order_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_Orderable_order_feature", "_UI_Orderable_type"),
+         DomainPackage.Literals.ORDERABLE__ORDER,
          true,
          false,
          false,
@@ -169,6 +193,7 @@ public class TabPageItemProvider
     switch (notification.getFeatureID(TabPage.class))
     {
       case DomainPackage.TAB_PAGE__COLUMNS:
+      case DomainPackage.TAB_PAGE__ORDER:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
         return;
       case DomainPackage.TAB_PAGE__VIEW_ELEMENT:

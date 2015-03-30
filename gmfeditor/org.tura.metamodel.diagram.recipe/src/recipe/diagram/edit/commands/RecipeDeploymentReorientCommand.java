@@ -44,8 +44,7 @@ public class RecipeDeploymentReorientCommand extends EditElementCommand {
 	/**
 	 * @generated
 	 */
-	public RecipeDeploymentReorientCommand(
-			ReorientReferenceRelationshipRequest request) {
+	public RecipeDeploymentReorientCommand(ReorientReferenceRelationshipRequest request) {
 		super(request.getLabel(), null, request);
 		reorientDirection = request.getDirection();
 		referenceOwner = request.getReferenceOwner();
@@ -76,9 +75,8 @@ public class RecipeDeploymentReorientCommand extends EditElementCommand {
 		if (!(oldEnd instanceof DeploymentSequence && newEnd instanceof Recipe)) {
 			return false;
 		}
-		return DomainBaseItemSemanticEditPolicy
-				.getLinkConstraints()
-				.canExistRecipeDeployment_304013(getNewSource(), getOldTarget());
+		return DomainBaseItemSemanticEditPolicy.getLinkConstraints().canExistRecipeDeployment_304013(getNewSource(),
+				getOldTarget());
 	}
 
 	/**
@@ -88,19 +86,16 @@ public class RecipeDeploymentReorientCommand extends EditElementCommand {
 		if (!(oldEnd instanceof DeploymentSequence && newEnd instanceof DeploymentSequence)) {
 			return false;
 		}
-		return DomainBaseItemSemanticEditPolicy
-				.getLinkConstraints()
-				.canExistRecipeDeployment_304013(getOldSource(), getNewTarget());
+		return DomainBaseItemSemanticEditPolicy.getLinkConstraints().canExistRecipeDeployment_304013(getOldSource(),
+				getNewTarget());
 	}
 
 	/**
 	 * @generated
 	 */
-	protected CommandResult doExecuteWithResult(IProgressMonitor monitor,
-			IAdaptable info) throws ExecutionException {
+	protected CommandResult doExecuteWithResult(IProgressMonitor monitor, IAdaptable info) throws ExecutionException {
 		if (!canExecute()) {
-			throw new ExecutionException(
-					"Invalid arguments in reorient link command"); //$NON-NLS-1$
+			throw new ExecutionException("Invalid arguments in reorient link command"); //$NON-NLS-1$
 		}
 		if (reorientDirection == ReorientRelationshipRequest.REORIENT_SOURCE) {
 			return reorientSource();
