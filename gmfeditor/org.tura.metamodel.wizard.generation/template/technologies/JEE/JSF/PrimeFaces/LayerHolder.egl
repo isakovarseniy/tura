@@ -11,7 +11,7 @@ operation  domain::LayerHolder  draw(hash) {
 
 [%@template
 operation domain::LayerHolder  generateBody(hash){
-                for (element in self.children){
+                for (element in self.children.sortBy(q|q.order)){
 %]                
                     [%=element.draw(hash)%]
 [%

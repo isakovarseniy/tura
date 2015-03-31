@@ -1918,7 +1918,7 @@
         <expression objRef="0970a383-857c-43fa-abf8-370b7eedc37b" order="2" expressionType="MessageImpl"/>
       </multiLangLabel>
     </canvases>
-    <canvases xsi:type="tura.domain:TabPage" uid="6fb4cb14-2476-434d-8db9-7d7425982c83" name="Files">
+    <canvases xsi:type="tura.domain:TabPage" uid="6fb4cb14-2476-434d-8db9-7d7425982c83" name="Files" order="1">
       <viewElement xsi:type="tura.domain:ViewArea" uid="7aeb66b3-9eb3-4e90-a155-2c1a13577072" name="File tree" canvasView="8bb728a4-b532-465e-82ea-fe2612b5a1a1">
         <style/>
         <styleClass/>

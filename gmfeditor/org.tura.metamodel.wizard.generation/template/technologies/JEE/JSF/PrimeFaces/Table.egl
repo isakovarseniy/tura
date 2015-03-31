@@ -28,7 +28,7 @@ operation domain::Table generateBody(hash){
 		<p:ajax event="rowSelect" listener="#{viewmodel.getModel('[%=self.mkuid()%]','grid', [%=util.bracketRemover( buildExpression(util.createArtificialContextValue(self.sourcePointer,self.sourcePointer.findTreeRoot(), null)))%]).setSelected}" [%=self.refreshArias()%]/>
 		
 [%
-                for (element in self.cols){
+                for (element in self.cols.sortBy(q|q.order)){
 %]                
                     [%=element.draw(hash)%]
 [%
