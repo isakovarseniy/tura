@@ -921,7 +921,10 @@
               <input type="canvas.diagram.edit.parts.TreeEditPart"/>
               <input type="canvas.diagram.edit.parts.DropDownSelectionEditPart"/>
               <input type="canvas.diagram.edit.parts.ButtonEditPart"/>
-
+              <input type="canvas.diagram.edit.parts.LayerHolderEditPart"/>
+              <input type="canvas.diagram.edit.parts.LayerHolder2EditPart"/>
+              <input type="canvas.diagram.edit.parts.LayerHolder3EditPart"/>
+ 
               <input type="canvas.diagram.edit.parts.CheckBox2EditPart"/>
               <input type="canvas.diagram.edit.parts.InputText2EditPart"/>
               <input type="canvas.diagram.edit.parts.OutputText2EditPart"/>
@@ -933,11 +936,10 @@
            </propertySection>        
 
 
-             <!-- propertySection
+             <propertySection
                tab="property.tab.domain.canvas.uielement.styleset"
                class="org.tura.metamodel.commons.properties.selections.grid.impl.StyleClassPropertySelection"
-               afterSection="org.tura.metamodel.diagram.canvas.sourcepointer.style"
-               id="org.tura.metamodel.diagram.canvas.sourcepointer.styleclass">
+               id="org.tura.metamodel.diagram.canvas.sourcepointer.style">
               <input type="canvas.diagram.edit.parts.CheckBoxEditPart"/>
               <input type="canvas.diagram.edit.parts.InputTextEditPart"/>
               <input type="canvas.diagram.edit.parts.OutputTextEditPart"/>
@@ -945,7 +947,11 @@
               <input type="canvas.diagram.edit.parts.TreeEditPart"/>
               <input type="canvas.diagram.edit.parts.DropDownSelectionEditPart"/>
               <input type="canvas.diagram.edit.parts.ButtonEditPart"/>
-  
+              <input type="canvas.diagram.edit.parts.LayerHolderEditPart"/>
+              <input type="canvas.diagram.edit.parts.LayerHolder2EditPart"/>
+              <input type="canvas.diagram.edit.parts.LayerHolder3EditPart"/>
+
+
               <input type="canvas.diagram.edit.parts.CheckBox2EditPart"/>
               <input type="canvas.diagram.edit.parts.InputText2EditPart"/>
               <input type="canvas.diagram.edit.parts.OutputText2EditPart"/>
@@ -953,8 +959,8 @@
               <input type="canvas.diagram.edit.parts.Tree2EditPart"/>
               <input type="canvas.diagram.edit.parts.DropDownSelection2EditPart"/>
               <input type="canvas.diagram.edit.parts.Button2EditPart"/>
-  
-           </propertySection-->        
+
+           </propertySection>        
 
 
              <propertySection

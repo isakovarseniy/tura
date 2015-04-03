@@ -83,7 +83,7 @@ public class ScriptGenerator{
             }
             result = result + ")";
         } catch (Exception e) {
-            logger.fine(e.getMessage());
+            logger.log(java.util.logging.Level.INFO, e.getMessage(),e);
         }
         return result;
     }

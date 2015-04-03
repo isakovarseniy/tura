@@ -12,3 +12,13 @@
     height: 16px;
     background-position: 0px 0px;
 }
+
+.ui-panelgrid tr, .ui-panelgrid td{
+  border:none;
+}
+
+.ui-panelgrid .ui-panelgrid-cell {
+    border-style: none;
+    border-color: inherit;
+    padding: 0px 0px;
+}

@@ -333,6 +333,9 @@
         <returnValue packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="90b18156-de6d-42d1-b350-925e44a0e4cc"/>
       </operations>
     </types>
+    <types xsi:type="tura.domain:Type" uid="2ab4a62a-fe09-4a91-b1f7-2996f3fc498e" name="Object ID generator">
+      <classifiers uid="e12d16d1-063a-4a5f-91da-0666c863da11" hint="bf57ae0e-a725-4c7c-b178-ebbf640b2375"/>
+    </types>
   </tura.domain:TypeDefinition>
   <tura.domain:TypeDefinition uid="Uniq_115091ed-0c7c-4eae-be06-8496210d4b84" parent="e8faa4f9-a654-40f5-bdf5-454f90f2af19">
     <types xsi:type="tura.domain:Type" uid="Comp_52ffccb7-cea6-49de-ba4b-7437f1da3369" name="Company Type">
@@ -2007,7 +2010,7 @@
     <mappers xsi:type="tura.domain:JavaMapper" uid="6145b6d7-5681-4c8d-a1b1-7cf80ef25be2" uiLayer="true" packageRef="e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="State_52ffccb7-cea6-49de-ba4b-7437f1da3369" fakePackageName="HR package" fakeTypeName="State Type" mappedToPackageName="org.elsoft.platform.hr.objects" mappedToClassName="StateDAO" artifactId="hr-objects" groupId="org.tura.example.service" version="1.0"/>
     <mappers xsi:type="tura.domain:JavaMapper" uid="9ffee24d-9a19-4d91-8251-ed8739fdade6" uiLayer="true" packageRef="e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="Str_52ffccb7-cea6-49de-ba4b-7437f1da3369" fakePackageName="HR package" fakeTypeName="Street Type" mappedToPackageName="org.elsoft.platform.hr.objects" mappedToClassName="StreetDAO" artifactId="hr-objects" groupId="org.tura.example.service" version="1.0"/>
     <mappers xsi:type="tura.domain:JavaMapper" uid="40ea18cd-72a9-4cda-9cb7-23cf7fb2c13e" uiLayer="true" packageRef="e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="Vhc_52ffccb7-cea6-49de-ba4b-7437f1da3369" fakePackageName="HR package" fakeTypeName="Vehicle Type" mappedToPackageName="org.elsoft.platform.hr.objects" mappedToClassName="VehicleDAO" artifactId="hr-objects" groupId="org.tura.example.service" version="1.0"/>
-    <mappers xsi:type="tura.domain:JavaMapper" uid="e6849ac4-07d8-4bd5-9e21-12e66789b7ba" uiLayer="true" packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="50dcca84-4d2c-4fe2-baad-56afdf1be76d" fakePackageName="Base package" fakeTypeName="BaseType" mappedToPackageName="org.tura.platform.persistence" mappedToClassName="TuraObject" artifactId="commons-persistence" groupId="rg.tura.platform" version="2.0"/>
+    <mappers xsi:type="tura.domain:JavaMapper" uid="e6849ac4-07d8-4bd5-9e21-12e66789b7ba" uiLayer="true" packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="50dcca84-4d2c-4fe2-baad-56afdf1be76d" fakePackageName="Base package" fakeTypeName="BaseType" mappedToPackageName="org.tura.platform.persistence" mappedToClassName="TuraObject" artifactId="commons-persistence" groupId="org.tura.platform" version="2.0"/>
     <mappers xsi:type="tura.domain:JavaMapper" uid="4a9847e3-793f-4d2b-a755-d9f8639dcc01" uiLayer="true" packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="2957c51c-68e7-4d1e-b8b7-cbe7ccdbe13f" fakePackageName="Base package" fakeTypeName="JPA Entity CRAD Service" mappedToPackageName="org.tura.platform.commons.jpa" mappedToClassName="TuraJPAEntityService" artifactId="commons-jpa" groupId="org.tura.platform" version="2.0"/>
     <mappers xsi:type="tura.domain:JavaMapper" uid="d032b375-f6e9-4784-8cb5-8a3bed1b9a12" uiLayer="true" packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="2b2e1b10-400a-11e4-916c-0800200c9a66" fakePackageName="Base package" fakeTypeName="List of Base Type" mappedToPackageName="java.util" mappedToClassName="List&lt;org.tura.platform.persistence.TuraObject>"/>
     <mappers xsi:type="tura.domain:JavaMapper" uid="cd058e0b-a144-4b4f-b58d-324f50bed61a" uiLayer="true" packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="9ec6d2e0-4002-11e4-916c-0800200c9a66" fakePackageName="Base package" fakeTypeName="Search criterias" mappedToPackageName="com.octo.java.sql.query" mappedToClassName="SelectQuery" artifactId="java-sql-dsl" groupId="com.octo.java.sql" version="0.1.1-SNAPSHOT"/>
@@ -2015,6 +2018,7 @@
     <mappers xsi:type="tura.domain:JavaMapper" uid="922fccb2-695f-4062-b5b3-953c717851ec" uiLayer="true" packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="7de77bc8-f109-43e4-95fe-0f2ca7a9f1d0" fakePackageName="Base package" fakeTypeName="General data control" mappedToPackageName="org.tura.platform.datacontrol" mappedToClassName="IDataControl" artifactId="core" groupId="org.tura.platform.datacontrol" version="2.0" libraryName=""/>
     <mappers xsi:type="tura.domain:JavaScriptMapper" uid="6b22c160-af59-4606-ac3c-f43db9619dd0" uiLayer="true" packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="971e11a5-49d4-402d-9ae4-4233c366a542" fakePackageName="Base package" fakeTypeName="Client system library" libraryUrl="clientSystemLibrary.js"/>
     <mappers xsi:type="tura.domain:JavaMapper" uid="3349b9b4-1613-4331-ac71-2002be5890a6" uiLayer="true" packageRef="e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="c4654ad8-156f-4706-bda2-791ed81fcdea" fakePackageName="HR package" fakeTypeName="Action executor" mappedToPackageName="org.tura.example.ui.hrcontroller.actions" mappedToClassName="Actions" artifactId="triggers" groupId="org.tura.example.service.hrform" version="2.0" libraryName=""/>
+    <mappers xsi:type="tura.domain:JavaMapper" uid="7e0f258e-549c-4952-9e0c-0f84be596ef9" uiLayer="true" packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="2ab4a62a-fe09-4a91-b1f7-2996f3fc498e" fakePackageName="Base package" fakeTypeName="Object ID generator" mappedToPackageName="org.tura.platform.persistence" mappedToClassName="ObjectsID" artifactId="commons-persistence" groupId="org.tura.platform" version="2.0" libraryName=""/>
   </tura.domain:Mappers>
   <tura.domain:TypeDefinition uid="c9574970-474a-403a-9224-f91bc2f8fe7a"/>
   <tura.domain:Messages uid="af03a493-0ca4-486c-945f-5bfc2fdf35bd" parent="39c0cb8c-3370-4a8b-9dc8-f988c6c3a565">
@@ -2137,6 +2141,7 @@
         <children xsi:type="tura.domain:LayerHolder" uid="b4779d71-722f-48ae-98c1-4d1e12202f93">
           <children xsi:type="tura.domain:Table" nickname="companies" uid="92ea6c50-dc39-4ba0-bb76-b3ca2e161fe5" onEventRefreshArea="bee23d39-6e59-450f-b696-94cf4c907c86 ce2aedb4-2308-40d7-b9aa-c9819da6e0f4" sourcePointer="d45e9605-3706-493c-8422-3f7b8b6ea2ed" sourceCastDataControl="d45e9605-3706-493c-8422-3f7b8b6ea2ed" columns="3" label="Companies" rowNumber="5">
             <style/>
+            <styleClass/>
             <classifiers uid="bbe77e69-5dc3-4413-9f07-7043568f59e2" hint="21d9dc34-d2cb-4b87-ab39-94afefd6765c" details="&quot;5,10&quot;"/>
             <enabled/>
             <multiLangLabel value="Messages.HR Controller.COMPANIES_TABLE">
@@ -2151,10 +2156,12 @@
                 <expression objRef="e1e774e4-d7f9-4b12-8021-67b17f803772" order="2" expressionType="MessageImpl"/>
               </multiLangLabel>
               <element xsi:type="tura.domain:InputText" uid="11ef6427-f8c0-4c3f-9860-eb5b672f5b45" valuePointer="Comp_7982905f-4f83-472f-8551-80e30e34934c">
+                <style/>
+                <styleClass/>
                 <required/>
               </element>
             </cols>
-            <cols uid="0aebc5a9-faa3-48e6-8889-dd3b7045811c" label="Description">
+            <cols order="1" uid="0aebc5a9-faa3-48e6-8889-dd3b7045811c" label="Description">
               <multiLangLabel value="Messages.HR Controller.COMPANIES_TABLE_DESCRIPTION_COLUMN">
                 <expression objRef="af03a493-0ca4-486c-945f-5bfc2fdf35bd" expressionType="MessagesImpl"/>
                 <expression objRef="5772ddee-a83b-41c9-8f34-c442412e1013" order="1" expressionType="MessageLibraryImpl"/>
@@ -2164,7 +2171,7 @@
                 <required/>
               </element>
             </cols>
-            <cols uid="09a71dab-c445-42a0-a178-6ca43af215f0" label="View company's details">
+            <cols order="2" uid="09a71dab-c445-42a0-a178-6ca43af215f0" label="View company's details">
               <multiLangLabel value="Messages.HR Controller.COMPANY_TABLE_VIEW_DETAILS">
                 <expression objRef="af03a493-0ca4-486c-945f-5bfc2fdf35bd" expressionType="MessagesImpl"/>
                 <expression objRef="5772ddee-a83b-41c9-8f34-c442412e1013" order="1" expressionType="MessageLibraryImpl"/>
@@ -2172,6 +2179,7 @@
               </multiLangLabel>
               <element xsi:type="tura.domain:Button" uid="75e7ef4b-c6d2-443f-a6b6-1821a1b0573c" onEventRefreshArea="3e4d834d-18ff-49eb-8009-86affb9fff51">
                 <style/>
+                <styleClass/>
                 <classifiers uid="6250498a-35cc-4213-bdbc-a02bf6a7e27c" hint="0a80d7c7-cf37-46c2-8804-665afda89f73" details="&lt;f:attribute name=&quot;param1&quot; value=&quot;#{row}&quot; />"/>
                 <enabled/>
                 <triggers packageRef="e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="c4654ad8-156f-4706-bda2-791ed81fcdea" fakePackageName="HR package" fakeTypeName="Action executor" methodRef="5368d958-0a1b-4785-9681-47bcf5224d8d" fakeMethod="openCompanyDetailsPopup" uid="5b8b550a-60bb-4ddb-bf90-25c87761c62b"/>
@@ -2184,7 +2192,9 @@
               </element>
             </cols>
           </children>
-          <children xsi:type="tura.domain:LayerHolder" uid="f0ad97d0-f821-4159-8276-2c3cd955cf38" columns="2">
+          <children xsi:type="tura.domain:LayerHolder" order="1" uid="f0ad97d0-f821-4159-8276-2c3cd955cf38" columns="2">
+            <style/>
+            <styleClass/>
             <children xsi:type="tura.domain:Button" uid="0233c086-c837-4de8-8900-8b4bb37ced89" onEventRefreshArea="bee23d39-6e59-450f-b696-94cf4c907c86 ce2aedb4-2308-40d7-b9aa-c9819da6e0f4 92ea6c50-dc39-4ba0-bb76-b3ca2e161fe5" label="Add">
               <style/>
               <triggers packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="97a1a7c3-5e08-48b1-82d0-8a35fa5a13e9" fakePackageName="Base package" fakeTypeName="System library" methodRef="111886f3-7b14-4394-9454-3e2df8cd55e7" fakeMethod="Create row" uid="5d05a734-26b5-4263-81f7-0629e8cfad8a">
@@ -2207,7 +2217,7 @@
                 <expression objRef="e92845fc-7570-455f-9580-623183bccc0f" order="3" expressionType="StyleSetImpl"/>
               </icon>
             </children>
-            <children xsi:type="tura.domain:Button" uid="71ffc838-d31e-458b-a18c-3cd49a7efdff" onEventRefreshArea="bee23d39-6e59-450f-b696-94cf4c907c86 ce2aedb4-2308-40d7-b9aa-c9819da6e0f4 92ea6c50-dc39-4ba0-bb76-b3ca2e161fe5" label="Remove">
+            <children xsi:type="tura.domain:Button" order="1" uid="71ffc838-d31e-458b-a18c-3cd49a7efdff" onEventRefreshArea="bee23d39-6e59-450f-b696-94cf4c907c86 ce2aedb4-2308-40d7-b9aa-c9819da6e0f4 92ea6c50-dc39-4ba0-bb76-b3ca2e161fe5" label="Remove">
               <style/>
               <enabled/>
               <triggers packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="97a1a7c3-5e08-48b1-82d0-8a35fa5a13e9" fakePackageName="Base package" fakeTypeName="System library" methodRef="22be5074-5d5e-4f52-916b-e802b8825b06" fakeMethod="Remove row" uid="d68509f9-9a9d-4a9d-9097-4ae4fbdf2e3d">
@@ -2230,7 +2240,7 @@
                 <expression objRef="a1d3f2ac-caea-4f0b-a523-59edc4fd19b5" order="3" expressionType="StyleSetImpl"/>
               </icon>
             </children>
-            <children xsi:type="tura.domain:Button" uid="3f03fa7e-3db9-4d75-a973-d107235686f1" label="JS Test">
+            <children xsi:type="tura.domain:Button" order="2" uid="3f03fa7e-3db9-4d75-a973-d107235686f1" label="JS Test">
               <style/>
               <triggers packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="971e11a5-49d4-402d-9ae4-4233c366a542" fakePackageName="Base package" fakeTypeName="Client system library" methodRef="90a31bb6-4c1e-4106-8d8c-616dc9888a78" fakeMethod="Test JS" uid="0cef1837-0695-4aab-9944-6df75c51f911">
                 <parameters uid="a4cb660e-da3d-4c7e-9d99-24bacaa1c393" refObj="b4b4777c-89d5-4a65-a5a8-6946f31a8803">
@@ -2250,7 +2260,7 @@
             </children>
           </children>
         </children>
-        <children xsi:type="tura.domain:LayerHolder" uid="80fa16f1-1108-4250-90c0-ce981cc4e53a">
+        <children xsi:type="tura.domain:LayerHolder" order="1" uid="80fa16f1-1108-4250-90c0-ce981cc4e53a">
           <children xsi:type="tura.domain:Tree" nickname="LocationTree" uid="bee23d39-6e59-450f-b696-94cf4c907c86" onEventRefreshArea="ce2aedb4-2308-40d7-b9aa-c9819da6e0f4" sourcePointer="cd1cab1c-1781-4867-85b8-84d9f465f989" label="Location">
             <style/>
             <multiLangLabel value="Messages.HR Controller.LOCATIONS_TREE">
@@ -2262,7 +2272,7 @@
               <element xsi:type="tura.domain:InputText" uid="24d66827-6d4d-42c5-b9d3-da3bc515cb8a" valuePointer="Cntr_7982905f-4f83-472f-8551-80e30e34934c"/>
             </cols>
           </children>
-          <children xsi:type="tura.domain:LayerHolder" uid="2bf0762f-87b6-4f24-8f59-8abb67706538" columns="2">
+          <children xsi:type="tura.domain:LayerHolder" order="1" uid="2bf0762f-87b6-4f24-8f59-8abb67706538" columns="2">
             <children xsi:type="tura.domain:Button" uid="47e6bf87-614a-496f-8583-80003ebe457b" onEventRefreshArea="bee23d39-6e59-450f-b696-94cf4c907c86 ce2aedb4-2308-40d7-b9aa-c9819da6e0f4" label="Add">
               <enabled/>
               <triggers packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="97a1a7c3-5e08-48b1-82d0-8a35fa5a13e9" fakePackageName="Base package" fakeTypeName="System library" methodRef="111886f3-7b14-4394-9454-3e2df8cd55e7" fakeMethod="Create row" uid="e2677971-a233-4d51-bff5-219d09df4220">
@@ -2286,7 +2296,7 @@
                 <expression objRef="e92845fc-7570-455f-9580-623183bccc0f" order="3" expressionType="StyleSetImpl"/>
               </icon>
             </children>
-            <children xsi:type="tura.domain:Button" uid="150d42d7-bfb4-416e-b9d1-116640bcef5b" onEventRefreshArea="bee23d39-6e59-450f-b696-94cf4c907c86 ce2aedb4-2308-40d7-b9aa-c9819da6e0f4" label="Remove">
+            <children xsi:type="tura.domain:Button" order="1" uid="150d42d7-bfb4-416e-b9d1-116640bcef5b" onEventRefreshArea="bee23d39-6e59-450f-b696-94cf4c907c86 ce2aedb4-2308-40d7-b9aa-c9819da6e0f4" label="Remove">
               <triggers packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="97a1a7c3-5e08-48b1-82d0-8a35fa5a13e9" fakePackageName="Base package" fakeTypeName="System library" methodRef="22be5074-5d5e-4f52-916b-e802b8825b06" fakeMethod="Remove row" uid="a45dbf31-3834-428a-8c39-cc8449112b16">
                 <parameters uid="e65d58f3-d310-4cae-94e0-89019accede1" refObj="76475fdc-384e-4bef-afd5-a1b0a14a4162">
                   <value uid="d49dda0b-2cdb-433f-9b9e-4e6a537bc717" value="Tree data controls.TreeCountry.Country">
@@ -2308,7 +2318,7 @@
                 <expression objRef="a1d3f2ac-caea-4f0b-a523-59edc4fd19b5" order="3" expressionType="StyleSetImpl"/>
               </icon>
             </children>
-            <children xsi:type="tura.domain:Button" uid="33530ac1-01b9-4f9a-ad4a-4153d107ee43" onEventRefreshArea="bee23d39-6e59-450f-b696-94cf4c907c86 ce2aedb4-2308-40d7-b9aa-c9819da6e0f4" label="Add child">
+            <children xsi:type="tura.domain:Button" order="2" uid="33530ac1-01b9-4f9a-ad4a-4153d107ee43" onEventRefreshArea="bee23d39-6e59-450f-b696-94cf4c907c86 ce2aedb4-2308-40d7-b9aa-c9819da6e0f4" label="Add child">
               <triggers packageRef="e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="c4654ad8-156f-4706-bda2-791ed81fcdea" fakePackageName="HR package" fakeTypeName="Action executor" methodRef="8a9e6244-1bd4-4be0-89ed-4fd759f7ef2e" fakeMethod="createChildRow" uid="e83a3f73-7ef1-445f-b127-85f483954043">
                 <parameters uid="15c69adc-7a25-45f6-b3d1-31385b72ef88" refObj="a4b169f9-9766-4ccb-8d4a-536e7624eeb8">
                   <value uid="be147cda-bab6-4435-9151-923b058006a3" value="Tree data controls.TreeCountry.Country">
@@ -2333,7 +2343,9 @@
           </children>
         </children>
       </children>
-      <children xsi:type="tura.domain:LayerHolder" uid="ecbb80f7-e997-4adf-bb0b-9aa8a2e2b0a5" columns="2">
+      <children xsi:type="tura.domain:LayerHolder" order="1" uid="ecbb80f7-e997-4adf-bb0b-9aa8a2e2b0a5" columns="2">
+        <style/>
+        <styleClass/>
         <children xsi:type="tura.domain:Button" uid="1c158a9e-628f-43de-b721-5b4155baa65e" label="Save">
           <triggers packageRef="e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="c4654ad8-156f-4706-bda2-791ed81fcdea" fakePackageName="HR package" fakeTypeName="Action executor" methodRef="bf119b85-c597-4642-8522-b51b95e9c7b8" fakeMethod="saveApplication" uid="e70804b0-feb5-44e1-b89b-515e1a171767"/>
           <multiLangLabel value="Messages.HR Controller.SAVE_BUTTON">
@@ -2342,7 +2354,7 @@
             <expression objRef="1a28eeca-a9e2-4de5-9d05-cc1d5660491a" order="2" expressionType="MessageImpl"/>
           </multiLangLabel>
         </children>
-        <children xsi:type="tura.domain:Button" uid="6ac93981-fd61-4ab4-9ca6-7a3e39852932" onEventRefreshArea="92ea6c50-dc39-4ba0-bb76-b3ca2e161fe5 bee23d39-6e59-450f-b696-94cf4c907c86 ce2aedb4-2308-40d7-b9aa-c9819da6e0f4" label="Rallback">
+        <children xsi:type="tura.domain:Button" order="1" uid="6ac93981-fd61-4ab4-9ca6-7a3e39852932" onEventRefreshArea="92ea6c50-dc39-4ba0-bb76-b3ca2e161fe5 bee23d39-6e59-450f-b696-94cf4c907c86 ce2aedb4-2308-40d7-b9aa-c9819da6e0f4" label="Rallback">
           <triggers packageRef="e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="c4654ad8-156f-4706-bda2-791ed81fcdea" fakePackageName="HR package" fakeTypeName="Action executor" methodRef="f199d2af-fd03-45f9-b34f-3cff9b9b4e56" fakeMethod="rallbackApplication" uid="da074ad4-f531-4d77-8a79-f6efa058189a"/>
           <multiLangLabel value="Messages.HR Controller.RALLBACK_BUTTON">
             <expression objRef="af03a493-0ca4-486c-945f-5bfc2fdf35bd" expressionType="MessagesImpl"/>

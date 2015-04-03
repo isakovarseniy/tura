@@ -126,7 +126,7 @@ public class ActionExecutor  implements java.io.Serializable {
              ((org.tura.platform.primefaces.lib.EventAccessor)array[2]).setEvent(event);
             method.invoke(array[2], objects.toArray());
         } catch (Exception e) {
-            logger.fine(e.getMessage());
+            logger.log(java.util.logging.Level.INFO, e.getMessage(),e);
         }
     }
 }  

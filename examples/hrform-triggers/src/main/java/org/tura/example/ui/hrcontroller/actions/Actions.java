@@ -1,5 +1,8 @@
 package org.tura.example.ui.hrcontroller.actions;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 import javax.faces.event.ActionEvent;
 import javax.inject.Inject;
 
@@ -16,6 +19,10 @@ import org.tura.platform.primefaces.lib.EventAccessor;
 public class Actions implements EventAccessor {
 	private ActionEvent event;
 
+	@Inject
+    private transient Logger logger;
+	
+	
 	@Inject
 	ELResolver elResolver;
 
@@ -44,7 +51,7 @@ public class Actions implements EventAccessor {
 		try {
 			commandStack.commitCommand();
 		} catch (Exception e) {
-			e.printStackTrace();
+			logger.log(Level.INFO, e.getMessage(),e);
 		}
 	}
 
@@ -52,10 +59,15 @@ public class Actions implements EventAccessor {
 		try {
 			commandStack.rallbackCommand();
 		} catch (Exception e) {
-			e.printStackTrace();
+			logger.log(Level.INFO, e.getMessage(),e);
 		}
 	}
 
+	
+	public void createRow(IDataControl datacontrol){
+		
+	}
+	
 	public void createChildRow(IDataControl datacontrol) {
 		try {
 			TreeDataControl tdc = (TreeDataControl) datacontrol;
@@ -66,7 +78,7 @@ public class Actions implements EventAccessor {
 			if (rel != null)
 				tdc.createChildObject(rel);
 		} catch (Exception e) {
-
+			logger.log(Level.INFO, e.getMessage(),e);
 		}
 	}
 
