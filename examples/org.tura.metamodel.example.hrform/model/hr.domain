@@ -1752,6 +1752,10 @@
         <options uid="33e243d5-b9fa-4360-82f2-b7aee51d02f2" value="OS/Unix"/>
         <options uid="d2b8ce89-6bbd-4bbe-b504-939e3077e719" value="OS/Windows"/>
       </specifiers>
+      <specifiers uid="369f6f2d-6b0b-46fd-aaee-bc6d56fb4340" name="Java">
+        <options uid="1a69beec-113f-4015-802b-09ea6a81067d" value="1.6"/>
+        <options uid="ae3da070-7fdd-476f-b315-57cdab52ffcb" value="1.7"/>
+      </specifiers>
     </artifacts>
     <artifacts uid="0ae7e48c-ba6c-475f-a34f-63e6a31bd9c8" name="MVC deployer" template="platform:/plugin/org.tura.metamodel.wizard.generation/template/pit/mvc/mainMVCDeployment.egl">
       <configVariables uid="04f1aaa1-2500-4a3e-84e7-3c0f328fce17" name="Application server home"/>
@@ -1767,6 +1771,10 @@
       <specifiers uid="d28a11b8-31db-4d21-a786-6dd4c31d3d54" name="Deployment environment">
         <options uid="4efc714a-8134-447b-8fab-239e7b5a1e1f" value="JEE/AppServer/GlassFish.v3"/>
         <options uid="4cfcc5b0-32de-4ac2-a917-08c604e00204" value="JEE/AppServer/GlassFish.v4"/>
+      </specifiers>
+      <specifiers uid="43a0a569-fde1-4501-8780-30c36d695607" name="Java">
+        <options uid="d5e246f6-c52b-42a1-b6ad-29e96e81ea59" value="1.6"/>
+        <options uid="a1144c75-d460-43a3-a38b-9f49050233a7" value="1.7"/>
       </specifiers>
     </artifacts>
   </tura.domain:Artifacts>
@@ -1864,11 +1872,13 @@
             <specifiers specifierRef="77a6558f-44e1-4d9a-ad85-16decf6aa3cb" valueRef="6cfa6c9d-d885-4f55-86d3-02f505f54045"/>
             <specifiers specifierRef="df9ad130-5ded-41d9-bf01-5967ef2c1537" valueRef="6cc0b8e4-7a61-4cf4-a0ac-426a0bf397f0"/>
             <specifiers specifierRef="a2862bdb-7666-498a-abaa-3c6a77b16abe" valueRef="33e243d5-b9fa-4360-82f2-b7aee51d02f2"/>
+            <specifiers specifierRef="369f6f2d-6b0b-46fd-aaee-bc6d56fb4340" valueRef="ae3da070-7fdd-476f-b315-57cdab52ffcb"/>
           </mappers>
           <mappers uid="33596ca2-e673-4e86-867e-484ce5e0ed62" domainArtifactRef="5945624b-20f3-47f9-9cb1-d0dc8df9491a" artifactRef="0ae7e48c-ba6c-475f-a34f-63e6a31bd9c8" name="Application deployer" artifactExecutionString="bash /Users/arseniyi/generatedCode/uiLayer/hrform/deployer.sh">
             <specifiers specifierRef="4a626013-4040-433b-baef-0e753762bac4" valueRef="87401395-f9e6-45e3-947f-691698b65857"/>
             <specifiers specifierRef="d28a11b8-31db-4d21-a786-6dd4c31d3d54" valueRef="4cfcc5b0-32de-4ac2-a917-08c604e00204"/>
             <specifiers specifierRef="347c3e51-32e5-4ec1-8082-a51d35e32de4" valueRef="14b81be0-b3aa-4ad8-91cc-07faa24dd7e3"/>
+            <specifiers specifierRef="43a0a569-fde1-4501-8780-30c36d695607" valueRef="a1144c75-d460-43a3-a38b-9f49050233a7"/>
           </mappers>
         </components>
       </ingredients>
@@ -2157,8 +2167,13 @@
               </multiLangLabel>
               <element xsi:type="tura.domain:InputText" uid="11ef6427-f8c0-4c3f-9860-eb5b672f5b45" valuePointer="Comp_7982905f-4f83-472f-8551-80e30e34934c">
                 <style/>
-                <styleClass/>
+                <styleClass>
+                  <parameters uid="20b61a84-5101-4c68-860d-43bdd8e06dd7">
+                    <value uid="349dbf9b-03fc-49d2-be56-b510a7999daa"/>
+                  </parameters>
+                </styleClass>
                 <required/>
+                <readOnly/>
               </element>
             </cols>
             <cols order="1" uid="0aebc5a9-faa3-48e6-8889-dd3b7045811c" label="Description">

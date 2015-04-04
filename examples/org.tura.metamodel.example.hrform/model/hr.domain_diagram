@@ -151,7 +151,16 @@
     </children>
     <children xmi:type="notation:Node" xmi:id="_snzAgKtJEeSgxLZlz1KXmg" type="802005">
       <children xmi:type="notation:DecorationNode" xmi:id="_snzAhatJEeSgxLZlz1KXmg" type="805009"/>
-      <children xmi:type="notation:BasicCompartment" xmi:id="_snzAhqtJEeSgxLZlz1KXmg" type="807004"/>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_snzAhqtJEeSgxLZlz1KXmg" type="807004">
+        <children xmi:type="notation:Node" xmi:id="_cP8loNrbEeSVLNwqQN2JJA" type="803004">
+          <children xmi:type="notation:DecorationNode" xmi:id="_cP9MsNrbEeSVLNwqQN2JJA" type="805008"/>
+          <styles xmi:type="notation:DescriptionStyle" xmi:id="_cP8lodrbEeSVLNwqQN2JJA"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_cP8lotrbEeSVLNwqQN2JJA" fontName=".Helvetica Neue DeskInterface"/>
+          <styles xmi:type="notation:HintedDiagramLinkStyle" xmi:id="_cP8lo9rbEeSVLNwqQN2JJA" diagramLink="_wYRl0NrbEeSVLNwqQN2JJA" hint="Style"/>
+          <element xmi:type="tura.domain:StylesPackage" href="hr.domain#a9b99a7f-03c7-4b89-82c2-b3e1f0f326d2"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_cP8lpNrbEeSVLNwqQN2JJA"/>
+        </children>
+      </children>
       <styles xmi:type="notation:DescriptionStyle" xmi:id="_snzAgatJEeSgxLZlz1KXmg"/>
       <styles xmi:type="notation:FontStyle" xmi:id="_snzAgqtJEeSgxLZlz1KXmg" fontName="Lucida Grande"/>
       <styles xmi:type="notation:HintedDiagramLinkStyle" xmi:id="_snzAg6tJEeSgxLZlz1KXmg"/>
@@ -3807,6 +3816,13 @@
           <element xmi:type="tura.domain:Specifier" href="hr.domain#a2862bdb-7666-498a-abaa-3c6a77b16abe"/>
           <layoutConstraint xmi:type="notation:Bounds" xmi:id="_C_gVo9KXEeSOas1to7h3Mg"/>
         </children>
+        <children xmi:type="notation:Node" xmi:id="_g82nkNsFEeS4WMPbYIh3QA" type="703003">
+          <children xmi:type="notation:DecorationNode" xmi:id="_g82nlNsFEeS4WMPbYIh3QA" type="705003"/>
+          <styles xmi:type="notation:DescriptionStyle" xmi:id="_g82nkdsFEeS4WMPbYIh3QA"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_g82nktsFEeS4WMPbYIh3QA" fontName=".Helvetica Neue DeskInterface"/>
+          <element xmi:type="tura.domain:Specifier" href="hr.domain#369f6f2d-6b0b-46fd-aaee-bc6d56fb4340"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_g82nk9sFEeS4WMPbYIh3QA"/>
+        </children>
         <styles xmi:type="notation:SortingStyle" xmi:id="_J4eqidKVEeSOas1to7h3Mg"/>
         <styles xmi:type="notation:FilteringStyle" xmi:id="_J4eqitKVEeSOas1to7h3Mg"/>
       </children>
@@ -3872,6 +3888,13 @@
           <styles xmi:type="notation:FontStyle" xmi:id="_s0wN4tKaEeSmoeS0ybWmcQ" fontName="Lucida Grande"/>
           <element xmi:type="tura.domain:Specifier" href="hr.domain#d28a11b8-31db-4d21-a786-6dd4c31d3d54"/>
           <layoutConstraint xmi:type="notation:Bounds" xmi:id="_s0wN49KaEeSmoeS0ybWmcQ"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_ko1xINsFEeS4WMPbYIh3QA" type="703003">
+          <children xmi:type="notation:DecorationNode" xmi:id="_ko2YMNsFEeS4WMPbYIh3QA" type="705003"/>
+          <styles xmi:type="notation:DescriptionStyle" xmi:id="_ko1xIdsFEeS4WMPbYIh3QA"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_ko1xItsFEeS4WMPbYIh3QA" fontName=".Helvetica Neue DeskInterface"/>
+          <element xmi:type="tura.domain:Specifier" href="hr.domain#43a0a569-fde1-4501-8780-30c36d695607"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ko1xI9sFEeS4WMPbYIh3QA"/>
         </children>
         <styles xmi:type="notation:SortingStyle" xmi:id="_JCRpCNKaEeSmoeS0ybWmcQ"/>
         <styles xmi:type="notation:FilteringStyle" xmi:id="_JCRpCdKaEeSmoeS0ybWmcQ"/>
@@ -4218,5 +4241,9 @@
       <element xsi:nil="true"/>
       <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_7hc5ktKfEeS4ZNQBxvZcHg" points="[-6, 20, 14, -61]$[-23, 61, -3, -20]"/>
     </edges>
+  </notation:Diagram>
+  <notation:Diagram xmi:id="_wYRl0NrbEeSVLNwqQN2JJA" type="Style" measurementUnit="Pixel">
+    <styles xmi:type="notation:DiagramStyle" xmi:id="_wYRl0drbEeSVLNwqQN2JJA"/>
+    <element xmi:type="tura.domain:Styles" href="hr.domain#6da490f4-c32b-448d-8679-8d5e994f0ebb"/>
   </notation:Diagram>
 </xmi:XMI>

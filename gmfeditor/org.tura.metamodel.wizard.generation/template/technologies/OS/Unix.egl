@@ -19,9 +19,11 @@ operation  os_shell_executor():String{
 }
 
 @template
-operation glassfishdeploy(configuration,path,archive) {
+operation glassfishdeploy(configuration,path,archive,hash) {
 %]
 #!/bin/sh
+
+export JAVA_HOME=`/usr/libexec/java_home -v [%=hash.get("java")%]`
 
 cd "[%=path%]"
 "[%=configuration.get('Application server home')%]"/bin/asadmin deploy  --force=true  ./[%=archive%]
