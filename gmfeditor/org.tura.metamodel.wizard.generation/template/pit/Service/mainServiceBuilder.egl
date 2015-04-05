@@ -34,6 +34,10 @@ import "platform:/plugin/org.tura.metamodel.wizard.generation/template/commons/t
        hash.put("types",alltypes);
        hash.put("alltypes",alltypes);
      
+      util.
+     
        service_builder(hash);
+       
+       
     }
 %]

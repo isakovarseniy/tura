@@ -1738,6 +1738,10 @@
       <specifiers uid="9ed9cb8e-5232-447d-946e-78481528c5f2" name="MVC application implementation">
         <options uid="9e726870-1ea0-4f4d-badf-d9709e0915dd" value="JEE/JSF/PrimeFaces"/>
       </specifiers>
+      <specifiers uid="96774c00-ae75-4ffa-ad58-fe0240eb18e8" name="Java">
+        <options uid="b7a7e9a5-c35d-4a3b-8cf2-94c91b08d25e" value="1.6"/>
+        <options uid="9cfcfbc4-d0a0-44c9-9084-6497032f324d" value="1.7"/>
+      </specifiers>
     </artifacts>
     <artifacts uid="b6450037-f0e0-440d-a26d-26685c245fe8" name="MVC build runner" template="platform:/plugin/org.tura.metamodel.wizard.generation/template/pit/mvc/mainMVCBuildRunner.egl">
       <configVariables uid="8761066c-1ea5-4ee3-9085-c60b248dc534" name="Builder location"/>
@@ -1851,6 +1855,7 @@
           <mappers uid="13d652b7-50d4-4af0-b251-0f4dcc0719c5" domainArtifactRef="5945624b-20f3-47f9-9cb1-d0dc8df9491a" artifactRef="46114178-7c60-4f25-bf31-4aa27a1b96af" name="Build application">
             <specifiers specifierRef="9ed9cb8e-5232-447d-946e-78481528c5f2" valueRef="9e726870-1ea0-4f4d-badf-d9709e0915dd"/>
             <specifiers specifierRef="e01f58bb-662f-47cf-a666-208c75a7245c" valueRef="8d9b9845-4aa5-4834-8473-c31b17721e31"/>
+            <specifiers specifierRef="96774c00-ae75-4ffa-ad58-fe0240eb18e8" valueRef="9cfcfbc4-d0a0-44c9-9084-6497032f324d"/>
             <queries uid="227884af-48a6-4adc-a8c0-d25961cd60a5" name="Get NA object" queryRef="ddb22166-e7e3-4f0b-8260-fe09d16f47b0">
               <variables queryParamRef="6f6c8d57-871f-4e0b-9ade-0989c55add70" value="NA"/>
               <variables queryParamRef="a8380e66-d89a-4e24-81ad-64df9457a5e0" value="NA"/>

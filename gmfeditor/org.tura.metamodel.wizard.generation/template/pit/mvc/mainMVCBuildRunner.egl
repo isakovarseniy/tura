@@ -11,6 +11,7 @@ import "platform:/plugin/org.tura.metamodel.wizard.generation/template/commons/t
  
 [%
  
+      var util = new Native('org.tura.metamodel.commons.Util');
       var hash = new Native('java.util.HashMap');
  
       hash.put("recipe",recipe);
@@ -19,6 +20,8 @@ import "platform:/plugin/org.tura.metamodel.wizard.generation/template/commons/t
       hash.put("model_mapper",model_mapper);
       hash.put("configuration",configuration);
  
+      util.populateTechnologies(hash,model_mapper);
+
       mvc_build_runner(hash);  
  
 %]

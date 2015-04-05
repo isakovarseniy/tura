@@ -31,7 +31,7 @@ import "platform:/plugin/org.tura.metamodel.wizard.generation/template/commons/t
        hash.put("types",alltypes);
        hash.put("alltypes",alltypes);
      
-      util.populateTechnologies(hash,model_mapper);
-     
+       util.populateTechnologies(hash,model_mapper);
+       
        mvc_application_builder(hash);
 %]

@@ -13,7 +13,7 @@ operation  maven_service_build_runner(hash) {
     var path = component.getComponentRoot+"/"+component.getArtifactId;  
     var model_mapper = hash.get("model_mapper");
  %]
-[%=mavenBuilder_mavenCleanInstall(configuration, component.getComponentRoot+"/"+component.getArtifactId)%]
+[%=mavenBuilder_mavenCleanInstall(configuration, component.getComponentRoot+"/"+component.getArtifactId,hash)%]
 [%    
 
     model_mapper.artifactExecutionString=  os_shell_executor()+" "+path+"/"+"builder."+os_batch_extension();
@@ -107,7 +107,7 @@ operation maven_proxy_client_build_runner(hash){
     var path = component.getComponentRoot+"/"+component.getArtifactId;  
     var model_mapper = hash.get("model_mapper");
  %]
-[%=mavenBuilder_mavenCleanInstall(configuration, component.getComponentRoot+"/"+component.getArtifactId)%]
+[%=mavenBuilder_mavenCleanInstall(configuration, component.getComponentRoot+"/"+component.getArtifactId,hash)%]
 [%    
 
     model_mapper.artifactExecutionString=  os_shell_executor()+" "+path+"/"+"builder."+os_batch_extension();

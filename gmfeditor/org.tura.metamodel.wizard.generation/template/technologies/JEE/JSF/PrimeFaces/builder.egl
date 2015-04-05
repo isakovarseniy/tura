@@ -14,7 +14,7 @@ operation  maven_mvc_build_runner(hash) {
     var path = component.getComponentRoot+"/"+component.getArtifactId;  
     var model_mapper = hash.get("model_mapper");
  %]
-[%=mavenBuilder_mavenCleanInstall(configuration, component.getComponentRoot+"/"+component.getArtifactId)%]
+[%=mavenBuilder_mavenCleanInstall(configuration, component.getComponentRoot+"/"+component.getArtifactId,hash)%]
 [%    
 
     model_mapper.artifactExecutionString=  os_shell_executor()+" "+path+"/"+"builder."+os_batch_extension();
@@ -44,7 +44,6 @@ operation  maven_mvc_application_builder(hash) {
      }
 
     hash.put("lib",lib);
-    util.populateTechnologies(hash,model_mapper);
 
   
      var builder : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.wizard.generation/template/technologies/JEE/JSF/PrimeFaces/MavenWARBuilder.egl",hash,TemplateFactory);
