@@ -34,7 +34,7 @@ import "platform:/plugin/org.tura.metamodel.wizard.generation/template/commons/c
        hash.put("component",component);
        hash.put("model_mapper",model_mapper);
 
-       mvc_application_generation(hash);
+       service_generation(hash);
        
        }
     }    

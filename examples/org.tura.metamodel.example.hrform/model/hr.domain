@@ -68,6 +68,10 @@
         <options uid="75a2369c-88fd-4aa2-9f08-f0601f989a51" value="JEE/AppServer/GlassFish.v3"/>
         <options uid="07e0306b-3284-4780-8fd9-1b8b15ce5a23" value="JEE/AppServer/GlassFish.v4"/>
       </specifiers>
+      <specifiers uid="73aebd99-5e59-4aef-95a4-5c2779452119" name="Java">
+        <options uid="2ef41af4-f585-4c27-bf7f-003ded789bd1" value="1.6"/>
+        <options uid="44dad611-16bb-4ebb-aad7-2f7e4e3c55d1" value="1.7"/>
+      </specifiers>
     </artifacts>
     <artifacts uid="a4797bb9-d8cf-43a1-a6ac-3192a7c6f597" name="Service" template="platform:/plugin/org.tura.metamodel.wizard.generation/template/pit/Service/mainServices.egl">
       <modelQuery uid="150373a6-59e2-415e-9301-42fc1a8eda42" name="Query package of types" query="domain::Package.allInstances()->select(r|r.oclAsType(domain::Package).name='${Package name}').oclAsType(domain::Package).typedefinition.types->select(r|((r.oclIsKindOf(domain::Type ) ) )).oclAsType(domain::Categorized).classifiers->select(c|c.hint.name='${Hint}' and c.hint.oclAsType(ecore::EObject).eContainer().oclAsType(domain::Artifact).name = '${Artifact}' and  c.hint.oclAsType(ecore::EObject).eContainer().oclAsType(domain::Artifact).parent.oclAsType(domain::Artifacts).parent.oclAsType(domain::DomainArtifact).name = '${ArtifactLib}' )->collect(c|c.oclAsType(ecore::EObject).eContainer())">
@@ -118,6 +122,10 @@
         <options uid="ae5bb026-b1df-4dfc-8ed7-eb6f83529e95" value="JSE/Builder/Ant"/>
         <options uid="6632281c-6bf2-49fb-ac91-7f2cc90779e5" value="JSE/Builder/Maven"/>
       </specifiers>
+      <specifiers uid="749b43a5-bac0-4bef-aea7-96bc069f7e70" name="Java">
+        <options uid="206bafa6-bccd-409c-aebe-15d159d75cbe" value="1.6"/>
+        <options uid="a88b4e7d-e3a4-4d6a-bc75-35245bba3a69" value="1.7"/>
+      </specifiers>
     </artifacts>
     <artifacts uid="000d19ec-3240-4fd5-93e2-8da60141454e" name="Proxy services build runner" template="platform:/plugin/org.tura.metamodel.wizard.generation/template/pit/Service/mainProxyClientServiceBuildRunner.egl">
       <specifiers uid="7cdedcb3-964f-4ad6-8ea8-9fccc1fe60bd" name="Service implementation">
@@ -130,6 +138,10 @@
       <specifiers uid="1bdfbea4-f92c-4ca5-853c-1b623533c2cf" name="Builder implementation">
         <options uid="c244cf77-c15c-4f72-8e3e-d6950e946f22" value="JSE/Builder/Ant"/>
         <options uid="e8ebe995-7b0f-4389-bc19-0d4189248497" value="JSE/Builder/Maven"/>
+      </specifiers>
+      <specifiers uid="0693b9e3-b00e-4fc9-8b80-10d1833f78be" name="Java">
+        <options uid="c43e7f48-8a6d-494a-bc13-9298ac17c091" value="1.6"/>
+        <options uid="4ff1c378-16ae-4afc-87e5-9fa3651b3169" value="1.7"/>
       </specifiers>
     </artifacts>
   </tura.domain:Artifacts>
@@ -216,6 +228,10 @@
       <specifiers uid="957331de-340a-49e8-a2fd-a52a9a975ef1" name="OS">
         <options uid="edc968ae-54f0-4e53-8c5b-fcaa74717ece" value="OS/Unix"/>
         <options uid="5f562977-da6d-4385-9f73-4edb65a67752" value="OS/Windows"/>
+      </specifiers>
+      <specifiers uid="cb0c094e-83a1-475f-99c3-78f6e843d1b3" name="Java">
+        <options uid="c778fb72-a6cc-4870-aecb-9cf3ff9f8386" value="1.6"/>
+        <options uid="90bbb0b6-0d4f-49a5-ba69-8a53f1c4423d" value="1.7"/>
       </specifiers>
     </artifacts>
   </tura.domain:Artifacts>
@@ -810,6 +826,7 @@
             <specifiers specifierRef="957331de-340a-49e8-a2fd-a52a9a975ef1" valueRef="edc968ae-54f0-4e53-8c5b-fcaa74717ece"/>
             <specifiers specifierRef="80ea26a9-8fbd-4bee-b7fa-94493375b1cf" valueRef="462f4f54-2cc4-4b59-bba8-0c50d3da51da"/>
             <specifiers specifierRef="fa03b96b-1a8b-4793-8223-9f5c558038e0" valueRef="0bd59747-b761-466a-8ff8-7a9da20a640f"/>
+            <specifiers specifierRef="cb0c094e-83a1-475f-99c3-78f6e843d1b3" valueRef="90bbb0b6-0d4f-49a5-ba69-8a53f1c4423d"/>
           </mappers>
         </components>
         <components xsi:type="tura.domain:JavaComponent" columns="3" uid="fc35a68c-7e61-4da1-b56a-decec132af12" name="HR Services" componentRoot="/Users/arseniyi/generatedCode/serviceLayer" artifactId="hr-services" groupId="org.tura.example.service" version="1.0" basePackage="org.tura.example.service">
@@ -883,11 +900,13 @@
             <specifiers specifierRef="ab48feee-36c1-418e-a4ab-6ee693ad7879" valueRef="5e2d1cca-dcaf-4dbe-890d-cb686e63dc91"/>
             <specifiers specifierRef="f3a9a16f-a790-41fc-9374-05784ce6a126" valueRef="1bfd24ff-14c5-45ef-a239-f3460941c90c"/>
             <specifiers specifierRef="592607ac-a6a5-4daf-8650-06f4b51b4f9f" valueRef="6632281c-6bf2-49fb-ac91-7f2cc90779e5"/>
+            <specifiers specifierRef="749b43a5-bac0-4bef-aea7-96bc069f7e70" valueRef="a88b4e7d-e3a4-4d6a-bc75-35245bba3a69"/>
           </mappers>
           <mappers uid="eff0cfb3-df5e-4aa4-b9e2-8b833b5e698e" domainArtifactRef="bf6005f8-bcb9-4c2a-b3e5-49468794367a" artifactRef="5836dd1c-ae55-41bb-99d5-eb6ebe395e9a" name="Service deployer" artifactExecutionString="bash /Users/arseniyi/generatedCode/serviceLayer/hr-services/deployer.sh">
             <specifiers specifierRef="6811fcf9-b8d9-4fe3-b187-0915b7a52a40" valueRef="c41b9412-2245-410f-ab51-d529e92aa398"/>
             <specifiers specifierRef="a7f87e87-f5e1-4050-994b-58c139dc182e" valueRef="350a7efb-be48-4012-8fdc-b2f2f3b2c8ba"/>
             <specifiers specifierRef="a2cac06d-1bb9-49e7-a0b3-fa183ce9d04b" valueRef="75a2369c-88fd-4aa2-9f08-f0601f989a51"/>
+            <specifiers specifierRef="73aebd99-5e59-4aef-95a4-5c2779452119" valueRef="44dad611-16bb-4ebb-aad7-2f7e4e3c55d1"/>
           </mappers>
         </components>
       </ingredients>
@@ -911,6 +930,7 @@
             <specifiers specifierRef="1bdfbea4-f92c-4ca5-853c-1b623533c2cf" valueRef="e8ebe995-7b0f-4389-bc19-0d4189248497"/>
             <specifiers specifierRef="dd36dee0-c3b1-43ef-8d24-f10ac7156ccb" valueRef="adf7f2c5-c08f-4e39-b638-bc2900ac7372"/>
             <specifiers specifierRef="7cdedcb3-964f-4ad6-8ea8-9fccc1fe60bd" valueRef="565eeb05-47c3-4173-aa35-aa5682d2c22c"/>
+            <specifiers specifierRef="0693b9e3-b00e-4fc9-8b80-10d1833f78be" valueRef="4ff1c378-16ae-4afc-87e5-9fa3651b3169"/>
           </mappers>
         </components>
       </ingredients>
@@ -2172,11 +2192,7 @@
               </multiLangLabel>
               <element xsi:type="tura.domain:InputText" uid="11ef6427-f8c0-4c3f-9860-eb5b672f5b45" valuePointer="Comp_7982905f-4f83-472f-8551-80e30e34934c">
                 <style/>
-                <styleClass>
-                  <parameters uid="20b61a84-5101-4c68-860d-43bdd8e06dd7">
-                    <value uid="349dbf9b-03fc-49d2-be56-b510a7999daa"/>
-                  </parameters>
-                </styleClass>
+                <styleClass/>
                 <required/>
                 <readOnly/>
               </element>
@@ -2188,6 +2204,8 @@
                 <expression objRef="152b0762-39a4-4995-ba49-efb5a3c75f07" order="2" expressionType="MessageImpl"/>
               </multiLangLabel>
               <element xsi:type="tura.domain:InputText" uid="e4d5d6df-6b5d-4ede-ad11-8e857d3cd87e" valuePointer="a3f007de-ce4a-4510-bc86-52f20eee5325">
+                <style/>
+                <styleClass/>
                 <required/>
               </element>
             </cols>
