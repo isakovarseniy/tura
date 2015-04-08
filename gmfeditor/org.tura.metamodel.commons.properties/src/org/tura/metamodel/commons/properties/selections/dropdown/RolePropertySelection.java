@@ -7,7 +7,7 @@ import java.util.List;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
-import org.tura.metamodel.commons.properties.selections.dropdown.impl.RoleMapperRole;
+import org.tura.metamodel.commons.properties.selections.adapters.dropdown.RoleMapperRole;
 
 public class RolePropertySelection extends AbstractEnumerationPropertySection {
 

@@ -35,10 +35,10 @@ Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Export-Package: org.tura.metamodel.commons.properties,
  org.tura.metamodel.commons.properties.selections,
+ org.tura.metamodel.commons.properties.selections.adapters.dropdown,
  org.tura.metamodel.commons.properties.selections.context,
  org.tura.metamodel.commons.properties.selections.context.impl,
  org.tura.metamodel.commons.properties.selections.dropdown,
- org.tura.metamodel.commons.properties.selections.dropdown.impl,
  org.tura.metamodel.commons.properties.selections.grid,
  org.tura.metamodel.commons.properties.selections.grid.impl
 Import-Package: org.eclipse.epsilon.common.dt.util

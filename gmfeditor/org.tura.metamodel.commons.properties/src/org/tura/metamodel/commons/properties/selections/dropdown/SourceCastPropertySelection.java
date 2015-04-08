@@ -1,6 +1,6 @@
 package org.tura.metamodel.commons.properties.selections.dropdown;
 
-import org.tura.metamodel.commons.properties.selections.dropdown.impl.SourcesPointerSourceCast;
+import org.tura.metamodel.commons.properties.selections.adapters.dropdown.SourcesPointerSourceCast;
 
 public class SourceCastPropertySelection extends AbstractCastPropertySelection{
 

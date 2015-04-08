@@ -21,6 +21,7 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.ui.views.properties.tabbed.ITabbedPropertyConstants;
 import org.eclipse.ui.views.properties.tabbed.TabbedPropertySheetPage;
 import org.tura.metamodel.commons.properties.selections.AbstractTuraPropertySection;
+import org.tura.metamodel.commons.properties.selections.DropDownDataAdapter;
 
 /**
  * An abstract implementation of a section with a enumeration field using a
@@ -38,7 +39,7 @@ public abstract class AbstractEnumerationPropertySection extends
 	protected boolean updated = false;
 
 	protected LinkedHashMap<String, Object> values;
-	protected DropDownDataSupplier dropDownDataSupplier;
+	protected DropDownDataAdapter dropDownDataSupplier;
 
 	protected EStructuralFeature[] getFeature() {
 		if (dropDownDataSupplier == null)

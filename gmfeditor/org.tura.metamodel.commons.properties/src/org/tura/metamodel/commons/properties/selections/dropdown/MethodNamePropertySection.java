@@ -7,7 +7,7 @@ import java.util.LinkedHashMap;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.tura.metamodel.commons.Helper;
-import org.tura.metamodel.commons.properties.selections.dropdown.impl.DomainMethodPointerMethodMethodRef;
+import org.tura.metamodel.commons.properties.selections.adapters.dropdown.DomainMethodPointerMethodMethodRef;
 
 import domain.Type;
 

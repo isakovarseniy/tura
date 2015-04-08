@@ -8,7 +8,7 @@ import java.util.LinkedHashMap;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.tura.metamodel.commons.QueryHelper;
-import org.tura.metamodel.commons.properties.selections.dropdown.impl.DataControlBaseType;
+import org.tura.metamodel.commons.properties.selections.adapters.dropdown.DataControlBaseType;
 
 import domain.DataControl;
 import domain.Type;

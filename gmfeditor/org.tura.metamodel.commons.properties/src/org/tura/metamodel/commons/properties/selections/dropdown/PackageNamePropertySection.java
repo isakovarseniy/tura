@@ -15,8 +15,8 @@ import org.eclipse.ocl.OCL;
 import org.eclipse.ocl.ecore.EcoreEnvironmentFactory;
 import org.eclipse.ocl.expressions.OCLExpression;
 import org.eclipse.ocl.helper.OCLHelper;
-import org.tura.metamodel.commons.properties.selections.dropdown.impl.DomainOperationPackageRef;
-import org.tura.metamodel.commons.properties.selections.dropdown.impl.DomainTypePointerPackageRef;
+import org.tura.metamodel.commons.properties.selections.adapters.dropdown.DomainOperationPackageRef;
+import org.tura.metamodel.commons.properties.selections.adapters.dropdown.DomainTypePointerPackageRef;
 
 import domain.DomainPackage;
 

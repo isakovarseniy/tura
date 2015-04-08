@@ -6,7 +6,7 @@ import java.util.LinkedHashMap;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
-import org.tura.metamodel.commons.properties.selections.dropdown.impl.DomainArtifactRefArtifactRef;
+import org.tura.metamodel.commons.properties.selections.adapters.dropdown.DomainArtifactRefArtifactRef;
 
 public class ArtifactPropertySelection extends
 		AbstractDependentEnumerationPropertySection {

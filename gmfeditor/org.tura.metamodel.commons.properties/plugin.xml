@@ -51,7 +51,7 @@
 
           <propertySection
                tab="property.tab.domain.operation.parameters"
-               class="org.tura.metamodel.commons.properties.selections.grid.impl.ParameterPropertySelection"
+               class="org.tura.metamodel.commons.properties.selections.grid.impl.up.ParameterPropertySelection"
                id="org.tura.metamodel.typedefinition.operation.parameters">
               <input type="typedefinition.diagram.edit.parts.OperationEditPart"/>
            </propertySection>        
@@ -130,14 +130,14 @@
       
           <propertySection
                tab="property.tab.domain.queryParameters"
-               class="org.tura.metamodel.commons.properties.selections.grid.impl.QueryParameterPropertySelection"
+               class="org.tura.metamodel.commons.properties.selections.grid.impl.up.QueryParameterPropertySelection"
                id="org.tura.metamodel.artifact.queryParams">
               <input type="artifact.diagram.edit.parts.ModelQueryEditPart"/>
            </propertySection>        
  
           <propertySection
                tab="property.tab.domain.specifierOptions"
-               class="org.tura.metamodel.commons.properties.selections.grid.impl.OptionPropertySelection"
+               class="org.tura.metamodel.commons.properties.selections.grid.impl.up.OptionPropertySelection"
                id="org.tura.metamodel.artifact.option">
               <input type="artifact.diagram.edit.parts.SpecifierEditPart"/>
            </propertySection>        
@@ -271,7 +271,7 @@
          
          <propertySection
                tab="property.tab.domain.mappingSpecifier"
-               class="org.tura.metamodel.commons.properties.selections.grid.impl.MappingSpecifierPropertySelection"
+               class="org.tura.metamodel.commons.properties.selections.grid.impl.up.MappingSpecifierPropertySelection"
                id="org.tura.metamodel.mapper.mappingSpecifier">
               <input type="recipe.diagram.edit.parts.ModelMapperEditPart"/>
          </propertySection>        
@@ -286,7 +286,7 @@
 
          <propertySection
                tab="property.tab.domain.mappingVariable"
-               class="org.tura.metamodel.commons.properties.selections.grid.impl.QueryVariablePropertySelection"
+               class="org.tura.metamodel.commons.properties.selections.grid.impl.up.QueryVariablePropertySelection"
                id="org.tura.metamodel.mapper.mappingVariable">
               <input type="recipe.diagram.edit.parts.QueryEditPart"/>
          </propertySection>        
@@ -522,7 +522,7 @@
 
             <propertySection
                tab="property.tab.domain.messages.translation"
-               class="org.tura.metamodel.commons.properties.selections.grid.impl.TranslationsPropertySelection"
+               class="org.tura.metamodel.commons.properties.selections.grid.impl.up.TranslationsPropertySelection"
                id="org.tura.metamodel.diagram.message.translation">
               <input type="message.diagram.edit.parts.MessageEditPart"/>
  

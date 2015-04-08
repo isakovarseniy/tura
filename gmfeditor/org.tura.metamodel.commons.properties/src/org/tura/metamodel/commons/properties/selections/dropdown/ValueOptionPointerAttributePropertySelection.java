@@ -5,7 +5,7 @@ import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.command.SetCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.gmf.runtime.diagram.ui.parts.DiagramEditor;
-import org.tura.metamodel.commons.properties.selections.dropdown.impl.SelectionValueOptionPointer;
+import org.tura.metamodel.commons.properties.selections.adapters.dropdown.SelectionValueOptionPointer;
 
 import domain.DomainFactory;
 import domain.DomainPackage;
