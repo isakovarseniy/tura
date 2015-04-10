@@ -1,6 +1,5 @@
 package org.tura.metamodel.commons.properties.selections.adapters.textdata;
 
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.tura.metamodel.commons.properties.selections.TextDataAdapter;
 
@@ -8,7 +7,7 @@ import org.tura.metamodel.commons.properties.selections.TextDataAdapter;
 public class MappingSpecifierName implements TextDataAdapter {
 
 	@Override
-	public Object getFeatureValue(EObject eObject, EStructuralFeature feature) {
+	public Object getFeatureValue(Object eObject, EStructuralFeature feature) {
 		domain.MappingSpecifier opt = (domain.MappingSpecifier) eObject;
 
 			if (opt.getSpecifierRef() == null)

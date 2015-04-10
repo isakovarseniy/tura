@@ -9,8 +9,8 @@ import domain.DomainPackage;
 public class QueryParameterName implements TextDataAdapter {
 
 	@Override
-	public Object getFeatureValue(EObject eObject, EStructuralFeature feature) {
-		return eObject.eGet(feature);
+	public Object getFeatureValue(Object eObject, EStructuralFeature feature) {
+		return ((EObject )eObject).eGet(feature);
 	}
 
 	@Override

@@ -242,14 +242,14 @@
       
           <propertySection
                tab="property.tab.domain.availableMappers"
-               class="org.tura.metamodel.commons.properties.selections.grid.impl.RecipeMappersListPropertySelection"
+               class="org.tura.metamodel.commons.properties.selections.grid.impl.up.RecipeMappersListPropertySelection"
                id="org.tura.metamodel.mapper.recipe">
               <input type="recipe.diagram.edit.parts.RecipeEditPart"/>
          </propertySection>        
 
           <propertySection
                tab="property.tab.domain.availableMappers"
-               class="org.tura.metamodel.commons.properties.selections.grid.impl.IngredientMappersListPropertySelection"
+               class="org.tura.metamodel.commons.properties.selections.grid.impl.up.IngredientMappersListPropertySelection"
                id="org.tura.metamodel.mapper.ingredient">
               <input type="recipe.diagram.edit.parts.IngredientEditPart"/>
          </propertySection>        
@@ -514,7 +514,7 @@
 
             <propertySection
                tab="property.tab.domain.messages.lang"
-               class="org.tura.metamodel.commons.properties.selections.grid.impl.AvailableLanguagesPropertySelection"
+               class="org.tura.metamodel.commons.properties.selections.grid.impl.up.AvailableLanguagesPropertySelection"
                id="org.tura.metamodel.diagram.message.lanl">
               <input type="message.diagram.edit.parts.MessageLibraryEditPart"/>
            </propertySection>        
@@ -889,7 +889,7 @@
 
             <propertySection
                tab="property.tab.domain.canvas.uielement.refresh"
-               class="org.tura.metamodel.commons.properties.selections.grid.impl.UielementOnEventRefreshAreaPropertySelection"
+               class="org.tura.metamodel.commons.properties.selections.grid.impl.up.UielementOnEventRefreshAreaPropertySelection"
                id="org.tura.metamodel.diagram.canvas.sourcepointer.refresh">
               <input type="canvas.diagram.edit.parts.CheckBoxEditPart"/>
               <input type="canvas.diagram.edit.parts.InputTextEditPart"/>

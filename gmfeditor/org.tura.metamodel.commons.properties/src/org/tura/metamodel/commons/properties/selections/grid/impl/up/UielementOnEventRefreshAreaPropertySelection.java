@@ -1,4 +1,4 @@
-package org.tura.metamodel.commons.properties.selections.grid.impl;
+package org.tura.metamodel.commons.properties.selections.grid.impl.up;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,14 +10,14 @@ import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.gmf.runtime.diagram.ui.parts.DiagramEditor;
 import org.eclipse.jface.viewers.CellEditor;
 import org.eclipse.jface.viewers.CheckboxCellEditor;
-import org.eclipse.jface.viewers.TextCellEditor;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableColumn;
 import org.eclipse.swt.widgets.TableItem;
-import org.eclipse.swt.widgets.Text;
+import org.tura.metamodel.commons.properties.selections.adapters.textdata.AreaNickname;
 import org.tura.metamodel.commons.properties.selections.grid.GridColumn;
 import org.tura.metamodel.commons.properties.selections.grid.GridProperty;
+import org.tura.metamodel.commons.properties.selections.grid.GridTextColumn;
 
 import domain.DomainPackage;
 import domain.Uielement;
@@ -45,69 +45,20 @@ public class UielementOnEventRefreshAreaPropertySelection extends GridProperty {
 		return columnList;
 	}
 
-	class NickColumn implements GridColumn {
-		public static final String COLUMN_NAME = "Nick name";
-
-		private int col;
-		private Table table;
-		@SuppressWarnings("unused")
-		private GridProperty property;
+	class NickColumn extends GridTextColumn {
 
 		public NickColumn(Table table, GridProperty property, int col) {
-			this.table = table;
-			this.property = property;
-			this.col = col;
+			super(table, property, col);
+			setTextDataAdapter(new AreaNickname());
+			this.setColumnName("Nick name");
 		}
-
-		@Override
-		public TableColumn createColumn() {
-
-			TableColumn column = new TableColumn(table, SWT.LEFT, col);
-			column.setText(COLUMN_NAME);
-			column.setWidth(400);
-			return column;
-		}
-
-		@Override
-		public String getName() {
-			return COLUMN_NAME;
-		}
-
-		@Override
-		public CellEditor getEditor() {
-
-			TextCellEditor textEditor = new TextCellEditor(table);
-			((Text) textEditor.getControl()).setTextLimit(60);
-
-			return textEditor;
-		}
-
-		@Override
-		public int compareOptions(Object o1, Object o2) {
-			return 0;
-		}
-
-		@Override
-		public Object getValue(Object element) {
-			UielementOnEventRefreshAreaDS.Area opt = (UielementOnEventRefreshAreaDS.Area) element;
-			return opt.getElement().getNickname();
-		}
-
-		@Override
-		public void modify(Object element, Object value) {
-		}
-
+		
 		@Override
 		public boolean isModify(Object element, String property) {
 			return false;
 		}
-
-		@Override
-		public Object getText(Object element) {
-			return getValue(element);
-
-		}
-	}
+	}	
+	
 
 	class RefrashableColumn implements GridColumn {
 

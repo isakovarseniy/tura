@@ -70,7 +70,7 @@ public class GridTextColumn implements GridColumn {
 		if (dataAdapter instanceof TextColumnConverter)
 		    return ((TextColumnConverter) dataAdapter).convertToText(dataAdapter.getFeatureValue((EObject) element, feature));
 		else
-		    return dataAdapter.getFeatureValue((EObject) element, feature);
+		    return dataAdapter.getFeatureValue( element, feature);
 	}
 
 	@Override

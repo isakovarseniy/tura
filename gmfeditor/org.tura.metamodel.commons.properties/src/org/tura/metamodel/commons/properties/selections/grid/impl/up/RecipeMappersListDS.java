@@ -1,4 +1,4 @@
-package org.tura.metamodel.commons.properties.selections.grid.impl;
+package org.tura.metamodel.commons.properties.selections.grid.impl.up;
 
 import java.util.List;
 import java.util.Set;
@@ -7,24 +7,25 @@ import org.tura.metamodel.commons.QueryHelper;
 import org.tura.metamodel.commons.properties.selections.grid.GridProperty;
 
 import domain.ApplicationMapper;
-import domain.Ingredient;
+import domain.Recipe;
 import domain.UsingMappers;
 
-public class IngredientMappersListDS  extends AbstractMappersListDS{
+public class RecipeMappersListDS  extends AbstractMappersListDS{
 
-	public IngredientMappersListDS(GridProperty property) {
+	public RecipeMappersListDS(GridProperty property) {
 		super(property);
 	}
 
 	@Override
 	public List<ApplicationMapper> findRemovedMappers(UsingMappers usingMappers) {
-		return new QueryHelper().removeMappersForIngredient((Ingredient) usingMappers);
+		return new QueryHelper().removeMappersForRecipe((Recipe) usingMappers);
 	}
 
 	@Override
 	public Set<domain.ApplicationMapper> findAvailableMappers(UsingMappers usingMappers) {
-		return new QueryHelper()
-				.findAvailableMappersForIngredient((domain.Ingredient) usingMappers);
+		return new QueryHelper().findAvailableMappersForRecipe((domain.Recipe)usingMappers);
 	}
+
+
 
 }

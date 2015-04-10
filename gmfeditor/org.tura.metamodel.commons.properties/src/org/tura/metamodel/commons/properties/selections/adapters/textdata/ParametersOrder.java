@@ -10,8 +10,8 @@ import domain.DomainPackage;
 public class ParametersOrder  implements TextDataAdapter, TextColumnConverter {
 
 	@Override
-	public Object getFeatureValue(EObject eObject, EStructuralFeature feature) {
-		return eObject.eGet(feature);
+	public Object getFeatureValue(Object eObject, EStructuralFeature feature) {
+		return ((EObject )eObject).eGet(feature);
 	}
 
 	@Override
