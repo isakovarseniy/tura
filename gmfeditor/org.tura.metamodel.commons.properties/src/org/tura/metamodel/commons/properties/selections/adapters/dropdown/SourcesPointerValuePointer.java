@@ -12,46 +12,38 @@ public class SourcesPointerValuePointer implements DropDownDataAdapter {
 
 	public EStructuralFeature[] getFeature() {
 
-		return new EStructuralFeature[] { DomainPackage.eINSTANCE
-				.getSourcesPointer_ValuePointer() };
+		return new EStructuralFeature[] { DomainPackage.eINSTANCE.getSourcesPointer_ValuePointer() };
 	}
 
 	public String getFeatureAsText(Object eObject) {
 		String name = null;
 		if (((domain.SourcesPointer) eObject).getValuePointer() instanceof domain.Attribute)
-			name = ((domain.Attribute) ((domain.SourcesPointer) eObject)
-					.getValuePointer()).getName();
+			name = ((domain.Attribute) ((domain.SourcesPointer) eObject).getValuePointer()).getName();
 
 		if (((domain.SourcesPointer) eObject).getValuePointer() instanceof domain.ArtificialField)
-			name = ((domain.ArtificialField) ((domain.SourcesPointer) eObject)
-					.getValuePointer()).getName();
+			name = ((domain.ArtificialField) ((domain.SourcesPointer) eObject).getValuePointer()).getName();
 
 		return name;
 	}
 
-	public Object getFeatureValue(Object eObject,
-			HashMap<String, Object> values, EStructuralFeature feature,
+	public Object getSelectedFeatureValue(Object eObject, HashMap<String, Object> values, EStructuralFeature feature,
 			Object... obj) {
-		if (feature.equals(DomainPackage.eINSTANCE
-				.getSourcesPointer_ValuePointer()))
+		if (feature.equals(DomainPackage.eINSTANCE.getSourcesPointer_ValuePointer()))
 			return values.get(obj[0]);
 
 		return null;
 	}
 
-	public boolean isEqual(HashMap<String, Object> values, Object key,
-			Object eObject) {
+	public boolean isEqual(HashMap<String, Object> values, Object key, Object eObject) {
 		if (((domain.SourcesPointer) eObject).getValuePointer() == null)
 			return false;
 
 		String name = null;
 		if (((domain.SourcesPointer) eObject).getValuePointer() instanceof domain.Attribute)
-			name = ((domain.Attribute) ((domain.SourcesPointer) eObject)
-					.getValuePointer()).getName();
+			name = ((domain.Attribute) ((domain.SourcesPointer) eObject).getValuePointer()).getName();
 
 		if (((domain.SourcesPointer) eObject).getValuePointer() instanceof domain.ArtificialField)
-			name = ((domain.ArtificialField) ((domain.SourcesPointer) eObject)
-					.getValuePointer()).getName();
+			name = ((domain.ArtificialField) ((domain.SourcesPointer) eObject).getValuePointer()).getName();
 
 		if (name == null)
 			return false;
@@ -59,21 +51,23 @@ public class SourcesPointerValuePointer implements DropDownDataAdapter {
 	}
 
 	public Object[] getWatchPointObject(Object eObject) {
-		return new Object[] {((domain.SourcesPointer) eObject).getSourcePointer(),
+		return new Object[] { ((domain.SourcesPointer) eObject).getSourcePointer(),
 				((domain.SourcesPointer) eObject).getSourceCast(),
-				((domain.SourcesPointer) eObject).getSourceCastDataControl()
-				};
+				((domain.SourcesPointer) eObject).getSourceCastDataControl() };
 	}
 
 	public EStructuralFeature[] getWatchPointFeature() {
-		return new EStructuralFeature[] 
-				{ DomainPackage.eINSTANCE.getSourcesPointer_SourcePointer(),
-				  DomainPackage.eINSTANCE.getSourcesPointer_SourceCast(),
-				  DomainPackage.eINSTANCE.getSourcesPointer_SourceCastDataControl()
-				};
+		return new EStructuralFeature[] { DomainPackage.eINSTANCE.getSourcesPointer_SourcePointer(),
+				DomainPackage.eINSTANCE.getSourcesPointer_SourceCast(),
+				DomainPackage.eINSTANCE.getSourcesPointer_SourceCastDataControl() };
 	}
 
 	public Class<?> getExpectedClass() {
 		return EObject.class;
+	}
+
+	@Override
+	public Object getCurrentFeatureValue(Object eObject, EStructuralFeature feature) {
+		return null;
 	}
 }

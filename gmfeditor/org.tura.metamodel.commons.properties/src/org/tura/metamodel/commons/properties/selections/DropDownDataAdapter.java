@@ -9,12 +9,12 @@ public interface DropDownDataAdapter {
 
 	public String getFeatureAsText(Object eObject);
 
-	public Object getFeatureValue(Object eObject,
-			HashMap<String, Object> values, EStructuralFeature feature,
+	public Object getCurrentFeatureValue(Object eObject, EStructuralFeature feature);
+
+	public Object getSelectedFeatureValue(Object eObject, HashMap<String, Object> values, EStructuralFeature feature,
 			Object... obj);
 
-	public boolean isEqual(HashMap<String, Object> values, Object key,
-			Object eObject);
+	public boolean isEqual(HashMap<String, Object> values, Object key, Object eObject);
 
 	public Object[] getWatchPointObject(Object eObject);
 

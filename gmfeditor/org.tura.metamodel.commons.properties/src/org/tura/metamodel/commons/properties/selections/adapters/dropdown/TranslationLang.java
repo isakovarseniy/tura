@@ -11,19 +11,24 @@ public class TranslationLang implements DropDownDataAdapter {
 
 	@Override
 	public EStructuralFeature[] getFeature() {
-		return new EStructuralFeature[] { DomainPackage.eINSTANCE.getTranslation_Lang()};
+		return new EStructuralFeature[] { DomainPackage.eINSTANCE.getTranslation_Lang() };
 	}
 
 	@Override
 	public String getFeatureAsText(Object eObject) {
 		if (((domain.Translation) eObject).getLang() != null)
-			return ((domain.Translation) eObject).getLang().getLang().getLang() ;
+			return ((domain.Translation) eObject).getLang().getLang().getLang();
 		else
 			return "";
 	}
 
 	@Override
-	public Object getFeatureValue(Object eObject, HashMap<String, Object> values, EStructuralFeature feature,
+	public Object getCurrentFeatureValue(Object eObject, EStructuralFeature feature) {
+		return ((domain.Translation) eObject).eGet(feature);
+	}
+
+	@Override
+	public Object getSelectedFeatureValue(Object eObject, HashMap<String, Object> values, EStructuralFeature feature,
 			Object... obj) {
 		return values.get(obj[0]);
 	}
@@ -33,8 +38,7 @@ public class TranslationLang implements DropDownDataAdapter {
 		if (((domain.Translation) eObject).getLang() == null)
 			return false;
 
-		return values.get(key).equals(
-				((domain.Translation) eObject).getLang());
+		return values.get(key).equals(((domain.Translation) eObject).getLang());
 	}
 
 	public Object[] getWatchPointObject(Object eObject) {

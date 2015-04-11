@@ -2,7 +2,7 @@ package org.tura.metamodel.commons.properties.selections.adapters.textdata;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.tura.metamodel.commons.properties.selections.TextDataAdapter;
-import org.tura.metamodel.commons.properties.selections.grid.impl.up.UielementOnEventRefreshAreaDS;
+import org.tura.metamodel.commons.properties.selections.grid.impl.UielementOnEventRefreshAreaDS;
 
 public class AreaNickname implements TextDataAdapter {
 

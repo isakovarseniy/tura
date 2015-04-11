@@ -12,15 +12,14 @@ public class SelectionDisplayOptionPointer implements DropDownDataAdapter {
 
 	public EStructuralFeature[] getFeature() {
 
-		return new EStructuralFeature[] { DomainPackage.eINSTANCE
-				.getSelection_DisplayOptionPointer() };
+		return new EStructuralFeature[] { DomainPackage.eINSTANCE.getSelection_DisplayOptionPointer() };
 	}
 
 	public String getFeatureAsText(Object eObject) {
 		String name = null;
 		if (((domain.DropDownSelection) eObject).getSelection().getDisplayOptionPointer() instanceof domain.Attribute)
-			name = ((domain.Attribute) ((domain.DropDownSelection) eObject).getSelection()
-					.getDisplayOptionPointer()).getName();
+			name = ((domain.Attribute) ((domain.DropDownSelection) eObject).getSelection().getDisplayOptionPointer())
+					.getName();
 
 		if (((domain.DropDownSelection) eObject).getSelection().getDisplayOptionPointer() instanceof domain.ArtificialField)
 			name = ((domain.ArtificialField) ((domain.DropDownSelection) eObject).getSelection()
@@ -29,25 +28,21 @@ public class SelectionDisplayOptionPointer implements DropDownDataAdapter {
 		return name;
 	}
 
-	public Object getFeatureValue(Object eObject,
-			HashMap<String, Object> values, EStructuralFeature feature,
+	public Object getSelectedFeatureValue(Object eObject, HashMap<String, Object> values, EStructuralFeature feature,
 			Object... obj) {
-		if (feature.equals(DomainPackage.eINSTANCE
-				.getSelection_DisplayOptionPointer()))
+		if (feature.equals(DomainPackage.eINSTANCE.getSelection_DisplayOptionPointer()))
 			return values.get(obj[0]);
 
 		return null;
 	}
 
-	public boolean isEqual(HashMap<String, Object> values, Object key,
-			Object eObject) {
+	public boolean isEqual(HashMap<String, Object> values, Object key, Object eObject) {
 		if (((domain.DropDownSelection) eObject).getSelection().getDisplayOptionPointer() == null)
 			return false;
 
 		String name = null;
 		if (((domain.DropDownSelection) eObject).getSelection().getDisplayOptionPointer() instanceof domain.Attribute)
-			name = ((domain.Attribute) ((domain.Selection) eObject)
-					.getDisplayOptionPointer()).getName();
+			name = ((domain.Attribute) ((domain.Selection) eObject).getDisplayOptionPointer()).getName();
 
 		if (((domain.DropDownSelection) eObject).getSelection().getDisplayOptionPointer() instanceof domain.ArtificialField)
 			name = ((domain.ArtificialField) ((domain.DropDownSelection) eObject).getSelection()
@@ -59,21 +54,23 @@ public class SelectionDisplayOptionPointer implements DropDownDataAdapter {
 	}
 
 	public Object[] getWatchPointObject(Object eObject) {
-		return new Object[] {((domain.OptionSelection) eObject).getOptionPointer(),
+		return new Object[] { ((domain.OptionSelection) eObject).getOptionPointer(),
 				((domain.OptionSelection) eObject).getOptionCast(),
-				((domain.OptionSelection) eObject).getOptionCastDataControl()
-				};
+				((domain.OptionSelection) eObject).getOptionCastDataControl() };
 	}
 
 	public EStructuralFeature[] getWatchPointFeature() {
-		return new EStructuralFeature[] 
-				{ DomainPackage.eINSTANCE.getOptionSelection_OptionPointer(),
-				  DomainPackage.eINSTANCE.getOptionSelection_OptionCast(),
-				  DomainPackage.eINSTANCE.getOptionSelection_OptionCastDataControl()
-				};
+		return new EStructuralFeature[] { DomainPackage.eINSTANCE.getOptionSelection_OptionPointer(),
+				DomainPackage.eINSTANCE.getOptionSelection_OptionCast(),
+				DomainPackage.eINSTANCE.getOptionSelection_OptionCastDataControl() };
 	}
 
 	public Class<?> getExpectedClass() {
 		return EObject.class;
+	}
+
+	@Override
+	public Object getCurrentFeatureValue(Object eObject, EStructuralFeature feature) {
+		return null;
 	}
 }

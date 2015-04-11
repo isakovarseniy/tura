@@ -29,8 +29,7 @@ import org.tura.metamodel.commons.properties.selections.DropDownDataAdapter;
  * 
  * @author Anthony Hunter
  */
-public abstract class AbstractEnumerationPropertySection extends
-		AbstractTuraPropertySection {
+public abstract class AbstractEnumerationPropertySection extends AbstractTuraPropertySection {
 
 	/**
 	 * the combo box control for the section.
@@ -56,8 +55,7 @@ public abstract class AbstractEnumerationPropertySection extends
 	protected Object getFeatureValue(EStructuralFeature feature, Object... obj) {
 		if (dropDownDataSupplier == null)
 			init();
-		return dropDownDataSupplier.getFeatureValue(getModel(), values,
-				feature, obj);
+		return dropDownDataSupplier.getSelectedFeatureValue(getModel(), values, feature, obj);
 	}
 
 	protected boolean isEqual(Object key) {
@@ -70,23 +68,19 @@ public abstract class AbstractEnumerationPropertySection extends
 	 * @see org.eclipse.ui.views.properties.tabbed.ISection#createControls(org.eclipse.swt.widgets.Composite,
 	 *      org.eclipse.ui.views.properties.tabbed.TabbedPropertySheetPage)
 	 */
-	public void createControls(Composite parent,
-			TabbedPropertySheetPage aTabbedPropertySheetPage) {
+	public void createControls(Composite parent, TabbedPropertySheetPage aTabbedPropertySheetPage) {
 		super.createControls(parent, aTabbedPropertySheetPage);
-		Composite composite = getWidgetFactory()
-				.createFlatFormComposite(parent);
+		Composite composite = getWidgetFactory().createFlatFormComposite(parent);
 		FormData data;
 
 		combo = getWidgetFactory().createCCombo(composite);
 		data = new FormData();
-		data.left = new FormAttachment(0, getStandardLabelWidth(composite,
-				new String[] { getLabelText() }));
+		data.left = new FormAttachment(0, getStandardLabelWidth(composite, new String[] { getLabelText() }));
 		data.right = new FormAttachment(100, 0);
 		data.top = new FormAttachment(0, ITabbedPropertyConstants.VSPACE);
 		combo.setLayoutData(data);
 
-		CLabel nameLabel = getWidgetFactory().createCLabel(composite,
-				getLabelText());
+		CLabel nameLabel = getWidgetFactory().createCLabel(composite, getLabelText());
 		data = new FormData();
 		data.left = new FormAttachment(0, 0);
 		data.right = new FormAttachment(combo, -ITabbedPropertyConstants.HSPACE);
@@ -111,13 +105,11 @@ public abstract class AbstractEnumerationPropertySection extends
 		if (!equals) {
 			updated = true;
 
-			EditingDomain editingDomain = ((DiagramEditor) getPart())
-					.getEditingDomain();
+			EditingDomain editingDomain = ((DiagramEditor) getPart()).getEditingDomain();
 			CompoundCommand compoundCommand = new CompoundCommand();
 			EStructuralFeature[] features = getFeature();
 			for (int i = 0; i < features.length; i++) {
-				compoundCommand.append(SetCommand.create(editingDomain,
-						getModel(features[i]), features[i],
+				compoundCommand.append(SetCommand.create(editingDomain, getModel(features[i]), features[i],
 						getFeatureValue(features[i], combo.getItem(index))));
 			}
 			editingDomain.getCommandStack().execute(compoundCommand);

@@ -23,17 +23,14 @@ public class SourcesPointerSourcePointer implements DropDownDataAdapter {
 
 	@Override
 	public EStructuralFeature[] getFeature() {
-		return new EStructuralFeature[] { DomainPackage.eINSTANCE
-				.getSourcesPointer_SourcePointer() };
+		return new EStructuralFeature[] { DomainPackage.eINSTANCE.getSourcesPointer_SourcePointer() };
 	}
 
 	@Override
 	public String getFeatureAsText(Object eObject) {
 		if (((domain.SourcesPointer) eObject).getSourcePointer() != null) {
-			DiagramImpl root = (DiagramImpl) property.getEditPart().getRoot()
-					.getContents().getModel();
-			domain.DataControl dc = ((domain.SourcesPointer) eObject)
-					.getSourcePointer();
+			DiagramImpl root = (DiagramImpl) property.getEditPart().getRoot().getContents().getModel();
+			domain.DataControl dc = ((domain.SourcesPointer) eObject).getSourcePointer();
 			try {
 				Object obj;
 				if (Util.ifDataControlIsTreeRoot(dc, root)) {
@@ -41,9 +38,8 @@ public class SourcesPointerSourcePointer implements DropDownDataAdapter {
 				} else {
 					obj = dc;
 				}
-				IWorkbenchAdapter adapter = (IWorkbenchAdapter) Platform
-						.getAdapterManager().getAdapter(obj,
-								IWorkbenchAdapter.class);
+				IWorkbenchAdapter adapter = (IWorkbenchAdapter) Platform.getAdapterManager().getAdapter(obj,
+						IWorkbenchAdapter.class);
 				return adapter.getLabel(obj);
 
 			} catch (Exception e) {
@@ -54,27 +50,23 @@ public class SourcesPointerSourcePointer implements DropDownDataAdapter {
 	}
 
 	@Override
-	public Object getFeatureValue(Object eObject,
-			HashMap<String, Object> values, EStructuralFeature feature,
+	public Object getSelectedFeatureValue(Object eObject, HashMap<String, Object> values, EStructuralFeature feature,
 			Object... obj) {
-		if (feature.equals(DomainPackage.eINSTANCE
-				.getSourcesPointer_SourcePointer()))
+		if (feature.equals(DomainPackage.eINSTANCE.getSourcesPointer_SourcePointer()))
 			return values.get(obj[0]);
 
 		return null;
 	}
 
 	@Override
-	public boolean isEqual(HashMap<String, Object> values, Object key,
-			Object eObject) {
+	public boolean isEqual(HashMap<String, Object> values, Object key, Object eObject) {
 		if (((domain.SourcesPointer) eObject).getSourcePointer() == null)
 			return false;
 
 		if (((domain.SourcesPointer) eObject).getSourcePointer().getName() == null)
 			return false;
 
-		return values.get(key).equals(
-				((domain.SourcesPointer) eObject).getSourcePointer().getName());
+		return values.get(key).equals(((domain.SourcesPointer) eObject).getSourcePointer().getName());
 	}
 
 	public Object[] getWatchPointObject(Object eObject) {
@@ -86,6 +78,12 @@ public class SourcesPointerSourcePointer implements DropDownDataAdapter {
 	}
 
 	public Class<?> getExpectedClass() {
+		return null;
+	}
+
+	@Override
+	public Object getCurrentFeatureValue(Object eObject, EStructuralFeature feature) {
+		// TODO Auto-generated method stub
 		return null;
 	}
 

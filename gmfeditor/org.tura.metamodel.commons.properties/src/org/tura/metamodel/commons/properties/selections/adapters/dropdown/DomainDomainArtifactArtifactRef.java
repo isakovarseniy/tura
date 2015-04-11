@@ -11,47 +11,43 @@ public class DomainDomainArtifactArtifactRef implements DropDownDataAdapter {
 
 	@Override
 	public EStructuralFeature[] getFeature() {
-		return new EStructuralFeature[] { DomainPackage.eINSTANCE
-				.getArtifactRef_DomainArtifactRef() };
+		return new EStructuralFeature[] { DomainPackage.eINSTANCE.getArtifactRef_DomainArtifactRef() };
 	}
 
 	@Override
 	public String getFeatureAsText(Object eObject) {
 		if (((domain.ArtifactRef) eObject).getDomainArtifactRef() != null)
-		    return ((domain.ArtifactRef) eObject).getDomainArtifactRef().getName();
+			return ((domain.ArtifactRef) eObject).getDomainArtifactRef().getName();
 		else
 			return "";
 	}
 
 	@Override
-	public Object getFeatureValue(Object eObject,
-			HashMap<String, Object> values, EStructuralFeature feature,
+	public Object getSelectedFeatureValue(Object eObject, HashMap<String, Object> values, EStructuralFeature feature,
 			Object... obj) {
-		if (feature.equals(DomainPackage.eINSTANCE.getArtifactRef_DomainArtifactRef()) )
-		    return values.get(obj[0]);
+		if (feature.equals(DomainPackage.eINSTANCE.getArtifactRef_DomainArtifactRef()))
+			return values.get(obj[0]);
 
 		return null;
 	}
 
 	@Override
-	public boolean isEqual(HashMap<String, Object> values, Object key,
-			Object eObject) {
+	public boolean isEqual(HashMap<String, Object> values, Object key, Object eObject) {
 		if (((domain.ArtifactRef) eObject).getDomainArtifactRef() == null)
 			return false;
 		if (((domain.ArtifactRef) eObject).getDomainArtifactRef().getName() == null)
 			return false;
-		return values.get(key).equals(
-				((domain.ArtifactRef) eObject).getDomainArtifactRef().getName());
+		return values.get(key).equals(((domain.ArtifactRef) eObject).getDomainArtifactRef().getName());
 	}
 
 	@Override
 	public Object[] getWatchPointObject(Object eObject) {
-		return new Object[]{};
+		return new Object[] {};
 	}
 
 	@Override
 	public EStructuralFeature[] getWatchPointFeature() {
-		return new EStructuralFeature[] { };
+		return new EStructuralFeature[] {};
 	}
 
 	@Override
@@ -59,6 +55,9 @@ public class DomainDomainArtifactArtifactRef implements DropDownDataAdapter {
 		return null;
 	}
 
-
+	@Override
+	public Object getCurrentFeatureValue(Object eObject, EStructuralFeature feature) {
+		return null;
+	}
 
 }

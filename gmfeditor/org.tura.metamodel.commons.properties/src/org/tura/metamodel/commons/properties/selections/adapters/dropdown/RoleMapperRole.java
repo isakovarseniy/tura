@@ -11,8 +11,7 @@ import domain.DomainPackage;
 public class RoleMapperRole implements DropDownDataAdapter {
 
 	public EStructuralFeature[] getFeature() {
-		return new EStructuralFeature[] {
-				DomainPackage.eINSTANCE.getRoleMapper_Role(),
+		return new EStructuralFeature[] { DomainPackage.eINSTANCE.getRoleMapper_Role(),
 				DomainPackage.eINSTANCE.getRoleMapper_FakeRoleName() };
 	}
 
@@ -23,26 +22,22 @@ public class RoleMapperRole implements DropDownDataAdapter {
 			return "";
 	}
 
-	public Object getFeatureValue(Object eObject,
-			HashMap<String, Object> values, EStructuralFeature feature,
+	public Object getSelectedFeatureValue(Object eObject, HashMap<String, Object> values, EStructuralFeature feature,
 			Object... obj) {
 		if (feature.equals(DomainPackage.eINSTANCE.getRoleMapper_Role()))
 			return values.get(obj[0]);
 
-		if (feature
-				.equals(DomainPackage.eINSTANCE.getRoleMapper_FakeRoleName()))
+		if (feature.equals(DomainPackage.eINSTANCE.getRoleMapper_FakeRoleName()))
 			return getText1(values.get(obj[0]));
 
 		return null;
 	}
 
-	public boolean isEqual(HashMap<String, Object> values, Object key,
-			Object eObject) {
+	public boolean isEqual(HashMap<String, Object> values, Object key, Object eObject) {
 		if (((domain.RoleMapper) eObject).getRole() == null)
 			return false;
 
-		if (!((EObject) eObject).eClass().getName()
-				.equals(((EObject) values.get(key)).eClass().getName()))
+		if (!((EObject) eObject).eClass().getName().equals(((EObject) values.get(key)).eClass().getName()))
 			return false;
 
 		if (getText(eObject) == null)
@@ -66,11 +61,9 @@ public class RoleMapperRole implements DropDownDataAdapter {
 	private String getText(Object eObject) {
 
 		if (((domain.RoleMapper) eObject).getRole() instanceof domain.Group)
-			return ((domain.Group) (((domain.RoleMapper) eObject).getRole()))
-					.getName();
+			return ((domain.Group) (((domain.RoleMapper) eObject).getRole())).getName();
 		if (((domain.RoleMapper) eObject).getRole() instanceof domain.Role)
-			return ((domain.Role) (((domain.RoleMapper) eObject).getRole()))
-					.getName();
+			return ((domain.Role) (((domain.RoleMapper) eObject).getRole())).getName();
 		return "";
 
 	}
@@ -83,6 +76,11 @@ public class RoleMapperRole implements DropDownDataAdapter {
 			return ((domain.Role) eObject).getName();
 		return "";
 
+	}
+
+	@Override
+	public Object getCurrentFeatureValue(Object eObject, EStructuralFeature feature) {
+		return null;
 	}
 
 }

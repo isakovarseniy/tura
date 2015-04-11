@@ -481,7 +481,7 @@
    
              <propertySection
                tab="property.tab.domain.control.relations"
-               class="org.tura.metamodel.commons.properties.selections.grid.impl.RelationPropertySelection"
+               class="org.tura.metamodel.commons.properties.selections.grid.impl.up.RelationPropertySelection"
                id="org.tura.metamodel.diagram.control.relation">
                <input type="control.diagram.edit.parts.RelationEditPart"/>
            </propertySection>        
@@ -889,7 +889,7 @@
 
             <propertySection
                tab="property.tab.domain.canvas.uielement.refresh"
-               class="org.tura.metamodel.commons.properties.selections.grid.impl.up.UielementOnEventRefreshAreaPropertySelection"
+               class="org.tura.metamodel.commons.properties.selections.grid.impl.UielementOnEventRefreshAreaPropertySelection"
                id="org.tura.metamodel.diagram.canvas.sourcepointer.refresh">
               <input type="canvas.diagram.edit.parts.CheckBoxEditPart"/>
               <input type="canvas.diagram.edit.parts.InputTextEditPart"/>

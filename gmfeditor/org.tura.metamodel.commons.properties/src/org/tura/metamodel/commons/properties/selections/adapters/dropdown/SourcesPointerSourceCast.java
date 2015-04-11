@@ -13,43 +13,35 @@ public class SourcesPointerSourceCast implements DropDownDataAdapter {
 
 	public EStructuralFeature[] getFeature() {
 
-		return new EStructuralFeature[] {
-				DomainPackage.eINSTANCE.getSourcesPointer_SourceCast(),
-				DomainPackage.eINSTANCE
-						.getSourcesPointer_SourceCastDataControl() };
+		return new EStructuralFeature[] { DomainPackage.eINSTANCE.getSourcesPointer_SourceCast(),
+				DomainPackage.eINSTANCE.getSourcesPointer_SourceCastDataControl() };
 	}
 
 	public String getFeatureAsText(Object eObject) {
 		String name = null;
 		if (((domain.SourcesPointer) eObject).getSourceCast() instanceof domain.Type)
-			name = ((domain.Type) ((domain.SourcesPointer) eObject)
-					.getSourceCast()).getName();
+			name = ((domain.Type) ((domain.SourcesPointer) eObject).getSourceCast()).getName();
 
 		return name;
 	}
 
 	@SuppressWarnings("unchecked")
-	public Object getFeatureValue(Object eObject,
-			HashMap<String, Object> values, EStructuralFeature feature,
+	public Object getSelectedFeatureValue(Object eObject, HashMap<String, Object> values, EStructuralFeature feature,
 			Object... obj) {
-		if (feature.equals(DomainPackage.eINSTANCE
-				.getSourcesPointer_SourceCast()))
-			return ((List<Object>)values.get(obj[0])).get(1);
+		if (feature.equals(DomainPackage.eINSTANCE.getSourcesPointer_SourceCast()))
+			return ((List<Object>) values.get(obj[0])).get(1);
 
-		if (feature.equals(DomainPackage.eINSTANCE
-				.getSourcesPointer_SourceCastDataControl()))
-			return ((List<Object>)values.get(obj[0])).get(0);
+		if (feature.equals(DomainPackage.eINSTANCE.getSourcesPointer_SourceCastDataControl()))
+			return ((List<Object>) values.get(obj[0])).get(0);
 
 		return null;
 	}
 
-	public boolean isEqual(HashMap<String, Object> values, Object key,
-			Object eObject) {
+	public boolean isEqual(HashMap<String, Object> values, Object key, Object eObject) {
 		if (((domain.SourcesPointer) eObject).getSourceCast() == null)
 			return false;
 
-		String name = (((domain.SourcesPointer) eObject).getSourceCast())
-				.getName();
+		String name = (((domain.SourcesPointer) eObject).getSourceCast()).getName();
 
 		if (name == null)
 			return false;
@@ -57,16 +49,19 @@ public class SourcesPointerSourceCast implements DropDownDataAdapter {
 	}
 
 	public Object[] getWatchPointObject(Object eObject) {
-		return new Object[] { ((domain.SourcesPointer) eObject)
-				.getSourcePointer() };
+		return new Object[] { ((domain.SourcesPointer) eObject).getSourcePointer() };
 	}
 
 	public EStructuralFeature[] getWatchPointFeature() {
-		return new EStructuralFeature[] { DomainPackage.eINSTANCE
-				.getSourcesPointer_SourcePointer() };
+		return new EStructuralFeature[] { DomainPackage.eINSTANCE.getSourcesPointer_SourcePointer() };
 	}
 
 	public Class<?> getExpectedClass() {
 		return EObject.class;
+	}
+
+	@Override
+	public Object getCurrentFeatureValue(Object eObject, EStructuralFeature feature) {
+		return null;
 	}
 }

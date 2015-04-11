@@ -34,21 +34,17 @@ import domain.DomainPackage;
 import domain.Type;
 import domain.TypeElement;
 
-public class DefaultSearchPropertySelection extends
-		ContextParameterPropertySelection {
+public class DefaultSearchPropertySelection extends ContextParameterPropertySelection {
 
 	@Override
 	public EObject getModel() {
 		if (((domain.DataControl) getEObject()).getDefaultSearch() == null) {
-			EditingDomain editingDomain = ((DiagramEditor) this.getPart())
-					.getEditingDomain();
+			EditingDomain editingDomain = ((DiagramEditor) this.getPart()).getEditingDomain();
 
-			domain.ContextParameters ctx = DomainFactory.eINSTANCE
-					.createContextParameters();
+			domain.ContextParameters ctx = DomainFactory.eINSTANCE.createContextParameters();
 			editingDomain.getCommandStack().execute(
 					SetCommand.create(editingDomain, getEObject(),
-							DomainPackage.eINSTANCE
-									.getDataControl_DefaultSearch(), ctx));
+							DomainPackage.eINSTANCE.getDataControl_DefaultSearch(), ctx));
 		}
 		return ((domain.DataControl) getEObject()).getDefaultSearch();
 	}
@@ -65,11 +61,9 @@ public class DefaultSearchPropertySelection extends
 		return columnList;
 	}
 
-	public void createControls(Composite parent,
-			TabbedPropertySheetPage aTabbedPropertySheetPage) {
+	public void createControls(Composite parent, TabbedPropertySheetPage aTabbedPropertySheetPage) {
 
-		Composite composite = aTabbedPropertySheetPage.getWidgetFactory()
-				.createFlatFormComposite(parent);
+		Composite composite = aTabbedPropertySheetPage.getWidgetFactory().createFlatFormComposite(parent);
 
 		GridLayout layout = new GridLayout(1, false);
 		layout.marginWidth = 4;
@@ -78,10 +72,8 @@ public class DefaultSearchPropertySelection extends
 		createButtons(composite, aTabbedPropertySheetPage);
 	}
 
-	private void createButtons(Composite parent,
-			TabbedPropertySheetPage aTabbedPropertySheetPage) {
-		Composite composite = aTabbedPropertySheetPage.getWidgetFactory()
-				.createFlatFormComposite(parent);
+	private void createButtons(Composite parent, TabbedPropertySheetPage aTabbedPropertySheetPage) {
+		Composite composite = aTabbedPropertySheetPage.getWidgetFactory().createFlatFormComposite(parent);
 
 		GridLayout layout = new GridLayout(2, false);
 		layout.marginWidth = 4;
@@ -113,8 +105,7 @@ public class DefaultSearchPropertySelection extends
 
 			// Remove the selection and refresh the view
 			public void widgetSelected(SelectionEvent e) {
-				Object row = ((IStructuredSelection) tableViewer.getSelection())
-						.getFirstElement();
+				Object row = ((IStructuredSelection) tableViewer.getSelection()).getFirstElement();
 				if (row != null) {
 					removeRow(row);
 				}
@@ -155,8 +146,7 @@ public class DefaultSearchPropertySelection extends
 
 		@Override
 		public CellEditor getEditor() {
-			ComboBoxCellEditor comboBoxCellEditor = new ComboBoxCellEditor(
-					table, new String[] {}, SWT.READ_ONLY);
+			ComboBoxCellEditor comboBoxCellEditor = new ComboBoxCellEditor(table, new String[] {}, SWT.READ_ONLY);
 			return comboBoxCellEditor;
 		}
 
@@ -176,8 +166,7 @@ public class DefaultSearchPropertySelection extends
 			domain.Type t = null;
 			if (dc.getCreate() != null && dc.getCreate().getMethodRef() != null
 					&& dc.getCreate().getMethodRef().getReturnValue() != null) {
-				t = (Type) dc.getCreate().getMethodRef().getReturnValue()
-						.getTypeRef();
+				t = (Type) dc.getCreate().getMethodRef().getReturnValue().getTypeRef();
 			}
 			if (dc.getBaseType() != null)
 				t = dc.getBaseType();
@@ -185,12 +174,11 @@ public class DefaultSearchPropertySelection extends
 			choicesOptions = new InitOption().initOptions(t);
 
 			ArrayList<String> choices = new ArrayList<String>();
-			for (Iterator<domain.Attribute> itr = choicesOptions.iterator(); itr
-					.hasNext();) {
+			for (Iterator<domain.Attribute> itr = choicesOptions.iterator(); itr.hasNext();) {
 				choices.add(itr.next().getName());
 			}
-			((ComboBoxCellEditor) (tableViewer.getCellEditors()[col]))
-					.setItems(choices.toArray(new String[choices.size()]));
+			((ComboBoxCellEditor) (tableViewer.getCellEditors()[col])).setItems(choices.toArray(new String[choices
+					.size()]));
 
 			domain.Attribute optValue = (Attribute) opt.getRefObj();
 			if (optValue == null) {
@@ -198,8 +186,7 @@ public class DefaultSearchPropertySelection extends
 				return result;
 			}
 			int i = choicesOptions.size() - 1;
-			while (!optValue.getUid().equals(choicesOptions.get(i).getUid())
-					&& i > 0)
+			while (!optValue.getUid().equals(choicesOptions.get(i).getUid()) && i > 0)
 				--i;
 			result = new Integer(i);
 
@@ -210,37 +197,29 @@ public class DefaultSearchPropertySelection extends
 		public void modify(Object element, Object value) {
 
 			TableItem item = (TableItem) element;
-			domain.ContextParameter opt = (domain.ContextParameter) item
-					.getData();
+			domain.ContextParameter opt = (domain.ContextParameter) item.getData();
 
 			domain.DataControl dc = (DataControl) property.getEObject();
 
-			String valueString = ((ComboBoxCellEditor) (tableViewer
-					.getCellEditors()[col])).getItems()[(int) value];
+			String valueString = ((ComboBoxCellEditor) (tableViewer.getCellEditors()[col])).getItems()[(int) value];
 
 			domain.Type t = null;
 			if (dc.getCreate() != null && dc.getCreate().getMethodRef() != null
 					&& dc.getCreate().getMethodRef().getReturnValue() != null) {
-				t = (Type) dc.getCreate().getMethodRef().getReturnValue()
-						.getTypeRef();
+				t = (Type) dc.getCreate().getMethodRef().getReturnValue().getTypeRef();
 			}
 			if (dc.getBaseType() != null)
 				t = dc.getBaseType();
 
-			List<domain.Attribute> choicesOptions = new InitOption()
-					.initOptions(t);
+			List<domain.Attribute> choicesOptions = new InitOption().initOptions(t);
 
-			for (Iterator<domain.Attribute> itr = choicesOptions.iterator(); itr
-					.hasNext();) {
+			for (Iterator<domain.Attribute> itr = choicesOptions.iterator(); itr.hasNext();) {
 				domain.Attribute option = itr.next();
 				if (option.getName().equals(valueString)) {
-					EditingDomain editingDomain = ((DiagramEditor) getPart())
-							.getEditingDomain();
+					EditingDomain editingDomain = ((DiagramEditor) getPart()).getEditingDomain();
 					/* apply the property change to single selected object */
 					editingDomain.getCommandStack().execute(
-							SetCommand.create(editingDomain, opt,
-									DomainPackage.eINSTANCE
-											.getContextParameter_RefObj(),
+							SetCommand.create(editingDomain, opt, DomainPackage.eINSTANCE.getContextParameter_RefObj(),
 									option));
 					break;
 				}
@@ -273,15 +252,13 @@ public class DefaultSearchPropertySelection extends
 			List<domain.Attribute> attrs = new ArrayList<>();
 
 			if (type.getExtension().size() != 0) {
-				for (Iterator<domain.TypeExtension> itr = type.getExtension()
-						.iterator(); itr.hasNext();) {
+				for (Iterator<domain.TypeExtension> itr = type.getExtension().iterator(); itr.hasNext();) {
 					TypeElement typeElement = itr.next().getTarget();
 					if (typeElement instanceof domain.Type)
 						attrs.addAll(initOptions((Type) typeElement));
 
 					if (typeElement instanceof domain.TypeReference)
-						attrs.addAll(initOptions((Type) ((domain.TypeReference) typeElement)
-								.getTypeRef()));
+						attrs.addAll(initOptions((Type) ((domain.TypeReference) typeElement).getTypeRef()));
 				}
 			}
 			attrs.addAll(type.getAttributes());
@@ -326,9 +303,8 @@ public class DefaultSearchPropertySelection extends
 			for (Comparator cmpval : Comparator.values()) {
 				choices.add(cmpval.getName());
 			}
-			ComboBoxCellEditor comboBoxCellEditor = new ComboBoxCellEditor(
-					table, choices.toArray(new String[choices.size()]),
-					SWT.READ_ONLY);
+			ComboBoxCellEditor comboBoxCellEditor = new ComboBoxCellEditor(table, choices.toArray(new String[choices
+					.size()]), SWT.READ_ONLY);
 			return comboBoxCellEditor;
 		}
 
@@ -341,16 +317,14 @@ public class DefaultSearchPropertySelection extends
 		public Object getValue(Object element) {
 			domain.ContextParameter task = (domain.ContextParameter) element;
 
-			ComboBoxCellEditor editor = ((ComboBoxCellEditor) (tableViewer
-					.getCellEditors()[col]));
+			ComboBoxCellEditor editor = ((ComboBoxCellEditor) (tableViewer.getCellEditors()[col]));
 			String[] choicesOptions = editor.getItems();
 
 			int result = new Integer(0);
 			int i = choicesOptions.length - 1;
-            String  optValue = task.getOperation().getName();
-			
-			while (!optValue.equals(choicesOptions[i])
-					&& i > 0)
+			String optValue = task.getOperation().getName();
+
+			while (!optValue.equals(choicesOptions[i]) && i > 0)
 				--i;
 			result = new Integer(i);
 
@@ -362,22 +336,19 @@ public class DefaultSearchPropertySelection extends
 		public void modify(Object element, Object value) {
 
 			TableItem item = (TableItem) element;
-			domain.ContextParameter opt = (domain.ContextParameter) item
-					.getData();
-			
-			ComboBoxCellEditor editor = ((ComboBoxCellEditor) (tableViewer
-					.getCellEditors()[col]));
+			domain.ContextParameter opt = (domain.ContextParameter) item.getData();
+
+			ComboBoxCellEditor editor = ((ComboBoxCellEditor) (tableViewer.getCellEditors()[col]));
 			String[] choicesOptions = editor.getItems();
-			
+
 			Comparator cmp = Comparator.valueOf(choicesOptions[(int) value]);
 
-			EditingDomain editingDomain = ((DiagramEditor) getPart())
-					.getEditingDomain();
+			EditingDomain editingDomain = ((DiagramEditor) getPart()).getEditingDomain();
 			/* apply the property change to single selected object */
-			editingDomain.getCommandStack().execute(
-					SetCommand.create(editingDomain, opt,
-							DomainPackage.eINSTANCE
-									.getContextParameter_Operation(), cmp));
+			editingDomain.getCommandStack()
+					.execute(
+							SetCommand.create(editingDomain, opt,
+									DomainPackage.eINSTANCE.getContextParameter_Operation(), cmp));
 
 		}
 
@@ -388,12 +359,10 @@ public class DefaultSearchPropertySelection extends
 
 		@Override
 		public Object getText(Object element) {
-			ComboBoxCellEditor editor = ((ComboBoxCellEditor) (tableViewer
-					.getCellEditors()[col]));
+			ComboBoxCellEditor editor = ((ComboBoxCellEditor) (tableViewer.getCellEditors()[col]));
 			String[] choicesOptions = editor.getItems();
 
-			
-			return choicesOptions[ (int) getValue(element)];
+			return choicesOptions[(int) getValue(element)];
 		}
 
 	}
@@ -404,8 +373,7 @@ public class DefaultSearchPropertySelection extends
 	}
 
 	@Override
-	public domain.TypeElement contextRefTypeExtreactor(
-			domain.ContextParameter obj) {
+	public domain.TypeElement contextRefTypeExtreactor(domain.ContextParameter obj) {
 		return ((domain.Attribute) obj.getRefObj()).getTypeRef();
 	}
 

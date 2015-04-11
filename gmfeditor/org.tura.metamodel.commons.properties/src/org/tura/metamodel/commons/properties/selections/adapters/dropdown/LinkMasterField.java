@@ -7,49 +7,56 @@ import org.tura.metamodel.commons.properties.selections.DropDownDataAdapter;
 
 import domain.DomainPackage;
 
-public class LanguageRefLang implements DropDownDataAdapter {
+public class LinkMasterField implements DropDownDataAdapter {
 
+	@Override
 	public EStructuralFeature[] getFeature() {
-		return new EStructuralFeature[] { DomainPackage.eINSTANCE.getLanguageRef_Lang() };
+		return new EStructuralFeature[] { DomainPackage.eINSTANCE.getLink_MasterField() };
 	}
 
+	@Override
 	public String getFeatureAsText(Object eObject) {
 		String result = "";
-		domain.LanguageRef lang = (domain.LanguageRef) eObject;
-		if (lang.getLang() == null)
-			return "";
+		domain.Link lnk = (domain.Link) eObject;
 
-		if (lang.getLang().getLang() == null)
+		if (lnk.getMasterField() == null)
 			result = "";
 		else
-			result = lang.getLang().getLang();
+			result = lnk.getMasterField().getName();
 		return result;
+
 	}
 
 	@Override
 	public Object getCurrentFeatureValue(Object eObject, EStructuralFeature feature) {
-		return ((domain.LanguageRef) eObject).eGet(feature);
+		return ((domain.Link)eObject).eGet(feature);
 	}
-
+	@Override
 	public Object getSelectedFeatureValue(Object eObject, HashMap<String, Object> values, EStructuralFeature feature,
 			Object... obj) {
-		return values.get(obj[0]);
+			return values.get(obj[0]);
 	}
 
+	@Override
 	public boolean isEqual(HashMap<String, Object> values, Object key, Object eObject) {
 		return true;
 	}
 
+	@Override
 	public Object[] getWatchPointObject(Object eObject) {
 		return new Object[] {};
 	}
 
+	@Override
 	public EStructuralFeature[] getWatchPointFeature() {
 		return new EStructuralFeature[] {};
 	}
 
+	@Override
 	public Class<?> getExpectedClass() {
 		return null;
 	}
+
+
 
 }

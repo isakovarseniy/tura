@@ -1,5 +1,6 @@
 package org.tura.metamodel.commons.properties.selections.grid;
 
+import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
@@ -28,7 +29,7 @@ public abstract class GridDropDownColumn implements GridColumn {
 	private DropDownDataAdapter dataAdapter;
 	LinkedHashMap<String, Object> options;
 
-	public abstract Map<String, Object> getEnumerationFeatureValues( EObject base);
+	public abstract Map<String, Object> getEnumerationFeatureValues(EObject base);
 
 	public GridDropDownColumn(Table table, GridProperty property, int col) {
 		this.table = table;
@@ -67,23 +68,34 @@ public abstract class GridDropDownColumn implements GridColumn {
 	@Override
 	public Object getValue(Object element) {
 		EObject base = (EObject) element;
+
 		options = (LinkedHashMap<String, Object>) getEnumerationFeatureValues(base);
 		ComboBoxCellEditor editor = ((ComboBoxCellEditor) (property.getTableViewer().getCellEditors()[col]));
 		editor.setItems(options.keySet().toArray(new String[options.keySet().size()]));
-		return  editor.getValue();
+
+		EStructuralFeature  feature = dataAdapter.getFeature()[0];
+		Object featureObject = dataAdapter.getCurrentFeatureValue(element, feature);
+		
+		int i = 0;
+		for (Iterator<Object> itr = options.values().iterator();  itr.hasNext();i++ ){
+			Object obj = itr.next();
+			if (obj.equals(featureObject))
+				break;
+		}
+		return  new Integer(i);
 	}
 
 	@Override
 	public Object getText(Object element) {
 		EObject base = (EObject) element;
 		options = (LinkedHashMap<String, Object>) getEnumerationFeatureValues(base);
-		return this.dataAdapter.getFeatureAsText(element);
+		return dataAdapter.getFeatureAsText(element);
 	}
 
 	@Override
 	public void modify(Object element, Object value) {
-		Object data = ((TableItem)element).getData();
-		
+		Object data = ((TableItem) element).getData();
+
 		ComboBoxCellEditor editor = ((ComboBoxCellEditor) (property.getTableViewer().getCellEditors()[col]));
 		Object v = editor.getItems()[(int) value];
 
@@ -93,7 +105,7 @@ public abstract class GridDropDownColumn implements GridColumn {
 
 		for (int i = 0; i < features.length; i++) {
 			compoundCommand.append(SetCommand.create(editingDomain, data, features[i],
-					dataAdapter.getFeatureValue(data, options, features[i], v)));
+					dataAdapter.getSelectedFeatureValue(data, options, features[i], v)));
 		}
 		editingDomain.getCommandStack().execute(compoundCommand);
 	}

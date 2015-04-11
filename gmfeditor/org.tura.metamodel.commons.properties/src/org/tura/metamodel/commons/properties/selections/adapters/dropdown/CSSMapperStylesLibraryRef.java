@@ -7,11 +7,10 @@ import org.tura.metamodel.commons.properties.selections.DropDownDataAdapter;
 
 import domain.DomainPackage;
 
-public class CSSMapperStylesLibraryRef  implements DropDownDataAdapter {
+public class CSSMapperStylesLibraryRef implements DropDownDataAdapter {
 
 	public EStructuralFeature[] getFeature() {
-		return new EStructuralFeature[] {
-				DomainPackage.eINSTANCE.getCSSMapper_StyleLibrary(),
+		return new EStructuralFeature[] { DomainPackage.eINSTANCE.getCSSMapper_StyleLibrary(),
 				DomainPackage.eINSTANCE.getCSSMapper_FakeTypeName() };
 	}
 
@@ -22,14 +21,13 @@ public class CSSMapperStylesLibraryRef  implements DropDownDataAdapter {
 			return "";
 	}
 
-	public Object getFeatureValue(Object eObject, HashMap<String, Object> values,
-			EStructuralFeature feature, Object... obj) {
+	public Object getSelectedFeatureValue(Object eObject, HashMap<String, Object> values, EStructuralFeature feature,
+			Object... obj) {
 		if (feature.equals(DomainPackage.eINSTANCE.getCSSMapper_StyleLibrary()))
 			return values.get(obj[0]);
 
-		if (feature.equals(DomainPackage.eINSTANCE
-				.getCSSMapper_FakeTypeName()))
-			return ((domain.StyleLibrary)values.get(obj[0])).getName();
+		if (feature.equals(DomainPackage.eINSTANCE.getCSSMapper_FakeTypeName()))
+			return ((domain.StyleLibrary) values.get(obj[0])).getName();
 
 		return null;
 	}
@@ -39,21 +37,24 @@ public class CSSMapperStylesLibraryRef  implements DropDownDataAdapter {
 			return false;
 		if (((domain.CSSMapper) eObject).getStyleLibrary().getName() == null)
 			return false;
-		return values.get(key).equals(
-				((domain.CSSMapper) eObject).getStyleLibrary().getName());
+		return values.get(key).equals(((domain.CSSMapper) eObject).getStyleLibrary().getName());
 	}
 
 	public Object[] getWatchPointObject(Object eObject) {
-		return new Object[]{((domain.CSSMapper) eObject).getStylePackage()};
+		return new Object[] { ((domain.CSSMapper) eObject).getStylePackage() };
 	}
 
 	public EStructuralFeature[] getWatchPointFeature() {
-		return new EStructuralFeature[] { DomainPackage.eINSTANCE.getTypePointer_PackageRef()};
+		return new EStructuralFeature[] { DomainPackage.eINSTANCE.getTypePointer_PackageRef() };
 	}
 
 	public Class<?> getExpectedClass() {
 		return domain.CSSMapper.class;
 	}
 
-	
+	@Override
+	public Object getCurrentFeatureValue(Object eObject, EStructuralFeature feature) {
+		return null;
+	}
+
 }

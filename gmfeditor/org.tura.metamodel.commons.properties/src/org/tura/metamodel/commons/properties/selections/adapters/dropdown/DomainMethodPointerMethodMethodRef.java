@@ -11,8 +11,7 @@ public class DomainMethodPointerMethodMethodRef implements DropDownDataAdapter {
 
 	@Override
 	public EStructuralFeature[] getFeature() {
-		return new EStructuralFeature[] {
-				DomainPackage.eINSTANCE.getMethodPointer_MethodRef(),
+		return new EStructuralFeature[] { DomainPackage.eINSTANCE.getMethodPointer_MethodRef(),
 				DomainPackage.eINSTANCE.getMethodPointer_FakeMethod() };
 	}
 
@@ -25,41 +24,36 @@ public class DomainMethodPointerMethodMethodRef implements DropDownDataAdapter {
 	}
 
 	@Override
-	public Object getFeatureValue(Object eObject,
-			HashMap<String, Object> values, EStructuralFeature feature,
+	public Object getSelectedFeatureValue(Object eObject, HashMap<String, Object> values, EStructuralFeature feature,
 			Object... obj) {
-		if (feature.equals(DomainPackage.eINSTANCE
-				.getMethodPointer_MethodRef()))
+		if (feature.equals(DomainPackage.eINSTANCE.getMethodPointer_MethodRef()))
 			return values.get(obj[0]);
 
-		if (feature.equals(DomainPackage.eINSTANCE
-				.getMethodPointer_FakeMethod()))
+		if (feature.equals(DomainPackage.eINSTANCE.getMethodPointer_FakeMethod()))
 			return ((domain.Operation) values.get(obj[0])).getName();
 
 		return null;
 	}
 
 	@Override
-	public boolean isEqual(HashMap<String, Object> values, Object key,
-			Object eObject) {
+	public boolean isEqual(HashMap<String, Object> values, Object key, Object eObject) {
 		if (((domain.MethodPointer) eObject).getMethodRef() == null)
 			return false;
 
 		if (((domain.MethodPointer) eObject).getMethodRef().getName() == null)
 			return false;
 
-		return values.get(key).equals(
-				((domain.MethodPointer) eObject).getMethodRef().getName());
+		return values.get(key).equals(((domain.MethodPointer) eObject).getMethodRef().getName());
 	}
 
 	@Override
 	public Object[] getWatchPointObject(Object eObject) {
-		return 	new Object[] {((domain.TypePointer) eObject).getTypeRef()};
+		return new Object[] { ((domain.TypePointer) eObject).getTypeRef() };
 	}
 
 	@Override
 	public EStructuralFeature[] getWatchPointFeature() {
-		return 	new EStructuralFeature[] { DomainPackage.eINSTANCE.getTypePointer_TypeRef()};
+		return new EStructuralFeature[] { DomainPackage.eINSTANCE.getTypePointer_TypeRef() };
 	}
 
 	@Override
@@ -67,5 +61,9 @@ public class DomainMethodPointerMethodMethodRef implements DropDownDataAdapter {
 		return domain.TypePointer.class;
 	}
 
-	
+	@Override
+	public Object getCurrentFeatureValue(Object eObject, EStructuralFeature feature) {
+		return null;
+	}
+
 }
