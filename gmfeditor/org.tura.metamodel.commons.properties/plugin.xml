@@ -42,7 +42,7 @@
 
           <propertySection
                tab="property.tab.domain.classifier"
-               class="org.tura.metamodel.commons.properties.selections.grid.impl.up.CategorizedPropertySelection"
+               class="org.tura.metamodel.commons.properties.selections.grid.impl.CategorizedPropertySelection"
                id="org.tura.metamodel.typedefinition.classifier">
               <input type="typedefinition.diagram.edit.parts.TypeEditPart"/>
               <input type="typedefinition.diagram.edit.parts.TypeExtensionEditPart"/>
@@ -51,7 +51,7 @@
 
           <propertySection
                tab="property.tab.domain.operation.parameters"
-               class="org.tura.metamodel.commons.properties.selections.grid.impl.up.ParameterPropertySelection"
+               class="org.tura.metamodel.commons.properties.selections.grid.impl.ParameterPropertySelection"
                id="org.tura.metamodel.typedefinition.operation.parameters">
               <input type="typedefinition.diagram.edit.parts.OperationEditPart"/>
            </propertySection>        
@@ -130,14 +130,14 @@
       
           <propertySection
                tab="property.tab.domain.queryParameters"
-               class="org.tura.metamodel.commons.properties.selections.grid.impl.up.QueryParameterPropertySelection"
+               class="org.tura.metamodel.commons.properties.selections.grid.impl.QueryParameterPropertySelection"
                id="org.tura.metamodel.artifact.queryParams">
               <input type="artifact.diagram.edit.parts.ModelQueryEditPart"/>
            </propertySection>        
  
           <propertySection
                tab="property.tab.domain.specifierOptions"
-               class="org.tura.metamodel.commons.properties.selections.grid.impl.up.OptionPropertySelection"
+               class="org.tura.metamodel.commons.properties.selections.grid.impl.OptionPropertySelection"
                id="org.tura.metamodel.artifact.option">
               <input type="artifact.diagram.edit.parts.SpecifierEditPart"/>
            </propertySection>        
@@ -242,14 +242,14 @@
       
           <propertySection
                tab="property.tab.domain.availableMappers"
-               class="org.tura.metamodel.commons.properties.selections.grid.impl.up.RecipeMappersListPropertySelection"
+               class="org.tura.metamodel.commons.properties.selections.grid.impl.RecipeMappersListPropertySelection"
                id="org.tura.metamodel.mapper.recipe">
               <input type="recipe.diagram.edit.parts.RecipeEditPart"/>
          </propertySection>        
 
           <propertySection
                tab="property.tab.domain.availableMappers"
-               class="org.tura.metamodel.commons.properties.selections.grid.impl.up.IngredientMappersListPropertySelection"
+               class="org.tura.metamodel.commons.properties.selections.grid.impl.IngredientMappersListPropertySelection"
                id="org.tura.metamodel.mapper.ingredient">
               <input type="recipe.diagram.edit.parts.IngredientEditPart"/>
          </propertySection>        
@@ -271,7 +271,7 @@
          
          <propertySection
                tab="property.tab.domain.mappingSpecifier"
-               class="org.tura.metamodel.commons.properties.selections.grid.impl.up.MappingSpecifierPropertySelection"
+               class="org.tura.metamodel.commons.properties.selections.grid.impl.MappingSpecifierPropertySelection"
                id="org.tura.metamodel.mapper.mappingSpecifier">
               <input type="recipe.diagram.edit.parts.ModelMapperEditPart"/>
          </propertySection>        
@@ -286,7 +286,7 @@
 
          <propertySection
                tab="property.tab.domain.mappingVariable"
-               class="org.tura.metamodel.commons.properties.selections.grid.impl.up.QueryVariablePropertySelection"
+               class="org.tura.metamodel.commons.properties.selections.grid.impl.QueryVariablePropertySelection"
                id="org.tura.metamodel.mapper.mappingVariable">
               <input type="recipe.diagram.edit.parts.QueryEditPart"/>
          </propertySection>        
@@ -380,14 +380,14 @@
 
            <propertySection
                tab="property.tab.domain.control.defaultSearch"
-               class="org.tura.metamodel.commons.properties.selections.grid.impl.up.DefaultSearchPropertySelection"
+               class="org.tura.metamodel.commons.properties.selections.grid.impl.DefaultSearchPropertySelection"
                id="property.tab.domain.control.defaultSearch">
               <input type="control.diagram.edit.parts.DataControlEditPart"/>             
            </propertySection>        
 
            <propertySection
                tab="property.tab.domain.control.defaultOrderBy"
-               class="org.tura.metamodel.commons.properties.selections.grid.impl.up.DefaultOrderByPropertySelection"
+               class="org.tura.metamodel.commons.properties.selections.grid.impl.DefaultOrderByPropertySelection"
                id="property.tab.domain.control.defaultOrderBy">
               <input type="control.diagram.edit.parts.DataControlEditPart"/>             
            </propertySection>        
@@ -463,7 +463,7 @@
              <propertySection
                tab="property.tab.domain.control.serviceref"
                afterSection="property.tab.domain.control.serviceref"
-               class="org.tura.metamodel.commons.properties.selections.grid.impl.up.TriggerContextParameterPropertySelection"
+               class="org.tura.metamodel.commons.properties.selections.grid.impl.TriggerContextParameterPropertySelection"
                id="org.tura.metamodel.diagram.control.methodref">
               <input type="control.diagram.edit.parts.POSTQueryTriggerEditPart"/>
               <input type="control.diagram.edit.parts.POSTQueryTriggerEditPart"/>
@@ -481,7 +481,7 @@
    
              <propertySection
                tab="property.tab.domain.control.relations"
-               class="org.tura.metamodel.commons.properties.selections.grid.impl.up.RelationPropertySelection"
+               class="org.tura.metamodel.commons.properties.selections.grid.impl.RelationPropertySelection"
                id="org.tura.metamodel.diagram.control.relation">
                <input type="control.diagram.edit.parts.RelationEditPart"/>
            </propertySection>        
@@ -514,7 +514,7 @@
 
             <propertySection
                tab="property.tab.domain.messages.lang"
-               class="org.tura.metamodel.commons.properties.selections.grid.impl.up.AvailableLanguagesPropertySelection"
+               class="org.tura.metamodel.commons.properties.selections.grid.impl.AvailableLanguagesPropertySelection"
                id="org.tura.metamodel.diagram.message.lanl">
               <input type="message.diagram.edit.parts.MessageLibraryEditPart"/>
            </propertySection>        
@@ -522,7 +522,7 @@
 
             <propertySection
                tab="property.tab.domain.messages.translation"
-               class="org.tura.metamodel.commons.properties.selections.grid.impl.up.TranslationsPropertySelection"
+               class="org.tura.metamodel.commons.properties.selections.grid.impl.TranslationsPropertySelection"
                id="org.tura.metamodel.diagram.message.translation">
               <input type="message.diagram.edit.parts.MessageEditPart"/>
  
@@ -566,7 +566,7 @@
 
           <propertySection
                tab="property.tab.domain.frmview.classifier"
-               class="org.tura.metamodel.commons.properties.selections.grid.impl.up.CategorizedPropertySelection"
+               class="org.tura.metamodel.commons.properties.selections.grid.impl.CategorizedPropertySelection"
                id="org.tura.metamodel.diagram.frmview.classifier">
 
               <input type="frmview.diagram.edit.parts.CanvasEditPart"/>
@@ -597,7 +597,7 @@
 
              <propertySection
                tab="org.tura.metamodel.diagram.frmview.styleset"
-               class="org.tura.metamodel.commons.properties.selections.grid.impl.up.StyleClassPropertySelection"
+               class="org.tura.metamodel.commons.properties.selections.grid.impl.StyleClassPropertySelection"
                afterSection="org.tura.metamodel.diagram.frmview.style"
                id="org.tura.metamodel.diagram.frmview.styleclass">
 
@@ -650,7 +650,7 @@
              <propertySection
                tab="property.tab.domain.frmview"
                afterSection="org.tura.metamodel.diagram.canvas.actioin.methodname"
-               class="org.tura.metamodel.commons.properties.selections.grid.impl.up.TriggerContextParameterPropertySelection"
+               class="org.tura.metamodel.commons.properties.selections.grid.impl.TriggerContextParameterPropertySelection"
                id="org.tura.metamodel.diagram.canvas.actioin.contextparameter">
               <input type="frmview.diagram.edit.parts.ViewPortTriggerEditPart"/>
            </propertySection>        
@@ -727,7 +727,7 @@
 
           <propertySection
                tab="property.tab.domain.canvas.uielement.classifier"
-               class="org.tura.metamodel.commons.properties.selections.grid.impl.up.CategorizedPropertySelection"
+               class="org.tura.metamodel.commons.properties.selections.grid.impl.CategorizedPropertySelection"
                id="property.tab.domain.canvas.uielement.classifier">
  
                <input type="canvas.diagram.edit.parts.TableEditPart"/>
@@ -938,7 +938,7 @@
 
              <propertySection
                tab="property.tab.domain.canvas.uielement.styleset"
-               class="org.tura.metamodel.commons.properties.selections.grid.impl.up.StyleClassPropertySelection"
+               class="org.tura.metamodel.commons.properties.selections.grid.impl.StyleClassPropertySelection"
                id="org.tura.metamodel.diagram.canvas.sourcepointer.style">
               <input type="canvas.diagram.edit.parts.CheckBoxEditPart"/>
               <input type="canvas.diagram.edit.parts.InputTextEditPart"/>
@@ -1093,7 +1093,7 @@
              <propertySection
                tab="property.tab.domain.canvas.action"
                afterSection="org.tura.metamodel.diagram.canvas.actioin.methodname"
-               class="org.tura.metamodel.commons.properties.selections.grid.impl.up.TriggerContextParameterPropertySelection"
+               class="org.tura.metamodel.commons.properties.selections.grid.impl.TriggerContextParameterPropertySelection"
                id="org.tura.metamodel.diagram.canvas.actioin.parameters">
               <input type="canvas.diagram.edit.parts.ActionTriggerEditPart"/>
            </propertySection>        

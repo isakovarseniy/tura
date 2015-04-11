@@ -1,13 +1,15 @@
 package org.tura.metamodel.commons.properties.selections.grid.impl;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.edit.command.SetCommand;
+import org.eclipse.emf.edit.domain.EditingDomain;
+import org.eclipse.gmf.runtime.diagram.ui.parts.DiagramEditor;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionAdapter;
@@ -18,34 +20,43 @@ import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.ui.views.properties.tabbed.TabbedPropertySheetPage;
-import org.tura.metamodel.commons.properties.selections.adapters.dropdown.LinkDetailField;
-import org.tura.metamodel.commons.properties.selections.adapters.dropdown.LinkMasterField;
+import org.tura.metamodel.commons.properties.selections.adapters.dropdown.ContextParameterOperation;
+import org.tura.metamodel.commons.properties.selections.adapters.dropdown.ContextParameterRefObjToAttribure;
+import org.tura.metamodel.commons.properties.selections.grid.DataSource;
 import org.tura.metamodel.commons.properties.selections.grid.GridColumn;
 import org.tura.metamodel.commons.properties.selections.grid.GridDropDownColumn;
 import org.tura.metamodel.commons.properties.selections.grid.GridProperty;
 
+import domain.Comparator;
+import domain.DataControl;
+import domain.DomainFactory;
+import domain.DomainPackage;
 import domain.Type;
 import domain.TypeElement;
 
-public class RelationPropertySelection extends GridProperty {
-
-	private List<GridColumn> columnList;
+public class DefaultSearchPropertySelection extends ContextParameterPropertySelection {
 
 	@Override
 	public EObject getModel() {
-		return getEObject();
-	}
+		if (((domain.DataControl) getEObject()).getDefaultSearch() == null) {
+			EditingDomain editingDomain = ((DiagramEditor) this.getPart()).getEditingDomain();
 
-	public RelationPropertySelection() {
-		ds = new RelationDS(this);
+			domain.ContextParameters ctx = DomainFactory.eINSTANCE.createContextParameters();
+			editingDomain.getCommandStack().execute(
+					SetCommand.create(editingDomain, getEObject(),
+							DomainPackage.eINSTANCE.getDataControl_DefaultSearch(), ctx));
+		}
+		return ((domain.DataControl) getEObject()).getDefaultSearch();
 	}
 
 	@Override
 	public List<GridColumn> getColumns() {
 		if (columnList == null) {
 			columnList = new ArrayList<GridColumn>();
-			columnList.add(new MasterColumn(table, this, 0));
-			columnList.add(new DetailColumn(table, this, 1));
+			columnList.add(new FieldsColumn(table, this, 0));
+			columnList.add(new OperationColumn(table, this, 1));
+			columnList.add(new IsExpressioinColumn(table, this, 2));
+			columnList.add(new ValueColumn(table, this, 3));
 		}
 		return columnList;
 	}
@@ -103,62 +114,34 @@ public class RelationPropertySelection extends GridProperty {
 
 	}
 
-	class MasterColumn extends GridDropDownColumn {
+	class FieldsColumn extends GridDropDownColumn {
 
-		public MasterColumn(Table table, GridProperty property, int col) {
+		public FieldsColumn(Table table, GridProperty property, int col) {
 			super(table, property, col);
-			setColumnName("Master column");
-			setDropDownDataAdapter(new LinkMasterField());
+			setColumnName("Column");
+			setDropDownDataAdapter(new ContextParameterRefObjToAttribure());
 		}
 
 		@Override
 		public Map<String, Object> getEnumerationFeatureValues(EObject base) {
+			domain.DataControl dc = (DataControl) this.getProperty().getEObject();
 
-			domain.Link opt = (domain.Link) base;
+			domain.Type type = null;
 
-			if (opt.getParent().getMaster().getCreate() != null
-					&& opt.getParent().getMaster().getCreate().getMethodRef() != null
-					&& opt.getParent().getMaster().getCreate().getMethodRef().getReturnValue() != null) {
-				List<domain.Attribute> attributes = initOptions((Type) opt.getParent().getMaster().getCreate()
-						.getMethodRef().getReturnValue().getTypeRef());
-
-				LinkedHashMap<String, Object> ls = new LinkedHashMap<>();
-				for (domain.Attribute attr : attributes)
-					ls.put(attr.getName(), attr);
-
-				return ls;
+			if (dc.getCreate() != null && dc.getCreate().getMethodRef() != null
+					&& dc.getCreate().getMethodRef().getReturnValue() != null) {
+				type = (Type) dc.getCreate().getMethodRef().getReturnValue().getTypeRef();
 			}
-			return new HashMap<String, Object>();
-		}
-	}
+			if (dc.getBaseType() != null)
+				type = dc.getBaseType();
 
-	class DetailColumn extends GridDropDownColumn {
+			List<domain.Attribute> attributes = initOptions(type);
 
-		public DetailColumn(Table table, GridProperty property, int col) {
-			super(table, property, col);
-			setColumnName("Detail column");
-			setDropDownDataAdapter(new LinkDetailField());
-		}
+			LinkedHashMap<String, Object> ls = new LinkedHashMap<>();
+			for (domain.Attribute attr : attributes)
+				ls.put(attr.getName(), attr);
 
-		@Override
-		public Map<String, Object> getEnumerationFeatureValues(EObject base) {
-			domain.Link opt = (domain.Link) base;
-
-			if (opt.getParent().getDetail().getCreate() != null
-					&& opt.getParent().getDetail().getCreate().getMethodRef() != null
-					&& opt.getParent().getDetail().getCreate().getMethodRef().getReturnValue() != null) {
-
-				List<domain.Attribute> attributes = initOptions((Type) opt.getParent().getDetail().getCreate()
-						.getMethodRef().getReturnValue().getTypeRef());
-
-				LinkedHashMap<String, Object> ls = new LinkedHashMap<>();
-				for (domain.Attribute attr : attributes)
-					ls.put(attr.getName(), attr);
-
-				return ls;
-
-			}
-			return new HashMap<String, Object>();
+			return ls;
 		}
 
 	}
@@ -178,6 +161,43 @@ public class RelationPropertySelection extends GridProperty {
 		}
 		attrs.addAll(type.getAttributes());
 		return attrs;
+	}
+
+	class OperationColumn extends GridDropDownColumn {
+
+		public OperationColumn(Table table, GridProperty property, int col) {
+			super(table, property, col);
+			setColumnName("Operation");
+			setDropDownDataAdapter(new ContextParameterOperation());
+		}
+
+		@Override
+		public Map<String, Object> getEnumerationFeatureValues(EObject base) {
+
+			Map<String, Object> ls = new LinkedHashMap<>();
+
+			for (Comparator cmpval : Comparator.values()) {
+				ls.put(cmpval.getName(), cmpval);
+			}
+
+			return ls;
+		}
+
+	}
+
+	@Override
+	public String contextRefNameExtreactor(domain.ContextParameter obj) {
+		return ((domain.Attribute) obj.getRefObj()).getName();
+	}
+
+	@Override
+	public domain.TypeElement contextRefTypeExtreactor(domain.ContextParameter obj) {
+		return ((domain.Attribute) obj.getRefObj()).getTypeRef();
+	}
+
+	@Override
+	protected DataSource getDS() {
+		return new DefaultContextParametersDS(this);
 	}
 
 }

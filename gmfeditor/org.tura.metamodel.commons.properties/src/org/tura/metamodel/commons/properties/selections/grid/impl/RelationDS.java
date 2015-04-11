@@ -29,19 +29,16 @@ public class RelationDS extends DataSource {
 		domain.Link row = DomainFactory.eINSTANCE.createLink();
 		row.setUid(UUID.randomUUID().toString());
 
-		List<domain.Attribute> choicesOptions = ((RelationPropertySelection) property).new InitOption()
-				.initOptions((Type) ((domain.Relation) (property.getModel()))
-						.getMaster().getCreate().getMethodRef()
+		List<domain.Attribute> choicesOptions = ((RelationPropertySelection) property)
+				.initOptions((Type) ((domain.Relation) (property.getModel())).getMaster().getCreate().getMethodRef()
 						.getReturnValue().getTypeRef());
 
 		if (choicesOptions != null && choicesOptions.size() != 0) {
 			row.setMasterField(choicesOptions.get(0));
 		}
 
-		choicesOptions = ((RelationPropertySelection) property).new InitOption()
-				.initOptions((Type) ((domain.Relation) (property.getModel()))
-						.getDetail().getCreate().getMethodRef()
-						.getReturnValue().getTypeRef());
+		choicesOptions = ((RelationPropertySelection) property).initOptions((Type) ((domain.Relation) (property
+				.getModel())).getDetail().getCreate().getMethodRef().getReturnValue().getTypeRef());
 
 		if (choicesOptions != null && choicesOptions.size() != 0) {
 			row.setDetailField(choicesOptions.get(0));
@@ -50,12 +47,10 @@ public class RelationDS extends DataSource {
 		ArrayList<domain.Link> ls = new ArrayList<domain.Link>();
 		ls.add((domain.Link) row);
 
-		EditingDomain editingDomain = ((DiagramEditor) property.getPart())
-				.getEditingDomain();
+		EditingDomain editingDomain = ((DiagramEditor) property.getPart()).getEditingDomain();
 
 		editingDomain.getCommandStack().execute(
-				AddCommand.create(editingDomain,
-						((domain.Relation) property.getModel()),
+				AddCommand.create(editingDomain, ((domain.Relation) property.getModel()),
 						DomainPackage.eINSTANCE.getRelation_Links(), ls));
 
 		rowList.add(row);
@@ -68,12 +63,10 @@ public class RelationDS extends DataSource {
 		ArrayList<domain.Link> ls = new ArrayList<domain.Link>();
 		ls.add((domain.Link) row);
 
-		EditingDomain editingDomain = ((DiagramEditor) property.getPart())
-				.getEditingDomain();
+		EditingDomain editingDomain = ((DiagramEditor) property.getPart()).getEditingDomain();
 
 		editingDomain.getCommandStack().execute(
-				RemoveCommand.create(editingDomain,
-						((domain.Relation) property.getModel()),
+				RemoveCommand.create(editingDomain, ((domain.Relation) property.getModel()),
 						DomainPackage.eINSTANCE.getRelation_Links(), ls));
 
 		rowList.remove(row);
@@ -86,8 +79,7 @@ public class RelationDS extends DataSource {
 		ArrayList<Object> rows = new ArrayList<Object>();
 		if (property.getModel() != null) {
 
-			List<domain.Link> links = ((domain.Relation) property.getModel())
-					.getLinks();
+			List<domain.Link> links = ((domain.Relation) property.getModel()).getLinks();
 			rows.addAll(links);
 		}
 

@@ -1,4 +1,4 @@
-package org.tura.metamodel.commons.properties.selections.context.impl;
+package org.tura.metamodel.commons.properties.selections.grid.impl;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,11 +10,10 @@ import org.eclipse.gmf.runtime.diagram.ui.parts.DiagramEditor;
 import org.eclipse.gmf.runtime.notation.impl.NodeImpl;
 import org.tura.metamodel.commons.QueryHelper;
 import org.tura.metamodel.commons.properties.selections.grid.GridProperty;
-import org.tura.metamodel.commons.properties.selections.grid.impl.ContextParameterDS;
 
-public class ContextDS extends ContextParameterDS {
+public class TriggerContextParameterDS extends ContextParameterDS {
 
-	public ContextDS(GridProperty property) {
+	public TriggerContextParameterDS(GridProperty property) {
 		super(property);
 	}
 
@@ -27,15 +26,11 @@ public class ContextDS extends ContextParameterDS {
 					.getEditingDomain();
 			List<Object> ls = new ArrayList<Object>();
 
-			domain.Context ctx = (domain.Context) property.getModel();
-			if  (ctx.getExpression() != null && ctx.getExpression().size() != 0 ){
-				domain.ExpressionPart obj = ctx.getExpression().get(ctx.getExpression().size() - 1);
-				if (  obj.getObjRef() != null &&  obj.getObjRef() instanceof domain.Operation){
-					ls = new QueryHelper().findTriggerParameters((domain.Operation)obj.getObjRef() ,ctx, types,
-							editingDomain);
-					
-				}
-			}
+			domain.Trigger trg = (domain.Trigger) property.getModel();
+			if (trg.getMethodRef() == null)
+				return ls;
+			ls = new QueryHelper().findTriggerParameters(trg.getMethodRef(),
+					trg, types, editingDomain);
 
 			return ls;
 		} catch (Exception e) {
