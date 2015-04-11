@@ -4,7 +4,7 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.impl.AdapterImpl;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.ui.IWorkbenchPart;
-import org.tura.metamodel.commons.properties.selections.grid.impl.ContextParameterPropertySelection;
+import org.tura.metamodel.commons.properties.selections.grid.impl.up.ContextParameterPropertySelection;
 
 import domain.ContextValue;
 import domain.DomainPackage;

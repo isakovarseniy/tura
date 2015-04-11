@@ -1,4 +1,4 @@
-package org.tura.metamodel.commons.properties.selections.grid.impl;
+package org.tura.metamodel.commons.properties.selections.grid.impl.up;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.impl.AdapterImpl;

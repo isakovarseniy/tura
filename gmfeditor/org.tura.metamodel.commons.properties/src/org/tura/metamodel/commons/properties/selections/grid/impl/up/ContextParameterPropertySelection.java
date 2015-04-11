@@ -1,4 +1,4 @@
-package org.tura.metamodel.commons.properties.selections.grid.impl;
+package org.tura.metamodel.commons.properties.selections.grid.impl.up;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -84,6 +84,11 @@ public abstract class ContextParameterPropertySelection extends GridProperty {
 		super.createControls(composite, aTabbedPropertySheetPage);
 	}
 
+	
+	
+	
+	
+	
 	class ParameterColumn implements GridColumn {
 
 		// Set the table column property names

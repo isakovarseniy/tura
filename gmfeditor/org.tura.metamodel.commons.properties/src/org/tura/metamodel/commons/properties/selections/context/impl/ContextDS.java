@@ -10,7 +10,7 @@ import org.eclipse.gmf.runtime.diagram.ui.parts.DiagramEditor;
 import org.eclipse.gmf.runtime.notation.impl.NodeImpl;
 import org.tura.metamodel.commons.QueryHelper;
 import org.tura.metamodel.commons.properties.selections.grid.GridProperty;
-import org.tura.metamodel.commons.properties.selections.grid.impl.ContextParameterDS;
+import org.tura.metamodel.commons.properties.selections.grid.impl.up.ContextParameterDS;
 
 public class ContextDS extends ContextParameterDS {
 
