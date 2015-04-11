@@ -33,6 +33,7 @@ import org.tura.metamodel.commons.properties.selections.adapters.helper.TriggerH
 import org.tura.metamodel.commons.properties.selections.grid.DataSource;
 import org.tura.metamodel.commons.properties.selections.grid.GridColumn;
 import org.tura.metamodel.commons.properties.selections.grid.GridProperty;
+import org.tura.metamodel.commons.properties.selections.grid.TextAndDialogCellEditor;
 
 import domain.DomainFactory;
 import domain.DomainPackage;

@@ -1,4 +1,4 @@
-package org.tura.metamodel.commons.properties.selections.grid.impl;
+package org.tura.metamodel.commons.properties.selections.grid.impl.up;
 
 import java.util.ArrayList;
 import java.util.Iterator;

@@ -42,7 +42,7 @@
 
           <propertySection
                tab="property.tab.domain.classifier"
-               class="org.tura.metamodel.commons.properties.selections.grid.impl.CategorizedPropertySelection"
+               class="org.tura.metamodel.commons.properties.selections.grid.impl.up.CategorizedPropertySelection"
                id="org.tura.metamodel.typedefinition.classifier">
               <input type="typedefinition.diagram.edit.parts.TypeEditPart"/>
               <input type="typedefinition.diagram.edit.parts.TypeExtensionEditPart"/>
@@ -387,7 +387,7 @@
 
            <propertySection
                tab="property.tab.domain.control.defaultOrderBy"
-               class="org.tura.metamodel.commons.properties.selections.grid.impl.DefaultOrderByPropertySelection"
+               class="org.tura.metamodel.commons.properties.selections.grid.impl.up.DefaultOrderByPropertySelection"
                id="property.tab.domain.control.defaultOrderBy">
               <input type="control.diagram.edit.parts.DataControlEditPart"/>             
            </propertySection>        
@@ -566,7 +566,7 @@
 
           <propertySection
                tab="property.tab.domain.frmview.classifier"
-               class="org.tura.metamodel.commons.properties.selections.grid.impl.CategorizedPropertySelection"
+               class="org.tura.metamodel.commons.properties.selections.grid.impl.up.CategorizedPropertySelection"
                id="org.tura.metamodel.diagram.frmview.classifier">
 
               <input type="frmview.diagram.edit.parts.CanvasEditPart"/>
@@ -727,7 +727,7 @@
 
           <propertySection
                tab="property.tab.domain.canvas.uielement.classifier"
-               class="org.tura.metamodel.commons.properties.selections.grid.impl.CategorizedPropertySelection"
+               class="org.tura.metamodel.commons.properties.selections.grid.impl.up.CategorizedPropertySelection"
                id="property.tab.domain.canvas.uielement.classifier">
  
                <input type="canvas.diagram.edit.parts.TableEditPart"/>

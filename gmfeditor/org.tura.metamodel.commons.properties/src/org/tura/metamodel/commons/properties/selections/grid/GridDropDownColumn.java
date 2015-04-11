@@ -110,4 +110,8 @@ public abstract class GridDropDownColumn implements GridColumn {
 	public void setColumnName(String columnName) {
 		this.columnName = columnName;
 	}
+
+	public GridProperty getProperty() {
+		return property;
+	}
 }

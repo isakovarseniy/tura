@@ -1,4 +1,4 @@
-package org.tura.metamodel.commons.properties.selections.grid.impl;
+package org.tura.metamodel.commons.properties.selections.grid;
 
 import java.text.MessageFormat;
 
