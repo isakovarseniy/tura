@@ -119,8 +119,19 @@ public class RelationPropertySelection extends GridProperty {
 			if (opt.getParent().getMaster().getCreate() != null
 					&& opt.getParent().getMaster().getCreate().getMethodRef() != null
 					&& opt.getParent().getMaster().getCreate().getMethodRef().getReturnValue() != null) {
-				List<domain.Attribute> attributes = initOptions((Type) opt.getParent().getMaster().getCreate()
-						.getMethodRef().getReturnValue().getTypeRef());
+
+				domain.DataControl dc = opt.getParent().getMaster();
+
+				domain.Type type = null;
+
+				if (dc.getCreate() != null && dc.getCreate().getMethodRef() != null
+						&& dc.getCreate().getMethodRef().getReturnValue() != null) {
+					type = (Type) dc.getCreate().getMethodRef().getReturnValue().getTypeRef();
+				}
+				if (dc.getBaseType() != null)
+					type = dc.getBaseType();
+
+				List<domain.Attribute> attributes = initOptions(type);
 
 				LinkedHashMap<String, Object> ls = new LinkedHashMap<>();
 				for (domain.Attribute attr : attributes)
@@ -148,8 +159,18 @@ public class RelationPropertySelection extends GridProperty {
 					&& opt.getParent().getDetail().getCreate().getMethodRef() != null
 					&& opt.getParent().getDetail().getCreate().getMethodRef().getReturnValue() != null) {
 
-				List<domain.Attribute> attributes = initOptions((Type) opt.getParent().getDetail().getCreate()
-						.getMethodRef().getReturnValue().getTypeRef());
+				domain.DataControl dc = opt.getParent().getDetail();
+
+				domain.Type type = null;
+
+				if (dc.getCreate() != null && dc.getCreate().getMethodRef() != null
+						&& dc.getCreate().getMethodRef().getReturnValue() != null) {
+					type = (Type) dc.getCreate().getMethodRef().getReturnValue().getTypeRef();
+				}
+				if (dc.getBaseType() != null)
+					type = dc.getBaseType();
+
+				List<domain.Attribute> attributes = initOptions(type);
 
 				LinkedHashMap<String, Object> ls = new LinkedHashMap<>();
 				for (domain.Attribute attr : attributes)

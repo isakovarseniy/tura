@@ -56,8 +56,7 @@ public abstract class ContextParameterPropertySelection extends GridProperty {
 
 	public abstract String contextRefNameExtreactor(domain.ContextParameter obj);
 
-	public abstract domain.TypeElement contextRefTypeExtreactor(
-			domain.ContextParameter obj);
+	public abstract domain.TypeElement contextRefTypeExtreactor(domain.ContextParameter obj);
 
 	protected abstract DataSource getDS();
 
@@ -72,11 +71,9 @@ public abstract class ContextParameterPropertySelection extends GridProperty {
 		return columnList;
 	}
 
-	public void createControls(Composite parent,
-			TabbedPropertySheetPage aTabbedPropertySheetPage) {
+	public void createControls(Composite parent, TabbedPropertySheetPage aTabbedPropertySheetPage) {
 
-		Composite composite = aTabbedPropertySheetPage.getWidgetFactory()
-				.createFlatFormComposite(parent);
+		Composite composite = aTabbedPropertySheetPage.getWidgetFactory().createFlatFormComposite(parent);
 
 		GridLayout layout = new GridLayout(1, false);
 		layout.marginWidth = 4;
@@ -84,11 +81,6 @@ public abstract class ContextParameterPropertySelection extends GridProperty {
 		super.createControls(composite, aTabbedPropertySheetPage);
 	}
 
-	
-	
-	
-	
-	
 	class ParameterColumn implements GridColumn {
 
 		// Set the table column property names
@@ -133,10 +125,8 @@ public abstract class ContextParameterPropertySelection extends GridProperty {
 		public Object getValue(Object element) {
 			String result = "";
 			domain.ContextParameter task = (domain.ContextParameter) element;
-			if (((ContextParameterPropertySelection) property)
-					.contextRefNameExtreactor(task) != null)
-				result = ((ContextParameterPropertySelection) property)
-						.contextRefNameExtreactor(task);
+			if (((ContextParameterPropertySelection) property).contextRefNameExtreactor(task) != null)
+				result = ((ContextParameterPropertySelection) property).contextRefNameExtreactor(task);
 			return result;
 		}
 
@@ -144,18 +134,14 @@ public abstract class ContextParameterPropertySelection extends GridProperty {
 		public void modify(Object element, Object value) {
 
 			TableItem item = (TableItem) element;
-			domain.ContextParameter opt = (domain.ContextParameter) item
-					.getData();
+			domain.ContextParameter opt = (domain.ContextParameter) item.getData();
 			String valueString;
 
 			valueString = ((String) value).trim();
-			EditingDomain editingDomain = ((DiagramEditor) getPart())
-					.getEditingDomain();
+			EditingDomain editingDomain = ((DiagramEditor) getPart()).getEditingDomain();
 			/* apply the property change to single selected object */
 			editingDomain.getCommandStack().execute(
-					SetCommand.create(editingDomain, opt,
-							DomainPackage.eINSTANCE.getParameter_Name(),
-							valueString));
+					SetCommand.create(editingDomain, opt, DomainPackage.eINSTANCE.getParameter_Name(), valueString));
 
 		}
 
@@ -221,16 +207,13 @@ public abstract class ContextParameterPropertySelection extends GridProperty {
 		public void modify(Object element, Object value) {
 
 			TableItem item = (TableItem) element;
-			domain.ContextParameter opt = (domain.ContextParameter) item
-					.getData();
+			domain.ContextParameter opt = (domain.ContextParameter) item.getData();
 
-			EditingDomain editingDomain = ((DiagramEditor) getPart())
-					.getEditingDomain();
+			EditingDomain editingDomain = ((DiagramEditor) getPart()).getEditingDomain();
 			/* apply the property change to single selected object */
 			editingDomain.getCommandStack().execute(
 					SetCommand.create(editingDomain, opt.getValue(),
-							DomainPackage.eINSTANCE.getContextValue_Constant(),
-							value));
+							DomainPackage.eINSTANCE.getContextValue_Constant(), value));
 
 			removeExpession(editingDomain, opt);
 			updateConstantValue(editingDomain, opt, null);
@@ -304,10 +287,8 @@ public abstract class ContextParameterPropertySelection extends GridProperty {
 			if (element == null)
 				return;
 			TableItem item = (TableItem) element;
-			domain.ContextParameter opt = (domain.ContextParameter) item
-					.getData();
-			EditingDomain editingDomain = this.property.getEditPart()
-					.getEditingDomain();
+			domain.ContextParameter opt = (domain.ContextParameter) item.getData();
+			EditingDomain editingDomain = this.property.getEditPart().getEditingDomain();
 			if (value instanceof String)
 				updateConstantValue(editingDomain, opt, (String) value);
 			if (value instanceof TreePath)
@@ -321,8 +302,7 @@ public abstract class ContextParameterPropertySelection extends GridProperty {
 			CellEditor editor;
 			if (!obj.getValue().isConstant()) {
 				editor = new TextAndDialogCellEditor(table);
-				((TextAndDialogCellEditor) editor)
-						.setRootObject(getContextRoot());
+				((TextAndDialogCellEditor) editor).setRootObject(getContextRoot());
 			} else {
 				editor = new TextCellEditor(table);
 				((Text) editor.getControl()).setTextLimit(60);
@@ -341,15 +321,13 @@ public abstract class ContextParameterPropertySelection extends GridProperty {
 	private TreeRoot getContextRoot() {
 
 		TreeRoot rootOfTree = new TreeRoot();
-		DiagramImpl root = (DiagramImpl) this.getEditPart().getRoot()
-				.getContents().getModel();
+		DiagramImpl root = (DiagramImpl) this.getEditPart().getRoot().getContents().getModel();
 
 		try {
 			for (Object obj : new QueryHelper().getControlsList(root))
 				rootOfTree.addChild(obj);
 
-			Object obj = new QueryHelper()
-					.getTypesRepository(root.getElement());
+			Object obj = new QueryHelper().getTypesRepository(root.getElement());
 			if (obj != null)
 				rootOfTree.addChild(obj);
 
@@ -357,9 +335,10 @@ public abstract class ContextParameterPropertySelection extends GridProperty {
 			if (obj != null)
 				rootOfTree.addChild(obj);
 
-			rootOfTree.addChild(new QueryHelper().getRootControl(root));
-			
-			
+			obj = new QueryHelper().getRootControl(root);
+			if (obj != null)
+				rootOfTree.addChild(obj);
+
 		} catch (Exception e) {
 			// ignore
 		}
@@ -367,8 +346,7 @@ public abstract class ContextParameterPropertySelection extends GridProperty {
 		return rootOfTree;
 	}
 
-	public void updateExpressionValue(EditingDomain editingDomain,
-			domain.ContextParameter param, TreePath path) {
+	public void updateExpressionValue(EditingDomain editingDomain, domain.ContextParameter param, TreePath path) {
 
 		if (contextRefNameExtreactor(param) == null) {
 			showError("Parameter type is undefined");
@@ -377,8 +355,8 @@ public abstract class ContextParameterPropertySelection extends GridProperty {
 
 		Object obj = path.getLastSegment();
 
-		IReturnTypeProvider provider = (IReturnTypeProvider) Platform
-				.getAdapterManager().getAdapter(obj, IReturnTypeProvider.class);
+		IReturnTypeProvider provider = (IReturnTypeProvider) Platform.getAdapterManager().getAdapter(obj,
+				IReturnTypeProvider.class);
 
 		domain.TypeElement type = null;
 		if (provider != null && provider.getReturnType(obj) != null)
@@ -395,8 +373,7 @@ public abstract class ContextParameterPropertySelection extends GridProperty {
 
 	}
 
-	private boolean checkType(domain.ContextParameter param,
-			domain.TypeElement type) {
+	private boolean checkType(domain.ContextParameter param, domain.TypeElement type) {
 
 		if (type.getUid().equals(contextRefTypeExtreactor(param).getUid()))
 			return true;
@@ -405,8 +382,7 @@ public abstract class ContextParameterPropertySelection extends GridProperty {
 				type = ((TypeReference) type).getTypeRef();
 
 			if (type instanceof Type) {
-				for (Iterator<domain.TypeExtension> itr = ((Type) type)
-						.getExtension().iterator(); itr.hasNext();) {
+				for (Iterator<domain.TypeExtension> itr = ((Type) type).getExtension().iterator(); itr.hasNext();) {
 					TypeElement typeElement = itr.next().getTarget();
 					if (typeElement instanceof Type) {
 						if (checkType(param, typeElement)) {
@@ -414,9 +390,7 @@ public abstract class ContextParameterPropertySelection extends GridProperty {
 						}
 					}
 					if (typeElement instanceof domain.TypeReference) {
-						if (checkType(param,
-								((domain.TypeReference) typeElement)
-										.getTypeRef())) {
+						if (checkType(param, ((domain.TypeReference) typeElement).getTypeRef())) {
 							return true;
 						}
 					}
@@ -430,21 +404,17 @@ public abstract class ContextParameterPropertySelection extends GridProperty {
 	protected List<domain.ExpressionPart> buildExpressionList(TreePath path) {
 		ArrayList<domain.ExpressionPart> ls = new ArrayList<>();
 		for (int i = 0; i < path.getSegmentCount(); i++) {
-			domain.ExpressionPart part = DomainFactory.eINSTANCE
-					.createExpressionPart();
+			domain.ExpressionPart part = DomainFactory.eINSTANCE.createExpressionPart();
 			if (path.getSegment(i) instanceof EObject)
 				part.setObjRef((EObject) path.getSegment(i));
 
 			if (path.getSegment(i) instanceof TriggerHolder)
-				part.setObjRef(((TriggerHolder) path.getSegment(i))
-						.getTrigger());
+				part.setObjRef(((TriggerHolder) path.getSegment(i)).getTrigger());
 
 			if (part.getObjRef() != null)
-				part.setExpressionType(part.getObjRef().getClass()
-						.getSimpleName());
+				part.setExpressionType(part.getObjRef().getClass().getSimpleName());
 			else
-				part.setExpressionType(path.getSegment(i).getClass()
-						.getSimpleName());
+				part.setExpressionType(path.getSegment(i).getClass().getSimpleName());
 
 			part.setOrder(i);
 			ls.add(part);
@@ -456,9 +426,8 @@ public abstract class ContextParameterPropertySelection extends GridProperty {
 	protected String buildExpression(TreePath path) {
 		String value = "";
 		for (int i = 0; i < path.getSegmentCount(); i++) {
-			IWorkbenchAdapter adapter = (IWorkbenchAdapter) Platform
-					.getAdapterManager().getAdapter(path.getSegment(i),
-							IWorkbenchAdapter.class);
+			IWorkbenchAdapter adapter = (IWorkbenchAdapter) Platform.getAdapterManager().getAdapter(path.getSegment(i),
+					IWorkbenchAdapter.class);
 			if (i != 0)
 				value = value + ".";
 			value = value + adapter.getLabel(path.getSegment(i));
@@ -466,34 +435,30 @@ public abstract class ContextParameterPropertySelection extends GridProperty {
 		return value;
 	}
 
-	private void updateConstantValue(EditingDomain editingDomain,
-			domain.ContextParameter param, String value) {
+	private void updateConstantValue(EditingDomain editingDomain, domain.ContextParameter param, String value) {
 		String valueString = null;
 		if (value != null)
 			valueString = ((String) value).trim();
 
 		/* apply the property change to single selected object */
 		editingDomain.getCommandStack().execute(
-				SetCommand.create(editingDomain, param.getValue(),
-						DomainPackage.eINSTANCE.getContextValue_Value(),
+				SetCommand.create(editingDomain, param.getValue(), DomainPackage.eINSTANCE.getContextValue_Value(),
 						valueString));
 
 	}
 
-	public void updateExpession(EditingDomain editingDomain,
-			domain.ContextParameter param, List<domain.ExpressionPart> ls) {
+	public void updateExpession(EditingDomain editingDomain, domain.ContextParameter param,
+			List<domain.ExpressionPart> ls) {
 
 		editingDomain.getCommandStack().execute(
 				SetCommand.create(editingDomain, param.getValue(),
-						DomainPackage.eINSTANCE.getContextValue_Expression(),
-						ls));
+						DomainPackage.eINSTANCE.getContextValue_Expression(), ls));
 	}
 
 	private void showError(final String message) {
 		Display.getDefault().asyncExec(new Runnable() {
 			public void run() {
-				MessageDialog dialog = new MessageDialog(Display.getDefault()
-						.getActiveShell(), "Tura", null, message,
+				MessageDialog dialog = new MessageDialog(Display.getDefault().getActiveShell(), "Tura", null, message,
 						MessageDialog.ERROR, new String[] { "Ok" }, 0);
 				dialog.open();
 			}
@@ -501,16 +466,12 @@ public abstract class ContextParameterPropertySelection extends GridProperty {
 
 	}
 
-	private void removeExpession(EditingDomain editingDomain,
-			domain.ContextParameter param) {
-		if (param.getValue() != null
-				&& param.getValue().getExpression() != null
+	private void removeExpession(EditingDomain editingDomain, domain.ContextParameter param) {
+		if (param.getValue() != null && param.getValue().getExpression() != null
 				&& param.getValue().getExpression().size() != 0) {
 			editingDomain.getCommandStack().execute(
 					RemoveCommand.create(editingDomain, param.getValue(),
-							DomainPackage.eINSTANCE
-									.getContextValue_Expression(), param
-									.getValue().getExpression()));
+							DomainPackage.eINSTANCE.getContextValue_Expression(), param.getValue().getExpression()));
 		}
 	}
 
