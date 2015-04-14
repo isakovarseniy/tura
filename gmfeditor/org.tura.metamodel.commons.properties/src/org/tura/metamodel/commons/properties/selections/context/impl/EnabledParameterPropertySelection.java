@@ -13,11 +13,6 @@ public class EnabledParameterPropertySelection extends DependentContextParameter
 
 	
 	@Override
-	public String contextRefNameExtreactor(domain.ContextParameter  obj) {
-		return ((domain.Parameter) obj.getRefObj()).getName();
-	}
-
-	@Override
 	public domain.TypeElement contextRefTypeExtreactor(domain.ContextParameter  obj) {
 		return ((domain.Parameter) obj.getRefObj()).getTypeRef();
 	}

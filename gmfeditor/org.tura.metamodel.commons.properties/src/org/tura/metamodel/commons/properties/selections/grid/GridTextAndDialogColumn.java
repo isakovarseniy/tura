@@ -60,12 +60,12 @@ public abstract class GridTextAndDialogColumn implements GridColumn {
 
 	@Override
 	public Object getValue(Object element) {
-		return dataAdapter.getFeatureValue(element,null);
+		return dataAdapter.getFeatureValue(modelConverter(element),null);
 	}
 
 	@Override
 	public Object getText(Object element) {
-		return dataAdapter.getFeatureValue(element,null);
+		return dataAdapter.getFeatureValue(modelConverter(element),null);
 	}
 
 	@Override
@@ -75,7 +75,7 @@ public abstract class GridTextAndDialogColumn implements GridColumn {
 
 		TableItem item = (TableItem) element;
 
-		Object data = item.getData();
+		Object data = modelConverter( item.getData());
 		Object obj = ((TreePath) value).getLastSegment();
 		if (checkType(data, obj)) {
 
@@ -108,5 +108,9 @@ public abstract class GridTextAndDialogColumn implements GridColumn {
 
 	public GridProperty getProperty() {
 		return property;
+	}
+	
+	public Object modelConverter(Object model){
+		return model;
 	}
 }

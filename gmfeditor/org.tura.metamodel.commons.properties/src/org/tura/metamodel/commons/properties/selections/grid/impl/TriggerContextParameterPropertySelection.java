@@ -74,12 +74,6 @@ public class TriggerContextParameterPropertySelection extends
 		return domain.MethodPointer.class;
 	}
 
-	
-	@Override
-	public String contextRefNameExtreactor(domain.ContextParameter  obj) {
-		return ((domain.Parameter) obj.getRefObj()).getName();
-	}
-
 	@Override
 	public domain.TypeElement contextRefTypeExtreactor(domain.ContextParameter  obj) {
 		return ((domain.Parameter) obj.getRefObj()).getTypeRef();

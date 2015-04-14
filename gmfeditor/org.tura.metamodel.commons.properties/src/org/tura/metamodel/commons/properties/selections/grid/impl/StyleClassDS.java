@@ -1,26 +1,34 @@
 package org.tura.metamodel.commons.properties.selections.grid.impl;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
+import java.util.UUID;
 
+import org.eclipse.emf.edit.command.RemoveCommand;
+import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.epsilon.common.dt.util.LogUtil;
+import org.eclipse.gmf.runtime.diagram.ui.parts.DiagramEditor;
+import org.tura.metamodel.commons.properties.selections.grid.DataSource;
 import org.tura.metamodel.commons.properties.selections.grid.GridProperty;
 
-public class StyleClassDS extends ContextParameterDS {
+import domain.DomainFactory;
+import domain.DomainPackage;
+import domain.StyleClass;
+
+public class StyleClassDS extends DataSource {
+
+	protected GridProperty property;
 
 	public StyleClassDS(GridProperty property) {
-		super(property);
+		this.property = property;
 	}
 
 	@Override
 	public List<Object> queryRows() {
 		try {
 			ArrayList<Object> rows = new ArrayList<Object>();
-			for (Iterator<domain.ContextParameter> itr = ((domain.ContextParameters) property
-					.getModel()).getParameters().iterator(); itr
-					.hasNext();) {
-				rows.add(itr.next());
+			for (domain.StyleClass style : ((domain.StyleElement) property.getModel()).getStyleClass()) {
+				rows.add(style);
 			}
 
 			return rows;
@@ -28,6 +36,42 @@ public class StyleClassDS extends ContextParameterDS {
 			LogUtil.log(e);
 		}
 		return null;
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public void addRow() {
+		StyleClass styleClass = DomainFactory.eINSTANCE.createStyleClass();
+		styleClass.setUid(UUID.randomUUID().toString());
+
+		domain.Classifier cntVal = DomainFactory.eINSTANCE.createClassifier();
+		cntVal.setUid(UUID.randomUUID().toString());
+		styleClass.setClassifier(cntVal);
+
+		rowList.add(rowList.size(), styleClass);
+		this.notifyAddRow(styleClass);
+
+	}
+
+	@Override
+	public void removeRow(Object row) {
+		ArrayList<domain.StyleClass> ls = new ArrayList<domain.StyleClass>();
+		ls.add((domain.StyleClass) row);
+
+		EditingDomain editingDomain = ((DiagramEditor) property.getPart()).getEditingDomain();
+
+		editingDomain.getCommandStack().execute(
+				RemoveCommand.create(editingDomain, ((domain.StyleElement) property.getModel()),
+						DomainPackage.eINSTANCE.getStyleElement_Style(), ls));
+
+		rowList.remove(row);
+		this.notifyRemoveRow(row);
+
+	}
+
+	@Override
+	public int getSorterID() {
+		return 0;
 	}
 
 }

@@ -4,9 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.edit.command.SetCommand;
-import org.eclipse.emf.edit.domain.EditingDomain;
-import org.eclipse.gmf.runtime.diagram.ui.parts.DiagramEditor;
+import org.eclipse.gmf.runtime.notation.impl.DiagramImpl;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionAdapter;
@@ -15,46 +13,45 @@ import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Table;
 import org.eclipse.ui.views.properties.tabbed.TabbedPropertySheetPage;
-import org.tura.metamodel.commons.properties.selections.grid.DataSource;
+import org.tura.metamodel.commons.QueryHelper;
+import org.tura.metamodel.commons.properties.selections.adapters.helper.TreeRoot;
+import org.tura.metamodel.commons.properties.selections.adapters.textdata.ClassifierHint;
 import org.tura.metamodel.commons.properties.selections.grid.GridColumn;
+import org.tura.metamodel.commons.properties.selections.grid.GridProperty;
+import org.tura.metamodel.commons.properties.selections.grid.GridTextAndDialogColumn;
 
-import domain.DomainFactory;
-import domain.DomainPackage;
+import domain.ContextValue;
+import domain.TypeElement;
 
-public class StyleClassPropertySelection extends ContextParameterPropertySelection {
+public class StyleClassPropertySelection extends ContextValuePropertySelection {
 
+	protected List<GridColumn> columnList;
+	
 	@Override
 	public EObject getModel() {
-		if (((domain.StyleElement) getEObject()).getStyleClass() == null) {
-			EditingDomain editingDomain = ((DiagramEditor) this.getPart())
-					.getEditingDomain();
-
-			domain.ContextParameters ctx = DomainFactory.eINSTANCE
-					.createContextParameters();
-			editingDomain.getCommandStack().execute(
-					SetCommand.create(editingDomain, getEObject(),
-							DomainPackage.eINSTANCE
-									.getStyleElement_StyleClass(), ctx));
-		}
-		return ((domain.StyleElement) getEObject()).getStyleClass();
-	}	
+		return getEObject();
+	}
 	
+	public StyleClassPropertySelection() {
+		ds = new StyleClassDS(this);
+	}	
+
 	@Override
 	public List<GridColumn> getColumns() {
 		if (columnList == null) {
 			columnList = new ArrayList<GridColumn>();
 			columnList.add(new IsExpressioinColumn(table, this, 0));
 			columnList.add(new ValueColumn(table, this, 1));
+			columnList.add(new CategoryColumn(table, this, 2));
 		}
 		return columnList;
 	}
 
-	public void createControls(Composite parent,
-			TabbedPropertySheetPage aTabbedPropertySheetPage) {
+	public void createControls(Composite parent, TabbedPropertySheetPage aTabbedPropertySheetPage) {
 
-		Composite composite = aTabbedPropertySheetPage.getWidgetFactory()
-				.createFlatFormComposite(parent);
+		Composite composite = aTabbedPropertySheetPage.getWidgetFactory().createFlatFormComposite(parent);
 
 		GridLayout layout = new GridLayout(1, false);
 		layout.marginWidth = 4;
@@ -63,10 +60,8 @@ public class StyleClassPropertySelection extends ContextParameterPropertySelecti
 		createButtons(composite, aTabbedPropertySheetPage);
 	}
 
-	private void createButtons(Composite parent,
-			TabbedPropertySheetPage aTabbedPropertySheetPage) {
-		Composite composite = aTabbedPropertySheetPage.getWidgetFactory()
-				.createFlatFormComposite(parent);
+	private void createButtons(Composite parent, TabbedPropertySheetPage aTabbedPropertySheetPage) {
+		Composite composite = aTabbedPropertySheetPage.getWidgetFactory().createFlatFormComposite(parent);
 
 		GridLayout layout = new GridLayout(2, false);
 		layout.marginWidth = 4;
@@ -98,8 +93,7 @@ public class StyleClassPropertySelection extends ContextParameterPropertySelecti
 
 			// Remove the selection and refresh the view
 			public void widgetSelected(SelectionEvent e) {
-				Object row = ((IStructuredSelection) tableViewer.getSelection())
-						.getFirstElement();
+				Object row = ((IStructuredSelection) tableViewer.getSelection()).getFirstElement();
 				if (row != null) {
 					removeRow(row);
 				}
@@ -109,19 +103,48 @@ public class StyleClassPropertySelection extends ContextParameterPropertySelecti
 	}
 
 	@Override
-	public String contextRefNameExtreactor(domain.ContextParameter obj) {
-		return null;
+	public boolean checkType(ContextValue ctxv, TypeElement type, Object model) {
+		return true;
 	}
 
 	@Override
-	public domain.TypeElement contextRefTypeExtreactor(
-			domain.ContextParameter obj) {
-		return null;
+	public ContextValue modelToCtxValue(Object ctxv) {
+		return (ContextValue) ctxv;
 	}
 
-	@Override
-	protected DataSource getDS() {
-		return new StyleClassDS(this);
-	}	
+	class CategoryColumn extends GridTextAndDialogColumn {
+
+		public CategoryColumn(Table table, GridProperty property, int col) {
+			super(table, property, col);
+			setColumnName("Category");
+			setTextDataAdapter(new ClassifierHint());
+		}
+
+		@Override
+		public Object modelConverter(Object model){
+			return ((domain.StyleClass)model).getClassifier();
+			
+		}
+		@Override
+		public TreeRoot getContextRoot() {
+			TreeRoot rootOfTree = new TreeRoot();
+			DiagramImpl root = (DiagramImpl) this.getProperty().getEditPart().getRoot().getContents().getModel();
+
+			try {
+				rootOfTree.addChild(new QueryHelper().getDomainArtifact(root.getElement()));
+			} catch (Exception e) {
+				// ignore
+			}
+			return rootOfTree;
+		}
+
+		@Override
+		public boolean checkType(Object tableItem, Object selectedElement) {
+			if (selectedElement instanceof domain.GenerationHint)
+				return true;
+			return false;
+		}
+	}
+	
 	
 }

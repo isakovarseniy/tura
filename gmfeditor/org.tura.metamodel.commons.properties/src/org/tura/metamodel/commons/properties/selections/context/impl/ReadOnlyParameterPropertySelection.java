@@ -11,11 +11,7 @@ import domain.DomainPackage;
 
 public class ReadOnlyParameterPropertySelection extends DependentContextParameterPropertySelection{
 
-	
-	@Override
-	public String contextRefNameExtreactor(domain.ContextParameter  obj) {
-		return ((domain.Parameter) obj.getRefObj()).getName();
-	}
+
 
 	@Override
 	public domain.TypeElement contextRefTypeExtreactor(domain.ContextParameter  obj) {

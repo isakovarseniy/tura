@@ -897,8 +897,13 @@ class Context extends ContextValue, ContextParameters{
 
 class StyleElement{
     val Context style;
-    val ContextParameters styleClass;
+    val StyleClass[*] styleClass;
 }
+
+class StyleClass extends ContextValue{
+    val Classifier classifier;
+}
+
 
 class NickNamed{
     attr EString nickname;

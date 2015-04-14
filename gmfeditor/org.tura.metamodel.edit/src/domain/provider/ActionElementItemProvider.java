@@ -177,11 +177,9 @@ public class ActionElementItemProvider
 
     boolean qualify =
       childFeature == DomainPackage.Literals.STYLE_ELEMENT__STYLE ||
-      childFeature == DomainPackage.Literals.STYLE_ELEMENT__STYLE_CLASS ||
       childFeature == DomainPackage.Literals.UIELEMENT__ENABLED ||
       childFeature == DomainPackage.Literals.UIELEMENT__REQUIRED ||
-      childFeature == DomainPackage.Literals.UIELEMENT__READ_ONLY ||
-      childFeature == DomainPackage.Literals.ACTION_ELEMENT__TRIGGERS;
+      childFeature == DomainPackage.Literals.UIELEMENT__READ_ONLY;
 
     if (qualify)
     {

@@ -2974,6 +2974,31 @@ public class DomainItemProviderAdapterFactory extends DomainAdapterFactory imple
   }
 
   /**
+   * This keeps track of the one adapter used for all {@link domain.StyleClass} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected StyleClassItemProvider styleClassItemProvider;
+
+  /**
+   * This creates an adapter for a {@link domain.StyleClass}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createStyleClassAdapter()
+  {
+    if (styleClassItemProvider == null)
+    {
+      styleClassItemProvider = new StyleClassItemProvider(this);
+    }
+
+    return styleClassItemProvider;
+  }
+
+  /**
    * This keeps track of the one adapter used for all {@link domain.NickNamed} instances.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -4500,6 +4525,7 @@ public class DomainItemProviderAdapterFactory extends DomainAdapterFactory imple
     if (contextParametersItemProvider != null) contextParametersItemProvider.dispose();
     if (contextItemProvider != null) contextItemProvider.dispose();
     if (styleElementItemProvider != null) styleElementItemProvider.dispose();
+    if (styleClassItemProvider != null) styleClassItemProvider.dispose();
     if (nickNamedItemProvider != null) nickNamedItemProvider.dispose();
     if (uielementItemProvider != null) uielementItemProvider.dispose();
     if (sourcesPointerItemProvider != null) sourcesPointerItemProvider.dispose();

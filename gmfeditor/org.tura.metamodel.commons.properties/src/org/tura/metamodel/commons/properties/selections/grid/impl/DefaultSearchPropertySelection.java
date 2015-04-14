@@ -186,11 +186,6 @@ public class DefaultSearchPropertySelection extends ContextParameterPropertySele
 	}
 
 	@Override
-	public String contextRefNameExtreactor(domain.ContextParameter obj) {
-		return ((domain.Attribute) obj.getRefObj()).getName();
-	}
-
-	@Override
 	public domain.TypeElement contextRefTypeExtreactor(domain.ContextParameter obj) {
 		return ((domain.Attribute) obj.getRefObj()).getTypeRef();
 	}

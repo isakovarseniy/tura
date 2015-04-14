@@ -594,6 +594,9 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//StyleElement/style"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//StyleElement/styleClass"/>
     </genClasses>
+    <genClasses ecoreClass="domain.ecore#//StyleClass">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//StyleClass/classifier"/>
+    </genClasses>
     <genClasses ecoreClass="domain.ecore#//NickNamed">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//NickNamed/nickname"/>
     </genClasses>

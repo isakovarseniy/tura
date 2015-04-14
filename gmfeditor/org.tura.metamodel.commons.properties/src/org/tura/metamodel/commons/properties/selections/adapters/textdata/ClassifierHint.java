@@ -9,6 +9,8 @@ public class ClassifierHint  implements TextDataAdapter {
 
 	@Override
 	public Object getFeatureValue(Object eObject, EStructuralFeature feature) {
+		if (eObject == null)
+			return "";
 		domain.Classifier opt = (domain.Classifier) eObject;
 		if (opt.getHint() == null || opt.getHint().getName() == null)
 			return "";

@@ -5,7 +5,7 @@ package domain.provider;
 
 import domain.DomainFactory;
 import domain.DomainPackage;
-import domain.ViewPort;
+import domain.StyleClass;
 
 import java.util.Collection;
 import java.util.List;
@@ -15,24 +15,22 @@ import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
 
-import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
-import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link domain.ViewPort} object.
+ * This is the item provider adapter for a {@link domain.StyleClass} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class ViewPortItemProvider
-  extends ViewElementItemProvider
+public class StyleClassItemProvider
+  extends ContextValueItemProvider
   implements
     IEditingDomainItemProvider,
     IStructuredItemContentProvider,
@@ -46,7 +44,7 @@ public class ViewPortItemProvider
    * <!-- end-user-doc -->
    * @generated
    */
-  public ViewPortItemProvider(AdapterFactory adapterFactory)
+  public StyleClassItemProvider(AdapterFactory adapterFactory)
   {
     super(adapterFactory);
   }
@@ -64,80 +62,8 @@ public class ViewPortItemProvider
     {
       super.getPropertyDescriptors(object);
 
-      addNicknamePropertyDescriptor(object);
-      addUidPropertyDescriptor(object);
-      addNamePropertyDescriptor(object);
     }
     return itemPropertyDescriptors;
-  }
-
-  /**
-   * This adds a property descriptor for the Nickname feature.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected void addNicknamePropertyDescriptor(Object object)
-  {
-    itemPropertyDescriptors.add
-      (createItemPropertyDescriptor
-        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-         getResourceLocator(),
-         getString("_UI_NickNamed_nickname_feature"),
-         getString("_UI_PropertyDescriptor_description", "_UI_NickNamed_nickname_feature", "_UI_NickNamed_type"),
-         DomainPackage.Literals.NICK_NAMED__NICKNAME,
-         true,
-         false,
-         false,
-         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-         null,
-         null));
-  }
-
-  /**
-   * This adds a property descriptor for the Uid feature.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected void addUidPropertyDescriptor(Object object)
-  {
-    itemPropertyDescriptors.add
-      (createItemPropertyDescriptor
-        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-         getResourceLocator(),
-         getString("_UI_ViewPort_uid_feature"),
-         getString("_UI_PropertyDescriptor_description", "_UI_ViewPort_uid_feature", "_UI_ViewPort_type"),
-         DomainPackage.Literals.VIEW_PORT__UID,
-         true,
-         false,
-         false,
-         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-         null,
-         null));
-  }
-
-  /**
-   * This adds a property descriptor for the Name feature.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected void addNamePropertyDescriptor(Object object)
-  {
-    itemPropertyDescriptors.add
-      (createItemPropertyDescriptor
-        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-         getResourceLocator(),
-         getString("_UI_ViewPort_name_feature"),
-         getString("_UI_PropertyDescriptor_description", "_UI_ViewPort_name_feature", "_UI_ViewPort_type"),
-         DomainPackage.Literals.VIEW_PORT__NAME,
-         true,
-         false,
-         false,
-         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-         null,
-         null));
   }
 
   /**
@@ -154,7 +80,7 @@ public class ViewPortItemProvider
     if (childrenFeatures == null)
     {
       super.getChildrenFeatures(object);
-      childrenFeatures.add(DomainPackage.Literals.VIEW_PORT__VIEW_PORT_TRIGGER);
+      childrenFeatures.add(DomainPackage.Literals.STYLE_CLASS__CLASSIFIER);
     }
     return childrenFeatures;
   }
@@ -174,7 +100,7 @@ public class ViewPortItemProvider
   }
 
   /**
-   * This returns ViewPort.gif.
+   * This returns StyleClass.gif.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -182,7 +108,7 @@ public class ViewPortItemProvider
   @Override
   public Object getImage(Object object)
   {
-    return overlayImage(object, getResourceLocator().getImage("full/obj16/ViewPort"));
+    return overlayImage(object, getResourceLocator().getImage("full/obj16/StyleClass"));
   }
 
   /**
@@ -194,10 +120,10 @@ public class ViewPortItemProvider
   @Override
   public String getText(Object object)
   {
-    String label = ((ViewPort)object).getName();
+    String label = ((StyleClass)object).getUid();
     return label == null || label.length() == 0 ?
-      getString("_UI_ViewPort_type") :
-      getString("_UI_ViewPort_type") + " " + label;
+      getString("_UI_StyleClass_type") :
+      getString("_UI_StyleClass_type") + " " + label;
   }
 
   /**
@@ -212,14 +138,9 @@ public class ViewPortItemProvider
   {
     updateChildren(notification);
 
-    switch (notification.getFeatureID(ViewPort.class))
+    switch (notification.getFeatureID(StyleClass.class))
     {
-      case DomainPackage.VIEW_PORT__NICKNAME:
-      case DomainPackage.VIEW_PORT__UID:
-      case DomainPackage.VIEW_PORT__NAME:
-        fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-        return;
-      case DomainPackage.VIEW_PORT__VIEW_PORT_TRIGGER:
+      case DomainPackage.STYLE_CLASS__CLASSIFIER:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
         return;
     }
@@ -240,8 +161,8 @@ public class ViewPortItemProvider
 
     newChildDescriptors.add
       (createChildParameter
-        (DomainPackage.Literals.VIEW_PORT__VIEW_PORT_TRIGGER,
-         DomainFactory.eINSTANCE.createViewPortTrigger()));
+        (DomainPackage.Literals.STYLE_CLASS__CLASSIFIER,
+         DomainFactory.eINSTANCE.createClassifier()));
   }
 
 }

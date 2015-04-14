@@ -1331,7 +1331,11 @@
   <eClassifiers xsi:type="ecore:EClass" name="StyleElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="style" eType="#//Context"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="styleClass" eType="#//ContextParameters"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="styleClass" upperBound="-1"
+        eType="#//StyleClass" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="StyleClass" eSuperTypes="#//ContextValue">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="classifier" eType="#//Classifier"
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="NickNamed">

@@ -9,17 +9,10 @@ import org.tura.metamodel.commons.properties.selections.grid.DataSource;
 import domain.DomainFactory;
 import domain.DomainPackage;
 
-public class RequiredParameterPropertySelection extends
-		DependentContextParameterPropertySelection {
+public class RequiredParameterPropertySelection extends DependentContextParameterPropertySelection {
 
 	@Override
-	public String contextRefNameExtreactor(domain.ContextParameter obj) {
-		return ((domain.Parameter) obj.getRefObj()).getName();
-	}
-
-	@Override
-	public domain.TypeElement contextRefTypeExtreactor(
-			domain.ContextParameter obj) {
+	public domain.TypeElement contextRefTypeExtreactor(domain.ContextParameter obj) {
 		return ((domain.Parameter) obj.getRefObj()).getTypeRef();
 	}
 
@@ -29,11 +22,9 @@ public class RequiredParameterPropertySelection extends
 		domain.Uielement el = ((domain.Uielement) getEObject());
 		if (el.getRequired() == null) {
 
-			EditingDomain editingDomain = ((DiagramEditor) getPart())
-					.getEditingDomain();
+			EditingDomain editingDomain = ((DiagramEditor) getPart()).getEditingDomain();
 			editingDomain.getCommandStack().execute(
-					SetCommand.create(editingDomain, el,
-							DomainPackage.eINSTANCE.getUielement_Required(),
+					SetCommand.create(editingDomain, el, DomainPackage.eINSTANCE.getUielement_Required(),
 							DomainFactory.eINSTANCE.createContext()));
 
 		}

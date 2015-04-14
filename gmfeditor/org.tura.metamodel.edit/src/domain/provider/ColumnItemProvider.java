@@ -360,7 +360,6 @@ public class ColumnItemProvider
 
     boolean qualify =
       childFeature == DomainPackage.Literals.STYLE_ELEMENT__STYLE ||
-      childFeature == DomainPackage.Literals.STYLE_ELEMENT__STYLE_CLASS ||
       childFeature == DomainPackage.Literals.MULTI_LANG_LABEL__MULTI_LANG_LABEL;
 
     if (qualify)
