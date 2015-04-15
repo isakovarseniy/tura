@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
+import org.eclipse.emf.edit.command.AddCommand;
 import org.eclipse.emf.edit.command.RemoveCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.epsilon.common.dt.util.LogUtil;
@@ -48,6 +49,15 @@ public class StyleClassDS extends DataSource {
 		cntVal.setUid(UUID.randomUUID().toString());
 		styleClass.setClassifier(cntVal);
 
+		EditingDomain editingDomain = ((DiagramEditor) property.getPart()).getEditingDomain();
+
+		ArrayList<domain.StyleClass> ls = new ArrayList<domain.StyleClass>();
+		ls.add(styleClass);
+
+		editingDomain.getCommandStack().execute(
+				AddCommand.create(editingDomain, ((domain.StyleElement) property.getModel()),
+						DomainPackage.eINSTANCE.getStyleElement_StyleClass(), ls));
+
 		rowList.add(rowList.size(), styleClass);
 		this.notifyAddRow(styleClass);
 
@@ -62,7 +72,7 @@ public class StyleClassDS extends DataSource {
 
 		editingDomain.getCommandStack().execute(
 				RemoveCommand.create(editingDomain, ((domain.StyleElement) property.getModel()),
-						DomainPackage.eINSTANCE.getStyleElement_Style(), ls));
+						DomainPackage.eINSTANCE.getStyleElement_StyleClass(), ls));
 
 		rowList.remove(row);
 		this.notifyRemoveRow(row);
