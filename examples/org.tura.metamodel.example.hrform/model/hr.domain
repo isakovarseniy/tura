@@ -2244,13 +2244,6 @@
             <styleClass/>
             <children xsi:type="tura.domain:Button" uid="0233c086-c837-4de8-8900-8b4bb37ced89" onEventRefreshArea="bee23d39-6e59-450f-b696-94cf4c907c86 ce2aedb4-2308-40d7-b9aa-c9819da6e0f4 92ea6c50-dc39-4ba0-bb76-b3ca2e161fe5" label="Add">
               <style/>
-              <styleClass uid="8f9ea4c2-26c6-4431-aa84-f3a0389b2489" value="Application styles.HR styles.HR Controller styles.ui-icon-plus">
-                <expression objRef="c7379293-bc50-4b7e-8cc9-917bc2dd97aa" expressionType="ApplicationStyleImpl"/>
-                <expression objRef="a9b99a7f-03c7-4b89-82c2-b3e1f0f326d2" order="1" expressionType="StylesPackageImpl"/>
-                <expression objRef="bc917c9e-7594-4ff8-9157-a9e6cf5ac5f5" order="2" expressionType="StyleLibraryImpl"/>
-                <expression objRef="e92845fc-7570-455f-9580-623183bccc0f" order="3" expressionType="StyleSetImpl"/>
-                <classifier uid="4e167a66-dc15-45d0-b0ab-65674e3c721c"/>
-              </styleClass>
               <triggers packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="97a1a7c3-5e08-48b1-82d0-8a35fa5a13e9" fakePackageName="Base package" fakeTypeName="System library" methodRef="111886f3-7b14-4394-9454-3e2df8cd55e7" fakeMethod="Create row" uid="5d05a734-26b5-4263-81f7-0629e8cfad8a">
                 <parameters uid="b7420da8-37a6-4103-b7c7-93fb097538c7" refObj="96c4a5f8-171b-412b-98b8-23f37e1c5d68">
                   <value uid="182240a7-3036-4782-adb6-00c13d7274c9" value="Data controls.Company">
