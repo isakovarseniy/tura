@@ -1,7 +1,7 @@
 [%@template
 operation  domain::LayerHolder  draw(hash) { 
 %]
-     <p:panelGrid [%=self.mkUIDBinding()%] columns="[%=self.columns%]"  [%=self.styleAttributes(hash)%] >
+     <p:panelGrid [%=self.mkUIDBinding()%] columns="[%=self.columns%]"  [%=self.styleAttributes(hash)%]  columnsClasses="[%=self.styleAttributes("UIGeneration","Primefaces","panel.columns.class")%]">
      [%=self.generateBody(hash)%]     
      </p:panelGrid>
 [%

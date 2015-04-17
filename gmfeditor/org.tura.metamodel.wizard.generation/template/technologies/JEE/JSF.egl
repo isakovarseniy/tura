@@ -52,22 +52,41 @@ operation domain::Uielement  uiElementAttributes(hash){
 
 [%@template
 operation domain::StyleElement  styleAttributes(hash){
+      var util = new Native('org.tura.metamodel.commons.Util');
+ 
      if (self.style <> null  and  self.style.value <> null  ){
-        var value = buildParameterizedExpression(self.style);
-        if (self.style.constant = false )
-           value="#{"+value+"}";
-     
+        var value = util.apostropheRemover( buildParameterizedExpression(self.style));
      %]style="[%=value%]"[%}
 
-     if (self.styleClass <> null  and self.styleClass.parameters <> null  ){%]styleClass="[%
+     if (self.styleClass <> null  and self.styleClass.size() <> 0 ){%]styleClass="[%
       var first = 0;
-      for (class in self.styleClass.parameters ){ 
-          if ( first = 0){%],[%}
-         var value = buildParameterizedExpression(class);
-         if (class.constant = false )
-              value="#{"+value+"}";%][%=buildParameterizedExpression(class)%][%} 
+      for (class in self.styleClass ){ 
+        if (class.classifier = null or( class.classifier <> null   and class.classifier.hint = null )){
+      
+          if ( first <> 0){%] [%}
+         var value = util.apostropheRemover(buildExpression(class));
+         first=1;
+         %][%=value%][%}} 
      %]"[%
      }
+}
+%]
+
+[%@template
+operation domain::StyleElement  styleAttributes(artifactLib:String, artifact: String, classifier : String):String{
+      var util = new Native('org.tura.metamodel.commons.Util');
+      var value = "";
+     if (self.styleClass <> null  and self.styleClass.size() <> 0 ){%
+      var first = 0;
+      for (class in self.styleClass ){ 
+         if (class.classifier <> null and class.classifier.findHint(artifactLib,artifact,classifier)){
+             if ( first <> 0){value = value+" ";}
+             value = value + util.apostropheRemover(buildExpression(class));
+             first=1;
+           }
+         } 
+     }
+     return value;
 }
 %]
 
@@ -76,8 +95,6 @@ operation domain::StyleElement  styleAttributes(hash){
 operation domain::Uielement  enabled(hash){
      if (self.enabled <> null and self.enabled.value <> null){
          var value = buildParameterizedExpression(self.enabled);
-         if (self.enabled.constant = false )
-            value = "#{"+value+"}";
             
      %]enabled="[%=value%]"[%}
 }
@@ -87,8 +104,6 @@ operation domain::Uielement  enabled(hash){
 operation domain::Uielement  required(hash){
      if (self.required <> null  and self.required.value <> null){
          var value = buildParameterizedExpression(self.required);
-         if (self.required.constant = false )
-            value = "#{"+value+"}";
             
      %]required="[%=value%]"[%}
 }
@@ -99,8 +114,6 @@ operation domain::Uielement  required(hash){
 operation domain::Uielement  readonly(hash){
      if (self.readOnly <> null  and self.readOnly.value <> null){
           var value = buildParameterizedExpression(self.readOnly);
-          if (self.readOnly.constant = false )
-            value = "#{"+value+"}";
             
      %]readonly="[%=value%]"[%}
 }

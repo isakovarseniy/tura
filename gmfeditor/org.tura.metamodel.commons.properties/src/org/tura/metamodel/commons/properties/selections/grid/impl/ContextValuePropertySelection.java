@@ -224,6 +224,13 @@ public abstract class ContextValuePropertySelection extends GridProperty {
 			if (obj != null)
 				rootOfTree.addChild(obj);
 
+			obj = new QueryHelper().getApplicationStyle(root);
+
+			if (obj != null) {
+				rootOfTree.addChild(obj);
+			}
+			
+			
 		} catch (Exception e) {
 			// ignore
 		}

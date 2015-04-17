@@ -37,3 +37,18 @@ operation Categorized findAllClassifiers( artifactLib:String, artifact: String, 
       }
       return list;
 }
+
+
+operation Classifier findHint( artifactLib:String, artifact: String, classifier : String):Boolean {
+     if (hint.getHint()= null )
+          return false;
+           
+     if (classifier.equals(hint.getHint.getName())){
+        if ( artifact.equals(  hint.getHint.eContainer().getName)){
+           if ( artifactLib.equals( hint.getHint.eContainer().getParent().getParent().getName()) ){
+                     return true;
+           }
+        }
+     }
+     return false;
+}

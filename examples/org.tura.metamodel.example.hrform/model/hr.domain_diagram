@@ -3716,6 +3716,13 @@
           <element xmi:type="tura.domain:GenerationHint" href="hr.domain#b21dc9b3-20fd-42ff-bb82-79acc378d3e5"/>
           <layoutConstraint xmi:type="notation:Bounds" xmi:id="_I608077IEeSNmLC5wc9Hbw"/>
         </children>
+        <children xmi:type="notation:Node" xmi:id="_DVLPUOSNEeSMYuQTNB06MQ" type="703006">
+          <children xmi:type="notation:DecorationNode" xmi:id="_DVL2YOSNEeSMYuQTNB06MQ" type="705007"/>
+          <styles xmi:type="notation:DescriptionStyle" xmi:id="_DVLPUeSNEeSMYuQTNB06MQ"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_DVLPUuSNEeSMYuQTNB06MQ" fontName=".Helvetica Neue DeskInterface"/>
+          <element xmi:type="tura.domain:GenerationHint" href="hr.domain#a5271015-ac7e-4ab7-a90b-9826e3f2c660"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_DVLPU-SNEeSMYuQTNB06MQ"/>
+        </children>
         <styles xmi:type="notation:SortingStyle" xmi:id="_edejWrfgEeSgNOvTzdQqew"/>
         <styles xmi:type="notation:FilteringStyle" xmi:id="_edejW7fgEeSgNOvTzdQqew"/>
       </children>
