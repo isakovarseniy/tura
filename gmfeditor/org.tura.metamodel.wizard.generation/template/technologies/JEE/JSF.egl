@@ -72,11 +72,11 @@ operation domain::StyleElement  styleAttributes(hash){
 }
 %]
 
-[%@template
+[%
 operation domain::StyleElement  styleAttributes(artifactLib:String, artifact: String, classifier : String):String{
       var util = new Native('org.tura.metamodel.commons.Util');
       var value = "";
-     if (self.styleClass <> null  and self.styleClass.size() <> 0 ){%
+     if (self.styleClass <> null  and self.styleClass.size() <> 0 ){
       var first = 0;
       for (class in self.styleClass ){ 
          if (class.classifier <> null and class.classifier.findHint(artifactLib,artifact,classifier)){

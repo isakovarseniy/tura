@@ -40,12 +40,12 @@ operation Categorized findAllClassifiers( artifactLib:String, artifact: String, 
 
 
 operation Classifier findHint( artifactLib:String, artifact: String, classifier : String):Boolean {
-     if (hint.getHint()= null )
+     if (self.getHint()= null )
           return false;
            
-     if (classifier.equals(hint.getHint.getName())){
-        if ( artifact.equals(  hint.getHint.eContainer().getName)){
-           if ( artifactLib.equals( hint.getHint.eContainer().getParent().getParent().getName()) ){
+     if (classifier.equals(self.getHint.getName())){
+        if ( artifact.equals(  self.getHint.eContainer().getName)){
+           if ( artifactLib.equals( self.getHint.eContainer().getParent().getParent().getName()) ){
                      return true;
            }
         }
