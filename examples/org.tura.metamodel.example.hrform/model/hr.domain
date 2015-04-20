@@ -2169,20 +2169,6 @@
   <tura.domain:CanvasView uid="86803f23-9d44-4ebc-81e9-9a63b4a770ac" parent="e018aa58-2660-4bba-a75d-1674147458e7">
     <baseCanvas uid="c5f8ac47-356e-4c17-84db-fcf0a5037ca7">
       <style/>
-      <styleClass uid="63fb5362-593c-49c5-beb9-24fe044788bc" value="Application styles.HR styles.HR Controller styles.ui-icon-plus">
-        <expression objRef="c7379293-bc50-4b7e-8cc9-917bc2dd97aa" expressionType="ApplicationStyleImpl"/>
-        <expression objRef="a9b99a7f-03c7-4b89-82c2-b3e1f0f326d2" order="1" expressionType="StylesPackageImpl"/>
-        <expression objRef="bc917c9e-7594-4ff8-9157-a9e6cf5ac5f5" order="2" expressionType="StyleLibraryImpl"/>
-        <expression objRef="e92845fc-7570-455f-9580-623183bccc0f" order="3" expressionType="StyleSetImpl"/>
-        <classifier uid="70016443-b3c7-496a-8a21-439994b1646b" hint="a5271015-ac7e-4ab7-a90b-9826e3f2c660"/>
-      </styleClass>
-      <styleClass uid="a875e04f-094e-4330-8433-59f425a926e9" value="Application styles.HR styles.HR Controller styles.ui-icon-minus">
-        <expression objRef="c7379293-bc50-4b7e-8cc9-917bc2dd97aa" expressionType="ApplicationStyleImpl"/>
-        <expression objRef="a9b99a7f-03c7-4b89-82c2-b3e1f0f326d2" order="1" expressionType="StylesPackageImpl"/>
-        <expression objRef="bc917c9e-7594-4ff8-9157-a9e6cf5ac5f5" order="2" expressionType="StyleLibraryImpl"/>
-        <expression objRef="a1d3f2ac-caea-4f0b-a523-59edc4fd19b5" order="3" expressionType="StyleSetImpl"/>
-        <classifier uid="dc62ed8e-6a45-4577-a793-4ad5e092cb90" hint="a5271015-ac7e-4ab7-a90b-9826e3f2c660"/>
-      </styleClass>
       <children xsi:type="tura.domain:LayerHolder" uid="cae32081-1631-4110-9d0f-5a5b1cd5e23a" columns="2">
         <style/>
         <children xsi:type="tura.domain:LayerHolder" uid="b4779d71-722f-48ae-98c1-4d1e12202f93">
@@ -2244,6 +2230,7 @@
             <styleClass/>
             <children xsi:type="tura.domain:Button" uid="0233c086-c837-4de8-8900-8b4bb37ced89" onEventRefreshArea="bee23d39-6e59-450f-b696-94cf4c907c86 ce2aedb4-2308-40d7-b9aa-c9819da6e0f4 92ea6c50-dc39-4ba0-bb76-b3ca2e161fe5" label="Add">
               <style/>
+              <enabled/>
               <triggers packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="97a1a7c3-5e08-48b1-82d0-8a35fa5a13e9" fakePackageName="Base package" fakeTypeName="System library" methodRef="111886f3-7b14-4394-9454-3e2df8cd55e7" fakeMethod="Create row" uid="5d05a734-26b5-4263-81f7-0629e8cfad8a">
                 <parameters uid="b7420da8-37a6-4103-b7c7-93fb097538c7" refObj="96c4a5f8-171b-412b-98b8-23f37e1c5d68">
                   <value uid="182240a7-3036-4782-adb6-00c13d7274c9" value="Data controls.Company">
