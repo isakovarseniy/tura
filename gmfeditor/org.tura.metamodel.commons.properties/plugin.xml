@@ -757,6 +757,7 @@
                class="org.tura.metamodel.commons.properties.selections.context.impl.ButtonIconPropertySelection"
                id="property.tab.domain.canvas.uielement.button.icon">
               <input type="canvas.diagram.edit.parts.ButtonEditPart"/>
+              <input type="canvas.diagram.edit.parts.Button2EditPart"/>
            </propertySection>        
 
 
@@ -769,6 +770,8 @@
               <input type="canvas.diagram.edit.parts.ButtonEditPart"/>
               <input type="canvas.diagram.edit.parts.LabelEditPart"/>
               <input type="canvas.diagram.edit.parts.ColumnEditPart"/>
+  
+              <input type="canvas.diagram.edit.parts.Button2EditPart"/>
               
            </propertySection>        
 
@@ -932,6 +935,9 @@
               <input type="canvas.diagram.edit.parts.Tree2EditPart"/>
               <input type="canvas.diagram.edit.parts.DropDownSelection2EditPart"/>
               <input type="canvas.diagram.edit.parts.Button2EditPart"/>
+              
+              <input type="canvas.diagram.edit.parts.Label2EditPart"/>
+              <input type="canvas.diagram.edit.parts.LabelEditPart"/>
 
            </propertySection>        
 

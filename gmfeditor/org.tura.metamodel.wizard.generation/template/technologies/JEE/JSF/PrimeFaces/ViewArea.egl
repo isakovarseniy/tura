@@ -1,10 +1,7 @@
 [%@template
 operation ViewArea draw(hash) { 
 %]
-<p:panelGrid   [%=self.canvasView.baseCanvas.mkUIDBinding()%]  columns="[%=self.canvasView.baseCanvas.columns%]" [%=self.canvasView.baseCanvas.styleAttributes(hash)%]>
-            
        [%=self.canvasView.baseCanvas.draw(hash)%]
-</p:panelGrid>
 [%
 }
 %]

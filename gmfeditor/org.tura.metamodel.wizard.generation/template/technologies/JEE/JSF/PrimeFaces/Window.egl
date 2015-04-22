@@ -36,7 +36,6 @@ operation domain::Window generateBody(hash){
 						<ui:insert name="title">[%=title%]</ui:insert>
 					</title>
 					<meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
-					<ui:insert name="head">[%=title%]</ui:insert>
 				</h:head>
 
 				<h:body>

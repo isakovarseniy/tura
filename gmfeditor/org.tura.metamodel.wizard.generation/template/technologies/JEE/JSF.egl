@@ -80,7 +80,7 @@ operation domain::StyleElement  styleAttributes(artifactLib:String, artifact: St
       var first = 0;
       for (class in self.styleClass ){ 
          if (class.classifier <> null and class.classifier.findHint(artifactLib,artifact,classifier)){
-             if ( first <> 0){value = value+" ";}
+             if ( first <> 0){value = value+",";}
              value = value + util.apostropheRemover(buildExpression(class));
              first=1;
            }
