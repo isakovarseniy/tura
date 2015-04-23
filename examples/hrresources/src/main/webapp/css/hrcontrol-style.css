@@ -1,5 +1,5 @@
 .add-row-button {
-    background-image: url(http://localhost:8080/hrresources-2.0/images/24x24/add01.png) !important;
+    background-image: url(/hrresources-2.0/images/24x24/add01.png) !important;
     width: 24px;
     height: 24px;
     margin-top: -2px !important;
@@ -9,7 +9,7 @@
 
 
 .add-child-row-button {
-    background-image: url(http://localhost:8080/hrresources-2.0/images/24x24/arrow_right01.png) !important;
+    background-image: url(/hrresources-2.0/images/24x24/arrow_right01.png) !important;
     width: 24px;
     height: 24px;
     margin-top: -2px !important;
@@ -18,7 +18,7 @@
 }
 
 .save-button {
-    background-image: url(http://localhost:8080/hrresources-2.0/images/24x24/checkmark01.png) !important;
+    background-image: url(/hrresources-2.0/images/24x24/checkmark01.png) !important;
     width: 24px;
     height: 24px;
     margin-top: -2px !important;
@@ -27,7 +27,7 @@
 }
 
 .popup-details-button{
-    background-image: url(http://localhost:8080/hrresources-2.0/images/24x24/magnifying_glass01.png) !important;
+    background-image: url(/hrresources-2.0/images/24x24/magnifying_glass01.png) !important;
     width: 24px;
     height: 24px;
     margin-top: -2px !important;
@@ -36,7 +36,7 @@
 }
 
 .rallback-button {
-    background-image: url(http://localhost:8080/hrresources-2.0/images/24x24/backup01.png) !important;
+    background-image: url(/hrresources-2.0/images/24x24/backup01.png) !important;
     width: 24px;
     height: 24px;
     margin-top: -2px !important;
@@ -54,7 +54,7 @@
 }
 
 .form-parameter-button {
-    background-image: url(http://localhost:8080/hrresources-2.0/images/24x24/gear01.png) !important;
+    background-image: url(/hrresources-2.0/images/24x24/gear01.png) !important;
     width: 24px;
     height: 24px;
     margin-top: -2px !important;
