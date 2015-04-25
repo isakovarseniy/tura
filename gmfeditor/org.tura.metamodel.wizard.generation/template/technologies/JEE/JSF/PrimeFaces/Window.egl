@@ -40,22 +40,6 @@ operation domain::Window generateBody(hash){
 
 				<h:body>
 				
-[%
-
-		var app = form.eContainer().getParent().getParent().getParent();
-		if (app.getApplicationStyle() <> null){
-            for (pkg in app.getApplicationStyle().stylesPackage ){
-               if (pkg.styles <> null ){
-                 for (lib in pkg.styles.libraries ){
-                 lib.mappingStyleLibrary2CSS(recipe, ingredient );
-                 if (lib.~url.isDefined()){
-              %]<h:outputStylesheet library="css" name="[%=lib.~url%]" />[%
-                  }
-                 }
-               }
-            }
-		}
-%]				
 					<h:form id="window">
                          <p:panelGrid [%=self.mkUIDBinding()%] columns="[%=self.columns%]"  [%=self.styleAttributes(hash)%] >
 [%
@@ -84,7 +68,24 @@ operation domain::Window generateBody(hash){
 [% 
  }    
 %]
-				
+
+
+[%
+
+		var app = form.eContainer().getParent().getParent().getParent();
+		if (app.getApplicationStyle() <> null){
+            for (pkg in app.getApplicationStyle().stylesPackage ){
+               if (pkg.styles <> null ){
+                 for (lib in pkg.styles.libraries ){
+                 lib.mappingStyleLibrary2CSS(recipe, ingredient );
+                 if (lib.~url.isDefined()){
+              %]<h:outputStylesheet library="css" name="[%=lib.~url%]" targer="head"/>[%
+                  }
+                 }
+               }
+            }
+		}
+%]				
 			</f:view>
 		</html>
 [%

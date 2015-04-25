@@ -167,7 +167,13 @@
               <input type="mapper.diagram.edit.parts.RoleMapperEditPart"/>
          </propertySection>        
 
-
+          <propertySection
+               tab="property.tab.domain.typeReference"
+               class="org.tura.metamodel.commons.properties.selections.dropdown.StyleLibraryPropertySelection"
+               id="org.tura.metamodel.mapper.stylelib">
+              <input type="mapper.diagram.edit.parts.CSSMapperEditPart"/>
+         </propertySection>     
+         
           <propertySection
                tab="property.tab.domain.typeReference"
                class="org.tura.metamodel.commons.properties.selections.dropdown.StylesPackagePropertySelection"
@@ -175,13 +181,7 @@
               <input type="mapper.diagram.edit.parts.CSSMapperEditPart"/>
          </propertySection>        
       
-          <propertySection
-               tab="property.tab.domain.typeReference"
-               class="org.tura.metamodel.commons.properties.selections.dropdown.StyleLibraryPropertySelection"
-               id="org.tura.metamodel.mapper.stylelib">
-              <input type="mapper.diagram.edit.parts.CSSMapperEditPart"/>
-         </propertySection>        
-
+   
           <propertySection
                tab="property.tab.domain.typeReference"
                class="org.tura.metamodel.commons.properties.selections.dropdown.TypeNamePropertySection"
