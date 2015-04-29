@@ -43,8 +43,7 @@ public class QueryHelper {
 
 	public Object getApplicationRoles(DiagramImpl root) {
 		domain.Form frm = getForm(root);
-		domain.Application app = ((domain.UIPackage) frm.eContainer())
-				.getParent().getParent().getParent();
+		domain.Application app = ((domain.UIPackage) frm.eContainer()).getParent().getParent().getParent();
 		if (app.getApplicationRole() != null)
 			return app.getApplicationRole().getRoles();
 		return null;
@@ -53,44 +52,37 @@ public class QueryHelper {
 	public Object getMessages(DiagramImpl root) {
 		domain.Form frm = getForm(root);
 
-		domain.Application app = ((domain.UIPackage) (frm.eContainer()))
-				.getParent().getParent().getParent();
+		domain.Application app = ((domain.UIPackage) (frm.eContainer())).getParent().getParent().getParent();
 		if (app.getApplicationMessages() != null)
 			return app.getApplicationMessages().getMessages();
 
 		return null;
 	}
 
-	
 	public Object getApplicationStyle(DiagramImpl root) {
 		domain.Form frm = getForm(root);
 
-		domain.Application app = ((domain.UIPackage) (frm.eContainer()))
-				.getParent().getParent().getParent();
+		domain.Application app = ((domain.UIPackage) (frm.eContainer())).getParent().getParent().getParent();
 		if (app.getApplicationStyle() != null)
 			return app.getApplicationStyle();
 
 		return null;
 	}
-	
-	
-	
+
 	public domain.Form getForm(domain.DataControl dc) {
 		return (Form) dc.getParent().getParent().eContainer();
-	}	
-	
+	}
+
 	public domain.Form getForm(DiagramImpl root) {
 		domain.Form frm = null;
 
 		if (root.getElement() instanceof domain.Controls) {
-			frm = (Form) ((domain.Controls) root.getElement()).getParent()
-					.eContainer();
+			frm = (Form) ((domain.Controls) root.getElement()).getParent().eContainer();
 		}
 
 		if (root.getElement() instanceof domain.CanvasView) {
 
-			domain.Views views = (Views) (((domain.CanvasView) root
-					.getElement()).getParent().eContainer().eContainer());
+			domain.Views views = (Views) (((domain.CanvasView) root.getElement()).getParent().eContainer().eContainer());
 
 			frm = (domain.Form) (views.getParent().eContainer());
 
@@ -105,8 +97,7 @@ public class QueryHelper {
 	}
 
 	@SuppressWarnings({ "unchecked", "rawtypes" })
-	public void getTreeLeafs(List<Object> ls,
-			domain.DataControl root) throws Exception {
+	public void getTreeLeafs(List<Object> ls, domain.DataControl root) throws Exception {
 
 		ls.add(root);
 
@@ -118,8 +109,7 @@ public class QueryHelper {
 				.createQuery("domain::Relation.allInstances()->select(r|r.isTree=true and r.master.uid ='"
 						+ root.getUid() + "')->collect(r|r.detail)");
 
-		Collection<domain.DataControl> map = (Collection<domain.DataControl>) ocl
-				.evaluate(root, query);
+		Collection<domain.DataControl> map = (Collection<domain.DataControl>) ocl.evaluate(root, query);
 
 		for (domain.DataControl dc : map) {
 			if (!ls.contains(dc)) {
@@ -146,16 +136,13 @@ public class QueryHelper {
 		return ls;
 	}
 
-	
 	public Object getRootControl(DiagramImpl root) throws Exception {
 		domain.Form frm = getForm(root);
 		return frm.getDatacontrols().getFormControl().getRoot();
 	}
-	
-	
+
 	@SuppressWarnings({ "rawtypes", "unchecked" })
-	public Collection<TreeDataControl> findTreeRootControls(domain.Form frm)
-			throws Exception {
+	public Collection<TreeDataControl> findTreeRootControls(domain.Form frm) throws Exception {
 
 		OCL ocl = OCL.newInstance(EcoreEnvironmentFactory.INSTANCE);
 		OCLHelper<EClassifier, ?, ?, Constraint> helper = ocl.createOCLHelper();
@@ -165,22 +152,26 @@ public class QueryHelper {
 				.createQuery("domain::Relation.allInstances()->select(r|r.isTree=true and r.oclAsType(ecore::EObject).eContainer().oclAsType(domain::Controls).uid = '"
 						+ frm.getDatacontrols().getFormControl().getUid()
 						+ "')->collect(w|w.master)->reject(q|domain::Relation.allInstances()->select(r|r.isTree=true and r.oclAsType(ecore::EObject).eContainer().oclAsType(domain::Controls).uid = '"
-						+ frm.getDatacontrols().getFormControl().getUid()
-						+ "')->collect(w|w.detail)->includes(q))");
+						+ frm.getDatacontrols().getFormControl().getUid() + "')->collect(w|w.detail)->includes(q))");
 
-		Collection<domain.DataControl> map = (Collection<domain.DataControl>) ocl
-				.evaluate(frm, query);
+		Collection<domain.DataControl> map = (Collection<domain.DataControl>) ocl.evaluate(frm, query);
+		
+		//Remove duplication
+		HashMap<String,domain.DataControl> hash = new HashMap<>();
+		for (domain.DataControl dc : map)
+			hash.put(dc.getUid(), dc);
 
+		
 		query = helper
 				.createQuery("domain::Relation.allInstances()->select(r|r.isTree=true and  r.master=r.detail and r.oclAsType(ecore::EObject).eContainer().oclAsType(domain::Controls).uid = '"
 						+ frm.getDatacontrols().getFormControl().getUid()
-						+ "')->collect(w|w.master)");
+						+ "')->collect(w|w.master)->reject(q|domain::Relation.allInstances()->select(r|r.isTree=true and r.master <> r.detail and r.oclAsType(ecore::EObject).eContainer().oclAsType(domain::Controls).uid = '"
+						+ frm.getDatacontrols().getFormControl().getUid() + "')->collect(w|w.detail)->includes(q))");
 
-		Collection<domain.DataControl> map1 = (Collection<domain.DataControl>) ocl
-				.evaluate(frm, query);
+		Collection<domain.DataControl> map1 = (Collection<domain.DataControl>) ocl.evaluate(frm, query);
 
 		ArrayList<TreeDataControl> ls = new ArrayList<>();
-		for (domain.DataControl dc : map)
+		for (domain.DataControl dc : hash.values())
 			ls.add(new TreeDataControl(dc));
 		for (domain.DataControl dc : map1)
 			ls.add(new TreeDataControl(dc));
@@ -190,8 +181,7 @@ public class QueryHelper {
 	}
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
-	public Collection<domain.DataControl> findMasterControls(domain.Form frm)
-			throws Exception {
+	public Collection<domain.DataControl> findMasterControls(domain.Form frm) throws Exception {
 
 		OCL ocl = OCL.newInstance(EcoreEnvironmentFactory.INSTANCE);
 		OCLHelper<EClassifier, ?, ?, Constraint> helper = ocl.createOCLHelper();
@@ -201,11 +191,9 @@ public class QueryHelper {
 				.createQuery("domain::DataControl.allInstances()->select(r|r.oclAsType(ecore::EObject).eContainer().oclAsType(domain::Controls).uid = '"
 						+ frm.getDatacontrols().getFormControl().getUid()
 						+ "' )->reject(q|domain::Relation.allInstances()->select(r|r.oclAsType(ecore::EObject).eContainer().oclAsType(domain::Controls).uid = '"
-						+ frm.getDatacontrols().getFormControl().getUid()
-						+ "' )->collect(w|w.detail)->includes(q))");
+						+ frm.getDatacontrols().getFormControl().getUid() + "' )->collect(w|w.detail)->includes(q))");
 
-		Collection<domain.DataControl> map = ((Collection<domain.DataControl>) ocl
-				.evaluate(frm, query));
+		Collection<domain.DataControl> map = ((Collection<domain.DataControl>) ocl.evaluate(frm, query));
 
 		for (TreeDataControl obj : findTreeRootControls(frm))
 			map.remove(obj.getDc());
@@ -215,8 +203,7 @@ public class QueryHelper {
 	}
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
-	public Collection<domain.DataControl> findDetailAndDependencyControls(
-			domain.Form frm) throws Exception {
+	public Collection<domain.DataControl> findDetailAndDependencyControls(domain.Form frm) throws Exception {
 
 		OCL ocl = OCL.newInstance(EcoreEnvironmentFactory.INSTANCE);
 		OCLHelper<EClassifier, ?, ?, Constraint> helper = ocl.createOCLHelper();
@@ -224,11 +211,9 @@ public class QueryHelper {
 
 		OCLExpression<EClassifier> query = helper
 				.createQuery("domain::Relation.allInstances()->select(r|r.isTree=false and r.oclAsType(ecore::EObject).eContainer().oclAsType(domain::Controls).uid = '"
-						+ frm.getDatacontrols().getFormControl().getUid()
-						+ "')->collect(w|w.detail)");
+						+ frm.getDatacontrols().getFormControl().getUid() + "')->collect(w|w.detail)");
 
-		Collection<domain.DataControl> map = (Collection<domain.DataControl>) ocl
-				.evaluate(frm, query);
+		Collection<domain.DataControl> map = (Collection<domain.DataControl>) ocl.evaluate(frm, query);
 
 		for (TreeDataControl obj : findTreeRootControls(frm))
 			map.remove(obj.getDc());
@@ -238,8 +223,7 @@ public class QueryHelper {
 	}
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
-	public Object[] findMappingSpecifiers(domain.ModelMapper eObject,
-			EObject types) throws Exception {
+	public Object[] findMappingSpecifiers(domain.ModelMapper eObject, EObject types) throws Exception {
 
 		Object[] result = new Object[2];
 
@@ -253,22 +237,17 @@ public class QueryHelper {
 				.createQuery("domain::DomainArtifact.allInstances()->select(r|r.oclAsType(domain::DomainArtifact).uid='"
 						+ eObject.getDomainArtifactRef().getUid()
 						+ "').oclAsType(domain::DomainArtifact).artifact.artifacts->select(r|r.oclIsKindOf(domain::Artifact) and  r.oclAsType(domain::Artifact).uid ='"
-						+ eObject.getArtifactRef().getUid()
-						+ "').oclAsType(domain::Artifact).specifiers");
+						+ eObject.getArtifactRef().getUid() + "').oclAsType(domain::Artifact).specifiers");
 
-		Collection<domain.Specifier> map1 = (Collection<domain.Specifier>) ocl
-				.evaluate(types, query);
+		Collection<domain.Specifier> map1 = (Collection<domain.Specifier>) ocl.evaluate(types, query);
 
 		ArrayList<domain.MappingSpecifier> removeSpecifiers = new ArrayList<domain.MappingSpecifier>();
-		for (Iterator<domain.MappingSpecifier> itr1 = map.iterator(); itr1
-				.hasNext();) {
+		for (Iterator<domain.MappingSpecifier> itr1 = map.iterator(); itr1.hasNext();) {
 			domain.MappingSpecifier ms = itr1.next();
 			boolean isRemove = true;
-			for (Iterator<domain.Specifier> itr2 = map1.iterator(); itr2
-					.hasNext();) {
+			for (Iterator<domain.Specifier> itr2 = map1.iterator(); itr2.hasNext();) {
 				domain.Specifier sp = itr2.next();
-				if ((ms.getSpecifierRef() != null)
-						&& (sp.getUid().equals(ms.getSpecifierRef().getUid())))
+				if ((ms.getSpecifierRef() != null) && (sp.getUid().equals(ms.getSpecifierRef().getUid())))
 					isRemove = false;
 			}
 			if (isRemove)
@@ -283,12 +262,9 @@ public class QueryHelper {
 				isAdd = true;
 			else {
 				isAdd = true;
-				for (Iterator<domain.MappingSpecifier> itr2 = map.iterator(); itr2
-						.hasNext();) {
+				for (Iterator<domain.MappingSpecifier> itr2 = map.iterator(); itr2.hasNext();) {
 					domain.MappingSpecifier sp = itr2.next();
-					if ((sp.getSpecifierRef() != null)
-							&& (sp.getSpecifierRef().getUid().equals(ms
-									.getUid())))
+					if ((sp.getSpecifierRef() != null) && (sp.getSpecifierRef().getUid().equals(ms.getUid())))
 						isAdd = false;
 				}
 			}
@@ -302,68 +278,52 @@ public class QueryHelper {
 	}
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
-	public Object[] findMappingVariable(domain.Query eObject, EObject types)
-			throws Exception {
+	public Object[] findMappingVariable(domain.Query eObject, EObject types) throws Exception {
 
 		ArrayList<domain.QueryParameter> addVariables = new ArrayList<domain.QueryParameter>();
 		ArrayList<domain.QueryVariable> removeVariables = new ArrayList<domain.QueryVariable>();
 		if ((eObject.getQueryRef() != null)
-				&& ((domain.ModelMapper) (((domain.Query) eObject).eContainer()))
-						.getDomainArtifactRef() != null
-				&& ((domain.ModelMapper) (((domain.Query) eObject).eContainer()))
-						.getArtifactRef() != null) {
+				&& ((domain.ModelMapper) (((domain.Query) eObject).eContainer())).getDomainArtifactRef() != null
+				&& ((domain.ModelMapper) (((domain.Query) eObject).eContainer())).getArtifactRef() != null) {
 			OCL ocl = OCL.newInstance(EcoreEnvironmentFactory.INSTANCE);
-			OCLHelper<EClassifier, ?, ?, Constraint> helper = ocl
-					.createOCLHelper();
+			OCLHelper<EClassifier, ?, ?, Constraint> helper = ocl.createOCLHelper();
 			helper.setContext(DomainPackage.eINSTANCE.getEClassifier("Domain"));
 
-			Collection<domain.QueryVariable> map = ((domain.Query) eObject)
-					.getVariables();
+			Collection<domain.QueryVariable> map = ((domain.Query) eObject).getVariables();
 
 			OCLExpression<EClassifier> query = helper
 					.createQuery("domain::DomainArtifact.allInstances()->select(r|r.oclAsType(domain::DomainArtifact).uid='"
-							+ ((domain.ModelMapper) (((domain.Query) eObject)
-									.eContainer())).getDomainArtifactRef()
+							+ ((domain.ModelMapper) (((domain.Query) eObject).eContainer())).getDomainArtifactRef()
 									.getUid()
 							+ "').oclAsType(domain::DomainArtifact).artifact.artifacts->select(r|r.oclIsKindOf(domain::Artifact) and  r.oclAsType(domain::Artifact).uid ='"
-							+ ((domain.ModelMapper) (((domain.Query) eObject)
-									.eContainer())).getArtifactRef().getUid()
+							+ ((domain.ModelMapper) (((domain.Query) eObject).eContainer())).getArtifactRef().getUid()
 							+ "').oclAsType(domain::Artifact).modelQuery->select(r|r.oclAsType(domain::ModelQuery).uid= '"
 							+ eObject.getQueryRef().getUid() + "').parameters");
 
-			Collection<domain.QueryParameter> map1 = (Collection<domain.QueryParameter>) ocl
-					.evaluate(types, query);
+			Collection<domain.QueryParameter> map1 = (Collection<domain.QueryParameter>) ocl.evaluate(types, query);
 
-			for (Iterator<domain.QueryVariable> itr1 = map.iterator(); itr1
-					.hasNext();) {
+			for (Iterator<domain.QueryVariable> itr1 = map.iterator(); itr1.hasNext();) {
 				domain.QueryVariable ms = itr1.next();
 				boolean isRemove = true;
-				for (Iterator<domain.QueryParameter> itr2 = map1.iterator(); itr2
-						.hasNext();) {
+				for (Iterator<domain.QueryParameter> itr2 = map1.iterator(); itr2.hasNext();) {
 					domain.QueryParameter sp = itr2.next();
-					if ((ms.getQueryParamRef() != null)
-							&& (sp.getUid().equals(ms.getQueryParamRef()
-									.getUid())))
+					if ((ms.getQueryParamRef() != null) && (sp.getUid().equals(ms.getQueryParamRef().getUid())))
 						isRemove = false;
 				}
 				if (isRemove)
 					removeVariables.add(ms);
 			}
 
-			for (Iterator<domain.QueryParameter> itr1 = map1.iterator(); itr1
-					.hasNext();) {
+			for (Iterator<domain.QueryParameter> itr1 = map1.iterator(); itr1.hasNext();) {
 				domain.QueryParameter ms = itr1.next();
 				boolean isAdd = false;
 				if (map.size() == 0)
 					isAdd = true;
 				else {
 					isAdd = true;
-					for (Iterator<domain.QueryVariable> itr2 = map.iterator(); itr2
-							.hasNext();) {
+					for (Iterator<domain.QueryVariable> itr2 = map.iterator(); itr2.hasNext();) {
 						domain.QueryVariable sp = itr2.next();
-						if ((sp.getQueryParamRef() != null)
-								&& (sp.getQueryParamRef().getUid().equals(ms
-										.getUid())))
+						if ((sp.getQueryParamRef() != null) && (sp.getQueryParamRef().getUid().equals(ms.getUid())))
 							isAdd = false;
 					}
 				}
@@ -378,18 +338,15 @@ public class QueryHelper {
 
 	}
 
-	public Set<domain.ApplicationMapper> findAvailableMappersForRecipe(
-			domain.Recipe recipe) {
+	public Set<domain.ApplicationMapper> findAvailableMappersForRecipe(domain.Recipe recipe) {
 
 		HashSet<domain.ApplicationMapper> mappers = new HashSet<domain.ApplicationMapper>();
 		try {
 
-			List<domain.ApplicationMapper> appMapperLst = recipe.getParent()
-					.getParent().getParent().getParent()
+			List<domain.ApplicationMapper> appMapperLst = recipe.getParent().getParent().getParent().getParent()
 					.getApplicationMappers().getMappers();
 
-			for (Iterator<domain.ApplicationMapper> itr = appMapperLst
-					.iterator(); itr.hasNext();) {
+			for (Iterator<domain.ApplicationMapper> itr = appMapperLst.iterator(); itr.hasNext();) {
 				domain.ApplicationMapper mapper = itr.next();
 				mappers.add(mapper);
 			}
@@ -400,21 +357,17 @@ public class QueryHelper {
 		return mappers;
 	}
 
-	public Set<domain.ApplicationMapper> findAvailableMappersForIngredient(
-			domain.Ingredient ingr) {
+	public Set<domain.ApplicationMapper> findAvailableMappersForIngredient(domain.Ingredient ingr) {
 
 		HashSet<domain.ApplicationMapper> mappers = new HashSet<domain.ApplicationMapper>();
 		try {
 
-			List<domain.ApplicationMapper> appMapperLst = ingr.getParent()
-					.getParent().getParent().getParent().getParent()
-					.getApplicationMappers().getMappers();
+			List<domain.ApplicationMapper> appMapperLst = ingr.getParent().getParent().getParent().getParent()
+					.getParent().getApplicationMappers().getMappers();
 
-			List<domain.ApplicationMapper> recipeLs = ingr.getParent()
-					.getMappers();
+			List<domain.ApplicationMapper> recipeLs = ingr.getParent().getMappers();
 
-			for (Iterator<domain.ApplicationMapper> itr = appMapperLst
-					.iterator(); itr.hasNext();) {
+			for (Iterator<domain.ApplicationMapper> itr = appMapperLst.iterator(); itr.hasNext();) {
 				domain.ApplicationMapper mapper = itr.next();
 				if (!recipeLs.contains(mapper))
 					mappers.add(mapper);
@@ -427,8 +380,7 @@ public class QueryHelper {
 	}
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
-	public List<domain.ApplicationMapper> removeMappersForRecipe(
-			domain.Recipe eObject) {
+	public List<domain.ApplicationMapper> removeMappersForRecipe(domain.Recipe eObject) {
 		ArrayList<domain.ApplicationMapper> removeMappers = new ArrayList<domain.ApplicationMapper>();
 		if (eObject.getMappers() == null || eObject.getMappers().size() == 0)
 			return removeMappers;
@@ -439,15 +391,13 @@ public class QueryHelper {
 
 		List<domain.ApplicationMapper> map = eObject.getMappers();
 
-		List<domain.ApplicationMapper> map1 = eObject.getParent().getParent()
-				.getParent().getParent().getApplicationMappers().getMappers();
+		List<domain.ApplicationMapper> map1 = eObject.getParent().getParent().getParent().getParent()
+				.getApplicationMappers().getMappers();
 
-		for (Iterator<domain.ApplicationMapper> itr1 = map.iterator(); itr1
-				.hasNext();) {
+		for (Iterator<domain.ApplicationMapper> itr1 = map.iterator(); itr1.hasNext();) {
 			domain.ApplicationMapper ms = itr1.next();
 			boolean isRemove = true;
-			for (Iterator<domain.ApplicationMapper> itr2 = map1.iterator(); itr2
-					.hasNext();) {
+			for (Iterator<domain.ApplicationMapper> itr2 = map1.iterator(); itr2.hasNext();) {
 				domain.ApplicationMapper sp = itr2.next();
 				if (sp.getUid().equals(ms.getUid()))
 					isRemove = false;
@@ -460,8 +410,7 @@ public class QueryHelper {
 	}
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
-	public List<domain.ApplicationMapper> removeMappersForIngredient(
-			domain.Ingredient eObject) {
+	public List<domain.ApplicationMapper> removeMappersForIngredient(domain.Ingredient eObject) {
 		ArrayList<domain.ApplicationMapper> removeMappers = new ArrayList<domain.ApplicationMapper>();
 
 		OCL ocl = OCL.newInstance(EcoreEnvironmentFactory.INSTANCE);
@@ -470,19 +419,15 @@ public class QueryHelper {
 
 		List<domain.ApplicationMapper> map = eObject.getMappers();
 
-		List<domain.ApplicationMapper> map1 = eObject.getParent().getParent()
-				.getParent().getParent().getParent().getApplicationMappers()
-				.getMappers();
+		List<domain.ApplicationMapper> map1 = eObject.getParent().getParent().getParent().getParent().getParent()
+				.getApplicationMappers().getMappers();
 
-		List<domain.ApplicationMapper> recipeLs = eObject.getParent()
-				.getMappers();
+		List<domain.ApplicationMapper> recipeLs = eObject.getParent().getMappers();
 
-		for (Iterator<domain.ApplicationMapper> itr1 = map.iterator(); itr1
-				.hasNext();) {
+		for (Iterator<domain.ApplicationMapper> itr1 = map.iterator(); itr1.hasNext();) {
 			domain.ApplicationMapper ms = itr1.next();
 			boolean isRemove = true;
-			for (Iterator<domain.ApplicationMapper> itr2 = map1.iterator(); itr2
-					.hasNext();) {
+			for (Iterator<domain.ApplicationMapper> itr2 = map1.iterator(); itr2.hasNext();) {
 				domain.ApplicationMapper sp = itr2.next();
 				if (sp.getUid().equals(ms.getUid()))
 					isRemove = false;
@@ -497,8 +442,7 @@ public class QueryHelper {
 	}
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
-	public List<Object> findTriggerParameters(domain.Operation method,
-			domain.ContextParameters trg, EObject types,
+	public List<Object> findTriggerParameters(domain.Operation method, domain.ContextParameters trg, EObject types,
 			EditingDomain editingDomain) throws ParserException {
 
 		ArrayList<domain.ContextParameter> removeParameters = new ArrayList<domain.ContextParameter>();
@@ -510,11 +454,9 @@ public class QueryHelper {
 
 		OCLExpression<EClassifier> query = helper
 				.createQuery("domain::Operation.allInstances()->select(r|r.oclAsType(domain::Operation).uid ='"
-						+ method.getUid()
-						+ "').oclAsType(domain::Operation).parameters");
+						+ method.getUid() + "').oclAsType(domain::Operation).parameters");
 
-		Collection<domain.Parameter> map = (Collection<Parameter>) ocl
-				.evaluate(types, query);
+		Collection<domain.Parameter> map = (Collection<Parameter>) ocl.evaluate(types, query);
 
 		ArrayList<domain.Parameter> parameters = new ArrayList<domain.Parameter>();
 		for (Iterator<domain.Parameter> i = map.iterator(); i.hasNext();) {
@@ -524,8 +466,7 @@ public class QueryHelper {
 		Collections.sort(parameters, new ParameterComparator());
 
 		ArrayList<domain.ContextParameter> trgParameters = new ArrayList<domain.ContextParameter>();
-		for (Iterator<domain.ContextParameter> i = trg.getParameters()
-				.iterator(); i.hasNext();) {
+		for (Iterator<domain.ContextParameter> i = trg.getParameters().iterator(); i.hasNext();) {
 			domain.ContextParameter p = i.next();
 			trgParameters.add(p);
 		}
@@ -542,8 +483,7 @@ public class QueryHelper {
 				ContextParameter trgParam = trgParameters.get(i);
 				domain.Parameter param = parameters.get(i);
 				if (trgParam.getRefObj() == null
-						|| !((domain.Parameter) trgParam.getRefObj()).getUid()
-								.equals(param.getUid())) {
+						|| !((domain.Parameter) trgParam.getRefObj()).getUid().equals(param.getUid())) {
 					removeParameters.addAll(trgParameters);
 					renewParameters = true;
 					break;
@@ -552,36 +492,29 @@ public class QueryHelper {
 		}
 		if (renewParameters) {
 			for (int i = 0; i < parameters.size(); i++) {
-				ContextParameter trgParam = DomainFactory.eINSTANCE
-						.createContextParameter();
+				ContextParameter trgParam = DomainFactory.eINSTANCE.createContextParameter();
 				trgParam.setRefObj(parameters.get(i));
 				trgParam.setUid(UUID.randomUUID().toString());
 				addParameters.add(trgParam);
-				ContextValue value = DomainFactory.eINSTANCE
-						.createContextValue();
+				ContextValue value = DomainFactory.eINSTANCE.createContextValue();
 				value.setUid(UUID.randomUUID().toString());
 				trgParam.setValue(value);
 			}
 		}
 		if (removeParameters.size() != 0) {
 			editingDomain.getCommandStack().execute(
-					RemoveCommand.create(editingDomain, trg,
-							DomainPackage.eINSTANCE
-									.getContextParameters_Parameters(),
+					RemoveCommand.create(editingDomain, trg, DomainPackage.eINSTANCE.getContextParameters_Parameters(),
 							removeParameters));
 		}
 
 		if (addParameters.size() != 0) {
 			editingDomain.getCommandStack().execute(
-					AddCommand.create(editingDomain, trg,
-							DomainPackage.eINSTANCE
-									.getContextParameters_Parameters(),
+					AddCommand.create(editingDomain, trg, DomainPackage.eINSTANCE.getContextParameters_Parameters(),
 							addParameters));
 		}
 
 		trgParameters = new ArrayList<domain.ContextParameter>();
-		for (Iterator<domain.ContextParameter> i = trg.getParameters()
-				.iterator(); i.hasNext();) {
+		for (Iterator<domain.ContextParameter> i = trg.getParameters().iterator(); i.hasNext();) {
 			domain.ContextParameter p = i.next();
 			trgParameters.add(p);
 		}
@@ -598,11 +531,9 @@ public class QueryHelper {
 		OCLHelper<EClassifier, ?, ?, Constraint> helper = ocl.createOCLHelper();
 		helper.setContext(DomainPackage.eINSTANCE.getEClassifier("Domain"));
 
-		OCLExpression<EClassifier> query = helper
-				.createQuery("domain::Types.allInstances()");
+		OCLExpression<EClassifier> query = helper.createQuery("domain::Types.allInstances()");
 
-		Collection<domain.Types> map = (Collection<domain.Types>) ocl.evaluate(
-				obj, query);
+		Collection<domain.Types> map = (Collection<domain.Types>) ocl.evaluate(obj, query);
 		if (map != null && map.size() != 0)
 			return (Types) map.toArray()[0];
 
@@ -611,17 +542,14 @@ public class QueryHelper {
 	}
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
-	public domain.DomainArtifacts getDomainArtifact(EObject obj)
-			throws Exception {
+	public domain.DomainArtifacts getDomainArtifact(EObject obj) throws Exception {
 		OCL ocl = OCL.newInstance(EcoreEnvironmentFactory.INSTANCE);
 		OCLHelper<EClassifier, ?, ?, Constraint> helper = ocl.createOCLHelper();
 		helper.setContext(DomainPackage.eINSTANCE.getEClassifier("Domain"));
 
-		OCLExpression<EClassifier> query = helper
-				.createQuery("domain::DomainArtifacts.allInstances()");
+		OCLExpression<EClassifier> query = helper.createQuery("domain::DomainArtifacts.allInstances()");
 
-		Collection<domain.DomainArtifacts> map = (Collection<domain.DomainArtifacts>) ocl
-				.evaluate(obj, query);
+		Collection<domain.DomainArtifacts> map = (Collection<domain.DomainArtifacts>) ocl.evaluate(obj, query);
 		if (map != null && map.size() != 0)
 			return (domain.DomainArtifacts) map.toArray()[0];
 
@@ -633,22 +561,19 @@ public class QueryHelper {
 
 		@Override
 		public int compare(Parameter o1, Parameter o2) {
-			return new Integer(o1.getOrder()).compareTo(new Integer(o2
-					.getOrder()));
+			return new Integer(o1.getOrder()).compareTo(new Integer(o2.getOrder()));
 		}
 
 	}
 
-	class ContextParameterComparator implements
-			Comparator<domain.ContextParameter> {
+	class ContextParameterComparator implements Comparator<domain.ContextParameter> {
 
 		@Override
 		public int compare(ContextParameter o1, ContextParameter o2) {
 			if (o1.getRefObj() == null || o2.getRefObj() == null)
 				return -1;
-			return new Integer(((domain.Parameter) o1.getRefObj()).getOrder())
-					.compareTo(new Integer(((domain.Parameter) o2.getRefObj())
-							.getOrder()));
+			return new Integer(((domain.Parameter) o1.getRefObj()).getOrder()).compareTo(new Integer(
+					((domain.Parameter) o2.getRefObj()).getOrder()));
 		}
 
 	}
@@ -659,18 +584,15 @@ public class QueryHelper {
 			@SuppressWarnings("rawtypes")
 			OCL ocl = OCL.newInstance(EcoreEnvironmentFactory.INSTANCE);
 			@SuppressWarnings("unchecked")
-			OCLHelper<EClassifier, ?, ?, Constraint> helper = ocl
-					.createOCLHelper();
+			OCLHelper<EClassifier, ?, ?, Constraint> helper = ocl.createOCLHelper();
 			helper.setContext(DomainPackage.eINSTANCE.getEClassifier("Domain"));
 
 			OCLExpression<EClassifier> query = helper
 					.createQuery("domain::TypeExtension.allInstances()->select(r|r.oclAsType(domain::TypeExtension).target.oclIsKindOf(domain::Type) and  "
-							+ "r.oclAsType(domain::TypeExtension).target.uid ='"
-							+ type.getUid() + "')");
+							+ "r.oclAsType(domain::TypeExtension).target.uid ='" + type.getUid() + "')");
 
 			@SuppressWarnings("unchecked")
-			Collection<domain.TypeExtension> map = (Collection<domain.TypeExtension>) ocl
-					.evaluate(type, query);
+			Collection<domain.TypeExtension> map = (Collection<domain.TypeExtension>) ocl.evaluate(type, query);
 
 			query = helper
 					.createQuery("domain::TypeExtension.allInstances()->select(r|r.oclAsType(domain::TypeExtension).target.oclIsKindOf(domain::TypeReference) "
@@ -679,29 +601,25 @@ public class QueryHelper {
 							+ type.getUid() + "')");
 
 			@SuppressWarnings("unchecked")
-			Collection<domain.TypeExtension> map1 = (Collection<domain.TypeExtension>) ocl
-					.evaluate(type, query);
+			Collection<domain.TypeExtension> map1 = (Collection<domain.TypeExtension>) ocl.evaluate(type, query);
 
 			HashMap<String, domain.TypeElement> joinmap = new HashMap<String, domain.TypeElement>();
 
 			if (map != null) {
-				for (Iterator<domain.TypeExtension> itr = map.iterator(); itr
-						.hasNext();) {
+				for (Iterator<domain.TypeExtension> itr = map.iterator(); itr.hasNext();) {
 					domain.TypeElement el = itr.next().getSource();
 					joinmap.put(el.getUid(), el);
 				}
 			}
 
 			if (map1 != null) {
-				for (Iterator<domain.TypeExtension> itr = map1.iterator(); itr
-						.hasNext();) {
+				for (Iterator<domain.TypeExtension> itr = map1.iterator(); itr.hasNext();) {
 					domain.TypeElement el = itr.next().getSource();
 					joinmap.put(el.getUid(), el);
 				}
 			}
 
-			for (Iterator<domain.TypeElement> itr = joinmap.values().iterator(); itr
-					.hasNext();) {
+			for (Iterator<domain.TypeElement> itr = joinmap.values().iterator(); itr.hasNext();) {
 				domain.TypeElement t = itr.next();
 				typesTree.add((Type) t);
 				getInheritTypes(typesTree, (Type) t);
@@ -718,8 +636,7 @@ public class QueryHelper {
 			@SuppressWarnings("rawtypes")
 			OCL ocl = OCL.newInstance(EcoreEnvironmentFactory.INSTANCE);
 			@SuppressWarnings("unchecked")
-			OCLHelper<EClassifier, ?, ?, Constraint> helper = ocl
-					.createOCLHelper();
+			OCLHelper<EClassifier, ?, ?, Constraint> helper = ocl.createOCLHelper();
 			helper.setContext(DomainPackage.eINSTANCE.getEClassifier("Domain"));
 
 			OCLExpression<EClassifier> query = helper
@@ -729,8 +646,7 @@ public class QueryHelper {
 							+ "typedefinition.types->select(r|(r.oclIsKindOf(domain::Type) and  r.oclAsType(domain::Type).name = 'Search criterias') )");
 
 			@SuppressWarnings("unchecked")
-			Collection<domain.Primitive> map = (Collection<domain.Primitive>) ocl
-					.evaluate(obj, query);
+			Collection<domain.Primitive> map = (Collection<domain.Primitive>) ocl.evaluate(obj, query);
 
 			if (map.size() != 0)
 				return map.iterator().next();
@@ -747,8 +663,7 @@ public class QueryHelper {
 			@SuppressWarnings("rawtypes")
 			OCL ocl = OCL.newInstance(EcoreEnvironmentFactory.INSTANCE);
 			@SuppressWarnings("unchecked")
-			OCLHelper<EClassifier, ?, ?, Constraint> helper = ocl
-					.createOCLHelper();
+			OCLHelper<EClassifier, ?, ?, Constraint> helper = ocl.createOCLHelper();
 			helper.setContext(DomainPackage.eINSTANCE.getEClassifier("Domain"));
 
 			OCLExpression<EClassifier> query = helper
@@ -756,8 +671,7 @@ public class QueryHelper {
 							+ InitDiagram.PRIVATE_PACKAGE + "')");
 
 			@SuppressWarnings("unchecked")
-			Collection<domain.Primitive> map = (Collection<domain.Primitive>) ocl
-					.evaluate(obj, query);
+			Collection<domain.Primitive> map = (Collection<domain.Primitive>) ocl.evaluate(obj, query);
 
 			if (map.size() != 0)
 				return map.iterator().next();
@@ -774,8 +688,7 @@ public class QueryHelper {
 			@SuppressWarnings("rawtypes")
 			OCL ocl = OCL.newInstance(EcoreEnvironmentFactory.INSTANCE);
 			@SuppressWarnings("unchecked")
-			OCLHelper<EClassifier, ?, ?, Constraint> helper = ocl
-					.createOCLHelper();
+			OCLHelper<EClassifier, ?, ?, Constraint> helper = ocl.createOCLHelper();
 			helper.setContext(DomainPackage.eINSTANCE.getEClassifier("Domain"));
 
 			OCLExpression<EClassifier> query = helper
@@ -783,8 +696,7 @@ public class QueryHelper {
 							+ InitDiagram.PRIVATE_PACKAGE + "')");
 
 			@SuppressWarnings("unchecked")
-			Collection<domain.Primitive> map = (Collection<domain.Primitive>) ocl
-					.evaluate(obj, query);
+			Collection<domain.Primitive> map = (Collection<domain.Primitive>) ocl.evaluate(obj, query);
 
 			if (map.size() != 0)
 				return map.iterator().next();
@@ -801,8 +713,7 @@ public class QueryHelper {
 			@SuppressWarnings("rawtypes")
 			OCL ocl = OCL.newInstance(EcoreEnvironmentFactory.INSTANCE);
 			@SuppressWarnings("unchecked")
-			OCLHelper<EClassifier, ?, ?, Constraint> helper = ocl
-					.createOCLHelper();
+			OCLHelper<EClassifier, ?, ?, Constraint> helper = ocl.createOCLHelper();
 			helper.setContext(DomainPackage.eINSTANCE.getEClassifier("Domain"));
 
 			OCLExpression<EClassifier> query = helper
@@ -810,8 +721,7 @@ public class QueryHelper {
 							+ InitDiagram.PRIVATE_PACKAGE + "')");
 
 			@SuppressWarnings("unchecked")
-			Collection<domain.Primitive> map = (Collection<domain.Primitive>) ocl
-					.evaluate(obj, query);
+			Collection<domain.Primitive> map = (Collection<domain.Primitive>) ocl.evaluate(obj, query);
 
 			if (map.size() != 0)
 				return map.iterator().next();
@@ -822,15 +732,13 @@ public class QueryHelper {
 		return null;
 
 	}
-	
-	
+
 	public domain.TypeElement findBaseType(Object obj) {
 		try {
 			@SuppressWarnings("rawtypes")
 			OCL ocl = OCL.newInstance(EcoreEnvironmentFactory.INSTANCE);
 			@SuppressWarnings("unchecked")
-			OCLHelper<EClassifier, ?, ?, Constraint> helper = ocl
-					.createOCLHelper();
+			OCLHelper<EClassifier, ?, ?, Constraint> helper = ocl.createOCLHelper();
 			helper.setContext(DomainPackage.eINSTANCE.getEClassifier("Domain"));
 
 			OCLExpression<EClassifier> query = helper
@@ -840,8 +748,7 @@ public class QueryHelper {
 							+ "typedefinition.types->select(r|(r.oclIsKindOf(domain::Type) and  r.oclAsType(domain::Type).name = 'BaseType') )");
 
 			@SuppressWarnings("unchecked")
-			Collection<domain.TypeElement> map = (Collection<domain.TypeElement>) ocl
-					.evaluate(obj, query);
+			Collection<domain.TypeElement> map = (Collection<domain.TypeElement>) ocl.evaluate(obj, query);
 
 			if (map.size() != 0)
 				return map.iterator().next();
@@ -851,15 +758,13 @@ public class QueryHelper {
 		}
 		return null;
 	}
-	
 
 	public domain.TypeElement findDataControlType(Object obj) {
 		try {
 			@SuppressWarnings("rawtypes")
 			OCL ocl = OCL.newInstance(EcoreEnvironmentFactory.INSTANCE);
 			@SuppressWarnings("unchecked")
-			OCLHelper<EClassifier, ?, ?, Constraint> helper = ocl
-					.createOCLHelper();
+			OCLHelper<EClassifier, ?, ?, Constraint> helper = ocl.createOCLHelper();
 			helper.setContext(DomainPackage.eINSTANCE.getEClassifier("Domain"));
 
 			OCLExpression<EClassifier> query = helper
@@ -869,8 +774,7 @@ public class QueryHelper {
 							+ "typedefinition.types->select(r|(r.oclIsKindOf(domain::Type) and  r.oclAsType(domain::Type).name = 'Data control') )");
 
 			@SuppressWarnings("unchecked")
-			Collection<domain.TypeElement> map = (Collection<domain.TypeElement>) ocl
-					.evaluate(obj, query);
+			Collection<domain.TypeElement> map = (Collection<domain.TypeElement>) ocl.evaluate(obj, query);
 
 			if (map.size() != 0)
 				return map.iterator().next();
@@ -886,8 +790,7 @@ public class QueryHelper {
 			@SuppressWarnings("rawtypes")
 			OCL ocl = OCL.newInstance(EcoreEnvironmentFactory.INSTANCE);
 			@SuppressWarnings("unchecked")
-			OCLHelper<EClassifier, ?, ?, Constraint> helper = ocl
-					.createOCLHelper();
+			OCLHelper<EClassifier, ?, ?, Constraint> helper = ocl.createOCLHelper();
 			helper.setContext(DomainPackage.eINSTANCE.getEClassifier("Domain"));
 
 			OCLExpression<EClassifier> query = helper
@@ -897,8 +800,7 @@ public class QueryHelper {
 							+ "typedefinition.types->select(r|(r.oclIsKindOf(domain::Type) and  r.oclAsType(domain::Type).name = 'Tree data control') )");
 
 			@SuppressWarnings("unchecked")
-			Collection<domain.TypeElement> map = (Collection<domain.TypeElement>) ocl
-					.evaluate(obj, query);
+			Collection<domain.TypeElement> map = (Collection<domain.TypeElement>) ocl.evaluate(obj, query);
 
 			if (map.size() != 0)
 				return map.iterator().next();
@@ -909,8 +811,6 @@ public class QueryHelper {
 		return null;
 	}
 
-	
-	
 	public Object[] findRefreshedAeas(domain.Uielement obj) throws Exception {
 
 		EObject root = obj;
@@ -920,15 +820,13 @@ public class QueryHelper {
 				throw new Exception("UI element container is null");
 		} while (!(root instanceof domain.CanvasView));
 
-		domain.Views views = (Views) ((domain.CanvasView) root).getParent()
-				.eContainer().eContainer();
+		domain.Views views = (Views) ((domain.CanvasView) root).getParent().eContainer().eContainer();
 
 		try {
 			@SuppressWarnings("rawtypes")
 			OCL ocl = OCL.newInstance(EcoreEnvironmentFactory.INSTANCE);
 			@SuppressWarnings("unchecked")
-			OCLHelper<EClassifier, ?, ?, Constraint> helper = ocl
-					.createOCLHelper();
+			OCLHelper<EClassifier, ?, ?, Constraint> helper = ocl.createOCLHelper();
 			helper.setContext(DomainPackage.eINSTANCE.getEClassifier("Domain"));
 
 			OCLExpression<EClassifier> query = helper
@@ -937,8 +835,7 @@ public class QueryHelper {
 							+ "').canvases->select(c|c.oclIsKindOf(domain::ViewPortHolder))->collect(v|v.oclAsType(domain::ViewPortHolder).viewElement)->select(q|q.oclIsKindOf(domain::ViewArea))");
 
 			@SuppressWarnings("unchecked")
-			Collection<domain.ViewArea> map = (Collection<domain.ViewArea>) ocl
-					.evaluate(obj, query);
+			Collection<domain.ViewArea> map = (Collection<domain.ViewArea>) ocl.evaluate(obj, query);
 
 			query = helper
 					.createQuery("domain::Views.allInstances()->select(r|r.oclAsType(domain::Views).uid = '"
@@ -946,26 +843,21 @@ public class QueryHelper {
 							+ "').canvases->select(c|c.oclIsKindOf(domain::ViewPortHolder))->collect(v|v.oclAsType(domain::ViewPortHolder).viewElement)->select(q|q.oclIsKindOf(domain::NickNamed) and q.oclAsType(domain::NickNamed).nickname <> null and  q.oclAsType(domain::NickNamed).nickname <> '')");
 
 			@SuppressWarnings("unchecked")
-			Collection<domain.NickNamed> map1 = (Collection<domain.NickNamed>) ocl
-					.evaluate(obj, query);
+			Collection<domain.NickNamed> map1 = (Collection<domain.NickNamed>) ocl.evaluate(obj, query);
 
-			
 			ArrayList<domain.NickNamed> nickNamed = new ArrayList<domain.NickNamed>();
 			ArrayList<domain.NickNamed> remove = new ArrayList<domain.NickNamed>();
 
 			if (map.size() != 0) {
-				for (Iterator<domain.ViewArea> itr = map.iterator(); itr
-						.hasNext();) {
+				for (Iterator<domain.ViewArea> itr = map.iterator(); itr.hasNext();) {
 					domain.ViewArea viewarea = itr.next();
 					if (viewarea.getCanvasView() != null)
-						findNick(nickNamed, viewarea.getCanvasView()
-								.getBaseCanvas(), obj);
+						findNick(nickNamed, viewarea.getCanvasView().getBaseCanvas(), obj);
 				}
 			}
 			nickNamed.addAll(map1);
-			
-			for (Iterator<domain.NickNamed> itr1 = obj.getOnEventRefreshArea()
-					.iterator(); itr1.hasNext();) {
+
+			for (Iterator<domain.NickNamed> itr1 = obj.getOnEventRefreshArea().iterator(); itr1.hasNext();) {
 				domain.NickNamed ref = itr1.next();
 
 				if (ref.getNickname() == null || "".equals(ref.getNickname()))
@@ -980,24 +872,20 @@ public class QueryHelper {
 
 	}
 
-	private void findNick(List<domain.NickNamed> list,
-			domain.LayerHolder holder, domain.Uielement exception) {
-		
-		if (holder.getNickname() != null
-				&& !holder.getUid().equals(exception.getUid()))
+	private void findNick(List<domain.NickNamed> list, domain.LayerHolder holder, domain.Uielement exception) {
+
+		if (holder.getNickname() != null && !holder.getUid().equals(exception.getUid()))
 			list.add(holder);
-		
-		for (Iterator<domain.Uielement> itr = holder.getChildren().iterator(); itr
-				.hasNext();) {
+
+		for (Iterator<domain.Uielement> itr = holder.getChildren().iterator(); itr.hasNext();) {
 
 			domain.Uielement el = itr.next();
-			if (el instanceof domain.LayerHolder){
+			if (el instanceof domain.LayerHolder) {
 				findNick(list, (domain.LayerHolder) el, exception);
 				continue;
 			}
 
-			if (el.getNickname() != null
-					&& !el.getUid().equals(exception.getUid()))
+			if (el.getNickname() != null && !el.getUid().equals(exception.getUid()))
 				list.add(el);
 		}
 	}

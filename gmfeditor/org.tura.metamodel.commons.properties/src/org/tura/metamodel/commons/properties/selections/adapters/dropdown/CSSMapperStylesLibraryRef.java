@@ -1,6 +1,6 @@
 package org.tura.metamodel.commons.properties.selections.adapters.dropdown;
 
-import java.util.HashMap;
+import java.util.Map;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.tura.metamodel.commons.properties.selections.DropDownDataAdapter;
@@ -21,7 +21,7 @@ public class CSSMapperStylesLibraryRef implements DropDownDataAdapter {
 			return "";
 	}
 
-	public Object getSelectedFeatureValue(Object eObject, HashMap<String, Object> values, EStructuralFeature feature,
+	public Object getSelectedFeatureValue(Object eObject, Map<String, Object> values, EStructuralFeature feature,
 			Object... obj) {
 		if (feature.equals(DomainPackage.eINSTANCE.getCSSMapper_StyleLibrary()))
 			return values.get(obj[0]);
@@ -32,7 +32,7 @@ public class CSSMapperStylesLibraryRef implements DropDownDataAdapter {
 		return null;
 	}
 
-	public boolean isEqual(HashMap<String, Object> values, Object key, Object eObject) {
+	public boolean isEqual(Map<String, Object> values, Object key, Object eObject) {
 		if (((domain.CSSMapper) eObject).getStyleLibrary() == null)
 			return false;
 		if (((domain.CSSMapper) eObject).getStyleLibrary().getName() == null)

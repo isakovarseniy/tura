@@ -116,30 +116,27 @@ public class RelationPropertySelection extends GridProperty {
 
 			domain.Link opt = (domain.Link) base;
 
-			if (opt.getParent().getMaster().getCreate() != null
-					&& opt.getParent().getMaster().getCreate().getMethodRef() != null
-					&& opt.getParent().getMaster().getCreate().getMethodRef().getReturnValue() != null) {
+			domain.DataControl dc = opt.getParent().getMaster();
 
-				domain.DataControl dc = opt.getParent().getMaster();
+			domain.Type type = null;
 
-				domain.Type type = null;
-
-				if (dc.getCreate() != null && dc.getCreate().getMethodRef() != null
-						&& dc.getCreate().getMethodRef().getReturnValue() != null) {
-					type = (Type) dc.getCreate().getMethodRef().getReturnValue().getTypeRef();
-				}
-				if (dc.getBaseType() != null)
-					type = dc.getBaseType();
-
-				List<domain.Attribute> attributes = initOptions(type);
-
-				LinkedHashMap<String, Object> ls = new LinkedHashMap<>();
-				for (domain.Attribute attr : attributes)
-					ls.put(attr.getName(), attr);
-
-				return ls;
+			if (dc.getCreate() != null && dc.getCreate().getMethodRef() != null
+					&& dc.getCreate().getMethodRef().getReturnValue() != null) {
+				type = (Type) dc.getCreate().getMethodRef().getReturnValue().getTypeRef();
 			}
-			return new HashMap<String, Object>();
+			if (dc.getBaseType() != null)
+				type = dc.getBaseType();
+
+			if (type == null)
+				return new HashMap<String, Object>();
+
+			List<domain.Attribute> attributes = initOptions(type);
+
+			LinkedHashMap<String, Object> ls = new LinkedHashMap<>();
+			for (domain.Attribute attr : attributes)
+				ls.put(attr.getName(), attr);
+
+			return ls;
 		}
 	}
 
@@ -155,31 +152,28 @@ public class RelationPropertySelection extends GridProperty {
 		public Map<String, Object> getEnumerationFeatureValues(EObject base) {
 			domain.Link opt = (domain.Link) base;
 
-			if (opt.getParent().getDetail().getCreate() != null
-					&& opt.getParent().getDetail().getCreate().getMethodRef() != null
-					&& opt.getParent().getDetail().getCreate().getMethodRef().getReturnValue() != null) {
+			domain.DataControl dc = opt.getParent().getDetail();
 
-				domain.DataControl dc = opt.getParent().getDetail();
+			domain.Type type = null;
 
-				domain.Type type = null;
-
-				if (dc.getCreate() != null && dc.getCreate().getMethodRef() != null
-						&& dc.getCreate().getMethodRef().getReturnValue() != null) {
-					type = (Type) dc.getCreate().getMethodRef().getReturnValue().getTypeRef();
-				}
-				if (dc.getBaseType() != null)
-					type = dc.getBaseType();
-
-				List<domain.Attribute> attributes = initOptions(type);
-
-				LinkedHashMap<String, Object> ls = new LinkedHashMap<>();
-				for (domain.Attribute attr : attributes)
-					ls.put(attr.getName(), attr);
-
-				return ls;
-
+			if (dc.getCreate() != null && dc.getCreate().getMethodRef() != null
+					&& dc.getCreate().getMethodRef().getReturnValue() != null) {
+				type = (Type) dc.getCreate().getMethodRef().getReturnValue().getTypeRef();
 			}
-			return new HashMap<String, Object>();
+			if (dc.getBaseType() != null)
+				type = dc.getBaseType();
+
+			if (type == null)
+				return new HashMap<String, Object>();
+
+			List<domain.Attribute> attributes = initOptions(type);
+
+			LinkedHashMap<String, Object> ls = new LinkedHashMap<>();
+			for (domain.Attribute attr : attributes)
+				ls.put(attr.getName(), attr);
+
+			return ls;
+
 		}
 
 	}

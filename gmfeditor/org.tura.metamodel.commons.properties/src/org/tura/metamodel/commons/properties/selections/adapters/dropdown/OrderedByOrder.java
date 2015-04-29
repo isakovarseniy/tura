@@ -1,6 +1,6 @@
 package org.tura.metamodel.commons.properties.selections.adapters.dropdown;
 
-import java.util.HashMap;
+import java.util.Map;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
@@ -26,12 +26,12 @@ public class OrderedByOrder implements DropDownDataAdapter {
 		return ((EObject) eObject).eGet(feature);
 	}
 
-	public Object getSelectedFeatureValue(Object eObject, HashMap<String, Object> values, EStructuralFeature feature,
+	public Object getSelectedFeatureValue(Object eObject, Map<String, Object> values, EStructuralFeature feature,
 			Object... obj) {
 		return values.get(obj[0]);
 	}
 
-	public boolean isEqual(HashMap<String, Object> values, Object key, Object eObject) {
+	public boolean isEqual(Map<String, Object> values, Object key, Object eObject) {
 		return true;
 	}
 

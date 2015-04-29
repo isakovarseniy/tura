@@ -1,6 +1,6 @@
 package org.tura.metamodel.commons.properties.selections.adapters.dropdown;
 
-import java.util.HashMap;
+import java.util.Map;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
@@ -28,7 +28,7 @@ public class DomainTypePointerTypeRef implements DropDownDataAdapter {
 		return ((EObject)eObject).eGet(feature);
 	}	
 	
-	public Object getSelectedFeatureValue(Object eObject, HashMap<String, Object> values,
+	public Object getSelectedFeatureValue(Object eObject, Map<String, Object> values,
 			EStructuralFeature feature, Object... obj) {
 		if (feature.equals(DomainPackage.eINSTANCE.getTypePointer_TypeRef()))
 			return values.get(obj[0]);
@@ -40,7 +40,7 @@ public class DomainTypePointerTypeRef implements DropDownDataAdapter {
 		return null;
 	}
 
-	public boolean isEqual(HashMap<String, Object> values, Object key, Object eObject) {
+	public boolean isEqual(Map<String, Object> values, Object key, Object eObject) {
 		if (((domain.TypePointer) eObject).getTypeRef() == null)
 			return false;
 		if (((domain.TypePointer) eObject).getTypeRef().getName() == null)

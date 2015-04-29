@@ -27,7 +27,7 @@ public abstract class GridDropDownColumn implements GridColumn {
 	private int width = 100;
 	private int col;
 	private DropDownDataAdapter dataAdapter;
-	LinkedHashMap<String, Object> options;
+	private Map<String, Object> options;
 
 	public abstract Map<String, Object> getEnumerationFeatureValues(EObject base);
 
@@ -88,7 +88,7 @@ public abstract class GridDropDownColumn implements GridColumn {
 	@Override
 	public Object getText(Object element) {
 		EObject base = (EObject) element;
-		options = (LinkedHashMap<String, Object>) getEnumerationFeatureValues(base);
+		options = (Map<String, Object>) getEnumerationFeatureValues(base);
 		return dataAdapter.getFeatureAsText(element);
 	}
 

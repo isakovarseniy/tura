@@ -1,6 +1,6 @@
 package org.tura.metamodel.commons.properties.selections.adapters.dropdown;
 
-import java.util.HashMap;
+import java.util.Map;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.tura.metamodel.commons.properties.selections.DropDownDataAdapter;
@@ -20,7 +20,7 @@ public class FormVariablesParameRef implements DropDownDataAdapter {
 			return "";
 	}
 
-	public Object getSelectedFeatureValue(Object eObject, HashMap<String, Object> values, EStructuralFeature feature,
+	public Object getSelectedFeatureValue(Object eObject, Map<String, Object> values, EStructuralFeature feature,
 			Object... obj) {
 		if (feature.equals(DomainPackage.eINSTANCE.getFormVariable_ParamRef()))
 			return values.get(obj[0]);
@@ -28,7 +28,7 @@ public class FormVariablesParameRef implements DropDownDataAdapter {
 		return null;
 	}
 
-	public boolean isEqual(HashMap<String, Object> values, Object key, Object eObject) {
+	public boolean isEqual(Map<String, Object> values, Object key, Object eObject) {
 		if (((domain.FormVariable) eObject).getParamRef() == null)
 			return false;
 		if (((domain.FormVariable) eObject).getParamRef().getName() == null)

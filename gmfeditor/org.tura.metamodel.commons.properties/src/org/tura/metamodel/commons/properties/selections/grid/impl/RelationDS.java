@@ -29,16 +29,37 @@ public class RelationDS extends DataSource {
 		domain.Link row = DomainFactory.eINSTANCE.createLink();
 		row.setUid(UUID.randomUUID().toString());
 
-		List<domain.Attribute> choicesOptions = ((RelationPropertySelection) property)
-				.initOptions((Type) ((domain.Relation) (property.getModel())).getMaster().getCreate().getMethodRef()
-						.getReturnValue().getTypeRef());
+		domain.Type type = null;
+
+		domain.DataControl dc = ((domain.Relation) (property.getModel())).getMaster();
+		if (dc.getCreate() != null && dc.getCreate().getMethodRef() != null
+				&& dc.getCreate().getMethodRef().getReturnValue() != null) {
+			type = (Type) dc.getCreate().getMethodRef().getReturnValue().getTypeRef();
+		}
+		if (dc.getBaseType() != null)
+			type = dc.getBaseType();
+
+		if (type == null)
+			return;
+		
+		List<domain.Attribute> choicesOptions = ((RelationPropertySelection) property).initOptions(type);
 
 		if (choicesOptions != null && choicesOptions.size() != 0) {
 			row.setMasterField(choicesOptions.get(0));
 		}
 
-		choicesOptions = ((RelationPropertySelection) property).initOptions((Type) ((domain.Relation) (property
-				.getModel())).getDetail().getCreate().getMethodRef().getReturnValue().getTypeRef());
+		dc = ((domain.Relation) (property.getModel())).getDetail();
+		if (dc.getCreate() != null && dc.getCreate().getMethodRef() != null
+				&& dc.getCreate().getMethodRef().getReturnValue() != null) {
+			type = (Type) dc.getCreate().getMethodRef().getReturnValue().getTypeRef();
+		}
+		if (dc.getBaseType() != null)
+			type = dc.getBaseType();
+
+		if (type == null)
+			return;
+
+		choicesOptions = ((RelationPropertySelection) property).initOptions(type);
 
 		if (choicesOptions != null && choicesOptions.size() != 0) {
 			row.setDetailField(choicesOptions.get(0));

@@ -1,6 +1,6 @@
 package org.tura.metamodel.commons.properties.selections.adapters.dropdown;
 
-import java.util.HashMap;
+import java.util.Map;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.tura.metamodel.commons.properties.selections.DropDownDataAdapter;
@@ -32,13 +32,13 @@ public class LinkMasterField implements DropDownDataAdapter {
 		return ((domain.Link)eObject).eGet(feature);
 	}
 	@Override
-	public Object getSelectedFeatureValue(Object eObject, HashMap<String, Object> values, EStructuralFeature feature,
+	public Object getSelectedFeatureValue(Object eObject, Map<String, Object> values, EStructuralFeature feature,
 			Object... obj) {
 			return values.get(obj[0]);
 	}
 
 	@Override
-	public boolean isEqual(HashMap<String, Object> values, Object key, Object eObject) {
+	public boolean isEqual(Map<String, Object> values, Object key, Object eObject) {
 		return true;
 	}
 
