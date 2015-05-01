@@ -12,8 +12,9 @@ ${percent}${end}
      var forms = util.runQuery(model_mapper,"Query form",model_mapper);
 
     if (forms.size() <> 0 ){
-       var i = 0;
+
        for (form in forms){
+       var i = 0;
 
          var hash = new Native("java.util.HashMap"); 
    

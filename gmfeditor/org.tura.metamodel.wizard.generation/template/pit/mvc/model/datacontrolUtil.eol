@@ -123,16 +123,17 @@ operation DataControl processArtificialFields(recipe:Recipe, ingredient :Ingredi
 
 operation DataControl processRelations( recipe:Recipe, ingredient :Ingredient) { 
         var util = new Native('org.tura.metamodel.commons.Util');
+        var queryHelper =  new Native('org.tura.metamodel.commons.QueryHelper');
         
        var masterscontrol = domain::DataControl.allInstances()->select(r|r.eContainer() = self.parent )->reject(q|domain::Relation.allInstances()->select(r|r.eContainer() = self.parent )->collect(w|w.detail)->includes(q));        
         for ( master in masterscontrol ){
             master.~masterControl = true;
         }        
-        
-        var treeRoots =   domain::Relation.allInstances()->select(r|r.isTree=true and r.eContainer() = self.parent )->collect(w|w.master)->reject(q|domain::Relation.allInstances()->select(r|r.isTree=true and r.eContainer() = self.parent)->collect(w|w.detail)->includes(q));
-        treeRoots.addAll(domain::Relation.allInstances()->select(r|r.isTree=true and  r.master=r.detail and r.eContainer() = self.parent)->collect(w|w.master));
-        for ( treeRoot in treeRoots ){
-           var objectTrack =  new Native('java.util.ArrayList');     
+        var form = queryHelper.getForm(self);
+        var treeRoots =   queryHelper.findTreeRootControls(form);
+        for ( tR in treeRoots ){
+            var treeRoot = tR.getDc();
+            var objectTrack =  new Native('java.util.ArrayList');     
             treeRoot.~dependArray = new Native('java.util.ArrayList');    
             treeRoot.~treeRoot=true;       
             treeRoot.findDependecies(objectTrack, treeRoot,recipe,ingredient);
