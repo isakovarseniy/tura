@@ -11,7 +11,7 @@ import org.tura.platform.datacontrol.commons.TuraException;
 
 @Alternative
 @Priority(10)
-@Selector("hrcontroller")
+@Selector("hrmanager.hrcontroller")
 public class PreFormTrigger implements FactoryInitializeTrigger {
 
 	@Override

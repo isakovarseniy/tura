@@ -2,7 +2,7 @@
      var util = new Native('org.tura.metamodel.commons.Util');
 
 %]
-package  [%=component.basePackage%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%].producer;  
+package  [%=component.basePackage%].[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%].producer;  
 
 import javax.enterprise.inject.Produces;
 import javax.enterprise.inject.spi.InjectionPoint;
@@ -12,7 +12,7 @@ import javax.enterprise.inject.spi.InjectionPoint;
 public class FactoryInitializeTriggerProducer {
 
 	@Produces
-    @org.tura.platform.datacontrol.annotations.Selector("[%=util.mergeAndCapitalize(form.name).toLowerCase()%]")
+    @org.tura.platform.datacontrol.annotations.Selector("[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%]")
 	public org.tura.platform.datacontrol.command.FactoryInitializeTrigger produceFactoryInitializeTrigger(InjectionPoint injectionPoint) {
 		return null;
 	}

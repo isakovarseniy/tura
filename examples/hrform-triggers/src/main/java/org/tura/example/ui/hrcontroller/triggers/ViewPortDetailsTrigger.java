@@ -15,7 +15,7 @@ import org.tura.platform.datacontrol.command.ViewPortCommand;
 
 @Alternative
 @Priority(10)
-@Selector("hrcontroller")
+@Selector("hrmanager.hrcontroller")
 @ViewPortTrigger("details")
 public class ViewPortDetailsTrigger extends ViewPortCommand {
 	 

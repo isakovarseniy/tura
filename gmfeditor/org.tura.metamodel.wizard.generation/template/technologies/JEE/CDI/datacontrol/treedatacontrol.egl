@@ -9,7 +9,7 @@ ${percent}${end}
      var util = new Native('org.tura.metamodel.commons.Util');
 
 %]
-package  [%=component.basePackage%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%].datacontrol;  
+package  [%=component.basePackage%].[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%].datacontrol;  
 
 public class TreeRoot[%=util.mergeAndCapitalize(control.name)%]DC extends org.tura.platform.datacontrol.TreeDataControl  implements java.io.Serializable{
 

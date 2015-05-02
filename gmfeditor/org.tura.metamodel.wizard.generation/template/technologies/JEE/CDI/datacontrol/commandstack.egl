@@ -7,9 +7,8 @@ ${percent}${end}
 [%
      var util = new Native('org.tura.metamodel.commons.Util');
 %]
-package  [%=component.basePackage%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%].datacontrol;  
+package  [%=component.basePackage%].[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%].datacontrol;  
 
-@javax.inject.Named("CommandStack")
 [%=commandstack_scope()%]
 public class CDICommandStack extends org.tura.platform.datacontrol.CommandStack  implements java.io.Serializable {
 

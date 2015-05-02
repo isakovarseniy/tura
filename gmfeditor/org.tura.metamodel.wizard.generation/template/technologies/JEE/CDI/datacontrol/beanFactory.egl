@@ -8,13 +8,13 @@ ${percent}${end}
 [%
      var util = new Native('org.tura.metamodel.commons.Util');
 %]
-package  [%=component.basePackage%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%].datacontrol;  
+package  [%=component.basePackage%].[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%].datacontrol;  
 
 import java.util.logging.Logger;
 import org.tura.platform.datacontrol.commons.TuraException;
 import javax.inject.Inject;
 
-@javax.inject.Named("beanFactory")
+@javax.inject.Named("beanFactory[%=util.mergeAndCapitalize(uipackage.name)%][%=util.mergeAndCapitalize(form.name)%]")
 [%=datacontrol_scope()%]
 public class BeanFactory  implements java.io.Serializable {
 	private static final long serialVersionUID = 1L;
@@ -34,7 +34,7 @@ public class BeanFactory  implements java.io.Serializable {
 	}
 	%]
 	@Inject
-	@org.tura.platform.datacontrol.annotations.Selector("[%=util.mergeAndCapitalize(form.name).toLowerCase()%]") 
+	@org.tura.platform.datacontrol.annotations.Selector("[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%]") 
 	private javax.enterprise.inject.Instance<org.tura.platform.datacontrol.command.FactoryInitializeTrigger> factoryInitializeTrigger;
 	[%
 	var root = form.datacontrols.formControl.root;
@@ -148,8 +148,10 @@ operation methodName(dc:DataControl) {
 [% @template
 operation typeName(dc:DataControl, component: Component, form:Form) {
      var util = new Native('org.tura.metamodel.commons.Util');
+     var uipackage = form.eContainer().parent;
+     
 %]
-  [%=component.basePackage%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%].datacontrol.[%if (dc.~treeRoot=true){%]TreeRoot[%}%][%=util.mergeAndCapitalize(dc.name)%]DC 
+  [%=component.basePackage%].[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%].datacontrol.[%if (dc.~treeRoot=true){%]TreeRoot[%}%][%=util.mergeAndCapitalize(dc.name)%]DC 
  [%} %]
  
  [% @template

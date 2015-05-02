@@ -7,9 +7,8 @@ ${percent}${end}
 [%
      var util = new Native('org.tura.metamodel.commons.Util');
 %]
-package  [%=component.basePackage%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%].datacontrol;  
+package  [%=component.basePackage%].commons.datacontrol;  
 
-@javax.inject.Named("elResolver")
 [%=elresolver_scope()%]
 public class ELResolverImpl implements org.tura.platform.datacontrol.ELResolver, java.io.Serializable {
 	private static final long serialVersionUID = 1L;
