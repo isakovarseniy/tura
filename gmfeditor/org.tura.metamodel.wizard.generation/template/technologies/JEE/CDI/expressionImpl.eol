@@ -149,7 +149,8 @@ operation  StyleSetImpl(expression:String, contextValue , paramId: Integer, arra
 }     
 
 operation  RootImpl(expression:String, contextValue , paramId: Integer, array ) : String {
-   return "#{beanFactory.<holder>}";
+   var util = new Native('org.tura.metamodel.commons.Util');
+   return "#{beanFactory"+util.getBeanFactoryName()+".<holder>}";
 }     
 
 operation  FormVariableImpl(expression:String, contextValue , paramId: Integer, array ) : String {

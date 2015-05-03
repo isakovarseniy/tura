@@ -17,7 +17,7 @@ public class ViewPortHolder implements java.io.Serializable{
       }
       
 %]      
-       private String [%=util.mergeAndUnCapitalize(port.name)%] = "/[%=util.mergeAndCapitalize(form.name).toLowerCase()%]/[%=canvas%].xhtml";
+       private String [%=util.mergeAndUnCapitalize(port.name)%] = "/[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%]/[%=util.mergeAndCapitalize(form.name).toLowerCase()%]/[%=canvas%].xhtml";
       
 [%      
       }
