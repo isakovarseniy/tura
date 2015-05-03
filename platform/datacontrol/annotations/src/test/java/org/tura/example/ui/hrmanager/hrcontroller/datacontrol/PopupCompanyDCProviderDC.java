@@ -3,6 +3,7 @@ package org.tura.example.ui.hrmanager.hrcontroller.datacontrol;
 import org.elsoft.platform.hr.objects.CompanyDAO;
 
 import org.tura.platform.commons.jpa.TuraJPAEntityService;
+import org.tura.platform.datacontrol.CommandStack;
 import org.tura.platform.datacontrol.DataControl;
 import org.tura.platform.datacontrol.DataControlFactory;
 import org.tura.platform.datacontrol.ELResolver;
@@ -120,7 +121,9 @@ public class PopupCompanyDCProviderDC extends DataControl<CompanyDAO>
     }
 
     @Inject
-    public void setCommandStack(CDICommandStack commandStack) {
+    public void setCommandStack(
+        @Selector("hrmanager.hrcontroller")
+    CommandStack commandStack) {
         this.commandStack = commandStack;
     }
 
@@ -141,7 +144,7 @@ public class PopupCompanyDCProviderDC extends DataControl<CompanyDAO>
     @Inject
     public void setInsertCommand(
         @Insert(objectAction = "insert", parameters = @Parameters(value =  {
-        @Parameter(name = "obj", expression = "#{beanFactory.popupCompanyDCProvider.currentObject}", type = TuraObject.class)
+        @Parameter(name = "obj", expression = "#{beanFactoryHrManagerHRController.popupCompanyDCProvider.currentObject}", type = TuraObject.class)
 
     }
     )
@@ -154,7 +157,7 @@ public class PopupCompanyDCProviderDC extends DataControl<CompanyDAO>
     @Inject
     public void setUpdateCommand(
         @Update(objectAction = "update", parameters = @Parameters(value =  {
-        @Parameter(name = "obj", expression = "#{beanFactory.popupCompanyDCProvider.currentObject}", type = TuraObject.class)
+        @Parameter(name = "obj", expression = "#{beanFactoryHrManagerHRController.popupCompanyDCProvider.currentObject}", type = TuraObject.class)
 
     }
     )
@@ -167,7 +170,7 @@ public class PopupCompanyDCProviderDC extends DataControl<CompanyDAO>
     @Inject
     public void setDeleteCommand(
         @Delete(objectAction = "remove", parameters = @Parameters(value =  {
-        @Parameter(name = "obj", expression = "#{beanFactory.popupCompanyDCProvider.currentObject}", type = TuraObject.class)
+        @Parameter(name = "obj", expression = "#{beanFactoryHrManagerHRController.popupCompanyDCProvider.currentObject}", type = TuraObject.class)
 
     }
     )
@@ -180,9 +183,9 @@ public class PopupCompanyDCProviderDC extends DataControl<CompanyDAO>
     @Inject
     public void setSearchCommand(
         @Search(objectAction = "find", parameters = @Parameters(value =  {
-        @Parameter(name = "search", expression = "#{beanFactory.popupCompanyDCProvider.query}", type = SelectQuery.class)
-        , @Parameter(name = "startIndex", expression = "#{beanFactory.popupCompanyDCProvider.startIndex}", type = Integer.class)
-        , @Parameter(name = "endIndex", expression = "#{beanFactory.popupCompanyDCProvider.endIndex}", type = Integer.class)
+        @Parameter(name = "search", expression = "#{beanFactoryHrManagerHRController.popupCompanyDCProvider.query}", type = SelectQuery.class)
+        , @Parameter(name = "startIndex", expression = "#{beanFactoryHrManagerHRController.popupCompanyDCProvider.startIndex}", type = Integer.class)
+        , @Parameter(name = "endIndex", expression = "#{beanFactoryHrManagerHRController.popupCompanyDCProvider.endIndex}", type = Integer.class)
         , @Parameter(name = "className", value = "org.elsoft.platform.hr.objects.CompanyDAO", type = String.class)
 
     }

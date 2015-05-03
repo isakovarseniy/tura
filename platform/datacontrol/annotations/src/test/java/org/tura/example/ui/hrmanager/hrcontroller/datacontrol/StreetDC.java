@@ -3,6 +3,7 @@ package org.tura.example.ui.hrmanager.hrcontroller.datacontrol;
 import org.elsoft.platform.hr.objects.StreetDAO;
 
 import org.tura.platform.commons.jpa.TuraJPAEntityService;
+import org.tura.platform.datacontrol.CommandStack;
 import org.tura.platform.datacontrol.DataControl;
 import org.tura.platform.datacontrol.DataControlFactory;
 import org.tura.platform.datacontrol.ELResolver;
@@ -118,7 +119,9 @@ public class StreetDC extends DataControl<StreetDAO> implements Serializable {
     }
 
     @Inject
-    public void setCommandStack(CDICommandStack commandStack) {
+    public void setCommandStack(
+        @Selector("hrmanager.hrcontroller")
+    CommandStack commandStack) {
         this.commandStack = commandStack;
     }
 
@@ -139,7 +142,7 @@ public class StreetDC extends DataControl<StreetDAO> implements Serializable {
     @Inject
     public void setInsertCommand(
         @Insert(objectAction = "insert", parameters = @Parameters(value =  {
-        @Parameter(name = "obj", expression = "#{beanFactory.treeRootCountry.currentObject}", type = TuraObject.class)
+        @Parameter(name = "obj", expression = "#{beanFactoryHrManagerHRController.treeRootCountry.currentObject}", type = TuraObject.class)
 
     }
     )
@@ -152,7 +155,7 @@ public class StreetDC extends DataControl<StreetDAO> implements Serializable {
     @Inject
     public void setUpdateCommand(
         @Update(objectAction = "update", parameters = @Parameters(value =  {
-        @Parameter(name = "obj", expression = "#{beanFactory.treeRootCountry.currentObject}", type = TuraObject.class)
+        @Parameter(name = "obj", expression = "#{beanFactoryHrManagerHRController.treeRootCountry.currentObject}", type = TuraObject.class)
 
     }
     )
@@ -165,7 +168,7 @@ public class StreetDC extends DataControl<StreetDAO> implements Serializable {
     @Inject
     public void setDeleteCommand(
         @Delete(objectAction = "remove", parameters = @Parameters(value =  {
-        @Parameter(name = "obj", expression = "#{beanFactory.treeRootCountry.currentObject}", type = TuraObject.class)
+        @Parameter(name = "obj", expression = "#{beanFactoryHrManagerHRController.treeRootCountry.currentObject}", type = TuraObject.class)
 
     }
     )
@@ -178,9 +181,9 @@ public class StreetDC extends DataControl<StreetDAO> implements Serializable {
     @Inject
     public void setSearchCommand(
         @Search(objectAction = "find", parameters = @Parameters(value =  {
-        @Parameter(name = "search", expression = "#{beanFactory.treeRootCountry.currentControl.query}", type = SelectQuery.class)
-        , @Parameter(name = "startIndex", expression = "#{beanFactory.treeRootCountry.currentControl.startIndex}", type = Integer.class)
-        , @Parameter(name = "endIndex", expression = "#{beanFactory.treeRootCountry.currentControl.endIndex}", type = Integer.class)
+        @Parameter(name = "search", expression = "#{beanFactoryHrManagerHRController.treeRootCountry.currentControl.query}", type = SelectQuery.class)
+        , @Parameter(name = "startIndex", expression = "#{beanFactoryHrManagerHRController.treeRootCountry.currentControl.startIndex}", type = Integer.class)
+        , @Parameter(name = "endIndex", expression = "#{beanFactoryHrManagerHRController.treeRootCountry.currentControl.endIndex}", type = Integer.class)
         , @Parameter(name = "className", value = "org.elsoft.platform.hr.objects.StreetDAO", type = String.class)
 
     }

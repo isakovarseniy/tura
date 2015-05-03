@@ -43,6 +43,15 @@ import freemarker.template.TemplateExceptionHandler;
 
 public class Util {
 
+	public static String beanFactoryName = "";
+	
+	public static void  setBeanFactoryName(String name){
+		beanFactoryName = name;
+	}
+	
+	public static String  getBeanFactoryName(){
+		return beanFactoryName;
+	}
 	
 	public static String bracketRemover(String str){
 		if (str.length() < 2 )

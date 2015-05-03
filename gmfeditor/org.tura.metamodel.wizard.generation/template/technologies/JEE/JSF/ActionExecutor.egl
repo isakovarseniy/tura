@@ -7,9 +7,11 @@ operation   actionExecutor(hash) {
      var form = hash.get("form");
      var actionElements = hash.get("actionElements");
      var  javaPath =  hash.get("javaPath");  
+     var uipackage = hash.get("uipackage");
+     
  %]
 
-package  [%=component.basePackage%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%].action;
+package  [%=component.basePackage%].[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%].action;
 
 import org.tura.platform.datacontrol.ELResolver;
 
@@ -133,6 +135,6 @@ public class ActionExecutor  implements java.io.Serializable {
 [%
       var f = new Native("org.tura.metamodel.wizard.infrastructure.JavaFormatter");
       out.formatWith(f);
-      util.saveFile( javaPath+util.mergeAndCapitalize(form.name).toLowerCase()+"/action/"  , "ActionExecutor.java",out.toString());  
+      util.saveFile( javaPath+"/"+util.mergeAndCapitalize(uipackage.name).toLowerCase()+"/"+util.mergeAndCapitalize(form.name).toLowerCase()+"/action/"  , "ActionExecutor.java",out.toString());  
 }
 %]

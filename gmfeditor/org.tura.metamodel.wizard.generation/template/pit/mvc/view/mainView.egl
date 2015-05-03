@@ -18,6 +18,7 @@ ${percent}${end}
          var javaPath = component.getComponentRoot+"/"+component.getArtifactId()+"/src/main/java/"+component.basePackage.replaceAll("\\.","\\/")+"/";  
          var resourcePath =  component.getComponentRoot+"/"+component.getArtifactId()+"/src/main/resources/";
          var webapp =  component.getComponentRoot+"/"+component.getArtifactId()+"/src/main/webapp/";
+         var uipackage = form.eContainer().parent;
 
          hash.put("recipe",recipe);
          hash.put("ingredient",ingredient);
@@ -28,7 +29,11 @@ ${percent}${end}
          hash.put("webapp",webapp);
          hash.put("form",form);
          hash.put("configuration",configuration);
+         hash.put("uipackage",uipackage);
          
+         util.setBeanFactoryName(util.mergeAndCapitalize(uipackage.name)+util.mergeAndCapitalize(form.name));
+
+
          viewgeneration(hash);
        }
      }  

@@ -5,6 +5,7 @@ import org.elsoft.platform.hr.objects.StreetDAO;
 
 import org.tura.platform.commons.jpa.TuraJPAEntityService;
 import org.tura.platform.datacontrol.ChangeRecordListener;
+import org.tura.platform.datacontrol.CommandStack;
 import org.tura.platform.datacontrol.DataControl;
 import org.tura.platform.datacontrol.DataControlFactory;
 import org.tura.platform.datacontrol.ELResolver;
@@ -144,7 +145,9 @@ public class DepartmentDC extends DataControl<DepartmentsDAO>
     }
 
     @Inject
-    public void setCommandStack(CDICommandStack commandStack) {
+    public void setCommandStack(
+        @Selector("hrmanager.tree2tree")
+    CommandStack commandStack) {
         this.commandStack = commandStack;
     }
 
@@ -165,7 +168,7 @@ public class DepartmentDC extends DataControl<DepartmentsDAO>
     @Inject
     public void setInsertCommand(
         @Insert(objectAction = "insert", parameters = @Parameters(value =  {
-        @Parameter(name = "obj", expression = "#{beanFactory.treeRootcurrentObject}", type = TuraObject.class)
+        @Parameter(name = "obj", expression = "#{beanFactoryHrManagerTree2tree.treeRootcurrentObject}", type = TuraObject.class)
 
     }
     )
@@ -178,7 +181,7 @@ public class DepartmentDC extends DataControl<DepartmentsDAO>
     @Inject
     public void setUpdateCommand(
         @Update(objectAction = "update", parameters = @Parameters(value =  {
-        @Parameter(name = "obj", expression = "#{beanFactory.treeRootcurrentObject}", type = TuraObject.class)
+        @Parameter(name = "obj", expression = "#{beanFactoryHrManagerTree2tree.treeRootcurrentObject}", type = TuraObject.class)
 
     }
     )
@@ -191,7 +194,7 @@ public class DepartmentDC extends DataControl<DepartmentsDAO>
     @Inject
     public void setDeleteCommand(
         @Delete(objectAction = "remove", parameters = @Parameters(value =  {
-        @Parameter(name = "obj", expression = "#{beanFactory.treeRootcurrentObject}", type = TuraObject.class)
+        @Parameter(name = "obj", expression = "#{beanFactoryHrManagerTree2tree.treeRootcurrentObject}", type = TuraObject.class)
 
     }
     )
@@ -204,9 +207,9 @@ public class DepartmentDC extends DataControl<DepartmentsDAO>
     @Inject
     public void setSearchCommand(
         @Search(objectAction = "find", parameters = @Parameters(value =  {
-        @Parameter(name = "search", expression = "#{beanFactory.treeRootDepartment.currentControl.query}", type = SelectQuery.class)
-        , @Parameter(name = "startIndex", expression = "#{beanFactory.treeRootDepartment.currentControl.start Index}", type = Integer.class)
-        , @Parameter(name = "endIndex", expression = "#{beanFactory.treeRootDepartment.currentControl.end Index}", type = Integer.class)
+        @Parameter(name = "search", expression = "#{beanFactoryHrManagerTree2tree.treeRootDepartment.currentControl.query}", type = SelectQuery.class)
+        , @Parameter(name = "startIndex", expression = "#{beanFactoryHrManagerTree2tree.treeRootDepartment.currentControl.start Index}", type = Integer.class)
+        , @Parameter(name = "endIndex", expression = "#{beanFactoryHrManagerTree2tree.treeRootDepartment.currentControl.end Index}", type = Integer.class)
         , @Parameter(name = "className", value = "org.elsoft.platform.hr.objects.DepartmentsDAO", type = String.class)
 
     }
@@ -320,7 +323,7 @@ public class DepartmentDC extends DataControl<DepartmentsDAO>
     public void setDefaultQuery(
         @Query(base = @Base(clazz = DepartmentsDAO.class)
     , search = @DefaultSearchCriterias(criterias =  {
-        @DefaultSearchCriteria(field = "parentId", comparator = Operator.EQ, expression = "#{beanFactory.treeRootCompany.currentObject.objId}", type = Long.class)
+        @DefaultSearchCriteria(field = "parentId", comparator = Operator.EQ, expression = "#{beanFactoryHrManagerTree2tree.treeRootCompany.currentObject.objId}", type = Long.class)
 
     }
     )

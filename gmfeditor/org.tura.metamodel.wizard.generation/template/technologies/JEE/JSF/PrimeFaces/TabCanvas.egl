@@ -2,13 +2,15 @@
 operation  TabCanvas draw(hash) { 
      var util = new Native('org.tura.metamodel.commons.Util');
      var webapp = hash.get("webapp");   
-     var form = hash.get("form");   
+     var form = hash.get("form");
+     var uipackage = hash.get("uipackage");
+        
 %]
      [%=self.generateBody(hash)%]     
 [%
      var x = new Native("org.eclipse.epsilon.egl.formatter.language.XmlFormatter"); 
      out.formatWith(x);
-     util.saveFile( webapp+"/"+util.mergeAndCapitalize(form.name).toLowerCase(),  util.mergeAndCapitalize(self.name)+".xhtml",out.toString());   
+     util.saveFile( webapp+"/"+util.mergeAndCapitalize(uipackage.name).toLowerCase()+"/"+util.mergeAndCapitalize(form.name).toLowerCase(),  util.mergeAndCapitalize(self.name)+".xhtml",out.toString());   
 }
 %]
 

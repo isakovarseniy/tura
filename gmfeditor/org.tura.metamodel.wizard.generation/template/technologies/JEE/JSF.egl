@@ -6,8 +6,12 @@ operation  viewgeneration(hash) {
       var util = new Native('org.tura.metamodel.commons.Util');
       var allPorts = new Native('java.util.ArrayList'); 
       var actionElements = new Native('java.util.ArrayList'); 
+      var uipackage = hash.get("uipackage");
+
       hash.put("actionElements",actionElements);
       
+      if (form.view = null or form.view.view = null)
+         return;   
 
       for (canvas in form.view.view.canvases){
               if (not canvas.isKindOf(domain::TabCanvas) ){
@@ -25,17 +29,17 @@ operation  viewgeneration(hash) {
       var viewportclass : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.wizard.generation/template/technologies/JEE/JSF/viewPortHolderClass.egl",hash,TemplateFactory);
       viewportclass.setFormatter(f);
       var buffer = viewportclass.process();
-      util.saveFile( javaPath+util.mergeAndCapitalize(form.name).toLowerCase()+"/viewmodel/"  , "ViewPortHolder.java",buffer);  
+      util.saveFile( javaPath+"/"+util.mergeAndCapitalize(uipackage.name).toLowerCase()+"/"+util.mergeAndCapitalize(form.name).toLowerCase()+"/viewmodel/"  , "ViewPortHolder.java",buffer);  
       
       var expproducer : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.wizard.generation/template/technologies/JEE/JSF/expressionsProducer.egl",hash,TemplateFactory);
       expproducer.setFormatter(f);
       var buffer = expproducer.process();
-      util.saveFile( javaPath+util.mergeAndCapitalize(form.name).toLowerCase()+"/producer/"  , "ExpressionsProducer.java",buffer);  
+      util.saveFile( javaPath+"/commons/producer/"  , "ExpressionsProducer.java",buffer);  
       
      var viewporttriggerproducer : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.wizard.generation/template/technologies/JEE/JSF/viewPortTriggerProducer.egl",hash,TemplateFactory);
       viewporttriggerproducer.setFormatter(f);
       var buffer = viewporttriggerproducer.process();
-      util.saveFile( javaPath+util.mergeAndCapitalize(form.name).toLowerCase()+"/producer/"  , "ViewPortTriggerProducer.java",buffer);  
+      util.saveFile( javaPath+"/"+util.mergeAndCapitalize(uipackage.name).toLowerCase()+"/"+util.mergeAndCapitalize(form.name).toLowerCase()+"/producer/"  , "ViewPortTriggerProducer.java",buffer);  
  
       web_xml(hash) ;
       actionExecutor(hash);

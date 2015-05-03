@@ -3,6 +3,7 @@ package org.tura.example.ui.hrmanager.tree2tree.datacontrol;
 import org.elsoft.platform.hr.objects.FileDAO;
 
 import org.tura.platform.commons.jpa.TuraJPAEntityService;
+import org.tura.platform.datacontrol.CommandStack;
 import org.tura.platform.datacontrol.DataControl;
 import org.tura.platform.datacontrol.DataControlFactory;
 import org.tura.platform.datacontrol.ELResolver;
@@ -126,7 +127,9 @@ public class FilesDC extends DataControl<FileDAO> implements Serializable {
     }
 
     @Inject
-    public void setCommandStack(CDICommandStack commandStack) {
+    public void setCommandStack(
+        @Selector("hrmanager.tree2tree")
+    CommandStack commandStack) {
         this.commandStack = commandStack;
     }
 
@@ -147,7 +150,7 @@ public class FilesDC extends DataControl<FileDAO> implements Serializable {
     @Inject
     public void setInsertCommand(
         @Insert(objectAction = "insert", parameters = @Parameters(value =  {
-        @Parameter(name = "obj", expression = "#{beanFactory.treeRootDepartment.currentObject}", type = TuraObject.class)
+        @Parameter(name = "obj", expression = "#{beanFactoryHrManagerTree2tree.treeRootDepartment.currentObject}", type = TuraObject.class)
 
     }
     )
@@ -160,7 +163,7 @@ public class FilesDC extends DataControl<FileDAO> implements Serializable {
     @Inject
     public void setUpdateCommand(
         @Update(objectAction = "update", parameters = @Parameters(value =  {
-        @Parameter(name = "obj", expression = "#{beanFactory.treeRootDepartment.currentObject}", type = TuraObject.class)
+        @Parameter(name = "obj", expression = "#{beanFactoryHrManagerTree2tree.treeRootDepartment.currentObject}", type = TuraObject.class)
 
     }
     )
@@ -173,7 +176,7 @@ public class FilesDC extends DataControl<FileDAO> implements Serializable {
     @Inject
     public void setDeleteCommand(
         @Delete(objectAction = "remove", parameters = @Parameters(value =  {
-        @Parameter(name = "obj", expression = "#{beanFactory.treeRootDepartment.currentObject}", type = TuraObject.class)
+        @Parameter(name = "obj", expression = "#{beanFactoryHrManagerTree2tree.treeRootDepartment.currentObject}", type = TuraObject.class)
 
     }
     )
@@ -186,9 +189,9 @@ public class FilesDC extends DataControl<FileDAO> implements Serializable {
     @Inject
     public void setSearchCommand(
         @Search(objectAction = "find", parameters = @Parameters(value =  {
-        @Parameter(name = "search", expression = "#{beanFactory.treeRootDepartment.currentControl.query}", type = SelectQuery.class)
-        , @Parameter(name = "startIndex", expression = "#{beanFactory.treeRootDepartment.currentControl.start Index}", type = Integer.class)
-        , @Parameter(name = "endIndex", expression = "#{beanFactory.treeRootDepartment.currentControl.end Index}", type = Integer.class)
+        @Parameter(name = "search", expression = "#{beanFactoryHrManagerTree2tree.treeRootDepartment.currentControl.query}", type = SelectQuery.class)
+        , @Parameter(name = "startIndex", expression = "#{beanFactoryHrManagerTree2tree.treeRootDepartment.currentControl.start Index}", type = Integer.class)
+        , @Parameter(name = "endIndex", expression = "#{beanFactoryHrManagerTree2tree.treeRootDepartment.currentControl.end Index}", type = Integer.class)
         , @Parameter(name = "className", value = "org.elsoft.platform.hr.objects.FileDAO", type = String.class)
 
     }

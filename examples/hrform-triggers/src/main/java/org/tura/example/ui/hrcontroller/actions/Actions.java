@@ -12,6 +12,7 @@ import org.tura.platform.datacontrol.DataControl;
 import org.tura.platform.datacontrol.ELResolver;
 import org.tura.platform.datacontrol.IDataControl;
 import org.tura.platform.datacontrol.TreeDataControl;
+import org.tura.platform.datacontrol.annotations.Selector;
 import org.tura.platform.datacontrol.commons.Reflection;
 import org.tura.platform.persistence.TuraObject;
 import org.tura.platform.primefaces.lib.EventAccessor;
@@ -27,6 +28,7 @@ public class Actions implements EventAccessor {
 	ELResolver elResolver;
 
 	@Inject
+	@Selector("hrmanager.hrcontroller")
 	CommandStack commandStack;
 
 	@SuppressWarnings("rawtypes")
@@ -36,9 +38,9 @@ public class Actions implements EventAccessor {
 					.get("param1");
 
 			DataControl dc = (DataControl) elResolver
-					.getValue("#{beanFactory.popupCompanyDCProvider}");
+					.getValue("#{beanFactoryHrManagerHRController.popupCompanyDCProvider}");
 
-			Object bf = elResolver.getValue("#{beanFactory}");
+			Object bf = elResolver.getValue("#{beanFactoryHrManagerHRController}");
 			Reflection.call(bf, "setCmpId", ((TuraObject) (row[2])).getObjId());
 			dc.forceRefresh();
 			dc.cleanShifter();

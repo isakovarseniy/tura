@@ -24,7 +24,7 @@ public class TreeRootCompanyDC extends TreeDataControl implements Serializable {
     @Inject
     public void setDependency(
         @Dependencies(dependency =  {
-        @Dependency(expression = "#{beanFactory.treeRootDepartment}")
+        @Dependency(expression = "#{beanFactoryHrManagerTree2tree.treeRootDepartment}")
 
     }
     )

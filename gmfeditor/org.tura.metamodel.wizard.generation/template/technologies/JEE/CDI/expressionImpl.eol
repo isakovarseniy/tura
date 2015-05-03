@@ -3,11 +3,13 @@ operation ArtificialFieldImpl(expression:String, contextValue , paramId: Integer
 }
 
 operation DataControlHolder(expression:String, contextValue , paramId: Integer , array ) : String {
-   return "#{beanFactory.<holder>}";
+   var util = new Native('org.tura.metamodel.commons.Util');
+   return "#{beanFactory"+util.getBeanFactoryName()+".<holder>}";
 }
 
 operation TreeRootDataControlHolder(expression:String, contextValue , paramId: Integer , array ) : String {
-   return "#{beanFactory.treeRoot<holder>}";
+   var util = new Native('org.tura.metamodel.commons.Util');
+   return "#{beanFactory"+util.getBeanFactoryName()+".treeRoot<holder>}";
 }
 
 operation DataControlImpl(expression:String, contextValue , paramId: Integer , array ) : String {

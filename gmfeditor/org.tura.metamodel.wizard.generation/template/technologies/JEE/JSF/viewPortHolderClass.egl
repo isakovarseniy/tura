@@ -1,7 +1,7 @@
 [%
      var util = new Native('org.tura.metamodel.commons.Util');
 %]
-package  [%=component.basePackage%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%].viewmodel;
+package  [%=component.basePackage%].[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%].viewmodel;
 @javax.inject.Named("viewPortHolder")
 @javax.faces.bean.ViewScoped
 public class ViewPortHolder implements java.io.Serializable{

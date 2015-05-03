@@ -25,18 +25,18 @@ public class ViewPortDetailsTrigger extends ViewPortCommand {
 	@Override
 	public Object execute() {
 		
-		Object obj = elResolver.getValue("#{beanFactory.treeRootCountry.currentObject}");
+		Object obj = elResolver.getValue("#{beanFactoryHrManagerHRController.treeRootCountry.currentObject}");
 		if (obj instanceof CountryDAO)
-			return "/hrcontroller/CountryDetails.xhtml";
+			return "/hrmanager/hrcontroller/CountryDetails.xhtml";
 		
 		if (obj instanceof StateDAO)
-			return "/hrcontroller/StateDetails.xhtml";
+			return "/hrmanager/hrcontroller/StateDetails.xhtml";
 
 		if (obj instanceof CityDAO)
-			return "/hrcontroller/CityDetails.xhtml";
+			return "/hrmanager/hrcontroller/CityDetails.xhtml";
 		
 		if (obj instanceof StreetDAO)
-			return "/hrcontroller/DepartmentsDetails.xhtml";
+			return "/hrmanager/hrcontroller/DepartmentsDetails.xhtml";
 
 		return this.port;
 	}

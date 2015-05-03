@@ -1,7 +1,7 @@
 [%
      var util = new Native('org.tura.metamodel.commons.Util');
 %]
-package  [%=component.basePackage%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%].producer;  
+package  [%=component.basePackage%].commons.producer;  
 
 
 @javax.enterprise.inject.Alternative
