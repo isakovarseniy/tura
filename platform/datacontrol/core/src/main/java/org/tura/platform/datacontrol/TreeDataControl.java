@@ -28,7 +28,7 @@ public abstract class TreeDataControl implements IDataControl, EventListener {
 
 	private Object currentObject;
 	private IDataControl currentControl;
-	private int[] currentPosition;
+	private TreePath[] currentPosition;
 
 	protected boolean blocked = false;
 
@@ -42,7 +42,7 @@ public abstract class TreeDataControl implements IDataControl, EventListener {
 		this.root = root;
 		this.currentControl = root;
 		root.setParent(treeRelation);
-		currentPosition = new int[] { 0 };
+		currentPosition = new TreePath[] { new TreePath(null,0) };
 	}
 
 	@Override
@@ -195,7 +195,7 @@ public abstract class TreeDataControl implements IDataControl, EventListener {
 		if (blocked)
 			return;
 
-		setCurrentPosition(new int[] { 0 });
+		setCurrentPosition(new TreePath[] { new TreePath(null,0) });
 
 		BeanWrapper w = ((BeanWrapper) Reflection.call(currentObject,
 				"getWrapper"));
@@ -212,19 +212,18 @@ public abstract class TreeDataControl implements IDataControl, EventListener {
 		if (blocked)
 			return false;
 
-		int[] path = (int[]) o;
+		TreePath[] path = (TreePath[]) o;
 		IDataControl current = root;
 		Object obj = null;
 		for (int i = 0; i < path.length; i++) {
-			int key = path[i];
+			int key = path[i].getKey();
 			if (!current.setCurrentPosition(key))
 				return false;
 			obj = current.getCurrentObject();
 			if (obj != null) {
 				if (i + 1 < path.length) {
-					Collection<String> names = current.getRelationsName();
-					if (names != null && names.size() > 0) {
-						String relationName = names.iterator().next();
+					String relationName = path[i+1].getRelation();
+					if (current.getChild(relationName) != null ) {
 						Relation rel = current.getChild(relationName);
 						if (rel.getChild() == null)
 							current.createChild(relationName);
@@ -261,7 +260,7 @@ public abstract class TreeDataControl implements IDataControl, EventListener {
 
 		}
 		currentObject = obj;
-		currentPosition = (int[]) o;
+		currentPosition = (TreePath[]) o;
 		notifyLiteners(new RowChangedEvent(this));
 		notifyChageRecordAll(obj);
 

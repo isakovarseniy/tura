@@ -21,6 +21,7 @@ public class Relation {
 	private IDataControl child;
 	private Object masterCurrentObject;
 	private boolean cascade = true;
+	private String name;
 
 	private ArrayList<PropertyLink> links = new ArrayList<PropertyLink>();
 
@@ -122,6 +123,18 @@ public class Relation {
 
 		}
 		return scls;
+	}
+	/**
+	 * @return the name
+	 */
+	public String getName() {
+		return name;
+	}
+	/**
+	 * @param name the name to set
+	 */
+	public void setName(String name) {
+		this.name = name;
 	}
 
 }

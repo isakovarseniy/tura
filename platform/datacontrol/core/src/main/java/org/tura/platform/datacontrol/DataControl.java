@@ -198,9 +198,10 @@ public abstract class DataControl<T> extends MetaInfoHolder implements
 			return;
 
 		if (treeDataControl != null ){
-			int[] treePosition =  (int[]) treeDataControl.getCurrentPosition();
-			int[] newTreePosition = new int[treePosition.length+1];
+			TreePath[] treePosition =  (TreePath[]) treeDataControl.getCurrentPosition();
+			TreePath[] newTreePosition = new TreePath[treePosition.length+1];
 			System.arraycopy(treePosition, 0, newTreePosition, 0, treePosition.length);
+			newTreePosition[treePosition.length]= new TreePath(this.getParent().getName(), 0);
 			treeDataControl.setCurrentPosition(newTreePosition);
 		}
 		for (String relName : getRelationsName()) {
@@ -220,8 +221,8 @@ public abstract class DataControl<T> extends MetaInfoHolder implements
 			currentPosition--;
 		
 		if (treeDataControl != null ){
-			int[] treePosition =  (int[]) treeDataControl.getCurrentPosition();
-			int[] newTreePosition = new int[treePosition.length-1];
+			TreePath[] treePosition =  (TreePath[]) treeDataControl.getCurrentPosition();
+			TreePath[] newTreePosition = new TreePath[treePosition.length-1];
 			System.arraycopy(treePosition, 0, newTreePosition, 0, treePosition.length-1);
 			treeDataControl.setCurrentPosition(newTreePosition);
 		}		

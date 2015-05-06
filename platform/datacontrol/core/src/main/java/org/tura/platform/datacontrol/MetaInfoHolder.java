@@ -64,6 +64,7 @@ public abstract class MetaInfoHolder {
 	
 	public void addChildren(String relationName, Relation relation) throws TuraException {
 		children.put(relationName, relation);
+		relation.setName(relationName);
 		relation.setParent((IDataControl) this);
 		if (relation.getChild() != null)
 			relation.getChild().setParent(relation);

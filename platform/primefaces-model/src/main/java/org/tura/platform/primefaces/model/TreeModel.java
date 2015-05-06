@@ -17,6 +17,7 @@ import org.tura.platform.datacontrol.DataControl;
 import org.tura.platform.datacontrol.EventListener;
 import org.tura.platform.datacontrol.IDataControl;
 import org.tura.platform.datacontrol.TreeDataControl;
+import org.tura.platform.datacontrol.TreePath;
 import org.tura.platform.datacontrol.commons.Reflection;
 import org.tura.platform.datacontrol.commons.TuraException;
 import org.tura.platform.datacontrol.event.ControlRallbackEvent;
@@ -44,10 +45,13 @@ public class TreeModel {
 		if (root == null) {
 			root = new DefaultTreeNode(new Root(), null);
 
-			dc.setCurrentPosition(new int[] { 0 });
+			dc.setCurrentPosition(new TreePath[] { new TreePath(null,0) });
 			List scroler = ((DataControl) dc.getRoot()).getScroller();
+			String relation = "";
+			if (dc.getParent() != null)
+				relation = dc.getParent().getName();
 			for (int i = 0; i < scroler.size(); i++) {
-				DefaultTreeNode leaf = new DefaultTreeNode(new Object[] { i,
+				DefaultTreeNode leaf = new DefaultTreeNode(new Object[] { new TreePath(relation ,i),
 						scroler.get(i) }, root);
 				new DefaultTreeNode(new Fake(), leaf);
 			}
@@ -71,29 +75,29 @@ public class TreeModel {
 			return;
 		this.selectedNode = selectedNode;
 
-		int[] p = getPath(selectedNode);
-		if (!compareArrays((int[]) dc.getCurrentPosition(), p))
+		TreePath[] p = getPath(selectedNode);
+		if (!compareArrays((TreePath[]) dc.getCurrentPosition(), p))
 			dc.setCurrentPosition(p);
 
 	}
 
-	private int[] getPath(TreeNode node) {
+	private TreePath[] getPath(TreeNode node) {
 
 		TreeNode runner = node;
-		List<Integer> path = new ArrayList<Integer>();
+		List<TreePath> path = new ArrayList<TreePath>();
 		while (true) {
 			if (runner.getData() instanceof Root)
 				break;
 			Object[] data = (Object[]) runner.getData();
-			path.add((Integer) data[0]);
+			path.add((TreePath) data[0]);
 			if (runner.getParent() != null)
 				runner = runner.getParent();
 		}
 		Collections.reverse(path);
-		int[] p = new int[path.size()];
+		TreePath[] p = new TreePath[path.size()];
 
 		for (int i = 0; i < path.size(); i++) {
-			p[i] = path.get(i).intValue();
+			p[i] = path.get(i);
 		}
 
 		return p;
@@ -121,7 +125,7 @@ public class TreeModel {
 
 			List scroler = ((DataControl) chdc).getScroller();
 			for (int i = 0; i < scroler.size(); i++) {
-				DefaultTreeNode leaf = new DefaultTreeNode(new Object[] { i,
+				DefaultTreeNode leaf = new DefaultTreeNode(new Object[] {new TreePath( relationName,i),
 						scroler.get(i) }, expnode);
 				new DefaultTreeNode(new Fake(), leaf);
 			}
@@ -129,14 +133,14 @@ public class TreeModel {
 
 	}
 
-	private boolean compareArrays(int[] array1, int[] array2) {
+	private boolean compareArrays(TreePath[] array1, TreePath[] array2) {
 		boolean b = true;
 		if (array1 != null && array2 != null) {
 			if (array1.length != array2.length)
 				b = false;
 			else
 				for (int i = 0; i < array2.length; i++) {
-					if (array2[i] != array1[i]) {
+					if (!array2[i].equals(array1[i]) ) {
 						b = false;
 					}
 				}
@@ -214,13 +218,18 @@ public class TreeModel {
 					parent.setExpanded(true);
 					parent.getChildren().clear();
 					List<?> scroler = newDC.getScroller();
+
+					String relation = "";
+					if (newDC.getParent() != null)
+						relation = newDC.getParent().getName();
+					
 					for (int i = 0; i < scroler.size(); i++) {
 						DefaultTreeNode leaf = new DefaultTreeNode(
-								new Object[] { i, scroler.get(i) }, parent);
+								new Object[] { new TreePath(relation,i), scroler.get(i) }, parent);
 						new DefaultTreeNode(new Fake(), leaf);
 					}
 
-					int[] p = getPath(selectedNode);
+					TreePath[] p = getPath(selectedNode);
 					event.getSource().setCurrentPosition(p);
 					selectedNode.setSelected(true);
 					setSelectedNode(selectedNode);
@@ -238,7 +247,7 @@ public class TreeModel {
 						return;
 					}
 
-					int[] p = getPath(selectedNode);
+					TreePath[] p = getPath(selectedNode);
 
 					TreeNode parent = selectedNode.getParent();
 					parent.setExpanded(true);
@@ -251,10 +260,13 @@ public class TreeModel {
 							"getWrapper"));
 					DataControl<?> currentDc = w.getDatacontrol();
 					List<?> scroller = currentDc.getScroller();
+					String relation = "";
+					if (currentDc.getParent() != null)
+						relation = currentDc.getParent().getName();
 
 					for (int i = 0; i < scroller.size(); i++) {
 						DefaultTreeNode leaf = new DefaultTreeNode(
-								new Object[] { i, scroller.get(i) }, parent);
+								new Object[] { new TreePath (relation,i), scroller.get(i) }, parent);
 						new DefaultTreeNode(new Fake(), leaf);
 					}
 
@@ -264,10 +276,10 @@ public class TreeModel {
 						parent.setSelected(true);
 						setSelectedNode(parent);
 					} else {
-						int lastIndex = p[p.length - 1];
+						int lastIndex = p[p.length - 1].getKey();
 						if (lastIndex == parent.getChildren().size()) {
 							lastIndex--;
-							p[p.length - 1] = lastIndex;
+							p[p.length - 1].setKey( lastIndex );
 						}
 						parent.getChildren().get(lastIndex).setSelected(true);
 						setSelectedNode(parent.getChildren().get(lastIndex));

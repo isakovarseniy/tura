@@ -5,7 +5,6 @@ import java.util.logging.Logger;
 
 import javax.inject.Inject;
 
-import org.tura.platform.datacontrol.DataControl;
 import org.tura.platform.datacontrol.IDataControl;
 import org.tura.platform.datacontrol.commons.TuraException;
 
@@ -25,7 +24,7 @@ public class SystemLibrary {
 	public void removeRow(IDataControl dc) {
 		try {
 			dc.removeObject();
-			((DataControl<?>)dc).forceRefresh();
+//			((DataControl<?>)dc).forceRefresh();
 		} catch (Exception e) {
 			logger.log(Level.INFO, e.getMessage(),e);
 		}

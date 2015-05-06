@@ -27,6 +27,7 @@ import org.tura.example.ui.hrmanager.hrcontroller.datacontrol.CompanyDC;
 import org.tura.example.ui.hrmanager.hrcontroller.datacontrol.DepartmentDC;
 import org.tura.example.ui.hrmanager.hrcontroller.datacontrol.TreeRootCountryDC;
 import org.tura.platform.datacontrol.EventListener;
+import org.tura.platform.datacontrol.TreePath;
 import org.tura.platform.datacontrol.commons.Reflection;
 import org.tura.platform.datacontrol.commons.TuraException;
 import org.tura.platform.datacontrol.event.Event;
@@ -109,7 +110,8 @@ public class CDITest {
 			assertEquals(company.getObjId(), new Long(2));
 
 			TreeRootCountryDC locationDC = bf.getTreeRootCountry();
-			boolean isSet = locationDC.setCurrentPosition(new int[] { 0, 2 });
+			boolean isSet = locationDC.setCurrentPosition(new TreePath[] { new TreePath(null,0), new TreePath("country2state",2)});
+			
 			assertEquals(isSet, true);
 
 			StateDAO row = (StateDAO) locationDC.getCurrentObject();
@@ -126,6 +128,7 @@ public class CDITest {
 		try {
 			BeanFactory bf = weld.instance().select(BeanFactory.class).get();
 			CompanyDC companyDC = bf.getCompany();
+			companyDC.getCurrentObject();
 			companyDC.nextObject();
 			CompanyDAO company = companyDC.getCurrentObject();
 			assertEquals(company.getObjId(), new Long(2));
@@ -137,8 +140,8 @@ public class CDITest {
 			assertNull(department);
 
 			TreeRootCountryDC locationDC = bf.getTreeRootCountry();
-			boolean isSet = locationDC.setCurrentPosition(new int[] { 0, 3, 1,
-					2 });
+			boolean isSet = locationDC.setCurrentPosition(new TreePath[] { new TreePath(null,0), new TreePath("country2state",3), new TreePath("state2city",1), new TreePath("city2street",2)});
+			
 			assertEquals(isSet, true);
 
 			StreetDAO row = (StreetDAO) locationDC.getCurrentObject();
@@ -147,7 +150,7 @@ public class CDITest {
 			department = departmentDC.getCurrentObject();
 			assertEquals(department.getObjId(), new Long(200));
 
-			isSet = locationDC.setCurrentPosition(new int[] { 0, 3, 1 });
+			isSet = locationDC.setCurrentPosition(new TreePath[] { new TreePath(null,0), new TreePath("country2state",3), new TreePath("state2city",1)});
 			assertEquals(isSet, true);
 
 			assertEquals(departmentDC.isBlocked(), true);
@@ -177,7 +180,8 @@ public class CDITest {
 			assertEquals(company.getObjId(), new Long(2));
 
 			TreeRootCountryDC locationDC = bf.getTreeRootCountry();
-			boolean isSet = locationDC.setCurrentPosition(new int[] { 0, 2 });
+			boolean isSet = locationDC.setCurrentPosition(new TreePath[] { new TreePath(null,0), new TreePath("country2state",2)});
+			
 			assertEquals(isSet, true);
 
 			StateDAO row = (StateDAO) locationDC.getCurrentObject();
@@ -195,7 +199,7 @@ public class CDITest {
 			assertEquals(company.getCompanyName(), saveCompanyName);
 			
 			locationDC = bf.getTreeRootCountry();
-			isSet = locationDC.setCurrentPosition(new int[] { 0, 2 });
+			isSet = locationDC.setCurrentPosition(new TreePath[] { new TreePath(null,0), new TreePath("country2state",2)});
 			assertEquals(isSet, true);
 
 			row = (StateDAO) locationDC.getCurrentObject();
