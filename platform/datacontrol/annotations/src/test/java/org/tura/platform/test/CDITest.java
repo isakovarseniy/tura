@@ -27,6 +27,7 @@ import org.tura.example.ui.hrmanager.hrcontroller.datacontrol.CompanyDC;
 import org.tura.example.ui.hrmanager.hrcontroller.datacontrol.DepartmentDC;
 import org.tura.example.ui.hrmanager.hrcontroller.datacontrol.TreeRootCountryDC;
 import org.tura.platform.datacontrol.EventListener;
+import org.tura.platform.datacontrol.IDataControl;
 import org.tura.platform.datacontrol.TreePath;
 import org.tura.platform.datacontrol.commons.Reflection;
 import org.tura.platform.datacontrol.commons.TuraException;
@@ -268,6 +269,38 @@ public class CDITest {
 
 	}
 
+	@Test
+	public void a6_tree_access() {
+		try {
+
+			org.tura.example.ui.hrmanager.tree2tree.datacontrol.BeanFactory bf = weld.instance().select(org.tura.example.ui.hrmanager.tree2tree.datacontrol.BeanFactory.class).get();
+	        
+			IDataControl dc1 =  bf.getTreeRootCompany();
+			dc1.setCurrentPosition(new TreePath[]{ new TreePath(null, 0)});
+			
+			IDataControl dc2 =  bf.getTreeRootDepartment();
+			dc2.setCurrentPosition(   new TreePath[]{ new TreePath(null, 0)});
+			
+			
+			CompanyDAO obj1 = (CompanyDAO) dc1.getCurrentObject();
+			assertEquals(new Long(1L), obj1.getObjId());
+			DepartmentsDAO obj2 = (DepartmentsDAO) dc2.getCurrentObject();
+			assertNull(obj2);
+			
+			boolean isSet = dc1.setCurrentPosition(new TreePath[] { new TreePath(null,0), new TreePath("company2country",0),  new TreePath("country2state",0), new TreePath("state2city",0), new TreePath("city2street",0)});
+			assertEquals(isSet, true);
+	
+			obj2 = (DepartmentsDAO) dc2.getCurrentObject();
+			assertEquals(new Long(10L), obj2.getObjId());
+
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			fail(e.getMessage());
+		}
+
+	}	
+	
 	class RemoveObjectTracer implements EventListener {
 
 		@Override

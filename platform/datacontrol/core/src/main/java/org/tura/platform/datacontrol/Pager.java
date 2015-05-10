@@ -64,10 +64,14 @@ public class Pager<T> {
 	}
 
 	public int listSize() {
+		if (shifter == null)
+			return -1;
 		return (int) shifter.getPersistedRowNumber();
 	}
 
 	public long actualListSize() {
+		if (shifter == null)
+			return -1;
 		return shifter.getActualRowNumber();
 	}
 

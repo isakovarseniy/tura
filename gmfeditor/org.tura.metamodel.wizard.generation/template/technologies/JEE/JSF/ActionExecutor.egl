@@ -23,7 +23,7 @@ import javax.faces.event.ActionEvent;
 
 import javax.inject.Inject;
 
-@javax.inject.Named("actionExecutor")
+@javax.inject.Named("actionExecutor[%=util.mergeAndCapitalize(uipackage.name)%][%=util.mergeAndCapitalize(form.name)%]")
 public class ActionExecutor  implements java.io.Serializable {
 
 	private static final long serialVersionUID = 1L;

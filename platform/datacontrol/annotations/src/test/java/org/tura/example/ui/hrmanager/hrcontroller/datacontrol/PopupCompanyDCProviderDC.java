@@ -259,7 +259,7 @@ public class PopupCompanyDCProviderDC extends DataControl<CompanyDAO>
     public void setDefaultQuery(
         @Query(base = @Base(clazz = CompanyDAO.class)
     , search = @DefaultSearchCriterias(criterias =  {
-        @DefaultSearchCriteria(field = "objId", comparator = Operator.EQ, expression = "#{beanFactory.cmpId}", type = Long.class)
+        @DefaultSearchCriteria(field = "objId", comparator = Operator.EQ, expression = "#{beanFactoryHrManagerHRController.cmpId}", type = Long.class)
 
     }
     )

@@ -21,7 +21,7 @@ public abstract class TreeDataControl implements IDataControl, EventListener {
 
 	protected List<DependecyProperty> dependency = new ArrayList<DependecyProperty>();
 	private Relation parent;
-	private Relation treeRelation = new Relation();
+	private Relation treeRelation;
 	protected HashMap<String, Relation> children = new HashMap<String, Relation>();
 
 	private ArrayList<EventListener> eventLiteners = new ArrayList<>();
@@ -41,16 +41,18 @@ public abstract class TreeDataControl implements IDataControl, EventListener {
 	public void setRoot(DataControl<?> root) {
 		this.root = root;
 		this.currentControl = root;
-		root.setParent(treeRelation);
+//		root.setParent(treeRelation);
 		currentPosition = new TreePath[] { new TreePath(null,0) };
 	}
 
 	@Override
 	public void setParent(Relation parent) throws TuraException {
 		this.parent = parent;
+		treeRelation = new Relation(); 
 		treeRelation.setParent(this);
 		treeRelation.setChild(root);
 		treeRelation.getLinks().addAll(parent.getLinks());
+		root.setParent(treeRelation);
 	}
 
 	@Override
@@ -77,7 +79,8 @@ public abstract class TreeDataControl implements IDataControl, EventListener {
 		}
 
 		blocked = false;
-		treeRelation.setMasterCurrentObject(newCurrentObject);
+		if (treeRelation != null)
+		   treeRelation.setMasterCurrentObject(newCurrentObject);
 		currentObject = null;
 		root.handleChangeMusterCurrentRecordNotification(newCurrentObject);
 
@@ -118,8 +121,6 @@ public abstract class TreeDataControl implements IDataControl, EventListener {
 		if (blocked)
 			return null;
 		if (currentObject == null) {
-			treeRelation
-					.setMasterCurrentObject(parent.getMasterCurrentObject());
 			currentObject = root.getCurrentObject();
 		}
 		return currentObject;

@@ -1,10 +1,12 @@
 [%@template
 operation ViewPort draw(hash) { 
      var util = new Native('org.tura.metamodel.commons.Util');
+     var form = hash.get("form");
+     var uipackage = hash.get("uipackage");
 %]
 
 <p:panelGrid   [%=self.mkUIDBinding()%]  columns="1">
-		<ui:include src="#{viewPortHolder.[%=util.mergeAndUnCapitalize(self.name)%]}"/>
+		<ui:include src="#{viewPortHolder[%=util.mergeAndCapitalize(uipackage.name)%][%=util.mergeAndCapitalize(form.name)%].[%=util.mergeAndUnCapitalize(self.name)%]}"/>
 </p:panelGrid>
 		
 [%               

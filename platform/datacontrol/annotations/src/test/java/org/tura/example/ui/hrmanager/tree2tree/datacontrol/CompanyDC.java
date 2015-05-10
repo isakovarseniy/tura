@@ -8,12 +8,12 @@ import org.tura.platform.datacontrol.DataControl;
 import org.tura.platform.datacontrol.DataControlFactory;
 import org.tura.platform.datacontrol.ELResolver;
 import org.tura.platform.datacontrol.IDataControl;
+import org.tura.platform.datacontrol.annotations.ArtificialField;
 import org.tura.platform.datacontrol.annotations.ArtificialFields;
 import org.tura.platform.datacontrol.annotations.Base;
 import org.tura.platform.datacontrol.annotations.Connection;
 import org.tura.platform.datacontrol.annotations.Create;
 import org.tura.platform.datacontrol.annotations.DCProxy;
-import org.tura.platform.datacontrol.annotations.DefaultOrderBy;
 import org.tura.platform.datacontrol.annotations.DefaultOrderBys;
 import org.tura.platform.datacontrol.annotations.DefaultSearchCriterias;
 import org.tura.platform.datacontrol.annotations.Delete;
@@ -114,6 +114,8 @@ public class CompanyDC extends DataControl<CompanyDAO> implements Serializable {
     @Inject
     public void setArtificialProperties(
         @ArtificialFields(fields =  {
+        @ArtificialField(field = "nameArtf", type = String.class)
+
     }
     )
     List<ArtificialProperty> properties) {
@@ -137,7 +139,7 @@ public class CompanyDC extends DataControl<CompanyDAO> implements Serializable {
     @Inject
     public void setCreateCommand(
         @Create(objectAction = "create", parameters = @Parameters(value =  {
-        @Parameter(name = "objectClass", value = "org.elsoft.platform.hr.objects.CountryDAO", type = String.class)
+        @Parameter(name = "objectClass", value = "org.elsoft.platform.hr.objects.CompanyDAO", type = String.class)
 
     }
     )
@@ -190,9 +192,9 @@ public class CompanyDC extends DataControl<CompanyDAO> implements Serializable {
     public void setSearchCommand(
         @Search(objectAction = "find", parameters = @Parameters(value =  {
         @Parameter(name = "search", expression = "#{beanFactoryHrManagerTree2tree.treeRootCompany.currentControl.query}", type = SelectQuery.class)
-        , @Parameter(name = "startIndex", expression = "#{beanFactoryHrManagerTree2tree.treeRootCompany.currentControl.start Index}", type = Integer.class)
-        , @Parameter(name = "endIndex", expression = "#{beanFactoryHrManagerTree2tree.treeRootCompany.currentControl.end Index}", type = Integer.class)
-        , @Parameter(name = "className", value = "org.elsoft.platform.hr.objects.CountryDAO", type = String.class)
+        , @Parameter(name = "startIndex", expression = "#{beanFactoryHrManagerTree2tree.treeRootCompany.currentControl.startIndex}", type = Integer.class)
+        , @Parameter(name = "endIndex", expression = "#{beanFactoryHrManagerTree2tree.treeRootCompany.currentControl.endIndex}", type = Integer.class)
+        , @Parameter(name = "className", value = "org.elsoft.platform.hr.objects.CompanyDAO", type = String.class)
 
     }
     )
@@ -293,8 +295,6 @@ public class CompanyDC extends DataControl<CompanyDAO> implements Serializable {
     }
     )
     , orders = @DefaultOrderBys(orders =  {
-        @DefaultOrderBy(field = "objId", order = SelectQuery.Order.ASC)
-
     }
     )
     )

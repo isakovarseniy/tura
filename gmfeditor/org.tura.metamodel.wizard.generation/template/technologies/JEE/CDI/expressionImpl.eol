@@ -90,7 +90,7 @@ operation DataControlFakeAttribute(expression:String, contextValue , paramId: In
       var util = new Native('org.tura.metamodel.commons.Util');
        if (contextValue.expression.get(paramId-1).~treeDC <> null){
             if (array.get(paramId) <> "currentObject")
-              return expression.replaceAll("<holder>", "currentControl."+array.get(paramId)+".<holder>");
+              return expression.replaceAll("<holder>", "currentControl."+util.mergeAndUnCapitalize(array.get(paramId))+".<holder>");
             else
               return expression.replaceAll("<holder>", "currentObject"+".<holder>");
         }
@@ -103,7 +103,7 @@ operation DataControlFakeMethod(expression:String, contextValue , paramId: Integ
        var util = new Native('org.tura.metamodel.commons.Util');
        if (contextValue.expression.get(paramId-1).~treeDC <> null){
             if (array.get(paramId) <> "currentObject")
-              return expression.replaceAll("<holder>", "currentControl."+array.get(paramId)+".<holder>");
+              return expression.replaceAll("<holder>", "currentControl."+util.mergeAndUnCapitalize(array.get(paramId))+".<holder>");
             else
               return expression.replaceAll("<holder>", "currentObject"+".<holder>");
         }

@@ -7,6 +7,7 @@ import org.tura.platform.datacontrol.CommandStack;
 import org.tura.platform.datacontrol.DataControl;
 import org.tura.platform.datacontrol.DataControlFactory;
 import org.tura.platform.datacontrol.ELResolver;
+import org.tura.platform.datacontrol.annotations.ArtificialField;
 import org.tura.platform.datacontrol.annotations.ArtificialFields;
 import org.tura.platform.datacontrol.annotations.Base;
 import org.tura.platform.datacontrol.annotations.Create;
@@ -106,6 +107,8 @@ public class StreetDC extends DataControl<StreetDAO> implements Serializable {
     @Inject
     public void setArtificialProperties(
         @ArtificialFields(fields =  {
+        @ArtificialField(field = "nameArtf", type = String.class)
+
     }
     )
     List<ArtificialProperty> properties) {
@@ -182,8 +185,8 @@ public class StreetDC extends DataControl<StreetDAO> implements Serializable {
     public void setSearchCommand(
         @Search(objectAction = "find", parameters = @Parameters(value =  {
         @Parameter(name = "search", expression = "#{beanFactoryHrManagerTree2tree.treeRootCompany.currentControl.query}", type = SelectQuery.class)
-        , @Parameter(name = "startIndex", expression = "#{beanFactoryHrManagerTree2tree.treeRootCompany.currentControl.start Index}", type = Integer.class)
-        , @Parameter(name = "endIndex", expression = "#{beanFactoryHrManagerTree2tree.treeRootCompany.currentControl.end Index}", type = Integer.class)
+        , @Parameter(name = "startIndex", expression = "#{beanFactoryHrManagerTree2tree.treeRootCompany.currentControl.startIndex}", type = Integer.class)
+        , @Parameter(name = "endIndex", expression = "#{beanFactoryHrManagerTree2tree.treeRootCompany.currentControl.endIndex}", type = Integer.class)
         , @Parameter(name = "className", value = "org.elsoft.platform.hr.objects.StreetDAO", type = String.class)
 
     }

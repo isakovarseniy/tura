@@ -67,8 +67,8 @@ public class Relation {
 	}
 
 	public Object getMasterCurrentObject() throws TuraException {
-		if (masterCurrentObject == null)
-			masterCurrentObject = getParent().getCurrentObject();
+//		if (masterCurrentObject == null)
+//			masterCurrentObject = getParent().getCurrentObject();
 		return masterCurrentObject;
 	}
 

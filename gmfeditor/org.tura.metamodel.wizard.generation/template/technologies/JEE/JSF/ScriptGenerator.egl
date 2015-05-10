@@ -12,7 +12,7 @@ operation   scriptGenerator(hash) {
 
 package  [%=component.basePackage%].[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%].action;
 
-@javax.inject.Named("scriptGenerator")
+@javax.inject.Named("scriptGenerator[%=util.mergeAndCapitalize(uipackage.name)%][%=util.mergeAndCapitalize(form.name)%]")
 public class ScriptGenerator{
 
 	@javax.inject.Inject

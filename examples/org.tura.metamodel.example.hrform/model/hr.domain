@@ -971,6 +971,7 @@
       <parameters packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="e370b9d1-a6fb-4a40-88e2-8845be441438" fakePackageName="Primitive package" fakeTypeName="String" uid="29fc2ee9-2554-4db1-b651-b4c66c472316" name="param1"/>
     </forms>
     <forms uid="6e2f11ed-d297-43d0-8343-f8235b46df8c" name="Tree2tree">
+      <view uid="a6671cda-7635-4d70-99c4-2c1c5d3fa375" name="View" view="1033471c-403f-4495-8796-15521cb6d09c"/>
       <datacontrols uid="42af1957-84a2-463d-9f1a-6a92bfe27914" name="Data control" formControl="9bab1cbe-e4c8-49df-9e9b-85c50d2dbe62"/>
     </forms>
   </tura.domain:UIPackage>
@@ -2886,7 +2887,7 @@
     <controls uid="178d5648-ef4e-4712-aa09-431da395aeef" name="Company" baseType="Comp_52ffccb7-cea6-49de-ba4b-7437f1da3369">
       <create packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="2957c51c-68e7-4d1e-b8b7-cbe7ccdbe13f" fakePackageName="Base package" fakeTypeName="JPA Entity CRAD Service" methodRef="40b112a0-4008-11e4-916c-0800200c9a66" fakeMethod="create" uid="7d70e8cf-baab-46f6-85e0-28d8361307b9">
         <parameters uid="ba60fbd9-5417-432a-af90-e7ccef072665" refObj="9150e8ca-6703-4e2c-a2e0-479f42987fa5">
-          <value uid="68d64a6b-fa78-4d19-a5b8-ba6d4353494a" constant="true" value="org.elsoft.platform.hr.objects.CountryDAO"/>
+          <value uid="68d64a6b-fa78-4d19-a5b8-ba6d4353494a" constant="true" value="org.elsoft.platform.hr.objects.CompanyDAO"/>
         </parameters>
       </create>
       <insert packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="2957c51c-68e7-4d1e-b8b7-cbe7ccdbe13f" fakePackageName="Base package" fakeTypeName="JPA Entity CRAD Service" methodRef="b14bfa20-4008-11e4-916c-0800200c9a66" fakeMethod="insert" uid="84bc9607-7405-40b2-8cef-27e52c47dd1e">
@@ -2945,10 +2946,12 @@
           </value>
         </parameters>
         <parameters uid="52285d45-06ac-4f5e-9fd4-e2ea442bd815" refObj="97d8a070-4008-11e4-916c-0800200c9a66">
-          <value uid="73eb1ad9-c9f4-420b-a754-df0a544a22c0" constant="true" value="org.elsoft.platform.hr.objects.CountryDAO"/>
+          <value uid="73eb1ad9-c9f4-420b-a754-df0a544a22c0" constant="true" value="org.elsoft.platform.hr.objects.CompanyDAO"/>
         </parameters>
       </search>
+      <artificialFields packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="e370b9d1-a6fb-4a40-88e2-8845be441438" fakePackageName="Primitive package" fakeTypeName="String" uid="2aba5c47-190b-4c81-a505-c269615a8661" name="nameArtf"/>
       <defaultSearch/>
+      <defaultOrderBy/>
     </controls>
     <controls uid="706aa362-43cf-451f-8458-d94699968885" name="Country" baseType="Cntr_52ffccb7-cea6-49de-ba4b-7437f1da3369">
       <create packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="2957c51c-68e7-4d1e-b8b7-cbe7ccdbe13f" fakePackageName="Base package" fakeTypeName="JPA Entity CRAD Service" methodRef="40b112a0-4008-11e4-916c-0800200c9a66" fakeMethod="create" uid="95e6f31e-e433-4db6-af06-1bb170decc90">
@@ -3015,6 +3018,7 @@
           <value uid="ebed9d3a-98b5-4250-b94b-2dcb2f272dbb" constant="true" value="org.elsoft.platform.hr.objects.CountryDAO"/>
         </parameters>
       </search>
+      <artificialFields packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="e370b9d1-a6fb-4a40-88e2-8845be441438" fakePackageName="Primitive package" fakeTypeName="String" uid="ae7ac879-af81-4dfb-b9d0-229361975480" name="nameArtf"/>
       <defaultSearch/>
     </controls>
     <controls uid="8a7b48d7-c34c-4ddf-a87a-7ed0b741ab39" name="State" baseType="State_52ffccb7-cea6-49de-ba4b-7437f1da3369">
@@ -3082,6 +3086,7 @@
           <value uid="799a71e1-261e-4972-8a7f-fd2c6d67a658" constant="true" value="org.elsoft.platform.hr.objects.StateDAO"/>
         </parameters>
       </search>
+      <artificialFields packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="e370b9d1-a6fb-4a40-88e2-8845be441438" fakePackageName="Primitive package" fakeTypeName="String" uid="83afcb01-b524-455e-a92c-8bc001cc3edc" name="nameArtf"/>
       <defaultSearch/>
     </controls>
     <controls uid="307d054b-d029-4d33-b2fa-0690e088f381" name="City" baseType="City_52ffccb7-cea6-49de-ba4b-7437f1da3369">
@@ -3149,6 +3154,7 @@
           <value uid="93ba470c-8bd5-4cc3-bd7a-f1409d9c1bfa" constant="true" value="org.elsoft.platform.hr.objects.CityDAO"/>
         </parameters>
       </search>
+      <artificialFields packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="e370b9d1-a6fb-4a40-88e2-8845be441438" fakePackageName="Primitive package" fakeTypeName="String" uid="820c0dc3-5bff-4f3e-8208-151010a1a5d9" name="nameArtf"/>
       <defaultSearch/>
     </controls>
     <controls uid="51ba3563-65f1-4560-aa9a-8948642203db" name="Street" baseType="Str_52ffccb7-cea6-49de-ba4b-7437f1da3369">
@@ -3216,6 +3222,7 @@
           <value uid="b96d02a6-3846-463a-bc84-67d0306851ba" constant="true" value="org.elsoft.platform.hr.objects.StreetDAO"/>
         </parameters>
       </search>
+      <artificialFields packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="e370b9d1-a6fb-4a40-88e2-8845be441438" fakePackageName="Primitive package" fakeTypeName="String" uid="54be63b6-c6fa-4930-9b5c-39e6f69fcfca" name="nameArtf"/>
       <defaultSearch/>
     </controls>
     <controls uid="c2fbd57a-a79b-4f7b-961a-a4b4c022b303" name="Department" baseType="Dep_52ffccb7-cea6-49de-ba4b-7437f1da3369">
@@ -3280,6 +3287,7 @@
           <value uid="4425a7e5-e385-400f-ac43-5f8f1e410e46" constant="true" value="org.elsoft.platform.hr.objects.DepartmentsDAO"/>
         </parameters>
       </search>
+      <artificialFields packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="e370b9d1-a6fb-4a40-88e2-8845be441438" fakePackageName="Primitive package" fakeTypeName="String" uid="c0bf6228-cda1-4b2a-a6b5-0a519ae1a1e8" name="nameArtf"/>
       <defaultSearch/>
     </controls>
     <controls uid="af8bd7cd-10dd-4658-9fdf-d6aa1deea4ad" name="Employee" baseType="Emp_dd5f2ada-dfef-49f4-99c9-77ee2bd72f13">
@@ -3347,6 +3355,7 @@
           <value uid="dfb69b66-5378-405a-a65a-fe55ae3e876c" constant="true" value="org.elsoft.platform.hr.objects.EmployeesDAO"/>
         </parameters>
       </search>
+      <artificialFields packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="e370b9d1-a6fb-4a40-88e2-8845be441438" fakePackageName="Primitive package" fakeTypeName="String" uid="17c955b8-6757-4684-a5ae-90f0efb0ca01" name="nameArtf"/>
       <defaultSearch/>
     </controls>
     <controls uid="fc93f128-54f1-4f96-974e-abe19c2e658a" name="Vehicle" baseType="Vhc_52ffccb7-cea6-49de-ba4b-7437f1da3369">
@@ -3414,6 +3423,7 @@
           <value uid="13d3a216-11d5-4d21-8bad-b9fd5fbed276" constant="true" value="org.elsoft.platform.hr.objects.VehicleDAO"/>
         </parameters>
       </search>
+      <artificialFields packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="e370b9d1-a6fb-4a40-88e2-8845be441438" fakePackageName="Primitive package" fakeTypeName="String" uid="04093d6b-3535-4e0a-8b66-9c5c0ca87f86" name="nameArtf"/>
       <defaultSearch/>
     </controls>
     <controls uid="07338878-9b76-4679-aa68-e84955f8aae5" name="Files" baseType="f81fc484-ab31-4ce6-9bb1-01bb7409cbd6">
@@ -3481,6 +3491,7 @@
           <value uid="9ca0b624-472b-42d3-97ed-f5283b2dccff" constant="true" value="org.elsoft.platform.hr.objects.FileDAO"/>
         </parameters>
       </search>
+      <artificialFields packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="e370b9d1-a6fb-4a40-88e2-8845be441438" fakePackageName="Primitive package" fakeTypeName="String" uid="ac112aff-e76f-4b8e-921d-c9e5187382f3" name="nameArtf"/>
       <defaultSearch/>
     </controls>
     <relations uid="23369726-feae-425e-98cd-2f39398ea746" master="178d5648-ef4e-4712-aa09-431da395aeef" detail="706aa362-43cf-451f-8458-d94699968885" isTree="true">
@@ -3511,4 +3522,28 @@
       <links uid="5acaec67-769d-457b-8a3c-50157913b784" masterField="32e932b5-e86f-43a3-96c1-8b919c740eb6" detailField="4ff34e6a-5c01-4656-9a98-32a95c0babea"/>
     </relations>
   </tura.domain:Controls>
+  <tura.domain:Views uid="1033471c-403f-4495-8796-15521cb6d09c" parent="a6671cda-7635-4d70-99c4-2c1c5d3fa375">
+    <canvases xsi:type="tura.domain:Window" uid="d538b88e-b767-4aad-9825-3a03f4417029" name="Tree 2 tree relations">
+      <viewElement xsi:type="tura.domain:ViewArea" uid="3fbcf559-edb8-4c2f-b6dc-b04a8ad7080d" name="Main canvas" canvasView="d964331d-e39e-44b3-9e30-57e65ac9b63f">
+        <style/>
+      </viewElement>
+    </canvases>
+  </tura.domain:Views>
+  <tura.domain:CanvasView uid="d964331d-e39e-44b3-9e30-57e65ac9b63f" parent="3fbcf559-edb8-4c2f-b6dc-b04a8ad7080d">
+    <baseCanvas uid="a21212d5-4457-4007-9bcf-008b3071e329" columns="2">
+      <style/>
+      <children xsi:type="tura.domain:Tree" uid="ad6e95c8-f28d-4e3f-8cc2-aeb0605f4321" sourcePointer="178d5648-ef4e-4712-aa09-431da395aeef" label="First tree">
+        <cols uid="24c27211-25e1-4e82-91d7-c001fb42c45f" label="Name">
+          <element xsi:type="tura.domain:InputText" uid="59d86031-84d7-4292-97d1-19af48297901" valuePointer="2aba5c47-190b-4c81-a505-c269615a8661">
+            <style/>
+          </element>
+        </cols>
+      </children>
+      <children xsi:type="tura.domain:Tree" order="1" uid="5a983cdf-6679-42f2-b259-11e9803af1cd" sourcePointer="c2fbd57a-a79b-4f7b-961a-a4b4c022b303" label="Second tree">
+        <cols uid="7da78e52-67e4-4521-8b16-ed14ece5b9ff" label="Name">
+          <element xsi:type="tura.domain:InputText" uid="302c0e26-9cc2-4044-b05e-18b78c8e567e" valuePointer="2aba5c47-190b-4c81-a505-c269615a8661"/>
+        </cols>
+      </children>
+    </baseCanvas>
+  </tura.domain:CanvasView>
 </xmi:XMI>

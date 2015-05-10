@@ -11,9 +11,33 @@ ${percent}${end}
 %]
 package  [%=component.basePackage%].[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%].datacontrol;  
 
-public class TreeRoot[%=util.mergeAndCapitalize(control.name)%]DC extends org.tura.platform.datacontrol.TreeDataControl  implements java.io.Serializable{
+public class TreeRoot[%=util.mergeAndCapitalize(control.name)%]DC extends org.tura.platform.datacontrol.TreeDataControl  implements java.io.Serializable [%if (control.~dependObject.isDefined()){%] , org.tura.platform.datacontrol.ChangeRecordListener [%}%]{
 
 	private static final long serialVersionUID = 1L;
+
+
+    [%
+    if (control.~dependObject.isDefined()){%]
+    @Override
+	public void handleChangeRecord(org.tura.platform.datacontrol.IDataControl dc , Object newCurrentObject) throws org.tura.platform.datacontrol.commons.TuraException{
+    [%
+      var i = 0;
+      for (depend in control.~dependObject){
+        if (i <> 0 ){ %],[%}%]
+		if (newCurrentObject instanceof [%=depend%]){
+            this.handleChangeMusterCurrentRecordNotification(newCurrentObject);
+        }else{
+            this.handleChangeMusterCurrentRecordNotification(null);
+        }
+    [%
+        i = i+1;
+      }
+    %] 
+	}     
+   [%
+    }
+    %] 
+
 
 	@javax.inject.Inject
 	public void setRoot([%=util.mergeAndCapitalize(control.name)%]DC root)  {

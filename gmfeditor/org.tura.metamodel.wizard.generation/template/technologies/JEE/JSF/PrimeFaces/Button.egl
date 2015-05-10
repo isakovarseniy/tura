@@ -3,6 +3,8 @@ operation Button draw(hash) {
      var util = new Native('org.tura.metamodel.commons.Util');
      var recipe = hash.get("recipe");
      var ingredient = hash.get("ingredient");
+     var form = hash.get("form");
+     var uipackage = hash.get("uipackage");
      
      hash.get("actionElements").add(self);
      
@@ -26,14 +28,14 @@ operation Button draw(hash) {
              type.mappingType2JavaScript(recipe,ingredient);
            }
            if (trigger.findClassifier('UIGeneration','JSF','trigger.onclick') and type <> null  and type.~mapper.isDefined() and "Type2JavaScript".equals(type.~mapper) ){
-             %] onclick="#{scriptGenerator.scriptBuilder('[%=trigger.mkuid()%]')}"[%
+             %] onclick="#{scriptGenerator[%=util.mergeAndCapitalize(uipackage.name)%][%=util.mergeAndCapitalize(form.name)%].scriptBuilder('[%=trigger.mkuid()%]')}"[%
            }else{      
               if (trigger.findClassifier('UIGeneration','JSF','trigger.oncomplete') and type <> null  and type.~mapper.isDefined() and "Type2JavaScript".equals(type.~mapper)){
-                %] oncomplete="#{scriptGenerator.scriptBuilder('[%=trigger.mkuid()%]')}"[%
+                %] oncomplete="#{scriptGenerator[%=util.mergeAndCapitalize(uipackage.name)%][%=util.mergeAndCapitalize(form.name)%].scriptBuilder('[%=trigger.mkuid()%]')}"[%
               }
               else{
                 if (type <> null and type.~mapper.isDefined() and "Type2Java".equals(type.~mapper) ){
-           %] actionListener="#{actionExecutor.eventListener}"[%
+           %] actionListener="#{actionExecutor[%=util.mergeAndCapitalize(uipackage.name)%][%=util.mergeAndCapitalize(form.name)%].eventListener}"[%
               }
             }      
          }
