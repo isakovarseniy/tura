@@ -24,7 +24,7 @@ public class StreetPostQueryTrigger implements PostQueryTrigger {
 			throws TuraException {
 		StreetDAO street = (StreetDAO) obj;
 		try {
-			Reflection.call(obj, "setNameArt", street.getName());
+			Reflection.call(obj, "setNameArtf", street.getName());
 		} catch (NoSuchMethodException | SecurityException
 				| IllegalAccessException | IllegalArgumentException
 				| InvocationTargetException e) {

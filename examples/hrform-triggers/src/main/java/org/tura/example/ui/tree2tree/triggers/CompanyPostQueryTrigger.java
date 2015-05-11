@@ -25,7 +25,7 @@ public class CompanyPostQueryTrigger implements PostQueryTrigger{
 			throws TuraException {
 		CompanyDAO company = (CompanyDAO) obj;
 		try {
-			Reflection.call(obj, "setNameArt", company.getCompanyName());
+			Reflection.call(obj, "setNameArtf", company.getCompanyName());
 		} catch (NoSuchMethodException | SecurityException
 				| IllegalAccessException | IllegalArgumentException
 				| InvocationTargetException e) {

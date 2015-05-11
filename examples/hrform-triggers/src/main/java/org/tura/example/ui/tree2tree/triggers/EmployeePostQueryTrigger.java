@@ -25,7 +25,7 @@ public class EmployeePostQueryTrigger implements PostQueryTrigger{
 			throws TuraException {
 		EmployeesDAO employee = (EmployeesDAO) obj;
 		try {
-			Reflection.call(obj, "setNameArt", employee.getFirstName()+" "+employee.getLastName());
+			Reflection.call(obj, "setNameArtf", employee.getFirstName()+" "+employee.getLastName());
 		} catch (NoSuchMethodException | SecurityException
 				| IllegalAccessException | IllegalArgumentException
 				| InvocationTargetException e) {

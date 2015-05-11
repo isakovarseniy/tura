@@ -24,7 +24,7 @@ public class StatePostQueryTrigger implements PostQueryTrigger {
 			throws TuraException {
 		StateDAO state = (StateDAO) obj;
 		try {
-			Reflection.call(obj, "setNameArt", state.getName());
+			Reflection.call(obj, "setNameArtf", state.getName());
 		} catch (NoSuchMethodException | SecurityException
 				| IllegalAccessException | IllegalArgumentException
 				| InvocationTargetException e) {

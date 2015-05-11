@@ -25,7 +25,7 @@ public class VehiclePostQueryTrigger implements PostQueryTrigger {
 			throws TuraException {
 		VehicleDAO vehicle = (VehicleDAO) obj;
 		try {
-			Reflection.call(obj, "setNameArt", vehicle.getVehicleMaker()+" "+vehicle.getPlateNumber());
+			Reflection.call(obj, "setNameArtf", vehicle.getVehicleMaker()+" "+vehicle.getPlateNumber());
 		} catch (NoSuchMethodException | SecurityException
 				| IllegalAccessException | IllegalArgumentException
 				| InvocationTargetException e) {

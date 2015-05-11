@@ -12,8 +12,7 @@ import org.tura.metamodel.commons.properties.selections.context.ContextPropertyS
 
 import domain.TypeElement;
 
-public abstract class AbstractStringPropertySelection extends
-		ContextPropertySelection {
+public abstract class AbstractStringPropertySelection extends ContextPropertySelection {
 
 	@Override
 	public String getLabelText() {
@@ -24,20 +23,20 @@ public abstract class AbstractStringPropertySelection extends
 	protected TreeRoot getContextRoot() {
 
 		TreeRoot rootOfTree = new TreeRoot();
-		DiagramImpl root = (DiagramImpl) this.getEditPart().getRoot()
-				.getContents().getModel();
+		DiagramImpl root = (DiagramImpl) this.getEditPart().getRoot().getContents().getModel();
 
 		try {
 			for (Object obj : new QueryHelper().getControlsList(root))
 				rootOfTree.addChild(obj);
 
-			rootOfTree.addChild(new QueryHelper().getTypesRepository(root
-					.getElement()));
-			
-			rootOfTree.addChild(new QueryHelper().getRootControl(root));
-			
+			rootOfTree.addChild(new QueryHelper().getTypesRepository(root.getElement()));
+
+			Object obj = new QueryHelper().getRootControl(root);
+			if (obj != null)
+				rootOfTree.addChild(obj);
+
 		} catch (Exception e) {
-			
+
 			e.printStackTrace();
 			// ignore
 		}
@@ -47,14 +46,13 @@ public abstract class AbstractStringPropertySelection extends
 		if (obj != null) {
 			rootOfTree.addChild(obj);
 		}
-		
+
 		obj = new QueryHelper().getApplicationStyle(root);
 
 		if (obj != null) {
 			rootOfTree.addChild(obj);
 		}
-		
-		
+
 		return rootOfTree;
 	}
 
@@ -63,8 +61,8 @@ public abstract class AbstractStringPropertySelection extends
 
 		Object obj = path.getLastSegment();
 
-		IReturnTypeProvider provider = (IReturnTypeProvider) Platform
-				.getAdapterManager().getAdapter(obj, IReturnTypeProvider.class);
+		IReturnTypeProvider provider = (IReturnTypeProvider) Platform.getAdapterManager().getAdapter(obj,
+				IReturnTypeProvider.class);
 
 		domain.TypeElement type = null;
 		if (provider != null && provider.getReturnType(obj) != null)
@@ -84,10 +82,8 @@ public abstract class AbstractStringPropertySelection extends
 	protected void showError() {
 		Display.getDefault().asyncExec(new Runnable() {
 			public void run() {
-				MessageDialog dialog = new MessageDialog(Display.getDefault()
-						.getActiveShell(), "Tura", null,
-						"Choosen type missmarch of parameter type",
-						MessageDialog.ERROR, new String[] { "Ok" }, 0);
+				MessageDialog dialog = new MessageDialog(Display.getDefault().getActiveShell(), "Tura", null,
+						"Choosen type missmarch of parameter type", MessageDialog.ERROR, new String[] { "Ok" }, 0);
 				dialog.open();
 			}
 		});

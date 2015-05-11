@@ -24,7 +24,7 @@ public class FilesPostQueryTrigger  implements PostQueryTrigger{
 			throws TuraException {
 		FileDAO file = (FileDAO) obj;
 		try {
-			Reflection.call(obj, "setNameArt", file.getFileName());
+			Reflection.call(obj, "setNameArtf", file.getFileName());
 		} catch (NoSuchMethodException | SecurityException
 				| IllegalAccessException | IllegalArgumentException
 				| InvocationTargetException e) {

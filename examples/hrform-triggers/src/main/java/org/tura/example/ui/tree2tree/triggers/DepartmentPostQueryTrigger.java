@@ -25,7 +25,7 @@ public class DepartmentPostQueryTrigger implements PostQueryTrigger{
 			throws TuraException {
 		DepartmentsDAO department = (DepartmentsDAO) obj;
 		try {
-			Reflection.call(obj, "setNameArt", department.getDepartmentName());
+			Reflection.call(obj, "setNameArtf", department.getDepartmentName());
 		} catch (NoSuchMethodException | SecurityException
 				| IllegalAccessException | IllegalArgumentException
 				| InvocationTargetException e) {

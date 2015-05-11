@@ -25,7 +25,7 @@ public class CityPostQueryTrigger implements PostQueryTrigger{
 			throws TuraException {
 		CityDAO city = (CityDAO) obj;
 		try {
-			Reflection.call(obj, "setNameArt", city.getName());
+			Reflection.call(obj, "setNameArtf", city.getName());
 		} catch (NoSuchMethodException | SecurityException
 				| IllegalAccessException | IllegalArgumentException
 				| InvocationTargetException e) {

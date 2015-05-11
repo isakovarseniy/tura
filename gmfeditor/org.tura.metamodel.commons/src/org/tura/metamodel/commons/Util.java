@@ -499,7 +499,7 @@ public class Util {
 		File f = new File(path);
 		f.mkdirs();
 
-		FileOutputStream out = new FileOutputStream(new File(f, fileName));
+		FileOutputStream out = new FileOutputStream(new File(f, fileName),false);
 		out.write(in.getBytes());
 		out.close();
 	}

@@ -25,7 +25,7 @@ public class CountryPostQueryTrigger  implements PostQueryTrigger{
 			throws TuraException {
 		CountryDAO country = (CountryDAO) obj;
 		try {
-			Reflection.call(obj, "setNameArt", country.getName());
+			Reflection.call(obj, "setNameArtf", country.getName());
 		} catch (NoSuchMethodException | SecurityException
 				| IllegalAccessException | IllegalArgumentException
 				| InvocationTargetException e) {

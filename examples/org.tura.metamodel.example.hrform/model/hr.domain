@@ -1806,6 +1806,13 @@
         <options uid="a1144c75-d460-43a3-a38b-9f49050233a7" value="1.7"/>
       </specifiers>
     </artifacts>
+    <artifacts uid="57cd7e45-c758-4dbf-b811-4e9ae6d3d299" name="web.xml" template="platform:/plugin/org.tura.metamodel.wizard.generation/template/technologies/JEE/mainWeb-xml.egl">
+      <specifiers uid="0f1e90f8-fd8c-4489-9244-b202bd15971d" name="View implementation">
+        <options uid="a09e5397-dbdf-41d8-9d1b-0326446ba6eb" value="JEE/JSF/PrimeFaces"/>
+        <options uid="b812dfc0-8772-439a-a6ac-a6e1b3eccb59" value="JEE/JSF/RichFaces"/>
+        <options uid="c6b84d62-7d15-4e86-95e4-4aeab58ae092" value="JEE/JSF/ICEFaces"/>
+      </specifiers>
+    </artifacts>
   </tura.domain:Artifacts>
   <tura.domain:Recipes uid="780d51bf-e928-4fb4-a228-4371d8fe439d" parent="fc4a8a78-b68c-4020-bb95-ab6d773b5486">
     <recipe mappers="0d86886f-6d6e-49e1-a123-d063d2d9bd22 236f541c-3271-4e57-a60e-1769390bf194" uid="6cb40735-2e80-4221-9ab5-31d646aff979" infrastructures="81bafabb-45d9-48af-9283-6ffc90afbda3" deployment="de56ff3a-4261-47dc-9ee7-0f61390fee4e">
@@ -1909,6 +1916,9 @@
             <specifiers specifierRef="d28a11b8-31db-4d21-a786-6dd4c31d3d54" valueRef="4cfcc5b0-32de-4ac2-a917-08c604e00204"/>
             <specifiers specifierRef="347c3e51-32e5-4ec1-8082-a51d35e32de4" valueRef="14b81be0-b3aa-4ad8-91cc-07faa24dd7e3"/>
             <specifiers specifierRef="43a0a569-fde1-4501-8780-30c36d695607" valueRef="a1144c75-d460-43a3-a38b-9f49050233a7"/>
+          </mappers>
+          <mappers uid="0a64fa52-fae4-4d17-a3ce-c36690333529" domainArtifactRef="5945624b-20f3-47f9-9cb1-d0dc8df9491a" artifactRef="57cd7e45-c758-4dbf-b811-4e9ae6d3d299" name="web.xml">
+            <specifiers specifierRef="0f1e90f8-fd8c-4489-9244-b202bd15971d" valueRef="a09e5397-dbdf-41d8-9d1b-0326446ba6eb"/>
           </mappers>
         </components>
       </ingredients>
@@ -2170,6 +2180,12 @@
       </messages>
       <messages uid="56e1bf95-de7b-466e-a335-b0fff00cde17" name="DETAILS">
         <translatioins uid="d52b6ef1-d829-49c2-90b4-5225bb5adde1" translation="Details:" lang="5f566f06-7d99-4d79-986d-b42bdfb2b6a0"/>
+      </messages>
+    </messageLibraries>
+    <messageLibraries uid="0cc922a6-a203-490f-a02e-15d8d1ad5e16" name="Tree 2 tree">
+      <libLanguages uid="b08087aa-6302-4d3b-86f8-5e3238698876" lang="2160c4e8-6839-4e94-a225-162cc9210518"/>
+      <messages uid="e1afc867-8537-4c8d-bcd7-c50f39e6807c" name="MAIN_WINDOW_LABEL">
+        <translatioins uid="67caa4ea-9e8f-4f6e-b7fb-22c336957cae" translation="Tree 2 tree relation" lang="b08087aa-6302-4d3b-86f8-5e3238698876"/>
       </messages>
     </messageLibraries>
     <languages uid="2160c4e8-6839-4e94-a225-162cc9210518" lang="English" code="en"/>
@@ -3530,19 +3546,34 @@
     </canvases>
   </tura.domain:Views>
   <tura.domain:CanvasView uid="d964331d-e39e-44b3-9e30-57e65ac9b63f" parent="3fbcf559-edb8-4c2f-b6dc-b04a8ad7080d">
-    <baseCanvas uid="a21212d5-4457-4007-9bcf-008b3071e329" columns="2">
+    <baseCanvas uid="a21212d5-4457-4007-9bcf-008b3071e329">
       <style/>
-      <children xsi:type="tura.domain:Tree" uid="ad6e95c8-f28d-4e3f-8cc2-aeb0605f4321" sourcePointer="178d5648-ef4e-4712-aa09-431da395aeef" label="First tree">
-        <cols uid="24c27211-25e1-4e82-91d7-c001fb42c45f" label="Name">
-          <element xsi:type="tura.domain:InputText" uid="59d86031-84d7-4292-97d1-19af48297901" valuePointer="2aba5c47-190b-4c81-a505-c269615a8661">
-            <style/>
-          </element>
-        </cols>
+      <children xsi:type="tura.domain:Label" uid="1f4bf46b-81d3-4e94-8dc7-99b07028f42f" label="Tree 2 tree relation">
+        <style constant="true" value="font:35px arial, sans-serif;color: #0033CC;text-decoration: underline"/>
+        <multiLangLabel value="Messages.Tree 2 tree.MAIN_WINDOW_LABEL">
+          <expression objRef="af03a493-0ca4-486c-945f-5bfc2fdf35bd" expressionType="MessagesImpl"/>
+          <expression objRef="0cc922a6-a203-490f-a02e-15d8d1ad5e16" order="1" expressionType="MessageLibraryImpl"/>
+          <expression objRef="e1afc867-8537-4c8d-bcd7-c50f39e6807c" order="2" expressionType="MessageImpl"/>
+        </multiLangLabel>
       </children>
-      <children xsi:type="tura.domain:Tree" order="1" uid="5a983cdf-6679-42f2-b259-11e9803af1cd" sourcePointer="c2fbd57a-a79b-4f7b-961a-a4b4c022b303" label="Second tree">
-        <cols uid="7da78e52-67e4-4521-8b16-ed14ece5b9ff" label="Name">
-          <element xsi:type="tura.domain:InputText" uid="302c0e26-9cc2-4044-b05e-18b78c8e567e" valuePointer="2aba5c47-190b-4c81-a505-c269615a8661"/>
-        </cols>
+      <children xsi:type="tura.domain:LayerHolder" order="1" uid="4d8fc4de-2893-45a3-a43f-f951f8c7140f" columns="2">
+        <style/>
+        <children xsi:type="tura.domain:Tree" order="1" uid="ad6e95c8-f28d-4e3f-8cc2-aeb0605f4321" onEventRefreshArea="5a983cdf-6679-42f2-b259-11e9803af1cd" sourcePointer="178d5648-ef4e-4712-aa09-431da395aeef" label="First tree">
+          <style constant="true" value="padding: 0px 5px 5px 5px;font: 15px arial, sans-serif;"/>
+          <multiLangLabel/>
+          <cols uid="24c27211-25e1-4e82-91d7-c001fb42c45f" label="Name">
+            <element xsi:type="tura.domain:InputText" uid="59d86031-84d7-4292-97d1-19af48297901" valuePointer="2aba5c47-190b-4c81-a505-c269615a8661">
+              <style/>
+            </element>
+          </cols>
+        </children>
+        <children xsi:type="tura.domain:Tree" nickname="tree2" order="1" uid="5a983cdf-6679-42f2-b259-11e9803af1cd" sourcePointer="c2fbd57a-a79b-4f7b-961a-a4b4c022b303" label="Second tree">
+          <style constant="true" value="padding: 0px 5px 5px 5px;font: 15px arial, sans-serif;"/>
+          <multiLangLabel/>
+          <cols uid="7da78e52-67e4-4521-8b16-ed14ece5b9ff" label="Name">
+            <element xsi:type="tura.domain:InputText" uid="302c0e26-9cc2-4044-b05e-18b78c8e567e" valuePointer="2aba5c47-190b-4c81-a505-c269615a8661"/>
+          </cols>
+        </children>
       </children>
     </baseCanvas>
   </tura.domain:CanvasView>
