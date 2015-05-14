@@ -1,0 +1,59 @@
+[%
+     var util = new Native('org.tura.metamodel.commons.Util');
+%]
+package  [%=component.basePackage%].[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%].datacontrol;  
+
+
+public interface IBeanFactory   {
+	
+	[%
+	var root = form.datacontrols.formControl.root;
+	if (root <> null){
+	   for ( frmvar in root.variables){
+	   %]
+	   public [%=frmvar.typeRef.~fullName%] get[%=util.mergeAndCapitalize(frmvar.name)%]();
+	   
+	   public  void set[%=util.mergeAndCapitalize(frmvar.name)%]( [%=frmvar.typeRef.~fullName%] [%=util.mergeAndUnCapitalize(frmvar.name)%]);
+	   [%
+	   }
+	}
+	%]	
+
+    [%
+     var controls =  form.datacontrols.formControl.controls;
+     for (control in controls){
+       if (control.~masterControl = true){%]
+          public   org.tura.platform.datacontrol.IDataControl  [%=methodName(control)%]();
+       [%}
+     }    
+    %]
+    
+[%
+     for (control in controls){
+         var relations = domain::Relation.allInstances()->select(r|r.master= control);   
+         for ( relation in relations ){
+         if (relation.isTree = false){%]
+          public   org.tura.platform.datacontrol.IDataControl  [%=methodName(relation.detail)%]();
+          [%}
+         }
+     }    
+%]
+
+}
+
+
+[% @template
+operation methodName(dc:DataControl) {
+     var util = new Native('org.tura.metamodel.commons.Util');
+%]
+   get[%if (dc.~treeRoot=true){%]TreeRoot[%}%][%=util.mergeAndCapitalize(dc.name)%]
+ [%} %]
+
+[% @template
+operation typeName(dc:DataControl, component: Component, form:Form) {
+     var util = new Native('org.tura.metamodel.commons.Util');
+     var uipackage = form.eContainer().parent;
+     
+%]
+  [%=component.basePackage%].[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%].datacontrol.[%if (dc.~treeRoot=true){%]TreeRoot[%}%][%=util.mergeAndCapitalize(dc.name)%]DC 
+ [%} %]

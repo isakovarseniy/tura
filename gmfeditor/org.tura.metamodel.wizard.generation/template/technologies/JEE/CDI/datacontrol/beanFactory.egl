@@ -16,7 +16,7 @@ import javax.inject.Inject;
 
 @javax.inject.Named("beanFactory[%=util.mergeAndCapitalize(uipackage.name)%][%=util.mergeAndCapitalize(form.name)%]")
 [%=datacontrol_scope()%]
-public class BeanFactory  implements java.io.Serializable {
+public class BeanFactory  implements IBeanFactory, java.io.Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Inject

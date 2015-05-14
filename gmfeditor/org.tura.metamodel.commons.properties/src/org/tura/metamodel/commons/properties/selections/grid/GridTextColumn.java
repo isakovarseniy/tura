@@ -58,10 +58,16 @@ public class GridTextColumn implements GridColumn {
 	@Override
 	public Object getValue(Object element) {
 		EStructuralFeature feature = dataAdapter.getFeature();
+		Object obj = null;
 		if (dataAdapter instanceof TextColumnConverter)
-		    return ((TextColumnConverter) dataAdapter).convertToText(dataAdapter.getFeatureValue((EObject) element, feature));
+			obj =  ((TextColumnConverter) dataAdapter).convertToText(dataAdapter.getFeatureValue((EObject) element, feature));
 		else
-		    return dataAdapter.getFeatureValue((EObject) element, feature);
+			obj =  dataAdapter.getFeatureValue((EObject) element, feature);
+		
+		if (obj == null)
+			return "";
+		else 
+			return obj;
 	}
 
 	@Override

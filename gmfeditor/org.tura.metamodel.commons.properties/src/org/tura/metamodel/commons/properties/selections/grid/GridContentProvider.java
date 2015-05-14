@@ -27,6 +27,8 @@ public class GridContentProvider implements IStructuredContentProvider {
 
 	// Return the tasks as an array of Objects
 	public Object[] getElements(Object parent) {
+		if (ds == null || ds.getRows() == null)
+			return new Object[]{};
 		return ds.getRows().toArray();
 	}
 

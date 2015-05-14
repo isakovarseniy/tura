@@ -1813,6 +1813,34 @@
         <options uid="c6b84d62-7d15-4e86-95e4-4aeab58ae092" value="JEE/JSF/ICEFaces"/>
       </specifiers>
     </artifacts>
+    <artifacts uid="cedb4abf-f19e-4eb2-af12-804869422780" name="Data Control interface" template="platform:/plugin/org.tura.metamodel.wizard.generation/template/technologies/JEE/CDI/datacontrol/mainDataControlInterface.egl">
+      <modelQuery uid="f405cbaa-f466-4356-93e6-4254e2c19693" name="Query form" query="domain::DomainApplication.allInstances()->select(r|r.oclAsType(domain::DomainApplication).name='${Application}').oclAsType(domain::DomainApplication).application.applicationUILayer.applicationUIPackages->select(r|r.oclAsType(domain::ApplicationUIPackage).name='${UIPackage}').uipackage.forms">
+        <parameters uid="3d8f78f4-7f93-4976-b305-808952382cd4" name="UIPackage"/>
+        <parameters uid="d97d8d1b-020d-4b5b-b7d3-3076c27fed8a" name="Application"/>
+      </modelQuery>
+    </artifacts>
+    <artifacts uid="7c910e85-c173-4eb5-9d82-8d88715f453f" name="Viewport interface" template="platform:/plugin/org.tura.metamodel.wizard.generation/template/technologies/JEE/JSF/mainViewPortHolderInterface.egl">
+      <modelQuery uid="d61e40ee-5a50-4b82-98f4-2a7fb28bb639" name="Query form" query="domain::DomainApplication.allInstances()->select(r|r.oclAsType(domain::DomainApplication).name='${Application}').oclAsType(domain::DomainApplication).application.applicationUILayer.applicationUIPackages->select(r|r.oclAsType(domain::ApplicationUIPackage).name='${UIPackage}').uipackage.forms">
+        <parameters uid="1be3a824-ab9f-4e6c-bf88-f7fa3997ae33" name="Application"/>
+        <parameters uid="d8e9a0cc-919a-4ded-8c5f-e90bd0eaa205" name="UIPackage"/>
+      </modelQuery>
+    </artifacts>
+    <artifacts uid="886ba1d0-1bac-4278-8ab5-c172492faba2" name="Forms interface builder" template="platform:/plugin/org.tura.metamodel.wizard.generation/template/technologies/JEE/mainFormInterfacePom-xml.egl">
+      <modelQuery uid="12e190a2-748a-4380-8dc7-fc8f1a76002a" name="Query package of types" query="domain::Package.allInstances()->select(r|r.oclAsType(domain::Package).name='${Package name}').oclAsType(domain::Package).typedefinition.types->select(r|((r.oclIsKindOf(domain::Type ) ) )).oclAsType(domain::Categorized).classifiers->select(c|c.hint.name='${Hint}' and c.hint.oclAsType(ecore::EObject).eContainer().oclAsType(domain::Artifact).name = '${Artifact}' and  c.hint.oclAsType(ecore::EObject).eContainer().oclAsType(domain::Artifact).parent.oclAsType(domain::Artifacts).parent.oclAsType(domain::DomainArtifact).name = '${ArtifactLib}' )->collect(c|c.oclAsType(ecore::EObject).eContainer())">
+        <parameters uid="8c580275-1eb5-4085-94ee-3bb6dcea6fb6" name="Hint"/>
+        <parameters uid="350fea18-145a-4935-8897-6b3fdb75cb3d" name="Package name"/>
+        <parameters uid="fcd4b0b3-30d9-48c9-b8ca-c9f66d33ca25" name="Artifact"/>
+        <parameters uid="38a6e918-91ec-4401-bd50-6c2f4112d8c0" name="ArtifactLib"/>
+      </modelQuery>
+      <modelQuery uid="8542473f-d695-41ec-8704-2fe1cfe4a349" name="Query type" query="domain::Package.allInstances()->select(r|r.oclAsType(domain::Package).name='${Package name}').oclAsType(domain::Package).typedefinition.types->select(r|(r.oclIsKindOf(domain::Type) and  r.oclAsType(domain::Type).name = '${Type name}')  or (r.oclIsKindOf(domain::Primitive) and  r.oclAsType(domain::Primitive).name = '${Type name}') or (r.oclIsKindOf(domain::Enumarator) and  r.oclAsType(domain::Enumarator).name = '${Type name}') )">
+        <parameters uid="ef7200cb-e85a-4879-b575-52971d58338b" name="Type name"/>
+        <parameters uid="7e08698a-ca13-4af2-b8a9-d565d8f54f62" name="Package name"/>
+      </modelQuery>
+      <specifiers uid="bc1ce58e-ad18-4c5a-8a29-2f5ea31661a9" name="Java">
+        <options uid="e5902b6d-3240-4208-bf94-501611e6f7b0" value="1.6"/>
+        <options uid="2ff2d9ab-e871-4392-a06f-a6f4e54f6f54" value="1.7"/>
+      </specifiers>
+    </artifacts>
   </tura.domain:Artifacts>
   <tura.domain:Recipes uid="780d51bf-e928-4fb4-a228-4371d8fe439d" parent="fc4a8a78-b68c-4020-bb95-ab6d773b5486">
     <recipe mappers="0d86886f-6d6e-49e1-a123-d063d2d9bd22 236f541c-3271-4e57-a60e-1769390bf194" uid="6cb40735-2e80-4221-9ab5-31d646aff979" infrastructures="81bafabb-45d9-48af-9283-6ffc90afbda3" deployment="de56ff3a-4261-47dc-9ee7-0f61390fee4e">
@@ -1921,6 +1949,39 @@
             <specifiers specifierRef="0f1e90f8-fd8c-4489-9244-b202bd15971d" valueRef="a09e5397-dbdf-41d8-9d1b-0326446ba6eb"/>
           </mappers>
         </components>
+        <components xsi:type="tura.domain:JavaComponent" columns="3" uid="d2fc347a-981b-465e-8599-cdcf896216d1" name="Forms interface" componentRoot="/Users/arseniyi/generatedCode/uiLayer" artifactId="hrform-interface" groupId="org.tura.example.ui" version="1.0" basePackage="org.tura.example.ui">
+          <mappers uid="240aab7b-e90f-4fb3-98fc-a1d12e7a73e3" domainArtifactRef="5945624b-20f3-47f9-9cb1-d0dc8df9491a" artifactRef="cedb4abf-f19e-4eb2-af12-804869422780" name="Data control interface">
+            <queries uid="572b80bb-7a5d-4ebb-a3d3-20a2db0b8f47" name="Query form" queryRef="f405cbaa-f466-4356-93e6-4254e2c19693">
+              <variables queryParamRef="3d8f78f4-7f93-4976-b305-808952382cd4" value="Hr manager"/>
+              <variables queryParamRef="d97d8d1b-020d-4b5b-b7d3-3076c27fed8a" value="HR application"/>
+            </queries>
+          </mappers>
+          <mappers uid="9d25e00a-8b2d-4447-ac9d-475b7792a948" domainArtifactRef="5945624b-20f3-47f9-9cb1-d0dc8df9491a" artifactRef="7c910e85-c173-4eb5-9d82-8d88715f453f" name="View port interface">
+            <queries uid="38b46ddf-d109-4014-bbae-2afed2f4c42f" name="Query form" queryRef="d61e40ee-5a50-4b82-98f4-2a7fb28bb639">
+              <variables queryParamRef="1be3a824-ab9f-4e6c-bf88-f7fa3997ae33" value="HR application"/>
+              <variables queryParamRef="d8e9a0cc-919a-4ded-8c5f-e90bd0eaa205" value="Hr manager"/>
+            </queries>
+          </mappers>
+          <mappers uid="9beae4f9-3f36-4e8e-ad64-5f8bc4495261" domainArtifactRef="5945624b-20f3-47f9-9cb1-d0dc8df9491a" artifactRef="886ba1d0-1bac-4278-8ab5-c172492faba2" name="Forms interface builder">
+            <specifiers specifierRef="bc1ce58e-ad18-4c5a-8a29-2f5ea31661a9" valueRef="2ff2d9ab-e871-4392-a06f-a6f4e54f6f54"/>
+            <queries uid="cef9781e-2a0b-45e6-b701-8c89d8893408" name="Query package NA" queryRef="12e190a2-748a-4380-8dc7-fc8f1a76002a">
+              <variables queryParamRef="350fea18-145a-4935-8897-6b3fdb75cb3d" value="NA"/>
+              <variables queryParamRef="fcd4b0b3-30d9-48c9-b8ca-c9f66d33ca25" value="NA"/>
+              <variables queryParamRef="8c580275-1eb5-4085-94ee-3bb6dcea6fb6" value="NA"/>
+              <variables queryParamRef="38a6e918-91ec-4401-bd50-6c2f4112d8c0" value="NA"/>
+            </queries>
+            <queries uid="1fa64910-9f9f-4678-bcf5-1806e852b573" name="Query type" queryRef="8542473f-d695-41ec-8704-2fe1cfe4a349">
+              <variables queryParamRef="ef7200cb-e85a-4879-b575-52971d58338b" value="Data control"/>
+              <variables queryParamRef="7e08698a-ca13-4af2-b8a9-d565d8f54f62" value="Base package"/>
+            </queries>
+          </mappers>
+          <mappers uid="b85a4098-b3e6-495e-9646-894f35423678" domainArtifactRef="5945624b-20f3-47f9-9cb1-d0dc8df9491a" artifactRef="b6450037-f0e0-440d-a26d-26685c245fe8" name="Application build runner" artifactExecutionString="bash /Users/arseniyi/generatedCode/uiLayer/hrform-interface/builder.sh">
+            <specifiers specifierRef="a2862bdb-7666-498a-abaa-3c6a77b16abe" valueRef="33e243d5-b9fa-4360-82f2-b7aee51d02f2"/>
+            <specifiers specifierRef="df9ad130-5ded-41d9-bf01-5967ef2c1537" valueRef="6cc0b8e4-7a61-4cf4-a0ac-426a0bf397f0"/>
+            <specifiers specifierRef="77a6558f-44e1-4d9a-ad85-16decf6aa3cb" valueRef="6cfa6c9d-d885-4f55-86d3-02f505f54045"/>
+            <specifiers specifierRef="369f6f2d-6b0b-46fd-aaee-bc6d56fb4340" valueRef="ae3da070-7fdd-476f-b315-57cdab52ffcb"/>
+          </mappers>
+        </components>
       </ingredients>
     </recipe>
     <configurations uid="a2357108-13c5-455e-824c-78102bd6bfe1" infrastructure="81bafabb-45d9-48af-9283-6ffc90afbda3">
@@ -1943,7 +2004,8 @@
       <deploymentComponents uid="8086123c-aa38-4e52-a151-4041c23f52f3">
         <deplymentStep uid="3e349778-ce74-4deb-a7ea-d8ba8d92d16a" name="Form ingredient:UI component:Application build runner" mapper="c936a1de-0c00-4eff-939f-a0778cecdd8d" deploymentComponentLink="cffa53b7-fbb6-4cb9-ba02-e63038b6b461"/>
         <deplymentStep uid="cffa53b7-fbb6-4cb9-ba02-e63038b6b461" name="Form ingredient:UI component:Application deployer" mapper="33596ca2-e673-4e86-867e-484ce5e0ed62"/>
-        <startSeq uid="a1b9ca74-2f3c-41dd-bdd8-cc1ee2293621" firstStep="3e349778-ce74-4deb-a7ea-d8ba8d92d16a"/>
+        <deplymentStep uid="b2f28822-c29a-4813-a8b5-6ecffc8d10b7" name="Form ingredient:Forms interface:Application build runner" mapper="b85a4098-b3e6-495e-9646-894f35423678" deploymentComponentLink="3e349778-ce74-4deb-a7ea-d8ba8d92d16a"/>
+        <startSeq uid="a1b9ca74-2f3c-41dd-bdd8-cc1ee2293621" firstStep="b2f28822-c29a-4813-a8b5-6ecffc8d10b7"/>
       </deploymentComponents>
     </deployment>
   </tura.domain:Recipes>
@@ -2065,6 +2127,7 @@
     <mappers xsi:type="tura.domain:JavaMapper" uid="3349b9b4-1613-4331-ac71-2002be5890a6" uiLayer="true" packageRef="e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="c4654ad8-156f-4706-bda2-791ed81fcdea" fakePackageName="HR package" fakeTypeName="Action executor" mappedToPackageName="org.tura.example.ui.hrcontroller.actions" mappedToClassName="Actions" artifactId="triggers" groupId="org.tura.example.service.hrform" version="2.0" libraryName=""/>
     <mappers xsi:type="tura.domain:JavaMapper" uid="7e0f258e-549c-4952-9e0c-0f84be596ef9" uiLayer="true" packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="2ab4a62a-fe09-4a91-b1f7-2996f3fc498e" fakePackageName="Base package" fakeTypeName="Object ID generator" mappedToPackageName="org.tura.platform.persistence" mappedToClassName="ObjectsID" artifactId="commons-persistence" groupId="org.tura.platform" version="2.0" libraryName=""/>
     <mappers xsi:type="tura.domain:CSSMapper" uid="3c43cf24-80ab-4fe5-90e9-fc636e23771d" libraryUrl="hrcontrol-style.css" stylePackage="a9b99a7f-03c7-4b89-82c2-b3e1f0f326d2" styleLibrary="bc917c9e-7594-4ff8-9157-a9e6cf5ac5f5" fakePackageName="HR styles" fakeTypeName="HR Controller styles"/>
+    <mappers xsi:type="tura.domain:JavaMapper" uid="476a71f7-6a51-44a7-97a4-c9d92110f237" uiLayer="true" packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="76fe6802-305f-4973-a750-b102d9559fc2" fakePackageName="Base package" fakeTypeName="Data control" mappedToPackageName="org.tura.platform.datacontrol" mappedToClassName="DataControl" artifactId="core" groupId="org.tura.platform.datacontrol" version="2.0" libraryName=""/>
   </tura.domain:Mappers>
   <tura.domain:TypeDefinition uid="c9574970-474a-403a-9224-f91bc2f8fe7a"/>
   <tura.domain:Messages uid="af03a493-0ca4-486c-945f-5bfc2fdf35bd" parent="39c0cb8c-3370-4a8b-9dc8-f988c6c3a565">

@@ -4,7 +4,7 @@
 package  [%=component.basePackage%].[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%].viewmodel;
 @javax.inject.Named("viewPortHolder[%=util.mergeAndCapitalize(uipackage.name)%][%=util.mergeAndCapitalize(form.name)%]")
 @javax.faces.bean.ViewScoped
-public class ViewPortHolder implements java.io.Serializable{
+public class ViewPortHolder implements [%if (allPorts.size()<>0 ){%] IViewPortHolder, [%}%] java.io.Serializable{
 
 	private static final long serialVersionUID = 1L;
 

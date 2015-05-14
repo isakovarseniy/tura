@@ -1,0 +1,48 @@
+[%
+
+     var util = new Native('org.tura.metamodel.commons.Util');
+     var forms = util.runQuery(model_mapper,"Query form",model_mapper);
+     var f = new Native("org.tura.metamodel.wizard.infrastructure.JavaFormatter"); 
+
+    if (forms.size() <> 0 ){
+       for (form in forms){
+
+         var hash = new Native("java.util.HashMap"); 
+   
+         var javaPath = component.getComponentRoot+"/"+component.getArtifactId()+"/src/main/java/"+component.basePackage.replaceAll("\\.","\\/")+"/";  
+         var resourcePath =  component.getComponentRoot+"/"+component.getArtifactId()+"/src/main/resources/";
+         var webapp =  component.getComponentRoot+"/"+component.getArtifactId()+"/src/main/webapp/";
+         var uipackage = form.eContainer().parent;
+
+         hash.put("recipe",recipe);
+         hash.put("ingredient",ingredient);
+         hash.put("component",component);
+         hash.put("model_mapper",model_mapper);
+         hash.put("javaPath",javaPath);
+         hash.put("resourcePath",resourcePath);
+         hash.put("webapp",webapp);
+         hash.put("form",form);
+         hash.put("configuration",configuration);
+         hash.put("uipackage",uipackage);
+         
+         var allPorts = new Native('java.util.ArrayList'); 
+         
+         for (canvas in form.view.view.canvases){
+              if (not canvas.isKindOf(domain::TabCanvas) ){
+                  var ports = canvas.viewElement->select(p|p.isKindOf(domain::ViewPort)); 
+                   allPorts.addAll(ports);
+              }
+        }         
+         
+         hash.put("allPorts",allPorts);
+
+         if (allPorts.size() <> 0 ){
+            var viewportclass : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.wizard.generation/template/technologies/JEE/JSF/viewPortHolderInterface.egl",hash,TemplateFactory);
+            viewportclass.setFormatter(f);
+            var buffer = viewportclass.process();
+            util.saveFile( javaPath+"/"+util.mergeAndCapitalize(uipackage.name).toLowerCase()+"/"+util.mergeAndCapitalize(form.name).toLowerCase()+"/viewmodel/"  , "IViewPortHolder.java",buffer);
+         }     
+       }
+     }  
+
+%]
