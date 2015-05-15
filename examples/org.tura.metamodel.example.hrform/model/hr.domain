@@ -25,9 +25,11 @@
     <applicationUILayer uid="f8d4b412-d69a-46c7-bf26-2ac0ec31117e">
       <applicationUIPackages uid="c65cfe9e-8e33-4160-beef-4a3a96d5b2c1" name="Hr manager" uipackage="63d7b545-e3cb-4b2e-8597-44c6734d825b"/>
     </applicationUILayer>
+    <applicationInfrastructureLayer uid="938b862a-de81-42a7-af46-621005d51e9c" name="Application Infrastructure"/>
     <applicationStyle uid="c7379293-bc50-4b7e-8cc9-917bc2dd97aa">
       <stylesPackage uid="a9b99a7f-03c7-4b89-82c2-b3e1f0f326d2" name="HR styles" styles="6da490f4-c32b-448d-8679-8d5e994f0ebb"/>
     </applicationStyle>
+    <applicationRole uid="aa96371a-a5b8-4ba7-b8db-712cd5a6c0e4" name="Application Roles" roles="e2bd4f52-5745-4997-afe5-0afd62ed20f7"/>
     <applicationMessages uid="39c0cb8c-3370-4a8b-9dc8-f988c6c3a565" name="Application Messages" messages="af03a493-0ca4-486c-945f-5bfc2fdf35bd"/>
   </tura.domain:Application>
   <tura.domain:Artifacts uid="cfc1509d-db2a-4863-becd-7540552cf00b"/>
@@ -3646,4 +3648,41 @@
       </children>
     </baseCanvas>
   </tura.domain:CanvasView>
+  <tura.domain:Roles uid="e2bd4f52-5745-4997-afe5-0afd62ed20f7" parent="aa96371a-a5b8-4ba7-b8db-712cd5a6c0e4">
+    <roles uid="1ce0b1ab-b049-4a61-9e81-04847082446f" name="Role1"/>
+    <roles uid="808b89e3-2c1b-4cdd-ad30-359d73c89eb3" name="Role2"/>
+    <groups uid="351a2a8d-a3ae-4e44-9815-259c470cc97d" name="Grp" group2Role="1ce0b1ab-b049-4a61-9e81-04847082446f 808b89e3-2c1b-4cdd-ad30-359d73c89eb3"/>
+  </tura.domain:Roles>
+  <tura.domain:EnterpriseInfrastructure uid="0b734f61-8526-4d31-aa48-956ef090b3be">
+    <datacenters columns="2" uid="a5a07e48-4026-4b6d-939d-b7668782a6ee">
+      <subsystems uid="44894e7f-1390-48fe-ae9e-0534181e3f35">
+        <infrastructureLayer uid="dab868e6-b5e0-466a-af48-417f70183ae0" name="Network">
+          <infrastructureComponent xsi:type="tura.domain:Router" uid="97201a3f-8064-4038-8327-68349d73be3d"/>
+        </infrastructureLayer>
+        <infrastructureLayer uid="eab44120-4d2b-4a2a-bcb3-aeab1cda10e6" name="Data base">
+          <infrastructureComponent xsi:type="tura.domain:Server" uid="a4a703f9-9fe7-4c80-8311-459f5c1355f8" name="Oracle Node1"/>
+          <infrastructureComponent xsi:type="tura.domain:Server" uid="74097373-0e17-46c6-89dd-65fa107556ab" name="Oracle Node 2"/>
+        </infrastructureLayer>
+        <infrastructureLayer uid="4ddae4e6-c4f3-475d-a9a0-ae911556263b" name="Storage subsystem">
+          <infrastructureComponent xsi:type="tura.domain:Hub" uid="09349125-aff5-4c27-b87b-4ee789d36556"/>
+          <infrastructureComponent xsi:type="tura.domain:Storage" uid="1a673496-5c6a-48a3-915a-ffdcc917fc59"/>
+          <infrastructureComponent xsi:type="tura.domain:Storage" uid="f67d926c-9902-4f1b-b4da-b4e8d8b904de"/>
+        </infrastructureLayer>
+      </subsystems>
+      <subsystems uid="8d4d9db3-0304-4309-9e67-4190bf26d247">
+        <infrastructureLayer uid="542e812e-dba3-44d0-aeaf-c71a18832abd" name="Application server">
+          <infrastructureComponent xsi:type="tura.domain:Server" uid="9782ee20-d486-4cd8-95a7-1923293d00cc" name="App server Node1"/>
+          <infrastructureComponent xsi:type="tura.domain:Server" uid="04aa194b-3499-40de-8461-674738e5be0f" name="App server node 2"/>
+        </infrastructureLayer>
+      </subsystems>
+    </datacenters>
+    <infrastructureConnections uid="27ed16c0-a4fc-42fa-bde7-de146f664169" master="09349125-aff5-4c27-b87b-4ee789d36556" detail="1a673496-5c6a-48a3-915a-ffdcc917fc59"/>
+    <infrastructureConnections uid="ed3c2fa6-6ca2-446f-b07d-a3005f02f856" master="09349125-aff5-4c27-b87b-4ee789d36556" detail="f67d926c-9902-4f1b-b4da-b4e8d8b904de"/>
+    <infrastructureConnections uid="1ecde5ba-0a72-4f7d-89b1-6390409492ad" master="a4a703f9-9fe7-4c80-8311-459f5c1355f8" detail="09349125-aff5-4c27-b87b-4ee789d36556"/>
+    <infrastructureConnections uid="ce60ea65-7bc9-4b67-95ca-2b7e1789c5ab" master="74097373-0e17-46c6-89dd-65fa107556ab" detail="09349125-aff5-4c27-b87b-4ee789d36556"/>
+    <infrastructureConnections uid="098928ea-abfd-4336-b691-889756b5a9f8" master="97201a3f-8064-4038-8327-68349d73be3d" detail="a4a703f9-9fe7-4c80-8311-459f5c1355f8"/>
+    <infrastructureConnections uid="11cc1471-9ade-4700-85f6-bb26f3bd72aa" master="97201a3f-8064-4038-8327-68349d73be3d" detail="74097373-0e17-46c6-89dd-65fa107556ab"/>
+    <infrastructureConnections uid="86536316-41ad-41cc-a98f-ced71418a6b3" master="9782ee20-d486-4cd8-95a7-1923293d00cc" detail="97201a3f-8064-4038-8327-68349d73be3d"/>
+    <infrastructureConnections uid="3616af72-389c-412e-97da-7933a3406793" master="04aa194b-3499-40de-8461-674738e5be0f" detail="97201a3f-8064-4038-8327-68349d73be3d"/>
+  </tura.domain:EnterpriseInfrastructure>
 </xmi:XMI>
