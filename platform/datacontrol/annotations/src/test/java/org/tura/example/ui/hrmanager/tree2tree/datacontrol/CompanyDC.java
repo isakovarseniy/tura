@@ -93,7 +93,7 @@ public class CompanyDC extends DataControl<CompanyDAO> implements Serializable {
 
             this.searchCommand.setProvider(provider_0);
             this.searchCommand.setDatacontrol(this);
-
+            setArtificialInterface(ICompanyArtifitialFields.class);
             DataControlFactory.buildConnection(this);
         } catch (Exception e) {
             logger.fine(e.getMessage());

@@ -100,7 +100,7 @@ public class DepartmentDC extends DataControl<DepartmentsDAO>
 
             this.searchCommand.setProvider(provider_0);
             this.searchCommand.setDatacontrol(this);
-
+            setArtificialInterface(IDepartmentArtifitialFields.class);
             DataControlFactory.buildConnection(this);
         } catch (Exception e) {
             logger.fine(e.getMessage());

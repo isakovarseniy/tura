@@ -90,7 +90,9 @@ public class [%=util.mergeAndCapitalize(control.name)%]DC extends org.tura.platf
       }
      i = i+1;
     }
-    %] 
+    if (control.artificialFields.size() <> 0 ){%]
+    setArtificialInterface(I[%=util.mergeAndCapitalize(control.name)%]ArtifitialFields.class);
+    [%}%]
 		org.tura.platform.datacontrol.DataControlFactory.buildConnection(this);
       }catch(Exception e){
          	logger.fine(e.getMessage());

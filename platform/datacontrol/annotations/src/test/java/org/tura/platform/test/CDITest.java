@@ -25,6 +25,7 @@ import org.junit.runners.MethodSorters;
 import org.tura.example.ui.hrmanager.hrcontroller.datacontrol.BeanFactory;
 import org.tura.example.ui.hrmanager.hrcontroller.datacontrol.CompanyDC;
 import org.tura.example.ui.hrmanager.hrcontroller.datacontrol.DepartmentDC;
+import org.tura.example.ui.hrmanager.hrcontroller.datacontrol.ICompanyArtifitialFields;
 import org.tura.example.ui.hrmanager.hrcontroller.datacontrol.TreeRootCountryDC;
 import org.tura.platform.datacontrol.EventListener;
 import org.tura.platform.datacontrol.IDataControl;
@@ -81,7 +82,7 @@ public class CDITest {
 
 			CompanyDC companyDC = bf.getCompany();
 
-			companyDC.getCurrentObject();
+			CompanyDAO company = companyDC.getCurrentObject();
 			TreeRootCountryDC locationDC = bf.getTreeRootCountry();
 
 			CountryDAO row = (CountryDAO) locationDC.getCurrentObject();
@@ -91,6 +92,11 @@ public class CDITest {
 			row = (CountryDAO) locationDC.getCurrentObject();
 			assertEquals(row.getObjId(), new Long(2));
 			companyDC.prevObject();
+			
+			ICompanyArtifitialFields artf = (ICompanyArtifitialFields) company;
+			artf.setTestfield1("12345");
+			assertEquals(artf.getTestfield1(), "12345");
+			
 
 		} catch (Exception e) {
 			e.printStackTrace();

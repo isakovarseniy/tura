@@ -87,7 +87,6 @@ public class PopupCompanyDCProviderDC extends DataControl<CompanyDAO>
 
             this.searchCommand.setProvider(provider_0);
             this.searchCommand.setDatacontrol(this);
-
             DataControlFactory.buildConnection(this);
         } catch (Exception e) {
             logger.fine(e.getMessage());

@@ -18,7 +18,7 @@ import javax.inject.Named;
 
 @Named("beanFactoryHrManagerTree2tree")
 @ApplicationScoped
-public class BeanFactory implements Serializable {
+public class BeanFactory implements IBeanFactory, Serializable {
     private static final long serialVersionUID = 1L;
     @Inject
     private transient Logger logger;

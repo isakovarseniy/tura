@@ -94,7 +94,7 @@ public class CityDC extends DataControl<CityDAO> implements Serializable {
 
             this.searchCommand.setProvider(provider_0);
             this.searchCommand.setDatacontrol(this);
-
+            setArtificialInterface(ICityArtifitialFields.class);
             DataControlFactory.buildConnection(this);
         } catch (Exception e) {
             logger.fine(e.getMessage());

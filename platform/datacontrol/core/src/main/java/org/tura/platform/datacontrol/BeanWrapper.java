@@ -77,6 +77,8 @@ public class BeanWrapper implements MethodInterceptor {
 			InstantiationException, IllegalAccessException,
 			IllegalArgumentException, InvocationTargetException {
 
+		Class[] interfaces;
+
 		// Create a dynamice interface
 		InterfaceMaker im = new InterfaceMaker();
 
@@ -86,38 +88,47 @@ public class BeanWrapper implements MethodInterceptor {
 				org.objectweb.asm.Type.getType(BeanWrapper.class), parameters);
 		im.add(signature, parameters);
 
-		for (ArtificialProperty obj : datacontrol.getArtificialProperties()) {
+		if (datacontrol.getArtificialInterface() == null) {
+			for (ArtificialProperty obj : datacontrol.getArtificialProperties()) {
 
-			parameters = new org.objectweb.asm.Type[] {};
+				parameters = new org.objectweb.asm.Type[] {};
 
-			if (obj.getType().getCanonicalName().equals("java.lang.Boolean")) {
-				signature = new Signature("is"
+				if (obj.getType().getCanonicalName()
+						.equals("java.lang.Boolean")) {
+					signature = new Signature("is"
+							+ StringUtils.capitalize(obj.getProperty()),
+							org.objectweb.asm.Type.getType(obj.getType()),
+							parameters);
+					im.add(signature, parameters);
+				}
+
+				signature = new Signature("get"
 						+ StringUtils.capitalize(obj.getProperty()),
 						org.objectweb.asm.Type.getType(obj.getType()),
 						parameters);
 				im.add(signature, parameters);
+
+				parameters = new org.objectweb.asm.Type[] { org.objectweb.asm.Type
+						.getType(obj.getType()) };
+				signature = new Signature("set"
+						+ StringUtils.capitalize(obj.getProperty()),
+						org.objectweb.asm.Type.VOID_TYPE, parameters);
+				im.add(signature, parameters);
+
 			}
-
-			signature = new Signature("get"
-					+ StringUtils.capitalize(obj.getProperty()),
-					org.objectweb.asm.Type.getType(obj.getType()), parameters);
-			im.add(signature, parameters);
-
-			parameters = new org.objectweb.asm.Type[] { org.objectweb.asm.Type
-					.getType(obj.getType()) };
-			signature = new Signature("set"
-					+ StringUtils.capitalize(obj.getProperty()),
-					org.objectweb.asm.Type.VOID_TYPE, parameters);
-			im.add(signature, parameters);
-
 		}
 		// Finish creating the interface
-		Class myInterface = im.create();
+		Class  myInterface = im.create();
 
+		if (datacontrol.getArtificialInterface() == null) 
+			interfaces = new Class[]{myInterface};
+		else
+			interfaces = new Class[]{myInterface,datacontrol.getArtificialInterface() };
+		
 		BeanWrapper interceptor = new BeanWrapper();
 		Enhancer e = new Enhancer();
 		e.setSuperclass(clazz);
-		e.setInterfaces(new Class[] { myInterface });
+		e.setInterfaces(interfaces);
 		e.setCallbackFilter(new MethodFilter());
 		e.setCallbacks(new Callback[] { interceptor, NoOp.INSTANCE });
 

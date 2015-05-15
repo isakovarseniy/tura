@@ -94,7 +94,7 @@ public class FilesDC extends DataControl<FileDAO> implements Serializable {
 
             this.searchCommand.setProvider(provider_0);
             this.searchCommand.setDatacontrol(this);
-
+            setArtificialInterface(IFilesArtifitialFields.class);
             DataControlFactory.buildConnection(this);
         } catch (Exception e) {
             logger.fine(e.getMessage());

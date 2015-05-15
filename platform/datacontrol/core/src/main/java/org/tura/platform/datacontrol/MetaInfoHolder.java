@@ -30,6 +30,7 @@ public abstract class MetaInfoHolder {
 	private Relation parent;
 	protected HashMap<String, Relation> children = new HashMap<String, Relation>();
 	protected List<ArtificialProperty> artificialProperties = new ArrayList<>();
+	protected Class<?> artificialInterface;
 	protected List<String> keys = new ArrayList<>();
 	
 	protected ELResolver elResolver;
@@ -151,6 +152,12 @@ public abstract class MetaInfoHolder {
 	public SelectQuery getDefaultQuery() {
 		return defaultQuery;
 	}
+	public Class<?> getArtificialInterface() {
+		return artificialInterface;
+	}
 
+	public  void setArtificialInterface(Class<?> artificialInterface ){
+		this.artificialInterface = artificialInterface;
+	}
 	
 }

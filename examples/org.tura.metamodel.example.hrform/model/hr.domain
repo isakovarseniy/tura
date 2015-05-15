@@ -2742,6 +2742,12 @@
               <variables queryParamRef="ee8b0895-06c0-4ed3-99cf-8998cdfaeaa7" value="Hr manager"/>
             </queries>
           </mappers>
+          <mappers uid="62d9b5ef-1aeb-46c8-8f13-8e7781a22a25" domainArtifactRef="5945624b-20f3-47f9-9cb1-d0dc8df9491a" artifactRef="cedb4abf-f19e-4eb2-af12-804869422780" name="Data control interface builder">
+            <queries uid="3f2b1d79-7396-4f80-b08b-f72118e99c56" queryRef="f405cbaa-f466-4356-93e6-4254e2c19693">
+              <variables queryParamRef="d97d8d1b-020d-4b5b-b7d3-3076c27fed8a" value="HR application"/>
+              <variables queryParamRef="3d8f78f4-7f93-4976-b305-808952382cd4" value="Hr manager"/>
+            </queries>
+          </mappers>
         </components>
       </ingredients>
     </recipe>

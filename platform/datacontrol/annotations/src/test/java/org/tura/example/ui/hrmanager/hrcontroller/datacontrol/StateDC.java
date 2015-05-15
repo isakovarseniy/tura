@@ -92,7 +92,6 @@ public class StateDC extends DataControl<StateDAO> implements Serializable {
 
             this.searchCommand.setProvider(provider_0);
             this.searchCommand.setDatacontrol(this);
-
             DataControlFactory.buildConnection(this);
         } catch (Exception e) {
             logger.fine(e.getMessage());
