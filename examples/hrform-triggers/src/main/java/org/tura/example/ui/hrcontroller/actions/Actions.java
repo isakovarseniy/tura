@@ -6,6 +6,7 @@ import java.util.logging.Logger;
 import javax.faces.event.ActionEvent;
 import javax.inject.Inject;
 
+import org.tura.example.ui.hrmanager.hrcontroller.datacontrol.IBeanFactory;
 import org.tura.platform.datacontrol.BeanWrapper;
 import org.tura.platform.datacontrol.CommandStack;
 import org.tura.platform.datacontrol.DataControl;
@@ -40,12 +41,12 @@ public class Actions implements EventAccessor {
 			DataControl dc = (DataControl) elResolver
 					.getValue("#{beanFactoryHrManagerHRController.popupCompanyDCProvider}");
 
-			Object bf = elResolver.getValue("#{beanFactoryHrManagerHRController}");
-			Reflection.call(bf, "setCmpId", ((TuraObject) (row[2])).getObjId());
+			IBeanFactory bf = (IBeanFactory) elResolver.getValue("#{beanFactoryHrManagerHRController}");
+			bf.setCmpId(((TuraObject) (row[2])).getObjId());
 			dc.forceRefresh();
 			dc.cleanShifter();
 		} catch (Exception e) {
-			e.printStackTrace();
+			logger.log(Level.INFO, e.getMessage(),e);
 		}
 	}
 

@@ -1,16 +1,14 @@
 package org.tura.example.ui.tree2tree.triggers;
 
-import java.lang.reflect.InvocationTargetException;
-
 import javax.annotation.Priority;
 import javax.enterprise.inject.Alternative;
 
 import org.elsoft.platform.hr.objects.StreetDAO;
+import org.tura.example.ui.hrmanager.tree2tree.datacontrol.IStreetArtifitialFields;
 import org.tura.platform.datacontrol.DataControl;
 import org.tura.platform.datacontrol.annotations.PostQuery;
 import org.tura.platform.datacontrol.annotations.Selector;
 import org.tura.platform.datacontrol.command.PostQueryTrigger;
-import org.tura.platform.datacontrol.commons.Reflection;
 import org.tura.platform.datacontrol.commons.TuraException;
 
 @Alternative
@@ -23,13 +21,8 @@ public class StreetPostQueryTrigger implements PostQueryTrigger {
 	public void execute(DataControl<?> datacontrol, Object obj)
 			throws TuraException {
 		StreetDAO street = (StreetDAO) obj;
-		try {
-			Reflection.call(obj, "setNameArtf", street.getName());
-		} catch (NoSuchMethodException | SecurityException
-				| IllegalAccessException | IllegalArgumentException
-				| InvocationTargetException e) {
-			throw new TuraException(e);
-		}
+		IStreetArtifitialFields af = (IStreetArtifitialFields) obj;
+		af.setNameArtf(street.getName());
 
 	}
 
