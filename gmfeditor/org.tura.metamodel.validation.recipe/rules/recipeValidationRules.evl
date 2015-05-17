@@ -139,7 +139,7 @@ context Configuration{
       message : 'MappingSpecifiers   for ' + self.name +  '  is not define  properly'
   }
 
-  constraint checkMappingSpecifiers{
+  constraint checkMappingSpecifiersRef{
       guard : self.satisfies("HasRefArtifact")
       check{
  	   var hash := new Native('java.util.HashMap');
@@ -174,7 +174,29 @@ context Configuration{
       message : 'MappingVariables   for ' + self.name +  '  is not define  properly'
 
   }
- 
+  
+  constraint checkQueryParametersName{
+      check{
+       for (variable in self.variables){
+         if (not variable.queryParamRef.isDefined() or variable.queryParamRef.name = "" or variable.queryParamRef.name = null )
+             return false;
+       }
+       return true;
+      }  
+       message : 'No value for parameter not allowed'
+  }  
+  
+  constraint checkQueryParametersValues{
+      guard : self.satisfies("checkQueryParametersName")
+      check{
+       for (variable in self.variables){
+         if (variable.value = null or variable.value = "" )
+             return false;
+       }
+       return true;
+      }  
+       message : 'No value  not allowed'
+  }
 }
 
  context MappingSpecifier {
@@ -216,26 +238,6 @@ context Property {
   }
 }
  
-
- context QueryVariable {
-
-  constraint HasName {
-
-      check :  self.queryParamRef.isDefined()
-
-      message : 'No reference for  Query parameter ' + self.eClass().name + ' not allowed'
-
-  }
-
-  constraint HasValue {
-
-      check :  self.value.isDefined()
-
-      message : 'No value ' + self.queryParamRef.name + ' not allowed'
-
-  }
-
-}
 
 
 
