@@ -10,6 +10,7 @@ import org.apache.commons.lang.StringUtils;
 import org.tura.platform.datacontrol.DataControlWrapper;
 import org.tura.platform.datacontrol.IDataControl;
 import org.tura.platform.datacontrol.commons.Constants;
+import org.tura.platform.datacontrol.commons.Reflection;
 import org.tura.platform.datacontrol.commons.SearchCriteria;
 import org.tura.platform.datacontrol.commons.TuraException;
 
@@ -25,28 +26,39 @@ public class Relation {
 
 	private ArrayList<PropertyLink> links = new ArrayList<PropertyLink>();
 
-
 	public IDataControl getParent() throws TuraException {
-		try{
-			return  DataControlWrapper.newInstance(parent) ;
-		}catch(Exception e){
-			throw new TuraException(e);
-		}
-	}	
-	public void setParent(IDataControl parent) {
-		this.parent = parent;
+		return parent;
 	}
 
-	public IDataControl getChild()  {
+	public void setParent(IDataControl parent) throws TuraException {
+		try {
+			Reflection.call(child, "getWrapper");
+			this.parent = parent;
+		} catch (Exception e) {
+			try {
+				this.parent = DataControlWrapper.newInstance(parent);
+			} catch (Exception e1) {
+				throw new TuraException(e);
+			}
+		}
+
+	}
+
+	public IDataControl getChild() {
 		return child;
 
 	}
 
 	public void setChild(IDataControl child) throws TuraException {
-		try{
-			this.child = DataControlWrapper.newInstance(child);
-		}catch(Exception e){
-			throw new TuraException(e);
+		try {
+			Reflection.call(child, "getWrapper");
+			this.child = child;
+		} catch (Exception e) {
+			try {
+				this.child = DataControlWrapper.newInstance(child);
+			} catch (Exception e1) {
+				throw new TuraException(e);
+			}
 		}
 	}
 
@@ -67,15 +79,14 @@ public class Relation {
 	}
 
 	public Object getMasterCurrentObject() throws TuraException {
-//		if (masterCurrentObject == null)
-//			masterCurrentObject = getParent().getCurrentObject();
+		// if (masterCurrentObject == null)
+		// masterCurrentObject = getParent().getCurrentObject();
 		return masterCurrentObject;
 	}
 
 	public void setMasterCurrentObject(Object masterCurrentObject) {
 		this.masterCurrentObject = masterCurrentObject;
 	}
-	
 
 	@SuppressWarnings("unchecked")
 	public List<SearchCriteria> getChildSearchCriteria()
@@ -94,7 +105,8 @@ public class Relation {
 				PropertyLink lnk = itr.next();
 				String methodName = "get"
 						+ StringUtils.capitalize(lnk.getParent());
-				Method m = masterCurrentObject.getClass().getMethod(methodName, new Class[] {});
+				Method m = masterCurrentObject.getClass().getMethod(methodName,
+						new Class[] {});
 				Object value = m.invoke(masterCurrentObject, new Object[] {});
 				if (value == null)
 					value = Constants.UNDEFINED_PARAMETER;
@@ -124,14 +136,17 @@ public class Relation {
 		}
 		return scls;
 	}
+
 	/**
 	 * @return the name
 	 */
 	public String getName() {
 		return name;
 	}
+
 	/**
-	 * @param name the name to set
+	 * @param name
+	 *            the name to set
 	 */
 	public void setName(String name) {
 		this.name = name;
