@@ -7,10 +7,8 @@ import java.util.Iterator;
 import java.util.List;
 
 import org.apache.commons.lang.StringUtils;
-import org.tura.platform.datacontrol.DataControlWrapper;
 import org.tura.platform.datacontrol.IDataControl;
 import org.tura.platform.datacontrol.commons.Constants;
-import org.tura.platform.datacontrol.commons.Reflection;
 import org.tura.platform.datacontrol.commons.SearchCriteria;
 import org.tura.platform.datacontrol.commons.TuraException;
 
@@ -31,17 +29,7 @@ public class Relation {
 	}
 
 	public void setParent(IDataControl parent) throws TuraException {
-		try {
-			Reflection.call(child, "getWrapper");
-			this.parent = parent;
-		} catch (Exception e) {
-			try {
-				this.parent = DataControlWrapper.newInstance(parent);
-			} catch (Exception e1) {
-				throw new TuraException(e);
-			}
-		}
-
+		this.parent = parent;
 	}
 
 	public IDataControl getChild() {
@@ -50,16 +38,7 @@ public class Relation {
 	}
 
 	public void setChild(IDataControl child) throws TuraException {
-		try {
-			Reflection.call(child, "getWrapper");
-			this.child = child;
-		} catch (Exception e) {
-			try {
-				this.child = DataControlWrapper.newInstance(child);
-			} catch (Exception e1) {
-				throw new TuraException(e);
-			}
-		}
+		this.child = child;
 	}
 
 	public void setLink(String parentProp, String childProp) {

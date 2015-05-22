@@ -7,10 +7,10 @@ import org.tura.platform.datacontrol.CommandStack;
 import org.tura.platform.datacontrol.DataControl;
 import org.tura.platform.datacontrol.DataControlFactory;
 import org.tura.platform.datacontrol.ELResolver;
+import org.tura.platform.datacontrol.IDataControl;
 import org.tura.platform.datacontrol.annotations.ArtificialFields;
 import org.tura.platform.datacontrol.annotations.Base;
 import org.tura.platform.datacontrol.annotations.Create;
-import org.tura.platform.datacontrol.annotations.DCProxy;
 import org.tura.platform.datacontrol.annotations.DefaultOrderBys;
 import org.tura.platform.datacontrol.annotations.DefaultSearchCriteria;
 import org.tura.platform.datacontrol.annotations.DefaultSearchCriterias;
@@ -41,7 +41,10 @@ import org.tura.platform.datacontrol.command.PreQueryTrigger;
 import org.tura.platform.datacontrol.command.PreUpdateTrigger;
 import org.tura.platform.datacontrol.command.SearchCommand;
 import org.tura.platform.datacontrol.command.UpdateCommand;
+import org.tura.platform.datacontrol.commons.TuraException;
+import org.tura.platform.datacontrol.event.Event;
 import org.tura.platform.datacontrol.metainfo.ArtificialProperty;
+import org.tura.platform.datacontrol.shift.ShiftControl;
 import org.tura.platform.persistence.TuraObject;
 
 import java.io.Serializable;
@@ -56,7 +59,6 @@ import javax.inject.Inject;
 import com.octo.java.sql.exp.Operator;
 import com.octo.java.sql.query.SelectQuery;
 
-@DCProxy
 public class PopupCompanyDCProviderDC extends DataControl<CompanyDAO>
     implements Serializable {
     private static final long serialVersionUID = 1L;
@@ -64,6 +66,7 @@ public class PopupCompanyDCProviderDC extends DataControl<CompanyDAO>
     private transient Logger logger;
     @Inject
     private TuraJPAEntityService provider_0;
+    private IDataControl saveTreeContex;
 
     public PopupCompanyDCProviderDC() throws Exception {
         super();
@@ -268,5 +271,143 @@ public class PopupCompanyDCProviderDC extends DataControl<CompanyDAO>
     )
     SelectQuery selectQuery) {
         this.defaultQuery = selectQuery;
+    }
+
+    private void saveState() {
+        if (this.getTreeContext() != null) {
+            saveTreeContex = this.getTreeContext().getCurrentControl();
+            this.getTreeContext().setCurrentControl(this);
+        }
+    }
+
+    private void restoreState() {
+        if (saveTreeContex != null) {
+            this.getTreeContext().setCurrentControl(saveTreeContex);
+        }
+    }
+
+    private Object restoreState(Object obj) {
+        if (saveTreeContex != null) {
+            this.getTreeContext().setCurrentControl(saveTreeContex);
+        }
+        return obj;
+    }
+
+    @Override
+    public void forceRefresh() throws TuraException {
+        saveState();
+        super.forceRefresh();
+        restoreState();
+    }
+
+    @Override
+    public void handleChangeMusterCurrentRecordNotification(
+        Object newCurrentObject) throws TuraException {
+        saveState();
+        super.handleChangeMusterCurrentRecordNotification(newCurrentObject);
+        restoreState();
+    }
+
+    @Override
+    public void notifyLiteners(Event event) throws TuraException {
+        saveState();
+        super.notifyLiteners(event);
+        restoreState();
+    }
+
+    @Override
+    public CompanyDAO getCurrentObject() throws TuraException {
+        saveState();
+        return (CompanyDAO) restoreState(super.getCurrentObject());
+    }
+
+    @Override
+    public boolean hasNext() throws TuraException {
+        saveState();
+        return (boolean) restoreState(super.hasNext());
+    }
+
+    @Override
+    public void nextObject() throws TuraException {
+        saveState();
+        super.nextObject();
+        restoreState();
+    }
+
+    @Override
+    public boolean hasPrev() {
+        saveState();
+        return (boolean) restoreState(super.hasPrev());
+    }
+
+    @Override
+    public void prevObject() throws TuraException {
+        saveState();
+        super.prevObject();
+        restoreState();
+    }
+
+    @Override
+    public void removeObject() throws Exception {
+        saveState();
+        super.removeObject();
+        restoreState();
+    }
+
+    @Override
+    public String getObjectKey(Object object) throws TuraException {
+        saveState();
+        return (String) restoreState(super.getObjectKey(object));
+    }
+
+    @Override
+    public void removeAll() throws Exception {
+        saveState();
+        super.removeAll();
+        restoreState();
+    }
+
+    @Override
+    public CompanyDAO createObject() throws TuraException {
+        saveState();
+        return (CompanyDAO) restoreState(super.createObject());
+    }
+
+    @Override
+    public Integer getCurrentPosition() {
+        saveState();
+        return (Integer) restoreState(super.getCurrentPosition());
+    }
+
+    @Override
+    public boolean setCurrentPosition(Object crtPosition) throws TuraException {
+        saveState();
+        return (boolean) restoreState(super.setCurrentPosition(crtPosition));
+    }
+
+    @Override
+    public SelectQuery getQuery() {
+        saveState();
+        return (SelectQuery) restoreState(super.getQuery());
+    }
+
+    @Override
+    public void cleanShifter() {
+        saveState();
+        super.cleanShifter();
+        restoreState();
+    }
+
+    @Override
+    public ShiftControl getShifter() throws TuraException {
+        saveState();
+        return (ShiftControl) restoreState(super.getShifter());
+    }
+
+    @SuppressWarnings("unchecked")
+    @Override
+    public List<CompanyDAO> getScroller() {
+        saveState();
+        return (List<CompanyDAO>) restoreState(super.getScroller());
     }
 }

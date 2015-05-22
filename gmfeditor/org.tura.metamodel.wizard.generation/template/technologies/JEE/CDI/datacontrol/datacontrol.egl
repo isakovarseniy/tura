@@ -10,7 +10,6 @@ ${percent}${end}
 %]
 package  [%=component.basePackage%].[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%].datacontrol;  
 
-@org.tura.platform.datacontrol.annotations.DCProxy
 public class [%=util.mergeAndCapitalize(control.name)%]DC extends org.tura.platform.datacontrol.DataControl <[%=control.~basefullName%]>  implements java.io.Serializable [%if (control.~dependObject.isDefined() and not control.~treeRoot.isDefined()){%] , org.tura.platform.datacontrol.ChangeRecordListener [%}%]{
 
 	private static final long serialVersionUID = 1L;
@@ -389,6 +388,145 @@ public class [%=util.mergeAndCapitalize(control.name)%]DC extends org.tura.platf
 		this.defaultQuery = selectQuery;
 	}
 	
+	private  org.tura.platform.datacontrol.IDataControl saveTreeContex ;
+	
+	private void saveState() {
+		if (this.getTreeContext() != null) {
+			saveTreeContex = this.getTreeContext().getCurrentControl();
+			this.getTreeContext().setCurrentControl(this);
+		}
+	}
+
+	private void restoreState() {
+		if (saveTreeContex != null) {
+			this.getTreeContext().setCurrentControl(saveTreeContex);
+		}
+	}
+
+	private Object restoreState(Object obj) {
+		if (saveTreeContex != null) {
+			this.getTreeContext().setCurrentControl(saveTreeContex);
+		}
+		return obj;
+	}	
+	
+	@Override
+	public void forceRefresh() throws TuraException {
+		saveState();
+		super.forceRefresh();
+		restoreState();		
+	}
+
+	@Override
+	public void handleChangeMusterCurrentRecordNotification(
+			Object newCurrentObject) throws org.tura.platform.datacontrol.commons.TuraException {
+		saveState();
+		super.handleChangeMusterCurrentRecordNotification(newCurrentObject);
+		restoreState();		
+	}
+
+	@Override
+	public void notifyLiteners(org.tura.platform.datacontrol.event.Event event) throws org.tura.platform.datacontrol.commons.TuraException {
+		saveState();
+		super.notifyLiteners(event);
+		restoreState();		
+	}
+
+	@Override
+	public [%=control.~basefullName%] getCurrentObject() throws org.tura.platform.datacontrol.commons.TuraException {
+		saveState();
+		return ([%=control.~basefullName%]) restoreState(super.getCurrentObject());
+	}
+
+	@Override
+	public boolean hasNext() throws org.tura.platform.datacontrol.commons.TuraException {
+		saveState();
+		return (boolean) restoreState(super.hasNext());
+	}
+
+	@Override
+	public void nextObject() throws org.tura.platform.datacontrol.commons.TuraException {
+		saveState();
+		super.nextObject();
+		restoreState();		
+	}
+
+	@Override
+	public boolean hasPrev() {
+		saveState();
+		return (boolean) restoreState(super.hasPrev());
+	}
+
+	@Override
+	public void prevObject() throws TuraException {
+		saveState();
+		super.prevObject();
+		restoreState();		
+	}
+
+	@Override
+	public void removeObject() throws Exception {
+		saveState();
+		super.removeObject();
+		restoreState();		
+	}
+
+	@Override
+	public String getObjectKey(Object object) throws org.tura.platform.datacontrol.commons.TuraException {
+		saveState();
+		return (String) restoreState(super.getObjectKey(object));
+	}
+
+	@Override
+	public void removeAll() throws Exception {
+		saveState();
+		super.removeAll();
+		restoreState();		
+	}
+
+	@Override
+	public [%=control.~basefullName%] createObject() throws org.tura.platform.datacontrol.commons.TuraException {
+		saveState();
+		return ([%=control.~basefullName%]) restoreState(super.createObject());
+	}
+
+	@Override
+	public Integer getCurrentPosition() {
+		saveState();
+		return (Integer) restoreState(super.getCurrentPosition());
+	}
+
+	@Override
+	public boolean setCurrentPosition(Object crtPosition) throws org.tura.platform.datacontrol.commons.TuraException {
+		saveState();
+		return (boolean) restoreState(super.setCurrentPosition(crtPosition));
+	}
+
+	@Override
+	public SelectQuery getQuery() {
+		saveState();
+		return (SelectQuery) restoreState(super.getQuery());
+	}
+
+	@Override
+	public void cleanShifter() {
+		saveState();
+		super.cleanShifter();
+		restoreState();		
+	}
+
+	@Override
+	public org.tura.platform.datacontrol.shift.ShiftControl getShifter() throws org.tura.platform.datacontrol.commons.TuraException {
+		saveState();
+		return (org.tura.platform.datacontrol.shift.ShiftControl) restoreState(super.getShifter());
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<[%=control.~basefullName%]> getScroller() {
+		saveState();
+		return (List<[%=control.~basefullName%]>) restoreState(super.getScroller());
+	}
 	
 	
 	

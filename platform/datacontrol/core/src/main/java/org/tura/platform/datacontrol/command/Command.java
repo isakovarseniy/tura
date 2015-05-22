@@ -6,7 +6,6 @@ import java.util.List;
 
 import org.tura.platform.datacontrol.BeanWrapper;
 import org.tura.platform.datacontrol.DataControl;
-import org.tura.platform.datacontrol.DataControlWrapper;
 import org.tura.platform.datacontrol.commons.Reflection;
 import org.tura.platform.datacontrol.commons.TuraException;
 
@@ -91,8 +90,6 @@ public abstract class Command {
 					if (!obj.getClass().isPrimitive()&& obj.getClass().getName().indexOf("EnhancerByCGLIB") != -1) {
 						Object w = Reflection.call(obj, "getWrapper");
 						if (w instanceof BeanWrapper)
-						    obj = ((BeanWrapper)w).getObj();
-						if (w instanceof DataControlWrapper)
 						    obj = ((BeanWrapper)w).getObj();
 					}
 
