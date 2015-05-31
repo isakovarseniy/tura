@@ -82,6 +82,8 @@ public class CityDC extends DataControl<CityDAO> implements Serializable {
     @PostConstruct
     public void init() {
         try {
+            setBaseClass(CityDAO.class);
+
             this.createCommand.setProvider(provider_0);
             this.createCommand.setDatacontrol(this);
 
@@ -426,7 +428,8 @@ public class CityDC extends DataControl<CityDAO> implements Serializable {
     }
 
     @Override
-    public void cleanShifter() {
+    public void cleanShifter()
+        throws org.tura.platform.datacontrol.commons.TuraException {
         saveState();
         super.cleanShifter();
         restoreState();

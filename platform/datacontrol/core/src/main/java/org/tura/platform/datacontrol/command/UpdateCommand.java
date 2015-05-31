@@ -3,6 +3,7 @@ package org.tura.platform.datacontrol.command;
 import org.tura.platform.datacontrol.DataControl;
 import org.tura.platform.datacontrol.Util;
 import org.tura.platform.datacontrol.commons.Reflection;
+import org.tura.platform.datacontrol.pool.PoolCommand;
 
 public class UpdateCommand extends Command {
 
@@ -31,6 +32,7 @@ public class UpdateCommand extends Command {
 				obj = Util.convertobject(obj, getDatacontrol());
 			}
 			this.getDatacontrol().getShifter().update(this.getDatacontrol().getCurrentPosition(), obj);
+			this.getDatacontrol().putObjectToPool(obj, PoolCommand.U);
 			this.getDatacontrol().getCommandStack().addTransaction(cmd);
 		}
 		return null;

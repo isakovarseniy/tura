@@ -18,6 +18,7 @@ import org.tura.platform.datacontrol.event.RowCreatedEvent;
 import org.tura.platform.datacontrol.event.RowRemovedEvent;
 import org.tura.platform.datacontrol.metainfo.DependecyProperty;
 import org.tura.platform.datacontrol.metainfo.Relation;
+import org.tura.platform.datacontrol.pool.PoolCommand;
 import org.tura.platform.datacontrol.shift.ShiftControl;
 
 import com.octo.java.sql.query.SelectQuery;
@@ -364,7 +365,7 @@ public abstract class DataControl<T> extends MetaInfoHolder implements
 		return pager.getEndIndex();
 	}
 
-	public void cleanShifter() {
+	public void cleanShifter() throws TuraException {
 		pager.cleanShifter();
 	}
 
@@ -394,4 +395,8 @@ public abstract class DataControl<T> extends MetaInfoHolder implements
 		return scroller;
 	}
 
+	public void putObjectToPool(Object obj, PoolCommand c) throws TuraException{
+		pager.addCommandt(  c.createdCommand(obj, getObjectKey(obj), getBaseClass(), getShifter().getId()));
+	}
+	
 }

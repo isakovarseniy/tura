@@ -88,6 +88,8 @@ public class DepartmentDC extends DataControl<DepartmentsDAO>
     @PostConstruct
     public void init() {
         try {
+            setBaseClass(DepartmentsDAO.class);
+
             this.createCommand.setProvider(provider_0);
             this.createCommand.setDatacontrol(this);
 
@@ -449,7 +451,8 @@ public class DepartmentDC extends DataControl<DepartmentsDAO>
     }
 
     @Override
-    public void cleanShifter() {
+    public void cleanShifter()
+        throws org.tura.platform.datacontrol.commons.TuraException {
         saveState();
         super.cleanShifter();
         restoreState();

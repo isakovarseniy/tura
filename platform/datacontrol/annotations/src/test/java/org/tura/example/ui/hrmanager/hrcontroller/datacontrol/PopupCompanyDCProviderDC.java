@@ -76,6 +76,8 @@ public class PopupCompanyDCProviderDC extends DataControl<CompanyDAO>
     @PostConstruct
     public void init() {
         try {
+            setBaseClass(CompanyDAO.class);
+
             this.createCommand.setProvider(provider_0);
             this.createCommand.setDatacontrol(this);
 
@@ -392,7 +394,8 @@ public class PopupCompanyDCProviderDC extends DataControl<CompanyDAO>
     }
 
     @Override
-    public void cleanShifter() {
+    public void cleanShifter()
+        throws org.tura.platform.datacontrol.commons.TuraException {
         saveState();
         super.cleanShifter();
         restoreState();

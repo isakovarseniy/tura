@@ -1,6 +1,7 @@
 package org.tura.platform.datacontrol.command;
 
 import org.tura.platform.datacontrol.DataControl;
+import org.tura.platform.datacontrol.pool.PoolCommand;
 
 public class InsertCommand extends Command {
 	private Object obj;
@@ -24,6 +25,7 @@ public class InsertCommand extends Command {
 		
 
 		this.getDatacontrol().getCommandStack().addTransaction( cmd);
+		this.getDatacontrol().putObjectToPool(obj, PoolCommand.U);
 		this.getDatacontrol().getShifter().update(this.getDatacontrol().getCurrentPosition(), obj);
 
 

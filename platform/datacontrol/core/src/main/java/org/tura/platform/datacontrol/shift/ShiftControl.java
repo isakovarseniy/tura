@@ -1,7 +1,9 @@
 package org.tura.platform.datacontrol.shift;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
+import java.util.UUID;
 import java.util.logging.Logger;
 
 import org.josql.Query;
@@ -21,7 +23,9 @@ public class ShiftControl {
 	private int addOpr;
 	private int removeOpr;
 	private long actualRowNumber = -1L;
-	
+	private long lastUpdate = (new Date()).getTime();
+	private String id = UUID.randomUUID().toString();
+
 
 	public ShiftControl() {
 
@@ -239,6 +243,34 @@ public class ShiftControl {
 					+ " updated=" + element.isModified());
 		}
 
+	}
+
+	/**
+	 * @return the lastUpdate
+	 */
+	public long getLastUpdate() {
+		return lastUpdate;
+	}
+
+	/**
+	 * @param lastUpdate the lastUpdate to set
+	 */
+	public void setLastUpdate(long lastUpdate) {
+		this.lastUpdate = lastUpdate;
+	}
+
+	/**
+	 * @return the id
+	 */
+	public String getId() {
+		return id;
+	}
+
+	/**
+	 * @param id the id to set
+	 */
+	public void setId(String id) {
+		this.id = id;
 	}
 
 }

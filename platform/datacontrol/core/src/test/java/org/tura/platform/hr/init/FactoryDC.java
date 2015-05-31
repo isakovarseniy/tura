@@ -59,6 +59,7 @@ public class FactoryDC {
 		employeesDS.setElResolver(elResolver);
 		employeesDS.getKeys().add("objId");
 		employeesDS.setCommandStack(sc);
+		employeesDS.setBaseClass(EmployeesDAO.class);
 
 		createCreateCommand(employeesDS, elPrefix + "employees",
 				EmployeesDAO.class);
@@ -70,7 +71,7 @@ public class FactoryDC {
 				TuraObject.class);
 		createSearchCommand(employeesDS, elPrefix + "employees",EmployeesDAO.class);
 
-		createQuery(employeesDS, "EmployeesDAO");
+		createQuery(employeesDS, EmployeesDAO.class.getCanonicalName());
 
 		return employeesDS;
 	}
@@ -83,6 +84,7 @@ public class FactoryDC {
 		departmentsDS.setElResolver(elResolver);
 		departmentsDS.getKeys().add("objId");
 		departmentsDS.setCommandStack(sc);
+		departmentsDS.setBaseClass(DepartmentsDAO.class);
 
 		createCreateCommand(departmentsDS, elPrefix + "departments",
 				DepartmentsDAO.class);
@@ -94,7 +96,7 @@ public class FactoryDC {
 				TuraObject.class);
 		createSearchCommand(departmentsDS, elPrefix + "departments",DepartmentsDAO.class);
 
-		createQuery(departmentsDS, "DepartmentsDAO");
+		createQuery(departmentsDS, DepartmentsDAO.class.getCanonicalName());
 
 		return departmentsDS;
 	}

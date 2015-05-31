@@ -32,6 +32,7 @@ public abstract class MetaInfoHolder {
 	protected List<ArtificialProperty> artificialProperties = new ArrayList<>();
 	protected Class<?> artificialInterface;
 	protected List<String> keys = new ArrayList<>();
+	protected Class<?> baseClass;
 	
 	protected ELResolver elResolver;
 	protected CreateCommand createCommand;
@@ -158,6 +159,12 @@ public abstract class MetaInfoHolder {
 
 	public  void setArtificialInterface(Class<?> artificialInterface ){
 		this.artificialInterface = artificialInterface;
+	}
+	public Class<?> getBaseClass() {
+		return baseClass;
+	}
+	public void setBaseClass(Class<?> baseClass) {
+		this.baseClass = baseClass;
 	}
 	
 }

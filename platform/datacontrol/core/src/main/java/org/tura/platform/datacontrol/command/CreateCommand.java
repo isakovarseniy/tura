@@ -3,6 +3,7 @@ package org.tura.platform.datacontrol.command;
 
 import org.tura.platform.datacontrol.DataControl;
 import org.tura.platform.datacontrol.Util;
+import org.tura.platform.datacontrol.pool.PoolCommand;
 
 public class CreateCommand extends Command {
 
@@ -25,6 +26,7 @@ public class CreateCommand extends Command {
 		if (obj != null){
 			obj = Util.convertobject(obj, getDatacontrol());
 			this.getDatacontrol().getShifter().add(this.getDatacontrol().getCurrentPosition(), obj);
+			this.getDatacontrol().putObjectToPool(obj, PoolCommand.C);
 			this.getDatacontrol().getCommandStack().addGostTrackingDataControl(this.getDatacontrol());
 		}
 

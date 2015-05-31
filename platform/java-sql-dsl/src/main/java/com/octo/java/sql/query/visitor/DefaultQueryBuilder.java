@@ -68,7 +68,7 @@ public class DefaultQueryBuilder extends BaseVisitor {
   protected final StringBuilder result = new StringBuilder();
   private int variableIndex = 1;
   private final Map<String, Object> params = new HashMap<String, Object>();
-  private boolean addBracketToNextSelectQuery = false;
+  protected boolean addBracketToNextSelectQuery = false;
   private final Map<String, Evaluable<?>> functions = new HashMap<String, Evaluable<?>>();
 
   public void addFunction(final String functionName,

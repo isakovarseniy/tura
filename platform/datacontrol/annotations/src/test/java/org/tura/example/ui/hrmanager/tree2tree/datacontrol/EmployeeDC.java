@@ -83,6 +83,8 @@ public class EmployeeDC extends DataControl<EmployeesDAO>
     @PostConstruct
     public void init() {
         try {
+            setBaseClass(EmployeesDAO.class);
+
             this.createCommand.setProvider(provider_0);
             this.createCommand.setDatacontrol(this);
 
@@ -427,7 +429,8 @@ public class EmployeeDC extends DataControl<EmployeesDAO>
     }
 
     @Override
-    public void cleanShifter() {
+    public void cleanShifter()
+        throws org.tura.platform.datacontrol.commons.TuraException {
         saveState();
         super.cleanShifter();
         restoreState();

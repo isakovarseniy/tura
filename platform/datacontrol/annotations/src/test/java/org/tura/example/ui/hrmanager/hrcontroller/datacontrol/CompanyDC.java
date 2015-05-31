@@ -82,6 +82,8 @@ public class CompanyDC extends DataControl<CompanyDAO> implements Serializable {
     @PostConstruct
     public void init() {
         try {
+            setBaseClass(CompanyDAO.class);
+
             this.createCommand.setProvider(provider_0);
             this.createCommand.setDatacontrol(this);
 
@@ -427,7 +429,8 @@ public class CompanyDC extends DataControl<CompanyDAO> implements Serializable {
     }
 
     @Override
-    public void cleanShifter() {
+    public void cleanShifter()
+        throws org.tura.platform.datacontrol.commons.TuraException {
         saveState();
         super.cleanShifter();
         restoreState();

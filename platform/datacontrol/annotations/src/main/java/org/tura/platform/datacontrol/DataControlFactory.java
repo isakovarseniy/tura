@@ -100,7 +100,7 @@ public class DataControlFactory {
 		Query annotation = injectionPoint.getAnnotated().getAnnotation(
 				Query.class);
 		SelectQuery query = select(c("x")).from(
-				annotation.base().clazz().getName()).as("x");
+				annotation.base().clazz().getCanonicalName()).as("x");
 
 		String condition = "WHERE";
 

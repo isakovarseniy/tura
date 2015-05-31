@@ -1,6 +1,7 @@
 package org.tura.platform.datacontrol.command;
 
 import org.tura.platform.datacontrol.DataControl;
+import org.tura.platform.datacontrol.pool.PoolCommand;
 
 public class DeleteCommand extends Command{
 
@@ -23,6 +24,7 @@ public class DeleteCommand extends Command{
 		cmd.call = this.call;
 
 		this.getDatacontrol().getShifter().remove(this.getDatacontrol().getCurrentPosition());
+		this.getDatacontrol().putObjectToPool(obj, PoolCommand.R);
 		this.getDatacontrol().getCommandStack().addTransaction( cmd);
 
 

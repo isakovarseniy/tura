@@ -76,6 +76,7 @@ public class [%=util.mergeAndCapitalize(control.name)%]DC extends org.tura.platf
 	@javax.annotation.PostConstruct
 	public void init() {
      try{
+     setBaseClass([%=control.~basefullName%].class); 
 
     [%
     var i = 0;
@@ -509,7 +510,7 @@ public class [%=util.mergeAndCapitalize(control.name)%]DC extends org.tura.platf
 	}
 
 	@Override
-	public void cleanShifter() {
+	public void cleanShifter() throws org.tura.platform.datacontrol.commons.TuraException{
 		saveState();
 		super.cleanShifter();
 		restoreState();		

@@ -19,9 +19,12 @@ import static com.octo.java.sql.query.Query.c;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Stack;
 
+import org.josql.QueryExecutionException;
+import org.josql.QueryParseException;
 import org.tura.platform.datacontrol.commons.ConditionConverter;
 import org.tura.platform.datacontrol.commons.Constants;
 import org.tura.platform.datacontrol.commons.LazyList;
@@ -29,6 +32,7 @@ import org.tura.platform.datacontrol.commons.PlatformConfig;
 import org.tura.platform.datacontrol.commons.Reflection;
 import org.tura.platform.datacontrol.commons.SearchCriteria;
 import org.tura.platform.datacontrol.commons.TuraException;
+import org.tura.platform.datacontrol.pool.Pool;
 import org.tura.platform.datacontrol.shift.ShiftControl;
 
 import com.octo.java.sql.exp.Operator;
@@ -36,7 +40,7 @@ import com.octo.java.sql.query.QueryException;
 import com.octo.java.sql.query.SelectQuery;
 import com.rits.cloning.Cloner;
 
-public class Pager<T> {
+public class Pager<T> extends Pool {
 
 	private int startIndex;
 	private int endIndex;
@@ -52,9 +56,16 @@ public class Pager<T> {
 		loadStep = PlatformConfig.LOADSTEP;
 	}
 
-	public void cleanShifter() {
-		shifterHash = new HashMap<>();
-		shifter = null;
+	public void cleanShifter() throws TuraException {
+		try {
+			for (ShiftControl sh : shifterHash.values()) {
+				cleanPool(sh.getId());
+			}
+			shifterHash = new HashMap<>();
+			shifter = null;
+		} catch (QueryParseException | QueryExecutionException e) {
+			throw new TuraException(e);
+		}
 	}
 
 	public void cleanPager() throws TuraException {
@@ -75,43 +86,48 @@ public class Pager<T> {
 		return shifter.getActualRowNumber();
 	}
 
-	private boolean prepareQuery() throws NoSuchMethodException,
-			SecurityException, ClassNotFoundException, InstantiationException,
-			IllegalAccessException, IllegalArgumentException,
-			InvocationTargetException, QueryException, TuraException {
+	protected boolean prepareQuery() throws TuraException {
+		try {
 
-		Cloner cloner = new Cloner();
-		datacontrol.setQuery(cloner.deepClone(datacontrol.getDefaultQuery()));
+			Cloner cloner = new Cloner();
+			datacontrol
+					.setQuery(cloner.deepClone(datacontrol.getDefaultQuery()));
 
-		Collection<SearchCriteria> sc = null;
+			Collection<SearchCriteria> sc = null;
 
-		SelectQuery query = datacontrol.getQuery();
-		if (datacontrol.getParent() != null) {
-			sc = datacontrol.getParent().getChildSearchCriteria();
-			String condition = "AND";
-			if (!sc.isEmpty() && query.getWhereClause() == null)
-				condition = "WHERE";
+			SelectQuery query = datacontrol.getQuery();
+			if (datacontrol.getParent() != null) {
+				sc = datacontrol.getParent().getChildSearchCriteria();
+				String condition = "AND";
+				if (!sc.isEmpty() && query.getWhereClause() == null)
+					condition = "WHERE";
 
-			for (SearchCriteria criteria : sc) {
+				for (SearchCriteria criteria : sc) {
 
-				if (!criteria.getValue().equals(Constants.UNDEFINED_PARAMETER)) {
-					ConditionConverter.valueOf(condition).getRestriction(query,
-							c(criteria.getName()));
-					query.op(Operator.valueOf(criteria.getComparator()),
-							criteria.getValue());
+					if (!criteria.getValue().equals(
+							Constants.UNDEFINED_PARAMETER)) {
+						ConditionConverter.valueOf(condition).getRestriction(
+								query, c(criteria.getName()));
+						query.op(Operator.valueOf(criteria.getComparator()),
+								criteria.getValue());
 
-				} else {
-					return false;
+					} else {
+						return false;
+					}
+					condition = "AND";
 				}
-				condition = "AND";
+
 			}
+			query.toSql(new ExpressionResolver(datacontrol.getElResolver()));
+			// restore dafaut querybuilder
+			query.toSql(query.getQueryBuilder());
 
+			return true;
+		} catch (NoSuchMethodException | SecurityException
+				| IllegalAccessException | IllegalArgumentException
+				| InvocationTargetException | QueryException e) {
+			throw new TuraException(e);
 		}
-		query.toSql(new ExpressionResolver(datacontrol.getElResolver()));
-		// restore dafaut querybuilder
-		query.toSql(query.getQueryBuilder());
-
-		return true;
 	}
 
 	public DataControl<T> getDataControl() {
@@ -141,6 +157,33 @@ public class Pager<T> {
 
 	@SuppressWarnings("unchecked")
 	public T getObject(int index) throws TuraException {
+		Object obj = null;
+
+		long beginTimeStamp = getShifter().getLastUpdate();
+		long endTimeStamp = (new Date()).getTime();
+		
+		try {
+			beforeShifterGetCreatedObjects(datacontrol.getBaseClass(),
+					beginTimeStamp, endTimeStamp, index);
+			do {
+				obj = get(index);
+			} while (obj != null
+					&& isRemoved(datacontrol.getBaseClass(), beginTimeStamp,
+							endTimeStamp, datacontrol.getObjectKey(obj), index));
+			if (obj != null) {
+				obj = checkForUpdate(datacontrol.getBaseClass(), beginTimeStamp,
+						endTimeStamp, obj, datacontrol.getObjectKey(obj), index);
+			}
+
+			getShifter().setLastUpdate(endTimeStamp);
+			return (T) obj;
+		} catch (Exception e) {
+			throw new TuraException(e);
+		}
+	}
+
+	@SuppressWarnings("unchecked")
+	private T get(int index) throws TuraException {
 
 		try {
 			Object obj = null;
@@ -158,17 +201,9 @@ public class Pager<T> {
 			if (obj == int.class || obj instanceof Integer) {
 				try {
 					return getEntity(index);
-				} catch (NoSuchMethodException e) {
-					throw new TuraException(e);
-				} catch (SecurityException e) {
-					throw new TuraException(e);
-				} catch (InstantiationException e) {
-					throw new TuraException(e);
-				} catch (IllegalAccessException e) {
-					throw new TuraException(e);
-				} catch (IllegalArgumentException e) {
-					throw new TuraException(e);
-				} catch (InvocationTargetException e) {
+				} catch (NoSuchMethodException | SecurityException
+						| InstantiationException | IllegalAccessException
+						| IllegalArgumentException | InvocationTargetException e) {
 					throw new TuraException(e);
 				}
 			}
@@ -221,7 +256,8 @@ public class Pager<T> {
 				datacontrol.getCommandStack().commitTransaction();
 			}
 
-			if (entities.getFragmentSize() != 0 && index < entities.getActualRowNumber() ) {
+			if (entities.getFragmentSize() != 0
+					&& index < entities.getActualRowNumber()) {
 				return getEntity(index);
 			} else {
 				return null;
@@ -275,7 +311,7 @@ public class Pager<T> {
 			return (T) t;
 
 		} catch (Exception e) {
-			Object el =  Util.convertobject(t,this.datacontrol);
+			Object el = Util.convertobject(t, this.datacontrol);
 			entities.set((index), (T) el);
 
 			if (datacontrol.getPostQueryTrigger() != null)
@@ -323,6 +359,7 @@ public class Pager<T> {
 		this.direction = direction;
 	}
 
+	@Override
 	public ShiftControl getShifter() throws TuraException {
 		if (shifter == null) {
 			createShifter();
@@ -348,6 +385,11 @@ public class Pager<T> {
 		} catch (Exception e) {
 			throw new TuraException(e);
 		}
+	}
+
+	@Override
+	protected SelectQuery getSelectQuery() {
+		return datacontrol.getQuery();
 	}
 
 }

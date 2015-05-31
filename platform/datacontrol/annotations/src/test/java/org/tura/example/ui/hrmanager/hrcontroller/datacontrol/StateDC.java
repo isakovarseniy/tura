@@ -80,6 +80,8 @@ public class StateDC extends DataControl<StateDAO> implements Serializable {
     @PostConstruct
     public void init() {
         try {
+            setBaseClass(StateDAO.class);
+
             this.createCommand.setProvider(provider_0);
             this.createCommand.setDatacontrol(this);
 
@@ -419,7 +421,8 @@ public class StateDC extends DataControl<StateDAO> implements Serializable {
     }
 
     @Override
-    public void cleanShifter() {
+    public void cleanShifter()
+        throws org.tura.platform.datacontrol.commons.TuraException {
         saveState();
         super.cleanShifter();
         restoreState();
