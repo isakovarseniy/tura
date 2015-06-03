@@ -1,7 +1,6 @@
 package org.tura.platform.datacontrol.shift;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.UUID;
 import java.util.logging.Logger;
@@ -23,8 +22,9 @@ public class ShiftControl {
 	private int addOpr;
 	private int removeOpr;
 	private long actualRowNumber = -1L;
-	private long lastUpdate = (new Date()).getTime();
+	private long lastUpdate = 0;
 	private String id = UUID.randomUUID().toString();
+	private ArrayList<Element> shiftTracker = new ArrayList<>();
 
 
 	public ShiftControl() {
@@ -40,7 +40,6 @@ public class ShiftControl {
 		this.key = key;
 	}
 
-	private ArrayList<Element> shiftTracker = new ArrayList<>();
 
 	public Object getObject(int position) throws QueryParseException,
 			QueryExecutionException {

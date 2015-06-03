@@ -19,7 +19,6 @@ import static com.octo.java.sql.query.Query.c;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.Stack;
 
@@ -160,7 +159,7 @@ public class Pager<T> extends Pool {
 		Object obj = null;
 
 		long beginTimeStamp = getShifter().getLastUpdate();
-		long endTimeStamp = (new Date()).getTime();
+		long endTimeStamp = getNextId();
 		
 		try {
 			beforeShifterGetCreatedObjects(datacontrol.getBaseClass(),

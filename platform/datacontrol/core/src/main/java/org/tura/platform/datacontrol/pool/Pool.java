@@ -17,6 +17,8 @@ import com.octo.java.sql.query.QueryException;
 import com.octo.java.sql.query.SelectQuery;
 
 public abstract class Pool {
+	
+	private static long id = 0;
 
 	private static ArrayList<PoolElement> poolElement = new ArrayList<>();
 
@@ -27,10 +29,13 @@ public abstract class Pool {
 	protected abstract SelectQuery getSelectQuery();
 
 	public void addCommandt(PoolElement element) throws TuraException {
+		getShifter();
+		//element cannot be yonge then shifter
+		element.setCreateDate( getCurentId());
 		poolElement.add(element);
 	}
 
-	public void cleanPool(String id) throws QueryParseException, TuraException,
+	protected void cleanPool(String id) throws QueryParseException, TuraException,
 			QueryExecutionException {
 
 		Query query = new Query();
@@ -201,4 +206,12 @@ public abstract class Pool {
 		return object;
 	}
 
+	public static synchronized long getNextId(){
+	   return ++id;	
+	}
+	
+    public static long getCurentId(){
+    	return id;
+    }
+	
 }

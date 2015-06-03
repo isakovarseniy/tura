@@ -5,6 +5,7 @@ import static org.junit.Assert.fail;
 
 import java.lang.reflect.Field;
 import java.text.ParseException;
+import java.util.ArrayList;
 import java.util.logging.Logger;
 
 import javax.persistence.EntityManager;
@@ -15,6 +16,7 @@ import org.junit.Test;
 import org.junit.runners.MethodSorters;
 import org.tura.platform.datacontrol.DataControl;
 import org.tura.platform.datacontrol.Pager;
+import org.tura.platform.datacontrol.pool.Pool;
 import org.tura.platform.datacontrol.pool.PoolCommand;
 import org.tura.platform.datacontrol.pool.PoolElement;
 import org.tura.platform.hr.init.DepartmentsInit;
@@ -67,6 +69,10 @@ public class SingleDataControlPoolTest {
 			row = dc.getCurrentObject();
 
 			assertEquals(row.getObjId(), new Long(123L));
+			
+		    ArrayList<PoolElement> p = getPoolElement(dc);
+		    p.clear();
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 			fail(e.getMessage());
@@ -91,7 +97,11 @@ public class SingleDataControlPoolTest {
 	        
 			row = dc.getCurrentObject();
 
-			assertEquals(row.getObjId(), new Long(20L));
+			assertEquals( new Long(20L),row.getObjId());
+
+			ArrayList<PoolElement> p = getPoolElement(dc);
+		    p.clear();
+
 		} catch (Exception e) {
 			e.printStackTrace();
 			fail(e.getMessage());
@@ -119,6 +129,10 @@ public class SingleDataControlPoolTest {
 			row = dc.getCurrentObject();
 
 			assertEquals(row.getDepartmentName(), "test dep");
+
+		    ArrayList<PoolElement> p = getPoolElement(dc);
+		    p.clear();
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 			fail(e.getMessage());
@@ -126,11 +140,62 @@ public class SingleDataControlPoolTest {
 	}	
 	
 	
+	@Test
+	public void t4_getApplyCreateUpdateModification() {
+		try {
+			factory.initCommandStack();
+			DataControl<DepartmentsDAO> dc = factory.initDepartments("");
+			dc.getElResolver().setValue("departments", dc);
+			DepartmentsDAO row = dc.getCurrentObject();
+
+	        Pager<?> pager = getPager(dc);
+
+	        DepartmentsDAO newrow = new DepartmentsDAO();
+			newrow.setObjId(123L);
+			
+	        PoolElement e = new PoolElement(newrow, dc.getObjectKey(newrow), dc.getBaseClass(), PoolCommand.C.name(), "1");
+	        pager.addCommandt(e);
+	        
+			newrow.setDepartmentName("test dep");
+			
+	        e = new PoolElement(newrow, dc.getObjectKey(newrow), dc.getBaseClass(), PoolCommand.U.name(), "1");
+	        pager.addCommandt(e);
+	        
+	        
+			row = dc.getCurrentObject();
+
+			assertEquals(row.getObjId(), new Long(123L));
+			assertEquals(row.getDepartmentName(), "test dep");
+			
+			dc.nextObject();
+			row = dc.getCurrentObject();
+			
+			assertEquals(row.getObjId(), new Long(10L));
+			
+		    ArrayList<PoolElement> p = getPoolElement(dc);
+		    p.clear();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			fail(e.getMessage());
+		}
+	}	
+	
+
 	
 	private Pager<?> getPager(DataControl<?> dc) throws NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException{
         Field field = DataControl.class.getDeclaredField("pager");
         field.setAccessible(true);
         return (Pager<?>) field.get(dc);	
+	}
+
+	@SuppressWarnings("unchecked")
+	private ArrayList<PoolElement> getPoolElement(DataControl<?> dc) throws NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException{
+		Pager<?> pg = getPager(dc);
+        Field field = Pool.class.getDeclaredField("poolElement");
+        field.setAccessible(true);
+        return (ArrayList<PoolElement>) field.get(pg);	
+		
 	}
 	
 }

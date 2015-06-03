@@ -1,6 +1,5 @@
 package org.tura.platform.datacontrol.pool;
 
-import java.util.Date;
 
 public class PoolElement {
 	
@@ -12,7 +11,6 @@ public class PoolElement {
 	private String shifterId;
 	
 	public PoolElement(Object obj, Object key, Class<?> clazz,String operation, String shifterId){
-		createDate = (new Date()).getTime();
 		this.clazz = clazz;
 		this.key = key;
 		this.obj = obj;
