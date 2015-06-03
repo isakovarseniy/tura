@@ -31,7 +31,7 @@ public abstract class Pool {
 	public void addCommandt(PoolElement element) throws TuraException {
 		getShifter();
 		//element cannot be yonge then shifter
-		element.setCreateDate( getCurentId());
+		element.setCreateDate( getNextId());
 		poolElement.add(element);
 	}
 
@@ -39,8 +39,8 @@ public abstract class Pool {
 			QueryExecutionException {
 
 		Query query = new Query();
-		query.parse(PoolConstants.SELECT_OBJECTS_SORTED_DESC);
-		query.setVariable("shifterId", getShifter().getId());
+		query.parse(PoolConstants.SELECT_OBJECTS_BY_SHIFTER_ID);
+		query.setVariable("shifterId", id);
 		QueryResults result = query.execute(poolElement);
 
 		for (Object el : result.getResults()) {
@@ -209,9 +209,5 @@ public abstract class Pool {
 	public static synchronized long getNextId(){
 	   return ++id;	
 	}
-	
-    public static long getCurentId(){
-    	return id;
-    }
 	
 }

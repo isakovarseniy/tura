@@ -9,6 +9,7 @@ import org.josql.Query;
 import org.josql.QueryExecutionException;
 import org.josql.QueryParseException;
 import org.josql.QueryResults;
+import org.junit.BeforeClass;
 import org.junit.Test;
 import org.tura.platform.datacontrol.shift.Element;
 import org.tura.platform.datacontrol.shift.ElementType;
@@ -18,7 +19,9 @@ import org.tura.platform.datacontrol.shift.ShiftControl;
 public class ShifterTest {
 	
 	private static Logger logger;	
-	static{
+
+	@BeforeClass
+	public static void beforeClass(){
 		logger = Logger.getLogger("InfoLogging");
 		logger.setUseParentHandlers(false);		
 //		ConsoleHandler handler = new ConsoleHandler(); 

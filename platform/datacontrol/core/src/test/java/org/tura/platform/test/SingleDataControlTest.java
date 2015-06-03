@@ -4,12 +4,17 @@ import static com.octo.java.sql.query.Query.c;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
 
+import java.lang.reflect.Field;
 import java.text.ParseException;
+import java.util.ArrayList;
 import java.util.logging.Logger;
 
 import javax.persistence.EntityManager;
 
 import org.elsoft.platform.hr.objects.DepartmentsDAO;
+import org.junit.After;
+import org.junit.AfterClass;
+import org.junit.BeforeClass;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
@@ -18,6 +23,8 @@ import org.tura.platform.datacontrol.command.PostCreateTrigger;
 import org.tura.platform.datacontrol.command.PostQueryTrigger;
 import org.tura.platform.datacontrol.command.PreQueryTrigger;
 import org.tura.platform.datacontrol.commons.TuraException;
+import org.tura.platform.datacontrol.pool.Pool;
+import org.tura.platform.datacontrol.pool.PoolElement;
 import org.tura.platform.datacontrol.shift.ShiftConstants;
 import org.tura.platform.hr.init.DepartmentsInit;
 import org.tura.platform.hr.init.EmployesesInit;
@@ -33,7 +40,8 @@ public class SingleDataControlTest {
 
 	private static Logger logger;
 
-	static {
+	@BeforeClass
+	public static void beforeClass(){
 		logger = Logger.getLogger("InfoLogging");
 		logger.setUseParentHandlers(false);
 //		ConsoleHandler handler = new ConsoleHandler();
@@ -52,6 +60,29 @@ public class SingleDataControlTest {
 
 	}
 
+	@AfterClass
+	public static void afterClass() throws NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException{
+	    ArrayList<PoolElement> p = getPoolElement();
+	    p.clear();				
+	}
+	
+	
+	@After
+	public  void after() {
+		
+	    ArrayList<PoolElement> p;
+		try {
+			p = getPoolElement();
+		    p.clear();		
+		} catch (NoSuchFieldException | SecurityException
+				| IllegalArgumentException | IllegalAccessException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}	
+	
+	
 	@Test
 	public void t1_getObject() {
 		try {
@@ -60,6 +91,8 @@ public class SingleDataControlTest {
 			dc.getElResolver().setValue("departments", dc);
 			DepartmentsDAO row = dc.getCurrentObject();
 			assertEquals(row.getObjId(), new Long(10));
+
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 			fail(e.getMessage());
@@ -96,6 +129,8 @@ public class SingleDataControlTest {
 			// Check last row
 			assertEquals(dc.getCurrentObject().getObjId(), id);
 			logger.info(dc.getCurrentObject().getObjId().toString());
+			
+			
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -113,6 +148,8 @@ public class SingleDataControlTest {
 					.op(Operator.GT, new Long(30));
 			DepartmentsDAO row = dc.getCurrentObject();
 			assertEquals(row.getObjId(), new Long(40));
+			
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 			fail(e.getMessage());
@@ -129,6 +166,8 @@ public class SingleDataControlTest {
 			dc.getDefaultQuery().where(c("objId")).op(Operator.GT, "#{limit}");
 			DepartmentsDAO row = dc.getCurrentObject();
 			assertEquals(row.getObjId(), new Long(40));
+			
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 			fail(e.getMessage());
@@ -198,6 +237,7 @@ public class SingleDataControlTest {
 			// Check last row
 			assertEquals(dc.getCurrentObject().getObjId(), id);
 			logger.info(dc.getCurrentObject().getObjId().toString());
+			
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -227,6 +267,7 @@ public class SingleDataControlTest {
 			dc.forceRefresh();
 			row = dc.getCurrentObject();
 			assertEquals("qwerty", row.getDepartmentName());
+			
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -246,6 +287,7 @@ public class SingleDataControlTest {
 			DepartmentsDAO row = dc.getCurrentObject();
 			assertEquals(row.getObjId(), new Long(70));
 			assertEquals(row.getDepartmentName(), "test");
+			
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -348,7 +390,8 @@ public class SingleDataControlTest {
 			// Check last row
 			assertEquals(dc.getCurrentObject().getObjId(), id);
 			logger.info(dc.getCurrentObject().getObjId().toString());
-
+			
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 			fail(e.getMessage());
@@ -394,4 +437,12 @@ public class SingleDataControlTest {
 
 	}
 
+	@SuppressWarnings("unchecked")
+	private static ArrayList<PoolElement> getPoolElement() throws NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException{
+        Field field = Pool.class.getDeclaredField("poolElement");
+        field.setAccessible(true);
+        return (ArrayList<PoolElement>) field.get(Pool.class);	
+		
+	}
+	
 }

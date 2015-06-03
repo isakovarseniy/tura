@@ -11,6 +11,9 @@ import java.util.logging.Logger;
 import javax.persistence.EntityManager;
 
 import org.elsoft.platform.hr.objects.DepartmentsDAO;
+import org.junit.After;
+import org.junit.AfterClass;
+import org.junit.BeforeClass;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
@@ -31,7 +34,8 @@ public class SingleDataControlPoolTest {
 
 	private static Logger logger;
 
-	static {
+	@BeforeClass
+	public static void beforeClass(){
 		logger = Logger.getLogger("InfoLogging");
 		logger.setUseParentHandlers(false);
 //		ConsoleHandler handler = new ConsoleHandler();
@@ -49,6 +53,29 @@ public class SingleDataControlPoolTest {
 		}
 
 	}
+	
+	
+	@AfterClass
+	public static void afterClass() throws NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException{
+	    ArrayList<PoolElement> p = getPoolElement();
+	    p.clear();				
+	}
+	
+	
+	@After
+	public  void after() {
+		
+	    ArrayList<PoolElement> p;
+		try {
+			p = getPoolElement();
+		    p.clear();		
+		} catch (NoSuchFieldException | SecurityException
+				| IllegalArgumentException | IllegalAccessException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}	
 	
 	@Test
 	public void t1_getApplyCreateModification() {
@@ -70,8 +97,6 @@ public class SingleDataControlPoolTest {
 
 			assertEquals(row.getObjId(), new Long(123L));
 			
-		    ArrayList<PoolElement> p = getPoolElement(dc);
-		    p.clear();
 			
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -99,8 +124,6 @@ public class SingleDataControlPoolTest {
 
 			assertEquals( new Long(20L),row.getObjId());
 
-			ArrayList<PoolElement> p = getPoolElement(dc);
-		    p.clear();
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -130,8 +153,6 @@ public class SingleDataControlPoolTest {
 
 			assertEquals(row.getDepartmentName(), "test dep");
 
-		    ArrayList<PoolElement> p = getPoolElement(dc);
-		    p.clear();
 			
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -172,9 +193,6 @@ public class SingleDataControlPoolTest {
 			
 			assertEquals(row.getObjId(), new Long(10L));
 			
-		    ArrayList<PoolElement> p = getPoolElement(dc);
-		    p.clear();
-			
 		} catch (Exception e) {
 			e.printStackTrace();
 			fail(e.getMessage());
@@ -190,11 +208,10 @@ public class SingleDataControlPoolTest {
 	}
 
 	@SuppressWarnings("unchecked")
-	private ArrayList<PoolElement> getPoolElement(DataControl<?> dc) throws NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException{
-		Pager<?> pg = getPager(dc);
+	private static ArrayList<PoolElement> getPoolElement() throws NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException{
         Field field = Pool.class.getDeclaredField("poolElement");
         field.setAccessible(true);
-        return (ArrayList<PoolElement>) field.get(pg);	
+        return (ArrayList<PoolElement>) field.get(Pool.class);	
 		
 	}
 	

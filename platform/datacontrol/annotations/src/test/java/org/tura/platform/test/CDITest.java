@@ -19,6 +19,7 @@ import org.elsoft.platform.hr.objects.StateDAO;
 import org.elsoft.platform.hr.objects.StreetDAO;
 import org.jboss.weld.environment.se.Weld;
 import org.jboss.weld.environment.se.WeldContainer;
+import org.junit.BeforeClass;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
@@ -49,7 +50,8 @@ public class CDITest {
 	private static WeldContainer weld;
 	private ArrayList<String> delitedRows = new ArrayList<>();
 
-	static {
+	@BeforeClass
+	public static void beforeClass(){
 		logger = Logger.getLogger("InfoLogging");
 		logger.setUseParentHandlers(false);
 		ConsoleHandler handler = new ConsoleHandler();
