@@ -159,7 +159,7 @@ public class Pager<T> extends Pool {
 		Object obj = null;
 
 		long beginTimeStamp = getShifter().getLastUpdate();
-		long endTimeStamp = getNextId();
+		long endTimeStamp = getCommandStack().getNextId();
 		
 		try {
 			beforeShifterGetCreatedObjects(datacontrol.getBaseClass(),
@@ -389,6 +389,11 @@ public class Pager<T> extends Pool {
 	@Override
 	protected SelectQuery getSelectQuery() {
 		return datacontrol.getQuery();
+	}
+
+	@Override
+	protected CommandStack getCommandStack() {
+		return datacontrol.getCommandStack();
 	}
 
 }

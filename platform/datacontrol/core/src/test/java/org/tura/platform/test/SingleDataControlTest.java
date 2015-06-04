@@ -4,16 +4,12 @@ import static com.octo.java.sql.query.Query.c;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
 
-import java.lang.reflect.Field;
 import java.text.ParseException;
-import java.util.ArrayList;
 import java.util.logging.Logger;
 
 import javax.persistence.EntityManager;
 
 import org.elsoft.platform.hr.objects.DepartmentsDAO;
-import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
@@ -23,8 +19,6 @@ import org.tura.platform.datacontrol.command.PostCreateTrigger;
 import org.tura.platform.datacontrol.command.PostQueryTrigger;
 import org.tura.platform.datacontrol.command.PreQueryTrigger;
 import org.tura.platform.datacontrol.commons.TuraException;
-import org.tura.platform.datacontrol.pool.Pool;
-import org.tura.platform.datacontrol.pool.PoolElement;
 import org.tura.platform.datacontrol.shift.ShiftConstants;
 import org.tura.platform.hr.init.DepartmentsInit;
 import org.tura.platform.hr.init.EmployesesInit;
@@ -60,28 +54,6 @@ public class SingleDataControlTest {
 
 	}
 
-	@AfterClass
-	public static void afterClass() throws NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException{
-	    ArrayList<PoolElement> p = getPoolElement();
-	    p.clear();				
-	}
-	
-	
-	@After
-	public  void after() {
-		
-	    ArrayList<PoolElement> p;
-		try {
-			p = getPoolElement();
-		    p.clear();		
-		} catch (NoSuchFieldException | SecurityException
-				| IllegalArgumentException | IllegalAccessException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-	}	
-	
 	
 	@Test
 	public void t1_getObject() {
@@ -437,12 +409,4 @@ public class SingleDataControlTest {
 
 	}
 
-	@SuppressWarnings("unchecked")
-	private static ArrayList<PoolElement> getPoolElement() throws NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException{
-        Field field = Pool.class.getDeclaredField("poolElement");
-        field.setAccessible(true);
-        return (ArrayList<PoolElement>) field.get(Pool.class);	
-		
-	}
-	
 }

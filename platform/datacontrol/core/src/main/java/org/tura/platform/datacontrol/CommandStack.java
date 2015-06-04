@@ -22,12 +22,15 @@ import java.util.Iterator;
 import org.tura.platform.datacontrol.command.Command;
 import org.tura.platform.datacontrol.commons.TuraException;
 import org.tura.platform.datacontrol.event.ControlRallbackEvent;
+import org.tura.platform.datacontrol.pool.PoolElement;
 
 public abstract class CommandStack {
 
 
+	private ArrayList<PoolElement> poolElement = new ArrayList<>();
 	private ArrayList<Command> transaction = new ArrayList<Command>();
 	private HashMap<String, DataControl<?>> gostTracking = new HashMap<>();
+	private long id = 0;
 	
 	public void addTransaction(Command cmd) throws TuraException {
 		this.transaction.add(cmd);
@@ -95,6 +98,14 @@ public abstract class CommandStack {
 		return transaction.isEmpty();
 	}
 
+	public ArrayList<PoolElement> getPoolElement() {
+		return poolElement;
+	}
+
+	public synchronized long getNextId(){
+	   return ++id;	
+	}	
+	
 	public abstract void beginTransaction();
 	public abstract void commitTransaction();
 	public abstract void rallbackTransaction();

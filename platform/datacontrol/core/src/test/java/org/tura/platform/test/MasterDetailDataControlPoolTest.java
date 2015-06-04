@@ -5,22 +5,18 @@ import static org.junit.Assert.fail;
 
 import java.lang.reflect.Field;
 import java.text.ParseException;
-import java.util.ArrayList;
 import java.util.logging.Logger;
 
 import javax.persistence.EntityManager;
 
 import org.elsoft.platform.hr.objects.DepartmentsDAO;
 import org.elsoft.platform.hr.objects.EmployeesDAO;
-import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.tura.platform.datacontrol.DataControl;
 import org.tura.platform.datacontrol.Pager;
 import org.tura.platform.datacontrol.metainfo.PropertyLink;
 import org.tura.platform.datacontrol.metainfo.Relation;
-import org.tura.platform.datacontrol.pool.Pool;
 import org.tura.platform.datacontrol.pool.PoolCommand;
 import org.tura.platform.datacontrol.pool.PoolElement;
 import org.tura.platform.hr.init.DepartmentsInit;
@@ -53,27 +49,6 @@ public class MasterDetailDataControlPoolTest {
 		}
 	}
 	
-	
-	@AfterClass
-	public static void afterClass() throws NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException{
-	    ArrayList<PoolElement> p = getPoolElement();
-	    p.clear();				
-	}
-	
-	
-	@After
-	public  void after() {
-		
-	    ArrayList<PoolElement> p;
-		try {
-			p = getPoolElement();
-		    p.clear();		
-		} catch (NoSuchFieldException | SecurityException
-				| IllegalArgumentException | IllegalAccessException e) {
-			e.printStackTrace();
-		}
-		
-	}	
 	
 	@Test
 	public void t1_getApplyCreateModification() {
@@ -123,12 +98,4 @@ public class MasterDetailDataControlPoolTest {
         return (Pager<?>) field.get(dc);	
 	}
 
-	@SuppressWarnings("unchecked")
-	private static ArrayList<PoolElement> getPoolElement() throws NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException{
-        Field field = Pool.class.getDeclaredField("poolElement");
-        field.setAccessible(true);
-        return (ArrayList<PoolElement>) field.get(Pool.class);	
-		
-	}
-	
 }
