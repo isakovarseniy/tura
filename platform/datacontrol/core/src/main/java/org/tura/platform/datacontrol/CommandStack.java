@@ -30,7 +30,6 @@ import org.tura.platform.datacontrol.shift.Element;
 
 public abstract class CommandStack {
 
-	private ArrayList<Command> transaction = new ArrayList<Command>();
 	private Stack<SavePoint> savePoints;
 
 	public CommandStack() {
@@ -38,7 +37,7 @@ public abstract class CommandStack {
 	}
 
 	public void addTransaction(Command cmd) throws TuraException {
-		this.transaction.add(cmd);
+		this.savePoints.peek().getTransactions().add(cmd);
 	}
 
 	public void addGostTrackingDataControl(DataControl<?> dc)
@@ -46,23 +45,21 @@ public abstract class CommandStack {
 		this.savePoints.peek().getGostTracking().put(dc.getId(), dc);
 	}
 
-	public void rallbackCommand() throws Exception {
+	public void rallbackCommand() throws TuraException {
 
 		HashMap<String, DataControl<?>> hash = new HashMap<>();
 
-		for (Command cmd : transaction) {
-			hash.put(cmd.getDatacontrol().getId(), cmd.getDatacontrol());
+		for (SavePoint sv : savePoints) {
+			for (Command cmd : sv.getTransactions()) {
+				hash.put(cmd.getDatacontrol().getId(), cmd.getDatacontrol());
+			}
+		}
+		for (SavePoint sv : savePoints) {
+			for (String key : sv.getGostTracking().keySet()) {
+				hash.put(key, sv.getGostTracking().get(key));
+			}
 		}
 
-		for (String key : savePoints.peek().getGostTracking().keySet()) {
-			hash.put(key, savePoints.peek().getGostTracking().get(key));
-		}
-
-		// for ( DataControl<?> dc : hash.values() ) {
-		// dc.cleanShifter();
-		// }
-
-		transaction = new ArrayList<Command>();
 		initSavePoint();
 
 		for (DataControl<?> dc : hash.values()) {
@@ -71,14 +68,12 @@ public abstract class CommandStack {
 		}
 	}
 
-	public synchronized void rallbackSavePoint() throws Exception {
-		HashMap<String, DataControl<?>> hash = new HashMap<>();
+	public synchronized void rallbackSavePoint() throws TuraException {
 
-		for (int i = savePoints.peek().transactionPointer; i < transaction
-				.size();) {
-			Command cmd = transaction.remove(i - 1);
-			hash.put(cmd.getDatacontrol().getId(), cmd.getDatacontrol());
-		}
+		if (savePoints.size() == 1)
+			throw new TuraException("No savepoint");
+
+		HashMap<String, DataControl<?>> hash = new HashMap<>();
 
 		for (String key : savePoints.peek().getGostTracking().keySet()) {
 			hash.put(key, savePoints.peek().getGostTracking().get(key));
@@ -96,22 +91,24 @@ public abstract class CommandStack {
 	private void initSavePoint() {
 		savePoints = new Stack<SavePoint>();
 		SavePoint sp = new SavePoint(new ArrayList<PoolElement>(),
-				new HashMap<String, ShifterVar>(), 0,0);
+				new HashMap<String, ShifterVar>(), 0);
 		savePoints.push(sp);
 	}
 
 	public void commitCommand() throws TuraException {
-		Iterator<Command> itr = transaction.iterator();
 
 		HashMap<String, DataControl<?>> controlsId = new HashMap<>();
 
 		try {
 			beginTransaction();
-			while (itr.hasNext()) {
-				Command cmd = itr.next();
-				cmd.delayedExecution();
-				controlsId.put(cmd.getDatacontrol().getId(),
-						cmd.getDatacontrol());
+			for (SavePoint sv : savePoints) {
+				Iterator<Command> itr = sv.getTransactions().iterator();
+				while (itr.hasNext()) {
+					Command cmd = itr.next();
+					cmd.delayedExecution();
+					controlsId.put(cmd.getDatacontrol().getId(),
+							cmd.getDatacontrol());
+				}
 			}
 			commitTransaction();
 
@@ -122,17 +119,12 @@ public abstract class CommandStack {
 				ctl.forceRefresh();
 			}
 
-			transaction = new ArrayList<Command>();
 			initSavePoint();
 
 		} catch (Exception e) {
 			rallbackTransaction();
 			throw new TuraException(e);
 		}
-	}
-
-	public boolean isEmpty() {
-		return transaction.isEmpty();
 	}
 
 	public List<PoolElement> getPoolElement() {
@@ -142,15 +134,15 @@ public abstract class CommandStack {
 	public List<Element> getShifterArray(String id) {
 		return this.savePoints.peek().getShifterArray(id);
 	}
-	
-   public long getShifterLastUpdate(String id) {
-		return this.savePoints.peek().getShifterLastUpdate(id);
-   }
 
-   public void setShifterLastUpdate(String id, long lastUpdate) {
-		this.savePoints.peek().setShifterLastUpdate(id,lastUpdate);
-   }  
-   
+	public long getShifterLastUpdate(String id) {
+		return this.savePoints.peek().getShifterLastUpdate(id);
+	}
+
+	public void setShifterLastUpdate(String id, long lastUpdate) {
+		this.savePoints.peek().setShifterLastUpdate(id, lastUpdate);
+	}
+
 	public synchronized long getNextId() {
 		return this.savePoints.peek().getNextId();
 	}
@@ -158,7 +150,7 @@ public abstract class CommandStack {
 	public synchronized void savePoint() {
 		SavePoint sp = savePoints.peek();
 		SavePoint newSp = new SavePoint(sp.poolElement, sp.shifterMap,
-				transaction.size(),sp.getNextId());
+				sp.getNextId());
 		savePoints.push(newSp);
 	}
 
@@ -170,11 +162,11 @@ public abstract class CommandStack {
 
 	class ShifterVar {
 
-		private List<Element> shifterArray;
+		private List<Element> shifterArray = new ArrayList<>();
 		private long lastUpdate;
 
 		ShifterVar(List<Element> shifterArray, long lastUpdate) {
-			this.shifterArray = shifterArray;
+			this.shifterArray.addAll(shifterArray);
 			this.lastUpdate = lastUpdate;
 		}
 
@@ -206,25 +198,26 @@ public abstract class CommandStack {
 		private List<PoolElement> poolElement = new ArrayList<>();
 		private Map<String, ShifterVar> shifterMap = new HashMap<>();
 		private HashMap<String, DataControl<?>> gostTracking = new HashMap<>();
-		private int transactionPointer;
+		private ArrayList<Command> transaction = new ArrayList<Command>();
 		private long id;
 
 		SavePoint(List<PoolElement> poolElement,
-				Map<String, ShifterVar> shifterMap, int transactionPointer,long id) {
-			this.transactionPointer = transactionPointer;
+				Map<String, ShifterVar> shifterMap, long id) {
 			this.id = id;
 			this.poolElement.addAll(poolElement);
 			for (String key : shifterMap.keySet()) {
-				this.shifterMap.put(key, shifterMap.get(key));
+				ShifterVar v = shifterMap.get(key);
+				ShifterVar n = new ShifterVar(v.getShifterArray(),v.getLastUpdate());
+				this.shifterMap.put(key, n);
 			}
+		}
+
+		public List<Command> getTransactions() {
+			return transaction;
 		}
 
 		public List<PoolElement> getPoolElement() {
 			return poolElement;
-		}
-
-		public int getTransacrionPointer() {
-			return transactionPointer;
 		}
 
 		public List<Element> getShifterArray(String shifterId) {
@@ -238,14 +231,13 @@ public abstract class CommandStack {
 				shifterMap.put(shifterId, new ShifterVar());
 			return shifterMap.get(shifterId).getLastUpdate();
 		}
-		
-		public void setShifterLastUpdate(String shifterId,long lastUpdate ) {
+
+		public void setShifterLastUpdate(String shifterId, long lastUpdate) {
 			if (shifterMap.get(shifterId) == null)
 				shifterMap.put(shifterId, new ShifterVar());
 			shifterMap.get(shifterId).setLastUpdate(lastUpdate);
 		}
-		
-		
+
 		public HashMap<String, DataControl<?>> getGostTracking() {
 			return gostTracking;
 		}

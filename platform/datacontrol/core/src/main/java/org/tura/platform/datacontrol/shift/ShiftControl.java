@@ -22,7 +22,6 @@ public abstract class ShiftControl {
 	private int addOpr;
 	private int removeOpr;
 	private long actualRowNumber = -1L;
-//	private long lastUpdate = 0;
 	private String id = UUID.randomUUID().toString();
 
    public abstract List<Element> getShiftTracker();

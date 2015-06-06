@@ -28,10 +28,6 @@ public abstract class Pool {
 	protected abstract SelectQuery getSelectQuery();
 
 	public void addCommandt(PoolElement element) throws TuraException {
-
-//TODO remove next row		
-		getShifter();
-		//element cannot be yonge then shifter
 		element.setCreateDate( getCommandStack().getNextId());
 		getCommandStack().getPoolElement().add(element);
 	}

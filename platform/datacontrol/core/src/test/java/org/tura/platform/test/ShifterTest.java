@@ -29,16 +29,54 @@ public class ShifterTest {
 	public static void beforeClass() {
 		logger = Logger.getLogger("InfoLogging");
 		logger.setUseParentHandlers(false);
-		// ConsoleHandler handler = new ConsoleHandler();
-		// handler.setFormatter(new LogFormatter());
-		// logger.addHandler(handler);
-		// logger.setLevel(Level.INFO);
+//		ConsoleHandler handler = new ConsoleHandler();
+//		handler.setFormatter(new LogFormatter());
+//		logger.addHandler(handler);
+//		logger.setLevel(Level.INFO);
 	}
 
 	@After
 	public void afterMethod() {
 		tracker = new ArrayList<Element>();
 		lastUpdate = 0;
+	}
+
+	@Test
+	public void A0_R1() {
+		try {
+			ShiftControl control = new ShiftControl(logger) {
+
+				@Override
+				public List<Element> getShiftTracker() {
+					return tracker;
+				}
+
+				@Override
+				public long getLastUpdate() {
+					return lastUpdate;
+				}
+
+				@Override
+				public void setLastUpdate(long lu) {
+					lastUpdate = lu;
+				}
+
+			};
+
+			control.add(0, null);
+			control.print(ShiftConstants.SELECT_ORDERBY_ACTUALPOSITION);
+			control.remove(1);
+			control.print(ShiftConstants.SELECT_ORDERBY_ACTUALPOSITION);
+			
+			comparator(control, new Element[] {
+					new Element(0, 0, ElementType.NEW),
+					new Element(1, 1, ElementType.EXISTING) });
+		
+		} catch (Exception e) {
+			e.printStackTrace();
+			fail(e.getMessage());
+		}
+
 	}
 
 	@Test

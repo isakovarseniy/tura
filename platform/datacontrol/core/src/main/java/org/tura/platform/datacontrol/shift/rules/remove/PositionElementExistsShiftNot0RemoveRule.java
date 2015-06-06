@@ -30,10 +30,8 @@ public class PositionElementExistsShiftNot0RemoveRule extends RemoveRule{
 			int position, Object obj) throws QueryParseException, QueryExecutionException {
 
 		Element e = (Element) result.get(0);
-		int original = position + 1 - e.getActualPosition()
-				+ e.getOriginalPosition();
-		if (e.getShift() > 0)
-			original++;
+		int original =  e.getOriginalPosition();
+	    original++;
 
 		shiftControl.getShiftTracker().remove(e);
 		shiftControl.getShiftTracker().add(
