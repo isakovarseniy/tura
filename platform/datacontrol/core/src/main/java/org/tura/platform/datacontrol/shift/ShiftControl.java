@@ -1,7 +1,7 @@
 package org.tura.platform.datacontrol.shift;
 
-import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.UUID;
 import java.util.logging.Logger;
 
@@ -14,7 +14,7 @@ import org.tura.platform.datacontrol.shift.rules.RemoveRuleFactory;
 import org.tura.platform.datacontrol.shift.rules.Rule;
 import org.tura.platform.datacontrol.shift.rules.UpdateRulesFactory;
 
-public class ShiftControl {
+public abstract class ShiftControl {
 
 	private Logger logger;
 	private HashMap<String, ShiftControl> shifterHash= new HashMap<>();
@@ -22,11 +22,16 @@ public class ShiftControl {
 	private int addOpr;
 	private int removeOpr;
 	private long actualRowNumber = -1L;
-	private long lastUpdate = 0;
+//	private long lastUpdate = 0;
 	private String id = UUID.randomUUID().toString();
-	private ArrayList<Element> shiftTracker = new ArrayList<>();
 
+   public abstract List<Element> getShiftTracker();
 
+   public abstract long getLastUpdate();
+
+   public abstract void setLastUpdate(long lastUpdate);
+
+   
 	public ShiftControl() {
 
 	}
@@ -52,7 +57,7 @@ public class ShiftControl {
 		query.parse(ShiftConstants.SELECT_UPPER_EQ_ELEMENTS);
 		query.setVariable("position", new Integer(position));
 
-		QueryResults result = query.execute(shiftTracker);
+		QueryResults result = query.execute(getShiftTracker());
 
 		if (result.getResults().size() == 0)
 			return position;
@@ -80,7 +85,7 @@ public class ShiftControl {
 	}
 
 	public void clean() {
-		shiftTracker = new ArrayList<>();
+		getShiftTracker().clear();
 	}
 
 	public void add(int position, Object obj) throws QueryExecutionException,
@@ -147,7 +152,7 @@ public class ShiftControl {
 		query.parse(ShiftConstants.SELECT_FOR_SHIFT);
 		query.setVariable("position", new Integer(position));
 
-		QueryResults result = query.execute(shiftTracker);
+		QueryResults result = query.execute(getShiftTracker());
 		boolean processed = false;
 		for (AddRulesFactory ruleDef : AddRulesFactory.values()) {
 			Rule rule = ruleDef.getRule();
@@ -172,7 +177,7 @@ public class ShiftControl {
 		query.parse(ShiftConstants.SELECT_FOR_SHIFT);
 		query.setVariable("position", new Integer(position));
 
-		QueryResults result = query.execute(shiftTracker);
+		QueryResults result = query.execute(getShiftTracker());
 		boolean processed = false;
 
 		for (UpdateRulesFactory ruleDef : UpdateRulesFactory.values()) {
@@ -197,7 +202,7 @@ public class ShiftControl {
 		query.parse(ShiftConstants.SELECT_FOR_SHIFT);
 		query.setVariable("position", new Integer(position));
 
-		QueryResults result = query.execute(shiftTracker);
+		QueryResults result = query.execute(getShiftTracker());
 		boolean processed = false;
 
 		for (RemoveRuleFactory ruleDef : RemoveRuleFactory.values()) {
@@ -219,9 +224,6 @@ public class ShiftControl {
 		this.logger = logger;
 	}
 
-	public ArrayList<Element> getShiftTracker() {
-		return shiftTracker;
-	}
 
 	public void print(String str) throws QueryParseException,
 			QueryExecutionException {
@@ -231,7 +233,7 @@ public class ShiftControl {
 		Query query = new Query();
 		query.parse(str);
 
-		QueryResults result = query.execute(shiftTracker);
+		QueryResults result = query.execute(getShiftTracker());
 
 		for (Object obj : result.getResults()) {
 			Element element = (Element) obj;
@@ -244,30 +246,10 @@ public class ShiftControl {
 
 	}
 
-	/**
-	 * @return the lastUpdate
-	 */
-	public long getLastUpdate() {
-		return lastUpdate;
-	}
-
-	/**
-	 * @param lastUpdate the lastUpdate to set
-	 */
-	public void setLastUpdate(long lastUpdate) {
-		this.lastUpdate = lastUpdate;
-	}
-
-	/**
-	 * @return the id
-	 */
 	public String getId() {
 		return id;
 	}
 
-	/**
-	 * @param id the id to set
-	 */
 	public void setId(String id) {
 		this.id = id;
 	}

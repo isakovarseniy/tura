@@ -198,11 +198,11 @@ public abstract class Pool {
 		if (array.size() == 0)
 			return object;
 		
-		PoolElement lastElement = array.get(array.size()-1);
+		PoolElement firstElement = array.get(0);
 
-		if ("U".equals(lastElement.getOperation())) {
-			getShifter().update(index, lastElement.getObj());
-			object = lastElement.getObj();
+		if ("U".equals(firstElement.getOperation())) {
+			getShifter().update(index, firstElement.getObj());
+			object = firstElement.getObj();
 		}
 		return object;
 	}

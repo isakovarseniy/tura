@@ -20,6 +20,7 @@ import static com.octo.java.sql.query.Query.c;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Stack;
 
 import org.josql.QueryExecutionException;
@@ -32,6 +33,7 @@ import org.tura.platform.datacontrol.commons.Reflection;
 import org.tura.platform.datacontrol.commons.SearchCriteria;
 import org.tura.platform.datacontrol.commons.TuraException;
 import org.tura.platform.datacontrol.pool.Pool;
+import org.tura.platform.datacontrol.shift.Element;
 import org.tura.platform.datacontrol.shift.ShiftControl;
 
 import com.octo.java.sql.exp.Operator;
@@ -379,7 +381,24 @@ public class Pager<T> extends Pool {
 			}
 			shifter = shifterHash.get(key);
 			if (shifter == null) {
-				shifter = new ShiftControl(shifterHash, key);
+				shifter = new ShiftControl(shifterHash, key){
+
+					@Override
+					public List<Element> getShiftTracker() {
+						return datacontrol.getCommandStack().getShifterArray(this.getId());
+					}
+
+					@Override
+					public long getLastUpdate() {
+						return datacontrol.getCommandStack().getShifterLastUpdate(this.getId());
+					}
+
+					@Override
+					public void setLastUpdate(long lastUpdate) {
+						 datacontrol.getCommandStack().setShifterLastUpdate(this.getId(),lastUpdate);
+					}
+					
+				};
 			}
 		} catch (Exception e) {
 			throw new TuraException(e);
