@@ -13,7 +13,7 @@ public class FirstRowAddRule extends AddRule {
 
 	@Override
 	public boolean guard(ShiftControl shiftControl,List<Object> result, int position) {
-		if (shiftControl.getShiftTracker().size() == 0)
+		if (shiftControl.getShiftControlData().getShifterArray().size() == 0)
 			return true;
 		return false;
 	}
@@ -21,9 +21,9 @@ public class FirstRowAddRule extends AddRule {
 	@Override
 	public void execute( ShiftControl shiftControl, List<Object> result , int position, Object obj) throws QueryParseException, QueryExecutionException{
 		super.execute(shiftControl,result,position,obj);
-		shiftControl.getShiftTracker().add(new Element(position , position,
+		shiftControl.getShiftControlData().getShifterArray().add(new Element(position , position,
 				ElementType.NEW,obj));
-		shiftControl.getShiftTracker().add(new Element(position +1, position,
+		shiftControl.getShiftControlData().getShifterArray().add(new Element(position +1, position,
 				ElementType.EXISTING));
 		
 	}

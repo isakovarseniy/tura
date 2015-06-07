@@ -17,7 +17,7 @@ public class PositionElementDoesNotExistsAddRule extends AddRule {
 	@Override
 	public boolean guard(ShiftControl shiftControl, List<Object> result,
 			int position) {
-		if (shiftControl.getShiftTracker().size() == 0 )
+		if (shiftControl.getShiftControlData().getShifterArray().size() == 0 )
 			return false;
 
 		if ( result.size() == 0 )
@@ -34,7 +34,7 @@ public class PositionElementDoesNotExistsAddRule extends AddRule {
 	public void execute(ShiftControl shiftControl, List<Object> result,
 			int position, Object obj) throws QueryParseException, QueryExecutionException {
 		super.execute(shiftControl, result, position,obj);
-		shiftControl.getShiftTracker().add(
+		shiftControl.getShiftControlData().getShifterArray().add(
 				new Element(position, position, ElementType.NEW,obj));
 
 		Query query = new Query();
@@ -42,19 +42,19 @@ public class PositionElementDoesNotExistsAddRule extends AddRule {
 		query.setVariable("position", new Integer(position));
 
 		QueryResults upperResult = query
-				.execute(shiftControl.getShiftTracker());
+				.execute(shiftControl.getShiftControlData().getShifterArray());
 		if (upperResult.getResults().size() != 0) {
 			Element e = ((Element) upperResult.getResults().get(0));
 			int original = position - e.getActualPosition()
 					+ e.getOriginalPosition();
 
 			if (original != position + 1) {
-				shiftControl.getShiftTracker().add(
+				shiftControl.getShiftControlData().getShifterArray().add(
 						new Element(position + 1, original,
 								ElementType.EXISTING));
 			}
 		} else {
-			shiftControl.getShiftTracker().add(
+			shiftControl.getShiftControlData().getShifterArray().add(
 					new Element(position + 1, position, ElementType.EXISTING));
 		}
 	}

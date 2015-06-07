@@ -5,13 +5,14 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
+import java.util.UUID;
 
 import org.josql.Query;
 import org.josql.QueryExecutionException;
 import org.josql.QueryParseException;
 import org.josql.QueryResults;
-import org.tura.platform.datacontrol.CommandStack;
 import org.tura.platform.datacontrol.commons.TuraException;
+import org.tura.platform.datacontrol.data.PoolData;
 import org.tura.platform.datacontrol.shift.ShiftControl;
 
 import com.octo.java.sql.query.QueryException;
@@ -20,16 +21,15 @@ import com.octo.java.sql.query.SelectQuery;
 public abstract class Pool {
 	
 	protected abstract ShiftControl getShifter() throws TuraException;
-
 	protected abstract boolean prepareQuery() throws TuraException;
-	
-	protected abstract CommandStack getCommandStack();
-
+	protected abstract PoolData getPoolData();
 	protected abstract SelectQuery getSelectQuery();
-
+	
+	private String id = UUID.randomUUID().toString();
+	
 	public void addCommandt(PoolElement element) throws TuraException {
-		element.setCreateDate( getCommandStack().getNextId());
-		getCommandStack().getPoolElement().add(element);
+		element.setCreateDate( getPoolData().getNextId());
+		getPoolData().getPoolElement().add(element);
 	}
 
 	protected void cleanPool(String id) throws QueryParseException, TuraException,
@@ -38,11 +38,11 @@ public abstract class Pool {
 		Query query = new Query();
 		query.parse(PoolConstants.SELECT_OBJECTS_BY_SHIFTER_ID);
 		query.setVariable("shifterId", id);
-		QueryResults result = query.execute(getCommandStack().getPoolElement());
+		QueryResults result = query.execute(getPoolData().getPoolElement());
 
 		for (Object el : result.getResults()) {
 			PoolElement element = (PoolElement) el;
-			getCommandStack().getPoolElement().remove(element);
+			getPoolData().getPoolElement().remove(element);
 		}
 
 	}
@@ -82,7 +82,7 @@ public abstract class Pool {
 		query.setVariable("shifterId", getShifter().getId());
 		query.setVariable("beginTimeStamp", beginTimeStamp);
 		query.setVariable("endTimeStamp", endTimeStamp);
-		QueryResults result = query.execute(getCommandStack().getPoolElement());
+		QueryResults result = query.execute(getPoolData().getPoolElement());
 
 		for (Object el : result.getResults()) {
 			PoolElement element = (PoolElement) el;
@@ -146,7 +146,7 @@ public abstract class Pool {
 		query.setVariable("beginTimeStamp", beginTimeStamp);
 		query.setVariable("endTimeStamp", endTimeStamp);
 
-		QueryResults result = query.execute(getCommandStack().getPoolElement());
+		QueryResults result = query.execute(getPoolData().getPoolElement());
 
 		for (Object el : result.getResults()) {
 			PoolElement element = (PoolElement) el;
@@ -183,7 +183,7 @@ public abstract class Pool {
 		query.setVariable("beginTimeStamp", beginTimeStamp);
 		query.setVariable("endTimeStamp", endTimeStamp);
 
-		QueryResults result = query.execute(getCommandStack().getPoolElement());
+		QueryResults result = query.execute(getPoolData().getPoolElement());
 
 		for (Object el : result.getResults()) {
 			PoolElement element = (PoolElement) el;
@@ -203,6 +203,12 @@ public abstract class Pool {
 		return object;
 	}
 
+	public String getId() {
+		return id;
+	}
 
+	public void setId(String id) {
+		this.id = id;
+	}
 	
 }

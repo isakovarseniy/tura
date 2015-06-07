@@ -20,10 +20,10 @@ public abstract class Rule {
 		Query query = new Query();
 		query.parse(ShiftConstants.SELECT_ZERO_SHIFT);
 
-		QueryResults result = query.execute(shiftControl.getShiftTracker());
+		QueryResults result = query.execute(shiftControl.getShiftControlData().getShifterArray());
 
 		for (Object obj : result.getResults()) {
-			shiftControl.getShiftTracker().remove((Element) obj);
+			shiftControl.getShiftControlData().getShifterArray().remove((Element) obj);
 		}
 	}
 

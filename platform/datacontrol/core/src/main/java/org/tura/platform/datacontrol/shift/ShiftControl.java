@@ -1,7 +1,6 @@
 package org.tura.platform.datacontrol.shift;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.UUID;
 import java.util.logging.Logger;
 
@@ -9,6 +8,7 @@ import org.josql.Query;
 import org.josql.QueryExecutionException;
 import org.josql.QueryParseException;
 import org.josql.QueryResults;
+import org.tura.platform.datacontrol.data.ShiftControlData;
 import org.tura.platform.datacontrol.shift.rules.AddRulesFactory;
 import org.tura.platform.datacontrol.shift.rules.RemoveRuleFactory;
 import org.tura.platform.datacontrol.shift.rules.Rule;
@@ -17,22 +17,13 @@ import org.tura.platform.datacontrol.shift.rules.UpdateRulesFactory;
 public abstract class ShiftControl {
 
 	private Logger logger;
-	private HashMap<String, ShiftControl> shifterHash= new HashMap<>();
 	private String key;
-	private int addOpr;
-	private int removeOpr;
-	private long actualRowNumber = -1L;
 	private String id = UUID.randomUUID().toString();
 
-   public abstract List<Element> getShiftTracker();
-
-   public abstract long getLastUpdate();
-
-   public abstract void setLastUpdate(long lastUpdate);
+	public abstract ShiftControlData getShiftControlData();
 
    
 	public ShiftControl() {
-
 	}
 
 	public ShiftControl(Logger logger) {
@@ -40,7 +31,7 @@ public abstract class ShiftControl {
 	}
 
 	public ShiftControl(HashMap<String, ShiftControl> shifterHash, String key) {
-		this.shifterHash = shifterHash;
+		getShiftControlData().setShifterHash(shifterHash) ;
 		this.key = key;
 	}
 
@@ -56,7 +47,7 @@ public abstract class ShiftControl {
 		query.parse(ShiftConstants.SELECT_UPPER_EQ_ELEMENTS);
 		query.setVariable("position", new Integer(position));
 
-		QueryResults result = query.execute(getShiftTracker());
+		QueryResults result = query.execute(getShiftControlData().getShifterArray());
 
 		if (result.getResults().size() == 0)
 			return position;
@@ -84,7 +75,7 @@ public abstract class ShiftControl {
 	}
 
 	public void clean() {
-		getShiftTracker().clear();
+		getShiftControlData().getShifterArray().clear();
 	}
 
 	public void add(int position, Object obj) throws QueryExecutionException,
@@ -92,7 +83,9 @@ public abstract class ShiftControl {
 
 		addOperation(position,obj);
 		checkShifterRegistration();
+		int addOpr = getShiftControlData().getAddOpr();
 		addOpr++;
+		getShiftControlData().setAddOpr(addOpr)  ;
 	}
 
 	public void update(int position, Object obj)
@@ -108,7 +101,9 @@ public abstract class ShiftControl {
 			QueryParseException, InstantiationException, IllegalAccessException {
 		removeOperation(position);
 		checkShifterRegistration();
+		int removeOpr = getShiftControlData().getRemoveOpr();
 		removeOpr++;
+		getShiftControlData().setRemoveOpr(removeOpr);
 	}
 
 
@@ -116,29 +111,32 @@ public abstract class ShiftControl {
 	 * @return the actualRowNumber
 	 */
 	public long getPersistedRowNumber() {
-		return actualRowNumber;
+		return getShiftControlData().getActualRowNumber();
 	}	
 	
 	/**
 	 * @return the actualRowNumber
 	 */
 	public long getActualRowNumber() {
-		if (actualRowNumber == -1)
+		int addOpr = getShiftControlData().getAddOpr();
+		int removeOpr = getShiftControlData().getRemoveOpr();
+
+		if (getShiftControlData().getActualRowNumber() == -1)
 			return addOpr-removeOpr;
 			
-		return actualRowNumber+addOpr-removeOpr;
+		return getShiftControlData().getActualRowNumber()+addOpr-removeOpr;
 	}
 
 	/**
 	 * @param actualRowNumber the actualRowNumber to set
 	 */
 	public void setActualRowNumber(long actualRowNumber) {
-		this.actualRowNumber = actualRowNumber;
+		getShiftControlData().setActualRowNumber(actualRowNumber);
 	}
 
 	private void checkShifterRegistration(){
-		if (shifterHash.get(key) == null){
-			shifterHash.put(key, this);
+		if (getShiftControlData().getShifterHash().get(key) == null){
+			getShiftControlData().getShifterHash().put(key, this);
 		}
 	}
 	
@@ -151,7 +149,7 @@ public abstract class ShiftControl {
 		query.parse(ShiftConstants.SELECT_FOR_SHIFT);
 		query.setVariable("position", new Integer(position));
 
-		QueryResults result = query.execute(getShiftTracker());
+		QueryResults result = query.execute(getShiftControlData().getShifterArray());
 		boolean processed = false;
 		for (AddRulesFactory ruleDef : AddRulesFactory.values()) {
 			Rule rule = ruleDef.getRule();
@@ -176,7 +174,7 @@ public abstract class ShiftControl {
 		query.parse(ShiftConstants.SELECT_FOR_SHIFT);
 		query.setVariable("position", new Integer(position));
 
-		QueryResults result = query.execute(getShiftTracker());
+		QueryResults result = query.execute(getShiftControlData().getShifterArray());
 		boolean processed = false;
 
 		for (UpdateRulesFactory ruleDef : UpdateRulesFactory.values()) {
@@ -201,7 +199,7 @@ public abstract class ShiftControl {
 		query.parse(ShiftConstants.SELECT_FOR_SHIFT);
 		query.setVariable("position", new Integer(position));
 
-		QueryResults result = query.execute(getShiftTracker());
+		QueryResults result = query.execute(getShiftControlData().getShifterArray());
 		boolean processed = false;
 
 		for (RemoveRuleFactory ruleDef : RemoveRuleFactory.values()) {
@@ -232,7 +230,7 @@ public abstract class ShiftControl {
 		Query query = new Query();
 		query.parse(str);
 
-		QueryResults result = query.execute(getShiftTracker());
+		QueryResults result = query.execute(getShiftControlData().getShifterArray());
 
 		for (Object obj : result.getResults()) {
 			Element element = (Element) obj;

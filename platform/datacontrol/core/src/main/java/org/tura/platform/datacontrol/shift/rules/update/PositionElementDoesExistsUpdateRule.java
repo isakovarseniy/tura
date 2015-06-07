@@ -14,7 +14,7 @@ public class PositionElementDoesExistsUpdateRule extends Rule {
 	@Override
 	public boolean guard(ShiftControl shiftControl, List<Object> result,
 			int position) {
-		if (shiftControl.getShiftTracker().size() == 0 || result.size()==0 )
+		if (shiftControl.getShiftControlData().getShifterArray().size() == 0 || result.size()==0 )
 			return true;
 
 		Element element = (Element) result.get(0);
@@ -33,7 +33,7 @@ public class PositionElementDoesExistsUpdateRule extends Rule {
 		element.setModified(true);
 		element.setRef(obj);
 
-		shiftControl.getShiftTracker().add(element);
+		shiftControl.getShiftControlData().getShifterArray().add(element);
 
 	}
 

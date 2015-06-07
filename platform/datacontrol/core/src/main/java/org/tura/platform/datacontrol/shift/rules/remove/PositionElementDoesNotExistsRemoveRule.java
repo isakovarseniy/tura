@@ -14,7 +14,7 @@ public class PositionElementDoesNotExistsRemoveRule extends RemoveRule {
 	@Override
 	public boolean guard(ShiftControl shiftControl, List<Object> result,
 			int position) {
-		if (shiftControl.getShiftTracker().size() == 0 && result.size() == 0)
+		if (shiftControl.getShiftControlData().getShifterArray().size() == 0 && result.size() == 0)
 			return false;
 
 		Element element = (Element) result.get(0);
@@ -33,7 +33,7 @@ public class PositionElementDoesNotExistsRemoveRule extends RemoveRule {
 
 			int original = position + 1;
 
-			shiftControl.getShiftTracker().add(
+			shiftControl.getShiftControlData().getShifterArray().add(
 					new Element(position, original, ElementType.EXISTING));
 
 		}

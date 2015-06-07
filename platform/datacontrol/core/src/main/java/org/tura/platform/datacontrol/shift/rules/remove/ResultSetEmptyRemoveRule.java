@@ -31,7 +31,7 @@ public class ResultSetEmptyRemoveRule extends RemoveRule {
 		query.setVariable("position", new Integer(position));
 
 		QueryResults upperResult = query
-				.execute(shiftControl.getShiftTracker());
+				.execute(shiftControl.getShiftControlData().getShifterArray());
 		if (upperResult.getResults().size() != 0) {
 			Element e = ((Element) upperResult.getResults().get(0));
 			int original = position + 1 - e.getActualPosition()
@@ -39,10 +39,10 @@ public class ResultSetEmptyRemoveRule extends RemoveRule {
 			if (e.getShift() > 0)
 				original++;
 
-			shiftControl.getShiftTracker().add(
+			shiftControl.getShiftControlData().getShifterArray().add(
 					new Element(position, original, ElementType.EXISTING));
 		} else {
-			shiftControl.getShiftTracker().add(
+			shiftControl.getShiftControlData().getShifterArray().add(
 					new Element(position, position + 1, ElementType.EXISTING));
 
 		}

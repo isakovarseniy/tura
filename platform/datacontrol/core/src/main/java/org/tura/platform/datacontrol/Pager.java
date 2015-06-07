@@ -20,7 +20,6 @@ import static com.octo.java.sql.query.Query.c;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Stack;
 
 import org.josql.QueryExecutionException;
@@ -32,8 +31,9 @@ import org.tura.platform.datacontrol.commons.PlatformConfig;
 import org.tura.platform.datacontrol.commons.Reflection;
 import org.tura.platform.datacontrol.commons.SearchCriteria;
 import org.tura.platform.datacontrol.commons.TuraException;
+import org.tura.platform.datacontrol.data.PoolData;
+import org.tura.platform.datacontrol.data.ShiftControlData;
 import org.tura.platform.datacontrol.pool.Pool;
-import org.tura.platform.datacontrol.shift.Element;
 import org.tura.platform.datacontrol.shift.ShiftControl;
 
 import com.octo.java.sql.exp.Operator;
@@ -160,8 +160,8 @@ public class Pager<T> extends Pool {
 	public T getObject(int index) throws TuraException {
 		Object obj = null;
 
-		long beginTimeStamp = getShifter().getLastUpdate();
-		long endTimeStamp = getCommandStack().getNextId();
+		long beginTimeStamp = getShifter().getShiftControlData().getLastUpdate();
+		long endTimeStamp = getPoolData().getNextId();
 		
 		try {
 			beforeShifterGetCreatedObjects(datacontrol.getBaseClass(),
@@ -176,7 +176,7 @@ public class Pager<T> extends Pool {
 						endTimeStamp, obj, datacontrol.getObjectKey(obj), index);
 			}
 
-			getShifter().setLastUpdate(endTimeStamp);
+			getShifter().getShiftControlData().setLastUpdate(endTimeStamp);
 			return (T) obj;
 		} catch (Exception e) {
 			throw new TuraException(e);
@@ -384,18 +384,10 @@ public class Pager<T> extends Pool {
 				shifter = new ShiftControl(shifterHash, key){
 
 					@Override
-					public List<Element> getShiftTracker() {
-						return datacontrol.getCommandStack().getShifterArray(this.getId());
-					}
-
-					@Override
-					public long getLastUpdate() {
-						return datacontrol.getCommandStack().getShifterLastUpdate(this.getId());
-					}
-
-					@Override
-					public void setLastUpdate(long lastUpdate) {
-						 datacontrol.getCommandStack().setShifterLastUpdate(this.getId(),lastUpdate);
+					public ShiftControlData getShiftControlData() {
+						if (datacontrol.getCommandStack().getData(getId()) == null)
+							datacontrol.getCommandStack().addData(getId(), new ShiftControlData());
+						return (ShiftControlData) datacontrol.getCommandStack().getData(getId());
 					}
 					
 				};
@@ -411,8 +403,10 @@ public class Pager<T> extends Pool {
 	}
 
 	@Override
-	protected CommandStack getCommandStack() {
-		return datacontrol.getCommandStack();
+	protected PoolData getPoolData() {
+		if (datacontrol.getCommandStack().getData(getId()) == null)
+			datacontrol.getCommandStack().addData(getId(), new PoolData());
+		return (PoolData) datacontrol.getCommandStack().getData(getId());
 	}
 
 }

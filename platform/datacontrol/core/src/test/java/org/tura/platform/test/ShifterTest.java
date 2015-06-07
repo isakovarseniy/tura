@@ -3,8 +3,6 @@ package org.tura.platform.test;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.logging.Logger;
 
 import org.josql.Query;
@@ -14,6 +12,7 @@ import org.josql.QueryResults;
 import org.junit.After;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import org.tura.platform.datacontrol.data.ShiftControlData;
 import org.tura.platform.datacontrol.shift.Element;
 import org.tura.platform.datacontrol.shift.ElementType;
 import org.tura.platform.datacontrol.shift.ShiftConstants;
@@ -22,8 +21,7 @@ import org.tura.platform.datacontrol.shift.ShiftControl;
 public class ShifterTest {
 
 	private static Logger logger;
-	private ArrayList<Element> tracker = new ArrayList<Element>();
-	private long lastUpdate;
+	private ShiftControlData shifterControlData = new ShiftControlData();
 
 	@BeforeClass
 	public static void beforeClass() {
@@ -37,8 +35,7 @@ public class ShifterTest {
 
 	@After
 	public void afterMethod() {
-		tracker = new ArrayList<Element>();
-		lastUpdate = 0;
+		shifterControlData = new ShiftControlData();
 	}
 
 	@Test
@@ -47,20 +44,9 @@ public class ShifterTest {
 			ShiftControl control = new ShiftControl(logger) {
 
 				@Override
-				public List<Element> getShiftTracker() {
-					return tracker;
+				public ShiftControlData getShiftControlData() {
+					return shifterControlData;
 				}
-
-				@Override
-				public long getLastUpdate() {
-					return lastUpdate;
-				}
-
-				@Override
-				public void setLastUpdate(long lu) {
-					lastUpdate = lu;
-				}
-
 			};
 
 			control.add(0, null);
@@ -86,20 +72,9 @@ public class ShifterTest {
 			ShiftControl control = new ShiftControl(logger) {
 
 				@Override
-				public List<Element> getShiftTracker() {
-					return tracker;
+				public ShiftControlData getShiftControlData() {
+					return shifterControlData;
 				}
-
-				@Override
-				public long getLastUpdate() {
-					return lastUpdate;
-				}
-
-				@Override
-				public void setLastUpdate(long lu) {
-					lastUpdate = lu;
-				}
-
 			};
 
 			control.add(3, null);
@@ -129,20 +104,9 @@ public class ShifterTest {
 			ShiftControl control = new ShiftControl(logger) {
 
 				@Override
-				public List<Element> getShiftTracker() {
-					return tracker;
+				public ShiftControlData getShiftControlData() {
+					return shifterControlData;
 				}
-
-				@Override
-				public long getLastUpdate() {
-					return lastUpdate;
-				}
-
-				@Override
-				public void setLastUpdate(long lu) {
-					lastUpdate = lu;
-				}
-
 			};
 
 			control.add(5, null);
@@ -176,20 +140,9 @@ public class ShifterTest {
 			ShiftControl control = new ShiftControl(logger) {
 
 				@Override
-				public List<Element> getShiftTracker() {
-					return tracker;
+				public ShiftControlData getShiftControlData() {
+					return shifterControlData;
 				}
-
-				@Override
-				public long getLastUpdate() {
-					return lastUpdate;
-				}
-
-				@Override
-				public void setLastUpdate(long lu) {
-					lastUpdate = lu;
-				}
-
 			};
 
 			control.add(5, null);
@@ -222,20 +175,9 @@ public class ShifterTest {
 			ShiftControl control = new ShiftControl(logger) {
 
 				@Override
-				public List<Element> getShiftTracker() {
-					return tracker;
+				public ShiftControlData getShiftControlData() {
+					return shifterControlData;
 				}
-
-				@Override
-				public long getLastUpdate() {
-					return lastUpdate;
-				}
-
-				@Override
-				public void setLastUpdate(long lu) {
-					lastUpdate = lu;
-				}
-
 			};
 
 			control.add(5, null);
@@ -267,20 +209,9 @@ public class ShifterTest {
 			ShiftControl control = new ShiftControl(logger) {
 
 				@Override
-				public List<Element> getShiftTracker() {
-					return tracker;
+				public ShiftControlData getShiftControlData() {
+					return shifterControlData;
 				}
-
-				@Override
-				public long getLastUpdate() {
-					return lastUpdate;
-				}
-
-				@Override
-				public void setLastUpdate(long lu) {
-					lastUpdate = lu;
-				}
-
 			};
 
 			control.remove(4);
@@ -308,20 +239,9 @@ public class ShifterTest {
 			ShiftControl control = new ShiftControl(logger) {
 
 				@Override
-				public List<Element> getShiftTracker() {
-					return tracker;
+				public ShiftControlData getShiftControlData() {
+					return shifterControlData;
 				}
-
-				@Override
-				public long getLastUpdate() {
-					return lastUpdate;
-				}
-
-				@Override
-				public void setLastUpdate(long lu) {
-					lastUpdate = lu;
-				}
-
 			};
 
 			control.remove(5);
@@ -349,20 +269,9 @@ public class ShifterTest {
 			ShiftControl control = new ShiftControl(logger) {
 
 				@Override
-				public List<Element> getShiftTracker() {
-					return tracker;
+				public ShiftControlData getShiftControlData() {
+					return shifterControlData;
 				}
-
-				@Override
-				public long getLastUpdate() {
-					return lastUpdate;
-				}
-
-				@Override
-				public void setLastUpdate(long lu) {
-					lastUpdate = lu;
-				}
-
 			};
 
 			control.remove(3);
@@ -390,20 +299,9 @@ public class ShifterTest {
 			ShiftControl control = new ShiftControl(logger) {
 
 				@Override
-				public List<Element> getShiftTracker() {
-					return tracker;
+				public ShiftControlData getShiftControlData() {
+					return shifterControlData;
 				}
-
-				@Override
-				public long getLastUpdate() {
-					return lastUpdate;
-				}
-
-				@Override
-				public void setLastUpdate(long lu) {
-					lastUpdate = lu;
-				}
-
 			};
 
 			control.remove(3);
@@ -432,20 +330,9 @@ public class ShifterTest {
 			ShiftControl control = new ShiftControl(logger) {
 
 				@Override
-				public List<Element> getShiftTracker() {
-					return tracker;
+				public ShiftControlData getShiftControlData() {
+					return shifterControlData;
 				}
-
-				@Override
-				public long getLastUpdate() {
-					return lastUpdate;
-				}
-
-				@Override
-				public void setLastUpdate(long lu) {
-					lastUpdate = lu;
-				}
-
 			};
 
 			control.remove(4);
@@ -474,20 +361,9 @@ public class ShifterTest {
 			ShiftControl control = new ShiftControl(logger) {
 
 				@Override
-				public List<Element> getShiftTracker() {
-					return tracker;
+				public ShiftControlData getShiftControlData() {
+					return shifterControlData;
 				}
-
-				@Override
-				public long getLastUpdate() {
-					return lastUpdate;
-				}
-
-				@Override
-				public void setLastUpdate(long lu) {
-					lastUpdate = lu;
-				}
-
 			};
 
 			control.remove(4);
@@ -510,20 +386,9 @@ public class ShifterTest {
 			ShiftControl control = new ShiftControl(logger) {
 
 				@Override
-				public List<Element> getShiftTracker() {
-					return tracker;
+				public ShiftControlData getShiftControlData() {
+					return shifterControlData;
 				}
-
-				@Override
-				public long getLastUpdate() {
-					return lastUpdate;
-				}
-
-				@Override
-				public void setLastUpdate(long lu) {
-					lastUpdate = lu;
-				}
-
 			};
 
 			control.add(3, null);
@@ -548,20 +413,9 @@ public class ShifterTest {
 			ShiftControl control = new ShiftControl(logger) {
 
 				@Override
-				public List<Element> getShiftTracker() {
-					return tracker;
+				public ShiftControlData getShiftControlData() {
+					return shifterControlData;
 				}
-
-				@Override
-				public long getLastUpdate() {
-					return lastUpdate;
-				}
-
-				@Override
-				public void setLastUpdate(long lu) {
-					lastUpdate = lu;
-				}
-
 			};
 
 			control.add(3, null);
@@ -589,20 +443,9 @@ public class ShifterTest {
 			ShiftControl control = new ShiftControl(logger) {
 
 				@Override
-				public List<Element> getShiftTracker() {
-					return tracker;
+				public ShiftControlData getShiftControlData() {
+					return shifterControlData;
 				}
-
-				@Override
-				public long getLastUpdate() {
-					return lastUpdate;
-				}
-
-				@Override
-				public void setLastUpdate(long lu) {
-					lastUpdate = lu;
-				}
-
 			};
 
 			control.remove(1);
@@ -632,20 +475,9 @@ public class ShifterTest {
 			ShiftControl control = new ShiftControl(logger) {
 
 				@Override
-				public List<Element> getShiftTracker() {
-					return tracker;
+				public ShiftControlData getShiftControlData() {
+					return shifterControlData;
 				}
-
-				@Override
-				public long getLastUpdate() {
-					return lastUpdate;
-				}
-
-				@Override
-				public void setLastUpdate(long lu) {
-					lastUpdate = lu;
-				}
-
 			};
 
 			control.remove(6);
@@ -675,20 +507,9 @@ public class ShifterTest {
 			ShiftControl control = new ShiftControl(logger) {
 
 				@Override
-				public List<Element> getShiftTracker() {
-					return tracker;
+				public ShiftControlData getShiftControlData() {
+					return shifterControlData;
 				}
-
-				@Override
-				public long getLastUpdate() {
-					return lastUpdate;
-				}
-
-				@Override
-				public void setLastUpdate(long lu) {
-					lastUpdate = lu;
-				}
-
 			};
 
 			control.remove(1);
@@ -717,20 +538,9 @@ public class ShifterTest {
 			ShiftControl control = new ShiftControl(logger) {
 
 				@Override
-				public List<Element> getShiftTracker() {
-					return tracker;
+				public ShiftControlData getShiftControlData() {
+					return shifterControlData;
 				}
-
-				@Override
-				public long getLastUpdate() {
-					return lastUpdate;
-				}
-
-				@Override
-				public void setLastUpdate(long lu) {
-					lastUpdate = lu;
-				}
-
 			};
 
 			control.add(1, null);
@@ -760,20 +570,9 @@ public class ShifterTest {
 			ShiftControl control = new ShiftControl(logger) {
 
 				@Override
-				public List<Element> getShiftTracker() {
-					return tracker;
+				public ShiftControlData getShiftControlData() {
+					return shifterControlData;
 				}
-
-				@Override
-				public long getLastUpdate() {
-					return lastUpdate;
-				}
-
-				@Override
-				public void setLastUpdate(long lu) {
-					lastUpdate = lu;
-				}
-
 			};
 
 			control.add(1, null);
@@ -804,20 +603,9 @@ public class ShifterTest {
 			ShiftControl control = new ShiftControl(logger) {
 
 				@Override
-				public List<Element> getShiftTracker() {
-					return tracker;
+				public ShiftControlData getShiftControlData() {
+					return shifterControlData;
 				}
-
-				@Override
-				public long getLastUpdate() {
-					return lastUpdate;
-				}
-
-				@Override
-				public void setLastUpdate(long lu) {
-					lastUpdate = lu;
-				}
-
 			};
 
 			control.remove(4);
@@ -848,20 +636,9 @@ public class ShifterTest {
 			ShiftControl control = new ShiftControl(logger) {
 
 				@Override
-				public List<Element> getShiftTracker() {
-					return tracker;
+				public ShiftControlData getShiftControlData() {
+					return shifterControlData;
 				}
-
-				@Override
-				public long getLastUpdate() {
-					return lastUpdate;
-				}
-
-				@Override
-				public void setLastUpdate(long lu) {
-					lastUpdate = lu;
-				}
-
 			};
 
 			control.remove(8);
@@ -890,20 +667,9 @@ public class ShifterTest {
 			ShiftControl control = new ShiftControl(logger) {
 
 				@Override
-				public List<Element> getShiftTracker() {
-					return tracker;
+				public ShiftControlData getShiftControlData() {
+					return shifterControlData;
 				}
-
-				@Override
-				public long getLastUpdate() {
-					return lastUpdate;
-				}
-
-				@Override
-				public void setLastUpdate(long lu) {
-					lastUpdate = lu;
-				}
-
 			};
 
 			control.update(8, null);
@@ -926,20 +692,9 @@ public class ShifterTest {
 			ShiftControl control = new ShiftControl(logger) {
 
 				@Override
-				public List<Element> getShiftTracker() {
-					return tracker;
+				public ShiftControlData getShiftControlData() {
+					return shifterControlData;
 				}
-
-				@Override
-				public long getLastUpdate() {
-					return lastUpdate;
-				}
-
-				@Override
-				public void setLastUpdate(long lu) {
-					lastUpdate = lu;
-				}
-
 			};
 
 			control.add(1, null);
@@ -972,20 +727,9 @@ public class ShifterTest {
 			ShiftControl control = new ShiftControl(logger) {
 
 				@Override
-				public List<Element> getShiftTracker() {
-					return tracker;
+				public ShiftControlData getShiftControlData() {
+					return shifterControlData;
 				}
-
-				@Override
-				public long getLastUpdate() {
-					return lastUpdate;
-				}
-
-				@Override
-				public void setLastUpdate(long lu) {
-					lastUpdate = lu;
-				}
-
 			};
 
 			control.remove(4);
@@ -1031,18 +775,8 @@ public class ShifterTest {
 			ShiftControl control = new ShiftControl(logger) {
 
 				@Override
-				public List<Element> getShiftTracker() {
-					return tracker;
-				}
-
-				@Override
-				public long getLastUpdate() {
-					return lastUpdate;
-				}
-
-				@Override
-				public void setLastUpdate(long lu) {
-					lastUpdate = lu;
+				public ShiftControlData getShiftControlData() {
+					return shifterControlData;
 				}
 
 			};
@@ -1075,9 +809,9 @@ public class ShifterTest {
 		Query query = new Query();
 		query.parse(ShiftConstants.SELECT_ORDERBY_ACTUALPOSITION);
 
-		QueryResults result = query.execute(contorl.getShiftTracker());
+		QueryResults result = query.execute(contorl.getShiftControlData().getShifterArray());
 
-		assertEquals(contorl.getShiftTracker().size(), array.length);
+		assertEquals(contorl.getShiftControlData().getShifterArray().size(), array.length);
 		for (int i = 0; i < array.length; i++) {
 			assertEquals(array[i], result.getResults().get(i));
 		}
