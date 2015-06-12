@@ -178,26 +178,20 @@ public class SingleDataControlPoolTest {
 			factory.initCommandStack();
 			DataControl<DepartmentsDAO> dc = factory.initDepartments("");
 			dc.getElResolver().setValue("departments", dc);
+
 			DepartmentsDAO row = dc.getCurrentObject();
 
-			Pager<?> pager = getPager(dc);
+			DataControl<DepartmentsDAO> dc2 = factory.initDepartments("N");
+			dc2.getElResolver().setValue("Ndepartments", dc2);
 
-			DepartmentsDAO newrow = new DepartmentsDAO();
-			newrow.setObjId(123L);
-
-			PoolElement e = new PoolElement(newrow, dc.getObjectKey(newrow),
-					dc.getBaseClass(), PoolCommand.C.name(), "1");
-			pager.addCommandt(e);
-
+			dc2.getCurrentObject();
+			DepartmentsDAO newrow = dc2.createObject();
+			newrow.setDepartmentId(123L);
 			newrow.setDepartmentName("test dep");
-
-			e = new PoolElement(newrow, dc.getObjectKey(newrow),
-					dc.getBaseClass(), PoolCommand.U.name(), "1");
-			pager.addCommandt(e);
 
 			row = dc.getCurrentObject();
 
-			assertEquals(row.getObjId(), new Long(123L));
+			assertEquals(row.getDepartmentId(), new Long(123L));
 			assertEquals(row.getDepartmentName(), "test dep");
 
 			dc.getCommandStack().savePoint();
@@ -217,7 +211,7 @@ public class SingleDataControlPoolTest {
 
 			row = dc.getCurrentObject();
 
-			assertEquals(row.getObjId(), new Long(123L));
+			assertEquals(row.getDepartmentId(), new Long(123L));
 			assertEquals(row.getDepartmentName(), "test dep");
 
 			try {

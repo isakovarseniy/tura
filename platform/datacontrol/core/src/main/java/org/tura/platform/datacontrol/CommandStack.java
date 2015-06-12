@@ -43,7 +43,7 @@ public abstract class CommandStack {
 		getCommandStackData().getTransaction().add(cmd);
 	}
 
-	public void addGostTrackingDataControl(DataControl<?> dc)
+	public void registerForCleaningDataControl(DataControl<?> dc)
 			throws TuraException {
 		getCommandStackData().getGostTracking().put(dc.getId(), dc);
 	}
@@ -65,7 +65,13 @@ public abstract class CommandStack {
 			}
 		}
 
-		initSavePoint();
+		SavePoint sv =  savePoints.peek();
+		savePoints = new Stack<>();
+		savePoints.push(sv);
+
+		for (DataControl<?> dc : hash.values()) {
+			dc.cleanShifter();
+		}
 
 		for (DataControl<?> dc : hash.values()) {
 			dc.forceRefresh();
@@ -118,12 +124,15 @@ public abstract class CommandStack {
 			}
 			commitTransaction();
 
-			initSavePoint();
+			SavePoint sv =  savePoints.peek();
+			savePoints = new Stack<>();
+			savePoints.push(sv);
 			
-			Iterator<DataControl<?>> itrc = controlsId.values().iterator();
-			while (itrc.hasNext()) {
-				DataControl<?> ctl = itrc.next();
+			for (DataControl<?> ctl : controlsId.values()) {
 				ctl.cleanShifter();
+			}
+
+			for (DataControl<?> ctl : controlsId.values()) {
 				ctl.forceRefresh();
 			}
 
@@ -142,6 +151,11 @@ public abstract class CommandStack {
 		this.savePoints.peek().getData().put(id, obj);
 	}
 
+	public void removeData(String id) {
+		this.savePoints.peek().getData().remove(id);
+	}
+
+	
 	public synchronized void savePoint() throws TuraException {
 		SavePoint sp = savePoints.peek();
 		SavePoint newSp = new SavePoint(sp);

@@ -5,7 +5,6 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
-import java.util.UUID;
 
 import org.josql.Query;
 import org.josql.QueryExecutionException;
@@ -19,21 +18,24 @@ import com.octo.java.sql.query.QueryException;
 import com.octo.java.sql.query.SelectQuery;
 
 public abstract class Pool {
-	
+
 	protected abstract ShiftControl getShifter() throws TuraException;
+
 	protected abstract boolean prepareQuery() throws TuraException;
+
 	protected abstract PoolData getPoolData();
+
+	protected abstract void registerForCleaning() throws TuraException;
+
 	protected abstract SelectQuery getSelectQuery();
-	
-	private String id = UUID.randomUUID().toString();
-	
+
 	public void addCommandt(PoolElement element) throws TuraException {
-		element.setCreateDate( getPoolData().getNextId());
+		element.setCreateDate(getPoolData().getNextId());
 		getPoolData().getPoolElement().add(element);
 	}
 
-	protected void cleanPool(String id) throws QueryParseException, TuraException,
-			QueryExecutionException {
+	protected void cleanPool(String id) throws QueryParseException,
+			TuraException, QueryExecutionException {
 
 		Query query = new Query();
 		query.parse(PoolConstants.SELECT_OBJECTS_BY_SHIFTER_ID);
@@ -65,6 +67,10 @@ public abstract class Pool {
 
 			for (Object obj : objects)
 				getShifter().add(index, obj);
+
+			if (objects.size() > 0)
+				this.registerForCleaning();
+
 		} catch (Exception e) {
 			throw new TuraException(e);
 		}
@@ -96,14 +102,14 @@ public abstract class Pool {
 			if (PoolCommand.C.name().equals(element.getOperation()))
 				hash.put(element.getKey(), element);
 
-			if (PoolCommand.R.name().equals(element.getOperation()) )
+			if (PoolCommand.R.name().equals(element.getOperation()))
 				hash.remove(element.getKey());
 
 			if (PoolCommand.U.name().equals(element.getOperation()))
 				hash.put(element.getKey(), element);
 
 		}
-			return hash.values();
+		return hash.values();
 
 	}
 
@@ -117,8 +123,8 @@ public abstract class Pool {
 			array.add(element.getObj());
 
 		Query query = new Query();
-		
-		String strQuery = select.toSql( new JOSQLExpressionBuilder());
+
+		String strQuery = select.toSql(new JOSQLExpressionBuilder());
 		query.parse(strQuery);
 
 		for (String param : select.getParams().keySet())
@@ -157,11 +163,12 @@ public abstract class Pool {
 		if (array.size() == 0)
 			return false;
 
-		PoolElement lastElement = array.get(array.size()-1);
+		PoolElement lastElement = array.get(array.size() - 1);
 
 		if ("R".equals(lastElement.getOperation())) {
 			getShifter().remove(index);
 			isRemoved = true;
+			registerForCleaning();
 		}
 
 		return isRemoved;
@@ -193,22 +200,20 @@ public abstract class Pool {
 
 		if (array.size() == 0)
 			return object;
-		
+
 		PoolElement firstElement = array.get(0);
 
 		if ("U".equals(firstElement.getOperation())) {
 			getShifter().update(index, firstElement.getObj());
 			object = firstElement.getObj();
+			registerForCleaning();
+
 		}
 		return object;
 	}
 
 	public String getId() {
-		return id;
+		return "SHARED_POOL_DATA";
 	}
 
-	public void setId(String id) {
-		this.id = id;
-	}
-	
 }

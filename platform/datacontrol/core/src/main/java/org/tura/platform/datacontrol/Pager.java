@@ -61,6 +61,7 @@ public class Pager<T> extends Pool {
 		try {
 			for (ShiftControl sh : shifterHash.values()) {
 				cleanPool(sh.getId());
+				datacontrol.getCommandStack().removeData(sh.getId());
 			}
 			shifterHash = new HashMap<>();
 			shifter = null;
@@ -407,6 +408,12 @@ public class Pager<T> extends Pool {
 		if (datacontrol.getCommandStack().getData(getId()) == null)
 			datacontrol.getCommandStack().addData(getId(), new PoolData());
 		return (PoolData) datacontrol.getCommandStack().getData(getId());
+	}
+
+	@Override
+	protected void registerForCleaning() throws TuraException  {
+		datacontrol.getCommandStack().registerForCleaningDataControl(datacontrol);
+		
 	}
 
 }
