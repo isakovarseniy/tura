@@ -3,7 +3,7 @@ function  testJS(id){
 }
 
 function hidepopup(canvas){
-	alert('1');
+	PF(canvas).hide();
 }
 
 function showpopup(canvas){

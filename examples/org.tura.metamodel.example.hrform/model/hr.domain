@@ -722,6 +722,15 @@
         <parameters packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="7de77bc8-f109-43e4-95fe-0f2ca7a9f1d0" uid="a4b169f9-9766-4ccb-8d4a-536e7624eeb8" name="datacontrol"/>
         <returnValue packageRef="e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="Vhc_52ffccb7-cea6-49de-ba4b-7437f1da3369"/>
       </operations>
+      <operations uid="a8e00028-4155-43b8-aae1-a75c28fe045a" name="closeCompanyDetailsPopup">
+        <returnValue packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="90b18156-de6d-42d1-b350-925e44a0e4cc"/>
+      </operations>
+      <operations uid="9ac332a1-5d9c-4bf5-adb2-88b085ca85a0" name="applyChanges">
+        <returnValue packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="90b18156-de6d-42d1-b350-925e44a0e4cc"/>
+      </operations>
+      <operations uid="22776eec-c35a-4788-90be-0b746e1c9182" name="rallbackChanges">
+        <returnValue packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="90b18156-de6d-42d1-b350-925e44a0e4cc"/>
+      </operations>
     </types>
   </tura.domain:TypeDefinition>
   <tura.domain:Mappers uid="e5ddc4b2-b9bc-4fb3-928a-2cb53fcc0d2d" parent="0d86886f-6d6e-49e1-a123-d063d2d9bd22">
@@ -2246,6 +2255,12 @@
       <messages uid="56e1bf95-de7b-466e-a335-b0fff00cde17" name="DETAILS">
         <translatioins uid="d52b6ef1-d829-49c2-90b4-5225bb5adde1" translation="Details:" lang="5f566f06-7d99-4d79-986d-b42bdfb2b6a0"/>
       </messages>
+      <messages uid="3ad1a335-e4c5-442b-9ddd-948065a5119e" name="OK_BUTTON">
+        <translatioins uid="377e66bf-848d-4f94-888d-0be1873e1923" translation="Ok" lang="5f566f06-7d99-4d79-986d-b42bdfb2b6a0"/>
+      </messages>
+      <messages uid="845c3816-162b-4156-90e5-fbe794c2d1a6" name="CANCEL_BUTTON">
+        <translatioins uid="29cc2366-0307-4af9-892b-b25dd4051b4e" translation="Cancel" lang="5f566f06-7d99-4d79-986d-b42bdfb2b6a0"/>
+      </messages>
     </messageLibraries>
     <messageLibraries uid="0cc922a6-a203-490f-a02e-15d8d1ad5e16" name="Tree 2 tree">
       <libLanguages uid="b08087aa-6302-4d3b-86f8-5e3238698876" lang="2160c4e8-6839-4e94-a225-162cc9210518"/>
@@ -2507,7 +2522,9 @@
           <expression objRef="f994c763-7bfb-4952-b00f-b730b5d67043" order="2" expressionType="MessageImpl"/>
         </multiLangLabel>
       </children>
-      <children xsi:type="tura.domain:Label" order="3" uid="3782b85e-89bd-4bb0-8c6f-6139d5a672bc" label="Empty label"/>
+      <children xsi:type="tura.domain:Label" order="3" uid="3782b85e-89bd-4bb0-8c6f-6139d5a672bc" label="Empty label">
+        <style/>
+      </children>
       <children xsi:type="tura.domain:Label" order="4" uid="0d7589d8-f994-45c1-a37f-e9c3bd2c34e2" label="Details">
         <style constant="true" value="display: inline-block;margin:0px 20px 20px 0px;font:20px arial, sans-serif;color: #0033CC;text-decoration: underline"/>
         <multiLangLabel value="Messages.HR Controller.DETAILS">
@@ -2516,7 +2533,10 @@
           <expression objRef="56e1bf95-de7b-466e-a335-b0fff00cde17" order="2" expressionType="MessageImpl"/>
         </multiLangLabel>
       </children>
-      <children xsi:type="tura.domain:Label" order="5" uid="f527a86c-8cdb-4a78-bf55-e7cfc3a78ad0" label="Empty label"/>
+      <children xsi:type="tura.domain:Label" order="5" uid="f527a86c-8cdb-4a78-bf55-e7cfc3a78ad0" label="Empty label">
+        <style/>
+        <multiLangLabel/>
+      </children>
     </baseCanvas>
   </tura.domain:CanvasView>
   <tura.domain:CanvasView uid="0483df92-2a82-4ee7-b497-129c73dd33f3" parent="74869096-8b7b-4155-8594-096e1d7f9c39">
@@ -2730,6 +2750,8 @@
       <styles uid="68e4335c-0280-4d3e-ae6e-56a924e02077" name="form-parameter-button"/>
       <styles uid="9875eb38-6bdf-4ddf-92e5-5a066617af01" name="add-child-row-button"/>
       <styles uid="4bca642a-e9fe-48ee-a0cd-fa6e45526a14" name="popup-details-button"/>
+      <styles uid="994a474f-8f56-4999-bff1-f09ac116f07c" name="ok-button"/>
+      <styles uid="23841287-145a-4d4b-87a6-9689c5c16059" name="cancel-button"/>
     </libraries>
   </tura.domain:Styles>
   <tura.domain:Recipes uid="ea1699b1-79f1-4e4d-9342-3ba1cf05a54d" parent="643f117b-2ee8-49cd-b1ff-6123bc465259">
@@ -2946,26 +2968,78 @@
           <expression objRef="3c9d5f18-58ea-4e9a-a877-c2535bf00f27" order="2" expressionType="MessageImpl"/>
         </multiLangLabel>
       </children>
-      <children xsi:type="tura.domain:LayerHolder" order="1" uid="1c473106-c6ce-47aa-95c4-9699ccc7a1dc" columns="2">
-        <children xsi:type="tura.domain:Label" uid="553ac141-9292-4bcb-92a6-4e2cadb9a5f6" label="Company name">
-          <multiLangLabel value="Messages.HR Controller.COMPANIES_TABLE_COMPANY_NAME_COLUMN">
-            <expression objRef="af03a493-0ca4-486c-945f-5bfc2fdf35bd" expressionType="MessagesImpl"/>
-            <expression objRef="5772ddee-a83b-41c9-8f34-c442412e1013" order="1" expressionType="MessageLibraryImpl"/>
-            <expression objRef="e1e774e4-d7f9-4b12-8021-67b17f803772" order="2" expressionType="MessageImpl"/>
-          </multiLangLabel>
+      <children xsi:type="tura.domain:LayerHolder" order="1" uid="e150c1df-b019-4ec8-8434-b51f5828ca36">
+        <style/>
+        <children xsi:type="tura.domain:LayerHolder" order="1" uid="1c473106-c6ce-47aa-95c4-9699ccc7a1dc" columns="2">
+          <style/>
+          <children xsi:type="tura.domain:Label" uid="553ac141-9292-4bcb-92a6-4e2cadb9a5f6" label="Company name">
+            <multiLangLabel value="Messages.HR Controller.COMPANIES_TABLE_COMPANY_NAME_COLUMN">
+              <expression objRef="af03a493-0ca4-486c-945f-5bfc2fdf35bd" expressionType="MessagesImpl"/>
+              <expression objRef="5772ddee-a83b-41c9-8f34-c442412e1013" order="1" expressionType="MessageLibraryImpl"/>
+              <expression objRef="e1e774e4-d7f9-4b12-8021-67b17f803772" order="2" expressionType="MessageImpl"/>
+            </multiLangLabel>
+          </children>
+          <children xsi:type="tura.domain:InputText" order="1" uid="a343ffab-51c0-448b-aff9-a1711681e32f" sourcePointer="659ef9c4-06fb-48cb-a385-4424988c7872" valuePointer="Comp_7982905f-4f83-472f-8551-80e30e34934c">
+            <style constant="true" value="margin:0px 0px 0px 20px;"/>
+          </children>
+          <children xsi:type="tura.domain:Label" order="2" uid="1962aa8e-76c0-4026-af09-3a7153635564" label="Description">
+            <multiLangLabel value="Messages.HR Controller.COMPANIES_TABLE_DESCRIPTION_COLUMN">
+              <expression objRef="af03a493-0ca4-486c-945f-5bfc2fdf35bd" expressionType="MessagesImpl"/>
+              <expression objRef="5772ddee-a83b-41c9-8f34-c442412e1013" order="1" expressionType="MessageLibraryImpl"/>
+              <expression objRef="152b0762-39a4-4995-ba49-efb5a3c75f07" order="2" expressionType="MessageImpl"/>
+            </multiLangLabel>
+          </children>
+          <children xsi:type="tura.domain:InputText" order="3" uid="83a48362-b526-4c40-8830-1409325b4726" sourcePointer="659ef9c4-06fb-48cb-a385-4424988c7872" valuePointer="a3f007de-ce4a-4510-bc86-52f20eee5325">
+            <style constant="true" value="margin:0px 0px 0px 20px;"/>
+          </children>
         </children>
-        <children xsi:type="tura.domain:InputText" order="1" uid="a343ffab-51c0-448b-aff9-a1711681e32f" sourcePointer="659ef9c4-06fb-48cb-a385-4424988c7872" valuePointer="Comp_7982905f-4f83-472f-8551-80e30e34934c">
-          <style constant="true" value="margin:0px 0px 0px 20px;"/>
+        <children xsi:type="tura.domain:LayerHolder" order="2" uid="4f132520-3cea-41fd-a086-1415e583e9b9" columns="2">
+          <style/>
+          <children xsi:type="tura.domain:Button" uid="80f38c36-1479-42e3-8640-b78c8efd111f" onEventRefreshArea="ce2aedb4-2308-40d7-b9aa-c9819da6e0f4 bee23d39-6e59-450f-b696-94cf4c907c86 92ea6c50-dc39-4ba0-bb76-b3ca2e161fe5" label="ok">
+            <style/>
+            <triggers packageRef="e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="c4654ad8-156f-4706-bda2-791ed81fcdea" fakePackageName="HR package" fakeTypeName="Action executor" methodRef="9ac332a1-5d9c-4bf5-adb2-88b085ca85a0" fakeMethod="applyChanges" uid="409a1229-128d-43ca-8363-c1f55f052858"/>
+            <triggers packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="971e11a5-49d4-402d-9ae4-4233c366a542" fakePackageName="Base package" fakeTypeName="Client system library" methodRef="2e403bcd-3e46-4e16-afea-e01cdeb7e247" fakeMethod="hidepopup" uid="cb96be69-8c7a-4c82-aa91-7a32a4f9d316">
+              <parameters uid="2ffb541f-c25c-4b89-aeba-e6264fe7a2aa" refObj="1fb4b6f8-f78c-4f15-af74-fcc94f18be31">
+                <value uid="25e61861-ca71-4184-8cc0-568fe914c898" constant="true" value="popupCompany"/>
+              </parameters>
+              <classifiers uid="6bf71470-7491-4153-b394-04f5f5fc3123" hint="97b65510-1aaf-43b1-b505-99eb0c3dfdf0"/>
+            </triggers>
+            <multiLangLabel value="Messages.HR Controller.OK_BUTTON">
+              <expression objRef="af03a493-0ca4-486c-945f-5bfc2fdf35bd" expressionType="MessagesImpl"/>
+              <expression objRef="5772ddee-a83b-41c9-8f34-c442412e1013" order="1" expressionType="MessageLibraryImpl"/>
+              <expression objRef="3ad1a335-e4c5-442b-9ddd-948065a5119e" order="2" expressionType="MessageImpl"/>
+            </multiLangLabel>
+            <icon value="Application styles.HR styles.HR Controller styles.ok-button">
+              <expression objRef="c7379293-bc50-4b7e-8cc9-917bc2dd97aa" expressionType="ApplicationStyleImpl"/>
+              <expression objRef="a9b99a7f-03c7-4b89-82c2-b3e1f0f326d2" order="1" expressionType="StylesPackageImpl"/>
+              <expression objRef="bc917c9e-7594-4ff8-9157-a9e6cf5ac5f5" order="2" expressionType="StyleLibraryImpl"/>
+              <expression objRef="994a474f-8f56-4999-bff1-f09ac116f07c" order="3" expressionType="StyleSetImpl"/>
+            </icon>
+          </children>
+          <children xsi:type="tura.domain:Button" order="1" uid="20e5f690-a78c-4a85-8baf-bb6a51bfa642" label="Cancel">
+            <triggers packageRef="e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="c4654ad8-156f-4706-bda2-791ed81fcdea" fakePackageName="HR package" fakeTypeName="Action executor" methodRef="22776eec-c35a-4788-90be-0b746e1c9182" fakeMethod="rallbackChanges" uid="aa82c7a2-3212-459e-8ebc-c3aca50f5b7a"/>
+            <triggers packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="971e11a5-49d4-402d-9ae4-4233c366a542" fakePackageName="Base package" fakeTypeName="Client system library" methodRef="2e403bcd-3e46-4e16-afea-e01cdeb7e247" fakeMethod="hidepopup" uid="c1ea48e2-bd50-4f6e-8c61-3f49f128cff2">
+              <parameters uid="17a26bcc-b3a7-4b80-be48-d89b0a7b5bcc" refObj="1fb4b6f8-f78c-4f15-af74-fcc94f18be31">
+                <value uid="587941d4-0a4f-4204-bb8b-f749106c5374" constant="true" value="popupCompany"/>
+              </parameters>
+              <classifiers uid="5ea26ee5-dd43-4828-bee2-ff8d9de8cfe7" hint="97b65510-1aaf-43b1-b505-99eb0c3dfdf0"/>
+            </triggers>
+            <multiLangLabel value="Messages.HR Controller.CANCEL_BUTTON">
+              <expression objRef="af03a493-0ca4-486c-945f-5bfc2fdf35bd" expressionType="MessagesImpl"/>
+              <expression objRef="5772ddee-a83b-41c9-8f34-c442412e1013" order="1" expressionType="MessageLibraryImpl"/>
+              <expression objRef="845c3816-162b-4156-90e5-fbe794c2d1a6" order="2" expressionType="MessageImpl"/>
+            </multiLangLabel>
+            <icon value="Application styles.HR styles.HR Controller styles.cancel-button">
+              <expression objRef="c7379293-bc50-4b7e-8cc9-917bc2dd97aa" expressionType="ApplicationStyleImpl"/>
+              <expression objRef="a9b99a7f-03c7-4b89-82c2-b3e1f0f326d2" order="1" expressionType="StylesPackageImpl"/>
+              <expression objRef="bc917c9e-7594-4ff8-9157-a9e6cf5ac5f5" order="2" expressionType="StyleLibraryImpl"/>
+              <expression objRef="23841287-145a-4d4b-87a6-9689c5c16059" order="3" expressionType="StyleSetImpl"/>
+            </icon>
+          </children>
         </children>
-        <children xsi:type="tura.domain:Label" order="2" uid="1962aa8e-76c0-4026-af09-3a7153635564" label="Description">
-          <multiLangLabel value="Messages.HR Controller.COMPANIES_TABLE_DESCRIPTION_COLUMN">
-            <expression objRef="af03a493-0ca4-486c-945f-5bfc2fdf35bd" expressionType="MessagesImpl"/>
-            <expression objRef="5772ddee-a83b-41c9-8f34-c442412e1013" order="1" expressionType="MessageLibraryImpl"/>
-            <expression objRef="152b0762-39a4-4995-ba49-efb5a3c75f07" order="2" expressionType="MessageImpl"/>
-          </multiLangLabel>
-        </children>
-        <children xsi:type="tura.domain:InputText" order="3" uid="83a48362-b526-4c40-8830-1409325b4726" sourcePointer="659ef9c4-06fb-48cb-a385-4424988c7872" valuePointer="a3f007de-ce4a-4510-bc86-52f20eee5325">
-          <style constant="true" value="margin:0px 0px 0px 20px;"/>
+        <children xsi:type="tura.domain:Label" order="1" uid="d9e47f86-2ff3-49a7-9ee0-f91c65f43e1f" label="empty label">
+          <style constant="true" value="margin:0px 20px 20px 0px;"/>
+          <multiLangLabel/>
         </children>
       </children>
     </baseCanvas>

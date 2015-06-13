@@ -1,6 +1,7 @@
 package org.tura.platform.test;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
 import static org.junit.Assert.fail;
 
 import java.lang.reflect.Field;
@@ -111,20 +112,22 @@ public class SingleDataControlPoolTest {
 			factory.initCommandStack();
 			DataControl<DepartmentsDAO> dc = factory.initDepartments("");
 			dc.getElResolver().setValue("departments", dc);
-			DepartmentsDAO row = dc.getCurrentObject();
+			
+			DataControl<DepartmentsDAO> dc2 = factory.initDepartments("N");
+			dc2.getElResolver().setValue("Ndepartments", dc2);
 
-			DepartmentsDAO newrow = new DepartmentsDAO();
-			newrow.setObjId(10L);
+			dc2.getCurrentObject();
+			dc2.nextObject();
+			DepartmentsDAO newrow = dc2.getCurrentObject();
 			newrow.setDepartmentName("test dep");
 
-			Pager<?> pager = getPager(dc);
+			DepartmentsDAO row = dc.getCurrentObject();
+			assertEquals(row.getObjId(), new Long(10));
+			assertEquals(row.getDepartmentName(),"Administration");
 
-			PoolElement e = new PoolElement(newrow, dc.getObjectKey(newrow),
-					dc.getBaseClass(), PoolCommand.U.name(), "1");
-			pager.addCommandt(e);
-
+			dc.nextObject();
 			row = dc.getCurrentObject();
-
+			assertEquals(row.getObjId(), new Long(20L));
 			assertEquals(row.getDepartmentName(), "test dep");
 
 		} catch (Exception e) {

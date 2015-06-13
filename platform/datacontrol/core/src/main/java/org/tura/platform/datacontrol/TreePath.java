@@ -32,7 +32,7 @@ public class TreePath implements Serializable {
 	@Override
 	public boolean equals(Object o) {
 		TreePath obj = (TreePath) o;
-		if (key == obj.getKey() && relation.equals(obj.getRelation()))
+		if (relation != null && key == obj.getKey() && relation.equals(obj.getRelation()))
 			return true;
 		return false;
 

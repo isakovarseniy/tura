@@ -22,9 +22,8 @@ public class Actions implements EventAccessor {
 	private ActionEvent event;
 
 	@Inject
-    private transient Logger logger;
-	
-	
+	private transient Logger logger;
+
 	@Inject
 	ELResolver elResolver;
 
@@ -41,12 +40,16 @@ public class Actions implements EventAccessor {
 			DataControl dc = (DataControl) elResolver
 					.getValue("#{beanFactoryHrManagerHRController.popupCompanyDCProvider}");
 
-			IBeanFactory bf = (IBeanFactory) elResolver.getValue("#{beanFactoryHrManagerHRController}");
+			IBeanFactory bf = (IBeanFactory) elResolver
+					.getValue("#{beanFactoryHrManagerHRController}");
 			bf.setCmpId(((TuraObject) (row[2])).getObjId());
 			dc.forceRefresh();
 			dc.cleanShifter();
+
+			dc.getCommandStack().savePoint();
+
 		} catch (Exception e) {
-			logger.log(Level.INFO, e.getMessage(),e);
+			logger.log(Level.INFO, e.getMessage(), e);
 		}
 	}
 
@@ -54,7 +57,7 @@ public class Actions implements EventAccessor {
 		try {
 			commandStack.commitCommand();
 		} catch (Exception e) {
-			logger.log(Level.INFO, e.getMessage(),e);
+			logger.log(Level.INFO, e.getMessage(), e);
 		}
 	}
 
@@ -62,15 +65,14 @@ public class Actions implements EventAccessor {
 		try {
 			commandStack.rallbackCommand();
 		} catch (Exception e) {
-			logger.log(Level.INFO, e.getMessage(),e);
+			logger.log(Level.INFO, e.getMessage(), e);
 		}
 	}
 
-	
-	public void createRow(IDataControl datacontrol){
-		
+	public void createRow(IDataControl datacontrol) {
+
 	}
-	
+
 	public void createChildRow(IDataControl datacontrol) {
 		try {
 			TreeDataControl tdc = (TreeDataControl) datacontrol;
@@ -81,8 +83,25 @@ public class Actions implements EventAccessor {
 			if (rel != null)
 				tdc.createChildObject(rel);
 		} catch (Exception e) {
-			logger.log(Level.INFO, e.getMessage(),e);
+			logger.log(Level.INFO, e.getMessage(), e);
 		}
+	}
+
+	public void applyChanges() {
+
+	}
+
+	@SuppressWarnings("rawtypes")
+	public void rallbackChanges() {
+
+		try {
+			DataControl dc = (DataControl) elResolver
+					.getValue("#{beanFactoryHrManagerHRController.popupCompanyDCProvider}");
+			dc.getCommandStack().rallbackSavePoint();
+		} catch (Exception e) {
+			logger.log(Level.INFO, e.getMessage(), e);
+		}
+
 	}
 
 	@Override

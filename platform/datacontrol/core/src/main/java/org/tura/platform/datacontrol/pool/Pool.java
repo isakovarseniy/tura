@@ -105,7 +105,7 @@ public abstract class Pool {
 			if (PoolCommand.R.name().equals(element.getOperation()))
 				hash.remove(element.getKey());
 
-			if (PoolCommand.U.name().equals(element.getOperation()))
+			if (PoolCommand.U.name().equals(element.getOperation()) &&  hash.containsKey(element.getKey()) ) 
 				hash.put(element.getKey(), element);
 
 		}
@@ -149,7 +149,7 @@ public abstract class Pool {
 		query.parse(PoolConstants.SELECT_OBJECTS_SORTED_DESC_FOR_KEY);
 		query.setVariable("key", key);
 		query.setVariable("shifterId", getShifter().getId());
-		query.setVariable("beginTimeStamp", beginTimeStamp);
+		query.setVariable("beginTimeStamp", 0);
 		query.setVariable("endTimeStamp", endTimeStamp);
 
 		QueryResults result = query.execute(getPoolData().getPoolElement());
@@ -187,7 +187,7 @@ public abstract class Pool {
 		query.parse(PoolConstants.SELECT_OBJECTS_SORTED_DESC_FOR_KEY);
 		query.setVariable("shifterId", getShifter().getId());
 		query.setVariable("key", key);
-		query.setVariable("beginTimeStamp", beginTimeStamp);
+		query.setVariable("beginTimeStamp", 0);
 		query.setVariable("endTimeStamp", endTimeStamp);
 
 		QueryResults result = query.execute(getPoolData().getPoolElement());
