@@ -44,7 +44,6 @@ public class Actions implements EventAccessor {
 					.getValue("#{beanFactoryHrManagerHRController}");
 			bf.setCmpId(((TuraObject) (row[2])).getObjId());
 			dc.forceRefresh();
-			dc.cleanShifter();
 
 			dc.getCommandStack().savePoint();
 
