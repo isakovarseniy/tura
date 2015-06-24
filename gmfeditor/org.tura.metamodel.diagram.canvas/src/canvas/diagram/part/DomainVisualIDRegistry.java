@@ -27,8 +27,12 @@ import canvas.diagram.edit.parts.ColumnColumnElementCompartmentEditPart;
 import canvas.diagram.edit.parts.ColumnEditPart;
 import canvas.diagram.edit.parts.ColumnLabel2EditPart;
 import canvas.diagram.edit.parts.ColumnLabelEditPart;
+import canvas.diagram.edit.parts.Date2EditPart;
+import canvas.diagram.edit.parts.DateEditPart;
 import canvas.diagram.edit.parts.DropDownSelection2EditPart;
 import canvas.diagram.edit.parts.DropDownSelectionEditPart;
+import canvas.diagram.edit.parts.Image2EditPart;
+import canvas.diagram.edit.parts.ImageEditPart;
 import canvas.diagram.edit.parts.InputText2EditPart;
 import canvas.diagram.edit.parts.InputTextEditPart;
 import canvas.diagram.edit.parts.Label2EditPart;
@@ -186,6 +190,12 @@ public class DomainVisualIDRegistry {
 			if (DomainPackage.eINSTANCE.getCheckBox().isSuperTypeOf(domainElement.eClass())) {
 				return CheckBoxEditPart.VISUAL_ID;
 			}
+			if (DomainPackage.eINSTANCE.getImage().isSuperTypeOf(domainElement.eClass())) {
+				return ImageEditPart.VISUAL_ID;
+			}
+			if (DomainPackage.eINSTANCE.getDate().isSuperTypeOf(domainElement.eClass())) {
+				return DateEditPart.VISUAL_ID;
+			}
 			if (DomainPackage.eINSTANCE.getButton().isSuperTypeOf(domainElement.eClass())) {
 				return ButtonEditPart.VISUAL_ID;
 			}
@@ -219,6 +229,12 @@ public class DomainVisualIDRegistry {
 			}
 			if (DomainPackage.eINSTANCE.getCheckBox().isSuperTypeOf(domainElement.eClass())) {
 				return CheckBox2EditPart.VISUAL_ID;
+			}
+			if (DomainPackage.eINSTANCE.getImage().isSuperTypeOf(domainElement.eClass())) {
+				return Image2EditPart.VISUAL_ID;
+			}
+			if (DomainPackage.eINSTANCE.getDate().isSuperTypeOf(domainElement.eClass())) {
+				return Date2EditPart.VISUAL_ID;
 			}
 			if (DomainPackage.eINSTANCE.getButton().isSuperTypeOf(domainElement.eClass())) {
 				return Button2EditPart.VISUAL_ID;
@@ -259,6 +275,12 @@ public class DomainVisualIDRegistry {
 			if (DomainPackage.eINSTANCE.getCheckBox().isSuperTypeOf(domainElement.eClass())) {
 				return CheckBox2EditPart.VISUAL_ID;
 			}
+			if (DomainPackage.eINSTANCE.getImage().isSuperTypeOf(domainElement.eClass())) {
+				return Image2EditPart.VISUAL_ID;
+			}
+			if (DomainPackage.eINSTANCE.getDate().isSuperTypeOf(domainElement.eClass())) {
+				return Date2EditPart.VISUAL_ID;
+			}
 			if (DomainPackage.eINSTANCE.getButton().isSuperTypeOf(domainElement.eClass())) {
 				return Button2EditPart.VISUAL_ID;
 			}
@@ -287,6 +309,12 @@ public class DomainVisualIDRegistry {
 			}
 			if (DomainPackage.eINSTANCE.getCheckBox().isSuperTypeOf(domainElement.eClass())) {
 				return CheckBoxEditPart.VISUAL_ID;
+			}
+			if (DomainPackage.eINSTANCE.getImage().isSuperTypeOf(domainElement.eClass())) {
+				return ImageEditPart.VISUAL_ID;
+			}
+			if (DomainPackage.eINSTANCE.getDate().isSuperTypeOf(domainElement.eClass())) {
+				return DateEditPart.VISUAL_ID;
 			}
 			if (DomainPackage.eINSTANCE.getButton().isSuperTypeOf(domainElement.eClass())) {
 				return ButtonEditPart.VISUAL_ID;
@@ -321,6 +349,12 @@ public class DomainVisualIDRegistry {
 			}
 			if (DomainPackage.eINSTANCE.getCheckBox().isSuperTypeOf(domainElement.eClass())) {
 				return CheckBoxEditPart.VISUAL_ID;
+			}
+			if (DomainPackage.eINSTANCE.getImage().isSuperTypeOf(domainElement.eClass())) {
+				return ImageEditPart.VISUAL_ID;
+			}
+			if (DomainPackage.eINSTANCE.getDate().isSuperTypeOf(domainElement.eClass())) {
+				return DateEditPart.VISUAL_ID;
 			}
 			if (DomainPackage.eINSTANCE.getButton().isSuperTypeOf(domainElement.eClass())) {
 				return ButtonEditPart.VISUAL_ID;
@@ -483,6 +517,12 @@ public class DomainVisualIDRegistry {
 			if (CheckBoxEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
+			if (ImageEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (DateEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
 			if (ButtonEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
@@ -515,6 +555,12 @@ public class DomainVisualIDRegistry {
 				return true;
 			}
 			if (CheckBox2EditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (Image2EditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (Date2EditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			if (Button2EditPart.VISUAL_ID == nodeVisualID) {
@@ -556,6 +602,12 @@ public class DomainVisualIDRegistry {
 			if (CheckBox2EditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
+			if (Image2EditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (Date2EditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
 			if (Button2EditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
@@ -583,6 +635,12 @@ public class DomainVisualIDRegistry {
 				return true;
 			}
 			if (CheckBoxEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (ImageEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (DateEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			if (ButtonEditPart.VISUAL_ID == nodeVisualID) {
@@ -617,6 +675,12 @@ public class DomainVisualIDRegistry {
 				return true;
 			}
 			if (CheckBoxEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (ImageEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (DateEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			if (ButtonEditPart.VISUAL_ID == nodeVisualID) {
@@ -713,6 +777,10 @@ public class DomainVisualIDRegistry {
 		case OutputText2EditPart.VISUAL_ID:
 		case CheckBox2EditPart.VISUAL_ID:
 		case ActionTriggerEditPart.VISUAL_ID:
+		case ImageEditPart.VISUAL_ID:
+		case DateEditPart.VISUAL_ID:
+		case Image2EditPart.VISUAL_ID:
+		case Date2EditPart.VISUAL_ID:
 			return true;
 		default:
 			break;

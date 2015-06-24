@@ -26,7 +26,9 @@ import org.eclipse.gmf.runtime.notation.View;
 
 import canvas.diagram.edit.parts.Button2EditPart;
 import canvas.diagram.edit.parts.CheckBox2EditPart;
+import canvas.diagram.edit.parts.Date2EditPart;
 import canvas.diagram.edit.parts.DropDownSelection2EditPart;
+import canvas.diagram.edit.parts.Image2EditPart;
 import canvas.diagram.edit.parts.InputText2EditPart;
 import canvas.diagram.edit.parts.Label2EditPart;
 import canvas.diagram.edit.parts.LayerHolder2EditPart;
@@ -97,6 +99,8 @@ public class ColumnColumnElementCompartmentCanonicalEditPolicy extends Canonical
 		case InputText2EditPart.VISUAL_ID:
 		case OutputText2EditPart.VISUAL_ID:
 		case CheckBox2EditPart.VISUAL_ID:
+		case Image2EditPart.VISUAL_ID:
+		case Date2EditPart.VISUAL_ID:
 		case Button2EditPart.VISUAL_ID:
 		case Label2EditPart.VISUAL_ID:
 			return true;

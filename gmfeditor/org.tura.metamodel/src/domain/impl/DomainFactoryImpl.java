@@ -193,6 +193,8 @@ public class DomainFactoryImpl extends EFactoryImpl implements DomainFactory
       case DomainPackage.OUTPUT_TEXT: return createOutputText();
       case DomainPackage.CHECK_BOX: return createCheckBox();
       case DomainPackage.DROP_DOWN_SELECTION: return createDropDownSelection();
+      case DomainPackage.IMAGE: return createImage();
+      case DomainPackage.DATE: return createDate();
       case DomainPackage.COLUMN: return createColumn();
       case DomainPackage.TABLE: return createTable();
       case DomainPackage.TREE: return createTree();
@@ -1717,6 +1719,28 @@ public class DomainFactoryImpl extends EFactoryImpl implements DomainFactory
   {
     DropDownSelectionImpl dropDownSelection = new DropDownSelectionImpl();
     return dropDownSelection;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Image createImage()
+  {
+    ImageImpl image = new ImageImpl();
+    return image;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Date createDate()
+  {
+    DateImpl date = new DateImpl();
+    return date;
   }
 
   /**

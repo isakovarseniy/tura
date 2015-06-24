@@ -1202,6 +1202,24 @@ public interface DomainFactory extends EFactory
   DropDownSelection createDropDownSelection();
 
   /**
+   * Returns a new object of class '<em>Image</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Image</em>'.
+   * @generated
+   */
+  Image createImage();
+
+  /**
+   * Returns a new object of class '<em>Date</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Date</em>'.
+   * @generated
+   */
+  Date createDate();
+
+  /**
    * Returns a new object of class '<em>Column</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

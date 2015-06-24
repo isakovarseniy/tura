@@ -941,6 +941,20 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  private EClass imageEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass dateEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   private EClass columnEClass = null;
 
   /**
@@ -6341,6 +6355,26 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EClass getImage()
+  {
+    return imageEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getDate()
+  {
+    return dateEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getColumn()
   {
     return columnEClass;
@@ -8392,6 +8426,10 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     dropDownSelectionEClass = createEClass(DROP_DOWN_SELECTION);
     createEReference(dropDownSelectionEClass, DROP_DOWN_SELECTION__SELECTION);
 
+    imageEClass = createEClass(IMAGE);
+
+    dateEClass = createEClass(DATE);
+
     columnEClass = createEClass(COLUMN);
     createEAttribute(columnEClass, COLUMN__UID);
     createEAttribute(columnEClass, COLUMN__LABEL);
@@ -8689,6 +8727,8 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     outputTextEClass.getESuperTypes().add(this.getInputElement());
     checkBoxEClass.getESuperTypes().add(this.getInputElement());
     dropDownSelectionEClass.getESuperTypes().add(this.getOptionSelection());
+    imageEClass.getESuperTypes().add(this.getInputElement());
+    dateEClass.getESuperTypes().add(this.getInputElement());
     columnEClass.getESuperTypes().add(this.getStyleElement());
     columnEClass.getESuperTypes().add(this.getMultiLangLabel());
     columnEClass.getESuperTypes().add(this.getCategorized());
@@ -9362,6 +9402,10 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     initEClass(dropDownSelectionEClass, DropDownSelection.class, "DropDownSelection", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getDropDownSelection_Selection(), this.getSelection(), null, "selection", null, 0, 1, DropDownSelection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+    initEClass(imageEClass, Image.class, "Image", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(dateEClass, Date.class, "Date", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
     initEClass(columnEClass, Column.class, "Column", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getColumn_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, Column.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getColumn_Label(), ecorePackage.getEString(), "label", null, 0, 1, Column.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -9613,7 +9657,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
-       });																																																																																																																																																																																						
+       });																																																																																																																																																																																								
   }
 
   /**
@@ -9630,7 +9674,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
-       });																																																																																																																																																																																					
+       });																																																																																																																																																																																							
   }
 
   /**
@@ -10323,6 +10367,26 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        "tool.small.path", "icons/dropdownselection.png"
        });		
     addAnnotation
+      (imageEClass, 
+       source, 
+       new String[] 
+       {
+       "figure", "org.tura.metamodel.commons.figures.MetaImageFigure",
+       "label.placement", "none",
+       "tool.small.bundle", "org.tura.metamodel.commons",
+       "tool.small.path", "icons/image.png"
+       });		
+    addAnnotation
+      (dateEClass, 
+       source, 
+       new String[] 
+       {
+       "figure", "org.tura.metamodel.commons.figures.DateFigure",
+       "label.placement", "none",
+       "tool.small.bundle", "org.tura.metamodel.commons",
+       "tool.small.path", "icons/date.png"
+       });		
+    addAnnotation
       (columnEClass, 
        source, 
        new String[] 
@@ -10790,7 +10854,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        new String[] 
        {
        "layout", "list"
-       });										
+       });												
     addAnnotation
       (getColumn_Element(), 
        source, 
@@ -10948,7 +11012,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
-       });																																																																																																																																																																									
+       });																																																																																																																																																																											
   }
 
   /**
@@ -10965,7 +11029,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
-       });																																																																																																																																																														
+       });																																																																																																																																																																
   }
 
   /**
@@ -10982,7 +11046,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
-       });																																																																																																																																															
+       });																																																																																																																																																	
   }
 
   /**
@@ -10999,7 +11063,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
-       });																																																																																																																																										
+       });																																																																																																																																												
   }
 
   /**
@@ -11110,7 +11174,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        "color", "238,16,16",
        "width", "2",
        "target.decoration", "arrow"
-       });																																																		
+       });																																																				
     addAnnotation
       (relationEClass, 
        source, 
@@ -11146,7 +11210,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
-       });																																																																																																																																					
+       });																																																																																																																																							
   }
 
   /**
@@ -11163,7 +11227,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
-       });																																																																																																																																	
+       });																																																																																																																																			
   }
 
   /**
@@ -11180,7 +11244,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
-       });																																																																																																																												
+       });																																																																																																																														
   }
 
   /**
@@ -11197,7 +11261,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
-       });																																																																																																																										
+       });																																																																																																																												
   }
 
   /**
@@ -11214,7 +11278,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
-       });																																																																																																				
+       });																																																																																																						
   }
 
   /**
@@ -11231,7 +11295,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
-       });																																																																																								
+       });																																																																																										
   }
 
   /**
@@ -11248,7 +11312,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
-       });																																																																																				
+       });																																																																																						
   }
 
   /**
@@ -11265,7 +11329,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
-       });																																																																													
+       });																																																																															
   }
 
   /**
@@ -11282,7 +11346,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
-       });																																																															
+       });																																																																	
   }
 
   /**
@@ -11293,7 +11357,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    */
   protected void createGmf_18Annotations()
   {
-    String source = "gmf.diagram.control";																																																																																																																																										
+    String source = "gmf.diagram.control";																																																																																																																																												
     addAnnotation
       (controlsEClass, 
        source, 
@@ -11310,7 +11374,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    */
   protected void createGmf_19Annotations()
   {
-    String source = "gmf.diagram.infarastructure";																																																																																																																																																																											
+    String source = "gmf.diagram.infarastructure";																																																																																																																																																																													
     addAnnotation
       (enterpriseInfrastructureEClass, 
        source, 

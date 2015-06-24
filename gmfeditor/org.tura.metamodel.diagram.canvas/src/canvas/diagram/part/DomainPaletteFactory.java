@@ -40,13 +40,15 @@ public class DomainPaletteFactory {
 		paletteContainer.add(createButton2CreationTool());
 		paletteContainer.add(createCheckBox3CreationTool());
 		paletteContainer.add(createColumn4CreationTool());
-		paletteContainer.add(createDropDownSelection5CreationTool());
-		paletteContainer.add(createInputText6CreationTool());
-		paletteContainer.add(createLabel7CreationTool());
-		paletteContainer.add(createLayerHolder8CreationTool());
-		paletteContainer.add(createOutputText9CreationTool());
-		paletteContainer.add(createTable10CreationTool());
-		paletteContainer.add(createTree11CreationTool());
+		paletteContainer.add(createDate5CreationTool());
+		paletteContainer.add(createDropDownSelection6CreationTool());
+		paletteContainer.add(createImage7CreationTool());
+		paletteContainer.add(createInputText8CreationTool());
+		paletteContainer.add(createLabel9CreationTool());
+		paletteContainer.add(createLayerHolder10CreationTool());
+		paletteContainer.add(createOutputText11CreationTool());
+		paletteContainer.add(createTable12CreationTool());
+		paletteContainer.add(createTree13CreationTool());
 		return paletteContainer;
 	}
 
@@ -114,13 +116,28 @@ public class DomainPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createDropDownSelection5CreationTool() {
+	private ToolEntry createDate5CreationTool() {
+		ArrayList<IElementType> types = new ArrayList<IElementType>(2);
+		types.add(DomainElementTypes.Date_1603029);
+		types.add(DomainElementTypes.Date_1603031);
+		NodeToolEntry entry = new NodeToolEntry(Messages.Date5CreationTool_title, Messages.Date5CreationTool_desc,
+				types);
+		entry.setId("createDate5CreationTool"); //$NON-NLS-1$
+		entry.setSmallIcon(DomainDiagramEditorPlugin.findImageDescriptor("/org.tura.metamodel.commons/icons/date.png")); //$NON-NLS-1$
+		entry.setLargeIcon(entry.getSmallIcon());
+		return entry;
+	}
+
+	/**
+	 * @generated
+	 */
+	private ToolEntry createDropDownSelection6CreationTool() {
 		ArrayList<IElementType> types = new ArrayList<IElementType>(2);
 		types.add(DomainElementTypes.DropDownSelection_1603002);
 		types.add(DomainElementTypes.DropDownSelection_1603010);
-		NodeToolEntry entry = new NodeToolEntry(Messages.DropDownSelection5CreationTool_title,
-				Messages.DropDownSelection5CreationTool_desc, types);
-		entry.setId("createDropDownSelection5CreationTool"); //$NON-NLS-1$
+		NodeToolEntry entry = new NodeToolEntry(Messages.DropDownSelection6CreationTool_title,
+				Messages.DropDownSelection6CreationTool_desc, types);
+		entry.setId("createDropDownSelection6CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(DomainDiagramEditorPlugin
 				.findImageDescriptor("/org.tura.metamodel.commons/icons/dropdownselection.png")); //$NON-NLS-1$
 		entry.setLargeIcon(entry.getSmallIcon());
@@ -130,13 +147,28 @@ public class DomainPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createInputText6CreationTool() {
+	private ToolEntry createImage7CreationTool() {
+		ArrayList<IElementType> types = new ArrayList<IElementType>(2);
+		types.add(DomainElementTypes.Image_1603028);
+		types.add(DomainElementTypes.Image_1603030);
+		NodeToolEntry entry = new NodeToolEntry(Messages.Image7CreationTool_title, Messages.Image7CreationTool_desc,
+				types);
+		entry.setId("createImage7CreationTool"); //$NON-NLS-1$
+		entry.setSmallIcon(DomainDiagramEditorPlugin.findImageDescriptor("/org.tura.metamodel.commons/icons/image.png")); //$NON-NLS-1$
+		entry.setLargeIcon(entry.getSmallIcon());
+		return entry;
+	}
+
+	/**
+	 * @generated
+	 */
+	private ToolEntry createInputText8CreationTool() {
 		ArrayList<IElementType> types = new ArrayList<IElementType>(2);
 		types.add(DomainElementTypes.InputText_1603004);
 		types.add(DomainElementTypes.InputText_1603012);
-		NodeToolEntry entry = new NodeToolEntry(Messages.InputText6CreationTool_title,
-				Messages.InputText6CreationTool_desc, types);
-		entry.setId("createInputText6CreationTool"); //$NON-NLS-1$
+		NodeToolEntry entry = new NodeToolEntry(Messages.InputText8CreationTool_title,
+				Messages.InputText8CreationTool_desc, types);
+		entry.setId("createInputText8CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(DomainDiagramEditorPlugin
 				.findImageDescriptor("/org.tura.metamodel.commons/icons/inputtext.png")); //$NON-NLS-1$
 		entry.setLargeIcon(entry.getSmallIcon());
@@ -146,13 +178,13 @@ public class DomainPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createLabel7CreationTool() {
+	private ToolEntry createLabel9CreationTool() {
 		ArrayList<IElementType> types = new ArrayList<IElementType>(2);
 		types.add(DomainElementTypes.Label_1603005);
 		types.add(DomainElementTypes.Label_1603013);
-		NodeToolEntry entry = new NodeToolEntry(Messages.Label7CreationTool_title, Messages.Label7CreationTool_desc,
+		NodeToolEntry entry = new NodeToolEntry(Messages.Label9CreationTool_title, Messages.Label9CreationTool_desc,
 				types);
-		entry.setId("createLabel7CreationTool"); //$NON-NLS-1$
+		entry.setId("createLabel9CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(DomainDiagramEditorPlugin.findImageDescriptor("/org.tura.metamodel.commons/icons/label.png")); //$NON-NLS-1$
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
@@ -161,14 +193,14 @@ public class DomainPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createLayerHolder8CreationTool() {
+	private ToolEntry createLayerHolder10CreationTool() {
 		ArrayList<IElementType> types = new ArrayList<IElementType>(3);
 		types.add(DomainElementTypes.LayerHolder_1602003);
 		types.add(DomainElementTypes.LayerHolder_1603020);
 		types.add(DomainElementTypes.LayerHolder_1603019);
-		NodeToolEntry entry = new NodeToolEntry(Messages.LayerHolder8CreationTool_title,
-				Messages.LayerHolder8CreationTool_desc, types);
-		entry.setId("createLayerHolder8CreationTool"); //$NON-NLS-1$
+		NodeToolEntry entry = new NodeToolEntry(Messages.LayerHolder10CreationTool_title,
+				Messages.LayerHolder10CreationTool_desc, types);
+		entry.setId("createLayerHolder10CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(DomainDiagramEditorPlugin
 				.findImageDescriptor("/org.tura.metamodel.commons/icons/layerholder.png")); //$NON-NLS-1$
 		entry.setLargeIcon(entry.getSmallIcon());
@@ -178,13 +210,13 @@ public class DomainPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createOutputText9CreationTool() {
+	private ToolEntry createOutputText11CreationTool() {
 		ArrayList<IElementType> types = new ArrayList<IElementType>(2);
 		types.add(DomainElementTypes.OutputText_1603006);
 		types.add(DomainElementTypes.OutputText_1603014);
-		NodeToolEntry entry = new NodeToolEntry(Messages.OutputText9CreationTool_title,
-				Messages.OutputText9CreationTool_desc, types);
-		entry.setId("createOutputText9CreationTool"); //$NON-NLS-1$
+		NodeToolEntry entry = new NodeToolEntry(Messages.OutputText11CreationTool_title,
+				Messages.OutputText11CreationTool_desc, types);
+		entry.setId("createOutputText11CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(DomainDiagramEditorPlugin
 				.findImageDescriptor("/org.tura.metamodel.commons/icons/outputtext.png")); //$NON-NLS-1$
 		entry.setLargeIcon(entry.getSmallIcon());
@@ -194,13 +226,13 @@ public class DomainPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createTable10CreationTool() {
+	private ToolEntry createTable12CreationTool() {
 		ArrayList<IElementType> types = new ArrayList<IElementType>(2);
 		types.add(DomainElementTypes.Table_1603008);
 		types.add(DomainElementTypes.Table_1603021);
-		NodeToolEntry entry = new NodeToolEntry(Messages.Table10CreationTool_title, Messages.Table10CreationTool_desc,
+		NodeToolEntry entry = new NodeToolEntry(Messages.Table12CreationTool_title, Messages.Table12CreationTool_desc,
 				types);
-		entry.setId("createTable10CreationTool"); //$NON-NLS-1$
+		entry.setId("createTable12CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(DomainDiagramEditorPlugin.findImageDescriptor("/org.tura.metamodel.commons/icons/table.png")); //$NON-NLS-1$
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
@@ -209,13 +241,13 @@ public class DomainPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createTree11CreationTool() {
+	private ToolEntry createTree13CreationTool() {
 		ArrayList<IElementType> types = new ArrayList<IElementType>(2);
 		types.add(DomainElementTypes.Tree_1603022);
 		types.add(DomainElementTypes.Tree_1603016);
-		NodeToolEntry entry = new NodeToolEntry(Messages.Tree11CreationTool_title, Messages.Tree11CreationTool_desc,
+		NodeToolEntry entry = new NodeToolEntry(Messages.Tree13CreationTool_title, Messages.Tree13CreationTool_desc,
 				types);
-		entry.setId("createTree11CreationTool"); //$NON-NLS-1$
+		entry.setId("createTree13CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(DomainDiagramEditorPlugin.findImageDescriptor("/org.tura.metamodel.commons/icons/tree.png")); //$NON-NLS-1$
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;

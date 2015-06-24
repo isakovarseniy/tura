@@ -3349,6 +3349,56 @@ public class DomainItemProviderAdapterFactory extends DomainAdapterFactory imple
   }
 
   /**
+   * This keeps track of the one adapter used for all {@link domain.Image} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected ImageItemProvider imageItemProvider;
+
+  /**
+   * This creates an adapter for a {@link domain.Image}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createImageAdapter()
+  {
+    if (imageItemProvider == null)
+    {
+      imageItemProvider = new ImageItemProvider(this);
+    }
+
+    return imageItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link domain.Date} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected DateItemProvider dateItemProvider;
+
+  /**
+   * This creates an adapter for a {@link domain.Date}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createDateAdapter()
+  {
+    if (dateItemProvider == null)
+    {
+      dateItemProvider = new DateItemProvider(this);
+    }
+
+    return dateItemProvider;
+  }
+
+  /**
    * This keeps track of the one adapter used for all {@link domain.Column} instances.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -4540,6 +4590,8 @@ public class DomainItemProviderAdapterFactory extends DomainAdapterFactory imple
     if (outputTextItemProvider != null) outputTextItemProvider.dispose();
     if (checkBoxItemProvider != null) checkBoxItemProvider.dispose();
     if (dropDownSelectionItemProvider != null) dropDownSelectionItemProvider.dispose();
+    if (imageItemProvider != null) imageItemProvider.dispose();
+    if (dateItemProvider != null) dateItemProvider.dispose();
     if (columnItemProvider != null) columnItemProvider.dispose();
     if (tableItemProvider != null) tableItemProvider.dispose();
     if (treeItemProvider != null) treeItemProvider.dispose();

@@ -722,6 +722,16 @@ public class DomainAdapterFactory extends AdapterFactoryImpl {
         return createDropDownSelectionAdapter();
       }
       @Override
+      public Adapter caseImage(Image object)
+      {
+        return createImageAdapter();
+      }
+      @Override
+      public Adapter caseDate(Date object)
+      {
+        return createDateAdapter();
+      }
+      @Override
       public Adapter caseColumn(Column object)
       {
         return createColumnAdapter();
@@ -2856,6 +2866,36 @@ public class DomainAdapterFactory extends AdapterFactoryImpl {
   }
 
 	/**
+   * Creates a new adapter for an object of class '{@link domain.Image <em>Image</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see domain.Image
+   * @generated
+   */
+  public Adapter createImageAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link domain.Date <em>Date</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see domain.Date
+   * @generated
+   */
+  public Adapter createDateAdapter()
+  {
+    return null;
+  }
+
+  /**
 	 * Creates a new adapter for an object of class '{@link domain.Column
 	 * <em>Column</em>}'. <!-- begin-user-doc --> This default implementation
 	 * returns null so that we can easily ignore cases; it's useful to ignore a

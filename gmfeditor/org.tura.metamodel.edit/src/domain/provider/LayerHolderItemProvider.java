@@ -246,6 +246,16 @@ public class LayerHolderItemProvider
     newChildDescriptors.add
       (createChildParameter
         (DomainPackage.Literals.CHILDREN_HOLDER__CHILDREN,
+         DomainFactory.eINSTANCE.createImage()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (DomainPackage.Literals.CHILDREN_HOLDER__CHILDREN,
+         DomainFactory.eINSTANCE.createDate()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (DomainPackage.Literals.CHILDREN_HOLDER__CHILDREN,
          DomainFactory.eINSTANCE.createTable()));
 
     newChildDescriptors.add

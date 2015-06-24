@@ -88,6 +88,12 @@ public class DomainEditPartFactory implements EditPartFactory {
 			case CheckBoxEditPart.VISUAL_ID:
 				return new CheckBoxEditPart(view);
 
+			case ImageEditPart.VISUAL_ID:
+				return new ImageEditPart(view);
+
+			case DateEditPart.VISUAL_ID:
+				return new DateEditPart(view);
+
 			case ButtonEditPart.VISUAL_ID:
 				return new ButtonEditPart(view);
 
@@ -114,6 +120,12 @@ public class DomainEditPartFactory implements EditPartFactory {
 
 			case CheckBox2EditPart.VISUAL_ID:
 				return new CheckBox2EditPart(view);
+
+			case Image2EditPart.VISUAL_ID:
+				return new Image2EditPart(view);
+
+			case Date2EditPart.VISUAL_ID:
+				return new Date2EditPart(view);
 
 			case Button2EditPart.VISUAL_ID:
 				return new Button2EditPart(view);

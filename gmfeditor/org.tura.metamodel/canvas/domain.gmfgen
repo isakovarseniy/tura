@@ -522,6 +522,56 @@
       </modelFacet>
     </childNodes>
     <childNodes
+        visualID="1603028"
+        editPartClassName="ImageEditPart"
+        itemSemanticEditPolicyClassName="ImageItemSemanticEditPolicy"
+        canonicalEditPolicyClassName="ImageCanonicalEditPolicy"
+        graphicalNodeEditPolicyClassName="ImageGraphicalNodeEditPolicy"
+        createCommandClassName="ImageCreateCommand"
+        containers="//@diagram/@compartments.8 //@diagram/@compartments.6 //@diagram/@compartments.0">
+      <diagramRunTimeClass
+          href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+      <elementType
+          xsi:type="gmfgen:MetamodelType"
+          editHelperClassName="ImageEditHelper"/>
+      <viewmap
+          xsi:type="gmfgen:FigureViewmap"
+          figureQualifiedClassName="org.tura.metamodel.commons.figures.MetaImageFigure"/>
+      <modelFacet>
+        <metaClass
+            href="domain.genmodel#//domain/Image"/>
+        <containmentMetaFeature
+            href="domain.genmodel#//domain/ChildrenHolder/children"/>
+        <childMetaFeature
+            href="domain.genmodel#//domain/ChildrenHolder/children"/>
+      </modelFacet>
+    </childNodes>
+    <childNodes
+        visualID="1603029"
+        editPartClassName="DateEditPart"
+        itemSemanticEditPolicyClassName="DateItemSemanticEditPolicy"
+        canonicalEditPolicyClassName="DateCanonicalEditPolicy"
+        graphicalNodeEditPolicyClassName="DateGraphicalNodeEditPolicy"
+        createCommandClassName="DateCreateCommand"
+        containers="//@diagram/@compartments.8 //@diagram/@compartments.6 //@diagram/@compartments.0">
+      <diagramRunTimeClass
+          href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+      <elementType
+          xsi:type="gmfgen:MetamodelType"
+          editHelperClassName="DateEditHelper"/>
+      <viewmap
+          xsi:type="gmfgen:FigureViewmap"
+          figureQualifiedClassName="org.tura.metamodel.commons.figures.DateFigure"/>
+      <modelFacet>
+        <metaClass
+            href="domain.genmodel#//domain/Date"/>
+        <containmentMetaFeature
+            href="domain.genmodel#//domain/ChildrenHolder/children"/>
+        <childMetaFeature
+            href="domain.genmodel#//domain/ChildrenHolder/children"/>
+      </modelFacet>
+    </childNodes>
+    <childNodes
         visualID="1603017"
         editPartClassName="ButtonEditPart"
         itemSemanticEditPolicyClassName="ButtonItemSemanticEditPolicy"
@@ -753,6 +803,56 @@
       </modelFacet>
     </childNodes>
     <childNodes
+        visualID="1603030"
+        editPartClassName="Image2EditPart"
+        itemSemanticEditPolicyClassName="Image2ItemSemanticEditPolicy"
+        canonicalEditPolicyClassName="Image2CanonicalEditPolicy"
+        graphicalNodeEditPolicyClassName="Image2GraphicalNodeEditPolicy"
+        createCommandClassName="Image2CreateCommand"
+        containers="//@diagram/@compartments.5 //@diagram/@compartments.2">
+      <diagramRunTimeClass
+          href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+      <elementType
+          xsi:type="gmfgen:SpecializationType"
+          metamodelType="//@diagram/@childNodes.13/@elementType"/>
+      <viewmap
+          xsi:type="gmfgen:FigureViewmap"
+          figureQualifiedClassName="org.tura.metamodel.commons.figures.MetaImageFigure"/>
+      <modelFacet>
+        <metaClass
+            href="domain.genmodel#//domain/Image"/>
+        <containmentMetaFeature
+            href="domain.genmodel#//domain/Column/element"/>
+        <childMetaFeature
+            href="domain.genmodel#//domain/Column/element"/>
+      </modelFacet>
+    </childNodes>
+    <childNodes
+        visualID="1603031"
+        editPartClassName="Date2EditPart"
+        itemSemanticEditPolicyClassName="Date2ItemSemanticEditPolicy"
+        canonicalEditPolicyClassName="Date2CanonicalEditPolicy"
+        graphicalNodeEditPolicyClassName="Date2GraphicalNodeEditPolicy"
+        createCommandClassName="Date2CreateCommand"
+        containers="//@diagram/@compartments.5 //@diagram/@compartments.2">
+      <diagramRunTimeClass
+          href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+      <elementType
+          xsi:type="gmfgen:SpecializationType"
+          metamodelType="//@diagram/@childNodes.14/@elementType"/>
+      <viewmap
+          xsi:type="gmfgen:FigureViewmap"
+          figureQualifiedClassName="org.tura.metamodel.commons.figures.DateFigure"/>
+      <modelFacet>
+        <metaClass
+            href="domain.genmodel#//domain/Date"/>
+        <containmentMetaFeature
+            href="domain.genmodel#//domain/Column/element"/>
+        <childMetaFeature
+            href="domain.genmodel#//domain/Column/element"/>
+      </modelFacet>
+    </childNodes>
+    <childNodes
         visualID="1603023"
         editPartClassName="Button2EditPart"
         itemSemanticEditPolicyClassName="Button2ItemSemanticEditPolicy"
@@ -765,7 +865,7 @@
           href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
           xsi:type="gmfgen:SpecializationType"
-          metamodelType="//@diagram/@childNodes.13/@elementType"/>
+          metamodelType="//@diagram/@childNodes.15/@elementType"/>
       <viewmap
           xsi:type="gmfgen:InnerClassViewmap"
           className="ButtonFigure"
@@ -815,7 +915,7 @@
           href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
           xsi:type="gmfgen:SpecializationType"
-          metamodelType="//@diagram/@childNodes.15/@elementType"/>
+          metamodelType="//@diagram/@childNodes.17/@elementType"/>
       <viewmap
           xsi:type="gmfgen:InnerClassViewmap"
           className="LabelFigure"
@@ -888,7 +988,7 @@
         editPartClassName="LayerHolderLayerHolderChildrenCompartmentEditPart"
         itemSemanticEditPolicyClassName="LayerHolderLayerHolderChildrenCompartmentItemSemanticEditPolicy"
         canonicalEditPolicyClassName="LayerHolderLayerHolderChildrenCompartmentCanonicalEditPolicy"
-        childNodes="//@diagram/@childNodes.0 //@diagram/@childNodes.1 //@diagram/@childNodes.8 //@diagram/@childNodes.9 //@diagram/@childNodes.10 //@diagram/@childNodes.11 //@diagram/@childNodes.12 //@diagram/@childNodes.13 //@diagram/@childNodes.15"
+        childNodes="//@diagram/@childNodes.0 //@diagram/@childNodes.1 //@diagram/@childNodes.8 //@diagram/@childNodes.9 //@diagram/@childNodes.10 //@diagram/@childNodes.11 //@diagram/@childNodes.12 //@diagram/@childNodes.13 //@diagram/@childNodes.14 //@diagram/@childNodes.15 //@diagram/@childNodes.17"
         title="LayerHolderChildrenCompartment"
         needsTitle="false"
         node="//@diagram/@topLevelNodes.0"
@@ -922,7 +1022,7 @@
         editPartClassName="ColumnColumnElementCompartmentEditPart"
         itemSemanticEditPolicyClassName="ColumnColumnElementCompartmentItemSemanticEditPolicy"
         canonicalEditPolicyClassName="ColumnColumnElementCompartmentCanonicalEditPolicy"
-        childNodes="//@diagram/@childNodes.3 //@diagram/@childNodes.4 //@diagram/@childNodes.5 //@diagram/@childNodes.7 //@diagram/@childNodes.16 //@diagram/@childNodes.17 //@diagram/@childNodes.18 //@diagram/@childNodes.19 //@diagram/@childNodes.20"
+        childNodes="//@diagram/@childNodes.3 //@diagram/@childNodes.4 //@diagram/@childNodes.5 //@diagram/@childNodes.7 //@diagram/@childNodes.18 //@diagram/@childNodes.19 //@diagram/@childNodes.20 //@diagram/@childNodes.21 //@diagram/@childNodes.22 //@diagram/@childNodes.23 //@diagram/@childNodes.24"
         title="ColumnElementCompartment"
         needsTitle="false"
         node="//@diagram/@childNodes.2"
@@ -973,7 +1073,7 @@
         editPartClassName="ColumnColumnElementCompartment2EditPart"
         itemSemanticEditPolicyClassName="ColumnColumnElementCompartment2ItemSemanticEditPolicy"
         canonicalEditPolicyClassName="ColumnColumnElementCompartment2CanonicalEditPolicy"
-        childNodes="//@diagram/@childNodes.3 //@diagram/@childNodes.4 //@diagram/@childNodes.5 //@diagram/@childNodes.7 //@diagram/@childNodes.16 //@diagram/@childNodes.17 //@diagram/@childNodes.18 //@diagram/@childNodes.19 //@diagram/@childNodes.20"
+        childNodes="//@diagram/@childNodes.3 //@diagram/@childNodes.4 //@diagram/@childNodes.5 //@diagram/@childNodes.7 //@diagram/@childNodes.18 //@diagram/@childNodes.19 //@diagram/@childNodes.20 //@diagram/@childNodes.21 //@diagram/@childNodes.22 //@diagram/@childNodes.23 //@diagram/@childNodes.24"
         title="ColumnElementCompartment"
         needsTitle="false"
         node="//@diagram/@childNodes.6"
@@ -990,7 +1090,7 @@
         editPartClassName="LayerHolderLayerHolderChildrenCompartment2EditPart"
         itemSemanticEditPolicyClassName="LayerHolderLayerHolderChildrenCompartment2ItemSemanticEditPolicy"
         canonicalEditPolicyClassName="LayerHolderLayerHolderChildrenCompartment2CanonicalEditPolicy"
-        childNodes="//@diagram/@childNodes.0 //@diagram/@childNodes.1 //@diagram/@childNodes.8 //@diagram/@childNodes.9 //@diagram/@childNodes.10 //@diagram/@childNodes.11 //@diagram/@childNodes.12 //@diagram/@childNodes.13 //@diagram/@childNodes.15"
+        childNodes="//@diagram/@childNodes.0 //@diagram/@childNodes.1 //@diagram/@childNodes.8 //@diagram/@childNodes.9 //@diagram/@childNodes.10 //@diagram/@childNodes.11 //@diagram/@childNodes.12 //@diagram/@childNodes.13 //@diagram/@childNodes.14 //@diagram/@childNodes.15 //@diagram/@childNodes.17"
         title="LayerHolderChildrenCompartment"
         needsTitle="false"
         node="//@diagram/@childNodes.7"
@@ -1024,7 +1124,7 @@
         editPartClassName="LayerHolderLayerHolderChildrenCompartment3EditPart"
         itemSemanticEditPolicyClassName="LayerHolderLayerHolderChildrenCompartment3ItemSemanticEditPolicy"
         canonicalEditPolicyClassName="LayerHolderLayerHolderChildrenCompartment3CanonicalEditPolicy"
-        childNodes="//@diagram/@childNodes.0 //@diagram/@childNodes.1 //@diagram/@childNodes.8 //@diagram/@childNodes.9 //@diagram/@childNodes.10 //@diagram/@childNodes.11 //@diagram/@childNodes.12 //@diagram/@childNodes.13 //@diagram/@childNodes.15"
+        childNodes="//@diagram/@childNodes.0 //@diagram/@childNodes.1 //@diagram/@childNodes.8 //@diagram/@childNodes.9 //@diagram/@childNodes.10 //@diagram/@childNodes.11 //@diagram/@childNodes.12 //@diagram/@childNodes.13 //@diagram/@childNodes.14 //@diagram/@childNodes.15 //@diagram/@childNodes.17"
         title="LayerHolderChildrenCompartment"
         needsTitle="false"
         node="//@diagram/@childNodes.9"
@@ -1041,10 +1141,10 @@
         editPartClassName="ButtonButtonTriggersCompartmentEditPart"
         itemSemanticEditPolicyClassName="ButtonButtonTriggersCompartmentItemSemanticEditPolicy"
         canonicalEditPolicyClassName="ButtonButtonTriggersCompartmentCanonicalEditPolicy"
-        childNodes="//@diagram/@childNodes.14"
+        childNodes="//@diagram/@childNodes.16"
         title="ButtonTriggersCompartment"
         needsTitle="false"
-        node="//@diagram/@childNodes.13">
+        node="//@diagram/@childNodes.15">
       <diagramRunTimeClass
           href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <viewmap
@@ -1057,10 +1157,10 @@
         editPartClassName="ButtonButtonTriggersCompartment2EditPart"
         itemSemanticEditPolicyClassName="ButtonButtonTriggersCompartment2ItemSemanticEditPolicy"
         canonicalEditPolicyClassName="ButtonButtonTriggersCompartment2CanonicalEditPolicy"
-        childNodes="//@diagram/@childNodes.14"
+        childNodes="//@diagram/@childNodes.16"
         title="ButtonTriggersCompartment"
         needsTitle="false"
-        node="//@diagram/@childNodes.19">
+        node="//@diagram/@childNodes.23">
       <diagramRunTimeClass
           href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <viewmap
@@ -1076,19 +1176,19 @@
             xsi:type="gmfgen:ToolEntry"
             title="ActionTrigger"
             description="Create new ActionTrigger"
-            genNodes="//@diagram/@childNodes.14"/>
+            genNodes="//@diagram/@childNodes.16"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
             title="Button"
             description="Create new Button"
             smallIconPath="/org.tura.metamodel.commons/icons/button.png"
-            genNodes="//@diagram/@childNodes.13 //@diagram/@childNodes.19"/>
+            genNodes="//@diagram/@childNodes.15 //@diagram/@childNodes.23"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
             title="CheckBox"
             description="Create new CheckBox"
             smallIconPath="/org.tura.metamodel.commons/icons/checkbox.png"
-            genNodes="//@diagram/@childNodes.12 //@diagram/@childNodes.18"/>
+            genNodes="//@diagram/@childNodes.12 //@diagram/@childNodes.20"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
             title="Column"
@@ -1097,22 +1197,34 @@
             genNodes="//@diagram/@childNodes.2 //@diagram/@childNodes.6"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
+            title="Date"
+            description="Create new Date"
+            smallIconPath="/org.tura.metamodel.commons/icons/date.png"
+            genNodes="//@diagram/@childNodes.14 //@diagram/@childNodes.22"/>
+        <entries
+            xsi:type="gmfgen:ToolEntry"
             title="DropDownSelection"
             description="Create new DropDownSelection"
             smallIconPath="/org.tura.metamodel.commons/icons/dropdownselection.png"
             genNodes="//@diagram/@childNodes.0 //@diagram/@childNodes.3"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
+            title="Image"
+            description="Create new Image"
+            smallIconPath="/org.tura.metamodel.commons/icons/image.png"
+            genNodes="//@diagram/@childNodes.13 //@diagram/@childNodes.21"/>
+        <entries
+            xsi:type="gmfgen:ToolEntry"
             title="InputText"
             description="Create new InputText"
             smallIconPath="/org.tura.metamodel.commons/icons/inputtext.png"
-            genNodes="//@diagram/@childNodes.10 //@diagram/@childNodes.16"/>
+            genNodes="//@diagram/@childNodes.10 //@diagram/@childNodes.18"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
             title="Label"
             description="Create new Label"
             smallIconPath="/org.tura.metamodel.commons/icons/label.png"
-            genNodes="//@diagram/@childNodes.15 //@diagram/@childNodes.20"/>
+            genNodes="//@diagram/@childNodes.17 //@diagram/@childNodes.24"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
             title="LayerHolder"
@@ -1124,7 +1236,7 @@
             title="OutputText"
             description="Create new OutputText"
             smallIconPath="/org.tura.metamodel.commons/icons/outputtext.png"
-            genNodes="//@diagram/@childNodes.11 //@diagram/@childNodes.17"/>
+            genNodes="//@diagram/@childNodes.11 //@diagram/@childNodes.19"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
             title="Table"
@@ -1231,14 +1343,20 @@
         parent="//@diagram/@childNodes.9"
         child="//@diagram/@childNodes.12"/>
     <childReferences
-        parent="//@diagram/@childNodes.13"
-        child="//@diagram/@childNodes.14"/>
-    <childReferences
         parent="//@diagram/@childNodes.9"
         child="//@diagram/@childNodes.13"/>
     <childReferences
         parent="//@diagram/@childNodes.9"
+        child="//@diagram/@childNodes.14"/>
+    <childReferences
+        parent="//@diagram/@childNodes.15"
+        child="//@diagram/@childNodes.16"/>
+    <childReferences
+        parent="//@diagram/@childNodes.9"
         child="//@diagram/@childNodes.15"/>
+    <childReferences
+        parent="//@diagram/@childNodes.9"
+        child="//@diagram/@childNodes.17"/>
     <childReferences
         parent="//@diagram/@childNodes.7"
         child="//@diagram/@childNodes.9"/>
@@ -1256,28 +1374,40 @@
         child="//@diagram/@childNodes.13"/>
     <childReferences
         parent="//@diagram/@childNodes.7"
+        child="//@diagram/@childNodes.14"/>
+    <childReferences
+        parent="//@diagram/@childNodes.7"
         child="//@diagram/@childNodes.15"/>
+    <childReferences
+        parent="//@diagram/@childNodes.7"
+        child="//@diagram/@childNodes.17"/>
     <childReferences
         parent="//@diagram/@childNodes.6"
         child="//@diagram/@childNodes.7"/>
     <childReferences
         parent="//@diagram/@childNodes.6"
-        child="//@diagram/@childNodes.16"/>
-    <childReferences
-        parent="//@diagram/@childNodes.6"
-        child="//@diagram/@childNodes.17"/>
-    <childReferences
-        parent="//@diagram/@childNodes.6"
         child="//@diagram/@childNodes.18"/>
-    <childReferences
-        parent="//@diagram/@childNodes.19"
-        child="//@diagram/@childNodes.14"/>
     <childReferences
         parent="//@diagram/@childNodes.6"
         child="//@diagram/@childNodes.19"/>
     <childReferences
         parent="//@diagram/@childNodes.6"
         child="//@diagram/@childNodes.20"/>
+    <childReferences
+        parent="//@diagram/@childNodes.6"
+        child="//@diagram/@childNodes.21"/>
+    <childReferences
+        parent="//@diagram/@childNodes.6"
+        child="//@diagram/@childNodes.22"/>
+    <childReferences
+        parent="//@diagram/@childNodes.23"
+        child="//@diagram/@childNodes.16"/>
+    <childReferences
+        parent="//@diagram/@childNodes.6"
+        child="//@diagram/@childNodes.23"/>
+    <childReferences
+        parent="//@diagram/@childNodes.6"
+        child="//@diagram/@childNodes.24"/>
     <childReferences
         parent="//@diagram/@childNodes.5"
         child="//@diagram/@childNodes.6"/>
@@ -1289,12 +1419,6 @@
         child="//@diagram/@childNodes.7"/>
     <childReferences
         parent="//@diagram/@childNodes.2"
-        child="//@diagram/@childNodes.16"/>
-    <childReferences
-        parent="//@diagram/@childNodes.2"
-        child="//@diagram/@childNodes.17"/>
-    <childReferences
-        parent="//@diagram/@childNodes.2"
         child="//@diagram/@childNodes.18"/>
     <childReferences
         parent="//@diagram/@childNodes.2"
@@ -1302,6 +1426,18 @@
     <childReferences
         parent="//@diagram/@childNodes.2"
         child="//@diagram/@childNodes.20"/>
+    <childReferences
+        parent="//@diagram/@childNodes.2"
+        child="//@diagram/@childNodes.21"/>
+    <childReferences
+        parent="//@diagram/@childNodes.2"
+        child="//@diagram/@childNodes.22"/>
+    <childReferences
+        parent="//@diagram/@childNodes.2"
+        child="//@diagram/@childNodes.23"/>
+    <childReferences
+        parent="//@diagram/@childNodes.2"
+        child="//@diagram/@childNodes.24"/>
     <childReferences
         parent="//@diagram/@childNodes.1"
         child="//@diagram/@childNodes.2"/>
@@ -1328,7 +1464,13 @@
         child="//@diagram/@childNodes.13"/>
     <childReferences
         parent="//@diagram/@topLevelNodes.0"
+        child="//@diagram/@childNodes.14"/>
+    <childReferences
+        parent="//@diagram/@topLevelNodes.0"
         child="//@diagram/@childNodes.15"/>
+    <childReferences
+        parent="//@diagram/@topLevelNodes.0"
+        child="//@diagram/@childNodes.17"/>
     <childReferences
         parent="//@diagram"
         child="//@diagram/@topLevelNodes.0"/>
@@ -1359,7 +1501,7 @@
       extensibleViaService="true">
     <implementations
         xsi:type="gmfgen:PredefinedParser"
-        uses="//@diagram/@childNodes.4/@labels.0/@modelFacet //@diagram/@childNodes.8/@labels.0/@modelFacet //@diagram/@childNodes.14/@labels.0/@modelFacet //@diagram/@childNodes.13/@labels.0/@modelFacet //@diagram/@childNodes.15/@labels.0/@modelFacet //@diagram/@childNodes.19/@labels.0/@modelFacet //@diagram/@childNodes.20/@labels.0/@modelFacet //@diagram/@childNodes.6/@labels.0/@modelFacet //@diagram/@childNodes.5/@labels.0/@modelFacet //@diagram/@childNodes.2/@labels.0/@modelFacet //@diagram/@childNodes.1/@labels.0/@modelFacet"/>
+        uses="//@diagram/@childNodes.4/@labels.0/@modelFacet //@diagram/@childNodes.8/@labels.0/@modelFacet //@diagram/@childNodes.16/@labels.0/@modelFacet //@diagram/@childNodes.15/@labels.0/@modelFacet //@diagram/@childNodes.17/@labels.0/@modelFacet //@diagram/@childNodes.23/@labels.0/@modelFacet //@diagram/@childNodes.24/@labels.0/@modelFacet //@diagram/@childNodes.6/@labels.0/@modelFacet //@diagram/@childNodes.5/@labels.0/@modelFacet //@diagram/@childNodes.2/@labels.0/@modelFacet //@diagram/@childNodes.1/@labels.0/@modelFacet"/>
   </labelParsers>
   <contextMenus
       context="//@diagram">

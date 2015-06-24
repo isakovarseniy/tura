@@ -333,6 +333,16 @@ public class ColumnItemProvider
     newChildDescriptors.add
       (createChildParameter
         (DomainPackage.Literals.COLUMN__ELEMENT,
+         DomainFactory.eINSTANCE.createImage()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (DomainPackage.Literals.COLUMN__ELEMENT,
+         DomainFactory.eINSTANCE.createDate()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (DomainPackage.Literals.COLUMN__ELEMENT,
          DomainFactory.eINSTANCE.createTable()));
 
     newChildDescriptors.add

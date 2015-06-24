@@ -26,7 +26,9 @@ import org.eclipse.gmf.runtime.notation.View;
 
 import canvas.diagram.edit.parts.ButtonEditPart;
 import canvas.diagram.edit.parts.CheckBoxEditPart;
+import canvas.diagram.edit.parts.DateEditPart;
 import canvas.diagram.edit.parts.DropDownSelectionEditPart;
+import canvas.diagram.edit.parts.ImageEditPart;
 import canvas.diagram.edit.parts.InputTextEditPart;
 import canvas.diagram.edit.parts.LabelEditPart;
 import canvas.diagram.edit.parts.LayerHolder3EditPart;
@@ -97,6 +99,8 @@ public class LayerHolderLayerHolderChildrenCompartmentCanonicalEditPolicy extend
 		case InputTextEditPart.VISUAL_ID:
 		case OutputTextEditPart.VISUAL_ID:
 		case CheckBoxEditPart.VISUAL_ID:
+		case ImageEditPart.VISUAL_ID:
+		case DateEditPart.VISUAL_ID:
 		case ButtonEditPart.VISUAL_ID:
 		case LabelEditPart.VISUAL_ID:
 			return true;

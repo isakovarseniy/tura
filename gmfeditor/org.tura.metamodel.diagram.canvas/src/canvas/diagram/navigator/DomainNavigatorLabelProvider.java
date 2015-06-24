@@ -33,8 +33,12 @@ import canvas.diagram.edit.parts.Column2EditPart;
 import canvas.diagram.edit.parts.ColumnEditPart;
 import canvas.diagram.edit.parts.ColumnLabel2EditPart;
 import canvas.diagram.edit.parts.ColumnLabelEditPart;
+import canvas.diagram.edit.parts.Date2EditPart;
+import canvas.diagram.edit.parts.DateEditPart;
 import canvas.diagram.edit.parts.DropDownSelection2EditPart;
 import canvas.diagram.edit.parts.DropDownSelectionEditPart;
+import canvas.diagram.edit.parts.Image2EditPart;
+import canvas.diagram.edit.parts.ImageEditPart;
 import canvas.diagram.edit.parts.InputText2EditPart;
 import canvas.diagram.edit.parts.InputTextEditPart;
 import canvas.diagram.edit.parts.Label2EditPart;
@@ -60,6 +64,7 @@ import canvas.diagram.providers.DomainElementTypes;
 import canvas.diagram.providers.DomainParserProvider;
 import domain.CanvasView;
 import domain.CheckBox;
+import domain.Date;
 import domain.DropDownSelection;
 import domain.InputText;
 import domain.LayerHolder;
@@ -164,6 +169,10 @@ public class DomainNavigatorLabelProvider extends LabelProvider implements IComm
 		case CheckBoxEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Node?http://tura.org/2013/v1/domain?CheckBox", DomainElementTypes.CheckBox_1603007); //$NON-NLS-1$
+		case ImageEditPart.VISUAL_ID:
+			return getImage("Navigator?Node?http://tura.org/2013/v1/domain?Image", DomainElementTypes.Image_1603028); //$NON-NLS-1$
+		case DateEditPart.VISUAL_ID:
+			return getImage("Navigator?Node?http://tura.org/2013/v1/domain?Date", DomainElementTypes.Date_1603029); //$NON-NLS-1$
 		case ButtonEditPart.VISUAL_ID:
 			return getImage("Navigator?Node?http://tura.org/2013/v1/domain?Button", DomainElementTypes.Button_1603017); //$NON-NLS-1$
 		case ActionTriggerEditPart.VISUAL_ID:
@@ -180,6 +189,10 @@ public class DomainNavigatorLabelProvider extends LabelProvider implements IComm
 		case CheckBox2EditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Node?http://tura.org/2013/v1/domain?CheckBox", DomainElementTypes.CheckBox_1603015); //$NON-NLS-1$
+		case Image2EditPart.VISUAL_ID:
+			return getImage("Navigator?Node?http://tura.org/2013/v1/domain?Image", DomainElementTypes.Image_1603030); //$NON-NLS-1$
+		case Date2EditPart.VISUAL_ID:
+			return getImage("Navigator?Node?http://tura.org/2013/v1/domain?Date", DomainElementTypes.Date_1603031); //$NON-NLS-1$
 		case Button2EditPart.VISUAL_ID:
 			return getImage("Navigator?Node?http://tura.org/2013/v1/domain?Button", DomainElementTypes.Button_1603023); //$NON-NLS-1$
 		case Label2EditPart.VISUAL_ID:
@@ -272,6 +285,10 @@ public class DomainNavigatorLabelProvider extends LabelProvider implements IComm
 			return getOutputText_1603006Text(view);
 		case CheckBoxEditPart.VISUAL_ID:
 			return getCheckBox_1603007Text(view);
+		case ImageEditPart.VISUAL_ID:
+			return getImage_1603028Text(view);
+		case DateEditPart.VISUAL_ID:
+			return getDate_1603029Text(view);
 		case ButtonEditPart.VISUAL_ID:
 			return getButton_1603017Text(view);
 		case ActionTriggerEditPart.VISUAL_ID:
@@ -284,6 +301,10 @@ public class DomainNavigatorLabelProvider extends LabelProvider implements IComm
 			return getOutputText_1603014Text(view);
 		case CheckBox2EditPart.VISUAL_ID:
 			return getCheckBox_1603015Text(view);
+		case Image2EditPart.VISUAL_ID:
+			return getImage_1603030Text(view);
+		case Date2EditPart.VISUAL_ID:
+			return getDate_1603031Text(view);
 		case Button2EditPart.VISUAL_ID:
 			return getButton_1603023Text(view);
 		case Label2EditPart.VISUAL_ID:
@@ -556,6 +577,32 @@ public class DomainNavigatorLabelProvider extends LabelProvider implements IComm
 	/**
 	 * @generated
 	 */
+	private String getImage_1603028Text(View view) {
+		domain.Image domainModelElement = (domain.Image) view.getElement();
+		if (domainModelElement != null) {
+			return domainModelElement.getNickname();
+		} else {
+			DomainDiagramEditorPlugin.getInstance().logError("No domain element for view with visualID = " + 1603028); //$NON-NLS-1$
+			return ""; //$NON-NLS-1$
+		}
+	}
+
+	/**
+	 * @generated
+	 */
+	private String getDate_1603029Text(View view) {
+		Date domainModelElement = (Date) view.getElement();
+		if (domainModelElement != null) {
+			return domainModelElement.getNickname();
+		} else {
+			DomainDiagramEditorPlugin.getInstance().logError("No domain element for view with visualID = " + 1603029); //$NON-NLS-1$
+			return ""; //$NON-NLS-1$
+		}
+	}
+
+	/**
+	 * @generated
+	 */
 	private String getLabel_1603005Text(View view) {
 		IParser parser = DomainParserProvider.getParser(DomainElementTypes.Label_1603005,
 				view.getElement() != null ? view.getElement() : view,
@@ -604,6 +651,32 @@ public class DomainNavigatorLabelProvider extends LabelProvider implements IComm
 			return domainModelElement.getNickname();
 		} else {
 			DomainDiagramEditorPlugin.getInstance().logError("No domain element for view with visualID = " + 1603015); //$NON-NLS-1$
+			return ""; //$NON-NLS-1$
+		}
+	}
+
+	/**
+	 * @generated
+	 */
+	private String getImage_1603030Text(View view) {
+		domain.Image domainModelElement = (domain.Image) view.getElement();
+		if (domainModelElement != null) {
+			return domainModelElement.getNickname();
+		} else {
+			DomainDiagramEditorPlugin.getInstance().logError("No domain element for view with visualID = " + 1603030); //$NON-NLS-1$
+			return ""; //$NON-NLS-1$
+		}
+	}
+
+	/**
+	 * @generated
+	 */
+	private String getDate_1603031Text(View view) {
+		Date domainModelElement = (Date) view.getElement();
+		if (domainModelElement != null) {
+			return domainModelElement.getNickname();
+		} else {
+			DomainDiagramEditorPlugin.getInstance().logError("No domain element for view with visualID = " + 1603031); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 	}

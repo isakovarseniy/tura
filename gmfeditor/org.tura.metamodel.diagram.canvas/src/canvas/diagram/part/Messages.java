@@ -291,72 +291,92 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String DropDownSelection5CreationTool_title;
+	public static String Date5CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String DropDownSelection5CreationTool_desc;
+	public static String Date5CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String InputText6CreationTool_title;
+	public static String DropDownSelection6CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String InputText6CreationTool_desc;
+	public static String DropDownSelection6CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String Label7CreationTool_title;
+	public static String Image7CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Label7CreationTool_desc;
+	public static String Image7CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String LayerHolder8CreationTool_title;
+	public static String InputText8CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String LayerHolder8CreationTool_desc;
+	public static String InputText8CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String OutputText9CreationTool_title;
+	public static String Label9CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String OutputText9CreationTool_desc;
+	public static String Label9CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String Table10CreationTool_title;
+	public static String LayerHolder10CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Table10CreationTool_desc;
+	public static String LayerHolder10CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String Tree11CreationTool_title;
+	public static String OutputText11CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Tree11CreationTool_desc;
+	public static String OutputText11CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String Table12CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String Table12CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String Tree13CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String Tree13CreationTool_desc;
 
 	/**
 	 * @generated

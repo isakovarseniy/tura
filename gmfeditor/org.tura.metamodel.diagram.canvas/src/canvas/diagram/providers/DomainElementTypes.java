@@ -27,8 +27,12 @@ import canvas.diagram.edit.parts.CheckBox2EditPart;
 import canvas.diagram.edit.parts.CheckBoxEditPart;
 import canvas.diagram.edit.parts.Column2EditPart;
 import canvas.diagram.edit.parts.ColumnEditPart;
+import canvas.diagram.edit.parts.Date2EditPart;
+import canvas.diagram.edit.parts.DateEditPart;
 import canvas.diagram.edit.parts.DropDownSelection2EditPart;
 import canvas.diagram.edit.parts.DropDownSelectionEditPart;
+import canvas.diagram.edit.parts.Image2EditPart;
+import canvas.diagram.edit.parts.ImageEditPart;
 import canvas.diagram.edit.parts.InputText2EditPart;
 import canvas.diagram.edit.parts.InputTextEditPart;
 import canvas.diagram.edit.parts.Label2EditPart;
@@ -147,6 +151,16 @@ public class DomainElementTypes {
 	/**
 	 * @generated
 	 */
+	public static final IElementType Image_1603028 = getElementType("org.tura.metamodel.diagram.canvas.Image_1603028"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType Date_1603029 = getElementType("org.tura.metamodel.diagram.canvas.Date_1603029"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
 	public static final IElementType Label_1603005 = getElementType("org.tura.metamodel.diagram.canvas.Label_1603005"); //$NON-NLS-1$
 	/**
 	 * @generated
@@ -160,6 +174,16 @@ public class DomainElementTypes {
 	 * @generated
 	 */
 	public static final IElementType CheckBox_1603015 = getElementType("org.tura.metamodel.diagram.canvas.CheckBox_1603015"); //$NON-NLS-1$
+	/**
+	 * @generated
+	 */
+	public static final IElementType Image_1603030 = getElementType("org.tura.metamodel.diagram.canvas.Image_1603030"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType Date_1603031 = getElementType("org.tura.metamodel.diagram.canvas.Date_1603031"); //$NON-NLS-1$
+
 	/**
 	 * @generated
 	 */
@@ -302,6 +326,10 @@ public class DomainElementTypes {
 
 			elements.put(CheckBox_1603007, DomainPackage.eINSTANCE.getCheckBox());
 
+			elements.put(Image_1603028, DomainPackage.eINSTANCE.getImage());
+
+			elements.put(Date_1603029, DomainPackage.eINSTANCE.getDate());
+
 			elements.put(Button_1603017, DomainPackage.eINSTANCE.getButton());
 
 			elements.put(ActionTrigger_1603027, DomainPackage.eINSTANCE.getActionTrigger());
@@ -313,6 +341,10 @@ public class DomainElementTypes {
 			elements.put(OutputText_1603014, DomainPackage.eINSTANCE.getOutputText());
 
 			elements.put(CheckBox_1603015, DomainPackage.eINSTANCE.getCheckBox());
+
+			elements.put(Image_1603030, DomainPackage.eINSTANCE.getImage());
+
+			elements.put(Date_1603031, DomainPackage.eINSTANCE.getDate());
 
 			elements.put(Button_1603023, DomainPackage.eINSTANCE.getButton());
 
@@ -349,12 +381,16 @@ public class DomainElementTypes {
 			KNOWN_ELEMENT_TYPES.add(InputText_1603004);
 			KNOWN_ELEMENT_TYPES.add(OutputText_1603006);
 			KNOWN_ELEMENT_TYPES.add(CheckBox_1603007);
+			KNOWN_ELEMENT_TYPES.add(Image_1603028);
+			KNOWN_ELEMENT_TYPES.add(Date_1603029);
 			KNOWN_ELEMENT_TYPES.add(Button_1603017);
 			KNOWN_ELEMENT_TYPES.add(ActionTrigger_1603027);
 			KNOWN_ELEMENT_TYPES.add(Label_1603005);
 			KNOWN_ELEMENT_TYPES.add(InputText_1603012);
 			KNOWN_ELEMENT_TYPES.add(OutputText_1603014);
 			KNOWN_ELEMENT_TYPES.add(CheckBox_1603015);
+			KNOWN_ELEMENT_TYPES.add(Image_1603030);
+			KNOWN_ELEMENT_TYPES.add(Date_1603031);
 			KNOWN_ELEMENT_TYPES.add(Button_1603023);
 			KNOWN_ELEMENT_TYPES.add(Label_1603013);
 		}
@@ -396,6 +432,10 @@ public class DomainElementTypes {
 			return OutputText_1603006;
 		case CheckBoxEditPart.VISUAL_ID:
 			return CheckBox_1603007;
+		case ImageEditPart.VISUAL_ID:
+			return Image_1603028;
+		case DateEditPart.VISUAL_ID:
+			return Date_1603029;
 		case ButtonEditPart.VISUAL_ID:
 			return Button_1603017;
 		case ActionTriggerEditPart.VISUAL_ID:
@@ -408,6 +448,10 @@ public class DomainElementTypes {
 			return OutputText_1603014;
 		case CheckBox2EditPart.VISUAL_ID:
 			return CheckBox_1603015;
+		case Image2EditPart.VISUAL_ID:
+			return Image_1603030;
+		case Date2EditPart.VISUAL_ID:
+			return Date_1603031;
 		case Button2EditPart.VISUAL_ID:
 			return Button_1603023;
 		case Label2EditPart.VISUAL_ID:

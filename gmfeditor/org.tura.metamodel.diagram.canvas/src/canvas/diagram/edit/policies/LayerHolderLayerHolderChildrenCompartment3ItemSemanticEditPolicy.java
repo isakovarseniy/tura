@@ -8,7 +8,9 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 
 import canvas.diagram.edit.commands.ButtonCreateCommand;
 import canvas.diagram.edit.commands.CheckBoxCreateCommand;
+import canvas.diagram.edit.commands.DateCreateCommand;
 import canvas.diagram.edit.commands.DropDownSelectionCreateCommand;
+import canvas.diagram.edit.commands.ImageCreateCommand;
 import canvas.diagram.edit.commands.InputTextCreateCommand;
 import canvas.diagram.edit.commands.LabelCreateCommand;
 import canvas.diagram.edit.commands.LayerHolder3CreateCommand;
@@ -53,6 +55,12 @@ public class LayerHolderLayerHolderChildrenCompartment3ItemSemanticEditPolicy ex
 		}
 		if (DomainElementTypes.CheckBox_1603007 == req.getElementType()) {
 			return getGEFWrapper(new CheckBoxCreateCommand(req));
+		}
+		if (DomainElementTypes.Image_1603028 == req.getElementType()) {
+			return getGEFWrapper(new ImageCreateCommand(req));
+		}
+		if (DomainElementTypes.Date_1603029 == req.getElementType()) {
+			return getGEFWrapper(new DateCreateCommand(req));
 		}
 		if (DomainElementTypes.Button_1603017 == req.getElementType()) {
 			return getGEFWrapper(new ButtonCreateCommand(req));

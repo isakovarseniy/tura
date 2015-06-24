@@ -1150,6 +1150,34 @@ public class DomainSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case DomainPackage.IMAGE:
+      {
+        Image image = (Image)theEObject;
+        T result = caseImage(image);
+        if (result == null) result = caseInputElement(image);
+        if (result == null) result = caseSourcesPointer(image);
+        if (result == null) result = caseUielement(image);
+        if (result == null) result = caseStyleElement(image);
+        if (result == null) result = caseNickNamed(image);
+        if (result == null) result = caseCategorized(image);
+        if (result == null) result = caseOrderable(image);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DomainPackage.DATE:
+      {
+        Date date = (Date)theEObject;
+        T result = caseDate(date);
+        if (result == null) result = caseInputElement(date);
+        if (result == null) result = caseSourcesPointer(date);
+        if (result == null) result = caseUielement(date);
+        if (result == null) result = caseStyleElement(date);
+        if (result == null) result = caseNickNamed(date);
+        if (result == null) result = caseCategorized(date);
+        if (result == null) result = caseOrderable(date);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case DomainPackage.COLUMN:
       {
         Column column = (Column)theEObject;
@@ -3599,6 +3627,38 @@ public class DomainSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseDropDownSelection(DropDownSelection object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Image</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Image</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseImage(Image object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Date</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Date</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseDate(Date object)
   {
     return null;
   }

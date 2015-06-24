@@ -206,6 +206,10 @@ attributeFigure.setPreferredSize ( preferredSize);
 
 
 -- remove unavailabels tools
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='Image');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='Date');
+delete tool;
 var tool = GmfTool!CreationTool.all.selectOne(r|r.title='PopupCanvas');
 delete tool;
 var tool = GmfTool!CreationTool.all.selectOne(r|r.title='ActionTrigger');

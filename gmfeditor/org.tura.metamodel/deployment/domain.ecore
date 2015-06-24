@@ -1436,6 +1436,22 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="selection" eType="#//Selection"
         containment="true"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Image" eSuperTypes="#//InputElement">
+    <eAnnotations source="gmf.node">
+      <details key="figure" value="org.tura.metamodel.commons.figures.MetaImageFigure"/>
+      <details key="label.placement" value="none"/>
+      <details key="tool.small.bundle" value="org.tura.metamodel.commons"/>
+      <details key="tool.small.path" value="icons/image.png"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Date" eSuperTypes="#//InputElement">
+    <eAnnotations source="gmf.node">
+      <details key="figure" value="org.tura.metamodel.commons.figures.DateFigure"/>
+      <details key="label.placement" value="none"/>
+      <details key="tool.small.bundle" value="org.tura.metamodel.commons"/>
+      <details key="tool.small.path" value="icons/date.png"/>
+    </eAnnotations>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Column" eSuperTypes="#//StyleElement #//MultiLangLabel #//Categorized #//HTMLLayerHolder #//Orderable">
     <eAnnotations source="gmf.node">
       <details key="label" value="label"/>
