@@ -2474,7 +2474,7 @@
                       <children xmi:type="notation:BasicCompartment" xmi:id="_eMn8gbfjEeS708X6mbGGLQ" type="1607011">
                         <children xmi:type="notation:Shape" xmi:id="_q5ooQLvhEeS-Ub-drkPeIw" type="1603023" fontName="Lucida Grande">
                           <children xmi:type="notation:DecorationNode" xmi:id="_q5ooQ7vhEeS-Ub-drkPeIw" type="1605009"/>
-                          <children xmi:type="notation:BasicCompartment" xmi:id="_q5ooRLvhEeS-Ub-drkPeIw" type="1607017">
+                          <children xmi:type="notation:BasicCompartment" xmi:id="_q5ooRLvhEeS-Ub-drkPeIw" type="1607017" collapsed="true">
                             <children xmi:type="notation:Shape" xmi:id="_zZH9ELvhEeS-Ub-drkPeIw" type="1603027" fontName="Lucida Grande">
                               <children xmi:type="notation:DecorationNode" xmi:id="_zZIkILvhEeS-Ub-drkPeIw" type="1605013"/>
                               <element xmi:type="tura.domain:ActionTrigger" href="hr.domain#5b8b550a-60bb-4ddb-bf90-25c87761c62b"/>
@@ -2649,7 +2649,7 @@
           <children xmi:type="notation:BasicCompartment" xmi:id="_uScH8MFDEeSrmYUb8zCa3A" type="1607008">
             <children xmi:type="notation:Shape" xmi:id="_vfbfgMFDEeSrmYUb8zCa3A" type="1603017" fontName="Lucida Grande">
               <children xmi:type="notation:DecorationNode" xmi:id="_vfcGkMFDEeSrmYUb8zCa3A" type="1605006"/>
-              <children xmi:type="notation:BasicCompartment" xmi:id="_vfcGkcFDEeSrmYUb8zCa3A" type="1607016">
+              <children xmi:type="notation:BasicCompartment" xmi:id="_vfcGkcFDEeSrmYUb8zCa3A" type="1607016" collapsed="true">
                 <children xmi:type="notation:Shape" xmi:id="_8qBmoMFFEeSC5LCcruZZxQ" type="1603027" fontName="Lucida Grande">
                   <children xmi:type="notation:DecorationNode" xmi:id="_8qCNsMFFEeSC5LCcruZZxQ" type="1605013"/>
                   <element xmi:type="tura.domain:ActionTrigger" href="hr.domain#e70804b0-feb5-44e1-b89b-515e1a171767"/>

@@ -2329,7 +2329,7 @@
                 <expression objRef="5772ddee-a83b-41c9-8f34-c442412e1013" order="1" expressionType="MessageLibraryImpl"/>
                 <expression objRef="6dcdd799-490e-4e4b-9a8b-319824c3df09" order="2" expressionType="MessageImpl"/>
               </multiLangLabel>
-              <element xsi:type="tura.domain:Button" uid="75e7ef4b-c6d2-443f-a6b6-1821a1b0573c" onEventRefreshArea="3e4d834d-18ff-49eb-8009-86affb9fff51">
+              <element xsi:type="tura.domain:Button" uid="75e7ef4b-c6d2-443f-a6b6-1821a1b0573c" onEventRefreshArea="3e4d834d-18ff-49eb-8009-86affb9fff51" label="View Company">
                 <style constant="true" value="width:30px;height:30px"/>
                 <classifiers uid="6250498a-35cc-4213-bdbc-a02bf6a7e27c" hint="0a80d7c7-cf37-46c2-8804-665afda89f73" details="&lt;f:attribute name=&quot;param1&quot; value=&quot;#{row}&quot; />"/>
                 <enabled/>
