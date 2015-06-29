@@ -732,6 +732,45 @@
         <returnValue packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="90b18156-de6d-42d1-b350-925e44a0e4cc"/>
       </operations>
     </types>
+    <types xsi:type="tura.domain:TypeReference" uid="dac28942-e33b-415d-8818-7f4fe0b49db9" packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="50dcca84-4d2c-4fe2-baad-56afdf1be76d" fakePackageName="Base package" fakeTypeName="BaseType"/>
+    <types xsi:type="tura.domain:Type" uid="1fb89120-1544-4563-a949-33a8d12ab064" name="Department2Entity">
+      <classifiers uid="b36f747f-f035-4632-921c-4cec1cda27a9" hint="bf57ae0e-a725-4c7c-b178-ebbf640b2375"/>
+      <attributes packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="7b7c554c-a1ad-4e6e-8c91-20df7d6530f8" fakePackageName="Primitive package" fakeTypeName="Long" uid="ccb5469a-4dca-46ca-95ae-4519400f2afc" name="departmentRef"/>
+      <attributes packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="7b7c554c-a1ad-4e6e-8c91-20df7d6530f8" fakePackageName="Primitive package" fakeTypeName="Long" uid="26d4b8f3-f7d2-4a3c-8923-6ceb83f9018a" name="entityRef"/>
+      <attributes packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="6f5f3825-6695-4b7e-b07c-76ea31fa40e0" fakePackageName="Primitive package" fakeTypeName="Boolean" uid="799e091e-dc77-40ab-bc47-3d61a8b0bbec" name="boolVal"/>
+      <extension uid="7aa5b52d-be04-445d-be1e-a4e53466a81c" source="1fb89120-1544-4563-a949-33a8d12ab064" target="dac28942-e33b-415d-8818-7f4fe0b49db9">
+        <classifiers uid="bb7f54ab-e3c2-4a10-a96c-61c6efca08ae" hint="2fe9fdd8-3fec-4a11-9ed5-a79c64373895"/>
+      </extension>
+    </types>
+    <types xsi:type="tura.domain:Type" uid="fd9e9a81-b0a7-4100-82d3-54d495a52393" name="Department2Entyty query service">
+      <classifiers uid="5203b724-596f-4474-a173-30cdd3a97342" hint="11f99455-8fbd-451c-9c45-232fec79da1d"/>
+      <operations uid="4e7da6d4-c3c8-42ab-817f-7c4efaf6dcf6" name="create">
+        <returnValue packageRef="e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="1fb89120-1544-4563-a949-33a8d12ab064"/>
+      </operations>
+      <operations uid="a8efa353-ebf1-4b69-bdf9-8d9efc4b548f" name="find">
+        <parameters packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="9ec6d2e0-4002-11e4-916c-0800200c9a66" fakePackageName="Base package" fakeTypeName="Search criterias" uid="c8e89395-896e-4438-9692-83b6c2590ce4" name="search"/>
+        <parameters packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="2829901f-e985-4786-96ff-852230536694" fakePackageName="Primitive package" fakeTypeName="Integer" uid="ccd7bccc-aef3-48b9-97dd-13ce1a282821" name="startIndex" order="1"/>
+        <parameters packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="2829901f-e985-4786-96ff-852230536694" fakePackageName="Primitive package" fakeTypeName="Integer" uid="7002a852-51b8-4504-b3d8-b6759c613dbc" name="endIndex" order="3"/>
+        <parameters packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="e370b9d1-a6fb-4a40-88e2-8845be441438" fakePackageName="Primitive package" fakeTypeName="String" uid="480fe9bb-e2f1-4600-bbea-3178f6e6cf0b" name="className" order="4"/>
+        <returnValue packageRef="e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="ab216003-0555-4f74-9882-b4caa57816e8"/>
+      </operations>
+      <operations uid="c270fe90-aae3-42f5-9cbf-ee0279490774" name="insert">
+        <parameters packageRef="e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="1fb89120-1544-4563-a949-33a8d12ab064" fakePackageName="HR package" fakeTypeName="Department2Entity" uid="d8c4c9c7-f344-4f4e-99a9-e94a84273ad6" name="obj"/>
+        <returnValue packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="90b18156-de6d-42d1-b350-925e44a0e4cc"/>
+      </operations>
+      <operations uid="cad457f2-a98b-4acb-902a-faa75e821ebe" name="update">
+        <parameters packageRef="e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="1fb89120-1544-4563-a949-33a8d12ab064" fakePackageName="HR package" fakeTypeName="Department2Entity" uid="0493e9ed-145e-4851-9ef2-431811e93472" name="obj"/>
+        <returnValue packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="90b18156-de6d-42d1-b350-925e44a0e4cc"/>
+      </operations>
+      <operations uid="03481d70-31c4-436c-a791-4f290f89a5ce" name="remove">
+        <parameters packageRef="e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="1fb89120-1544-4563-a949-33a8d12ab064" fakePackageName="HR package" fakeTypeName="Department2Entity" uid="31d1d210-20cd-471a-86cc-9e9dc3e7af9b" name="obj"/>
+        <returnValue packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="90b18156-de6d-42d1-b350-925e44a0e4cc"/>
+      </operations>
+      <extension uid="c96bbe3e-18f3-46f7-a3bf-860d40beecbc" source="fd9e9a81-b0a7-4100-82d3-54d495a52393" target="1fb89120-1544-4563-a949-33a8d12ab064">
+        <classifiers uid="43820436-a9c6-4786-91f5-19903596d547" hint="ff44d9e7-d5a5-42d4-8744-089721da820e"/>
+      </extension>
+    </types>
+    <types xsi:type="tura.domain:Type" uid="ab216003-0555-4f74-9882-b4caa57816e8" name="List of departments2entity"/>
   </tura.domain:TypeDefinition>
   <tura.domain:Mappers uid="e5ddc4b2-b9bc-4fb3-928a-2cb53fcc0d2d" parent="0d86886f-6d6e-49e1-a123-d063d2d9bd22">
     <mappers xsi:type="tura.domain:JavaMapper" uid="f77c09eb-aef3-4ebd-bb99-eb19ab9c40d6" serviceLayer="true" uiLayer="true" packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="e370b9d1-a6fb-4a40-88e2-8845be441438" mappedToPackageName="java.lang" mappedToClassName="String"/>
@@ -795,6 +834,12 @@
     <mappers xsi:type="tura.domain:JavaMapper" uid="8707b216-d9cc-4c9c-ac52-f9b4ef809dd3" serviceLayer="true" packageRef="e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="686f89c2-76ca-4906-9ebd-8e977ec33f04" fakePackageName="HR package" fakeTypeName="File query service" mappedToPackageName="org.elsoft.platform.hr.services" mappedToClassName="FileService" artifactId="hr-services-ejb" groupId="org.tura.example.service" version="1.0"/>
     <mappers xsi:type="tura.domain:JavaMapper" uid="347bb4f3-5b5a-4739-8c3b-c3bb5b796476" serviceLayer="true" uiLayer="true" packageRef="e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="2ec99bf7-e2da-4b3a-84a9-5472346afb62" fakePackageName="HR package" fakeTypeName="List of  files" mappedToPackageName="java.util" mappedToClassName="List&lt;org.elsoft.platform.hr.objects.FileDAO>"/>
     <mappers xsi:type="tura.domain:JavaMapper" uid="49b627a0-c834-4b55-b0ad-a727254011f9" serviceLayer="true" uiLayer="true" packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="2957c51c-68e7-4d1e-b8b7-cbe7ccdbe13f" fakePackageName="Base package" fakeTypeName="JPA Entity CRAD Service" mappedToPackageName="org.tura.platform.commons.jpa" mappedToClassName="TuraJPAEntityService" artifactId="commons-jpa" groupId="org.tura.platform" libraryName=""/>
+    <mappers xsi:type="tura.domain:JavaMapper" uid="a9317dfd-dcb5-4550-9b2a-dddbb351ccd2" serviceLayer="true" packageRef="e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="1fb89120-1544-4563-a949-33a8d12ab064" fakePackageName="HR package" fakeTypeName="Department2Entity" mappedToPackageName="org.elsoft.platform.hr.objects" mappedToClassName="Department2EntityDAO" artifactId="hr-objects" groupId="org.tura.example.service" version="1.0"/>
+    <mappers xsi:type="tura.domain:JavaMapper" uid="dcfe6944-2ff1-44e7-bce7-be6242859737" uiLayer="true" packageRef="e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="1fb89120-1544-4563-a949-33a8d12ab064" fakePackageName="HR package" fakeTypeName="Department2Entity" mappedToPackageName="org.elsoft.platform.hr.services" mappedToClassName="Department2EntityDAO" artifactId="hr-services-proxy-client" groupId="org.tura.example.service" version="1.0" libraryName=""/>
+    <mappers xsi:type="tura.domain:JavaMapper" uid="995e02eb-959d-4056-ad23-0cec48fa945e" uiLayer="true" packageRef="e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="fd9e9a81-b0a7-4100-82d3-54d495a52393" fakePackageName="HR package" fakeTypeName="Department2Entyty query service" mappedToPackageName="org.elsoft.platform.hr.services" mappedToClassName="Department2EntityService" artifactId="hr-services-proxy-client" groupId="org.tura.example.service" version="1.0"/>
+    <mappers xsi:type="tura.domain:JavaMapper" uid="f28fb0fd-54b7-43a6-9dd8-c69124d53606" serviceLayer="true" packageRef="e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="fd9e9a81-b0a7-4100-82d3-54d495a52393" fakePackageName="HR package" fakeTypeName="Department2Entyty query service" mappedToPackageName="org.elsoft.platform.hr.services" mappedToClassName="Department2EntityService" artifactId="hr-services-ejb" groupId="org.tura.example.service" version="1.0"/>
+    <mappers xsi:type="tura.domain:JavaMapper" uid="591dcaf7-6f43-47aa-9130-a3e32806e973" serviceLayer="true" uiLayer="true" packageRef="e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="ab216003-0555-4f74-9882-b4caa57816e8" fakePackageName="HR package" fakeTypeName="List of departments2entity" mappedToPackageName="java.util" mappedToClassName="List&lt;org.elsoft.platform.hr.objects.Department2EntityDAO>"/>
+    <mappers xsi:type="tura.domain:JavaMapper" uid="0029084a-04fb-48e0-989a-0115d90c5aed" serviceLayer="true" packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="2ab4a62a-fe09-4a91-b1f7-2996f3fc498e" fakePackageName="Base package" fakeTypeName="Object ID generator" mappedToPackageName="org.tura.platform.persistence" mappedToClassName="ObjectsID" artifactId="commons-persistence" groupId="org.tura.platform" version="2.0"/>
   </tura.domain:Mappers>
   <tura.domain:Recipes uid="e0a24138-9ba7-44dd-8b87-d1b01751c642" parent="Hr_recipe">
     <recipe mappers="0d86886f-6d6e-49e1-a123-d063d2d9bd22 d29466f4-8d55-4047-b6ba-fc1a830db2a1" uid="f89d43e4-5d8d-4437-ad00-188328a43ed0" infrastructures="080702f2-6a78-43d2-8987-c923fe681415" deployment="f611d83d-edd3-42df-a8bd-78ba7e88b7d9">
@@ -984,6 +1029,10 @@
     <forms uid="6e2f11ed-d297-43d0-8343-f8235b46df8c" name="Tree2tree">
       <view uid="a6671cda-7635-4d70-99c4-2c1c5d3fa375" name="View" view="1033471c-403f-4495-8796-15521cb6d09c"/>
       <datacontrols uid="42af1957-84a2-463d-9f1a-6a92bfe27914" name="Data control" formControl="9bab1cbe-e4c8-49df-9e9b-85c50d2dbe62"/>
+    </forms>
+    <forms uid="360f3368-6d95-4aaa-8a5d-95b2709639af" name="MiscElements">
+      <view uid="f38c4521-f131-49de-9830-7baff026950f" name="View" view="e07bccbc-9fc4-4814-9624-38db64ffcf76"/>
+      <datacontrols uid="bdf00c56-8100-4230-953b-0be8e9190f24" name="Data control" formControl="275253ca-c6ab-42b4-833e-9aae82cb149d"/>
     </forms>
   </tura.domain:UIPackage>
   <tura.domain:Controls uid="5541fdd1-fedb-45ba-ab74-966e737af3a6" parent="60346910-0b2a-4fed-b397-25731ca3a1df">
@@ -2139,6 +2188,7 @@
     <mappers xsi:type="tura.domain:JavaMapper" uid="7e0f258e-549c-4952-9e0c-0f84be596ef9" uiLayer="true" packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="2ab4a62a-fe09-4a91-b1f7-2996f3fc498e" fakePackageName="Base package" fakeTypeName="Object ID generator" mappedToPackageName="org.tura.platform.persistence" mappedToClassName="ObjectsID" artifactId="commons-persistence" groupId="org.tura.platform" version="2.0" libraryName=""/>
     <mappers xsi:type="tura.domain:CSSMapper" uid="3c43cf24-80ab-4fe5-90e9-fc636e23771d" libraryUrl="hrcontrol-style.css" stylePackage="a9b99a7f-03c7-4b89-82c2-b3e1f0f326d2" styleLibrary="bc917c9e-7594-4ff8-9157-a9e6cf5ac5f5" fakePackageName="HR styles" fakeTypeName="HR Controller styles"/>
     <mappers xsi:type="tura.domain:JavaMapper" uid="476a71f7-6a51-44a7-97a4-c9d92110f237" uiLayer="true" packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="76fe6802-305f-4973-a750-b102d9559fc2" fakePackageName="Base package" fakeTypeName="Data control" mappedToPackageName="org.tura.platform.datacontrol" mappedToClassName="DataControl" artifactId="core" groupId="org.tura.platform.datacontrol" version="2.0" libraryName=""/>
+    <mappers xsi:type="tura.domain:JavaMapper" uid="c6a6361f-f794-4609-b775-6184b6d91c12" uiLayer="true" packageRef="e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="1fb89120-1544-4563-a949-33a8d12ab064" fakePackageName="HR package" fakeTypeName="Department2Entity" mappedToPackageName="org.elsoft.platform.hr.objects" mappedToClassName="Department2EntityDAO" artifactId="hr-objects" groupId="org.tura.example.service" version="1.0"/>
   </tura.domain:Mappers>
   <tura.domain:TypeDefinition uid="c9574970-474a-403a-9224-f91bc2f8fe7a"/>
   <tura.domain:Messages uid="af03a493-0ca4-486c-945f-5bfc2fdf35bd" parent="39c0cb8c-3370-4a8b-9dc8-f988c6c3a565">
@@ -3688,6 +3738,7 @@
       <viewElement xsi:type="tura.domain:ViewArea" uid="3fbcf559-edb8-4c2f-b6dc-b04a8ad7080d" name="Main canvas" canvasView="d964331d-e39e-44b3-9e30-57e65ac9b63f">
         <style/>
       </viewElement>
+      <multiLangLabel/>
     </canvases>
   </tura.domain:Views>
   <tura.domain:CanvasView uid="d964331d-e39e-44b3-9e30-57e65ac9b63f" parent="3fbcf559-edb8-4c2f-b6dc-b04a8ad7080d">
@@ -3759,4 +3810,230 @@
     <infrastructureConnections uid="86536316-41ad-41cc-a98f-ced71418a6b3" master="9782ee20-d486-4cd8-95a7-1923293d00cc" detail="97201a3f-8064-4038-8327-68349d73be3d"/>
     <infrastructureConnections uid="3616af72-389c-412e-97da-7933a3406793" master="04aa194b-3499-40de-8461-674738e5be0f" detail="97201a3f-8064-4038-8327-68349d73be3d"/>
   </tura.domain:EnterpriseInfrastructure>
+  <tura.domain:Controls uid="275253ca-c6ab-42b4-833e-9aae82cb149d" parent="bdf00c56-8100-4230-953b-0be8e9190f24">
+    <controls uid="066f4691-289b-499a-acb8-6f171d02236c" name="Departments">
+      <create packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="2957c51c-68e7-4d1e-b8b7-cbe7ccdbe13f" fakePackageName="Base package" fakeTypeName="JPA Entity CRAD Service" methodRef="40b112a0-4008-11e4-916c-0800200c9a66" fakeMethod="create" uid="826890f1-bd27-4f2e-951d-c0e69b15bd38">
+        <parameters uid="5c1985c1-c143-4672-a92e-de212616ed59" refObj="9150e8ca-6703-4e2c-a2e0-479f42987fa5">
+          <value uid="b29944c0-6656-4207-9db8-416db27be400" constant="true" value="org.elsoft.platform.hr.objects.DepartmentsDAO"/>
+        </parameters>
+      </create>
+      <insert packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="2957c51c-68e7-4d1e-b8b7-cbe7ccdbe13f" fakePackageName="Base package" fakeTypeName="JPA Entity CRAD Service" methodRef="b14bfa20-4008-11e4-916c-0800200c9a66" fakeMethod="insert" uid="0c0b6183-9328-47f8-af6f-d568df5fc142">
+        <parameters uid="e1b07b38-b27a-4b34-a2f1-9b6691d459b8" refObj="b7ea5020-4008-11e4-916c-0800200c9a66">
+          <value uid="4c53cfbc-b3d7-4e7b-bdf4-5344cfc36dbf" value="Data controls.Departments.currentObject">
+            <expression expressionType="DataControlHolder"/>
+            <expression objRef="066f4691-289b-499a-acb8-6f171d02236c" order="1" expressionType="DataControlImpl"/>
+            <expression order="2" expressionType="DataControlFakeMethod"/>
+          </value>
+        </parameters>
+      </insert>
+      <update packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="2957c51c-68e7-4d1e-b8b7-cbe7ccdbe13f" fakePackageName="Base package" fakeTypeName="JPA Entity CRAD Service" methodRef="caf1fc90-4008-11e4-916c-0800200c9a66" fakeMethod="update" uid="67b55099-e26e-4c8c-b1f2-2adf3d29dbc6">
+        <parameters uid="5b723be2-2350-41fa-b976-275d2ce9d811" refObj="7c4f4d20-400a-11e4-916c-0800200c9a66">
+          <value uid="400cd1ac-0e21-4611-9667-81cb3f7b0bab" value="Data controls.Departments.currentObject">
+            <expression expressionType="DataControlHolder"/>
+            <expression objRef="066f4691-289b-499a-acb8-6f171d02236c" order="1" expressionType="DataControlImpl"/>
+            <expression order="2" expressionType="DataControlFakeMethod"/>
+          </value>
+        </parameters>
+      </update>
+      <remove packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="2957c51c-68e7-4d1e-b8b7-cbe7ccdbe13f" fakePackageName="Base package" fakeTypeName="JPA Entity CRAD Service" methodRef="dbacf9e0-4008-11e4-916c-0800200c9a66" fakeMethod="remove" uid="414e3880-5997-4ad4-9a9a-fc1130bbb18f">
+        <parameters uid="b7d02b83-eb31-4a95-a731-a6fb28520353" refObj="73df4460-400a-11e4-916c-0800200c9a66">
+          <value uid="4511d067-ccf5-48f9-ade2-0dae4fa6b46c" value="Data controls.Departments.currentObject">
+            <expression expressionType="DataControlHolder"/>
+            <expression objRef="066f4691-289b-499a-acb8-6f171d02236c" order="1" expressionType="DataControlImpl"/>
+            <expression order="2" expressionType="DataControlFakeMethod"/>
+          </value>
+        </parameters>
+      </remove>
+      <search packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="2957c51c-68e7-4d1e-b8b7-cbe7ccdbe13f" fakePackageName="Base package" fakeTypeName="JPA Entity CRAD Service" methodRef="6fb841e0-4008-11e4-916c-0800200c9a66" fakeMethod="find" uid="a47b4c05-e20e-46e1-90a1-2c1a2dd46ba5">
+        <parameters uid="5d906f40-f466-43be-9a85-18cd3200d12a" refObj="790b57a0-4008-11e4-916c-0800200c9a66">
+          <value uid="781f599e-061c-4221-873b-d0107b2ff576" value="Data controls.Departments.query">
+            <expression expressionType="DataControlHolder"/>
+            <expression objRef="066f4691-289b-499a-acb8-6f171d02236c" order="1" expressionType="DataControlImpl"/>
+            <expression order="2" expressionType="DataControlFakeAttribute"/>
+          </value>
+        </parameters>
+        <parameters uid="11a649d5-c49f-49d7-80bb-54d3212248d3" refObj="823b06e0-4008-11e4-916c-0800200c9a66">
+          <value uid="78833e9f-fe73-4f34-9699-84ab674f0797" value="Data controls.Departments.start Index">
+            <expression expressionType="DataControlHolder"/>
+            <expression objRef="066f4691-289b-499a-acb8-6f171d02236c" order="1" expressionType="DataControlImpl"/>
+            <expression order="2" expressionType="DataControlFakeAttribute"/>
+          </value>
+        </parameters>
+        <parameters uid="620799aa-d046-40ec-a254-9e7d069a06e8" refObj="8cc19390-4008-11e4-916c-0800200c9a66">
+          <value uid="83ac5c3c-ecb1-425a-b175-66398981d3f2" value="Data controls.Departments.end Index">
+            <expression expressionType="DataControlHolder"/>
+            <expression objRef="066f4691-289b-499a-acb8-6f171d02236c" order="1" expressionType="DataControlImpl"/>
+            <expression order="2" expressionType="DataControlFakeAttribute"/>
+          </value>
+        </parameters>
+        <parameters uid="a6da8441-9bf2-4cd6-b45c-0d54a1a74b6a" refObj="97d8a070-4008-11e4-916c-0800200c9a66">
+          <value uid="4c119d33-3983-4c42-acbe-922806e46f8e" constant="true" value="org.elsoft.platform.hr.objects.DepartmentsDAO"/>
+        </parameters>
+      </search>
+    </controls>
+    <controls uid="f69d69e9-5d7f-481e-8309-504966d5ef8d" name="Employes" baseType="Emp_dd5f2ada-dfef-49f4-99c9-77ee2bd72f13">
+      <create packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="2957c51c-68e7-4d1e-b8b7-cbe7ccdbe13f" fakePackageName="Base package" fakeTypeName="JPA Entity CRAD Service" methodRef="40b112a0-4008-11e4-916c-0800200c9a66" fakeMethod="create" uid="4be45f5f-abc0-40da-959c-70e6d161c303">
+        <parameters uid="98fb447a-23d6-4944-95f6-84ac056059ce" refObj="9150e8ca-6703-4e2c-a2e0-479f42987fa5">
+          <value uid="229837d1-e5a7-4fde-9db9-829cb7266db0" constant="true" value="org.elsoft.platform.hr.objects.EmployeesDAO"/>
+        </parameters>
+      </create>
+      <insert packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="2957c51c-68e7-4d1e-b8b7-cbe7ccdbe13f" fakePackageName="Base package" fakeTypeName="JPA Entity CRAD Service" methodRef="b14bfa20-4008-11e4-916c-0800200c9a66" fakeMethod="insert" uid="084b7cc5-b4df-4591-9b24-723c4ca86d58">
+        <parameters uid="99a80d1e-8427-417f-bbc0-5a9ca4b9cac5" refObj="b7ea5020-4008-11e4-916c-0800200c9a66">
+          <value uid="cea18a96-c9f7-4c63-8ea8-1d531551ba33" value="Data controls.Employes.currentObject">
+            <expression expressionType="DataControlHolder"/>
+            <expression objRef="f69d69e9-5d7f-481e-8309-504966d5ef8d" order="1" expressionType="DataControlImpl"/>
+            <expression order="2" expressionType="DataControlFakeMethod"/>
+          </value>
+        </parameters>
+      </insert>
+      <update packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="2957c51c-68e7-4d1e-b8b7-cbe7ccdbe13f" fakePackageName="Base package" fakeTypeName="JPA Entity CRAD Service" methodRef="caf1fc90-4008-11e4-916c-0800200c9a66" fakeMethod="update" uid="249c060d-8e8d-4b69-b902-6d82fa4b8dc7">
+        <parameters uid="5dbdbacd-6343-46f5-86bd-a75ae9fbd606" refObj="7c4f4d20-400a-11e4-916c-0800200c9a66">
+          <value uid="09c5ace0-ad95-48ab-a8c0-1f435453b9b0" value="Data controls.Employes.currentObject">
+            <expression expressionType="DataControlHolder"/>
+            <expression objRef="f69d69e9-5d7f-481e-8309-504966d5ef8d" order="1" expressionType="DataControlImpl"/>
+            <expression order="2" expressionType="DataControlFakeMethod"/>
+          </value>
+        </parameters>
+      </update>
+      <remove packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="2957c51c-68e7-4d1e-b8b7-cbe7ccdbe13f" fakePackageName="Base package" fakeTypeName="JPA Entity CRAD Service" methodRef="dbacf9e0-4008-11e4-916c-0800200c9a66" fakeMethod="remove" uid="508ba0c1-2aaa-4b47-9070-7af7e8fed54d">
+        <parameters uid="3ed22b4a-747a-4cd7-9a51-f8aff9cd9f46" refObj="73df4460-400a-11e4-916c-0800200c9a66">
+          <value uid="ee29f75d-4e0d-447f-b52a-c16e9384bff1" value="Data controls.Employes.currentObject">
+            <expression expressionType="DataControlHolder"/>
+            <expression objRef="f69d69e9-5d7f-481e-8309-504966d5ef8d" order="1" expressionType="DataControlImpl"/>
+            <expression order="2" expressionType="DataControlFakeMethod"/>
+          </value>
+        </parameters>
+      </remove>
+      <search packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="2957c51c-68e7-4d1e-b8b7-cbe7ccdbe13f" fakePackageName="Base package" fakeTypeName="JPA Entity CRAD Service" methodRef="6fb841e0-4008-11e4-916c-0800200c9a66" fakeMethod="find" uid="3571dba5-fb45-41c1-85e5-b95c8a229fff">
+        <parameters uid="5450acd4-a85b-4e55-9aef-798743e4162e" refObj="790b57a0-4008-11e4-916c-0800200c9a66">
+          <value uid="71539e42-b34f-4717-925d-29b732e05e22" value="Data controls.Employes.query">
+            <expression expressionType="DataControlHolder"/>
+            <expression objRef="f69d69e9-5d7f-481e-8309-504966d5ef8d" order="1" expressionType="DataControlImpl"/>
+            <expression order="2" expressionType="DataControlFakeAttribute"/>
+          </value>
+        </parameters>
+        <parameters uid="f81e5604-8612-4c24-afe4-4d6e754ac04b" refObj="823b06e0-4008-11e4-916c-0800200c9a66">
+          <value uid="3b2c8f4f-fba0-4f41-ba2a-d7a8904ea0ff" value="Data controls.Employes.start Index">
+            <expression expressionType="DataControlHolder"/>
+            <expression objRef="f69d69e9-5d7f-481e-8309-504966d5ef8d" order="1" expressionType="DataControlImpl"/>
+            <expression order="2" expressionType="DataControlFakeAttribute"/>
+          </value>
+        </parameters>
+        <parameters uid="c2ec3df5-3c87-4c15-8358-9d41f9801835" refObj="8cc19390-4008-11e4-916c-0800200c9a66">
+          <value uid="c6c7737e-2d38-4ef5-a56c-ab434553f941" value="Data controls.Employes.end Index">
+            <expression expressionType="DataControlHolder"/>
+            <expression objRef="f69d69e9-5d7f-481e-8309-504966d5ef8d" order="1" expressionType="DataControlImpl"/>
+            <expression order="2" expressionType="DataControlFakeAttribute"/>
+          </value>
+        </parameters>
+        <parameters uid="7fab6d9d-8d51-4a7b-a9b7-0995b83d4026" refObj="97d8a070-4008-11e4-916c-0800200c9a66">
+          <value uid="be8dd1d0-3241-4393-aba5-561509091080" constant="true" value="org.elsoft.platform.hr.objects.EmployeesDAO"/>
+        </parameters>
+      </search>
+      <defaultSearch>
+        <parameters uid="7c47f900-c348-4a7d-a4fe-f5ea4283617a" refObj="4ff34e6a-5c01-4656-9a98-32a95c0babea">
+          <value uid="97991bf5-b7f0-43b1-8269-92059e289168" value="Data controls.Departments2Employees.currentObject.HR package::Department2Entity.departmentRef">
+            <expression expressionType="DataControlHolder"/>
+            <expression objRef="dae44fc8-6914-47cb-a0ca-8aa3f88744c6" order="1" expressionType="DataControlImpl"/>
+            <expression order="2" expressionType="DataControlFakeMethod"/>
+            <expression order="3" expressionType="ExtendedType"/>
+            <expression objRef="ccb5469a-4dca-46ca-95ae-4519400f2afc" order="4" expressionType="AttributeImpl"/>
+          </value>
+        </parameters>
+      </defaultSearch>
+    </controls>
+    <controls uid="dae44fc8-6914-47cb-a0ca-8aa3f88744c6" name="Departments2Employees" baseType="1fb89120-1544-4563-a949-33a8d12ab064">
+      <create packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="2957c51c-68e7-4d1e-b8b7-cbe7ccdbe13f" fakePackageName="Base package" fakeTypeName="JPA Entity CRAD Service" methodRef="40b112a0-4008-11e4-916c-0800200c9a66" fakeMethod="create" uid="1a01f120-f960-44e9-8de1-d6090e5f0797">
+        <parameters uid="fe197b51-fa3f-4a6e-a47e-6c79036804f1" refObj="9150e8ca-6703-4e2c-a2e0-479f42987fa5">
+          <value uid="4a4b7798-d3cd-40d5-9479-a9fa7fa8254e" constant="true" value="org.elsoft.platform.hr.objects.Department2EntityDAO"/>
+        </parameters>
+      </create>
+      <insert packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="2957c51c-68e7-4d1e-b8b7-cbe7ccdbe13f" fakePackageName="Base package" fakeTypeName="JPA Entity CRAD Service" methodRef="b14bfa20-4008-11e4-916c-0800200c9a66" fakeMethod="insert" uid="dbd0e9dd-a510-43a1-8f56-5624d71aa205">
+        <parameters uid="90cb6726-ea8f-4e39-a75f-4492736af6e5" refObj="b7ea5020-4008-11e4-916c-0800200c9a66">
+          <value uid="15c8ea71-819d-4bae-baa2-e2cf3d92ab64" value="Data controls.Departments2Employees.currentObject">
+            <expression expressionType="DataControlHolder"/>
+            <expression objRef="dae44fc8-6914-47cb-a0ca-8aa3f88744c6" order="1" expressionType="DataControlImpl"/>
+            <expression order="2" expressionType="DataControlFakeMethod"/>
+          </value>
+        </parameters>
+      </insert>
+      <update packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="2957c51c-68e7-4d1e-b8b7-cbe7ccdbe13f" fakePackageName="Base package" fakeTypeName="JPA Entity CRAD Service" methodRef="caf1fc90-4008-11e4-916c-0800200c9a66" fakeMethod="update" uid="a49f2798-d799-4c2b-a8af-8a479c4779c0">
+        <parameters uid="ccf96f37-07ca-49f1-95b3-af219f3dd8ba" refObj="7c4f4d20-400a-11e4-916c-0800200c9a66">
+          <value uid="4e288be9-a91b-47da-ba86-379028eea0c6" value="Data controls.Departments2Employees.currentObject">
+            <expression expressionType="DataControlHolder"/>
+            <expression objRef="dae44fc8-6914-47cb-a0ca-8aa3f88744c6" order="1" expressionType="DataControlImpl"/>
+            <expression order="2" expressionType="DataControlFakeMethod"/>
+          </value>
+        </parameters>
+      </update>
+      <remove packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="2957c51c-68e7-4d1e-b8b7-cbe7ccdbe13f" fakePackageName="Base package" fakeTypeName="JPA Entity CRAD Service" methodRef="dbacf9e0-4008-11e4-916c-0800200c9a66" fakeMethod="remove" uid="fc4a1704-5167-43e8-b3eb-6340efb499bf">
+        <parameters uid="de8ec3fa-36d7-4182-bc11-8ed4f3919d51" refObj="73df4460-400a-11e4-916c-0800200c9a66">
+          <value uid="6e02094d-f428-4447-beca-c2bde5d557dd" value="Data controls.Departments2Employees.currentObject">
+            <expression expressionType="DataControlHolder"/>
+            <expression objRef="dae44fc8-6914-47cb-a0ca-8aa3f88744c6" order="1" expressionType="DataControlImpl"/>
+            <expression order="2" expressionType="DataControlFakeMethod"/>
+          </value>
+        </parameters>
+      </remove>
+      <search packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="2957c51c-68e7-4d1e-b8b7-cbe7ccdbe13f" fakePackageName="Base package" fakeTypeName="JPA Entity CRAD Service" methodRef="6fb841e0-4008-11e4-916c-0800200c9a66" fakeMethod="find" uid="4f0f7e38-5e76-488f-b83d-58471286b0c3">
+        <parameters uid="eb624d94-d560-48c8-bb66-548a3f63d59f" refObj="790b57a0-4008-11e4-916c-0800200c9a66">
+          <value uid="e49e3c3a-7d78-4ecb-98a1-36a71d07c95a" value="Data controls.Departments2Employees.query">
+            <expression expressionType="DataControlHolder"/>
+            <expression objRef="dae44fc8-6914-47cb-a0ca-8aa3f88744c6" order="1" expressionType="DataControlImpl"/>
+            <expression order="2" expressionType="DataControlFakeAttribute"/>
+          </value>
+        </parameters>
+        <parameters uid="6bfc9f97-673f-4f65-ab24-66556af16219" refObj="823b06e0-4008-11e4-916c-0800200c9a66">
+          <value uid="8a664b2c-08ef-4c4f-a4ef-9037a85f4588" value="Data controls.Departments2Employees.start Index">
+            <expression expressionType="DataControlHolder"/>
+            <expression objRef="dae44fc8-6914-47cb-a0ca-8aa3f88744c6" order="1" expressionType="DataControlImpl"/>
+            <expression order="2" expressionType="DataControlFakeAttribute"/>
+          </value>
+        </parameters>
+        <parameters uid="214f5023-9642-4ea5-8684-8032e1f536de" refObj="8cc19390-4008-11e4-916c-0800200c9a66">
+          <value uid="fcbbaded-5177-4139-9f71-1cc90bcbf8c1" value="Data controls.Departments2Employees.end Index">
+            <expression expressionType="DataControlHolder"/>
+            <expression objRef="dae44fc8-6914-47cb-a0ca-8aa3f88744c6" order="1" expressionType="DataControlImpl"/>
+            <expression order="2" expressionType="DataControlFakeAttribute"/>
+          </value>
+        </parameters>
+        <parameters uid="7522e5e0-85c0-406e-ba20-694623cb676b" refObj="97d8a070-4008-11e4-916c-0800200c9a66">
+          <value uid="ed5a1690-8bcc-4607-b37d-7c5dab857c70" constant="true" value="org.elsoft.platform.hr.objects.Department2EntityDAO"/>
+        </parameters>
+      </search>
+      <defaultSearch/>
+    </controls>
+  </tura.domain:Controls>
+  <tura.domain:Views uid="e07bccbc-9fc4-4814-9624-38db64ffcf76" parent="f38c4521-f131-49de-9830-7baff026950f">
+    <canvases xsi:type="tura.domain:Window" uid="de846076-28b5-4308-96a9-4256a45141e4" name="MiscElements window">
+      <viewElement xsi:type="tura.domain:ViewArea" uid="a4d1fe86-fea6-4e28-b0b9-cbd8546e2503" name="Main canvas" canvasView="a7aec292-07b7-4892-a05e-6bfaf2e652c0"/>
+    </canvases>
+  </tura.domain:Views>
+  <tura.domain:CanvasView uid="a7aec292-07b7-4892-a05e-6bfaf2e652c0" parent="a4d1fe86-fea6-4e28-b0b9-cbd8546e2503">
+    <baseCanvas uid="a5d8c56e-1ff1-4f43-9e08-0af2809e5293">
+      <children xsi:type="tura.domain:LayerHolder" uid="6cdfdbc5-a9ea-4779-a0d9-6befa155a551" columns="2">
+        <children xsi:type="tura.domain:DropDownSelection" order="2" uid="c8eaca34-38aa-4063-830a-62efe68740a7" onEventRefreshArea="8d87a02f-a042-4a10-ae3d-9897ff67583d" sourcePointer="dae44fc8-6914-47cb-a0ca-8aa3f88744c6" valuePointer="ccb5469a-4dca-46ca-95ae-4519400f2afc" optionPointer="066f4691-289b-499a-acb8-6f171d02236c" optionCast="Dep_52ffccb7-cea6-49de-ba4b-7437f1da3369" optionCastDataControl="066f4691-289b-499a-acb8-6f171d02236c">
+          <style/>
+          <selection displayOptionPointer="Dep_7982905f-4f83-472f-8551-80e30e34934c" valueOptionPointer="32e932b5-e86f-43a3-96c1-8b919c740eb6"/>
+        </children>
+        <children xsi:type="tura.domain:DropDownSelection" nickname="employees drop down" order="3" uid="8d87a02f-a042-4a10-ae3d-9897ff67583d" sourcePointer="dae44fc8-6914-47cb-a0ca-8aa3f88744c6" valuePointer="26d4b8f3-f7d2-4a3c-8923-6ceb83f9018a" optionPointer="f69d69e9-5d7f-481e-8309-504966d5ef8d">
+          <selection displayOptionPointer="Emp_ea8666ca-4384-491d-98ba-1d63f2320c04" valueOptionPointer="32e932b5-e86f-43a3-96c1-8b919c740eb6"/>
+        </children>
+        <children xsi:type="tura.domain:Label" order="1" uid="017bd299-1311-44b6-814f-436ebd3bbdfb" label="Employees">
+          <multiLangLabel value="Messages.HR Controller.EMPLOYEES_TAB">
+            <expression objRef="af03a493-0ca4-486c-945f-5bfc2fdf35bd" expressionType="MessagesImpl"/>
+            <expression objRef="5772ddee-a83b-41c9-8f34-c442412e1013" order="1" expressionType="MessageLibraryImpl"/>
+            <expression objRef="54ebdd70-5fb8-472e-b6fc-ffe42c72d02a" order="2" expressionType="MessageImpl"/>
+          </multiLangLabel>
+        </children>
+        <children xsi:type="tura.domain:Label" uid="820b1bb1-a1f0-4605-93af-19f4ff59aee6" label="Departments">
+          <multiLangLabel value="Messages.HR Controller.DEPARTMENTS_TABLE_DEPARTMENT_NAME_COLUMN">
+            <expression objRef="af03a493-0ca4-486c-945f-5bfc2fdf35bd" expressionType="MessagesImpl"/>
+            <expression objRef="5772ddee-a83b-41c9-8f34-c442412e1013" order="1" expressionType="MessageLibraryImpl"/>
+            <expression objRef="62de9606-e73e-4b3e-a141-55f33ac9fc0c" order="2" expressionType="MessageImpl"/>
+          </multiLangLabel>
+        </children>
+      </children>
+    </baseCanvas>
+  </tura.domain:CanvasView>
 </xmi:XMI>

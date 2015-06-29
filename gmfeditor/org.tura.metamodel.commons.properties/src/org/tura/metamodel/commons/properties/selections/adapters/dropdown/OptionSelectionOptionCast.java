@@ -13,7 +13,8 @@ public class OptionSelectionOptionCast implements DropDownDataAdapter {
 
 	public EStructuralFeature[] getFeature() {
 
-		return new EStructuralFeature[] { DomainPackage.eINSTANCE.getOptionSelection_OptionCast() };
+		return new EStructuralFeature[] { DomainPackage.eINSTANCE.getOptionSelection_OptionCast(),
+				DomainPackage.eINSTANCE.getOptionSelection_OptionCastDataControl()};
 	}
 
 	public String getFeatureAsText(Object eObject) {

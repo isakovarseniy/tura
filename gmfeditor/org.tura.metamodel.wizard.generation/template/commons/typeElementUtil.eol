@@ -2,6 +2,12 @@ operation TypeElement mappingType2Java( recipe:Recipe, ingredient :Ingredient) {
 
     var appmappers =   new Native('java.util.ArrayList');  
     var util = new Native('org.tura.metamodel.commons.Util');
+
+    var tp=self;
+    if (self.isTypeOf(domain::TypeReference)){
+        selfUID = self.typeRef.uid;
+        tp = self.typeRef;
+    }
     
     appmappers.addAll(recipe.mappers);
     appmappers.addAll(ingredient.mappers);
@@ -9,7 +15,7 @@ operation TypeElement mappingType2Java( recipe:Recipe, ingredient :Ingredient) {
 
     for( appmapper in appmappers ){
          var selfUID = self.uid;
-         var tp = self;
+         tp = self;
          if (self.isTypeOf(domain::TypeReference)){
              selfUID = self.typeRef.uid;
              tp = self.typeRef;
@@ -38,6 +44,9 @@ operation TypeElement mappingType2Java( recipe:Recipe, ingredient :Ingredient) {
                  }    
               }  
           }    
+     }
+     if (self.~class = null and tp <> null){
+         throw ("Unable to find JavaMapper for type \"" + tp.name +"\" on layer \"" + ingredient.layer +"\"");
      }
 } 
 

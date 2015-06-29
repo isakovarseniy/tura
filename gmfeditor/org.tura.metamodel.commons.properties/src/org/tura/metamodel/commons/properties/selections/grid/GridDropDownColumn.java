@@ -97,6 +97,8 @@ public abstract class GridDropDownColumn implements GridColumn {
 		Object data = ((TableItem) element).getData();
 
 		ComboBoxCellEditor editor = ((ComboBoxCellEditor) (property.getTableViewer().getCellEditors()[col]));
+		if (editor.getItems().length == 0)
+			return;
 		Object v = editor.getItems()[(int) value];
 
 		EditingDomain editingDomain = ((DiagramEditor) this.property.getPart()).getEditingDomain();
