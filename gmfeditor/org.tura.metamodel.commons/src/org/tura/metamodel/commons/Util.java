@@ -187,15 +187,19 @@ public class Util {
 			strQuery = strQuery.replaceAll("\\$\\{"
 					+ var.getQueryParamRef().getName() + "\\}", var.getValue());
 		}
-		IEclipsePreferences pref = InstanceScope.INSTANCE
-				.getNode("org.tura.metamodel.commons.preferences");
-		if ("true".equals(pref.get(IPreferenceConstants.DEBUGING, "false"))) {
-			LogUtil.logInfo("Query : " + strQuery);
-		}
-
+		
+		traceIfDebug("Query",strQuery);
 		return executeQuery(strQuery, eobj);
 	}
 
+	public static void traceIfDebug(String type,String str){
+		IEclipsePreferences pref = InstanceScope.INSTANCE
+				.getNode("org.tura.metamodel.commons.preferences");
+
+		if ("true".equals(pref.get(IPreferenceConstants.DEBUGING, "false"))) {
+			LogUtil.logInfo(type+" : " + str);
+		}		
+	}
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public static List<?> runQuery(domain.ModelMapper mapper, String queryName,
 			EObject eobj) throws Exception {

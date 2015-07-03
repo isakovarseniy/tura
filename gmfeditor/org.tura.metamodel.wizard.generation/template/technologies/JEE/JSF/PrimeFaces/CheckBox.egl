@@ -2,6 +2,8 @@
 operation CheckBox draw(hash) { 
      var util = new Native('org.tura.metamodel.commons.Util');
      var value;
+     util.traceIfDebug("UI element","Checkbox start: "+self.uid);     
+
      if (hash.get("context") == null )
          value = buildExpression(util.createArtificialContextValue(self.sourcePointer,self.sourcePointer.findTreeRoot(),self.valuePointer));
      else{
@@ -14,5 +16,6 @@ operation CheckBox draw(hash) {
 <p:selectBooleanCheckbox  [%=self.mkUIDBinding()%] value="[%=value%]" [%=self.uiElementAttributes(hash)%] >
 </p:selectBooleanCheckbox>
 [%
+     util.traceIfDebug("UI element","Checkbox end: "+self.uid);     
 }
 %]

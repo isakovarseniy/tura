@@ -1,10 +1,13 @@
 [%@template
 operation  domain::LayerHolder  draw(hash) { 
+     var util = new Native('org.tura.metamodel.commons.Util');
+     util.traceIfDebug("UI element","LayerHolder start: "+self.uid);     
 %]
      <p:panelGrid [%=self.mkUIDBinding()%] columns="[%=self.columns%]"  [%=self.styleAttributes(hash)%]  columnClasses="[%=self.styleAttributes("UIGeneration","Primefaces","panel.columns.class")%]">
      [%=self.generateBody(hash)%]     
      </p:panelGrid>
 [%
+    util.traceIfDebug("UI element","LayerHolder end: "+self.uid);     
 }
 %]
 

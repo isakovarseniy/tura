@@ -1,5 +1,8 @@
 [%@template
 operation domain::Tree draw(hash) { 
+     var util = new Native('org.tura.metamodel.commons.Util');
+     util.traceIfDebug("UI element","Tree start: "+self.uid);     
+
      hash.put("context","tree");
      if ( self .cols <> null and self.cols.size() = 1){
 %]
@@ -12,6 +15,7 @@ operation domain::Tree draw(hash) {
 [%
 }
      hash.put("context",null);
+     util.traceIfDebug("UI element","Tree end: "+self.uid);     
 }
 %]
 

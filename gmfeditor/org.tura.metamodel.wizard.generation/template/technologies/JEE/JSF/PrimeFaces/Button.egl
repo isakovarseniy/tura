@@ -1,6 +1,8 @@
 [%@template
 operation Button draw(hash) { 
      var util = new Native('org.tura.metamodel.commons.Util');
+     util.traceIfDebug("UI element","Button start: "+self.uid);     
+     
      var recipe = hash.get("recipe");
      var ingredient = hash.get("ingredient");
      var form = hash.get("form");
@@ -56,5 +58,7 @@ operation Button draw(hash) {
 %]
 </p:commandButton>
  [%
+     util.traceIfDebug("UI element","Button end: "+self.uid);     
+ 
 }
 %]

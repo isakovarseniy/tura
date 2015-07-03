@@ -2,6 +2,7 @@
 operation InputText draw(hash) { 
      var util = new Native('org.tura.metamodel.commons.Util');
      var value;
+     util.traceIfDebug("UI element","InputText start: "+self.uid);     
      if (hash.get("context") == null )
          value = buildExpression(util.createArtificialContextValue(self.sourcePointer,self.sourcePointer.findTreeRoot(),self.valuePointer));
      else{
@@ -14,5 +15,6 @@ operation InputText draw(hash) {
 <p:inputText   [%=self.mkUIDBinding()%] value="[%=value%]"   [%=self.uiElementAttributes(hash)%]>
 </p:inputText>
 [%
+     util.traceIfDebug("UI element","InputText end: "+self.uid);     
 }
 %]

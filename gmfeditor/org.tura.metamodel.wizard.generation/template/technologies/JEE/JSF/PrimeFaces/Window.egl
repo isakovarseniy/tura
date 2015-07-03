@@ -4,12 +4,17 @@ operation  domain::Window draw(hash) {
      var webapp = hash.get("webapp");   
      var form = hash.get("form");   
      var uipackage = hash.get("uipackage");
+     
+     util.traceIfDebug("UI element","Window start: "+self.name);     
+     
 %]
      [%=self.generateBody(hash)%]     
 [%
      var x = new Native("org.eclipse.epsilon.egl.formatter.language.XmlFormatter"); 
      out.formatWith(x);
      util.saveFile( webapp+"/"+util.mergeAndCapitalize(uipackage.name).toLowerCase()+"/"+util.mergeAndCapitalize(form.name).toLowerCase(),  util.mergeAndCapitalize(self.name)+".xhtml",out.toString());   
+
+     util.traceIfDebug("UI element","Window end: "+self.name);     
      
 }
 %]

@@ -2,6 +2,7 @@
 operation domain::OutputText  draw(hash) { 
      var util = new Native('org.tura.metamodel.commons.Util');
      var value;
+     util.traceIfDebug("UI element","OutputText start: "+self.uid);     
      hash.put("readonly","true");
      if (hash.get("context") == null )
          value = buildExpression(util.createArtificialContextValue(self.sourcePointer,self.sourcePointer.findTreeRoot(),self.valuePointer));
@@ -16,5 +17,6 @@ operation domain::OutputText  draw(hash) {
 </p:inputText>
 [%
      hash.put("readonly",null);
+     util.traceIfDebug("UI element","OutputText end: "+self.uid);     
 }
 %]
