@@ -1514,8 +1514,8 @@
         eType="#//DataControl" containment="true" eOpposite="#//DataControl/parent"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="relations" upperBound="-1"
         eType="#//Relation" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="dependencies" eType="#//Dependency"
-        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="dependencies" upperBound="-1"
+        eType="#//Dependency" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Trigger" eSuperTypes="#//MethodPointer #//ContextParameters"/>
   <eClassifiers xsi:type="ecore:EClass" name="PREFormTrigger" eSuperTypes="#//Trigger">

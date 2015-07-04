@@ -319,11 +319,6 @@ public class DomainBaseItemSemanticEditPolicy extends SemanticEditPolicy {
 		 * @generated
 		 */
 		public boolean canCreateDependency_1104010(Controls container, DataControl source, DataControl target) {
-			if (container != null) {
-				if (container.getDependencies() != null) {
-					return false;
-				}
-			}
 			return canExistDependency_1104010(container, null, source, target);
 		}
 

@@ -22,18 +22,15 @@ public class [%=util.mergeAndCapitalize(control.name)%]DC extends org.tura.platf
     @Override
 	public void handleChangeRecord(org.tura.platform.datacontrol.IDataControl dc , Object newCurrentObject) throws org.tura.platform.datacontrol.commons.TuraException{
     [%
-      var i = 0;
-      for (depend in control.~dependObject){
-        if (i <> 0 ){ %],[%}%]
+      for (depend in control.~dependObject){%]
 		if (newCurrentObject instanceof [%=depend%]){
             this.handleChangeMusterCurrentRecordNotification(newCurrentObject);
-        }else{
-            this.handleChangeMusterCurrentRecordNotification(null);
+            return;
         }
     [%
-        i = i+1;
       }
     %] 
+         this.handleChangeMusterCurrentRecordNotification(null);
 	}     
    [%
     }
@@ -388,6 +385,27 @@ public class [%=util.mergeAndCapitalize(control.name)%]DC extends org.tura.platf
 			})) com.octo.java.sql.query.SelectQuery selectQuery) {
 		this.defaultQuery = selectQuery;
 	}
+	
+   [% if ( control.~dependArray.isDefined()){%]
+	@Override
+	@javax.inject.Inject
+	public void setDependency(
+			@org.tura.platform.datacontrol.annotations.Dependencies(dependency = { 
+    [%
+    var i = 0;
+      for (depend in control.~dependArray){
+        if (i <> 0 ){ %],[%}%]
+			@org.tura.platform.datacontrol.annotations.Dependency(expression = "[%=depend%]") 
+    [%
+       i = i+1;
+      }
+    %] 
+			
+			}) java.util.List<org.tura.platform.datacontrol.metainfo.DependecyProperty> dependency) {
+		this.dependency = dependency;
+	}
+[%}%]	
+	
 	
 	private  org.tura.platform.datacontrol.IDataControl saveTreeContex ;
 	

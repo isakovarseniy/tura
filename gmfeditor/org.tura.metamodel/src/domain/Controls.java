@@ -144,29 +144,19 @@ public interface Controls extends EObject
   EList<Relation> getRelations();
 
   /**
-   * Returns the value of the '<em><b>Dependencies</b></em>' containment reference.
+   * Returns the value of the '<em><b>Dependencies</b></em>' containment reference list.
+   * The list contents are of type {@link domain.Dependency}.
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Dependencies</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Dependencies</em>' containment reference.
-   * @see #setDependencies(Dependency)
+   * @return the value of the '<em>Dependencies</em>' containment reference list.
    * @see domain.DomainPackage#getControls_Dependencies()
    * @model containment="true"
    * @generated
    */
-  Dependency getDependencies();
-
-  /**
-   * Sets the value of the '{@link domain.Controls#getDependencies <em>Dependencies</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Dependencies</em>' containment reference.
-   * @see #getDependencies()
-   * @generated
-   */
-  void setDependencies(Dependency value);
+  EList<Dependency> getDependencies();
 
 } // Controls

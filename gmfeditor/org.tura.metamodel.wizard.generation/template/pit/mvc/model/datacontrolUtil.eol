@@ -133,14 +133,38 @@ operation DataControl processRelations( recipe:Recipe, ingredient :Ingredient) {
         var treeRoots =   queryHelper.findTreeRootControls(form);
         for ( tR in treeRoots ){
             var treeRoot = tR.getDc();
-            var objectTrack =  new Native('java.util.ArrayList');     
-            treeRoot.~dependArray = new Native('java.util.ArrayList');    
+            var objectTrack =  new Native('java.util.ArrayList');
+            if (treeRoot.~dependArray = null)     
+                 treeRoot.~dependArray = new Native('java.util.ArrayList');    
             treeRoot.~treeRoot=true;       
             treeRoot.findDependecies(objectTrack, treeRoot,recipe,ingredient);
         }
         
 }
 
+
+operation DataControl processDependencies(recipe:Recipe, ingredient :Ingredient){
+        var util = new Native('org.tura.metamodel.commons.Util');
+        var queryHelper =  new Native('org.tura.metamodel.commons.QueryHelper');
+        var form = queryHelper.getForm(self);
+        var listOfDependencies = domain::Dependency.allInstances()->select(r| r.eContainer().uid = 
+						form.getDatacontrols().getFormControl().getUid())->collect(w|w);
+        for (dep in listOfDependencies){
+            var master = dep.master;
+            var dependent = dep.detail;
+             if (dependent.~dependObject = null)
+                dependent.~dependObject = new Native('java.util.ArrayList');  
+         
+            dependent.~dependObject.add(self.getBaseClass(recipe,ingredient).~fullName);
+         
+             if (master.~dependArray = null)     
+                 master.~dependArray = new Native('java.util.ArrayList');    
+                 
+            master.~dependArray.add(buildExpression(util.createArtificialContextValue(dependent,dependent.findTreeRoot(),null)));
+                 
+        }         
+
+}
 
 operation DataControl findDependecies ( objectTrack, treeRoot: DataControl,recipe:Recipe, ingredient :Ingredient){
 
@@ -150,8 +174,9 @@ operation DataControl findDependecies ( objectTrack, treeRoot: DataControl,recip
               return;
         
         objectTrack.add(self);
-        var listOfRelarions = domain::Relation.allInstances()->select(r|r.isTree=false and r.master = self);
-        for (rel in listOfRelarions){
+        
+        var listOfRelations = domain::Relation.allInstances()->select(r|r.isTree=false and r.master = self);
+        for (rel in listOfRelations){
             var dependent = rel.detail;
             treeRoot.~dependArray.add(buildExpression(util.createArtificialContextValue(dependent,dependent.findTreeRoot(),null)));
             if (dependent.~dependObject == null)
@@ -165,6 +190,17 @@ operation DataControl findDependecies ( objectTrack, treeRoot: DataControl,recip
                 lnk.~result = buildExpression ( util.createArtificialContextValue(rel.master,rel.master.findTreeRoot(), lnk));
             }
         }      
+              
+        var listOfDependecies = domain::Dependency.allInstances()->select(r| r.master = self);
+        for (dep in listOfDependecies){
+            var dependent = dep.detail;
+            treeRoot.~dependArray.add(buildExpression(util.createArtificialContextValue(dependent,dependent.findTreeRoot(),null)));
+           if (dependent.~dependObject == null)
+                dependent.~dependObject = new Native('java.util.ArrayList');  
+
+            dependent.~dependObject.add(self.getBaseClass(recipe,ingredient).~fullName);
+         
+        }              
               
         var listOfTreeNodes = domain::Relation.allInstances()->select(r|r.isTree=true and r.master = self)->collect(w|w.detail);
         for (treeNode in listOfTreeNodes){

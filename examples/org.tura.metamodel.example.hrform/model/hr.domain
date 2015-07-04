@@ -4003,7 +4003,7 @@
       </search>
       <defaultSearch/>
     </controls>
-    <dependencies uid="a52ecfa3-aa55-4dad-a563-e3bd15b33262" master="066f4691-289b-499a-acb8-6f171d02236c" detail="f69d69e9-5d7f-481e-8309-504966d5ef8d"/>
+    <dependencies uid="fec2e051-b9cf-4176-b8db-e77befe7490a" master="066f4691-289b-499a-acb8-6f171d02236c" detail="f69d69e9-5d7f-481e-8309-504966d5ef8d"/>
   </tura.domain:Controls>
   <tura.domain:Views uid="e07bccbc-9fc4-4814-9624-38db64ffcf76" parent="f38c4521-f131-49de-9830-7baff026950f">
     <canvases xsi:type="tura.domain:Window" uid="de846076-28b5-4308-96a9-4256a45141e4" name="MiscElements window">

@@ -108,14 +108,14 @@ public class ControlsImpl extends EObjectImpl implements Controls
   protected EList<Relation> relations;
 
   /**
-   * The cached value of the '{@link #getDependencies() <em>Dependencies</em>}' containment reference.
+   * The cached value of the '{@link #getDependencies() <em>Dependencies</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getDependencies()
    * @generated
    * @ordered
    */
-  protected Dependency dependencies;
+  protected EList<Dependency> dependencies;
 
   /**
    * <!-- begin-user-doc -->
@@ -310,47 +310,13 @@ public class ControlsImpl extends EObjectImpl implements Controls
    * <!-- end-user-doc -->
    * @generated
    */
-  public Dependency getDependencies()
+  public EList<Dependency> getDependencies()
   {
+    if (dependencies == null)
+    {
+      dependencies = new EObjectContainmentEList<Dependency>(Dependency.class, this, DomainPackage.CONTROLS__DEPENDENCIES);
+    }
     return dependencies;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetDependencies(Dependency newDependencies, NotificationChain msgs)
-  {
-    Dependency oldDependencies = dependencies;
-    dependencies = newDependencies;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DomainPackage.CONTROLS__DEPENDENCIES, oldDependencies, newDependencies);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setDependencies(Dependency newDependencies)
-  {
-    if (newDependencies != dependencies)
-    {
-      NotificationChain msgs = null;
-      if (dependencies != null)
-        msgs = ((InternalEObject)dependencies).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DomainPackage.CONTROLS__DEPENDENCIES, null, msgs);
-      if (newDependencies != null)
-        msgs = ((InternalEObject)newDependencies).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - DomainPackage.CONTROLS__DEPENDENCIES, null, msgs);
-      msgs = basicSetDependencies(newDependencies, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.CONTROLS__DEPENDENCIES, newDependencies, newDependencies));
   }
 
   /**
@@ -393,7 +359,7 @@ public class ControlsImpl extends EObjectImpl implements Controls
       case DomainPackage.CONTROLS__RELATIONS:
         return ((InternalEList<?>)getRelations()).basicRemove(otherEnd, msgs);
       case DomainPackage.CONTROLS__DEPENDENCIES:
-        return basicSetDependencies(null, msgs);
+        return ((InternalEList<?>)getDependencies()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -454,7 +420,8 @@ public class ControlsImpl extends EObjectImpl implements Controls
         getRelations().addAll((Collection<? extends Relation>)newValue);
         return;
       case DomainPackage.CONTROLS__DEPENDENCIES:
-        setDependencies((Dependency)newValue);
+        getDependencies().clear();
+        getDependencies().addAll((Collection<? extends Dependency>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -486,7 +453,7 @@ public class ControlsImpl extends EObjectImpl implements Controls
         getRelations().clear();
         return;
       case DomainPackage.CONTROLS__DEPENDENCIES:
-        setDependencies((Dependency)null);
+        getDependencies().clear();
         return;
     }
     super.eUnset(featureID);
@@ -513,7 +480,7 @@ public class ControlsImpl extends EObjectImpl implements Controls
       case DomainPackage.CONTROLS__RELATIONS:
         return relations != null && !relations.isEmpty();
       case DomainPackage.CONTROLS__DEPENDENCIES:
-        return dependencies != null;
+        return dependencies != null && !dependencies.isEmpty();
     }
     return super.eIsSet(featureID);
   }

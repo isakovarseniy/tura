@@ -85,7 +85,7 @@ public class DependencyCreateCommand extends EditElementCommand {
 
 		Dependency newElement = DomainFactory.eINSTANCE.createDependency();
 		newElement.setUid(java.util.UUID.randomUUID().toString());
-		getContainer().setDependencies(newElement);
+		getContainer().getDependencies().add(newElement);
 		newElement.setMaster(getSource());
 		newElement.setDetail(getTarget());
 		doConfigure(newElement, monitor, info);

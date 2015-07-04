@@ -1049,14 +1049,20 @@ public class DomainDiagramUpdater {
 	private static Collection<DomainLinkDescriptor> getContainedTypeModelFacetLinks_Dependency_1104010(
 			Controls container) {
 		LinkedList<DomainLinkDescriptor> result = new LinkedList<DomainLinkDescriptor>();
-		Dependency link = container.getDependencies();
-		if (DependencyEditPart.VISUAL_ID != DomainVisualIDRegistry.getLinkWithClassVisualID(link)) {
-			return result;
+		for (Iterator<?> links = container.getDependencies().iterator(); links.hasNext();) {
+			EObject linkObject = (EObject) links.next();
+			if (false == linkObject instanceof Dependency) {
+				continue;
+			}
+			Dependency link = (Dependency) linkObject;
+			if (DependencyEditPart.VISUAL_ID != DomainVisualIDRegistry.getLinkWithClassVisualID(link)) {
+				continue;
+			}
+			DataControl dst = link.getDetail();
+			DataControl src = link.getMaster();
+			result.add(new DomainLinkDescriptor(src, dst, link, DomainElementTypes.Dependency_1104010,
+					DependencyEditPart.VISUAL_ID));
 		}
-		DataControl dst = link.getDetail();
-		DataControl src = link.getMaster();
-		result.add(new DomainLinkDescriptor(src, dst, link, DomainElementTypes.Dependency_1104010,
-				DependencyEditPart.VISUAL_ID));
 		return result;
 	}
 
@@ -1160,17 +1166,23 @@ public class DomainDiagramUpdater {
 			return Collections.emptyList();
 		}
 		LinkedList<DomainLinkDescriptor> result = new LinkedList<DomainLinkDescriptor>();
-		Dependency link = container.getDependencies();
-		if (DependencyEditPart.VISUAL_ID != DomainVisualIDRegistry.getLinkWithClassVisualID(link)) {
-			return result;
+		for (Iterator<?> links = container.getDependencies().iterator(); links.hasNext();) {
+			EObject linkObject = (EObject) links.next();
+			if (false == linkObject instanceof Dependency) {
+				continue;
+			}
+			Dependency link = (Dependency) linkObject;
+			if (DependencyEditPart.VISUAL_ID != DomainVisualIDRegistry.getLinkWithClassVisualID(link)) {
+				continue;
+			}
+			DataControl dst = link.getDetail();
+			DataControl src = link.getMaster();
+			if (src != source) {
+				continue;
+			}
+			result.add(new DomainLinkDescriptor(src, dst, link, DomainElementTypes.Dependency_1104010,
+					DependencyEditPart.VISUAL_ID));
 		}
-		DataControl dst = link.getDetail();
-		DataControl src = link.getMaster();
-		if (src != source) {
-			return result;
-		}
-		result.add(new DomainLinkDescriptor(src, dst, link, DomainElementTypes.Dependency_1104010,
-				DependencyEditPart.VISUAL_ID));
 		return result;
 	}
 

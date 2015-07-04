@@ -9836,7 +9836,7 @@ public interface DomainPackage extends EPackage
   int CONTROLS__RELATIONS = 4;
 
   /**
-   * The feature id for the '<em><b>Dependencies</b></em>' containment reference.
+   * The feature id for the '<em><b>Dependencies</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -17930,10 +17930,10 @@ public interface DomainPackage extends EPackage
   EReference getControls_Relations();
 
   /**
-   * Returns the meta object for the containment reference '{@link domain.Controls#getDependencies <em>Dependencies</em>}'.
+   * Returns the meta object for the containment reference list '{@link domain.Controls#getDependencies <em>Dependencies</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Dependencies</em>'.
+   * @return the meta object for the containment reference list '<em>Dependencies</em>'.
    * @see domain.Controls#getDependencies()
    * @see #getControls()
    * @generated
@@ -23780,7 +23780,7 @@ public interface DomainPackage extends EPackage
     EReference CONTROLS__RELATIONS = eINSTANCE.getControls_Relations();
 
     /**
-     * The meta object literal for the '<em><b>Dependencies</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Dependencies</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
