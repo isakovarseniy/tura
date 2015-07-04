@@ -416,12 +416,22 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String Relation1CreationTool_title;
+	public static String Dependency1CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Relation1CreationTool_desc;
+	public static String Dependency1CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String Relation2CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String Relation2CreationTool_desc;
 
 	/**
 	 * @generated
@@ -517,6 +527,16 @@ public class Messages extends NLS {
 	 * @generated
 	 */
 	public static String NavigatorGroupName_DataControl_1102002_outgoinglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_Dependency_1104010_target;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_Dependency_1104010_source;
 
 	/**
 	 * @generated

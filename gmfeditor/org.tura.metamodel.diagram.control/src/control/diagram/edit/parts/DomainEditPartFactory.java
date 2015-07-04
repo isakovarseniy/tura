@@ -169,6 +169,9 @@ public class DomainEditPartFactory implements EditPartFactory {
 			case RelationEditPart.VISUAL_ID:
 				return new RelationEditPart(view);
 
+			case DependencyEditPart.VISUAL_ID:
+				return new DependencyEditPart(view);
+
 			}
 		}
 		return createUnrecognizedEditPart(context, model);

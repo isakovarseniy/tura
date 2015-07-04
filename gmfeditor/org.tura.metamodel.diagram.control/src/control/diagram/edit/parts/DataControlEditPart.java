@@ -461,8 +461,9 @@ public class DataControlEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	public List<IElementType> getMARelTypesOnSource() {
-		ArrayList<IElementType> types = new ArrayList<IElementType>(1);
+		ArrayList<IElementType> types = new ArrayList<IElementType>(2);
 		types.add(DomainElementTypes.Relation_1104009);
+		types.add(DomainElementTypes.Dependency_1104010);
 		return types;
 	}
 
@@ -474,6 +475,9 @@ public class DataControlEditPart extends ShapeNodeEditPart {
 		if (targetEditPart instanceof control.diagram.edit.parts.DataControlEditPart) {
 			types.add(DomainElementTypes.Relation_1104009);
 		}
+		if (targetEditPart instanceof control.diagram.edit.parts.DataControlEditPart) {
+			types.add(DomainElementTypes.Dependency_1104010);
+		}
 		return types;
 	}
 
@@ -484,6 +488,8 @@ public class DataControlEditPart extends ShapeNodeEditPart {
 		LinkedList<IElementType> types = new LinkedList<IElementType>();
 		if (relationshipType == DomainElementTypes.Relation_1104009) {
 			types.add(DomainElementTypes.DataControl_1102002);
+		} else if (relationshipType == DomainElementTypes.Dependency_1104010) {
+			types.add(DomainElementTypes.DataControl_1102002);
 		}
 		return types;
 	}
@@ -492,8 +498,9 @@ public class DataControlEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	public List<IElementType> getMARelTypesOnTarget() {
-		ArrayList<IElementType> types = new ArrayList<IElementType>(1);
+		ArrayList<IElementType> types = new ArrayList<IElementType>(2);
 		types.add(DomainElementTypes.Relation_1104009);
+		types.add(DomainElementTypes.Dependency_1104010);
 		return types;
 	}
 
@@ -503,6 +510,8 @@ public class DataControlEditPart extends ShapeNodeEditPart {
 	public List<IElementType> getMATypesForSource(IElementType relationshipType) {
 		LinkedList<IElementType> types = new LinkedList<IElementType>();
 		if (relationshipType == DomainElementTypes.Relation_1104009) {
+			types.add(DomainElementTypes.DataControl_1102002);
+		} else if (relationshipType == DomainElementTypes.Dependency_1104010) {
 			types.add(DomainElementTypes.DataControl_1102002);
 		}
 		return types;

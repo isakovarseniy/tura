@@ -4,6 +4,7 @@ package domain.impl;
 
 import domain.Controls;
 import domain.DataControl;
+import domain.Dependency;
 import domain.DomainPackage;
 import domain.FormDataControls;
 import domain.Relation;
@@ -38,6 +39,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link domain.impl.ControlsImpl#getRoot <em>Root</em>}</li>
  *   <li>{@link domain.impl.ControlsImpl#getControls <em>Controls</em>}</li>
  *   <li>{@link domain.impl.ControlsImpl#getRelations <em>Relations</em>}</li>
+ *   <li>{@link domain.impl.ControlsImpl#getDependencies <em>Dependencies</em>}</li>
  * </ul>
  * </p>
  *
@@ -104,6 +106,16 @@ public class ControlsImpl extends EObjectImpl implements Controls
    * @ordered
    */
   protected EList<Relation> relations;
+
+  /**
+   * The cached value of the '{@link #getDependencies() <em>Dependencies</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getDependencies()
+   * @generated
+   * @ordered
+   */
+  protected Dependency dependencies;
 
   /**
    * <!-- begin-user-doc -->
@@ -298,6 +310,54 @@ public class ControlsImpl extends EObjectImpl implements Controls
    * <!-- end-user-doc -->
    * @generated
    */
+  public Dependency getDependencies()
+  {
+    return dependencies;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetDependencies(Dependency newDependencies, NotificationChain msgs)
+  {
+    Dependency oldDependencies = dependencies;
+    dependencies = newDependencies;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DomainPackage.CONTROLS__DEPENDENCIES, oldDependencies, newDependencies);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setDependencies(Dependency newDependencies)
+  {
+    if (newDependencies != dependencies)
+    {
+      NotificationChain msgs = null;
+      if (dependencies != null)
+        msgs = ((InternalEObject)dependencies).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DomainPackage.CONTROLS__DEPENDENCIES, null, msgs);
+      if (newDependencies != null)
+        msgs = ((InternalEObject)newDependencies).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - DomainPackage.CONTROLS__DEPENDENCIES, null, msgs);
+      msgs = basicSetDependencies(newDependencies, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.CONTROLS__DEPENDENCIES, newDependencies, newDependencies));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @SuppressWarnings("unchecked")
   @Override
   public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs)
@@ -332,6 +392,8 @@ public class ControlsImpl extends EObjectImpl implements Controls
         return ((InternalEList<?>)getControls()).basicRemove(otherEnd, msgs);
       case DomainPackage.CONTROLS__RELATIONS:
         return ((InternalEList<?>)getRelations()).basicRemove(otherEnd, msgs);
+      case DomainPackage.CONTROLS__DEPENDENCIES:
+        return basicSetDependencies(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -357,6 +419,8 @@ public class ControlsImpl extends EObjectImpl implements Controls
         return getControls();
       case DomainPackage.CONTROLS__RELATIONS:
         return getRelations();
+      case DomainPackage.CONTROLS__DEPENDENCIES:
+        return getDependencies();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -389,6 +453,9 @@ public class ControlsImpl extends EObjectImpl implements Controls
         getRelations().clear();
         getRelations().addAll((Collection<? extends Relation>)newValue);
         return;
+      case DomainPackage.CONTROLS__DEPENDENCIES:
+        setDependencies((Dependency)newValue);
+        return;
     }
     super.eSet(featureID, newValue);
   }
@@ -418,6 +485,9 @@ public class ControlsImpl extends EObjectImpl implements Controls
       case DomainPackage.CONTROLS__RELATIONS:
         getRelations().clear();
         return;
+      case DomainPackage.CONTROLS__DEPENDENCIES:
+        setDependencies((Dependency)null);
+        return;
     }
     super.eUnset(featureID);
   }
@@ -442,6 +512,8 @@ public class ControlsImpl extends EObjectImpl implements Controls
         return controls != null && !controls.isEmpty();
       case DomainPackage.CONTROLS__RELATIONS:
         return relations != null && !relations.isEmpty();
+      case DomainPackage.CONTROLS__DEPENDENCIES:
+        return dependencies != null;
     }
     return super.eIsSet(featureID);
   }

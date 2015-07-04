@@ -666,6 +666,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//Controls/root"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//Controls/controls"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//Controls/relations"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//Controls/dependencies"/>
     </genClasses>
     <genClasses ecoreClass="domain.ecore#//Trigger"/>
     <genClasses ecoreClass="domain.ecore#//PREFormTrigger">
@@ -751,6 +752,12 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference domain.ecore#//Relation/detail"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//Relation/isTree"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//Relation/links"/>
+    </genClasses>
+    <genClasses ecoreClass="domain.ecore#//Dependency">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//Dependency/uid"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//Dependency/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference domain.ecore#//Dependency/master"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference domain.ecore#//Dependency/detail"/>
     </genClasses>
     <genClasses ecoreClass="domain.ecore#//ArtificialField">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//ArtificialField/uid"/>

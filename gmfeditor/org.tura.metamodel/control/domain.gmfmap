@@ -419,7 +419,7 @@
         href="domain.ecore#//Controls/relations"/>
     <tool
         xsi:type="gmftool:CreationTool"
-        href="domain.gmftool#//@palette/@tools.1/@tools.0"/>
+        href="domain.gmftool#//@palette/@tools.1/@tools.1"/>
     <diagramLink
         href="domain.gmfgraph#Relation"/>
     <sourceMetaFeature
@@ -428,6 +428,23 @@
     <linkMetaFeature
         xsi:type="ecore:EReference"
         href="domain.ecore#//Relation/detail"/>
+  </links>
+  <links>
+    <domainMetaElement
+        href="domain.ecore#//Dependency"/>
+    <containmentFeature
+        href="domain.ecore#//Controls/dependencies"/>
+    <tool
+        xsi:type="gmftool:CreationTool"
+        href="domain.gmftool#//@palette/@tools.1/@tools.0"/>
+    <diagramLink
+        href="domain.gmfgraph#Dependency"/>
+    <sourceMetaFeature
+        xsi:type="ecore:EReference"
+        href="domain.ecore#//Dependency/master"/>
+    <linkMetaFeature
+        xsi:type="ecore:EReference"
+        href="domain.ecore#//Dependency/detail"/>
   </links>
   <diagram>
     <diagramCanvas

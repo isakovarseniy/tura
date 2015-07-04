@@ -1436,6 +1436,15 @@ public interface DomainFactory extends EFactory
   Relation createRelation();
 
   /**
+   * Returns a new object of class '<em>Dependency</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Dependency</em>'.
+   * @generated
+   */
+  Dependency createDependency();
+
+  /**
    * Returns a new object of class '<em>Artificial Field</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

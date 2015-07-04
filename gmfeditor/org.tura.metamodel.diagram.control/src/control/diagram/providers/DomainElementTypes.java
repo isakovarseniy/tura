@@ -24,6 +24,7 @@ import control.diagram.edit.parts.ControlsEditPart;
 import control.diagram.edit.parts.CreateTriggerEditPart;
 import control.diagram.edit.parts.DataControlEditPart;
 import control.diagram.edit.parts.DeleteTriggerEditPart;
+import control.diagram.edit.parts.DependencyEditPart;
 import control.diagram.edit.parts.FormVariableEditPart;
 import control.diagram.edit.parts.InsertTriggerEditPart;
 import control.diagram.edit.parts.POSTCreateTriggerEditPart;
@@ -139,6 +140,11 @@ public class DomainElementTypes {
 	 * @generated
 	 */
 	public static final IElementType Relation_1104009 = getElementType("org.tura.metamodel.diagram.control.Relation_1104009"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType Dependency_1104010 = getElementType("org.tura.metamodel.diagram.control.Dependency_1104010"); //$NON-NLS-1$
 
 	/**
 	 * @generated
@@ -282,6 +288,8 @@ public class DomainElementTypes {
 			elements.put(ArtificialField_1103008, DomainPackage.eINSTANCE.getArtificialField());
 
 			elements.put(Relation_1104009, DomainPackage.eINSTANCE.getRelation());
+
+			elements.put(Dependency_1104010, DomainPackage.eINSTANCE.getDependency());
 		}
 		return (ENamedElement) elements.get(type);
 	}
@@ -317,6 +325,7 @@ public class DomainElementTypes {
 			KNOWN_ELEMENT_TYPES.add(SearchTrigger_1103016);
 			KNOWN_ELEMENT_TYPES.add(ArtificialField_1103008);
 			KNOWN_ELEMENT_TYPES.add(Relation_1104009);
+			KNOWN_ELEMENT_TYPES.add(Dependency_1104010);
 		}
 		return KNOWN_ELEMENT_TYPES.contains(elementType);
 	}
@@ -362,6 +371,8 @@ public class DomainElementTypes {
 			return ArtificialField_1103008;
 		case RelationEditPart.VISUAL_ID:
 			return Relation_1104009;
+		case DependencyEditPart.VISUAL_ID:
+			return Dependency_1104010;
 		}
 		return null;
 	}

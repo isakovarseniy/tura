@@ -63,7 +63,8 @@ public class DomainPaletteFactory {
 	private PaletteContainer createConnections2Group() {
 		PaletteDrawer paletteContainer = new PaletteDrawer(Messages.Connections2Group_title);
 		paletteContainer.setId("createConnections2Group"); //$NON-NLS-1$
-		paletteContainer.add(createRelation1CreationTool());
+		paletteContainer.add(createDependency1CreationTool());
+		paletteContainer.add(createRelation2CreationTool());
 		return paletteContainer;
 	}
 
@@ -277,10 +278,22 @@ public class DomainPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createRelation1CreationTool() {
-		LinkToolEntry entry = new LinkToolEntry(Messages.Relation1CreationTool_title,
-				Messages.Relation1CreationTool_desc, Collections.singletonList(DomainElementTypes.Relation_1104009));
-		entry.setId("createRelation1CreationTool"); //$NON-NLS-1$
+	private ToolEntry createDependency1CreationTool() {
+		LinkToolEntry entry = new LinkToolEntry(Messages.Dependency1CreationTool_title,
+				Messages.Dependency1CreationTool_desc, Collections.singletonList(DomainElementTypes.Dependency_1104010));
+		entry.setId("createDependency1CreationTool"); //$NON-NLS-1$
+		entry.setSmallIcon(DomainElementTypes.getImageDescriptor(DomainElementTypes.Dependency_1104010));
+		entry.setLargeIcon(entry.getSmallIcon());
+		return entry;
+	}
+
+	/**
+	 * @generated
+	 */
+	private ToolEntry createRelation2CreationTool() {
+		LinkToolEntry entry = new LinkToolEntry(Messages.Relation2CreationTool_title,
+				Messages.Relation2CreationTool_desc, Collections.singletonList(DomainElementTypes.Relation_1104009));
+		entry.setId("createRelation2CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(DomainElementTypes.getImageDescriptor(DomainElementTypes.Relation_1104009));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;

@@ -40,6 +40,7 @@ import control.diagram.part.DomainVisualIDRegistry;
 import control.diagram.providers.DomainElementTypes;
 import domain.Controls;
 import domain.DataControl;
+import domain.Dependency;
 import domain.Relation;
 
 /**
@@ -317,7 +318,27 @@ public class DomainBaseItemSemanticEditPolicy extends SemanticEditPolicy {
 		/**
 		 * @generated
 		 */
+		public boolean canCreateDependency_1104010(Controls container, DataControl source, DataControl target) {
+			if (container != null) {
+				if (container.getDependencies() != null) {
+					return false;
+				}
+			}
+			return canExistDependency_1104010(container, null, source, target);
+		}
+
+		/**
+		 * @generated
+		 */
 		public boolean canExistRelation_1104009(Controls container, Relation linkInstance, DataControl source,
+				DataControl target) {
+			return true;
+		}
+
+		/**
+		 * @generated
+		 */
+		public boolean canExistDependency_1104010(Controls container, Dependency linkInstance, DataControl source,
 				DataControl target) {
 			return true;
 		}

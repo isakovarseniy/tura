@@ -18,6 +18,8 @@ import org.eclipse.gmf.runtime.notation.Edge;
 import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.View;
 
+import control.diagram.edit.commands.DependencyCreateCommand;
+import control.diagram.edit.commands.DependencyReorientCommand;
 import control.diagram.edit.commands.RelationCreateCommand;
 import control.diagram.edit.commands.RelationReorientCommand;
 import control.diagram.edit.parts.ArtificialFieldEditPart;
@@ -35,6 +37,7 @@ import control.diagram.edit.parts.DataControlDataControlRemoveCompartmentEditPar
 import control.diagram.edit.parts.DataControlDataControlSearchCompartmentEditPart;
 import control.diagram.edit.parts.DataControlDataControlUpdateCompartmentEditPart;
 import control.diagram.edit.parts.DeleteTriggerEditPart;
+import control.diagram.edit.parts.DependencyEditPart;
 import control.diagram.edit.parts.InsertTriggerEditPart;
 import control.diagram.edit.parts.POSTCreateTriggerEditPart;
 import control.diagram.edit.parts.POSTQueryTriggerEditPart;
@@ -75,10 +78,22 @@ public class DataControlItemSemanticEditPolicy extends DomainBaseItemSemanticEdi
 				cmd.add(new DeleteCommand(getEditingDomain(), incomingLink));
 				continue;
 			}
+			if (DomainVisualIDRegistry.getVisualID(incomingLink) == DependencyEditPart.VISUAL_ID) {
+				DestroyElementRequest r = new DestroyElementRequest(incomingLink.getElement(), false);
+				cmd.add(new DestroyElementCommand(r));
+				cmd.add(new DeleteCommand(getEditingDomain(), incomingLink));
+				continue;
+			}
 		}
 		for (Iterator<?> it = view.getSourceEdges().iterator(); it.hasNext();) {
 			Edge outgoingLink = (Edge) it.next();
 			if (DomainVisualIDRegistry.getVisualID(outgoingLink) == RelationEditPart.VISUAL_ID) {
+				DestroyElementRequest r = new DestroyElementRequest(outgoingLink.getElement(), false);
+				cmd.add(new DestroyElementCommand(r));
+				cmd.add(new DeleteCommand(getEditingDomain(), outgoingLink));
+				continue;
+			}
+			if (DomainVisualIDRegistry.getVisualID(outgoingLink) == DependencyEditPart.VISUAL_ID) {
 				DestroyElementRequest r = new DestroyElementRequest(outgoingLink.getElement(), false);
 				cmd.add(new DestroyElementCommand(r));
 				cmd.add(new DeleteCommand(getEditingDomain(), outgoingLink));
@@ -282,6 +297,9 @@ public class DataControlItemSemanticEditPolicy extends DomainBaseItemSemanticEdi
 		if (DomainElementTypes.Relation_1104009 == req.getElementType()) {
 			return getGEFWrapper(new RelationCreateCommand(req, req.getSource(), req.getTarget()));
 		}
+		if (DomainElementTypes.Dependency_1104010 == req.getElementType()) {
+			return getGEFWrapper(new DependencyCreateCommand(req, req.getSource(), req.getTarget()));
+		}
 		return null;
 	}
 
@@ -291,6 +309,9 @@ public class DataControlItemSemanticEditPolicy extends DomainBaseItemSemanticEdi
 	protected Command getCompleteCreateRelationshipCommand(CreateRelationshipRequest req) {
 		if (DomainElementTypes.Relation_1104009 == req.getElementType()) {
 			return getGEFWrapper(new RelationCreateCommand(req, req.getSource(), req.getTarget()));
+		}
+		if (DomainElementTypes.Dependency_1104010 == req.getElementType()) {
+			return getGEFWrapper(new DependencyCreateCommand(req, req.getSource(), req.getTarget()));
 		}
 		return null;
 	}
@@ -305,6 +326,8 @@ public class DataControlItemSemanticEditPolicy extends DomainBaseItemSemanticEdi
 		switch (getVisualID(req)) {
 		case RelationEditPart.VISUAL_ID:
 			return getGEFWrapper(new RelationReorientCommand(req));
+		case DependencyEditPart.VISUAL_ID:
+			return getGEFWrapper(new DependencyReorientCommand(req));
 		}
 		return super.getReorientRelationshipCommand(req);
 	}

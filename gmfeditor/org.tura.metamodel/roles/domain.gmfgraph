@@ -44,6 +44,9 @@
           name="RelationFigureTargetDecoration"/>
       <figures
           xsi:type="gmfgraph:PolylineDecoration"
+          name="DependencyFigureTargetDecoration"/>
+      <figures
+          xsi:type="gmfgraph:PolylineDecoration"
           name="GroupGroup2GroupFigureTargetDecoration"/>
       <figures
           xsi:type="gmfgraph:PolylineDecoration"
@@ -3935,6 +3938,21 @@
             targetDecoration="/0/@figures.0/@figures.3"/>
       </descriptors>
       <descriptors
+          name="DependencyFigure">
+        <actualFigure
+            xsi:type="gmfgraph:PolylineConnection"
+            name="DependencyFigure"
+            lineWidth="2"
+            lineKind="LINE_DASH"
+            targetDecoration="/0/@figures.0/@figures.4">
+          <foregroundColor
+              xsi:type="gmfgraph:RGBColor"
+              red="238"
+              green="16"
+              blue="16"/>
+        </actualFigure>
+      </descriptors>
+      <descriptors
           name="InfrastructureConnectionFigure">
         <actualFigure
             xsi:type="gmfgraph:PolylineConnection"
@@ -3947,7 +3965,7 @@
             xsi:type="gmfgraph:PolylineConnection"
             name="GroupGroup2GroupFigure"
             lineKind="LINE_DASH"
-            targetDecoration="/0/@figures.0/@figures.4"/>
+            targetDecoration="/0/@figures.0/@figures.5"/>
       </descriptors>
       <descriptors
           name="GroupGroup2GroupExternalLabelFigure">
@@ -3967,7 +3985,7 @@
             xsi:type="gmfgraph:PolylineConnection"
             name="GroupGroup2RoleFigure"
             lineKind="LINE_DASH"
-            targetDecoration="/0/@figures.0/@figures.5"/>
+            targetDecoration="/0/@figures.0/@figures.6"/>
       </descriptors>
       <descriptors
           name="GroupGroup2RoleExternalLabelFigure">
@@ -3987,7 +4005,7 @@
             xsi:type="gmfgraph:PolylineConnection"
             name="DeploymentComponentDeploymentComponentLinkFigure"
             lineKind="LINE_DASH"
-            targetDecoration="/0/@figures.0/@figures.6"/>
+            targetDecoration="/0/@figures.0/@figures.7"/>
       </descriptors>
       <descriptors
           name="DeploymentComponentDeploymentComponentLinkExternalLabelFigure">
@@ -4007,7 +4025,7 @@
             xsi:type="gmfgraph:PolylineConnection"
             name="DeploymentStarStepFirstStepFigure"
             lineKind="LINE_DASH"
-            targetDecoration="/0/@figures.0/@figures.7"/>
+            targetDecoration="/0/@figures.0/@figures.8"/>
       </descriptors>
       <descriptors
           name="DeploymentStarStepFirstStepExternalLabelFigure">
@@ -4027,7 +4045,7 @@
             xsi:type="gmfgraph:PolylineConnection"
             name="RecipeInfrastructuresFigure"
             lineKind="LINE_DASH"
-            targetDecoration="/0/@figures.0/@figures.8"/>
+            targetDecoration="/0/@figures.0/@figures.9"/>
       </descriptors>
       <descriptors
           name="RecipeInfrastructuresExternalLabelFigure">
@@ -4047,7 +4065,7 @@
             xsi:type="gmfgraph:PolylineConnection"
             name="RecipeDeploymentFigure"
             lineKind="LINE_DASH"
-            targetDecoration="/0/@figures.0/@figures.9"/>
+            targetDecoration="/0/@figures.0/@figures.10"/>
       </descriptors>
       <descriptors
           name="RecipeDeploymentExternalLabelFigure">
@@ -4067,7 +4085,7 @@
             xsi:type="gmfgraph:PolylineConnection"
             name="InfrastructureRecipeConfigFigure"
             lineKind="LINE_DASH"
-            targetDecoration="/0/@figures.0/@figures.10"/>
+            targetDecoration="/0/@figures.0/@figures.11"/>
       </descriptors>
       <descriptors
           name="InfrastructureRecipeConfigExternalLabelFigure">
@@ -4088,7 +4106,7 @@
             name="ConfigurationConfigExtensionFigure"
             lineWidth="2"
             lineKind="LINE_DOT"
-            targetDecoration="/0/@figures.0/@figures.11"/>
+            targetDecoration="/0/@figures.0/@figures.12"/>
       </descriptors>
       <descriptors
           name="ConfigurationConfigExtensionExternalLabelFigure">
@@ -4433,6 +4451,9 @@
     <connections
         name="Relation"
         figure="RelationFigure"/>
+    <connections
+        name="Dependency"
+        figure="DependencyFigure"/>
     <connections
         name="InfrastructureConnection"
         figure="InfrastructureConnectionFigure"/>

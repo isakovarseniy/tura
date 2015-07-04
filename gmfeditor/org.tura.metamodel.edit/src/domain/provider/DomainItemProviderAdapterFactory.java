@@ -3999,6 +3999,31 @@ public class DomainItemProviderAdapterFactory extends DomainAdapterFactory imple
   }
 
   /**
+   * This keeps track of the one adapter used for all {@link domain.Dependency} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected DependencyItemProvider dependencyItemProvider;
+
+  /**
+   * This creates an adapter for a {@link domain.Dependency}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createDependencyAdapter()
+  {
+    if (dependencyItemProvider == null)
+    {
+      dependencyItemProvider = new DependencyItemProvider(this);
+    }
+
+    return dependencyItemProvider;
+  }
+
+  /**
    * This keeps track of the one adapter used for all {@link domain.ArtificialField} instances.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -4616,6 +4641,7 @@ public class DomainItemProviderAdapterFactory extends DomainAdapterFactory imple
     if (ordersItemProvider != null) ordersItemProvider.dispose();
     if (orderByItemProvider != null) orderByItemProvider.dispose();
     if (relationItemProvider != null) relationItemProvider.dispose();
+    if (dependencyItemProvider != null) dependencyItemProvider.dispose();
     if (artificialFieldItemProvider != null) artificialFieldItemProvider.dispose();
     if (linkItemProvider != null) linkItemProvider.dispose();
     if (applicationInfrastructureLayerItemProvider != null) applicationInfrastructureLayerItemProvider.dispose();

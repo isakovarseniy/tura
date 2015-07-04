@@ -17,6 +17,12 @@ context ArtificialField{
 
 }
 
+context Relation{
+     constraint HasDependency{
+       check: self.dependencies.select(r|r.master = self.master and r.detail = self.detail).size() = 0
+       message : 'Relation and Dependency cannot resides between same data controls'
+     }
+}
 
 context FormVariable{
 

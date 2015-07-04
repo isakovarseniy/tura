@@ -136,6 +136,7 @@ public class ControlsItemProvider
       childrenFeatures.add(DomainPackage.Literals.CONTROLS__ROOT);
       childrenFeatures.add(DomainPackage.Literals.CONTROLS__CONTROLS);
       childrenFeatures.add(DomainPackage.Literals.CONTROLS__RELATIONS);
+      childrenFeatures.add(DomainPackage.Literals.CONTROLS__DEPENDENCIES);
     }
     return childrenFeatures;
   }
@@ -201,6 +202,7 @@ public class ControlsItemProvider
       case DomainPackage.CONTROLS__ROOT:
       case DomainPackage.CONTROLS__CONTROLS:
       case DomainPackage.CONTROLS__RELATIONS:
+      case DomainPackage.CONTROLS__DEPENDENCIES:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
         return;
     }
@@ -233,6 +235,11 @@ public class ControlsItemProvider
       (createChildParameter
         (DomainPackage.Literals.CONTROLS__RELATIONS,
          DomainFactory.eINSTANCE.createRelation()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (DomainPackage.Literals.CONTROLS__DEPENDENCIES,
+         DomainFactory.eINSTANCE.createDependency()));
   }
 
   /**

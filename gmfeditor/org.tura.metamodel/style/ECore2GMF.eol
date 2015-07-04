@@ -303,6 +303,11 @@ delete tool;
 var tool = GmfTool!CreationTool.all.selectOne(r|r.title='Relation');
 delete tool;
 
+var tool = GmfMap!LinkMapping.all.selectOne(r|r.tool.title='Dependency');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='Dependency');
+delete tool;
+
 var tool = GmfMap!LinkMapping.all.selectOne(r|r.tool.title='TabPagesInheritance');
 delete tool;
 var tool = GmfTool!CreationTool.all.selectOne(r|r.title='TabPagesInheritance');

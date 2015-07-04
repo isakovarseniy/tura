@@ -33,6 +33,7 @@ import control.diagram.edit.parts.DataControlDataControlSearchCompartmentEditPar
 import control.diagram.edit.parts.DataControlDataControlUpdateCompartmentEditPart;
 import control.diagram.edit.parts.DataControlEditPart;
 import control.diagram.edit.parts.DeleteTriggerEditPart;
+import control.diagram.edit.parts.DependencyEditPart;
 import control.diagram.edit.parts.FormVariableEditPart;
 import control.diagram.edit.parts.InsertTriggerEditPart;
 import control.diagram.edit.parts.POSTCreateTriggerEditPart;
@@ -54,6 +55,7 @@ import domain.Controls;
 import domain.CreateTrigger;
 import domain.DataControl;
 import domain.DeleteTrigger;
+import domain.Dependency;
 import domain.DomainPackage;
 import domain.FormVariable;
 import domain.InsertTrigger;
@@ -524,6 +526,8 @@ public class DomainDiagramUpdater {
 			return getArtificialField_1103008ContainedLinks(view);
 		case RelationEditPart.VISUAL_ID:
 			return getRelation_1104009ContainedLinks(view);
+		case DependencyEditPart.VISUAL_ID:
+			return getDependency_1104010ContainedLinks(view);
 		}
 		return Collections.emptyList();
 	}
@@ -567,6 +571,8 @@ public class DomainDiagramUpdater {
 			return getArtificialField_1103008IncomingLinks(view);
 		case RelationEditPart.VISUAL_ID:
 			return getRelation_1104009IncomingLinks(view);
+		case DependencyEditPart.VISUAL_ID:
+			return getDependency_1104010IncomingLinks(view);
 		}
 		return Collections.emptyList();
 	}
@@ -610,6 +616,8 @@ public class DomainDiagramUpdater {
 			return getArtificialField_1103008OutgoingLinks(view);
 		case RelationEditPart.VISUAL_ID:
 			return getRelation_1104009OutgoingLinks(view);
+		case DependencyEditPart.VISUAL_ID:
+			return getDependency_1104010OutgoingLinks(view);
 		}
 		return Collections.emptyList();
 	}
@@ -621,6 +629,7 @@ public class DomainDiagramUpdater {
 		Controls modelElement = (Controls) view.getElement();
 		LinkedList<DomainLinkDescriptor> result = new LinkedList<DomainLinkDescriptor>();
 		result.addAll(getContainedTypeModelFacetLinks_Relation_1104009(modelElement));
+		result.addAll(getContainedTypeModelFacetLinks_Dependency_1104010(modelElement));
 		return result;
 	}
 
@@ -746,6 +755,13 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
+	public static List<DomainLinkDescriptor> getDependency_1104010ContainedLinks(View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
 	public static List<DomainLinkDescriptor> getRoot_1102001IncomingLinks(View view) {
 		return Collections.emptyList();
 	}
@@ -759,6 +775,7 @@ public class DomainDiagramUpdater {
 				.eResource().getResourceSet().getResources());
 		LinkedList<DomainLinkDescriptor> result = new LinkedList<DomainLinkDescriptor>();
 		result.addAll(getIncomingTypeModelFacetLinks_Relation_1104009(modelElement, crossReferences));
+		result.addAll(getIncomingTypeModelFacetLinks_Dependency_1104010(modelElement, crossReferences));
 		return result;
 	}
 
@@ -870,6 +887,13 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
+	public static List<DomainLinkDescriptor> getDependency_1104010IncomingLinks(View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
 	public static List<DomainLinkDescriptor> getRoot_1102001OutgoingLinks(View view) {
 		return Collections.emptyList();
 	}
@@ -881,6 +905,7 @@ public class DomainDiagramUpdater {
 		DataControl modelElement = (DataControl) view.getElement();
 		LinkedList<DomainLinkDescriptor> result = new LinkedList<DomainLinkDescriptor>();
 		result.addAll(getOutgoingTypeModelFacetLinks_Relation_1104009(modelElement));
+		result.addAll(getOutgoingTypeModelFacetLinks_Dependency_1104010(modelElement));
 		return result;
 	}
 
@@ -992,6 +1017,13 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
+	public static List<DomainLinkDescriptor> getDependency_1104010OutgoingLinks(View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
 	private static Collection<DomainLinkDescriptor> getContainedTypeModelFacetLinks_Relation_1104009(Controls container) {
 		LinkedList<DomainLinkDescriptor> result = new LinkedList<DomainLinkDescriptor>();
 		for (Iterator<?> links = container.getRelations().iterator(); links.hasNext();) {
@@ -1014,6 +1046,23 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
+	private static Collection<DomainLinkDescriptor> getContainedTypeModelFacetLinks_Dependency_1104010(
+			Controls container) {
+		LinkedList<DomainLinkDescriptor> result = new LinkedList<DomainLinkDescriptor>();
+		Dependency link = container.getDependencies();
+		if (DependencyEditPart.VISUAL_ID != DomainVisualIDRegistry.getLinkWithClassVisualID(link)) {
+			return result;
+		}
+		DataControl dst = link.getDetail();
+		DataControl src = link.getMaster();
+		result.add(new DomainLinkDescriptor(src, dst, link, DomainElementTypes.Dependency_1104010,
+				DependencyEditPart.VISUAL_ID));
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
 	private static Collection<DomainLinkDescriptor> getIncomingTypeModelFacetLinks_Relation_1104009(DataControl target,
 			Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences) {
 		LinkedList<DomainLinkDescriptor> result = new LinkedList<DomainLinkDescriptor>();
@@ -1030,6 +1079,29 @@ public class DomainDiagramUpdater {
 			DataControl src = link.getMaster();
 			result.add(new DomainLinkDescriptor(src, target, link, DomainElementTypes.Relation_1104009,
 					RelationEditPart.VISUAL_ID));
+		}
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	private static Collection<DomainLinkDescriptor> getIncomingTypeModelFacetLinks_Dependency_1104010(
+			DataControl target, Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences) {
+		LinkedList<DomainLinkDescriptor> result = new LinkedList<DomainLinkDescriptor>();
+		Collection<EStructuralFeature.Setting> settings = crossReferences.get(target);
+		for (EStructuralFeature.Setting setting : settings) {
+			if (setting.getEStructuralFeature() != DomainPackage.eINSTANCE.getDependency_Detail()
+					|| false == setting.getEObject() instanceof Dependency) {
+				continue;
+			}
+			Dependency link = (Dependency) setting.getEObject();
+			if (DependencyEditPart.VISUAL_ID != DomainVisualIDRegistry.getLinkWithClassVisualID(link)) {
+				continue;
+			}
+			DataControl src = link.getMaster();
+			result.add(new DomainLinkDescriptor(src, target, link, DomainElementTypes.Dependency_1104010,
+					DependencyEditPart.VISUAL_ID));
 		}
 		return result;
 	}
@@ -1068,6 +1140,37 @@ public class DomainDiagramUpdater {
 			result.add(new DomainLinkDescriptor(src, dst, link, DomainElementTypes.Relation_1104009,
 					RelationEditPart.VISUAL_ID));
 		}
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	private static Collection<DomainLinkDescriptor> getOutgoingTypeModelFacetLinks_Dependency_1104010(DataControl source) {
+		Controls container = null;
+		// Find container element for the link.
+		// Climb up by containment hierarchy starting from the source
+		// and return the first element that is instance of the container class.
+		for (EObject element = source; element != null && container == null; element = element.eContainer()) {
+			if (element instanceof Controls) {
+				container = (Controls) element;
+			}
+		}
+		if (container == null) {
+			return Collections.emptyList();
+		}
+		LinkedList<DomainLinkDescriptor> result = new LinkedList<DomainLinkDescriptor>();
+		Dependency link = container.getDependencies();
+		if (DependencyEditPart.VISUAL_ID != DomainVisualIDRegistry.getLinkWithClassVisualID(link)) {
+			return result;
+		}
+		DataControl dst = link.getDetail();
+		DataControl src = link.getMaster();
+		if (src != source) {
+			return result;
+		}
+		result.add(new DomainLinkDescriptor(src, dst, link, DomainElementTypes.Dependency_1104010,
+				DependencyEditPart.VISUAL_ID));
 		return result;
 	}
 

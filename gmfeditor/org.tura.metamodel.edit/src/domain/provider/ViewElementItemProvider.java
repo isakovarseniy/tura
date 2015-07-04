@@ -15,8 +15,6 @@ import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 
-import domain.DomainPackage;
-
 /**
  * This is the item provider adapter for a {@link domain.ViewElement} object.
  * <!-- begin-user-doc -->

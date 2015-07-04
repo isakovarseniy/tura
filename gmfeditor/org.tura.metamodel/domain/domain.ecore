@@ -1514,6 +1514,8 @@
         eType="#//DataControl" containment="true" eOpposite="#//DataControl/parent"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="relations" upperBound="-1"
         eType="#//Relation" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="dependencies" eType="#//Dependency"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Trigger" eSuperTypes="#//MethodPointer #//ContextParameters"/>
   <eClassifiers xsi:type="ecore:EClass" name="PREFormTrigger" eSuperTypes="#//Trigger">
@@ -1773,6 +1775,21 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="isTree" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="links" upperBound="-1"
         eType="#//Link" containment="true" eOpposite="#//Link/parent"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Dependency">
+    <eAnnotations source="gmf.link">
+      <details key="source" value="master"/>
+      <details key="target" value="detail"/>
+      <details key="style" value="dash"/>
+      <details key="color" value="238,16,16"/>
+      <details key="width" value="2"/>
+      <details key="target.decoration" value="arrow"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="master" eType="#//DataControl"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="detail" eType="#//DataControl"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ArtificialField" eSuperTypes="#//TypePointer">
     <eAnnotations source="gmf.node">

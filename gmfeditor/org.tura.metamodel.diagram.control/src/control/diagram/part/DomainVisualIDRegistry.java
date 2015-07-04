@@ -31,6 +31,7 @@ import control.diagram.edit.parts.DataControlEditPart;
 import control.diagram.edit.parts.DataControlNameEditPart;
 import control.diagram.edit.parts.DeleteTriggerEditPart;
 import control.diagram.edit.parts.DeleteTriggerFakeMethodEditPart;
+import control.diagram.edit.parts.DependencyEditPart;
 import control.diagram.edit.parts.FormVariableEditPart;
 import control.diagram.edit.parts.FormVariableNameEditPart;
 import control.diagram.edit.parts.InsertTriggerEditPart;
@@ -476,6 +477,9 @@ public class DomainVisualIDRegistry {
 		}
 		if (DomainPackage.eINSTANCE.getRelation().isSuperTypeOf(domainElement.eClass())) {
 			return RelationEditPart.VISUAL_ID;
+		}
+		if (DomainPackage.eINSTANCE.getDependency().isSuperTypeOf(domainElement.eClass())) {
+			return DependencyEditPart.VISUAL_ID;
 		}
 		return -1;
 	}

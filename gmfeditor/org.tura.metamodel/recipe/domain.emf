@@ -1030,6 +1030,7 @@ class Controls{
     val Root root;
     val DataControl [*]#parent controls;
     val Relation[*] relations;
+    val Dependency dependencies;
 }
 
 class Trigger extends MethodPointer , ContextParameters{
@@ -1181,6 +1182,15 @@ class Relation{
    attr EBoolean isTree;
    val Link[*]#parent links;  
 }
+
+@gmf.link(source="master", target="detail", style="dash", color = "238,16,16" , width="2" , target.decoration="arrow")
+class Dependency{
+    id attr EString uid;
+   attr EString name;
+   ref DataControl master;
+   ref DataControl detail;
+}
+
 
 @gmf.node(label="name",border.color="0,0,0",color="241,238,203")
 class ArtificialField extends TypePointer{

@@ -19,6 +19,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link domain.Controls#getRoot <em>Root</em>}</li>
  *   <li>{@link domain.Controls#getControls <em>Controls</em>}</li>
  *   <li>{@link domain.Controls#getRelations <em>Relations</em>}</li>
+ *   <li>{@link domain.Controls#getDependencies <em>Dependencies</em>}</li>
  * </ul>
  * </p>
  *
@@ -141,5 +142,31 @@ public interface Controls extends EObject
    * @generated
    */
   EList<Relation> getRelations();
+
+  /**
+   * Returns the value of the '<em><b>Dependencies</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Dependencies</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Dependencies</em>' containment reference.
+   * @see #setDependencies(Dependency)
+   * @see domain.DomainPackage#getControls_Dependencies()
+   * @model containment="true"
+   * @generated
+   */
+  Dependency getDependencies();
+
+  /**
+   * Sets the value of the '{@link domain.Controls#getDependencies <em>Dependencies</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Dependencies</em>' containment reference.
+   * @see #getDependencies()
+   * @generated
+   */
+  void setDependencies(Dependency value);
 
 } // Controls

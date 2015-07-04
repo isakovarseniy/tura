@@ -6886,6 +6886,14 @@
     </children>
     <styles xmi:type="notation:DiagramStyle" xmi:id="_JdZR4R1QEeWAJNFW6jcN6w"/>
     <element xmi:type="tura.domain:Controls" href="hr.domain#275253ca-c6ab-42b4-833e-9aae82cb149d"/>
+    <edges xmi:type="notation:Edge" xmi:id="_KixOECH8EeWYIMGGhRCZbA" type="1104010" source="_bAYngB1QEeW_yqkR5CHSgQ" target="_WngGQB1REeW_yqkR5CHSgQ">
+      <styles xmi:type="notation:RoutingStyle" xmi:id="_KixOESH8EeWYIMGGhRCZbA"/>
+      <styles xmi:type="notation:FontStyle" xmi:id="_KixOEiH8EeWYIMGGhRCZbA" fontName=".Helvetica Neue DeskInterface"/>
+      <element xmi:type="tura.domain:Dependency" href="hr.domain#a52ecfa3-aa55-4dad-a563-e3bd15b33262"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_KixOEyH8EeWYIMGGhRCZbA" points="[60, 6, -123, 0]$[168, -17, -15, -23]"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_Ki_QgCH8EeWYIMGGhRCZbA" id="(0.7272727272727273,0.06792452830188679)"/>
+      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_Ki_3kCH8EeWYIMGGhRCZbA" id="(0.18636363636363637,0.08679245283018867)"/>
+    </edges>
   </notation:Diagram>
   <notation:Diagram xmi:id="_P_IsgB2QEeW_yqkR5CHSgQ" type="FrmView" measurementUnit="Pixel">
     <children xmi:type="notation:Node" xmi:id="_VEsREB2QEeW_yqkR5CHSgQ" type="1302007">

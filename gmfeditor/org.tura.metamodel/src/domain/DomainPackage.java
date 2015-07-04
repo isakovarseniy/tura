@@ -9836,13 +9836,22 @@ public interface DomainPackage extends EPackage
   int CONTROLS__RELATIONS = 4;
 
   /**
+   * The feature id for the '<em><b>Dependencies</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONTROLS__DEPENDENCIES = 5;
+
+  /**
    * The number of structural features of the '<em>Controls</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CONTROLS_FEATURE_COUNT = 5;
+  int CONTROLS_FEATURE_COUNT = 6;
 
   /**
    * The meta object id for the '{@link domain.impl.PREFormTriggerImpl <em>PRE Form Trigger</em>}' class.
@@ -11411,6 +11420,61 @@ public interface DomainPackage extends EPackage
   int RELATION_FEATURE_COUNT = 6;
 
   /**
+   * The meta object id for the '{@link domain.impl.DependencyImpl <em>Dependency</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see domain.impl.DependencyImpl
+   * @see domain.impl.DomainPackageImpl#getDependency()
+   * @generated
+   */
+  int DEPENDENCY = 157;
+
+  /**
+   * The feature id for the '<em><b>Uid</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DEPENDENCY__UID = 0;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DEPENDENCY__NAME = 1;
+
+  /**
+   * The feature id for the '<em><b>Master</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DEPENDENCY__MASTER = 2;
+
+  /**
+   * The feature id for the '<em><b>Detail</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DEPENDENCY__DETAIL = 3;
+
+  /**
+   * The number of structural features of the '<em>Dependency</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DEPENDENCY_FEATURE_COUNT = 4;
+
+  /**
    * The meta object id for the '{@link domain.impl.ArtificialFieldImpl <em>Artificial Field</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -11418,7 +11482,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getArtificialField()
    * @generated
    */
-  int ARTIFICIAL_FIELD = 157;
+  int ARTIFICIAL_FIELD = 158;
 
   /**
    * The feature id for the '<em><b>Package Ref</b></em>' reference.
@@ -11500,7 +11564,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getLink()
    * @generated
    */
-  int LINK = 158;
+  int LINK = 159;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -11555,7 +11619,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getApplicationInfrastructureLayer()
    * @generated
    */
-  int APPLICATION_INFRASTRUCTURE_LAYER = 159;
+  int APPLICATION_INFRASTRUCTURE_LAYER = 160;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -11610,7 +11674,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getEnterpriseInfrastructure()
    * @generated
    */
-  int ENTERPRISE_INFRASTRUCTURE = 160;
+  int ENTERPRISE_INFRASTRUCTURE = 161;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -11665,7 +11729,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getDatacenter()
    * @generated
    */
-  int DATACENTER = 161;
+  int DATACENTER = 162;
 
   /**
    * The feature id for the '<em><b>Columns</b></em>' attribute.
@@ -11729,7 +11793,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getSubsystem()
    * @generated
    */
-  int SUBSYSTEM = 162;
+  int SUBSYSTEM = 163;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -11784,7 +11848,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getInfrastructureLayer()
    * @generated
    */
-  int INFRASTRUCTURE_LAYER = 163;
+  int INFRASTRUCTURE_LAYER = 164;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -11839,7 +11903,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getInfrastructureConnection()
    * @generated
    */
-  int INFRASTRUCTURE_CONNECTION = 164;
+  int INFRASTRUCTURE_CONNECTION = 165;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -11885,7 +11949,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getInfrastructureComponent()
    * @generated
    */
-  int INFRASTRUCTURE_COMPONENT = 165;
+  int INFRASTRUCTURE_COMPONENT = 166;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -11931,7 +11995,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getServer()
    * @generated
    */
-  int SERVER = 166;
+  int SERVER = 167;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -11977,7 +12041,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getRouter()
    * @generated
    */
-  int ROUTER = 167;
+  int ROUTER = 168;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -12023,7 +12087,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getHub()
    * @generated
    */
-  int HUB = 168;
+  int HUB = 169;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -12069,7 +12133,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getStorage()
    * @generated
    */
-  int STORAGE = 169;
+  int STORAGE = 170;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -12115,7 +12179,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getServerClaster()
    * @generated
    */
-  int SERVER_CLASTER = 170;
+  int SERVER_CLASTER = 171;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -12170,7 +12234,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getPlatformLayers()
    * @generated
    */
-  int PLATFORM_LAYERS = 171;
+  int PLATFORM_LAYERS = 172;
 
 
   /**
@@ -12181,7 +12245,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getComparator()
    * @generated
    */
-  int COMPARATOR = 172;
+  int COMPARATOR = 173;
 
 
   /**
@@ -12192,7 +12256,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getOrder()
    * @generated
    */
-  int ORDER = 173;
+  int ORDER = 174;
 
 
   /**
@@ -17866,6 +17930,17 @@ public interface DomainPackage extends EPackage
   EReference getControls_Relations();
 
   /**
+   * Returns the meta object for the containment reference '{@link domain.Controls#getDependencies <em>Dependencies</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Dependencies</em>'.
+   * @see domain.Controls#getDependencies()
+   * @see #getControls()
+   * @generated
+   */
+  EReference getControls_Dependencies();
+
+  /**
    * Returns the meta object for class '{@link domain.Trigger <em>Trigger</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -18582,6 +18657,60 @@ public interface DomainPackage extends EPackage
    * @generated
    */
   EReference getRelation_Links();
+
+  /**
+   * Returns the meta object for class '{@link domain.Dependency <em>Dependency</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Dependency</em>'.
+   * @see domain.Dependency
+   * @generated
+   */
+  EClass getDependency();
+
+  /**
+   * Returns the meta object for the attribute '{@link domain.Dependency#getUid <em>Uid</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Uid</em>'.
+   * @see domain.Dependency#getUid()
+   * @see #getDependency()
+   * @generated
+   */
+  EAttribute getDependency_Uid();
+
+  /**
+   * Returns the meta object for the attribute '{@link domain.Dependency#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see domain.Dependency#getName()
+   * @see #getDependency()
+   * @generated
+   */
+  EAttribute getDependency_Name();
+
+  /**
+   * Returns the meta object for the reference '{@link domain.Dependency#getMaster <em>Master</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Master</em>'.
+   * @see domain.Dependency#getMaster()
+   * @see #getDependency()
+   * @generated
+   */
+  EReference getDependency_Master();
+
+  /**
+   * Returns the meta object for the reference '{@link domain.Dependency#getDetail <em>Detail</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Detail</em>'.
+   * @see domain.Dependency#getDetail()
+   * @see #getDependency()
+   * @generated
+   */
+  EReference getDependency_Detail();
 
   /**
    * Returns the meta object for class '{@link domain.ArtificialField <em>Artificial Field</em>}'.
@@ -23651,6 +23780,14 @@ public interface DomainPackage extends EPackage
     EReference CONTROLS__RELATIONS = eINSTANCE.getControls_Relations();
 
     /**
+     * The meta object literal for the '<em><b>Dependencies</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference CONTROLS__DEPENDENCIES = eINSTANCE.getControls_Dependencies();
+
+    /**
      * The meta object literal for the '{@link domain.impl.TriggerImpl <em>Trigger</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -24223,6 +24360,48 @@ public interface DomainPackage extends EPackage
      * @generated
      */
     EReference RELATION__LINKS = eINSTANCE.getRelation_Links();
+
+    /**
+     * The meta object literal for the '{@link domain.impl.DependencyImpl <em>Dependency</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see domain.impl.DependencyImpl
+     * @see domain.impl.DomainPackageImpl#getDependency()
+     * @generated
+     */
+    EClass DEPENDENCY = eINSTANCE.getDependency();
+
+    /**
+     * The meta object literal for the '<em><b>Uid</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute DEPENDENCY__UID = eINSTANCE.getDependency_Uid();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute DEPENDENCY__NAME = eINSTANCE.getDependency_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Master</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference DEPENDENCY__MASTER = eINSTANCE.getDependency_Master();
+
+    /**
+     * The meta object literal for the '<em><b>Detail</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference DEPENDENCY__DETAIL = eINSTANCE.getDependency_Detail();
 
     /**
      * The meta object literal for the '{@link domain.impl.ArtificialFieldImpl <em>Artificial Field</em>}' class.

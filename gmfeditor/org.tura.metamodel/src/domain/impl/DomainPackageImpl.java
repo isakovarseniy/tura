@@ -2,181 +2,6 @@
  */
 package domain.impl;
 
-import domain.ActionElement;
-import domain.ActionTrigger;
-import domain.Application;
-import domain.ApplicationInfrastructureLayer;
-import domain.ApplicationMapper;
-import domain.ApplicationMappers;
-import domain.ApplicationMessages;
-import domain.ApplicationRecipe;
-import domain.ApplicationRecipes;
-import domain.ApplicationRole;
-import domain.ApplicationStyle;
-import domain.ApplicationUILayer;
-import domain.ApplicationUIPackage;
-import domain.Artifact;
-import domain.ArtifactRef;
-import domain.Artifacts;
-import domain.ArtificialField;
-import domain.Attribute;
-import domain.Button;
-import domain.CSSMapper;
-import domain.Canvas;
-import domain.CanvasFrame;
-import domain.CanvasView;
-import domain.Categorized;
-import domain.CheckBox;
-import domain.ChildrenHolder;
-import domain.Classifier;
-import domain.Column;
-import domain.Comparator;
-import domain.Component;
-import domain.ConfigVariable;
-import domain.Configuration;
-import domain.Context;
-import domain.ContextParameter;
-import domain.ContextParameters;
-import domain.ContextValue;
-import domain.ContinuousIintegration;
-import domain.Controls;
-import domain.CreateTrigger;
-import domain.DataControl;
-import domain.Datacenter;
-import domain.Date;
-import domain.DefaultCavas;
-import domain.DeleteTrigger;
-import domain.DeploymentComponent;
-import domain.DeploymentComponents;
-import domain.DeploymentSequence;
-import domain.DeploymentStarStep;
-import domain.Domain;
-import domain.DomainApplication;
-import domain.DomainApplications;
-import domain.DomainArtifact;
-import domain.DomainArtifacts;
-import domain.DomainFactory;
-import domain.DomainPackage;
-import domain.DomainTypes;
-import domain.DropDownSelection;
-import domain.EJBService;
-import domain.EnterpriseInfrastructure;
-import domain.EnumAttribute;
-import domain.Enumarator;
-import domain.ExpressionPart;
-import domain.Form;
-import domain.FormDataControls;
-import domain.FormParameter;
-import domain.FormVariable;
-import domain.FormView;
-import domain.GenerationHint;
-import domain.Group;
-import domain.HTMLLayerHolder;
-import domain.Hub;
-import domain.Image;
-import domain.Infrastructure;
-import domain.InfrastructureComponent;
-import domain.InfrastructureConnection;
-import domain.InfrastructureLayer;
-import domain.Ingredient;
-import domain.InputElement;
-import domain.InputText;
-import domain.InsertTrigger;
-import domain.JPAService;
-import domain.JavaComponent;
-import domain.JavaMapper;
-import domain.JavaScriptMapper;
-import domain.Label;
-import domain.Language;
-import domain.LanguageRef;
-import domain.LayerHolder;
-import domain.Link;
-import domain.Mapper;
-import domain.Mappers;
-import domain.MappingSpecifier;
-import domain.Message;
-import domain.MessageLibrary;
-import domain.Messages;
-import domain.MethodPointer;
-import domain.ModelMapper;
-import domain.ModelQuery;
-import domain.MultiLangLabel;
-import domain.NickNamed;
-import domain.ORMEntity;
-import domain.Operation;
-import domain.Option;
-import domain.OptionSelection;
-import domain.Order;
-import domain.OrderBy;
-import domain.Orderable;
-import domain.Orders;
-import domain.OutputText;
-import domain.POSTCreateTrigger;
-import domain.POSTQueryTrigger;
-import domain.PREDeleteTrigger;
-import domain.PREFormTrigger;
-import domain.PREInsertTrigger;
-import domain.PREQueryTrigger;
-import domain.PREUpdateTrigger;
-import domain.Parameter;
-import domain.PlatformLayers;
-import domain.PopupCanvas;
-import domain.Primitive;
-import domain.Property;
-import domain.Query;
-import domain.QueryParameter;
-import domain.QueryVariable;
-import domain.Recipe;
-import domain.Recipes;
-import domain.Relation;
-import domain.ReturnValue;
-import domain.Role;
-import domain.RoleMapper;
-import domain.Roles;
-import domain.Root;
-import domain.Router;
-import domain.SearchTrigger;
-import domain.Selection;
-import domain.Server;
-import domain.ServerClaster;
-import domain.SourcesPointer;
-import domain.Specifier;
-import domain.Storage;
-import domain.StyleClass;
-import domain.StyleElement;
-import domain.StyleLibrary;
-import domain.StyleSet;
-import domain.Styles;
-import domain.StylesPackage;
-import domain.Subsystem;
-import domain.TabCanvas;
-import domain.TabPage;
-import domain.TabPagesInheritance;
-import domain.Table;
-import domain.Translation;
-import domain.Tree;
-import domain.Trigger;
-import domain.Type;
-import domain.TypeDefinition;
-import domain.TypeElement;
-import domain.TypeExtension;
-import domain.TypeMapper;
-import domain.TypePointer;
-import domain.TypeReference;
-import domain.Types;
-import domain.TypesRepository;
-import domain.UIPackage;
-import domain.Uielement;
-import domain.UpdateTrigger;
-import domain.UsingMappers;
-import domain.ViewArea;
-import domain.ViewElement;
-import domain.ViewInheritance;
-import domain.ViewPort;
-import domain.ViewPortHolder;
-import domain.ViewPortTrigger;
-import domain.Views;
-import domain.Window;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EEnum;
@@ -1292,6 +1117,13 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * @generated
    */
   private EClass relationEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass dependencyEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -6760,6 +6592,16 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EReference getControls_Dependencies()
+  {
+    return (EReference)controlsEClass.getEStructuralFeatures().get(5);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getTrigger()
   {
     return triggerEClass;
@@ -7423,6 +7265,56 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
   public EReference getRelation_Links()
   {
     return (EReference)relationEClass.getEStructuralFeatures().get(5);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getDependency()
+  {
+    return dependencyEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getDependency_Uid()
+  {
+    return (EAttribute)dependencyEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getDependency_Name()
+  {
+    return (EAttribute)dependencyEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getDependency_Master()
+  {
+    return (EReference)dependencyEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getDependency_Detail()
+  {
+    return (EReference)dependencyEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -8630,6 +8522,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     createEReference(controlsEClass, CONTROLS__ROOT);
     createEReference(controlsEClass, CONTROLS__CONTROLS);
     createEReference(controlsEClass, CONTROLS__RELATIONS);
+    createEReference(controlsEClass, CONTROLS__DEPENDENCIES);
 
     triggerEClass = createEClass(TRIGGER);
 
@@ -8716,6 +8609,12 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     createEReference(relationEClass, RELATION__DETAIL);
     createEAttribute(relationEClass, RELATION__IS_TREE);
     createEReference(relationEClass, RELATION__LINKS);
+
+    dependencyEClass = createEClass(DEPENDENCY);
+    createEAttribute(dependencyEClass, DEPENDENCY__UID);
+    createEAttribute(dependencyEClass, DEPENDENCY__NAME);
+    createEReference(dependencyEClass, DEPENDENCY__MASTER);
+    createEReference(dependencyEClass, DEPENDENCY__DETAIL);
 
     artificialFieldEClass = createEClass(ARTIFICIAL_FIELD);
     createEAttribute(artificialFieldEClass, ARTIFICIAL_FIELD__UID);
@@ -9606,6 +9505,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     initEReference(getControls_Root(), this.getRoot(), null, "root", null, 0, 1, Controls.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getControls_Controls(), this.getDataControl(), this.getDataControl_Parent(), "controls", null, 0, -1, Controls.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getControls_Relations(), this.getRelation(), null, "relations", null, 0, -1, Controls.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getControls_Dependencies(), this.getDependency(), null, "dependencies", null, 0, 1, Controls.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(triggerEClass, Trigger.class, "Trigger", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -9692,6 +9592,12 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     initEReference(getRelation_Detail(), this.getDataControl(), null, "detail", null, 0, 1, Relation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getRelation_IsTree(), ecorePackage.getEBoolean(), "isTree", null, 0, 1, Relation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getRelation_Links(), this.getLink(), this.getLink_Parent(), "links", null, 0, -1, Relation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(dependencyEClass, Dependency.class, "Dependency", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getDependency_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, Dependency.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getDependency_Name(), ecorePackage.getEString(), "name", null, 0, 1, Dependency.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDependency_Master(), this.getDataControl(), null, "master", null, 0, 1, Dependency.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDependency_Detail(), this.getDataControl(), null, "detail", null, 0, 1, Dependency.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(artificialFieldEClass, ArtificialField.class, "ArtificialField", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getArtificialField_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, ArtificialField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -9832,7 +9738,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
-       });																																																																																																																																																																																								
+       });																																																																																																																																																																																									
   }
 
   /**
@@ -9849,7 +9755,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
-       });																																																																																																																																																																																							
+       });																																																																																																																																																																																								
   }
 
   /**
@@ -10731,7 +10637,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        "label", "name",
        "border.color", "0,0,0",
        "color", "241,238,203"
-       });															
+       });																
     addAnnotation
       (artificialFieldEClass, 
        source, 
@@ -11145,7 +11051,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        new String[] 
        {
        "layout", "list"
-       });							
+       });								
     addAnnotation
       (getDatacenter_Subsystems(), 
        source, 
@@ -11187,7 +11093,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
-       });																																																																																																																																																																											
+       });																																																																																																																																																																												
   }
 
   /**
@@ -11204,7 +11110,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
-       });																																																																																																																																																																
+       });																																																																																																																																																																	
   }
 
   /**
@@ -11221,7 +11127,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
-       });																																																																																																																																																	
+       });																																																																																																																																																		
   }
 
   /**
@@ -11238,7 +11144,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
-       });																																																																																																																																												
+       });																																																																																																																																													
   }
 
   /**
@@ -11359,6 +11265,18 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        "target", "detail",
        "style", "dash",
        "target.decoration", "arrow"
+       });		
+    addAnnotation
+      (dependencyEClass, 
+       source, 
+       new String[] 
+       {
+       "source", "master",
+       "target", "detail",
+       "style", "dash",
+       "color", "238,16,16",
+       "width", "2",
+       "target.decoration", "arrow"
        });											
     addAnnotation
       (infrastructureConnectionEClass, 
@@ -11385,7 +11303,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
-       });																																																																																																																																							
+       });																																																																																																																																								
   }
 
   /**
@@ -11402,7 +11320,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
-       });																																																																																																																																			
+       });																																																																																																																																				
   }
 
   /**
@@ -11419,7 +11337,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
-       });																																																																																																																														
+       });																																																																																																																															
   }
 
   /**
@@ -11436,7 +11354,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
-       });																																																																																																																												
+       });																																																																																																																													
   }
 
   /**
@@ -11453,7 +11371,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
-       });																																																																																																						
+       });																																																																																																							
   }
 
   /**
@@ -11470,7 +11388,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
-       });																																																																																										
+       });																																																																																											
   }
 
   /**
@@ -11487,7 +11405,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
-       });																																																																																						
+       });																																																																																							
   }
 
   /**
@@ -11504,7 +11422,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
-       });																																																																															
+       });																																																																																
   }
 
   /**
@@ -11521,7 +11439,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
-       });																																																																	
+       });																																																																		
   }
 
   /**
@@ -11538,7 +11456,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
-       });																																														
+       });																																															
   }
 
   /**
@@ -11549,7 +11467,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    */
   protected void createGmf_19Annotations()
   {
-    String source = "gmf.diagram.infarastructure";																																																																																																																																																																													
+    String source = "gmf.diagram.infarastructure";																																																																																																																																																																														
     addAnnotation
       (enterpriseInfrastructureEClass, 
        source, 
