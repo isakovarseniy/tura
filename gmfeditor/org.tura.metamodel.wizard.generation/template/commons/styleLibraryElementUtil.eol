@@ -17,7 +17,7 @@ operation StyleLibrary mappingStyleLibrary2CSS( recipe:Recipe, ingredient :Ingre
            }
     }
      if (self.~url = null ){
-         throw ("Unable to find StyleLibrary2CSS mapper for style library  \"" + self.name +"\" on layer \"" + ingredient.layer +"\"");
+         util.traceIfDebug ("StyleLibrary2CSS","Unable to find StyleLibrary2CSS mapper for style library  \"" + self.name +"\" on layer \"" + ingredient.layer +"\"");
      }
     
     

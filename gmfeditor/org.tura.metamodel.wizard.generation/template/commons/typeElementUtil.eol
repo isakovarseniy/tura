@@ -46,7 +46,8 @@ operation TypeElement mappingType2Java( recipe:Recipe, ingredient :Ingredient) {
           }    
      }
      if (self.~class = null and tp <> null){
-         throw ("Unable to find JavaMapper for type \"" + tp.name +"\" on layer \"" + ingredient.layer +"\"");
+/*  Cannot throw exception */     
+         util.traceIfDebug("JavaMapper","Unable to find JavaMapper for type \"" + tp.name +"\" on layer \"" + ingredient.layer +"\"");
      }
 } 
 
@@ -69,6 +70,11 @@ operation TypeElement mappingType2JavaScript( recipe:Recipe, ingredient :Ingredi
              }
            }
     }
+    
+     if (self.~url = null ){
+/*  Cannot throw exception */     
+         util.traceIfDebug("Type2JavaScript","Unable to find Type2JavaScript for type \"" + self.name +"\" on layer \"" + ingredient.layer +"\"");
+     }    
 }
 
 

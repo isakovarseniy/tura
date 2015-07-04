@@ -1,3 +1,27 @@
+﻿-- Table: hr.department2entitydao
+
+-- DROP TABLE hr.department2entitydao;
+
+CREATE TABLE hr.department2entitydao
+(
+  obj_id bigint NOT NULL,
+  active_date timestamp without time zone,
+  create_date timestamp without time zone,
+  exp_date timestamp without time zone,
+  obj_status character varying(255),
+  obj_type character varying(255),
+  parent_id bigint,
+  update_date timestamp without time zone,
+  optlock integer,
+  boolval boolean,
+  departmentref bigint,
+  entityref bigint,
+  CONSTRAINT department2entitydao_pkey PRIMARY KEY (obj_id)
+)
+WITH (
+  OIDS=FALSE
+);
+
 -- Table: hr.citydao
 
 -- DROP TABLE hr.citydao;
