@@ -14,7 +14,8 @@ operation DropDownSelection draw(hash) {
     }
  %]
  <p:selectOneMenu [%=self.mkUIDBinding()%] [%=self.uiElementAttributes(hash)%] value="[%=value%]">
-	<f:selectItems  value="#{viewmodel.getModel('[%=self.mkuid()%]','options', [%=buildExpression(util.createArtificialContextValue(self.optionPointer,self.optionPointer.findTreeRoot(),null))%],[%=self.selection.displayOptionPointer.name%],[%=self.selection.valueOptionPointer.name%])}"/>
+	<f:selectItems  var="options"  itemValue="#{options[1]}" itemLabel="#{options[0]}" value="#{viewmodel.getModel('[%=self.mkuid()%]','options', [%=util.bracketRemover(buildExpression(util.createArtificialContextValue(self.optionPointer,self.optionPointer.findTreeRoot(),null)))%]).setLabel('get[%=util.mergeAndCapitalize(self.selection.displayOptionPointer.name)%]').setValue('get[%=util.mergeAndCapitalize(self.selection.valueOptionPointer.name)%]').getOptions()}"/>
+	<p:ajax [%=self.refreshArias()%]   process="@this" />
 </p:selectOneMenu>
  [%
      util.traceIfDebug("UI element","DropDown end: "+self.uid);     

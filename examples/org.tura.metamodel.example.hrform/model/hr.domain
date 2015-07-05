@@ -3811,7 +3811,7 @@
     <infrastructureConnections uid="3616af72-389c-412e-97da-7933a3406793" master="04aa194b-3499-40de-8461-674738e5be0f" detail="97201a3f-8064-4038-8327-68349d73be3d"/>
   </tura.domain:EnterpriseInfrastructure>
   <tura.domain:Controls uid="275253ca-c6ab-42b4-833e-9aae82cb149d" parent="bdf00c56-8100-4230-953b-0be8e9190f24">
-    <controls uid="066f4691-289b-499a-acb8-6f171d02236c" name="Departments">
+    <controls uid="066f4691-289b-499a-acb8-6f171d02236c" name="Departments" baseType="Dep_52ffccb7-cea6-49de-ba4b-7437f1da3369">
       <create packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="2957c51c-68e7-4d1e-b8b7-cbe7ccdbe13f" fakePackageName="Base package" fakeTypeName="JPA Entity CRAD Service" methodRef="40b112a0-4008-11e4-916c-0800200c9a66" fakeMethod="create" uid="826890f1-bd27-4f2e-951d-c0e69b15bd38">
         <parameters uid="5c1985c1-c143-4672-a92e-de212616ed59" refObj="9150e8ca-6703-4e2c-a2e0-479f42987fa5">
           <value uid="b29944c0-6656-4207-9db8-416db27be400" constant="true" value="org.elsoft.platform.hr.objects.DepartmentsDAO"/>
@@ -3870,6 +3870,8 @@
           <value uid="4c119d33-3983-4c42-acbe-922806e46f8e" constant="true" value="org.elsoft.platform.hr.objects.DepartmentsDAO"/>
         </parameters>
       </search>
+      <defaultSearch/>
+      <defaultOrderBy/>
     </controls>
     <controls uid="f69d69e9-5d7f-481e-8309-504966d5ef8d" name="Employes" baseType="Emp_dd5f2ada-dfef-49f4-99c9-77ee2bd72f13">
       <create packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="2957c51c-68e7-4d1e-b8b7-cbe7ccdbe13f" fakePackageName="Base package" fakeTypeName="JPA Entity CRAD Service" methodRef="40b112a0-4008-11e4-916c-0800200c9a66" fakeMethod="create" uid="4be45f5f-abc0-40da-959c-70e6d161c303">

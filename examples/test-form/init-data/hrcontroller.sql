@@ -155,7 +155,7 @@ insert into hr.filedao(obj_id,parent_id,filename,directory,size) values(1906,190
 insert into hr.filedao(obj_id,parent_id,filename,directory,size) values(1907,1905,'file5', false, 100);
 insert into hr.filedao(obj_id,parent_id,filename,directory,size) values(1908,1905,'file6', false, 100);
 
-
+insert into hr.department2entitydao(obj_id,departmentref,entityref) values(3000,-1,-1);
 
 
 update hr.companydao set optlock=0;
@@ -167,3 +167,4 @@ update hr.departmentsdao set optlock=0;
 update hr.employeesdao set optlock=0;
 update hr.vehicledao set optlock=0;
 update hr.filedao set optlock=0;
+update hr.department2entitydao set optlock=0;

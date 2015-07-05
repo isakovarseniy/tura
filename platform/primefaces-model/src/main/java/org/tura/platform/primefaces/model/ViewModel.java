@@ -41,7 +41,7 @@ public class ViewModel implements Serializable {
 			return "";
 	}
 
-	@SuppressWarnings("rawtypes")
+	@SuppressWarnings({ "rawtypes" })
 	public Object getModel(String modelId, String modelType, Object obj) {
 
 		Object model = modelHolder.get(modelId);
@@ -53,6 +53,10 @@ public class ViewModel implements Serializable {
 
 		if ("tree".equals(modelType))
 			model = getTreeModel((TreeDataControl) obj);
+		
+		if ("options".equals(modelType)) {
+			model = getOptionsModel((DataControl) obj);
+		}
 
 		modelHolder.put(modelId, model);
 		return model;
@@ -65,7 +69,11 @@ public class ViewModel implements Serializable {
 	}
 
 	private TreeModel getTreeModel(TreeDataControl dc) {
-		return new TreeModel(dc,logger);
+		return new TreeModel(dc, logger);
+	}
+
+	private OptionsModel getOptionsModel(DataControl<?> dc) {
+		return new OptionsModel( dc, logger );
 	}
 
 }
