@@ -4021,7 +4021,7 @@
           <selection displayOptionPointer="Dep_7982905f-4f83-472f-8551-80e30e34934c" valueOptionPointer="32e932b5-e86f-43a3-96c1-8b919c740eb6"/>
         </children>
         <children xsi:type="tura.domain:DropDownSelection" nickname="employees drop down" order="3" uid="8d87a02f-a042-4a10-ae3d-9897ff67583d" sourcePointer="dae44fc8-6914-47cb-a0ca-8aa3f88744c6" valuePointer="26d4b8f3-f7d2-4a3c-8923-6ceb83f9018a" optionPointer="f69d69e9-5d7f-481e-8309-504966d5ef8d">
-          <style constant="true"/>
+          <style constant="true" value="width:150px"/>
           <selection displayOptionPointer="Emp_ea8666ca-4384-491d-98ba-1d63f2320c04" valueOptionPointer="32e932b5-e86f-43a3-96c1-8b919c740eb6"/>
         </children>
         <children xsi:type="tura.domain:Label" order="1" uid="017bd299-1311-44b6-814f-436ebd3bbdfb" label="Employees">
