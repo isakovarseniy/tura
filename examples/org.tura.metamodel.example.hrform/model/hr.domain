@@ -4015,14 +4015,17 @@
   <tura.domain:CanvasView uid="a7aec292-07b7-4892-a05e-6bfaf2e652c0" parent="a4d1fe86-fea6-4e28-b0b9-cbd8546e2503">
     <baseCanvas uid="a5d8c56e-1ff1-4f43-9e08-0af2809e5293">
       <children xsi:type="tura.domain:LayerHolder" uid="6cdfdbc5-a9ea-4779-a0d9-6befa155a551" columns="2">
+        <style constant="true" value="padding: 5px 5px 5px 5px;font: 15px arial, sans-serif;"/>
         <children xsi:type="tura.domain:DropDownSelection" order="2" uid="c8eaca34-38aa-4063-830a-62efe68740a7" onEventRefreshArea="8d87a02f-a042-4a10-ae3d-9897ff67583d" sourcePointer="dae44fc8-6914-47cb-a0ca-8aa3f88744c6" valuePointer="ccb5469a-4dca-46ca-95ae-4519400f2afc" optionPointer="066f4691-289b-499a-acb8-6f171d02236c" optionCast="Dep_52ffccb7-cea6-49de-ba4b-7437f1da3369" optionCastDataControl="066f4691-289b-499a-acb8-6f171d02236c">
-          <style/>
+          <style constant="true" value="width:150px"/>
           <selection displayOptionPointer="Dep_7982905f-4f83-472f-8551-80e30e34934c" valueOptionPointer="32e932b5-e86f-43a3-96c1-8b919c740eb6"/>
         </children>
         <children xsi:type="tura.domain:DropDownSelection" nickname="employees drop down" order="3" uid="8d87a02f-a042-4a10-ae3d-9897ff67583d" sourcePointer="dae44fc8-6914-47cb-a0ca-8aa3f88744c6" valuePointer="26d4b8f3-f7d2-4a3c-8923-6ceb83f9018a" optionPointer="f69d69e9-5d7f-481e-8309-504966d5ef8d">
+          <style constant="true"/>
           <selection displayOptionPointer="Emp_ea8666ca-4384-491d-98ba-1d63f2320c04" valueOptionPointer="32e932b5-e86f-43a3-96c1-8b919c740eb6"/>
         </children>
         <children xsi:type="tura.domain:Label" order="1" uid="017bd299-1311-44b6-814f-436ebd3bbdfb" label="Employees">
+          <style/>
           <multiLangLabel value="Messages.HR Controller.EMPLOYEES_TAB">
             <expression objRef="af03a493-0ca4-486c-945f-5bfc2fdf35bd" expressionType="MessagesImpl"/>
             <expression objRef="5772ddee-a83b-41c9-8f34-c442412e1013" order="1" expressionType="MessageLibraryImpl"/>
@@ -4030,6 +4033,7 @@
           </multiLangLabel>
         </children>
         <children xsi:type="tura.domain:Label" uid="820b1bb1-a1f0-4605-93af-19f4ff59aee6" label="Departments">
+          <style/>
           <multiLangLabel value="Messages.HR Controller.DEPARTMENTS_TABLE_DEPARTMENT_NAME_COLUMN">
             <expression objRef="af03a493-0ca4-486c-945f-5bfc2fdf35bd" expressionType="MessagesImpl"/>
             <expression objRef="5772ddee-a83b-41c9-8f34-c442412e1013" order="1" expressionType="MessageLibraryImpl"/>

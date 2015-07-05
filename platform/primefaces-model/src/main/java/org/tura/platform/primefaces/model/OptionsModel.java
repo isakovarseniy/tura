@@ -32,10 +32,29 @@ public class OptionsModel {
 		this.label = label;
 		return this;
 	}
-	
+
 	public OptionsModel setValue(String value) {
 		this.value = value;
 		return this;
+	}
+
+	public OptionsModel setSelectOption(String expression) {
+		Object value = datacontrol.getElResolver().getValue("#{"+expression+"}");
+		try {
+			for (int i = 0; i < options.size(); i++) {
+				Object[] row = options.get(i);
+				if (row[1].equals(value)) {
+					datacontrol.setCurrentPosition(i);
+					break;
+				}
+			}
+		} catch (Exception e) {
+			logger.fine(e.getMessage());
+		}
+		return this;
+	}
+
+	public void changeValueListener() {
 	}
 
 	public List<Object[]> getOptions() {
@@ -68,7 +87,8 @@ public class OptionsModel {
 
 		@Override
 		public void handleEventListener(Event event) throws TuraException {
-			if (event instanceof MasterRowChangedEvent || event instanceof RowRemovedEvent) {
+			if (event instanceof MasterRowChangedEvent
+					|| event instanceof RowRemovedEvent) {
 				options = null;
 			}
 		}
