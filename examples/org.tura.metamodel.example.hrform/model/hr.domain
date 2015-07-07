@@ -738,6 +738,7 @@
       <attributes packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="7b7c554c-a1ad-4e6e-8c91-20df7d6530f8" fakePackageName="Primitive package" fakeTypeName="Long" uid="ccb5469a-4dca-46ca-95ae-4519400f2afc" name="departmentRef"/>
       <attributes packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="7b7c554c-a1ad-4e6e-8c91-20df7d6530f8" fakePackageName="Primitive package" fakeTypeName="Long" uid="26d4b8f3-f7d2-4a3c-8923-6ceb83f9018a" name="entityRef"/>
       <attributes packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="6f5f3825-6695-4b7e-b07c-76ea31fa40e0" fakePackageName="Primitive package" fakeTypeName="Boolean" uid="799e091e-dc77-40ab-bc47-3d61a8b0bbec" name="boolVal"/>
+      <attributes packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="e370b9d1-a6fb-4a40-88e2-8845be441438" fakePackageName="Primitive package" fakeTypeName="String" uid="9f5df11c-7d23-4661-86a3-267c9b3fd5c9" name="image"/>
       <extension uid="7aa5b52d-be04-445d-be1e-a4e53466a81c" source="1fb89120-1544-4563-a949-33a8d12ab064" target="dac28942-e33b-415d-8818-7f4fe0b49db9">
         <classifiers uid="bb7f54ab-e3c2-4a10-a96c-61c6efca08ae" hint="2fe9fdd8-3fec-4a11-9ed5-a79c64373895"/>
       </extension>
@@ -4041,6 +4042,8 @@
           </multiLangLabel>
         </children>
       </children>
+      <children xsi:type="tura.domain:CheckBox" order="1" uid="5900430f-ad24-444f-85df-ee4605e84df6" sourcePointer="dae44fc8-6914-47cb-a0ca-8aa3f88744c6" valuePointer="799e091e-dc77-40ab-bc47-3d61a8b0bbec"/>
+      <children xsi:type="tura.domain:Image" order="2" uid="01e7d1d6-b9c7-4b54-84b1-92d0915f53f7" sourcePointer="dae44fc8-6914-47cb-a0ca-8aa3f88744c6" valuePointer="9f5df11c-7d23-4661-86a3-267c9b3fd5c9"/>
     </baseCanvas>
   </tura.domain:CanvasView>
 </xmi:XMI>

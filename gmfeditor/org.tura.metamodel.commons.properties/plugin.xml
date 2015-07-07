@@ -737,11 +737,13 @@
               <input type="canvas.diagram.edit.parts.ColumnEditPart"/>
  
  
+             <input type="canvas.diagram.edit.parts.ImageEditPart"/>
              <input type="canvas.diagram.edit.parts.CheckBoxEditPart"/>
               <input type="canvas.diagram.edit.parts.InputTextEditPart"/>
               <input type="canvas.diagram.edit.parts.OutputTextEditPart"/>
               <input type="canvas.diagram.edit.parts.DropDownSelectionEditPart"/>
  
+             <input type="canvas.diagram.edit.parts.Image2EditPart"/>
                <input type="canvas.diagram.edit.parts.CheckBox2EditPart"/>
               <input type="canvas.diagram.edit.parts.InputText2EditPart"/>
               <input type="canvas.diagram.edit.parts.OutputText2EditPart"/>
@@ -817,6 +819,7 @@
                class="org.tura.metamodel.commons.properties.selections.context.impl.EnabledParameterPropertySelection"
                id="org.tura.metamodel.diagram.canvas.misce">
               <input type="canvas.diagram.edit.parts.CheckBoxEditPart"/>
+              <input type="canvas.diagram.edit.parts.ImageEditPart"/>
               <input type="canvas.diagram.edit.parts.InputTextEditPart"/>
               <input type="canvas.diagram.edit.parts.OutputTextEditPart"/>
               <input type="canvas.diagram.edit.parts.TableEditPart"/>
@@ -825,6 +828,7 @@
               <input type="canvas.diagram.edit.parts.ButtonEditPart"/>
  
                <input type="canvas.diagram.edit.parts.CheckBox2EditPart"/>
+              <input type="canvas.diagram.edit.parts.Image2EditPart"/>
               <input type="canvas.diagram.edit.parts.InputText2EditPart"/>
               <input type="canvas.diagram.edit.parts.OutputText2EditPart"/>
               <input type="canvas.diagram.edit.parts.Table2EditPart"/>
@@ -839,6 +843,7 @@
                class="org.tura.metamodel.commons.properties.selections.context.impl.EnabledPropertySelection"
                id="org.tura.metamodel.diagram.canvas.misce">
               <input type="canvas.diagram.edit.parts.CheckBoxEditPart"/>
+              <input type="canvas.diagram.edit.parts.ImageEditPart"/>
               <input type="canvas.diagram.edit.parts.InputTextEditPart"/>
               <input type="canvas.diagram.edit.parts.OutputTextEditPart"/>
               <input type="canvas.diagram.edit.parts.TableEditPart"/>
@@ -847,6 +852,7 @@
               <input type="canvas.diagram.edit.parts.ButtonEditPart"/>
  
                <input type="canvas.diagram.edit.parts.CheckBox2EditPart"/>
+              <input type="canvas.diagram.edit.parts.Image2EditPart"/>
               <input type="canvas.diagram.edit.parts.InputText2EditPart"/>
               <input type="canvas.diagram.edit.parts.OutputText2EditPart"/>
               <input type="canvas.diagram.edit.parts.Table2EditPart"/>
@@ -918,6 +924,7 @@
                class="org.tura.metamodel.commons.properties.selections.context.impl.StylePropertySelection"
                id="org.tura.metamodel.diagram.canvas.sourcepointer.style">
               <input type="canvas.diagram.edit.parts.CheckBoxEditPart"/>
+              <input type="canvas.diagram.edit.parts.ImageEditPart"/>
               <input type="canvas.diagram.edit.parts.InputTextEditPart"/>
               <input type="canvas.diagram.edit.parts.OutputTextEditPart"/>
               <input type="canvas.diagram.edit.parts.TableEditPart"/>
@@ -929,6 +936,7 @@
               <input type="canvas.diagram.edit.parts.LayerHolder3EditPart"/>
  
               <input type="canvas.diagram.edit.parts.CheckBox2EditPart"/>
+              <input type="canvas.diagram.edit.parts.Image2EditPart"/>
               <input type="canvas.diagram.edit.parts.InputText2EditPart"/>
               <input type="canvas.diagram.edit.parts.OutputText2EditPart"/>
               <input type="canvas.diagram.edit.parts.Table2EditPart"/>
@@ -947,6 +955,7 @@
                class="org.tura.metamodel.commons.properties.selections.grid.impl.StyleClassPropertySelection"
                id="org.tura.metamodel.diagram.canvas.sourcepointer.style">
               <input type="canvas.diagram.edit.parts.CheckBoxEditPart"/>
+              <input type="canvas.diagram.edit.parts.ImageEditPart"/>
               <input type="canvas.diagram.edit.parts.InputTextEditPart"/>
               <input type="canvas.diagram.edit.parts.OutputTextEditPart"/>
               <input type="canvas.diagram.edit.parts.TableEditPart"/>
@@ -959,6 +968,7 @@
 
 
               <input type="canvas.diagram.edit.parts.CheckBox2EditPart"/>
+              <input type="canvas.diagram.edit.parts.Image2EditPart"/>
               <input type="canvas.diagram.edit.parts.InputText2EditPart"/>
               <input type="canvas.diagram.edit.parts.OutputText2EditPart"/>
               <input type="canvas.diagram.edit.parts.Table2EditPart"/>
@@ -974,6 +984,7 @@
                class="org.tura.metamodel.commons.properties.selections.dropdown.SourcesPointerDataControlPropertySelection"
                id="org.tura.metamodel.diagram.canvas.sourcepointer.datacontrol">
               <input type="canvas.diagram.edit.parts.CheckBoxEditPart"/>
+              <input type="canvas.diagram.edit.parts.ImageEditPart"/>
               <input type="canvas.diagram.edit.parts.InputTextEditPart"/>
               <input type="canvas.diagram.edit.parts.OutputTextEditPart"/>
               <input type="canvas.diagram.edit.parts.TableEditPart"/>
@@ -992,6 +1003,7 @@
                class="org.tura.metamodel.commons.properties.selections.dropdown.ValuePointerAttributePropertySelection"
                id="org.tura.metamodel.diagram.canvas.sourcepointer.valuepointer">
               <input type="canvas.diagram.edit.parts.CheckBoxEditPart"/>
+              <input type="canvas.diagram.edit.parts.ImageEditPart"/>
               <input type="canvas.diagram.edit.parts.InputTextEditPart"/>
               <input type="canvas.diagram.edit.parts.OutputTextEditPart"/>
               <input type="canvas.diagram.edit.parts.DropDownSelectionEditPart"/>
@@ -1005,6 +1017,7 @@
                id="org.tura.metamodel.diagram.canvas.sourcepointer.sourcecast">
  
               <input type="canvas.diagram.edit.parts.CheckBoxEditPart"/>
+              <input type="canvas.diagram.edit.parts.ImageEditPart"/>
               <input type="canvas.diagram.edit.parts.InputTextEditPart"/>
               <input type="canvas.diagram.edit.parts.OutputTextEditPart"/>
               <input type="canvas.diagram.edit.parts.DropDownSelectionEditPart"/>
@@ -1017,6 +1030,7 @@
                afterSection="org.tura.metamodel.diagram.canvas.sourcepointer.datacontrol"
                id="org.tura.metamodel.diagram.canvas.sourcepointer.sourcecast">
  
+              <input type="canvas.diagram.edit.parts.Image2EditPart"/>
               <input type="canvas.diagram.edit.parts.CheckBox2EditPart"/>
               <input type="canvas.diagram.edit.parts.InputText2EditPart"/>
               <input type="canvas.diagram.edit.parts.OutputText2EditPart"/>
@@ -1029,6 +1043,7 @@
                class="org.tura.metamodel.commons.properties.selections.dropdown.ValuePointerAttributePropertySelectionExternalIterator"
                id="org.tura.metamodel.diagram.canvas.sourcepointer.valuepointer.externaliterator">
 
+              <input type="canvas.diagram.edit.parts.Image2EditPart"/>
               <input type="canvas.diagram.edit.parts.CheckBox2EditPart"/>
               <input type="canvas.diagram.edit.parts.InputText2EditPart"/>
               <input type="canvas.diagram.edit.parts.OutputText2EditPart"/>

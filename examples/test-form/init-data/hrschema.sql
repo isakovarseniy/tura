@@ -16,6 +16,7 @@ CREATE TABLE hr.department2entitydao
   boolval boolean,
   departmentref bigint,
   entityref bigint,
+  image character varying(255),
   CONSTRAINT department2entitydao_pkey PRIMARY KEY (obj_id)
 )
 WITH (

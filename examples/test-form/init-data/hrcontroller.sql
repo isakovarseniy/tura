@@ -7,6 +7,7 @@ truncate table hr.departmentsdao;
 truncate table hr.employeesdao;
 truncate table hr.vehicledao;
 truncate table hr.filedao;
+truncate table hr.department2entitydao
 
 
 insert into hr.companydao (obj_id,companyname, countryid) values (1101, 'Company A', 1);
@@ -155,7 +156,7 @@ insert into hr.filedao(obj_id,parent_id,filename,directory,size) values(1906,190
 insert into hr.filedao(obj_id,parent_id,filename,directory,size) values(1907,1905,'file5', false, 100);
 insert into hr.filedao(obj_id,parent_id,filename,directory,size) values(1908,1905,'file6', false, 100);
 
-insert into hr.department2entitydao(obj_id,departmentref,entityref) values(3000,-1,-1);
+insert into hr.department2entitydao(obj_id,departmentref,entityref,image) values(3000,-1,-1,'48x48/shield01.png');
 
 
 update hr.companydao set optlock=0;

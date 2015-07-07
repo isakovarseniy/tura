@@ -3579,6 +3579,13 @@
           <element xmi:type="tura.domain:Attribute" href="hr.domain#799e091e-dc77-40ab-bc47-3d61a8b0bbec"/>
           <layoutConstraint xmi:type="notation:Bounds" xmi:id="_nbwYgx1PEeWAJNFW6jcN6w"/>
         </children>
+        <children xmi:type="notation:Node" xmi:id="_fDrOgCQ6EeWW79r5QVuWfA" type="103001">
+          <children xmi:type="notation:DecorationNode" xmi:id="_fDr1kCQ6EeWW79r5QVuWfA" type="105002"/>
+          <styles xmi:type="notation:DescriptionStyle" xmi:id="_fDrOgSQ6EeWW79r5QVuWfA"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_fDrOgiQ6EeWW79r5QVuWfA" fontName=".Helvetica Neue DeskInterface"/>
+          <element xmi:type="tura.domain:Attribute" href="hr.domain#9f5df11c-7d23-4661-86a3-267c9b3fd5c9"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_fDrOgyQ6EeWW79r5QVuWfA"/>
+        </children>
         <styles xmi:type="notation:SortingStyle" xmi:id="_Ur-mshw-EeWtUfjXRnt2dg"/>
         <styles xmi:type="notation:FilteringStyle" xmi:id="_Ur-msxw-EeWtUfjXRnt2dg"/>
       </children>
@@ -6989,6 +6996,14 @@
           <styles xmi:type="notation:HintedDiagramLinkStyle" xmi:id="_v0sv4R2QEeW_yqkR5CHSgQ"/>
           <element xmi:type="tura.domain:LayerHolder" href="hr.domain#6cdfdbc5-a9ea-4779-a0d9-6befa155a551"/>
           <layoutConstraint xmi:type="notation:Bounds" xmi:id="_v0sv4h2QEeW_yqkR5CHSgQ" x="6" y="13"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="__DqEECQ4EeWW79r5QVuWfA" type="1603007" fontName=".Helvetica Neue DeskInterface">
+          <element xmi:type="tura.domain:CheckBox" href="hr.domain#5900430f-ad24-444f-85df-ee4605e84df6"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="__DqEESQ4EeWW79r5QVuWfA" x="195" y="79"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_VOCmICQ6EeWW79r5QVuWfA" type="1603028" fontName=".Helvetica Neue DeskInterface">
+          <element xmi:type="tura.domain:Image" href="hr.domain#01e7d1d6-b9c7-4b54-84b1-92d0915f53f7"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_VOCmISQ6EeWW79r5QVuWfA" x="17" y="119"/>
         </children>
       </children>
       <styles xmi:type="notation:HintedDiagramLinkStyle" xmi:id="_ulWA0R2QEeW_yqkR5CHSgQ"/>
