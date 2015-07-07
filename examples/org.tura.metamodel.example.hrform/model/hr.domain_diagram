@@ -5097,10 +5097,6 @@
                   <element xmi:type="tura.domain:OutputText" href="hr.domain#239b4114-6644-4b98-8d6e-a7b1ea5c6b9f"/>
                   <layoutConstraint xmi:type="notation:Bounds" xmi:id="_wMyA4daQEeSAr74iemCgJA" x="-3" y="19"/>
                 </children>
-                <children xmi:type="notation:Shape" xmi:id="_wMyA4taQEeSAr74iemCgJA" type="1603004" fontName=".Helvetica Neue DeskInterface">
-                  <element xmi:type="tura.domain:InputText" href="hr.domain#19801db0-d37e-473f-a33d-3176d264358b"/>
-                  <layoutConstraint xmi:type="notation:Bounds" xmi:id="_wMyA49aQEeSAr74iemCgJA" x="195" y="57"/>
-                </children>
                 <children xmi:type="notation:Shape" xmi:id="_wMyn8NaQEeSAr74iemCgJA" type="1603005" fontName=".Helvetica Neue DeskInterface">
                   <children xmi:type="notation:DecorationNode" xmi:id="_wMyn8taQEeSAr74iemCgJA" type="1605001"/>
                   <element xmi:type="tura.domain:Label" href="hr.domain#5b8505c7-3b3f-4db0-a3c7-6f012fe40590"/>
@@ -5115,6 +5111,10 @@
                   <children xmi:type="notation:DecorationNode" xmi:id="_wMz2ENaQEeSAr74iemCgJA" type="1605001"/>
                   <element xmi:type="tura.domain:Label" href="hr.domain#973a1bfd-ec47-409a-b457-5a7c9ddc1ec3"/>
                   <layoutConstraint xmi:type="notation:Bounds" xmi:id="_wMzPAtaQEeSAr74iemCgJA" x="348" y="1"/>
+                </children>
+                <children xmi:type="notation:Shape" xmi:id="_1m8KkCT_EeWhlqcqC9HBrA" type="1603029" fontName=".Helvetica Neue DeskInterface">
+                  <element xmi:type="tura.domain:Date" href="hr.domain#33325a94-6f8a-4110-bbbd-a3afce3d7c9c"/>
+                  <layoutConstraint xmi:type="notation:Bounds" xmi:id="_1m8KkST_EeWhlqcqC9HBrA" x="449" y="41"/>
                 </children>
               </children>
               <styles xmi:type="notation:HintedDiagramLinkStyle" xmi:id="_wLiqwtaQEeSAr74iemCgJA"/>

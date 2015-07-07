@@ -2667,9 +2667,6 @@
           <children xsi:type="tura.domain:OutputText" order="3" uid="239b4114-6644-4b98-8d6e-a7b1ea5c6b9f" sourcePointer="0b115ae0-7710-49f2-bb74-45fa6af58c8e" valuePointer="Emp_d3f4f447-e522-4da6-82d4-70c4add09a66">
             <style/>
           </children>
-          <children xsi:type="tura.domain:InputText" order="5" uid="19801db0-d37e-473f-a33d-3176d264358b" sourcePointer="0b115ae0-7710-49f2-bb74-45fa6af58c8e" valuePointer="Emp_bdf0412e-246e-4d81-8109-ffa32f0a2ab3">
-            <style/>
-          </children>
           <children xsi:type="tura.domain:Label" uid="5b8505c7-3b3f-4db0-a3c7-6f012fe40590" label="Salary">
             <multiLangLabel value="Messages.HR Controller.EMPLOYEES_TAB_SALARY">
               <expression objRef="af03a493-0ca4-486c-945f-5bfc2fdf35bd" expressionType="MessagesImpl"/>
@@ -2691,6 +2688,7 @@
               <expression objRef="c890adee-737d-40f3-bdad-f681bdea48dc" order="2" expressionType="MessageImpl"/>
             </multiLangLabel>
           </children>
+          <children xsi:type="tura.domain:Date" order="5" uid="33325a94-6f8a-4110-bbbd-a3afce3d7c9c" sourcePointer="0b115ae0-7710-49f2-bb74-45fa6af58c8e" valuePointer="Emp_bdf0412e-246e-4d81-8109-ffa32f0a2ab3"/>
         </children>
       </children>
       <children xsi:type="tura.domain:LayerHolder" order="1" uid="fffe0acc-5bf9-40dd-bd58-8c4bba5ad2b9" columns="2">
