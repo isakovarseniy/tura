@@ -31,8 +31,17 @@ public class DomainEditPartFactory implements EditPartFactory {
 			case LayerHolderEditPart.VISUAL_ID:
 				return new LayerHolderEditPart(view);
 
+			case InputTextEditPart.VISUAL_ID:
+				return new InputTextEditPart(view);
+
+			case OutputTextEditPart.VISUAL_ID:
+				return new OutputTextEditPart(view);
+
 			case DropDownSelectionEditPart.VISUAL_ID:
 				return new DropDownSelectionEditPart(view);
+
+			case DateEditPart.VISUAL_ID:
+				return new DateEditPart(view);
 
 			case TableEditPart.VISUAL_ID:
 				return new TableEditPart(view);
@@ -46,8 +55,17 @@ public class DomainEditPartFactory implements EditPartFactory {
 			case ColumnLabelEditPart.VISUAL_ID:
 				return new ColumnLabelEditPart(view);
 
+			case InputText2EditPart.VISUAL_ID:
+				return new InputText2EditPart(view);
+
+			case OutputText2EditPart.VISUAL_ID:
+				return new OutputText2EditPart(view);
+
 			case DropDownSelection2EditPart.VISUAL_ID:
 				return new DropDownSelection2EditPart(view);
+
+			case Date2EditPart.VISUAL_ID:
+				return new Date2EditPart(view);
 
 			case Table2EditPart.VISUAL_ID:
 				return new Table2EditPart(view);
@@ -79,20 +97,11 @@ public class DomainEditPartFactory implements EditPartFactory {
 			case LayerHolder3EditPart.VISUAL_ID:
 				return new LayerHolder3EditPart(view);
 
-			case InputTextEditPart.VISUAL_ID:
-				return new InputTextEditPart(view);
-
-			case OutputTextEditPart.VISUAL_ID:
-				return new OutputTextEditPart(view);
-
 			case CheckBoxEditPart.VISUAL_ID:
 				return new CheckBoxEditPart(view);
 
 			case ImageEditPart.VISUAL_ID:
 				return new ImageEditPart(view);
-
-			case DateEditPart.VISUAL_ID:
-				return new DateEditPart(view);
 
 			case ButtonEditPart.VISUAL_ID:
 				return new ButtonEditPart(view);
@@ -112,20 +121,11 @@ public class DomainEditPartFactory implements EditPartFactory {
 			case LabelLabelEditPart.VISUAL_ID:
 				return new LabelLabelEditPart(view);
 
-			case InputText2EditPart.VISUAL_ID:
-				return new InputText2EditPart(view);
-
-			case OutputText2EditPart.VISUAL_ID:
-				return new OutputText2EditPart(view);
-
 			case CheckBox2EditPart.VISUAL_ID:
 				return new CheckBox2EditPart(view);
 
 			case Image2EditPart.VISUAL_ID:
 				return new Image2EditPart(view);
-
-			case Date2EditPart.VISUAL_ID:
-				return new Date2EditPart(view);
 
 			case Button2EditPart.VISUAL_ID:
 				return new Button2EditPart(view);

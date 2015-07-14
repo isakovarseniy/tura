@@ -74,7 +74,25 @@ public class LayerHolderItemSemanticEditPolicy extends DomainBaseItemSemanticEdi
 				for (Iterator<?> cit = node.getChildren().iterator(); cit.hasNext();) {
 					Node cnode = (Node) cit.next();
 					switch (DomainVisualIDRegistry.getVisualID(cnode)) {
+					case InputTextEditPart.VISUAL_ID:
+						cmd.add(new DestroyElementCommand(new DestroyElementRequest(getEditingDomain(), cnode
+								.getElement(), false))); // directlyOwned: true
+						// don't need explicit deletion of cnode as parent's view deletion would clean child views as well 
+						// cmd.add(new org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(), cnode));
+						break;
+					case OutputTextEditPart.VISUAL_ID:
+						cmd.add(new DestroyElementCommand(new DestroyElementRequest(getEditingDomain(), cnode
+								.getElement(), false))); // directlyOwned: true
+						// don't need explicit deletion of cnode as parent's view deletion would clean child views as well 
+						// cmd.add(new org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(), cnode));
+						break;
 					case DropDownSelectionEditPart.VISUAL_ID:
+						cmd.add(new DestroyElementCommand(new DestroyElementRequest(getEditingDomain(), cnode
+								.getElement(), false))); // directlyOwned: true
+						// don't need explicit deletion of cnode as parent's view deletion would clean child views as well 
+						// cmd.add(new org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(), cnode));
+						break;
+					case DateEditPart.VISUAL_ID:
 						cmd.add(new DestroyElementCommand(new DestroyElementRequest(getEditingDomain(), cnode
 								.getElement(), false))); // directlyOwned: true
 						// don't need explicit deletion of cnode as parent's view deletion would clean child views as well 
@@ -98,18 +116,6 @@ public class LayerHolderItemSemanticEditPolicy extends DomainBaseItemSemanticEdi
 						// don't need explicit deletion of cnode as parent's view deletion would clean child views as well 
 						// cmd.add(new org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(), cnode));
 						break;
-					case InputTextEditPart.VISUAL_ID:
-						cmd.add(new DestroyElementCommand(new DestroyElementRequest(getEditingDomain(), cnode
-								.getElement(), false))); // directlyOwned: true
-						// don't need explicit deletion of cnode as parent's view deletion would clean child views as well 
-						// cmd.add(new org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(), cnode));
-						break;
-					case OutputTextEditPart.VISUAL_ID:
-						cmd.add(new DestroyElementCommand(new DestroyElementRequest(getEditingDomain(), cnode
-								.getElement(), false))); // directlyOwned: true
-						// don't need explicit deletion of cnode as parent's view deletion would clean child views as well 
-						// cmd.add(new org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(), cnode));
-						break;
 					case CheckBoxEditPart.VISUAL_ID:
 						cmd.add(new DestroyElementCommand(new DestroyElementRequest(getEditingDomain(), cnode
 								.getElement(), false))); // directlyOwned: true
@@ -117,12 +123,6 @@ public class LayerHolderItemSemanticEditPolicy extends DomainBaseItemSemanticEdi
 						// cmd.add(new org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(), cnode));
 						break;
 					case ImageEditPart.VISUAL_ID:
-						cmd.add(new DestroyElementCommand(new DestroyElementRequest(getEditingDomain(), cnode
-								.getElement(), false))); // directlyOwned: true
-						// don't need explicit deletion of cnode as parent's view deletion would clean child views as well 
-						// cmd.add(new org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(), cnode));
-						break;
-					case DateEditPart.VISUAL_ID:
 						cmd.add(new DestroyElementCommand(new DestroyElementRequest(getEditingDomain(), cnode
 								.getElement(), false))); // directlyOwned: true
 						// don't need explicit deletion of cnode as parent's view deletion would clean child views as well 

@@ -857,6 +857,13 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  private EClass formatableEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   private EClass sourcesPointerEClass = null;
 
   /**
@@ -6112,6 +6119,26 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EClass getFormatable()
+  {
+    return formatableEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getFormatable_Format()
+  {
+    return (EAttribute)formatableEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getSourcesPointer()
   {
     return sourcesPointerEClass;
@@ -8456,6 +8483,9 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     createEReference(uielementEClass, UIELEMENT__READ_ONLY);
     createEReference(uielementEClass, UIELEMENT__ON_EVENT_REFRESH_AREA);
 
+    formatableEClass = createEClass(FORMATABLE);
+    createEAttribute(formatableEClass, FORMATABLE__FORMAT);
+
     sourcesPointerEClass = createEClass(SOURCES_POINTER);
     createEReference(sourcesPointerEClass, SOURCES_POINTER__SOURCE_POINTER);
     createEReference(sourcesPointerEClass, SOURCES_POINTER__VALUE_POINTER);
@@ -8743,6 +8773,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     typeReferenceEClass.getESuperTypes().add(this.getTypePointer());
     typeExtensionEClass.getESuperTypes().add(this.getCategorized());
     attributeEClass.getESuperTypes().add(this.getTypePointer());
+    attributeEClass.getESuperTypes().add(this.getCategorized());
     parameterEClass.getESuperTypes().add(this.getTypePointer());
     returnValueEClass.getESuperTypes().add(this.getTypePointer());
     enumaratorEClass.getESuperTypes().add(this.getTypeElement());
@@ -8796,13 +8827,16 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     layerHolderEClass.getESuperTypes().add(this.getChildrenHolder());
     layerHolderEClass.getESuperTypes().add(this.getHTMLLayerHolder());
     inputTextEClass.getESuperTypes().add(this.getInputElement());
+    inputTextEClass.getESuperTypes().add(this.getFormatable());
     labelEClass.getESuperTypes().add(this.getUielement());
     labelEClass.getESuperTypes().add(this.getMultiLangLabel());
     outputTextEClass.getESuperTypes().add(this.getInputElement());
+    outputTextEClass.getESuperTypes().add(this.getFormatable());
     checkBoxEClass.getESuperTypes().add(this.getInputElement());
     dropDownSelectionEClass.getESuperTypes().add(this.getOptionSelection());
     imageEClass.getESuperTypes().add(this.getInputElement());
     dateEClass.getESuperTypes().add(this.getInputElement());
+    dateEClass.getESuperTypes().add(this.getFormatable());
     columnEClass.getESuperTypes().add(this.getStyleElement());
     columnEClass.getESuperTypes().add(this.getMultiLangLabel());
     columnEClass.getESuperTypes().add(this.getCategorized());
@@ -9438,6 +9472,9 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     initEReference(getUielement_Required(), this.getContext(), null, "required", null, 0, 1, Uielement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getUielement_ReadOnly(), this.getContext(), null, "readOnly", null, 0, 1, Uielement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getUielement_OnEventRefreshArea(), this.getNickNamed(), null, "onEventRefreshArea", null, 0, -1, Uielement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(formatableEClass, Formatable.class, "Formatable", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getFormatable_Format(), ecorePackage.getEString(), "format", null, 0, 1, Formatable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(sourcesPointerEClass, SourcesPointer.class, "SourcesPointer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getSourcesPointer_SourcePointer(), this.getDataControl(), null, "sourcePointer", null, 0, 1, SourcesPointer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

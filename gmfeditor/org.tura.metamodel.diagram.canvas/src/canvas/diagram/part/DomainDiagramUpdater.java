@@ -139,7 +139,19 @@ public class DomainDiagramUpdater {
 		for (Iterator<?> it = modelElement.getChildren().iterator(); it.hasNext();) {
 			Uielement childElement = (Uielement) it.next();
 			int visualID = DomainVisualIDRegistry.getNodeVisualID(view, childElement);
+			if (visualID == InputTextEditPart.VISUAL_ID) {
+				result.add(new DomainNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == OutputTextEditPart.VISUAL_ID) {
+				result.add(new DomainNodeDescriptor(childElement, visualID));
+				continue;
+			}
 			if (visualID == DropDownSelectionEditPart.VISUAL_ID) {
+				result.add(new DomainNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == DateEditPart.VISUAL_ID) {
 				result.add(new DomainNodeDescriptor(childElement, visualID));
 				continue;
 			}
@@ -155,23 +167,11 @@ public class DomainDiagramUpdater {
 				result.add(new DomainNodeDescriptor(childElement, visualID));
 				continue;
 			}
-			if (visualID == InputTextEditPart.VISUAL_ID) {
-				result.add(new DomainNodeDescriptor(childElement, visualID));
-				continue;
-			}
-			if (visualID == OutputTextEditPart.VISUAL_ID) {
-				result.add(new DomainNodeDescriptor(childElement, visualID));
-				continue;
-			}
 			if (visualID == CheckBoxEditPart.VISUAL_ID) {
 				result.add(new DomainNodeDescriptor(childElement, visualID));
 				continue;
 			}
 			if (visualID == ImageEditPart.VISUAL_ID) {
-				result.add(new DomainNodeDescriptor(childElement, visualID));
-				continue;
-			}
-			if (visualID == DateEditPart.VISUAL_ID) {
 				result.add(new DomainNodeDescriptor(childElement, visualID));
 				continue;
 			}
@@ -227,7 +227,16 @@ public class DomainDiagramUpdater {
 		{
 			Uielement childElement = modelElement.getElement();
 			int visualID = DomainVisualIDRegistry.getNodeVisualID(view, childElement);
+			if (visualID == InputText2EditPart.VISUAL_ID) {
+				result.add(new DomainNodeDescriptor(childElement, visualID));
+			}
+			if (visualID == OutputText2EditPart.VISUAL_ID) {
+				result.add(new DomainNodeDescriptor(childElement, visualID));
+			}
 			if (visualID == DropDownSelection2EditPart.VISUAL_ID) {
+				result.add(new DomainNodeDescriptor(childElement, visualID));
+			}
+			if (visualID == Date2EditPart.VISUAL_ID) {
 				result.add(new DomainNodeDescriptor(childElement, visualID));
 			}
 			if (visualID == Table2EditPart.VISUAL_ID) {
@@ -239,19 +248,10 @@ public class DomainDiagramUpdater {
 			if (visualID == LayerHolder2EditPart.VISUAL_ID) {
 				result.add(new DomainNodeDescriptor(childElement, visualID));
 			}
-			if (visualID == InputText2EditPart.VISUAL_ID) {
-				result.add(new DomainNodeDescriptor(childElement, visualID));
-			}
-			if (visualID == OutputText2EditPart.VISUAL_ID) {
-				result.add(new DomainNodeDescriptor(childElement, visualID));
-			}
 			if (visualID == CheckBox2EditPart.VISUAL_ID) {
 				result.add(new DomainNodeDescriptor(childElement, visualID));
 			}
 			if (visualID == Image2EditPart.VISUAL_ID) {
-				result.add(new DomainNodeDescriptor(childElement, visualID));
-			}
-			if (visualID == Date2EditPart.VISUAL_ID) {
 				result.add(new DomainNodeDescriptor(childElement, visualID));
 			}
 			if (visualID == Button2EditPart.VISUAL_ID) {
@@ -328,7 +328,16 @@ public class DomainDiagramUpdater {
 		{
 			Uielement childElement = modelElement.getElement();
 			int visualID = DomainVisualIDRegistry.getNodeVisualID(view, childElement);
+			if (visualID == InputText2EditPart.VISUAL_ID) {
+				result.add(new DomainNodeDescriptor(childElement, visualID));
+			}
+			if (visualID == OutputText2EditPart.VISUAL_ID) {
+				result.add(new DomainNodeDescriptor(childElement, visualID));
+			}
 			if (visualID == DropDownSelection2EditPart.VISUAL_ID) {
+				result.add(new DomainNodeDescriptor(childElement, visualID));
+			}
+			if (visualID == Date2EditPart.VISUAL_ID) {
 				result.add(new DomainNodeDescriptor(childElement, visualID));
 			}
 			if (visualID == Table2EditPart.VISUAL_ID) {
@@ -340,19 +349,10 @@ public class DomainDiagramUpdater {
 			if (visualID == LayerHolder2EditPart.VISUAL_ID) {
 				result.add(new DomainNodeDescriptor(childElement, visualID));
 			}
-			if (visualID == InputText2EditPart.VISUAL_ID) {
-				result.add(new DomainNodeDescriptor(childElement, visualID));
-			}
-			if (visualID == OutputText2EditPart.VISUAL_ID) {
-				result.add(new DomainNodeDescriptor(childElement, visualID));
-			}
 			if (visualID == CheckBox2EditPart.VISUAL_ID) {
 				result.add(new DomainNodeDescriptor(childElement, visualID));
 			}
 			if (visualID == Image2EditPart.VISUAL_ID) {
-				result.add(new DomainNodeDescriptor(childElement, visualID));
-			}
-			if (visualID == Date2EditPart.VISUAL_ID) {
 				result.add(new DomainNodeDescriptor(childElement, visualID));
 			}
 			if (visualID == Button2EditPart.VISUAL_ID) {
@@ -382,7 +382,19 @@ public class DomainDiagramUpdater {
 		for (Iterator<?> it = modelElement.getChildren().iterator(); it.hasNext();) {
 			Uielement childElement = (Uielement) it.next();
 			int visualID = DomainVisualIDRegistry.getNodeVisualID(view, childElement);
+			if (visualID == InputTextEditPart.VISUAL_ID) {
+				result.add(new DomainNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == OutputTextEditPart.VISUAL_ID) {
+				result.add(new DomainNodeDescriptor(childElement, visualID));
+				continue;
+			}
 			if (visualID == DropDownSelectionEditPart.VISUAL_ID) {
+				result.add(new DomainNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == DateEditPart.VISUAL_ID) {
 				result.add(new DomainNodeDescriptor(childElement, visualID));
 				continue;
 			}
@@ -398,23 +410,11 @@ public class DomainDiagramUpdater {
 				result.add(new DomainNodeDescriptor(childElement, visualID));
 				continue;
 			}
-			if (visualID == InputTextEditPart.VISUAL_ID) {
-				result.add(new DomainNodeDescriptor(childElement, visualID));
-				continue;
-			}
-			if (visualID == OutputTextEditPart.VISUAL_ID) {
-				result.add(new DomainNodeDescriptor(childElement, visualID));
-				continue;
-			}
 			if (visualID == CheckBoxEditPart.VISUAL_ID) {
 				result.add(new DomainNodeDescriptor(childElement, visualID));
 				continue;
 			}
 			if (visualID == ImageEditPart.VISUAL_ID) {
-				result.add(new DomainNodeDescriptor(childElement, visualID));
-				continue;
-			}
-			if (visualID == DateEditPart.VISUAL_ID) {
 				result.add(new DomainNodeDescriptor(childElement, visualID));
 				continue;
 			}
@@ -471,7 +471,19 @@ public class DomainDiagramUpdater {
 		for (Iterator<?> it = modelElement.getChildren().iterator(); it.hasNext();) {
 			Uielement childElement = (Uielement) it.next();
 			int visualID = DomainVisualIDRegistry.getNodeVisualID(view, childElement);
+			if (visualID == InputTextEditPart.VISUAL_ID) {
+				result.add(new DomainNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == OutputTextEditPart.VISUAL_ID) {
+				result.add(new DomainNodeDescriptor(childElement, visualID));
+				continue;
+			}
 			if (visualID == DropDownSelectionEditPart.VISUAL_ID) {
+				result.add(new DomainNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == DateEditPart.VISUAL_ID) {
 				result.add(new DomainNodeDescriptor(childElement, visualID));
 				continue;
 			}
@@ -487,23 +499,11 @@ public class DomainDiagramUpdater {
 				result.add(new DomainNodeDescriptor(childElement, visualID));
 				continue;
 			}
-			if (visualID == InputTextEditPart.VISUAL_ID) {
-				result.add(new DomainNodeDescriptor(childElement, visualID));
-				continue;
-			}
-			if (visualID == OutputTextEditPart.VISUAL_ID) {
-				result.add(new DomainNodeDescriptor(childElement, visualID));
-				continue;
-			}
 			if (visualID == CheckBoxEditPart.VISUAL_ID) {
 				result.add(new DomainNodeDescriptor(childElement, visualID));
 				continue;
 			}
 			if (visualID == ImageEditPart.VISUAL_ID) {
-				result.add(new DomainNodeDescriptor(childElement, visualID));
-				continue;
-			}
-			if (visualID == DateEditPart.VISUAL_ID) {
 				result.add(new DomainNodeDescriptor(childElement, visualID));
 				continue;
 			}
@@ -576,14 +576,26 @@ public class DomainDiagramUpdater {
 			return getCanvasView_1601000ContainedLinks(view);
 		case LayerHolderEditPart.VISUAL_ID:
 			return getLayerHolder_1602003ContainedLinks(view);
+		case InputTextEditPart.VISUAL_ID:
+			return getInputText_1603004ContainedLinks(view);
+		case OutputTextEditPart.VISUAL_ID:
+			return getOutputText_1603006ContainedLinks(view);
 		case DropDownSelectionEditPart.VISUAL_ID:
 			return getDropDownSelection_1603002ContainedLinks(view);
+		case DateEditPart.VISUAL_ID:
+			return getDate_1603029ContainedLinks(view);
 		case TableEditPart.VISUAL_ID:
 			return getTable_1603008ContainedLinks(view);
 		case ColumnEditPart.VISUAL_ID:
 			return getColumn_1603024ContainedLinks(view);
+		case InputText2EditPart.VISUAL_ID:
+			return getInputText_1603012ContainedLinks(view);
+		case OutputText2EditPart.VISUAL_ID:
+			return getOutputText_1603014ContainedLinks(view);
 		case DropDownSelection2EditPart.VISUAL_ID:
 			return getDropDownSelection_1603010ContainedLinks(view);
+		case Date2EditPart.VISUAL_ID:
+			return getDate_1603031ContainedLinks(view);
 		case Table2EditPart.VISUAL_ID:
 			return getTable_1603021ContainedLinks(view);
 		case TreeEditPart.VISUAL_ID:
@@ -596,32 +608,20 @@ public class DomainDiagramUpdater {
 			return getTree_1603016ContainedLinks(view);
 		case LayerHolder3EditPart.VISUAL_ID:
 			return getLayerHolder_1603019ContainedLinks(view);
-		case InputTextEditPart.VISUAL_ID:
-			return getInputText_1603004ContainedLinks(view);
-		case OutputTextEditPart.VISUAL_ID:
-			return getOutputText_1603006ContainedLinks(view);
 		case CheckBoxEditPart.VISUAL_ID:
 			return getCheckBox_1603007ContainedLinks(view);
 		case ImageEditPart.VISUAL_ID:
 			return getImage_1603028ContainedLinks(view);
-		case DateEditPart.VISUAL_ID:
-			return getDate_1603029ContainedLinks(view);
 		case ButtonEditPart.VISUAL_ID:
 			return getButton_1603017ContainedLinks(view);
 		case ActionTriggerEditPart.VISUAL_ID:
 			return getActionTrigger_1603027ContainedLinks(view);
 		case LabelEditPart.VISUAL_ID:
 			return getLabel_1603005ContainedLinks(view);
-		case InputText2EditPart.VISUAL_ID:
-			return getInputText_1603012ContainedLinks(view);
-		case OutputText2EditPart.VISUAL_ID:
-			return getOutputText_1603014ContainedLinks(view);
 		case CheckBox2EditPart.VISUAL_ID:
 			return getCheckBox_1603015ContainedLinks(view);
 		case Image2EditPart.VISUAL_ID:
 			return getImage_1603030ContainedLinks(view);
-		case Date2EditPart.VISUAL_ID:
-			return getDate_1603031ContainedLinks(view);
 		case Button2EditPart.VISUAL_ID:
 			return getButton_1603023ContainedLinks(view);
 		case Label2EditPart.VISUAL_ID:
@@ -637,14 +637,26 @@ public class DomainDiagramUpdater {
 		switch (DomainVisualIDRegistry.getVisualID(view)) {
 		case LayerHolderEditPart.VISUAL_ID:
 			return getLayerHolder_1602003IncomingLinks(view);
+		case InputTextEditPart.VISUAL_ID:
+			return getInputText_1603004IncomingLinks(view);
+		case OutputTextEditPart.VISUAL_ID:
+			return getOutputText_1603006IncomingLinks(view);
 		case DropDownSelectionEditPart.VISUAL_ID:
 			return getDropDownSelection_1603002IncomingLinks(view);
+		case DateEditPart.VISUAL_ID:
+			return getDate_1603029IncomingLinks(view);
 		case TableEditPart.VISUAL_ID:
 			return getTable_1603008IncomingLinks(view);
 		case ColumnEditPart.VISUAL_ID:
 			return getColumn_1603024IncomingLinks(view);
+		case InputText2EditPart.VISUAL_ID:
+			return getInputText_1603012IncomingLinks(view);
+		case OutputText2EditPart.VISUAL_ID:
+			return getOutputText_1603014IncomingLinks(view);
 		case DropDownSelection2EditPart.VISUAL_ID:
 			return getDropDownSelection_1603010IncomingLinks(view);
+		case Date2EditPart.VISUAL_ID:
+			return getDate_1603031IncomingLinks(view);
 		case Table2EditPart.VISUAL_ID:
 			return getTable_1603021IncomingLinks(view);
 		case TreeEditPart.VISUAL_ID:
@@ -657,32 +669,20 @@ public class DomainDiagramUpdater {
 			return getTree_1603016IncomingLinks(view);
 		case LayerHolder3EditPart.VISUAL_ID:
 			return getLayerHolder_1603019IncomingLinks(view);
-		case InputTextEditPart.VISUAL_ID:
-			return getInputText_1603004IncomingLinks(view);
-		case OutputTextEditPart.VISUAL_ID:
-			return getOutputText_1603006IncomingLinks(view);
 		case CheckBoxEditPart.VISUAL_ID:
 			return getCheckBox_1603007IncomingLinks(view);
 		case ImageEditPart.VISUAL_ID:
 			return getImage_1603028IncomingLinks(view);
-		case DateEditPart.VISUAL_ID:
-			return getDate_1603029IncomingLinks(view);
 		case ButtonEditPart.VISUAL_ID:
 			return getButton_1603017IncomingLinks(view);
 		case ActionTriggerEditPart.VISUAL_ID:
 			return getActionTrigger_1603027IncomingLinks(view);
 		case LabelEditPart.VISUAL_ID:
 			return getLabel_1603005IncomingLinks(view);
-		case InputText2EditPart.VISUAL_ID:
-			return getInputText_1603012IncomingLinks(view);
-		case OutputText2EditPart.VISUAL_ID:
-			return getOutputText_1603014IncomingLinks(view);
 		case CheckBox2EditPart.VISUAL_ID:
 			return getCheckBox_1603015IncomingLinks(view);
 		case Image2EditPart.VISUAL_ID:
 			return getImage_1603030IncomingLinks(view);
-		case Date2EditPart.VISUAL_ID:
-			return getDate_1603031IncomingLinks(view);
 		case Button2EditPart.VISUAL_ID:
 			return getButton_1603023IncomingLinks(view);
 		case Label2EditPart.VISUAL_ID:
@@ -698,14 +698,26 @@ public class DomainDiagramUpdater {
 		switch (DomainVisualIDRegistry.getVisualID(view)) {
 		case LayerHolderEditPart.VISUAL_ID:
 			return getLayerHolder_1602003OutgoingLinks(view);
+		case InputTextEditPart.VISUAL_ID:
+			return getInputText_1603004OutgoingLinks(view);
+		case OutputTextEditPart.VISUAL_ID:
+			return getOutputText_1603006OutgoingLinks(view);
 		case DropDownSelectionEditPart.VISUAL_ID:
 			return getDropDownSelection_1603002OutgoingLinks(view);
+		case DateEditPart.VISUAL_ID:
+			return getDate_1603029OutgoingLinks(view);
 		case TableEditPart.VISUAL_ID:
 			return getTable_1603008OutgoingLinks(view);
 		case ColumnEditPart.VISUAL_ID:
 			return getColumn_1603024OutgoingLinks(view);
+		case InputText2EditPart.VISUAL_ID:
+			return getInputText_1603012OutgoingLinks(view);
+		case OutputText2EditPart.VISUAL_ID:
+			return getOutputText_1603014OutgoingLinks(view);
 		case DropDownSelection2EditPart.VISUAL_ID:
 			return getDropDownSelection_1603010OutgoingLinks(view);
+		case Date2EditPart.VISUAL_ID:
+			return getDate_1603031OutgoingLinks(view);
 		case Table2EditPart.VISUAL_ID:
 			return getTable_1603021OutgoingLinks(view);
 		case TreeEditPart.VISUAL_ID:
@@ -718,32 +730,20 @@ public class DomainDiagramUpdater {
 			return getTree_1603016OutgoingLinks(view);
 		case LayerHolder3EditPart.VISUAL_ID:
 			return getLayerHolder_1603019OutgoingLinks(view);
-		case InputTextEditPart.VISUAL_ID:
-			return getInputText_1603004OutgoingLinks(view);
-		case OutputTextEditPart.VISUAL_ID:
-			return getOutputText_1603006OutgoingLinks(view);
 		case CheckBoxEditPart.VISUAL_ID:
 			return getCheckBox_1603007OutgoingLinks(view);
 		case ImageEditPart.VISUAL_ID:
 			return getImage_1603028OutgoingLinks(view);
-		case DateEditPart.VISUAL_ID:
-			return getDate_1603029OutgoingLinks(view);
 		case ButtonEditPart.VISUAL_ID:
 			return getButton_1603017OutgoingLinks(view);
 		case ActionTriggerEditPart.VISUAL_ID:
 			return getActionTrigger_1603027OutgoingLinks(view);
 		case LabelEditPart.VISUAL_ID:
 			return getLabel_1603005OutgoingLinks(view);
-		case InputText2EditPart.VISUAL_ID:
-			return getInputText_1603012OutgoingLinks(view);
-		case OutputText2EditPart.VISUAL_ID:
-			return getOutputText_1603014OutgoingLinks(view);
 		case CheckBox2EditPart.VISUAL_ID:
 			return getCheckBox_1603015OutgoingLinks(view);
 		case Image2EditPart.VISUAL_ID:
 			return getImage_1603030OutgoingLinks(view);
-		case Date2EditPart.VISUAL_ID:
-			return getDate_1603031OutgoingLinks(view);
 		case Button2EditPart.VISUAL_ID:
 			return getButton_1603023OutgoingLinks(view);
 		case Label2EditPart.VISUAL_ID:

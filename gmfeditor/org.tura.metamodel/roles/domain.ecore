@@ -972,7 +972,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="source" eType="#//TypeElement"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="target" eType="#//TypeElement"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Attribute" eSuperTypes="#//TypePointer">
+  <eClassifiers xsi:type="ecore:EClass" name="Attribute" eSuperTypes="#//TypePointer #//Categorized">
     <eAnnotations source="gmf.node">
       <details key="label" value="name"/>
       <details key="border.color" value="0,0,0"/>
@@ -1353,6 +1353,9 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="onEventRefreshArea" upperBound="-1"
         eType="#//NickNamed"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Formatable">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="format" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SourcesPointer" eSuperTypes="#//Uielement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="sourcePointer" eType="#//DataControl"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="valuePointer" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
@@ -1393,7 +1396,7 @@
       <details key="tool.small.path" value="icons/layerholder.png"/>
     </eAnnotations>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="InputText" eSuperTypes="#//InputElement">
+  <eClassifiers xsi:type="ecore:EClass" name="InputText" eSuperTypes="#//InputElement #//Formatable">
     <eAnnotations source="gmf.node">
       <details key="figure" value="org.tura.metamodel.commons.figures.InputTextFigure"/>
       <details key="label.placement" value="none"/>
@@ -1410,7 +1413,7 @@
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="label" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="OutputText" eSuperTypes="#//InputElement">
+  <eClassifiers xsi:type="ecore:EClass" name="OutputText" eSuperTypes="#//InputElement #//Formatable">
     <eAnnotations source="gmf.node">
       <details key="figure" value="org.tura.metamodel.commons.figures.OutputTextFigure"/>
       <details key="label.placement" value="none"/>
@@ -1444,7 +1447,7 @@
       <details key="tool.small.path" value="icons/image.png"/>
     </eAnnotations>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Date" eSuperTypes="#//InputElement">
+  <eClassifiers xsi:type="ecore:EClass" name="Date" eSuperTypes="#//InputElement #//Formatable">
     <eAnnotations source="gmf.node">
       <details key="figure" value="org.tura.metamodel.commons.figures.DateFigure"/>
       <details key="label.placement" value="none"/>

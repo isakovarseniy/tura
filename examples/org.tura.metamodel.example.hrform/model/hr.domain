@@ -165,6 +165,7 @@
       <hints uid="652c130e-7f7e-4676-a370-2455f3615470" name="Implements"/>
       <hints uid="2fe9fdd8-3fec-4a11-9ed5-a79c64373895" name="Extends"/>
       <hints uid="bf57ae0e-a725-4c7c-b178-ebbf640b2375" name="Entity"/>
+      <hints uid="09d136f2-33c4-4445-ae70-a95eec9bc1a8" name="Bean validation"/>
     </artifacts>
     <artifacts uid="20d3f932-c6b8-40df-9001-b3c0daaf6c86" name="persistens.xml" template="platform:/plugin/org.tura.metamodel.wizard.generation/template/technologies/JEE/JPA/mainPersistence-xml.egl">
       <configVariables uid="9040caf7-fece-440f-bdad-5e598adfd243" name="DataBase IP"/>
@@ -358,7 +359,9 @@
   <tura.domain:TypeDefinition uid="Uniq_115091ed-0c7c-4eae-be06-8496210d4b84" parent="e8faa4f9-a654-40f5-bdf5-454f90f2af19">
     <types xsi:type="tura.domain:Type" uid="Comp_52ffccb7-cea6-49de-ba4b-7437f1da3369" name="Company Type">
       <classifiers uid="Comp_03eabbe7-b921-4ce7-a2a4-78b65cc0bda8" hint="bf57ae0e-a725-4c7c-b178-ebbf640b2375"/>
-      <attributes packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="e370b9d1-a6fb-4a40-88e2-8845be441438" uid="Comp_7982905f-4f83-472f-8551-80e30e34934c" name="companyName"/>
+      <attributes packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="e370b9d1-a6fb-4a40-88e2-8845be441438" uid="Comp_7982905f-4f83-472f-8551-80e30e34934c" name="companyName">
+        <classifiers uid="04eec4ce-8612-4e05-992b-dbe2f4b821d4" hint="09d136f2-33c4-4445-ae70-a95eec9bc1a8" details="@javax.validation.constraints.NotNull"/>
+      </attributes>
       <attributes packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="7b7c554c-a1ad-4e6e-8c91-20df7d6530f8" uid="Comp_84d12c71-8ea0-47f8-ab40-36ef71389fa1" name="countryId"/>
       <attributes packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="e370b9d1-a6fb-4a40-88e2-8845be441438" fakePackageName="Primitive package" fakeTypeName="String" uid="a3f007de-ce4a-4510-bc86-52f20eee5325" name="description"/>
       <extension uid="Comp_TypeExtension1" source="Comp_52ffccb7-cea6-49de-ba4b-7437f1da3369" target="Comp_eb76b6af-9330-4f5b-b46c-8b732b8fe354">
@@ -1800,6 +1803,8 @@
       <hints uid="d8ff5239-74cb-46e9-a93b-eb95a50b6728" name="trigger.onclick"/>
       <hints uid="97b65510-1aaf-43b1-b505-99eb0c3dfdf0" name="trigger.oncomplete"/>
       <hints uid="cf9f4b41-ca24-4ef3-a564-6067bfafee67" name="trigger.library"/>
+      <hints uid="9dbccf03-d238-463d-9b0c-9dc5b1222d2e" name="converter"/>
+      <hints uid="8974ceb5-7778-4c54-8301-8cef8a50894f" name="validator"/>
     </artifacts>
     <artifacts uid="297535b2-a50c-411c-9014-4d739432685b" name="Primefaces">
       <hints uid="21d9dc34-d2cb-4b87-ab39-94afefd6765c" name="row number selector"/>
@@ -2688,7 +2693,7 @@
               <expression objRef="c890adee-737d-40f3-bdad-f681bdea48dc" order="2" expressionType="MessageImpl"/>
             </multiLangLabel>
           </children>
-          <children xsi:type="tura.domain:Date" order="5" uid="33325a94-6f8a-4110-bbbd-a3afce3d7c9c" sourcePointer="0b115ae0-7710-49f2-bb74-45fa6af58c8e" valuePointer="Emp_bdf0412e-246e-4d81-8109-ffa32f0a2ab3"/>
+          <children xsi:type="tura.domain:Date" order="5" uid="33325a94-6f8a-4110-bbbd-a3afce3d7c9c" sourcePointer="0b115ae0-7710-49f2-bb74-45fa6af58c8e" valuePointer="Emp_bdf0412e-246e-4d81-8109-ffa32f0a2ab3" format="MM/dd/yyyy"/>
         </children>
       </children>
       <children xsi:type="tura.domain:LayerHolder" order="1" uid="fffe0acc-5bf9-40dd-bd58-8c4bba5ad2b9" columns="2">

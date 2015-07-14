@@ -103,6 +103,18 @@ public class DomainNavigatorLabelProvider extends LabelProvider implements IComm
 	 */
 	public Image getImage(View view) {
 		switch (DomainVisualIDRegistry.getVisualID(view)) {
+		case EnumaratorEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?TopLevelNode?http://tura.org/2013/v1/domain?Enumarator", DomainElementTypes.Enumarator_102005); //$NON-NLS-1$
+		case AttributeEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Node?http://tura.org/2013/v1/domain?Attribute", DomainElementTypes.Attribute_103001); //$NON-NLS-1$
+		case TypeEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?TopLevelNode?http://tura.org/2013/v1/domain?Type", DomainElementTypes.Type_102002); //$NON-NLS-1$
+		case EnumAttributeEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Node?http://tura.org/2013/v1/domain?EnumAttribute", DomainElementTypes.EnumAttribute_103005); //$NON-NLS-1$
 		case TypeExtensionEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Link?http://tura.org/2013/v1/domain?TypeExtension", DomainElementTypes.TypeExtension_104001); //$NON-NLS-1$
@@ -118,18 +130,6 @@ public class DomainNavigatorLabelProvider extends LabelProvider implements IComm
 		case TypeReferenceEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?TopLevelNode?http://tura.org/2013/v1/domain?TypeReference", DomainElementTypes.TypeReference_102001); //$NON-NLS-1$
-		case AttributeEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Node?http://tura.org/2013/v1/domain?Attribute", DomainElementTypes.Attribute_103001); //$NON-NLS-1$
-		case EnumaratorEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?TopLevelNode?http://tura.org/2013/v1/domain?Enumarator", DomainElementTypes.Enumarator_102005); //$NON-NLS-1$
-		case EnumAttributeEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Node?http://tura.org/2013/v1/domain?EnumAttribute", DomainElementTypes.EnumAttribute_103005); //$NON-NLS-1$
-		case TypeEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?TopLevelNode?http://tura.org/2013/v1/domain?Type", DomainElementTypes.Type_102002); //$NON-NLS-1$
 		}
 		return getImage("Navigator?UnknownElement", null); //$NON-NLS-1$
 	}
@@ -188,6 +188,14 @@ public class DomainNavigatorLabelProvider extends LabelProvider implements IComm
 			return getUnresolvedDomainElementProxyText(view);
 		}
 		switch (DomainVisualIDRegistry.getVisualID(view)) {
+		case EnumaratorEditPart.VISUAL_ID:
+			return getEnumarator_102005Text(view);
+		case AttributeEditPart.VISUAL_ID:
+			return getAttribute_103001Text(view);
+		case TypeEditPart.VISUAL_ID:
+			return getType_102002Text(view);
+		case EnumAttributeEditPart.VISUAL_ID:
+			return getEnumAttribute_103005Text(view);
 		case TypeExtensionEditPart.VISUAL_ID:
 			return getTypeExtension_104001Text(view);
 		case OperationEditPart.VISUAL_ID:
@@ -198,14 +206,6 @@ public class DomainNavigatorLabelProvider extends LabelProvider implements IComm
 			return getPrimitive_102004Text(view);
 		case TypeReferenceEditPart.VISUAL_ID:
 			return getTypeReference_102001Text(view);
-		case AttributeEditPart.VISUAL_ID:
-			return getAttribute_103001Text(view);
-		case EnumaratorEditPart.VISUAL_ID:
-			return getEnumarator_102005Text(view);
-		case EnumAttributeEditPart.VISUAL_ID:
-			return getEnumAttribute_103005Text(view);
-		case TypeEditPart.VISUAL_ID:
-			return getType_102002Text(view);
 		}
 		return getUnknownElementText(view);
 	}

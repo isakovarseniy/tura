@@ -1,5 +1,6 @@
 [%
  import "platform:/plugin/org.tura.metamodel.wizard.generation/template/commons/typeElementUtil.eol";
+ import "platform:/plugin/org.tura.metamodel.wizard.generation/template/commons/categorizedUtil.eol";
  var util = new Native('org.tura.metamodel.commons.Util');
 %]
 package [%=type.~package%];  
@@ -16,7 +17,9 @@ public class [%=type.~class%] extends TuraObject implements java.io.Serializable
 [%for ( field in type.attributes){     
     field.typeRef.mappingType2Java(recipe,ingredient);
 
-    if (field.typeRef.~fullName = "java.util.Date"  or field.typeRef.~fullName = "java.sql.Timestamp")%]
+    if (field.findClassifier("ORMEntity",  "entityObject","Bean validation"))%]
+    [%=field.~hintDetails%]  
+    [%if (field.typeRef.~fullName = "java.util.Date"  or field.typeRef.~fullName = "java.sql.Timestamp")%]
 	@javax.persistence.Temporal(javax.persistence.TemporalType.TIMESTAMP)
 	@javax.persistence.Column(name = "[%=util.mergeAndCapitalize(field.name).toUpperCase()%]")
 	private [%= field.typeRef.~fullName%]  [%=field.name%];

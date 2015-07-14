@@ -3049,6 +3049,31 @@ public class DomainItemProviderAdapterFactory extends DomainAdapterFactory imple
   }
 
   /**
+   * This keeps track of the one adapter used for all {@link domain.Formatable} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected FormatableItemProvider formatableItemProvider;
+
+  /**
+   * This creates an adapter for a {@link domain.Formatable}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createFormatableAdapter()
+  {
+    if (formatableItemProvider == null)
+    {
+      formatableItemProvider = new FormatableItemProvider(this);
+    }
+
+    return formatableItemProvider;
+  }
+
+  /**
    * This keeps track of the one adapter used for all {@link domain.SourcesPointer} instances.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -4603,6 +4628,7 @@ public class DomainItemProviderAdapterFactory extends DomainAdapterFactory imple
     if (styleClassItemProvider != null) styleClassItemProvider.dispose();
     if (nickNamedItemProvider != null) nickNamedItemProvider.dispose();
     if (uielementItemProvider != null) uielementItemProvider.dispose();
+    if (formatableItemProvider != null) formatableItemProvider.dispose();
     if (sourcesPointerItemProvider != null) sourcesPointerItemProvider.dispose();
     if (actionElementItemProvider != null) actionElementItemProvider.dispose();
     if (actionTriggerItemProvider != null) actionTriggerItemProvider.dispose();

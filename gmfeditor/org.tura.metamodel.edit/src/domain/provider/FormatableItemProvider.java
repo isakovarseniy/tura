@@ -4,13 +4,15 @@ package domain.provider;
 
 
 import domain.DomainPackage;
-import domain.OutputText;
+import domain.Formatable;
 
 import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
+
+import org.eclipse.emf.common.util.ResourceLocator;
 
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
@@ -20,16 +22,17 @@ import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link domain.OutputText} object.
+ * This is the item provider adapter for a {@link domain.Formatable} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class OutputTextItemProvider
-  extends InputElementItemProvider
+public class FormatableItemProvider
+  extends ItemProviderAdapter
   implements
     IEditingDomainItemProvider,
     IStructuredItemContentProvider,
@@ -43,7 +46,7 @@ public class OutputTextItemProvider
    * <!-- end-user-doc -->
    * @generated
    */
-  public OutputTextItemProvider(AdapterFactory adapterFactory)
+  public FormatableItemProvider(AdapterFactory adapterFactory)
   {
     super(adapterFactory);
   }
@@ -90,7 +93,7 @@ public class OutputTextItemProvider
   }
 
   /**
-   * This returns OutputText.gif.
+   * This returns Formatable.gif.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -98,7 +101,7 @@ public class OutputTextItemProvider
   @Override
   public Object getImage(Object object)
   {
-    return overlayImage(object, getResourceLocator().getImage("full/obj16/OutputText"));
+    return overlayImage(object, getResourceLocator().getImage("full/obj16/Formatable"));
   }
 
   /**
@@ -110,10 +113,10 @@ public class OutputTextItemProvider
   @Override
   public String getText(Object object)
   {
-    String label = ((OutputText)object).getNickname();
+    String label = ((Formatable)object).getFormat();
     return label == null || label.length() == 0 ?
-      getString("_UI_OutputText_type") :
-      getString("_UI_OutputText_type") + " " + label;
+      getString("_UI_Formatable_type") :
+      getString("_UI_Formatable_type") + " " + label;
   }
 
   /**
@@ -128,9 +131,9 @@ public class OutputTextItemProvider
   {
     updateChildren(notification);
 
-    switch (notification.getFeatureID(OutputText.class))
+    switch (notification.getFeatureID(Formatable.class))
     {
-      case DomainPackage.OUTPUT_TEXT__FORMAT:
+      case DomainPackage.FORMATABLE__FORMAT:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
         return;
     }
@@ -151,30 +154,15 @@ public class OutputTextItemProvider
   }
 
   /**
-   * This returns the label text for {@link org.eclipse.emf.edit.command.CreateChildCommand}.
+   * Return the resource locator for this item provider's resources.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
   @Override
-  public String getCreateChildText(Object owner, Object feature, Object child, Collection<?> selection)
+  public ResourceLocator getResourceLocator()
   {
-    Object childFeature = feature;
-    Object childObject = child;
-
-    boolean qualify =
-      childFeature == DomainPackage.Literals.STYLE_ELEMENT__STYLE ||
-      childFeature == DomainPackage.Literals.UIELEMENT__ENABLED ||
-      childFeature == DomainPackage.Literals.UIELEMENT__REQUIRED ||
-      childFeature == DomainPackage.Literals.UIELEMENT__READ_ONLY;
-
-    if (qualify)
-    {
-      return getString
-        ("_UI_CreateChild_text2",
-         new Object[] { getTypeText(childObject), getFeatureText(childFeature), getTypeText(owner) });
-    }
-    return super.getCreateChildText(owner, feature, child, selection);
+    return DomainEditPlugin.INSTANCE;
   }
 
 }

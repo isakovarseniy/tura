@@ -35,8 +35,17 @@ public class LayerHolderLayerHolderChildrenCompartmentItemSemanticEditPolicy ext
 	 * @generated
 	 */
 	protected Command getCreateCommand(CreateElementRequest req) {
+		if (DomainElementTypes.InputText_1603004 == req.getElementType()) {
+			return getGEFWrapper(new InputTextCreateCommand(req));
+		}
+		if (DomainElementTypes.OutputText_1603006 == req.getElementType()) {
+			return getGEFWrapper(new OutputTextCreateCommand(req));
+		}
 		if (DomainElementTypes.DropDownSelection_1603002 == req.getElementType()) {
 			return getGEFWrapper(new DropDownSelectionCreateCommand(req));
+		}
+		if (DomainElementTypes.Date_1603029 == req.getElementType()) {
+			return getGEFWrapper(new DateCreateCommand(req));
 		}
 		if (DomainElementTypes.Table_1603008 == req.getElementType()) {
 			return getGEFWrapper(new TableCreateCommand(req));
@@ -47,20 +56,11 @@ public class LayerHolderLayerHolderChildrenCompartmentItemSemanticEditPolicy ext
 		if (DomainElementTypes.LayerHolder_1603019 == req.getElementType()) {
 			return getGEFWrapper(new LayerHolder3CreateCommand(req));
 		}
-		if (DomainElementTypes.InputText_1603004 == req.getElementType()) {
-			return getGEFWrapper(new InputTextCreateCommand(req));
-		}
-		if (DomainElementTypes.OutputText_1603006 == req.getElementType()) {
-			return getGEFWrapper(new OutputTextCreateCommand(req));
-		}
 		if (DomainElementTypes.CheckBox_1603007 == req.getElementType()) {
 			return getGEFWrapper(new CheckBoxCreateCommand(req));
 		}
 		if (DomainElementTypes.Image_1603028 == req.getElementType()) {
 			return getGEFWrapper(new ImageCreateCommand(req));
-		}
-		if (DomainElementTypes.Date_1603029 == req.getElementType()) {
-			return getGEFWrapper(new DateCreateCommand(req));
 		}
 		if (DomainElementTypes.Button_1603017 == req.getElementType()) {
 			return getGEFWrapper(new ButtonCreateCommand(req));

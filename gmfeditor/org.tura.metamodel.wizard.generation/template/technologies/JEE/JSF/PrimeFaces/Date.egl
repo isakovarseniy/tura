@@ -13,7 +13,7 @@ operation Date draw(hash) {
                value =  "#{row[1]."+self.valuePointer.name+"}";
      }
  %]
- <p:calendar [%=self.mkUIDBinding()%] value="[%=value%]" [%=self.uiElementAttributes(hash)%] showOn="button" />
+ <p:calendar [%=self.mkUIDBinding()%] value="[%=value%]" [%=self.uiElementAttributes(hash)%]   pattern="[%=self.format%]"  showOn="button" />
 [%
      util.traceIfDebug("UI element","Date end: "+self.uid);     
 }

@@ -258,7 +258,7 @@
          </object>
          <context viewClass="org.eclipse.gmf.runtime.notation.Node" containerViews="referencing-diagrams"/>
          <context viewClass="org.eclipse.gmf.runtime.notation.Diagram" semanticHints="Canvas"/>
-         <context viewClass="org.eclipse.gmf.runtime.notation.Node" semanticHints="1602003,1603002,1603008,1603024,1603010,1603021,1603022,1603026,1603020,1603016,1603019,1603004,1603006,1603007,1603028,1603029,1603017,1603027,1603005,1603012,1603014,1603015,1603030,1603031,1603023,1603013"/>
+         <context viewClass="org.eclipse.gmf.runtime.notation.Node" semanticHints="1602003,1603004,1603006,1603002,1603029,1603008,1603024,1603012,1603014,1603010,1603031,1603021,1603022,1603026,1603020,1603016,1603019,1603007,1603028,1603017,1603027,1603005,1603015,1603030,1603023,1603013"/>
          <context viewClass="org.eclipse.gmf.runtime.notation.Edge" semanticHints=""/>
       </viewProvider>
    </extension>
@@ -271,7 +271,7 @@
             <method name="getType()" value="Canvas"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-nodes">
-            <method name="getType()" value="1602003,1603002,1603008,1603024,1603010,1603021,1603022,1603026,1603020,1603016,1603019,1603004,1603006,1603007,1603028,1603029,1603017,1603027,1603005,1603012,1603014,1603015,1603030,1603031,1603023,1603013"/>
+            <method name="getType()" value="1602003,1603004,1603006,1603002,1603029,1603008,1603024,1603012,1603014,1603010,1603031,1603021,1603022,1603026,1603020,1603016,1603019,1603007,1603028,1603017,1603027,1603005,1603015,1603030,1603023,1603013"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Edge" id="generated-links">
             <method name="getType()" value=""/>
@@ -338,12 +338,42 @@
       </metamodel>
       <metamodel nsURI="http://tura.org/2013/v1/domain">
          <metamodelType
+               id="org.tura.metamodel.diagram.canvas.InputText_1603004"
+               name="%metatype.name.InputText_1603004"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="InputText"
+               edithelper="canvas.diagram.edit.helpers.InputTextEditHelper">
+            <param name="semanticHint" value="1603004"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://tura.org/2013/v1/domain">
+         <metamodelType
+               id="org.tura.metamodel.diagram.canvas.OutputText_1603006"
+               name="%metatype.name.OutputText_1603006"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="OutputText"
+               edithelper="canvas.diagram.edit.helpers.OutputTextEditHelper">
+            <param name="semanticHint" value="1603006"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://tura.org/2013/v1/domain">
+         <metamodelType
                id="org.tura.metamodel.diagram.canvas.DropDownSelection_1603002"
                name="%metatype.name.DropDownSelection_1603002"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
                eclass="DropDownSelection"
                edithelper="canvas.diagram.edit.helpers.DropDownSelectionEditHelper">
             <param name="semanticHint" value="1603002"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://tura.org/2013/v1/domain">
+         <metamodelType
+               id="org.tura.metamodel.diagram.canvas.Date_1603029"
+               name="%metatype.name.Date_1603029"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="Date"
+               edithelper="canvas.diagram.edit.helpers.DateEditHelper">
+            <param name="semanticHint" value="1603029"/>
          </metamodelType>
       </metamodel>
       <metamodel nsURI="http://tura.org/2013/v1/domain">
@@ -368,11 +398,38 @@
       </metamodel>
       <metamodel nsURI="http://tura.org/2013/v1/domain">
          <specializationType
+               id="org.tura.metamodel.diagram.canvas.InputText_1603012"
+               name="%metatype.name.InputText_1603012"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="org.tura.metamodel.diagram.canvas.InputText_1603004"/>
+            <param name="semanticHint" value="1603012"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http://tura.org/2013/v1/domain">
+         <specializationType
+               id="org.tura.metamodel.diagram.canvas.OutputText_1603014"
+               name="%metatype.name.OutputText_1603014"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="org.tura.metamodel.diagram.canvas.OutputText_1603006"/>
+            <param name="semanticHint" value="1603014"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http://tura.org/2013/v1/domain">
+         <specializationType
                id="org.tura.metamodel.diagram.canvas.DropDownSelection_1603010"
                name="%metatype.name.DropDownSelection_1603010"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
             <specializes id="org.tura.metamodel.diagram.canvas.DropDownSelection_1603002"/>
             <param name="semanticHint" value="1603010"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http://tura.org/2013/v1/domain">
+         <specializationType
+               id="org.tura.metamodel.diagram.canvas.Date_1603031"
+               name="%metatype.name.Date_1603031"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="org.tura.metamodel.diagram.canvas.Date_1603029"/>
+            <param name="semanticHint" value="1603031"/>
          </specializationType>
       </metamodel>
       <metamodel nsURI="http://tura.org/2013/v1/domain">
@@ -432,26 +489,6 @@
       </metamodel>
       <metamodel nsURI="http://tura.org/2013/v1/domain">
          <metamodelType
-               id="org.tura.metamodel.diagram.canvas.InputText_1603004"
-               name="%metatype.name.InputText_1603004"
-               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
-               eclass="InputText"
-               edithelper="canvas.diagram.edit.helpers.InputTextEditHelper">
-            <param name="semanticHint" value="1603004"/>
-         </metamodelType>
-      </metamodel>
-      <metamodel nsURI="http://tura.org/2013/v1/domain">
-         <metamodelType
-               id="org.tura.metamodel.diagram.canvas.OutputText_1603006"
-               name="%metatype.name.OutputText_1603006"
-               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
-               eclass="OutputText"
-               edithelper="canvas.diagram.edit.helpers.OutputTextEditHelper">
-            <param name="semanticHint" value="1603006"/>
-         </metamodelType>
-      </metamodel>
-      <metamodel nsURI="http://tura.org/2013/v1/domain">
-         <metamodelType
                id="org.tura.metamodel.diagram.canvas.CheckBox_1603007"
                name="%metatype.name.CheckBox_1603007"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
@@ -468,16 +505,6 @@
                eclass="Image"
                edithelper="canvas.diagram.edit.helpers.ImageEditHelper">
             <param name="semanticHint" value="1603028"/>
-         </metamodelType>
-      </metamodel>
-      <metamodel nsURI="http://tura.org/2013/v1/domain">
-         <metamodelType
-               id="org.tura.metamodel.diagram.canvas.Date_1603029"
-               name="%metatype.name.Date_1603029"
-               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
-               eclass="Date"
-               edithelper="canvas.diagram.edit.helpers.DateEditHelper">
-            <param name="semanticHint" value="1603029"/>
          </metamodelType>
       </metamodel>
       <metamodel nsURI="http://tura.org/2013/v1/domain">
@@ -512,24 +539,6 @@
       </metamodel>
       <metamodel nsURI="http://tura.org/2013/v1/domain">
          <specializationType
-               id="org.tura.metamodel.diagram.canvas.InputText_1603012"
-               name="%metatype.name.InputText_1603012"
-               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
-            <specializes id="org.tura.metamodel.diagram.canvas.InputText_1603004"/>
-            <param name="semanticHint" value="1603012"/>
-         </specializationType>
-      </metamodel>
-      <metamodel nsURI="http://tura.org/2013/v1/domain">
-         <specializationType
-               id="org.tura.metamodel.diagram.canvas.OutputText_1603014"
-               name="%metatype.name.OutputText_1603014"
-               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
-            <specializes id="org.tura.metamodel.diagram.canvas.OutputText_1603006"/>
-            <param name="semanticHint" value="1603014"/>
-         </specializationType>
-      </metamodel>
-      <metamodel nsURI="http://tura.org/2013/v1/domain">
-         <specializationType
                id="org.tura.metamodel.diagram.canvas.CheckBox_1603015"
                name="%metatype.name.CheckBox_1603015"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
@@ -544,15 +553,6 @@
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
             <specializes id="org.tura.metamodel.diagram.canvas.Image_1603028"/>
             <param name="semanticHint" value="1603030"/>
-         </specializationType>
-      </metamodel>
-      <metamodel nsURI="http://tura.org/2013/v1/domain">
-         <specializationType
-               id="org.tura.metamodel.diagram.canvas.Date_1603031"
-               name="%metatype.name.Date_1603031"
-               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
-            <specializes id="org.tura.metamodel.diagram.canvas.Date_1603029"/>
-            <param name="semanticHint" value="1603031"/>
          </specializationType>
       </metamodel>
       <metamodel nsURI="http://tura.org/2013/v1/domain">
@@ -591,29 +591,29 @@
       <binding context="SharedClientContext">
          <elementType ref="org.tura.metamodel.diagram.canvas.CanvasView_1601000"/>
          <elementType ref="org.tura.metamodel.diagram.canvas.LayerHolder_1602003"/>
+         <elementType ref="org.tura.metamodel.diagram.canvas.InputText_1603004"/>
+         <elementType ref="org.tura.metamodel.diagram.canvas.OutputText_1603006"/>
          <elementType ref="org.tura.metamodel.diagram.canvas.DropDownSelection_1603002"/>
+         <elementType ref="org.tura.metamodel.diagram.canvas.Date_1603029"/>
          <elementType ref="org.tura.metamodel.diagram.canvas.Table_1603008"/>
          <elementType ref="org.tura.metamodel.diagram.canvas.Column_1603024"/>
+         <elementType ref="org.tura.metamodel.diagram.canvas.InputText_1603012"/>
+         <elementType ref="org.tura.metamodel.diagram.canvas.OutputText_1603014"/>
          <elementType ref="org.tura.metamodel.diagram.canvas.DropDownSelection_1603010"/>
+         <elementType ref="org.tura.metamodel.diagram.canvas.Date_1603031"/>
          <elementType ref="org.tura.metamodel.diagram.canvas.Table_1603021"/>
          <elementType ref="org.tura.metamodel.diagram.canvas.Tree_1603022"/>
          <elementType ref="org.tura.metamodel.diagram.canvas.Column_1603026"/>
          <elementType ref="org.tura.metamodel.diagram.canvas.LayerHolder_1603020"/>
          <elementType ref="org.tura.metamodel.diagram.canvas.Tree_1603016"/>
          <elementType ref="org.tura.metamodel.diagram.canvas.LayerHolder_1603019"/>
-         <elementType ref="org.tura.metamodel.diagram.canvas.InputText_1603004"/>
-         <elementType ref="org.tura.metamodel.diagram.canvas.OutputText_1603006"/>
          <elementType ref="org.tura.metamodel.diagram.canvas.CheckBox_1603007"/>
          <elementType ref="org.tura.metamodel.diagram.canvas.Image_1603028"/>
-         <elementType ref="org.tura.metamodel.diagram.canvas.Date_1603029"/>
          <elementType ref="org.tura.metamodel.diagram.canvas.Button_1603017"/>
          <elementType ref="org.tura.metamodel.diagram.canvas.ActionTrigger_1603027"/>
          <elementType ref="org.tura.metamodel.diagram.canvas.Label_1603005"/>
-         <elementType ref="org.tura.metamodel.diagram.canvas.InputText_1603012"/>
-         <elementType ref="org.tura.metamodel.diagram.canvas.OutputText_1603014"/>
          <elementType ref="org.tura.metamodel.diagram.canvas.CheckBox_1603015"/>
          <elementType ref="org.tura.metamodel.diagram.canvas.Image_1603030"/>
-         <elementType ref="org.tura.metamodel.diagram.canvas.Date_1603031"/>
          <elementType ref="org.tura.metamodel.diagram.canvas.Button_1603023"/>
          <elementType ref="org.tura.metamodel.diagram.canvas.Label_1603013"/>
          <advice ref="org.eclipse.gmf.runtime.diagram.core.advice.notationDepdendents"/>

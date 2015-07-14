@@ -2,28 +2,30 @@
  */
 package domain.impl;
 
-import domain.Date;
 import domain.DomainPackage;
-
 import domain.Formatable;
+
 import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.ecore.EClass;
+
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.EObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Date</b></em>'.
+ * An implementation of the model object '<em><b>Formatable</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link domain.impl.DateImpl#getFormat <em>Format</em>}</li>
+ *   <li>{@link domain.impl.FormatableImpl#getFormat <em>Format</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class DateImpl extends InputElementImpl implements Date
+public class FormatableImpl extends EObjectImpl implements Formatable
 {
   /**
    * The default value of the '{@link #getFormat() <em>Format</em>}' attribute.
@@ -34,6 +36,7 @@ public class DateImpl extends InputElementImpl implements Date
    * @ordered
    */
   protected static final String FORMAT_EDEFAULT = null;
+
   /**
    * The cached value of the '{@link #getFormat() <em>Format</em>}' attribute.
    * <!-- begin-user-doc -->
@@ -49,7 +52,7 @@ public class DateImpl extends InputElementImpl implements Date
    * <!-- end-user-doc -->
    * @generated
    */
-  protected DateImpl()
+  protected FormatableImpl()
   {
     super();
   }
@@ -62,7 +65,7 @@ public class DateImpl extends InputElementImpl implements Date
   @Override
   protected EClass eStaticClass()
   {
-    return DomainPackage.Literals.DATE;
+    return DomainPackage.Literals.FORMATABLE;
   }
 
   /**
@@ -85,7 +88,7 @@ public class DateImpl extends InputElementImpl implements Date
     String oldFormat = format;
     format = newFormat;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.DATE__FORMAT, oldFormat, format));
+      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.FORMATABLE__FORMAT, oldFormat, format));
   }
 
   /**
@@ -98,7 +101,7 @@ public class DateImpl extends InputElementImpl implements Date
   {
     switch (featureID)
     {
-      case DomainPackage.DATE__FORMAT:
+      case DomainPackage.FORMATABLE__FORMAT:
         return getFormat();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -114,7 +117,7 @@ public class DateImpl extends InputElementImpl implements Date
   {
     switch (featureID)
     {
-      case DomainPackage.DATE__FORMAT:
+      case DomainPackage.FORMATABLE__FORMAT:
         setFormat((String)newValue);
         return;
     }
@@ -131,7 +134,7 @@ public class DateImpl extends InputElementImpl implements Date
   {
     switch (featureID)
     {
-      case DomainPackage.DATE__FORMAT:
+      case DomainPackage.FORMATABLE__FORMAT:
         setFormat(FORMAT_EDEFAULT);
         return;
     }
@@ -148,48 +151,10 @@ public class DateImpl extends InputElementImpl implements Date
   {
     switch (featureID)
     {
-      case DomainPackage.DATE__FORMAT:
+      case DomainPackage.FORMATABLE__FORMAT:
         return FORMAT_EDEFAULT == null ? format != null : !FORMAT_EDEFAULT.equals(format);
     }
     return super.eIsSet(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass)
-  {
-    if (baseClass == Formatable.class)
-    {
-      switch (derivedFeatureID)
-      {
-        case DomainPackage.DATE__FORMAT: return DomainPackage.FORMATABLE__FORMAT;
-        default: return -1;
-      }
-    }
-    return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass)
-  {
-    if (baseClass == Formatable.class)
-    {
-      switch (baseFeatureID)
-      {
-        case DomainPackage.FORMATABLE__FORMAT: return DomainPackage.DATE__FORMAT;
-        default: return -1;
-      }
-    }
-    return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
   }
 
   /**
@@ -209,4 +174,4 @@ public class DateImpl extends InputElementImpl implements Date
     return result.toString();
   }
 
-} //DateImpl
+} //FormatableImpl

@@ -93,6 +93,22 @@ operation domain::StyleElement  styleAttributes(artifactLib:String, artifact: St
 }
 %]
 
+[%@template
+operation domain::Uielement  validator(hash){
+    if (self.findClassifier("UIGeneration",  "JSF","validator"))%]
+    [%=self.~hintDetails%]  
+[%
+}
+%]
+
+[%@template
+operation domain::Uielement  convertor(hash){
+    if (self.findClassifier("UIGeneration",  "JSF","converter"))%]
+    [%=self.~hintDetails%]  
+[%
+}
+%]
+
 
 [%@template
 operation domain::Uielement  enabled(hash){

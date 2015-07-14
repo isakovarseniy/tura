@@ -22,7 +22,7 @@ package domain;
  * @model annotation="gmf.node label='name' border.color='0,0,0' color='255,239,222'"
  * @generated
  */
-public interface Attribute extends TypePointer
+public interface Attribute extends TypePointer, Categorized
 {
   /**
    * Returns the value of the '<em><b>Uid</b></em>' attribute.

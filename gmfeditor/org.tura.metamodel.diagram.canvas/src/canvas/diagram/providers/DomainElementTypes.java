@@ -300,13 +300,25 @@ public class DomainElementTypes {
 
 			elements.put(LayerHolder_1602003, DomainPackage.eINSTANCE.getLayerHolder());
 
+			elements.put(InputText_1603004, DomainPackage.eINSTANCE.getInputText());
+
+			elements.put(OutputText_1603006, DomainPackage.eINSTANCE.getOutputText());
+
 			elements.put(DropDownSelection_1603002, DomainPackage.eINSTANCE.getDropDownSelection());
+
+			elements.put(Date_1603029, DomainPackage.eINSTANCE.getDate());
 
 			elements.put(Table_1603008, DomainPackage.eINSTANCE.getTable());
 
 			elements.put(Column_1603024, DomainPackage.eINSTANCE.getColumn());
 
+			elements.put(InputText_1603012, DomainPackage.eINSTANCE.getInputText());
+
+			elements.put(OutputText_1603014, DomainPackage.eINSTANCE.getOutputText());
+
 			elements.put(DropDownSelection_1603010, DomainPackage.eINSTANCE.getDropDownSelection());
+
+			elements.put(Date_1603031, DomainPackage.eINSTANCE.getDate());
 
 			elements.put(Table_1603021, DomainPackage.eINSTANCE.getTable());
 
@@ -320,15 +332,9 @@ public class DomainElementTypes {
 
 			elements.put(LayerHolder_1603019, DomainPackage.eINSTANCE.getLayerHolder());
 
-			elements.put(InputText_1603004, DomainPackage.eINSTANCE.getInputText());
-
-			elements.put(OutputText_1603006, DomainPackage.eINSTANCE.getOutputText());
-
 			elements.put(CheckBox_1603007, DomainPackage.eINSTANCE.getCheckBox());
 
 			elements.put(Image_1603028, DomainPackage.eINSTANCE.getImage());
-
-			elements.put(Date_1603029, DomainPackage.eINSTANCE.getDate());
 
 			elements.put(Button_1603017, DomainPackage.eINSTANCE.getButton());
 
@@ -336,15 +342,9 @@ public class DomainElementTypes {
 
 			elements.put(Label_1603005, DomainPackage.eINSTANCE.getLabel());
 
-			elements.put(InputText_1603012, DomainPackage.eINSTANCE.getInputText());
-
-			elements.put(OutputText_1603014, DomainPackage.eINSTANCE.getOutputText());
-
 			elements.put(CheckBox_1603015, DomainPackage.eINSTANCE.getCheckBox());
 
 			elements.put(Image_1603030, DomainPackage.eINSTANCE.getImage());
-
-			elements.put(Date_1603031, DomainPackage.eINSTANCE.getDate());
 
 			elements.put(Button_1603023, DomainPackage.eINSTANCE.getButton());
 
@@ -368,29 +368,29 @@ public class DomainElementTypes {
 			KNOWN_ELEMENT_TYPES = new HashSet<IElementType>();
 			KNOWN_ELEMENT_TYPES.add(CanvasView_1601000);
 			KNOWN_ELEMENT_TYPES.add(LayerHolder_1602003);
+			KNOWN_ELEMENT_TYPES.add(InputText_1603004);
+			KNOWN_ELEMENT_TYPES.add(OutputText_1603006);
 			KNOWN_ELEMENT_TYPES.add(DropDownSelection_1603002);
+			KNOWN_ELEMENT_TYPES.add(Date_1603029);
 			KNOWN_ELEMENT_TYPES.add(Table_1603008);
 			KNOWN_ELEMENT_TYPES.add(Column_1603024);
+			KNOWN_ELEMENT_TYPES.add(InputText_1603012);
+			KNOWN_ELEMENT_TYPES.add(OutputText_1603014);
 			KNOWN_ELEMENT_TYPES.add(DropDownSelection_1603010);
+			KNOWN_ELEMENT_TYPES.add(Date_1603031);
 			KNOWN_ELEMENT_TYPES.add(Table_1603021);
 			KNOWN_ELEMENT_TYPES.add(Tree_1603022);
 			KNOWN_ELEMENT_TYPES.add(Column_1603026);
 			KNOWN_ELEMENT_TYPES.add(LayerHolder_1603020);
 			KNOWN_ELEMENT_TYPES.add(Tree_1603016);
 			KNOWN_ELEMENT_TYPES.add(LayerHolder_1603019);
-			KNOWN_ELEMENT_TYPES.add(InputText_1603004);
-			KNOWN_ELEMENT_TYPES.add(OutputText_1603006);
 			KNOWN_ELEMENT_TYPES.add(CheckBox_1603007);
 			KNOWN_ELEMENT_TYPES.add(Image_1603028);
-			KNOWN_ELEMENT_TYPES.add(Date_1603029);
 			KNOWN_ELEMENT_TYPES.add(Button_1603017);
 			KNOWN_ELEMENT_TYPES.add(ActionTrigger_1603027);
 			KNOWN_ELEMENT_TYPES.add(Label_1603005);
-			KNOWN_ELEMENT_TYPES.add(InputText_1603012);
-			KNOWN_ELEMENT_TYPES.add(OutputText_1603014);
 			KNOWN_ELEMENT_TYPES.add(CheckBox_1603015);
 			KNOWN_ELEMENT_TYPES.add(Image_1603030);
-			KNOWN_ELEMENT_TYPES.add(Date_1603031);
 			KNOWN_ELEMENT_TYPES.add(Button_1603023);
 			KNOWN_ELEMENT_TYPES.add(Label_1603013);
 		}
@@ -406,14 +406,26 @@ public class DomainElementTypes {
 			return CanvasView_1601000;
 		case LayerHolderEditPart.VISUAL_ID:
 			return LayerHolder_1602003;
+		case InputTextEditPart.VISUAL_ID:
+			return InputText_1603004;
+		case OutputTextEditPart.VISUAL_ID:
+			return OutputText_1603006;
 		case DropDownSelectionEditPart.VISUAL_ID:
 			return DropDownSelection_1603002;
+		case DateEditPart.VISUAL_ID:
+			return Date_1603029;
 		case TableEditPart.VISUAL_ID:
 			return Table_1603008;
 		case ColumnEditPart.VISUAL_ID:
 			return Column_1603024;
+		case InputText2EditPart.VISUAL_ID:
+			return InputText_1603012;
+		case OutputText2EditPart.VISUAL_ID:
+			return OutputText_1603014;
 		case DropDownSelection2EditPart.VISUAL_ID:
 			return DropDownSelection_1603010;
+		case Date2EditPart.VISUAL_ID:
+			return Date_1603031;
 		case Table2EditPart.VISUAL_ID:
 			return Table_1603021;
 		case TreeEditPart.VISUAL_ID:
@@ -426,32 +438,20 @@ public class DomainElementTypes {
 			return Tree_1603016;
 		case LayerHolder3EditPart.VISUAL_ID:
 			return LayerHolder_1603019;
-		case InputTextEditPart.VISUAL_ID:
-			return InputText_1603004;
-		case OutputTextEditPart.VISUAL_ID:
-			return OutputText_1603006;
 		case CheckBoxEditPart.VISUAL_ID:
 			return CheckBox_1603007;
 		case ImageEditPart.VISUAL_ID:
 			return Image_1603028;
-		case DateEditPart.VISUAL_ID:
-			return Date_1603029;
 		case ButtonEditPart.VISUAL_ID:
 			return Button_1603017;
 		case ActionTriggerEditPart.VISUAL_ID:
 			return ActionTrigger_1603027;
 		case LabelEditPart.VISUAL_ID:
 			return Label_1603005;
-		case InputText2EditPart.VISUAL_ID:
-			return InputText_1603012;
-		case OutputText2EditPart.VISUAL_ID:
-			return OutputText_1603014;
 		case CheckBox2EditPart.VISUAL_ID:
 			return CheckBox_1603015;
 		case Image2EditPart.VISUAL_ID:
 			return Image_1603030;
-		case Date2EditPart.VISUAL_ID:
-			return Date_1603031;
 		case Button2EditPart.VISUAL_ID:
 			return Button_1603023;
 		case Label2EditPart.VISUAL_ID:

@@ -181,6 +181,7 @@ public class DomainFactoryImpl extends EFactoryImpl implements DomainFactory
       case DomainPackage.STYLE_CLASS: return createStyleClass();
       case DomainPackage.NICK_NAMED: return createNickNamed();
       case DomainPackage.UIELEMENT: return createUielement();
+      case DomainPackage.FORMATABLE: return createFormatable();
       case DomainPackage.SOURCES_POINTER: return createSourcesPointer();
       case DomainPackage.ACTION_ELEMENT: return createActionElement();
       case DomainPackage.ACTION_TRIGGER: return createActionTrigger();
@@ -1588,6 +1589,17 @@ public class DomainFactoryImpl extends EFactoryImpl implements DomainFactory
   {
     UielementImpl uielement = new UielementImpl();
     return uielement;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Formatable createFormatable()
+  {
+    FormatableImpl formatable = new FormatableImpl();
+    return formatable;
   }
 
   /**

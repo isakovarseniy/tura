@@ -255,29 +255,14 @@ public class DomainNavigatorContentProvider implements ICommonContentProvider {
 	private Object[] getViewChildren(View view, Object parentElement) {
 		switch (DomainVisualIDRegistry.getVisualID(view)) {
 
-		case RootEditPart.VISUAL_ID: {
-			LinkedList<DomainAbstractNavigatorItem> result = new LinkedList<DomainAbstractNavigatorItem>();
-			Node sv = (Node) view;
-			Collection<View> connectedViews;
-			connectedViews = getChildrenByType(Collections.singleton(sv),
-					DomainVisualIDRegistry.getType(RootRootPreFormTriggerCompartmentEditPart.VISUAL_ID));
-			connectedViews = getChildrenByType(connectedViews,
-					DomainVisualIDRegistry.getType(PREFormTriggerEditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement, false));
-			connectedViews = getChildrenByType(Collections.singleton(sv),
-					DomainVisualIDRegistry.getType(RootRootVariablesCompartmentEditPart.VISUAL_ID));
-			connectedViews = getChildrenByType(connectedViews,
-					DomainVisualIDRegistry.getType(FormVariableEditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement, false));
-			return result.toArray();
-		}
-
-		case RelationEditPart.VISUAL_ID: {
+		case DependencyEditPart.VISUAL_ID: {
 			LinkedList<DomainAbstractNavigatorItem> result = new LinkedList<DomainAbstractNavigatorItem>();
 			Edge sv = (Edge) view;
-			DomainNavigatorGroup target = new DomainNavigatorGroup(Messages.NavigatorGroupName_Relation_1104009_target,
+			DomainNavigatorGroup target = new DomainNavigatorGroup(
+					Messages.NavigatorGroupName_Dependency_1104010_target,
 					"icons/linkTargetNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			DomainNavigatorGroup source = new DomainNavigatorGroup(Messages.NavigatorGroupName_Relation_1104009_source,
+			DomainNavigatorGroup source = new DomainNavigatorGroup(
+					Messages.NavigatorGroupName_Dependency_1104010_source,
 					"icons/linkSourceNavigatorGroup.gif", parentElement); //$NON-NLS-1$
 			Collection<View> connectedViews;
 			connectedViews = getLinksTargetByType(Collections.singleton(sv),
@@ -317,6 +302,23 @@ public class DomainNavigatorContentProvider implements ICommonContentProvider {
 			if (!links.isEmpty()) {
 				result.add(links);
 			}
+			return result.toArray();
+		}
+
+		case RootEditPart.VISUAL_ID: {
+			LinkedList<DomainAbstractNavigatorItem> result = new LinkedList<DomainAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			Collection<View> connectedViews;
+			connectedViews = getChildrenByType(Collections.singleton(sv),
+					DomainVisualIDRegistry.getType(RootRootPreFormTriggerCompartmentEditPart.VISUAL_ID));
+			connectedViews = getChildrenByType(connectedViews,
+					DomainVisualIDRegistry.getType(PREFormTriggerEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement, false));
+			connectedViews = getChildrenByType(Collections.singleton(sv),
+					DomainVisualIDRegistry.getType(RootRootVariablesCompartmentEditPart.VISUAL_ID));
+			connectedViews = getChildrenByType(connectedViews,
+					DomainVisualIDRegistry.getType(FormVariableEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement, false));
 			return result.toArray();
 		}
 
@@ -412,14 +414,12 @@ public class DomainNavigatorContentProvider implements ICommonContentProvider {
 			return result.toArray();
 		}
 
-		case DependencyEditPart.VISUAL_ID: {
+		case RelationEditPart.VISUAL_ID: {
 			LinkedList<DomainAbstractNavigatorItem> result = new LinkedList<DomainAbstractNavigatorItem>();
 			Edge sv = (Edge) view;
-			DomainNavigatorGroup target = new DomainNavigatorGroup(
-					Messages.NavigatorGroupName_Dependency_1104010_target,
+			DomainNavigatorGroup target = new DomainNavigatorGroup(Messages.NavigatorGroupName_Relation_1104009_target,
 					"icons/linkTargetNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			DomainNavigatorGroup source = new DomainNavigatorGroup(
-					Messages.NavigatorGroupName_Dependency_1104010_source,
+			DomainNavigatorGroup source = new DomainNavigatorGroup(Messages.NavigatorGroupName_Relation_1104009_source,
 					"icons/linkSourceNavigatorGroup.gif", parentElement); //$NON-NLS-1$
 			Collection<View> connectedViews;
 			connectedViews = getLinksTargetByType(Collections.singleton(sv),

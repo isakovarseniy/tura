@@ -3,18 +3,24 @@
 package domain.impl;
 
 import domain.Attribute;
+import domain.Categorized;
+import domain.Classifier;
 import domain.DomainPackage;
 import domain.Type;
 
+import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -23,6 +29,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  * <p>
  * The following features are implemented:
  * <ul>
+ *   <li>{@link domain.impl.AttributeImpl#getClassifiers <em>Classifiers</em>}</li>
  *   <li>{@link domain.impl.AttributeImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.impl.AttributeImpl#getName <em>Name</em>}</li>
  *   <li>{@link domain.impl.AttributeImpl#isPk <em>Pk</em>}</li>
@@ -34,6 +41,16 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  */
 public class AttributeImpl extends TypePointerImpl implements Attribute
 {
+  /**
+   * The cached value of the '{@link #getClassifiers() <em>Classifiers</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getClassifiers()
+   * @generated
+   * @ordered
+   */
+  protected EList<Classifier> classifiers;
+
   /**
    * The default value of the '{@link #getUid() <em>Uid</em>}' attribute.
    * <!-- begin-user-doc -->
@@ -113,6 +130,20 @@ public class AttributeImpl extends TypePointerImpl implements Attribute
   protected EClass eStaticClass()
   {
     return DomainPackage.Literals.ATTRIBUTE;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EList<Classifier> getClassifiers()
+  {
+    if (classifiers == null)
+    {
+      classifiers = new EObjectContainmentEList<Classifier>(Classifier.class, this, DomainPackage.ATTRIBUTE__CLASSIFIERS);
+    }
+    return classifiers;
   }
 
   /**
@@ -257,6 +288,8 @@ public class AttributeImpl extends TypePointerImpl implements Attribute
   {
     switch (featureID)
     {
+      case DomainPackage.ATTRIBUTE__CLASSIFIERS:
+        return ((InternalEList<?>)getClassifiers()).basicRemove(otherEnd, msgs);
       case DomainPackage.ATTRIBUTE__PARENT:
         return basicSetParent(null, msgs);
     }
@@ -289,6 +322,8 @@ public class AttributeImpl extends TypePointerImpl implements Attribute
   {
     switch (featureID)
     {
+      case DomainPackage.ATTRIBUTE__CLASSIFIERS:
+        return getClassifiers();
       case DomainPackage.ATTRIBUTE__UID:
         return getUid();
       case DomainPackage.ATTRIBUTE__NAME:
@@ -306,11 +341,16 @@ public class AttributeImpl extends TypePointerImpl implements Attribute
    * <!-- end-user-doc -->
    * @generated
    */
+  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
     switch (featureID)
     {
+      case DomainPackage.ATTRIBUTE__CLASSIFIERS:
+        getClassifiers().clear();
+        getClassifiers().addAll((Collection<? extends Classifier>)newValue);
+        return;
       case DomainPackage.ATTRIBUTE__UID:
         setUid((String)newValue);
         return;
@@ -337,6 +377,9 @@ public class AttributeImpl extends TypePointerImpl implements Attribute
   {
     switch (featureID)
     {
+      case DomainPackage.ATTRIBUTE__CLASSIFIERS:
+        getClassifiers().clear();
+        return;
       case DomainPackage.ATTRIBUTE__UID:
         setUid(UID_EDEFAULT);
         return;
@@ -363,6 +406,8 @@ public class AttributeImpl extends TypePointerImpl implements Attribute
   {
     switch (featureID)
     {
+      case DomainPackage.ATTRIBUTE__CLASSIFIERS:
+        return classifiers != null && !classifiers.isEmpty();
       case DomainPackage.ATTRIBUTE__UID:
         return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
       case DomainPackage.ATTRIBUTE__NAME:
@@ -373,6 +418,44 @@ public class AttributeImpl extends TypePointerImpl implements Attribute
         return getParent() != null;
     }
     return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass)
+  {
+    if (baseClass == Categorized.class)
+    {
+      switch (derivedFeatureID)
+      {
+        case DomainPackage.ATTRIBUTE__CLASSIFIERS: return DomainPackage.CATEGORIZED__CLASSIFIERS;
+        default: return -1;
+      }
+    }
+    return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass)
+  {
+    if (baseClass == Categorized.class)
+    {
+      switch (baseFeatureID)
+      {
+        case DomainPackage.CATEGORIZED__CLASSIFIERS: return DomainPackage.ATTRIBUTE__CLASSIFIERS;
+        default: return -1;
+      }
+    }
+    return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
   }
 
   /**

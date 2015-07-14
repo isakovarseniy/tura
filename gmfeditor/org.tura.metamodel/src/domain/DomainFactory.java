@@ -1094,6 +1094,15 @@ public interface DomainFactory extends EFactory
   Uielement createUielement();
 
   /**
+   * Returns a new object of class '<em>Formatable</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Formatable</em>'.
+   * @generated
+   */
+  Formatable createFormatable();
+
+  /**
    * Returns a new object of class '<em>Sources Pointer</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

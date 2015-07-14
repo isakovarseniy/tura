@@ -13,6 +13,8 @@ operation InputText draw(hash) {
      }
  %]
 <p:inputText   [%=self.mkUIDBinding()%] value="[%=value%]"   [%=self.uiElementAttributes(hash)%]>
+   [%=self.validator(hash)%]
+   [%=self.convertor(hash)%]
 </p:inputText>
 [%
      util.traceIfDebug("UI element","InputText end: "+self.uid);     

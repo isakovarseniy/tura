@@ -46,6 +46,7 @@
                id="org.tura.metamodel.typedefinition.classifier">
               <input type="typedefinition.diagram.edit.parts.TypeEditPart"/>
               <input type="typedefinition.diagram.edit.parts.TypeExtensionEditPart"/>
+              <input type="typedefinition.diagram.edit.parts.AttributeEditPart"/>
            </propertySection>        
 
 
@@ -746,7 +747,7 @@
  
              <input type="canvas.diagram.edit.parts.Image2EditPart"/>
              <input type="canvas.diagram.edit.parts.Date2EditPart"/>
-               <input type="canvas.diagram.edit.parts.CheckBox2EditPart"/>
+              <input type="canvas.diagram.edit.parts.CheckBox2EditPart"/>
               <input type="canvas.diagram.edit.parts.InputText2EditPart"/>
               <input type="canvas.diagram.edit.parts.OutputText2EditPart"/>
               <input type="canvas.diagram.edit.parts.DropDownSelection2EditPart"/>

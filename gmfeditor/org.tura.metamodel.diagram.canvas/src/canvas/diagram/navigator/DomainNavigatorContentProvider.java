@@ -277,7 +277,21 @@ public class DomainNavigatorContentProvider implements ICommonContentProvider {
 			connectedViews = getChildrenByType(Collections.singleton(sv),
 					DomainVisualIDRegistry.getType(LayerHolderLayerHolderChildrenCompartmentEditPart.VISUAL_ID));
 			connectedViews = getChildrenByType(connectedViews,
+					DomainVisualIDRegistry.getType(InputTextEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement, false));
+			connectedViews = getChildrenByType(Collections.singleton(sv),
+					DomainVisualIDRegistry.getType(LayerHolderLayerHolderChildrenCompartmentEditPart.VISUAL_ID));
+			connectedViews = getChildrenByType(connectedViews,
+					DomainVisualIDRegistry.getType(OutputTextEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement, false));
+			connectedViews = getChildrenByType(Collections.singleton(sv),
+					DomainVisualIDRegistry.getType(LayerHolderLayerHolderChildrenCompartmentEditPart.VISUAL_ID));
+			connectedViews = getChildrenByType(connectedViews,
 					DomainVisualIDRegistry.getType(DropDownSelectionEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement, false));
+			connectedViews = getChildrenByType(Collections.singleton(sv),
+					DomainVisualIDRegistry.getType(LayerHolderLayerHolderChildrenCompartmentEditPart.VISUAL_ID));
+			connectedViews = getChildrenByType(connectedViews, DomainVisualIDRegistry.getType(DateEditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement, false));
 			connectedViews = getChildrenByType(Collections.singleton(sv),
 					DomainVisualIDRegistry.getType(LayerHolderLayerHolderChildrenCompartmentEditPart.VISUAL_ID));
@@ -295,25 +309,11 @@ public class DomainNavigatorContentProvider implements ICommonContentProvider {
 			connectedViews = getChildrenByType(Collections.singleton(sv),
 					DomainVisualIDRegistry.getType(LayerHolderLayerHolderChildrenCompartmentEditPart.VISUAL_ID));
 			connectedViews = getChildrenByType(connectedViews,
-					DomainVisualIDRegistry.getType(InputTextEditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement, false));
-			connectedViews = getChildrenByType(Collections.singleton(sv),
-					DomainVisualIDRegistry.getType(LayerHolderLayerHolderChildrenCompartmentEditPart.VISUAL_ID));
-			connectedViews = getChildrenByType(connectedViews,
-					DomainVisualIDRegistry.getType(OutputTextEditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement, false));
-			connectedViews = getChildrenByType(Collections.singleton(sv),
-					DomainVisualIDRegistry.getType(LayerHolderLayerHolderChildrenCompartmentEditPart.VISUAL_ID));
-			connectedViews = getChildrenByType(connectedViews,
 					DomainVisualIDRegistry.getType(CheckBoxEditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement, false));
 			connectedViews = getChildrenByType(Collections.singleton(sv),
 					DomainVisualIDRegistry.getType(LayerHolderLayerHolderChildrenCompartmentEditPart.VISUAL_ID));
 			connectedViews = getChildrenByType(connectedViews, DomainVisualIDRegistry.getType(ImageEditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement, false));
-			connectedViews = getChildrenByType(Collections.singleton(sv),
-					DomainVisualIDRegistry.getType(LayerHolderLayerHolderChildrenCompartmentEditPart.VISUAL_ID));
-			connectedViews = getChildrenByType(connectedViews, DomainVisualIDRegistry.getType(DateEditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement, false));
 			connectedViews = getChildrenByType(Collections.singleton(sv),
 					DomainVisualIDRegistry.getType(LayerHolderLayerHolderChildrenCompartmentEditPart.VISUAL_ID));
@@ -344,7 +344,21 @@ public class DomainNavigatorContentProvider implements ICommonContentProvider {
 			connectedViews = getChildrenByType(Collections.singleton(sv),
 					DomainVisualIDRegistry.getType(ColumnColumnElementCompartmentEditPart.VISUAL_ID));
 			connectedViews = getChildrenByType(connectedViews,
+					DomainVisualIDRegistry.getType(InputText2EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement, false));
+			connectedViews = getChildrenByType(Collections.singleton(sv),
+					DomainVisualIDRegistry.getType(ColumnColumnElementCompartmentEditPart.VISUAL_ID));
+			connectedViews = getChildrenByType(connectedViews,
+					DomainVisualIDRegistry.getType(OutputText2EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement, false));
+			connectedViews = getChildrenByType(Collections.singleton(sv),
+					DomainVisualIDRegistry.getType(ColumnColumnElementCompartmentEditPart.VISUAL_ID));
+			connectedViews = getChildrenByType(connectedViews,
 					DomainVisualIDRegistry.getType(DropDownSelection2EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement, false));
+			connectedViews = getChildrenByType(Collections.singleton(sv),
+					DomainVisualIDRegistry.getType(ColumnColumnElementCompartmentEditPart.VISUAL_ID));
+			connectedViews = getChildrenByType(connectedViews, DomainVisualIDRegistry.getType(Date2EditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement, false));
 			connectedViews = getChildrenByType(Collections.singleton(sv),
 					DomainVisualIDRegistry.getType(ColumnColumnElementCompartmentEditPart.VISUAL_ID));
@@ -362,25 +376,11 @@ public class DomainNavigatorContentProvider implements ICommonContentProvider {
 			connectedViews = getChildrenByType(Collections.singleton(sv),
 					DomainVisualIDRegistry.getType(ColumnColumnElementCompartmentEditPart.VISUAL_ID));
 			connectedViews = getChildrenByType(connectedViews,
-					DomainVisualIDRegistry.getType(InputText2EditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement, false));
-			connectedViews = getChildrenByType(Collections.singleton(sv),
-					DomainVisualIDRegistry.getType(ColumnColumnElementCompartmentEditPart.VISUAL_ID));
-			connectedViews = getChildrenByType(connectedViews,
-					DomainVisualIDRegistry.getType(OutputText2EditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement, false));
-			connectedViews = getChildrenByType(Collections.singleton(sv),
-					DomainVisualIDRegistry.getType(ColumnColumnElementCompartmentEditPart.VISUAL_ID));
-			connectedViews = getChildrenByType(connectedViews,
 					DomainVisualIDRegistry.getType(CheckBox2EditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement, false));
 			connectedViews = getChildrenByType(Collections.singleton(sv),
 					DomainVisualIDRegistry.getType(ColumnColumnElementCompartmentEditPart.VISUAL_ID));
 			connectedViews = getChildrenByType(connectedViews, DomainVisualIDRegistry.getType(Image2EditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement, false));
-			connectedViews = getChildrenByType(Collections.singleton(sv),
-					DomainVisualIDRegistry.getType(ColumnColumnElementCompartmentEditPart.VISUAL_ID));
-			connectedViews = getChildrenByType(connectedViews, DomainVisualIDRegistry.getType(Date2EditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement, false));
 			connectedViews = getChildrenByType(Collections.singleton(sv),
 					DomainVisualIDRegistry.getType(ColumnColumnElementCompartmentEditPart.VISUAL_ID));
@@ -424,7 +424,21 @@ public class DomainNavigatorContentProvider implements ICommonContentProvider {
 			connectedViews = getChildrenByType(Collections.singleton(sv),
 					DomainVisualIDRegistry.getType(ColumnColumnElementCompartment2EditPart.VISUAL_ID));
 			connectedViews = getChildrenByType(connectedViews,
+					DomainVisualIDRegistry.getType(InputText2EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement, false));
+			connectedViews = getChildrenByType(Collections.singleton(sv),
+					DomainVisualIDRegistry.getType(ColumnColumnElementCompartment2EditPart.VISUAL_ID));
+			connectedViews = getChildrenByType(connectedViews,
+					DomainVisualIDRegistry.getType(OutputText2EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement, false));
+			connectedViews = getChildrenByType(Collections.singleton(sv),
+					DomainVisualIDRegistry.getType(ColumnColumnElementCompartment2EditPart.VISUAL_ID));
+			connectedViews = getChildrenByType(connectedViews,
 					DomainVisualIDRegistry.getType(DropDownSelection2EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement, false));
+			connectedViews = getChildrenByType(Collections.singleton(sv),
+					DomainVisualIDRegistry.getType(ColumnColumnElementCompartment2EditPart.VISUAL_ID));
+			connectedViews = getChildrenByType(connectedViews, DomainVisualIDRegistry.getType(Date2EditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement, false));
 			connectedViews = getChildrenByType(Collections.singleton(sv),
 					DomainVisualIDRegistry.getType(ColumnColumnElementCompartment2EditPart.VISUAL_ID));
@@ -442,25 +456,11 @@ public class DomainNavigatorContentProvider implements ICommonContentProvider {
 			connectedViews = getChildrenByType(Collections.singleton(sv),
 					DomainVisualIDRegistry.getType(ColumnColumnElementCompartment2EditPart.VISUAL_ID));
 			connectedViews = getChildrenByType(connectedViews,
-					DomainVisualIDRegistry.getType(InputText2EditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement, false));
-			connectedViews = getChildrenByType(Collections.singleton(sv),
-					DomainVisualIDRegistry.getType(ColumnColumnElementCompartment2EditPart.VISUAL_ID));
-			connectedViews = getChildrenByType(connectedViews,
-					DomainVisualIDRegistry.getType(OutputText2EditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement, false));
-			connectedViews = getChildrenByType(Collections.singleton(sv),
-					DomainVisualIDRegistry.getType(ColumnColumnElementCompartment2EditPart.VISUAL_ID));
-			connectedViews = getChildrenByType(connectedViews,
 					DomainVisualIDRegistry.getType(CheckBox2EditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement, false));
 			connectedViews = getChildrenByType(Collections.singleton(sv),
 					DomainVisualIDRegistry.getType(ColumnColumnElementCompartment2EditPart.VISUAL_ID));
 			connectedViews = getChildrenByType(connectedViews, DomainVisualIDRegistry.getType(Image2EditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement, false));
-			connectedViews = getChildrenByType(Collections.singleton(sv),
-					DomainVisualIDRegistry.getType(ColumnColumnElementCompartment2EditPart.VISUAL_ID));
-			connectedViews = getChildrenByType(connectedViews, DomainVisualIDRegistry.getType(Date2EditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement, false));
 			connectedViews = getChildrenByType(Collections.singleton(sv),
 					DomainVisualIDRegistry.getType(ColumnColumnElementCompartment2EditPart.VISUAL_ID));
@@ -481,7 +481,21 @@ public class DomainNavigatorContentProvider implements ICommonContentProvider {
 			connectedViews = getChildrenByType(Collections.singleton(sv),
 					DomainVisualIDRegistry.getType(LayerHolderLayerHolderChildrenCompartment2EditPart.VISUAL_ID));
 			connectedViews = getChildrenByType(connectedViews,
+					DomainVisualIDRegistry.getType(InputTextEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement, false));
+			connectedViews = getChildrenByType(Collections.singleton(sv),
+					DomainVisualIDRegistry.getType(LayerHolderLayerHolderChildrenCompartment2EditPart.VISUAL_ID));
+			connectedViews = getChildrenByType(connectedViews,
+					DomainVisualIDRegistry.getType(OutputTextEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement, false));
+			connectedViews = getChildrenByType(Collections.singleton(sv),
+					DomainVisualIDRegistry.getType(LayerHolderLayerHolderChildrenCompartment2EditPart.VISUAL_ID));
+			connectedViews = getChildrenByType(connectedViews,
 					DomainVisualIDRegistry.getType(DropDownSelectionEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement, false));
+			connectedViews = getChildrenByType(Collections.singleton(sv),
+					DomainVisualIDRegistry.getType(LayerHolderLayerHolderChildrenCompartment2EditPart.VISUAL_ID));
+			connectedViews = getChildrenByType(connectedViews, DomainVisualIDRegistry.getType(DateEditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement, false));
 			connectedViews = getChildrenByType(Collections.singleton(sv),
 					DomainVisualIDRegistry.getType(LayerHolderLayerHolderChildrenCompartment2EditPart.VISUAL_ID));
@@ -499,25 +513,11 @@ public class DomainNavigatorContentProvider implements ICommonContentProvider {
 			connectedViews = getChildrenByType(Collections.singleton(sv),
 					DomainVisualIDRegistry.getType(LayerHolderLayerHolderChildrenCompartment2EditPart.VISUAL_ID));
 			connectedViews = getChildrenByType(connectedViews,
-					DomainVisualIDRegistry.getType(InputTextEditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement, false));
-			connectedViews = getChildrenByType(Collections.singleton(sv),
-					DomainVisualIDRegistry.getType(LayerHolderLayerHolderChildrenCompartment2EditPart.VISUAL_ID));
-			connectedViews = getChildrenByType(connectedViews,
-					DomainVisualIDRegistry.getType(OutputTextEditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement, false));
-			connectedViews = getChildrenByType(Collections.singleton(sv),
-					DomainVisualIDRegistry.getType(LayerHolderLayerHolderChildrenCompartment2EditPart.VISUAL_ID));
-			connectedViews = getChildrenByType(connectedViews,
 					DomainVisualIDRegistry.getType(CheckBoxEditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement, false));
 			connectedViews = getChildrenByType(Collections.singleton(sv),
 					DomainVisualIDRegistry.getType(LayerHolderLayerHolderChildrenCompartment2EditPart.VISUAL_ID));
 			connectedViews = getChildrenByType(connectedViews, DomainVisualIDRegistry.getType(ImageEditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement, false));
-			connectedViews = getChildrenByType(Collections.singleton(sv),
-					DomainVisualIDRegistry.getType(LayerHolderLayerHolderChildrenCompartment2EditPart.VISUAL_ID));
-			connectedViews = getChildrenByType(connectedViews, DomainVisualIDRegistry.getType(DateEditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement, false));
 			connectedViews = getChildrenByType(Collections.singleton(sv),
 					DomainVisualIDRegistry.getType(LayerHolderLayerHolderChildrenCompartment2EditPart.VISUAL_ID));
@@ -549,7 +549,21 @@ public class DomainNavigatorContentProvider implements ICommonContentProvider {
 			connectedViews = getChildrenByType(Collections.singleton(sv),
 					DomainVisualIDRegistry.getType(LayerHolderLayerHolderChildrenCompartment3EditPart.VISUAL_ID));
 			connectedViews = getChildrenByType(connectedViews,
+					DomainVisualIDRegistry.getType(InputTextEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement, false));
+			connectedViews = getChildrenByType(Collections.singleton(sv),
+					DomainVisualIDRegistry.getType(LayerHolderLayerHolderChildrenCompartment3EditPart.VISUAL_ID));
+			connectedViews = getChildrenByType(connectedViews,
+					DomainVisualIDRegistry.getType(OutputTextEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement, false));
+			connectedViews = getChildrenByType(Collections.singleton(sv),
+					DomainVisualIDRegistry.getType(LayerHolderLayerHolderChildrenCompartment3EditPart.VISUAL_ID));
+			connectedViews = getChildrenByType(connectedViews,
 					DomainVisualIDRegistry.getType(DropDownSelectionEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement, false));
+			connectedViews = getChildrenByType(Collections.singleton(sv),
+					DomainVisualIDRegistry.getType(LayerHolderLayerHolderChildrenCompartment3EditPart.VISUAL_ID));
+			connectedViews = getChildrenByType(connectedViews, DomainVisualIDRegistry.getType(DateEditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement, false));
 			connectedViews = getChildrenByType(Collections.singleton(sv),
 					DomainVisualIDRegistry.getType(LayerHolderLayerHolderChildrenCompartment3EditPart.VISUAL_ID));
@@ -567,25 +581,11 @@ public class DomainNavigatorContentProvider implements ICommonContentProvider {
 			connectedViews = getChildrenByType(Collections.singleton(sv),
 					DomainVisualIDRegistry.getType(LayerHolderLayerHolderChildrenCompartment3EditPart.VISUAL_ID));
 			connectedViews = getChildrenByType(connectedViews,
-					DomainVisualIDRegistry.getType(InputTextEditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement, false));
-			connectedViews = getChildrenByType(Collections.singleton(sv),
-					DomainVisualIDRegistry.getType(LayerHolderLayerHolderChildrenCompartment3EditPart.VISUAL_ID));
-			connectedViews = getChildrenByType(connectedViews,
-					DomainVisualIDRegistry.getType(OutputTextEditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement, false));
-			connectedViews = getChildrenByType(Collections.singleton(sv),
-					DomainVisualIDRegistry.getType(LayerHolderLayerHolderChildrenCompartment3EditPart.VISUAL_ID));
-			connectedViews = getChildrenByType(connectedViews,
 					DomainVisualIDRegistry.getType(CheckBoxEditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement, false));
 			connectedViews = getChildrenByType(Collections.singleton(sv),
 					DomainVisualIDRegistry.getType(LayerHolderLayerHolderChildrenCompartment3EditPart.VISUAL_ID));
 			connectedViews = getChildrenByType(connectedViews, DomainVisualIDRegistry.getType(ImageEditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement, false));
-			connectedViews = getChildrenByType(Collections.singleton(sv),
-					DomainVisualIDRegistry.getType(LayerHolderLayerHolderChildrenCompartment3EditPart.VISUAL_ID));
-			connectedViews = getChildrenByType(connectedViews, DomainVisualIDRegistry.getType(DateEditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement, false));
 			connectedViews = getChildrenByType(Collections.singleton(sv),
 					DomainVisualIDRegistry.getType(LayerHolderLayerHolderChildrenCompartment3EditPart.VISUAL_ID));

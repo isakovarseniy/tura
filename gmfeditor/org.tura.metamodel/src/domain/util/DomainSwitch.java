@@ -649,6 +649,7 @@ public class DomainSwitch<T> extends Switch<T>
         Attribute attribute = (Attribute)theEObject;
         T result = caseAttribute(attribute);
         if (result == null) result = caseTypePointer(attribute);
+        if (result == null) result = caseCategorized(attribute);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -995,6 +996,13 @@ public class DomainSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case DomainPackage.FORMATABLE:
+      {
+        Formatable formatable = (Formatable)theEObject;
+        T result = caseFormatable(formatable);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case DomainPackage.SOURCES_POINTER:
       {
         SourcesPointer sourcesPointer = (SourcesPointer)theEObject;
@@ -1085,6 +1093,7 @@ public class DomainSwitch<T> extends Switch<T>
         InputText inputText = (InputText)theEObject;
         T result = caseInputText(inputText);
         if (result == null) result = caseInputElement(inputText);
+        if (result == null) result = caseFormatable(inputText);
         if (result == null) result = caseSourcesPointer(inputText);
         if (result == null) result = caseUielement(inputText);
         if (result == null) result = caseStyleElement(inputText);
@@ -1112,6 +1121,7 @@ public class DomainSwitch<T> extends Switch<T>
         OutputText outputText = (OutputText)theEObject;
         T result = caseOutputText(outputText);
         if (result == null) result = caseInputElement(outputText);
+        if (result == null) result = caseFormatable(outputText);
         if (result == null) result = caseSourcesPointer(outputText);
         if (result == null) result = caseUielement(outputText);
         if (result == null) result = caseStyleElement(outputText);
@@ -1169,6 +1179,7 @@ public class DomainSwitch<T> extends Switch<T>
         Date date = (Date)theEObject;
         T result = caseDate(date);
         if (result == null) result = caseInputElement(date);
+        if (result == null) result = caseFormatable(date);
         if (result == null) result = caseSourcesPointer(date);
         if (result == null) result = caseUielement(date);
         if (result == null) result = caseStyleElement(date);
@@ -3442,6 +3453,22 @@ public class DomainSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseUielement(Uielement object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Formatable</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Formatable</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseFormatable(Formatable object)
   {
     return null;
   }

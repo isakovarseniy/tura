@@ -662,6 +662,11 @@ public class DomainAdapterFactory extends AdapterFactoryImpl {
         return createUielementAdapter();
       }
       @Override
+      public Adapter caseFormatable(Formatable object)
+      {
+        return createFormatableAdapter();
+      }
+      @Override
       public Adapter caseSourcesPointer(SourcesPointer object)
       {
         return createSourcesPointerAdapter();
@@ -2695,6 +2700,21 @@ public class DomainAdapterFactory extends AdapterFactoryImpl {
   }
 
 	/**
+   * Creates a new adapter for an object of class '{@link domain.Formatable <em>Formatable</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see domain.Formatable
+   * @generated
+   */
+  public Adapter createFormatableAdapter()
+  {
+    return null;
+  }
+
+  /**
 	 * Creates a new adapter for an object of class '
 	 * {@link domain.SourcesPointer <em>Sources Pointer</em>}'. <!--
 	 * begin-user-doc --> This default implementation returns null so that we
