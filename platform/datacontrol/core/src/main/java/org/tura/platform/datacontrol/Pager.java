@@ -20,8 +20,10 @@ import static com.octo.java.sql.query.Query.c;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.Map;
 import java.util.Stack;
 
+import org.apache.commons.lang.builder.HashCodeBuilder;
 import org.josql.QueryExecutionException;
 import org.josql.QueryParseException;
 import org.tura.platform.datacontrol.commons.ConditionConverter;
@@ -378,6 +380,17 @@ public class Pager<T> extends Pool {
 					BeanWrapper w = (BeanWrapper) Reflection.call(obj,
 							"getWrapper");
 					key = w.getDatacontrol().getObjectKey(obj);
+				}
+			}else{
+				if (prepareQuery()){
+					Map<String,Object> params = this.datacontrol.getQuery().getParams();
+					if (params != null  && !params.isEmpty()){
+						HashCodeBuilder builder = new HashCodeBuilder();
+						for (String k: params.keySet()){
+							builder.append(params.get(k));
+						}
+						key = ( new Integer(builder.toHashCode())).toString();
+					}
 				}
 			}
 			shifter = shifterHash.get(key);

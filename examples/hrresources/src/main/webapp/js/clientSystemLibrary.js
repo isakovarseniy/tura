@@ -7,5 +7,7 @@ function hidepopup(canvas){
 }
 
 function showpopup(canvas){
+    PF(canvas).positionInitialized = false;
+    PF(canvas).loaded = false;
 	PF(canvas).show();
 }

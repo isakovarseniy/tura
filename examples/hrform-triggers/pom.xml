@@ -35,10 +35,17 @@
 			<groupId>org.tura.platform</groupId>
 			<artifactId>primefaces-model</artifactId>
 		</dependency>
+		
         <dependency>
         	<groupId>org.tura.example.ui</groupId>
 	       <artifactId>hrform-interface</artifactId>
 	       <version>1.0</version>
+        </dependency> 
+        
+        <dependency>
+	       <groupId>org.tura.example.service</groupId>
+	       <artifactId>hr-objects</artifactId>
+	       <version>1.0</version>        
         </dependency> 
 
 	</dependencies>
