@@ -1,5 +1,6 @@
 package org.tura.platform.datacontrol.pool;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -10,6 +11,8 @@ import org.josql.Query;
 import org.josql.QueryExecutionException;
 import org.josql.QueryParseException;
 import org.josql.QueryResults;
+import org.tura.platform.datacontrol.DataControl;
+import org.tura.platform.datacontrol.Util;
 import org.tura.platform.datacontrol.commons.TuraException;
 import org.tura.platform.datacontrol.data.PoolData;
 import org.tura.platform.datacontrol.shift.ShiftControl;
@@ -20,6 +23,8 @@ import com.octo.java.sql.query.SelectQuery;
 public abstract class Pool {
 
 	protected abstract ShiftControl getShifter() throws TuraException;
+
+	protected abstract DataControl<?> getDatacontrol() throws TuraException;
 
 	protected abstract boolean prepareQuery() throws TuraException;
 
@@ -65,8 +70,10 @@ public abstract class Pool {
 
 			Collections.reverse(objects);
 
-			for (Object obj : objects)
-				getShifter().add(index, obj);
+			for (Object obj : objects) {
+				Object objw = Util.convertobject(obj, getDatacontrol());
+				getShifter().add(index, objw);
+			}
 
 			if (objects.size() > 0)
 				this.registerForCleaning();
@@ -105,7 +112,8 @@ public abstract class Pool {
 			if (PoolCommand.R.name().equals(element.getOperation()))
 				hash.remove(element.getKey());
 
-			if (PoolCommand.U.name().equals(element.getOperation()) &&  hash.containsKey(element.getKey()) ) 
+			if (PoolCommand.U.name().equals(element.getOperation())
+					&& hash.containsKey(element.getKey()))
 				hash.put(element.getKey(), element);
 
 		}
@@ -177,7 +185,9 @@ public abstract class Pool {
 	protected Object checkForUpdate(Class<?> clazz, long beginTimeStamp,
 			long endTimeStamp, Object obj, Object key, int index)
 			throws QueryParseException, QueryExecutionException,
-			InstantiationException, IllegalAccessException, TuraException {
+			InstantiationException, IllegalAccessException, TuraException,
+			NoSuchMethodException, SecurityException, IllegalArgumentException,
+			InvocationTargetException {
 
 		Object object = obj;
 
@@ -204,8 +214,10 @@ public abstract class Pool {
 		PoolElement firstElement = array.get(0);
 
 		if ("U".equals(firstElement.getOperation())) {
-			getShifter().update(index, firstElement.getObj());
-			object = firstElement.getObj();
+			Object objw = Util.convertobject(firstElement.getObj(),
+					getDatacontrol());
+			getShifter().update(index, objw);
+			object = objw;
 			registerForCleaning();
 
 		}

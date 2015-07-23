@@ -429,4 +429,9 @@ public class Pager<T> extends Pool {
 		
 	}
 
+	@Override
+	protected DataControl<?> getDatacontrol() throws TuraException {
+		return datacontrol;
+	}
+
 }

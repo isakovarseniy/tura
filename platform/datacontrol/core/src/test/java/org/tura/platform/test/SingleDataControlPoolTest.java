@@ -7,7 +7,11 @@ import static org.junit.Assert.fail;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.text.ParseException;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Stack;
 import java.util.logging.Logger;
 
 import javax.persistence.EntityManager;
@@ -15,12 +19,19 @@ import javax.persistence.EntityManager;
 import org.elsoft.platform.hr.objects.DepartmentsDAO;
 import org.junit.BeforeClass;
 import org.junit.FixMethodOrder;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
+import org.tura.platform.datacontrol.CommandStack;
 import org.tura.platform.datacontrol.DataControl;
 import org.tura.platform.datacontrol.Pager;
+import org.tura.platform.datacontrol.CommandStack.SavePoint;
+import org.tura.platform.datacontrol.command.Command;
 import org.tura.platform.datacontrol.commons.ConditionConverter;
 import org.tura.platform.datacontrol.commons.TuraException;
+import org.tura.platform.datacontrol.data.CommandStackData;
+import org.tura.platform.datacontrol.data.PoolData;
+import org.tura.platform.datacontrol.data.ShiftControlData;
 import org.tura.platform.datacontrol.pool.PoolCommand;
 import org.tura.platform.datacontrol.pool.PoolElement;
 import org.tura.platform.hr.init.DepartmentsInit;
@@ -275,25 +286,24 @@ public class SingleDataControlPoolTest {
 			DataControl<DepartmentsDAO> dc = factory.initDepartments("");
 			dc.getElResolver().setValue("departments", dc);
 
-
 			DataControl<DepartmentsDAO> dc2 = factory.initDepartments("N");
 			dc2.getElResolver().setValue("Ndepartments", dc2);
-			createQuery(dc2,DepartmentsDAO.class.getCanonicalName());
-			
-			for (int i = 0 ; i  < 2 ; i++){
-				
+			createQuery(dc2, DepartmentsDAO.class.getCanonicalName());
+
+			for (int i = 0; i < 2; i++) {
+
 				DepartmentsDAO row = dc.getCurrentObject();
 				row.setDepartmentName("test");
 				dc.getElResolver().setValue("cmpId", row.getObjId());
-				
+
 				dc2.forceRefresh();
 				dc2.getCommandStack().savePoint();
-				
+
 				DepartmentsDAO row2 = dc2.getCurrentObject();
 				assertEquals(row.getObjId(), row2.getObjId());
-				
+
 				dc.nextObject();
-				
+
 			}
 
 		} catch (Exception e) {
@@ -303,8 +313,6 @@ public class SingleDataControlPoolTest {
 
 	}
 
-
-	
 	@Test
 	public void t8_updateWithDefaultSearchCriteria() {
 		try {
@@ -314,26 +322,94 @@ public class SingleDataControlPoolTest {
 
 			DataControl<DepartmentsDAO> dc2 = factory.initDepartments("N");
 			dc2.getElResolver().setValue("Ndepartments", dc2);
-			createQuery(dc2,DepartmentsDAO.class.getCanonicalName());
-			
+			createQuery(dc2, DepartmentsDAO.class.getCanonicalName());
+
 			dc.nextObject();
 			DepartmentsDAO row = dc.getCurrentObject();
 			row.setDepartmentName("test");
 			dc.forceRefresh();
-			
-			for (int i = 0 ; i  < 2 ; i++){
-				
+
+			for (int i = 0; i < 2; i++) {
+
 				row = dc.getCurrentObject();
 				dc.getElResolver().setValue("cmpId", row.getObjId());
-				
+
 				dc2.forceRefresh();
 				dc2.getCommandStack().savePoint();
 				DepartmentsDAO row2 = dc2.getCurrentObject();
 				assertEquals(row.getObjId(), row2.getObjId());
-				
+
 				dc.nextObject();
-				
+
 			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			fail(e.getMessage());
+		}
+
+	}
+
+	@Test
+	@Ignore
+	/*  Do not enable this test                                                              */
+	/*  This is example of wrong using of datacontrol                          */
+	/*  We cannot set field value without setting of current row           */
+	/*  itr.next() will scroll list to next row without setting this row as a */ 
+	/*  current row for datacontrol                                                        */
+	public void t9_randomUpdateWithDefaultSearchCriteria() {
+		try {
+			factory.initCommandStack();
+			DataControl<DepartmentsDAO> dc = factory.initDepartments("");
+			dc.getElResolver().setValue("departments", dc);
+
+			DataControl<DepartmentsDAO> dc2 = factory.initDepartments("N");
+			dc2.getElResolver().setValue("Ndepartments", dc2);
+			createQuery(dc2, DepartmentsDAO.class.getCanonicalName());
+
+			DepartmentsDAO row = dc.getCurrentObject();
+			ShiftControlData d = getShiftControlData(dc);
+
+			Iterator<DepartmentsDAO> itr = dc.getScroller().iterator();
+			for (int i = 0; i < 2; i++) {
+				row = itr.next();
+				row.setDepartmentName("test" + i);
+			}
+
+			dc.getElResolver().setValue("cmpId", row.getObjId());
+
+			
+			ShiftControlData d2 = getShiftControlData(dc2);
+			
+			Stack<SavePoint> savePoints = getCommands(dc.getCommandStack());
+			String id = getId(dc.getCommandStack());
+
+			CommandStackData csd = (CommandStackData) savePoints.get(0)
+					.getData().get(id);
+			List<Command> cmdLst = csd.getTransaction();
+			row = (DepartmentsDAO) cmdLst.get(0).getParameters().get(0)
+					.getObj();
+			// assertEquals(new Long (10), row.getObjId());
+
+			row = (DepartmentsDAO) cmdLst.get(1).getParameters().get(0)
+					.getObj();
+			// assertEquals(new Long (20), row.getObjId());
+
+			
+			dc2.forceRefresh();
+			dc.getCommandStack().savePoint();
+
+			DepartmentsDAO row2 = dc2.getCurrentObject();
+			assertEquals(new Long(20), row2.getObjId());
+
+			row2.setDepartmentName("test3");
+
+			itr = dc.getScroller().iterator();
+			row = (DepartmentsDAO) itr.next();
+			assertEquals("test0", row.getDepartmentName());
+
+			row = (DepartmentsDAO) itr.next();
+			assertEquals("test3", row.getDepartmentName());
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -346,15 +422,53 @@ public class SingleDataControlPoolTest {
 			throws QueryException, NoSuchMethodException, SecurityException,
 			IllegalAccessException, IllegalArgumentException,
 			InvocationTargetException {
-		
+
 		SelectQuery query = select(c("x")).from(entity).as("x")
 				.orderBy("objId");
 
 		ConditionConverter.valueOf("WHERE").getRestriction(query, c("objId"));
-		query.op(Operator.EQ,"#{cmpId}");
+		query.op(Operator.EQ, "#{cmpId}");
 
 		control.setDefaultQuery(query);
 
+	}
+
+	@SuppressWarnings("unchecked")
+	private Stack<SavePoint> getCommands(CommandStack cs)
+			throws NoSuchFieldException, SecurityException,
+			IllegalArgumentException, IllegalAccessException {
+		Field field = CommandStack.class.getDeclaredField("savePoints");
+		field.setAccessible(true);
+
+		return (Stack<SavePoint>) field.get(cs);
+
+	}
+
+	private String getId(CommandStack cs) throws NoSuchFieldException,
+			SecurityException, IllegalArgumentException, IllegalAccessException {
+		Field field = CommandStack.class.getDeclaredField("id");
+		field.setAccessible(true);
+
+		return (String) field.get(cs);
+
+	}
+	
+	private ShiftControlData getShiftControlData(DataControl<?> dc)
+			throws NoSuchFieldException, SecurityException,
+			IllegalArgumentException, IllegalAccessException, TuraException {
+		Pager<?> pager = getPager(dc);
+		return pager.getShifter().getShiftControlData();
+		
+	}
+
+	private PoolData getPoolData(DataControl<?> dc) throws NoSuchMethodException,
+			SecurityException, IllegalAccessException,
+			IllegalArgumentException, InvocationTargetException, NoSuchFieldException {
+		Pager<?> pager = getPager(dc);
+		Method m = Pager.class
+				.getMethod("getPoolData", new Class<?>[] {});
+		m.setAccessible(true);
+		return (PoolData) m.invoke(pager, new Object[] {});
 	}
 
 	private Pager<?> getPager(DataControl<?> dc) throws NoSuchFieldException,

@@ -22,6 +22,7 @@ import org.tura.platform.datacontrol.pool.PoolCommand;
 import org.tura.platform.datacontrol.shift.ShiftControl;
 
 import com.octo.java.sql.query.SelectQuery;
+import com.rits.cloning.Cloner;
 
 public abstract class DataControl<T> extends MetaInfoHolder implements
 		IDataControl {
@@ -396,7 +397,17 @@ public abstract class DataControl<T> extends MetaInfoHolder implements
 	}
 
 	public void putObjectToPool(Object obj, PoolCommand c) throws TuraException{
-		pager.addCommandt(  c.createdCommand(obj, getObjectKey(obj), getBaseClass(), getShifter().getId()));
+		Object pooledObj = obj;
+		try{
+			BeanWrapper w =  (BeanWrapper) Reflection.call(obj, "getWrapper");
+			pooledObj = w.getObj();
+		}catch(Exception e){
+			
+		}
+		Cloner cloner = new Cloner();
+		Object o = cloner.deepClone(pooledObj);
+		
+		pager.addCommandt(  c.createdCommand(o, getObjectKey(obj), getBaseClass(), getShifter().getId()));
 	}
 	
 }

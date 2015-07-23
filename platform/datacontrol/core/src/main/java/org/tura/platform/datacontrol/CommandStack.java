@@ -168,7 +168,7 @@ public abstract class CommandStack {
 
 	public abstract void rallbackTransaction();
 
-	class SavePoint {
+	public class SavePoint {
 
 		private HashMap<String, Object> data = new HashMap<>();
 
@@ -188,7 +188,7 @@ public abstract class CommandStack {
 			}
 		}
 
-		HashMap<String, Object> getData() {
+		public HashMap<String, Object> getData() {
 			return data;
 		}
 
