@@ -111,6 +111,16 @@ operation domain::Uielement  convertor(hash){
 
 
 [%@template
+operation domain::Uielement  readOnlyConverter(hash){
+    if (self.findClassifier("UIGeneration",  "JSF","readOnlyConverter"))%]
+    [%=self.~hintDetails%]  
+[%
+}
+%]
+
+
+
+[%@template
 operation domain::Uielement  enabled(hash){
      if (self.enabled <> null and self.enabled.value <> null){
          var value = buildParameterizedExpression(self.enabled);

@@ -50,7 +50,7 @@ operation DropDownSelection rw(hash,value) {
 operation DropDownSelection ro(hash,value) { 
 %]
 <h:outputText value="[%=value%]">
-   [%=self.convertor(hash)%]
+   [%=self.readOnlyConverter(hash)%]
 </h:outputText>
 [%
 }

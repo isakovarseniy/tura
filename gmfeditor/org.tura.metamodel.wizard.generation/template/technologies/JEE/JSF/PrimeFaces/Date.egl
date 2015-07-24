@@ -48,7 +48,7 @@ operation Date rw(hash,value) {
 operation Date ro(hash,value) { 
 %]
 <h:outputText value="[%=value%]">
-   [%=self.convertor(hash)%]
+   [%=self.readOnlyConverter(hash)%]
 </h:outputText>
 [%
 }

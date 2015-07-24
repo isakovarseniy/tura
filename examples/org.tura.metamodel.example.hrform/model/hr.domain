@@ -1805,6 +1805,7 @@
       <hints uid="cf9f4b41-ca24-4ef3-a564-6067bfafee67" name="trigger.library"/>
       <hints uid="9dbccf03-d238-463d-9b0c-9dc5b1222d2e" name="converter"/>
       <hints uid="8974ceb5-7778-4c54-8301-8cef8a50894f" name="validator"/>
+      <hints uid="78a78e86-e357-45e7-b1a3-25ec3b78e4ca" name="readOnlyConverter"/>
     </artifacts>
     <artifacts uid="297535b2-a50c-411c-9014-4d739432685b" name="Primefaces">
       <hints uid="21d9dc34-d2cb-4b87-ab39-94afefd6765c" name="row number selector"/>
