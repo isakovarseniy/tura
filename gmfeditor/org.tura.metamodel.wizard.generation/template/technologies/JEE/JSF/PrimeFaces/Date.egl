@@ -1,20 +1,55 @@
 [%@template
-operation Date draw(hash) { 
-     var util = new Native('org.tura.metamodel.commons.Util');
-     var value;
-     util.traceIfDebug("UI element","Date start: "+self.uid);     
-
-     if (hash.get("context") == null )
-         value = buildExpression(util.createArtificialContextValue(self.sourcePointer,self.sourcePointer.findTreeRoot(),self.valuePointer));
-     else{
-          if (hash.get("context").equals("table") )
-               value =  "#{row[2]."+self.valuePointer.name+"}";  
-          if (hash.get("context").equals("tree") )
-               value =  "#{row[1]."+self.valuePointer.name+"}";
-     }
- %]
- <p:calendar [%=self.mkUIDBinding()%] value="[%=value%]" [%=self.uiElementAttributes(hash)%]   pattern="[%=self.format%]"  showOn="button" />
+operation Date treeContext(hash,value) { 
+%]
+<p:inplace editor="true" event="dblclick">
+   [%=self.rw(hash,value)%]
+</p:inplace>      
 [%
-     util.traceIfDebug("UI element","Date end: "+self.uid);     
+}
+%]
+
+[%@template
+operation Date tableContext(hash,value) { 
+%]
+<p:cellEditor>
+  <f:facet name="output">
+     <span style="display: inline-block; width: 100%; height: 100%">
+      [%=self.ro(hash,value)%]
+     </span>
+  </f:facet>
+  <f:facet name="input">
+     [%=self.rw(hash,value)%]
+  </f:facet>
+</p:cellEditor>  
+[%   
+}
+%]
+
+[%@template
+operation Date noContext(hash,value) { 
+%]
+   [%=self.rw(hash,value)%]
+[%   
+}
+%]
+
+
+[%@template
+operation Date rw(hash,value) { 
+%]
+<p:calendar [%=self.mkUIDBinding()%] value="[%=value%]" [%=self.uiElementAttributes(hash)%]   pattern="[%=self.format%]"  showOn="button" >
+   [%=self.validator(hash)%]
+</p:calendar>
+[%
+}
+%]
+
+[%@template
+operation Date ro(hash,value) { 
+%]
+<h:outputText value="[%=value%]">
+   [%=self.convertor(hash)%]
+</h:outputText>
+[%
 }
 %]

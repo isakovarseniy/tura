@@ -1,21 +1,56 @@
 [%@template
-operation CheckBox draw(hash) { 
-     var util = new Native('org.tura.metamodel.commons.Util');
-     var value;
-     util.traceIfDebug("UI element","Checkbox start: "+self.uid);     
+operation CheckBox treeContext(hash,value) { 
+%]
+<p:inplace editor="true" event="dblclick">
+   [%=self.rw(hash,value)%]
+</p:inplace>      
+[%
+}
+%]
 
-     if (hash.get("context") == null )
-         value = buildExpression(util.createArtificialContextValue(self.sourcePointer,self.sourcePointer.findTreeRoot(),self.valuePointer));
-     else{
-          if (hash.get("context").equals("table") )
-               value =  "#{row[2]."+self.valuePointer.name+"}";  
-          if (hash.get("context").equals("tree") )
-               value =  "#{row[1]."+self.valuePointer.name+"}";
-     }
- %]
+[%@template
+operation CheckBox tableContext(hash,value) { 
+%]
+<p:cellEditor>
+  <f:facet name="output">
+     <span style="display: inline-block; width: 100%; height: 100%">
+      [%=self.ro(hash,value)%]
+     </span>
+  </f:facet>
+  <f:facet name="input">
+     [%=self.rw(hash,value)%]
+  </f:facet>
+</p:cellEditor>  
+[%   
+}
+%]
+
+[%@template
+operation CheckBox noContext(hash,value) { 
+%]
+   [%=self.rw(hash,value)%]
+[%   
+}
+%]
+
+
+[%@template
+operation CheckBox rw(hash,value) { 
+%]
 <p:selectBooleanCheckbox  [%=self.mkUIDBinding()%] value="[%=value%]" [%=self.uiElementAttributes(hash)%] >
+   [%=self.validator(hash)%]
+   [%=self.convertor(hash)%]
 </p:selectBooleanCheckbox>
 [%
-     util.traceIfDebug("UI element","Checkbox end: "+self.uid);     
+}
+%]
+
+[%@template
+operation CheckBox ro(hash,value) { 
+%]
+<h:outputText value="[%=value%]">
+   [%=self.convertor(hash)%]
+</h:outputText>
+[%
 }
 %]

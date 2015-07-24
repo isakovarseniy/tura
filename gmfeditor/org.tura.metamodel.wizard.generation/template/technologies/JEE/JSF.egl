@@ -146,6 +146,34 @@ operation domain::Uielement  mkuid(){
 
 
 [%@template
+operation domain::Uielement  draw(hash){
+     var util = new Native('org.tura.metamodel.commons.Util');
+     var value;
+
+     util.traceIfDebug("UI element",  self.eClass().name +" start: " +self.uid);     
+
+     if (hash.get("context") == null ){
+         value = buildExpression(util.createArtificialContextValue(self.sourcePointer,self.sourcePointer.findTreeRoot(),self.valuePointer));
+      %] [%=self.noContext(hash,value)%] [%           
+      }
+     else{
+          if (hash.get("context").equals("table") ){
+               value =  "#{row[2]."+self.valuePointer.name+"}";
+               %] [%=self.tableContext(hash,value)%] [%           
+           }  
+          if (hash.get("context").equals("tree") ){
+               value =  "#{row[1]."+self.valuePointer.name+"}";
+               %] [%=self.treeContext(hash,value)%] [%           
+          }     
+     }
+
+     util.traceIfDebug("UI element",  self.eClass().name +" end: " +self.uid);     
+     
+}
+%]
+
+
+[%@template
 operation domain::ViewPort  mkuid(){
 %]tura[%=self.uid.replaceAll("\\-","_")%][%
 }
@@ -162,7 +190,6 @@ operation domain::ActionTrigger mkuid(){
 %]tura[%=self.uid.replaceAll("\\-","_")%][%
 }
 %]
-
 
 
 [%@template

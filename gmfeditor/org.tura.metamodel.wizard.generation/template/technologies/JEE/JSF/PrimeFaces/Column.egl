@@ -35,9 +35,7 @@ operation domain::Column generateBody(hash){
 [%@template
 operation domain::Column treecontext(hash){
 %]
-              <p:inplace editor="true" event="dblclick">
-                    [%=self.element.draw(hash)%]
-              </p:inplace>      
+             [%=self.element.draw(hash)%]
 [%                    
 }
 %]
