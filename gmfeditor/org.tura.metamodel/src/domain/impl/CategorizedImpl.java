@@ -22,142 +22,136 @@ import domain.DomainPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link domain.impl.CategorizedImpl#getClassifiers <em>Classifiers</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
 public class CategorizedImpl extends EObjectImpl implements Categorized
 {
   /**
-   * The cached value of the '{@link #getClassifiers() <em>Classifiers</em>}' containment reference list.
-   * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getClassifiers() <em>Classifiers</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getClassifiers()
-   * @generated
-   * @ordered
-   */
+	 * @see #getClassifiers()
+	 * @generated
+	 * @ordered
+	 */
   protected EList<Classifier> classifiers;
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   protected CategorizedImpl()
   {
-    super();
-  }
+		super();
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   protected EClass eStaticClass()
   {
-    return DomainPackage.Literals.CATEGORIZED;
-  }
+		return DomainPackage.Literals.CATEGORIZED;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public EList<Classifier> getClassifiers()
   {
-    if (classifiers == null)
-    {
-      classifiers = new EObjectContainmentEList<Classifier>(Classifier.class, this, DomainPackage.CATEGORIZED__CLASSIFIERS);
-    }
-    return classifiers;
-  }
+		if (classifiers == null) {
+			classifiers = new EObjectContainmentEList<Classifier>(Classifier.class, this, DomainPackage.CATEGORIZED__CLASSIFIERS);
+		}
+		return classifiers;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
-    switch (featureID)
-    {
-      case DomainPackage.CATEGORIZED__CLASSIFIERS:
-        return ((InternalEList<?>)getClassifiers()).basicRemove(otherEnd, msgs);
-    }
-    return super.eInverseRemove(otherEnd, featureID, msgs);
-  }
+		switch (featureID) {
+			case DomainPackage.CATEGORIZED__CLASSIFIERS:
+				return ((InternalEList<?>)getClassifiers()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
-    switch (featureID)
-    {
-      case DomainPackage.CATEGORIZED__CLASSIFIERS:
-        return getClassifiers();
-    }
-    return super.eGet(featureID, resolve, coreType);
-  }
+		switch (featureID) {
+			case DomainPackage.CATEGORIZED__CLASSIFIERS:
+				return getClassifiers();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
-    switch (featureID)
-    {
-      case DomainPackage.CATEGORIZED__CLASSIFIERS:
-        getClassifiers().clear();
-        getClassifiers().addAll((Collection<? extends Classifier>)newValue);
-        return;
-    }
-    super.eSet(featureID, newValue);
-  }
+		switch (featureID) {
+			case DomainPackage.CATEGORIZED__CLASSIFIERS:
+				getClassifiers().clear();
+				getClassifiers().addAll((Collection<? extends Classifier>)newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public void eUnset(int featureID)
   {
-    switch (featureID)
-    {
-      case DomainPackage.CATEGORIZED__CLASSIFIERS:
-        getClassifiers().clear();
-        return;
-    }
-    super.eUnset(featureID);
-  }
+		switch (featureID) {
+			case DomainPackage.CATEGORIZED__CLASSIFIERS:
+				getClassifiers().clear();
+				return;
+		}
+		super.eUnset(featureID);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public boolean eIsSet(int featureID)
   {
-    switch (featureID)
-    {
-      case DomainPackage.CATEGORIZED__CLASSIFIERS:
-        return classifiers != null && !classifiers.isEmpty();
-    }
-    return super.eIsSet(featureID);
-  }
+		switch (featureID) {
+			case DomainPackage.CATEGORIZED__CLASSIFIERS:
+				return classifiers != null && !classifiers.isEmpty();
+		}
+		return super.eIsSet(featureID);
+	}
 
 } //CategorizedImpl

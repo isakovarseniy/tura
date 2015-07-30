@@ -33,7 +33,8 @@ import domain.diagram.part.DomainVisualIDRegistry;
 /**
  * @generated
  */
-public class DomainApplicationsDomainApplicationsApplicationsCompartmentCanonicalEditPolicy extends CanonicalEditPolicy {
+public class DomainApplicationsDomainApplicationsApplicationsCompartmentCanonicalEditPolicy
+		extends CanonicalEditPolicy {
 
 	/**
 	 * @generated
@@ -92,8 +93,8 @@ public class DomainApplicationsDomainApplicationsApplicationsCompartmentCanonica
 		}
 		LinkedList<IAdaptable> createdViews = new LinkedList<IAdaptable>();
 		List<DomainNodeDescriptor> childDescriptors = DomainDiagramUpdater
-				.getDomainApplicationsDomainApplicationsApplicationsCompartment_507001SemanticChildren((View) getHost()
-						.getModel());
+				.getDomainApplicationsDomainApplicationsApplicationsCompartment_507001SemanticChildren(
+						(View) getHost().getModel());
 		LinkedList<View> orphaned = new LinkedList<View>();
 		// we care to check only views we recognize as ours
 		LinkedList<View> knownViewChildren = new LinkedList<View>();
@@ -151,6 +152,7 @@ public class DomainApplicationsDomainApplicationsApplicationsCompartmentCanonica
 			SetViewMutabilityCommand.makeMutable(new EObjectAdapter(host().getNotationView())).execute();
 			executeCommand(cmd);
 			@SuppressWarnings("unchecked")
+
 			List<IAdaptable> nl = (List<IAdaptable>) request.getNewObject();
 			createdViews.addAll(nl);
 		}
@@ -159,7 +161,8 @@ public class DomainApplicationsDomainApplicationsApplicationsCompartmentCanonica
 		}
 		if (createdViews.size() > 1) {
 			// perform a layout of the container
-			DeferredLayoutCommand layoutCmd = new DeferredLayoutCommand(host().getEditingDomain(), createdViews, host());
+			DeferredLayoutCommand layoutCmd = new DeferredLayoutCommand(host().getEditingDomain(), createdViews,
+					host());
 			executeCommand(new ICommandProxy(layoutCmd));
 		}
 

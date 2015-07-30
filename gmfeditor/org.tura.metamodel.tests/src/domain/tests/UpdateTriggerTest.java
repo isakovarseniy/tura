@@ -17,60 +17,60 @@ public class UpdateTriggerTest extends TriggerTest
 {
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public static void main(String[] args)
   {
-    TestRunner.run(UpdateTriggerTest.class);
-  }
+		TestRunner.run(UpdateTriggerTest.class);
+	}
 
   /**
-   * Constructs a new Update Trigger test case with the given name.
-   * <!-- begin-user-doc -->
+	 * Constructs a new Update Trigger test case with the given name.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public UpdateTriggerTest(String name)
   {
-    super(name);
-  }
+		super(name);
+	}
 
   /**
-   * Returns the fixture for this Update Trigger test case.
-   * <!-- begin-user-doc -->
+	 * Returns the fixture for this Update Trigger test case.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   protected UpdateTrigger getFixture()
   {
-    return (UpdateTrigger)fixture;
-  }
+		return (UpdateTrigger)fixture;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see junit.framework.TestCase#setUp()
-   * @generated
-   */
+	 * @see junit.framework.TestCase#setUp()
+	 * @generated
+	 */
   @Override
   protected void setUp() throws Exception
   {
-    setFixture(DomainFactory.eINSTANCE.createUpdateTrigger());
-  }
+		setFixture(DomainFactory.eINSTANCE.createUpdateTrigger());
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see junit.framework.TestCase#tearDown()
-   * @generated
-   */
+	 * @see junit.framework.TestCase#tearDown()
+	 * @generated
+	 */
   @Override
   protected void tearDown() throws Exception
   {
-    setFixture(null);
-  }
+		setFixture(null);
+	}
 
 } //UpdateTriggerTest

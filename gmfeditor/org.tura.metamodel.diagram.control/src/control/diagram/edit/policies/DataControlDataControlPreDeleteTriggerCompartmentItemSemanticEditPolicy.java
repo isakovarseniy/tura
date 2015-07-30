@@ -12,8 +12,8 @@ import control.diagram.providers.DomainElementTypes;
 /**
  * @generated
  */
-public class DataControlDataControlPreDeleteTriggerCompartmentItemSemanticEditPolicy extends
-		DomainBaseItemSemanticEditPolicy {
+public class DataControlDataControlPreDeleteTriggerCompartmentItemSemanticEditPolicy
+		extends DomainBaseItemSemanticEditPolicy {
 
 	/**
 	 * @generated

@@ -84,8 +84,7 @@ public class TabPageEditPart extends ShapeNodeEditPart {
 		super.createDefaultEditPolicies();
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE, new TabPageItemSemanticEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
-		installEditPolicy(EditPolicyRoles.OPEN_ROLE, new OpenDiagramEditPolicy());
-		// XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
+		installEditPolicy(EditPolicyRoles.OPEN_ROLE, new OpenDiagramEditPolicy()); // XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
 		// removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
 	}
 
@@ -202,9 +201,8 @@ public class TabPageEditPart extends ShapeNodeEditPart {
 				EObject obj = ((View) getModel()).getElement();
 				if (obj instanceof Orderable) {
 					EditingDomain editingDomain = getEditingDomain();
-					editingDomain.getCommandStack().execute(
-							SetCommand.create(editingDomain, obj, DomainPackage.eINSTANCE.getOrderable_Order(),
-									evt.getNewValue()));
+					editingDomain.getCommandStack().execute(SetCommand.create(editingDomain, obj,
+							DomainPackage.eINSTANCE.getOrderable_Order(), evt.getNewValue()));
 
 				}
 			}
@@ -296,29 +294,6 @@ public class TabPageEditPart extends ShapeNodeEditPart {
 	 */
 	public EditPart getPrimaryChildEditPart() {
 		return getChildBySemanticHint(DomainVisualIDRegistry.getType(TabPageNameEditPart.VISUAL_ID));
-	}
-
-	/**
-	 * @generated
-	 */
-	public List<IElementType> getMARelTypesOnTarget() {
-		ArrayList<IElementType> types = new ArrayList<IElementType>(2);
-		types.add(DomainElementTypes.ViewInheritance_1304001);
-		types.add(DomainElementTypes.TabPagesInheritance_1304002);
-		return types;
-	}
-
-	/**
-	 * @generated
-	 */
-	public List<IElementType> getMATypesForSource(IElementType relationshipType) {
-		LinkedList<IElementType> types = new LinkedList<IElementType>();
-		if (relationshipType == DomainElementTypes.ViewInheritance_1304001) {
-			types.add(DomainElementTypes.ViewPort_1303004);
-		} else if (relationshipType == DomainElementTypes.TabPagesInheritance_1304002) {
-			types.add(DomainElementTypes.TabCanvas_1302008);
-		}
-		return types;
 	}
 
 	/**

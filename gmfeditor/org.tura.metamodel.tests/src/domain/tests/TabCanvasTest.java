@@ -17,60 +17,60 @@ public class TabCanvasTest extends CanvasFrameTest
 {
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public static void main(String[] args)
   {
-    TestRunner.run(TabCanvasTest.class);
-  }
+		TestRunner.run(TabCanvasTest.class);
+	}
 
   /**
-   * Constructs a new Tab Canvas test case with the given name.
-   * <!-- begin-user-doc -->
+	 * Constructs a new Tab Canvas test case with the given name.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public TabCanvasTest(String name)
   {
-    super(name);
-  }
+		super(name);
+	}
 
   /**
-   * Returns the fixture for this Tab Canvas test case.
-   * <!-- begin-user-doc -->
+	 * Returns the fixture for this Tab Canvas test case.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   protected TabCanvas getFixture()
   {
-    return (TabCanvas)fixture;
-  }
+		return (TabCanvas)fixture;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see junit.framework.TestCase#setUp()
-   * @generated
-   */
+	 * @see junit.framework.TestCase#setUp()
+	 * @generated
+	 */
   @Override
   protected void setUp() throws Exception
   {
-    setFixture(DomainFactory.eINSTANCE.createTabCanvas());
-  }
+		setFixture(DomainFactory.eINSTANCE.createTabCanvas());
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see junit.framework.TestCase#tearDown()
-   * @generated
-   */
+	 * @see junit.framework.TestCase#tearDown()
+	 * @generated
+	 */
   @Override
   protected void tearDown() throws Exception
   {
-    setFixture(null);
-  }
+		setFixture(null);
+	}
 
 } //TabCanvasTest

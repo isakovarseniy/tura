@@ -165,7 +165,7 @@
 
 «DEFINE defineURIEditorInput(diagramVarName : String, editorInputVarName : String) FOR gmfgen::GenDiagram-»
 org.eclipse.emf.common.util.URI uri = org.eclipse.emf.ecore.util.EcoreUtil.getURI(«diagramVarName»);
-EObject obj = ((org.eclipse.gmf.runtime.notation.impl.NodeImpl) (diagramFacet.eContainer())).basicGetElement();
+org.eclipse.emf.ecore.EObject obj = ((org.eclipse.gmf.runtime.notation.impl.NodeImpl) (diagramFacet.eContainer())).basicGetElement();
 String editor = null;
 try {
 	java.lang.reflect.Method m = obj.getClass().getMethod("getName");

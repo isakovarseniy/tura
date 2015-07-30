@@ -83,8 +83,7 @@ public class DeploymentSequenceEditPart extends ShapeNodeEditPart {
 		super.createDefaultEditPolicies();
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE, new DeploymentSequenceItemSemanticEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
-		installEditPolicy(EditPolicyRoles.OPEN_ROLE, new OpenDiagramDeploymentSequenceEditPolicy());
-		// XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
+		installEditPolicy(EditPolicyRoles.OPEN_ROLE, new OpenDiagramDeploymentSequenceEditPolicy()); // XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
 		// removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
 	}
 
@@ -132,8 +131,8 @@ public class DeploymentSequenceEditPart extends ShapeNodeEditPart {
 	 */
 	protected boolean addFixedChild(EditPart childEditPart) {
 		if (childEditPart instanceof DeploymentSequenceNameEditPart) {
-			((DeploymentSequenceNameEditPart) childEditPart).setLabel(getPrimaryShape()
-					.getFigureDeploymentSequenceLabelFigure());
+			((DeploymentSequenceNameEditPart) childEditPart)
+					.setLabel(getPrimaryShape().getFigureDeploymentSequenceLabelFigure());
 			return true;
 		}
 		return false;
@@ -188,9 +187,8 @@ public class DeploymentSequenceEditPart extends ShapeNodeEditPart {
 				EObject obj = ((View) getModel()).getElement();
 				if (obj instanceof Orderable) {
 					EditingDomain editingDomain = getEditingDomain();
-					editingDomain.getCommandStack().execute(
-							SetCommand.create(editingDomain, obj, DomainPackage.eINSTANCE.getOrderable_Order(),
-									evt.getNewValue()));
+					editingDomain.getCommandStack().execute(SetCommand.create(editingDomain, obj,
+							DomainPackage.eINSTANCE.getOrderable_Order(), evt.getNewValue()));
 
 				}
 			}
@@ -282,26 +280,6 @@ public class DeploymentSequenceEditPart extends ShapeNodeEditPart {
 	 */
 	public EditPart getPrimaryChildEditPart() {
 		return getChildBySemanticHint(DomainVisualIDRegistry.getType(DeploymentSequenceNameEditPart.VISUAL_ID));
-	}
-
-	/**
-	 * @generated
-	 */
-	public List<IElementType> getMARelTypesOnTarget() {
-		ArrayList<IElementType> types = new ArrayList<IElementType>(1);
-		types.add(DomainElementTypes.RecipeDeployment_304013);
-		return types;
-	}
-
-	/**
-	 * @generated
-	 */
-	public List<IElementType> getMATypesForSource(IElementType relationshipType) {
-		LinkedList<IElementType> types = new LinkedList<IElementType>();
-		if (relationshipType == DomainElementTypes.RecipeDeployment_304013) {
-			types.add(DomainElementTypes.Recipe_302001);
-		}
-		return types;
 	}
 
 	/**

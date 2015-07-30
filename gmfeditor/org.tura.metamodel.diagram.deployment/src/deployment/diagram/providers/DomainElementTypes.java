@@ -15,6 +15,8 @@ import org.eclipse.emf.ecore.ENamedElement;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.gmf.runtime.emf.type.core.ElementTypeRegistry;
 import org.eclipse.gmf.runtime.emf.type.core.IElementType;
+import org.eclipse.gmf.tooling.runtime.providers.DiagramElementTypeImages;
+import org.eclipse.gmf.tooling.runtime.providers.DiagramElementTypes;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.resource.ImageRegistry;
 import org.eclipse.swt.graphics.Image;
@@ -45,9 +47,10 @@ public class DomainElementTypes {
 	private static Map<IElementType, ENamedElement> elements;
 
 	/**
-	 * @generated
-	 */
-	private static ImageRegistry imageRegistry;
+	* @generated
+	*/
+	private static DiagramElementTypeImages elementTypeImages = new DiagramElementTypeImages(
+			DomainDiagramEditorPlugin.getInstance().getItemProvidersAdapterFactory());
 
 	/**
 	 * @generated
@@ -57,123 +60,60 @@ public class DomainElementTypes {
 	/**
 	 * @generated
 	 */
-	public static final IElementType DeploymentComponents_901000 = getElementType("org.tura.metamodel.diagram.deployment.DeploymentComponents_901000"); //$NON-NLS-1$
+	public static final IElementType DeploymentComponents_901000 = getElementType(
+			"org.tura.metamodel.diagram.deployment.DeploymentComponents_901000"); //$NON-NLS-1$
 	/**
 	 * @generated
 	 */
-	public static final IElementType DeploymentComponent_902001 = getElementType("org.tura.metamodel.diagram.deployment.DeploymentComponent_902001"); //$NON-NLS-1$
+	public static final IElementType DeploymentComponent_902001 = getElementType(
+			"org.tura.metamodel.diagram.deployment.DeploymentComponent_902001"); //$NON-NLS-1$
 	/**
 	 * @generated
 	 */
-	public static final IElementType DeploymentStarStep_902002 = getElementType("org.tura.metamodel.diagram.deployment.DeploymentStarStep_902002"); //$NON-NLS-1$
+	public static final IElementType DeploymentStarStep_902002 = getElementType(
+			"org.tura.metamodel.diagram.deployment.DeploymentStarStep_902002"); //$NON-NLS-1$
 	/**
 	 * @generated
 	 */
-	public static final IElementType DeploymentComponentDeploymentComponentLink_904014 = getElementType("org.tura.metamodel.diagram.deployment.DeploymentComponentDeploymentComponentLink_904014"); //$NON-NLS-1$
+	public static final IElementType DeploymentComponentDeploymentComponentLink_904014 = getElementType(
+			"org.tura.metamodel.diagram.deployment.DeploymentComponentDeploymentComponentLink_904014"); //$NON-NLS-1$
 	/**
 	 * @generated
 	 */
-	public static final IElementType DeploymentStarStepFirstStep_904008 = getElementType("org.tura.metamodel.diagram.deployment.DeploymentStarStepFirstStep_904008"); //$NON-NLS-1$
+	public static final IElementType DeploymentStarStepFirstStep_904008 = getElementType(
+			"org.tura.metamodel.diagram.deployment.DeploymentStarStepFirstStep_904008"); //$NON-NLS-1$
 	/**
 	 * @generated
 	 */
-	public static final IElementType RecipeDeployment_904013 = getElementType("org.tura.metamodel.diagram.deployment.RecipeDeployment_904013"); //$NON-NLS-1$
-
-	/**
-	 * @generated
-	 */
-	private static ImageRegistry getImageRegistry() {
-		if (imageRegistry == null) {
-			imageRegistry = new ImageRegistry();
-		}
-		return imageRegistry;
-	}
-
-	/**
-	 * @generated
-	 */
-	private static String getImageRegistryKey(ENamedElement element) {
-		return element.getName();
-	}
-
-	/**
-	 * @generated
-	 */
-	private static ImageDescriptor getProvidedImageDescriptor(ENamedElement element) {
-		if (element instanceof EStructuralFeature) {
-			EStructuralFeature feature = ((EStructuralFeature) element);
-			EClass eContainingClass = feature.getEContainingClass();
-			EClassifier eType = feature.getEType();
-			if (eContainingClass != null && !eContainingClass.isAbstract()) {
-				element = eContainingClass;
-			} else if (eType instanceof EClass && !((EClass) eType).isAbstract()) {
-				element = eType;
-			}
-		}
-		if (element instanceof EClass) {
-			EClass eClass = (EClass) element;
-			if (!eClass.isAbstract()) {
-				return DomainDiagramEditorPlugin.getInstance().getItemImageDescriptor(
-						eClass.getEPackage().getEFactoryInstance().create(eClass));
-			}
-		}
-		// TODO : support structural features
-		return null;
-	}
+	public static final IElementType RecipeDeployment_904013 = getElementType(
+			"org.tura.metamodel.diagram.deployment.RecipeDeployment_904013"); //$NON-NLS-1$
 
 	/**
 	 * @generated
 	 */
 	public static ImageDescriptor getImageDescriptor(ENamedElement element) {
-		String key = getImageRegistryKey(element);
-		ImageDescriptor imageDescriptor = getImageRegistry().getDescriptor(key);
-		if (imageDescriptor == null) {
-			imageDescriptor = getProvidedImageDescriptor(element);
-			if (imageDescriptor == null) {
-				imageDescriptor = ImageDescriptor.getMissingImageDescriptor();
-			}
-			getImageRegistry().put(key, imageDescriptor);
-		}
-		return imageDescriptor;
+		return elementTypeImages.getImageDescriptor(element);
 	}
 
 	/**
 	 * @generated
 	 */
 	public static Image getImage(ENamedElement element) {
-		String key = getImageRegistryKey(element);
-		Image image = getImageRegistry().get(key);
-		if (image == null) {
-			ImageDescriptor imageDescriptor = getProvidedImageDescriptor(element);
-			if (imageDescriptor == null) {
-				imageDescriptor = ImageDescriptor.getMissingImageDescriptor();
-			}
-			getImageRegistry().put(key, imageDescriptor);
-			image = getImageRegistry().get(key);
-		}
-		return image;
+		return elementTypeImages.getImage(element);
 	}
 
 	/**
 	 * @generated
 	 */
 	public static ImageDescriptor getImageDescriptor(IAdaptable hint) {
-		ENamedElement element = getElement(hint);
-		if (element == null) {
-			return null;
-		}
-		return getImageDescriptor(element);
+		return getImageDescriptor(getElement(hint));
 	}
 
 	/**
 	 * @generated
 	 */
 	public static Image getImage(IAdaptable hint) {
-		ENamedElement element = getElement(hint);
-		if (element == null) {
-			return null;
-		}
-		return getImage(element);
+		return getImage(getElement(hint));
 	}
 
 	/**
@@ -245,5 +185,38 @@ public class DomainElementTypes {
 		}
 		return null;
 	}
+
+	/**
+	* @generated
+	*/
+	public static final DiagramElementTypes TYPED_INSTANCE = new DiagramElementTypes(elementTypeImages) {
+
+		/**
+		* @generated
+		*/
+		@Override
+
+		public boolean isKnownElementType(IElementType elementType) {
+			return deployment.diagram.providers.DomainElementTypes.isKnownElementType(elementType);
+		}
+
+		/**
+		* @generated
+		*/
+		@Override
+
+		public IElementType getElementTypeForVisualId(int visualID) {
+			return deployment.diagram.providers.DomainElementTypes.getElementType(visualID);
+		}
+
+		/**
+		* @generated
+		*/
+		@Override
+
+		public ENamedElement getDefiningNamedElement(IAdaptable elementTypeAdapter) {
+			return deployment.diagram.providers.DomainElementTypes.getElement(elementTypeAdapter);
+		}
+	};
 
 }

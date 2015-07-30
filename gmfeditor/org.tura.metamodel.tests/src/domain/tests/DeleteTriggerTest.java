@@ -17,60 +17,60 @@ public class DeleteTriggerTest extends TriggerTest
 {
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public static void main(String[] args)
   {
-    TestRunner.run(DeleteTriggerTest.class);
-  }
+		TestRunner.run(DeleteTriggerTest.class);
+	}
 
   /**
-   * Constructs a new Delete Trigger test case with the given name.
-   * <!-- begin-user-doc -->
+	 * Constructs a new Delete Trigger test case with the given name.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public DeleteTriggerTest(String name)
   {
-    super(name);
-  }
+		super(name);
+	}
 
   /**
-   * Returns the fixture for this Delete Trigger test case.
-   * <!-- begin-user-doc -->
+	 * Returns the fixture for this Delete Trigger test case.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   protected DeleteTrigger getFixture()
   {
-    return (DeleteTrigger)fixture;
-  }
+		return (DeleteTrigger)fixture;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see junit.framework.TestCase#setUp()
-   * @generated
-   */
+	 * @see junit.framework.TestCase#setUp()
+	 * @generated
+	 */
   @Override
   protected void setUp() throws Exception
   {
-    setFixture(DomainFactory.eINSTANCE.createDeleteTrigger());
-  }
+		setFixture(DomainFactory.eINSTANCE.createDeleteTrigger());
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see junit.framework.TestCase#tearDown()
-   * @generated
-   */
+	 * @see junit.framework.TestCase#tearDown()
+	 * @generated
+	 */
   @Override
   protected void tearDown() throws Exception
   {
-    setFixture(null);
-  }
+		setFixture(null);
+	}
 
 } //DeleteTriggerTest

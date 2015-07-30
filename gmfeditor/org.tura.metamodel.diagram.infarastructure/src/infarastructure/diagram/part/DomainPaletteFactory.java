@@ -17,6 +17,8 @@ import org.eclipse.gef.palette.ToolEntry;
 import org.eclipse.gmf.runtime.diagram.ui.tools.UnspecifiedTypeConnectionTool;
 import org.eclipse.gmf.runtime.diagram.ui.tools.UnspecifiedTypeCreationTool;
 import org.eclipse.gmf.runtime.emf.type.core.IElementType;
+import org.eclipse.gmf.tooling.runtime.part.DefaultLinkToolEntry;
+import org.eclipse.gmf.tooling.runtime.part.DefaultNodeToolEntry;
 
 /**
  * @generated
@@ -64,11 +66,12 @@ public class DomainPaletteFactory {
 	 * @generated
 	 */
 	private ToolEntry createDatacenter1CreationTool() {
-		NodeToolEntry entry = new NodeToolEntry(Messages.Datacenter1CreationTool_title,
-				Messages.Datacenter1CreationTool_desc, Collections.singletonList(DomainElementTypes.Datacenter_1202002));
+		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(Messages.Datacenter1CreationTool_title,
+				Messages.Datacenter1CreationTool_desc,
+				Collections.singletonList(DomainElementTypes.Datacenter_1202002));
 		entry.setId("createDatacenter1CreationTool"); //$NON-NLS-1$
-		entry.setSmallIcon(DomainDiagramEditorPlugin
-				.findImageDescriptor("/org.tura.metamodel.commons/icons/datacenter.png")); //$NON-NLS-1$
+		entry.setSmallIcon(
+				DomainDiagramEditorPlugin.findImageDescriptor("/org.tura.metamodel.commons/icons/datacenter.png")); //$NON-NLS-1$
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
@@ -77,8 +80,8 @@ public class DomainPaletteFactory {
 	 * @generated
 	 */
 	private ToolEntry createHub2CreationTool() {
-		NodeToolEntry entry = new NodeToolEntry(Messages.Hub2CreationTool_title, Messages.Hub2CreationTool_desc,
-				Collections.singletonList(DomainElementTypes.Hub_1203005));
+		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(Messages.Hub2CreationTool_title,
+				Messages.Hub2CreationTool_desc, Collections.singletonList(DomainElementTypes.Hub_1203005));
 		entry.setId("createHub2CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(DomainDiagramEditorPlugin.findImageDescriptor("/org.tura.metamodel.commons/icons/hub.png")); //$NON-NLS-1$
 		entry.setLargeIcon(entry.getSmallIcon());
@@ -89,11 +92,12 @@ public class DomainPaletteFactory {
 	 * @generated
 	 */
 	private ToolEntry createInfrastructureLayer3CreationTool() {
-		NodeToolEntry entry = new NodeToolEntry(Messages.InfrastructureLayer3CreationTool_title,
+		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(Messages.InfrastructureLayer3CreationTool_title,
 				Messages.InfrastructureLayer3CreationTool_desc,
 				Collections.singletonList(DomainElementTypes.InfrastructureLayer_1203002));
 		entry.setId("createInfrastructureLayer3CreationTool"); //$NON-NLS-1$
-		entry.setSmallIcon(DomainDiagramEditorPlugin.findImageDescriptor("/org.tura.metamodel.commons/icons/infra.png")); //$NON-NLS-1$
+		entry.setSmallIcon(
+				DomainDiagramEditorPlugin.findImageDescriptor("/org.tura.metamodel.commons/icons/infra.png")); //$NON-NLS-1$
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
@@ -102,11 +106,11 @@ public class DomainPaletteFactory {
 	 * @generated
 	 */
 	private ToolEntry createRouter4CreationTool() {
-		NodeToolEntry entry = new NodeToolEntry(Messages.Router4CreationTool_title, Messages.Router4CreationTool_desc,
-				Collections.singletonList(DomainElementTypes.Router_1203004));
+		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(Messages.Router4CreationTool_title,
+				Messages.Router4CreationTool_desc, Collections.singletonList(DomainElementTypes.Router_1203004));
 		entry.setId("createRouter4CreationTool"); //$NON-NLS-1$
-		entry.setSmallIcon(DomainDiagramEditorPlugin
-				.findImageDescriptor("/org.tura.metamodel.commons/icons/router.png")); //$NON-NLS-1$
+		entry.setSmallIcon(
+				DomainDiagramEditorPlugin.findImageDescriptor("/org.tura.metamodel.commons/icons/router.png")); //$NON-NLS-1$
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
@@ -118,11 +122,11 @@ public class DomainPaletteFactory {
 		ArrayList<IElementType> types = new ArrayList<IElementType>(2);
 		types.add(DomainElementTypes.Server_1203003);
 		types.add(DomainElementTypes.Server_1203008);
-		NodeToolEntry entry = new NodeToolEntry(Messages.Server5CreationTool_title, Messages.Server5CreationTool_desc,
-				types);
+		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(Messages.Server5CreationTool_title,
+				Messages.Server5CreationTool_desc, types);
 		entry.setId("createServer5CreationTool"); //$NON-NLS-1$
-		entry.setSmallIcon(DomainDiagramEditorPlugin
-				.findImageDescriptor("/org.tura.metamodel.commons/icons/server.png")); //$NON-NLS-1$
+		entry.setSmallIcon(
+				DomainDiagramEditorPlugin.findImageDescriptor("/org.tura.metamodel.commons/icons/server.png")); //$NON-NLS-1$
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
@@ -131,12 +135,12 @@ public class DomainPaletteFactory {
 	 * @generated
 	 */
 	private ToolEntry createServerClaster6CreationTool() {
-		NodeToolEntry entry = new NodeToolEntry(Messages.ServerClaster6CreationTool_title,
+		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(Messages.ServerClaster6CreationTool_title,
 				Messages.ServerClaster6CreationTool_desc,
 				Collections.singletonList(DomainElementTypes.ServerClaster_1203007));
 		entry.setId("createServerClaster6CreationTool"); //$NON-NLS-1$
-		entry.setSmallIcon(DomainDiagramEditorPlugin
-				.findImageDescriptor("/org.tura.metamodel.commons/icons/serverclaster.png")); //$NON-NLS-1$
+		entry.setSmallIcon(
+				DomainDiagramEditorPlugin.findImageDescriptor("/org.tura.metamodel.commons/icons/serverclaster.png")); //$NON-NLS-1$
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
@@ -145,11 +149,11 @@ public class DomainPaletteFactory {
 	 * @generated
 	 */
 	private ToolEntry createStorage7CreationTool() {
-		NodeToolEntry entry = new NodeToolEntry(Messages.Storage7CreationTool_title,
+		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(Messages.Storage7CreationTool_title,
 				Messages.Storage7CreationTool_desc, Collections.singletonList(DomainElementTypes.Storage_1203006));
 		entry.setId("createStorage7CreationTool"); //$NON-NLS-1$
-		entry.setSmallIcon(DomainDiagramEditorPlugin
-				.findImageDescriptor("/org.tura.metamodel.commons/icons/storage.png")); //$NON-NLS-1$
+		entry.setSmallIcon(
+				DomainDiagramEditorPlugin.findImageDescriptor("/org.tura.metamodel.commons/icons/storage.png")); //$NON-NLS-1$
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
@@ -158,11 +162,11 @@ public class DomainPaletteFactory {
 	 * @generated
 	 */
 	private ToolEntry createSubsystem8CreationTool() {
-		NodeToolEntry entry = new NodeToolEntry(Messages.Subsystem8CreationTool_title,
+		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(Messages.Subsystem8CreationTool_title,
 				Messages.Subsystem8CreationTool_desc, Collections.singletonList(DomainElementTypes.Subsystem_1203001));
 		entry.setId("createSubsystem8CreationTool"); //$NON-NLS-1$
-		entry.setSmallIcon(DomainDiagramEditorPlugin
-				.findImageDescriptor("/org.tura.metamodel.commons/icons/subsystem.png")); //$NON-NLS-1$
+		entry.setSmallIcon(
+				DomainDiagramEditorPlugin.findImageDescriptor("/org.tura.metamodel.commons/icons/subsystem.png")); //$NON-NLS-1$
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
@@ -171,68 +175,12 @@ public class DomainPaletteFactory {
 	 * @generated
 	 */
 	private ToolEntry createInfrastructureConnection1CreationTool() {
-		LinkToolEntry entry = new LinkToolEntry(Messages.InfrastructureConnection1CreationTool_title,
+		DefaultLinkToolEntry entry = new DefaultLinkToolEntry(Messages.InfrastructureConnection1CreationTool_title,
 				Messages.InfrastructureConnection1CreationTool_desc,
 				Collections.singletonList(DomainElementTypes.InfrastructureConnection_1204009));
 		entry.setId("createInfrastructureConnection1CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(DomainElementTypes.getImageDescriptor(DomainElementTypes.InfrastructureConnection_1204009));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
-	}
-
-	/**
-	 * @generated
-	 */
-	private static class NodeToolEntry extends ToolEntry {
-
-		/**
-		 * @generated
-		 */
-		private final List<IElementType> elementTypes;
-
-		/**
-		 * @generated
-		 */
-		private NodeToolEntry(String title, String description, List<IElementType> elementTypes) {
-			super(title, description, null, null);
-			this.elementTypes = elementTypes;
-		}
-
-		/**
-		 * @generated
-		 */
-		public Tool createTool() {
-			Tool tool = new UnspecifiedTypeCreationTool(elementTypes);
-			tool.setProperties(getToolProperties());
-			return tool;
-		}
-	}
-
-	/**
-	 * @generated
-	 */
-	private static class LinkToolEntry extends ToolEntry {
-
-		/**
-		 * @generated
-		 */
-		private final List<IElementType> relationshipTypes;
-
-		/**
-		 * @generated
-		 */
-		private LinkToolEntry(String title, String description, List<IElementType> relationshipTypes) {
-			super(title, description, null, null);
-			this.relationshipTypes = relationshipTypes;
-		}
-
-		/**
-		 * @generated
-		 */
-		public Tool createTool() {
-			Tool tool = new UnspecifiedTypeConnectionTool(relationshipTypes);
-			tool.setProperties(getToolProperties());
-			return tool;
-		}
 	}
 }

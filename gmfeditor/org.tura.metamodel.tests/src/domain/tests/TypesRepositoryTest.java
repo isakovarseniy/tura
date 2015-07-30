@@ -19,78 +19,78 @@ public class TypesRepositoryTest extends TestCase
 {
 
   /**
-   * The fixture for this Types Repository test case.
-   * <!-- begin-user-doc -->
+	 * The fixture for this Types Repository test case.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   protected TypesRepository fixture = null;
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public static void main(String[] args)
   {
-    TestRunner.run(TypesRepositoryTest.class);
-  }
+		TestRunner.run(TypesRepositoryTest.class);
+	}
 
   /**
-   * Constructs a new Types Repository test case with the given name.
-   * <!-- begin-user-doc -->
+	 * Constructs a new Types Repository test case with the given name.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public TypesRepositoryTest(String name)
   {
-    super(name);
-  }
+		super(name);
+	}
 
   /**
-   * Sets the fixture for this Types Repository test case.
-   * <!-- begin-user-doc -->
+	 * Sets the fixture for this Types Repository test case.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   protected void setFixture(TypesRepository fixture)
   {
-    this.fixture = fixture;
-  }
+		this.fixture = fixture;
+	}
 
   /**
-   * Returns the fixture for this Types Repository test case.
-   * <!-- begin-user-doc -->
+	 * Returns the fixture for this Types Repository test case.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   protected TypesRepository getFixture()
   {
-    return fixture;
-  }
+		return fixture;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see junit.framework.TestCase#setUp()
-   * @generated
-   */
+	 * @see junit.framework.TestCase#setUp()
+	 * @generated
+	 */
   @Override
   protected void setUp() throws Exception
   {
-    setFixture(DomainFactory.eINSTANCE.createTypesRepository());
-  }
+		setFixture(DomainFactory.eINSTANCE.createTypesRepository());
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see junit.framework.TestCase#tearDown()
-   * @generated
-   */
+	 * @see junit.framework.TestCase#tearDown()
+	 * @generated
+	 */
   @Override
   protected void tearDown() throws Exception
   {
-    setFixture(null);
-  }
+		setFixture(null);
+	}
 
 } //TypesRepositoryTest

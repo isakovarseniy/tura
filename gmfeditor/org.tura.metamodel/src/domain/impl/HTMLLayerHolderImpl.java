@@ -18,160 +18,156 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link domain.impl.HTMLLayerHolderImpl#getColumns <em>Columns</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
 public class HTMLLayerHolderImpl extends EObjectImpl implements HTMLLayerHolder
 {
   /**
-   * The default value of the '{@link #getColumns() <em>Columns</em>}' attribute.
-   * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getColumns() <em>Columns</em>}' attribute.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getColumns()
-   * @generated
-   * @ordered
-   */
+	 * @see #getColumns()
+	 * @generated
+	 * @ordered
+	 */
   protected static final int COLUMNS_EDEFAULT = 1;
 
   /**
-   * The cached value of the '{@link #getColumns() <em>Columns</em>}' attribute.
-   * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getColumns() <em>Columns</em>}' attribute.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getColumns()
-   * @generated
-   * @ordered
-   */
+	 * @see #getColumns()
+	 * @generated
+	 * @ordered
+	 */
   protected int columns = COLUMNS_EDEFAULT;
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   protected HTMLLayerHolderImpl()
   {
-    super();
-  }
+		super();
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   protected EClass eStaticClass()
   {
-    return DomainPackage.Literals.HTML_LAYER_HOLDER;
-  }
+		return DomainPackage.Literals.HTML_LAYER_HOLDER;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public int getColumns()
   {
-    return columns;
-  }
+		return columns;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public void setColumns(int newColumns)
   {
-    int oldColumns = columns;
-    columns = newColumns;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.HTML_LAYER_HOLDER__COLUMNS, oldColumns, columns));
-  }
+		int oldColumns = columns;
+		columns = newColumns;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.HTML_LAYER_HOLDER__COLUMNS, oldColumns, columns));
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
-    switch (featureID)
-    {
-      case DomainPackage.HTML_LAYER_HOLDER__COLUMNS:
-        return getColumns();
-    }
-    return super.eGet(featureID, resolve, coreType);
-  }
+		switch (featureID) {
+			case DomainPackage.HTML_LAYER_HOLDER__COLUMNS:
+				return getColumns();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public void eSet(int featureID, Object newValue)
   {
-    switch (featureID)
-    {
-      case DomainPackage.HTML_LAYER_HOLDER__COLUMNS:
-        setColumns((Integer)newValue);
-        return;
-    }
-    super.eSet(featureID, newValue);
-  }
+		switch (featureID) {
+			case DomainPackage.HTML_LAYER_HOLDER__COLUMNS:
+				setColumns((Integer)newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public void eUnset(int featureID)
   {
-    switch (featureID)
-    {
-      case DomainPackage.HTML_LAYER_HOLDER__COLUMNS:
-        setColumns(COLUMNS_EDEFAULT);
-        return;
-    }
-    super.eUnset(featureID);
-  }
+		switch (featureID) {
+			case DomainPackage.HTML_LAYER_HOLDER__COLUMNS:
+				setColumns(COLUMNS_EDEFAULT);
+				return;
+		}
+		super.eUnset(featureID);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public boolean eIsSet(int featureID)
   {
-    switch (featureID)
-    {
-      case DomainPackage.HTML_LAYER_HOLDER__COLUMNS:
-        return columns != COLUMNS_EDEFAULT;
-    }
-    return super.eIsSet(featureID);
-  }
+		switch (featureID) {
+			case DomainPackage.HTML_LAYER_HOLDER__COLUMNS:
+				return columns != COLUMNS_EDEFAULT;
+		}
+		return super.eIsSet(featureID);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public String toString()
   {
-    if (eIsProxy()) return super.toString();
+		if (eIsProxy()) return super.toString();
 
-    StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (columns: ");
-    result.append(columns);
-    result.append(')');
-    return result.toString();
-  }
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (columns: ");
+		result.append(columns);
+		result.append(')');
+		return result.toString();
+	}
 
 } //HTMLLayerHolderImpl

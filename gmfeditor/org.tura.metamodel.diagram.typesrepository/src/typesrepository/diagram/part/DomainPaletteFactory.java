@@ -14,6 +14,7 @@ import org.eclipse.gef.palette.ToolEntry;
 import org.eclipse.gmf.runtime.diagram.ui.tools.UnspecifiedTypeCreationTool;
 import org.eclipse.gmf.runtime.emf.type.core.IElementType;
 
+import org.eclipse.gmf.tooling.runtime.part.DefaultNodeToolEntry;
 import typesrepository.diagram.providers.DomainElementTypes;
 
 /**
@@ -44,7 +45,7 @@ public class DomainPaletteFactory {
 	 * @generated
 	 */
 	private ToolEntry createPackage1CreationTool() {
-		NodeToolEntry entry = new NodeToolEntry(Messages.Package1CreationTool_title,
+		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(Messages.Package1CreationTool_title,
 				Messages.Package1CreationTool_desc, Collections.singletonList(DomainElementTypes.Package_203002));
 		entry.setId("createPackage1CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(DomainElementTypes.getImageDescriptor(DomainElementTypes.Package_203002));
@@ -56,39 +57,11 @@ public class DomainPaletteFactory {
 	 * @generated
 	 */
 	private ToolEntry createTypes2CreationTool() {
-		NodeToolEntry entry = new NodeToolEntry(Messages.Types2CreationTool_title, Messages.Types2CreationTool_desc,
-				Collections.singletonList(DomainElementTypes.Types_202001));
+		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(Messages.Types2CreationTool_title,
+				Messages.Types2CreationTool_desc, Collections.singletonList(DomainElementTypes.Types_202001));
 		entry.setId("createTypes2CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(DomainElementTypes.getImageDescriptor(DomainElementTypes.Types_202001));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
-	}
-
-	/**
-	 * @generated
-	 */
-	private static class NodeToolEntry extends ToolEntry {
-
-		/**
-		 * @generated
-		 */
-		private final List<IElementType> elementTypes;
-
-		/**
-		 * @generated
-		 */
-		private NodeToolEntry(String title, String description, List<IElementType> elementTypes) {
-			super(title, description, null, null);
-			this.elementTypes = elementTypes;
-		}
-
-		/**
-		 * @generated
-		 */
-		public Tool createTool() {
-			Tool tool = new UnspecifiedTypeCreationTool(elementTypes);
-			tool.setProperties(getToolProperties());
-			return tool;
-		}
 	}
 }

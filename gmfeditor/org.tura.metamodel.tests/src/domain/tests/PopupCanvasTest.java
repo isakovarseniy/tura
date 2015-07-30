@@ -17,60 +17,60 @@ public class PopupCanvasTest extends CanvasFrameTest
 {
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public static void main(String[] args)
   {
-    TestRunner.run(PopupCanvasTest.class);
-  }
+		TestRunner.run(PopupCanvasTest.class);
+	}
 
   /**
-   * Constructs a new Popup Canvas test case with the given name.
-   * <!-- begin-user-doc -->
+	 * Constructs a new Popup Canvas test case with the given name.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public PopupCanvasTest(String name)
   {
-    super(name);
-  }
+		super(name);
+	}
 
   /**
-   * Returns the fixture for this Popup Canvas test case.
-   * <!-- begin-user-doc -->
+	 * Returns the fixture for this Popup Canvas test case.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   protected PopupCanvas getFixture()
   {
-    return (PopupCanvas)fixture;
-  }
+		return (PopupCanvas)fixture;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see junit.framework.TestCase#setUp()
-   * @generated
-   */
+	 * @see junit.framework.TestCase#setUp()
+	 * @generated
+	 */
   @Override
   protected void setUp() throws Exception
   {
-    setFixture(DomainFactory.eINSTANCE.createPopupCanvas());
-  }
+		setFixture(DomainFactory.eINSTANCE.createPopupCanvas());
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see junit.framework.TestCase#tearDown()
-   * @generated
-   */
+	 * @see junit.framework.TestCase#tearDown()
+	 * @generated
+	 */
   @Override
   protected void tearDown() throws Exception
   {
-    setFixture(null);
-  }
+		setFixture(null);
+	}
 
 } //PopupCanvasTest

@@ -78,8 +78,7 @@ public class DomainApplicationsEditPart extends ShapeNodeEditPart {
 		super.createDefaultEditPolicies();
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE, new DomainApplicationsItemSemanticEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
-		installEditPolicy(EditPolicyRoles.OPEN_ROLE, new OpenDiagramEditPolicy());
-		// XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
+		installEditPolicy(EditPolicyRoles.OPEN_ROLE, new OpenDiagramEditPolicy()); // XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
 		// removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
 	}
 
@@ -127,8 +126,8 @@ public class DomainApplicationsEditPart extends ShapeNodeEditPart {
 	 */
 	protected boolean addFixedChild(EditPart childEditPart) {
 		if (childEditPart instanceof DomainApplicationsNameEditPart) {
-			((DomainApplicationsNameEditPart) childEditPart).setLabel(getPrimaryShape()
-					.getFigureDomainApplicationsLabelFigure());
+			((DomainApplicationsNameEditPart) childEditPart)
+					.setLabel(getPrimaryShape().getFigureDomainApplicationsLabelFigure());
 			return true;
 		}
 		if (childEditPart instanceof DomainApplicationsDomainApplicationsApplicationsCompartmentEditPart) {
@@ -149,8 +148,8 @@ public class DomainApplicationsEditPart extends ShapeNodeEditPart {
 		}
 		if (childEditPart instanceof DomainApplicationsDomainApplicationsApplicationsCompartmentEditPart) {
 			IFigure pane = getPrimaryShape().getDomainApplicationsApplicationsCompartmentFigure();
-			pane.remove(((DomainApplicationsDomainApplicationsApplicationsCompartmentEditPart) childEditPart)
-					.getFigure());
+			pane.remove(
+					((DomainApplicationsDomainApplicationsApplicationsCompartmentEditPart) childEditPart).getFigure());
 			return true;
 		}
 		return false;
@@ -198,9 +197,8 @@ public class DomainApplicationsEditPart extends ShapeNodeEditPart {
 				EObject obj = ((View) getModel()).getElement();
 				if (obj instanceof Orderable) {
 					EditingDomain editingDomain = getEditingDomain();
-					editingDomain.getCommandStack().execute(
-							SetCommand.create(editingDomain, obj, DomainPackage.eINSTANCE.getOrderable_Order(),
-									evt.getNewValue()));
+					editingDomain.getCommandStack().execute(SetCommand.create(editingDomain, obj,
+							DomainPackage.eINSTANCE.getOrderable_Order(), evt.getNewValue()));
 
 				}
 			}
@@ -343,8 +341,8 @@ public class DomainApplicationsEditPart extends ShapeNodeEditPart {
 
 			fFigureDomainApplicationsLabelFigure.setFont(FFIGUREDOMAINAPPLICATIONSLABELFIGURE_FONT);
 
-			fFigureDomainApplicationsLabelFigure.setMaximumSize(new Dimension(getMapMode().DPtoLP(10000), getMapMode()
-					.DPtoLP(50)));
+			fFigureDomainApplicationsLabelFigure
+					.setMaximumSize(new Dimension(getMapMode().DPtoLP(10000), getMapMode().DPtoLP(50)));
 
 			this.add(fFigureDomainApplicationsLabelFigure);
 

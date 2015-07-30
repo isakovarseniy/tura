@@ -52,16 +52,17 @@ import domain.Application;
 /**
  * @generated
  */
-public class DomainNavigatorLabelProvider extends LabelProvider implements ICommonLabelProvider, ITreePathLabelProvider {
+public class DomainNavigatorLabelProvider extends LabelProvider
+		implements ICommonLabelProvider, ITreePathLabelProvider {
 
 	/**
 	 * @generated
 	 */
 	static {
-		DomainDiagramEditorPlugin.getInstance().getImageRegistry()
-				.put("Navigator?UnknownElement", ImageDescriptor.getMissingImageDescriptor()); //$NON-NLS-1$
-		DomainDiagramEditorPlugin.getInstance().getImageRegistry()
-				.put("Navigator?ImageNotFound", ImageDescriptor.getMissingImageDescriptor()); //$NON-NLS-1$
+		DomainDiagramEditorPlugin.getInstance().getImageRegistry().put("Navigator?UnknownElement", //$NON-NLS-1$
+				ImageDescriptor.getMissingImageDescriptor());
+		DomainDiagramEditorPlugin.getInstance().getImageRegistry().put("Navigator?ImageNotFound", //$NON-NLS-1$
+				ImageDescriptor.getMissingImageDescriptor());
 	}
 
 	/**
@@ -110,41 +111,41 @@ public class DomainNavigatorLabelProvider extends LabelProvider implements IComm
 	public Image getImage(View view) {
 		switch (DomainVisualIDRegistry.getVisualID(view)) {
 		case ApplicationEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Diagram?http://tura.org/2013/v1/domain?Application", DomainElementTypes.Application_801000); //$NON-NLS-1$
+			return getImage("Navigator?Diagram?http://tura.org/2013/v1/domain?Application", //$NON-NLS-1$
+					DomainElementTypes.Application_801000);
 		case ApplicationRecipesEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?TopLevelNode?http://tura.org/2013/v1/domain?ApplicationRecipes", DomainElementTypes.ApplicationRecipes_802001); //$NON-NLS-1$
+			return getImage("Navigator?TopLevelNode?http://tura.org/2013/v1/domain?ApplicationRecipes", //$NON-NLS-1$
+					DomainElementTypes.ApplicationRecipes_802001);
 		case ApplicationMappersEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?TopLevelNode?http://tura.org/2013/v1/domain?ApplicationMappers", DomainElementTypes.ApplicationMappers_802002); //$NON-NLS-1$
+			return getImage("Navigator?TopLevelNode?http://tura.org/2013/v1/domain?ApplicationMappers", //$NON-NLS-1$
+					DomainElementTypes.ApplicationMappers_802002);
 		case ApplicationUILayerEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?TopLevelNode?http://tura.org/2013/v1/domain?ApplicationUILayer", DomainElementTypes.ApplicationUILayer_802003); //$NON-NLS-1$
-		case ApplicationStyleEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?TopLevelNode?http://tura.org/2013/v1/domain?ApplicationStyle", DomainElementTypes.ApplicationStyle_802005); //$NON-NLS-1$
+			return getImage("Navigator?TopLevelNode?http://tura.org/2013/v1/domain?ApplicationUILayer", //$NON-NLS-1$
+					DomainElementTypes.ApplicationUILayer_802003);
 		case ApplicationInfrastructureLayerEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?TopLevelNode?http://tura.org/2013/v1/domain?ApplicationInfrastructureLayer", DomainElementTypes.ApplicationInfrastructureLayer_802004); //$NON-NLS-1$
+			return getImage("Navigator?TopLevelNode?http://tura.org/2013/v1/domain?ApplicationInfrastructureLayer", //$NON-NLS-1$
+					DomainElementTypes.ApplicationInfrastructureLayer_802004);
+		case ApplicationStyleEditPart.VISUAL_ID:
+			return getImage("Navigator?TopLevelNode?http://tura.org/2013/v1/domain?ApplicationStyle", //$NON-NLS-1$
+					DomainElementTypes.ApplicationStyle_802005);
 		case ApplicationRoleEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?TopLevelNode?http://tura.org/2013/v1/domain?ApplicationRole", DomainElementTypes.ApplicationRole_802006); //$NON-NLS-1$
+			return getImage("Navigator?TopLevelNode?http://tura.org/2013/v1/domain?ApplicationRole", //$NON-NLS-1$
+					DomainElementTypes.ApplicationRole_802006);
 		case ApplicationMessagesEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?TopLevelNode?http://tura.org/2013/v1/domain?ApplicationMessages", DomainElementTypes.ApplicationMessages_802007); //$NON-NLS-1$
+			return getImage("Navigator?TopLevelNode?http://tura.org/2013/v1/domain?ApplicationMessages", //$NON-NLS-1$
+					DomainElementTypes.ApplicationMessages_802007);
 		case ApplicationRecipeEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Node?http://tura.org/2013/v1/domain?ApplicationRecipe", DomainElementTypes.ApplicationRecipe_803001); //$NON-NLS-1$
+			return getImage("Navigator?Node?http://tura.org/2013/v1/domain?ApplicationRecipe", //$NON-NLS-1$
+					DomainElementTypes.ApplicationRecipe_803001);
 		case ApplicationMapperEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Node?http://tura.org/2013/v1/domain?ApplicationMapper", DomainElementTypes.ApplicationMapper_803002); //$NON-NLS-1$
+			return getImage("Navigator?Node?http://tura.org/2013/v1/domain?ApplicationMapper", //$NON-NLS-1$
+					DomainElementTypes.ApplicationMapper_803002);
 		case ApplicationUIPackageEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Node?http://tura.org/2013/v1/domain?ApplicationUIPackage", DomainElementTypes.ApplicationUIPackage_803003); //$NON-NLS-1$
+			return getImage("Navigator?Node?http://tura.org/2013/v1/domain?ApplicationUIPackage", //$NON-NLS-1$
+					DomainElementTypes.ApplicationUIPackage_803003);
 		case StylesPackageEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Node?http://tura.org/2013/v1/domain?StylesPackage", DomainElementTypes.StylesPackage_803004); //$NON-NLS-1$
+			return getImage("Navigator?Node?http://tura.org/2013/v1/domain?StylesPackage", //$NON-NLS-1$
+					DomainElementTypes.StylesPackage_803004);
 		}
 		return getImage("Navigator?UnknownElement", null); //$NON-NLS-1$
 	}
@@ -211,10 +212,10 @@ public class DomainNavigatorLabelProvider extends LabelProvider implements IComm
 			return getApplicationMappers_802002Text(view);
 		case ApplicationUILayerEditPart.VISUAL_ID:
 			return getApplicationUILayer_802003Text(view);
-		case ApplicationStyleEditPart.VISUAL_ID:
-			return getApplicationStyle_802005Text(view);
 		case ApplicationInfrastructureLayerEditPart.VISUAL_ID:
 			return getApplicationInfrastructureLayer_802004Text(view);
+		case ApplicationStyleEditPart.VISUAL_ID:
+			return getApplicationStyle_802005Text(view);
 		case ApplicationRoleEditPart.VISUAL_ID:
 			return getApplicationRole_802006Text(view);
 		case ApplicationMessagesEditPart.VISUAL_ID:

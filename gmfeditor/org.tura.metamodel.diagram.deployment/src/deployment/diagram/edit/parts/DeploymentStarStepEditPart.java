@@ -130,8 +130,8 @@ public class DeploymentStarStepEditPart extends ShapeNodeEditPart {
 	 */
 	protected boolean addFixedChild(EditPart childEditPart) {
 		if (childEditPart instanceof DeploymentStarStepNameEditPart) {
-			((DeploymentStarStepNameEditPart) childEditPart).setLabel(getPrimaryShape()
-					.getFigureDeploymentStarStepLabelFigure());
+			((DeploymentStarStepNameEditPart) childEditPart)
+					.setLabel(getPrimaryShape().getFigureDeploymentStarStepLabelFigure());
 			return true;
 		}
 		return false;
@@ -186,9 +186,8 @@ public class DeploymentStarStepEditPart extends ShapeNodeEditPart {
 				EObject obj = ((View) getModel()).getElement();
 				if (obj instanceof Orderable) {
 					EditingDomain editingDomain = getEditingDomain();
-					editingDomain.getCommandStack().execute(
-							SetCommand.create(editingDomain, obj, DomainPackage.eINSTANCE.getOrderable_Order(),
-									evt.getNewValue()));
+					editingDomain.getCommandStack().execute(SetCommand.create(editingDomain, obj,
+							DomainPackage.eINSTANCE.getOrderable_Order(), evt.getNewValue()));
 
 				}
 			}
@@ -280,37 +279,6 @@ public class DeploymentStarStepEditPart extends ShapeNodeEditPart {
 	 */
 	public EditPart getPrimaryChildEditPart() {
 		return getChildBySemanticHint(DomainVisualIDRegistry.getType(DeploymentStarStepNameEditPart.VISUAL_ID));
-	}
-
-	/**
-	 * @generated
-	 */
-	public List<IElementType> getMARelTypesOnSource() {
-		ArrayList<IElementType> types = new ArrayList<IElementType>(1);
-		types.add(DomainElementTypes.DeploymentStarStepFirstStep_904008);
-		return types;
-	}
-
-	/**
-	 * @generated
-	 */
-	public List<IElementType> getMARelTypesOnSourceAndTarget(IGraphicalEditPart targetEditPart) {
-		LinkedList<IElementType> types = new LinkedList<IElementType>();
-		if (targetEditPart instanceof DeploymentComponentEditPart) {
-			types.add(DomainElementTypes.DeploymentStarStepFirstStep_904008);
-		}
-		return types;
-	}
-
-	/**
-	 * @generated
-	 */
-	public List<IElementType> getMATypesForTarget(IElementType relationshipType) {
-		LinkedList<IElementType> types = new LinkedList<IElementType>();
-		if (relationshipType == DomainElementTypes.DeploymentStarStepFirstStep_904008) {
-			types.add(DomainElementTypes.DeploymentComponent_902001);
-		}
-		return types;
 	}
 
 	/**

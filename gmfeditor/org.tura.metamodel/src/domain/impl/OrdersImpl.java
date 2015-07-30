@@ -28,213 +28,207 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link domain.impl.OrdersImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.impl.OrdersImpl#getOrderRules <em>Order Rules</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
 public class OrdersImpl extends EObjectImpl implements Orders
 {
   /**
-   * The default value of the '{@link #getUid() <em>Uid</em>}' attribute.
-   * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getUid() <em>Uid</em>}' attribute.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getUid()
-   * @generated
-   * @ordered
-   */
+	 * @see #getUid()
+	 * @generated
+	 * @ordered
+	 */
   protected static final String UID_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getUid() <em>Uid</em>}' attribute.
-   * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getUid() <em>Uid</em>}' attribute.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getUid()
-   * @generated
-   * @ordered
-   */
+	 * @see #getUid()
+	 * @generated
+	 * @ordered
+	 */
   protected String uid = UID_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getOrderRules() <em>Order Rules</em>}' containment reference list.
-   * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getOrderRules() <em>Order Rules</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getOrderRules()
-   * @generated
-   * @ordered
-   */
+	 * @see #getOrderRules()
+	 * @generated
+	 * @ordered
+	 */
   protected EList<OrderBy> orderRules;
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   protected OrdersImpl()
   {
-    super();
-  }
+		super();
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   protected EClass eStaticClass()
   {
-    return DomainPackage.Literals.ORDERS;
-  }
+		return DomainPackage.Literals.ORDERS;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public String getUid()
   {
-    return uid;
-  }
+		return uid;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public void setUid(String newUid)
   {
-    String oldUid = uid;
-    uid = newUid;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.ORDERS__UID, oldUid, uid));
-  }
+		String oldUid = uid;
+		uid = newUid;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.ORDERS__UID, oldUid, uid));
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public EList<OrderBy> getOrderRules()
   {
-    if (orderRules == null)
-    {
-      orderRules = new EObjectContainmentEList<OrderBy>(OrderBy.class, this, DomainPackage.ORDERS__ORDER_RULES);
-    }
-    return orderRules;
-  }
+		if (orderRules == null) {
+			orderRules = new EObjectContainmentEList<OrderBy>(OrderBy.class, this, DomainPackage.ORDERS__ORDER_RULES);
+		}
+		return orderRules;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
-    switch (featureID)
-    {
-      case DomainPackage.ORDERS__ORDER_RULES:
-        return ((InternalEList<?>)getOrderRules()).basicRemove(otherEnd, msgs);
-    }
-    return super.eInverseRemove(otherEnd, featureID, msgs);
-  }
+		switch (featureID) {
+			case DomainPackage.ORDERS__ORDER_RULES:
+				return ((InternalEList<?>)getOrderRules()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
-    switch (featureID)
-    {
-      case DomainPackage.ORDERS__UID:
-        return getUid();
-      case DomainPackage.ORDERS__ORDER_RULES:
-        return getOrderRules();
-    }
-    return super.eGet(featureID, resolve, coreType);
-  }
+		switch (featureID) {
+			case DomainPackage.ORDERS__UID:
+				return getUid();
+			case DomainPackage.ORDERS__ORDER_RULES:
+				return getOrderRules();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
-    switch (featureID)
-    {
-      case DomainPackage.ORDERS__UID:
-        setUid((String)newValue);
-        return;
-      case DomainPackage.ORDERS__ORDER_RULES:
-        getOrderRules().clear();
-        getOrderRules().addAll((Collection<? extends OrderBy>)newValue);
-        return;
-    }
-    super.eSet(featureID, newValue);
-  }
+		switch (featureID) {
+			case DomainPackage.ORDERS__UID:
+				setUid((String)newValue);
+				return;
+			case DomainPackage.ORDERS__ORDER_RULES:
+				getOrderRules().clear();
+				getOrderRules().addAll((Collection<? extends OrderBy>)newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public void eUnset(int featureID)
   {
-    switch (featureID)
-    {
-      case DomainPackage.ORDERS__UID:
-        setUid(UID_EDEFAULT);
-        return;
-      case DomainPackage.ORDERS__ORDER_RULES:
-        getOrderRules().clear();
-        return;
-    }
-    super.eUnset(featureID);
-  }
+		switch (featureID) {
+			case DomainPackage.ORDERS__UID:
+				setUid(UID_EDEFAULT);
+				return;
+			case DomainPackage.ORDERS__ORDER_RULES:
+				getOrderRules().clear();
+				return;
+		}
+		super.eUnset(featureID);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public boolean eIsSet(int featureID)
   {
-    switch (featureID)
-    {
-      case DomainPackage.ORDERS__UID:
-        return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
-      case DomainPackage.ORDERS__ORDER_RULES:
-        return orderRules != null && !orderRules.isEmpty();
-    }
-    return super.eIsSet(featureID);
-  }
+		switch (featureID) {
+			case DomainPackage.ORDERS__UID:
+				return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
+			case DomainPackage.ORDERS__ORDER_RULES:
+				return orderRules != null && !orderRules.isEmpty();
+		}
+		return super.eIsSet(featureID);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public String toString()
   {
-    if (eIsProxy()) return super.toString();
+		if (eIsProxy()) return super.toString();
 
-    StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (uid: ");
-    result.append(uid);
-    result.append(')');
-    return result.toString();
-  }
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (uid: ");
+		result.append(uid);
+		result.append(')');
+		return result.toString();
+	}
 
 } //OrdersImpl

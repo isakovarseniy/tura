@@ -56,7 +56,8 @@ public class DomainNewDiagramFileWizard extends Wizard {
 	/**
 	 * @generated
 	 */
-	public DomainNewDiagramFileWizard(URI domainModelURI, EObject diagramRoot, TransactionalEditingDomain editingDomain) {
+	public DomainNewDiagramFileWizard(URI domainModelURI, EObject diagramRoot,
+			TransactionalEditingDomain editingDomain) {
 		assert domainModelURI != null : "Domain model uri must be specified"; //$NON-NLS-1$
 		assert diagramRoot != null : "Doagram root element must be specified"; //$NON-NLS-1$
 		assert editingDomain != null : "Editing domain must be specified"; //$NON-NLS-1$
@@ -77,8 +78,8 @@ public class DomainNewDiagramFileWizard extends Wizard {
 			throw new IllegalArgumentException("Unsupported URI: " + domainModelURI); //$NON-NLS-1$
 		}
 		myFileCreationPage.setContainerFullPath(filePath);
-		myFileCreationPage.setFileName(DomainDiagramEditorUtil.getUniqueFileName(filePath, fileName,
-				"deployment_diagram")); //$NON-NLS-1$
+		myFileCreationPage
+				.setFileName(DomainDiagramEditorUtil.getUniqueFileName(filePath, fileName, "deployment_diagram")); //$NON-NLS-1$
 
 		diagramRootElementSelectionPage = new DiagramRootElementSelectionPage(
 				Messages.DomainNewDiagramFileWizard_RootSelectionPageName);
@@ -114,8 +115,8 @@ public class DomainNewDiagramFileWizard extends Wizard {
 
 			protected CommandResult doExecuteWithResult(IProgressMonitor monitor, IAdaptable info)
 					throws ExecutionException {
-				int diagramVID = DomainVisualIDRegistry.getDiagramVisualID(diagramRootElementSelectionPage
-						.getModelElement());
+				int diagramVID = DomainVisualIDRegistry
+						.getDiagramVisualID(diagramRootElementSelectionPage.getModelElement());
 				if (diagramVID != DeploymentComponentsEditPart.VISUAL_ID) {
 					return CommandResult.newErrorCommandResult(Messages.DomainNewDiagramFileWizard_IncorrectRootError);
 				}
@@ -162,15 +163,15 @@ public class DomainNewDiagramFileWizard extends Wizard {
 		 * @generated
 		 */
 		protected boolean validatePage() {
-			if (selectedModelElement == null) {
+			if (getModelElement() == null) {
 				setErrorMessage(Messages.DomainNewDiagramFileWizard_RootSelectionPageNoSelectionMessage);
 				return false;
 			}
-			boolean result = ViewService.getInstance().provides(
-					new CreateDiagramViewOperation(new EObjectAdapter(selectedModelElement),
+			boolean result = ViewService.getInstance()
+					.provides(new CreateDiagramViewOperation(new EObjectAdapter(getModelElement()),
 							DeploymentComponentsEditPart.MODEL_ID, DomainDiagramEditorPlugin.DIAGRAM_PREFERENCES_HINT));
-			setErrorMessage(result ? null
-					: Messages.DomainNewDiagramFileWizard_RootSelectionPageInvalidSelectionMessage);
+			setErrorMessage(
+					result ? null : Messages.DomainNewDiagramFileWizard_RootSelectionPageInvalidSelectionMessage);
 			return result;
 		}
 	}

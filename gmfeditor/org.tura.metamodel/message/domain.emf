@@ -8,6 +8,10 @@ class Domain{
   val DomainArtifacts[1]#parent domainArtifacts;
   val DomainTypes[1]#parent domainTypes;
   val DomainApplications[1]#parent domainApplications;
+
+  //faking epsilon converter
+  val EObject any;
+
 }
 
 
@@ -92,6 +96,9 @@ class Artifacts{
     id attr EString uid;
    val Artifact[*]#parent artifacts;
    ref DomainArtifact#artifact parent;
+
+  //faking epsilon converter
+  val EObject any;
 }
 
 @gmf.node(label="name",border.color="0,0,0",color="255,239,222")
@@ -123,6 +130,7 @@ class Artifact{
 
 @gmf.node(label="name",border.color="0,0,0",color="255,239,222")
 class GenerationHint{
+
    id attr EString uid;
   attr EString name;
   attr EString applyedClass; 
@@ -159,7 +167,7 @@ class Specifier{
    val  Option[1..*]#parent options;  
 }
 
-@gmf.node(label="name")
+@gmf.node(label="value")
 class Option{
     id attr EString uid;
    ref Specifier#options parent;
@@ -177,11 +185,15 @@ class Application{
    val ApplicationRole#parent applicationRole;
    val ApplicationMessages#parent applicationMessages;
    ref DomainApplication#application parent;
+
+   //faking epsilon converter
+   val EObject any;
 }
 
 
 @gmf.node(label="name",border.color="0,0,0",color="192,192,192")
 class ApplicationMessages{
+
     id attr EString uid;
    attr EString name;
    ref Application#applicationMessages parent;
@@ -281,31 +293,41 @@ class Messages{
     ref ApplicationMessages#messages parent;
     val MessageLibrary[*]  messageLibraries;
     val Language[*] languages;
+
+    //faking epsilon converter
+    val EObject any;
 }
 
 
 @gmf.node(label="name",border.color="0,0,0",color="255,237,85")
 class MessageLibrary{
+
     id attr EString uid;
     attr EString name;
     val LanguageRef[*] libLanguages;
     @gmf.compartment(layout="list")
     val Message[*] messages ;
+
 }
 
 class LanguageRef{
+
     id attr EString uid;
     ref Language lang; 
+
 }
 
 @gmf.node(label="name",border.color="0,0,0",color="255,237,85")
 class Message{
+
     id attr EString uid;
     attr EString name;
    val Translation[*] translatioins;
    
+
 }
 class Translation{
+
     id attr EString uid;
     attr EString translation;
     ref LanguageRef lang;
@@ -326,6 +348,9 @@ class Roles{
     ref ApplicationRole#roles parent;
     val Role[*] roles;
     val Group[*] groups;
+
+    //faking epsilon converter
+    val EObject any;
 }
 
 @gmf.node(figure="org.tura.metamodel.commons.figures.RoleFigure", label.icon="false", label="name", label.placement="external",tool.small.bundle="org.tura.metamodel.commons",tool.small.path="icons/role.png")
@@ -352,6 +377,9 @@ class Styles{
     id attr EString uid;
     ref StylesPackage#styles parent;
     val StyleLibrary[*] libraries;
+
+    //faking epsilon converter
+    val EObject any;
 }
 
 @gmf.node(label="name",border.color="0,0,0",color="255,237,85")
@@ -373,6 +401,9 @@ class Mappers{
     id attr EString uid;
    val Mapper[*]#parent mappers;
    ref ApplicationMapper#mapper parent;
+   
+   //faking epsilon converter
+   val EObject any;
 }
 
 class Mapper {
@@ -435,6 +466,9 @@ class Recipes{
   val Infrastructure[*] infrastructures;
   ref ApplicationRecipe#recipes parent;
   val DeploymentSequence deployment;
+  
+  //faking epsilon converter
+  val EObject any;
 }
 
 @gmf.node(label="name",border.color="0,0,0",color="177,201,236")
@@ -449,6 +483,10 @@ class DeploymentComponents{
     id attr EString uid;
     val DeploymentComponent[*] deplymentStep;   
     val DeploymentStarStep startSeq;
+    
+    //faking epsilon converter
+    val EObject any;
+    
 }
 
 @gmf.node(label="name",border.color="0,0,0",color="177,201,236")
@@ -480,6 +518,7 @@ enum PlatformLayers{
 }
 
 enum Comparator{
+
     EQ;
     NEQ;
     GT;
@@ -489,8 +528,10 @@ enum Comparator{
 }
 
 enum Order {
+
    ASC;
    DESC;
+
 }
 
 @gmf.node(label="name",border.color="0,0,0",color="255,239,222")
@@ -615,6 +656,10 @@ class TypeDefinition{
     id attr EString uid;
    val TypeElement[*]#parent types;
    ref Package#typedefinition parent;
+   
+   //faking epsilon converter
+   val EObject any;
+   
 }
 
 class TypeElement{
@@ -699,6 +744,10 @@ class TypesRepository{
     id attr EString uid;
   val Types[1]#parent typeDefinition;
   ref DomainTypes#typesrepository parent;
+  
+  //faking epsilon converter
+  val EObject any;
+  
 }
 
 @gmf.node(label="name",border.color="0,0,0",color="255,239,222")
@@ -723,6 +772,10 @@ class UIPackage{
     id attr EString uid;
     ref ApplicationUIPackage#uipackage parent;
     val Form[*] forms;
+    
+    //faking epsilon converter
+    val EObject any;
+    
 }
 
 @gmf.node(label="name",border.color="0,0,0",color="241,238,203")
@@ -740,6 +793,7 @@ class Form{
 
 @gmf.node(label="name",border.color="0,0,0",color="241,238,203")
 class FormParameter extends TypePointer{
+
     id attr EString uid;
    attr EString name;
 }
@@ -758,10 +812,16 @@ class Views{
    val CanvasFrame[*]  canvases;
    val ViewInheritance[*] viewInheritances;
    val TabPagesInheritance[*] tabPagesInheritances;
+   
+   //faking epsilon converter
+   val EObject any;
+   
 }
 
 class Orderable{
+
   attr EInt order; 
+
 }
 
 class MultiLangLabel{
@@ -783,7 +843,9 @@ class DefaultCavas{
 }
 
 class ViewElement extends StyleElement {
+
    
+
 }
 
 
@@ -858,6 +920,10 @@ class CanvasView{
     id attr EString uid;
    ref ViewArea#canvasView parent;
    val LayerHolder  baseCanvas; 
+   
+  //faking epsilon converter
+  val EObject any;
+   
 }
 
 class ChildrenHolder{
@@ -887,6 +953,7 @@ class ExpressionPart{
 }
 
 class ContextParameters {
+
     val ContextParameter[*] parameters;
 }
 
@@ -902,10 +969,12 @@ class StyleElement{
 
 class StyleClass extends ContextValue{
     val Classifier classifier;
+
 }
 
 
 class NickNamed{
+
     attr EString nickname;
 }
 
@@ -918,6 +987,7 @@ class Uielement extends StyleElement,NickNamed,Categorized, Orderable{
 }
 
 class Formatable{
+
    attr EString format;
 }
 
@@ -937,6 +1007,7 @@ class ActionElement extends Uielement  {
 
 @gmf.node(label="fakeMethod")
 class ActionTrigger extends Trigger , Categorized{
+
     id attr EString uid;
 }
 
@@ -1036,6 +1107,10 @@ class Controls{
     val DataControl [*]#parent controls;
     val Relation[*] relations;
     val Dependency[*] dependencies;
+    
+    //faking epsilon converter
+    val EObject any;
+    
 }
 
 class Trigger extends MethodPointer , ContextParameters{
@@ -1173,6 +1248,7 @@ class Orders{
 }
 
 class OrderBy{
+
     id attr EString uid;
     ref EObject refObj;
     attr Order order;
@@ -1227,6 +1303,9 @@ class EnterpriseInfrastructure{
     ref ApplicationInfrastructureLayer#infarastructure parent;
     val Datacenter[*]#parent datacenters;
     val InfrastructureConnection[*] infrastructureConnections;
+   
+    //faking epsilon converter
+    val EObject any;
    
 }
 

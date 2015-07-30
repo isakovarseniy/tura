@@ -28,269 +28,263 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link domain.impl.MessageImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.impl.MessageImpl#getName <em>Name</em>}</li>
  *   <li>{@link domain.impl.MessageImpl#getTranslatioins <em>Translatioins</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
 public class MessageImpl extends EObjectImpl implements Message
 {
   /**
-   * The default value of the '{@link #getUid() <em>Uid</em>}' attribute.
-   * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getUid() <em>Uid</em>}' attribute.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getUid()
-   * @generated
-   * @ordered
-   */
+	 * @see #getUid()
+	 * @generated
+	 * @ordered
+	 */
   protected static final String UID_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getUid() <em>Uid</em>}' attribute.
-   * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getUid() <em>Uid</em>}' attribute.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getUid()
-   * @generated
-   * @ordered
-   */
+	 * @see #getUid()
+	 * @generated
+	 * @ordered
+	 */
   protected String uid = UID_EDEFAULT;
 
   /**
-   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getName()
-   * @generated
-   * @ordered
-   */
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
   protected static final String NAME_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getName()
-   * @generated
-   * @ordered
-   */
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
   protected String name = NAME_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getTranslatioins() <em>Translatioins</em>}' containment reference list.
-   * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getTranslatioins() <em>Translatioins</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getTranslatioins()
-   * @generated
-   * @ordered
-   */
+	 * @see #getTranslatioins()
+	 * @generated
+	 * @ordered
+	 */
   protected EList<Translation> translatioins;
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   protected MessageImpl()
   {
-    super();
-  }
+		super();
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   protected EClass eStaticClass()
   {
-    return DomainPackage.Literals.MESSAGE;
-  }
+		return DomainPackage.Literals.MESSAGE;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public String getUid()
   {
-    return uid;
-  }
+		return uid;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public void setUid(String newUid)
   {
-    String oldUid = uid;
-    uid = newUid;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.MESSAGE__UID, oldUid, uid));
-  }
+		String oldUid = uid;
+		uid = newUid;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.MESSAGE__UID, oldUid, uid));
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public String getName()
   {
-    return name;
-  }
+		return name;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public void setName(String newName)
   {
-    String oldName = name;
-    name = newName;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.MESSAGE__NAME, oldName, name));
-  }
+		String oldName = name;
+		name = newName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.MESSAGE__NAME, oldName, name));
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public EList<Translation> getTranslatioins()
   {
-    if (translatioins == null)
-    {
-      translatioins = new EObjectContainmentEList<Translation>(Translation.class, this, DomainPackage.MESSAGE__TRANSLATIOINS);
-    }
-    return translatioins;
-  }
+		if (translatioins == null) {
+			translatioins = new EObjectContainmentEList<Translation>(Translation.class, this, DomainPackage.MESSAGE__TRANSLATIOINS);
+		}
+		return translatioins;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
-    switch (featureID)
-    {
-      case DomainPackage.MESSAGE__TRANSLATIOINS:
-        return ((InternalEList<?>)getTranslatioins()).basicRemove(otherEnd, msgs);
-    }
-    return super.eInverseRemove(otherEnd, featureID, msgs);
-  }
+		switch (featureID) {
+			case DomainPackage.MESSAGE__TRANSLATIOINS:
+				return ((InternalEList<?>)getTranslatioins()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
-    switch (featureID)
-    {
-      case DomainPackage.MESSAGE__UID:
-        return getUid();
-      case DomainPackage.MESSAGE__NAME:
-        return getName();
-      case DomainPackage.MESSAGE__TRANSLATIOINS:
-        return getTranslatioins();
-    }
-    return super.eGet(featureID, resolve, coreType);
-  }
+		switch (featureID) {
+			case DomainPackage.MESSAGE__UID:
+				return getUid();
+			case DomainPackage.MESSAGE__NAME:
+				return getName();
+			case DomainPackage.MESSAGE__TRANSLATIOINS:
+				return getTranslatioins();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
-    switch (featureID)
-    {
-      case DomainPackage.MESSAGE__UID:
-        setUid((String)newValue);
-        return;
-      case DomainPackage.MESSAGE__NAME:
-        setName((String)newValue);
-        return;
-      case DomainPackage.MESSAGE__TRANSLATIOINS:
-        getTranslatioins().clear();
-        getTranslatioins().addAll((Collection<? extends Translation>)newValue);
-        return;
-    }
-    super.eSet(featureID, newValue);
-  }
+		switch (featureID) {
+			case DomainPackage.MESSAGE__UID:
+				setUid((String)newValue);
+				return;
+			case DomainPackage.MESSAGE__NAME:
+				setName((String)newValue);
+				return;
+			case DomainPackage.MESSAGE__TRANSLATIOINS:
+				getTranslatioins().clear();
+				getTranslatioins().addAll((Collection<? extends Translation>)newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public void eUnset(int featureID)
   {
-    switch (featureID)
-    {
-      case DomainPackage.MESSAGE__UID:
-        setUid(UID_EDEFAULT);
-        return;
-      case DomainPackage.MESSAGE__NAME:
-        setName(NAME_EDEFAULT);
-        return;
-      case DomainPackage.MESSAGE__TRANSLATIOINS:
-        getTranslatioins().clear();
-        return;
-    }
-    super.eUnset(featureID);
-  }
+		switch (featureID) {
+			case DomainPackage.MESSAGE__UID:
+				setUid(UID_EDEFAULT);
+				return;
+			case DomainPackage.MESSAGE__NAME:
+				setName(NAME_EDEFAULT);
+				return;
+			case DomainPackage.MESSAGE__TRANSLATIOINS:
+				getTranslatioins().clear();
+				return;
+		}
+		super.eUnset(featureID);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public boolean eIsSet(int featureID)
   {
-    switch (featureID)
-    {
-      case DomainPackage.MESSAGE__UID:
-        return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
-      case DomainPackage.MESSAGE__NAME:
-        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-      case DomainPackage.MESSAGE__TRANSLATIOINS:
-        return translatioins != null && !translatioins.isEmpty();
-    }
-    return super.eIsSet(featureID);
-  }
+		switch (featureID) {
+			case DomainPackage.MESSAGE__UID:
+				return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
+			case DomainPackage.MESSAGE__NAME:
+				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+			case DomainPackage.MESSAGE__TRANSLATIOINS:
+				return translatioins != null && !translatioins.isEmpty();
+		}
+		return super.eIsSet(featureID);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public String toString()
   {
-    if (eIsProxy()) return super.toString();
+		if (eIsProxy()) return super.toString();
 
-    StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (uid: ");
-    result.append(uid);
-    result.append(", name: ");
-    result.append(name);
-    result.append(')');
-    return result.toString();
-  }
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (uid: ");
+		result.append(uid);
+		result.append(", name: ");
+		result.append(name);
+		result.append(')');
+		return result.toString();
+	}
 
 } //MessageImpl

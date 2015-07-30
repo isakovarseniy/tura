@@ -17,160 +17,156 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link domain.impl.JavaScriptMapperImpl#getLibraryUrl <em>Library Url</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
 public class JavaScriptMapperImpl extends TypeMapperImpl implements JavaScriptMapper
 {
   /**
-   * The default value of the '{@link #getLibraryUrl() <em>Library Url</em>}' attribute.
-   * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getLibraryUrl() <em>Library Url</em>}' attribute.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getLibraryUrl()
-   * @generated
-   * @ordered
-   */
+	 * @see #getLibraryUrl()
+	 * @generated
+	 * @ordered
+	 */
   protected static final String LIBRARY_URL_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getLibraryUrl() <em>Library Url</em>}' attribute.
-   * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getLibraryUrl() <em>Library Url</em>}' attribute.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getLibraryUrl()
-   * @generated
-   * @ordered
-   */
+	 * @see #getLibraryUrl()
+	 * @generated
+	 * @ordered
+	 */
   protected String libraryUrl = LIBRARY_URL_EDEFAULT;
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   protected JavaScriptMapperImpl()
   {
-    super();
-  }
+		super();
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   protected EClass eStaticClass()
   {
-    return DomainPackage.Literals.JAVA_SCRIPT_MAPPER;
-  }
+		return DomainPackage.Literals.JAVA_SCRIPT_MAPPER;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public String getLibraryUrl()
   {
-    return libraryUrl;
-  }
+		return libraryUrl;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public void setLibraryUrl(String newLibraryUrl)
   {
-    String oldLibraryUrl = libraryUrl;
-    libraryUrl = newLibraryUrl;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.JAVA_SCRIPT_MAPPER__LIBRARY_URL, oldLibraryUrl, libraryUrl));
-  }
+		String oldLibraryUrl = libraryUrl;
+		libraryUrl = newLibraryUrl;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.JAVA_SCRIPT_MAPPER__LIBRARY_URL, oldLibraryUrl, libraryUrl));
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
-    switch (featureID)
-    {
-      case DomainPackage.JAVA_SCRIPT_MAPPER__LIBRARY_URL:
-        return getLibraryUrl();
-    }
-    return super.eGet(featureID, resolve, coreType);
-  }
+		switch (featureID) {
+			case DomainPackage.JAVA_SCRIPT_MAPPER__LIBRARY_URL:
+				return getLibraryUrl();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public void eSet(int featureID, Object newValue)
   {
-    switch (featureID)
-    {
-      case DomainPackage.JAVA_SCRIPT_MAPPER__LIBRARY_URL:
-        setLibraryUrl((String)newValue);
-        return;
-    }
-    super.eSet(featureID, newValue);
-  }
+		switch (featureID) {
+			case DomainPackage.JAVA_SCRIPT_MAPPER__LIBRARY_URL:
+				setLibraryUrl((String)newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public void eUnset(int featureID)
   {
-    switch (featureID)
-    {
-      case DomainPackage.JAVA_SCRIPT_MAPPER__LIBRARY_URL:
-        setLibraryUrl(LIBRARY_URL_EDEFAULT);
-        return;
-    }
-    super.eUnset(featureID);
-  }
+		switch (featureID) {
+			case DomainPackage.JAVA_SCRIPT_MAPPER__LIBRARY_URL:
+				setLibraryUrl(LIBRARY_URL_EDEFAULT);
+				return;
+		}
+		super.eUnset(featureID);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public boolean eIsSet(int featureID)
   {
-    switch (featureID)
-    {
-      case DomainPackage.JAVA_SCRIPT_MAPPER__LIBRARY_URL:
-        return LIBRARY_URL_EDEFAULT == null ? libraryUrl != null : !LIBRARY_URL_EDEFAULT.equals(libraryUrl);
-    }
-    return super.eIsSet(featureID);
-  }
+		switch (featureID) {
+			case DomainPackage.JAVA_SCRIPT_MAPPER__LIBRARY_URL:
+				return LIBRARY_URL_EDEFAULT == null ? libraryUrl != null : !LIBRARY_URL_EDEFAULT.equals(libraryUrl);
+		}
+		return super.eIsSet(featureID);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public String toString()
   {
-    if (eIsProxy()) return super.toString();
+		if (eIsProxy()) return super.toString();
 
-    StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (libraryUrl: ");
-    result.append(libraryUrl);
-    result.append(')');
-    return result.toString();
-  }
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (libraryUrl: ");
+		result.append(libraryUrl);
+		result.append(')');
+		return result.toString();
+	}
 
 } //JavaScriptMapperImpl

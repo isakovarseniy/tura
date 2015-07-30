@@ -19,78 +19,78 @@ public class DeploymentComponentTest extends TestCase
 {
 
   /**
-   * The fixture for this Deployment Component test case.
-   * <!-- begin-user-doc -->
+	 * The fixture for this Deployment Component test case.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   protected DeploymentComponent fixture = null;
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public static void main(String[] args)
   {
-    TestRunner.run(DeploymentComponentTest.class);
-  }
+		TestRunner.run(DeploymentComponentTest.class);
+	}
 
   /**
-   * Constructs a new Deployment Component test case with the given name.
-   * <!-- begin-user-doc -->
+	 * Constructs a new Deployment Component test case with the given name.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public DeploymentComponentTest(String name)
   {
-    super(name);
-  }
+		super(name);
+	}
 
   /**
-   * Sets the fixture for this Deployment Component test case.
-   * <!-- begin-user-doc -->
+	 * Sets the fixture for this Deployment Component test case.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   protected void setFixture(DeploymentComponent fixture)
   {
-    this.fixture = fixture;
-  }
+		this.fixture = fixture;
+	}
 
   /**
-   * Returns the fixture for this Deployment Component test case.
-   * <!-- begin-user-doc -->
+	 * Returns the fixture for this Deployment Component test case.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   protected DeploymentComponent getFixture()
   {
-    return fixture;
-  }
+		return fixture;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see junit.framework.TestCase#setUp()
-   * @generated
-   */
+	 * @see junit.framework.TestCase#setUp()
+	 * @generated
+	 */
   @Override
   protected void setUp() throws Exception
   {
-    setFixture(DomainFactory.eINSTANCE.createDeploymentComponent());
-  }
+		setFixture(DomainFactory.eINSTANCE.createDeploymentComponent());
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see junit.framework.TestCase#tearDown()
-   * @generated
-   */
+	 * @see junit.framework.TestCase#tearDown()
+	 * @generated
+	 */
   @Override
   protected void tearDown() throws Exception
   {
-    setFixture(null);
-  }
+		setFixture(null);
+	}
 
 } //DeploymentComponentTest

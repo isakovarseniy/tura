@@ -5,10 +5,6 @@ package message.diagram.edit.parts;
 
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
-import message.diagram.edit.policies.MessageLibraryItemSemanticEditPolicy;
-import message.diagram.edit.policies.OpenDiagramEditPolicy;
-import message.diagram.part.DomainVisualIDRegistry;
-import message.diagram.providers.DomainElementTypes;
 
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.MarginBorder;
@@ -46,8 +42,13 @@ import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.Font;
 import org.eclipse.swt.widgets.Display;
 import org.tura.metamodel.commons.editparts.OrderedDefaultSizeNodeFigure;
+
 import domain.DomainPackage;
 import domain.Orderable;
+import message.diagram.edit.policies.MessageLibraryItemSemanticEditPolicy;
+import message.diagram.edit.policies.OpenDiagramEditPolicy;
+import message.diagram.part.DomainVisualIDRegistry;
+import message.diagram.providers.DomainElementTypes;
 
 /**
  * @generated
@@ -55,44 +56,43 @@ import domain.Orderable;
 public class MessageLibraryEditPart extends ShapeNodeEditPart {
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static final int VISUAL_ID = 1702001;
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected IFigure contentPane;
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected IFigure primaryShape;
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public MessageLibraryEditPart(View view) {
 		super(view);
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected void createDefaultEditPolicies() {
-		installEditPolicy(EditPolicyRoles.CREATION_ROLE, new CreationEditPolicyWithCustomReparent(
-				DomainVisualIDRegistry.TYPED_INSTANCE));
+		installEditPolicy(EditPolicyRoles.CREATION_ROLE,
+				new CreationEditPolicyWithCustomReparent(DomainVisualIDRegistry.TYPED_INSTANCE));
 		super.createDefaultEditPolicies();
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE, new MessageLibraryItemSemanticEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
-		installEditPolicy(EditPolicyRoles.OPEN_ROLE, new OpenDiagramEditPolicy());
-		// XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
+		installEditPolicy(EditPolicyRoles.OPEN_ROLE, new OpenDiagramEditPolicy()); // XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
 		// removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected LayoutEditPolicy createLayoutEditPolicy() {
 		org.eclipse.gmf.runtime.diagram.ui.editpolicies.LayoutEditPolicy lep = new org.eclipse.gmf.runtime.diagram.ui.editpolicies.LayoutEditPolicy() {
 
@@ -116,26 +116,26 @@ public class MessageLibraryEditPart extends ShapeNodeEditPart {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected IFigure createNodeShape() {
 		return primaryShape = new MessageLibraryFigure();
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public MessageLibraryFigure getPrimaryShape() {
 		return (MessageLibraryFigure) primaryShape;
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected boolean addFixedChild(EditPart childEditPart) {
 		if (childEditPart instanceof MessageLibraryNameEditPart) {
-			((MessageLibraryNameEditPart) childEditPart).setLabel(getPrimaryShape()
-					.getFigureMessageLibraryLabelFigure());
+			((MessageLibraryNameEditPart) childEditPart)
+					.setLabel(getPrimaryShape().getFigureMessageLibraryLabelFigure());
 			return true;
 		}
 		if (childEditPart instanceof MessageLibraryMessageLibraryMessagesCompartmentEditPart) {
@@ -148,8 +148,8 @@ public class MessageLibraryEditPart extends ShapeNodeEditPart {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected boolean removeFixedChild(EditPart childEditPart) {
 		if (childEditPart instanceof MessageLibraryNameEditPart) {
 			return true;
@@ -163,8 +163,8 @@ public class MessageLibraryEditPart extends ShapeNodeEditPart {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected void addChildVisual(EditPart childEditPart, int index) {
 		if (addFixedChild(childEditPart)) {
 			return;
@@ -173,8 +173,8 @@ public class MessageLibraryEditPart extends ShapeNodeEditPart {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected void removeChildVisual(EditPart childEditPart) {
 		if (removeFixedChild(childEditPart)) {
 			return;
@@ -183,8 +183,8 @@ public class MessageLibraryEditPart extends ShapeNodeEditPart {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected IFigure getContentPaneFor(IGraphicalEditPart editPart) {
 		if (editPart instanceof MessageLibraryMessageLibraryMessagesCompartmentEditPart) {
 			return getPrimaryShape().getMessageLibraryMessagesCompartmentFigure();
@@ -193,8 +193,8 @@ public class MessageLibraryEditPart extends ShapeNodeEditPart {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected NodeFigure createNodePlate() {
 		DefaultSizeNodeFigure result = new OrderedDefaultSizeNodeFigure(40, 40);
 		result.addPropertyChangeListener("order", new PropertyChangeListener() {
@@ -204,9 +204,8 @@ public class MessageLibraryEditPart extends ShapeNodeEditPart {
 				EObject obj = ((View) getModel()).getElement();
 				if (obj instanceof Orderable) {
 					EditingDomain editingDomain = getEditingDomain();
-					editingDomain.getCommandStack().execute(
-							SetCommand.create(editingDomain, obj, DomainPackage.eINSTANCE.getOrderable_Order(),
-									evt.getNewValue()));
+					editingDomain.getCommandStack().execute(SetCommand.create(editingDomain, obj,
+							DomainPackage.eINSTANCE.getOrderable_Order(), evt.getNewValue()));
 
 				}
 			}
@@ -216,13 +215,13 @@ public class MessageLibraryEditPart extends ShapeNodeEditPart {
 	}
 
 	/**
-	 * Creates figure for this edit part.
-	 * 
-	 * Body of this method does not depend on settings in generation model
-	 * so you may safely remove <i>generated</i> tag and modify it.
-	 * 
-	 * @generated
-	 */
+	* Creates figure for this edit part.
+	* 
+	* Body of this method does not depend on settings in generation model
+	* so you may safely remove <i>generated</i> tag and modify it.
+	* 
+	* @generated
+	*/
 	protected NodeFigure createNodeFigure() {
 		NodeFigure figure = createNodePlate();
 		figure.setLayoutManager(new StackLayout());
@@ -233,11 +232,11 @@ public class MessageLibraryEditPart extends ShapeNodeEditPart {
 	}
 
 	/**
-	 * Default implementation treats passed figure as content pane.
-	 * Respects layout one may have set for generated figure.
-	 * @param nodeShape instance of generated figure class
-	 * @generated
-	 */
+	* Default implementation treats passed figure as content pane.
+	* Respects layout one may have set for generated figure.
+	* @param nodeShape instance of generated figure class
+	* @generated
+	*/
 	protected IFigure setupContentPane(IFigure nodeShape) {
 		if (nodeShape.getLayoutManager() == null) {
 			ConstrainedToolbarLayout layout = new ConstrainedToolbarLayout();
@@ -248,8 +247,8 @@ public class MessageLibraryEditPart extends ShapeNodeEditPart {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public IFigure getContentPane() {
 		if (contentPane != null) {
 			return contentPane;
@@ -258,8 +257,8 @@ public class MessageLibraryEditPart extends ShapeNodeEditPart {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected void setForegroundColor(Color color) {
 		if (primaryShape != null) {
 			primaryShape.setForegroundColor(color);
@@ -267,8 +266,8 @@ public class MessageLibraryEditPart extends ShapeNodeEditPart {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected void setBackgroundColor(Color color) {
 		if (primaryShape != null) {
 			primaryShape.setBackgroundColor(color);
@@ -276,8 +275,8 @@ public class MessageLibraryEditPart extends ShapeNodeEditPart {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected void setLineWidth(int width) {
 		if (primaryShape instanceof Shape) {
 			((Shape) primaryShape).setLineWidth(width);
@@ -285,8 +284,8 @@ public class MessageLibraryEditPart extends ShapeNodeEditPart {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected void setLineType(int style) {
 		if (primaryShape instanceof Shape) {
 			((Shape) primaryShape).setLineStyle(style);
@@ -294,15 +293,15 @@ public class MessageLibraryEditPart extends ShapeNodeEditPart {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public EditPart getPrimaryChildEditPart() {
 		return getChildBySemanticHint(DomainVisualIDRegistry.getType(MessageLibraryNameEditPart.VISUAL_ID));
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public EditPart getTargetEditPart(Request request) {
 		if (request instanceof CreateViewAndElementRequest) {
 			CreateElementRequestAdapter adapter = ((CreateViewAndElementRequest) request).getViewAndElementDescriptor()
@@ -317,8 +316,8 @@ public class MessageLibraryEditPart extends ShapeNodeEditPart {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected void handleNotificationEvent(Notification event) {
 		if (event.getNotifier() == getModel()
 				&& EcorePackage.eINSTANCE.getEModelElement_EAnnotations().equals(event.getFeature())) {
@@ -365,8 +364,8 @@ public class MessageLibraryEditPart extends ShapeNodeEditPart {
 
 			fFigureMessageLibraryLabelFigure.setFont(FFIGUREMESSAGELIBRARYLABELFIGURE_FONT);
 
-			fFigureMessageLibraryLabelFigure.setMaximumSize(new Dimension(getMapMode().DPtoLP(10000), getMapMode()
-					.DPtoLP(50)));
+			fFigureMessageLibraryLabelFigure
+					.setMaximumSize(new Dimension(getMapMode().DPtoLP(10000), getMapMode().DPtoLP(50)));
 
 			this.add(fFigureMessageLibraryLabelFigure);
 
@@ -407,6 +406,7 @@ public class MessageLibraryEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	static final Font FFIGUREMESSAGELIBRARYLABELFIGURE_FONT = new Font(Display.getCurrent(), "Palatino", 12, SWT.ITALIC);
+	static final Font FFIGUREMESSAGELIBRARYLABELFIGURE_FONT = new Font(Display.getCurrent(), "Palatino", 12,
+			SWT.ITALIC);
 
 }

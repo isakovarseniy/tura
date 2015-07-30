@@ -46,16 +46,17 @@ import domain.TypeExtension;
 /**
  * @generated
  */
-public class DomainNavigatorLabelProvider extends LabelProvider implements ICommonLabelProvider, ITreePathLabelProvider {
+public class DomainNavigatorLabelProvider extends LabelProvider
+		implements ICommonLabelProvider, ITreePathLabelProvider {
 
 	/**
 	 * @generated
 	 */
 	static {
-		DomainDiagramEditorPlugin.getInstance().getImageRegistry()
-				.put("Navigator?UnknownElement", ImageDescriptor.getMissingImageDescriptor()); //$NON-NLS-1$
-		DomainDiagramEditorPlugin.getInstance().getImageRegistry()
-				.put("Navigator?ImageNotFound", ImageDescriptor.getMissingImageDescriptor()); //$NON-NLS-1$
+		DomainDiagramEditorPlugin.getInstance().getImageRegistry().put("Navigator?UnknownElement", //$NON-NLS-1$
+				ImageDescriptor.getMissingImageDescriptor());
+		DomainDiagramEditorPlugin.getInstance().getImageRegistry().put("Navigator?ImageNotFound", //$NON-NLS-1$
+				ImageDescriptor.getMissingImageDescriptor());
 	}
 
 	/**
@@ -103,33 +104,33 @@ public class DomainNavigatorLabelProvider extends LabelProvider implements IComm
 	 */
 	public Image getImage(View view) {
 		switch (DomainVisualIDRegistry.getVisualID(view)) {
-		case EnumaratorEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?TopLevelNode?http://tura.org/2013/v1/domain?Enumarator", DomainElementTypes.Enumarator_102005); //$NON-NLS-1$
-		case AttributeEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Node?http://tura.org/2013/v1/domain?Attribute", DomainElementTypes.Attribute_103001); //$NON-NLS-1$
-		case TypeEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?TopLevelNode?http://tura.org/2013/v1/domain?Type", DomainElementTypes.Type_102002); //$NON-NLS-1$
-		case EnumAttributeEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Node?http://tura.org/2013/v1/domain?EnumAttribute", DomainElementTypes.EnumAttribute_103005); //$NON-NLS-1$
-		case TypeExtensionEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Link?http://tura.org/2013/v1/domain?TypeExtension", DomainElementTypes.TypeExtension_104001); //$NON-NLS-1$
-		case OperationEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Node?http://tura.org/2013/v1/domain?Operation", DomainElementTypes.Operation_103002); //$NON-NLS-1$
 		case TypeDefinitionEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Diagram?http://tura.org/2013/v1/domain?TypeDefinition", DomainElementTypes.TypeDefinition_101000); //$NON-NLS-1$
-		case PrimitiveEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?TopLevelNode?http://tura.org/2013/v1/domain?Primitive", DomainElementTypes.Primitive_102004); //$NON-NLS-1$
+			return getImage("Navigator?Diagram?http://tura.org/2013/v1/domain?TypeDefinition", //$NON-NLS-1$
+					DomainElementTypes.TypeDefinition_101000);
 		case TypeReferenceEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?TopLevelNode?http://tura.org/2013/v1/domain?TypeReference", DomainElementTypes.TypeReference_102001); //$NON-NLS-1$
+			return getImage("Navigator?TopLevelNode?http://tura.org/2013/v1/domain?TypeReference", //$NON-NLS-1$
+					DomainElementTypes.TypeReference_102001);
+		case TypeEditPart.VISUAL_ID:
+			return getImage("Navigator?TopLevelNode?http://tura.org/2013/v1/domain?Type", //$NON-NLS-1$
+					DomainElementTypes.Type_102002);
+		case PrimitiveEditPart.VISUAL_ID:
+			return getImage("Navigator?TopLevelNode?http://tura.org/2013/v1/domain?Primitive", //$NON-NLS-1$
+					DomainElementTypes.Primitive_102004);
+		case EnumaratorEditPart.VISUAL_ID:
+			return getImage("Navigator?TopLevelNode?http://tura.org/2013/v1/domain?Enumarator", //$NON-NLS-1$
+					DomainElementTypes.Enumarator_102005);
+		case AttributeEditPart.VISUAL_ID:
+			return getImage("Navigator?Node?http://tura.org/2013/v1/domain?Attribute", //$NON-NLS-1$
+					DomainElementTypes.Attribute_103001);
+		case OperationEditPart.VISUAL_ID:
+			return getImage("Navigator?Node?http://tura.org/2013/v1/domain?Operation", //$NON-NLS-1$
+					DomainElementTypes.Operation_103002);
+		case EnumAttributeEditPart.VISUAL_ID:
+			return getImage("Navigator?Node?http://tura.org/2013/v1/domain?EnumAttribute", //$NON-NLS-1$
+					DomainElementTypes.EnumAttribute_103005);
+		case TypeExtensionEditPart.VISUAL_ID:
+			return getImage("Navigator?Link?http://tura.org/2013/v1/domain?TypeExtension", //$NON-NLS-1$
+					DomainElementTypes.TypeExtension_104001);
 		}
 		return getImage("Navigator?UnknownElement", null); //$NON-NLS-1$
 	}
@@ -188,24 +189,24 @@ public class DomainNavigatorLabelProvider extends LabelProvider implements IComm
 			return getUnresolvedDomainElementProxyText(view);
 		}
 		switch (DomainVisualIDRegistry.getVisualID(view)) {
+		case TypeDefinitionEditPart.VISUAL_ID:
+			return getTypeDefinition_101000Text(view);
+		case TypeReferenceEditPart.VISUAL_ID:
+			return getTypeReference_102001Text(view);
+		case TypeEditPart.VISUAL_ID:
+			return getType_102002Text(view);
+		case PrimitiveEditPart.VISUAL_ID:
+			return getPrimitive_102004Text(view);
 		case EnumaratorEditPart.VISUAL_ID:
 			return getEnumarator_102005Text(view);
 		case AttributeEditPart.VISUAL_ID:
 			return getAttribute_103001Text(view);
-		case TypeEditPart.VISUAL_ID:
-			return getType_102002Text(view);
+		case OperationEditPart.VISUAL_ID:
+			return getOperation_103002Text(view);
 		case EnumAttributeEditPart.VISUAL_ID:
 			return getEnumAttribute_103005Text(view);
 		case TypeExtensionEditPart.VISUAL_ID:
 			return getTypeExtension_104001Text(view);
-		case OperationEditPart.VISUAL_ID:
-			return getOperation_103002Text(view);
-		case TypeDefinitionEditPart.VISUAL_ID:
-			return getTypeDefinition_101000Text(view);
-		case PrimitiveEditPart.VISUAL_ID:
-			return getPrimitive_102004Text(view);
-		case TypeReferenceEditPart.VISUAL_ID:
-			return getTypeReference_102001Text(view);
 		}
 		return getUnknownElementText(view);
 	}

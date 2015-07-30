@@ -20,174 +20,167 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link domain.impl.DropDownSelectionImpl#getSelection <em>Selection</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
 public class DropDownSelectionImpl extends OptionSelectionImpl implements DropDownSelection
 {
   /**
-   * The cached value of the '{@link #getSelection() <em>Selection</em>}' containment reference.
-   * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getSelection() <em>Selection</em>}' containment reference.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getSelection()
-   * @generated
-   * @ordered
-   */
+	 * @see #getSelection()
+	 * @generated
+	 * @ordered
+	 */
   protected Selection selection;
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   protected DropDownSelectionImpl()
   {
-    super();
-  }
+		super();
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   protected EClass eStaticClass()
   {
-    return DomainPackage.Literals.DROP_DOWN_SELECTION;
-  }
+		return DomainPackage.Literals.DROP_DOWN_SELECTION;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public Selection getSelection()
   {
-    return selection;
-  }
+		return selection;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public NotificationChain basicSetSelection(Selection newSelection, NotificationChain msgs)
   {
-    Selection oldSelection = selection;
-    selection = newSelection;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DomainPackage.DROP_DOWN_SELECTION__SELECTION, oldSelection, newSelection);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
+		Selection oldSelection = selection;
+		selection = newSelection;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DomainPackage.DROP_DOWN_SELECTION__SELECTION, oldSelection, newSelection);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public void setSelection(Selection newSelection)
   {
-    if (newSelection != selection)
-    {
-      NotificationChain msgs = null;
-      if (selection != null)
-        msgs = ((InternalEObject)selection).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DomainPackage.DROP_DOWN_SELECTION__SELECTION, null, msgs);
-      if (newSelection != null)
-        msgs = ((InternalEObject)newSelection).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - DomainPackage.DROP_DOWN_SELECTION__SELECTION, null, msgs);
-      msgs = basicSetSelection(newSelection, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.DROP_DOWN_SELECTION__SELECTION, newSelection, newSelection));
-  }
+		if (newSelection != selection) {
+			NotificationChain msgs = null;
+			if (selection != null)
+				msgs = ((InternalEObject)selection).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DomainPackage.DROP_DOWN_SELECTION__SELECTION, null, msgs);
+			if (newSelection != null)
+				msgs = ((InternalEObject)newSelection).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - DomainPackage.DROP_DOWN_SELECTION__SELECTION, null, msgs);
+			msgs = basicSetSelection(newSelection, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.DROP_DOWN_SELECTION__SELECTION, newSelection, newSelection));
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
-    switch (featureID)
-    {
-      case DomainPackage.DROP_DOWN_SELECTION__SELECTION:
-        return basicSetSelection(null, msgs);
-    }
-    return super.eInverseRemove(otherEnd, featureID, msgs);
-  }
+		switch (featureID) {
+			case DomainPackage.DROP_DOWN_SELECTION__SELECTION:
+				return basicSetSelection(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
-    switch (featureID)
-    {
-      case DomainPackage.DROP_DOWN_SELECTION__SELECTION:
-        return getSelection();
-    }
-    return super.eGet(featureID, resolve, coreType);
-  }
+		switch (featureID) {
+			case DomainPackage.DROP_DOWN_SELECTION__SELECTION:
+				return getSelection();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public void eSet(int featureID, Object newValue)
   {
-    switch (featureID)
-    {
-      case DomainPackage.DROP_DOWN_SELECTION__SELECTION:
-        setSelection((Selection)newValue);
-        return;
-    }
-    super.eSet(featureID, newValue);
-  }
+		switch (featureID) {
+			case DomainPackage.DROP_DOWN_SELECTION__SELECTION:
+				setSelection((Selection)newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public void eUnset(int featureID)
   {
-    switch (featureID)
-    {
-      case DomainPackage.DROP_DOWN_SELECTION__SELECTION:
-        setSelection((Selection)null);
-        return;
-    }
-    super.eUnset(featureID);
-  }
+		switch (featureID) {
+			case DomainPackage.DROP_DOWN_SELECTION__SELECTION:
+				setSelection((Selection)null);
+				return;
+		}
+		super.eUnset(featureID);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public boolean eIsSet(int featureID)
   {
-    switch (featureID)
-    {
-      case DomainPackage.DROP_DOWN_SELECTION__SELECTION:
-        return selection != null;
-    }
-    return super.eIsSet(featureID);
-  }
+		switch (featureID) {
+			case DomainPackage.DROP_DOWN_SELECTION__SELECTION:
+				return selection != null;
+		}
+		return super.eIsSet(featureID);
+	}
 
 } //DropDownSelectionImpl

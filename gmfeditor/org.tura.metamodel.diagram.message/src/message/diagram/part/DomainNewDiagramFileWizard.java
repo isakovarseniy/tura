@@ -6,8 +6,6 @@ package message.diagram.part;
 import java.io.IOException;
 import java.util.LinkedList;
 
-import message.diagram.edit.parts.MessagesEditPart;
-
 import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.commands.operations.OperationHistoryFactory;
 import org.eclipse.core.resources.IFile;
@@ -33,30 +31,33 @@ import org.eclipse.osgi.util.NLS;
 import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.dialogs.WizardNewFileCreationPage;
 
+import message.diagram.edit.parts.MessagesEditPart;
+
 /**
  * @generated
  */
 public class DomainNewDiagramFileWizard extends Wizard {
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private WizardNewFileCreationPage myFileCreationPage;
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private ModelElementSelectionPage diagramRootElementSelectionPage;
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private TransactionalEditingDomain myEditingDomain;
 
 	/**
-	 * @generated
-	 */
-	public DomainNewDiagramFileWizard(URI domainModelURI, EObject diagramRoot, TransactionalEditingDomain editingDomain) {
+	* @generated
+	*/
+	public DomainNewDiagramFileWizard(URI domainModelURI, EObject diagramRoot,
+			TransactionalEditingDomain editingDomain) {
 		assert domainModelURI != null : "Domain model uri must be specified"; //$NON-NLS-1$
 		assert diagramRoot != null : "Doagram root element must be specified"; //$NON-NLS-1$
 		assert editingDomain != null : "Editing domain must be specified"; //$NON-NLS-1$
@@ -64,8 +65,8 @@ public class DomainNewDiagramFileWizard extends Wizard {
 		myFileCreationPage = new WizardNewFileCreationPage(Messages.DomainNewDiagramFileWizard_CreationPageName,
 				StructuredSelection.EMPTY);
 		myFileCreationPage.setTitle(Messages.DomainNewDiagramFileWizard_CreationPageTitle);
-		myFileCreationPage.setDescription(NLS.bind(Messages.DomainNewDiagramFileWizard_CreationPageDescription,
-				MessagesEditPart.MODEL_ID));
+		myFileCreationPage.setDescription(
+				NLS.bind(Messages.DomainNewDiagramFileWizard_CreationPageDescription, MessagesEditPart.MODEL_ID));
 		IPath filePath;
 		String fileName = URI.decode(domainModelURI.trimFileExtension().lastSegment());
 		if (domainModelURI.isPlatformResource()) {
@@ -91,16 +92,16 @@ public class DomainNewDiagramFileWizard extends Wizard {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public void addPages() {
 		addPage(myFileCreationPage);
 		addPage(diagramRootElementSelectionPage);
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public boolean performFinish() {
 		LinkedList<IFile> affectedFiles = new LinkedList<IFile>();
 		IFile diagramFile = myFileCreationPage.createNewFile();
@@ -114,8 +115,8 @@ public class DomainNewDiagramFileWizard extends Wizard {
 
 			protected CommandResult doExecuteWithResult(IProgressMonitor monitor, IAdaptable info)
 					throws ExecutionException {
-				int diagramVID = DomainVisualIDRegistry.getDiagramVisualID(diagramRootElementSelectionPage
-						.getModelElement());
+				int diagramVID = DomainVisualIDRegistry
+						.getDiagramVisualID(diagramRootElementSelectionPage.getModelElement());
 				if (diagramVID != MessagesEditPart.VISUAL_ID) {
 					return CommandResult.newErrorCommandResult(Messages.DomainNewDiagramFileWizard_IncorrectRootError);
 				}
@@ -140,37 +141,37 @@ public class DomainNewDiagramFileWizard extends Wizard {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private static class DiagramRootElementSelectionPage extends ModelElementSelectionPage {
 
 		/**
-		 * @generated
-		 */
+		* @generated
+		*/
 		protected DiagramRootElementSelectionPage(String pageName) {
 			super(pageName);
 		}
 
 		/**
-		 * @generated
-		 */
+		* @generated
+		*/
 		protected String getSelectionTitle() {
 			return Messages.DomainNewDiagramFileWizard_RootSelectionPageSelectionTitle;
 		}
 
 		/**
-		 * @generated
-		 */
+		* @generated
+		*/
 		protected boolean validatePage() {
-			if (selectedModelElement == null) {
+			if (getModelElement() == null) {
 				setErrorMessage(Messages.DomainNewDiagramFileWizard_RootSelectionPageNoSelectionMessage);
 				return false;
 			}
-			boolean result = ViewService.getInstance().provides(
-					new CreateDiagramViewOperation(new EObjectAdapter(selectedModelElement), MessagesEditPart.MODEL_ID,
-							DomainDiagramEditorPlugin.DIAGRAM_PREFERENCES_HINT));
-			setErrorMessage(result ? null
-					: Messages.DomainNewDiagramFileWizard_RootSelectionPageInvalidSelectionMessage);
+			boolean result = ViewService.getInstance()
+					.provides(new CreateDiagramViewOperation(new EObjectAdapter(getModelElement()),
+							MessagesEditPart.MODEL_ID, DomainDiagramEditorPlugin.DIAGRAM_PREFERENCES_HINT));
+			setErrorMessage(
+					result ? null : Messages.DomainNewDiagramFileWizard_RootSelectionPageInvalidSelectionMessage);
 			return result;
 		}
 	}

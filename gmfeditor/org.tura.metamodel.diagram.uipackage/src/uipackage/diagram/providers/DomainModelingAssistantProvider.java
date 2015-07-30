@@ -37,67 +37,6 @@ public class DomainModelingAssistantProvider extends ModelingAssistantProvider {
 	/**
 	 * @generated
 	 */
-	public List getTypesForPopupBar(IAdaptable host) {
-		IGraphicalEditPart editPart = (IGraphicalEditPart) host.getAdapter(IGraphicalEditPart.class);
-		if (editPart instanceof UIPackageEditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(1);
-			types.add(DomainElementTypes.Form_1002002);
-			return types;
-		}
-		if (editPart instanceof FormEditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(3);
-			types.add(DomainElementTypes.FormView_1003001);
-			types.add(DomainElementTypes.FormDataControls_1003002);
-			types.add(DomainElementTypes.FormParameter_1003003);
-			return types;
-		}
-		return Collections.EMPTY_LIST;
-	}
-
-	/**
-	 * @generated
-	 */
-	public List getRelTypesOnSource(IAdaptable source) {
-		IGraphicalEditPart sourceEditPart = (IGraphicalEditPart) source.getAdapter(IGraphicalEditPart.class);
-		return Collections.EMPTY_LIST;
-	}
-
-	/**
-	 * @generated
-	 */
-	public List getRelTypesOnTarget(IAdaptable target) {
-		IGraphicalEditPart targetEditPart = (IGraphicalEditPart) target.getAdapter(IGraphicalEditPart.class);
-		return Collections.EMPTY_LIST;
-	}
-
-	/**
-	 * @generated
-	 */
-	public List getRelTypesOnSourceAndTarget(IAdaptable source, IAdaptable target) {
-		IGraphicalEditPart sourceEditPart = (IGraphicalEditPart) source.getAdapter(IGraphicalEditPart.class);
-		IGraphicalEditPart targetEditPart = (IGraphicalEditPart) target.getAdapter(IGraphicalEditPart.class);
-		return Collections.EMPTY_LIST;
-	}
-
-	/**
-	 * @generated
-	 */
-	public List getTypesForSource(IAdaptable target, IElementType relationshipType) {
-		IGraphicalEditPart targetEditPart = (IGraphicalEditPart) target.getAdapter(IGraphicalEditPart.class);
-		return Collections.EMPTY_LIST;
-	}
-
-	/**
-	 * @generated
-	 */
-	public List getTypesForTarget(IAdaptable source, IElementType relationshipType) {
-		IGraphicalEditPart sourceEditPart = (IGraphicalEditPart) source.getAdapter(IGraphicalEditPart.class);
-		return Collections.EMPTY_LIST;
-	}
-
-	/**
-	 * @generated
-	 */
 	public EObject selectExistingElementForSource(IAdaptable target, IElementType relationshipType) {
 		return selectExistingElement(target, getTypesForSource(target, relationshipType));
 	}
@@ -147,8 +86,8 @@ public class DomainModelingAssistantProvider extends ModelingAssistantProvider {
 	 */
 	protected EObject selectElement(EObject[] elements) {
 		Shell shell = Display.getCurrent().getActiveShell();
-		ILabelProvider labelProvider = new AdapterFactoryLabelProvider(DomainDiagramEditorPlugin.getInstance()
-				.getItemProvidersAdapterFactory());
+		ILabelProvider labelProvider = new AdapterFactoryLabelProvider(
+				DomainDiagramEditorPlugin.getInstance().getItemProvidersAdapterFactory());
 		ElementListSelectionDialog dialog = new ElementListSelectionDialog(shell, labelProvider);
 		dialog.setMessage(Messages.DomainModelingAssistantProviderMessage);
 		dialog.setTitle(Messages.DomainModelingAssistantProviderTitle);

@@ -24,418 +24,406 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link domain.impl.DomainArtifactImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.impl.DomainArtifactImpl#getName <em>Name</em>}</li>
  *   <li>{@link domain.impl.DomainArtifactImpl#getParent <em>Parent</em>}</li>
  *   <li>{@link domain.impl.DomainArtifactImpl#getArtifact <em>Artifact</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
 public class DomainArtifactImpl extends EObjectImpl implements DomainArtifact
 {
   /**
-   * The default value of the '{@link #getUid() <em>Uid</em>}' attribute.
-   * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getUid() <em>Uid</em>}' attribute.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getUid()
-   * @generated
-   * @ordered
-   */
+	 * @see #getUid()
+	 * @generated
+	 * @ordered
+	 */
   protected static final String UID_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getUid() <em>Uid</em>}' attribute.
-   * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getUid() <em>Uid</em>}' attribute.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getUid()
-   * @generated
-   * @ordered
-   */
+	 * @see #getUid()
+	 * @generated
+	 * @ordered
+	 */
   protected String uid = UID_EDEFAULT;
 
   /**
-   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getName()
-   * @generated
-   * @ordered
-   */
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
   protected static final String NAME_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getName()
-   * @generated
-   * @ordered
-   */
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
   protected String name = NAME_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getArtifact() <em>Artifact</em>}' reference.
-   * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getArtifact() <em>Artifact</em>}' reference.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getArtifact()
-   * @generated
-   * @ordered
-   */
+	 * @see #getArtifact()
+	 * @generated
+	 * @ordered
+	 */
   protected Artifacts artifact;
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   protected DomainArtifactImpl()
   {
-    super();
-  }
+		super();
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   protected EClass eStaticClass()
   {
-    return DomainPackage.Literals.DOMAIN_ARTIFACT;
-  }
+		return DomainPackage.Literals.DOMAIN_ARTIFACT;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public String getUid()
   {
-    return uid;
-  }
+		return uid;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public void setUid(String newUid)
   {
-    String oldUid = uid;
-    uid = newUid;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.DOMAIN_ARTIFACT__UID, oldUid, uid));
-  }
+		String oldUid = uid;
+		uid = newUid;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.DOMAIN_ARTIFACT__UID, oldUid, uid));
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public String getName()
   {
-    return name;
-  }
+		return name;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public void setName(String newName)
   {
-    String oldName = name;
-    name = newName;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.DOMAIN_ARTIFACT__NAME, oldName, name));
-  }
+		String oldName = name;
+		name = newName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.DOMAIN_ARTIFACT__NAME, oldName, name));
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public DomainArtifacts getParent()
   {
-    if (eContainerFeatureID() != DomainPackage.DOMAIN_ARTIFACT__PARENT) return null;
-    return (DomainArtifacts)eContainer();
-  }
+		if (eContainerFeatureID() != DomainPackage.DOMAIN_ARTIFACT__PARENT) return null;
+		return (DomainArtifacts)eInternalContainer();
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public NotificationChain basicSetParent(DomainArtifacts newParent, NotificationChain msgs)
   {
-    msgs = eBasicSetContainer((InternalEObject)newParent, DomainPackage.DOMAIN_ARTIFACT__PARENT, msgs);
-    return msgs;
-  }
+		msgs = eBasicSetContainer((InternalEObject)newParent, DomainPackage.DOMAIN_ARTIFACT__PARENT, msgs);
+		return msgs;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public void setParent(DomainArtifacts newParent)
   {
-    if (newParent != eInternalContainer() || (eContainerFeatureID() != DomainPackage.DOMAIN_ARTIFACT__PARENT && newParent != null))
-    {
-      if (EcoreUtil.isAncestor(this, newParent))
-        throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
-      NotificationChain msgs = null;
-      if (eInternalContainer() != null)
-        msgs = eBasicRemoveFromContainer(msgs);
-      if (newParent != null)
-        msgs = ((InternalEObject)newParent).eInverseAdd(this, DomainPackage.DOMAIN_ARTIFACTS__DOMAIN_ARTIFACT, DomainArtifacts.class, msgs);
-      msgs = basicSetParent(newParent, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.DOMAIN_ARTIFACT__PARENT, newParent, newParent));
-  }
+		if (newParent != eInternalContainer() || (eContainerFeatureID() != DomainPackage.DOMAIN_ARTIFACT__PARENT && newParent != null)) {
+			if (EcoreUtil.isAncestor(this, newParent))
+				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+			NotificationChain msgs = null;
+			if (eInternalContainer() != null)
+				msgs = eBasicRemoveFromContainer(msgs);
+			if (newParent != null)
+				msgs = ((InternalEObject)newParent).eInverseAdd(this, DomainPackage.DOMAIN_ARTIFACTS__DOMAIN_ARTIFACT, DomainArtifacts.class, msgs);
+			msgs = basicSetParent(newParent, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.DOMAIN_ARTIFACT__PARENT, newParent, newParent));
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public Artifacts getArtifact()
   {
-    if (artifact != null && artifact.eIsProxy())
-    {
-      InternalEObject oldArtifact = (InternalEObject)artifact;
-      artifact = (Artifacts)eResolveProxy(oldArtifact);
-      if (artifact != oldArtifact)
-      {
-        if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, DomainPackage.DOMAIN_ARTIFACT__ARTIFACT, oldArtifact, artifact));
-      }
-    }
-    return artifact;
-  }
+		if (artifact != null && artifact.eIsProxy()) {
+			InternalEObject oldArtifact = (InternalEObject)artifact;
+			artifact = (Artifacts)eResolveProxy(oldArtifact);
+			if (artifact != oldArtifact) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, DomainPackage.DOMAIN_ARTIFACT__ARTIFACT, oldArtifact, artifact));
+			}
+		}
+		return artifact;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public Artifacts basicGetArtifact()
   {
-    return artifact;
-  }
+		return artifact;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public NotificationChain basicSetArtifact(Artifacts newArtifact, NotificationChain msgs)
   {
-    Artifacts oldArtifact = artifact;
-    artifact = newArtifact;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DomainPackage.DOMAIN_ARTIFACT__ARTIFACT, oldArtifact, newArtifact);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
+		Artifacts oldArtifact = artifact;
+		artifact = newArtifact;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DomainPackage.DOMAIN_ARTIFACT__ARTIFACT, oldArtifact, newArtifact);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public void setArtifact(Artifacts newArtifact)
   {
-    if (newArtifact != artifact)
-    {
-      NotificationChain msgs = null;
-      if (artifact != null)
-        msgs = ((InternalEObject)artifact).eInverseRemove(this, DomainPackage.ARTIFACTS__PARENT, Artifacts.class, msgs);
-      if (newArtifact != null)
-        msgs = ((InternalEObject)newArtifact).eInverseAdd(this, DomainPackage.ARTIFACTS__PARENT, Artifacts.class, msgs);
-      msgs = basicSetArtifact(newArtifact, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.DOMAIN_ARTIFACT__ARTIFACT, newArtifact, newArtifact));
-  }
+		if (newArtifact != artifact) {
+			NotificationChain msgs = null;
+			if (artifact != null)
+				msgs = ((InternalEObject)artifact).eInverseRemove(this, DomainPackage.ARTIFACTS__PARENT, Artifacts.class, msgs);
+			if (newArtifact != null)
+				msgs = ((InternalEObject)newArtifact).eInverseAdd(this, DomainPackage.ARTIFACTS__PARENT, Artifacts.class, msgs);
+			msgs = basicSetArtifact(newArtifact, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.DOMAIN_ARTIFACT__ARTIFACT, newArtifact, newArtifact));
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
-    switch (featureID)
-    {
-      case DomainPackage.DOMAIN_ARTIFACT__PARENT:
-        if (eInternalContainer() != null)
-          msgs = eBasicRemoveFromContainer(msgs);
-        return basicSetParent((DomainArtifacts)otherEnd, msgs);
-      case DomainPackage.DOMAIN_ARTIFACT__ARTIFACT:
-        if (artifact != null)
-          msgs = ((InternalEObject)artifact).eInverseRemove(this, DomainPackage.ARTIFACTS__PARENT, Artifacts.class, msgs);
-        return basicSetArtifact((Artifacts)otherEnd, msgs);
-    }
-    return super.eInverseAdd(otherEnd, featureID, msgs);
-  }
+		switch (featureID) {
+			case DomainPackage.DOMAIN_ARTIFACT__PARENT:
+				if (eInternalContainer() != null)
+					msgs = eBasicRemoveFromContainer(msgs);
+				return basicSetParent((DomainArtifacts)otherEnd, msgs);
+			case DomainPackage.DOMAIN_ARTIFACT__ARTIFACT:
+				if (artifact != null)
+					msgs = ((InternalEObject)artifact).eInverseRemove(this, DomainPackage.ARTIFACTS__PARENT, Artifacts.class, msgs);
+				return basicSetArtifact((Artifacts)otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
-    switch (featureID)
-    {
-      case DomainPackage.DOMAIN_ARTIFACT__PARENT:
-        return basicSetParent(null, msgs);
-      case DomainPackage.DOMAIN_ARTIFACT__ARTIFACT:
-        return basicSetArtifact(null, msgs);
-    }
-    return super.eInverseRemove(otherEnd, featureID, msgs);
-  }
+		switch (featureID) {
+			case DomainPackage.DOMAIN_ARTIFACT__PARENT:
+				return basicSetParent(null, msgs);
+			case DomainPackage.DOMAIN_ARTIFACT__ARTIFACT:
+				return basicSetArtifact(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs)
   {
-    switch (eContainerFeatureID())
-    {
-      case DomainPackage.DOMAIN_ARTIFACT__PARENT:
-        return eInternalContainer().eInverseRemove(this, DomainPackage.DOMAIN_ARTIFACTS__DOMAIN_ARTIFACT, DomainArtifacts.class, msgs);
-    }
-    return super.eBasicRemoveFromContainerFeature(msgs);
-  }
+		switch (eContainerFeatureID()) {
+			case DomainPackage.DOMAIN_ARTIFACT__PARENT:
+				return eInternalContainer().eInverseRemove(this, DomainPackage.DOMAIN_ARTIFACTS__DOMAIN_ARTIFACT, DomainArtifacts.class, msgs);
+		}
+		return super.eBasicRemoveFromContainerFeature(msgs);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
-    switch (featureID)
-    {
-      case DomainPackage.DOMAIN_ARTIFACT__UID:
-        return getUid();
-      case DomainPackage.DOMAIN_ARTIFACT__NAME:
-        return getName();
-      case DomainPackage.DOMAIN_ARTIFACT__PARENT:
-        return getParent();
-      case DomainPackage.DOMAIN_ARTIFACT__ARTIFACT:
-        if (resolve) return getArtifact();
-        return basicGetArtifact();
-    }
-    return super.eGet(featureID, resolve, coreType);
-  }
+		switch (featureID) {
+			case DomainPackage.DOMAIN_ARTIFACT__UID:
+				return getUid();
+			case DomainPackage.DOMAIN_ARTIFACT__NAME:
+				return getName();
+			case DomainPackage.DOMAIN_ARTIFACT__PARENT:
+				return getParent();
+			case DomainPackage.DOMAIN_ARTIFACT__ARTIFACT:
+				if (resolve) return getArtifact();
+				return basicGetArtifact();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public void eSet(int featureID, Object newValue)
   {
-    switch (featureID)
-    {
-      case DomainPackage.DOMAIN_ARTIFACT__UID:
-        setUid((String)newValue);
-        return;
-      case DomainPackage.DOMAIN_ARTIFACT__NAME:
-        setName((String)newValue);
-        return;
-      case DomainPackage.DOMAIN_ARTIFACT__PARENT:
-        setParent((DomainArtifacts)newValue);
-        return;
-      case DomainPackage.DOMAIN_ARTIFACT__ARTIFACT:
-        setArtifact((Artifacts)newValue);
-        return;
-    }
-    super.eSet(featureID, newValue);
-  }
+		switch (featureID) {
+			case DomainPackage.DOMAIN_ARTIFACT__UID:
+				setUid((String)newValue);
+				return;
+			case DomainPackage.DOMAIN_ARTIFACT__NAME:
+				setName((String)newValue);
+				return;
+			case DomainPackage.DOMAIN_ARTIFACT__PARENT:
+				setParent((DomainArtifacts)newValue);
+				return;
+			case DomainPackage.DOMAIN_ARTIFACT__ARTIFACT:
+				setArtifact((Artifacts)newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public void eUnset(int featureID)
   {
-    switch (featureID)
-    {
-      case DomainPackage.DOMAIN_ARTIFACT__UID:
-        setUid(UID_EDEFAULT);
-        return;
-      case DomainPackage.DOMAIN_ARTIFACT__NAME:
-        setName(NAME_EDEFAULT);
-        return;
-      case DomainPackage.DOMAIN_ARTIFACT__PARENT:
-        setParent((DomainArtifacts)null);
-        return;
-      case DomainPackage.DOMAIN_ARTIFACT__ARTIFACT:
-        setArtifact((Artifacts)null);
-        return;
-    }
-    super.eUnset(featureID);
-  }
+		switch (featureID) {
+			case DomainPackage.DOMAIN_ARTIFACT__UID:
+				setUid(UID_EDEFAULT);
+				return;
+			case DomainPackage.DOMAIN_ARTIFACT__NAME:
+				setName(NAME_EDEFAULT);
+				return;
+			case DomainPackage.DOMAIN_ARTIFACT__PARENT:
+				setParent((DomainArtifacts)null);
+				return;
+			case DomainPackage.DOMAIN_ARTIFACT__ARTIFACT:
+				setArtifact((Artifacts)null);
+				return;
+		}
+		super.eUnset(featureID);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public boolean eIsSet(int featureID)
   {
-    switch (featureID)
-    {
-      case DomainPackage.DOMAIN_ARTIFACT__UID:
-        return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
-      case DomainPackage.DOMAIN_ARTIFACT__NAME:
-        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-      case DomainPackage.DOMAIN_ARTIFACT__PARENT:
-        return getParent() != null;
-      case DomainPackage.DOMAIN_ARTIFACT__ARTIFACT:
-        return artifact != null;
-    }
-    return super.eIsSet(featureID);
-  }
+		switch (featureID) {
+			case DomainPackage.DOMAIN_ARTIFACT__UID:
+				return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
+			case DomainPackage.DOMAIN_ARTIFACT__NAME:
+				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+			case DomainPackage.DOMAIN_ARTIFACT__PARENT:
+				return getParent() != null;
+			case DomainPackage.DOMAIN_ARTIFACT__ARTIFACT:
+				return artifact != null;
+		}
+		return super.eIsSet(featureID);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public String toString()
   {
-    if (eIsProxy()) return super.toString();
+		if (eIsProxy()) return super.toString();
 
-    StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (uid: ");
-    result.append(uid);
-    result.append(", name: ");
-    result.append(name);
-    result.append(')');
-    return result.toString();
-  }
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (uid: ");
+		result.append(uid);
+		result.append(", name: ");
+		result.append(name);
+		result.append(')');
+		return result.toString();
+	}
 
 } //DomainArtifactImpl

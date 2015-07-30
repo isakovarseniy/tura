@@ -3,17 +3,6 @@
  */
 package message.diagram.providers;
 
-import message.diagram.edit.parts.LanguageEditPart;
-import message.diagram.edit.parts.LanguageLangEditPart;
-import message.diagram.edit.parts.MessageEditPart;
-import message.diagram.edit.parts.MessageLibraryEditPart;
-import message.diagram.edit.parts.MessageLibraryMessageLibraryMessagesCompartmentEditPart;
-import message.diagram.edit.parts.MessageLibraryNameEditPart;
-import message.diagram.edit.parts.MessageNameEditPart;
-import message.diagram.edit.parts.MessagesEditPart;
-import message.diagram.edit.parts.WrappingLabelEditPart;
-import message.diagram.part.DomainVisualIDRegistry;
-
 import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.emf.ecore.EAnnotation;
 import org.eclipse.emf.ecore.EObject;
@@ -49,14 +38,24 @@ import org.eclipse.jface.preference.PreferenceConverter;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.FontData;
 
+import message.diagram.edit.parts.LanguageEditPart;
+import message.diagram.edit.parts.LanguageLangEditPart;
+import message.diagram.edit.parts.MessageEditPart;
+import message.diagram.edit.parts.MessageLibraryEditPart;
+import message.diagram.edit.parts.MessageLibraryMessageLibraryMessagesCompartmentEditPart;
+import message.diagram.edit.parts.MessageLibraryNameEditPart;
+import message.diagram.edit.parts.MessageNameEditPart;
+import message.diagram.edit.parts.MessagesEditPart;
+import message.diagram.part.DomainVisualIDRegistry;
+
 /**
  * @generated
  */
 public class DomainViewProvider extends AbstractProvider implements IViewProvider {
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public final boolean provides(IOperation operation) {
 		if (operation instanceof CreateViewForKindOperation) {
 			return provides((CreateViewForKindOperation) operation);
@@ -73,29 +72,29 @@ public class DomainViewProvider extends AbstractProvider implements IViewProvide
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected boolean provides(CreateViewForKindOperation op) {
 		/*
-		 if (op.getViewKind() == Node.class)
-		 return getNodeViewClass(op.getSemanticAdapter(), op.getContainerView(), op.getSemanticHint()) != null;
-		 if (op.getViewKind() == Edge.class)
-		 return getEdgeViewClass(op.getSemanticAdapter(), op.getContainerView(), op.getSemanticHint()) != null;
-		 */
+				if (op.getViewKind() == Node.class)
+					return getNodeViewClass(op.getSemanticAdapter(), op.getContainerView(), op.getSemanticHint()) != null;
+				if (op.getViewKind() == Edge.class)
+					return getEdgeViewClass(op.getSemanticAdapter(), op.getContainerView(), op.getSemanticHint()) != null;
+		*/
 		return true;
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected boolean provides(CreateDiagramViewOperation op) {
 		return MessagesEditPart.MODEL_ID.equals(op.getSemanticHint())
 				&& DomainVisualIDRegistry.getDiagramVisualID(getSemanticElement(op.getSemanticAdapter())) != -1;
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected boolean provides(CreateNodeViewOperation op) {
 		if (op.getContainerView() == null) {
 			return false;
@@ -133,8 +132,8 @@ public class DomainViewProvider extends AbstractProvider implements IViewProvide
 				case MessageLibraryEditPart.VISUAL_ID:
 				case LanguageEditPart.VISUAL_ID:
 				case MessageEditPart.VISUAL_ID:
-					if (domainElement == null
-							|| visualID != DomainVisualIDRegistry.getNodeVisualID(op.getContainerView(), domainElement)) {
+					if (domainElement == null || visualID != DomainVisualIDRegistry
+							.getNodeVisualID(op.getContainerView(), domainElement)) {
 						return false; // visual id in semantic hint should match visual id for domain element
 					}
 					break;
@@ -148,15 +147,16 @@ public class DomainViewProvider extends AbstractProvider implements IViewProvide
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected boolean provides(CreateEdgeViewOperation op) {
 		IElementType elementType = getSemanticElementType(op.getSemanticAdapter());
 		if (!DomainElementTypes.isKnownElementType(elementType) || (!(elementType instanceof IHintedType))) {
 			return false; // foreign element type
 		}
 		String elementTypeHint = ((IHintedType) elementType).getSemanticHint();
-		if (elementTypeHint == null || (op.getSemanticHint() != null && !elementTypeHint.equals(op.getSemanticHint()))) {
+		if (elementTypeHint == null
+				|| (op.getSemanticHint() != null && !elementTypeHint.equals(op.getSemanticHint()))) {
 			return false; // our hint is visual id and must be specified, and it should be the same as in element type
 		}
 		int visualID = DomainVisualIDRegistry.getVisualID(elementTypeHint);
@@ -168,8 +168,8 @@ public class DomainViewProvider extends AbstractProvider implements IViewProvide
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public Diagram createDiagram(IAdaptable semanticAdapter, String diagramKind, PreferencesHint preferencesHint) {
 		Diagram diagram = NotationFactory.eINSTANCE.createDiagram();
 		diagram.getStyles().add(NotationFactory.eINSTANCE.createDiagramStyle());
@@ -180,8 +180,8 @@ public class DomainViewProvider extends AbstractProvider implements IViewProvide
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public Node createNode(IAdaptable semanticAdapter, View containerView, String semanticHint, int index,
 			boolean persisted, PreferencesHint preferencesHint) {
 		final EObject domainElement = getSemanticElement(semanticAdapter);
@@ -204,8 +204,8 @@ public class DomainViewProvider extends AbstractProvider implements IViewProvide
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public Edge createEdge(IAdaptable semanticAdapter, View containerView, String semanticHint, int index,
 			boolean persisted, PreferencesHint preferencesHint) {
 		IElementType elementType = getSemanticElementType(semanticAdapter);
@@ -217,8 +217,8 @@ public class DomainViewProvider extends AbstractProvider implements IViewProvide
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public Node createMessageLibrary_1702001(EObject domainElement, View containerView, int index, boolean persisted,
 			PreferencesHint preferencesHint) {
 		Node node = NotationFactory.eINSTANCE.createNode();
@@ -245,14 +245,14 @@ public class DomainViewProvider extends AbstractProvider implements IViewProvide
 		}
 		Node label1705002 = createLabel(node, DomainVisualIDRegistry.getType(MessageLibraryNameEditPart.VISUAL_ID));
 		createCompartment(node,
-				DomainVisualIDRegistry.getType(MessageLibraryMessageLibraryMessagesCompartmentEditPart.VISUAL_ID),
-				true, false, true, true);
+				DomainVisualIDRegistry.getType(MessageLibraryMessageLibraryMessagesCompartmentEditPart.VISUAL_ID), true,
+				false, true, true);
 		return node;
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public Node createLanguage_1702002(EObject domainElement, View containerView, int index, boolean persisted,
 			PreferencesHint preferencesHint) {
 		Node node = NotationFactory.eINSTANCE.createNode();
@@ -281,8 +281,8 @@ public class DomainViewProvider extends AbstractProvider implements IViewProvide
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public Node createMessage_1703004(EObject domainElement, View containerView, int index, boolean persisted,
 			PreferencesHint preferencesHint) {
 		Node node = NotationFactory.eINSTANCE.createNode();
@@ -310,8 +310,8 @@ public class DomainViewProvider extends AbstractProvider implements IViewProvide
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private void stampShortcut(View containerView, Node target) {
 		if (!MessagesEditPart.MODEL_ID.equals(DomainVisualIDRegistry.getModelID(containerView))) {
 			EAnnotation shortcutAnnotation = EcoreFactory.eINSTANCE.createEAnnotation();
@@ -322,8 +322,8 @@ public class DomainViewProvider extends AbstractProvider implements IViewProvide
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private Node createLabel(View owner, String hint) {
 		DecorationNode rv = NotationFactory.eINSTANCE.createDecorationNode();
 		rv.setType(hint);
@@ -332,8 +332,8 @@ public class DomainViewProvider extends AbstractProvider implements IViewProvide
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private Node createCompartment(View owner, String hint, boolean canCollapse, boolean hasTitle, boolean canSort,
 			boolean canFilter) {
 		//SemanticListCompartment rv = NotationFactory.eINSTANCE.createSemanticListCompartment();
@@ -362,8 +362,8 @@ public class DomainViewProvider extends AbstractProvider implements IViewProvide
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private EObject getSemanticElement(IAdaptable semanticAdapter) {
 		if (semanticAdapter == null) {
 			return null;

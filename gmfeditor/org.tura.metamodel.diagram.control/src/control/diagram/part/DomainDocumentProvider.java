@@ -70,9 +70,10 @@ public class DomainDocumentProvider extends AbstractDocumentProvider implements 
 	 */
 	protected ElementInfo createElementInfo(Object element) throws CoreException {
 		if (false == element instanceof FileEditorInput && false == element instanceof URIEditorInput) {
-			throw new CoreException(new Status(IStatus.ERROR, DomainDiagramEditorPlugin.ID, 0, NLS.bind(
-					Messages.DomainDocumentProvider_IncorrectInputError, new Object[] { element,
-							"org.eclipse.ui.part.FileEditorInput", "org.eclipse.emf.common.ui.URIEditorInput" }), //$NON-NLS-1$ //$NON-NLS-2$ 
+			throw new CoreException(new Status(IStatus.ERROR, DomainDiagramEditorPlugin.ID, 0,
+					NLS.bind(Messages.DomainDocumentProvider_IncorrectInputError,
+							new Object[] { element, "org.eclipse.ui.part.FileEditorInput", //$NON-NLS-1$
+									"org.eclipse.emf.common.ui.URIEditorInput" }), //$NON-NLS-1$ 
 					null));
 		}
 		IEditorInput editorInput = (IEditorInput) element;
@@ -89,9 +90,10 @@ public class DomainDocumentProvider extends AbstractDocumentProvider implements 
 	 */
 	protected IDocument createDocument(Object element) throws CoreException {
 		if (false == element instanceof FileEditorInput && false == element instanceof URIEditorInput) {
-			throw new CoreException(new Status(IStatus.ERROR, DomainDiagramEditorPlugin.ID, 0, NLS.bind(
-					Messages.DomainDocumentProvider_IncorrectInputError, new Object[] { element,
-							"org.eclipse.ui.part.FileEditorInput", "org.eclipse.emf.common.ui.URIEditorInput" }), //$NON-NLS-1$ //$NON-NLS-2$ 
+			throw new CoreException(new Status(IStatus.ERROR, DomainDiagramEditorPlugin.ID, 0,
+					NLS.bind(Messages.DomainDocumentProvider_IncorrectInputError,
+							new Object[] { element, "org.eclipse.ui.part.FileEditorInput", //$NON-NLS-1$
+									"org.eclipse.emf.common.ui.URIEditorInput" }), //$NON-NLS-1$ 
 					null));
 		}
 		IDocument document = createEmptyDocument();
@@ -154,32 +156,32 @@ public class DomainDocumentProvider extends AbstractDocumentProvider implements 
 		editingDomain.setID("org.tura.metamodel.diagram.control.EditingDomain"); //$NON-NLS-1$
 		final org.eclipse.emf.transaction.NotificationFilter diagramResourceModifiedFilter = org.eclipse.emf.transaction.NotificationFilter.createNotifierFilter(editingDomain.getResourceSet()).and(org.eclipse.emf.transaction.NotificationFilter.createEventTypeFilter(org.eclipse.emf.common.notify.Notification.ADD)).and(org.eclipse.emf.transaction.NotificationFilter.createFeatureFilter(org.eclipse.emf.ecore.resource.ResourceSet.class, org.eclipse.emf.ecore.resource.ResourceSet.RESOURCE_SET__RESOURCES));
 		editingDomain.getResourceSet().eAdapters().add(new org.eclipse.emf.common.notify.Adapter() {
-
+		
 		  private org.eclipse.emf.common.notify.Notifier myTarger;
-
+		
 		  public org.eclipse.emf.common.notify.Notifier getTarget() {
 		    return myTarger;
 		  }
-
+		
 		  public boolean isAdapterForType(Object type) {
 		    return false;
 		  }
-
+		
 		  public void notifyChanged(org.eclipse.emf.common.notify.Notification notification) {
 		    if (diagramResourceModifiedFilter.matches(notification)) {
-		      Object value = notification.getNewValue();
-		      if (value instanceof org.eclipse.emf.ecore.resource.Resource) {
-		        ((org.eclipse.emf.ecore.resource.Resource) value).setTrackingModification(true);
-		      }
+		Object value = notification.getNewValue();
+		if (value instanceof org.eclipse.emf.ecore.resource.Resource) {
+		  ((org.eclipse.emf.ecore.resource.Resource) value).setTrackingModification(true);
+		}
 		    }
 		  }
-
+		
 		  public void setTarget(org.eclipse.emf.common.notify.Notifier newTarget) {
 		    myTarger = newTarget;
 		  }
 		    
 		});	
-		 */
+		*/
 		return editingDomain;
 	}
 
@@ -240,9 +242,10 @@ public class DomainDocumentProvider extends AbstractDocumentProvider implements 
 				throw thrownExcp;
 			}
 		} else {
-			throw new CoreException(new Status(IStatus.ERROR, DomainDiagramEditorPlugin.ID, 0, NLS.bind(
-					Messages.DomainDocumentProvider_IncorrectInputError, new Object[] { element,
-							"org.eclipse.ui.part.FileEditorInput", "org.eclipse.emf.common.ui.URIEditorInput" }), //$NON-NLS-1$ //$NON-NLS-2$ 
+			throw new CoreException(new Status(IStatus.ERROR, DomainDiagramEditorPlugin.ID, 0,
+					NLS.bind(Messages.DomainDocumentProvider_IncorrectInputError,
+							new Object[] { element, "org.eclipse.ui.part.FileEditorInput", //$NON-NLS-1$
+									"org.eclipse.emf.common.ui.URIEditorInput" }), //$NON-NLS-1$ 
 					null));
 		}
 	}
@@ -522,19 +525,19 @@ public class DomainDocumentProvider extends AbstractDocumentProvider implements 
 		ResourceSetInfo info = getResourceSetInfo(element);
 		if (info != null) {
 			if (!overwrite && !info.isSynchronized()) {
-				throw new CoreException(new Status(IStatus.ERROR, DomainDiagramEditorPlugin.ID,
-						IResourceStatus.OUT_OF_SYNC_LOCAL, Messages.DomainDocumentProvider_UnsynchronizedFileSaveError,
-						null));
+				throw new CoreException(
+						new Status(IStatus.ERROR, DomainDiagramEditorPlugin.ID, IResourceStatus.OUT_OF_SYNC_LOCAL,
+								Messages.DomainDocumentProvider_UnsynchronizedFileSaveError, null));
 			}
 			info.stopResourceListening();
 			fireElementStateChanging(element);
 			try {
-				monitor.beginTask(Messages.DomainDocumentProvider_SaveDiagramTask, info.getResourceSet().getResources()
-						.size() + 1); //"Saving diagram"
+				monitor.beginTask(Messages.DomainDocumentProvider_SaveDiagramTask,
+						info.getResourceSet().getResources().size() + 1); //"Saving diagram"
 				for (Iterator<Resource> it = info.getLoadedResourcesIterator(); it.hasNext();) {
 					Resource nextResource = it.next();
-					monitor.setTaskName(NLS.bind(Messages.DomainDocumentProvider_SaveNextResourceTask,
-							nextResource.getURI()));
+					monitor.setTaskName(
+							NLS.bind(Messages.DomainDocumentProvider_SaveNextResourceTask, nextResource.getURI()));
 					if (nextResource.isLoaded() && !info.getEditingDomain().isReadOnly(nextResource)) {
 						try {
 							nextResource.save(DomainDiagramEditorUtil.getSaveOptions());
@@ -565,27 +568,27 @@ public class DomainDocumentProvider extends AbstractDocumentProvider implements 
 				newResoruceURI = ((URIEditorInput) element).getURI();
 			} else {
 				fireElementStateChangeFailed(element);
-				throw new CoreException(new Status(IStatus.ERROR, DomainDiagramEditorPlugin.ID, 0, NLS.bind(
-						Messages.DomainDocumentProvider_IncorrectInputError, new Object[] { element,
-								"org.eclipse.ui.part.FileEditorInput", "org.eclipse.emf.common.ui.URIEditorInput" }), //$NON-NLS-1$ //$NON-NLS-2$ 
+				throw new CoreException(new Status(IStatus.ERROR, DomainDiagramEditorPlugin.ID, 0,
+						NLS.bind(Messages.DomainDocumentProvider_IncorrectInputError,
+								new Object[] { element, "org.eclipse.ui.part.FileEditorInput", //$NON-NLS-1$
+										"org.eclipse.emf.common.ui.URIEditorInput" }), //$NON-NLS-1$ 
 						null));
 			}
 			if (false == document instanceof IDiagramDocument) {
 				fireElementStateChangeFailed(element);
-				throw new CoreException(
-						new Status(
-								IStatus.ERROR,
-								DomainDiagramEditorPlugin.ID,
-								0,
-								"Incorrect document used: " + document + " instead of org.eclipse.gmf.runtime.diagram.ui.resources.editor.document.IDiagramDocument", null)); //$NON-NLS-1$ //$NON-NLS-2$
+				throw new CoreException(new Status(IStatus.ERROR, DomainDiagramEditorPlugin.ID, 0,
+						"Incorrect document used: " + document //$NON-NLS-1$
+								+ " instead of org.eclipse.gmf.runtime.diagram.ui.resources.editor.document.IDiagramDocument", //$NON-NLS-1$
+						null));
 			}
 			IDiagramDocument diagramDocument = (IDiagramDocument) document;
 			final Resource newResource = diagramDocument.getEditingDomain().getResourceSet()
 					.createResource(newResoruceURI);
 			final Diagram diagramCopy = (Diagram) EcoreUtil.copy(diagramDocument.getDiagram());
 			try {
-				new AbstractTransactionalCommand(diagramDocument.getEditingDomain(), NLS.bind(
-						Messages.DomainDocumentProvider_SaveAsOperation, diagramCopy.getName()), affectedFiles) {
+				new AbstractTransactionalCommand(diagramDocument.getEditingDomain(),
+						NLS.bind(Messages.DomainDocumentProvider_SaveAsOperation, diagramCopy.getName()),
+						affectedFiles) {
 					protected CommandResult doExecuteWithResult(IProgressMonitor monitor, IAdaptable info)
 							throws ExecutionException {
 						newResource.getContents().add(diagramCopy);
@@ -595,12 +598,12 @@ public class DomainDocumentProvider extends AbstractDocumentProvider implements 
 				newResource.save(DomainDiagramEditorUtil.getSaveOptions());
 			} catch (ExecutionException e) {
 				fireElementStateChangeFailed(element);
-				throw new CoreException(new Status(IStatus.ERROR, DomainDiagramEditorPlugin.ID, 0,
-						e.getLocalizedMessage(), null));
+				throw new CoreException(
+						new Status(IStatus.ERROR, DomainDiagramEditorPlugin.ID, 0, e.getLocalizedMessage(), null));
 			} catch (IOException e) {
 				fireElementStateChangeFailed(element);
-				throw new CoreException(new Status(IStatus.ERROR, DomainDiagramEditorPlugin.ID, 0,
-						e.getLocalizedMessage(), null));
+				throw new CoreException(
+						new Status(IStatus.ERROR, DomainDiagramEditorPlugin.ID, 0, e.getLocalizedMessage(), null));
 			}
 			newResource.unload();
 		}
@@ -623,7 +626,7 @@ public class DomainDocumentProvider extends AbstractDocumentProvider implements 
 		  }
 		}
 		  changedResource.unload();
-		 */
+		*/
 		fireElementContentAboutToBeReplaced(info.getEditorInput());
 		removeUnchangedElementListeners(info.getEditorInput(), info);
 		info.fStatus = null;
@@ -1020,7 +1023,7 @@ public class DomainDocumentProvider extends AbstractDocumentProvider implements 
 					Resource resource = (Resource) notification.getNotifier();
 					if (resource.isLoaded()) {
 						boolean modified = false;
-						for (Iterator/*<org.eclipse.emf.ecore.resource.Resource>*/it = myInfo
+						for (Iterator /*<org.eclipse.emf.ecore.resource.Resource>*/ it = myInfo
 								.getLoadedResourcesIterator(); it.hasNext() && !modified;) {
 							Resource nextResource = (Resource) it.next();
 							if (nextResource.isLoaded()) {

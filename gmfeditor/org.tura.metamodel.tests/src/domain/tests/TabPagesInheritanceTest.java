@@ -19,78 +19,78 @@ public class TabPagesInheritanceTest extends TestCase
 {
 
   /**
-   * The fixture for this Tab Pages Inheritance test case.
-   * <!-- begin-user-doc -->
+	 * The fixture for this Tab Pages Inheritance test case.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   protected TabPagesInheritance fixture = null;
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public static void main(String[] args)
   {
-    TestRunner.run(TabPagesInheritanceTest.class);
-  }
+		TestRunner.run(TabPagesInheritanceTest.class);
+	}
 
   /**
-   * Constructs a new Tab Pages Inheritance test case with the given name.
-   * <!-- begin-user-doc -->
+	 * Constructs a new Tab Pages Inheritance test case with the given name.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public TabPagesInheritanceTest(String name)
   {
-    super(name);
-  }
+		super(name);
+	}
 
   /**
-   * Sets the fixture for this Tab Pages Inheritance test case.
-   * <!-- begin-user-doc -->
+	 * Sets the fixture for this Tab Pages Inheritance test case.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   protected void setFixture(TabPagesInheritance fixture)
   {
-    this.fixture = fixture;
-  }
+		this.fixture = fixture;
+	}
 
   /**
-   * Returns the fixture for this Tab Pages Inheritance test case.
-   * <!-- begin-user-doc -->
+	 * Returns the fixture for this Tab Pages Inheritance test case.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   protected TabPagesInheritance getFixture()
   {
-    return fixture;
-  }
+		return fixture;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see junit.framework.TestCase#setUp()
-   * @generated
-   */
+	 * @see junit.framework.TestCase#setUp()
+	 * @generated
+	 */
   @Override
   protected void setUp() throws Exception
   {
-    setFixture(DomainFactory.eINSTANCE.createTabPagesInheritance());
-  }
+		setFixture(DomainFactory.eINSTANCE.createTabPagesInheritance());
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see junit.framework.TestCase#tearDown()
-   * @generated
-   */
+	 * @see junit.framework.TestCase#tearDown()
+	 * @generated
+	 */
   @Override
   protected void tearDown() throws Exception
   {
-    setFixture(null);
-  }
+		setFixture(null);
+	}
 
 } //TabPagesInheritanceTest

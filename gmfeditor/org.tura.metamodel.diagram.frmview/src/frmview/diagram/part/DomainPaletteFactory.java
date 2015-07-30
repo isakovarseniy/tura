@@ -15,6 +15,8 @@ import org.eclipse.gmf.runtime.diagram.ui.tools.UnspecifiedTypeConnectionTool;
 import org.eclipse.gmf.runtime.diagram.ui.tools.UnspecifiedTypeCreationTool;
 import org.eclipse.gmf.runtime.emf.type.core.IElementType;
 
+import org.eclipse.gmf.tooling.runtime.part.DefaultLinkToolEntry;
+import org.eclipse.gmf.tooling.runtime.part.DefaultNodeToolEntry;
 import frmview.diagram.providers.DomainElementTypes;
 
 /**
@@ -64,8 +66,8 @@ public class DomainPaletteFactory {
 	 * @generated
 	 */
 	private ToolEntry createCanvas1CreationTool() {
-		NodeToolEntry entry = new NodeToolEntry(Messages.Canvas1CreationTool_title, Messages.Canvas1CreationTool_desc,
-				Collections.singletonList(DomainElementTypes.Canvas_1302003));
+		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(Messages.Canvas1CreationTool_title,
+				Messages.Canvas1CreationTool_desc, Collections.singletonList(DomainElementTypes.Canvas_1302003));
 		entry.setId("createCanvas1CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(DomainElementTypes.getImageDescriptor(DomainElementTypes.Canvas_1302003));
 		entry.setLargeIcon(entry.getSmallIcon());
@@ -76,7 +78,7 @@ public class DomainPaletteFactory {
 	 * @generated
 	 */
 	private ToolEntry createPopupCanvas2CreationTool() {
-		NodeToolEntry entry = new NodeToolEntry(Messages.PopupCanvas2CreationTool_title,
+		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(Messages.PopupCanvas2CreationTool_title,
 				Messages.PopupCanvas2CreationTool_desc,
 				Collections.singletonList(DomainElementTypes.PopupCanvas_1302009));
 		entry.setId("createPopupCanvas2CreationTool"); //$NON-NLS-1$
@@ -89,7 +91,7 @@ public class DomainPaletteFactory {
 	 * @generated
 	 */
 	private ToolEntry createTabCanvas3CreationTool() {
-		NodeToolEntry entry = new NodeToolEntry(Messages.TabCanvas3CreationTool_title,
+		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(Messages.TabCanvas3CreationTool_title,
 				Messages.TabCanvas3CreationTool_desc, Collections.singletonList(DomainElementTypes.TabCanvas_1302008));
 		entry.setId("createTabCanvas3CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(DomainElementTypes.getImageDescriptor(DomainElementTypes.TabCanvas_1302008));
@@ -101,7 +103,7 @@ public class DomainPaletteFactory {
 	 * @generated
 	 */
 	private ToolEntry createTabPage4CreationTool() {
-		NodeToolEntry entry = new NodeToolEntry(Messages.TabPage4CreationTool_title,
+		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(Messages.TabPage4CreationTool_title,
 				Messages.TabPage4CreationTool_desc, Collections.singletonList(DomainElementTypes.TabPage_1302002));
 		entry.setId("createTabPage4CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(DomainElementTypes.getImageDescriptor(DomainElementTypes.TabPage_1302002));
@@ -113,7 +115,7 @@ public class DomainPaletteFactory {
 	 * @generated
 	 */
 	private ToolEntry createViewArea5CreationTool() {
-		NodeToolEntry entry = new NodeToolEntry(Messages.ViewArea5CreationTool_title,
+		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(Messages.ViewArea5CreationTool_title,
 				Messages.ViewArea5CreationTool_desc, Collections.singletonList(DomainElementTypes.ViewArea_1303005));
 		entry.setId("createViewArea5CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(DomainElementTypes.getImageDescriptor(DomainElementTypes.ViewArea_1303005));
@@ -125,7 +127,7 @@ public class DomainPaletteFactory {
 	 * @generated
 	 */
 	private ToolEntry createViewPort6CreationTool() {
-		NodeToolEntry entry = new NodeToolEntry(Messages.ViewPort6CreationTool_title,
+		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(Messages.ViewPort6CreationTool_title,
 				Messages.ViewPort6CreationTool_desc, Collections.singletonList(DomainElementTypes.ViewPort_1303004));
 		entry.setId("createViewPort6CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(DomainElementTypes.getImageDescriptor(DomainElementTypes.ViewPort_1303004));
@@ -137,7 +139,7 @@ public class DomainPaletteFactory {
 	 * @generated
 	 */
 	private ToolEntry createViewPortTrigger7CreationTool() {
-		NodeToolEntry entry = new NodeToolEntry(Messages.ViewPortTrigger7CreationTool_title,
+		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(Messages.ViewPortTrigger7CreationTool_title,
 				Messages.ViewPortTrigger7CreationTool_desc,
 				Collections.singletonList(DomainElementTypes.ViewPortTrigger_1303002));
 		entry.setId("createViewPortTrigger7CreationTool"); //$NON-NLS-1$
@@ -150,8 +152,8 @@ public class DomainPaletteFactory {
 	 * @generated
 	 */
 	private ToolEntry createWindow8CreationTool() {
-		NodeToolEntry entry = new NodeToolEntry(Messages.Window8CreationTool_title, Messages.Window8CreationTool_desc,
-				Collections.singletonList(DomainElementTypes.Window_1302007));
+		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(Messages.Window8CreationTool_title,
+				Messages.Window8CreationTool_desc, Collections.singletonList(DomainElementTypes.Window_1302007));
 		entry.setId("createWindow8CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(DomainElementTypes.getImageDescriptor(DomainElementTypes.Window_1302007));
 		entry.setLargeIcon(entry.getSmallIcon());
@@ -162,7 +164,7 @@ public class DomainPaletteFactory {
 	 * @generated
 	 */
 	private ToolEntry createTabPagesInheritance1CreationTool() {
-		LinkToolEntry entry = new LinkToolEntry(Messages.TabPagesInheritance1CreationTool_title,
+		DefaultLinkToolEntry entry = new DefaultLinkToolEntry(Messages.TabPagesInheritance1CreationTool_title,
 				Messages.TabPagesInheritance1CreationTool_desc,
 				Collections.singletonList(DomainElementTypes.TabPagesInheritance_1304002));
 		entry.setId("createTabPagesInheritance1CreationTool"); //$NON-NLS-1$
@@ -175,68 +177,12 @@ public class DomainPaletteFactory {
 	 * @generated
 	 */
 	private ToolEntry createViewInheritance2CreationTool() {
-		LinkToolEntry entry = new LinkToolEntry(Messages.ViewInheritance2CreationTool_title,
+		DefaultLinkToolEntry entry = new DefaultLinkToolEntry(Messages.ViewInheritance2CreationTool_title,
 				Messages.ViewInheritance2CreationTool_desc,
 				Collections.singletonList(DomainElementTypes.ViewInheritance_1304001));
 		entry.setId("createViewInheritance2CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(DomainElementTypes.getImageDescriptor(DomainElementTypes.ViewInheritance_1304001));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
-	}
-
-	/**
-	 * @generated
-	 */
-	private static class NodeToolEntry extends ToolEntry {
-
-		/**
-		 * @generated
-		 */
-		private final List<IElementType> elementTypes;
-
-		/**
-		 * @generated
-		 */
-		private NodeToolEntry(String title, String description, List<IElementType> elementTypes) {
-			super(title, description, null, null);
-			this.elementTypes = elementTypes;
-		}
-
-		/**
-		 * @generated
-		 */
-		public Tool createTool() {
-			Tool tool = new UnspecifiedTypeCreationTool(elementTypes);
-			tool.setProperties(getToolProperties());
-			return tool;
-		}
-	}
-
-	/**
-	 * @generated
-	 */
-	private static class LinkToolEntry extends ToolEntry {
-
-		/**
-		 * @generated
-		 */
-		private final List<IElementType> relationshipTypes;
-
-		/**
-		 * @generated
-		 */
-		private LinkToolEntry(String title, String description, List<IElementType> relationshipTypes) {
-			super(title, description, null, null);
-			this.relationshipTypes = relationshipTypes;
-		}
-
-		/**
-		 * @generated
-		 */
-		public Tool createTool() {
-			Tool tool = new UnspecifiedTypeConnectionTool(relationshipTypes);
-			tool.setProperties(getToolProperties());
-			return tool;
-		}
 	}
 }

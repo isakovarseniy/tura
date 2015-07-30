@@ -118,11 +118,11 @@ public class DomainViewProvider extends AbstractProvider implements IViewProvide
 	 */
 	protected boolean provides(CreateViewForKindOperation op) {
 		/*
-		 if (op.getViewKind() == Node.class)
-		 return getNodeViewClass(op.getSemanticAdapter(), op.getContainerView(), op.getSemanticHint()) != null;
-		 if (op.getViewKind() == Edge.class)
-		 return getEdgeViewClass(op.getSemanticAdapter(), op.getContainerView(), op.getSemanticHint()) != null;
-		 */
+		    if (op.getViewKind() == Node.class)
+		      return getNodeViewClass(op.getSemanticAdapter(), op.getContainerView(), op.getSemanticHint()) != null;
+		    if (op.getViewKind() == Edge.class)
+		      return getEdgeViewClass(op.getSemanticAdapter(), op.getContainerView(), op.getSemanticHint()) != null;
+		*/
 		return true;
 	}
 
@@ -197,8 +197,8 @@ public class DomainViewProvider extends AbstractProvider implements IViewProvide
 				case Image2EditPart.VISUAL_ID:
 				case Button2EditPart.VISUAL_ID:
 				case Label2EditPart.VISUAL_ID:
-					if (domainElement == null
-							|| visualID != DomainVisualIDRegistry.getNodeVisualID(op.getContainerView(), domainElement)) {
+					if (domainElement == null || visualID != DomainVisualIDRegistry
+							.getNodeVisualID(op.getContainerView(), domainElement)) {
 						return false; // visual id in semantic hint should match visual id for domain element
 					}
 					break;
@@ -231,7 +231,8 @@ public class DomainViewProvider extends AbstractProvider implements IViewProvide
 			return false; // foreign element type
 		}
 		String elementTypeHint = ((IHintedType) elementType).getSemanticHint();
-		if (elementTypeHint == null || (op.getSemanticHint() != null && !elementTypeHint.equals(op.getSemanticHint()))) {
+		if (elementTypeHint == null
+				|| (op.getSemanticHint() != null && !elementTypeHint.equals(op.getSemanticHint()))) {
 			return false; // our hint is visual id and must be specified, and it should be the same as in element type
 		}
 		int visualID = DomainVisualIDRegistry.getVisualID(elementTypeHint);
@@ -411,8 +412,8 @@ public class DomainViewProvider extends AbstractProvider implements IViewProvide
 		ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE.getFillStyle_FillColor(),
 				FigureUtilities.RGBToInteger(fillRGB));
 		Node label1605006 = createLabel(node, DomainVisualIDRegistry.getType(ButtonLabelEditPart.VISUAL_ID));
-		createCompartment(node, DomainVisualIDRegistry.getType(ButtonButtonTriggersCompartmentEditPart.VISUAL_ID),
-				true, false, true, true);
+		createCompartment(node, DomainVisualIDRegistry.getType(ButtonButtonTriggersCompartmentEditPart.VISUAL_ID), true,
+				false, true, true);
 		return node;
 	}
 
@@ -448,15 +449,16 @@ public class DomainViewProvider extends AbstractProvider implements IViewProvide
 				IPreferenceConstants.PREF_FILL_COLOR);
 		ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE.getFillStyle_FillColor(),
 				FigureUtilities.RGBToInteger(fillRGB));
-		Node label1605013 = createLabel(node, DomainVisualIDRegistry.getType(ActionTriggerFakeMethodEditPart.VISUAL_ID));
+		Node label1605013 = createLabel(node,
+				DomainVisualIDRegistry.getType(ActionTriggerFakeMethodEditPart.VISUAL_ID));
 		return node;
 	}
 
 	/**
 	 * @generated
 	 */
-	public Node createDropDownSelection_1603002(EObject domainElement, View containerView, int index,
-			boolean persisted, PreferencesHint preferencesHint) {
+	public Node createDropDownSelection_1603002(EObject domainElement, View containerView, int index, boolean persisted,
+			PreferencesHint preferencesHint) {
 		Shape node = NotationFactory.eINSTANCE.createShape();
 		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
 		node.setType(DomainVisualIDRegistry.getType(DropDownSelectionEditPart.VISUAL_ID));
@@ -607,8 +609,8 @@ public class DomainViewProvider extends AbstractProvider implements IViewProvide
 	/**
 	 * @generated
 	 */
-	public Node createDropDownSelection_1603010(EObject domainElement, View containerView, int index,
-			boolean persisted, PreferencesHint preferencesHint) {
+	public Node createDropDownSelection_1603010(EObject domainElement, View containerView, int index, boolean persisted,
+			PreferencesHint preferencesHint) {
 		Shape node = NotationFactory.eINSTANCE.createShape();
 		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
 		node.setType(DomainVisualIDRegistry.getType(DropDownSelection2EditPart.VISUAL_ID));
@@ -751,8 +753,8 @@ public class DomainViewProvider extends AbstractProvider implements IViewProvide
 		ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE.getFillStyle_FillColor(),
 				FigureUtilities.RGBToInteger(fillRGB));
 		Node label1605012 = createLabel(node, DomainVisualIDRegistry.getType(ColumnLabel2EditPart.VISUAL_ID));
-		createCompartment(node, DomainVisualIDRegistry.getType(ColumnColumnElementCompartment2EditPart.VISUAL_ID),
-				true, false, false, false);
+		createCompartment(node, DomainVisualIDRegistry.getType(ColumnColumnElementCompartment2EditPart.VISUAL_ID), true,
+				false, false, false);
 		return node;
 	}
 
@@ -829,8 +831,8 @@ public class DomainViewProvider extends AbstractProvider implements IViewProvide
 		ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE.getFillStyle_FillColor(),
 				FigureUtilities.RGBToInteger(fillRGB));
 		Node label1605005 = createLabel(node, DomainVisualIDRegistry.getType(TreeLabel2EditPart.VISUAL_ID));
-		createCompartment(node, DomainVisualIDRegistry.getType(TreeTreeColsCompartment2EditPart.VISUAL_ID), true,
-				false, false, false);
+		createCompartment(node, DomainVisualIDRegistry.getType(TreeTreeColsCompartment2EditPart.VISUAL_ID), true, false,
+				false, false);
 		return node;
 	}
 

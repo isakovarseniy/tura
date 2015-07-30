@@ -17,60 +17,60 @@ public class ArtificialFieldTest extends TypePointerTest
 {
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public static void main(String[] args)
   {
-    TestRunner.run(ArtificialFieldTest.class);
-  }
+		TestRunner.run(ArtificialFieldTest.class);
+	}
 
   /**
-   * Constructs a new Artificial Field test case with the given name.
-   * <!-- begin-user-doc -->
+	 * Constructs a new Artificial Field test case with the given name.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public ArtificialFieldTest(String name)
   {
-    super(name);
-  }
+		super(name);
+	}
 
   /**
-   * Returns the fixture for this Artificial Field test case.
-   * <!-- begin-user-doc -->
+	 * Returns the fixture for this Artificial Field test case.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   protected ArtificialField getFixture()
   {
-    return (ArtificialField)fixture;
-  }
+		return (ArtificialField)fixture;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see junit.framework.TestCase#setUp()
-   * @generated
-   */
+	 * @see junit.framework.TestCase#setUp()
+	 * @generated
+	 */
   @Override
   protected void setUp() throws Exception
   {
-    setFixture(DomainFactory.eINSTANCE.createArtificialField());
-  }
+		setFixture(DomainFactory.eINSTANCE.createArtificialField());
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see junit.framework.TestCase#tearDown()
-   * @generated
-   */
+	 * @see junit.framework.TestCase#tearDown()
+	 * @generated
+	 */
   @Override
   protected void tearDown() throws Exception
   {
-    setFixture(null);
-  }
+		setFixture(null);
+	}
 
 } //ArtificialFieldTest

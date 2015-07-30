@@ -19,219 +19,211 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link domain.impl.SelectionImpl#getDisplayOptionPointer <em>Display Option Pointer</em>}</li>
  *   <li>{@link domain.impl.SelectionImpl#getValueOptionPointer <em>Value Option Pointer</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
 public class SelectionImpl extends StyleElementImpl implements Selection
 {
   /**
-   * The cached value of the '{@link #getDisplayOptionPointer() <em>Display Option Pointer</em>}' reference.
-   * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getDisplayOptionPointer() <em>Display Option Pointer</em>}' reference.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getDisplayOptionPointer()
-   * @generated
-   * @ordered
-   */
+	 * @see #getDisplayOptionPointer()
+	 * @generated
+	 * @ordered
+	 */
   protected EObject displayOptionPointer;
 
   /**
-   * The cached value of the '{@link #getValueOptionPointer() <em>Value Option Pointer</em>}' reference.
-   * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getValueOptionPointer() <em>Value Option Pointer</em>}' reference.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getValueOptionPointer()
-   * @generated
-   * @ordered
-   */
+	 * @see #getValueOptionPointer()
+	 * @generated
+	 * @ordered
+	 */
   protected EObject valueOptionPointer;
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   protected SelectionImpl()
   {
-    super();
-  }
+		super();
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   protected EClass eStaticClass()
   {
-    return DomainPackage.Literals.SELECTION;
-  }
+		return DomainPackage.Literals.SELECTION;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public EObject getDisplayOptionPointer()
   {
-    if (displayOptionPointer != null && displayOptionPointer.eIsProxy())
-    {
-      InternalEObject oldDisplayOptionPointer = (InternalEObject)displayOptionPointer;
-      displayOptionPointer = eResolveProxy(oldDisplayOptionPointer);
-      if (displayOptionPointer != oldDisplayOptionPointer)
-      {
-        if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, DomainPackage.SELECTION__DISPLAY_OPTION_POINTER, oldDisplayOptionPointer, displayOptionPointer));
-      }
-    }
-    return displayOptionPointer;
-  }
+		if (displayOptionPointer != null && displayOptionPointer.eIsProxy()) {
+			InternalEObject oldDisplayOptionPointer = (InternalEObject)displayOptionPointer;
+			displayOptionPointer = eResolveProxy(oldDisplayOptionPointer);
+			if (displayOptionPointer != oldDisplayOptionPointer) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, DomainPackage.SELECTION__DISPLAY_OPTION_POINTER, oldDisplayOptionPointer, displayOptionPointer));
+			}
+		}
+		return displayOptionPointer;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public EObject basicGetDisplayOptionPointer()
   {
-    return displayOptionPointer;
-  }
+		return displayOptionPointer;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public void setDisplayOptionPointer(EObject newDisplayOptionPointer)
   {
-    EObject oldDisplayOptionPointer = displayOptionPointer;
-    displayOptionPointer = newDisplayOptionPointer;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.SELECTION__DISPLAY_OPTION_POINTER, oldDisplayOptionPointer, displayOptionPointer));
-  }
+		EObject oldDisplayOptionPointer = displayOptionPointer;
+		displayOptionPointer = newDisplayOptionPointer;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.SELECTION__DISPLAY_OPTION_POINTER, oldDisplayOptionPointer, displayOptionPointer));
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public EObject getValueOptionPointer()
   {
-    if (valueOptionPointer != null && valueOptionPointer.eIsProxy())
-    {
-      InternalEObject oldValueOptionPointer = (InternalEObject)valueOptionPointer;
-      valueOptionPointer = eResolveProxy(oldValueOptionPointer);
-      if (valueOptionPointer != oldValueOptionPointer)
-      {
-        if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, DomainPackage.SELECTION__VALUE_OPTION_POINTER, oldValueOptionPointer, valueOptionPointer));
-      }
-    }
-    return valueOptionPointer;
-  }
+		if (valueOptionPointer != null && valueOptionPointer.eIsProxy()) {
+			InternalEObject oldValueOptionPointer = (InternalEObject)valueOptionPointer;
+			valueOptionPointer = eResolveProxy(oldValueOptionPointer);
+			if (valueOptionPointer != oldValueOptionPointer) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, DomainPackage.SELECTION__VALUE_OPTION_POINTER, oldValueOptionPointer, valueOptionPointer));
+			}
+		}
+		return valueOptionPointer;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public EObject basicGetValueOptionPointer()
   {
-    return valueOptionPointer;
-  }
+		return valueOptionPointer;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public void setValueOptionPointer(EObject newValueOptionPointer)
   {
-    EObject oldValueOptionPointer = valueOptionPointer;
-    valueOptionPointer = newValueOptionPointer;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.SELECTION__VALUE_OPTION_POINTER, oldValueOptionPointer, valueOptionPointer));
-  }
+		EObject oldValueOptionPointer = valueOptionPointer;
+		valueOptionPointer = newValueOptionPointer;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.SELECTION__VALUE_OPTION_POINTER, oldValueOptionPointer, valueOptionPointer));
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
-    switch (featureID)
-    {
-      case DomainPackage.SELECTION__DISPLAY_OPTION_POINTER:
-        if (resolve) return getDisplayOptionPointer();
-        return basicGetDisplayOptionPointer();
-      case DomainPackage.SELECTION__VALUE_OPTION_POINTER:
-        if (resolve) return getValueOptionPointer();
-        return basicGetValueOptionPointer();
-    }
-    return super.eGet(featureID, resolve, coreType);
-  }
+		switch (featureID) {
+			case DomainPackage.SELECTION__DISPLAY_OPTION_POINTER:
+				if (resolve) return getDisplayOptionPointer();
+				return basicGetDisplayOptionPointer();
+			case DomainPackage.SELECTION__VALUE_OPTION_POINTER:
+				if (resolve) return getValueOptionPointer();
+				return basicGetValueOptionPointer();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public void eSet(int featureID, Object newValue)
   {
-    switch (featureID)
-    {
-      case DomainPackage.SELECTION__DISPLAY_OPTION_POINTER:
-        setDisplayOptionPointer((EObject)newValue);
-        return;
-      case DomainPackage.SELECTION__VALUE_OPTION_POINTER:
-        setValueOptionPointer((EObject)newValue);
-        return;
-    }
-    super.eSet(featureID, newValue);
-  }
+		switch (featureID) {
+			case DomainPackage.SELECTION__DISPLAY_OPTION_POINTER:
+				setDisplayOptionPointer((EObject)newValue);
+				return;
+			case DomainPackage.SELECTION__VALUE_OPTION_POINTER:
+				setValueOptionPointer((EObject)newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public void eUnset(int featureID)
   {
-    switch (featureID)
-    {
-      case DomainPackage.SELECTION__DISPLAY_OPTION_POINTER:
-        setDisplayOptionPointer((EObject)null);
-        return;
-      case DomainPackage.SELECTION__VALUE_OPTION_POINTER:
-        setValueOptionPointer((EObject)null);
-        return;
-    }
-    super.eUnset(featureID);
-  }
+		switch (featureID) {
+			case DomainPackage.SELECTION__DISPLAY_OPTION_POINTER:
+				setDisplayOptionPointer((EObject)null);
+				return;
+			case DomainPackage.SELECTION__VALUE_OPTION_POINTER:
+				setValueOptionPointer((EObject)null);
+				return;
+		}
+		super.eUnset(featureID);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public boolean eIsSet(int featureID)
   {
-    switch (featureID)
-    {
-      case DomainPackage.SELECTION__DISPLAY_OPTION_POINTER:
-        return displayOptionPointer != null;
-      case DomainPackage.SELECTION__VALUE_OPTION_POINTER:
-        return valueOptionPointer != null;
-    }
-    return super.eIsSet(featureID);
-  }
+		switch (featureID) {
+			case DomainPackage.SELECTION__DISPLAY_OPTION_POINTER:
+				return displayOptionPointer != null;
+			case DomainPackage.SELECTION__VALUE_OPTION_POINTER:
+				return valueOptionPointer != null;
+		}
+		return super.eIsSet(featureID);
+	}
 
 } //SelectionImpl

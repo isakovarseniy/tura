@@ -82,13 +82,12 @@ public class ViewPortEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected void createDefaultEditPolicies() {
-		installEditPolicy(EditPolicyRoles.CREATION_ROLE, new CreationEditPolicyWithCustomReparent(
-				DomainVisualIDRegistry.TYPED_INSTANCE));
+		installEditPolicy(EditPolicyRoles.CREATION_ROLE,
+				new CreationEditPolicyWithCustomReparent(DomainVisualIDRegistry.TYPED_INSTANCE));
 		super.createDefaultEditPolicies();
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE, new ViewPortItemSemanticEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
-		installEditPolicy(EditPolicyRoles.OPEN_ROLE, new OpenDiagramEditPolicy());
-		// XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
+		installEditPolicy(EditPolicyRoles.OPEN_ROLE, new OpenDiagramEditPolicy()); // XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
 		// removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
 	}
 
@@ -205,9 +204,8 @@ public class ViewPortEditPart extends ShapeNodeEditPart {
 				EObject obj = ((View) getModel()).getElement();
 				if (obj instanceof Orderable) {
 					EditingDomain editingDomain = getEditingDomain();
-					editingDomain.getCommandStack().execute(
-							SetCommand.create(editingDomain, obj, DomainPackage.eINSTANCE.getOrderable_Order(),
-									evt.getNewValue()));
+					editingDomain.getCommandStack().execute(SetCommand.create(editingDomain, obj,
+							DomainPackage.eINSTANCE.getOrderable_Order(), evt.getNewValue()));
 
 				}
 			}
@@ -304,61 +302,14 @@ public class ViewPortEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	public List<IElementType> getMARelTypesOnSource() {
-		ArrayList<IElementType> types = new ArrayList<IElementType>(1);
-		types.add(DomainElementTypes.ViewInheritance_1304001);
-		return types;
-	}
-
-	/**
-	 * @generated
-	 */
-	public List<IElementType> getMARelTypesOnSourceAndTarget(IGraphicalEditPart targetEditPart) {
-		LinkedList<IElementType> types = new LinkedList<IElementType>();
-		if (targetEditPart instanceof PopupCanvasEditPart) {
-			types.add(DomainElementTypes.ViewInheritance_1304001);
-		}
-		if (targetEditPart instanceof CanvasEditPart) {
-			types.add(DomainElementTypes.ViewInheritance_1304001);
-		}
-		if (targetEditPart instanceof TabPageEditPart) {
-			types.add(DomainElementTypes.ViewInheritance_1304001);
-		}
-		if (targetEditPart instanceof WindowEditPart) {
-			types.add(DomainElementTypes.ViewInheritance_1304001);
-		}
-		if (targetEditPart instanceof TabCanvasEditPart) {
-			types.add(DomainElementTypes.ViewInheritance_1304001);
-		}
-		return types;
-	}
-
-	/**
-	 * @generated
-	 */
-	public List<IElementType> getMATypesForTarget(IElementType relationshipType) {
-		LinkedList<IElementType> types = new LinkedList<IElementType>();
-		if (relationshipType == DomainElementTypes.ViewInheritance_1304001) {
-			types.add(DomainElementTypes.PopupCanvas_1302009);
-			types.add(DomainElementTypes.Canvas_1302003);
-			types.add(DomainElementTypes.TabPage_1302002);
-			types.add(DomainElementTypes.Window_1302007);
-			types.add(DomainElementTypes.TabCanvas_1302008);
-		}
-		return types;
-	}
-
-	/**
-	 * @generated
-	 */
 	public EditPart getTargetEditPart(Request request) {
 		if (request instanceof CreateViewAndElementRequest) {
 			CreateElementRequestAdapter adapter = ((CreateViewAndElementRequest) request).getViewAndElementDescriptor()
 					.getCreateElementRequestAdapter();
 			IElementType type = (IElementType) adapter.getAdapter(IElementType.class);
 			if (type == DomainElementTypes.ViewPortTrigger_1303002) {
-				return getChildBySemanticHint(DomainVisualIDRegistry
-						.getType(ViewPortViewPortViewPortTriggerCompartmentEditPart.VISUAL_ID));
+				return getChildBySemanticHint(
+						DomainVisualIDRegistry.getType(ViewPortViewPortViewPortTriggerCompartmentEditPart.VISUAL_ID));
 			}
 		}
 		return super.getTargetEditPart(request);

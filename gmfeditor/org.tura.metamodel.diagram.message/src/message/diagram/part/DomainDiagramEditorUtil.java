@@ -1,6 +1,6 @@
 /*
- * 
- */
+* 
+*/
 package message.diagram.part;
 
 import java.io.IOException;
@@ -11,8 +11,6 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-
-import message.diagram.edit.parts.MessagesEditPart;
 
 import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.commands.operations.OperationHistoryFactory;
@@ -45,6 +43,7 @@ import org.eclipse.gmf.runtime.emf.core.GMFEditingDomainFactory;
 import org.eclipse.gmf.runtime.emf.core.util.EMFCoreUtil;
 import org.eclipse.gmf.runtime.notation.Diagram;
 import org.eclipse.gmf.runtime.notation.View;
+import org.eclipse.gmf.tooling.runtime.part.DefaultDiagramEditorUtil;
 import org.eclipse.jface.dialogs.IDialogSettings;
 import org.eclipse.jface.wizard.Wizard;
 import org.eclipse.jface.wizard.WizardDialog;
@@ -55,6 +54,7 @@ import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.part.FileEditorInput;
 
 import domain.DomainFactory;
+import message.diagram.edit.parts.MessagesEditPart;
 
 /**
  * @generated
@@ -62,8 +62,8 @@ import domain.DomainFactory;
 public class DomainDiagramEditorUtil {
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static Map<?, ?> getSaveOptions() {
 		HashMap<String, Object> saveOptions = new HashMap<String, Object>();
 		saveOptions.put(XMLResource.OPTION_ENCODING, "UTF-8"); //$NON-NLS-1$
@@ -72,8 +72,8 @@ public class DomainDiagramEditorUtil {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static boolean openDiagram(Resource diagram) throws PartInitException {
 		String path = diagram.getURI().toPlatformString(true);
 		IResource workspaceResource = ResourcesPlugin.getWorkspace().getRoot().findMember(new Path(path));
@@ -85,8 +85,8 @@ public class DomainDiagramEditorUtil {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static void setCharset(IFile file) {
 		if (file == null) {
 			return;
@@ -99,30 +99,11 @@ public class DomainDiagramEditorUtil {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static String getUniqueFileName(IPath containerFullPath, String fileName, String extension) {
-		if (containerFullPath == null) {
-			containerFullPath = new Path(""); //$NON-NLS-1$
-		}
-		if (fileName == null || fileName.trim().length() == 0) {
-			fileName = "default"; //$NON-NLS-1$
-		}
-		IPath filePath = containerFullPath.append(fileName);
-		if (extension != null && !extension.equals(filePath.getFileExtension())) {
-			filePath = filePath.addFileExtension(extension);
-		}
-		extension = filePath.getFileExtension();
-		fileName = filePath.removeFileExtension().lastSegment();
-		int i = 1;
-		while (ResourcesPlugin.getWorkspace().getRoot().exists(filePath)) {
-			i++;
-			filePath = containerFullPath.append(fileName + i);
-			if (extension != null) {
-				filePath = filePath.addFileExtension(extension);
-			}
-		}
-		return filePath.lastSegment();
+		return DefaultDiagramEditorUtil.getUniqueFileName(containerFullPath, fileName, extension,
+				DefaultDiagramEditorUtil.EXISTS_IN_WORKSPACE);
 	}
 
 	/**
@@ -144,9 +125,9 @@ public class DomainDiagramEditorUtil {
 	}
 
 	/**
-	 * This method should be called within a workspace modify operation since it creates resources.
-	 * @generated
-	 */
+	* This method should be called within a workspace modify operation since it creates resources.
+	* @generated
+	*/
 	public static Resource createDiagram(URI diagramURI, URI modelURI, IProgressMonitor progressMonitor) {
 		TransactionalEditingDomain editingDomain = GMFEditingDomainFactory.INSTANCE.createEditingDomain();
 		progressMonitor.beginTask(Messages.DomainDiagramEditorUtil_CreateDiagramProgressTask, 3);
@@ -190,11 +171,11 @@ public class DomainDiagramEditorUtil {
 	}
 
 	/**
-	 * Create a new instance of domain element associated with canvas.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+	* Create a new instance of domain element associated with canvas.
+	* <!-- begin-user-doc -->
+	* <!-- end-user-doc -->
+	* @generated
+	*/
 
 	private static domain.Messages createInitialModel(Resource resource) {
 
@@ -202,18 +183,18 @@ public class DomainDiagramEditorUtil {
 	}
 
 	/**
-	 * Store model element in the resource.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+	* Store model element in the resource.
+	* <!-- begin-user-doc -->
+	* <!-- end-user-doc -->
+	* @generated
+	*/
 	private static void attachModelToResource(domain.Messages model, Resource resource) {
 		resource.getContents().add(model);
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static void selectElementsInDiagram(IDiagramWorkbenchPart diagramPart, List<EditPart> editParts) {
 		diagramPart.getDiagramGraphicalViewer().deselectAll();
 
@@ -226,14 +207,14 @@ public class DomainDiagramEditorUtil {
 		}
 
 		if (!editParts.isEmpty()) {
-			diagramPart.getDiagramGraphicalViewer().reveal(
-					firstPrimary != null ? firstPrimary : (EditPart) editParts.get(0));
+			diagramPart.getDiagramGraphicalViewer()
+					.reveal(firstPrimary != null ? firstPrimary : (EditPart) editParts.get(0));
 		}
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private static int findElementsInDiagramByID(DiagramEditPart diagramPart, EObject element,
 			List<EditPart> editPartCollector) {
 		IDiagramGraphicalViewer viewer = (IDiagramGraphicalViewer) diagramPart.getViewer();
@@ -274,8 +255,8 @@ public class DomainDiagramEditorUtil {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static View findView(DiagramEditPart diagramEditPart, EObject targetElement,
 			LazyElement2ViewMap lazyElement2ViewMap) {
 		boolean hasStructuralURI = false;
@@ -296,36 +277,36 @@ public class DomainDiagramEditorUtil {
 	}
 
 	/**
-	 * XXX This is quite suspicious code (especially editPartTmpHolder) and likely to be removed soon
-	 * @generated
-	 */
+	* XXX This is quite suspicious code (especially editPartTmpHolder) and likely to be removed soon
+	* @generated
+	*/
 	public static class LazyElement2ViewMap {
 		/**
-		 * @generated
-		 */
+		* @generated
+		*/
 		private Map<EObject, View> element2ViewMap;
 
 		/**
-		 * @generated
-		 */
+		* @generated
+		*/
 		private View scope;
 
 		/**
-		 * @generated
-		 */
+		* @generated
+		*/
 		private Set<? extends EObject> elementSet;
 
 		/**
-		 * @generated
-		 */
+		* @generated
+		*/
 		public LazyElement2ViewMap(View scope, Set<? extends EObject> elements) {
 			this.scope = scope;
 			this.elementSet = elements;
 		}
 
 		/**
-		 * @generated
-		 */
+		* @generated
+		*/
 		public final Map<EObject, View> getElement2ViewMap() {
 			if (element2ViewMap == null) {
 				element2ViewMap = new HashMap<EObject, View>();
@@ -345,8 +326,8 @@ public class DomainDiagramEditorUtil {
 		}
 
 		/**
-		 * @generated
-		 */
+		* @generated
+		*/
 		private static boolean buildElement2ViewMap(View parentView, Map<EObject, View> element2ViewMap,
 				Set<? extends EObject> elements) {
 			if (elements.size() == element2ViewMap.size()) {

@@ -11,10 +11,10 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link domain.DefaultCavas#isDefaultCanvas <em>Default Canvas</em>}</li>
  * </ul>
- * </p>
  *
  * @see domain.DomainPackage#getDefaultCavas()
  * @model
@@ -23,29 +23,29 @@ import org.eclipse.emf.ecore.EObject;
 public interface DefaultCavas extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Default Canvas</b></em>' attribute.
-   * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Default Canvas</b></em>' attribute.
+	 * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Default Canvas</em>' attribute isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Default Canvas</em>' attribute.
-   * @see #setDefaultCanvas(boolean)
-   * @see domain.DomainPackage#getDefaultCavas_DefaultCanvas()
-   * @model
-   * @generated
-   */
+	 * @return the value of the '<em>Default Canvas</em>' attribute.
+	 * @see #setDefaultCanvas(boolean)
+	 * @see domain.DomainPackage#getDefaultCavas_DefaultCanvas()
+	 * @model
+	 * @generated
+	 */
   boolean isDefaultCanvas();
 
   /**
-   * Sets the value of the '{@link domain.DefaultCavas#isDefaultCanvas <em>Default Canvas</em>}' attribute.
-   * <!-- begin-user-doc -->
+	 * Sets the value of the '{@link domain.DefaultCavas#isDefaultCanvas <em>Default Canvas</em>}' attribute.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Default Canvas</em>' attribute.
-   * @see #isDefaultCanvas()
-   * @generated
-   */
+	 * @param value the new value of the '<em>Default Canvas</em>' attribute.
+	 * @see #isDefaultCanvas()
+	 * @generated
+	 */
   void setDefaultCanvas(boolean value);
 
 } // DefaultCavas

@@ -20,7 +20,7 @@ public class TreeRoot implements IAdaptable{
     	return children;
     }
 
-	@SuppressWarnings("rawtypes")
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@Override
 	 public Object getAdapter(Class adapter) {
 	     return Platform.getAdapterManager().getAdapter(this, adapter);

@@ -26,6 +26,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//Domain/domainArtifacts"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//Domain/domainTypes"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//Domain/domainApplications"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//Domain/any"/>
     </genClasses>
     <genClasses ecoreClass="domain.ecore#//HTMLLayerHolder">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//HTMLLayerHolder/columns"/>
@@ -76,6 +77,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//Artifacts/uid"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//Artifacts/artifacts"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference domain.ecore#//Artifacts/parent"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//Artifacts/any"/>
     </genClasses>
     <genClasses ecoreClass="domain.ecore#//Artifact">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//Artifact/uid"/>
@@ -131,6 +133,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//Application/applicationRole"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//Application/applicationMessages"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference domain.ecore#//Application/parent"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//Application/any"/>
     </genClasses>
     <genClasses ecoreClass="domain.ecore#//ApplicationMessages">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//ApplicationMessages/uid"/>
@@ -201,6 +204,7 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference domain.ecore#//Messages/parent"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//Messages/messageLibraries"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//Messages/languages"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//Messages/any"/>
     </genClasses>
     <genClasses ecoreClass="domain.ecore#//MessageLibrary">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//MessageLibrary/uid"/>
@@ -232,6 +236,7 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference domain.ecore#//Roles/parent"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//Roles/roles"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//Roles/groups"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//Roles/any"/>
     </genClasses>
     <genClasses ecoreClass="domain.ecore#//Role">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//Role/uid"/>
@@ -247,6 +252,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//Styles/uid"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference domain.ecore#//Styles/parent"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//Styles/libraries"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//Styles/any"/>
     </genClasses>
     <genClasses ecoreClass="domain.ecore#//StyleLibrary">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//StyleLibrary/uid"/>
@@ -261,6 +267,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//Mappers/uid"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//Mappers/mappers"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference domain.ecore#//Mappers/parent"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//Mappers/any"/>
     </genClasses>
     <genClasses ecoreClass="domain.ecore#//Mapper">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//Mapper/uid"/>
@@ -301,6 +308,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//Recipes/infrastructures"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference domain.ecore#//Recipes/parent"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//Recipes/deployment"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//Recipes/any"/>
     </genClasses>
     <genClasses ecoreClass="domain.ecore#//DeploymentSequence">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//DeploymentSequence/uid"/>
@@ -311,6 +319,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//DeploymentComponents/uid"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//DeploymentComponents/deplymentStep"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//DeploymentComponents/startSeq"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//DeploymentComponents/any"/>
     </genClasses>
     <genClasses ecoreClass="domain.ecore#//DeploymentComponent">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//DeploymentComponent/uid"/>
@@ -414,6 +423,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//TypeDefinition/uid"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//TypeDefinition/types"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference domain.ecore#//TypeDefinition/parent"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//TypeDefinition/any"/>
     </genClasses>
     <genClasses ecoreClass="domain.ecore#//TypeElement">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//TypeElement/uid"/>
@@ -467,6 +477,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//TypesRepository/uid"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//TypesRepository/typeDefinition"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference domain.ecore#//TypesRepository/parent"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//TypesRepository/any"/>
     </genClasses>
     <genClasses ecoreClass="domain.ecore#//Types">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//Types/uid"/>
@@ -484,6 +495,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//UIPackage/uid"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference domain.ecore#//UIPackage/parent"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//UIPackage/forms"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//UIPackage/any"/>
     </genClasses>
     <genClasses ecoreClass="domain.ecore#//Form">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//Form/uid"/>
@@ -507,6 +519,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//Views/canvases"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//Views/viewInheritances"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//Views/tabPagesInheritances"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//Views/any"/>
     </genClasses>
     <genClasses ecoreClass="domain.ecore#//Orderable">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//Orderable/order"/>
@@ -564,6 +577,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//CanvasView/uid"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference domain.ecore#//CanvasView/parent"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//CanvasView/baseCanvas"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//CanvasView/any"/>
     </genClasses>
     <genClasses ecoreClass="domain.ecore#//ChildrenHolder">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//ChildrenHolder/children"/>
@@ -670,6 +684,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//Controls/controls"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//Controls/relations"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//Controls/dependencies"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//Controls/any"/>
     </genClasses>
     <genClasses ecoreClass="domain.ecore#//Trigger"/>
     <genClasses ecoreClass="domain.ecore#//PREFormTrigger">
@@ -784,6 +799,7 @@
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference domain.ecore#//EnterpriseInfrastructure/parent"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//EnterpriseInfrastructure/datacenters"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//EnterpriseInfrastructure/infrastructureConnections"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//EnterpriseInfrastructure/any"/>
     </genClasses>
     <genClasses ecoreClass="domain.ecore#//Datacenter">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//Datacenter/uid"/>

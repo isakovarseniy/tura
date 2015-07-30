@@ -21,340 +21,330 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link domain.impl.FormViewImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.impl.FormViewImpl#getName <em>Name</em>}</li>
  *   <li>{@link domain.impl.FormViewImpl#getView <em>View</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
 public class FormViewImpl extends EObjectImpl implements FormView
 {
   /**
-   * The default value of the '{@link #getUid() <em>Uid</em>}' attribute.
-   * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getUid() <em>Uid</em>}' attribute.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getUid()
-   * @generated
-   * @ordered
-   */
+	 * @see #getUid()
+	 * @generated
+	 * @ordered
+	 */
   protected static final String UID_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getUid() <em>Uid</em>}' attribute.
-   * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getUid() <em>Uid</em>}' attribute.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getUid()
-   * @generated
-   * @ordered
-   */
+	 * @see #getUid()
+	 * @generated
+	 * @ordered
+	 */
   protected String uid = UID_EDEFAULT;
 
   /**
-   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getName()
-   * @generated
-   * @ordered
-   */
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
   protected static final String NAME_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getName()
-   * @generated
-   * @ordered
-   */
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
   protected String name = NAME_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getView() <em>View</em>}' reference.
-   * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getView() <em>View</em>}' reference.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getView()
-   * @generated
-   * @ordered
-   */
+	 * @see #getView()
+	 * @generated
+	 * @ordered
+	 */
   protected Views view;
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   protected FormViewImpl()
   {
-    super();
-  }
+		super();
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   protected EClass eStaticClass()
   {
-    return DomainPackage.Literals.FORM_VIEW;
-  }
+		return DomainPackage.Literals.FORM_VIEW;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public String getUid()
   {
-    return uid;
-  }
+		return uid;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public void setUid(String newUid)
   {
-    String oldUid = uid;
-    uid = newUid;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.FORM_VIEW__UID, oldUid, uid));
-  }
+		String oldUid = uid;
+		uid = newUid;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.FORM_VIEW__UID, oldUid, uid));
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public String getName()
   {
-    return name;
-  }
+		return name;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public void setName(String newName)
   {
-    String oldName = name;
-    name = newName;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.FORM_VIEW__NAME, oldName, name));
-  }
+		String oldName = name;
+		name = newName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.FORM_VIEW__NAME, oldName, name));
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public Views getView()
   {
-    if (view != null && view.eIsProxy())
-    {
-      InternalEObject oldView = (InternalEObject)view;
-      view = (Views)eResolveProxy(oldView);
-      if (view != oldView)
-      {
-        if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, DomainPackage.FORM_VIEW__VIEW, oldView, view));
-      }
-    }
-    return view;
-  }
+		if (view != null && view.eIsProxy()) {
+			InternalEObject oldView = (InternalEObject)view;
+			view = (Views)eResolveProxy(oldView);
+			if (view != oldView) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, DomainPackage.FORM_VIEW__VIEW, oldView, view));
+			}
+		}
+		return view;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public Views basicGetView()
   {
-    return view;
-  }
+		return view;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public NotificationChain basicSetView(Views newView, NotificationChain msgs)
   {
-    Views oldView = view;
-    view = newView;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DomainPackage.FORM_VIEW__VIEW, oldView, newView);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
+		Views oldView = view;
+		view = newView;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DomainPackage.FORM_VIEW__VIEW, oldView, newView);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public void setView(Views newView)
   {
-    if (newView != view)
-    {
-      NotificationChain msgs = null;
-      if (view != null)
-        msgs = ((InternalEObject)view).eInverseRemove(this, DomainPackage.VIEWS__PARENT, Views.class, msgs);
-      if (newView != null)
-        msgs = ((InternalEObject)newView).eInverseAdd(this, DomainPackage.VIEWS__PARENT, Views.class, msgs);
-      msgs = basicSetView(newView, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.FORM_VIEW__VIEW, newView, newView));
-  }
+		if (newView != view) {
+			NotificationChain msgs = null;
+			if (view != null)
+				msgs = ((InternalEObject)view).eInverseRemove(this, DomainPackage.VIEWS__PARENT, Views.class, msgs);
+			if (newView != null)
+				msgs = ((InternalEObject)newView).eInverseAdd(this, DomainPackage.VIEWS__PARENT, Views.class, msgs);
+			msgs = basicSetView(newView, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.FORM_VIEW__VIEW, newView, newView));
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
-    switch (featureID)
-    {
-      case DomainPackage.FORM_VIEW__VIEW:
-        if (view != null)
-          msgs = ((InternalEObject)view).eInverseRemove(this, DomainPackage.VIEWS__PARENT, Views.class, msgs);
-        return basicSetView((Views)otherEnd, msgs);
-    }
-    return super.eInverseAdd(otherEnd, featureID, msgs);
-  }
+		switch (featureID) {
+			case DomainPackage.FORM_VIEW__VIEW:
+				if (view != null)
+					msgs = ((InternalEObject)view).eInverseRemove(this, DomainPackage.VIEWS__PARENT, Views.class, msgs);
+				return basicSetView((Views)otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
-    switch (featureID)
-    {
-      case DomainPackage.FORM_VIEW__VIEW:
-        return basicSetView(null, msgs);
-    }
-    return super.eInverseRemove(otherEnd, featureID, msgs);
-  }
+		switch (featureID) {
+			case DomainPackage.FORM_VIEW__VIEW:
+				return basicSetView(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
-    switch (featureID)
-    {
-      case DomainPackage.FORM_VIEW__UID:
-        return getUid();
-      case DomainPackage.FORM_VIEW__NAME:
-        return getName();
-      case DomainPackage.FORM_VIEW__VIEW:
-        if (resolve) return getView();
-        return basicGetView();
-    }
-    return super.eGet(featureID, resolve, coreType);
-  }
+		switch (featureID) {
+			case DomainPackage.FORM_VIEW__UID:
+				return getUid();
+			case DomainPackage.FORM_VIEW__NAME:
+				return getName();
+			case DomainPackage.FORM_VIEW__VIEW:
+				if (resolve) return getView();
+				return basicGetView();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public void eSet(int featureID, Object newValue)
   {
-    switch (featureID)
-    {
-      case DomainPackage.FORM_VIEW__UID:
-        setUid((String)newValue);
-        return;
-      case DomainPackage.FORM_VIEW__NAME:
-        setName((String)newValue);
-        return;
-      case DomainPackage.FORM_VIEW__VIEW:
-        setView((Views)newValue);
-        return;
-    }
-    super.eSet(featureID, newValue);
-  }
+		switch (featureID) {
+			case DomainPackage.FORM_VIEW__UID:
+				setUid((String)newValue);
+				return;
+			case DomainPackage.FORM_VIEW__NAME:
+				setName((String)newValue);
+				return;
+			case DomainPackage.FORM_VIEW__VIEW:
+				setView((Views)newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public void eUnset(int featureID)
   {
-    switch (featureID)
-    {
-      case DomainPackage.FORM_VIEW__UID:
-        setUid(UID_EDEFAULT);
-        return;
-      case DomainPackage.FORM_VIEW__NAME:
-        setName(NAME_EDEFAULT);
-        return;
-      case DomainPackage.FORM_VIEW__VIEW:
-        setView((Views)null);
-        return;
-    }
-    super.eUnset(featureID);
-  }
+		switch (featureID) {
+			case DomainPackage.FORM_VIEW__UID:
+				setUid(UID_EDEFAULT);
+				return;
+			case DomainPackage.FORM_VIEW__NAME:
+				setName(NAME_EDEFAULT);
+				return;
+			case DomainPackage.FORM_VIEW__VIEW:
+				setView((Views)null);
+				return;
+		}
+		super.eUnset(featureID);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public boolean eIsSet(int featureID)
   {
-    switch (featureID)
-    {
-      case DomainPackage.FORM_VIEW__UID:
-        return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
-      case DomainPackage.FORM_VIEW__NAME:
-        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-      case DomainPackage.FORM_VIEW__VIEW:
-        return view != null;
-    }
-    return super.eIsSet(featureID);
-  }
+		switch (featureID) {
+			case DomainPackage.FORM_VIEW__UID:
+				return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
+			case DomainPackage.FORM_VIEW__NAME:
+				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+			case DomainPackage.FORM_VIEW__VIEW:
+				return view != null;
+		}
+		return super.eIsSet(featureID);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public String toString()
   {
-    if (eIsProxy()) return super.toString();
+		if (eIsProxy()) return super.toString();
 
-    StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (uid: ");
-    result.append(uid);
-    result.append(", name: ");
-    result.append(name);
-    result.append(')');
-    return result.toString();
-  }
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (uid: ");
+		result.append(uid);
+		result.append(", name: ");
+		result.append(name);
+		result.append(')');
+		return result.toString();
+	}
 
 } //FormViewImpl

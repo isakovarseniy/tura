@@ -1,18 +1,12 @@
 /*
- * 
- */
+* 
+*/
 package message.diagram.part;
 
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
-
-import message.diagram.edit.parts.LanguageEditPart;
-import message.diagram.edit.parts.MessageEditPart;
-import message.diagram.edit.parts.MessageLibraryEditPart;
-import message.diagram.edit.parts.MessageLibraryMessageLibraryMessagesCompartmentEditPart;
-import message.diagram.edit.parts.MessagesEditPart;
 
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.gmf.tooling.runtime.update.DiagramUpdater;
@@ -21,6 +15,11 @@ import domain.Language;
 import domain.Message;
 import domain.MessageLibrary;
 import domain.Messages;
+import message.diagram.edit.parts.LanguageEditPart;
+import message.diagram.edit.parts.MessageEditPart;
+import message.diagram.edit.parts.MessageLibraryEditPart;
+import message.diagram.edit.parts.MessageLibraryMessageLibraryMessagesCompartmentEditPart;
+import message.diagram.edit.parts.MessagesEditPart;
 
 /**
  * @generated
@@ -28,15 +27,15 @@ import domain.Messages;
 public class DomainDiagramUpdater {
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static boolean isShortcutOrphaned(View view) {
 		return !view.isSetElement() || view.getElement() == null || view.getElement().eIsProxy();
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static List<DomainNodeDescriptor> getSemanticChildren(View view) {
 		switch (DomainVisualIDRegistry.getVisualID(view)) {
 		case MessagesEditPart.VISUAL_ID:
@@ -48,8 +47,8 @@ public class DomainDiagramUpdater {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static List<DomainNodeDescriptor> getMessages_1701000SemanticChildren(View view) {
 		if (!view.isSetElement()) {
 			return Collections.emptyList();
@@ -76,8 +75,8 @@ public class DomainDiagramUpdater {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static List<DomainNodeDescriptor> getMessageLibraryMessageLibraryMessagesCompartment_1707001SemanticChildren(
 			View view) {
 		if (false == view.eContainer() instanceof View) {
@@ -101,8 +100,8 @@ public class DomainDiagramUpdater {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static List<DomainLinkDescriptor> getContainedLinks(View view) {
 		switch (DomainVisualIDRegistry.getVisualID(view)) {
 		case MessagesEditPart.VISUAL_ID:
@@ -118,8 +117,8 @@ public class DomainDiagramUpdater {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static List<DomainLinkDescriptor> getIncomingLinks(View view) {
 		switch (DomainVisualIDRegistry.getVisualID(view)) {
 		case MessageLibraryEditPart.VISUAL_ID:
@@ -133,8 +132,8 @@ public class DomainDiagramUpdater {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static List<DomainLinkDescriptor> getOutgoingLinks(View view) {
 		switch (DomainVisualIDRegistry.getVisualID(view)) {
 		case MessageLibraryEditPart.VISUAL_ID:
@@ -218,37 +217,41 @@ public class DomainDiagramUpdater {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static final DiagramUpdater TYPED_INSTANCE = new DiagramUpdater() {
 		/**
-		 * @generated
-		 */
+		* @generated
+		*/
 		@Override
+
 		public List<DomainNodeDescriptor> getSemanticChildren(View view) {
 			return DomainDiagramUpdater.getSemanticChildren(view);
 		}
 
 		/**
-		 * @generated
-		 */
+		* @generated
+		*/
 		@Override
+
 		public List<DomainLinkDescriptor> getContainedLinks(View view) {
 			return DomainDiagramUpdater.getContainedLinks(view);
 		}
 
 		/**
-		 * @generated
-		 */
+		* @generated
+		*/
 		@Override
+
 		public List<DomainLinkDescriptor> getIncomingLinks(View view) {
 			return DomainDiagramUpdater.getIncomingLinks(view);
 		}
 
 		/**
-		 * @generated
-		 */
+		* @generated
+		*/
 		@Override
+
 		public List<DomainLinkDescriptor> getOutgoingLinks(View view) {
 			return DomainDiagramUpdater.getOutgoingLinks(view);
 		}

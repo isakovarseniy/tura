@@ -130,8 +130,8 @@ public class DeploymentComponentEditPart extends ShapeNodeEditPart {
 	 */
 	protected boolean addFixedChild(EditPart childEditPart) {
 		if (childEditPart instanceof DeploymentComponentNameEditPart) {
-			((DeploymentComponentNameEditPart) childEditPart).setLabel(getPrimaryShape()
-					.getFigureDeploymentComponentLabelFigure());
+			((DeploymentComponentNameEditPart) childEditPart)
+					.setLabel(getPrimaryShape().getFigureDeploymentComponentLabelFigure());
 			return true;
 		}
 		return false;
@@ -186,9 +186,8 @@ public class DeploymentComponentEditPart extends ShapeNodeEditPart {
 				EObject obj = ((View) getModel()).getElement();
 				if (obj instanceof Orderable) {
 					EditingDomain editingDomain = getEditingDomain();
-					editingDomain.getCommandStack().execute(
-							SetCommand.create(editingDomain, obj, DomainPackage.eINSTANCE.getOrderable_Order(),
-									evt.getNewValue()));
+					editingDomain.getCommandStack().execute(SetCommand.create(editingDomain, obj,
+							DomainPackage.eINSTANCE.getOrderable_Order(), evt.getNewValue()));
 
 				}
 			}
@@ -280,60 +279,6 @@ public class DeploymentComponentEditPart extends ShapeNodeEditPart {
 	 */
 	public EditPart getPrimaryChildEditPart() {
 		return getChildBySemanticHint(DomainVisualIDRegistry.getType(DeploymentComponentNameEditPart.VISUAL_ID));
-	}
-
-	/**
-	 * @generated
-	 */
-	public List<IElementType> getMARelTypesOnSource() {
-		ArrayList<IElementType> types = new ArrayList<IElementType>(1);
-		types.add(DomainElementTypes.DeploymentComponentDeploymentComponentLink_904014);
-		return types;
-	}
-
-	/**
-	 * @generated
-	 */
-	public List<IElementType> getMARelTypesOnSourceAndTarget(IGraphicalEditPart targetEditPart) {
-		LinkedList<IElementType> types = new LinkedList<IElementType>();
-		if (targetEditPart instanceof deployment.diagram.edit.parts.DeploymentComponentEditPart) {
-			types.add(DomainElementTypes.DeploymentComponentDeploymentComponentLink_904014);
-		}
-		return types;
-	}
-
-	/**
-	 * @generated
-	 */
-	public List<IElementType> getMATypesForTarget(IElementType relationshipType) {
-		LinkedList<IElementType> types = new LinkedList<IElementType>();
-		if (relationshipType == DomainElementTypes.DeploymentComponentDeploymentComponentLink_904014) {
-			types.add(DomainElementTypes.DeploymentComponent_902001);
-		}
-		return types;
-	}
-
-	/**
-	 * @generated
-	 */
-	public List<IElementType> getMARelTypesOnTarget() {
-		ArrayList<IElementType> types = new ArrayList<IElementType>(2);
-		types.add(DomainElementTypes.DeploymentComponentDeploymentComponentLink_904014);
-		types.add(DomainElementTypes.DeploymentStarStepFirstStep_904008);
-		return types;
-	}
-
-	/**
-	 * @generated
-	 */
-	public List<IElementType> getMATypesForSource(IElementType relationshipType) {
-		LinkedList<IElementType> types = new LinkedList<IElementType>();
-		if (relationshipType == DomainElementTypes.DeploymentComponentDeploymentComponentLink_904014) {
-			types.add(DomainElementTypes.DeploymentComponent_902001);
-		} else if (relationshipType == DomainElementTypes.DeploymentStarStepFirstStep_904008) {
-			types.add(DomainElementTypes.DeploymentStarStep_902002);
-		}
-		return types;
 	}
 
 	/**

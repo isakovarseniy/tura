@@ -1,0 +1,34 @@
+/*
+ * 
+ */
+package artifact.diagram.providers.assistants;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.eclipse.core.runtime.IAdaptable;
+import org.eclipse.gmf.runtime.emf.type.core.IElementType;
+
+import artifact.diagram.providers.DomainElementTypes;
+import artifact.diagram.providers.DomainModelingAssistantProvider;
+
+/**
+ * @generated
+ */
+public class DomainModelingAssistantProviderOfArtifactEditPart extends DomainModelingAssistantProvider {
+
+	/**
+	* @generated
+	*/
+	@Override
+
+	public List<IElementType> getTypesForPopupBar(IAdaptable host) {
+		List<IElementType> types = new ArrayList<IElementType>(4);
+		types.add(DomainElementTypes.ConfigVariable_703004);
+		types.add(DomainElementTypes.ModelQuery_703005);
+		types.add(DomainElementTypes.Specifier_703003);
+		types.add(DomainElementTypes.GenerationHint_703006);
+		return types;
+	}
+
+}

@@ -1,9 +1,7 @@
 /*
- * 
- */
+* 
+*/
 package message.diagram.edit.policies;
-
-import message.diagram.providers.DomainElementTypes;
 
 import org.eclipse.emf.ecore.EAnnotation;
 import org.eclipse.gef.commands.Command;
@@ -13,21 +11,23 @@ import org.eclipse.gmf.runtime.emf.type.core.commands.DestroyElementCommand;
 import org.eclipse.gmf.runtime.emf.type.core.requests.DestroyElementRequest;
 import org.eclipse.gmf.runtime.notation.View;
 
+import message.diagram.providers.DomainElementTypes;
+
 /**
  * @generated
  */
 public class LanguageItemSemanticEditPolicy extends DomainBaseItemSemanticEditPolicy {
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public LanguageItemSemanticEditPolicy() {
 		super(DomainElementTypes.Language_1702002);
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected Command getDestroyElementCommand(DestroyElementRequest req) {
 		View view = (View) getHost().getModel();
 		CompositeTransactionalCommand cmd = new CompositeTransactionalCommand(getEditingDomain(), null);

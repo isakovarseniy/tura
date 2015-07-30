@@ -15,6 +15,8 @@ import org.eclipse.gmf.runtime.diagram.ui.tools.UnspecifiedTypeConnectionTool;
 import org.eclipse.gmf.runtime.diagram.ui.tools.UnspecifiedTypeCreationTool;
 import org.eclipse.gmf.runtime.emf.type.core.IElementType;
 
+import org.eclipse.gmf.tooling.runtime.part.DefaultLinkToolEntry;
+import org.eclipse.gmf.tooling.runtime.part.DefaultNodeToolEntry;
 import recipe.diagram.providers.DomainElementTypes;
 
 /**
@@ -66,7 +68,7 @@ public class DomainPaletteFactory {
 	 * @generated
 	 */
 	private ToolEntry createConfiguration1CreationTool() {
-		NodeToolEntry entry = new NodeToolEntry(Messages.Configuration1CreationTool_title,
+		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(Messages.Configuration1CreationTool_title,
 				Messages.Configuration1CreationTool_desc,
 				Collections.singletonList(DomainElementTypes.Configuration_302002));
 		entry.setId("createConfiguration1CreationTool"); //$NON-NLS-1$
@@ -79,7 +81,7 @@ public class DomainPaletteFactory {
 	 * @generated
 	 */
 	private ToolEntry createDeploymentSequence2CreationTool() {
-		NodeToolEntry entry = new NodeToolEntry(Messages.DeploymentSequence2CreationTool_title,
+		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(Messages.DeploymentSequence2CreationTool_title,
 				Messages.DeploymentSequence2CreationTool_desc,
 				Collections.singletonList(DomainElementTypes.DeploymentSequence_302004));
 		entry.setId("createDeploymentSequence2CreationTool"); //$NON-NLS-1$
@@ -92,7 +94,7 @@ public class DomainPaletteFactory {
 	 * @generated
 	 */
 	private ToolEntry createInfrastructure3CreationTool() {
-		NodeToolEntry entry = new NodeToolEntry(Messages.Infrastructure3CreationTool_title,
+		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(Messages.Infrastructure3CreationTool_title,
 				Messages.Infrastructure3CreationTool_desc,
 				Collections.singletonList(DomainElementTypes.Infrastructure_302003));
 		entry.setId("createInfrastructure3CreationTool"); //$NON-NLS-1$
@@ -105,7 +107,7 @@ public class DomainPaletteFactory {
 	 * @generated
 	 */
 	private ToolEntry createIngredient4CreationTool() {
-		NodeToolEntry entry = new NodeToolEntry(Messages.Ingredient4CreationTool_title,
+		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(Messages.Ingredient4CreationTool_title,
 				Messages.Ingredient4CreationTool_desc, Collections.singletonList(DomainElementTypes.Ingredient_303001));
 		entry.setId("createIngredient4CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(DomainElementTypes.getImageDescriptor(DomainElementTypes.Ingredient_303001));
@@ -117,7 +119,7 @@ public class DomainPaletteFactory {
 	 * @generated
 	 */
 	private ToolEntry createJavaComponent5CreationTool() {
-		NodeToolEntry entry = new NodeToolEntry(Messages.JavaComponent5CreationTool_title,
+		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(Messages.JavaComponent5CreationTool_title,
 				Messages.JavaComponent5CreationTool_desc,
 				Collections.singletonList(DomainElementTypes.JavaComponent_303002));
 		entry.setId("createJavaComponent5CreationTool"); //$NON-NLS-1$
@@ -130,7 +132,7 @@ public class DomainPaletteFactory {
 	 * @generated
 	 */
 	private ToolEntry createModelMapper6CreationTool() {
-		NodeToolEntry entry = new NodeToolEntry(Messages.ModelMapper6CreationTool_title,
+		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(Messages.ModelMapper6CreationTool_title,
 				Messages.ModelMapper6CreationTool_desc,
 				Collections.singletonList(DomainElementTypes.ModelMapper_303003));
 		entry.setId("createModelMapper6CreationTool"); //$NON-NLS-1$
@@ -143,7 +145,7 @@ public class DomainPaletteFactory {
 	 * @generated
 	 */
 	private ToolEntry createProperty7CreationTool() {
-		NodeToolEntry entry = new NodeToolEntry(Messages.Property7CreationTool_title,
+		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(Messages.Property7CreationTool_title,
 				Messages.Property7CreationTool_desc, Collections.singletonList(DomainElementTypes.Property_303005));
 		entry.setId("createProperty7CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(DomainElementTypes.getImageDescriptor(DomainElementTypes.Property_303005));
@@ -155,8 +157,8 @@ public class DomainPaletteFactory {
 	 * @generated
 	 */
 	private ToolEntry createQuery8CreationTool() {
-		NodeToolEntry entry = new NodeToolEntry(Messages.Query8CreationTool_title, Messages.Query8CreationTool_desc,
-				Collections.singletonList(DomainElementTypes.Query_303004));
+		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(Messages.Query8CreationTool_title,
+				Messages.Query8CreationTool_desc, Collections.singletonList(DomainElementTypes.Query_303004));
 		entry.setId("createQuery8CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(DomainElementTypes.getImageDescriptor(DomainElementTypes.Query_303004));
 		entry.setLargeIcon(entry.getSmallIcon());
@@ -167,8 +169,8 @@ public class DomainPaletteFactory {
 	 * @generated
 	 */
 	private ToolEntry createRecipe9CreationTool() {
-		NodeToolEntry entry = new NodeToolEntry(Messages.Recipe9CreationTool_title, Messages.Recipe9CreationTool_desc,
-				Collections.singletonList(DomainElementTypes.Recipe_302001));
+		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(Messages.Recipe9CreationTool_title,
+				Messages.Recipe9CreationTool_desc, Collections.singletonList(DomainElementTypes.Recipe_302001));
 		entry.setId("createRecipe9CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(DomainElementTypes.getImageDescriptor(DomainElementTypes.Recipe_302001));
 		entry.setLargeIcon(entry.getSmallIcon());
@@ -179,7 +181,7 @@ public class DomainPaletteFactory {
 	 * @generated
 	 */
 	private ToolEntry createDeployment1CreationTool() {
-		LinkToolEntry entry = new LinkToolEntry(Messages.Deployment1CreationTool_title,
+		DefaultLinkToolEntry entry = new DefaultLinkToolEntry(Messages.Deployment1CreationTool_title,
 				Messages.Deployment1CreationTool_desc,
 				Collections.singletonList(DomainElementTypes.RecipeDeployment_304013));
 		entry.setId("createDeployment1CreationTool"); //$NON-NLS-1$
@@ -192,7 +194,7 @@ public class DomainPaletteFactory {
 	 * @generated
 	 */
 	private ToolEntry createInfrastructures2CreationTool() {
-		LinkToolEntry entry = new LinkToolEntry(Messages.Infrastructures2CreationTool_title,
+		DefaultLinkToolEntry entry = new DefaultLinkToolEntry(Messages.Infrastructures2CreationTool_title,
 				Messages.Infrastructures2CreationTool_desc,
 				Collections.singletonList(DomainElementTypes.RecipeInfrastructures_304004));
 		entry.setId("createInfrastructures2CreationTool"); //$NON-NLS-1$
@@ -205,68 +207,12 @@ public class DomainPaletteFactory {
 	 * @generated
 	 */
 	private ToolEntry createRecipeConfig3CreationTool() {
-		LinkToolEntry entry = new LinkToolEntry(Messages.RecipeConfig3CreationTool_title,
+		DefaultLinkToolEntry entry = new DefaultLinkToolEntry(Messages.RecipeConfig3CreationTool_title,
 				Messages.RecipeConfig3CreationTool_desc,
 				Collections.singletonList(DomainElementTypes.InfrastructureRecipeConfig_304006));
 		entry.setId("createRecipeConfig3CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(DomainElementTypes.getImageDescriptor(DomainElementTypes.InfrastructureRecipeConfig_304006));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
-	}
-
-	/**
-	 * @generated
-	 */
-	private static class NodeToolEntry extends ToolEntry {
-
-		/**
-		 * @generated
-		 */
-		private final List<IElementType> elementTypes;
-
-		/**
-		 * @generated
-		 */
-		private NodeToolEntry(String title, String description, List<IElementType> elementTypes) {
-			super(title, description, null, null);
-			this.elementTypes = elementTypes;
-		}
-
-		/**
-		 * @generated
-		 */
-		public Tool createTool() {
-			Tool tool = new UnspecifiedTypeCreationTool(elementTypes);
-			tool.setProperties(getToolProperties());
-			return tool;
-		}
-	}
-
-	/**
-	 * @generated
-	 */
-	private static class LinkToolEntry extends ToolEntry {
-
-		/**
-		 * @generated
-		 */
-		private final List<IElementType> relationshipTypes;
-
-		/**
-		 * @generated
-		 */
-		private LinkToolEntry(String title, String description, List<IElementType> relationshipTypes) {
-			super(title, description, null, null);
-			this.relationshipTypes = relationshipTypes;
-		}
-
-		/**
-		 * @generated
-		 */
-		public Tool createTool() {
-			Tool tool = new UnspecifiedTypeConnectionTool(relationshipTypes);
-			tool.setProperties(getToolProperties());
-			return tool;
-		}
 	}
 }

@@ -11,10 +11,10 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link domain.Formatable#getFormat <em>Format</em>}</li>
  * </ul>
- * </p>
  *
  * @see domain.DomainPackage#getFormatable()
  * @model
@@ -23,29 +23,29 @@ import org.eclipse.emf.ecore.EObject;
 public interface Formatable extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Format</b></em>' attribute.
-   * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Format</b></em>' attribute.
+	 * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Format</em>' attribute isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Format</em>' attribute.
-   * @see #setFormat(String)
-   * @see domain.DomainPackage#getFormatable_Format()
-   * @model
-   * @generated
-   */
+	 * @return the value of the '<em>Format</em>' attribute.
+	 * @see #setFormat(String)
+	 * @see domain.DomainPackage#getFormatable_Format()
+	 * @model
+	 * @generated
+	 */
   String getFormat();
 
   /**
-   * Sets the value of the '{@link domain.Formatable#getFormat <em>Format</em>}' attribute.
-   * <!-- begin-user-doc -->
+	 * Sets the value of the '{@link domain.Formatable#getFormat <em>Format</em>}' attribute.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Format</em>' attribute.
-   * @see #getFormat()
-   * @generated
-   */
+	 * @param value the new value of the '<em>Format</em>' attribute.
+	 * @see #getFormat()
+	 * @generated
+	 */
   void setFormat(String value);
 
 } // Formatable

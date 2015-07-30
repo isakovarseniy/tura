@@ -93,8 +93,8 @@ public class SubsystemSubsystemInfrastructureLayerCompartmentCanonicalEditPolicy
 		}
 		LinkedList<IAdaptable> createdViews = new LinkedList<IAdaptable>();
 		List<DomainNodeDescriptor> childDescriptors = DomainDiagramUpdater
-				.getSubsystemSubsystemInfrastructureLayerCompartment_1207002SemanticChildren((View) getHost()
-						.getModel());
+				.getSubsystemSubsystemInfrastructureLayerCompartment_1207002SemanticChildren(
+						(View) getHost().getModel());
 		LinkedList<View> orphaned = new LinkedList<View>();
 		// we care to check only views we recognize as ours
 		LinkedList<View> knownViewChildren = new LinkedList<View>();
@@ -152,6 +152,7 @@ public class SubsystemSubsystemInfrastructureLayerCompartmentCanonicalEditPolicy
 			SetViewMutabilityCommand.makeMutable(new EObjectAdapter(host().getNotationView())).execute();
 			executeCommand(cmd);
 			@SuppressWarnings("unchecked")
+
 			List<IAdaptable> nl = (List<IAdaptable>) request.getNewObject();
 			createdViews.addAll(nl);
 		}
@@ -160,7 +161,8 @@ public class SubsystemSubsystemInfrastructureLayerCompartmentCanonicalEditPolicy
 		}
 		if (createdViews.size() > 1) {
 			// perform a layout of the container
-			DeferredLayoutCommand layoutCmd = new DeferredLayoutCommand(host().getEditingDomain(), createdViews, host());
+			DeferredLayoutCommand layoutCmd = new DeferredLayoutCommand(host().getEditingDomain(), createdViews,
+					host());
 			executeCommand(new ICommandProxy(layoutCmd));
 		}
 

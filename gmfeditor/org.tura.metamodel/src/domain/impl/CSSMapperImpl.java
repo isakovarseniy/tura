@@ -20,6 +20,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link domain.impl.CSSMapperImpl#getLibraryUrl <em>Library Url</em>}</li>
  *   <li>{@link domain.impl.CSSMapperImpl#getStylePackage <em>Style Package</em>}</li>
@@ -27,395 +28,386 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *   <li>{@link domain.impl.CSSMapperImpl#getFakePackageName <em>Fake Package Name</em>}</li>
  *   <li>{@link domain.impl.CSSMapperImpl#getFakeTypeName <em>Fake Type Name</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
 public class CSSMapperImpl extends MapperImpl implements CSSMapper
 {
   /**
-   * The default value of the '{@link #getLibraryUrl() <em>Library Url</em>}' attribute.
-   * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getLibraryUrl() <em>Library Url</em>}' attribute.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getLibraryUrl()
-   * @generated
-   * @ordered
-   */
+	 * @see #getLibraryUrl()
+	 * @generated
+	 * @ordered
+	 */
   protected static final String LIBRARY_URL_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getLibraryUrl() <em>Library Url</em>}' attribute.
-   * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getLibraryUrl() <em>Library Url</em>}' attribute.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getLibraryUrl()
-   * @generated
-   * @ordered
-   */
+	 * @see #getLibraryUrl()
+	 * @generated
+	 * @ordered
+	 */
   protected String libraryUrl = LIBRARY_URL_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getStylePackage() <em>Style Package</em>}' reference.
-   * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getStylePackage() <em>Style Package</em>}' reference.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getStylePackage()
-   * @generated
-   * @ordered
-   */
+	 * @see #getStylePackage()
+	 * @generated
+	 * @ordered
+	 */
   protected StylesPackage stylePackage;
 
   /**
-   * The cached value of the '{@link #getStyleLibrary() <em>Style Library</em>}' reference.
-   * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getStyleLibrary() <em>Style Library</em>}' reference.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getStyleLibrary()
-   * @generated
-   * @ordered
-   */
+	 * @see #getStyleLibrary()
+	 * @generated
+	 * @ordered
+	 */
   protected StyleLibrary styleLibrary;
 
   /**
-   * The default value of the '{@link #getFakePackageName() <em>Fake Package Name</em>}' attribute.
-   * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getFakePackageName() <em>Fake Package Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getFakePackageName()
-   * @generated
-   * @ordered
-   */
+	 * @see #getFakePackageName()
+	 * @generated
+	 * @ordered
+	 */
   protected static final String FAKE_PACKAGE_NAME_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getFakePackageName() <em>Fake Package Name</em>}' attribute.
-   * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getFakePackageName() <em>Fake Package Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getFakePackageName()
-   * @generated
-   * @ordered
-   */
+	 * @see #getFakePackageName()
+	 * @generated
+	 * @ordered
+	 */
   protected String fakePackageName = FAKE_PACKAGE_NAME_EDEFAULT;
 
   /**
-   * The default value of the '{@link #getFakeTypeName() <em>Fake Type Name</em>}' attribute.
-   * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getFakeTypeName() <em>Fake Type Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getFakeTypeName()
-   * @generated
-   * @ordered
-   */
+	 * @see #getFakeTypeName()
+	 * @generated
+	 * @ordered
+	 */
   protected static final String FAKE_TYPE_NAME_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getFakeTypeName() <em>Fake Type Name</em>}' attribute.
-   * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getFakeTypeName() <em>Fake Type Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getFakeTypeName()
-   * @generated
-   * @ordered
-   */
+	 * @see #getFakeTypeName()
+	 * @generated
+	 * @ordered
+	 */
   protected String fakeTypeName = FAKE_TYPE_NAME_EDEFAULT;
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   protected CSSMapperImpl()
   {
-    super();
-  }
+		super();
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   protected EClass eStaticClass()
   {
-    return DomainPackage.Literals.CSS_MAPPER;
-  }
+		return DomainPackage.Literals.CSS_MAPPER;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public String getLibraryUrl()
   {
-    return libraryUrl;
-  }
+		return libraryUrl;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public void setLibraryUrl(String newLibraryUrl)
   {
-    String oldLibraryUrl = libraryUrl;
-    libraryUrl = newLibraryUrl;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.CSS_MAPPER__LIBRARY_URL, oldLibraryUrl, libraryUrl));
-  }
+		String oldLibraryUrl = libraryUrl;
+		libraryUrl = newLibraryUrl;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.CSS_MAPPER__LIBRARY_URL, oldLibraryUrl, libraryUrl));
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public StylesPackage getStylePackage()
   {
-    if (stylePackage != null && stylePackage.eIsProxy())
-    {
-      InternalEObject oldStylePackage = (InternalEObject)stylePackage;
-      stylePackage = (StylesPackage)eResolveProxy(oldStylePackage);
-      if (stylePackage != oldStylePackage)
-      {
-        if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, DomainPackage.CSS_MAPPER__STYLE_PACKAGE, oldStylePackage, stylePackage));
-      }
-    }
-    return stylePackage;
-  }
+		if (stylePackage != null && stylePackage.eIsProxy()) {
+			InternalEObject oldStylePackage = (InternalEObject)stylePackage;
+			stylePackage = (StylesPackage)eResolveProxy(oldStylePackage);
+			if (stylePackage != oldStylePackage) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, DomainPackage.CSS_MAPPER__STYLE_PACKAGE, oldStylePackage, stylePackage));
+			}
+		}
+		return stylePackage;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public StylesPackage basicGetStylePackage()
   {
-    return stylePackage;
-  }
+		return stylePackage;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public void setStylePackage(StylesPackage newStylePackage)
   {
-    StylesPackage oldStylePackage = stylePackage;
-    stylePackage = newStylePackage;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.CSS_MAPPER__STYLE_PACKAGE, oldStylePackage, stylePackage));
-  }
+		StylesPackage oldStylePackage = stylePackage;
+		stylePackage = newStylePackage;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.CSS_MAPPER__STYLE_PACKAGE, oldStylePackage, stylePackage));
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public StyleLibrary getStyleLibrary()
   {
-    if (styleLibrary != null && styleLibrary.eIsProxy())
-    {
-      InternalEObject oldStyleLibrary = (InternalEObject)styleLibrary;
-      styleLibrary = (StyleLibrary)eResolveProxy(oldStyleLibrary);
-      if (styleLibrary != oldStyleLibrary)
-      {
-        if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, DomainPackage.CSS_MAPPER__STYLE_LIBRARY, oldStyleLibrary, styleLibrary));
-      }
-    }
-    return styleLibrary;
-  }
+		if (styleLibrary != null && styleLibrary.eIsProxy()) {
+			InternalEObject oldStyleLibrary = (InternalEObject)styleLibrary;
+			styleLibrary = (StyleLibrary)eResolveProxy(oldStyleLibrary);
+			if (styleLibrary != oldStyleLibrary) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, DomainPackage.CSS_MAPPER__STYLE_LIBRARY, oldStyleLibrary, styleLibrary));
+			}
+		}
+		return styleLibrary;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public StyleLibrary basicGetStyleLibrary()
   {
-    return styleLibrary;
-  }
+		return styleLibrary;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public void setStyleLibrary(StyleLibrary newStyleLibrary)
   {
-    StyleLibrary oldStyleLibrary = styleLibrary;
-    styleLibrary = newStyleLibrary;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.CSS_MAPPER__STYLE_LIBRARY, oldStyleLibrary, styleLibrary));
-  }
+		StyleLibrary oldStyleLibrary = styleLibrary;
+		styleLibrary = newStyleLibrary;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.CSS_MAPPER__STYLE_LIBRARY, oldStyleLibrary, styleLibrary));
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public String getFakePackageName()
   {
-    return fakePackageName;
-  }
+		return fakePackageName;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public void setFakePackageName(String newFakePackageName)
   {
-    String oldFakePackageName = fakePackageName;
-    fakePackageName = newFakePackageName;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.CSS_MAPPER__FAKE_PACKAGE_NAME, oldFakePackageName, fakePackageName));
-  }
+		String oldFakePackageName = fakePackageName;
+		fakePackageName = newFakePackageName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.CSS_MAPPER__FAKE_PACKAGE_NAME, oldFakePackageName, fakePackageName));
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public String getFakeTypeName()
   {
-    return fakeTypeName;
-  }
+		return fakeTypeName;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public void setFakeTypeName(String newFakeTypeName)
   {
-    String oldFakeTypeName = fakeTypeName;
-    fakeTypeName = newFakeTypeName;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.CSS_MAPPER__FAKE_TYPE_NAME, oldFakeTypeName, fakeTypeName));
-  }
+		String oldFakeTypeName = fakeTypeName;
+		fakeTypeName = newFakeTypeName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.CSS_MAPPER__FAKE_TYPE_NAME, oldFakeTypeName, fakeTypeName));
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
-    switch (featureID)
-    {
-      case DomainPackage.CSS_MAPPER__LIBRARY_URL:
-        return getLibraryUrl();
-      case DomainPackage.CSS_MAPPER__STYLE_PACKAGE:
-        if (resolve) return getStylePackage();
-        return basicGetStylePackage();
-      case DomainPackage.CSS_MAPPER__STYLE_LIBRARY:
-        if (resolve) return getStyleLibrary();
-        return basicGetStyleLibrary();
-      case DomainPackage.CSS_MAPPER__FAKE_PACKAGE_NAME:
-        return getFakePackageName();
-      case DomainPackage.CSS_MAPPER__FAKE_TYPE_NAME:
-        return getFakeTypeName();
-    }
-    return super.eGet(featureID, resolve, coreType);
-  }
+		switch (featureID) {
+			case DomainPackage.CSS_MAPPER__LIBRARY_URL:
+				return getLibraryUrl();
+			case DomainPackage.CSS_MAPPER__STYLE_PACKAGE:
+				if (resolve) return getStylePackage();
+				return basicGetStylePackage();
+			case DomainPackage.CSS_MAPPER__STYLE_LIBRARY:
+				if (resolve) return getStyleLibrary();
+				return basicGetStyleLibrary();
+			case DomainPackage.CSS_MAPPER__FAKE_PACKAGE_NAME:
+				return getFakePackageName();
+			case DomainPackage.CSS_MAPPER__FAKE_TYPE_NAME:
+				return getFakeTypeName();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public void eSet(int featureID, Object newValue)
   {
-    switch (featureID)
-    {
-      case DomainPackage.CSS_MAPPER__LIBRARY_URL:
-        setLibraryUrl((String)newValue);
-        return;
-      case DomainPackage.CSS_MAPPER__STYLE_PACKAGE:
-        setStylePackage((StylesPackage)newValue);
-        return;
-      case DomainPackage.CSS_MAPPER__STYLE_LIBRARY:
-        setStyleLibrary((StyleLibrary)newValue);
-        return;
-      case DomainPackage.CSS_MAPPER__FAKE_PACKAGE_NAME:
-        setFakePackageName((String)newValue);
-        return;
-      case DomainPackage.CSS_MAPPER__FAKE_TYPE_NAME:
-        setFakeTypeName((String)newValue);
-        return;
-    }
-    super.eSet(featureID, newValue);
-  }
+		switch (featureID) {
+			case DomainPackage.CSS_MAPPER__LIBRARY_URL:
+				setLibraryUrl((String)newValue);
+				return;
+			case DomainPackage.CSS_MAPPER__STYLE_PACKAGE:
+				setStylePackage((StylesPackage)newValue);
+				return;
+			case DomainPackage.CSS_MAPPER__STYLE_LIBRARY:
+				setStyleLibrary((StyleLibrary)newValue);
+				return;
+			case DomainPackage.CSS_MAPPER__FAKE_PACKAGE_NAME:
+				setFakePackageName((String)newValue);
+				return;
+			case DomainPackage.CSS_MAPPER__FAKE_TYPE_NAME:
+				setFakeTypeName((String)newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public void eUnset(int featureID)
   {
-    switch (featureID)
-    {
-      case DomainPackage.CSS_MAPPER__LIBRARY_URL:
-        setLibraryUrl(LIBRARY_URL_EDEFAULT);
-        return;
-      case DomainPackage.CSS_MAPPER__STYLE_PACKAGE:
-        setStylePackage((StylesPackage)null);
-        return;
-      case DomainPackage.CSS_MAPPER__STYLE_LIBRARY:
-        setStyleLibrary((StyleLibrary)null);
-        return;
-      case DomainPackage.CSS_MAPPER__FAKE_PACKAGE_NAME:
-        setFakePackageName(FAKE_PACKAGE_NAME_EDEFAULT);
-        return;
-      case DomainPackage.CSS_MAPPER__FAKE_TYPE_NAME:
-        setFakeTypeName(FAKE_TYPE_NAME_EDEFAULT);
-        return;
-    }
-    super.eUnset(featureID);
-  }
+		switch (featureID) {
+			case DomainPackage.CSS_MAPPER__LIBRARY_URL:
+				setLibraryUrl(LIBRARY_URL_EDEFAULT);
+				return;
+			case DomainPackage.CSS_MAPPER__STYLE_PACKAGE:
+				setStylePackage((StylesPackage)null);
+				return;
+			case DomainPackage.CSS_MAPPER__STYLE_LIBRARY:
+				setStyleLibrary((StyleLibrary)null);
+				return;
+			case DomainPackage.CSS_MAPPER__FAKE_PACKAGE_NAME:
+				setFakePackageName(FAKE_PACKAGE_NAME_EDEFAULT);
+				return;
+			case DomainPackage.CSS_MAPPER__FAKE_TYPE_NAME:
+				setFakeTypeName(FAKE_TYPE_NAME_EDEFAULT);
+				return;
+		}
+		super.eUnset(featureID);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public boolean eIsSet(int featureID)
   {
-    switch (featureID)
-    {
-      case DomainPackage.CSS_MAPPER__LIBRARY_URL:
-        return LIBRARY_URL_EDEFAULT == null ? libraryUrl != null : !LIBRARY_URL_EDEFAULT.equals(libraryUrl);
-      case DomainPackage.CSS_MAPPER__STYLE_PACKAGE:
-        return stylePackage != null;
-      case DomainPackage.CSS_MAPPER__STYLE_LIBRARY:
-        return styleLibrary != null;
-      case DomainPackage.CSS_MAPPER__FAKE_PACKAGE_NAME:
-        return FAKE_PACKAGE_NAME_EDEFAULT == null ? fakePackageName != null : !FAKE_PACKAGE_NAME_EDEFAULT.equals(fakePackageName);
-      case DomainPackage.CSS_MAPPER__FAKE_TYPE_NAME:
-        return FAKE_TYPE_NAME_EDEFAULT == null ? fakeTypeName != null : !FAKE_TYPE_NAME_EDEFAULT.equals(fakeTypeName);
-    }
-    return super.eIsSet(featureID);
-  }
+		switch (featureID) {
+			case DomainPackage.CSS_MAPPER__LIBRARY_URL:
+				return LIBRARY_URL_EDEFAULT == null ? libraryUrl != null : !LIBRARY_URL_EDEFAULT.equals(libraryUrl);
+			case DomainPackage.CSS_MAPPER__STYLE_PACKAGE:
+				return stylePackage != null;
+			case DomainPackage.CSS_MAPPER__STYLE_LIBRARY:
+				return styleLibrary != null;
+			case DomainPackage.CSS_MAPPER__FAKE_PACKAGE_NAME:
+				return FAKE_PACKAGE_NAME_EDEFAULT == null ? fakePackageName != null : !FAKE_PACKAGE_NAME_EDEFAULT.equals(fakePackageName);
+			case DomainPackage.CSS_MAPPER__FAKE_TYPE_NAME:
+				return FAKE_TYPE_NAME_EDEFAULT == null ? fakeTypeName != null : !FAKE_TYPE_NAME_EDEFAULT.equals(fakeTypeName);
+		}
+		return super.eIsSet(featureID);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public String toString()
   {
-    if (eIsProxy()) return super.toString();
+		if (eIsProxy()) return super.toString();
 
-    StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (libraryUrl: ");
-    result.append(libraryUrl);
-    result.append(", fakePackageName: ");
-    result.append(fakePackageName);
-    result.append(", fakeTypeName: ");
-    result.append(fakeTypeName);
-    result.append(')');
-    return result.toString();
-  }
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (libraryUrl: ");
+		result.append(libraryUrl);
+		result.append(", fakePackageName: ");
+		result.append(fakePackageName);
+		result.append(", fakeTypeName: ");
+		result.append(fakeTypeName);
+		result.append(')');
+		return result.toString();
+	}
 
 } //CSSMapperImpl

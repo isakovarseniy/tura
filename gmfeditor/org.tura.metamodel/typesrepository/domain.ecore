@@ -12,6 +12,8 @@
         eType="#//DomainTypes" containment="true" eOpposite="#//DomainTypes/parent"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="domainApplications" lowerBound="1"
         eType="#//DomainApplications" containment="true" eOpposite="#//DomainApplications/parent"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="any" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="HTMLLayerHolder">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="columns" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
@@ -135,6 +137,8 @@
         eType="#//Artifact" containment="true" eOpposite="#//Artifact/parent"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//DomainArtifact"
         eOpposite="#//DomainArtifact/artifact"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="any" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Artifact">
     <eAnnotations source="gmf.node">
@@ -235,7 +239,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Option">
     <eAnnotations source="gmf.node">
-      <details key="label" value="name"/>
+      <details key="label" value="value"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>
@@ -263,6 +267,8 @@
         containment="true" eOpposite="#//ApplicationMessages/parent"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//DomainApplication"
         eOpposite="#//DomainApplication/application"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="any" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ApplicationMessages">
     <eAnnotations source="gmf.node">
@@ -426,6 +432,8 @@
         eType="#//MessageLibrary" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="languages" upperBound="-1"
         eType="#//Language" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="any" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MessageLibrary">
     <eAnnotations source="gmf.node">
@@ -489,6 +497,8 @@
         eType="#//Role" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="groups" upperBound="-1"
         eType="#//Group" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="any" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Role">
     <eAnnotations source="gmf.node">
@@ -538,6 +548,8 @@
         eOpposite="#//StylesPackage/styles"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="libraries" upperBound="-1"
         eType="#//StyleLibrary" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="any" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="StyleLibrary">
     <eAnnotations source="gmf.node">
@@ -573,6 +585,8 @@
         eType="#//Mapper" containment="true" eOpposite="#//Mapper/parent"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//ApplicationMapper"
         eOpposite="#//ApplicationMapper/mapper"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="any" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Mapper">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
@@ -643,6 +657,8 @@
         eOpposite="#//ApplicationRecipe/recipes"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="deployment" eType="#//DeploymentSequence"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="any" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DeploymentSequence">
     <eAnnotations source="gmf.node">
@@ -663,6 +679,8 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="deplymentStep" upperBound="-1"
         eType="#//DeploymentComponent" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="startSeq" eType="#//DeploymentStarStep"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="any" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DeploymentComponent">
@@ -916,6 +934,8 @@
         eType="#//TypeElement" containment="true" eOpposite="#//TypeElement/parent"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//Package"
         eOpposite="#//Package/typedefinition"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="any" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="TypeElement">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
@@ -1047,6 +1067,8 @@
         eType="#//Types" containment="true" eOpposite="#//Types/parent"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//DomainTypes"
         eOpposite="#//DomainTypes/typesrepository"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="any" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Types" eSuperTypes="#//HTMLLayerHolder">
     <eAnnotations source="gmf.node">
@@ -1086,6 +1108,8 @@
         eOpposite="#//ApplicationUIPackage/uipackage"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="forms" upperBound="-1"
         eType="#//Form" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="any" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Form">
     <eAnnotations source="gmf.node">
@@ -1149,6 +1173,8 @@
         eType="#//ViewInheritance" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="tabPagesInheritances" upperBound="-1"
         eType="#//TabPagesInheritance" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="any" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Orderable">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="order" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
@@ -1292,6 +1318,8 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//ViewArea"
         eOpposite="#//ViewArea/canvasView"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="baseCanvas" eType="#//LayerHolder"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="any" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ChildrenHolder">
@@ -1519,6 +1547,8 @@
         eType="#//Relation" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="dependencies" upperBound="-1"
         eType="#//Dependency" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="any" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Trigger" eSuperTypes="#//MethodPointer #//ContextParameters"/>
   <eClassifiers xsi:type="ecore:EClass" name="PREFormTrigger" eSuperTypes="#//Trigger">
@@ -1838,6 +1868,8 @@
         eType="#//Datacenter" containment="true" eOpposite="#//Datacenter/parent"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="infrastructureConnections"
         upperBound="-1" eType="#//InfrastructureConnection" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="any" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Datacenter" eSuperTypes="#//HTMLLayerHolder">
     <eAnnotations source="gmf.node">

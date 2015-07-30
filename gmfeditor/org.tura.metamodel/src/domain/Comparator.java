@@ -20,312 +20,312 @@ import org.eclipse.emf.common.util.Enumerator;
 public enum Comparator implements Enumerator
 {
   /**
-   * The '<em><b>EQ</b></em>' literal object.
-   * <!-- begin-user-doc -->
+	 * The '<em><b>EQ</b></em>' literal object.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #EQ_VALUE
-   * @generated
-   * @ordered
-   */
+	 * @see #EQ_VALUE
+	 * @generated
+	 * @ordered
+	 */
   EQ(0, "EQ", "EQ"),
 
   /**
-   * The '<em><b>NEQ</b></em>' literal object.
-   * <!-- begin-user-doc -->
+	 * The '<em><b>NEQ</b></em>' literal object.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #NEQ_VALUE
-   * @generated
-   * @ordered
-   */
+	 * @see #NEQ_VALUE
+	 * @generated
+	 * @ordered
+	 */
   NEQ(1, "NEQ", "NEQ"),
 
   /**
-   * The '<em><b>GT</b></em>' literal object.
-   * <!-- begin-user-doc -->
+	 * The '<em><b>GT</b></em>' literal object.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #GT_VALUE
-   * @generated
-   * @ordered
-   */
+	 * @see #GT_VALUE
+	 * @generated
+	 * @ordered
+	 */
   GT(2, "GT", "GT"),
 
   /**
-   * The '<em><b>GEQ</b></em>' literal object.
-   * <!-- begin-user-doc -->
+	 * The '<em><b>GEQ</b></em>' literal object.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #GEQ_VALUE
-   * @generated
-   * @ordered
-   */
+	 * @see #GEQ_VALUE
+	 * @generated
+	 * @ordered
+	 */
   GEQ(3, "GEQ", "GEQ"),
 
   /**
-   * The '<em><b>LT</b></em>' literal object.
-   * <!-- begin-user-doc -->
+	 * The '<em><b>LT</b></em>' literal object.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #LT_VALUE
-   * @generated
-   * @ordered
-   */
+	 * @see #LT_VALUE
+	 * @generated
+	 * @ordered
+	 */
   LT(4, "LT", "LT"),
 
   /**
-   * The '<em><b>LEQ</b></em>' literal object.
-   * <!-- begin-user-doc -->
+	 * The '<em><b>LEQ</b></em>' literal object.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #LEQ_VALUE
-   * @generated
-   * @ordered
-   */
+	 * @see #LEQ_VALUE
+	 * @generated
+	 * @ordered
+	 */
   LEQ(5, "LEQ", "LEQ");
 
   /**
-   * The '<em><b>EQ</b></em>' literal value.
-   * <!-- begin-user-doc -->
+	 * The '<em><b>EQ</b></em>' literal value.
+	 * <!-- begin-user-doc -->
    * <p>
    * If the meaning of '<em><b>EQ</b></em>' literal object isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @see #EQ
-   * @model
-   * @generated
-   * @ordered
-   */
+	 * @see #EQ
+	 * @model
+	 * @generated
+	 * @ordered
+	 */
   public static final int EQ_VALUE = 0;
 
   /**
-   * The '<em><b>NEQ</b></em>' literal value.
-   * <!-- begin-user-doc -->
+	 * The '<em><b>NEQ</b></em>' literal value.
+	 * <!-- begin-user-doc -->
    * <p>
    * If the meaning of '<em><b>NEQ</b></em>' literal object isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @see #NEQ
-   * @model
-   * @generated
-   * @ordered
-   */
+	 * @see #NEQ
+	 * @model
+	 * @generated
+	 * @ordered
+	 */
   public static final int NEQ_VALUE = 1;
 
   /**
-   * The '<em><b>GT</b></em>' literal value.
-   * <!-- begin-user-doc -->
+	 * The '<em><b>GT</b></em>' literal value.
+	 * <!-- begin-user-doc -->
    * <p>
    * If the meaning of '<em><b>GT</b></em>' literal object isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @see #GT
-   * @model
-   * @generated
-   * @ordered
-   */
+	 * @see #GT
+	 * @model
+	 * @generated
+	 * @ordered
+	 */
   public static final int GT_VALUE = 2;
 
   /**
-   * The '<em><b>GEQ</b></em>' literal value.
-   * <!-- begin-user-doc -->
+	 * The '<em><b>GEQ</b></em>' literal value.
+	 * <!-- begin-user-doc -->
    * <p>
    * If the meaning of '<em><b>GEQ</b></em>' literal object isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @see #GEQ
-   * @model
-   * @generated
-   * @ordered
-   */
+	 * @see #GEQ
+	 * @model
+	 * @generated
+	 * @ordered
+	 */
   public static final int GEQ_VALUE = 3;
 
   /**
-   * The '<em><b>LT</b></em>' literal value.
-   * <!-- begin-user-doc -->
+	 * The '<em><b>LT</b></em>' literal value.
+	 * <!-- begin-user-doc -->
    * <p>
    * If the meaning of '<em><b>LT</b></em>' literal object isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @see #LT
-   * @model
-   * @generated
-   * @ordered
-   */
+	 * @see #LT
+	 * @model
+	 * @generated
+	 * @ordered
+	 */
   public static final int LT_VALUE = 4;
 
   /**
-   * The '<em><b>LEQ</b></em>' literal value.
-   * <!-- begin-user-doc -->
+	 * The '<em><b>LEQ</b></em>' literal value.
+	 * <!-- begin-user-doc -->
    * <p>
    * If the meaning of '<em><b>LEQ</b></em>' literal object isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @see #LEQ
-   * @model
-   * @generated
-   * @ordered
-   */
+	 * @see #LEQ
+	 * @model
+	 * @generated
+	 * @ordered
+	 */
   public static final int LEQ_VALUE = 5;
 
   /**
-   * An array of all the '<em><b>Comparator</b></em>' enumerators.
-   * <!-- begin-user-doc -->
+	 * An array of all the '<em><b>Comparator</b></em>' enumerators.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   private static final Comparator[] VALUES_ARRAY =
-    new Comparator[]
-    {
-      EQ,
-      NEQ,
-      GT,
-      GEQ,
-      LT,
-      LEQ,
-    };
+    new Comparator[] {
+			EQ,
+			NEQ,
+			GT,
+			GEQ,
+			LT,
+			LEQ,
+		};
 
   /**
-   * A public read-only list of all the '<em><b>Comparator</b></em>' enumerators.
-   * <!-- begin-user-doc -->
+	 * A public read-only list of all the '<em><b>Comparator</b></em>' enumerators.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public static final List<Comparator> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
 
   /**
-   * Returns the '<em><b>Comparator</b></em>' literal with the specified literal value.
-   * <!-- begin-user-doc -->
+	 * Returns the '<em><b>Comparator</b></em>' literal with the specified literal value.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @param literal the literal.
+	 * @return the matching enumerator or <code>null</code>.
+	 * @generated
+	 */
   public static Comparator get(String literal)
   {
-    for (int i = 0; i < VALUES_ARRAY.length; ++i)
-    {
-      Comparator result = VALUES_ARRAY[i];
-      if (result.toString().equals(literal))
-      {
-        return result;
-      }
-    }
-    return null;
-  }
+		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
+			Comparator result = VALUES_ARRAY[i];
+			if (result.toString().equals(literal)) {
+				return result;
+			}
+		}
+		return null;
+	}
 
   /**
-   * Returns the '<em><b>Comparator</b></em>' literal with the specified name.
-   * <!-- begin-user-doc -->
+	 * Returns the '<em><b>Comparator</b></em>' literal with the specified name.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @param name the name.
+	 * @return the matching enumerator or <code>null</code>.
+	 * @generated
+	 */
   public static Comparator getByName(String name)
   {
-    for (int i = 0; i < VALUES_ARRAY.length; ++i)
-    {
-      Comparator result = VALUES_ARRAY[i];
-      if (result.getName().equals(name))
-      {
-        return result;
-      }
-    }
-    return null;
-  }
+		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
+			Comparator result = VALUES_ARRAY[i];
+			if (result.getName().equals(name)) {
+				return result;
+			}
+		}
+		return null;
+	}
 
   /**
-   * Returns the '<em><b>Comparator</b></em>' literal with the specified integer value.
-   * <!-- begin-user-doc -->
+	 * Returns the '<em><b>Comparator</b></em>' literal with the specified integer value.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @param value the integer value.
+	 * @return the matching enumerator or <code>null</code>.
+	 * @generated
+	 */
   public static Comparator get(int value)
   {
-    switch (value)
-    {
-      case EQ_VALUE: return EQ;
-      case NEQ_VALUE: return NEQ;
-      case GT_VALUE: return GT;
-      case GEQ_VALUE: return GEQ;
-      case LT_VALUE: return LT;
-      case LEQ_VALUE: return LEQ;
-    }
-    return null;
-  }
+		switch (value) {
+			case EQ_VALUE: return EQ;
+			case NEQ_VALUE: return NEQ;
+			case GT_VALUE: return GT;
+			case GEQ_VALUE: return GEQ;
+			case LT_VALUE: return LT;
+			case LEQ_VALUE: return LEQ;
+		}
+		return null;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   private final int value;
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   private final String name;
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   private final String literal;
 
   /**
-   * Only this class can construct instances.
-   * <!-- begin-user-doc -->
+	 * Only this class can construct instances.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   private Comparator(int value, String name, String literal)
   {
-    this.value = value;
-    this.name = name;
-    this.literal = literal;
-  }
+		this.value = value;
+		this.name = name;
+		this.literal = literal;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public int getValue()
   {
-    return value;
-  }
+	  return value;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public String getName()
   {
-    return name;
-  }
+	  return name;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public String getLiteral()
   {
-    return literal;
-  }
+	  return literal;
+	}
 
   /**
-   * Returns the literal value of the enumerator, which is its string representation.
-   * <!-- begin-user-doc -->
+	 * Returns the literal value of the enumerator, which is its string representation.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public String toString()
   {
-    return literal;
-  }
+		return literal;
+	}
   
 } //Comparator

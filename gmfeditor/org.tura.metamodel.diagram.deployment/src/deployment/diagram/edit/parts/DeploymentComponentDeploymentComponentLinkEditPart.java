@@ -18,8 +18,8 @@ import deployment.diagram.edit.policies.DeploymentComponentDeploymentComponentLi
 /**
  * @generated
  */
-public class DeploymentComponentDeploymentComponentLinkEditPart extends ConnectionNodeEditPart implements
-		ITreeBranchEditPart {
+public class DeploymentComponentDeploymentComponentLinkEditPart extends ConnectionNodeEditPart
+		implements ITreeBranchEditPart {
 
 	/**
 	 * @generated

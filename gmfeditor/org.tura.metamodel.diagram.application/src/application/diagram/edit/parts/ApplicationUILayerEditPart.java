@@ -78,8 +78,7 @@ public class ApplicationUILayerEditPart extends ShapeNodeEditPart {
 		super.createDefaultEditPolicies();
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE, new ApplicationUILayerItemSemanticEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
-		installEditPolicy(EditPolicyRoles.OPEN_ROLE, new OpenDiagramEditPolicy());
-		// XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
+		installEditPolicy(EditPolicyRoles.OPEN_ROLE, new OpenDiagramEditPolicy()); // XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
 		// removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
 	}
 
@@ -127,8 +126,8 @@ public class ApplicationUILayerEditPart extends ShapeNodeEditPart {
 	 */
 	protected boolean addFixedChild(EditPart childEditPart) {
 		if (childEditPart instanceof ApplicationUILayerNameEditPart) {
-			((ApplicationUILayerNameEditPart) childEditPart).setLabel(getPrimaryShape()
-					.getFigureApplicationUILayerLabelFigure());
+			((ApplicationUILayerNameEditPart) childEditPart)
+					.setLabel(getPrimaryShape().getFigureApplicationUILayerLabelFigure());
 			return true;
 		}
 		if (childEditPart instanceof ApplicationUILayerApplicationUILayerApplicationUIPackagesCompartmentEditPart) {
@@ -199,9 +198,8 @@ public class ApplicationUILayerEditPart extends ShapeNodeEditPart {
 				EObject obj = ((View) getModel()).getElement();
 				if (obj instanceof Orderable) {
 					EditingDomain editingDomain = getEditingDomain();
-					editingDomain.getCommandStack().execute(
-							SetCommand.create(editingDomain, obj, DomainPackage.eINSTANCE.getOrderable_Order(),
-									evt.getNewValue()));
+					editingDomain.getCommandStack().execute(SetCommand.create(editingDomain, obj,
+							DomainPackage.eINSTANCE.getOrderable_Order(), evt.getNewValue()));
 
 				}
 			}
@@ -344,8 +342,8 @@ public class ApplicationUILayerEditPart extends ShapeNodeEditPart {
 
 			fFigureApplicationUILayerLabelFigure.setFont(FFIGUREAPPLICATIONUILAYERLABELFIGURE_FONT);
 
-			fFigureApplicationUILayerLabelFigure.setMaximumSize(new Dimension(getMapMode().DPtoLP(10000), getMapMode()
-					.DPtoLP(50)));
+			fFigureApplicationUILayerLabelFigure
+					.setMaximumSize(new Dimension(getMapMode().DPtoLP(10000), getMapMode().DPtoLP(50)));
 
 			this.add(fFigureApplicationUILayerLabelFigure);
 

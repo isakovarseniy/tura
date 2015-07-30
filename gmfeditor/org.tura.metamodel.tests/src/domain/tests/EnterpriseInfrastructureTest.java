@@ -19,78 +19,78 @@ public class EnterpriseInfrastructureTest extends TestCase
 {
 
   /**
-   * The fixture for this Enterprise Infrastructure test case.
-   * <!-- begin-user-doc -->
+	 * The fixture for this Enterprise Infrastructure test case.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   protected EnterpriseInfrastructure fixture = null;
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public static void main(String[] args)
   {
-    TestRunner.run(EnterpriseInfrastructureTest.class);
-  }
+		TestRunner.run(EnterpriseInfrastructureTest.class);
+	}
 
   /**
-   * Constructs a new Enterprise Infrastructure test case with the given name.
-   * <!-- begin-user-doc -->
+	 * Constructs a new Enterprise Infrastructure test case with the given name.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public EnterpriseInfrastructureTest(String name)
   {
-    super(name);
-  }
+		super(name);
+	}
 
   /**
-   * Sets the fixture for this Enterprise Infrastructure test case.
-   * <!-- begin-user-doc -->
+	 * Sets the fixture for this Enterprise Infrastructure test case.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   protected void setFixture(EnterpriseInfrastructure fixture)
   {
-    this.fixture = fixture;
-  }
+		this.fixture = fixture;
+	}
 
   /**
-   * Returns the fixture for this Enterprise Infrastructure test case.
-   * <!-- begin-user-doc -->
+	 * Returns the fixture for this Enterprise Infrastructure test case.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   protected EnterpriseInfrastructure getFixture()
   {
-    return fixture;
-  }
+		return fixture;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see junit.framework.TestCase#setUp()
-   * @generated
-   */
+	 * @see junit.framework.TestCase#setUp()
+	 * @generated
+	 */
   @Override
   protected void setUp() throws Exception
   {
-    setFixture(DomainFactory.eINSTANCE.createEnterpriseInfrastructure());
-  }
+		setFixture(DomainFactory.eINSTANCE.createEnterpriseInfrastructure());
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see junit.framework.TestCase#tearDown()
-   * @generated
-   */
+	 * @see junit.framework.TestCase#tearDown()
+	 * @generated
+	 */
   @Override
   protected void tearDown() throws Exception
   {
-    setFixture(null);
-  }
+		setFixture(null);
+	}
 
 } //EnterpriseInfrastructureTest

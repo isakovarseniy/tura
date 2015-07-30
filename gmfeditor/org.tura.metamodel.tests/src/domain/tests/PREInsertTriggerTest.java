@@ -17,60 +17,60 @@ public class PREInsertTriggerTest extends TriggerTest
 {
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public static void main(String[] args)
   {
-    TestRunner.run(PREInsertTriggerTest.class);
-  }
+		TestRunner.run(PREInsertTriggerTest.class);
+	}
 
   /**
-   * Constructs a new PRE Insert Trigger test case with the given name.
-   * <!-- begin-user-doc -->
+	 * Constructs a new PRE Insert Trigger test case with the given name.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public PREInsertTriggerTest(String name)
   {
-    super(name);
-  }
+		super(name);
+	}
 
   /**
-   * Returns the fixture for this PRE Insert Trigger test case.
-   * <!-- begin-user-doc -->
+	 * Returns the fixture for this PRE Insert Trigger test case.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   protected PREInsertTrigger getFixture()
   {
-    return (PREInsertTrigger)fixture;
-  }
+		return (PREInsertTrigger)fixture;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see junit.framework.TestCase#setUp()
-   * @generated
-   */
+	 * @see junit.framework.TestCase#setUp()
+	 * @generated
+	 */
   @Override
   protected void setUp() throws Exception
   {
-    setFixture(DomainFactory.eINSTANCE.createPREInsertTrigger());
-  }
+		setFixture(DomainFactory.eINSTANCE.createPREInsertTrigger());
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see junit.framework.TestCase#tearDown()
-   * @generated
-   */
+	 * @see junit.framework.TestCase#tearDown()
+	 * @generated
+	 */
   @Override
   protected void tearDown() throws Exception
   {
-    setFixture(null);
-  }
+		setFixture(null);
+	}
 
 } //PREInsertTriggerTest

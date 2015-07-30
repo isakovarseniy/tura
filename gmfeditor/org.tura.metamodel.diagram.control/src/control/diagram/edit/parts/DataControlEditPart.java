@@ -84,13 +84,12 @@ public class DataControlEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected void createDefaultEditPolicies() {
-		installEditPolicy(EditPolicyRoles.CREATION_ROLE, new CreationEditPolicyWithCustomReparent(
-				DomainVisualIDRegistry.TYPED_INSTANCE));
+		installEditPolicy(EditPolicyRoles.CREATION_ROLE,
+				new CreationEditPolicyWithCustomReparent(DomainVisualIDRegistry.TYPED_INSTANCE));
 		super.createDefaultEditPolicies();
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE, new DataControlItemSemanticEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
-		installEditPolicy(EditPolicyRoles.OPEN_ROLE, new OpenDiagramEditPolicy());
-		// XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
+		installEditPolicy(EditPolicyRoles.OPEN_ROLE, new OpenDiagramEditPolicy()); // XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
 		// removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
 	}
 
@@ -361,9 +360,8 @@ public class DataControlEditPart extends ShapeNodeEditPart {
 				EObject obj = ((View) getModel()).getElement();
 				if (obj instanceof Orderable) {
 					EditingDomain editingDomain = getEditingDomain();
-					editingDomain.getCommandStack().execute(
-							SetCommand.create(editingDomain, obj, DomainPackage.eINSTANCE.getOrderable_Order(),
-									evt.getNewValue()));
+					editingDomain.getCommandStack().execute(SetCommand.create(editingDomain, obj,
+							DomainPackage.eINSTANCE.getOrderable_Order(), evt.getNewValue()));
 
 				}
 			}
@@ -460,66 +458,6 @@ public class DataControlEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	public List<IElementType> getMARelTypesOnSource() {
-		ArrayList<IElementType> types = new ArrayList<IElementType>(2);
-		types.add(DomainElementTypes.Relation_1104009);
-		types.add(DomainElementTypes.Dependency_1104010);
-		return types;
-	}
-
-	/**
-	 * @generated
-	 */
-	public List<IElementType> getMARelTypesOnSourceAndTarget(IGraphicalEditPart targetEditPart) {
-		LinkedList<IElementType> types = new LinkedList<IElementType>();
-		if (targetEditPart instanceof control.diagram.edit.parts.DataControlEditPart) {
-			types.add(DomainElementTypes.Relation_1104009);
-		}
-		if (targetEditPart instanceof control.diagram.edit.parts.DataControlEditPart) {
-			types.add(DomainElementTypes.Dependency_1104010);
-		}
-		return types;
-	}
-
-	/**
-	 * @generated
-	 */
-	public List<IElementType> getMATypesForTarget(IElementType relationshipType) {
-		LinkedList<IElementType> types = new LinkedList<IElementType>();
-		if (relationshipType == DomainElementTypes.Relation_1104009) {
-			types.add(DomainElementTypes.DataControl_1102002);
-		} else if (relationshipType == DomainElementTypes.Dependency_1104010) {
-			types.add(DomainElementTypes.DataControl_1102002);
-		}
-		return types;
-	}
-
-	/**
-	 * @generated
-	 */
-	public List<IElementType> getMARelTypesOnTarget() {
-		ArrayList<IElementType> types = new ArrayList<IElementType>(2);
-		types.add(DomainElementTypes.Relation_1104009);
-		types.add(DomainElementTypes.Dependency_1104010);
-		return types;
-	}
-
-	/**
-	 * @generated
-	 */
-	public List<IElementType> getMATypesForSource(IElementType relationshipType) {
-		LinkedList<IElementType> types = new LinkedList<IElementType>();
-		if (relationshipType == DomainElementTypes.Relation_1104009) {
-			types.add(DomainElementTypes.DataControl_1102002);
-		} else if (relationshipType == DomainElementTypes.Dependency_1104010) {
-			types.add(DomainElementTypes.DataControl_1102002);
-		}
-		return types;
-	}
-
-	/**
-	 * @generated
-	 */
 	public EditPart getTargetEditPart(Request request) {
 		if (request instanceof CreateViewAndElementRequest) {
 			CreateElementRequestAdapter adapter = ((CreateViewAndElementRequest) request).getViewAndElementDescriptor()
@@ -550,24 +488,24 @@ public class DataControlEditPart extends ShapeNodeEditPart {
 						.getType(DataControlDataControlPreUpdateTriggerCompartmentEditPart.VISUAL_ID));
 			}
 			if (type == DomainElementTypes.CreateTrigger_1103012) {
-				return getChildBySemanticHint(DomainVisualIDRegistry
-						.getType(DataControlDataControlCreateCompartmentEditPart.VISUAL_ID));
+				return getChildBySemanticHint(
+						DomainVisualIDRegistry.getType(DataControlDataControlCreateCompartmentEditPart.VISUAL_ID));
 			}
 			if (type == DomainElementTypes.InsertTrigger_1103013) {
-				return getChildBySemanticHint(DomainVisualIDRegistry
-						.getType(DataControlDataControlInsertCompartmentEditPart.VISUAL_ID));
+				return getChildBySemanticHint(
+						DomainVisualIDRegistry.getType(DataControlDataControlInsertCompartmentEditPart.VISUAL_ID));
 			}
 			if (type == DomainElementTypes.UpdateTrigger_1103014) {
-				return getChildBySemanticHint(DomainVisualIDRegistry
-						.getType(DataControlDataControlUpdateCompartmentEditPart.VISUAL_ID));
+				return getChildBySemanticHint(
+						DomainVisualIDRegistry.getType(DataControlDataControlUpdateCompartmentEditPart.VISUAL_ID));
 			}
 			if (type == DomainElementTypes.DeleteTrigger_1103015) {
-				return getChildBySemanticHint(DomainVisualIDRegistry
-						.getType(DataControlDataControlRemoveCompartmentEditPart.VISUAL_ID));
+				return getChildBySemanticHint(
+						DomainVisualIDRegistry.getType(DataControlDataControlRemoveCompartmentEditPart.VISUAL_ID));
 			}
 			if (type == DomainElementTypes.SearchTrigger_1103016) {
-				return getChildBySemanticHint(DomainVisualIDRegistry
-						.getType(DataControlDataControlSearchCompartmentEditPart.VISUAL_ID));
+				return getChildBySemanticHint(
+						DomainVisualIDRegistry.getType(DataControlDataControlSearchCompartmentEditPart.VISUAL_ID));
 			}
 			if (type == DomainElementTypes.ArtificialField_1103008) {
 				return getChildBySemanticHint(DomainVisualIDRegistry
@@ -670,8 +608,8 @@ public class DataControlEditPart extends ShapeNodeEditPart {
 
 			fFigureDataControlLabelFigure.setFont(FFIGUREDATACONTROLLABELFIGURE_FONT);
 
-			fFigureDataControlLabelFigure.setMaximumSize(new Dimension(getMapMode().DPtoLP(10000), getMapMode().DPtoLP(
-					50)));
+			fFigureDataControlLabelFigure
+					.setMaximumSize(new Dimension(getMapMode().DPtoLP(10000), getMapMode().DPtoLP(50)));
 
 			this.add(fFigureDataControlLabelFigure);
 

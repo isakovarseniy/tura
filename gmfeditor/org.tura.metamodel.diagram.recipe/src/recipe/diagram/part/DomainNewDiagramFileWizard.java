@@ -56,7 +56,8 @@ public class DomainNewDiagramFileWizard extends Wizard {
 	/**
 	 * @generated
 	 */
-	public DomainNewDiagramFileWizard(URI domainModelURI, EObject diagramRoot, TransactionalEditingDomain editingDomain) {
+	public DomainNewDiagramFileWizard(URI domainModelURI, EObject diagramRoot,
+			TransactionalEditingDomain editingDomain) {
 		assert domainModelURI != null : "Domain model uri must be specified"; //$NON-NLS-1$
 		assert diagramRoot != null : "Doagram root element must be specified"; //$NON-NLS-1$
 		assert editingDomain != null : "Editing domain must be specified"; //$NON-NLS-1$
@@ -64,8 +65,8 @@ public class DomainNewDiagramFileWizard extends Wizard {
 		myFileCreationPage = new WizardNewFileCreationPage(Messages.DomainNewDiagramFileWizard_CreationPageName,
 				StructuredSelection.EMPTY);
 		myFileCreationPage.setTitle(Messages.DomainNewDiagramFileWizard_CreationPageTitle);
-		myFileCreationPage.setDescription(NLS.bind(Messages.DomainNewDiagramFileWizard_CreationPageDescription,
-				RecipesEditPart.MODEL_ID));
+		myFileCreationPage.setDescription(
+				NLS.bind(Messages.DomainNewDiagramFileWizard_CreationPageDescription, RecipesEditPart.MODEL_ID));
 		IPath filePath;
 		String fileName = URI.decode(domainModelURI.trimFileExtension().lastSegment());
 		if (domainModelURI.isPlatformResource()) {
@@ -113,8 +114,8 @@ public class DomainNewDiagramFileWizard extends Wizard {
 
 			protected CommandResult doExecuteWithResult(IProgressMonitor monitor, IAdaptable info)
 					throws ExecutionException {
-				int diagramVID = DomainVisualIDRegistry.getDiagramVisualID(diagramRootElementSelectionPage
-						.getModelElement());
+				int diagramVID = DomainVisualIDRegistry
+						.getDiagramVisualID(diagramRootElementSelectionPage.getModelElement());
 				if (diagramVID != RecipesEditPart.VISUAL_ID) {
 					return CommandResult.newErrorCommandResult(Messages.DomainNewDiagramFileWizard_IncorrectRootError);
 				}
@@ -161,15 +162,15 @@ public class DomainNewDiagramFileWizard extends Wizard {
 		 * @generated
 		 */
 		protected boolean validatePage() {
-			if (selectedModelElement == null) {
+			if (getModelElement() == null) {
 				setErrorMessage(Messages.DomainNewDiagramFileWizard_RootSelectionPageNoSelectionMessage);
 				return false;
 			}
-			boolean result = ViewService.getInstance().provides(
-					new CreateDiagramViewOperation(new EObjectAdapter(selectedModelElement), RecipesEditPart.MODEL_ID,
-							DomainDiagramEditorPlugin.DIAGRAM_PREFERENCES_HINT));
-			setErrorMessage(result ? null
-					: Messages.DomainNewDiagramFileWizard_RootSelectionPageInvalidSelectionMessage);
+			boolean result = ViewService.getInstance()
+					.provides(new CreateDiagramViewOperation(new EObjectAdapter(getModelElement()),
+							RecipesEditPart.MODEL_ID, DomainDiagramEditorPlugin.DIAGRAM_PREFERENCES_HINT));
+			setErrorMessage(
+					result ? null : Messages.DomainNewDiagramFileWizard_RootSelectionPageInvalidSelectionMessage);
 			return result;
 		}
 	}

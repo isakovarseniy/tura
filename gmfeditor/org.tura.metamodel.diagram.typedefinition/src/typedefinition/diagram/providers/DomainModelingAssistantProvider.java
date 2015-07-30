@@ -40,134 +40,6 @@ public class DomainModelingAssistantProvider extends ModelingAssistantProvider {
 	/**
 	 * @generated
 	 */
-	public List getTypesForPopupBar(IAdaptable host) {
-		IGraphicalEditPart editPart = (IGraphicalEditPart) host.getAdapter(IGraphicalEditPart.class);
-		if (editPart instanceof TypeDefinitionEditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(4);
-			types.add(DomainElementTypes.Type_102002);
-			types.add(DomainElementTypes.TypeReference_102001);
-			types.add(DomainElementTypes.Primitive_102004);
-			types.add(DomainElementTypes.Enumarator_102005);
-			return types;
-		}
-		if (editPart instanceof TypeEditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(2);
-			types.add(DomainElementTypes.Attribute_103001);
-			types.add(DomainElementTypes.Operation_103002);
-			return types;
-		}
-		if (editPart instanceof EnumaratorEditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(1);
-			types.add(DomainElementTypes.EnumAttribute_103005);
-			return types;
-		}
-		return Collections.EMPTY_LIST;
-	}
-
-	/**
-	 * @generated
-	 */
-	public List getRelTypesOnSource(IAdaptable source) {
-		IGraphicalEditPart sourceEditPart = (IGraphicalEditPart) source.getAdapter(IGraphicalEditPart.class);
-		if (sourceEditPart instanceof TypeEditPart) {
-			return ((TypeEditPart) sourceEditPart).getMARelTypesOnSource();
-		}
-		if (sourceEditPart instanceof TypeReferenceEditPart) {
-			return ((TypeReferenceEditPart) sourceEditPart).getMARelTypesOnSource();
-		}
-		if (sourceEditPart instanceof PrimitiveEditPart) {
-			return ((PrimitiveEditPart) sourceEditPart).getMARelTypesOnSource();
-		}
-		if (sourceEditPart instanceof EnumaratorEditPart) {
-			return ((EnumaratorEditPart) sourceEditPart).getMARelTypesOnSource();
-		}
-		return Collections.EMPTY_LIST;
-	}
-
-	/**
-	 * @generated
-	 */
-	public List getRelTypesOnTarget(IAdaptable target) {
-		IGraphicalEditPart targetEditPart = (IGraphicalEditPart) target.getAdapter(IGraphicalEditPart.class);
-		if (targetEditPart instanceof TypeEditPart) {
-			return ((TypeEditPart) targetEditPart).getMARelTypesOnTarget();
-		}
-		if (targetEditPart instanceof TypeReferenceEditPart) {
-			return ((TypeReferenceEditPart) targetEditPart).getMARelTypesOnTarget();
-		}
-		if (targetEditPart instanceof PrimitiveEditPart) {
-			return ((PrimitiveEditPart) targetEditPart).getMARelTypesOnTarget();
-		}
-		if (targetEditPart instanceof EnumaratorEditPart) {
-			return ((EnumaratorEditPart) targetEditPart).getMARelTypesOnTarget();
-		}
-		return Collections.EMPTY_LIST;
-	}
-
-	/**
-	 * @generated
-	 */
-	public List getRelTypesOnSourceAndTarget(IAdaptable source, IAdaptable target) {
-		IGraphicalEditPart sourceEditPart = (IGraphicalEditPart) source.getAdapter(IGraphicalEditPart.class);
-		IGraphicalEditPart targetEditPart = (IGraphicalEditPart) target.getAdapter(IGraphicalEditPart.class);
-		if (sourceEditPart instanceof TypeEditPart) {
-			return ((TypeEditPart) sourceEditPart).getMARelTypesOnSourceAndTarget(targetEditPart);
-		}
-		if (sourceEditPart instanceof TypeReferenceEditPart) {
-			return ((TypeReferenceEditPart) sourceEditPart).getMARelTypesOnSourceAndTarget(targetEditPart);
-		}
-		if (sourceEditPart instanceof PrimitiveEditPart) {
-			return ((PrimitiveEditPart) sourceEditPart).getMARelTypesOnSourceAndTarget(targetEditPart);
-		}
-		if (sourceEditPart instanceof EnumaratorEditPart) {
-			return ((EnumaratorEditPart) sourceEditPart).getMARelTypesOnSourceAndTarget(targetEditPart);
-		}
-		return Collections.EMPTY_LIST;
-	}
-
-	/**
-	 * @generated
-	 */
-	public List getTypesForSource(IAdaptable target, IElementType relationshipType) {
-		IGraphicalEditPart targetEditPart = (IGraphicalEditPart) target.getAdapter(IGraphicalEditPart.class);
-		if (targetEditPart instanceof TypeEditPart) {
-			return ((TypeEditPart) targetEditPart).getMATypesForSource(relationshipType);
-		}
-		if (targetEditPart instanceof TypeReferenceEditPart) {
-			return ((TypeReferenceEditPart) targetEditPart).getMATypesForSource(relationshipType);
-		}
-		if (targetEditPart instanceof PrimitiveEditPart) {
-			return ((PrimitiveEditPart) targetEditPart).getMATypesForSource(relationshipType);
-		}
-		if (targetEditPart instanceof EnumaratorEditPart) {
-			return ((EnumaratorEditPart) targetEditPart).getMATypesForSource(relationshipType);
-		}
-		return Collections.EMPTY_LIST;
-	}
-
-	/**
-	 * @generated
-	 */
-	public List getTypesForTarget(IAdaptable source, IElementType relationshipType) {
-		IGraphicalEditPart sourceEditPart = (IGraphicalEditPart) source.getAdapter(IGraphicalEditPart.class);
-		if (sourceEditPart instanceof TypeEditPart) {
-			return ((TypeEditPart) sourceEditPart).getMATypesForTarget(relationshipType);
-		}
-		if (sourceEditPart instanceof TypeReferenceEditPart) {
-			return ((TypeReferenceEditPart) sourceEditPart).getMATypesForTarget(relationshipType);
-		}
-		if (sourceEditPart instanceof PrimitiveEditPart) {
-			return ((PrimitiveEditPart) sourceEditPart).getMATypesForTarget(relationshipType);
-		}
-		if (sourceEditPart instanceof EnumaratorEditPart) {
-			return ((EnumaratorEditPart) sourceEditPart).getMATypesForTarget(relationshipType);
-		}
-		return Collections.EMPTY_LIST;
-	}
-
-	/**
-	 * @generated
-	 */
 	public EObject selectExistingElementForSource(IAdaptable target, IElementType relationshipType) {
 		return selectExistingElement(target, getTypesForSource(target, relationshipType));
 	}
@@ -217,8 +89,8 @@ public class DomainModelingAssistantProvider extends ModelingAssistantProvider {
 	 */
 	protected EObject selectElement(EObject[] elements) {
 		Shell shell = Display.getCurrent().getActiveShell();
-		ILabelProvider labelProvider = new AdapterFactoryLabelProvider(DomainDiagramEditorPlugin.getInstance()
-				.getItemProvidersAdapterFactory());
+		ILabelProvider labelProvider = new AdapterFactoryLabelProvider(
+				DomainDiagramEditorPlugin.getInstance().getItemProvidersAdapterFactory());
 		ElementListSelectionDialog dialog = new ElementListSelectionDialog(shell, labelProvider);
 		dialog.setMessage(Messages.DomainModelingAssistantProviderMessage);
 		dialog.setTitle(Messages.DomainModelingAssistantProviderTitle);

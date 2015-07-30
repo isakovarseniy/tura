@@ -121,8 +121,8 @@ public class ConfigVariableEditPart extends ShapeNodeEditPart {
 	 */
 	protected boolean addFixedChild(EditPart childEditPart) {
 		if (childEditPart instanceof ConfigVariableNameEditPart) {
-			((ConfigVariableNameEditPart) childEditPart).setLabel(getPrimaryShape()
-					.getFigureConfigVariableLabelFigure());
+			((ConfigVariableNameEditPart) childEditPart)
+					.setLabel(getPrimaryShape().getFigureConfigVariableLabelFigure());
 			return true;
 		}
 		return false;
@@ -177,9 +177,8 @@ public class ConfigVariableEditPart extends ShapeNodeEditPart {
 				EObject obj = ((View) getModel()).getElement();
 				if (obj instanceof Orderable) {
 					EditingDomain editingDomain = getEditingDomain();
-					editingDomain.getCommandStack().execute(
-							SetCommand.create(editingDomain, obj, DomainPackage.eINSTANCE.getOrderable_Order(),
-									evt.getNewValue()));
+					editingDomain.getCommandStack().execute(SetCommand.create(editingDomain, obj,
+							DomainPackage.eINSTANCE.getOrderable_Order(), evt.getNewValue()));
 
 				}
 			}
@@ -332,6 +331,7 @@ public class ConfigVariableEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	static final Font FFIGURECONFIGVARIABLELABELFIGURE_FONT = new Font(Display.getCurrent(), "Palatino", 12, SWT.ITALIC);
+	static final Font FFIGURECONFIGVARIABLELABELFIGURE_FONT = new Font(Display.getCurrent(), "Palatino", 12,
+			SWT.ITALIC);
 
 }

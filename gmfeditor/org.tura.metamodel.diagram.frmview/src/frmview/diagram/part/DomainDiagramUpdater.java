@@ -228,7 +228,8 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<DomainNodeDescriptor> getTabPageTabPageViewElementCompartment_1307003SemanticChildren(View view) {
+	public static List<DomainNodeDescriptor> getTabPageTabPageViewElementCompartment_1307003SemanticChildren(
+			View view) {
 		if (false == view.eContainer() instanceof View) {
 			return Collections.emptyList();
 		}
@@ -428,8 +429,8 @@ public class DomainDiagramUpdater {
 	 */
 	public static List<DomainLinkDescriptor> getPopupCanvas_1302009IncomingLinks(View view) {
 		PopupCanvas modelElement = (PopupCanvas) view.getElement();
-		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer.find(view
-				.eResource().getResourceSet().getResources());
+		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+				.find(view.eResource().getResourceSet().getResources());
 		LinkedList<DomainLinkDescriptor> result = new LinkedList<DomainLinkDescriptor>();
 		result.addAll(getIncomingTypeModelFacetLinks_ViewInheritance_1304001(modelElement, crossReferences));
 		return result;
@@ -440,8 +441,8 @@ public class DomainDiagramUpdater {
 	 */
 	public static List<DomainLinkDescriptor> getCanvas_1302003IncomingLinks(View view) {
 		Canvas modelElement = (Canvas) view.getElement();
-		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer.find(view
-				.eResource().getResourceSet().getResources());
+		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+				.find(view.eResource().getResourceSet().getResources());
 		LinkedList<DomainLinkDescriptor> result = new LinkedList<DomainLinkDescriptor>();
 		result.addAll(getIncomingTypeModelFacetLinks_ViewInheritance_1304001(modelElement, crossReferences));
 		return result;
@@ -452,8 +453,8 @@ public class DomainDiagramUpdater {
 	 */
 	public static List<DomainLinkDescriptor> getWindow_1302007IncomingLinks(View view) {
 		Window modelElement = (Window) view.getElement();
-		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer.find(view
-				.eResource().getResourceSet().getResources());
+		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+				.find(view.eResource().getResourceSet().getResources());
 		LinkedList<DomainLinkDescriptor> result = new LinkedList<DomainLinkDescriptor>();
 		result.addAll(getIncomingTypeModelFacetLinks_ViewInheritance_1304001(modelElement, crossReferences));
 		return result;
@@ -464,8 +465,8 @@ public class DomainDiagramUpdater {
 	 */
 	public static List<DomainLinkDescriptor> getTabPage_1302002IncomingLinks(View view) {
 		TabPage modelElement = (TabPage) view.getElement();
-		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer.find(view
-				.eResource().getResourceSet().getResources());
+		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+				.find(view.eResource().getResourceSet().getResources());
 		LinkedList<DomainLinkDescriptor> result = new LinkedList<DomainLinkDescriptor>();
 		result.addAll(getIncomingTypeModelFacetLinks_ViewInheritance_1304001(modelElement, crossReferences));
 		result.addAll(getIncomingTypeModelFacetLinks_TabPagesInheritance_1304002(modelElement, crossReferences));
@@ -477,8 +478,8 @@ public class DomainDiagramUpdater {
 	 */
 	public static List<DomainLinkDescriptor> getTabCanvas_1302008IncomingLinks(View view) {
 		TabCanvas modelElement = (TabCanvas) view.getElement();
-		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer.find(view
-				.eResource().getResourceSet().getResources());
+		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+				.find(view.eResource().getResourceSet().getResources());
 		LinkedList<DomainLinkDescriptor> result = new LinkedList<DomainLinkDescriptor>();
 		result.addAll(getIncomingTypeModelFacetLinks_ViewInheritance_1304001(modelElement, crossReferences));
 		return result;
@@ -768,33 +769,37 @@ public class DomainDiagramUpdater {
 	 */
 	public static final DiagramUpdater TYPED_INSTANCE = new DiagramUpdater() {
 		/**
-		 * @generated
-		 */
+		* @generated
+		*/
 		@Override
+
 		public List<DomainNodeDescriptor> getSemanticChildren(View view) {
 			return DomainDiagramUpdater.getSemanticChildren(view);
 		}
 
 		/**
-		 * @generated
-		 */
+		* @generated
+		*/
 		@Override
+
 		public List<DomainLinkDescriptor> getContainedLinks(View view) {
 			return DomainDiagramUpdater.getContainedLinks(view);
 		}
 
 		/**
-		 * @generated
-		 */
+		* @generated
+		*/
 		@Override
+
 		public List<DomainLinkDescriptor> getIncomingLinks(View view) {
 			return DomainDiagramUpdater.getIncomingLinks(view);
 		}
 
 		/**
-		 * @generated
-		 */
+		* @generated
+		*/
 		@Override
+
 		public List<DomainLinkDescriptor> getOutgoingLinks(View view) {
 			return DomainDiagramUpdater.getOutgoingLinks(view);
 		}

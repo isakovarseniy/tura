@@ -41,177 +41,175 @@ public class ApplicationMessagesItemProvider
     IItemPropertySource
 {
   /**
-   * This constructs an instance from a factory and a notifier.
-   * <!-- begin-user-doc -->
+	 * This constructs an instance from a factory and a notifier.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public ApplicationMessagesItemProvider(AdapterFactory adapterFactory)
   {
-    super(adapterFactory);
-  }
+		super(adapterFactory);
+	}
 
   /**
-   * This returns the property descriptors for the adapted class.
-   * <!-- begin-user-doc -->
+	 * This returns the property descriptors for the adapted class.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object)
   {
-    if (itemPropertyDescriptors == null)
-    {
-      super.getPropertyDescriptors(object);
+		if (itemPropertyDescriptors == null) {
+			super.getPropertyDescriptors(object);
 
-      addUidPropertyDescriptor(object);
-      addNamePropertyDescriptor(object);
-      addMessagesPropertyDescriptor(object);
-    }
-    return itemPropertyDescriptors;
-  }
+			addUidPropertyDescriptor(object);
+			addNamePropertyDescriptor(object);
+			addMessagesPropertyDescriptor(object);
+		}
+		return itemPropertyDescriptors;
+	}
 
   /**
-   * This adds a property descriptor for the Uid feature.
-   * <!-- begin-user-doc -->
+	 * This adds a property descriptor for the Uid feature.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   protected void addUidPropertyDescriptor(Object object)
   {
-    itemPropertyDescriptors.add
-      (createItemPropertyDescriptor
-        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-         getResourceLocator(),
-         getString("_UI_ApplicationMessages_uid_feature"),
-         getString("_UI_PropertyDescriptor_description", "_UI_ApplicationMessages_uid_feature", "_UI_ApplicationMessages_type"),
-         DomainPackage.Literals.APPLICATION_MESSAGES__UID,
-         true,
-         false,
-         false,
-         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-         null,
-         null));
-  }
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ApplicationMessages_uid_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ApplicationMessages_uid_feature", "_UI_ApplicationMessages_type"),
+				 DomainPackage.Literals.APPLICATION_MESSAGES__UID,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
 
   /**
-   * This adds a property descriptor for the Name feature.
-   * <!-- begin-user-doc -->
+	 * This adds a property descriptor for the Name feature.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   protected void addNamePropertyDescriptor(Object object)
   {
-    itemPropertyDescriptors.add
-      (createItemPropertyDescriptor
-        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-         getResourceLocator(),
-         getString("_UI_ApplicationMessages_name_feature"),
-         getString("_UI_PropertyDescriptor_description", "_UI_ApplicationMessages_name_feature", "_UI_ApplicationMessages_type"),
-         DomainPackage.Literals.APPLICATION_MESSAGES__NAME,
-         true,
-         false,
-         false,
-         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-         null,
-         null));
-  }
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ApplicationMessages_name_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ApplicationMessages_name_feature", "_UI_ApplicationMessages_type"),
+				 DomainPackage.Literals.APPLICATION_MESSAGES__NAME,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
 
   /**
-   * This adds a property descriptor for the Messages feature.
-   * <!-- begin-user-doc -->
+	 * This adds a property descriptor for the Messages feature.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   protected void addMessagesPropertyDescriptor(Object object)
   {
-    itemPropertyDescriptors.add
-      (createItemPropertyDescriptor
-        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-         getResourceLocator(),
-         getString("_UI_ApplicationMessages_messages_feature"),
-         getString("_UI_PropertyDescriptor_description", "_UI_ApplicationMessages_messages_feature", "_UI_ApplicationMessages_type"),
-         DomainPackage.Literals.APPLICATION_MESSAGES__MESSAGES,
-         true,
-         false,
-         true,
-         null,
-         null,
-         null));
-  }
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ApplicationMessages_messages_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ApplicationMessages_messages_feature", "_UI_ApplicationMessages_type"),
+				 DomainPackage.Literals.APPLICATION_MESSAGES__MESSAGES,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
 
   /**
-   * This returns ApplicationMessages.gif.
-   * <!-- begin-user-doc -->
+	 * This returns ApplicationMessages.gif.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public Object getImage(Object object)
   {
-    return overlayImage(object, getResourceLocator().getImage("full/obj16/ApplicationMessages"));
-  }
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/ApplicationMessages"));
+	}
 
   /**
-   * This returns the label text for the adapted class.
-   * <!-- begin-user-doc -->
+	 * This returns the label text for the adapted class.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public String getText(Object object)
   {
-    String label = ((ApplicationMessages)object).getName();
-    return label == null || label.length() == 0 ?
-      getString("_UI_ApplicationMessages_type") :
-      getString("_UI_ApplicationMessages_type") + " " + label;
-  }
+		String label = ((ApplicationMessages)object).getName();
+		return label == null || label.length() == 0 ?
+			getString("_UI_ApplicationMessages_type") :
+			getString("_UI_ApplicationMessages_type") + " " + label;
+	}
 
   /**
-   * This handles model notifications by calling {@link #updateChildren} to update any cached
-   * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
-   * <!-- begin-user-doc -->
+	 * This handles model notifications by calling {@link #updateChildren} to update any cached
+	 * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public void notifyChanged(Notification notification)
   {
-    updateChildren(notification);
+		updateChildren(notification);
 
-    switch (notification.getFeatureID(ApplicationMessages.class))
-    {
-      case DomainPackage.APPLICATION_MESSAGES__UID:
-      case DomainPackage.APPLICATION_MESSAGES__NAME:
-        fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-        return;
-    }
-    super.notifyChanged(notification);
-  }
+		switch (notification.getFeatureID(ApplicationMessages.class)) {
+			case DomainPackage.APPLICATION_MESSAGES__UID:
+			case DomainPackage.APPLICATION_MESSAGES__NAME:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
+		}
+		super.notifyChanged(notification);
+	}
 
   /**
-   * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
-   * that can be created under this object.
-   * <!-- begin-user-doc -->
+	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
+	 * that can be created under this object.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object)
   {
-    super.collectNewChildDescriptors(newChildDescriptors, object);
-  }
+		super.collectNewChildDescriptors(newChildDescriptors, object);
+	}
 
   /**
-   * Return the resource locator for this item provider's resources.
-   * <!-- begin-user-doc -->
+	 * Return the resource locator for this item provider's resources.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public ResourceLocator getResourceLocator()
   {
-    return DomainEditPlugin.INSTANCE;
-  }
+		return DomainEditPlugin.INSTANCE;
+	}
 
 }

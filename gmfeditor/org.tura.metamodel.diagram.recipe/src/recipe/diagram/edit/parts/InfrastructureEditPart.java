@@ -130,8 +130,8 @@ public class InfrastructureEditPart extends ShapeNodeEditPart {
 	 */
 	protected boolean addFixedChild(EditPart childEditPart) {
 		if (childEditPart instanceof InfrastructureNameEditPart) {
-			((InfrastructureNameEditPart) childEditPart).setLabel(getPrimaryShape()
-					.getFigureInfrastructureLabelFigure());
+			((InfrastructureNameEditPart) childEditPart)
+					.setLabel(getPrimaryShape().getFigureInfrastructureLabelFigure());
 			return true;
 		}
 		return false;
@@ -186,9 +186,8 @@ public class InfrastructureEditPart extends ShapeNodeEditPart {
 				EObject obj = ((View) getModel()).getElement();
 				if (obj instanceof Orderable) {
 					EditingDomain editingDomain = getEditingDomain();
-					editingDomain.getCommandStack().execute(
-							SetCommand.create(editingDomain, obj, DomainPackage.eINSTANCE.getOrderable_Order(),
-									evt.getNewValue()));
+					editingDomain.getCommandStack().execute(SetCommand.create(editingDomain, obj,
+							DomainPackage.eINSTANCE.getOrderable_Order(), evt.getNewValue()));
 
 				}
 			}
@@ -285,57 +284,6 @@ public class InfrastructureEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	public List<IElementType> getMARelTypesOnSource() {
-		ArrayList<IElementType> types = new ArrayList<IElementType>(1);
-		types.add(DomainElementTypes.InfrastructureRecipeConfig_304006);
-		return types;
-	}
-
-	/**
-	 * @generated
-	 */
-	public List<IElementType> getMARelTypesOnSourceAndTarget(IGraphicalEditPart targetEditPart) {
-		LinkedList<IElementType> types = new LinkedList<IElementType>();
-		if (targetEditPart instanceof ConfigurationEditPart) {
-			types.add(DomainElementTypes.InfrastructureRecipeConfig_304006);
-		}
-		return types;
-	}
-
-	/**
-	 * @generated
-	 */
-	public List<IElementType> getMATypesForTarget(IElementType relationshipType) {
-		LinkedList<IElementType> types = new LinkedList<IElementType>();
-		if (relationshipType == DomainElementTypes.InfrastructureRecipeConfig_304006) {
-			types.add(DomainElementTypes.Configuration_302002);
-		}
-		return types;
-	}
-
-	/**
-	 * @generated
-	 */
-	public List<IElementType> getMARelTypesOnTarget() {
-		ArrayList<IElementType> types = new ArrayList<IElementType>(1);
-		types.add(DomainElementTypes.RecipeInfrastructures_304004);
-		return types;
-	}
-
-	/**
-	 * @generated
-	 */
-	public List<IElementType> getMATypesForSource(IElementType relationshipType) {
-		LinkedList<IElementType> types = new LinkedList<IElementType>();
-		if (relationshipType == DomainElementTypes.RecipeInfrastructures_304004) {
-			types.add(DomainElementTypes.Recipe_302001);
-		}
-		return types;
-	}
-
-	/**
-	 * @generated
-	 */
 	protected void handleNotificationEvent(Notification event) {
 		if (event.getNotifier() == getModel()
 				&& EcorePackage.eINSTANCE.getEModelElement_EAnnotations().equals(event.getFeature())) {
@@ -404,6 +352,7 @@ public class InfrastructureEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	static final Font FFIGUREINFRASTRUCTURELABELFIGURE_FONT = new Font(Display.getCurrent(), "Palatino", 12, SWT.ITALIC);
+	static final Font FFIGUREINFRASTRUCTURELABELFIGURE_FONT = new Font(Display.getCurrent(), "Palatino", 12,
+			SWT.ITALIC);
 
 }

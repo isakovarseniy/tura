@@ -19,78 +19,78 @@ public class HTMLLayerHolderTest extends TestCase
 {
 
   /**
-   * The fixture for this HTML Layer Holder test case.
-   * <!-- begin-user-doc -->
+	 * The fixture for this HTML Layer Holder test case.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   protected HTMLLayerHolder fixture = null;
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public static void main(String[] args)
   {
-    TestRunner.run(HTMLLayerHolderTest.class);
-  }
+		TestRunner.run(HTMLLayerHolderTest.class);
+	}
 
   /**
-   * Constructs a new HTML Layer Holder test case with the given name.
-   * <!-- begin-user-doc -->
+	 * Constructs a new HTML Layer Holder test case with the given name.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public HTMLLayerHolderTest(String name)
   {
-    super(name);
-  }
+		super(name);
+	}
 
   /**
-   * Sets the fixture for this HTML Layer Holder test case.
-   * <!-- begin-user-doc -->
+	 * Sets the fixture for this HTML Layer Holder test case.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   protected void setFixture(HTMLLayerHolder fixture)
   {
-    this.fixture = fixture;
-  }
+		this.fixture = fixture;
+	}
 
   /**
-   * Returns the fixture for this HTML Layer Holder test case.
-   * <!-- begin-user-doc -->
+	 * Returns the fixture for this HTML Layer Holder test case.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   protected HTMLLayerHolder getFixture()
   {
-    return fixture;
-  }
+		return fixture;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see junit.framework.TestCase#setUp()
-   * @generated
-   */
+	 * @see junit.framework.TestCase#setUp()
+	 * @generated
+	 */
   @Override
   protected void setUp() throws Exception
   {
-    setFixture(DomainFactory.eINSTANCE.createHTMLLayerHolder());
-  }
+		setFixture(DomainFactory.eINSTANCE.createHTMLLayerHolder());
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see junit.framework.TestCase#tearDown()
-   * @generated
-   */
+	 * @see junit.framework.TestCase#tearDown()
+	 * @generated
+	 */
   @Override
   protected void tearDown() throws Exception
   {
-    setFixture(null);
-  }
+		setFixture(null);
+	}
 
 } //HTMLLayerHolderTest

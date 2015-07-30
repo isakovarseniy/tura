@@ -29,6 +29,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link domain.impl.QueryImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.impl.QueryImpl#getModelQuery <em>Model Query</em>}</li>
@@ -36,392 +37,381 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link domain.impl.QueryImpl#getQueryRef <em>Query Ref</em>}</li>
  *   <li>{@link domain.impl.QueryImpl#getVariables <em>Variables</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
 public class QueryImpl extends EObjectImpl implements Query
 {
   /**
-   * The default value of the '{@link #getUid() <em>Uid</em>}' attribute.
-   * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getUid() <em>Uid</em>}' attribute.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getUid()
-   * @generated
-   * @ordered
-   */
+	 * @see #getUid()
+	 * @generated
+	 * @ordered
+	 */
   protected static final String UID_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getUid() <em>Uid</em>}' attribute.
-   * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getUid() <em>Uid</em>}' attribute.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getUid()
-   * @generated
-   * @ordered
-   */
+	 * @see #getUid()
+	 * @generated
+	 * @ordered
+	 */
   protected String uid = UID_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getModelQuery() <em>Model Query</em>}' reference.
-   * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getModelQuery() <em>Model Query</em>}' reference.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getModelQuery()
-   * @generated
-   * @ordered
-   */
+	 * @see #getModelQuery()
+	 * @generated
+	 * @ordered
+	 */
   protected ModelQuery modelQuery;
 
   /**
-   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getName()
-   * @generated
-   * @ordered
-   */
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
   protected static final String NAME_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getName()
-   * @generated
-   * @ordered
-   */
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
   protected String name = NAME_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getQueryRef() <em>Query Ref</em>}' reference.
-   * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getQueryRef() <em>Query Ref</em>}' reference.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getQueryRef()
-   * @generated
-   * @ordered
-   */
+	 * @see #getQueryRef()
+	 * @generated
+	 * @ordered
+	 */
   protected ModelQuery queryRef;
 
   /**
-   * The cached value of the '{@link #getVariables() <em>Variables</em>}' containment reference list.
-   * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getVariables() <em>Variables</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getVariables()
-   * @generated
-   * @ordered
-   */
+	 * @see #getVariables()
+	 * @generated
+	 * @ordered
+	 */
   protected EList<QueryVariable> variables;
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   protected QueryImpl()
   {
-    super();
-  }
+		super();
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   protected EClass eStaticClass()
   {
-    return DomainPackage.Literals.QUERY;
-  }
+		return DomainPackage.Literals.QUERY;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public String getUid()
   {
-    return uid;
-  }
+		return uid;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public void setUid(String newUid)
   {
-    String oldUid = uid;
-    uid = newUid;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.QUERY__UID, oldUid, uid));
-  }
+		String oldUid = uid;
+		uid = newUid;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.QUERY__UID, oldUid, uid));
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public ModelQuery getModelQuery()
   {
-    if (modelQuery != null && modelQuery.eIsProxy())
-    {
-      InternalEObject oldModelQuery = (InternalEObject)modelQuery;
-      modelQuery = (ModelQuery)eResolveProxy(oldModelQuery);
-      if (modelQuery != oldModelQuery)
-      {
-        if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, DomainPackage.QUERY__MODEL_QUERY, oldModelQuery, modelQuery));
-      }
-    }
-    return modelQuery;
-  }
+		if (modelQuery != null && modelQuery.eIsProxy()) {
+			InternalEObject oldModelQuery = (InternalEObject)modelQuery;
+			modelQuery = (ModelQuery)eResolveProxy(oldModelQuery);
+			if (modelQuery != oldModelQuery) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, DomainPackage.QUERY__MODEL_QUERY, oldModelQuery, modelQuery));
+			}
+		}
+		return modelQuery;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public ModelQuery basicGetModelQuery()
   {
-    return modelQuery;
-  }
+		return modelQuery;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public void setModelQuery(ModelQuery newModelQuery)
   {
-    ModelQuery oldModelQuery = modelQuery;
-    modelQuery = newModelQuery;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.QUERY__MODEL_QUERY, oldModelQuery, modelQuery));
-  }
+		ModelQuery oldModelQuery = modelQuery;
+		modelQuery = newModelQuery;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.QUERY__MODEL_QUERY, oldModelQuery, modelQuery));
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public String getName()
   {
-    return name;
-  }
+		return name;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public void setName(String newName)
   {
-    String oldName = name;
-    name = newName;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.QUERY__NAME, oldName, name));
-  }
+		String oldName = name;
+		name = newName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.QUERY__NAME, oldName, name));
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public ModelQuery getQueryRef()
   {
-    if (queryRef != null && queryRef.eIsProxy())
-    {
-      InternalEObject oldQueryRef = (InternalEObject)queryRef;
-      queryRef = (ModelQuery)eResolveProxy(oldQueryRef);
-      if (queryRef != oldQueryRef)
-      {
-        if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, DomainPackage.QUERY__QUERY_REF, oldQueryRef, queryRef));
-      }
-    }
-    return queryRef;
-  }
+		if (queryRef != null && queryRef.eIsProxy()) {
+			InternalEObject oldQueryRef = (InternalEObject)queryRef;
+			queryRef = (ModelQuery)eResolveProxy(oldQueryRef);
+			if (queryRef != oldQueryRef) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, DomainPackage.QUERY__QUERY_REF, oldQueryRef, queryRef));
+			}
+		}
+		return queryRef;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public ModelQuery basicGetQueryRef()
   {
-    return queryRef;
-  }
+		return queryRef;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public void setQueryRef(ModelQuery newQueryRef)
   {
-    ModelQuery oldQueryRef = queryRef;
-    queryRef = newQueryRef;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.QUERY__QUERY_REF, oldQueryRef, queryRef));
-  }
+		ModelQuery oldQueryRef = queryRef;
+		queryRef = newQueryRef;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.QUERY__QUERY_REF, oldQueryRef, queryRef));
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public EList<QueryVariable> getVariables()
   {
-    if (variables == null)
-    {
-      variables = new EObjectContainmentEList<QueryVariable>(QueryVariable.class, this, DomainPackage.QUERY__VARIABLES);
-    }
-    return variables;
-  }
+		if (variables == null) {
+			variables = new EObjectContainmentEList<QueryVariable>(QueryVariable.class, this, DomainPackage.QUERY__VARIABLES);
+		}
+		return variables;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
-    switch (featureID)
-    {
-      case DomainPackage.QUERY__VARIABLES:
-        return ((InternalEList<?>)getVariables()).basicRemove(otherEnd, msgs);
-    }
-    return super.eInverseRemove(otherEnd, featureID, msgs);
-  }
+		switch (featureID) {
+			case DomainPackage.QUERY__VARIABLES:
+				return ((InternalEList<?>)getVariables()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
-    switch (featureID)
-    {
-      case DomainPackage.QUERY__UID:
-        return getUid();
-      case DomainPackage.QUERY__MODEL_QUERY:
-        if (resolve) return getModelQuery();
-        return basicGetModelQuery();
-      case DomainPackage.QUERY__NAME:
-        return getName();
-      case DomainPackage.QUERY__QUERY_REF:
-        if (resolve) return getQueryRef();
-        return basicGetQueryRef();
-      case DomainPackage.QUERY__VARIABLES:
-        return getVariables();
-    }
-    return super.eGet(featureID, resolve, coreType);
-  }
+		switch (featureID) {
+			case DomainPackage.QUERY__UID:
+				return getUid();
+			case DomainPackage.QUERY__MODEL_QUERY:
+				if (resolve) return getModelQuery();
+				return basicGetModelQuery();
+			case DomainPackage.QUERY__NAME:
+				return getName();
+			case DomainPackage.QUERY__QUERY_REF:
+				if (resolve) return getQueryRef();
+				return basicGetQueryRef();
+			case DomainPackage.QUERY__VARIABLES:
+				return getVariables();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
-    switch (featureID)
-    {
-      case DomainPackage.QUERY__UID:
-        setUid((String)newValue);
-        return;
-      case DomainPackage.QUERY__MODEL_QUERY:
-        setModelQuery((ModelQuery)newValue);
-        return;
-      case DomainPackage.QUERY__NAME:
-        setName((String)newValue);
-        return;
-      case DomainPackage.QUERY__QUERY_REF:
-        setQueryRef((ModelQuery)newValue);
-        return;
-      case DomainPackage.QUERY__VARIABLES:
-        getVariables().clear();
-        getVariables().addAll((Collection<? extends QueryVariable>)newValue);
-        return;
-    }
-    super.eSet(featureID, newValue);
-  }
+		switch (featureID) {
+			case DomainPackage.QUERY__UID:
+				setUid((String)newValue);
+				return;
+			case DomainPackage.QUERY__MODEL_QUERY:
+				setModelQuery((ModelQuery)newValue);
+				return;
+			case DomainPackage.QUERY__NAME:
+				setName((String)newValue);
+				return;
+			case DomainPackage.QUERY__QUERY_REF:
+				setQueryRef((ModelQuery)newValue);
+				return;
+			case DomainPackage.QUERY__VARIABLES:
+				getVariables().clear();
+				getVariables().addAll((Collection<? extends QueryVariable>)newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public void eUnset(int featureID)
   {
-    switch (featureID)
-    {
-      case DomainPackage.QUERY__UID:
-        setUid(UID_EDEFAULT);
-        return;
-      case DomainPackage.QUERY__MODEL_QUERY:
-        setModelQuery((ModelQuery)null);
-        return;
-      case DomainPackage.QUERY__NAME:
-        setName(NAME_EDEFAULT);
-        return;
-      case DomainPackage.QUERY__QUERY_REF:
-        setQueryRef((ModelQuery)null);
-        return;
-      case DomainPackage.QUERY__VARIABLES:
-        getVariables().clear();
-        return;
-    }
-    super.eUnset(featureID);
-  }
+		switch (featureID) {
+			case DomainPackage.QUERY__UID:
+				setUid(UID_EDEFAULT);
+				return;
+			case DomainPackage.QUERY__MODEL_QUERY:
+				setModelQuery((ModelQuery)null);
+				return;
+			case DomainPackage.QUERY__NAME:
+				setName(NAME_EDEFAULT);
+				return;
+			case DomainPackage.QUERY__QUERY_REF:
+				setQueryRef((ModelQuery)null);
+				return;
+			case DomainPackage.QUERY__VARIABLES:
+				getVariables().clear();
+				return;
+		}
+		super.eUnset(featureID);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public boolean eIsSet(int featureID)
   {
-    switch (featureID)
-    {
-      case DomainPackage.QUERY__UID:
-        return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
-      case DomainPackage.QUERY__MODEL_QUERY:
-        return modelQuery != null;
-      case DomainPackage.QUERY__NAME:
-        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-      case DomainPackage.QUERY__QUERY_REF:
-        return queryRef != null;
-      case DomainPackage.QUERY__VARIABLES:
-        return variables != null && !variables.isEmpty();
-    }
-    return super.eIsSet(featureID);
-  }
+		switch (featureID) {
+			case DomainPackage.QUERY__UID:
+				return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
+			case DomainPackage.QUERY__MODEL_QUERY:
+				return modelQuery != null;
+			case DomainPackage.QUERY__NAME:
+				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+			case DomainPackage.QUERY__QUERY_REF:
+				return queryRef != null;
+			case DomainPackage.QUERY__VARIABLES:
+				return variables != null && !variables.isEmpty();
+		}
+		return super.eIsSet(featureID);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public String toString()
   {
-    if (eIsProxy()) return super.toString();
+		if (eIsProxy()) return super.toString();
 
-    StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (uid: ");
-    result.append(uid);
-    result.append(", name: ");
-    result.append(name);
-    result.append(')');
-    return result.toString();
-  }
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (uid: ");
+		result.append(uid);
+		result.append(", name: ");
+		result.append(name);
+		result.append(')');
+		return result.toString();
+	}
 
 } //QueryImpl

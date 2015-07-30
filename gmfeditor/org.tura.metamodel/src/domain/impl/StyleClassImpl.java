@@ -18,173 +18,166 @@ import domain.StyleClass;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link domain.impl.StyleClassImpl#getClassifier <em>Classifier</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
 public class StyleClassImpl extends ContextValueImpl implements StyleClass
 {
   /**
-   * The cached value of the '{@link #getClassifier() <em>Classifier</em>}' containment reference.
-   * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getClassifier() <em>Classifier</em>}' containment reference.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getClassifier()
-   * @generated
-   * @ordered
-   */
+	 * @see #getClassifier()
+	 * @generated
+	 * @ordered
+	 */
   protected Classifier classifier;
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   protected StyleClassImpl()
   {
-    super();
-  }
+		super();
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   protected EClass eStaticClass()
   {
-    return DomainPackage.Literals.STYLE_CLASS;
-  }
+		return DomainPackage.Literals.STYLE_CLASS;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public Classifier getClassifier()
   {
-    return classifier;
-  }
+		return classifier;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public NotificationChain basicSetClassifier(Classifier newClassifier, NotificationChain msgs)
   {
-    Classifier oldClassifier = classifier;
-    classifier = newClassifier;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DomainPackage.STYLE_CLASS__CLASSIFIER, oldClassifier, newClassifier);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
+		Classifier oldClassifier = classifier;
+		classifier = newClassifier;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DomainPackage.STYLE_CLASS__CLASSIFIER, oldClassifier, newClassifier);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public void setClassifier(Classifier newClassifier)
   {
-    if (newClassifier != classifier)
-    {
-      NotificationChain msgs = null;
-      if (classifier != null)
-        msgs = ((InternalEObject)classifier).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DomainPackage.STYLE_CLASS__CLASSIFIER, null, msgs);
-      if (newClassifier != null)
-        msgs = ((InternalEObject)newClassifier).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - DomainPackage.STYLE_CLASS__CLASSIFIER, null, msgs);
-      msgs = basicSetClassifier(newClassifier, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.STYLE_CLASS__CLASSIFIER, newClassifier, newClassifier));
-  }
+		if (newClassifier != classifier) {
+			NotificationChain msgs = null;
+			if (classifier != null)
+				msgs = ((InternalEObject)classifier).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DomainPackage.STYLE_CLASS__CLASSIFIER, null, msgs);
+			if (newClassifier != null)
+				msgs = ((InternalEObject)newClassifier).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - DomainPackage.STYLE_CLASS__CLASSIFIER, null, msgs);
+			msgs = basicSetClassifier(newClassifier, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.STYLE_CLASS__CLASSIFIER, newClassifier, newClassifier));
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
-    switch (featureID)
-    {
-      case DomainPackage.STYLE_CLASS__CLASSIFIER:
-        return basicSetClassifier(null, msgs);
-    }
-    return super.eInverseRemove(otherEnd, featureID, msgs);
-  }
+		switch (featureID) {
+			case DomainPackage.STYLE_CLASS__CLASSIFIER:
+				return basicSetClassifier(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
-    switch (featureID)
-    {
-      case DomainPackage.STYLE_CLASS__CLASSIFIER:
-        return getClassifier();
-    }
-    return super.eGet(featureID, resolve, coreType);
-  }
+		switch (featureID) {
+			case DomainPackage.STYLE_CLASS__CLASSIFIER:
+				return getClassifier();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public void eSet(int featureID, Object newValue)
   {
-    switch (featureID)
-    {
-      case DomainPackage.STYLE_CLASS__CLASSIFIER:
-        setClassifier((Classifier)newValue);
-        return;
-    }
-    super.eSet(featureID, newValue);
-  }
+		switch (featureID) {
+			case DomainPackage.STYLE_CLASS__CLASSIFIER:
+				setClassifier((Classifier)newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public void eUnset(int featureID)
   {
-    switch (featureID)
-    {
-      case DomainPackage.STYLE_CLASS__CLASSIFIER:
-        setClassifier((Classifier)null);
-        return;
-    }
-    super.eUnset(featureID);
-  }
+		switch (featureID) {
+			case DomainPackage.STYLE_CLASS__CLASSIFIER:
+				setClassifier((Classifier)null);
+				return;
+		}
+		super.eUnset(featureID);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public boolean eIsSet(int featureID)
   {
-    switch (featureID)
-    {
-      case DomainPackage.STYLE_CLASS__CLASSIFIER:
-        return classifier != null;
-    }
-    return super.eIsSet(featureID);
-  }
+		switch (featureID) {
+			case DomainPackage.STYLE_CLASS__CLASSIFIER:
+				return classifier != null;
+		}
+		return super.eIsSet(featureID);
+	}
 
 } //StyleClassImpl

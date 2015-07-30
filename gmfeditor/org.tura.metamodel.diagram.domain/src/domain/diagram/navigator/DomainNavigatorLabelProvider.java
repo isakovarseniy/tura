@@ -48,16 +48,17 @@ import domain.diagram.providers.DomainParserProvider;
 /**
  * @generated
  */
-public class DomainNavigatorLabelProvider extends LabelProvider implements ICommonLabelProvider, ITreePathLabelProvider {
+public class DomainNavigatorLabelProvider extends LabelProvider
+		implements ICommonLabelProvider, ITreePathLabelProvider {
 
 	/**
 	 * @generated
 	 */
 	static {
-		DomainDiagramEditorPlugin.getInstance().getImageRegistry()
-				.put("Navigator?UnknownElement", ImageDescriptor.getMissingImageDescriptor()); //$NON-NLS-1$
-		DomainDiagramEditorPlugin.getInstance().getImageRegistry()
-				.put("Navigator?ImageNotFound", ImageDescriptor.getMissingImageDescriptor()); //$NON-NLS-1$
+		DomainDiagramEditorPlugin.getInstance().getImageRegistry().put("Navigator?UnknownElement", //$NON-NLS-1$
+				ImageDescriptor.getMissingImageDescriptor());
+		DomainDiagramEditorPlugin.getInstance().getImageRegistry().put("Navigator?ImageNotFound", //$NON-NLS-1$
+				ImageDescriptor.getMissingImageDescriptor());
 	}
 
 	/**
@@ -106,34 +107,35 @@ public class DomainNavigatorLabelProvider extends LabelProvider implements IComm
 	public Image getImage(View view) {
 		switch (DomainVisualIDRegistry.getVisualID(view)) {
 		case DomainEditPart.VISUAL_ID:
-			return getImage("Navigator?Diagram?http://tura.org/2013/v1/domain?Domain", DomainElementTypes.Domain_501000); //$NON-NLS-1$
+			return getImage("Navigator?Diagram?http://tura.org/2013/v1/domain?Domain", //$NON-NLS-1$
+					DomainElementTypes.Domain_501000);
 		case DomainArtifactsEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?TopLevelNode?http://tura.org/2013/v1/domain?DomainArtifacts", DomainElementTypes.DomainArtifacts_502001); //$NON-NLS-1$
-		case DomainApplicationsEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?TopLevelNode?http://tura.org/2013/v1/domain?DomainApplications", DomainElementTypes.DomainApplications_502003); //$NON-NLS-1$
+			return getImage("Navigator?TopLevelNode?http://tura.org/2013/v1/domain?DomainArtifacts", //$NON-NLS-1$
+					DomainElementTypes.DomainArtifacts_502001);
 		case DomainTypesEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?TopLevelNode?http://tura.org/2013/v1/domain?DomainTypes", DomainElementTypes.DomainTypes_502002); //$NON-NLS-1$
-		case ORMEntityEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Node?http://tura.org/2013/v1/domain?ORMEntity", DomainElementTypes.ORMEntity_503003); //$NON-NLS-1$
-		case JPAServiceEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Node?http://tura.org/2013/v1/domain?JPAService", DomainElementTypes.JPAService_503004); //$NON-NLS-1$
-		case EJBServiceEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Node?http://tura.org/2013/v1/domain?EJBService", DomainElementTypes.EJBService_503005); //$NON-NLS-1$
-		case ContinuousIintegrationEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Node?http://tura.org/2013/v1/domain?ContinuousIintegration", DomainElementTypes.ContinuousIintegration_503006); //$NON-NLS-1$
-		case DomainArtifactEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Node?http://tura.org/2013/v1/domain?DomainArtifact", DomainElementTypes.DomainArtifact_503002); //$NON-NLS-1$
+			return getImage("Navigator?TopLevelNode?http://tura.org/2013/v1/domain?DomainTypes", //$NON-NLS-1$
+					DomainElementTypes.DomainTypes_502002);
+		case DomainApplicationsEditPart.VISUAL_ID:
+			return getImage("Navigator?TopLevelNode?http://tura.org/2013/v1/domain?DomainApplications", //$NON-NLS-1$
+					DomainElementTypes.DomainApplications_502003);
 		case DomainApplicationEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Node?http://tura.org/2013/v1/domain?DomainApplication", DomainElementTypes.DomainApplication_503001); //$NON-NLS-1$
+			return getImage("Navigator?Node?http://tura.org/2013/v1/domain?DomainApplication", //$NON-NLS-1$
+					DomainElementTypes.DomainApplication_503001);
+		case DomainArtifactEditPart.VISUAL_ID:
+			return getImage("Navigator?Node?http://tura.org/2013/v1/domain?DomainArtifact", //$NON-NLS-1$
+					DomainElementTypes.DomainArtifact_503002);
+		case ORMEntityEditPart.VISUAL_ID:
+			return getImage("Navigator?Node?http://tura.org/2013/v1/domain?ORMEntity", //$NON-NLS-1$
+					DomainElementTypes.ORMEntity_503003);
+		case JPAServiceEditPart.VISUAL_ID:
+			return getImage("Navigator?Node?http://tura.org/2013/v1/domain?JPAService", //$NON-NLS-1$
+					DomainElementTypes.JPAService_503004);
+		case EJBServiceEditPart.VISUAL_ID:
+			return getImage("Navigator?Node?http://tura.org/2013/v1/domain?EJBService", //$NON-NLS-1$
+					DomainElementTypes.EJBService_503005);
+		case ContinuousIintegrationEditPart.VISUAL_ID:
+			return getImage("Navigator?Node?http://tura.org/2013/v1/domain?ContinuousIintegration", //$NON-NLS-1$
+					DomainElementTypes.ContinuousIintegration_503006);
 		}
 		return getImage("Navigator?UnknownElement", null); //$NON-NLS-1$
 	}
@@ -196,10 +198,14 @@ public class DomainNavigatorLabelProvider extends LabelProvider implements IComm
 			return getDomain_501000Text(view);
 		case DomainArtifactsEditPart.VISUAL_ID:
 			return getDomainArtifacts_502001Text(view);
-		case DomainApplicationsEditPart.VISUAL_ID:
-			return getDomainApplications_502003Text(view);
 		case DomainTypesEditPart.VISUAL_ID:
 			return getDomainTypes_502002Text(view);
+		case DomainApplicationsEditPart.VISUAL_ID:
+			return getDomainApplications_502003Text(view);
+		case DomainApplicationEditPart.VISUAL_ID:
+			return getDomainApplication_503001Text(view);
+		case DomainArtifactEditPart.VISUAL_ID:
+			return getDomainArtifact_503002Text(view);
 		case ORMEntityEditPart.VISUAL_ID:
 			return getORMEntity_503003Text(view);
 		case JPAServiceEditPart.VISUAL_ID:
@@ -208,10 +214,6 @@ public class DomainNavigatorLabelProvider extends LabelProvider implements IComm
 			return getEJBService_503005Text(view);
 		case ContinuousIintegrationEditPart.VISUAL_ID:
 			return getContinuousIintegration_503006Text(view);
-		case DomainArtifactEditPart.VISUAL_ID:
-			return getDomainArtifact_503002Text(view);
-		case DomainApplicationEditPart.VISUAL_ID:
-			return getDomainApplication_503001Text(view);
 		}
 		return getUnknownElementText(view);
 	}

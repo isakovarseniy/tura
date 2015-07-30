@@ -17,60 +17,60 @@ public class CSSMapperTest extends MapperTest
 {
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public static void main(String[] args)
   {
-    TestRunner.run(CSSMapperTest.class);
-  }
+		TestRunner.run(CSSMapperTest.class);
+	}
 
   /**
-   * Constructs a new CSS Mapper test case with the given name.
-   * <!-- begin-user-doc -->
+	 * Constructs a new CSS Mapper test case with the given name.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public CSSMapperTest(String name)
   {
-    super(name);
-  }
+		super(name);
+	}
 
   /**
-   * Returns the fixture for this CSS Mapper test case.
-   * <!-- begin-user-doc -->
+	 * Returns the fixture for this CSS Mapper test case.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   protected CSSMapper getFixture()
   {
-    return (CSSMapper)fixture;
-  }
+		return (CSSMapper)fixture;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see junit.framework.TestCase#setUp()
-   * @generated
-   */
+	 * @see junit.framework.TestCase#setUp()
+	 * @generated
+	 */
   @Override
   protected void setUp() throws Exception
   {
-    setFixture(DomainFactory.eINSTANCE.createCSSMapper());
-  }
+		setFixture(DomainFactory.eINSTANCE.createCSSMapper());
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see junit.framework.TestCase#tearDown()
-   * @generated
-   */
+	 * @see junit.framework.TestCase#tearDown()
+	 * @generated
+	 */
   @Override
   protected void tearDown() throws Exception
   {
-    setFixture(null);
-  }
+		setFixture(null);
+	}
 
 } //CSSMapperTest

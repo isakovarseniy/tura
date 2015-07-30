@@ -38,85 +38,6 @@ public class DomainModelingAssistantProvider extends ModelingAssistantProvider {
 	/**
 	 * @generated
 	 */
-	public List getTypesForPopupBar(IAdaptable host) {
-		IGraphicalEditPart editPart = (IGraphicalEditPart) host.getAdapter(IGraphicalEditPart.class);
-		if (editPart instanceof DeploymentComponentsEditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(2);
-			types.add(DomainElementTypes.DeploymentComponent_902001);
-			types.add(DomainElementTypes.DeploymentStarStep_902002);
-			return types;
-		}
-		return Collections.EMPTY_LIST;
-	}
-
-	/**
-	 * @generated
-	 */
-	public List getRelTypesOnSource(IAdaptable source) {
-		IGraphicalEditPart sourceEditPart = (IGraphicalEditPart) source.getAdapter(IGraphicalEditPart.class);
-		if (sourceEditPart instanceof DeploymentComponentEditPart) {
-			return ((DeploymentComponentEditPart) sourceEditPart).getMARelTypesOnSource();
-		}
-		if (sourceEditPart instanceof DeploymentStarStepEditPart) {
-			return ((DeploymentStarStepEditPart) sourceEditPart).getMARelTypesOnSource();
-		}
-		return Collections.EMPTY_LIST;
-	}
-
-	/**
-	 * @generated
-	 */
-	public List getRelTypesOnTarget(IAdaptable target) {
-		IGraphicalEditPart targetEditPart = (IGraphicalEditPart) target.getAdapter(IGraphicalEditPart.class);
-		if (targetEditPart instanceof DeploymentComponentEditPart) {
-			return ((DeploymentComponentEditPart) targetEditPart).getMARelTypesOnTarget();
-		}
-		return Collections.EMPTY_LIST;
-	}
-
-	/**
-	 * @generated
-	 */
-	public List getRelTypesOnSourceAndTarget(IAdaptable source, IAdaptable target) {
-		IGraphicalEditPart sourceEditPart = (IGraphicalEditPart) source.getAdapter(IGraphicalEditPart.class);
-		IGraphicalEditPart targetEditPart = (IGraphicalEditPart) target.getAdapter(IGraphicalEditPart.class);
-		if (sourceEditPart instanceof DeploymentComponentEditPart) {
-			return ((DeploymentComponentEditPart) sourceEditPart).getMARelTypesOnSourceAndTarget(targetEditPart);
-		}
-		if (sourceEditPart instanceof DeploymentStarStepEditPart) {
-			return ((DeploymentStarStepEditPart) sourceEditPart).getMARelTypesOnSourceAndTarget(targetEditPart);
-		}
-		return Collections.EMPTY_LIST;
-	}
-
-	/**
-	 * @generated
-	 */
-	public List getTypesForSource(IAdaptable target, IElementType relationshipType) {
-		IGraphicalEditPart targetEditPart = (IGraphicalEditPart) target.getAdapter(IGraphicalEditPart.class);
-		if (targetEditPart instanceof DeploymentComponentEditPart) {
-			return ((DeploymentComponentEditPart) targetEditPart).getMATypesForSource(relationshipType);
-		}
-		return Collections.EMPTY_LIST;
-	}
-
-	/**
-	 * @generated
-	 */
-	public List getTypesForTarget(IAdaptable source, IElementType relationshipType) {
-		IGraphicalEditPart sourceEditPart = (IGraphicalEditPart) source.getAdapter(IGraphicalEditPart.class);
-		if (sourceEditPart instanceof DeploymentComponentEditPart) {
-			return ((DeploymentComponentEditPart) sourceEditPart).getMATypesForTarget(relationshipType);
-		}
-		if (sourceEditPart instanceof DeploymentStarStepEditPart) {
-			return ((DeploymentStarStepEditPart) sourceEditPart).getMATypesForTarget(relationshipType);
-		}
-		return Collections.EMPTY_LIST;
-	}
-
-	/**
-	 * @generated
-	 */
 	public EObject selectExistingElementForSource(IAdaptable target, IElementType relationshipType) {
 		return selectExistingElement(target, getTypesForSource(target, relationshipType));
 	}
@@ -166,8 +87,8 @@ public class DomainModelingAssistantProvider extends ModelingAssistantProvider {
 	 */
 	protected EObject selectElement(EObject[] elements) {
 		Shell shell = Display.getCurrent().getActiveShell();
-		ILabelProvider labelProvider = new AdapterFactoryLabelProvider(DomainDiagramEditorPlugin.getInstance()
-				.getItemProvidersAdapterFactory());
+		ILabelProvider labelProvider = new AdapterFactoryLabelProvider(
+				DomainDiagramEditorPlugin.getInstance().getItemProvidersAdapterFactory());
 		ElementListSelectionDialog dialog = new ElementListSelectionDialog(shell, labelProvider);
 		dialog.setMessage(Messages.DomainModelingAssistantProviderMessage);
 		dialog.setTitle(Messages.DomainModelingAssistantProviderTitle);

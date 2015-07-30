@@ -76,8 +76,7 @@ public class InfrastructureLayerEditPart extends ShapeNodeEditPart {
 		super.createDefaultEditPolicies();
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE, new InfrastructureLayerItemSemanticEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
-		installEditPolicy(EditPolicyRoles.OPEN_ROLE, new OpenDiagramEditPolicy());
-		// XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
+		installEditPolicy(EditPolicyRoles.OPEN_ROLE, new OpenDiagramEditPolicy()); // XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
 		// removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
 	}
 
@@ -125,8 +124,8 @@ public class InfrastructureLayerEditPart extends ShapeNodeEditPart {
 	 */
 	protected boolean addFixedChild(EditPart childEditPart) {
 		if (childEditPart instanceof InfrastructureLayerNameEditPart) {
-			((InfrastructureLayerNameEditPart) childEditPart).setLabel(getPrimaryShape()
-					.getFigureInfrastructureLayerLabelFigure());
+			((InfrastructureLayerNameEditPart) childEditPart)
+					.setLabel(getPrimaryShape().getFigureInfrastructureLayerLabelFigure());
 			return true;
 		}
 		if (childEditPart instanceof InfrastructureLayerInfrastructureLayerInfrastructureComponentCompartmentEditPart) {
@@ -148,8 +147,9 @@ public class InfrastructureLayerEditPart extends ShapeNodeEditPart {
 		}
 		if (childEditPart instanceof InfrastructureLayerInfrastructureLayerInfrastructureComponentCompartmentEditPart) {
 			IFigure pane = getPrimaryShape().getInfrastructureLayerInfrastructureComponentCompartmentFigure();
-			pane.remove(((InfrastructureLayerInfrastructureLayerInfrastructureComponentCompartmentEditPart) childEditPart)
-					.getFigure());
+			pane.remove(
+					((InfrastructureLayerInfrastructureLayerInfrastructureComponentCompartmentEditPart) childEditPart)
+							.getFigure());
 			return true;
 		}
 		return false;
@@ -197,9 +197,8 @@ public class InfrastructureLayerEditPart extends ShapeNodeEditPart {
 				EObject obj = ((View) getModel()).getElement();
 				if (obj instanceof Orderable) {
 					EditingDomain editingDomain = getEditingDomain();
-					editingDomain.getCommandStack().execute(
-							SetCommand.create(editingDomain, obj, DomainPackage.eINSTANCE.getOrderable_Order(),
-									evt.getNewValue()));
+					editingDomain.getCommandStack().execute(SetCommand.create(editingDomain, obj,
+							DomainPackage.eINSTANCE.getOrderable_Order(), evt.getNewValue()));
 
 				}
 			}
@@ -328,8 +327,8 @@ public class InfrastructureLayerEditPart extends ShapeNodeEditPart {
 
 			fFigureInfrastructureLayerLabelFigure.setFont(FFIGUREINFRASTRUCTURELAYERLABELFIGURE_FONT);
 
-			fFigureInfrastructureLayerLabelFigure.setMaximumSize(new Dimension(getMapMode().DPtoLP(10000), getMapMode()
-					.DPtoLP(50)));
+			fFigureInfrastructureLayerLabelFigure
+					.setMaximumSize(new Dimension(getMapMode().DPtoLP(10000), getMapMode().DPtoLP(50)));
 
 			this.add(fFigureInfrastructureLayerLabelFigure);
 

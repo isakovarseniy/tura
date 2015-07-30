@@ -30,199 +30,191 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  */
 public class JavaComponentItemProvider
   extends ComponentItemProvider
-  implements
-    IEditingDomainItemProvider,
-    IStructuredItemContentProvider,
-    ITreeItemContentProvider,
-    IItemLabelProvider,
-    IItemPropertySource
 {
   /**
-   * This constructs an instance from a factory and a notifier.
-   * <!-- begin-user-doc -->
+	 * This constructs an instance from a factory and a notifier.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public JavaComponentItemProvider(AdapterFactory adapterFactory)
   {
-    super(adapterFactory);
-  }
+		super(adapterFactory);
+	}
 
   /**
-   * This returns the property descriptors for the adapted class.
-   * <!-- begin-user-doc -->
+	 * This returns the property descriptors for the adapted class.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object)
   {
-    if (itemPropertyDescriptors == null)
-    {
-      super.getPropertyDescriptors(object);
+		if (itemPropertyDescriptors == null) {
+			super.getPropertyDescriptors(object);
 
-      addArtifactIdPropertyDescriptor(object);
-      addGroupIdPropertyDescriptor(object);
-      addVersionPropertyDescriptor(object);
-      addBasePackagePropertyDescriptor(object);
-    }
-    return itemPropertyDescriptors;
-  }
+			addArtifactIdPropertyDescriptor(object);
+			addGroupIdPropertyDescriptor(object);
+			addVersionPropertyDescriptor(object);
+			addBasePackagePropertyDescriptor(object);
+		}
+		return itemPropertyDescriptors;
+	}
 
   /**
-   * This adds a property descriptor for the Artifact Id feature.
-   * <!-- begin-user-doc -->
+	 * This adds a property descriptor for the Artifact Id feature.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   protected void addArtifactIdPropertyDescriptor(Object object)
   {
-    itemPropertyDescriptors.add
-      (createItemPropertyDescriptor
-        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-         getResourceLocator(),
-         getString("_UI_JavaComponent_artifactId_feature"),
-         getString("_UI_PropertyDescriptor_description", "_UI_JavaComponent_artifactId_feature", "_UI_JavaComponent_type"),
-         DomainPackage.Literals.JAVA_COMPONENT__ARTIFACT_ID,
-         true,
-         false,
-         false,
-         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-         null,
-         null));
-  }
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_JavaComponent_artifactId_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_JavaComponent_artifactId_feature", "_UI_JavaComponent_type"),
+				 DomainPackage.Literals.JAVA_COMPONENT__ARTIFACT_ID,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
 
   /**
-   * This adds a property descriptor for the Group Id feature.
-   * <!-- begin-user-doc -->
+	 * This adds a property descriptor for the Group Id feature.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   protected void addGroupIdPropertyDescriptor(Object object)
   {
-    itemPropertyDescriptors.add
-      (createItemPropertyDescriptor
-        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-         getResourceLocator(),
-         getString("_UI_JavaComponent_groupId_feature"),
-         getString("_UI_PropertyDescriptor_description", "_UI_JavaComponent_groupId_feature", "_UI_JavaComponent_type"),
-         DomainPackage.Literals.JAVA_COMPONENT__GROUP_ID,
-         true,
-         false,
-         false,
-         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-         null,
-         null));
-  }
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_JavaComponent_groupId_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_JavaComponent_groupId_feature", "_UI_JavaComponent_type"),
+				 DomainPackage.Literals.JAVA_COMPONENT__GROUP_ID,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
 
   /**
-   * This adds a property descriptor for the Version feature.
-   * <!-- begin-user-doc -->
+	 * This adds a property descriptor for the Version feature.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   protected void addVersionPropertyDescriptor(Object object)
   {
-    itemPropertyDescriptors.add
-      (createItemPropertyDescriptor
-        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-         getResourceLocator(),
-         getString("_UI_JavaComponent_version_feature"),
-         getString("_UI_PropertyDescriptor_description", "_UI_JavaComponent_version_feature", "_UI_JavaComponent_type"),
-         DomainPackage.Literals.JAVA_COMPONENT__VERSION,
-         true,
-         false,
-         false,
-         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-         null,
-         null));
-  }
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_JavaComponent_version_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_JavaComponent_version_feature", "_UI_JavaComponent_type"),
+				 DomainPackage.Literals.JAVA_COMPONENT__VERSION,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
 
   /**
-   * This adds a property descriptor for the Base Package feature.
-   * <!-- begin-user-doc -->
+	 * This adds a property descriptor for the Base Package feature.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   protected void addBasePackagePropertyDescriptor(Object object)
   {
-    itemPropertyDescriptors.add
-      (createItemPropertyDescriptor
-        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-         getResourceLocator(),
-         getString("_UI_JavaComponent_basePackage_feature"),
-         getString("_UI_PropertyDescriptor_description", "_UI_JavaComponent_basePackage_feature", "_UI_JavaComponent_type"),
-         DomainPackage.Literals.JAVA_COMPONENT__BASE_PACKAGE,
-         true,
-         false,
-         false,
-         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-         null,
-         null));
-  }
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_JavaComponent_basePackage_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_JavaComponent_basePackage_feature", "_UI_JavaComponent_type"),
+				 DomainPackage.Literals.JAVA_COMPONENT__BASE_PACKAGE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
 
   /**
-   * This returns JavaComponent.gif.
-   * <!-- begin-user-doc -->
+	 * This returns JavaComponent.gif.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public Object getImage(Object object)
   {
-    return overlayImage(object, getResourceLocator().getImage("full/obj16/JavaComponent"));
-  }
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/JavaComponent"));
+	}
 
   /**
-   * This returns the label text for the adapted class.
-   * <!-- begin-user-doc -->
+	 * This returns the label text for the adapted class.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public String getText(Object object)
   {
-    String label = ((JavaComponent)object).getName();
-    return label == null || label.length() == 0 ?
-      getString("_UI_JavaComponent_type") :
-      getString("_UI_JavaComponent_type") + " " + label;
-  }
+		String label = ((JavaComponent)object).getName();
+		return label == null || label.length() == 0 ?
+			getString("_UI_JavaComponent_type") :
+			getString("_UI_JavaComponent_type") + " " + label;
+	}
 
   /**
-   * This handles model notifications by calling {@link #updateChildren} to update any cached
-   * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
-   * <!-- begin-user-doc -->
+	 * This handles model notifications by calling {@link #updateChildren} to update any cached
+	 * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public void notifyChanged(Notification notification)
   {
-    updateChildren(notification);
+		updateChildren(notification);
 
-    switch (notification.getFeatureID(JavaComponent.class))
-    {
-      case DomainPackage.JAVA_COMPONENT__ARTIFACT_ID:
-      case DomainPackage.JAVA_COMPONENT__GROUP_ID:
-      case DomainPackage.JAVA_COMPONENT__VERSION:
-      case DomainPackage.JAVA_COMPONENT__BASE_PACKAGE:
-        fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-        return;
-    }
-    super.notifyChanged(notification);
-  }
+		switch (notification.getFeatureID(JavaComponent.class)) {
+			case DomainPackage.JAVA_COMPONENT__ARTIFACT_ID:
+			case DomainPackage.JAVA_COMPONENT__GROUP_ID:
+			case DomainPackage.JAVA_COMPONENT__VERSION:
+			case DomainPackage.JAVA_COMPONENT__BASE_PACKAGE:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
+		}
+		super.notifyChanged(notification);
+	}
 
   /**
-   * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
-   * that can be created under this object.
-   * <!-- begin-user-doc -->
+	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
+	 * that can be created under this object.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object)
   {
-    super.collectNewChildDescriptors(newChildDescriptors, object);
-  }
+		super.collectNewChildDescriptors(newChildDescriptors, object);
+	}
 
 }

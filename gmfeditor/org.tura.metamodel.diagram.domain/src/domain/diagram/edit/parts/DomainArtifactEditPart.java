@@ -75,8 +75,7 @@ public class DomainArtifactEditPart extends ShapeNodeEditPart {
 		super.createDefaultEditPolicies();
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE, new DomainArtifactItemSemanticEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
-		installEditPolicy(EditPolicyRoles.OPEN_ROLE, new OpenDiagramDomainArtifactEditPolicy());
-		// XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
+		installEditPolicy(EditPolicyRoles.OPEN_ROLE, new OpenDiagramDomainArtifactEditPolicy()); // XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
 		// removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
 	}
 
@@ -124,8 +123,8 @@ public class DomainArtifactEditPart extends ShapeNodeEditPart {
 	 */
 	protected boolean addFixedChild(EditPart childEditPart) {
 		if (childEditPart instanceof DomainArtifactNameEditPart) {
-			((DomainArtifactNameEditPart) childEditPart).setLabel(getPrimaryShape()
-					.getFigureDomainArtifactLabelFigure());
+			((DomainArtifactNameEditPart) childEditPart)
+					.setLabel(getPrimaryShape().getFigureDomainArtifactLabelFigure());
 			return true;
 		}
 		return false;
@@ -180,9 +179,8 @@ public class DomainArtifactEditPart extends ShapeNodeEditPart {
 				EObject obj = ((View) getModel()).getElement();
 				if (obj instanceof Orderable) {
 					EditingDomain editingDomain = getEditingDomain();
-					editingDomain.getCommandStack().execute(
-							SetCommand.create(editingDomain, obj, DomainPackage.eINSTANCE.getOrderable_Order(),
-									evt.getNewValue()));
+					editingDomain.getCommandStack().execute(SetCommand.create(editingDomain, obj,
+							DomainPackage.eINSTANCE.getOrderable_Order(), evt.getNewValue()));
 
 				}
 			}
@@ -323,6 +321,7 @@ public class DomainArtifactEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	static final Font FFIGUREDOMAINARTIFACTLABELFIGURE_FONT = new Font(Display.getCurrent(), "Palatino", 12, SWT.ITALIC);
+	static final Font FFIGUREDOMAINARTIFACTLABELFIGURE_FONT = new Font(Display.getCurrent(), "Palatino", 12,
+			SWT.ITALIC);
 
 }

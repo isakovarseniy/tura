@@ -17,60 +17,60 @@ public class JavaMapperTest extends TypeMapperTest
 {
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public static void main(String[] args)
   {
-    TestRunner.run(JavaMapperTest.class);
-  }
+		TestRunner.run(JavaMapperTest.class);
+	}
 
   /**
-   * Constructs a new Java Mapper test case with the given name.
-   * <!-- begin-user-doc -->
+	 * Constructs a new Java Mapper test case with the given name.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public JavaMapperTest(String name)
   {
-    super(name);
-  }
+		super(name);
+	}
 
   /**
-   * Returns the fixture for this Java Mapper test case.
-   * <!-- begin-user-doc -->
+	 * Returns the fixture for this Java Mapper test case.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   protected JavaMapper getFixture()
   {
-    return (JavaMapper)fixture;
-  }
+		return (JavaMapper)fixture;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see junit.framework.TestCase#setUp()
-   * @generated
-   */
+	 * @see junit.framework.TestCase#setUp()
+	 * @generated
+	 */
   @Override
   protected void setUp() throws Exception
   {
-    setFixture(DomainFactory.eINSTANCE.createJavaMapper());
-  }
+		setFixture(DomainFactory.eINSTANCE.createJavaMapper());
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see junit.framework.TestCase#tearDown()
-   * @generated
-   */
+	 * @see junit.framework.TestCase#tearDown()
+	 * @generated
+	 */
   @Override
   protected void tearDown() throws Exception
   {
-    setFixture(null);
-  }
+		setFixture(null);
+	}
 
 } //JavaMapperTest

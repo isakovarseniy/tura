@@ -29,267 +29,253 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link domain.impl.LayerHolderImpl#getChildren <em>Children</em>}</li>
  *   <li>{@link domain.impl.LayerHolderImpl#getColumns <em>Columns</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
 public class LayerHolderImpl extends UielementImpl implements LayerHolder
 {
   /**
-   * The cached value of the '{@link #getChildren() <em>Children</em>}' containment reference list.
-   * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getChildren() <em>Children</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getChildren()
-   * @generated
-   * @ordered
-   */
+	 * @see #getChildren()
+	 * @generated
+	 * @ordered
+	 */
   protected EList<Uielement> children;
 
   /**
-   * The default value of the '{@link #getColumns() <em>Columns</em>}' attribute.
-   * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getColumns() <em>Columns</em>}' attribute.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getColumns()
-   * @generated
-   * @ordered
-   */
+	 * @see #getColumns()
+	 * @generated
+	 * @ordered
+	 */
   protected static final int COLUMNS_EDEFAULT = 1;
 
   /**
-   * The cached value of the '{@link #getColumns() <em>Columns</em>}' attribute.
-   * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getColumns() <em>Columns</em>}' attribute.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getColumns()
-   * @generated
-   * @ordered
-   */
+	 * @see #getColumns()
+	 * @generated
+	 * @ordered
+	 */
   protected int columns = COLUMNS_EDEFAULT;
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   protected LayerHolderImpl()
   {
-    super();
-  }
+		super();
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   protected EClass eStaticClass()
   {
-    return DomainPackage.Literals.LAYER_HOLDER;
-  }
+		return DomainPackage.Literals.LAYER_HOLDER;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public EList<Uielement> getChildren()
   {
-    if (children == null)
-    {
-      children = new EObjectContainmentEList<Uielement>(Uielement.class, this, DomainPackage.LAYER_HOLDER__CHILDREN);
-    }
-    return children;
-  }
+		if (children == null) {
+			children = new EObjectContainmentEList<Uielement>(Uielement.class, this, DomainPackage.LAYER_HOLDER__CHILDREN);
+		}
+		return children;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public int getColumns()
   {
-    return columns;
-  }
+		return columns;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public void setColumns(int newColumns)
   {
-    int oldColumns = columns;
-    columns = newColumns;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.LAYER_HOLDER__COLUMNS, oldColumns, columns));
-  }
+		int oldColumns = columns;
+		columns = newColumns;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.LAYER_HOLDER__COLUMNS, oldColumns, columns));
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
-    switch (featureID)
-    {
-      case DomainPackage.LAYER_HOLDER__CHILDREN:
-        return ((InternalEList<?>)getChildren()).basicRemove(otherEnd, msgs);
-    }
-    return super.eInverseRemove(otherEnd, featureID, msgs);
-  }
+		switch (featureID) {
+			case DomainPackage.LAYER_HOLDER__CHILDREN:
+				return ((InternalEList<?>)getChildren()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
-    switch (featureID)
-    {
-      case DomainPackage.LAYER_HOLDER__CHILDREN:
-        return getChildren();
-      case DomainPackage.LAYER_HOLDER__COLUMNS:
-        return getColumns();
-    }
-    return super.eGet(featureID, resolve, coreType);
-  }
+		switch (featureID) {
+			case DomainPackage.LAYER_HOLDER__CHILDREN:
+				return getChildren();
+			case DomainPackage.LAYER_HOLDER__COLUMNS:
+				return getColumns();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
-    switch (featureID)
-    {
-      case DomainPackage.LAYER_HOLDER__CHILDREN:
-        getChildren().clear();
-        getChildren().addAll((Collection<? extends Uielement>)newValue);
-        return;
-      case DomainPackage.LAYER_HOLDER__COLUMNS:
-        setColumns((Integer)newValue);
-        return;
-    }
-    super.eSet(featureID, newValue);
-  }
+		switch (featureID) {
+			case DomainPackage.LAYER_HOLDER__CHILDREN:
+				getChildren().clear();
+				getChildren().addAll((Collection<? extends Uielement>)newValue);
+				return;
+			case DomainPackage.LAYER_HOLDER__COLUMNS:
+				setColumns((Integer)newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public void eUnset(int featureID)
   {
-    switch (featureID)
-    {
-      case DomainPackage.LAYER_HOLDER__CHILDREN:
-        getChildren().clear();
-        return;
-      case DomainPackage.LAYER_HOLDER__COLUMNS:
-        setColumns(COLUMNS_EDEFAULT);
-        return;
-    }
-    super.eUnset(featureID);
-  }
+		switch (featureID) {
+			case DomainPackage.LAYER_HOLDER__CHILDREN:
+				getChildren().clear();
+				return;
+			case DomainPackage.LAYER_HOLDER__COLUMNS:
+				setColumns(COLUMNS_EDEFAULT);
+				return;
+		}
+		super.eUnset(featureID);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public boolean eIsSet(int featureID)
   {
-    switch (featureID)
-    {
-      case DomainPackage.LAYER_HOLDER__CHILDREN:
-        return children != null && !children.isEmpty();
-      case DomainPackage.LAYER_HOLDER__COLUMNS:
-        return columns != COLUMNS_EDEFAULT;
-    }
-    return super.eIsSet(featureID);
-  }
+		switch (featureID) {
+			case DomainPackage.LAYER_HOLDER__CHILDREN:
+				return children != null && !children.isEmpty();
+			case DomainPackage.LAYER_HOLDER__COLUMNS:
+				return columns != COLUMNS_EDEFAULT;
+		}
+		return super.eIsSet(featureID);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass)
   {
-    if (baseClass == ChildrenHolder.class)
-    {
-      switch (derivedFeatureID)
-      {
-        case DomainPackage.LAYER_HOLDER__CHILDREN: return DomainPackage.CHILDREN_HOLDER__CHILDREN;
-        default: return -1;
-      }
-    }
-    if (baseClass == HTMLLayerHolder.class)
-    {
-      switch (derivedFeatureID)
-      {
-        case DomainPackage.LAYER_HOLDER__COLUMNS: return DomainPackage.HTML_LAYER_HOLDER__COLUMNS;
-        default: return -1;
-      }
-    }
-    return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
-  }
+		if (baseClass == ChildrenHolder.class) {
+			switch (derivedFeatureID) {
+				case DomainPackage.LAYER_HOLDER__CHILDREN: return DomainPackage.CHILDREN_HOLDER__CHILDREN;
+				default: return -1;
+			}
+		}
+		if (baseClass == HTMLLayerHolder.class) {
+			switch (derivedFeatureID) {
+				case DomainPackage.LAYER_HOLDER__COLUMNS: return DomainPackage.HTML_LAYER_HOLDER__COLUMNS;
+				default: return -1;
+			}
+		}
+		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass)
   {
-    if (baseClass == ChildrenHolder.class)
-    {
-      switch (baseFeatureID)
-      {
-        case DomainPackage.CHILDREN_HOLDER__CHILDREN: return DomainPackage.LAYER_HOLDER__CHILDREN;
-        default: return -1;
-      }
-    }
-    if (baseClass == HTMLLayerHolder.class)
-    {
-      switch (baseFeatureID)
-      {
-        case DomainPackage.HTML_LAYER_HOLDER__COLUMNS: return DomainPackage.LAYER_HOLDER__COLUMNS;
-        default: return -1;
-      }
-    }
-    return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
-  }
+		if (baseClass == ChildrenHolder.class) {
+			switch (baseFeatureID) {
+				case DomainPackage.CHILDREN_HOLDER__CHILDREN: return DomainPackage.LAYER_HOLDER__CHILDREN;
+				default: return -1;
+			}
+		}
+		if (baseClass == HTMLLayerHolder.class) {
+			switch (baseFeatureID) {
+				case DomainPackage.HTML_LAYER_HOLDER__COLUMNS: return DomainPackage.LAYER_HOLDER__COLUMNS;
+				default: return -1;
+			}
+		}
+		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public String toString()
   {
-    if (eIsProxy()) return super.toString();
+		if (eIsProxy()) return super.toString();
 
-    StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (columns: ");
-    result.append(columns);
-    result.append(')');
-    return result.toString();
-  }
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (columns: ");
+		result.append(columns);
+		result.append(')');
+		return result.toString();
+	}
 
 } //LayerHolderImpl

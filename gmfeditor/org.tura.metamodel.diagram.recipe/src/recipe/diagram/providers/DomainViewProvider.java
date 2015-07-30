@@ -106,11 +106,11 @@ public class DomainViewProvider extends AbstractProvider implements IViewProvide
 	 */
 	protected boolean provides(CreateViewForKindOperation op) {
 		/*
-		 if (op.getViewKind() == Node.class)
-		 return getNodeViewClass(op.getSemanticAdapter(), op.getContainerView(), op.getSemanticHint()) != null;
-		 if (op.getViewKind() == Edge.class)
-		 return getEdgeViewClass(op.getSemanticAdapter(), op.getContainerView(), op.getSemanticHint()) != null;
-		 */
+		    if (op.getViewKind() == Node.class)
+		      return getNodeViewClass(op.getSemanticAdapter(), op.getContainerView(), op.getSemanticHint()) != null;
+		    if (op.getViewKind() == Edge.class)
+		      return getEdgeViewClass(op.getSemanticAdapter(), op.getContainerView(), op.getSemanticHint()) != null;
+		*/
 		return true;
 	}
 
@@ -168,8 +168,8 @@ public class DomainViewProvider extends AbstractProvider implements IViewProvide
 				case ModelMapperEditPart.VISUAL_ID:
 				case QueryEditPart.VISUAL_ID:
 				case PropertyEditPart.VISUAL_ID:
-					if (domainElement == null
-							|| visualID != DomainVisualIDRegistry.getNodeVisualID(op.getContainerView(), domainElement)) {
+					if (domainElement == null || visualID != DomainVisualIDRegistry
+							.getNodeVisualID(op.getContainerView(), domainElement)) {
 						return false; // visual id in semantic hint should match visual id for domain element
 					}
 					break;
@@ -194,7 +194,8 @@ public class DomainViewProvider extends AbstractProvider implements IViewProvide
 			return false; // foreign element type
 		}
 		String elementTypeHint = ((IHintedType) elementType).getSemanticHint();
-		if (elementTypeHint == null || (op.getSemanticHint() != null && !elementTypeHint.equals(op.getSemanticHint()))) {
+		if (elementTypeHint == null
+				|| (op.getSemanticHint() != null && !elementTypeHint.equals(op.getSemanticHint()))) {
 			return false; // our hint is visual id and must be specified, and it should be the same as in element type
 		}
 		int visualID = DomainVisualIDRegistry.getVisualID(elementTypeHint);
@@ -334,8 +335,8 @@ public class DomainViewProvider extends AbstractProvider implements IViewProvide
 		}
 		Node label305007 = createLabel(node, DomainVisualIDRegistry.getType(ConfigurationNameEditPart.VISUAL_ID));
 		createCompartment(node,
-				DomainVisualIDRegistry.getType(ConfigurationConfigurationPropertiesCompartmentEditPart.VISUAL_ID),
-				true, false, true, true);
+				DomainVisualIDRegistry.getType(ConfigurationConfigurationPropertiesCompartmentEditPart.VISUAL_ID), true,
+				false, true, true);
 		return node;
 	}
 
@@ -372,8 +373,8 @@ public class DomainViewProvider extends AbstractProvider implements IViewProvide
 	/**
 	 * @generated
 	 */
-	public Node createDeploymentSequence_302004(EObject domainElement, View containerView, int index,
-			boolean persisted, PreferencesHint preferencesHint) {
+	public Node createDeploymentSequence_302004(EObject domainElement, View containerView, int index, boolean persisted,
+			PreferencesHint preferencesHint) {
 		Node node = NotationFactory.eINSTANCE.createNode();
 		node.getStyles().add(NotationFactory.eINSTANCE.createDescriptionStyle());
 		node.getStyles().add(NotationFactory.eINSTANCE.createFontStyle());
@@ -498,8 +499,8 @@ public class DomainViewProvider extends AbstractProvider implements IViewProvide
 		}
 		Node label305002 = createLabel(node, DomainVisualIDRegistry.getType(ModelMapperNameEditPart.VISUAL_ID));
 		createCompartment(node,
-				DomainVisualIDRegistry.getType(ModelMapperModelMapperQueriesCompartmentEditPart.VISUAL_ID), true,
-				false, true, true);
+				DomainVisualIDRegistry.getType(ModelMapperModelMapperQueriesCompartmentEditPart.VISUAL_ID), true, false,
+				true, true);
 		return node;
 	}
 

@@ -14,6 +14,7 @@ import org.eclipse.gef.palette.ToolEntry;
 import org.eclipse.gmf.runtime.diagram.ui.tools.UnspecifiedTypeCreationTool;
 import org.eclipse.gmf.runtime.emf.type.core.IElementType;
 
+import org.eclipse.gmf.tooling.runtime.part.DefaultNodeToolEntry;
 import uipackage.diagram.providers.DomainElementTypes;
 
 /**
@@ -46,8 +47,8 @@ public class DomainPaletteFactory {
 	 * @generated
 	 */
 	private ToolEntry createForm1CreationTool() {
-		NodeToolEntry entry = new NodeToolEntry(Messages.Form1CreationTool_title, Messages.Form1CreationTool_desc,
-				Collections.singletonList(DomainElementTypes.Form_1002002));
+		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(Messages.Form1CreationTool_title,
+				Messages.Form1CreationTool_desc, Collections.singletonList(DomainElementTypes.Form_1002002));
 		entry.setId("createForm1CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(DomainElementTypes.getImageDescriptor(DomainElementTypes.Form_1002002));
 		entry.setLargeIcon(entry.getSmallIcon());
@@ -58,7 +59,7 @@ public class DomainPaletteFactory {
 	 * @generated
 	 */
 	private ToolEntry createFormDataControls2CreationTool() {
-		NodeToolEntry entry = new NodeToolEntry(Messages.FormDataControls2CreationTool_title,
+		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(Messages.FormDataControls2CreationTool_title,
 				Messages.FormDataControls2CreationTool_desc,
 				Collections.singletonList(DomainElementTypes.FormDataControls_1003002));
 		entry.setId("createFormDataControls2CreationTool"); //$NON-NLS-1$
@@ -71,7 +72,7 @@ public class DomainPaletteFactory {
 	 * @generated
 	 */
 	private ToolEntry createFormParameter3CreationTool() {
-		NodeToolEntry entry = new NodeToolEntry(Messages.FormParameter3CreationTool_title,
+		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(Messages.FormParameter3CreationTool_title,
 				Messages.FormParameter3CreationTool_desc,
 				Collections.singletonList(DomainElementTypes.FormParameter_1003003));
 		entry.setId("createFormParameter3CreationTool"); //$NON-NLS-1$
@@ -84,39 +85,11 @@ public class DomainPaletteFactory {
 	 * @generated
 	 */
 	private ToolEntry createFormView4CreationTool() {
-		NodeToolEntry entry = new NodeToolEntry(Messages.FormView4CreationTool_title,
+		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(Messages.FormView4CreationTool_title,
 				Messages.FormView4CreationTool_desc, Collections.singletonList(DomainElementTypes.FormView_1003001));
 		entry.setId("createFormView4CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(DomainElementTypes.getImageDescriptor(DomainElementTypes.FormView_1003001));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
-	}
-
-	/**
-	 * @generated
-	 */
-	private static class NodeToolEntry extends ToolEntry {
-
-		/**
-		 * @generated
-		 */
-		private final List<IElementType> elementTypes;
-
-		/**
-		 * @generated
-		 */
-		private NodeToolEntry(String title, String description, List<IElementType> elementTypes) {
-			super(title, description, null, null);
-			this.elementTypes = elementTypes;
-		}
-
-		/**
-		 * @generated
-		 */
-		public Tool createTool() {
-			Tool tool = new UnspecifiedTypeCreationTool(elementTypes);
-			tool.setProperties(getToolProperties());
-			return tool;
-		}
 	}
 }

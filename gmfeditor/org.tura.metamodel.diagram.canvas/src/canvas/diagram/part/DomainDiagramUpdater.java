@@ -1310,33 +1310,37 @@ public class DomainDiagramUpdater {
 	 */
 	public static final DiagramUpdater TYPED_INSTANCE = new DiagramUpdater() {
 		/**
-		 * @generated
-		 */
+		* @generated
+		*/
 		@Override
+
 		public List<DomainNodeDescriptor> getSemanticChildren(View view) {
 			return DomainDiagramUpdater.getSemanticChildren(view);
 		}
 
 		/**
-		 * @generated
-		 */
+		* @generated
+		*/
 		@Override
+
 		public List<DomainLinkDescriptor> getContainedLinks(View view) {
 			return DomainDiagramUpdater.getContainedLinks(view);
 		}
 
 		/**
-		 * @generated
-		 */
+		* @generated
+		*/
 		@Override
+
 		public List<DomainLinkDescriptor> getIncomingLinks(View view) {
 			return DomainDiagramUpdater.getIncomingLinks(view);
 		}
 
 		/**
-		 * @generated
-		 */
+		* @generated
+		*/
 		@Override
+
 		public List<DomainLinkDescriptor> getOutgoingLinks(View view) {
 			return DomainDiagramUpdater.getOutgoingLinks(view);
 		}

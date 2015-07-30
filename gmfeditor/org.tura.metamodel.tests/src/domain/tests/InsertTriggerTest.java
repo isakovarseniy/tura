@@ -17,60 +17,60 @@ public class InsertTriggerTest extends TriggerTest
 {
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public static void main(String[] args)
   {
-    TestRunner.run(InsertTriggerTest.class);
-  }
+		TestRunner.run(InsertTriggerTest.class);
+	}
 
   /**
-   * Constructs a new Insert Trigger test case with the given name.
-   * <!-- begin-user-doc -->
+	 * Constructs a new Insert Trigger test case with the given name.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public InsertTriggerTest(String name)
   {
-    super(name);
-  }
+		super(name);
+	}
 
   /**
-   * Returns the fixture for this Insert Trigger test case.
-   * <!-- begin-user-doc -->
+	 * Returns the fixture for this Insert Trigger test case.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   protected InsertTrigger getFixture()
   {
-    return (InsertTrigger)fixture;
-  }
+		return (InsertTrigger)fixture;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see junit.framework.TestCase#setUp()
-   * @generated
-   */
+	 * @see junit.framework.TestCase#setUp()
+	 * @generated
+	 */
   @Override
   protected void setUp() throws Exception
   {
-    setFixture(DomainFactory.eINSTANCE.createInsertTrigger());
-  }
+		setFixture(DomainFactory.eINSTANCE.createInsertTrigger());
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see junit.framework.TestCase#tearDown()
-   * @generated
-   */
+	 * @see junit.framework.TestCase#tearDown()
+	 * @generated
+	 */
   @Override
   protected void tearDown() throws Exception
   {
-    setFixture(null);
-  }
+		setFixture(null);
+	}
 
 } //InsertTriggerTest

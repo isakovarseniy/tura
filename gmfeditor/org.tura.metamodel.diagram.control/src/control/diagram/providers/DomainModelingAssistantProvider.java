@@ -38,98 +38,6 @@ public class DomainModelingAssistantProvider extends ModelingAssistantProvider {
 	/**
 	 * @generated
 	 */
-	public List getTypesForPopupBar(IAdaptable host) {
-		IGraphicalEditPart editPart = (IGraphicalEditPart) host.getAdapter(IGraphicalEditPart.class);
-		if (editPart instanceof ControlsEditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(2);
-			types.add(DomainElementTypes.Root_1102001);
-			types.add(DomainElementTypes.DataControl_1102002);
-			return types;
-		}
-		if (editPart instanceof RootEditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(2);
-			types.add(DomainElementTypes.PREFormTrigger_1103001);
-			types.add(DomainElementTypes.FormVariable_1103017);
-			return types;
-		}
-		if (editPart instanceof DataControlEditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(12);
-			types.add(DomainElementTypes.PREQueryTrigger_1103002);
-			types.add(DomainElementTypes.POSTQueryTrigger_1103003);
-			types.add(DomainElementTypes.PREInsertTrigger_1103004);
-			types.add(DomainElementTypes.PREDeleteTrigger_1103005);
-			types.add(DomainElementTypes.POSTCreateTrigger_1103011);
-			types.add(DomainElementTypes.PREUpdateTrigger_1103010);
-			types.add(DomainElementTypes.CreateTrigger_1103012);
-			types.add(DomainElementTypes.InsertTrigger_1103013);
-			types.add(DomainElementTypes.UpdateTrigger_1103014);
-			types.add(DomainElementTypes.DeleteTrigger_1103015);
-			types.add(DomainElementTypes.SearchTrigger_1103016);
-			types.add(DomainElementTypes.ArtificialField_1103008);
-			return types;
-		}
-		return Collections.EMPTY_LIST;
-	}
-
-	/**
-	 * @generated
-	 */
-	public List getRelTypesOnSource(IAdaptable source) {
-		IGraphicalEditPart sourceEditPart = (IGraphicalEditPart) source.getAdapter(IGraphicalEditPart.class);
-		if (sourceEditPart instanceof DataControlEditPart) {
-			return ((DataControlEditPart) sourceEditPart).getMARelTypesOnSource();
-		}
-		return Collections.EMPTY_LIST;
-	}
-
-	/**
-	 * @generated
-	 */
-	public List getRelTypesOnTarget(IAdaptable target) {
-		IGraphicalEditPart targetEditPart = (IGraphicalEditPart) target.getAdapter(IGraphicalEditPart.class);
-		if (targetEditPart instanceof DataControlEditPart) {
-			return ((DataControlEditPart) targetEditPart).getMARelTypesOnTarget();
-		}
-		return Collections.EMPTY_LIST;
-	}
-
-	/**
-	 * @generated
-	 */
-	public List getRelTypesOnSourceAndTarget(IAdaptable source, IAdaptable target) {
-		IGraphicalEditPart sourceEditPart = (IGraphicalEditPart) source.getAdapter(IGraphicalEditPart.class);
-		IGraphicalEditPart targetEditPart = (IGraphicalEditPart) target.getAdapter(IGraphicalEditPart.class);
-		if (sourceEditPart instanceof DataControlEditPart) {
-			return ((DataControlEditPart) sourceEditPart).getMARelTypesOnSourceAndTarget(targetEditPart);
-		}
-		return Collections.EMPTY_LIST;
-	}
-
-	/**
-	 * @generated
-	 */
-	public List getTypesForSource(IAdaptable target, IElementType relationshipType) {
-		IGraphicalEditPart targetEditPart = (IGraphicalEditPart) target.getAdapter(IGraphicalEditPart.class);
-		if (targetEditPart instanceof DataControlEditPart) {
-			return ((DataControlEditPart) targetEditPart).getMATypesForSource(relationshipType);
-		}
-		return Collections.EMPTY_LIST;
-	}
-
-	/**
-	 * @generated
-	 */
-	public List getTypesForTarget(IAdaptable source, IElementType relationshipType) {
-		IGraphicalEditPart sourceEditPart = (IGraphicalEditPart) source.getAdapter(IGraphicalEditPart.class);
-		if (sourceEditPart instanceof DataControlEditPart) {
-			return ((DataControlEditPart) sourceEditPart).getMATypesForTarget(relationshipType);
-		}
-		return Collections.EMPTY_LIST;
-	}
-
-	/**
-	 * @generated
-	 */
 	public EObject selectExistingElementForSource(IAdaptable target, IElementType relationshipType) {
 		return selectExistingElement(target, getTypesForSource(target, relationshipType));
 	}
@@ -179,8 +87,8 @@ public class DomainModelingAssistantProvider extends ModelingAssistantProvider {
 	 */
 	protected EObject selectElement(EObject[] elements) {
 		Shell shell = Display.getCurrent().getActiveShell();
-		ILabelProvider labelProvider = new AdapterFactoryLabelProvider(DomainDiagramEditorPlugin.getInstance()
-				.getItemProvidersAdapterFactory());
+		ILabelProvider labelProvider = new AdapterFactoryLabelProvider(
+				DomainDiagramEditorPlugin.getInstance().getItemProvidersAdapterFactory());
 		ElementListSelectionDialog dialog = new ElementListSelectionDialog(shell, labelProvider);
 		dialog.setMessage(Messages.DomainModelingAssistantProviderMessage);
 		dialog.setTitle(Messages.DomainModelingAssistantProviderTitle);

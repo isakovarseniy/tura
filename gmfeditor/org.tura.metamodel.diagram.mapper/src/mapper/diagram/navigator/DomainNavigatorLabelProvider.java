@@ -39,16 +39,17 @@ import domain.Mappers;
 /**
  * @generated
  */
-public class DomainNavigatorLabelProvider extends LabelProvider implements ICommonLabelProvider, ITreePathLabelProvider {
+public class DomainNavigatorLabelProvider extends LabelProvider
+		implements ICommonLabelProvider, ITreePathLabelProvider {
 
 	/**
 	 * @generated
 	 */
 	static {
-		DomainDiagramEditorPlugin.getInstance().getImageRegistry()
-				.put("Navigator?UnknownElement", ImageDescriptor.getMissingImageDescriptor()); //$NON-NLS-1$
-		DomainDiagramEditorPlugin.getInstance().getImageRegistry()
-				.put("Navigator?ImageNotFound", ImageDescriptor.getMissingImageDescriptor()); //$NON-NLS-1$
+		DomainDiagramEditorPlugin.getInstance().getImageRegistry().put("Navigator?UnknownElement", //$NON-NLS-1$
+				ImageDescriptor.getMissingImageDescriptor());
+		DomainDiagramEditorPlugin.getInstance().getImageRegistry().put("Navigator?ImageNotFound", //$NON-NLS-1$
+				ImageDescriptor.getMissingImageDescriptor());
 	}
 
 	/**
@@ -97,20 +98,20 @@ public class DomainNavigatorLabelProvider extends LabelProvider implements IComm
 	public Image getImage(View view) {
 		switch (DomainVisualIDRegistry.getVisualID(view)) {
 		case MappersEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Diagram?http://tura.org/2013/v1/domain?Mappers", DomainElementTypes.Mappers_401000); //$NON-NLS-1$
+			return getImage("Navigator?Diagram?http://tura.org/2013/v1/domain?Mappers", //$NON-NLS-1$
+					DomainElementTypes.Mappers_401000);
 		case JavaMapperEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?TopLevelNode?http://tura.org/2013/v1/domain?JavaMapper", DomainElementTypes.JavaMapper_402001); //$NON-NLS-1$
+			return getImage("Navigator?TopLevelNode?http://tura.org/2013/v1/domain?JavaMapper", //$NON-NLS-1$
+					DomainElementTypes.JavaMapper_402001);
 		case JavaScriptMapperEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?TopLevelNode?http://tura.org/2013/v1/domain?JavaScriptMapper", DomainElementTypes.JavaScriptMapper_402003); //$NON-NLS-1$
+			return getImage("Navigator?TopLevelNode?http://tura.org/2013/v1/domain?JavaScriptMapper", //$NON-NLS-1$
+					DomainElementTypes.JavaScriptMapper_402003);
 		case CSSMapperEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?TopLevelNode?http://tura.org/2013/v1/domain?CSSMapper", DomainElementTypes.CSSMapper_402004); //$NON-NLS-1$
+			return getImage("Navigator?TopLevelNode?http://tura.org/2013/v1/domain?CSSMapper", //$NON-NLS-1$
+					DomainElementTypes.CSSMapper_402004);
 		case RoleMapperEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?TopLevelNode?http://tura.org/2013/v1/domain?RoleMapper", DomainElementTypes.RoleMapper_402005); //$NON-NLS-1$
+			return getImage("Navigator?TopLevelNode?http://tura.org/2013/v1/domain?RoleMapper", //$NON-NLS-1$
+					DomainElementTypes.RoleMapper_402005);
 		}
 		return getImage("Navigator?UnknownElement", null); //$NON-NLS-1$
 	}

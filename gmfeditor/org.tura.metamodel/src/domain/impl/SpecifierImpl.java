@@ -30,364 +30,355 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link domain.impl.SpecifierImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.impl.SpecifierImpl#getName <em>Name</em>}</li>
  *   <li>{@link domain.impl.SpecifierImpl#getParent <em>Parent</em>}</li>
  *   <li>{@link domain.impl.SpecifierImpl#getOptions <em>Options</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
 public class SpecifierImpl extends EObjectImpl implements Specifier
 {
   /**
-   * The default value of the '{@link #getUid() <em>Uid</em>}' attribute.
-   * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getUid() <em>Uid</em>}' attribute.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getUid()
-   * @generated
-   * @ordered
-   */
+	 * @see #getUid()
+	 * @generated
+	 * @ordered
+	 */
   protected static final String UID_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getUid() <em>Uid</em>}' attribute.
-   * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getUid() <em>Uid</em>}' attribute.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getUid()
-   * @generated
-   * @ordered
-   */
+	 * @see #getUid()
+	 * @generated
+	 * @ordered
+	 */
   protected String uid = UID_EDEFAULT;
 
   /**
-   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getName()
-   * @generated
-   * @ordered
-   */
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
   protected static final String NAME_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getName()
-   * @generated
-   * @ordered
-   */
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
   protected String name = NAME_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getOptions() <em>Options</em>}' containment reference list.
-   * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getOptions() <em>Options</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getOptions()
-   * @generated
-   * @ordered
-   */
+	 * @see #getOptions()
+	 * @generated
+	 * @ordered
+	 */
   protected EList<Option> options;
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   protected SpecifierImpl()
   {
-    super();
-  }
+		super();
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   protected EClass eStaticClass()
   {
-    return DomainPackage.Literals.SPECIFIER;
-  }
+		return DomainPackage.Literals.SPECIFIER;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public String getUid()
   {
-    return uid;
-  }
+		return uid;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public void setUid(String newUid)
   {
-    String oldUid = uid;
-    uid = newUid;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.SPECIFIER__UID, oldUid, uid));
-  }
+		String oldUid = uid;
+		uid = newUid;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.SPECIFIER__UID, oldUid, uid));
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public String getName()
   {
-    return name;
-  }
+		return name;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public void setName(String newName)
   {
-    String oldName = name;
-    name = newName;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.SPECIFIER__NAME, oldName, name));
-  }
+		String oldName = name;
+		name = newName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.SPECIFIER__NAME, oldName, name));
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public Artifact getParent()
   {
-    if (eContainerFeatureID() != DomainPackage.SPECIFIER__PARENT) return null;
-    return (Artifact)eContainer();
-  }
+		if (eContainerFeatureID() != DomainPackage.SPECIFIER__PARENT) return null;
+		return (Artifact)eInternalContainer();
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public NotificationChain basicSetParent(Artifact newParent, NotificationChain msgs)
   {
-    msgs = eBasicSetContainer((InternalEObject)newParent, DomainPackage.SPECIFIER__PARENT, msgs);
-    return msgs;
-  }
+		msgs = eBasicSetContainer((InternalEObject)newParent, DomainPackage.SPECIFIER__PARENT, msgs);
+		return msgs;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public void setParent(Artifact newParent)
   {
-    if (newParent != eInternalContainer() || (eContainerFeatureID() != DomainPackage.SPECIFIER__PARENT && newParent != null))
-    {
-      if (EcoreUtil.isAncestor(this, newParent))
-        throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
-      NotificationChain msgs = null;
-      if (eInternalContainer() != null)
-        msgs = eBasicRemoveFromContainer(msgs);
-      if (newParent != null)
-        msgs = ((InternalEObject)newParent).eInverseAdd(this, DomainPackage.ARTIFACT__SPECIFIERS, Artifact.class, msgs);
-      msgs = basicSetParent(newParent, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.SPECIFIER__PARENT, newParent, newParent));
-  }
+		if (newParent != eInternalContainer() || (eContainerFeatureID() != DomainPackage.SPECIFIER__PARENT && newParent != null)) {
+			if (EcoreUtil.isAncestor(this, newParent))
+				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+			NotificationChain msgs = null;
+			if (eInternalContainer() != null)
+				msgs = eBasicRemoveFromContainer(msgs);
+			if (newParent != null)
+				msgs = ((InternalEObject)newParent).eInverseAdd(this, DomainPackage.ARTIFACT__SPECIFIERS, Artifact.class, msgs);
+			msgs = basicSetParent(newParent, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.SPECIFIER__PARENT, newParent, newParent));
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public EList<Option> getOptions()
   {
-    if (options == null)
-    {
-      options = new EObjectContainmentWithInverseEList<Option>(Option.class, this, DomainPackage.SPECIFIER__OPTIONS, DomainPackage.OPTION__PARENT);
-    }
-    return options;
-  }
+		if (options == null) {
+			options = new EObjectContainmentWithInverseEList<Option>(Option.class, this, DomainPackage.SPECIFIER__OPTIONS, DomainPackage.OPTION__PARENT);
+		}
+		return options;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @SuppressWarnings("unchecked")
   @Override
   public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
-    switch (featureID)
-    {
-      case DomainPackage.SPECIFIER__PARENT:
-        if (eInternalContainer() != null)
-          msgs = eBasicRemoveFromContainer(msgs);
-        return basicSetParent((Artifact)otherEnd, msgs);
-      case DomainPackage.SPECIFIER__OPTIONS:
-        return ((InternalEList<InternalEObject>)(InternalEList<?>)getOptions()).basicAdd(otherEnd, msgs);
-    }
-    return super.eInverseAdd(otherEnd, featureID, msgs);
-  }
+		switch (featureID) {
+			case DomainPackage.SPECIFIER__PARENT:
+				if (eInternalContainer() != null)
+					msgs = eBasicRemoveFromContainer(msgs);
+				return basicSetParent((Artifact)otherEnd, msgs);
+			case DomainPackage.SPECIFIER__OPTIONS:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getOptions()).basicAdd(otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
-    switch (featureID)
-    {
-      case DomainPackage.SPECIFIER__PARENT:
-        return basicSetParent(null, msgs);
-      case DomainPackage.SPECIFIER__OPTIONS:
-        return ((InternalEList<?>)getOptions()).basicRemove(otherEnd, msgs);
-    }
-    return super.eInverseRemove(otherEnd, featureID, msgs);
-  }
+		switch (featureID) {
+			case DomainPackage.SPECIFIER__PARENT:
+				return basicSetParent(null, msgs);
+			case DomainPackage.SPECIFIER__OPTIONS:
+				return ((InternalEList<?>)getOptions()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs)
   {
-    switch (eContainerFeatureID())
-    {
-      case DomainPackage.SPECIFIER__PARENT:
-        return eInternalContainer().eInverseRemove(this, DomainPackage.ARTIFACT__SPECIFIERS, Artifact.class, msgs);
-    }
-    return super.eBasicRemoveFromContainerFeature(msgs);
-  }
+		switch (eContainerFeatureID()) {
+			case DomainPackage.SPECIFIER__PARENT:
+				return eInternalContainer().eInverseRemove(this, DomainPackage.ARTIFACT__SPECIFIERS, Artifact.class, msgs);
+		}
+		return super.eBasicRemoveFromContainerFeature(msgs);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
-    switch (featureID)
-    {
-      case DomainPackage.SPECIFIER__UID:
-        return getUid();
-      case DomainPackage.SPECIFIER__NAME:
-        return getName();
-      case DomainPackage.SPECIFIER__PARENT:
-        return getParent();
-      case DomainPackage.SPECIFIER__OPTIONS:
-        return getOptions();
-    }
-    return super.eGet(featureID, resolve, coreType);
-  }
+		switch (featureID) {
+			case DomainPackage.SPECIFIER__UID:
+				return getUid();
+			case DomainPackage.SPECIFIER__NAME:
+				return getName();
+			case DomainPackage.SPECIFIER__PARENT:
+				return getParent();
+			case DomainPackage.SPECIFIER__OPTIONS:
+				return getOptions();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
-    switch (featureID)
-    {
-      case DomainPackage.SPECIFIER__UID:
-        setUid((String)newValue);
-        return;
-      case DomainPackage.SPECIFIER__NAME:
-        setName((String)newValue);
-        return;
-      case DomainPackage.SPECIFIER__PARENT:
-        setParent((Artifact)newValue);
-        return;
-      case DomainPackage.SPECIFIER__OPTIONS:
-        getOptions().clear();
-        getOptions().addAll((Collection<? extends Option>)newValue);
-        return;
-    }
-    super.eSet(featureID, newValue);
-  }
+		switch (featureID) {
+			case DomainPackage.SPECIFIER__UID:
+				setUid((String)newValue);
+				return;
+			case DomainPackage.SPECIFIER__NAME:
+				setName((String)newValue);
+				return;
+			case DomainPackage.SPECIFIER__PARENT:
+				setParent((Artifact)newValue);
+				return;
+			case DomainPackage.SPECIFIER__OPTIONS:
+				getOptions().clear();
+				getOptions().addAll((Collection<? extends Option>)newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public void eUnset(int featureID)
   {
-    switch (featureID)
-    {
-      case DomainPackage.SPECIFIER__UID:
-        setUid(UID_EDEFAULT);
-        return;
-      case DomainPackage.SPECIFIER__NAME:
-        setName(NAME_EDEFAULT);
-        return;
-      case DomainPackage.SPECIFIER__PARENT:
-        setParent((Artifact)null);
-        return;
-      case DomainPackage.SPECIFIER__OPTIONS:
-        getOptions().clear();
-        return;
-    }
-    super.eUnset(featureID);
-  }
+		switch (featureID) {
+			case DomainPackage.SPECIFIER__UID:
+				setUid(UID_EDEFAULT);
+				return;
+			case DomainPackage.SPECIFIER__NAME:
+				setName(NAME_EDEFAULT);
+				return;
+			case DomainPackage.SPECIFIER__PARENT:
+				setParent((Artifact)null);
+				return;
+			case DomainPackage.SPECIFIER__OPTIONS:
+				getOptions().clear();
+				return;
+		}
+		super.eUnset(featureID);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public boolean eIsSet(int featureID)
   {
-    switch (featureID)
-    {
-      case DomainPackage.SPECIFIER__UID:
-        return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
-      case DomainPackage.SPECIFIER__NAME:
-        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-      case DomainPackage.SPECIFIER__PARENT:
-        return getParent() != null;
-      case DomainPackage.SPECIFIER__OPTIONS:
-        return options != null && !options.isEmpty();
-    }
-    return super.eIsSet(featureID);
-  }
+		switch (featureID) {
+			case DomainPackage.SPECIFIER__UID:
+				return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
+			case DomainPackage.SPECIFIER__NAME:
+				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+			case DomainPackage.SPECIFIER__PARENT:
+				return getParent() != null;
+			case DomainPackage.SPECIFIER__OPTIONS:
+				return options != null && !options.isEmpty();
+		}
+		return super.eIsSet(featureID);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public String toString()
   {
-    if (eIsProxy()) return super.toString();
+		if (eIsProxy()) return super.toString();
 
-    StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (uid: ");
-    result.append(uid);
-    result.append(", name: ");
-    result.append(name);
-    result.append(')');
-    return result.toString();
-  }
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (uid: ");
+		result.append(uid);
+		result.append(", name: ");
+		result.append(name);
+		result.append(')');
+		return result.toString();
+	}
 
 } //SpecifierImpl

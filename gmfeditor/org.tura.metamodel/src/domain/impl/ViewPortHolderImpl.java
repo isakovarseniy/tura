@@ -24,142 +24,136 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link domain.impl.ViewPortHolderImpl#getViewElement <em>View Element</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
 public class ViewPortHolderImpl extends HTMLLayerHolderImpl implements ViewPortHolder
 {
   /**
-   * The cached value of the '{@link #getViewElement() <em>View Element</em>}' containment reference list.
-   * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getViewElement() <em>View Element</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getViewElement()
-   * @generated
-   * @ordered
-   */
+	 * @see #getViewElement()
+	 * @generated
+	 * @ordered
+	 */
   protected EList<ViewElement> viewElement;
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   protected ViewPortHolderImpl()
   {
-    super();
-  }
+		super();
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   protected EClass eStaticClass()
   {
-    return DomainPackage.Literals.VIEW_PORT_HOLDER;
-  }
+		return DomainPackage.Literals.VIEW_PORT_HOLDER;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public EList<ViewElement> getViewElement()
   {
-    if (viewElement == null)
-    {
-      viewElement = new EObjectContainmentEList<ViewElement>(ViewElement.class, this, DomainPackage.VIEW_PORT_HOLDER__VIEW_ELEMENT);
-    }
-    return viewElement;
-  }
+		if (viewElement == null) {
+			viewElement = new EObjectContainmentEList<ViewElement>(ViewElement.class, this, DomainPackage.VIEW_PORT_HOLDER__VIEW_ELEMENT);
+		}
+		return viewElement;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
-    switch (featureID)
-    {
-      case DomainPackage.VIEW_PORT_HOLDER__VIEW_ELEMENT:
-        return ((InternalEList<?>)getViewElement()).basicRemove(otherEnd, msgs);
-    }
-    return super.eInverseRemove(otherEnd, featureID, msgs);
-  }
+		switch (featureID) {
+			case DomainPackage.VIEW_PORT_HOLDER__VIEW_ELEMENT:
+				return ((InternalEList<?>)getViewElement()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
-    switch (featureID)
-    {
-      case DomainPackage.VIEW_PORT_HOLDER__VIEW_ELEMENT:
-        return getViewElement();
-    }
-    return super.eGet(featureID, resolve, coreType);
-  }
+		switch (featureID) {
+			case DomainPackage.VIEW_PORT_HOLDER__VIEW_ELEMENT:
+				return getViewElement();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
-    switch (featureID)
-    {
-      case DomainPackage.VIEW_PORT_HOLDER__VIEW_ELEMENT:
-        getViewElement().clear();
-        getViewElement().addAll((Collection<? extends ViewElement>)newValue);
-        return;
-    }
-    super.eSet(featureID, newValue);
-  }
+		switch (featureID) {
+			case DomainPackage.VIEW_PORT_HOLDER__VIEW_ELEMENT:
+				getViewElement().clear();
+				getViewElement().addAll((Collection<? extends ViewElement>)newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public void eUnset(int featureID)
   {
-    switch (featureID)
-    {
-      case DomainPackage.VIEW_PORT_HOLDER__VIEW_ELEMENT:
-        getViewElement().clear();
-        return;
-    }
-    super.eUnset(featureID);
-  }
+		switch (featureID) {
+			case DomainPackage.VIEW_PORT_HOLDER__VIEW_ELEMENT:
+				getViewElement().clear();
+				return;
+		}
+		super.eUnset(featureID);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public boolean eIsSet(int featureID)
   {
-    switch (featureID)
-    {
-      case DomainPackage.VIEW_PORT_HOLDER__VIEW_ELEMENT:
-        return viewElement != null && !viewElement.isEmpty();
-    }
-    return super.eIsSet(featureID);
-  }
+		switch (featureID) {
+			case DomainPackage.VIEW_PORT_HOLDER__VIEW_ELEMENT:
+				return viewElement != null && !viewElement.isEmpty();
+		}
+		return super.eIsSet(featureID);
+	}
 
 } //ViewPortHolderImpl

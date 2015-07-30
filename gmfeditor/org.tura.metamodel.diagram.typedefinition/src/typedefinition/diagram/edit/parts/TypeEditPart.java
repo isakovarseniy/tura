@@ -84,13 +84,12 @@ public class TypeEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected void createDefaultEditPolicies() {
-		installEditPolicy(EditPolicyRoles.CREATION_ROLE, new CreationEditPolicyWithCustomReparent(
-				DomainVisualIDRegistry.TYPED_INSTANCE));
+		installEditPolicy(EditPolicyRoles.CREATION_ROLE,
+				new CreationEditPolicyWithCustomReparent(DomainVisualIDRegistry.TYPED_INSTANCE));
 		super.createDefaultEditPolicies();
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE, new TypeItemSemanticEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
-		installEditPolicy(EditPolicyRoles.OPEN_ROLE, new OpenDiagramEditPolicy());
-		// XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
+		installEditPolicy(EditPolicyRoles.OPEN_ROLE, new OpenDiagramEditPolicy()); // XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
 		// removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
 	}
 
@@ -221,9 +220,8 @@ public class TypeEditPart extends ShapeNodeEditPart {
 				EObject obj = ((View) getModel()).getElement();
 				if (obj instanceof Orderable) {
 					EditingDomain editingDomain = getEditingDomain();
-					editingDomain.getCommandStack().execute(
-							SetCommand.create(editingDomain, obj, DomainPackage.eINSTANCE.getOrderable_Order(),
-									evt.getNewValue()));
+					editingDomain.getCommandStack().execute(SetCommand.create(editingDomain, obj,
+							DomainPackage.eINSTANCE.getOrderable_Order(), evt.getNewValue()));
 
 				}
 			}
@@ -320,84 +318,18 @@ public class TypeEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	public List<IElementType> getMARelTypesOnSource() {
-		ArrayList<IElementType> types = new ArrayList<IElementType>(1);
-		types.add(DomainElementTypes.TypeExtension_104001);
-		return types;
-	}
-
-	/**
-	 * @generated
-	 */
-	public List<IElementType> getMARelTypesOnSourceAndTarget(IGraphicalEditPart targetEditPart) {
-		LinkedList<IElementType> types = new LinkedList<IElementType>();
-		if (targetEditPart instanceof typedefinition.diagram.edit.parts.TypeEditPart) {
-			types.add(DomainElementTypes.TypeExtension_104001);
-		}
-		if (targetEditPart instanceof TypeReferenceEditPart) {
-			types.add(DomainElementTypes.TypeExtension_104001);
-		}
-		if (targetEditPart instanceof PrimitiveEditPart) {
-			types.add(DomainElementTypes.TypeExtension_104001);
-		}
-		if (targetEditPart instanceof EnumaratorEditPart) {
-			types.add(DomainElementTypes.TypeExtension_104001);
-		}
-		return types;
-	}
-
-	/**
-	 * @generated
-	 */
-	public List<IElementType> getMATypesForTarget(IElementType relationshipType) {
-		LinkedList<IElementType> types = new LinkedList<IElementType>();
-		if (relationshipType == DomainElementTypes.TypeExtension_104001) {
-			types.add(DomainElementTypes.Type_102002);
-			types.add(DomainElementTypes.TypeReference_102001);
-			types.add(DomainElementTypes.Primitive_102004);
-			types.add(DomainElementTypes.Enumarator_102005);
-		}
-		return types;
-	}
-
-	/**
-	 * @generated
-	 */
-	public List<IElementType> getMARelTypesOnTarget() {
-		ArrayList<IElementType> types = new ArrayList<IElementType>(1);
-		types.add(DomainElementTypes.TypeExtension_104001);
-		return types;
-	}
-
-	/**
-	 * @generated
-	 */
-	public List<IElementType> getMATypesForSource(IElementType relationshipType) {
-		LinkedList<IElementType> types = new LinkedList<IElementType>();
-		if (relationshipType == DomainElementTypes.TypeExtension_104001) {
-			types.add(DomainElementTypes.Type_102002);
-			types.add(DomainElementTypes.TypeReference_102001);
-			types.add(DomainElementTypes.Primitive_102004);
-			types.add(DomainElementTypes.Enumarator_102005);
-		}
-		return types;
-	}
-
-	/**
-	 * @generated
-	 */
 	public EditPart getTargetEditPart(Request request) {
 		if (request instanceof CreateViewAndElementRequest) {
 			CreateElementRequestAdapter adapter = ((CreateViewAndElementRequest) request).getViewAndElementDescriptor()
 					.getCreateElementRequestAdapter();
 			IElementType type = (IElementType) adapter.getAdapter(IElementType.class);
 			if (type == DomainElementTypes.Attribute_103001) {
-				return getChildBySemanticHint(DomainVisualIDRegistry
-						.getType(TypeTypeAttributesCompartmentEditPart.VISUAL_ID));
+				return getChildBySemanticHint(
+						DomainVisualIDRegistry.getType(TypeTypeAttributesCompartmentEditPart.VISUAL_ID));
 			}
 			if (type == DomainElementTypes.Operation_103002) {
-				return getChildBySemanticHint(DomainVisualIDRegistry
-						.getType(TypeTypeOperationsCompartmentEditPart.VISUAL_ID));
+				return getChildBySemanticHint(
+						DomainVisualIDRegistry.getType(TypeTypeOperationsCompartmentEditPart.VISUAL_ID));
 			}
 		}
 		return super.getTargetEditPart(request);

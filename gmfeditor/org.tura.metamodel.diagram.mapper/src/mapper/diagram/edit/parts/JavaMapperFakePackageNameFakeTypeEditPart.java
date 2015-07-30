@@ -43,6 +43,7 @@ import org.eclipse.gmf.runtime.notation.NotationPackage;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.gmf.tooling.runtime.directedit.TextDirectEditManager2;
 import org.eclipse.gmf.tooling.runtime.draw2d.labels.SimpleLabelDelegate;
+import org.eclipse.gmf.tooling.runtime.edit.policies.DefaultNodeLabelDragPolicy;
 import org.eclipse.gmf.tooling.runtime.edit.policies.labels.IRefreshableFeedbackEditPolicy;
 import org.eclipse.jface.text.contentassist.IContentAssistProcessor;
 import org.eclipse.jface.viewers.ICellEditorValidator;
@@ -103,7 +104,7 @@ public class JavaMapperFakePackageNameFakeTypeEditPart extends CompartmentEditPa
 		super.createDefaultEditPolicies();
 		installEditPolicy(EditPolicy.SELECTION_FEEDBACK_ROLE, new DomainTextSelectionEditPolicy());
 		installEditPolicy(EditPolicy.DIRECT_EDIT_ROLE, new LabelDirectEditPolicy());
-		installEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE, new MappersEditPart.NodeLabelDragPolicy());
+		installEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE, new DefaultNodeLabelDragPolicy());
 	}
 
 	/**
@@ -263,13 +264,13 @@ public class JavaMapperFakePackageNameFakeTypeEditPart extends CompartmentEditPa
 					final EObject element = getParserElement();
 					final IParser parser = getParser();
 					try {
-						IParserEditStatus valid = (IParserEditStatus) getEditingDomain().runExclusive(
-								new RunnableWithResult.Impl<IParserEditStatus>() {
+						IParserEditStatus valid = (IParserEditStatus) getEditingDomain()
+								.runExclusive(new RunnableWithResult.Impl<IParserEditStatus>() {
 
-									public void run() {
-										setResult(parser.isValidEditString(new EObjectAdapter(element), (String) value));
-									}
-								});
+							public void run() {
+								setResult(parser.isValidEditString(new EObjectAdapter(element), (String) value));
+							}
+						});
 						return valid.getCode() == ParserEditStatus.EDITABLE ? null : valid.getMessage();
 					} catch (InterruptedException ie) {
 						ie.printStackTrace();
@@ -316,7 +317,7 @@ public class JavaMapperFakePackageNameFakeTypeEditPart extends CompartmentEditPa
 	 */
 	protected DirectEditManager getManager() {
 		if (manager == null) {
-			setManager(new TextDirectEditManager2(this, null, DomainEditPartFactory.getTextCellEditorLocator(this)));
+			setManager(new TextDirectEditManager(this, null, DomainEditPartFactory.getTextCellEditorLocator(this)));
 		}
 		return manager;
 	}
@@ -339,8 +340,8 @@ public class JavaMapperFakePackageNameFakeTypeEditPart extends CompartmentEditPa
 	 * @generated
 	 */
 	protected void performDirectEdit(Point eventLocation) {
-		if (getManager().getClass() == TextDirectEditManager2.class) {
-			((TextDirectEditManager2) getManager()).show(eventLocation.getSWTPoint());
+		if (getManager().getClass() == TextDirectEditManager.class) {
+			((TextDirectEditManager) getManager()).show(eventLocation.getSWTPoint());
 		}
 	}
 
@@ -350,9 +351,6 @@ public class JavaMapperFakePackageNameFakeTypeEditPart extends CompartmentEditPa
 	private void performDirectEdit(char initialCharacter) {
 		if (getManager() instanceof TextDirectEditManager) {
 			((TextDirectEditManager) getManager()).show(initialCharacter);
-		} else // 
-		if (getManager() instanceof TextDirectEditManager2) {
-			((TextDirectEditManager2) getManager()).show(initialCharacter);
 		} else //
 		{
 			performDirectEdit();
@@ -369,11 +367,13 @@ public class JavaMapperFakePackageNameFakeTypeEditPart extends CompartmentEditPa
 
 				public void run() {
 					if (isActive() && isEditable()) {
-						if (theRequest.getExtendedData().get(RequestConstants.REQ_DIRECTEDIT_EXTENDEDDATA_INITIAL_CHAR) instanceof Character) {
-							Character initialChar = (Character) theRequest.getExtendedData().get(
-									RequestConstants.REQ_DIRECTEDIT_EXTENDEDDATA_INITIAL_CHAR);
+						if (theRequest.getExtendedData()
+								.get(RequestConstants.REQ_DIRECTEDIT_EXTENDEDDATA_INITIAL_CHAR) instanceof Character) {
+							Character initialChar = (Character) theRequest.getExtendedData()
+									.get(RequestConstants.REQ_DIRECTEDIT_EXTENDEDDATA_INITIAL_CHAR);
 							performDirectEdit(initialChar.charValue());
-						} else if ((theRequest instanceof DirectEditRequest) && (getEditText().equals(getLabelText()))) {
+						} else
+							if ((theRequest instanceof DirectEditRequest) && (getEditText().equals(getLabelText()))) {
 							DirectEditRequest editRequest = (DirectEditRequest) theRequest;
 							performDirectEdit(editRequest.getLocation());
 						} else {
@@ -434,8 +434,8 @@ public class JavaMapperFakePackageNameFakeTypeEditPart extends CompartmentEditPa
 	protected void refreshFont() {
 		FontStyle style = (FontStyle) getFontStyleOwnerView().getStyle(NotationPackage.eINSTANCE.getFontStyle());
 		if (style != null) {
-			FontData fontData = new FontData(style.getFontName(), style.getFontHeight(), (style.isBold() ? SWT.BOLD
-					: SWT.NORMAL) | (style.isItalic() ? SWT.ITALIC : SWT.NORMAL));
+			FontData fontData = new FontData(style.getFontName(), style.getFontHeight(),
+					(style.isBold() ? SWT.BOLD : SWT.NORMAL) | (style.isItalic() ? SWT.ITALIC : SWT.NORMAL));
 			setFont(fontData);
 		}
 	}

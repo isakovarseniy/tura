@@ -8,24 +8,21 @@ import java.util.IdentityHashMap;
 import java.util.Map;
 import java.util.Set;
 
+import org.eclipse.core.runtime.IAdaptable;
+import org.eclipse.emf.ecore.ENamedElement;
+import org.eclipse.gmf.runtime.emf.type.core.ElementTypeRegistry;
+import org.eclipse.gmf.runtime.emf.type.core.IElementType;
+import org.eclipse.gmf.tooling.runtime.providers.DiagramElementTypeImages;
+import org.eclipse.gmf.tooling.runtime.providers.DiagramElementTypes;
+import org.eclipse.jface.resource.ImageDescriptor;
+import org.eclipse.swt.graphics.Image;
+
+import domain.DomainPackage;
 import message.diagram.edit.parts.LanguageEditPart;
 import message.diagram.edit.parts.MessageEditPart;
 import message.diagram.edit.parts.MessageLibraryEditPart;
 import message.diagram.edit.parts.MessagesEditPart;
 import message.diagram.part.DomainDiagramEditorPlugin;
-
-import org.eclipse.core.runtime.IAdaptable;
-import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EClassifier;
-import org.eclipse.emf.ecore.ENamedElement;
-import org.eclipse.emf.ecore.EStructuralFeature;
-import org.eclipse.gmf.runtime.emf.type.core.ElementTypeRegistry;
-import org.eclipse.gmf.runtime.emf.type.core.IElementType;
-import org.eclipse.jface.resource.ImageDescriptor;
-import org.eclipse.jface.resource.ImageRegistry;
-import org.eclipse.swt.graphics.Image;
-
-import domain.DomainPackage;
 
 /**
  * @generated
@@ -33,146 +30,81 @@ import domain.DomainPackage;
 public class DomainElementTypes {
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private DomainElementTypes() {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private static Map<IElementType, ENamedElement> elements;
 
 	/**
-	 * @generated
-	 */
-	private static ImageRegistry imageRegistry;
+	* @generated
+	*/
+	private static DiagramElementTypeImages elementTypeImages = new DiagramElementTypeImages(
+			DomainDiagramEditorPlugin.getInstance().getItemProvidersAdapterFactory());
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private static Set<IElementType> KNOWN_ELEMENT_TYPES;
 
 	/**
-	 * @generated
-	 */
-	public static final IElementType Messages_1701000 = getElementType("org.tura.metamodel.diagram.message.Messages_1701000"); //$NON-NLS-1$
+	* @generated
+	*/
+	public static final IElementType Messages_1701000 = getElementType(
+			"org.tura.metamodel.diagram.message.Messages_1701000"); //$NON-NLS-1$
 	/**
-	 * @generated
-	 */
-	public static final IElementType MessageLibrary_1702001 = getElementType("org.tura.metamodel.diagram.message.MessageLibrary_1702001"); //$NON-NLS-1$
+	* @generated
+	*/
+	public static final IElementType MessageLibrary_1702001 = getElementType(
+			"org.tura.metamodel.diagram.message.MessageLibrary_1702001"); //$NON-NLS-1$
 	/**
-	 * @generated
-	 */
-	public static final IElementType Language_1702002 = getElementType("org.tura.metamodel.diagram.message.Language_1702002"); //$NON-NLS-1$
+	* @generated
+	*/
+	public static final IElementType Language_1702002 = getElementType(
+			"org.tura.metamodel.diagram.message.Language_1702002"); //$NON-NLS-1$
+	/**
+	* @generated
+	*/
+	public static final IElementType Message_1703004 = getElementType(
+			"org.tura.metamodel.diagram.message.Message_1703004"); //$NON-NLS-1$
 
 	/**
-	 * @generated
-	 */
-	public static final IElementType Message_1703004 = getElementType("org.tura.metamodel.diagram.message.Message_1703004"); //$NON-NLS-1$
-
-	/**
-	 * @generated
-	 */
-	private static ImageRegistry getImageRegistry() {
-		if (imageRegistry == null) {
-			imageRegistry = new ImageRegistry();
-		}
-		return imageRegistry;
-	}
-
-	/**
-	 * @generated
-	 */
-	private static String getImageRegistryKey(ENamedElement element) {
-		return element.getName();
-	}
-
-	/**
-	 * @generated
-	 */
-	private static ImageDescriptor getProvidedImageDescriptor(ENamedElement element) {
-		if (element instanceof EStructuralFeature) {
-			EStructuralFeature feature = ((EStructuralFeature) element);
-			EClass eContainingClass = feature.getEContainingClass();
-			EClassifier eType = feature.getEType();
-			if (eContainingClass != null && !eContainingClass.isAbstract()) {
-				element = eContainingClass;
-			} else if (eType instanceof EClass && !((EClass) eType).isAbstract()) {
-				element = eType;
-			}
-		}
-		if (element instanceof EClass) {
-			EClass eClass = (EClass) element;
-			if (!eClass.isAbstract()) {
-				return DomainDiagramEditorPlugin.getInstance().getItemImageDescriptor(
-						eClass.getEPackage().getEFactoryInstance().create(eClass));
-			}
-		}
-		// TODO : support structural features
-		return null;
-	}
-
-	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static ImageDescriptor getImageDescriptor(ENamedElement element) {
-		String key = getImageRegistryKey(element);
-		ImageDescriptor imageDescriptor = getImageRegistry().getDescriptor(key);
-		if (imageDescriptor == null) {
-			imageDescriptor = getProvidedImageDescriptor(element);
-			if (imageDescriptor == null) {
-				imageDescriptor = ImageDescriptor.getMissingImageDescriptor();
-			}
-			getImageRegistry().put(key, imageDescriptor);
-		}
-		return imageDescriptor;
+		return elementTypeImages.getImageDescriptor(element);
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static Image getImage(ENamedElement element) {
-		String key = getImageRegistryKey(element);
-		Image image = getImageRegistry().get(key);
-		if (image == null) {
-			ImageDescriptor imageDescriptor = getProvidedImageDescriptor(element);
-			if (imageDescriptor == null) {
-				imageDescriptor = ImageDescriptor.getMissingImageDescriptor();
-			}
-			getImageRegistry().put(key, imageDescriptor);
-			image = getImageRegistry().get(key);
-		}
-		return image;
+		return elementTypeImages.getImage(element);
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static ImageDescriptor getImageDescriptor(IAdaptable hint) {
-		ENamedElement element = getElement(hint);
-		if (element == null) {
-			return null;
-		}
-		return getImageDescriptor(element);
+		return getImageDescriptor(getElement(hint));
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static Image getImage(IAdaptable hint) {
-		ENamedElement element = getElement(hint);
-		if (element == null) {
-			return null;
-		}
-		return getImage(element);
+		return getImage(getElement(hint));
 	}
 
 	/**
-	 * Returns 'type' of the ecore object associated with the hint.
-	 * 
-	 * @generated
-	 */
+	* Returns 'type' of the ecore object associated with the hint.
+	* 
+	* @generated
+	*/
 	public static ENamedElement getElement(IAdaptable hint) {
 		Object type = hint.getAdapter(IElementType.class);
 		if (elements == null) {
@@ -190,15 +122,15 @@ public class DomainElementTypes {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private static IElementType getElementType(String id) {
 		return ElementTypeRegistry.getInstance().getType(id);
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static boolean isKnownElementType(IElementType elementType) {
 		if (KNOWN_ELEMENT_TYPES == null) {
 			KNOWN_ELEMENT_TYPES = new HashSet<IElementType>();
@@ -211,8 +143,8 @@ public class DomainElementTypes {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static IElementType getElementType(int visualID) {
 		switch (visualID) {
 		case MessagesEditPart.VISUAL_ID:
@@ -226,5 +158,38 @@ public class DomainElementTypes {
 		}
 		return null;
 	}
+
+	/**
+	* @generated
+	*/
+	public static final DiagramElementTypes TYPED_INSTANCE = new DiagramElementTypes(elementTypeImages) {
+
+		/**
+		* @generated
+		*/
+		@Override
+
+		public boolean isKnownElementType(IElementType elementType) {
+			return message.diagram.providers.DomainElementTypes.isKnownElementType(elementType);
+		}
+
+		/**
+		* @generated
+		*/
+		@Override
+
+		public IElementType getElementTypeForVisualId(int visualID) {
+			return message.diagram.providers.DomainElementTypes.getElementType(visualID);
+		}
+
+		/**
+		* @generated
+		*/
+		@Override
+
+		public ENamedElement getDefiningNamedElement(IAdaptable elementTypeAdapter) {
+			return message.diagram.providers.DomainElementTypes.getElement(elementTypeAdapter);
+		}
+	};
 
 }

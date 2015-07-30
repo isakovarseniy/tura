@@ -13,6 +13,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.gmf.runtime.common.core.command.ICommand;
 import org.eclipse.gmf.runtime.common.ui.services.parser.IParserEditStatus;
 import org.eclipse.gmf.runtime.common.ui.services.parser.ParserEditStatus;
+import org.eclipse.gmf.tooling.runtime.parsers.AbstractAttributeParser;
 import org.eclipse.osgi.util.NLS;
 
 import deployment.diagram.part.DomainDiagramEditorPlugin;
@@ -21,7 +22,7 @@ import deployment.diagram.part.Messages;
 /**
  * @generated
  */
-public class MessageFormatParser extends AbstractParser {
+public class MessageFormatParser extends AbstractAttributeParser {
 
 	/**
 	 * @generated
@@ -112,8 +113,8 @@ public class MessageFormatParser extends AbstractParser {
 	 */
 	protected MessageFormat getEditorProcessor() {
 		if (editorProcessor == null) {
-			editorProcessor = new MessageFormat(getEditorPattern() == null ? getDefaultEditablePattern()
-					: getEditorPattern());
+			editorProcessor = new MessageFormat(
+					getEditorPattern() == null ? getDefaultEditablePattern() : getEditorPattern());
 		}
 		return editorProcessor;
 	}
@@ -150,7 +151,8 @@ public class MessageFormatParser extends AbstractParser {
 	 */
 	protected MessageFormat getEditProcessor() {
 		if (editProcessor == null) {
-			editProcessor = new MessageFormat(getEditPattern() == null ? getDefaultEditablePattern() : getEditPattern());
+			editProcessor = new MessageFormat(
+					getEditPattern() == null ? getDefaultEditablePattern() : getEditPattern());
 		}
 		return editProcessor;
 	}
@@ -171,8 +173,8 @@ public class MessageFormatParser extends AbstractParser {
 		ParsePosition pos = new ParsePosition(0);
 		Object[] values = getEditProcessor().parse(editString, pos);
 		if (values == null) {
-			return new ParserEditStatus(DomainDiagramEditorPlugin.ID, IParserEditStatus.UNEDITABLE, NLS.bind(
-					Messages.MessageFormatParser_InvalidInputError, new Integer(pos.getErrorIndex())));
+			return new ParserEditStatus(DomainDiagramEditorPlugin.ID, IParserEditStatus.UNEDITABLE,
+					NLS.bind(Messages.MessageFormatParser_InvalidInputError, new Integer(pos.getErrorIndex())));
 		}
 		return validateNewValues(values);
 	}

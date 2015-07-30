@@ -3,9 +3,9 @@
  */
 package message.diagram.preferences;
 
-import message.diagram.part.DomainDiagramEditorPlugin;
-
 import org.eclipse.gmf.runtime.diagram.ui.preferences.RulerGridPreferencePage;
+
+import message.diagram.part.DomainDiagramEditorPlugin;
 
 /**
  * @generated
@@ -13,8 +13,8 @@ import org.eclipse.gmf.runtime.diagram.ui.preferences.RulerGridPreferencePage;
 public class DiagramRulersAndGridPreferencePage extends RulerGridPreferencePage {
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public DiagramRulersAndGridPreferencePage() {
 		setPreferenceStore(DomainDiagramEditorPlugin.getInstance().getPreferenceStore());
 	}

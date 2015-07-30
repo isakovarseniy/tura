@@ -16,60 +16,60 @@ public class ApplicationUILayerTest extends HTMLLayerHolderTest
 {
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public static void main(String[] args)
   {
-    TestRunner.run(ApplicationUILayerTest.class);
-  }
+		TestRunner.run(ApplicationUILayerTest.class);
+	}
 
   /**
-   * Constructs a new Application UI Layer test case with the given name.
-   * <!-- begin-user-doc -->
+	 * Constructs a new Application UI Layer test case with the given name.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public ApplicationUILayerTest(String name)
   {
-    super(name);
-  }
+		super(name);
+	}
 
   /**
-   * Returns the fixture for this Application UI Layer test case.
-   * <!-- begin-user-doc -->
+	 * Returns the fixture for this Application UI Layer test case.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   protected ApplicationUILayer getFixture()
   {
-    return (ApplicationUILayer)fixture;
-  }
+		return (ApplicationUILayer)fixture;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see junit.framework.TestCase#setUp()
-   * @generated
-   */
+	 * @see junit.framework.TestCase#setUp()
+	 * @generated
+	 */
   @Override
   protected void setUp() throws Exception
   {
-    setFixture(DomainFactory.eINSTANCE.createApplicationUILayer());
-  }
+		setFixture(DomainFactory.eINSTANCE.createApplicationUILayer());
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see junit.framework.TestCase#tearDown()
-   * @generated
-   */
+	 * @see junit.framework.TestCase#tearDown()
+	 * @generated
+	 */
   @Override
   protected void tearDown() throws Exception
   {
-    setFixture(null);
-  }
+		setFixture(null);
+	}
 
 } //ApplicationUILayerTest

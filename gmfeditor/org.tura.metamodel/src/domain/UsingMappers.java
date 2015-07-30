@@ -13,10 +13,10 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link domain.UsingMappers#getMappers <em>Mappers</em>}</li>
  * </ul>
- * </p>
  *
  * @see domain.DomainPackage#getUsingMappers()
  * @model
@@ -25,19 +25,19 @@ import org.eclipse.emf.ecore.EObject;
 public interface UsingMappers extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Mappers</b></em>' reference list.
-   * The list contents are of type {@link domain.ApplicationMapper}.
-   * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Mappers</b></em>' reference list.
+	 * The list contents are of type {@link domain.ApplicationMapper}.
+	 * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Mappers</em>' reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Mappers</em>' reference list.
-   * @see domain.DomainPackage#getUsingMappers_Mappers()
-   * @model
-   * @generated
-   */
+	 * @return the value of the '<em>Mappers</em>' reference list.
+	 * @see domain.DomainPackage#getUsingMappers_Mappers()
+	 * @model
+	 * @generated
+	 */
   EList<ApplicationMapper> getMappers();
 
 } // UsingMappers

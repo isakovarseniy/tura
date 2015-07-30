@@ -1,18 +1,8 @@
 /*
- * 
- */
+* 
+*/
 package message.diagram.part;
 
-import message.diagram.edit.parts.LanguageEditPart;
-import message.diagram.edit.parts.LanguageLangEditPart;
-import message.diagram.edit.parts.MessageEditPart;
-import message.diagram.edit.parts.MessageLibraryEditPart;
-import message.diagram.edit.parts.MessageLibraryMessageLibraryMessagesCompartmentEditPart;
-import message.diagram.edit.parts.MessageLibraryNameEditPart;
-import message.diagram.edit.parts.MessageNameEditPart;
-import message.diagram.edit.parts.MessagesEditPart;
-
-import message.diagram.edit.parts.WrappingLabelEditPart;
 import org.eclipse.core.runtime.Platform;
 import org.eclipse.emf.ecore.EAnnotation;
 import org.eclipse.emf.ecore.EObject;
@@ -22,6 +12,14 @@ import org.eclipse.gmf.tooling.runtime.structure.DiagramStructure;
 
 import domain.DomainPackage;
 import domain.Messages;
+import message.diagram.edit.parts.LanguageEditPart;
+import message.diagram.edit.parts.LanguageLangEditPart;
+import message.diagram.edit.parts.MessageEditPart;
+import message.diagram.edit.parts.MessageLibraryEditPart;
+import message.diagram.edit.parts.MessageLibraryMessageLibraryMessagesCompartmentEditPart;
+import message.diagram.edit.parts.MessageLibraryNameEditPart;
+import message.diagram.edit.parts.MessageNameEditPart;
+import message.diagram.edit.parts.MessagesEditPart;
 
 /**
  * This registry is used to determine which type of visual object should be
@@ -33,13 +31,13 @@ import domain.Messages;
 public class DomainVisualIDRegistry {
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private static final String DEBUG_KEY = "org.tura.metamodel.diagram.message/debug/visualID"; //$NON-NLS-1$
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static int getVisualID(View view) {
 		if (view instanceof Diagram) {
 			if (MessagesEditPart.MODEL_ID.equals(view.getType())) {
@@ -52,8 +50,8 @@ public class DomainVisualIDRegistry {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static String getModelID(View view) {
 		View diagram = view.getDiagram();
 		while (view != diagram) {
@@ -67,30 +65,30 @@ public class DomainVisualIDRegistry {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static int getVisualID(String type) {
 		try {
 			return Integer.parseInt(type);
 		} catch (NumberFormatException e) {
 			if (Boolean.TRUE.toString().equalsIgnoreCase(Platform.getDebugOption(DEBUG_KEY))) {
-				DomainDiagramEditorPlugin.getInstance().logError(
-						"Unable to parse view type as a visualID number: " + type);
+				DomainDiagramEditorPlugin.getInstance()
+						.logError("Unable to parse view type as a visualID number: " + type);
 			}
 		}
 		return -1;
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static String getType(int visualID) {
 		return Integer.toString(visualID);
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static int getDiagramVisualID(EObject domainElement) {
 		if (domainElement == null) {
 			return -1;
@@ -103,8 +101,8 @@ public class DomainVisualIDRegistry {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static int getNodeVisualID(View containerView, EObject domainElement) {
 		if (domainElement == null) {
 			return -1;
@@ -142,8 +140,8 @@ public class DomainVisualIDRegistry {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static boolean canCreateNode(View containerView, int nodeVisualID) {
 		String containerModelID = message.diagram.part.DomainVisualIDRegistry.getModelID(containerView);
 		if (!MessagesEditPart.MODEL_ID.equals(containerModelID) && !"domain".equals(containerModelID)) { //$NON-NLS-1$
@@ -196,8 +194,8 @@ public class DomainVisualIDRegistry {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static int getLinkWithClassVisualID(EObject domainElement) {
 		if (domainElement == null) {
 			return -1;
@@ -206,18 +204,18 @@ public class DomainVisualIDRegistry {
 	}
 
 	/**
-	 * User can change implementation of this method to handle some specific
-	 * situations not covered by default logic.
-	 * 
-	 * @generated
-	 */
+	* User can change implementation of this method to handle some specific
+	* situations not covered by default logic.
+	* 
+	* @generated
+	*/
 	private static boolean isDiagram(Messages element) {
 		return true;
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static boolean checkNodeVisualID(View containerView, EObject domainElement, int candidate) {
 		if (candidate == -1) {
 			//unrecognized id is always bad
@@ -228,8 +226,8 @@ public class DomainVisualIDRegistry {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static boolean isCompartmentVisualID(int visualID) {
 		switch (visualID) {
 		case MessageLibraryMessageLibraryMessagesCompartmentEditPart.VISUAL_ID:
@@ -241,8 +239,8 @@ public class DomainVisualIDRegistry {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static boolean isSemanticLeafVisualID(int visualID) {
 		switch (visualID) {
 		case MessagesEditPart.VISUAL_ID:
@@ -257,54 +255,60 @@ public class DomainVisualIDRegistry {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static final DiagramStructure TYPED_INSTANCE = new DiagramStructure() {
 		/**
-		 * @generated
-		 */
+		* @generated
+		*/
 		@Override
+
 		public int getVisualID(View view) {
 			return message.diagram.part.DomainVisualIDRegistry.getVisualID(view);
 		}
 
 		/**
-		 * @generated
-		 */
+		* @generated
+		*/
 		@Override
+
 		public String getModelID(View view) {
 			return message.diagram.part.DomainVisualIDRegistry.getModelID(view);
 		}
 
 		/**
-		 * @generated
-		 */
+		* @generated
+		*/
 		@Override
+
 		public int getNodeVisualID(View containerView, EObject domainElement) {
 			return message.diagram.part.DomainVisualIDRegistry.getNodeVisualID(containerView, domainElement);
 		}
 
 		/**
-		 * @generated
-		 */
+		* @generated
+		*/
 		@Override
+
 		public boolean checkNodeVisualID(View containerView, EObject domainElement, int candidate) {
 			return message.diagram.part.DomainVisualIDRegistry.checkNodeVisualID(containerView, domainElement,
 					candidate);
 		}
 
 		/**
-		 * @generated
-		 */
+		* @generated
+		*/
 		@Override
+
 		public boolean isCompartmentVisualID(int visualID) {
 			return message.diagram.part.DomainVisualIDRegistry.isCompartmentVisualID(visualID);
 		}
 
 		/**
-		 * @generated
-		 */
+		* @generated
+		*/
 		@Override
+
 		public boolean isSemanticLeafVisualID(int visualID) {
 			return message.diagram.part.DomainVisualIDRegistry.isSemanticLeafVisualID(visualID);
 		}

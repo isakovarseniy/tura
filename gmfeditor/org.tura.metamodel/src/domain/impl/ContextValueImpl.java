@@ -28,325 +28,319 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link domain.impl.ContextValueImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.impl.ContextValueImpl#isConstant <em>Constant</em>}</li>
  *   <li>{@link domain.impl.ContextValueImpl#getValue <em>Value</em>}</li>
  *   <li>{@link domain.impl.ContextValueImpl#getExpression <em>Expression</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
 public class ContextValueImpl extends EObjectImpl implements ContextValue
 {
   /**
-   * The default value of the '{@link #getUid() <em>Uid</em>}' attribute.
-   * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getUid() <em>Uid</em>}' attribute.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getUid()
-   * @generated
-   * @ordered
-   */
+	 * @see #getUid()
+	 * @generated
+	 * @ordered
+	 */
   protected static final String UID_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getUid() <em>Uid</em>}' attribute.
-   * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getUid() <em>Uid</em>}' attribute.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getUid()
-   * @generated
-   * @ordered
-   */
+	 * @see #getUid()
+	 * @generated
+	 * @ordered
+	 */
   protected String uid = UID_EDEFAULT;
 
   /**
-   * The default value of the '{@link #isConstant() <em>Constant</em>}' attribute.
-   * <!-- begin-user-doc -->
+	 * The default value of the '{@link #isConstant() <em>Constant</em>}' attribute.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #isConstant()
-   * @generated
-   * @ordered
-   */
+	 * @see #isConstant()
+	 * @generated
+	 * @ordered
+	 */
   protected static final boolean CONSTANT_EDEFAULT = false;
 
   /**
-   * The cached value of the '{@link #isConstant() <em>Constant</em>}' attribute.
-   * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #isConstant() <em>Constant</em>}' attribute.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #isConstant()
-   * @generated
-   * @ordered
-   */
+	 * @see #isConstant()
+	 * @generated
+	 * @ordered
+	 */
   protected boolean constant = CONSTANT_EDEFAULT;
 
   /**
-   * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
-   * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getValue()
-   * @generated
-   * @ordered
-   */
+	 * @see #getValue()
+	 * @generated
+	 * @ordered
+	 */
   protected static final String VALUE_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
-   * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getValue()
-   * @generated
-   * @ordered
-   */
+	 * @see #getValue()
+	 * @generated
+	 * @ordered
+	 */
   protected String value = VALUE_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getExpression() <em>Expression</em>}' containment reference list.
-   * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getExpression() <em>Expression</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getExpression()
-   * @generated
-   * @ordered
-   */
+	 * @see #getExpression()
+	 * @generated
+	 * @ordered
+	 */
   protected EList<ExpressionPart> expression;
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   protected ContextValueImpl()
   {
-    super();
-  }
+		super();
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   protected EClass eStaticClass()
   {
-    return DomainPackage.Literals.CONTEXT_VALUE;
-  }
+		return DomainPackage.Literals.CONTEXT_VALUE;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public String getUid()
   {
-    return uid;
-  }
+		return uid;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public void setUid(String newUid)
   {
-    String oldUid = uid;
-    uid = newUid;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.CONTEXT_VALUE__UID, oldUid, uid));
-  }
+		String oldUid = uid;
+		uid = newUid;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.CONTEXT_VALUE__UID, oldUid, uid));
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public boolean isConstant()
   {
-    return constant;
-  }
+		return constant;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public void setConstant(boolean newConstant)
   {
-    boolean oldConstant = constant;
-    constant = newConstant;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.CONTEXT_VALUE__CONSTANT, oldConstant, constant));
-  }
+		boolean oldConstant = constant;
+		constant = newConstant;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.CONTEXT_VALUE__CONSTANT, oldConstant, constant));
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public String getValue()
   {
-    return value;
-  }
+		return value;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public void setValue(String newValue)
   {
-    String oldValue = value;
-    value = newValue;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.CONTEXT_VALUE__VALUE, oldValue, value));
-  }
+		String oldValue = value;
+		value = newValue;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.CONTEXT_VALUE__VALUE, oldValue, value));
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public EList<ExpressionPart> getExpression()
   {
-    if (expression == null)
-    {
-      expression = new EObjectContainmentEList<ExpressionPart>(ExpressionPart.class, this, DomainPackage.CONTEXT_VALUE__EXPRESSION);
-    }
-    return expression;
-  }
+		if (expression == null) {
+			expression = new EObjectContainmentEList<ExpressionPart>(ExpressionPart.class, this, DomainPackage.CONTEXT_VALUE__EXPRESSION);
+		}
+		return expression;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
-    switch (featureID)
-    {
-      case DomainPackage.CONTEXT_VALUE__EXPRESSION:
-        return ((InternalEList<?>)getExpression()).basicRemove(otherEnd, msgs);
-    }
-    return super.eInverseRemove(otherEnd, featureID, msgs);
-  }
+		switch (featureID) {
+			case DomainPackage.CONTEXT_VALUE__EXPRESSION:
+				return ((InternalEList<?>)getExpression()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
-    switch (featureID)
-    {
-      case DomainPackage.CONTEXT_VALUE__UID:
-        return getUid();
-      case DomainPackage.CONTEXT_VALUE__CONSTANT:
-        return isConstant();
-      case DomainPackage.CONTEXT_VALUE__VALUE:
-        return getValue();
-      case DomainPackage.CONTEXT_VALUE__EXPRESSION:
-        return getExpression();
-    }
-    return super.eGet(featureID, resolve, coreType);
-  }
+		switch (featureID) {
+			case DomainPackage.CONTEXT_VALUE__UID:
+				return getUid();
+			case DomainPackage.CONTEXT_VALUE__CONSTANT:
+				return isConstant();
+			case DomainPackage.CONTEXT_VALUE__VALUE:
+				return getValue();
+			case DomainPackage.CONTEXT_VALUE__EXPRESSION:
+				return getExpression();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
-    switch (featureID)
-    {
-      case DomainPackage.CONTEXT_VALUE__UID:
-        setUid((String)newValue);
-        return;
-      case DomainPackage.CONTEXT_VALUE__CONSTANT:
-        setConstant((Boolean)newValue);
-        return;
-      case DomainPackage.CONTEXT_VALUE__VALUE:
-        setValue((String)newValue);
-        return;
-      case DomainPackage.CONTEXT_VALUE__EXPRESSION:
-        getExpression().clear();
-        getExpression().addAll((Collection<? extends ExpressionPart>)newValue);
-        return;
-    }
-    super.eSet(featureID, newValue);
-  }
+		switch (featureID) {
+			case DomainPackage.CONTEXT_VALUE__UID:
+				setUid((String)newValue);
+				return;
+			case DomainPackage.CONTEXT_VALUE__CONSTANT:
+				setConstant((Boolean)newValue);
+				return;
+			case DomainPackage.CONTEXT_VALUE__VALUE:
+				setValue((String)newValue);
+				return;
+			case DomainPackage.CONTEXT_VALUE__EXPRESSION:
+				getExpression().clear();
+				getExpression().addAll((Collection<? extends ExpressionPart>)newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public void eUnset(int featureID)
   {
-    switch (featureID)
-    {
-      case DomainPackage.CONTEXT_VALUE__UID:
-        setUid(UID_EDEFAULT);
-        return;
-      case DomainPackage.CONTEXT_VALUE__CONSTANT:
-        setConstant(CONSTANT_EDEFAULT);
-        return;
-      case DomainPackage.CONTEXT_VALUE__VALUE:
-        setValue(VALUE_EDEFAULT);
-        return;
-      case DomainPackage.CONTEXT_VALUE__EXPRESSION:
-        getExpression().clear();
-        return;
-    }
-    super.eUnset(featureID);
-  }
+		switch (featureID) {
+			case DomainPackage.CONTEXT_VALUE__UID:
+				setUid(UID_EDEFAULT);
+				return;
+			case DomainPackage.CONTEXT_VALUE__CONSTANT:
+				setConstant(CONSTANT_EDEFAULT);
+				return;
+			case DomainPackage.CONTEXT_VALUE__VALUE:
+				setValue(VALUE_EDEFAULT);
+				return;
+			case DomainPackage.CONTEXT_VALUE__EXPRESSION:
+				getExpression().clear();
+				return;
+		}
+		super.eUnset(featureID);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public boolean eIsSet(int featureID)
   {
-    switch (featureID)
-    {
-      case DomainPackage.CONTEXT_VALUE__UID:
-        return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
-      case DomainPackage.CONTEXT_VALUE__CONSTANT:
-        return constant != CONSTANT_EDEFAULT;
-      case DomainPackage.CONTEXT_VALUE__VALUE:
-        return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
-      case DomainPackage.CONTEXT_VALUE__EXPRESSION:
-        return expression != null && !expression.isEmpty();
-    }
-    return super.eIsSet(featureID);
-  }
+		switch (featureID) {
+			case DomainPackage.CONTEXT_VALUE__UID:
+				return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
+			case DomainPackage.CONTEXT_VALUE__CONSTANT:
+				return constant != CONSTANT_EDEFAULT;
+			case DomainPackage.CONTEXT_VALUE__VALUE:
+				return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
+			case DomainPackage.CONTEXT_VALUE__EXPRESSION:
+				return expression != null && !expression.isEmpty();
+		}
+		return super.eIsSet(featureID);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public String toString()
   {
-    if (eIsProxy()) return super.toString();
+		if (eIsProxy()) return super.toString();
 
-    StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (uid: ");
-    result.append(uid);
-    result.append(", constant: ");
-    result.append(constant);
-    result.append(", value: ");
-    result.append(value);
-    result.append(')');
-    return result.toString();
-  }
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (uid: ");
+		result.append(uid);
+		result.append(", constant: ");
+		result.append(constant);
+		result.append(", value: ");
+		result.append(value);
+		result.append(')');
+		return result.toString();
+	}
 
 } //ContextValueImpl

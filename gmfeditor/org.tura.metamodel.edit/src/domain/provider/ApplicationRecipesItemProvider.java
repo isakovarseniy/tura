@@ -33,190 +33,181 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  */
 public class ApplicationRecipesItemProvider
   extends HTMLLayerHolderItemProvider
-  implements
-    IEditingDomainItemProvider,
-    IStructuredItemContentProvider,
-    ITreeItemContentProvider,
-    IItemLabelProvider,
-    IItemPropertySource
 {
   /**
-   * This constructs an instance from a factory and a notifier.
-   * <!-- begin-user-doc -->
+	 * This constructs an instance from a factory and a notifier.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public ApplicationRecipesItemProvider(AdapterFactory adapterFactory)
   {
-    super(adapterFactory);
-  }
+		super(adapterFactory);
+	}
 
   /**
-   * This returns the property descriptors for the adapted class.
-   * <!-- begin-user-doc -->
+	 * This returns the property descriptors for the adapted class.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object)
   {
-    if (itemPropertyDescriptors == null)
-    {
-      super.getPropertyDescriptors(object);
+		if (itemPropertyDescriptors == null) {
+			super.getPropertyDescriptors(object);
 
-      addUidPropertyDescriptor(object);
-      addNamePropertyDescriptor(object);
-    }
-    return itemPropertyDescriptors;
-  }
+			addUidPropertyDescriptor(object);
+			addNamePropertyDescriptor(object);
+		}
+		return itemPropertyDescriptors;
+	}
 
   /**
-   * This adds a property descriptor for the Uid feature.
-   * <!-- begin-user-doc -->
+	 * This adds a property descriptor for the Uid feature.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   protected void addUidPropertyDescriptor(Object object)
   {
-    itemPropertyDescriptors.add
-      (createItemPropertyDescriptor
-        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-         getResourceLocator(),
-         getString("_UI_ApplicationRecipes_uid_feature"),
-         getString("_UI_PropertyDescriptor_description", "_UI_ApplicationRecipes_uid_feature", "_UI_ApplicationRecipes_type"),
-         DomainPackage.Literals.APPLICATION_RECIPES__UID,
-         true,
-         false,
-         false,
-         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-         null,
-         null));
-  }
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ApplicationRecipes_uid_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ApplicationRecipes_uid_feature", "_UI_ApplicationRecipes_type"),
+				 DomainPackage.Literals.APPLICATION_RECIPES__UID,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
 
   /**
-   * This adds a property descriptor for the Name feature.
-   * <!-- begin-user-doc -->
+	 * This adds a property descriptor for the Name feature.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   protected void addNamePropertyDescriptor(Object object)
   {
-    itemPropertyDescriptors.add
-      (createItemPropertyDescriptor
-        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-         getResourceLocator(),
-         getString("_UI_ApplicationRecipes_name_feature"),
-         getString("_UI_PropertyDescriptor_description", "_UI_ApplicationRecipes_name_feature", "_UI_ApplicationRecipes_type"),
-         DomainPackage.Literals.APPLICATION_RECIPES__NAME,
-         true,
-         false,
-         false,
-         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-         null,
-         null));
-  }
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ApplicationRecipes_name_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ApplicationRecipes_name_feature", "_UI_ApplicationRecipes_type"),
+				 DomainPackage.Literals.APPLICATION_RECIPES__NAME,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
 
   /**
-   * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
-   * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
-   * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
-   * <!-- begin-user-doc -->
+	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
+	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
+	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object)
   {
-    if (childrenFeatures == null)
-    {
-      super.getChildrenFeatures(object);
-      childrenFeatures.add(DomainPackage.Literals.APPLICATION_RECIPES__RECIPES);
-    }
-    return childrenFeatures;
-  }
+		if (childrenFeatures == null) {
+			super.getChildrenFeatures(object);
+			childrenFeatures.add(DomainPackage.Literals.APPLICATION_RECIPES__RECIPES);
+		}
+		return childrenFeatures;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   protected EStructuralFeature getChildFeature(Object object, Object child)
   {
-    // Check the type of the specified child object and return the proper feature to use for
-    // adding (see {@link AddCommand}) it as a child.
+		// Check the type of the specified child object and return the proper feature to use for
+		// adding (see {@link AddCommand}) it as a child.
 
-    return super.getChildFeature(object, child);
-  }
+		return super.getChildFeature(object, child);
+	}
 
   /**
-   * This returns ApplicationRecipes.gif.
-   * <!-- begin-user-doc -->
+	 * This returns ApplicationRecipes.gif.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public Object getImage(Object object)
   {
-    return overlayImage(object, getResourceLocator().getImage("full/obj16/ApplicationRecipes"));
-  }
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/ApplicationRecipes"));
+	}
 
   /**
-   * This returns the label text for the adapted class.
-   * <!-- begin-user-doc -->
+	 * This returns the label text for the adapted class.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public String getText(Object object)
   {
-    String label = ((ApplicationRecipes)object).getName();
-    return label == null || label.length() == 0 ?
-      getString("_UI_ApplicationRecipes_type") :
-      getString("_UI_ApplicationRecipes_type") + " " + label;
-  }
+		String label = ((ApplicationRecipes)object).getName();
+		return label == null || label.length() == 0 ?
+			getString("_UI_ApplicationRecipes_type") :
+			getString("_UI_ApplicationRecipes_type") + " " + label;
+	}
 
   /**
-   * This handles model notifications by calling {@link #updateChildren} to update any cached
-   * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
-   * <!-- begin-user-doc -->
+	 * This handles model notifications by calling {@link #updateChildren} to update any cached
+	 * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public void notifyChanged(Notification notification)
   {
-    updateChildren(notification);
+		updateChildren(notification);
 
-    switch (notification.getFeatureID(ApplicationRecipes.class))
-    {
-      case DomainPackage.APPLICATION_RECIPES__UID:
-      case DomainPackage.APPLICATION_RECIPES__NAME:
-        fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-        return;
-      case DomainPackage.APPLICATION_RECIPES__RECIPES:
-        fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
-        return;
-    }
-    super.notifyChanged(notification);
-  }
+		switch (notification.getFeatureID(ApplicationRecipes.class)) {
+			case DomainPackage.APPLICATION_RECIPES__UID:
+			case DomainPackage.APPLICATION_RECIPES__NAME:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
+			case DomainPackage.APPLICATION_RECIPES__RECIPES:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+				return;
+		}
+		super.notifyChanged(notification);
+	}
 
   /**
-   * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
-   * that can be created under this object.
-   * <!-- begin-user-doc -->
+	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
+	 * that can be created under this object.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object)
   {
-    super.collectNewChildDescriptors(newChildDescriptors, object);
+		super.collectNewChildDescriptors(newChildDescriptors, object);
 
-    newChildDescriptors.add
-      (createChildParameter
-        (DomainPackage.Literals.APPLICATION_RECIPES__RECIPES,
-         DomainFactory.eINSTANCE.createApplicationRecipe()));
-  }
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.APPLICATION_RECIPES__RECIPES,
+				 DomainFactory.eINSTANCE.createApplicationRecipe()));
+	}
 
 }

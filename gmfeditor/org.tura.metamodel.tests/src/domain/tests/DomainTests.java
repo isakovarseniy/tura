@@ -17,34 +17,34 @@ public class DomainTests extends TestSuite
 {
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public static void main(String[] args)
   {
-    TestRunner.run(suite());
-  }
+		TestRunner.run(suite());
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public static Test suite()
   {
-    TestSuite suite = new DomainTests("domain Tests");
-    return suite;
-  }
+		TestSuite suite = new DomainTests("domain Tests");
+		return suite;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public DomainTests(String name)
   {
-    super(name);
-  }
+		super(name);
+	}
 
 } //DomainTests

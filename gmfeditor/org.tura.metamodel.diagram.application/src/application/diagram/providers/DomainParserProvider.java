@@ -97,7 +97,8 @@ public class DomainParserProvider extends AbstractProvider implements IParserPro
 	 */
 	private IParser getApplicationInfrastructureLayerName_805007Parser() {
 		if (applicationInfrastructureLayerName_805007Parser == null) {
-			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE.getApplicationInfrastructureLayer_Name() };
+			EAttribute[] features = new EAttribute[] {
+					DomainPackage.eINSTANCE.getApplicationInfrastructureLayer_Name() };
 			MessageFormatParser parser = new MessageFormatParser(features);
 			applicationInfrastructureLayerName_805007Parser = parser;
 		}

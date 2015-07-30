@@ -28,251 +28,241 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link domain.impl.ActionTriggerImpl#getClassifiers <em>Classifiers</em>}</li>
  *   <li>{@link domain.impl.ActionTriggerImpl#getUid <em>Uid</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
 public class ActionTriggerImpl extends TriggerImpl implements ActionTrigger
 {
   /**
-   * The cached value of the '{@link #getClassifiers() <em>Classifiers</em>}' containment reference list.
-   * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getClassifiers() <em>Classifiers</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getClassifiers()
-   * @generated
-   * @ordered
-   */
+	 * @see #getClassifiers()
+	 * @generated
+	 * @ordered
+	 */
   protected EList<Classifier> classifiers;
 
   /**
-   * The default value of the '{@link #getUid() <em>Uid</em>}' attribute.
-   * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getUid() <em>Uid</em>}' attribute.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getUid()
-   * @generated
-   * @ordered
-   */
+	 * @see #getUid()
+	 * @generated
+	 * @ordered
+	 */
   protected static final String UID_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getUid() <em>Uid</em>}' attribute.
-   * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getUid() <em>Uid</em>}' attribute.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getUid()
-   * @generated
-   * @ordered
-   */
+	 * @see #getUid()
+	 * @generated
+	 * @ordered
+	 */
   protected String uid = UID_EDEFAULT;
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   protected ActionTriggerImpl()
   {
-    super();
-  }
+		super();
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   protected EClass eStaticClass()
   {
-    return DomainPackage.Literals.ACTION_TRIGGER;
-  }
+		return DomainPackage.Literals.ACTION_TRIGGER;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public EList<Classifier> getClassifiers()
   {
-    if (classifiers == null)
-    {
-      classifiers = new EObjectContainmentEList<Classifier>(Classifier.class, this, DomainPackage.ACTION_TRIGGER__CLASSIFIERS);
-    }
-    return classifiers;
-  }
+		if (classifiers == null) {
+			classifiers = new EObjectContainmentEList<Classifier>(Classifier.class, this, DomainPackage.ACTION_TRIGGER__CLASSIFIERS);
+		}
+		return classifiers;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public String getUid()
   {
-    return uid;
-  }
+		return uid;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public void setUid(String newUid)
   {
-    String oldUid = uid;
-    uid = newUid;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.ACTION_TRIGGER__UID, oldUid, uid));
-  }
+		String oldUid = uid;
+		uid = newUid;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.ACTION_TRIGGER__UID, oldUid, uid));
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
-    switch (featureID)
-    {
-      case DomainPackage.ACTION_TRIGGER__CLASSIFIERS:
-        return ((InternalEList<?>)getClassifiers()).basicRemove(otherEnd, msgs);
-    }
-    return super.eInverseRemove(otherEnd, featureID, msgs);
-  }
+		switch (featureID) {
+			case DomainPackage.ACTION_TRIGGER__CLASSIFIERS:
+				return ((InternalEList<?>)getClassifiers()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
-    switch (featureID)
-    {
-      case DomainPackage.ACTION_TRIGGER__CLASSIFIERS:
-        return getClassifiers();
-      case DomainPackage.ACTION_TRIGGER__UID:
-        return getUid();
-    }
-    return super.eGet(featureID, resolve, coreType);
-  }
+		switch (featureID) {
+			case DomainPackage.ACTION_TRIGGER__CLASSIFIERS:
+				return getClassifiers();
+			case DomainPackage.ACTION_TRIGGER__UID:
+				return getUid();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
-    switch (featureID)
-    {
-      case DomainPackage.ACTION_TRIGGER__CLASSIFIERS:
-        getClassifiers().clear();
-        getClassifiers().addAll((Collection<? extends Classifier>)newValue);
-        return;
-      case DomainPackage.ACTION_TRIGGER__UID:
-        setUid((String)newValue);
-        return;
-    }
-    super.eSet(featureID, newValue);
-  }
+		switch (featureID) {
+			case DomainPackage.ACTION_TRIGGER__CLASSIFIERS:
+				getClassifiers().clear();
+				getClassifiers().addAll((Collection<? extends Classifier>)newValue);
+				return;
+			case DomainPackage.ACTION_TRIGGER__UID:
+				setUid((String)newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public void eUnset(int featureID)
   {
-    switch (featureID)
-    {
-      case DomainPackage.ACTION_TRIGGER__CLASSIFIERS:
-        getClassifiers().clear();
-        return;
-      case DomainPackage.ACTION_TRIGGER__UID:
-        setUid(UID_EDEFAULT);
-        return;
-    }
-    super.eUnset(featureID);
-  }
+		switch (featureID) {
+			case DomainPackage.ACTION_TRIGGER__CLASSIFIERS:
+				getClassifiers().clear();
+				return;
+			case DomainPackage.ACTION_TRIGGER__UID:
+				setUid(UID_EDEFAULT);
+				return;
+		}
+		super.eUnset(featureID);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public boolean eIsSet(int featureID)
   {
-    switch (featureID)
-    {
-      case DomainPackage.ACTION_TRIGGER__CLASSIFIERS:
-        return classifiers != null && !classifiers.isEmpty();
-      case DomainPackage.ACTION_TRIGGER__UID:
-        return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
-    }
-    return super.eIsSet(featureID);
-  }
+		switch (featureID) {
+			case DomainPackage.ACTION_TRIGGER__CLASSIFIERS:
+				return classifiers != null && !classifiers.isEmpty();
+			case DomainPackage.ACTION_TRIGGER__UID:
+				return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
+		}
+		return super.eIsSet(featureID);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass)
   {
-    if (baseClass == Categorized.class)
-    {
-      switch (derivedFeatureID)
-      {
-        case DomainPackage.ACTION_TRIGGER__CLASSIFIERS: return DomainPackage.CATEGORIZED__CLASSIFIERS;
-        default: return -1;
-      }
-    }
-    return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
-  }
+		if (baseClass == Categorized.class) {
+			switch (derivedFeatureID) {
+				case DomainPackage.ACTION_TRIGGER__CLASSIFIERS: return DomainPackage.CATEGORIZED__CLASSIFIERS;
+				default: return -1;
+			}
+		}
+		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass)
   {
-    if (baseClass == Categorized.class)
-    {
-      switch (baseFeatureID)
-      {
-        case DomainPackage.CATEGORIZED__CLASSIFIERS: return DomainPackage.ACTION_TRIGGER__CLASSIFIERS;
-        default: return -1;
-      }
-    }
-    return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
-  }
+		if (baseClass == Categorized.class) {
+			switch (baseFeatureID) {
+				case DomainPackage.CATEGORIZED__CLASSIFIERS: return DomainPackage.ACTION_TRIGGER__CLASSIFIERS;
+				default: return -1;
+			}
+		}
+		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public String toString()
   {
-    if (eIsProxy()) return super.toString();
+		if (eIsProxy()) return super.toString();
 
-    StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (uid: ");
-    result.append(uid);
-    result.append(')');
-    return result.toString();
-  }
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (uid: ");
+		result.append(uid);
+		result.append(')');
+		return result.toString();
+	}
 
 } //ActionTriggerImpl

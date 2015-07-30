@@ -59,8 +59,8 @@ public class TypeDefinitionEditPart extends DiagramEditPart {
 		super.createDefaultEditPolicies();
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE, new TypeDefinitionItemSemanticEditPolicy());
 		installEditPolicy(EditPolicyRoles.CANONICAL_ROLE, new TypeDefinitionCanonicalEditPolicy());
-		installEditPolicy(EditPolicyRoles.CREATION_ROLE, new CreationEditPolicyWithCustomReparent(
-				DomainVisualIDRegistry.TYPED_INSTANCE));
+		installEditPolicy(EditPolicyRoles.CREATION_ROLE,
+				new CreationEditPolicyWithCustomReparent(DomainVisualIDRegistry.TYPED_INSTANCE));
 		installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE, new DiagramDragDropEditPolicy() {
 			public Command getDropObjectsCommand(DropObjectsRequest dropRequest) {
 				ArrayList<CreateViewRequest.ViewDescriptor> viewDescriptors = new ArrayList<CreateViewRequest.ViewDescriptor>();
@@ -79,43 +79,14 @@ public class TypeDefinitionEditPart extends DiagramEditPart {
 					List<CreateViewRequest.ViewDescriptor> viewDescriptors) {
 				Command command = createViewsAndArrangeCommand(dropRequest, viewDescriptors);
 				if (command != null) {
-					return command.chain(new ICommandProxy(new DomainCreateShortcutDecorationsCommand(
-							getEditingDomain(), (View) getModel(), viewDescriptors)));
+					return command
+							.chain(new ICommandProxy(new DomainCreateShortcutDecorationsCommand(getEditingDomain(),
+									(View) getModel(), viewDescriptors)));
 				}
 				return null;
 			}
 		});
 		// removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.POPUPBAR_ROLE);
-	}
-
-	/**
-	 * @generated
-	 */
-	/*package-local*/static class NodeLabelDragPolicy extends NonResizableEditPolicy {
-
-		/**
-		 * @generated
-		 */
-		@SuppressWarnings("rawtypes")
-		protected List createSelectionHandles() {
-			MoveHandle h = new MoveHandle((GraphicalEditPart) getHost());
-			h.setBorder(null);
-			return Collections.singletonList(h);
-		}
-
-		/**
-		 * @generated
-		 */
-		public Command getCommand(Request request) {
-			return null;
-		}
-
-		/**
-		 * @generated
-		 */
-		public boolean understandsRequest(Request request) {
-			return false;
-		}
 	}
 
 }

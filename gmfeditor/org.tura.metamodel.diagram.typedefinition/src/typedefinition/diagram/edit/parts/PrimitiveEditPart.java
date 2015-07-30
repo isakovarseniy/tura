@@ -185,9 +185,8 @@ public class PrimitiveEditPart extends ShapeNodeEditPart {
 				EObject obj = ((View) getModel()).getElement();
 				if (obj instanceof Orderable) {
 					EditingDomain editingDomain = getEditingDomain();
-					editingDomain.getCommandStack().execute(
-							SetCommand.create(editingDomain, obj, DomainPackage.eINSTANCE.getOrderable_Order(),
-									evt.getNewValue()));
+					editingDomain.getCommandStack().execute(SetCommand.create(editingDomain, obj,
+							DomainPackage.eINSTANCE.getOrderable_Order(), evt.getNewValue()));
 
 				}
 			}
@@ -279,72 +278,6 @@ public class PrimitiveEditPart extends ShapeNodeEditPart {
 	 */
 	public EditPart getPrimaryChildEditPart() {
 		return getChildBySemanticHint(DomainVisualIDRegistry.getType(PrimitiveNameEditPart.VISUAL_ID));
-	}
-
-	/**
-	 * @generated
-	 */
-	public List<IElementType> getMARelTypesOnSource() {
-		ArrayList<IElementType> types = new ArrayList<IElementType>(1);
-		types.add(DomainElementTypes.TypeExtension_104001);
-		return types;
-	}
-
-	/**
-	 * @generated
-	 */
-	public List<IElementType> getMARelTypesOnSourceAndTarget(IGraphicalEditPart targetEditPart) {
-		LinkedList<IElementType> types = new LinkedList<IElementType>();
-		if (targetEditPart instanceof TypeEditPart) {
-			types.add(DomainElementTypes.TypeExtension_104001);
-		}
-		if (targetEditPart instanceof TypeReferenceEditPart) {
-			types.add(DomainElementTypes.TypeExtension_104001);
-		}
-		if (targetEditPart instanceof typedefinition.diagram.edit.parts.PrimitiveEditPart) {
-			types.add(DomainElementTypes.TypeExtension_104001);
-		}
-		if (targetEditPart instanceof EnumaratorEditPart) {
-			types.add(DomainElementTypes.TypeExtension_104001);
-		}
-		return types;
-	}
-
-	/**
-	 * @generated
-	 */
-	public List<IElementType> getMATypesForTarget(IElementType relationshipType) {
-		LinkedList<IElementType> types = new LinkedList<IElementType>();
-		if (relationshipType == DomainElementTypes.TypeExtension_104001) {
-			types.add(DomainElementTypes.Type_102002);
-			types.add(DomainElementTypes.TypeReference_102001);
-			types.add(DomainElementTypes.Primitive_102004);
-			types.add(DomainElementTypes.Enumarator_102005);
-		}
-		return types;
-	}
-
-	/**
-	 * @generated
-	 */
-	public List<IElementType> getMARelTypesOnTarget() {
-		ArrayList<IElementType> types = new ArrayList<IElementType>(1);
-		types.add(DomainElementTypes.TypeExtension_104001);
-		return types;
-	}
-
-	/**
-	 * @generated
-	 */
-	public List<IElementType> getMATypesForSource(IElementType relationshipType) {
-		LinkedList<IElementType> types = new LinkedList<IElementType>();
-		if (relationshipType == DomainElementTypes.TypeExtension_104001) {
-			types.add(DomainElementTypes.Type_102002);
-			types.add(DomainElementTypes.TypeReference_102001);
-			types.add(DomainElementTypes.Primitive_102004);
-			types.add(DomainElementTypes.Enumarator_102005);
-		}
-		return types;
 	}
 
 	/**

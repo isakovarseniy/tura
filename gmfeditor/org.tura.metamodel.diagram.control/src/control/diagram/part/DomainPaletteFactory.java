@@ -15,6 +15,8 @@ import org.eclipse.gmf.runtime.diagram.ui.tools.UnspecifiedTypeConnectionTool;
 import org.eclipse.gmf.runtime.diagram.ui.tools.UnspecifiedTypeCreationTool;
 import org.eclipse.gmf.runtime.emf.type.core.IElementType;
 
+import org.eclipse.gmf.tooling.runtime.part.DefaultLinkToolEntry;
+import org.eclipse.gmf.tooling.runtime.part.DefaultNodeToolEntry;
 import control.diagram.providers.DomainElementTypes;
 
 /**
@@ -72,7 +74,7 @@ public class DomainPaletteFactory {
 	 * @generated
 	 */
 	private ToolEntry createArtificialField1CreationTool() {
-		NodeToolEntry entry = new NodeToolEntry(Messages.ArtificialField1CreationTool_title,
+		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(Messages.ArtificialField1CreationTool_title,
 				Messages.ArtificialField1CreationTool_desc,
 				Collections.singletonList(DomainElementTypes.ArtificialField_1103008));
 		entry.setId("createArtificialField1CreationTool"); //$NON-NLS-1$
@@ -85,7 +87,7 @@ public class DomainPaletteFactory {
 	 * @generated
 	 */
 	private ToolEntry createCreateTrigger2CreationTool() {
-		NodeToolEntry entry = new NodeToolEntry(Messages.CreateTrigger2CreationTool_title,
+		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(Messages.CreateTrigger2CreationTool_title,
 				Messages.CreateTrigger2CreationTool_desc,
 				Collections.singletonList(DomainElementTypes.CreateTrigger_1103012));
 		entry.setId("createCreateTrigger2CreationTool"); //$NON-NLS-1$
@@ -98,7 +100,7 @@ public class DomainPaletteFactory {
 	 * @generated
 	 */
 	private ToolEntry createDataControl3CreationTool() {
-		NodeToolEntry entry = new NodeToolEntry(Messages.DataControl3CreationTool_title,
+		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(Messages.DataControl3CreationTool_title,
 				Messages.DataControl3CreationTool_desc,
 				Collections.singletonList(DomainElementTypes.DataControl_1102002));
 		entry.setId("createDataControl3CreationTool"); //$NON-NLS-1$
@@ -111,7 +113,7 @@ public class DomainPaletteFactory {
 	 * @generated
 	 */
 	private ToolEntry createDeleteTrigger4CreationTool() {
-		NodeToolEntry entry = new NodeToolEntry(Messages.DeleteTrigger4CreationTool_title,
+		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(Messages.DeleteTrigger4CreationTool_title,
 				Messages.DeleteTrigger4CreationTool_desc,
 				Collections.singletonList(DomainElementTypes.DeleteTrigger_1103015));
 		entry.setId("createDeleteTrigger4CreationTool"); //$NON-NLS-1$
@@ -124,7 +126,7 @@ public class DomainPaletteFactory {
 	 * @generated
 	 */
 	private ToolEntry createFormVariable5CreationTool() {
-		NodeToolEntry entry = new NodeToolEntry(Messages.FormVariable5CreationTool_title,
+		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(Messages.FormVariable5CreationTool_title,
 				Messages.FormVariable5CreationTool_desc,
 				Collections.singletonList(DomainElementTypes.FormVariable_1103017));
 		entry.setId("createFormVariable5CreationTool"); //$NON-NLS-1$
@@ -137,7 +139,7 @@ public class DomainPaletteFactory {
 	 * @generated
 	 */
 	private ToolEntry createInsertTrigger6CreationTool() {
-		NodeToolEntry entry = new NodeToolEntry(Messages.InsertTrigger6CreationTool_title,
+		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(Messages.InsertTrigger6CreationTool_title,
 				Messages.InsertTrigger6CreationTool_desc,
 				Collections.singletonList(DomainElementTypes.InsertTrigger_1103013));
 		entry.setId("createInsertTrigger6CreationTool"); //$NON-NLS-1$
@@ -150,7 +152,7 @@ public class DomainPaletteFactory {
 	 * @generated
 	 */
 	private ToolEntry createPOSTCreateTrigger7CreationTool() {
-		NodeToolEntry entry = new NodeToolEntry(Messages.POSTCreateTrigger7CreationTool_title,
+		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(Messages.POSTCreateTrigger7CreationTool_title,
 				Messages.POSTCreateTrigger7CreationTool_desc,
 				Collections.singletonList(DomainElementTypes.POSTCreateTrigger_1103011));
 		entry.setId("createPOSTCreateTrigger7CreationTool"); //$NON-NLS-1$
@@ -163,7 +165,7 @@ public class DomainPaletteFactory {
 	 * @generated
 	 */
 	private ToolEntry createPOSTQueryTrigger8CreationTool() {
-		NodeToolEntry entry = new NodeToolEntry(Messages.POSTQueryTrigger8CreationTool_title,
+		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(Messages.POSTQueryTrigger8CreationTool_title,
 				Messages.POSTQueryTrigger8CreationTool_desc,
 				Collections.singletonList(DomainElementTypes.POSTQueryTrigger_1103003));
 		entry.setId("createPOSTQueryTrigger8CreationTool"); //$NON-NLS-1$
@@ -176,7 +178,7 @@ public class DomainPaletteFactory {
 	 * @generated
 	 */
 	private ToolEntry createPREDeleteTrigger9CreationTool() {
-		NodeToolEntry entry = new NodeToolEntry(Messages.PREDeleteTrigger9CreationTool_title,
+		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(Messages.PREDeleteTrigger9CreationTool_title,
 				Messages.PREDeleteTrigger9CreationTool_desc,
 				Collections.singletonList(DomainElementTypes.PREDeleteTrigger_1103005));
 		entry.setId("createPREDeleteTrigger9CreationTool"); //$NON-NLS-1$
@@ -189,7 +191,7 @@ public class DomainPaletteFactory {
 	 * @generated
 	 */
 	private ToolEntry createPREFormTrigger10CreationTool() {
-		NodeToolEntry entry = new NodeToolEntry(Messages.PREFormTrigger10CreationTool_title,
+		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(Messages.PREFormTrigger10CreationTool_title,
 				Messages.PREFormTrigger10CreationTool_desc,
 				Collections.singletonList(DomainElementTypes.PREFormTrigger_1103001));
 		entry.setId("createPREFormTrigger10CreationTool"); //$NON-NLS-1$
@@ -202,7 +204,7 @@ public class DomainPaletteFactory {
 	 * @generated
 	 */
 	private ToolEntry createPREInsertTrigger11CreationTool() {
-		NodeToolEntry entry = new NodeToolEntry(Messages.PREInsertTrigger11CreationTool_title,
+		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(Messages.PREInsertTrigger11CreationTool_title,
 				Messages.PREInsertTrigger11CreationTool_desc,
 				Collections.singletonList(DomainElementTypes.PREInsertTrigger_1103004));
 		entry.setId("createPREInsertTrigger11CreationTool"); //$NON-NLS-1$
@@ -215,7 +217,7 @@ public class DomainPaletteFactory {
 	 * @generated
 	 */
 	private ToolEntry createPREQueryTrigger12CreationTool() {
-		NodeToolEntry entry = new NodeToolEntry(Messages.PREQueryTrigger12CreationTool_title,
+		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(Messages.PREQueryTrigger12CreationTool_title,
 				Messages.PREQueryTrigger12CreationTool_desc,
 				Collections.singletonList(DomainElementTypes.PREQueryTrigger_1103002));
 		entry.setId("createPREQueryTrigger12CreationTool"); //$NON-NLS-1$
@@ -228,7 +230,7 @@ public class DomainPaletteFactory {
 	 * @generated
 	 */
 	private ToolEntry createPREUpdateTrigger13CreationTool() {
-		NodeToolEntry entry = new NodeToolEntry(Messages.PREUpdateTrigger13CreationTool_title,
+		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(Messages.PREUpdateTrigger13CreationTool_title,
 				Messages.PREUpdateTrigger13CreationTool_desc,
 				Collections.singletonList(DomainElementTypes.PREUpdateTrigger_1103010));
 		entry.setId("createPREUpdateTrigger13CreationTool"); //$NON-NLS-1$
@@ -241,8 +243,8 @@ public class DomainPaletteFactory {
 	 * @generated
 	 */
 	private ToolEntry createRoot14CreationTool() {
-		NodeToolEntry entry = new NodeToolEntry(Messages.Root14CreationTool_title, Messages.Root14CreationTool_desc,
-				Collections.singletonList(DomainElementTypes.Root_1102001));
+		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(Messages.Root14CreationTool_title,
+				Messages.Root14CreationTool_desc, Collections.singletonList(DomainElementTypes.Root_1102001));
 		entry.setId("createRoot14CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(DomainElementTypes.getImageDescriptor(DomainElementTypes.Root_1102001));
 		entry.setLargeIcon(entry.getSmallIcon());
@@ -253,7 +255,7 @@ public class DomainPaletteFactory {
 	 * @generated
 	 */
 	private ToolEntry createSearchTrigger15CreationTool() {
-		NodeToolEntry entry = new NodeToolEntry(Messages.SearchTrigger15CreationTool_title,
+		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(Messages.SearchTrigger15CreationTool_title,
 				Messages.SearchTrigger15CreationTool_desc,
 				Collections.singletonList(DomainElementTypes.SearchTrigger_1103016));
 		entry.setId("createSearchTrigger15CreationTool"); //$NON-NLS-1$
@@ -266,7 +268,7 @@ public class DomainPaletteFactory {
 	 * @generated
 	 */
 	private ToolEntry createUpdateTrigger16CreationTool() {
-		NodeToolEntry entry = new NodeToolEntry(Messages.UpdateTrigger16CreationTool_title,
+		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(Messages.UpdateTrigger16CreationTool_title,
 				Messages.UpdateTrigger16CreationTool_desc,
 				Collections.singletonList(DomainElementTypes.UpdateTrigger_1103014));
 		entry.setId("createUpdateTrigger16CreationTool"); //$NON-NLS-1$
@@ -279,8 +281,9 @@ public class DomainPaletteFactory {
 	 * @generated
 	 */
 	private ToolEntry createDependency1CreationTool() {
-		LinkToolEntry entry = new LinkToolEntry(Messages.Dependency1CreationTool_title,
-				Messages.Dependency1CreationTool_desc, Collections.singletonList(DomainElementTypes.Dependency_1104010));
+		DefaultLinkToolEntry entry = new DefaultLinkToolEntry(Messages.Dependency1CreationTool_title,
+				Messages.Dependency1CreationTool_desc,
+				Collections.singletonList(DomainElementTypes.Dependency_1104010));
 		entry.setId("createDependency1CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(DomainElementTypes.getImageDescriptor(DomainElementTypes.Dependency_1104010));
 		entry.setLargeIcon(entry.getSmallIcon());
@@ -291,67 +294,11 @@ public class DomainPaletteFactory {
 	 * @generated
 	 */
 	private ToolEntry createRelation2CreationTool() {
-		LinkToolEntry entry = new LinkToolEntry(Messages.Relation2CreationTool_title,
+		DefaultLinkToolEntry entry = new DefaultLinkToolEntry(Messages.Relation2CreationTool_title,
 				Messages.Relation2CreationTool_desc, Collections.singletonList(DomainElementTypes.Relation_1104009));
 		entry.setId("createRelation2CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(DomainElementTypes.getImageDescriptor(DomainElementTypes.Relation_1104009));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
-	}
-
-	/**
-	 * @generated
-	 */
-	private static class NodeToolEntry extends ToolEntry {
-
-		/**
-		 * @generated
-		 */
-		private final List<IElementType> elementTypes;
-
-		/**
-		 * @generated
-		 */
-		private NodeToolEntry(String title, String description, List<IElementType> elementTypes) {
-			super(title, description, null, null);
-			this.elementTypes = elementTypes;
-		}
-
-		/**
-		 * @generated
-		 */
-		public Tool createTool() {
-			Tool tool = new UnspecifiedTypeCreationTool(elementTypes);
-			tool.setProperties(getToolProperties());
-			return tool;
-		}
-	}
-
-	/**
-	 * @generated
-	 */
-	private static class LinkToolEntry extends ToolEntry {
-
-		/**
-		 * @generated
-		 */
-		private final List<IElementType> relationshipTypes;
-
-		/**
-		 * @generated
-		 */
-		private LinkToolEntry(String title, String description, List<IElementType> relationshipTypes) {
-			super(title, description, null, null);
-			this.relationshipTypes = relationshipTypes;
-		}
-
-		/**
-		 * @generated
-		 */
-		public Tool createTool() {
-			Tool tool = new UnspecifiedTypeConnectionTool(relationshipTypes);
-			tool.setProperties(getToolProperties());
-			return tool;
-		}
 	}
 }

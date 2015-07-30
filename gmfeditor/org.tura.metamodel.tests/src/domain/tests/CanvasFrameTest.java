@@ -16,60 +16,60 @@ public class CanvasFrameTest extends StyleElementTest
 {
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public static void main(String[] args)
   {
-    TestRunner.run(CanvasFrameTest.class);
-  }
+		TestRunner.run(CanvasFrameTest.class);
+	}
 
   /**
-   * Constructs a new Canvas Frame test case with the given name.
-   * <!-- begin-user-doc -->
+	 * Constructs a new Canvas Frame test case with the given name.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public CanvasFrameTest(String name)
   {
-    super(name);
-  }
+		super(name);
+	}
 
   /**
-   * Returns the fixture for this Canvas Frame test case.
-   * <!-- begin-user-doc -->
+	 * Returns the fixture for this Canvas Frame test case.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   protected CanvasFrame getFixture()
   {
-    return (CanvasFrame)fixture;
-  }
+		return (CanvasFrame)fixture;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see junit.framework.TestCase#setUp()
-   * @generated
-   */
+	 * @see junit.framework.TestCase#setUp()
+	 * @generated
+	 */
   @Override
   protected void setUp() throws Exception
   {
-    setFixture(DomainFactory.eINSTANCE.createCanvasFrame());
-  }
+		setFixture(DomainFactory.eINSTANCE.createCanvasFrame());
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see junit.framework.TestCase#tearDown()
-   * @generated
-   */
+	 * @see junit.framework.TestCase#tearDown()
+	 * @generated
+	 */
   @Override
   protected void tearDown() throws Exception
   {
-    setFixture(null);
-  }
+		setFixture(null);
+	}
 
 } //CanvasFrameTest

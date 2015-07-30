@@ -161,9 +161,8 @@ public class StorageEditPart extends AbstractBorderedShapeEditPart {
 				EObject obj = ((View) getModel()).getElement();
 				if (obj instanceof Orderable) {
 					EditingDomain editingDomain = getEditingDomain();
-					editingDomain.getCommandStack().execute(
-							SetCommand.create(editingDomain, obj, DomainPackage.eINSTANCE.getOrderable_Order(),
-									evt.getNewValue()));
+					editingDomain.getCommandStack().execute(SetCommand.create(editingDomain, obj,
+							DomainPackage.eINSTANCE.getOrderable_Order(), evt.getNewValue()));
 
 				}
 			}
@@ -250,82 +249,6 @@ public class StorageEditPart extends AbstractBorderedShapeEditPart {
 	 */
 	public EditPart getPrimaryChildEditPart() {
 		return getChildBySemanticHint(DomainVisualIDRegistry.getType(StorageNameEditPart.VISUAL_ID));
-	}
-
-	/**
-	 * @generated
-	 */
-	public List<IElementType> getMARelTypesOnSource() {
-		ArrayList<IElementType> types = new ArrayList<IElementType>(1);
-		types.add(DomainElementTypes.InfrastructureConnection_1204009);
-		return types;
-	}
-
-	/**
-	 * @generated
-	 */
-	public List<IElementType> getMARelTypesOnSourceAndTarget(IGraphicalEditPart targetEditPart) {
-		LinkedList<IElementType> types = new LinkedList<IElementType>();
-		if (targetEditPart instanceof ServerEditPart) {
-			types.add(DomainElementTypes.InfrastructureConnection_1204009);
-		}
-		if (targetEditPart instanceof RouterEditPart) {
-			types.add(DomainElementTypes.InfrastructureConnection_1204009);
-		}
-		if (targetEditPart instanceof HubEditPart) {
-			types.add(DomainElementTypes.InfrastructureConnection_1204009);
-		}
-		if (targetEditPart instanceof infarastructure.diagram.edit.parts.StorageEditPart) {
-			types.add(DomainElementTypes.InfrastructureConnection_1204009);
-		}
-		if (targetEditPart instanceof ServerClasterEditPart) {
-			types.add(DomainElementTypes.InfrastructureConnection_1204009);
-		}
-		if (targetEditPart instanceof Server2EditPart) {
-			types.add(DomainElementTypes.InfrastructureConnection_1204009);
-		}
-		return types;
-	}
-
-	/**
-	 * @generated
-	 */
-	public List<IElementType> getMATypesForTarget(IElementType relationshipType) {
-		LinkedList<IElementType> types = new LinkedList<IElementType>();
-		if (relationshipType == DomainElementTypes.InfrastructureConnection_1204009) {
-			types.add(DomainElementTypes.Server_1203003);
-			types.add(DomainElementTypes.Router_1203004);
-			types.add(DomainElementTypes.Hub_1203005);
-			types.add(DomainElementTypes.Storage_1203006);
-			types.add(DomainElementTypes.ServerClaster_1203007);
-			types.add(DomainElementTypes.Server_1203008);
-		}
-		return types;
-	}
-
-	/**
-	 * @generated
-	 */
-	public List<IElementType> getMARelTypesOnTarget() {
-		ArrayList<IElementType> types = new ArrayList<IElementType>(1);
-		types.add(DomainElementTypes.InfrastructureConnection_1204009);
-		return types;
-	}
-
-	/**
-	 * @generated
-	 */
-	public List<IElementType> getMATypesForSource(IElementType relationshipType) {
-		LinkedList<IElementType> types = new LinkedList<IElementType>();
-		if (relationshipType == DomainElementTypes.InfrastructureConnection_1204009) {
-			types.add(DomainElementTypes.Server_1203003);
-			types.add(DomainElementTypes.Router_1203004);
-			types.add(DomainElementTypes.Hub_1203005);
-			types.add(DomainElementTypes.Storage_1203006);
-			types.add(DomainElementTypes.ServerClaster_1203007);
-			types.add(DomainElementTypes.Server_1203008);
-		}
-		return types;
 	}
 
 }

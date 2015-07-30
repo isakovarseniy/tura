@@ -30,197 +30,189 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  */
 public class TypeReferenceItemProvider
   extends TypeElementItemProvider
-  implements
-    IEditingDomainItemProvider,
-    IStructuredItemContentProvider,
-    ITreeItemContentProvider,
-    IItemLabelProvider,
-    IItemPropertySource
 {
   /**
-   * This constructs an instance from a factory and a notifier.
-   * <!-- begin-user-doc -->
+	 * This constructs an instance from a factory and a notifier.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public TypeReferenceItemProvider(AdapterFactory adapterFactory)
   {
-    super(adapterFactory);
-  }
+		super(adapterFactory);
+	}
 
   /**
-   * This returns the property descriptors for the adapted class.
-   * <!-- begin-user-doc -->
+	 * This returns the property descriptors for the adapted class.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object)
   {
-    if (itemPropertyDescriptors == null)
-    {
-      super.getPropertyDescriptors(object);
+		if (itemPropertyDescriptors == null) {
+			super.getPropertyDescriptors(object);
 
-      addPackageRefPropertyDescriptor(object);
-      addTypeRefPropertyDescriptor(object);
-      addFakePackageNamePropertyDescriptor(object);
-      addFakeTypeNamePropertyDescriptor(object);
-    }
-    return itemPropertyDescriptors;
-  }
+			addPackageRefPropertyDescriptor(object);
+			addTypeRefPropertyDescriptor(object);
+			addFakePackageNamePropertyDescriptor(object);
+			addFakeTypeNamePropertyDescriptor(object);
+		}
+		return itemPropertyDescriptors;
+	}
 
   /**
-   * This adds a property descriptor for the Package Ref feature.
-   * <!-- begin-user-doc -->
+	 * This adds a property descriptor for the Package Ref feature.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   protected void addPackageRefPropertyDescriptor(Object object)
   {
-    itemPropertyDescriptors.add
-      (createItemPropertyDescriptor
-        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-         getResourceLocator(),
-         getString("_UI_TypePointer_packageRef_feature"),
-         getString("_UI_PropertyDescriptor_description", "_UI_TypePointer_packageRef_feature", "_UI_TypePointer_type"),
-         DomainPackage.Literals.TYPE_POINTER__PACKAGE_REF,
-         true,
-         false,
-         true,
-         null,
-         null,
-         null));
-  }
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_TypePointer_packageRef_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_TypePointer_packageRef_feature", "_UI_TypePointer_type"),
+				 DomainPackage.Literals.TYPE_POINTER__PACKAGE_REF,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
 
   /**
-   * This adds a property descriptor for the Type Ref feature.
-   * <!-- begin-user-doc -->
+	 * This adds a property descriptor for the Type Ref feature.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   protected void addTypeRefPropertyDescriptor(Object object)
   {
-    itemPropertyDescriptors.add
-      (createItemPropertyDescriptor
-        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-         getResourceLocator(),
-         getString("_UI_TypePointer_typeRef_feature"),
-         getString("_UI_PropertyDescriptor_description", "_UI_TypePointer_typeRef_feature", "_UI_TypePointer_type"),
-         DomainPackage.Literals.TYPE_POINTER__TYPE_REF,
-         true,
-         false,
-         true,
-         null,
-         null,
-         null));
-  }
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_TypePointer_typeRef_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_TypePointer_typeRef_feature", "_UI_TypePointer_type"),
+				 DomainPackage.Literals.TYPE_POINTER__TYPE_REF,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
 
   /**
-   * This adds a property descriptor for the Fake Package Name feature.
-   * <!-- begin-user-doc -->
+	 * This adds a property descriptor for the Fake Package Name feature.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   protected void addFakePackageNamePropertyDescriptor(Object object)
   {
-    itemPropertyDescriptors.add
-      (createItemPropertyDescriptor
-        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-         getResourceLocator(),
-         getString("_UI_TypePointer_fakePackageName_feature"),
-         getString("_UI_PropertyDescriptor_description", "_UI_TypePointer_fakePackageName_feature", "_UI_TypePointer_type"),
-         DomainPackage.Literals.TYPE_POINTER__FAKE_PACKAGE_NAME,
-         true,
-         false,
-         false,
-         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-         null,
-         null));
-  }
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_TypePointer_fakePackageName_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_TypePointer_fakePackageName_feature", "_UI_TypePointer_type"),
+				 DomainPackage.Literals.TYPE_POINTER__FAKE_PACKAGE_NAME,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
 
   /**
-   * This adds a property descriptor for the Fake Type Name feature.
-   * <!-- begin-user-doc -->
+	 * This adds a property descriptor for the Fake Type Name feature.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   protected void addFakeTypeNamePropertyDescriptor(Object object)
   {
-    itemPropertyDescriptors.add
-      (createItemPropertyDescriptor
-        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-         getResourceLocator(),
-         getString("_UI_TypePointer_fakeTypeName_feature"),
-         getString("_UI_PropertyDescriptor_description", "_UI_TypePointer_fakeTypeName_feature", "_UI_TypePointer_type"),
-         DomainPackage.Literals.TYPE_POINTER__FAKE_TYPE_NAME,
-         true,
-         false,
-         false,
-         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-         null,
-         null));
-  }
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_TypePointer_fakeTypeName_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_TypePointer_fakeTypeName_feature", "_UI_TypePointer_type"),
+				 DomainPackage.Literals.TYPE_POINTER__FAKE_TYPE_NAME,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
 
   /**
-   * This returns TypeReference.gif.
-   * <!-- begin-user-doc -->
+	 * This returns TypeReference.gif.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public Object getImage(Object object)
   {
-    return overlayImage(object, getResourceLocator().getImage("full/obj16/TypeReference"));
-  }
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/TypeReference"));
+	}
 
   /**
-   * This returns the label text for the adapted class.
-   * <!-- begin-user-doc -->
+	 * This returns the label text for the adapted class.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public String getText(Object object)
   {
-    String label = ((TypeReference)object).getName();
-    return label == null || label.length() == 0 ?
-      getString("_UI_TypeReference_type") :
-      getString("_UI_TypeReference_type") + " " + label;
-  }
+		String label = ((TypeReference)object).getName();
+		return label == null || label.length() == 0 ?
+			getString("_UI_TypeReference_type") :
+			getString("_UI_TypeReference_type") + " " + label;
+	}
 
   /**
-   * This handles model notifications by calling {@link #updateChildren} to update any cached
-   * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
-   * <!-- begin-user-doc -->
+	 * This handles model notifications by calling {@link #updateChildren} to update any cached
+	 * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public void notifyChanged(Notification notification)
   {
-    updateChildren(notification);
+		updateChildren(notification);
 
-    switch (notification.getFeatureID(TypeReference.class))
-    {
-      case DomainPackage.TYPE_REFERENCE__FAKE_PACKAGE_NAME:
-      case DomainPackage.TYPE_REFERENCE__FAKE_TYPE_NAME:
-        fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-        return;
-    }
-    super.notifyChanged(notification);
-  }
+		switch (notification.getFeatureID(TypeReference.class)) {
+			case DomainPackage.TYPE_REFERENCE__FAKE_PACKAGE_NAME:
+			case DomainPackage.TYPE_REFERENCE__FAKE_TYPE_NAME:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
+		}
+		super.notifyChanged(notification);
+	}
 
   /**
-   * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
-   * that can be created under this object.
-   * <!-- begin-user-doc -->
+	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
+	 * that can be created under this object.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object)
   {
-    super.collectNewChildDescriptors(newChildDescriptors, object);
-  }
+		super.collectNewChildDescriptors(newChildDescriptors, object);
+	}
 
 }

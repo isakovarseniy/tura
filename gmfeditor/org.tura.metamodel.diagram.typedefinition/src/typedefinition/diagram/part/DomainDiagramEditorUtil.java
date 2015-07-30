@@ -43,6 +43,7 @@ import org.eclipse.gmf.runtime.emf.core.GMFEditingDomainFactory;
 import org.eclipse.gmf.runtime.emf.core.util.EMFCoreUtil;
 import org.eclipse.gmf.runtime.notation.Diagram;
 import org.eclipse.gmf.runtime.notation.View;
+import org.eclipse.gmf.tooling.runtime.part.DefaultDiagramEditorUtil;
 import org.eclipse.jface.dialogs.IDialogSettings;
 import org.eclipse.jface.wizard.Wizard;
 import org.eclipse.jface.wizard.WizardDialog;
@@ -102,27 +103,8 @@ public class DomainDiagramEditorUtil {
 	 * @generated
 	 */
 	public static String getUniqueFileName(IPath containerFullPath, String fileName, String extension) {
-		if (containerFullPath == null) {
-			containerFullPath = new Path(""); //$NON-NLS-1$
-		}
-		if (fileName == null || fileName.trim().length() == 0) {
-			fileName = "default"; //$NON-NLS-1$
-		}
-		IPath filePath = containerFullPath.append(fileName);
-		if (extension != null && !extension.equals(filePath.getFileExtension())) {
-			filePath = filePath.addFileExtension(extension);
-		}
-		extension = filePath.getFileExtension();
-		fileName = filePath.removeFileExtension().lastSegment();
-		int i = 1;
-		while (ResourcesPlugin.getWorkspace().getRoot().exists(filePath)) {
-			i++;
-			filePath = containerFullPath.append(fileName + i);
-			if (extension != null) {
-				filePath = filePath.addFileExtension(extension);
-			}
-		}
-		return filePath.lastSegment();
+		return DefaultDiagramEditorUtil.getUniqueFileName(containerFullPath, fileName, extension,
+				DefaultDiagramEditorUtil.EXISTS_IN_WORKSPACE);
 	}
 
 	/**
@@ -190,11 +172,11 @@ public class DomainDiagramEditorUtil {
 	}
 
 	/**
-	 * Create a new instance of domain element associated with canvas.
-	 * <!-- begin-user-doc -->
+	* Create a new instance of domain element associated with canvas.
+	* <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+	* @generated
+	*/
 
 	private static TypeDefinition createInitialModel(Resource resource) {
 
@@ -202,11 +184,11 @@ public class DomainDiagramEditorUtil {
 	}
 
 	/**
-	 * Store model element in the resource.
-	 * <!-- begin-user-doc -->
+	* Store model element in the resource.
+	* <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+	* @generated
+	*/
 	private static void attachModelToResource(TypeDefinition model, Resource resource) {
 		resource.getContents().add(model);
 	}
@@ -226,8 +208,8 @@ public class DomainDiagramEditorUtil {
 		}
 
 		if (!editParts.isEmpty()) {
-			diagramPart.getDiagramGraphicalViewer().reveal(
-					firstPrimary != null ? firstPrimary : (EditPart) editParts.get(0));
+			diagramPart.getDiagramGraphicalViewer()
+					.reveal(firstPrimary != null ? firstPrimary : (EditPart) editParts.get(0));
 		}
 	}
 
