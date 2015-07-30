@@ -1,5 +1,5 @@
 [%@template
-operation Column draw(hash) { 
+operation domain::Column draw(hash) { 
      var util = new Native('org.tura.metamodel.commons.Util');
      util.traceIfDebug("UI element","Column start: "+self.uid);     
 %]

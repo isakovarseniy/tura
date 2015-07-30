@@ -1,5 +1,5 @@
 [%@template
-operation  Canvas draw(hash) { 
+operation  domain::Canvas draw(hash) { 
      var util = new Native('org.tura.metamodel.commons.Util');
      var webapp = hash.get("webapp");   
      var form = hash.get("form");   
@@ -27,7 +27,7 @@ operation  Canvas draw(hash) {
 
 
 [%@template
-operation Canvas generateBody(hash){
+operation domain::Canvas generateBody(hash){
                 for (element in self.viewElement){
 %]                
                     [%=element.draw(hash)%]

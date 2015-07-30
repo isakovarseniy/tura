@@ -1,5 +1,5 @@
 [%@template
-operation  TabPage draw(hash) { 
+operation  domain::TabPage draw(hash) { 
      var util = new Native('org.tura.metamodel.commons.Util');
      util.traceIfDebug("UI element","TabPage start: "+self.name);     
 %]
@@ -11,7 +11,7 @@ operation  TabPage draw(hash) {
 
 
 [%@template
-operation TabPage generateBody(hash){
+operation domain::TabPage generateBody(hash){
      var title = buildParameterizedExpression(self.multiLangLabel);
         
      if (title <> "" )

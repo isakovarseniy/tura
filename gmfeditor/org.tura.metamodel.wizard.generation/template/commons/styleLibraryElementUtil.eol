@@ -1,4 +1,4 @@
-operation StyleLibrary mappingStyleLibrary2CSS( recipe:Recipe, ingredient :Ingredient) { 
+operation domain::StyleLibrary mappingStyleLibrary2CSS( recipe:Recipe, ingredient :Ingredient) { 
 
     var appmappers =   new Native('java.util.ArrayList');  
     var util = new Native('org.tura.metamodel.commons.Util');

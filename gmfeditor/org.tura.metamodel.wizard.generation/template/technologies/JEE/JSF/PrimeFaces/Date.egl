@@ -1,5 +1,5 @@
 [%@template
-operation Date treeContext(hash,value) { 
+operation domain::Date treeContext(hash,value) { 
 %]
 <p:inplace editor="true" event="dblclick">
    [%=self.rw(hash,value)%]
@@ -9,7 +9,7 @@ operation Date treeContext(hash,value) {
 %]
 
 [%@template
-operation Date tableContext(hash,value) { 
+operation domain::Date tableContext(hash,value) { 
 %]
 <p:cellEditor>
   <f:facet name="output">
@@ -26,7 +26,7 @@ operation Date tableContext(hash,value) {
 %]
 
 [%@template
-operation Date noContext(hash,value) { 
+operation domain::Date noContext(hash,value) { 
 %]
    [%=self.rw(hash,value)%]
 [%   
@@ -35,7 +35,7 @@ operation Date noContext(hash,value) {
 
 
 [%@template
-operation Date rw(hash,value) { 
+operation domain::Date rw(hash,value) { 
 %]
 <p:calendar [%=self.mkUIDBinding()%] value="[%=value%]" [%=self.uiElementAttributes(hash)%]   pattern="[%=self.format%]"  showOn="button" >
    [%=self.validator(hash)%]
@@ -45,7 +45,7 @@ operation Date rw(hash,value) {
 %]
 
 [%@template
-operation Date ro(hash,value) { 
+operation domain::Date ro(hash,value) { 
 %]
 <h:outputText value="[%=value%]">
    [%=self.readOnlyConverter(hash)%]

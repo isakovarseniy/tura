@@ -1,5 +1,5 @@
 [%@template
-operation ViewArea draw(hash) { 
+operation domain::ViewArea draw(hash) { 
     var util = new Native('org.tura.metamodel.commons.Util');
      util.traceIfDebug("UI element","ViewArea start: "+self.name);     
 %]

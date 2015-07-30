@@ -1,4 +1,4 @@
-operation TypeElement mappingType2Java( recipe:Recipe, ingredient :Ingredient) { 
+operation domain::TypeElement mappingType2Java( recipe:Recipe, ingredient :Ingredient) { 
 
     var appmappers =   new Native('java.util.ArrayList');  
     var util = new Native('org.tura.metamodel.commons.Util');
@@ -52,7 +52,7 @@ operation TypeElement mappingType2Java( recipe:Recipe, ingredient :Ingredient) {
 } 
 
 
-operation TypeElement mappingType2JavaScript( recipe:Recipe, ingredient :Ingredient) { 
+operation domain::TypeElement mappingType2JavaScript( recipe:Recipe, ingredient :Ingredient) { 
 
     var appmappers =   new Native('java.util.ArrayList');  
     var util = new Native('org.tura.metamodel.commons.Util');

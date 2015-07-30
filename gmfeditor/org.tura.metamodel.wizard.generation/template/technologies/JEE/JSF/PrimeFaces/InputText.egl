@@ -1,5 +1,5 @@
 [%@template
-operation InputText treeContext(hash,value) { 
+operation domain::InputText treeContext(hash,value) { 
 %]
 <p:inplace editor="true" event="dblclick">
    [%=self.rw(hash,value)%]
@@ -9,7 +9,7 @@ operation InputText treeContext(hash,value) {
 %]
 
 [%@template
-operation InputText tableContext(hash,value) { 
+operation domain::InputText tableContext(hash,value) { 
 %]
 <p:cellEditor>
   <f:facet name="output">
@@ -26,7 +26,7 @@ operation InputText tableContext(hash,value) {
 %]
 
 [%@template
-operation InputText noContext(hash,value) { 
+operation domain::InputText noContext(hash,value) { 
 %]
    [%=self.rw(hash,value)%]
 [%   
@@ -35,7 +35,7 @@ operation InputText noContext(hash,value) {
 
 
 [%@template
-operation InputText rw(hash,value) { 
+operation domain::InputText rw(hash,value) { 
 %]
 <p:inputText   [%=self.mkUIDBinding()%] value="[%=value%]"   [%=self.uiElementAttributes(hash)%]>
    [%=self.validator(hash)%]
@@ -46,7 +46,7 @@ operation InputText rw(hash,value) {
 %]
 
 [%@template
-operation InputText ro(hash,value) { 
+operation domain::InputText ro(hash,value) { 
 %]
 <h:outputText value="[%=value%]">
    [%=self.readOnlyConverter(hash)%]

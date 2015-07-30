@@ -18,8 +18,8 @@ public class  [%=type.~class%]  extends org.tura.platform.commons.jpa.TuraJPAEnt
 }
 
 
-[% @template
-operation Operation create() { %]
+[%@template
+operation domain::Operation create() { %]
 throws javax.ejb.EJBException
     {
     	try{
@@ -34,7 +34,7 @@ throws javax.ejb.EJBException
 [% } %]
 
 [% @template
-operation Operation insert() { %]
+operation domain::Operation insert() { %]
 throws javax.ejb.EJBException
     {
     	try{
@@ -48,7 +48,7 @@ throws javax.ejb.EJBException
 [% } %]
 
 [% @template
-operation Operation update() { %]
+operation domain::Operation update() { %]
 throws javax.ejb.EJBException
    {
     	try{
@@ -62,7 +62,7 @@ throws javax.ejb.EJBException
 [% } %]
 
 [% @template
-operation Operation remove() { %]
+operation domain::Operation remove() { %]
 throws javax.ejb.EJBException
   {
     	try{
@@ -76,7 +76,7 @@ throws javax.ejb.EJBException
 [% } %]
 
 [% @template
-operation Operation find(generic:Type) { %]
+operation domain::Operation find(generic:domain::Type) { %]
 throws javax.ejb.EJBException
   {
 	 try{

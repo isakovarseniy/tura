@@ -1,5 +1,5 @@
 [%@template
-operation  TabCanvas draw(hash) { 
+operation  domain::TabCanvas draw(hash) { 
      var util = new Native('org.tura.metamodel.commons.Util');
      var webapp = hash.get("webapp");   
      var form = hash.get("form");
@@ -18,7 +18,7 @@ operation  TabCanvas draw(hash) {
 
 
 [%@template
-operation TabCanvas generateBody(hash){
+operation domain::TabCanvas generateBody(hash){
 %]
 <p:tabView  xmlns="http://www.w3.org/1999/xhtml"
         xmlns:h="http://java.sun.com/jsf/html"

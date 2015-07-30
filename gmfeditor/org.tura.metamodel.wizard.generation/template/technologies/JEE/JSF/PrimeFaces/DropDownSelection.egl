@@ -1,5 +1,5 @@
 [%@template
-operation DropDownSelection treeContext(hash,value) { 
+operation domain::DropDownSelection treeContext(hash,value) { 
 %]
 <p:inplace editor="true" event="dblclick">
    [%=self.rw(hash,value)%]
@@ -9,7 +9,7 @@ operation DropDownSelection treeContext(hash,value) {
 %]
 
 [%@template
-operation DropDownSelection tableContext(hash,value) { 
+operation domain::DropDownSelection tableContext(hash,value) { 
 %]
 <p:cellEditor>
   <f:facet name="output">
@@ -26,7 +26,7 @@ operation DropDownSelection tableContext(hash,value) {
 %]
 
 [%@template
-operation DropDownSelection noContext(hash,value) { 
+operation domain::DropDownSelection noContext(hash,value) { 
 %]
    [%=self.rw(hash,value)%]
 [%   
@@ -35,7 +35,7 @@ operation DropDownSelection noContext(hash,value) {
 
 
 [%@template
-operation DropDownSelection rw(hash,value) { 
+operation domain::DropDownSelection rw(hash,value) { 
      var util = new Native('org.tura.metamodel.commons.Util');
 %]
 <p:selectOneMenu [%=self.mkUIDBinding()%] [%=self.uiElementAttributes(hash)%] value="[%=value%]">
@@ -47,7 +47,7 @@ operation DropDownSelection rw(hash,value) {
 %]
 
 [%@template
-operation DropDownSelection ro(hash,value) { 
+operation domain::DropDownSelection ro(hash,value) { 
 %]
 <h:outputText value="[%=value%]">
    [%=self.readOnlyConverter(hash)%]

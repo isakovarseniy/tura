@@ -1,5 +1,5 @@
 [%@template
-operation Image draw(hash) { 
+operation domain::Image draw(hash) { 
      var util = new Native('org.tura.metamodel.commons.Util');
      var value;
      util.traceIfDebug("UI element","Image start: "+self.uid);     

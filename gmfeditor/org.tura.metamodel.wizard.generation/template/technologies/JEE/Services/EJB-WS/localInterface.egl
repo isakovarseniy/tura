@@ -18,27 +18,27 @@ public interface  [%=type.~class%]Local  {
 
 
 [% @template
-operation Operation create() { %]
+operation domain::Operation create() { %]
 throws javax.ejb.EJBException;
 [% } %]
 
 [% @template
-operation Operation insert() { %]
+operation domain::Operation insert() { %]
 throws javax.ejb.EJBException;
 [% } %]
 
 [% @template
-operation Operation update() { %]
+operation domain::Operation update() { %]
 throws javax.ejb.EJBException;
 [% } %]
 
 [% @template
-operation Operation remove() { %]
+operation domain::Operation remove() { %]
 throws javax.ejb.EJBException;
 [% } %]
 
 [% @template
-operation Operation find(generic:Type) { %]
+operation domain::Operation find(generic:domain::Type) { %]
 throws javax.ejb.EJBException;
 [% } %]
 
