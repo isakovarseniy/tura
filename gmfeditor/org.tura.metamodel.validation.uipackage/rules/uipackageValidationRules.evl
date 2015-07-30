@@ -1,4 +1,4 @@
- context FormParameter {
+ context domain::FormParameter {
 
   constraint HasName {
 

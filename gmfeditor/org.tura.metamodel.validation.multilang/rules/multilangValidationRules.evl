@@ -1,4 +1,4 @@
- context MessageLibrary {
+ context domain::MessageLibrary {
 
   constraint HasName {
 

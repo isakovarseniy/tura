@@ -11,7 +11,7 @@
    constraint UniqueName{
 
       guard : self.satisfies("HasName")
-      check : self.parent.recipes.select(r|r.isKindOf(ApplicationRecipe) and r.name=self.name).size() = 1
+      check : self.parent.recipes.select(r|r.isKindOf(domain::ApplicationRecipe) and r.name=self.name).size() = 1
       message : 'ApplicationRecipe name  ' + self.name + ' is not unique'
    
    } 
@@ -32,7 +32,7 @@
    constraint UniqueName{
 
       guard : self.satisfies("HasName")
-      check : self.parent.mappers.select(r|r.isKindOf(ApplicationMapper) and r.name=self.name).size() = 1
+      check : self.parent.mappers.select(r|r.isKindOf(domain::ApplicationMapper) and r.name=self.name).size() = 1
       message : 'ApplicationMapper name  ' + self.name + ' is not unique'
    
    } 

@@ -1,4 +1,4 @@
- context CanvasFrame {
+ context domain::CanvasFrame {
 
   constraint HasName {
 
@@ -55,7 +55,7 @@
 }
 
 
- context ViewPort {
+ context domain::ViewPort {
 
   constraint HasName {
 
@@ -76,7 +76,7 @@
 }
 
 
-context ViewArea {
+context domain::ViewArea {
 
   constraint HasName {
 

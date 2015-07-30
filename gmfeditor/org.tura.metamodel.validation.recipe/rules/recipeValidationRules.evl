@@ -1,4 +1,4 @@
- context Ingredient {
+ context domain::Ingredient {
 
   constraint HasName {
 
@@ -21,7 +21,7 @@
    constraint UniqueName{
 
       guard : self.satisfies("HasName")
-      check : self.parent.ingredients.select(r|r.isKindOf(Ingredient) and r.name=self.name).size() = 1
+      check : self.parent.ingredients.select(r|r.isKindOf(domain::Ingredient) and r.name=self.name).size() = 1
       message : 'Infrastructure name  ' + self.name + ' is not unique'
    
    } 
@@ -29,7 +29,7 @@
 
 
 
- context Component {
+ context domain::Component {
 
   constraint HasName {
 
@@ -41,7 +41,7 @@
 }
 
 
- context Infrastructure {
+ context domain::Infrastructure {
 
   constraint HasName {
 
@@ -85,7 +85,7 @@
    
 }
 
-context Configuration{
+context domain::Configuration{
 
  constraint ConfigurationConnection {
 
@@ -97,7 +97,7 @@ context Configuration{
 }
 
 
- context ModelMapper {
+ context domain::ModelMapper {
 
   constraint HasName {
 
@@ -160,7 +160,7 @@ context Configuration{
 }
 
 
- context Query {
+ context domain::Query {
  
   constraint checkQueryParameters{
       check{
@@ -199,7 +199,7 @@ context Configuration{
   }
 }
 
- context MappingSpecifier {
+ context domain::MappingSpecifier {
 
   constraint HasName {
 
@@ -218,7 +218,7 @@ context Configuration{
 }
 
 
-context Property {
+context domain::Property {
 
   constraint HasName {
 

@@ -1,4 +1,4 @@
- context Artifact {
+ context domain::Artifact {
 
   constraint HasName {
 
@@ -11,14 +11,14 @@
    constraint UniqueName{
 
       guard : self.satisfies("HasName")
-      check : self.parent.artifacts.select(r|r.isKindOf(Artifact) and r.name=self.name).size() = 1
+      check : self.parent.artifacts.select(r|r.isKindOf(domain::Artifact) and r.name=self.name).size() = 1
       message : 'Artifact name  ' + self.name + ' is not unique'
    
    } 
 
 }
 
- context ConfigVariable {
+ context domain::ConfigVariable {
 
   constraint HasName {
 
@@ -31,7 +31,7 @@
    constraint UniqueName{
 
       guard : self.satisfies("HasName")
-      check : self.parent.configVariables.select(r|r.isKindOf(ConfigVariable) and r.name=self.name).size() = 1
+      check : self.parent.configVariables.select(r|r.isKindOf(domain::ConfigVariable) and r.name=self.name).size() = 1
       message : 'ConfigVariable name  ' + self.name + ' is not unique'
    
    } 
@@ -39,7 +39,7 @@
 }
 
 
- context ModelQuery {
+ context domain::ModelQuery {
 
   constraint HasName {
 
@@ -52,7 +52,7 @@
    constraint UniqueName{
 
       guard : self.satisfies("HasName")
-      check : self.parent.modelQuery.select(r|r.isKindOf(ModelQuery) and r.name=self.name).size() = 1
+      check : self.parent.modelQuery.select(r|r.isKindOf(domain::ModelQuery) and r.name=self.name).size() = 1
       message : 'ModelQuery name  ' + self.name + ' is not unique'
    
    } 
@@ -73,7 +73,7 @@
    constraint UniqueName{
 
       guard : self.satisfies("HasName")
-      check : self.parent.parameters.select(r|r.isKindOf(QueryParameter) and r.name=self.name).size() = 1
+      check : self.parent.parameters.select(r|r.isKindOf(domain::QueryParameter) and r.name=self.name).size() = 1
       message : 'QueryParameter name  ' + self.name + ' is not unique'
    
    } 
@@ -82,7 +82,7 @@
 
 
 
- context Specifier {
+ context domain::Specifier {
 
   constraint HasName {
 
@@ -95,14 +95,14 @@
    constraint UniqueName{
 
       guard : self.satisfies("HasName")
-      check : self.parent.specifiers.select(r|r.isKindOf(Specifier) and r.name=self.name).size() = 1
+      check : self.parent.specifiers.select(r|r.isKindOf(domain::Specifier) and r.name=self.name).size() = 1
       message : 'Specifier name  ' + self.name + ' is not unique'
    
    } 
 
 }
 
- context Option {
+ context domain::Option {
 
   constraint HasName {
 
@@ -115,7 +115,7 @@
    constraint UniqueName{
 
       guard : self.satisfies("HasName")
-      check : self.parent.options.select(r|r.isKindOf(Option) and r.value=self.value).size() = 1
+      check : self.parent.options.select(r|r.isKindOf(domain::Option) and r.value=self.value).size() = 1
       message : 'Option name  ' + self.value + ' is not unique'
    
    } 

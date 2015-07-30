@@ -1,4 +1,4 @@
- context Package {
+ context domain::Package {
 
   constraint HasName {
 
@@ -11,7 +11,7 @@
    constraint UniqueName{
 
       guard : self.satisfies("HasName")
-      check : Package.all.select(r|r.name=self.name)->size() = 1
+      check : domain::Package.all.select(r|r.name=self.name)->size() = 1
       message : 'Package name  ' + self.name + ' is not unique'
    
    } 

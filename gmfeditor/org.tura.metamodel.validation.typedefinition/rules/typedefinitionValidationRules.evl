@@ -1,4 +1,4 @@
- context Type {
+ context domain::Type {
 
   constraint HasName {
 
@@ -11,14 +11,14 @@
    constraint UniqueName{
 
       guard : self.satisfies("HasName")
-      check : self.parent.types.select(r|r.isKindOf(Type) and r.name=self.name).size() = 1
+      check : self.parent.types->select(r|r.isKindOf(domain::Type) and r.name=self.name)->size() = 1
       message : 'Type name  ' + self.name + ' is not unique'
    
    } 
 
 }
 
- context Primitive {
+ context domain::Primitive {
 
   constraint HasName {
 
@@ -41,7 +41,7 @@
 
 
 
- context Attribute {
+ context domain::Attribute {
 
   constraint HasName {
 
@@ -61,7 +61,7 @@
 }
 
 
- context Parameter {
+ context domain::Parameter {
 
   constraint HasName {
 
@@ -81,7 +81,7 @@
 }
 
 
- context Operation {
+ context domain::Operation {
 
   constraint HasName {
 
@@ -113,7 +113,7 @@
 
 }
 
- context Enumarator {
+ context domain::Enumarator {
 
   constraint HasName {
 
@@ -133,7 +133,7 @@
 
 }
 
- context EnumAttribute {
+ context domain::EnumAttribute {
 
   constraint HasName {
 
@@ -162,7 +162,7 @@
 
 }
 
- context TypePointer {
+ context domain::TypePointer {
 
   constraint PackageRef {
 
@@ -182,7 +182,7 @@
 
 }
 
- context MethodPointer{
+ context domain::MethodPointer{
  
    constraint HasName {
       check :  self.methodRef.isDefined()

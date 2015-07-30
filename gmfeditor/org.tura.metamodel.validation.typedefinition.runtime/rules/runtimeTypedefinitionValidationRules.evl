@@ -1,4 +1,4 @@
- context TypePointer {
+ context domain::TypePointer {
 
   constraint PackageRef {
       check :  self.packageRef.isDefined()
@@ -19,7 +19,7 @@
 
 }
 
-operation TypePointer getAllRecipeMappers() : Boolean { 
+operation domain::TypePointer getAllRecipeMappers() : Boolean { 
 
     var indicator = new Native('org.tura.metamodel.wizard.infrastructure.Indicator');
     var appmappers =   new Native('java.util.ArrayList');  

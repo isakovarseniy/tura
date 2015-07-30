@@ -1,4 +1,4 @@
-context SourcesPointer{
+context domain::SourcesPointer{
 
   constraint HasSourcePointer {
 
@@ -20,7 +20,7 @@ context SourcesPointer{
 
 }
 
-context OptionSelection{
+context domain::OptionSelection{
 
   constraint HasSourcePointer {
 
@@ -48,7 +48,7 @@ context Selection{
 
 }
 
-context Table{
+context domain::Table{
 
   constraint RowNumberNot0 {
 

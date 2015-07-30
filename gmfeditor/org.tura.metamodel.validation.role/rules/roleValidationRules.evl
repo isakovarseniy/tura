@@ -1,4 +1,4 @@
- context Role {
+ context domain::Role {
 
   constraint HasName {
 

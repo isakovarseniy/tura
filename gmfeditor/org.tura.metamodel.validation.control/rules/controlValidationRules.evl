@@ -1,4 +1,4 @@
-context ArtificialField{
+context domain::ArtificialField{
 
   constraint HasName {
 
@@ -10,21 +10,21 @@ context ArtificialField{
    constraint UniqueName{
 
       guard : self.satisfies("HasName")
-      check : self.parent.artificialFields.select(r|r.isKindOf(ArtificialField) and r.name=self.name).size() = 1
+      check : self.parent.artificialFields.select(r|r.isKindOf(domain::ArtificialField) and r.name=self.name).size() = 1
       message : 'Artificial name  ' + self.name + ' is not unique'
    
    } 
 
 }
 
-context Relation{
+context domain::Relation{
      constraint HasDependency{
        check: self.dependencies.select(r|r.master = self.master and r.detail = self.detail).size() = 0
        message : 'Relation and Dependency cannot resides between same data controls'
      }
 }
 
-context FormVariable{
+context domain::FormVariable{
 
   constraint HasName {
 
@@ -52,7 +52,7 @@ context FormVariable{
 }
 
 
- context DataControl {
+ context domain::DataControl {
 
   constraint HasName {
 

@@ -1,4 +1,4 @@
- context JavaMapper {
+ context domain::JavaMapper {
 
   constraint HasToTypeName {
 
@@ -10,7 +10,7 @@
 }
 
 
- context JavaScriptMapper {
+ context domain::JavaScriptMapper {
 
   constraint HasLibraryUrl {
 
@@ -23,7 +23,7 @@
 
 
 
- context CSSMapper{
+ context domain::CSSMapper{
  
   constraint HasStylePackageRef {
 
@@ -52,7 +52,7 @@
  }
  
  
- context RoleMapper{
+ context domain::RoleMapper{
   
   constraint HasRoleRef {
 
@@ -75,7 +75,7 @@
 
 }
 
-operation Mapper refName() : String {
+operation domain::Mapper refName() : String {
      if (self.packageRef <> null  and  self.typeRef <> null ) {
               return self.packageRef.name+":"+self.typeRef.name; }
      else {
