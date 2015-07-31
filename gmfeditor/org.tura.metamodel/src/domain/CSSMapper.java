@@ -10,7 +10,6 @@ package domain;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  *   <li>{@link domain.CSSMapper#getLibraryUrl <em>Library Url</em>}</li>
  *   <li>{@link domain.CSSMapper#getStylePackage <em>Style Package</em>}</li>
@@ -18,6 +17,7 @@ package domain;
  *   <li>{@link domain.CSSMapper#getFakePackageName <em>Fake Package Name</em>}</li>
  *   <li>{@link domain.CSSMapper#getFakeTypeName <em>Fake Type Name</em>}</li>
  * </ul>
+ * </p>
  *
  * @see domain.DomainPackage#getCSSMapper()
  * @model annotation="gmf.node label='fakePackageName,fakeTypeName' border.color='0,0,0' color='47,180,155'"

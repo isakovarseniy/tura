@@ -28,3 +28,4 @@ import org.eclipse.osgi.util.NLS;
 
 import domain.diagram.part.DomainDiagramEditorPlugin;
 import domain.diagram.part.Messages;
+

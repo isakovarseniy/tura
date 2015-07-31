@@ -61,8 +61,9 @@ public class DomainValidationProvider {
 			return false;
 		}
 		if (object instanceof View) {
-			return constraintsActive && EnterpriseInfrastructureEditPart.MODEL_ID
-					.equals(DomainVisualIDRegistry.getModelID((View) object));
+			return constraintsActive
+					&& EnterpriseInfrastructureEditPart.MODEL_ID.equals(DomainVisualIDRegistry
+							.getModelID((View) object));
 		}
 		return true;
 	}

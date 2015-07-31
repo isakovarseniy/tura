@@ -82,8 +82,8 @@ public class ViewPortEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected void createDefaultEditPolicies() {
-		installEditPolicy(EditPolicyRoles.CREATION_ROLE,
-				new CreationEditPolicyWithCustomReparent(DomainVisualIDRegistry.TYPED_INSTANCE));
+		installEditPolicy(EditPolicyRoles.CREATION_ROLE, new CreationEditPolicyWithCustomReparent(
+				DomainVisualIDRegistry.TYPED_INSTANCE));
 		super.createDefaultEditPolicies();
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE, new ViewPortItemSemanticEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
@@ -204,8 +204,9 @@ public class ViewPortEditPart extends ShapeNodeEditPart {
 				EObject obj = ((View) getModel()).getElement();
 				if (obj instanceof Orderable) {
 					EditingDomain editingDomain = getEditingDomain();
-					editingDomain.getCommandStack().execute(SetCommand.create(editingDomain, obj,
-							DomainPackage.eINSTANCE.getOrderable_Order(), evt.getNewValue()));
+					editingDomain.getCommandStack().execute(
+							SetCommand.create(editingDomain, obj, DomainPackage.eINSTANCE.getOrderable_Order(),
+									evt.getNewValue()));
 
 				}
 			}
@@ -308,8 +309,8 @@ public class ViewPortEditPart extends ShapeNodeEditPart {
 					.getCreateElementRequestAdapter();
 			IElementType type = (IElementType) adapter.getAdapter(IElementType.class);
 			if (type == DomainElementTypes.ViewPortTrigger_1303002) {
-				return getChildBySemanticHint(
-						DomainVisualIDRegistry.getType(ViewPortViewPortViewPortTriggerCompartmentEditPart.VISUAL_ID));
+				return getChildBySemanticHint(DomainVisualIDRegistry
+						.getType(ViewPortViewPortViewPortTriggerCompartmentEditPart.VISUAL_ID));
 			}
 		}
 		return super.getTargetEditPart(request);

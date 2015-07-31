@@ -23,13 +23,13 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  *   <li>{@link domain.impl.CanvasViewImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.impl.CanvasViewImpl#getParent <em>Parent</em>}</li>
  *   <li>{@link domain.impl.CanvasViewImpl#getBaseCanvas <em>Base Canvas</em>}</li>
  *   <li>{@link domain.impl.CanvasViewImpl#getAny <em>Any</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */

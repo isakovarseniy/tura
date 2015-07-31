@@ -31,7 +31,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  *   <li>{@link domain.impl.RolesImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.impl.RolesImpl#getParent <em>Parent</em>}</li>
@@ -39,6 +38,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link domain.impl.RolesImpl#getGroups <em>Groups</em>}</li>
  *   <li>{@link domain.impl.RolesImpl#getAny <em>Any</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */

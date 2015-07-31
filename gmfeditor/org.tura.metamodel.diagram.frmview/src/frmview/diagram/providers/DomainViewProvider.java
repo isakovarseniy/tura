@@ -98,11 +98,11 @@ public class DomainViewProvider extends AbstractProvider implements IViewProvide
 	 */
 	protected boolean provides(CreateViewForKindOperation op) {
 		/*
-		    if (op.getViewKind() == Node.class)
-		      return getNodeViewClass(op.getSemanticAdapter(), op.getContainerView(), op.getSemanticHint()) != null;
-		    if (op.getViewKind() == Edge.class)
-		      return getEdgeViewClass(op.getSemanticAdapter(), op.getContainerView(), op.getSemanticHint()) != null;
-		*/
+		 if (op.getViewKind() == Node.class)
+		 return getNodeViewClass(op.getSemanticAdapter(), op.getContainerView(), op.getSemanticHint()) != null;
+		 if (op.getViewKind() == Edge.class)
+		 return getEdgeViewClass(op.getSemanticAdapter(), op.getContainerView(), op.getSemanticHint()) != null;
+		 */
 		return true;
 	}
 
@@ -159,8 +159,8 @@ public class DomainViewProvider extends AbstractProvider implements IViewProvide
 				case ViewPortEditPart.VISUAL_ID:
 				case ViewPortTriggerEditPart.VISUAL_ID:
 				case ViewAreaEditPart.VISUAL_ID:
-					if (domainElement == null || visualID != DomainVisualIDRegistry
-							.getNodeVisualID(op.getContainerView(), domainElement)) {
+					if (domainElement == null
+							|| visualID != DomainVisualIDRegistry.getNodeVisualID(op.getContainerView(), domainElement)) {
 						return false; // visual id in semantic hint should match visual id for domain element
 					}
 					break;
@@ -184,8 +184,7 @@ public class DomainViewProvider extends AbstractProvider implements IViewProvide
 			return false; // foreign element type
 		}
 		String elementTypeHint = ((IHintedType) elementType).getSemanticHint();
-		if (elementTypeHint == null
-				|| (op.getSemanticHint() != null && !elementTypeHint.equals(op.getSemanticHint()))) {
+		if (elementTypeHint == null || (op.getSemanticHint() != null && !elementTypeHint.equals(op.getSemanticHint()))) {
 			return false; // our hint is visual id and must be specified, and it should be the same as in element type
 		}
 		int visualID = DomainVisualIDRegistry.getVisualID(elementTypeHint);

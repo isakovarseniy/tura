@@ -20,18 +20,17 @@ import roles.diagram.providers.DomainModelingAssistantProvider;
 public class DomainModelingAssistantProviderOfRoleEditPart extends DomainModelingAssistantProvider {
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	@Override
-
 	public List<IElementType> getRelTypesOnTarget(IAdaptable target) {
 		IGraphicalEditPart targetEditPart = (IGraphicalEditPart) target.getAdapter(IGraphicalEditPart.class);
 		return doGetRelTypesOnTarget((RoleEditPart) targetEditPart);
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public List<IElementType> doGetRelTypesOnTarget(RoleEditPart target) {
 		List<IElementType> types = new ArrayList<IElementType>(1);
 		types.add(DomainElementTypes.GroupGroup2Role_1404005);
@@ -39,18 +38,17 @@ public class DomainModelingAssistantProviderOfRoleEditPart extends DomainModelin
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	@Override
-
 	public List<IElementType> getTypesForSource(IAdaptable target, IElementType relationshipType) {
 		IGraphicalEditPart targetEditPart = (IGraphicalEditPart) target.getAdapter(IGraphicalEditPart.class);
 		return doGetTypesForSource((RoleEditPart) targetEditPart, relationshipType);
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public List<IElementType> doGetTypesForSource(RoleEditPart target, IElementType relationshipType) {
 		List<IElementType> types = new ArrayList<IElementType>();
 		if (relationshipType == DomainElementTypes.GroupGroup2Role_1404005) {

@@ -20,13 +20,13 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  *   <li>{@link domain.impl.DeploymentComponentImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.impl.DeploymentComponentImpl#getName <em>Name</em>}</li>
  *   <li>{@link domain.impl.DeploymentComponentImpl#getMapper <em>Mapper</em>}</li>
  *   <li>{@link domain.impl.DeploymentComponentImpl#getDeploymentComponentLink <em>Deployment Component Link</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */

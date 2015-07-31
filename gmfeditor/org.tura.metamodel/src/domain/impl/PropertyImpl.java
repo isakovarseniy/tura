@@ -20,13 +20,13 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  *   <li>{@link domain.impl.PropertyImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.impl.PropertyImpl#getConfVarRef <em>Conf Var Ref</em>}</li>
  *   <li>{@link domain.impl.PropertyImpl#getValue <em>Value</em>}</li>
  *   <li>{@link domain.impl.PropertyImpl#getFakeName <em>Fake Name</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */

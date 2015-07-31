@@ -22,10 +22,10 @@ import domain.DomainPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  *   <li>{@link domain.impl.CategorizedImpl#getClassifiers <em>Classifiers</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */

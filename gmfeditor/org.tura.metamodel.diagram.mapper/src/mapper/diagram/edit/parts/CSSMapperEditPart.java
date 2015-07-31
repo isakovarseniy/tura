@@ -124,8 +124,8 @@ public class CSSMapperEditPart extends ShapeNodeEditPart {
 	 */
 	protected boolean addFixedChild(EditPart childEditPart) {
 		if (childEditPart instanceof CSSMapperFakePackageNameFakeTypeEditPart) {
-			((CSSMapperFakePackageNameFakeTypeEditPart) childEditPart)
-					.setLabel(getPrimaryShape().getFigureCSSMapperLabelFigure());
+			((CSSMapperFakePackageNameFakeTypeEditPart) childEditPart).setLabel(getPrimaryShape()
+					.getFigureCSSMapperLabelFigure());
 			return true;
 		}
 		return false;
@@ -180,8 +180,9 @@ public class CSSMapperEditPart extends ShapeNodeEditPart {
 				EObject obj = ((View) getModel()).getElement();
 				if (obj instanceof Orderable) {
 					EditingDomain editingDomain = getEditingDomain();
-					editingDomain.getCommandStack().execute(SetCommand.create(editingDomain, obj,
-							DomainPackage.eINSTANCE.getOrderable_Order(), evt.getNewValue()));
+					editingDomain.getCommandStack().execute(
+							SetCommand.create(editingDomain, obj, DomainPackage.eINSTANCE.getOrderable_Order(),
+									evt.getNewValue()));
 
 				}
 			}
@@ -272,8 +273,8 @@ public class CSSMapperEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	public EditPart getPrimaryChildEditPart() {
-		return getChildBySemanticHint(
-				DomainVisualIDRegistry.getType(CSSMapperFakePackageNameFakeTypeEditPart.VISUAL_ID));
+		return getChildBySemanticHint(DomainVisualIDRegistry
+				.getType(CSSMapperFakePackageNameFakeTypeEditPart.VISUAL_ID));
 	}
 
 	/**

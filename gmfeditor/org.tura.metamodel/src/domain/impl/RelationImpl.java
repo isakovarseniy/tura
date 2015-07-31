@@ -29,7 +29,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  *   <li>{@link domain.impl.RelationImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.impl.RelationImpl#getName <em>Name</em>}</li>
@@ -38,6 +37,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link domain.impl.RelationImpl#isIsTree <em>Is Tree</em>}</li>
  *   <li>{@link domain.impl.RelationImpl#getLinks <em>Links</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */

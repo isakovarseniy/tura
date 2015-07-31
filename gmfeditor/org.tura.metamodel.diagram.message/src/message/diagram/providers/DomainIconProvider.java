@@ -12,8 +12,8 @@ import org.eclipse.gmf.tooling.runtime.providers.DefaultElementTypeIconProvider;
 public class DomainIconProvider extends DefaultElementTypeIconProvider implements IIconProvider {
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public DomainIconProvider() {
 		super(DomainElementTypes.TYPED_INSTANCE);
 	}

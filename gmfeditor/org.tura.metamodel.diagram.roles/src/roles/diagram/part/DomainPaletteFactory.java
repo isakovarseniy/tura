@@ -63,8 +63,7 @@ public class DomainPaletteFactory {
 		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(Messages.Group1CreationTool_title,
 				Messages.Group1CreationTool_desc, Collections.singletonList(DomainElementTypes.Group_1402002));
 		entry.setId("createGroup1CreationTool"); //$NON-NLS-1$
-		entry.setSmallIcon(
-				DomainDiagramEditorPlugin.findImageDescriptor("/org.tura.metamodel.commons/icons/group.png")); //$NON-NLS-1$
+		entry.setSmallIcon(DomainDiagramEditorPlugin.findImageDescriptor("/org.tura.metamodel.commons/icons/group.png")); //$NON-NLS-1$
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}

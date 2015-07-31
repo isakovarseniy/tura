@@ -72,8 +72,8 @@ public class InfrastructureConnectionCreateCommand extends EditElementCommand {
 		if (getContainer() == null) {
 			return false;
 		}
-		return DomainBaseItemSemanticEditPolicy.getLinkConstraints()
-				.canCreateInfrastructureConnection_1204009(getContainer(), getSource(), getTarget());
+		return DomainBaseItemSemanticEditPolicy.getLinkConstraints().canCreateInfrastructureConnection_1204009(
+				getContainer(), getSource(), getTarget());
 	}
 
 	/**

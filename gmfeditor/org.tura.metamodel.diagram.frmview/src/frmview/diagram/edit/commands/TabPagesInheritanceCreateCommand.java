@@ -72,8 +72,8 @@ public class TabPagesInheritanceCreateCommand extends EditElementCommand {
 		if (getContainer() == null) {
 			return false;
 		}
-		return DomainBaseItemSemanticEditPolicy.getLinkConstraints()
-				.canCreateTabPagesInheritance_1304002(getContainer(), getSource(), getTarget());
+		return DomainBaseItemSemanticEditPolicy.getLinkConstraints().canCreateTabPagesInheritance_1304002(
+				getContainer(), getSource(), getTarget());
 	}
 
 	/**

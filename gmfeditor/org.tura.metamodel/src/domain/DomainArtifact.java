@@ -11,13 +11,13 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  *   <li>{@link domain.DomainArtifact#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.DomainArtifact#getName <em>Name</em>}</li>
  *   <li>{@link domain.DomainArtifact#getParent <em>Parent</em>}</li>
  *   <li>{@link domain.DomainArtifact#getArtifact <em>Artifact</em>}</li>
  * </ul>
+ * </p>
  *
  * @see domain.DomainPackage#getDomainArtifact()
  * @model annotation="gmf.node label='name'"

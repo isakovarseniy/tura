@@ -34,17 +34,16 @@ import domain.Styles;
 /**
  * @generated
  */
-public class DomainNavigatorLabelProvider extends LabelProvider
-		implements ICommonLabelProvider, ITreePathLabelProvider {
+public class DomainNavigatorLabelProvider extends LabelProvider implements ICommonLabelProvider, ITreePathLabelProvider {
 
 	/**
 	 * @generated
 	 */
 	static {
-		DomainDiagramEditorPlugin.getInstance().getImageRegistry().put("Navigator?UnknownElement", //$NON-NLS-1$
-				ImageDescriptor.getMissingImageDescriptor());
-		DomainDiagramEditorPlugin.getInstance().getImageRegistry().put("Navigator?ImageNotFound", //$NON-NLS-1$
-				ImageDescriptor.getMissingImageDescriptor());
+		DomainDiagramEditorPlugin.getInstance().getImageRegistry()
+				.put("Navigator?UnknownElement", ImageDescriptor.getMissingImageDescriptor()); //$NON-NLS-1$
+		DomainDiagramEditorPlugin.getInstance().getImageRegistry()
+				.put("Navigator?ImageNotFound", ImageDescriptor.getMissingImageDescriptor()); //$NON-NLS-1$
 	}
 
 	/**
@@ -93,14 +92,14 @@ public class DomainNavigatorLabelProvider extends LabelProvider
 	public Image getImage(View view) {
 		switch (DomainVisualIDRegistry.getVisualID(view)) {
 		case StylesEditPart.VISUAL_ID:
-			return getImage("Navigator?Diagram?http://tura.org/2013/v1/domain?Styles", //$NON-NLS-1$
-					DomainElementTypes.Styles_1501000);
+			return getImage(
+					"Navigator?Diagram?http://tura.org/2013/v1/domain?Styles", DomainElementTypes.Styles_1501000); //$NON-NLS-1$
 		case StyleLibraryEditPart.VISUAL_ID:
-			return getImage("Navigator?TopLevelNode?http://tura.org/2013/v1/domain?StyleLibrary", //$NON-NLS-1$
-					DomainElementTypes.StyleLibrary_1502001);
+			return getImage(
+					"Navigator?TopLevelNode?http://tura.org/2013/v1/domain?StyleLibrary", DomainElementTypes.StyleLibrary_1502001); //$NON-NLS-1$
 		case StyleSetEditPart.VISUAL_ID:
-			return getImage("Navigator?Node?http://tura.org/2013/v1/domain?StyleSet", //$NON-NLS-1$
-					DomainElementTypes.StyleSet_1503001);
+			return getImage(
+					"Navigator?Node?http://tura.org/2013/v1/domain?StyleSet", DomainElementTypes.StyleSet_1503001); //$NON-NLS-1$
 		}
 		return getImage("Navigator?UnknownElement", null); //$NON-NLS-1$
 	}

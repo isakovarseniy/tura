@@ -94,8 +94,8 @@ public class DomainDomainNavigatorItem extends PlatformObject {
 	 */
 	public boolean equals(Object obj) {
 		if (obj instanceof mapper.diagram.navigator.DomainDomainNavigatorItem) {
-			return EcoreUtil.getURI(getEObject())
-					.equals(EcoreUtil.getURI(((mapper.diagram.navigator.DomainDomainNavigatorItem) obj).getEObject()));
+			return EcoreUtil.getURI(getEObject()).equals(
+					EcoreUtil.getURI(((mapper.diagram.navigator.DomainDomainNavigatorItem) obj).getEObject()));
 		}
 		return super.equals(obj);
 	}

@@ -75,8 +75,8 @@ public class InfrastructureRecipeConfigReorientCommand extends EditElementComman
 		if (!(oldEnd instanceof Configuration && newEnd instanceof Infrastructure)) {
 			return false;
 		}
-		return DomainBaseItemSemanticEditPolicy.getLinkConstraints()
-				.canExistInfrastructureRecipeConfig_304006(getNewSource(), getOldTarget());
+		return DomainBaseItemSemanticEditPolicy.getLinkConstraints().canExistInfrastructureRecipeConfig_304006(
+				getNewSource(), getOldTarget());
 	}
 
 	/**
@@ -86,8 +86,8 @@ public class InfrastructureRecipeConfigReorientCommand extends EditElementComman
 		if (!(oldEnd instanceof Configuration && newEnd instanceof Configuration)) {
 			return false;
 		}
-		return DomainBaseItemSemanticEditPolicy.getLinkConstraints()
-				.canExistInfrastructureRecipeConfig_304006(getOldSource(), getNewTarget());
+		return DomainBaseItemSemanticEditPolicy.getLinkConstraints().canExistInfrastructureRecipeConfig_304006(
+				getOldSource(), getNewTarget());
 	}
 
 	/**

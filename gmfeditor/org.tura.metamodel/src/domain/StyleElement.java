@@ -12,11 +12,11 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  *   <li>{@link domain.StyleElement#getStyle <em>Style</em>}</li>
  *   <li>{@link domain.StyleElement#getStyleClass <em>Style Class</em>}</li>
  * </ul>
+ * </p>
  *
  * @see domain.DomainPackage#getStyleElement()
  * @model

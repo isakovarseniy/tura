@@ -11,12 +11,12 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  *   <li>{@link domain.TabPagesInheritance#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.TabPagesInheritance#getSource <em>Source</em>}</li>
  *   <li>{@link domain.TabPagesInheritance#getTarget <em>Target</em>}</li>
  * </ul>
+ * </p>
  *
  * @see domain.DomainPackage#getTabPagesInheritance()
  * @model annotation="gmf.link source='source' target='target' style='dash' color='238,16,16' width='2' target.decoration='arrow'"

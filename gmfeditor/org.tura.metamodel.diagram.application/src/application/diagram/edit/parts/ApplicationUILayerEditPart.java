@@ -126,8 +126,8 @@ public class ApplicationUILayerEditPart extends ShapeNodeEditPart {
 	 */
 	protected boolean addFixedChild(EditPart childEditPart) {
 		if (childEditPart instanceof ApplicationUILayerNameEditPart) {
-			((ApplicationUILayerNameEditPart) childEditPart)
-					.setLabel(getPrimaryShape().getFigureApplicationUILayerLabelFigure());
+			((ApplicationUILayerNameEditPart) childEditPart).setLabel(getPrimaryShape()
+					.getFigureApplicationUILayerLabelFigure());
 			return true;
 		}
 		if (childEditPart instanceof ApplicationUILayerApplicationUILayerApplicationUIPackagesCompartmentEditPart) {
@@ -198,8 +198,9 @@ public class ApplicationUILayerEditPart extends ShapeNodeEditPart {
 				EObject obj = ((View) getModel()).getElement();
 				if (obj instanceof Orderable) {
 					EditingDomain editingDomain = getEditingDomain();
-					editingDomain.getCommandStack().execute(SetCommand.create(editingDomain, obj,
-							DomainPackage.eINSTANCE.getOrderable_Order(), evt.getNewValue()));
+					editingDomain.getCommandStack().execute(
+							SetCommand.create(editingDomain, obj, DomainPackage.eINSTANCE.getOrderable_Order(),
+									evt.getNewValue()));
 
 				}
 			}
@@ -342,8 +343,8 @@ public class ApplicationUILayerEditPart extends ShapeNodeEditPart {
 
 			fFigureApplicationUILayerLabelFigure.setFont(FFIGUREAPPLICATIONUILAYERLABELFIGURE_FONT);
 
-			fFigureApplicationUILayerLabelFigure
-					.setMaximumSize(new Dimension(getMapMode().DPtoLP(10000), getMapMode().DPtoLP(50)));
+			fFigureApplicationUILayerLabelFigure.setMaximumSize(new Dimension(getMapMode().DPtoLP(10000), getMapMode()
+					.DPtoLP(50)));
 
 			this.add(fFigureApplicationUILayerLabelFigure);
 

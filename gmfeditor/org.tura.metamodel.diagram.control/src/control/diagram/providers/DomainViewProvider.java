@@ -123,11 +123,11 @@ public class DomainViewProvider extends AbstractProvider implements IViewProvide
 	 */
 	protected boolean provides(CreateViewForKindOperation op) {
 		/*
-		    if (op.getViewKind() == Node.class)
-		      return getNodeViewClass(op.getSemanticAdapter(), op.getContainerView(), op.getSemanticHint()) != null;
-		    if (op.getViewKind() == Edge.class)
-		      return getEdgeViewClass(op.getSemanticAdapter(), op.getContainerView(), op.getSemanticHint()) != null;
-		*/
+		 if (op.getViewKind() == Node.class)
+		 return getNodeViewClass(op.getSemanticAdapter(), op.getContainerView(), op.getSemanticHint()) != null;
+		 if (op.getViewKind() == Edge.class)
+		 return getEdgeViewClass(op.getSemanticAdapter(), op.getContainerView(), op.getSemanticHint()) != null;
+		 */
 		return true;
 	}
 
@@ -192,8 +192,8 @@ public class DomainViewProvider extends AbstractProvider implements IViewProvide
 				case DeleteTriggerEditPart.VISUAL_ID:
 				case SearchTriggerEditPart.VISUAL_ID:
 				case ArtificialFieldEditPart.VISUAL_ID:
-					if (domainElement == null || visualID != DomainVisualIDRegistry
-							.getNodeVisualID(op.getContainerView(), domainElement)) {
+					if (domainElement == null
+							|| visualID != DomainVisualIDRegistry.getNodeVisualID(op.getContainerView(), domainElement)) {
 						return false; // visual id in semantic hint should match visual id for domain element
 					}
 					break;
@@ -221,8 +221,7 @@ public class DomainViewProvider extends AbstractProvider implements IViewProvide
 			return false; // foreign element type
 		}
 		String elementTypeHint = ((IHintedType) elementType).getSemanticHint();
-		if (elementTypeHint == null
-				|| (op.getSemanticHint() != null && !elementTypeHint.equals(op.getSemanticHint()))) {
+		if (elementTypeHint == null || (op.getSemanticHint() != null && !elementTypeHint.equals(op.getSemanticHint()))) {
 			return false; // our hint is visual id and must be specified, and it should be the same as in element type
 		}
 		int visualID = DomainVisualIDRegistry.getVisualID(elementTypeHint);
@@ -598,8 +597,8 @@ public class DomainViewProvider extends AbstractProvider implements IViewProvide
 	/**
 	 * @generated
 	 */
-	public Node createPOSTCreateTrigger_1103011(EObject domainElement, View containerView, int index, boolean persisted,
-			PreferencesHint preferencesHint) {
+	public Node createPOSTCreateTrigger_1103011(EObject domainElement, View containerView, int index,
+			boolean persisted, PreferencesHint preferencesHint) {
 		Node node = NotationFactory.eINSTANCE.createNode();
 		node.getStyles().add(NotationFactory.eINSTANCE.createDescriptionStyle());
 		node.getStyles().add(NotationFactory.eINSTANCE.createFontStyle());
@@ -680,8 +679,7 @@ public class DomainViewProvider extends AbstractProvider implements IViewProvide
 					IPreferenceConstants.PREF_FONT_COLOR);
 			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB).intValue());
 		}
-		Node label1105014 = createLabel(node,
-				DomainVisualIDRegistry.getType(CreateTriggerFakeMethodEditPart.VISUAL_ID));
+		Node label1105014 = createLabel(node, DomainVisualIDRegistry.getType(CreateTriggerFakeMethodEditPart.VISUAL_ID));
 		return node;
 	}
 
@@ -710,8 +708,7 @@ public class DomainViewProvider extends AbstractProvider implements IViewProvide
 					IPreferenceConstants.PREF_FONT_COLOR);
 			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB).intValue());
 		}
-		Node label1105015 = createLabel(node,
-				DomainVisualIDRegistry.getType(InsertTriggerFakeMethodEditPart.VISUAL_ID));
+		Node label1105015 = createLabel(node, DomainVisualIDRegistry.getType(InsertTriggerFakeMethodEditPart.VISUAL_ID));
 		return node;
 	}
 
@@ -740,8 +737,7 @@ public class DomainViewProvider extends AbstractProvider implements IViewProvide
 					IPreferenceConstants.PREF_FONT_COLOR);
 			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB).intValue());
 		}
-		Node label1105016 = createLabel(node,
-				DomainVisualIDRegistry.getType(UpdateTriggerFakeMethodEditPart.VISUAL_ID));
+		Node label1105016 = createLabel(node, DomainVisualIDRegistry.getType(UpdateTriggerFakeMethodEditPart.VISUAL_ID));
 		return node;
 	}
 
@@ -770,8 +766,7 @@ public class DomainViewProvider extends AbstractProvider implements IViewProvide
 					IPreferenceConstants.PREF_FONT_COLOR);
 			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB).intValue());
 		}
-		Node label1105017 = createLabel(node,
-				DomainVisualIDRegistry.getType(DeleteTriggerFakeMethodEditPart.VISUAL_ID));
+		Node label1105017 = createLabel(node, DomainVisualIDRegistry.getType(DeleteTriggerFakeMethodEditPart.VISUAL_ID));
 		return node;
 	}
 
@@ -800,8 +795,7 @@ public class DomainViewProvider extends AbstractProvider implements IViewProvide
 					IPreferenceConstants.PREF_FONT_COLOR);
 			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB).intValue());
 		}
-		Node label1105018 = createLabel(node,
-				DomainVisualIDRegistry.getType(SearchTriggerFakeMethodEditPart.VISUAL_ID));
+		Node label1105018 = createLabel(node, DomainVisualIDRegistry.getType(SearchTriggerFakeMethodEditPart.VISUAL_ID));
 		return node;
 	}
 

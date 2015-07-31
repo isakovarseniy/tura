@@ -10,10 +10,10 @@ package domain;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  *   <li>{@link domain.PREDeleteTrigger#getUid <em>Uid</em>}</li>
  * </ul>
+ * </p>
  *
  * @see domain.DomainPackage#getPREDeleteTrigger()
  * @model annotation="gmf.node label='fakeMethod' border.color='0,0,0' color='241,238,203'"

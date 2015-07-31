@@ -15,11 +15,11 @@ import domain.DomainPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  *   <li>{@link domain.impl.CanvasFrameImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.impl.CanvasFrameImpl#getName <em>Name</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */

@@ -28,7 +28,6 @@ public class DomainEditPartProvider extends DefaultEditPartProvider {
 	 * @generated
 	 */
 	public DomainEditPartProvider() {
-		super(new DomainEditPartFactory(), DomainVisualIDRegistry.TYPED_INSTANCE,
-				DeploymentComponentsEditPart.MODEL_ID);
+		super(new DomainEditPartFactory(), DomainVisualIDRegistry.TYPED_INSTANCE, DeploymentComponentsEditPart.MODEL_ID);
 	}
 }

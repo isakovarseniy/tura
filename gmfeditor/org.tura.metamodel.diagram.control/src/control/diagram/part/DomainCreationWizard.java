@@ -94,8 +94,8 @@ public class DomainCreationWizard extends Wizard implements INewWizard {
 		this.workbench = workbench;
 		this.selection = selection;
 		setWindowTitle(Messages.DomainCreationWizardTitle);
-		setDefaultPageImageDescriptor(
-				DomainDiagramEditorPlugin.getBundledImageDescriptor("icons/wizban/NewDomainWizard.gif")); //$NON-NLS-1$
+		setDefaultPageImageDescriptor(DomainDiagramEditorPlugin
+				.getBundledImageDescriptor("icons/wizban/NewDomainWizard.gif")); //$NON-NLS-1$
 		setNeedsProgressMonitor(true);
 	}
 

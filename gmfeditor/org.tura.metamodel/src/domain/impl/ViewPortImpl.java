@@ -21,13 +21,13 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  *   <li>{@link domain.impl.ViewPortImpl#getNickname <em>Nickname</em>}</li>
  *   <li>{@link domain.impl.ViewPortImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.impl.ViewPortImpl#getName <em>Name</em>}</li>
  *   <li>{@link domain.impl.ViewPortImpl#getViewPortTrigger <em>View Port Trigger</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */

@@ -67,11 +67,10 @@ public class DomainPaletteFactory {
 	 */
 	private ToolEntry createDatacenter1CreationTool() {
 		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(Messages.Datacenter1CreationTool_title,
-				Messages.Datacenter1CreationTool_desc,
-				Collections.singletonList(DomainElementTypes.Datacenter_1202002));
+				Messages.Datacenter1CreationTool_desc, Collections.singletonList(DomainElementTypes.Datacenter_1202002));
 		entry.setId("createDatacenter1CreationTool"); //$NON-NLS-1$
-		entry.setSmallIcon(
-				DomainDiagramEditorPlugin.findImageDescriptor("/org.tura.metamodel.commons/icons/datacenter.png")); //$NON-NLS-1$
+		entry.setSmallIcon(DomainDiagramEditorPlugin
+				.findImageDescriptor("/org.tura.metamodel.commons/icons/datacenter.png")); //$NON-NLS-1$
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
@@ -96,8 +95,7 @@ public class DomainPaletteFactory {
 				Messages.InfrastructureLayer3CreationTool_desc,
 				Collections.singletonList(DomainElementTypes.InfrastructureLayer_1203002));
 		entry.setId("createInfrastructureLayer3CreationTool"); //$NON-NLS-1$
-		entry.setSmallIcon(
-				DomainDiagramEditorPlugin.findImageDescriptor("/org.tura.metamodel.commons/icons/infra.png")); //$NON-NLS-1$
+		entry.setSmallIcon(DomainDiagramEditorPlugin.findImageDescriptor("/org.tura.metamodel.commons/icons/infra.png")); //$NON-NLS-1$
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
@@ -109,8 +107,8 @@ public class DomainPaletteFactory {
 		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(Messages.Router4CreationTool_title,
 				Messages.Router4CreationTool_desc, Collections.singletonList(DomainElementTypes.Router_1203004));
 		entry.setId("createRouter4CreationTool"); //$NON-NLS-1$
-		entry.setSmallIcon(
-				DomainDiagramEditorPlugin.findImageDescriptor("/org.tura.metamodel.commons/icons/router.png")); //$NON-NLS-1$
+		entry.setSmallIcon(DomainDiagramEditorPlugin
+				.findImageDescriptor("/org.tura.metamodel.commons/icons/router.png")); //$NON-NLS-1$
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
@@ -125,8 +123,8 @@ public class DomainPaletteFactory {
 		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(Messages.Server5CreationTool_title,
 				Messages.Server5CreationTool_desc, types);
 		entry.setId("createServer5CreationTool"); //$NON-NLS-1$
-		entry.setSmallIcon(
-				DomainDiagramEditorPlugin.findImageDescriptor("/org.tura.metamodel.commons/icons/server.png")); //$NON-NLS-1$
+		entry.setSmallIcon(DomainDiagramEditorPlugin
+				.findImageDescriptor("/org.tura.metamodel.commons/icons/server.png")); //$NON-NLS-1$
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
@@ -139,8 +137,8 @@ public class DomainPaletteFactory {
 				Messages.ServerClaster6CreationTool_desc,
 				Collections.singletonList(DomainElementTypes.ServerClaster_1203007));
 		entry.setId("createServerClaster6CreationTool"); //$NON-NLS-1$
-		entry.setSmallIcon(
-				DomainDiagramEditorPlugin.findImageDescriptor("/org.tura.metamodel.commons/icons/serverclaster.png")); //$NON-NLS-1$
+		entry.setSmallIcon(DomainDiagramEditorPlugin
+				.findImageDescriptor("/org.tura.metamodel.commons/icons/serverclaster.png")); //$NON-NLS-1$
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
@@ -152,8 +150,8 @@ public class DomainPaletteFactory {
 		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(Messages.Storage7CreationTool_title,
 				Messages.Storage7CreationTool_desc, Collections.singletonList(DomainElementTypes.Storage_1203006));
 		entry.setId("createStorage7CreationTool"); //$NON-NLS-1$
-		entry.setSmallIcon(
-				DomainDiagramEditorPlugin.findImageDescriptor("/org.tura.metamodel.commons/icons/storage.png")); //$NON-NLS-1$
+		entry.setSmallIcon(DomainDiagramEditorPlugin
+				.findImageDescriptor("/org.tura.metamodel.commons/icons/storage.png")); //$NON-NLS-1$
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
@@ -165,8 +163,8 @@ public class DomainPaletteFactory {
 		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(Messages.Subsystem8CreationTool_title,
 				Messages.Subsystem8CreationTool_desc, Collections.singletonList(DomainElementTypes.Subsystem_1203001));
 		entry.setId("createSubsystem8CreationTool"); //$NON-NLS-1$
-		entry.setSmallIcon(
-				DomainDiagramEditorPlugin.findImageDescriptor("/org.tura.metamodel.commons/icons/subsystem.png")); //$NON-NLS-1$
+		entry.setSmallIcon(DomainDiagramEditorPlugin
+				.findImageDescriptor("/org.tura.metamodel.commons/icons/subsystem.png")); //$NON-NLS-1$
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}

@@ -29,13 +29,13 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  *   <li>{@link domain.impl.TypeDefinitionImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.impl.TypeDefinitionImpl#getTypes <em>Types</em>}</li>
  *   <li>{@link domain.impl.TypeDefinitionImpl#getParent <em>Parent</em>}</li>
  *   <li>{@link domain.impl.TypeDefinitionImpl#getAny <em>Any</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */

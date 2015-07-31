@@ -10,13 +10,13 @@ package domain;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  *   <li>{@link domain.Attribute#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.Attribute#getName <em>Name</em>}</li>
  *   <li>{@link domain.Attribute#isPk <em>Pk</em>}</li>
  *   <li>{@link domain.Attribute#getParent <em>Parent</em>}</li>
  * </ul>
+ * </p>
  *
  * @see domain.DomainPackage#getAttribute()
  * @model annotation="gmf.node label='name' border.color='0,0,0' color='255,239,222'"

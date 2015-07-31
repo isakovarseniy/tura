@@ -113,8 +113,8 @@ public class DomainVisualIDRegistry {
 			return Integer.parseInt(type);
 		} catch (NumberFormatException e) {
 			if (Boolean.TRUE.toString().equalsIgnoreCase(Platform.getDebugOption(DEBUG_KEY))) {
-				DomainDiagramEditorPlugin.getInstance()
-						.logError("Unable to parse view type as a visualID number: " + type);
+				DomainDiagramEditorPlugin.getInstance().logError(
+						"Unable to parse view type as a visualID number: " + type);
 			}
 		}
 		return -1;
@@ -565,56 +565,50 @@ public class DomainVisualIDRegistry {
 	 */
 	public static final DiagramStructure TYPED_INSTANCE = new DiagramStructure() {
 		/**
-		* @generated
-		*/
+		 * @generated
+		 */
 		@Override
-
 		public int getVisualID(View view) {
 			return control.diagram.part.DomainVisualIDRegistry.getVisualID(view);
 		}
 
 		/**
-		* @generated
-		*/
+		 * @generated
+		 */
 		@Override
-
 		public String getModelID(View view) {
 			return control.diagram.part.DomainVisualIDRegistry.getModelID(view);
 		}
 
 		/**
-		* @generated
-		*/
+		 * @generated
+		 */
 		@Override
-
 		public int getNodeVisualID(View containerView, EObject domainElement) {
 			return control.diagram.part.DomainVisualIDRegistry.getNodeVisualID(containerView, domainElement);
 		}
 
 		/**
-		* @generated
-		*/
+		 * @generated
+		 */
 		@Override
-
 		public boolean checkNodeVisualID(View containerView, EObject domainElement, int candidate) {
 			return control.diagram.part.DomainVisualIDRegistry.checkNodeVisualID(containerView, domainElement,
 					candidate);
 		}
 
 		/**
-		* @generated
-		*/
+		 * @generated
+		 */
 		@Override
-
 		public boolean isCompartmentVisualID(int visualID) {
 			return control.diagram.part.DomainVisualIDRegistry.isCompartmentVisualID(visualID);
 		}
 
 		/**
-		* @generated
-		*/
+		 * @generated
+		 */
 		@Override
-
 		public boolean isSemanticLeafVisualID(int visualID) {
 			return control.diagram.part.DomainVisualIDRegistry.isSemanticLeafVisualID(visualID);
 		}

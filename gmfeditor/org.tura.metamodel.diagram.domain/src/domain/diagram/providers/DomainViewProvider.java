@@ -91,11 +91,11 @@ public class DomainViewProvider extends AbstractProvider implements IViewProvide
 	 */
 	protected boolean provides(CreateViewForKindOperation op) {
 		/*
-		    if (op.getViewKind() == Node.class)
-		      return getNodeViewClass(op.getSemanticAdapter(), op.getContainerView(), op.getSemanticHint()) != null;
-		    if (op.getViewKind() == Edge.class)
-		      return getEdgeViewClass(op.getSemanticAdapter(), op.getContainerView(), op.getSemanticHint()) != null;
-		*/
+		 if (op.getViewKind() == Node.class)
+		 return getNodeViewClass(op.getSemanticAdapter(), op.getContainerView(), op.getSemanticHint()) != null;
+		 if (op.getViewKind() == Edge.class)
+		 return getEdgeViewClass(op.getSemanticAdapter(), op.getContainerView(), op.getSemanticHint()) != null;
+		 */
 		return true;
 	}
 
@@ -153,8 +153,8 @@ public class DomainViewProvider extends AbstractProvider implements IViewProvide
 				case ContinuousIintegrationEditPart.VISUAL_ID:
 				case DomainArtifactEditPart.VISUAL_ID:
 				case DomainApplicationEditPart.VISUAL_ID:
-					if (domainElement == null || visualID != DomainVisualIDRegistry
-							.getNodeVisualID(op.getContainerView(), domainElement)) {
+					if (domainElement == null
+							|| visualID != DomainVisualIDRegistry.getNodeVisualID(op.getContainerView(), domainElement)) {
 						return false; // visual id in semantic hint should match visual id for domain element
 					}
 					break;
@@ -179,8 +179,7 @@ public class DomainViewProvider extends AbstractProvider implements IViewProvide
 			return false; // foreign element type
 		}
 		String elementTypeHint = ((IHintedType) elementType).getSemanticHint();
-		if (elementTypeHint == null
-				|| (op.getSemanticHint() != null && !elementTypeHint.equals(op.getSemanticHint()))) {
+		if (elementTypeHint == null || (op.getSemanticHint() != null && !elementTypeHint.equals(op.getSemanticHint()))) {
 			return false; // our hint is visual id and must be specified, and it should be the same as in element type
 		}
 		int visualID = DomainVisualIDRegistry.getVisualID(elementTypeHint);
@@ -282,16 +281,16 @@ public class DomainViewProvider extends AbstractProvider implements IViewProvide
 		Node label505001 = createLabel(node, DomainVisualIDRegistry.getType(DomainArtifactsNameEditPart.VISUAL_ID));
 		createCompartment(node,
 				DomainVisualIDRegistry
-						.getType(DomainArtifactsDomainArtifactsDomainArtifactCompartmentEditPart.VISUAL_ID),
-				true, false, false, false);
+						.getType(DomainArtifactsDomainArtifactsDomainArtifactCompartmentEditPart.VISUAL_ID), true,
+				false, false, false);
 		return node;
 	}
 
 	/**
 	 * @generated
 	 */
-	public Node createDomainApplications_502003(EObject domainElement, View containerView, int index, boolean persisted,
-			PreferencesHint preferencesHint) {
+	public Node createDomainApplications_502003(EObject domainElement, View containerView, int index,
+			boolean persisted, PreferencesHint preferencesHint) {
 		Node node = NotationFactory.eINSTANCE.createNode();
 		node.getStyles().add(NotationFactory.eINSTANCE.createDescriptionStyle());
 		node.getStyles().add(NotationFactory.eINSTANCE.createFontStyle());
@@ -317,8 +316,8 @@ public class DomainViewProvider extends AbstractProvider implements IViewProvide
 		Node label505004 = createLabel(node, DomainVisualIDRegistry.getType(DomainApplicationsNameEditPart.VISUAL_ID));
 		createCompartment(node,
 				DomainVisualIDRegistry
-						.getType(DomainApplicationsDomainApplicationsApplicationsCompartmentEditPart.VISUAL_ID),
-				true, false, false, false);
+						.getType(DomainApplicationsDomainApplicationsApplicationsCompartmentEditPart.VISUAL_ID), true,
+				false, false, false);
 		return node;
 	}
 

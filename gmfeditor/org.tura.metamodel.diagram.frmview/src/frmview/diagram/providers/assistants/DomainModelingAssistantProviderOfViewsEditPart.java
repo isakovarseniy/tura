@@ -18,10 +18,9 @@ import frmview.diagram.providers.DomainModelingAssistantProvider;
 public class DomainModelingAssistantProviderOfViewsEditPart extends DomainModelingAssistantProvider {
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	@Override
-
 	public List<IElementType> getTypesForPopupBar(IAdaptable host) {
 		List<IElementType> types = new ArrayList<IElementType>(5);
 		types.add(DomainElementTypes.PopupCanvas_1302009);

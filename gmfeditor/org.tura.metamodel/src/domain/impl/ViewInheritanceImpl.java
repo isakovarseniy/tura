@@ -21,12 +21,12 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  *   <li>{@link domain.impl.ViewInheritanceImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.impl.ViewInheritanceImpl#getSource <em>Source</em>}</li>
  *   <li>{@link domain.impl.ViewInheritanceImpl#getTarget <em>Target</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */

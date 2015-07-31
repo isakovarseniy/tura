@@ -10,10 +10,10 @@ package domain;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  *   <li>{@link domain.Label#getLabel <em>Label</em>}</li>
  * </ul>
+ * </p>
  *
  * @see domain.DomainPackage#getLabel()
  * @model annotation="gmf.node label='label' tool.small.bundle='org.tura.metamodel.commons' label.icon='false' tool.small.path='icons/label.png'"

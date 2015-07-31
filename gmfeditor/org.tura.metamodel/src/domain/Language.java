@@ -11,12 +11,12 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  *   <li>{@link domain.Language#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.Language#getLang <em>Lang</em>}</li>
  *   <li>{@link domain.Language#getCode <em>Code</em>}</li>
  * </ul>
+ * </p>
  *
  * @see domain.DomainPackage#getLanguage()
  * @model annotation="gmf.node label='lang' border.color='0,0,0' color='255,239,222'"

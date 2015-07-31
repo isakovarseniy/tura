@@ -64,81 +64,77 @@ public class DomainElementChooserDialog extends DefaultElementChooserDialog {
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public DomainElementChooserDialog(Shell parentShell, View view, boolean allowMultiSelection) {
 		super(parentShell, view, new DomainElementChooserDialogContextImpl(allowMultiSelection));
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	private static class DomainElementChooserDialogContextImpl implements DefaultElementChooserDialog.Context {
 
 		/**
-		* @generated
-		*/
+		 * @generated
+		 */
 		private static final String[] FILE_EXTENSIONS = new String[] { "domain" };
 
 		/**
-		* @generated
-		*/
+		 * @generated
+		 */
 		private final boolean myAllowMultiSelection;
 
 		/**
-		* @generated
-		*/
+		 * @generated
+		 */
 		private DomainElementChooserDialogContextImpl(boolean allowMultiSelection) {
 			myAllowMultiSelection = allowMultiSelection;
 		}
 
 		/**
-		* @generated
-		*/
+		 * @generated
+		 */
 		@Override
-
 		public AdapterFactory getAdapterFactory() {
 			return DomainDiagramEditorPlugin.getInstance().getItemProvidersAdapterFactory();
 		}
 
 		/**
-		* @generated
-		*/
+		 * @generated
+		 */
 		@Override
-
 		public PreferencesHint getPreferenceHint() {
 			return DomainDiagramEditorPlugin.DIAGRAM_PREFERENCES_HINT;
 		}
 
 		/**
-		* @generated
-		*/
+		 * @generated
+		 */
 		@Override
-
 		public String[] getFileExtesions() {
 			return FILE_EXTENSIONS.clone();
 		}
 
 		/**
-		* @generated
-		*/
+		 * @generated
+		 */
 		@Override
-
 		public String getDialogTitle() {
 			return Messages.DomainElementChooserDialog_SelectModelElementTitle;
 		}
 
 		/**
-		* @generated
-		*/
+		 * @generated
+		 */
 		@Override
 		public ITreeContentProvider getTreeContentProvider() {
 			return new BaseWorkbenchContentProvider();
 		}
 
 		/**
-		* @generated
-		*/
+		 * @generated
+		 */
 		public boolean allowMultiSelection() {
 			return myAllowMultiSelection;
 		}

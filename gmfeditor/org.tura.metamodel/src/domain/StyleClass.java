@@ -10,10 +10,10 @@ package domain;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  *   <li>{@link domain.StyleClass#getClassifier <em>Classifier</em>}</li>
  * </ul>
+ * </p>
  *
  * @see domain.DomainPackage#getStyleClass()
  * @model

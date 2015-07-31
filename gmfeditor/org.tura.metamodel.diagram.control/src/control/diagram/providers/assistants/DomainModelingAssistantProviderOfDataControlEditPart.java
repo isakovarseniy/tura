@@ -21,10 +21,9 @@ import control.diagram.providers.DomainModelingAssistantProvider;
 public class DomainModelingAssistantProviderOfDataControlEditPart extends DomainModelingAssistantProvider {
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	@Override
-
 	public List<IElementType> getTypesForPopupBar(IAdaptable host) {
 		List<IElementType> types = new ArrayList<IElementType>(12);
 		types.add(DomainElementTypes.PREQueryTrigger_1103002);
@@ -43,18 +42,17 @@ public class DomainModelingAssistantProviderOfDataControlEditPart extends Domain
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	@Override
-
 	public List<IElementType> getRelTypesOnSource(IAdaptable source) {
 		IGraphicalEditPart sourceEditPart = (IGraphicalEditPart) source.getAdapter(IGraphicalEditPart.class);
 		return doGetRelTypesOnSource((DataControlEditPart) sourceEditPart);
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public List<IElementType> doGetRelTypesOnSource(DataControlEditPart source) {
 		List<IElementType> types = new ArrayList<IElementType>(2);
 		types.add(DomainElementTypes.Relation_1104009);
@@ -63,10 +61,9 @@ public class DomainModelingAssistantProviderOfDataControlEditPart extends Domain
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	@Override
-
 	public List<IElementType> getRelTypesOnSourceAndTarget(IAdaptable source, IAdaptable target) {
 		IGraphicalEditPart sourceEditPart = (IGraphicalEditPart) source.getAdapter(IGraphicalEditPart.class);
 		IGraphicalEditPart targetEditPart = (IGraphicalEditPart) target.getAdapter(IGraphicalEditPart.class);
@@ -74,8 +71,8 @@ public class DomainModelingAssistantProviderOfDataControlEditPart extends Domain
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public List<IElementType> doGetRelTypesOnSourceAndTarget(DataControlEditPart source,
 			IGraphicalEditPart targetEditPart) {
 		List<IElementType> types = new LinkedList<IElementType>();
@@ -89,18 +86,17 @@ public class DomainModelingAssistantProviderOfDataControlEditPart extends Domain
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	@Override
-
 	public List<IElementType> getTypesForTarget(IAdaptable source, IElementType relationshipType) {
 		IGraphicalEditPart sourceEditPart = (IGraphicalEditPart) source.getAdapter(IGraphicalEditPart.class);
 		return doGetTypesForTarget((DataControlEditPart) sourceEditPart, relationshipType);
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public List<IElementType> doGetTypesForTarget(DataControlEditPart source, IElementType relationshipType) {
 		List<IElementType> types = new ArrayList<IElementType>();
 		if (relationshipType == DomainElementTypes.Relation_1104009) {
@@ -112,18 +108,17 @@ public class DomainModelingAssistantProviderOfDataControlEditPart extends Domain
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	@Override
-
 	public List<IElementType> getRelTypesOnTarget(IAdaptable target) {
 		IGraphicalEditPart targetEditPart = (IGraphicalEditPart) target.getAdapter(IGraphicalEditPart.class);
 		return doGetRelTypesOnTarget((DataControlEditPart) targetEditPart);
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public List<IElementType> doGetRelTypesOnTarget(DataControlEditPart target) {
 		List<IElementType> types = new ArrayList<IElementType>(2);
 		types.add(DomainElementTypes.Relation_1104009);
@@ -132,18 +127,17 @@ public class DomainModelingAssistantProviderOfDataControlEditPart extends Domain
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	@Override
-
 	public List<IElementType> getTypesForSource(IAdaptable target, IElementType relationshipType) {
 		IGraphicalEditPart targetEditPart = (IGraphicalEditPart) target.getAdapter(IGraphicalEditPart.class);
 		return doGetTypesForSource((DataControlEditPart) targetEditPart, relationshipType);
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public List<IElementType> doGetTypesForSource(DataControlEditPart target, IElementType relationshipType) {
 		List<IElementType> types = new ArrayList<IElementType>();
 		if (relationshipType == DomainElementTypes.Relation_1104009) {

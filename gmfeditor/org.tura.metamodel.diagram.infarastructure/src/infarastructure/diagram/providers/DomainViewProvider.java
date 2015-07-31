@@ -100,11 +100,11 @@ public class DomainViewProvider extends AbstractProvider implements IViewProvide
 	 */
 	protected boolean provides(CreateViewForKindOperation op) {
 		/*
-		    if (op.getViewKind() == Node.class)
-		      return getNodeViewClass(op.getSemanticAdapter(), op.getContainerView(), op.getSemanticHint()) != null;
-		    if (op.getViewKind() == Edge.class)
-		      return getEdgeViewClass(op.getSemanticAdapter(), op.getContainerView(), op.getSemanticHint()) != null;
-		*/
+		 if (op.getViewKind() == Node.class)
+		 return getNodeViewClass(op.getSemanticAdapter(), op.getContainerView(), op.getSemanticHint()) != null;
+		 if (op.getViewKind() == Edge.class)
+		 return getEdgeViewClass(op.getSemanticAdapter(), op.getContainerView(), op.getSemanticHint()) != null;
+		 */
 		return true;
 	}
 
@@ -149,8 +149,8 @@ public class DomainViewProvider extends AbstractProvider implements IViewProvide
 					return false; // visual id for node EClass should match visual id from element type
 				}
 			} else {
-				if (!EnterpriseInfrastructureEditPart.MODEL_ID
-						.equals(DomainVisualIDRegistry.getModelID(op.getContainerView()))) {
+				if (!EnterpriseInfrastructureEditPart.MODEL_ID.equals(DomainVisualIDRegistry.getModelID(op
+						.getContainerView()))) {
 					return false; // foreign diagram
 				}
 				switch (visualID) {
@@ -163,8 +163,8 @@ public class DomainViewProvider extends AbstractProvider implements IViewProvide
 				case StorageEditPart.VISUAL_ID:
 				case ServerClasterEditPart.VISUAL_ID:
 				case Server2EditPart.VISUAL_ID:
-					if (domainElement == null || visualID != DomainVisualIDRegistry
-							.getNodeVisualID(op.getContainerView(), domainElement)) {
+					if (domainElement == null
+							|| visualID != DomainVisualIDRegistry.getNodeVisualID(op.getContainerView(), domainElement)) {
 						return false; // visual id in semantic hint should match visual id for domain element
 					}
 					break;
@@ -189,8 +189,7 @@ public class DomainViewProvider extends AbstractProvider implements IViewProvide
 			return false; // foreign element type
 		}
 		String elementTypeHint = ((IHintedType) elementType).getSemanticHint();
-		if (elementTypeHint == null
-				|| (op.getSemanticHint() != null && !elementTypeHint.equals(op.getSemanticHint()))) {
+		if (elementTypeHint == null || (op.getSemanticHint() != null && !elementTypeHint.equals(op.getSemanticHint()))) {
 			return false; // our hint is visual id and must be specified, and it should be the same as in element type
 		}
 		int visualID = DomainVisualIDRegistry.getVisualID(elementTypeHint);
@@ -379,11 +378,11 @@ public class DomainViewProvider extends AbstractProvider implements IViewProvide
 				IPreferenceConstants.PREF_FILL_COLOR);
 		ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE.getFillStyle_FillColor(),
 				FigureUtilities.RGBToInteger(fillRGB));
-		Node label1205008 = createLabel(node,
-				DomainVisualIDRegistry.getType(InfrastructureLayerNameEditPart.VISUAL_ID));
-		createCompartment(node,
-				DomainVisualIDRegistry.getType(
-						InfrastructureLayerInfrastructureLayerInfrastructureComponentCompartmentEditPart.VISUAL_ID),
+		Node label1205008 = createLabel(node, DomainVisualIDRegistry.getType(InfrastructureLayerNameEditPart.VISUAL_ID));
+		createCompartment(
+				node,
+				DomainVisualIDRegistry
+						.getType(InfrastructureLayerInfrastructureLayerInfrastructureComponentCompartmentEditPart.VISUAL_ID),
 				true, false, false, false);
 		return node;
 	}

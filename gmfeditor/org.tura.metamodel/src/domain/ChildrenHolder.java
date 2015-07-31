@@ -13,10 +13,10 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  *   <li>{@link domain.ChildrenHolder#getChildren <em>Children</em>}</li>
  * </ul>
+ * </p>
  *
  * @see domain.DomainPackage#getChildrenHolder()
  * @model

@@ -11,7 +11,6 @@ import org.eclipse.emf.common.util.EList;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  *   <li>{@link domain.Uielement#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.Uielement#getEnabled <em>Enabled</em>}</li>
@@ -19,6 +18,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link domain.Uielement#getReadOnly <em>Read Only</em>}</li>
  *   <li>{@link domain.Uielement#getOnEventRefreshArea <em>On Event Refresh Area</em>}</li>
  * </ul>
+ * </p>
  *
  * @see domain.DomainPackage#getUielement()
  * @model

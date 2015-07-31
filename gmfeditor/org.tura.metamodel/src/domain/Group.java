@@ -13,13 +13,13 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  *   <li>{@link domain.Group#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.Group#getName <em>Name</em>}</li>
  *   <li>{@link domain.Group#getGroup2Group <em>Group2 Group</em>}</li>
  *   <li>{@link domain.Group#getGroup2Role <em>Group2 Role</em>}</li>
  * </ul>
+ * </p>
  *
  * @see domain.DomainPackage#getGroup()
  * @model annotation="gmf.node figure='org.tura.metamodel.commons.figures.GroupFigure' label.icon='false' label='name' label.placement='external' tool.small.bundle='org.tura.metamodel.commons' tool.small.path='icons/group.png'"

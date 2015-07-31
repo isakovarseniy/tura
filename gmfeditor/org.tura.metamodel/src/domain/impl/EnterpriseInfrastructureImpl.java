@@ -33,7 +33,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  *   <li>{@link domain.impl.EnterpriseInfrastructureImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.impl.EnterpriseInfrastructureImpl#getParent <em>Parent</em>}</li>
@@ -41,6 +40,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link domain.impl.EnterpriseInfrastructureImpl#getInfrastructureConnections <em>Infrastructure Connections</em>}</li>
  *   <li>{@link domain.impl.EnterpriseInfrastructureImpl#getAny <em>Any</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */

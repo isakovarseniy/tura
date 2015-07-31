@@ -125,8 +125,8 @@ public class ApplicationMessagesEditPart extends ShapeNodeEditPart {
 	 */
 	protected boolean addFixedChild(EditPart childEditPart) {
 		if (childEditPart instanceof ApplicationMessagesNameEditPart) {
-			((ApplicationMessagesNameEditPart) childEditPart)
-					.setLabel(getPrimaryShape().getFigureApplicationMessagesLabelFigure());
+			((ApplicationMessagesNameEditPart) childEditPart).setLabel(getPrimaryShape()
+					.getFigureApplicationMessagesLabelFigure());
 			return true;
 		}
 		return false;
@@ -181,8 +181,9 @@ public class ApplicationMessagesEditPart extends ShapeNodeEditPart {
 				EObject obj = ((View) getModel()).getElement();
 				if (obj instanceof Orderable) {
 					EditingDomain editingDomain = getEditingDomain();
-					editingDomain.getCommandStack().execute(SetCommand.create(editingDomain, obj,
-							DomainPackage.eINSTANCE.getOrderable_Order(), evt.getNewValue()));
+					editingDomain.getCommandStack().execute(
+							SetCommand.create(editingDomain, obj, DomainPackage.eINSTANCE.getOrderable_Order(),
+									evt.getNewValue()));
 
 				}
 			}

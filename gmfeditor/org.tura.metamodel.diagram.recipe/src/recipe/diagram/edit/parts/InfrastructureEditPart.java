@@ -130,8 +130,8 @@ public class InfrastructureEditPart extends ShapeNodeEditPart {
 	 */
 	protected boolean addFixedChild(EditPart childEditPart) {
 		if (childEditPart instanceof InfrastructureNameEditPart) {
-			((InfrastructureNameEditPart) childEditPart)
-					.setLabel(getPrimaryShape().getFigureInfrastructureLabelFigure());
+			((InfrastructureNameEditPart) childEditPart).setLabel(getPrimaryShape()
+					.getFigureInfrastructureLabelFigure());
 			return true;
 		}
 		return false;
@@ -186,8 +186,9 @@ public class InfrastructureEditPart extends ShapeNodeEditPart {
 				EObject obj = ((View) getModel()).getElement();
 				if (obj instanceof Orderable) {
 					EditingDomain editingDomain = getEditingDomain();
-					editingDomain.getCommandStack().execute(SetCommand.create(editingDomain, obj,
-							DomainPackage.eINSTANCE.getOrderable_Order(), evt.getNewValue()));
+					editingDomain.getCommandStack().execute(
+							SetCommand.create(editingDomain, obj, DomainPackage.eINSTANCE.getOrderable_Order(),
+									evt.getNewValue()));
 
 				}
 			}
@@ -352,7 +353,6 @@ public class InfrastructureEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	static final Font FFIGUREINFRASTRUCTURELABELFIGURE_FONT = new Font(Display.getCurrent(), "Palatino", 12,
-			SWT.ITALIC);
+	static final Font FFIGUREINFRASTRUCTURELABELFIGURE_FONT = new Font(Display.getCurrent(), "Palatino", 12, SWT.ITALIC);
 
 }

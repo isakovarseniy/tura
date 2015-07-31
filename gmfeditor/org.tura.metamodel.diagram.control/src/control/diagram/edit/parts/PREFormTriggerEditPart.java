@@ -121,8 +121,8 @@ public class PREFormTriggerEditPart extends ShapeNodeEditPart {
 	 */
 	protected boolean addFixedChild(EditPart childEditPart) {
 		if (childEditPart instanceof PREFormTriggerFakeMethodEditPart) {
-			((PREFormTriggerFakeMethodEditPart) childEditPart)
-					.setLabel(getPrimaryShape().getFigurePREFormTriggerLabelFigure());
+			((PREFormTriggerFakeMethodEditPart) childEditPart).setLabel(getPrimaryShape()
+					.getFigurePREFormTriggerLabelFigure());
 			return true;
 		}
 		return false;
@@ -177,8 +177,9 @@ public class PREFormTriggerEditPart extends ShapeNodeEditPart {
 				EObject obj = ((View) getModel()).getElement();
 				if (obj instanceof Orderable) {
 					EditingDomain editingDomain = getEditingDomain();
-					editingDomain.getCommandStack().execute(SetCommand.create(editingDomain, obj,
-							DomainPackage.eINSTANCE.getOrderable_Order(), evt.getNewValue()));
+					editingDomain.getCommandStack().execute(
+							SetCommand.create(editingDomain, obj, DomainPackage.eINSTANCE.getOrderable_Order(),
+									evt.getNewValue()));
 
 				}
 			}
@@ -331,7 +332,6 @@ public class PREFormTriggerEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	static final Font FFIGUREPREFORMTRIGGERLABELFIGURE_FONT = new Font(Display.getCurrent(), "Palatino", 12,
-			SWT.ITALIC);
+	static final Font FFIGUREPREFORMTRIGGERLABELFIGURE_FONT = new Font(Display.getCurrent(), "Palatino", 12, SWT.ITALIC);
 
 }

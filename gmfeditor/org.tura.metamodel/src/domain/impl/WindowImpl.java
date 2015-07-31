@@ -33,13 +33,13 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  *   <li>{@link domain.impl.WindowImpl#getColumns <em>Columns</em>}</li>
  *   <li>{@link domain.impl.WindowImpl#getViewElement <em>View Element</em>}</li>
  *   <li>{@link domain.impl.WindowImpl#getMultiLangLabel <em>Multi Lang Label</em>}</li>
  *   <li>{@link domain.impl.WindowImpl#getClassifiers <em>Classifiers</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */

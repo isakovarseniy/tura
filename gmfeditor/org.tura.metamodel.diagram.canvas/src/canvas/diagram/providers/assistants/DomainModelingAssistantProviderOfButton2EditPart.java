@@ -18,10 +18,9 @@ import canvas.diagram.providers.DomainModelingAssistantProvider;
 public class DomainModelingAssistantProviderOfButton2EditPart extends DomainModelingAssistantProvider {
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	@Override
-
 	public List<IElementType> getTypesForPopupBar(IAdaptable host) {
 		List<IElementType> types = new ArrayList<IElementType>(1);
 		types.add(DomainElementTypes.ActionTrigger_1603027);

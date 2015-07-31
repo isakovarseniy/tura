@@ -60,10 +60,10 @@ public class DomainElementTypes {
 	private static Map<IElementType, ENamedElement> elements;
 
 	/**
-	* @generated
-	*/
-	private static DiagramElementTypeImages elementTypeImages = new DiagramElementTypeImages(
-			DomainDiagramEditorPlugin.getInstance().getItemProvidersAdapterFactory());
+	 * @generated
+	 */
+	private static DiagramElementTypeImages elementTypeImages = new DiagramElementTypeImages(DomainDiagramEditorPlugin
+			.getInstance().getItemProvidersAdapterFactory());
 
 	/**
 	 * @generated
@@ -73,8 +73,7 @@ public class DomainElementTypes {
 	/**
 	 * @generated
 	 */
-	public static final IElementType Controls_1101000 = getElementType(
-			"org.tura.metamodel.diagram.control.Controls_1101000"); //$NON-NLS-1$
+	public static final IElementType Controls_1101000 = getElementType("org.tura.metamodel.diagram.control.Controls_1101000"); //$NON-NLS-1$
 	/**
 	 * @generated
 	 */
@@ -82,90 +81,73 @@ public class DomainElementTypes {
 	/**
 	 * @generated
 	 */
-	public static final IElementType DataControl_1102002 = getElementType(
-			"org.tura.metamodel.diagram.control.DataControl_1102002"); //$NON-NLS-1$
+	public static final IElementType DataControl_1102002 = getElementType("org.tura.metamodel.diagram.control.DataControl_1102002"); //$NON-NLS-1$
 	/**
 	 * @generated
 	 */
-	public static final IElementType PREFormTrigger_1103001 = getElementType(
-			"org.tura.metamodel.diagram.control.PREFormTrigger_1103001"); //$NON-NLS-1$
+	public static final IElementType PREFormTrigger_1103001 = getElementType("org.tura.metamodel.diagram.control.PREFormTrigger_1103001"); //$NON-NLS-1$
 	/**
 	 * @generated
 	 */
-	public static final IElementType FormVariable_1103017 = getElementType(
-			"org.tura.metamodel.diagram.control.FormVariable_1103017"); //$NON-NLS-1$
+	public static final IElementType FormVariable_1103017 = getElementType("org.tura.metamodel.diagram.control.FormVariable_1103017"); //$NON-NLS-1$
 
 	/**
 	 * @generated
 	 */
-	public static final IElementType PREQueryTrigger_1103002 = getElementType(
-			"org.tura.metamodel.diagram.control.PREQueryTrigger_1103002"); //$NON-NLS-1$
+	public static final IElementType PREQueryTrigger_1103002 = getElementType("org.tura.metamodel.diagram.control.PREQueryTrigger_1103002"); //$NON-NLS-1$
 	/**
 	 * @generated
 	 */
-	public static final IElementType POSTQueryTrigger_1103003 = getElementType(
-			"org.tura.metamodel.diagram.control.POSTQueryTrigger_1103003"); //$NON-NLS-1$
+	public static final IElementType POSTQueryTrigger_1103003 = getElementType("org.tura.metamodel.diagram.control.POSTQueryTrigger_1103003"); //$NON-NLS-1$
 	/**
 	 * @generated
 	 */
-	public static final IElementType PREInsertTrigger_1103004 = getElementType(
-			"org.tura.metamodel.diagram.control.PREInsertTrigger_1103004"); //$NON-NLS-1$
+	public static final IElementType PREInsertTrigger_1103004 = getElementType("org.tura.metamodel.diagram.control.PREInsertTrigger_1103004"); //$NON-NLS-1$
 	/**
 	 * @generated
 	 */
-	public static final IElementType PREDeleteTrigger_1103005 = getElementType(
-			"org.tura.metamodel.diagram.control.PREDeleteTrigger_1103005"); //$NON-NLS-1$
+	public static final IElementType PREDeleteTrigger_1103005 = getElementType("org.tura.metamodel.diagram.control.PREDeleteTrigger_1103005"); //$NON-NLS-1$
 	/**
 	 * @generated
 	 */
-	public static final IElementType POSTCreateTrigger_1103011 = getElementType(
-			"org.tura.metamodel.diagram.control.POSTCreateTrigger_1103011"); //$NON-NLS-1$
+	public static final IElementType POSTCreateTrigger_1103011 = getElementType("org.tura.metamodel.diagram.control.POSTCreateTrigger_1103011"); //$NON-NLS-1$
 	/**
 	 * @generated
 	 */
-	public static final IElementType PREUpdateTrigger_1103010 = getElementType(
-			"org.tura.metamodel.diagram.control.PREUpdateTrigger_1103010"); //$NON-NLS-1$
+	public static final IElementType PREUpdateTrigger_1103010 = getElementType("org.tura.metamodel.diagram.control.PREUpdateTrigger_1103010"); //$NON-NLS-1$
 	/**
 	 * @generated
 	 */
-	public static final IElementType CreateTrigger_1103012 = getElementType(
-			"org.tura.metamodel.diagram.control.CreateTrigger_1103012"); //$NON-NLS-1$
+	public static final IElementType CreateTrigger_1103012 = getElementType("org.tura.metamodel.diagram.control.CreateTrigger_1103012"); //$NON-NLS-1$
 	/**
 	 * @generated
 	 */
-	public static final IElementType InsertTrigger_1103013 = getElementType(
-			"org.tura.metamodel.diagram.control.InsertTrigger_1103013"); //$NON-NLS-1$
+	public static final IElementType InsertTrigger_1103013 = getElementType("org.tura.metamodel.diagram.control.InsertTrigger_1103013"); //$NON-NLS-1$
 	/**
 	 * @generated
 	 */
-	public static final IElementType UpdateTrigger_1103014 = getElementType(
-			"org.tura.metamodel.diagram.control.UpdateTrigger_1103014"); //$NON-NLS-1$
+	public static final IElementType UpdateTrigger_1103014 = getElementType("org.tura.metamodel.diagram.control.UpdateTrigger_1103014"); //$NON-NLS-1$
 	/**
 	 * @generated
 	 */
-	public static final IElementType DeleteTrigger_1103015 = getElementType(
-			"org.tura.metamodel.diagram.control.DeleteTrigger_1103015"); //$NON-NLS-1$
+	public static final IElementType DeleteTrigger_1103015 = getElementType("org.tura.metamodel.diagram.control.DeleteTrigger_1103015"); //$NON-NLS-1$
 	/**
 	 * @generated
 	 */
-	public static final IElementType SearchTrigger_1103016 = getElementType(
-			"org.tura.metamodel.diagram.control.SearchTrigger_1103016"); //$NON-NLS-1$
+	public static final IElementType SearchTrigger_1103016 = getElementType("org.tura.metamodel.diagram.control.SearchTrigger_1103016"); //$NON-NLS-1$
 	/**
 	 * @generated
 	 */
-	public static final IElementType ArtificialField_1103008 = getElementType(
-			"org.tura.metamodel.diagram.control.ArtificialField_1103008"); //$NON-NLS-1$
+	public static final IElementType ArtificialField_1103008 = getElementType("org.tura.metamodel.diagram.control.ArtificialField_1103008"); //$NON-NLS-1$
 	/**
 	 * @generated
 	 */
-	public static final IElementType Relation_1104009 = getElementType(
-			"org.tura.metamodel.diagram.control.Relation_1104009"); //$NON-NLS-1$
+	public static final IElementType Relation_1104009 = getElementType("org.tura.metamodel.diagram.control.Relation_1104009"); //$NON-NLS-1$
 
 	/**
 	 * @generated
 	 */
-	public static final IElementType Dependency_1104010 = getElementType(
-			"org.tura.metamodel.diagram.control.Dependency_1104010"); //$NON-NLS-1$
+	public static final IElementType Dependency_1104010 = getElementType("org.tura.metamodel.diagram.control.Dependency_1104010"); //$NON-NLS-1$
 
 	/**
 	 * @generated
@@ -330,33 +312,30 @@ public class DomainElementTypes {
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static final DiagramElementTypes TYPED_INSTANCE = new DiagramElementTypes(elementTypeImages) {
 
 		/**
-		* @generated
-		*/
+		 * @generated
+		 */
 		@Override
-
 		public boolean isKnownElementType(IElementType elementType) {
 			return control.diagram.providers.DomainElementTypes.isKnownElementType(elementType);
 		}
 
 		/**
-		* @generated
-		*/
+		 * @generated
+		 */
 		@Override
-
 		public IElementType getElementTypeForVisualId(int visualID) {
 			return control.diagram.providers.DomainElementTypes.getElementType(visualID);
 		}
 
 		/**
-		* @generated
-		*/
+		 * @generated
+		 */
 		@Override
-
 		public ENamedElement getDefiningNamedElement(IAdaptable elementTypeAdapter) {
 			return control.diagram.providers.DomainElementTypes.getElement(elementTypeAdapter);
 		}

@@ -126,8 +126,8 @@ public class ApplicationMappersEditPart extends ShapeNodeEditPart {
 	 */
 	protected boolean addFixedChild(EditPart childEditPart) {
 		if (childEditPart instanceof ApplicationMappersNameEditPart) {
-			((ApplicationMappersNameEditPart) childEditPart)
-					.setLabel(getPrimaryShape().getFigureApplicationMappersLabelFigure());
+			((ApplicationMappersNameEditPart) childEditPart).setLabel(getPrimaryShape()
+					.getFigureApplicationMappersLabelFigure());
 			return true;
 		}
 		if (childEditPart instanceof ApplicationMappersApplicationMappersMappersCompartmentEditPart) {
@@ -196,8 +196,9 @@ public class ApplicationMappersEditPart extends ShapeNodeEditPart {
 				EObject obj = ((View) getModel()).getElement();
 				if (obj instanceof Orderable) {
 					EditingDomain editingDomain = getEditingDomain();
-					editingDomain.getCommandStack().execute(SetCommand.create(editingDomain, obj,
-							DomainPackage.eINSTANCE.getOrderable_Order(), evt.getNewValue()));
+					editingDomain.getCommandStack().execute(
+							SetCommand.create(editingDomain, obj, DomainPackage.eINSTANCE.getOrderable_Order(),
+									evt.getNewValue()));
 
 				}
 			}
@@ -340,8 +341,8 @@ public class ApplicationMappersEditPart extends ShapeNodeEditPart {
 
 			fFigureApplicationMappersLabelFigure.setFont(FFIGUREAPPLICATIONMAPPERSLABELFIGURE_FONT);
 
-			fFigureApplicationMappersLabelFigure
-					.setMaximumSize(new Dimension(getMapMode().DPtoLP(10000), getMapMode().DPtoLP(50)));
+			fFigureApplicationMappersLabelFigure.setMaximumSize(new Dimension(getMapMode().DPtoLP(10000), getMapMode()
+					.DPtoLP(50)));
 
 			this.add(fFigureApplicationMappersLabelFigure);
 

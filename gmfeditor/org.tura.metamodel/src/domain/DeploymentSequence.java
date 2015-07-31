@@ -11,12 +11,12 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  *   <li>{@link domain.DeploymentSequence#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.DeploymentSequence#getName <em>Name</em>}</li>
  *   <li>{@link domain.DeploymentSequence#getDeploymentComponents <em>Deployment Components</em>}</li>
  * </ul>
+ * </p>
  *
  * @see domain.DomainPackage#getDeploymentSequence()
  * @model annotation="gmf.node label='name' border.color='0,0,0' color='177,201,236'"

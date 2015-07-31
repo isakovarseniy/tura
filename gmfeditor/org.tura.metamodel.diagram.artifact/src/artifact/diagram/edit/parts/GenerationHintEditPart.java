@@ -122,8 +122,8 @@ public class GenerationHintEditPart extends ShapeNodeEditPart {
 	 */
 	protected boolean addFixedChild(EditPart childEditPart) {
 		if (childEditPart instanceof GenerationHintNameEditPart) {
-			((GenerationHintNameEditPart) childEditPart)
-					.setLabel(getPrimaryShape().getFigureGenerationHintLabelFigure());
+			((GenerationHintNameEditPart) childEditPart).setLabel(getPrimaryShape()
+					.getFigureGenerationHintLabelFigure());
 			return true;
 		}
 		return false;
@@ -178,8 +178,9 @@ public class GenerationHintEditPart extends ShapeNodeEditPart {
 				EObject obj = ((View) getModel()).getElement();
 				if (obj instanceof Orderable) {
 					EditingDomain editingDomain = getEditingDomain();
-					editingDomain.getCommandStack().execute(SetCommand.create(editingDomain, obj,
-							DomainPackage.eINSTANCE.getOrderable_Order(), evt.getNewValue()));
+					editingDomain.getCommandStack().execute(
+							SetCommand.create(editingDomain, obj, DomainPackage.eINSTANCE.getOrderable_Order(),
+									evt.getNewValue()));
 
 				}
 			}
@@ -332,7 +333,6 @@ public class GenerationHintEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	static final Font FFIGUREGENERATIONHINTLABELFIGURE_FONT = new Font(Display.getCurrent(), "Palatino", 12,
-			SWT.ITALIC);
+	static final Font FFIGUREGENERATIONHINTLABELFIGURE_FONT = new Font(Display.getCurrent(), "Palatino", 12, SWT.ITALIC);
 
 }

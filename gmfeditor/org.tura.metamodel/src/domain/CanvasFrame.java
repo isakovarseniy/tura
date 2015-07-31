@@ -10,11 +10,11 @@ package domain;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  *   <li>{@link domain.CanvasFrame#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.CanvasFrame#getName <em>Name</em>}</li>
  * </ul>
+ * </p>
  *
  * @see domain.DomainPackage#getCanvasFrame()
  * @model

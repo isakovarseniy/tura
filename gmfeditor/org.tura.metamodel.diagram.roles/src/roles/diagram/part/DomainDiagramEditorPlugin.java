@@ -39,8 +39,8 @@ public class DomainDiagramEditorPlugin extends AbstractUIPlugin {
 	public static final String ID = "org.tura.metamodel.diagram.roles"; //$NON-NLS-1$
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	private LogHelper myLogHelper;
 
 	/**
@@ -169,8 +169,8 @@ public class DomainDiagramEditorPlugin extends AbstractUIPlugin {
 	public static ImageDescriptor findImageDescriptor(String path) {
 		final IPath p = new Path(path);
 		if (p.isAbsolute() && p.segmentCount() > 1) {
-			return AbstractUIPlugin.imageDescriptorFromPlugin(p.segment(0),
-					p.removeFirstSegments(1).makeAbsolute().toString());
+			return AbstractUIPlugin.imageDescriptorFromPlugin(p.segment(0), p.removeFirstSegments(1).makeAbsolute()
+					.toString());
 		} else {
 			return getBundledImageDescriptor(p.makeAbsolute().toString());
 		}
@@ -269,8 +269,8 @@ public class DomainDiagramEditorPlugin extends AbstractUIPlugin {
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public LogHelper getLogHelper() {
 		return myLogHelper;
 	}

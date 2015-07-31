@@ -20,7 +20,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  *   <li>{@link domain.impl.CSSMapperImpl#getLibraryUrl <em>Library Url</em>}</li>
  *   <li>{@link domain.impl.CSSMapperImpl#getStylePackage <em>Style Package</em>}</li>
@@ -28,6 +27,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *   <li>{@link domain.impl.CSSMapperImpl#getFakePackageName <em>Fake Package Name</em>}</li>
  *   <li>{@link domain.impl.CSSMapperImpl#getFakeTypeName <em>Fake Type Name</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */

@@ -15,8 +15,8 @@ import message.diagram.part.DomainVisualIDRegistry;
 public class DomainEditPartProvider extends DefaultEditPartProvider {
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public DomainEditPartProvider() {
 		super(new DomainEditPartFactory(), DomainVisualIDRegistry.TYPED_INSTANCE, MessagesEditPart.MODEL_ID);
 	}

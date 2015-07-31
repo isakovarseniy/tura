@@ -11,12 +11,12 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  *   <li>{@link domain.Translation#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.Translation#getTranslation <em>Translation</em>}</li>
  *   <li>{@link domain.Translation#getLang <em>Lang</em>}</li>
  * </ul>
+ * </p>
  *
  * @see domain.DomainPackage#getTranslation()
  * @model

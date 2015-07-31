@@ -82,8 +82,8 @@ public class DomainDiagramEditor extends DiagramDocumentEditor implements IGotoM
 	public static final String CONTEXT_ID = "infarastructure.diagram.ui.diagramContext"; //$NON-NLS-1$
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	private LastClickPositionProvider myLastClickPositionProvider;
 
 	/**
@@ -326,8 +326,8 @@ public class DomainDiagramEditor extends DiagramDocumentEditor implements IGotoM
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	protected void startupLastClickPositionProvider() {
 		if (myLastClickPositionProvider == null) {
 			myLastClickPositionProvider = new LastClickPositionProvider(this);
@@ -336,8 +336,8 @@ public class DomainDiagramEditor extends DiagramDocumentEditor implements IGotoM
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	protected void shutDownLastClickPositionProvider() {
 		if (myLastClickPositionProvider != null) {
 			myLastClickPositionProvider.detachFromService();
@@ -347,8 +347,8 @@ public class DomainDiagramEditor extends DiagramDocumentEditor implements IGotoM
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	@Override
 	public void dispose() {
 		shutDownLastClickPositionProvider();

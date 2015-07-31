@@ -26,13 +26,13 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  *   <li>{@link domain.impl.RootImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.impl.RootImpl#getName <em>Name</em>}</li>
  *   <li>{@link domain.impl.RootImpl#getPreFormTrigger <em>Pre Form Trigger</em>}</li>
  *   <li>{@link domain.impl.RootImpl#getVariables <em>Variables</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */

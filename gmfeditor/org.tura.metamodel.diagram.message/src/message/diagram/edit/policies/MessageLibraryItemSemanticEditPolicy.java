@@ -1,6 +1,6 @@
 /*
-* 
-*/
+ * 
+ */
 package message.diagram.edit.policies;
 
 import java.util.Iterator;
@@ -26,15 +26,15 @@ import message.diagram.providers.DomainElementTypes;
 public class MessageLibraryItemSemanticEditPolicy extends DomainBaseItemSemanticEditPolicy {
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public MessageLibraryItemSemanticEditPolicy() {
 		super(DomainElementTypes.MessageLibrary_1702001);
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	protected Command getDestroyElementCommand(DestroyElementRequest req) {
 		View view = (View) getHost().getModel();
 		CompositeTransactionalCommand cmd = new CompositeTransactionalCommand(getEditingDomain(), null);
@@ -53,8 +53,8 @@ public class MessageLibraryItemSemanticEditPolicy extends DomainBaseItemSemantic
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	private void addDestroyChildNodesCommand(ICompositeCommand cmd) {
 		View view = (View) getHost().getModel();
 		for (Iterator<?> nit = view.getChildren().iterator(); nit.hasNext();) {
@@ -65,8 +65,8 @@ public class MessageLibraryItemSemanticEditPolicy extends DomainBaseItemSemantic
 					Node cnode = (Node) cit.next();
 					switch (DomainVisualIDRegistry.getVisualID(cnode)) {
 					case MessageEditPart.VISUAL_ID:
-						cmd.add(new DestroyElementCommand(
-								new DestroyElementRequest(getEditingDomain(), cnode.getElement(), false))); // directlyOwned: true
+						cmd.add(new DestroyElementCommand(new DestroyElementRequest(getEditingDomain(), cnode
+								.getElement(), false))); // directlyOwned: true
 						// don't need explicit deletion of cnode as parent's view deletion would clean child views as well 
 						// cmd.add(new org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(), cnode));
 						break;

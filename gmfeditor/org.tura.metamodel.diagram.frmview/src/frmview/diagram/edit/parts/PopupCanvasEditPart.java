@@ -201,8 +201,9 @@ public class PopupCanvasEditPart extends ShapeNodeEditPart {
 				EObject obj = ((View) getModel()).getElement();
 				if (obj instanceof Orderable) {
 					EditingDomain editingDomain = getEditingDomain();
-					editingDomain.getCommandStack().execute(SetCommand.create(editingDomain, obj,
-							DomainPackage.eINSTANCE.getOrderable_Order(), evt.getNewValue()));
+					editingDomain.getCommandStack().execute(
+							SetCommand.create(editingDomain, obj, DomainPackage.eINSTANCE.getOrderable_Order(),
+									evt.getNewValue()));
 
 				}
 			}
@@ -345,8 +346,8 @@ public class PopupCanvasEditPart extends ShapeNodeEditPart {
 
 			fFigurePopupCanvasLabelFigure.setFont(FFIGUREPOPUPCANVASLABELFIGURE_FONT);
 
-			fFigurePopupCanvasLabelFigure
-					.setMaximumSize(new Dimension(getMapMode().DPtoLP(10000), getMapMode().DPtoLP(50)));
+			fFigurePopupCanvasLabelFigure.setMaximumSize(new Dimension(getMapMode().DPtoLP(10000), getMapMode().DPtoLP(
+					50)));
 
 			this.add(fFigurePopupCanvasLabelFigure);
 

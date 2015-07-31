@@ -47,10 +47,10 @@ public class DomainElementTypes {
 	private static Map<IElementType, ENamedElement> elements;
 
 	/**
-	* @generated
-	*/
-	private static DiagramElementTypeImages elementTypeImages = new DiagramElementTypeImages(
-			DomainDiagramEditorPlugin.getInstance().getItemProvidersAdapterFactory());
+	 * @generated
+	 */
+	private static DiagramElementTypeImages elementTypeImages = new DiagramElementTypeImages(DomainDiagramEditorPlugin
+			.getInstance().getItemProvidersAdapterFactory());
 
 	/**
 	 * @generated
@@ -60,34 +60,28 @@ public class DomainElementTypes {
 	/**
 	 * @generated
 	 */
-	public static final IElementType Artifacts_701000 = getElementType(
-			"org.tura.metamodel.diagram.artifact.Artifacts_701000"); //$NON-NLS-1$
+	public static final IElementType Artifacts_701000 = getElementType("org.tura.metamodel.diagram.artifact.Artifacts_701000"); //$NON-NLS-1$
 	/**
 	 * @generated
 	 */
-	public static final IElementType Artifact_702001 = getElementType(
-			"org.tura.metamodel.diagram.artifact.Artifact_702001"); //$NON-NLS-1$
+	public static final IElementType Artifact_702001 = getElementType("org.tura.metamodel.diagram.artifact.Artifact_702001"); //$NON-NLS-1$
 	/**
 	 * @generated
 	 */
-	public static final IElementType ConfigVariable_703004 = getElementType(
-			"org.tura.metamodel.diagram.artifact.ConfigVariable_703004"); //$NON-NLS-1$
+	public static final IElementType ConfigVariable_703004 = getElementType("org.tura.metamodel.diagram.artifact.ConfigVariable_703004"); //$NON-NLS-1$
 	/**
 	 * @generated
 	 */
-	public static final IElementType ModelQuery_703005 = getElementType(
-			"org.tura.metamodel.diagram.artifact.ModelQuery_703005"); //$NON-NLS-1$
+	public static final IElementType ModelQuery_703005 = getElementType("org.tura.metamodel.diagram.artifact.ModelQuery_703005"); //$NON-NLS-1$
 	/**
 	 * @generated
 	 */
-	public static final IElementType Specifier_703003 = getElementType(
-			"org.tura.metamodel.diagram.artifact.Specifier_703003"); //$NON-NLS-1$
+	public static final IElementType Specifier_703003 = getElementType("org.tura.metamodel.diagram.artifact.Specifier_703003"); //$NON-NLS-1$
 
 	/**
 	 * @generated
 	 */
-	public static final IElementType GenerationHint_703006 = getElementType(
-			"org.tura.metamodel.diagram.artifact.GenerationHint_703006"); //$NON-NLS-1$
+	public static final IElementType GenerationHint_703006 = getElementType("org.tura.metamodel.diagram.artifact.GenerationHint_703006"); //$NON-NLS-1$
 
 	/**
 	 * @generated
@@ -187,33 +181,30 @@ public class DomainElementTypes {
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static final DiagramElementTypes TYPED_INSTANCE = new DiagramElementTypes(elementTypeImages) {
 
 		/**
-		* @generated
-		*/
+		 * @generated
+		 */
 		@Override
-
 		public boolean isKnownElementType(IElementType elementType) {
 			return artifact.diagram.providers.DomainElementTypes.isKnownElementType(elementType);
 		}
 
 		/**
-		* @generated
-		*/
+		 * @generated
+		 */
 		@Override
-
 		public IElementType getElementTypeForVisualId(int visualID) {
 			return artifact.diagram.providers.DomainElementTypes.getElementType(visualID);
 		}
 
 		/**
-		* @generated
-		*/
+		 * @generated
+		 */
 		@Override
-
 		public ENamedElement getDefiningNamedElement(IAdaptable elementTypeAdapter) {
 			return artifact.diagram.providers.DomainElementTypes.getElement(elementTypeAdapter);
 		}

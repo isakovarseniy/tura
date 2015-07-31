@@ -30,13 +30,13 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  *   <li>{@link domain.impl.SpecifierImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.impl.SpecifierImpl#getName <em>Name</em>}</li>
  *   <li>{@link domain.impl.SpecifierImpl#getParent <em>Parent</em>}</li>
  *   <li>{@link domain.impl.SpecifierImpl#getOptions <em>Options</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */

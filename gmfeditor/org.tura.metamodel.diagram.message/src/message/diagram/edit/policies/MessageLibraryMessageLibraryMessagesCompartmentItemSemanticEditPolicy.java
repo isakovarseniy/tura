@@ -1,6 +1,6 @@
 /*
-* 
-*/
+ * 
+ */
 package message.diagram.edit.policies;
 
 import org.eclipse.gef.commands.Command;
@@ -12,19 +12,19 @@ import message.diagram.providers.DomainElementTypes;
 /**
  * @generated
  */
-public class MessageLibraryMessageLibraryMessagesCompartmentItemSemanticEditPolicy
-		extends DomainBaseItemSemanticEditPolicy {
+public class MessageLibraryMessageLibraryMessagesCompartmentItemSemanticEditPolicy extends
+		DomainBaseItemSemanticEditPolicy {
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public MessageLibraryMessageLibraryMessagesCompartmentItemSemanticEditPolicy() {
 		super(DomainElementTypes.MessageLibrary_1702001);
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	protected Command getCreateCommand(CreateElementRequest req) {
 		if (DomainElementTypes.Message_1703004 == req.getElementType()) {
 			return getGEFWrapper(new MessageCreateCommand(req));

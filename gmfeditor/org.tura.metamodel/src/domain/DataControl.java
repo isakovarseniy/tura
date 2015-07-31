@@ -13,7 +13,6 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  *   <li>{@link domain.DataControl#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.DataControl#getName <em>Name</em>}</li>
@@ -34,6 +33,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link domain.DataControl#getDefaultSearch <em>Default Search</em>}</li>
  *   <li>{@link domain.DataControl#getDefaultOrderBy <em>Default Order By</em>}</li>
  * </ul>
+ * </p>
  *
  * @see domain.DomainPackage#getDataControl()
  * @model annotation="gmf.node label='name' border.color='0,0,0' color='241,238,203'"

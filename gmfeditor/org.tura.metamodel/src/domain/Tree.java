@@ -12,12 +12,12 @@ import org.eclipse.emf.common.util.EList;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  *   <li>{@link domain.Tree#getLabel <em>Label</em>}</li>
  *   <li>{@link domain.Tree#getImage <em>Image</em>}</li>
  *   <li>{@link domain.Tree#getCols <em>Cols</em>}</li>
  * </ul>
+ * </p>
  *
  * @see domain.DomainPackage#getTree()
  * @model annotation="gmf.node label='label' tool.small.bundle='org.tura.metamodel.commons' tool.small.path='icons/tree.png'"

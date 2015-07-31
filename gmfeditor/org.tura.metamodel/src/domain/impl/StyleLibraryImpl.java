@@ -28,12 +28,12 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  *   <li>{@link domain.impl.StyleLibraryImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.impl.StyleLibraryImpl#getName <em>Name</em>}</li>
  *   <li>{@link domain.impl.StyleLibraryImpl#getStyles <em>Styles</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */

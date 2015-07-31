@@ -11,13 +11,13 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  *   <li>{@link domain.TypesRepository#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.TypesRepository#getTypeDefinition <em>Type Definition</em>}</li>
  *   <li>{@link domain.TypesRepository#getParent <em>Parent</em>}</li>
  *   <li>{@link domain.TypesRepository#getAny <em>Any</em>}</li>
  * </ul>
+ * </p>
  *
  * @see domain.DomainPackage#getTypesRepository()
  * @model

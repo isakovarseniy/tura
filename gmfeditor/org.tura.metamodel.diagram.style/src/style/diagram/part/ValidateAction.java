@@ -104,8 +104,8 @@ public class ValidateAction extends Action {
 	 * @generated
 	 */
 	public static void runNonUIValidation(View view) {
-		DiagramEditPart diagramEditPart = OffscreenEditPartFactory.getInstance()
-				.createDiagramEditPart(view.getDiagram());
+		DiagramEditPart diagramEditPart = OffscreenEditPartFactory.getInstance().createDiagramEditPart(
+				view.getDiagram());
 		runValidation(diagramEditPart, view);
 	}
 
@@ -147,8 +147,8 @@ public class ValidateAction extends Action {
 		IFile target = view.eResource() != null ? WorkspaceSynchronizer.getFile(view.eResource()) : null;
 
 		TuraValidator.runTuraValidator(view);
-		IBatchValidator validator = (IBatchValidator) ModelValidationService.getInstance()
-				.newValidator(EvaluationMode.BATCH);
+		IBatchValidator validator = (IBatchValidator) ModelValidationService.getInstance().newValidator(
+				EvaluationMode.BATCH);
 		validator.setIncludeLiveConstraints(true);
 		if (view.isSetElement() && view.getElement() != null) {
 			IStatus status = validator.validate(view.getElement());
@@ -199,8 +199,8 @@ public class ValidateAction extends Action {
 		}
 
 		DomainDiagramEditorUtil.LazyElement2ViewMap element2ViewMap = new DomainDiagramEditorUtil.LazyElement2ViewMap(
-				diagramEditPart.getDiagramView(),
-				collectTargetElements(rootStatus, new HashSet<EObject>(), allDiagnostics));
+				diagramEditPart.getDiagramView(), collectTargetElements(rootStatus, new HashSet<EObject>(),
+						allDiagnostics));
 		for (Iterator it = hash.values().iterator(); it.hasNext();) {
 			Diagnostic nextDiagnostic = (Diagnostic) it.next();
 			List data = nextDiagnostic.getData();

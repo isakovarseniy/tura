@@ -94,8 +94,8 @@ public class DomainCreationWizard extends Wizard implements INewWizard {
 		this.workbench = workbench;
 		this.selection = selection;
 		setWindowTitle(Messages.DomainCreationWizardTitle);
-		setDefaultPageImageDescriptor(
-				DomainDiagramEditorPlugin.getBundledImageDescriptor("icons/wizban/NewDomainWizard.gif")); //$NON-NLS-1$
+		setDefaultPageImageDescriptor(DomainDiagramEditorPlugin
+				.getBundledImageDescriptor("icons/wizban/NewDomainWizard.gif")); //$NON-NLS-1$
 		setNeedsProgressMonitor(true);
 	}
 
@@ -103,8 +103,8 @@ public class DomainCreationWizard extends Wizard implements INewWizard {
 	 * @generated
 	 */
 	public void addPages() {
-		diagramModelFilePage = new DomainCreationWizardPage("DiagramModelFile", getSelection(), //$NON-NLS-1$
-				"typedefinition_diagram"); //$NON-NLS-1$
+		diagramModelFilePage = new DomainCreationWizardPage(
+				"DiagramModelFile", getSelection(), "typedefinition_diagram"); //$NON-NLS-1$ //$NON-NLS-2$
 		diagramModelFilePage.setTitle(Messages.DomainCreationWizard_DiagramModelFilePageTitle);
 		diagramModelFilePage.setDescription(Messages.DomainCreationWizard_DiagramModelFilePageDescription);
 		addPage(diagramModelFilePage);

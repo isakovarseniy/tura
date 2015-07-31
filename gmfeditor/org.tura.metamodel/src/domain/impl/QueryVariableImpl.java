@@ -20,12 +20,12 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  *   <li>{@link domain.impl.QueryVariableImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.impl.QueryVariableImpl#getQueryParamRef <em>Query Param Ref</em>}</li>
  *   <li>{@link domain.impl.QueryVariableImpl#getValue <em>Value</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */

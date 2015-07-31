@@ -59,8 +59,8 @@ public class DomainPaletteFactory {
 				Messages.ApplicationInfrastructureLayer1CreationTool_desc,
 				Collections.singletonList(DomainElementTypes.ApplicationInfrastructureLayer_802004));
 		entry.setId("createApplicationInfrastructureLayer1CreationTool"); //$NON-NLS-1$
-		entry.setSmallIcon(
-				DomainElementTypes.getImageDescriptor(DomainElementTypes.ApplicationInfrastructureLayer_802004));
+		entry.setSmallIcon(DomainElementTypes
+				.getImageDescriptor(DomainElementTypes.ApplicationInfrastructureLayer_802004));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}

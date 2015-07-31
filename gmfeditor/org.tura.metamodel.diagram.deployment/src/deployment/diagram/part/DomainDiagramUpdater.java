@@ -131,8 +131,7 @@ public class DomainDiagramUpdater {
 	public static List<DomainLinkDescriptor> getDeploymentComponent_902001ContainedLinks(View view) {
 		DeploymentComponent modelElement = (DeploymentComponent) view.getElement();
 		LinkedList<DomainLinkDescriptor> result = new LinkedList<DomainLinkDescriptor>();
-		result.addAll(
-				getOutgoingFeatureModelFacetLinks_DeploymentComponent_DeploymentComponentLink_904014(modelElement));
+		result.addAll(getOutgoingFeatureModelFacetLinks_DeploymentComponent_DeploymentComponentLink_904014(modelElement));
 		return result;
 	}
 
@@ -151,13 +150,13 @@ public class DomainDiagramUpdater {
 	 */
 	public static List<DomainLinkDescriptor> getDeploymentComponent_902001IncomingLinks(View view) {
 		DeploymentComponent modelElement = (DeploymentComponent) view.getElement();
-		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
-				.find(view.eResource().getResourceSet().getResources());
+		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer.find(view
+				.eResource().getResourceSet().getResources());
 		LinkedList<DomainLinkDescriptor> result = new LinkedList<DomainLinkDescriptor>();
-		result.addAll(getIncomingFeatureModelFacetLinks_DeploymentComponent_DeploymentComponentLink_904014(modelElement,
+		result.addAll(getIncomingFeatureModelFacetLinks_DeploymentComponent_DeploymentComponentLink_904014(
+				modelElement, crossReferences));
+		result.addAll(getIncomingFeatureModelFacetLinks_DeploymentStarStep_FirstStep_904008(modelElement,
 				crossReferences));
-		result.addAll(
-				getIncomingFeatureModelFacetLinks_DeploymentStarStep_FirstStep_904008(modelElement, crossReferences));
 		return result;
 	}
 
@@ -174,8 +173,7 @@ public class DomainDiagramUpdater {
 	public static List<DomainLinkDescriptor> getDeploymentComponent_902001OutgoingLinks(View view) {
 		DeploymentComponent modelElement = (DeploymentComponent) view.getElement();
 		LinkedList<DomainLinkDescriptor> result = new LinkedList<DomainLinkDescriptor>();
-		result.addAll(
-				getOutgoingFeatureModelFacetLinks_DeploymentComponent_DeploymentComponentLink_904014(modelElement));
+		result.addAll(getOutgoingFeatureModelFacetLinks_DeploymentComponent_DeploymentComponentLink_904014(modelElement));
 		return result;
 	}
 
@@ -260,37 +258,33 @@ public class DomainDiagramUpdater {
 	 */
 	public static final DiagramUpdater TYPED_INSTANCE = new DiagramUpdater() {
 		/**
-		* @generated
-		*/
+		 * @generated
+		 */
 		@Override
-
 		public List<DomainNodeDescriptor> getSemanticChildren(View view) {
 			return DomainDiagramUpdater.getSemanticChildren(view);
 		}
 
 		/**
-		* @generated
-		*/
+		 * @generated
+		 */
 		@Override
-
 		public List<DomainLinkDescriptor> getContainedLinks(View view) {
 			return DomainDiagramUpdater.getContainedLinks(view);
 		}
 
 		/**
-		* @generated
-		*/
+		 * @generated
+		 */
 		@Override
-
 		public List<DomainLinkDescriptor> getIncomingLinks(View view) {
 			return DomainDiagramUpdater.getIncomingLinks(view);
 		}
 
 		/**
-		* @generated
-		*/
+		 * @generated
+		 */
 		@Override
-
 		public List<DomainLinkDescriptor> getOutgoingLinks(View view) {
 			return DomainDiagramUpdater.getOutgoingLinks(view);
 		}

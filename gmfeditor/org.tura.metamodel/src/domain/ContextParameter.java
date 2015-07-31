@@ -11,13 +11,13 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  *   <li>{@link domain.ContextParameter#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.ContextParameter#getRefObj <em>Ref Obj</em>}</li>
  *   <li>{@link domain.ContextParameter#getOperation <em>Operation</em>}</li>
  *   <li>{@link domain.ContextParameter#getValue <em>Value</em>}</li>
  * </ul>
+ * </p>
  *
  * @see domain.DomainPackage#getContextParameter()
  * @model

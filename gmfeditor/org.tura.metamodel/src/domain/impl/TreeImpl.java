@@ -27,7 +27,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  *   <li>{@link domain.impl.TreeImpl#getColumns <em>Columns</em>}</li>
  *   <li>{@link domain.impl.TreeImpl#getMultiLangLabel <em>Multi Lang Label</em>}</li>
@@ -35,6 +34,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link domain.impl.TreeImpl#getImage <em>Image</em>}</li>
  *   <li>{@link domain.impl.TreeImpl#getCols <em>Cols</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */

@@ -13,7 +13,6 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  *   <li>{@link domain.Artifact#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.Artifact#getName <em>Name</em>}</li>
@@ -25,6 +24,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link domain.Artifact#getHints <em>Hints</em>}</li>
  *   <li>{@link domain.Artifact#getTemplate <em>Template</em>}</li>
  * </ul>
+ * </p>
  *
  * @see domain.DomainPackage#getArtifact()
  * @model annotation="gmf.node label='name' border.color='0,0,0' color='255,239,222'"

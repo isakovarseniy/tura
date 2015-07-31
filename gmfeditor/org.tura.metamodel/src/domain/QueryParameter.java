@@ -11,12 +11,12 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  *   <li>{@link domain.QueryParameter#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.QueryParameter#getParent <em>Parent</em>}</li>
  *   <li>{@link domain.QueryParameter#getName <em>Name</em>}</li>
  * </ul>
+ * </p>
  *
  * @see domain.DomainPackage#getQueryParameter()
  * @model

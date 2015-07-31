@@ -17,8 +17,8 @@ import org.eclipse.swt.graphics.Image;
 public class DomainIconProvider extends DefaultElementTypeIconProvider implements IIconProvider {
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public DomainIconProvider() {
 		super(DomainElementTypes.TYPED_INSTANCE);
 	}

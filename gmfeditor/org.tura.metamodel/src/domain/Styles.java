@@ -13,13 +13,13 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  *   <li>{@link domain.Styles#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.Styles#getParent <em>Parent</em>}</li>
  *   <li>{@link domain.Styles#getLibraries <em>Libraries</em>}</li>
  *   <li>{@link domain.Styles#getAny <em>Any</em>}</li>
  * </ul>
+ * </p>
  *
  * @see domain.DomainPackage#getStyles()
  * @model

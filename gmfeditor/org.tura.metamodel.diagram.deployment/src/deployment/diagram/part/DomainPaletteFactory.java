@@ -118,8 +118,7 @@ public class DomainPaletteFactory {
 				Messages.FirstStep3CreationTool_desc,
 				Collections.singletonList(DomainElementTypes.DeploymentStarStepFirstStep_904008));
 		entry.setId("createFirstStep3CreationTool"); //$NON-NLS-1$
-		entry.setSmallIcon(
-				DomainElementTypes.getImageDescriptor(DomainElementTypes.DeploymentStarStepFirstStep_904008));
+		entry.setSmallIcon(DomainElementTypes.getImageDescriptor(DomainElementTypes.DeploymentStarStepFirstStep_904008));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}

@@ -11,12 +11,12 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  *   <li>{@link domain.InfrastructureConnection#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.InfrastructureConnection#getMaster <em>Master</em>}</li>
  *   <li>{@link domain.InfrastructureConnection#getDetail <em>Detail</em>}</li>
  * </ul>
+ * </p>
  *
  * @see domain.DomainPackage#getInfrastructureConnection()
  * @model annotation="gmf.link source='master' target='detail' width='2'"

@@ -1,4 +1,3 @@
-
 /*
  * 
  */
@@ -20,16 +19,16 @@ import message.diagram.providers.DomainElementTypes;
 public class DomainPaletteFactory {
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public void fillPalette(PaletteRoot paletteRoot) {
 		paletteRoot.add(createObjects1Group());
 	}
 
 	/**
-	* Creates "Objects" palette tool group
-	* @generated
-	*/
+	 * Creates "Objects" palette tool group
+	 * @generated
+	 */
 	private PaletteContainer createObjects1Group() {
 		PaletteDrawer paletteContainer = new PaletteDrawer(Messages.Objects1Group_title);
 		paletteContainer.setId("createObjects1Group"); //$NON-NLS-1$
@@ -40,8 +39,8 @@ public class DomainPaletteFactory {
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	private ToolEntry createLanguage1CreationTool() {
 		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(Messages.Language1CreationTool_title,
 				Messages.Language1CreationTool_desc, Collections.singletonList(DomainElementTypes.Language_1702002));
@@ -52,8 +51,8 @@ public class DomainPaletteFactory {
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	private ToolEntry createMessage2CreationTool() {
 		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(Messages.Message2CreationTool_title,
 				Messages.Message2CreationTool_desc, Collections.singletonList(DomainElementTypes.Message_1703004));
@@ -64,8 +63,8 @@ public class DomainPaletteFactory {
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	private ToolEntry createMessageLibrary3CreationTool() {
 		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(Messages.MessageLibrary3CreationTool_title,
 				Messages.MessageLibrary3CreationTool_desc,

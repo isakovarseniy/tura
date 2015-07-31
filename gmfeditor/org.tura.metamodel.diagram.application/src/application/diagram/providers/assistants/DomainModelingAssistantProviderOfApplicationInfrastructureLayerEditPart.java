@@ -8,7 +8,7 @@ import application.diagram.providers.DomainModelingAssistantProvider;
 /**
  * @generated
  */
-public class DomainModelingAssistantProviderOfApplicationInfrastructureLayerEditPart
-		extends DomainModelingAssistantProvider {
+public class DomainModelingAssistantProviderOfApplicationInfrastructureLayerEditPart extends
+		DomainModelingAssistantProvider {
 
 }

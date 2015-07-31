@@ -34,7 +34,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  *   <li>{@link domain.impl.ArtifactImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.impl.ArtifactImpl#getName <em>Name</em>}</li>
@@ -46,6 +45,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link domain.impl.ArtifactImpl#getHints <em>Hints</em>}</li>
  *   <li>{@link domain.impl.ArtifactImpl#getTemplate <em>Template</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */

@@ -11,13 +11,13 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  *   <li>{@link domain.ApplicationUIPackage#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.ApplicationUIPackage#getName <em>Name</em>}</li>
  *   <li>{@link domain.ApplicationUIPackage#getParent <em>Parent</em>}</li>
  *   <li>{@link domain.ApplicationUIPackage#getUipackage <em>Uipackage</em>}</li>
  * </ul>
+ * </p>
  *
  * @see domain.DomainPackage#getApplicationUIPackage()
  * @model annotation="gmf.node label='name' border.color='0,0,0' color='255,196,176'"

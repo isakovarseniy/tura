@@ -50,17 +50,16 @@ import frmview.diagram.providers.DomainParserProvider;
 /**
  * @generated
  */
-public class DomainNavigatorLabelProvider extends LabelProvider
-		implements ICommonLabelProvider, ITreePathLabelProvider {
+public class DomainNavigatorLabelProvider extends LabelProvider implements ICommonLabelProvider, ITreePathLabelProvider {
 
 	/**
 	 * @generated
 	 */
 	static {
-		DomainDiagramEditorPlugin.getInstance().getImageRegistry().put("Navigator?UnknownElement", //$NON-NLS-1$
-				ImageDescriptor.getMissingImageDescriptor());
-		DomainDiagramEditorPlugin.getInstance().getImageRegistry().put("Navigator?ImageNotFound", //$NON-NLS-1$
-				ImageDescriptor.getMissingImageDescriptor());
+		DomainDiagramEditorPlugin.getInstance().getImageRegistry()
+				.put("Navigator?UnknownElement", ImageDescriptor.getMissingImageDescriptor()); //$NON-NLS-1$
+		DomainDiagramEditorPlugin.getInstance().getImageRegistry()
+				.put("Navigator?ImageNotFound", ImageDescriptor.getMissingImageDescriptor()); //$NON-NLS-1$
 	}
 
 	/**
@@ -111,35 +110,35 @@ public class DomainNavigatorLabelProvider extends LabelProvider
 		case ViewsEditPart.VISUAL_ID:
 			return getImage("Navigator?Diagram?http://tura.org/2013/v1/domain?Views", DomainElementTypes.Views_1301000); //$NON-NLS-1$
 		case TabPageEditPart.VISUAL_ID:
-			return getImage("Navigator?TopLevelNode?http://tura.org/2013/v1/domain?TabPage", //$NON-NLS-1$
-					DomainElementTypes.TabPage_1302002);
+			return getImage(
+					"Navigator?TopLevelNode?http://tura.org/2013/v1/domain?TabPage", DomainElementTypes.TabPage_1302002); //$NON-NLS-1$
 		case CanvasEditPart.VISUAL_ID:
-			return getImage("Navigator?TopLevelNode?http://tura.org/2013/v1/domain?Canvas", //$NON-NLS-1$
-					DomainElementTypes.Canvas_1302003);
+			return getImage(
+					"Navigator?TopLevelNode?http://tura.org/2013/v1/domain?Canvas", DomainElementTypes.Canvas_1302003); //$NON-NLS-1$
 		case WindowEditPart.VISUAL_ID:
-			return getImage("Navigator?TopLevelNode?http://tura.org/2013/v1/domain?Window", //$NON-NLS-1$
-					DomainElementTypes.Window_1302007);
+			return getImage(
+					"Navigator?TopLevelNode?http://tura.org/2013/v1/domain?Window", DomainElementTypes.Window_1302007); //$NON-NLS-1$
 		case TabCanvasEditPart.VISUAL_ID:
-			return getImage("Navigator?TopLevelNode?http://tura.org/2013/v1/domain?TabCanvas", //$NON-NLS-1$
-					DomainElementTypes.TabCanvas_1302008);
+			return getImage(
+					"Navigator?TopLevelNode?http://tura.org/2013/v1/domain?TabCanvas", DomainElementTypes.TabCanvas_1302008); //$NON-NLS-1$
 		case PopupCanvasEditPart.VISUAL_ID:
-			return getImage("Navigator?TopLevelNode?http://tura.org/2013/v1/domain?PopupCanvas", //$NON-NLS-1$
-					DomainElementTypes.PopupCanvas_1302009);
+			return getImage(
+					"Navigator?TopLevelNode?http://tura.org/2013/v1/domain?PopupCanvas", DomainElementTypes.PopupCanvas_1302009); //$NON-NLS-1$
 		case ViewPortTriggerEditPart.VISUAL_ID:
-			return getImage("Navigator?Node?http://tura.org/2013/v1/domain?ViewPortTrigger", //$NON-NLS-1$
-					DomainElementTypes.ViewPortTrigger_1303002);
+			return getImage(
+					"Navigator?Node?http://tura.org/2013/v1/domain?ViewPortTrigger", DomainElementTypes.ViewPortTrigger_1303002); //$NON-NLS-1$
 		case ViewPortEditPart.VISUAL_ID:
-			return getImage("Navigator?Node?http://tura.org/2013/v1/domain?ViewPort", //$NON-NLS-1$
-					DomainElementTypes.ViewPort_1303004);
+			return getImage(
+					"Navigator?Node?http://tura.org/2013/v1/domain?ViewPort", DomainElementTypes.ViewPort_1303004); //$NON-NLS-1$
 		case ViewAreaEditPart.VISUAL_ID:
-			return getImage("Navigator?Node?http://tura.org/2013/v1/domain?ViewArea", //$NON-NLS-1$
-					DomainElementTypes.ViewArea_1303005);
+			return getImage(
+					"Navigator?Node?http://tura.org/2013/v1/domain?ViewArea", DomainElementTypes.ViewArea_1303005); //$NON-NLS-1$
 		case ViewInheritanceEditPart.VISUAL_ID:
-			return getImage("Navigator?Link?http://tura.org/2013/v1/domain?ViewInheritance", //$NON-NLS-1$
-					DomainElementTypes.ViewInheritance_1304001);
+			return getImage(
+					"Navigator?Link?http://tura.org/2013/v1/domain?ViewInheritance", DomainElementTypes.ViewInheritance_1304001); //$NON-NLS-1$
 		case TabPagesInheritanceEditPart.VISUAL_ID:
-			return getImage("Navigator?Link?http://tura.org/2013/v1/domain?TabPagesInheritance", //$NON-NLS-1$
-					DomainElementTypes.TabPagesInheritance_1304002);
+			return getImage(
+					"Navigator?Link?http://tura.org/2013/v1/domain?TabPagesInheritance", DomainElementTypes.TabPagesInheritance_1304002); //$NON-NLS-1$
 		}
 		return getImage("Navigator?UnknownElement", null); //$NON-NLS-1$
 	}

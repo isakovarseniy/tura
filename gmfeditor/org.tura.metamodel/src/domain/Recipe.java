@@ -11,7 +11,6 @@ import org.eclipse.emf.common.util.EList;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  *   <li>{@link domain.Recipe#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.Recipe#getParent <em>Parent</em>}</li>
@@ -20,6 +19,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link domain.Recipe#getInfrastructures <em>Infrastructures</em>}</li>
  *   <li>{@link domain.Recipe#getDeployment <em>Deployment</em>}</li>
  * </ul>
+ * </p>
  *
  * @see domain.DomainPackage#getRecipe()
  * @model annotation="gmf.node label='name' border.color='0,0,0' color='255,239,222'"

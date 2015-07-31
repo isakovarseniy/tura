@@ -11,13 +11,13 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  *   <li>{@link domain.Mapper#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.Mapper#getParent <em>Parent</em>}</li>
  *   <li>{@link domain.Mapper#isServiceLayer <em>Service Layer</em>}</li>
  *   <li>{@link domain.Mapper#isUiLayer <em>Ui Layer</em>}</li>
  * </ul>
+ * </p>
  *
  * @see domain.DomainPackage#getMapper()
  * @model

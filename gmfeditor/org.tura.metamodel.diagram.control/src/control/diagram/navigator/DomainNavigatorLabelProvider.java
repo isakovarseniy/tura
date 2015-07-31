@@ -66,17 +66,16 @@ import domain.Relation;
 /**
  * @generated
  */
-public class DomainNavigatorLabelProvider extends LabelProvider
-		implements ICommonLabelProvider, ITreePathLabelProvider {
+public class DomainNavigatorLabelProvider extends LabelProvider implements ICommonLabelProvider, ITreePathLabelProvider {
 
 	/**
 	 * @generated
 	 */
 	static {
-		DomainDiagramEditorPlugin.getInstance().getImageRegistry().put("Navigator?UnknownElement", //$NON-NLS-1$
-				ImageDescriptor.getMissingImageDescriptor());
-		DomainDiagramEditorPlugin.getInstance().getImageRegistry().put("Navigator?ImageNotFound", //$NON-NLS-1$
-				ImageDescriptor.getMissingImageDescriptor());
+		DomainDiagramEditorPlugin.getInstance().getImageRegistry()
+				.put("Navigator?UnknownElement", ImageDescriptor.getMissingImageDescriptor()); //$NON-NLS-1$
+		DomainDiagramEditorPlugin.getInstance().getImageRegistry()
+				.put("Navigator?ImageNotFound", ImageDescriptor.getMissingImageDescriptor()); //$NON-NLS-1$
 	}
 
 	/**
@@ -125,62 +124,62 @@ public class DomainNavigatorLabelProvider extends LabelProvider
 	public Image getImage(View view) {
 		switch (DomainVisualIDRegistry.getVisualID(view)) {
 		case ControlsEditPart.VISUAL_ID:
-			return getImage("Navigator?Diagram?http://tura.org/2013/v1/domain?Controls", //$NON-NLS-1$
-					DomainElementTypes.Controls_1101000);
+			return getImage(
+					"Navigator?Diagram?http://tura.org/2013/v1/domain?Controls", DomainElementTypes.Controls_1101000); //$NON-NLS-1$
 		case RootEditPart.VISUAL_ID:
-			return getImage("Navigator?TopLevelNode?http://tura.org/2013/v1/domain?Root", //$NON-NLS-1$
-					DomainElementTypes.Root_1102001);
+			return getImage(
+					"Navigator?TopLevelNode?http://tura.org/2013/v1/domain?Root", DomainElementTypes.Root_1102001); //$NON-NLS-1$
 		case DataControlEditPart.VISUAL_ID:
-			return getImage("Navigator?TopLevelNode?http://tura.org/2013/v1/domain?DataControl", //$NON-NLS-1$
-					DomainElementTypes.DataControl_1102002);
+			return getImage(
+					"Navigator?TopLevelNode?http://tura.org/2013/v1/domain?DataControl", DomainElementTypes.DataControl_1102002); //$NON-NLS-1$
 		case PREFormTriggerEditPart.VISUAL_ID:
-			return getImage("Navigator?Node?http://tura.org/2013/v1/domain?PREFormTrigger", //$NON-NLS-1$
-					DomainElementTypes.PREFormTrigger_1103001);
+			return getImage(
+					"Navigator?Node?http://tura.org/2013/v1/domain?PREFormTrigger", DomainElementTypes.PREFormTrigger_1103001); //$NON-NLS-1$
 		case PREQueryTriggerEditPart.VISUAL_ID:
-			return getImage("Navigator?Node?http://tura.org/2013/v1/domain?PREQueryTrigger", //$NON-NLS-1$
-					DomainElementTypes.PREQueryTrigger_1103002);
+			return getImage(
+					"Navigator?Node?http://tura.org/2013/v1/domain?PREQueryTrigger", DomainElementTypes.PREQueryTrigger_1103002); //$NON-NLS-1$
 		case POSTQueryTriggerEditPart.VISUAL_ID:
-			return getImage("Navigator?Node?http://tura.org/2013/v1/domain?POSTQueryTrigger", //$NON-NLS-1$
-					DomainElementTypes.POSTQueryTrigger_1103003);
+			return getImage(
+					"Navigator?Node?http://tura.org/2013/v1/domain?POSTQueryTrigger", DomainElementTypes.POSTQueryTrigger_1103003); //$NON-NLS-1$
 		case PREInsertTriggerEditPart.VISUAL_ID:
-			return getImage("Navigator?Node?http://tura.org/2013/v1/domain?PREInsertTrigger", //$NON-NLS-1$
-					DomainElementTypes.PREInsertTrigger_1103004);
+			return getImage(
+					"Navigator?Node?http://tura.org/2013/v1/domain?PREInsertTrigger", DomainElementTypes.PREInsertTrigger_1103004); //$NON-NLS-1$
 		case PREDeleteTriggerEditPart.VISUAL_ID:
-			return getImage("Navigator?Node?http://tura.org/2013/v1/domain?PREDeleteTrigger", //$NON-NLS-1$
-					DomainElementTypes.PREDeleteTrigger_1103005);
+			return getImage(
+					"Navigator?Node?http://tura.org/2013/v1/domain?PREDeleteTrigger", DomainElementTypes.PREDeleteTrigger_1103005); //$NON-NLS-1$
 		case ArtificialFieldEditPart.VISUAL_ID:
-			return getImage("Navigator?Node?http://tura.org/2013/v1/domain?ArtificialField", //$NON-NLS-1$
-					DomainElementTypes.ArtificialField_1103008);
+			return getImage(
+					"Navigator?Node?http://tura.org/2013/v1/domain?ArtificialField", DomainElementTypes.ArtificialField_1103008); //$NON-NLS-1$
 		case PREUpdateTriggerEditPart.VISUAL_ID:
-			return getImage("Navigator?Node?http://tura.org/2013/v1/domain?PREUpdateTrigger", //$NON-NLS-1$
-					DomainElementTypes.PREUpdateTrigger_1103010);
+			return getImage(
+					"Navigator?Node?http://tura.org/2013/v1/domain?PREUpdateTrigger", DomainElementTypes.PREUpdateTrigger_1103010); //$NON-NLS-1$
 		case POSTCreateTriggerEditPart.VISUAL_ID:
-			return getImage("Navigator?Node?http://tura.org/2013/v1/domain?POSTCreateTrigger", //$NON-NLS-1$
-					DomainElementTypes.POSTCreateTrigger_1103011);
+			return getImage(
+					"Navigator?Node?http://tura.org/2013/v1/domain?POSTCreateTrigger", DomainElementTypes.POSTCreateTrigger_1103011); //$NON-NLS-1$
 		case CreateTriggerEditPart.VISUAL_ID:
-			return getImage("Navigator?Node?http://tura.org/2013/v1/domain?CreateTrigger", //$NON-NLS-1$
-					DomainElementTypes.CreateTrigger_1103012);
+			return getImage(
+					"Navigator?Node?http://tura.org/2013/v1/domain?CreateTrigger", DomainElementTypes.CreateTrigger_1103012); //$NON-NLS-1$
 		case InsertTriggerEditPart.VISUAL_ID:
-			return getImage("Navigator?Node?http://tura.org/2013/v1/domain?InsertTrigger", //$NON-NLS-1$
-					DomainElementTypes.InsertTrigger_1103013);
+			return getImage(
+					"Navigator?Node?http://tura.org/2013/v1/domain?InsertTrigger", DomainElementTypes.InsertTrigger_1103013); //$NON-NLS-1$
 		case UpdateTriggerEditPart.VISUAL_ID:
-			return getImage("Navigator?Node?http://tura.org/2013/v1/domain?UpdateTrigger", //$NON-NLS-1$
-					DomainElementTypes.UpdateTrigger_1103014);
+			return getImage(
+					"Navigator?Node?http://tura.org/2013/v1/domain?UpdateTrigger", DomainElementTypes.UpdateTrigger_1103014); //$NON-NLS-1$
 		case DeleteTriggerEditPart.VISUAL_ID:
-			return getImage("Navigator?Node?http://tura.org/2013/v1/domain?DeleteTrigger", //$NON-NLS-1$
-					DomainElementTypes.DeleteTrigger_1103015);
+			return getImage(
+					"Navigator?Node?http://tura.org/2013/v1/domain?DeleteTrigger", DomainElementTypes.DeleteTrigger_1103015); //$NON-NLS-1$
 		case SearchTriggerEditPart.VISUAL_ID:
-			return getImage("Navigator?Node?http://tura.org/2013/v1/domain?SearchTrigger", //$NON-NLS-1$
-					DomainElementTypes.SearchTrigger_1103016);
+			return getImage(
+					"Navigator?Node?http://tura.org/2013/v1/domain?SearchTrigger", DomainElementTypes.SearchTrigger_1103016); //$NON-NLS-1$
 		case FormVariableEditPart.VISUAL_ID:
-			return getImage("Navigator?Node?http://tura.org/2013/v1/domain?FormVariable", //$NON-NLS-1$
-					DomainElementTypes.FormVariable_1103017);
+			return getImage(
+					"Navigator?Node?http://tura.org/2013/v1/domain?FormVariable", DomainElementTypes.FormVariable_1103017); //$NON-NLS-1$
 		case RelationEditPart.VISUAL_ID:
-			return getImage("Navigator?Link?http://tura.org/2013/v1/domain?Relation", //$NON-NLS-1$
-					DomainElementTypes.Relation_1104009);
+			return getImage(
+					"Navigator?Link?http://tura.org/2013/v1/domain?Relation", DomainElementTypes.Relation_1104009); //$NON-NLS-1$
 		case DependencyEditPart.VISUAL_ID:
-			return getImage("Navigator?Link?http://tura.org/2013/v1/domain?Dependency", //$NON-NLS-1$
-					DomainElementTypes.Dependency_1104010);
+			return getImage(
+					"Navigator?Link?http://tura.org/2013/v1/domain?Dependency", DomainElementTypes.Dependency_1104010); //$NON-NLS-1$
 		}
 		return getImage("Navigator?UnknownElement", null); //$NON-NLS-1$
 	}

@@ -32,7 +32,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  *   <li>{@link domain.impl.ViewsImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.impl.ViewsImpl#getParent <em>Parent</em>}</li>
@@ -41,6 +40,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link domain.impl.ViewsImpl#getTabPagesInheritances <em>Tab Pages Inheritances</em>}</li>
  *   <li>{@link domain.impl.ViewsImpl#getAny <em>Any</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */

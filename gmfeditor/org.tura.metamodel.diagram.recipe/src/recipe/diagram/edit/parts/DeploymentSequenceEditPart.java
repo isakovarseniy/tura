@@ -131,8 +131,8 @@ public class DeploymentSequenceEditPart extends ShapeNodeEditPart {
 	 */
 	protected boolean addFixedChild(EditPart childEditPart) {
 		if (childEditPart instanceof DeploymentSequenceNameEditPart) {
-			((DeploymentSequenceNameEditPart) childEditPart)
-					.setLabel(getPrimaryShape().getFigureDeploymentSequenceLabelFigure());
+			((DeploymentSequenceNameEditPart) childEditPart).setLabel(getPrimaryShape()
+					.getFigureDeploymentSequenceLabelFigure());
 			return true;
 		}
 		return false;
@@ -187,8 +187,9 @@ public class DeploymentSequenceEditPart extends ShapeNodeEditPart {
 				EObject obj = ((View) getModel()).getElement();
 				if (obj instanceof Orderable) {
 					EditingDomain editingDomain = getEditingDomain();
-					editingDomain.getCommandStack().execute(SetCommand.create(editingDomain, obj,
-							DomainPackage.eINSTANCE.getOrderable_Order(), evt.getNewValue()));
+					editingDomain.getCommandStack().execute(
+							SetCommand.create(editingDomain, obj, DomainPackage.eINSTANCE.getOrderable_Order(),
+									evt.getNewValue()));
 
 				}
 			}

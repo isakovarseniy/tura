@@ -125,8 +125,8 @@ public class ApplicationInfrastructureLayerEditPart extends ShapeNodeEditPart {
 	 */
 	protected boolean addFixedChild(EditPart childEditPart) {
 		if (childEditPart instanceof ApplicationInfrastructureLayerNameEditPart) {
-			((ApplicationInfrastructureLayerNameEditPart) childEditPart)
-					.setLabel(getPrimaryShape().getFigureApplicationInfrastructureLayerLabelFigure());
+			((ApplicationInfrastructureLayerNameEditPart) childEditPart).setLabel(getPrimaryShape()
+					.getFigureApplicationInfrastructureLayerLabelFigure());
 			return true;
 		}
 		return false;
@@ -181,8 +181,9 @@ public class ApplicationInfrastructureLayerEditPart extends ShapeNodeEditPart {
 				EObject obj = ((View) getModel()).getElement();
 				if (obj instanceof Orderable) {
 					EditingDomain editingDomain = getEditingDomain();
-					editingDomain.getCommandStack().execute(SetCommand.create(editingDomain, obj,
-							DomainPackage.eINSTANCE.getOrderable_Order(), evt.getNewValue()));
+					editingDomain.getCommandStack().execute(
+							SetCommand.create(editingDomain, obj, DomainPackage.eINSTANCE.getOrderable_Order(),
+									evt.getNewValue()));
 
 				}
 			}
@@ -273,8 +274,8 @@ public class ApplicationInfrastructureLayerEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	public EditPart getPrimaryChildEditPart() {
-		return getChildBySemanticHint(
-				DomainVisualIDRegistry.getType(ApplicationInfrastructureLayerNameEditPart.VISUAL_ID));
+		return getChildBySemanticHint(DomainVisualIDRegistry
+				.getType(ApplicationInfrastructureLayerNameEditPart.VISUAL_ID));
 	}
 
 	/**
@@ -349,7 +350,7 @@ public class ApplicationInfrastructureLayerEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	static final Font FFIGUREAPPLICATIONINFRASTRUCTURELAYERLABELFIGURE_FONT = new Font(Display.getCurrent(), "Palatino",
-			12, SWT.ITALIC);
+	static final Font FFIGUREAPPLICATIONINFRASTRUCTURELAYERLABELFIGURE_FONT = new Font(Display.getCurrent(),
+			"Palatino", 12, SWT.ITALIC);
 
 }

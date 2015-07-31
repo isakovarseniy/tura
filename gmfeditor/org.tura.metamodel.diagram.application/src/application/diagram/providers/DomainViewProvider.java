@@ -96,11 +96,11 @@ public class DomainViewProvider extends AbstractProvider implements IViewProvide
 	 */
 	protected boolean provides(CreateViewForKindOperation op) {
 		/*
-		    if (op.getViewKind() == Node.class)
-		      return getNodeViewClass(op.getSemanticAdapter(), op.getContainerView(), op.getSemanticHint()) != null;
-		    if (op.getViewKind() == Edge.class)
-		      return getEdgeViewClass(op.getSemanticAdapter(), op.getContainerView(), op.getSemanticHint()) != null;
-		*/
+		 if (op.getViewKind() == Node.class)
+		 return getNodeViewClass(op.getSemanticAdapter(), op.getContainerView(), op.getSemanticHint()) != null;
+		 if (op.getViewKind() == Edge.class)
+		 return getEdgeViewClass(op.getSemanticAdapter(), op.getContainerView(), op.getSemanticHint()) != null;
+		 */
 		return true;
 	}
 
@@ -160,8 +160,8 @@ public class DomainViewProvider extends AbstractProvider implements IViewProvide
 				case ApplicationMapperEditPart.VISUAL_ID:
 				case ApplicationUIPackageEditPart.VISUAL_ID:
 				case StylesPackageEditPart.VISUAL_ID:
-					if (domainElement == null || visualID != DomainVisualIDRegistry
-							.getNodeVisualID(op.getContainerView(), domainElement)) {
+					if (domainElement == null
+							|| visualID != DomainVisualIDRegistry.getNodeVisualID(op.getContainerView(), domainElement)) {
 						return false; // visual id in semantic hint should match visual id for domain element
 					}
 					break;
@@ -187,8 +187,7 @@ public class DomainViewProvider extends AbstractProvider implements IViewProvide
 			return false; // foreign element type
 		}
 		String elementTypeHint = ((IHintedType) elementType).getSemanticHint();
-		if (elementTypeHint == null
-				|| (op.getSemanticHint() != null && !elementTypeHint.equals(op.getSemanticHint()))) {
+		if (elementTypeHint == null || (op.getSemanticHint() != null && !elementTypeHint.equals(op.getSemanticHint()))) {
 			return false; // our hint is visual id and must be specified, and it should be the same as in element type
 		}
 		int visualID = DomainVisualIDRegistry.getVisualID(elementTypeHint);
@@ -268,8 +267,8 @@ public class DomainViewProvider extends AbstractProvider implements IViewProvide
 	/**
 	 * @generated
 	 */
-	public Node createApplicationRecipes_802001(EObject domainElement, View containerView, int index, boolean persisted,
-			PreferencesHint preferencesHint) {
+	public Node createApplicationRecipes_802001(EObject domainElement, View containerView, int index,
+			boolean persisted, PreferencesHint preferencesHint) {
 		Node node = NotationFactory.eINSTANCE.createNode();
 		node.getStyles().add(NotationFactory.eINSTANCE.createDescriptionStyle());
 		node.getStyles().add(NotationFactory.eINSTANCE.createFontStyle());
@@ -295,16 +294,16 @@ public class DomainViewProvider extends AbstractProvider implements IViewProvide
 		Node label805002 = createLabel(node, DomainVisualIDRegistry.getType(ApplicationRecipesNameEditPart.VISUAL_ID));
 		createCompartment(node,
 				DomainVisualIDRegistry
-						.getType(ApplicationRecipesApplicationRecipesRecipesCompartmentEditPart.VISUAL_ID),
-				true, false, false, false);
+						.getType(ApplicationRecipesApplicationRecipesRecipesCompartmentEditPart.VISUAL_ID), true,
+				false, false, false);
 		return node;
 	}
 
 	/**
 	 * @generated
 	 */
-	public Node createApplicationMappers_802002(EObject domainElement, View containerView, int index, boolean persisted,
-			PreferencesHint preferencesHint) {
+	public Node createApplicationMappers_802002(EObject domainElement, View containerView, int index,
+			boolean persisted, PreferencesHint preferencesHint) {
 		Node node = NotationFactory.eINSTANCE.createNode();
 		node.getStyles().add(NotationFactory.eINSTANCE.createDescriptionStyle());
 		node.getStyles().add(NotationFactory.eINSTANCE.createFontStyle());
@@ -330,16 +329,16 @@ public class DomainViewProvider extends AbstractProvider implements IViewProvide
 		Node label805004 = createLabel(node, DomainVisualIDRegistry.getType(ApplicationMappersNameEditPart.VISUAL_ID));
 		createCompartment(node,
 				DomainVisualIDRegistry
-						.getType(ApplicationMappersApplicationMappersMappersCompartmentEditPart.VISUAL_ID),
-				true, false, false, false);
+						.getType(ApplicationMappersApplicationMappersMappersCompartmentEditPart.VISUAL_ID), true,
+				false, false, false);
 		return node;
 	}
 
 	/**
 	 * @generated
 	 */
-	public Node createApplicationUILayer_802003(EObject domainElement, View containerView, int index, boolean persisted,
-			PreferencesHint preferencesHint) {
+	public Node createApplicationUILayer_802003(EObject domainElement, View containerView, int index,
+			boolean persisted, PreferencesHint preferencesHint) {
 		Node node = NotationFactory.eINSTANCE.createNode();
 		node.getStyles().add(NotationFactory.eINSTANCE.createDescriptionStyle());
 		node.getStyles().add(NotationFactory.eINSTANCE.createFontStyle());
@@ -363,9 +362,10 @@ public class DomainViewProvider extends AbstractProvider implements IViewProvide
 			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB).intValue());
 		}
 		Node label805006 = createLabel(node, DomainVisualIDRegistry.getType(ApplicationUILayerNameEditPart.VISUAL_ID));
-		createCompartment(node,
-				DomainVisualIDRegistry.getType(
-						ApplicationUILayerApplicationUILayerApplicationUIPackagesCompartmentEditPart.VISUAL_ID),
+		createCompartment(
+				node,
+				DomainVisualIDRegistry
+						.getType(ApplicationUILayerApplicationUILayerApplicationUIPackagesCompartmentEditPart.VISUAL_ID),
 				true, false, false, false);
 		return node;
 	}
@@ -436,8 +436,8 @@ public class DomainViewProvider extends AbstractProvider implements IViewProvide
 		Node label805009 = createLabel(node, DomainVisualIDRegistry.getType(ApplicationStyleNameEditPart.VISUAL_ID));
 		createCompartment(node,
 				DomainVisualIDRegistry
-						.getType(ApplicationStyleApplicationStyleStylesPackageCompartmentEditPart.VISUAL_ID),
-				true, false, false, false);
+						.getType(ApplicationStyleApplicationStyleStylesPackageCompartmentEditPart.VISUAL_ID), true,
+				false, false, false);
 		return node;
 	}
 
@@ -609,8 +609,7 @@ public class DomainViewProvider extends AbstractProvider implements IViewProvide
 					IPreferenceConstants.PREF_FONT_COLOR);
 			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB).intValue());
 		}
-		Node label805005 = createLabel(node,
-				DomainVisualIDRegistry.getType(ApplicationUIPackageNameEditPart.VISUAL_ID));
+		Node label805005 = createLabel(node, DomainVisualIDRegistry.getType(ApplicationUIPackageNameEditPart.VISUAL_ID));
 		return node;
 	}
 

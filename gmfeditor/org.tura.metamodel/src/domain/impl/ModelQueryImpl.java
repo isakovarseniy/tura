@@ -30,7 +30,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  *   <li>{@link domain.impl.ModelQueryImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.impl.ModelQueryImpl#getName <em>Name</em>}</li>
@@ -38,6 +37,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link domain.impl.ModelQueryImpl#getParent <em>Parent</em>}</li>
  *   <li>{@link domain.impl.ModelQueryImpl#getParameters <em>Parameters</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */

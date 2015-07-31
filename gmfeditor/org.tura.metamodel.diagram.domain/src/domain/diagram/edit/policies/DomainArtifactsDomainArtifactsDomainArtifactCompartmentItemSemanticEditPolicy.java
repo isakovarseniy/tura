@@ -16,8 +16,8 @@ import domain.diagram.providers.DomainElementTypes;
 /**
  * @generated
  */
-public class DomainArtifactsDomainArtifactsDomainArtifactCompartmentItemSemanticEditPolicy
-		extends DomainBaseItemSemanticEditPolicy {
+public class DomainArtifactsDomainArtifactsDomainArtifactCompartmentItemSemanticEditPolicy extends
+		DomainBaseItemSemanticEditPolicy {
 
 	/**
 	 * @generated

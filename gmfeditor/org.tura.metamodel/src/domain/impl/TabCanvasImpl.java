@@ -27,12 +27,12 @@ import domain.TabCanvas;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  *   <li>{@link domain.impl.TabCanvasImpl#isDefaultCanvas <em>Default Canvas</em>}</li>
  *   <li>{@link domain.impl.TabCanvasImpl#getMultiLangLabel <em>Multi Lang Label</em>}</li>
  *   <li>{@link domain.impl.TabCanvasImpl#getClassifiers <em>Classifiers</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */

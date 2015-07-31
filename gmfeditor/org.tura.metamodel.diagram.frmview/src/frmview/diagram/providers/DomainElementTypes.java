@@ -52,10 +52,10 @@ public class DomainElementTypes {
 	private static Map<IElementType, ENamedElement> elements;
 
 	/**
-	* @generated
-	*/
-	private static DiagramElementTypeImages elementTypeImages = new DiagramElementTypeImages(
-			DomainDiagramEditorPlugin.getInstance().getItemProvidersAdapterFactory());
+	 * @generated
+	 */
+	private static DiagramElementTypeImages elementTypeImages = new DiagramElementTypeImages(DomainDiagramEditorPlugin
+			.getInstance().getItemProvidersAdapterFactory());
 
 	/**
 	 * @generated
@@ -69,54 +69,44 @@ public class DomainElementTypes {
 	/**
 	 * @generated
 	 */
-	public static final IElementType PopupCanvas_1302009 = getElementType(
-			"org.tura.metamodel.diagram.frmview.PopupCanvas_1302009"); //$NON-NLS-1$
+	public static final IElementType PopupCanvas_1302009 = getElementType("org.tura.metamodel.diagram.frmview.PopupCanvas_1302009"); //$NON-NLS-1$
 
 	/**
 	 * @generated
 	 */
-	public static final IElementType Canvas_1302003 = getElementType(
-			"org.tura.metamodel.diagram.frmview.Canvas_1302003"); //$NON-NLS-1$
+	public static final IElementType Canvas_1302003 = getElementType("org.tura.metamodel.diagram.frmview.Canvas_1302003"); //$NON-NLS-1$
 	/**
 	 * @generated
 	 */
-	public static final IElementType Window_1302007 = getElementType(
-			"org.tura.metamodel.diagram.frmview.Window_1302007"); //$NON-NLS-1$
+	public static final IElementType Window_1302007 = getElementType("org.tura.metamodel.diagram.frmview.Window_1302007"); //$NON-NLS-1$
 	/**
 	 * @generated
 	 */
-	public static final IElementType TabPage_1302002 = getElementType(
-			"org.tura.metamodel.diagram.frmview.TabPage_1302002"); //$NON-NLS-1$
+	public static final IElementType TabPage_1302002 = getElementType("org.tura.metamodel.diagram.frmview.TabPage_1302002"); //$NON-NLS-1$
 	/**
 	 * @generated
 	 */
-	public static final IElementType TabCanvas_1302008 = getElementType(
-			"org.tura.metamodel.diagram.frmview.TabCanvas_1302008"); //$NON-NLS-1$
+	public static final IElementType TabCanvas_1302008 = getElementType("org.tura.metamodel.diagram.frmview.TabCanvas_1302008"); //$NON-NLS-1$
 	/**
 	 * @generated
 	 */
-	public static final IElementType ViewPort_1303004 = getElementType(
-			"org.tura.metamodel.diagram.frmview.ViewPort_1303004"); //$NON-NLS-1$
+	public static final IElementType ViewPort_1303004 = getElementType("org.tura.metamodel.diagram.frmview.ViewPort_1303004"); //$NON-NLS-1$
 	/**
 	 * @generated
 	 */
-	public static final IElementType ViewPortTrigger_1303002 = getElementType(
-			"org.tura.metamodel.diagram.frmview.ViewPortTrigger_1303002"); //$NON-NLS-1$
+	public static final IElementType ViewPortTrigger_1303002 = getElementType("org.tura.metamodel.diagram.frmview.ViewPortTrigger_1303002"); //$NON-NLS-1$
 	/**
 	 * @generated
 	 */
-	public static final IElementType ViewArea_1303005 = getElementType(
-			"org.tura.metamodel.diagram.frmview.ViewArea_1303005"); //$NON-NLS-1$
+	public static final IElementType ViewArea_1303005 = getElementType("org.tura.metamodel.diagram.frmview.ViewArea_1303005"); //$NON-NLS-1$
 	/**
 	 * @generated
 	 */
-	public static final IElementType ViewInheritance_1304001 = getElementType(
-			"org.tura.metamodel.diagram.frmview.ViewInheritance_1304001"); //$NON-NLS-1$
+	public static final IElementType ViewInheritance_1304001 = getElementType("org.tura.metamodel.diagram.frmview.ViewInheritance_1304001"); //$NON-NLS-1$
 	/**
 	 * @generated
 	 */
-	public static final IElementType TabPagesInheritance_1304002 = getElementType(
-			"org.tura.metamodel.diagram.frmview.TabPagesInheritance_1304002"); //$NON-NLS-1$
+	public static final IElementType TabPagesInheritance_1304002 = getElementType("org.tura.metamodel.diagram.frmview.TabPagesInheritance_1304002"); //$NON-NLS-1$
 
 	/**
 	 * @generated
@@ -241,33 +231,30 @@ public class DomainElementTypes {
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static final DiagramElementTypes TYPED_INSTANCE = new DiagramElementTypes(elementTypeImages) {
 
 		/**
-		* @generated
-		*/
+		 * @generated
+		 */
 		@Override
-
 		public boolean isKnownElementType(IElementType elementType) {
 			return frmview.diagram.providers.DomainElementTypes.isKnownElementType(elementType);
 		}
 
 		/**
-		* @generated
-		*/
+		 * @generated
+		 */
 		@Override
-
 		public IElementType getElementTypeForVisualId(int visualID) {
 			return frmview.diagram.providers.DomainElementTypes.getElementType(visualID);
 		}
 
 		/**
-		* @generated
-		*/
+		 * @generated
+		 */
 		@Override
-
 		public ENamedElement getDefiningNamedElement(IAdaptable elementTypeAdapter) {
 			return frmview.diagram.providers.DomainElementTypes.getElement(elementTypeAdapter);
 		}

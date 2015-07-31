@@ -56,8 +56,8 @@ public class DeploymentStarStepFirstStepCreateCommand extends EditElementCommand
 			return true; // link creation is in progress; source is not defined yet
 		}
 		// target may be null here but it's possible to check constraint
-		return DomainBaseItemSemanticEditPolicy.getLinkConstraints()
-				.canCreateDeploymentStarStepFirstStep_904008(getSource(), getTarget());
+		return DomainBaseItemSemanticEditPolicy.getLinkConstraints().canCreateDeploymentStarStepFirstStep_904008(
+				getSource(), getTarget());
 	}
 
 	/**

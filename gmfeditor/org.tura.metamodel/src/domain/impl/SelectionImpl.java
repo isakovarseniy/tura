@@ -19,11 +19,11 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  *   <li>{@link domain.impl.SelectionImpl#getDisplayOptionPointer <em>Display Option Pointer</em>}</li>
  *   <li>{@link domain.impl.SelectionImpl#getValueOptionPointer <em>Value Option Pointer</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */

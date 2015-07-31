@@ -29,7 +29,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  *   <li>{@link domain.impl.ComponentImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.impl.ComponentImpl#getName <em>Name</em>}</li>
@@ -37,6 +36,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link domain.impl.ComponentImpl#getMappers <em>Mappers</em>}</li>
  *   <li>{@link domain.impl.ComponentImpl#getComponentRoot <em>Component Root</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */

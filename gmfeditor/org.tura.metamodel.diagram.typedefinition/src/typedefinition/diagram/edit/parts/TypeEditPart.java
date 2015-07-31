@@ -84,8 +84,8 @@ public class TypeEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected void createDefaultEditPolicies() {
-		installEditPolicy(EditPolicyRoles.CREATION_ROLE,
-				new CreationEditPolicyWithCustomReparent(DomainVisualIDRegistry.TYPED_INSTANCE));
+		installEditPolicy(EditPolicyRoles.CREATION_ROLE, new CreationEditPolicyWithCustomReparent(
+				DomainVisualIDRegistry.TYPED_INSTANCE));
 		super.createDefaultEditPolicies();
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE, new TypeItemSemanticEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
@@ -220,8 +220,9 @@ public class TypeEditPart extends ShapeNodeEditPart {
 				EObject obj = ((View) getModel()).getElement();
 				if (obj instanceof Orderable) {
 					EditingDomain editingDomain = getEditingDomain();
-					editingDomain.getCommandStack().execute(SetCommand.create(editingDomain, obj,
-							DomainPackage.eINSTANCE.getOrderable_Order(), evt.getNewValue()));
+					editingDomain.getCommandStack().execute(
+							SetCommand.create(editingDomain, obj, DomainPackage.eINSTANCE.getOrderable_Order(),
+									evt.getNewValue()));
 
 				}
 			}
@@ -324,12 +325,12 @@ public class TypeEditPart extends ShapeNodeEditPart {
 					.getCreateElementRequestAdapter();
 			IElementType type = (IElementType) adapter.getAdapter(IElementType.class);
 			if (type == DomainElementTypes.Attribute_103001) {
-				return getChildBySemanticHint(
-						DomainVisualIDRegistry.getType(TypeTypeAttributesCompartmentEditPart.VISUAL_ID));
+				return getChildBySemanticHint(DomainVisualIDRegistry
+						.getType(TypeTypeAttributesCompartmentEditPart.VISUAL_ID));
 			}
 			if (type == DomainElementTypes.Operation_103002) {
-				return getChildBySemanticHint(
-						DomainVisualIDRegistry.getType(TypeTypeOperationsCompartmentEditPart.VISUAL_ID));
+				return getChildBySemanticHint(DomainVisualIDRegistry
+						.getType(TypeTypeOperationsCompartmentEditPart.VISUAL_ID));
 			}
 		}
 		return super.getTargetEditPart(request);

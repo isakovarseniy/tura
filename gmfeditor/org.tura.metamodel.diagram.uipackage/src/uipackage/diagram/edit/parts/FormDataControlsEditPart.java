@@ -123,8 +123,8 @@ public class FormDataControlsEditPart extends ShapeNodeEditPart {
 	 */
 	protected boolean addFixedChild(EditPart childEditPart) {
 		if (childEditPart instanceof FormDataControlsNameEditPart) {
-			((FormDataControlsNameEditPart) childEditPart)
-					.setLabel(getPrimaryShape().getFigureFormDataControlsLabelFigure());
+			((FormDataControlsNameEditPart) childEditPart).setLabel(getPrimaryShape()
+					.getFigureFormDataControlsLabelFigure());
 			return true;
 		}
 		return false;
@@ -179,8 +179,9 @@ public class FormDataControlsEditPart extends ShapeNodeEditPart {
 				EObject obj = ((View) getModel()).getElement();
 				if (obj instanceof Orderable) {
 					EditingDomain editingDomain = getEditingDomain();
-					editingDomain.getCommandStack().execute(SetCommand.create(editingDomain, obj,
-							DomainPackage.eINSTANCE.getOrderable_Order(), evt.getNewValue()));
+					editingDomain.getCommandStack().execute(
+							SetCommand.create(editingDomain, obj, DomainPackage.eINSTANCE.getOrderable_Order(),
+									evt.getNewValue()));
 
 				}
 			}

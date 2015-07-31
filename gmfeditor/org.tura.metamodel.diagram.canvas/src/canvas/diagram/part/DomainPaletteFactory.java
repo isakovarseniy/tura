@@ -76,8 +76,8 @@ public class DomainPaletteFactory {
 		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(Messages.Button2CreationTool_title,
 				Messages.Button2CreationTool_desc, types);
 		entry.setId("createButton2CreationTool"); //$NON-NLS-1$
-		entry.setSmallIcon(
-				DomainDiagramEditorPlugin.findImageDescriptor("/org.tura.metamodel.commons/icons/button.png")); //$NON-NLS-1$
+		entry.setSmallIcon(DomainDiagramEditorPlugin
+				.findImageDescriptor("/org.tura.metamodel.commons/icons/button.png")); //$NON-NLS-1$
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
@@ -92,8 +92,8 @@ public class DomainPaletteFactory {
 		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(Messages.CheckBox3CreationTool_title,
 				Messages.CheckBox3CreationTool_desc, types);
 		entry.setId("createCheckBox3CreationTool"); //$NON-NLS-1$
-		entry.setSmallIcon(
-				DomainDiagramEditorPlugin.findImageDescriptor("/org.tura.metamodel.commons/icons/checkbox.png")); //$NON-NLS-1$
+		entry.setSmallIcon(DomainDiagramEditorPlugin
+				.findImageDescriptor("/org.tura.metamodel.commons/icons/checkbox.png")); //$NON-NLS-1$
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
@@ -108,8 +108,8 @@ public class DomainPaletteFactory {
 		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(Messages.Column4CreationTool_title,
 				Messages.Column4CreationTool_desc, types);
 		entry.setId("createColumn4CreationTool"); //$NON-NLS-1$
-		entry.setSmallIcon(
-				DomainDiagramEditorPlugin.findImageDescriptor("/org.tura.metamodel.commons/icons/column.png")); //$NON-NLS-1$
+		entry.setSmallIcon(DomainDiagramEditorPlugin
+				.findImageDescriptor("/org.tura.metamodel.commons/icons/column.png")); //$NON-NLS-1$
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
@@ -155,8 +155,7 @@ public class DomainPaletteFactory {
 		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(Messages.Image7CreationTool_title,
 				Messages.Image7CreationTool_desc, types);
 		entry.setId("createImage7CreationTool"); //$NON-NLS-1$
-		entry.setSmallIcon(
-				DomainDiagramEditorPlugin.findImageDescriptor("/org.tura.metamodel.commons/icons/image.png")); //$NON-NLS-1$
+		entry.setSmallIcon(DomainDiagramEditorPlugin.findImageDescriptor("/org.tura.metamodel.commons/icons/image.png")); //$NON-NLS-1$
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
@@ -171,8 +170,8 @@ public class DomainPaletteFactory {
 		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(Messages.InputText8CreationTool_title,
 				Messages.InputText8CreationTool_desc, types);
 		entry.setId("createInputText8CreationTool"); //$NON-NLS-1$
-		entry.setSmallIcon(
-				DomainDiagramEditorPlugin.findImageDescriptor("/org.tura.metamodel.commons/icons/inputtext.png")); //$NON-NLS-1$
+		entry.setSmallIcon(DomainDiagramEditorPlugin
+				.findImageDescriptor("/org.tura.metamodel.commons/icons/inputtext.png")); //$NON-NLS-1$
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
@@ -187,8 +186,7 @@ public class DomainPaletteFactory {
 		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(Messages.Label9CreationTool_title,
 				Messages.Label9CreationTool_desc, types);
 		entry.setId("createLabel9CreationTool"); //$NON-NLS-1$
-		entry.setSmallIcon(
-				DomainDiagramEditorPlugin.findImageDescriptor("/org.tura.metamodel.commons/icons/label.png")); //$NON-NLS-1$
+		entry.setSmallIcon(DomainDiagramEditorPlugin.findImageDescriptor("/org.tura.metamodel.commons/icons/label.png")); //$NON-NLS-1$
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
@@ -204,8 +202,8 @@ public class DomainPaletteFactory {
 		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(Messages.LayerHolder10CreationTool_title,
 				Messages.LayerHolder10CreationTool_desc, types);
 		entry.setId("createLayerHolder10CreationTool"); //$NON-NLS-1$
-		entry.setSmallIcon(
-				DomainDiagramEditorPlugin.findImageDescriptor("/org.tura.metamodel.commons/icons/layerholder.png")); //$NON-NLS-1$
+		entry.setSmallIcon(DomainDiagramEditorPlugin
+				.findImageDescriptor("/org.tura.metamodel.commons/icons/layerholder.png")); //$NON-NLS-1$
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
@@ -220,8 +218,8 @@ public class DomainPaletteFactory {
 		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(Messages.OutputText11CreationTool_title,
 				Messages.OutputText11CreationTool_desc, types);
 		entry.setId("createOutputText11CreationTool"); //$NON-NLS-1$
-		entry.setSmallIcon(
-				DomainDiagramEditorPlugin.findImageDescriptor("/org.tura.metamodel.commons/icons/outputtext.png")); //$NON-NLS-1$
+		entry.setSmallIcon(DomainDiagramEditorPlugin
+				.findImageDescriptor("/org.tura.metamodel.commons/icons/outputtext.png")); //$NON-NLS-1$
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
@@ -236,8 +234,7 @@ public class DomainPaletteFactory {
 		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(Messages.Table12CreationTool_title,
 				Messages.Table12CreationTool_desc, types);
 		entry.setId("createTable12CreationTool"); //$NON-NLS-1$
-		entry.setSmallIcon(
-				DomainDiagramEditorPlugin.findImageDescriptor("/org.tura.metamodel.commons/icons/table.png")); //$NON-NLS-1$
+		entry.setSmallIcon(DomainDiagramEditorPlugin.findImageDescriptor("/org.tura.metamodel.commons/icons/table.png")); //$NON-NLS-1$
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}

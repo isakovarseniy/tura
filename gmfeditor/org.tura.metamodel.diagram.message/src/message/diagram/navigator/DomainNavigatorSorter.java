@@ -1,6 +1,6 @@
 /*
-* 
-*/
+ * 
+ */
 package message.diagram.navigator;
 
 import org.eclipse.jface.viewers.ViewerSorter;
@@ -13,18 +13,18 @@ import message.diagram.part.DomainVisualIDRegistry;
 public class DomainNavigatorSorter extends ViewerSorter {
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	private static final int GROUP_CATEGORY = 1707003;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	private static final int SHORTCUTS_CATEGORY = 1707002;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public int category(Object element) {
 		if (element instanceof DomainNavigatorItem) {
 			DomainNavigatorItem item = (DomainNavigatorItem) element;

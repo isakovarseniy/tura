@@ -11,10 +11,10 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  *   <li>{@link domain.MultiLangLabel#getMultiLangLabel <em>Multi Lang Label</em>}</li>
  * </ul>
+ * </p>
  *
  * @see domain.DomainPackage#getMultiLangLabel()
  * @model

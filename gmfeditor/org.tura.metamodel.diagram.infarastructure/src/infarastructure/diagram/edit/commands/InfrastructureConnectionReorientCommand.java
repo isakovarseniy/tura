@@ -75,8 +75,8 @@ public class InfrastructureConnectionReorientCommand extends EditElementCommand 
 			return false;
 		}
 		EnterpriseInfrastructure container = (EnterpriseInfrastructure) getLink().eContainer();
-		return DomainBaseItemSemanticEditPolicy.getLinkConstraints().canExistInfrastructureConnection_1204009(container,
-				getLink(), getNewSource(), target);
+		return DomainBaseItemSemanticEditPolicy.getLinkConstraints().canExistInfrastructureConnection_1204009(
+				container, getLink(), getNewSource(), target);
 	}
 
 	/**
@@ -91,8 +91,8 @@ public class InfrastructureConnectionReorientCommand extends EditElementCommand 
 			return false;
 		}
 		EnterpriseInfrastructure container = (EnterpriseInfrastructure) getLink().eContainer();
-		return DomainBaseItemSemanticEditPolicy.getLinkConstraints().canExistInfrastructureConnection_1204009(container,
-				getLink(), source, getNewTarget());
+		return DomainBaseItemSemanticEditPolicy.getLinkConstraints().canExistInfrastructureConnection_1204009(
+				container, getLink(), source, getNewTarget());
 	}
 
 	/**

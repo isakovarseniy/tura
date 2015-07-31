@@ -38,17 +38,16 @@ import domain.UIPackage;
 /**
  * @generated
  */
-public class DomainNavigatorLabelProvider extends LabelProvider
-		implements ICommonLabelProvider, ITreePathLabelProvider {
+public class DomainNavigatorLabelProvider extends LabelProvider implements ICommonLabelProvider, ITreePathLabelProvider {
 
 	/**
 	 * @generated
 	 */
 	static {
-		DomainDiagramEditorPlugin.getInstance().getImageRegistry().put("Navigator?UnknownElement", //$NON-NLS-1$
-				ImageDescriptor.getMissingImageDescriptor());
-		DomainDiagramEditorPlugin.getInstance().getImageRegistry().put("Navigator?ImageNotFound", //$NON-NLS-1$
-				ImageDescriptor.getMissingImageDescriptor());
+		DomainDiagramEditorPlugin.getInstance().getImageRegistry()
+				.put("Navigator?UnknownElement", ImageDescriptor.getMissingImageDescriptor()); //$NON-NLS-1$
+		DomainDiagramEditorPlugin.getInstance().getImageRegistry()
+				.put("Navigator?ImageNotFound", ImageDescriptor.getMissingImageDescriptor()); //$NON-NLS-1$
 	}
 
 	/**
@@ -97,20 +96,20 @@ public class DomainNavigatorLabelProvider extends LabelProvider
 	public Image getImage(View view) {
 		switch (DomainVisualIDRegistry.getVisualID(view)) {
 		case UIPackageEditPart.VISUAL_ID:
-			return getImage("Navigator?Diagram?http://tura.org/2013/v1/domain?UIPackage", //$NON-NLS-1$
-					DomainElementTypes.UIPackage_1001000);
+			return getImage(
+					"Navigator?Diagram?http://tura.org/2013/v1/domain?UIPackage", DomainElementTypes.UIPackage_1001000); //$NON-NLS-1$
 		case FormEditPart.VISUAL_ID:
-			return getImage("Navigator?TopLevelNode?http://tura.org/2013/v1/domain?Form", //$NON-NLS-1$
-					DomainElementTypes.Form_1002002);
+			return getImage(
+					"Navigator?TopLevelNode?http://tura.org/2013/v1/domain?Form", DomainElementTypes.Form_1002002); //$NON-NLS-1$
 		case FormViewEditPart.VISUAL_ID:
-			return getImage("Navigator?Node?http://tura.org/2013/v1/domain?FormView", //$NON-NLS-1$
-					DomainElementTypes.FormView_1003001);
+			return getImage(
+					"Navigator?Node?http://tura.org/2013/v1/domain?FormView", DomainElementTypes.FormView_1003001); //$NON-NLS-1$
 		case FormDataControlsEditPart.VISUAL_ID:
-			return getImage("Navigator?Node?http://tura.org/2013/v1/domain?FormDataControls", //$NON-NLS-1$
-					DomainElementTypes.FormDataControls_1003002);
+			return getImage(
+					"Navigator?Node?http://tura.org/2013/v1/domain?FormDataControls", DomainElementTypes.FormDataControls_1003002); //$NON-NLS-1$
 		case FormParameterEditPart.VISUAL_ID:
-			return getImage("Navigator?Node?http://tura.org/2013/v1/domain?FormParameter", //$NON-NLS-1$
-					DomainElementTypes.FormParameter_1003003);
+			return getImage(
+					"Navigator?Node?http://tura.org/2013/v1/domain?FormParameter", DomainElementTypes.FormParameter_1003003); //$NON-NLS-1$
 		}
 		return getImage("Navigator?UnknownElement", null); //$NON-NLS-1$
 	}

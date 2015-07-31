@@ -25,13 +25,13 @@ import domain.DomainPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  *   <li>{@link domain.impl.ApplicationUILayerImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.impl.ApplicationUILayerImpl#getName <em>Name</em>}</li>
  *   <li>{@link domain.impl.ApplicationUILayerImpl#getParent <em>Parent</em>}</li>
  *   <li>{@link domain.impl.ApplicationUILayerImpl#getApplicationUIPackages <em>Application UI Packages</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */

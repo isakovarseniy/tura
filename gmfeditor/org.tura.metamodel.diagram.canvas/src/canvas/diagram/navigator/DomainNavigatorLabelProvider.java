@@ -73,17 +73,16 @@ import domain.OutputText;
 /**
  * @generated
  */
-public class DomainNavigatorLabelProvider extends LabelProvider
-		implements ICommonLabelProvider, ITreePathLabelProvider {
+public class DomainNavigatorLabelProvider extends LabelProvider implements ICommonLabelProvider, ITreePathLabelProvider {
 
 	/**
 	 * @generated
 	 */
 	static {
-		DomainDiagramEditorPlugin.getInstance().getImageRegistry().put("Navigator?UnknownElement", //$NON-NLS-1$
-				ImageDescriptor.getMissingImageDescriptor());
-		DomainDiagramEditorPlugin.getInstance().getImageRegistry().put("Navigator?ImageNotFound", //$NON-NLS-1$
-				ImageDescriptor.getMissingImageDescriptor());
+		DomainDiagramEditorPlugin.getInstance().getImageRegistry()
+				.put("Navigator?UnknownElement", ImageDescriptor.getMissingImageDescriptor()); //$NON-NLS-1$
+		DomainDiagramEditorPlugin.getInstance().getImageRegistry()
+				.put("Navigator?ImageNotFound", ImageDescriptor.getMissingImageDescriptor()); //$NON-NLS-1$
 	}
 
 	/**
@@ -132,51 +131,51 @@ public class DomainNavigatorLabelProvider extends LabelProvider
 	public Image getImage(View view) {
 		switch (DomainVisualIDRegistry.getVisualID(view)) {
 		case CanvasViewEditPart.VISUAL_ID:
-			return getImage("Navigator?Diagram?http://tura.org/2013/v1/domain?CanvasView", //$NON-NLS-1$
-					DomainElementTypes.CanvasView_1601000);
+			return getImage(
+					"Navigator?Diagram?http://tura.org/2013/v1/domain?CanvasView", DomainElementTypes.CanvasView_1601000); //$NON-NLS-1$
 		case LayerHolderEditPart.VISUAL_ID:
-			return getImage("Navigator?TopLevelNode?http://tura.org/2013/v1/domain?LayerHolder", //$NON-NLS-1$
-					DomainElementTypes.LayerHolder_1602003);
+			return getImage(
+					"Navigator?TopLevelNode?http://tura.org/2013/v1/domain?LayerHolder", DomainElementTypes.LayerHolder_1602003); //$NON-NLS-1$
 		case DropDownSelectionEditPart.VISUAL_ID:
-			return getImage("Navigator?Node?http://tura.org/2013/v1/domain?DropDownSelection", //$NON-NLS-1$
-					DomainElementTypes.DropDownSelection_1603002);
+			return getImage(
+					"Navigator?Node?http://tura.org/2013/v1/domain?DropDownSelection", DomainElementTypes.DropDownSelection_1603002); //$NON-NLS-1$
 		case InputTextEditPart.VISUAL_ID:
-			return getImage("Navigator?Node?http://tura.org/2013/v1/domain?InputText", //$NON-NLS-1$
-					DomainElementTypes.InputText_1603004);
+			return getImage(
+					"Navigator?Node?http://tura.org/2013/v1/domain?InputText", DomainElementTypes.InputText_1603004); //$NON-NLS-1$
 		case LabelEditPart.VISUAL_ID:
 			return getImage("Navigator?Node?http://tura.org/2013/v1/domain?Label", DomainElementTypes.Label_1603005); //$NON-NLS-1$
 		case OutputTextEditPart.VISUAL_ID:
-			return getImage("Navigator?Node?http://tura.org/2013/v1/domain?OutputText", //$NON-NLS-1$
-					DomainElementTypes.OutputText_1603006);
+			return getImage(
+					"Navigator?Node?http://tura.org/2013/v1/domain?OutputText", DomainElementTypes.OutputText_1603006); //$NON-NLS-1$
 		case CheckBoxEditPart.VISUAL_ID:
-			return getImage("Navigator?Node?http://tura.org/2013/v1/domain?CheckBox", //$NON-NLS-1$
-					DomainElementTypes.CheckBox_1603007);
+			return getImage(
+					"Navigator?Node?http://tura.org/2013/v1/domain?CheckBox", DomainElementTypes.CheckBox_1603007); //$NON-NLS-1$
 		case TableEditPart.VISUAL_ID:
 			return getImage("Navigator?Node?http://tura.org/2013/v1/domain?Table", DomainElementTypes.Table_1603008); //$NON-NLS-1$
 		case DropDownSelection2EditPart.VISUAL_ID:
-			return getImage("Navigator?Node?http://tura.org/2013/v1/domain?DropDownSelection", //$NON-NLS-1$
-					DomainElementTypes.DropDownSelection_1603010);
+			return getImage(
+					"Navigator?Node?http://tura.org/2013/v1/domain?DropDownSelection", DomainElementTypes.DropDownSelection_1603010); //$NON-NLS-1$
 		case InputText2EditPart.VISUAL_ID:
-			return getImage("Navigator?Node?http://tura.org/2013/v1/domain?InputText", //$NON-NLS-1$
-					DomainElementTypes.InputText_1603012);
+			return getImage(
+					"Navigator?Node?http://tura.org/2013/v1/domain?InputText", DomainElementTypes.InputText_1603012); //$NON-NLS-1$
 		case Label2EditPart.VISUAL_ID:
 			return getImage("Navigator?Node?http://tura.org/2013/v1/domain?Label", DomainElementTypes.Label_1603013); //$NON-NLS-1$
 		case OutputText2EditPart.VISUAL_ID:
-			return getImage("Navigator?Node?http://tura.org/2013/v1/domain?OutputText", //$NON-NLS-1$
-					DomainElementTypes.OutputText_1603014);
+			return getImage(
+					"Navigator?Node?http://tura.org/2013/v1/domain?OutputText", DomainElementTypes.OutputText_1603014); //$NON-NLS-1$
 		case CheckBox2EditPart.VISUAL_ID:
-			return getImage("Navigator?Node?http://tura.org/2013/v1/domain?CheckBox", //$NON-NLS-1$
-					DomainElementTypes.CheckBox_1603015);
+			return getImage(
+					"Navigator?Node?http://tura.org/2013/v1/domain?CheckBox", DomainElementTypes.CheckBox_1603015); //$NON-NLS-1$
 		case Tree2EditPart.VISUAL_ID:
 			return getImage("Navigator?Node?http://tura.org/2013/v1/domain?Tree", DomainElementTypes.Tree_1603016); //$NON-NLS-1$
 		case ButtonEditPart.VISUAL_ID:
 			return getImage("Navigator?Node?http://tura.org/2013/v1/domain?Button", DomainElementTypes.Button_1603017); //$NON-NLS-1$
 		case LayerHolder3EditPart.VISUAL_ID:
-			return getImage("Navigator?Node?http://tura.org/2013/v1/domain?LayerHolder", //$NON-NLS-1$
-					DomainElementTypes.LayerHolder_1603019);
+			return getImage(
+					"Navigator?Node?http://tura.org/2013/v1/domain?LayerHolder", DomainElementTypes.LayerHolder_1603019); //$NON-NLS-1$
 		case LayerHolder2EditPart.VISUAL_ID:
-			return getImage("Navigator?Node?http://tura.org/2013/v1/domain?LayerHolder", //$NON-NLS-1$
-					DomainElementTypes.LayerHolder_1603020);
+			return getImage(
+					"Navigator?Node?http://tura.org/2013/v1/domain?LayerHolder", DomainElementTypes.LayerHolder_1603020); //$NON-NLS-1$
 		case Table2EditPart.VISUAL_ID:
 			return getImage("Navigator?Node?http://tura.org/2013/v1/domain?Table", DomainElementTypes.Table_1603021); //$NON-NLS-1$
 		case TreeEditPart.VISUAL_ID:
@@ -188,8 +187,8 @@ public class DomainNavigatorLabelProvider extends LabelProvider
 		case Column2EditPart.VISUAL_ID:
 			return getImage("Navigator?Node?http://tura.org/2013/v1/domain?Column", DomainElementTypes.Column_1603026); //$NON-NLS-1$
 		case ActionTriggerEditPart.VISUAL_ID:
-			return getImage("Navigator?Node?http://tura.org/2013/v1/domain?ActionTrigger", //$NON-NLS-1$
-					DomainElementTypes.ActionTrigger_1603027);
+			return getImage(
+					"Navigator?Node?http://tura.org/2013/v1/domain?ActionTrigger", DomainElementTypes.ActionTrigger_1603027); //$NON-NLS-1$
 		case ImageEditPart.VISUAL_ID:
 			return getImage("Navigator?Node?http://tura.org/2013/v1/domain?Image", DomainElementTypes.Image_1603028); //$NON-NLS-1$
 		case DateEditPart.VISUAL_ID:

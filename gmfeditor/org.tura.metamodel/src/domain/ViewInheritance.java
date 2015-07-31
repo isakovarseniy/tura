@@ -11,12 +11,12 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  *   <li>{@link domain.ViewInheritance#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.ViewInheritance#getSource <em>Source</em>}</li>
  *   <li>{@link domain.ViewInheritance#getTarget <em>Target</em>}</li>
  * </ul>
+ * </p>
  *
  * @see domain.DomainPackage#getViewInheritance()
  * @model annotation="gmf.link source='source' target='target' color='80,195,63' style='dot' width='2' target.decoration='closedarrow'"

@@ -11,12 +11,12 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  *   <li>{@link domain.Option#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.Option#getParent <em>Parent</em>}</li>
  *   <li>{@link domain.Option#getValue <em>Value</em>}</li>
  * </ul>
+ * </p>
  *
  * @see domain.DomainPackage#getOption()
  * @model annotation="gmf.node label='value'"

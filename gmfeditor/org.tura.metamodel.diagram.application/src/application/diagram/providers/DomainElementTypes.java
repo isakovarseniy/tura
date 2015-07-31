@@ -53,10 +53,10 @@ public class DomainElementTypes {
 	private static Map<IElementType, ENamedElement> elements;
 
 	/**
-	* @generated
-	*/
-	private static DiagramElementTypeImages elementTypeImages = new DiagramElementTypeImages(
-			DomainDiagramEditorPlugin.getInstance().getItemProvidersAdapterFactory());
+	 * @generated
+	 */
+	private static DiagramElementTypeImages elementTypeImages = new DiagramElementTypeImages(DomainDiagramEditorPlugin
+			.getInstance().getItemProvidersAdapterFactory());
 
 	/**
 	 * @generated
@@ -66,63 +66,51 @@ public class DomainElementTypes {
 	/**
 	 * @generated
 	 */
-	public static final IElementType Application_801000 = getElementType(
-			"org.tura.metamodel.diagram.application.Application_801000"); //$NON-NLS-1$
+	public static final IElementType Application_801000 = getElementType("org.tura.metamodel.diagram.application.Application_801000"); //$NON-NLS-1$
 	/**
 	 * @generated
 	 */
-	public static final IElementType ApplicationRecipes_802001 = getElementType(
-			"org.tura.metamodel.diagram.application.ApplicationRecipes_802001"); //$NON-NLS-1$
+	public static final IElementType ApplicationRecipes_802001 = getElementType("org.tura.metamodel.diagram.application.ApplicationRecipes_802001"); //$NON-NLS-1$
 	/**
 	 * @generated
 	 */
-	public static final IElementType ApplicationMappers_802002 = getElementType(
-			"org.tura.metamodel.diagram.application.ApplicationMappers_802002"); //$NON-NLS-1$
+	public static final IElementType ApplicationMappers_802002 = getElementType("org.tura.metamodel.diagram.application.ApplicationMappers_802002"); //$NON-NLS-1$
 	/**
 	 * @generated
 	 */
-	public static final IElementType ApplicationUILayer_802003 = getElementType(
-			"org.tura.metamodel.diagram.application.ApplicationUILayer_802003"); //$NON-NLS-1$
+	public static final IElementType ApplicationUILayer_802003 = getElementType("org.tura.metamodel.diagram.application.ApplicationUILayer_802003"); //$NON-NLS-1$
 	/**
 	 * @generated
 	 */
-	public static final IElementType ApplicationInfrastructureLayer_802004 = getElementType(
-			"org.tura.metamodel.diagram.application.ApplicationInfrastructureLayer_802004"); //$NON-NLS-1$
+	public static final IElementType ApplicationInfrastructureLayer_802004 = getElementType("org.tura.metamodel.diagram.application.ApplicationInfrastructureLayer_802004"); //$NON-NLS-1$
 	/**
 	 * @generated
 	 */
-	public static final IElementType ApplicationStyle_802005 = getElementType(
-			"org.tura.metamodel.diagram.application.ApplicationStyle_802005"); //$NON-NLS-1$
+	public static final IElementType ApplicationStyle_802005 = getElementType("org.tura.metamodel.diagram.application.ApplicationStyle_802005"); //$NON-NLS-1$
 	/**
 	 * @generated
 	 */
-	public static final IElementType ApplicationRole_802006 = getElementType(
-			"org.tura.metamodel.diagram.application.ApplicationRole_802006"); //$NON-NLS-1$
+	public static final IElementType ApplicationRole_802006 = getElementType("org.tura.metamodel.diagram.application.ApplicationRole_802006"); //$NON-NLS-1$
 	/**
 	 * @generated
 	 */
-	public static final IElementType ApplicationMessages_802007 = getElementType(
-			"org.tura.metamodel.diagram.application.ApplicationMessages_802007"); //$NON-NLS-1$
+	public static final IElementType ApplicationMessages_802007 = getElementType("org.tura.metamodel.diagram.application.ApplicationMessages_802007"); //$NON-NLS-1$
 	/**
 	 * @generated
 	 */
-	public static final IElementType ApplicationRecipe_803001 = getElementType(
-			"org.tura.metamodel.diagram.application.ApplicationRecipe_803001"); //$NON-NLS-1$
+	public static final IElementType ApplicationRecipe_803001 = getElementType("org.tura.metamodel.diagram.application.ApplicationRecipe_803001"); //$NON-NLS-1$
 	/**
 	 * @generated
 	 */
-	public static final IElementType ApplicationMapper_803002 = getElementType(
-			"org.tura.metamodel.diagram.application.ApplicationMapper_803002"); //$NON-NLS-1$
+	public static final IElementType ApplicationMapper_803002 = getElementType("org.tura.metamodel.diagram.application.ApplicationMapper_803002"); //$NON-NLS-1$
 	/**
 	 * @generated
 	 */
-	public static final IElementType ApplicationUIPackage_803003 = getElementType(
-			"org.tura.metamodel.diagram.application.ApplicationUIPackage_803003"); //$NON-NLS-1$
+	public static final IElementType ApplicationUIPackage_803003 = getElementType("org.tura.metamodel.diagram.application.ApplicationUIPackage_803003"); //$NON-NLS-1$
 	/**
 	 * @generated
 	 */
-	public static final IElementType StylesPackage_803004 = getElementType(
-			"org.tura.metamodel.diagram.application.StylesPackage_803004"); //$NON-NLS-1$
+	public static final IElementType StylesPackage_803004 = getElementType("org.tura.metamodel.diagram.application.StylesPackage_803004"); //$NON-NLS-1$
 
 	/**
 	 * @generated
@@ -253,33 +241,30 @@ public class DomainElementTypes {
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static final DiagramElementTypes TYPED_INSTANCE = new DiagramElementTypes(elementTypeImages) {
 
 		/**
-		* @generated
-		*/
+		 * @generated
+		 */
 		@Override
-
 		public boolean isKnownElementType(IElementType elementType) {
 			return application.diagram.providers.DomainElementTypes.isKnownElementType(elementType);
 		}
 
 		/**
-		* @generated
-		*/
+		 * @generated
+		 */
 		@Override
-
 		public IElementType getElementTypeForVisualId(int visualID) {
 			return application.diagram.providers.DomainElementTypes.getElementType(visualID);
 		}
 
 		/**
-		* @generated
-		*/
+		 * @generated
+		 */
 		@Override
-
 		public ENamedElement getDefiningNamedElement(IAdaptable elementTypeAdapter) {
 			return application.diagram.providers.DomainElementTypes.getElement(elementTypeAdapter);
 		}

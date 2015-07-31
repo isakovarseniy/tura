@@ -20,12 +20,12 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  *   <li>{@link domain.impl.OptionSelectionImpl#getOptionPointer <em>Option Pointer</em>}</li>
  *   <li>{@link domain.impl.OptionSelectionImpl#getOptionCast <em>Option Cast</em>}</li>
  *   <li>{@link domain.impl.OptionSelectionImpl#getOptionCastDataControl <em>Option Cast Data Control</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */

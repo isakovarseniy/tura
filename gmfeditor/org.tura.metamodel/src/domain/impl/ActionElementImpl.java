@@ -21,10 +21,10 @@ import domain.DomainPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  *   <li>{@link domain.impl.ActionElementImpl#getTriggers <em>Triggers</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */

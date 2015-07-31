@@ -11,13 +11,13 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  *   <li>{@link domain.CanvasView#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.CanvasView#getParent <em>Parent</em>}</li>
  *   <li>{@link domain.CanvasView#getBaseCanvas <em>Base Canvas</em>}</li>
  *   <li>{@link domain.CanvasView#getAny <em>Any</em>}</li>
  * </ul>
+ * </p>
  *
  * @see domain.DomainPackage#getCanvasView()
  * @model

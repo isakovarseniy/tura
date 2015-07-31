@@ -11,13 +11,13 @@ import org.eclipse.emf.common.util.EList;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  *   <li>{@link domain.ApplicationUILayer#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.ApplicationUILayer#getName <em>Name</em>}</li>
  *   <li>{@link domain.ApplicationUILayer#getParent <em>Parent</em>}</li>
  *   <li>{@link domain.ApplicationUILayer#getApplicationUIPackages <em>Application UI Packages</em>}</li>
  * </ul>
+ * </p>
  *
  * @see domain.DomainPackage#getApplicationUILayer()
  * @model annotation="gmf.node label='name' border.color='0,0,0' color='192,192,192'"

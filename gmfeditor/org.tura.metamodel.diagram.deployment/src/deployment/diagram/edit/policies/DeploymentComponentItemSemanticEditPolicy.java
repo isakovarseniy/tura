@@ -48,8 +48,7 @@ public class DeploymentComponentItemSemanticEditPolicy extends DomainBaseItemSem
 		cmd.setTransactionNestingEnabled(false);
 		for (Iterator<?> it = view.getTargetEdges().iterator(); it.hasNext();) {
 			Edge incomingLink = (Edge) it.next();
-			if (DomainVisualIDRegistry
-					.getVisualID(incomingLink) == DeploymentComponentDeploymentComponentLinkEditPart.VISUAL_ID) {
+			if (DomainVisualIDRegistry.getVisualID(incomingLink) == DeploymentComponentDeploymentComponentLinkEditPart.VISUAL_ID) {
 				DestroyReferenceRequest r = new DestroyReferenceRequest(incomingLink.getSource().getElement(), null,
 						incomingLink.getTarget().getElement(), false);
 				cmd.add(new DestroyReferenceCommand(r));
@@ -66,8 +65,7 @@ public class DeploymentComponentItemSemanticEditPolicy extends DomainBaseItemSem
 		}
 		for (Iterator<?> it = view.getSourceEdges().iterator(); it.hasNext();) {
 			Edge outgoingLink = (Edge) it.next();
-			if (DomainVisualIDRegistry
-					.getVisualID(outgoingLink) == DeploymentComponentDeploymentComponentLinkEditPart.VISUAL_ID) {
+			if (DomainVisualIDRegistry.getVisualID(outgoingLink) == DeploymentComponentDeploymentComponentLinkEditPart.VISUAL_ID) {
 				DestroyReferenceRequest r = new DestroyReferenceRequest(outgoingLink.getSource().getElement(), null,
 						outgoingLink.getTarget().getElement(), false);
 				cmd.add(new DestroyReferenceCommand(r));
@@ -101,8 +99,8 @@ public class DeploymentComponentItemSemanticEditPolicy extends DomainBaseItemSem
 	 */
 	protected Command getStartCreateRelationshipCommand(CreateRelationshipRequest req) {
 		if (DomainElementTypes.DeploymentComponentDeploymentComponentLink_904014 == req.getElementType()) {
-			return getGEFWrapper(
-					new DeploymentComponentDeploymentComponentLinkCreateCommand(req, req.getSource(), req.getTarget()));
+			return getGEFWrapper(new DeploymentComponentDeploymentComponentLinkCreateCommand(req, req.getSource(),
+					req.getTarget()));
 		}
 		if (DomainElementTypes.DeploymentStarStepFirstStep_904008 == req.getElementType()) {
 			return null;
@@ -115,8 +113,8 @@ public class DeploymentComponentItemSemanticEditPolicy extends DomainBaseItemSem
 	 */
 	protected Command getCompleteCreateRelationshipCommand(CreateRelationshipRequest req) {
 		if (DomainElementTypes.DeploymentComponentDeploymentComponentLink_904014 == req.getElementType()) {
-			return getGEFWrapper(
-					new DeploymentComponentDeploymentComponentLinkCreateCommand(req, req.getSource(), req.getTarget()));
+			return getGEFWrapper(new DeploymentComponentDeploymentComponentLinkCreateCommand(req, req.getSource(),
+					req.getTarget()));
 		}
 		if (DomainElementTypes.DeploymentStarStepFirstStep_904008 == req.getElementType()) {
 			return getGEFWrapper(new DeploymentStarStepFirstStepCreateCommand(req, req.getSource(), req.getTarget()));

@@ -10,10 +10,10 @@ package domain;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  *   <li>{@link domain.PopupCanvas#isModal <em>Modal</em>}</li>
  * </ul>
+ * </p>
  *
  * @see domain.DomainPackage#getPopupCanvas()
  * @model annotation="gmf.node label='name' border.color='0,0,0' color='192,192,192'"

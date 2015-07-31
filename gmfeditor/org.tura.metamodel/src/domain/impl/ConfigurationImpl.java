@@ -29,7 +29,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  *   <li>{@link domain.impl.ConfigurationImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.impl.ConfigurationImpl#getName <em>Name</em>}</li>
@@ -38,6 +37,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link domain.impl.ConfigurationImpl#getConfigExtension <em>Config Extension</em>}</li>
  *   <li>{@link domain.impl.ConfigurationImpl#getParent <em>Parent</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */

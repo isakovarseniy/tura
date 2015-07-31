@@ -11,12 +11,12 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  *   <li>{@link domain.TypeElement#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.TypeElement#getName <em>Name</em>}</li>
  *   <li>{@link domain.TypeElement#getParent <em>Parent</em>}</li>
  * </ul>
+ * </p>
  *
  * @see domain.DomainPackage#getTypeElement()
  * @model

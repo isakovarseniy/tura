@@ -11,11 +11,11 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  *   <li>{@link domain.Selection#getDisplayOptionPointer <em>Display Option Pointer</em>}</li>
  *   <li>{@link domain.Selection#getValueOptionPointer <em>Value Option Pointer</em>}</li>
  * </ul>
+ * </p>
  *
  * @see domain.DomainPackage#getSelection()
  * @model

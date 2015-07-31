@@ -1,6 +1,6 @@
 /*
-* 
-*/
+ * 
+ */
 package message.diagram.edit.policies;
 
 import java.util.ArrayList;
@@ -36,8 +36,8 @@ import message.diagram.part.DomainVisualIDRegistry;
 public class MessageLibraryMessageLibraryMessagesCompartmentCanonicalEditPolicy extends CanonicalEditPolicy {
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	protected void refreshOnActivate() {
 		// Need to activate editpart children before invoking the canonical refresh for EditParts to add event listeners
 		List<?> c = getHost().getChildren();
@@ -48,17 +48,16 @@ public class MessageLibraryMessageLibraryMessagesCompartmentCanonicalEditPolicy 
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	protected EStructuralFeature getFeatureToSynchronize() {
 		return DomainPackage.eINSTANCE.getMessageLibrary_Messages();
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	@SuppressWarnings("rawtypes")
-
 	protected List getSemanticChildrenList() {
 		View viewObject = (View) getHost().getModel();
 		LinkedList<EObject> result = new LinkedList<EObject>();
@@ -71,30 +70,29 @@ public class MessageLibraryMessageLibraryMessagesCompartmentCanonicalEditPolicy 
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	protected boolean isOrphaned(Collection<EObject> semanticChildren, final View view) {
 		return isMyDiagramElement(view) && !semanticChildren.contains(view.getElement());
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	private boolean isMyDiagramElement(View view) {
 		return MessageEditPart.VISUAL_ID == DomainVisualIDRegistry.getVisualID(view);
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	protected void refreshSemantic() {
 		if (resolveSemanticElement() == null) {
 			return;
 		}
 		LinkedList<IAdaptable> createdViews = new LinkedList<IAdaptable>();
 		List<DomainNodeDescriptor> childDescriptors = DomainDiagramUpdater
-				.getMessageLibraryMessageLibraryMessagesCompartment_1707001SemanticChildren(
-						(View) getHost().getModel());
+				.getMessageLibraryMessageLibraryMessagesCompartment_1707001SemanticChildren((View) getHost().getModel());
 		LinkedList<View> orphaned = new LinkedList<View>();
 		// we care to check only views we recognize as ours
 		LinkedList<View> knownViewChildren = new LinkedList<View>();
@@ -152,7 +150,6 @@ public class MessageLibraryMessageLibraryMessagesCompartmentCanonicalEditPolicy 
 			SetViewMutabilityCommand.makeMutable(new EObjectAdapter(host().getNotationView())).execute();
 			executeCommand(cmd);
 			@SuppressWarnings("unchecked")
-
 			List<IAdaptable> nl = (List<IAdaptable>) request.getNewObject();
 			createdViews.addAll(nl);
 		}
@@ -161,8 +158,7 @@ public class MessageLibraryMessageLibraryMessagesCompartmentCanonicalEditPolicy 
 		}
 		if (createdViews.size() > 1) {
 			// perform a layout of the container
-			DeferredLayoutCommand layoutCmd = new DeferredLayoutCommand(host().getEditingDomain(), createdViews,
-					host());
+			DeferredLayoutCommand layoutCmd = new DeferredLayoutCommand(host().getEditingDomain(), createdViews, host());
 			executeCommand(new ICommandProxy(layoutCmd));
 		}
 

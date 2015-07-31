@@ -92,8 +92,8 @@ public class DataControlDataControlPreInsertTriggerCompartmentCanonicalEditPolic
 		}
 		LinkedList<IAdaptable> createdViews = new LinkedList<IAdaptable>();
 		List<DomainNodeDescriptor> childDescriptors = DomainDiagramUpdater
-				.getDataControlDataControlPreInsertTriggerCompartment_1107004SemanticChildren(
-						(View) getHost().getModel());
+				.getDataControlDataControlPreInsertTriggerCompartment_1107004SemanticChildren((View) getHost()
+						.getModel());
 		LinkedList<View> orphaned = new LinkedList<View>();
 		// we care to check only views we recognize as ours
 		LinkedList<View> knownViewChildren = new LinkedList<View>();
@@ -151,7 +151,6 @@ public class DataControlDataControlPreInsertTriggerCompartmentCanonicalEditPolic
 			SetViewMutabilityCommand.makeMutable(new EObjectAdapter(host().getNotationView())).execute();
 			executeCommand(cmd);
 			@SuppressWarnings("unchecked")
-
 			List<IAdaptable> nl = (List<IAdaptable>) request.getNewObject();
 			createdViews.addAll(nl);
 		}
@@ -160,8 +159,7 @@ public class DataControlDataControlPreInsertTriggerCompartmentCanonicalEditPolic
 		}
 		if (createdViews.size() > 1) {
 			// perform a layout of the container
-			DeferredLayoutCommand layoutCmd = new DeferredLayoutCommand(host().getEditingDomain(), createdViews,
-					host());
+			DeferredLayoutCommand layoutCmd = new DeferredLayoutCommand(host().getEditingDomain(), createdViews, host());
 			executeCommand(new ICommandProxy(layoutCmd));
 		}
 
