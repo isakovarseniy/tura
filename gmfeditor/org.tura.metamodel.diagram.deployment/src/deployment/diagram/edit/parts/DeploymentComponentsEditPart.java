@@ -60,8 +60,8 @@ public class DeploymentComponentsEditPart extends DiagramEditPart {
 		super.createDefaultEditPolicies();
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE, new DeploymentComponentsItemSemanticEditPolicy());
 		installEditPolicy(EditPolicyRoles.CANONICAL_ROLE, new DeploymentComponentsCanonicalEditPolicy());
-		installEditPolicy(EditPolicyRoles.CREATION_ROLE, new CreationEditPolicyWithCustomReparent(
-				DomainVisualIDRegistry.TYPED_INSTANCE));
+		installEditPolicy(EditPolicyRoles.CREATION_ROLE,
+				new CreationEditPolicyWithCustomReparent(DomainVisualIDRegistry.TYPED_INSTANCE));
 		installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE, new DiagramDragDropEditPolicy() {
 			public Command getDropObjectsCommand(DropObjectsRequest dropRequest) {
 				ArrayList<CreateViewRequest.ViewDescriptor> viewDescriptors = new ArrayList<CreateViewRequest.ViewDescriptor>();
@@ -80,8 +80,9 @@ public class DeploymentComponentsEditPart extends DiagramEditPart {
 					List<CreateViewRequest.ViewDescriptor> viewDescriptors) {
 				Command command = createViewsAndArrangeCommand(dropRequest, viewDescriptors);
 				if (command != null) {
-					return command.chain(new ICommandProxy(new DomainCreateShortcutDecorationsCommand(
-							getEditingDomain(), (View) getModel(), viewDescriptors)));
+					return command
+							.chain(new ICommandProxy(new DomainCreateShortcutDecorationsCommand(getEditingDomain(),
+									(View) getModel(), viewDescriptors)));
 				}
 				return null;
 			}

@@ -6,21 +6,6 @@ for (  label in GmfGraph!Label.all ){
   label.font.height	 = 12;
 }
 
--- Find the attribute figure
-var attributeFigure = GmfGraph!RoundedRectangle.all.selectOne(r|r.name = 'ActionTriggerFigure');
-
--- ... delete its border
-delete attributeFigure.border;
-
--- ... set its outline to false
-attributeFigure.setOutline ( false);
-
--- ... and add a preferred size to it
-var preferredSize = new GmfGraph!Dimension;
-preferredSize.dx = 200;
-preferredSize.dy = 16;
-attributeFigure.setPreferredSize ( preferredSize);
-
 
 -- Find the attribute figure
 var attributeFigure = GmfGraph!RoundedRectangle.all.selectOne(r|r.name = 'LabelFigure');

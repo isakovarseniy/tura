@@ -1,6 +1,6 @@
 /*
- * 
- */
+* 
+*/
 package canvas.diagram.edit.policies;
 
 import org.eclipse.gef.commands.Command;
@@ -15,15 +15,15 @@ import canvas.diagram.providers.DomainElementTypes;
 public class TreeTreeColsCompartment2ItemSemanticEditPolicy extends DomainBaseItemSemanticEditPolicy {
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public TreeTreeColsCompartment2ItemSemanticEditPolicy() {
 		super(DomainElementTypes.Tree_1603016);
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected Command getCreateCommand(CreateElementRequest req) {
 		if (DomainElementTypes.Column_1603026 == req.getElementType()) {
 			return getGEFWrapper(new Column2CreateCommand(req));

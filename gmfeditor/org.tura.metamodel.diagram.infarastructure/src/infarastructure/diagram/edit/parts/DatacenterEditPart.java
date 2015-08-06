@@ -195,9 +195,8 @@ public class DatacenterEditPart extends ShapeNodeEditPart {
 				EObject obj = ((View) getModel()).getElement();
 				if (obj instanceof Orderable) {
 					EditingDomain editingDomain = getEditingDomain();
-					editingDomain.getCommandStack().execute(
-							SetCommand.create(editingDomain, obj, DomainPackage.eINSTANCE.getOrderable_Order(),
-									evt.getNewValue()));
+					editingDomain.getCommandStack().execute(SetCommand.create(editingDomain, obj,
+							DomainPackage.eINSTANCE.getOrderable_Order(), evt.getNewValue()));
 
 				}
 			}
@@ -338,8 +337,8 @@ public class DatacenterEditPart extends ShapeNodeEditPart {
 
 			fFigureDatacenterLabelFigure.setFont(FFIGUREDATACENTERLABELFIGURE_FONT);
 
-			fFigureDatacenterLabelFigure.setMaximumSize(new Dimension(getMapMode().DPtoLP(10000), getMapMode().DPtoLP(
-					50)));
+			fFigureDatacenterLabelFigure
+					.setMaximumSize(new Dimension(getMapMode().DPtoLP(10000), getMapMode().DPtoLP(50)));
 
 			this.add(fFigureDatacenterLabelFigure);
 

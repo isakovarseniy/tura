@@ -13,13 +13,13 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link domain.MessageLibrary#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.MessageLibrary#getName <em>Name</em>}</li>
  *   <li>{@link domain.MessageLibrary#getLibLanguages <em>Lib Languages</em>}</li>
  *   <li>{@link domain.MessageLibrary#getMessages <em>Messages</em>}</li>
  * </ul>
- * </p>
  *
  * @see domain.DomainPackage#getMessageLibrary()
  * @model annotation="gmf.node label='name' border.color='0,0,0' color='255,237,85'"

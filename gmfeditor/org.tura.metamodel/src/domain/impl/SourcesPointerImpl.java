@@ -21,13 +21,13 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link domain.impl.SourcesPointerImpl#getSourcePointer <em>Source Pointer</em>}</li>
  *   <li>{@link domain.impl.SourcesPointerImpl#getValuePointer <em>Value Pointer</em>}</li>
  *   <li>{@link domain.impl.SourcesPointerImpl#getSourceCast <em>Source Cast</em>}</li>
  *   <li>{@link domain.impl.SourcesPointerImpl#getSourceCastDataControl <em>Source Cast Data Control</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

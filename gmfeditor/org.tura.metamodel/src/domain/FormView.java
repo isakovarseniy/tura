@@ -11,12 +11,12 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link domain.FormView#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.FormView#getName <em>Name</em>}</li>
  *   <li>{@link domain.FormView#getView <em>View</em>}</li>
  * </ul>
- * </p>
  *
  * @see domain.DomainPackage#getFormView()
  * @model annotation="gmf.node label='name' border.color='0,0,0' color='241,238,203'"

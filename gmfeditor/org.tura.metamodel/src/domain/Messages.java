@@ -13,6 +13,7 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link domain.Messages#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.Messages#getParent <em>Parent</em>}</li>
@@ -20,7 +21,6 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link domain.Messages#getLanguages <em>Languages</em>}</li>
  *   <li>{@link domain.Messages#getAny <em>Any</em>}</li>
  * </ul>
- * </p>
  *
  * @see domain.DomainPackage#getMessages()
  * @model

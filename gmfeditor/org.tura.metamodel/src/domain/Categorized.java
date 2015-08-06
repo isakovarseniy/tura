@@ -13,10 +13,10 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link domain.Categorized#getClassifiers <em>Classifiers</em>}</li>
  * </ul>
- * </p>
  *
  * @see domain.DomainPackage#getCategorized()
  * @model

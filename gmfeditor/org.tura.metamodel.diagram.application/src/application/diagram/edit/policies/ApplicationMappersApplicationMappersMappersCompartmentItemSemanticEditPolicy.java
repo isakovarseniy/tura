@@ -12,8 +12,8 @@ import application.diagram.providers.DomainElementTypes;
 /**
  * @generated
  */
-public class ApplicationMappersApplicationMappersMappersCompartmentItemSemanticEditPolicy extends
-		DomainBaseItemSemanticEditPolicy {
+public class ApplicationMappersApplicationMappersMappersCompartmentItemSemanticEditPolicy
+		extends DomainBaseItemSemanticEditPolicy {
 
 	/**
 	 * @generated

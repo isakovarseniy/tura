@@ -32,7 +32,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * @generated
  */
 public class ButtonItemProvider
-  extends ActionElementItemProvider
+  extends UielementItemProvider
 {
   /**
 	 * This constructs an instance from a factory and a notifier.

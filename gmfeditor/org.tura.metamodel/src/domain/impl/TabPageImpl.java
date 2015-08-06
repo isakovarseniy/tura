@@ -34,6 +34,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link domain.impl.TabPageImpl#getColumns <em>Columns</em>}</li>
  *   <li>{@link domain.impl.TabPageImpl#getViewElement <em>View Element</em>}</li>
@@ -41,7 +42,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link domain.impl.TabPageImpl#getClassifiers <em>Classifiers</em>}</li>
  *   <li>{@link domain.impl.TabPageImpl#getOrder <em>Order</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

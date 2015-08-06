@@ -11,11 +11,11 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link domain.Role#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.Role#getName <em>Name</em>}</li>
  * </ul>
- * </p>
  *
  * @see domain.DomainPackage#getRole()
  * @model annotation="gmf.node figure='org.tura.metamodel.commons.figures.RoleFigure' label.icon='false' label='name' label.placement='external' tool.small.bundle='org.tura.metamodel.commons' tool.small.path='icons/role.png'"

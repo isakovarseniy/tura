@@ -20,12 +20,12 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link domain.impl.TranslationImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.impl.TranslationImpl#getTranslation <em>Translation</em>}</li>
  *   <li>{@link domain.impl.TranslationImpl#getLang <em>Lang</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

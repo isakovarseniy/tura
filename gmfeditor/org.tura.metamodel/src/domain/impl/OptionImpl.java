@@ -23,12 +23,12 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link domain.impl.OptionImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.impl.OptionImpl#getParent <em>Parent</em>}</li>
  *   <li>{@link domain.impl.OptionImpl#getValue <em>Value</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

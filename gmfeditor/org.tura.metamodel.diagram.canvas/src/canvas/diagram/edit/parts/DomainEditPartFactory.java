@@ -18,8 +18,8 @@ import canvas.diagram.part.DomainVisualIDRegistry;
 public class DomainEditPartFactory implements EditPartFactory {
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public EditPart createEditPart(EditPart context, Object model) {
 		if (model instanceof View) {
 			View view = (View) model;
@@ -103,23 +103,17 @@ public class DomainEditPartFactory implements EditPartFactory {
 			case ImageEditPart.VISUAL_ID:
 				return new ImageEditPart(view);
 
-			case ButtonEditPart.VISUAL_ID:
-				return new ButtonEditPart(view);
-
-			case ButtonLabelEditPart.VISUAL_ID:
-				return new ButtonLabelEditPart(view);
-
-			case ActionTriggerEditPart.VISUAL_ID:
-				return new ActionTriggerEditPart(view);
-
-			case ActionTriggerFakeMethodEditPart.VISUAL_ID:
-				return new ActionTriggerFakeMethodEditPart(view);
-
 			case LabelEditPart.VISUAL_ID:
 				return new LabelEditPart(view);
 
 			case LabelLabelEditPart.VISUAL_ID:
 				return new LabelLabelEditPart(view);
+
+			case ButtonEditPart.VISUAL_ID:
+				return new ButtonEditPart(view);
+
+			case ButtonLabelEditPart.VISUAL_ID:
+				return new ButtonLabelEditPart(view);
 
 			case CheckBox2EditPart.VISUAL_ID:
 				return new CheckBox2EditPart(view);
@@ -127,17 +121,17 @@ public class DomainEditPartFactory implements EditPartFactory {
 			case Image2EditPart.VISUAL_ID:
 				return new Image2EditPart(view);
 
-			case Button2EditPart.VISUAL_ID:
-				return new Button2EditPart(view);
-
-			case ButtonLabel2EditPart.VISUAL_ID:
-				return new ButtonLabel2EditPart(view);
-
 			case Label2EditPart.VISUAL_ID:
 				return new Label2EditPart(view);
 
 			case LabelLabel2EditPart.VISUAL_ID:
 				return new LabelLabel2EditPart(view);
+
+			case Button2EditPart.VISUAL_ID:
+				return new Button2EditPart(view);
+
+			case ButtonLabel2EditPart.VISUAL_ID:
+				return new ButtonLabel2EditPart(view);
 
 			case LayerHolderLayerHolderChildrenCompartmentEditPart.VISUAL_ID:
 				return new LayerHolderLayerHolderChildrenCompartmentEditPart(view);
@@ -165,28 +159,22 @@ public class DomainEditPartFactory implements EditPartFactory {
 
 			case LayerHolderLayerHolderChildrenCompartment3EditPart.VISUAL_ID:
 				return new LayerHolderLayerHolderChildrenCompartment3EditPart(view);
-
-			case ButtonButtonTriggersCompartmentEditPart.VISUAL_ID:
-				return new ButtonButtonTriggersCompartmentEditPart(view);
-
-			case ButtonButtonTriggersCompartment2EditPart.VISUAL_ID:
-				return new ButtonButtonTriggersCompartment2EditPart(view);
 			}
 		}
 		return createUnrecognizedEditPart(context, model);
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private EditPart createUnrecognizedEditPart(EditPart context, Object model) {
 		// Handle creation of unrecognized child node EditParts here
 		return null;
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static CellEditorLocator getTextCellEditorLocator(ITextAwareEditPart source) {
 		return CellEditorLocatorAccess.INSTANCE.getTextCellEditorLocator(source);
 	}

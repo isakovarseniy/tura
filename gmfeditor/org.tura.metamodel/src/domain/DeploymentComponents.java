@@ -13,13 +13,13 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link domain.DeploymentComponents#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.DeploymentComponents#getDeplymentStep <em>Deplyment Step</em>}</li>
  *   <li>{@link domain.DeploymentComponents#getStartSeq <em>Start Seq</em>}</li>
  *   <li>{@link domain.DeploymentComponents#getAny <em>Any</em>}</li>
  * </ul>
- * </p>
  *
  * @see domain.DomainPackage#getDeploymentComponents()
  * @model

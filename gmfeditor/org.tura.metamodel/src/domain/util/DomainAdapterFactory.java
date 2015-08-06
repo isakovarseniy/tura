@@ -720,10 +720,6 @@ public class DomainAdapterFactory extends AdapterFactoryImpl {
 				return createSourcesPointerAdapter();
 			}
 			@Override
-			public Adapter caseActionElement(ActionElement object) {
-				return createActionElementAdapter();
-			}
-			@Override
 			public Adapter caseActionTrigger(ActionTrigger object) {
 				return createActionTriggerAdapter();
 			}
@@ -772,6 +768,10 @@ public class DomainAdapterFactory extends AdapterFactoryImpl {
 				return createDateAdapter();
 			}
 			@Override
+			public Adapter caseButton(Button object) {
+				return createButtonAdapter();
+			}
+			@Override
 			public Adapter caseColumn(Column object) {
 				return createColumnAdapter();
 			}
@@ -782,10 +782,6 @@ public class DomainAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseTree(Tree object) {
 				return createTreeAdapter();
-			}
-			@Override
-			public Adapter caseButton(Button object) {
-				return createButtonAdapter();
 			}
 			@Override
 			public Adapter caseControls(Controls object) {
@@ -2721,21 +2717,6 @@ public class DomainAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createSourcesPointerAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '
-	 * {@link domain.ActionElement <em>Action Element</em>}'. <!--
-	 * begin-user-doc --> This default implementation returns null so that we
-	 * can easily ignore cases; it's useful to ignore a case when inheritance
-	 * will catch all the cases anyway. <!-- end-user-doc -->
-	 * 
-	 * @return the new adapter.
-	 * @see domain.ActionElement
-	 * @generated
-	 */
-	public Adapter createActionElementAdapter() {
 		return null;
 	}
 

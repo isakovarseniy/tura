@@ -1380,6 +1380,8 @@
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="onEventRefreshArea" upperBound="-1"
         eType="#//NickNamed"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="triggers" upperBound="-1"
+        eType="#//ActionTrigger" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Formatable">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="format" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -1391,18 +1393,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="sourceCastDataControl"
         eType="#//DataControl"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ActionElement" eSuperTypes="#//Uielement">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="triggers" upperBound="-1"
-        eType="#//ActionTrigger" containment="true">
-      <eAnnotations source="gmf.compartment">
-        <details key="layout" value="list"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ActionTrigger" eSuperTypes="#//Trigger #//Categorized">
-    <eAnnotations source="gmf.node">
-      <details key="label" value="fakeMethod"/>
-    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>
   </eClassifiers>
@@ -1483,6 +1474,18 @@
       <details key="tool.small.path" value="icons/date.png"/>
     </eAnnotations>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Button" eSuperTypes="#//Uielement #//MultiLangLabel">
+    <eAnnotations source="gmf.node">
+      <details key="figure" value="org.tura.metamodel.commons.figures.ButtonFigure"/>
+      <details key="label" value="label"/>
+      <details key="label.icon" value="false"/>
+      <details key="tool.small.bundle" value="org.tura.metamodel.commons"/>
+      <details key="tool.small.path" value="icons/button.png"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="label" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="icon" eType="#//Context"
+        containment="true"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Column" eSuperTypes="#//StyleElement #//MultiLangLabel #//Categorized #//HTMLLayerHolder #//Orderable">
     <eAnnotations source="gmf.node">
       <details key="label" value="label"/>
@@ -1523,16 +1526,6 @@
         containment="true">
       <eAnnotations source="gmf.compartment"/>
     </eStructuralFeatures>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Button" eSuperTypes="#//ActionElement #//MultiLangLabel">
-    <eAnnotations source="gmf.node">
-      <details key="label" value="label"/>
-      <details key="tool.small.bundle" value="org.tura.metamodel.commons"/>
-      <details key="tool.small.path" value="icons/button.png"/>
-    </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="label" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="icon" eType="#//Context"
-        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Controls">
     <eAnnotations source="gmf.diagram"/>

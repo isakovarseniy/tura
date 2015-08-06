@@ -12,8 +12,8 @@ import message.diagram.providers.DomainElementTypes;
 /**
  * @generated
  */
-public class MessageLibraryMessageLibraryMessagesCompartmentItemSemanticEditPolicy extends
-		DomainBaseItemSemanticEditPolicy {
+public class MessageLibraryMessageLibraryMessagesCompartmentItemSemanticEditPolicy
+		extends DomainBaseItemSemanticEditPolicy {
 
 	/**
 	 * @generated

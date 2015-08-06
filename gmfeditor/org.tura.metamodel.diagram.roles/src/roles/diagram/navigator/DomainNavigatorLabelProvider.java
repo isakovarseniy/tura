@@ -37,16 +37,17 @@ import domain.Roles;
 /**
  * @generated
  */
-public class DomainNavigatorLabelProvider extends LabelProvider implements ICommonLabelProvider, ITreePathLabelProvider {
+public class DomainNavigatorLabelProvider extends LabelProvider
+		implements ICommonLabelProvider, ITreePathLabelProvider {
 
 	/**
 	 * @generated
 	 */
 	static {
-		DomainDiagramEditorPlugin.getInstance().getImageRegistry()
-				.put("Navigator?UnknownElement", ImageDescriptor.getMissingImageDescriptor()); //$NON-NLS-1$
-		DomainDiagramEditorPlugin.getInstance().getImageRegistry()
-				.put("Navigator?ImageNotFound", ImageDescriptor.getMissingImageDescriptor()); //$NON-NLS-1$
+		DomainDiagramEditorPlugin.getInstance().getImageRegistry().put("Navigator?UnknownElement", //$NON-NLS-1$
+				ImageDescriptor.getMissingImageDescriptor());
+		DomainDiagramEditorPlugin.getInstance().getImageRegistry().put("Navigator?ImageNotFound", //$NON-NLS-1$
+				ImageDescriptor.getMissingImageDescriptor());
 	}
 
 	/**
@@ -97,17 +98,17 @@ public class DomainNavigatorLabelProvider extends LabelProvider implements IComm
 		case RolesEditPart.VISUAL_ID:
 			return getImage("Navigator?Diagram?http://tura.org/2013/v1/domain?Roles", DomainElementTypes.Roles_1401000); //$NON-NLS-1$
 		case RoleEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?TopLevelNode?http://tura.org/2013/v1/domain?Role", DomainElementTypes.Role_1402001); //$NON-NLS-1$
+			return getImage("Navigator?TopLevelNode?http://tura.org/2013/v1/domain?Role", //$NON-NLS-1$
+					DomainElementTypes.Role_1402001);
 		case GroupEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?TopLevelNode?http://tura.org/2013/v1/domain?Group", DomainElementTypes.Group_1402002); //$NON-NLS-1$
+			return getImage("Navigator?TopLevelNode?http://tura.org/2013/v1/domain?Group", //$NON-NLS-1$
+					DomainElementTypes.Group_1402002);
 		case GroupGroup2GroupEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Link?http://tura.org/2013/v1/domain?Group?group2Group", DomainElementTypes.GroupGroup2Group_1404003); //$NON-NLS-1$
+			return getImage("Navigator?Link?http://tura.org/2013/v1/domain?Group?group2Group", //$NON-NLS-1$
+					DomainElementTypes.GroupGroup2Group_1404003);
 		case GroupGroup2RoleEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Link?http://tura.org/2013/v1/domain?Group?group2Role", DomainElementTypes.GroupGroup2Role_1404005); //$NON-NLS-1$
+			return getImage("Navigator?Link?http://tura.org/2013/v1/domain?Group?group2Role", //$NON-NLS-1$
+					DomainElementTypes.GroupGroup2Role_1404005);
 		}
 		return getImage("Navigator?UnknownElement", null); //$NON-NLS-1$
 	}

@@ -11,13 +11,13 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link domain.Infrastructure#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.Infrastructure#getRecipe <em>Recipe</em>}</li>
  *   <li>{@link domain.Infrastructure#getName <em>Name</em>}</li>
  *   <li>{@link domain.Infrastructure#getRecipeConfig <em>Recipe Config</em>}</li>
  * </ul>
- * </p>
  *
  * @see domain.DomainPackage#getInfrastructure()
  * @model annotation="gmf.node label='name' border.color='0,0,0' color='255,239,222'"

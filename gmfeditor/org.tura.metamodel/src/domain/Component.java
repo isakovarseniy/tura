@@ -11,6 +11,7 @@ import org.eclipse.emf.common.util.EList;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link domain.Component#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.Component#getName <em>Name</em>}</li>
@@ -18,7 +19,6 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link domain.Component#getMappers <em>Mappers</em>}</li>
  *   <li>{@link domain.Component#getComponentRoot <em>Component Root</em>}</li>
  * </ul>
- * </p>
  *
  * @see domain.DomainPackage#getComponent()
  * @model

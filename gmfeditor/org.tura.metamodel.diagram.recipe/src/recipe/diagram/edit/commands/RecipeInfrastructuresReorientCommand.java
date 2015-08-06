@@ -75,8 +75,8 @@ public class RecipeInfrastructuresReorientCommand extends EditElementCommand {
 		if (!(oldEnd instanceof Infrastructure && newEnd instanceof Recipe)) {
 			return false;
 		}
-		return DomainBaseItemSemanticEditPolicy.getLinkConstraints().canExistRecipeInfrastructures_304004(
-				getNewSource(), getOldTarget());
+		return DomainBaseItemSemanticEditPolicy.getLinkConstraints()
+				.canExistRecipeInfrastructures_304004(getNewSource(), getOldTarget());
 	}
 
 	/**
@@ -86,8 +86,8 @@ public class RecipeInfrastructuresReorientCommand extends EditElementCommand {
 		if (!(oldEnd instanceof Infrastructure && newEnd instanceof Infrastructure)) {
 			return false;
 		}
-		return DomainBaseItemSemanticEditPolicy.getLinkConstraints().canExistRecipeInfrastructures_304004(
-				getOldSource(), getNewTarget());
+		return DomainBaseItemSemanticEditPolicy.getLinkConstraints()
+				.canExistRecipeInfrastructures_304004(getOldSource(), getNewTarget());
 	}
 
 	/**

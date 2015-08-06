@@ -1,6 +1,6 @@
 /*
- * 
- */
+* 
+*/
 package canvas.diagram.edit.policies;
 
 import org.eclipse.emf.ecore.EAnnotation;
@@ -19,15 +19,15 @@ import canvas.diagram.providers.DomainElementTypes;
 public class DropDownSelectionItemSemanticEditPolicy extends DomainBaseItemSemanticEditPolicy {
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public DropDownSelectionItemSemanticEditPolicy() {
 		super(DomainElementTypes.DropDownSelection_1603002);
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected Command getDestroyElementCommand(DestroyElementRequest req) {
 		View view = (View) getHost().getModel();
 		CompositeTransactionalCommand cmd = new CompositeTransactionalCommand(getEditingDomain(), null);

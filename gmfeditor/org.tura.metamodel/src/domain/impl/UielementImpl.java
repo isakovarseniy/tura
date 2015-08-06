@@ -2,6 +2,7 @@
  */
 package domain.impl;
 
+import domain.ActionTrigger;
 import domain.Categorized;
 import domain.Classifier;
 import domain.Context;
@@ -32,6 +33,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link domain.impl.UielementImpl#getNickname <em>Nickname</em>}</li>
  *   <li>{@link domain.impl.UielementImpl#getClassifiers <em>Classifiers</em>}</li>
@@ -41,8 +43,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link domain.impl.UielementImpl#getRequired <em>Required</em>}</li>
  *   <li>{@link domain.impl.UielementImpl#getReadOnly <em>Read Only</em>}</li>
  *   <li>{@link domain.impl.UielementImpl#getOnEventRefreshArea <em>On Event Refresh Area</em>}</li>
+ *   <li>{@link domain.impl.UielementImpl#getTriggers <em>Triggers</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -159,6 +161,16 @@ public class UielementImpl extends StyleElementImpl implements Uielement
   protected EList<NickNamed> onEventRefreshArea;
 
   /**
+	 * The cached value of the '{@link #getTriggers() <em>Triggers</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTriggers()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<ActionTrigger> triggers;
+
+		/**
 	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
 	 * @generated
@@ -414,6 +426,18 @@ public class UielementImpl extends StyleElementImpl implements Uielement
 
   /**
 	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<ActionTrigger> getTriggers() {
+		if (triggers == null) {
+			triggers = new EObjectContainmentEList<ActionTrigger>(ActionTrigger.class, this, DomainPackage.UIELEMENT__TRIGGERS);
+		}
+		return triggers;
+	}
+
+		/**
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -429,6 +453,8 @@ public class UielementImpl extends StyleElementImpl implements Uielement
 				return basicSetRequired(null, msgs);
 			case DomainPackage.UIELEMENT__READ_ONLY:
 				return basicSetReadOnly(null, msgs);
+			case DomainPackage.UIELEMENT__TRIGGERS:
+				return ((InternalEList<?>)getTriggers()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -458,6 +484,8 @@ public class UielementImpl extends StyleElementImpl implements Uielement
 				return getReadOnly();
 			case DomainPackage.UIELEMENT__ON_EVENT_REFRESH_AREA:
 				return getOnEventRefreshArea();
+			case DomainPackage.UIELEMENT__TRIGGERS:
+				return getTriggers();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -498,6 +526,10 @@ public class UielementImpl extends StyleElementImpl implements Uielement
 				getOnEventRefreshArea().clear();
 				getOnEventRefreshArea().addAll((Collection<? extends NickNamed>)newValue);
 				return;
+			case DomainPackage.UIELEMENT__TRIGGERS:
+				getTriggers().clear();
+				getTriggers().addAll((Collection<? extends ActionTrigger>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -535,6 +567,9 @@ public class UielementImpl extends StyleElementImpl implements Uielement
 			case DomainPackage.UIELEMENT__ON_EVENT_REFRESH_AREA:
 				getOnEventRefreshArea().clear();
 				return;
+			case DomainPackage.UIELEMENT__TRIGGERS:
+				getTriggers().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -564,6 +599,8 @@ public class UielementImpl extends StyleElementImpl implements Uielement
 				return readOnly != null;
 			case DomainPackage.UIELEMENT__ON_EVENT_REFRESH_AREA:
 				return onEventRefreshArea != null && !onEventRefreshArea.isEmpty();
+			case DomainPackage.UIELEMENT__TRIGGERS:
+				return triggers != null && !triggers.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

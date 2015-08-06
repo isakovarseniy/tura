@@ -174,6 +174,7 @@ public class UielementItemProvider
 			childrenFeatures.add(DomainPackage.Literals.UIELEMENT__ENABLED);
 			childrenFeatures.add(DomainPackage.Literals.UIELEMENT__REQUIRED);
 			childrenFeatures.add(DomainPackage.Literals.UIELEMENT__READ_ONLY);
+			childrenFeatures.add(DomainPackage.Literals.UIELEMENT__TRIGGERS);
 		}
 		return childrenFeatures;
 	}
@@ -241,6 +242,7 @@ public class UielementItemProvider
 			case DomainPackage.UIELEMENT__ENABLED:
 			case DomainPackage.UIELEMENT__REQUIRED:
 			case DomainPackage.UIELEMENT__READ_ONLY:
+			case DomainPackage.UIELEMENT__TRIGGERS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -278,6 +280,11 @@ public class UielementItemProvider
 			(createChildParameter
 				(DomainPackage.Literals.UIELEMENT__READ_ONLY,
 				 DomainFactory.eINSTANCE.createContext()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.UIELEMENT__TRIGGERS,
+				 DomainFactory.eINSTANCE.createActionTrigger()));
 	}
 
   /**

@@ -1,6 +1,6 @@
 /*
- * 
- */
+* 
+*/
 package canvas.diagram.edit.policies;
 
 import org.eclipse.emf.ecore.EAnnotation;
@@ -19,15 +19,15 @@ import canvas.diagram.providers.DomainElementTypes;
 public class DateItemSemanticEditPolicy extends DomainBaseItemSemanticEditPolicy {
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public DateItemSemanticEditPolicy() {
 		super(DomainElementTypes.Date_1603029);
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected Command getDestroyElementCommand(DestroyElementRequest req) {
 		View view = (View) getHost().getModel();
 		CompositeTransactionalCommand cmd = new CompositeTransactionalCommand(getEditingDomain(), null);

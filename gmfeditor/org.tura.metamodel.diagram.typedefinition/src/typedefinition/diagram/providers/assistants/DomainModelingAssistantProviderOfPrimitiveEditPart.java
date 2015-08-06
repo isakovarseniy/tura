@@ -54,7 +54,8 @@ public class DomainModelingAssistantProviderOfPrimitiveEditPart extends DomainMo
 	/**
 	 * @generated
 	 */
-	public List<IElementType> doGetRelTypesOnSourceAndTarget(PrimitiveEditPart source, IGraphicalEditPart targetEditPart) {
+	public List<IElementType> doGetRelTypesOnSourceAndTarget(PrimitiveEditPart source,
+			IGraphicalEditPart targetEditPart) {
 		List<IElementType> types = new LinkedList<IElementType>();
 		if (targetEditPart instanceof TypeEditPart) {
 			types.add(DomainElementTypes.TypeExtension_104001);

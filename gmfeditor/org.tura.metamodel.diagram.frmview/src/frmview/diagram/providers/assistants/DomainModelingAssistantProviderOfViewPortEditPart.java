@@ -66,7 +66,8 @@ public class DomainModelingAssistantProviderOfViewPortEditPart extends DomainMod
 	/**
 	 * @generated
 	 */
-	public List<IElementType> doGetRelTypesOnSourceAndTarget(ViewPortEditPart source, IGraphicalEditPart targetEditPart) {
+	public List<IElementType> doGetRelTypesOnSourceAndTarget(ViewPortEditPart source,
+			IGraphicalEditPart targetEditPart) {
 		List<IElementType> types = new LinkedList<IElementType>();
 		if (targetEditPart instanceof PopupCanvasEditPart) {
 			types.add(DomainElementTypes.ViewInheritance_1304001);

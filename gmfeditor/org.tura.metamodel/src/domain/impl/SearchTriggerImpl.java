@@ -17,10 +17,10 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link domain.impl.SearchTriggerImpl#getUid <em>Uid</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

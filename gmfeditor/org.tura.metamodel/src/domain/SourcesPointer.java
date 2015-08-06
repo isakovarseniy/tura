@@ -11,13 +11,13 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link domain.SourcesPointer#getSourcePointer <em>Source Pointer</em>}</li>
  *   <li>{@link domain.SourcesPointer#getValuePointer <em>Value Pointer</em>}</li>
  *   <li>{@link domain.SourcesPointer#getSourceCast <em>Source Cast</em>}</li>
  *   <li>{@link domain.SourcesPointer#getSourceCastDataControl <em>Source Cast Data Control</em>}</li>
  * </ul>
- * </p>
  *
  * @see domain.DomainPackage#getSourcesPointer()
  * @model

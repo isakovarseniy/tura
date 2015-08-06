@@ -419,11 +419,11 @@ public class DomainDiagramUpdater {
 	 */
 	public static List<DomainLinkDescriptor> getConfiguration_302002IncomingLinks(View view) {
 		Configuration modelElement = (Configuration) view.getElement();
-		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer.find(view
-				.eResource().getResourceSet().getResources());
+		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+				.find(view.eResource().getResourceSet().getResources());
 		LinkedList<DomainLinkDescriptor> result = new LinkedList<DomainLinkDescriptor>();
-		result.addAll(getIncomingFeatureModelFacetLinks_Infrastructure_RecipeConfig_304006(modelElement,
-				crossReferences));
+		result.addAll(
+				getIncomingFeatureModelFacetLinks_Infrastructure_RecipeConfig_304006(modelElement, crossReferences));
 		return result;
 	}
 
@@ -432,8 +432,8 @@ public class DomainDiagramUpdater {
 	 */
 	public static List<DomainLinkDescriptor> getInfrastructure_302003IncomingLinks(View view) {
 		Infrastructure modelElement = (Infrastructure) view.getElement();
-		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer.find(view
-				.eResource().getResourceSet().getResources());
+		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+				.find(view.eResource().getResourceSet().getResources());
 		LinkedList<DomainLinkDescriptor> result = new LinkedList<DomainLinkDescriptor>();
 		result.addAll(getIncomingFeatureModelFacetLinks_Recipe_Infrastructures_304004(modelElement, crossReferences));
 		return result;
@@ -444,8 +444,8 @@ public class DomainDiagramUpdater {
 	 */
 	public static List<DomainLinkDescriptor> getDeploymentSequence_302004IncomingLinks(View view) {
 		DeploymentSequence modelElement = (DeploymentSequence) view.getElement();
-		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer.find(view
-				.eResource().getResourceSet().getResources());
+		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+				.find(view.eResource().getResourceSet().getResources());
 		LinkedList<DomainLinkDescriptor> result = new LinkedList<DomainLinkDescriptor>();
 		result.addAll(getIncomingFeatureModelFacetLinks_Recipe_Deployment_304013(modelElement, crossReferences));
 		return result;
@@ -654,33 +654,37 @@ public class DomainDiagramUpdater {
 	 */
 	public static final DiagramUpdater TYPED_INSTANCE = new DiagramUpdater() {
 		/**
-		 * @generated
-		 */
+		* @generated
+		*/
 		@Override
+
 		public List<DomainNodeDescriptor> getSemanticChildren(View view) {
 			return DomainDiagramUpdater.getSemanticChildren(view);
 		}
 
 		/**
-		 * @generated
-		 */
+		* @generated
+		*/
 		@Override
+
 		public List<DomainLinkDescriptor> getContainedLinks(View view) {
 			return DomainDiagramUpdater.getContainedLinks(view);
 		}
 
 		/**
-		 * @generated
-		 */
+		* @generated
+		*/
 		@Override
+
 		public List<DomainLinkDescriptor> getIncomingLinks(View view) {
 			return DomainDiagramUpdater.getIncomingLinks(view);
 		}
 
 		/**
-		 * @generated
-		 */
+		* @generated
+		*/
 		@Override
+
 		public List<DomainLinkDescriptor> getOutgoingLinks(View view) {
 			return DomainDiagramUpdater.getOutgoingLinks(view);
 		}

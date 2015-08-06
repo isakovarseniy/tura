@@ -11,13 +11,13 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link domain.ExpressionPart#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.ExpressionPart#getObjRef <em>Obj Ref</em>}</li>
  *   <li>{@link domain.ExpressionPart#getOrder <em>Order</em>}</li>
  *   <li>{@link domain.ExpressionPart#getExpressionType <em>Expression Type</em>}</li>
  * </ul>
- * </p>
  *
  * @see domain.DomainPackage#getExpressionPart()
  * @model

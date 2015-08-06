@@ -11,13 +11,13 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link domain.DomainTypes#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.DomainTypes#getName <em>Name</em>}</li>
  *   <li>{@link domain.DomainTypes#getTypesrepository <em>Typesrepository</em>}</li>
  *   <li>{@link domain.DomainTypes#getParent <em>Parent</em>}</li>
  * </ul>
- * </p>
  *
  * @see domain.DomainPackage#getDomainTypes()
  * @model annotation="gmf.node label='name' border.color='0,0,0' color='255,239,222'"

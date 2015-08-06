@@ -28,11 +28,11 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link domain.impl.ActionTriggerImpl#getClassifiers <em>Classifiers</em>}</li>
  *   <li>{@link domain.impl.ActionTriggerImpl#getUid <em>Uid</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

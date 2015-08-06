@@ -10,12 +10,12 @@ package domain;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link domain.ViewPort#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.ViewPort#getName <em>Name</em>}</li>
  *   <li>{@link domain.ViewPort#getViewPortTrigger <em>View Port Trigger</em>}</li>
  * </ul>
- * </p>
  *
  * @see domain.DomainPackage#getViewPort()
  * @model annotation="gmf.node label='name' border.color='0,0,0' color='192,192,192'"

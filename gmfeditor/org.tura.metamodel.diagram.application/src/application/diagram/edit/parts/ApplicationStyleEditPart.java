@@ -126,8 +126,8 @@ public class ApplicationStyleEditPart extends ShapeNodeEditPart {
 	 */
 	protected boolean addFixedChild(EditPart childEditPart) {
 		if (childEditPart instanceof ApplicationStyleNameEditPart) {
-			((ApplicationStyleNameEditPart) childEditPart).setLabel(getPrimaryShape()
-					.getFigureApplicationStyleLabelFigure());
+			((ApplicationStyleNameEditPart) childEditPart)
+					.setLabel(getPrimaryShape().getFigureApplicationStyleLabelFigure());
 			return true;
 		}
 		if (childEditPart instanceof ApplicationStyleApplicationStyleStylesPackageCompartmentEditPart) {
@@ -196,9 +196,8 @@ public class ApplicationStyleEditPart extends ShapeNodeEditPart {
 				EObject obj = ((View) getModel()).getElement();
 				if (obj instanceof Orderable) {
 					EditingDomain editingDomain = getEditingDomain();
-					editingDomain.getCommandStack().execute(
-							SetCommand.create(editingDomain, obj, DomainPackage.eINSTANCE.getOrderable_Order(),
-									evt.getNewValue()));
+					editingDomain.getCommandStack().execute(SetCommand.create(editingDomain, obj,
+							DomainPackage.eINSTANCE.getOrderable_Order(), evt.getNewValue()));
 
 				}
 			}
@@ -341,8 +340,8 @@ public class ApplicationStyleEditPart extends ShapeNodeEditPart {
 
 			fFigureApplicationStyleLabelFigure.setFont(FFIGUREAPPLICATIONSTYLELABELFIGURE_FONT);
 
-			fFigureApplicationStyleLabelFigure.setMaximumSize(new Dimension(getMapMode().DPtoLP(10000), getMapMode()
-					.DPtoLP(50)));
+			fFigureApplicationStyleLabelFigure
+					.setMaximumSize(new Dimension(getMapMode().DPtoLP(10000), getMapMode().DPtoLP(50)));
 
 			this.add(fFigureApplicationStyleLabelFigure);
 

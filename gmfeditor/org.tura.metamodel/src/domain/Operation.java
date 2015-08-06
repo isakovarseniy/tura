@@ -13,6 +13,7 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link domain.Operation#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.Operation#getName <em>Name</em>}</li>
@@ -20,7 +21,6 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link domain.Operation#getParameters <em>Parameters</em>}</li>
  *   <li>{@link domain.Operation#getReturnValue <em>Return Value</em>}</li>
  * </ul>
- * </p>
  *
  * @see domain.DomainPackage#getOperation()
  * @model annotation="gmf.node label='name' border.color='0,0,0' color='255,239,222'"

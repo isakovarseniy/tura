@@ -2978,30 +2978,6 @@ public class DomainItemProviderAdapterFactory extends DomainAdapterFactory imple
 	}
 
   /**
-	 * This keeps track of the one adapter used for all {@link domain.ActionElement} instances.
-	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-	 * @generated
-	 */
-  protected ActionElementItemProvider actionElementItemProvider;
-
-  /**
-	 * This creates an adapter for a {@link domain.ActionElement}.
-	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-	 * @generated
-	 */
-  @Override
-  public Adapter createActionElementAdapter()
-  {
-		if (actionElementItemProvider == null) {
-			actionElementItemProvider = new ActionElementItemProvider(this);
-		}
-
-		return actionElementItemProvider;
-	}
-
-  /**
 	 * This keeps track of the one adapter used for all {@link domain.ActionTrigger} instances.
 	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -4454,7 +4430,6 @@ public class DomainItemProviderAdapterFactory extends DomainAdapterFactory imple
 		if (uielementItemProvider != null) uielementItemProvider.dispose();
 		if (formatableItemProvider != null) formatableItemProvider.dispose();
 		if (sourcesPointerItemProvider != null) sourcesPointerItemProvider.dispose();
-		if (actionElementItemProvider != null) actionElementItemProvider.dispose();
 		if (actionTriggerItemProvider != null) actionTriggerItemProvider.dispose();
 		if (inputElementItemProvider != null) inputElementItemProvider.dispose();
 		if (selectionItemProvider != null) selectionItemProvider.dispose();
@@ -4467,10 +4442,10 @@ public class DomainItemProviderAdapterFactory extends DomainAdapterFactory imple
 		if (dropDownSelectionItemProvider != null) dropDownSelectionItemProvider.dispose();
 		if (imageItemProvider != null) imageItemProvider.dispose();
 		if (dateItemProvider != null) dateItemProvider.dispose();
+		if (buttonItemProvider != null) buttonItemProvider.dispose();
 		if (columnItemProvider != null) columnItemProvider.dispose();
 		if (tableItemProvider != null) tableItemProvider.dispose();
 		if (treeItemProvider != null) treeItemProvider.dispose();
-		if (buttonItemProvider != null) buttonItemProvider.dispose();
 		if (controlsItemProvider != null) controlsItemProvider.dispose();
 		if (triggerItemProvider != null) triggerItemProvider.dispose();
 		if (preFormTriggerItemProvider != null) preFormTriggerItemProvider.dispose();

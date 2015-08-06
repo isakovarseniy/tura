@@ -282,7 +282,8 @@ public class DomainPaletteFactory {
 	 */
 	private ToolEntry createDependency1CreationTool() {
 		DefaultLinkToolEntry entry = new DefaultLinkToolEntry(Messages.Dependency1CreationTool_title,
-				Messages.Dependency1CreationTool_desc, Collections.singletonList(DomainElementTypes.Dependency_1104010));
+				Messages.Dependency1CreationTool_desc,
+				Collections.singletonList(DomainElementTypes.Dependency_1104010));
 		entry.setId("createDependency1CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(DomainElementTypes.getImageDescriptor(DomainElementTypes.Dependency_1104010));
 		entry.setLargeIcon(entry.getSmallIcon());

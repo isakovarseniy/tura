@@ -123,8 +123,8 @@ public class DomainArtifactEditPart extends ShapeNodeEditPart {
 	 */
 	protected boolean addFixedChild(EditPart childEditPart) {
 		if (childEditPart instanceof DomainArtifactNameEditPart) {
-			((DomainArtifactNameEditPart) childEditPart).setLabel(getPrimaryShape()
-					.getFigureDomainArtifactLabelFigure());
+			((DomainArtifactNameEditPart) childEditPart)
+					.setLabel(getPrimaryShape().getFigureDomainArtifactLabelFigure());
 			return true;
 		}
 		return false;
@@ -179,9 +179,8 @@ public class DomainArtifactEditPart extends ShapeNodeEditPart {
 				EObject obj = ((View) getModel()).getElement();
 				if (obj instanceof Orderable) {
 					EditingDomain editingDomain = getEditingDomain();
-					editingDomain.getCommandStack().execute(
-							SetCommand.create(editingDomain, obj, DomainPackage.eINSTANCE.getOrderable_Order(),
-									evt.getNewValue()));
+					editingDomain.getCommandStack().execute(SetCommand.create(editingDomain, obj,
+							DomainPackage.eINSTANCE.getOrderable_Order(), evt.getNewValue()));
 
 				}
 			}
@@ -322,6 +321,7 @@ public class DomainArtifactEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	static final Font FFIGUREDOMAINARTIFACTLABELFIGURE_FONT = new Font(Display.getCurrent(), "Palatino", 12, SWT.ITALIC);
+	static final Font FFIGUREDOMAINARTIFACTLABELFIGURE_FONT = new Font(Display.getCurrent(), "Palatino", 12,
+			SWT.ITALIC);
 
 }

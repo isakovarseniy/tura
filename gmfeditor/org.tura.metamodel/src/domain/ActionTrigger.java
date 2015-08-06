@@ -10,13 +10,13 @@ package domain;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link domain.ActionTrigger#getUid <em>Uid</em>}</li>
  * </ul>
- * </p>
  *
  * @see domain.DomainPackage#getActionTrigger()
- * @model annotation="gmf.node label='fakeMethod'"
+ * @model
  * @generated
  */
 public interface ActionTrigger extends Trigger, Categorized

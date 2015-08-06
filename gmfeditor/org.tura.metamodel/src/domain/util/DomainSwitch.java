@@ -221,7 +221,7 @@ public class DomainSwitch<T> extends Switch<T>
 	 * Checks whether this is a switch for the given package.
 	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @parameter ePackage the package in question.
+	 * @param ePackage the package in question.
 	 * @return whether this is a switch for the given package.
 	 * @generated
 	 */
@@ -1065,17 +1065,6 @@ public class DomainSwitch<T> extends Switch<T>
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case DomainPackage.ACTION_ELEMENT: {
-				ActionElement actionElement = (ActionElement)theEObject;
-				T result = caseActionElement(actionElement);
-				if (result == null) result = caseUielement(actionElement);
-				if (result == null) result = caseStyleElement(actionElement);
-				if (result == null) result = caseNickNamed(actionElement);
-				if (result == null) result = caseCategorized(actionElement);
-				if (result == null) result = caseOrderable(actionElement);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case DomainPackage.ACTION_TRIGGER: {
 				ActionTrigger actionTrigger = (ActionTrigger)theEObject;
 				T result = caseActionTrigger(actionTrigger);
@@ -1226,6 +1215,18 @@ public class DomainSwitch<T> extends Switch<T>
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case DomainPackage.BUTTON: {
+				Button button = (Button)theEObject;
+				T result = caseButton(button);
+				if (result == null) result = caseUielement(button);
+				if (result == null) result = caseMultiLangLabel(button);
+				if (result == null) result = caseStyleElement(button);
+				if (result == null) result = caseNickNamed(button);
+				if (result == null) result = caseCategorized(button);
+				if (result == null) result = caseOrderable(button);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case DomainPackage.COLUMN: {
 				Column column = (Column)theEObject;
 				T result = caseColumn(column);
@@ -1262,19 +1263,6 @@ public class DomainSwitch<T> extends Switch<T>
 				if (result == null) result = caseNickNamed(tree);
 				if (result == null) result = caseCategorized(tree);
 				if (result == null) result = caseOrderable(tree);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case DomainPackage.BUTTON: {
-				Button button = (Button)theEObject;
-				T result = caseButton(button);
-				if (result == null) result = caseActionElement(button);
-				if (result == null) result = caseMultiLangLabel(button);
-				if (result == null) result = caseUielement(button);
-				if (result == null) result = caseStyleElement(button);
-				if (result == null) result = caseNickNamed(button);
-				if (result == null) result = caseCategorized(button);
-				if (result == null) result = caseOrderable(button);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -3483,22 +3471,6 @@ public class DomainSwitch<T> extends Switch<T>
 	 * @generated
 	 */
   public T caseSourcesPointer(SourcesPointer object)
-  {
-		return null;
-	}
-
-  /**
-	 * Returns the result of interpreting the object as an instance of '<em>Action Element</em>'.
-	 * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Action Element</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-  public T caseActionElement(ActionElement object)
   {
 		return null;
 	}

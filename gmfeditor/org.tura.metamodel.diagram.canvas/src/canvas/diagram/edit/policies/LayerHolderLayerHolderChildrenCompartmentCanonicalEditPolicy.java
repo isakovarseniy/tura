@@ -1,6 +1,6 @@
 /*
- * 
- */
+* 
+*/
 package canvas.diagram.edit.policies;
 
 import java.util.ArrayList;
@@ -46,8 +46,8 @@ import domain.DomainPackage;
 public class LayerHolderLayerHolderChildrenCompartmentCanonicalEditPolicy extends CanonicalEditPolicy {
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected void refreshOnActivate() {
 		// Need to activate editpart children before invoking the canonical refresh for EditParts to add event listeners
 		List<?> c = getHost().getChildren();
@@ -58,16 +58,17 @@ public class LayerHolderLayerHolderChildrenCompartmentCanonicalEditPolicy extend
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected EStructuralFeature getFeatureToSynchronize() {
 		return DomainPackage.eINSTANCE.getChildrenHolder_Children();
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	@SuppressWarnings("rawtypes")
+
 	protected List getSemanticChildrenList() {
 		View viewObject = (View) getHost().getModel();
 		LinkedList<EObject> result = new LinkedList<EObject>();
@@ -80,15 +81,15 @@ public class LayerHolderLayerHolderChildrenCompartmentCanonicalEditPolicy extend
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected boolean isOrphaned(Collection<EObject> semanticChildren, final View view) {
 		return isMyDiagramElement(view) && !semanticChildren.contains(view.getElement());
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private boolean isMyDiagramElement(View view) {
 		int visualID = DomainVisualIDRegistry.getVisualID(view);
 		switch (visualID) {
@@ -101,16 +102,16 @@ public class LayerHolderLayerHolderChildrenCompartmentCanonicalEditPolicy extend
 		case LayerHolder3EditPart.VISUAL_ID:
 		case CheckBoxEditPart.VISUAL_ID:
 		case ImageEditPart.VISUAL_ID:
-		case ButtonEditPart.VISUAL_ID:
 		case LabelEditPart.VISUAL_ID:
+		case ButtonEditPart.VISUAL_ID:
 			return true;
 		}
 		return false;
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected void refreshSemantic() {
 		if (resolveSemanticElement() == null) {
 			return;
@@ -175,6 +176,7 @@ public class LayerHolderLayerHolderChildrenCompartmentCanonicalEditPolicy extend
 			SetViewMutabilityCommand.makeMutable(new EObjectAdapter(host().getNotationView())).execute();
 			executeCommand(cmd);
 			@SuppressWarnings("unchecked")
+
 			List<IAdaptable> nl = (List<IAdaptable>) request.getNewObject();
 			createdViews.addAll(nl);
 		}
@@ -183,7 +185,8 @@ public class LayerHolderLayerHolderChildrenCompartmentCanonicalEditPolicy extend
 		}
 		if (createdViews.size() > 1) {
 			// perform a layout of the container
-			DeferredLayoutCommand layoutCmd = new DeferredLayoutCommand(host().getEditingDomain(), createdViews, host());
+			DeferredLayoutCommand layoutCmd = new DeferredLayoutCommand(host().getEditingDomain(), createdViews,
+					host());
 			executeCommand(new ICommandProxy(layoutCmd));
 		}
 

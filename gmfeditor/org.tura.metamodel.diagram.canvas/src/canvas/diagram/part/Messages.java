@@ -11,451 +11,431 @@ import org.eclipse.osgi.util.NLS;
 public class Messages extends NLS {
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	static {
 		NLS.initializeMessages("messages", Messages.class); //$NON-NLS-1$
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private Messages() {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static String DomainCreationWizardTitle;
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static String DomainCreationWizard_DiagramModelFilePageTitle;
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static String DomainCreationWizard_DiagramModelFilePageDescription;
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static String DomainCreationWizard_DomainModelFilePageTitle;
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static String DomainCreationWizard_DomainModelFilePageDescription;
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static String DomainCreationWizardOpenEditorError;
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static String DomainCreationWizardCreationError;
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static String DomainCreationWizardPageExtensionError;
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static String DomainDiagramEditorUtil_OpenModelResourceErrorDialogTitle;
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static String DomainDiagramEditorUtil_OpenModelResourceErrorDialogMessage;
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static String DomainDiagramEditorUtil_CreateDiagramProgressTask;
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static String DomainDiagramEditorUtil_CreateDiagramCommandLabel;
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static String DomainDocumentProvider_isModifiable;
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static String DomainDocumentProvider_handleElementContentChanged;
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static String DomainDocumentProvider_IncorrectInputError;
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static String DomainDocumentProvider_NoDiagramInResourceError;
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static String DomainDocumentProvider_DiagramLoadingError;
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static String DomainDocumentProvider_UnsynchronizedFileSaveError;
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static String DomainDocumentProvider_SaveDiagramTask;
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static String DomainDocumentProvider_SaveNextResourceTask;
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static String DomainDocumentProvider_SaveAsOperation;
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static String InitDiagramFile_ResourceErrorDialogTitle;
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static String InitDiagramFile_ResourceErrorDialogMessage;
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static String InitDiagramFile_WizardTitle;
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static String InitDiagramFile_OpenModelFileDialogTitle;
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static String DomainNewDiagramFileWizard_CreationPageName;
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static String DomainNewDiagramFileWizard_CreationPageTitle;
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static String DomainNewDiagramFileWizard_CreationPageDescription;
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static String DomainNewDiagramFileWizard_RootSelectionPageName;
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static String DomainNewDiagramFileWizard_RootSelectionPageTitle;
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static String DomainNewDiagramFileWizard_RootSelectionPageDescription;
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static String DomainNewDiagramFileWizard_RootSelectionPageSelectionTitle;
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static String DomainNewDiagramFileWizard_RootSelectionPageNoSelectionMessage;
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static String DomainNewDiagramFileWizard_RootSelectionPageInvalidSelectionMessage;
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static String DomainNewDiagramFileWizard_InitDiagramCommand;
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static String DomainNewDiagramFileWizard_IncorrectRootError;
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static String DomainDiagramEditor_SavingDeletedFile;
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static String DomainDiagramEditor_SaveAsErrorTitle;
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static String DomainDiagramEditor_SaveAsErrorMessage;
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static String DomainDiagramEditor_SaveErrorTitle;
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static String DomainDiagramEditor_SaveErrorMessage;
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static String DomainElementChooserDialog_SelectModelElementTitle;
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static String ModelElementSelectionPageMessage;
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static String ValidateActionMessage;
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static String Objects1Group_title;
 
 	/**
-	 * @generated
-	 */
-	public static String ActionTrigger1CreationTool_title;
+	* @generated
+	*/
+	public static String Button1CreationTool_title;
 
 	/**
-	 * @generated
-	 */
-	public static String ActionTrigger1CreationTool_desc;
+	* @generated
+	*/
+	public static String Button1CreationTool_desc;
 
 	/**
-	 * @generated
-	 */
-	public static String Button2CreationTool_title;
+	* @generated
+	*/
+	public static String CheckBox2CreationTool_title;
 
 	/**
-	 * @generated
-	 */
-	public static String Button2CreationTool_desc;
+	* @generated
+	*/
+	public static String CheckBox2CreationTool_desc;
 
 	/**
-	 * @generated
-	 */
-	public static String CheckBox3CreationTool_title;
+	* @generated
+	*/
+	public static String Column3CreationTool_title;
 
 	/**
-	 * @generated
-	 */
-	public static String CheckBox3CreationTool_desc;
+	* @generated
+	*/
+	public static String Column3CreationTool_desc;
 
 	/**
-	 * @generated
-	 */
-	public static String Column4CreationTool_title;
+	* @generated
+	*/
+	public static String Date4CreationTool_title;
 
 	/**
-	 * @generated
-	 */
-	public static String Column4CreationTool_desc;
+	* @generated
+	*/
+	public static String Date4CreationTool_desc;
 
 	/**
-	 * @generated
-	 */
-	public static String Date5CreationTool_title;
+	* @generated
+	*/
+	public static String DropDownSelection5CreationTool_title;
 
 	/**
-	 * @generated
-	 */
-	public static String Date5CreationTool_desc;
+	* @generated
+	*/
+	public static String DropDownSelection5CreationTool_desc;
 
 	/**
-	 * @generated
-	 */
-	public static String DropDownSelection6CreationTool_title;
+	* @generated
+	*/
+	public static String Image6CreationTool_title;
 
 	/**
-	 * @generated
-	 */
-	public static String DropDownSelection6CreationTool_desc;
+	* @generated
+	*/
+	public static String Image6CreationTool_desc;
 
 	/**
-	 * @generated
-	 */
-	public static String Image7CreationTool_title;
+	* @generated
+	*/
+	public static String InputText7CreationTool_title;
 
 	/**
-	 * @generated
-	 */
-	public static String Image7CreationTool_desc;
+	* @generated
+	*/
+	public static String InputText7CreationTool_desc;
 
 	/**
-	 * @generated
-	 */
-	public static String InputText8CreationTool_title;
+	* @generated
+	*/
+	public static String Label8CreationTool_title;
 
 	/**
-	 * @generated
-	 */
-	public static String InputText8CreationTool_desc;
+	* @generated
+	*/
+	public static String Label8CreationTool_desc;
 
 	/**
-	 * @generated
-	 */
-	public static String Label9CreationTool_title;
+	* @generated
+	*/
+	public static String LayerHolder9CreationTool_title;
 
 	/**
-	 * @generated
-	 */
-	public static String Label9CreationTool_desc;
+	* @generated
+	*/
+	public static String LayerHolder9CreationTool_desc;
 
 	/**
-	 * @generated
-	 */
-	public static String LayerHolder10CreationTool_title;
+	* @generated
+	*/
+	public static String OutputText10CreationTool_title;
 
 	/**
-	 * @generated
-	 */
-	public static String LayerHolder10CreationTool_desc;
+	* @generated
+	*/
+	public static String OutputText10CreationTool_desc;
 
 	/**
-	 * @generated
-	 */
-	public static String OutputText11CreationTool_title;
+	* @generated
+	*/
+	public static String Table11CreationTool_title;
 
 	/**
-	 * @generated
-	 */
-	public static String OutputText11CreationTool_desc;
+	* @generated
+	*/
+	public static String Table11CreationTool_desc;
 
 	/**
-	 * @generated
-	 */
-	public static String Table12CreationTool_title;
+	* @generated
+	*/
+	public static String Tree12CreationTool_title;
 
 	/**
-	 * @generated
-	 */
-	public static String Table12CreationTool_desc;
+	* @generated
+	*/
+	public static String Tree12CreationTool_desc;
 
 	/**
-	 * @generated
-	 */
-	public static String Tree13CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String Tree13CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static String LayerHolderLayerHolderChildrenCompartmentEditPart_title;
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static String TableTableColsCompartmentEditPart_title;
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static String ColumnColumnElementCompartmentEditPart_title;
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static String TableTableColsCompartment2EditPart_title;
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static String TreeTreeColsCompartmentEditPart_title;
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static String ColumnColumnElementCompartment2EditPart_title;
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static String LayerHolderLayerHolderChildrenCompartment2EditPart_title;
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static String TreeTreeColsCompartment2EditPart_title;
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static String LayerHolderLayerHolderChildrenCompartment3EditPart_title;
 
 	/**
-	 * @generated
-	 */
-	public static String ButtonButtonTriggersCompartmentEditPart_title;
-
-	/**
-	 * @generated
-	 */
-	public static String ButtonButtonTriggersCompartment2EditPart_title;
-
-	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static String CommandName_OpenDiagram;
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static String NavigatorActionProvider_OpenDiagramActionName;
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static String MessageFormatParser_InvalidInputError;
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static String DomainModelingAssistantProviderTitle;
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static String DomainModelingAssistantProviderMessage;
 
 	//TODO: put accessor fields manually	

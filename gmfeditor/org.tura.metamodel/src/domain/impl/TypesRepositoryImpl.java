@@ -23,13 +23,13 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link domain.impl.TypesRepositoryImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.impl.TypesRepositoryImpl#getTypeDefinition <em>Type Definition</em>}</li>
  *   <li>{@link domain.impl.TypesRepositoryImpl#getParent <em>Parent</em>}</li>
  *   <li>{@link domain.impl.TypesRepositoryImpl#getAny <em>Any</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

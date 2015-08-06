@@ -36,7 +36,6 @@ import org.eclipse.gmf.runtime.emf.ui.services.parser.ISemanticParser;
 import org.eclipse.gmf.runtime.notation.FontStyle;
 import org.eclipse.gmf.runtime.notation.NotationPackage;
 import org.eclipse.gmf.runtime.notation.View;
-import org.eclipse.gmf.tooling.runtime.directedit.TextDirectEditManager2;
 import org.eclipse.gmf.tooling.runtime.draw2d.labels.SimpleLabelDelegate;
 import org.eclipse.gmf.tooling.runtime.edit.policies.DefaultNodeLabelDragPolicy;
 import org.eclipse.gmf.tooling.runtime.edit.policies.labels.IRefreshableFeedbackEditPolicy;
@@ -59,45 +58,45 @@ import canvas.diagram.providers.DomainParserProvider;
 public class LabelLabelEditPart extends CompartmentEditPart implements ITextAwareEditPart {
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static final int VISUAL_ID = 1605001;
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private DirectEditManager manager;
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private IParser parser;
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private List<?> parserElements;
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private String defaultText;
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private ILabelDelegate labelDelegate;
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public LabelLabelEditPart(View view) {
 		super(view);
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected void createDefaultEditPolicies() {
 		super.createDefaultEditPolicies();
 		installEditPolicy(EditPolicy.SELECTION_FEEDBACK_ROLE, new DomainTextSelectionEditPolicy());
@@ -106,8 +105,8 @@ public class LabelLabelEditPart extends CompartmentEditPart implements ITextAwar
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected String getLabelTextHelper(IFigure figure) {
 		if (figure instanceof WrappingLabel) {
 			return ((WrappingLabel) figure).getText();
@@ -119,8 +118,8 @@ public class LabelLabelEditPart extends CompartmentEditPart implements ITextAwar
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected void setLabelTextHelper(IFigure figure, String text) {
 		if (figure instanceof WrappingLabel) {
 			((WrappingLabel) figure).setText(text);
@@ -132,8 +131,8 @@ public class LabelLabelEditPart extends CompartmentEditPart implements ITextAwar
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected Image getLabelIconHelper(IFigure figure) {
 		if (figure instanceof WrappingLabel) {
 			return ((WrappingLabel) figure).getIcon();
@@ -145,8 +144,8 @@ public class LabelLabelEditPart extends CompartmentEditPart implements ITextAwar
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected void setLabelIconHelper(IFigure figure, Image icon) {
 		if (figure instanceof WrappingLabel) {
 			((WrappingLabel) figure).setIcon(icon);
@@ -160,8 +159,8 @@ public class LabelLabelEditPart extends CompartmentEditPart implements ITextAwar
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public void setLabel(WrappingLabel figure) {
 		unregisterVisuals();
 		setFigure(figure);
@@ -171,37 +170,37 @@ public class LabelLabelEditPart extends CompartmentEditPart implements ITextAwar
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	@SuppressWarnings("rawtypes")
 	protected List getModelChildren() {
 		return Collections.EMPTY_LIST;
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public IGraphicalEditPart getChildBySemanticHint(String semanticHint) {
 		return null;
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected EObject getParserElement() {
 		return resolveSemanticElement();
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected Image getLabelIcon() {
 		return null;
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 
 	protected String getLabelText() {
 		String text = null;
@@ -217,16 +216,16 @@ public class LabelLabelEditPart extends CompartmentEditPart implements ITextAwar
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public void setLabelText(String text) {
 		setLabelTextHelper(getFigure(), text);
 		refreshSelectionFeedback();
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public String getEditText() {
 		if (getParserElement() == null || getParser() == null) {
 			return ""; //$NON-NLS-1$
@@ -235,15 +234,15 @@ public class LabelLabelEditPart extends CompartmentEditPart implements ITextAwar
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected boolean isEditable() {
 		return getParser() != null;
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public ICellEditorValidator getEditTextValidator() {
 		return new ICellEditorValidator() {
 
@@ -252,13 +251,13 @@ public class LabelLabelEditPart extends CompartmentEditPart implements ITextAwar
 					final EObject element = getParserElement();
 					final IParser parser = getParser();
 					try {
-						IParserEditStatus valid = (IParserEditStatus) getEditingDomain().runExclusive(
-								new RunnableWithResult.Impl<IParserEditStatus>() {
+						IParserEditStatus valid = (IParserEditStatus) getEditingDomain()
+								.runExclusive(new RunnableWithResult.Impl<IParserEditStatus>() {
 
-									public void run() {
-										setResult(parser.isValidEditString(new EObjectAdapter(element), (String) value));
-									}
-								});
+							public void run() {
+								setResult(parser.isValidEditString(new EObjectAdapter(element), (String) value));
+							}
+						});
 						return valid.getCode() == ParserEditStatus.EDITABLE ? null : valid.getMessage();
 					} catch (InterruptedException ie) {
 						ie.printStackTrace();
@@ -272,8 +271,8 @@ public class LabelLabelEditPart extends CompartmentEditPart implements ITextAwar
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public IContentAssistProcessor getCompletionProcessor() {
 		if (getParserElement() == null || getParser() == null) {
 			return null;
@@ -282,15 +281,15 @@ public class LabelLabelEditPart extends CompartmentEditPart implements ITextAwar
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public ParserOptions getParserOptions() {
 		return ParserOptions.NONE;
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public IParser getParser() {
 		if (parser == null) {
 			parser = DomainParserProvider.getParser(DomainElementTypes.Label_1603005, getParserElement(),
@@ -300,8 +299,8 @@ public class LabelLabelEditPart extends CompartmentEditPart implements ITextAwar
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected DirectEditManager getManager() {
 		if (manager == null) {
 			setManager(new TextDirectEditManager(this, null, DomainEditPartFactory.getTextCellEditorLocator(this)));
@@ -310,22 +309,22 @@ public class LabelLabelEditPart extends CompartmentEditPart implements ITextAwar
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected void setManager(DirectEditManager manager) {
 		this.manager = manager;
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected void performDirectEdit() {
 		getManager().show();
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected void performDirectEdit(Point eventLocation) {
 		if (getManager().getClass() == TextDirectEditManager.class) {
 			((TextDirectEditManager) getManager()).show(eventLocation.getSWTPoint());
@@ -333,8 +332,8 @@ public class LabelLabelEditPart extends CompartmentEditPart implements ITextAwar
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private void performDirectEdit(char initialCharacter) {
 		if (getManager() instanceof TextDirectEditManager) {
 			((TextDirectEditManager) getManager()).show(initialCharacter);
@@ -345,8 +344,8 @@ public class LabelLabelEditPart extends CompartmentEditPart implements ITextAwar
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected void performDirectEditRequest(Request request) {
 		final Request theRequest = request;
 		try {
@@ -354,11 +353,13 @@ public class LabelLabelEditPart extends CompartmentEditPart implements ITextAwar
 
 				public void run() {
 					if (isActive() && isEditable()) {
-						if (theRequest.getExtendedData().get(RequestConstants.REQ_DIRECTEDIT_EXTENDEDDATA_INITIAL_CHAR) instanceof Character) {
-							Character initialChar = (Character) theRequest.getExtendedData().get(
-									RequestConstants.REQ_DIRECTEDIT_EXTENDEDDATA_INITIAL_CHAR);
+						if (theRequest.getExtendedData()
+								.get(RequestConstants.REQ_DIRECTEDIT_EXTENDEDDATA_INITIAL_CHAR) instanceof Character) {
+							Character initialChar = (Character) theRequest.getExtendedData()
+									.get(RequestConstants.REQ_DIRECTEDIT_EXTENDEDDATA_INITIAL_CHAR);
 							performDirectEdit(initialChar.charValue());
-						} else if ((theRequest instanceof DirectEditRequest) && (getEditText().equals(getLabelText()))) {
+						} else
+							if ((theRequest instanceof DirectEditRequest) && (getEditText().equals(getLabelText()))) {
 							DirectEditRequest editRequest = (DirectEditRequest) theRequest;
 							performDirectEdit(editRequest.getLocation());
 						} else {
@@ -373,8 +374,8 @@ public class LabelLabelEditPart extends CompartmentEditPart implements ITextAwar
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected void refreshVisuals() {
 		super.refreshVisuals();
 		refreshLabel();
@@ -385,8 +386,8 @@ public class LabelLabelEditPart extends CompartmentEditPart implements ITextAwar
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected void refreshLabel() {
 		setLabelTextHelper(getFigure(), getLabelText());
 		setLabelIconHelper(getFigure(), getLabelIcon());
@@ -394,8 +395,8 @@ public class LabelLabelEditPart extends CompartmentEditPart implements ITextAwar
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected void refreshUnderline() {
 		FontStyle style = (FontStyle) getFontStyleOwnerView().getStyle(NotationPackage.eINSTANCE.getFontStyle());
 		if (style != null && getFigure() instanceof WrappingLabel) {
@@ -404,8 +405,8 @@ public class LabelLabelEditPart extends CompartmentEditPart implements ITextAwar
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected void refreshStrikeThrough() {
 		FontStyle style = (FontStyle) getFontStyleOwnerView().getStyle(NotationPackage.eINSTANCE.getFontStyle());
 		if (style != null && getFigure() instanceof WrappingLabel) {
@@ -414,28 +415,28 @@ public class LabelLabelEditPart extends CompartmentEditPart implements ITextAwar
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected void refreshFont() {
 		FontStyle style = (FontStyle) getFontStyleOwnerView().getStyle(NotationPackage.eINSTANCE.getFontStyle());
 		if (style != null) {
-			FontData fontData = new FontData(style.getFontName(), style.getFontHeight(), (style.isBold() ? SWT.BOLD
-					: SWT.NORMAL) | (style.isItalic() ? SWT.ITALIC : SWT.NORMAL));
+			FontData fontData = new FontData(style.getFontName(), style.getFontHeight(),
+					(style.isBold() ? SWT.BOLD : SWT.NORMAL) | (style.isItalic() ? SWT.ITALIC : SWT.NORMAL));
 			setFont(fontData);
 		}
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private void refreshSelectionFeedback() {
 		requestEditPolicyFeedbackRefresh(EditPolicy.PRIMARY_DRAG_ROLE);
 		requestEditPolicyFeedbackRefresh(EditPolicy.SELECTION_FEEDBACK_ROLE);
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private void requestEditPolicyFeedbackRefresh(String editPolicyKey) {
 		Object editPolicy = getEditPolicy(editPolicyKey);
 		if (editPolicy instanceof IRefreshableFeedbackEditPolicy) {
@@ -444,15 +445,15 @@ public class LabelLabelEditPart extends CompartmentEditPart implements ITextAwar
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected void setFontColor(Color color) {
 		getFigure().setForegroundColor(color);
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected void addSemanticListeners() {
 		if (getParser() instanceof ISemanticParser) {
 			EObject element = resolveSemanticElement();
@@ -466,8 +467,8 @@ public class LabelLabelEditPart extends CompartmentEditPart implements ITextAwar
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected void removeSemanticListeners() {
 		if (parserElements != null) {
 			for (int i = 0; i < parserElements.size(); i++) {
@@ -479,8 +480,8 @@ public class LabelLabelEditPart extends CompartmentEditPart implements ITextAwar
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected AccessibleEditPart getAccessibleEditPart() {
 		if (accessibleEP == null) {
 			accessibleEP = new AccessibleGraphicalEditPart() {
@@ -494,15 +495,15 @@ public class LabelLabelEditPart extends CompartmentEditPart implements ITextAwar
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private View getFontStyleOwnerView() {
 		return (View) getModel();
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private ILabelDelegate getLabelDelegate() {
 		if (labelDelegate == null) {
 			IFigure label = getFigure();
@@ -516,8 +517,8 @@ public class LabelLabelEditPart extends CompartmentEditPart implements ITextAwar
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	@Override
 	public Object getAdapter(Class key) {
 		if (ILabelDelegate.class.equals(key)) {
@@ -527,24 +528,24 @@ public class LabelLabelEditPart extends CompartmentEditPart implements ITextAwar
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected void addNotationalListeners() {
 		super.addNotationalListeners();
 		addListenerFilter("PrimaryView", this, getPrimaryView()); //$NON-NLS-1$
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected void removeNotationalListeners() {
 		super.removeNotationalListeners();
 		removeListenerFilter("PrimaryView"); //$NON-NLS-1$
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected void handleNotificationEvent(Notification event) {
 		Object feature = event.getFeature();
 		if (NotationPackage.eINSTANCE.getFontStyle_FontColor().equals(feature)) {
@@ -578,8 +579,8 @@ public class LabelLabelEditPart extends CompartmentEditPart implements ITextAwar
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected IFigure createFigure() {
 		// Parent should assign one using setLabel() method
 		return null;

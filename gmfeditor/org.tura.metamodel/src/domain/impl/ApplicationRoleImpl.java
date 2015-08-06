@@ -24,13 +24,13 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link domain.impl.ApplicationRoleImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.impl.ApplicationRoleImpl#getName <em>Name</em>}</li>
  *   <li>{@link domain.impl.ApplicationRoleImpl#getParent <em>Parent</em>}</li>
  *   <li>{@link domain.impl.ApplicationRoleImpl#getRoles <em>Roles</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

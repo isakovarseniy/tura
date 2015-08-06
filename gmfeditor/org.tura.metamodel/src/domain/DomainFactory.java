@@ -1112,15 +1112,6 @@ public interface DomainFactory extends EFactory
   SourcesPointer createSourcesPointer();
 
   /**
-	 * Returns a new object of class '<em>Action Element</em>'.
-	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Action Element</em>'.
-	 * @generated
-	 */
-  ActionElement createActionElement();
-
-  /**
 	 * Returns a new object of class '<em>Action Trigger</em>'.
 	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

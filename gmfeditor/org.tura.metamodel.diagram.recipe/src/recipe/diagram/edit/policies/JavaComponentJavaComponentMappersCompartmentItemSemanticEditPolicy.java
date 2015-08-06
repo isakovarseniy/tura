@@ -12,8 +12,8 @@ import recipe.diagram.providers.DomainElementTypes;
 /**
  * @generated
  */
-public class JavaComponentJavaComponentMappersCompartmentItemSemanticEditPolicy extends
-		DomainBaseItemSemanticEditPolicy {
+public class JavaComponentJavaComponentMappersCompartmentItemSemanticEditPolicy
+		extends DomainBaseItemSemanticEditPolicy {
 
 	/**
 	 * @generated

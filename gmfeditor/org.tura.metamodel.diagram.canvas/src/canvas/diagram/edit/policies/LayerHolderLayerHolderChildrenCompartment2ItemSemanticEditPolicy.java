@@ -1,6 +1,6 @@
 /*
- * 
- */
+* 
+*/
 package canvas.diagram.edit.policies;
 
 import org.eclipse.gef.commands.Command;
@@ -25,15 +25,15 @@ import canvas.diagram.providers.DomainElementTypes;
 public class LayerHolderLayerHolderChildrenCompartment2ItemSemanticEditPolicy extends DomainBaseItemSemanticEditPolicy {
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public LayerHolderLayerHolderChildrenCompartment2ItemSemanticEditPolicy() {
 		super(DomainElementTypes.LayerHolder_1603020);
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected Command getCreateCommand(CreateElementRequest req) {
 		if (DomainElementTypes.InputText_1603004 == req.getElementType()) {
 			return getGEFWrapper(new InputTextCreateCommand(req));
@@ -62,11 +62,11 @@ public class LayerHolderLayerHolderChildrenCompartment2ItemSemanticEditPolicy ex
 		if (DomainElementTypes.Image_1603028 == req.getElementType()) {
 			return getGEFWrapper(new ImageCreateCommand(req));
 		}
-		if (DomainElementTypes.Button_1603017 == req.getElementType()) {
-			return getGEFWrapper(new ButtonCreateCommand(req));
-		}
 		if (DomainElementTypes.Label_1603005 == req.getElementType()) {
 			return getGEFWrapper(new LabelCreateCommand(req));
+		}
+		if (DomainElementTypes.Button_1603017 == req.getElementType()) {
+			return getGEFWrapper(new ButtonCreateCommand(req));
 		}
 		return super.getCreateCommand(req);
 	}

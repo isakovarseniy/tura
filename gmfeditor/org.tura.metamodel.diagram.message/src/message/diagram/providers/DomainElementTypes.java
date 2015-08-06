@@ -43,8 +43,8 @@ public class DomainElementTypes {
 	/**
 	 * @generated
 	 */
-	private static DiagramElementTypeImages elementTypeImages = new DiagramElementTypeImages(DomainDiagramEditorPlugin
-			.getInstance().getItemProvidersAdapterFactory());
+	private static DiagramElementTypeImages elementTypeImages = new DiagramElementTypeImages(
+			DomainDiagramEditorPlugin.getInstance().getItemProvidersAdapterFactory());
 
 	/**
 	 * @generated
@@ -54,19 +54,23 @@ public class DomainElementTypes {
 	/**
 	 * @generated
 	 */
-	public static final IElementType Messages_1701000 = getElementType("org.tura.metamodel.diagram.message.Messages_1701000"); //$NON-NLS-1$
+	public static final IElementType Messages_1701000 = getElementType(
+			"org.tura.metamodel.diagram.message.Messages_1701000"); //$NON-NLS-1$
 	/**
 	 * @generated
 	 */
-	public static final IElementType MessageLibrary_1702001 = getElementType("org.tura.metamodel.diagram.message.MessageLibrary_1702001"); //$NON-NLS-1$
+	public static final IElementType MessageLibrary_1702001 = getElementType(
+			"org.tura.metamodel.diagram.message.MessageLibrary_1702001"); //$NON-NLS-1$
 	/**
 	 * @generated
 	 */
-	public static final IElementType Language_1702002 = getElementType("org.tura.metamodel.diagram.message.Language_1702002"); //$NON-NLS-1$
+	public static final IElementType Language_1702002 = getElementType(
+			"org.tura.metamodel.diagram.message.Language_1702002"); //$NON-NLS-1$
 	/**
 	 * @generated
 	 */
-	public static final IElementType Message_1703004 = getElementType("org.tura.metamodel.diagram.message.Message_1703004"); //$NON-NLS-1$
+	public static final IElementType Message_1703004 = getElementType(
+			"org.tura.metamodel.diagram.message.Message_1703004"); //$NON-NLS-1$
 
 	/**
 	 * @generated
@@ -161,25 +165,28 @@ public class DomainElementTypes {
 	public static final DiagramElementTypes TYPED_INSTANCE = new DiagramElementTypes(elementTypeImages) {
 
 		/**
-		 * @generated
-		 */
+		* @generated
+		*/
 		@Override
+
 		public boolean isKnownElementType(IElementType elementType) {
 			return message.diagram.providers.DomainElementTypes.isKnownElementType(elementType);
 		}
 
 		/**
-		 * @generated
-		 */
+		* @generated
+		*/
 		@Override
+
 		public IElementType getElementTypeForVisualId(int visualID) {
 			return message.diagram.providers.DomainElementTypes.getElementType(visualID);
 		}
 
 		/**
-		 * @generated
-		 */
+		* @generated
+		*/
 		@Override
+
 		public ENamedElement getDefiningNamedElement(IAdaptable elementTypeAdapter) {
 			return message.diagram.providers.DomainElementTypes.getElement(elementTypeAdapter);
 		}

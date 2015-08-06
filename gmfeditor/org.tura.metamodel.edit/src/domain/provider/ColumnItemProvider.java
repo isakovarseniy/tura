@@ -279,11 +279,6 @@ public class ColumnItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(DomainPackage.Literals.COLUMN__ELEMENT,
-				 DomainFactory.eINSTANCE.createActionElement()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DomainPackage.Literals.COLUMN__ELEMENT,
 				 DomainFactory.eINSTANCE.createInputElement()));
 
 		newChildDescriptors.add
@@ -334,17 +329,17 @@ public class ColumnItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(DomainPackage.Literals.COLUMN__ELEMENT,
+				 DomainFactory.eINSTANCE.createButton()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.COLUMN__ELEMENT,
 				 DomainFactory.eINSTANCE.createTable()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(DomainPackage.Literals.COLUMN__ELEMENT,
 				 DomainFactory.eINSTANCE.createTree()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DomainPackage.Literals.COLUMN__ELEMENT,
-				 DomainFactory.eINSTANCE.createButton()));
 	}
 
   /**

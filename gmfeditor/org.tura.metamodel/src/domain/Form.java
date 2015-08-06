@@ -12,6 +12,7 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link domain.Form#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.Form#getName <em>Name</em>}</li>
@@ -19,7 +20,6 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link domain.Form#getDatacontrols <em>Datacontrols</em>}</li>
  *   <li>{@link domain.Form#getParameters <em>Parameters</em>}</li>
  * </ul>
- * </p>
  *
  * @see domain.DomainPackage#getForm()
  * @model annotation="gmf.node label='name' border.color='0,0,0' color='241,238,203'"

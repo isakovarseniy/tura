@@ -13,13 +13,13 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link domain.Mappers#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.Mappers#getMappers <em>Mappers</em>}</li>
  *   <li>{@link domain.Mappers#getParent <em>Parent</em>}</li>
  *   <li>{@link domain.Mappers#getAny <em>Any</em>}</li>
  * </ul>
- * </p>
  *
  * @see domain.DomainPackage#getMappers()
  * @model

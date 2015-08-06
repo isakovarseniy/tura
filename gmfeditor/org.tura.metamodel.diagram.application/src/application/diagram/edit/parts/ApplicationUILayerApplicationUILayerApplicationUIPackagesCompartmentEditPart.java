@@ -35,8 +35,8 @@ import domain.HTMLLayerHolder;
 /**
  * @generated
  */
-public class ApplicationUILayerApplicationUILayerApplicationUIPackagesCompartmentEditPart extends
-		ShapeCompartmentEditPart {
+public class ApplicationUILayerApplicationUILayerApplicationUIPackagesCompartmentEditPart
+		extends ShapeCompartmentEditPart {
 
 	/**
 	 * @generated
@@ -110,8 +110,8 @@ public class ApplicationUILayerApplicationUILayerApplicationUIPackagesCompartmen
 		installEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE, new ResizableCompartmentEditPolicy());
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
 				new ApplicationUILayerApplicationUILayerApplicationUIPackagesCompartmentItemSemanticEditPolicy());
-		installEditPolicy(EditPolicyRoles.CREATION_ROLE, new CreationEditPolicyWithCustomReparent(
-				DomainVisualIDRegistry.TYPED_INSTANCE));
+		installEditPolicy(EditPolicyRoles.CREATION_ROLE,
+				new CreationEditPolicyWithCustomReparent(DomainVisualIDRegistry.TYPED_INSTANCE));
 		installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE, new DragDropEditPolicy());
 		installEditPolicy(EditPolicyRoles.CANONICAL_ROLE,
 				new ApplicationUILayerApplicationUILayerApplicationUIPackagesCompartmentCanonicalEditPolicy());

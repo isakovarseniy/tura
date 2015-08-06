@@ -123,8 +123,8 @@ public class ContinuousIintegrationEditPart extends ShapeNodeEditPart {
 	 */
 	protected boolean addFixedChild(EditPart childEditPart) {
 		if (childEditPart instanceof ContinuousIintegrationNameEditPart) {
-			((ContinuousIintegrationNameEditPart) childEditPart).setLabel(getPrimaryShape()
-					.getFigureContinuousIintegrationLabelFigure());
+			((ContinuousIintegrationNameEditPart) childEditPart)
+					.setLabel(getPrimaryShape().getFigureContinuousIintegrationLabelFigure());
 			return true;
 		}
 		return false;
@@ -179,9 +179,8 @@ public class ContinuousIintegrationEditPart extends ShapeNodeEditPart {
 				EObject obj = ((View) getModel()).getElement();
 				if (obj instanceof Orderable) {
 					EditingDomain editingDomain = getEditingDomain();
-					editingDomain.getCommandStack().execute(
-							SetCommand.create(editingDomain, obj, DomainPackage.eINSTANCE.getOrderable_Order(),
-									evt.getNewValue()));
+					editingDomain.getCommandStack().execute(SetCommand.create(editingDomain, obj,
+							DomainPackage.eINSTANCE.getOrderable_Order(), evt.getNewValue()));
 
 				}
 			}

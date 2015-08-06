@@ -80,8 +80,8 @@ public class ArtifactEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected void createDefaultEditPolicies() {
-		installEditPolicy(EditPolicyRoles.CREATION_ROLE, new CreationEditPolicyWithCustomReparent(
-				DomainVisualIDRegistry.TYPED_INSTANCE));
+		installEditPolicy(EditPolicyRoles.CREATION_ROLE,
+				new CreationEditPolicyWithCustomReparent(DomainVisualIDRegistry.TYPED_INSTANCE));
 		super.createDefaultEditPolicies();
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE, new ArtifactItemSemanticEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
@@ -244,9 +244,8 @@ public class ArtifactEditPart extends ShapeNodeEditPart {
 				EObject obj = ((View) getModel()).getElement();
 				if (obj instanceof Orderable) {
 					EditingDomain editingDomain = getEditingDomain();
-					editingDomain.getCommandStack().execute(
-							SetCommand.create(editingDomain, obj, DomainPackage.eINSTANCE.getOrderable_Order(),
-									evt.getNewValue()));
+					editingDomain.getCommandStack().execute(SetCommand.create(editingDomain, obj,
+							DomainPackage.eINSTANCE.getOrderable_Order(), evt.getNewValue()));
 
 				}
 			}
@@ -349,20 +348,20 @@ public class ArtifactEditPart extends ShapeNodeEditPart {
 					.getCreateElementRequestAdapter();
 			IElementType type = (IElementType) adapter.getAdapter(IElementType.class);
 			if (type == DomainElementTypes.ConfigVariable_703004) {
-				return getChildBySemanticHint(DomainVisualIDRegistry
-						.getType(ArtifactArtifactConfigVariablesCompartmentEditPart.VISUAL_ID));
+				return getChildBySemanticHint(
+						DomainVisualIDRegistry.getType(ArtifactArtifactConfigVariablesCompartmentEditPart.VISUAL_ID));
 			}
 			if (type == DomainElementTypes.ModelQuery_703005) {
-				return getChildBySemanticHint(DomainVisualIDRegistry
-						.getType(ArtifactArtifactModelQueryCompartmentEditPart.VISUAL_ID));
+				return getChildBySemanticHint(
+						DomainVisualIDRegistry.getType(ArtifactArtifactModelQueryCompartmentEditPart.VISUAL_ID));
 			}
 			if (type == DomainElementTypes.Specifier_703003) {
-				return getChildBySemanticHint(DomainVisualIDRegistry
-						.getType(ArtifactArtifactSpecifiersCompartmentEditPart.VISUAL_ID));
+				return getChildBySemanticHint(
+						DomainVisualIDRegistry.getType(ArtifactArtifactSpecifiersCompartmentEditPart.VISUAL_ID));
 			}
 			if (type == DomainElementTypes.GenerationHint_703006) {
-				return getChildBySemanticHint(DomainVisualIDRegistry
-						.getType(ArtifactArtifactHintsCompartmentEditPart.VISUAL_ID));
+				return getChildBySemanticHint(
+						DomainVisualIDRegistry.getType(ArtifactArtifactHintsCompartmentEditPart.VISUAL_ID));
 			}
 		}
 		return super.getTargetEditPart(request);

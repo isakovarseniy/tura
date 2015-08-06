@@ -28,11 +28,11 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link domain.impl.OrdersImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.impl.OrdersImpl#getOrderRules <em>Order Rules</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

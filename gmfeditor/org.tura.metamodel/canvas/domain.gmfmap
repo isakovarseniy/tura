@@ -14,7 +14,7 @@
           href="domain.ecore#//LayerHolder"/>
       <tool
           xsi:type="gmftool:CreationTool"
-          href="domain.gmftool#//@palette/@tools.0/@tools.9"/>
+          href="domain.gmftool#//@palette/@tools.0/@tools.8"/>
       <diagramNode
           href="domain.gmfgraph#LayerHolder"/>
       <children
@@ -26,7 +26,7 @@
               href="domain.ecore#//InputText"/>
           <tool
               xsi:type="gmftool:CreationTool"
-              href="domain.gmftool#//@palette/@tools.0/@tools.7"/>
+              href="domain.gmftool#//@palette/@tools.0/@tools.6"/>
           <diagramNode
               href="domain.gmfgraph#InputText"/>
         </ownedChild>
@@ -40,7 +40,7 @@
               href="domain.ecore#//OutputText"/>
           <tool
               xsi:type="gmftool:CreationTool"
-              href="domain.gmftool#//@palette/@tools.0/@tools.10"/>
+              href="domain.gmftool#//@palette/@tools.0/@tools.9"/>
           <diagramNode
               href="domain.gmfgraph#OutputText"/>
         </ownedChild>
@@ -54,7 +54,7 @@
               href="domain.ecore#//DropDownSelection"/>
           <tool
               xsi:type="gmftool:CreationTool"
-              href="domain.gmftool#//@palette/@tools.0/@tools.5"/>
+              href="domain.gmftool#//@palette/@tools.0/@tools.4"/>
           <diagramNode
               href="domain.gmfgraph#DropDownSelection"/>
         </ownedChild>
@@ -68,7 +68,7 @@
               href="domain.ecore#//Date"/>
           <tool
               xsi:type="gmftool:CreationTool"
-              href="domain.gmftool#//@palette/@tools.0/@tools.4"/>
+              href="domain.gmftool#//@palette/@tools.0/@tools.3"/>
           <diagramNode
               href="domain.gmfgraph#Date"/>
         </ownedChild>
@@ -90,7 +90,7 @@
           </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
-              href="domain.gmftool#//@palette/@tools.0/@tools.11"/>
+              href="domain.gmftool#//@palette/@tools.0/@tools.10"/>
           <diagramNode
               href="domain.gmfgraph#Table"/>
           <children
@@ -110,7 +110,7 @@
               </labelMappings>
               <tool
                   xsi:type="gmftool:CreationTool"
-                  href="domain.gmftool#//@palette/@tools.0/@tools.3"/>
+                  href="domain.gmftool#//@palette/@tools.0/@tools.2"/>
               <diagramNode
                   href="domain.gmfgraph#Column"/>
               <children
@@ -210,7 +210,7 @@
           </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
-              href="domain.gmftool#//@palette/@tools.0/@tools.12"/>
+              href="domain.gmftool#//@palette/@tools.0/@tools.11"/>
           <diagramNode
               href="domain.gmfgraph#Tree"/>
           <children
@@ -241,7 +241,7 @@
               href="domain.ecore#//CheckBox"/>
           <tool
               xsi:type="gmftool:CreationTool"
-              href="domain.gmftool#//@palette/@tools.0/@tools.2"/>
+              href="domain.gmftool#//@palette/@tools.0/@tools.1"/>
           <diagramNode
               href="domain.gmfgraph#CheckBox"/>
         </ownedChild>
@@ -255,57 +255,9 @@
               href="domain.ecore#//Image"/>
           <tool
               xsi:type="gmftool:CreationTool"
-              href="domain.gmftool#//@palette/@tools.0/@tools.6"/>
+              href="domain.gmftool#//@palette/@tools.0/@tools.5"/>
           <diagramNode
               href="domain.gmfgraph#Image"/>
-        </ownedChild>
-      </children>
-      <children
-          compartment="//@nodes.0/@ownedChild/@compartments.0">
-        <containmentFeature
-            href="domain.ecore#//ChildrenHolder/children"/>
-        <ownedChild
-            relatedDiagrams="//@diagram">
-          <domainMetaElement
-              href="domain.ecore#//Button"/>
-          <labelMappings
-              xsi:type="gmfmap:FeatureLabelMapping">
-            <diagramLabel
-                href="domain.gmfgraph#ButtonLabel"/>
-            <features
-                href="domain.ecore#//Button/label"/>
-          </labelMappings>
-          <tool
-              xsi:type="gmftool:CreationTool"
-              href="domain.gmftool#//@palette/@tools.0/@tools.1"/>
-          <diagramNode
-              href="domain.gmfgraph#Button"/>
-          <children
-              compartment="//@nodes.0/@ownedChild/@children.9/@ownedChild/@compartments.0">
-            <containmentFeature
-                href="domain.ecore#//ActionElement/triggers"/>
-            <ownedChild>
-              <domainMetaElement
-                  href="domain.ecore#//ActionTrigger"/>
-              <labelMappings
-                  xsi:type="gmfmap:FeatureLabelMapping">
-                <diagramLabel
-                    href="domain.gmfgraph#ActionTriggerLabel"/>
-                <features
-                    href="domain.ecore#//MethodPointer/fakeMethod"/>
-              </labelMappings>
-              <tool
-                  xsi:type="gmftool:CreationTool"
-                  href="domain.gmftool#//@palette/@tools.0/@tools.0"/>
-              <diagramNode
-                  href="domain.gmfgraph#ActionTrigger"/>
-            </ownedChild>
-          </children>
-          <compartments
-              children="//@nodes.0/@ownedChild/@children.9/@ownedChild/@children.0">
-            <compartment
-                href="domain.gmfgraph#ButtonTriggersCompartment"/>
-          </compartments>
         </ownedChild>
       </children>
       <children
@@ -324,9 +276,30 @@
           </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
-              href="domain.gmftool#//@palette/@tools.0/@tools.8"/>
+              href="domain.gmftool#//@palette/@tools.0/@tools.7"/>
           <diagramNode
               href="domain.gmfgraph#Label"/>
+        </ownedChild>
+      </children>
+      <children
+          compartment="//@nodes.0/@ownedChild/@compartments.0">
+        <containmentFeature
+            href="domain.ecore#//ChildrenHolder/children"/>
+        <ownedChild>
+          <domainMetaElement
+              href="domain.ecore#//Button"/>
+          <labelMappings
+              xsi:type="gmfmap:FeatureLabelMapping">
+            <diagramLabel
+                href="domain.gmfgraph#ButtonLabel"/>
+            <features
+                href="domain.ecore#//Button/label"/>
+          </labelMappings>
+          <tool
+              xsi:type="gmftool:CreationTool"
+              href="domain.gmftool#//@palette/@tools.0/@tools.0"/>
+          <diagramNode
+              href="domain.gmfgraph#Button"/>
         </ownedChild>
       </children>
       <compartments

@@ -36,16 +36,17 @@ import message.diagram.providers.DomainParserProvider;
 /**
  * @generated
  */
-public class DomainNavigatorLabelProvider extends LabelProvider implements ICommonLabelProvider, ITreePathLabelProvider {
+public class DomainNavigatorLabelProvider extends LabelProvider
+		implements ICommonLabelProvider, ITreePathLabelProvider {
 
 	/**
 	 * @generated
 	 */
 	static {
-		DomainDiagramEditorPlugin.getInstance().getImageRegistry()
-				.put("Navigator?UnknownElement", ImageDescriptor.getMissingImageDescriptor()); //$NON-NLS-1$
-		DomainDiagramEditorPlugin.getInstance().getImageRegistry()
-				.put("Navigator?ImageNotFound", ImageDescriptor.getMissingImageDescriptor()); //$NON-NLS-1$
+		DomainDiagramEditorPlugin.getInstance().getImageRegistry().put("Navigator?UnknownElement", //$NON-NLS-1$
+				ImageDescriptor.getMissingImageDescriptor());
+		DomainDiagramEditorPlugin.getInstance().getImageRegistry().put("Navigator?ImageNotFound", //$NON-NLS-1$
+				ImageDescriptor.getMissingImageDescriptor());
 	}
 
 	/**
@@ -94,16 +95,17 @@ public class DomainNavigatorLabelProvider extends LabelProvider implements IComm
 	public Image getImage(View view) {
 		switch (DomainVisualIDRegistry.getVisualID(view)) {
 		case MessagesEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Diagram?http://tura.org/2013/v1/domain?Messages", DomainElementTypes.Messages_1701000); //$NON-NLS-1$
+			return getImage("Navigator?Diagram?http://tura.org/2013/v1/domain?Messages", //$NON-NLS-1$
+					DomainElementTypes.Messages_1701000);
 		case MessageLibraryEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?TopLevelNode?http://tura.org/2013/v1/domain?MessageLibrary", DomainElementTypes.MessageLibrary_1702001); //$NON-NLS-1$
+			return getImage("Navigator?TopLevelNode?http://tura.org/2013/v1/domain?MessageLibrary", //$NON-NLS-1$
+					DomainElementTypes.MessageLibrary_1702001);
 		case LanguageEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?TopLevelNode?http://tura.org/2013/v1/domain?Language", DomainElementTypes.Language_1702002); //$NON-NLS-1$
+			return getImage("Navigator?TopLevelNode?http://tura.org/2013/v1/domain?Language", //$NON-NLS-1$
+					DomainElementTypes.Language_1702002);
 		case MessageEditPart.VISUAL_ID:
-			return getImage("Navigator?Node?http://tura.org/2013/v1/domain?Message", DomainElementTypes.Message_1703004); //$NON-NLS-1$
+			return getImage("Navigator?Node?http://tura.org/2013/v1/domain?Message", //$NON-NLS-1$
+					DomainElementTypes.Message_1703004);
 		}
 		return getImage("Navigator?UnknownElement", null); //$NON-NLS-1$
 	}

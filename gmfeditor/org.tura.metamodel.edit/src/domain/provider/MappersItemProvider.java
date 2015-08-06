@@ -857,11 +857,6 @@ public class MappersItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(DomainPackage.Literals.MAPPERS__ANY,
-				 DomainFactory.eINSTANCE.createActionElement()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DomainPackage.Literals.MAPPERS__ANY,
 				 DomainFactory.eINSTANCE.createActionTrigger()));
 
 		newChildDescriptors.add
@@ -922,6 +917,11 @@ public class MappersItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(DomainPackage.Literals.MAPPERS__ANY,
+				 DomainFactory.eINSTANCE.createButton()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.MAPPERS__ANY,
 				 DomainFactory.eINSTANCE.createColumn()));
 
 		newChildDescriptors.add
@@ -933,11 +933,6 @@ public class MappersItemProvider
 			(createChildParameter
 				(DomainPackage.Literals.MAPPERS__ANY,
 				 DomainFactory.eINSTANCE.createTree()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DomainPackage.Literals.MAPPERS__ANY,
-				 DomainFactory.eINSTANCE.createButton()));
 
 		newChildDescriptors.add
 			(createChildParameter

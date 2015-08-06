@@ -839,11 +839,6 @@ public class RolesItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(DomainPackage.Literals.ROLES__ANY,
-				 DomainFactory.eINSTANCE.createActionElement()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DomainPackage.Literals.ROLES__ANY,
 				 DomainFactory.eINSTANCE.createActionTrigger()));
 
 		newChildDescriptors.add
@@ -904,6 +899,11 @@ public class RolesItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(DomainPackage.Literals.ROLES__ANY,
+				 DomainFactory.eINSTANCE.createButton()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.ROLES__ANY,
 				 DomainFactory.eINSTANCE.createColumn()));
 
 		newChildDescriptors.add
@@ -915,11 +915,6 @@ public class RolesItemProvider
 			(createChildParameter
 				(DomainPackage.Literals.ROLES__ANY,
 				 DomainFactory.eINSTANCE.createTree()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DomainPackage.Literals.ROLES__ANY,
-				 DomainFactory.eINSTANCE.createButton()));
 
 		newChildDescriptors.add
 			(createChildParameter

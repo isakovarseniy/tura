@@ -11,6 +11,7 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link domain.Application#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.Application#getApplicationRecipes <em>Application Recipes</em>}</li>
@@ -23,7 +24,6 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link domain.Application#getParent <em>Parent</em>}</li>
  *   <li>{@link domain.Application#getAny <em>Any</em>}</li>
  * </ul>
- * </p>
  *
  * @see domain.DomainPackage#getApplication()
  * @model

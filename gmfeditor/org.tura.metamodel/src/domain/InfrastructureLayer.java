@@ -13,13 +13,13 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link domain.InfrastructureLayer#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.InfrastructureLayer#getName <em>Name</em>}</li>
  *   <li>{@link domain.InfrastructureLayer#getParent <em>Parent</em>}</li>
  *   <li>{@link domain.InfrastructureLayer#getInfrastructureComponent <em>Infrastructure Component</em>}</li>
  * </ul>
- * </p>
  *
  * @see domain.DomainPackage#getInfrastructureLayer()
  * @model annotation="gmf.node label='name' tool.small.bundle='org.tura.metamodel.commons' tool.small.path='icons/infra.png'"

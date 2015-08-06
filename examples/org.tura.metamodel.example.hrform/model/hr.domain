@@ -2550,6 +2550,7 @@
         <styleClass/>
         <children xsi:type="tura.domain:Button" uid="1c158a9e-628f-43de-b721-5b4155baa65e" label="Save">
           <style constant="true" value="width:30px;height:30px"/>
+          <enabled/>
           <triggers packageRef="e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="c4654ad8-156f-4706-bda2-791ed81fcdea" fakePackageName="HR package" fakeTypeName="Action executor" methodRef="bf119b85-c597-4642-8522-b51b95e9c7b8" fakeMethod="saveApplication" uid="e70804b0-feb5-44e1-b89b-515e1a171767"/>
           <multiLangLabel/>
           <icon value="Application styles.HR styles.HR Controller styles.save-button">

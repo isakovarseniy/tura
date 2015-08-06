@@ -52,7 +52,8 @@ public class DomainModelingAssistantProviderOfTabCanvasEditPart extends DomainMo
 	/**
 	 * @generated
 	 */
-	public List<IElementType> doGetRelTypesOnSourceAndTarget(TabCanvasEditPart source, IGraphicalEditPart targetEditPart) {
+	public List<IElementType> doGetRelTypesOnSourceAndTarget(TabCanvasEditPart source,
+			IGraphicalEditPart targetEditPart) {
 		List<IElementType> types = new LinkedList<IElementType>();
 		if (targetEditPart instanceof TabPageEditPart) {
 			types.add(DomainElementTypes.TabPagesInheritance_1304002);

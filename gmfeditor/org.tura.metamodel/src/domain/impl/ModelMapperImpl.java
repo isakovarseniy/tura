@@ -30,6 +30,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link domain.impl.ModelMapperImpl#getName <em>Name</em>}</li>
  *   <li>{@link domain.impl.ModelMapperImpl#getArtifactRoot <em>Artifact Root</em>}</li>
@@ -38,7 +39,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link domain.impl.ModelMapperImpl#getQueries <em>Queries</em>}</li>
  *   <li>{@link domain.impl.ModelMapperImpl#getArtifactExecutionString <em>Artifact Execution String</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

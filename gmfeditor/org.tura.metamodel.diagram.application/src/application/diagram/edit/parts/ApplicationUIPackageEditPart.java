@@ -123,8 +123,8 @@ public class ApplicationUIPackageEditPart extends ShapeNodeEditPart {
 	 */
 	protected boolean addFixedChild(EditPart childEditPart) {
 		if (childEditPart instanceof ApplicationUIPackageNameEditPart) {
-			((ApplicationUIPackageNameEditPart) childEditPart).setLabel(getPrimaryShape()
-					.getFigureApplicationUIPackageLabelFigure());
+			((ApplicationUIPackageNameEditPart) childEditPart)
+					.setLabel(getPrimaryShape().getFigureApplicationUIPackageLabelFigure());
 			return true;
 		}
 		return false;
@@ -179,9 +179,8 @@ public class ApplicationUIPackageEditPart extends ShapeNodeEditPart {
 				EObject obj = ((View) getModel()).getElement();
 				if (obj instanceof Orderable) {
 					EditingDomain editingDomain = getEditingDomain();
-					editingDomain.getCommandStack().execute(
-							SetCommand.create(editingDomain, obj, DomainPackage.eINSTANCE.getOrderable_Order(),
-									evt.getNewValue()));
+					editingDomain.getCommandStack().execute(SetCommand.create(editingDomain, obj,
+							DomainPackage.eINSTANCE.getOrderable_Order(), evt.getNewValue()));
 
 				}
 			}

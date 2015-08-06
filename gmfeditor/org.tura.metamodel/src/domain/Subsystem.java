@@ -13,13 +13,13 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link domain.Subsystem#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.Subsystem#getName <em>Name</em>}</li>
  *   <li>{@link domain.Subsystem#getParent <em>Parent</em>}</li>
  *   <li>{@link domain.Subsystem#getInfrastructureLayer <em>Infrastructure Layer</em>}</li>
  * </ul>
- * </p>
  *
  * @see domain.DomainPackage#getSubsystem()
  * @model annotation="gmf.node label='name' tool.small.bundle='org.tura.metamodel.commons' tool.small.path='icons/subsystem.png'"

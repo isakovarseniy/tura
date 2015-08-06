@@ -1048,13 +1048,6 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
 	 * @generated
 	 */
-  private EClass actionElementEClass = null;
-
-  /**
-	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-	 * @generated
-	 */
   private EClass actionTriggerEClass = null;
 
   /**
@@ -6419,6 +6412,15 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
 
   /**
 	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getUielement_Triggers() {
+		return (EReference)uielementEClass.getEStructuralFeatures().get(5);
+	}
+
+		/**
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -6485,26 +6487,6 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
   public EReference getSourcesPointer_SourceCastDataControl()
   {
 		return (EReference)sourcesPointerEClass.getEStructuralFeatures().get(3);
-	}
-
-  /**
-	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-	 * @generated
-	 */
-  public EClass getActionElement()
-  {
-		return actionElementEClass;
-	}
-
-  /**
-	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-	 * @generated
-	 */
-  public EReference getActionElement_Triggers()
-  {
-		return (EReference)actionElementEClass.getEStructuralFeatures().get(0);
 	}
 
   /**
@@ -8817,6 +8799,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
 		createEReference(uielementEClass, UIELEMENT__REQUIRED);
 		createEReference(uielementEClass, UIELEMENT__READ_ONLY);
 		createEReference(uielementEClass, UIELEMENT__ON_EVENT_REFRESH_AREA);
+		createEReference(uielementEClass, UIELEMENT__TRIGGERS);
 
 		formatableEClass = createEClass(FORMATABLE);
 		createEAttribute(formatableEClass, FORMATABLE__FORMAT);
@@ -8826,9 +8809,6 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
 		createEReference(sourcesPointerEClass, SOURCES_POINTER__VALUE_POINTER);
 		createEReference(sourcesPointerEClass, SOURCES_POINTER__SOURCE_CAST);
 		createEReference(sourcesPointerEClass, SOURCES_POINTER__SOURCE_CAST_DATA_CONTROL);
-
-		actionElementEClass = createEClass(ACTION_ELEMENT);
-		createEReference(actionElementEClass, ACTION_ELEMENT__TRIGGERS);
 
 		actionTriggerEClass = createEClass(ACTION_TRIGGER);
 		createEAttribute(actionTriggerEClass, ACTION_TRIGGER__UID);
@@ -8862,6 +8842,10 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
 
 		dateEClass = createEClass(DATE);
 
+		buttonEClass = createEClass(BUTTON);
+		createEAttribute(buttonEClass, BUTTON__LABEL);
+		createEReference(buttonEClass, BUTTON__ICON);
+
 		columnEClass = createEClass(COLUMN);
 		createEAttribute(columnEClass, COLUMN__UID);
 		createEAttribute(columnEClass, COLUMN__LABEL);
@@ -8876,10 +8860,6 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
 		createEAttribute(treeEClass, TREE__LABEL);
 		createEReference(treeEClass, TREE__IMAGE);
 		createEReference(treeEClass, TREE__COLS);
-
-		buttonEClass = createEClass(BUTTON);
-		createEAttribute(buttonEClass, BUTTON__LABEL);
-		createEReference(buttonEClass, BUTTON__ICON);
 
 		controlsEClass = createEClass(CONTROLS);
 		createEAttribute(controlsEClass, CONTROLS__UID);
@@ -9154,7 +9134,6 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
 		uielementEClass.getESuperTypes().add(this.getCategorized());
 		uielementEClass.getESuperTypes().add(this.getOrderable());
 		sourcesPointerEClass.getESuperTypes().add(this.getUielement());
-		actionElementEClass.getESuperTypes().add(this.getUielement());
 		actionTriggerEClass.getESuperTypes().add(this.getTrigger());
 		actionTriggerEClass.getESuperTypes().add(this.getCategorized());
 		inputElementEClass.getESuperTypes().add(this.getSourcesPointer());
@@ -9174,6 +9153,8 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
 		imageEClass.getESuperTypes().add(this.getInputElement());
 		dateEClass.getESuperTypes().add(this.getInputElement());
 		dateEClass.getESuperTypes().add(this.getFormatable());
+		buttonEClass.getESuperTypes().add(this.getUielement());
+		buttonEClass.getESuperTypes().add(this.getMultiLangLabel());
 		columnEClass.getESuperTypes().add(this.getStyleElement());
 		columnEClass.getESuperTypes().add(this.getMultiLangLabel());
 		columnEClass.getESuperTypes().add(this.getCategorized());
@@ -9185,8 +9166,6 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
 		treeEClass.getESuperTypes().add(this.getSourcesPointer());
 		treeEClass.getESuperTypes().add(this.getHTMLLayerHolder());
 		treeEClass.getESuperTypes().add(this.getMultiLangLabel());
-		buttonEClass.getESuperTypes().add(this.getActionElement());
-		buttonEClass.getESuperTypes().add(this.getMultiLangLabel());
 		triggerEClass.getESuperTypes().add(this.getMethodPointer());
 		triggerEClass.getESuperTypes().add(this.getContextParameters());
 		preFormTriggerEClass.getESuperTypes().add(this.getTrigger());
@@ -9823,6 +9802,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
 		initEReference(getUielement_Required(), this.getContext(), null, "required", null, 0, 1, Uielement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getUielement_ReadOnly(), this.getContext(), null, "readOnly", null, 0, 1, Uielement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getUielement_OnEventRefreshArea(), this.getNickNamed(), null, "onEventRefreshArea", null, 0, -1, Uielement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getUielement_Triggers(), this.getActionTrigger(), null, "triggers", null, 0, -1, Uielement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(formatableEClass, Formatable.class, "Formatable", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getFormatable_Format(), ecorePackage.getEString(), "format", null, 0, 1, Formatable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -9832,9 +9812,6 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
 		initEReference(getSourcesPointer_ValuePointer(), ecorePackage.getEObject(), null, "valuePointer", null, 0, 1, SourcesPointer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSourcesPointer_SourceCast(), this.getType(), null, "sourceCast", null, 0, 1, SourcesPointer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSourcesPointer_SourceCastDataControl(), this.getDataControl(), null, "sourceCastDataControl", null, 0, 1, SourcesPointer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(actionElementEClass, ActionElement.class, "ActionElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getActionElement_Triggers(), this.getActionTrigger(), null, "triggers", null, 0, -1, ActionElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(actionTriggerEClass, ActionTrigger.class, "ActionTrigger", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getActionTrigger_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, ActionTrigger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -9868,6 +9845,10 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
 
 		initEClass(dateEClass, Date.class, "Date", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
+		initEClass(buttonEClass, Button.class, "Button", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getButton_Label(), ecorePackage.getEString(), "label", null, 0, 1, Button.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getButton_Icon(), this.getContext(), null, "icon", null, 0, 1, Button.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
 		initEClass(columnEClass, Column.class, "Column", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getColumn_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, Column.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getColumn_Label(), ecorePackage.getEString(), "label", null, 0, 1, Column.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -9882,10 +9863,6 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
 		initEAttribute(getTree_Label(), ecorePackage.getEString(), "label", null, 0, 1, Tree.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTree_Image(), this.getContext(), null, "image", null, 0, 1, Tree.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTree_Cols(), this.getColumn(), null, "cols", null, 0, -1, Tree.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(buttonEClass, Button.class, "Button", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getButton_Label(), ecorePackage.getEString(), "label", null, 0, 1, Button.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getButton_Icon(), this.getContext(), null, "icon", null, 0, 1, Button.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(controlsEClass, Controls.class, "Controls", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getControls_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, Controls.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -10702,12 +10679,6 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
 			 "color", "241,238,203"
 		   });	
 		addAnnotation
-		  (actionTriggerEClass, 
-		   source, 
-		   new String[] {
-			 "label", "fakeMethod"
-		   });	
-		addAnnotation
 		  (layerHolderEClass, 
 		   source, 
 		   new String[] {
@@ -10779,6 +10750,16 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
 			 "tool.small.path", "icons/date.png"
 		   });	
 		addAnnotation
+		  (buttonEClass, 
+		   source, 
+		   new String[] {
+			 "figure", "org.tura.metamodel.commons.figures.ButtonFigure",
+			 "label", "label",
+			 "label.icon", "false",
+			 "tool.small.bundle", "org.tura.metamodel.commons",
+			 "tool.small.path", "icons/button.png"
+		   });	
+		addAnnotation
 		  (columnEClass, 
 		   source, 
 		   new String[] {
@@ -10801,14 +10782,6 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
 			 "label", "label",
 			 "tool.small.bundle", "org.tura.metamodel.commons",
 			 "tool.small.path", "icons/tree.png"
-		   });	
-		addAnnotation
-		  (buttonEClass, 
-		   source, 
-		   new String[] {
-			 "label", "label",
-			 "tool.small.bundle", "org.tura.metamodel.commons",
-			 "tool.small.path", "icons/button.png"
 		   });	
 		addAnnotation
 		  (preFormTriggerEClass, 
@@ -11183,12 +11156,6 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
 		  (getChildrenHolder_Children(), 
 		   source, 
 		   new String[] {
-		   });	
-		addAnnotation
-		  (getActionElement_Triggers(), 
-		   source, 
-		   new String[] {
-			 "layout", "list"
 		   });	
 		addAnnotation
 		  (getColumn_Element(), 

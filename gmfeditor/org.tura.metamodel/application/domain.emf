@@ -984,6 +984,7 @@ class Uielement extends StyleElement,NickNamed,Categorized, Orderable{
     val Context required;
     val Context readOnly;
     ref NickNamed[*] onEventRefreshArea;
+    val ActionTrigger[*] triggers;
 }
 
 class Formatable{
@@ -1000,14 +1001,8 @@ class SourcesPointer extends Uielement{
    ref DataControl sourceCastDataControl;
 }
 
-class ActionElement extends Uielement  {
-  @gmf.compartment(layout="list")
- val ActionTrigger[*] triggers;
-}
 
-@gmf.node(label="fakeMethod")
 class ActionTrigger extends Trigger , Categorized{
-
     id attr EString uid;
 }
 
@@ -1068,6 +1063,11 @@ class Date extends InputElement ,Formatable{
    
 }
 
+@gmf.node( figure="org.tura.metamodel.commons.figures.ButtonFigure", label="label", label.icon="false", tool.small.bundle="org.tura.metamodel.commons",tool.small.path="icons/button.png")
+class Button extends Uielement,MultiLangLabel{
+   attr EString label;
+   val Context icon;   
+}
 
 @gmf.node(label="label",tool.small.bundle="org.tura.metamodel.commons",tool.small.path="icons/column.png")
 class Column extends StyleElement,MultiLangLabel, Categorized,HTMLLayerHolder,Orderable{
@@ -1093,11 +1093,7 @@ class Tree extends SourcesPointer,HTMLLayerHolder,MultiLangLabel{
     val Column[*] cols;
 }
 
-@gmf.node(label="label",tool.small.bundle="org.tura.metamodel.commons",tool.small.path="icons/button.png")
-class Button extends ActionElement,MultiLangLabel{
-   attr EString label;
-   val Context icon;   
-}
+
 
 @gmf.diagram.control
 class Controls{

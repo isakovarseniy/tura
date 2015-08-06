@@ -55,8 +55,8 @@ public class DomainElementTypes {
 	/**
 	 * @generated
 	 */
-	private static DiagramElementTypeImages elementTypeImages = new DiagramElementTypeImages(DomainDiagramEditorPlugin
-			.getInstance().getItemProvidersAdapterFactory());
+	private static DiagramElementTypeImages elementTypeImages = new DiagramElementTypeImages(
+			DomainDiagramEditorPlugin.getInstance().getItemProvidersAdapterFactory());
 
 	/**
 	 * @generated
@@ -66,47 +66,58 @@ public class DomainElementTypes {
 	/**
 	 * @generated
 	 */
-	public static final IElementType EnterpriseInfrastructure_1201000 = getElementType("org.tura.metamodel.diagram.infarastructure.EnterpriseInfrastructure_1201000"); //$NON-NLS-1$
+	public static final IElementType EnterpriseInfrastructure_1201000 = getElementType(
+			"org.tura.metamodel.diagram.infarastructure.EnterpriseInfrastructure_1201000"); //$NON-NLS-1$
 	/**
 	 * @generated
 	 */
-	public static final IElementType Datacenter_1202002 = getElementType("org.tura.metamodel.diagram.infarastructure.Datacenter_1202002"); //$NON-NLS-1$
+	public static final IElementType Datacenter_1202002 = getElementType(
+			"org.tura.metamodel.diagram.infarastructure.Datacenter_1202002"); //$NON-NLS-1$
 	/**
 	 * @generated
 	 */
-	public static final IElementType Subsystem_1203001 = getElementType("org.tura.metamodel.diagram.infarastructure.Subsystem_1203001"); //$NON-NLS-1$
+	public static final IElementType Subsystem_1203001 = getElementType(
+			"org.tura.metamodel.diagram.infarastructure.Subsystem_1203001"); //$NON-NLS-1$
 	/**
 	 * @generated
 	 */
-	public static final IElementType InfrastructureLayer_1203002 = getElementType("org.tura.metamodel.diagram.infarastructure.InfrastructureLayer_1203002"); //$NON-NLS-1$
+	public static final IElementType InfrastructureLayer_1203002 = getElementType(
+			"org.tura.metamodel.diagram.infarastructure.InfrastructureLayer_1203002"); //$NON-NLS-1$
 	/**
 	 * @generated
 	 */
-	public static final IElementType Server_1203003 = getElementType("org.tura.metamodel.diagram.infarastructure.Server_1203003"); //$NON-NLS-1$
+	public static final IElementType Server_1203003 = getElementType(
+			"org.tura.metamodel.diagram.infarastructure.Server_1203003"); //$NON-NLS-1$
 	/**
 	 * @generated
 	 */
-	public static final IElementType Router_1203004 = getElementType("org.tura.metamodel.diagram.infarastructure.Router_1203004"); //$NON-NLS-1$
+	public static final IElementType Router_1203004 = getElementType(
+			"org.tura.metamodel.diagram.infarastructure.Router_1203004"); //$NON-NLS-1$
 	/**
 	 * @generated
 	 */
-	public static final IElementType Hub_1203005 = getElementType("org.tura.metamodel.diagram.infarastructure.Hub_1203005"); //$NON-NLS-1$
+	public static final IElementType Hub_1203005 = getElementType(
+			"org.tura.metamodel.diagram.infarastructure.Hub_1203005"); //$NON-NLS-1$
 	/**
 	 * @generated
 	 */
-	public static final IElementType Storage_1203006 = getElementType("org.tura.metamodel.diagram.infarastructure.Storage_1203006"); //$NON-NLS-1$
+	public static final IElementType Storage_1203006 = getElementType(
+			"org.tura.metamodel.diagram.infarastructure.Storage_1203006"); //$NON-NLS-1$
 	/**
 	 * @generated
 	 */
-	public static final IElementType ServerClaster_1203007 = getElementType("org.tura.metamodel.diagram.infarastructure.ServerClaster_1203007"); //$NON-NLS-1$
+	public static final IElementType ServerClaster_1203007 = getElementType(
+			"org.tura.metamodel.diagram.infarastructure.ServerClaster_1203007"); //$NON-NLS-1$
 	/**
 	 * @generated
 	 */
-	public static final IElementType Server_1203008 = getElementType("org.tura.metamodel.diagram.infarastructure.Server_1203008"); //$NON-NLS-1$
+	public static final IElementType Server_1203008 = getElementType(
+			"org.tura.metamodel.diagram.infarastructure.Server_1203008"); //$NON-NLS-1$
 	/**
 	 * @generated
 	 */
-	public static final IElementType InfrastructureConnection_1204009 = getElementType("org.tura.metamodel.diagram.infarastructure.InfrastructureConnection_1204009"); //$NON-NLS-1$
+	public static final IElementType InfrastructureConnection_1204009 = getElementType(
+			"org.tura.metamodel.diagram.infarastructure.InfrastructureConnection_1204009"); //$NON-NLS-1$
 
 	/**
 	 * @generated
@@ -236,25 +247,28 @@ public class DomainElementTypes {
 	public static final DiagramElementTypes TYPED_INSTANCE = new DiagramElementTypes(elementTypeImages) {
 
 		/**
-		 * @generated
-		 */
+		* @generated
+		*/
 		@Override
+
 		public boolean isKnownElementType(IElementType elementType) {
 			return infarastructure.diagram.providers.DomainElementTypes.isKnownElementType(elementType);
 		}
 
 		/**
-		 * @generated
-		 */
+		* @generated
+		*/
 		@Override
+
 		public IElementType getElementTypeForVisualId(int visualID) {
 			return infarastructure.diagram.providers.DomainElementTypes.getElementType(visualID);
 		}
 
 		/**
-		 * @generated
-		 */
+		* @generated
+		*/
 		@Override
+
 		public ENamedElement getDefiningNamedElement(IAdaptable elementTypeAdapter) {
 			return infarastructure.diagram.providers.DomainElementTypes.getElement(elementTypeAdapter);
 		}

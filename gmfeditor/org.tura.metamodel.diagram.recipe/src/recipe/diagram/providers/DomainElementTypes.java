@@ -56,8 +56,8 @@ public class DomainElementTypes {
 	/**
 	 * @generated
 	 */
-	private static DiagramElementTypeImages elementTypeImages = new DiagramElementTypeImages(DomainDiagramEditorPlugin
-			.getInstance().getItemProvidersAdapterFactory());
+	private static DiagramElementTypeImages elementTypeImages = new DiagramElementTypeImages(
+			DomainDiagramEditorPlugin.getInstance().getItemProvidersAdapterFactory());
 
 	/**
 	 * @generated
@@ -67,7 +67,8 @@ public class DomainElementTypes {
 	/**
 	 * @generated
 	 */
-	public static final IElementType Recipes_301000 = getElementType("org.tura.metamodel.diagram.recipe.Recipes_301000"); //$NON-NLS-1$
+	public static final IElementType Recipes_301000 = getElementType(
+			"org.tura.metamodel.diagram.recipe.Recipes_301000"); //$NON-NLS-1$
 	/**
 	 * @generated
 	 */
@@ -75,27 +76,33 @@ public class DomainElementTypes {
 	/**
 	 * @generated
 	 */
-	public static final IElementType Configuration_302002 = getElementType("org.tura.metamodel.diagram.recipe.Configuration_302002"); //$NON-NLS-1$
+	public static final IElementType Configuration_302002 = getElementType(
+			"org.tura.metamodel.diagram.recipe.Configuration_302002"); //$NON-NLS-1$
 	/**
 	 * @generated
 	 */
-	public static final IElementType Infrastructure_302003 = getElementType("org.tura.metamodel.diagram.recipe.Infrastructure_302003"); //$NON-NLS-1$
+	public static final IElementType Infrastructure_302003 = getElementType(
+			"org.tura.metamodel.diagram.recipe.Infrastructure_302003"); //$NON-NLS-1$
 	/**
 	 * @generated
 	 */
-	public static final IElementType DeploymentSequence_302004 = getElementType("org.tura.metamodel.diagram.recipe.DeploymentSequence_302004"); //$NON-NLS-1$
+	public static final IElementType DeploymentSequence_302004 = getElementType(
+			"org.tura.metamodel.diagram.recipe.DeploymentSequence_302004"); //$NON-NLS-1$
 	/**
 	 * @generated
 	 */
-	public static final IElementType Ingredient_303001 = getElementType("org.tura.metamodel.diagram.recipe.Ingredient_303001"); //$NON-NLS-1$
+	public static final IElementType Ingredient_303001 = getElementType(
+			"org.tura.metamodel.diagram.recipe.Ingredient_303001"); //$NON-NLS-1$
 	/**
 	 * @generated
 	 */
-	public static final IElementType JavaComponent_303002 = getElementType("org.tura.metamodel.diagram.recipe.JavaComponent_303002"); //$NON-NLS-1$
+	public static final IElementType JavaComponent_303002 = getElementType(
+			"org.tura.metamodel.diagram.recipe.JavaComponent_303002"); //$NON-NLS-1$
 	/**
 	 * @generated
 	 */
-	public static final IElementType ModelMapper_303003 = getElementType("org.tura.metamodel.diagram.recipe.ModelMapper_303003"); //$NON-NLS-1$
+	public static final IElementType ModelMapper_303003 = getElementType(
+			"org.tura.metamodel.diagram.recipe.ModelMapper_303003"); //$NON-NLS-1$
 	/**
 	 * @generated
 	 */
@@ -103,19 +110,23 @@ public class DomainElementTypes {
 	/**
 	 * @generated
 	 */
-	public static final IElementType Property_303005 = getElementType("org.tura.metamodel.diagram.recipe.Property_303005"); //$NON-NLS-1$
+	public static final IElementType Property_303005 = getElementType(
+			"org.tura.metamodel.diagram.recipe.Property_303005"); //$NON-NLS-1$
 	/**
 	 * @generated
 	 */
-	public static final IElementType RecipeInfrastructures_304004 = getElementType("org.tura.metamodel.diagram.recipe.RecipeInfrastructures_304004"); //$NON-NLS-1$
+	public static final IElementType RecipeInfrastructures_304004 = getElementType(
+			"org.tura.metamodel.diagram.recipe.RecipeInfrastructures_304004"); //$NON-NLS-1$
 	/**
 	 * @generated
 	 */
-	public static final IElementType RecipeDeployment_304013 = getElementType("org.tura.metamodel.diagram.recipe.RecipeDeployment_304013"); //$NON-NLS-1$
+	public static final IElementType RecipeDeployment_304013 = getElementType(
+			"org.tura.metamodel.diagram.recipe.RecipeDeployment_304013"); //$NON-NLS-1$
 	/**
 	 * @generated
 	 */
-	public static final IElementType InfrastructureRecipeConfig_304006 = getElementType("org.tura.metamodel.diagram.recipe.InfrastructureRecipeConfig_304006"); //$NON-NLS-1$
+	public static final IElementType InfrastructureRecipeConfig_304006 = getElementType(
+			"org.tura.metamodel.diagram.recipe.InfrastructureRecipeConfig_304006"); //$NON-NLS-1$
 
 	/**
 	 * @generated
@@ -255,25 +266,28 @@ public class DomainElementTypes {
 	public static final DiagramElementTypes TYPED_INSTANCE = new DiagramElementTypes(elementTypeImages) {
 
 		/**
-		 * @generated
-		 */
+		* @generated
+		*/
 		@Override
+
 		public boolean isKnownElementType(IElementType elementType) {
 			return recipe.diagram.providers.DomainElementTypes.isKnownElementType(elementType);
 		}
 
 		/**
-		 * @generated
-		 */
+		* @generated
+		*/
 		@Override
+
 		public IElementType getElementTypeForVisualId(int visualID) {
 			return recipe.diagram.providers.DomainElementTypes.getElementType(visualID);
 		}
 
 		/**
-		 * @generated
-		 */
+		* @generated
+		*/
 		@Override
+
 		public ENamedElement getDefiningNamedElement(IAdaptable elementTypeAdapter) {
 			return recipe.diagram.providers.DomainElementTypes.getElement(elementTypeAdapter);
 		}

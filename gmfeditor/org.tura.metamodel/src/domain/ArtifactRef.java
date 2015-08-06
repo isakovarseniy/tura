@@ -11,12 +11,12 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link domain.ArtifactRef#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.ArtifactRef#getDomainArtifactRef <em>Domain Artifact Ref</em>}</li>
  *   <li>{@link domain.ArtifactRef#getArtifactRef <em>Artifact Ref</em>}</li>
  * </ul>
- * </p>
  *
  * @see domain.DomainPackage#getArtifactRef()
  * @model

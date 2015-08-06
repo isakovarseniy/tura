@@ -23,13 +23,13 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link domain.impl.MapperImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.impl.MapperImpl#getParent <em>Parent</em>}</li>
  *   <li>{@link domain.impl.MapperImpl#isServiceLayer <em>Service Layer</em>}</li>
  *   <li>{@link domain.impl.MapperImpl#isUiLayer <em>Ui Layer</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

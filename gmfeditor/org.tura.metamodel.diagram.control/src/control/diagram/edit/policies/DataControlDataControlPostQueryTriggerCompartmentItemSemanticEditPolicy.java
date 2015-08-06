@@ -12,8 +12,8 @@ import control.diagram.providers.DomainElementTypes;
 /**
  * @generated
  */
-public class DataControlDataControlPostQueryTriggerCompartmentItemSemanticEditPolicy extends
-		DomainBaseItemSemanticEditPolicy {
+public class DataControlDataControlPostQueryTriggerCompartmentItemSemanticEditPolicy
+		extends DomainBaseItemSemanticEditPolicy {
 
 	/**
 	 * @generated

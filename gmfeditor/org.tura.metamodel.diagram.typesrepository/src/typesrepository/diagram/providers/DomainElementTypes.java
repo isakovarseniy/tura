@@ -46,8 +46,8 @@ public class DomainElementTypes {
 	/**
 	 * @generated
 	 */
-	private static DiagramElementTypeImages elementTypeImages = new DiagramElementTypeImages(DomainDiagramEditorPlugin
-			.getInstance().getItemProvidersAdapterFactory());
+	private static DiagramElementTypeImages elementTypeImages = new DiagramElementTypeImages(
+			DomainDiagramEditorPlugin.getInstance().getItemProvidersAdapterFactory());
 
 	/**
 	 * @generated
@@ -57,15 +57,18 @@ public class DomainElementTypes {
 	/**
 	 * @generated
 	 */
-	public static final IElementType TypesRepository_201000 = getElementType("org.tura.metamodel.diagram.typesrepository.TypesRepository_201000"); //$NON-NLS-1$
+	public static final IElementType TypesRepository_201000 = getElementType(
+			"org.tura.metamodel.diagram.typesrepository.TypesRepository_201000"); //$NON-NLS-1$
 	/**
 	 * @generated
 	 */
-	public static final IElementType Types_202001 = getElementType("org.tura.metamodel.diagram.typesrepository.Types_202001"); //$NON-NLS-1$
+	public static final IElementType Types_202001 = getElementType(
+			"org.tura.metamodel.diagram.typesrepository.Types_202001"); //$NON-NLS-1$
 	/**
 	 * @generated
 	 */
-	public static final IElementType Package_203002 = getElementType("org.tura.metamodel.diagram.typesrepository.Package_203002"); //$NON-NLS-1$
+	public static final IElementType Package_203002 = getElementType(
+			"org.tura.metamodel.diagram.typesrepository.Package_203002"); //$NON-NLS-1$
 
 	/**
 	 * @generated
@@ -155,25 +158,28 @@ public class DomainElementTypes {
 	public static final DiagramElementTypes TYPED_INSTANCE = new DiagramElementTypes(elementTypeImages) {
 
 		/**
-		 * @generated
-		 */
+		* @generated
+		*/
 		@Override
+
 		public boolean isKnownElementType(IElementType elementType) {
 			return typesrepository.diagram.providers.DomainElementTypes.isKnownElementType(elementType);
 		}
 
 		/**
-		 * @generated
-		 */
+		* @generated
+		*/
 		@Override
+
 		public IElementType getElementTypeForVisualId(int visualID) {
 			return typesrepository.diagram.providers.DomainElementTypes.getElementType(visualID);
 		}
 
 		/**
-		 * @generated
-		 */
+		* @generated
+		*/
 		@Override
+
 		public ENamedElement getDefiningNamedElement(IAdaptable elementTypeAdapter) {
 			return typesrepository.diagram.providers.DomainElementTypes.getElement(elementTypeAdapter);
 		}

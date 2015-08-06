@@ -3,12 +3,9 @@
  */
 package canvas.diagram.providers;
 
-import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Collections;
 import java.util.HashSet;
 import java.util.Iterator;
-import java.util.List;
 
 import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.emf.ecore.EObject;
@@ -24,20 +21,6 @@ import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.dialogs.ElementListSelectionDialog;
 
-import canvas.diagram.edit.parts.Button2EditPart;
-import canvas.diagram.edit.parts.ButtonEditPart;
-import canvas.diagram.edit.parts.CanvasViewEditPart;
-import canvas.diagram.edit.parts.Column2EditPart;
-import canvas.diagram.edit.parts.ColumnColumnElementCompartment2EditPart;
-import canvas.diagram.edit.parts.ColumnColumnElementCompartmentEditPart;
-import canvas.diagram.edit.parts.ColumnEditPart;
-import canvas.diagram.edit.parts.LayerHolderLayerHolderChildrenCompartment2EditPart;
-import canvas.diagram.edit.parts.LayerHolderLayerHolderChildrenCompartment3EditPart;
-import canvas.diagram.edit.parts.LayerHolderLayerHolderChildrenCompartmentEditPart;
-import canvas.diagram.edit.parts.TableTableColsCompartment2EditPart;
-import canvas.diagram.edit.parts.TableTableColsCompartmentEditPart;
-import canvas.diagram.edit.parts.TreeTreeColsCompartment2EditPart;
-import canvas.diagram.edit.parts.TreeTreeColsCompartmentEditPart;
 import canvas.diagram.part.DomainDiagramEditorPlugin;
 import canvas.diagram.part.Messages;
 
@@ -47,22 +30,22 @@ import canvas.diagram.part.Messages;
 public class DomainModelingAssistantProvider extends ModelingAssistantProvider {
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public EObject selectExistingElementForSource(IAdaptable target, IElementType relationshipType) {
 		return selectExistingElement(target, getTypesForSource(target, relationshipType));
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public EObject selectExistingElementForTarget(IAdaptable source, IElementType relationshipType) {
 		return selectExistingElement(source, getTypesForTarget(source, relationshipType));
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected EObject selectExistingElement(IAdaptable host, Collection types) {
 		if (types.isEmpty()) {
 			return null;
@@ -86,20 +69,20 @@ public class DomainModelingAssistantProvider extends ModelingAssistantProvider {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected boolean isApplicableElement(EObject element, Collection types) {
 		IElementType type = ElementTypeRegistry.getInstance().getElementType(element);
 		return types.contains(type);
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected EObject selectElement(EObject[] elements) {
 		Shell shell = Display.getCurrent().getActiveShell();
-		ILabelProvider labelProvider = new AdapterFactoryLabelProvider(DomainDiagramEditorPlugin.getInstance()
-				.getItemProvidersAdapterFactory());
+		ILabelProvider labelProvider = new AdapterFactoryLabelProvider(
+				DomainDiagramEditorPlugin.getInstance().getItemProvidersAdapterFactory());
 		ElementListSelectionDialog dialog = new ElementListSelectionDialog(shell, labelProvider);
 		dialog.setMessage(Messages.DomainModelingAssistantProviderMessage);
 		dialog.setTitle(Messages.DomainModelingAssistantProviderTitle);
@@ -111,4 +94,5 @@ public class DomainModelingAssistantProvider extends ModelingAssistantProvider {
 		}
 		return selected;
 	}
+
 }

@@ -21,12 +21,12 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link domain.impl.FormDataControlsImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.impl.FormDataControlsImpl#getName <em>Name</em>}</li>
  *   <li>{@link domain.impl.FormDataControlsImpl#getFormControl <em>Form Control</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

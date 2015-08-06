@@ -11,13 +11,13 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link domain.Property#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.Property#getConfVarRef <em>Conf Var Ref</em>}</li>
  *   <li>{@link domain.Property#getValue <em>Value</em>}</li>
  *   <li>{@link domain.Property#getFakeName <em>Fake Name</em>}</li>
  * </ul>
- * </p>
  *
  * @see domain.DomainPackage#getProperty()
  * @model annotation="gmf.node label='fakeName' border.color='0,0,0' color='255,239,222'"

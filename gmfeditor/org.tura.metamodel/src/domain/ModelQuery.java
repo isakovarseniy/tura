@@ -13,6 +13,7 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link domain.ModelQuery#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.ModelQuery#getName <em>Name</em>}</li>
@@ -20,7 +21,6 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link domain.ModelQuery#getParent <em>Parent</em>}</li>
  *   <li>{@link domain.ModelQuery#getParameters <em>Parameters</em>}</li>
  * </ul>
- * </p>
  *
  * @see domain.DomainPackage#getModelQuery()
  * @model annotation="gmf.node label='name' border.color='0,0,0' color='255,239,222'"

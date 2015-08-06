@@ -5838,7 +5838,7 @@ public interface DomainPackage extends EPackage
 	 * @see domain.impl.DomainPackageImpl#getTrigger()
 	 * @generated
 	 */
-  int TRIGGER = 139;
+  int TRIGGER = 138;
 
   /**
 	 * The meta object id for the '{@link domain.impl.ViewPortTriggerImpl <em>View Port Trigger</em>}' class.
@@ -7387,13 +7387,22 @@ public interface DomainPackage extends EPackage
   int UIELEMENT__ON_EVENT_REFRESH_AREA = STYLE_ELEMENT_FEATURE_COUNT + 7;
 
   /**
+	 * The feature id for the '<em><b>Triggers</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UIELEMENT__TRIGGERS = STYLE_ELEMENT_FEATURE_COUNT + 8;
+
+		/**
 	 * The number of structural features of the '<em>Uielement</em>' class.
 	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-  int UIELEMENT_FEATURE_COUNT = STYLE_ELEMENT_FEATURE_COUNT + 8;
+  int UIELEMENT_FEATURE_COUNT = STYLE_ELEMENT_FEATURE_COUNT + 9;
 
   /**
 	 * The meta object id for the '{@link domain.impl.FormatableImpl <em>Formatable</em>}' class.
@@ -7524,6 +7533,15 @@ public interface DomainPackage extends EPackage
   int SOURCES_POINTER__ON_EVENT_REFRESH_AREA = UIELEMENT__ON_EVENT_REFRESH_AREA;
 
   /**
+	 * The feature id for the '<em><b>Triggers</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOURCES_POINTER__TRIGGERS = UIELEMENT__TRIGGERS;
+
+		/**
 	 * The feature id for the '<em><b>Source Pointer</b></em>' reference.
 	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -7569,124 +7587,6 @@ public interface DomainPackage extends EPackage
   int SOURCES_POINTER_FEATURE_COUNT = UIELEMENT_FEATURE_COUNT + 4;
 
   /**
-	 * The meta object id for the '{@link domain.impl.ActionElementImpl <em>Action Element</em>}' class.
-	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-	 * @see domain.impl.ActionElementImpl
-	 * @see domain.impl.DomainPackageImpl#getActionElement()
-	 * @generated
-	 */
-  int ACTION_ELEMENT = 121;
-
-  /**
-	 * The feature id for the '<em><b>Style</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-  int ACTION_ELEMENT__STYLE = UIELEMENT__STYLE;
-
-  /**
-	 * The feature id for the '<em><b>Style Class</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-  int ACTION_ELEMENT__STYLE_CLASS = UIELEMENT__STYLE_CLASS;
-
-  /**
-	 * The feature id for the '<em><b>Nickname</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-  int ACTION_ELEMENT__NICKNAME = UIELEMENT__NICKNAME;
-
-  /**
-	 * The feature id for the '<em><b>Classifiers</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-  int ACTION_ELEMENT__CLASSIFIERS = UIELEMENT__CLASSIFIERS;
-
-  /**
-	 * The feature id for the '<em><b>Order</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-  int ACTION_ELEMENT__ORDER = UIELEMENT__ORDER;
-
-  /**
-	 * The feature id for the '<em><b>Uid</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-  int ACTION_ELEMENT__UID = UIELEMENT__UID;
-
-  /**
-	 * The feature id for the '<em><b>Enabled</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-  int ACTION_ELEMENT__ENABLED = UIELEMENT__ENABLED;
-
-  /**
-	 * The feature id for the '<em><b>Required</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-  int ACTION_ELEMENT__REQUIRED = UIELEMENT__REQUIRED;
-
-  /**
-	 * The feature id for the '<em><b>Read Only</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-  int ACTION_ELEMENT__READ_ONLY = UIELEMENT__READ_ONLY;
-
-  /**
-	 * The feature id for the '<em><b>On Event Refresh Area</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-  int ACTION_ELEMENT__ON_EVENT_REFRESH_AREA = UIELEMENT__ON_EVENT_REFRESH_AREA;
-
-  /**
-	 * The feature id for the '<em><b>Triggers</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-  int ACTION_ELEMENT__TRIGGERS = UIELEMENT_FEATURE_COUNT + 0;
-
-  /**
-	 * The number of structural features of the '<em>Action Element</em>' class.
-	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-  int ACTION_ELEMENT_FEATURE_COUNT = UIELEMENT_FEATURE_COUNT + 1;
-
-  /**
 	 * The meta object id for the '{@link domain.impl.ActionTriggerImpl <em>Action Trigger</em>}' class.
 	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -7694,7 +7594,7 @@ public interface DomainPackage extends EPackage
 	 * @see domain.impl.DomainPackageImpl#getActionTrigger()
 	 * @generated
 	 */
-  int ACTION_TRIGGER = 122;
+  int ACTION_TRIGGER = 121;
 
   /**
 	 * The feature id for the '<em><b>Package Ref</b></em>' reference.
@@ -7794,7 +7694,7 @@ public interface DomainPackage extends EPackage
 	 * @see domain.impl.DomainPackageImpl#getInputElement()
 	 * @generated
 	 */
-  int INPUT_ELEMENT = 123;
+  int INPUT_ELEMENT = 122;
 
   /**
 	 * The feature id for the '<em><b>Style</b></em>' containment reference.
@@ -7887,6 +7787,15 @@ public interface DomainPackage extends EPackage
   int INPUT_ELEMENT__ON_EVENT_REFRESH_AREA = SOURCES_POINTER__ON_EVENT_REFRESH_AREA;
 
   /**
+	 * The feature id for the '<em><b>Triggers</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INPUT_ELEMENT__TRIGGERS = SOURCES_POINTER__TRIGGERS;
+
+		/**
 	 * The feature id for the '<em><b>Source Pointer</b></em>' reference.
 	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -7939,7 +7848,7 @@ public interface DomainPackage extends EPackage
 	 * @see domain.impl.DomainPackageImpl#getSelection()
 	 * @generated
 	 */
-  int SELECTION = 124;
+  int SELECTION = 123;
 
   /**
 	 * The feature id for the '<em><b>Style</b></em>' containment reference.
@@ -7994,7 +7903,7 @@ public interface DomainPackage extends EPackage
 	 * @see domain.impl.DomainPackageImpl#getOptionSelection()
 	 * @generated
 	 */
-  int OPTION_SELECTION = 125;
+  int OPTION_SELECTION = 124;
 
   /**
 	 * The feature id for the '<em><b>Style</b></em>' containment reference.
@@ -8087,6 +7996,15 @@ public interface DomainPackage extends EPackage
   int OPTION_SELECTION__ON_EVENT_REFRESH_AREA = INPUT_ELEMENT__ON_EVENT_REFRESH_AREA;
 
   /**
+	 * The feature id for the '<em><b>Triggers</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPTION_SELECTION__TRIGGERS = INPUT_ELEMENT__TRIGGERS;
+
+		/**
 	 * The feature id for the '<em><b>Source Pointer</b></em>' reference.
 	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -8166,7 +8084,7 @@ public interface DomainPackage extends EPackage
 	 * @see domain.impl.DomainPackageImpl#getLayerHolder()
 	 * @generated
 	 */
-  int LAYER_HOLDER = 126;
+  int LAYER_HOLDER = 125;
 
   /**
 	 * The feature id for the '<em><b>Style</b></em>' containment reference.
@@ -8259,6 +8177,15 @@ public interface DomainPackage extends EPackage
   int LAYER_HOLDER__ON_EVENT_REFRESH_AREA = UIELEMENT__ON_EVENT_REFRESH_AREA;
 
   /**
+	 * The feature id for the '<em><b>Triggers</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LAYER_HOLDER__TRIGGERS = UIELEMENT__TRIGGERS;
+
+		/**
 	 * The feature id for the '<em><b>Children</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -8293,7 +8220,7 @@ public interface DomainPackage extends EPackage
 	 * @see domain.impl.DomainPackageImpl#getInputText()
 	 * @generated
 	 */
-  int INPUT_TEXT = 127;
+  int INPUT_TEXT = 126;
 
   /**
 	 * The feature id for the '<em><b>Style</b></em>' containment reference.
@@ -8386,6 +8313,15 @@ public interface DomainPackage extends EPackage
   int INPUT_TEXT__ON_EVENT_REFRESH_AREA = INPUT_ELEMENT__ON_EVENT_REFRESH_AREA;
 
   /**
+	 * The feature id for the '<em><b>Triggers</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INPUT_TEXT__TRIGGERS = INPUT_ELEMENT__TRIGGERS;
+
+		/**
 	 * The feature id for the '<em><b>Source Pointer</b></em>' reference.
 	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -8447,7 +8383,7 @@ public interface DomainPackage extends EPackage
 	 * @see domain.impl.DomainPackageImpl#getLabel()
 	 * @generated
 	 */
-  int LABEL = 128;
+  int LABEL = 127;
 
   /**
 	 * The feature id for the '<em><b>Style</b></em>' containment reference.
@@ -8540,6 +8476,15 @@ public interface DomainPackage extends EPackage
   int LABEL__ON_EVENT_REFRESH_AREA = UIELEMENT__ON_EVENT_REFRESH_AREA;
 
   /**
+	 * The feature id for the '<em><b>Triggers</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LABEL__TRIGGERS = UIELEMENT__TRIGGERS;
+
+		/**
 	 * The feature id for the '<em><b>Multi Lang Label</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -8574,7 +8519,7 @@ public interface DomainPackage extends EPackage
 	 * @see domain.impl.DomainPackageImpl#getOutputText()
 	 * @generated
 	 */
-  int OUTPUT_TEXT = 129;
+  int OUTPUT_TEXT = 128;
 
   /**
 	 * The feature id for the '<em><b>Style</b></em>' containment reference.
@@ -8667,6 +8612,15 @@ public interface DomainPackage extends EPackage
   int OUTPUT_TEXT__ON_EVENT_REFRESH_AREA = INPUT_ELEMENT__ON_EVENT_REFRESH_AREA;
 
   /**
+	 * The feature id for the '<em><b>Triggers</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OUTPUT_TEXT__TRIGGERS = INPUT_ELEMENT__TRIGGERS;
+
+		/**
 	 * The feature id for the '<em><b>Source Pointer</b></em>' reference.
 	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -8728,7 +8682,7 @@ public interface DomainPackage extends EPackage
 	 * @see domain.impl.DomainPackageImpl#getCheckBox()
 	 * @generated
 	 */
-  int CHECK_BOX = 130;
+  int CHECK_BOX = 129;
 
   /**
 	 * The feature id for the '<em><b>Style</b></em>' containment reference.
@@ -8821,6 +8775,15 @@ public interface DomainPackage extends EPackage
   int CHECK_BOX__ON_EVENT_REFRESH_AREA = INPUT_ELEMENT__ON_EVENT_REFRESH_AREA;
 
   /**
+	 * The feature id for the '<em><b>Triggers</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CHECK_BOX__TRIGGERS = INPUT_ELEMENT__TRIGGERS;
+
+		/**
 	 * The feature id for the '<em><b>Source Pointer</b></em>' reference.
 	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -8873,7 +8836,7 @@ public interface DomainPackage extends EPackage
 	 * @see domain.impl.DomainPackageImpl#getDropDownSelection()
 	 * @generated
 	 */
-  int DROP_DOWN_SELECTION = 131;
+  int DROP_DOWN_SELECTION = 130;
 
   /**
 	 * The feature id for the '<em><b>Style</b></em>' containment reference.
@@ -8966,6 +8929,15 @@ public interface DomainPackage extends EPackage
   int DROP_DOWN_SELECTION__ON_EVENT_REFRESH_AREA = OPTION_SELECTION__ON_EVENT_REFRESH_AREA;
 
   /**
+	 * The feature id for the '<em><b>Triggers</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DROP_DOWN_SELECTION__TRIGGERS = OPTION_SELECTION__TRIGGERS;
+
+		/**
 	 * The feature id for the '<em><b>Source Pointer</b></em>' reference.
 	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -9054,7 +9026,7 @@ public interface DomainPackage extends EPackage
 	 * @see domain.impl.DomainPackageImpl#getImage()
 	 * @generated
 	 */
-  int IMAGE = 132;
+  int IMAGE = 131;
 
   /**
 	 * The feature id for the '<em><b>Style</b></em>' containment reference.
@@ -9147,6 +9119,15 @@ public interface DomainPackage extends EPackage
   int IMAGE__ON_EVENT_REFRESH_AREA = INPUT_ELEMENT__ON_EVENT_REFRESH_AREA;
 
   /**
+	 * The feature id for the '<em><b>Triggers</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IMAGE__TRIGGERS = INPUT_ELEMENT__TRIGGERS;
+
+		/**
 	 * The feature id for the '<em><b>Source Pointer</b></em>' reference.
 	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -9199,7 +9180,7 @@ public interface DomainPackage extends EPackage
 	 * @see domain.impl.DomainPackageImpl#getDate()
 	 * @generated
 	 */
-  int DATE = 133;
+  int DATE = 132;
 
   /**
 	 * The feature id for the '<em><b>Style</b></em>' containment reference.
@@ -9292,6 +9273,15 @@ public interface DomainPackage extends EPackage
   int DATE__ON_EVENT_REFRESH_AREA = INPUT_ELEMENT__ON_EVENT_REFRESH_AREA;
 
   /**
+	 * The feature id for the '<em><b>Triggers</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATE__TRIGGERS = INPUT_ELEMENT__TRIGGERS;
+
+		/**
 	 * The feature id for the '<em><b>Source Pointer</b></em>' reference.
 	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -9356,96 +9346,6 @@ public interface DomainPackage extends EPackage
   int COLUMN = 134;
 
   /**
-	 * The feature id for the '<em><b>Style</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-  int COLUMN__STYLE = STYLE_ELEMENT__STYLE;
-
-  /**
-	 * The feature id for the '<em><b>Style Class</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-  int COLUMN__STYLE_CLASS = STYLE_ELEMENT__STYLE_CLASS;
-
-  /**
-	 * The feature id for the '<em><b>Multi Lang Label</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-  int COLUMN__MULTI_LANG_LABEL = STYLE_ELEMENT_FEATURE_COUNT + 0;
-
-  /**
-	 * The feature id for the '<em><b>Classifiers</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-  int COLUMN__CLASSIFIERS = STYLE_ELEMENT_FEATURE_COUNT + 1;
-
-  /**
-	 * The feature id for the '<em><b>Columns</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-  int COLUMN__COLUMNS = STYLE_ELEMENT_FEATURE_COUNT + 2;
-
-  /**
-	 * The feature id for the '<em><b>Order</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-  int COLUMN__ORDER = STYLE_ELEMENT_FEATURE_COUNT + 3;
-
-  /**
-	 * The feature id for the '<em><b>Uid</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-  int COLUMN__UID = STYLE_ELEMENT_FEATURE_COUNT + 4;
-
-  /**
-	 * The feature id for the '<em><b>Label</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-  int COLUMN__LABEL = STYLE_ELEMENT_FEATURE_COUNT + 5;
-
-  /**
-	 * The feature id for the '<em><b>Element</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-  int COLUMN__ELEMENT = STYLE_ELEMENT_FEATURE_COUNT + 6;
-
-  /**
-	 * The number of structural features of the '<em>Column</em>' class.
-	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-  int COLUMN_FEATURE_COUNT = STYLE_ELEMENT_FEATURE_COUNT + 7;
-
-  /**
 	 * The meta object id for the '{@link domain.impl.TableImpl <em>Table</em>}' class.
 	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -9454,186 +9354,6 @@ public interface DomainPackage extends EPackage
 	 * @generated
 	 */
   int TABLE = 135;
-
-  /**
-	 * The feature id for the '<em><b>Style</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-  int TABLE__STYLE = SOURCES_POINTER__STYLE;
-
-  /**
-	 * The feature id for the '<em><b>Style Class</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-  int TABLE__STYLE_CLASS = SOURCES_POINTER__STYLE_CLASS;
-
-  /**
-	 * The feature id for the '<em><b>Nickname</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-  int TABLE__NICKNAME = SOURCES_POINTER__NICKNAME;
-
-  /**
-	 * The feature id for the '<em><b>Classifiers</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-  int TABLE__CLASSIFIERS = SOURCES_POINTER__CLASSIFIERS;
-
-  /**
-	 * The feature id for the '<em><b>Order</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-  int TABLE__ORDER = SOURCES_POINTER__ORDER;
-
-  /**
-	 * The feature id for the '<em><b>Uid</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-  int TABLE__UID = SOURCES_POINTER__UID;
-
-  /**
-	 * The feature id for the '<em><b>Enabled</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-  int TABLE__ENABLED = SOURCES_POINTER__ENABLED;
-
-  /**
-	 * The feature id for the '<em><b>Required</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-  int TABLE__REQUIRED = SOURCES_POINTER__REQUIRED;
-
-  /**
-	 * The feature id for the '<em><b>Read Only</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-  int TABLE__READ_ONLY = SOURCES_POINTER__READ_ONLY;
-
-  /**
-	 * The feature id for the '<em><b>On Event Refresh Area</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-  int TABLE__ON_EVENT_REFRESH_AREA = SOURCES_POINTER__ON_EVENT_REFRESH_AREA;
-
-  /**
-	 * The feature id for the '<em><b>Source Pointer</b></em>' reference.
-	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-  int TABLE__SOURCE_POINTER = SOURCES_POINTER__SOURCE_POINTER;
-
-  /**
-	 * The feature id for the '<em><b>Value Pointer</b></em>' reference.
-	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-  int TABLE__VALUE_POINTER = SOURCES_POINTER__VALUE_POINTER;
-
-  /**
-	 * The feature id for the '<em><b>Source Cast</b></em>' reference.
-	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-  int TABLE__SOURCE_CAST = SOURCES_POINTER__SOURCE_CAST;
-
-  /**
-	 * The feature id for the '<em><b>Source Cast Data Control</b></em>' reference.
-	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-  int TABLE__SOURCE_CAST_DATA_CONTROL = SOURCES_POINTER__SOURCE_CAST_DATA_CONTROL;
-
-  /**
-	 * The feature id for the '<em><b>Columns</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-  int TABLE__COLUMNS = SOURCES_POINTER_FEATURE_COUNT + 0;
-
-  /**
-	 * The feature id for the '<em><b>Multi Lang Label</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-  int TABLE__MULTI_LANG_LABEL = SOURCES_POINTER_FEATURE_COUNT + 1;
-
-  /**
-	 * The feature id for the '<em><b>Label</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-  int TABLE__LABEL = SOURCES_POINTER_FEATURE_COUNT + 2;
-
-  /**
-	 * The feature id for the '<em><b>Row Number</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-  int TABLE__ROW_NUMBER = SOURCES_POINTER_FEATURE_COUNT + 3;
-
-  /**
-	 * The feature id for the '<em><b>Cols</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-  int TABLE__COLS = SOURCES_POINTER_FEATURE_COUNT + 4;
-
-  /**
-	 * The number of structural features of the '<em>Table</em>' class.
-	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-  int TABLE_FEATURE_COUNT = SOURCES_POINTER_FEATURE_COUNT + 5;
 
   /**
 	 * The meta object id for the '{@link domain.impl.TreeImpl <em>Tree</em>}' class.
@@ -9646,13 +9366,23 @@ public interface DomainPackage extends EPackage
   int TREE = 136;
 
   /**
+	 * The meta object id for the '{@link domain.impl.ButtonImpl <em>Button</em>}' class.
+	 * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+	 * @see domain.impl.ButtonImpl
+	 * @see domain.impl.DomainPackageImpl#getButton()
+	 * @generated
+	 */
+  int BUTTON = 133;
+
+  /**
 	 * The feature id for the '<em><b>Style</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-  int TREE__STYLE = SOURCES_POINTER__STYLE;
+  int BUTTON__STYLE = UIELEMENT__STYLE;
 
   /**
 	 * The feature id for the '<em><b>Style Class</b></em>' containment reference list.
@@ -9661,7 +9391,7 @@ public interface DomainPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-  int TREE__STYLE_CLASS = SOURCES_POINTER__STYLE_CLASS;
+  int BUTTON__STYLE_CLASS = UIELEMENT__STYLE_CLASS;
 
   /**
 	 * The feature id for the '<em><b>Nickname</b></em>' attribute.
@@ -9670,7 +9400,7 @@ public interface DomainPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-  int TREE__NICKNAME = SOURCES_POINTER__NICKNAME;
+  int BUTTON__NICKNAME = UIELEMENT__NICKNAME;
 
   /**
 	 * The feature id for the '<em><b>Classifiers</b></em>' containment reference list.
@@ -9679,7 +9409,7 @@ public interface DomainPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-  int TREE__CLASSIFIERS = SOURCES_POINTER__CLASSIFIERS;
+  int BUTTON__CLASSIFIERS = UIELEMENT__CLASSIFIERS;
 
   /**
 	 * The feature id for the '<em><b>Order</b></em>' attribute.
@@ -9688,7 +9418,7 @@ public interface DomainPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-  int TREE__ORDER = SOURCES_POINTER__ORDER;
+  int BUTTON__ORDER = UIELEMENT__ORDER;
 
   /**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -9697,7 +9427,7 @@ public interface DomainPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-  int TREE__UID = SOURCES_POINTER__UID;
+  int BUTTON__UID = UIELEMENT__UID;
 
   /**
 	 * The feature id for the '<em><b>Enabled</b></em>' containment reference.
@@ -9706,7 +9436,7 @@ public interface DomainPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-  int TREE__ENABLED = SOURCES_POINTER__ENABLED;
+  int BUTTON__ENABLED = UIELEMENT__ENABLED;
 
   /**
 	 * The feature id for the '<em><b>Required</b></em>' containment reference.
@@ -9715,7 +9445,7 @@ public interface DomainPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-  int TREE__REQUIRED = SOURCES_POINTER__REQUIRED;
+  int BUTTON__REQUIRED = UIELEMENT__REQUIRED;
 
   /**
 	 * The feature id for the '<em><b>Read Only</b></em>' containment reference.
@@ -9724,7 +9454,7 @@ public interface DomainPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-  int TREE__READ_ONLY = SOURCES_POINTER__READ_ONLY;
+  int BUTTON__READ_ONLY = UIELEMENT__READ_ONLY;
 
   /**
 	 * The feature id for the '<em><b>On Event Refresh Area</b></em>' reference list.
@@ -9733,52 +9463,16 @@ public interface DomainPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-  int TREE__ON_EVENT_REFRESH_AREA = SOURCES_POINTER__ON_EVENT_REFRESH_AREA;
+  int BUTTON__ON_EVENT_REFRESH_AREA = UIELEMENT__ON_EVENT_REFRESH_AREA;
 
   /**
-	 * The feature id for the '<em><b>Source Pointer</b></em>' reference.
+	 * The feature id for the '<em><b>Triggers</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-  int TREE__SOURCE_POINTER = SOURCES_POINTER__SOURCE_POINTER;
-
-  /**
-	 * The feature id for the '<em><b>Value Pointer</b></em>' reference.
-	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-  int TREE__VALUE_POINTER = SOURCES_POINTER__VALUE_POINTER;
-
-  /**
-	 * The feature id for the '<em><b>Source Cast</b></em>' reference.
-	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-  int TREE__SOURCE_CAST = SOURCES_POINTER__SOURCE_CAST;
-
-  /**
-	 * The feature id for the '<em><b>Source Cast Data Control</b></em>' reference.
-	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-  int TREE__SOURCE_CAST_DATA_CONTROL = SOURCES_POINTER__SOURCE_CAST_DATA_CONTROL;
-
-  /**
-	 * The feature id for the '<em><b>Columns</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-  int TREE__COLUMNS = SOURCES_POINTER_FEATURE_COUNT + 0;
+  int BUTTON__TRIGGERS = UIELEMENT__TRIGGERS;
 
   /**
 	 * The feature id for the '<em><b>Multi Lang Label</b></em>' containment reference.
@@ -9787,7 +9481,7 @@ public interface DomainPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-  int TREE__MULTI_LANG_LABEL = SOURCES_POINTER_FEATURE_COUNT + 1;
+  int BUTTON__MULTI_LANG_LABEL = UIELEMENT_FEATURE_COUNT + 0;
 
   /**
 	 * The feature id for the '<em><b>Label</b></em>' attribute.
@@ -9796,9 +9490,468 @@ public interface DomainPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-  int TREE__LABEL = SOURCES_POINTER_FEATURE_COUNT + 2;
+  int BUTTON__LABEL = UIELEMENT_FEATURE_COUNT + 1;
 
   /**
+	 * The feature id for the '<em><b>Icon</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+  int BUTTON__ICON = UIELEMENT_FEATURE_COUNT + 2;
+
+  /**
+	 * The number of structural features of the '<em>Button</em>' class.
+	 * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+  int BUTTON_FEATURE_COUNT = UIELEMENT_FEATURE_COUNT + 3;
+
+		/**
+	 * The feature id for the '<em><b>Style</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+  int COLUMN__STYLE = STYLE_ELEMENT__STYLE;
+
+		/**
+	 * The feature id for the '<em><b>Style Class</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+  int COLUMN__STYLE_CLASS = STYLE_ELEMENT__STYLE_CLASS;
+
+		/**
+	 * The feature id for the '<em><b>Multi Lang Label</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+  int COLUMN__MULTI_LANG_LABEL = STYLE_ELEMENT_FEATURE_COUNT + 0;
+
+		/**
+	 * The feature id for the '<em><b>Classifiers</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+  int COLUMN__CLASSIFIERS = STYLE_ELEMENT_FEATURE_COUNT + 1;
+
+		/**
+	 * The feature id for the '<em><b>Columns</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+  int COLUMN__COLUMNS = STYLE_ELEMENT_FEATURE_COUNT + 2;
+
+		/**
+	 * The feature id for the '<em><b>Order</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+  int COLUMN__ORDER = STYLE_ELEMENT_FEATURE_COUNT + 3;
+
+		/**
+	 * The feature id for the '<em><b>Uid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+  int COLUMN__UID = STYLE_ELEMENT_FEATURE_COUNT + 4;
+
+		/**
+	 * The feature id for the '<em><b>Label</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+  int COLUMN__LABEL = STYLE_ELEMENT_FEATURE_COUNT + 5;
+
+		/**
+	 * The feature id for the '<em><b>Element</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+  int COLUMN__ELEMENT = STYLE_ELEMENT_FEATURE_COUNT + 6;
+
+		/**
+	 * The number of structural features of the '<em>Column</em>' class.
+	 * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+  int COLUMN_FEATURE_COUNT = STYLE_ELEMENT_FEATURE_COUNT + 7;
+
+		/**
+	 * The feature id for the '<em><b>Style</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+  int TABLE__STYLE = SOURCES_POINTER__STYLE;
+
+		/**
+	 * The feature id for the '<em><b>Style Class</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+  int TABLE__STYLE_CLASS = SOURCES_POINTER__STYLE_CLASS;
+
+		/**
+	 * The feature id for the '<em><b>Nickname</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+  int TABLE__NICKNAME = SOURCES_POINTER__NICKNAME;
+
+		/**
+	 * The feature id for the '<em><b>Classifiers</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+  int TABLE__CLASSIFIERS = SOURCES_POINTER__CLASSIFIERS;
+
+		/**
+	 * The feature id for the '<em><b>Order</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+  int TABLE__ORDER = SOURCES_POINTER__ORDER;
+
+		/**
+	 * The feature id for the '<em><b>Uid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+  int TABLE__UID = SOURCES_POINTER__UID;
+
+		/**
+	 * The feature id for the '<em><b>Enabled</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+  int TABLE__ENABLED = SOURCES_POINTER__ENABLED;
+
+		/**
+	 * The feature id for the '<em><b>Required</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+  int TABLE__REQUIRED = SOURCES_POINTER__REQUIRED;
+
+		/**
+	 * The feature id for the '<em><b>Read Only</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+  int TABLE__READ_ONLY = SOURCES_POINTER__READ_ONLY;
+
+		/**
+	 * The feature id for the '<em><b>On Event Refresh Area</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+  int TABLE__ON_EVENT_REFRESH_AREA = SOURCES_POINTER__ON_EVENT_REFRESH_AREA;
+
+		/**
+	 * The feature id for the '<em><b>Triggers</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE__TRIGGERS = SOURCES_POINTER__TRIGGERS;
+
+		/**
+	 * The feature id for the '<em><b>Source Pointer</b></em>' reference.
+	 * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+  int TABLE__SOURCE_POINTER = SOURCES_POINTER__SOURCE_POINTER;
+
+		/**
+	 * The feature id for the '<em><b>Value Pointer</b></em>' reference.
+	 * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+  int TABLE__VALUE_POINTER = SOURCES_POINTER__VALUE_POINTER;
+
+		/**
+	 * The feature id for the '<em><b>Source Cast</b></em>' reference.
+	 * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+  int TABLE__SOURCE_CAST = SOURCES_POINTER__SOURCE_CAST;
+
+		/**
+	 * The feature id for the '<em><b>Source Cast Data Control</b></em>' reference.
+	 * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+  int TABLE__SOURCE_CAST_DATA_CONTROL = SOURCES_POINTER__SOURCE_CAST_DATA_CONTROL;
+
+		/**
+	 * The feature id for the '<em><b>Columns</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+  int TABLE__COLUMNS = SOURCES_POINTER_FEATURE_COUNT + 0;
+
+		/**
+	 * The feature id for the '<em><b>Multi Lang Label</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+  int TABLE__MULTI_LANG_LABEL = SOURCES_POINTER_FEATURE_COUNT + 1;
+
+		/**
+	 * The feature id for the '<em><b>Label</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+  int TABLE__LABEL = SOURCES_POINTER_FEATURE_COUNT + 2;
+
+		/**
+	 * The feature id for the '<em><b>Row Number</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+  int TABLE__ROW_NUMBER = SOURCES_POINTER_FEATURE_COUNT + 3;
+
+		/**
+	 * The feature id for the '<em><b>Cols</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+  int TABLE__COLS = SOURCES_POINTER_FEATURE_COUNT + 4;
+
+		/**
+	 * The number of structural features of the '<em>Table</em>' class.
+	 * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+  int TABLE_FEATURE_COUNT = SOURCES_POINTER_FEATURE_COUNT + 5;
+
+		/**
+	 * The feature id for the '<em><b>Style</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+  int TREE__STYLE = SOURCES_POINTER__STYLE;
+
+		/**
+	 * The feature id for the '<em><b>Style Class</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+  int TREE__STYLE_CLASS = SOURCES_POINTER__STYLE_CLASS;
+
+		/**
+	 * The feature id for the '<em><b>Nickname</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+  int TREE__NICKNAME = SOURCES_POINTER__NICKNAME;
+
+		/**
+	 * The feature id for the '<em><b>Classifiers</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+  int TREE__CLASSIFIERS = SOURCES_POINTER__CLASSIFIERS;
+
+		/**
+	 * The feature id for the '<em><b>Order</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+  int TREE__ORDER = SOURCES_POINTER__ORDER;
+
+		/**
+	 * The feature id for the '<em><b>Uid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+  int TREE__UID = SOURCES_POINTER__UID;
+
+		/**
+	 * The feature id for the '<em><b>Enabled</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+  int TREE__ENABLED = SOURCES_POINTER__ENABLED;
+
+		/**
+	 * The feature id for the '<em><b>Required</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+  int TREE__REQUIRED = SOURCES_POINTER__REQUIRED;
+
+		/**
+	 * The feature id for the '<em><b>Read Only</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+  int TREE__READ_ONLY = SOURCES_POINTER__READ_ONLY;
+
+		/**
+	 * The feature id for the '<em><b>On Event Refresh Area</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+  int TREE__ON_EVENT_REFRESH_AREA = SOURCES_POINTER__ON_EVENT_REFRESH_AREA;
+
+		/**
+	 * The feature id for the '<em><b>Triggers</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TREE__TRIGGERS = SOURCES_POINTER__TRIGGERS;
+
+		/**
+	 * The feature id for the '<em><b>Source Pointer</b></em>' reference.
+	 * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+  int TREE__SOURCE_POINTER = SOURCES_POINTER__SOURCE_POINTER;
+
+		/**
+	 * The feature id for the '<em><b>Value Pointer</b></em>' reference.
+	 * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+  int TREE__VALUE_POINTER = SOURCES_POINTER__VALUE_POINTER;
+
+		/**
+	 * The feature id for the '<em><b>Source Cast</b></em>' reference.
+	 * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+  int TREE__SOURCE_CAST = SOURCES_POINTER__SOURCE_CAST;
+
+		/**
+	 * The feature id for the '<em><b>Source Cast Data Control</b></em>' reference.
+	 * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+  int TREE__SOURCE_CAST_DATA_CONTROL = SOURCES_POINTER__SOURCE_CAST_DATA_CONTROL;
+
+		/**
+	 * The feature id for the '<em><b>Columns</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+  int TREE__COLUMNS = SOURCES_POINTER_FEATURE_COUNT + 0;
+
+		/**
+	 * The feature id for the '<em><b>Multi Lang Label</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+  int TREE__MULTI_LANG_LABEL = SOURCES_POINTER_FEATURE_COUNT + 1;
+
+		/**
+	 * The feature id for the '<em><b>Label</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+  int TREE__LABEL = SOURCES_POINTER_FEATURE_COUNT + 2;
+
+		/**
 	 * The feature id for the '<em><b>Image</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -9807,7 +9960,7 @@ public interface DomainPackage extends EPackage
 	 */
   int TREE__IMAGE = SOURCES_POINTER_FEATURE_COUNT + 3;
 
-  /**
+		/**
 	 * The feature id for the '<em><b>Cols</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -9816,7 +9969,7 @@ public interface DomainPackage extends EPackage
 	 */
   int TREE__COLS = SOURCES_POINTER_FEATURE_COUNT + 4;
 
-  /**
+		/**
 	 * The number of structural features of the '<em>Tree</em>' class.
 	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -9826,151 +9979,6 @@ public interface DomainPackage extends EPackage
   int TREE_FEATURE_COUNT = SOURCES_POINTER_FEATURE_COUNT + 5;
 
   /**
-	 * The meta object id for the '{@link domain.impl.ButtonImpl <em>Button</em>}' class.
-	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-	 * @see domain.impl.ButtonImpl
-	 * @see domain.impl.DomainPackageImpl#getButton()
-	 * @generated
-	 */
-  int BUTTON = 137;
-
-  /**
-	 * The feature id for the '<em><b>Style</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-  int BUTTON__STYLE = ACTION_ELEMENT__STYLE;
-
-  /**
-	 * The feature id for the '<em><b>Style Class</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-  int BUTTON__STYLE_CLASS = ACTION_ELEMENT__STYLE_CLASS;
-
-  /**
-	 * The feature id for the '<em><b>Nickname</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-  int BUTTON__NICKNAME = ACTION_ELEMENT__NICKNAME;
-
-  /**
-	 * The feature id for the '<em><b>Classifiers</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-  int BUTTON__CLASSIFIERS = ACTION_ELEMENT__CLASSIFIERS;
-
-  /**
-	 * The feature id for the '<em><b>Order</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-  int BUTTON__ORDER = ACTION_ELEMENT__ORDER;
-
-  /**
-	 * The feature id for the '<em><b>Uid</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-  int BUTTON__UID = ACTION_ELEMENT__UID;
-
-  /**
-	 * The feature id for the '<em><b>Enabled</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-  int BUTTON__ENABLED = ACTION_ELEMENT__ENABLED;
-
-  /**
-	 * The feature id for the '<em><b>Required</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-  int BUTTON__REQUIRED = ACTION_ELEMENT__REQUIRED;
-
-  /**
-	 * The feature id for the '<em><b>Read Only</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-  int BUTTON__READ_ONLY = ACTION_ELEMENT__READ_ONLY;
-
-  /**
-	 * The feature id for the '<em><b>On Event Refresh Area</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-  int BUTTON__ON_EVENT_REFRESH_AREA = ACTION_ELEMENT__ON_EVENT_REFRESH_AREA;
-
-  /**
-	 * The feature id for the '<em><b>Triggers</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-  int BUTTON__TRIGGERS = ACTION_ELEMENT__TRIGGERS;
-
-  /**
-	 * The feature id for the '<em><b>Multi Lang Label</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-  int BUTTON__MULTI_LANG_LABEL = ACTION_ELEMENT_FEATURE_COUNT + 0;
-
-  /**
-	 * The feature id for the '<em><b>Label</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-  int BUTTON__LABEL = ACTION_ELEMENT_FEATURE_COUNT + 1;
-
-  /**
-	 * The feature id for the '<em><b>Icon</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-  int BUTTON__ICON = ACTION_ELEMENT_FEATURE_COUNT + 2;
-
-  /**
-	 * The number of structural features of the '<em>Button</em>' class.
-	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-  int BUTTON_FEATURE_COUNT = ACTION_ELEMENT_FEATURE_COUNT + 3;
-
-  /**
 	 * The meta object id for the '{@link domain.impl.ControlsImpl <em>Controls</em>}' class.
 	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -9978,7 +9986,7 @@ public interface DomainPackage extends EPackage
 	 * @see domain.impl.DomainPackageImpl#getControls()
 	 * @generated
 	 */
-  int CONTROLS = 138;
+  int CONTROLS = 137;
 
   /**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -10060,7 +10068,7 @@ public interface DomainPackage extends EPackage
 	 * @see domain.impl.DomainPackageImpl#getPREFormTrigger()
 	 * @generated
 	 */
-  int PRE_FORM_TRIGGER = 140;
+  int PRE_FORM_TRIGGER = 139;
 
   /**
 	 * The feature id for the '<em><b>Package Ref</b></em>' reference.
@@ -10151,7 +10159,7 @@ public interface DomainPackage extends EPackage
 	 * @see domain.impl.DomainPackageImpl#getPREQueryTrigger()
 	 * @generated
 	 */
-  int PRE_QUERY_TRIGGER = 141;
+  int PRE_QUERY_TRIGGER = 140;
 
   /**
 	 * The feature id for the '<em><b>Package Ref</b></em>' reference.
@@ -10242,7 +10250,7 @@ public interface DomainPackage extends EPackage
 	 * @see domain.impl.DomainPackageImpl#getPOSTQueryTrigger()
 	 * @generated
 	 */
-  int POST_QUERY_TRIGGER = 142;
+  int POST_QUERY_TRIGGER = 141;
 
   /**
 	 * The feature id for the '<em><b>Package Ref</b></em>' reference.
@@ -10333,7 +10341,7 @@ public interface DomainPackage extends EPackage
 	 * @see domain.impl.DomainPackageImpl#getPREInsertTrigger()
 	 * @generated
 	 */
-  int PRE_INSERT_TRIGGER = 143;
+  int PRE_INSERT_TRIGGER = 142;
 
   /**
 	 * The feature id for the '<em><b>Package Ref</b></em>' reference.
@@ -10424,7 +10432,7 @@ public interface DomainPackage extends EPackage
 	 * @see domain.impl.DomainPackageImpl#getPREDeleteTrigger()
 	 * @generated
 	 */
-  int PRE_DELETE_TRIGGER = 144;
+  int PRE_DELETE_TRIGGER = 143;
 
   /**
 	 * The feature id for the '<em><b>Package Ref</b></em>' reference.
@@ -10515,7 +10523,7 @@ public interface DomainPackage extends EPackage
 	 * @see domain.impl.DomainPackageImpl#getPOSTCreateTrigger()
 	 * @generated
 	 */
-  int POST_CREATE_TRIGGER = 145;
+  int POST_CREATE_TRIGGER = 144;
 
   /**
 	 * The feature id for the '<em><b>Package Ref</b></em>' reference.
@@ -10606,7 +10614,7 @@ public interface DomainPackage extends EPackage
 	 * @see domain.impl.DomainPackageImpl#getPREUpdateTrigger()
 	 * @generated
 	 */
-  int PRE_UPDATE_TRIGGER = 146;
+  int PRE_UPDATE_TRIGGER = 145;
 
   /**
 	 * The feature id for the '<em><b>Package Ref</b></em>' reference.
@@ -10697,7 +10705,7 @@ public interface DomainPackage extends EPackage
 	 * @see domain.impl.DomainPackageImpl#getCreateTrigger()
 	 * @generated
 	 */
-  int CREATE_TRIGGER = 147;
+  int CREATE_TRIGGER = 146;
 
   /**
 	 * The feature id for the '<em><b>Package Ref</b></em>' reference.
@@ -10788,7 +10796,7 @@ public interface DomainPackage extends EPackage
 	 * @see domain.impl.DomainPackageImpl#getInsertTrigger()
 	 * @generated
 	 */
-  int INSERT_TRIGGER = 148;
+  int INSERT_TRIGGER = 147;
 
   /**
 	 * The feature id for the '<em><b>Package Ref</b></em>' reference.
@@ -10879,7 +10887,7 @@ public interface DomainPackage extends EPackage
 	 * @see domain.impl.DomainPackageImpl#getUpdateTrigger()
 	 * @generated
 	 */
-  int UPDATE_TRIGGER = 149;
+  int UPDATE_TRIGGER = 148;
 
   /**
 	 * The feature id for the '<em><b>Package Ref</b></em>' reference.
@@ -10970,7 +10978,7 @@ public interface DomainPackage extends EPackage
 	 * @see domain.impl.DomainPackageImpl#getDeleteTrigger()
 	 * @generated
 	 */
-  int DELETE_TRIGGER = 150;
+  int DELETE_TRIGGER = 149;
 
   /**
 	 * The feature id for the '<em><b>Package Ref</b></em>' reference.
@@ -11061,7 +11069,7 @@ public interface DomainPackage extends EPackage
 	 * @see domain.impl.DomainPackageImpl#getSearchTrigger()
 	 * @generated
 	 */
-  int SEARCH_TRIGGER = 151;
+  int SEARCH_TRIGGER = 150;
 
   /**
 	 * The feature id for the '<em><b>Package Ref</b></em>' reference.
@@ -11152,7 +11160,7 @@ public interface DomainPackage extends EPackage
 	 * @see domain.impl.DomainPackageImpl#getRoot()
 	 * @generated
 	 */
-  int ROOT = 152;
+  int ROOT = 151;
 
   /**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -11207,7 +11215,7 @@ public interface DomainPackage extends EPackage
 	 * @see domain.impl.DomainPackageImpl#getFormVariable()
 	 * @generated
 	 */
-  int FORM_VARIABLE = 153;
+  int FORM_VARIABLE = 152;
 
   /**
 	 * The feature id for the '<em><b>Package Ref</b></em>' reference.
@@ -11289,7 +11297,7 @@ public interface DomainPackage extends EPackage
 	 * @see domain.impl.DomainPackageImpl#getDataControl()
 	 * @generated
 	 */
-  int DATA_CONTROL = 154;
+  int DATA_CONTROL = 153;
 
   /**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -11470,7 +11478,7 @@ public interface DomainPackage extends EPackage
 	 * @see domain.impl.DomainPackageImpl#getOrders()
 	 * @generated
 	 */
-  int ORDERS = 155;
+  int ORDERS = 154;
 
   /**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -11507,7 +11515,7 @@ public interface DomainPackage extends EPackage
 	 * @see domain.impl.DomainPackageImpl#getOrderBy()
 	 * @generated
 	 */
-  int ORDER_BY = 156;
+  int ORDER_BY = 155;
 
   /**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -11553,7 +11561,7 @@ public interface DomainPackage extends EPackage
 	 * @see domain.impl.DomainPackageImpl#getRelation()
 	 * @generated
 	 */
-  int RELATION = 157;
+  int RELATION = 156;
 
   /**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -11626,7 +11634,7 @@ public interface DomainPackage extends EPackage
 	 * @see domain.impl.DomainPackageImpl#getDependency()
 	 * @generated
 	 */
-  int DEPENDENCY = 158;
+  int DEPENDENCY = 157;
 
   /**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -11681,7 +11689,7 @@ public interface DomainPackage extends EPackage
 	 * @see domain.impl.DomainPackageImpl#getArtificialField()
 	 * @generated
 	 */
-  int ARTIFICIAL_FIELD = 159;
+  int ARTIFICIAL_FIELD = 158;
 
   /**
 	 * The feature id for the '<em><b>Package Ref</b></em>' reference.
@@ -11763,7 +11771,7 @@ public interface DomainPackage extends EPackage
 	 * @see domain.impl.DomainPackageImpl#getLink()
 	 * @generated
 	 */
-  int LINK = 160;
+  int LINK = 159;
 
   /**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -11818,7 +11826,7 @@ public interface DomainPackage extends EPackage
 	 * @see domain.impl.DomainPackageImpl#getApplicationInfrastructureLayer()
 	 * @generated
 	 */
-  int APPLICATION_INFRASTRUCTURE_LAYER = 161;
+  int APPLICATION_INFRASTRUCTURE_LAYER = 160;
 
   /**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -11873,7 +11881,7 @@ public interface DomainPackage extends EPackage
 	 * @see domain.impl.DomainPackageImpl#getEnterpriseInfrastructure()
 	 * @generated
 	 */
-  int ENTERPRISE_INFRASTRUCTURE = 162;
+  int ENTERPRISE_INFRASTRUCTURE = 161;
 
   /**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -11937,7 +11945,7 @@ public interface DomainPackage extends EPackage
 	 * @see domain.impl.DomainPackageImpl#getDatacenter()
 	 * @generated
 	 */
-  int DATACENTER = 163;
+  int DATACENTER = 162;
 
   /**
 	 * The feature id for the '<em><b>Columns</b></em>' attribute.
@@ -12001,7 +12009,7 @@ public interface DomainPackage extends EPackage
 	 * @see domain.impl.DomainPackageImpl#getSubsystem()
 	 * @generated
 	 */
-  int SUBSYSTEM = 164;
+  int SUBSYSTEM = 163;
 
   /**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -12056,7 +12064,7 @@ public interface DomainPackage extends EPackage
 	 * @see domain.impl.DomainPackageImpl#getInfrastructureLayer()
 	 * @generated
 	 */
-  int INFRASTRUCTURE_LAYER = 165;
+  int INFRASTRUCTURE_LAYER = 164;
 
   /**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -12111,7 +12119,7 @@ public interface DomainPackage extends EPackage
 	 * @see domain.impl.DomainPackageImpl#getInfrastructureConnection()
 	 * @generated
 	 */
-  int INFRASTRUCTURE_CONNECTION = 166;
+  int INFRASTRUCTURE_CONNECTION = 165;
 
   /**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -12157,7 +12165,7 @@ public interface DomainPackage extends EPackage
 	 * @see domain.impl.DomainPackageImpl#getInfrastructureComponent()
 	 * @generated
 	 */
-  int INFRASTRUCTURE_COMPONENT = 167;
+  int INFRASTRUCTURE_COMPONENT = 166;
 
   /**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -12203,7 +12211,7 @@ public interface DomainPackage extends EPackage
 	 * @see domain.impl.DomainPackageImpl#getServer()
 	 * @generated
 	 */
-  int SERVER = 168;
+  int SERVER = 167;
 
   /**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -12249,7 +12257,7 @@ public interface DomainPackage extends EPackage
 	 * @see domain.impl.DomainPackageImpl#getRouter()
 	 * @generated
 	 */
-  int ROUTER = 169;
+  int ROUTER = 168;
 
   /**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -12295,7 +12303,7 @@ public interface DomainPackage extends EPackage
 	 * @see domain.impl.DomainPackageImpl#getHub()
 	 * @generated
 	 */
-  int HUB = 170;
+  int HUB = 169;
 
   /**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -12341,7 +12349,7 @@ public interface DomainPackage extends EPackage
 	 * @see domain.impl.DomainPackageImpl#getStorage()
 	 * @generated
 	 */
-  int STORAGE = 171;
+  int STORAGE = 170;
 
   /**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -12387,7 +12395,7 @@ public interface DomainPackage extends EPackage
 	 * @see domain.impl.DomainPackageImpl#getServerClaster()
 	 * @generated
 	 */
-  int SERVER_CLASTER = 172;
+  int SERVER_CLASTER = 171;
 
   /**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -12442,7 +12450,7 @@ public interface DomainPackage extends EPackage
 	 * @see domain.impl.DomainPackageImpl#getPlatformLayers()
 	 * @generated
 	 */
-  int PLATFORM_LAYERS = 173;
+  int PLATFORM_LAYERS = 172;
 
 
   /**
@@ -12453,7 +12461,7 @@ public interface DomainPackage extends EPackage
 	 * @see domain.impl.DomainPackageImpl#getComparator()
 	 * @generated
 	 */
-  int COMPARATOR = 174;
+  int COMPARATOR = 173;
 
 
   /**
@@ -12464,7 +12472,7 @@ public interface DomainPackage extends EPackage
 	 * @see domain.impl.DomainPackageImpl#getOrder()
 	 * @generated
 	 */
-  int ORDER = 175;
+  int ORDER = 174;
 
 
   /**
@@ -17783,6 +17791,17 @@ public interface DomainPackage extends EPackage
   EReference getUielement_OnEventRefreshArea();
 
   /**
+	 * Returns the meta object for the containment reference list '{@link domain.Uielement#getTriggers <em>Triggers</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Triggers</em>'.
+	 * @see domain.Uielement#getTriggers()
+	 * @see #getUielement()
+	 * @generated
+	 */
+	EReference getUielement_Triggers();
+
+		/**
 	 * Returns the meta object for class '{@link domain.Formatable <em>Formatable</em>}'.
 	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -17856,27 +17875,6 @@ public interface DomainPackage extends EPackage
 	 * @generated
 	 */
   EReference getSourcesPointer_SourceCastDataControl();
-
-  /**
-	 * Returns the meta object for class '{@link domain.ActionElement <em>Action Element</em>}'.
-	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Action Element</em>'.
-	 * @see domain.ActionElement
-	 * @generated
-	 */
-  EClass getActionElement();
-
-  /**
-	 * Returns the meta object for the containment reference list '{@link domain.ActionElement#getTriggers <em>Triggers</em>}'.
-	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Triggers</em>'.
-	 * @see domain.ActionElement#getTriggers()
-	 * @see #getActionElement()
-	 * @generated
-	 */
-  EReference getActionElement_Triggers();
 
   /**
 	 * Returns the meta object for class '{@link domain.ActionTrigger <em>Action Trigger</em>}'.
@@ -23875,6 +23873,14 @@ public interface DomainPackage extends EPackage
     EReference UIELEMENT__ON_EVENT_REFRESH_AREA = eINSTANCE.getUielement_OnEventRefreshArea();
 
     /**
+		 * The meta object literal for the '<em><b>Triggers</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference UIELEMENT__TRIGGERS = eINSTANCE.getUielement_Triggers();
+
+				/**
 		 * The meta object literal for the '{@link domain.impl.FormatableImpl <em>Formatable</em>}' class.
 		 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -23933,24 +23939,6 @@ public interface DomainPackage extends EPackage
 		 * @generated
 		 */
     EReference SOURCES_POINTER__SOURCE_CAST_DATA_CONTROL = eINSTANCE.getSourcesPointer_SourceCastDataControl();
-
-    /**
-		 * The meta object literal for the '{@link domain.impl.ActionElementImpl <em>Action Element</em>}' class.
-		 * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-		 * @see domain.impl.ActionElementImpl
-		 * @see domain.impl.DomainPackageImpl#getActionElement()
-		 * @generated
-		 */
-    EClass ACTION_ELEMENT = eINSTANCE.getActionElement();
-
-    /**
-		 * The meta object literal for the '<em><b>Triggers</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-		 * @generated
-		 */
-    EReference ACTION_ELEMENT__TRIGGERS = eINSTANCE.getActionElement_Triggers();
 
     /**
 		 * The meta object literal for the '{@link domain.impl.ActionTriggerImpl <em>Action Trigger</em>}' class.

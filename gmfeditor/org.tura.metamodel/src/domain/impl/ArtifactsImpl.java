@@ -30,13 +30,13 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link domain.impl.ArtifactsImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.impl.ArtifactsImpl#getArtifacts <em>Artifacts</em>}</li>
  *   <li>{@link domain.impl.ArtifactsImpl#getParent <em>Parent</em>}</li>
  *   <li>{@link domain.impl.ArtifactsImpl#getAny <em>Any</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

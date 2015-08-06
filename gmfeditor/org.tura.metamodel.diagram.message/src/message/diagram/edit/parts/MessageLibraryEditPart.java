@@ -81,8 +81,8 @@ public class MessageLibraryEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected void createDefaultEditPolicies() {
-		installEditPolicy(EditPolicyRoles.CREATION_ROLE, new CreationEditPolicyWithCustomReparent(
-				DomainVisualIDRegistry.TYPED_INSTANCE));
+		installEditPolicy(EditPolicyRoles.CREATION_ROLE,
+				new CreationEditPolicyWithCustomReparent(DomainVisualIDRegistry.TYPED_INSTANCE));
 		super.createDefaultEditPolicies();
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE, new MessageLibraryItemSemanticEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
@@ -134,8 +134,8 @@ public class MessageLibraryEditPart extends ShapeNodeEditPart {
 	 */
 	protected boolean addFixedChild(EditPart childEditPart) {
 		if (childEditPart instanceof MessageLibraryNameEditPart) {
-			((MessageLibraryNameEditPart) childEditPart).setLabel(getPrimaryShape()
-					.getFigureMessageLibraryLabelFigure());
+			((MessageLibraryNameEditPart) childEditPart)
+					.setLabel(getPrimaryShape().getFigureMessageLibraryLabelFigure());
 			return true;
 		}
 		if (childEditPart instanceof MessageLibraryMessageLibraryMessagesCompartmentEditPart) {
@@ -204,9 +204,8 @@ public class MessageLibraryEditPart extends ShapeNodeEditPart {
 				EObject obj = ((View) getModel()).getElement();
 				if (obj instanceof Orderable) {
 					EditingDomain editingDomain = getEditingDomain();
-					editingDomain.getCommandStack().execute(
-							SetCommand.create(editingDomain, obj, DomainPackage.eINSTANCE.getOrderable_Order(),
-									evt.getNewValue()));
+					editingDomain.getCommandStack().execute(SetCommand.create(editingDomain, obj,
+							DomainPackage.eINSTANCE.getOrderable_Order(), evt.getNewValue()));
 
 				}
 			}
@@ -365,8 +364,8 @@ public class MessageLibraryEditPart extends ShapeNodeEditPart {
 
 			fFigureMessageLibraryLabelFigure.setFont(FFIGUREMESSAGELIBRARYLABELFIGURE_FONT);
 
-			fFigureMessageLibraryLabelFigure.setMaximumSize(new Dimension(getMapMode().DPtoLP(10000), getMapMode()
-					.DPtoLP(50)));
+			fFigureMessageLibraryLabelFigure
+					.setMaximumSize(new Dimension(getMapMode().DPtoLP(10000), getMapMode().DPtoLP(50)));
 
 			this.add(fFigureMessageLibraryLabelFigure);
 
@@ -407,6 +406,7 @@ public class MessageLibraryEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	static final Font FFIGUREMESSAGELIBRARYLABELFIGURE_FONT = new Font(Display.getCurrent(), "Palatino", 12, SWT.ITALIC);
+	static final Font FFIGUREMESSAGELIBRARYLABELFIGURE_FONT = new Font(Display.getCurrent(), "Palatino", 12,
+			SWT.ITALIC);
 
 }

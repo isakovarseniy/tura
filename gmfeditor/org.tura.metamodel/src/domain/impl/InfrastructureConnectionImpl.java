@@ -20,12 +20,12 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link domain.impl.InfrastructureConnectionImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.impl.InfrastructureConnectionImpl#getMaster <em>Master</em>}</li>
  *   <li>{@link domain.impl.InfrastructureConnectionImpl#getDetail <em>Detail</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

@@ -11,13 +11,13 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link domain.RoleMapper#getRole <em>Role</em>}</li>
  *   <li>{@link domain.RoleMapper#getLocalRoleName <em>Local Role Name</em>}</li>
  *   <li>{@link domain.RoleMapper#getGlobalRoleName <em>Global Role Name</em>}</li>
  *   <li>{@link domain.RoleMapper#getFakeRoleName <em>Fake Role Name</em>}</li>
  * </ul>
- * </p>
  *
  * @see domain.DomainPackage#getRoleMapper()
  * @model annotation="gmf.node label='fakeRoleName' border.color='0,0,0' color='246,148,52'"

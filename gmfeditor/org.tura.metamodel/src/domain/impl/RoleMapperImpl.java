@@ -19,13 +19,13 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link domain.impl.RoleMapperImpl#getRole <em>Role</em>}</li>
  *   <li>{@link domain.impl.RoleMapperImpl#getLocalRoleName <em>Local Role Name</em>}</li>
  *   <li>{@link domain.impl.RoleMapperImpl#getGlobalRoleName <em>Global Role Name</em>}</li>
  *   <li>{@link domain.impl.RoleMapperImpl#getFakeRoleName <em>Fake Role Name</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

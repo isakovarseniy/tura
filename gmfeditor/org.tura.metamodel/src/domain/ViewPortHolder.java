@@ -11,10 +11,10 @@ import org.eclipse.emf.common.util.EList;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link domain.ViewPortHolder#getViewElement <em>View Element</em>}</li>
  * </ul>
- * </p>
  *
  * @see domain.DomainPackage#getViewPortHolder()
  * @model

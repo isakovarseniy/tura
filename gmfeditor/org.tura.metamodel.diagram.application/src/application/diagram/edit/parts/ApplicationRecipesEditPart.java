@@ -126,8 +126,8 @@ public class ApplicationRecipesEditPart extends ShapeNodeEditPart {
 	 */
 	protected boolean addFixedChild(EditPart childEditPart) {
 		if (childEditPart instanceof ApplicationRecipesNameEditPart) {
-			((ApplicationRecipesNameEditPart) childEditPart).setLabel(getPrimaryShape()
-					.getFigureApplicationRecipesLabelFigure());
+			((ApplicationRecipesNameEditPart) childEditPart)
+					.setLabel(getPrimaryShape().getFigureApplicationRecipesLabelFigure());
 			return true;
 		}
 		if (childEditPart instanceof ApplicationRecipesApplicationRecipesRecipesCompartmentEditPart) {
@@ -196,9 +196,8 @@ public class ApplicationRecipesEditPart extends ShapeNodeEditPart {
 				EObject obj = ((View) getModel()).getElement();
 				if (obj instanceof Orderable) {
 					EditingDomain editingDomain = getEditingDomain();
-					editingDomain.getCommandStack().execute(
-							SetCommand.create(editingDomain, obj, DomainPackage.eINSTANCE.getOrderable_Order(),
-									evt.getNewValue()));
+					editingDomain.getCommandStack().execute(SetCommand.create(editingDomain, obj,
+							DomainPackage.eINSTANCE.getOrderable_Order(), evt.getNewValue()));
 
 				}
 			}
@@ -341,8 +340,8 @@ public class ApplicationRecipesEditPart extends ShapeNodeEditPart {
 
 			fFigureApplicationRecipesLabelFigure.setFont(FFIGUREAPPLICATIONRECIPESLABELFIGURE_FONT);
 
-			fFigureApplicationRecipesLabelFigure.setMaximumSize(new Dimension(getMapMode().DPtoLP(10000), getMapMode()
-					.DPtoLP(50)));
+			fFigureApplicationRecipesLabelFigure
+					.setMaximumSize(new Dimension(getMapMode().DPtoLP(10000), getMapMode().DPtoLP(50)));
 
 			this.add(fFigureApplicationRecipesLabelFigure);
 

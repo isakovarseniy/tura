@@ -17,11 +17,11 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link domain.impl.FormParameterImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.impl.FormParameterImpl#getName <em>Name</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

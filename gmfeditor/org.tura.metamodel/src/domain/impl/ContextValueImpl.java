@@ -28,13 +28,13 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link domain.impl.ContextValueImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.impl.ContextValueImpl#isConstant <em>Constant</em>}</li>
  *   <li>{@link domain.impl.ContextValueImpl#getValue <em>Value</em>}</li>
  *   <li>{@link domain.impl.ContextValueImpl#getExpression <em>Expression</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

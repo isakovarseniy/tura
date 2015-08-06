@@ -75,8 +75,8 @@ public class DeploymentStarStepFirstStepReorientCommand extends EditElementComma
 		if (!(oldEnd instanceof DeploymentComponent && newEnd instanceof DeploymentStarStep)) {
 			return false;
 		}
-		return DomainBaseItemSemanticEditPolicy.getLinkConstraints().canExistDeploymentStarStepFirstStep_904008(
-				getNewSource(), getOldTarget());
+		return DomainBaseItemSemanticEditPolicy.getLinkConstraints()
+				.canExistDeploymentStarStepFirstStep_904008(getNewSource(), getOldTarget());
 	}
 
 	/**
@@ -86,8 +86,8 @@ public class DeploymentStarStepFirstStepReorientCommand extends EditElementComma
 		if (!(oldEnd instanceof DeploymentComponent && newEnd instanceof DeploymentComponent)) {
 			return false;
 		}
-		return DomainBaseItemSemanticEditPolicy.getLinkConstraints().canExistDeploymentStarStepFirstStep_904008(
-				getOldSource(), getNewTarget());
+		return DomainBaseItemSemanticEditPolicy.getLinkConstraints()
+				.canExistDeploymentStarStepFirstStep_904008(getOldSource(), getNewTarget());
 	}
 
 	/**

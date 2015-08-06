@@ -620,6 +620,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//Uielement/required"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//Uielement/readOnly"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference domain.ecore#//Uielement/onEventRefreshArea"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//Uielement/triggers"/>
     </genClasses>
     <genClasses ecoreClass="domain.ecore#//Formatable">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//Formatable/format"/>
@@ -629,9 +630,6 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference domain.ecore#//SourcesPointer/valuePointer"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference domain.ecore#//SourcesPointer/sourceCast"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference domain.ecore#//SourcesPointer/sourceCastDataControl"/>
-    </genClasses>
-    <genClasses ecoreClass="domain.ecore#//ActionElement">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//ActionElement/triggers"/>
     </genClasses>
     <genClasses ecoreClass="domain.ecore#//ActionTrigger">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//ActionTrigger/uid"/>
@@ -658,6 +656,10 @@
     </genClasses>
     <genClasses ecoreClass="domain.ecore#//Image"/>
     <genClasses ecoreClass="domain.ecore#//Date"/>
+    <genClasses ecoreClass="domain.ecore#//Button">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//Button/label"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//Button/icon"/>
+    </genClasses>
     <genClasses ecoreClass="domain.ecore#//Column">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//Column/uid"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//Column/label"/>
@@ -672,10 +674,6 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//Tree/label"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//Tree/image"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//Tree/cols"/>
-    </genClasses>
-    <genClasses ecoreClass="domain.ecore#//Button">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//Button/label"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//Button/icon"/>
     </genClasses>
     <genClasses ecoreClass="domain.ecore#//Controls">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//Controls/uid"/>

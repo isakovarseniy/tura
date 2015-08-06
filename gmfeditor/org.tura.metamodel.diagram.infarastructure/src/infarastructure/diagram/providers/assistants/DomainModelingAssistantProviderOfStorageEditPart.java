@@ -56,7 +56,8 @@ public class DomainModelingAssistantProviderOfStorageEditPart extends DomainMode
 	/**
 	 * @generated
 	 */
-	public List<IElementType> doGetRelTypesOnSourceAndTarget(StorageEditPart source, IGraphicalEditPart targetEditPart) {
+	public List<IElementType> doGetRelTypesOnSourceAndTarget(StorageEditPart source,
+			IGraphicalEditPart targetEditPart) {
 		List<IElementType> types = new LinkedList<IElementType>();
 		if (targetEditPart instanceof ServerEditPart) {
 			types.add(DomainElementTypes.InfrastructureConnection_1204009);

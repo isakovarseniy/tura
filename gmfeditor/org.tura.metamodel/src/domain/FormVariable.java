@@ -10,12 +10,12 @@ package domain;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link domain.FormVariable#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.FormVariable#getName <em>Name</em>}</li>
  *   <li>{@link domain.FormVariable#getParamRef <em>Param Ref</em>}</li>
  * </ul>
- * </p>
  *
  * @see domain.DomainPackage#getFormVariable()
  * @model annotation="gmf.node label='name' border.color='0,0,0' color='241,238,203'"

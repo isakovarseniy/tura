@@ -191,8 +191,8 @@ public class DomainNavigatorContentProvider implements ICommonContentProvider {
 					topViews.add((View) o);
 				}
 			}
-			result.addAll(createNavigatorItems(selectViewsByType(topViews, DeploymentComponentsEditPart.MODEL_ID),
-					file, false));
+			result.addAll(createNavigatorItems(selectViewsByType(topViews, DeploymentComponentsEditPart.MODEL_ID), file,
+					false));
 			return result.toArray();
 		}
 
@@ -210,9 +210,9 @@ public class DomainNavigatorContentProvider implements ICommonContentProvider {
 		}
 
 		/*
-		 * Due to plugin.xml restrictions this code will be called only for views representing
-		 * shortcuts to this diagram elements created on other diagrams. 
-		 */
+		* Due to plugin.xml restrictions this code will be called only for views representing
+		* shortcuts to this diagram elements created on other diagrams. 
+		*/
 		if (parentElement instanceof IAdaptable) {
 			View view = (View) ((IAdaptable) parentElement).getAdapter(View.class);
 			if (view != null) {
@@ -234,8 +234,8 @@ public class DomainNavigatorContentProvider implements ICommonContentProvider {
 			result.addAll(getForeignShortcuts((Diagram) view, parentElement));
 			Diagram sv = (Diagram) view;
 			DomainNavigatorGroup links = new DomainNavigatorGroup(
-					Messages.NavigatorGroupName_DeploymentComponents_901000_links,
-					"icons/linksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+					Messages.NavigatorGroupName_DeploymentComponents_901000_links, "icons/linksNavigatorGroup.gif", //$NON-NLS-1$
+					parentElement);
 			Collection<View> connectedViews;
 			connectedViews = getChildrenByType(Collections.singleton(sv),
 					DomainVisualIDRegistry.getType(DeploymentComponentEditPart.VISUAL_ID));
@@ -451,7 +451,8 @@ public class DomainNavigatorContentProvider implements ICommonContentProvider {
 	/**
 	 * @generated
 	 */
-	private Collection<DomainNavigatorItem> createNavigatorItems(Collection<View> views, Object parent, boolean isLeafs) {
+	private Collection<DomainNavigatorItem> createNavigatorItems(Collection<View> views, Object parent,
+			boolean isLeafs) {
 		ArrayList<DomainNavigatorItem> result = new ArrayList<DomainNavigatorItem>(views.size());
 		for (View nextView : views) {
 			result.add(new DomainNavigatorItem(nextView, parent, isLeafs));

@@ -21,12 +21,12 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link domain.impl.OrderByImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.impl.OrderByImpl#getRefObj <em>Ref Obj</em>}</li>
  *   <li>{@link domain.impl.OrderByImpl#getOrder <em>Order</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

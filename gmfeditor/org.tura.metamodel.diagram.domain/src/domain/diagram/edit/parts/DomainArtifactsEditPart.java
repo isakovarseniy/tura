@@ -126,8 +126,8 @@ public class DomainArtifactsEditPart extends ShapeNodeEditPart {
 	 */
 	protected boolean addFixedChild(EditPart childEditPart) {
 		if (childEditPart instanceof DomainArtifactsNameEditPart) {
-			((DomainArtifactsNameEditPart) childEditPart).setLabel(getPrimaryShape()
-					.getFigureDomainArtifactsLabelFigure());
+			((DomainArtifactsNameEditPart) childEditPart)
+					.setLabel(getPrimaryShape().getFigureDomainArtifactsLabelFigure());
 			return true;
 		}
 		if (childEditPart instanceof DomainArtifactsDomainArtifactsDomainArtifactCompartmentEditPart) {
@@ -196,9 +196,8 @@ public class DomainArtifactsEditPart extends ShapeNodeEditPart {
 				EObject obj = ((View) getModel()).getElement();
 				if (obj instanceof Orderable) {
 					EditingDomain editingDomain = getEditingDomain();
-					editingDomain.getCommandStack().execute(
-							SetCommand.create(editingDomain, obj, DomainPackage.eINSTANCE.getOrderable_Order(),
-									evt.getNewValue()));
+					editingDomain.getCommandStack().execute(SetCommand.create(editingDomain, obj,
+							DomainPackage.eINSTANCE.getOrderable_Order(), evt.getNewValue()));
 
 				}
 			}
@@ -341,8 +340,8 @@ public class DomainArtifactsEditPart extends ShapeNodeEditPart {
 
 			fFigureDomainArtifactsLabelFigure.setFont(FFIGUREDOMAINARTIFACTSLABELFIGURE_FONT);
 
-			fFigureDomainArtifactsLabelFigure.setMaximumSize(new Dimension(getMapMode().DPtoLP(10000), getMapMode()
-					.DPtoLP(50)));
+			fFigureDomainArtifactsLabelFigure
+					.setMaximumSize(new Dimension(getMapMode().DPtoLP(10000), getMapMode().DPtoLP(50)));
 
 			this.add(fFigureDomainArtifactsLabelFigure);
 

@@ -10,10 +10,10 @@ package domain;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link domain.ReturnValue#getUid <em>Uid</em>}</li>
  * </ul>
- * </p>
  *
  * @see domain.DomainPackage#getReturnValue()
  * @model

@@ -169,11 +169,6 @@ public class ChildrenHolderItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(DomainPackage.Literals.CHILDREN_HOLDER__CHILDREN,
-				 DomainFactory.eINSTANCE.createActionElement()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DomainPackage.Literals.CHILDREN_HOLDER__CHILDREN,
 				 DomainFactory.eINSTANCE.createInputElement()));
 
 		newChildDescriptors.add
@@ -224,17 +219,17 @@ public class ChildrenHolderItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(DomainPackage.Literals.CHILDREN_HOLDER__CHILDREN,
+				 DomainFactory.eINSTANCE.createButton()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.CHILDREN_HOLDER__CHILDREN,
 				 DomainFactory.eINSTANCE.createTable()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(DomainPackage.Literals.CHILDREN_HOLDER__CHILDREN,
 				 DomainFactory.eINSTANCE.createTree()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DomainPackage.Literals.CHILDREN_HOLDER__CHILDREN,
-				 DomainFactory.eINSTANCE.createButton()));
 	}
 
   /**

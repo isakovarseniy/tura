@@ -51,16 +51,17 @@ import domain.InfrastructureConnection;
 /**
  * @generated
  */
-public class DomainNavigatorLabelProvider extends LabelProvider implements ICommonLabelProvider, ITreePathLabelProvider {
+public class DomainNavigatorLabelProvider extends LabelProvider
+		implements ICommonLabelProvider, ITreePathLabelProvider {
 
 	/**
 	 * @generated
 	 */
 	static {
-		DomainDiagramEditorPlugin.getInstance().getImageRegistry()
-				.put("Navigator?UnknownElement", ImageDescriptor.getMissingImageDescriptor()); //$NON-NLS-1$
-		DomainDiagramEditorPlugin.getInstance().getImageRegistry()
-				.put("Navigator?ImageNotFound", ImageDescriptor.getMissingImageDescriptor()); //$NON-NLS-1$
+		DomainDiagramEditorPlugin.getInstance().getImageRegistry().put("Navigator?UnknownElement", //$NON-NLS-1$
+				ImageDescriptor.getMissingImageDescriptor());
+		DomainDiagramEditorPlugin.getInstance().getImageRegistry().put("Navigator?ImageNotFound", //$NON-NLS-1$
+				ImageDescriptor.getMissingImageDescriptor());
 	}
 
 	/**
@@ -109,17 +110,17 @@ public class DomainNavigatorLabelProvider extends LabelProvider implements IComm
 	public Image getImage(View view) {
 		switch (DomainVisualIDRegistry.getVisualID(view)) {
 		case EnterpriseInfrastructureEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Diagram?http://tura.org/2013/v1/domain?EnterpriseInfrastructure", DomainElementTypes.EnterpriseInfrastructure_1201000); //$NON-NLS-1$
+			return getImage("Navigator?Diagram?http://tura.org/2013/v1/domain?EnterpriseInfrastructure", //$NON-NLS-1$
+					DomainElementTypes.EnterpriseInfrastructure_1201000);
 		case DatacenterEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?TopLevelNode?http://tura.org/2013/v1/domain?Datacenter", DomainElementTypes.Datacenter_1202002); //$NON-NLS-1$
+			return getImage("Navigator?TopLevelNode?http://tura.org/2013/v1/domain?Datacenter", //$NON-NLS-1$
+					DomainElementTypes.Datacenter_1202002);
 		case SubsystemEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Node?http://tura.org/2013/v1/domain?Subsystem", DomainElementTypes.Subsystem_1203001); //$NON-NLS-1$
+			return getImage("Navigator?Node?http://tura.org/2013/v1/domain?Subsystem", //$NON-NLS-1$
+					DomainElementTypes.Subsystem_1203001);
 		case InfrastructureLayerEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Node?http://tura.org/2013/v1/domain?InfrastructureLayer", DomainElementTypes.InfrastructureLayer_1203002); //$NON-NLS-1$
+			return getImage("Navigator?Node?http://tura.org/2013/v1/domain?InfrastructureLayer", //$NON-NLS-1$
+					DomainElementTypes.InfrastructureLayer_1203002);
 		case ServerEditPart.VISUAL_ID:
 			return getImage("Navigator?Node?http://tura.org/2013/v1/domain?Server", DomainElementTypes.Server_1203003); //$NON-NLS-1$
 		case RouterEditPart.VISUAL_ID:
@@ -127,15 +128,16 @@ public class DomainNavigatorLabelProvider extends LabelProvider implements IComm
 		case HubEditPart.VISUAL_ID:
 			return getImage("Navigator?Node?http://tura.org/2013/v1/domain?Hub", DomainElementTypes.Hub_1203005); //$NON-NLS-1$
 		case StorageEditPart.VISUAL_ID:
-			return getImage("Navigator?Node?http://tura.org/2013/v1/domain?Storage", DomainElementTypes.Storage_1203006); //$NON-NLS-1$
+			return getImage("Navigator?Node?http://tura.org/2013/v1/domain?Storage", //$NON-NLS-1$
+					DomainElementTypes.Storage_1203006);
 		case ServerClasterEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Node?http://tura.org/2013/v1/domain?ServerClaster", DomainElementTypes.ServerClaster_1203007); //$NON-NLS-1$
+			return getImage("Navigator?Node?http://tura.org/2013/v1/domain?ServerClaster", //$NON-NLS-1$
+					DomainElementTypes.ServerClaster_1203007);
 		case Server2EditPart.VISUAL_ID:
 			return getImage("Navigator?Node?http://tura.org/2013/v1/domain?Server", DomainElementTypes.Server_1203008); //$NON-NLS-1$
 		case InfrastructureConnectionEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Link?http://tura.org/2013/v1/domain?InfrastructureConnection", DomainElementTypes.InfrastructureConnection_1204009); //$NON-NLS-1$
+			return getImage("Navigator?Link?http://tura.org/2013/v1/domain?InfrastructureConnection", //$NON-NLS-1$
+					DomainElementTypes.InfrastructureConnection_1204009);
 		}
 		return getImage("Navigator?UnknownElement", null); //$NON-NLS-1$
 	}

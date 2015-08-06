@@ -21,12 +21,12 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link domain.impl.ArtifactRefImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.impl.ArtifactRefImpl#getDomainArtifactRef <em>Domain Artifact Ref</em>}</li>
  *   <li>{@link domain.impl.ArtifactRefImpl#getArtifactRef <em>Artifact Ref</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

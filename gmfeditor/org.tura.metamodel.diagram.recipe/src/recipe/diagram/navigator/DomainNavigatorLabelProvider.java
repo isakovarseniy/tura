@@ -52,16 +52,17 @@ import domain.Recipes;
 /**
  * @generated
  */
-public class DomainNavigatorLabelProvider extends LabelProvider implements ICommonLabelProvider, ITreePathLabelProvider {
+public class DomainNavigatorLabelProvider extends LabelProvider
+		implements ICommonLabelProvider, ITreePathLabelProvider {
 
 	/**
 	 * @generated
 	 */
 	static {
-		DomainDiagramEditorPlugin.getInstance().getImageRegistry()
-				.put("Navigator?UnknownElement", ImageDescriptor.getMissingImageDescriptor()); //$NON-NLS-1$
-		DomainDiagramEditorPlugin.getInstance().getImageRegistry()
-				.put("Navigator?ImageNotFound", ImageDescriptor.getMissingImageDescriptor()); //$NON-NLS-1$
+		DomainDiagramEditorPlugin.getInstance().getImageRegistry().put("Navigator?UnknownElement", //$NON-NLS-1$
+				ImageDescriptor.getMissingImageDescriptor());
+		DomainDiagramEditorPlugin.getInstance().getImageRegistry().put("Navigator?ImageNotFound", //$NON-NLS-1$
+				ImageDescriptor.getMissingImageDescriptor());
 	}
 
 	/**
@@ -110,43 +111,43 @@ public class DomainNavigatorLabelProvider extends LabelProvider implements IComm
 	public Image getImage(View view) {
 		switch (DomainVisualIDRegistry.getVisualID(view)) {
 		case RecipesEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Diagram?http://tura.org/2013/v1/domain?Recipes", DomainElementTypes.Recipes_301000); //$NON-NLS-1$
+			return getImage("Navigator?Diagram?http://tura.org/2013/v1/domain?Recipes", //$NON-NLS-1$
+					DomainElementTypes.Recipes_301000);
 		case RecipeEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?TopLevelNode?http://tura.org/2013/v1/domain?Recipe", DomainElementTypes.Recipe_302001); //$NON-NLS-1$
+			return getImage("Navigator?TopLevelNode?http://tura.org/2013/v1/domain?Recipe", //$NON-NLS-1$
+					DomainElementTypes.Recipe_302001);
 		case ConfigurationEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?TopLevelNode?http://tura.org/2013/v1/domain?Configuration", DomainElementTypes.Configuration_302002); //$NON-NLS-1$
+			return getImage("Navigator?TopLevelNode?http://tura.org/2013/v1/domain?Configuration", //$NON-NLS-1$
+					DomainElementTypes.Configuration_302002);
 		case InfrastructureEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?TopLevelNode?http://tura.org/2013/v1/domain?Infrastructure", DomainElementTypes.Infrastructure_302003); //$NON-NLS-1$
+			return getImage("Navigator?TopLevelNode?http://tura.org/2013/v1/domain?Infrastructure", //$NON-NLS-1$
+					DomainElementTypes.Infrastructure_302003);
 		case DeploymentSequenceEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?TopLevelNode?http://tura.org/2013/v1/domain?DeploymentSequence", DomainElementTypes.DeploymentSequence_302004); //$NON-NLS-1$
+			return getImage("Navigator?TopLevelNode?http://tura.org/2013/v1/domain?DeploymentSequence", //$NON-NLS-1$
+					DomainElementTypes.DeploymentSequence_302004);
 		case IngredientEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Node?http://tura.org/2013/v1/domain?Ingredient", DomainElementTypes.Ingredient_303001); //$NON-NLS-1$
+			return getImage("Navigator?Node?http://tura.org/2013/v1/domain?Ingredient", //$NON-NLS-1$
+					DomainElementTypes.Ingredient_303001);
 		case JavaComponentEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Node?http://tura.org/2013/v1/domain?JavaComponent", DomainElementTypes.JavaComponent_303002); //$NON-NLS-1$
+			return getImage("Navigator?Node?http://tura.org/2013/v1/domain?JavaComponent", //$NON-NLS-1$
+					DomainElementTypes.JavaComponent_303002);
 		case ModelMapperEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Node?http://tura.org/2013/v1/domain?ModelMapper", DomainElementTypes.ModelMapper_303003); //$NON-NLS-1$
+			return getImage("Navigator?Node?http://tura.org/2013/v1/domain?ModelMapper", //$NON-NLS-1$
+					DomainElementTypes.ModelMapper_303003);
 		case QueryEditPart.VISUAL_ID:
 			return getImage("Navigator?Node?http://tura.org/2013/v1/domain?Query", DomainElementTypes.Query_303004); //$NON-NLS-1$
 		case PropertyEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Node?http://tura.org/2013/v1/domain?Property", DomainElementTypes.Property_303005); //$NON-NLS-1$
+			return getImage("Navigator?Node?http://tura.org/2013/v1/domain?Property", //$NON-NLS-1$
+					DomainElementTypes.Property_303005);
 		case RecipeInfrastructuresEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Link?http://tura.org/2013/v1/domain?Recipe?infrastructures", DomainElementTypes.RecipeInfrastructures_304004); //$NON-NLS-1$
+			return getImage("Navigator?Link?http://tura.org/2013/v1/domain?Recipe?infrastructures", //$NON-NLS-1$
+					DomainElementTypes.RecipeInfrastructures_304004);
 		case InfrastructureRecipeConfigEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Link?http://tura.org/2013/v1/domain?Infrastructure?recipeConfig", DomainElementTypes.InfrastructureRecipeConfig_304006); //$NON-NLS-1$
+			return getImage("Navigator?Link?http://tura.org/2013/v1/domain?Infrastructure?recipeConfig", //$NON-NLS-1$
+					DomainElementTypes.InfrastructureRecipeConfig_304006);
 		case RecipeDeploymentEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Link?http://tura.org/2013/v1/domain?Recipe?deployment", DomainElementTypes.RecipeDeployment_304013); //$NON-NLS-1$
+			return getImage("Navigator?Link?http://tura.org/2013/v1/domain?Recipe?deployment", //$NON-NLS-1$
+					DomainElementTypes.RecipeDeployment_304013);
 		}
 		return getImage("Navigator?UnknownElement", null); //$NON-NLS-1$
 	}

@@ -11,6 +11,7 @@ import org.eclipse.emf.common.util.EList;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link domain.Ingredient#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.Ingredient#getName <em>Name</em>}</li>
@@ -18,7 +19,6 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link domain.Ingredient#getComponents <em>Components</em>}</li>
  *   <li>{@link domain.Ingredient#getLayer <em>Layer</em>}</li>
  * </ul>
- * </p>
  *
  * @see domain.DomainPackage#getIngredient()
  * @model annotation="gmf.node label='name' border.color='0,0,0' color='255,222,32'"

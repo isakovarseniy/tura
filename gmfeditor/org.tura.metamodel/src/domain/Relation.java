@@ -13,6 +13,7 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link domain.Relation#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.Relation#getName <em>Name</em>}</li>
@@ -21,7 +22,6 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link domain.Relation#isIsTree <em>Is Tree</em>}</li>
  *   <li>{@link domain.Relation#getLinks <em>Links</em>}</li>
  * </ul>
- * </p>
  *
  * @see domain.DomainPackage#getRelation()
  * @model annotation="gmf.link source='master' target='detail' style='dash' target.decoration='arrow'"

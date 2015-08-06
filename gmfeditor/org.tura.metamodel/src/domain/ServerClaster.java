@@ -11,10 +11,10 @@ import org.eclipse.emf.common.util.EList;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link domain.ServerClaster#getServers <em>Servers</em>}</li>
  * </ul>
- * </p>
  *
  * @see domain.DomainPackage#getServerClaster()
  * @model annotation="gmf.node label='name' tool.small.bundle='org.tura.metamodel.commons' tool.small.path='icons/serverclaster.png'"

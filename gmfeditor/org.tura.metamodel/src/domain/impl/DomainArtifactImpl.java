@@ -24,13 +24,13 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link domain.impl.DomainArtifactImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.impl.DomainArtifactImpl#getName <em>Name</em>}</li>
  *   <li>{@link domain.impl.DomainArtifactImpl#getParent <em>Parent</em>}</li>
  *   <li>{@link domain.impl.DomainArtifactImpl#getArtifact <em>Artifact</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

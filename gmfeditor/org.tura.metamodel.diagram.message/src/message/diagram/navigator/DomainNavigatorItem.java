@@ -73,8 +73,8 @@ public class DomainNavigatorItem extends DomainAbstractNavigatorItem {
 	 */
 	public boolean equals(Object obj) {
 		if (obj instanceof message.diagram.navigator.DomainNavigatorItem) {
-			return EcoreUtil.getURI(getView()).equals(
-					EcoreUtil.getURI(((message.diagram.navigator.DomainNavigatorItem) obj).getView()));
+			return EcoreUtil.getURI(getView())
+					.equals(EcoreUtil.getURI(((message.diagram.navigator.DomainNavigatorItem) obj).getView()));
 		}
 		return super.equals(obj);
 	}

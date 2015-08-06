@@ -874,11 +874,6 @@ public class ApplicationItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(DomainPackage.Literals.APPLICATION__ANY,
-				 DomainFactory.eINSTANCE.createActionElement()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DomainPackage.Literals.APPLICATION__ANY,
 				 DomainFactory.eINSTANCE.createActionTrigger()));
 
 		newChildDescriptors.add
@@ -939,6 +934,11 @@ public class ApplicationItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(DomainPackage.Literals.APPLICATION__ANY,
+				 DomainFactory.eINSTANCE.createButton()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.APPLICATION__ANY,
 				 DomainFactory.eINSTANCE.createColumn()));
 
 		newChildDescriptors.add
@@ -950,11 +950,6 @@ public class ApplicationItemProvider
 			(createChildParameter
 				(DomainPackage.Literals.APPLICATION__ANY,
 				 DomainFactory.eINSTANCE.createTree()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DomainPackage.Literals.APPLICATION__ANY,
-				 DomainFactory.eINSTANCE.createButton()));
 
 		newChildDescriptors.add
 			(createChildParameter

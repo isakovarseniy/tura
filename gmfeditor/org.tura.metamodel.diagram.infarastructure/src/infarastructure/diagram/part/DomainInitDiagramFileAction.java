@@ -85,7 +85,8 @@ public class DomainInitDiagramFileAction implements IObjectActionDelegate {
 			return;
 		}
 		Wizard wizard = new DomainNewDiagramFileWizard(domainModelURI, diagramRoot, editingDomain);
-		wizard.setWindowTitle(NLS.bind(Messages.InitDiagramFile_WizardTitle, EnterpriseInfrastructureEditPart.MODEL_ID));
+		wizard.setWindowTitle(
+				NLS.bind(Messages.InitDiagramFile_WizardTitle, EnterpriseInfrastructureEditPart.MODEL_ID));
 		DomainDiagramEditorUtil.runWizard(getShell(), wizard, "InitDiagramFile"); //$NON-NLS-1$
 	}
 }

@@ -33,6 +33,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link domain.impl.RecipesImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.impl.RecipesImpl#getRecipe <em>Recipe</em>}</li>
@@ -42,7 +43,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link domain.impl.RecipesImpl#getDeployment <em>Deployment</em>}</li>
  *   <li>{@link domain.impl.RecipesImpl#getAny <em>Any</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

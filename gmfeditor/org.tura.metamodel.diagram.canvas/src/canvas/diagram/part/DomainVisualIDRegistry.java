@@ -1,6 +1,6 @@
 /*
- * 
- */
+* 
+*/
 package canvas.diagram.part;
 
 import org.eclipse.core.runtime.Platform;
@@ -10,11 +10,7 @@ import org.eclipse.gmf.runtime.notation.Diagram;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.gmf.tooling.runtime.structure.DiagramStructure;
 
-import canvas.diagram.edit.parts.ActionTriggerEditPart;
-import canvas.diagram.edit.parts.ActionTriggerFakeMethodEditPart;
 import canvas.diagram.edit.parts.Button2EditPart;
-import canvas.diagram.edit.parts.ButtonButtonTriggersCompartment2EditPart;
-import canvas.diagram.edit.parts.ButtonButtonTriggersCompartmentEditPart;
 import canvas.diagram.edit.parts.ButtonEditPart;
 import canvas.diagram.edit.parts.ButtonLabel2EditPart;
 import canvas.diagram.edit.parts.ButtonLabelEditPart;
@@ -72,13 +68,13 @@ import domain.DomainPackage;
 public class DomainVisualIDRegistry {
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private static final String DEBUG_KEY = "org.tura.metamodel.diagram.canvas/debug/visualID"; //$NON-NLS-1$
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static int getVisualID(View view) {
 		if (view instanceof Diagram) {
 			if (CanvasViewEditPart.MODEL_ID.equals(view.getType())) {
@@ -91,8 +87,8 @@ public class DomainVisualIDRegistry {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static String getModelID(View view) {
 		View diagram = view.getDiagram();
 		while (view != diagram) {
@@ -106,30 +102,30 @@ public class DomainVisualIDRegistry {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static int getVisualID(String type) {
 		try {
 			return Integer.parseInt(type);
 		} catch (NumberFormatException e) {
 			if (Boolean.TRUE.toString().equalsIgnoreCase(Platform.getDebugOption(DEBUG_KEY))) {
-				DomainDiagramEditorPlugin.getInstance().logError(
-						"Unable to parse view type as a visualID number: " + type);
+				DomainDiagramEditorPlugin.getInstance()
+						.logError("Unable to parse view type as a visualID number: " + type);
 			}
 		}
 		return -1;
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static String getType(int visualID) {
 		return Integer.toString(visualID);
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static int getDiagramVisualID(EObject domainElement) {
 		if (domainElement == null) {
 			return -1;
@@ -142,8 +138,8 @@ public class DomainVisualIDRegistry {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static int getNodeVisualID(View containerView, EObject domainElement) {
 		if (domainElement == null) {
 			return -1;
@@ -196,11 +192,11 @@ public class DomainVisualIDRegistry {
 			if (DomainPackage.eINSTANCE.getImage().isSuperTypeOf(domainElement.eClass())) {
 				return ImageEditPart.VISUAL_ID;
 			}
-			if (DomainPackage.eINSTANCE.getButton().isSuperTypeOf(domainElement.eClass())) {
-				return ButtonEditPart.VISUAL_ID;
-			}
 			if (DomainPackage.eINSTANCE.getLabel().isSuperTypeOf(domainElement.eClass())) {
 				return LabelEditPart.VISUAL_ID;
+			}
+			if (DomainPackage.eINSTANCE.getButton().isSuperTypeOf(domainElement.eClass())) {
+				return ButtonEditPart.VISUAL_ID;
 			}
 			break;
 		case TableTableColsCompartmentEditPart.VISUAL_ID:
@@ -236,11 +232,11 @@ public class DomainVisualIDRegistry {
 			if (DomainPackage.eINSTANCE.getImage().isSuperTypeOf(domainElement.eClass())) {
 				return Image2EditPart.VISUAL_ID;
 			}
-			if (DomainPackage.eINSTANCE.getButton().isSuperTypeOf(domainElement.eClass())) {
-				return Button2EditPart.VISUAL_ID;
-			}
 			if (DomainPackage.eINSTANCE.getLabel().isSuperTypeOf(domainElement.eClass())) {
 				return Label2EditPart.VISUAL_ID;
+			}
+			if (DomainPackage.eINSTANCE.getButton().isSuperTypeOf(domainElement.eClass())) {
+				return Button2EditPart.VISUAL_ID;
 			}
 			break;
 		case TableTableColsCompartment2EditPart.VISUAL_ID:
@@ -281,11 +277,11 @@ public class DomainVisualIDRegistry {
 			if (DomainPackage.eINSTANCE.getImage().isSuperTypeOf(domainElement.eClass())) {
 				return Image2EditPart.VISUAL_ID;
 			}
-			if (DomainPackage.eINSTANCE.getButton().isSuperTypeOf(domainElement.eClass())) {
-				return Button2EditPart.VISUAL_ID;
-			}
 			if (DomainPackage.eINSTANCE.getLabel().isSuperTypeOf(domainElement.eClass())) {
 				return Label2EditPart.VISUAL_ID;
+			}
+			if (DomainPackage.eINSTANCE.getButton().isSuperTypeOf(domainElement.eClass())) {
+				return Button2EditPart.VISUAL_ID;
 			}
 			break;
 		case LayerHolderLayerHolderChildrenCompartment2EditPart.VISUAL_ID:
@@ -316,11 +312,11 @@ public class DomainVisualIDRegistry {
 			if (DomainPackage.eINSTANCE.getImage().isSuperTypeOf(domainElement.eClass())) {
 				return ImageEditPart.VISUAL_ID;
 			}
-			if (DomainPackage.eINSTANCE.getButton().isSuperTypeOf(domainElement.eClass())) {
-				return ButtonEditPart.VISUAL_ID;
-			}
 			if (DomainPackage.eINSTANCE.getLabel().isSuperTypeOf(domainElement.eClass())) {
 				return LabelEditPart.VISUAL_ID;
+			}
+			if (DomainPackage.eINSTANCE.getButton().isSuperTypeOf(domainElement.eClass())) {
+				return ButtonEditPart.VISUAL_ID;
 			}
 			break;
 		case TreeTreeColsCompartment2EditPart.VISUAL_ID:
@@ -356,21 +352,11 @@ public class DomainVisualIDRegistry {
 			if (DomainPackage.eINSTANCE.getImage().isSuperTypeOf(domainElement.eClass())) {
 				return ImageEditPart.VISUAL_ID;
 			}
-			if (DomainPackage.eINSTANCE.getButton().isSuperTypeOf(domainElement.eClass())) {
-				return ButtonEditPart.VISUAL_ID;
-			}
 			if (DomainPackage.eINSTANCE.getLabel().isSuperTypeOf(domainElement.eClass())) {
 				return LabelEditPart.VISUAL_ID;
 			}
-			break;
-		case ButtonButtonTriggersCompartmentEditPart.VISUAL_ID:
-			if (DomainPackage.eINSTANCE.getActionTrigger().isSuperTypeOf(domainElement.eClass())) {
-				return ActionTriggerEditPart.VISUAL_ID;
-			}
-			break;
-		case ButtonButtonTriggersCompartment2EditPart.VISUAL_ID:
-			if (DomainPackage.eINSTANCE.getActionTrigger().isSuperTypeOf(domainElement.eClass())) {
-				return ActionTriggerEditPart.VISUAL_ID;
+			if (DomainPackage.eINSTANCE.getButton().isSuperTypeOf(domainElement.eClass())) {
+				return ButtonEditPart.VISUAL_ID;
 			}
 			break;
 		}
@@ -378,8 +364,8 @@ public class DomainVisualIDRegistry {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static boolean canCreateNode(View containerView, int nodeVisualID) {
 		String containerModelID = canvas.diagram.part.DomainVisualIDRegistry.getModelID(containerView);
 		if (!CanvasViewEditPart.MODEL_ID.equals(containerModelID) && !"domain".equals(containerModelID)) { //$NON-NLS-1$
@@ -464,34 +450,23 @@ public class DomainVisualIDRegistry {
 				return true;
 			}
 			break;
-		case ButtonEditPart.VISUAL_ID:
-			if (ButtonLabelEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			if (ButtonButtonTriggersCompartmentEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			break;
-		case ActionTriggerEditPart.VISUAL_ID:
-			if (ActionTriggerFakeMethodEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			break;
 		case LabelEditPart.VISUAL_ID:
 			if (LabelLabelEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
-		case Button2EditPart.VISUAL_ID:
-			if (ButtonLabel2EditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			if (ButtonButtonTriggersCompartment2EditPart.VISUAL_ID == nodeVisualID) {
+		case ButtonEditPart.VISUAL_ID:
+			if (ButtonLabelEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
 		case Label2EditPart.VISUAL_ID:
 			if (LabelLabel2EditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case Button2EditPart.VISUAL_ID:
+			if (ButtonLabel2EditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -523,10 +498,10 @@ public class DomainVisualIDRegistry {
 			if (ImageEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
-			if (ButtonEditPart.VISUAL_ID == nodeVisualID) {
+			if (LabelEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
-			if (LabelEditPart.VISUAL_ID == nodeVisualID) {
+			if (ButtonEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -563,10 +538,10 @@ public class DomainVisualIDRegistry {
 			if (Image2EditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
-			if (Button2EditPart.VISUAL_ID == nodeVisualID) {
+			if (Label2EditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
-			if (Label2EditPart.VISUAL_ID == nodeVisualID) {
+			if (Button2EditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -608,10 +583,10 @@ public class DomainVisualIDRegistry {
 			if (Image2EditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
-			if (Button2EditPart.VISUAL_ID == nodeVisualID) {
+			if (Label2EditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
-			if (Label2EditPart.VISUAL_ID == nodeVisualID) {
+			if (Button2EditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -643,10 +618,10 @@ public class DomainVisualIDRegistry {
 			if (ImageEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
-			if (ButtonEditPart.VISUAL_ID == nodeVisualID) {
+			if (LabelEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
-			if (LabelEditPart.VISUAL_ID == nodeVisualID) {
+			if (ButtonEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -683,20 +658,10 @@ public class DomainVisualIDRegistry {
 			if (ImageEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
-			if (ButtonEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
 			if (LabelEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
-			break;
-		case ButtonButtonTriggersCompartmentEditPart.VISUAL_ID:
-			if (ActionTriggerEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			break;
-		case ButtonButtonTriggersCompartment2EditPart.VISUAL_ID:
-			if (ActionTriggerEditPart.VISUAL_ID == nodeVisualID) {
+			if (ButtonEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -705,8 +670,8 @@ public class DomainVisualIDRegistry {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static int getLinkWithClassVisualID(EObject domainElement) {
 		if (domainElement == null) {
 			return -1;
@@ -715,18 +680,18 @@ public class DomainVisualIDRegistry {
 	}
 
 	/**
-	 * User can change implementation of this method to handle some specific
-	 * situations not covered by default logic.
-	 * 
-	 * @generated
-	 */
+	* User can change implementation of this method to handle some specific
+	* situations not covered by default logic.
+	* 
+	* @generated
+	*/
 	private static boolean isDiagram(CanvasView element) {
 		return true;
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static boolean checkNodeVisualID(View containerView, EObject domainElement, int candidate) {
 		if (candidate == -1) {
 			//unrecognized id is always bad
@@ -737,8 +702,8 @@ public class DomainVisualIDRegistry {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static boolean isCompartmentVisualID(int visualID) {
 		switch (visualID) {
 		case LayerHolderLayerHolderChildrenCompartmentEditPart.VISUAL_ID:
@@ -750,8 +715,6 @@ public class DomainVisualIDRegistry {
 		case LayerHolderLayerHolderChildrenCompartment2EditPart.VISUAL_ID:
 		case TreeTreeColsCompartment2EditPart.VISUAL_ID:
 		case LayerHolderLayerHolderChildrenCompartment3EditPart.VISUAL_ID:
-		case ButtonButtonTriggersCompartmentEditPart.VISUAL_ID:
-		case ButtonButtonTriggersCompartment2EditPart.VISUAL_ID:
 			return true;
 		default:
 			break;
@@ -760,8 +723,8 @@ public class DomainVisualIDRegistry {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static boolean isSemanticLeafVisualID(int visualID) {
 		switch (visualID) {
 		case CanvasViewEditPart.VISUAL_ID:
@@ -776,7 +739,8 @@ public class DomainVisualIDRegistry {
 		case Label2EditPart.VISUAL_ID:
 		case OutputText2EditPart.VISUAL_ID:
 		case CheckBox2EditPart.VISUAL_ID:
-		case ActionTriggerEditPart.VISUAL_ID:
+		case ButtonEditPart.VISUAL_ID:
+		case Button2EditPart.VISUAL_ID:
 		case ImageEditPart.VISUAL_ID:
 		case DateEditPart.VISUAL_ID:
 		case Image2EditPart.VISUAL_ID:
@@ -789,54 +753,60 @@ public class DomainVisualIDRegistry {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static final DiagramStructure TYPED_INSTANCE = new DiagramStructure() {
 		/**
-		 * @generated
-		 */
+		* @generated
+		*/
 		@Override
+
 		public int getVisualID(View view) {
 			return canvas.diagram.part.DomainVisualIDRegistry.getVisualID(view);
 		}
 
 		/**
-		 * @generated
-		 */
+		* @generated
+		*/
 		@Override
+
 		public String getModelID(View view) {
 			return canvas.diagram.part.DomainVisualIDRegistry.getModelID(view);
 		}
 
 		/**
-		 * @generated
-		 */
+		* @generated
+		*/
 		@Override
+
 		public int getNodeVisualID(View containerView, EObject domainElement) {
 			return canvas.diagram.part.DomainVisualIDRegistry.getNodeVisualID(containerView, domainElement);
 		}
 
 		/**
-		 * @generated
-		 */
+		* @generated
+		*/
 		@Override
+
 		public boolean checkNodeVisualID(View containerView, EObject domainElement, int candidate) {
-			return canvas.diagram.part.DomainVisualIDRegistry
-					.checkNodeVisualID(containerView, domainElement, candidate);
+			return canvas.diagram.part.DomainVisualIDRegistry.checkNodeVisualID(containerView, domainElement,
+					candidate);
 		}
 
 		/**
-		 * @generated
-		 */
+		* @generated
+		*/
 		@Override
+
 		public boolean isCompartmentVisualID(int visualID) {
 			return canvas.diagram.part.DomainVisualIDRegistry.isCompartmentVisualID(visualID);
 		}
 
 		/**
-		 * @generated
-		 */
+		* @generated
+		*/
 		@Override
+
 		public boolean isSemanticLeafVisualID(int visualID) {
 			return canvas.diagram.part.DomainVisualIDRegistry.isSemanticLeafVisualID(visualID);
 		}

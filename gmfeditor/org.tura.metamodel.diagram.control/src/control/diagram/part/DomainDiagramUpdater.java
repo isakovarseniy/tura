@@ -771,8 +771,8 @@ public class DomainDiagramUpdater {
 	 */
 	public static List<DomainLinkDescriptor> getDataControl_1102002IncomingLinks(View view) {
 		DataControl modelElement = (DataControl) view.getElement();
-		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer.find(view
-				.eResource().getResourceSet().getResources());
+		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+				.find(view.eResource().getResourceSet().getResources());
 		LinkedList<DomainLinkDescriptor> result = new LinkedList<DomainLinkDescriptor>();
 		result.addAll(getIncomingTypeModelFacetLinks_Relation_1104009(modelElement, crossReferences));
 		result.addAll(getIncomingTypeModelFacetLinks_Dependency_1104010(modelElement, crossReferences));
@@ -1024,7 +1024,8 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	private static Collection<DomainLinkDescriptor> getContainedTypeModelFacetLinks_Relation_1104009(Controls container) {
+	private static Collection<DomainLinkDescriptor> getContainedTypeModelFacetLinks_Relation_1104009(
+			Controls container) {
 		LinkedList<DomainLinkDescriptor> result = new LinkedList<DomainLinkDescriptor>();
 		for (Iterator<?> links = container.getRelations().iterator(); links.hasNext();) {
 			EObject linkObject = (EObject) links.next();
@@ -1115,7 +1116,8 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	private static Collection<DomainLinkDescriptor> getOutgoingTypeModelFacetLinks_Relation_1104009(DataControl source) {
+	private static Collection<DomainLinkDescriptor> getOutgoingTypeModelFacetLinks_Relation_1104009(
+			DataControl source) {
 		Controls container = null;
 		// Find container element for the link.
 		// Climb up by containment hierarchy starting from the source
@@ -1152,7 +1154,8 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	private static Collection<DomainLinkDescriptor> getOutgoingTypeModelFacetLinks_Dependency_1104010(DataControl source) {
+	private static Collection<DomainLinkDescriptor> getOutgoingTypeModelFacetLinks_Dependency_1104010(
+			DataControl source) {
 		Controls container = null;
 		// Find container element for the link.
 		// Climb up by containment hierarchy starting from the source
@@ -1191,33 +1194,37 @@ public class DomainDiagramUpdater {
 	 */
 	public static final DiagramUpdater TYPED_INSTANCE = new DiagramUpdater() {
 		/**
-		 * @generated
-		 */
+		* @generated
+		*/
 		@Override
+
 		public List<DomainNodeDescriptor> getSemanticChildren(View view) {
 			return DomainDiagramUpdater.getSemanticChildren(view);
 		}
 
 		/**
-		 * @generated
-		 */
+		* @generated
+		*/
 		@Override
+
 		public List<DomainLinkDescriptor> getContainedLinks(View view) {
 			return DomainDiagramUpdater.getContainedLinks(view);
 		}
 
 		/**
-		 * @generated
-		 */
+		* @generated
+		*/
 		@Override
+
 		public List<DomainLinkDescriptor> getIncomingLinks(View view) {
 			return DomainDiagramUpdater.getIncomingLinks(view);
 		}
 
 		/**
-		 * @generated
-		 */
+		* @generated
+		*/
 		@Override
+
 		public List<DomainLinkDescriptor> getOutgoingLinks(View view) {
 			return DomainDiagramUpdater.getOutgoingLinks(view);
 		}

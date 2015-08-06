@@ -4,16 +4,11 @@
 package canvas.diagram.edit.parts;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.gef.GraphicalEditPart;
-import org.eclipse.gef.Request;
 import org.eclipse.gef.commands.Command;
-import org.eclipse.gef.editpolicies.NonResizableEditPolicy;
-import org.eclipse.gef.handles.MoveHandle;
 import org.eclipse.gmf.runtime.diagram.ui.commands.ICommandProxy;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.DiagramEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.DiagramDragDropEditPolicy;
@@ -36,31 +31,31 @@ import canvas.diagram.part.DomainVisualIDRegistry;
 public class CanvasViewEditPart extends DiagramEditPart {
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public final static String MODEL_ID = "Canvas"; //$NON-NLS-1$
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static final int VISUAL_ID = 1601000;
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public CanvasViewEditPart(View view) {
 		super(view);
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected void createDefaultEditPolicies() {
 		super.createDefaultEditPolicies();
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE, new CanvasViewItemSemanticEditPolicy());
 		installEditPolicy(EditPolicyRoles.CANONICAL_ROLE, new CanvasViewCanonicalEditPolicy());
-		installEditPolicy(EditPolicyRoles.CREATION_ROLE, new CreationEditPolicyWithCustomReparent(
-				DomainVisualIDRegistry.TYPED_INSTANCE));
+		installEditPolicy(EditPolicyRoles.CREATION_ROLE,
+				new CreationEditPolicyWithCustomReparent(DomainVisualIDRegistry.TYPED_INSTANCE));
 		installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE, new DiagramDragDropEditPolicy() {
 			public Command getDropObjectsCommand(DropObjectsRequest dropRequest) {
 				ArrayList<CreateViewRequest.ViewDescriptor> viewDescriptors = new ArrayList<CreateViewRequest.ViewDescriptor>();
@@ -79,8 +74,9 @@ public class CanvasViewEditPart extends DiagramEditPart {
 					List<CreateViewRequest.ViewDescriptor> viewDescriptors) {
 				Command command = createViewsAndArrangeCommand(dropRequest, viewDescriptors);
 				if (command != null) {
-					return command.chain(new ICommandProxy(new DomainCreateShortcutDecorationsCommand(
-							getEditingDomain(), (View) getModel(), viewDescriptors)));
+					return command
+							.chain(new ICommandProxy(new DomainCreateShortcutDecorationsCommand(getEditingDomain(),
+									(View) getModel(), viewDescriptors)));
 				}
 				return null;
 			}

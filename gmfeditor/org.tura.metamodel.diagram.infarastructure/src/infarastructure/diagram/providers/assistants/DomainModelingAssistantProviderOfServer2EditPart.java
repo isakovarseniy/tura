@@ -56,7 +56,8 @@ public class DomainModelingAssistantProviderOfServer2EditPart extends DomainMode
 	/**
 	 * @generated
 	 */
-	public List<IElementType> doGetRelTypesOnSourceAndTarget(Server2EditPart source, IGraphicalEditPart targetEditPart) {
+	public List<IElementType> doGetRelTypesOnSourceAndTarget(Server2EditPart source,
+			IGraphicalEditPart targetEditPart) {
 		List<IElementType> types = new LinkedList<IElementType>();
 		if (targetEditPart instanceof ServerEditPart) {
 			types.add(DomainElementTypes.InfrastructureConnection_1204009);
