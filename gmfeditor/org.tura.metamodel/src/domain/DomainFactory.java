@@ -1085,6 +1085,15 @@ public interface DomainFactory extends EFactory
   NickNamed createNickNamed();
 
   /**
+	 * Returns a new object of class '<em>Actioin Triggers</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Actioin Triggers</em>'.
+	 * @generated
+	 */
+	ActioinTriggers createActioinTriggers();
+
+		/**
 	 * Returns a new object of class '<em>Uielement</em>'.
 	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

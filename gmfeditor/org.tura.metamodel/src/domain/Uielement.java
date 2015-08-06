@@ -18,14 +18,13 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link domain.Uielement#getRequired <em>Required</em>}</li>
  *   <li>{@link domain.Uielement#getReadOnly <em>Read Only</em>}</li>
  *   <li>{@link domain.Uielement#getOnEventRefreshArea <em>On Event Refresh Area</em>}</li>
- *   <li>{@link domain.Uielement#getTriggers <em>Triggers</em>}</li>
  * </ul>
  *
  * @see domain.DomainPackage#getUielement()
  * @model
  * @generated
  */
-public interface Uielement extends StyleElement, NickNamed, Categorized, Orderable
+public interface Uielement extends StyleElement, NickNamed, Categorized, Orderable, ActioinTriggers
 {
   /**
 	 * Returns the value of the '<em><b>Uid</b></em>' attribute.
@@ -146,21 +145,5 @@ public interface Uielement extends StyleElement, NickNamed, Categorized, Orderab
 	 * @generated
 	 */
   EList<NickNamed> getOnEventRefreshArea();
-
-		/**
-	 * Returns the value of the '<em><b>Triggers</b></em>' containment reference list.
-	 * The list contents are of type {@link domain.ActionTrigger}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Triggers</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Triggers</em>' containment reference list.
-	 * @see domain.DomainPackage#getUielement_Triggers()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EList<ActionTrigger> getTriggers();
 
 } // Uielement

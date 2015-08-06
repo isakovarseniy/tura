@@ -2,6 +2,7 @@
  */
 package domain.impl;
 
+import domain.ActioinTriggers;
 import domain.ActionElement;
 import domain.ActionTrigger;
 import domain.Application;
@@ -353,10 +354,11 @@ public class DomainFactoryImpl extends EFactoryImpl implements DomainFactory
 			case DomainPackage.STYLE_ELEMENT: return createStyleElement();
 			case DomainPackage.STYLE_CLASS: return createStyleClass();
 			case DomainPackage.NICK_NAMED: return createNickNamed();
+			case DomainPackage.ACTIOIN_TRIGGERS: return createActioinTriggers();
+			case DomainPackage.ACTION_TRIGGER: return createActionTrigger();
 			case DomainPackage.UIELEMENT: return createUielement();
 			case DomainPackage.FORMATABLE: return createFormatable();
 			case DomainPackage.SOURCES_POINTER: return createSourcesPointer();
-			case DomainPackage.ACTION_TRIGGER: return createActionTrigger();
 			case DomainPackage.INPUT_ELEMENT: return createInputElement();
 			case DomainPackage.SELECTION: return createSelection();
 			case DomainPackage.OPTION_SELECTION: return createOptionSelection();
@@ -1751,6 +1753,16 @@ public class DomainFactoryImpl extends EFactoryImpl implements DomainFactory
 	}
 
   /**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ActioinTriggers createActioinTriggers() {
+		ActioinTriggersImpl actioinTriggers = new ActioinTriggersImpl();
+		return actioinTriggers;
+	}
+
+		/**
 	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
 	 * @generated

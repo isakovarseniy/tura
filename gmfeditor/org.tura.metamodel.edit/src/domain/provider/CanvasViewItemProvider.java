@@ -817,6 +817,16 @@ public class CanvasViewItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(DomainPackage.Literals.CANVAS_VIEW__ANY,
+				 DomainFactory.eINSTANCE.createActioinTriggers()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.CANVAS_VIEW__ANY,
+				 DomainFactory.eINSTANCE.createActionTrigger()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.CANVAS_VIEW__ANY,
 				 DomainFactory.eINSTANCE.createUielement()));
 
 		newChildDescriptors.add
@@ -828,11 +838,6 @@ public class CanvasViewItemProvider
 			(createChildParameter
 				(DomainPackage.Literals.CANVAS_VIEW__ANY,
 				 DomainFactory.eINSTANCE.createSourcesPointer()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DomainPackage.Literals.CANVAS_VIEW__ANY,
-				 DomainFactory.eINSTANCE.createActionTrigger()));
 
 		newChildDescriptors.add
 			(createChildParameter

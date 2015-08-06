@@ -2,6 +2,7 @@
  */
 package domain.util;
 
+import domain.ActioinTriggers;
 import domain.ActionElement;
 import domain.ActionTrigger;
 import domain.Application;
@@ -1038,6 +1039,23 @@ public class DomainSwitch<T> extends Switch<T>
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case DomainPackage.ACTIOIN_TRIGGERS: {
+				ActioinTriggers actioinTriggers = (ActioinTriggers)theEObject;
+				T result = caseActioinTriggers(actioinTriggers);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case DomainPackage.ACTION_TRIGGER: {
+				ActionTrigger actionTrigger = (ActionTrigger)theEObject;
+				T result = caseActionTrigger(actionTrigger);
+				if (result == null) result = caseTrigger(actionTrigger);
+				if (result == null) result = caseCategorized(actionTrigger);
+				if (result == null) result = caseMethodPointer(actionTrigger);
+				if (result == null) result = caseContextParameters(actionTrigger);
+				if (result == null) result = caseTypePointer(actionTrigger);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case DomainPackage.UIELEMENT: {
 				Uielement uielement = (Uielement)theEObject;
 				T result = caseUielement(uielement);
@@ -1045,6 +1063,7 @@ public class DomainSwitch<T> extends Switch<T>
 				if (result == null) result = caseNickNamed(uielement);
 				if (result == null) result = caseCategorized(uielement);
 				if (result == null) result = caseOrderable(uielement);
+				if (result == null) result = caseActioinTriggers(uielement);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -1062,17 +1081,7 @@ public class DomainSwitch<T> extends Switch<T>
 				if (result == null) result = caseNickNamed(sourcesPointer);
 				if (result == null) result = caseCategorized(sourcesPointer);
 				if (result == null) result = caseOrderable(sourcesPointer);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case DomainPackage.ACTION_TRIGGER: {
-				ActionTrigger actionTrigger = (ActionTrigger)theEObject;
-				T result = caseActionTrigger(actionTrigger);
-				if (result == null) result = caseTrigger(actionTrigger);
-				if (result == null) result = caseCategorized(actionTrigger);
-				if (result == null) result = caseMethodPointer(actionTrigger);
-				if (result == null) result = caseContextParameters(actionTrigger);
-				if (result == null) result = caseTypePointer(actionTrigger);
+				if (result == null) result = caseActioinTriggers(sourcesPointer);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -1085,6 +1094,7 @@ public class DomainSwitch<T> extends Switch<T>
 				if (result == null) result = caseNickNamed(inputElement);
 				if (result == null) result = caseCategorized(inputElement);
 				if (result == null) result = caseOrderable(inputElement);
+				if (result == null) result = caseActioinTriggers(inputElement);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -1105,6 +1115,7 @@ public class DomainSwitch<T> extends Switch<T>
 				if (result == null) result = caseNickNamed(optionSelection);
 				if (result == null) result = caseCategorized(optionSelection);
 				if (result == null) result = caseOrderable(optionSelection);
+				if (result == null) result = caseActioinTriggers(optionSelection);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -1118,6 +1129,7 @@ public class DomainSwitch<T> extends Switch<T>
 				if (result == null) result = caseNickNamed(layerHolder);
 				if (result == null) result = caseCategorized(layerHolder);
 				if (result == null) result = caseOrderable(layerHolder);
+				if (result == null) result = caseActioinTriggers(layerHolder);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -1132,6 +1144,7 @@ public class DomainSwitch<T> extends Switch<T>
 				if (result == null) result = caseNickNamed(inputText);
 				if (result == null) result = caseCategorized(inputText);
 				if (result == null) result = caseOrderable(inputText);
+				if (result == null) result = caseActioinTriggers(inputText);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -1144,6 +1157,7 @@ public class DomainSwitch<T> extends Switch<T>
 				if (result == null) result = caseNickNamed(label);
 				if (result == null) result = caseCategorized(label);
 				if (result == null) result = caseOrderable(label);
+				if (result == null) result = caseActioinTriggers(label);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -1158,6 +1172,7 @@ public class DomainSwitch<T> extends Switch<T>
 				if (result == null) result = caseNickNamed(outputText);
 				if (result == null) result = caseCategorized(outputText);
 				if (result == null) result = caseOrderable(outputText);
+				if (result == null) result = caseActioinTriggers(outputText);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -1171,6 +1186,7 @@ public class DomainSwitch<T> extends Switch<T>
 				if (result == null) result = caseNickNamed(checkBox);
 				if (result == null) result = caseCategorized(checkBox);
 				if (result == null) result = caseOrderable(checkBox);
+				if (result == null) result = caseActioinTriggers(checkBox);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -1185,6 +1201,7 @@ public class DomainSwitch<T> extends Switch<T>
 				if (result == null) result = caseNickNamed(dropDownSelection);
 				if (result == null) result = caseCategorized(dropDownSelection);
 				if (result == null) result = caseOrderable(dropDownSelection);
+				if (result == null) result = caseActioinTriggers(dropDownSelection);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -1198,6 +1215,7 @@ public class DomainSwitch<T> extends Switch<T>
 				if (result == null) result = caseNickNamed(image);
 				if (result == null) result = caseCategorized(image);
 				if (result == null) result = caseOrderable(image);
+				if (result == null) result = caseActioinTriggers(image);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -1212,6 +1230,7 @@ public class DomainSwitch<T> extends Switch<T>
 				if (result == null) result = caseNickNamed(date);
 				if (result == null) result = caseCategorized(date);
 				if (result == null) result = caseOrderable(date);
+				if (result == null) result = caseActioinTriggers(date);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -1224,6 +1243,7 @@ public class DomainSwitch<T> extends Switch<T>
 				if (result == null) result = caseNickNamed(button);
 				if (result == null) result = caseCategorized(button);
 				if (result == null) result = caseOrderable(button);
+				if (result == null) result = caseActioinTriggers(button);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -1249,6 +1269,7 @@ public class DomainSwitch<T> extends Switch<T>
 				if (result == null) result = caseNickNamed(table);
 				if (result == null) result = caseCategorized(table);
 				if (result == null) result = caseOrderable(table);
+				if (result == null) result = caseActioinTriggers(table);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -1263,6 +1284,7 @@ public class DomainSwitch<T> extends Switch<T>
 				if (result == null) result = caseNickNamed(tree);
 				if (result == null) result = caseCategorized(tree);
 				if (result == null) result = caseOrderable(tree);
+				if (result == null) result = caseActioinTriggers(tree);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -3428,6 +3450,21 @@ public class DomainSwitch<T> extends Switch<T>
 	}
 
   /**
+	 * Returns the result of interpreting the object as an instance of '<em>Actioin Triggers</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Actioin Triggers</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseActioinTriggers(ActioinTriggers object) {
+		return null;
+	}
+
+		/**
 	 * Returns the result of interpreting the object as an instance of '<em>Uielement</em>'.
 	 * <!-- begin-user-doc -->
    * This implementation returns null;

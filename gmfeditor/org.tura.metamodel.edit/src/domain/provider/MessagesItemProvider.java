@@ -824,6 +824,16 @@ public class MessagesItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(DomainPackage.Literals.MESSAGES__ANY,
+				 DomainFactory.eINSTANCE.createActioinTriggers()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.MESSAGES__ANY,
+				 DomainFactory.eINSTANCE.createActionTrigger()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.MESSAGES__ANY,
 				 DomainFactory.eINSTANCE.createUielement()));
 
 		newChildDescriptors.add
@@ -835,11 +845,6 @@ public class MessagesItemProvider
 			(createChildParameter
 				(DomainPackage.Literals.MESSAGES__ANY,
 				 DomainFactory.eINSTANCE.createSourcesPointer()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DomainPackage.Literals.MESSAGES__ANY,
-				 DomainFactory.eINSTANCE.createActionTrigger()));
 
 		newChildDescriptors.add
 			(createChildParameter

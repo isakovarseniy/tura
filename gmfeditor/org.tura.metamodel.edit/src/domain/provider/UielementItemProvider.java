@@ -171,10 +171,10 @@ public class UielementItemProvider
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(DomainPackage.Literals.CATEGORIZED__CLASSIFIERS);
+			childrenFeatures.add(DomainPackage.Literals.ACTIOIN_TRIGGERS__TRIGGERS);
 			childrenFeatures.add(DomainPackage.Literals.UIELEMENT__ENABLED);
 			childrenFeatures.add(DomainPackage.Literals.UIELEMENT__REQUIRED);
 			childrenFeatures.add(DomainPackage.Literals.UIELEMENT__READ_ONLY);
-			childrenFeatures.add(DomainPackage.Literals.UIELEMENT__TRIGGERS);
 		}
 		return childrenFeatures;
 	}
@@ -239,10 +239,10 @@ public class UielementItemProvider
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case DomainPackage.UIELEMENT__CLASSIFIERS:
+			case DomainPackage.UIELEMENT__TRIGGERS:
 			case DomainPackage.UIELEMENT__ENABLED:
 			case DomainPackage.UIELEMENT__REQUIRED:
 			case DomainPackage.UIELEMENT__READ_ONLY:
-			case DomainPackage.UIELEMENT__TRIGGERS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -268,6 +268,11 @@ public class UielementItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
+				(DomainPackage.Literals.ACTIOIN_TRIGGERS__TRIGGERS,
+				 DomainFactory.eINSTANCE.createActionTrigger()));
+
+		newChildDescriptors.add
+			(createChildParameter
 				(DomainPackage.Literals.UIELEMENT__ENABLED,
 				 DomainFactory.eINSTANCE.createContext()));
 
@@ -280,11 +285,6 @@ public class UielementItemProvider
 			(createChildParameter
 				(DomainPackage.Literals.UIELEMENT__READ_ONLY,
 				 DomainFactory.eINSTANCE.createContext()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DomainPackage.Literals.UIELEMENT__TRIGGERS,
-				 DomainFactory.eINSTANCE.createActionTrigger()));
 	}
 
   /**

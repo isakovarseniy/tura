@@ -1369,7 +1369,15 @@
   <eClassifiers xsi:type="ecore:EClass" name="NickNamed">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="nickname" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Uielement" eSuperTypes="#//StyleElement #//NickNamed #//Categorized #//Orderable">
+  <eClassifiers xsi:type="ecore:EClass" name="ActioinTriggers">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="triggers" upperBound="-1"
+        eType="#//ActionTrigger" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ActionTrigger" eSuperTypes="#//Trigger #//Categorized">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Uielement" eSuperTypes="#//StyleElement #//NickNamed #//Categorized #//Orderable #//ActioinTriggers">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="enabled" eType="#//Context"
@@ -1380,8 +1388,6 @@
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="onEventRefreshArea" upperBound="-1"
         eType="#//NickNamed"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="triggers" upperBound="-1"
-        eType="#//ActionTrigger" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Formatable">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="format" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -1392,10 +1398,6 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="sourceCast" eType="#//Type"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="sourceCastDataControl"
         eType="#//DataControl"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ActionTrigger" eSuperTypes="#//Trigger #//Categorized">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        iD="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="InputElement" eSuperTypes="#//SourcesPointer"/>
   <eClassifiers xsi:type="ecore:EClass" name="Selection" eSuperTypes="#//StyleElement">

@@ -859,6 +859,16 @@ public class ApplicationItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(DomainPackage.Literals.APPLICATION__ANY,
+				 DomainFactory.eINSTANCE.createActioinTriggers()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.APPLICATION__ANY,
+				 DomainFactory.eINSTANCE.createActionTrigger()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.APPLICATION__ANY,
 				 DomainFactory.eINSTANCE.createUielement()));
 
 		newChildDescriptors.add
@@ -870,11 +880,6 @@ public class ApplicationItemProvider
 			(createChildParameter
 				(DomainPackage.Literals.APPLICATION__ANY,
 				 DomainFactory.eINSTANCE.createSourcesPointer()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DomainPackage.Literals.APPLICATION__ANY,
-				 DomainFactory.eINSTANCE.createActionTrigger()));
 
 		newChildDescriptors.add
 			(createChildParameter

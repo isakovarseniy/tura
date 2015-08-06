@@ -2,6 +2,7 @@
  */
 package domain.impl;
 
+import domain.ActioinTriggers;
 import domain.ActionTrigger;
 import domain.Categorized;
 import domain.Classifier;
@@ -38,12 +39,12 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link domain.impl.UielementImpl#getNickname <em>Nickname</em>}</li>
  *   <li>{@link domain.impl.UielementImpl#getClassifiers <em>Classifiers</em>}</li>
  *   <li>{@link domain.impl.UielementImpl#getOrder <em>Order</em>}</li>
+ *   <li>{@link domain.impl.UielementImpl#getTriggers <em>Triggers</em>}</li>
  *   <li>{@link domain.impl.UielementImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.impl.UielementImpl#getEnabled <em>Enabled</em>}</li>
  *   <li>{@link domain.impl.UielementImpl#getRequired <em>Required</em>}</li>
  *   <li>{@link domain.impl.UielementImpl#getReadOnly <em>Read Only</em>}</li>
  *   <li>{@link domain.impl.UielementImpl#getOnEventRefreshArea <em>On Event Refresh Area</em>}</li>
- *   <li>{@link domain.impl.UielementImpl#getTriggers <em>Triggers</em>}</li>
  * </ul>
  *
  * @generated
@@ -101,6 +102,16 @@ public class UielementImpl extends StyleElementImpl implements Uielement
   protected int order = ORDER_EDEFAULT;
 
   /**
+	 * The cached value of the '{@link #getTriggers() <em>Triggers</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTriggers()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<ActionTrigger> triggers;
+
+		/**
 	 * The default value of the '{@link #getUid() <em>Uid</em>}' attribute.
 	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -110,7 +121,7 @@ public class UielementImpl extends StyleElementImpl implements Uielement
 	 */
   protected static final String UID_EDEFAULT = null;
 
-  /**
+		/**
 	 * The cached value of the '{@link #getUid() <em>Uid</em>}' attribute.
 	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -120,7 +131,7 @@ public class UielementImpl extends StyleElementImpl implements Uielement
 	 */
   protected String uid = UID_EDEFAULT;
 
-  /**
+		/**
 	 * The cached value of the '{@link #getEnabled() <em>Enabled</em>}' containment reference.
 	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -130,7 +141,7 @@ public class UielementImpl extends StyleElementImpl implements Uielement
 	 */
   protected Context enabled;
 
-  /**
+		/**
 	 * The cached value of the '{@link #getRequired() <em>Required</em>}' containment reference.
 	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -140,7 +151,7 @@ public class UielementImpl extends StyleElementImpl implements Uielement
 	 */
   protected Context required;
 
-  /**
+		/**
 	 * The cached value of the '{@link #getReadOnly() <em>Read Only</em>}' containment reference.
 	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -150,7 +161,7 @@ public class UielementImpl extends StyleElementImpl implements Uielement
 	 */
   protected Context readOnly;
 
-  /**
+		/**
 	 * The cached value of the '{@link #getOnEventRefreshArea() <em>On Event Refresh Area</em>}' reference list.
 	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -159,16 +170,6 @@ public class UielementImpl extends StyleElementImpl implements Uielement
 	 * @ordered
 	 */
   protected EList<NickNamed> onEventRefreshArea;
-
-  /**
-	 * The cached value of the '{@link #getTriggers() <em>Triggers</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getTriggers()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<ActionTrigger> triggers;
 
 		/**
 	 * <!-- begin-user-doc -->
@@ -447,14 +448,14 @@ public class UielementImpl extends StyleElementImpl implements Uielement
 		switch (featureID) {
 			case DomainPackage.UIELEMENT__CLASSIFIERS:
 				return ((InternalEList<?>)getClassifiers()).basicRemove(otherEnd, msgs);
+			case DomainPackage.UIELEMENT__TRIGGERS:
+				return ((InternalEList<?>)getTriggers()).basicRemove(otherEnd, msgs);
 			case DomainPackage.UIELEMENT__ENABLED:
 				return basicSetEnabled(null, msgs);
 			case DomainPackage.UIELEMENT__REQUIRED:
 				return basicSetRequired(null, msgs);
 			case DomainPackage.UIELEMENT__READ_ONLY:
 				return basicSetReadOnly(null, msgs);
-			case DomainPackage.UIELEMENT__TRIGGERS:
-				return ((InternalEList<?>)getTriggers()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -474,6 +475,8 @@ public class UielementImpl extends StyleElementImpl implements Uielement
 				return getClassifiers();
 			case DomainPackage.UIELEMENT__ORDER:
 				return getOrder();
+			case DomainPackage.UIELEMENT__TRIGGERS:
+				return getTriggers();
 			case DomainPackage.UIELEMENT__UID:
 				return getUid();
 			case DomainPackage.UIELEMENT__ENABLED:
@@ -484,8 +487,6 @@ public class UielementImpl extends StyleElementImpl implements Uielement
 				return getReadOnly();
 			case DomainPackage.UIELEMENT__ON_EVENT_REFRESH_AREA:
 				return getOnEventRefreshArea();
-			case DomainPackage.UIELEMENT__TRIGGERS:
-				return getTriggers();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -510,6 +511,10 @@ public class UielementImpl extends StyleElementImpl implements Uielement
 			case DomainPackage.UIELEMENT__ORDER:
 				setOrder((Integer)newValue);
 				return;
+			case DomainPackage.UIELEMENT__TRIGGERS:
+				getTriggers().clear();
+				getTriggers().addAll((Collection<? extends ActionTrigger>)newValue);
+				return;
 			case DomainPackage.UIELEMENT__UID:
 				setUid((String)newValue);
 				return;
@@ -525,10 +530,6 @@ public class UielementImpl extends StyleElementImpl implements Uielement
 			case DomainPackage.UIELEMENT__ON_EVENT_REFRESH_AREA:
 				getOnEventRefreshArea().clear();
 				getOnEventRefreshArea().addAll((Collection<? extends NickNamed>)newValue);
-				return;
-			case DomainPackage.UIELEMENT__TRIGGERS:
-				getTriggers().clear();
-				getTriggers().addAll((Collection<? extends ActionTrigger>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -552,6 +553,9 @@ public class UielementImpl extends StyleElementImpl implements Uielement
 			case DomainPackage.UIELEMENT__ORDER:
 				setOrder(ORDER_EDEFAULT);
 				return;
+			case DomainPackage.UIELEMENT__TRIGGERS:
+				getTriggers().clear();
+				return;
 			case DomainPackage.UIELEMENT__UID:
 				setUid(UID_EDEFAULT);
 				return;
@@ -566,9 +570,6 @@ public class UielementImpl extends StyleElementImpl implements Uielement
 				return;
 			case DomainPackage.UIELEMENT__ON_EVENT_REFRESH_AREA:
 				getOnEventRefreshArea().clear();
-				return;
-			case DomainPackage.UIELEMENT__TRIGGERS:
-				getTriggers().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -589,6 +590,8 @@ public class UielementImpl extends StyleElementImpl implements Uielement
 				return classifiers != null && !classifiers.isEmpty();
 			case DomainPackage.UIELEMENT__ORDER:
 				return order != ORDER_EDEFAULT;
+			case DomainPackage.UIELEMENT__TRIGGERS:
+				return triggers != null && !triggers.isEmpty();
 			case DomainPackage.UIELEMENT__UID:
 				return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
 			case DomainPackage.UIELEMENT__ENABLED:
@@ -599,8 +602,6 @@ public class UielementImpl extends StyleElementImpl implements Uielement
 				return readOnly != null;
 			case DomainPackage.UIELEMENT__ON_EVENT_REFRESH_AREA:
 				return onEventRefreshArea != null && !onEventRefreshArea.isEmpty();
-			case DomainPackage.UIELEMENT__TRIGGERS:
-				return triggers != null && !triggers.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -631,6 +632,12 @@ public class UielementImpl extends StyleElementImpl implements Uielement
 				default: return -1;
 			}
 		}
+		if (baseClass == ActioinTriggers.class) {
+			switch (derivedFeatureID) {
+				case DomainPackage.UIELEMENT__TRIGGERS: return DomainPackage.ACTIOIN_TRIGGERS__TRIGGERS;
+				default: return -1;
+			}
+		}
 		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
 	}
 
@@ -657,6 +664,12 @@ public class UielementImpl extends StyleElementImpl implements Uielement
 		if (baseClass == Orderable.class) {
 			switch (baseFeatureID) {
 				case DomainPackage.ORDERABLE__ORDER: return DomainPackage.UIELEMENT__ORDER;
+				default: return -1;
+			}
+		}
+		if (baseClass == ActioinTriggers.class) {
+			switch (baseFeatureID) {
+				case DomainPackage.ACTIOIN_TRIGGERS__TRIGGERS: return DomainPackage.UIELEMENT__TRIGGERS;
 				default: return -1;
 			}
 		}

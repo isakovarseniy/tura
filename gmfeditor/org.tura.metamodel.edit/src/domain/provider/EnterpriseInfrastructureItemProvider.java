@@ -800,6 +800,16 @@ public class EnterpriseInfrastructureItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(DomainPackage.Literals.ENTERPRISE_INFRASTRUCTURE__ANY,
+				 DomainFactory.eINSTANCE.createActioinTriggers()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.ENTERPRISE_INFRASTRUCTURE__ANY,
+				 DomainFactory.eINSTANCE.createActionTrigger()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.ENTERPRISE_INFRASTRUCTURE__ANY,
 				 DomainFactory.eINSTANCE.createUielement()));
 
 		newChildDescriptors.add
@@ -811,11 +821,6 @@ public class EnterpriseInfrastructureItemProvider
 			(createChildParameter
 				(DomainPackage.Literals.ENTERPRISE_INFRASTRUCTURE__ANY,
 				 DomainFactory.eINSTANCE.createSourcesPointer()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DomainPackage.Literals.ENTERPRISE_INFRASTRUCTURE__ANY,
-				 DomainFactory.eINSTANCE.createActionTrigger()));
 
 		newChildDescriptors.add
 			(createChildParameter

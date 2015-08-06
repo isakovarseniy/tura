@@ -837,6 +837,16 @@ public class TypeDefinitionItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(DomainPackage.Literals.TYPE_DEFINITION__ANY,
+				 DomainFactory.eINSTANCE.createActioinTriggers()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.TYPE_DEFINITION__ANY,
+				 DomainFactory.eINSTANCE.createActionTrigger()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.TYPE_DEFINITION__ANY,
 				 DomainFactory.eINSTANCE.createUielement()));
 
 		newChildDescriptors.add
@@ -848,11 +858,6 @@ public class TypeDefinitionItemProvider
 			(createChildParameter
 				(DomainPackage.Literals.TYPE_DEFINITION__ANY,
 				 DomainFactory.eINSTANCE.createSourcesPointer()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DomainPackage.Literals.TYPE_DEFINITION__ANY,
-				 DomainFactory.eINSTANCE.createActionTrigger()));
 
 		newChildDescriptors.add
 			(createChildParameter

@@ -614,13 +614,18 @@
     <genClasses ecoreClass="domain.ecore#//NickNamed">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//NickNamed/nickname"/>
     </genClasses>
+    <genClasses ecoreClass="domain.ecore#//ActioinTriggers">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//ActioinTriggers/triggers"/>
+    </genClasses>
+    <genClasses ecoreClass="domain.ecore#//ActionTrigger">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//ActionTrigger/uid"/>
+    </genClasses>
     <genClasses ecoreClass="domain.ecore#//Uielement">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//Uielement/uid"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//Uielement/enabled"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//Uielement/required"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//Uielement/readOnly"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference domain.ecore#//Uielement/onEventRefreshArea"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//Uielement/triggers"/>
     </genClasses>
     <genClasses ecoreClass="domain.ecore#//Formatable">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//Formatable/format"/>
@@ -630,9 +635,6 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference domain.ecore#//SourcesPointer/valuePointer"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference domain.ecore#//SourcesPointer/sourceCast"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference domain.ecore#//SourcesPointer/sourceCastDataControl"/>
-    </genClasses>
-    <genClasses ecoreClass="domain.ecore#//ActionTrigger">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//ActionTrigger/uid"/>
     </genClasses>
     <genClasses ecoreClass="domain.ecore#//InputElement"/>
     <genClasses ecoreClass="domain.ecore#//Selection">

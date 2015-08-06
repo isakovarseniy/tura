@@ -2906,6 +2906,29 @@ public class DomainItemProviderAdapterFactory extends DomainAdapterFactory imple
 	}
 
   /**
+	 * This keeps track of the one adapter used for all {@link domain.ActioinTriggers} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ActioinTriggersItemProvider actioinTriggersItemProvider;
+
+		/**
+	 * This creates an adapter for a {@link domain.ActioinTriggers}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createActioinTriggersAdapter() {
+		if (actioinTriggersItemProvider == null) {
+			actioinTriggersItemProvider = new ActioinTriggersItemProvider(this);
+		}
+
+		return actioinTriggersItemProvider;
+	}
+
+		/**
 	 * This keeps track of the one adapter used for all {@link domain.Uielement} instances.
 	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -4427,10 +4450,11 @@ public class DomainItemProviderAdapterFactory extends DomainAdapterFactory imple
 		if (styleElementItemProvider != null) styleElementItemProvider.dispose();
 		if (styleClassItemProvider != null) styleClassItemProvider.dispose();
 		if (nickNamedItemProvider != null) nickNamedItemProvider.dispose();
+		if (actioinTriggersItemProvider != null) actioinTriggersItemProvider.dispose();
+		if (actionTriggerItemProvider != null) actionTriggerItemProvider.dispose();
 		if (uielementItemProvider != null) uielementItemProvider.dispose();
 		if (formatableItemProvider != null) formatableItemProvider.dispose();
 		if (sourcesPointerItemProvider != null) sourcesPointerItemProvider.dispose();
-		if (actionTriggerItemProvider != null) actionTriggerItemProvider.dispose();
 		if (inputElementItemProvider != null) inputElementItemProvider.dispose();
 		if (selectionItemProvider != null) selectionItemProvider.dispose();
 		if (optionSelectionItemProvider != null) optionSelectionItemProvider.dispose();

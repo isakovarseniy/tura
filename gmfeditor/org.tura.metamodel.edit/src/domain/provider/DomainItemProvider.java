@@ -807,6 +807,16 @@ public class DomainItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(DomainPackage.Literals.DOMAIN__ANY,
+				 DomainFactory.eINSTANCE.createActioinTriggers()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.DOMAIN__ANY,
+				 DomainFactory.eINSTANCE.createActionTrigger()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.DOMAIN__ANY,
 				 DomainFactory.eINSTANCE.createUielement()));
 
 		newChildDescriptors.add
@@ -818,11 +828,6 @@ public class DomainItemProvider
 			(createChildParameter
 				(DomainPackage.Literals.DOMAIN__ANY,
 				 DomainFactory.eINSTANCE.createSourcesPointer()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DomainPackage.Literals.DOMAIN__ANY,
-				 DomainFactory.eINSTANCE.createActionTrigger()));
 
 		newChildDescriptors.add
 			(createChildParameter

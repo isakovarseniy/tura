@@ -2,6 +2,7 @@
  */
 package domain.impl;
 
+import domain.ActioinTriggers;
 import domain.ActionElement;
 import domain.ActionTrigger;
 import domain.Application;
@@ -1023,6 +1024,13 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
   private EClass nickNamedEClass = null;
 
   /**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass actioinTriggersEClass = null;
+
+		/**
 	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
 	 * @generated
@@ -6352,6 +6360,24 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
 
   /**
 	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getActioinTriggers() {
+		return actioinTriggersEClass;
+	}
+
+		/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getActioinTriggers_Triggers() {
+		return (EReference)actioinTriggersEClass.getEStructuralFeatures().get(0);
+	}
+
+		/**
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -6411,15 +6437,6 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
 	}
 
   /**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getUielement_Triggers() {
-		return (EReference)uielementEClass.getEStructuralFeatures().get(5);
-	}
-
-		/**
 	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
 	 * @generated
@@ -8793,13 +8810,18 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
 		nickNamedEClass = createEClass(NICK_NAMED);
 		createEAttribute(nickNamedEClass, NICK_NAMED__NICKNAME);
 
+		actioinTriggersEClass = createEClass(ACTIOIN_TRIGGERS);
+		createEReference(actioinTriggersEClass, ACTIOIN_TRIGGERS__TRIGGERS);
+
+		actionTriggerEClass = createEClass(ACTION_TRIGGER);
+		createEAttribute(actionTriggerEClass, ACTION_TRIGGER__UID);
+
 		uielementEClass = createEClass(UIELEMENT);
 		createEAttribute(uielementEClass, UIELEMENT__UID);
 		createEReference(uielementEClass, UIELEMENT__ENABLED);
 		createEReference(uielementEClass, UIELEMENT__REQUIRED);
 		createEReference(uielementEClass, UIELEMENT__READ_ONLY);
 		createEReference(uielementEClass, UIELEMENT__ON_EVENT_REFRESH_AREA);
-		createEReference(uielementEClass, UIELEMENT__TRIGGERS);
 
 		formatableEClass = createEClass(FORMATABLE);
 		createEAttribute(formatableEClass, FORMATABLE__FORMAT);
@@ -8809,9 +8831,6 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
 		createEReference(sourcesPointerEClass, SOURCES_POINTER__VALUE_POINTER);
 		createEReference(sourcesPointerEClass, SOURCES_POINTER__SOURCE_CAST);
 		createEReference(sourcesPointerEClass, SOURCES_POINTER__SOURCE_CAST_DATA_CONTROL);
-
-		actionTriggerEClass = createEClass(ACTION_TRIGGER);
-		createEAttribute(actionTriggerEClass, ACTION_TRIGGER__UID);
 
 		inputElementEClass = createEClass(INPUT_ELEMENT);
 
@@ -9129,13 +9148,14 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
 		contextEClass.getESuperTypes().add(this.getContextValue());
 		contextEClass.getESuperTypes().add(this.getContextParameters());
 		styleClassEClass.getESuperTypes().add(this.getContextValue());
+		actionTriggerEClass.getESuperTypes().add(this.getTrigger());
+		actionTriggerEClass.getESuperTypes().add(this.getCategorized());
 		uielementEClass.getESuperTypes().add(this.getStyleElement());
 		uielementEClass.getESuperTypes().add(this.getNickNamed());
 		uielementEClass.getESuperTypes().add(this.getCategorized());
 		uielementEClass.getESuperTypes().add(this.getOrderable());
+		uielementEClass.getESuperTypes().add(this.getActioinTriggers());
 		sourcesPointerEClass.getESuperTypes().add(this.getUielement());
-		actionTriggerEClass.getESuperTypes().add(this.getTrigger());
-		actionTriggerEClass.getESuperTypes().add(this.getCategorized());
 		inputElementEClass.getESuperTypes().add(this.getSourcesPointer());
 		selectionEClass.getESuperTypes().add(this.getStyleElement());
 		optionSelectionEClass.getESuperTypes().add(this.getInputElement());
@@ -9796,13 +9816,18 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
 		initEClass(nickNamedEClass, NickNamed.class, "NickNamed", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getNickNamed_Nickname(), ecorePackage.getEString(), "nickname", null, 0, 1, NickNamed.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		initEClass(actioinTriggersEClass, ActioinTriggers.class, "ActioinTriggers", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getActioinTriggers_Triggers(), this.getActionTrigger(), null, "triggers", null, 0, -1, ActioinTriggers.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(actionTriggerEClass, ActionTrigger.class, "ActionTrigger", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getActionTrigger_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, ActionTrigger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
 		initEClass(uielementEClass, Uielement.class, "Uielement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getUielement_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, Uielement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getUielement_Enabled(), this.getContext(), null, "enabled", null, 0, 1, Uielement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getUielement_Required(), this.getContext(), null, "required", null, 0, 1, Uielement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getUielement_ReadOnly(), this.getContext(), null, "readOnly", null, 0, 1, Uielement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getUielement_OnEventRefreshArea(), this.getNickNamed(), null, "onEventRefreshArea", null, 0, -1, Uielement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getUielement_Triggers(), this.getActionTrigger(), null, "triggers", null, 0, -1, Uielement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(formatableEClass, Formatable.class, "Formatable", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getFormatable_Format(), ecorePackage.getEString(), "format", null, 0, 1, Formatable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -9812,9 +9837,6 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
 		initEReference(getSourcesPointer_ValuePointer(), ecorePackage.getEObject(), null, "valuePointer", null, 0, 1, SourcesPointer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSourcesPointer_SourceCast(), this.getType(), null, "sourceCast", null, 0, 1, SourcesPointer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSourcesPointer_SourceCastDataControl(), this.getDataControl(), null, "sourceCastDataControl", null, 0, 1, SourcesPointer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(actionTriggerEClass, ActionTrigger.class, "ActionTrigger", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getActionTrigger_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, ActionTrigger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(inputElementEClass, InputElement.class, "InputElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

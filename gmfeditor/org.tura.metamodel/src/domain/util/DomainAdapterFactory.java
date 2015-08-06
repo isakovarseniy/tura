@@ -2,6 +2,7 @@
  */
 package domain.util;
 
+import domain.ActioinTriggers;
 import domain.ActionElement;
 import domain.ActionTrigger;
 import domain.Application;
@@ -708,6 +709,14 @@ public class DomainAdapterFactory extends AdapterFactoryImpl {
 				return createNickNamedAdapter();
 			}
 			@Override
+			public Adapter caseActioinTriggers(ActioinTriggers object) {
+				return createActioinTriggersAdapter();
+			}
+			@Override
+			public Adapter caseActionTrigger(ActionTrigger object) {
+				return createActionTriggerAdapter();
+			}
+			@Override
 			public Adapter caseUielement(Uielement object) {
 				return createUielementAdapter();
 			}
@@ -718,10 +727,6 @@ public class DomainAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseSourcesPointer(SourcesPointer object) {
 				return createSourcesPointerAdapter();
-			}
-			@Override
-			public Adapter caseActionTrigger(ActionTrigger object) {
-				return createActionTriggerAdapter();
 			}
 			@Override
 			public Adapter caseInputElement(InputElement object) {
@@ -2676,6 +2681,20 @@ public class DomainAdapterFactory extends AdapterFactoryImpl {
 	}
 
   /**
+	 * Creates a new adapter for an object of class '{@link domain.ActioinTriggers <em>Actioin Triggers</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see domain.ActioinTriggers
+	 * @generated
+	 */
+	public Adapter createActioinTriggersAdapter() {
+		return null;
+	}
+
+		/**
 	 * Creates a new adapter for an object of class '{@link domain.Uielement
 	 * <em>Uielement</em>}'. <!-- begin-user-doc --> This default implementation
 	 * returns null so that we can easily ignore cases; it's useful to ignore a

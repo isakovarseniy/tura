@@ -817,6 +817,16 @@ public class UIPackageItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(DomainPackage.Literals.UI_PACKAGE__ANY,
+				 DomainFactory.eINSTANCE.createActioinTriggers()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.UI_PACKAGE__ANY,
+				 DomainFactory.eINSTANCE.createActionTrigger()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.UI_PACKAGE__ANY,
 				 DomainFactory.eINSTANCE.createUielement()));
 
 		newChildDescriptors.add
@@ -828,11 +838,6 @@ public class UIPackageItemProvider
 			(createChildParameter
 				(DomainPackage.Literals.UI_PACKAGE__ANY,
 				 DomainFactory.eINSTANCE.createSourcesPointer()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DomainPackage.Literals.UI_PACKAGE__ANY,
-				 DomainFactory.eINSTANCE.createActionTrigger()));
 
 		newChildDescriptors.add
 			(createChildParameter

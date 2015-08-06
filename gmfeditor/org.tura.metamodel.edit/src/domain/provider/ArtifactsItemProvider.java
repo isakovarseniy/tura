@@ -817,6 +817,16 @@ public class ArtifactsItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(DomainPackage.Literals.ARTIFACTS__ANY,
+				 DomainFactory.eINSTANCE.createActioinTriggers()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.ARTIFACTS__ANY,
+				 DomainFactory.eINSTANCE.createActionTrigger()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.ARTIFACTS__ANY,
 				 DomainFactory.eINSTANCE.createUielement()));
 
 		newChildDescriptors.add
@@ -828,11 +838,6 @@ public class ArtifactsItemProvider
 			(createChildParameter
 				(DomainPackage.Literals.ARTIFACTS__ANY,
 				 DomainFactory.eINSTANCE.createSourcesPointer()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DomainPackage.Literals.ARTIFACTS__ANY,
-				 DomainFactory.eINSTANCE.createActionTrigger()));
 
 		newChildDescriptors.add
 			(createChildParameter
