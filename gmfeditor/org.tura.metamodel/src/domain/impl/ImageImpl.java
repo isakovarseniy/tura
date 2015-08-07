@@ -14,26 +14,23 @@ import org.eclipse.emf.ecore.EClass;
  *
  * @generated
  */
-public class ImageImpl extends InputElementImpl implements Image
-{
-  /**
+public class ImageImpl extends InputElementImpl implements Image {
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  protected ImageImpl()
-  {
+	protected ImageImpl() {
 		super();
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  protected EClass eStaticClass()
-  {
+	@Override
+	protected EClass eStaticClass() {
 		return DomainPackage.Literals.IMAGE;
 	}
 

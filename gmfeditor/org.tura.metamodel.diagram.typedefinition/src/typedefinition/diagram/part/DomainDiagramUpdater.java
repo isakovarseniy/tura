@@ -1,6 +1,6 @@
 /*
- * 
- */
+* 
+*/
 package typedefinition.diagram.part;
 
 import java.util.Collection;
@@ -16,6 +16,17 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.gmf.tooling.runtime.update.DiagramUpdater;
 
+import domain.Attribute;
+import domain.DomainPackage;
+import domain.EnumAttribute;
+import domain.Enumarator;
+import domain.Operation;
+import domain.Primitive;
+import domain.Type;
+import domain.TypeDefinition;
+import domain.TypeElement;
+import domain.TypeExtension;
+import domain.TypeReference;
 import typedefinition.diagram.edit.parts.AttributeEditPart;
 import typedefinition.diagram.edit.parts.EnumAttributeEditPart;
 import typedefinition.diagram.edit.parts.EnumaratorEditPart;
@@ -29,17 +40,6 @@ import typedefinition.diagram.edit.parts.TypeReferenceEditPart;
 import typedefinition.diagram.edit.parts.TypeTypeAttributesCompartmentEditPart;
 import typedefinition.diagram.edit.parts.TypeTypeOperationsCompartmentEditPart;
 import typedefinition.diagram.providers.DomainElementTypes;
-import domain.Attribute;
-import domain.DomainPackage;
-import domain.EnumAttribute;
-import domain.Enumarator;
-import domain.Operation;
-import domain.Primitive;
-import domain.Type;
-import domain.TypeDefinition;
-import domain.TypeElement;
-import domain.TypeExtension;
-import domain.TypeReference;
 
 /**
  * @generated
@@ -47,15 +47,15 @@ import domain.TypeReference;
 public class DomainDiagramUpdater {
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static boolean isShortcutOrphaned(View view) {
 		return !view.isSetElement() || view.getElement() == null || view.getElement().eIsProxy();
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static List<DomainNodeDescriptor> getSemanticChildren(View view) {
 		switch (DomainVisualIDRegistry.getVisualID(view)) {
 		case TypeDefinitionEditPart.VISUAL_ID:
@@ -71,8 +71,8 @@ public class DomainDiagramUpdater {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static List<DomainNodeDescriptor> getTypeDefinition_101000SemanticChildren(View view) {
 		if (!view.isSetElement()) {
 			return Collections.emptyList();
@@ -103,8 +103,8 @@ public class DomainDiagramUpdater {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static List<DomainNodeDescriptor> getTypeTypeAttributesCompartment_107001SemanticChildren(View view) {
 		if (false == view.eContainer() instanceof View) {
 			return Collections.emptyList();
@@ -127,8 +127,8 @@ public class DomainDiagramUpdater {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static List<DomainNodeDescriptor> getTypeTypeOperationsCompartment_107002SemanticChildren(View view) {
 		if (false == view.eContainer() instanceof View) {
 			return Collections.emptyList();
@@ -151,8 +151,8 @@ public class DomainDiagramUpdater {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static List<DomainNodeDescriptor> getEnumaratorEnumaratorValuesCompartment_107006SemanticChildren(
 			View view) {
 		if (false == view.eContainer() instanceof View) {
@@ -176,8 +176,8 @@ public class DomainDiagramUpdater {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static List<DomainLinkDescriptor> getContainedLinks(View view) {
 		switch (DomainVisualIDRegistry.getVisualID(view)) {
 		case TypeDefinitionEditPart.VISUAL_ID:
@@ -203,8 +203,8 @@ public class DomainDiagramUpdater {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static List<DomainLinkDescriptor> getIncomingLinks(View view) {
 		switch (DomainVisualIDRegistry.getVisualID(view)) {
 		case TypeEditPart.VISUAL_ID:
@@ -228,8 +228,8 @@ public class DomainDiagramUpdater {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static List<DomainLinkDescriptor> getOutgoingLinks(View view) {
 		switch (DomainVisualIDRegistry.getVisualID(view)) {
 		case TypeEditPart.VISUAL_ID:
@@ -262,6 +262,16 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
+	public static List<DomainLinkDescriptor> getType_102002ContainedLinks(View view) {
+		Type modelElement = (Type) view.getElement();
+		LinkedList<DomainLinkDescriptor> result = new LinkedList<DomainLinkDescriptor>();
+		result.addAll(getContainedTypeModelFacetLinks_TypeExtension_104001(modelElement));
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
 	public static List<DomainLinkDescriptor> getTypeReference_102001ContainedLinks(View view) {
 		return Collections.emptyList();
 	}
@@ -271,16 +281,6 @@ public class DomainDiagramUpdater {
 	 */
 	public static List<DomainLinkDescriptor> getPrimitive_102004ContainedLinks(View view) {
 		return Collections.emptyList();
-	}
-
-	/**
-	 * @generated
-	 */
-	public static List<DomainLinkDescriptor> getType_102002ContainedLinks(View view) {
-		Type modelElement = (Type) view.getElement();
-		LinkedList<DomainLinkDescriptor> result = new LinkedList<DomainLinkDescriptor>();
-		result.addAll(getContainedTypeModelFacetLinks_TypeExtension_104001(modelElement));
-		return result;
 	}
 
 	/**
@@ -321,6 +321,18 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
+	public static List<DomainLinkDescriptor> getType_102002IncomingLinks(View view) {
+		Type modelElement = (Type) view.getElement();
+		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+				.find(view.eResource().getResourceSet().getResources());
+		LinkedList<DomainLinkDescriptor> result = new LinkedList<DomainLinkDescriptor>();
+		result.addAll(getIncomingTypeModelFacetLinks_TypeExtension_104001(modelElement, crossReferences));
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
 	public static List<DomainLinkDescriptor> getTypeReference_102001IncomingLinks(View view) {
 		TypeReference modelElement = (TypeReference) view.getElement();
 		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
@@ -335,18 +347,6 @@ public class DomainDiagramUpdater {
 	 */
 	public static List<DomainLinkDescriptor> getPrimitive_102004IncomingLinks(View view) {
 		Primitive modelElement = (Primitive) view.getElement();
-		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
-				.find(view.eResource().getResourceSet().getResources());
-		LinkedList<DomainLinkDescriptor> result = new LinkedList<DomainLinkDescriptor>();
-		result.addAll(getIncomingTypeModelFacetLinks_TypeExtension_104001(modelElement, crossReferences));
-		return result;
-	}
-
-	/**
-	 * @generated
-	 */
-	public static List<DomainLinkDescriptor> getType_102002IncomingLinks(View view) {
-		Type modelElement = (Type) view.getElement();
 		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
 				.find(view.eResource().getResourceSet().getResources());
 		LinkedList<DomainLinkDescriptor> result = new LinkedList<DomainLinkDescriptor>();
@@ -397,6 +397,16 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
+	public static List<DomainLinkDescriptor> getType_102002OutgoingLinks(View view) {
+		Type modelElement = (Type) view.getElement();
+		LinkedList<DomainLinkDescriptor> result = new LinkedList<DomainLinkDescriptor>();
+		result.addAll(getOutgoingTypeModelFacetLinks_TypeExtension_104001(modelElement));
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
 	public static List<DomainLinkDescriptor> getTypeReference_102001OutgoingLinks(View view) {
 		TypeReference modelElement = (TypeReference) view.getElement();
 		LinkedList<DomainLinkDescriptor> result = new LinkedList<DomainLinkDescriptor>();
@@ -409,16 +419,6 @@ public class DomainDiagramUpdater {
 	 */
 	public static List<DomainLinkDescriptor> getPrimitive_102004OutgoingLinks(View view) {
 		Primitive modelElement = (Primitive) view.getElement();
-		LinkedList<DomainLinkDescriptor> result = new LinkedList<DomainLinkDescriptor>();
-		result.addAll(getOutgoingTypeModelFacetLinks_TypeExtension_104001(modelElement));
-		return result;
-	}
-
-	/**
-	 * @generated
-	 */
-	public static List<DomainLinkDescriptor> getType_102002OutgoingLinks(View view) {
-		Type modelElement = (Type) view.getElement();
 		LinkedList<DomainLinkDescriptor> result = new LinkedList<DomainLinkDescriptor>();
 		result.addAll(getOutgoingTypeModelFacetLinks_TypeExtension_104001(modelElement));
 		return result;
@@ -463,8 +463,8 @@ public class DomainDiagramUpdater {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private static Collection<DomainLinkDescriptor> getContainedTypeModelFacetLinks_TypeExtension_104001(
 			Type container) {
 		LinkedList<DomainLinkDescriptor> result = new LinkedList<DomainLinkDescriptor>();
@@ -509,8 +509,8 @@ public class DomainDiagramUpdater {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private static Collection<DomainLinkDescriptor> getOutgoingTypeModelFacetLinks_TypeExtension_104001(
 			TypeElement source) {
 		Type container = null;
@@ -547,8 +547,8 @@ public class DomainDiagramUpdater {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static final DiagramUpdater TYPED_INSTANCE = new DiagramUpdater() {
 		/**
 		* @generated

@@ -2,17 +2,6 @@
  */
 package domain.impl;
 
-import java.util.Collection;
-
-import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
-import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.InternalEList;
-
 import domain.Categorized;
 import domain.Classifier;
 import domain.Context;
@@ -20,6 +9,21 @@ import domain.DefaultCavas;
 import domain.DomainPackage;
 import domain.MultiLangLabel;
 import domain.TabCanvas;
+
+import java.util.Collection;
+
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
+
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
+
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -36,109 +40,102 @@ import domain.TabCanvas;
  *
  * @generated
  */
-public class TabCanvasImpl extends CanvasFrameImpl implements TabCanvas
-{
-  /**
+public class TabCanvasImpl extends CanvasFrameImpl implements TabCanvas {
+	/**
 	 * The default value of the '{@link #isDefaultCanvas() <em>Default Canvas</em>}' attribute.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #isDefaultCanvas()
 	 * @generated
 	 * @ordered
 	 */
-  protected static final boolean DEFAULT_CANVAS_EDEFAULT = false;
+	protected static final boolean DEFAULT_CANVAS_EDEFAULT = false;
 
-  /**
+	/**
 	 * The cached value of the '{@link #isDefaultCanvas() <em>Default Canvas</em>}' attribute.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #isDefaultCanvas()
 	 * @generated
 	 * @ordered
 	 */
-  protected boolean defaultCanvas = DEFAULT_CANVAS_EDEFAULT;
+	protected boolean defaultCanvas = DEFAULT_CANVAS_EDEFAULT;
 
-  /**
+	/**
 	 * The cached value of the '{@link #getMultiLangLabel() <em>Multi Lang Label</em>}' containment reference.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getMultiLangLabel()
 	 * @generated
 	 * @ordered
 	 */
-  protected Context multiLangLabel;
+	protected Context multiLangLabel;
 
-  /**
+	/**
 	 * The cached value of the '{@link #getClassifiers() <em>Classifiers</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getClassifiers()
 	 * @generated
 	 * @ordered
 	 */
-  protected EList<Classifier> classifiers;
+	protected EList<Classifier> classifiers;
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  protected TabCanvasImpl()
-  {
+	protected TabCanvasImpl() {
 		super();
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  protected EClass eStaticClass()
-  {
+	@Override
+	protected EClass eStaticClass() {
 		return DomainPackage.Literals.TAB_CANVAS;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public boolean isDefaultCanvas()
-  {
+	public boolean isDefaultCanvas() {
 		return defaultCanvas;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public void setDefaultCanvas(boolean newDefaultCanvas)
-  {
+	public void setDefaultCanvas(boolean newDefaultCanvas) {
 		boolean oldDefaultCanvas = defaultCanvas;
 		defaultCanvas = newDefaultCanvas;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.TAB_CANVAS__DEFAULT_CANVAS, oldDefaultCanvas, defaultCanvas));
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public Context getMultiLangLabel()
-  {
+	public Context getMultiLangLabel() {
 		return multiLangLabel;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public NotificationChain basicSetMultiLangLabel(Context newMultiLangLabel, NotificationChain msgs)
-  {
+	public NotificationChain basicSetMultiLangLabel(Context newMultiLangLabel, NotificationChain msgs) {
 		Context oldMultiLangLabel = multiLangLabel;
 		multiLangLabel = newMultiLangLabel;
 		if (eNotificationRequired()) {
@@ -148,13 +145,12 @@ public class TabCanvasImpl extends CanvasFrameImpl implements TabCanvas
 		return msgs;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public void setMultiLangLabel(Context newMultiLangLabel)
-  {
+	public void setMultiLangLabel(Context newMultiLangLabel) {
 		if (newMultiLangLabel != multiLangLabel) {
 			NotificationChain msgs = null;
 			if (multiLangLabel != null)
@@ -168,27 +164,25 @@ public class TabCanvasImpl extends CanvasFrameImpl implements TabCanvas
 			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.TAB_CANVAS__MULTI_LANG_LABEL, newMultiLangLabel, newMultiLangLabel));
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public EList<Classifier> getClassifiers()
-  {
+	public EList<Classifier> getClassifiers() {
 		if (classifiers == null) {
 			classifiers = new EObjectContainmentEList<Classifier>(Classifier.class, this, DomainPackage.TAB_CANVAS__CLASSIFIERS);
 		}
 		return classifiers;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-  {
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case DomainPackage.TAB_CANVAS__MULTI_LANG_LABEL:
 				return basicSetMultiLangLabel(null, msgs);
@@ -198,14 +192,13 @@ public class TabCanvasImpl extends CanvasFrameImpl implements TabCanvas
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public Object eGet(int featureID, boolean resolve, boolean coreType)
-  {
+	@Override
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case DomainPackage.TAB_CANVAS__DEFAULT_CANVAS:
 				return isDefaultCanvas();
@@ -217,15 +210,14 @@ public class TabCanvasImpl extends CanvasFrameImpl implements TabCanvas
 		return super.eGet(featureID, resolve, coreType);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @SuppressWarnings("unchecked")
-  @Override
-  public void eSet(int featureID, Object newValue)
-  {
+	@SuppressWarnings("unchecked")
+	@Override
+	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case DomainPackage.TAB_CANVAS__DEFAULT_CANVAS:
 				setDefaultCanvas((Boolean)newValue);
@@ -241,14 +233,13 @@ public class TabCanvasImpl extends CanvasFrameImpl implements TabCanvas
 		super.eSet(featureID, newValue);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public void eUnset(int featureID)
-  {
+	@Override
+	public void eUnset(int featureID) {
 		switch (featureID) {
 			case DomainPackage.TAB_CANVAS__DEFAULT_CANVAS:
 				setDefaultCanvas(DEFAULT_CANVAS_EDEFAULT);
@@ -263,14 +254,13 @@ public class TabCanvasImpl extends CanvasFrameImpl implements TabCanvas
 		super.eUnset(featureID);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public boolean eIsSet(int featureID)
-  {
+	@Override
+	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case DomainPackage.TAB_CANVAS__DEFAULT_CANVAS:
 				return defaultCanvas != DEFAULT_CANVAS_EDEFAULT;
@@ -282,14 +272,13 @@ public class TabCanvasImpl extends CanvasFrameImpl implements TabCanvas
 		return super.eIsSet(featureID);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass)
-  {
+	@Override
+	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
 		if (baseClass == DefaultCavas.class) {
 			switch (derivedFeatureID) {
 				case DomainPackage.TAB_CANVAS__DEFAULT_CANVAS: return DomainPackage.DEFAULT_CAVAS__DEFAULT_CANVAS;
@@ -311,14 +300,13 @@ public class TabCanvasImpl extends CanvasFrameImpl implements TabCanvas
 		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass)
-  {
+	@Override
+	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
 		if (baseClass == DefaultCavas.class) {
 			switch (baseFeatureID) {
 				case DomainPackage.DEFAULT_CAVAS__DEFAULT_CANVAS: return DomainPackage.TAB_CANVAS__DEFAULT_CANVAS;
@@ -340,14 +328,13 @@ public class TabCanvasImpl extends CanvasFrameImpl implements TabCanvas
 		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public String toString()
-  {
+	@Override
+	public String toString() {
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());

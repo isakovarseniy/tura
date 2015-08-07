@@ -1,11 +1,11 @@
 /*
- * 
- */
+* 
+*/
 package mapper.diagram.navigator;
 
-import mapper.diagram.part.DomainVisualIDRegistry;
-
 import org.eclipse.jface.viewers.ViewerSorter;
+
+import mapper.diagram.part.DomainVisualIDRegistry;
 
 /**
  * @generated
@@ -13,18 +13,18 @@ import org.eclipse.jface.viewers.ViewerSorter;
 public class DomainNavigatorSorter extends ViewerSorter {
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private static final int GROUP_CATEGORY = 402007;
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private static final int SHORTCUTS_CATEGORY = 402006;
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public int category(Object element) {
 		if (element instanceof DomainNavigatorItem) {
 			DomainNavigatorItem item = (DomainNavigatorItem) element;

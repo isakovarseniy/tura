@@ -30,99 +30,93 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  *
  * @generated
  */
-public class ArtifactRefImpl extends EObjectImpl implements ArtifactRef
-{
-  /**
+public class ArtifactRefImpl extends EObjectImpl implements ArtifactRef {
+	/**
 	 * The default value of the '{@link #getUid() <em>Uid</em>}' attribute.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getUid()
 	 * @generated
 	 * @ordered
 	 */
-  protected static final String UID_EDEFAULT = null;
+	protected static final String UID_EDEFAULT = null;
 
-  /**
+	/**
 	 * The cached value of the '{@link #getUid() <em>Uid</em>}' attribute.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getUid()
 	 * @generated
 	 * @ordered
 	 */
-  protected String uid = UID_EDEFAULT;
+	protected String uid = UID_EDEFAULT;
 
-  /**
+	/**
 	 * The cached value of the '{@link #getDomainArtifactRef() <em>Domain Artifact Ref</em>}' reference.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getDomainArtifactRef()
 	 * @generated
 	 * @ordered
 	 */
-  protected DomainArtifact domainArtifactRef;
+	protected DomainArtifact domainArtifactRef;
 
-  /**
+	/**
 	 * The cached value of the '{@link #getArtifactRef() <em>Artifact Ref</em>}' reference.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getArtifactRef()
 	 * @generated
 	 * @ordered
 	 */
-  protected Artifact artifactRef;
+	protected Artifact artifactRef;
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  protected ArtifactRefImpl()
-  {
+	protected ArtifactRefImpl() {
 		super();
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  protected EClass eStaticClass()
-  {
+	@Override
+	protected EClass eStaticClass() {
 		return DomainPackage.Literals.ARTIFACT_REF;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public String getUid()
-  {
+	public String getUid() {
 		return uid;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public void setUid(String newUid)
-  {
+	public void setUid(String newUid) {
 		String oldUid = uid;
 		uid = newUid;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.ARTIFACT_REF__UID, oldUid, uid));
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public DomainArtifact getDomainArtifactRef()
-  {
+	public DomainArtifact getDomainArtifactRef() {
 		if (domainArtifactRef != null && domainArtifactRef.eIsProxy()) {
 			InternalEObject oldDomainArtifactRef = (InternalEObject)domainArtifactRef;
 			domainArtifactRef = (DomainArtifact)eResolveProxy(oldDomainArtifactRef);
@@ -134,36 +128,33 @@ public class ArtifactRefImpl extends EObjectImpl implements ArtifactRef
 		return domainArtifactRef;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public DomainArtifact basicGetDomainArtifactRef()
-  {
+	public DomainArtifact basicGetDomainArtifactRef() {
 		return domainArtifactRef;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public void setDomainArtifactRef(DomainArtifact newDomainArtifactRef)
-  {
+	public void setDomainArtifactRef(DomainArtifact newDomainArtifactRef) {
 		DomainArtifact oldDomainArtifactRef = domainArtifactRef;
 		domainArtifactRef = newDomainArtifactRef;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.ARTIFACT_REF__DOMAIN_ARTIFACT_REF, oldDomainArtifactRef, domainArtifactRef));
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public Artifact getArtifactRef()
-  {
+	public Artifact getArtifactRef() {
 		if (artifactRef != null && artifactRef.eIsProxy()) {
 			InternalEObject oldArtifactRef = (InternalEObject)artifactRef;
 			artifactRef = (Artifact)eResolveProxy(oldArtifactRef);
@@ -175,37 +166,34 @@ public class ArtifactRefImpl extends EObjectImpl implements ArtifactRef
 		return artifactRef;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public Artifact basicGetArtifactRef()
-  {
+	public Artifact basicGetArtifactRef() {
 		return artifactRef;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public void setArtifactRef(Artifact newArtifactRef)
-  {
+	public void setArtifactRef(Artifact newArtifactRef) {
 		Artifact oldArtifactRef = artifactRef;
 		artifactRef = newArtifactRef;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.ARTIFACT_REF__ARTIFACT_REF, oldArtifactRef, artifactRef));
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public Object eGet(int featureID, boolean resolve, boolean coreType)
-  {
+	@Override
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case DomainPackage.ARTIFACT_REF__UID:
 				return getUid();
@@ -219,14 +207,13 @@ public class ArtifactRefImpl extends EObjectImpl implements ArtifactRef
 		return super.eGet(featureID, resolve, coreType);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public void eSet(int featureID, Object newValue)
-  {
+	@Override
+	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case DomainPackage.ARTIFACT_REF__UID:
 				setUid((String)newValue);
@@ -241,14 +228,13 @@ public class ArtifactRefImpl extends EObjectImpl implements ArtifactRef
 		super.eSet(featureID, newValue);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public void eUnset(int featureID)
-  {
+	@Override
+	public void eUnset(int featureID) {
 		switch (featureID) {
 			case DomainPackage.ARTIFACT_REF__UID:
 				setUid(UID_EDEFAULT);
@@ -263,14 +249,13 @@ public class ArtifactRefImpl extends EObjectImpl implements ArtifactRef
 		super.eUnset(featureID);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public boolean eIsSet(int featureID)
-  {
+	@Override
+	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case DomainPackage.ARTIFACT_REF__UID:
 				return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
@@ -282,14 +267,13 @@ public class ArtifactRefImpl extends EObjectImpl implements ArtifactRef
 		return super.eIsSet(featureID);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public String toString()
-  {
+	@Override
+	public String toString() {
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());

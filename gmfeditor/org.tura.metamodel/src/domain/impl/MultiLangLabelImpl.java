@@ -28,56 +28,51 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  *
  * @generated
  */
-public class MultiLangLabelImpl extends EObjectImpl implements MultiLangLabel
-{
-  /**
+public class MultiLangLabelImpl extends EObjectImpl implements MultiLangLabel {
+	/**
 	 * The cached value of the '{@link #getMultiLangLabel() <em>Multi Lang Label</em>}' containment reference.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getMultiLangLabel()
 	 * @generated
 	 * @ordered
 	 */
-  protected Context multiLangLabel;
+	protected Context multiLangLabel;
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  protected MultiLangLabelImpl()
-  {
+	protected MultiLangLabelImpl() {
 		super();
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  protected EClass eStaticClass()
-  {
+	@Override
+	protected EClass eStaticClass() {
 		return DomainPackage.Literals.MULTI_LANG_LABEL;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public Context getMultiLangLabel()
-  {
+	public Context getMultiLangLabel() {
 		return multiLangLabel;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public NotificationChain basicSetMultiLangLabel(Context newMultiLangLabel, NotificationChain msgs)
-  {
+	public NotificationChain basicSetMultiLangLabel(Context newMultiLangLabel, NotificationChain msgs) {
 		Context oldMultiLangLabel = multiLangLabel;
 		multiLangLabel = newMultiLangLabel;
 		if (eNotificationRequired()) {
@@ -87,13 +82,12 @@ public class MultiLangLabelImpl extends EObjectImpl implements MultiLangLabel
 		return msgs;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public void setMultiLangLabel(Context newMultiLangLabel)
-  {
+	public void setMultiLangLabel(Context newMultiLangLabel) {
 		if (newMultiLangLabel != multiLangLabel) {
 			NotificationChain msgs = null;
 			if (multiLangLabel != null)
@@ -107,14 +101,13 @@ public class MultiLangLabelImpl extends EObjectImpl implements MultiLangLabel
 			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.MULTI_LANG_LABEL__MULTI_LANG_LABEL, newMultiLangLabel, newMultiLangLabel));
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-  {
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case DomainPackage.MULTI_LANG_LABEL__MULTI_LANG_LABEL:
 				return basicSetMultiLangLabel(null, msgs);
@@ -122,14 +115,13 @@ public class MultiLangLabelImpl extends EObjectImpl implements MultiLangLabel
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public Object eGet(int featureID, boolean resolve, boolean coreType)
-  {
+	@Override
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case DomainPackage.MULTI_LANG_LABEL__MULTI_LANG_LABEL:
 				return getMultiLangLabel();
@@ -137,14 +129,13 @@ public class MultiLangLabelImpl extends EObjectImpl implements MultiLangLabel
 		return super.eGet(featureID, resolve, coreType);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public void eSet(int featureID, Object newValue)
-  {
+	@Override
+	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case DomainPackage.MULTI_LANG_LABEL__MULTI_LANG_LABEL:
 				setMultiLangLabel((Context)newValue);
@@ -153,14 +144,13 @@ public class MultiLangLabelImpl extends EObjectImpl implements MultiLangLabel
 		super.eSet(featureID, newValue);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public void eUnset(int featureID)
-  {
+	@Override
+	public void eUnset(int featureID) {
 		switch (featureID) {
 			case DomainPackage.MULTI_LANG_LABEL__MULTI_LANG_LABEL:
 				setMultiLangLabel((Context)null);
@@ -169,14 +159,13 @@ public class MultiLangLabelImpl extends EObjectImpl implements MultiLangLabel
 		super.eUnset(featureID);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public boolean eIsSet(int featureID)
-  {
+	@Override
+	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case DomainPackage.MULTI_LANG_LABEL__MULTI_LANG_LABEL:
 				return multiLangLabel != null;

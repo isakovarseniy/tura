@@ -3,8 +3,6 @@
  */
 package infarastructure.diagram.edit.commands;
 
-import infarastructure.diagram.edit.policies.DomainBaseItemSemanticEditPolicy;
-
 import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.core.runtime.IProgressMonitor;
@@ -16,6 +14,7 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.ReorientRelationshipReques
 import domain.EnterpriseInfrastructure;
 import domain.InfrastructureComponent;
 import domain.InfrastructureConnection;
+import infarastructure.diagram.edit.policies.DomainBaseItemSemanticEditPolicy;
 
 /**
  * @generated
@@ -23,23 +22,23 @@ import domain.InfrastructureConnection;
 public class InfrastructureConnectionReorientCommand extends EditElementCommand {
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private final int reorientDirection;
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private final EObject oldEnd;
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private final EObject newEnd;
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public InfrastructureConnectionReorientCommand(ReorientRelationshipRequest request) {
 		super(request.getLabel(), request.getRelationship(), request);
 		reorientDirection = request.getDirection();
@@ -48,8 +47,8 @@ public class InfrastructureConnectionReorientCommand extends EditElementCommand 
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public boolean canExecute() {
 		if (false == getElementToEdit() instanceof InfrastructureConnection) {
 			return false;
@@ -64,8 +63,8 @@ public class InfrastructureConnectionReorientCommand extends EditElementCommand 
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected boolean canReorientSource() {
 		if (!(oldEnd instanceof InfrastructureComponent && newEnd instanceof InfrastructureComponent)) {
 			return false;
@@ -80,8 +79,8 @@ public class InfrastructureConnectionReorientCommand extends EditElementCommand 
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected boolean canReorientTarget() {
 		if (!(oldEnd instanceof InfrastructureComponent && newEnd instanceof InfrastructureComponent)) {
 			return false;
@@ -96,8 +95,8 @@ public class InfrastructureConnectionReorientCommand extends EditElementCommand 
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected CommandResult doExecuteWithResult(IProgressMonitor monitor, IAdaptable info) throws ExecutionException {
 		if (!canExecute()) {
 			throw new ExecutionException("Invalid arguments in reorient link command"); //$NON-NLS-1$
@@ -112,52 +111,52 @@ public class InfrastructureConnectionReorientCommand extends EditElementCommand 
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected CommandResult reorientSource() throws ExecutionException {
 		getLink().setMaster(getNewSource());
 		return CommandResult.newOKCommandResult(getLink());
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected CommandResult reorientTarget() throws ExecutionException {
 		getLink().setDetail(getNewTarget());
 		return CommandResult.newOKCommandResult(getLink());
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected InfrastructureConnection getLink() {
 		return (InfrastructureConnection) getElementToEdit();
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected InfrastructureComponent getOldSource() {
 		return (InfrastructureComponent) oldEnd;
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected InfrastructureComponent getNewSource() {
 		return (InfrastructureComponent) newEnd;
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected InfrastructureComponent getOldTarget() {
 		return (InfrastructureComponent) oldEnd;
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected InfrastructureComponent getNewTarget() {
 		return (InfrastructureComponent) newEnd;
 	}

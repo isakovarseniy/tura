@@ -34,154 +34,144 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  *
  * @generated
  */
-public class DomainArtifactImpl extends EObjectImpl implements DomainArtifact
-{
-  /**
+public class DomainArtifactImpl extends EObjectImpl implements DomainArtifact {
+	/**
 	 * The default value of the '{@link #getUid() <em>Uid</em>}' attribute.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getUid()
 	 * @generated
 	 * @ordered
 	 */
-  protected static final String UID_EDEFAULT = null;
+	protected static final String UID_EDEFAULT = null;
 
-  /**
+	/**
 	 * The cached value of the '{@link #getUid() <em>Uid</em>}' attribute.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getUid()
 	 * @generated
 	 * @ordered
 	 */
-  protected String uid = UID_EDEFAULT;
+	protected String uid = UID_EDEFAULT;
 
-  /**
+	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getName()
 	 * @generated
 	 * @ordered
 	 */
-  protected static final String NAME_EDEFAULT = null;
+	protected static final String NAME_EDEFAULT = null;
 
-  /**
+	/**
 	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getName()
 	 * @generated
 	 * @ordered
 	 */
-  protected String name = NAME_EDEFAULT;
+	protected String name = NAME_EDEFAULT;
 
-  /**
+	/**
 	 * The cached value of the '{@link #getArtifact() <em>Artifact</em>}' reference.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getArtifact()
 	 * @generated
 	 * @ordered
 	 */
-  protected Artifacts artifact;
+	protected Artifacts artifact;
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  protected DomainArtifactImpl()
-  {
+	protected DomainArtifactImpl() {
 		super();
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  protected EClass eStaticClass()
-  {
+	@Override
+	protected EClass eStaticClass() {
 		return DomainPackage.Literals.DOMAIN_ARTIFACT;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public String getUid()
-  {
+	public String getUid() {
 		return uid;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public void setUid(String newUid)
-  {
+	public void setUid(String newUid) {
 		String oldUid = uid;
 		uid = newUid;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.DOMAIN_ARTIFACT__UID, oldUid, uid));
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public String getName()
-  {
+	public String getName() {
 		return name;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public void setName(String newName)
-  {
+	public void setName(String newName) {
 		String oldName = name;
 		name = newName;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.DOMAIN_ARTIFACT__NAME, oldName, name));
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public DomainArtifacts getParent()
-  {
+	public DomainArtifacts getParent() {
 		if (eContainerFeatureID() != DomainPackage.DOMAIN_ARTIFACT__PARENT) return null;
 		return (DomainArtifacts)eInternalContainer();
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public NotificationChain basicSetParent(DomainArtifacts newParent, NotificationChain msgs)
-  {
+	public NotificationChain basicSetParent(DomainArtifacts newParent, NotificationChain msgs) {
 		msgs = eBasicSetContainer((InternalEObject)newParent, DomainPackage.DOMAIN_ARTIFACT__PARENT, msgs);
 		return msgs;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public void setParent(DomainArtifacts newParent)
-  {
+	public void setParent(DomainArtifacts newParent) {
 		if (newParent != eInternalContainer() || (eContainerFeatureID() != DomainPackage.DOMAIN_ARTIFACT__PARENT && newParent != null)) {
 			if (EcoreUtil.isAncestor(this, newParent))
 				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
@@ -197,13 +187,12 @@ public class DomainArtifactImpl extends EObjectImpl implements DomainArtifact
 			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.DOMAIN_ARTIFACT__PARENT, newParent, newParent));
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public Artifacts getArtifact()
-  {
+	public Artifacts getArtifact() {
 		if (artifact != null && artifact.eIsProxy()) {
 			InternalEObject oldArtifact = (InternalEObject)artifact;
 			artifact = (Artifacts)eResolveProxy(oldArtifact);
@@ -215,23 +204,21 @@ public class DomainArtifactImpl extends EObjectImpl implements DomainArtifact
 		return artifact;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public Artifacts basicGetArtifact()
-  {
+	public Artifacts basicGetArtifact() {
 		return artifact;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public NotificationChain basicSetArtifact(Artifacts newArtifact, NotificationChain msgs)
-  {
+	public NotificationChain basicSetArtifact(Artifacts newArtifact, NotificationChain msgs) {
 		Artifacts oldArtifact = artifact;
 		artifact = newArtifact;
 		if (eNotificationRequired()) {
@@ -241,13 +228,12 @@ public class DomainArtifactImpl extends EObjectImpl implements DomainArtifact
 		return msgs;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public void setArtifact(Artifacts newArtifact)
-  {
+	public void setArtifact(Artifacts newArtifact) {
 		if (newArtifact != artifact) {
 			NotificationChain msgs = null;
 			if (artifact != null)
@@ -261,14 +247,13 @@ public class DomainArtifactImpl extends EObjectImpl implements DomainArtifact
 			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.DOMAIN_ARTIFACT__ARTIFACT, newArtifact, newArtifact));
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-  {
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case DomainPackage.DOMAIN_ARTIFACT__PARENT:
 				if (eInternalContainer() != null)
@@ -282,14 +267,13 @@ public class DomainArtifactImpl extends EObjectImpl implements DomainArtifact
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-  {
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case DomainPackage.DOMAIN_ARTIFACT__PARENT:
 				return basicSetParent(null, msgs);
@@ -299,14 +283,13 @@ public class DomainArtifactImpl extends EObjectImpl implements DomainArtifact
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs)
-  {
+	@Override
+	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
 		switch (eContainerFeatureID()) {
 			case DomainPackage.DOMAIN_ARTIFACT__PARENT:
 				return eInternalContainer().eInverseRemove(this, DomainPackage.DOMAIN_ARTIFACTS__DOMAIN_ARTIFACT, DomainArtifacts.class, msgs);
@@ -314,14 +297,13 @@ public class DomainArtifactImpl extends EObjectImpl implements DomainArtifact
 		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public Object eGet(int featureID, boolean resolve, boolean coreType)
-  {
+	@Override
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case DomainPackage.DOMAIN_ARTIFACT__UID:
 				return getUid();
@@ -336,14 +318,13 @@ public class DomainArtifactImpl extends EObjectImpl implements DomainArtifact
 		return super.eGet(featureID, resolve, coreType);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public void eSet(int featureID, Object newValue)
-  {
+	@Override
+	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case DomainPackage.DOMAIN_ARTIFACT__UID:
 				setUid((String)newValue);
@@ -361,14 +342,13 @@ public class DomainArtifactImpl extends EObjectImpl implements DomainArtifact
 		super.eSet(featureID, newValue);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public void eUnset(int featureID)
-  {
+	@Override
+	public void eUnset(int featureID) {
 		switch (featureID) {
 			case DomainPackage.DOMAIN_ARTIFACT__UID:
 				setUid(UID_EDEFAULT);
@@ -386,14 +366,13 @@ public class DomainArtifactImpl extends EObjectImpl implements DomainArtifact
 		super.eUnset(featureID);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public boolean eIsSet(int featureID)
-  {
+	@Override
+	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case DomainPackage.DOMAIN_ARTIFACT__UID:
 				return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
@@ -407,14 +386,13 @@ public class DomainArtifactImpl extends EObjectImpl implements DomainArtifact
 		return super.eIsSet(featureID);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public String toString()
-  {
+	@Override
+	public String toString() {
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());

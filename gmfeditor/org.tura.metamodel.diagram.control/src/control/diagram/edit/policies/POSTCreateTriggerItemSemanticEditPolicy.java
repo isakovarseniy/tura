@@ -1,6 +1,6 @@
 /*
- * 
- */
+* 
+*/
 package control.diagram.edit.policies;
 
 import org.eclipse.emf.ecore.EAnnotation;
@@ -19,15 +19,15 @@ import control.diagram.providers.DomainElementTypes;
 public class POSTCreateTriggerItemSemanticEditPolicy extends DomainBaseItemSemanticEditPolicy {
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public POSTCreateTriggerItemSemanticEditPolicy() {
 		super(DomainElementTypes.POSTCreateTrigger_1103011);
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected Command getDestroyElementCommand(DestroyElementRequest req) {
 		View view = (View) getHost().getModel();
 		CompositeTransactionalCommand cmd = new CompositeTransactionalCommand(getEditingDomain(), null);

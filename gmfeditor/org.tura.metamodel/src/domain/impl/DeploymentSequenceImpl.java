@@ -30,142 +30,133 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  *
  * @generated
  */
-public class DeploymentSequenceImpl extends EObjectImpl implements DeploymentSequence
-{
-  /**
+public class DeploymentSequenceImpl extends EObjectImpl implements DeploymentSequence {
+	/**
 	 * The default value of the '{@link #getUid() <em>Uid</em>}' attribute.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getUid()
 	 * @generated
 	 * @ordered
 	 */
-  protected static final String UID_EDEFAULT = null;
+	protected static final String UID_EDEFAULT = null;
 
-  /**
+	/**
 	 * The cached value of the '{@link #getUid() <em>Uid</em>}' attribute.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getUid()
 	 * @generated
 	 * @ordered
 	 */
-  protected String uid = UID_EDEFAULT;
+	protected String uid = UID_EDEFAULT;
 
-  /**
+	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getName()
 	 * @generated
 	 * @ordered
 	 */
-  protected static final String NAME_EDEFAULT = null;
+	protected static final String NAME_EDEFAULT = null;
 
-  /**
+	/**
 	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getName()
 	 * @generated
 	 * @ordered
 	 */
-  protected String name = NAME_EDEFAULT;
+	protected String name = NAME_EDEFAULT;
 
-  /**
+	/**
 	 * The cached value of the '{@link #getDeploymentComponents() <em>Deployment Components</em>}' containment reference.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getDeploymentComponents()
 	 * @generated
 	 * @ordered
 	 */
-  protected DeploymentComponents deploymentComponents;
+	protected DeploymentComponents deploymentComponents;
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  protected DeploymentSequenceImpl()
-  {
+	protected DeploymentSequenceImpl() {
 		super();
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  protected EClass eStaticClass()
-  {
+	@Override
+	protected EClass eStaticClass() {
 		return DomainPackage.Literals.DEPLOYMENT_SEQUENCE;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public String getUid()
-  {
+	public String getUid() {
 		return uid;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public void setUid(String newUid)
-  {
+	public void setUid(String newUid) {
 		String oldUid = uid;
 		uid = newUid;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.DEPLOYMENT_SEQUENCE__UID, oldUid, uid));
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public String getName()
-  {
+	public String getName() {
 		return name;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public void setName(String newName)
-  {
+	public void setName(String newName) {
 		String oldName = name;
 		name = newName;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.DEPLOYMENT_SEQUENCE__NAME, oldName, name));
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public DeploymentComponents getDeploymentComponents()
-  {
+	public DeploymentComponents getDeploymentComponents() {
 		return deploymentComponents;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public NotificationChain basicSetDeploymentComponents(DeploymentComponents newDeploymentComponents, NotificationChain msgs)
-  {
+	public NotificationChain basicSetDeploymentComponents(DeploymentComponents newDeploymentComponents, NotificationChain msgs) {
 		DeploymentComponents oldDeploymentComponents = deploymentComponents;
 		deploymentComponents = newDeploymentComponents;
 		if (eNotificationRequired()) {
@@ -175,13 +166,12 @@ public class DeploymentSequenceImpl extends EObjectImpl implements DeploymentSeq
 		return msgs;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public void setDeploymentComponents(DeploymentComponents newDeploymentComponents)
-  {
+	public void setDeploymentComponents(DeploymentComponents newDeploymentComponents) {
 		if (newDeploymentComponents != deploymentComponents) {
 			NotificationChain msgs = null;
 			if (deploymentComponents != null)
@@ -195,14 +185,13 @@ public class DeploymentSequenceImpl extends EObjectImpl implements DeploymentSeq
 			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.DEPLOYMENT_SEQUENCE__DEPLOYMENT_COMPONENTS, newDeploymentComponents, newDeploymentComponents));
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-  {
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case DomainPackage.DEPLOYMENT_SEQUENCE__DEPLOYMENT_COMPONENTS:
 				return basicSetDeploymentComponents(null, msgs);
@@ -210,14 +199,13 @@ public class DeploymentSequenceImpl extends EObjectImpl implements DeploymentSeq
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public Object eGet(int featureID, boolean resolve, boolean coreType)
-  {
+	@Override
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case DomainPackage.DEPLOYMENT_SEQUENCE__UID:
 				return getUid();
@@ -229,14 +217,13 @@ public class DeploymentSequenceImpl extends EObjectImpl implements DeploymentSeq
 		return super.eGet(featureID, resolve, coreType);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public void eSet(int featureID, Object newValue)
-  {
+	@Override
+	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case DomainPackage.DEPLOYMENT_SEQUENCE__UID:
 				setUid((String)newValue);
@@ -251,14 +238,13 @@ public class DeploymentSequenceImpl extends EObjectImpl implements DeploymentSeq
 		super.eSet(featureID, newValue);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public void eUnset(int featureID)
-  {
+	@Override
+	public void eUnset(int featureID) {
 		switch (featureID) {
 			case DomainPackage.DEPLOYMENT_SEQUENCE__UID:
 				setUid(UID_EDEFAULT);
@@ -273,14 +259,13 @@ public class DeploymentSequenceImpl extends EObjectImpl implements DeploymentSeq
 		super.eUnset(featureID);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public boolean eIsSet(int featureID)
-  {
+	@Override
+	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case DomainPackage.DEPLOYMENT_SEQUENCE__UID:
 				return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
@@ -292,14 +277,13 @@ public class DeploymentSequenceImpl extends EObjectImpl implements DeploymentSeq
 		return super.eIsSet(featureID);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public String toString()
-  {
+	@Override
+	public String toString() {
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());

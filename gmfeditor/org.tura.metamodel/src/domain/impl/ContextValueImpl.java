@@ -38,189 +38,178 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public class ContextValueImpl extends EObjectImpl implements ContextValue
-{
-  /**
+public class ContextValueImpl extends EObjectImpl implements ContextValue {
+	/**
 	 * The default value of the '{@link #getUid() <em>Uid</em>}' attribute.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getUid()
 	 * @generated
 	 * @ordered
 	 */
-  protected static final String UID_EDEFAULT = null;
+	protected static final String UID_EDEFAULT = null;
 
-  /**
+	/**
 	 * The cached value of the '{@link #getUid() <em>Uid</em>}' attribute.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getUid()
 	 * @generated
 	 * @ordered
 	 */
-  protected String uid = UID_EDEFAULT;
+	protected String uid = UID_EDEFAULT;
 
-  /**
+	/**
 	 * The default value of the '{@link #isConstant() <em>Constant</em>}' attribute.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #isConstant()
 	 * @generated
 	 * @ordered
 	 */
-  protected static final boolean CONSTANT_EDEFAULT = false;
+	protected static final boolean CONSTANT_EDEFAULT = false;
 
-  /**
+	/**
 	 * The cached value of the '{@link #isConstant() <em>Constant</em>}' attribute.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #isConstant()
 	 * @generated
 	 * @ordered
 	 */
-  protected boolean constant = CONSTANT_EDEFAULT;
+	protected boolean constant = CONSTANT_EDEFAULT;
 
-  /**
+	/**
 	 * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getValue()
 	 * @generated
 	 * @ordered
 	 */
-  protected static final String VALUE_EDEFAULT = null;
+	protected static final String VALUE_EDEFAULT = null;
 
-  /**
+	/**
 	 * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getValue()
 	 * @generated
 	 * @ordered
 	 */
-  protected String value = VALUE_EDEFAULT;
+	protected String value = VALUE_EDEFAULT;
 
-  /**
+	/**
 	 * The cached value of the '{@link #getExpression() <em>Expression</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getExpression()
 	 * @generated
 	 * @ordered
 	 */
-  protected EList<ExpressionPart> expression;
+	protected EList<ExpressionPart> expression;
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  protected ContextValueImpl()
-  {
+	protected ContextValueImpl() {
 		super();
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  protected EClass eStaticClass()
-  {
+	@Override
+	protected EClass eStaticClass() {
 		return DomainPackage.Literals.CONTEXT_VALUE;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public String getUid()
-  {
+	public String getUid() {
 		return uid;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public void setUid(String newUid)
-  {
+	public void setUid(String newUid) {
 		String oldUid = uid;
 		uid = newUid;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.CONTEXT_VALUE__UID, oldUid, uid));
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public boolean isConstant()
-  {
+	public boolean isConstant() {
 		return constant;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public void setConstant(boolean newConstant)
-  {
+	public void setConstant(boolean newConstant) {
 		boolean oldConstant = constant;
 		constant = newConstant;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.CONTEXT_VALUE__CONSTANT, oldConstant, constant));
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public String getValue()
-  {
+	public String getValue() {
 		return value;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public void setValue(String newValue)
-  {
+	public void setValue(String newValue) {
 		String oldValue = value;
 		value = newValue;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.CONTEXT_VALUE__VALUE, oldValue, value));
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public EList<ExpressionPart> getExpression()
-  {
+	public EList<ExpressionPart> getExpression() {
 		if (expression == null) {
 			expression = new EObjectContainmentEList<ExpressionPart>(ExpressionPart.class, this, DomainPackage.CONTEXT_VALUE__EXPRESSION);
 		}
 		return expression;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-  {
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case DomainPackage.CONTEXT_VALUE__EXPRESSION:
 				return ((InternalEList<?>)getExpression()).basicRemove(otherEnd, msgs);
@@ -228,14 +217,13 @@ public class ContextValueImpl extends EObjectImpl implements ContextValue
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public Object eGet(int featureID, boolean resolve, boolean coreType)
-  {
+	@Override
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case DomainPackage.CONTEXT_VALUE__UID:
 				return getUid();
@@ -249,15 +237,14 @@ public class ContextValueImpl extends EObjectImpl implements ContextValue
 		return super.eGet(featureID, resolve, coreType);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @SuppressWarnings("unchecked")
-  @Override
-  public void eSet(int featureID, Object newValue)
-  {
+	@SuppressWarnings("unchecked")
+	@Override
+	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case DomainPackage.CONTEXT_VALUE__UID:
 				setUid((String)newValue);
@@ -276,14 +263,13 @@ public class ContextValueImpl extends EObjectImpl implements ContextValue
 		super.eSet(featureID, newValue);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public void eUnset(int featureID)
-  {
+	@Override
+	public void eUnset(int featureID) {
 		switch (featureID) {
 			case DomainPackage.CONTEXT_VALUE__UID:
 				setUid(UID_EDEFAULT);
@@ -301,14 +287,13 @@ public class ContextValueImpl extends EObjectImpl implements ContextValue
 		super.eUnset(featureID);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public boolean eIsSet(int featureID)
-  {
+	@Override
+	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case DomainPackage.CONTEXT_VALUE__UID:
 				return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
@@ -322,14 +307,13 @@ public class ContextValueImpl extends EObjectImpl implements ContextValue
 		return super.eIsSet(featureID);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public String toString()
-  {
+	@Override
+	public String toString() {
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());

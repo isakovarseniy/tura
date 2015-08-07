@@ -14,26 +14,23 @@ import org.eclipse.emf.ecore.EClass;
  *
  * @generated
  */
-public class CheckBoxImpl extends InputElementImpl implements CheckBox
-{
-  /**
+public class CheckBoxImpl extends InputElementImpl implements CheckBox {
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  protected CheckBoxImpl()
-  {
+	protected CheckBoxImpl() {
 		super();
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  protected EClass eStaticClass()
-  {
+	@Override
+	protected EClass eStaticClass() {
 		return DomainPackage.Literals.CHECK_BOX;
 	}
 

@@ -13,6 +13,5 @@ package domain;
  * @model annotation="gmf.node figure='org.tura.metamodel.commons.figures.CheckBoxFigure' label.placement='none' tool.small.bundle='org.tura.metamodel.commons' tool.small.path='icons/checkbox.png'"
  * @generated
  */
-public interface CheckBox extends InputElement
-{
+public interface CheckBox extends InputElement {
 } // CheckBox

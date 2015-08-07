@@ -22,17 +22,18 @@ import deployment.diagram.providers.DomainModelingAssistantProvider;
 public class DomainModelingAssistantProviderOfDeploymentStarStepEditPart extends DomainModelingAssistantProvider {
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	@Override
+
 	public List<IElementType> getRelTypesOnSource(IAdaptable source) {
 		IGraphicalEditPart sourceEditPart = (IGraphicalEditPart) source.getAdapter(IGraphicalEditPart.class);
 		return doGetRelTypesOnSource((DeploymentStarStepEditPart) sourceEditPart);
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public List<IElementType> doGetRelTypesOnSource(DeploymentStarStepEditPart source) {
 		List<IElementType> types = new ArrayList<IElementType>(1);
 		types.add(DomainElementTypes.DeploymentStarStepFirstStep_904008);
@@ -40,9 +41,10 @@ public class DomainModelingAssistantProviderOfDeploymentStarStepEditPart extends
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	@Override
+
 	public List<IElementType> getRelTypesOnSourceAndTarget(IAdaptable source, IAdaptable target) {
 		IGraphicalEditPart sourceEditPart = (IGraphicalEditPart) source.getAdapter(IGraphicalEditPart.class);
 		IGraphicalEditPart targetEditPart = (IGraphicalEditPart) target.getAdapter(IGraphicalEditPart.class);
@@ -50,8 +52,8 @@ public class DomainModelingAssistantProviderOfDeploymentStarStepEditPart extends
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public List<IElementType> doGetRelTypesOnSourceAndTarget(DeploymentStarStepEditPart source,
 			IGraphicalEditPart targetEditPart) {
 		List<IElementType> types = new LinkedList<IElementType>();
@@ -62,17 +64,18 @@ public class DomainModelingAssistantProviderOfDeploymentStarStepEditPart extends
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	@Override
+
 	public List<IElementType> getTypesForTarget(IAdaptable source, IElementType relationshipType) {
 		IGraphicalEditPart sourceEditPart = (IGraphicalEditPart) source.getAdapter(IGraphicalEditPart.class);
 		return doGetTypesForTarget((DeploymentStarStepEditPart) sourceEditPart, relationshipType);
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public List<IElementType> doGetTypesForTarget(DeploymentStarStepEditPart source, IElementType relationshipType) {
 		List<IElementType> types = new ArrayList<IElementType>();
 		if (relationshipType == DomainElementTypes.DeploymentStarStepFirstStep_904008) {

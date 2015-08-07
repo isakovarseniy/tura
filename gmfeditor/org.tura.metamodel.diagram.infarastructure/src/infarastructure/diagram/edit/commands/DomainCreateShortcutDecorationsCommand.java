@@ -3,8 +3,6 @@
  */
 package infarastructure.diagram.edit.commands;
 
-import infarastructure.diagram.edit.parts.EnterpriseInfrastructureEditPart;
-
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
@@ -20,19 +18,21 @@ import org.eclipse.gmf.runtime.diagram.ui.requests.CreateViewRequest;
 import org.eclipse.gmf.runtime.emf.commands.core.command.AbstractTransactionalCommand;
 import org.eclipse.gmf.runtime.notation.View;
 
+import infarastructure.diagram.edit.parts.EnterpriseInfrastructureEditPart;
+
 /**
  * @generated
  */
 public class DomainCreateShortcutDecorationsCommand extends AbstractTransactionalCommand {
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private List myDescriptors;
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public DomainCreateShortcutDecorationsCommand(TransactionalEditingDomain editingDomain, View parentView,
 			List viewDescriptors) {
 		super(editingDomain, "Create Shortcuts", getWorkspaceFiles(parentView)); //$NON-NLS-1$
@@ -40,16 +40,16 @@ public class DomainCreateShortcutDecorationsCommand extends AbstractTransactiona
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public DomainCreateShortcutDecorationsCommand(TransactionalEditingDomain editingDomain, View parentView,
 			CreateViewRequest.ViewDescriptor viewDescriptor) {
 		this(editingDomain, parentView, Collections.singletonList(viewDescriptor));
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected CommandResult doExecuteWithResult(IProgressMonitor monitor, IAdaptable info) throws ExecutionException {
 		for (Iterator it = myDescriptors.iterator(); it.hasNext();) {
 			CreateViewRequest.ViewDescriptor nextDescriptor = (CreateViewRequest.ViewDescriptor) it.next();

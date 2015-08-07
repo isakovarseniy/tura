@@ -1,6 +1,6 @@
 /*
- * 
- */
+* 
+*/
 package uipackage.diagram.edit.policies;
 
 import org.eclipse.gef.commands.Command;
@@ -15,15 +15,15 @@ import uipackage.diagram.providers.DomainElementTypes;
 public class FormFormViewCompartmentItemSemanticEditPolicy extends DomainBaseItemSemanticEditPolicy {
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public FormFormViewCompartmentItemSemanticEditPolicy() {
 		super(DomainElementTypes.Form_1002002);
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected Command getCreateCommand(CreateElementRequest req) {
 		if (DomainElementTypes.FormView_1003001 == req.getElementType()) {
 			return getGEFWrapper(new FormViewCreateCommand(req));

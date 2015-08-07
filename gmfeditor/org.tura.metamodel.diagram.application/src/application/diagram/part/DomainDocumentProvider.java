@@ -1,6 +1,6 @@
 /*
- * 
- */
+* 
+*/
 package application.diagram.part;
 
 import java.io.IOException;
@@ -66,8 +66,8 @@ import de.itemis.gmf.runtime.editingdomain.SharedResourceSetInfoDelegate;
 public class DomainDocumentProvider extends AbstractDocumentProvider implements IDiagramDocumentProvider {
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected ElementInfo createElementInfo(Object element) throws CoreException {
 		if (false == element instanceof FileEditorInput && false == element instanceof URIEditorInput) {
 			throw new CoreException(new Status(IStatus.ERROR, DomainDiagramEditorPlugin.ID, 0,
@@ -86,8 +86,8 @@ public class DomainDocumentProvider extends AbstractDocumentProvider implements 
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected IDocument createDocument(Object element) throws CoreException {
 		if (false == element instanceof FileEditorInput && false == element instanceof URIEditorInput) {
 			throw new CoreException(new Status(IStatus.ERROR, DomainDiagramEditorPlugin.ID, 0,
@@ -103,21 +103,21 @@ public class DomainDocumentProvider extends AbstractDocumentProvider implements 
 	}
 
 	/**
-	 * Sets up the given document as it would be provided for the given element. The
-	 * content of the document is not changed. This default implementation is empty.
-	 * Subclasses may reimplement.
-	 * 
-	 * @param element the blue-print element
-	 * @param document the document to set up
-	 * @generated
-	 */
+	* Sets up the given document as it would be provided for the given element. The
+	* content of the document is not changed. This default implementation is empty.
+	* Subclasses may reimplement.
+	* 
+	* @param element the blue-print element
+	* @param document the document to set up
+	* @generated
+	*/
 	protected void setupDocument(Object element, IDocument document) {
 		// for subclasses
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private long computeModificationStamp(ResourceSetInfo info) {
 		int result = 0;
 		for (Iterator<Resource> it = info.getLoadedResourcesIterator(); it.hasNext();) {
@@ -135,8 +135,8 @@ public class DomainDocumentProvider extends AbstractDocumentProvider implements 
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected IDocument createEmptyDocument() {
 		DiagramDocument document = new DiagramDocument();
 		document.setEditingDomain(createEditingDomain());
@@ -144,8 +144,8 @@ public class DomainDocumentProvider extends AbstractDocumentProvider implements 
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private TransactionalEditingDomain createEditingDomain() {
 		// ITEMIS CHANGE: Use shared editing domain
 		TransactionalEditingDomain editingDomain = SharedEditingDomainUtil
@@ -157,37 +157,37 @@ public class DomainDocumentProvider extends AbstractDocumentProvider implements 
 		final org.eclipse.emf.transaction.NotificationFilter diagramResourceModifiedFilter = org.eclipse.emf.transaction.NotificationFilter.createNotifierFilter(editingDomain.getResourceSet()).and(org.eclipse.emf.transaction.NotificationFilter.createEventTypeFilter(org.eclipse.emf.common.notify.Notification.ADD)).and(org.eclipse.emf.transaction.NotificationFilter.createFeatureFilter(org.eclipse.emf.ecore.resource.ResourceSet.class, org.eclipse.emf.ecore.resource.ResourceSet.RESOURCE_SET__RESOURCES));
 		editingDomain.getResourceSet().eAdapters().add(new org.eclipse.emf.common.notify.Adapter() {
 		
-		  private org.eclipse.emf.common.notify.Notifier myTarger;
+			private org.eclipse.emf.common.notify.Notifier myTarger;
 		
-		  public org.eclipse.emf.common.notify.Notifier getTarget() {
-		    return myTarger;
-		  }
+			public org.eclipse.emf.common.notify.Notifier getTarget() {
+				return myTarger;
+			}
 		
-		  public boolean isAdapterForType(Object type) {
-		    return false;
-		  }
+			public boolean isAdapterForType(Object type) {
+				return false;
+			}
 		
-		  public void notifyChanged(org.eclipse.emf.common.notify.Notification notification) {
-		    if (diagramResourceModifiedFilter.matches(notification)) {
-		Object value = notification.getNewValue();
-		if (value instanceof org.eclipse.emf.ecore.resource.Resource) {
-		  ((org.eclipse.emf.ecore.resource.Resource) value).setTrackingModification(true);
-		}
-		    }
-		  }
+			public void notifyChanged(org.eclipse.emf.common.notify.Notification notification) {
+				if (diagramResourceModifiedFilter.matches(notification)) {
+					Object value = notification.getNewValue();
+					if (value instanceof org.eclipse.emf.ecore.resource.Resource) {
+						((org.eclipse.emf.ecore.resource.Resource) value).setTrackingModification(true);
+					}
+				}
+			}
 		
-		  public void setTarget(org.eclipse.emf.common.notify.Notifier newTarget) {
-		    myTarger = newTarget;
-		  }
-		    
+			public void setTarget(org.eclipse.emf.common.notify.Notifier newTarget) {
+				myTarger = newTarget;
+			}
+				
 		});	
 		*/
 		return editingDomain;
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected void setDocumentContent(IDocument document, IEditorInput element) throws CoreException {
 		IDiagramDocument diagramDocument = (IDiagramDocument) document;
 		TransactionalEditingDomain domain = diagramDocument.getEditingDomain();
@@ -251,8 +251,8 @@ public class DomainDocumentProvider extends AbstractDocumentProvider implements 
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public long getModificationStamp(Object element) {
 		ResourceSetInfo info = getResourceSetInfo(element);
 		if (info != null) {
@@ -262,8 +262,8 @@ public class DomainDocumentProvider extends AbstractDocumentProvider implements 
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public boolean isDeleted(Object element) {
 		IDiagramDocument document = getDiagramDocument(element);
 		if (document != null) {
@@ -277,15 +277,15 @@ public class DomainDocumentProvider extends AbstractDocumentProvider implements 
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public ResourceSetInfo getResourceSetInfo(Object editorInput) {
 		return (ResourceSetInfo) super.getElementInfo(editorInput);
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected void disposeElementInfo(Object element, ElementInfo info) {
 		if (info instanceof ResourceSetInfo) {
 			ResourceSetInfo resourceSetInfo = (ResourceSetInfo) info;
@@ -295,8 +295,8 @@ public class DomainDocumentProvider extends AbstractDocumentProvider implements 
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected void doValidateState(Object element, Object computationContext) throws CoreException {
 		ResourceSetInfo info = getResourceSetInfo(element);
 		if (info != null) {
@@ -316,8 +316,8 @@ public class DomainDocumentProvider extends AbstractDocumentProvider implements 
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public boolean isReadOnly(Object element) {
 		ResourceSetInfo info = getResourceSetInfo(element);
 		if (info != null) {
@@ -335,8 +335,8 @@ public class DomainDocumentProvider extends AbstractDocumentProvider implements 
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public boolean isModifiable(Object element) {
 		if (!isStateValidated(element)) {
 			if (element instanceof FileEditorInput || element instanceof URIEditorInput) {
@@ -359,8 +359,8 @@ public class DomainDocumentProvider extends AbstractDocumentProvider implements 
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected void updateCache(Object element) throws CoreException {
 		ResourceSetInfo info = getResourceSetInfo(element);
 		if (info != null) {
@@ -380,8 +380,8 @@ public class DomainDocumentProvider extends AbstractDocumentProvider implements 
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected void doUpdateStateCache(Object element) throws CoreException {
 		ResourceSetInfo info = getResourceSetInfo(element);
 		if (info != null) {
@@ -391,8 +391,8 @@ public class DomainDocumentProvider extends AbstractDocumentProvider implements 
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public boolean isSynchronized(Object element) {
 		ResourceSetInfo info = getResourceSetInfo(element);
 		if (info != null) {
@@ -402,8 +402,8 @@ public class DomainDocumentProvider extends AbstractDocumentProvider implements 
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected ISchedulingRule getResetRule(Object element) {
 		ResourceSetInfo info = getResourceSetInfo(element);
 		if (info != null) {
@@ -421,8 +421,8 @@ public class DomainDocumentProvider extends AbstractDocumentProvider implements 
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected ISchedulingRule getSaveRule(Object element) {
 		ResourceSetInfo info = getResourceSetInfo(element);
 		if (info != null) {
@@ -440,8 +440,8 @@ public class DomainDocumentProvider extends AbstractDocumentProvider implements 
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected ISchedulingRule getSynchronizeRule(Object element) {
 		ResourceSetInfo info = getResourceSetInfo(element);
 		if (info != null) {
@@ -459,8 +459,8 @@ public class DomainDocumentProvider extends AbstractDocumentProvider implements 
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected ISchedulingRule getValidateStateRule(Object element) {
 		ResourceSetInfo info = getResourceSetInfo(element);
 		if (info != null) {
@@ -479,8 +479,8 @@ public class DomainDocumentProvider extends AbstractDocumentProvider implements 
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private ISchedulingRule computeSchedulingRule(IResource toCreateOrModify) {
 		if (toCreateOrModify.exists())
 			return ResourcesPlugin.getWorkspace().getRuleFactory().modifyRule(toCreateOrModify);
@@ -501,8 +501,8 @@ public class DomainDocumentProvider extends AbstractDocumentProvider implements 
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected void doSynchronize(Object element, IProgressMonitor monitor) throws CoreException {
 		ResourceSetInfo info = getResourceSetInfo(element);
 		if (info != null) {
@@ -516,8 +516,8 @@ public class DomainDocumentProvider extends AbstractDocumentProvider implements 
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 
 	protected void doSaveDocument(IProgressMonitor monitor, Object element, IDocument document, boolean overwrite)
 			throws CoreException {
@@ -610,22 +610,22 @@ public class DomainDocumentProvider extends AbstractDocumentProvider implements 
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected void handleElementChanged(ResourceSetInfo info, Resource changedResource, IProgressMonitor monitor) {
 		// ITEMIS CHANGE : Using the shared editing domain, we reload externally
 		// changed resources centrally
 		/*
-		  org.eclipse.core.resources.IFile file = org.eclipse.emf.workspace.util.WorkspaceSynchronizer.getFile(changedResource);
+			org.eclipse.core.resources.IFile file = org.eclipse.emf.workspace.util.WorkspaceSynchronizer.getFile(changedResource);
 		if (file != null) {
-		  try {
-		    file.refreshLocal(org.eclipse.core.resources.IResource.DEPTH_INFINITE, monitor);
-		  } catch (org.eclipse.core.runtime.CoreException ex) {
-		    application.diagram.part.DomainDiagramEditorPlugin.getInstance().logError(application.diagram.part.Messages.DomainDocumentProvider_handleElementContentChanged, ex);
-		    // Error message to log was initially taken from org.eclipse.gmf.runtime.diagram.ui.resources.editor.ide.internal.l10n.EditorMessages.FileDocumentProvider_handleElementContentChanged
-		  }
+			try {
+				file.refreshLocal(org.eclipse.core.resources.IResource.DEPTH_INFINITE, monitor);
+			} catch (org.eclipse.core.runtime.CoreException ex) {
+				application.diagram.part.DomainDiagramEditorPlugin.getInstance().logError(application.diagram.part.Messages.DomainDocumentProvider_handleElementContentChanged, ex);
+				// Error message to log was initially taken from org.eclipse.gmf.runtime.diagram.ui.resources.editor.ide.internal.l10n.EditorMessages.FileDocumentProvider_handleElementContentChanged
+			}
 		}
-		  changedResource.unload();
+			changedResource.unload();
 		*/
 		fireElementContentAboutToBeReplaced(info.getEditorInput());
 		removeUnchangedElementListeners(info.getEditorInput(), info);
@@ -643,8 +643,8 @@ public class DomainDocumentProvider extends AbstractDocumentProvider implements 
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected void handleElementMoved(IEditorInput input, URI uri) {
 		if (input instanceof FileEditorInput) {
 			IFile newFile = ResourcesPlugin.getWorkspace().getRoot()
@@ -657,15 +657,15 @@ public class DomainDocumentProvider extends AbstractDocumentProvider implements 
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public IEditorInput createInputWithEditingDomain(IEditorInput editorInput, TransactionalEditingDomain domain) {
 		return editorInput;
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public IDiagramDocument getDiagramDocument(Object element) {
 		IDocument doc = getDocument(element);
 		if (doc instanceof IDiagramDocument) {
@@ -675,79 +675,79 @@ public class DomainDocumentProvider extends AbstractDocumentProvider implements 
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected IRunnableContext getOperationRunner(IProgressMonitor monitor) {
 		return null;
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected class ResourceSetInfo extends ElementInfo {
 
 		/**
-		 * @generated
-		 */
+		* @generated
+		*/
 		// ITEMIS CHANGE: moved to SharedResourceSetInfoDelegate
 		//private long myModificationStamp = org.eclipse.core.resources.IResource.NULL_STAMP;
 
 		/**
-		 * @generated
-		 */
+		* @generated
+		*/
 		// ITEMIS CHANGE: moved to SharedResourceSetInfoDelegate
 		//private org.eclipse.emf.workspace.util.WorkspaceSynchronizer mySynchronizer;
 
 		/**
-		 * @generated
-		 */
+		* @generated
+		*/
 		private Collection myUnSynchronizedResources = new ArrayList();
 
 		/**
-		 * @generated
-		 */
+		* @generated
+		*/
 		private IDiagramDocument myDocument;
 
 		/**
-		 * @generated
-		 */
+		* @generated
+		*/
 		private IEditorInput myEditorInput;
 
 		/**
-		 * @generated
-		 */
+		* @generated
+		*/
 		private boolean myUpdateCache = true;
 
 		/**
-		 * @generated
-		 */
+		* @generated
+		*/
 		private boolean myModifiable = false;
 
 		/**
-		 * @generated
-		 */
+		* @generated
+		*/
 		private boolean myReadOnly = true;
 
 		/**
-		 * @generated
-		 */
+		* @generated
+		*/
 		private ResourceSetModificationListener myResourceSetListener;
 
 		// ITEMIS CHANGE: shared resource set info is stored in this member
 		/**
-		 * @generated
-		 */
+		* @generated
+		*/
 		private SharedResourceSetInfoDelegate sharedResourceSetInfoDelegate;
 
 		// ITEMIS CHANGE: keep the SynchronizerDelegate in a memebr variable
 		/**
-		 * @generated
-		 */
+		* @generated
+		*/
 		private SynchronizerDelegate synchronizerDelegate;
 
 		/**
-		 * @generated
-		 */
+		* @generated
+		*/
 		// ITEMIS CHANGE: adapted order of initializations to new dependencies
 		public ResourceSetInfo(IDiagramDocument document, IEditorInput editorInput) {
 			super(document);
@@ -768,8 +768,8 @@ public class DomainDocumentProvider extends AbstractDocumentProvider implements 
 		}
 
 		/**
-		 * @generated
-		 */
+		* @generated
+		*/
 		public long getModificationStamp() {
 			// ITEMIS CHANGE: delegate
 			return sharedResourceSetInfoDelegate.getModificationStamp();
@@ -778,8 +778,8 @@ public class DomainDocumentProvider extends AbstractDocumentProvider implements 
 		}
 
 		/**
-		 * @generated
-		 */
+		* @generated
+		*/
 		public void setModificationStamp(long modificationStamp) {
 			// ITEMIS CHANGE: delegate
 			sharedResourceSetInfoDelegate.setModificationStamp(modificationStamp);
@@ -787,36 +787,36 @@ public class DomainDocumentProvider extends AbstractDocumentProvider implements 
 		}
 
 		/**
-		 * @generated
-		 */
+		* @generated
+		*/
 		public TransactionalEditingDomain getEditingDomain() {
 			return myDocument.getEditingDomain();
 		}
 
 		/**
-		 * @generated
-		 */
+		* @generated
+		*/
 		public ResourceSet getResourceSet() {
 			return getEditingDomain().getResourceSet();
 		}
 
 		/**
-		 * @generated
-		 */
+		* @generated
+		*/
 		public Iterator<Resource> getLoadedResourcesIterator() {
 			return new ArrayList<Resource>(getResourceSet().getResources()).iterator();
 		}
 
 		/**
-		 * @generated
-		 */
+		* @generated
+		*/
 		public IEditorInput getEditorInput() {
 			return myEditorInput;
 		}
 
 		/**
-		 * @generated
-		 */
+		* @generated
+		*/
 		public void dispose() {
 			//stopResourceListening();
 			// ITEMIS CHANGE: deregister synchronizerDelegate 
@@ -832,29 +832,29 @@ public class DomainDocumentProvider extends AbstractDocumentProvider implements 
 		}
 
 		/**
-		 * @generated
-		 */
+		* @generated
+		*/
 		public boolean isSynchronized() {
 			return myUnSynchronizedResources.size() == 0;
 		}
 
 		/**
-		 * @generated
-		 */
+		* @generated
+		*/
 		public void setUnSynchronized(Resource resource) {
 			myUnSynchronizedResources.add(resource);
 		}
 
 		/**
-		 * @generated
-		 */
+		* @generated
+		*/
 		public void setSynchronized(Resource resource) {
 			myUnSynchronizedResources.remove(resource);
 		}
 
 		/**
-		 * @generated
-		 */
+		* @generated
+		*/
 		public final void stopResourceListening() {
 			// ITEMIS CHANGE: delegate
 			sharedResourceSetInfoDelegate.stopResourceListening();
@@ -863,8 +863,8 @@ public class DomainDocumentProvider extends AbstractDocumentProvider implements 
 		}
 
 		/**
-		 * @generated
-		 */
+		* @generated
+		*/
 		public final void startResourceListening() {
 			// ITEMIS CHANGE: delegate
 			sharedResourceSetInfoDelegate.startResourceListening();
@@ -872,61 +872,61 @@ public class DomainDocumentProvider extends AbstractDocumentProvider implements 
 		}
 
 		/**
-		 * @generated
-		 */
+		* @generated
+		*/
 		public boolean isUpdateCache() {
 			return myUpdateCache;
 		}
 
 		/**
-		 * @generated
-		 */
+		* @generated
+		*/
 		public void setUpdateCache(boolean update) {
 			myUpdateCache = update;
 		}
 
 		/**
-		 * @generated
-		 */
+		* @generated
+		*/
 		public boolean isModifiable() {
 			return myModifiable;
 		}
 
 		/**
-		 * @generated
-		 */
+		* @generated
+		*/
 		public void setModifiable(boolean modifiable) {
 			myModifiable = modifiable;
 		}
 
 		/**
-		 * @generated
-		 */
+		* @generated
+		*/
 		public boolean isReadOnly() {
 			return myReadOnly;
 		}
 
 		/**
-		 * @generated
-		 */
+		* @generated
+		*/
 		public void setReadOnly(boolean readOnly) {
 			myReadOnly = readOnly;
 		}
 
 		/**
-		 * @generated
-		 */
+		* @generated
+		*/
 		private class SynchronizerDelegate implements WorkspaceSynchronizer.Delegate {
 
 			/**
-			 * @generated
-			 */
+			* @generated
+			*/
 			public void dispose() {
 			}
 
 			/**
-			 * @generated
-			 */
+			* @generated
+			*/
 			public boolean handleResourceChanged(final Resource resource) {
 				synchronized (ResourceSetInfo.this) {
 					if (ResourceSetInfo.this.fCanBeSaved) {
@@ -943,8 +943,8 @@ public class DomainDocumentProvider extends AbstractDocumentProvider implements 
 			}
 
 			/**
-			 * @generated
-			 */
+			* @generated
+			*/
 			public boolean handleResourceDeleted(Resource resource) {
 				synchronized (ResourceSetInfo.this) {
 					if (ResourceSetInfo.this.fCanBeSaved) {
@@ -961,8 +961,8 @@ public class DomainDocumentProvider extends AbstractDocumentProvider implements 
 			}
 
 			/**
-			 * @generated
-			 */
+			* @generated
+			*/
 			public boolean handleResourceMoved(Resource resource, final URI newURI) {
 				synchronized (ResourceSetInfo.this) {
 					if (ResourceSetInfo.this.fCanBeSaved) {
@@ -987,23 +987,23 @@ public class DomainDocumentProvider extends AbstractDocumentProvider implements 
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private class ResourceSetModificationListener extends EContentAdapter {
 
 		/**
-		 * @generated
-		 */
+		* @generated
+		*/
 		private NotificationFilter myModifiedFilter;
 
 		/**
-		 * @generated
-		 */
+		* @generated
+		*/
 		private ResourceSetInfo myInfo;
 
 		/**
-		 * @generated
-		 */
+		* @generated
+		*/
 		public ResourceSetModificationListener(ResourceSetInfo info) {
 			myInfo = info;
 			myModifiedFilter = NotificationFilter.createEventTypeFilter(Notification.SET)
@@ -1012,8 +1012,8 @@ public class DomainDocumentProvider extends AbstractDocumentProvider implements 
 		}
 
 		/**
-		 * @generated
-		 */
+		* @generated
+		*/
 		public void notifyChanged(Notification notification) {
 			if (notification.getNotifier() instanceof ResourceSet) {
 				super.notifyChanged(notification);

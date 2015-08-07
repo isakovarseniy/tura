@@ -23,136 +23,135 @@ package domain;
  * @model annotation="gmf.node label='fakePackageName,fakeTypeName' border.color='0,0,0' color='47,180,155'"
  * @generated
  */
-public interface CSSMapper extends Mapper
-{
-  /**
+public interface CSSMapper extends Mapper {
+	/**
 	 * Returns the value of the '<em><b>Library Url</b></em>' attribute.
 	 * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Library Url</em>' attribute isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Library Url</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Library Url</em>' attribute.
 	 * @see #setLibraryUrl(String)
 	 * @see domain.DomainPackage#getCSSMapper_LibraryUrl()
 	 * @model
 	 * @generated
 	 */
-  String getLibraryUrl();
+	String getLibraryUrl();
 
-  /**
+	/**
 	 * Sets the value of the '{@link domain.CSSMapper#getLibraryUrl <em>Library Url</em>}' attribute.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Library Url</em>' attribute.
 	 * @see #getLibraryUrl()
 	 * @generated
 	 */
-  void setLibraryUrl(String value);
+	void setLibraryUrl(String value);
 
-  /**
+	/**
 	 * Returns the value of the '<em><b>Style Package</b></em>' reference.
 	 * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Style Package</em>' reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Style Package</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Style Package</em>' reference.
 	 * @see #setStylePackage(StylesPackage)
 	 * @see domain.DomainPackage#getCSSMapper_StylePackage()
 	 * @model
 	 * @generated
 	 */
-  StylesPackage getStylePackage();
+	StylesPackage getStylePackage();
 
-  /**
+	/**
 	 * Sets the value of the '{@link domain.CSSMapper#getStylePackage <em>Style Package</em>}' reference.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Style Package</em>' reference.
 	 * @see #getStylePackage()
 	 * @generated
 	 */
-  void setStylePackage(StylesPackage value);
+	void setStylePackage(StylesPackage value);
 
-  /**
+	/**
 	 * Returns the value of the '<em><b>Style Library</b></em>' reference.
 	 * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Style Library</em>' reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Style Library</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Style Library</em>' reference.
 	 * @see #setStyleLibrary(StyleLibrary)
 	 * @see domain.DomainPackage#getCSSMapper_StyleLibrary()
 	 * @model
 	 * @generated
 	 */
-  StyleLibrary getStyleLibrary();
+	StyleLibrary getStyleLibrary();
 
-  /**
+	/**
 	 * Sets the value of the '{@link domain.CSSMapper#getStyleLibrary <em>Style Library</em>}' reference.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Style Library</em>' reference.
 	 * @see #getStyleLibrary()
 	 * @generated
 	 */
-  void setStyleLibrary(StyleLibrary value);
+	void setStyleLibrary(StyleLibrary value);
 
-  /**
+	/**
 	 * Returns the value of the '<em><b>Fake Package Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Fake Package Name</em>' attribute isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Fake Package Name</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Fake Package Name</em>' attribute.
 	 * @see #setFakePackageName(String)
 	 * @see domain.DomainPackage#getCSSMapper_FakePackageName()
 	 * @model
 	 * @generated
 	 */
-  String getFakePackageName();
+	String getFakePackageName();
 
-  /**
+	/**
 	 * Sets the value of the '{@link domain.CSSMapper#getFakePackageName <em>Fake Package Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Fake Package Name</em>' attribute.
 	 * @see #getFakePackageName()
 	 * @generated
 	 */
-  void setFakePackageName(String value);
+	void setFakePackageName(String value);
 
-  /**
+	/**
 	 * Returns the value of the '<em><b>Fake Type Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Fake Type Name</em>' attribute isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Fake Type Name</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Fake Type Name</em>' attribute.
 	 * @see #setFakeTypeName(String)
 	 * @see domain.DomainPackage#getCSSMapper_FakeTypeName()
 	 * @model
 	 * @generated
 	 */
-  String getFakeTypeName();
+	String getFakeTypeName();
 
-  /**
+	/**
 	 * Sets the value of the '{@link domain.CSSMapper#getFakeTypeName <em>Fake Type Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Fake Type Name</em>' attribute.
 	 * @see #getFakeTypeName()
 	 * @generated
 	 */
-  void setFakeTypeName(String value);
+	void setFakeTypeName(String value);
 
 } // CSSMapper

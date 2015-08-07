@@ -42,184 +42,174 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public class ModelMapperImpl extends ArtifactRefImpl implements ModelMapper
-{
-  /**
+public class ModelMapperImpl extends ArtifactRefImpl implements ModelMapper {
+	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getName()
 	 * @generated
 	 * @ordered
 	 */
-  protected static final String NAME_EDEFAULT = null;
+	protected static final String NAME_EDEFAULT = null;
 
-  /**
+	/**
 	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getName()
 	 * @generated
 	 * @ordered
 	 */
-  protected String name = NAME_EDEFAULT;
+	protected String name = NAME_EDEFAULT;
 
-  /**
+	/**
 	 * The default value of the '{@link #getArtifactRoot() <em>Artifact Root</em>}' attribute.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getArtifactRoot()
 	 * @generated
 	 * @ordered
 	 */
-  protected static final String ARTIFACT_ROOT_EDEFAULT = null;
+	protected static final String ARTIFACT_ROOT_EDEFAULT = null;
 
-  /**
+	/**
 	 * The cached value of the '{@link #getArtifactRoot() <em>Artifact Root</em>}' attribute.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getArtifactRoot()
 	 * @generated
 	 * @ordered
 	 */
-  protected String artifactRoot = ARTIFACT_ROOT_EDEFAULT;
+	protected String artifactRoot = ARTIFACT_ROOT_EDEFAULT;
 
-  /**
+	/**
 	 * The cached value of the '{@link #getSpecifiers() <em>Specifiers</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getSpecifiers()
 	 * @generated
 	 * @ordered
 	 */
-  protected EList<MappingSpecifier> specifiers;
+	protected EList<MappingSpecifier> specifiers;
 
-  /**
+	/**
 	 * The cached value of the '{@link #getQueries() <em>Queries</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getQueries()
 	 * @generated
 	 * @ordered
 	 */
-  protected EList<Query> queries;
+	protected EList<Query> queries;
 
-  /**
+	/**
 	 * The default value of the '{@link #getArtifactExecutionString() <em>Artifact Execution String</em>}' attribute.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getArtifactExecutionString()
 	 * @generated
 	 * @ordered
 	 */
-  protected static final String ARTIFACT_EXECUTION_STRING_EDEFAULT = null;
+	protected static final String ARTIFACT_EXECUTION_STRING_EDEFAULT = null;
 
-  /**
+	/**
 	 * The cached value of the '{@link #getArtifactExecutionString() <em>Artifact Execution String</em>}' attribute.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getArtifactExecutionString()
 	 * @generated
 	 * @ordered
 	 */
-  protected String artifactExecutionString = ARTIFACT_EXECUTION_STRING_EDEFAULT;
+	protected String artifactExecutionString = ARTIFACT_EXECUTION_STRING_EDEFAULT;
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  protected ModelMapperImpl()
-  {
+	protected ModelMapperImpl() {
 		super();
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  protected EClass eStaticClass()
-  {
+	@Override
+	protected EClass eStaticClass() {
 		return DomainPackage.Literals.MODEL_MAPPER;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public String getName()
-  {
+	public String getName() {
 		return name;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public void setName(String newName)
-  {
+	public void setName(String newName) {
 		String oldName = name;
 		name = newName;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.MODEL_MAPPER__NAME, oldName, name));
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public String getArtifactRoot()
-  {
+	public String getArtifactRoot() {
 		return artifactRoot;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public void setArtifactRoot(String newArtifactRoot)
-  {
+	public void setArtifactRoot(String newArtifactRoot) {
 		String oldArtifactRoot = artifactRoot;
 		artifactRoot = newArtifactRoot;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.MODEL_MAPPER__ARTIFACT_ROOT, oldArtifactRoot, artifactRoot));
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public Component getParent()
-  {
+	public Component getParent() {
 		if (eContainerFeatureID() != DomainPackage.MODEL_MAPPER__PARENT) return null;
 		return (Component)eInternalContainer();
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public NotificationChain basicSetParent(Component newParent, NotificationChain msgs)
-  {
+	public NotificationChain basicSetParent(Component newParent, NotificationChain msgs) {
 		msgs = eBasicSetContainer((InternalEObject)newParent, DomainPackage.MODEL_MAPPER__PARENT, msgs);
 		return msgs;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public void setParent(Component newParent)
-  {
+	public void setParent(Component newParent) {
 		if (newParent != eInternalContainer() || (eContainerFeatureID() != DomainPackage.MODEL_MAPPER__PARENT && newParent != null)) {
 			if (EcoreUtil.isAncestor(this, newParent))
 				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
@@ -235,63 +225,58 @@ public class ModelMapperImpl extends ArtifactRefImpl implements ModelMapper
 			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.MODEL_MAPPER__PARENT, newParent, newParent));
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public EList<MappingSpecifier> getSpecifiers()
-  {
+	public EList<MappingSpecifier> getSpecifiers() {
 		if (specifiers == null) {
 			specifiers = new EObjectContainmentEList<MappingSpecifier>(MappingSpecifier.class, this, DomainPackage.MODEL_MAPPER__SPECIFIERS);
 		}
 		return specifiers;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public EList<Query> getQueries()
-  {
+	public EList<Query> getQueries() {
 		if (queries == null) {
 			queries = new EObjectContainmentEList<Query>(Query.class, this, DomainPackage.MODEL_MAPPER__QUERIES);
 		}
 		return queries;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public String getArtifactExecutionString()
-  {
+	public String getArtifactExecutionString() {
 		return artifactExecutionString;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public void setArtifactExecutionString(String newArtifactExecutionString)
-  {
+	public void setArtifactExecutionString(String newArtifactExecutionString) {
 		String oldArtifactExecutionString = artifactExecutionString;
 		artifactExecutionString = newArtifactExecutionString;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.MODEL_MAPPER__ARTIFACT_EXECUTION_STRING, oldArtifactExecutionString, artifactExecutionString));
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-  {
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case DomainPackage.MODEL_MAPPER__PARENT:
 				if (eInternalContainer() != null)
@@ -301,14 +286,13 @@ public class ModelMapperImpl extends ArtifactRefImpl implements ModelMapper
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-  {
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case DomainPackage.MODEL_MAPPER__PARENT:
 				return basicSetParent(null, msgs);
@@ -320,14 +304,13 @@ public class ModelMapperImpl extends ArtifactRefImpl implements ModelMapper
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs)
-  {
+	@Override
+	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
 		switch (eContainerFeatureID()) {
 			case DomainPackage.MODEL_MAPPER__PARENT:
 				return eInternalContainer().eInverseRemove(this, DomainPackage.COMPONENT__MAPPERS, Component.class, msgs);
@@ -335,14 +318,13 @@ public class ModelMapperImpl extends ArtifactRefImpl implements ModelMapper
 		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public Object eGet(int featureID, boolean resolve, boolean coreType)
-  {
+	@Override
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case DomainPackage.MODEL_MAPPER__NAME:
 				return getName();
@@ -360,15 +342,14 @@ public class ModelMapperImpl extends ArtifactRefImpl implements ModelMapper
 		return super.eGet(featureID, resolve, coreType);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @SuppressWarnings("unchecked")
-  @Override
-  public void eSet(int featureID, Object newValue)
-  {
+	@SuppressWarnings("unchecked")
+	@Override
+	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case DomainPackage.MODEL_MAPPER__NAME:
 				setName((String)newValue);
@@ -394,14 +375,13 @@ public class ModelMapperImpl extends ArtifactRefImpl implements ModelMapper
 		super.eSet(featureID, newValue);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public void eUnset(int featureID)
-  {
+	@Override
+	public void eUnset(int featureID) {
 		switch (featureID) {
 			case DomainPackage.MODEL_MAPPER__NAME:
 				setName(NAME_EDEFAULT);
@@ -425,14 +405,13 @@ public class ModelMapperImpl extends ArtifactRefImpl implements ModelMapper
 		super.eUnset(featureID);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public boolean eIsSet(int featureID)
-  {
+	@Override
+	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case DomainPackage.MODEL_MAPPER__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
@@ -450,14 +429,13 @@ public class ModelMapperImpl extends ArtifactRefImpl implements ModelMapper
 		return super.eIsSet(featureID);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public String toString()
-  {
+	@Override
+	public String toString() {
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());

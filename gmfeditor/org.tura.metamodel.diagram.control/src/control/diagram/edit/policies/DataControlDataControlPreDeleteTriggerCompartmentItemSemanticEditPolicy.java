@@ -1,6 +1,6 @@
 /*
- * 
- */
+* 
+*/
 package control.diagram.edit.policies;
 
 import org.eclipse.gef.commands.Command;
@@ -16,15 +16,15 @@ public class DataControlDataControlPreDeleteTriggerCompartmentItemSemanticEditPo
 		extends DomainBaseItemSemanticEditPolicy {
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public DataControlDataControlPreDeleteTriggerCompartmentItemSemanticEditPolicy() {
 		super(DomainElementTypes.DataControl_1102002);
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected Command getCreateCommand(CreateElementRequest req) {
 		if (DomainElementTypes.PREDeleteTrigger_1103005 == req.getElementType()) {
 			return getGEFWrapper(new PREDeleteTriggerCreateCommand(req));

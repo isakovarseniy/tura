@@ -1,6 +1,6 @@
 /*
- * 
- */
+* 
+*/
 package style.diagram.edit.policies;
 
 import org.eclipse.gef.commands.Command;
@@ -15,15 +15,15 @@ import style.diagram.providers.DomainElementTypes;
 public class StyleLibraryStyleLibraryStylesCompartmentItemSemanticEditPolicy extends DomainBaseItemSemanticEditPolicy {
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public StyleLibraryStyleLibraryStylesCompartmentItemSemanticEditPolicy() {
 		super(DomainElementTypes.StyleLibrary_1502001);
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected Command getCreateCommand(CreateElementRequest req) {
 		if (DomainElementTypes.StyleSet_1503001 == req.getElementType()) {
 			return getGEFWrapper(new StyleSetCreateCommand(req));

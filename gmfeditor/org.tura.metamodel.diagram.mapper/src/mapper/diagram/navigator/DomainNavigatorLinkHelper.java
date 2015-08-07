@@ -1,9 +1,7 @@
 /*
- * 
- */
+* 
+*/
 package mapper.diagram.navigator;
-
-import mapper.diagram.part.DomainDiagramEditorPlugin;
 
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.runtime.IAdaptable;
@@ -28,14 +26,16 @@ import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.navigator.ILinkHelper;
 import org.eclipse.ui.part.FileEditorInput;
 
+import mapper.diagram.part.DomainDiagramEditorPlugin;
+
 /**
  * @generated
  */
 public class DomainNavigatorLinkHelper implements ILinkHelper {
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private static IEditorInput getEditorInput(Diagram diagram) {
 		Resource diagramResource = diagram.eResource();
 		for (EObject nextEObject : diagramResource.getContents()) {
@@ -53,8 +53,8 @@ public class DomainNavigatorLinkHelper implements ILinkHelper {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public IStructuredSelection findSelection(IEditorInput anInput) {
 		IDiagramDocument document = DomainDiagramEditorPlugin.getInstance().getDocumentProvider()
 				.getDiagramDocument(anInput);
@@ -74,8 +74,8 @@ public class DomainNavigatorLinkHelper implements ILinkHelper {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public void activateEditor(IWorkbenchPage aPage, IStructuredSelection aSelection) {
 		if (aSelection == null || aSelection.isEmpty()) {
 			return;

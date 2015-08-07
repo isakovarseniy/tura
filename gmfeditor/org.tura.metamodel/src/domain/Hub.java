@@ -13,6 +13,5 @@ package domain;
  * @model annotation="gmf.node figure='org.tura.metamodel.commons.figures.HubFigure' label.icon='false' label='name' label.placement='external' tool.small.bundle='org.tura.metamodel.commons' tool.small.path='icons/hub.png'"
  * @generated
  */
-public interface Hub extends InfrastructureComponent
-{
+public interface Hub extends InfrastructureComponent {
 } // Hub

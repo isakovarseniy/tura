@@ -1,6 +1,6 @@
 /*
- * 
- */
+* 
+*/
 package typedefinition.diagram.edit.policies;
 
 import java.util.Iterator;
@@ -28,15 +28,15 @@ import typedefinition.diagram.providers.DomainElementTypes;
 public class PrimitiveItemSemanticEditPolicy extends DomainBaseItemSemanticEditPolicy {
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public PrimitiveItemSemanticEditPolicy() {
 		super(DomainElementTypes.Primitive_102004);
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected Command getDestroyElementCommand(DestroyElementRequest req) {
 		View view = (View) getHost().getModel();
 		CompositeTransactionalCommand cmd = new CompositeTransactionalCommand(getEditingDomain(), null);

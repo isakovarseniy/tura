@@ -13,6 +13,5 @@ package domain;
  * @model annotation="gmf.node label='name' border.color='0,0,0' color='255,239,222'"
  * @generated
  */
-public interface Primitive extends TypeElement
-{
+public interface Primitive extends TypeElement {
 } // Primitive

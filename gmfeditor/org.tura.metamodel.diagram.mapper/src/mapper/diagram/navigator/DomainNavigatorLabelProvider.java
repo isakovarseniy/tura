@@ -1,21 +1,7 @@
 /*
- * 
- */
+* 
+*/
 package mapper.diagram.navigator;
-
-import mapper.diagram.edit.parts.CSSMapperEditPart;
-import mapper.diagram.edit.parts.CSSMapperFakePackageNameFakeTypeEditPart;
-import mapper.diagram.edit.parts.JavaMapperEditPart;
-import mapper.diagram.edit.parts.JavaMapperFakePackageNameFakeTypeEditPart;
-import mapper.diagram.edit.parts.JavaScriptMapperEditPart;
-import mapper.diagram.edit.parts.JavaScriptMapperFakePackageNameFakeTypeEditPart;
-import mapper.diagram.edit.parts.MappersEditPart;
-import mapper.diagram.edit.parts.RoleMapperEditPart;
-import mapper.diagram.edit.parts.RoleMapperFakeRoleNameEditPart;
-import mapper.diagram.part.DomainDiagramEditorPlugin;
-import mapper.diagram.part.DomainVisualIDRegistry;
-import mapper.diagram.providers.DomainElementTypes;
-import mapper.diagram.providers.DomainParserProvider;
 
 import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.gmf.runtime.common.ui.services.parser.IParser;
@@ -35,6 +21,19 @@ import org.eclipse.ui.navigator.ICommonContentExtensionSite;
 import org.eclipse.ui.navigator.ICommonLabelProvider;
 
 import domain.Mappers;
+import mapper.diagram.edit.parts.CSSMapperEditPart;
+import mapper.diagram.edit.parts.CSSMapperFakePackageNameFakeTypeEditPart;
+import mapper.diagram.edit.parts.JavaMapperEditPart;
+import mapper.diagram.edit.parts.JavaMapperFakePackageNameFakeTypeEditPart;
+import mapper.diagram.edit.parts.JavaScriptMapperEditPart;
+import mapper.diagram.edit.parts.JavaScriptMapperFakePackageNameFakeTypeEditPart;
+import mapper.diagram.edit.parts.MappersEditPart;
+import mapper.diagram.edit.parts.RoleMapperEditPart;
+import mapper.diagram.edit.parts.RoleMapperFakeRoleNameEditPart;
+import mapper.diagram.part.DomainDiagramEditorPlugin;
+import mapper.diagram.part.DomainVisualIDRegistry;
+import mapper.diagram.providers.DomainElementTypes;
+import mapper.diagram.providers.DomainParserProvider;
 
 /**
  * @generated
@@ -43,8 +42,8 @@ public class DomainNavigatorLabelProvider extends LabelProvider
 		implements ICommonLabelProvider, ITreePathLabelProvider {
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	static {
 		DomainDiagramEditorPlugin.getInstance().getImageRegistry().put("Navigator?UnknownElement", //$NON-NLS-1$
 				ImageDescriptor.getMissingImageDescriptor());
@@ -53,8 +52,8 @@ public class DomainNavigatorLabelProvider extends LabelProvider
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public void updateLabel(ViewerLabel label, TreePath elementPath) {
 		Object element = elementPath.getLastSegment();
 		if (element instanceof DomainNavigatorItem && !isOwnView(((DomainNavigatorItem) element).getView())) {
@@ -65,8 +64,8 @@ public class DomainNavigatorLabelProvider extends LabelProvider
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public Image getImage(Object element) {
 		if (element instanceof DomainNavigatorGroup) {
 			DomainNavigatorGroup group = (DomainNavigatorGroup) element;
@@ -93,8 +92,8 @@ public class DomainNavigatorLabelProvider extends LabelProvider
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public Image getImage(View view) {
 		switch (DomainVisualIDRegistry.getVisualID(view)) {
 		case MappersEditPart.VISUAL_ID:
@@ -117,8 +116,8 @@ public class DomainNavigatorLabelProvider extends LabelProvider
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private Image getImage(String key, IElementType elementType) {
 		ImageRegistry imageRegistry = DomainDiagramEditorPlugin.getInstance().getImageRegistry();
 		Image image = imageRegistry.get(key);
@@ -135,8 +134,8 @@ public class DomainNavigatorLabelProvider extends LabelProvider
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public String getText(Object element) {
 		if (element instanceof DomainNavigatorGroup) {
 			DomainNavigatorGroup group = (DomainNavigatorGroup) element;
@@ -163,8 +162,8 @@ public class DomainNavigatorLabelProvider extends LabelProvider
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public String getText(View view) {
 		if (view.getElement() != null && view.getElement().eIsProxy()) {
 			return getUnresolvedDomainElementProxyText(view);
@@ -185,8 +184,8 @@ public class DomainNavigatorLabelProvider extends LabelProvider
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private String getMappers_401000Text(View view) {
 		Mappers domainModelElement = (Mappers) view.getElement();
 		if (domainModelElement != null) {
@@ -198,8 +197,8 @@ public class DomainNavigatorLabelProvider extends LabelProvider
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private String getJavaMapper_402001Text(View view) {
 		IParser parser = DomainParserProvider.getParser(DomainElementTypes.JavaMapper_402001,
 				view.getElement() != null ? view.getElement() : view,
@@ -214,8 +213,8 @@ public class DomainNavigatorLabelProvider extends LabelProvider
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private String getJavaScriptMapper_402003Text(View view) {
 		IParser parser = DomainParserProvider.getParser(DomainElementTypes.JavaScriptMapper_402003,
 				view.getElement() != null ? view.getElement() : view,
@@ -230,8 +229,8 @@ public class DomainNavigatorLabelProvider extends LabelProvider
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private String getCSSMapper_402004Text(View view) {
 		IParser parser = DomainParserProvider.getParser(DomainElementTypes.CSSMapper_402004,
 				view.getElement() != null ? view.getElement() : view,
@@ -246,8 +245,8 @@ public class DomainNavigatorLabelProvider extends LabelProvider
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private String getRoleMapper_402005Text(View view) {
 		IParser parser = DomainParserProvider.getParser(DomainElementTypes.RoleMapper_402005,
 				view.getElement() != null ? view.getElement() : view,
@@ -262,47 +261,47 @@ public class DomainNavigatorLabelProvider extends LabelProvider
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private String getUnknownElementText(View view) {
 		return "<UnknownElement Visual_ID = " + view.getType() + ">"; //$NON-NLS-1$  //$NON-NLS-2$
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private String getUnresolvedDomainElementProxyText(View view) {
 		return "<Unresolved domain element Visual_ID = " + view.getType() + ">"; //$NON-NLS-1$  //$NON-NLS-2$
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public void init(ICommonContentExtensionSite aConfig) {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public void restoreState(IMemento aMemento) {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public void saveState(IMemento aMemento) {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public String getDescription(Object anElement) {
 		return null;
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private boolean isOwnView(View view) {
 		return MappersEditPart.MODEL_ID.equals(DomainVisualIDRegistry.getModelID(view));
 	}

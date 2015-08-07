@@ -36,7 +36,6 @@ import org.eclipse.gmf.runtime.emf.ui.services.parser.ISemanticParser;
 import org.eclipse.gmf.runtime.notation.FontStyle;
 import org.eclipse.gmf.runtime.notation.NotationPackage;
 import org.eclipse.gmf.runtime.notation.View;
-import org.eclipse.gmf.tooling.runtime.directedit.TextDirectEditManager2;
 import org.eclipse.gmf.tooling.runtime.draw2d.labels.SimpleLabelDelegate;
 import org.eclipse.gmf.tooling.runtime.edit.policies.DefaultNodeLabelDragPolicy;
 import org.eclipse.gmf.tooling.runtime.edit.policies.labels.IRefreshableFeedbackEditPolicy;
@@ -48,11 +47,11 @@ import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.FontData;
 import org.eclipse.swt.graphics.Image;
 
+import domain.TypeReference;
 import typedefinition.diagram.edit.policies.DomainTextSelectionEditPolicy;
 import typedefinition.diagram.part.DomainVisualIDRegistry;
 import typedefinition.diagram.providers.DomainElementTypes;
 import typedefinition.diagram.providers.DomainParserProvider;
-import domain.TypeReference;
 
 /**
  * @generated
@@ -60,45 +59,45 @@ import domain.TypeReference;
 public class TypeReferenceFakePackageNameFakeTypeEditPart extends CompartmentEditPart implements ITextAwareEditPart {
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static final int VISUAL_ID = 105001;
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private DirectEditManager manager;
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private IParser parser;
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private List<?> parserElements;
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private String defaultText;
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private ILabelDelegate labelDelegate;
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public TypeReferenceFakePackageNameFakeTypeEditPart(View view) {
 		super(view);
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected void createDefaultEditPolicies() {
 		super.createDefaultEditPolicies();
 		installEditPolicy(EditPolicy.SELECTION_FEEDBACK_ROLE, new DomainTextSelectionEditPolicy());
@@ -107,8 +106,8 @@ public class TypeReferenceFakePackageNameFakeTypeEditPart extends CompartmentEdi
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected String getLabelTextHelper(IFigure figure) {
 		if (figure instanceof WrappingLabel) {
 			return ((WrappingLabel) figure).getText();
@@ -120,8 +119,8 @@ public class TypeReferenceFakePackageNameFakeTypeEditPart extends CompartmentEdi
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected void setLabelTextHelper(IFigure figure, String text) {
 		if (figure instanceof WrappingLabel) {
 			((WrappingLabel) figure).setText(text);
@@ -133,8 +132,8 @@ public class TypeReferenceFakePackageNameFakeTypeEditPart extends CompartmentEdi
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected Image getLabelIconHelper(IFigure figure) {
 		if (figure instanceof WrappingLabel) {
 			return ((WrappingLabel) figure).getIcon();
@@ -146,8 +145,8 @@ public class TypeReferenceFakePackageNameFakeTypeEditPart extends CompartmentEdi
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected void setLabelIconHelper(IFigure figure, Image icon) {
 		if (figure instanceof WrappingLabel) {
 			((WrappingLabel) figure).setIcon(icon);
@@ -161,8 +160,8 @@ public class TypeReferenceFakePackageNameFakeTypeEditPart extends CompartmentEdi
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public void setLabel(WrappingLabel figure) {
 		unregisterVisuals();
 		setFigure(figure);
@@ -172,30 +171,30 @@ public class TypeReferenceFakePackageNameFakeTypeEditPart extends CompartmentEdi
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	@SuppressWarnings("rawtypes")
 	protected List getModelChildren() {
 		return Collections.EMPTY_LIST;
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public IGraphicalEditPart getChildBySemanticHint(String semanticHint) {
 		return null;
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected EObject getParserElement() {
 		return resolveSemanticElement();
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected Image getLabelIcon() {
 		EObject parserElement = getParserElement();
 		if (parserElement == null) {
@@ -205,8 +204,8 @@ public class TypeReferenceFakePackageNameFakeTypeEditPart extends CompartmentEdi
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 
 	protected String getLabelText() {
 		String text = null;
@@ -228,16 +227,16 @@ public class TypeReferenceFakePackageNameFakeTypeEditPart extends CompartmentEdi
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public void setLabelText(String text) {
 		setLabelTextHelper(getFigure(), text);
 		refreshSelectionFeedback();
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public String getEditText() {
 		if (getParserElement() == null || getParser() == null) {
 			return ""; //$NON-NLS-1$
@@ -246,15 +245,15 @@ public class TypeReferenceFakePackageNameFakeTypeEditPart extends CompartmentEdi
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected boolean isEditable() {
 		return getParser() != null;
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public ICellEditorValidator getEditTextValidator() {
 		return new ICellEditorValidator() {
 
@@ -283,8 +282,8 @@ public class TypeReferenceFakePackageNameFakeTypeEditPart extends CompartmentEdi
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public IContentAssistProcessor getCompletionProcessor() {
 		if (getParserElement() == null || getParser() == null) {
 			return null;
@@ -293,15 +292,15 @@ public class TypeReferenceFakePackageNameFakeTypeEditPart extends CompartmentEdi
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public ParserOptions getParserOptions() {
 		return ParserOptions.NONE;
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public IParser getParser() {
 		if (parser == null) {
 			parser = DomainParserProvider.getParser(DomainElementTypes.TypeReference_102001, getParserElement(),
@@ -312,8 +311,8 @@ public class TypeReferenceFakePackageNameFakeTypeEditPart extends CompartmentEdi
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected DirectEditManager getManager() {
 		if (manager == null) {
 			setManager(new TextDirectEditManager(this, null, DomainEditPartFactory.getTextCellEditorLocator(this)));
@@ -322,22 +321,22 @@ public class TypeReferenceFakePackageNameFakeTypeEditPart extends CompartmentEdi
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected void setManager(DirectEditManager manager) {
 		this.manager = manager;
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected void performDirectEdit() {
 		getManager().show();
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected void performDirectEdit(Point eventLocation) {
 		if (getManager().getClass() == TextDirectEditManager.class) {
 			((TextDirectEditManager) getManager()).show(eventLocation.getSWTPoint());
@@ -345,8 +344,8 @@ public class TypeReferenceFakePackageNameFakeTypeEditPart extends CompartmentEdi
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private void performDirectEdit(char initialCharacter) {
 		if (getManager() instanceof TextDirectEditManager) {
 			((TextDirectEditManager) getManager()).show(initialCharacter);
@@ -357,8 +356,8 @@ public class TypeReferenceFakePackageNameFakeTypeEditPart extends CompartmentEdi
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected void performDirectEditRequest(Request request) {
 		final Request theRequest = request;
 		try {
@@ -387,8 +386,8 @@ public class TypeReferenceFakePackageNameFakeTypeEditPart extends CompartmentEdi
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected void refreshVisuals() {
 		super.refreshVisuals();
 		refreshLabel();
@@ -399,8 +398,8 @@ public class TypeReferenceFakePackageNameFakeTypeEditPart extends CompartmentEdi
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected void refreshLabel() {
 		setLabelTextHelper(getFigure(), getLabelText());
 		setLabelIconHelper(getFigure(), getLabelIcon());
@@ -408,8 +407,8 @@ public class TypeReferenceFakePackageNameFakeTypeEditPart extends CompartmentEdi
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected void refreshUnderline() {
 		FontStyle style = (FontStyle) getFontStyleOwnerView().getStyle(NotationPackage.eINSTANCE.getFontStyle());
 		if (style != null && getFigure() instanceof WrappingLabel) {
@@ -418,8 +417,8 @@ public class TypeReferenceFakePackageNameFakeTypeEditPart extends CompartmentEdi
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected void refreshStrikeThrough() {
 		FontStyle style = (FontStyle) getFontStyleOwnerView().getStyle(NotationPackage.eINSTANCE.getFontStyle());
 		if (style != null && getFigure() instanceof WrappingLabel) {
@@ -428,8 +427,8 @@ public class TypeReferenceFakePackageNameFakeTypeEditPart extends CompartmentEdi
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected void refreshFont() {
 		FontStyle style = (FontStyle) getFontStyleOwnerView().getStyle(NotationPackage.eINSTANCE.getFontStyle());
 		if (style != null) {
@@ -440,16 +439,16 @@ public class TypeReferenceFakePackageNameFakeTypeEditPart extends CompartmentEdi
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private void refreshSelectionFeedback() {
 		requestEditPolicyFeedbackRefresh(EditPolicy.PRIMARY_DRAG_ROLE);
 		requestEditPolicyFeedbackRefresh(EditPolicy.SELECTION_FEEDBACK_ROLE);
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private void requestEditPolicyFeedbackRefresh(String editPolicyKey) {
 		Object editPolicy = getEditPolicy(editPolicyKey);
 		if (editPolicy instanceof IRefreshableFeedbackEditPolicy) {
@@ -458,15 +457,15 @@ public class TypeReferenceFakePackageNameFakeTypeEditPart extends CompartmentEdi
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected void setFontColor(Color color) {
 		getFigure().setForegroundColor(color);
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected void addSemanticListeners() {
 		if (getParser() instanceof ISemanticParser) {
 			EObject element = resolveSemanticElement();
@@ -480,8 +479,8 @@ public class TypeReferenceFakePackageNameFakeTypeEditPart extends CompartmentEdi
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected void removeSemanticListeners() {
 		if (parserElements != null) {
 			for (int i = 0; i < parserElements.size(); i++) {
@@ -493,8 +492,8 @@ public class TypeReferenceFakePackageNameFakeTypeEditPart extends CompartmentEdi
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected AccessibleEditPart getAccessibleEditPart() {
 		if (accessibleEP == null) {
 			accessibleEP = new AccessibleGraphicalEditPart() {
@@ -508,15 +507,15 @@ public class TypeReferenceFakePackageNameFakeTypeEditPart extends CompartmentEdi
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private View getFontStyleOwnerView() {
 		return (View) getModel();
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private ILabelDelegate getLabelDelegate() {
 		if (labelDelegate == null) {
 			IFigure label = getFigure();
@@ -530,8 +529,8 @@ public class TypeReferenceFakePackageNameFakeTypeEditPart extends CompartmentEdi
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	@Override
 	public Object getAdapter(Class key) {
 		if (ILabelDelegate.class.equals(key)) {
@@ -541,24 +540,24 @@ public class TypeReferenceFakePackageNameFakeTypeEditPart extends CompartmentEdi
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected void addNotationalListeners() {
 		super.addNotationalListeners();
 		addListenerFilter("PrimaryView", this, getPrimaryView()); //$NON-NLS-1$
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected void removeNotationalListeners() {
 		super.removeNotationalListeners();
 		removeListenerFilter("PrimaryView"); //$NON-NLS-1$
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected void handleNotificationEvent(Notification event) {
 		Object feature = event.getFeature();
 		if (NotationPackage.eINSTANCE.getFontStyle_FontColor().equals(feature)) {
@@ -592,8 +591,8 @@ public class TypeReferenceFakePackageNameFakeTypeEditPart extends CompartmentEdi
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected IFigure createFigure() {
 		// Parent should assign one using setLabel() method
 		return null;

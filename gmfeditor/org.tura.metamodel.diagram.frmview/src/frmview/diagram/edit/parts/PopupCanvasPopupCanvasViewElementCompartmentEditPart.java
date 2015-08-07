@@ -38,27 +38,27 @@ import frmview.diagram.providers.DomainElementTypes;
 public class PopupCanvasPopupCanvasViewElementCompartmentEditPart extends ShapeCompartmentEditPart {
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static final int VISUAL_ID = 1307010;
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public PopupCanvasPopupCanvasViewElementCompartmentEditPart(View view) {
 		super(view);
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public String getCompartmentName() {
 		return Messages.PopupCanvasPopupCanvasViewElementCompartmentEditPart_title;
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 
 	public IFigure createFigure() {
 		ResizableCompartmentFigure result = (ResizableCompartmentFigure) super.createFigure();
@@ -102,8 +102,8 @@ public class PopupCanvasPopupCanvasViewElementCompartmentEditPart extends ShapeC
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected void createDefaultEditPolicies() {
 		super.createDefaultEditPolicies();
 		installEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE, new ResizableCompartmentEditPolicy());
@@ -117,8 +117,8 @@ public class PopupCanvasPopupCanvasViewElementCompartmentEditPart extends ShapeC
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected void setRatio(Double ratio) {
 		if (getFigure().getParent().getLayoutManager() instanceof ConstrainedToolbarLayout) {
 			super.setRatio(ratio);
@@ -126,8 +126,8 @@ public class PopupCanvasPopupCanvasViewElementCompartmentEditPart extends ShapeC
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public EditPart getTargetEditPart(Request request) {
 		if (request instanceof CreateViewAndElementRequest) {
 			CreateElementRequestAdapter adapter = ((CreateViewAndElementRequest) request).getViewAndElementDescriptor()

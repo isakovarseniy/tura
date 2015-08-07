@@ -27,66 +27,62 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public class MethodPointerImpl extends TypePointerImpl implements MethodPointer
-{
-  /**
+public class MethodPointerImpl extends TypePointerImpl implements MethodPointer {
+	/**
 	 * The cached value of the '{@link #getMethodRef() <em>Method Ref</em>}' reference.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getMethodRef()
 	 * @generated
 	 * @ordered
 	 */
-  protected Operation methodRef;
+	protected Operation methodRef;
 
-  /**
+	/**
 	 * The default value of the '{@link #getFakeMethod() <em>Fake Method</em>}' attribute.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getFakeMethod()
 	 * @generated
 	 * @ordered
 	 */
-  protected static final String FAKE_METHOD_EDEFAULT = null;
+	protected static final String FAKE_METHOD_EDEFAULT = null;
 
-  /**
+	/**
 	 * The cached value of the '{@link #getFakeMethod() <em>Fake Method</em>}' attribute.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getFakeMethod()
 	 * @generated
 	 * @ordered
 	 */
-  protected String fakeMethod = FAKE_METHOD_EDEFAULT;
+	protected String fakeMethod = FAKE_METHOD_EDEFAULT;
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  protected MethodPointerImpl()
-  {
+	protected MethodPointerImpl() {
 		super();
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  protected EClass eStaticClass()
-  {
+	@Override
+	protected EClass eStaticClass() {
 		return DomainPackage.Literals.METHOD_POINTER;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public Operation getMethodRef()
-  {
+	public Operation getMethodRef() {
 		if (methodRef != null && methodRef.eIsProxy()) {
 			InternalEObject oldMethodRef = (InternalEObject)methodRef;
 			methodRef = (Operation)eResolveProxy(oldMethodRef);
@@ -98,60 +94,55 @@ public class MethodPointerImpl extends TypePointerImpl implements MethodPointer
 		return methodRef;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public Operation basicGetMethodRef()
-  {
+	public Operation basicGetMethodRef() {
 		return methodRef;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public void setMethodRef(Operation newMethodRef)
-  {
+	public void setMethodRef(Operation newMethodRef) {
 		Operation oldMethodRef = methodRef;
 		methodRef = newMethodRef;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.METHOD_POINTER__METHOD_REF, oldMethodRef, methodRef));
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public String getFakeMethod()
-  {
+	public String getFakeMethod() {
 		return fakeMethod;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public void setFakeMethod(String newFakeMethod)
-  {
+	public void setFakeMethod(String newFakeMethod) {
 		String oldFakeMethod = fakeMethod;
 		fakeMethod = newFakeMethod;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.METHOD_POINTER__FAKE_METHOD, oldFakeMethod, fakeMethod));
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public Object eGet(int featureID, boolean resolve, boolean coreType)
-  {
+	@Override
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case DomainPackage.METHOD_POINTER__METHOD_REF:
 				if (resolve) return getMethodRef();
@@ -162,14 +153,13 @@ public class MethodPointerImpl extends TypePointerImpl implements MethodPointer
 		return super.eGet(featureID, resolve, coreType);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public void eSet(int featureID, Object newValue)
-  {
+	@Override
+	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case DomainPackage.METHOD_POINTER__METHOD_REF:
 				setMethodRef((Operation)newValue);
@@ -181,14 +171,13 @@ public class MethodPointerImpl extends TypePointerImpl implements MethodPointer
 		super.eSet(featureID, newValue);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public void eUnset(int featureID)
-  {
+	@Override
+	public void eUnset(int featureID) {
 		switch (featureID) {
 			case DomainPackage.METHOD_POINTER__METHOD_REF:
 				setMethodRef((Operation)null);
@@ -200,14 +189,13 @@ public class MethodPointerImpl extends TypePointerImpl implements MethodPointer
 		super.eUnset(featureID);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public boolean eIsSet(int featureID)
-  {
+	@Override
+	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case DomainPackage.METHOD_POINTER__METHOD_REF:
 				return methodRef != null;
@@ -217,14 +205,13 @@ public class MethodPointerImpl extends TypePointerImpl implements MethodPointer
 		return super.eIsSet(featureID);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public String toString()
-  {
+	@Override
+	public String toString() {
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());

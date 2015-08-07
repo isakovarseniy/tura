@@ -1,6 +1,6 @@
 /*
- * 
- */
+* 
+*/
 package recipe.diagram.edit.policies;
 
 import java.util.Iterator;
@@ -26,15 +26,15 @@ import recipe.diagram.providers.DomainElementTypes;
 public class ModelMapperItemSemanticEditPolicy extends DomainBaseItemSemanticEditPolicy {
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public ModelMapperItemSemanticEditPolicy() {
 		super(DomainElementTypes.ModelMapper_303003);
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected Command getDestroyElementCommand(DestroyElementRequest req) {
 		View view = (View) getHost().getModel();
 		CompositeTransactionalCommand cmd = new CompositeTransactionalCommand(getEditingDomain(), null);
@@ -53,8 +53,8 @@ public class ModelMapperItemSemanticEditPolicy extends DomainBaseItemSemanticEdi
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private void addDestroyChildNodesCommand(ICompositeCommand cmd) {
 		View view = (View) getHost().getModel();
 		for (Iterator<?> nit = view.getChildren().iterator(); nit.hasNext();) {

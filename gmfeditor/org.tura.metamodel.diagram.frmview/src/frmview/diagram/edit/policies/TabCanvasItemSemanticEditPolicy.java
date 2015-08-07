@@ -1,6 +1,6 @@
 /*
- * 
- */
+* 
+*/
 package frmview.diagram.edit.policies;
 
 import java.util.Iterator;
@@ -31,15 +31,15 @@ import frmview.diagram.providers.DomainElementTypes;
 public class TabCanvasItemSemanticEditPolicy extends DomainBaseItemSemanticEditPolicy {
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public TabCanvasItemSemanticEditPolicy() {
 		super(DomainElementTypes.TabCanvas_1302008);
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected Command getDestroyElementCommand(DestroyElementRequest req) {
 		View view = (View) getHost().getModel();
 		CompositeTransactionalCommand cmd = new CompositeTransactionalCommand(getEditingDomain(), null);

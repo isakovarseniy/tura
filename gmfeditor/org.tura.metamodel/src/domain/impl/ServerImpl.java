@@ -14,26 +14,23 @@ import org.eclipse.emf.ecore.EClass;
  *
  * @generated
  */
-public class ServerImpl extends InfrastructureComponentImpl implements Server
-{
-  /**
+public class ServerImpl extends InfrastructureComponentImpl implements Server {
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  protected ServerImpl()
-  {
+	protected ServerImpl() {
 		super();
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  protected EClass eStaticClass()
-  {
+	@Override
+	protected EClass eStaticClass() {
 		return DomainPackage.Literals.SERVER;
 	}
 

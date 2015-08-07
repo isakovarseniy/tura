@@ -1,13 +1,7 @@
 /*
- * 
- */
+* 
+*/
 package infarastructure.diagram.edit.policies;
-
-import infarastructure.diagram.edit.commands.InfrastructureConnectionCreateCommand;
-import infarastructure.diagram.edit.commands.InfrastructureConnectionReorientCommand;
-import infarastructure.diagram.edit.parts.InfrastructureConnectionEditPart;
-import infarastructure.diagram.part.DomainVisualIDRegistry;
-import infarastructure.diagram.providers.DomainElementTypes;
 
 import java.util.Iterator;
 
@@ -22,21 +16,27 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.ReorientRelationshipReques
 import org.eclipse.gmf.runtime.notation.Edge;
 import org.eclipse.gmf.runtime.notation.View;
 
+import infarastructure.diagram.edit.commands.InfrastructureConnectionCreateCommand;
+import infarastructure.diagram.edit.commands.InfrastructureConnectionReorientCommand;
+import infarastructure.diagram.edit.parts.InfrastructureConnectionEditPart;
+import infarastructure.diagram.part.DomainVisualIDRegistry;
+import infarastructure.diagram.providers.DomainElementTypes;
+
 /**
  * @generated
  */
 public class Server2ItemSemanticEditPolicy extends DomainBaseItemSemanticEditPolicy {
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public Server2ItemSemanticEditPolicy() {
 		super(DomainElementTypes.Server_1203008);
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected Command getDestroyElementCommand(DestroyElementRequest req) {
 		View view = (View) getHost().getModel();
 		CompositeTransactionalCommand cmd = new CompositeTransactionalCommand(getEditingDomain(), null);

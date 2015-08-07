@@ -49,59 +49,58 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public class UielementImpl extends StyleElementImpl implements Uielement
-{
-  /**
+public class UielementImpl extends StyleElementImpl implements Uielement {
+	/**
 	 * The default value of the '{@link #getNickname() <em>Nickname</em>}' attribute.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getNickname()
 	 * @generated
 	 * @ordered
 	 */
-  protected static final String NICKNAME_EDEFAULT = null;
+	protected static final String NICKNAME_EDEFAULT = null;
 
-  /**
+	/**
 	 * The cached value of the '{@link #getNickname() <em>Nickname</em>}' attribute.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getNickname()
 	 * @generated
 	 * @ordered
 	 */
-  protected String nickname = NICKNAME_EDEFAULT;
+	protected String nickname = NICKNAME_EDEFAULT;
 
-  /**
+	/**
 	 * The cached value of the '{@link #getClassifiers() <em>Classifiers</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getClassifiers()
 	 * @generated
 	 * @ordered
 	 */
-  protected EList<Classifier> classifiers;
+	protected EList<Classifier> classifiers;
 
-  /**
+	/**
 	 * The default value of the '{@link #getOrder() <em>Order</em>}' attribute.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getOrder()
 	 * @generated
 	 * @ordered
 	 */
-  protected static final int ORDER_EDEFAULT = 0;
+	protected static final int ORDER_EDEFAULT = 0;
 
-  /**
+	/**
 	 * The cached value of the '{@link #getOrder() <em>Order</em>}' attribute.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getOrder()
 	 * @generated
 	 * @ordered
 	 */
-  protected int order = ORDER_EDEFAULT;
+	protected int order = ORDER_EDEFAULT;
 
-  /**
+	/**
 	 * The cached value of the '{@link #getTriggers() <em>Triggers</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -111,186 +110,187 @@ public class UielementImpl extends StyleElementImpl implements Uielement
 	 */
 	protected EList<ActionTrigger> triggers;
 
-		/**
+	/**
 	 * The default value of the '{@link #getUid() <em>Uid</em>}' attribute.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getUid()
 	 * @generated
 	 * @ordered
 	 */
-  protected static final String UID_EDEFAULT = null;
+	protected static final String UID_EDEFAULT = null;
 
-		/**
+	/**
 	 * The cached value of the '{@link #getUid() <em>Uid</em>}' attribute.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getUid()
 	 * @generated
 	 * @ordered
 	 */
-  protected String uid = UID_EDEFAULT;
+	protected String uid = UID_EDEFAULT;
 
-		/**
+	/**
 	 * The cached value of the '{@link #getEnabled() <em>Enabled</em>}' containment reference.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getEnabled()
 	 * @generated
 	 * @ordered
 	 */
-  protected Context enabled;
+	protected Context enabled;
 
-		/**
+	/**
 	 * The cached value of the '{@link #getRequired() <em>Required</em>}' containment reference.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getRequired()
 	 * @generated
 	 * @ordered
 	 */
-  protected Context required;
+	protected Context required;
 
-		/**
+	/**
 	 * The cached value of the '{@link #getReadOnly() <em>Read Only</em>}' containment reference.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getReadOnly()
 	 * @generated
 	 * @ordered
 	 */
-  protected Context readOnly;
+	protected Context readOnly;
 
-		/**
+	/**
 	 * The cached value of the '{@link #getOnEventRefreshArea() <em>On Event Refresh Area</em>}' reference list.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getOnEventRefreshArea()
 	 * @generated
 	 * @ordered
 	 */
-  protected EList<NickNamed> onEventRefreshArea;
+	protected EList<NickNamed> onEventRefreshArea;
 
-		/**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  protected UielementImpl()
-  {
+	protected UielementImpl() {
 		super();
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  protected EClass eStaticClass()
-  {
+	@Override
+	protected EClass eStaticClass() {
 		return DomainPackage.Literals.UIELEMENT;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public String getUid()
-  {
-		return uid;
-	}
-
-  /**
-	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-	 * @generated
-	 */
-  public void setUid(String newUid)
-  {
-		String oldUid = uid;
-		uid = newUid;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.UIELEMENT__UID, oldUid, uid));
-	}
-
-  /**
-	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-	 * @generated
-	 */
-  public String getNickname()
-  {
+	public String getNickname() {
 		return nickname;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public void setNickname(String newNickname)
-  {
+	public void setNickname(String newNickname) {
 		String oldNickname = nickname;
 		nickname = newNickname;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.UIELEMENT__NICKNAME, oldNickname, nickname));
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public EList<Classifier> getClassifiers()
-  {
+	public EList<Classifier> getClassifiers() {
 		if (classifiers == null) {
 			classifiers = new EObjectContainmentEList<Classifier>(Classifier.class, this, DomainPackage.UIELEMENT__CLASSIFIERS);
 		}
 		return classifiers;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public int getOrder()
-  {
+	public int getOrder() {
 		return order;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public void setOrder(int newOrder)
-  {
+	public void setOrder(int newOrder) {
 		int oldOrder = order;
 		order = newOrder;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.UIELEMENT__ORDER, oldOrder, order));
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public Context getEnabled()
-  {
+	public EList<ActionTrigger> getTriggers() {
+		if (triggers == null) {
+			triggers = new EObjectContainmentEList<ActionTrigger>(ActionTrigger.class, this, DomainPackage.UIELEMENT__TRIGGERS);
+		}
+		return triggers;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getUid() {
+		return uid;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setUid(String newUid) {
+		String oldUid = uid;
+		uid = newUid;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.UIELEMENT__UID, oldUid, uid));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Context getEnabled() {
 		return enabled;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public NotificationChain basicSetEnabled(Context newEnabled, NotificationChain msgs)
-  {
+	public NotificationChain basicSetEnabled(Context newEnabled, NotificationChain msgs) {
 		Context oldEnabled = enabled;
 		enabled = newEnabled;
 		if (eNotificationRequired()) {
@@ -300,13 +300,12 @@ public class UielementImpl extends StyleElementImpl implements Uielement
 		return msgs;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public void setEnabled(Context newEnabled)
-  {
+	public void setEnabled(Context newEnabled) {
 		if (newEnabled != enabled) {
 			NotificationChain msgs = null;
 			if (enabled != null)
@@ -320,23 +319,21 @@ public class UielementImpl extends StyleElementImpl implements Uielement
 			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.UIELEMENT__ENABLED, newEnabled, newEnabled));
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public Context getRequired()
-  {
+	public Context getRequired() {
 		return required;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public NotificationChain basicSetRequired(Context newRequired, NotificationChain msgs)
-  {
+	public NotificationChain basicSetRequired(Context newRequired, NotificationChain msgs) {
 		Context oldRequired = required;
 		required = newRequired;
 		if (eNotificationRequired()) {
@@ -346,13 +343,12 @@ public class UielementImpl extends StyleElementImpl implements Uielement
 		return msgs;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public void setRequired(Context newRequired)
-  {
+	public void setRequired(Context newRequired) {
 		if (newRequired != required) {
 			NotificationChain msgs = null;
 			if (required != null)
@@ -366,23 +362,21 @@ public class UielementImpl extends StyleElementImpl implements Uielement
 			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.UIELEMENT__REQUIRED, newRequired, newRequired));
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public Context getReadOnly()
-  {
+	public Context getReadOnly() {
 		return readOnly;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public NotificationChain basicSetReadOnly(Context newReadOnly, NotificationChain msgs)
-  {
+	public NotificationChain basicSetReadOnly(Context newReadOnly, NotificationChain msgs) {
 		Context oldReadOnly = readOnly;
 		readOnly = newReadOnly;
 		if (eNotificationRequired()) {
@@ -392,13 +386,12 @@ public class UielementImpl extends StyleElementImpl implements Uielement
 		return msgs;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public void setReadOnly(Context newReadOnly)
-  {
+	public void setReadOnly(Context newReadOnly) {
 		if (newReadOnly != readOnly) {
 			NotificationChain msgs = null;
 			if (readOnly != null)
@@ -412,39 +405,25 @@ public class UielementImpl extends StyleElementImpl implements Uielement
 			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.UIELEMENT__READ_ONLY, newReadOnly, newReadOnly));
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public EList<NickNamed> getOnEventRefreshArea()
-  {
+	public EList<NickNamed> getOnEventRefreshArea() {
 		if (onEventRefreshArea == null) {
 			onEventRefreshArea = new EObjectResolvingEList<NickNamed>(NickNamed.class, this, DomainPackage.UIELEMENT__ON_EVENT_REFRESH_AREA);
 		}
 		return onEventRefreshArea;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<ActionTrigger> getTriggers() {
-		if (triggers == null) {
-			triggers = new EObjectContainmentEList<ActionTrigger>(ActionTrigger.class, this, DomainPackage.UIELEMENT__TRIGGERS);
-		}
-		return triggers;
-	}
-
-		/**
-	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-	 * @generated
-	 */
-  @Override
-  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-  {
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case DomainPackage.UIELEMENT__CLASSIFIERS:
 				return ((InternalEList<?>)getClassifiers()).basicRemove(otherEnd, msgs);
@@ -460,14 +439,13 @@ public class UielementImpl extends StyleElementImpl implements Uielement
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public Object eGet(int featureID, boolean resolve, boolean coreType)
-  {
+	@Override
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case DomainPackage.UIELEMENT__NICKNAME:
 				return getNickname();
@@ -491,15 +469,14 @@ public class UielementImpl extends StyleElementImpl implements Uielement
 		return super.eGet(featureID, resolve, coreType);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @SuppressWarnings("unchecked")
-  @Override
-  public void eSet(int featureID, Object newValue)
-  {
+	@SuppressWarnings("unchecked")
+	@Override
+	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case DomainPackage.UIELEMENT__NICKNAME:
 				setNickname((String)newValue);
@@ -535,14 +512,13 @@ public class UielementImpl extends StyleElementImpl implements Uielement
 		super.eSet(featureID, newValue);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public void eUnset(int featureID)
-  {
+	@Override
+	public void eUnset(int featureID) {
 		switch (featureID) {
 			case DomainPackage.UIELEMENT__NICKNAME:
 				setNickname(NICKNAME_EDEFAULT);
@@ -575,14 +551,13 @@ public class UielementImpl extends StyleElementImpl implements Uielement
 		super.eUnset(featureID);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public boolean eIsSet(int featureID)
-  {
+	@Override
+	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case DomainPackage.UIELEMENT__NICKNAME:
 				return NICKNAME_EDEFAULT == null ? nickname != null : !NICKNAME_EDEFAULT.equals(nickname);
@@ -606,14 +581,13 @@ public class UielementImpl extends StyleElementImpl implements Uielement
 		return super.eIsSet(featureID);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass)
-  {
+	@Override
+	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
 		if (baseClass == NickNamed.class) {
 			switch (derivedFeatureID) {
 				case DomainPackage.UIELEMENT__NICKNAME: return DomainPackage.NICK_NAMED__NICKNAME;
@@ -641,14 +615,13 @@ public class UielementImpl extends StyleElementImpl implements Uielement
 		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass)
-  {
+	@Override
+	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
 		if (baseClass == NickNamed.class) {
 			switch (baseFeatureID) {
 				case DomainPackage.NICK_NAMED__NICKNAME: return DomainPackage.UIELEMENT__NICKNAME;
@@ -676,14 +649,13 @@ public class UielementImpl extends StyleElementImpl implements Uielement
 		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public String toString()
-  {
+	@Override
+	public String toString() {
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());

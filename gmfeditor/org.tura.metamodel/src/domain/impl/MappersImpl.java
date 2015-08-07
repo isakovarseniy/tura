@@ -40,49 +40,48 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public class MappersImpl extends EObjectImpl implements Mappers
-{
-  /**
+public class MappersImpl extends EObjectImpl implements Mappers {
+	/**
 	 * The default value of the '{@link #getUid() <em>Uid</em>}' attribute.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getUid()
 	 * @generated
 	 * @ordered
 	 */
-  protected static final String UID_EDEFAULT = null;
+	protected static final String UID_EDEFAULT = null;
 
-  /**
+	/**
 	 * The cached value of the '{@link #getUid() <em>Uid</em>}' attribute.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getUid()
 	 * @generated
 	 * @ordered
 	 */
-  protected String uid = UID_EDEFAULT;
+	protected String uid = UID_EDEFAULT;
 
-  /**
+	/**
 	 * The cached value of the '{@link #getMappers() <em>Mappers</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getMappers()
 	 * @generated
 	 * @ordered
 	 */
-  protected EList<Mapper> mappers;
+	protected EList<Mapper> mappers;
 
-  /**
+	/**
 	 * The cached value of the '{@link #getParent() <em>Parent</em>}' reference.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getParent()
 	 * @generated
 	 * @ordered
 	 */
-  protected ApplicationMapper parent;
+	protected ApplicationMapper parent;
 
-  /**
+	/**
 	 * The cached value of the '{@link #getAny() <em>Any</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -92,70 +91,64 @@ public class MappersImpl extends EObjectImpl implements Mappers
 	 */
 	protected EObject any;
 
-		/**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  protected MappersImpl()
-  {
+	protected MappersImpl() {
 		super();
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  protected EClass eStaticClass()
-  {
+	@Override
+	protected EClass eStaticClass() {
 		return DomainPackage.Literals.MAPPERS;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public String getUid()
-  {
+	public String getUid() {
 		return uid;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public void setUid(String newUid)
-  {
+	public void setUid(String newUid) {
 		String oldUid = uid;
 		uid = newUid;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.MAPPERS__UID, oldUid, uid));
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public EList<Mapper> getMappers()
-  {
+	public EList<Mapper> getMappers() {
 		if (mappers == null) {
 			mappers = new EObjectContainmentWithInverseEList<Mapper>(Mapper.class, this, DomainPackage.MAPPERS__MAPPERS, DomainPackage.MAPPER__PARENT);
 		}
 		return mappers;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public ApplicationMapper getParent()
-  {
+	public ApplicationMapper getParent() {
 		if (parent != null && parent.eIsProxy()) {
 			InternalEObject oldParent = (InternalEObject)parent;
 			parent = (ApplicationMapper)eResolveProxy(oldParent);
@@ -167,23 +160,21 @@ public class MappersImpl extends EObjectImpl implements Mappers
 		return parent;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public ApplicationMapper basicGetParent()
-  {
+	public ApplicationMapper basicGetParent() {
 		return parent;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public NotificationChain basicSetParent(ApplicationMapper newParent, NotificationChain msgs)
-  {
+	public NotificationChain basicSetParent(ApplicationMapper newParent, NotificationChain msgs) {
 		ApplicationMapper oldParent = parent;
 		parent = newParent;
 		if (eNotificationRequired()) {
@@ -193,13 +184,12 @@ public class MappersImpl extends EObjectImpl implements Mappers
 		return msgs;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public void setParent(ApplicationMapper newParent)
-  {
+	public void setParent(ApplicationMapper newParent) {
 		if (newParent != parent) {
 			NotificationChain msgs = null;
 			if (parent != null)
@@ -213,7 +203,7 @@ public class MappersImpl extends EObjectImpl implements Mappers
 			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.MAPPERS__PARENT, newParent, newParent));
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -222,7 +212,7 @@ public class MappersImpl extends EObjectImpl implements Mappers
 		return any;
 	}
 
-		/**
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -237,7 +227,7 @@ public class MappersImpl extends EObjectImpl implements Mappers
 		return msgs;
 	}
 
-		/**
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -256,15 +246,14 @@ public class MappersImpl extends EObjectImpl implements Mappers
 			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.MAPPERS__ANY, newAny, newAny));
 	}
 
-		/**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @SuppressWarnings("unchecked")
-  @Override
-  public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-  {
+	@SuppressWarnings("unchecked")
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case DomainPackage.MAPPERS__MAPPERS:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getMappers()).basicAdd(otherEnd, msgs);
@@ -276,14 +265,13 @@ public class MappersImpl extends EObjectImpl implements Mappers
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-  {
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case DomainPackage.MAPPERS__MAPPERS:
 				return ((InternalEList<?>)getMappers()).basicRemove(otherEnd, msgs);
@@ -295,14 +283,13 @@ public class MappersImpl extends EObjectImpl implements Mappers
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public Object eGet(int featureID, boolean resolve, boolean coreType)
-  {
+	@Override
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case DomainPackage.MAPPERS__UID:
 				return getUid();
@@ -317,15 +304,14 @@ public class MappersImpl extends EObjectImpl implements Mappers
 		return super.eGet(featureID, resolve, coreType);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @SuppressWarnings("unchecked")
-  @Override
-  public void eSet(int featureID, Object newValue)
-  {
+	@SuppressWarnings("unchecked")
+	@Override
+	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case DomainPackage.MAPPERS__UID:
 				setUid((String)newValue);
@@ -344,14 +330,13 @@ public class MappersImpl extends EObjectImpl implements Mappers
 		super.eSet(featureID, newValue);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public void eUnset(int featureID)
-  {
+	@Override
+	public void eUnset(int featureID) {
 		switch (featureID) {
 			case DomainPackage.MAPPERS__UID:
 				setUid(UID_EDEFAULT);
@@ -369,14 +354,13 @@ public class MappersImpl extends EObjectImpl implements Mappers
 		super.eUnset(featureID);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public boolean eIsSet(int featureID)
-  {
+	@Override
+	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case DomainPackage.MAPPERS__UID:
 				return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
@@ -390,14 +374,13 @@ public class MappersImpl extends EObjectImpl implements Mappers
 		return super.eIsSet(featureID);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public String toString()
-  {
+	@Override
+	public String toString() {
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());

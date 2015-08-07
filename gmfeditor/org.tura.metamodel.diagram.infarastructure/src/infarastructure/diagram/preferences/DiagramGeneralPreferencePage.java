@@ -3,9 +3,9 @@
  */
 package infarastructure.diagram.preferences;
 
-import infarastructure.diagram.part.DomainDiagramEditorPlugin;
-
 import org.eclipse.gmf.runtime.diagram.ui.preferences.DiagramsPreferencePage;
+
+import infarastructure.diagram.part.DomainDiagramEditorPlugin;
 
 /**
  * @generated
@@ -13,8 +13,8 @@ import org.eclipse.gmf.runtime.diagram.ui.preferences.DiagramsPreferencePage;
 public class DiagramGeneralPreferencePage extends DiagramsPreferencePage {
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public DiagramGeneralPreferencePage() {
 		setPreferenceStore(DomainDiagramEditorPlugin.getInstance().getPreferenceStore());
 	}

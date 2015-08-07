@@ -14,26 +14,23 @@ import org.eclipse.emf.ecore.EClass;
  *
  * @generated
  */
-public class JPAServiceImpl extends DomainArtifactImpl implements JPAService
-{
-  /**
+public class JPAServiceImpl extends DomainArtifactImpl implements JPAService {
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  protected JPAServiceImpl()
-  {
+	protected JPAServiceImpl() {
 		super();
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  protected EClass eStaticClass()
-  {
+	@Override
+	protected EClass eStaticClass() {
 		return DomainPackage.Literals.JPA_SERVICE;
 	}
 

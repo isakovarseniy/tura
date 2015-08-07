@@ -35,59 +35,58 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  *
  * @generated
  */
-public class DomainImpl extends EObjectImpl implements Domain
-{
-  /**
+public class DomainImpl extends EObjectImpl implements Domain {
+	/**
 	 * The default value of the '{@link #getUid() <em>Uid</em>}' attribute.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getUid()
 	 * @generated
 	 * @ordered
 	 */
-  protected static final String UID_EDEFAULT = null;
+	protected static final String UID_EDEFAULT = null;
 
-  /**
+	/**
 	 * The cached value of the '{@link #getUid() <em>Uid</em>}' attribute.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getUid()
 	 * @generated
 	 * @ordered
 	 */
-  protected String uid = UID_EDEFAULT;
+	protected String uid = UID_EDEFAULT;
 
-  /**
+	/**
 	 * The cached value of the '{@link #getDomainArtifacts() <em>Domain Artifacts</em>}' containment reference.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getDomainArtifacts()
 	 * @generated
 	 * @ordered
 	 */
-  protected DomainArtifacts domainArtifacts;
+	protected DomainArtifacts domainArtifacts;
 
-  /**
+	/**
 	 * The cached value of the '{@link #getDomainTypes() <em>Domain Types</em>}' containment reference.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getDomainTypes()
 	 * @generated
 	 * @ordered
 	 */
-  protected DomainTypes domainTypes;
+	protected DomainTypes domainTypes;
 
-  /**
+	/**
 	 * The cached value of the '{@link #getDomainApplications() <em>Domain Applications</em>}' containment reference.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getDomainApplications()
 	 * @generated
 	 * @ordered
 	 */
-  protected DomainApplications domainApplications;
+	protected DomainApplications domainApplications;
 
-  /**
+	/**
 	 * The cached value of the '{@link #getAny() <em>Any</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -97,67 +96,61 @@ public class DomainImpl extends EObjectImpl implements Domain
 	 */
 	protected EObject any;
 
-		/**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  protected DomainImpl()
-  {
+	protected DomainImpl() {
 		super();
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  protected EClass eStaticClass()
-  {
+	@Override
+	protected EClass eStaticClass() {
 		return DomainPackage.Literals.DOMAIN;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public String getUid()
-  {
+	public String getUid() {
 		return uid;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public void setUid(String newUid)
-  {
+	public void setUid(String newUid) {
 		String oldUid = uid;
 		uid = newUid;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.DOMAIN__UID, oldUid, uid));
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public DomainArtifacts getDomainArtifacts()
-  {
+	public DomainArtifacts getDomainArtifacts() {
 		return domainArtifacts;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public NotificationChain basicSetDomainArtifacts(DomainArtifacts newDomainArtifacts, NotificationChain msgs)
-  {
+	public NotificationChain basicSetDomainArtifacts(DomainArtifacts newDomainArtifacts, NotificationChain msgs) {
 		DomainArtifacts oldDomainArtifacts = domainArtifacts;
 		domainArtifacts = newDomainArtifacts;
 		if (eNotificationRequired()) {
@@ -167,13 +160,12 @@ public class DomainImpl extends EObjectImpl implements Domain
 		return msgs;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public void setDomainArtifacts(DomainArtifacts newDomainArtifacts)
-  {
+	public void setDomainArtifacts(DomainArtifacts newDomainArtifacts) {
 		if (newDomainArtifacts != domainArtifacts) {
 			NotificationChain msgs = null;
 			if (domainArtifacts != null)
@@ -187,23 +179,21 @@ public class DomainImpl extends EObjectImpl implements Domain
 			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.DOMAIN__DOMAIN_ARTIFACTS, newDomainArtifacts, newDomainArtifacts));
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public DomainTypes getDomainTypes()
-  {
+	public DomainTypes getDomainTypes() {
 		return domainTypes;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public NotificationChain basicSetDomainTypes(DomainTypes newDomainTypes, NotificationChain msgs)
-  {
+	public NotificationChain basicSetDomainTypes(DomainTypes newDomainTypes, NotificationChain msgs) {
 		DomainTypes oldDomainTypes = domainTypes;
 		domainTypes = newDomainTypes;
 		if (eNotificationRequired()) {
@@ -213,13 +203,12 @@ public class DomainImpl extends EObjectImpl implements Domain
 		return msgs;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public void setDomainTypes(DomainTypes newDomainTypes)
-  {
+	public void setDomainTypes(DomainTypes newDomainTypes) {
 		if (newDomainTypes != domainTypes) {
 			NotificationChain msgs = null;
 			if (domainTypes != null)
@@ -233,23 +222,21 @@ public class DomainImpl extends EObjectImpl implements Domain
 			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.DOMAIN__DOMAIN_TYPES, newDomainTypes, newDomainTypes));
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public DomainApplications getDomainApplications()
-  {
+	public DomainApplications getDomainApplications() {
 		return domainApplications;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public NotificationChain basicSetDomainApplications(DomainApplications newDomainApplications, NotificationChain msgs)
-  {
+	public NotificationChain basicSetDomainApplications(DomainApplications newDomainApplications, NotificationChain msgs) {
 		DomainApplications oldDomainApplications = domainApplications;
 		domainApplications = newDomainApplications;
 		if (eNotificationRequired()) {
@@ -259,13 +246,12 @@ public class DomainImpl extends EObjectImpl implements Domain
 		return msgs;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public void setDomainApplications(DomainApplications newDomainApplications)
-  {
+	public void setDomainApplications(DomainApplications newDomainApplications) {
 		if (newDomainApplications != domainApplications) {
 			NotificationChain msgs = null;
 			if (domainApplications != null)
@@ -279,7 +265,7 @@ public class DomainImpl extends EObjectImpl implements Domain
 			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.DOMAIN__DOMAIN_APPLICATIONS, newDomainApplications, newDomainApplications));
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -288,7 +274,7 @@ public class DomainImpl extends EObjectImpl implements Domain
 		return any;
 	}
 
-		/**
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -303,7 +289,7 @@ public class DomainImpl extends EObjectImpl implements Domain
 		return msgs;
 	}
 
-		/**
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -322,14 +308,13 @@ public class DomainImpl extends EObjectImpl implements Domain
 			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.DOMAIN__ANY, newAny, newAny));
 	}
 
-		/**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-  {
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case DomainPackage.DOMAIN__DOMAIN_ARTIFACTS:
 				if (domainArtifacts != null)
@@ -347,14 +332,13 @@ public class DomainImpl extends EObjectImpl implements Domain
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-  {
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case DomainPackage.DOMAIN__DOMAIN_ARTIFACTS:
 				return basicSetDomainArtifacts(null, msgs);
@@ -368,14 +352,13 @@ public class DomainImpl extends EObjectImpl implements Domain
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public Object eGet(int featureID, boolean resolve, boolean coreType)
-  {
+	@Override
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case DomainPackage.DOMAIN__UID:
 				return getUid();
@@ -391,14 +374,13 @@ public class DomainImpl extends EObjectImpl implements Domain
 		return super.eGet(featureID, resolve, coreType);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public void eSet(int featureID, Object newValue)
-  {
+	@Override
+	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case DomainPackage.DOMAIN__UID:
 				setUid((String)newValue);
@@ -419,14 +401,13 @@ public class DomainImpl extends EObjectImpl implements Domain
 		super.eSet(featureID, newValue);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public void eUnset(int featureID)
-  {
+	@Override
+	public void eUnset(int featureID) {
 		switch (featureID) {
 			case DomainPackage.DOMAIN__UID:
 				setUid(UID_EDEFAULT);
@@ -447,14 +428,13 @@ public class DomainImpl extends EObjectImpl implements Domain
 		super.eUnset(featureID);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public boolean eIsSet(int featureID)
-  {
+	@Override
+	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case DomainPackage.DOMAIN__UID:
 				return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
@@ -470,14 +450,13 @@ public class DomainImpl extends EObjectImpl implements Domain
 		return super.eIsSet(featureID);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public String toString()
-  {
+	@Override
+	public String toString() {
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());

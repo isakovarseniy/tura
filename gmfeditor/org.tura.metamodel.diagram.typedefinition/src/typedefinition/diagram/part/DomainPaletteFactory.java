@@ -1,22 +1,18 @@
+
 /*
  * 
  */
 package typedefinition.diagram.part;
 
 import java.util.Collections;
-import java.util.List;
 
-import org.eclipse.gef.Tool;
 import org.eclipse.gef.palette.PaletteContainer;
 import org.eclipse.gef.palette.PaletteDrawer;
 import org.eclipse.gef.palette.PaletteRoot;
 import org.eclipse.gef.palette.ToolEntry;
-import org.eclipse.gmf.runtime.diagram.ui.tools.UnspecifiedTypeConnectionTool;
-import org.eclipse.gmf.runtime.diagram.ui.tools.UnspecifiedTypeCreationTool;
-import org.eclipse.gmf.runtime.emf.type.core.IElementType;
-
 import org.eclipse.gmf.tooling.runtime.part.DefaultLinkToolEntry;
 import org.eclipse.gmf.tooling.runtime.part.DefaultNodeToolEntry;
+
 import typedefinition.diagram.providers.DomainElementTypes;
 
 /**
@@ -25,17 +21,17 @@ import typedefinition.diagram.providers.DomainElementTypes;
 public class DomainPaletteFactory {
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public void fillPalette(PaletteRoot paletteRoot) {
 		paletteRoot.add(createObjects1Group());
 		paletteRoot.add(createConnections2Group());
 	}
 
 	/**
-	 * Creates "Objects" palette tool group
-	 * @generated
-	 */
+	* Creates "Objects" palette tool group
+	* @generated
+	*/
 	private PaletteContainer createObjects1Group() {
 		PaletteDrawer paletteContainer = new PaletteDrawer(Messages.Objects1Group_title);
 		paletteContainer.setId("createObjects1Group"); //$NON-NLS-1$
@@ -50,9 +46,9 @@ public class DomainPaletteFactory {
 	}
 
 	/**
-	 * Creates "Connections" palette tool group
-	 * @generated
-	 */
+	* Creates "Connections" palette tool group
+	* @generated
+	*/
 	private PaletteContainer createConnections2Group() {
 		PaletteDrawer paletteContainer = new PaletteDrawer(Messages.Connections2Group_title);
 		paletteContainer.setId("createConnections2Group"); //$NON-NLS-1$
@@ -61,8 +57,8 @@ public class DomainPaletteFactory {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private ToolEntry createAttribute1CreationTool() {
 		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(Messages.Attribute1CreationTool_title,
 				Messages.Attribute1CreationTool_desc, Collections.singletonList(DomainElementTypes.Attribute_103001));
@@ -73,8 +69,8 @@ public class DomainPaletteFactory {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private ToolEntry createEnumAttribute2CreationTool() {
 		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(Messages.EnumAttribute2CreationTool_title,
 				Messages.EnumAttribute2CreationTool_desc,
@@ -86,8 +82,8 @@ public class DomainPaletteFactory {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private ToolEntry createEnumarator3CreationTool() {
 		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(Messages.Enumarator3CreationTool_title,
 				Messages.Enumarator3CreationTool_desc, Collections.singletonList(DomainElementTypes.Enumarator_102005));
@@ -98,8 +94,8 @@ public class DomainPaletteFactory {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private ToolEntry createOperation4CreationTool() {
 		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(Messages.Operation4CreationTool_title,
 				Messages.Operation4CreationTool_desc, Collections.singletonList(DomainElementTypes.Operation_103002));
@@ -110,8 +106,8 @@ public class DomainPaletteFactory {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private ToolEntry createPrimitive5CreationTool() {
 		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(Messages.Primitive5CreationTool_title,
 				Messages.Primitive5CreationTool_desc, Collections.singletonList(DomainElementTypes.Primitive_102004));
@@ -122,8 +118,8 @@ public class DomainPaletteFactory {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private ToolEntry createType6CreationTool() {
 		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(Messages.Type6CreationTool_title,
 				Messages.Type6CreationTool_desc, Collections.singletonList(DomainElementTypes.Type_102002));
@@ -134,8 +130,8 @@ public class DomainPaletteFactory {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private ToolEntry createTypeReference7CreationTool() {
 		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(Messages.TypeReference7CreationTool_title,
 				Messages.TypeReference7CreationTool_desc,
@@ -147,8 +143,8 @@ public class DomainPaletteFactory {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private ToolEntry createTypeExtension1CreationTool() {
 		DefaultLinkToolEntry entry = new DefaultLinkToolEntry(Messages.TypeExtension1CreationTool_title,
 				Messages.TypeExtension1CreationTool_desc,
@@ -158,4 +154,5 @@ public class DomainPaletteFactory {
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
+
 }

@@ -1,6 +1,6 @@
 /*
- * 
- */
+* 
+*/
 package frmview.diagram.edit.policies;
 
 import org.eclipse.emf.ecore.EAnnotation;
@@ -19,15 +19,15 @@ import frmview.diagram.providers.DomainElementTypes;
 public class ViewPortTriggerItemSemanticEditPolicy extends DomainBaseItemSemanticEditPolicy {
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public ViewPortTriggerItemSemanticEditPolicy() {
 		super(DomainElementTypes.ViewPortTrigger_1303002);
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected Command getDestroyElementCommand(DestroyElementRequest req) {
 		View view = (View) getHost().getModel();
 		CompositeTransactionalCommand cmd = new CompositeTransactionalCommand(getEditingDomain(), null);

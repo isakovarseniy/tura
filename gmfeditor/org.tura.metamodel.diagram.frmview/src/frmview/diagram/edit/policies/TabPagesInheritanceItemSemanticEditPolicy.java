@@ -1,6 +1,6 @@
 /*
- * 
- */
+* 
+*/
 package frmview.diagram.edit.policies;
 
 import org.eclipse.gef.commands.Command;
@@ -15,15 +15,15 @@ import frmview.diagram.providers.DomainElementTypes;
 public class TabPagesInheritanceItemSemanticEditPolicy extends DomainBaseItemSemanticEditPolicy {
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public TabPagesInheritanceItemSemanticEditPolicy() {
 		super(DomainElementTypes.TabPagesInheritance_1304002);
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected Command getDestroyElementCommand(DestroyElementRequest req) {
 		return getGEFWrapper(new DestroyElementCommand(req));
 	}

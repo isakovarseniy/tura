@@ -1,6 +1,6 @@
 /*
- * 
- */
+* 
+*/
 package control.diagram.edit.policies;
 
 import org.eclipse.gef.commands.Command;
@@ -15,15 +15,15 @@ import control.diagram.providers.DomainElementTypes;
 public class DataControlDataControlCreateCompartmentItemSemanticEditPolicy extends DomainBaseItemSemanticEditPolicy {
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public DataControlDataControlCreateCompartmentItemSemanticEditPolicy() {
 		super(DomainElementTypes.DataControl_1102002);
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected Command getCreateCommand(CreateElementRequest req) {
 		if (DomainElementTypes.CreateTrigger_1103012 == req.getElementType()) {
 			return getGEFWrapper(new CreateTriggerCreateCommand(req));

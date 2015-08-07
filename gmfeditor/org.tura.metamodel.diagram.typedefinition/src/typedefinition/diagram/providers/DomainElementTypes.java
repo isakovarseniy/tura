@@ -9,18 +9,15 @@ import java.util.Map;
 import java.util.Set;
 
 import org.eclipse.core.runtime.IAdaptable;
-import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.ENamedElement;
-import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.gmf.runtime.emf.type.core.ElementTypeRegistry;
 import org.eclipse.gmf.runtime.emf.type.core.IElementType;
 import org.eclipse.gmf.tooling.runtime.providers.DiagramElementTypeImages;
 import org.eclipse.gmf.tooling.runtime.providers.DiagramElementTypes;
 import org.eclipse.jface.resource.ImageDescriptor;
-import org.eclipse.jface.resource.ImageRegistry;
 import org.eclipse.swt.graphics.Image;
 
+import domain.DomainPackage;
 import typedefinition.diagram.edit.parts.AttributeEditPart;
 import typedefinition.diagram.edit.parts.EnumAttributeEditPart;
 import typedefinition.diagram.edit.parts.EnumaratorEditPart;
@@ -31,7 +28,6 @@ import typedefinition.diagram.edit.parts.TypeEditPart;
 import typedefinition.diagram.edit.parts.TypeExtensionEditPart;
 import typedefinition.diagram.edit.parts.TypeReferenceEditPart;
 import typedefinition.diagram.part.DomainDiagramEditorPlugin;
-import domain.DomainPackage;
 
 /**
  * @generated
@@ -39,106 +35,106 @@ import domain.DomainPackage;
 public class DomainElementTypes {
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private DomainElementTypes() {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private static Map<IElementType, ENamedElement> elements;
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private static DiagramElementTypeImages elementTypeImages = new DiagramElementTypeImages(
 			DomainDiagramEditorPlugin.getInstance().getItemProvidersAdapterFactory());
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private static Set<IElementType> KNOWN_ELEMENT_TYPES;
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static final IElementType TypeDefinition_101000 = getElementType(
 			"org.tura.metamodel.diagram.typedefinition.TypeDefinition_101000"); //$NON-NLS-1$
 	/**
-	 * @generated
-	 */
-	public static final IElementType TypeReference_102001 = getElementType(
-			"org.tura.metamodel.diagram.typedefinition.TypeReference_102001"); //$NON-NLS-1$
-	/**
-	 * @generated
-	 */
-	public static final IElementType Primitive_102004 = getElementType(
-			"org.tura.metamodel.diagram.typedefinition.Primitive_102004"); //$NON-NLS-1$
-	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static final IElementType Type_102002 = getElementType(
 			"org.tura.metamodel.diagram.typedefinition.Type_102002"); //$NON-NLS-1$
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
+	public static final IElementType TypeReference_102001 = getElementType(
+			"org.tura.metamodel.diagram.typedefinition.TypeReference_102001"); //$NON-NLS-1$
+	/**
+	* @generated
+	*/
+	public static final IElementType Primitive_102004 = getElementType(
+			"org.tura.metamodel.diagram.typedefinition.Primitive_102004"); //$NON-NLS-1$
+	/**
+	* @generated
+	*/
 	public static final IElementType Enumarator_102005 = getElementType(
 			"org.tura.metamodel.diagram.typedefinition.Enumarator_102005"); //$NON-NLS-1$
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static final IElementType Attribute_103001 = getElementType(
 			"org.tura.metamodel.diagram.typedefinition.Attribute_103001"); //$NON-NLS-1$
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static final IElementType Operation_103002 = getElementType(
 			"org.tura.metamodel.diagram.typedefinition.Operation_103002"); //$NON-NLS-1$
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static final IElementType EnumAttribute_103005 = getElementType(
 			"org.tura.metamodel.diagram.typedefinition.EnumAttribute_103005"); //$NON-NLS-1$
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static final IElementType TypeExtension_104001 = getElementType(
 			"org.tura.metamodel.diagram.typedefinition.TypeExtension_104001"); //$NON-NLS-1$
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static ImageDescriptor getImageDescriptor(ENamedElement element) {
 		return elementTypeImages.getImageDescriptor(element);
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static Image getImage(ENamedElement element) {
 		return elementTypeImages.getImage(element);
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static ImageDescriptor getImageDescriptor(IAdaptable hint) {
 		return getImageDescriptor(getElement(hint));
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static Image getImage(IAdaptable hint) {
 		return getImage(getElement(hint));
 	}
 
 	/**
-	 * Returns 'type' of the ecore object associated with the hint.
-	 * 
-	 * @generated
-	 */
+	* Returns 'type' of the ecore object associated with the hint.
+	* 
+	* @generated
+	*/
 	public static ENamedElement getElement(IAdaptable hint) {
 		Object type = hint.getAdapter(IElementType.class);
 		if (elements == null) {
@@ -166,15 +162,15 @@ public class DomainElementTypes {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private static IElementType getElementType(String id) {
 		return ElementTypeRegistry.getInstance().getType(id);
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static boolean isKnownElementType(IElementType elementType) {
 		if (KNOWN_ELEMENT_TYPES == null) {
 			KNOWN_ELEMENT_TYPES = new HashSet<IElementType>();
@@ -192,8 +188,8 @@ public class DomainElementTypes {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static IElementType getElementType(int visualID) {
 		switch (visualID) {
 		case TypeDefinitionEditPart.VISUAL_ID:
@@ -219,8 +215,8 @@ public class DomainElementTypes {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static final DiagramElementTypes TYPED_INSTANCE = new DiagramElementTypes(elementTypeImages) {
 
 		/**

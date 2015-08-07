@@ -2,19 +2,6 @@
  */
 package domain.impl;
 
-import java.util.Collection;
-
-import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
-import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.EObjectImpl;
-import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
-import org.eclipse.emf.ecore.util.EcoreUtil;
-import org.eclipse.emf.ecore.util.InternalEList;
-
 import domain.ArtificialField;
 import domain.ContextParameters;
 import domain.Controls;
@@ -33,6 +20,23 @@ import domain.PREUpdateTrigger;
 import domain.SearchTrigger;
 import domain.Type;
 import domain.UpdateTrigger;
+
+import java.util.Collection;
+
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
+
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
+
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.EObjectImpl;
+
+import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
+import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -64,272 +68,264 @@ import domain.UpdateTrigger;
  *
  * @generated
  */
-public class DataControlImpl extends EObjectImpl implements DataControl
-{
-  /**
+public class DataControlImpl extends EObjectImpl implements DataControl {
+	/**
 	 * The default value of the '{@link #getUid() <em>Uid</em>}' attribute.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getUid()
 	 * @generated
 	 * @ordered
 	 */
-  protected static final String UID_EDEFAULT = null;
+	protected static final String UID_EDEFAULT = null;
 
-  /**
+	/**
 	 * The cached value of the '{@link #getUid() <em>Uid</em>}' attribute.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getUid()
 	 * @generated
 	 * @ordered
 	 */
-  protected String uid = UID_EDEFAULT;
+	protected String uid = UID_EDEFAULT;
 
-  /**
+	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getName()
 	 * @generated
 	 * @ordered
 	 */
-  protected static final String NAME_EDEFAULT = null;
+	protected static final String NAME_EDEFAULT = null;
 
-  /**
+	/**
 	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getName()
 	 * @generated
 	 * @ordered
 	 */
-  protected String name = NAME_EDEFAULT;
+	protected String name = NAME_EDEFAULT;
 
-  /**
+	/**
 	 * The cached value of the '{@link #getBaseType() <em>Base Type</em>}' reference.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getBaseType()
 	 * @generated
 	 * @ordered
 	 */
-  protected Type baseType;
+	protected Type baseType;
 
-  /**
+	/**
 	 * The cached value of the '{@link #getPreQueryTrigger() <em>Pre Query Trigger</em>}' containment reference.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getPreQueryTrigger()
 	 * @generated
 	 * @ordered
 	 */
-  protected PREQueryTrigger preQueryTrigger;
+	protected PREQueryTrigger preQueryTrigger;
 
-  /**
+	/**
 	 * The cached value of the '{@link #getPostQueryTrigger() <em>Post Query Trigger</em>}' containment reference.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getPostQueryTrigger()
 	 * @generated
 	 * @ordered
 	 */
-  protected POSTQueryTrigger postQueryTrigger;
+	protected POSTQueryTrigger postQueryTrigger;
 
-  /**
+	/**
 	 * The cached value of the '{@link #getPreInsertTrigger() <em>Pre Insert Trigger</em>}' containment reference.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getPreInsertTrigger()
 	 * @generated
 	 * @ordered
 	 */
-  protected PREInsertTrigger preInsertTrigger;
+	protected PREInsertTrigger preInsertTrigger;
 
-  /**
+	/**
 	 * The cached value of the '{@link #getPreDeleteTrigger() <em>Pre Delete Trigger</em>}' containment reference.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getPreDeleteTrigger()
 	 * @generated
 	 * @ordered
 	 */
-  protected PREDeleteTrigger preDeleteTrigger;
+	protected PREDeleteTrigger preDeleteTrigger;
 
-  /**
+	/**
 	 * The cached value of the '{@link #getPostCreateTrigger() <em>Post Create Trigger</em>}' containment reference.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getPostCreateTrigger()
 	 * @generated
 	 * @ordered
 	 */
-  protected POSTCreateTrigger postCreateTrigger;
+	protected POSTCreateTrigger postCreateTrigger;
 
-  /**
+	/**
 	 * The cached value of the '{@link #getPreUpdateTrigger() <em>Pre Update Trigger</em>}' containment reference.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getPreUpdateTrigger()
 	 * @generated
 	 * @ordered
 	 */
-  protected PREUpdateTrigger preUpdateTrigger;
+	protected PREUpdateTrigger preUpdateTrigger;
 
-  /**
+	/**
 	 * The cached value of the '{@link #getCreate() <em>Create</em>}' containment reference.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getCreate()
 	 * @generated
 	 * @ordered
 	 */
-  protected CreateTrigger create;
+	protected CreateTrigger create;
 
-  /**
+	/**
 	 * The cached value of the '{@link #getInsert() <em>Insert</em>}' containment reference.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getInsert()
 	 * @generated
 	 * @ordered
 	 */
-  protected InsertTrigger insert;
+	protected InsertTrigger insert;
 
-  /**
+	/**
 	 * The cached value of the '{@link #getUpdate() <em>Update</em>}' containment reference.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getUpdate()
 	 * @generated
 	 * @ordered
 	 */
-  protected UpdateTrigger update;
+	protected UpdateTrigger update;
 
-  /**
+	/**
 	 * The cached value of the '{@link #getRemove() <em>Remove</em>}' containment reference.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getRemove()
 	 * @generated
 	 * @ordered
 	 */
-  protected DeleteTrigger remove;
+	protected DeleteTrigger remove;
 
-  /**
+	/**
 	 * The cached value of the '{@link #getSearch() <em>Search</em>}' containment reference.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getSearch()
 	 * @generated
 	 * @ordered
 	 */
-  protected SearchTrigger search;
+	protected SearchTrigger search;
 
-  /**
+	/**
 	 * The cached value of the '{@link #getArtificialFields() <em>Artificial Fields</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getArtificialFields()
 	 * @generated
 	 * @ordered
 	 */
-  protected EList<ArtificialField> artificialFields;
+	protected EList<ArtificialField> artificialFields;
 
-  /**
+	/**
 	 * The cached value of the '{@link #getDefaultSearch() <em>Default Search</em>}' containment reference.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getDefaultSearch()
 	 * @generated
 	 * @ordered
 	 */
-  protected ContextParameters defaultSearch;
+	protected ContextParameters defaultSearch;
 
-  /**
+	/**
 	 * The cached value of the '{@link #getDefaultOrderBy() <em>Default Order By</em>}' containment reference.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getDefaultOrderBy()
 	 * @generated
 	 * @ordered
 	 */
-  protected Orders defaultOrderBy;
+	protected Orders defaultOrderBy;
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  protected DataControlImpl()
-  {
+	protected DataControlImpl() {
 		super();
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  protected EClass eStaticClass()
-  {
+	@Override
+	protected EClass eStaticClass() {
 		return DomainPackage.Literals.DATA_CONTROL;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public String getUid()
-  {
+	public String getUid() {
 		return uid;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public void setUid(String newUid)
-  {
+	public void setUid(String newUid) {
 		String oldUid = uid;
 		uid = newUid;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.DATA_CONTROL__UID, oldUid, uid));
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public String getName()
-  {
+	public String getName() {
 		return name;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public void setName(String newName)
-  {
+	public void setName(String newName) {
 		String oldName = name;
 		name = newName;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.DATA_CONTROL__NAME, oldName, name));
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public Type getBaseType()
-  {
+	public Type getBaseType() {
 		if (baseType != null && baseType.eIsProxy()) {
 			InternalEObject oldBaseType = (InternalEObject)baseType;
 			baseType = (Type)eResolveProxy(oldBaseType);
@@ -341,58 +337,53 @@ public class DataControlImpl extends EObjectImpl implements DataControl
 		return baseType;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public Type basicGetBaseType()
-  {
+	public Type basicGetBaseType() {
 		return baseType;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public void setBaseType(Type newBaseType)
-  {
+	public void setBaseType(Type newBaseType) {
 		Type oldBaseType = baseType;
 		baseType = newBaseType;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.DATA_CONTROL__BASE_TYPE, oldBaseType, baseType));
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public Controls getParent()
-  {
+	public Controls getParent() {
 		if (eContainerFeatureID() != DomainPackage.DATA_CONTROL__PARENT) return null;
 		return (Controls)eInternalContainer();
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public NotificationChain basicSetParent(Controls newParent, NotificationChain msgs)
-  {
+	public NotificationChain basicSetParent(Controls newParent, NotificationChain msgs) {
 		msgs = eBasicSetContainer((InternalEObject)newParent, DomainPackage.DATA_CONTROL__PARENT, msgs);
 		return msgs;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public void setParent(Controls newParent)
-  {
+	public void setParent(Controls newParent) {
 		if (newParent != eInternalContainer() || (eContainerFeatureID() != DomainPackage.DATA_CONTROL__PARENT && newParent != null)) {
 			if (EcoreUtil.isAncestor(this, newParent))
 				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
@@ -408,23 +399,21 @@ public class DataControlImpl extends EObjectImpl implements DataControl
 			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.DATA_CONTROL__PARENT, newParent, newParent));
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public PREQueryTrigger getPreQueryTrigger()
-  {
+	public PREQueryTrigger getPreQueryTrigger() {
 		return preQueryTrigger;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public NotificationChain basicSetPreQueryTrigger(PREQueryTrigger newPreQueryTrigger, NotificationChain msgs)
-  {
+	public NotificationChain basicSetPreQueryTrigger(PREQueryTrigger newPreQueryTrigger, NotificationChain msgs) {
 		PREQueryTrigger oldPreQueryTrigger = preQueryTrigger;
 		preQueryTrigger = newPreQueryTrigger;
 		if (eNotificationRequired()) {
@@ -434,13 +423,12 @@ public class DataControlImpl extends EObjectImpl implements DataControl
 		return msgs;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public void setPreQueryTrigger(PREQueryTrigger newPreQueryTrigger)
-  {
+	public void setPreQueryTrigger(PREQueryTrigger newPreQueryTrigger) {
 		if (newPreQueryTrigger != preQueryTrigger) {
 			NotificationChain msgs = null;
 			if (preQueryTrigger != null)
@@ -454,23 +442,21 @@ public class DataControlImpl extends EObjectImpl implements DataControl
 			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.DATA_CONTROL__PRE_QUERY_TRIGGER, newPreQueryTrigger, newPreQueryTrigger));
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public POSTQueryTrigger getPostQueryTrigger()
-  {
+	public POSTQueryTrigger getPostQueryTrigger() {
 		return postQueryTrigger;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public NotificationChain basicSetPostQueryTrigger(POSTQueryTrigger newPostQueryTrigger, NotificationChain msgs)
-  {
+	public NotificationChain basicSetPostQueryTrigger(POSTQueryTrigger newPostQueryTrigger, NotificationChain msgs) {
 		POSTQueryTrigger oldPostQueryTrigger = postQueryTrigger;
 		postQueryTrigger = newPostQueryTrigger;
 		if (eNotificationRequired()) {
@@ -480,13 +466,12 @@ public class DataControlImpl extends EObjectImpl implements DataControl
 		return msgs;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public void setPostQueryTrigger(POSTQueryTrigger newPostQueryTrigger)
-  {
+	public void setPostQueryTrigger(POSTQueryTrigger newPostQueryTrigger) {
 		if (newPostQueryTrigger != postQueryTrigger) {
 			NotificationChain msgs = null;
 			if (postQueryTrigger != null)
@@ -500,23 +485,21 @@ public class DataControlImpl extends EObjectImpl implements DataControl
 			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.DATA_CONTROL__POST_QUERY_TRIGGER, newPostQueryTrigger, newPostQueryTrigger));
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public PREInsertTrigger getPreInsertTrigger()
-  {
+	public PREInsertTrigger getPreInsertTrigger() {
 		return preInsertTrigger;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public NotificationChain basicSetPreInsertTrigger(PREInsertTrigger newPreInsertTrigger, NotificationChain msgs)
-  {
+	public NotificationChain basicSetPreInsertTrigger(PREInsertTrigger newPreInsertTrigger, NotificationChain msgs) {
 		PREInsertTrigger oldPreInsertTrigger = preInsertTrigger;
 		preInsertTrigger = newPreInsertTrigger;
 		if (eNotificationRequired()) {
@@ -526,13 +509,12 @@ public class DataControlImpl extends EObjectImpl implements DataControl
 		return msgs;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public void setPreInsertTrigger(PREInsertTrigger newPreInsertTrigger)
-  {
+	public void setPreInsertTrigger(PREInsertTrigger newPreInsertTrigger) {
 		if (newPreInsertTrigger != preInsertTrigger) {
 			NotificationChain msgs = null;
 			if (preInsertTrigger != null)
@@ -546,23 +528,21 @@ public class DataControlImpl extends EObjectImpl implements DataControl
 			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.DATA_CONTROL__PRE_INSERT_TRIGGER, newPreInsertTrigger, newPreInsertTrigger));
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public PREDeleteTrigger getPreDeleteTrigger()
-  {
+	public PREDeleteTrigger getPreDeleteTrigger() {
 		return preDeleteTrigger;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public NotificationChain basicSetPreDeleteTrigger(PREDeleteTrigger newPreDeleteTrigger, NotificationChain msgs)
-  {
+	public NotificationChain basicSetPreDeleteTrigger(PREDeleteTrigger newPreDeleteTrigger, NotificationChain msgs) {
 		PREDeleteTrigger oldPreDeleteTrigger = preDeleteTrigger;
 		preDeleteTrigger = newPreDeleteTrigger;
 		if (eNotificationRequired()) {
@@ -572,13 +552,12 @@ public class DataControlImpl extends EObjectImpl implements DataControl
 		return msgs;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public void setPreDeleteTrigger(PREDeleteTrigger newPreDeleteTrigger)
-  {
+	public void setPreDeleteTrigger(PREDeleteTrigger newPreDeleteTrigger) {
 		if (newPreDeleteTrigger != preDeleteTrigger) {
 			NotificationChain msgs = null;
 			if (preDeleteTrigger != null)
@@ -592,23 +571,21 @@ public class DataControlImpl extends EObjectImpl implements DataControl
 			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.DATA_CONTROL__PRE_DELETE_TRIGGER, newPreDeleteTrigger, newPreDeleteTrigger));
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public POSTCreateTrigger getPostCreateTrigger()
-  {
+	public POSTCreateTrigger getPostCreateTrigger() {
 		return postCreateTrigger;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public NotificationChain basicSetPostCreateTrigger(POSTCreateTrigger newPostCreateTrigger, NotificationChain msgs)
-  {
+	public NotificationChain basicSetPostCreateTrigger(POSTCreateTrigger newPostCreateTrigger, NotificationChain msgs) {
 		POSTCreateTrigger oldPostCreateTrigger = postCreateTrigger;
 		postCreateTrigger = newPostCreateTrigger;
 		if (eNotificationRequired()) {
@@ -618,13 +595,12 @@ public class DataControlImpl extends EObjectImpl implements DataControl
 		return msgs;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public void setPostCreateTrigger(POSTCreateTrigger newPostCreateTrigger)
-  {
+	public void setPostCreateTrigger(POSTCreateTrigger newPostCreateTrigger) {
 		if (newPostCreateTrigger != postCreateTrigger) {
 			NotificationChain msgs = null;
 			if (postCreateTrigger != null)
@@ -638,23 +614,21 @@ public class DataControlImpl extends EObjectImpl implements DataControl
 			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.DATA_CONTROL__POST_CREATE_TRIGGER, newPostCreateTrigger, newPostCreateTrigger));
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public PREUpdateTrigger getPreUpdateTrigger()
-  {
+	public PREUpdateTrigger getPreUpdateTrigger() {
 		return preUpdateTrigger;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public NotificationChain basicSetPreUpdateTrigger(PREUpdateTrigger newPreUpdateTrigger, NotificationChain msgs)
-  {
+	public NotificationChain basicSetPreUpdateTrigger(PREUpdateTrigger newPreUpdateTrigger, NotificationChain msgs) {
 		PREUpdateTrigger oldPreUpdateTrigger = preUpdateTrigger;
 		preUpdateTrigger = newPreUpdateTrigger;
 		if (eNotificationRequired()) {
@@ -664,13 +638,12 @@ public class DataControlImpl extends EObjectImpl implements DataControl
 		return msgs;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public void setPreUpdateTrigger(PREUpdateTrigger newPreUpdateTrigger)
-  {
+	public void setPreUpdateTrigger(PREUpdateTrigger newPreUpdateTrigger) {
 		if (newPreUpdateTrigger != preUpdateTrigger) {
 			NotificationChain msgs = null;
 			if (preUpdateTrigger != null)
@@ -684,23 +657,21 @@ public class DataControlImpl extends EObjectImpl implements DataControl
 			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.DATA_CONTROL__PRE_UPDATE_TRIGGER, newPreUpdateTrigger, newPreUpdateTrigger));
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public CreateTrigger getCreate()
-  {
+	public CreateTrigger getCreate() {
 		return create;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public NotificationChain basicSetCreate(CreateTrigger newCreate, NotificationChain msgs)
-  {
+	public NotificationChain basicSetCreate(CreateTrigger newCreate, NotificationChain msgs) {
 		CreateTrigger oldCreate = create;
 		create = newCreate;
 		if (eNotificationRequired()) {
@@ -710,13 +681,12 @@ public class DataControlImpl extends EObjectImpl implements DataControl
 		return msgs;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public void setCreate(CreateTrigger newCreate)
-  {
+	public void setCreate(CreateTrigger newCreate) {
 		if (newCreate != create) {
 			NotificationChain msgs = null;
 			if (create != null)
@@ -730,23 +700,21 @@ public class DataControlImpl extends EObjectImpl implements DataControl
 			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.DATA_CONTROL__CREATE, newCreate, newCreate));
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public InsertTrigger getInsert()
-  {
+	public InsertTrigger getInsert() {
 		return insert;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public NotificationChain basicSetInsert(InsertTrigger newInsert, NotificationChain msgs)
-  {
+	public NotificationChain basicSetInsert(InsertTrigger newInsert, NotificationChain msgs) {
 		InsertTrigger oldInsert = insert;
 		insert = newInsert;
 		if (eNotificationRequired()) {
@@ -756,13 +724,12 @@ public class DataControlImpl extends EObjectImpl implements DataControl
 		return msgs;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public void setInsert(InsertTrigger newInsert)
-  {
+	public void setInsert(InsertTrigger newInsert) {
 		if (newInsert != insert) {
 			NotificationChain msgs = null;
 			if (insert != null)
@@ -776,23 +743,21 @@ public class DataControlImpl extends EObjectImpl implements DataControl
 			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.DATA_CONTROL__INSERT, newInsert, newInsert));
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public UpdateTrigger getUpdate()
-  {
+	public UpdateTrigger getUpdate() {
 		return update;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public NotificationChain basicSetUpdate(UpdateTrigger newUpdate, NotificationChain msgs)
-  {
+	public NotificationChain basicSetUpdate(UpdateTrigger newUpdate, NotificationChain msgs) {
 		UpdateTrigger oldUpdate = update;
 		update = newUpdate;
 		if (eNotificationRequired()) {
@@ -802,13 +767,12 @@ public class DataControlImpl extends EObjectImpl implements DataControl
 		return msgs;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public void setUpdate(UpdateTrigger newUpdate)
-  {
+	public void setUpdate(UpdateTrigger newUpdate) {
 		if (newUpdate != update) {
 			NotificationChain msgs = null;
 			if (update != null)
@@ -822,23 +786,21 @@ public class DataControlImpl extends EObjectImpl implements DataControl
 			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.DATA_CONTROL__UPDATE, newUpdate, newUpdate));
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public DeleteTrigger getRemove()
-  {
+	public DeleteTrigger getRemove() {
 		return remove;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public NotificationChain basicSetRemove(DeleteTrigger newRemove, NotificationChain msgs)
-  {
+	public NotificationChain basicSetRemove(DeleteTrigger newRemove, NotificationChain msgs) {
 		DeleteTrigger oldRemove = remove;
 		remove = newRemove;
 		if (eNotificationRequired()) {
@@ -848,13 +810,12 @@ public class DataControlImpl extends EObjectImpl implements DataControl
 		return msgs;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public void setRemove(DeleteTrigger newRemove)
-  {
+	public void setRemove(DeleteTrigger newRemove) {
 		if (newRemove != remove) {
 			NotificationChain msgs = null;
 			if (remove != null)
@@ -868,23 +829,21 @@ public class DataControlImpl extends EObjectImpl implements DataControl
 			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.DATA_CONTROL__REMOVE, newRemove, newRemove));
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public SearchTrigger getSearch()
-  {
+	public SearchTrigger getSearch() {
 		return search;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public NotificationChain basicSetSearch(SearchTrigger newSearch, NotificationChain msgs)
-  {
+	public NotificationChain basicSetSearch(SearchTrigger newSearch, NotificationChain msgs) {
 		SearchTrigger oldSearch = search;
 		search = newSearch;
 		if (eNotificationRequired()) {
@@ -894,13 +853,12 @@ public class DataControlImpl extends EObjectImpl implements DataControl
 		return msgs;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public void setSearch(SearchTrigger newSearch)
-  {
+	public void setSearch(SearchTrigger newSearch) {
 		if (newSearch != search) {
 			NotificationChain msgs = null;
 			if (search != null)
@@ -914,36 +872,33 @@ public class DataControlImpl extends EObjectImpl implements DataControl
 			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.DATA_CONTROL__SEARCH, newSearch, newSearch));
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public EList<ArtificialField> getArtificialFields()
-  {
+	public EList<ArtificialField> getArtificialFields() {
 		if (artificialFields == null) {
 			artificialFields = new EObjectContainmentWithInverseEList<ArtificialField>(ArtificialField.class, this, DomainPackage.DATA_CONTROL__ARTIFICIAL_FIELDS, DomainPackage.ARTIFICIAL_FIELD__PARENT);
 		}
 		return artificialFields;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public ContextParameters getDefaultSearch()
-  {
+	public ContextParameters getDefaultSearch() {
 		return defaultSearch;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public NotificationChain basicSetDefaultSearch(ContextParameters newDefaultSearch, NotificationChain msgs)
-  {
+	public NotificationChain basicSetDefaultSearch(ContextParameters newDefaultSearch, NotificationChain msgs) {
 		ContextParameters oldDefaultSearch = defaultSearch;
 		defaultSearch = newDefaultSearch;
 		if (eNotificationRequired()) {
@@ -953,13 +908,12 @@ public class DataControlImpl extends EObjectImpl implements DataControl
 		return msgs;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public void setDefaultSearch(ContextParameters newDefaultSearch)
-  {
+	public void setDefaultSearch(ContextParameters newDefaultSearch) {
 		if (newDefaultSearch != defaultSearch) {
 			NotificationChain msgs = null;
 			if (defaultSearch != null)
@@ -973,23 +927,21 @@ public class DataControlImpl extends EObjectImpl implements DataControl
 			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.DATA_CONTROL__DEFAULT_SEARCH, newDefaultSearch, newDefaultSearch));
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public Orders getDefaultOrderBy()
-  {
+	public Orders getDefaultOrderBy() {
 		return defaultOrderBy;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public NotificationChain basicSetDefaultOrderBy(Orders newDefaultOrderBy, NotificationChain msgs)
-  {
+	public NotificationChain basicSetDefaultOrderBy(Orders newDefaultOrderBy, NotificationChain msgs) {
 		Orders oldDefaultOrderBy = defaultOrderBy;
 		defaultOrderBy = newDefaultOrderBy;
 		if (eNotificationRequired()) {
@@ -999,13 +951,12 @@ public class DataControlImpl extends EObjectImpl implements DataControl
 		return msgs;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public void setDefaultOrderBy(Orders newDefaultOrderBy)
-  {
+	public void setDefaultOrderBy(Orders newDefaultOrderBy) {
 		if (newDefaultOrderBy != defaultOrderBy) {
 			NotificationChain msgs = null;
 			if (defaultOrderBy != null)
@@ -1019,15 +970,14 @@ public class DataControlImpl extends EObjectImpl implements DataControl
 			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.DATA_CONTROL__DEFAULT_ORDER_BY, newDefaultOrderBy, newDefaultOrderBy));
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @SuppressWarnings("unchecked")
-  @Override
-  public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-  {
+	@SuppressWarnings("unchecked")
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case DomainPackage.DATA_CONTROL__PARENT:
 				if (eInternalContainer() != null)
@@ -1039,14 +989,13 @@ public class DataControlImpl extends EObjectImpl implements DataControl
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-  {
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case DomainPackage.DATA_CONTROL__PARENT:
 				return basicSetParent(null, msgs);
@@ -1082,14 +1031,13 @@ public class DataControlImpl extends EObjectImpl implements DataControl
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs)
-  {
+	@Override
+	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
 		switch (eContainerFeatureID()) {
 			case DomainPackage.DATA_CONTROL__PARENT:
 				return eInternalContainer().eInverseRemove(this, DomainPackage.CONTROLS__CONTROLS, Controls.class, msgs);
@@ -1097,14 +1045,13 @@ public class DataControlImpl extends EObjectImpl implements DataControl
 		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public Object eGet(int featureID, boolean resolve, boolean coreType)
-  {
+	@Override
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case DomainPackage.DATA_CONTROL__UID:
 				return getUid();
@@ -1147,15 +1094,14 @@ public class DataControlImpl extends EObjectImpl implements DataControl
 		return super.eGet(featureID, resolve, coreType);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @SuppressWarnings("unchecked")
-  @Override
-  public void eSet(int featureID, Object newValue)
-  {
+	@SuppressWarnings("unchecked")
+	@Override
+	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case DomainPackage.DATA_CONTROL__UID:
 				setUid((String)newValue);
@@ -1216,14 +1162,13 @@ public class DataControlImpl extends EObjectImpl implements DataControl
 		super.eSet(featureID, newValue);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public void eUnset(int featureID)
-  {
+	@Override
+	public void eUnset(int featureID) {
 		switch (featureID) {
 			case DomainPackage.DATA_CONTROL__UID:
 				setUid(UID_EDEFAULT);
@@ -1283,14 +1228,13 @@ public class DataControlImpl extends EObjectImpl implements DataControl
 		super.eUnset(featureID);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public boolean eIsSet(int featureID)
-  {
+	@Override
+	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case DomainPackage.DATA_CONTROL__UID:
 				return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
@@ -1332,14 +1276,13 @@ public class DataControlImpl extends EObjectImpl implements DataControl
 		return super.eIsSet(featureID);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public String toString()
-  {
+	@Override
+	public String toString() {
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());

@@ -3,6 +3,14 @@
  */
 package infarastructure.diagram.providers.assistants;
 
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+
+import org.eclipse.core.runtime.IAdaptable;
+import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
+import org.eclipse.gmf.runtime.emf.type.core.IElementType;
+
 import infarastructure.diagram.edit.parts.HubEditPart;
 import infarastructure.diagram.edit.parts.RouterEditPart;
 import infarastructure.diagram.edit.parts.Server2EditPart;
@@ -12,31 +20,24 @@ import infarastructure.diagram.edit.parts.StorageEditPart;
 import infarastructure.diagram.providers.DomainElementTypes;
 import infarastructure.diagram.providers.DomainModelingAssistantProvider;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-
-import org.eclipse.core.runtime.IAdaptable;
-import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
-import org.eclipse.gmf.runtime.emf.type.core.IElementType;
-
 /**
  * @generated
  */
 public class DomainModelingAssistantProviderOfHubEditPart extends DomainModelingAssistantProvider {
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	@Override
+
 	public List<IElementType> getRelTypesOnSource(IAdaptable source) {
 		IGraphicalEditPart sourceEditPart = (IGraphicalEditPart) source.getAdapter(IGraphicalEditPart.class);
 		return doGetRelTypesOnSource((HubEditPart) sourceEditPart);
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public List<IElementType> doGetRelTypesOnSource(HubEditPart source) {
 		List<IElementType> types = new ArrayList<IElementType>(1);
 		types.add(DomainElementTypes.InfrastructureConnection_1204009);
@@ -44,9 +45,10 @@ public class DomainModelingAssistantProviderOfHubEditPart extends DomainModeling
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	@Override
+
 	public List<IElementType> getRelTypesOnSourceAndTarget(IAdaptable source, IAdaptable target) {
 		IGraphicalEditPart sourceEditPart = (IGraphicalEditPart) source.getAdapter(IGraphicalEditPart.class);
 		IGraphicalEditPart targetEditPart = (IGraphicalEditPart) target.getAdapter(IGraphicalEditPart.class);
@@ -54,8 +56,8 @@ public class DomainModelingAssistantProviderOfHubEditPart extends DomainModeling
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public List<IElementType> doGetRelTypesOnSourceAndTarget(HubEditPart source, IGraphicalEditPart targetEditPart) {
 		List<IElementType> types = new LinkedList<IElementType>();
 		if (targetEditPart instanceof ServerEditPart) {
@@ -80,17 +82,18 @@ public class DomainModelingAssistantProviderOfHubEditPart extends DomainModeling
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	@Override
+
 	public List<IElementType> getTypesForTarget(IAdaptable source, IElementType relationshipType) {
 		IGraphicalEditPart sourceEditPart = (IGraphicalEditPart) source.getAdapter(IGraphicalEditPart.class);
 		return doGetTypesForTarget((HubEditPart) sourceEditPart, relationshipType);
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public List<IElementType> doGetTypesForTarget(HubEditPart source, IElementType relationshipType) {
 		List<IElementType> types = new ArrayList<IElementType>();
 		if (relationshipType == DomainElementTypes.InfrastructureConnection_1204009) {
@@ -105,17 +108,18 @@ public class DomainModelingAssistantProviderOfHubEditPart extends DomainModeling
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	@Override
+
 	public List<IElementType> getRelTypesOnTarget(IAdaptable target) {
 		IGraphicalEditPart targetEditPart = (IGraphicalEditPart) target.getAdapter(IGraphicalEditPart.class);
 		return doGetRelTypesOnTarget((HubEditPart) targetEditPart);
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public List<IElementType> doGetRelTypesOnTarget(HubEditPart target) {
 		List<IElementType> types = new ArrayList<IElementType>(1);
 		types.add(DomainElementTypes.InfrastructureConnection_1204009);
@@ -123,17 +127,18 @@ public class DomainModelingAssistantProviderOfHubEditPart extends DomainModeling
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	@Override
+
 	public List<IElementType> getTypesForSource(IAdaptable target, IElementType relationshipType) {
 		IGraphicalEditPart targetEditPart = (IGraphicalEditPart) target.getAdapter(IGraphicalEditPart.class);
 		return doGetTypesForSource((HubEditPart) targetEditPart, relationshipType);
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public List<IElementType> doGetTypesForSource(HubEditPart target, IElementType relationshipType) {
 		List<IElementType> types = new ArrayList<IElementType>();
 		if (relationshipType == DomainElementTypes.InfrastructureConnection_1204009) {

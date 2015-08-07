@@ -1,6 +1,6 @@
 /*
- * 
- */
+* 
+*/
 package frmview.diagram.edit.policies;
 
 import org.eclipse.gef.commands.Command;
@@ -16,15 +16,15 @@ import frmview.diagram.providers.DomainElementTypes;
 public class CanvasCanvasViewElementCompartmentItemSemanticEditPolicy extends DomainBaseItemSemanticEditPolicy {
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public CanvasCanvasViewElementCompartmentItemSemanticEditPolicy() {
 		super(DomainElementTypes.Canvas_1302003);
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected Command getCreateCommand(CreateElementRequest req) {
 		if (DomainElementTypes.ViewPort_1303004 == req.getElementType()) {
 			return getGEFWrapper(new ViewPortCreateCommand(req));

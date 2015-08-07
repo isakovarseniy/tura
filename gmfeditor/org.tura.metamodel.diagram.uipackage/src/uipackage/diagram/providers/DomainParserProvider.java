@@ -16,13 +16,13 @@ import org.eclipse.gmf.runtime.emf.type.core.IElementType;
 import org.eclipse.gmf.runtime.emf.ui.services.parser.ParserHintAdapter;
 import org.eclipse.gmf.runtime.notation.View;
 
+import domain.DomainPackage;
 import uipackage.diagram.edit.parts.FormDataControlsNameEditPart;
 import uipackage.diagram.edit.parts.FormNameEditPart;
 import uipackage.diagram.edit.parts.FormParameterNameEditPart;
 import uipackage.diagram.edit.parts.FormViewNameEditPart;
 import uipackage.diagram.parsers.MessageFormatParser;
 import uipackage.diagram.part.DomainVisualIDRegistry;
-import domain.DomainPackage;
 
 /**
  * @generated
@@ -30,13 +30,13 @@ import domain.DomainPackage;
 public class DomainParserProvider extends AbstractProvider implements IParserProvider {
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private IParser formName_1005002Parser;
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private IParser getFormName_1005002Parser() {
 		if (formName_1005002Parser == null) {
 			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE.getForm_Name() };
@@ -47,13 +47,13 @@ public class DomainParserProvider extends AbstractProvider implements IParserPro
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private IParser formParameterName_1005005Parser;
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private IParser getFormParameterName_1005005Parser() {
 		if (formParameterName_1005005Parser == null) {
 			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE.getFormParameter_Name() };
@@ -64,13 +64,13 @@ public class DomainParserProvider extends AbstractProvider implements IParserPro
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private IParser formViewName_1005003Parser;
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private IParser getFormViewName_1005003Parser() {
 		if (formViewName_1005003Parser == null) {
 			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE.getFormView_Name() };
@@ -81,13 +81,13 @@ public class DomainParserProvider extends AbstractProvider implements IParserPro
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private IParser formDataControlsName_1005004Parser;
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private IParser getFormDataControlsName_1005004Parser() {
 		if (formDataControlsName_1005004Parser == null) {
 			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE.getFormDataControls_Name() };
@@ -98,8 +98,8 @@ public class DomainParserProvider extends AbstractProvider implements IParserPro
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected IParser getParser(int visualID) {
 		switch (visualID) {
 		case FormNameEditPart.VISUAL_ID:
@@ -115,16 +115,16 @@ public class DomainParserProvider extends AbstractProvider implements IParserPro
 	}
 
 	/**
-	 * Utility method that consults ParserService
-	 * @generated
-	 */
+	* Utility method that consults ParserService
+	* @generated
+	*/
 	public static IParser getParser(IElementType type, EObject object, String parserHint) {
 		return ParserService.getInstance().getParser(new HintAdapter(type, object, parserHint));
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public IParser getParser(IAdaptable hint) {
 		String vid = (String) hint.getAdapter(String.class);
 		if (vid != null) {
@@ -138,8 +138,8 @@ public class DomainParserProvider extends AbstractProvider implements IParserPro
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public boolean provides(IOperation operation) {
 		if (operation instanceof GetParserOperation) {
 			IAdaptable hint = ((GetParserOperation) operation).getHint();
@@ -152,18 +152,18 @@ public class DomainParserProvider extends AbstractProvider implements IParserPro
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private static class HintAdapter extends ParserHintAdapter {
 
 		/**
-		 * @generated
-		 */
+		* @generated
+		*/
 		private final IElementType elementType;
 
 		/**
-		 * @generated
-		 */
+		* @generated
+		*/
 		public HintAdapter(IElementType type, EObject object, String parserHint) {
 			super(object, parserHint);
 			assert type != null;
@@ -171,8 +171,8 @@ public class DomainParserProvider extends AbstractProvider implements IParserPro
 		}
 
 		/**
-		 * @generated
-		 */
+		* @generated
+		*/
 		public Object getAdapter(Class adapter) {
 			if (IElementType.class.equals(adapter)) {
 				return elementType;

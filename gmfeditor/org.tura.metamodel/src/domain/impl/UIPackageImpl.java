@@ -40,49 +40,48 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public class UIPackageImpl extends EObjectImpl implements UIPackage
-{
-  /**
+public class UIPackageImpl extends EObjectImpl implements UIPackage {
+	/**
 	 * The default value of the '{@link #getUid() <em>Uid</em>}' attribute.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getUid()
 	 * @generated
 	 * @ordered
 	 */
-  protected static final String UID_EDEFAULT = null;
+	protected static final String UID_EDEFAULT = null;
 
-  /**
+	/**
 	 * The cached value of the '{@link #getUid() <em>Uid</em>}' attribute.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getUid()
 	 * @generated
 	 * @ordered
 	 */
-  protected String uid = UID_EDEFAULT;
+	protected String uid = UID_EDEFAULT;
 
-  /**
+	/**
 	 * The cached value of the '{@link #getParent() <em>Parent</em>}' reference.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getParent()
 	 * @generated
 	 * @ordered
 	 */
-  protected ApplicationUIPackage parent;
+	protected ApplicationUIPackage parent;
 
-  /**
+	/**
 	 * The cached value of the '{@link #getForms() <em>Forms</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getForms()
 	 * @generated
 	 * @ordered
 	 */
-  protected EList<Form> forms;
+	protected EList<Form> forms;
 
-  /**
+	/**
 	 * The cached value of the '{@link #getAny() <em>Any</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -92,57 +91,52 @@ public class UIPackageImpl extends EObjectImpl implements UIPackage
 	 */
 	protected EObject any;
 
-		/**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  protected UIPackageImpl()
-  {
+	protected UIPackageImpl() {
 		super();
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  protected EClass eStaticClass()
-  {
+	@Override
+	protected EClass eStaticClass() {
 		return DomainPackage.Literals.UI_PACKAGE;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public String getUid()
-  {
+	public String getUid() {
 		return uid;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public void setUid(String newUid)
-  {
+	public void setUid(String newUid) {
 		String oldUid = uid;
 		uid = newUid;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.UI_PACKAGE__UID, oldUid, uid));
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public ApplicationUIPackage getParent()
-  {
+	public ApplicationUIPackage getParent() {
 		if (parent != null && parent.eIsProxy()) {
 			InternalEObject oldParent = (InternalEObject)parent;
 			parent = (ApplicationUIPackage)eResolveProxy(oldParent);
@@ -154,23 +148,21 @@ public class UIPackageImpl extends EObjectImpl implements UIPackage
 		return parent;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public ApplicationUIPackage basicGetParent()
-  {
+	public ApplicationUIPackage basicGetParent() {
 		return parent;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public NotificationChain basicSetParent(ApplicationUIPackage newParent, NotificationChain msgs)
-  {
+	public NotificationChain basicSetParent(ApplicationUIPackage newParent, NotificationChain msgs) {
 		ApplicationUIPackage oldParent = parent;
 		parent = newParent;
 		if (eNotificationRequired()) {
@@ -180,13 +172,12 @@ public class UIPackageImpl extends EObjectImpl implements UIPackage
 		return msgs;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public void setParent(ApplicationUIPackage newParent)
-  {
+	public void setParent(ApplicationUIPackage newParent) {
 		if (newParent != parent) {
 			NotificationChain msgs = null;
 			if (parent != null)
@@ -200,20 +191,19 @@ public class UIPackageImpl extends EObjectImpl implements UIPackage
 			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.UI_PACKAGE__PARENT, newParent, newParent));
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public EList<Form> getForms()
-  {
+	public EList<Form> getForms() {
 		if (forms == null) {
 			forms = new EObjectContainmentEList<Form>(Form.class, this, DomainPackage.UI_PACKAGE__FORMS);
 		}
 		return forms;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -222,7 +212,7 @@ public class UIPackageImpl extends EObjectImpl implements UIPackage
 		return any;
 	}
 
-		/**
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -237,7 +227,7 @@ public class UIPackageImpl extends EObjectImpl implements UIPackage
 		return msgs;
 	}
 
-		/**
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -256,14 +246,13 @@ public class UIPackageImpl extends EObjectImpl implements UIPackage
 			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.UI_PACKAGE__ANY, newAny, newAny));
 	}
 
-		/**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-  {
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case DomainPackage.UI_PACKAGE__PARENT:
 				if (parent != null)
@@ -273,14 +262,13 @@ public class UIPackageImpl extends EObjectImpl implements UIPackage
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-  {
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case DomainPackage.UI_PACKAGE__PARENT:
 				return basicSetParent(null, msgs);
@@ -292,14 +280,13 @@ public class UIPackageImpl extends EObjectImpl implements UIPackage
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public Object eGet(int featureID, boolean resolve, boolean coreType)
-  {
+	@Override
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case DomainPackage.UI_PACKAGE__UID:
 				return getUid();
@@ -314,15 +301,14 @@ public class UIPackageImpl extends EObjectImpl implements UIPackage
 		return super.eGet(featureID, resolve, coreType);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @SuppressWarnings("unchecked")
-  @Override
-  public void eSet(int featureID, Object newValue)
-  {
+	@SuppressWarnings("unchecked")
+	@Override
+	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case DomainPackage.UI_PACKAGE__UID:
 				setUid((String)newValue);
@@ -341,14 +327,13 @@ public class UIPackageImpl extends EObjectImpl implements UIPackage
 		super.eSet(featureID, newValue);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public void eUnset(int featureID)
-  {
+	@Override
+	public void eUnset(int featureID) {
 		switch (featureID) {
 			case DomainPackage.UI_PACKAGE__UID:
 				setUid(UID_EDEFAULT);
@@ -366,14 +351,13 @@ public class UIPackageImpl extends EObjectImpl implements UIPackage
 		super.eUnset(featureID);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public boolean eIsSet(int featureID)
-  {
+	@Override
+	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case DomainPackage.UI_PACKAGE__UID:
 				return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
@@ -387,14 +371,13 @@ public class UIPackageImpl extends EObjectImpl implements UIPackage
 		return super.eIsSet(featureID);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public String toString()
-  {
+	@Override
+	public String toString() {
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());

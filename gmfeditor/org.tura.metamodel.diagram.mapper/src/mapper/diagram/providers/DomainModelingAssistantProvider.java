@@ -3,16 +3,9 @@
  */
 package mapper.diagram.providers;
 
-import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Collections;
 import java.util.HashSet;
 import java.util.Iterator;
-import java.util.List;
-
-import mapper.diagram.edit.parts.MappersEditPart;
-import mapper.diagram.part.DomainDiagramEditorPlugin;
-import mapper.diagram.part.Messages;
 
 import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.emf.ecore.EObject;
@@ -28,28 +21,31 @@ import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.dialogs.ElementListSelectionDialog;
 
+import mapper.diagram.part.DomainDiagramEditorPlugin;
+import mapper.diagram.part.Messages;
+
 /**
  * @generated
  */
 public class DomainModelingAssistantProvider extends ModelingAssistantProvider {
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public EObject selectExistingElementForSource(IAdaptable target, IElementType relationshipType) {
 		return selectExistingElement(target, getTypesForSource(target, relationshipType));
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public EObject selectExistingElementForTarget(IAdaptable source, IElementType relationshipType) {
 		return selectExistingElement(source, getTypesForTarget(source, relationshipType));
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected EObject selectExistingElement(IAdaptable host, Collection types) {
 		if (types.isEmpty()) {
 			return null;
@@ -73,16 +69,16 @@ public class DomainModelingAssistantProvider extends ModelingAssistantProvider {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected boolean isApplicableElement(EObject element, Collection types) {
 		IElementType type = ElementTypeRegistry.getInstance().getElementType(element);
 		return types.contains(type);
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected EObject selectElement(EObject[] elements) {
 		Shell shell = Display.getCurrent().getActiveShell();
 		ILabelProvider labelProvider = new AdapterFactoryLabelProvider(
@@ -98,4 +94,5 @@ public class DomainModelingAssistantProvider extends ModelingAssistantProvider {
 		}
 		return selected;
 	}
+
 }

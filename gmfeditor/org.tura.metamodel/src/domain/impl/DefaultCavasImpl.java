@@ -25,80 +25,74 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  *
  * @generated
  */
-public class DefaultCavasImpl extends EObjectImpl implements DefaultCavas
-{
-  /**
+public class DefaultCavasImpl extends EObjectImpl implements DefaultCavas {
+	/**
 	 * The default value of the '{@link #isDefaultCanvas() <em>Default Canvas</em>}' attribute.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #isDefaultCanvas()
 	 * @generated
 	 * @ordered
 	 */
-  protected static final boolean DEFAULT_CANVAS_EDEFAULT = false;
+	protected static final boolean DEFAULT_CANVAS_EDEFAULT = false;
 
-  /**
+	/**
 	 * The cached value of the '{@link #isDefaultCanvas() <em>Default Canvas</em>}' attribute.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #isDefaultCanvas()
 	 * @generated
 	 * @ordered
 	 */
-  protected boolean defaultCanvas = DEFAULT_CANVAS_EDEFAULT;
+	protected boolean defaultCanvas = DEFAULT_CANVAS_EDEFAULT;
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  protected DefaultCavasImpl()
-  {
+	protected DefaultCavasImpl() {
 		super();
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  protected EClass eStaticClass()
-  {
+	@Override
+	protected EClass eStaticClass() {
 		return DomainPackage.Literals.DEFAULT_CAVAS;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public boolean isDefaultCanvas()
-  {
+	public boolean isDefaultCanvas() {
 		return defaultCanvas;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public void setDefaultCanvas(boolean newDefaultCanvas)
-  {
+	public void setDefaultCanvas(boolean newDefaultCanvas) {
 		boolean oldDefaultCanvas = defaultCanvas;
 		defaultCanvas = newDefaultCanvas;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.DEFAULT_CAVAS__DEFAULT_CANVAS, oldDefaultCanvas, defaultCanvas));
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public Object eGet(int featureID, boolean resolve, boolean coreType)
-  {
+	@Override
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case DomainPackage.DEFAULT_CAVAS__DEFAULT_CANVAS:
 				return isDefaultCanvas();
@@ -106,14 +100,13 @@ public class DefaultCavasImpl extends EObjectImpl implements DefaultCavas
 		return super.eGet(featureID, resolve, coreType);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public void eSet(int featureID, Object newValue)
-  {
+	@Override
+	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case DomainPackage.DEFAULT_CAVAS__DEFAULT_CANVAS:
 				setDefaultCanvas((Boolean)newValue);
@@ -122,14 +115,13 @@ public class DefaultCavasImpl extends EObjectImpl implements DefaultCavas
 		super.eSet(featureID, newValue);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public void eUnset(int featureID)
-  {
+	@Override
+	public void eUnset(int featureID) {
 		switch (featureID) {
 			case DomainPackage.DEFAULT_CAVAS__DEFAULT_CANVAS:
 				setDefaultCanvas(DEFAULT_CANVAS_EDEFAULT);
@@ -138,14 +130,13 @@ public class DefaultCavasImpl extends EObjectImpl implements DefaultCavas
 		super.eUnset(featureID);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public boolean eIsSet(int featureID)
-  {
+	@Override
+	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case DomainPackage.DEFAULT_CAVAS__DEFAULT_CANVAS:
 				return defaultCanvas != DEFAULT_CANVAS_EDEFAULT;
@@ -153,14 +144,13 @@ public class DefaultCavasImpl extends EObjectImpl implements DefaultCavas
 		return super.eIsSet(featureID);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public String toString()
-  {
+	@Override
+	public String toString() {
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());

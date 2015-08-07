@@ -1,6 +1,6 @@
 /*
- * 
- */
+* 
+*/
 package uipackage.diagram.part;
 
 import java.util.Collections;
@@ -11,6 +11,11 @@ import java.util.List;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.gmf.tooling.runtime.update.DiagramUpdater;
 
+import domain.Form;
+import domain.FormDataControls;
+import domain.FormParameter;
+import domain.FormView;
+import domain.UIPackage;
 import uipackage.diagram.edit.parts.FormDataControlsEditPart;
 import uipackage.diagram.edit.parts.FormEditPart;
 import uipackage.diagram.edit.parts.FormFormDatacontrolsCompartmentEditPart;
@@ -19,11 +24,6 @@ import uipackage.diagram.edit.parts.FormFormViewCompartmentEditPart;
 import uipackage.diagram.edit.parts.FormParameterEditPart;
 import uipackage.diagram.edit.parts.FormViewEditPart;
 import uipackage.diagram.edit.parts.UIPackageEditPart;
-import domain.Form;
-import domain.FormDataControls;
-import domain.FormParameter;
-import domain.FormView;
-import domain.UIPackage;
 
 /**
  * @generated
@@ -31,15 +31,15 @@ import domain.UIPackage;
 public class DomainDiagramUpdater {
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static boolean isShortcutOrphaned(View view) {
 		return !view.isSetElement() || view.getElement() == null || view.getElement().eIsProxy();
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static List<DomainNodeDescriptor> getSemanticChildren(View view) {
 		switch (DomainVisualIDRegistry.getVisualID(view)) {
 		case UIPackageEditPart.VISUAL_ID:
@@ -55,8 +55,8 @@ public class DomainDiagramUpdater {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static List<DomainNodeDescriptor> getUIPackage_1001000SemanticChildren(View view) {
 		if (!view.isSetElement()) {
 			return Collections.emptyList();
@@ -75,8 +75,8 @@ public class DomainDiagramUpdater {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static List<DomainNodeDescriptor> getFormFormViewCompartment_1007001SemanticChildren(View view) {
 		if (false == view.eContainer() instanceof View) {
 			return Collections.emptyList();
@@ -98,8 +98,8 @@ public class DomainDiagramUpdater {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static List<DomainNodeDescriptor> getFormFormDatacontrolsCompartment_1007002SemanticChildren(View view) {
 		if (false == view.eContainer() instanceof View) {
 			return Collections.emptyList();
@@ -121,8 +121,8 @@ public class DomainDiagramUpdater {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static List<DomainNodeDescriptor> getFormFormParametersCompartment_1007003SemanticChildren(View view) {
 		if (false == view.eContainer() instanceof View) {
 			return Collections.emptyList();
@@ -145,8 +145,8 @@ public class DomainDiagramUpdater {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static List<DomainLinkDescriptor> getContainedLinks(View view) {
 		switch (DomainVisualIDRegistry.getVisualID(view)) {
 		case UIPackageEditPart.VISUAL_ID:
@@ -164,8 +164,8 @@ public class DomainDiagramUpdater {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static List<DomainLinkDescriptor> getIncomingLinks(View view) {
 		switch (DomainVisualIDRegistry.getVisualID(view)) {
 		case FormEditPart.VISUAL_ID:
@@ -181,8 +181,8 @@ public class DomainDiagramUpdater {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static List<DomainLinkDescriptor> getOutgoingLinks(View view) {
 		switch (DomainVisualIDRegistry.getVisualID(view)) {
 		case FormEditPart.VISUAL_ID:
@@ -289,8 +289,8 @@ public class DomainDiagramUpdater {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static final DiagramUpdater TYPED_INSTANCE = new DiagramUpdater() {
 		/**
 		* @generated

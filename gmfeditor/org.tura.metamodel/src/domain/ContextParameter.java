@@ -23,69 +23,68 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface ContextParameter extends EObject
-{
-  /**
+public interface ContextParameter extends EObject {
+	/**
 	 * Returns the value of the '<em><b>Uid</b></em>' attribute.
 	 * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Uid</em>' attribute isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Uid</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Uid</em>' attribute.
 	 * @see #setUid(String)
 	 * @see domain.DomainPackage#getContextParameter_Uid()
 	 * @model id="true"
 	 * @generated
 	 */
-  String getUid();
+	String getUid();
 
-  /**
+	/**
 	 * Sets the value of the '{@link domain.ContextParameter#getUid <em>Uid</em>}' attribute.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Uid</em>' attribute.
 	 * @see #getUid()
 	 * @generated
 	 */
-  void setUid(String value);
+	void setUid(String value);
 
-  /**
+	/**
 	 * Returns the value of the '<em><b>Ref Obj</b></em>' reference.
 	 * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Ref Obj</em>' reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Ref Obj</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Ref Obj</em>' reference.
 	 * @see #setRefObj(EObject)
 	 * @see domain.DomainPackage#getContextParameter_RefObj()
 	 * @model
 	 * @generated
 	 */
-  EObject getRefObj();
+	EObject getRefObj();
 
-  /**
+	/**
 	 * Sets the value of the '{@link domain.ContextParameter#getRefObj <em>Ref Obj</em>}' reference.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Ref Obj</em>' reference.
 	 * @see #getRefObj()
 	 * @generated
 	 */
-  void setRefObj(EObject value);
+	void setRefObj(EObject value);
 
-  /**
+	/**
 	 * Returns the value of the '<em><b>Operation</b></em>' attribute.
 	 * The literals are from the enumeration {@link domain.Comparator}.
 	 * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Operation</em>' attribute isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Operation</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Operation</em>' attribute.
 	 * @see domain.Comparator
 	 * @see #setOperation(Comparator)
@@ -93,43 +92,43 @@ public interface ContextParameter extends EObject
 	 * @model
 	 * @generated
 	 */
-  Comparator getOperation();
+	Comparator getOperation();
 
-  /**
+	/**
 	 * Sets the value of the '{@link domain.ContextParameter#getOperation <em>Operation</em>}' attribute.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Operation</em>' attribute.
 	 * @see domain.Comparator
 	 * @see #getOperation()
 	 * @generated
 	 */
-  void setOperation(Comparator value);
+	void setOperation(Comparator value);
 
-  /**
+	/**
 	 * Returns the value of the '<em><b>Value</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Value</em>' containment reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Value</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Value</em>' containment reference.
 	 * @see #setValue(ContextValue)
 	 * @see domain.DomainPackage#getContextParameter_Value()
 	 * @model containment="true"
 	 * @generated
 	 */
-  ContextValue getValue();
+	ContextValue getValue();
 
-  /**
+	/**
 	 * Sets the value of the '{@link domain.ContextParameter#getValue <em>Value</em>}' containment reference.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Value</em>' containment reference.
 	 * @see #getValue()
 	 * @generated
 	 */
-  void setValue(ContextValue value);
+	void setValue(ContextValue value);
 
 } // ContextParameter

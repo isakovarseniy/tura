@@ -1,15 +1,7 @@
 /*
- * 
- */
+* 
+*/
 package infarastructure.diagram.edit.policies;
-
-import infarastructure.diagram.edit.commands.InfrastructureConnectionCreateCommand;
-import infarastructure.diagram.edit.commands.InfrastructureConnectionReorientCommand;
-import infarastructure.diagram.edit.parts.InfrastructureConnectionEditPart;
-import infarastructure.diagram.edit.parts.Server2EditPart;
-import infarastructure.diagram.edit.parts.ServerClasterServerClasterServersCompartmentEditPart;
-import infarastructure.diagram.part.DomainVisualIDRegistry;
-import infarastructure.diagram.providers.DomainElementTypes;
 
 import java.util.Iterator;
 
@@ -26,21 +18,29 @@ import org.eclipse.gmf.runtime.notation.Edge;
 import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.View;
 
+import infarastructure.diagram.edit.commands.InfrastructureConnectionCreateCommand;
+import infarastructure.diagram.edit.commands.InfrastructureConnectionReorientCommand;
+import infarastructure.diagram.edit.parts.InfrastructureConnectionEditPart;
+import infarastructure.diagram.edit.parts.Server2EditPart;
+import infarastructure.diagram.edit.parts.ServerClasterServerClasterServersCompartmentEditPart;
+import infarastructure.diagram.part.DomainVisualIDRegistry;
+import infarastructure.diagram.providers.DomainElementTypes;
+
 /**
  * @generated
  */
 public class ServerClasterItemSemanticEditPolicy extends DomainBaseItemSemanticEditPolicy {
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public ServerClasterItemSemanticEditPolicy() {
 		super(DomainElementTypes.ServerClaster_1203007);
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected Command getDestroyElementCommand(DestroyElementRequest req) {
 		View view = (View) getHost().getModel();
 		CompositeTransactionalCommand cmd = new CompositeTransactionalCommand(getEditingDomain(), null);
@@ -77,8 +77,8 @@ public class ServerClasterItemSemanticEditPolicy extends DomainBaseItemSemanticE
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private void addDestroyChildNodesCommand(ICompositeCommand cmd) {
 		View view = (View) getHost().getModel();
 		for (Iterator<?> nit = view.getChildren().iterator(); nit.hasNext();) {

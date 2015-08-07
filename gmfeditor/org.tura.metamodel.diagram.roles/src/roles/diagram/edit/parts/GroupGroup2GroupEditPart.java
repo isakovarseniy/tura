@@ -21,41 +21,41 @@ import roles.diagram.edit.policies.GroupGroup2GroupItemSemanticEditPolicy;
 public class GroupGroup2GroupEditPart extends ConnectionNodeEditPart implements ITreeBranchEditPart {
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static final int VISUAL_ID = 1404003;
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public GroupGroup2GroupEditPart(View view) {
 		super(view);
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected void createDefaultEditPolicies() {
 		super.createDefaultEditPolicies();
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE, new GroupGroup2GroupItemSemanticEditPolicy());
 	}
 
 	/**
-	 * Creates figure for this edit part.
-	 * 
-	 * Body of this method does not depend on settings in generation model
-	 * so you may safely remove <i>generated</i> tag and modify it.
-	 * 
-	 * @generated
-	 */
+	* Creates figure for this edit part.
+	* 
+	* Body of this method does not depend on settings in generation model
+	* so you may safely remove <i>generated</i> tag and modify it.
+	* 
+	* @generated
+	*/
 
 	protected Connection createConnectionFigure() {
 		return new GroupGroup2GroupFigure();
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public GroupGroup2GroupFigure getPrimaryShape() {
 		return (GroupGroup2GroupFigure) getFigure();
 	}

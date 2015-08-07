@@ -13,8 +13,8 @@ import typedefinition.diagram.part.DomainDiagramEditorPlugin;
 public class DiagramRulersAndGridPreferencePage extends RulerGridPreferencePage {
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public DiagramRulersAndGridPreferencePage() {
 		setPreferenceStore(DomainDiagramEditorPlugin.getInstance().getPreferenceStore());
 	}

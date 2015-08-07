@@ -1,20 +1,17 @@
+
 /*
  * 
  */
 package domain.diagram.part;
 
 import java.util.Collections;
-import java.util.List;
 
-import org.eclipse.gef.Tool;
 import org.eclipse.gef.palette.PaletteContainer;
 import org.eclipse.gef.palette.PaletteDrawer;
 import org.eclipse.gef.palette.PaletteRoot;
 import org.eclipse.gef.palette.ToolEntry;
-import org.eclipse.gmf.runtime.diagram.ui.tools.UnspecifiedTypeCreationTool;
-import org.eclipse.gmf.runtime.emf.type.core.IElementType;
-
 import org.eclipse.gmf.tooling.runtime.part.DefaultNodeToolEntry;
+
 import domain.diagram.providers.DomainElementTypes;
 
 /**
@@ -23,16 +20,16 @@ import domain.diagram.providers.DomainElementTypes;
 public class DomainPaletteFactory {
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public void fillPalette(PaletteRoot paletteRoot) {
 		paletteRoot.add(createObjects1Group());
 	}
 
 	/**
-	 * Creates "Objects" palette tool group
-	 * @generated
-	 */
+	* Creates "Objects" palette tool group
+	* @generated
+	*/
 	private PaletteContainer createObjects1Group() {
 		PaletteDrawer paletteContainer = new PaletteDrawer(Messages.Objects1Group_title);
 		paletteContainer.setId("createObjects1Group"); //$NON-NLS-1$
@@ -49,8 +46,8 @@ public class DomainPaletteFactory {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private ToolEntry createContinuousIintegration1CreationTool() {
 		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(Messages.ContinuousIintegration1CreationTool_title,
 				Messages.ContinuousIintegration1CreationTool_desc,
@@ -62,8 +59,8 @@ public class DomainPaletteFactory {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private ToolEntry createDomainApplication2CreationTool() {
 		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(Messages.DomainApplication2CreationTool_title,
 				Messages.DomainApplication2CreationTool_desc,
@@ -75,8 +72,8 @@ public class DomainPaletteFactory {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private ToolEntry createDomainApplications3CreationTool() {
 		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(Messages.DomainApplications3CreationTool_title,
 				Messages.DomainApplications3CreationTool_desc,
@@ -88,8 +85,8 @@ public class DomainPaletteFactory {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private ToolEntry createDomainArtifact4CreationTool() {
 		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(Messages.DomainArtifact4CreationTool_title,
 				Messages.DomainArtifact4CreationTool_desc,
@@ -101,8 +98,8 @@ public class DomainPaletteFactory {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private ToolEntry createDomainArtifacts5CreationTool() {
 		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(Messages.DomainArtifacts5CreationTool_title,
 				Messages.DomainArtifacts5CreationTool_desc,
@@ -114,8 +111,8 @@ public class DomainPaletteFactory {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private ToolEntry createDomainTypes6CreationTool() {
 		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(Messages.DomainTypes6CreationTool_title,
 				Messages.DomainTypes6CreationTool_desc,
@@ -127,8 +124,8 @@ public class DomainPaletteFactory {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private ToolEntry createEJBService7CreationTool() {
 		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(Messages.EJBService7CreationTool_title,
 				Messages.EJBService7CreationTool_desc, Collections.singletonList(DomainElementTypes.EJBService_503005));
@@ -139,8 +136,8 @@ public class DomainPaletteFactory {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private ToolEntry createJPAService8CreationTool() {
 		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(Messages.JPAService8CreationTool_title,
 				Messages.JPAService8CreationTool_desc, Collections.singletonList(DomainElementTypes.JPAService_503004));
@@ -151,8 +148,8 @@ public class DomainPaletteFactory {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private ToolEntry createORMEntity9CreationTool() {
 		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(Messages.ORMEntity9CreationTool_title,
 				Messages.ORMEntity9CreationTool_desc, Collections.singletonList(DomainElementTypes.ORMEntity_503003));
@@ -161,4 +158,5 @@ public class DomainPaletteFactory {
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
+
 }

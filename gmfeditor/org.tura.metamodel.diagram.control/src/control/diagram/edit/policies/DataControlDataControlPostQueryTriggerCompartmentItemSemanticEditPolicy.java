@@ -1,6 +1,6 @@
 /*
- * 
- */
+* 
+*/
 package control.diagram.edit.policies;
 
 import org.eclipse.gef.commands.Command;
@@ -16,15 +16,15 @@ public class DataControlDataControlPostQueryTriggerCompartmentItemSemanticEditPo
 		extends DomainBaseItemSemanticEditPolicy {
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public DataControlDataControlPostQueryTriggerCompartmentItemSemanticEditPolicy() {
 		super(DomainElementTypes.DataControl_1102002);
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected Command getCreateCommand(CreateElementRequest req) {
 		if (DomainElementTypes.POSTQueryTrigger_1103003 == req.getElementType()) {
 			return getGEFWrapper(new POSTQueryTriggerCreateCommand(req));

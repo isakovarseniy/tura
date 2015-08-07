@@ -1,6 +1,6 @@
 /*
- * 
- */
+* 
+*/
 package application.diagram.edit.policies;
 
 import org.eclipse.emf.ecore.EAnnotation;
@@ -19,15 +19,15 @@ import application.diagram.providers.DomainElementTypes;
 public class ApplicationRecipeItemSemanticEditPolicy extends DomainBaseItemSemanticEditPolicy {
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public ApplicationRecipeItemSemanticEditPolicy() {
 		super(DomainElementTypes.ApplicationRecipe_803001);
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected Command getDestroyElementCommand(DestroyElementRequest req) {
 		View view = (View) getHost().getModel();
 		CompositeTransactionalCommand cmd = new CompositeTransactionalCommand(getEditingDomain(), null);

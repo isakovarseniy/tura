@@ -23,8 +23,8 @@ import org.eclipse.gmf.runtime.emf.type.core.IElementType;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.gmf.runtime.notation.impl.NodeImpl;
 import org.eclipse.gmf.tooling.runtime.edit.policies.reparent.CreationEditPolicyWithCustomReparent;
-
 import org.tura.metamodel.commons.editparts.HTMLLikeLayout;
+
 import application.diagram.edit.policies.ApplicationStyleApplicationStyleStylesPackageCompartmentCanonicalEditPolicy;
 import application.diagram.edit.policies.ApplicationStyleApplicationStyleStylesPackageCompartmentItemSemanticEditPolicy;
 import application.diagram.part.DomainVisualIDRegistry;
@@ -38,27 +38,27 @@ import domain.HTMLLayerHolder;
 public class ApplicationStyleApplicationStyleStylesPackageCompartmentEditPart extends ShapeCompartmentEditPart {
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static final int VISUAL_ID = 807004;
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public ApplicationStyleApplicationStyleStylesPackageCompartmentEditPart(View view) {
 		super(view);
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public String getCompartmentName() {
 		return Messages.ApplicationStyleApplicationStyleStylesPackageCompartmentEditPart_title;
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 
 	public IFigure createFigure() {
 		ResizableCompartmentFigure result = (ResizableCompartmentFigure) super.createFigure();
@@ -102,8 +102,8 @@ public class ApplicationStyleApplicationStyleStylesPackageCompartmentEditPart ex
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected void createDefaultEditPolicies() {
 		super.createDefaultEditPolicies();
 		installEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE, new ResizableCompartmentEditPolicy());
@@ -117,8 +117,8 @@ public class ApplicationStyleApplicationStyleStylesPackageCompartmentEditPart ex
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected void setRatio(Double ratio) {
 		if (getFigure().getParent().getLayoutManager() instanceof ConstrainedToolbarLayout) {
 			super.setRatio(ratio);
@@ -126,8 +126,8 @@ public class ApplicationStyleApplicationStyleStylesPackageCompartmentEditPart ex
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public EditPart getTargetEditPart(Request request) {
 		if (request instanceof CreateViewAndElementRequest) {
 			CreateElementRequestAdapter adapter = ((CreateViewAndElementRequest) request).getViewAndElementDescriptor()

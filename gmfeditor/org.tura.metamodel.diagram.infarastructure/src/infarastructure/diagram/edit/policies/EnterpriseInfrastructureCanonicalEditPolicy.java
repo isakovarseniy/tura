@@ -1,23 +1,7 @@
 /*
- * 
- */
+* 
+*/
 package infarastructure.diagram.edit.policies;
-
-import infarastructure.diagram.edit.parts.DatacenterEditPart;
-import infarastructure.diagram.edit.parts.EnterpriseInfrastructureEditPart;
-import infarastructure.diagram.edit.parts.HubEditPart;
-import infarastructure.diagram.edit.parts.InfrastructureConnectionEditPart;
-import infarastructure.diagram.edit.parts.InfrastructureLayerEditPart;
-import infarastructure.diagram.edit.parts.RouterEditPart;
-import infarastructure.diagram.edit.parts.Server2EditPart;
-import infarastructure.diagram.edit.parts.ServerClasterEditPart;
-import infarastructure.diagram.edit.parts.ServerEditPart;
-import infarastructure.diagram.edit.parts.StorageEditPart;
-import infarastructure.diagram.edit.parts.SubsystemEditPart;
-import infarastructure.diagram.part.DomainDiagramUpdater;
-import infarastructure.diagram.part.DomainLinkDescriptor;
-import infarastructure.diagram.part.DomainNodeDescriptor;
-import infarastructure.diagram.part.DomainVisualIDRegistry;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -49,6 +33,21 @@ import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.gmf.tooling.runtime.update.UpdaterLinkDescriptor;
 
 import domain.DomainPackage;
+import infarastructure.diagram.edit.parts.DatacenterEditPart;
+import infarastructure.diagram.edit.parts.EnterpriseInfrastructureEditPart;
+import infarastructure.diagram.edit.parts.HubEditPart;
+import infarastructure.diagram.edit.parts.InfrastructureConnectionEditPart;
+import infarastructure.diagram.edit.parts.InfrastructureLayerEditPart;
+import infarastructure.diagram.edit.parts.RouterEditPart;
+import infarastructure.diagram.edit.parts.Server2EditPart;
+import infarastructure.diagram.edit.parts.ServerClasterEditPart;
+import infarastructure.diagram.edit.parts.ServerEditPart;
+import infarastructure.diagram.edit.parts.StorageEditPart;
+import infarastructure.diagram.edit.parts.SubsystemEditPart;
+import infarastructure.diagram.part.DomainDiagramUpdater;
+import infarastructure.diagram.part.DomainLinkDescriptor;
+import infarastructure.diagram.part.DomainNodeDescriptor;
+import infarastructure.diagram.part.DomainVisualIDRegistry;
 
 /**
  * @generated
@@ -56,8 +55,8 @@ import domain.DomainPackage;
 public class EnterpriseInfrastructureCanonicalEditPolicy extends CanonicalEditPolicy {
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected void refreshOnActivate() {
 		// Need to activate editpart children before invoking the canonical refresh for EditParts to add event listeners
 		List<?> c = getHost().getChildren();
@@ -68,16 +67,17 @@ public class EnterpriseInfrastructureCanonicalEditPolicy extends CanonicalEditPo
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected EStructuralFeature getFeatureToSynchronize() {
 		return DomainPackage.eINSTANCE.getEnterpriseInfrastructure_Datacenters();
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	@SuppressWarnings("rawtypes")
+
 	protected List getSemanticChildrenList() {
 		View viewObject = (View) getHost().getModel();
 		LinkedList<EObject> result = new LinkedList<EObject>();
@@ -90,8 +90,8 @@ public class EnterpriseInfrastructureCanonicalEditPolicy extends CanonicalEditPo
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected boolean isOrphaned(Collection<EObject> semanticChildren, final View view) {
 		if (isShortcut(view)) {
 			return DomainDiagramUpdater.isShortcutOrphaned(view);
@@ -100,22 +100,22 @@ public class EnterpriseInfrastructureCanonicalEditPolicy extends CanonicalEditPo
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private boolean isMyDiagramElement(View view) {
 		return DatacenterEditPart.VISUAL_ID == DomainVisualIDRegistry.getVisualID(view);
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected static boolean isShortcut(View view) {
 		return view.getEAnnotation("Shortcut") != null; //$NON-NLS-1$
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected void refreshSemantic() {
 		if (resolveSemanticElement() == null) {
 			return;
@@ -209,8 +209,8 @@ public class EnterpriseInfrastructureCanonicalEditPolicy extends CanonicalEditPo
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private Collection<IAdaptable> refreshConnections() {
 		Domain2Notation domain2NotationMap = new Domain2Notation();
 		Collection<DomainLinkDescriptor> linkDescriptors = collectAllLinks(getDiagram(), domain2NotationMap);
@@ -245,8 +245,8 @@ public class EnterpriseInfrastructureCanonicalEditPolicy extends CanonicalEditPo
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private Collection<DomainLinkDescriptor> collectAllLinks(View view, Domain2Notation domain2NotationMap) {
 		if (!EnterpriseInfrastructureEditPart.MODEL_ID.equals(DomainVisualIDRegistry.getModelID(view))) {
 			return Collections.emptyList();
@@ -341,8 +341,8 @@ public class EnterpriseInfrastructureCanonicalEditPolicy extends CanonicalEditPo
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private Collection<IAdaptable> createConnections(Collection<DomainLinkDescriptor> linkDescriptors,
 			Domain2Notation domain2NotationMap) {
 		LinkedList<IAdaptable> adapters = new LinkedList<IAdaptable>();
@@ -375,8 +375,8 @@ public class EnterpriseInfrastructureCanonicalEditPolicy extends CanonicalEditPo
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private EditPart getEditPart(EObject domainModelElement, Domain2Notation domain2NotationMap) {
 		View view = (View) domain2NotationMap.get(domainModelElement);
 		if (view != null) {
@@ -386,29 +386,29 @@ public class EnterpriseInfrastructureCanonicalEditPolicy extends CanonicalEditPo
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private Diagram getDiagram() {
 		return ((View) getHost().getModel()).getDiagram();
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private EditPart getSourceEditPart(UpdaterLinkDescriptor descriptor, Domain2Notation domain2NotationMap) {
 		return getEditPart(descriptor.getSource(), domain2NotationMap);
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private EditPart getTargetEditPart(UpdaterLinkDescriptor descriptor, Domain2Notation domain2NotationMap) {
 		return getEditPart(descriptor.getDestination(), domain2NotationMap);
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected final EditPart getHintedEditPart(EObject domainModelElement, Domain2Notation domain2NotationMap,
 			int hintVisualId) {
 		View view = (View) domain2NotationMap.getHinted(domainModelElement,
@@ -420,27 +420,27 @@ public class EnterpriseInfrastructureCanonicalEditPolicy extends CanonicalEditPo
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	@SuppressWarnings("serial")
 	protected static class Domain2Notation extends HashMap<EObject, View> {
 		/**
-		 * @generated
-		 */
+		* @generated
+		*/
 		public boolean containsDomainElement(EObject domainElement) {
 			return this.containsKey(domainElement);
 		}
 
 		/**
-		 * @generated
-		 */
+		* @generated
+		*/
 		public View getHinted(EObject domainEObject, String hint) {
 			return this.get(domainEObject);
 		}
 
 		/**
-		 * @generated
-		 */
+		* @generated
+		*/
 		public void putView(EObject domainElement, View view) {
 			if (!containsKey(view.getElement()) || !isShortcut(view)) {
 				this.put(domainElement, view);

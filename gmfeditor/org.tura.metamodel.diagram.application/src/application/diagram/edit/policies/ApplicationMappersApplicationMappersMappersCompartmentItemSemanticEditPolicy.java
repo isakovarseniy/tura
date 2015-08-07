@@ -1,6 +1,6 @@
 /*
- * 
- */
+* 
+*/
 package application.diagram.edit.policies;
 
 import org.eclipse.gef.commands.Command;
@@ -16,15 +16,15 @@ public class ApplicationMappersApplicationMappersMappersCompartmentItemSemanticE
 		extends DomainBaseItemSemanticEditPolicy {
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public ApplicationMappersApplicationMappersMappersCompartmentItemSemanticEditPolicy() {
 		super(DomainElementTypes.ApplicationMappers_802002);
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected Command getCreateCommand(CreateElementRequest req) {
 		if (DomainElementTypes.ApplicationMapper_803002 == req.getElementType()) {
 			return getGEFWrapper(new ApplicationMapperCreateCommand(req));

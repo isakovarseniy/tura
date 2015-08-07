@@ -15,11 +15,11 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.ConfigureRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateRelationshipRequest;
 
-import typedefinition.diagram.edit.policies.DomainBaseItemSemanticEditPolicy;
 import domain.DomainFactory;
 import domain.Type;
 import domain.TypeElement;
 import domain.TypeExtension;
+import typedefinition.diagram.edit.policies.DomainBaseItemSemanticEditPolicy;
 
 /**
  * @generated
@@ -27,23 +27,23 @@ import domain.TypeExtension;
 public class TypeExtensionCreateCommand extends EditElementCommand {
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private final EObject source;
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private final EObject target;
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private final Type container;
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public TypeExtensionCreateCommand(CreateRelationshipRequest request, EObject source, EObject target) {
 		super(request.getLabel(), null, request);
 		this.source = source;
@@ -52,8 +52,8 @@ public class TypeExtensionCreateCommand extends EditElementCommand {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public boolean canExecute() {
 		if (source == null && target == null) {
 			return false;
@@ -76,8 +76,8 @@ public class TypeExtensionCreateCommand extends EditElementCommand {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected CommandResult doExecuteWithResult(IProgressMonitor monitor, IAdaptable info) throws ExecutionException {
 		if (!canExecute()) {
 			throw new ExecutionException("Invalid arguments in create link command"); //$NON-NLS-1$
@@ -95,8 +95,8 @@ public class TypeExtensionCreateCommand extends EditElementCommand {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected void doConfigure(TypeExtension newElement, IProgressMonitor monitor, IAdaptable info)
 			throws ExecutionException {
 		IElementType elementType = ((CreateElementRequest) getRequest()).getElementType();
@@ -112,38 +112,38 @@ public class TypeExtensionCreateCommand extends EditElementCommand {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected void setElementToEdit(EObject element) {
 		throw new UnsupportedOperationException();
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected TypeElement getSource() {
 		return (TypeElement) source;
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected TypeElement getTarget() {
 		return (TypeElement) target;
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public Type getContainer() {
 		return container;
 	}
 
 	/**
-	 * Default approach is to traverse ancestors of the source to find instance of container.
-	 * Modify with appropriate logic.
-	 * @generated
-	 */
+	* Default approach is to traverse ancestors of the source to find instance of container.
+	* Modify with appropriate logic.
+	* @generated
+	*/
 	private static Type deduceContainer(EObject source, EObject target) {
 		// Find container element for the new link.
 		// Climb up by containment hierarchy starting from the source

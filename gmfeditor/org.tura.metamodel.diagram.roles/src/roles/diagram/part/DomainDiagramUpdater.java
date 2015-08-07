@@ -1,6 +1,6 @@
 /*
- * 
- */
+* 
+*/
 package roles.diagram.part;
 
 import java.util.Collection;
@@ -16,16 +16,16 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.gmf.tooling.runtime.update.DiagramUpdater;
 
+import domain.DomainPackage;
+import domain.Group;
+import domain.Role;
+import domain.Roles;
 import roles.diagram.edit.parts.GroupEditPart;
 import roles.diagram.edit.parts.GroupGroup2GroupEditPart;
 import roles.diagram.edit.parts.GroupGroup2RoleEditPart;
 import roles.diagram.edit.parts.RoleEditPart;
 import roles.diagram.edit.parts.RolesEditPart;
 import roles.diagram.providers.DomainElementTypes;
-import domain.DomainPackage;
-import domain.Group;
-import domain.Role;
-import domain.Roles;
 
 /**
  * @generated
@@ -33,15 +33,15 @@ import domain.Roles;
 public class DomainDiagramUpdater {
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static boolean isShortcutOrphaned(View view) {
 		return !view.isSetElement() || view.getElement() == null || view.getElement().eIsProxy();
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static List<DomainNodeDescriptor> getSemanticChildren(View view) {
 		switch (DomainVisualIDRegistry.getVisualID(view)) {
 		case RolesEditPart.VISUAL_ID:
@@ -51,8 +51,8 @@ public class DomainDiagramUpdater {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static List<DomainNodeDescriptor> getRoles_1401000SemanticChildren(View view) {
 		if (!view.isSetElement()) {
 			return Collections.emptyList();
@@ -79,8 +79,8 @@ public class DomainDiagramUpdater {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static List<DomainLinkDescriptor> getContainedLinks(View view) {
 		switch (DomainVisualIDRegistry.getVisualID(view)) {
 		case RolesEditPart.VISUAL_ID:
@@ -94,8 +94,8 @@ public class DomainDiagramUpdater {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static List<DomainLinkDescriptor> getIncomingLinks(View view) {
 		switch (DomainVisualIDRegistry.getVisualID(view)) {
 		case RoleEditPart.VISUAL_ID:
@@ -107,8 +107,8 @@ public class DomainDiagramUpdater {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static List<DomainLinkDescriptor> getOutgoingLinks(View view) {
 		switch (DomainVisualIDRegistry.getVisualID(view)) {
 		case RoleEditPart.VISUAL_ID:
@@ -219,8 +219,8 @@ public class DomainDiagramUpdater {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private static Collection<DomainLinkDescriptor> getOutgoingFeatureModelFacetLinks_Group_Group2Group_1404003(
 			Group source) {
 		LinkedList<DomainLinkDescriptor> result = new LinkedList<DomainLinkDescriptor>();
@@ -233,8 +233,8 @@ public class DomainDiagramUpdater {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private static Collection<DomainLinkDescriptor> getOutgoingFeatureModelFacetLinks_Group_Group2Role_1404005(
 			Group source) {
 		LinkedList<DomainLinkDescriptor> result = new LinkedList<DomainLinkDescriptor>();
@@ -247,8 +247,8 @@ public class DomainDiagramUpdater {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static final DiagramUpdater TYPED_INSTANCE = new DiagramUpdater() {
 		/**
 		* @generated

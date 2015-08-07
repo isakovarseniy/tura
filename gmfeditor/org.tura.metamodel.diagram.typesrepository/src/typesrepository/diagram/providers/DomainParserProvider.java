@@ -16,11 +16,11 @@ import org.eclipse.gmf.runtime.emf.type.core.IElementType;
 import org.eclipse.gmf.runtime.emf.ui.services.parser.ParserHintAdapter;
 import org.eclipse.gmf.runtime.notation.View;
 
+import domain.DomainPackage;
 import typesrepository.diagram.edit.parts.PackageNameEditPart;
 import typesrepository.diagram.edit.parts.TypesNameEditPart;
 import typesrepository.diagram.parsers.MessageFormatParser;
 import typesrepository.diagram.part.DomainVisualIDRegistry;
-import domain.DomainPackage;
 
 /**
  * @generated
@@ -28,13 +28,13 @@ import domain.DomainPackage;
 public class DomainParserProvider extends AbstractProvider implements IParserProvider {
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private IParser typesName_205004Parser;
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private IParser getTypesName_205004Parser() {
 		if (typesName_205004Parser == null) {
 			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE.getTypes_Name() };
@@ -45,13 +45,13 @@ public class DomainParserProvider extends AbstractProvider implements IParserPro
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private IParser packageName_205002Parser;
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private IParser getPackageName_205002Parser() {
 		if (packageName_205002Parser == null) {
 			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE.getPackage_Name() };
@@ -62,8 +62,8 @@ public class DomainParserProvider extends AbstractProvider implements IParserPro
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected IParser getParser(int visualID) {
 		switch (visualID) {
 		case TypesNameEditPart.VISUAL_ID:
@@ -75,16 +75,16 @@ public class DomainParserProvider extends AbstractProvider implements IParserPro
 	}
 
 	/**
-	 * Utility method that consults ParserService
-	 * @generated
-	 */
+	* Utility method that consults ParserService
+	* @generated
+	*/
 	public static IParser getParser(IElementType type, EObject object, String parserHint) {
 		return ParserService.getInstance().getParser(new HintAdapter(type, object, parserHint));
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public IParser getParser(IAdaptable hint) {
 		String vid = (String) hint.getAdapter(String.class);
 		if (vid != null) {
@@ -98,8 +98,8 @@ public class DomainParserProvider extends AbstractProvider implements IParserPro
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public boolean provides(IOperation operation) {
 		if (operation instanceof GetParserOperation) {
 			IAdaptable hint = ((GetParserOperation) operation).getHint();
@@ -112,18 +112,18 @@ public class DomainParserProvider extends AbstractProvider implements IParserPro
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private static class HintAdapter extends ParserHintAdapter {
 
 		/**
-		 * @generated
-		 */
+		* @generated
+		*/
 		private final IElementType elementType;
 
 		/**
-		 * @generated
-		 */
+		* @generated
+		*/
 		public HintAdapter(IElementType type, EObject object, String parserHint) {
 			super(object, parserHint);
 			assert type != null;
@@ -131,8 +131,8 @@ public class DomainParserProvider extends AbstractProvider implements IParserPro
 		}
 
 		/**
-		 * @generated
-		 */
+		* @generated
+		*/
 		public Object getAdapter(Class adapter) {
 			if (IElementType.class.equals(adapter)) {
 				return elementType;

@@ -1,20 +1,17 @@
+
 /*
  * 
  */
 package application.diagram.part;
 
 import java.util.Collections;
-import java.util.List;
 
-import org.eclipse.gef.Tool;
 import org.eclipse.gef.palette.PaletteContainer;
 import org.eclipse.gef.palette.PaletteDrawer;
 import org.eclipse.gef.palette.PaletteRoot;
 import org.eclipse.gef.palette.ToolEntry;
-import org.eclipse.gmf.runtime.diagram.ui.tools.UnspecifiedTypeCreationTool;
-import org.eclipse.gmf.runtime.emf.type.core.IElementType;
-
 import org.eclipse.gmf.tooling.runtime.part.DefaultNodeToolEntry;
+
 import application.diagram.providers.DomainElementTypes;
 
 /**
@@ -23,16 +20,16 @@ import application.diagram.providers.DomainElementTypes;
 public class DomainPaletteFactory {
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public void fillPalette(PaletteRoot paletteRoot) {
 		paletteRoot.add(createObjects1Group());
 	}
 
 	/**
-	 * Creates "Objects" palette tool group
-	 * @generated
-	 */
+	* Creates "Objects" palette tool group
+	* @generated
+	*/
 	private PaletteContainer createObjects1Group() {
 		PaletteDrawer paletteContainer = new PaletteDrawer(Messages.Objects1Group_title);
 		paletteContainer.setId("createObjects1Group"); //$NON-NLS-1$
@@ -51,8 +48,8 @@ public class DomainPaletteFactory {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private ToolEntry createApplicationInfrastructureLayer1CreationTool() {
 		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(
 				Messages.ApplicationInfrastructureLayer1CreationTool_title,
@@ -66,8 +63,8 @@ public class DomainPaletteFactory {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private ToolEntry createApplicationMapper2CreationTool() {
 		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(Messages.ApplicationMapper2CreationTool_title,
 				Messages.ApplicationMapper2CreationTool_desc,
@@ -79,8 +76,8 @@ public class DomainPaletteFactory {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private ToolEntry createApplicationMappers3CreationTool() {
 		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(Messages.ApplicationMappers3CreationTool_title,
 				Messages.ApplicationMappers3CreationTool_desc,
@@ -92,8 +89,8 @@ public class DomainPaletteFactory {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private ToolEntry createApplicationMessages4CreationTool() {
 		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(Messages.ApplicationMessages4CreationTool_title,
 				Messages.ApplicationMessages4CreationTool_desc,
@@ -105,8 +102,8 @@ public class DomainPaletteFactory {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private ToolEntry createApplicationRecipe5CreationTool() {
 		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(Messages.ApplicationRecipe5CreationTool_title,
 				Messages.ApplicationRecipe5CreationTool_desc,
@@ -118,8 +115,8 @@ public class DomainPaletteFactory {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private ToolEntry createApplicationRecipes6CreationTool() {
 		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(Messages.ApplicationRecipes6CreationTool_title,
 				Messages.ApplicationRecipes6CreationTool_desc,
@@ -131,8 +128,8 @@ public class DomainPaletteFactory {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private ToolEntry createApplicationRole7CreationTool() {
 		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(Messages.ApplicationRole7CreationTool_title,
 				Messages.ApplicationRole7CreationTool_desc,
@@ -144,8 +141,8 @@ public class DomainPaletteFactory {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private ToolEntry createApplicationStyle8CreationTool() {
 		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(Messages.ApplicationStyle8CreationTool_title,
 				Messages.ApplicationStyle8CreationTool_desc,
@@ -157,8 +154,8 @@ public class DomainPaletteFactory {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private ToolEntry createApplicationUILayer9CreationTool() {
 		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(Messages.ApplicationUILayer9CreationTool_title,
 				Messages.ApplicationUILayer9CreationTool_desc,
@@ -170,8 +167,8 @@ public class DomainPaletteFactory {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private ToolEntry createApplicationUIPackage10CreationTool() {
 		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(Messages.ApplicationUIPackage10CreationTool_title,
 				Messages.ApplicationUIPackage10CreationTool_desc,
@@ -183,8 +180,8 @@ public class DomainPaletteFactory {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private ToolEntry createStylesPackage11CreationTool() {
 		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(Messages.StylesPackage11CreationTool_title,
 				Messages.StylesPackage11CreationTool_desc,
@@ -194,4 +191,5 @@ public class DomainPaletteFactory {
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
+
 }

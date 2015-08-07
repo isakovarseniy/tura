@@ -26,9 +26,10 @@ import frmview.diagram.providers.DomainModelingAssistantProvider;
 public class DomainModelingAssistantProviderOfViewPortEditPart extends DomainModelingAssistantProvider {
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	@Override
+
 	public List<IElementType> getTypesForPopupBar(IAdaptable host) {
 		List<IElementType> types = new ArrayList<IElementType>(1);
 		types.add(DomainElementTypes.ViewPortTrigger_1303002);
@@ -36,17 +37,18 @@ public class DomainModelingAssistantProviderOfViewPortEditPart extends DomainMod
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	@Override
+
 	public List<IElementType> getRelTypesOnSource(IAdaptable source) {
 		IGraphicalEditPart sourceEditPart = (IGraphicalEditPart) source.getAdapter(IGraphicalEditPart.class);
 		return doGetRelTypesOnSource((ViewPortEditPart) sourceEditPart);
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public List<IElementType> doGetRelTypesOnSource(ViewPortEditPart source) {
 		List<IElementType> types = new ArrayList<IElementType>(1);
 		types.add(DomainElementTypes.ViewInheritance_1304001);
@@ -54,9 +56,10 @@ public class DomainModelingAssistantProviderOfViewPortEditPart extends DomainMod
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	@Override
+
 	public List<IElementType> getRelTypesOnSourceAndTarget(IAdaptable source, IAdaptable target) {
 		IGraphicalEditPart sourceEditPart = (IGraphicalEditPart) source.getAdapter(IGraphicalEditPart.class);
 		IGraphicalEditPart targetEditPart = (IGraphicalEditPart) target.getAdapter(IGraphicalEditPart.class);
@@ -64,8 +67,8 @@ public class DomainModelingAssistantProviderOfViewPortEditPart extends DomainMod
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public List<IElementType> doGetRelTypesOnSourceAndTarget(ViewPortEditPart source,
 			IGraphicalEditPart targetEditPart) {
 		List<IElementType> types = new LinkedList<IElementType>();
@@ -88,17 +91,18 @@ public class DomainModelingAssistantProviderOfViewPortEditPart extends DomainMod
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	@Override
+
 	public List<IElementType> getTypesForTarget(IAdaptable source, IElementType relationshipType) {
 		IGraphicalEditPart sourceEditPart = (IGraphicalEditPart) source.getAdapter(IGraphicalEditPart.class);
 		return doGetTypesForTarget((ViewPortEditPart) sourceEditPart, relationshipType);
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public List<IElementType> doGetTypesForTarget(ViewPortEditPart source, IElementType relationshipType) {
 		List<IElementType> types = new ArrayList<IElementType>();
 		if (relationshipType == DomainElementTypes.ViewInheritance_1304001) {

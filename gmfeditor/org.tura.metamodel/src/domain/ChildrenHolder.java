@@ -22,22 +22,21 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface ChildrenHolder extends EObject
-{
-  /**
+public interface ChildrenHolder extends EObject {
+	/**
 	 * Returns the value of the '<em><b>Children</b></em>' containment reference list.
 	 * The list contents are of type {@link domain.Uielement}.
 	 * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Children</em>' containment reference list isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Children</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Children</em>' containment reference list.
 	 * @see domain.DomainPackage#getChildrenHolder_Children()
 	 * @model containment="true"
 	 * @generated
 	 */
-  EList<Uielement> getChildren();
+	EList<Uielement> getChildren();
 
 } // ChildrenHolder

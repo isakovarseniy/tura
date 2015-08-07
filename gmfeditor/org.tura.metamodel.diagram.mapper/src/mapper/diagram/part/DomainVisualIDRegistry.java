@@ -1,17 +1,7 @@
 /*
- * 
- */
+* 
+*/
 package mapper.diagram.part;
-
-import mapper.diagram.edit.parts.CSSMapperEditPart;
-import mapper.diagram.edit.parts.CSSMapperFakePackageNameFakeTypeEditPart;
-import mapper.diagram.edit.parts.JavaMapperEditPart;
-import mapper.diagram.edit.parts.JavaMapperFakePackageNameFakeTypeEditPart;
-import mapper.diagram.edit.parts.JavaScriptMapperEditPart;
-import mapper.diagram.edit.parts.JavaScriptMapperFakePackageNameFakeTypeEditPart;
-import mapper.diagram.edit.parts.MappersEditPart;
-import mapper.diagram.edit.parts.RoleMapperEditPart;
-import mapper.diagram.edit.parts.RoleMapperFakeRoleNameEditPart;
 
 import org.eclipse.core.runtime.Platform;
 import org.eclipse.emf.ecore.EAnnotation;
@@ -22,6 +12,15 @@ import org.eclipse.gmf.tooling.runtime.structure.DiagramStructure;
 
 import domain.DomainPackage;
 import domain.Mappers;
+import mapper.diagram.edit.parts.CSSMapperEditPart;
+import mapper.diagram.edit.parts.CSSMapperFakePackageNameFakeTypeEditPart;
+import mapper.diagram.edit.parts.JavaMapperEditPart;
+import mapper.diagram.edit.parts.JavaMapperFakePackageNameFakeTypeEditPart;
+import mapper.diagram.edit.parts.JavaScriptMapperEditPart;
+import mapper.diagram.edit.parts.JavaScriptMapperFakePackageNameFakeTypeEditPart;
+import mapper.diagram.edit.parts.MappersEditPart;
+import mapper.diagram.edit.parts.RoleMapperEditPart;
+import mapper.diagram.edit.parts.RoleMapperFakeRoleNameEditPart;
 
 /**
  * This registry is used to determine which type of visual object should be
@@ -33,13 +32,13 @@ import domain.Mappers;
 public class DomainVisualIDRegistry {
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private static final String DEBUG_KEY = "org.tura.metamodel.diagram.mapper/debug/visualID"; //$NON-NLS-1$
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static int getVisualID(View view) {
 		if (view instanceof Diagram) {
 			if (MappersEditPart.MODEL_ID.equals(view.getType())) {
@@ -52,8 +51,8 @@ public class DomainVisualIDRegistry {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static String getModelID(View view) {
 		View diagram = view.getDiagram();
 		while (view != diagram) {
@@ -67,8 +66,8 @@ public class DomainVisualIDRegistry {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static int getVisualID(String type) {
 		try {
 			return Integer.parseInt(type);
@@ -82,15 +81,15 @@ public class DomainVisualIDRegistry {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static String getType(int visualID) {
 		return Integer.toString(visualID);
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static int getDiagramVisualID(EObject domainElement) {
 		if (domainElement == null) {
 			return -1;
@@ -103,8 +102,8 @@ public class DomainVisualIDRegistry {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static int getNodeVisualID(View containerView, EObject domainElement) {
 		if (domainElement == null) {
 			return -1;
@@ -143,8 +142,8 @@ public class DomainVisualIDRegistry {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static boolean canCreateNode(View containerView, int nodeVisualID) {
 		String containerModelID = mapper.diagram.part.DomainVisualIDRegistry.getModelID(containerView);
 		if (!MappersEditPart.MODEL_ID.equals(containerModelID) && !"domain".equals(containerModelID)) { //$NON-NLS-1$
@@ -200,8 +199,8 @@ public class DomainVisualIDRegistry {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static int getLinkWithClassVisualID(EObject domainElement) {
 		if (domainElement == null) {
 			return -1;
@@ -210,18 +209,18 @@ public class DomainVisualIDRegistry {
 	}
 
 	/**
-	 * User can change implementation of this method to handle some specific
-	 * situations not covered by default logic.
-	 * 
-	 * @generated
-	 */
+	* User can change implementation of this method to handle some specific
+	* situations not covered by default logic.
+	* 
+	* @generated
+	*/
 	private static boolean isDiagram(Mappers element) {
 		return true;
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static boolean checkNodeVisualID(View containerView, EObject domainElement, int candidate) {
 		if (candidate == -1) {
 			//unrecognized id is always bad
@@ -232,15 +231,15 @@ public class DomainVisualIDRegistry {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static boolean isCompartmentVisualID(int visualID) {
 		return false;
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static boolean isSemanticLeafVisualID(int visualID) {
 		switch (visualID) {
 		case MappersEditPart.VISUAL_ID:
@@ -257,8 +256,8 @@ public class DomainVisualIDRegistry {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static final DiagramStructure TYPED_INSTANCE = new DiagramStructure() {
 		/**
 		* @generated

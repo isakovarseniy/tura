@@ -1,17 +1,7 @@
 /*
- * 
- */
+* 
+*/
 package infarastructure.diagram.edit.policies;
-
-import infarastructure.diagram.edit.parts.HubEditPart;
-import infarastructure.diagram.edit.parts.InfrastructureConnectionEditPart;
-import infarastructure.diagram.edit.parts.InfrastructureLayerInfrastructureLayerInfrastructureComponentCompartmentEditPart;
-import infarastructure.diagram.edit.parts.RouterEditPart;
-import infarastructure.diagram.edit.parts.ServerClasterEditPart;
-import infarastructure.diagram.edit.parts.ServerEditPart;
-import infarastructure.diagram.edit.parts.StorageEditPart;
-import infarastructure.diagram.part.DomainVisualIDRegistry;
-import infarastructure.diagram.providers.DomainElementTypes;
 
 import java.util.Iterator;
 
@@ -26,21 +16,31 @@ import org.eclipse.gmf.runtime.notation.Edge;
 import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.View;
 
+import infarastructure.diagram.edit.parts.HubEditPart;
+import infarastructure.diagram.edit.parts.InfrastructureConnectionEditPart;
+import infarastructure.diagram.edit.parts.InfrastructureLayerInfrastructureLayerInfrastructureComponentCompartmentEditPart;
+import infarastructure.diagram.edit.parts.RouterEditPart;
+import infarastructure.diagram.edit.parts.ServerClasterEditPart;
+import infarastructure.diagram.edit.parts.ServerEditPart;
+import infarastructure.diagram.edit.parts.StorageEditPart;
+import infarastructure.diagram.part.DomainVisualIDRegistry;
+import infarastructure.diagram.providers.DomainElementTypes;
+
 /**
  * @generated
  */
 public class InfrastructureLayerItemSemanticEditPolicy extends DomainBaseItemSemanticEditPolicy {
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public InfrastructureLayerItemSemanticEditPolicy() {
 		super(DomainElementTypes.InfrastructureLayer_1203002);
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected Command getDestroyElementCommand(DestroyElementRequest req) {
 		View view = (View) getHost().getModel();
 		CompositeTransactionalCommand cmd = new CompositeTransactionalCommand(getEditingDomain(), null);
@@ -59,8 +59,8 @@ public class InfrastructureLayerItemSemanticEditPolicy extends DomainBaseItemSem
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private void addDestroyChildNodesCommand(ICompositeCommand cmd) {
 		View view = (View) getHost().getModel();
 		for (Iterator<?> nit = view.getChildren().iterator(); nit.hasNext();) {

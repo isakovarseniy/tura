@@ -1,6 +1,6 @@
 /*
- * 
- */
+* 
+*/
 package deployment.diagram.edit.policies;
 
 import org.eclipse.gef.commands.Command;
@@ -15,15 +15,15 @@ import deployment.diagram.providers.DomainElementTypes;
 public class DeploymentComponentDeploymentComponentLinkItemSemanticEditPolicy extends DomainBaseItemSemanticEditPolicy {
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public DeploymentComponentDeploymentComponentLinkItemSemanticEditPolicy() {
 		super(DomainElementTypes.DeploymentComponentDeploymentComponentLink_904014);
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected Command getDestroyReferenceCommand(DestroyReferenceRequest req) {
 		return getGEFWrapper(new DestroyReferenceCommand(req));
 	}

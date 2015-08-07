@@ -20,18 +20,17 @@ import org.eclipse.emf.common.util.EList;
  * @model annotation="gmf.node label='name' border.color='0,0,0' color='255,239,222'"
  * @generated
  */
-public interface Enumarator extends TypeElement
-{
-  /**
+public interface Enumarator extends TypeElement {
+	/**
 	 * Returns the value of the '<em><b>Values</b></em>' containment reference list.
 	 * The list contents are of type {@link domain.EnumAttribute}.
 	 * It is bidirectional and its opposite is '{@link domain.EnumAttribute#getParent <em>Parent</em>}'.
 	 * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Values</em>' containment reference list isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Values</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Values</em>' containment reference list.
 	 * @see domain.DomainPackage#getEnumarator_Values()
 	 * @see domain.EnumAttribute#getParent
@@ -39,6 +38,6 @@ public interface Enumarator extends TypeElement
 	 *        annotation="gmf.compartment layout='list'"
 	 * @generated
 	 */
-  EList<EnumAttribute> getValues();
+	EList<EnumAttribute> getValues();
 
 } // Enumarator

@@ -3,22 +3,12 @@
  */
 package infarastructure.diagram.edit.parts;
 
-import infarastructure.diagram.edit.commands.DomainCreateShortcutDecorationsCommand;
-import infarastructure.diagram.edit.policies.EnterpriseInfrastructureCanonicalEditPolicy;
-import infarastructure.diagram.edit.policies.EnterpriseInfrastructureItemSemanticEditPolicy;
-import infarastructure.diagram.part.DomainVisualIDRegistry;
-
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.gef.GraphicalEditPart;
-import org.eclipse.gef.Request;
 import org.eclipse.gef.commands.Command;
-import org.eclipse.gef.editpolicies.NonResizableEditPolicy;
-import org.eclipse.gef.handles.MoveHandle;
 import org.eclipse.gmf.runtime.diagram.ui.commands.ICommandProxy;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.DiagramEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.DiagramDragDropEditPolicy;
@@ -30,31 +20,36 @@ import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.gmf.tooling.runtime.edit.policies.reparent.CreationEditPolicyWithCustomReparent;
 
+import infarastructure.diagram.edit.commands.DomainCreateShortcutDecorationsCommand;
+import infarastructure.diagram.edit.policies.EnterpriseInfrastructureCanonicalEditPolicy;
+import infarastructure.diagram.edit.policies.EnterpriseInfrastructureItemSemanticEditPolicy;
+import infarastructure.diagram.part.DomainVisualIDRegistry;
+
 /**
  * @generated
  */
 public class EnterpriseInfrastructureEditPart extends DiagramEditPart {
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public final static String MODEL_ID = "Infarastructure"; //$NON-NLS-1$
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static final int VISUAL_ID = 1201000;
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public EnterpriseInfrastructureEditPart(View view) {
 		super(view);
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected void createDefaultEditPolicies() {
 		super.createDefaultEditPolicies();
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE, new EnterpriseInfrastructureItemSemanticEditPolicy());

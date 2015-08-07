@@ -3,12 +3,6 @@
  */
 package infarastructure.diagram.edit.parts;
 
-import infarastructure.diagram.edit.policies.DatacenterDatacenterSubsystemsCompartmentCanonicalEditPolicy;
-import infarastructure.diagram.edit.policies.DatacenterDatacenterSubsystemsCompartmentItemSemanticEditPolicy;
-import infarastructure.diagram.part.DomainVisualIDRegistry;
-import infarastructure.diagram.part.Messages;
-
-import infarastructure.diagram.providers.DomainElementTypes;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EAttribute;
@@ -32,6 +26,11 @@ import org.eclipse.gmf.tooling.runtime.edit.policies.reparent.CreationEditPolicy
 import org.tura.metamodel.commons.editparts.HTMLLikeLayout;
 
 import domain.HTMLLayerHolder;
+import infarastructure.diagram.edit.policies.DatacenterDatacenterSubsystemsCompartmentCanonicalEditPolicy;
+import infarastructure.diagram.edit.policies.DatacenterDatacenterSubsystemsCompartmentItemSemanticEditPolicy;
+import infarastructure.diagram.part.DomainVisualIDRegistry;
+import infarastructure.diagram.part.Messages;
+import infarastructure.diagram.providers.DomainElementTypes;
 
 /**
  * @generated
@@ -39,27 +38,27 @@ import domain.HTMLLayerHolder;
 public class DatacenterDatacenterSubsystemsCompartmentEditPart extends ShapeCompartmentEditPart {
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static final int VISUAL_ID = 1207001;
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public DatacenterDatacenterSubsystemsCompartmentEditPart(View view) {
 		super(view);
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public String getCompartmentName() {
 		return Messages.DatacenterDatacenterSubsystemsCompartmentEditPart_title;
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 
 	public IFigure createFigure() {
 		ResizableCompartmentFigure result = (ResizableCompartmentFigure) super.createFigure();
@@ -103,8 +102,8 @@ public class DatacenterDatacenterSubsystemsCompartmentEditPart extends ShapeComp
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected void createDefaultEditPolicies() {
 		super.createDefaultEditPolicies();
 		installEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE, new ResizableCompartmentEditPolicy());
@@ -118,8 +117,8 @@ public class DatacenterDatacenterSubsystemsCompartmentEditPart extends ShapeComp
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected void setRatio(Double ratio) {
 		if (getFigure().getParent().getLayoutManager() instanceof ConstrainedToolbarLayout) {
 			super.setRatio(ratio);
@@ -127,8 +126,8 @@ public class DatacenterDatacenterSubsystemsCompartmentEditPart extends ShapeComp
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public EditPart getTargetEditPart(Request request) {
 		if (request instanceof CreateViewAndElementRequest) {
 			CreateElementRequestAdapter adapter = ((CreateViewAndElementRequest) request).getViewAndElementDescriptor()

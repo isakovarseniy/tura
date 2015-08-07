@@ -1,6 +1,6 @@
 /*
- * 
- */
+* 
+*/
 package typedefinition.diagram.edit.policies;
 
 import org.eclipse.gef.commands.Command;
@@ -15,15 +15,15 @@ import typedefinition.diagram.providers.DomainElementTypes;
 public class TypeExtensionItemSemanticEditPolicy extends DomainBaseItemSemanticEditPolicy {
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public TypeExtensionItemSemanticEditPolicy() {
 		super(DomainElementTypes.TypeExtension_104001);
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected Command getDestroyElementCommand(DestroyElementRequest req) {
 		return getGEFWrapper(new DestroyElementCommand(req));
 	}

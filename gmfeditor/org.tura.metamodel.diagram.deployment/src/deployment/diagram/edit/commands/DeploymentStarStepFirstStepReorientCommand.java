@@ -22,28 +22,28 @@ import domain.DeploymentStarStep;
 public class DeploymentStarStepFirstStepReorientCommand extends EditElementCommand {
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private final int reorientDirection;
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private final EObject referenceOwner;
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private final EObject oldEnd;
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private final EObject newEnd;
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public DeploymentStarStepFirstStepReorientCommand(ReorientReferenceRelationshipRequest request) {
 		super(request.getLabel(), null, request);
 		reorientDirection = request.getDirection();
@@ -53,8 +53,8 @@ public class DeploymentStarStepFirstStepReorientCommand extends EditElementComma
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public boolean canExecute() {
 		if (false == referenceOwner instanceof DeploymentStarStep) {
 			return false;
@@ -69,8 +69,8 @@ public class DeploymentStarStepFirstStepReorientCommand extends EditElementComma
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected boolean canReorientSource() {
 		if (!(oldEnd instanceof DeploymentComponent && newEnd instanceof DeploymentStarStep)) {
 			return false;
@@ -80,8 +80,8 @@ public class DeploymentStarStepFirstStepReorientCommand extends EditElementComma
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected boolean canReorientTarget() {
 		if (!(oldEnd instanceof DeploymentComponent && newEnd instanceof DeploymentComponent)) {
 			return false;
@@ -91,8 +91,8 @@ public class DeploymentStarStepFirstStepReorientCommand extends EditElementComma
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected CommandResult doExecuteWithResult(IProgressMonitor monitor, IAdaptable info) throws ExecutionException {
 		if (!canExecute()) {
 			throw new ExecutionException("Invalid arguments in reorient link command"); //$NON-NLS-1$
@@ -107,8 +107,8 @@ public class DeploymentStarStepFirstStepReorientCommand extends EditElementComma
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected CommandResult reorientSource() throws ExecutionException {
 		getOldSource().setFirstStep(null);
 		getNewSource().setFirstStep(getOldTarget());
@@ -116,37 +116,37 @@ public class DeploymentStarStepFirstStepReorientCommand extends EditElementComma
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected CommandResult reorientTarget() throws ExecutionException {
 		getOldSource().setFirstStep(getNewTarget());
 		return CommandResult.newOKCommandResult(referenceOwner);
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected DeploymentStarStep getOldSource() {
 		return (DeploymentStarStep) referenceOwner;
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected DeploymentStarStep getNewSource() {
 		return (DeploymentStarStep) newEnd;
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected DeploymentComponent getOldTarget() {
 		return (DeploymentComponent) oldEnd;
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected DeploymentComponent getNewTarget() {
 		return (DeploymentComponent) newEnd;
 	}

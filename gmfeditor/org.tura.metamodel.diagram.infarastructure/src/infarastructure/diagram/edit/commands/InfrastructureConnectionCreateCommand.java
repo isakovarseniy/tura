@@ -3,8 +3,6 @@
  */
 package infarastructure.diagram.edit.commands;
 
-import infarastructure.diagram.edit.policies.DomainBaseItemSemanticEditPolicy;
-
 import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.core.runtime.IProgressMonitor;
@@ -21,6 +19,7 @@ import domain.DomainFactory;
 import domain.EnterpriseInfrastructure;
 import domain.InfrastructureComponent;
 import domain.InfrastructureConnection;
+import infarastructure.diagram.edit.policies.DomainBaseItemSemanticEditPolicy;
 
 /**
  * @generated
@@ -28,23 +27,23 @@ import domain.InfrastructureConnection;
 public class InfrastructureConnectionCreateCommand extends EditElementCommand {
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private final EObject source;
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private final EObject target;
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private final EnterpriseInfrastructure container;
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public InfrastructureConnectionCreateCommand(CreateRelationshipRequest request, EObject source, EObject target) {
 		super(request.getLabel(), null, request);
 		this.source = source;
@@ -53,8 +52,8 @@ public class InfrastructureConnectionCreateCommand extends EditElementCommand {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public boolean canExecute() {
 		if (source == null && target == null) {
 			return false;
@@ -77,8 +76,8 @@ public class InfrastructureConnectionCreateCommand extends EditElementCommand {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected CommandResult doExecuteWithResult(IProgressMonitor monitor, IAdaptable info) throws ExecutionException {
 		if (!canExecute()) {
 			throw new ExecutionException("Invalid arguments in create link command"); //$NON-NLS-1$
@@ -96,8 +95,8 @@ public class InfrastructureConnectionCreateCommand extends EditElementCommand {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected void doConfigure(InfrastructureConnection newElement, IProgressMonitor monitor, IAdaptable info)
 			throws ExecutionException {
 		IElementType elementType = ((CreateElementRequest) getRequest()).getElementType();
@@ -113,38 +112,38 @@ public class InfrastructureConnectionCreateCommand extends EditElementCommand {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected void setElementToEdit(EObject element) {
 		throw new UnsupportedOperationException();
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected InfrastructureComponent getSource() {
 		return (InfrastructureComponent) source;
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected InfrastructureComponent getTarget() {
 		return (InfrastructureComponent) target;
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public EnterpriseInfrastructure getContainer() {
 		return container;
 	}
 
 	/**
-	 * Default approach is to traverse ancestors of the source to find instance of container.
-	 * Modify with appropriate logic.
-	 * @generated
-	 */
+	* Default approach is to traverse ancestors of the source to find instance of container.
+	* Modify with appropriate logic.
+	* @generated
+	*/
 	private static EnterpriseInfrastructure deduceContainer(EObject source, EObject target) {
 		// Find container element for the new link.
 		// Climb up by containment hierarchy starting from the source

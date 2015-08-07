@@ -1,6 +1,6 @@
 /*
- * 
- */
+* 
+*/
 package uipackage.diagram.navigator;
 
 import org.eclipse.core.runtime.IAdaptable;
@@ -20,6 +20,7 @@ import org.eclipse.ui.IMemento;
 import org.eclipse.ui.navigator.ICommonContentExtensionSite;
 import org.eclipse.ui.navigator.ICommonLabelProvider;
 
+import domain.UIPackage;
 import uipackage.diagram.edit.parts.FormDataControlsEditPart;
 import uipackage.diagram.edit.parts.FormDataControlsNameEditPart;
 import uipackage.diagram.edit.parts.FormEditPart;
@@ -33,7 +34,6 @@ import uipackage.diagram.part.DomainDiagramEditorPlugin;
 import uipackage.diagram.part.DomainVisualIDRegistry;
 import uipackage.diagram.providers.DomainElementTypes;
 import uipackage.diagram.providers.DomainParserProvider;
-import domain.UIPackage;
 
 /**
  * @generated
@@ -42,8 +42,8 @@ public class DomainNavigatorLabelProvider extends LabelProvider
 		implements ICommonLabelProvider, ITreePathLabelProvider {
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	static {
 		DomainDiagramEditorPlugin.getInstance().getImageRegistry().put("Navigator?UnknownElement", //$NON-NLS-1$
 				ImageDescriptor.getMissingImageDescriptor());
@@ -52,8 +52,8 @@ public class DomainNavigatorLabelProvider extends LabelProvider
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public void updateLabel(ViewerLabel label, TreePath elementPath) {
 		Object element = elementPath.getLastSegment();
 		if (element instanceof DomainNavigatorItem && !isOwnView(((DomainNavigatorItem) element).getView())) {
@@ -64,8 +64,8 @@ public class DomainNavigatorLabelProvider extends LabelProvider
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public Image getImage(Object element) {
 		if (element instanceof DomainNavigatorGroup) {
 			DomainNavigatorGroup group = (DomainNavigatorGroup) element;
@@ -92,8 +92,8 @@ public class DomainNavigatorLabelProvider extends LabelProvider
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public Image getImage(View view) {
 		switch (DomainVisualIDRegistry.getVisualID(view)) {
 		case UIPackageEditPart.VISUAL_ID:
@@ -116,8 +116,8 @@ public class DomainNavigatorLabelProvider extends LabelProvider
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private Image getImage(String key, IElementType elementType) {
 		ImageRegistry imageRegistry = DomainDiagramEditorPlugin.getInstance().getImageRegistry();
 		Image image = imageRegistry.get(key);
@@ -134,8 +134,8 @@ public class DomainNavigatorLabelProvider extends LabelProvider
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public String getText(Object element) {
 		if (element instanceof DomainNavigatorGroup) {
 			DomainNavigatorGroup group = (DomainNavigatorGroup) element;
@@ -162,8 +162,8 @@ public class DomainNavigatorLabelProvider extends LabelProvider
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public String getText(View view) {
 		if (view.getElement() != null && view.getElement().eIsProxy()) {
 			return getUnresolvedDomainElementProxyText(view);
@@ -184,8 +184,8 @@ public class DomainNavigatorLabelProvider extends LabelProvider
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private String getUIPackage_1001000Text(View view) {
 		UIPackage domainModelElement = (UIPackage) view.getElement();
 		if (domainModelElement != null) {
@@ -197,8 +197,8 @@ public class DomainNavigatorLabelProvider extends LabelProvider
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private String getForm_1002002Text(View view) {
 		IParser parser = DomainParserProvider.getParser(DomainElementTypes.Form_1002002,
 				view.getElement() != null ? view.getElement() : view,
@@ -213,24 +213,8 @@ public class DomainNavigatorLabelProvider extends LabelProvider
 	}
 
 	/**
-	 * @generated
-	 */
-	private String getFormParameter_1003003Text(View view) {
-		IParser parser = DomainParserProvider.getParser(DomainElementTypes.FormParameter_1003003,
-				view.getElement() != null ? view.getElement() : view,
-				DomainVisualIDRegistry.getType(FormParameterNameEditPart.VISUAL_ID));
-		if (parser != null) {
-			return parser.getPrintString(new EObjectAdapter(view.getElement() != null ? view.getElement() : view),
-					ParserOptions.NONE.intValue());
-		} else {
-			DomainDiagramEditorPlugin.getInstance().logError("Parser was not found for label " + 1005005); //$NON-NLS-1$
-			return ""; //$NON-NLS-1$
-		}
-	}
-
-	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private String getFormView_1003001Text(View view) {
 		IParser parser = DomainParserProvider.getParser(DomainElementTypes.FormView_1003001,
 				view.getElement() != null ? view.getElement() : view,
@@ -245,8 +229,8 @@ public class DomainNavigatorLabelProvider extends LabelProvider
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private String getFormDataControls_1003002Text(View view) {
 		IParser parser = DomainParserProvider.getParser(DomainElementTypes.FormDataControls_1003002,
 				view.getElement() != null ? view.getElement() : view,
@@ -261,47 +245,63 @@ public class DomainNavigatorLabelProvider extends LabelProvider
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
+	private String getFormParameter_1003003Text(View view) {
+		IParser parser = DomainParserProvider.getParser(DomainElementTypes.FormParameter_1003003,
+				view.getElement() != null ? view.getElement() : view,
+				DomainVisualIDRegistry.getType(FormParameterNameEditPart.VISUAL_ID));
+		if (parser != null) {
+			return parser.getPrintString(new EObjectAdapter(view.getElement() != null ? view.getElement() : view),
+					ParserOptions.NONE.intValue());
+		} else {
+			DomainDiagramEditorPlugin.getInstance().logError("Parser was not found for label " + 1005005); //$NON-NLS-1$
+			return ""; //$NON-NLS-1$
+		}
+	}
+
+	/**
+	* @generated
+	*/
 	private String getUnknownElementText(View view) {
 		return "<UnknownElement Visual_ID = " + view.getType() + ">"; //$NON-NLS-1$  //$NON-NLS-2$
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private String getUnresolvedDomainElementProxyText(View view) {
 		return "<Unresolved domain element Visual_ID = " + view.getType() + ">"; //$NON-NLS-1$  //$NON-NLS-2$
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public void init(ICommonContentExtensionSite aConfig) {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public void restoreState(IMemento aMemento) {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public void saveState(IMemento aMemento) {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public String getDescription(Object anElement) {
 		return null;
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private boolean isOwnView(View view) {
 		return UIPackageEditPart.MODEL_ID.equals(DomainVisualIDRegistry.getModelID(view));
 	}

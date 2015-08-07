@@ -33,49 +33,48 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  *
  * @generated
  */
-public class CanvasViewImpl extends EObjectImpl implements CanvasView
-{
-  /**
+public class CanvasViewImpl extends EObjectImpl implements CanvasView {
+	/**
 	 * The default value of the '{@link #getUid() <em>Uid</em>}' attribute.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getUid()
 	 * @generated
 	 * @ordered
 	 */
-  protected static final String UID_EDEFAULT = null;
+	protected static final String UID_EDEFAULT = null;
 
-  /**
+	/**
 	 * The cached value of the '{@link #getUid() <em>Uid</em>}' attribute.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getUid()
 	 * @generated
 	 * @ordered
 	 */
-  protected String uid = UID_EDEFAULT;
+	protected String uid = UID_EDEFAULT;
 
-  /**
+	/**
 	 * The cached value of the '{@link #getParent() <em>Parent</em>}' reference.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getParent()
 	 * @generated
 	 * @ordered
 	 */
-  protected ViewArea parent;
+	protected ViewArea parent;
 
-  /**
+	/**
 	 * The cached value of the '{@link #getBaseCanvas() <em>Base Canvas</em>}' containment reference.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getBaseCanvas()
 	 * @generated
 	 * @ordered
 	 */
-  protected LayerHolder baseCanvas;
+	protected LayerHolder baseCanvas;
 
-  /**
+	/**
 	 * The cached value of the '{@link #getAny() <em>Any</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -85,57 +84,52 @@ public class CanvasViewImpl extends EObjectImpl implements CanvasView
 	 */
 	protected EObject any;
 
-		/**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  protected CanvasViewImpl()
-  {
+	protected CanvasViewImpl() {
 		super();
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  protected EClass eStaticClass()
-  {
+	@Override
+	protected EClass eStaticClass() {
 		return DomainPackage.Literals.CANVAS_VIEW;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public String getUid()
-  {
+	public String getUid() {
 		return uid;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public void setUid(String newUid)
-  {
+	public void setUid(String newUid) {
 		String oldUid = uid;
 		uid = newUid;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.CANVAS_VIEW__UID, oldUid, uid));
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public ViewArea getParent()
-  {
+	public ViewArea getParent() {
 		if (parent != null && parent.eIsProxy()) {
 			InternalEObject oldParent = (InternalEObject)parent;
 			parent = (ViewArea)eResolveProxy(oldParent);
@@ -147,23 +141,21 @@ public class CanvasViewImpl extends EObjectImpl implements CanvasView
 		return parent;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public ViewArea basicGetParent()
-  {
+	public ViewArea basicGetParent() {
 		return parent;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public NotificationChain basicSetParent(ViewArea newParent, NotificationChain msgs)
-  {
+	public NotificationChain basicSetParent(ViewArea newParent, NotificationChain msgs) {
 		ViewArea oldParent = parent;
 		parent = newParent;
 		if (eNotificationRequired()) {
@@ -173,13 +165,12 @@ public class CanvasViewImpl extends EObjectImpl implements CanvasView
 		return msgs;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public void setParent(ViewArea newParent)
-  {
+	public void setParent(ViewArea newParent) {
 		if (newParent != parent) {
 			NotificationChain msgs = null;
 			if (parent != null)
@@ -193,23 +184,21 @@ public class CanvasViewImpl extends EObjectImpl implements CanvasView
 			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.CANVAS_VIEW__PARENT, newParent, newParent));
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public LayerHolder getBaseCanvas()
-  {
+	public LayerHolder getBaseCanvas() {
 		return baseCanvas;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public NotificationChain basicSetBaseCanvas(LayerHolder newBaseCanvas, NotificationChain msgs)
-  {
+	public NotificationChain basicSetBaseCanvas(LayerHolder newBaseCanvas, NotificationChain msgs) {
 		LayerHolder oldBaseCanvas = baseCanvas;
 		baseCanvas = newBaseCanvas;
 		if (eNotificationRequired()) {
@@ -219,13 +208,12 @@ public class CanvasViewImpl extends EObjectImpl implements CanvasView
 		return msgs;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public void setBaseCanvas(LayerHolder newBaseCanvas)
-  {
+	public void setBaseCanvas(LayerHolder newBaseCanvas) {
 		if (newBaseCanvas != baseCanvas) {
 			NotificationChain msgs = null;
 			if (baseCanvas != null)
@@ -239,7 +227,7 @@ public class CanvasViewImpl extends EObjectImpl implements CanvasView
 			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.CANVAS_VIEW__BASE_CANVAS, newBaseCanvas, newBaseCanvas));
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -248,7 +236,7 @@ public class CanvasViewImpl extends EObjectImpl implements CanvasView
 		return any;
 	}
 
-		/**
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -263,7 +251,7 @@ public class CanvasViewImpl extends EObjectImpl implements CanvasView
 		return msgs;
 	}
 
-		/**
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -282,14 +270,13 @@ public class CanvasViewImpl extends EObjectImpl implements CanvasView
 			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.CANVAS_VIEW__ANY, newAny, newAny));
 	}
 
-		/**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-  {
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case DomainPackage.CANVAS_VIEW__PARENT:
 				if (parent != null)
@@ -299,14 +286,13 @@ public class CanvasViewImpl extends EObjectImpl implements CanvasView
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-  {
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case DomainPackage.CANVAS_VIEW__PARENT:
 				return basicSetParent(null, msgs);
@@ -318,14 +304,13 @@ public class CanvasViewImpl extends EObjectImpl implements CanvasView
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public Object eGet(int featureID, boolean resolve, boolean coreType)
-  {
+	@Override
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case DomainPackage.CANVAS_VIEW__UID:
 				return getUid();
@@ -340,14 +325,13 @@ public class CanvasViewImpl extends EObjectImpl implements CanvasView
 		return super.eGet(featureID, resolve, coreType);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public void eSet(int featureID, Object newValue)
-  {
+	@Override
+	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case DomainPackage.CANVAS_VIEW__UID:
 				setUid((String)newValue);
@@ -365,14 +349,13 @@ public class CanvasViewImpl extends EObjectImpl implements CanvasView
 		super.eSet(featureID, newValue);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public void eUnset(int featureID)
-  {
+	@Override
+	public void eUnset(int featureID) {
 		switch (featureID) {
 			case DomainPackage.CANVAS_VIEW__UID:
 				setUid(UID_EDEFAULT);
@@ -390,14 +373,13 @@ public class CanvasViewImpl extends EObjectImpl implements CanvasView
 		super.eUnset(featureID);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public boolean eIsSet(int featureID)
-  {
+	@Override
+	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case DomainPackage.CANVAS_VIEW__UID:
 				return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
@@ -411,14 +393,13 @@ public class CanvasViewImpl extends EObjectImpl implements CanvasView
 		return super.eIsSet(featureID);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public String toString()
-  {
+	@Override
+	public String toString() {
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());

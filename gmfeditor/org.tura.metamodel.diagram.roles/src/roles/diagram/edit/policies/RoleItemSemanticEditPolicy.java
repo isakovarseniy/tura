@@ -1,6 +1,6 @@
 /*
- * 
- */
+* 
+*/
 package roles.diagram.edit.policies;
 
 import java.util.Iterator;
@@ -30,15 +30,15 @@ import roles.diagram.providers.DomainElementTypes;
 public class RoleItemSemanticEditPolicy extends DomainBaseItemSemanticEditPolicy {
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public RoleItemSemanticEditPolicy() {
 		super(DomainElementTypes.Role_1402001);
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected Command getDestroyElementCommand(DestroyElementRequest req) {
 		View view = (View) getHost().getModel();
 		CompositeTransactionalCommand cmd = new CompositeTransactionalCommand(getEditingDomain(), null);

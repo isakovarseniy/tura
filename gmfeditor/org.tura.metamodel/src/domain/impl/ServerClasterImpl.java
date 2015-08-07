@@ -31,60 +31,55 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public class ServerClasterImpl extends InfrastructureComponentImpl implements ServerClaster
-{
-  /**
+public class ServerClasterImpl extends InfrastructureComponentImpl implements ServerClaster {
+	/**
 	 * The cached value of the '{@link #getServers() <em>Servers</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getServers()
 	 * @generated
 	 * @ordered
 	 */
-  protected EList<Server> servers;
+	protected EList<Server> servers;
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  protected ServerClasterImpl()
-  {
+	protected ServerClasterImpl() {
 		super();
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  protected EClass eStaticClass()
-  {
+	@Override
+	protected EClass eStaticClass() {
 		return DomainPackage.Literals.SERVER_CLASTER;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public EList<Server> getServers()
-  {
+	public EList<Server> getServers() {
 		if (servers == null) {
 			servers = new EObjectContainmentEList<Server>(Server.class, this, DomainPackage.SERVER_CLASTER__SERVERS);
 		}
 		return servers;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-  {
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case DomainPackage.SERVER_CLASTER__SERVERS:
 				return ((InternalEList<?>)getServers()).basicRemove(otherEnd, msgs);
@@ -92,14 +87,13 @@ public class ServerClasterImpl extends InfrastructureComponentImpl implements Se
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public Object eGet(int featureID, boolean resolve, boolean coreType)
-  {
+	@Override
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case DomainPackage.SERVER_CLASTER__SERVERS:
 				return getServers();
@@ -107,15 +101,14 @@ public class ServerClasterImpl extends InfrastructureComponentImpl implements Se
 		return super.eGet(featureID, resolve, coreType);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @SuppressWarnings("unchecked")
-  @Override
-  public void eSet(int featureID, Object newValue)
-  {
+	@SuppressWarnings("unchecked")
+	@Override
+	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case DomainPackage.SERVER_CLASTER__SERVERS:
 				getServers().clear();
@@ -125,14 +118,13 @@ public class ServerClasterImpl extends InfrastructureComponentImpl implements Se
 		super.eSet(featureID, newValue);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public void eUnset(int featureID)
-  {
+	@Override
+	public void eUnset(int featureID) {
 		switch (featureID) {
 			case DomainPackage.SERVER_CLASTER__SERVERS:
 				getServers().clear();
@@ -141,14 +133,13 @@ public class ServerClasterImpl extends InfrastructureComponentImpl implements Se
 		super.eUnset(featureID);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public boolean eIsSet(int featureID)
-  {
+	@Override
+	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case DomainPackage.SERVER_CLASTER__SERVERS:
 				return servers != null && !servers.isEmpty();

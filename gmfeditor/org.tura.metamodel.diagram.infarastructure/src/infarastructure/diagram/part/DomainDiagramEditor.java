@@ -1,9 +1,7 @@
 /*
- * 
- */
+* 
+*/
 package infarastructure.diagram.part;
-
-import infarastructure.diagram.navigator.DomainNavigatorItem;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -65,6 +63,7 @@ import org.eclipse.ui.part.IShowInTargetList;
 import org.eclipse.ui.part.ShowInContext;
 
 import de.itemis.gmf.runtime.editingdomain.SharedEditingDomainUtil;
+import infarastructure.diagram.navigator.DomainNavigatorItem;
 
 /**
  * @generated
@@ -72,37 +71,37 @@ import de.itemis.gmf.runtime.editingdomain.SharedEditingDomainUtil;
 public class DomainDiagramEditor extends DiagramDocumentEditor implements IGotoMarker {
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static final String ID = "infarastructure.diagram.part.InfarastructureDiagramEditorID"; //$NON-NLS-1$
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static final String CONTEXT_ID = "infarastructure.diagram.ui.diagramContext"; //$NON-NLS-1$
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private LastClickPositionProvider myLastClickPositionProvider;
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public DomainDiagramEditor() {
 		super(true);
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected String getContextID() {
 		return CONTEXT_ID;
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected PaletteRoot createPaletteRoot(PaletteRoot existingPaletteRoot) {
 		PaletteRoot root = super.createPaletteRoot(existingPaletteRoot);
 		new DomainPaletteFactory().fillPalette(root);
@@ -110,15 +109,15 @@ public class DomainDiagramEditor extends DiagramDocumentEditor implements IGotoM
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected PreferencesHint getPreferencesHint() {
 		return DomainDiagramEditorPlugin.DIAGRAM_PREFERENCES_HINT;
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public String getContributorId() {
 		return DomainDiagramEditorPlugin.ID;
 	}
@@ -139,8 +138,8 @@ public class DomainDiagramEditor extends DiagramDocumentEditor implements IGotoM
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected IDocumentProvider getDocumentProvider(IEditorInput input) {
 		if (input instanceof IFileEditorInput || input instanceof URIEditorInput) {
 			return DomainDiagramEditorPlugin.getInstance().getDocumentProvider();
@@ -149,8 +148,8 @@ public class DomainDiagramEditor extends DiagramDocumentEditor implements IGotoM
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public TransactionalEditingDomain getEditingDomain() {
 		IDocument document = getEditorInput() != null ? getDocumentProvider().getDocument(getEditorInput()) : null;
 		if (document instanceof IDiagramDocument) {
@@ -160,8 +159,8 @@ public class DomainDiagramEditor extends DiagramDocumentEditor implements IGotoM
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected void setDocumentProvider(IEditorInput input) {
 		if (input instanceof IFileEditorInput || input instanceof URIEditorInput) {
 			setDocumentProvider(DomainDiagramEditorPlugin.getInstance().getDocumentProvider());
@@ -171,29 +170,29 @@ public class DomainDiagramEditor extends DiagramDocumentEditor implements IGotoM
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public void gotoMarker(IMarker marker) {
 		MarkerNavigationService.getInstance().gotoMarker(this, marker);
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public boolean isSaveAsAllowed() {
 		return true;
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public void doSaveAs() {
 		performSaveAs(new NullProgressMonitor());
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected void performSaveAs(IProgressMonitor progressMonitor) {
 		Shell shell = getSite().getShell();
 		IEditorInput input = getEditorInput();
@@ -264,15 +263,15 @@ public class DomainDiagramEditor extends DiagramDocumentEditor implements IGotoM
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public ShowInContext getShowInContext() {
 		return new ShowInContext(getEditorInput(), getNavigatorSelection());
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private ISelection getNavigatorSelection() {
 		IDiagramDocument document = getDiagramDocument();
 		if (document == null) {
@@ -291,8 +290,8 @@ public class DomainDiagramEditor extends DiagramDocumentEditor implements IGotoM
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected void configureGraphicalViewer() {
 		super.configureGraphicalViewer();
 		DiagramEditorContextMenuProvider provider = new DiagramEditorContextMenuProvider(this,
@@ -302,8 +301,8 @@ public class DomainDiagramEditor extends DiagramDocumentEditor implements IGotoM
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected void initializeGraphicalViewer() {
 		super.initializeGraphicalViewer();
 		getDiagramGraphicalViewer().addDropTargetListener(
@@ -326,8 +325,8 @@ public class DomainDiagramEditor extends DiagramDocumentEditor implements IGotoM
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected void startupLastClickPositionProvider() {
 		if (myLastClickPositionProvider == null) {
 			myLastClickPositionProvider = new LastClickPositionProvider(this);
@@ -336,8 +335,8 @@ public class DomainDiagramEditor extends DiagramDocumentEditor implements IGotoM
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected void shutDownLastClickPositionProvider() {
 		if (myLastClickPositionProvider != null) {
 			myLastClickPositionProvider.detachFromService();
@@ -347,8 +346,8 @@ public class DomainDiagramEditor extends DiagramDocumentEditor implements IGotoM
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	@Override
 	public void dispose() {
 		shutDownLastClickPositionProvider();
@@ -356,20 +355,20 @@ public class DomainDiagramEditor extends DiagramDocumentEditor implements IGotoM
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private abstract class DropTargetListener extends DiagramDropTargetListener {
 
 		/**
-		 * @generated
-		 */
+		* @generated
+		*/
 		public DropTargetListener(EditPartViewer viewer, Transfer xfer) {
 			super(viewer, xfer);
 		}
 
 		/**
-		 * @generated
-		 */
+		* @generated
+		*/
 		protected List getObjectsBeingDropped() {
 			TransferData data = getCurrentEvent().currentDataType;
 			HashSet<URI> uris = new HashSet<URI>();
@@ -403,15 +402,15 @@ public class DomainDiagramEditor extends DiagramDocumentEditor implements IGotoM
 		}
 
 		/**
-		 * @generated
-		 */
+		* @generated
+		*/
 		protected abstract Object getJavaObject(TransferData data);
 
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected TransactionalEditingDomain createEditingDomain() {
 		// ITEMIS CHANGE: Use shared editing domain
 		return SharedEditingDomainUtil

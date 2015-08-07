@@ -1,6 +1,6 @@
 /*
- * 
- */
+* 
+*/
 package typedefinition.diagram.edit.policies;
 
 import org.eclipse.emf.ecore.EAnnotation;
@@ -19,15 +19,15 @@ import typedefinition.diagram.providers.DomainElementTypes;
 public class EnumAttributeItemSemanticEditPolicy extends DomainBaseItemSemanticEditPolicy {
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public EnumAttributeItemSemanticEditPolicy() {
 		super(DomainElementTypes.EnumAttribute_103005);
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected Command getDestroyElementCommand(DestroyElementRequest req) {
 		View view = (View) getHost().getModel();
 		CompositeTransactionalCommand cmd = new CompositeTransactionalCommand(getEditingDomain(), null);

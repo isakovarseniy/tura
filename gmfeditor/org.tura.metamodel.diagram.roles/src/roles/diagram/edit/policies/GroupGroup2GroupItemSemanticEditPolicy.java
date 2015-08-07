@@ -1,6 +1,6 @@
 /*
- * 
- */
+* 
+*/
 package roles.diagram.edit.policies;
 
 import org.eclipse.gef.commands.Command;
@@ -15,15 +15,15 @@ import roles.diagram.providers.DomainElementTypes;
 public class GroupGroup2GroupItemSemanticEditPolicy extends DomainBaseItemSemanticEditPolicy {
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public GroupGroup2GroupItemSemanticEditPolicy() {
 		super(DomainElementTypes.GroupGroup2Group_1404003);
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected Command getDestroyReferenceCommand(DestroyReferenceRequest req) {
 		return getGEFWrapper(new DestroyReferenceCommand(req));
 	}

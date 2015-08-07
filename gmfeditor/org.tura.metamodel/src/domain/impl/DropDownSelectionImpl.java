@@ -27,56 +27,51 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public class DropDownSelectionImpl extends OptionSelectionImpl implements DropDownSelection
-{
-  /**
+public class DropDownSelectionImpl extends OptionSelectionImpl implements DropDownSelection {
+	/**
 	 * The cached value of the '{@link #getSelection() <em>Selection</em>}' containment reference.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getSelection()
 	 * @generated
 	 * @ordered
 	 */
-  protected Selection selection;
+	protected Selection selection;
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  protected DropDownSelectionImpl()
-  {
+	protected DropDownSelectionImpl() {
 		super();
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  protected EClass eStaticClass()
-  {
+	@Override
+	protected EClass eStaticClass() {
 		return DomainPackage.Literals.DROP_DOWN_SELECTION;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public Selection getSelection()
-  {
+	public Selection getSelection() {
 		return selection;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public NotificationChain basicSetSelection(Selection newSelection, NotificationChain msgs)
-  {
+	public NotificationChain basicSetSelection(Selection newSelection, NotificationChain msgs) {
 		Selection oldSelection = selection;
 		selection = newSelection;
 		if (eNotificationRequired()) {
@@ -86,13 +81,12 @@ public class DropDownSelectionImpl extends OptionSelectionImpl implements DropDo
 		return msgs;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public void setSelection(Selection newSelection)
-  {
+	public void setSelection(Selection newSelection) {
 		if (newSelection != selection) {
 			NotificationChain msgs = null;
 			if (selection != null)
@@ -106,14 +100,13 @@ public class DropDownSelectionImpl extends OptionSelectionImpl implements DropDo
 			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.DROP_DOWN_SELECTION__SELECTION, newSelection, newSelection));
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-  {
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case DomainPackage.DROP_DOWN_SELECTION__SELECTION:
 				return basicSetSelection(null, msgs);
@@ -121,14 +114,13 @@ public class DropDownSelectionImpl extends OptionSelectionImpl implements DropDo
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public Object eGet(int featureID, boolean resolve, boolean coreType)
-  {
+	@Override
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case DomainPackage.DROP_DOWN_SELECTION__SELECTION:
 				return getSelection();
@@ -136,14 +128,13 @@ public class DropDownSelectionImpl extends OptionSelectionImpl implements DropDo
 		return super.eGet(featureID, resolve, coreType);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public void eSet(int featureID, Object newValue)
-  {
+	@Override
+	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case DomainPackage.DROP_DOWN_SELECTION__SELECTION:
 				setSelection((Selection)newValue);
@@ -152,14 +143,13 @@ public class DropDownSelectionImpl extends OptionSelectionImpl implements DropDo
 		super.eSet(featureID, newValue);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public void eUnset(int featureID)
-  {
+	@Override
+	public void eUnset(int featureID) {
 		switch (featureID) {
 			case DomainPackage.DROP_DOWN_SELECTION__SELECTION:
 				setSelection((Selection)null);
@@ -168,14 +158,13 @@ public class DropDownSelectionImpl extends OptionSelectionImpl implements DropDo
 		super.eUnset(featureID);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public boolean eIsSet(int featureID)
-  {
+	@Override
+	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case DomainPackage.DROP_DOWN_SELECTION__SELECTION:
 				return selection != null;

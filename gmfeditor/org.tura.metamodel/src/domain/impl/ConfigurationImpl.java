@@ -41,162 +41,154 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public class ConfigurationImpl extends EObjectImpl implements Configuration
-{
-  /**
+public class ConfigurationImpl extends EObjectImpl implements Configuration {
+	/**
 	 * The default value of the '{@link #getUid() <em>Uid</em>}' attribute.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getUid()
 	 * @generated
 	 * @ordered
 	 */
-  protected static final String UID_EDEFAULT = null;
+	protected static final String UID_EDEFAULT = null;
 
-  /**
+	/**
 	 * The cached value of the '{@link #getUid() <em>Uid</em>}' attribute.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getUid()
 	 * @generated
 	 * @ordered
 	 */
-  protected String uid = UID_EDEFAULT;
+	protected String uid = UID_EDEFAULT;
 
-  /**
+	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getName()
 	 * @generated
 	 * @ordered
 	 */
-  protected static final String NAME_EDEFAULT = null;
+	protected static final String NAME_EDEFAULT = null;
 
-  /**
+	/**
 	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getName()
 	 * @generated
 	 * @ordered
 	 */
-  protected String name = NAME_EDEFAULT;
+	protected String name = NAME_EDEFAULT;
 
-  /**
+	/**
 	 * The cached value of the '{@link #getInfrastructure() <em>Infrastructure</em>}' reference.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getInfrastructure()
 	 * @generated
 	 * @ordered
 	 */
-  protected Infrastructure infrastructure;
+	protected Infrastructure infrastructure;
 
-  /**
+	/**
 	 * The cached value of the '{@link #getProperties() <em>Properties</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getProperties()
 	 * @generated
 	 * @ordered
 	 */
-  protected EList<Property> properties;
+	protected EList<Property> properties;
 
-  /**
+	/**
 	 * The cached value of the '{@link #getConfigExtension() <em>Config Extension</em>}' reference.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getConfigExtension()
 	 * @generated
 	 * @ordered
 	 */
-  protected Configuration configExtension;
+	protected Configuration configExtension;
 
-  /**
+	/**
 	 * The cached value of the '{@link #getParent() <em>Parent</em>}' reference.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getParent()
 	 * @generated
 	 * @ordered
 	 */
-  protected Configuration parent;
+	protected Configuration parent;
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  protected ConfigurationImpl()
-  {
+	protected ConfigurationImpl() {
 		super();
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  protected EClass eStaticClass()
-  {
+	@Override
+	protected EClass eStaticClass() {
 		return DomainPackage.Literals.CONFIGURATION;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public String getUid()
-  {
+	public String getUid() {
 		return uid;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public void setUid(String newUid)
-  {
+	public void setUid(String newUid) {
 		String oldUid = uid;
 		uid = newUid;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.CONFIGURATION__UID, oldUid, uid));
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public String getName()
-  {
+	public String getName() {
 		return name;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public void setName(String newName)
-  {
+	public void setName(String newName) {
 		String oldName = name;
 		name = newName;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.CONFIGURATION__NAME, oldName, name));
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public Infrastructure getInfrastructure()
-  {
+	public Infrastructure getInfrastructure() {
 		if (infrastructure != null && infrastructure.eIsProxy()) {
 			InternalEObject oldInfrastructure = (InternalEObject)infrastructure;
 			infrastructure = (Infrastructure)eResolveProxy(oldInfrastructure);
@@ -208,23 +200,21 @@ public class ConfigurationImpl extends EObjectImpl implements Configuration
 		return infrastructure;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public Infrastructure basicGetInfrastructure()
-  {
+	public Infrastructure basicGetInfrastructure() {
 		return infrastructure;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public NotificationChain basicSetInfrastructure(Infrastructure newInfrastructure, NotificationChain msgs)
-  {
+	public NotificationChain basicSetInfrastructure(Infrastructure newInfrastructure, NotificationChain msgs) {
 		Infrastructure oldInfrastructure = infrastructure;
 		infrastructure = newInfrastructure;
 		if (eNotificationRequired()) {
@@ -234,13 +224,12 @@ public class ConfigurationImpl extends EObjectImpl implements Configuration
 		return msgs;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public void setInfrastructure(Infrastructure newInfrastructure)
-  {
+	public void setInfrastructure(Infrastructure newInfrastructure) {
 		if (newInfrastructure != infrastructure) {
 			NotificationChain msgs = null;
 			if (infrastructure != null)
@@ -254,26 +243,24 @@ public class ConfigurationImpl extends EObjectImpl implements Configuration
 			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.CONFIGURATION__INFRASTRUCTURE, newInfrastructure, newInfrastructure));
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public EList<Property> getProperties()
-  {
+	public EList<Property> getProperties() {
 		if (properties == null) {
 			properties = new EObjectContainmentEList<Property>(Property.class, this, DomainPackage.CONFIGURATION__PROPERTIES);
 		}
 		return properties;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public Configuration getConfigExtension()
-  {
+	public Configuration getConfigExtension() {
 		if (configExtension != null && configExtension.eIsProxy()) {
 			InternalEObject oldConfigExtension = (InternalEObject)configExtension;
 			configExtension = (Configuration)eResolveProxy(oldConfigExtension);
@@ -285,23 +272,21 @@ public class ConfigurationImpl extends EObjectImpl implements Configuration
 		return configExtension;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public Configuration basicGetConfigExtension()
-  {
+	public Configuration basicGetConfigExtension() {
 		return configExtension;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public NotificationChain basicSetConfigExtension(Configuration newConfigExtension, NotificationChain msgs)
-  {
+	public NotificationChain basicSetConfigExtension(Configuration newConfigExtension, NotificationChain msgs) {
 		Configuration oldConfigExtension = configExtension;
 		configExtension = newConfigExtension;
 		if (eNotificationRequired()) {
@@ -311,13 +296,12 @@ public class ConfigurationImpl extends EObjectImpl implements Configuration
 		return msgs;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public void setConfigExtension(Configuration newConfigExtension)
-  {
+	public void setConfigExtension(Configuration newConfigExtension) {
 		if (newConfigExtension != configExtension) {
 			NotificationChain msgs = null;
 			if (configExtension != null)
@@ -331,13 +315,12 @@ public class ConfigurationImpl extends EObjectImpl implements Configuration
 			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.CONFIGURATION__CONFIG_EXTENSION, newConfigExtension, newConfigExtension));
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public Configuration getParent()
-  {
+	public Configuration getParent() {
 		if (parent != null && parent.eIsProxy()) {
 			InternalEObject oldParent = (InternalEObject)parent;
 			parent = (Configuration)eResolveProxy(oldParent);
@@ -349,23 +332,21 @@ public class ConfigurationImpl extends EObjectImpl implements Configuration
 		return parent;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public Configuration basicGetParent()
-  {
+	public Configuration basicGetParent() {
 		return parent;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public NotificationChain basicSetParent(Configuration newParent, NotificationChain msgs)
-  {
+	public NotificationChain basicSetParent(Configuration newParent, NotificationChain msgs) {
 		Configuration oldParent = parent;
 		parent = newParent;
 		if (eNotificationRequired()) {
@@ -375,13 +356,12 @@ public class ConfigurationImpl extends EObjectImpl implements Configuration
 		return msgs;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public void setParent(Configuration newParent)
-  {
+	public void setParent(Configuration newParent) {
 		if (newParent != parent) {
 			NotificationChain msgs = null;
 			if (parent != null)
@@ -395,14 +375,13 @@ public class ConfigurationImpl extends EObjectImpl implements Configuration
 			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.CONFIGURATION__PARENT, newParent, newParent));
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-  {
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case DomainPackage.CONFIGURATION__INFRASTRUCTURE:
 				if (infrastructure != null)
@@ -420,14 +399,13 @@ public class ConfigurationImpl extends EObjectImpl implements Configuration
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-  {
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case DomainPackage.CONFIGURATION__INFRASTRUCTURE:
 				return basicSetInfrastructure(null, msgs);
@@ -441,14 +419,13 @@ public class ConfigurationImpl extends EObjectImpl implements Configuration
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public Object eGet(int featureID, boolean resolve, boolean coreType)
-  {
+	@Override
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case DomainPackage.CONFIGURATION__UID:
 				return getUid();
@@ -469,15 +446,14 @@ public class ConfigurationImpl extends EObjectImpl implements Configuration
 		return super.eGet(featureID, resolve, coreType);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @SuppressWarnings("unchecked")
-  @Override
-  public void eSet(int featureID, Object newValue)
-  {
+	@SuppressWarnings("unchecked")
+	@Override
+	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case DomainPackage.CONFIGURATION__UID:
 				setUid((String)newValue);
@@ -502,14 +478,13 @@ public class ConfigurationImpl extends EObjectImpl implements Configuration
 		super.eSet(featureID, newValue);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public void eUnset(int featureID)
-  {
+	@Override
+	public void eUnset(int featureID) {
 		switch (featureID) {
 			case DomainPackage.CONFIGURATION__UID:
 				setUid(UID_EDEFAULT);
@@ -533,14 +508,13 @@ public class ConfigurationImpl extends EObjectImpl implements Configuration
 		super.eUnset(featureID);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public boolean eIsSet(int featureID)
-  {
+	@Override
+	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case DomainPackage.CONFIGURATION__UID:
 				return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
@@ -558,14 +532,13 @@ public class ConfigurationImpl extends EObjectImpl implements Configuration
 		return super.eIsSet(featureID);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public String toString()
-  {
+	@Override
+	public String toString() {
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());

@@ -25,12 +25,12 @@ import org.eclipse.gmf.runtime.notation.impl.NodeImpl;
 import org.eclipse.gmf.tooling.runtime.edit.policies.reparent.CreationEditPolicyWithCustomReparent;
 import org.tura.metamodel.commons.editparts.HTMLLikeLayout;
 
+import domain.HTMLLayerHolder;
 import typesrepository.diagram.edit.policies.TypesTypesPackagesCompartmentCanonicalEditPolicy;
 import typesrepository.diagram.edit.policies.TypesTypesPackagesCompartmentItemSemanticEditPolicy;
 import typesrepository.diagram.part.DomainVisualIDRegistry;
 import typesrepository.diagram.part.Messages;
 import typesrepository.diagram.providers.DomainElementTypes;
-import domain.HTMLLayerHolder;
 
 /**
  * @generated
@@ -38,27 +38,27 @@ import domain.HTMLLayerHolder;
 public class TypesTypesPackagesCompartmentEditPart extends ShapeCompartmentEditPart {
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static final int VISUAL_ID = 207001;
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public TypesTypesPackagesCompartmentEditPart(View view) {
 		super(view);
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public String getCompartmentName() {
 		return Messages.TypesTypesPackagesCompartmentEditPart_title;
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 
 	public IFigure createFigure() {
 		ResizableCompartmentFigure result = (ResizableCompartmentFigure) super.createFigure();
@@ -102,8 +102,8 @@ public class TypesTypesPackagesCompartmentEditPart extends ShapeCompartmentEditP
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected void createDefaultEditPolicies() {
 		super.createDefaultEditPolicies();
 		installEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE, new ResizableCompartmentEditPolicy());
@@ -115,8 +115,8 @@ public class TypesTypesPackagesCompartmentEditPart extends ShapeCompartmentEditP
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected void setRatio(Double ratio) {
 		if (getFigure().getParent().getLayoutManager() instanceof ConstrainedToolbarLayout) {
 			super.setRatio(ratio);
@@ -124,8 +124,8 @@ public class TypesTypesPackagesCompartmentEditPart extends ShapeCompartmentEditP
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public EditPart getTargetEditPart(Request request) {
 		if (request instanceof CreateViewAndElementRequest) {
 			CreateElementRequestAdapter adapter = ((CreateViewAndElementRequest) request).getViewAndElementDescriptor()

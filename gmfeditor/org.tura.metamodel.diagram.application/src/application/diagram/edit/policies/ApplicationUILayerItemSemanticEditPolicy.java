@@ -1,6 +1,6 @@
 /*
- * 
- */
+* 
+*/
 package application.diagram.edit.policies;
 
 import java.util.Iterator;
@@ -26,15 +26,15 @@ import application.diagram.providers.DomainElementTypes;
 public class ApplicationUILayerItemSemanticEditPolicy extends DomainBaseItemSemanticEditPolicy {
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public ApplicationUILayerItemSemanticEditPolicy() {
 		super(DomainElementTypes.ApplicationUILayer_802003);
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected Command getDestroyElementCommand(DestroyElementRequest req) {
 		View view = (View) getHost().getModel();
 		CompositeTransactionalCommand cmd = new CompositeTransactionalCommand(getEditingDomain(), null);
@@ -53,8 +53,8 @@ public class ApplicationUILayerItemSemanticEditPolicy extends DomainBaseItemSema
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private void addDestroyChildNodesCommand(ICompositeCommand cmd) {
 		View view = (View) getHost().getModel();
 		for (Iterator<?> nit = view.getChildren().iterator(); nit.hasNext();) {

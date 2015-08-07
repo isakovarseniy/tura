@@ -9,16 +9,12 @@ import java.util.Map;
 import java.util.Set;
 
 import org.eclipse.core.runtime.IAdaptable;
-import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.ENamedElement;
-import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.gmf.runtime.emf.type.core.ElementTypeRegistry;
 import org.eclipse.gmf.runtime.emf.type.core.IElementType;
 import org.eclipse.gmf.tooling.runtime.providers.DiagramElementTypeImages;
 import org.eclipse.gmf.tooling.runtime.providers.DiagramElementTypes;
 import org.eclipse.jface.resource.ImageDescriptor;
-import org.eclipse.jface.resource.ImageRegistry;
 import org.eclipse.swt.graphics.Image;
 
 import domain.DomainPackage;
@@ -41,116 +37,115 @@ import frmview.diagram.part.DomainDiagramEditorPlugin;
 public class DomainElementTypes {
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private DomainElementTypes() {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private static Map<IElementType, ENamedElement> elements;
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private static DiagramElementTypeImages elementTypeImages = new DiagramElementTypeImages(
 			DomainDiagramEditorPlugin.getInstance().getItemProvidersAdapterFactory());
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private static Set<IElementType> KNOWN_ELEMENT_TYPES;
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static final IElementType Views_1301000 = getElementType("org.tura.metamodel.diagram.frmview.Views_1301000"); //$NON-NLS-1$
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static final IElementType PopupCanvas_1302009 = getElementType(
 			"org.tura.metamodel.diagram.frmview.PopupCanvas_1302009"); //$NON-NLS-1$
-
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static final IElementType Canvas_1302003 = getElementType(
 			"org.tura.metamodel.diagram.frmview.Canvas_1302003"); //$NON-NLS-1$
 	/**
-	 * @generated
-	 */
-	public static final IElementType Window_1302007 = getElementType(
-			"org.tura.metamodel.diagram.frmview.Window_1302007"); //$NON-NLS-1$
-	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static final IElementType TabPage_1302002 = getElementType(
 			"org.tura.metamodel.diagram.frmview.TabPage_1302002"); //$NON-NLS-1$
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
+	public static final IElementType Window_1302007 = getElementType(
+			"org.tura.metamodel.diagram.frmview.Window_1302007"); //$NON-NLS-1$
+	/**
+	* @generated
+	*/
 	public static final IElementType TabCanvas_1302008 = getElementType(
 			"org.tura.metamodel.diagram.frmview.TabCanvas_1302008"); //$NON-NLS-1$
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static final IElementType ViewPort_1303004 = getElementType(
 			"org.tura.metamodel.diagram.frmview.ViewPort_1303004"); //$NON-NLS-1$
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static final IElementType ViewPortTrigger_1303002 = getElementType(
 			"org.tura.metamodel.diagram.frmview.ViewPortTrigger_1303002"); //$NON-NLS-1$
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static final IElementType ViewArea_1303005 = getElementType(
 			"org.tura.metamodel.diagram.frmview.ViewArea_1303005"); //$NON-NLS-1$
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static final IElementType ViewInheritance_1304001 = getElementType(
 			"org.tura.metamodel.diagram.frmview.ViewInheritance_1304001"); //$NON-NLS-1$
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static final IElementType TabPagesInheritance_1304002 = getElementType(
 			"org.tura.metamodel.diagram.frmview.TabPagesInheritance_1304002"); //$NON-NLS-1$
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static ImageDescriptor getImageDescriptor(ENamedElement element) {
 		return elementTypeImages.getImageDescriptor(element);
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static Image getImage(ENamedElement element) {
 		return elementTypeImages.getImage(element);
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static ImageDescriptor getImageDescriptor(IAdaptable hint) {
 		return getImageDescriptor(getElement(hint));
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static Image getImage(IAdaptable hint) {
 		return getImage(getElement(hint));
 	}
 
 	/**
-	 * Returns 'type' of the ecore object associated with the hint.
-	 * 
-	 * @generated
-	 */
+	* Returns 'type' of the ecore object associated with the hint.
+	* 
+	* @generated
+	*/
 	public static ENamedElement getElement(IAdaptable hint) {
 		Object type = hint.getAdapter(IElementType.class);
 		if (elements == null) {
@@ -182,15 +177,15 @@ public class DomainElementTypes {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private static IElementType getElementType(String id) {
 		return ElementTypeRegistry.getInstance().getType(id);
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static boolean isKnownElementType(IElementType elementType) {
 		if (KNOWN_ELEMENT_TYPES == null) {
 			KNOWN_ELEMENT_TYPES = new HashSet<IElementType>();
@@ -210,8 +205,8 @@ public class DomainElementTypes {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static IElementType getElementType(int visualID) {
 		switch (visualID) {
 		case ViewsEditPart.VISUAL_ID:
@@ -241,8 +236,8 @@ public class DomainElementTypes {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static final DiagramElementTypes TYPED_INSTANCE = new DiagramElementTypes(elementTypeImages) {
 
 		/**

@@ -1,6 +1,6 @@
 /*
- * 
- */
+* 
+*/
 package application.diagram.part;
 
 import java.util.Collections;
@@ -46,15 +46,15 @@ import domain.StylesPackage;
 public class DomainDiagramUpdater {
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static boolean isShortcutOrphaned(View view) {
 		return !view.isSetElement() || view.getElement() == null || view.getElement().eIsProxy();
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static List<DomainNodeDescriptor> getSemanticChildren(View view) {
 		switch (DomainVisualIDRegistry.getVisualID(view)) {
 		case ApplicationEditPart.VISUAL_ID:
@@ -72,8 +72,8 @@ public class DomainDiagramUpdater {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static List<DomainNodeDescriptor> getApplication_801000SemanticChildren(View view) {
 		if (!view.isSetElement()) {
 			return Collections.emptyList();
@@ -133,8 +133,8 @@ public class DomainDiagramUpdater {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static List<DomainNodeDescriptor> getApplicationRecipesApplicationRecipesRecipesCompartment_807001SemanticChildren(
 			View view) {
 		if (false == view.eContainer() instanceof View) {
@@ -158,8 +158,8 @@ public class DomainDiagramUpdater {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static List<DomainNodeDescriptor> getApplicationMappersApplicationMappersMappersCompartment_807002SemanticChildren(
 			View view) {
 		if (false == view.eContainer() instanceof View) {
@@ -183,8 +183,8 @@ public class DomainDiagramUpdater {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static List<DomainNodeDescriptor> getApplicationUILayerApplicationUILayerApplicationUIPackagesCompartment_807003SemanticChildren(
 			View view) {
 		if (false == view.eContainer() instanceof View) {
@@ -208,8 +208,8 @@ public class DomainDiagramUpdater {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static List<DomainNodeDescriptor> getApplicationStyleApplicationStyleStylesPackageCompartment_807004SemanticChildren(
 			View view) {
 		if (false == view.eContainer() instanceof View) {
@@ -233,8 +233,8 @@ public class DomainDiagramUpdater {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static List<DomainLinkDescriptor> getContainedLinks(View view) {
 		switch (DomainVisualIDRegistry.getVisualID(view)) {
 		case ApplicationEditPart.VISUAL_ID:
@@ -266,8 +266,8 @@ public class DomainDiagramUpdater {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static List<DomainLinkDescriptor> getIncomingLinks(View view) {
 		switch (DomainVisualIDRegistry.getVisualID(view)) {
 		case ApplicationRecipesEditPart.VISUAL_ID:
@@ -297,8 +297,8 @@ public class DomainDiagramUpdater {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static List<DomainLinkDescriptor> getOutgoingLinks(View view) {
 		switch (DomainVisualIDRegistry.getVisualID(view)) {
 		case ApplicationRecipesEditPart.VISUAL_ID:
@@ -566,8 +566,8 @@ public class DomainDiagramUpdater {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static final DiagramUpdater TYPED_INSTANCE = new DiagramUpdater() {
 		/**
 		* @generated

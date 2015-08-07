@@ -3,6 +3,7 @@
 package domain;
 
 import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -25,68 +26,67 @@ import org.eclipse.emf.ecore.EObject;
  * @model annotation="gmf.node label='name' border.color='0,0,0' color='241,238,203'"
  * @generated
  */
-public interface Form extends EObject
-{
-  /**
+public interface Form extends EObject {
+	/**
 	 * Returns the value of the '<em><b>Uid</b></em>' attribute.
 	 * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Uid</em>' attribute isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Uid</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Uid</em>' attribute.
 	 * @see #setUid(String)
 	 * @see domain.DomainPackage#getForm_Uid()
 	 * @model id="true"
 	 * @generated
 	 */
-  String getUid();
+	String getUid();
 
-  /**
+	/**
 	 * Sets the value of the '{@link domain.Form#getUid <em>Uid</em>}' attribute.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Uid</em>' attribute.
 	 * @see #getUid()
 	 * @generated
 	 */
-  void setUid(String value);
+	void setUid(String value);
 
-  /**
+	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Name</em>' attribute isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Name</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
 	 * @see domain.DomainPackage#getForm_Name()
 	 * @model
 	 * @generated
 	 */
-  String getName();
+	String getName();
 
-  /**
+	/**
 	 * Sets the value of the '{@link domain.Form#getName <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Name</em>' attribute.
 	 * @see #getName()
 	 * @generated
 	 */
-  void setName(String value);
+	void setName(String value);
 
-  /**
+	/**
 	 * Returns the value of the '<em><b>View</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>View</em>' containment reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>View</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>View</em>' containment reference.
 	 * @see #setView(FormView)
 	 * @see domain.DomainPackage#getForm_View()
@@ -94,26 +94,26 @@ public interface Form extends EObject
 	 *        annotation="gmf.compartment layout='list'"
 	 * @generated
 	 */
-  FormView getView();
+	FormView getView();
 
-  /**
+	/**
 	 * Sets the value of the '{@link domain.Form#getView <em>View</em>}' containment reference.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>View</em>' containment reference.
 	 * @see #getView()
 	 * @generated
 	 */
-  void setView(FormView value);
+	void setView(FormView value);
 
-  /**
+	/**
 	 * Returns the value of the '<em><b>Datacontrols</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Datacontrols</em>' containment reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Datacontrols</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Datacontrols</em>' containment reference.
 	 * @see #setDatacontrols(FormDataControls)
 	 * @see domain.DomainPackage#getForm_Datacontrols()
@@ -121,33 +121,33 @@ public interface Form extends EObject
 	 *        annotation="gmf.compartment layout='list'"
 	 * @generated
 	 */
-  FormDataControls getDatacontrols();
+	FormDataControls getDatacontrols();
 
-  /**
+	/**
 	 * Sets the value of the '{@link domain.Form#getDatacontrols <em>Datacontrols</em>}' containment reference.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Datacontrols</em>' containment reference.
 	 * @see #getDatacontrols()
 	 * @generated
 	 */
-  void setDatacontrols(FormDataControls value);
+	void setDatacontrols(FormDataControls value);
 
-  /**
+	/**
 	 * Returns the value of the '<em><b>Parameters</b></em>' containment reference list.
 	 * The list contents are of type {@link domain.FormParameter}.
 	 * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Parameters</em>' containment reference list isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Parameters</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Parameters</em>' containment reference list.
 	 * @see domain.DomainPackage#getForm_Parameters()
 	 * @model containment="true"
 	 *        annotation="gmf.compartment layout='list'"
 	 * @generated
 	 */
-  EList<FormParameter> getParameters();
+	EList<FormParameter> getParameters();
 
 } // Form

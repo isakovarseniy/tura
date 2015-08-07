@@ -37,103 +37,96 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public class LayerHolderImpl extends UielementImpl implements LayerHolder
-{
-  /**
+public class LayerHolderImpl extends UielementImpl implements LayerHolder {
+	/**
 	 * The cached value of the '{@link #getChildren() <em>Children</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getChildren()
 	 * @generated
 	 * @ordered
 	 */
-  protected EList<Uielement> children;
+	protected EList<Uielement> children;
 
-  /**
+	/**
 	 * The default value of the '{@link #getColumns() <em>Columns</em>}' attribute.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getColumns()
 	 * @generated
 	 * @ordered
 	 */
-  protected static final int COLUMNS_EDEFAULT = 1;
+	protected static final int COLUMNS_EDEFAULT = 1;
 
-  /**
+	/**
 	 * The cached value of the '{@link #getColumns() <em>Columns</em>}' attribute.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getColumns()
 	 * @generated
 	 * @ordered
 	 */
-  protected int columns = COLUMNS_EDEFAULT;
+	protected int columns = COLUMNS_EDEFAULT;
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  protected LayerHolderImpl()
-  {
+	protected LayerHolderImpl() {
 		super();
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  protected EClass eStaticClass()
-  {
+	@Override
+	protected EClass eStaticClass() {
 		return DomainPackage.Literals.LAYER_HOLDER;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public EList<Uielement> getChildren()
-  {
+	public EList<Uielement> getChildren() {
 		if (children == null) {
 			children = new EObjectContainmentEList<Uielement>(Uielement.class, this, DomainPackage.LAYER_HOLDER__CHILDREN);
 		}
 		return children;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public int getColumns()
-  {
+	public int getColumns() {
 		return columns;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public void setColumns(int newColumns)
-  {
+	public void setColumns(int newColumns) {
 		int oldColumns = columns;
 		columns = newColumns;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.LAYER_HOLDER__COLUMNS, oldColumns, columns));
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-  {
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case DomainPackage.LAYER_HOLDER__CHILDREN:
 				return ((InternalEList<?>)getChildren()).basicRemove(otherEnd, msgs);
@@ -141,14 +134,13 @@ public class LayerHolderImpl extends UielementImpl implements LayerHolder
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public Object eGet(int featureID, boolean resolve, boolean coreType)
-  {
+	@Override
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case DomainPackage.LAYER_HOLDER__CHILDREN:
 				return getChildren();
@@ -158,15 +150,14 @@ public class LayerHolderImpl extends UielementImpl implements LayerHolder
 		return super.eGet(featureID, resolve, coreType);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @SuppressWarnings("unchecked")
-  @Override
-  public void eSet(int featureID, Object newValue)
-  {
+	@SuppressWarnings("unchecked")
+	@Override
+	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case DomainPackage.LAYER_HOLDER__CHILDREN:
 				getChildren().clear();
@@ -179,14 +170,13 @@ public class LayerHolderImpl extends UielementImpl implements LayerHolder
 		super.eSet(featureID, newValue);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public void eUnset(int featureID)
-  {
+	@Override
+	public void eUnset(int featureID) {
 		switch (featureID) {
 			case DomainPackage.LAYER_HOLDER__CHILDREN:
 				getChildren().clear();
@@ -198,14 +188,13 @@ public class LayerHolderImpl extends UielementImpl implements LayerHolder
 		super.eUnset(featureID);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public boolean eIsSet(int featureID)
-  {
+	@Override
+	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case DomainPackage.LAYER_HOLDER__CHILDREN:
 				return children != null && !children.isEmpty();
@@ -215,14 +204,13 @@ public class LayerHolderImpl extends UielementImpl implements LayerHolder
 		return super.eIsSet(featureID);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass)
-  {
+	@Override
+	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
 		if (baseClass == ChildrenHolder.class) {
 			switch (derivedFeatureID) {
 				case DomainPackage.LAYER_HOLDER__CHILDREN: return DomainPackage.CHILDREN_HOLDER__CHILDREN;
@@ -238,14 +226,13 @@ public class LayerHolderImpl extends UielementImpl implements LayerHolder
 		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass)
-  {
+	@Override
+	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
 		if (baseClass == ChildrenHolder.class) {
 			switch (baseFeatureID) {
 				case DomainPackage.CHILDREN_HOLDER__CHILDREN: return DomainPackage.LAYER_HOLDER__CHILDREN;
@@ -261,14 +248,13 @@ public class LayerHolderImpl extends UielementImpl implements LayerHolder
 		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public String toString()
-  {
+	@Override
+	public String toString() {
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());

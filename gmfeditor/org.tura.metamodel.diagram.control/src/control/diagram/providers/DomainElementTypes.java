@@ -9,16 +9,12 @@ import java.util.Map;
 import java.util.Set;
 
 import org.eclipse.core.runtime.IAdaptable;
-import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.ENamedElement;
-import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.gmf.runtime.emf.type.core.ElementTypeRegistry;
 import org.eclipse.gmf.runtime.emf.type.core.IElementType;
 import org.eclipse.gmf.tooling.runtime.providers.DiagramElementTypeImages;
 import org.eclipse.gmf.tooling.runtime.providers.DiagramElementTypes;
 import org.eclipse.jface.resource.ImageDescriptor;
-import org.eclipse.jface.resource.ImageRegistry;
 import org.eclipse.swt.graphics.Image;
 
 import control.diagram.edit.parts.ArtificialFieldEditPart;
@@ -49,157 +45,155 @@ import domain.DomainPackage;
 public class DomainElementTypes {
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private DomainElementTypes() {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private static Map<IElementType, ENamedElement> elements;
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private static DiagramElementTypeImages elementTypeImages = new DiagramElementTypeImages(
 			DomainDiagramEditorPlugin.getInstance().getItemProvidersAdapterFactory());
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private static Set<IElementType> KNOWN_ELEMENT_TYPES;
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static final IElementType Controls_1101000 = getElementType(
 			"org.tura.metamodel.diagram.control.Controls_1101000"); //$NON-NLS-1$
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static final IElementType Root_1102001 = getElementType("org.tura.metamodel.diagram.control.Root_1102001"); //$NON-NLS-1$
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static final IElementType DataControl_1102002 = getElementType(
 			"org.tura.metamodel.diagram.control.DataControl_1102002"); //$NON-NLS-1$
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static final IElementType PREFormTrigger_1103001 = getElementType(
 			"org.tura.metamodel.diagram.control.PREFormTrigger_1103001"); //$NON-NLS-1$
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static final IElementType FormVariable_1103017 = getElementType(
 			"org.tura.metamodel.diagram.control.FormVariable_1103017"); //$NON-NLS-1$
-
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static final IElementType PREQueryTrigger_1103002 = getElementType(
 			"org.tura.metamodel.diagram.control.PREQueryTrigger_1103002"); //$NON-NLS-1$
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static final IElementType POSTQueryTrigger_1103003 = getElementType(
 			"org.tura.metamodel.diagram.control.POSTQueryTrigger_1103003"); //$NON-NLS-1$
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static final IElementType PREInsertTrigger_1103004 = getElementType(
 			"org.tura.metamodel.diagram.control.PREInsertTrigger_1103004"); //$NON-NLS-1$
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static final IElementType PREDeleteTrigger_1103005 = getElementType(
 			"org.tura.metamodel.diagram.control.PREDeleteTrigger_1103005"); //$NON-NLS-1$
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static final IElementType POSTCreateTrigger_1103011 = getElementType(
 			"org.tura.metamodel.diagram.control.POSTCreateTrigger_1103011"); //$NON-NLS-1$
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static final IElementType PREUpdateTrigger_1103010 = getElementType(
 			"org.tura.metamodel.diagram.control.PREUpdateTrigger_1103010"); //$NON-NLS-1$
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static final IElementType CreateTrigger_1103012 = getElementType(
 			"org.tura.metamodel.diagram.control.CreateTrigger_1103012"); //$NON-NLS-1$
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static final IElementType InsertTrigger_1103013 = getElementType(
 			"org.tura.metamodel.diagram.control.InsertTrigger_1103013"); //$NON-NLS-1$
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static final IElementType UpdateTrigger_1103014 = getElementType(
 			"org.tura.metamodel.diagram.control.UpdateTrigger_1103014"); //$NON-NLS-1$
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static final IElementType DeleteTrigger_1103015 = getElementType(
 			"org.tura.metamodel.diagram.control.DeleteTrigger_1103015"); //$NON-NLS-1$
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static final IElementType SearchTrigger_1103016 = getElementType(
 			"org.tura.metamodel.diagram.control.SearchTrigger_1103016"); //$NON-NLS-1$
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static final IElementType ArtificialField_1103008 = getElementType(
 			"org.tura.metamodel.diagram.control.ArtificialField_1103008"); //$NON-NLS-1$
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static final IElementType Relation_1104009 = getElementType(
 			"org.tura.metamodel.diagram.control.Relation_1104009"); //$NON-NLS-1$
-
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static final IElementType Dependency_1104010 = getElementType(
 			"org.tura.metamodel.diagram.control.Dependency_1104010"); //$NON-NLS-1$
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static ImageDescriptor getImageDescriptor(ENamedElement element) {
 		return elementTypeImages.getImageDescriptor(element);
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static Image getImage(ENamedElement element) {
 		return elementTypeImages.getImage(element);
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static ImageDescriptor getImageDescriptor(IAdaptable hint) {
 		return getImageDescriptor(getElement(hint));
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static Image getImage(IAdaptable hint) {
 		return getImage(getElement(hint));
 	}
 
 	/**
-	 * Returns 'type' of the ecore object associated with the hint.
-	 * 
-	 * @generated
-	 */
+	* Returns 'type' of the ecore object associated with the hint.
+	* 
+	* @generated
+	*/
 	public static ENamedElement getElement(IAdaptable hint) {
 		Object type = hint.getAdapter(IElementType.class);
 		if (elements == null) {
@@ -247,15 +241,15 @@ public class DomainElementTypes {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private static IElementType getElementType(String id) {
 		return ElementTypeRegistry.getInstance().getType(id);
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static boolean isKnownElementType(IElementType elementType) {
 		if (KNOWN_ELEMENT_TYPES == null) {
 			KNOWN_ELEMENT_TYPES = new HashSet<IElementType>();
@@ -283,8 +277,8 @@ public class DomainElementTypes {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static IElementType getElementType(int visualID) {
 		switch (visualID) {
 		case ControlsEditPart.VISUAL_ID:
@@ -330,8 +324,8 @@ public class DomainElementTypes {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static final DiagramElementTypes TYPED_INSTANCE = new DiagramElementTypes(elementTypeImages) {
 
 		/**

@@ -14,26 +14,23 @@ import org.eclipse.emf.ecore.EClass;
  *
  * @generated
  */
-public class ContinuousIintegrationImpl extends DomainArtifactImpl implements ContinuousIintegration
-{
-  /**
+public class ContinuousIintegrationImpl extends DomainArtifactImpl implements ContinuousIintegration {
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  protected ContinuousIintegrationImpl()
-  {
+	protected ContinuousIintegrationImpl() {
 		super();
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  protected EClass eStaticClass()
-  {
+	@Override
+	protected EClass eStaticClass() {
 		return DomainPackage.Literals.CONTINUOUS_IINTEGRATION;
 	}
 

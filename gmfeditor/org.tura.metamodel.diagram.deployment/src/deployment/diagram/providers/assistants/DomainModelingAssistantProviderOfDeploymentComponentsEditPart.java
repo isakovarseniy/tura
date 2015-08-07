@@ -18,9 +18,10 @@ import deployment.diagram.providers.DomainModelingAssistantProvider;
 public class DomainModelingAssistantProviderOfDeploymentComponentsEditPart extends DomainModelingAssistantProvider {
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	@Override
+
 	public List<IElementType> getTypesForPopupBar(IAdaptable host) {
 		List<IElementType> types = new ArrayList<IElementType>(2);
 		types.add(DomainElementTypes.DeploymentComponent_902001);

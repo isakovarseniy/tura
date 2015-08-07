@@ -34,13 +34,13 @@ import frmview.diagram.part.DomainVisualIDRegistry;
 public class DomainParserProvider extends AbstractProvider implements IParserProvider {
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private IParser popupCanvasName_1305014Parser;
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private IParser getPopupCanvasName_1305014Parser() {
 		if (popupCanvasName_1305014Parser == null) {
 			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE.getCanvasFrame_Name() };
@@ -51,13 +51,13 @@ public class DomainParserProvider extends AbstractProvider implements IParserPro
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private IParser canvasName_1305003Parser;
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private IParser getCanvasName_1305003Parser() {
 		if (canvasName_1305003Parser == null) {
 			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE.getCanvasFrame_Name() };
@@ -68,30 +68,13 @@ public class DomainParserProvider extends AbstractProvider implements IParserPro
 	}
 
 	/**
-	 * @generated
-	 */
-	private IParser windowName_1305010Parser;
-
-	/**
-	 * @generated
-	 */
-	private IParser getWindowName_1305010Parser() {
-		if (windowName_1305010Parser == null) {
-			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE.getCanvasFrame_Name() };
-			MessageFormatParser parser = new MessageFormatParser(features);
-			windowName_1305010Parser = parser;
-		}
-		return windowName_1305010Parser;
-	}
-
-	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private IParser tabPageName_1305002Parser;
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private IParser getTabPageName_1305002Parser() {
 		if (tabPageName_1305002Parser == null) {
 			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE.getCanvasFrame_Name() };
@@ -102,13 +85,30 @@ public class DomainParserProvider extends AbstractProvider implements IParserPro
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
+	private IParser windowName_1305010Parser;
+
+	/**
+	* @generated
+	*/
+	private IParser getWindowName_1305010Parser() {
+		if (windowName_1305010Parser == null) {
+			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE.getCanvasFrame_Name() };
+			MessageFormatParser parser = new MessageFormatParser(features);
+			windowName_1305010Parser = parser;
+		}
+		return windowName_1305010Parser;
+	}
+
+	/**
+	* @generated
+	*/
 	private IParser tabCanvasName_1305011Parser;
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private IParser getTabCanvasName_1305011Parser() {
 		if (tabCanvasName_1305011Parser == null) {
 			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE.getCanvasFrame_Name() };
@@ -119,13 +119,13 @@ public class DomainParserProvider extends AbstractProvider implements IParserPro
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private IParser viewPortName_1305012Parser;
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private IParser getViewPortName_1305012Parser() {
 		if (viewPortName_1305012Parser == null) {
 			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE.getViewPort_Name() };
@@ -136,13 +136,13 @@ public class DomainParserProvider extends AbstractProvider implements IParserPro
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private IParser viewPortTriggerFakeMethod_1305005Parser;
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private IParser getViewPortTriggerFakeMethod_1305005Parser() {
 		if (viewPortTriggerFakeMethod_1305005Parser == null) {
 			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE.getMethodPointer_FakeMethod() };
@@ -153,13 +153,13 @@ public class DomainParserProvider extends AbstractProvider implements IParserPro
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private IParser viewAreaName_1305013Parser;
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private IParser getViewAreaName_1305013Parser() {
 		if (viewAreaName_1305013Parser == null) {
 			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE.getViewArea_Name() };
@@ -170,8 +170,8 @@ public class DomainParserProvider extends AbstractProvider implements IParserPro
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected IParser getParser(int visualID) {
 		switch (visualID) {
 		case PopupCanvasNameEditPart.VISUAL_ID:
@@ -195,16 +195,16 @@ public class DomainParserProvider extends AbstractProvider implements IParserPro
 	}
 
 	/**
-	 * Utility method that consults ParserService
-	 * @generated
-	 */
+	* Utility method that consults ParserService
+	* @generated
+	*/
 	public static IParser getParser(IElementType type, EObject object, String parserHint) {
 		return ParserService.getInstance().getParser(new HintAdapter(type, object, parserHint));
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public IParser getParser(IAdaptable hint) {
 		String vid = (String) hint.getAdapter(String.class);
 		if (vid != null) {
@@ -218,8 +218,8 @@ public class DomainParserProvider extends AbstractProvider implements IParserPro
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public boolean provides(IOperation operation) {
 		if (operation instanceof GetParserOperation) {
 			IAdaptable hint = ((GetParserOperation) operation).getHint();
@@ -232,18 +232,18 @@ public class DomainParserProvider extends AbstractProvider implements IParserPro
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private static class HintAdapter extends ParserHintAdapter {
 
 		/**
-		 * @generated
-		 */
+		* @generated
+		*/
 		private final IElementType elementType;
 
 		/**
-		 * @generated
-		 */
+		* @generated
+		*/
 		public HintAdapter(IElementType type, EObject object, String parserHint) {
 			super(object, parserHint);
 			assert type != null;
@@ -251,8 +251,8 @@ public class DomainParserProvider extends AbstractProvider implements IParserPro
 		}
 
 		/**
-		 * @generated
-		 */
+		* @generated
+		*/
 		public Object getAdapter(Class adapter) {
 			if (IElementType.class.equals(adapter)) {
 				return elementType;

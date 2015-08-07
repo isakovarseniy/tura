@@ -3,7 +3,6 @@
 package domain.impl;
 
 import domain.ActioinTriggers;
-import domain.ActionElement;
 import domain.ActionTrigger;
 import domain.Application;
 import domain.ApplicationInfrastructureLayer;
@@ -180,30 +179,30 @@ import domain.ViewPortHolder;
 import domain.ViewPortTrigger;
 import domain.Views;
 import domain.Window;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-import org.eclipse.emf.ecore.impl.EFactoryImpl;
-import org.eclipse.emf.ecore.plugin.EcorePlugin;
 
-import domain.*;
+import org.eclipse.emf.ecore.impl.EFactoryImpl;
+
+import org.eclipse.emf.ecore.plugin.EcorePlugin;
 
 /**
  * <!-- begin-user-doc -->
  * An implementation of the model <b>Factory</b>.
+ * <!-- end-user-doc -->
  * @generated
  */
-public class DomainFactoryImpl extends EFactoryImpl implements DomainFactory
-{
-  /**
+public class DomainFactoryImpl extends EFactoryImpl implements DomainFactory {
+	/**
 	 * Creates the default factory implementation.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public static DomainFactory init()
-  {
+	public static DomainFactory init() {
 		try {
 			DomainFactory theDomainFactory = (DomainFactory)EPackage.Registry.INSTANCE.getEFactory(DomainPackage.eNS_URI);
 			if (theDomainFactory != null) {
@@ -216,25 +215,23 @@ public class DomainFactoryImpl extends EFactoryImpl implements DomainFactory
 		return new DomainFactoryImpl();
 	}
 
-  /**
+	/**
 	 * Creates an instance of the factory.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public DomainFactoryImpl()
-  {
+	public DomainFactoryImpl() {
 		super();
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public EObject create(EClass eClass)
-  {
+	@Override
+	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
 			case DomainPackage.DOMAIN: return createDomain();
 			case DomainPackage.HTML_LAYER_HOLDER: return createHTMLLayerHolder();
@@ -414,14 +411,13 @@ public class DomainFactoryImpl extends EFactoryImpl implements DomainFactory
 		}
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public Object createFromString(EDataType eDataType, String initialValue)
-  {
+	@Override
+	public Object createFromString(EDataType eDataType, String initialValue) {
 		switch (eDataType.getClassifierID()) {
 			case DomainPackage.PLATFORM_LAYERS:
 				return createPlatformLayersFromString(eDataType, initialValue);
@@ -434,14 +430,13 @@ public class DomainFactoryImpl extends EFactoryImpl implements DomainFactory
 		}
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public String convertToString(EDataType eDataType, Object instanceValue)
-  {
+	@Override
+	public String convertToString(EDataType eDataType, Object instanceValue) {
 		switch (eDataType.getClassifierID()) {
 			case DomainPackage.PLATFORM_LAYERS:
 				return convertPlatformLayersToString(eDataType, instanceValue);
@@ -454,1305 +449,1187 @@ public class DomainFactoryImpl extends EFactoryImpl implements DomainFactory
 		}
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public Domain createDomain()
-  {
+	public Domain createDomain() {
 		DomainImpl domain = new DomainImpl();
 		return domain;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public HTMLLayerHolder createHTMLLayerHolder()
-  {
+	public HTMLLayerHolder createHTMLLayerHolder() {
 		HTMLLayerHolderImpl htmlLayerHolder = new HTMLLayerHolderImpl();
 		return htmlLayerHolder;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public Categorized createCategorized()
-  {
+	public Categorized createCategorized() {
 		CategorizedImpl categorized = new CategorizedImpl();
 		return categorized;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public Classifier createClassifier()
-  {
+	public Classifier createClassifier() {
 		ClassifierImpl classifier = new ClassifierImpl();
 		return classifier;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public DomainArtifacts createDomainArtifacts()
-  {
+	public DomainArtifacts createDomainArtifacts() {
 		DomainArtifactsImpl domainArtifacts = new DomainArtifactsImpl();
 		return domainArtifacts;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public DomainTypes createDomainTypes()
-  {
+	public DomainTypes createDomainTypes() {
 		DomainTypesImpl domainTypes = new DomainTypesImpl();
 		return domainTypes;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public DomainApplications createDomainApplications()
-  {
+	public DomainApplications createDomainApplications() {
 		DomainApplicationsImpl domainApplications = new DomainApplicationsImpl();
 		return domainApplications;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public DomainApplication createDomainApplication()
-  {
+	public DomainApplication createDomainApplication() {
 		DomainApplicationImpl domainApplication = new DomainApplicationImpl();
 		return domainApplication;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public DomainArtifact createDomainArtifact()
-  {
+	public DomainArtifact createDomainArtifact() {
 		DomainArtifactImpl domainArtifact = new DomainArtifactImpl();
 		return domainArtifact;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public ORMEntity createORMEntity()
-  {
+	public ORMEntity createORMEntity() {
 		ORMEntityImpl ormEntity = new ORMEntityImpl();
 		return ormEntity;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public JPAService createJPAService()
-  {
+	public JPAService createJPAService() {
 		JPAServiceImpl jpaService = new JPAServiceImpl();
 		return jpaService;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public EJBService createEJBService()
-  {
+	public EJBService createEJBService() {
 		EJBServiceImpl ejbService = new EJBServiceImpl();
 		return ejbService;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public ContinuousIintegration createContinuousIintegration()
-  {
+	public ContinuousIintegration createContinuousIintegration() {
 		ContinuousIintegrationImpl continuousIintegration = new ContinuousIintegrationImpl();
 		return continuousIintegration;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public Artifacts createArtifacts()
-  {
+	public Artifacts createArtifacts() {
 		ArtifactsImpl artifacts = new ArtifactsImpl();
 		return artifacts;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public Artifact createArtifact()
-  {
+	public Artifact createArtifact() {
 		ArtifactImpl artifact = new ArtifactImpl();
 		return artifact;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public GenerationHint createGenerationHint()
-  {
+	public GenerationHint createGenerationHint() {
 		GenerationHintImpl generationHint = new GenerationHintImpl();
 		return generationHint;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public ConfigVariable createConfigVariable()
-  {
+	public ConfigVariable createConfigVariable() {
 		ConfigVariableImpl configVariable = new ConfigVariableImpl();
 		return configVariable;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public ModelQuery createModelQuery()
-  {
+	public ModelQuery createModelQuery() {
 		ModelQueryImpl modelQuery = new ModelQueryImpl();
 		return modelQuery;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public QueryParameter createQueryParameter()
-  {
+	public QueryParameter createQueryParameter() {
 		QueryParameterImpl queryParameter = new QueryParameterImpl();
 		return queryParameter;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public Specifier createSpecifier()
-  {
+	public Specifier createSpecifier() {
 		SpecifierImpl specifier = new SpecifierImpl();
 		return specifier;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public Option createOption()
-  {
+	public Option createOption() {
 		OptionImpl option = new OptionImpl();
 		return option;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public Application createApplication()
-  {
+	public Application createApplication() {
 		ApplicationImpl application = new ApplicationImpl();
 		return application;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public ApplicationMessages createApplicationMessages()
-  {
+	public ApplicationMessages createApplicationMessages() {
 		ApplicationMessagesImpl applicationMessages = new ApplicationMessagesImpl();
 		return applicationMessages;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public ApplicationRole createApplicationRole()
-  {
+	public ApplicationRole createApplicationRole() {
 		ApplicationRoleImpl applicationRole = new ApplicationRoleImpl();
 		return applicationRole;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public ApplicationStyle createApplicationStyle()
-  {
+	public ApplicationStyle createApplicationStyle() {
 		ApplicationStyleImpl applicationStyle = new ApplicationStyleImpl();
 		return applicationStyle;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public StylesPackage createStylesPackage()
-  {
+	public StylesPackage createStylesPackage() {
 		StylesPackageImpl stylesPackage = new StylesPackageImpl();
 		return stylesPackage;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public ApplicationUILayer createApplicationUILayer()
-  {
+	public ApplicationUILayer createApplicationUILayer() {
 		ApplicationUILayerImpl applicationUILayer = new ApplicationUILayerImpl();
 		return applicationUILayer;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public ApplicationUIPackage createApplicationUIPackage()
-  {
+	public ApplicationUIPackage createApplicationUIPackage() {
 		ApplicationUIPackageImpl applicationUIPackage = new ApplicationUIPackageImpl();
 		return applicationUIPackage;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public ApplicationRecipes createApplicationRecipes()
-  {
+	public ApplicationRecipes createApplicationRecipes() {
 		ApplicationRecipesImpl applicationRecipes = new ApplicationRecipesImpl();
 		return applicationRecipes;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public ApplicationRecipe createApplicationRecipe()
-  {
+	public ApplicationRecipe createApplicationRecipe() {
 		ApplicationRecipeImpl applicationRecipe = new ApplicationRecipeImpl();
 		return applicationRecipe;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public ApplicationMappers createApplicationMappers()
-  {
+	public ApplicationMappers createApplicationMappers() {
 		ApplicationMappersImpl applicationMappers = new ApplicationMappersImpl();
 		return applicationMappers;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public ApplicationMapper createApplicationMapper()
-  {
+	public ApplicationMapper createApplicationMapper() {
 		ApplicationMapperImpl applicationMapper = new ApplicationMapperImpl();
 		return applicationMapper;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public MethodPointer createMethodPointer()
-  {
+	public MethodPointer createMethodPointer() {
 		MethodPointerImpl methodPointer = new MethodPointerImpl();
 		return methodPointer;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public Messages createMessages()
-  {
+	public Messages createMessages() {
 		MessagesImpl messages = new MessagesImpl();
 		return messages;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public MessageLibrary createMessageLibrary()
-  {
+	public MessageLibrary createMessageLibrary() {
 		MessageLibraryImpl messageLibrary = new MessageLibraryImpl();
 		return messageLibrary;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public LanguageRef createLanguageRef()
-  {
+	public LanguageRef createLanguageRef() {
 		LanguageRefImpl languageRef = new LanguageRefImpl();
 		return languageRef;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public Message createMessage()
-  {
+	public Message createMessage() {
 		MessageImpl message = new MessageImpl();
 		return message;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public Translation createTranslation()
-  {
+	public Translation createTranslation() {
 		TranslationImpl translation = new TranslationImpl();
 		return translation;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public Language createLanguage()
-  {
+	public Language createLanguage() {
 		LanguageImpl language = new LanguageImpl();
 		return language;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public Roles createRoles()
-  {
+	public Roles createRoles() {
 		RolesImpl roles = new RolesImpl();
 		return roles;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public Role createRole()
-  {
+	public Role createRole() {
 		RoleImpl role = new RoleImpl();
 		return role;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public Group createGroup()
-  {
+	public Group createGroup() {
 		GroupImpl group = new GroupImpl();
 		return group;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public Styles createStyles()
-  {
+	public Styles createStyles() {
 		StylesImpl styles = new StylesImpl();
 		return styles;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public StyleLibrary createStyleLibrary()
-  {
+	public StyleLibrary createStyleLibrary() {
 		StyleLibraryImpl styleLibrary = new StyleLibraryImpl();
 		return styleLibrary;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public StyleSet createStyleSet()
-  {
+	public StyleSet createStyleSet() {
 		StyleSetImpl styleSet = new StyleSetImpl();
 		return styleSet;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public Mappers createMappers()
-  {
+	public Mappers createMappers() {
 		MappersImpl mappers = new MappersImpl();
 		return mappers;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public Mapper createMapper()
-  {
+	public Mapper createMapper() {
 		MapperImpl mapper = new MapperImpl();
 		return mapper;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public TypeMapper createTypeMapper()
-  {
+	public TypeMapper createTypeMapper() {
 		TypeMapperImpl typeMapper = new TypeMapperImpl();
 		return typeMapper;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public JavaMapper createJavaMapper()
-  {
+	public JavaMapper createJavaMapper() {
 		JavaMapperImpl javaMapper = new JavaMapperImpl();
 		return javaMapper;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public JavaScriptMapper createJavaScriptMapper()
-  {
+	public JavaScriptMapper createJavaScriptMapper() {
 		JavaScriptMapperImpl javaScriptMapper = new JavaScriptMapperImpl();
 		return javaScriptMapper;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public CSSMapper createCSSMapper()
-  {
+	public CSSMapper createCSSMapper() {
 		CSSMapperImpl cssMapper = new CSSMapperImpl();
 		return cssMapper;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public RoleMapper createRoleMapper()
-  {
+	public RoleMapper createRoleMapper() {
 		RoleMapperImpl roleMapper = new RoleMapperImpl();
 		return roleMapper;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public Recipes createRecipes()
-  {
+	public Recipes createRecipes() {
 		RecipesImpl recipes = new RecipesImpl();
 		return recipes;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public DeploymentSequence createDeploymentSequence()
-  {
+	public DeploymentSequence createDeploymentSequence() {
 		DeploymentSequenceImpl deploymentSequence = new DeploymentSequenceImpl();
 		return deploymentSequence;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public DeploymentComponents createDeploymentComponents()
-  {
+	public DeploymentComponents createDeploymentComponents() {
 		DeploymentComponentsImpl deploymentComponents = new DeploymentComponentsImpl();
 		return deploymentComponents;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public DeploymentComponent createDeploymentComponent()
-  {
+	public DeploymentComponent createDeploymentComponent() {
 		DeploymentComponentImpl deploymentComponent = new DeploymentComponentImpl();
 		return deploymentComponent;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public DeploymentStarStep createDeploymentStarStep()
-  {
+	public DeploymentStarStep createDeploymentStarStep() {
 		DeploymentStarStepImpl deploymentStarStep = new DeploymentStarStepImpl();
 		return deploymentStarStep;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public UsingMappers createUsingMappers()
-  {
+	public UsingMappers createUsingMappers() {
 		UsingMappersImpl usingMappers = new UsingMappersImpl();
 		return usingMappers;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public Recipe createRecipe()
-  {
+	public Recipe createRecipe() {
 		RecipeImpl recipe = new RecipeImpl();
 		return recipe;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public Ingredient createIngredient()
-  {
+	public Ingredient createIngredient() {
 		IngredientImpl ingredient = new IngredientImpl();
 		return ingredient;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public Component createComponent()
-  {
+	public Component createComponent() {
 		ComponentImpl component = new ComponentImpl();
 		return component;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public JavaComponent createJavaComponent()
-  {
+	public JavaComponent createJavaComponent() {
 		JavaComponentImpl javaComponent = new JavaComponentImpl();
 		return javaComponent;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public Infrastructure createInfrastructure()
-  {
+	public Infrastructure createInfrastructure() {
 		InfrastructureImpl infrastructure = new InfrastructureImpl();
 		return infrastructure;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public Configuration createConfiguration()
-  {
+	public Configuration createConfiguration() {
 		ConfigurationImpl configuration = new ConfigurationImpl();
 		return configuration;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public ModelMapper createModelMapper()
-  {
+	public ModelMapper createModelMapper() {
 		ModelMapperImpl modelMapper = new ModelMapperImpl();
 		return modelMapper;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public Property createProperty()
-  {
+	public Property createProperty() {
 		PropertyImpl property = new PropertyImpl();
 		return property;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public MappingSpecifier createMappingSpecifier()
-  {
+	public MappingSpecifier createMappingSpecifier() {
 		MappingSpecifierImpl mappingSpecifier = new MappingSpecifierImpl();
 		return mappingSpecifier;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public Query createQuery()
-  {
+	public Query createQuery() {
 		QueryImpl query = new QueryImpl();
 		return query;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public QueryVariable createQueryVariable()
-  {
+	public QueryVariable createQueryVariable() {
 		QueryVariableImpl queryVariable = new QueryVariableImpl();
 		return queryVariable;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public ArtifactRef createArtifactRef()
-  {
+	public ArtifactRef createArtifactRef() {
 		ArtifactRefImpl artifactRef = new ArtifactRefImpl();
 		return artifactRef;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public TypePointer createTypePointer()
-  {
+	public TypePointer createTypePointer() {
 		TypePointerImpl typePointer = new TypePointerImpl();
 		return typePointer;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public TypeDefinition createTypeDefinition()
-  {
+	public TypeDefinition createTypeDefinition() {
 		TypeDefinitionImpl typeDefinition = new TypeDefinitionImpl();
 		return typeDefinition;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public TypeElement createTypeElement()
-  {
+	public TypeElement createTypeElement() {
 		TypeElementImpl typeElement = new TypeElementImpl();
 		return typeElement;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public Primitive createPrimitive()
-  {
+	public Primitive createPrimitive() {
 		PrimitiveImpl primitive = new PrimitiveImpl();
 		return primitive;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public Type createType()
-  {
+	public Type createType() {
 		TypeImpl type = new TypeImpl();
 		return type;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public TypeReference createTypeReference()
-  {
+	public TypeReference createTypeReference() {
 		TypeReferenceImpl typeReference = new TypeReferenceImpl();
 		return typeReference;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public TypeExtension createTypeExtension()
-  {
+	public TypeExtension createTypeExtension() {
 		TypeExtensionImpl typeExtension = new TypeExtensionImpl();
 		return typeExtension;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public Attribute createAttribute()
-  {
+	public Attribute createAttribute() {
 		AttributeImpl attribute = new AttributeImpl();
 		return attribute;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public Operation createOperation()
-  {
+	public Operation createOperation() {
 		OperationImpl operation = new OperationImpl();
 		return operation;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public Parameter createParameter()
-  {
+	public Parameter createParameter() {
 		ParameterImpl parameter = new ParameterImpl();
 		return parameter;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public ReturnValue createReturnValue()
-  {
+	public ReturnValue createReturnValue() {
 		ReturnValueImpl returnValue = new ReturnValueImpl();
 		return returnValue;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public Enumarator createEnumarator()
-  {
+	public Enumarator createEnumarator() {
 		EnumaratorImpl enumarator = new EnumaratorImpl();
 		return enumarator;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public EnumAttribute createEnumAttribute()
-  {
+	public EnumAttribute createEnumAttribute() {
 		EnumAttributeImpl enumAttribute = new EnumAttributeImpl();
 		return enumAttribute;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public TypesRepository createTypesRepository()
-  {
+	public TypesRepository createTypesRepository() {
 		TypesRepositoryImpl typesRepository = new TypesRepositoryImpl();
 		return typesRepository;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public Types createTypes()
-  {
+	public Types createTypes() {
 		TypesImpl types = new TypesImpl();
 		return types;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public domain.Package createPackage()
-  {
+	public domain.Package createPackage() {
 		PackageImpl package_ = new PackageImpl();
 		return package_;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public UIPackage createUIPackage()
-  {
+	public UIPackage createUIPackage() {
 		UIPackageImpl uiPackage = new UIPackageImpl();
 		return uiPackage;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public Form createForm()
-  {
+	public Form createForm() {
 		FormImpl form = new FormImpl();
 		return form;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public FormParameter createFormParameter()
-  {
+	public FormParameter createFormParameter() {
 		FormParameterImpl formParameter = new FormParameterImpl();
 		return formParameter;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public FormView createFormView()
-  {
+	public FormView createFormView() {
 		FormViewImpl formView = new FormViewImpl();
 		return formView;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public Views createViews()
-  {
+	public Views createViews() {
 		ViewsImpl views = new ViewsImpl();
 		return views;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public Orderable createOrderable()
-  {
+	public Orderable createOrderable() {
 		OrderableImpl orderable = new OrderableImpl();
 		return orderable;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public MultiLangLabel createMultiLangLabel()
-  {
+	public MultiLangLabel createMultiLangLabel() {
 		MultiLangLabelImpl multiLangLabel = new MultiLangLabelImpl();
 		return multiLangLabel;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public CanvasFrame createCanvasFrame()
-  {
+	public CanvasFrame createCanvasFrame() {
 		CanvasFrameImpl canvasFrame = new CanvasFrameImpl();
 		return canvasFrame;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public ViewPortHolder createViewPortHolder()
-  {
+	public ViewPortHolder createViewPortHolder() {
 		ViewPortHolderImpl viewPortHolder = new ViewPortHolderImpl();
 		return viewPortHolder;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public DefaultCavas createDefaultCavas()
-  {
+	public DefaultCavas createDefaultCavas() {
 		DefaultCavasImpl defaultCavas = new DefaultCavasImpl();
 		return defaultCavas;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public ViewElement createViewElement()
-  {
+	public ViewElement createViewElement() {
 		ViewElementImpl viewElement = new ViewElementImpl();
 		return viewElement;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public PopupCanvas createPopupCanvas()
-  {
+	public PopupCanvas createPopupCanvas() {
 		PopupCanvasImpl popupCanvas = new PopupCanvasImpl();
 		return popupCanvas;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public Canvas createCanvas()
-  {
+	public Canvas createCanvas() {
 		CanvasImpl canvas = new CanvasImpl();
 		return canvas;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public Window createWindow()
-  {
+	public Window createWindow() {
 		WindowImpl window = new WindowImpl();
 		return window;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public TabCanvas createTabCanvas()
-  {
+	public TabCanvas createTabCanvas() {
 		TabCanvasImpl tabCanvas = new TabCanvasImpl();
 		return tabCanvas;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public TabPage createTabPage()
-  {
+	public TabPage createTabPage() {
 		TabPageImpl tabPage = new TabPageImpl();
 		return tabPage;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public ViewPort createViewPort()
-  {
+	public ViewPort createViewPort() {
 		ViewPortImpl viewPort = new ViewPortImpl();
 		return viewPort;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public ViewArea createViewArea()
-  {
+	public ViewArea createViewArea() {
 		ViewAreaImpl viewArea = new ViewAreaImpl();
 		return viewArea;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public ViewPortTrigger createViewPortTrigger()
-  {
+	public ViewPortTrigger createViewPortTrigger() {
 		ViewPortTriggerImpl viewPortTrigger = new ViewPortTriggerImpl();
 		return viewPortTrigger;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public ViewInheritance createViewInheritance()
-  {
+	public ViewInheritance createViewInheritance() {
 		ViewInheritanceImpl viewInheritance = new ViewInheritanceImpl();
 		return viewInheritance;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public TabPagesInheritance createTabPagesInheritance()
-  {
+	public TabPagesInheritance createTabPagesInheritance() {
 		TabPagesInheritanceImpl tabPagesInheritance = new TabPagesInheritanceImpl();
 		return tabPagesInheritance;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public FormDataControls createFormDataControls()
-  {
+	public FormDataControls createFormDataControls() {
 		FormDataControlsImpl formDataControls = new FormDataControlsImpl();
 		return formDataControls;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public CanvasView createCanvasView()
-  {
+	public CanvasView createCanvasView() {
 		CanvasViewImpl canvasView = new CanvasViewImpl();
 		return canvasView;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public ChildrenHolder createChildrenHolder()
-  {
+	public ChildrenHolder createChildrenHolder() {
 		ChildrenHolderImpl childrenHolder = new ChildrenHolderImpl();
 		return childrenHolder;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public ContextParameter createContextParameter()
-  {
+	public ContextParameter createContextParameter() {
 		ContextParameterImpl contextParameter = new ContextParameterImpl();
 		return contextParameter;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public ContextValue createContextValue()
-  {
+	public ContextValue createContextValue() {
 		ContextValueImpl contextValue = new ContextValueImpl();
 		return contextValue;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public ExpressionPart createExpressionPart()
-  {
+	public ExpressionPart createExpressionPart() {
 		ExpressionPartImpl expressionPart = new ExpressionPartImpl();
 		return expressionPart;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public ContextParameters createContextParameters()
-  {
+	public ContextParameters createContextParameters() {
 		ContextParametersImpl contextParameters = new ContextParametersImpl();
 		return contextParameters;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public Context createContext()
-  {
+	public Context createContext() {
 		ContextImpl context = new ContextImpl();
 		return context;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public StyleElement createStyleElement()
-  {
+	public StyleElement createStyleElement() {
 		StyleElementImpl styleElement = new StyleElementImpl();
 		return styleElement;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public StyleClass createStyleClass()
-  {
+	public StyleClass createStyleClass() {
 		StyleClassImpl styleClass = new StyleClassImpl();
 		return styleClass;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public NickNamed createNickNamed()
-  {
+	public NickNamed createNickNamed() {
 		NickNamedImpl nickNamed = new NickNamedImpl();
 		return nickNamed;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1762,685 +1639,623 @@ public class DomainFactoryImpl extends EFactoryImpl implements DomainFactory
 		return actioinTriggers;
 	}
 
-		/**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public Uielement createUielement()
-  {
-		UielementImpl uielement = new UielementImpl();
-		return uielement;
-	}
-
-  /**
-	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-	 * @generated
-	 */
-  public Formatable createFormatable()
-  {
-		FormatableImpl formatable = new FormatableImpl();
-		return formatable;
-	}
-
-  /**
-	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-	 * @generated
-	 */
-  public SourcesPointer createSourcesPointer()
-  {
-		SourcesPointerImpl sourcesPointer = new SourcesPointerImpl();
-		return sourcesPointer;
-	}
-
-  /**
-	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-	 * @generated
-	 */
-  public ActionTrigger createActionTrigger()
-  {
+	public ActionTrigger createActionTrigger() {
 		ActionTriggerImpl actionTrigger = new ActionTriggerImpl();
 		return actionTrigger;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public InputElement createInputElement()
-  {
+	public Uielement createUielement() {
+		UielementImpl uielement = new UielementImpl();
+		return uielement;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Formatable createFormatable() {
+		FormatableImpl formatable = new FormatableImpl();
+		return formatable;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SourcesPointer createSourcesPointer() {
+		SourcesPointerImpl sourcesPointer = new SourcesPointerImpl();
+		return sourcesPointer;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public InputElement createInputElement() {
 		InputElementImpl inputElement = new InputElementImpl();
 		return inputElement;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public Selection createSelection()
-  {
+	public Selection createSelection() {
 		SelectionImpl selection = new SelectionImpl();
 		return selection;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public OptionSelection createOptionSelection()
-  {
+	public OptionSelection createOptionSelection() {
 		OptionSelectionImpl optionSelection = new OptionSelectionImpl();
 		return optionSelection;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public LayerHolder createLayerHolder()
-  {
+	public LayerHolder createLayerHolder() {
 		LayerHolderImpl layerHolder = new LayerHolderImpl();
 		return layerHolder;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public InputText createInputText()
-  {
+	public InputText createInputText() {
 		InputTextImpl inputText = new InputTextImpl();
 		return inputText;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public Label createLabel()
-  {
+	public Label createLabel() {
 		LabelImpl label = new LabelImpl();
 		return label;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public OutputText createOutputText()
-  {
+	public OutputText createOutputText() {
 		OutputTextImpl outputText = new OutputTextImpl();
 		return outputText;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public CheckBox createCheckBox()
-  {
+	public CheckBox createCheckBox() {
 		CheckBoxImpl checkBox = new CheckBoxImpl();
 		return checkBox;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public DropDownSelection createDropDownSelection()
-  {
+	public DropDownSelection createDropDownSelection() {
 		DropDownSelectionImpl dropDownSelection = new DropDownSelectionImpl();
 		return dropDownSelection;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public Image createImage()
-  {
+	public Image createImage() {
 		ImageImpl image = new ImageImpl();
 		return image;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public Date createDate()
-  {
+	public Date createDate() {
 		DateImpl date = new DateImpl();
 		return date;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public Column createColumn()
-  {
-		ColumnImpl column = new ColumnImpl();
-		return column;
-	}
-
-  /**
-	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-	 * @generated
-	 */
-  public Table createTable()
-  {
-		TableImpl table = new TableImpl();
-		return table;
-	}
-
-  /**
-	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-	 * @generated
-	 */
-  public Tree createTree()
-  {
-		TreeImpl tree = new TreeImpl();
-		return tree;
-	}
-
-  /**
-	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-	 * @generated
-	 */
-  public Button createButton()
-  {
+	public Button createButton() {
 		ButtonImpl button = new ButtonImpl();
 		return button;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public Controls createControls()
-  {
+	public Column createColumn() {
+		ColumnImpl column = new ColumnImpl();
+		return column;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Table createTable() {
+		TableImpl table = new TableImpl();
+		return table;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Tree createTree() {
+		TreeImpl tree = new TreeImpl();
+		return tree;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Controls createControls() {
 		ControlsImpl controls = new ControlsImpl();
 		return controls;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public Trigger createTrigger()
-  {
+	public Trigger createTrigger() {
 		TriggerImpl trigger = new TriggerImpl();
 		return trigger;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public PREFormTrigger createPREFormTrigger()
-  {
+	public PREFormTrigger createPREFormTrigger() {
 		PREFormTriggerImpl preFormTrigger = new PREFormTriggerImpl();
 		return preFormTrigger;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public PREQueryTrigger createPREQueryTrigger()
-  {
+	public PREQueryTrigger createPREQueryTrigger() {
 		PREQueryTriggerImpl preQueryTrigger = new PREQueryTriggerImpl();
 		return preQueryTrigger;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public POSTQueryTrigger createPOSTQueryTrigger()
-  {
+	public POSTQueryTrigger createPOSTQueryTrigger() {
 		POSTQueryTriggerImpl postQueryTrigger = new POSTQueryTriggerImpl();
 		return postQueryTrigger;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public PREInsertTrigger createPREInsertTrigger()
-  {
+	public PREInsertTrigger createPREInsertTrigger() {
 		PREInsertTriggerImpl preInsertTrigger = new PREInsertTriggerImpl();
 		return preInsertTrigger;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public PREDeleteTrigger createPREDeleteTrigger()
-  {
+	public PREDeleteTrigger createPREDeleteTrigger() {
 		PREDeleteTriggerImpl preDeleteTrigger = new PREDeleteTriggerImpl();
 		return preDeleteTrigger;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public POSTCreateTrigger createPOSTCreateTrigger()
-  {
+	public POSTCreateTrigger createPOSTCreateTrigger() {
 		POSTCreateTriggerImpl postCreateTrigger = new POSTCreateTriggerImpl();
 		return postCreateTrigger;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public PREUpdateTrigger createPREUpdateTrigger()
-  {
+	public PREUpdateTrigger createPREUpdateTrigger() {
 		PREUpdateTriggerImpl preUpdateTrigger = new PREUpdateTriggerImpl();
 		return preUpdateTrigger;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public CreateTrigger createCreateTrigger()
-  {
+	public CreateTrigger createCreateTrigger() {
 		CreateTriggerImpl createTrigger = new CreateTriggerImpl();
 		return createTrigger;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public InsertTrigger createInsertTrigger()
-  {
+	public InsertTrigger createInsertTrigger() {
 		InsertTriggerImpl insertTrigger = new InsertTriggerImpl();
 		return insertTrigger;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public UpdateTrigger createUpdateTrigger()
-  {
+	public UpdateTrigger createUpdateTrigger() {
 		UpdateTriggerImpl updateTrigger = new UpdateTriggerImpl();
 		return updateTrigger;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public DeleteTrigger createDeleteTrigger()
-  {
+	public DeleteTrigger createDeleteTrigger() {
 		DeleteTriggerImpl deleteTrigger = new DeleteTriggerImpl();
 		return deleteTrigger;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public SearchTrigger createSearchTrigger()
-  {
+	public SearchTrigger createSearchTrigger() {
 		SearchTriggerImpl searchTrigger = new SearchTriggerImpl();
 		return searchTrigger;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public Root createRoot()
-  {
+	public Root createRoot() {
 		RootImpl root = new RootImpl();
 		return root;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public FormVariable createFormVariable()
-  {
+	public FormVariable createFormVariable() {
 		FormVariableImpl formVariable = new FormVariableImpl();
 		return formVariable;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public DataControl createDataControl()
-  {
+	public DataControl createDataControl() {
 		DataControlImpl dataControl = new DataControlImpl();
 		return dataControl;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public Orders createOrders()
-  {
+	public Orders createOrders() {
 		OrdersImpl orders = new OrdersImpl();
 		return orders;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public OrderBy createOrderBy()
-  {
+	public OrderBy createOrderBy() {
 		OrderByImpl orderBy = new OrderByImpl();
 		return orderBy;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public Relation createRelation()
-  {
+	public Relation createRelation() {
 		RelationImpl relation = new RelationImpl();
 		return relation;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public Dependency createDependency()
-  {
+	public Dependency createDependency() {
 		DependencyImpl dependency = new DependencyImpl();
 		return dependency;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public ArtificialField createArtificialField()
-  {
+	public ArtificialField createArtificialField() {
 		ArtificialFieldImpl artificialField = new ArtificialFieldImpl();
 		return artificialField;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public Link createLink()
-  {
+	public Link createLink() {
 		LinkImpl link = new LinkImpl();
 		return link;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public ApplicationInfrastructureLayer createApplicationInfrastructureLayer()
-  {
+	public ApplicationInfrastructureLayer createApplicationInfrastructureLayer() {
 		ApplicationInfrastructureLayerImpl applicationInfrastructureLayer = new ApplicationInfrastructureLayerImpl();
 		return applicationInfrastructureLayer;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public EnterpriseInfrastructure createEnterpriseInfrastructure()
-  {
+	public EnterpriseInfrastructure createEnterpriseInfrastructure() {
 		EnterpriseInfrastructureImpl enterpriseInfrastructure = new EnterpriseInfrastructureImpl();
 		return enterpriseInfrastructure;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public Datacenter createDatacenter()
-  {
+	public Datacenter createDatacenter() {
 		DatacenterImpl datacenter = new DatacenterImpl();
 		return datacenter;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public Subsystem createSubsystem()
-  {
+	public Subsystem createSubsystem() {
 		SubsystemImpl subsystem = new SubsystemImpl();
 		return subsystem;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public InfrastructureLayer createInfrastructureLayer()
-  {
+	public InfrastructureLayer createInfrastructureLayer() {
 		InfrastructureLayerImpl infrastructureLayer = new InfrastructureLayerImpl();
 		return infrastructureLayer;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public InfrastructureConnection createInfrastructureConnection()
-  {
+	public InfrastructureConnection createInfrastructureConnection() {
 		InfrastructureConnectionImpl infrastructureConnection = new InfrastructureConnectionImpl();
 		return infrastructureConnection;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public InfrastructureComponent createInfrastructureComponent()
-  {
+	public InfrastructureComponent createInfrastructureComponent() {
 		InfrastructureComponentImpl infrastructureComponent = new InfrastructureComponentImpl();
 		return infrastructureComponent;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public Server createServer()
-  {
+	public Server createServer() {
 		ServerImpl server = new ServerImpl();
 		return server;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public Router createRouter()
-  {
+	public Router createRouter() {
 		RouterImpl router = new RouterImpl();
 		return router;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public Hub createHub()
-  {
+	public Hub createHub() {
 		HubImpl hub = new HubImpl();
 		return hub;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public Storage createStorage()
-  {
+	public Storage createStorage() {
 		StorageImpl storage = new StorageImpl();
 		return storage;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public ServerClaster createServerClaster()
-  {
+	public ServerClaster createServerClaster() {
 		ServerClasterImpl serverClaster = new ServerClasterImpl();
 		return serverClaster;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public PlatformLayers createPlatformLayersFromString(EDataType eDataType, String initialValue)
-  {
+	public PlatformLayers createPlatformLayersFromString(EDataType eDataType, String initialValue) {
 		PlatformLayers result = PlatformLayers.get(initialValue);
 		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
 		return result;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public String convertPlatformLayersToString(EDataType eDataType, Object instanceValue)
-  {
+	public String convertPlatformLayersToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public Comparator createComparatorFromString(EDataType eDataType, String initialValue)
-  {
+	public Comparator createComparatorFromString(EDataType eDataType, String initialValue) {
 		Comparator result = Comparator.get(initialValue);
 		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
 		return result;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public String convertComparatorToString(EDataType eDataType, Object instanceValue)
-  {
+	public String convertComparatorToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public Order createOrderFromString(EDataType eDataType, String initialValue)
-  {
+	public Order createOrderFromString(EDataType eDataType, String initialValue) {
 		Order result = Order.get(initialValue);
 		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
 		return result;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public String convertOrderToString(EDataType eDataType, Object instanceValue)
-  {
+	public String convertOrderToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public DomainPackage getDomainPackage()
-  {
+	public DomainPackage getDomainPackage() {
 		return (DomainPackage)getEPackage();
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @deprecated
 	 * @generated
 	 */
-  @Deprecated
-  public static DomainPackage getPackage()
-  {
+	@Deprecated
+	public static DomainPackage getPackage() {
 		return DomainPackage.eINSTANCE;
 	}
 

@@ -30,129 +30,123 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  *
  * @generated
  */
-public class ExpressionPartImpl extends EObjectImpl implements ExpressionPart
-{
-  /**
+public class ExpressionPartImpl extends EObjectImpl implements ExpressionPart {
+	/**
 	 * The default value of the '{@link #getUid() <em>Uid</em>}' attribute.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getUid()
 	 * @generated
 	 * @ordered
 	 */
-  protected static final String UID_EDEFAULT = null;
+	protected static final String UID_EDEFAULT = null;
 
-  /**
+	/**
 	 * The cached value of the '{@link #getUid() <em>Uid</em>}' attribute.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getUid()
 	 * @generated
 	 * @ordered
 	 */
-  protected String uid = UID_EDEFAULT;
+	protected String uid = UID_EDEFAULT;
 
-  /**
+	/**
 	 * The cached value of the '{@link #getObjRef() <em>Obj Ref</em>}' reference.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getObjRef()
 	 * @generated
 	 * @ordered
 	 */
-  protected EObject objRef;
+	protected EObject objRef;
 
-  /**
+	/**
 	 * The default value of the '{@link #getOrder() <em>Order</em>}' attribute.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getOrder()
 	 * @generated
 	 * @ordered
 	 */
-  protected static final int ORDER_EDEFAULT = 0;
+	protected static final int ORDER_EDEFAULT = 0;
 
-  /**
+	/**
 	 * The cached value of the '{@link #getOrder() <em>Order</em>}' attribute.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getOrder()
 	 * @generated
 	 * @ordered
 	 */
-  protected int order = ORDER_EDEFAULT;
+	protected int order = ORDER_EDEFAULT;
 
-  /**
+	/**
 	 * The default value of the '{@link #getExpressionType() <em>Expression Type</em>}' attribute.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getExpressionType()
 	 * @generated
 	 * @ordered
 	 */
-  protected static final String EXPRESSION_TYPE_EDEFAULT = null;
+	protected static final String EXPRESSION_TYPE_EDEFAULT = null;
 
-  /**
+	/**
 	 * The cached value of the '{@link #getExpressionType() <em>Expression Type</em>}' attribute.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getExpressionType()
 	 * @generated
 	 * @ordered
 	 */
-  protected String expressionType = EXPRESSION_TYPE_EDEFAULT;
+	protected String expressionType = EXPRESSION_TYPE_EDEFAULT;
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  protected ExpressionPartImpl()
-  {
+	protected ExpressionPartImpl() {
 		super();
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  protected EClass eStaticClass()
-  {
+	@Override
+	protected EClass eStaticClass() {
 		return DomainPackage.Literals.EXPRESSION_PART;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public String getUid()
-  {
+	public String getUid() {
 		return uid;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public void setUid(String newUid)
-  {
+	public void setUid(String newUid) {
 		String oldUid = uid;
 		uid = newUid;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.EXPRESSION_PART__UID, oldUid, uid));
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public EObject getObjRef()
-  {
+	public EObject getObjRef() {
 		if (objRef != null && objRef.eIsProxy()) {
 			InternalEObject oldObjRef = (InternalEObject)objRef;
 			objRef = eResolveProxy(oldObjRef);
@@ -164,83 +158,76 @@ public class ExpressionPartImpl extends EObjectImpl implements ExpressionPart
 		return objRef;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public EObject basicGetObjRef()
-  {
+	public EObject basicGetObjRef() {
 		return objRef;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public void setObjRef(EObject newObjRef)
-  {
+	public void setObjRef(EObject newObjRef) {
 		EObject oldObjRef = objRef;
 		objRef = newObjRef;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.EXPRESSION_PART__OBJ_REF, oldObjRef, objRef));
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public int getOrder()
-  {
+	public int getOrder() {
 		return order;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public void setOrder(int newOrder)
-  {
+	public void setOrder(int newOrder) {
 		int oldOrder = order;
 		order = newOrder;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.EXPRESSION_PART__ORDER, oldOrder, order));
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public String getExpressionType()
-  {
+	public String getExpressionType() {
 		return expressionType;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public void setExpressionType(String newExpressionType)
-  {
+	public void setExpressionType(String newExpressionType) {
 		String oldExpressionType = expressionType;
 		expressionType = newExpressionType;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.EXPRESSION_PART__EXPRESSION_TYPE, oldExpressionType, expressionType));
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public Object eGet(int featureID, boolean resolve, boolean coreType)
-  {
+	@Override
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case DomainPackage.EXPRESSION_PART__UID:
 				return getUid();
@@ -255,14 +242,13 @@ public class ExpressionPartImpl extends EObjectImpl implements ExpressionPart
 		return super.eGet(featureID, resolve, coreType);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public void eSet(int featureID, Object newValue)
-  {
+	@Override
+	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case DomainPackage.EXPRESSION_PART__UID:
 				setUid((String)newValue);
@@ -280,14 +266,13 @@ public class ExpressionPartImpl extends EObjectImpl implements ExpressionPart
 		super.eSet(featureID, newValue);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public void eUnset(int featureID)
-  {
+	@Override
+	public void eUnset(int featureID) {
 		switch (featureID) {
 			case DomainPackage.EXPRESSION_PART__UID:
 				setUid(UID_EDEFAULT);
@@ -305,14 +290,13 @@ public class ExpressionPartImpl extends EObjectImpl implements ExpressionPart
 		super.eUnset(featureID);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public boolean eIsSet(int featureID)
-  {
+	@Override
+	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case DomainPackage.EXPRESSION_PART__UID:
 				return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
@@ -326,14 +310,13 @@ public class ExpressionPartImpl extends EObjectImpl implements ExpressionPart
 		return super.eIsSet(featureID);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public String toString()
-  {
+	@Override
+	public String toString() {
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());

@@ -3,13 +3,6 @@
  */
 package mapper.diagram.providers;
 
-import mapper.diagram.edit.parts.CSSMapperFakePackageNameFakeTypeEditPart;
-import mapper.diagram.edit.parts.JavaMapperFakePackageNameFakeTypeEditPart;
-import mapper.diagram.edit.parts.JavaScriptMapperFakePackageNameFakeTypeEditPart;
-import mapper.diagram.edit.parts.RoleMapperFakeRoleNameEditPart;
-import mapper.diagram.parsers.MessageFormatParser;
-import mapper.diagram.part.DomainVisualIDRegistry;
-
 import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EObject;
@@ -24,6 +17,12 @@ import org.eclipse.gmf.runtime.emf.ui.services.parser.ParserHintAdapter;
 import org.eclipse.gmf.runtime.notation.View;
 
 import domain.DomainPackage;
+import mapper.diagram.edit.parts.CSSMapperFakePackageNameFakeTypeEditPart;
+import mapper.diagram.edit.parts.JavaMapperFakePackageNameFakeTypeEditPart;
+import mapper.diagram.edit.parts.JavaScriptMapperFakePackageNameFakeTypeEditPart;
+import mapper.diagram.edit.parts.RoleMapperFakeRoleNameEditPart;
+import mapper.diagram.parsers.MessageFormatParser;
+import mapper.diagram.part.DomainVisualIDRegistry;
 
 /**
  * @generated
@@ -31,13 +30,13 @@ import domain.DomainPackage;
 public class DomainParserProvider extends AbstractProvider implements IParserProvider {
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private IParser javaMapperFakePackageNameFakeTypeName_405001Parser;
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private IParser getJavaMapperFakePackageNameFakeTypeName_405001Parser() {
 		if (javaMapperFakePackageNameFakeTypeName_405001Parser == null) {
 			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE.getTypePointer_FakePackageName(),
@@ -49,13 +48,13 @@ public class DomainParserProvider extends AbstractProvider implements IParserPro
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private IParser javaScriptMapperFakePackageNameFakeTypeName_405003Parser;
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private IParser getJavaScriptMapperFakePackageNameFakeTypeName_405003Parser() {
 		if (javaScriptMapperFakePackageNameFakeTypeName_405003Parser == null) {
 			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE.getTypePointer_FakePackageName(),
@@ -67,13 +66,13 @@ public class DomainParserProvider extends AbstractProvider implements IParserPro
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private IParser cSSMapperFakePackageNameFakeTypeName_405004Parser;
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private IParser getCSSMapperFakePackageNameFakeTypeName_405004Parser() {
 		if (cSSMapperFakePackageNameFakeTypeName_405004Parser == null) {
 			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE.getCSSMapper_FakePackageName(),
@@ -85,13 +84,13 @@ public class DomainParserProvider extends AbstractProvider implements IParserPro
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private IParser roleMapperFakeRoleName_405005Parser;
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private IParser getRoleMapperFakeRoleName_405005Parser() {
 		if (roleMapperFakeRoleName_405005Parser == null) {
 			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE.getRoleMapper_FakeRoleName() };
@@ -102,8 +101,8 @@ public class DomainParserProvider extends AbstractProvider implements IParserPro
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected IParser getParser(int visualID) {
 		switch (visualID) {
 		case JavaMapperFakePackageNameFakeTypeEditPart.VISUAL_ID:
@@ -119,16 +118,16 @@ public class DomainParserProvider extends AbstractProvider implements IParserPro
 	}
 
 	/**
-	 * Utility method that consults ParserService
-	 * @generated
-	 */
+	* Utility method that consults ParserService
+	* @generated
+	*/
 	public static IParser getParser(IElementType type, EObject object, String parserHint) {
 		return ParserService.getInstance().getParser(new HintAdapter(type, object, parserHint));
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public IParser getParser(IAdaptable hint) {
 		String vid = (String) hint.getAdapter(String.class);
 		if (vid != null) {
@@ -142,8 +141,8 @@ public class DomainParserProvider extends AbstractProvider implements IParserPro
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public boolean provides(IOperation operation) {
 		if (operation instanceof GetParserOperation) {
 			IAdaptable hint = ((GetParserOperation) operation).getHint();
@@ -156,18 +155,18 @@ public class DomainParserProvider extends AbstractProvider implements IParserPro
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private static class HintAdapter extends ParserHintAdapter {
 
 		/**
-		 * @generated
-		 */
+		* @generated
+		*/
 		private final IElementType elementType;
 
 		/**
-		 * @generated
-		 */
+		* @generated
+		*/
 		public HintAdapter(IElementType type, EObject object, String parserHint) {
 			super(object, parserHint);
 			assert type != null;
@@ -175,8 +174,8 @@ public class DomainParserProvider extends AbstractProvider implements IParserPro
 		}
 
 		/**
-		 * @generated
-		 */
+		* @generated
+		*/
 		public Object getAdapter(Class adapter) {
 			if (IElementType.class.equals(adapter)) {
 				return elementType;

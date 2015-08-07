@@ -35,13 +35,13 @@ import domain.diagram.part.DomainVisualIDRegistry;
 public class DomainParserProvider extends AbstractProvider implements IParserProvider {
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private IParser domainArtifactsName_505001Parser;
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private IParser getDomainArtifactsName_505001Parser() {
 		if (domainArtifactsName_505001Parser == null) {
 			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE.getDomainArtifacts_Name() };
@@ -52,13 +52,13 @@ public class DomainParserProvider extends AbstractProvider implements IParserPro
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private IParser domainApplicationsName_505004Parser;
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private IParser getDomainApplicationsName_505004Parser() {
 		if (domainApplicationsName_505004Parser == null) {
 			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE.getDomainApplications_Name() };
@@ -69,13 +69,13 @@ public class DomainParserProvider extends AbstractProvider implements IParserPro
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private IParser domainTypesName_505002Parser;
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private IParser getDomainTypesName_505002Parser() {
 		if (domainTypesName_505002Parser == null) {
 			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE.getDomainTypes_Name() };
@@ -86,13 +86,13 @@ public class DomainParserProvider extends AbstractProvider implements IParserPro
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private IParser oRMEntityName_505006Parser;
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private IParser getORMEntityName_505006Parser() {
 		if (oRMEntityName_505006Parser == null) {
 			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE.getDomainArtifact_Name() };
@@ -103,13 +103,13 @@ public class DomainParserProvider extends AbstractProvider implements IParserPro
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private IParser jPAServiceName_505007Parser;
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private IParser getJPAServiceName_505007Parser() {
 		if (jPAServiceName_505007Parser == null) {
 			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE.getDomainArtifact_Name() };
@@ -120,13 +120,13 @@ public class DomainParserProvider extends AbstractProvider implements IParserPro
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private IParser eJBServiceName_505008Parser;
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private IParser getEJBServiceName_505008Parser() {
 		if (eJBServiceName_505008Parser == null) {
 			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE.getDomainArtifact_Name() };
@@ -137,13 +137,13 @@ public class DomainParserProvider extends AbstractProvider implements IParserPro
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private IParser continuousIintegrationName_505009Parser;
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private IParser getContinuousIintegrationName_505009Parser() {
 		if (continuousIintegrationName_505009Parser == null) {
 			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE.getDomainArtifact_Name() };
@@ -154,13 +154,13 @@ public class DomainParserProvider extends AbstractProvider implements IParserPro
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private IParser domainArtifactName_505005Parser;
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private IParser getDomainArtifactName_505005Parser() {
 		if (domainArtifactName_505005Parser == null) {
 			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE.getDomainArtifact_Name() };
@@ -171,13 +171,13 @@ public class DomainParserProvider extends AbstractProvider implements IParserPro
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private IParser domainApplicationName_505003Parser;
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private IParser getDomainApplicationName_505003Parser() {
 		if (domainApplicationName_505003Parser == null) {
 			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE.getDomainApplication_Name() };
@@ -188,8 +188,8 @@ public class DomainParserProvider extends AbstractProvider implements IParserPro
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected IParser getParser(int visualID) {
 		switch (visualID) {
 		case DomainArtifactsNameEditPart.VISUAL_ID:
@@ -215,16 +215,16 @@ public class DomainParserProvider extends AbstractProvider implements IParserPro
 	}
 
 	/**
-	 * Utility method that consults ParserService
-	 * @generated
-	 */
+	* Utility method that consults ParserService
+	* @generated
+	*/
 	public static IParser getParser(IElementType type, EObject object, String parserHint) {
 		return ParserService.getInstance().getParser(new HintAdapter(type, object, parserHint));
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public IParser getParser(IAdaptable hint) {
 		String vid = (String) hint.getAdapter(String.class);
 		if (vid != null) {
@@ -238,8 +238,8 @@ public class DomainParserProvider extends AbstractProvider implements IParserPro
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public boolean provides(IOperation operation) {
 		if (operation instanceof GetParserOperation) {
 			IAdaptable hint = ((GetParserOperation) operation).getHint();
@@ -252,18 +252,18 @@ public class DomainParserProvider extends AbstractProvider implements IParserPro
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private static class HintAdapter extends ParserHintAdapter {
 
 		/**
-		 * @generated
-		 */
+		* @generated
+		*/
 		private final IElementType elementType;
 
 		/**
-		 * @generated
-		 */
+		* @generated
+		*/
 		public HintAdapter(IElementType type, EObject object, String parserHint) {
 			super(object, parserHint);
 			assert type != null;
@@ -271,8 +271,8 @@ public class DomainParserProvider extends AbstractProvider implements IParserPro
 		}
 
 		/**
-		 * @generated
-		 */
+		* @generated
+		*/
 		public Object getAdapter(Class adapter) {
 			if (IElementType.class.equals(adapter)) {
 				return elementType;

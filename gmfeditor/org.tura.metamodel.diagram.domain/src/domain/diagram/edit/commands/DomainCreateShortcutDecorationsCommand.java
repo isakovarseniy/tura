@@ -26,13 +26,13 @@ import domain.diagram.edit.parts.DomainEditPart;
 public class DomainCreateShortcutDecorationsCommand extends AbstractTransactionalCommand {
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private List myDescriptors;
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public DomainCreateShortcutDecorationsCommand(TransactionalEditingDomain editingDomain, View parentView,
 			List viewDescriptors) {
 		super(editingDomain, "Create Shortcuts", getWorkspaceFiles(parentView)); //$NON-NLS-1$
@@ -40,16 +40,16 @@ public class DomainCreateShortcutDecorationsCommand extends AbstractTransactiona
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public DomainCreateShortcutDecorationsCommand(TransactionalEditingDomain editingDomain, View parentView,
 			CreateViewRequest.ViewDescriptor viewDescriptor) {
 		this(editingDomain, parentView, Collections.singletonList(viewDescriptor));
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected CommandResult doExecuteWithResult(IProgressMonitor monitor, IAdaptable info) throws ExecutionException {
 		for (Iterator it = myDescriptors.iterator(); it.hasNext();) {
 			CreateViewRequest.ViewDescriptor nextDescriptor = (CreateViewRequest.ViewDescriptor) it.next();

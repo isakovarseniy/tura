@@ -12,9 +12,9 @@ import org.eclipse.gmf.runtime.emf.type.core.commands.EditElementCommand;
 import org.eclipse.gmf.runtime.emf.type.core.requests.ReorientReferenceRelationshipRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.ReorientRelationshipRequest;
 
-import recipe.diagram.edit.policies.DomainBaseItemSemanticEditPolicy;
 import domain.Infrastructure;
 import domain.Recipe;
+import recipe.diagram.edit.policies.DomainBaseItemSemanticEditPolicy;
 
 /**
  * @generated
@@ -22,28 +22,28 @@ import domain.Recipe;
 public class RecipeInfrastructuresReorientCommand extends EditElementCommand {
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private final int reorientDirection;
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private final EObject referenceOwner;
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private final EObject oldEnd;
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private final EObject newEnd;
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public RecipeInfrastructuresReorientCommand(ReorientReferenceRelationshipRequest request) {
 		super(request.getLabel(), null, request);
 		reorientDirection = request.getDirection();
@@ -53,8 +53,8 @@ public class RecipeInfrastructuresReorientCommand extends EditElementCommand {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public boolean canExecute() {
 		if (false == referenceOwner instanceof Recipe) {
 			return false;
@@ -69,8 +69,8 @@ public class RecipeInfrastructuresReorientCommand extends EditElementCommand {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected boolean canReorientSource() {
 		if (!(oldEnd instanceof Infrastructure && newEnd instanceof Recipe)) {
 			return false;
@@ -80,8 +80,8 @@ public class RecipeInfrastructuresReorientCommand extends EditElementCommand {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected boolean canReorientTarget() {
 		if (!(oldEnd instanceof Infrastructure && newEnd instanceof Infrastructure)) {
 			return false;
@@ -91,8 +91,8 @@ public class RecipeInfrastructuresReorientCommand extends EditElementCommand {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected CommandResult doExecuteWithResult(IProgressMonitor monitor, IAdaptable info) throws ExecutionException {
 		if (!canExecute()) {
 			throw new ExecutionException("Invalid arguments in reorient link command"); //$NON-NLS-1$
@@ -107,8 +107,8 @@ public class RecipeInfrastructuresReorientCommand extends EditElementCommand {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected CommandResult reorientSource() throws ExecutionException {
 		getOldSource().getInfrastructures().remove(getOldTarget());
 		getNewSource().getInfrastructures().add(getOldTarget());
@@ -116,8 +116,8 @@ public class RecipeInfrastructuresReorientCommand extends EditElementCommand {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected CommandResult reorientTarget() throws ExecutionException {
 		getOldSource().getInfrastructures().remove(getOldTarget());
 		getOldSource().getInfrastructures().add(getNewTarget());
@@ -125,29 +125,29 @@ public class RecipeInfrastructuresReorientCommand extends EditElementCommand {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected Recipe getOldSource() {
 		return (Recipe) referenceOwner;
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected Recipe getNewSource() {
 		return (Recipe) newEnd;
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected Infrastructure getOldTarget() {
 		return (Infrastructure) oldEnd;
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected Infrastructure getNewTarget() {
 		return (Infrastructure) newEnd;
 	}

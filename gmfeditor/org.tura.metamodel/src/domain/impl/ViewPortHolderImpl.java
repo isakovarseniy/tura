@@ -31,60 +31,55 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public class ViewPortHolderImpl extends HTMLLayerHolderImpl implements ViewPortHolder
-{
-  /**
+public class ViewPortHolderImpl extends HTMLLayerHolderImpl implements ViewPortHolder {
+	/**
 	 * The cached value of the '{@link #getViewElement() <em>View Element</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getViewElement()
 	 * @generated
 	 * @ordered
 	 */
-  protected EList<ViewElement> viewElement;
+	protected EList<ViewElement> viewElement;
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  protected ViewPortHolderImpl()
-  {
+	protected ViewPortHolderImpl() {
 		super();
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  protected EClass eStaticClass()
-  {
+	@Override
+	protected EClass eStaticClass() {
 		return DomainPackage.Literals.VIEW_PORT_HOLDER;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public EList<ViewElement> getViewElement()
-  {
+	public EList<ViewElement> getViewElement() {
 		if (viewElement == null) {
 			viewElement = new EObjectContainmentEList<ViewElement>(ViewElement.class, this, DomainPackage.VIEW_PORT_HOLDER__VIEW_ELEMENT);
 		}
 		return viewElement;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-  {
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case DomainPackage.VIEW_PORT_HOLDER__VIEW_ELEMENT:
 				return ((InternalEList<?>)getViewElement()).basicRemove(otherEnd, msgs);
@@ -92,14 +87,13 @@ public class ViewPortHolderImpl extends HTMLLayerHolderImpl implements ViewPortH
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public Object eGet(int featureID, boolean resolve, boolean coreType)
-  {
+	@Override
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case DomainPackage.VIEW_PORT_HOLDER__VIEW_ELEMENT:
 				return getViewElement();
@@ -107,15 +101,14 @@ public class ViewPortHolderImpl extends HTMLLayerHolderImpl implements ViewPortH
 		return super.eGet(featureID, resolve, coreType);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @SuppressWarnings("unchecked")
-  @Override
-  public void eSet(int featureID, Object newValue)
-  {
+	@SuppressWarnings("unchecked")
+	@Override
+	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case DomainPackage.VIEW_PORT_HOLDER__VIEW_ELEMENT:
 				getViewElement().clear();
@@ -125,14 +118,13 @@ public class ViewPortHolderImpl extends HTMLLayerHolderImpl implements ViewPortH
 		super.eSet(featureID, newValue);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public void eUnset(int featureID)
-  {
+	@Override
+	public void eUnset(int featureID) {
 		switch (featureID) {
 			case DomainPackage.VIEW_PORT_HOLDER__VIEW_ELEMENT:
 				getViewElement().clear();
@@ -141,14 +133,13 @@ public class ViewPortHolderImpl extends HTMLLayerHolderImpl implements ViewPortH
 		super.eUnset(featureID);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public boolean eIsSet(int featureID)
-  {
+	@Override
+	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case DomainPackage.VIEW_PORT_HOLDER__VIEW_ELEMENT:
 				return viewElement != null && !viewElement.isEmpty();

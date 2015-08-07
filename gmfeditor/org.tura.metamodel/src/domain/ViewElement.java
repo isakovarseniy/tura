@@ -13,6 +13,5 @@ package domain;
  * @model
  * @generated
  */
-public interface ViewElement extends StyleElement
-{
+public interface ViewElement extends StyleElement {
 } // ViewElement

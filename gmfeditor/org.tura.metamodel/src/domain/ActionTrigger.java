@@ -19,32 +19,31 @@ package domain;
  * @model
  * @generated
  */
-public interface ActionTrigger extends Trigger, Categorized
-{
-  /**
+public interface ActionTrigger extends Trigger, Categorized {
+	/**
 	 * Returns the value of the '<em><b>Uid</b></em>' attribute.
 	 * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Uid</em>' attribute isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Uid</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Uid</em>' attribute.
 	 * @see #setUid(String)
 	 * @see domain.DomainPackage#getActionTrigger_Uid()
 	 * @model id="true"
 	 * @generated
 	 */
-  String getUid();
+	String getUid();
 
-  /**
+	/**
 	 * Sets the value of the '{@link domain.ActionTrigger#getUid <em>Uid</em>}' attribute.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Uid</em>' attribute.
 	 * @see #getUid()
 	 * @generated
 	 */
-  void setUid(String value);
+	void setUid(String value);
 
 } // ActionTrigger

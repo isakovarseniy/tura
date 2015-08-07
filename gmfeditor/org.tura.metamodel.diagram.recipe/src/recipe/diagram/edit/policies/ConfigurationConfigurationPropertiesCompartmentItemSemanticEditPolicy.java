@@ -1,6 +1,6 @@
 /*
- * 
- */
+* 
+*/
 package recipe.diagram.edit.policies;
 
 import org.eclipse.gef.commands.Command;
@@ -16,15 +16,15 @@ public class ConfigurationConfigurationPropertiesCompartmentItemSemanticEditPoli
 		extends DomainBaseItemSemanticEditPolicy {
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public ConfigurationConfigurationPropertiesCompartmentItemSemanticEditPolicy() {
 		super(DomainElementTypes.Configuration_302002);
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected Command getCreateCommand(CreateElementRequest req) {
 		if (DomainElementTypes.Property_303005 == req.getElementType()) {
 			return getGEFWrapper(new PropertyCreateCommand(req));

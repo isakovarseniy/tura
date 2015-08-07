@@ -39,27 +39,27 @@ public class ApplicationUILayerApplicationUILayerApplicationUIPackagesCompartmen
 		extends ShapeCompartmentEditPart {
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static final int VISUAL_ID = 807003;
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public ApplicationUILayerApplicationUILayerApplicationUIPackagesCompartmentEditPart(View view) {
 		super(view);
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public String getCompartmentName() {
 		return Messages.ApplicationUILayerApplicationUILayerApplicationUIPackagesCompartmentEditPart_title;
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 
 	public IFigure createFigure() {
 		ResizableCompartmentFigure result = (ResizableCompartmentFigure) super.createFigure();
@@ -103,8 +103,8 @@ public class ApplicationUILayerApplicationUILayerApplicationUIPackagesCompartmen
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected void createDefaultEditPolicies() {
 		super.createDefaultEditPolicies();
 		installEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE, new ResizableCompartmentEditPolicy());
@@ -118,8 +118,8 @@ public class ApplicationUILayerApplicationUILayerApplicationUIPackagesCompartmen
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected void setRatio(Double ratio) {
 		if (getFigure().getParent().getLayoutManager() instanceof ConstrainedToolbarLayout) {
 			super.setRatio(ratio);
@@ -127,8 +127,8 @@ public class ApplicationUILayerApplicationUILayerApplicationUIPackagesCompartmen
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public EditPart getTargetEditPart(Request request) {
 		if (request instanceof CreateViewAndElementRequest) {
 			CreateElementRequestAdapter adapter = ((CreateViewAndElementRequest) request).getViewAndElementDescriptor()

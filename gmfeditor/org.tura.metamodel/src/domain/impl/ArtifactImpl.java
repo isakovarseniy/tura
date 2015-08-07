@@ -49,247 +49,235 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public class ArtifactImpl extends EObjectImpl implements Artifact
-{
-  /**
+public class ArtifactImpl extends EObjectImpl implements Artifact {
+	/**
 	 * The default value of the '{@link #getUid() <em>Uid</em>}' attribute.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getUid()
 	 * @generated
 	 * @ordered
 	 */
-  protected static final String UID_EDEFAULT = null;
+	protected static final String UID_EDEFAULT = null;
 
-  /**
+	/**
 	 * The cached value of the '{@link #getUid() <em>Uid</em>}' attribute.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getUid()
 	 * @generated
 	 * @ordered
 	 */
-  protected String uid = UID_EDEFAULT;
+	protected String uid = UID_EDEFAULT;
 
-  /**
+	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getName()
 	 * @generated
 	 * @ordered
 	 */
-  protected static final String NAME_EDEFAULT = null;
+	protected static final String NAME_EDEFAULT = null;
 
-  /**
+	/**
 	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getName()
 	 * @generated
 	 * @ordered
 	 */
-  protected String name = NAME_EDEFAULT;
+	protected String name = NAME_EDEFAULT;
 
-  /**
+	/**
 	 * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getDescription()
 	 * @generated
 	 * @ordered
 	 */
-  protected static final String DESCRIPTION_EDEFAULT = null;
+	protected static final String DESCRIPTION_EDEFAULT = null;
 
-  /**
+	/**
 	 * The cached value of the '{@link #getDescription() <em>Description</em>}' attribute.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getDescription()
 	 * @generated
 	 * @ordered
 	 */
-  protected String description = DESCRIPTION_EDEFAULT;
+	protected String description = DESCRIPTION_EDEFAULT;
 
-  /**
+	/**
 	 * The cached value of the '{@link #getConfigVariables() <em>Config Variables</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getConfigVariables()
 	 * @generated
 	 * @ordered
 	 */
-  protected EList<ConfigVariable> configVariables;
+	protected EList<ConfigVariable> configVariables;
 
-  /**
+	/**
 	 * The cached value of the '{@link #getModelQuery() <em>Model Query</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getModelQuery()
 	 * @generated
 	 * @ordered
 	 */
-  protected EList<ModelQuery> modelQuery;
+	protected EList<ModelQuery> modelQuery;
 
-  /**
+	/**
 	 * The cached value of the '{@link #getSpecifiers() <em>Specifiers</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getSpecifiers()
 	 * @generated
 	 * @ordered
 	 */
-  protected EList<Specifier> specifiers;
+	protected EList<Specifier> specifiers;
 
-  /**
+	/**
 	 * The cached value of the '{@link #getHints() <em>Hints</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getHints()
 	 * @generated
 	 * @ordered
 	 */
-  protected EList<GenerationHint> hints;
+	protected EList<GenerationHint> hints;
 
-  /**
+	/**
 	 * The default value of the '{@link #getTemplate() <em>Template</em>}' attribute.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getTemplate()
 	 * @generated
 	 * @ordered
 	 */
-  protected static final String TEMPLATE_EDEFAULT = null;
+	protected static final String TEMPLATE_EDEFAULT = null;
 
-  /**
+	/**
 	 * The cached value of the '{@link #getTemplate() <em>Template</em>}' attribute.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getTemplate()
 	 * @generated
 	 * @ordered
 	 */
-  protected String template = TEMPLATE_EDEFAULT;
+	protected String template = TEMPLATE_EDEFAULT;
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  protected ArtifactImpl()
-  {
+	protected ArtifactImpl() {
 		super();
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  protected EClass eStaticClass()
-  {
+	@Override
+	protected EClass eStaticClass() {
 		return DomainPackage.Literals.ARTIFACT;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public String getUid()
-  {
+	public String getUid() {
 		return uid;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public void setUid(String newUid)
-  {
+	public void setUid(String newUid) {
 		String oldUid = uid;
 		uid = newUid;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.ARTIFACT__UID, oldUid, uid));
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public String getName()
-  {
+	public String getName() {
 		return name;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public void setName(String newName)
-  {
+	public void setName(String newName) {
 		String oldName = name;
 		name = newName;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.ARTIFACT__NAME, oldName, name));
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public String getDescription()
-  {
+	public String getDescription() {
 		return description;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public void setDescription(String newDescription)
-  {
+	public void setDescription(String newDescription) {
 		String oldDescription = description;
 		description = newDescription;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.ARTIFACT__DESCRIPTION, oldDescription, description));
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public Artifacts getParent()
-  {
+	public Artifacts getParent() {
 		if (eContainerFeatureID() != DomainPackage.ARTIFACT__PARENT) return null;
 		return (Artifacts)eInternalContainer();
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public NotificationChain basicSetParent(Artifacts newParent, NotificationChain msgs)
-  {
+	public NotificationChain basicSetParent(Artifacts newParent, NotificationChain msgs) {
 		msgs = eBasicSetContainer((InternalEObject)newParent, DomainPackage.ARTIFACT__PARENT, msgs);
 		return msgs;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public void setParent(Artifacts newParent)
-  {
+	public void setParent(Artifacts newParent) {
 		if (newParent != eInternalContainer() || (eContainerFeatureID() != DomainPackage.ARTIFACT__PARENT && newParent != null)) {
 			if (EcoreUtil.isAncestor(this, newParent))
 				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
@@ -305,90 +293,83 @@ public class ArtifactImpl extends EObjectImpl implements Artifact
 			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.ARTIFACT__PARENT, newParent, newParent));
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public EList<ConfigVariable> getConfigVariables()
-  {
+	public EList<ConfigVariable> getConfigVariables() {
 		if (configVariables == null) {
 			configVariables = new EObjectContainmentWithInverseEList<ConfigVariable>(ConfigVariable.class, this, DomainPackage.ARTIFACT__CONFIG_VARIABLES, DomainPackage.CONFIG_VARIABLE__PARENT);
 		}
 		return configVariables;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public EList<ModelQuery> getModelQuery()
-  {
+	public EList<ModelQuery> getModelQuery() {
 		if (modelQuery == null) {
 			modelQuery = new EObjectContainmentWithInverseEList<ModelQuery>(ModelQuery.class, this, DomainPackage.ARTIFACT__MODEL_QUERY, DomainPackage.MODEL_QUERY__PARENT);
 		}
 		return modelQuery;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public EList<Specifier> getSpecifiers()
-  {
+	public EList<Specifier> getSpecifiers() {
 		if (specifiers == null) {
 			specifiers = new EObjectContainmentWithInverseEList<Specifier>(Specifier.class, this, DomainPackage.ARTIFACT__SPECIFIERS, DomainPackage.SPECIFIER__PARENT);
 		}
 		return specifiers;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public EList<GenerationHint> getHints()
-  {
+	public EList<GenerationHint> getHints() {
 		if (hints == null) {
 			hints = new EObjectContainmentEList<GenerationHint>(GenerationHint.class, this, DomainPackage.ARTIFACT__HINTS);
 		}
 		return hints;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public String getTemplate()
-  {
+	public String getTemplate() {
 		return template;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public void setTemplate(String newTemplate)
-  {
+	public void setTemplate(String newTemplate) {
 		String oldTemplate = template;
 		template = newTemplate;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.ARTIFACT__TEMPLATE, oldTemplate, template));
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @SuppressWarnings("unchecked")
-  @Override
-  public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-  {
+	@SuppressWarnings("unchecked")
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case DomainPackage.ARTIFACT__PARENT:
 				if (eInternalContainer() != null)
@@ -404,14 +385,13 @@ public class ArtifactImpl extends EObjectImpl implements Artifact
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-  {
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case DomainPackage.ARTIFACT__PARENT:
 				return basicSetParent(null, msgs);
@@ -427,14 +407,13 @@ public class ArtifactImpl extends EObjectImpl implements Artifact
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs)
-  {
+	@Override
+	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
 		switch (eContainerFeatureID()) {
 			case DomainPackage.ARTIFACT__PARENT:
 				return eInternalContainer().eInverseRemove(this, DomainPackage.ARTIFACTS__ARTIFACTS, Artifacts.class, msgs);
@@ -442,14 +421,13 @@ public class ArtifactImpl extends EObjectImpl implements Artifact
 		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public Object eGet(int featureID, boolean resolve, boolean coreType)
-  {
+	@Override
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case DomainPackage.ARTIFACT__UID:
 				return getUid();
@@ -473,15 +451,14 @@ public class ArtifactImpl extends EObjectImpl implements Artifact
 		return super.eGet(featureID, resolve, coreType);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @SuppressWarnings("unchecked")
-  @Override
-  public void eSet(int featureID, Object newValue)
-  {
+	@SuppressWarnings("unchecked")
+	@Override
+	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case DomainPackage.ARTIFACT__UID:
 				setUid((String)newValue);
@@ -518,14 +495,13 @@ public class ArtifactImpl extends EObjectImpl implements Artifact
 		super.eSet(featureID, newValue);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public void eUnset(int featureID)
-  {
+	@Override
+	public void eUnset(int featureID) {
 		switch (featureID) {
 			case DomainPackage.ARTIFACT__UID:
 				setUid(UID_EDEFAULT);
@@ -558,14 +534,13 @@ public class ArtifactImpl extends EObjectImpl implements Artifact
 		super.eUnset(featureID);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public boolean eIsSet(int featureID)
-  {
+	@Override
+	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case DomainPackage.ARTIFACT__UID:
 				return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
@@ -589,14 +564,13 @@ public class ArtifactImpl extends EObjectImpl implements Artifact
 		return super.eIsSet(featureID);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public String toString()
-  {
+	@Override
+	public String toString() {
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());

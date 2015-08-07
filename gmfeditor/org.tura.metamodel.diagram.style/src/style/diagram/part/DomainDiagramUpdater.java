@@ -1,6 +1,6 @@
 /*
- * 
- */
+* 
+*/
 package style.diagram.part;
 
 import java.util.Collections;
@@ -11,13 +11,13 @@ import java.util.List;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.gmf.tooling.runtime.update.DiagramUpdater;
 
+import domain.StyleLibrary;
+import domain.StyleSet;
+import domain.Styles;
 import style.diagram.edit.parts.StyleLibraryEditPart;
 import style.diagram.edit.parts.StyleLibraryStyleLibraryStylesCompartmentEditPart;
 import style.diagram.edit.parts.StyleSetEditPart;
 import style.diagram.edit.parts.StylesEditPart;
-import domain.StyleLibrary;
-import domain.StyleSet;
-import domain.Styles;
 
 /**
  * @generated
@@ -25,15 +25,15 @@ import domain.Styles;
 public class DomainDiagramUpdater {
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static boolean isShortcutOrphaned(View view) {
 		return !view.isSetElement() || view.getElement() == null || view.getElement().eIsProxy();
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static List<DomainNodeDescriptor> getSemanticChildren(View view) {
 		switch (DomainVisualIDRegistry.getVisualID(view)) {
 		case StylesEditPart.VISUAL_ID:
@@ -45,8 +45,8 @@ public class DomainDiagramUpdater {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static List<DomainNodeDescriptor> getStyles_1501000SemanticChildren(View view) {
 		if (!view.isSetElement()) {
 			return Collections.emptyList();
@@ -65,8 +65,8 @@ public class DomainDiagramUpdater {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static List<DomainNodeDescriptor> getStyleLibraryStyleLibraryStylesCompartment_1507001SemanticChildren(
 			View view) {
 		if (false == view.eContainer() instanceof View) {
@@ -90,8 +90,8 @@ public class DomainDiagramUpdater {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static List<DomainLinkDescriptor> getContainedLinks(View view) {
 		switch (DomainVisualIDRegistry.getVisualID(view)) {
 		case StylesEditPart.VISUAL_ID:
@@ -105,8 +105,8 @@ public class DomainDiagramUpdater {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static List<DomainLinkDescriptor> getIncomingLinks(View view) {
 		switch (DomainVisualIDRegistry.getVisualID(view)) {
 		case StyleLibraryEditPart.VISUAL_ID:
@@ -118,8 +118,8 @@ public class DomainDiagramUpdater {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static List<DomainLinkDescriptor> getOutgoingLinks(View view) {
 		switch (DomainVisualIDRegistry.getVisualID(view)) {
 		case StyleLibraryEditPart.VISUAL_ID:
@@ -180,8 +180,8 @@ public class DomainDiagramUpdater {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static final DiagramUpdater TYPED_INSTANCE = new DiagramUpdater() {
 		/**
 		* @generated

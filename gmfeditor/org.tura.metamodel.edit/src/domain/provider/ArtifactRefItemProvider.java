@@ -31,35 +31,32 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class ArtifactRefItemProvider
-  extends ItemProviderAdapter
-  implements
-    IEditingDomainItemProvider,
-    IStructuredItemContentProvider,
-    ITreeItemContentProvider,
-    IItemLabelProvider,
-    IItemPropertySource
-{
-  /**
+public class ArtifactRefItemProvider 
+	extends ItemProviderAdapter
+	implements
+		IEditingDomainItemProvider,
+		IStructuredItemContentProvider,
+		ITreeItemContentProvider,
+		IItemLabelProvider,
+		IItemPropertySource {
+	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public ArtifactRefItemProvider(AdapterFactory adapterFactory)
-  {
+	public ArtifactRefItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
-  /**
+	/**
 	 * This returns the property descriptors for the adapted class.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object)
-  {
+	@Override
+	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
@@ -70,14 +67,13 @@ public class ArtifactRefItemProvider
 		return itemPropertyDescriptors;
 	}
 
-  /**
+	/**
 	 * This adds a property descriptor for the Uid feature.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  protected void addUidPropertyDescriptor(Object object)
-  {
+	protected void addUidPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
@@ -93,14 +89,13 @@ public class ArtifactRefItemProvider
 				 null));
 	}
 
-  /**
+	/**
 	 * This adds a property descriptor for the Domain Artifact Ref feature.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  protected void addDomainArtifactRefPropertyDescriptor(Object object)
-  {
+	protected void addDomainArtifactRefPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
@@ -116,14 +111,13 @@ public class ArtifactRefItemProvider
 				 null));
 	}
 
-  /**
+	/**
 	 * This adds a property descriptor for the Artifact Ref feature.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  protected void addArtifactRefPropertyDescriptor(Object object)
-  {
+	protected void addArtifactRefPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
@@ -139,43 +133,41 @@ public class ArtifactRefItemProvider
 				 null));
 	}
 
-  /**
+	/**
 	 * This returns ArtifactRef.gif.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public Object getImage(Object object)
-  {
+	@Override
+	public Object getImage(Object object) {
 		return overlayImage(object, getResourceLocator().getImage("full/obj16/ArtifactRef"));
 	}
 
-  /**
+	/**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public String getText(Object object)
-  {
+	@Override
+	public String getText(Object object) {
 		String label = ((ArtifactRef)object).getUid();
 		return label == null || label.length() == 0 ?
 			getString("_UI_ArtifactRef_type") :
 			getString("_UI_ArtifactRef_type") + " " + label;
 	}
+	
 
-  /**
+	/**
 	 * This handles model notifications by calling {@link #updateChildren} to update any cached
 	 * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public void notifyChanged(Notification notification)
-  {
+	@Override
+	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(ArtifactRef.class)) {
@@ -186,28 +178,26 @@ public class ArtifactRefItemProvider
 		super.notifyChanged(notification);
 	}
 
-  /**
+	/**
 	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
 	 * that can be created under this object.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object)
-  {
+	@Override
+	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 	}
 
-  /**
+	/**
 	 * Return the resource locator for this item provider's resources.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public ResourceLocator getResourceLocator()
-  {
+	@Override
+	public ResourceLocator getResourceLocator() {
 		return DomainEditPlugin.INSTANCE;
 	}
 

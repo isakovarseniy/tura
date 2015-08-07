@@ -1,6 +1,6 @@
 /*
- * 
- */
+* 
+*/
 package recipe.diagram.part;
 
 import java.util.Collection;
@@ -16,6 +16,18 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.gmf.tooling.runtime.update.DiagramUpdater;
 
+import domain.Component;
+import domain.Configuration;
+import domain.DeploymentSequence;
+import domain.DomainPackage;
+import domain.Infrastructure;
+import domain.Ingredient;
+import domain.JavaComponent;
+import domain.ModelMapper;
+import domain.Property;
+import domain.Query;
+import domain.Recipe;
+import domain.Recipes;
 import recipe.diagram.edit.parts.ConfigurationConfigurationPropertiesCompartmentEditPart;
 import recipe.diagram.edit.parts.ConfigurationEditPart;
 import recipe.diagram.edit.parts.DeploymentSequenceEditPart;
@@ -35,18 +47,6 @@ import recipe.diagram.edit.parts.RecipeInfrastructuresEditPart;
 import recipe.diagram.edit.parts.RecipeRecipeIngredientsCompartmentEditPart;
 import recipe.diagram.edit.parts.RecipesEditPart;
 import recipe.diagram.providers.DomainElementTypes;
-import domain.Component;
-import domain.Configuration;
-import domain.DeploymentSequence;
-import domain.DomainPackage;
-import domain.Infrastructure;
-import domain.Ingredient;
-import domain.JavaComponent;
-import domain.ModelMapper;
-import domain.Property;
-import domain.Query;
-import domain.Recipe;
-import domain.Recipes;
 
 /**
  * @generated
@@ -54,15 +54,15 @@ import domain.Recipes;
 public class DomainDiagramUpdater {
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static boolean isShortcutOrphaned(View view) {
 		return !view.isSetElement() || view.getElement() == null || view.getElement().eIsProxy();
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static List<DomainNodeDescriptor> getSemanticChildren(View view) {
 		switch (DomainVisualIDRegistry.getVisualID(view)) {
 		case RecipesEditPart.VISUAL_ID:
@@ -82,8 +82,8 @@ public class DomainDiagramUpdater {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static List<DomainNodeDescriptor> getRecipes_301000SemanticChildren(View view) {
 		if (!view.isSetElement()) {
 			return Collections.emptyList();
@@ -124,8 +124,8 @@ public class DomainDiagramUpdater {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static List<DomainNodeDescriptor> getRecipeRecipeIngredientsCompartment_307001SemanticChildren(View view) {
 		if (false == view.eContainer() instanceof View) {
 			return Collections.emptyList();
@@ -148,8 +148,8 @@ public class DomainDiagramUpdater {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static List<DomainNodeDescriptor> getIngredientIngredientComponentsCompartment_307002SemanticChildren(
 			View view) {
 		if (false == view.eContainer() instanceof View) {
@@ -173,8 +173,8 @@ public class DomainDiagramUpdater {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static List<DomainNodeDescriptor> getJavaComponentJavaComponentMappersCompartment_307003SemanticChildren(
 			View view) {
 		if (false == view.eContainer() instanceof View) {
@@ -198,8 +198,8 @@ public class DomainDiagramUpdater {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static List<DomainNodeDescriptor> getModelMapperModelMapperQueriesCompartment_307004SemanticChildren(
 			View view) {
 		if (false == view.eContainer() instanceof View) {
@@ -223,8 +223,8 @@ public class DomainDiagramUpdater {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static List<DomainNodeDescriptor> getConfigurationConfigurationPropertiesCompartment_307005SemanticChildren(
 			View view) {
 		if (false == view.eContainer() instanceof View) {
@@ -248,8 +248,8 @@ public class DomainDiagramUpdater {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static List<DomainLinkDescriptor> getContainedLinks(View view) {
 		switch (DomainVisualIDRegistry.getVisualID(view)) {
 		case RecipesEditPart.VISUAL_ID:
@@ -277,8 +277,8 @@ public class DomainDiagramUpdater {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static List<DomainLinkDescriptor> getIncomingLinks(View view) {
 		switch (DomainVisualIDRegistry.getVisualID(view)) {
 		case RecipeEditPart.VISUAL_ID:
@@ -304,8 +304,8 @@ public class DomainDiagramUpdater {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static List<DomainLinkDescriptor> getOutgoingLinks(View view) {
 		switch (DomainVisualIDRegistry.getVisualID(view)) {
 		case RecipeEditPart.VISUAL_ID:
@@ -606,8 +606,8 @@ public class DomainDiagramUpdater {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private static Collection<DomainLinkDescriptor> getOutgoingFeatureModelFacetLinks_Recipe_Infrastructures_304004(
 			Recipe source) {
 		LinkedList<DomainLinkDescriptor> result = new LinkedList<DomainLinkDescriptor>();
@@ -620,8 +620,8 @@ public class DomainDiagramUpdater {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private static Collection<DomainLinkDescriptor> getOutgoingFeatureModelFacetLinks_Recipe_Deployment_304013(
 			Recipe source) {
 		LinkedList<DomainLinkDescriptor> result = new LinkedList<DomainLinkDescriptor>();
@@ -635,8 +635,8 @@ public class DomainDiagramUpdater {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private static Collection<DomainLinkDescriptor> getOutgoingFeatureModelFacetLinks_Infrastructure_RecipeConfig_304006(
 			Infrastructure source) {
 		LinkedList<DomainLinkDescriptor> result = new LinkedList<DomainLinkDescriptor>();
@@ -650,8 +650,8 @@ public class DomainDiagramUpdater {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static final DiagramUpdater TYPED_INSTANCE = new DiagramUpdater() {
 		/**
 		* @generated

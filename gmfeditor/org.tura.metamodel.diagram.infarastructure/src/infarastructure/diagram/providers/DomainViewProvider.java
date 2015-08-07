@@ -3,32 +3,6 @@
  */
 package infarastructure.diagram.providers;
 
-import infarastructure.diagram.edit.parts.DatacenterDatacenterSubsystemsCompartmentEditPart;
-import infarastructure.diagram.edit.parts.DatacenterEditPart;
-import infarastructure.diagram.edit.parts.DatacenterNameEditPart;
-import infarastructure.diagram.edit.parts.EnterpriseInfrastructureEditPart;
-import infarastructure.diagram.edit.parts.HubEditPart;
-import infarastructure.diagram.edit.parts.HubNameEditPart;
-import infarastructure.diagram.edit.parts.InfrastructureConnectionEditPart;
-import infarastructure.diagram.edit.parts.InfrastructureLayerEditPart;
-import infarastructure.diagram.edit.parts.InfrastructureLayerInfrastructureLayerInfrastructureComponentCompartmentEditPart;
-import infarastructure.diagram.edit.parts.InfrastructureLayerNameEditPart;
-import infarastructure.diagram.edit.parts.RouterEditPart;
-import infarastructure.diagram.edit.parts.RouterNameEditPart;
-import infarastructure.diagram.edit.parts.Server2EditPart;
-import infarastructure.diagram.edit.parts.ServerClasterEditPart;
-import infarastructure.diagram.edit.parts.ServerClasterNameEditPart;
-import infarastructure.diagram.edit.parts.ServerClasterServerClasterServersCompartmentEditPart;
-import infarastructure.diagram.edit.parts.ServerEditPart;
-import infarastructure.diagram.edit.parts.ServerName2EditPart;
-import infarastructure.diagram.edit.parts.ServerNameEditPart;
-import infarastructure.diagram.edit.parts.StorageEditPart;
-import infarastructure.diagram.edit.parts.StorageNameEditPart;
-import infarastructure.diagram.edit.parts.SubsystemEditPart;
-import infarastructure.diagram.edit.parts.SubsystemNameEditPart;
-import infarastructure.diagram.edit.parts.SubsystemSubsystemInfrastructureLayerCompartmentEditPart;
-import infarastructure.diagram.part.DomainVisualIDRegistry;
-
 import java.util.ArrayList;
 
 import org.eclipse.core.runtime.IAdaptable;
@@ -72,14 +46,40 @@ import org.eclipse.jface.preference.PreferenceConverter;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.FontData;
 
+import infarastructure.diagram.edit.parts.DatacenterDatacenterSubsystemsCompartmentEditPart;
+import infarastructure.diagram.edit.parts.DatacenterEditPart;
+import infarastructure.diagram.edit.parts.DatacenterNameEditPart;
+import infarastructure.diagram.edit.parts.EnterpriseInfrastructureEditPart;
+import infarastructure.diagram.edit.parts.HubEditPart;
+import infarastructure.diagram.edit.parts.HubNameEditPart;
+import infarastructure.diagram.edit.parts.InfrastructureConnectionEditPart;
+import infarastructure.diagram.edit.parts.InfrastructureLayerEditPart;
+import infarastructure.diagram.edit.parts.InfrastructureLayerInfrastructureLayerInfrastructureComponentCompartmentEditPart;
+import infarastructure.diagram.edit.parts.InfrastructureLayerNameEditPart;
+import infarastructure.diagram.edit.parts.RouterEditPart;
+import infarastructure.diagram.edit.parts.RouterNameEditPart;
+import infarastructure.diagram.edit.parts.Server2EditPart;
+import infarastructure.diagram.edit.parts.ServerClasterEditPart;
+import infarastructure.diagram.edit.parts.ServerClasterNameEditPart;
+import infarastructure.diagram.edit.parts.ServerClasterServerClasterServersCompartmentEditPart;
+import infarastructure.diagram.edit.parts.ServerEditPart;
+import infarastructure.diagram.edit.parts.ServerName2EditPart;
+import infarastructure.diagram.edit.parts.ServerNameEditPart;
+import infarastructure.diagram.edit.parts.StorageEditPart;
+import infarastructure.diagram.edit.parts.StorageNameEditPart;
+import infarastructure.diagram.edit.parts.SubsystemEditPart;
+import infarastructure.diagram.edit.parts.SubsystemNameEditPart;
+import infarastructure.diagram.edit.parts.SubsystemSubsystemInfrastructureLayerCompartmentEditPart;
+import infarastructure.diagram.part.DomainVisualIDRegistry;
+
 /**
  * @generated
  */
 public class DomainViewProvider extends AbstractProvider implements IViewProvider {
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public final boolean provides(IOperation operation) {
 		if (operation instanceof CreateViewForKindOperation) {
 			return provides((CreateViewForKindOperation) operation);
@@ -96,29 +96,29 @@ public class DomainViewProvider extends AbstractProvider implements IViewProvide
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected boolean provides(CreateViewForKindOperation op) {
 		/*
-		    if (op.getViewKind() == Node.class)
-		      return getNodeViewClass(op.getSemanticAdapter(), op.getContainerView(), op.getSemanticHint()) != null;
-		    if (op.getViewKind() == Edge.class)
-		      return getEdgeViewClass(op.getSemanticAdapter(), op.getContainerView(), op.getSemanticHint()) != null;
+				if (op.getViewKind() == Node.class)
+					return getNodeViewClass(op.getSemanticAdapter(), op.getContainerView(), op.getSemanticHint()) != null;
+				if (op.getViewKind() == Edge.class)
+					return getEdgeViewClass(op.getSemanticAdapter(), op.getContainerView(), op.getSemanticHint()) != null;
 		*/
 		return true;
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected boolean provides(CreateDiagramViewOperation op) {
 		return EnterpriseInfrastructureEditPart.MODEL_ID.equals(op.getSemanticHint())
 				&& DomainVisualIDRegistry.getDiagramVisualID(getSemanticElement(op.getSemanticAdapter())) != -1;
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected boolean provides(CreateNodeViewOperation op) {
 		if (op.getContainerView() == null) {
 			return false;
@@ -181,8 +181,8 @@ public class DomainViewProvider extends AbstractProvider implements IViewProvide
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected boolean provides(CreateEdgeViewOperation op) {
 		IElementType elementType = getSemanticElementType(op.getSemanticAdapter());
 		if (!DomainElementTypes.isKnownElementType(elementType) || (!(elementType instanceof IHintedType))) {
@@ -202,8 +202,8 @@ public class DomainViewProvider extends AbstractProvider implements IViewProvide
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public Diagram createDiagram(IAdaptable semanticAdapter, String diagramKind, PreferencesHint preferencesHint) {
 		Diagram diagram = NotationFactory.eINSTANCE.createDiagram();
 		diagram.getStyles().add(NotationFactory.eINSTANCE.createDiagramStyle());
@@ -214,8 +214,8 @@ public class DomainViewProvider extends AbstractProvider implements IViewProvide
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public Node createNode(IAdaptable semanticAdapter, View containerView, String semanticHint, int index,
 			boolean persisted, PreferencesHint preferencesHint) {
 		final EObject domainElement = getSemanticElement(semanticAdapter);
@@ -250,8 +250,8 @@ public class DomainViewProvider extends AbstractProvider implements IViewProvide
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public Edge createEdge(IAdaptable semanticAdapter, View containerView, String semanticHint, int index,
 			boolean persisted, PreferencesHint preferencesHint) {
 		IElementType elementType = getSemanticElementType(semanticAdapter);
@@ -266,8 +266,8 @@ public class DomainViewProvider extends AbstractProvider implements IViewProvide
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public Node createDatacenter_1202002(EObject domainElement, View containerView, int index, boolean persisted,
 			PreferencesHint preferencesHint) {
 		Shape node = NotationFactory.eINSTANCE.createShape();
@@ -307,8 +307,8 @@ public class DomainViewProvider extends AbstractProvider implements IViewProvide
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public Node createSubsystem_1203001(EObject domainElement, View containerView, int index, boolean persisted,
 			PreferencesHint preferencesHint) {
 		Shape node = NotationFactory.eINSTANCE.createShape();
@@ -347,8 +347,8 @@ public class DomainViewProvider extends AbstractProvider implements IViewProvide
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public Node createInfrastructureLayer_1203002(EObject domainElement, View containerView, int index,
 			boolean persisted, PreferencesHint preferencesHint) {
 		Shape node = NotationFactory.eINSTANCE.createShape();
@@ -389,8 +389,8 @@ public class DomainViewProvider extends AbstractProvider implements IViewProvide
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public Node createServer_1203003(EObject domainElement, View containerView, int index, boolean persisted,
 			PreferencesHint preferencesHint) {
 		Shape node = NotationFactory.eINSTANCE.createShape();
@@ -429,8 +429,8 @@ public class DomainViewProvider extends AbstractProvider implements IViewProvide
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public Node createRouter_1203004(EObject domainElement, View containerView, int index, boolean persisted,
 			PreferencesHint preferencesHint) {
 		Shape node = NotationFactory.eINSTANCE.createShape();
@@ -469,8 +469,8 @@ public class DomainViewProvider extends AbstractProvider implements IViewProvide
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public Node createHub_1203005(EObject domainElement, View containerView, int index, boolean persisted,
 			PreferencesHint preferencesHint) {
 		Shape node = NotationFactory.eINSTANCE.createShape();
@@ -509,8 +509,8 @@ public class DomainViewProvider extends AbstractProvider implements IViewProvide
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public Node createStorage_1203006(EObject domainElement, View containerView, int index, boolean persisted,
 			PreferencesHint preferencesHint) {
 		Shape node = NotationFactory.eINSTANCE.createShape();
@@ -549,8 +549,8 @@ public class DomainViewProvider extends AbstractProvider implements IViewProvide
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public Node createServerClaster_1203007(EObject domainElement, View containerView, int index, boolean persisted,
 			PreferencesHint preferencesHint) {
 		Shape node = NotationFactory.eINSTANCE.createShape();
@@ -589,8 +589,8 @@ public class DomainViewProvider extends AbstractProvider implements IViewProvide
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public Node createServer_1203008(EObject domainElement, View containerView, int index, boolean persisted,
 			PreferencesHint preferencesHint) {
 		Shape node = NotationFactory.eINSTANCE.createShape();
@@ -629,8 +629,8 @@ public class DomainViewProvider extends AbstractProvider implements IViewProvide
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public Edge createInfrastructureConnection_1204009(EObject domainElement, View containerView, int index,
 			boolean persisted, PreferencesHint preferencesHint) {
 		Connector edge = NotationFactory.eINSTANCE.createConnector();
@@ -670,8 +670,8 @@ public class DomainViewProvider extends AbstractProvider implements IViewProvide
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private void stampShortcut(View containerView, Node target) {
 		if (!EnterpriseInfrastructureEditPart.MODEL_ID.equals(DomainVisualIDRegistry.getModelID(containerView))) {
 			EAnnotation shortcutAnnotation = EcoreFactory.eINSTANCE.createEAnnotation();
@@ -682,8 +682,8 @@ public class DomainViewProvider extends AbstractProvider implements IViewProvide
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private Node createLabel(View owner, String hint) {
 		DecorationNode rv = NotationFactory.eINSTANCE.createDecorationNode();
 		rv.setType(hint);
@@ -692,8 +692,8 @@ public class DomainViewProvider extends AbstractProvider implements IViewProvide
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private Node createCompartment(View owner, String hint, boolean canCollapse, boolean hasTitle, boolean canSort,
 			boolean canFilter) {
 		//SemanticListCompartment rv = NotationFactory.eINSTANCE.createSemanticListCompartment();
@@ -722,8 +722,8 @@ public class DomainViewProvider extends AbstractProvider implements IViewProvide
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private EObject getSemanticElement(IAdaptable semanticAdapter) {
 		if (semanticAdapter == null) {
 			return null;

@@ -2,15 +2,17 @@
  */
 package domain.impl;
 
-import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
-import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
 import domain.Classifier;
 import domain.DomainPackage;
 import domain.StyleClass;
+
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
+
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -25,55 +27,51 @@ import domain.StyleClass;
  *
  * @generated
  */
-public class StyleClassImpl extends ContextValueImpl implements StyleClass
-{
-  /**
+public class StyleClassImpl extends ContextValueImpl implements StyleClass {
+	/**
 	 * The cached value of the '{@link #getClassifier() <em>Classifier</em>}' containment reference.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getClassifier()
 	 * @generated
 	 * @ordered
 	 */
-  protected Classifier classifier;
-  /**
+	protected Classifier classifier;
+
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  protected StyleClassImpl()
-  {
+	protected StyleClassImpl() {
 		super();
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  protected EClass eStaticClass()
-  {
+	@Override
+	protected EClass eStaticClass() {
 		return DomainPackage.Literals.STYLE_CLASS;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public Classifier getClassifier()
-  {
+	public Classifier getClassifier() {
 		return classifier;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public NotificationChain basicSetClassifier(Classifier newClassifier, NotificationChain msgs)
-  {
+	public NotificationChain basicSetClassifier(Classifier newClassifier, NotificationChain msgs) {
 		Classifier oldClassifier = classifier;
 		classifier = newClassifier;
 		if (eNotificationRequired()) {
@@ -83,13 +81,12 @@ public class StyleClassImpl extends ContextValueImpl implements StyleClass
 		return msgs;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public void setClassifier(Classifier newClassifier)
-  {
+	public void setClassifier(Classifier newClassifier) {
 		if (newClassifier != classifier) {
 			NotificationChain msgs = null;
 			if (classifier != null)
@@ -103,14 +100,13 @@ public class StyleClassImpl extends ContextValueImpl implements StyleClass
 			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.STYLE_CLASS__CLASSIFIER, newClassifier, newClassifier));
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-  {
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case DomainPackage.STYLE_CLASS__CLASSIFIER:
 				return basicSetClassifier(null, msgs);
@@ -118,14 +114,13 @@ public class StyleClassImpl extends ContextValueImpl implements StyleClass
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public Object eGet(int featureID, boolean resolve, boolean coreType)
-  {
+	@Override
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case DomainPackage.STYLE_CLASS__CLASSIFIER:
 				return getClassifier();
@@ -133,14 +128,13 @@ public class StyleClassImpl extends ContextValueImpl implements StyleClass
 		return super.eGet(featureID, resolve, coreType);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public void eSet(int featureID, Object newValue)
-  {
+	@Override
+	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case DomainPackage.STYLE_CLASS__CLASSIFIER:
 				setClassifier((Classifier)newValue);
@@ -149,14 +143,13 @@ public class StyleClassImpl extends ContextValueImpl implements StyleClass
 		super.eSet(featureID, newValue);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public void eUnset(int featureID)
-  {
+	@Override
+	public void eUnset(int featureID) {
 		switch (featureID) {
 			case DomainPackage.STYLE_CLASS__CLASSIFIER:
 				setClassifier((Classifier)null);
@@ -165,14 +158,13 @@ public class StyleClassImpl extends ContextValueImpl implements StyleClass
 		super.eUnset(featureID);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public boolean eIsSet(int featureID)
-  {
+	@Override
+	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case DomainPackage.STYLE_CLASS__CLASSIFIER:
 				return classifier != null;

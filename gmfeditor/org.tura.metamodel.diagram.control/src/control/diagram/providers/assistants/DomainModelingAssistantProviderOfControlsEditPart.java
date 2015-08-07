@@ -18,9 +18,10 @@ import control.diagram.providers.DomainModelingAssistantProvider;
 public class DomainModelingAssistantProviderOfControlsEditPart extends DomainModelingAssistantProvider {
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	@Override
+
 	public List<IElementType> getTypesForPopupBar(IAdaptable host) {
 		List<IElementType> types = new ArrayList<IElementType>(2);
 		types.add(DomainElementTypes.Root_1102001);

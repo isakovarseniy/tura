@@ -27,43 +27,42 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface Views extends EObject
-{
-  /**
+public interface Views extends EObject {
+	/**
 	 * Returns the value of the '<em><b>Uid</b></em>' attribute.
 	 * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Uid</em>' attribute isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Uid</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Uid</em>' attribute.
 	 * @see #setUid(String)
 	 * @see domain.DomainPackage#getViews_Uid()
 	 * @model id="true"
 	 * @generated
 	 */
-  String getUid();
+	String getUid();
 
-  /**
+	/**
 	 * Sets the value of the '{@link domain.Views#getUid <em>Uid</em>}' attribute.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Uid</em>' attribute.
 	 * @see #getUid()
 	 * @generated
 	 */
-  void setUid(String value);
+	void setUid(String value);
 
-  /**
+	/**
 	 * Returns the value of the '<em><b>Parent</b></em>' reference.
 	 * It is bidirectional and its opposite is '{@link domain.FormView#getView <em>View</em>}'.
 	 * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Parent</em>' reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Parent</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Parent</em>' reference.
 	 * @see #setParent(FormView)
 	 * @see domain.DomainPackage#getViews_Parent()
@@ -71,67 +70,67 @@ public interface Views extends EObject
 	 * @model opposite="view"
 	 * @generated
 	 */
-  FormView getParent();
+	FormView getParent();
 
-  /**
+	/**
 	 * Sets the value of the '{@link domain.Views#getParent <em>Parent</em>}' reference.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Parent</em>' reference.
 	 * @see #getParent()
 	 * @generated
 	 */
-  void setParent(FormView value);
+	void setParent(FormView value);
 
-  /**
+	/**
 	 * Returns the value of the '<em><b>Canvases</b></em>' containment reference list.
 	 * The list contents are of type {@link domain.CanvasFrame}.
 	 * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Canvases</em>' containment reference list isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Canvases</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Canvases</em>' containment reference list.
 	 * @see domain.DomainPackage#getViews_Canvases()
 	 * @model containment="true"
 	 * @generated
 	 */
-  EList<CanvasFrame> getCanvases();
+	EList<CanvasFrame> getCanvases();
 
-  /**
+	/**
 	 * Returns the value of the '<em><b>View Inheritances</b></em>' containment reference list.
 	 * The list contents are of type {@link domain.ViewInheritance}.
 	 * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>View Inheritances</em>' containment reference list isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>View Inheritances</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>View Inheritances</em>' containment reference list.
 	 * @see domain.DomainPackage#getViews_ViewInheritances()
 	 * @model containment="true"
 	 * @generated
 	 */
-  EList<ViewInheritance> getViewInheritances();
+	EList<ViewInheritance> getViewInheritances();
 
-  /**
+	/**
 	 * Returns the value of the '<em><b>Tab Pages Inheritances</b></em>' containment reference list.
 	 * The list contents are of type {@link domain.TabPagesInheritance}.
 	 * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Tab Pages Inheritances</em>' containment reference list isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Tab Pages Inheritances</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Tab Pages Inheritances</em>' containment reference list.
 	 * @see domain.DomainPackage#getViews_TabPagesInheritances()
 	 * @model containment="true"
 	 * @generated
 	 */
-  EList<TabPagesInheritance> getTabPagesInheritances();
+	EList<TabPagesInheritance> getTabPagesInheritances();
 
-		/**
+	/**
 	 * Returns the value of the '<em><b>Any</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -147,7 +146,7 @@ public interface Views extends EObject
 	 */
 	EObject getAny();
 
-		/**
+	/**
 	 * Sets the value of the '{@link domain.Views#getAny <em>Any</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

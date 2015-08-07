@@ -22,22 +22,21 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface UsingMappers extends EObject
-{
-  /**
+public interface UsingMappers extends EObject {
+	/**
 	 * Returns the value of the '<em><b>Mappers</b></em>' reference list.
 	 * The list contents are of type {@link domain.ApplicationMapper}.
 	 * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Mappers</em>' reference list isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Mappers</em>' reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Mappers</em>' reference list.
 	 * @see domain.DomainPackage#getUsingMappers_Mappers()
 	 * @model
 	 * @generated
 	 */
-  EList<ApplicationMapper> getMappers();
+	EList<ApplicationMapper> getMappers();
 
 } // UsingMappers

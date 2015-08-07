@@ -32,119 +32,113 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  *
  * @generated
  */
-public class InfrastructureImpl extends EObjectImpl implements Infrastructure
-{
-  /**
+public class InfrastructureImpl extends EObjectImpl implements Infrastructure {
+	/**
 	 * The default value of the '{@link #getUid() <em>Uid</em>}' attribute.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getUid()
 	 * @generated
 	 * @ordered
 	 */
-  protected static final String UID_EDEFAULT = null;
+	protected static final String UID_EDEFAULT = null;
 
-  /**
+	/**
 	 * The cached value of the '{@link #getUid() <em>Uid</em>}' attribute.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getUid()
 	 * @generated
 	 * @ordered
 	 */
-  protected String uid = UID_EDEFAULT;
+	protected String uid = UID_EDEFAULT;
 
-  /**
+	/**
 	 * The cached value of the '{@link #getRecipe() <em>Recipe</em>}' reference.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getRecipe()
 	 * @generated
 	 * @ordered
 	 */
-  protected Recipe recipe;
+	protected Recipe recipe;
 
-  /**
+	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getName()
 	 * @generated
 	 * @ordered
 	 */
-  protected static final String NAME_EDEFAULT = null;
+	protected static final String NAME_EDEFAULT = null;
 
-  /**
+	/**
 	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getName()
 	 * @generated
 	 * @ordered
 	 */
-  protected String name = NAME_EDEFAULT;
+	protected String name = NAME_EDEFAULT;
 
-  /**
+	/**
 	 * The cached value of the '{@link #getRecipeConfig() <em>Recipe Config</em>}' reference.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getRecipeConfig()
 	 * @generated
 	 * @ordered
 	 */
-  protected Configuration recipeConfig;
+	protected Configuration recipeConfig;
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  protected InfrastructureImpl()
-  {
+	protected InfrastructureImpl() {
 		super();
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  protected EClass eStaticClass()
-  {
+	@Override
+	protected EClass eStaticClass() {
 		return DomainPackage.Literals.INFRASTRUCTURE;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public String getUid()
-  {
+	public String getUid() {
 		return uid;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public void setUid(String newUid)
-  {
+	public void setUid(String newUid) {
 		String oldUid = uid;
 		uid = newUid;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.INFRASTRUCTURE__UID, oldUid, uid));
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public Recipe getRecipe()
-  {
+	public Recipe getRecipe() {
 		if (recipe != null && recipe.eIsProxy()) {
 			InternalEObject oldRecipe = (InternalEObject)recipe;
 			recipe = (Recipe)eResolveProxy(oldRecipe);
@@ -156,23 +150,21 @@ public class InfrastructureImpl extends EObjectImpl implements Infrastructure
 		return recipe;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public Recipe basicGetRecipe()
-  {
+	public Recipe basicGetRecipe() {
 		return recipe;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public NotificationChain basicSetRecipe(Recipe newRecipe, NotificationChain msgs)
-  {
+	public NotificationChain basicSetRecipe(Recipe newRecipe, NotificationChain msgs) {
 		Recipe oldRecipe = recipe;
 		recipe = newRecipe;
 		if (eNotificationRequired()) {
@@ -182,13 +174,12 @@ public class InfrastructureImpl extends EObjectImpl implements Infrastructure
 		return msgs;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public void setRecipe(Recipe newRecipe)
-  {
+	public void setRecipe(Recipe newRecipe) {
 		if (newRecipe != recipe) {
 			NotificationChain msgs = null;
 			if (recipe != null)
@@ -202,36 +193,33 @@ public class InfrastructureImpl extends EObjectImpl implements Infrastructure
 			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.INFRASTRUCTURE__RECIPE, newRecipe, newRecipe));
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public String getName()
-  {
+	public String getName() {
 		return name;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public void setName(String newName)
-  {
+	public void setName(String newName) {
 		String oldName = name;
 		name = newName;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.INFRASTRUCTURE__NAME, oldName, name));
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public Configuration getRecipeConfig()
-  {
+	public Configuration getRecipeConfig() {
 		if (recipeConfig != null && recipeConfig.eIsProxy()) {
 			InternalEObject oldRecipeConfig = (InternalEObject)recipeConfig;
 			recipeConfig = (Configuration)eResolveProxy(oldRecipeConfig);
@@ -243,23 +231,21 @@ public class InfrastructureImpl extends EObjectImpl implements Infrastructure
 		return recipeConfig;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public Configuration basicGetRecipeConfig()
-  {
+	public Configuration basicGetRecipeConfig() {
 		return recipeConfig;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public NotificationChain basicSetRecipeConfig(Configuration newRecipeConfig, NotificationChain msgs)
-  {
+	public NotificationChain basicSetRecipeConfig(Configuration newRecipeConfig, NotificationChain msgs) {
 		Configuration oldRecipeConfig = recipeConfig;
 		recipeConfig = newRecipeConfig;
 		if (eNotificationRequired()) {
@@ -269,13 +255,12 @@ public class InfrastructureImpl extends EObjectImpl implements Infrastructure
 		return msgs;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public void setRecipeConfig(Configuration newRecipeConfig)
-  {
+	public void setRecipeConfig(Configuration newRecipeConfig) {
 		if (newRecipeConfig != recipeConfig) {
 			NotificationChain msgs = null;
 			if (recipeConfig != null)
@@ -289,14 +274,13 @@ public class InfrastructureImpl extends EObjectImpl implements Infrastructure
 			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.INFRASTRUCTURE__RECIPE_CONFIG, newRecipeConfig, newRecipeConfig));
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-  {
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case DomainPackage.INFRASTRUCTURE__RECIPE:
 				if (recipe != null)
@@ -310,14 +294,13 @@ public class InfrastructureImpl extends EObjectImpl implements Infrastructure
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-  {
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case DomainPackage.INFRASTRUCTURE__RECIPE:
 				return basicSetRecipe(null, msgs);
@@ -327,14 +310,13 @@ public class InfrastructureImpl extends EObjectImpl implements Infrastructure
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public Object eGet(int featureID, boolean resolve, boolean coreType)
-  {
+	@Override
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case DomainPackage.INFRASTRUCTURE__UID:
 				return getUid();
@@ -350,14 +332,13 @@ public class InfrastructureImpl extends EObjectImpl implements Infrastructure
 		return super.eGet(featureID, resolve, coreType);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public void eSet(int featureID, Object newValue)
-  {
+	@Override
+	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case DomainPackage.INFRASTRUCTURE__UID:
 				setUid((String)newValue);
@@ -375,14 +356,13 @@ public class InfrastructureImpl extends EObjectImpl implements Infrastructure
 		super.eSet(featureID, newValue);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public void eUnset(int featureID)
-  {
+	@Override
+	public void eUnset(int featureID) {
 		switch (featureID) {
 			case DomainPackage.INFRASTRUCTURE__UID:
 				setUid(UID_EDEFAULT);
@@ -400,14 +380,13 @@ public class InfrastructureImpl extends EObjectImpl implements Infrastructure
 		super.eUnset(featureID);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public boolean eIsSet(int featureID)
-  {
+	@Override
+	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case DomainPackage.INFRASTRUCTURE__UID:
 				return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
@@ -421,14 +400,13 @@ public class InfrastructureImpl extends EObjectImpl implements Infrastructure
 		return super.eIsSet(featureID);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public String toString()
-  {
+	@Override
+	public String toString() {
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());

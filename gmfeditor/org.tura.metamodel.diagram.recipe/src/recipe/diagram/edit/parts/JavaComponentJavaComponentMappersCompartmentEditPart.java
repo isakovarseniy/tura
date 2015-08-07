@@ -25,12 +25,12 @@ import org.eclipse.gmf.runtime.notation.impl.NodeImpl;
 import org.eclipse.gmf.tooling.runtime.edit.policies.reparent.CreationEditPolicyWithCustomReparent;
 import org.tura.metamodel.commons.editparts.HTMLLikeLayout;
 
+import domain.HTMLLayerHolder;
 import recipe.diagram.edit.policies.JavaComponentJavaComponentMappersCompartmentCanonicalEditPolicy;
 import recipe.diagram.edit.policies.JavaComponentJavaComponentMappersCompartmentItemSemanticEditPolicy;
 import recipe.diagram.part.DomainVisualIDRegistry;
 import recipe.diagram.part.Messages;
 import recipe.diagram.providers.DomainElementTypes;
-import domain.HTMLLayerHolder;
 
 /**
  * @generated
@@ -38,27 +38,27 @@ import domain.HTMLLayerHolder;
 public class JavaComponentJavaComponentMappersCompartmentEditPart extends ShapeCompartmentEditPart {
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static final int VISUAL_ID = 307003;
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public JavaComponentJavaComponentMappersCompartmentEditPart(View view) {
 		super(view);
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public String getCompartmentName() {
 		return Messages.JavaComponentJavaComponentMappersCompartmentEditPart_title;
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 
 	public IFigure createFigure() {
 		ResizableCompartmentFigure result = (ResizableCompartmentFigure) super.createFigure();
@@ -102,8 +102,8 @@ public class JavaComponentJavaComponentMappersCompartmentEditPart extends ShapeC
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected void createDefaultEditPolicies() {
 		super.createDefaultEditPolicies();
 		installEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE, new ResizableCompartmentEditPolicy());
@@ -117,8 +117,8 @@ public class JavaComponentJavaComponentMappersCompartmentEditPart extends ShapeC
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected void setRatio(Double ratio) {
 		if (getFigure().getParent().getLayoutManager() instanceof ConstrainedToolbarLayout) {
 			super.setRatio(ratio);
@@ -126,8 +126,8 @@ public class JavaComponentJavaComponentMappersCompartmentEditPart extends ShapeC
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public EditPart getTargetEditPart(Request request) {
 		if (request instanceof CreateViewAndElementRequest) {
 			CreateElementRequestAdapter adapter = ((CreateViewAndElementRequest) request).getViewAndElementDescriptor()

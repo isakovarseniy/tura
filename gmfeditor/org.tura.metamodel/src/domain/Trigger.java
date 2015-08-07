@@ -13,6 +13,5 @@ package domain;
  * @model
  * @generated
  */
-public interface Trigger extends MethodPointer, ContextParameters
-{
+public interface Trigger extends MethodPointer, ContextParameters {
 } // Trigger

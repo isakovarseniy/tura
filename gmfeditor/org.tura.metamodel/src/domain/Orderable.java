@@ -20,32 +20,31 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface Orderable extends EObject
-{
-  /**
+public interface Orderable extends EObject {
+	/**
 	 * Returns the value of the '<em><b>Order</b></em>' attribute.
 	 * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Order</em>' attribute isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Order</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Order</em>' attribute.
 	 * @see #setOrder(int)
 	 * @see domain.DomainPackage#getOrderable_Order()
 	 * @model
 	 * @generated
 	 */
-  int getOrder();
+	int getOrder();
 
-  /**
+	/**
 	 * Sets the value of the '{@link domain.Orderable#getOrder <em>Order</em>}' attribute.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Order</em>' attribute.
 	 * @see #getOrder()
 	 * @generated
 	 */
-  void setOrder(int value);
+	void setOrder(int value);
 
 } // Orderable

@@ -13,6 +13,5 @@ package domain;
  * @model annotation="gmf.node figure='org.tura.metamodel.commons.figures.MetaImageFigure' label.placement='none' tool.small.bundle='org.tura.metamodel.commons' tool.small.path='icons/image.png'"
  * @generated
  */
-public interface Image extends InputElement
-{
+public interface Image extends InputElement {
 } // Image

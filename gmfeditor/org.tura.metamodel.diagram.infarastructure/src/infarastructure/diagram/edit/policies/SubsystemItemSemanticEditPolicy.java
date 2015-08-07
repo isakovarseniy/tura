@@ -1,12 +1,7 @@
 /*
- * 
- */
+* 
+*/
 package infarastructure.diagram.edit.policies;
-
-import infarastructure.diagram.edit.parts.InfrastructureLayerEditPart;
-import infarastructure.diagram.edit.parts.SubsystemSubsystemInfrastructureLayerCompartmentEditPart;
-import infarastructure.diagram.part.DomainVisualIDRegistry;
-import infarastructure.diagram.providers.DomainElementTypes;
 
 import java.util.Iterator;
 
@@ -20,21 +15,26 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.DestroyElementRequest;
 import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.View;
 
+import infarastructure.diagram.edit.parts.InfrastructureLayerEditPart;
+import infarastructure.diagram.edit.parts.SubsystemSubsystemInfrastructureLayerCompartmentEditPart;
+import infarastructure.diagram.part.DomainVisualIDRegistry;
+import infarastructure.diagram.providers.DomainElementTypes;
+
 /**
  * @generated
  */
 public class SubsystemItemSemanticEditPolicy extends DomainBaseItemSemanticEditPolicy {
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public SubsystemItemSemanticEditPolicy() {
 		super(DomainElementTypes.Subsystem_1203001);
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected Command getDestroyElementCommand(DestroyElementRequest req) {
 		View view = (View) getHost().getModel();
 		CompositeTransactionalCommand cmd = new CompositeTransactionalCommand(getEditingDomain(), null);
@@ -53,8 +53,8 @@ public class SubsystemItemSemanticEditPolicy extends DomainBaseItemSemanticEditP
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private void addDestroyChildNodesCommand(ICompositeCommand cmd) {
 		View view = (View) getHost().getModel();
 		for (Iterator<?> nit = view.getChildren().iterator(); nit.hasNext();) {

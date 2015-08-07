@@ -1,20 +1,17 @@
+
 /*
  * 
  */
 package typesrepository.diagram.part;
 
 import java.util.Collections;
-import java.util.List;
 
-import org.eclipse.gef.Tool;
 import org.eclipse.gef.palette.PaletteContainer;
 import org.eclipse.gef.palette.PaletteDrawer;
 import org.eclipse.gef.palette.PaletteRoot;
 import org.eclipse.gef.palette.ToolEntry;
-import org.eclipse.gmf.runtime.diagram.ui.tools.UnspecifiedTypeCreationTool;
-import org.eclipse.gmf.runtime.emf.type.core.IElementType;
-
 import org.eclipse.gmf.tooling.runtime.part.DefaultNodeToolEntry;
+
 import typesrepository.diagram.providers.DomainElementTypes;
 
 /**
@@ -23,16 +20,16 @@ import typesrepository.diagram.providers.DomainElementTypes;
 public class DomainPaletteFactory {
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public void fillPalette(PaletteRoot paletteRoot) {
 		paletteRoot.add(createObjects1Group());
 	}
 
 	/**
-	 * Creates "Objects" palette tool group
-	 * @generated
-	 */
+	* Creates "Objects" palette tool group
+	* @generated
+	*/
 	private PaletteContainer createObjects1Group() {
 		PaletteDrawer paletteContainer = new PaletteDrawer(Messages.Objects1Group_title);
 		paletteContainer.setId("createObjects1Group"); //$NON-NLS-1$
@@ -42,8 +39,8 @@ public class DomainPaletteFactory {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private ToolEntry createPackage1CreationTool() {
 		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(Messages.Package1CreationTool_title,
 				Messages.Package1CreationTool_desc, Collections.singletonList(DomainElementTypes.Package_203002));
@@ -54,8 +51,8 @@ public class DomainPaletteFactory {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private ToolEntry createTypes2CreationTool() {
 		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(Messages.Types2CreationTool_title,
 				Messages.Types2CreationTool_desc, Collections.singletonList(DomainElementTypes.Types_202001));
@@ -64,4 +61,5 @@ public class DomainPaletteFactory {
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
+
 }

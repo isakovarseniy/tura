@@ -1,3 +1,4 @@
+
 /*
  * 
  */
@@ -6,9 +7,6 @@ package mapper.diagram.parsers;
 import java.text.FieldPosition;
 import java.text.MessageFormat;
 import java.text.ParsePosition;
-
-import mapper.diagram.part.DomainDiagramEditorPlugin;
-import mapper.diagram.part.Messages;
 
 import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.emf.ecore.EAttribute;
@@ -19,53 +17,55 @@ import org.eclipse.gmf.runtime.common.ui.services.parser.ParserEditStatus;
 import org.eclipse.gmf.tooling.runtime.parsers.AbstractAttributeParser;
 import org.eclipse.osgi.util.NLS;
 
+import mapper.diagram.part.DomainDiagramEditorPlugin;
+import mapper.diagram.part.Messages;
+
 /**
  * @generated
  */
 public class MessageFormatParser extends AbstractAttributeParser {
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private String defaultPattern;
-
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private String defaultEditablePattern;
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private MessageFormat viewProcessor;
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private MessageFormat editorProcessor;
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private MessageFormat editProcessor;
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public MessageFormatParser(EAttribute[] features) {
 		super(features);
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public MessageFormatParser(EAttribute[] features, EAttribute[] editableFeatures) {
 		super(features, editableFeatures);
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected String getDefaultPattern() {
 		if (defaultPattern == null) {
 			StringBuffer sb = new StringBuffer();
@@ -83,24 +83,24 @@ public class MessageFormatParser extends AbstractAttributeParser {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public void setViewPattern(String viewPattern) {
 		super.setViewPattern(viewPattern);
 		viewProcessor = null;
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public void setEditorPattern(String editorPattern) {
 		super.setEditorPattern(editorPattern);
 		editorProcessor = null;
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected MessageFormat getViewProcessor() {
 		if (viewProcessor == null) {
 			viewProcessor = new MessageFormat(getViewPattern() == null ? getDefaultPattern() : getViewPattern());
@@ -109,8 +109,8 @@ public class MessageFormatParser extends AbstractAttributeParser {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected MessageFormat getEditorProcessor() {
 		if (editorProcessor == null) {
 			editorProcessor = new MessageFormat(
@@ -120,8 +120,8 @@ public class MessageFormatParser extends AbstractAttributeParser {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected String getDefaultEditablePattern() {
 		if (defaultEditablePattern == null) {
 			StringBuffer sb = new StringBuffer();
@@ -139,16 +139,16 @@ public class MessageFormatParser extends AbstractAttributeParser {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public void setEditPattern(String editPattern) {
 		super.setEditPattern(editPattern);
 		editProcessor = null;
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected MessageFormat getEditProcessor() {
 		if (editProcessor == null) {
 			editProcessor = new MessageFormat(
@@ -158,8 +158,8 @@ public class MessageFormatParser extends AbstractAttributeParser {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public String getEditString(IAdaptable adapter, int flags) {
 		EObject element = (EObject) adapter.getAdapter(EObject.class);
 		return getEditorProcessor().format(getEditableValues(element), new StringBuffer(), new FieldPosition(0))
@@ -167,8 +167,8 @@ public class MessageFormatParser extends AbstractAttributeParser {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public IParserEditStatus isValidEditString(IAdaptable adapter, String editString) {
 		ParsePosition pos = new ParsePosition(0);
 		Object[] values = getEditProcessor().parse(editString, pos);
@@ -180,16 +180,16 @@ public class MessageFormatParser extends AbstractAttributeParser {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public ICommand getParseCommand(IAdaptable adapter, String newString, int flags) {
 		Object[] values = getEditProcessor().parse(newString, new ParsePosition(0));
 		return getParseCommand(adapter, values, flags);
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public String getPrintString(IAdaptable adapter, int flags) {
 		EObject element = (EObject) adapter.getAdapter(EObject.class);
 		return getViewProcessor().format(getValues(element), new StringBuffer(), new FieldPosition(0)).toString();

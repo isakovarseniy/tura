@@ -1,11 +1,7 @@
 /*
- * 
- */
+* 
+*/
 package infarastructure.diagram.providers;
-
-import infarastructure.diagram.edit.parts.EnterpriseInfrastructureEditPart;
-import infarastructure.diagram.part.DomainDiagramEditorPlugin;
-import infarastructure.diagram.part.DomainVisualIDRegistry;
 
 import org.eclipse.emf.ecore.EAnnotation;
 import org.eclipse.gef.EditPart;
@@ -20,19 +16,23 @@ import org.eclipse.gmf.runtime.diagram.ui.services.decorator.IDecoratorTarget;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.swt.graphics.Image;
 
+import infarastructure.diagram.edit.parts.EnterpriseInfrastructureEditPart;
+import infarastructure.diagram.part.DomainDiagramEditorPlugin;
+import infarastructure.diagram.part.DomainVisualIDRegistry;
+
 /**
  * @generated
  */
 public class DomainShortcutsDecoratorProvider extends AbstractProvider implements IDecoratorProvider {
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static final String SHORTCUTS_DECORATOR_ID = "shortcuts"; //$NON-NLS-1$
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public boolean provides(IOperation operation) {
 		if (!(operation instanceof CreateDecoratorsOperation)) {
 			return false;
@@ -44,8 +44,8 @@ public class DomainShortcutsDecoratorProvider extends AbstractProvider implement
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public void createDecorators(IDecoratorTarget decoratorTarget) {
 		View view = (View) decoratorTarget.getAdapter(View.class);
 		if (view != null) {
@@ -57,27 +57,27 @@ public class DomainShortcutsDecoratorProvider extends AbstractProvider implement
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected class ShortcutsDecorator extends AbstractDecorator {
 
 		/**
-		 * @generated
-		 */
+		* @generated
+		*/
 		public ShortcutsDecorator(IDecoratorTarget decoratorTarget) {
 			super(decoratorTarget);
 		}
 
 		/**
-		 * @generated
-		 */
+		* @generated
+		*/
 		public void activate() {
 			refresh();
 		}
 
 		/**
-		 * @generated
-		 */
+		* @generated
+		*/
 		public void refresh() {
 			removeDecoration();
 			EditPart editPart = (EditPart) getDecoratorTarget().getAdapter(EditPart.class);

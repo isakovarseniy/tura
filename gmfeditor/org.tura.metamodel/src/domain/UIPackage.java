@@ -25,43 +25,42 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface UIPackage extends EObject
-{
-  /**
+public interface UIPackage extends EObject {
+	/**
 	 * Returns the value of the '<em><b>Uid</b></em>' attribute.
 	 * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Uid</em>' attribute isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Uid</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Uid</em>' attribute.
 	 * @see #setUid(String)
 	 * @see domain.DomainPackage#getUIPackage_Uid()
 	 * @model id="true"
 	 * @generated
 	 */
-  String getUid();
+	String getUid();
 
-  /**
+	/**
 	 * Sets the value of the '{@link domain.UIPackage#getUid <em>Uid</em>}' attribute.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Uid</em>' attribute.
 	 * @see #getUid()
 	 * @generated
 	 */
-  void setUid(String value);
+	void setUid(String value);
 
-  /**
+	/**
 	 * Returns the value of the '<em><b>Parent</b></em>' reference.
 	 * It is bidirectional and its opposite is '{@link domain.ApplicationUIPackage#getUipackage <em>Uipackage</em>}'.
 	 * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Parent</em>' reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Parent</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Parent</em>' reference.
 	 * @see #setParent(ApplicationUIPackage)
 	 * @see domain.DomainPackage#getUIPackage_Parent()
@@ -69,35 +68,35 @@ public interface UIPackage extends EObject
 	 * @model opposite="uipackage"
 	 * @generated
 	 */
-  ApplicationUIPackage getParent();
+	ApplicationUIPackage getParent();
 
-  /**
+	/**
 	 * Sets the value of the '{@link domain.UIPackage#getParent <em>Parent</em>}' reference.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Parent</em>' reference.
 	 * @see #getParent()
 	 * @generated
 	 */
-  void setParent(ApplicationUIPackage value);
+	void setParent(ApplicationUIPackage value);
 
-  /**
+	/**
 	 * Returns the value of the '<em><b>Forms</b></em>' containment reference list.
 	 * The list contents are of type {@link domain.Form}.
 	 * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Forms</em>' containment reference list isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Forms</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Forms</em>' containment reference list.
 	 * @see domain.DomainPackage#getUIPackage_Forms()
 	 * @model containment="true"
 	 * @generated
 	 */
-  EList<Form> getForms();
+	EList<Form> getForms();
 
-		/**
+	/**
 	 * Returns the value of the '<em><b>Any</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -113,7 +112,7 @@ public interface UIPackage extends EObject
 	 */
 	EObject getAny();
 
-		/**
+	/**
 	 * Sets the value of the '{@link domain.UIPackage#getAny <em>Any</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

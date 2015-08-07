@@ -33,49 +33,48 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  *
  * @generated
  */
-public class TypesRepositoryImpl extends EObjectImpl implements TypesRepository
-{
-  /**
+public class TypesRepositoryImpl extends EObjectImpl implements TypesRepository {
+	/**
 	 * The default value of the '{@link #getUid() <em>Uid</em>}' attribute.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getUid()
 	 * @generated
 	 * @ordered
 	 */
-  protected static final String UID_EDEFAULT = null;
+	protected static final String UID_EDEFAULT = null;
 
-  /**
+	/**
 	 * The cached value of the '{@link #getUid() <em>Uid</em>}' attribute.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getUid()
 	 * @generated
 	 * @ordered
 	 */
-  protected String uid = UID_EDEFAULT;
+	protected String uid = UID_EDEFAULT;
 
-  /**
+	/**
 	 * The cached value of the '{@link #getTypeDefinition() <em>Type Definition</em>}' containment reference.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getTypeDefinition()
 	 * @generated
 	 * @ordered
 	 */
-  protected Types typeDefinition;
+	protected Types typeDefinition;
 
-  /**
+	/**
 	 * The cached value of the '{@link #getParent() <em>Parent</em>}' reference.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getParent()
 	 * @generated
 	 * @ordered
 	 */
-  protected DomainTypes parent;
+	protected DomainTypes parent;
 
-  /**
+	/**
 	 * The cached value of the '{@link #getAny() <em>Any</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -85,67 +84,61 @@ public class TypesRepositoryImpl extends EObjectImpl implements TypesRepository
 	 */
 	protected EObject any;
 
-		/**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  protected TypesRepositoryImpl()
-  {
+	protected TypesRepositoryImpl() {
 		super();
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  protected EClass eStaticClass()
-  {
+	@Override
+	protected EClass eStaticClass() {
 		return DomainPackage.Literals.TYPES_REPOSITORY;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public String getUid()
-  {
+	public String getUid() {
 		return uid;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public void setUid(String newUid)
-  {
+	public void setUid(String newUid) {
 		String oldUid = uid;
 		uid = newUid;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.TYPES_REPOSITORY__UID, oldUid, uid));
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public Types getTypeDefinition()
-  {
+	public Types getTypeDefinition() {
 		return typeDefinition;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public NotificationChain basicSetTypeDefinition(Types newTypeDefinition, NotificationChain msgs)
-  {
+	public NotificationChain basicSetTypeDefinition(Types newTypeDefinition, NotificationChain msgs) {
 		Types oldTypeDefinition = typeDefinition;
 		typeDefinition = newTypeDefinition;
 		if (eNotificationRequired()) {
@@ -155,13 +148,12 @@ public class TypesRepositoryImpl extends EObjectImpl implements TypesRepository
 		return msgs;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public void setTypeDefinition(Types newTypeDefinition)
-  {
+	public void setTypeDefinition(Types newTypeDefinition) {
 		if (newTypeDefinition != typeDefinition) {
 			NotificationChain msgs = null;
 			if (typeDefinition != null)
@@ -175,13 +167,12 @@ public class TypesRepositoryImpl extends EObjectImpl implements TypesRepository
 			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.TYPES_REPOSITORY__TYPE_DEFINITION, newTypeDefinition, newTypeDefinition));
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public DomainTypes getParent()
-  {
+	public DomainTypes getParent() {
 		if (parent != null && parent.eIsProxy()) {
 			InternalEObject oldParent = (InternalEObject)parent;
 			parent = (DomainTypes)eResolveProxy(oldParent);
@@ -193,23 +184,21 @@ public class TypesRepositoryImpl extends EObjectImpl implements TypesRepository
 		return parent;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public DomainTypes basicGetParent()
-  {
+	public DomainTypes basicGetParent() {
 		return parent;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public NotificationChain basicSetParent(DomainTypes newParent, NotificationChain msgs)
-  {
+	public NotificationChain basicSetParent(DomainTypes newParent, NotificationChain msgs) {
 		DomainTypes oldParent = parent;
 		parent = newParent;
 		if (eNotificationRequired()) {
@@ -219,13 +208,12 @@ public class TypesRepositoryImpl extends EObjectImpl implements TypesRepository
 		return msgs;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public void setParent(DomainTypes newParent)
-  {
+	public void setParent(DomainTypes newParent) {
 		if (newParent != parent) {
 			NotificationChain msgs = null;
 			if (parent != null)
@@ -239,7 +227,7 @@ public class TypesRepositoryImpl extends EObjectImpl implements TypesRepository
 			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.TYPES_REPOSITORY__PARENT, newParent, newParent));
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -248,7 +236,7 @@ public class TypesRepositoryImpl extends EObjectImpl implements TypesRepository
 		return any;
 	}
 
-		/**
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -263,7 +251,7 @@ public class TypesRepositoryImpl extends EObjectImpl implements TypesRepository
 		return msgs;
 	}
 
-		/**
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -282,14 +270,13 @@ public class TypesRepositoryImpl extends EObjectImpl implements TypesRepository
 			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.TYPES_REPOSITORY__ANY, newAny, newAny));
 	}
 
-		/**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-  {
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case DomainPackage.TYPES_REPOSITORY__TYPE_DEFINITION:
 				if (typeDefinition != null)
@@ -303,14 +290,13 @@ public class TypesRepositoryImpl extends EObjectImpl implements TypesRepository
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-  {
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case DomainPackage.TYPES_REPOSITORY__TYPE_DEFINITION:
 				return basicSetTypeDefinition(null, msgs);
@@ -322,14 +308,13 @@ public class TypesRepositoryImpl extends EObjectImpl implements TypesRepository
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public Object eGet(int featureID, boolean resolve, boolean coreType)
-  {
+	@Override
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case DomainPackage.TYPES_REPOSITORY__UID:
 				return getUid();
@@ -344,14 +329,13 @@ public class TypesRepositoryImpl extends EObjectImpl implements TypesRepository
 		return super.eGet(featureID, resolve, coreType);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public void eSet(int featureID, Object newValue)
-  {
+	@Override
+	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case DomainPackage.TYPES_REPOSITORY__UID:
 				setUid((String)newValue);
@@ -369,14 +353,13 @@ public class TypesRepositoryImpl extends EObjectImpl implements TypesRepository
 		super.eSet(featureID, newValue);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public void eUnset(int featureID)
-  {
+	@Override
+	public void eUnset(int featureID) {
 		switch (featureID) {
 			case DomainPackage.TYPES_REPOSITORY__UID:
 				setUid(UID_EDEFAULT);
@@ -394,14 +377,13 @@ public class TypesRepositoryImpl extends EObjectImpl implements TypesRepository
 		super.eUnset(featureID);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public boolean eIsSet(int featureID)
-  {
+	@Override
+	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case DomainPackage.TYPES_REPOSITORY__UID:
 				return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
@@ -415,14 +397,13 @@ public class TypesRepositoryImpl extends EObjectImpl implements TypesRepository
 		return super.eIsSet(featureID);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public String toString()
-  {
+	@Override
+	public String toString() {
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());

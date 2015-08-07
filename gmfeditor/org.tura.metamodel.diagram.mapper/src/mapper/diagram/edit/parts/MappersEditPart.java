@@ -4,21 +4,11 @@
 package mapper.diagram.edit.parts;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 
-import mapper.diagram.edit.commands.DomainCreateShortcutDecorationsCommand;
-import mapper.diagram.edit.policies.MappersCanonicalEditPolicy;
-import mapper.diagram.edit.policies.MappersItemSemanticEditPolicy;
-import mapper.diagram.part.DomainVisualIDRegistry;
-
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.gef.GraphicalEditPart;
-import org.eclipse.gef.Request;
 import org.eclipse.gef.commands.Command;
-import org.eclipse.gef.editpolicies.NonResizableEditPolicy;
-import org.eclipse.gef.handles.MoveHandle;
 import org.eclipse.gmf.runtime.diagram.ui.commands.ICommandProxy;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.DiagramEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.DiagramDragDropEditPolicy;
@@ -30,31 +20,36 @@ import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.gmf.tooling.runtime.edit.policies.reparent.CreationEditPolicyWithCustomReparent;
 
+import mapper.diagram.edit.commands.DomainCreateShortcutDecorationsCommand;
+import mapper.diagram.edit.policies.MappersCanonicalEditPolicy;
+import mapper.diagram.edit.policies.MappersItemSemanticEditPolicy;
+import mapper.diagram.part.DomainVisualIDRegistry;
+
 /**
  * @generated
  */
 public class MappersEditPart extends DiagramEditPart {
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public final static String MODEL_ID = "Mapper"; //$NON-NLS-1$
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static final int VISUAL_ID = 401000;
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public MappersEditPart(View view) {
 		super(view);
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected void createDefaultEditPolicies() {
 		super.createDefaultEditPolicies();
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE, new MappersItemSemanticEditPolicy());

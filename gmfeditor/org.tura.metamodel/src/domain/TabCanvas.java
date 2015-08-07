@@ -13,6 +13,5 @@ package domain;
  * @model annotation="gmf.node label='name' border.color='0,0,0' color='192,192,192'"
  * @generated
  */
-public interface TabCanvas extends CanvasFrame, DefaultCavas, MultiLangLabel, Categorized
-{
+public interface TabCanvas extends CanvasFrame, DefaultCavas, MultiLangLabel, Categorized {
 } // TabCanvas

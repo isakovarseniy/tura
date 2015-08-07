@@ -1,24 +1,7 @@
 /*
- * 
- */
+* 
+*/
 package infarastructure.diagram.part;
-
-import infarastructure.diagram.edit.parts.DatacenterDatacenterSubsystemsCompartmentEditPart;
-import infarastructure.diagram.edit.parts.DatacenterEditPart;
-import infarastructure.diagram.edit.parts.EnterpriseInfrastructureEditPart;
-import infarastructure.diagram.edit.parts.HubEditPart;
-import infarastructure.diagram.edit.parts.InfrastructureConnectionEditPart;
-import infarastructure.diagram.edit.parts.InfrastructureLayerEditPart;
-import infarastructure.diagram.edit.parts.InfrastructureLayerInfrastructureLayerInfrastructureComponentCompartmentEditPart;
-import infarastructure.diagram.edit.parts.RouterEditPart;
-import infarastructure.diagram.edit.parts.Server2EditPart;
-import infarastructure.diagram.edit.parts.ServerClasterEditPart;
-import infarastructure.diagram.edit.parts.ServerClasterServerClasterServersCompartmentEditPart;
-import infarastructure.diagram.edit.parts.ServerEditPart;
-import infarastructure.diagram.edit.parts.StorageEditPart;
-import infarastructure.diagram.edit.parts.SubsystemEditPart;
-import infarastructure.diagram.edit.parts.SubsystemSubsystemInfrastructureLayerCompartmentEditPart;
-import infarastructure.diagram.providers.DomainElementTypes;
 
 import java.util.Collection;
 import java.util.Collections;
@@ -45,6 +28,22 @@ import domain.Server;
 import domain.ServerClaster;
 import domain.Storage;
 import domain.Subsystem;
+import infarastructure.diagram.edit.parts.DatacenterDatacenterSubsystemsCompartmentEditPart;
+import infarastructure.diagram.edit.parts.DatacenterEditPart;
+import infarastructure.diagram.edit.parts.EnterpriseInfrastructureEditPart;
+import infarastructure.diagram.edit.parts.HubEditPart;
+import infarastructure.diagram.edit.parts.InfrastructureConnectionEditPart;
+import infarastructure.diagram.edit.parts.InfrastructureLayerEditPart;
+import infarastructure.diagram.edit.parts.InfrastructureLayerInfrastructureLayerInfrastructureComponentCompartmentEditPart;
+import infarastructure.diagram.edit.parts.RouterEditPart;
+import infarastructure.diagram.edit.parts.Server2EditPart;
+import infarastructure.diagram.edit.parts.ServerClasterEditPart;
+import infarastructure.diagram.edit.parts.ServerClasterServerClasterServersCompartmentEditPart;
+import infarastructure.diagram.edit.parts.ServerEditPart;
+import infarastructure.diagram.edit.parts.StorageEditPart;
+import infarastructure.diagram.edit.parts.SubsystemEditPart;
+import infarastructure.diagram.edit.parts.SubsystemSubsystemInfrastructureLayerCompartmentEditPart;
+import infarastructure.diagram.providers.DomainElementTypes;
 
 /**
  * @generated
@@ -52,15 +51,15 @@ import domain.Subsystem;
 public class DomainDiagramUpdater {
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static boolean isShortcutOrphaned(View view) {
 		return !view.isSetElement() || view.getElement() == null || view.getElement().eIsProxy();
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static List<DomainNodeDescriptor> getSemanticChildren(View view) {
 		switch (DomainVisualIDRegistry.getVisualID(view)) {
 		case EnterpriseInfrastructureEditPart.VISUAL_ID:
@@ -79,8 +78,8 @@ public class DomainDiagramUpdater {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static List<DomainNodeDescriptor> getEnterpriseInfrastructure_1201000SemanticChildren(View view) {
 		if (!view.isSetElement()) {
 			return Collections.emptyList();
@@ -99,8 +98,8 @@ public class DomainDiagramUpdater {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static List<DomainNodeDescriptor> getDatacenterDatacenterSubsystemsCompartment_1207001SemanticChildren(
 			View view) {
 		if (false == view.eContainer() instanceof View) {
@@ -124,8 +123,8 @@ public class DomainDiagramUpdater {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static List<DomainNodeDescriptor> getSubsystemSubsystemInfrastructureLayerCompartment_1207002SemanticChildren(
 			View view) {
 		if (false == view.eContainer() instanceof View) {
@@ -149,8 +148,8 @@ public class DomainDiagramUpdater {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static List<DomainNodeDescriptor> getInfrastructureLayerInfrastructureLayerInfrastructureComponentCompartment_1207003SemanticChildren(
 			View view) {
 		if (false == view.eContainer() instanceof View) {
@@ -190,8 +189,8 @@ public class DomainDiagramUpdater {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static List<DomainNodeDescriptor> getServerClasterServerClasterServersCompartment_1207004SemanticChildren(
 			View view) {
 		if (false == view.eContainer() instanceof View) {
@@ -215,8 +214,8 @@ public class DomainDiagramUpdater {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static List<DomainLinkDescriptor> getContainedLinks(View view) {
 		switch (DomainVisualIDRegistry.getVisualID(view)) {
 		case EnterpriseInfrastructureEditPart.VISUAL_ID:
@@ -246,8 +245,8 @@ public class DomainDiagramUpdater {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static List<DomainLinkDescriptor> getIncomingLinks(View view) {
 		switch (DomainVisualIDRegistry.getVisualID(view)) {
 		case DatacenterEditPart.VISUAL_ID:
@@ -275,8 +274,8 @@ public class DomainDiagramUpdater {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static List<DomainLinkDescriptor> getOutgoingLinks(View view) {
 		switch (DomainVisualIDRegistry.getVisualID(view)) {
 		case DatacenterEditPart.VISUAL_ID:
@@ -572,8 +571,8 @@ public class DomainDiagramUpdater {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private static Collection<DomainLinkDescriptor> getContainedTypeModelFacetLinks_InfrastructureConnection_1204009(
 			EnterpriseInfrastructure container) {
 		LinkedList<DomainLinkDescriptor> result = new LinkedList<DomainLinkDescriptor>();
@@ -618,8 +617,8 @@ public class DomainDiagramUpdater {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private static Collection<DomainLinkDescriptor> getOutgoingTypeModelFacetLinks_InfrastructureConnection_1204009(
 			InfrastructureComponent source) {
 		EnterpriseInfrastructure container = null;
@@ -656,8 +655,8 @@ public class DomainDiagramUpdater {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static final DiagramUpdater TYPED_INSTANCE = new DiagramUpdater() {
 		/**
 		* @generated

@@ -46,79 +46,78 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public class RecipesImpl extends EObjectImpl implements Recipes
-{
-  /**
+public class RecipesImpl extends EObjectImpl implements Recipes {
+	/**
 	 * The default value of the '{@link #getUid() <em>Uid</em>}' attribute.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getUid()
 	 * @generated
 	 * @ordered
 	 */
-  protected static final String UID_EDEFAULT = null;
+	protected static final String UID_EDEFAULT = null;
 
-  /**
+	/**
 	 * The cached value of the '{@link #getUid() <em>Uid</em>}' attribute.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getUid()
 	 * @generated
 	 * @ordered
 	 */
-  protected String uid = UID_EDEFAULT;
+	protected String uid = UID_EDEFAULT;
 
-  /**
+	/**
 	 * The cached value of the '{@link #getRecipe() <em>Recipe</em>}' containment reference.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getRecipe()
 	 * @generated
 	 * @ordered
 	 */
-  protected Recipe recipe;
+	protected Recipe recipe;
 
-  /**
+	/**
 	 * The cached value of the '{@link #getConfigurations() <em>Configurations</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getConfigurations()
 	 * @generated
 	 * @ordered
 	 */
-  protected EList<Configuration> configurations;
+	protected EList<Configuration> configurations;
 
-  /**
+	/**
 	 * The cached value of the '{@link #getInfrastructures() <em>Infrastructures</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getInfrastructures()
 	 * @generated
 	 * @ordered
 	 */
-  protected EList<Infrastructure> infrastructures;
+	protected EList<Infrastructure> infrastructures;
 
-  /**
+	/**
 	 * The cached value of the '{@link #getParent() <em>Parent</em>}' reference.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getParent()
 	 * @generated
 	 * @ordered
 	 */
-  protected ApplicationRecipe parent;
+	protected ApplicationRecipe parent;
 
-  /**
+	/**
 	 * The cached value of the '{@link #getDeployment() <em>Deployment</em>}' containment reference.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getDeployment()
 	 * @generated
 	 * @ordered
 	 */
-  protected DeploymentSequence deployment;
+	protected DeploymentSequence deployment;
 
-  /**
+	/**
 	 * The cached value of the '{@link #getAny() <em>Any</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -128,67 +127,61 @@ public class RecipesImpl extends EObjectImpl implements Recipes
 	 */
 	protected EObject any;
 
-		/**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  protected RecipesImpl()
-  {
+	protected RecipesImpl() {
 		super();
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  protected EClass eStaticClass()
-  {
+	@Override
+	protected EClass eStaticClass() {
 		return DomainPackage.Literals.RECIPES;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public String getUid()
-  {
+	public String getUid() {
 		return uid;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public void setUid(String newUid)
-  {
+	public void setUid(String newUid) {
 		String oldUid = uid;
 		uid = newUid;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.RECIPES__UID, oldUid, uid));
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public Recipe getRecipe()
-  {
+	public Recipe getRecipe() {
 		return recipe;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public NotificationChain basicSetRecipe(Recipe newRecipe, NotificationChain msgs)
-  {
+	public NotificationChain basicSetRecipe(Recipe newRecipe, NotificationChain msgs) {
 		Recipe oldRecipe = recipe;
 		recipe = newRecipe;
 		if (eNotificationRequired()) {
@@ -198,13 +191,12 @@ public class RecipesImpl extends EObjectImpl implements Recipes
 		return msgs;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public void setRecipe(Recipe newRecipe)
-  {
+	public void setRecipe(Recipe newRecipe) {
 		if (newRecipe != recipe) {
 			NotificationChain msgs = null;
 			if (recipe != null)
@@ -218,39 +210,36 @@ public class RecipesImpl extends EObjectImpl implements Recipes
 			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.RECIPES__RECIPE, newRecipe, newRecipe));
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public EList<Configuration> getConfigurations()
-  {
+	public EList<Configuration> getConfigurations() {
 		if (configurations == null) {
 			configurations = new EObjectContainmentEList<Configuration>(Configuration.class, this, DomainPackage.RECIPES__CONFIGURATIONS);
 		}
 		return configurations;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public EList<Infrastructure> getInfrastructures()
-  {
+	public EList<Infrastructure> getInfrastructures() {
 		if (infrastructures == null) {
 			infrastructures = new EObjectContainmentEList<Infrastructure>(Infrastructure.class, this, DomainPackage.RECIPES__INFRASTRUCTURES);
 		}
 		return infrastructures;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public ApplicationRecipe getParent()
-  {
+	public ApplicationRecipe getParent() {
 		if (parent != null && parent.eIsProxy()) {
 			InternalEObject oldParent = (InternalEObject)parent;
 			parent = (ApplicationRecipe)eResolveProxy(oldParent);
@@ -262,23 +251,21 @@ public class RecipesImpl extends EObjectImpl implements Recipes
 		return parent;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public ApplicationRecipe basicGetParent()
-  {
+	public ApplicationRecipe basicGetParent() {
 		return parent;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public NotificationChain basicSetParent(ApplicationRecipe newParent, NotificationChain msgs)
-  {
+	public NotificationChain basicSetParent(ApplicationRecipe newParent, NotificationChain msgs) {
 		ApplicationRecipe oldParent = parent;
 		parent = newParent;
 		if (eNotificationRequired()) {
@@ -288,13 +275,12 @@ public class RecipesImpl extends EObjectImpl implements Recipes
 		return msgs;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public void setParent(ApplicationRecipe newParent)
-  {
+	public void setParent(ApplicationRecipe newParent) {
 		if (newParent != parent) {
 			NotificationChain msgs = null;
 			if (parent != null)
@@ -308,23 +294,21 @@ public class RecipesImpl extends EObjectImpl implements Recipes
 			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.RECIPES__PARENT, newParent, newParent));
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public DeploymentSequence getDeployment()
-  {
+	public DeploymentSequence getDeployment() {
 		return deployment;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public NotificationChain basicSetDeployment(DeploymentSequence newDeployment, NotificationChain msgs)
-  {
+	public NotificationChain basicSetDeployment(DeploymentSequence newDeployment, NotificationChain msgs) {
 		DeploymentSequence oldDeployment = deployment;
 		deployment = newDeployment;
 		if (eNotificationRequired()) {
@@ -334,13 +318,12 @@ public class RecipesImpl extends EObjectImpl implements Recipes
 		return msgs;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public void setDeployment(DeploymentSequence newDeployment)
-  {
+	public void setDeployment(DeploymentSequence newDeployment) {
 		if (newDeployment != deployment) {
 			NotificationChain msgs = null;
 			if (deployment != null)
@@ -354,7 +337,7 @@ public class RecipesImpl extends EObjectImpl implements Recipes
 			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.RECIPES__DEPLOYMENT, newDeployment, newDeployment));
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -363,7 +346,7 @@ public class RecipesImpl extends EObjectImpl implements Recipes
 		return any;
 	}
 
-		/**
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -378,7 +361,7 @@ public class RecipesImpl extends EObjectImpl implements Recipes
 		return msgs;
 	}
 
-		/**
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -397,14 +380,13 @@ public class RecipesImpl extends EObjectImpl implements Recipes
 			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.RECIPES__ANY, newAny, newAny));
 	}
 
-		/**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-  {
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case DomainPackage.RECIPES__RECIPE:
 				if (recipe != null)
@@ -418,14 +400,13 @@ public class RecipesImpl extends EObjectImpl implements Recipes
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-  {
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case DomainPackage.RECIPES__RECIPE:
 				return basicSetRecipe(null, msgs);
@@ -443,14 +424,13 @@ public class RecipesImpl extends EObjectImpl implements Recipes
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public Object eGet(int featureID, boolean resolve, boolean coreType)
-  {
+	@Override
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case DomainPackage.RECIPES__UID:
 				return getUid();
@@ -471,15 +451,14 @@ public class RecipesImpl extends EObjectImpl implements Recipes
 		return super.eGet(featureID, resolve, coreType);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @SuppressWarnings("unchecked")
-  @Override
-  public void eSet(int featureID, Object newValue)
-  {
+	@SuppressWarnings("unchecked")
+	@Override
+	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case DomainPackage.RECIPES__UID:
 				setUid((String)newValue);
@@ -508,14 +487,13 @@ public class RecipesImpl extends EObjectImpl implements Recipes
 		super.eSet(featureID, newValue);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public void eUnset(int featureID)
-  {
+	@Override
+	public void eUnset(int featureID) {
 		switch (featureID) {
 			case DomainPackage.RECIPES__UID:
 				setUid(UID_EDEFAULT);
@@ -542,14 +520,13 @@ public class RecipesImpl extends EObjectImpl implements Recipes
 		super.eUnset(featureID);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public boolean eIsSet(int featureID)
-  {
+	@Override
+	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case DomainPackage.RECIPES__UID:
 				return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
@@ -569,14 +546,13 @@ public class RecipesImpl extends EObjectImpl implements Recipes
 		return super.eIsSet(featureID);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public String toString()
-  {
+	@Override
+	public String toString() {
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());

@@ -1,6 +1,6 @@
 /*
- * 
- */
+* 
+*/
 package frmview.diagram.part;
 
 import java.util.Collection;
@@ -53,15 +53,15 @@ import frmview.diagram.providers.DomainElementTypes;
 public class DomainDiagramUpdater {
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static boolean isShortcutOrphaned(View view) {
 		return !view.isSetElement() || view.getElement() == null || view.getElement().eIsProxy();
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static List<DomainNodeDescriptor> getSemanticChildren(View view) {
 		switch (DomainVisualIDRegistry.getVisualID(view)) {
 		case ViewsEditPart.VISUAL_ID:
@@ -81,8 +81,8 @@ public class DomainDiagramUpdater {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static List<DomainNodeDescriptor> getViews_1301000SemanticChildren(View view) {
 		if (!view.isSetElement()) {
 			return Collections.emptyList();
@@ -117,8 +117,8 @@ public class DomainDiagramUpdater {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static List<DomainNodeDescriptor> getPopupCanvasPopupCanvasViewElementCompartment_1307010SemanticChildren(
 			View view) {
 		if (false == view.eContainer() instanceof View) {
@@ -146,8 +146,32 @@ public class DomainDiagramUpdater {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
+	public static List<DomainNodeDescriptor> getViewPortViewPortViewPortTriggerCompartment_1307009SemanticChildren(
+			View view) {
+		if (false == view.eContainer() instanceof View) {
+			return Collections.emptyList();
+		}
+		View containerView = (View) view.eContainer();
+		if (!containerView.isSetElement()) {
+			return Collections.emptyList();
+		}
+		ViewPort modelElement = (ViewPort) containerView.getElement();
+		LinkedList<DomainNodeDescriptor> result = new LinkedList<DomainNodeDescriptor>();
+		{
+			ViewPortTrigger childElement = modelElement.getViewPortTrigger();
+			int visualID = DomainVisualIDRegistry.getNodeVisualID(view, childElement);
+			if (visualID == ViewPortTriggerEditPart.VISUAL_ID) {
+				result.add(new DomainNodeDescriptor(childElement, visualID));
+			}
+		}
+		return result;
+	}
+
+	/**
+	* @generated
+	*/
 	public static List<DomainNodeDescriptor> getCanvasCanvasViewElementCompartment_1307004SemanticChildren(View view) {
 		if (false == view.eContainer() instanceof View) {
 			return Collections.emptyList();
@@ -174,60 +198,8 @@ public class DomainDiagramUpdater {
 	}
 
 	/**
-	 * @generated
-	 */
-	public static List<DomainNodeDescriptor> getViewPortViewPortViewPortTriggerCompartment_1307009SemanticChildren(
-			View view) {
-		if (false == view.eContainer() instanceof View) {
-			return Collections.emptyList();
-		}
-		View containerView = (View) view.eContainer();
-		if (!containerView.isSetElement()) {
-			return Collections.emptyList();
-		}
-		ViewPort modelElement = (ViewPort) containerView.getElement();
-		LinkedList<DomainNodeDescriptor> result = new LinkedList<DomainNodeDescriptor>();
-		{
-			ViewPortTrigger childElement = modelElement.getViewPortTrigger();
-			int visualID = DomainVisualIDRegistry.getNodeVisualID(view, childElement);
-			if (visualID == ViewPortTriggerEditPart.VISUAL_ID) {
-				result.add(new DomainNodeDescriptor(childElement, visualID));
-			}
-		}
-		return result;
-	}
-
-	/**
-	 * @generated
-	 */
-	public static List<DomainNodeDescriptor> getWindowWindowViewElementCompartment_1307008SemanticChildren(View view) {
-		if (false == view.eContainer() instanceof View) {
-			return Collections.emptyList();
-		}
-		View containerView = (View) view.eContainer();
-		if (!containerView.isSetElement()) {
-			return Collections.emptyList();
-		}
-		Window modelElement = (Window) containerView.getElement();
-		LinkedList<DomainNodeDescriptor> result = new LinkedList<DomainNodeDescriptor>();
-		for (Iterator<?> it = modelElement.getViewElement().iterator(); it.hasNext();) {
-			ViewElement childElement = (ViewElement) it.next();
-			int visualID = DomainVisualIDRegistry.getNodeVisualID(view, childElement);
-			if (visualID == ViewPortEditPart.VISUAL_ID) {
-				result.add(new DomainNodeDescriptor(childElement, visualID));
-				continue;
-			}
-			if (visualID == ViewAreaEditPart.VISUAL_ID) {
-				result.add(new DomainNodeDescriptor(childElement, visualID));
-				continue;
-			}
-		}
-		return result;
-	}
-
-	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static List<DomainNodeDescriptor> getTabPageTabPageViewElementCompartment_1307003SemanticChildren(
 			View view) {
 		if (false == view.eContainer() instanceof View) {
@@ -255,8 +227,36 @@ public class DomainDiagramUpdater {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
+	public static List<DomainNodeDescriptor> getWindowWindowViewElementCompartment_1307008SemanticChildren(View view) {
+		if (false == view.eContainer() instanceof View) {
+			return Collections.emptyList();
+		}
+		View containerView = (View) view.eContainer();
+		if (!containerView.isSetElement()) {
+			return Collections.emptyList();
+		}
+		Window modelElement = (Window) containerView.getElement();
+		LinkedList<DomainNodeDescriptor> result = new LinkedList<DomainNodeDescriptor>();
+		for (Iterator<?> it = modelElement.getViewElement().iterator(); it.hasNext();) {
+			ViewElement childElement = (ViewElement) it.next();
+			int visualID = DomainVisualIDRegistry.getNodeVisualID(view, childElement);
+			if (visualID == ViewPortEditPart.VISUAL_ID) {
+				result.add(new DomainNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == ViewAreaEditPart.VISUAL_ID) {
+				result.add(new DomainNodeDescriptor(childElement, visualID));
+				continue;
+			}
+		}
+		return result;
+	}
+
+	/**
+	* @generated
+	*/
 	public static List<DomainLinkDescriptor> getContainedLinks(View view) {
 		switch (DomainVisualIDRegistry.getVisualID(view)) {
 		case ViewsEditPart.VISUAL_ID:
@@ -286,8 +286,8 @@ public class DomainDiagramUpdater {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static List<DomainLinkDescriptor> getIncomingLinks(View view) {
 		switch (DomainVisualIDRegistry.getVisualID(view)) {
 		case PopupCanvasEditPart.VISUAL_ID:
@@ -315,8 +315,8 @@ public class DomainDiagramUpdater {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static List<DomainLinkDescriptor> getOutgoingLinks(View view) {
 		switch (DomainVisualIDRegistry.getVisualID(view)) {
 		case PopupCanvasEditPart.VISUAL_ID:
@@ -371,14 +371,14 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getWindow_1302007ContainedLinks(View view) {
+	public static List<DomainLinkDescriptor> getTabPage_1302002ContainedLinks(View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getTabPage_1302002ContainedLinks(View view) {
+	public static List<DomainLinkDescriptor> getWindow_1302007ContainedLinks(View view) {
 		return Collections.emptyList();
 	}
 
@@ -451,18 +451,6 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getWindow_1302007IncomingLinks(View view) {
-		Window modelElement = (Window) view.getElement();
-		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
-				.find(view.eResource().getResourceSet().getResources());
-		LinkedList<DomainLinkDescriptor> result = new LinkedList<DomainLinkDescriptor>();
-		result.addAll(getIncomingTypeModelFacetLinks_ViewInheritance_1304001(modelElement, crossReferences));
-		return result;
-	}
-
-	/**
-	 * @generated
-	 */
 	public static List<DomainLinkDescriptor> getTabPage_1302002IncomingLinks(View view) {
 		TabPage modelElement = (TabPage) view.getElement();
 		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
@@ -470,6 +458,18 @@ public class DomainDiagramUpdater {
 		LinkedList<DomainLinkDescriptor> result = new LinkedList<DomainLinkDescriptor>();
 		result.addAll(getIncomingTypeModelFacetLinks_ViewInheritance_1304001(modelElement, crossReferences));
 		result.addAll(getIncomingTypeModelFacetLinks_TabPagesInheritance_1304002(modelElement, crossReferences));
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<DomainLinkDescriptor> getWindow_1302007IncomingLinks(View view) {
+		Window modelElement = (Window) view.getElement();
+		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+				.find(view.eResource().getResourceSet().getResources());
+		LinkedList<DomainLinkDescriptor> result = new LinkedList<DomainLinkDescriptor>();
+		result.addAll(getIncomingTypeModelFacetLinks_ViewInheritance_1304001(modelElement, crossReferences));
 		return result;
 	}
 
@@ -537,14 +537,14 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getWindow_1302007OutgoingLinks(View view) {
+	public static List<DomainLinkDescriptor> getTabPage_1302002OutgoingLinks(View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getTabPage_1302002OutgoingLinks(View view) {
+	public static List<DomainLinkDescriptor> getWindow_1302007OutgoingLinks(View view) {
 		return Collections.emptyList();
 	}
 
@@ -597,8 +597,8 @@ public class DomainDiagramUpdater {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private static Collection<DomainLinkDescriptor> getContainedTypeModelFacetLinks_ViewInheritance_1304001(
 			Views container) {
 		LinkedList<DomainLinkDescriptor> result = new LinkedList<DomainLinkDescriptor>();
@@ -620,8 +620,8 @@ public class DomainDiagramUpdater {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private static Collection<DomainLinkDescriptor> getContainedTypeModelFacetLinks_TabPagesInheritance_1304002(
 			Views container) {
 		LinkedList<DomainLinkDescriptor> result = new LinkedList<DomainLinkDescriptor>();
@@ -689,8 +689,8 @@ public class DomainDiagramUpdater {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private static Collection<DomainLinkDescriptor> getOutgoingTypeModelFacetLinks_ViewInheritance_1304001(
 			ViewPort source) {
 		Views container = null;
@@ -727,8 +727,8 @@ public class DomainDiagramUpdater {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private static Collection<DomainLinkDescriptor> getOutgoingTypeModelFacetLinks_TabPagesInheritance_1304002(
 			TabCanvas source) {
 		Views container = null;
@@ -765,8 +765,8 @@ public class DomainDiagramUpdater {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static final DiagramUpdater TYPED_INSTANCE = new DiagramUpdater() {
 		/**
 		* @generated

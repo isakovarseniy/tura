@@ -1,6 +1,6 @@
 /*
- * 
- */
+* 
+*/
 package message.diagram.part;
 
 import java.io.IOException;
@@ -62,8 +62,8 @@ import message.diagram.edit.parts.MessagesEditPart;
 public class DomainDiagramEditorUtil {
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static Map<?, ?> getSaveOptions() {
 		HashMap<String, Object> saveOptions = new HashMap<String, Object>();
 		saveOptions.put(XMLResource.OPTION_ENCODING, "UTF-8"); //$NON-NLS-1$
@@ -72,8 +72,8 @@ public class DomainDiagramEditorUtil {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static boolean openDiagram(Resource diagram) throws PartInitException {
 		String path = diagram.getURI().toPlatformString(true);
 		IResource workspaceResource = ResourcesPlugin.getWorkspace().getRoot().findMember(new Path(path));
@@ -85,8 +85,8 @@ public class DomainDiagramEditorUtil {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static void setCharset(IFile file) {
 		if (file == null) {
 			return;
@@ -99,8 +99,8 @@ public class DomainDiagramEditorUtil {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static String getUniqueFileName(IPath containerFullPath, String fileName, String extension) {
 		return DefaultDiagramEditorUtil.getUniqueFileName(containerFullPath, fileName, extension,
 				DefaultDiagramEditorUtil.EXISTS_IN_WORKSPACE);
@@ -125,9 +125,9 @@ public class DomainDiagramEditorUtil {
 	}
 
 	/**
-	 * This method should be called within a workspace modify operation since it creates resources.
-	 * @generated
-	 */
+	* This method should be called within a workspace modify operation since it creates resources.
+	* @generated
+	*/
 	public static Resource createDiagram(URI diagramURI, URI modelURI, IProgressMonitor progressMonitor) {
 		TransactionalEditingDomain editingDomain = GMFEditingDomainFactory.INSTANCE.createEditingDomain();
 		progressMonitor.beginTask(Messages.DomainDiagramEditorUtil_CreateDiagramProgressTask, 3);
@@ -173,7 +173,7 @@ public class DomainDiagramEditorUtil {
 	/**
 	* Create a new instance of domain element associated with canvas.
 	* <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	* <!-- end-user-doc -->
 	* @generated
 	*/
 
@@ -185,7 +185,7 @@ public class DomainDiagramEditorUtil {
 	/**
 	* Store model element in the resource.
 	* <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	* <!-- end-user-doc -->
 	* @generated
 	*/
 	private static void attachModelToResource(domain.Messages model, Resource resource) {
@@ -193,8 +193,8 @@ public class DomainDiagramEditorUtil {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static void selectElementsInDiagram(IDiagramWorkbenchPart diagramPart, List<EditPart> editParts) {
 		diagramPart.getDiagramGraphicalViewer().deselectAll();
 
@@ -213,8 +213,8 @@ public class DomainDiagramEditorUtil {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private static int findElementsInDiagramByID(DiagramEditPart diagramPart, EObject element,
 			List<EditPart> editPartCollector) {
 		IDiagramGraphicalViewer viewer = (IDiagramGraphicalViewer) diagramPart.getViewer();
@@ -255,8 +255,8 @@ public class DomainDiagramEditorUtil {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static View findView(DiagramEditPart diagramEditPart, EObject targetElement,
 			LazyElement2ViewMap lazyElement2ViewMap) {
 		boolean hasStructuralURI = false;
@@ -277,36 +277,36 @@ public class DomainDiagramEditorUtil {
 	}
 
 	/**
-	 * XXX This is quite suspicious code (especially editPartTmpHolder) and likely to be removed soon
-	 * @generated
-	 */
+	* XXX This is quite suspicious code (especially editPartTmpHolder) and likely to be removed soon
+	* @generated
+	*/
 	public static class LazyElement2ViewMap {
 		/**
-		 * @generated
-		 */
+		* @generated
+		*/
 		private Map<EObject, View> element2ViewMap;
 
 		/**
-		 * @generated
-		 */
+		* @generated
+		*/
 		private View scope;
 
 		/**
-		 * @generated
-		 */
+		* @generated
+		*/
 		private Set<? extends EObject> elementSet;
 
 		/**
-		 * @generated
-		 */
+		* @generated
+		*/
 		public LazyElement2ViewMap(View scope, Set<? extends EObject> elements) {
 			this.scope = scope;
 			this.elementSet = elements;
 		}
 
 		/**
-		 * @generated
-		 */
+		* @generated
+		*/
 		public final Map<EObject, View> getElement2ViewMap() {
 			if (element2ViewMap == null) {
 				element2ViewMap = new HashMap<EObject, View>();
@@ -326,8 +326,8 @@ public class DomainDiagramEditorUtil {
 		}
 
 		/**
-		 * @generated
-		 */
+		* @generated
+		*/
 		private static boolean buildElement2ViewMap(View parentView, Map<EObject, View> element2ViewMap,
 				Set<? extends EObject> elements) {
 			if (elements.size() == element2ViewMap.size()) {

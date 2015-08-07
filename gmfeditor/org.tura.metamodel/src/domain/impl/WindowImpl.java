@@ -43,132 +43,124 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public class WindowImpl extends CanvasFrameImpl implements Window
-{
-  /**
+public class WindowImpl extends CanvasFrameImpl implements Window {
+	/**
 	 * The default value of the '{@link #getColumns() <em>Columns</em>}' attribute.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getColumns()
 	 * @generated
 	 * @ordered
 	 */
-  protected static final int COLUMNS_EDEFAULT = 1;
+	protected static final int COLUMNS_EDEFAULT = 1;
 
-  /**
+	/**
 	 * The cached value of the '{@link #getColumns() <em>Columns</em>}' attribute.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getColumns()
 	 * @generated
 	 * @ordered
 	 */
-  protected int columns = COLUMNS_EDEFAULT;
+	protected int columns = COLUMNS_EDEFAULT;
 
-  /**
+	/**
 	 * The cached value of the '{@link #getViewElement() <em>View Element</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getViewElement()
 	 * @generated
 	 * @ordered
 	 */
-  protected EList<ViewElement> viewElement;
+	protected EList<ViewElement> viewElement;
 
-  /**
+	/**
 	 * The cached value of the '{@link #getMultiLangLabel() <em>Multi Lang Label</em>}' containment reference.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getMultiLangLabel()
 	 * @generated
 	 * @ordered
 	 */
-  protected Context multiLangLabel;
+	protected Context multiLangLabel;
 
-  /**
+	/**
 	 * The cached value of the '{@link #getClassifiers() <em>Classifiers</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getClassifiers()
 	 * @generated
 	 * @ordered
 	 */
-  protected EList<Classifier> classifiers;
+	protected EList<Classifier> classifiers;
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  protected WindowImpl()
-  {
+	protected WindowImpl() {
 		super();
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  protected EClass eStaticClass()
-  {
+	@Override
+	protected EClass eStaticClass() {
 		return DomainPackage.Literals.WINDOW;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public int getColumns()
-  {
+	public int getColumns() {
 		return columns;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public void setColumns(int newColumns)
-  {
+	public void setColumns(int newColumns) {
 		int oldColumns = columns;
 		columns = newColumns;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.WINDOW__COLUMNS, oldColumns, columns));
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public EList<ViewElement> getViewElement()
-  {
+	public EList<ViewElement> getViewElement() {
 		if (viewElement == null) {
 			viewElement = new EObjectContainmentEList<ViewElement>(ViewElement.class, this, DomainPackage.WINDOW__VIEW_ELEMENT);
 		}
 		return viewElement;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public Context getMultiLangLabel()
-  {
+	public Context getMultiLangLabel() {
 		return multiLangLabel;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public NotificationChain basicSetMultiLangLabel(Context newMultiLangLabel, NotificationChain msgs)
-  {
+	public NotificationChain basicSetMultiLangLabel(Context newMultiLangLabel, NotificationChain msgs) {
 		Context oldMultiLangLabel = multiLangLabel;
 		multiLangLabel = newMultiLangLabel;
 		if (eNotificationRequired()) {
@@ -178,13 +170,12 @@ public class WindowImpl extends CanvasFrameImpl implements Window
 		return msgs;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public void setMultiLangLabel(Context newMultiLangLabel)
-  {
+	public void setMultiLangLabel(Context newMultiLangLabel) {
 		if (newMultiLangLabel != multiLangLabel) {
 			NotificationChain msgs = null;
 			if (multiLangLabel != null)
@@ -198,27 +189,25 @@ public class WindowImpl extends CanvasFrameImpl implements Window
 			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.WINDOW__MULTI_LANG_LABEL, newMultiLangLabel, newMultiLangLabel));
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public EList<Classifier> getClassifiers()
-  {
+	public EList<Classifier> getClassifiers() {
 		if (classifiers == null) {
 			classifiers = new EObjectContainmentEList<Classifier>(Classifier.class, this, DomainPackage.WINDOW__CLASSIFIERS);
 		}
 		return classifiers;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-  {
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case DomainPackage.WINDOW__VIEW_ELEMENT:
 				return ((InternalEList<?>)getViewElement()).basicRemove(otherEnd, msgs);
@@ -230,14 +219,13 @@ public class WindowImpl extends CanvasFrameImpl implements Window
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public Object eGet(int featureID, boolean resolve, boolean coreType)
-  {
+	@Override
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case DomainPackage.WINDOW__COLUMNS:
 				return getColumns();
@@ -251,15 +239,14 @@ public class WindowImpl extends CanvasFrameImpl implements Window
 		return super.eGet(featureID, resolve, coreType);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @SuppressWarnings("unchecked")
-  @Override
-  public void eSet(int featureID, Object newValue)
-  {
+	@SuppressWarnings("unchecked")
+	@Override
+	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case DomainPackage.WINDOW__COLUMNS:
 				setColumns((Integer)newValue);
@@ -279,14 +266,13 @@ public class WindowImpl extends CanvasFrameImpl implements Window
 		super.eSet(featureID, newValue);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public void eUnset(int featureID)
-  {
+	@Override
+	public void eUnset(int featureID) {
 		switch (featureID) {
 			case DomainPackage.WINDOW__COLUMNS:
 				setColumns(COLUMNS_EDEFAULT);
@@ -304,14 +290,13 @@ public class WindowImpl extends CanvasFrameImpl implements Window
 		super.eUnset(featureID);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public boolean eIsSet(int featureID)
-  {
+	@Override
+	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case DomainPackage.WINDOW__COLUMNS:
 				return columns != COLUMNS_EDEFAULT;
@@ -325,14 +310,13 @@ public class WindowImpl extends CanvasFrameImpl implements Window
 		return super.eIsSet(featureID);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass)
-  {
+	@Override
+	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
 		if (baseClass == HTMLLayerHolder.class) {
 			switch (derivedFeatureID) {
 				case DomainPackage.WINDOW__COLUMNS: return DomainPackage.HTML_LAYER_HOLDER__COLUMNS;
@@ -360,14 +344,13 @@ public class WindowImpl extends CanvasFrameImpl implements Window
 		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass)
-  {
+	@Override
+	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
 		if (baseClass == HTMLLayerHolder.class) {
 			switch (baseFeatureID) {
 				case DomainPackage.HTML_LAYER_HOLDER__COLUMNS: return DomainPackage.WINDOW__COLUMNS;
@@ -395,14 +378,13 @@ public class WindowImpl extends CanvasFrameImpl implements Window
 		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public String toString()
-  {
+	@Override
+	public String toString() {
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());

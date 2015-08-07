@@ -1,6 +1,6 @@
 /*
- * 
- */
+* 
+*/
 package control.diagram.part;
 
 import java.util.Collection;
@@ -77,15 +77,15 @@ import domain.UpdateTrigger;
 public class DomainDiagramUpdater {
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static boolean isShortcutOrphaned(View view) {
 		return !view.isSetElement() || view.getElement() == null || view.getElement().eIsProxy();
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static List<DomainNodeDescriptor> getSemanticChildren(View view) {
 		switch (DomainVisualIDRegistry.getVisualID(view)) {
 		case ControlsEditPart.VISUAL_ID:
@@ -123,8 +123,8 @@ public class DomainDiagramUpdater {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static List<DomainNodeDescriptor> getControls_1101000SemanticChildren(View view) {
 		if (!view.isSetElement()) {
 			return Collections.emptyList();
@@ -150,8 +150,8 @@ public class DomainDiagramUpdater {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static List<DomainNodeDescriptor> getRootRootPreFormTriggerCompartment_1107001SemanticChildren(View view) {
 		if (false == view.eContainer() instanceof View) {
 			return Collections.emptyList();
@@ -173,8 +173,8 @@ public class DomainDiagramUpdater {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static List<DomainNodeDescriptor> getRootRootVariablesCompartment_1107014SemanticChildren(View view) {
 		if (false == view.eContainer() instanceof View) {
 			return Collections.emptyList();
@@ -197,8 +197,8 @@ public class DomainDiagramUpdater {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static List<DomainNodeDescriptor> getDataControlDataControlPreQueryTriggerCompartment_1107002SemanticChildren(
 			View view) {
 		if (false == view.eContainer() instanceof View) {
@@ -221,8 +221,8 @@ public class DomainDiagramUpdater {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static List<DomainNodeDescriptor> getDataControlDataControlPostQueryTriggerCompartment_1107003SemanticChildren(
 			View view) {
 		if (false == view.eContainer() instanceof View) {
@@ -245,8 +245,8 @@ public class DomainDiagramUpdater {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static List<DomainNodeDescriptor> getDataControlDataControlPreInsertTriggerCompartment_1107004SemanticChildren(
 			View view) {
 		if (false == view.eContainer() instanceof View) {
@@ -269,8 +269,8 @@ public class DomainDiagramUpdater {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static List<DomainNodeDescriptor> getDataControlDataControlPreDeleteTriggerCompartment_1107005SemanticChildren(
 			View view) {
 		if (false == view.eContainer() instanceof View) {
@@ -293,8 +293,8 @@ public class DomainDiagramUpdater {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static List<DomainNodeDescriptor> getDataControlDataControlPostCreateTriggerCompartment_1107006SemanticChildren(
 			View view) {
 		if (false == view.eContainer() instanceof View) {
@@ -317,8 +317,8 @@ public class DomainDiagramUpdater {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static List<DomainNodeDescriptor> getDataControlDataControlPreUpdateTriggerCompartment_1107007SemanticChildren(
 			View view) {
 		if (false == view.eContainer() instanceof View) {
@@ -341,8 +341,8 @@ public class DomainDiagramUpdater {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static List<DomainNodeDescriptor> getDataControlDataControlCreateCompartment_1107008SemanticChildren(
 			View view) {
 		if (false == view.eContainer() instanceof View) {
@@ -365,8 +365,8 @@ public class DomainDiagramUpdater {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static List<DomainNodeDescriptor> getDataControlDataControlInsertCompartment_1107009SemanticChildren(
 			View view) {
 		if (false == view.eContainer() instanceof View) {
@@ -389,8 +389,8 @@ public class DomainDiagramUpdater {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static List<DomainNodeDescriptor> getDataControlDataControlUpdateCompartment_1107010SemanticChildren(
 			View view) {
 		if (false == view.eContainer() instanceof View) {
@@ -413,8 +413,8 @@ public class DomainDiagramUpdater {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static List<DomainNodeDescriptor> getDataControlDataControlRemoveCompartment_1107011SemanticChildren(
 			View view) {
 		if (false == view.eContainer() instanceof View) {
@@ -437,8 +437,8 @@ public class DomainDiagramUpdater {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static List<DomainNodeDescriptor> getDataControlDataControlSearchCompartment_1107012SemanticChildren(
 			View view) {
 		if (false == view.eContainer() instanceof View) {
@@ -461,8 +461,8 @@ public class DomainDiagramUpdater {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static List<DomainNodeDescriptor> getDataControlDataControlArtificialFieldsCompartment_1107013SemanticChildren(
 			View view) {
 		if (false == view.eContainer() instanceof View) {
@@ -486,8 +486,8 @@ public class DomainDiagramUpdater {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static List<DomainLinkDescriptor> getContainedLinks(View view) {
 		switch (DomainVisualIDRegistry.getVisualID(view)) {
 		case ControlsEditPart.VISUAL_ID:
@@ -533,8 +533,8 @@ public class DomainDiagramUpdater {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static List<DomainLinkDescriptor> getIncomingLinks(View view) {
 		switch (DomainVisualIDRegistry.getVisualID(view)) {
 		case RootEditPart.VISUAL_ID:
@@ -578,8 +578,8 @@ public class DomainDiagramUpdater {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static List<DomainLinkDescriptor> getOutgoingLinks(View view) {
 		switch (DomainVisualIDRegistry.getVisualID(view)) {
 		case RootEditPart.VISUAL_ID:
@@ -1022,8 +1022,8 @@ public class DomainDiagramUpdater {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private static Collection<DomainLinkDescriptor> getContainedTypeModelFacetLinks_Relation_1104009(
 			Controls container) {
 		LinkedList<DomainLinkDescriptor> result = new LinkedList<DomainLinkDescriptor>();
@@ -1045,8 +1045,8 @@ public class DomainDiagramUpdater {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private static Collection<DomainLinkDescriptor> getContainedTypeModelFacetLinks_Dependency_1104010(
 			Controls container) {
 		LinkedList<DomainLinkDescriptor> result = new LinkedList<DomainLinkDescriptor>();
@@ -1114,8 +1114,8 @@ public class DomainDiagramUpdater {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private static Collection<DomainLinkDescriptor> getOutgoingTypeModelFacetLinks_Relation_1104009(
 			DataControl source) {
 		Controls container = null;
@@ -1152,8 +1152,8 @@ public class DomainDiagramUpdater {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private static Collection<DomainLinkDescriptor> getOutgoingTypeModelFacetLinks_Dependency_1104010(
 			DataControl source) {
 		Controls container = null;
@@ -1190,8 +1190,8 @@ public class DomainDiagramUpdater {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static final DiagramUpdater TYPED_INSTANCE = new DiagramUpdater() {
 		/**
 		* @generated

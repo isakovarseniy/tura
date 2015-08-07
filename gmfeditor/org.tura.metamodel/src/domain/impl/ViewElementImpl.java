@@ -2,10 +2,10 @@
  */
 package domain.impl;
 
-import org.eclipse.emf.ecore.EClass;
-
 import domain.DomainPackage;
 import domain.ViewElement;
+
+import org.eclipse.emf.ecore.EClass;
 
 /**
  * <!-- begin-user-doc -->
@@ -14,26 +14,23 @@ import domain.ViewElement;
  *
  * @generated
  */
-public class ViewElementImpl extends StyleElementImpl implements ViewElement
-{
-  /**
+public class ViewElementImpl extends StyleElementImpl implements ViewElement {
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  protected ViewElementImpl()
-  {
+	protected ViewElementImpl() {
 		super();
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  protected EClass eStaticClass()
-  {
+	@Override
+	protected EClass eStaticClass() {
 		return DomainPackage.Literals.VIEW_ELEMENT;
 	}
 

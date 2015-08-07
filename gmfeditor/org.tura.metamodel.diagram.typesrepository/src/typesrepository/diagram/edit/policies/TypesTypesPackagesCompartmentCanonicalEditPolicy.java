@@ -1,6 +1,6 @@
 /*
- * 
- */
+* 
+*/
 package typesrepository.diagram.edit.policies;
 
 import java.util.ArrayList;
@@ -24,11 +24,11 @@ import org.eclipse.gmf.runtime.emf.core.util.EObjectAdapter;
 import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.View;
 
+import domain.DomainPackage;
 import typesrepository.diagram.edit.parts.PackageEditPart;
 import typesrepository.diagram.part.DomainDiagramUpdater;
 import typesrepository.diagram.part.DomainNodeDescriptor;
 import typesrepository.diagram.part.DomainVisualIDRegistry;
-import domain.DomainPackage;
 
 /**
  * @generated
@@ -36,8 +36,8 @@ import domain.DomainPackage;
 public class TypesTypesPackagesCompartmentCanonicalEditPolicy extends CanonicalEditPolicy {
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected void refreshOnActivate() {
 		// Need to activate editpart children before invoking the canonical refresh for EditParts to add event listeners
 		List<?> c = getHost().getChildren();
@@ -48,16 +48,17 @@ public class TypesTypesPackagesCompartmentCanonicalEditPolicy extends CanonicalE
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected EStructuralFeature getFeatureToSynchronize() {
 		return DomainPackage.eINSTANCE.getTypes_Packages();
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	@SuppressWarnings("rawtypes")
+
 	protected List getSemanticChildrenList() {
 		View viewObject = (View) getHost().getModel();
 		LinkedList<EObject> result = new LinkedList<EObject>();
@@ -70,22 +71,22 @@ public class TypesTypesPackagesCompartmentCanonicalEditPolicy extends CanonicalE
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected boolean isOrphaned(Collection<EObject> semanticChildren, final View view) {
 		return isMyDiagramElement(view) && !semanticChildren.contains(view.getElement());
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private boolean isMyDiagramElement(View view) {
 		return PackageEditPart.VISUAL_ID == DomainVisualIDRegistry.getVisualID(view);
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected void refreshSemantic() {
 		if (resolveSemanticElement() == null) {
 			return;

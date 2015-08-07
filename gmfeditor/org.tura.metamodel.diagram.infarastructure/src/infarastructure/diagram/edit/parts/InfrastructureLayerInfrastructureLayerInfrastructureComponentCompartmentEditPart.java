@@ -3,12 +3,6 @@
  */
 package infarastructure.diagram.edit.parts;
 
-import infarastructure.diagram.edit.policies.InfrastructureLayerInfrastructureLayerInfrastructureComponentCompartmentCanonicalEditPolicy;
-import infarastructure.diagram.edit.policies.InfrastructureLayerInfrastructureLayerInfrastructureComponentCompartmentItemSemanticEditPolicy;
-import infarastructure.diagram.part.DomainVisualIDRegistry;
-import infarastructure.diagram.part.Messages;
-
-import infarastructure.diagram.providers.DomainElementTypes;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPolicy;
@@ -27,6 +21,12 @@ import org.eclipse.gmf.runtime.emf.type.core.IElementType;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.gmf.tooling.runtime.edit.policies.reparent.CreationEditPolicyWithCustomReparent;
 
+import infarastructure.diagram.edit.policies.InfrastructureLayerInfrastructureLayerInfrastructureComponentCompartmentCanonicalEditPolicy;
+import infarastructure.diagram.edit.policies.InfrastructureLayerInfrastructureLayerInfrastructureComponentCompartmentItemSemanticEditPolicy;
+import infarastructure.diagram.part.DomainVisualIDRegistry;
+import infarastructure.diagram.part.Messages;
+import infarastructure.diagram.providers.DomainElementTypes;
+
 /**
  * @generated
  */
@@ -34,27 +34,27 @@ public class InfrastructureLayerInfrastructureLayerInfrastructureComponentCompar
 		extends ShapeCompartmentEditPart {
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static final int VISUAL_ID = 1207003;
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public InfrastructureLayerInfrastructureLayerInfrastructureComponentCompartmentEditPart(View view) {
 		super(view);
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public String getCompartmentName() {
 		return Messages.InfrastructureLayerInfrastructureLayerInfrastructureComponentCompartmentEditPart_title;
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 
 	public IFigure createFigure() {
 		ResizableCompartmentFigure result = (ResizableCompartmentFigure) super.createFigure();
@@ -63,8 +63,8 @@ public class InfrastructureLayerInfrastructureLayerInfrastructureComponentCompar
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected void createDefaultEditPolicies() {
 		super.createDefaultEditPolicies();
 		installEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE, new ResizableCompartmentEditPolicy());
@@ -78,8 +78,8 @@ public class InfrastructureLayerInfrastructureLayerInfrastructureComponentCompar
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected void setRatio(Double ratio) {
 		if (getFigure().getParent().getLayoutManager() instanceof ConstrainedToolbarLayout) {
 			super.setRatio(ratio);
@@ -87,8 +87,8 @@ public class InfrastructureLayerInfrastructureLayerInfrastructureComponentCompar
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public EditPart getTargetEditPart(Request request) {
 		if (request instanceof CreateViewAndElementRequest) {
 			CreateElementRequestAdapter adapter = ((CreateViewAndElementRequest) request).getViewAndElementDescriptor()

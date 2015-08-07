@@ -1,6 +1,6 @@
 /*
- * 
- */
+* 
+*/
 package deployment.diagram.providers;
 
 import org.eclipse.emf.ecore.EAnnotation;
@@ -26,13 +26,13 @@ import deployment.diagram.part.DomainVisualIDRegistry;
 public class DomainShortcutsDecoratorProvider extends AbstractProvider implements IDecoratorProvider {
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static final String SHORTCUTS_DECORATOR_ID = "shortcuts"; //$NON-NLS-1$
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public boolean provides(IOperation operation) {
 		if (!(operation instanceof CreateDecoratorsOperation)) {
 			return false;
@@ -43,8 +43,8 @@ public class DomainShortcutsDecoratorProvider extends AbstractProvider implement
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public void createDecorators(IDecoratorTarget decoratorTarget) {
 		View view = (View) decoratorTarget.getAdapter(View.class);
 		if (view != null) {
@@ -56,27 +56,27 @@ public class DomainShortcutsDecoratorProvider extends AbstractProvider implement
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected class ShortcutsDecorator extends AbstractDecorator {
 
 		/**
-		 * @generated
-		 */
+		* @generated
+		*/
 		public ShortcutsDecorator(IDecoratorTarget decoratorTarget) {
 			super(decoratorTarget);
 		}
 
 		/**
-		 * @generated
-		 */
+		* @generated
+		*/
 		public void activate() {
 			refresh();
 		}
 
 		/**
-		 * @generated
-		 */
+		* @generated
+		*/
 		public void refresh() {
 			removeDecoration();
 			EditPart editPart = (EditPart) getDecoratorTarget().getAdapter(EditPart.class);

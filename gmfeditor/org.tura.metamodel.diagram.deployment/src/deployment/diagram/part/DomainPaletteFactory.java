@@ -1,22 +1,18 @@
+
 /*
  * 
  */
 package deployment.diagram.part;
 
 import java.util.Collections;
-import java.util.List;
 
-import org.eclipse.gef.Tool;
 import org.eclipse.gef.palette.PaletteContainer;
 import org.eclipse.gef.palette.PaletteDrawer;
 import org.eclipse.gef.palette.PaletteRoot;
 import org.eclipse.gef.palette.ToolEntry;
-import org.eclipse.gmf.runtime.diagram.ui.tools.UnspecifiedTypeConnectionTool;
-import org.eclipse.gmf.runtime.diagram.ui.tools.UnspecifiedTypeCreationTool;
-import org.eclipse.gmf.runtime.emf.type.core.IElementType;
-
 import org.eclipse.gmf.tooling.runtime.part.DefaultLinkToolEntry;
 import org.eclipse.gmf.tooling.runtime.part.DefaultNodeToolEntry;
+
 import deployment.diagram.providers.DomainElementTypes;
 
 /**
@@ -25,17 +21,17 @@ import deployment.diagram.providers.DomainElementTypes;
 public class DomainPaletteFactory {
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public void fillPalette(PaletteRoot paletteRoot) {
 		paletteRoot.add(createObjects1Group());
 		paletteRoot.add(createConnections2Group());
 	}
 
 	/**
-	 * Creates "Objects" palette tool group
-	 * @generated
-	 */
+	* Creates "Objects" palette tool group
+	* @generated
+	*/
 	private PaletteContainer createObjects1Group() {
 		PaletteDrawer paletteContainer = new PaletteDrawer(Messages.Objects1Group_title);
 		paletteContainer.setId("createObjects1Group"); //$NON-NLS-1$
@@ -45,9 +41,9 @@ public class DomainPaletteFactory {
 	}
 
 	/**
-	 * Creates "Connections" palette tool group
-	 * @generated
-	 */
+	* Creates "Connections" palette tool group
+	* @generated
+	*/
 	private PaletteContainer createConnections2Group() {
 		PaletteDrawer paletteContainer = new PaletteDrawer(Messages.Connections2Group_title);
 		paletteContainer.setId("createConnections2Group"); //$NON-NLS-1$
@@ -58,8 +54,8 @@ public class DomainPaletteFactory {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private ToolEntry createDeploymentComponent1CreationTool() {
 		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(Messages.DeploymentComponent1CreationTool_title,
 				Messages.DeploymentComponent1CreationTool_desc,
@@ -71,8 +67,8 @@ public class DomainPaletteFactory {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private ToolEntry createDeploymentStarStep2CreationTool() {
 		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(Messages.DeploymentStarStep2CreationTool_title,
 				Messages.DeploymentStarStep2CreationTool_desc,
@@ -84,8 +80,8 @@ public class DomainPaletteFactory {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private ToolEntry createDeployment1CreationTool() {
 		DefaultLinkToolEntry entry = new DefaultLinkToolEntry(Messages.Deployment1CreationTool_title,
 				Messages.Deployment1CreationTool_desc,
@@ -97,8 +93,8 @@ public class DomainPaletteFactory {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private ToolEntry createDeploymentComponentLink2CreationTool() {
 		DefaultLinkToolEntry entry = new DefaultLinkToolEntry(Messages.DeploymentComponentLink2CreationTool_title,
 				Messages.DeploymentComponentLink2CreationTool_desc,
@@ -111,8 +107,8 @@ public class DomainPaletteFactory {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private ToolEntry createFirstStep3CreationTool() {
 		DefaultLinkToolEntry entry = new DefaultLinkToolEntry(Messages.FirstStep3CreationTool_title,
 				Messages.FirstStep3CreationTool_desc,
@@ -123,4 +119,5 @@ public class DomainPaletteFactory {
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
+
 }

@@ -23,43 +23,42 @@ import org.eclipse.emf.common.util.EList;
  * @model annotation="gmf.node label='name' tool.small.bundle='org.tura.metamodel.commons' tool.small.path='icons/datacenter.png'"
  * @generated
  */
-public interface Datacenter extends HTMLLayerHolder
-{
-  /**
+public interface Datacenter extends HTMLLayerHolder {
+	/**
 	 * Returns the value of the '<em><b>Uid</b></em>' attribute.
 	 * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Uid</em>' attribute isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Uid</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Uid</em>' attribute.
 	 * @see #setUid(String)
 	 * @see domain.DomainPackage#getDatacenter_Uid()
 	 * @model id="true"
 	 * @generated
 	 */
-  String getUid();
+	String getUid();
 
-  /**
+	/**
 	 * Sets the value of the '{@link domain.Datacenter#getUid <em>Uid</em>}' attribute.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Uid</em>' attribute.
 	 * @see #getUid()
 	 * @generated
 	 */
-  void setUid(String value);
+	void setUid(String value);
 
-  /**
+	/**
 	 * Returns the value of the '<em><b>Parent</b></em>' container reference.
 	 * It is bidirectional and its opposite is '{@link domain.EnterpriseInfrastructure#getDatacenters <em>Datacenters</em>}'.
 	 * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Parent</em>' container reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Parent</em>' container reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Parent</em>' container reference.
 	 * @see #setParent(EnterpriseInfrastructure)
 	 * @see domain.DomainPackage#getDatacenter_Parent()
@@ -67,60 +66,60 @@ public interface Datacenter extends HTMLLayerHolder
 	 * @model opposite="datacenters" transient="false"
 	 * @generated
 	 */
-  EnterpriseInfrastructure getParent();
+	EnterpriseInfrastructure getParent();
 
-  /**
+	/**
 	 * Sets the value of the '{@link domain.Datacenter#getParent <em>Parent</em>}' container reference.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Parent</em>' container reference.
 	 * @see #getParent()
 	 * @generated
 	 */
-  void setParent(EnterpriseInfrastructure value);
+	void setParent(EnterpriseInfrastructure value);
 
-  /**
+	/**
 	 * Returns the value of the '<em><b>Subsystems</b></em>' containment reference list.
 	 * The list contents are of type {@link domain.Subsystem}.
 	 * It is bidirectional and its opposite is '{@link domain.Subsystem#getParent <em>Parent</em>}'.
 	 * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Subsystems</em>' containment reference list isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Subsystems</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Subsystems</em>' containment reference list.
 	 * @see domain.DomainPackage#getDatacenter_Subsystems()
 	 * @see domain.Subsystem#getParent
 	 * @model opposite="parent" containment="true"
 	 * @generated
 	 */
-  EList<Subsystem> getSubsystems();
+	EList<Subsystem> getSubsystems();
 
-  /**
+	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Name</em>' attribute isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Name</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
 	 * @see domain.DomainPackage#getDatacenter_Name()
 	 * @model
 	 * @generated
 	 */
-  String getName();
+	String getName();
 
-  /**
+	/**
 	 * Sets the value of the '{@link domain.Datacenter#getName <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Name</em>' attribute.
 	 * @see #getName()
 	 * @generated
 	 */
-  void setName(String value);
+	void setName(String value);
 
 } // Datacenter

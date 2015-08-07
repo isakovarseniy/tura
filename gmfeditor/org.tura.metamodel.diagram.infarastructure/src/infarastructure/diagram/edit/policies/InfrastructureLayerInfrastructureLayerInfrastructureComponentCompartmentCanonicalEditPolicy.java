@@ -1,16 +1,7 @@
 /*
- * 
- */
+* 
+*/
 package infarastructure.diagram.edit.policies;
-
-import infarastructure.diagram.edit.parts.HubEditPart;
-import infarastructure.diagram.edit.parts.RouterEditPart;
-import infarastructure.diagram.edit.parts.ServerClasterEditPart;
-import infarastructure.diagram.edit.parts.ServerEditPart;
-import infarastructure.diagram.edit.parts.StorageEditPart;
-import infarastructure.diagram.part.DomainDiagramUpdater;
-import infarastructure.diagram.part.DomainNodeDescriptor;
-import infarastructure.diagram.part.DomainVisualIDRegistry;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -34,6 +25,14 @@ import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.View;
 
 import domain.DomainPackage;
+import infarastructure.diagram.edit.parts.HubEditPart;
+import infarastructure.diagram.edit.parts.RouterEditPart;
+import infarastructure.diagram.edit.parts.ServerClasterEditPart;
+import infarastructure.diagram.edit.parts.ServerEditPart;
+import infarastructure.diagram.edit.parts.StorageEditPart;
+import infarastructure.diagram.part.DomainDiagramUpdater;
+import infarastructure.diagram.part.DomainNodeDescriptor;
+import infarastructure.diagram.part.DomainVisualIDRegistry;
 
 /**
  * @generated
@@ -42,8 +41,8 @@ public class InfrastructureLayerInfrastructureLayerInfrastructureComponentCompar
 		extends CanonicalEditPolicy {
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected void refreshOnActivate() {
 		// Need to activate editpart children before invoking the canonical refresh for EditParts to add event listeners
 		List<?> c = getHost().getChildren();
@@ -54,16 +53,17 @@ public class InfrastructureLayerInfrastructureLayerInfrastructureComponentCompar
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected EStructuralFeature getFeatureToSynchronize() {
 		return DomainPackage.eINSTANCE.getInfrastructureLayer_InfrastructureComponent();
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	@SuppressWarnings("rawtypes")
+
 	protected List getSemanticChildrenList() {
 		View viewObject = (View) getHost().getModel();
 		LinkedList<EObject> result = new LinkedList<EObject>();
@@ -77,15 +77,15 @@ public class InfrastructureLayerInfrastructureLayerInfrastructureComponentCompar
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected boolean isOrphaned(Collection<EObject> semanticChildren, final View view) {
 		return isMyDiagramElement(view) && !semanticChildren.contains(view.getElement());
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private boolean isMyDiagramElement(View view) {
 		int visualID = DomainVisualIDRegistry.getVisualID(view);
 		switch (visualID) {
@@ -100,8 +100,8 @@ public class InfrastructureLayerInfrastructureLayerInfrastructureComponentCompar
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected void refreshSemantic() {
 		if (resolveSemanticElement() == null) {
 			return;

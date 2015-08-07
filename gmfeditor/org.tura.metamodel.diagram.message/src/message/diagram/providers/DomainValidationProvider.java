@@ -16,20 +16,20 @@ import message.diagram.part.DomainVisualIDRegistry;
 public class DomainValidationProvider {
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private static boolean constraintsActive = false;
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static boolean shouldConstraintsBePrivate() {
 		return false;
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public static void runWithConstraints(TransactionalEditingDomain editingDomain, Runnable operation) {
 		final Runnable op = operation;
 		Runnable task = new Runnable() {
@@ -54,8 +54,8 @@ public class DomainValidationProvider {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	static boolean isInDefaultEditorContext(Object object) {
 		if (shouldConstraintsBePrivate() && !constraintsActive) {
 			return false;

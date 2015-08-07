@@ -1,13 +1,7 @@
 /*
- * 
- */
+* 
+*/
 package mapper.diagram.edit.policies;
-
-import mapper.diagram.edit.commands.CSSMapperCreateCommand;
-import mapper.diagram.edit.commands.JavaMapperCreateCommand;
-import mapper.diagram.edit.commands.JavaScriptMapperCreateCommand;
-import mapper.diagram.edit.commands.RoleMapperCreateCommand;
-import mapper.diagram.providers.DomainElementTypes;
 
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.gef.commands.Command;
@@ -16,21 +10,27 @@ import org.eclipse.gmf.runtime.emf.commands.core.commands.DuplicateEObjectsComma
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.DuplicateElementsRequest;
 
+import mapper.diagram.edit.commands.CSSMapperCreateCommand;
+import mapper.diagram.edit.commands.JavaMapperCreateCommand;
+import mapper.diagram.edit.commands.JavaScriptMapperCreateCommand;
+import mapper.diagram.edit.commands.RoleMapperCreateCommand;
+import mapper.diagram.providers.DomainElementTypes;
+
 /**
  * @generated
  */
 public class MappersItemSemanticEditPolicy extends DomainBaseItemSemanticEditPolicy {
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public MappersItemSemanticEditPolicy() {
 		super(DomainElementTypes.Mappers_401000);
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected Command getCreateCommand(CreateElementRequest req) {
 		if (DomainElementTypes.JavaMapper_402001 == req.getElementType()) {
 			return getGEFWrapper(new JavaMapperCreateCommand(req));
@@ -48,21 +48,21 @@ public class MappersItemSemanticEditPolicy extends DomainBaseItemSemanticEditPol
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected Command getDuplicateCommand(DuplicateElementsRequest req) {
 		TransactionalEditingDomain editingDomain = ((IGraphicalEditPart) getHost()).getEditingDomain();
 		return getGEFWrapper(new DuplicateAnythingCommand(editingDomain, req));
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private static class DuplicateAnythingCommand extends DuplicateEObjectsCommand {
 
 		/**
-		 * @generated
-		 */
+		* @generated
+		*/
 		public DuplicateAnythingCommand(TransactionalEditingDomain editingDomain, DuplicateElementsRequest req) {
 			super(editingDomain, req.getLabel(), req.getElementsToBeDuplicated(), req.getAllDuplicatedElementsMap());
 		}

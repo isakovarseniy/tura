@@ -18,9 +18,10 @@ import recipe.diagram.providers.DomainModelingAssistantProvider;
 public class DomainModelingAssistantProviderOfRecipesEditPart extends DomainModelingAssistantProvider {
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	@Override
+
 	public List<IElementType> getTypesForPopupBar(IAdaptable host) {
 		List<IElementType> types = new ArrayList<IElementType>(4);
 		types.add(DomainElementTypes.Recipe_302001);

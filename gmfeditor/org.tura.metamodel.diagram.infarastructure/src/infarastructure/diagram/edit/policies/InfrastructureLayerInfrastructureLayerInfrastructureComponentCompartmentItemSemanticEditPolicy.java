@@ -1,7 +1,10 @@
 /*
- * 
- */
+* 
+*/
 package infarastructure.diagram.edit.policies;
+
+import org.eclipse.gef.commands.Command;
+import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 
 import infarastructure.diagram.edit.commands.HubCreateCommand;
 import infarastructure.diagram.edit.commands.RouterCreateCommand;
@@ -10,9 +13,6 @@ import infarastructure.diagram.edit.commands.ServerCreateCommand;
 import infarastructure.diagram.edit.commands.StorageCreateCommand;
 import infarastructure.diagram.providers.DomainElementTypes;
 
-import org.eclipse.gef.commands.Command;
-import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
-
 /**
  * @generated
  */
@@ -20,15 +20,15 @@ public class InfrastructureLayerInfrastructureLayerInfrastructureComponentCompar
 		extends DomainBaseItemSemanticEditPolicy {
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public InfrastructureLayerInfrastructureLayerInfrastructureComponentCompartmentItemSemanticEditPolicy() {
 		super(DomainElementTypes.InfrastructureLayer_1203002);
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected Command getCreateCommand(CreateElementRequest req) {
 		if (DomainElementTypes.Server_1203003 == req.getElementType()) {
 			return getGEFWrapper(new ServerCreateCommand(req));

@@ -1,6 +1,6 @@
 /*
- * 
- */
+* 
+*/
 package deployment.diagram.edit.policies;
 
 import java.util.Iterator;
@@ -33,15 +33,15 @@ import deployment.diagram.providers.DomainElementTypes;
 public class DeploymentComponentItemSemanticEditPolicy extends DomainBaseItemSemanticEditPolicy {
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public DeploymentComponentItemSemanticEditPolicy() {
 		super(DomainElementTypes.DeploymentComponent_902001);
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected Command getDestroyElementCommand(DestroyElementRequest req) {
 		View view = (View) getHost().getModel();
 		CompositeTransactionalCommand cmd = new CompositeTransactionalCommand(getEditingDomain(), null);

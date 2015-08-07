@@ -45,152 +45,144 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public class TabPageImpl extends CanvasFrameImpl implements TabPage
-{
-  /**
+public class TabPageImpl extends CanvasFrameImpl implements TabPage {
+	/**
 	 * The default value of the '{@link #getColumns() <em>Columns</em>}' attribute.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getColumns()
 	 * @generated
 	 * @ordered
 	 */
-  protected static final int COLUMNS_EDEFAULT = 1;
+	protected static final int COLUMNS_EDEFAULT = 1;
 
-  /**
+	/**
 	 * The cached value of the '{@link #getColumns() <em>Columns</em>}' attribute.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getColumns()
 	 * @generated
 	 * @ordered
 	 */
-  protected int columns = COLUMNS_EDEFAULT;
+	protected int columns = COLUMNS_EDEFAULT;
 
-  /**
+	/**
 	 * The cached value of the '{@link #getViewElement() <em>View Element</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getViewElement()
 	 * @generated
 	 * @ordered
 	 */
-  protected EList<ViewElement> viewElement;
+	protected EList<ViewElement> viewElement;
 
-  /**
+	/**
 	 * The cached value of the '{@link #getMultiLangLabel() <em>Multi Lang Label</em>}' containment reference.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getMultiLangLabel()
 	 * @generated
 	 * @ordered
 	 */
-  protected Context multiLangLabel;
+	protected Context multiLangLabel;
 
-  /**
+	/**
 	 * The cached value of the '{@link #getClassifiers() <em>Classifiers</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getClassifiers()
 	 * @generated
 	 * @ordered
 	 */
-  protected EList<Classifier> classifiers;
+	protected EList<Classifier> classifiers;
 
-  /**
+	/**
 	 * The default value of the '{@link #getOrder() <em>Order</em>}' attribute.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getOrder()
 	 * @generated
 	 * @ordered
 	 */
-  protected static final int ORDER_EDEFAULT = 0;
+	protected static final int ORDER_EDEFAULT = 0;
 
-  /**
+	/**
 	 * The cached value of the '{@link #getOrder() <em>Order</em>}' attribute.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getOrder()
 	 * @generated
 	 * @ordered
 	 */
-  protected int order = ORDER_EDEFAULT;
+	protected int order = ORDER_EDEFAULT;
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  protected TabPageImpl()
-  {
+	protected TabPageImpl() {
 		super();
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  protected EClass eStaticClass()
-  {
+	@Override
+	protected EClass eStaticClass() {
 		return DomainPackage.Literals.TAB_PAGE;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public int getColumns()
-  {
+	public int getColumns() {
 		return columns;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public void setColumns(int newColumns)
-  {
+	public void setColumns(int newColumns) {
 		int oldColumns = columns;
 		columns = newColumns;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.TAB_PAGE__COLUMNS, oldColumns, columns));
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public EList<ViewElement> getViewElement()
-  {
+	public EList<ViewElement> getViewElement() {
 		if (viewElement == null) {
 			viewElement = new EObjectContainmentEList<ViewElement>(ViewElement.class, this, DomainPackage.TAB_PAGE__VIEW_ELEMENT);
 		}
 		return viewElement;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public Context getMultiLangLabel()
-  {
+	public Context getMultiLangLabel() {
 		return multiLangLabel;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public NotificationChain basicSetMultiLangLabel(Context newMultiLangLabel, NotificationChain msgs)
-  {
+	public NotificationChain basicSetMultiLangLabel(Context newMultiLangLabel, NotificationChain msgs) {
 		Context oldMultiLangLabel = multiLangLabel;
 		multiLangLabel = newMultiLangLabel;
 		if (eNotificationRequired()) {
@@ -200,13 +192,12 @@ public class TabPageImpl extends CanvasFrameImpl implements TabPage
 		return msgs;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public void setMultiLangLabel(Context newMultiLangLabel)
-  {
+	public void setMultiLangLabel(Context newMultiLangLabel) {
 		if (newMultiLangLabel != multiLangLabel) {
 			NotificationChain msgs = null;
 			if (multiLangLabel != null)
@@ -220,50 +211,46 @@ public class TabPageImpl extends CanvasFrameImpl implements TabPage
 			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.TAB_PAGE__MULTI_LANG_LABEL, newMultiLangLabel, newMultiLangLabel));
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public EList<Classifier> getClassifiers()
-  {
+	public EList<Classifier> getClassifiers() {
 		if (classifiers == null) {
 			classifiers = new EObjectContainmentEList<Classifier>(Classifier.class, this, DomainPackage.TAB_PAGE__CLASSIFIERS);
 		}
 		return classifiers;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public int getOrder()
-  {
+	public int getOrder() {
 		return order;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public void setOrder(int newOrder)
-  {
+	public void setOrder(int newOrder) {
 		int oldOrder = order;
 		order = newOrder;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.TAB_PAGE__ORDER, oldOrder, order));
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-  {
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case DomainPackage.TAB_PAGE__VIEW_ELEMENT:
 				return ((InternalEList<?>)getViewElement()).basicRemove(otherEnd, msgs);
@@ -275,14 +262,13 @@ public class TabPageImpl extends CanvasFrameImpl implements TabPage
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public Object eGet(int featureID, boolean resolve, boolean coreType)
-  {
+	@Override
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case DomainPackage.TAB_PAGE__COLUMNS:
 				return getColumns();
@@ -298,15 +284,14 @@ public class TabPageImpl extends CanvasFrameImpl implements TabPage
 		return super.eGet(featureID, resolve, coreType);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @SuppressWarnings("unchecked")
-  @Override
-  public void eSet(int featureID, Object newValue)
-  {
+	@SuppressWarnings("unchecked")
+	@Override
+	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case DomainPackage.TAB_PAGE__COLUMNS:
 				setColumns((Integer)newValue);
@@ -329,14 +314,13 @@ public class TabPageImpl extends CanvasFrameImpl implements TabPage
 		super.eSet(featureID, newValue);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public void eUnset(int featureID)
-  {
+	@Override
+	public void eUnset(int featureID) {
 		switch (featureID) {
 			case DomainPackage.TAB_PAGE__COLUMNS:
 				setColumns(COLUMNS_EDEFAULT);
@@ -357,14 +341,13 @@ public class TabPageImpl extends CanvasFrameImpl implements TabPage
 		super.eUnset(featureID);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public boolean eIsSet(int featureID)
-  {
+	@Override
+	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case DomainPackage.TAB_PAGE__COLUMNS:
 				return columns != COLUMNS_EDEFAULT;
@@ -380,14 +363,13 @@ public class TabPageImpl extends CanvasFrameImpl implements TabPage
 		return super.eIsSet(featureID);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass)
-  {
+	@Override
+	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
 		if (baseClass == HTMLLayerHolder.class) {
 			switch (derivedFeatureID) {
 				case DomainPackage.TAB_PAGE__COLUMNS: return DomainPackage.HTML_LAYER_HOLDER__COLUMNS;
@@ -421,14 +403,13 @@ public class TabPageImpl extends CanvasFrameImpl implements TabPage
 		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass)
-  {
+	@Override
+	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
 		if (baseClass == HTMLLayerHolder.class) {
 			switch (baseFeatureID) {
 				case DomainPackage.HTML_LAYER_HOLDER__COLUMNS: return DomainPackage.TAB_PAGE__COLUMNS;
@@ -462,14 +443,13 @@ public class TabPageImpl extends CanvasFrameImpl implements TabPage
 		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public String toString()
-  {
+	@Override
+	public String toString() {
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());

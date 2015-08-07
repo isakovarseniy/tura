@@ -30,142 +30,134 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  *
  * @generated
  */
-public class DeploymentComponentImpl extends EObjectImpl implements DeploymentComponent
-{
-  /**
+public class DeploymentComponentImpl extends EObjectImpl implements DeploymentComponent {
+	/**
 	 * The default value of the '{@link #getUid() <em>Uid</em>}' attribute.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getUid()
 	 * @generated
 	 * @ordered
 	 */
-  protected static final String UID_EDEFAULT = null;
+	protected static final String UID_EDEFAULT = null;
 
-  /**
+	/**
 	 * The cached value of the '{@link #getUid() <em>Uid</em>}' attribute.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getUid()
 	 * @generated
 	 * @ordered
 	 */
-  protected String uid = UID_EDEFAULT;
+	protected String uid = UID_EDEFAULT;
 
-  /**
+	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getName()
 	 * @generated
 	 * @ordered
 	 */
-  protected static final String NAME_EDEFAULT = null;
+	protected static final String NAME_EDEFAULT = null;
 
-  /**
+	/**
 	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getName()
 	 * @generated
 	 * @ordered
 	 */
-  protected String name = NAME_EDEFAULT;
+	protected String name = NAME_EDEFAULT;
 
-  /**
+	/**
 	 * The cached value of the '{@link #getMapper() <em>Mapper</em>}' reference.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getMapper()
 	 * @generated
 	 * @ordered
 	 */
-  protected ModelMapper mapper;
+	protected ModelMapper mapper;
 
-  /**
+	/**
 	 * The cached value of the '{@link #getDeploymentComponentLink() <em>Deployment Component Link</em>}' reference.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getDeploymentComponentLink()
 	 * @generated
 	 * @ordered
 	 */
-  protected DeploymentComponent deploymentComponentLink;
+	protected DeploymentComponent deploymentComponentLink;
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  protected DeploymentComponentImpl()
-  {
+	protected DeploymentComponentImpl() {
 		super();
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  protected EClass eStaticClass()
-  {
+	@Override
+	protected EClass eStaticClass() {
 		return DomainPackage.Literals.DEPLOYMENT_COMPONENT;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public String getUid()
-  {
+	public String getUid() {
 		return uid;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public void setUid(String newUid)
-  {
+	public void setUid(String newUid) {
 		String oldUid = uid;
 		uid = newUid;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.DEPLOYMENT_COMPONENT__UID, oldUid, uid));
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public String getName()
-  {
+	public String getName() {
 		return name;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public void setName(String newName)
-  {
+	public void setName(String newName) {
 		String oldName = name;
 		name = newName;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.DEPLOYMENT_COMPONENT__NAME, oldName, name));
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public ModelMapper getMapper()
-  {
+	public ModelMapper getMapper() {
 		if (mapper != null && mapper.eIsProxy()) {
 			InternalEObject oldMapper = (InternalEObject)mapper;
 			mapper = (ModelMapper)eResolveProxy(oldMapper);
@@ -177,36 +169,33 @@ public class DeploymentComponentImpl extends EObjectImpl implements DeploymentCo
 		return mapper;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public ModelMapper basicGetMapper()
-  {
+	public ModelMapper basicGetMapper() {
 		return mapper;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public void setMapper(ModelMapper newMapper)
-  {
+	public void setMapper(ModelMapper newMapper) {
 		ModelMapper oldMapper = mapper;
 		mapper = newMapper;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.DEPLOYMENT_COMPONENT__MAPPER, oldMapper, mapper));
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public DeploymentComponent getDeploymentComponentLink()
-  {
+	public DeploymentComponent getDeploymentComponentLink() {
 		if (deploymentComponentLink != null && deploymentComponentLink.eIsProxy()) {
 			InternalEObject oldDeploymentComponentLink = (InternalEObject)deploymentComponentLink;
 			deploymentComponentLink = (DeploymentComponent)eResolveProxy(oldDeploymentComponentLink);
@@ -218,37 +207,34 @@ public class DeploymentComponentImpl extends EObjectImpl implements DeploymentCo
 		return deploymentComponentLink;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public DeploymentComponent basicGetDeploymentComponentLink()
-  {
+	public DeploymentComponent basicGetDeploymentComponentLink() {
 		return deploymentComponentLink;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public void setDeploymentComponentLink(DeploymentComponent newDeploymentComponentLink)
-  {
+	public void setDeploymentComponentLink(DeploymentComponent newDeploymentComponentLink) {
 		DeploymentComponent oldDeploymentComponentLink = deploymentComponentLink;
 		deploymentComponentLink = newDeploymentComponentLink;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.DEPLOYMENT_COMPONENT__DEPLOYMENT_COMPONENT_LINK, oldDeploymentComponentLink, deploymentComponentLink));
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public Object eGet(int featureID, boolean resolve, boolean coreType)
-  {
+	@Override
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case DomainPackage.DEPLOYMENT_COMPONENT__UID:
 				return getUid();
@@ -264,14 +250,13 @@ public class DeploymentComponentImpl extends EObjectImpl implements DeploymentCo
 		return super.eGet(featureID, resolve, coreType);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public void eSet(int featureID, Object newValue)
-  {
+	@Override
+	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case DomainPackage.DEPLOYMENT_COMPONENT__UID:
 				setUid((String)newValue);
@@ -289,14 +274,13 @@ public class DeploymentComponentImpl extends EObjectImpl implements DeploymentCo
 		super.eSet(featureID, newValue);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public void eUnset(int featureID)
-  {
+	@Override
+	public void eUnset(int featureID) {
 		switch (featureID) {
 			case DomainPackage.DEPLOYMENT_COMPONENT__UID:
 				setUid(UID_EDEFAULT);
@@ -314,14 +298,13 @@ public class DeploymentComponentImpl extends EObjectImpl implements DeploymentCo
 		super.eUnset(featureID);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public boolean eIsSet(int featureID)
-  {
+	@Override
+	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case DomainPackage.DEPLOYMENT_COMPONENT__UID:
 				return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
@@ -335,14 +318,13 @@ public class DeploymentComponentImpl extends EObjectImpl implements DeploymentCo
 		return super.eIsSet(featureID);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public String toString()
-  {
+	@Override
+	public String toString() {
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());

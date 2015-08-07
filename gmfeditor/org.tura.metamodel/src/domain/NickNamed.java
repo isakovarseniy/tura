@@ -20,32 +20,31 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface NickNamed extends EObject
-{
-  /**
+public interface NickNamed extends EObject {
+	/**
 	 * Returns the value of the '<em><b>Nickname</b></em>' attribute.
 	 * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Nickname</em>' attribute isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Nickname</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Nickname</em>' attribute.
 	 * @see #setNickname(String)
 	 * @see domain.DomainPackage#getNickNamed_Nickname()
 	 * @model
 	 * @generated
 	 */
-  String getNickname();
+	String getNickname();
 
-  /**
+	/**
 	 * Sets the value of the '{@link domain.NickNamed#getNickname <em>Nickname</em>}' attribute.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Nickname</em>' attribute.
 	 * @see #getNickname()
 	 * @generated
 	 */
-  void setNickname(String value);
+	void setNickname(String value);
 
 } // NickNamed

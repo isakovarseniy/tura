@@ -29,99 +29,93 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  *
  * @generated
  */
-public class InfrastructureConnectionImpl extends EObjectImpl implements InfrastructureConnection
-{
-  /**
+public class InfrastructureConnectionImpl extends EObjectImpl implements InfrastructureConnection {
+	/**
 	 * The default value of the '{@link #getUid() <em>Uid</em>}' attribute.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getUid()
 	 * @generated
 	 * @ordered
 	 */
-  protected static final String UID_EDEFAULT = null;
+	protected static final String UID_EDEFAULT = null;
 
-  /**
+	/**
 	 * The cached value of the '{@link #getUid() <em>Uid</em>}' attribute.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getUid()
 	 * @generated
 	 * @ordered
 	 */
-  protected String uid = UID_EDEFAULT;
+	protected String uid = UID_EDEFAULT;
 
-  /**
+	/**
 	 * The cached value of the '{@link #getMaster() <em>Master</em>}' reference.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getMaster()
 	 * @generated
 	 * @ordered
 	 */
-  protected InfrastructureComponent master;
+	protected InfrastructureComponent master;
 
-  /**
+	/**
 	 * The cached value of the '{@link #getDetail() <em>Detail</em>}' reference.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getDetail()
 	 * @generated
 	 * @ordered
 	 */
-  protected InfrastructureComponent detail;
+	protected InfrastructureComponent detail;
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  protected InfrastructureConnectionImpl()
-  {
+	protected InfrastructureConnectionImpl() {
 		super();
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  protected EClass eStaticClass()
-  {
+	@Override
+	protected EClass eStaticClass() {
 		return DomainPackage.Literals.INFRASTRUCTURE_CONNECTION;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public String getUid()
-  {
+	public String getUid() {
 		return uid;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public void setUid(String newUid)
-  {
+	public void setUid(String newUid) {
 		String oldUid = uid;
 		uid = newUid;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.INFRASTRUCTURE_CONNECTION__UID, oldUid, uid));
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public InfrastructureComponent getMaster()
-  {
+	public InfrastructureComponent getMaster() {
 		if (master != null && master.eIsProxy()) {
 			InternalEObject oldMaster = (InternalEObject)master;
 			master = (InfrastructureComponent)eResolveProxy(oldMaster);
@@ -133,36 +127,33 @@ public class InfrastructureConnectionImpl extends EObjectImpl implements Infrast
 		return master;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public InfrastructureComponent basicGetMaster()
-  {
+	public InfrastructureComponent basicGetMaster() {
 		return master;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public void setMaster(InfrastructureComponent newMaster)
-  {
+	public void setMaster(InfrastructureComponent newMaster) {
 		InfrastructureComponent oldMaster = master;
 		master = newMaster;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.INFRASTRUCTURE_CONNECTION__MASTER, oldMaster, master));
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public InfrastructureComponent getDetail()
-  {
+	public InfrastructureComponent getDetail() {
 		if (detail != null && detail.eIsProxy()) {
 			InternalEObject oldDetail = (InternalEObject)detail;
 			detail = (InfrastructureComponent)eResolveProxy(oldDetail);
@@ -174,37 +165,34 @@ public class InfrastructureConnectionImpl extends EObjectImpl implements Infrast
 		return detail;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public InfrastructureComponent basicGetDetail()
-  {
+	public InfrastructureComponent basicGetDetail() {
 		return detail;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public void setDetail(InfrastructureComponent newDetail)
-  {
+	public void setDetail(InfrastructureComponent newDetail) {
 		InfrastructureComponent oldDetail = detail;
 		detail = newDetail;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.INFRASTRUCTURE_CONNECTION__DETAIL, oldDetail, detail));
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public Object eGet(int featureID, boolean resolve, boolean coreType)
-  {
+	@Override
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case DomainPackage.INFRASTRUCTURE_CONNECTION__UID:
 				return getUid();
@@ -218,14 +206,13 @@ public class InfrastructureConnectionImpl extends EObjectImpl implements Infrast
 		return super.eGet(featureID, resolve, coreType);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public void eSet(int featureID, Object newValue)
-  {
+	@Override
+	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case DomainPackage.INFRASTRUCTURE_CONNECTION__UID:
 				setUid((String)newValue);
@@ -240,14 +227,13 @@ public class InfrastructureConnectionImpl extends EObjectImpl implements Infrast
 		super.eSet(featureID, newValue);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public void eUnset(int featureID)
-  {
+	@Override
+	public void eUnset(int featureID) {
 		switch (featureID) {
 			case DomainPackage.INFRASTRUCTURE_CONNECTION__UID:
 				setUid(UID_EDEFAULT);
@@ -262,14 +248,13 @@ public class InfrastructureConnectionImpl extends EObjectImpl implements Infrast
 		super.eUnset(featureID);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public boolean eIsSet(int featureID)
-  {
+	@Override
+	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case DomainPackage.INFRASTRUCTURE_CONNECTION__UID:
 				return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
@@ -281,14 +266,13 @@ public class InfrastructureConnectionImpl extends EObjectImpl implements Infrast
 		return super.eIsSet(featureID);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public String toString()
-  {
+	@Override
+	public String toString() {
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());

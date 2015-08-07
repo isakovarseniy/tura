@@ -13,6 +13,5 @@ package domain;
  * @model annotation="gmf.node label.placement='none' tool.small.bundle='org.tura.metamodel.commons' tool.small.path='icons/layerholder.png'"
  * @generated
  */
-public interface LayerHolder extends Uielement, ChildrenHolder, HTMLLayerHolder
-{
+public interface LayerHolder extends Uielement, ChildrenHolder, HTMLLayerHolder {
 } // LayerHolder

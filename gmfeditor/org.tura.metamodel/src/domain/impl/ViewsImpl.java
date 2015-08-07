@@ -44,69 +44,68 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public class ViewsImpl extends EObjectImpl implements Views
-{
-  /**
+public class ViewsImpl extends EObjectImpl implements Views {
+	/**
 	 * The default value of the '{@link #getUid() <em>Uid</em>}' attribute.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getUid()
 	 * @generated
 	 * @ordered
 	 */
-  protected static final String UID_EDEFAULT = null;
+	protected static final String UID_EDEFAULT = null;
 
-  /**
+	/**
 	 * The cached value of the '{@link #getUid() <em>Uid</em>}' attribute.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getUid()
 	 * @generated
 	 * @ordered
 	 */
-  protected String uid = UID_EDEFAULT;
+	protected String uid = UID_EDEFAULT;
 
-  /**
+	/**
 	 * The cached value of the '{@link #getParent() <em>Parent</em>}' reference.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getParent()
 	 * @generated
 	 * @ordered
 	 */
-  protected FormView parent;
+	protected FormView parent;
 
-  /**
+	/**
 	 * The cached value of the '{@link #getCanvases() <em>Canvases</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getCanvases()
 	 * @generated
 	 * @ordered
 	 */
-  protected EList<CanvasFrame> canvases;
+	protected EList<CanvasFrame> canvases;
 
-  /**
+	/**
 	 * The cached value of the '{@link #getViewInheritances() <em>View Inheritances</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getViewInheritances()
 	 * @generated
 	 * @ordered
 	 */
-  protected EList<ViewInheritance> viewInheritances;
+	protected EList<ViewInheritance> viewInheritances;
 
-  /**
+	/**
 	 * The cached value of the '{@link #getTabPagesInheritances() <em>Tab Pages Inheritances</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getTabPagesInheritances()
 	 * @generated
 	 * @ordered
 	 */
-  protected EList<TabPagesInheritance> tabPagesInheritances;
+	protected EList<TabPagesInheritance> tabPagesInheritances;
 
-  /**
+	/**
 	 * The cached value of the '{@link #getAny() <em>Any</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -116,57 +115,52 @@ public class ViewsImpl extends EObjectImpl implements Views
 	 */
 	protected EObject any;
 
-		/**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  protected ViewsImpl()
-  {
+	protected ViewsImpl() {
 		super();
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  protected EClass eStaticClass()
-  {
+	@Override
+	protected EClass eStaticClass() {
 		return DomainPackage.Literals.VIEWS;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public String getUid()
-  {
+	public String getUid() {
 		return uid;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public void setUid(String newUid)
-  {
+	public void setUid(String newUid) {
 		String oldUid = uid;
 		uid = newUid;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.VIEWS__UID, oldUid, uid));
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public FormView getParent()
-  {
+	public FormView getParent() {
 		if (parent != null && parent.eIsProxy()) {
 			InternalEObject oldParent = (InternalEObject)parent;
 			parent = (FormView)eResolveProxy(oldParent);
@@ -178,23 +172,21 @@ public class ViewsImpl extends EObjectImpl implements Views
 		return parent;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public FormView basicGetParent()
-  {
+	public FormView basicGetParent() {
 		return parent;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public NotificationChain basicSetParent(FormView newParent, NotificationChain msgs)
-  {
+	public NotificationChain basicSetParent(FormView newParent, NotificationChain msgs) {
 		FormView oldParent = parent;
 		parent = newParent;
 		if (eNotificationRequired()) {
@@ -204,13 +196,12 @@ public class ViewsImpl extends EObjectImpl implements Views
 		return msgs;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public void setParent(FormView newParent)
-  {
+	public void setParent(FormView newParent) {
 		if (newParent != parent) {
 			NotificationChain msgs = null;
 			if (parent != null)
@@ -224,46 +215,43 @@ public class ViewsImpl extends EObjectImpl implements Views
 			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.VIEWS__PARENT, newParent, newParent));
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public EList<CanvasFrame> getCanvases()
-  {
+	public EList<CanvasFrame> getCanvases() {
 		if (canvases == null) {
 			canvases = new EObjectContainmentEList<CanvasFrame>(CanvasFrame.class, this, DomainPackage.VIEWS__CANVASES);
 		}
 		return canvases;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public EList<ViewInheritance> getViewInheritances()
-  {
+	public EList<ViewInheritance> getViewInheritances() {
 		if (viewInheritances == null) {
 			viewInheritances = new EObjectContainmentEList<ViewInheritance>(ViewInheritance.class, this, DomainPackage.VIEWS__VIEW_INHERITANCES);
 		}
 		return viewInheritances;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public EList<TabPagesInheritance> getTabPagesInheritances()
-  {
+	public EList<TabPagesInheritance> getTabPagesInheritances() {
 		if (tabPagesInheritances == null) {
 			tabPagesInheritances = new EObjectContainmentEList<TabPagesInheritance>(TabPagesInheritance.class, this, DomainPackage.VIEWS__TAB_PAGES_INHERITANCES);
 		}
 		return tabPagesInheritances;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -272,7 +260,7 @@ public class ViewsImpl extends EObjectImpl implements Views
 		return any;
 	}
 
-		/**
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -287,7 +275,7 @@ public class ViewsImpl extends EObjectImpl implements Views
 		return msgs;
 	}
 
-		/**
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -306,14 +294,13 @@ public class ViewsImpl extends EObjectImpl implements Views
 			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.VIEWS__ANY, newAny, newAny));
 	}
 
-		/**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-  {
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case DomainPackage.VIEWS__PARENT:
 				if (parent != null)
@@ -323,14 +310,13 @@ public class ViewsImpl extends EObjectImpl implements Views
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-  {
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case DomainPackage.VIEWS__PARENT:
 				return basicSetParent(null, msgs);
@@ -346,14 +332,13 @@ public class ViewsImpl extends EObjectImpl implements Views
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public Object eGet(int featureID, boolean resolve, boolean coreType)
-  {
+	@Override
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case DomainPackage.VIEWS__UID:
 				return getUid();
@@ -372,15 +357,14 @@ public class ViewsImpl extends EObjectImpl implements Views
 		return super.eGet(featureID, resolve, coreType);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @SuppressWarnings("unchecked")
-  @Override
-  public void eSet(int featureID, Object newValue)
-  {
+	@SuppressWarnings("unchecked")
+	@Override
+	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case DomainPackage.VIEWS__UID:
 				setUid((String)newValue);
@@ -407,14 +391,13 @@ public class ViewsImpl extends EObjectImpl implements Views
 		super.eSet(featureID, newValue);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public void eUnset(int featureID)
-  {
+	@Override
+	public void eUnset(int featureID) {
 		switch (featureID) {
 			case DomainPackage.VIEWS__UID:
 				setUid(UID_EDEFAULT);
@@ -438,14 +421,13 @@ public class ViewsImpl extends EObjectImpl implements Views
 		super.eUnset(featureID);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public boolean eIsSet(int featureID)
-  {
+	@Override
+	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case DomainPackage.VIEWS__UID:
 				return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
@@ -463,14 +445,13 @@ public class ViewsImpl extends EObjectImpl implements Views
 		return super.eIsSet(featureID);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public String toString()
-  {
+	@Override
+	public String toString() {
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());

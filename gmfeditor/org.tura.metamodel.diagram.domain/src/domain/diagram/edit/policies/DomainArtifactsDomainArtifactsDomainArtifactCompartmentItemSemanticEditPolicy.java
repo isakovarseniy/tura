@@ -1,6 +1,6 @@
 /*
- * 
- */
+* 
+*/
 package domain.diagram.edit.policies;
 
 import org.eclipse.gef.commands.Command;
@@ -20,15 +20,15 @@ public class DomainArtifactsDomainArtifactsDomainArtifactCompartmentItemSemantic
 		extends DomainBaseItemSemanticEditPolicy {
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public DomainArtifactsDomainArtifactsDomainArtifactCompartmentItemSemanticEditPolicy() {
 		super(DomainElementTypes.DomainArtifacts_502001);
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected Command getCreateCommand(CreateElementRequest req) {
 		if (DomainElementTypes.ORMEntity_503003 == req.getElementType()) {
 			return getGEFWrapper(new ORMEntityCreateCommand(req));

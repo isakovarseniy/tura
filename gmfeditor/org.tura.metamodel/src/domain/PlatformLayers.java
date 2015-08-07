@@ -17,88 +17,86 @@ import org.eclipse.emf.common.util.Enumerator;
  * @model
  * @generated
  */
-public enum PlatformLayers implements Enumerator
-{
-  /**
+public enum PlatformLayers implements Enumerator {
+	/**
 	 * The '<em><b>Service Layer</b></em>' literal object.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #SERVICE_LAYER_VALUE
 	 * @generated
 	 * @ordered
 	 */
-  SERVICE_LAYER(1, "ServiceLayer", "ServiceLayer"),
+	SERVICE_LAYER(1, "ServiceLayer", "ServiceLayer"),
 
-  /**
+	/**
 	 * The '<em><b>UI Layer</b></em>' literal object.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #UI_LAYER_VALUE
 	 * @generated
 	 * @ordered
 	 */
-  UI_LAYER(2, "UILayer", "UILayer");
+	UI_LAYER(2, "UILayer", "UILayer");
 
-  /**
+	/**
 	 * The '<em><b>Service Layer</b></em>' literal value.
 	 * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of '<em><b>Service Layer</b></em>' literal object isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>Service Layer</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
 	 * @see #SERVICE_LAYER
 	 * @model name="ServiceLayer"
 	 * @generated
 	 * @ordered
 	 */
-  public static final int SERVICE_LAYER_VALUE = 1;
+	public static final int SERVICE_LAYER_VALUE = 1;
 
-  /**
+	/**
 	 * The '<em><b>UI Layer</b></em>' literal value.
 	 * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of '<em><b>UI Layer</b></em>' literal object isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>UI Layer</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
 	 * @see #UI_LAYER
 	 * @model name="UILayer"
 	 * @generated
 	 * @ordered
 	 */
-  public static final int UI_LAYER_VALUE = 2;
+	public static final int UI_LAYER_VALUE = 2;
 
-  /**
+	/**
 	 * An array of all the '<em><b>Platform Layers</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  private static final PlatformLayers[] VALUES_ARRAY =
-    new PlatformLayers[] {
+	private static final PlatformLayers[] VALUES_ARRAY =
+		new PlatformLayers[] {
 			SERVICE_LAYER,
 			UI_LAYER,
 		};
 
-  /**
+	/**
 	 * A public read-only list of all the '<em><b>Platform Layers</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public static final List<PlatformLayers> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
+	public static final List<PlatformLayers> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
 
-  /**
+	/**
 	 * Returns the '<em><b>Platform Layers</b></em>' literal with the specified literal value.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @param literal the literal.
 	 * @return the matching enumerator or <code>null</code>.
 	 * @generated
 	 */
-  public static PlatformLayers get(String literal)
-  {
+	public static PlatformLayers get(String literal) {
 		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
 			PlatformLayers result = VALUES_ARRAY[i];
 			if (result.toString().equals(literal)) {
@@ -108,16 +106,15 @@ public enum PlatformLayers implements Enumerator
 		return null;
 	}
 
-  /**
+	/**
 	 * Returns the '<em><b>Platform Layers</b></em>' literal with the specified name.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @param name the name.
 	 * @return the matching enumerator or <code>null</code>.
 	 * @generated
 	 */
-  public static PlatformLayers getByName(String name)
-  {
+	public static PlatformLayers getByName(String name) {
 		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
 			PlatformLayers result = VALUES_ARRAY[i];
 			if (result.getName().equals(name)) {
@@ -127,16 +124,15 @@ public enum PlatformLayers implements Enumerator
 		return null;
 	}
 
-  /**
+	/**
 	 * Returns the '<em><b>Platform Layers</b></em>' literal with the specified integer value.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @param value the integer value.
 	 * @return the matching enumerator or <code>null</code>.
 	 * @generated
 	 */
-  public static PlatformLayers get(int value)
-  {
+	public static PlatformLayers get(int value) {
 		switch (value) {
 			case SERVICE_LAYER_VALUE: return SERVICE_LAYER;
 			case UI_LAYER_VALUE: return UI_LAYER;
@@ -144,80 +140,75 @@ public enum PlatformLayers implements Enumerator
 		return null;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  private final int value;
+	private final int value;
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  private final String name;
+	private final String name;
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  private final String literal;
+	private final String literal;
 
-  /**
+	/**
 	 * Only this class can construct instances.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  private PlatformLayers(int value, String name, String literal)
-  {
+	private PlatformLayers(int value, String name, String literal) {
 		this.value = value;
 		this.name = name;
 		this.literal = literal;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public int getValue()
-  {
+	public int getValue() {
 	  return value;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public String getName()
-  {
+	public String getName() {
 	  return name;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public String getLiteral()
-  {
+	public String getLiteral() {
 	  return literal;
 	}
 
-  /**
+	/**
 	 * Returns the literal value of the enumerator, which is its string representation.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public String toString()
-  {
+	@Override
+	public String toString() {
 		return literal;
 	}
-  
+	
 } //PlatformLayers

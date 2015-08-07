@@ -13,6 +13,5 @@ package domain;
  * @model annotation="gmf.node label='name' border.color='0,0,0' color='241,238,203'"
  * @generated
  */
-public interface EJBService extends DomainArtifact
-{
+public interface EJBService extends DomainArtifact {
 } // EJBService

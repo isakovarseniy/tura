@@ -1,22 +1,18 @@
+
 /*
  * 
  */
 package frmview.diagram.part;
 
 import java.util.Collections;
-import java.util.List;
 
-import org.eclipse.gef.Tool;
 import org.eclipse.gef.palette.PaletteContainer;
 import org.eclipse.gef.palette.PaletteDrawer;
 import org.eclipse.gef.palette.PaletteRoot;
 import org.eclipse.gef.palette.ToolEntry;
-import org.eclipse.gmf.runtime.diagram.ui.tools.UnspecifiedTypeConnectionTool;
-import org.eclipse.gmf.runtime.diagram.ui.tools.UnspecifiedTypeCreationTool;
-import org.eclipse.gmf.runtime.emf.type.core.IElementType;
-
 import org.eclipse.gmf.tooling.runtime.part.DefaultLinkToolEntry;
 import org.eclipse.gmf.tooling.runtime.part.DefaultNodeToolEntry;
+
 import frmview.diagram.providers.DomainElementTypes;
 
 /**
@@ -25,17 +21,17 @@ import frmview.diagram.providers.DomainElementTypes;
 public class DomainPaletteFactory {
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public void fillPalette(PaletteRoot paletteRoot) {
 		paletteRoot.add(createObjects1Group());
 		paletteRoot.add(createConnections2Group());
 	}
 
 	/**
-	 * Creates "Objects" palette tool group
-	 * @generated
-	 */
+	* Creates "Objects" palette tool group
+	* @generated
+	*/
 	private PaletteContainer createObjects1Group() {
 		PaletteDrawer paletteContainer = new PaletteDrawer(Messages.Objects1Group_title);
 		paletteContainer.setId("createObjects1Group"); //$NON-NLS-1$
@@ -51,9 +47,9 @@ public class DomainPaletteFactory {
 	}
 
 	/**
-	 * Creates "Connections" palette tool group
-	 * @generated
-	 */
+	* Creates "Connections" palette tool group
+	* @generated
+	*/
 	private PaletteContainer createConnections2Group() {
 		PaletteDrawer paletteContainer = new PaletteDrawer(Messages.Connections2Group_title);
 		paletteContainer.setId("createConnections2Group"); //$NON-NLS-1$
@@ -63,8 +59,8 @@ public class DomainPaletteFactory {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private ToolEntry createCanvas1CreationTool() {
 		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(Messages.Canvas1CreationTool_title,
 				Messages.Canvas1CreationTool_desc, Collections.singletonList(DomainElementTypes.Canvas_1302003));
@@ -75,8 +71,8 @@ public class DomainPaletteFactory {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private ToolEntry createPopupCanvas2CreationTool() {
 		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(Messages.PopupCanvas2CreationTool_title,
 				Messages.PopupCanvas2CreationTool_desc,
@@ -88,8 +84,8 @@ public class DomainPaletteFactory {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private ToolEntry createTabCanvas3CreationTool() {
 		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(Messages.TabCanvas3CreationTool_title,
 				Messages.TabCanvas3CreationTool_desc, Collections.singletonList(DomainElementTypes.TabCanvas_1302008));
@@ -100,8 +96,8 @@ public class DomainPaletteFactory {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private ToolEntry createTabPage4CreationTool() {
 		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(Messages.TabPage4CreationTool_title,
 				Messages.TabPage4CreationTool_desc, Collections.singletonList(DomainElementTypes.TabPage_1302002));
@@ -112,8 +108,8 @@ public class DomainPaletteFactory {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private ToolEntry createViewArea5CreationTool() {
 		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(Messages.ViewArea5CreationTool_title,
 				Messages.ViewArea5CreationTool_desc, Collections.singletonList(DomainElementTypes.ViewArea_1303005));
@@ -124,8 +120,8 @@ public class DomainPaletteFactory {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private ToolEntry createViewPort6CreationTool() {
 		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(Messages.ViewPort6CreationTool_title,
 				Messages.ViewPort6CreationTool_desc, Collections.singletonList(DomainElementTypes.ViewPort_1303004));
@@ -136,8 +132,8 @@ public class DomainPaletteFactory {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private ToolEntry createViewPortTrigger7CreationTool() {
 		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(Messages.ViewPortTrigger7CreationTool_title,
 				Messages.ViewPortTrigger7CreationTool_desc,
@@ -149,8 +145,8 @@ public class DomainPaletteFactory {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private ToolEntry createWindow8CreationTool() {
 		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(Messages.Window8CreationTool_title,
 				Messages.Window8CreationTool_desc, Collections.singletonList(DomainElementTypes.Window_1302007));
@@ -161,8 +157,8 @@ public class DomainPaletteFactory {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private ToolEntry createTabPagesInheritance1CreationTool() {
 		DefaultLinkToolEntry entry = new DefaultLinkToolEntry(Messages.TabPagesInheritance1CreationTool_title,
 				Messages.TabPagesInheritance1CreationTool_desc,
@@ -174,8 +170,8 @@ public class DomainPaletteFactory {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	private ToolEntry createViewInheritance2CreationTool() {
 		DefaultLinkToolEntry entry = new DefaultLinkToolEntry(Messages.ViewInheritance2CreationTool_title,
 				Messages.ViewInheritance2CreationTool_desc,
@@ -185,4 +181,5 @@ public class DomainPaletteFactory {
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
+
 }

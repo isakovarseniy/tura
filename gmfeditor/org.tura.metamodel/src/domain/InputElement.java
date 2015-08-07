@@ -13,6 +13,5 @@ package domain;
  * @model
  * @generated
  */
-public interface InputElement extends SourcesPointer
-{
+public interface InputElement extends SourcesPointer {
 } // InputElement

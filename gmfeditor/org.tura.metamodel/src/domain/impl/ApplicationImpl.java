@@ -45,109 +45,108 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  *
  * @generated
  */
-public class ApplicationImpl extends EObjectImpl implements Application
-{
-  /**
+public class ApplicationImpl extends EObjectImpl implements Application {
+	/**
 	 * The default value of the '{@link #getUid() <em>Uid</em>}' attribute.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getUid()
 	 * @generated
 	 * @ordered
 	 */
-  protected static final String UID_EDEFAULT = null;
+	protected static final String UID_EDEFAULT = null;
 
-  /**
+	/**
 	 * The cached value of the '{@link #getUid() <em>Uid</em>}' attribute.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getUid()
 	 * @generated
 	 * @ordered
 	 */
-  protected String uid = UID_EDEFAULT;
+	protected String uid = UID_EDEFAULT;
 
-  /**
+	/**
 	 * The cached value of the '{@link #getApplicationRecipes() <em>Application Recipes</em>}' containment reference.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getApplicationRecipes()
 	 * @generated
 	 * @ordered
 	 */
-  protected ApplicationRecipes applicationRecipes;
+	protected ApplicationRecipes applicationRecipes;
 
-  /**
+	/**
 	 * The cached value of the '{@link #getApplicationMappers() <em>Application Mappers</em>}' containment reference.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getApplicationMappers()
 	 * @generated
 	 * @ordered
 	 */
-  protected ApplicationMappers applicationMappers;
+	protected ApplicationMappers applicationMappers;
 
-  /**
+	/**
 	 * The cached value of the '{@link #getApplicationUILayer() <em>Application UI Layer</em>}' containment reference.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getApplicationUILayer()
 	 * @generated
 	 * @ordered
 	 */
-  protected ApplicationUILayer applicationUILayer;
+	protected ApplicationUILayer applicationUILayer;
 
-  /**
+	/**
 	 * The cached value of the '{@link #getApplicationInfrastructureLayer() <em>Application Infrastructure Layer</em>}' containment reference.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getApplicationInfrastructureLayer()
 	 * @generated
 	 * @ordered
 	 */
-  protected ApplicationInfrastructureLayer applicationInfrastructureLayer;
+	protected ApplicationInfrastructureLayer applicationInfrastructureLayer;
 
-  /**
+	/**
 	 * The cached value of the '{@link #getApplicationStyle() <em>Application Style</em>}' containment reference.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getApplicationStyle()
 	 * @generated
 	 * @ordered
 	 */
-  protected ApplicationStyle applicationStyle;
+	protected ApplicationStyle applicationStyle;
 
-  /**
+	/**
 	 * The cached value of the '{@link #getApplicationRole() <em>Application Role</em>}' containment reference.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getApplicationRole()
 	 * @generated
 	 * @ordered
 	 */
-  protected ApplicationRole applicationRole;
+	protected ApplicationRole applicationRole;
 
-  /**
+	/**
 	 * The cached value of the '{@link #getApplicationMessages() <em>Application Messages</em>}' containment reference.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getApplicationMessages()
 	 * @generated
 	 * @ordered
 	 */
-  protected ApplicationMessages applicationMessages;
+	protected ApplicationMessages applicationMessages;
 
-  /**
+	/**
 	 * The cached value of the '{@link #getParent() <em>Parent</em>}' reference.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getParent()
 	 * @generated
 	 * @ordered
 	 */
-  protected DomainApplication parent;
+	protected DomainApplication parent;
 
-  /**
+	/**
 	 * The cached value of the '{@link #getAny() <em>Any</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -157,67 +156,61 @@ public class ApplicationImpl extends EObjectImpl implements Application
 	 */
 	protected EObject any;
 
-		/**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  protected ApplicationImpl()
-  {
+	protected ApplicationImpl() {
 		super();
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  protected EClass eStaticClass()
-  {
+	@Override
+	protected EClass eStaticClass() {
 		return DomainPackage.Literals.APPLICATION;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public String getUid()
-  {
+	public String getUid() {
 		return uid;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public void setUid(String newUid)
-  {
+	public void setUid(String newUid) {
 		String oldUid = uid;
 		uid = newUid;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.APPLICATION__UID, oldUid, uid));
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public ApplicationRecipes getApplicationRecipes()
-  {
+	public ApplicationRecipes getApplicationRecipes() {
 		return applicationRecipes;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public NotificationChain basicSetApplicationRecipes(ApplicationRecipes newApplicationRecipes, NotificationChain msgs)
-  {
+	public NotificationChain basicSetApplicationRecipes(ApplicationRecipes newApplicationRecipes, NotificationChain msgs) {
 		ApplicationRecipes oldApplicationRecipes = applicationRecipes;
 		applicationRecipes = newApplicationRecipes;
 		if (eNotificationRequired()) {
@@ -227,13 +220,12 @@ public class ApplicationImpl extends EObjectImpl implements Application
 		return msgs;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public void setApplicationRecipes(ApplicationRecipes newApplicationRecipes)
-  {
+	public void setApplicationRecipes(ApplicationRecipes newApplicationRecipes) {
 		if (newApplicationRecipes != applicationRecipes) {
 			NotificationChain msgs = null;
 			if (applicationRecipes != null)
@@ -247,23 +239,21 @@ public class ApplicationImpl extends EObjectImpl implements Application
 			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.APPLICATION__APPLICATION_RECIPES, newApplicationRecipes, newApplicationRecipes));
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public ApplicationMappers getApplicationMappers()
-  {
+	public ApplicationMappers getApplicationMappers() {
 		return applicationMappers;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public NotificationChain basicSetApplicationMappers(ApplicationMappers newApplicationMappers, NotificationChain msgs)
-  {
+	public NotificationChain basicSetApplicationMappers(ApplicationMappers newApplicationMappers, NotificationChain msgs) {
 		ApplicationMappers oldApplicationMappers = applicationMappers;
 		applicationMappers = newApplicationMappers;
 		if (eNotificationRequired()) {
@@ -273,13 +263,12 @@ public class ApplicationImpl extends EObjectImpl implements Application
 		return msgs;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public void setApplicationMappers(ApplicationMappers newApplicationMappers)
-  {
+	public void setApplicationMappers(ApplicationMappers newApplicationMappers) {
 		if (newApplicationMappers != applicationMappers) {
 			NotificationChain msgs = null;
 			if (applicationMappers != null)
@@ -293,23 +282,21 @@ public class ApplicationImpl extends EObjectImpl implements Application
 			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.APPLICATION__APPLICATION_MAPPERS, newApplicationMappers, newApplicationMappers));
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public ApplicationUILayer getApplicationUILayer()
-  {
+	public ApplicationUILayer getApplicationUILayer() {
 		return applicationUILayer;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public NotificationChain basicSetApplicationUILayer(ApplicationUILayer newApplicationUILayer, NotificationChain msgs)
-  {
+	public NotificationChain basicSetApplicationUILayer(ApplicationUILayer newApplicationUILayer, NotificationChain msgs) {
 		ApplicationUILayer oldApplicationUILayer = applicationUILayer;
 		applicationUILayer = newApplicationUILayer;
 		if (eNotificationRequired()) {
@@ -319,13 +306,12 @@ public class ApplicationImpl extends EObjectImpl implements Application
 		return msgs;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public void setApplicationUILayer(ApplicationUILayer newApplicationUILayer)
-  {
+	public void setApplicationUILayer(ApplicationUILayer newApplicationUILayer) {
 		if (newApplicationUILayer != applicationUILayer) {
 			NotificationChain msgs = null;
 			if (applicationUILayer != null)
@@ -339,23 +325,21 @@ public class ApplicationImpl extends EObjectImpl implements Application
 			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.APPLICATION__APPLICATION_UI_LAYER, newApplicationUILayer, newApplicationUILayer));
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public ApplicationInfrastructureLayer getApplicationInfrastructureLayer()
-  {
+	public ApplicationInfrastructureLayer getApplicationInfrastructureLayer() {
 		return applicationInfrastructureLayer;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public NotificationChain basicSetApplicationInfrastructureLayer(ApplicationInfrastructureLayer newApplicationInfrastructureLayer, NotificationChain msgs)
-  {
+	public NotificationChain basicSetApplicationInfrastructureLayer(ApplicationInfrastructureLayer newApplicationInfrastructureLayer, NotificationChain msgs) {
 		ApplicationInfrastructureLayer oldApplicationInfrastructureLayer = applicationInfrastructureLayer;
 		applicationInfrastructureLayer = newApplicationInfrastructureLayer;
 		if (eNotificationRequired()) {
@@ -365,13 +349,12 @@ public class ApplicationImpl extends EObjectImpl implements Application
 		return msgs;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public void setApplicationInfrastructureLayer(ApplicationInfrastructureLayer newApplicationInfrastructureLayer)
-  {
+	public void setApplicationInfrastructureLayer(ApplicationInfrastructureLayer newApplicationInfrastructureLayer) {
 		if (newApplicationInfrastructureLayer != applicationInfrastructureLayer) {
 			NotificationChain msgs = null;
 			if (applicationInfrastructureLayer != null)
@@ -385,23 +368,21 @@ public class ApplicationImpl extends EObjectImpl implements Application
 			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.APPLICATION__APPLICATION_INFRASTRUCTURE_LAYER, newApplicationInfrastructureLayer, newApplicationInfrastructureLayer));
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public ApplicationStyle getApplicationStyle()
-  {
+	public ApplicationStyle getApplicationStyle() {
 		return applicationStyle;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public NotificationChain basicSetApplicationStyle(ApplicationStyle newApplicationStyle, NotificationChain msgs)
-  {
+	public NotificationChain basicSetApplicationStyle(ApplicationStyle newApplicationStyle, NotificationChain msgs) {
 		ApplicationStyle oldApplicationStyle = applicationStyle;
 		applicationStyle = newApplicationStyle;
 		if (eNotificationRequired()) {
@@ -411,13 +392,12 @@ public class ApplicationImpl extends EObjectImpl implements Application
 		return msgs;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public void setApplicationStyle(ApplicationStyle newApplicationStyle)
-  {
+	public void setApplicationStyle(ApplicationStyle newApplicationStyle) {
 		if (newApplicationStyle != applicationStyle) {
 			NotificationChain msgs = null;
 			if (applicationStyle != null)
@@ -431,23 +411,21 @@ public class ApplicationImpl extends EObjectImpl implements Application
 			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.APPLICATION__APPLICATION_STYLE, newApplicationStyle, newApplicationStyle));
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public ApplicationRole getApplicationRole()
-  {
+	public ApplicationRole getApplicationRole() {
 		return applicationRole;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public NotificationChain basicSetApplicationRole(ApplicationRole newApplicationRole, NotificationChain msgs)
-  {
+	public NotificationChain basicSetApplicationRole(ApplicationRole newApplicationRole, NotificationChain msgs) {
 		ApplicationRole oldApplicationRole = applicationRole;
 		applicationRole = newApplicationRole;
 		if (eNotificationRequired()) {
@@ -457,13 +435,12 @@ public class ApplicationImpl extends EObjectImpl implements Application
 		return msgs;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public void setApplicationRole(ApplicationRole newApplicationRole)
-  {
+	public void setApplicationRole(ApplicationRole newApplicationRole) {
 		if (newApplicationRole != applicationRole) {
 			NotificationChain msgs = null;
 			if (applicationRole != null)
@@ -477,23 +454,21 @@ public class ApplicationImpl extends EObjectImpl implements Application
 			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.APPLICATION__APPLICATION_ROLE, newApplicationRole, newApplicationRole));
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public ApplicationMessages getApplicationMessages()
-  {
+	public ApplicationMessages getApplicationMessages() {
 		return applicationMessages;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public NotificationChain basicSetApplicationMessages(ApplicationMessages newApplicationMessages, NotificationChain msgs)
-  {
+	public NotificationChain basicSetApplicationMessages(ApplicationMessages newApplicationMessages, NotificationChain msgs) {
 		ApplicationMessages oldApplicationMessages = applicationMessages;
 		applicationMessages = newApplicationMessages;
 		if (eNotificationRequired()) {
@@ -503,13 +478,12 @@ public class ApplicationImpl extends EObjectImpl implements Application
 		return msgs;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public void setApplicationMessages(ApplicationMessages newApplicationMessages)
-  {
+	public void setApplicationMessages(ApplicationMessages newApplicationMessages) {
 		if (newApplicationMessages != applicationMessages) {
 			NotificationChain msgs = null;
 			if (applicationMessages != null)
@@ -523,13 +497,12 @@ public class ApplicationImpl extends EObjectImpl implements Application
 			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.APPLICATION__APPLICATION_MESSAGES, newApplicationMessages, newApplicationMessages));
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public DomainApplication getParent()
-  {
+	public DomainApplication getParent() {
 		if (parent != null && parent.eIsProxy()) {
 			InternalEObject oldParent = (InternalEObject)parent;
 			parent = (DomainApplication)eResolveProxy(oldParent);
@@ -541,23 +514,21 @@ public class ApplicationImpl extends EObjectImpl implements Application
 		return parent;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public DomainApplication basicGetParent()
-  {
+	public DomainApplication basicGetParent() {
 		return parent;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public NotificationChain basicSetParent(DomainApplication newParent, NotificationChain msgs)
-  {
+	public NotificationChain basicSetParent(DomainApplication newParent, NotificationChain msgs) {
 		DomainApplication oldParent = parent;
 		parent = newParent;
 		if (eNotificationRequired()) {
@@ -567,13 +538,12 @@ public class ApplicationImpl extends EObjectImpl implements Application
 		return msgs;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public void setParent(DomainApplication newParent)
-  {
+	public void setParent(DomainApplication newParent) {
 		if (newParent != parent) {
 			NotificationChain msgs = null;
 			if (parent != null)
@@ -587,7 +557,7 @@ public class ApplicationImpl extends EObjectImpl implements Application
 			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.APPLICATION__PARENT, newParent, newParent));
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -596,7 +566,7 @@ public class ApplicationImpl extends EObjectImpl implements Application
 		return any;
 	}
 
-		/**
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -611,7 +581,7 @@ public class ApplicationImpl extends EObjectImpl implements Application
 		return msgs;
 	}
 
-		/**
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -630,14 +600,13 @@ public class ApplicationImpl extends EObjectImpl implements Application
 			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.APPLICATION__ANY, newAny, newAny));
 	}
 
-		/**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-  {
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case DomainPackage.APPLICATION__APPLICATION_RECIPES:
 				if (applicationRecipes != null)
@@ -675,14 +644,13 @@ public class ApplicationImpl extends EObjectImpl implements Application
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-  {
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case DomainPackage.APPLICATION__APPLICATION_RECIPES:
 				return basicSetApplicationRecipes(null, msgs);
@@ -706,14 +674,13 @@ public class ApplicationImpl extends EObjectImpl implements Application
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public Object eGet(int featureID, boolean resolve, boolean coreType)
-  {
+	@Override
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case DomainPackage.APPLICATION__UID:
 				return getUid();
@@ -740,14 +707,13 @@ public class ApplicationImpl extends EObjectImpl implements Application
 		return super.eGet(featureID, resolve, coreType);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public void eSet(int featureID, Object newValue)
-  {
+	@Override
+	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case DomainPackage.APPLICATION__UID:
 				setUid((String)newValue);
@@ -783,14 +749,13 @@ public class ApplicationImpl extends EObjectImpl implements Application
 		super.eSet(featureID, newValue);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public void eUnset(int featureID)
-  {
+	@Override
+	public void eUnset(int featureID) {
 		switch (featureID) {
 			case DomainPackage.APPLICATION__UID:
 				setUid(UID_EDEFAULT);
@@ -826,14 +791,13 @@ public class ApplicationImpl extends EObjectImpl implements Application
 		super.eUnset(featureID);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public boolean eIsSet(int featureID)
-  {
+	@Override
+	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case DomainPackage.APPLICATION__UID:
 				return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
@@ -859,14 +823,13 @@ public class ApplicationImpl extends EObjectImpl implements Application
 		return super.eIsSet(featureID);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public String toString()
-  {
+	@Override
+	public String toString() {
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());

@@ -40,49 +40,48 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public class DeploymentComponentsImpl extends EObjectImpl implements DeploymentComponents
-{
-  /**
+public class DeploymentComponentsImpl extends EObjectImpl implements DeploymentComponents {
+	/**
 	 * The default value of the '{@link #getUid() <em>Uid</em>}' attribute.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getUid()
 	 * @generated
 	 * @ordered
 	 */
-  protected static final String UID_EDEFAULT = null;
+	protected static final String UID_EDEFAULT = null;
 
-  /**
+	/**
 	 * The cached value of the '{@link #getUid() <em>Uid</em>}' attribute.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getUid()
 	 * @generated
 	 * @ordered
 	 */
-  protected String uid = UID_EDEFAULT;
+	protected String uid = UID_EDEFAULT;
 
-  /**
+	/**
 	 * The cached value of the '{@link #getDeplymentStep() <em>Deplyment Step</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getDeplymentStep()
 	 * @generated
 	 * @ordered
 	 */
-  protected EList<DeploymentComponent> deplymentStep;
+	protected EList<DeploymentComponent> deplymentStep;
 
-  /**
+	/**
 	 * The cached value of the '{@link #getStartSeq() <em>Start Seq</em>}' containment reference.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getStartSeq()
 	 * @generated
 	 * @ordered
 	 */
-  protected DeploymentStarStep startSeq;
+	protected DeploymentStarStep startSeq;
 
-  /**
+	/**
 	 * The cached value of the '{@link #getAny() <em>Any</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -92,80 +91,73 @@ public class DeploymentComponentsImpl extends EObjectImpl implements DeploymentC
 	 */
 	protected EObject any;
 
-		/**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  protected DeploymentComponentsImpl()
-  {
+	protected DeploymentComponentsImpl() {
 		super();
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  protected EClass eStaticClass()
-  {
+	@Override
+	protected EClass eStaticClass() {
 		return DomainPackage.Literals.DEPLOYMENT_COMPONENTS;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public String getUid()
-  {
+	public String getUid() {
 		return uid;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public void setUid(String newUid)
-  {
+	public void setUid(String newUid) {
 		String oldUid = uid;
 		uid = newUid;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.DEPLOYMENT_COMPONENTS__UID, oldUid, uid));
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public EList<DeploymentComponent> getDeplymentStep()
-  {
+	public EList<DeploymentComponent> getDeplymentStep() {
 		if (deplymentStep == null) {
 			deplymentStep = new EObjectContainmentEList<DeploymentComponent>(DeploymentComponent.class, this, DomainPackage.DEPLOYMENT_COMPONENTS__DEPLYMENT_STEP);
 		}
 		return deplymentStep;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public DeploymentStarStep getStartSeq()
-  {
+	public DeploymentStarStep getStartSeq() {
 		return startSeq;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public NotificationChain basicSetStartSeq(DeploymentStarStep newStartSeq, NotificationChain msgs)
-  {
+	public NotificationChain basicSetStartSeq(DeploymentStarStep newStartSeq, NotificationChain msgs) {
 		DeploymentStarStep oldStartSeq = startSeq;
 		startSeq = newStartSeq;
 		if (eNotificationRequired()) {
@@ -175,13 +167,12 @@ public class DeploymentComponentsImpl extends EObjectImpl implements DeploymentC
 		return msgs;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public void setStartSeq(DeploymentStarStep newStartSeq)
-  {
+	public void setStartSeq(DeploymentStarStep newStartSeq) {
 		if (newStartSeq != startSeq) {
 			NotificationChain msgs = null;
 			if (startSeq != null)
@@ -195,7 +186,7 @@ public class DeploymentComponentsImpl extends EObjectImpl implements DeploymentC
 			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.DEPLOYMENT_COMPONENTS__START_SEQ, newStartSeq, newStartSeq));
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -204,7 +195,7 @@ public class DeploymentComponentsImpl extends EObjectImpl implements DeploymentC
 		return any;
 	}
 
-		/**
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -219,7 +210,7 @@ public class DeploymentComponentsImpl extends EObjectImpl implements DeploymentC
 		return msgs;
 	}
 
-		/**
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -238,14 +229,13 @@ public class DeploymentComponentsImpl extends EObjectImpl implements DeploymentC
 			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.DEPLOYMENT_COMPONENTS__ANY, newAny, newAny));
 	}
 
-		/**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-  {
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case DomainPackage.DEPLOYMENT_COMPONENTS__DEPLYMENT_STEP:
 				return ((InternalEList<?>)getDeplymentStep()).basicRemove(otherEnd, msgs);
@@ -257,14 +247,13 @@ public class DeploymentComponentsImpl extends EObjectImpl implements DeploymentC
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public Object eGet(int featureID, boolean resolve, boolean coreType)
-  {
+	@Override
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case DomainPackage.DEPLOYMENT_COMPONENTS__UID:
 				return getUid();
@@ -278,15 +267,14 @@ public class DeploymentComponentsImpl extends EObjectImpl implements DeploymentC
 		return super.eGet(featureID, resolve, coreType);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @SuppressWarnings("unchecked")
-  @Override
-  public void eSet(int featureID, Object newValue)
-  {
+	@SuppressWarnings("unchecked")
+	@Override
+	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case DomainPackage.DEPLOYMENT_COMPONENTS__UID:
 				setUid((String)newValue);
@@ -305,14 +293,13 @@ public class DeploymentComponentsImpl extends EObjectImpl implements DeploymentC
 		super.eSet(featureID, newValue);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public void eUnset(int featureID)
-  {
+	@Override
+	public void eUnset(int featureID) {
 		switch (featureID) {
 			case DomainPackage.DEPLOYMENT_COMPONENTS__UID:
 				setUid(UID_EDEFAULT);
@@ -330,14 +317,13 @@ public class DeploymentComponentsImpl extends EObjectImpl implements DeploymentC
 		super.eUnset(featureID);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public boolean eIsSet(int featureID)
-  {
+	@Override
+	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case DomainPackage.DEPLOYMENT_COMPONENTS__UID:
 				return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
@@ -351,14 +337,13 @@ public class DeploymentComponentsImpl extends EObjectImpl implements DeploymentC
 		return super.eIsSet(featureID);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public String toString()
-  {
+	@Override
+	public String toString() {
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());

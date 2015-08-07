@@ -23,43 +23,42 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface TypesRepository extends EObject
-{
-  /**
+public interface TypesRepository extends EObject {
+	/**
 	 * Returns the value of the '<em><b>Uid</b></em>' attribute.
 	 * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Uid</em>' attribute isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Uid</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Uid</em>' attribute.
 	 * @see #setUid(String)
 	 * @see domain.DomainPackage#getTypesRepository_Uid()
 	 * @model id="true"
 	 * @generated
 	 */
-  String getUid();
+	String getUid();
 
-  /**
+	/**
 	 * Sets the value of the '{@link domain.TypesRepository#getUid <em>Uid</em>}' attribute.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Uid</em>' attribute.
 	 * @see #getUid()
 	 * @generated
 	 */
-  void setUid(String value);
+	void setUid(String value);
 
-  /**
+	/**
 	 * Returns the value of the '<em><b>Type Definition</b></em>' containment reference.
 	 * It is bidirectional and its opposite is '{@link domain.Types#getParent <em>Parent</em>}'.
 	 * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Type Definition</em>' containment reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Type Definition</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Type Definition</em>' containment reference.
 	 * @see #setTypeDefinition(Types)
 	 * @see domain.DomainPackage#getTypesRepository_TypeDefinition()
@@ -67,27 +66,27 @@ public interface TypesRepository extends EObject
 	 * @model opposite="parent" containment="true" required="true"
 	 * @generated
 	 */
-  Types getTypeDefinition();
+	Types getTypeDefinition();
 
-  /**
+	/**
 	 * Sets the value of the '{@link domain.TypesRepository#getTypeDefinition <em>Type Definition</em>}' containment reference.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Type Definition</em>' containment reference.
 	 * @see #getTypeDefinition()
 	 * @generated
 	 */
-  void setTypeDefinition(Types value);
+	void setTypeDefinition(Types value);
 
-  /**
+	/**
 	 * Returns the value of the '<em><b>Parent</b></em>' reference.
 	 * It is bidirectional and its opposite is '{@link domain.DomainTypes#getTypesrepository <em>Typesrepository</em>}'.
 	 * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Parent</em>' reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Parent</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Parent</em>' reference.
 	 * @see #setParent(DomainTypes)
 	 * @see domain.DomainPackage#getTypesRepository_Parent()
@@ -95,19 +94,19 @@ public interface TypesRepository extends EObject
 	 * @model opposite="typesrepository"
 	 * @generated
 	 */
-  DomainTypes getParent();
+	DomainTypes getParent();
 
-  /**
+	/**
 	 * Sets the value of the '{@link domain.TypesRepository#getParent <em>Parent</em>}' reference.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Parent</em>' reference.
 	 * @see #getParent()
 	 * @generated
 	 */
-  void setParent(DomainTypes value);
+	void setParent(DomainTypes value);
 
-		/**
+	/**
 	 * Returns the value of the '<em><b>Any</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -123,7 +122,7 @@ public interface TypesRepository extends EObject
 	 */
 	EObject getAny();
 
-		/**
+	/**
 	 * Sets the value of the '{@link domain.TypesRepository#getAny <em>Any</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -34,154 +34,144 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  *
  * @generated
  */
-public class ApplicationInfrastructureLayerImpl extends EObjectImpl implements ApplicationInfrastructureLayer
-{
-  /**
+public class ApplicationInfrastructureLayerImpl extends EObjectImpl implements ApplicationInfrastructureLayer {
+	/**
 	 * The default value of the '{@link #getUid() <em>Uid</em>}' attribute.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getUid()
 	 * @generated
 	 * @ordered
 	 */
-  protected static final String UID_EDEFAULT = null;
+	protected static final String UID_EDEFAULT = null;
 
-  /**
+	/**
 	 * The cached value of the '{@link #getUid() <em>Uid</em>}' attribute.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getUid()
 	 * @generated
 	 * @ordered
 	 */
-  protected String uid = UID_EDEFAULT;
+	protected String uid = UID_EDEFAULT;
 
-  /**
+	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getName()
 	 * @generated
 	 * @ordered
 	 */
-  protected static final String NAME_EDEFAULT = null;
+	protected static final String NAME_EDEFAULT = null;
 
-  /**
+	/**
 	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getName()
 	 * @generated
 	 * @ordered
 	 */
-  protected String name = NAME_EDEFAULT;
+	protected String name = NAME_EDEFAULT;
 
-  /**
+	/**
 	 * The cached value of the '{@link #getInfarastructure() <em>Infarastructure</em>}' containment reference.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getInfarastructure()
 	 * @generated
 	 * @ordered
 	 */
-  protected EnterpriseInfrastructure infarastructure;
+	protected EnterpriseInfrastructure infarastructure;
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  protected ApplicationInfrastructureLayerImpl()
-  {
+	protected ApplicationInfrastructureLayerImpl() {
 		super();
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  protected EClass eStaticClass()
-  {
+	@Override
+	protected EClass eStaticClass() {
 		return DomainPackage.Literals.APPLICATION_INFRASTRUCTURE_LAYER;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public String getUid()
-  {
+	public String getUid() {
 		return uid;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public void setUid(String newUid)
-  {
+	public void setUid(String newUid) {
 		String oldUid = uid;
 		uid = newUid;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.APPLICATION_INFRASTRUCTURE_LAYER__UID, oldUid, uid));
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public String getName()
-  {
+	public String getName() {
 		return name;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public void setName(String newName)
-  {
+	public void setName(String newName) {
 		String oldName = name;
 		name = newName;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.APPLICATION_INFRASTRUCTURE_LAYER__NAME, oldName, name));
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public Application getParent()
-  {
+	public Application getParent() {
 		if (eContainerFeatureID() != DomainPackage.APPLICATION_INFRASTRUCTURE_LAYER__PARENT) return null;
 		return (Application)eInternalContainer();
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public NotificationChain basicSetParent(Application newParent, NotificationChain msgs)
-  {
+	public NotificationChain basicSetParent(Application newParent, NotificationChain msgs) {
 		msgs = eBasicSetContainer((InternalEObject)newParent, DomainPackage.APPLICATION_INFRASTRUCTURE_LAYER__PARENT, msgs);
 		return msgs;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public void setParent(Application newParent)
-  {
+	public void setParent(Application newParent) {
 		if (newParent != eInternalContainer() || (eContainerFeatureID() != DomainPackage.APPLICATION_INFRASTRUCTURE_LAYER__PARENT && newParent != null)) {
 			if (EcoreUtil.isAncestor(this, newParent))
 				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
@@ -197,23 +187,21 @@ public class ApplicationInfrastructureLayerImpl extends EObjectImpl implements A
 			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.APPLICATION_INFRASTRUCTURE_LAYER__PARENT, newParent, newParent));
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public EnterpriseInfrastructure getInfarastructure()
-  {
+	public EnterpriseInfrastructure getInfarastructure() {
 		return infarastructure;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public NotificationChain basicSetInfarastructure(EnterpriseInfrastructure newInfarastructure, NotificationChain msgs)
-  {
+	public NotificationChain basicSetInfarastructure(EnterpriseInfrastructure newInfarastructure, NotificationChain msgs) {
 		EnterpriseInfrastructure oldInfarastructure = infarastructure;
 		infarastructure = newInfarastructure;
 		if (eNotificationRequired()) {
@@ -223,13 +211,12 @@ public class ApplicationInfrastructureLayerImpl extends EObjectImpl implements A
 		return msgs;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public void setInfarastructure(EnterpriseInfrastructure newInfarastructure)
-  {
+	public void setInfarastructure(EnterpriseInfrastructure newInfarastructure) {
 		if (newInfarastructure != infarastructure) {
 			NotificationChain msgs = null;
 			if (infarastructure != null)
@@ -243,14 +230,13 @@ public class ApplicationInfrastructureLayerImpl extends EObjectImpl implements A
 			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.APPLICATION_INFRASTRUCTURE_LAYER__INFARASTRUCTURE, newInfarastructure, newInfarastructure));
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-  {
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case DomainPackage.APPLICATION_INFRASTRUCTURE_LAYER__PARENT:
 				if (eInternalContainer() != null)
@@ -264,14 +250,13 @@ public class ApplicationInfrastructureLayerImpl extends EObjectImpl implements A
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-  {
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case DomainPackage.APPLICATION_INFRASTRUCTURE_LAYER__PARENT:
 				return basicSetParent(null, msgs);
@@ -281,14 +266,13 @@ public class ApplicationInfrastructureLayerImpl extends EObjectImpl implements A
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs)
-  {
+	@Override
+	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
 		switch (eContainerFeatureID()) {
 			case DomainPackage.APPLICATION_INFRASTRUCTURE_LAYER__PARENT:
 				return eInternalContainer().eInverseRemove(this, DomainPackage.APPLICATION__APPLICATION_INFRASTRUCTURE_LAYER, Application.class, msgs);
@@ -296,14 +280,13 @@ public class ApplicationInfrastructureLayerImpl extends EObjectImpl implements A
 		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public Object eGet(int featureID, boolean resolve, boolean coreType)
-  {
+	@Override
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case DomainPackage.APPLICATION_INFRASTRUCTURE_LAYER__UID:
 				return getUid();
@@ -317,14 +300,13 @@ public class ApplicationInfrastructureLayerImpl extends EObjectImpl implements A
 		return super.eGet(featureID, resolve, coreType);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public void eSet(int featureID, Object newValue)
-  {
+	@Override
+	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case DomainPackage.APPLICATION_INFRASTRUCTURE_LAYER__UID:
 				setUid((String)newValue);
@@ -342,14 +324,13 @@ public class ApplicationInfrastructureLayerImpl extends EObjectImpl implements A
 		super.eSet(featureID, newValue);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public void eUnset(int featureID)
-  {
+	@Override
+	public void eUnset(int featureID) {
 		switch (featureID) {
 			case DomainPackage.APPLICATION_INFRASTRUCTURE_LAYER__UID:
 				setUid(UID_EDEFAULT);
@@ -367,14 +348,13 @@ public class ApplicationInfrastructureLayerImpl extends EObjectImpl implements A
 		super.eUnset(featureID);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public boolean eIsSet(int featureID)
-  {
+	@Override
+	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case DomainPackage.APPLICATION_INFRASTRUCTURE_LAYER__UID:
 				return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
@@ -388,14 +368,13 @@ public class ApplicationInfrastructureLayerImpl extends EObjectImpl implements A
 		return super.eIsSet(featureID);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public String toString()
-  {
+	@Override
+	public String toString() {
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());

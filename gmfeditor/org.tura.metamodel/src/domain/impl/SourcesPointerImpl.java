@@ -31,76 +31,72 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public class SourcesPointerImpl extends UielementImpl implements SourcesPointer
-{
-  /**
+public class SourcesPointerImpl extends UielementImpl implements SourcesPointer {
+	/**
 	 * The cached value of the '{@link #getSourcePointer() <em>Source Pointer</em>}' reference.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getSourcePointer()
 	 * @generated
 	 * @ordered
 	 */
-  protected DataControl sourcePointer;
+	protected DataControl sourcePointer;
 
-  /**
+	/**
 	 * The cached value of the '{@link #getValuePointer() <em>Value Pointer</em>}' reference.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getValuePointer()
 	 * @generated
 	 * @ordered
 	 */
-  protected EObject valuePointer;
+	protected EObject valuePointer;
 
-  /**
+	/**
 	 * The cached value of the '{@link #getSourceCast() <em>Source Cast</em>}' reference.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getSourceCast()
 	 * @generated
 	 * @ordered
 	 */
-  protected Type sourceCast;
+	protected Type sourceCast;
 
-  /**
+	/**
 	 * The cached value of the '{@link #getSourceCastDataControl() <em>Source Cast Data Control</em>}' reference.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getSourceCastDataControl()
 	 * @generated
 	 * @ordered
 	 */
-  protected DataControl sourceCastDataControl;
+	protected DataControl sourceCastDataControl;
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  protected SourcesPointerImpl()
-  {
+	protected SourcesPointerImpl() {
 		super();
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  protected EClass eStaticClass()
-  {
+	@Override
+	protected EClass eStaticClass() {
 		return DomainPackage.Literals.SOURCES_POINTER;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public DataControl getSourcePointer()
-  {
+	public DataControl getSourcePointer() {
 		if (sourcePointer != null && sourcePointer.eIsProxy()) {
 			InternalEObject oldSourcePointer = (InternalEObject)sourcePointer;
 			sourcePointer = (DataControl)eResolveProxy(oldSourcePointer);
@@ -112,36 +108,33 @@ public class SourcesPointerImpl extends UielementImpl implements SourcesPointer
 		return sourcePointer;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public DataControl basicGetSourcePointer()
-  {
+	public DataControl basicGetSourcePointer() {
 		return sourcePointer;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public void setSourcePointer(DataControl newSourcePointer)
-  {
+	public void setSourcePointer(DataControl newSourcePointer) {
 		DataControl oldSourcePointer = sourcePointer;
 		sourcePointer = newSourcePointer;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.SOURCES_POINTER__SOURCE_POINTER, oldSourcePointer, sourcePointer));
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public EObject getValuePointer()
-  {
+	public EObject getValuePointer() {
 		if (valuePointer != null && valuePointer.eIsProxy()) {
 			InternalEObject oldValuePointer = (InternalEObject)valuePointer;
 			valuePointer = eResolveProxy(oldValuePointer);
@@ -153,36 +146,33 @@ public class SourcesPointerImpl extends UielementImpl implements SourcesPointer
 		return valuePointer;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public EObject basicGetValuePointer()
-  {
+	public EObject basicGetValuePointer() {
 		return valuePointer;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public void setValuePointer(EObject newValuePointer)
-  {
+	public void setValuePointer(EObject newValuePointer) {
 		EObject oldValuePointer = valuePointer;
 		valuePointer = newValuePointer;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.SOURCES_POINTER__VALUE_POINTER, oldValuePointer, valuePointer));
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public Type getSourceCast()
-  {
+	public Type getSourceCast() {
 		if (sourceCast != null && sourceCast.eIsProxy()) {
 			InternalEObject oldSourceCast = (InternalEObject)sourceCast;
 			sourceCast = (Type)eResolveProxy(oldSourceCast);
@@ -194,36 +184,33 @@ public class SourcesPointerImpl extends UielementImpl implements SourcesPointer
 		return sourceCast;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public Type basicGetSourceCast()
-  {
+	public Type basicGetSourceCast() {
 		return sourceCast;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public void setSourceCast(Type newSourceCast)
-  {
+	public void setSourceCast(Type newSourceCast) {
 		Type oldSourceCast = sourceCast;
 		sourceCast = newSourceCast;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.SOURCES_POINTER__SOURCE_CAST, oldSourceCast, sourceCast));
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public DataControl getSourceCastDataControl()
-  {
+	public DataControl getSourceCastDataControl() {
 		if (sourceCastDataControl != null && sourceCastDataControl.eIsProxy()) {
 			InternalEObject oldSourceCastDataControl = (InternalEObject)sourceCastDataControl;
 			sourceCastDataControl = (DataControl)eResolveProxy(oldSourceCastDataControl);
@@ -235,37 +222,34 @@ public class SourcesPointerImpl extends UielementImpl implements SourcesPointer
 		return sourceCastDataControl;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public DataControl basicGetSourceCastDataControl()
-  {
+	public DataControl basicGetSourceCastDataControl() {
 		return sourceCastDataControl;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public void setSourceCastDataControl(DataControl newSourceCastDataControl)
-  {
+	public void setSourceCastDataControl(DataControl newSourceCastDataControl) {
 		DataControl oldSourceCastDataControl = sourceCastDataControl;
 		sourceCastDataControl = newSourceCastDataControl;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.SOURCES_POINTER__SOURCE_CAST_DATA_CONTROL, oldSourceCastDataControl, sourceCastDataControl));
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public Object eGet(int featureID, boolean resolve, boolean coreType)
-  {
+	@Override
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case DomainPackage.SOURCES_POINTER__SOURCE_POINTER:
 				if (resolve) return getSourcePointer();
@@ -283,14 +267,13 @@ public class SourcesPointerImpl extends UielementImpl implements SourcesPointer
 		return super.eGet(featureID, resolve, coreType);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public void eSet(int featureID, Object newValue)
-  {
+	@Override
+	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case DomainPackage.SOURCES_POINTER__SOURCE_POINTER:
 				setSourcePointer((DataControl)newValue);
@@ -308,14 +291,13 @@ public class SourcesPointerImpl extends UielementImpl implements SourcesPointer
 		super.eSet(featureID, newValue);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public void eUnset(int featureID)
-  {
+	@Override
+	public void eUnset(int featureID) {
 		switch (featureID) {
 			case DomainPackage.SOURCES_POINTER__SOURCE_POINTER:
 				setSourcePointer((DataControl)null);
@@ -333,14 +315,13 @@ public class SourcesPointerImpl extends UielementImpl implements SourcesPointer
 		super.eUnset(featureID);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public boolean eIsSet(int featureID)
-  {
+	@Override
+	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case DomainPackage.SOURCES_POINTER__SOURCE_POINTER:
 				return sourcePointer != null;

@@ -13,6 +13,5 @@ package domain;
  * @model
  * @generated
  */
-public interface TypeMapper extends Mapper, TypePointer
-{
+public interface TypeMapper extends Mapper, TypePointer {
 } // TypeMapper

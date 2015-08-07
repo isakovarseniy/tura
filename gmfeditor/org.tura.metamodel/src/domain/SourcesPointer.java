@@ -23,110 +23,109 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface SourcesPointer extends Uielement
-{
-  /**
+public interface SourcesPointer extends Uielement {
+	/**
 	 * Returns the value of the '<em><b>Source Pointer</b></em>' reference.
 	 * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Source Pointer</em>' reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Source Pointer</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Source Pointer</em>' reference.
 	 * @see #setSourcePointer(DataControl)
 	 * @see domain.DomainPackage#getSourcesPointer_SourcePointer()
 	 * @model
 	 * @generated
 	 */
-  DataControl getSourcePointer();
+	DataControl getSourcePointer();
 
-  /**
+	/**
 	 * Sets the value of the '{@link domain.SourcesPointer#getSourcePointer <em>Source Pointer</em>}' reference.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Source Pointer</em>' reference.
 	 * @see #getSourcePointer()
 	 * @generated
 	 */
-  void setSourcePointer(DataControl value);
+	void setSourcePointer(DataControl value);
 
-  /**
+	/**
 	 * Returns the value of the '<em><b>Value Pointer</b></em>' reference.
 	 * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Value Pointer</em>' reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Value Pointer</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Value Pointer</em>' reference.
 	 * @see #setValuePointer(EObject)
 	 * @see domain.DomainPackage#getSourcesPointer_ValuePointer()
 	 * @model
 	 * @generated
 	 */
-  EObject getValuePointer();
+	EObject getValuePointer();
 
-  /**
+	/**
 	 * Sets the value of the '{@link domain.SourcesPointer#getValuePointer <em>Value Pointer</em>}' reference.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Value Pointer</em>' reference.
 	 * @see #getValuePointer()
 	 * @generated
 	 */
-  void setValuePointer(EObject value);
+	void setValuePointer(EObject value);
 
-  /**
+	/**
 	 * Returns the value of the '<em><b>Source Cast</b></em>' reference.
 	 * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Source Cast</em>' reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Source Cast</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Source Cast</em>' reference.
 	 * @see #setSourceCast(Type)
 	 * @see domain.DomainPackage#getSourcesPointer_SourceCast()
 	 * @model
 	 * @generated
 	 */
-  Type getSourceCast();
+	Type getSourceCast();
 
-  /**
+	/**
 	 * Sets the value of the '{@link domain.SourcesPointer#getSourceCast <em>Source Cast</em>}' reference.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Source Cast</em>' reference.
 	 * @see #getSourceCast()
 	 * @generated
 	 */
-  void setSourceCast(Type value);
+	void setSourceCast(Type value);
 
-  /**
+	/**
 	 * Returns the value of the '<em><b>Source Cast Data Control</b></em>' reference.
 	 * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Source Cast Data Control</em>' reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Source Cast Data Control</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Source Cast Data Control</em>' reference.
 	 * @see #setSourceCastDataControl(DataControl)
 	 * @see domain.DomainPackage#getSourcesPointer_SourceCastDataControl()
 	 * @model
 	 * @generated
 	 */
-  DataControl getSourceCastDataControl();
+	DataControl getSourceCastDataControl();
 
-  /**
+	/**
 	 * Sets the value of the '{@link domain.SourcesPointer#getSourceCastDataControl <em>Source Cast Data Control</em>}' reference.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Source Cast Data Control</em>' reference.
 	 * @see #getSourceCastDataControl()
 	 * @generated
 	 */
-  void setSourceCastDataControl(DataControl value);
+	void setSourceCastDataControl(DataControl value);
 
 } // SourcesPointer

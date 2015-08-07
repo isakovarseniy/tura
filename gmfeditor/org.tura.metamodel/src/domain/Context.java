@@ -13,6 +13,5 @@ package domain;
  * @model
  * @generated
  */
-public interface Context extends ContextValue, ContextParameters
-{
+public interface Context extends ContextValue, ContextParameters {
 } // Context

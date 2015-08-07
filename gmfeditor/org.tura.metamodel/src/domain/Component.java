@@ -24,69 +24,68 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface Component extends HTMLLayerHolder
-{
-  /**
+public interface Component extends HTMLLayerHolder {
+	/**
 	 * Returns the value of the '<em><b>Uid</b></em>' attribute.
 	 * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Uid</em>' attribute isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Uid</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Uid</em>' attribute.
 	 * @see #setUid(String)
 	 * @see domain.DomainPackage#getComponent_Uid()
 	 * @model id="true"
 	 * @generated
 	 */
-  String getUid();
+	String getUid();
 
-  /**
+	/**
 	 * Sets the value of the '{@link domain.Component#getUid <em>Uid</em>}' attribute.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Uid</em>' attribute.
 	 * @see #getUid()
 	 * @generated
 	 */
-  void setUid(String value);
+	void setUid(String value);
 
-  /**
+	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Name</em>' attribute isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Name</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
 	 * @see domain.DomainPackage#getComponent_Name()
 	 * @model
 	 * @generated
 	 */
-  String getName();
+	String getName();
 
-  /**
+	/**
 	 * Sets the value of the '{@link domain.Component#getName <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Name</em>' attribute.
 	 * @see #getName()
 	 * @generated
 	 */
-  void setName(String value);
+	void setName(String value);
 
-  /**
+	/**
 	 * Returns the value of the '<em><b>Parent</b></em>' container reference.
 	 * It is bidirectional and its opposite is '{@link domain.Ingredient#getComponents <em>Components</em>}'.
 	 * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Parent</em>' container reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Parent</em>' container reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Parent</em>' container reference.
 	 * @see #setParent(Ingredient)
 	 * @see domain.DomainPackage#getComponent_Parent()
@@ -94,60 +93,60 @@ public interface Component extends HTMLLayerHolder
 	 * @model opposite="components" transient="false"
 	 * @generated
 	 */
-  Ingredient getParent();
+	Ingredient getParent();
 
-  /**
+	/**
 	 * Sets the value of the '{@link domain.Component#getParent <em>Parent</em>}' container reference.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Parent</em>' container reference.
 	 * @see #getParent()
 	 * @generated
 	 */
-  void setParent(Ingredient value);
+	void setParent(Ingredient value);
 
-  /**
+	/**
 	 * Returns the value of the '<em><b>Mappers</b></em>' containment reference list.
 	 * The list contents are of type {@link domain.ModelMapper}.
 	 * It is bidirectional and its opposite is '{@link domain.ModelMapper#getParent <em>Parent</em>}'.
 	 * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Mappers</em>' containment reference list isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Mappers</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Mappers</em>' containment reference list.
 	 * @see domain.DomainPackage#getComponent_Mappers()
 	 * @see domain.ModelMapper#getParent
 	 * @model opposite="parent" containment="true"
 	 * @generated
 	 */
-  EList<ModelMapper> getMappers();
+	EList<ModelMapper> getMappers();
 
-  /**
+	/**
 	 * Returns the value of the '<em><b>Component Root</b></em>' attribute.
 	 * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Component Root</em>' attribute isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Component Root</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Component Root</em>' attribute.
 	 * @see #setComponentRoot(String)
 	 * @see domain.DomainPackage#getComponent_ComponentRoot()
 	 * @model
 	 * @generated
 	 */
-  String getComponentRoot();
+	String getComponentRoot();
 
-  /**
+	/**
 	 * Sets the value of the '{@link domain.Component#getComponentRoot <em>Component Root</em>}' attribute.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Component Root</em>' attribute.
 	 * @see #getComponentRoot()
 	 * @generated
 	 */
-  void setComponentRoot(String value);
+	void setComponentRoot(String value);
 
 } // Component
