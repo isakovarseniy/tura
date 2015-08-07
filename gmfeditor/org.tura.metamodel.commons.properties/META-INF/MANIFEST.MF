@@ -30,7 +30,8 @@ Require-Bundle: org.eclipse.ui,
  org.tura.metamodel.diagram.style;bundle-version="1.0.0",
  org.tura.metamodel.diagram.typedefinition;bundle-version="1.0.0",
  org.tura.metamodel.diagram.typesrepository;bundle-version="1.0.0",
- org.tura.metamodel.diagram.uipackage;bundle-version="1.0.0"
+ org.tura.metamodel.diagram.uipackage;bundle-version="1.0.0",
+ org.eclipse.swt
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Export-Package: org.tura.metamodel.commons.properties,
