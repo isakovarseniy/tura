@@ -1,4 +1,4 @@
-package org.tura.metamodel.commons.properties.selections.dropdown;
+package org.tura.metamodel.commons.properties.selections.grid.impl;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.swt.SWT;
@@ -11,7 +11,7 @@ import org.tura.metamodel.commons.properties.selections.grid.impl.ActioinTrigger
 
 import domain.ActioinTriggers;
 
-public class ActioinTriggersTypeNamePropertySection extends TypeRefTypeNamePropertySection {
+public class ActioinTriggersTriggerContextParameterPropertySelection extends TriggerContextParameterPropertySelection{
 
 	private domain.ActionTrigger model;
 	private SelectionListener listener = new SelectionListener(this);
@@ -52,4 +52,6 @@ public class ActioinTriggersTypeNamePropertySection extends TypeRefTypeNamePrope
 			}
 		}
 	}
+	
+	
 }

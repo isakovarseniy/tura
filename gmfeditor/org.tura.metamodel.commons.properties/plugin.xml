@@ -733,6 +733,31 @@
  
       <propertySections contributorId="org.tura.metamodel.diagram.canvas">
 
+
+           <propertySection
+               tab="property.tab.domain.canvas.uielement.triggers"
+               class="org.tura.metamodel.commons.properties.selections.grid.impl.ActionTriggerCategorizedPropertySelection"
+               id="property.tab.domain.canvas.uielement.actiontriggers">
+
+              <input type="canvas.diagram.edit.parts.ButtonEditPart"/>
+              <input type="canvas.diagram.edit.parts.Button2EditPart"/>
+
+            </propertySection>  
+
+
+
+           <propertySection
+               tab="property.tab.domain.canvas.uielement.triggers"
+               class="org.tura.metamodel.commons.properties.selections.grid.impl.ActioinTriggersTriggerContextParameterPropertySelection"
+               id="property.tab.domain.canvas.uielement.actiontriggers">
+
+              <input type="canvas.diagram.edit.parts.ButtonEditPart"/>
+              <input type="canvas.diagram.edit.parts.Button2EditPart"/>
+
+            </propertySection>  
+
+
+
            <propertySection
                tab="property.tab.domain.canvas.uielement.triggers"
                class="org.tura.metamodel.commons.properties.selections.dropdown.ActioinTriggersMethodNamePropertySection"
@@ -753,6 +778,9 @@
               <input type="canvas.diagram.edit.parts.Button2EditPart"/>
 
             </propertySection>  
+
+
+
 
 
            <propertySection
