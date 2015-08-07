@@ -739,6 +739,21 @@
                class="org.tura.metamodel.commons.properties.selections.grid.impl.ActionTriggerCategorizedPropertySelection"
                id="property.tab.domain.canvas.uielement.actiontriggers">
 
+             <input type="canvas.diagram.edit.parts.ImageEditPart"/>
+             <input type="canvas.diagram.edit.parts.CheckBoxEditPart"/>
+              <input type="canvas.diagram.edit.parts.DateEditPart"/>
+              <input type="canvas.diagram.edit.parts.InputTextEditPart"/>
+              <input type="canvas.diagram.edit.parts.OutputTextEditPart"/>
+              <input type="canvas.diagram.edit.parts.DropDownSelectionEditPart"/>
+ 
+             <input type="canvas.diagram.edit.parts.Image2EditPart"/>
+             <input type="canvas.diagram.edit.parts.Date2EditPart"/>
+              <input type="canvas.diagram.edit.parts.CheckBox2EditPart"/>
+              <input type="canvas.diagram.edit.parts.InputText2EditPart"/>
+              <input type="canvas.diagram.edit.parts.OutputText2EditPart"/>
+              <input type="canvas.diagram.edit.parts.DropDownSelection2EditPart"/>
+
+
               <input type="canvas.diagram.edit.parts.ButtonEditPart"/>
               <input type="canvas.diagram.edit.parts.Button2EditPart"/>
 
@@ -750,6 +765,22 @@
                tab="property.tab.domain.canvas.uielement.triggers"
                class="org.tura.metamodel.commons.properties.selections.grid.impl.ActioinTriggersTriggerContextParameterPropertySelection"
                id="property.tab.domain.canvas.uielement.actiontriggers">
+
+             <input type="canvas.diagram.edit.parts.ImageEditPart"/>
+             <input type="canvas.diagram.edit.parts.CheckBoxEditPart"/>
+              <input type="canvas.diagram.edit.parts.DateEditPart"/>
+              <input type="canvas.diagram.edit.parts.InputTextEditPart"/>
+              <input type="canvas.diagram.edit.parts.OutputTextEditPart"/>
+              <input type="canvas.diagram.edit.parts.DropDownSelectionEditPart"/>
+ 
+             <input type="canvas.diagram.edit.parts.Image2EditPart"/>
+             <input type="canvas.diagram.edit.parts.Date2EditPart"/>
+              <input type="canvas.diagram.edit.parts.CheckBox2EditPart"/>
+              <input type="canvas.diagram.edit.parts.InputText2EditPart"/>
+              <input type="canvas.diagram.edit.parts.OutputText2EditPart"/>
+              <input type="canvas.diagram.edit.parts.DropDownSelection2EditPart"/>
+
+
 
               <input type="canvas.diagram.edit.parts.ButtonEditPart"/>
               <input type="canvas.diagram.edit.parts.Button2EditPart"/>
@@ -763,6 +794,21 @@
                class="org.tura.metamodel.commons.properties.selections.dropdown.ActioinTriggersMethodNamePropertySection"
                id="property.tab.domain.canvas.uielement.actiontriggers">
 
+             <input type="canvas.diagram.edit.parts.ImageEditPart"/>
+             <input type="canvas.diagram.edit.parts.CheckBoxEditPart"/>
+              <input type="canvas.diagram.edit.parts.DateEditPart"/>
+              <input type="canvas.diagram.edit.parts.InputTextEditPart"/>
+              <input type="canvas.diagram.edit.parts.OutputTextEditPart"/>
+              <input type="canvas.diagram.edit.parts.DropDownSelectionEditPart"/>
+ 
+             <input type="canvas.diagram.edit.parts.Image2EditPart"/>
+             <input type="canvas.diagram.edit.parts.Date2EditPart"/>
+              <input type="canvas.diagram.edit.parts.CheckBox2EditPart"/>
+              <input type="canvas.diagram.edit.parts.InputText2EditPart"/>
+              <input type="canvas.diagram.edit.parts.OutputText2EditPart"/>
+              <input type="canvas.diagram.edit.parts.DropDownSelection2EditPart"/>
+
+
               <input type="canvas.diagram.edit.parts.ButtonEditPart"/>
               <input type="canvas.diagram.edit.parts.Button2EditPart"/>
 
@@ -773,6 +819,21 @@
                tab="property.tab.domain.canvas.uielement.triggers"
                class="org.tura.metamodel.commons.properties.selections.dropdown.ActioinTriggersTypeNamePropertySection"
                id="property.tab.domain.canvas.uielement.actiontriggers">
+
+             <input type="canvas.diagram.edit.parts.ImageEditPart"/>
+             <input type="canvas.diagram.edit.parts.CheckBoxEditPart"/>
+              <input type="canvas.diagram.edit.parts.DateEditPart"/>
+              <input type="canvas.diagram.edit.parts.InputTextEditPart"/>
+              <input type="canvas.diagram.edit.parts.OutputTextEditPart"/>
+              <input type="canvas.diagram.edit.parts.DropDownSelectionEditPart"/>
+ 
+             <input type="canvas.diagram.edit.parts.Image2EditPart"/>
+             <input type="canvas.diagram.edit.parts.Date2EditPart"/>
+              <input type="canvas.diagram.edit.parts.CheckBox2EditPart"/>
+              <input type="canvas.diagram.edit.parts.InputText2EditPart"/>
+              <input type="canvas.diagram.edit.parts.OutputText2EditPart"/>
+              <input type="canvas.diagram.edit.parts.DropDownSelection2EditPart"/>
+
 
               <input type="canvas.diagram.edit.parts.ButtonEditPart"/>
               <input type="canvas.diagram.edit.parts.Button2EditPart"/>
@@ -788,6 +849,22 @@
                class="org.tura.metamodel.commons.properties.selections.dropdown.ActioinTriggersPackageNamePropertySection"
                id="property.tab.domain.canvas.uielement.actiontriggers">
 
+
+             <input type="canvas.diagram.edit.parts.ImageEditPart"/>
+             <input type="canvas.diagram.edit.parts.CheckBoxEditPart"/>
+              <input type="canvas.diagram.edit.parts.DateEditPart"/>
+              <input type="canvas.diagram.edit.parts.InputTextEditPart"/>
+              <input type="canvas.diagram.edit.parts.OutputTextEditPart"/>
+              <input type="canvas.diagram.edit.parts.DropDownSelectionEditPart"/>
+ 
+             <input type="canvas.diagram.edit.parts.Image2EditPart"/>
+             <input type="canvas.diagram.edit.parts.Date2EditPart"/>
+              <input type="canvas.diagram.edit.parts.CheckBox2EditPart"/>
+              <input type="canvas.diagram.edit.parts.InputText2EditPart"/>
+              <input type="canvas.diagram.edit.parts.OutputText2EditPart"/>
+              <input type="canvas.diagram.edit.parts.DropDownSelection2EditPart"/>
+
+
               <input type="canvas.diagram.edit.parts.ButtonEditPart"/>
               <input type="canvas.diagram.edit.parts.Button2EditPart"/>
 
@@ -797,6 +874,22 @@
                tab="property.tab.domain.canvas.uielement.triggers"
                class="org.tura.metamodel.commons.properties.selections.grid.impl.ActioinTriggersPropertySelectioin"
                id="property.tab.domain.canvas.uielement.actiontriggers">
+
+             <input type="canvas.diagram.edit.parts.ImageEditPart"/>
+             <input type="canvas.diagram.edit.parts.CheckBoxEditPart"/>
+              <input type="canvas.diagram.edit.parts.DateEditPart"/>
+              <input type="canvas.diagram.edit.parts.InputTextEditPart"/>
+              <input type="canvas.diagram.edit.parts.OutputTextEditPart"/>
+              <input type="canvas.diagram.edit.parts.DropDownSelectionEditPart"/>
+ 
+             <input type="canvas.diagram.edit.parts.Image2EditPart"/>
+             <input type="canvas.diagram.edit.parts.Date2EditPart"/>
+              <input type="canvas.diagram.edit.parts.CheckBox2EditPart"/>
+              <input type="canvas.diagram.edit.parts.InputText2EditPart"/>
+              <input type="canvas.diagram.edit.parts.OutputText2EditPart"/>
+              <input type="canvas.diagram.edit.parts.DropDownSelection2EditPart"/>
+
+
 
               <input type="canvas.diagram.edit.parts.ButtonEditPart"/>
               <input type="canvas.diagram.edit.parts.Button2EditPart"/>
