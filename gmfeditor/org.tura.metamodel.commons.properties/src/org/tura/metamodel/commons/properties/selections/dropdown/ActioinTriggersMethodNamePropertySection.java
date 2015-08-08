@@ -23,22 +23,20 @@ public class ActioinTriggersMethodNamePropertySection extends MethodNameProperty
 		aTabbedPropertySheetPage.getControl().addListener(SWT.Selection, listener);
 	}
 
-
-
 	@Override
 	public EObject getModel(EStructuralFeature feature) {
 		return getModel();
-	}		
-	
+	}
+
 	@Override
 	public EObject getModel() {
 		if (model == null) {
-			this.combo.setItems(new String[]{});
-			this.combo.select(-1);			
-			domain.ActioinTriggers trs = (ActioinTriggers) getEObject();
-			if (trs == null || !trs.getTriggers().iterator().hasNext())
-				return null;
-			return trs.getTriggers().iterator().next();
+				this.combo.setItems(new String[] {});
+				this.combo.select(-1);
+				domain.ActioinTriggers trs = (ActioinTriggers) getEObject();
+				if (trs == null || !trs.getTriggers().iterator().hasNext())
+					return null;
+				return trs.getTriggers().iterator().next();
 		}
 		return model;
 	}

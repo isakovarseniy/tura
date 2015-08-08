@@ -52,9 +52,13 @@ public class TriggerContextParameterPropertySelection extends ContextParameterPr
 	}
 
 	public void dispose() {
+		try {
+			if (getEObject() != null && getModel() != null)
+				getModel().eAdapters().remove(adapter);
+		} catch (IllegalStateException e) {
+
+		}
 		super.dispose();
-		if (getEObject() != null && getModel() != null)
-			getModel().eAdapters().remove(adapter);
 	}
 
 	public EStructuralFeature[] getWatchPointFeature() {
