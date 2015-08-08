@@ -1,6 +1,7 @@
 package org.tura.metamodel.commons.properties.selections.dropdown;
 
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Event;
@@ -25,9 +26,18 @@ public class ActioinTriggersMethodNamePropertySection extends MethodNameProperty
 
 
 	@Override
+	public EObject getModel(EStructuralFeature feature) {
+		return getModel();
+	}		
+	
+	@Override
 	public EObject getModel() {
 		if (model == null) {
+			this.combo.setItems(new String[]{});
+			this.combo.select(-1);			
 			domain.ActioinTriggers trs = (ActioinTriggers) getEObject();
+			if (trs == null || !trs.getTriggers().iterator().hasNext())
+				return null;
 			return trs.getTriggers().iterator().next();
 		}
 		return model;

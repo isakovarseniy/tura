@@ -6,49 +6,38 @@ import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.command.RemoveCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.gmf.runtime.diagram.ui.parts.DiagramEditor;
-import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.swt.widgets.Control;
-import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.internal.views.properties.tabbed.view.TabbedPropertyComposite;
 import org.tura.metamodel.commons.properties.selections.grid.DataSource;
 
 import domain.DomainPackage;
 
-public class TriggerContextParameterPropertySelection extends
-		ContextParameterPropertySelection {
+public class TriggerContextParameterPropertySelection extends ContextParameterPropertySelection {
 
 	private AdapterImpl adapter;
 	private boolean isFirstTime = true;
 
-	public void setInput(IWorkbenchPart part, ISelection selection) {
-		super.setInput(part, selection);
-
-		if (isFirstTime) {
+	public void refresh() {
+		if (isFirstTime && getModel() != null) {
+			isFirstTime = false;
 
 			AdapterImpl adapter = new AdapterImpl() {
 				public void notifyChanged(Notification notification) {
 					for (int j = 0; j < getWatchPointFeature().length; j++) {
-						if (notification.getFeatureID(getExpectedClass()) == getWatchPointFeature()[j]
-								.getFeatureID()) {
+						if (notification.getFeatureID(getExpectedClass()) == getWatchPointFeature()[j].getFeatureID()) {
 
-							EditingDomain editingDomain = ((DiagramEditor) getPart())
-									.getEditingDomain();
+							EditingDomain editingDomain = ((DiagramEditor) getPart()).getEditingDomain();
 
-							editingDomain
-									.getCommandStack()
-									.execute(
-											RemoveCommand
-													.create(editingDomain,
-															getModel(),
-															DomainPackage.eINSTANCE
-																	.getContextParameters_Parameters(),
-															((domain.Trigger) getModel())
-																	.getParameters()));
+							editingDomain.getCommandStack()
+									.execute(RemoveCommand.create(editingDomain, getModel(),
+											DomainPackage.eINSTANCE.getContextParameters_Parameters(),
+											((domain.Trigger) getModel()).getParameters()));
 							ds.cleanList();
 							Control control = tableViewer.getControl();
-							if (control != null && !control.isDisposed()){
+							if (control != null && !control.isDisposed()) {
 								tableViewer.setInput(ds);
-								((TabbedPropertyComposite)(getPropertySheetPage().getControl())).getTabComposite().layout(true,true);
+								((TabbedPropertyComposite) (getPropertySheetPage().getControl())).getTabComposite()
+										.layout(true, true);
 							}
 
 						}
@@ -57,6 +46,9 @@ public class TriggerContextParameterPropertySelection extends
 			};
 			getModel().eAdapters().add(adapter);
 		}
+		if (getModel() != null)
+			super.refresh();
+
 	}
 
 	public void dispose() {
@@ -66,8 +58,7 @@ public class TriggerContextParameterPropertySelection extends
 	}
 
 	public EStructuralFeature[] getWatchPointFeature() {
-		return new EStructuralFeature[] { DomainPackage.eINSTANCE
-				.getMethodPointer_MethodRef() };
+		return new EStructuralFeature[] { DomainPackage.eINSTANCE.getMethodPointer_MethodRef() };
 	}
 
 	public Class<?> getExpectedClass() {
@@ -75,7 +66,7 @@ public class TriggerContextParameterPropertySelection extends
 	}
 
 	@Override
-	public domain.TypeElement contextRefTypeExtreactor(domain.ContextParameter  obj) {
+	public domain.TypeElement contextRefTypeExtreactor(domain.ContextParameter obj) {
 		return ((domain.Parameter) obj.getRefObj()).getTypeRef();
 	}
 
@@ -83,6 +74,5 @@ public class TriggerContextParameterPropertySelection extends
 	protected DataSource getDS() {
 		return new TriggerContextParameterDS(this);
 	}
-	
-	
+
 }

@@ -28,20 +28,15 @@ public class CategorizedDS extends DataSource {
 	@SuppressWarnings("unchecked")
 	@Override
 	public void addRow() {
-		domain.Classifier classifier = DomainFactory.eINSTANCE
-				.createClassifier();
+		domain.Classifier classifier = DomainFactory.eINSTANCE.createClassifier();
 		classifier.setUid(UUID.randomUUID().toString());
 		ArrayList<domain.Classifier> ls = new ArrayList<domain.Classifier>();
 		ls.add(classifier);
 
-		EditingDomain editingDomain = ((DiagramEditor) property.getPart())
-				.getEditingDomain();
+		EditingDomain editingDomain = ((DiagramEditor) property.getPart()).getEditingDomain();
 
-		editingDomain.getCommandStack().execute(
-				AddCommand.create(editingDomain,
-						((domain.Categorized) property.getModel()),
-						DomainPackage.eINSTANCE.getCategorized_Classifiers(),
-						ls));
+		editingDomain.getCommandStack().execute(AddCommand.create(editingDomain,
+				((domain.Categorized) property.getModel()), DomainPackage.eINSTANCE.getCategorized_Classifiers(), ls));
 
 		rowList.add(rowList.size(), classifier);
 		this.notifyAddRow(classifier);
@@ -53,14 +48,10 @@ public class CategorizedDS extends DataSource {
 		ArrayList<domain.Classifier> ls = new ArrayList<domain.Classifier>();
 		ls.add((domain.Classifier) row);
 
-		EditingDomain editingDomain = ((DiagramEditor) property.getPart())
-				.getEditingDomain();
+		EditingDomain editingDomain = ((DiagramEditor) property.getPart()).getEditingDomain();
 
-		editingDomain.getCommandStack().execute(
-				RemoveCommand.create(editingDomain,
-						((domain.Categorized) property.getModel()),
-						DomainPackage.eINSTANCE.getCategorized_Classifiers(),
-						ls));
+		editingDomain.getCommandStack().execute(RemoveCommand.create(editingDomain,
+				((domain.Categorized) property.getModel()), DomainPackage.eINSTANCE.getCategorized_Classifiers(), ls));
 
 		rowList.remove(row);
 		this.notifyRemoveRow(row);
@@ -73,10 +64,11 @@ public class CategorizedDS extends DataSource {
 			domain.Categorized categorized = (Categorized) property.getModel();
 
 			ArrayList<Object> rows = new ArrayList<Object>();
-			for (Iterator<domain.Classifier> i = categorized.getClassifiers()
-					.iterator(); i.hasNext();) {
-				domain.Classifier p = i.next();
-				rows.add(p);
+			if (categorized != null) {
+				for (Iterator<domain.Classifier> i = categorized.getClassifiers().iterator(); i.hasNext();) {
+					domain.Classifier p = i.next();
+					rows.add(p);
+				}
 			}
 			return rows;
 		} catch (Exception e) {

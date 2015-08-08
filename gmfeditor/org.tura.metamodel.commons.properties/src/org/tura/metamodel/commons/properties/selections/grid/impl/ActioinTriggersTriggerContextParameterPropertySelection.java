@@ -22,12 +22,13 @@ public class ActioinTriggersTriggerContextParameterPropertySelection extends Tri
 		aTabbedPropertySheetPage.getControl().addListener(SWT.Selection, listener);
 	}
 
-
-
 	@Override
 	public EObject getModel() {
 		if (model == null) {
+			tableViewer.setInput(null);
 			domain.ActioinTriggers trs = (ActioinTriggers) getEObject();
+			if (trs == null || !trs.getTriggers().iterator().hasNext())
+				return null;
 			return trs.getTriggers().iterator().next();
 		}
 		return model;

@@ -17,7 +17,7 @@ public class DomainTypePointerPackageRef implements DropDownDataAdapter{
 	}
 
 	public String getFeatureAsText(Object eObject) {
-		if (((domain.TypePointer)eObject).getPackageRef() != null)
+		if ((eObject != null)&&((domain.TypePointer)eObject).getPackageRef() != null)
 			return ((domain.TypePointer)eObject).getPackageRef().getName();
 		else
 			return "";

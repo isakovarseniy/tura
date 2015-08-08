@@ -43,24 +43,34 @@ public abstract class AbstractEnumerationPropertySection extends AbstractTuraPro
 	protected EStructuralFeature[] getFeature() {
 		if (dropDownDataSupplier == null)
 			init();
+		if (dropDownDataSupplier == null)
+			return null;
+
 		return dropDownDataSupplier.getFeature();
 	}
 
 	protected String getFeatureAsText() {
 		if (dropDownDataSupplier == null)
 			init();
+		if (dropDownDataSupplier == null)
+			return "";
 		return dropDownDataSupplier.getFeatureAsText(getModel());
 	}
 
 	protected Object getFeatureValue(EStructuralFeature feature, Object... obj) {
 		if (dropDownDataSupplier == null)
 			init();
+		if (dropDownDataSupplier == null)
+			return "";
+
 		return dropDownDataSupplier.getSelectedFeatureValue(getModel(), values, feature, obj);
 	}
 
 	protected boolean isEqual(Object key) {
 		if (dropDownDataSupplier == null)
 			init();
+		if (dropDownDataSupplier == null)
+			return false;
 		return dropDownDataSupplier.isEqual(values, key, getModel());
 	}
 
@@ -108,11 +118,13 @@ public abstract class AbstractEnumerationPropertySection extends AbstractTuraPro
 			EditingDomain editingDomain = ((DiagramEditor) getPart()).getEditingDomain();
 			CompoundCommand compoundCommand = new CompoundCommand();
 			EStructuralFeature[] features = getFeature();
-			for (int i = 0; i < features.length; i++) {
-				compoundCommand.append(SetCommand.create(editingDomain, getModel(features[i]), features[i],
-						getFeatureValue(features[i], combo.getItem(index))));
+			if (features != null) {
+				for (int i = 0; i < features.length; i++) {
+					compoundCommand.append(SetCommand.create(editingDomain, getModel(features[i]), features[i],
+							getFeatureValue(features[i], combo.getItem(index))));
+				}
+				editingDomain.getCommandStack().execute(compoundCommand);
 			}
-			editingDomain.getCommandStack().execute(compoundCommand);
 		}
 	}
 

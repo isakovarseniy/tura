@@ -30,6 +30,8 @@ public abstract class AbstractTuraPropertySection extends
 	 * the property sheet page for this section.
 	 */
 	protected TabbedPropertySheetPage propertySheetPage;
+	
+	protected Composite parent;
 
 	/**
 	 * The current selected object or the first object in the selection when
@@ -77,6 +79,7 @@ public abstract class AbstractTuraPropertySection extends
 			TabbedPropertySheetPage aTabbedPropertySheetPage) {
 		super.createControls(parent, aTabbedPropertySheetPage);
 		this.propertySheetPage = aTabbedPropertySheetPage;
+		this.parent=parent;
 		
 	}
 

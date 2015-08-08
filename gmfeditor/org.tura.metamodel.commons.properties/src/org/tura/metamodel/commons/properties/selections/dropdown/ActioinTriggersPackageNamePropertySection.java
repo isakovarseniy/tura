@@ -1,6 +1,7 @@
 package org.tura.metamodel.commons.properties.selections.dropdown;
 
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Event;
@@ -11,8 +12,8 @@ import org.tura.metamodel.commons.properties.selections.grid.impl.ActioinTrigger
 
 import domain.ActioinTriggers;
 
-public class ActioinTriggersPackageNamePropertySection  extends PackageNamePropertySection{
-	
+public class ActioinTriggersPackageNamePropertySection extends PackageNamePropertySection {
+
 	private domain.ActionTrigger model;
 	private SelectionListener listener = new SelectionListener(this);
 
@@ -22,16 +23,24 @@ public class ActioinTriggersPackageNamePropertySection  extends PackageNamePrope
 		aTabbedPropertySheetPage.getControl().addListener(SWT.Selection, listener);
 	}
 
-
+	
 	@Override
 	public EObject getModel() {
 		if (model == null) {
 			domain.ActioinTriggers trs = (ActioinTriggers) getEObject();
+			if (trs == null || !trs.getTriggers().iterator().hasNext())
+				return null;
 			return trs.getTriggers().iterator().next();
 		}
 		return model;
 	}
 
+	@Override
+	public EObject getModel(EStructuralFeature feature) {
+		return getModel();
+	}	
+	
+	
 	private class SelectionListener implements Listener {
 		private AbstractTuraPropertySection property;
 

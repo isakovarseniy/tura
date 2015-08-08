@@ -7,8 +7,6 @@ import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.command.SetCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.gmf.runtime.diagram.ui.parts.DiagramEditor;
-import org.eclipse.jface.viewers.ISelection;
-import org.eclipse.ui.IWorkbenchPart;
 
 public abstract class AbstractDependentEnumerationPropertySection extends
 		AbstractEnumerationPropertySection {
@@ -16,10 +14,9 @@ public abstract class AbstractDependentEnumerationPropertySection extends
 	private AdapterImpl adapter;
 	private boolean isFirstTime = true;
 
-	public void setInput(IWorkbenchPart part, ISelection selection) {
-		super.setInput(part, selection);
-
-		if (isFirstTime) {
+	
+	public void refresh(){
+		if (isFirstTime && getModel() != null) {
 
 			AdapterImpl adapter = new AdapterImpl() {
 				public void notifyChanged(Notification notification) {
@@ -54,9 +51,10 @@ public abstract class AbstractDependentEnumerationPropertySection extends
 			};
 			getModel().eAdapters().add(adapter);
 		}
-
+		if (getModel() != null)
+			super.refresh();
 	}
-
+	
 	public void dispose() {
 		super.dispose();
 		if  ( getEObject() != null && getModel() != null)
