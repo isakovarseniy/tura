@@ -1,24 +1,59 @@
 [%@template
-operation domain::OutputText  draw(hash) { 
-     var util = new Native('org.tura.metamodel.commons.Util');
-     var value;
-     util.traceIfDebug("UI element","OutputText start: "+self.uid);     
+operation domain::OutputText treeContext(hash,value) { 
+%]
+<p:inplace editor="true" event="dblclick">
+   [%=self.rw(hash,value)%]
+</p:inplace>      
+[%
+}
+%]
+
+[%@template
+operation domain::OutputText tableContext(hash,value) { 
+%]
+<p:cellEditor>
+  <f:facet name="output">
+     <span style="display: inline-block; width: 100%; height: 100%">
+      [%=self.ro(hash,value)%]
+     </span>
+  </f:facet>
+  <f:facet name="input">
+     [%=self.rw(hash,value)%]
+  </f:facet>
+</p:cellEditor>  
+[%   
+}
+%]
+
+[%@template
+operation domain::OutputText noContext(hash,value) { 
+%]
+   [%=self.rw(hash,value)%]
+[%   
+}
+%]
+
+
+[%@template
+operation domain::OutputText rw(hash,value) { 
      hash.put("readonly","true");
-     if (hash.get("context") == null )
-         value = buildExpression(util.createArtificialContextValue(self.sourcePointer,self.sourcePointer.findTreeRoot(),self.valuePointer));
-     else{
-          if (hash.get("context").equals("table") )
-               value =  "#{row[2]."+self.valuePointer.name+"}";  
-          if (hash.get("context").equals("tree") )
-               value =  "#{row[1]."+self.valuePointer.name+"}";
-     }
- %]
-<p:inputText  [%=self.mkUIDBinding()%] value="[%=value%]"   [%=self.uiElementAttributes(hash)%]>
+%]
+<p:inputText   [%=self.mkUIDBinding()%] value="[%=value%]"   [%=self.uiElementAttributes(hash)%]>
    [%=self.validator(hash)%]
    [%=self.convertor(hash)%]
 </p:inputText>
 [%
      hash.put("readonly",null);
-     util.traceIfDebug("UI element","OutputText end: "+self.uid);     
 }
 %]
+
+[%@template
+operation domain::OutputText ro(hash,value) { 
+%]
+<h:outputText value="[%=value%]" [%=self.uiElementAttributes(hash)%] >
+   [%=self.readOnlyConverter(hash)%]
+</h:outputText>
+[%
+}
+%]
+
