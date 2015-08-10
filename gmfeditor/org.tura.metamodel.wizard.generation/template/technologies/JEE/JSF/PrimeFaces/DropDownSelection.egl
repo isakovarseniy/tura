@@ -36,7 +36,9 @@ operation domain::DropDownSelection rw(hash,value) {
 %]
 <p:selectOneMenu [%=self.mkUIDBinding()%] [%=self.uiElementAttributes(hash)%] value="[%=value%]">
 	<f:selectItems  var="options"  itemValue="#{options[1]}" itemLabel="#{options[0]}" value="#{viewmodel.getModel('[%=self.mkuid()%]','options', [%=util.bracketRemover(buildExpression(util.createArtificialContextValue(self.optionPointer,self.optionPointer.findTreeRoot(),null)))%]).setLabel('get[%=util.mergeAndCapitalize(self.selection.displayOptionPointer.name)%]').setValue('get[%=util.mergeAndCapitalize(self.selection.valueOptionPointer.name)%]').getOptions()}"/>
+	[%if (self.refreshArias() <> ''){%]
 	<p:ajax [%=self.refreshArias()%]  listener="#{viewmodel.getModel('[%=self.mkuid()%]','options', [%=util.bracketRemover(buildExpression(util.createArtificialContextValue(self.optionPointer,self.optionPointer.findTreeRoot(),null)))%]).setSelectOption('[%=util.bracketRemover(value)%]').changeValueListener}" />
+	[%}%]
 </p:selectOneMenu>
 [%
 }
