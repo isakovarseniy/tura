@@ -23,10 +23,8 @@ operation  domain::Canvas draw(hash) {
      util.traceIfDebug("UI element","Canvas end: "+self.name);     
      
 }
-%]
 
-
-[%@template
+@template
 operation domain::Canvas generateBody(hash){
                 for (element in self.viewElement){
 %]                

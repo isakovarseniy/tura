@@ -6,9 +6,8 @@ operation domain::DropDownSelection treeContext(hash,value) {
 </p:inplace>      
 [%
 }
-%]
 
-[%@template
+@template
 operation domain::DropDownSelection tableContext(hash,value) { 
 %]
 <p:cellEditor>
@@ -23,18 +22,15 @@ operation domain::DropDownSelection tableContext(hash,value) {
 </p:cellEditor>  
 [%   
 }
-%]
 
-[%@template
+@template
 operation domain::DropDownSelection noContext(hash,value) { 
 %]
    [%=self.rw(hash,value)%]
 [%   
 }
-%]
 
-
-[%@template
+@template
 operation domain::DropDownSelection rw(hash,value) { 
      var util = new Native('org.tura.metamodel.commons.Util');
 %]
@@ -44,9 +40,8 @@ operation domain::DropDownSelection rw(hash,value) {
 </p:selectOneMenu>
 [%
 }
-%]
 
-[%@template
+@template
 operation domain::DropDownSelection ro(hash,value) { 
 %]
 <h:outputText value="[%=value%]">

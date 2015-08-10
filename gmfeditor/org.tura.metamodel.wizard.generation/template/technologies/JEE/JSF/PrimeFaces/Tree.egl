@@ -17,10 +17,8 @@ operation domain::Tree draw(hash) {
      hash.put("context",null);
      util.traceIfDebug("UI element","Tree end: "+self.uid);     
 }
-%]
 
-
-[%@template
+@template
 operation domain::Tree generateTreeBody(hash){
      var util = new Native('org.tura.metamodel.commons.Util');
 %]
@@ -57,9 +55,8 @@ operation domain::Tree generateTreeBody(hash){
 
 [%     
 }
-%]
 
-[%@template
+@template
 operation domain::Tree generateTreeTableBody(hash){
      var util = new Native('org.tura.metamodel.commons.Util');
 }

@@ -6,9 +6,8 @@ operation domain::Date treeContext(hash,value) {
 </p:inplace>      
 [%
 }
-%]
 
-[%@template
+@template
 operation domain::Date tableContext(hash,value) { 
 %]
 <p:cellEditor>
@@ -23,18 +22,15 @@ operation domain::Date tableContext(hash,value) {
 </p:cellEditor>  
 [%   
 }
-%]
 
-[%@template
+@template
 operation domain::Date noContext(hash,value) { 
 %]
    [%=self.rw(hash,value)%]
 [%   
 }
-%]
 
-
-[%@template
+@template
 operation domain::Date rw(hash,value) { 
 %]
 <p:calendar [%=self.mkUIDBinding()%] value="[%=value%]" [%=self.uiElementAttributes(hash)%]   pattern="[%=self.format%]"  showOn="button" >
@@ -42,9 +38,8 @@ operation domain::Date rw(hash,value) {
 </p:calendar>
 [%
 }
-%]
 
-[%@template
+@template
 operation domain::Date ro(hash,value) { 
 %]
 <h:outputText value="[%=value%]">

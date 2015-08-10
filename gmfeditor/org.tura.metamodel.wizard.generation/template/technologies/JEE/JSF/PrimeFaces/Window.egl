@@ -17,9 +17,8 @@ operation  domain::Window draw(hash) {
      util.traceIfDebug("UI element","Window end: "+self.name);     
      
 }
-%]
 
-[%@template
+@template
 operation domain::Window generateBody(hash){
 
      var form = hash.get("form");   

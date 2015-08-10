@@ -44,16 +44,14 @@ operation  viewgeneration(hash) {
       actionExecutor(hash);
       scriptGenerator(hash);
 }
-%]
 
-
-[%@template
+@template
 operation domain::Uielement  uiElementAttributes(hash){
 %][%=self.styleAttributes(hash)%] [%=self.enabled(hash)%] [%=self.required(hash)%] [%if (hash.get("readonly") <> null){%] readonly="[%=hash.get("readonly")%]"[%}else{%][%=self.readonly(hash)%][%}%]
 [%}
-%]
 
-[%@template
+
+@template
 operation domain::StyleElement  styleAttributes(hash){
       var util = new Native('org.tura.metamodel.commons.Util');
  
@@ -73,9 +71,8 @@ operation domain::StyleElement  styleAttributes(hash){
      %]"[%
      }
 }
-%]
 
-[%
+
 operation domain::StyleElement  styleAttributes(artifactLib:String, artifact: String, classifier : String):String{
       var util = new Native('org.tura.metamodel.commons.Util');
       var value = "";
@@ -91,71 +88,58 @@ operation domain::StyleElement  styleAttributes(artifactLib:String, artifact: St
      }
      return value;
 }
-%]
 
-[%@template
+@template
 operation domain::Uielement  validator(hash){
     if (self.findClassifier("UIGeneration",  "JSF","validator"))%]
     [%=self.~hintDetails%]  
 [%
 }
-%]
 
-[%@template
+@template
 operation domain::Uielement  convertor(hash){
     if (self.findClassifier("UIGeneration",  "JSF","converter"))%]
     [%=self.~hintDetails%]  
 [%
 }
-%]
 
-
-[%@template
+@template
 operation domain::Uielement  readOnlyConverter(hash){
     if (self.findClassifier("UIGeneration",  "JSF","readOnlyConverter"))%]
     [%=self.~hintDetails%]  
 [%
 }
-%]
 
-
-
-[%@template
+@template
 operation domain::Uielement  enabled(hash){
      if (self.enabled <> null and self.enabled.value <> null){
          var value = buildParameterizedExpression(self.enabled);
             
      %]enabled="[%=value%]"[%}
 }
-%]
 
-[%@template
+@template
 operation domain::Uielement  required(hash){
      if (self.required <> null  and self.required.value <> null){
          var value = buildParameterizedExpression(self.required);
             
      %]required="[%=value%]"[%}
 }
-%]
 
-
-[%@template
+@template
 operation domain::Uielement  readonly(hash){
      if (self.readOnly <> null  and self.readOnly.value <> null){
           var value = buildParameterizedExpression(self.readOnly);
             
      %]readonly="[%=value%]"[%}
 }
-%]
 
-[%@template
+@template
 operation domain::Uielement  mkuid(){
 %]tura[%=self.uid.replaceAll("\\-","_")%][%
 }
-%]
 
-
-[%@template
+@template
 operation domain::Uielement  draw(hash){
      var util = new Native('org.tura.metamodel.commons.Util');
      var value;
@@ -180,45 +164,34 @@ operation domain::Uielement  draw(hash){
      util.traceIfDebug("UI element",  self.eClass().name +" end: " +self.uid);     
      
 }
-%]
 
-
-[%@template
+@template
 operation domain::ViewPort  mkuid(){
 %]tura[%=self.uid.replaceAll("\\-","_")%][%
 }
-%]
 
-[%@template
+@template
 operation domain::CanvasFrame mkuid(){
 %]tura[%=self.uid.replaceAll("\\-","_")%][%
 }
-%]
 
-[%@template
+@template
 operation domain::ActionTrigger mkuid(){
 %]tura[%=self.uid.replaceAll("\\-","_")%][%
 }
-%]
 
-
-[%@template
+@template
 operation domain::Uielement  mkUIDBinding(){
 %]id="[%=self.mkuid()%]" binding="#{[%=self.mkuid()%]}"[%
 }
-%]
 
-[%@template
+@template
 operation domain::CanvasFrame  mkUIDBinding(){
 %]id="[%=self.mkuid()%]" binding="#{[%=self.mkuid()%]}"[%
 }
-%]
 
-[%@template
+@template
 operation domain::ViewPort  mkUIDBinding(){
 %]id="[%=self.mkuid()%]" binding="#{[%=self.mkuid()%]}"[%
 }
 %]
-
-
-

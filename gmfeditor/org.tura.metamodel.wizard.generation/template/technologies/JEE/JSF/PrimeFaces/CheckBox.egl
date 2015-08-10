@@ -6,9 +6,8 @@ operation domain::CheckBox treeContext(hash,value) {
 </p:inplace>      
 [%
 }
-%]
 
-[%@template
+@template
 operation domain::CheckBox tableContext(hash,value) { 
 %]
 <p:cellEditor>
@@ -23,18 +22,15 @@ operation domain::CheckBox tableContext(hash,value) {
 </p:cellEditor>  
 [%   
 }
-%]
 
-[%@template
+@template
 operation domain::CheckBox noContext(hash,value) { 
 %]
    [%=self.rw(hash,value)%]
 [%   
 }
-%]
 
-
-[%@template
+@template
 operation domain::CheckBox rw(hash,value) { 
 %]
 <p:selectBooleanCheckbox  [%=self.mkUIDBinding()%] value="[%=value%]" [%=self.uiElementAttributes(hash)%] >
@@ -43,9 +39,8 @@ operation domain::CheckBox rw(hash,value) {
 </p:selectBooleanCheckbox>
 [%
 }
-%]
 
-[%@template
+@template
 operation domain::CheckBox ro(hash,value) { 
 %]
 <h:outputText value="[%=value%]">

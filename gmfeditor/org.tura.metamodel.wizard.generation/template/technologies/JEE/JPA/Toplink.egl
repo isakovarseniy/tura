@@ -17,9 +17,8 @@ operation  persistence_jpaproperties(Connection,configuration) {
 
 [%
 }
-%]
 
-[% @template
+ @template
 operation  persistence_jpaprovider() {
 %]
 oracle.toplink.essentials.PersistenceProvider

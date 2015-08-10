@@ -18,10 +18,8 @@ operation  maven_entity_build_runner(hash) {
     model_mapper.artifactExecutionString=  os_shell_executor()+" "+path+"/"+"builder."+os_batch_extension();
     util.saveFile( path, "builder."+os_batch_extension(),out.toString());   
 }
-%]
 
-
-[% @template
+ @template
 operation  maven_entity_builder(hash) {
 
 
@@ -54,10 +52,8 @@ operation  maven_entity_builder(hash) {
      var buffer = builder.process();
      util.saveFile( path, "pom.xml",buffer); 
 }    
-%]
 
-
-[% @template
+ @template
 operation  ant_entity_builder(hash) {
     
  

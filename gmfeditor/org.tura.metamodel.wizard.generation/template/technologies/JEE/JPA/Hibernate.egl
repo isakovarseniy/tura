@@ -14,13 +14,11 @@ operation  persistence_jpaproperties(Connection , configuration) {
 		</properties>
 [%
 }
-%]
 
-[% @template
+ @template
 operation  persistence_jpaprovider() {
 %]
 org.hibernate.ejb.HibernatePersistence
 [%
 }
 %]
-

@@ -9,9 +9,7 @@ cd "[%=path%]"
 "[%=configuration.get('Builder location')%]"/bin/mvn clean install
 [%
 }
-%]
 
-[%
 operation  os_batch_extension():String{
              return "sh";
 }
@@ -30,4 +28,3 @@ cd "[%=path%]"
 [%
 }
 %]
-

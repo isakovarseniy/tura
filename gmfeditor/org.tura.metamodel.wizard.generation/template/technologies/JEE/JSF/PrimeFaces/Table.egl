@@ -9,11 +9,9 @@ operation domain::Table draw(hash) {
      hash.put("context",null);
      util.traceIfDebug("UI element","Table end: "+self.uid);     
 }
-%]
 
 
-
-[%@template
+@template
 operation domain::Table generateBody(hash){
      var util = new Native('org.tura.metamodel.commons.Util');
      var selector = "\"5,10,15\"";

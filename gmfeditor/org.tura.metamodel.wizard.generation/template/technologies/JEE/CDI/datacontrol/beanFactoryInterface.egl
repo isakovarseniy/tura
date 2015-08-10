@@ -47,9 +47,9 @@ operation methodName(dc:domain::DataControl) {
      var util = new Native('org.tura.metamodel.commons.Util');
 %]
    get[%if (dc.~treeRoot=true){%]TreeRoot[%}%][%=util.mergeAndCapitalize(dc.name)%]
- [%} %]
+ [%} 
 
-[% @template
+ @template
 operation typeName(dc:domain::DataControl, component: domain::Component, form:Form) {
      var util = new Native('org.tura.metamodel.commons.Util');
      var uipackage = form.eContainer().parent;

@@ -6,9 +6,8 @@ operation domain::InputText treeContext(hash,value) {
 </p:inplace>      
 [%
 }
-%]
 
-[%@template
+@template
 operation domain::InputText tableContext(hash,value) { 
 %]
 <p:cellEditor>
@@ -30,18 +29,15 @@ operation domain::InputText tableContext(hash,value) {
 </p:cellEditor>  
 [%   
 }
-%]
 
-[%@template
+@template
 operation domain::InputText noContext(hash,value) { 
 %]
    [%=self.rw(hash,value)%]
 [%   
 }
-%]
 
-
-[%@template
+@template
 operation domain::InputText rw(hash,value) { 
 %]
 <p:inputText   [%=self.mkUIDBinding()%] value="[%=value%]"   [%=self.uiElementAttributes(hash)%]>
@@ -50,9 +46,8 @@ operation domain::InputText rw(hash,value) {
 </p:inputText>
 [%
 }
-%]
 
-[%@template
+@template
 operation domain::InputText ro(hash,value) { 
 %]
 <h:outputText value="[%=value%]">
@@ -61,7 +56,3 @@ operation domain::InputText ro(hash,value) {
 [%
 }
 %]
-
-
-
-

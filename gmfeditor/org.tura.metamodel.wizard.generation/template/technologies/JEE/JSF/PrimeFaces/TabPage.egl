@@ -7,10 +7,8 @@ operation  domain::TabPage draw(hash) {
 [%
      util.traceIfDebug("UI element","TabPage end: "+self.name);     
 }
-%]
 
-
-[%@template
+@template
 operation domain::TabPage generateBody(hash){
      var title = buildParameterizedExpression(self.multiLangLabel);
         

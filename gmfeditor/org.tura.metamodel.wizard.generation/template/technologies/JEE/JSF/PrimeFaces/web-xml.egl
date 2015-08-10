@@ -71,5 +71,3 @@ operation  web_xml(hash) {
      util.saveFile( webapp,"web.xml",out.toString());   
 }     
 %]
-
-

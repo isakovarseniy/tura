@@ -31,9 +31,9 @@ throws javax.ejb.EJBException
 			throw new javax.ejb.EJBException(e);
     	}
     }	
-[% } %]
+[% } 
 
-[% @template
+ @template
 operation domain::Operation insert() { %]
 throws javax.ejb.EJBException
     {
@@ -45,9 +45,9 @@ throws javax.ejb.EJBException
 			throw new javax.ejb.EJBException(e);
     	}
 	}	
-[% } %]
+[% } 
 
-[% @template
+ @template
 operation domain::Operation update() { %]
 throws javax.ejb.EJBException
    {
@@ -59,9 +59,9 @@ throws javax.ejb.EJBException
 			throw new javax.ejb.EJBException(e);
     	}
 	}	
-[% } %]
+[% } 
 
-[% @template
+ @template
 operation domain::Operation remove() { %]
 throws javax.ejb.EJBException
   {
@@ -73,9 +73,9 @@ throws javax.ejb.EJBException
 			throw new javax.ejb.EJBException(e);
     	}
    }	
-[% } %]
+[% } 
 
-[% @template
+ @template
 operation domain::Operation find(generic:domain::Type) { %]
 throws javax.ejb.EJBException
   {
@@ -88,4 +88,3 @@ throws javax.ejb.EJBException
 		}
 	}	
 [% } %]
-

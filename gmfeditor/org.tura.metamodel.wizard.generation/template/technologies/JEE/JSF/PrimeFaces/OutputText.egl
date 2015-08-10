@@ -6,9 +6,8 @@ operation domain::OutputText treeContext(hash,value) {
 </p:inplace>      
 [%
 }
-%]
 
-[%@template
+@template
 operation domain::OutputText tableContext(hash,value) { 
 %]
 <p:cellEditor>
@@ -30,18 +29,15 @@ operation domain::OutputText tableContext(hash,value) {
 </p:cellEditor>  
 [%   
 }
-%]
 
-[%@template
+@template
 operation domain::OutputText noContext(hash,value) { 
 %]
    [%=self.rw(hash,value)%]
 [%   
 }
-%]
 
-
-[%@template
+@template
 operation domain::OutputText rw(hash,value) { 
      hash.put("readonly","true");
 %]
@@ -52,9 +48,8 @@ operation domain::OutputText rw(hash,value) {
 [%
      hash.put("readonly",null);
 }
-%]
 
-[%@template
+@template
 operation domain::OutputText ro(hash,value) { 
 %]
 <h:outputText value="[%=value%]" [%=self.uiElementAttributes(hash)%] >
@@ -63,4 +58,3 @@ operation domain::OutputText ro(hash,value) {
 [%
 }
 %]
-

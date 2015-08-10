@@ -15,12 +15,9 @@ operation ear_deployment(hash){
      util.saveFile( path, "deployer."+os_batch_extension(),out.toString());   
    
 }
-%]
 
 
-
-
-[% @template
+ @template
 operation war_deployment(hash){
 
    var configuration = hash.get("configuration");

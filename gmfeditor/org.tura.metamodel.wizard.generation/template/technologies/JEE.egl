@@ -5,20 +5,16 @@ operation  commandstack_scope() {
 @javax.faces.view.ViewScoped
 [%
 }
-%]
 
-
-
-
-[% @template
+@template
 operation  elresolver_scope() {
 %]
 @javax.faces.view.ViewScoped
 [%
 }
-%]
 
-[% @template
+
+ @template
 operation  datacontrol_scope() {
 %]
 @javax.faces.view.ViewScoped

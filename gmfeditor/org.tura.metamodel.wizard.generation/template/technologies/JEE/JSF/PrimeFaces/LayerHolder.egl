@@ -9,10 +9,8 @@ operation  domain::LayerHolder  draw(hash) {
 [%
     util.traceIfDebug("UI element","LayerHolder end: "+self.uid);     
 }
-%]
 
-
-[%@template
+@template
 operation domain::LayerHolder  generateBody(hash){
                 for (element in self.children.sortBy(q|q.order)){
 %]                

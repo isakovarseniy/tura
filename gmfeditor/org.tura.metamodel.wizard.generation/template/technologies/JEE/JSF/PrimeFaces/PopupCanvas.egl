@@ -27,10 +27,9 @@ operation  domain::PopupCanvas draw(hash) {
      util.traceIfDebug("UI element","PopupCanvas end: "+self.name);     
      
 }
-%]
 
 
-[%@template
+@template
 operation domain::PopupCanvas generateBody(hash){
                 for (element in self.viewElement){
 %]                

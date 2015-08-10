@@ -2,8 +2,6 @@
 import "platform:/plugin/org.tura.metamodel.wizard.generation/template/commons/typeElementUtil.eol";
 %]
 
-
-
 [% @template
 operation  maven_mvc_build_runner(hash) {
 
@@ -20,10 +18,8 @@ operation  maven_mvc_build_runner(hash) {
     model_mapper.artifactExecutionString=  os_shell_executor()+" "+path+"/"+"builder."+os_batch_extension();
     util.saveFile( path, "builder."+os_batch_extension(),out.toString());   
 }
-%]
 
-
-[% @template
+ @template
 operation  maven_mvc_application_builder(hash) {
 
     var recipe = hash.get("recipe");
@@ -56,15 +52,14 @@ operation  maven_mvc_application_builder(hash) {
      util.saveFile( path, "pom.xml",buffer); 
 
 }    
-%]
 
-[% @template
+ @template
 operation mvc_deployment(hash){
          war_deployment(hash);     
 }
-%]
 
-[% @template
+
+ @template
 operation  ant_maven_mvc_application_builde(hash) {
     
  

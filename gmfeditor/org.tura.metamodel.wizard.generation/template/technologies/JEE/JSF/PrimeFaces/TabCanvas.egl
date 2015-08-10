@@ -14,10 +14,8 @@ operation  domain::TabCanvas draw(hash) {
      util.saveFile( webapp+"/"+util.mergeAndCapitalize(uipackage.name).toLowerCase()+"/"+util.mergeAndCapitalize(form.name).toLowerCase(),  util.mergeAndCapitalize(self.name)+".xhtml",out.toString());   
      util.traceIfDebug("UI element","TabCanvas end: "+self.name);     
 }
-%]
 
-
-[%@template
+@template
 operation domain::TabCanvas generateBody(hash){
 %]
 <p:tabView  xmlns="http://www.w3.org/1999/xhtml"

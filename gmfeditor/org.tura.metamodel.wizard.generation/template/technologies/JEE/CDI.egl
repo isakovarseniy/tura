@@ -4,10 +4,8 @@ operation  service_producer_generation(hash) {
      cdi_service_producer_generation(hash);
 
   }
-%]
 
-
-[% @template
+ @template
 operation  datacontrolgeneration(hash) {
 
      var util = new Native('org.tura.metamodel.commons.Util');
@@ -93,4 +91,3 @@ operation  datacontrolgeneration(hash) {
 
   }
 %]
-

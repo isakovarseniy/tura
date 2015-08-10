@@ -7,10 +7,8 @@ operation domain::Column draw(hash) {
 [%
      util.traceIfDebug("UI element","Column end: "+self.uid);     
 }
-%]
 
-
-[%@template
+@template
 operation domain::Column generateBody(hash){
      var title = buildParameterizedExpression(self.multiLangLabel);
      if (title <> "" )
@@ -30,21 +28,18 @@ operation domain::Column generateBody(hash){
             </p:column>   
 [%
 }
-%]
 
-[%@template
+@template
 operation domain::Column treecontext(hash){
 %]
              [%=self.element.draw(hash)%]
 [%                    
 }
-%]
 
-[%@template
+@template
 operation domain::Column tablecontext(hash){
 %]
                     [%=self.element.draw(hash)%]
 [%                    
 }
 %]
-

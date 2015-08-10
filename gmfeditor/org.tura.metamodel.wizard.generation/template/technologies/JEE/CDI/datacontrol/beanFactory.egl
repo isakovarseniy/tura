@@ -143,23 +143,21 @@ operation methodName(dc:domain::DataControl) {
      var util = new Native('org.tura.metamodel.commons.Util');
 %]
    get[%if (dc.~treeRoot=true){%]TreeRoot[%}%][%=util.mergeAndCapitalize(dc.name)%]
- [%} %]
-
-[% @template
+ [%} 
+ 
+  @template
 operation typeName(dc:domain::DataControl, component:domain::Component, form:domain::Form) {
      var util = new Native('org.tura.metamodel.commons.Util');
      var uipackage = form.eContainer().parent;
      
 %]
   [%=component.basePackage%].[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%].datacontrol.[%if (dc.~treeRoot=true){%]TreeRoot[%}%][%=util.mergeAndCapitalize(dc.name)%]DC 
- [%} %]
+ [%} 
  
- [% @template
+ @template
 operation propertyName(dc:DataControl) {
      var util = new Native('org.tura.metamodel.commons.Util');
 %]
    [%if (dc.~treeRoot=true){%]treeRoot[%=util.mergeAndCapitalize(dc.name)%][%} else {%][%=util.mergeAndUnCapitalize(dc.name)%][%}%]
- [%} %]
- 
- 
-
+ [%} 
+ %]

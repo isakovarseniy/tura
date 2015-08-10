@@ -13,10 +13,8 @@ operation  message_library_generation(hash) {
     util.saveFile( resourcePath+"/"+util.mergeAndCapitalize(application.name).toLowerCase(), util.mergeAndCapitalize(library.name)+"_"+lang.lang.code+".properties",out.toString());   
      }
  }
-%]
 
 
-[%
 operation  message_content(lang, library) {
      var util = new Native('org.tura.metamodel.commons.Util');
       for (  message in library.messages){

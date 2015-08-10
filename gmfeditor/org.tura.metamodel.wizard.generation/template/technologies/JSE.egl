@@ -4,19 +4,16 @@ operation  commandstack_scope() {
 @javax.enterprise.context.ApplicationScoped
 [%
 }
-%]
 
-
-[% @template
+ @template
 operation  elresolver_scope() {
 %]
 @javax.enterprise.context.ApplicationScoped
 [%
 }
-%]
 
 
-[% @template
+ @template
 operation  datacontrol_scope() {
 %]
 @javax.enterprise.context.ApplicationScoped
