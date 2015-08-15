@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Modelmapper
+Bundle-SymbolicName: org.tura.metamodel.wizard.modelmapper;singleton:=true
+Bundle-Version: 4.0.0.qualifier
+Bundle-Activator: org.tura.metamodel.wizard.modelmapper.Activator
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.tura.metamodel;bundle-version="1.0.0"
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>org.tura.metamodel</groupId>
+    <artifactId>parent</artifactId>
+    <version>4.0.0-SNAPSHOT</version>
+  </parent>
+  
+  <artifactId>plugins</artifactId>
+  <version>4.0.0-SNAPSHOT</version>
+  <packaging>pom</packaging>
+
+  <modules>
+		<module>org.tura.metamodel</module>
+		<module>org.tura.metamodel.commons</module>
+		<module>org.tura.metamodel.commons.markers</module>
+		<module>org.tura.metamodel.commons.preferences</module>
+		<module>org.tura.metamodel.commons.properties</module>
+		<module>org.tura.metamodel.commons.validatioin</module>
+		<module>org.tura.metamodel.de.itemis.gmf.runtime.extensions</module>
+		<module>org.tura.metamodel.diagram.application</module>
+		<module>org.tura.metamodel.diagram.artifact</module>
+		<module>org.tura.metamodel.diagram.canvas</module>
+		<module>org.tura.metamodel.diagram.control</module>
+		<module>org.tura.metamodel.diagram.deployment</module>
+		<module>org.tura.metamodel.diagram.domain</module>
+		<module>org.tura.metamodel.diagram.frmview</module>
+		<module>org.tura.metamodel.diagram.infarastructure</module>
+		<module>org.tura.metamodel.diagram.mapper</module>
+		<module>org.tura.metamodel.diagram.message</module>
+		<module>org.tura.metamodel.diagram.recipe</module>
+		<module>org.tura.metamodel.diagram.roles</module>
+		<module>org.tura.metamodel.diagram.style</module>
+		<module>org.tura.metamodel.diagram.typedefinition</module>
+		<module>org.tura.metamodel.diagram.typesrepository</module>
+		<module>org.tura.metamodel.diagram.uipackage</module>
+		<module>org.tura.metamodel.edit</module>
+		<module>org.tura.metamodel.editor</module>
+		
+		<!-- module>org.tura.metamodel.hutn.action</module-->
+		<!-- module>org.tura.metamodel.hutn.processor</module -->
+		<!-- module>org.tura.metamodel.tests</module-->
+		
+		<module>org.tura.metamodel.validation.application</module>
+		<module>org.tura.metamodel.validation.artifact</module>
+		<module>org.tura.metamodel.validation.canvas</module>
+		<module>org.tura.metamodel.validation.control</module>
+		<module>org.tura.metamodel.validation.domain</module>
+		<module>org.tura.metamodel.validation.frmview</module>
+		<module>org.tura.metamodel.validation.mapper</module>
+		<module>org.tura.metamodel.validation.multilang</module>
+		<module>org.tura.metamodel.validation.recipe</module>
+		<module>org.tura.metamodel.validation.role</module>
+		<module>org.tura.metamodel.validation.style</module>
+		<module>org.tura.metamodel.validation.typedefinition</module>
+		<module>org.tura.metamodel.validation.typedefinition.runtime</module>
+		<module>org.tura.metamodel.validation.typesrepository</module>
+		<module>org.tura.metamodel.validation.uipackage</module>
+		<module>org.tura.metamodel.wizard.generation</module>
+		<module>org.tura.metamodel.wizard.modelmapper</module>
+		<module>org.tura.metamodel.wizard.recipe</module>
+		
+  </modules>
+</project>
