@@ -6,5 +6,5 @@
    <feature url="features/org.tura.metamodel.generator.feature_4.0.0.qualifier.jar" id="org.tura.metamodel.generator.feature" version="4.0.0.qualifier">
       <category name="org.tura.id"/>
    </feature>
-   <category-def name="org.tura.id" label="org.tura.id"/>
+   <category-def name="org.tura.id" label="Tura"/>
 </site>

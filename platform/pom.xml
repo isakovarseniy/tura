@@ -13,7 +13,11 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-
+		<tura.project.name>Tura - application generation platform</tura.project.name>
+		<tura.founder>Arseniy Isakov</tura.founder>
+		<tura.website>http://sourceforge.net/p/tura/wiki/Home/</tura.website>
+		<tura.inceptionYear>2012 - 2015</tura.inceptionYear>
+		
 		<version.tura-platform>2.0</version.tura-platform>
 		<version.hibernate-entitymanager>4.3.7.Final</version.hibernate-entitymanager>
 		<version.cglib>2.2.2</version.cglib>
@@ -194,8 +198,42 @@
 					<target>1.7</target>
 				</configuration>
 			</plugin>
+			<plugin>
+				<groupId>com.mycila.maven-license-plugin</groupId>
+				<artifactId>maven-license-plugin</artifactId>
+				<version>1.10.b1</version>
+				<configuration>
+					<header>src/license/LicenseHeader.txt</header>
+					<properties>
+						<project>${tura.project.name}</project>
+						<founder>${tura.founder}</founder>
+						<year>${tura.inceptionYear}</year>
+						<website>${tura.website}</website>
+					</properties>
+					<includes>
+						<include>src/main/java/**</include>
+						<include>src/test/java/**</include>
+					</includes>
+				</configuration>
+				<executions>
+					<execution>
+						<goals>
+							<goal>format</goal>
+						</goals>
+						<phase>process-sources</phase>
+					</execution>
+				</executions>
+				<dependencies>
+					<dependency>
+						<groupId>com.mycila</groupId>
+						<artifactId>licenses</artifactId>
+						<version>1</version>
+					</dependency>
+				</dependencies>
+			</plugin>
 		</plugins>
 	</build>
+
 
 
 </project>
