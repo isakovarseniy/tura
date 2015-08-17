@@ -40,8 +40,6 @@
 		<module>org.tura.metamodel.edit</module>
 		<module>org.tura.metamodel.editor</module>
 		
-		<!-- module>org.tura.metamodel.hutn.action</module-->
-		<!-- module>org.tura.metamodel.hutn.processor</module -->
 		<!-- module>org.tura.metamodel.tests</module-->
 		
 		<module>org.tura.metamodel.validation.application</module>
