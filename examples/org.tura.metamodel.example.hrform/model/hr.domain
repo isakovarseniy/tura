@@ -1002,13 +1002,13 @@
       <properties uid="d5bc7148-44cc-446f-93ee-bea860f1fea7" confVarRef="618186f9-7c62-47cf-82f7-3b295a85ca9f" value="postgres"/>
       <properties uid="d1367677-df35-4554-9d03-62a58fa94cc0" confVarRef="a52e5078-3017-43a0-b571-f58150f8ffd2" value="hr"/>
       <properties uid="d40e63c3-4a21-4f90-a5c6-a2dcef0499eb" confVarRef="57dea534-b8f3-4546-8a63-cc15dfedcd94" value="jdbc/hrDS"/>
-      <properties uid="dfacc619-2223-4b17-abd2-d8a6a2e49785" confVarRef="d133115a-dab4-4a27-b2c1-6ec0aa3613eb" value="/Users/arseniyi/tools/apache-maven-3.2.2" fakeName=""/>
-      <properties uid="0b4e455d-1a87-404d-aa1c-da6d4550517b" confVarRef="9f809420-5098-495f-9e64-d4e49e364de3" value="/Users/arseniyi/glassfish4"/>
+      <properties uid="dfacc619-2223-4b17-abd2-d8a6a2e49785" confVarRef="d133115a-dab4-4a27-b2c1-6ec0aa3613eb" value="/Users/arseniy/tools/apache-maven-3.2.2" fakeName=""/>
+      <properties uid="0b4e455d-1a87-404d-aa1c-da6d4550517b" confVarRef="9f809420-5098-495f-9e64-d4e49e364de3" value="/Users/arseniy/glassfish4"/>
       <properties uid="8cfbba12-e04c-4327-aab9-6957ffc0a09a" confVarRef="1b2c5718-ab8c-4ff7-93f7-422e22e7d284" value="4848"/>
       <properties uid="9ef8f2f3-92d7-4fca-b3d9-3f8946f518ee" confVarRef="d0478242-5a9b-44db-bafd-92f09b6ff8db" value="domain1"/>
       <properties uid="f08ac5d1-cacb-43ec-8b24-fbd47cdc7893" confVarRef="6c69f631-c365-4a78-8777-350ea19beed8" value="localhost"/>
       <properties uid="19401792-8d13-427b-9c31-71b93496e07e" confVarRef="2671048d-b872-45e6-97b1-69896b381d0d" value="8080"/>
-      <properties uid="df7ce4ae-e76b-4623-8c2d-177831b8b929" confVarRef="0280c31d-3c59-47a6-95ad-161fe363fc3b" value="/Users/arseniyi/tools/apache-maven-3.2.2"/>
+      <properties uid="df7ce4ae-e76b-4623-8c2d-177831b8b929" confVarRef="0280c31d-3c59-47a6-95ad-161fe363fc3b" value="/Users/arseniy/tools/apache-maven-3.2.2"/>
       <properties uid="b948b91d-a8f1-4ac5-8a74-da7016c56409" confVarRef="2e8c1ce3-aade-4c15-a7cd-ea9f5de5bd8e" value="NA"/>
       <properties uid="2e38a4d1-9034-4778-9b09-ca3c42ec2a5b" confVarRef="6ef3c0da-e95b-40a7-8b52-bd0c185543c1" value="NA"/>
     </configurations>
