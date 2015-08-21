@@ -7,7 +7,7 @@ truncate table hr.departmentsdao;
 truncate table hr.employeesdao;
 truncate table hr.vehicledao;
 truncate table hr.filedao;
-truncate table hr.department2entitydao
+truncate table hr.department2entitydao;
 
 
 insert into hr.companydao (obj_id,companyname, countryid) values (1101, 'Company A', 1);

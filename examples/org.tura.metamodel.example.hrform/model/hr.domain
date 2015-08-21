@@ -1912,7 +1912,7 @@
   <tura.domain:Recipes uid="780d51bf-e928-4fb4-a228-4371d8fe439d" parent="fc4a8a78-b68c-4020-bb95-ab6d773b5486">
     <recipe mappers="0d86886f-6d6e-49e1-a123-d063d2d9bd22 236f541c-3271-4e57-a60e-1769390bf194" uid="6cb40735-2e80-4221-9ab5-31d646aff979" infrastructures="81bafabb-45d9-48af-9283-6ffc90afbda3" deployment="de56ff3a-4261-47dc-9ee7-0f61390fee4e">
       <ingredients uid="b27a7b7b-ba51-48d1-8f56-af453722dcd3" name="Form ingredient" layer="UILayer">
-        <components xsi:type="tura.domain:JavaComponent" columns="2" uid="44a5e8a3-a54c-4792-903c-a984627f6218" name="UI component" componentRoot="/Users/arseniyi/generatedCode/uiLayer" artifactId="hrform" groupId="org.tura.example.ui" version="1.0" basePackage="org.tura.example.ui">
+        <components xsi:type="tura.domain:JavaComponent" columns="2" uid="44a5e8a3-a54c-4792-903c-a984627f6218" name="UI component" componentRoot="/Users/arseniy/generatedCode/uiLayer" artifactId="hrform" groupId="org.tura.example.ui" version="1.0" basePackage="org.tura.example.ui">
           <mappers uid="5c3c0b94-aa71-4da9-923f-3460706b5394" domainArtifactRef="5945624b-20f3-47f9-9cb1-d0dc8df9491a" artifactRef="d597c2ba-7f76-4769-a0e5-f9828833760f" name="Process all datacontrol in ui package">
             <specifiers specifierRef="ef7f8f56-76ad-4842-8484-9e6bc1e2dc6a" valueRef="d746f08a-a1f0-4b81-907a-bf65ef936a8e"/>
             <specifiers specifierRef="6cf7c6cf-5261-4eef-af34-5c153e789430" valueRef="1b800057-4205-4852-ae56-f48caead1343"/>
@@ -2000,13 +2000,13 @@
               <variables queryParamRef="6fb0907b-ba5d-4954-bdc9-8c174e44c0a0" value="JSF"/>
             </queries>
           </mappers>
-          <mappers uid="c936a1de-0c00-4eff-939f-a0778cecdd8d" domainArtifactRef="5945624b-20f3-47f9-9cb1-d0dc8df9491a" artifactRef="b6450037-f0e0-440d-a26d-26685c245fe8" name="Application build runner" artifactExecutionString="bash /Users/arseniyi/generatedCode/uiLayer/hrform/builder.sh">
+          <mappers uid="c936a1de-0c00-4eff-939f-a0778cecdd8d" domainArtifactRef="5945624b-20f3-47f9-9cb1-d0dc8df9491a" artifactRef="b6450037-f0e0-440d-a26d-26685c245fe8" name="Application build runner" artifactExecutionString="bash /Users/arseniy/generatedCode/uiLayer/hrform/builder.sh">
             <specifiers specifierRef="77a6558f-44e1-4d9a-ad85-16decf6aa3cb" valueRef="6cfa6c9d-d885-4f55-86d3-02f505f54045"/>
             <specifiers specifierRef="df9ad130-5ded-41d9-bf01-5967ef2c1537" valueRef="6cc0b8e4-7a61-4cf4-a0ac-426a0bf397f0"/>
             <specifiers specifierRef="a2862bdb-7666-498a-abaa-3c6a77b16abe" valueRef="33e243d5-b9fa-4360-82f2-b7aee51d02f2"/>
             <specifiers specifierRef="369f6f2d-6b0b-46fd-aaee-bc6d56fb4340" valueRef="ae3da070-7fdd-476f-b315-57cdab52ffcb"/>
           </mappers>
-          <mappers uid="33596ca2-e673-4e86-867e-484ce5e0ed62" domainArtifactRef="5945624b-20f3-47f9-9cb1-d0dc8df9491a" artifactRef="0ae7e48c-ba6c-475f-a34f-63e6a31bd9c8" name="Application deployer" artifactExecutionString="bash /Users/arseniyi/generatedCode/uiLayer/hrform/deployer.sh">
+          <mappers uid="33596ca2-e673-4e86-867e-484ce5e0ed62" domainArtifactRef="5945624b-20f3-47f9-9cb1-d0dc8df9491a" artifactRef="0ae7e48c-ba6c-475f-a34f-63e6a31bd9c8" name="Application deployer" artifactExecutionString="bash /Users/arseniy/generatedCode/uiLayer/hrform/deployer.sh">
             <specifiers specifierRef="4a626013-4040-433b-baef-0e753762bac4" valueRef="87401395-f9e6-45e3-947f-691698b65857"/>
             <specifiers specifierRef="d28a11b8-31db-4d21-a786-6dd4c31d3d54" valueRef="4cfcc5b0-32de-4ac2-a917-08c604e00204"/>
             <specifiers specifierRef="347c3e51-32e5-4ec1-8082-a51d35e32de4" valueRef="14b81be0-b3aa-4ad8-91cc-07faa24dd7e3"/>
@@ -2016,7 +2016,7 @@
             <specifiers specifierRef="0f1e90f8-fd8c-4489-9244-b202bd15971d" valueRef="a09e5397-dbdf-41d8-9d1b-0326446ba6eb"/>
           </mappers>
         </components>
-        <components xsi:type="tura.domain:JavaComponent" columns="3" uid="d2fc347a-981b-465e-8599-cdcf896216d1" name="Forms interface" componentRoot="/Users/arseniyi/generatedCode/uiLayer" artifactId="hrform-interface" groupId="org.tura.example.ui" version="1.0" basePackage="org.tura.example.ui">
+        <components xsi:type="tura.domain:JavaComponent" columns="3" uid="d2fc347a-981b-465e-8599-cdcf896216d1" name="Forms interface" componentRoot="/Users/arseniy/generatedCode/uiLayer" artifactId="hrform-interface" groupId="org.tura.example.ui" version="1.0" basePackage="org.tura.example.ui">
           <mappers uid="240aab7b-e90f-4fb3-98fc-a1d12e7a73e3" domainArtifactRef="5945624b-20f3-47f9-9cb1-d0dc8df9491a" artifactRef="cedb4abf-f19e-4eb2-af12-804869422780" name="Data control interface">
             <queries uid="572b80bb-7a5d-4ebb-a3d3-20a2db0b8f47" name="Query form" queryRef="f405cbaa-f466-4356-93e6-4254e2c19693">
               <variables queryParamRef="3d8f78f4-7f93-4976-b305-808952382cd4" value="Hr manager"/>
@@ -2042,7 +2042,7 @@
               <variables queryParamRef="7e08698a-ca13-4af2-b8a9-d565d8f54f62" value="Base package"/>
             </queries>
           </mappers>
-          <mappers uid="b85a4098-b3e6-495e-9646-894f35423678" domainArtifactRef="5945624b-20f3-47f9-9cb1-d0dc8df9491a" artifactRef="b6450037-f0e0-440d-a26d-26685c245fe8" name="Application build runner" artifactExecutionString="bash /Users/arseniyi/generatedCode/uiLayer/hrform-interface/builder.sh">
+          <mappers uid="b85a4098-b3e6-495e-9646-894f35423678" domainArtifactRef="5945624b-20f3-47f9-9cb1-d0dc8df9491a" artifactRef="b6450037-f0e0-440d-a26d-26685c245fe8" name="Application build runner" artifactExecutionString="bash /Users/arseniy/generatedCode/uiLayer/hrform-interface/builder.sh">
             <specifiers specifierRef="a2862bdb-7666-498a-abaa-3c6a77b16abe" valueRef="33e243d5-b9fa-4360-82f2-b7aee51d02f2"/>
             <specifiers specifierRef="df9ad130-5ded-41d9-bf01-5967ef2c1537" valueRef="6cc0b8e4-7a61-4cf4-a0ac-426a0bf397f0"/>
             <specifiers specifierRef="77a6558f-44e1-4d9a-ad85-16decf6aa3cb" valueRef="6cfa6c9d-d885-4f55-86d3-02f505f54045"/>
@@ -2061,8 +2061,8 @@
       <properties uid="304abca1-4cf9-4e0f-a4a5-a7f1a935bdb1" confVarRef="2e8c1ce3-aade-4c15-a7cd-ea9f5de5bd8e" value="jdbc:postgresql://localhost:5432/postgres"/>
       <properties uid="3f8cbc65-8b23-4394-a991-c114ea6ba94c" confVarRef="6ef3c0da-e95b-40a7-8b52-bd0c185543c1" value="org.postgresql.Driver"/>
       <properties uid="ab46b3e9-58e2-436e-bdca-5b73687038f2" confVarRef="3165ef35-24f6-44f9-9ad1-1c89771ff777" value="http://localhost:8080/hrresources-2.0"/>
-      <properties uid="4c78ffdb-397b-4c93-8674-b869fb91f970" confVarRef="8761066c-1ea5-4ee3-9085-c60b248dc534" value="/Users/arseniyi/tools/apache-maven-3.2.2"/>
-      <properties uid="c7be5cd1-3d0a-4c57-a637-5ffb078d2b80" confVarRef="04f1aaa1-2500-4a3e-84e7-3c0f328fce17" value="/Users/arseniyi/glassfish4"/>
+      <properties uid="4c78ffdb-397b-4c93-8674-b869fb91f970" confVarRef="8761066c-1ea5-4ee3-9085-c60b248dc534" value="/Users/arseniy/tools/apache-maven-3.2.2"/>
+      <properties uid="c7be5cd1-3d0a-4c57-a637-5ffb078d2b80" confVarRef="04f1aaa1-2500-4a3e-84e7-3c0f328fce17" value="/Users/arseniy/glassfish4"/>
       <properties uid="d97de117-00e1-4291-b455-7a25adf76d40" confVarRef="c1306333-7f7f-4da9-8b6e-f828d46cab5f" value="domain1"/>
       <properties uid="0d5e9fcf-7669-4838-9b0a-bc873254cdad" confVarRef="33fb6445-8890-4837-8905-d939a9338ff5" value="4848"/>
     </configurations>
