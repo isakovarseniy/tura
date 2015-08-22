@@ -65,6 +65,8 @@ import org.tura.platform.hr.init.DepartmentsInit;
 import org.tura.platform.hr.init.EmployesesInit;
 import org.tura.platform.hr.init.StateInit;
 import org.tura.platform.hr.init.StreetInit;
+import org.tura.platform.primefaces.model.GridModel;
+import org.tura.platform.primefaces.model.LazyDataGridModel;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class CDITest {
@@ -377,25 +379,26 @@ public class CDITest {
 	}
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
-//	@Test
-//	public void a8_rallbackWithGridModel() {
-//		try {
-//			BeanFactory bf = weld.instance().select(BeanFactory.class).get();
-//			CompanyDC companyDC = bf.getCompany();
-//			GridModel model = new GridModel(companyDC , logger);
-//			
-//			LazyDataGridModel lazy =   model.getLazyModel();
-//			List ls = lazy.load(0, 5, null, null);
-//			companyDC.getCommandStack().rallbackCommand();
-//		    ls = lazy.load(0, 5, null, null);
-//		    if (ls == null || ls.size()==0)
-//				fail("Result is empty");
-//			
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//			fail(e.getMessage());
-//		}
-//	}
+	@Test
+	public void a8_rallbackWithGridModel() {
+		try {
+			BeanFactory bf = weld.instance().select(BeanFactory.class).get();
+			CompanyDC companyDC = bf.getCompany();
+			companyDC.getCurrentObject();
+			GridModel model = new GridModel(companyDC , logger);
+			
+			LazyDataGridModel lazy =   model.getLazyModel();
+			List ls = lazy.load(0, 5, null, null);
+			companyDC.getCommandStack().rallbackCommand();
+		    ls = lazy.load(0, 5, null, null);
+		    if (ls == null || ls.size()==0)
+				fail("Result is empty");
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			fail(e.getMessage());
+		}
+	}
 
 	class RemoveObjectTracer implements EventListener {
 

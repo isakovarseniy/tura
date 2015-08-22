@@ -8,7 +8,7 @@
 		<artifactId>datacontrol</artifactId>
 		<version>2.0</version>
 	</parent>
-	
+
 	<groupId>org.tura.platform.datacontrol</groupId>
 	<artifactId>annotations</artifactId>
 
@@ -70,6 +70,25 @@
 			<artifactId>commons-jpa</artifactId>
 			<scope>test</scope>
 		</dependency>
+
+		<dependency>
+			<groupId>org.tura.platform</groupId>
+			<artifactId>primefaces-model</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.primefaces</groupId>
+			<artifactId>primefaces</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>javax</groupId>
+			<artifactId>javaee-api</artifactId>
+			<scope>test</scope>
+		</dependency>
+
 
 		<dependency>
 			<groupId>org.hibernate</groupId>

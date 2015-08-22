@@ -71,9 +71,10 @@ public abstract class CommandStack {
 			}
 		}
 
-        initSavePoint();
-		
-        for (DataControl<?> dc : hash.values()) {
+		if (hash.values().size() != 0)
+			initSavePoint();
+
+		for (DataControl<?> dc : hash.values()) {
 			dc.cleanShifter();
 		}
 
@@ -128,10 +129,10 @@ public abstract class CommandStack {
 			}
 			commitTransaction();
 
-			SavePoint sv =  savePoints.peek();
+			SavePoint sv = savePoints.peek();
 			savePoints = new Stack<>();
 			savePoints.push(sv);
-			
+
 			for (DataControl<?> ctl : controlsId.values()) {
 				ctl.cleanShifter();
 			}
@@ -139,7 +140,6 @@ public abstract class CommandStack {
 			for (DataControl<?> ctl : controlsId.values()) {
 				ctl.forceRefresh();
 			}
-
 
 		} catch (Exception e) {
 			rallbackTransaction();
@@ -159,7 +159,6 @@ public abstract class CommandStack {
 		this.savePoints.peek().getData().remove(id);
 	}
 
-	
 	public synchronized void savePoint() throws TuraException {
 		SavePoint sp = savePoints.peek();
 		SavePoint newSp = new SavePoint(sp);
@@ -184,7 +183,8 @@ public abstract class CommandStack {
 			try {
 				for (String key : sp.getData().keySet()) {
 					Object obj = sp.getData().get(key);
-					Object nObj = Reflection.callTyped(obj, "factory",Object.class, obj);
+					Object nObj = Reflection.callTyped(obj, "factory",
+							Object.class, obj);
 					data.put(key, nObj);
 				}
 			} catch (Exception e) {
