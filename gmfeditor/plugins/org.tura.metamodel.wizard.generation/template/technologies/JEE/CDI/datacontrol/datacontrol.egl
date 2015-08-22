@@ -138,7 +138,7 @@ public class [%=util.mergeAndCapitalize(control.name)%]DC extends org.tura.platf
 
 	@Inject
 	public void setCommandStack(
-	      @org.tura.platform.datacontrol.annotations.Selector("[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%]")
+	      @javax.inject.Named("[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%]")
 	      org.tura.platform.datacontrol.CommandStack commandStack) {
 		this.commandStack = commandStack;
 	}

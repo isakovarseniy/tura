@@ -10,7 +10,7 @@ ${percent}${end}
 package  [%=component.basePackage%].[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%].datacontrol;  
 
 [%=commandstack_scope()%]
-@org.tura.platform.datacontrol.annotations.Selector("[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%]")
+@javax.inject.Named("[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%]")
 public class CDICommandStack extends org.tura.platform.datacontrol.CommandStack  implements java.io.Serializable {
 
 	private static final long serialVersionUID = 1L;

@@ -25,6 +25,7 @@ import java.util.logging.Logger;
 
 import javax.faces.event.ActionEvent;
 import javax.inject.Inject;
+import javax.inject.Named;
 
 import org.tura.example.ui.hrmanager.hrcontroller.datacontrol.IBeanFactory;
 import org.tura.platform.datacontrol.BeanWrapper;
@@ -33,7 +34,6 @@ import org.tura.platform.datacontrol.DataControl;
 import org.tura.platform.datacontrol.ELResolver;
 import org.tura.platform.datacontrol.IDataControl;
 import org.tura.platform.datacontrol.TreeDataControl;
-import org.tura.platform.datacontrol.annotations.Selector;
 import org.tura.platform.datacontrol.commons.Reflection;
 import org.tura.platform.persistence.TuraObject;
 import org.tura.platform.primefaces.lib.EventAccessor;
@@ -48,7 +48,7 @@ public class Actions implements EventAccessor {
 	ELResolver elResolver;
 
 	@Inject
-	@Selector("hrmanager.hrcontroller")
+	@Named("hrmanager.hrcontroller")
 	CommandStack commandStack;
 
 	@SuppressWarnings("rawtypes")
