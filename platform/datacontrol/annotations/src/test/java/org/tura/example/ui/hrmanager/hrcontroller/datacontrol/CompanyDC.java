@@ -82,6 +82,7 @@ import javax.annotation.PostConstruct;
 import javax.enterprise.inject.Instance;
 
 import javax.inject.Inject;
+import javax.inject.Named;
 
 import com.octo.java.sql.query.SelectQuery;
 
@@ -157,7 +158,7 @@ public class CompanyDC extends DataControl<CompanyDAO> implements Serializable {
 
     @Inject
     public void setCommandStack(
-        @Selector("hrmanager.hrcontroller")
+        @Named("hrmanager.hrcontroller")
     CommandStack commandStack) {
         this.commandStack = commandStack;
     }

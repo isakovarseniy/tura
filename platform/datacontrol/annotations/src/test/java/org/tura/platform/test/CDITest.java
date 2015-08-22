@@ -27,6 +27,7 @@ import static org.junit.Assert.fail;
 
 import java.text.ParseException;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.ConsoleHandler;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -40,7 +41,7 @@ import org.elsoft.platform.hr.objects.StateDAO;
 import org.elsoft.platform.hr.objects.StreetDAO;
 import org.jboss.weld.environment.se.Weld;
 import org.jboss.weld.environment.se.WeldContainer;
-import org.junit.BeforeClass;
+import org.junit.Before;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
@@ -48,6 +49,7 @@ import org.tura.example.ui.hrmanager.hrcontroller.datacontrol.BeanFactory;
 import org.tura.example.ui.hrmanager.hrcontroller.datacontrol.CompanyDC;
 import org.tura.example.ui.hrmanager.hrcontroller.datacontrol.DepartmentDC;
 import org.tura.example.ui.hrmanager.hrcontroller.datacontrol.ICompanyArtifitialFields;
+import org.tura.example.ui.hrmanager.hrcontroller.datacontrol.PopupCompanyDCProviderDC;
 import org.tura.example.ui.hrmanager.hrcontroller.datacontrol.TreeRootCountryDC;
 import org.tura.platform.datacontrol.EventListener;
 import org.tura.platform.datacontrol.IDataControl;
@@ -71,8 +73,8 @@ public class CDITest {
 	private static WeldContainer weld;
 	private ArrayList<String> delitedRows = new ArrayList<>();
 
-	@BeforeClass
-	public static void beforeClass(){
+	@Before
+	public void before() {
 		logger = Logger.getLogger("InfoLogging");
 		logger.setUseParentHandlers(false);
 		ConsoleHandler handler = new ConsoleHandler();
@@ -115,11 +117,10 @@ public class CDITest {
 			row = (CountryDAO) locationDC.getCurrentObject();
 			assertEquals(row.getObjId(), new Long(2));
 			companyDC.prevObject();
-			
+
 			ICompanyArtifitialFields artf = (ICompanyArtifitialFields) company;
 			artf.setTestfield1("12345");
 			assertEquals(artf.getTestfield1(), "12345");
-			
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -140,8 +141,9 @@ public class CDITest {
 			assertEquals(company.getObjId(), new Long(2));
 
 			TreeRootCountryDC locationDC = bf.getTreeRootCountry();
-			boolean isSet = locationDC.setCurrentPosition(new TreePath[] { new TreePath(null,0), new TreePath("country2state",2)});
-			
+			boolean isSet = locationDC.setCurrentPosition(new TreePath[] {
+					new TreePath(null, 0), new TreePath("country2state", 2) });
+
 			assertEquals(isSet, true);
 
 			StateDAO row = (StateDAO) locationDC.getCurrentObject();
@@ -170,8 +172,11 @@ public class CDITest {
 			assertNull(department);
 
 			TreeRootCountryDC locationDC = bf.getTreeRootCountry();
-			boolean isSet = locationDC.setCurrentPosition(new TreePath[] { new TreePath(null,0), new TreePath("country2state",3), new TreePath("state2city",1), new TreePath("city2street",2)});
-			
+			boolean isSet = locationDC.setCurrentPosition(new TreePath[] {
+					new TreePath(null, 0), new TreePath("country2state", 3),
+					new TreePath("state2city", 1),
+					new TreePath("city2street", 2) });
+
 			assertEquals(isSet, true);
 
 			StreetDAO row = (StreetDAO) locationDC.getCurrentObject();
@@ -180,7 +185,9 @@ public class CDITest {
 			department = departmentDC.getCurrentObject();
 			assertEquals(department.getObjId(), new Long(200));
 
-			isSet = locationDC.setCurrentPosition(new TreePath[] { new TreePath(null,0), new TreePath("country2state",3), new TreePath("state2city",1)});
+			isSet = locationDC.setCurrentPosition(new TreePath[] {
+					new TreePath(null, 0), new TreePath("country2state", 3),
+					new TreePath("state2city", 1) });
 			assertEquals(isSet, true);
 
 			assertEquals(departmentDC.isBlocked(), true);
@@ -198,7 +205,7 @@ public class CDITest {
 	@Test
 	public void a4_rallback() {
 		try {
-			
+
 			BeanFactory bf = weld.instance().select(BeanFactory.class).get();
 			CompanyDC companyDC = bf.getCompany();
 			companyDC.getCurrentObject();
@@ -210,31 +217,33 @@ public class CDITest {
 			assertEquals(company.getObjId(), new Long(2));
 
 			TreeRootCountryDC locationDC = bf.getTreeRootCountry();
-			boolean isSet = locationDC.setCurrentPosition(new TreePath[] { new TreePath(null,0), new TreePath("country2state",2)});
-			
+			boolean isSet = locationDC.setCurrentPosition(new TreePath[] {
+					new TreePath(null, 0), new TreePath("country2state", 2) });
+
 			assertEquals(isSet, true);
 
 			StateDAO row = (StateDAO) locationDC.getCurrentObject();
 			String saveStreetName = row.getName();
 			row.setName("New Street Name");
 			assertEquals(row.getObjId(), new Long(8));
-			
+
 			companyDC.getCommandStack().rallbackCommand();
-			
+
 			companyDC = bf.getCompany();
 			companyDC.getCurrentObject();
 			companyDC.nextObject();
 
 			company = companyDC.getCurrentObject();
 			assertEquals(company.getCompanyName(), saveCompanyName);
-			
+
 			locationDC = bf.getTreeRootCountry();
-			isSet = locationDC.setCurrentPosition(new TreePath[] { new TreePath(null,0), new TreePath("country2state",2)});
+			isSet = locationDC.setCurrentPosition(new TreePath[] {
+					new TreePath(null, 0), new TreePath("country2state", 2) });
 			assertEquals(isSet, true);
 
 			row = (StateDAO) locationDC.getCurrentObject();
 			assertEquals(row.getName(), saveStreetName);
-		
+
 		} catch (Exception e) {
 			e.printStackTrace();
 			fail(e.getMessage());
@@ -302,34 +311,92 @@ public class CDITest {
 	public void a6_tree_access() {
 		try {
 
-			org.tura.example.ui.hrmanager.tree2tree.datacontrol.BeanFactory bf = weld.instance().select(org.tura.example.ui.hrmanager.tree2tree.datacontrol.BeanFactory.class).get();
-	        
-			IDataControl dc1 =  bf.getTreeRootCompany();
-			dc1.setCurrentPosition(new TreePath[]{ new TreePath(null, 0)});
-			
-			IDataControl dc2 =  bf.getTreeRootDepartment();
-			dc2.setCurrentPosition(   new TreePath[]{ new TreePath(null, 0)});
-			
-			
+			org.tura.example.ui.hrmanager.tree2tree.datacontrol.BeanFactory bf = weld
+					.instance()
+					.select(org.tura.example.ui.hrmanager.tree2tree.datacontrol.BeanFactory.class)
+					.get();
+
+			IDataControl dc1 = bf.getTreeRootCompany();
+			dc1.setCurrentPosition(new TreePath[] { new TreePath(null, 0) });
+
+			IDataControl dc2 = bf.getTreeRootDepartment();
+			dc2.setCurrentPosition(new TreePath[] { new TreePath(null, 0) });
+
 			CompanyDAO obj1 = (CompanyDAO) dc1.getCurrentObject();
 			assertEquals(new Long(1L), obj1.getObjId());
 			DepartmentsDAO obj2 = (DepartmentsDAO) dc2.getCurrentObject();
 			assertNull(obj2);
-			
-			boolean isSet = dc1.setCurrentPosition(new TreePath[] { new TreePath(null,0), new TreePath("company2country",0),  new TreePath("country2state",0), new TreePath("state2city",0), new TreePath("city2street",0)});
+
+			boolean isSet = dc1.setCurrentPosition(new TreePath[] {
+					new TreePath(null, 0), new TreePath("company2country", 0),
+					new TreePath("country2state", 0),
+					new TreePath("state2city", 0),
+					new TreePath("city2street", 0) });
 			assertEquals(isSet, true);
-	
+
 			obj2 = (DepartmentsDAO) dc2.getCurrentObject();
 			assertEquals(new Long(10L), obj2.getObjId());
 
-			
 		} catch (Exception e) {
 			e.printStackTrace();
 			fail(e.getMessage());
 		}
 
-	}	
-	
+	}
+
+	@Test
+	public void a7_pool_rallback() {
+		try {
+			BeanFactory bf = weld.instance().select(BeanFactory.class).get();
+			CompanyDC companyDC = bf.getCompany();
+			PopupCompanyDCProviderDC popupDC = bf.getPopupCompanyDCProvider();
+			bf.setCmpId(1L);
+
+			CompanyDAO row = companyDC.getCurrentObject();
+			String name = row.getCompanyName();
+
+			CompanyDAO row2 = popupDC.getCurrentObject();
+			popupDC.getCommandStack().savePoint();
+			row2 = popupDC.getCurrentObject();
+			row2.setCompanyName("test");
+
+			row = companyDC.getCurrentObject();
+			assertEquals("test", row.getCompanyName());
+
+			companyDC.getCommandStack().rallbackCommand();
+			row = companyDC.getCurrentObject();
+			assertEquals(name, row.getCompanyName());
+
+			row2 = popupDC.getCurrentObject();
+			row2.setCompanyName("test");
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			fail(e.getMessage());
+		}
+	}
+
+	@SuppressWarnings({ "rawtypes", "unchecked" })
+//	@Test
+//	public void a8_rallbackWithGridModel() {
+//		try {
+//			BeanFactory bf = weld.instance().select(BeanFactory.class).get();
+//			CompanyDC companyDC = bf.getCompany();
+//			GridModel model = new GridModel(companyDC , logger);
+//			
+//			LazyDataGridModel lazy =   model.getLazyModel();
+//			List ls = lazy.load(0, 5, null, null);
+//			companyDC.getCommandStack().rallbackCommand();
+//		    ls = lazy.load(0, 5, null, null);
+//		    if (ls == null || ls.size()==0)
+//				fail("Result is empty");
+//			
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//			fail(e.getMessage());
+//		}
+//	}
+
 	class RemoveObjectTracer implements EventListener {
 
 		@Override

@@ -371,6 +371,7 @@ public class SingleDataControlPoolTest {
 
 	}
 
+	@SuppressWarnings("unused")
 	@Test
 	@Ignore
 	/*  Do not enable this test                                                              */
@@ -482,6 +483,7 @@ public class SingleDataControlPoolTest {
 		
 	}
 
+	@SuppressWarnings("unused")
 	private PoolData getPoolData(DataControl<?> dc) throws NoSuchMethodException,
 			SecurityException, IllegalAccessException,
 			IllegalArgumentException, InvocationTargetException, NoSuchFieldException {

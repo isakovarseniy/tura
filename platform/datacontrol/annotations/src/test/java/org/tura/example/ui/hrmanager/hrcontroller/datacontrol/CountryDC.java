@@ -36,6 +36,8 @@ import org.tura.platform.datacontrol.annotations.Create;
 import org.tura.platform.datacontrol.annotations.DefaultOrderBys;
 import org.tura.platform.datacontrol.annotations.DefaultSearchCriterias;
 import org.tura.platform.datacontrol.annotations.Delete;
+import org.tura.platform.datacontrol.annotations.Dependencies;
+import org.tura.platform.datacontrol.annotations.Dependency;
 import org.tura.platform.datacontrol.annotations.Insert;
 import org.tura.platform.datacontrol.annotations.Key;
 import org.tura.platform.datacontrol.annotations.Keys;
@@ -66,6 +68,7 @@ import org.tura.platform.datacontrol.command.UpdateCommand;
 import org.tura.platform.datacontrol.commons.TuraException;
 import org.tura.platform.datacontrol.event.Event;
 import org.tura.platform.datacontrol.metainfo.ArtificialProperty;
+import org.tura.platform.datacontrol.metainfo.DependecyProperty;
 import org.tura.platform.datacontrol.metainfo.Relation;
 import org.tura.platform.datacontrol.shift.ShiftControl;
 import org.tura.platform.persistence.TuraObject;
@@ -80,6 +83,7 @@ import javax.annotation.PostConstruct;
 import javax.enterprise.inject.Instance;
 
 import javax.inject.Inject;
+import javax.inject.Named;
 
 import com.octo.java.sql.query.SelectQuery;
 
@@ -151,7 +155,7 @@ public class CountryDC extends DataControl<CountryDAO> implements Serializable {
 
     @Inject
     public void setCommandStack(
-        @Selector("hrmanager.hrcontroller")
+        @Named("hrmanager.hrcontroller")
     CommandStack commandStack) {
         this.commandStack = commandStack;
     }
@@ -321,6 +325,18 @@ public class CountryDC extends DataControl<CountryDAO> implements Serializable {
     )
     SelectQuery selectQuery) {
         this.defaultQuery = selectQuery;
+    }
+
+    @Override
+    @Inject
+    public void setDependency(
+        @Dependencies(dependency =  {
+        @Dependency(expression = "#{beanFactoryHrManagerHRController.department}")
+
+    }
+    )
+    List<DependecyProperty> dependency) {
+        this.dependency = dependency;
     }
 
     private void saveState() {

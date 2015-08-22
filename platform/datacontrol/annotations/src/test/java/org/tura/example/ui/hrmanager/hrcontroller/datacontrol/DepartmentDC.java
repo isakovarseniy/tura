@@ -84,6 +84,7 @@ import javax.annotation.PostConstruct;
 import javax.enterprise.inject.Instance;
 
 import javax.inject.Inject;
+import javax.inject.Named;
 
 import com.octo.java.sql.exp.Operator;
 import com.octo.java.sql.query.SelectQuery;
@@ -112,9 +113,10 @@ public class DepartmentDC extends DataControl<DepartmentsDAO>
         throws org.tura.platform.datacontrol.commons.TuraException {
         if (newCurrentObject instanceof StreetDAO) {
             this.handleChangeMusterCurrentRecordNotification(newCurrentObject);
-        } else {
-            this.handleChangeMusterCurrentRecordNotification(null);
+            return;
         }
+
+        this.handleChangeMusterCurrentRecordNotification(null);
     }
 
     @PostConstruct
@@ -170,7 +172,7 @@ public class DepartmentDC extends DataControl<DepartmentsDAO>
 
     @Inject
     public void setCommandStack(
-        @Selector("hrmanager.hrcontroller")
+        @Named("hrmanager.hrcontroller")
     CommandStack commandStack) {
         this.commandStack = commandStack;
     }

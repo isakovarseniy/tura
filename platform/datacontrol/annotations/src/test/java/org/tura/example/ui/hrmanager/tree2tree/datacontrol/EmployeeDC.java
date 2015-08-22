@@ -82,6 +82,7 @@ import javax.annotation.PostConstruct;
 import javax.enterprise.inject.Instance;
 
 import javax.inject.Inject;
+import javax.inject.Named;
 
 import com.octo.java.sql.query.SelectQuery;
 
@@ -157,7 +158,7 @@ public class EmployeeDC extends DataControl<EmployeesDAO>
 
     @Inject
     public void setCommandStack(
-        @Selector("hrmanager.tree2tree")
+        @Named("hrmanager.tree2tree")
     CommandStack commandStack) {
         this.commandStack = commandStack;
     }

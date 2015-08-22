@@ -44,9 +44,10 @@ public class TreeRootDepartmentDC extends TreeDataControl
         throws org.tura.platform.datacontrol.commons.TuraException {
         if (newCurrentObject instanceof StreetDAO) {
             this.handleChangeMusterCurrentRecordNotification(newCurrentObject);
-        } else {
-            this.handleChangeMusterCurrentRecordNotification(null);
+            return;
         }
+
+        this.handleChangeMusterCurrentRecordNotification(null);
     }
 
     @Inject

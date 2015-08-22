@@ -22,18 +22,18 @@
 package org.tura.example.ui.hrmanager.hrcontroller.datacontrol;
 
 import org.tura.platform.datacontrol.CommandStack;
-import org.tura.platform.datacontrol.annotations.Selector;
 
 import java.io.Serializable;
 
 import javax.enterprise.context.ApplicationScoped;
 
 import javax.inject.Inject;
+import javax.inject.Named;
 
 import javax.persistence.EntityManager;
 
 @ApplicationScoped
-@Selector("hrmanager.hrcontroller")
+@Named("hrmanager.hrcontroller")
 public class CDICommandStack extends CommandStack implements Serializable {
     private static final long serialVersionUID = 1L;
     @Inject

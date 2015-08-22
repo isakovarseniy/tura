@@ -76,6 +76,7 @@ import java.util.logging.Logger;
 import javax.annotation.PostConstruct;
 
 import javax.inject.Inject;
+import javax.inject.Named;
 
 import com.octo.java.sql.query.SelectQuery;
 
@@ -145,7 +146,7 @@ public class VehicleDC extends DataControl<VehicleDAO> implements Serializable {
 
     @Inject
     public void setCommandStack(
-        @Selector("hrmanager.hrcontroller")
+        @Named("hrmanager.hrcontroller")
     CommandStack commandStack) {
         this.commandStack = commandStack;
     }

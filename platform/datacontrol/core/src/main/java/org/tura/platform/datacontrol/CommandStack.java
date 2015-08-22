@@ -71,11 +71,9 @@ public abstract class CommandStack {
 			}
 		}
 
-		SavePoint sv =  savePoints.peek();
-		savePoints = new Stack<>();
-		savePoints.push(sv);
-
-		for (DataControl<?> dc : hash.values()) {
+        initSavePoint();
+		
+        for (DataControl<?> dc : hash.values()) {
 			dc.cleanShifter();
 		}
 
