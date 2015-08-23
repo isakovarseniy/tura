@@ -37,7 +37,8 @@ public class GridModel {
 	private DataControl dc;
 	private Logger logger;
 	private Boolean resetCurentPosition = false;
-
+	private Object[] array = new Object[] { 0, 0, null };
+	
 	
 	@SuppressWarnings("rawtypes")
 	public GridModel(DataControl dc, Logger logger) {
@@ -56,9 +57,17 @@ public class GridModel {
 		return lazyModel;
 	}
 
-	public void setSelected(org.primefaces.event.SelectEvent event) {
+	public Object getSelected(){
+		return array;
+	}
+	
+	public void  setSelected(Object value){
+	}
 
-		Object[] array = (Object[]) event.getObject();
+	
+	public void ajaxSelected(org.primefaces.event.SelectEvent event) {
+
+		array = (Object[]) event.getObject();
 		try {
 			if (!dc.getCurrentPosition().equals(array[0]) || resetCurentPosition )
 				resetCurentPosition = false;
@@ -75,6 +84,7 @@ public class GridModel {
 		public void handleEventListener(Event event) throws TuraException {
 			if (event instanceof MasterRowChangedEvent || event instanceof RowRemovedEvent) {
 				lazyModel = new LazyDataGridModel();
+				array = new Object[] { 0, 0, null };				
 				lazyModel.setDatacontrol((DataControl) event.getSource());
 				lazyModel.setLogger(logger);
 			}
