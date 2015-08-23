@@ -93,9 +93,12 @@ public class TreeModel {
 
 	public void setSelectedNode(TreeNode selectedNode) throws Exception {
 
+		cleanSelection(getRoot());
 		if (selectedNode == null)
 			return;
+		
 		this.selectedNode = selectedNode;
+		this.selectedNode.setSelected(true);
 
 		TreePath[] p = getPath(selectedNode);
 		if (!compareArrays((TreePath[]) dc.getCurrentPosition(), p))
@@ -319,13 +322,13 @@ public class TreeModel {
 			}
 		}
 
-		private void cleanSelection(TreeNode node) {
-			for (TreeNode child : node.getChildren()) {
-				child.setSelected(false);
-				if (child.isExpanded()) {
-					cleanSelection(child);
-				}
+	}
+	private void cleanSelection(TreeNode node) {
+		for (TreeNode child : node.getChildren()) {
+			child.setSelected(false);
+			if (child.isExpanded()) {
+				cleanSelection(child);
 			}
 		}
-	}
+	}	
 }
