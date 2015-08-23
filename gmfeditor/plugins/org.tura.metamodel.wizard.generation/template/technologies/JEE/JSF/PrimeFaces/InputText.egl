@@ -9,15 +9,16 @@ operation domain::InputText treeContext(hash,value) {
 
 @template
 operation domain::InputText tableContext(hash,value) { 
+     var util = new Native('org.tura.metamodel.commons.Util');
 %]
 <p:cellEditor>
   <f:facet name="output">
-       <ui:fragment rendered="[%=value.replace('}',' != \'\' }')%]">
+       <ui:fragment rendered="#{tura:fixRowSelection([%=util.bracketRemover(value)%])}">
           <span style="display: inline-block; width: 100%; height: 100%">
              [%=self.ro(hash,value)%]
          </span>
        </ui:fragment>
-       <ui:fragment rendered="[%=value.replace('}','== \'\' }')%]">
+       <ui:fragment rendered="#{!tura:fixRowSelection([%=util.bracketRemover(value)%])}">
           <span style="display: inline-block; width: 100%; height: 100%;opacity:0 ">
            .
          </span>

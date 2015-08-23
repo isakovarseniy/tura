@@ -12,6 +12,7 @@ operation  domain::Canvas draw(hash) {
         xmlns:h="http://java.sun.com/jsf/html"
         xmlns:f="http://java.sun.com/jsf/core"
         xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:tura="http://primefaces.platform.tura.org/functions"
         xmlns:p="http://primefaces.org/ui"  [%=self.mkUIDBinding()%] [%=self.styleAttributes(hash)%]  columns="1" >
      [%=self.generateBody(hash)%]     
      </p:panelGrid>
