@@ -27,7 +27,7 @@ public class Functions {
 		if (value == null)
 		    return false;
 		if (value instanceof String){
-			if ( ((String) value).trim() == null)
+			if (  "".equals(((String) value).trim()))
 			    return false;
 		}
 		return true;
