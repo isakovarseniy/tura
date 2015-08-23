@@ -80,6 +80,7 @@ public class TreeModel {
 			if (root.getChildren().size() != 0
 					&& !(root.getChildren().get(0).getData() instanceof Fake)) {
 				selectedNode = root.getChildren().get(0);
+				selectedNode.setSelected(true);
 			}
 		}
 
