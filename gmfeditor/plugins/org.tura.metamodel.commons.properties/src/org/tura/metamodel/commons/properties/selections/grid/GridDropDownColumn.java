@@ -109,7 +109,7 @@ public abstract class GridDropDownColumn implements GridColumn {
 		Object data = ((TableItem) element).getData();
 
 		ComboBoxCellEditor editor = ((ComboBoxCellEditor) (property.getTableViewer().getCellEditors()[col]));
-		if (editor.getItems().length == 0)
+		if (editor.getItems().length == 0 || (int)value == -1 )
 			return;
 		Object v = editor.getItems()[(int) value];
 
