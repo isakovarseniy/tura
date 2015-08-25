@@ -2107,9 +2107,9 @@
     <deployment uid="de56ff3a-4261-47dc-9ee7-0f61390fee4e" name="Deployment">
       <deploymentComponents uid="8086123c-aa38-4e52-a151-4041c23f52f3">
         <deplymentStep uid="3e349778-ce74-4deb-a7ea-d8ba8d92d16a" name="Form ingredient:UI component:Application build runner" mapper="c936a1de-0c00-4eff-939f-a0778cecdd8d" deploymentComponentLink="cffa53b7-fbb6-4cb9-ba02-e63038b6b461"/>
-        <deplymentStep uid="cffa53b7-fbb6-4cb9-ba02-e63038b6b461" name="Form ingredient:UI component:Application deployer" mapper="33596ca2-e673-4e86-867e-484ce5e0ed62" deploymentComponentLink="22d0b7d9-c54c-48d6-a631-7e8c96c95f72"/>
+        <deplymentStep uid="cffa53b7-fbb6-4cb9-ba02-e63038b6b461" name="Form ingredient:UI component:Application deployer" mapper="33596ca2-e673-4e86-867e-484ce5e0ed62" deploymentComponentLink="a03457dc-531c-47bb-91c6-437c90e88324"/>
         <deplymentStep uid="b2f28822-c29a-4813-a8b5-6ecffc8d10b7" name="Form ingredient:Forms interface:Application build runner" mapper="b85a4098-b3e6-495e-9646-894f35423678" deploymentComponentLink="3e349778-ce74-4deb-a7ea-d8ba8d92d16a"/>
-        <deplymentStep uid="22d0b7d9-c54c-48d6-a631-7e8c96c95f72" name="Form ingredient:Selenium testing package:Page objects" mapper="8196614d-a840-417d-98c8-b73443f98bf2"/>
+        <deplymentStep uid="a03457dc-531c-47bb-91c6-437c90e88324" name="Form ingredient:Selenium testing package:Application build runner" mapper="1f8a00dd-da63-411a-89d5-5992224d1f87"/>
         <startSeq uid="a1b9ca74-2f3c-41dd-bdd8-cc1ee2293621" firstStep="b2f28822-c29a-4813-a8b5-6ecffc8d10b7"/>
       </deploymentComponents>
     </deployment>
