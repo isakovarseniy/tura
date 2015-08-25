@@ -2078,7 +2078,7 @@
           <mappers uid="d12154b7-566c-4f64-a77c-4053ce2cf100" domainArtifactRef="5945624b-20f3-47f9-9cb1-d0dc8df9491a" artifactRef="4966db32-c135-4d97-a1ef-64f79c67174f" name="Page Object builder">
             <specifiers specifierRef="d8dcc909-2c07-4b9e-b8eb-79fa6546855d" valueRef="a92b9ee5-9dee-4344-9f6d-09802b89c054"/>
           </mappers>
-          <mappers uid="1f8a00dd-da63-411a-89d5-5992224d1f87" domainArtifactRef="5945624b-20f3-47f9-9cb1-d0dc8df9491a" artifactRef="b6450037-f0e0-440d-a26d-26685c245fe8" name="Application build runner">
+          <mappers uid="1f8a00dd-da63-411a-89d5-5992224d1f87" domainArtifactRef="5945624b-20f3-47f9-9cb1-d0dc8df9491a" artifactRef="b6450037-f0e0-440d-a26d-26685c245fe8" name="Application build runner" artifactExecutionString="bash /Users/arseniy/generatedCode/uiLayer/hrform-pageobjects/builder.sh">
             <specifiers specifierRef="369f6f2d-6b0b-46fd-aaee-bc6d56fb4340" valueRef="ae3da070-7fdd-476f-b315-57cdab52ffcb"/>
             <specifiers specifierRef="77a6558f-44e1-4d9a-ad85-16decf6aa3cb" valueRef="6cfa6c9d-d885-4f55-86d3-02f505f54045"/>
             <specifiers specifierRef="a2862bdb-7666-498a-abaa-3c6a77b16abe" valueRef="33e243d5-b9fa-4360-82f2-b7aee51d02f2"/>
