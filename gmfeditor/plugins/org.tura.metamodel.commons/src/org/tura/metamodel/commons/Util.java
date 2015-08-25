@@ -217,20 +217,6 @@ public class Util {
 
 	}
 
-	// public static GroupBy runQueryWithGrouping(domain.ModelMapper mapper,
-	// String queryName, EObject eobj) throws Exception {
-	// GroupBy result = new GroupBy();
-	// for (Iterator<domain.Query> itr = mapper.getQueries().iterator(); itr
-	// .hasNext();) {
-	// domain.Query query = itr.next();
-	// if (query.getQueryRef().getName().equals(queryName)) {
-	// Collection<?> ls = (Collection<?>) runQuery(query, eobj);
-	// result.add(query.getGroupCode(), ls);
-	// }
-	// }
-	// return result;
-	// }
-
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	private static Object executeQuery(String strQuery, EObject eobj)
 			throws Exception {
@@ -432,70 +418,6 @@ public class Util {
 		return cv;
 	}	
 	
-	
-	
-	// public ArtificialContextValue createArtificialContextValue(
-	// domain.DataControl dc) {
-	//
-	// ArtificialContextValue cv = new ArtificialContextValue();
-	// cv.setValue("Data controls." + mergeAndUnCapitalize(dc.getName()));
-	//
-	// ArtificialExpressionPart ex = new ArtificialExpressionPart();
-	// ex.setOrder(0);
-	// ex.setExpressionType("DataControlHolder");
-	// cv.getExpression().add(ex);
-	//
-	// ex = new ArtificialExpressionPart();
-	// ex.setOrder(1);
-	// ex.setExpressionType("DataControlImpl");
-	// ex.setObjRef(dc);
-	// cv.getExpression().add(ex);
-	//
-	// return cv;
-	//
-	// }
-
-	// public ArtificialContextValue createTreeArtificialContextValue(
-	// domain.DataControl dc, domain.Link lnk) {
-	// ArtificialContextValue cv = new ArtificialContextValue();
-	// cv.setValue("Tree data controls.TreeControl."
-	// + mergeAndCapitalize(dc.getName()) + ".currentObject."
-	// + lnk.getMasterField());
-	//
-	// ArtificialExpressionPart ex = new ArtificialExpressionPart();
-	// ex.setOrder(0);
-	// ex.setExpressionType("TreeRootDataControlHolder");
-	// cv.getExpression().add(ex);
-	//
-	// ex = new ArtificialExpressionPart();
-	// ex.setOrder(1);
-	// ex.setExpressionType("TreeDataControl");
-	// cv.getExpression().add(ex);
-	//
-	// ex = new ArtificialExpressionPart();
-	// ex.setOrder(2);
-	// ex.setExpressionType("DataControlImpl");
-	// ex.setObjRef(dc);
-	// cv.getExpression().add(ex);
-	//
-	// ex = new ArtificialExpressionPart();
-	// ex.setOrder(3);
-	// ex.setExpressionType("DataControlFakeMethod");
-	// cv.getExpression().add(ex);
-	//
-	// ex = new ArtificialExpressionPart();
-	// ex.setOrder(4);
-	// ex.setExpressionType("ExtendedType");
-	// cv.getExpression().add(ex);
-	//
-	// ex = new ArtificialExpressionPart();
-	// ex.setOrder(5);
-	// ex.setObjRef(lnk.getMasterField());
-	// ex.setExpressionType("AttributeImpl");
-	// cv.getExpression().add(ex);
-	//
-	// return cv;
-	// }
 
 	public static void saveFile(String path, String fileName, String in)
 			throws IOException {

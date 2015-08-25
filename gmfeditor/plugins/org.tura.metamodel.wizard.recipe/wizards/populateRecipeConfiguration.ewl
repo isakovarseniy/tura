@@ -11,7 +11,7 @@ wizard PopulateRecipeConfiguration {
        var properties = configVar.runDialog(self);
        for( property in properties ){
            
-           var prop : new Property;
+           var prop : new domain::Property;
            prop.confVarRef= property;
            prop.uid = uuid.randomUUID().toString();
            self.properties.add(prop);

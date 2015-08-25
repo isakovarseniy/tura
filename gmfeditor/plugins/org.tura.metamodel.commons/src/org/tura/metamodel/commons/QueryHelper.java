@@ -82,7 +82,8 @@ public class QueryHelper {
 
 		if (root.getElement() instanceof domain.CanvasView) {
 
-			domain.Views views = (Views) (((domain.CanvasView) root.getElement()).getParent().eContainer().eContainer());
+			domain.Views views = (Views) (((domain.CanvasView) root.getElement()).getParent().eContainer()
+					.eContainer());
 
 			frm = (domain.Form) (views.getParent().eContainer());
 
@@ -148,22 +149,21 @@ public class QueryHelper {
 		OCLHelper<EClassifier, ?, ?, Constraint> helper = ocl.createOCLHelper();
 		helper.setContext(DomainPackage.eINSTANCE.getEClassifier("Domain"));
 
-		OCLExpression<EClassifier> query = helper
-				.createQuery("domain::Relation.allInstances()->select(r|r.isTree=true and r.oclAsType(ecore::EObject).eContainer().oclAsType(domain::Controls).uid = '"
+		OCLExpression<EClassifier> query = helper.createQuery(
+				"domain::Relation.allInstances()->select(r|r.isTree=true and r.oclAsType(ecore::EObject).eContainer().oclAsType(domain::Controls).uid = '"
 						+ frm.getDatacontrols().getFormControl().getUid()
 						+ "')->collect(w|w.master)->reject(q|domain::Relation.allInstances()->select(r|r.isTree=true and r.oclAsType(ecore::EObject).eContainer().oclAsType(domain::Controls).uid = '"
 						+ frm.getDatacontrols().getFormControl().getUid() + "')->collect(w|w.detail)->includes(q))");
 
 		Collection<domain.DataControl> map = (Collection<domain.DataControl>) ocl.evaluate(frm, query);
-		
-		//Remove duplication
-		HashMap<String,domain.DataControl> hash = new HashMap<>();
+
+		// Remove duplication
+		HashMap<String, domain.DataControl> hash = new HashMap<>();
 		for (domain.DataControl dc : map)
 			hash.put(dc.getUid(), dc);
 
-		
-		query = helper
-				.createQuery("domain::Relation.allInstances()->select(r|r.isTree=true and  r.master=r.detail and r.oclAsType(ecore::EObject).eContainer().oclAsType(domain::Controls).uid = '"
+		query = helper.createQuery(
+				"domain::Relation.allInstances()->select(r|r.isTree=true and  r.master=r.detail and r.oclAsType(ecore::EObject).eContainer().oclAsType(domain::Controls).uid = '"
 						+ frm.getDatacontrols().getFormControl().getUid()
 						+ "')->collect(w|w.master)->reject(q|domain::Relation.allInstances()->select(r|r.isTree=true and r.master <> r.detail and r.oclAsType(ecore::EObject).eContainer().oclAsType(domain::Controls).uid = '"
 						+ frm.getDatacontrols().getFormControl().getUid() + "')->collect(w|w.detail)->includes(q))");
@@ -187,8 +187,8 @@ public class QueryHelper {
 		OCLHelper<EClassifier, ?, ?, Constraint> helper = ocl.createOCLHelper();
 		helper.setContext(DomainPackage.eINSTANCE.getEClassifier("Domain"));
 
-		OCLExpression<EClassifier> query = helper
-				.createQuery("domain::DataControl.allInstances()->select(r|r.oclAsType(ecore::EObject).eContainer().oclAsType(domain::Controls).uid = '"
+		OCLExpression<EClassifier> query = helper.createQuery(
+				"domain::DataControl.allInstances()->select(r|r.oclAsType(ecore::EObject).eContainer().oclAsType(domain::Controls).uid = '"
 						+ frm.getDatacontrols().getFormControl().getUid()
 						+ "' )->reject(q|domain::Relation.allInstances()->select(r|r.oclAsType(ecore::EObject).eContainer().oclAsType(domain::Controls).uid = '"
 						+ frm.getDatacontrols().getFormControl().getUid() + "' )->collect(w|w.detail)->includes(q))");
@@ -209,8 +209,8 @@ public class QueryHelper {
 		OCLHelper<EClassifier, ?, ?, Constraint> helper = ocl.createOCLHelper();
 		helper.setContext(DomainPackage.eINSTANCE.getEClassifier("Domain"));
 
-		OCLExpression<EClassifier> query = helper
-				.createQuery("domain::Relation.allInstances()->select(r|r.isTree=false and r.oclAsType(ecore::EObject).eContainer().oclAsType(domain::Controls).uid = '"
+		OCLExpression<EClassifier> query = helper.createQuery(
+				"domain::Relation.allInstances()->select(r|r.isTree=false and r.oclAsType(ecore::EObject).eContainer().oclAsType(domain::Controls).uid = '"
 						+ frm.getDatacontrols().getFormControl().getUid() + "')->collect(w|w.detail)");
 
 		Collection<domain.DataControl> map = (Collection<domain.DataControl>) ocl.evaluate(frm, query);
@@ -291,8 +291,8 @@ public class QueryHelper {
 
 			Collection<domain.QueryVariable> map = ((domain.Query) eObject).getVariables();
 
-			OCLExpression<EClassifier> query = helper
-					.createQuery("domain::DomainArtifact.allInstances()->select(r|r.oclAsType(domain::DomainArtifact).uid='"
+			OCLExpression<EClassifier> query = helper.createQuery(
+					"domain::DomainArtifact.allInstances()->select(r|r.oclAsType(domain::DomainArtifact).uid='"
 							+ ((domain.ModelMapper) (((domain.Query) eObject).eContainer())).getDomainArtifactRef()
 									.getUid()
 							+ "').oclAsType(domain::DomainArtifact).artifact.artifacts->select(r|r.oclIsKindOf(domain::Artifact) and  r.oclAsType(domain::Artifact).uid ='"
@@ -502,15 +502,13 @@ public class QueryHelper {
 			}
 		}
 		if (removeParameters.size() != 0) {
-			editingDomain.getCommandStack().execute(
-					RemoveCommand.create(editingDomain, trg, DomainPackage.eINSTANCE.getContextParameters_Parameters(),
-							removeParameters));
+			editingDomain.getCommandStack().execute(RemoveCommand.create(editingDomain, trg,
+					DomainPackage.eINSTANCE.getContextParameters_Parameters(), removeParameters));
 		}
 
 		if (addParameters.size() != 0) {
-			editingDomain.getCommandStack().execute(
-					AddCommand.create(editingDomain, trg, DomainPackage.eINSTANCE.getContextParameters_Parameters(),
-							addParameters));
+			editingDomain.getCommandStack().execute(AddCommand.create(editingDomain, trg,
+					DomainPackage.eINSTANCE.getContextParameters_Parameters(), addParameters));
 		}
 
 		trgParameters = new ArrayList<domain.ContextParameter>();
@@ -572,8 +570,8 @@ public class QueryHelper {
 		public int compare(ContextParameter o1, ContextParameter o2) {
 			if (o1.getRefObj() == null || o2.getRefObj() == null)
 				return -1;
-			return new Integer(((domain.Parameter) o1.getRefObj()).getOrder()).compareTo(new Integer(
-					((domain.Parameter) o2.getRefObj()).getOrder()));
+			return new Integer(((domain.Parameter) o1.getRefObj()).getOrder())
+					.compareTo(new Integer(((domain.Parameter) o2.getRefObj()).getOrder()));
 		}
 
 	}
@@ -587,15 +585,15 @@ public class QueryHelper {
 			OCLHelper<EClassifier, ?, ?, Constraint> helper = ocl.createOCLHelper();
 			helper.setContext(DomainPackage.eINSTANCE.getEClassifier("Domain"));
 
-			OCLExpression<EClassifier> query = helper
-					.createQuery("domain::TypeExtension.allInstances()->select(r|r.oclAsType(domain::TypeExtension).target.oclIsKindOf(domain::Type) and  "
+			OCLExpression<EClassifier> query = helper.createQuery(
+					"domain::TypeExtension.allInstances()->select(r|r.oclAsType(domain::TypeExtension).target.oclIsKindOf(domain::Type) and  "
 							+ "r.oclAsType(domain::TypeExtension).target.uid ='" + type.getUid() + "')");
 
 			@SuppressWarnings("unchecked")
 			Collection<domain.TypeExtension> map = (Collection<domain.TypeExtension>) ocl.evaluate(type, query);
 
-			query = helper
-					.createQuery("domain::TypeExtension.allInstances()->select(r|r.oclAsType(domain::TypeExtension).target.oclIsKindOf(domain::TypeReference) "
+			query = helper.createQuery(
+					"domain::TypeExtension.allInstances()->select(r|r.oclAsType(domain::TypeExtension).target.oclIsKindOf(domain::TypeReference) "
 							+ "and "
 							+ "r.oclAsType(domain::TypeExtension).target.oclAsType(domain::TypeReference).typeRef.uid = '"
 							+ type.getUid() + "')");
@@ -641,8 +639,7 @@ public class QueryHelper {
 
 			OCLExpression<EClassifier> query = helper
 					.createQuery("domain::Package.allInstances()->select(r|r.oclAsType(domain::Package).name='"
-							+ InitDiagram.BASE_PACKAGE
-							+ "').oclAsType(domain::Package)."
+							+ InitDiagram.BASE_PACKAGE + "').oclAsType(domain::Package)."
 							+ "typedefinition.types->select(r|(r.oclIsKindOf(domain::Type) and  r.oclAsType(domain::Type).name = 'Search criterias') )");
 
 			@SuppressWarnings("unchecked")
@@ -666,8 +663,8 @@ public class QueryHelper {
 			OCLHelper<EClassifier, ?, ?, Constraint> helper = ocl.createOCLHelper();
 			helper.setContext(DomainPackage.eINSTANCE.getEClassifier("Domain"));
 
-			OCLExpression<EClassifier> query = helper
-					.createQuery("domain::Primitive.allInstances()->select(r|r.oclAsType(domain::Primitive).name = 'String'  and  r.oclAsType(domain::Primitive).parent.parent.name ='"
+			OCLExpression<EClassifier> query = helper.createQuery(
+					"domain::Primitive.allInstances()->select(r|r.oclAsType(domain::Primitive).name = 'String'  and  r.oclAsType(domain::Primitive).parent.parent.name ='"
 							+ InitDiagram.PRIVATE_PACKAGE + "')");
 
 			@SuppressWarnings("unchecked")
@@ -691,8 +688,8 @@ public class QueryHelper {
 			OCLHelper<EClassifier, ?, ?, Constraint> helper = ocl.createOCLHelper();
 			helper.setContext(DomainPackage.eINSTANCE.getEClassifier("Domain"));
 
-			OCLExpression<EClassifier> query = helper
-					.createQuery("domain::Primitive.allInstances()->select(r|r.oclAsType(domain::Primitive).name = 'Integer'  and  r.oclAsType(domain::Primitive).parent.parent.name ='"
+			OCLExpression<EClassifier> query = helper.createQuery(
+					"domain::Primitive.allInstances()->select(r|r.oclAsType(domain::Primitive).name = 'Integer'  and  r.oclAsType(domain::Primitive).parent.parent.name ='"
 							+ InitDiagram.PRIVATE_PACKAGE + "')");
 
 			@SuppressWarnings("unchecked")
@@ -716,8 +713,8 @@ public class QueryHelper {
 			OCLHelper<EClassifier, ?, ?, Constraint> helper = ocl.createOCLHelper();
 			helper.setContext(DomainPackage.eINSTANCE.getEClassifier("Domain"));
 
-			OCLExpression<EClassifier> query = helper
-					.createQuery("domain::Primitive.allInstances()->select(r|r.oclAsType(domain::Primitive).name = 'Boolean'  and  r.oclAsType(domain::Primitive).parent.parent.name ='"
+			OCLExpression<EClassifier> query = helper.createQuery(
+					"domain::Primitive.allInstances()->select(r|r.oclAsType(domain::Primitive).name = 'Boolean'  and  r.oclAsType(domain::Primitive).parent.parent.name ='"
 							+ InitDiagram.PRIVATE_PACKAGE + "')");
 
 			@SuppressWarnings("unchecked")
@@ -743,8 +740,7 @@ public class QueryHelper {
 
 			OCLExpression<EClassifier> query = helper
 					.createQuery("domain::Package.allInstances()->select(r|r.oclAsType(domain::Package).name='"
-							+ InitDiagram.BASE_PACKAGE
-							+ "').oclAsType(domain::Package)."
+							+ InitDiagram.BASE_PACKAGE + "').oclAsType(domain::Package)."
 							+ "typedefinition.types->select(r|(r.oclIsKindOf(domain::Type) and  r.oclAsType(domain::Type).name = 'BaseType') )");
 
 			@SuppressWarnings("unchecked")
@@ -769,8 +765,7 @@ public class QueryHelper {
 
 			OCLExpression<EClassifier> query = helper
 					.createQuery("domain::Package.allInstances()->select(r|r.oclAsType(domain::Package).name='"
-							+ InitDiagram.BASE_PACKAGE
-							+ "').oclAsType(domain::Package)."
+							+ InitDiagram.BASE_PACKAGE + "').oclAsType(domain::Package)."
 							+ "typedefinition.types->select(r|(r.oclIsKindOf(domain::Type) and  r.oclAsType(domain::Type).name = 'Data control') )");
 
 			@SuppressWarnings("unchecked")
@@ -795,8 +790,7 @@ public class QueryHelper {
 
 			OCLExpression<EClassifier> query = helper
 					.createQuery("domain::Package.allInstances()->select(r|r.oclAsType(domain::Package).name='"
-							+ InitDiagram.BASE_PACKAGE
-							+ "').oclAsType(domain::Package)."
+							+ InitDiagram.BASE_PACKAGE + "').oclAsType(domain::Package)."
 							+ "typedefinition.types->select(r|(r.oclIsKindOf(domain::Type) and  r.oclAsType(domain::Type).name = 'Tree data control') )");
 
 			@SuppressWarnings("unchecked")
@@ -829,18 +823,16 @@ public class QueryHelper {
 			OCLHelper<EClassifier, ?, ?, Constraint> helper = ocl.createOCLHelper();
 			helper.setContext(DomainPackage.eINSTANCE.getEClassifier("Domain"));
 
-			OCLExpression<EClassifier> query = helper
-					.createQuery("domain::Views.allInstances()->select(r|r.oclAsType(domain::Views).uid = '"
-							+ views.getUid()
+			OCLExpression<EClassifier> query = helper.createQuery(
+					"domain::Views.allInstances()->select(r|r.oclAsType(domain::Views).uid = '" + views.getUid()
 							+ "').canvases->select(c|c.oclIsKindOf(domain::ViewPortHolder))->collect(v|v.oclAsType(domain::ViewPortHolder).viewElement)->select(q|q.oclIsKindOf(domain::ViewArea))");
 
 			@SuppressWarnings("unchecked")
 			Collection<domain.ViewArea> map = (Collection<domain.ViewArea>) ocl.evaluate(obj, query);
 
-			query = helper
-					.createQuery("domain::Views.allInstances()->select(r|r.oclAsType(domain::Views).uid = '"
-							+ views.getUid()
-							+ "').canvases->select(c|c.oclIsKindOf(domain::ViewPortHolder))->collect(v|v.oclAsType(domain::ViewPortHolder).viewElement)->select(q|q.oclIsKindOf(domain::NickNamed) and q.oclAsType(domain::NickNamed).nickname <> null and  q.oclAsType(domain::NickNamed).nickname <> '')");
+			query = helper.createQuery("domain::Views.allInstances()->select(r|r.oclAsType(domain::Views).uid = '"
+					+ views.getUid()
+					+ "').canvases->select(c|c.oclIsKindOf(domain::ViewPortHolder))->collect(v|v.oclAsType(domain::ViewPortHolder).viewElement)->select(q|q.oclIsKindOf(domain::NickNamed) and q.oclAsType(domain::NickNamed).nickname <> null and  q.oclAsType(domain::NickNamed).nickname <> '')");
 
 			@SuppressWarnings("unchecked")
 			Collection<domain.NickNamed> map1 = (Collection<domain.NickNamed>) ocl.evaluate(obj, query);
@@ -888,6 +880,53 @@ public class QueryHelper {
 			if (el.getNickname() != null && !el.getUid().equals(exception.getUid()))
 				list.add(el);
 		}
+	}
+
+	private void findUIElement(List<domain.Uielement> list, domain.LayerHolder holder) {
+		list.add(holder);
+
+		for (Iterator<domain.Uielement> itr = holder.getChildren().iterator(); itr.hasNext();) {
+
+			domain.Uielement el = itr.next();
+			if (el instanceof domain.LayerHolder) {
+				findUIElement(list, (domain.LayerHolder) el);
+				continue;
+			}
+		}
+	}
+
+	public List<domain.Uielement> findUIElementsForPage(domain.CanvasFrame canvasFrame) {
+
+		try {
+			@SuppressWarnings("rawtypes")
+			OCL ocl = OCL.newInstance(EcoreEnvironmentFactory.INSTANCE);
+			@SuppressWarnings("unchecked")
+			OCLHelper<EClassifier, ?, ?, Constraint> helper = ocl.createOCLHelper();
+			helper.setContext(DomainPackage.eINSTANCE.getEClassifier("Domain"));
+
+			OCLExpression<EClassifier> query = helper
+					.createQuery("domain::CanvasFrame.allInstances()->select(r|r.oclAsType(domain::CanvasFrame).uid ='"
+							+ canvasFrame.getUid()
+							+ "')->collect(v|v.oclAsType(domain::ViewPortHolder).viewElement)->select(q|q.oclIsKindOf(domain::ViewArea))");
+
+			@SuppressWarnings("unchecked")
+			Collection<domain.ViewArea> map = (Collection<domain.ViewArea>) ocl.evaluate(canvasFrame, query);
+
+			ArrayList<domain.Uielement> list = new ArrayList<domain.Uielement>();
+
+			if (map.size() != 0) {
+				for (Iterator<domain.ViewArea> itr = map.iterator(); itr.hasNext();) {
+					domain.ViewArea viewarea = itr.next();
+					if (viewarea.getCanvasView() != null)
+						findUIElement(list, viewarea.getCanvasView().getBaseCanvas());
+				}
+			}
+			return list;
+		} catch (Exception e) {
+			LogUtil.log(e);
+			return new ArrayList<domain.Uielement>();
+		}
+
 	}
 
 }

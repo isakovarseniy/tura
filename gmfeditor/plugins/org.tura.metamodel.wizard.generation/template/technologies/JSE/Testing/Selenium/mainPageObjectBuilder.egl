@@ -1,0 +1,43 @@
+[%
+     var util = new Native('org.tura.metamodel.commons.Util');
+     var queryHelper = new Native('org.tura.metamodel.commons.QueryHelper');
+     var forms = util.runQuery(model_mapper,"Query form",model_mapper);
+      var f = new Native("org.tura.metamodel.wizard.infrastructure.JavaFormatter");
+
+    if (forms.size() <> 0 ){
+       for (form in forms){
+
+         var hash = new Native("java.util.HashMap"); 
+   
+         var javaPath = component.getComponentRoot+"/"+component.getArtifactId()+"/src/main/java/"+component.basePackage.replaceAll("\\.","\\/")+"/";  
+         var resourcePath =  component.getComponentRoot+"/"+component.getArtifactId()+"/src/main/resources/";
+         var uipackage = form.eContainer().parent;
+
+         hash.put("recipe",recipe);
+         hash.put("ingredient",ingredient);
+         hash.put("component",component);
+         hash.put("model_mapper",model_mapper);
+         hash.put("javaPath",javaPath);
+         hash.put("resourcePath",resourcePath);
+         hash.put("form",form);
+         hash.put("configuration",configuration);
+         hash.put("uipackage",uipackage);
+         hash.put("View_implementation",View_implementation);
+         
+         if (form.view = null or form.view.view = null)
+            return;   
+
+         for (canvas in form.view.view.canvases){
+              if (canvas.isKindOf(domain::ViewPortHolder)  and canvas.isKindOf(domain::CanvasFrame) ){
+                  var uiElementsList = queryHelper.findUIElementsForPage(canvas); 
+                  hash.put("uiElementsList",uiElementsList);
+                  hash.put("canvas",canvas);
+                  var pageobject : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.wizard.generation/template/technologies/JSE/Testing/Selenium/PageObject.egl",hash,TemplateFactory);
+                  pageobject.setFormatter(f);
+                  var buffer = pageobject.process();
+                  util.saveFile( javaPath+"/"+util.mergeAndCapitalize(uipackage.name).toLowerCase()+"/"+util.mergeAndCapitalize(form.name).toLowerCase()+"/pageobject/"  ,  util.mergeAndCapitalize(canvas.name) +  "PageObject.java",buffer);  
+              }
+           }
+       }
+     }  
+%]

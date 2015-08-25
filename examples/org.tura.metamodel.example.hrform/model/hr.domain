@@ -1908,6 +1908,24 @@
         <options uid="2ff2d9ab-e871-4392-a06f-a6f4e54f6f54" value="1.7"/>
       </specifiers>
     </artifacts>
+    <artifacts uid="ffed3ffa-6548-4d5c-bf6b-9c434f34092f" name="Selenium Page Object" template="platform:/plugin/org.tura.metamodel.wizard.generation/template/technologies/JSE/Testing/Selenium/mainPageObjectBuilder.egl">
+      <modelQuery uid="26d31036-aa62-4ac5-b73a-ad1c5f036bb5" name="Query form" query="domain::DomainApplication.allInstances()->select(r|r.oclAsType(domain::DomainApplication).name='${Application}').oclAsType(domain::DomainApplication).application.applicationUILayer.applicationUIPackages->select(r|r.oclAsType(domain::ApplicationUIPackage).name='${UIPackage}').uipackage.forms">
+        <parameters uid="cec7fd13-ebff-4694-8e7b-8326810ea62b" name="Application"/>
+        <parameters uid="3d1a2d7b-9dfd-4f70-bad8-8bacde67e9d3" name="UIPackage"/>
+      </modelQuery>
+      <specifiers uid="534d81a8-2ce6-40a2-a805-a4ce774a8c0e" name="View implementation">
+        <options uid="8aa3690c-c933-48cd-bdb8-9099ab93ff09" value="JEE/JSF/PrimeFaces"/>
+        <options uid="b96c4b43-f780-4791-be32-44bc8a1c0b39" value="JEE/JSF/RichFaces"/>
+        <options uid="43dd2417-e4cf-4906-af0d-f5422ae7f068" value="JEE/JSF/ICEFaces"/>
+      </specifiers>
+    </artifacts>
+    <artifacts uid="4966db32-c135-4d97-a1ef-64f79c67174f" name="Selenium page object builder" template="platform:/plugin/org.tura.metamodel.wizard.generation/template/technologies/JSE/Testing/Selenium/mainPageObjectBuilderPom-xml.egl">
+      <configVariables uid="333ee7eb-2bb2-44d1-aae1-9025a4566164" name="Selenium version"/>
+      <specifiers uid="d8dcc909-2c07-4b9e-b8eb-79fa6546855d" name="Java">
+        <options uid="a92b9ee5-9dee-4344-9f6d-09802b89c054" value="1.7"/>
+        <options uid="20789e8b-642a-4dda-ba85-b0cdf6c4ed7a" value="1.8"/>
+      </specifiers>
+    </artifacts>
   </tura.domain:Artifacts>
   <tura.domain:Recipes uid="780d51bf-e928-4fb4-a228-4371d8fe439d" parent="fc4a8a78-b68c-4020-bb95-ab6d773b5486">
     <recipe mappers="0d86886f-6d6e-49e1-a123-d063d2d9bd22 236f541c-3271-4e57-a60e-1769390bf194" uid="6cb40735-2e80-4221-9ab5-31d646aff979" infrastructures="81bafabb-45d9-48af-9283-6ffc90afbda3" deployment="de56ff3a-4261-47dc-9ee7-0f61390fee4e">
@@ -2049,6 +2067,19 @@
             <specifiers specifierRef="369f6f2d-6b0b-46fd-aaee-bc6d56fb4340" valueRef="ae3da070-7fdd-476f-b315-57cdab52ffcb"/>
           </mappers>
         </components>
+        <components xsi:type="tura.domain:JavaComponent" columns="3" uid="4a3540de-9094-4525-9f72-df06a9f51f79" name="Selenium testing package" componentRoot="/Users/arseniy/generatedCode/uiLayer" artifactId="hrform-pageobjects" groupId="org.tura.example.ui" version="1.0" basePackage="org.tura.example.ui">
+          <mappers uid="8196614d-a840-417d-98c8-b73443f98bf2" domainArtifactRef="5945624b-20f3-47f9-9cb1-d0dc8df9491a" artifactRef="ffed3ffa-6548-4d5c-bf6b-9c434f34092f" name="Page objects">
+            <specifiers specifierRef="534d81a8-2ce6-40a2-a805-a4ce774a8c0e" valueRef="8aa3690c-c933-48cd-bdb8-9099ab93ff09"/>
+            <queries uid="bf28e272-5ff4-48cd-8014-1baf1c9d626b" queryRef="26d31036-aa62-4ac5-b73a-ad1c5f036bb5">
+              <variables queryParamRef="3d1a2d7b-9dfd-4f70-bad8-8bacde67e9d3" value="Hr manager"/>
+              <variables queryParamRef="cec7fd13-ebff-4694-8e7b-8326810ea62b" value="HR application"/>
+            </queries>
+          </mappers>
+          <mappers uid="d12154b7-566c-4f64-a77c-4053ce2cf100" domainArtifactRef="5945624b-20f3-47f9-9cb1-d0dc8df9491a" artifactRef="4966db32-c135-4d97-a1ef-64f79c67174f" name="Page Object builder">
+            <specifiers specifierRef="d8dcc909-2c07-4b9e-b8eb-79fa6546855d" valueRef="a92b9ee5-9dee-4344-9f6d-09802b89c054"/>
+          </mappers>
+          <mappers uid="678a8d5d-7923-4123-b72a-8b592c61dd93" domainArtifactRef="5945624b-20f3-47f9-9cb1-d0dc8df9491a" artifactRef="b6450037-f0e0-440d-a26d-26685c245fe8" name="Application build runner"/>
+        </components>
       </ingredients>
     </recipe>
     <configurations uid="a2357108-13c5-455e-824c-78102bd6bfe1" infrastructure="81bafabb-45d9-48af-9283-6ffc90afbda3">
@@ -2065,13 +2096,15 @@
       <properties uid="c7be5cd1-3d0a-4c57-a637-5ffb078d2b80" confVarRef="04f1aaa1-2500-4a3e-84e7-3c0f328fce17" value="/Users/arseniy/glassfish4"/>
       <properties uid="d97de117-00e1-4291-b455-7a25adf76d40" confVarRef="c1306333-7f7f-4da9-8b6e-f828d46cab5f" value="domain1"/>
       <properties uid="0d5e9fcf-7669-4838-9b0a-bc873254cdad" confVarRef="33fb6445-8890-4837-8905-d939a9338ff5" value="4848"/>
+      <properties uid="739a8e89-55f4-4dec-8ae5-45b959dff04f" confVarRef="333ee7eb-2bb2-44d1-aae1-9025a4566164" value="2.47.1"/>
     </configurations>
     <infrastructures uid="81bafabb-45d9-48af-9283-6ffc90afbda3" recipe="6cb40735-2e80-4221-9ab5-31d646aff979" name="Development" recipeConfig="a2357108-13c5-455e-824c-78102bd6bfe1"/>
     <deployment uid="de56ff3a-4261-47dc-9ee7-0f61390fee4e" name="Deployment">
       <deploymentComponents uid="8086123c-aa38-4e52-a151-4041c23f52f3">
         <deplymentStep uid="3e349778-ce74-4deb-a7ea-d8ba8d92d16a" name="Form ingredient:UI component:Application build runner" mapper="c936a1de-0c00-4eff-939f-a0778cecdd8d" deploymentComponentLink="cffa53b7-fbb6-4cb9-ba02-e63038b6b461"/>
-        <deplymentStep uid="cffa53b7-fbb6-4cb9-ba02-e63038b6b461" name="Form ingredient:UI component:Application deployer" mapper="33596ca2-e673-4e86-867e-484ce5e0ed62"/>
+        <deplymentStep uid="cffa53b7-fbb6-4cb9-ba02-e63038b6b461" name="Form ingredient:UI component:Application deployer" mapper="33596ca2-e673-4e86-867e-484ce5e0ed62" deploymentComponentLink="22d0b7d9-c54c-48d6-a631-7e8c96c95f72"/>
         <deplymentStep uid="b2f28822-c29a-4813-a8b5-6ecffc8d10b7" name="Form ingredient:Forms interface:Application build runner" mapper="b85a4098-b3e6-495e-9646-894f35423678" deploymentComponentLink="3e349778-ce74-4deb-a7ea-d8ba8d92d16a"/>
+        <deplymentStep uid="22d0b7d9-c54c-48d6-a631-7e8c96c95f72" name="Form ingredient:Selenium testing package:Page objects" mapper="8196614d-a840-417d-98c8-b73443f98bf2"/>
         <startSeq uid="a1b9ca74-2f3c-41dd-bdd8-cc1ee2293621" firstStep="b2f28822-c29a-4813-a8b5-6ecffc8d10b7"/>
       </deploymentComponents>
     </deployment>
