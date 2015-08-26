@@ -1918,6 +1918,7 @@
         <options uid="b96c4b43-f780-4791-be32-44bc8a1c0b39" value="JEE/JSF/RichFaces"/>
         <options uid="43dd2417-e4cf-4906-af0d-f5422ae7f068" value="JEE/JSF/ICEFaces"/>
       </specifiers>
+      <hints uid="af128f8b-b49a-4c04-b336-6d96bfe8b4e8" name="Web element name"/>
     </artifacts>
     <artifacts uid="4966db32-c135-4d97-a1ef-64f79c67174f" name="Selenium page object builder" template="platform:/plugin/org.tura.metamodel.wizard.generation/template/technologies/JSE/Testing/Selenium/mainPageObjectBuilderPom-xml.egl">
       <configVariables uid="333ee7eb-2bb2-44d1-aae1-9025a4566164" name="Selenium version"/>
@@ -2588,6 +2589,7 @@
         <styleClass/>
         <children xsi:type="tura.domain:Button" uid="1c158a9e-628f-43de-b721-5b4155baa65e" label="Save">
           <style constant="true" value="width:30px;height:30px"/>
+          <classifiers uid="07c09c50-4178-4b15-9774-1e91c5bcc211" hint="af128f8b-b49a-4c04-b336-6d96bfe8b4e8" details="Save Button"/>
           <triggers packageRef="e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="c4654ad8-156f-4706-bda2-791ed81fcdea" fakePackageName="HR package" fakeTypeName="Action executor" methodRef="bf119b85-c597-4642-8522-b51b95e9c7b8" fakeMethod="saveApplication" uid="e70804b0-feb5-44e1-b89b-515e1a171767"/>
           <enabled/>
           <multiLangLabel/>

@@ -891,7 +891,10 @@ public class QueryHelper {
 			if (el instanceof domain.LayerHolder) {
 				findUIElement(list, (domain.LayerHolder) el);
 				continue;
+			}else{
+				list.add(el);
 			}
+			
 		}
 	}
 

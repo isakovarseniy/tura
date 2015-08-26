@@ -2,6 +2,7 @@
 <#assign start = "[" >
 <#assign end = "]" >
 ${start}${percent} 
+import "platform:/plugin/org.tura.metamodel.wizard.generation/template/technologies/JSE/Testing/Selenium/${View_implementation}/webElementAccessor.egl";
 import "platform:/plugin/org.tura.metamodel.wizard.generation/template/technologies/${View_implementation}.egl";
 ${percent}${end}
 [%
@@ -10,15 +11,20 @@ ${percent}${end}
   package [%=component.basePackage%].[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()+"."+util.mergeAndCapitalize(form.name).toLowerCase()+".pageobject"%];
   
   public class [%=util.mergeAndCapitalize(canvas.name)%]PageObject{
-  [%for(uiElement in uiElementsList){%]
-  
-  @org.openqa.selenium.support.FindBy(id="[%=uiElement.mkuid()%]")
-  protected  org.openqa.selenium.WebElement [%=uiElement.mkuid()%];
-  
+     org.openqa.selenium.WebDriver webDriver;
+  [%for(uiElement in uiElementsList){
+    var methodName = uiElement.mkuid();
+    if (uiElement.nickname.isDefined())
+      methodName = uiElement.nickname;
+    else{
+       if ( uiElement.findClassifier('UIGeneration','Selenium Page Object','Web element name') ){
+         methodName = uiElement.~hintDetails;
+       }
+    }  
+  %]
+    [%=uiElement.accessor(uiElement.mkuid(),methodName)%]
   [%
   }
   %]
-  
-  
   }
 

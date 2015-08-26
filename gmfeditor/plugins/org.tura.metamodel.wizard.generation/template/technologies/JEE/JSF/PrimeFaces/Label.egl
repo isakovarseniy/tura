@@ -3,7 +3,7 @@ operation domain::Label draw(hash) {
      var util = new Native('org.tura.metamodel.commons.Util');
      util.traceIfDebug("UI element","Label start: "+self.uid);     
 %]
-	<h:outputText  [%=self.mkUIDBinding()%] [%=self.uiElementAttributes(hash)%]  value="[%=buildParameterizedExpression(self.multiLangLabel)%]" />
+	<p:outputLabel  [%=self.mkUIDBinding()%] [%=self.uiElementAttributes(hash)%]  value="[%=buildParameterizedExpression(self.multiLangLabel)%]" />
 [%
      util.traceIfDebug("UI element","Label start: "+self.uid);     
 }

@@ -1,0 +1,108 @@
+[%
+@template
+operation  domain::Button accessor(id,methodName) {
+     var util = new Native('org.tura.metamodel.commons.Util');
+   %]
+     public org.tura.platform.selenium.Button get[%=util.mergeAndCapitalize(methodName)%](){
+      return org.tura.platform.selenium.primefaces.ButtonPrimeFaces (webDriver.findElement(org.openqa.selenium.By.cssSelector("button[id$='[%=id%]']")));
+      }
+    [%
+}
+
+@template
+operation  domain::CheckBox accessor(id,methodName)  {
+     var util = new Native('org.tura.metamodel.commons.Util');
+   %]
+     public org.tura.platform.selenium.CheckBox get[%=util.mergeAndCapitalize(methodName)%](){
+        return new org.tura.platform.selenium.primefaces.CheckBoxPrimeFaces(  webDriver.findElement(org.openqa.selenium.By.cssSelector("div[id$='[%=id%]']")));
+      }[%   
+}
+
+
+@template
+operation  domain::Date accessor(id,methodName)  {
+     var util = new Native('org.tura.metamodel.commons.Util');
+   %]
+     public org.tura.platform.selenium.Date get[%=util.mergeAndCapitalize(methodName)%](){
+       return new org.tura.platform.selenium.primefaces.DatePrimeFaces( webDriver.findElement(org.openqa.selenium.By.cssSelector("input[id$='[%=id%]']")));
+      }[%   
+}
+
+
+@template
+operation  domain::DropDownSelection accessor(id,methodName)  {
+     var util = new Native('org.tura.metamodel.commons.Util');
+   %]
+     public org.tura.platform.selenium.DropDownSelection get[%=util.mergeAndCapitalize(methodName)%](){
+       return new org.tura.platform.selenium.primefaces.DropDownSelectionPrimeFaces( webDriver.findElement(org.openqa.selenium.By.cssSelector("input[id$='[%=id%]']")));
+     }[%   
+}
+
+
+@template
+operation  domain::Image accessor(id,methodName)  {
+     var util = new Native('org.tura.metamodel.commons.Util');
+   %]
+     public org.tura.platform.selenium.Image get[%=util.mergeAndCapitalize(methodName)%](){
+       return new org.tura.platform.selenium.primefaces.ImagePrimeFaces( webDriver.findElement(org.openqa.selenium.By.cssSelector("img[id$='[%=id%]']")));
+      }[%   
+}
+
+
+@template
+operation  domain::InputText accessor(id,methodName)  {
+     var util = new Native('org.tura.metamodel.commons.Util');
+   %]
+     public org.tura.platform.selenium.InputText get[%=util.mergeAndCapitalize(methodName)%](){
+       return new org.tura.platform.selenium.primefaces.InputTextPrimeFaces( webDriver.findElement(org.openqa.selenium.By.cssSelector("input[id$='[%=id%]']")));
+     }[%   
+}
+
+@template
+operation  domain::Label accessor(id,methodName)  {
+     var util = new Native('org.tura.metamodel.commons.Util');
+   %]
+     public org.tura.platform.selenium.Label get[%=util.mergeAndCapitalize(methodName)%](){
+         return new org.tura.platform.selenium.primefaces.LabelPrimeFaces( webDriver.findElement(org.openqa.selenium.By.cssSelector("label[id$='[%=id%]']")));
+     }[%   
+}
+
+
+@template
+operation  domain::OutputText accessor(id,methodName)  {
+     var util = new Native('org.tura.metamodel.commons.Util');
+   %]
+     public org.tura.platform.selenium.OutputText get[%=util.mergeAndCapitalize(methodName)%](){
+        return new org.tura.platform.selenium.primefaces.OutputTextPrimeFaces( webDriver.findElement(org.openqa.selenium.By.cssSelector("input[id$='[%=id%]']")));
+      }[%   
+}
+
+@template
+operation  domain::LayerHolder accessor(id,methodName)  {
+     var util = new Native('org.tura.metamodel.commons.Util');
+   %]
+     public org.tura.platform.selenium.LayerHolder get[%=util.mergeAndCapitalize(methodName)%](){
+       return new org.tura.platform.selenium.primefaces.LayerHolderPrimeFaces( webDriver.findElement(org.openqa.selenium.By.cssSelector("table[id$='[%=id%]']")));
+     }[%   
+}
+
+
+@template
+operation  domain::Table accessor(id,methodName)  {
+     var util = new Native('org.tura.metamodel.commons.Util');
+   %]
+     public org.tura.platform.selenium.Table get[%=util.mergeAndCapitalize(methodName)%](){
+       return new org.tura.platform.selenium.primefaces.TablePrimeFaces( webDriver.findElement(org.openqa.selenium.By.cssSelector("table[id$='[%=id%]']")));
+      }[%   
+}
+
+@template
+operation  domain::Tree accessor(id,methodName)  {
+     var util = new Native('org.tura.metamodel.commons.Util');
+   %]
+     public org.tura.platform.selenium.Tree get[%=util.mergeAndCapitalize(methodName)%](){
+       return new org.tura.platform.selenium.primefaces.TreePrimeFaces( webDriver.findElement(org.openqa.selenium.By.cssSelector("ui[id$='[%=id%]']")));
+      }[%   
+}
+
+%]
