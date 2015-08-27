@@ -4,7 +4,7 @@ operation  domain::Button accessor(id,methodName) {
      var util = new Native('org.tura.metamodel.commons.Util');
    %]
      public org.tura.platform.selenium.Button get[%=util.mergeAndCapitalize(methodName)%](){
-      return org.tura.platform.selenium.primefaces.ButtonPrimeFaces (webDriver.findElement(org.openqa.selenium.By.cssSelector("button[id$='[%=id%]']")));
+      return new org.tura.platform.selenium.primefaces.ButtonPrimeFaces (webDriver.findElement(org.openqa.selenium.By.cssSelector("button[id$='[%=id%]']")));
       }
     [%
 }

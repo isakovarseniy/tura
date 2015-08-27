@@ -33,7 +33,6 @@
 		<version.josql>2.2</version.josql>
 		<version.weld>2.1.1.Final</version.weld>
 		<version.primefaces>5.1</version.primefaces>
-		<version.primefaces-model>2.0</version.primefaces-model>
 
 	</properties>
 
@@ -50,9 +49,11 @@
 		<module>java-sql-dsl</module>
 		<module>commons-test</module>
 		<module>commons-persistence</module>
+		<module>commons-selenium</module>
 		<module>commons-jpa</module>
 		<module>datacontrol</module>
 		<module>primefaces-model</module>
+		<module>primefaces-selenium</module>
 	</modules>
 
 
@@ -181,8 +182,15 @@
 		<dependency>
 			<groupId>org.tura.platform</groupId>
 			<artifactId>primefaces-model</artifactId>
-				<version>${version.primefaces-model}</version>
+			<version>${version.tura-platform}</version>
 		</dependency>			
+
+		<dependency>
+			<groupId>org.tura.platform</groupId>
+			<artifactId>commons-selenium</artifactId>
+			<version>${version.tura-platform}</version>
+		</dependency>
+
 
 		</dependencies>
 
@@ -232,6 +240,41 @@
 				</dependencies>
 			</plugin>
 		</plugins>
+		<pluginManagement>
+			<plugins>
+				<!--This plugin's configuration is used to store Eclipse m2e settings only. It has no influence on the Maven build itself.-->
+				<plugin>
+					<groupId>org.eclipse.m2e</groupId>
+					<artifactId>lifecycle-mapping</artifactId>
+					<version>1.0.0</version>
+					<configuration>
+						<lifecycleMappingMetadata>
+							<pluginExecutions>
+								<pluginExecution>
+									<pluginExecutionFilter>
+										<groupId>
+											com.mycila.maven-license-plugin
+										</groupId>
+										<artifactId>
+											maven-license-plugin
+										</artifactId>
+										<versionRange>
+											[1.10.b1,)
+										</versionRange>
+										<goals>
+											<goal>format</goal>
+										</goals>
+									</pluginExecutionFilter>
+									<action>
+										<ignore></ignore>
+									</action>
+								</pluginExecution>
+							</pluginExecutions>
+						</lifecycleMappingMetadata>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
 	</build>
 
 
