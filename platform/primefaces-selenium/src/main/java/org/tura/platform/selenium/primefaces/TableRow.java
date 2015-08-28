@@ -21,6 +21,8 @@
  */
 package org.tura.platform.selenium.primefaces;
 
+import java.util.List;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.tura.platform.selenium.Row;
@@ -35,7 +37,8 @@ public class TableRow implements Row {
 
 	@Override
 	public WebElement getCell(int index) {
-		return element.findElement( By.xpath("//td[@role='gridcell'][" +index+"]"));
+		List<WebElement> ls =element.findElements(By.cssSelector("td[role='gridcell']"));
+		return ls.get(index);
 	}
 
 	@Override

@@ -92,7 +92,7 @@ operation  domain::Table accessor(id,methodName)  {
      var util = new Native('org.tura.metamodel.commons.Util');
    %]
      public org.tura.platform.selenium.Table get[%=util.mergeAndCapitalize(methodName)%](){
-       return new org.tura.platform.selenium.primefaces.TablePrimeFaces( webDriver.findElement(org.openqa.selenium.By.cssSelector("table[id$='[%=id%]']")));
+       return new org.tura.platform.selenium.primefaces.TablePrimeFaces( webDriver.findElement(org.openqa.selenium.By.cssSelector("div[id$='[%=id%]']")));
       }[%   
 }
 
@@ -101,7 +101,7 @@ operation  domain::Tree accessor(id,methodName)  {
      var util = new Native('org.tura.metamodel.commons.Util');
    %]
      public org.tura.platform.selenium.Tree get[%=util.mergeAndCapitalize(methodName)%](){
-       return new org.tura.platform.selenium.primefaces.TreePrimeFaces( webDriver.findElement(org.openqa.selenium.By.cssSelector("ui[id$='[%=id%]']")));
+       return new org.tura.platform.selenium.primefaces.TreePrimeFaces( webDriver.findElement(org.openqa.selenium.By.cssSelector("div[id$='[%=id%]']")));
       }[%   
 }
 

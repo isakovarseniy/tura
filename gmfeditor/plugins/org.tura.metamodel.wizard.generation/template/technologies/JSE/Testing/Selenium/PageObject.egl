@@ -12,6 +12,11 @@ ${percent}${end}
   
   public class [%=util.mergeAndCapitalize(canvas.name)%]PageObject{
      org.openqa.selenium.WebDriver webDriver;
+     
+     public [%=util.mergeAndCapitalize(canvas.name)%]PageObject(org.openqa.selenium.WebDriver webDriver){
+         this.webDriver = webDriver;
+     }
+     
   [%for(uiElement in uiElementsList){
     var methodName = uiElement.mkuid();
     if (uiElement.nickname.isDefined())

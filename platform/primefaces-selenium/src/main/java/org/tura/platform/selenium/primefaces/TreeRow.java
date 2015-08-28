@@ -35,13 +35,20 @@ public class TreeRow implements Row {
 
 	@Override
 	public WebElement getCell(int index) {
-		return  element.findElement(By.cssSelector("span[role='treeitem']"));
+		return  element.findElement(By.cssSelector("span[class*='ui-treenode-content']"));
 	}
 
 	@Override
 	public void click() {
 		element.click();
-
 	}
 
+	public void open(){
+		getCell(0).findElement(By.cssSelector("span[class*='ui-tree-toggler']")).click();
+	}
+	
+	public void close(){
+		open();
+	}
+	
 }

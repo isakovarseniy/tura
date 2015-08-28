@@ -355,6 +355,8 @@
     <types xsi:type="tura.domain:Type" uid="2ab4a62a-fe09-4a91-b1f7-2996f3fc498e" name="Object ID generator">
       <classifiers uid="e12d16d1-063a-4a5f-91da-0666c863da11" hint="bf57ae0e-a725-4c7c-b178-ebbf640b2375"/>
     </types>
+    <types xsi:type="tura.domain:Type" uid="ba908788-92df-4e2c-91d5-ce98b3c3e41e" name="Selenium"/>
+    <types xsi:type="tura.domain:Type" uid="8074d457-e61b-424c-b02d-1bcc3356031a" name="Selenium for Primefaces"/>
   </tura.domain:TypeDefinition>
   <tura.domain:TypeDefinition uid="Uniq_115091ed-0c7c-4eae-be06-8496210d4b84" parent="e8faa4f9-a654-40f5-bdf5-454f90f2af19">
     <types xsi:type="tura.domain:Type" uid="Comp_52ffccb7-cea6-49de-ba4b-7437f1da3369" name="Company Type">
@@ -1922,6 +1924,16 @@
     </artifacts>
     <artifacts uid="4966db32-c135-4d97-a1ef-64f79c67174f" name="Selenium page object builder" template="platform:/plugin/org.tura.metamodel.wizard.generation/template/technologies/JSE/Testing/Selenium/mainPageObjectBuilderPom-xml.egl">
       <configVariables uid="333ee7eb-2bb2-44d1-aae1-9025a4566164" name="Selenium version"/>
+      <modelQuery uid="c1ba6875-3b22-42a9-bb5c-116d65a6a516" name="Query type" query="domain::Package.allInstances()->select(r|r.oclAsType(domain::Package).name='${Package name}').oclAsType(domain::Package).typedefinition.types->select(r|(r.oclIsKindOf(domain::Type) and  r.oclAsType(domain::Type).name = '${Type name}')  or (r.oclIsKindOf(domain::Primitive) and  r.oclAsType(domain::Primitive).name = '${Type name}') or (r.oclIsKindOf(domain::Enumarator) and  r.oclAsType(domain::Enumarator).name = '${Type name}') )">
+        <parameters uid="932b6fdb-8b01-4c3b-811b-4da270e10d52" name="Package name"/>
+        <parameters uid="cb788f86-f3a7-4adf-a739-06da90bda43c" name="Type name"/>
+      </modelQuery>
+      <modelQuery uid="6d788000-8cd4-4bfe-b751-b2cedcb3013b" name="Query package of types" query="domain::Package.allInstances()->select(r|r.oclAsType(domain::Package).name='${Package name}').oclAsType(domain::Package).typedefinition.types->select(r|((r.oclIsKindOf(domain::Type ) ) )).oclAsType(domain::Categorized).classifiers->select(c|c.hint.name='${Hint}' and c.hint.oclAsType(ecore::EObject).eContainer().oclAsType(domain::Artifact).name = '${Artifact}' and  c.hint.oclAsType(ecore::EObject).eContainer().oclAsType(domain::Artifact).parent.oclAsType(domain::Artifacts).parent.oclAsType(domain::DomainArtifact).name = '${ArtifactLib}' )->collect(c|c.oclAsType(ecore::EObject).eContainer())">
+        <parameters uid="a08a35bf-d5eb-4376-ba15-08bbf3f2396f" name="Artifact"/>
+        <parameters uid="2c8d9ce9-92ae-4b51-a23f-d923eef07af8" name="ArtifactLib"/>
+        <parameters uid="3880dc27-17c5-4230-884d-dc0e2ebd95d6" name="Hint"/>
+        <parameters uid="1060d752-653d-4e21-ba56-b5beb6aeac9b" name="Package name"/>
+      </modelQuery>
       <specifiers uid="d8dcc909-2c07-4b9e-b8eb-79fa6546855d" name="Java">
         <options uid="a92b9ee5-9dee-4344-9f6d-09802b89c054" value="1.7"/>
         <options uid="20789e8b-642a-4dda-ba85-b0cdf6c4ed7a" value="1.8"/>
@@ -2078,6 +2090,20 @@
           </mappers>
           <mappers uid="d12154b7-566c-4f64-a77c-4053ce2cf100" domainArtifactRef="5945624b-20f3-47f9-9cb1-d0dc8df9491a" artifactRef="4966db32-c135-4d97-a1ef-64f79c67174f" name="Page Object builder">
             <specifiers specifierRef="d8dcc909-2c07-4b9e-b8eb-79fa6546855d" valueRef="a92b9ee5-9dee-4344-9f6d-09802b89c054"/>
+            <queries uid="eeb1e90b-befa-4b32-9e2b-fb91d65be0ba" name="Query Package NA" queryRef="6d788000-8cd4-4bfe-b751-b2cedcb3013b">
+              <variables queryParamRef="2c8d9ce9-92ae-4b51-a23f-d923eef07af8" value="NA"/>
+              <variables queryParamRef="1060d752-653d-4e21-ba56-b5beb6aeac9b" value="NA"/>
+              <variables queryParamRef="3880dc27-17c5-4230-884d-dc0e2ebd95d6" value="NA"/>
+              <variables queryParamRef="a08a35bf-d5eb-4376-ba15-08bbf3f2396f" value="NA"/>
+            </queries>
+            <queries uid="c74f958c-fbc7-47bc-97b7-476cdd66700d" queryRef="c1ba6875-3b22-42a9-bb5c-116d65a6a516">
+              <variables queryParamRef="cb788f86-f3a7-4adf-a739-06da90bda43c" value="Selenium"/>
+              <variables queryParamRef="932b6fdb-8b01-4c3b-811b-4da270e10d52" value="Base package"/>
+            </queries>
+            <queries uid="57485208-906e-4ca5-9dab-5d97659f109d" name="Query" queryRef="c1ba6875-3b22-42a9-bb5c-116d65a6a516">
+              <variables queryParamRef="cb788f86-f3a7-4adf-a739-06da90bda43c" value="Selenium for Primefaces"/>
+              <variables queryParamRef="932b6fdb-8b01-4c3b-811b-4da270e10d52" value="Base package"/>
+            </queries>
           </mappers>
           <mappers uid="1f8a00dd-da63-411a-89d5-5992224d1f87" domainArtifactRef="5945624b-20f3-47f9-9cb1-d0dc8df9491a" artifactRef="b6450037-f0e0-440d-a26d-26685c245fe8" name="Application build runner" artifactExecutionString="bash /Users/arseniy/generatedCode/uiLayer/hrform-pageobjects/builder.sh">
             <specifiers specifierRef="369f6f2d-6b0b-46fd-aaee-bc6d56fb4340" valueRef="ae3da070-7fdd-476f-b315-57cdab52ffcb"/>
@@ -2235,6 +2261,8 @@
     <mappers xsi:type="tura.domain:CSSMapper" uid="3c43cf24-80ab-4fe5-90e9-fc636e23771d" libraryUrl="hrcontrol-style.css" stylePackage="a9b99a7f-03c7-4b89-82c2-b3e1f0f326d2" styleLibrary="bc917c9e-7594-4ff8-9157-a9e6cf5ac5f5" fakePackageName="HR styles" fakeTypeName="HR Controller styles"/>
     <mappers xsi:type="tura.domain:JavaMapper" uid="476a71f7-6a51-44a7-97a4-c9d92110f237" uiLayer="true" packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="76fe6802-305f-4973-a750-b102d9559fc2" fakePackageName="Base package" fakeTypeName="Data control" mappedToPackageName="org.tura.platform.datacontrol" mappedToClassName="DataControl" artifactId="core" groupId="org.tura.platform.datacontrol" version="2.0" libraryName=""/>
     <mappers xsi:type="tura.domain:JavaMapper" uid="c6a6361f-f794-4609-b775-6184b6d91c12" uiLayer="true" packageRef="e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="1fb89120-1544-4563-a949-33a8d12ab064" fakePackageName="HR package" fakeTypeName="Department2Entity" mappedToPackageName="org.elsoft.platform.hr.objects" mappedToClassName="Department2EntityDAO" artifactId="hr-objects" groupId="org.tura.example.service" version="1.0"/>
+    <mappers xsi:type="tura.domain:JavaMapper" uid="73cf55ea-7b2b-49f4-ba4e-55685542088a" serviceLayer="true" uiLayer="true" packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="ba908788-92df-4e2c-91d5-ce98b3c3e41e" fakePackageName="Base package" fakeTypeName="Selenium" mappedToPackageName="org.openqa.selenium" mappedToClassName="WebDriver" artifactId="selenium-java" groupId="org.seleniumhq.selenium" version="2.47.1" libraryName=""/>
+    <mappers xsi:type="tura.domain:JavaMapper" uid="155647ef-3210-44f7-a04a-4d22466ec11f" serviceLayer="true" uiLayer="true" packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="8074d457-e61b-424c-b02d-1bcc3356031a" fakePackageName="Base package" fakeTypeName="Selenium for Primefaces" mappedToPackageName="org.tura.platform.selenium.primefaces" mappedToClassName="ButtonPrimeFaces" artifactId="primefaces-selenium" groupId="org.tura.platform" version="2.0"/>
   </tura.domain:Mappers>
   <tura.domain:TypeDefinition uid="c9574970-474a-403a-9224-f91bc2f8fe7a"/>
   <tura.domain:Messages uid="af03a493-0ca4-486c-945f-5bfc2fdf35bd" parent="39c0cb8c-3370-4a8b-9dc8-f988c6c3a565">

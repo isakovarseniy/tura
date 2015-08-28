@@ -12,11 +12,14 @@
 	<name>[%=component.getName()%]::[%=component.getArtifactId()%]</name>
 
 	<dependencies>
-       <dependency>
-	      <groupId>org.seleniumhq.selenium</groupId>
-	      <artifactId>selenium-java</artifactId>
-	      <version>[%=configuration.get("Selenium version")%]</version>
-          </dependency>
+
+       [% for (type in lib.values()) { %]
+				<dependency>
+					<groupId>[%=type.~groupId%]</groupId>
+					<artifactId>[%=type.~artifactId%]</artifactId>
+					<version>[%=type.~version%]</version>
+				</dependency>
+       [% } %]
 	</dependencies>
 
     <build>
