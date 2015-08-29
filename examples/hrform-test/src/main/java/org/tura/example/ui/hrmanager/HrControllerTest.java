@@ -15,7 +15,10 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 import org.tura.example.ui.hrmanager.hrcontroller.pageobject.HRControllerPageObject;
 import org.tura.platform.selenium.Table;
 import org.tura.platform.selenium.Tree;
+import org.tura.platform.selenium.primefaces.Helper;
 import org.tura.platform.selenium.primefaces.TreeRow;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.fail;
 
 public class HrControllerTest {
 
@@ -55,24 +58,66 @@ public class HrControllerTest {
 	}
 
 	@Test
-	public void t1_selectTable() {
+	public void t1_validateSwitchingSelectionCurrentRow() {
 		// Go to the Google Suggest home page
 		driver.get("http://localhost:8080/hrform-1.0/hrmanager/hrcontroller/HRController.xhtml?param1=qwerty2");
-		
+		Helper helper = new Helper(driver);
+
 		HRControllerPageObject hrControllerPage = new HRControllerPageObject(
 				driver);
+
 		Table t = hrControllerPage.getCompanies();
-		 t.getRow(1).getCell(0);
-		
+		t.getRow(0).getCell(1);
+		helper.waitForJQueryAndPrimeFaces();
+
 		Tree tree = hrControllerPage.getLocationTree();
-		TreeRow tr=  (TreeRow) tree.getRow("0");
+		TreeRow tr = (TreeRow) tree.getRow("0");
 		tr.open();
-		
-		WebElement el = tr.getCell(0);
-		
-		
-		System.out.println(el.getText());
+
+		WebElement el = tr.getCell(1);
+		assertEquals("Country 1", el.getText());
+
+		t.getRow(1).getCell(1).click();
+		helper.waitForJQueryAndPrimeFaces();
+
+		tree = hrControllerPage.getLocationTree();
+		tr = (TreeRow) tree.getRow("0");
+		tr.open();
+
+		el = tr.getCell(0);
+		assertEquals("Country 2", el.getText());
 
 	}
 
+	@Test
+	public void t2_gridTwoClickBehavor() {
+		try {
+			// Go to the Google Suggest home page
+			driver.get("http://localhost:8080/hrform-1.0/hrmanager/hrcontroller/HRController.xhtml?param1=qwerty2");
+			Helper helper = new Helper(driver);
+
+			HRControllerPageObject hrControllerPage = new HRControllerPageObject(
+					driver);
+
+			Table t = hrControllerPage.getCompanies();
+			Tree tree = hrControllerPage.getLocationTree();
+			TreeRow tr = (TreeRow) tree.getRow("0");
+			tr.open();
+			helper.waitForJQueryAndPrimeFaces();
+
+			tr = (TreeRow) tree.getRow("0_1");
+			tr.open();
+			helper.waitForJQueryAndPrimeFaces();
+
+			t.getRow(0).click();
+			helper.waitForJQueryAndPrimeFaces();
+
+			tree = hrControllerPage.getLocationTree();
+			tr = (TreeRow) tree.getRow("0_1");
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			fail();
+		}
+	}
 }

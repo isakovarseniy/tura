@@ -69,9 +69,10 @@ public class GridModel {
 
 		array = (Object[]) event.getObject();
 		try {
-			if (!dc.getCurrentPosition().equals(array[0]) || resetCurentPosition )
+			if (!dc.getCurrentPosition().equals(array[0]) || resetCurentPosition ){
 				resetCurentPosition = false;
 				dc.setCurrentPosition(array[0]);
+			}
 		} catch (TuraException e) {
 			logger.fine(e.getMessage());
 		}
