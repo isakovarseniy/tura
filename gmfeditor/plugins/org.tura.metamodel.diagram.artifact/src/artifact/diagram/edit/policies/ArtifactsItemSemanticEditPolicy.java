@@ -11,8 +11,8 @@
  * http://www.eclipse.org/legal/epl-v10.html
  *******************************************************************************/
 /*
-* 
-*/
+ * 
+ */
 package artifact.diagram.edit.policies;
 
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
@@ -28,18 +28,19 @@ import artifact.diagram.providers.DomainElementTypes;
 /**
  * @generated
  */
-public class ArtifactsItemSemanticEditPolicy extends DomainBaseItemSemanticEditPolicy {
+public class ArtifactsItemSemanticEditPolicy extends
+		DomainBaseItemSemanticEditPolicy {
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public ArtifactsItemSemanticEditPolicy() {
 		super(DomainElementTypes.Artifacts_701000);
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	protected Command getCreateCommand(CreateElementRequest req) {
 		if (DomainElementTypes.Artifact_702001 == req.getElementType()) {
 			return getGEFWrapper(new ArtifactCreateCommand(req));
@@ -48,23 +49,29 @@ public class ArtifactsItemSemanticEditPolicy extends DomainBaseItemSemanticEditP
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	protected Command getDuplicateCommand(DuplicateElementsRequest req) {
-		TransactionalEditingDomain editingDomain = ((IGraphicalEditPart) getHost()).getEditingDomain();
+		TransactionalEditingDomain editingDomain = ((IGraphicalEditPart) getHost())
+				.getEditingDomain();
 		return getGEFWrapper(new DuplicateAnythingCommand(editingDomain, req));
 	}
 
 	/**
-	* @generated
-	*/
-	private static class DuplicateAnythingCommand extends DuplicateEObjectsCommand {
+	 * @generated
+	 */
+	private static class DuplicateAnythingCommand extends
+			DuplicateEObjectsCommand {
 
 		/**
-		* @generated
-		*/
-		public DuplicateAnythingCommand(TransactionalEditingDomain editingDomain, DuplicateElementsRequest req) {
-			super(editingDomain, req.getLabel(), req.getElementsToBeDuplicated(), req.getAllDuplicatedElementsMap());
+		 * @generated
+		 */
+		public DuplicateAnythingCommand(
+				TransactionalEditingDomain editingDomain,
+				DuplicateElementsRequest req) {
+			super(editingDomain, req.getLabel(), req
+					.getElementsToBeDuplicated(), req
+					.getAllDuplicatedElementsMap());
 		}
 
 	}

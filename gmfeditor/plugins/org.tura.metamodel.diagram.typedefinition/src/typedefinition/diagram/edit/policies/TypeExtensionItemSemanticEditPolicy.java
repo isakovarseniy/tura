@@ -11,8 +11,8 @@
  * http://www.eclipse.org/legal/epl-v10.html
  *******************************************************************************/
 /*
-* 
-*/
+ * 
+ */
 package typedefinition.diagram.edit.policies;
 
 import org.eclipse.gef.commands.Command;
@@ -24,18 +24,19 @@ import typedefinition.diagram.providers.DomainElementTypes;
 /**
  * @generated
  */
-public class TypeExtensionItemSemanticEditPolicy extends DomainBaseItemSemanticEditPolicy {
+public class TypeExtensionItemSemanticEditPolicy extends
+		DomainBaseItemSemanticEditPolicy {
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public TypeExtensionItemSemanticEditPolicy() {
 		super(DomainElementTypes.TypeExtension_104001);
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	protected Command getDestroyElementCommand(DestroyElementRequest req) {
 		return getGEFWrapper(new DestroyElementCommand(req));
 	}

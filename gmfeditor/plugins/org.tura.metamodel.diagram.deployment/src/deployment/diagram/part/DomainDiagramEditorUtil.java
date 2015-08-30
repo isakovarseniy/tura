@@ -11,8 +11,8 @@
  * http://www.eclipse.org/legal/epl-v10.html
  *******************************************************************************/
 /*
-* 
-*/
+ * 
+ */
 package deployment.diagram.part;
 
 import java.io.IOException;
@@ -75,31 +75,36 @@ import domain.DomainFactory;
 public class DomainDiagramEditorUtil {
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static Map<?, ?> getSaveOptions() {
 		HashMap<String, Object> saveOptions = new HashMap<String, Object>();
 		saveOptions.put(XMLResource.OPTION_ENCODING, "UTF-8"); //$NON-NLS-1$
-		saveOptions.put(Resource.OPTION_SAVE_ONLY_IF_CHANGED, Resource.OPTION_SAVE_ONLY_IF_CHANGED_MEMORY_BUFFER);
+		saveOptions.put(Resource.OPTION_SAVE_ONLY_IF_CHANGED,
+				Resource.OPTION_SAVE_ONLY_IF_CHANGED_MEMORY_BUFFER);
 		return saveOptions;
 	}
 
 	/**
-	* @generated
-	*/
-	public static boolean openDiagram(Resource diagram) throws PartInitException {
+	 * @generated
+	 */
+	public static boolean openDiagram(Resource diagram)
+			throws PartInitException {
 		String path = diagram.getURI().toPlatformString(true);
-		IResource workspaceResource = ResourcesPlugin.getWorkspace().getRoot().findMember(new Path(path));
+		IResource workspaceResource = ResourcesPlugin.getWorkspace().getRoot()
+				.findMember(new Path(path));
 		if (workspaceResource instanceof IFile) {
-			IWorkbenchPage page = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage();
-			return null != page.openEditor(new FileEditorInput((IFile) workspaceResource), DomainDiagramEditor.ID);
+			IWorkbenchPage page = PlatformUI.getWorkbench()
+					.getActiveWorkbenchWindow().getActivePage();
+			return null != page.openEditor(new FileEditorInput(
+					(IFile) workspaceResource), DomainDiagramEditor.ID);
 		}
 		return false;
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static void setCharset(IFile file) {
 		if (file == null) {
 			return;
@@ -107,15 +112,18 @@ public class DomainDiagramEditorUtil {
 		try {
 			file.setCharset("UTF-8", new NullProgressMonitor()); //$NON-NLS-1$
 		} catch (CoreException e) {
-			DomainDiagramEditorPlugin.getInstance().logError("Unable to set charset for file " + file.getFullPath(), e); //$NON-NLS-1$
+			DomainDiagramEditorPlugin.getInstance().logError(
+					"Unable to set charset for file " + file.getFullPath(), e); //$NON-NLS-1$
 		}
 	}
 
 	/**
-	* @generated
-	*/
-	public static String getUniqueFileName(IPath containerFullPath, String fileName, String extension) {
-		return DefaultDiagramEditorUtil.getUniqueFileName(containerFullPath, fileName, extension,
+	 * @generated
+	 */
+	public static String getUniqueFileName(IPath containerFullPath,
+			String fileName, String extension) {
+		return DefaultDiagramEditorUtil.getUniqueFileName(containerFullPath,
+				fileName, extension,
 				DefaultDiagramEditorUtil.EXISTS_IN_WORKSPACE);
 	}
 
@@ -125,36 +133,49 @@ public class DomainDiagramEditorUtil {
 	 * @generated
 	 */
 	public static void runWizard(Shell shell, Wizard wizard, String settingsKey) {
-		IDialogSettings pluginDialogSettings = DomainDiagramEditorPlugin.getInstance().getDialogSettings();
-		IDialogSettings wizardDialogSettings = pluginDialogSettings.getSection(settingsKey);
+		IDialogSettings pluginDialogSettings = DomainDiagramEditorPlugin
+				.getInstance().getDialogSettings();
+		IDialogSettings wizardDialogSettings = pluginDialogSettings
+				.getSection(settingsKey);
 		if (wizardDialogSettings == null) {
-			wizardDialogSettings = pluginDialogSettings.addNewSection(settingsKey);
+			wizardDialogSettings = pluginDialogSettings
+					.addNewSection(settingsKey);
 		}
 		wizard.setDialogSettings(wizardDialogSettings);
 		WizardDialog dialog = new WizardDialog(shell, wizard);
 		dialog.create();
-		dialog.getShell().setSize(Math.max(500, dialog.getShell().getSize().x), 500);
+		dialog.getShell().setSize(Math.max(500, dialog.getShell().getSize().x),
+				500);
 		dialog.open();
 	}
 
 	/**
-	* This method should be called within a workspace modify operation since it creates resources.
-	* @generated
-	*/
-	public static Resource createDiagram(URI diagramURI, URI modelURI, IProgressMonitor progressMonitor) {
-		TransactionalEditingDomain editingDomain = GMFEditingDomainFactory.INSTANCE.createEditingDomain();
-		progressMonitor.beginTask(Messages.DomainDiagramEditorUtil_CreateDiagramProgressTask, 3);
-		final Resource diagramResource = editingDomain.getResourceSet().createResource(diagramURI);
-		final Resource modelResource = editingDomain.getResourceSet().createResource(modelURI);
+	 * This method should be called within a workspace modify operation since it creates resources.
+	 * @generated
+	 */
+	public static Resource createDiagram(URI diagramURI, URI modelURI,
+			IProgressMonitor progressMonitor) {
+		TransactionalEditingDomain editingDomain = GMFEditingDomainFactory.INSTANCE
+				.createEditingDomain();
+		progressMonitor.beginTask(
+				Messages.DomainDiagramEditorUtil_CreateDiagramProgressTask, 3);
+		final Resource diagramResource = editingDomain.getResourceSet()
+				.createResource(diagramURI);
+		final Resource modelResource = editingDomain.getResourceSet()
+				.createResource(modelURI);
 		final String diagramName = diagramURI.lastSegment();
-		AbstractTransactionalCommand command = new AbstractTransactionalCommand(editingDomain,
-				Messages.DomainDiagramEditorUtil_CreateDiagramCommandLabel, Collections.EMPTY_LIST) {
-			protected CommandResult doExecuteWithResult(IProgressMonitor monitor, IAdaptable info)
+		AbstractTransactionalCommand command = new AbstractTransactionalCommand(
+				editingDomain,
+				Messages.DomainDiagramEditorUtil_CreateDiagramCommandLabel,
+				Collections.EMPTY_LIST) {
+			protected CommandResult doExecuteWithResult(
+					IProgressMonitor monitor, IAdaptable info)
 					throws ExecutionException {
 				DeploymentComponents model = createInitialModel(modelResource);
 				attachModelToResource(model, modelResource);
 
-				Diagram diagram = ViewService.createDiagram(model, DeploymentComponentsEditPart.MODEL_ID,
+				Diagram diagram = ViewService.createDiagram(model,
+						DeploymentComponentsEditPart.MODEL_ID,
 						DomainDiagramEditorPlugin.DIAGRAM_PREFERENCES_HINT);
 				if (diagram != null) {
 					diagramResource.getContents().add(diagram);
@@ -163,20 +184,26 @@ public class DomainDiagramEditorUtil {
 				}
 
 				try {
-					modelResource.save(deployment.diagram.part.DomainDiagramEditorUtil.getSaveOptions());
-					diagramResource.save(deployment.diagram.part.DomainDiagramEditorUtil.getSaveOptions());
+					modelResource
+							.save(deployment.diagram.part.DomainDiagramEditorUtil
+									.getSaveOptions());
+					diagramResource
+							.save(deployment.diagram.part.DomainDiagramEditorUtil
+									.getSaveOptions());
 				} catch (IOException e) {
 
-					DomainDiagramEditorPlugin.getInstance().logError("Unable to store model and diagram resources", e); //$NON-NLS-1$
+					DomainDiagramEditorPlugin.getInstance().logError(
+							"Unable to store model and diagram resources", e); //$NON-NLS-1$
 				}
 				return CommandResult.newOKCommandResult();
 			}
 		};
 		try {
-			OperationHistoryFactory.getOperationHistory().execute(command, new SubProgressMonitor(progressMonitor, 1),
-					null);
+			OperationHistoryFactory.getOperationHistory().execute(command,
+					new SubProgressMonitor(progressMonitor, 1), null);
 		} catch (ExecutionException e) {
-			DomainDiagramEditorPlugin.getInstance().logError("Unable to create model and diagram", e); //$NON-NLS-1$
+			DomainDiagramEditorPlugin.getInstance().logError(
+					"Unable to create model and diagram", e); //$NON-NLS-1$
 		}
 		setCharset(WorkspaceSynchronizer.getFile(modelResource));
 		setCharset(WorkspaceSynchronizer.getFile(diagramResource));
@@ -184,11 +211,11 @@ public class DomainDiagramEditorUtil {
 	}
 
 	/**
-	* Create a new instance of domain element associated with canvas.
-	* <!-- begin-user-doc -->
-	* <!-- end-user-doc -->
-	* @generated
-	*/
+	 * Create a new instance of domain element associated with canvas.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 
 	private static DeploymentComponents createInitialModel(Resource resource) {
 
@@ -196,19 +223,21 @@ public class DomainDiagramEditorUtil {
 	}
 
 	/**
-	* Store model element in the resource.
-	* <!-- begin-user-doc -->
-	* <!-- end-user-doc -->
-	* @generated
-	*/
-	private static void attachModelToResource(DeploymentComponents model, Resource resource) {
+	 * Store model element in the resource.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private static void attachModelToResource(DeploymentComponents model,
+			Resource resource) {
 		resource.getContents().add(model);
 	}
 
 	/**
-	* @generated
-	*/
-	public static void selectElementsInDiagram(IDiagramWorkbenchPart diagramPart, List<EditPart> editParts) {
+	 * @generated
+	 */
+	public static void selectElementsInDiagram(
+			IDiagramWorkbenchPart diagramPart, List<EditPart> editParts) {
 		diagramPart.getDiagramGraphicalViewer().deselectAll();
 
 		EditPart firstPrimary = null;
@@ -220,21 +249,24 @@ public class DomainDiagramEditorUtil {
 		}
 
 		if (!editParts.isEmpty()) {
-			diagramPart.getDiagramGraphicalViewer()
-					.reveal(firstPrimary != null ? firstPrimary : (EditPart) editParts.get(0));
+			diagramPart.getDiagramGraphicalViewer().reveal(
+					firstPrimary != null ? firstPrimary : (EditPart) editParts
+							.get(0));
 		}
 	}
 
 	/**
-	* @generated
-	*/
-	private static int findElementsInDiagramByID(DiagramEditPart diagramPart, EObject element,
-			List<EditPart> editPartCollector) {
-		IDiagramGraphicalViewer viewer = (IDiagramGraphicalViewer) diagramPart.getViewer();
+	 * @generated
+	 */
+	private static int findElementsInDiagramByID(DiagramEditPart diagramPart,
+			EObject element, List<EditPart> editPartCollector) {
+		IDiagramGraphicalViewer viewer = (IDiagramGraphicalViewer) diagramPart
+				.getViewer();
 		final int intialNumOfEditParts = editPartCollector.size();
 
 		if (element instanceof View) { // support notation element lookup
-			EditPart editPart = (EditPart) viewer.getEditPartRegistry().get(element);
+			EditPart editPart = (EditPart) viewer.getEditPartRegistry().get(
+					element);
 			if (editPart != null) {
 				editPartCollector.add(editPart);
 				return 1;
@@ -243,7 +275,8 @@ public class DomainDiagramEditorUtil {
 
 		String elementID = EMFCoreUtil.getProxyID(element);
 		@SuppressWarnings("unchecked")
-		List<EditPart> associatedParts = viewer.findEditPartsForElement(elementID, IGraphicalEditPart.class);
+		List<EditPart> associatedParts = viewer.findEditPartsForElement(
+				elementID, IGraphicalEditPart.class);
 		// perform the possible hierarchy disjoint -> take the top-most parts only
 		for (EditPart nextPart : associatedParts) {
 			EditPart parentPart = nextPart.getParent();
@@ -260,7 +293,8 @@ public class DomainDiagramEditorUtil {
 				editPartCollector.add(associatedParts.get(0));
 			} else {
 				if (element.eContainer() != null) {
-					return findElementsInDiagramByID(diagramPart, element.eContainer(), editPartCollector);
+					return findElementsInDiagramByID(diagramPart,
+							element.eContainer(), editPartCollector);
 				}
 			}
 		}
@@ -268,58 +302,62 @@ public class DomainDiagramEditorUtil {
 	}
 
 	/**
-	* @generated
-	*/
-	public static View findView(DiagramEditPart diagramEditPart, EObject targetElement,
-			LazyElement2ViewMap lazyElement2ViewMap) {
+	 * @generated
+	 */
+	public static View findView(DiagramEditPart diagramEditPart,
+			EObject targetElement, LazyElement2ViewMap lazyElement2ViewMap) {
 		boolean hasStructuralURI = false;
 		if (targetElement.eResource() instanceof XMLResource) {
-			hasStructuralURI = ((XMLResource) targetElement.eResource()).getID(targetElement) == null;
+			hasStructuralURI = ((XMLResource) targetElement.eResource())
+					.getID(targetElement) == null;
 		}
 
 		View view = null;
 		LinkedList<EditPart> editPartHolder = new LinkedList<EditPart>();
-		if (hasStructuralURI && !lazyElement2ViewMap.getElement2ViewMap().isEmpty()) {
+		if (hasStructuralURI
+				&& !lazyElement2ViewMap.getElement2ViewMap().isEmpty()) {
 			view = lazyElement2ViewMap.getElement2ViewMap().get(targetElement);
-		} else if (findElementsInDiagramByID(diagramEditPart, targetElement, editPartHolder) > 0) {
+		} else if (findElementsInDiagramByID(diagramEditPart, targetElement,
+				editPartHolder) > 0) {
 			EditPart editPart = editPartHolder.get(0);
-			view = editPart.getModel() instanceof View ? (View) editPart.getModel() : null;
+			view = editPart.getModel() instanceof View ? (View) editPart
+					.getModel() : null;
 		}
 
 		return (view == null) ? diagramEditPart.getDiagramView() : view;
 	}
 
 	/**
-	* XXX This is quite suspicious code (especially editPartTmpHolder) and likely to be removed soon
-	* @generated
-	*/
+	 * XXX This is quite suspicious code (especially editPartTmpHolder) and likely to be removed soon
+	 * @generated
+	 */
 	public static class LazyElement2ViewMap {
 		/**
-		* @generated
-		*/
+		 * @generated
+		 */
 		private Map<EObject, View> element2ViewMap;
 
 		/**
-		* @generated
-		*/
+		 * @generated
+		 */
 		private View scope;
 
 		/**
-		* @generated
-		*/
+		 * @generated
+		 */
 		private Set<? extends EObject> elementSet;
 
 		/**
-		* @generated
-		*/
+		 * @generated
+		 */
 		public LazyElement2ViewMap(View scope, Set<? extends EObject> elements) {
 			this.scope = scope;
 			this.elementSet = elements;
 		}
 
 		/**
-		* @generated
-		*/
+		 * @generated
+		 */
 		public final Map<EObject, View> getElement2ViewMap() {
 			if (element2ViewMap == null) {
 				element2ViewMap = new HashMap<EObject, View>();
@@ -339,15 +377,17 @@ public class DomainDiagramEditorUtil {
 		}
 
 		/**
-		* @generated
-		*/
-		private static boolean buildElement2ViewMap(View parentView, Map<EObject, View> element2ViewMap,
+		 * @generated
+		 */
+		private static boolean buildElement2ViewMap(View parentView,
+				Map<EObject, View> element2ViewMap,
 				Set<? extends EObject> elements) {
 			if (elements.size() == element2ViewMap.size()) {
 				return true;
 			}
 
-			if (parentView.isSetElement() && !element2ViewMap.containsKey(parentView.getElement())
+			if (parentView.isSetElement()
+					&& !element2ViewMap.containsKey(parentView.getElement())
 					&& elements.contains(parentView.getElement())) {
 				element2ViewMap.put(parentView.getElement(), parentView);
 				if (elements.size() == element2ViewMap.size()) {
@@ -355,14 +395,20 @@ public class DomainDiagramEditorUtil {
 				}
 			}
 			boolean complete = false;
-			for (Iterator<?> it = parentView.getChildren().iterator(); it.hasNext() && !complete;) {
-				complete = buildElement2ViewMap((View) it.next(), element2ViewMap, elements);
+			for (Iterator<?> it = parentView.getChildren().iterator(); it
+					.hasNext() && !complete;) {
+				complete = buildElement2ViewMap((View) it.next(),
+						element2ViewMap, elements);
 			}
-			for (Iterator<?> it = parentView.getSourceEdges().iterator(); it.hasNext() && !complete;) {
-				complete = buildElement2ViewMap((View) it.next(), element2ViewMap, elements);
+			for (Iterator<?> it = parentView.getSourceEdges().iterator(); it
+					.hasNext() && !complete;) {
+				complete = buildElement2ViewMap((View) it.next(),
+						element2ViewMap, elements);
 			}
-			for (Iterator<?> it = parentView.getTargetEdges().iterator(); it.hasNext() && !complete;) {
-				complete = buildElement2ViewMap((View) it.next(), element2ViewMap, elements);
+			for (Iterator<?> it = parentView.getTargetEdges().iterator(); it
+					.hasNext() && !complete;) {
+				complete = buildElement2ViewMap((View) it.next(),
+						element2ViewMap, elements);
 			}
 			return complete;
 		}

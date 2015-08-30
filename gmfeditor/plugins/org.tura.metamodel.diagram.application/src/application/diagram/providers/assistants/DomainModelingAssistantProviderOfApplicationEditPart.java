@@ -27,13 +27,13 @@ import application.diagram.providers.DomainModelingAssistantProvider;
 /**
  * @generated
  */
-public class DomainModelingAssistantProviderOfApplicationEditPart extends DomainModelingAssistantProvider {
+public class DomainModelingAssistantProviderOfApplicationEditPart extends
+		DomainModelingAssistantProvider {
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	@Override
-
 	public List<IElementType> getTypesForPopupBar(IAdaptable host) {
 		List<IElementType> types = new ArrayList<IElementType>(7);
 		types.add(DomainElementTypes.ApplicationRecipes_802001);

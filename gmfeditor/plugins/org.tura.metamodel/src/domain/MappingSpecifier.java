@@ -23,12 +23,12 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  *   <li>{@link domain.MappingSpecifier#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.MappingSpecifier#getSpecifierRef <em>Specifier Ref</em>}</li>
  *   <li>{@link domain.MappingSpecifier#getValueRef <em>Value Ref</em>}</li>
  * </ul>
+ * </p>
  *
  * @see domain.DomainPackage#getMappingSpecifier()
  * @model

@@ -48,110 +48,102 @@ import domain.diagram.part.DomainDiagramEditorPlugin;
 public class DomainElementTypes {
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	private DomainElementTypes() {
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	private static Map<IElementType, ENamedElement> elements;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	private static DiagramElementTypeImages elementTypeImages = new DiagramElementTypeImages(
-			DomainDiagramEditorPlugin.getInstance().getItemProvidersAdapterFactory());
+			DomainDiagramEditorPlugin.getInstance()
+					.getItemProvidersAdapterFactory());
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	private static Set<IElementType> KNOWN_ELEMENT_TYPES;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static final IElementType Domain_501000 = getElementType("org.tura.metamodel.diagram.domain.Domain_501000"); //$NON-NLS-1$
 	/**
-	* @generated
-	*/
-	public static final IElementType DomainArtifacts_502001 = getElementType(
-			"org.tura.metamodel.diagram.domain.DomainArtifacts_502001"); //$NON-NLS-1$
+	 * @generated
+	 */
+	public static final IElementType DomainArtifacts_502001 = getElementType("org.tura.metamodel.diagram.domain.DomainArtifacts_502001"); //$NON-NLS-1$
 	/**
-	* @generated
-	*/
-	public static final IElementType DomainApplications_502003 = getElementType(
-			"org.tura.metamodel.diagram.domain.DomainApplications_502003"); //$NON-NLS-1$
+	 * @generated
+	 */
+	public static final IElementType DomainApplications_502003 = getElementType("org.tura.metamodel.diagram.domain.DomainApplications_502003"); //$NON-NLS-1$
 	/**
-	* @generated
-	*/
-	public static final IElementType DomainTypes_502002 = getElementType(
-			"org.tura.metamodel.diagram.domain.DomainTypes_502002"); //$NON-NLS-1$
+	 * @generated
+	 */
+	public static final IElementType DomainTypes_502002 = getElementType("org.tura.metamodel.diagram.domain.DomainTypes_502002"); //$NON-NLS-1$
 	/**
-	* @generated
-	*/
-	public static final IElementType ORMEntity_503003 = getElementType(
-			"org.tura.metamodel.diagram.domain.ORMEntity_503003"); //$NON-NLS-1$
+	 * @generated
+	 */
+	public static final IElementType ORMEntity_503003 = getElementType("org.tura.metamodel.diagram.domain.ORMEntity_503003"); //$NON-NLS-1$
 	/**
-	* @generated
-	*/
-	public static final IElementType JPAService_503004 = getElementType(
-			"org.tura.metamodel.diagram.domain.JPAService_503004"); //$NON-NLS-1$
+	 * @generated
+	 */
+	public static final IElementType JPAService_503004 = getElementType("org.tura.metamodel.diagram.domain.JPAService_503004"); //$NON-NLS-1$
 	/**
-	* @generated
-	*/
-	public static final IElementType EJBService_503005 = getElementType(
-			"org.tura.metamodel.diagram.domain.EJBService_503005"); //$NON-NLS-1$
+	 * @generated
+	 */
+	public static final IElementType EJBService_503005 = getElementType("org.tura.metamodel.diagram.domain.EJBService_503005"); //$NON-NLS-1$
 	/**
-	* @generated
-	*/
-	public static final IElementType ContinuousIintegration_503006 = getElementType(
-			"org.tura.metamodel.diagram.domain.ContinuousIintegration_503006"); //$NON-NLS-1$
+	 * @generated
+	 */
+	public static final IElementType ContinuousIintegration_503006 = getElementType("org.tura.metamodel.diagram.domain.ContinuousIintegration_503006"); //$NON-NLS-1$
 	/**
-	* @generated
-	*/
-	public static final IElementType DomainArtifact_503002 = getElementType(
-			"org.tura.metamodel.diagram.domain.DomainArtifact_503002"); //$NON-NLS-1$
+	 * @generated
+	 */
+	public static final IElementType DomainArtifact_503002 = getElementType("org.tura.metamodel.diagram.domain.DomainArtifact_503002"); //$NON-NLS-1$
 	/**
-	* @generated
-	*/
-	public static final IElementType DomainApplication_503001 = getElementType(
-			"org.tura.metamodel.diagram.domain.DomainApplication_503001"); //$NON-NLS-1$
+	 * @generated
+	 */
+	public static final IElementType DomainApplication_503001 = getElementType("org.tura.metamodel.diagram.domain.DomainApplication_503001"); //$NON-NLS-1$
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static ImageDescriptor getImageDescriptor(ENamedElement element) {
 		return elementTypeImages.getImageDescriptor(element);
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static Image getImage(ENamedElement element) {
 		return elementTypeImages.getImage(element);
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static ImageDescriptor getImageDescriptor(IAdaptable hint) {
 		return getImageDescriptor(getElement(hint));
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static Image getImage(IAdaptable hint) {
 		return getImage(getElement(hint));
 	}
 
 	/**
-	* Returns 'type' of the ecore object associated with the hint.
-	* 
-	* @generated
-	*/
+	 * Returns 'type' of the ecore object associated with the hint.
+	 * 
+	 * @generated
+	 */
 	public static ENamedElement getElement(IAdaptable hint) {
 		Object type = hint.getAdapter(IElementType.class);
 		if (elements == null) {
@@ -159,37 +151,46 @@ public class DomainElementTypes {
 
 			elements.put(Domain_501000, DomainPackage.eINSTANCE.getDomain());
 
-			elements.put(DomainArtifacts_502001, DomainPackage.eINSTANCE.getDomainArtifacts());
+			elements.put(DomainArtifacts_502001,
+					DomainPackage.eINSTANCE.getDomainArtifacts());
 
-			elements.put(DomainApplications_502003, DomainPackage.eINSTANCE.getDomainApplications());
+			elements.put(DomainApplications_502003,
+					DomainPackage.eINSTANCE.getDomainApplications());
 
-			elements.put(DomainTypes_502002, DomainPackage.eINSTANCE.getDomainTypes());
+			elements.put(DomainTypes_502002,
+					DomainPackage.eINSTANCE.getDomainTypes());
 
-			elements.put(ORMEntity_503003, DomainPackage.eINSTANCE.getORMEntity());
+			elements.put(ORMEntity_503003,
+					DomainPackage.eINSTANCE.getORMEntity());
 
-			elements.put(JPAService_503004, DomainPackage.eINSTANCE.getJPAService());
+			elements.put(JPAService_503004,
+					DomainPackage.eINSTANCE.getJPAService());
 
-			elements.put(EJBService_503005, DomainPackage.eINSTANCE.getEJBService());
+			elements.put(EJBService_503005,
+					DomainPackage.eINSTANCE.getEJBService());
 
-			elements.put(ContinuousIintegration_503006, DomainPackage.eINSTANCE.getContinuousIintegration());
+			elements.put(ContinuousIintegration_503006,
+					DomainPackage.eINSTANCE.getContinuousIintegration());
 
-			elements.put(DomainArtifact_503002, DomainPackage.eINSTANCE.getDomainArtifact());
+			elements.put(DomainArtifact_503002,
+					DomainPackage.eINSTANCE.getDomainArtifact());
 
-			elements.put(DomainApplication_503001, DomainPackage.eINSTANCE.getDomainApplication());
+			elements.put(DomainApplication_503001,
+					DomainPackage.eINSTANCE.getDomainApplication());
 		}
 		return (ENamedElement) elements.get(type);
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	private static IElementType getElementType(String id) {
 		return ElementTypeRegistry.getInstance().getType(id);
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static boolean isKnownElementType(IElementType elementType) {
 		if (KNOWN_ELEMENT_TYPES == null) {
 			KNOWN_ELEMENT_TYPES = new HashSet<IElementType>();
@@ -208,8 +209,8 @@ public class DomainElementTypes {
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static IElementType getElementType(int visualID) {
 		switch (visualID) {
 		case DomainEditPart.VISUAL_ID:
@@ -237,35 +238,37 @@ public class DomainElementTypes {
 	}
 
 	/**
-	* @generated
-	*/
-	public static final DiagramElementTypes TYPED_INSTANCE = new DiagramElementTypes(elementTypeImages) {
+	 * @generated
+	 */
+	public static final DiagramElementTypes TYPED_INSTANCE = new DiagramElementTypes(
+			elementTypeImages) {
 
 		/**
-		* @generated
-		*/
+		 * @generated
+		 */
 		@Override
-
 		public boolean isKnownElementType(IElementType elementType) {
-			return domain.diagram.providers.DomainElementTypes.isKnownElementType(elementType);
+			return domain.diagram.providers.DomainElementTypes
+					.isKnownElementType(elementType);
 		}
 
 		/**
-		* @generated
-		*/
+		 * @generated
+		 */
 		@Override
-
 		public IElementType getElementTypeForVisualId(int visualID) {
-			return domain.diagram.providers.DomainElementTypes.getElementType(visualID);
+			return domain.diagram.providers.DomainElementTypes
+					.getElementType(visualID);
 		}
 
 		/**
-		* @generated
-		*/
+		 * @generated
+		 */
 		@Override
-
-		public ENamedElement getDefiningNamedElement(IAdaptable elementTypeAdapter) {
-			return domain.diagram.providers.DomainElementTypes.getElement(elementTypeAdapter);
+		public ENamedElement getDefiningNamedElement(
+				IAdaptable elementTypeAdapter) {
+			return domain.diagram.providers.DomainElementTypes
+					.getElement(elementTypeAdapter);
 		}
 	};
 

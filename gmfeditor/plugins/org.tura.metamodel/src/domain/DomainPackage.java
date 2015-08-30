@@ -6309,13 +6309,22 @@ public interface DomainPackage extends EPackage {
 	int TAB_CANVAS__CLASSIFIERS = CANVAS_FRAME_FEATURE_COUNT + 2;
 
 	/**
+	 * The feature id for the '<em><b>Orientation</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TAB_CANVAS__ORIENTATION = CANVAS_FRAME_FEATURE_COUNT + 3;
+
+	/**
 	 * The number of structural features of the '<em>Tab Canvas</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TAB_CANVAS_FEATURE_COUNT = CANVAS_FRAME_FEATURE_COUNT + 3;
+	int TAB_CANVAS_FEATURE_COUNT = CANVAS_FRAME_FEATURE_COUNT + 4;
 
 	/**
 	 * The meta object id for the '{@link domain.impl.TabPageImpl <em>Tab Page</em>}' class.
@@ -9049,13 +9058,31 @@ public interface DomainPackage extends EPackage {
 	int DROP_DOWN_SELECTION__SELECTION = OPTION_SELECTION_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Initial Option Message</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DROP_DOWN_SELECTION__INITIAL_OPTION_MESSAGE = OPTION_SELECTION_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Initial Option Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DROP_DOWN_SELECTION__INITIAL_OPTION_VALUE = OPTION_SELECTION_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>Drop Down Selection</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DROP_DOWN_SELECTION_FEATURE_COUNT = OPTION_SELECTION_FEATURE_COUNT + 1;
+	int DROP_DOWN_SELECTION_FEATURE_COUNT = OPTION_SELECTION_FEATURE_COUNT + 3;
 
 	/**
 	 * The meta object id for the '{@link domain.impl.ImageImpl <em>Image</em>}' class.
@@ -12510,6 +12537,17 @@ public interface DomainPackage extends EPackage {
 	 * @generated
 	 */
 	int ORDER = 175;
+
+
+	/**
+	 * The meta object id for the '{@link domain.Orientation <em>Orientation</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see domain.Orientation
+	 * @see domain.impl.DomainPackageImpl#getOrientation()
+	 * @generated
+	 */
+	int ORIENTATION = 176;
 
 
 	/**
@@ -17175,6 +17213,17 @@ public interface DomainPackage extends EPackage {
 	EClass getTabCanvas();
 
 	/**
+	 * Returns the meta object for the attribute '{@link domain.TabCanvas#getOrientation <em>Orientation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Orientation</em>'.
+	 * @see domain.TabCanvas#getOrientation()
+	 * @see #getTabCanvas()
+	 * @generated
+	 */
+	EAttribute getTabCanvas_Orientation();
+
+	/**
 	 * Returns the meta object for class '{@link domain.TabPage <em>Tab Page</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -18110,6 +18159,28 @@ public interface DomainPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getDropDownSelection_Selection();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link domain.DropDownSelection#getInitialOptionMessage <em>Initial Option Message</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Initial Option Message</em>'.
+	 * @see domain.DropDownSelection#getInitialOptionMessage()
+	 * @see #getDropDownSelection()
+	 * @generated
+	 */
+	EReference getDropDownSelection_InitialOptionMessage();
+
+	/**
+	 * Returns the meta object for the attribute '{@link domain.DropDownSelection#getInitialOptionValue <em>Initial Option Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Initial Option Value</em>'.
+	 * @see domain.DropDownSelection#getInitialOptionValue()
+	 * @see #getDropDownSelection()
+	 * @generated
+	 */
+	EAttribute getDropDownSelection_InitialOptionValue();
 
 	/**
 	 * Returns the meta object for class '{@link domain.Image <em>Image</em>}'.
@@ -19705,6 +19776,16 @@ public interface DomainPackage extends EPackage {
 	 * @generated
 	 */
 	EEnum getOrder();
+
+	/**
+	 * Returns the meta object for enum '{@link domain.Orientation <em>Orientation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Orientation</em>'.
+	 * @see domain.Orientation
+	 * @generated
+	 */
+	EEnum getOrientation();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -23395,6 +23476,14 @@ public interface DomainPackage extends EPackage {
 		EClass TAB_CANVAS = eINSTANCE.getTabCanvas();
 
 		/**
+		 * The meta object literal for the '<em><b>Orientation</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TAB_CANVAS__ORIENTATION = eINSTANCE.getTabCanvas_Orientation();
+
+		/**
 		 * The meta object literal for the '{@link domain.impl.TabPageImpl <em>Tab Page</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -24159,6 +24248,22 @@ public interface DomainPackage extends EPackage {
 		 * @generated
 		 */
 		EReference DROP_DOWN_SELECTION__SELECTION = eINSTANCE.getDropDownSelection_Selection();
+
+		/**
+		 * The meta object literal for the '<em><b>Initial Option Message</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference DROP_DOWN_SELECTION__INITIAL_OPTION_MESSAGE = eINSTANCE.getDropDownSelection_InitialOptionMessage();
+
+		/**
+		 * The meta object literal for the '<em><b>Initial Option Value</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DROP_DOWN_SELECTION__INITIAL_OPTION_VALUE = eINSTANCE.getDropDownSelection_InitialOptionValue();
 
 		/**
 		 * The meta object literal for the '{@link domain.impl.ImageImpl <em>Image</em>}' class.
@@ -25439,6 +25544,16 @@ public interface DomainPackage extends EPackage {
 		 * @generated
 		 */
 		EEnum ORDER = eINSTANCE.getOrder();
+
+		/**
+		 * The meta object literal for the '{@link domain.Orientation <em>Orientation</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see domain.Orientation
+		 * @see domain.impl.DomainPackageImpl#getOrientation()
+		 * @generated
+		 */
+		EEnum ORIENTATION = eINSTANCE.getOrientation();
 
 	}
 

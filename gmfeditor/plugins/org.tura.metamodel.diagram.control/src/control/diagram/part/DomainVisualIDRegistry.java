@@ -11,8 +11,8 @@
  * http://www.eclipse.org/legal/epl-v10.html
  *******************************************************************************/
 /*
-* 
-*/
+ * 
+ */
 package control.diagram.part;
 
 import org.eclipse.core.runtime.Platform;
@@ -84,13 +84,13 @@ import domain.DomainPackage;
 public class DomainVisualIDRegistry {
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	private static final String DEBUG_KEY = "org.tura.metamodel.diagram.control/debug/visualID"; //$NON-NLS-1$
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static int getVisualID(View view) {
 		if (view instanceof Diagram) {
 			if (ControlsEditPart.MODEL_ID.equals(view.getType())) {
@@ -99,12 +99,13 @@ public class DomainVisualIDRegistry {
 				return -1;
 			}
 		}
-		return control.diagram.part.DomainVisualIDRegistry.getVisualID(view.getType());
+		return control.diagram.part.DomainVisualIDRegistry.getVisualID(view
+				.getType());
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static String getModelID(View view) {
 		View diagram = view.getDiagram();
 		while (view != diagram) {
@@ -118,35 +119,38 @@ public class DomainVisualIDRegistry {
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static int getVisualID(String type) {
 		try {
 			return Integer.parseInt(type);
 		} catch (NumberFormatException e) {
-			if (Boolean.TRUE.toString().equalsIgnoreCase(Platform.getDebugOption(DEBUG_KEY))) {
-				DomainDiagramEditorPlugin.getInstance()
-						.logError("Unable to parse view type as a visualID number: " + type);
+			if (Boolean.TRUE.toString().equalsIgnoreCase(
+					Platform.getDebugOption(DEBUG_KEY))) {
+				DomainDiagramEditorPlugin.getInstance().logError(
+						"Unable to parse view type as a visualID number: "
+								+ type);
 			}
 		}
 		return -1;
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static String getType(int visualID) {
 		return Integer.toString(visualID);
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static int getDiagramVisualID(EObject domainElement) {
 		if (domainElement == null) {
 			return -1;
 		}
-		if (DomainPackage.eINSTANCE.getControls().isSuperTypeOf(domainElement.eClass())
+		if (DomainPackage.eINSTANCE.getControls().isSuperTypeOf(
+				domainElement.eClass())
 				&& isDiagram((Controls) domainElement)) {
 			return ControlsEditPart.VISUAL_ID;
 		}
@@ -154,19 +158,22 @@ public class DomainVisualIDRegistry {
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static int getNodeVisualID(View containerView, EObject domainElement) {
 		if (domainElement == null) {
 			return -1;
 		}
-		String containerModelID = control.diagram.part.DomainVisualIDRegistry.getModelID(containerView);
-		if (!ControlsEditPart.MODEL_ID.equals(containerModelID) && !"domain".equals(containerModelID)) { //$NON-NLS-1$
+		String containerModelID = control.diagram.part.DomainVisualIDRegistry
+				.getModelID(containerView);
+		if (!ControlsEditPart.MODEL_ID.equals(containerModelID)
+				&& !"domain".equals(containerModelID)) { //$NON-NLS-1$
 			return -1;
 		}
 		int containerVisualID;
 		if (ControlsEditPart.MODEL_ID.equals(containerModelID)) {
-			containerVisualID = control.diagram.part.DomainVisualIDRegistry.getVisualID(containerView);
+			containerVisualID = control.diagram.part.DomainVisualIDRegistry
+					.getVisualID(containerView);
 		} else {
 			if (containerView instanceof Diagram) {
 				containerVisualID = ControlsEditPart.VISUAL_ID;
@@ -176,80 +183,96 @@ public class DomainVisualIDRegistry {
 		}
 		switch (containerVisualID) {
 		case ControlsEditPart.VISUAL_ID:
-			if (DomainPackage.eINSTANCE.getRoot().isSuperTypeOf(domainElement.eClass())) {
+			if (DomainPackage.eINSTANCE.getRoot().isSuperTypeOf(
+					domainElement.eClass())) {
 				return RootEditPart.VISUAL_ID;
 			}
-			if (DomainPackage.eINSTANCE.getDataControl().isSuperTypeOf(domainElement.eClass())) {
+			if (DomainPackage.eINSTANCE.getDataControl().isSuperTypeOf(
+					domainElement.eClass())) {
 				return DataControlEditPart.VISUAL_ID;
 			}
 			break;
 		case RootRootPreFormTriggerCompartmentEditPart.VISUAL_ID:
-			if (DomainPackage.eINSTANCE.getPREFormTrigger().isSuperTypeOf(domainElement.eClass())) {
+			if (DomainPackage.eINSTANCE.getPREFormTrigger().isSuperTypeOf(
+					domainElement.eClass())) {
 				return PREFormTriggerEditPart.VISUAL_ID;
 			}
 			break;
 		case RootRootVariablesCompartmentEditPart.VISUAL_ID:
-			if (DomainPackage.eINSTANCE.getFormVariable().isSuperTypeOf(domainElement.eClass())) {
+			if (DomainPackage.eINSTANCE.getFormVariable().isSuperTypeOf(
+					domainElement.eClass())) {
 				return FormVariableEditPart.VISUAL_ID;
 			}
 			break;
 		case DataControlDataControlPreQueryTriggerCompartmentEditPart.VISUAL_ID:
-			if (DomainPackage.eINSTANCE.getPREQueryTrigger().isSuperTypeOf(domainElement.eClass())) {
+			if (DomainPackage.eINSTANCE.getPREQueryTrigger().isSuperTypeOf(
+					domainElement.eClass())) {
 				return PREQueryTriggerEditPart.VISUAL_ID;
 			}
 			break;
 		case DataControlDataControlPostQueryTriggerCompartmentEditPart.VISUAL_ID:
-			if (DomainPackage.eINSTANCE.getPOSTQueryTrigger().isSuperTypeOf(domainElement.eClass())) {
+			if (DomainPackage.eINSTANCE.getPOSTQueryTrigger().isSuperTypeOf(
+					domainElement.eClass())) {
 				return POSTQueryTriggerEditPart.VISUAL_ID;
 			}
 			break;
 		case DataControlDataControlPreInsertTriggerCompartmentEditPart.VISUAL_ID:
-			if (DomainPackage.eINSTANCE.getPREInsertTrigger().isSuperTypeOf(domainElement.eClass())) {
+			if (DomainPackage.eINSTANCE.getPREInsertTrigger().isSuperTypeOf(
+					domainElement.eClass())) {
 				return PREInsertTriggerEditPart.VISUAL_ID;
 			}
 			break;
 		case DataControlDataControlPreDeleteTriggerCompartmentEditPart.VISUAL_ID:
-			if (DomainPackage.eINSTANCE.getPREDeleteTrigger().isSuperTypeOf(domainElement.eClass())) {
+			if (DomainPackage.eINSTANCE.getPREDeleteTrigger().isSuperTypeOf(
+					domainElement.eClass())) {
 				return PREDeleteTriggerEditPart.VISUAL_ID;
 			}
 			break;
 		case DataControlDataControlPostCreateTriggerCompartmentEditPart.VISUAL_ID:
-			if (DomainPackage.eINSTANCE.getPOSTCreateTrigger().isSuperTypeOf(domainElement.eClass())) {
+			if (DomainPackage.eINSTANCE.getPOSTCreateTrigger().isSuperTypeOf(
+					domainElement.eClass())) {
 				return POSTCreateTriggerEditPart.VISUAL_ID;
 			}
 			break;
 		case DataControlDataControlPreUpdateTriggerCompartmentEditPart.VISUAL_ID:
-			if (DomainPackage.eINSTANCE.getPREUpdateTrigger().isSuperTypeOf(domainElement.eClass())) {
+			if (DomainPackage.eINSTANCE.getPREUpdateTrigger().isSuperTypeOf(
+					domainElement.eClass())) {
 				return PREUpdateTriggerEditPart.VISUAL_ID;
 			}
 			break;
 		case DataControlDataControlCreateCompartmentEditPart.VISUAL_ID:
-			if (DomainPackage.eINSTANCE.getCreateTrigger().isSuperTypeOf(domainElement.eClass())) {
+			if (DomainPackage.eINSTANCE.getCreateTrigger().isSuperTypeOf(
+					domainElement.eClass())) {
 				return CreateTriggerEditPart.VISUAL_ID;
 			}
 			break;
 		case DataControlDataControlInsertCompartmentEditPart.VISUAL_ID:
-			if (DomainPackage.eINSTANCE.getInsertTrigger().isSuperTypeOf(domainElement.eClass())) {
+			if (DomainPackage.eINSTANCE.getInsertTrigger().isSuperTypeOf(
+					domainElement.eClass())) {
 				return InsertTriggerEditPart.VISUAL_ID;
 			}
 			break;
 		case DataControlDataControlUpdateCompartmentEditPart.VISUAL_ID:
-			if (DomainPackage.eINSTANCE.getUpdateTrigger().isSuperTypeOf(domainElement.eClass())) {
+			if (DomainPackage.eINSTANCE.getUpdateTrigger().isSuperTypeOf(
+					domainElement.eClass())) {
 				return UpdateTriggerEditPart.VISUAL_ID;
 			}
 			break;
 		case DataControlDataControlRemoveCompartmentEditPart.VISUAL_ID:
-			if (DomainPackage.eINSTANCE.getDeleteTrigger().isSuperTypeOf(domainElement.eClass())) {
+			if (DomainPackage.eINSTANCE.getDeleteTrigger().isSuperTypeOf(
+					domainElement.eClass())) {
 				return DeleteTriggerEditPart.VISUAL_ID;
 			}
 			break;
 		case DataControlDataControlSearchCompartmentEditPart.VISUAL_ID:
-			if (DomainPackage.eINSTANCE.getSearchTrigger().isSuperTypeOf(domainElement.eClass())) {
+			if (DomainPackage.eINSTANCE.getSearchTrigger().isSuperTypeOf(
+					domainElement.eClass())) {
 				return SearchTriggerEditPart.VISUAL_ID;
 			}
 			break;
 		case DataControlDataControlArtificialFieldsCompartmentEditPart.VISUAL_ID:
-			if (DomainPackage.eINSTANCE.getArtificialField().isSuperTypeOf(domainElement.eClass())) {
+			if (DomainPackage.eINSTANCE.getArtificialField().isSuperTypeOf(
+					domainElement.eClass())) {
 				return ArtificialFieldEditPart.VISUAL_ID;
 			}
 			break;
@@ -258,16 +281,19 @@ public class DomainVisualIDRegistry {
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static boolean canCreateNode(View containerView, int nodeVisualID) {
-		String containerModelID = control.diagram.part.DomainVisualIDRegistry.getModelID(containerView);
-		if (!ControlsEditPart.MODEL_ID.equals(containerModelID) && !"domain".equals(containerModelID)) { //$NON-NLS-1$
+		String containerModelID = control.diagram.part.DomainVisualIDRegistry
+				.getModelID(containerView);
+		if (!ControlsEditPart.MODEL_ID.equals(containerModelID)
+				&& !"domain".equals(containerModelID)) { //$NON-NLS-1$
 			return false;
 		}
 		int containerVisualID;
 		if (ControlsEditPart.MODEL_ID.equals(containerModelID)) {
-			containerVisualID = control.diagram.part.DomainVisualIDRegistry.getVisualID(containerView);
+			containerVisualID = control.diagram.part.DomainVisualIDRegistry
+					.getVisualID(containerView);
 		} else {
 			if (containerView instanceof Diagram) {
 				containerVisualID = ControlsEditPart.VISUAL_ID;
@@ -481,35 +507,38 @@ public class DomainVisualIDRegistry {
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static int getLinkWithClassVisualID(EObject domainElement) {
 		if (domainElement == null) {
 			return -1;
 		}
-		if (DomainPackage.eINSTANCE.getRelation().isSuperTypeOf(domainElement.eClass())) {
+		if (DomainPackage.eINSTANCE.getRelation().isSuperTypeOf(
+				domainElement.eClass())) {
 			return RelationEditPart.VISUAL_ID;
 		}
-		if (DomainPackage.eINSTANCE.getDependency().isSuperTypeOf(domainElement.eClass())) {
+		if (DomainPackage.eINSTANCE.getDependency().isSuperTypeOf(
+				domainElement.eClass())) {
 			return DependencyEditPart.VISUAL_ID;
 		}
 		return -1;
 	}
 
 	/**
-	* User can change implementation of this method to handle some specific
-	* situations not covered by default logic.
-	* 
-	* @generated
-	*/
+	 * User can change implementation of this method to handle some specific
+	 * situations not covered by default logic.
+	 * 
+	 * @generated
+	 */
 	private static boolean isDiagram(Controls element) {
 		return true;
 	}
 
 	/**
-	* @generated
-	*/
-	public static boolean checkNodeVisualID(View containerView, EObject domainElement, int candidate) {
+	 * @generated
+	 */
+	public static boolean checkNodeVisualID(View containerView,
+			EObject domainElement, int candidate) {
 		if (candidate == -1) {
 			//unrecognized id is always bad
 			return false;
@@ -519,8 +548,8 @@ public class DomainVisualIDRegistry {
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static boolean isCompartmentVisualID(int visualID) {
 		switch (visualID) {
 		case RootRootPreFormTriggerCompartmentEditPart.VISUAL_ID:
@@ -545,8 +574,8 @@ public class DomainVisualIDRegistry {
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static boolean isSemanticLeafVisualID(int visualID) {
 		switch (visualID) {
 		case ControlsEditPart.VISUAL_ID:
@@ -573,62 +602,61 @@ public class DomainVisualIDRegistry {
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static final DiagramStructure TYPED_INSTANCE = new DiagramStructure() {
 		/**
-		* @generated
-		*/
+		 * @generated
+		 */
 		@Override
-
 		public int getVisualID(View view) {
-			return control.diagram.part.DomainVisualIDRegistry.getVisualID(view);
+			return control.diagram.part.DomainVisualIDRegistry
+					.getVisualID(view);
 		}
 
 		/**
-		* @generated
-		*/
+		 * @generated
+		 */
 		@Override
-
 		public String getModelID(View view) {
 			return control.diagram.part.DomainVisualIDRegistry.getModelID(view);
 		}
 
 		/**
-		* @generated
-		*/
+		 * @generated
+		 */
 		@Override
-
 		public int getNodeVisualID(View containerView, EObject domainElement) {
-			return control.diagram.part.DomainVisualIDRegistry.getNodeVisualID(containerView, domainElement);
+			return control.diagram.part.DomainVisualIDRegistry.getNodeVisualID(
+					containerView, domainElement);
 		}
 
 		/**
-		* @generated
-		*/
+		 * @generated
+		 */
 		@Override
-
-		public boolean checkNodeVisualID(View containerView, EObject domainElement, int candidate) {
-			return control.diagram.part.DomainVisualIDRegistry.checkNodeVisualID(containerView, domainElement,
-					candidate);
+		public boolean checkNodeVisualID(View containerView,
+				EObject domainElement, int candidate) {
+			return control.diagram.part.DomainVisualIDRegistry
+					.checkNodeVisualID(containerView, domainElement, candidate);
 		}
 
 		/**
-		* @generated
-		*/
+		 * @generated
+		 */
 		@Override
-
 		public boolean isCompartmentVisualID(int visualID) {
-			return control.diagram.part.DomainVisualIDRegistry.isCompartmentVisualID(visualID);
+			return control.diagram.part.DomainVisualIDRegistry
+					.isCompartmentVisualID(visualID);
 		}
 
 		/**
-		* @generated
-		*/
+		 * @generated
+		 */
 		@Override
-
 		public boolean isSemanticLeafVisualID(int visualID) {
-			return control.diagram.part.DomainVisualIDRegistry.isSemanticLeafVisualID(visualID);
+			return control.diagram.part.DomainVisualIDRegistry
+					.isSemanticLeafVisualID(visualID);
 		}
 	};
 

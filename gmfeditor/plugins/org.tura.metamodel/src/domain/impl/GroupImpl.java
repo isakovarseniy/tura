@@ -37,13 +37,13 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  *   <li>{@link domain.impl.GroupImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.impl.GroupImpl#getName <em>Name</em>}</li>
  *   <li>{@link domain.impl.GroupImpl#getGroup2Group <em>Group2 Group</em>}</li>
  *   <li>{@link domain.impl.GroupImpl#getGroup2Role <em>Group2 Role</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */

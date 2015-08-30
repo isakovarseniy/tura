@@ -46,7 +46,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  *   <li>{@link domain.impl.ControlsImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.impl.ControlsImpl#getParent <em>Parent</em>}</li>
@@ -56,6 +55,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link domain.impl.ControlsImpl#getDependencies <em>Dependencies</em>}</li>
  *   <li>{@link domain.impl.ControlsImpl#getAny <em>Any</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */

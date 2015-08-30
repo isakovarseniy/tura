@@ -11,8 +11,8 @@
  * http://www.eclipse.org/legal/epl-v10.html
  *******************************************************************************/
 /*
-* 
-*/
+ * 
+ */
 package recipe.diagram.edit.policies;
 
 import org.eclipse.gef.commands.Command;
@@ -24,18 +24,19 @@ import recipe.diagram.providers.DomainElementTypes;
 /**
  * @generated
  */
-public class IngredientIngredientComponentsCompartmentItemSemanticEditPolicy extends DomainBaseItemSemanticEditPolicy {
+public class IngredientIngredientComponentsCompartmentItemSemanticEditPolicy
+		extends DomainBaseItemSemanticEditPolicy {
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public IngredientIngredientComponentsCompartmentItemSemanticEditPolicy() {
 		super(DomainElementTypes.Ingredient_303001);
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	protected Command getCreateCommand(CreateElementRequest req) {
 		if (DomainElementTypes.JavaComponent_303002 == req.getElementType()) {
 			return getGEFWrapper(new JavaComponentCreateCommand(req));

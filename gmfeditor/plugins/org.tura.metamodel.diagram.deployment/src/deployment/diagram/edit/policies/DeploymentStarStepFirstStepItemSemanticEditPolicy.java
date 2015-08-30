@@ -11,8 +11,8 @@
  * http://www.eclipse.org/legal/epl-v10.html
  *******************************************************************************/
 /*
-* 
-*/
+ * 
+ */
 package deployment.diagram.edit.policies;
 
 import org.eclipse.gef.commands.Command;
@@ -24,18 +24,19 @@ import deployment.diagram.providers.DomainElementTypes;
 /**
  * @generated
  */
-public class DeploymentStarStepFirstStepItemSemanticEditPolicy extends DomainBaseItemSemanticEditPolicy {
+public class DeploymentStarStepFirstStepItemSemanticEditPolicy extends
+		DomainBaseItemSemanticEditPolicy {
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public DeploymentStarStepFirstStepItemSemanticEditPolicy() {
 		super(DomainElementTypes.DeploymentStarStepFirstStep_904008);
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	protected Command getDestroyReferenceCommand(DestroyReferenceRequest req) {
 		return getGEFWrapper(new DestroyReferenceCommand(req));
 	}

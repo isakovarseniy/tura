@@ -32,10 +32,10 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  *   <li>{@link domain.impl.StyleClassImpl#getClassifier <em>Classifier</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */

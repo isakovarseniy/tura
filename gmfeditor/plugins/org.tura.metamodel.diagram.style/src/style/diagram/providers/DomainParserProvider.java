@@ -37,19 +37,21 @@ import style.diagram.part.DomainVisualIDRegistry;
 /**
  * @generated
  */
-public class DomainParserProvider extends AbstractProvider implements IParserProvider {
+public class DomainParserProvider extends AbstractProvider implements
+		IParserProvider {
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	private IParser styleLibraryName_1505002Parser;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	private IParser getStyleLibraryName_1505002Parser() {
 		if (styleLibraryName_1505002Parser == null) {
-			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE.getStyleLibrary_Name() };
+			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE
+					.getStyleLibrary_Name() };
 			MessageFormatParser parser = new MessageFormatParser(features);
 			styleLibraryName_1505002Parser = parser;
 		}
@@ -57,16 +59,17 @@ public class DomainParserProvider extends AbstractProvider implements IParserPro
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	private IParser styleSetName_1505001Parser;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	private IParser getStyleSetName_1505001Parser() {
 		if (styleSetName_1505001Parser == null) {
-			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE.getStyleSet_Name() };
+			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE
+					.getStyleSet_Name() };
 			MessageFormatParser parser = new MessageFormatParser(features);
 			styleSetName_1505001Parser = parser;
 		}
@@ -74,8 +77,8 @@ public class DomainParserProvider extends AbstractProvider implements IParserPro
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	protected IParser getParser(int visualID) {
 		switch (visualID) {
 		case StyleLibraryNameEditPart.VISUAL_ID:
@@ -87,16 +90,18 @@ public class DomainParserProvider extends AbstractProvider implements IParserPro
 	}
 
 	/**
-	* Utility method that consults ParserService
-	* @generated
-	*/
-	public static IParser getParser(IElementType type, EObject object, String parserHint) {
-		return ParserService.getInstance().getParser(new HintAdapter(type, object, parserHint));
+	 * Utility method that consults ParserService
+	 * @generated
+	 */
+	public static IParser getParser(IElementType type, EObject object,
+			String parserHint) {
+		return ParserService.getInstance().getParser(
+				new HintAdapter(type, object, parserHint));
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public IParser getParser(IAdaptable hint) {
 		String vid = (String) hint.getAdapter(String.class);
 		if (vid != null) {
@@ -110,8 +115,8 @@ public class DomainParserProvider extends AbstractProvider implements IParserPro
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public boolean provides(IOperation operation) {
 		if (operation instanceof GetParserOperation) {
 			IAdaptable hint = ((GetParserOperation) operation).getHint();
@@ -124,18 +129,18 @@ public class DomainParserProvider extends AbstractProvider implements IParserPro
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	private static class HintAdapter extends ParserHintAdapter {
 
 		/**
-		* @generated
-		*/
+		 * @generated
+		 */
 		private final IElementType elementType;
 
 		/**
-		* @generated
-		*/
+		 * @generated
+		 */
 		public HintAdapter(IElementType type, EObject object, String parserHint) {
 			super(object, parserHint);
 			assert type != null;
@@ -143,8 +148,8 @@ public class DomainParserProvider extends AbstractProvider implements IParserPro
 		}
 
 		/**
-		* @generated
-		*/
+		 * @generated
+		 */
 		public Object getAdapter(Class adapter) {
 			if (IElementType.class.equals(adapter)) {
 				return elementType;

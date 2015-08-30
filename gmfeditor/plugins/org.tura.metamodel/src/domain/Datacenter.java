@@ -23,13 +23,13 @@ import org.eclipse.emf.common.util.EList;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  *   <li>{@link domain.Datacenter#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.Datacenter#getParent <em>Parent</em>}</li>
  *   <li>{@link domain.Datacenter#getSubsystems <em>Subsystems</em>}</li>
  *   <li>{@link domain.Datacenter#getName <em>Name</em>}</li>
  * </ul>
+ * </p>
  *
  * @see domain.DomainPackage#getDatacenter()
  * @model annotation="gmf.node label='name' tool.small.bundle='org.tura.metamodel.commons' tool.small.path='icons/datacenter.png'"

@@ -20,6 +20,7 @@ import canvas.diagram.providers.DomainModelingAssistantProvider;
 /**
  * @generated
  */
-public class DomainModelingAssistantProviderOfCheckBoxEditPart extends DomainModelingAssistantProvider {
+public class DomainModelingAssistantProviderOfCheckBoxEditPart extends
+		DomainModelingAssistantProvider {
 
 }

@@ -20,6 +20,7 @@ import uipackage.diagram.providers.DomainModelingAssistantProvider;
 /**
  * @generated
  */
-public class DomainModelingAssistantProviderOfFormParameterEditPart extends DomainModelingAssistantProvider {
+public class DomainModelingAssistantProviderOfFormParameterEditPart extends
+		DomainModelingAssistantProvider {
 
 }

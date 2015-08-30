@@ -42,55 +42,62 @@ import infarastructure.diagram.providers.DomainElementTypes;
 /**
  * @generated
  */
-public class ServerClasterServerClasterServersCompartmentEditPart extends ShapeCompartmentEditPart {
+public class ServerClasterServerClasterServersCompartmentEditPart extends
+		ShapeCompartmentEditPart {
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static final int VISUAL_ID = 1207004;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public ServerClasterServerClasterServersCompartmentEditPart(View view) {
 		super(view);
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public String getCompartmentName() {
 		return Messages.ServerClasterServerClasterServersCompartmentEditPart_title;
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 
 	public IFigure createFigure() {
-		ResizableCompartmentFigure result = (ResizableCompartmentFigure) super.createFigure();
+		ResizableCompartmentFigure result = (ResizableCompartmentFigure) super
+				.createFigure();
 		result.setTitleVisibility(false);
 		return result;
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	protected void createDefaultEditPolicies() {
 		super.createDefaultEditPolicies();
-		installEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE, new ResizableCompartmentEditPolicy());
-		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
+		installEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE,
+				new ResizableCompartmentEditPolicy());
+		installEditPolicy(
+				EditPolicyRoles.SEMANTIC_ROLE,
 				new ServerClasterServerClasterServersCompartmentItemSemanticEditPolicy());
 		installEditPolicy(EditPolicyRoles.CREATION_ROLE,
-				new CreationEditPolicyWithCustomReparent(DomainVisualIDRegistry.TYPED_INSTANCE));
-		installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE, new DragDropEditPolicy());
-		installEditPolicy(EditPolicyRoles.CANONICAL_ROLE,
+				new CreationEditPolicyWithCustomReparent(
+						DomainVisualIDRegistry.TYPED_INSTANCE));
+		installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE,
+				new DragDropEditPolicy());
+		installEditPolicy(
+				EditPolicyRoles.CANONICAL_ROLE,
 				new ServerClasterServerClasterServersCompartmentCanonicalEditPolicy());
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	protected void setRatio(Double ratio) {
 		if (getFigure().getParent().getLayoutManager() instanceof ConstrainedToolbarLayout) {
 			super.setRatio(ratio);
@@ -98,13 +105,15 @@ public class ServerClasterServerClasterServersCompartmentEditPart extends ShapeC
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public EditPart getTargetEditPart(Request request) {
 		if (request instanceof CreateViewAndElementRequest) {
-			CreateElementRequestAdapter adapter = ((CreateViewAndElementRequest) request).getViewAndElementDescriptor()
+			CreateElementRequestAdapter adapter = ((CreateViewAndElementRequest) request)
+					.getViewAndElementDescriptor()
 					.getCreateElementRequestAdapter();
-			IElementType type = (IElementType) adapter.getAdapter(IElementType.class);
+			IElementType type = (IElementType) adapter
+					.getAdapter(IElementType.class);
 			if (type == DomainElementTypes.Server_1203008) {
 				return this;
 			}
@@ -112,10 +121,12 @@ public class ServerClasterServerClasterServersCompartmentEditPart extends ShapeC
 		}
 		if (request instanceof CreateUnspecifiedTypeConnectionRequest) {
 			if (RequestConstants.REQ_CONNECTION_END.equals(request.getType())) {
-				for (Object type : ((CreateUnspecifiedTypeConnectionRequest) request).getElementTypes()) {
+				for (Object type : ((CreateUnspecifiedTypeConnectionRequest) request)
+						.getElementTypes()) {
 					if (type instanceof IElementType) {
 						IElementType elementType = (IElementType) type;
-						if (elementType.equals(DomainElementTypes.InfrastructureConnection_1204009))
+						if (elementType
+								.equals(DomainElementTypes.InfrastructureConnection_1204009))
 							return super.getTargetEditPart(request);
 					}
 				}

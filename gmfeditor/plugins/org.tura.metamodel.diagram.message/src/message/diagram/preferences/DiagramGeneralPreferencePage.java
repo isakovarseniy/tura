@@ -25,9 +25,10 @@ import message.diagram.part.DomainDiagramEditorPlugin;
 public class DiagramGeneralPreferencePage extends DiagramsPreferencePage {
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public DiagramGeneralPreferencePage() {
-		setPreferenceStore(DomainDiagramEditorPlugin.getInstance().getPreferenceStore());
+		setPreferenceStore(DomainDiagramEditorPlugin.getInstance()
+				.getPreferenceStore());
 	}
 }

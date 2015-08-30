@@ -11,8 +11,8 @@
  * http://www.eclipse.org/legal/epl-v10.html
  *******************************************************************************/
 /*
-* 
-*/
+ * 
+ */
 package frmview.diagram.edit.policies;
 
 import org.eclipse.gef.commands.Command;
@@ -24,18 +24,19 @@ import frmview.diagram.providers.DomainElementTypes;
 /**
  * @generated
  */
-public class ViewInheritanceItemSemanticEditPolicy extends DomainBaseItemSemanticEditPolicy {
+public class ViewInheritanceItemSemanticEditPolicy extends
+		DomainBaseItemSemanticEditPolicy {
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public ViewInheritanceItemSemanticEditPolicy() {
 		super(DomainElementTypes.ViewInheritance_1304001);
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	protected Command getDestroyElementCommand(DestroyElementRequest req) {
 		return getGEFWrapper(new DestroyElementCommand(req));
 	}

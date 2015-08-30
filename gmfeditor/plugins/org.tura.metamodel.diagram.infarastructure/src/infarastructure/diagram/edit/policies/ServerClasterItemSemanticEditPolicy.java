@@ -11,8 +11,8 @@
  * http://www.eclipse.org/legal/epl-v10.html
  *******************************************************************************/
 /*
-* 
-*/
+ * 
+ */
 package infarastructure.diagram.edit.policies;
 
 import java.util.Iterator;
@@ -41,26 +41,29 @@ import infarastructure.diagram.providers.DomainElementTypes;
 /**
  * @generated
  */
-public class ServerClasterItemSemanticEditPolicy extends DomainBaseItemSemanticEditPolicy {
+public class ServerClasterItemSemanticEditPolicy extends
+		DomainBaseItemSemanticEditPolicy {
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public ServerClasterItemSemanticEditPolicy() {
 		super(DomainElementTypes.ServerClaster_1203007);
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	protected Command getDestroyElementCommand(DestroyElementRequest req) {
 		View view = (View) getHost().getModel();
-		CompositeTransactionalCommand cmd = new CompositeTransactionalCommand(getEditingDomain(), null);
+		CompositeTransactionalCommand cmd = new CompositeTransactionalCommand(
+				getEditingDomain(), null);
 		cmd.setTransactionNestingEnabled(false);
 		for (Iterator<?> it = view.getTargetEdges().iterator(); it.hasNext();) {
 			Edge incomingLink = (Edge) it.next();
 			if (DomainVisualIDRegistry.getVisualID(incomingLink) == InfrastructureConnectionEditPart.VISUAL_ID) {
-				DestroyElementRequest r = new DestroyElementRequest(incomingLink.getElement(), false);
+				DestroyElementRequest r = new DestroyElementRequest(
+						incomingLink.getElement(), false);
 				cmd.add(new DestroyElementCommand(r));
 				cmd.add(new DeleteCommand(getEditingDomain(), incomingLink));
 				continue;
@@ -69,7 +72,8 @@ public class ServerClasterItemSemanticEditPolicy extends DomainBaseItemSemanticE
 		for (Iterator<?> it = view.getSourceEdges().iterator(); it.hasNext();) {
 			Edge outgoingLink = (Edge) it.next();
 			if (DomainVisualIDRegistry.getVisualID(outgoingLink) == InfrastructureConnectionEditPart.VISUAL_ID) {
-				DestroyElementRequest r = new DestroyElementRequest(outgoingLink.getElement(), false);
+				DestroyElementRequest r = new DestroyElementRequest(
+						outgoingLink.getElement(), false);
 				cmd.add(new DestroyElementCommand(r));
 				cmd.add(new DeleteCommand(getEditingDomain(), outgoingLink));
 				continue;
@@ -89,40 +93,48 @@ public class ServerClasterItemSemanticEditPolicy extends DomainBaseItemSemanticE
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	private void addDestroyChildNodesCommand(ICompositeCommand cmd) {
 		View view = (View) getHost().getModel();
 		for (Iterator<?> nit = view.getChildren().iterator(); nit.hasNext();) {
 			Node node = (Node) nit.next();
 			switch (DomainVisualIDRegistry.getVisualID(node)) {
 			case ServerClasterServerClasterServersCompartmentEditPart.VISUAL_ID:
-				for (Iterator<?> cit = node.getChildren().iterator(); cit.hasNext();) {
+				for (Iterator<?> cit = node.getChildren().iterator(); cit
+						.hasNext();) {
 					Node cnode = (Node) cit.next();
 					switch (DomainVisualIDRegistry.getVisualID(cnode)) {
 					case Server2EditPart.VISUAL_ID:
-						for (Iterator<?> it = cnode.getTargetEdges().iterator(); it.hasNext();) {
+						for (Iterator<?> it = cnode.getTargetEdges().iterator(); it
+								.hasNext();) {
 							Edge incomingLink = (Edge) it.next();
 							if (DomainVisualIDRegistry
 									.getVisualID(incomingLink) == InfrastructureConnectionEditPart.VISUAL_ID) {
-								DestroyElementRequest r = new DestroyElementRequest(incomingLink.getElement(), false);
+								DestroyElementRequest r = new DestroyElementRequest(
+										incomingLink.getElement(), false);
 								cmd.add(new DestroyElementCommand(r));
-								cmd.add(new DeleteCommand(getEditingDomain(), incomingLink));
+								cmd.add(new DeleteCommand(getEditingDomain(),
+										incomingLink));
 								continue;
 							}
 						}
-						for (Iterator<?> it = cnode.getSourceEdges().iterator(); it.hasNext();) {
+						for (Iterator<?> it = cnode.getSourceEdges().iterator(); it
+								.hasNext();) {
 							Edge outgoingLink = (Edge) it.next();
 							if (DomainVisualIDRegistry
 									.getVisualID(outgoingLink) == InfrastructureConnectionEditPart.VISUAL_ID) {
-								DestroyElementRequest r = new DestroyElementRequest(outgoingLink.getElement(), false);
+								DestroyElementRequest r = new DestroyElementRequest(
+										outgoingLink.getElement(), false);
 								cmd.add(new DestroyElementCommand(r));
-								cmd.add(new DeleteCommand(getEditingDomain(), outgoingLink));
+								cmd.add(new DeleteCommand(getEditingDomain(),
+										outgoingLink));
 								continue;
 							}
 						}
 						cmd.add(new DestroyElementCommand(
-								new DestroyElementRequest(getEditingDomain(), cnode.getElement(), false))); // directlyOwned: true
+								new DestroyElementRequest(getEditingDomain(),
+										cnode.getElement(), false))); // directlyOwned: true
 						// don't need explicit deletion of cnode as parent's view deletion would clean child views as well 
 						// cmd.add(new org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(), cnode));
 						break;
@@ -139,15 +151,19 @@ public class ServerClasterItemSemanticEditPolicy extends DomainBaseItemSemanticE
 	protected Command getCreateRelationshipCommand(CreateRelationshipRequest req) {
 		Command command = req.getTarget() == null ? getStartCreateRelationshipCommand(req)
 				: getCompleteCreateRelationshipCommand(req);
-		return command != null ? command : super.getCreateRelationshipCommand(req);
+		return command != null ? command : super
+				.getCreateRelationshipCommand(req);
 	}
 
 	/**
 	 * @generated
 	 */
-	protected Command getStartCreateRelationshipCommand(CreateRelationshipRequest req) {
-		if (DomainElementTypes.InfrastructureConnection_1204009 == req.getElementType()) {
-			return getGEFWrapper(new InfrastructureConnectionCreateCommand(req, req.getSource(), req.getTarget()));
+	protected Command getStartCreateRelationshipCommand(
+			CreateRelationshipRequest req) {
+		if (DomainElementTypes.InfrastructureConnection_1204009 == req
+				.getElementType()) {
+			return getGEFWrapper(new InfrastructureConnectionCreateCommand(req,
+					req.getSource(), req.getTarget()));
 		}
 		return null;
 	}
@@ -155,9 +171,12 @@ public class ServerClasterItemSemanticEditPolicy extends DomainBaseItemSemanticE
 	/**
 	 * @generated
 	 */
-	protected Command getCompleteCreateRelationshipCommand(CreateRelationshipRequest req) {
-		if (DomainElementTypes.InfrastructureConnection_1204009 == req.getElementType()) {
-			return getGEFWrapper(new InfrastructureConnectionCreateCommand(req, req.getSource(), req.getTarget()));
+	protected Command getCompleteCreateRelationshipCommand(
+			CreateRelationshipRequest req) {
+		if (DomainElementTypes.InfrastructureConnection_1204009 == req
+				.getElementType()) {
+			return getGEFWrapper(new InfrastructureConnectionCreateCommand(req,
+					req.getSource(), req.getTarget()));
 		}
 		return null;
 	}
@@ -168,10 +187,12 @@ public class ServerClasterItemSemanticEditPolicy extends DomainBaseItemSemanticE
 	 * 
 	 * @generated
 	 */
-	protected Command getReorientRelationshipCommand(ReorientRelationshipRequest req) {
+	protected Command getReorientRelationshipCommand(
+			ReorientRelationshipRequest req) {
 		switch (getVisualID(req)) {
 		case InfrastructureConnectionEditPart.VISUAL_ID:
-			return getGEFWrapper(new InfrastructureConnectionReorientCommand(req));
+			return getGEFWrapper(new InfrastructureConnectionReorientCommand(
+					req));
 		}
 		return super.getReorientRelationshipCommand(req);
 	}

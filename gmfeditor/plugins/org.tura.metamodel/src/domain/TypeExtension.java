@@ -22,12 +22,12 @@ package domain;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  *   <li>{@link domain.TypeExtension#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.TypeExtension#getSource <em>Source</em>}</li>
  *   <li>{@link domain.TypeExtension#getTarget <em>Target</em>}</li>
  * </ul>
+ * </p>
  *
  * @see domain.DomainPackage#getTypeExtension()
  * @model annotation="gmf.link source='source' target='target' style='dot' width='2' target.decoration='closedarrow'"

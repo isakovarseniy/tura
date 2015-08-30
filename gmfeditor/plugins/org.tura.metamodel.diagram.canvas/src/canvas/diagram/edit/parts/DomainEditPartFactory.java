@@ -30,8 +30,8 @@ import canvas.diagram.part.DomainVisualIDRegistry;
 public class DomainEditPartFactory implements EditPartFactory {
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public EditPart createEditPart(EditPart context, Object model) {
 		if (model instanceof View) {
 			View view = (View) model;
@@ -146,7 +146,8 @@ public class DomainEditPartFactory implements EditPartFactory {
 				return new ButtonLabel2EditPart(view);
 
 			case LayerHolderLayerHolderChildrenCompartmentEditPart.VISUAL_ID:
-				return new LayerHolderLayerHolderChildrenCompartmentEditPart(view);
+				return new LayerHolderLayerHolderChildrenCompartmentEditPart(
+						view);
 
 			case TableTableColsCompartmentEditPart.VISUAL_ID:
 				return new TableTableColsCompartmentEditPart(view);
@@ -164,31 +165,35 @@ public class DomainEditPartFactory implements EditPartFactory {
 				return new ColumnColumnElementCompartment2EditPart(view);
 
 			case LayerHolderLayerHolderChildrenCompartment2EditPart.VISUAL_ID:
-				return new LayerHolderLayerHolderChildrenCompartment2EditPart(view);
+				return new LayerHolderLayerHolderChildrenCompartment2EditPart(
+						view);
 
 			case TreeTreeColsCompartment2EditPart.VISUAL_ID:
 				return new TreeTreeColsCompartment2EditPart(view);
 
 			case LayerHolderLayerHolderChildrenCompartment3EditPart.VISUAL_ID:
-				return new LayerHolderLayerHolderChildrenCompartment3EditPart(view);
+				return new LayerHolderLayerHolderChildrenCompartment3EditPart(
+						view);
 			}
 		}
 		return createUnrecognizedEditPart(context, model);
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	private EditPart createUnrecognizedEditPart(EditPart context, Object model) {
 		// Handle creation of unrecognized child node EditParts here
 		return null;
 	}
 
 	/**
-	* @generated
-	*/
-	public static CellEditorLocator getTextCellEditorLocator(ITextAwareEditPart source) {
-		return CellEditorLocatorAccess.INSTANCE.getTextCellEditorLocator(source);
+	 * @generated
+	 */
+	public static CellEditorLocator getTextCellEditorLocator(
+			ITextAwareEditPart source) {
+		return CellEditorLocatorAccess.INSTANCE
+				.getTextCellEditorLocator(source);
 	}
 
 }

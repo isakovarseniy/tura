@@ -31,12 +31,12 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  *   <li>{@link domain.impl.FormVariableImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.impl.FormVariableImpl#getName <em>Name</em>}</li>
  *   <li>{@link domain.impl.FormVariableImpl#getParamRef <em>Param Ref</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */

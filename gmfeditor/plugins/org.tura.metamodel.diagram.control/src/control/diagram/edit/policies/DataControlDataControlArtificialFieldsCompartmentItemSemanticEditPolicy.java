@@ -11,8 +11,8 @@
  * http://www.eclipse.org/legal/epl-v10.html
  *******************************************************************************/
 /*
-* 
-*/
+ * 
+ */
 package control.diagram.edit.policies;
 
 import org.eclipse.gef.commands.Command;
@@ -28,15 +28,15 @@ public class DataControlDataControlArtificialFieldsCompartmentItemSemanticEditPo
 		extends DomainBaseItemSemanticEditPolicy {
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public DataControlDataControlArtificialFieldsCompartmentItemSemanticEditPolicy() {
 		super(DomainElementTypes.DataControl_1102002);
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	protected Command getCreateCommand(CreateElementRequest req) {
 		if (DomainElementTypes.ArtificialField_1103008 == req.getElementType()) {
 			return getGEFWrapper(new ArtificialFieldCreateCommand(req));

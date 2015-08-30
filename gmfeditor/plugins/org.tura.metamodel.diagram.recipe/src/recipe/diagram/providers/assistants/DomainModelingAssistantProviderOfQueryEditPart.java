@@ -20,6 +20,7 @@ import recipe.diagram.providers.DomainModelingAssistantProvider;
 /**
  * @generated
  */
-public class DomainModelingAssistantProviderOfQueryEditPart extends DomainModelingAssistantProvider {
+public class DomainModelingAssistantProviderOfQueryEditPart extends
+		DomainModelingAssistantProvider {
 
 }

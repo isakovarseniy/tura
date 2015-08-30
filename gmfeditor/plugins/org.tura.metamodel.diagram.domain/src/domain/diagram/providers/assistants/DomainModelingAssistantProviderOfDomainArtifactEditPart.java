@@ -20,6 +20,7 @@ import domain.diagram.providers.DomainModelingAssistantProvider;
 /**
  * @generated
  */
-public class DomainModelingAssistantProviderOfDomainArtifactEditPart extends DomainModelingAssistantProvider {
+public class DomainModelingAssistantProviderOfDomainArtifactEditPart extends
+		DomainModelingAssistantProvider {
 
 }

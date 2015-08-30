@@ -27,13 +27,13 @@ import canvas.diagram.providers.DomainModelingAssistantProvider;
 /**
  * @generated
  */
-public class DomainModelingAssistantProviderOfCanvasViewEditPart extends DomainModelingAssistantProvider {
+public class DomainModelingAssistantProviderOfCanvasViewEditPart extends
+		DomainModelingAssistantProvider {
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	@Override
-
 	public List<IElementType> getTypesForPopupBar(IAdaptable host) {
 		List<IElementType> types = new ArrayList<IElementType>(1);
 		types.add(DomainElementTypes.LayerHolder_1602003);

@@ -23,476 +23,476 @@ import org.eclipse.osgi.util.NLS;
 public class Messages extends NLS {
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	static {
 		NLS.initializeMessages("messages", Messages.class); //$NON-NLS-1$
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	private Messages() {
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static String DomainCreationWizardTitle;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static String DomainCreationWizard_DiagramModelFilePageTitle;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static String DomainCreationWizard_DiagramModelFilePageDescription;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static String DomainCreationWizard_DomainModelFilePageTitle;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static String DomainCreationWizard_DomainModelFilePageDescription;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static String DomainCreationWizardOpenEditorError;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static String DomainCreationWizardCreationError;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static String DomainCreationWizardPageExtensionError;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static String DomainDiagramEditorUtil_OpenModelResourceErrorDialogTitle;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static String DomainDiagramEditorUtil_OpenModelResourceErrorDialogMessage;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static String DomainDiagramEditorUtil_CreateDiagramProgressTask;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static String DomainDiagramEditorUtil_CreateDiagramCommandLabel;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static String DomainDocumentProvider_isModifiable;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static String DomainDocumentProvider_handleElementContentChanged;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static String DomainDocumentProvider_IncorrectInputError;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static String DomainDocumentProvider_NoDiagramInResourceError;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static String DomainDocumentProvider_DiagramLoadingError;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static String DomainDocumentProvider_UnsynchronizedFileSaveError;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static String DomainDocumentProvider_SaveDiagramTask;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static String DomainDocumentProvider_SaveNextResourceTask;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static String DomainDocumentProvider_SaveAsOperation;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static String InitDiagramFile_ResourceErrorDialogTitle;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static String InitDiagramFile_ResourceErrorDialogMessage;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static String InitDiagramFile_WizardTitle;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static String InitDiagramFile_OpenModelFileDialogTitle;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static String DomainNewDiagramFileWizard_CreationPageName;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static String DomainNewDiagramFileWizard_CreationPageTitle;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static String DomainNewDiagramFileWizard_CreationPageDescription;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static String DomainNewDiagramFileWizard_RootSelectionPageName;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static String DomainNewDiagramFileWizard_RootSelectionPageTitle;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static String DomainNewDiagramFileWizard_RootSelectionPageDescription;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static String DomainNewDiagramFileWizard_RootSelectionPageSelectionTitle;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static String DomainNewDiagramFileWizard_RootSelectionPageNoSelectionMessage;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static String DomainNewDiagramFileWizard_RootSelectionPageInvalidSelectionMessage;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static String DomainNewDiagramFileWizard_InitDiagramCommand;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static String DomainNewDiagramFileWizard_IncorrectRootError;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static String DomainDiagramEditor_SavingDeletedFile;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static String DomainDiagramEditor_SaveAsErrorTitle;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static String DomainDiagramEditor_SaveAsErrorMessage;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static String DomainDiagramEditor_SaveErrorTitle;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static String DomainDiagramEditor_SaveErrorMessage;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static String DomainElementChooserDialog_SelectModelElementTitle;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static String ModelElementSelectionPageMessage;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static String ValidateActionMessage;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static String Objects1Group_title;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static String Connections2Group_title;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static String Configuration1CreationTool_title;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static String Configuration1CreationTool_desc;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static String DeploymentSequence2CreationTool_title;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static String DeploymentSequence2CreationTool_desc;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static String Infrastructure3CreationTool_title;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static String Infrastructure3CreationTool_desc;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static String Ingredient4CreationTool_title;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static String Ingredient4CreationTool_desc;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static String JavaComponent5CreationTool_title;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static String JavaComponent5CreationTool_desc;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static String ModelMapper6CreationTool_title;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static String ModelMapper6CreationTool_desc;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static String Property7CreationTool_title;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static String Property7CreationTool_desc;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static String Query8CreationTool_title;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static String Query8CreationTool_desc;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static String Recipe9CreationTool_title;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static String Recipe9CreationTool_desc;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static String Deployment1CreationTool_title;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static String Deployment1CreationTool_desc;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static String Infrastructures2CreationTool_title;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static String Infrastructures2CreationTool_desc;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static String RecipeConfig3CreationTool_title;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static String RecipeConfig3CreationTool_desc;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static String RecipeRecipeIngredientsCompartmentEditPart_title;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static String IngredientIngredientComponentsCompartmentEditPart_title;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static String JavaComponentJavaComponentMappersCompartmentEditPart_title;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static String ModelMapperModelMapperQueriesCompartmentEditPart_title;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static String ConfigurationConfigurationPropertiesCompartmentEditPart_title;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static String CommandName_OpenDiagram;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static String NavigatorGroupName_Recipes_301000_links;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static String NavigatorGroupName_Recipe_302001_outgoinglinks;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static String NavigatorGroupName_Configuration_302002_incominglinks;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static String NavigatorGroupName_Infrastructure_302003_incominglinks;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static String NavigatorGroupName_Infrastructure_302003_outgoinglinks;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static String NavigatorGroupName_DeploymentSequence_302004_incominglinks;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static String NavigatorGroupName_RecipeInfrastructures_304004_target;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static String NavigatorGroupName_RecipeInfrastructures_304004_source;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static String NavigatorGroupName_InfrastructureRecipeConfig_304006_target;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static String NavigatorGroupName_InfrastructureRecipeConfig_304006_source;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static String NavigatorGroupName_RecipeDeployment_304013_target;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static String NavigatorGroupName_RecipeDeployment_304013_source;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static String NavigatorActionProvider_OpenDiagramActionName;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static String MessageFormatParser_InvalidInputError;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static String DomainModelingAssistantProviderTitle;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static String DomainModelingAssistantProviderMessage;
 
 	//TODO: put accessor fields manually	

@@ -33,12 +33,12 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  *   <li>{@link domain.impl.DeploymentSequenceImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.impl.DeploymentSequenceImpl#getName <em>Name</em>}</li>
  *   <li>{@link domain.impl.DeploymentSequenceImpl#getDeploymentComponents <em>Deployment Components</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */

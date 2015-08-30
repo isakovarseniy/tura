@@ -11,8 +11,8 @@
  * http://www.eclipse.org/legal/epl-v10.html
  *******************************************************************************/
 /*
-* 
-*/
+ * 
+ */
 package control.diagram.part;
 
 import java.util.Collection;
@@ -89,15 +89,16 @@ import domain.UpdateTrigger;
 public class DomainDiagramUpdater {
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static boolean isShortcutOrphaned(View view) {
-		return !view.isSetElement() || view.getElement() == null || view.getElement().eIsProxy();
+		return !view.isSetElement() || view.getElement() == null
+				|| view.getElement().eIsProxy();
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static List<DomainNodeDescriptor> getSemanticChildren(View view) {
 		switch (DomainVisualIDRegistry.getVisualID(view)) {
 		case ControlsEditPart.VISUAL_ID:
@@ -135,9 +136,10 @@ public class DomainDiagramUpdater {
 	}
 
 	/**
-	* @generated
-	*/
-	public static List<DomainNodeDescriptor> getControls_1101000SemanticChildren(View view) {
+	 * @generated
+	 */
+	public static List<DomainNodeDescriptor> getControls_1101000SemanticChildren(
+			View view) {
 		if (!view.isSetElement()) {
 			return Collections.emptyList();
 		}
@@ -145,14 +147,17 @@ public class DomainDiagramUpdater {
 		LinkedList<DomainNodeDescriptor> result = new LinkedList<DomainNodeDescriptor>();
 		{
 			Root childElement = modelElement.getRoot();
-			int visualID = DomainVisualIDRegistry.getNodeVisualID(view, childElement);
+			int visualID = DomainVisualIDRegistry.getNodeVisualID(view,
+					childElement);
 			if (visualID == RootEditPart.VISUAL_ID) {
 				result.add(new DomainNodeDescriptor(childElement, visualID));
 			}
 		}
-		for (Iterator<?> it = modelElement.getControls().iterator(); it.hasNext();) {
+		for (Iterator<?> it = modelElement.getControls().iterator(); it
+				.hasNext();) {
 			DataControl childElement = (DataControl) it.next();
-			int visualID = DomainVisualIDRegistry.getNodeVisualID(view, childElement);
+			int visualID = DomainVisualIDRegistry.getNodeVisualID(view,
+					childElement);
 			if (visualID == DataControlEditPart.VISUAL_ID) {
 				result.add(new DomainNodeDescriptor(childElement, visualID));
 				continue;
@@ -162,9 +167,10 @@ public class DomainDiagramUpdater {
 	}
 
 	/**
-	* @generated
-	*/
-	public static List<DomainNodeDescriptor> getRootRootPreFormTriggerCompartment_1107001SemanticChildren(View view) {
+	 * @generated
+	 */
+	public static List<DomainNodeDescriptor> getRootRootPreFormTriggerCompartment_1107001SemanticChildren(
+			View view) {
 		if (false == view.eContainer() instanceof View) {
 			return Collections.emptyList();
 		}
@@ -176,7 +182,8 @@ public class DomainDiagramUpdater {
 		LinkedList<DomainNodeDescriptor> result = new LinkedList<DomainNodeDescriptor>();
 		{
 			PREFormTrigger childElement = modelElement.getPreFormTrigger();
-			int visualID = DomainVisualIDRegistry.getNodeVisualID(view, childElement);
+			int visualID = DomainVisualIDRegistry.getNodeVisualID(view,
+					childElement);
 			if (visualID == PREFormTriggerEditPart.VISUAL_ID) {
 				result.add(new DomainNodeDescriptor(childElement, visualID));
 			}
@@ -185,9 +192,10 @@ public class DomainDiagramUpdater {
 	}
 
 	/**
-	* @generated
-	*/
-	public static List<DomainNodeDescriptor> getRootRootVariablesCompartment_1107014SemanticChildren(View view) {
+	 * @generated
+	 */
+	public static List<DomainNodeDescriptor> getRootRootVariablesCompartment_1107014SemanticChildren(
+			View view) {
 		if (false == view.eContainer() instanceof View) {
 			return Collections.emptyList();
 		}
@@ -197,9 +205,11 @@ public class DomainDiagramUpdater {
 		}
 		Root modelElement = (Root) containerView.getElement();
 		LinkedList<DomainNodeDescriptor> result = new LinkedList<DomainNodeDescriptor>();
-		for (Iterator<?> it = modelElement.getVariables().iterator(); it.hasNext();) {
+		for (Iterator<?> it = modelElement.getVariables().iterator(); it
+				.hasNext();) {
 			FormVariable childElement = (FormVariable) it.next();
-			int visualID = DomainVisualIDRegistry.getNodeVisualID(view, childElement);
+			int visualID = DomainVisualIDRegistry.getNodeVisualID(view,
+					childElement);
 			if (visualID == FormVariableEditPart.VISUAL_ID) {
 				result.add(new DomainNodeDescriptor(childElement, visualID));
 				continue;
@@ -209,8 +219,8 @@ public class DomainDiagramUpdater {
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static List<DomainNodeDescriptor> getDataControlDataControlPreQueryTriggerCompartment_1107002SemanticChildren(
 			View view) {
 		if (false == view.eContainer() instanceof View) {
@@ -224,7 +234,8 @@ public class DomainDiagramUpdater {
 		LinkedList<DomainNodeDescriptor> result = new LinkedList<DomainNodeDescriptor>();
 		{
 			PREQueryTrigger childElement = modelElement.getPreQueryTrigger();
-			int visualID = DomainVisualIDRegistry.getNodeVisualID(view, childElement);
+			int visualID = DomainVisualIDRegistry.getNodeVisualID(view,
+					childElement);
 			if (visualID == PREQueryTriggerEditPart.VISUAL_ID) {
 				result.add(new DomainNodeDescriptor(childElement, visualID));
 			}
@@ -233,8 +244,8 @@ public class DomainDiagramUpdater {
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static List<DomainNodeDescriptor> getDataControlDataControlPostQueryTriggerCompartment_1107003SemanticChildren(
 			View view) {
 		if (false == view.eContainer() instanceof View) {
@@ -248,7 +259,8 @@ public class DomainDiagramUpdater {
 		LinkedList<DomainNodeDescriptor> result = new LinkedList<DomainNodeDescriptor>();
 		{
 			POSTQueryTrigger childElement = modelElement.getPostQueryTrigger();
-			int visualID = DomainVisualIDRegistry.getNodeVisualID(view, childElement);
+			int visualID = DomainVisualIDRegistry.getNodeVisualID(view,
+					childElement);
 			if (visualID == POSTQueryTriggerEditPart.VISUAL_ID) {
 				result.add(new DomainNodeDescriptor(childElement, visualID));
 			}
@@ -257,8 +269,8 @@ public class DomainDiagramUpdater {
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static List<DomainNodeDescriptor> getDataControlDataControlPreInsertTriggerCompartment_1107004SemanticChildren(
 			View view) {
 		if (false == view.eContainer() instanceof View) {
@@ -272,7 +284,8 @@ public class DomainDiagramUpdater {
 		LinkedList<DomainNodeDescriptor> result = new LinkedList<DomainNodeDescriptor>();
 		{
 			PREInsertTrigger childElement = modelElement.getPreInsertTrigger();
-			int visualID = DomainVisualIDRegistry.getNodeVisualID(view, childElement);
+			int visualID = DomainVisualIDRegistry.getNodeVisualID(view,
+					childElement);
 			if (visualID == PREInsertTriggerEditPart.VISUAL_ID) {
 				result.add(new DomainNodeDescriptor(childElement, visualID));
 			}
@@ -281,8 +294,8 @@ public class DomainDiagramUpdater {
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static List<DomainNodeDescriptor> getDataControlDataControlPreDeleteTriggerCompartment_1107005SemanticChildren(
 			View view) {
 		if (false == view.eContainer() instanceof View) {
@@ -296,7 +309,8 @@ public class DomainDiagramUpdater {
 		LinkedList<DomainNodeDescriptor> result = new LinkedList<DomainNodeDescriptor>();
 		{
 			PREDeleteTrigger childElement = modelElement.getPreDeleteTrigger();
-			int visualID = DomainVisualIDRegistry.getNodeVisualID(view, childElement);
+			int visualID = DomainVisualIDRegistry.getNodeVisualID(view,
+					childElement);
 			if (visualID == PREDeleteTriggerEditPart.VISUAL_ID) {
 				result.add(new DomainNodeDescriptor(childElement, visualID));
 			}
@@ -305,8 +319,8 @@ public class DomainDiagramUpdater {
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static List<DomainNodeDescriptor> getDataControlDataControlPostCreateTriggerCompartment_1107006SemanticChildren(
 			View view) {
 		if (false == view.eContainer() instanceof View) {
@@ -319,8 +333,10 @@ public class DomainDiagramUpdater {
 		DataControl modelElement = (DataControl) containerView.getElement();
 		LinkedList<DomainNodeDescriptor> result = new LinkedList<DomainNodeDescriptor>();
 		{
-			POSTCreateTrigger childElement = modelElement.getPostCreateTrigger();
-			int visualID = DomainVisualIDRegistry.getNodeVisualID(view, childElement);
+			POSTCreateTrigger childElement = modelElement
+					.getPostCreateTrigger();
+			int visualID = DomainVisualIDRegistry.getNodeVisualID(view,
+					childElement);
 			if (visualID == POSTCreateTriggerEditPart.VISUAL_ID) {
 				result.add(new DomainNodeDescriptor(childElement, visualID));
 			}
@@ -329,8 +345,8 @@ public class DomainDiagramUpdater {
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static List<DomainNodeDescriptor> getDataControlDataControlPreUpdateTriggerCompartment_1107007SemanticChildren(
 			View view) {
 		if (false == view.eContainer() instanceof View) {
@@ -344,7 +360,8 @@ public class DomainDiagramUpdater {
 		LinkedList<DomainNodeDescriptor> result = new LinkedList<DomainNodeDescriptor>();
 		{
 			PREUpdateTrigger childElement = modelElement.getPreUpdateTrigger();
-			int visualID = DomainVisualIDRegistry.getNodeVisualID(view, childElement);
+			int visualID = DomainVisualIDRegistry.getNodeVisualID(view,
+					childElement);
 			if (visualID == PREUpdateTriggerEditPart.VISUAL_ID) {
 				result.add(new DomainNodeDescriptor(childElement, visualID));
 			}
@@ -353,8 +370,8 @@ public class DomainDiagramUpdater {
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static List<DomainNodeDescriptor> getDataControlDataControlCreateCompartment_1107008SemanticChildren(
 			View view) {
 		if (false == view.eContainer() instanceof View) {
@@ -368,7 +385,8 @@ public class DomainDiagramUpdater {
 		LinkedList<DomainNodeDescriptor> result = new LinkedList<DomainNodeDescriptor>();
 		{
 			CreateTrigger childElement = modelElement.getCreate();
-			int visualID = DomainVisualIDRegistry.getNodeVisualID(view, childElement);
+			int visualID = DomainVisualIDRegistry.getNodeVisualID(view,
+					childElement);
 			if (visualID == CreateTriggerEditPart.VISUAL_ID) {
 				result.add(new DomainNodeDescriptor(childElement, visualID));
 			}
@@ -377,8 +395,8 @@ public class DomainDiagramUpdater {
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static List<DomainNodeDescriptor> getDataControlDataControlInsertCompartment_1107009SemanticChildren(
 			View view) {
 		if (false == view.eContainer() instanceof View) {
@@ -392,7 +410,8 @@ public class DomainDiagramUpdater {
 		LinkedList<DomainNodeDescriptor> result = new LinkedList<DomainNodeDescriptor>();
 		{
 			InsertTrigger childElement = modelElement.getInsert();
-			int visualID = DomainVisualIDRegistry.getNodeVisualID(view, childElement);
+			int visualID = DomainVisualIDRegistry.getNodeVisualID(view,
+					childElement);
 			if (visualID == InsertTriggerEditPart.VISUAL_ID) {
 				result.add(new DomainNodeDescriptor(childElement, visualID));
 			}
@@ -401,8 +420,8 @@ public class DomainDiagramUpdater {
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static List<DomainNodeDescriptor> getDataControlDataControlUpdateCompartment_1107010SemanticChildren(
 			View view) {
 		if (false == view.eContainer() instanceof View) {
@@ -416,7 +435,8 @@ public class DomainDiagramUpdater {
 		LinkedList<DomainNodeDescriptor> result = new LinkedList<DomainNodeDescriptor>();
 		{
 			UpdateTrigger childElement = modelElement.getUpdate();
-			int visualID = DomainVisualIDRegistry.getNodeVisualID(view, childElement);
+			int visualID = DomainVisualIDRegistry.getNodeVisualID(view,
+					childElement);
 			if (visualID == UpdateTriggerEditPart.VISUAL_ID) {
 				result.add(new DomainNodeDescriptor(childElement, visualID));
 			}
@@ -425,8 +445,8 @@ public class DomainDiagramUpdater {
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static List<DomainNodeDescriptor> getDataControlDataControlRemoveCompartment_1107011SemanticChildren(
 			View view) {
 		if (false == view.eContainer() instanceof View) {
@@ -440,7 +460,8 @@ public class DomainDiagramUpdater {
 		LinkedList<DomainNodeDescriptor> result = new LinkedList<DomainNodeDescriptor>();
 		{
 			DeleteTrigger childElement = modelElement.getRemove();
-			int visualID = DomainVisualIDRegistry.getNodeVisualID(view, childElement);
+			int visualID = DomainVisualIDRegistry.getNodeVisualID(view,
+					childElement);
 			if (visualID == DeleteTriggerEditPart.VISUAL_ID) {
 				result.add(new DomainNodeDescriptor(childElement, visualID));
 			}
@@ -449,8 +470,8 @@ public class DomainDiagramUpdater {
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static List<DomainNodeDescriptor> getDataControlDataControlSearchCompartment_1107012SemanticChildren(
 			View view) {
 		if (false == view.eContainer() instanceof View) {
@@ -464,7 +485,8 @@ public class DomainDiagramUpdater {
 		LinkedList<DomainNodeDescriptor> result = new LinkedList<DomainNodeDescriptor>();
 		{
 			SearchTrigger childElement = modelElement.getSearch();
-			int visualID = DomainVisualIDRegistry.getNodeVisualID(view, childElement);
+			int visualID = DomainVisualIDRegistry.getNodeVisualID(view,
+					childElement);
 			if (visualID == SearchTriggerEditPart.VISUAL_ID) {
 				result.add(new DomainNodeDescriptor(childElement, visualID));
 			}
@@ -473,8 +495,8 @@ public class DomainDiagramUpdater {
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static List<DomainNodeDescriptor> getDataControlDataControlArtificialFieldsCompartment_1107013SemanticChildren(
 			View view) {
 		if (false == view.eContainer() instanceof View) {
@@ -486,9 +508,11 @@ public class DomainDiagramUpdater {
 		}
 		DataControl modelElement = (DataControl) containerView.getElement();
 		LinkedList<DomainNodeDescriptor> result = new LinkedList<DomainNodeDescriptor>();
-		for (Iterator<?> it = modelElement.getArtificialFields().iterator(); it.hasNext();) {
+		for (Iterator<?> it = modelElement.getArtificialFields().iterator(); it
+				.hasNext();) {
 			ArtificialField childElement = (ArtificialField) it.next();
-			int visualID = DomainVisualIDRegistry.getNodeVisualID(view, childElement);
+			int visualID = DomainVisualIDRegistry.getNodeVisualID(view,
+					childElement);
 			if (visualID == ArtificialFieldEditPart.VISUAL_ID) {
 				result.add(new DomainNodeDescriptor(childElement, visualID));
 				continue;
@@ -498,8 +522,8 @@ public class DomainDiagramUpdater {
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static List<DomainLinkDescriptor> getContainedLinks(View view) {
 		switch (DomainVisualIDRegistry.getVisualID(view)) {
 		case ControlsEditPart.VISUAL_ID:
@@ -545,8 +569,8 @@ public class DomainDiagramUpdater {
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static List<DomainLinkDescriptor> getIncomingLinks(View view) {
 		switch (DomainVisualIDRegistry.getVisualID(view)) {
 		case RootEditPart.VISUAL_ID:
@@ -590,8 +614,8 @@ public class DomainDiagramUpdater {
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static List<DomainLinkDescriptor> getOutgoingLinks(View view) {
 		switch (DomainVisualIDRegistry.getVisualID(view)) {
 		case RootEditPart.VISUAL_ID:
@@ -637,7 +661,8 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getControls_1101000ContainedLinks(View view) {
+	public static List<DomainLinkDescriptor> getControls_1101000ContainedLinks(
+			View view) {
 		Controls modelElement = (Controls) view.getElement();
 		LinkedList<DomainLinkDescriptor> result = new LinkedList<DomainLinkDescriptor>();
 		result.addAll(getContainedTypeModelFacetLinks_Relation_1104009(modelElement));
@@ -648,272 +673,312 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getRoot_1102001ContainedLinks(View view) {
+	public static List<DomainLinkDescriptor> getRoot_1102001ContainedLinks(
+			View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getDataControl_1102002ContainedLinks(View view) {
+	public static List<DomainLinkDescriptor> getDataControl_1102002ContainedLinks(
+			View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getPREFormTrigger_1103001ContainedLinks(View view) {
+	public static List<DomainLinkDescriptor> getPREFormTrigger_1103001ContainedLinks(
+			View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getFormVariable_1103017ContainedLinks(View view) {
+	public static List<DomainLinkDescriptor> getFormVariable_1103017ContainedLinks(
+			View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getPREQueryTrigger_1103002ContainedLinks(View view) {
+	public static List<DomainLinkDescriptor> getPREQueryTrigger_1103002ContainedLinks(
+			View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getPOSTQueryTrigger_1103003ContainedLinks(View view) {
+	public static List<DomainLinkDescriptor> getPOSTQueryTrigger_1103003ContainedLinks(
+			View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getPREInsertTrigger_1103004ContainedLinks(View view) {
+	public static List<DomainLinkDescriptor> getPREInsertTrigger_1103004ContainedLinks(
+			View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getPREDeleteTrigger_1103005ContainedLinks(View view) {
+	public static List<DomainLinkDescriptor> getPREDeleteTrigger_1103005ContainedLinks(
+			View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getPOSTCreateTrigger_1103011ContainedLinks(View view) {
+	public static List<DomainLinkDescriptor> getPOSTCreateTrigger_1103011ContainedLinks(
+			View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getPREUpdateTrigger_1103010ContainedLinks(View view) {
+	public static List<DomainLinkDescriptor> getPREUpdateTrigger_1103010ContainedLinks(
+			View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getCreateTrigger_1103012ContainedLinks(View view) {
+	public static List<DomainLinkDescriptor> getCreateTrigger_1103012ContainedLinks(
+			View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getInsertTrigger_1103013ContainedLinks(View view) {
+	public static List<DomainLinkDescriptor> getInsertTrigger_1103013ContainedLinks(
+			View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getUpdateTrigger_1103014ContainedLinks(View view) {
+	public static List<DomainLinkDescriptor> getUpdateTrigger_1103014ContainedLinks(
+			View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getDeleteTrigger_1103015ContainedLinks(View view) {
+	public static List<DomainLinkDescriptor> getDeleteTrigger_1103015ContainedLinks(
+			View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getSearchTrigger_1103016ContainedLinks(View view) {
+	public static List<DomainLinkDescriptor> getSearchTrigger_1103016ContainedLinks(
+			View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getArtificialField_1103008ContainedLinks(View view) {
+	public static List<DomainLinkDescriptor> getArtificialField_1103008ContainedLinks(
+			View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getRelation_1104009ContainedLinks(View view) {
+	public static List<DomainLinkDescriptor> getRelation_1104009ContainedLinks(
+			View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getDependency_1104010ContainedLinks(View view) {
+	public static List<DomainLinkDescriptor> getDependency_1104010ContainedLinks(
+			View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getRoot_1102001IncomingLinks(View view) {
+	public static List<DomainLinkDescriptor> getRoot_1102001IncomingLinks(
+			View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getDataControl_1102002IncomingLinks(View view) {
+	public static List<DomainLinkDescriptor> getDataControl_1102002IncomingLinks(
+			View view) {
 		DataControl modelElement = (DataControl) view.getElement();
 		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
 				.find(view.eResource().getResourceSet().getResources());
 		LinkedList<DomainLinkDescriptor> result = new LinkedList<DomainLinkDescriptor>();
-		result.addAll(getIncomingTypeModelFacetLinks_Relation_1104009(modelElement, crossReferences));
-		result.addAll(getIncomingTypeModelFacetLinks_Dependency_1104010(modelElement, crossReferences));
+		result.addAll(getIncomingTypeModelFacetLinks_Relation_1104009(
+				modelElement, crossReferences));
+		result.addAll(getIncomingTypeModelFacetLinks_Dependency_1104010(
+				modelElement, crossReferences));
 		return result;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getPREFormTrigger_1103001IncomingLinks(View view) {
+	public static List<DomainLinkDescriptor> getPREFormTrigger_1103001IncomingLinks(
+			View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getFormVariable_1103017IncomingLinks(View view) {
+	public static List<DomainLinkDescriptor> getFormVariable_1103017IncomingLinks(
+			View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getPREQueryTrigger_1103002IncomingLinks(View view) {
+	public static List<DomainLinkDescriptor> getPREQueryTrigger_1103002IncomingLinks(
+			View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getPOSTQueryTrigger_1103003IncomingLinks(View view) {
+	public static List<DomainLinkDescriptor> getPOSTQueryTrigger_1103003IncomingLinks(
+			View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getPREInsertTrigger_1103004IncomingLinks(View view) {
+	public static List<DomainLinkDescriptor> getPREInsertTrigger_1103004IncomingLinks(
+			View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getPREDeleteTrigger_1103005IncomingLinks(View view) {
+	public static List<DomainLinkDescriptor> getPREDeleteTrigger_1103005IncomingLinks(
+			View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getPOSTCreateTrigger_1103011IncomingLinks(View view) {
+	public static List<DomainLinkDescriptor> getPOSTCreateTrigger_1103011IncomingLinks(
+			View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getPREUpdateTrigger_1103010IncomingLinks(View view) {
+	public static List<DomainLinkDescriptor> getPREUpdateTrigger_1103010IncomingLinks(
+			View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getCreateTrigger_1103012IncomingLinks(View view) {
+	public static List<DomainLinkDescriptor> getCreateTrigger_1103012IncomingLinks(
+			View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getInsertTrigger_1103013IncomingLinks(View view) {
+	public static List<DomainLinkDescriptor> getInsertTrigger_1103013IncomingLinks(
+			View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getUpdateTrigger_1103014IncomingLinks(View view) {
+	public static List<DomainLinkDescriptor> getUpdateTrigger_1103014IncomingLinks(
+			View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getDeleteTrigger_1103015IncomingLinks(View view) {
+	public static List<DomainLinkDescriptor> getDeleteTrigger_1103015IncomingLinks(
+			View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getSearchTrigger_1103016IncomingLinks(View view) {
+	public static List<DomainLinkDescriptor> getSearchTrigger_1103016IncomingLinks(
+			View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getArtificialField_1103008IncomingLinks(View view) {
+	public static List<DomainLinkDescriptor> getArtificialField_1103008IncomingLinks(
+			View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getRelation_1104009IncomingLinks(View view) {
+	public static List<DomainLinkDescriptor> getRelation_1104009IncomingLinks(
+			View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getDependency_1104010IncomingLinks(View view) {
+	public static List<DomainLinkDescriptor> getDependency_1104010IncomingLinks(
+			View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getRoot_1102001OutgoingLinks(View view) {
+	public static List<DomainLinkDescriptor> getRoot_1102001OutgoingLinks(
+			View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getDataControl_1102002OutgoingLinks(View view) {
+	public static List<DomainLinkDescriptor> getDataControl_1102002OutgoingLinks(
+			View view) {
 		DataControl modelElement = (DataControl) view.getElement();
 		LinkedList<DomainLinkDescriptor> result = new LinkedList<DomainLinkDescriptor>();
 		result.addAll(getOutgoingTypeModelFacetLinks_Relation_1104009(modelElement));
@@ -924,156 +989,178 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getPREFormTrigger_1103001OutgoingLinks(View view) {
+	public static List<DomainLinkDescriptor> getPREFormTrigger_1103001OutgoingLinks(
+			View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getFormVariable_1103017OutgoingLinks(View view) {
+	public static List<DomainLinkDescriptor> getFormVariable_1103017OutgoingLinks(
+			View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getPREQueryTrigger_1103002OutgoingLinks(View view) {
+	public static List<DomainLinkDescriptor> getPREQueryTrigger_1103002OutgoingLinks(
+			View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getPOSTQueryTrigger_1103003OutgoingLinks(View view) {
+	public static List<DomainLinkDescriptor> getPOSTQueryTrigger_1103003OutgoingLinks(
+			View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getPREInsertTrigger_1103004OutgoingLinks(View view) {
+	public static List<DomainLinkDescriptor> getPREInsertTrigger_1103004OutgoingLinks(
+			View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getPREDeleteTrigger_1103005OutgoingLinks(View view) {
+	public static List<DomainLinkDescriptor> getPREDeleteTrigger_1103005OutgoingLinks(
+			View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getPOSTCreateTrigger_1103011OutgoingLinks(View view) {
+	public static List<DomainLinkDescriptor> getPOSTCreateTrigger_1103011OutgoingLinks(
+			View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getPREUpdateTrigger_1103010OutgoingLinks(View view) {
+	public static List<DomainLinkDescriptor> getPREUpdateTrigger_1103010OutgoingLinks(
+			View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getCreateTrigger_1103012OutgoingLinks(View view) {
+	public static List<DomainLinkDescriptor> getCreateTrigger_1103012OutgoingLinks(
+			View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getInsertTrigger_1103013OutgoingLinks(View view) {
+	public static List<DomainLinkDescriptor> getInsertTrigger_1103013OutgoingLinks(
+			View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getUpdateTrigger_1103014OutgoingLinks(View view) {
+	public static List<DomainLinkDescriptor> getUpdateTrigger_1103014OutgoingLinks(
+			View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getDeleteTrigger_1103015OutgoingLinks(View view) {
+	public static List<DomainLinkDescriptor> getDeleteTrigger_1103015OutgoingLinks(
+			View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getSearchTrigger_1103016OutgoingLinks(View view) {
+	public static List<DomainLinkDescriptor> getSearchTrigger_1103016OutgoingLinks(
+			View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getArtificialField_1103008OutgoingLinks(View view) {
+	public static List<DomainLinkDescriptor> getArtificialField_1103008OutgoingLinks(
+			View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getRelation_1104009OutgoingLinks(View view) {
+	public static List<DomainLinkDescriptor> getRelation_1104009OutgoingLinks(
+			View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getDependency_1104010OutgoingLinks(View view) {
+	public static List<DomainLinkDescriptor> getDependency_1104010OutgoingLinks(
+			View view) {
 		return Collections.emptyList();
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	private static Collection<DomainLinkDescriptor> getContainedTypeModelFacetLinks_Relation_1104009(
 			Controls container) {
 		LinkedList<DomainLinkDescriptor> result = new LinkedList<DomainLinkDescriptor>();
-		for (Iterator<?> links = container.getRelations().iterator(); links.hasNext();) {
+		for (Iterator<?> links = container.getRelations().iterator(); links
+				.hasNext();) {
 			EObject linkObject = (EObject) links.next();
 			if (false == linkObject instanceof Relation) {
 				continue;
 			}
 			Relation link = (Relation) linkObject;
-			if (RelationEditPart.VISUAL_ID != DomainVisualIDRegistry.getLinkWithClassVisualID(link)) {
+			if (RelationEditPart.VISUAL_ID != DomainVisualIDRegistry
+					.getLinkWithClassVisualID(link)) {
 				continue;
 			}
 			DataControl dst = link.getDetail();
 			DataControl src = link.getMaster();
-			result.add(new DomainLinkDescriptor(src, dst, link, DomainElementTypes.Relation_1104009,
+			result.add(new DomainLinkDescriptor(src, dst, link,
+					DomainElementTypes.Relation_1104009,
 					RelationEditPart.VISUAL_ID));
 		}
 		return result;
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	private static Collection<DomainLinkDescriptor> getContainedTypeModelFacetLinks_Dependency_1104010(
 			Controls container) {
 		LinkedList<DomainLinkDescriptor> result = new LinkedList<DomainLinkDescriptor>();
-		for (Iterator<?> links = container.getDependencies().iterator(); links.hasNext();) {
+		for (Iterator<?> links = container.getDependencies().iterator(); links
+				.hasNext();) {
 			EObject linkObject = (EObject) links.next();
 			if (false == linkObject instanceof Dependency) {
 				continue;
 			}
 			Dependency link = (Dependency) linkObject;
-			if (DependencyEditPart.VISUAL_ID != DomainVisualIDRegistry.getLinkWithClassVisualID(link)) {
+			if (DependencyEditPart.VISUAL_ID != DomainVisualIDRegistry
+					.getLinkWithClassVisualID(link)) {
 				continue;
 			}
 			DataControl dst = link.getDetail();
 			DataControl src = link.getMaster();
-			result.add(new DomainLinkDescriptor(src, dst, link, DomainElementTypes.Dependency_1104010,
+			result.add(new DomainLinkDescriptor(src, dst, link,
+					DomainElementTypes.Dependency_1104010,
 					DependencyEditPart.VISUAL_ID));
 		}
 		return result;
@@ -1082,21 +1169,26 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	private static Collection<DomainLinkDescriptor> getIncomingTypeModelFacetLinks_Relation_1104009(DataControl target,
+	private static Collection<DomainLinkDescriptor> getIncomingTypeModelFacetLinks_Relation_1104009(
+			DataControl target,
 			Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences) {
 		LinkedList<DomainLinkDescriptor> result = new LinkedList<DomainLinkDescriptor>();
-		Collection<EStructuralFeature.Setting> settings = crossReferences.get(target);
+		Collection<EStructuralFeature.Setting> settings = crossReferences
+				.get(target);
 		for (EStructuralFeature.Setting setting : settings) {
-			if (setting.getEStructuralFeature() != DomainPackage.eINSTANCE.getRelation_Detail()
+			if (setting.getEStructuralFeature() != DomainPackage.eINSTANCE
+					.getRelation_Detail()
 					|| false == setting.getEObject() instanceof Relation) {
 				continue;
 			}
 			Relation link = (Relation) setting.getEObject();
-			if (RelationEditPart.VISUAL_ID != DomainVisualIDRegistry.getLinkWithClassVisualID(link)) {
+			if (RelationEditPart.VISUAL_ID != DomainVisualIDRegistry
+					.getLinkWithClassVisualID(link)) {
 				continue;
 			}
 			DataControl src = link.getMaster();
-			result.add(new DomainLinkDescriptor(src, target, link, DomainElementTypes.Relation_1104009,
+			result.add(new DomainLinkDescriptor(src, target, link,
+					DomainElementTypes.Relation_1104009,
 					RelationEditPart.VISUAL_ID));
 		}
 		return result;
@@ -1106,35 +1198,41 @@ public class DomainDiagramUpdater {
 	 * @generated
 	 */
 	private static Collection<DomainLinkDescriptor> getIncomingTypeModelFacetLinks_Dependency_1104010(
-			DataControl target, Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences) {
+			DataControl target,
+			Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences) {
 		LinkedList<DomainLinkDescriptor> result = new LinkedList<DomainLinkDescriptor>();
-		Collection<EStructuralFeature.Setting> settings = crossReferences.get(target);
+		Collection<EStructuralFeature.Setting> settings = crossReferences
+				.get(target);
 		for (EStructuralFeature.Setting setting : settings) {
-			if (setting.getEStructuralFeature() != DomainPackage.eINSTANCE.getDependency_Detail()
+			if (setting.getEStructuralFeature() != DomainPackage.eINSTANCE
+					.getDependency_Detail()
 					|| false == setting.getEObject() instanceof Dependency) {
 				continue;
 			}
 			Dependency link = (Dependency) setting.getEObject();
-			if (DependencyEditPart.VISUAL_ID != DomainVisualIDRegistry.getLinkWithClassVisualID(link)) {
+			if (DependencyEditPart.VISUAL_ID != DomainVisualIDRegistry
+					.getLinkWithClassVisualID(link)) {
 				continue;
 			}
 			DataControl src = link.getMaster();
-			result.add(new DomainLinkDescriptor(src, target, link, DomainElementTypes.Dependency_1104010,
+			result.add(new DomainLinkDescriptor(src, target, link,
+					DomainElementTypes.Dependency_1104010,
 					DependencyEditPart.VISUAL_ID));
 		}
 		return result;
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	private static Collection<DomainLinkDescriptor> getOutgoingTypeModelFacetLinks_Relation_1104009(
 			DataControl source) {
 		Controls container = null;
 		// Find container element for the link.
 		// Climb up by containment hierarchy starting from the source
 		// and return the first element that is instance of the container class.
-		for (EObject element = source; element != null && container == null; element = element.eContainer()) {
+		for (EObject element = source; element != null && container == null; element = element
+				.eContainer()) {
 			if (element instanceof Controls) {
 				container = (Controls) element;
 			}
@@ -1143,13 +1241,15 @@ public class DomainDiagramUpdater {
 			return Collections.emptyList();
 		}
 		LinkedList<DomainLinkDescriptor> result = new LinkedList<DomainLinkDescriptor>();
-		for (Iterator<?> links = container.getRelations().iterator(); links.hasNext();) {
+		for (Iterator<?> links = container.getRelations().iterator(); links
+				.hasNext();) {
 			EObject linkObject = (EObject) links.next();
 			if (false == linkObject instanceof Relation) {
 				continue;
 			}
 			Relation link = (Relation) linkObject;
-			if (RelationEditPart.VISUAL_ID != DomainVisualIDRegistry.getLinkWithClassVisualID(link)) {
+			if (RelationEditPart.VISUAL_ID != DomainVisualIDRegistry
+					.getLinkWithClassVisualID(link)) {
 				continue;
 			}
 			DataControl dst = link.getDetail();
@@ -1157,22 +1257,24 @@ public class DomainDiagramUpdater {
 			if (src != source) {
 				continue;
 			}
-			result.add(new DomainLinkDescriptor(src, dst, link, DomainElementTypes.Relation_1104009,
+			result.add(new DomainLinkDescriptor(src, dst, link,
+					DomainElementTypes.Relation_1104009,
 					RelationEditPart.VISUAL_ID));
 		}
 		return result;
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	private static Collection<DomainLinkDescriptor> getOutgoingTypeModelFacetLinks_Dependency_1104010(
 			DataControl source) {
 		Controls container = null;
 		// Find container element for the link.
 		// Climb up by containment hierarchy starting from the source
 		// and return the first element that is instance of the container class.
-		for (EObject element = source; element != null && container == null; element = element.eContainer()) {
+		for (EObject element = source; element != null && container == null; element = element
+				.eContainer()) {
 			if (element instanceof Controls) {
 				container = (Controls) element;
 			}
@@ -1181,13 +1283,15 @@ public class DomainDiagramUpdater {
 			return Collections.emptyList();
 		}
 		LinkedList<DomainLinkDescriptor> result = new LinkedList<DomainLinkDescriptor>();
-		for (Iterator<?> links = container.getDependencies().iterator(); links.hasNext();) {
+		for (Iterator<?> links = container.getDependencies().iterator(); links
+				.hasNext();) {
 			EObject linkObject = (EObject) links.next();
 			if (false == linkObject instanceof Dependency) {
 				continue;
 			}
 			Dependency link = (Dependency) linkObject;
-			if (DependencyEditPart.VISUAL_ID != DomainVisualIDRegistry.getLinkWithClassVisualID(link)) {
+			if (DependencyEditPart.VISUAL_ID != DomainVisualIDRegistry
+					.getLinkWithClassVisualID(link)) {
 				continue;
 			}
 			DataControl dst = link.getDetail();
@@ -1195,48 +1299,45 @@ public class DomainDiagramUpdater {
 			if (src != source) {
 				continue;
 			}
-			result.add(new DomainLinkDescriptor(src, dst, link, DomainElementTypes.Dependency_1104010,
+			result.add(new DomainLinkDescriptor(src, dst, link,
+					DomainElementTypes.Dependency_1104010,
 					DependencyEditPart.VISUAL_ID));
 		}
 		return result;
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static final DiagramUpdater TYPED_INSTANCE = new DiagramUpdater() {
 		/**
-		* @generated
-		*/
+		 * @generated
+		 */
 		@Override
-
 		public List<DomainNodeDescriptor> getSemanticChildren(View view) {
 			return DomainDiagramUpdater.getSemanticChildren(view);
 		}
 
 		/**
-		* @generated
-		*/
+		 * @generated
+		 */
 		@Override
-
 		public List<DomainLinkDescriptor> getContainedLinks(View view) {
 			return DomainDiagramUpdater.getContainedLinks(view);
 		}
 
 		/**
-		* @generated
-		*/
+		 * @generated
+		 */
 		@Override
-
 		public List<DomainLinkDescriptor> getIncomingLinks(View view) {
 			return DomainDiagramUpdater.getIncomingLinks(view);
 		}
 
 		/**
-		* @generated
-		*/
+		 * @generated
+		 */
 		@Override
-
 		public List<DomainLinkDescriptor> getOutgoingLinks(View view) {
 			return DomainDiagramUpdater.getOutgoingLinks(view);
 		}

@@ -43,7 +43,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  *   <li>{@link domain.impl.IngredientImpl#getColumns <em>Columns</em>}</li>
  *   <li>{@link domain.impl.IngredientImpl#getUid <em>Uid</em>}</li>
@@ -52,6 +51,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link domain.impl.IngredientImpl#getComponents <em>Components</em>}</li>
  *   <li>{@link domain.impl.IngredientImpl#getLayer <em>Layer</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */

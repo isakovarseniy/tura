@@ -11,8 +11,8 @@
  * http://www.eclipse.org/legal/epl-v10.html
  *******************************************************************************/
 /*
-* 
-*/
+ * 
+ */
 package style.diagram.part;
 
 import java.util.Collections;
@@ -37,15 +37,16 @@ import style.diagram.edit.parts.StylesEditPart;
 public class DomainDiagramUpdater {
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static boolean isShortcutOrphaned(View view) {
-		return !view.isSetElement() || view.getElement() == null || view.getElement().eIsProxy();
+		return !view.isSetElement() || view.getElement() == null
+				|| view.getElement().eIsProxy();
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static List<DomainNodeDescriptor> getSemanticChildren(View view) {
 		switch (DomainVisualIDRegistry.getVisualID(view)) {
 		case StylesEditPart.VISUAL_ID:
@@ -57,17 +58,20 @@ public class DomainDiagramUpdater {
 	}
 
 	/**
-	* @generated
-	*/
-	public static List<DomainNodeDescriptor> getStyles_1501000SemanticChildren(View view) {
+	 * @generated
+	 */
+	public static List<DomainNodeDescriptor> getStyles_1501000SemanticChildren(
+			View view) {
 		if (!view.isSetElement()) {
 			return Collections.emptyList();
 		}
 		Styles modelElement = (Styles) view.getElement();
 		LinkedList<DomainNodeDescriptor> result = new LinkedList<DomainNodeDescriptor>();
-		for (Iterator<?> it = modelElement.getLibraries().iterator(); it.hasNext();) {
+		for (Iterator<?> it = modelElement.getLibraries().iterator(); it
+				.hasNext();) {
 			StyleLibrary childElement = (StyleLibrary) it.next();
-			int visualID = DomainVisualIDRegistry.getNodeVisualID(view, childElement);
+			int visualID = DomainVisualIDRegistry.getNodeVisualID(view,
+					childElement);
 			if (visualID == StyleLibraryEditPart.VISUAL_ID) {
 				result.add(new DomainNodeDescriptor(childElement, visualID));
 				continue;
@@ -77,8 +81,8 @@ public class DomainDiagramUpdater {
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static List<DomainNodeDescriptor> getStyleLibraryStyleLibraryStylesCompartment_1507001SemanticChildren(
 			View view) {
 		if (false == view.eContainer() instanceof View) {
@@ -92,7 +96,8 @@ public class DomainDiagramUpdater {
 		LinkedList<DomainNodeDescriptor> result = new LinkedList<DomainNodeDescriptor>();
 		for (Iterator<?> it = modelElement.getStyles().iterator(); it.hasNext();) {
 			StyleSet childElement = (StyleSet) it.next();
-			int visualID = DomainVisualIDRegistry.getNodeVisualID(view, childElement);
+			int visualID = DomainVisualIDRegistry.getNodeVisualID(view,
+					childElement);
 			if (visualID == StyleSetEditPart.VISUAL_ID) {
 				result.add(new DomainNodeDescriptor(childElement, visualID));
 				continue;
@@ -102,8 +107,8 @@ public class DomainDiagramUpdater {
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static List<DomainLinkDescriptor> getContainedLinks(View view) {
 		switch (DomainVisualIDRegistry.getVisualID(view)) {
 		case StylesEditPart.VISUAL_ID:
@@ -117,8 +122,8 @@ public class DomainDiagramUpdater {
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static List<DomainLinkDescriptor> getIncomingLinks(View view) {
 		switch (DomainVisualIDRegistry.getVisualID(view)) {
 		case StyleLibraryEditPart.VISUAL_ID:
@@ -130,8 +135,8 @@ public class DomainDiagramUpdater {
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static List<DomainLinkDescriptor> getOutgoingLinks(View view) {
 		switch (DomainVisualIDRegistry.getVisualID(view)) {
 		case StyleLibraryEditPart.VISUAL_ID:
@@ -145,88 +150,91 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getStyles_1501000ContainedLinks(View view) {
+	public static List<DomainLinkDescriptor> getStyles_1501000ContainedLinks(
+			View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getStyleLibrary_1502001ContainedLinks(View view) {
+	public static List<DomainLinkDescriptor> getStyleLibrary_1502001ContainedLinks(
+			View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getStyleSet_1503001ContainedLinks(View view) {
+	public static List<DomainLinkDescriptor> getStyleSet_1503001ContainedLinks(
+			View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getStyleLibrary_1502001IncomingLinks(View view) {
+	public static List<DomainLinkDescriptor> getStyleLibrary_1502001IncomingLinks(
+			View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getStyleSet_1503001IncomingLinks(View view) {
+	public static List<DomainLinkDescriptor> getStyleSet_1503001IncomingLinks(
+			View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getStyleLibrary_1502001OutgoingLinks(View view) {
+	public static List<DomainLinkDescriptor> getStyleLibrary_1502001OutgoingLinks(
+			View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getStyleSet_1503001OutgoingLinks(View view) {
+	public static List<DomainLinkDescriptor> getStyleSet_1503001OutgoingLinks(
+			View view) {
 		return Collections.emptyList();
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static final DiagramUpdater TYPED_INSTANCE = new DiagramUpdater() {
 		/**
-		* @generated
-		*/
+		 * @generated
+		 */
 		@Override
-
 		public List<DomainNodeDescriptor> getSemanticChildren(View view) {
 			return DomainDiagramUpdater.getSemanticChildren(view);
 		}
 
 		/**
-		* @generated
-		*/
+		 * @generated
+		 */
 		@Override
-
 		public List<DomainLinkDescriptor> getContainedLinks(View view) {
 			return DomainDiagramUpdater.getContainedLinks(view);
 		}
 
 		/**
-		* @generated
-		*/
+		 * @generated
+		 */
 		@Override
-
 		public List<DomainLinkDescriptor> getIncomingLinks(View view) {
 			return DomainDiagramUpdater.getIncomingLinks(view);
 		}
 
 		/**
-		* @generated
-		*/
+		 * @generated
+		 */
 		@Override
-
 		public List<DomainLinkDescriptor> getOutgoingLinks(View view) {
 			return DomainDiagramUpdater.getOutgoingLinks(view);
 		}

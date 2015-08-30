@@ -37,18 +37,19 @@ import domain.Messages;
 public class MessageLibraryCreateCommand extends EditElementCommand {
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public MessageLibraryCreateCommand(CreateElementRequest req) {
 		super(req.getLabel(), null, req);
 	}
 
 	/**
-	* FIXME: replace with setElementToEdit()
-	* @generated
-	*/
+	 * FIXME: replace with setElementToEdit()
+	 * @generated
+	 */
 	protected EObject getElementToEdit() {
-		EObject container = ((CreateElementRequest) getRequest()).getContainer();
+		EObject container = ((CreateElementRequest) getRequest())
+				.getContainer();
 		if (container instanceof View) {
 			container = ((View) container).getElement();
 		}
@@ -56,18 +57,20 @@ public class MessageLibraryCreateCommand extends EditElementCommand {
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public boolean canExecute() {
 		return true;
 
 	}
 
 	/**
-	* @generated
-	*/
-	protected CommandResult doExecuteWithResult(IProgressMonitor monitor, IAdaptable info) throws ExecutionException {
-		MessageLibrary newElement = DomainFactory.eINSTANCE.createMessageLibrary();
+	 * @generated
+	 */
+	protected CommandResult doExecuteWithResult(IProgressMonitor monitor,
+			IAdaptable info) throws ExecutionException {
+		MessageLibrary newElement = DomainFactory.eINSTANCE
+				.createMessageLibrary();
 
 		Messages owner = (Messages) getElementToEdit();
 		owner.getMessageLibraries().add(newElement);
@@ -81,15 +84,20 @@ public class MessageLibraryCreateCommand extends EditElementCommand {
 	}
 
 	/**
-	* @generated
-	*/
-	protected void doConfigure(MessageLibrary newElement, IProgressMonitor monitor, IAdaptable info)
+	 * @generated
+	 */
+	protected void doConfigure(MessageLibrary newElement,
+			IProgressMonitor monitor, IAdaptable info)
 			throws ExecutionException {
-		IElementType elementType = ((CreateElementRequest) getRequest()).getElementType();
-		ConfigureRequest configureRequest = new ConfigureRequest(getEditingDomain(), newElement, elementType);
-		configureRequest.setClientContext(((CreateElementRequest) getRequest()).getClientContext());
+		IElementType elementType = ((CreateElementRequest) getRequest())
+				.getElementType();
+		ConfigureRequest configureRequest = new ConfigureRequest(
+				getEditingDomain(), newElement, elementType);
+		configureRequest.setClientContext(((CreateElementRequest) getRequest())
+				.getClientContext());
 		configureRequest.addParameters(getRequest().getParameters());
-		ICommand configureCommand = elementType.getEditCommand(configureRequest);
+		ICommand configureCommand = elementType
+				.getEditCommand(configureRequest);
 		if (configureCommand != null && configureCommand.canExecute()) {
 			configureCommand.execute(monitor, info);
 		}

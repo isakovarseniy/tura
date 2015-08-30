@@ -35,121 +35,133 @@ import org.eclipse.ui.actions.WorkspaceModifyOperation;
 public class DomainCreationWizard extends Wizard implements INewWizard {
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	private IWorkbench workbench;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	protected IStructuredSelection selection;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	protected DomainCreationWizardPage diagramModelFilePage;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	protected DomainCreationWizardPage domainModelFilePage;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	protected Resource diagram;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	private boolean openNewlyCreatedDiagramEditor = true;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public IWorkbench getWorkbench() {
 		return workbench;
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public IStructuredSelection getSelection() {
 		return selection;
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public final Resource getDiagram() {
 		return diagram;
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public final boolean isOpenNewlyCreatedDiagramEditor() {
 		return openNewlyCreatedDiagramEditor;
 	}
 
 	/**
-	* @generated
-	*/
-	public void setOpenNewlyCreatedDiagramEditor(boolean openNewlyCreatedDiagramEditor) {
+	 * @generated
+	 */
+	public void setOpenNewlyCreatedDiagramEditor(
+			boolean openNewlyCreatedDiagramEditor) {
 		this.openNewlyCreatedDiagramEditor = openNewlyCreatedDiagramEditor;
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public void init(IWorkbench workbench, IStructuredSelection selection) {
 		this.workbench = workbench;
 		this.selection = selection;
 		setWindowTitle(Messages.DomainCreationWizardTitle);
-		setDefaultPageImageDescriptor(
-				DomainDiagramEditorPlugin.getBundledImageDescriptor("icons/wizban/NewDomainWizard.gif")); //$NON-NLS-1$
+		setDefaultPageImageDescriptor(DomainDiagramEditorPlugin
+				.getBundledImageDescriptor("icons/wizban/NewDomainWizard.gif")); //$NON-NLS-1$
 		setNeedsProgressMonitor(true);
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public void addPages() {
-		diagramModelFilePage = new DomainCreationWizardPage("DiagramModelFile", getSelection(), "message_diagram"); //$NON-NLS-1$ //$NON-NLS-2$
-		diagramModelFilePage.setTitle(Messages.DomainCreationWizard_DiagramModelFilePageTitle);
-		diagramModelFilePage.setDescription(Messages.DomainCreationWizard_DiagramModelFilePageDescription);
+		diagramModelFilePage = new DomainCreationWizardPage(
+				"DiagramModelFile", getSelection(), "message_diagram"); //$NON-NLS-1$ //$NON-NLS-2$
+		diagramModelFilePage
+				.setTitle(Messages.DomainCreationWizard_DiagramModelFilePageTitle);
+		diagramModelFilePage
+				.setDescription(Messages.DomainCreationWizard_DiagramModelFilePageDescription);
 		addPage(diagramModelFilePage);
 
-		domainModelFilePage = new DomainCreationWizardPage("DomainModelFile", getSelection(), "domain") { //$NON-NLS-1$ //$NON-NLS-2$
+		domainModelFilePage = new DomainCreationWizardPage(
+				"DomainModelFile", getSelection(), "domain") { //$NON-NLS-1$ //$NON-NLS-2$
 
 			public void setVisible(boolean visible) {
 				if (visible) {
 					String fileName = diagramModelFilePage.getFileName();
-					fileName = fileName.substring(0, fileName.length() - ".message_diagram".length()); //$NON-NLS-1$
-					setFileName(DomainDiagramEditorUtil.getUniqueFileName(getContainerFullPath(), fileName, "domain")); //$NON-NLS-1$
+					fileName = fileName.substring(0, fileName.length()
+							- ".message_diagram".length()); //$NON-NLS-1$
+					setFileName(DomainDiagramEditorUtil.getUniqueFileName(
+							getContainerFullPath(), fileName, "domain")); //$NON-NLS-1$
 				}
 				super.setVisible(visible);
 			}
 		};
-		domainModelFilePage.setTitle(Messages.DomainCreationWizard_DomainModelFilePageTitle);
-		domainModelFilePage.setDescription(Messages.DomainCreationWizard_DomainModelFilePageDescription);
+		domainModelFilePage
+				.setTitle(Messages.DomainCreationWizard_DomainModelFilePageTitle);
+		domainModelFilePage
+				.setDescription(Messages.DomainCreationWizard_DomainModelFilePageDescription);
 		addPage(domainModelFilePage);
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public boolean performFinish() {
 		IRunnableWithProgress op = new WorkspaceModifyOperation(null) {
 
-			protected void execute(IProgressMonitor monitor) throws CoreException, InterruptedException {
-				diagram = DomainDiagramEditorUtil.createDiagram(diagramModelFilePage.getURI(),
+			protected void execute(IProgressMonitor monitor)
+					throws CoreException, InterruptedException {
+				diagram = DomainDiagramEditorUtil.createDiagram(
+						diagramModelFilePage.getURI(),
 						domainModelFilePage.getURI(), monitor);
 				if (isOpenNewlyCreatedDiagramEditor() && diagram != null) {
 					try {
 						DomainDiagramEditorUtil.openDiagram(diagram);
 					} catch (PartInitException e) {
-						ErrorDialog.openError(getContainer().getShell(), Messages.DomainCreationWizardOpenEditorError,
+						ErrorDialog.openError(getContainer().getShell(),
+								Messages.DomainCreationWizardOpenEditorError,
 								null, e.getStatus());
 					}
 				}
@@ -161,10 +173,12 @@ public class DomainCreationWizard extends Wizard implements INewWizard {
 			return false;
 		} catch (InvocationTargetException e) {
 			if (e.getTargetException() instanceof CoreException) {
-				ErrorDialog.openError(getContainer().getShell(), Messages.DomainCreationWizardCreationError, null,
+				ErrorDialog.openError(getContainer().getShell(),
+						Messages.DomainCreationWizardCreationError, null,
 						((CoreException) e.getTargetException()).getStatus());
 			} else {
-				DomainDiagramEditorPlugin.getInstance().logError("Error creating diagram", e.getTargetException()); //$NON-NLS-1$
+				DomainDiagramEditorPlugin.getInstance().logError(
+						"Error creating diagram", e.getTargetException()); //$NON-NLS-1$
 			}
 			return false;
 		}

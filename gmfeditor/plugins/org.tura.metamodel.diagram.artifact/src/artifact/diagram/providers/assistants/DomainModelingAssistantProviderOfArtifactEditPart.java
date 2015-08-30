@@ -27,13 +27,13 @@ import artifact.diagram.providers.DomainModelingAssistantProvider;
 /**
  * @generated
  */
-public class DomainModelingAssistantProviderOfArtifactEditPart extends DomainModelingAssistantProvider {
+public class DomainModelingAssistantProviderOfArtifactEditPart extends
+		DomainModelingAssistantProvider {
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	@Override
-
 	public List<IElementType> getTypesForPopupBar(IAdaptable host) {
 		List<IElementType> types = new ArrayList<IElementType>(4);
 		types.add(DomainElementTypes.ConfigVariable_703004);

@@ -20,6 +20,7 @@ import frmview.diagram.providers.DomainModelingAssistantProvider;
 /**
  * @generated
  */
-public class DomainModelingAssistantProviderOfViewPortTriggerEditPart extends DomainModelingAssistantProvider {
+public class DomainModelingAssistantProviderOfViewPortTriggerEditPart extends
+		DomainModelingAssistantProvider {
 
 }

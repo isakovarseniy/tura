@@ -35,12 +35,12 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  *   <li>{@link domain.impl.InfrastructureComponentImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.impl.InfrastructureComponentImpl#getName <em>Name</em>}</li>
  *   <li>{@link domain.impl.InfrastructureComponentImpl#getParent <em>Parent</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */

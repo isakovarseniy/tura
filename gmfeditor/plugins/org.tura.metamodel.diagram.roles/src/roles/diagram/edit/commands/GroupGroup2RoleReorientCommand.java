@@ -34,29 +34,30 @@ import roles.diagram.edit.policies.DomainBaseItemSemanticEditPolicy;
 public class GroupGroup2RoleReorientCommand extends EditElementCommand {
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	private final int reorientDirection;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	private final EObject referenceOwner;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	private final EObject oldEnd;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	private final EObject newEnd;
 
 	/**
-	* @generated
-	*/
-	public GroupGroup2RoleReorientCommand(ReorientReferenceRelationshipRequest request) {
+	 * @generated
+	 */
+	public GroupGroup2RoleReorientCommand(
+			ReorientReferenceRelationshipRequest request) {
 		super(request.getLabel(), null, request);
 		reorientDirection = request.getDirection();
 		referenceOwner = request.getReferenceOwner();
@@ -65,8 +66,8 @@ public class GroupGroup2RoleReorientCommand extends EditElementCommand {
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public boolean canExecute() {
 		if (false == referenceOwner instanceof Group) {
 			return false;
@@ -81,33 +82,37 @@ public class GroupGroup2RoleReorientCommand extends EditElementCommand {
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	protected boolean canReorientSource() {
 		if (!(oldEnd instanceof Role && newEnd instanceof Group)) {
 			return false;
 		}
-		return DomainBaseItemSemanticEditPolicy.getLinkConstraints().canExistGroupGroup2Role_1404005(getNewSource(),
-				getOldTarget());
+		return DomainBaseItemSemanticEditPolicy
+				.getLinkConstraints()
+				.canExistGroupGroup2Role_1404005(getNewSource(), getOldTarget());
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	protected boolean canReorientTarget() {
 		if (!(oldEnd instanceof Role && newEnd instanceof Role)) {
 			return false;
 		}
-		return DomainBaseItemSemanticEditPolicy.getLinkConstraints().canExistGroupGroup2Role_1404005(getOldSource(),
-				getNewTarget());
+		return DomainBaseItemSemanticEditPolicy
+				.getLinkConstraints()
+				.canExistGroupGroup2Role_1404005(getOldSource(), getNewTarget());
 	}
 
 	/**
-	* @generated
-	*/
-	protected CommandResult doExecuteWithResult(IProgressMonitor monitor, IAdaptable info) throws ExecutionException {
+	 * @generated
+	 */
+	protected CommandResult doExecuteWithResult(IProgressMonitor monitor,
+			IAdaptable info) throws ExecutionException {
 		if (!canExecute()) {
-			throw new ExecutionException("Invalid arguments in reorient link command"); //$NON-NLS-1$
+			throw new ExecutionException(
+					"Invalid arguments in reorient link command"); //$NON-NLS-1$
 		}
 		if (reorientDirection == ReorientRelationshipRequest.REORIENT_SOURCE) {
 			return reorientSource();
@@ -119,8 +124,8 @@ public class GroupGroup2RoleReorientCommand extends EditElementCommand {
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	protected CommandResult reorientSource() throws ExecutionException {
 		getOldSource().getGroup2Role().remove(getOldTarget());
 		getNewSource().getGroup2Role().add(getOldTarget());
@@ -128,8 +133,8 @@ public class GroupGroup2RoleReorientCommand extends EditElementCommand {
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	protected CommandResult reorientTarget() throws ExecutionException {
 		getOldSource().getGroup2Role().remove(getOldTarget());
 		getOldSource().getGroup2Role().add(getNewTarget());
@@ -137,29 +142,29 @@ public class GroupGroup2RoleReorientCommand extends EditElementCommand {
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	protected Group getOldSource() {
 		return (Group) referenceOwner;
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	protected Group getNewSource() {
 		return (Group) newEnd;
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	protected Role getOldTarget() {
 		return (Role) oldEnd;
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	protected Role getNewTarget() {
 		return (Role) newEnd;
 	}

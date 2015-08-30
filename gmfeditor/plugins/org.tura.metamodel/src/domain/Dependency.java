@@ -23,13 +23,13 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  *   <li>{@link domain.Dependency#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.Dependency#getName <em>Name</em>}</li>
  *   <li>{@link domain.Dependency#getMaster <em>Master</em>}</li>
  *   <li>{@link domain.Dependency#getDetail <em>Detail</em>}</li>
  * </ul>
+ * </p>
  *
  * @see domain.DomainPackage#getDependency()
  * @model annotation="gmf.link source='master' target='detail' style='dash' color='238,16,16' width='2' target.decoration='arrow'"

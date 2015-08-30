@@ -11,8 +11,8 @@
  * http://www.eclipse.org/legal/epl-v10.html
  *******************************************************************************/
 /*
-* 
-*/
+ * 
+ */
 package recipe.diagram.edit.policies;
 
 import java.util.Iterator;
@@ -42,26 +42,29 @@ import recipe.diagram.providers.DomainElementTypes;
 /**
  * @generated
  */
-public class InfrastructureItemSemanticEditPolicy extends DomainBaseItemSemanticEditPolicy {
+public class InfrastructureItemSemanticEditPolicy extends
+		DomainBaseItemSemanticEditPolicy {
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public InfrastructureItemSemanticEditPolicy() {
 		super(DomainElementTypes.Infrastructure_302003);
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	protected Command getDestroyElementCommand(DestroyElementRequest req) {
 		View view = (View) getHost().getModel();
-		CompositeTransactionalCommand cmd = new CompositeTransactionalCommand(getEditingDomain(), null);
+		CompositeTransactionalCommand cmd = new CompositeTransactionalCommand(
+				getEditingDomain(), null);
 		cmd.setTransactionNestingEnabled(false);
 		for (Iterator<?> it = view.getTargetEdges().iterator(); it.hasNext();) {
 			Edge incomingLink = (Edge) it.next();
 			if (DomainVisualIDRegistry.getVisualID(incomingLink) == RecipeInfrastructuresEditPart.VISUAL_ID) {
-				DestroyReferenceRequest r = new DestroyReferenceRequest(incomingLink.getSource().getElement(), null,
+				DestroyReferenceRequest r = new DestroyReferenceRequest(
+						incomingLink.getSource().getElement(), null,
 						incomingLink.getTarget().getElement(), false);
 				cmd.add(new DestroyReferenceCommand(r));
 				cmd.add(new DeleteCommand(getEditingDomain(), incomingLink));
@@ -71,7 +74,8 @@ public class InfrastructureItemSemanticEditPolicy extends DomainBaseItemSemantic
 		for (Iterator<?> it = view.getSourceEdges().iterator(); it.hasNext();) {
 			Edge outgoingLink = (Edge) it.next();
 			if (DomainVisualIDRegistry.getVisualID(outgoingLink) == InfrastructureRecipeConfigEditPart.VISUAL_ID) {
-				DestroyReferenceRequest r = new DestroyReferenceRequest(outgoingLink.getSource().getElement(), null,
+				DestroyReferenceRequest r = new DestroyReferenceRequest(
+						outgoingLink.getSource().getElement(), null,
 						outgoingLink.getTarget().getElement(), false);
 				cmd.add(new DestroyReferenceCommand(r));
 				cmd.add(new DeleteCommand(getEditingDomain(), outgoingLink));
@@ -96,18 +100,23 @@ public class InfrastructureItemSemanticEditPolicy extends DomainBaseItemSemantic
 	protected Command getCreateRelationshipCommand(CreateRelationshipRequest req) {
 		Command command = req.getTarget() == null ? getStartCreateRelationshipCommand(req)
 				: getCompleteCreateRelationshipCommand(req);
-		return command != null ? command : super.getCreateRelationshipCommand(req);
+		return command != null ? command : super
+				.getCreateRelationshipCommand(req);
 	}
 
 	/**
 	 * @generated
 	 */
-	protected Command getStartCreateRelationshipCommand(CreateRelationshipRequest req) {
-		if (DomainElementTypes.RecipeInfrastructures_304004 == req.getElementType()) {
+	protected Command getStartCreateRelationshipCommand(
+			CreateRelationshipRequest req) {
+		if (DomainElementTypes.RecipeInfrastructures_304004 == req
+				.getElementType()) {
 			return null;
 		}
-		if (DomainElementTypes.InfrastructureRecipeConfig_304006 == req.getElementType()) {
-			return getGEFWrapper(new InfrastructureRecipeConfigCreateCommand(req, req.getSource(), req.getTarget()));
+		if (DomainElementTypes.InfrastructureRecipeConfig_304006 == req
+				.getElementType()) {
+			return getGEFWrapper(new InfrastructureRecipeConfigCreateCommand(
+					req, req.getSource(), req.getTarget()));
 		}
 		return null;
 	}
@@ -115,11 +124,15 @@ public class InfrastructureItemSemanticEditPolicy extends DomainBaseItemSemantic
 	/**
 	 * @generated
 	 */
-	protected Command getCompleteCreateRelationshipCommand(CreateRelationshipRequest req) {
-		if (DomainElementTypes.RecipeInfrastructures_304004 == req.getElementType()) {
-			return getGEFWrapper(new RecipeInfrastructuresCreateCommand(req, req.getSource(), req.getTarget()));
+	protected Command getCompleteCreateRelationshipCommand(
+			CreateRelationshipRequest req) {
+		if (DomainElementTypes.RecipeInfrastructures_304004 == req
+				.getElementType()) {
+			return getGEFWrapper(new RecipeInfrastructuresCreateCommand(req,
+					req.getSource(), req.getTarget()));
 		}
-		if (DomainElementTypes.InfrastructureRecipeConfig_304006 == req.getElementType()) {
+		if (DomainElementTypes.InfrastructureRecipeConfig_304006 == req
+				.getElementType()) {
 			return null;
 		}
 		return null;
@@ -131,12 +144,14 @@ public class InfrastructureItemSemanticEditPolicy extends DomainBaseItemSemantic
 	 * 
 	 * @generated
 	 */
-	protected Command getReorientReferenceRelationshipCommand(ReorientReferenceRelationshipRequest req) {
+	protected Command getReorientReferenceRelationshipCommand(
+			ReorientReferenceRelationshipRequest req) {
 		switch (getVisualID(req)) {
 		case RecipeInfrastructuresEditPart.VISUAL_ID:
 			return getGEFWrapper(new RecipeInfrastructuresReorientCommand(req));
 		case InfrastructureRecipeConfigEditPart.VISUAL_ID:
-			return getGEFWrapper(new InfrastructureRecipeConfigReorientCommand(req));
+			return getGEFWrapper(new InfrastructureRecipeConfigReorientCommand(
+					req));
 		}
 		return super.getReorientReferenceRelationshipCommand(req);
 	}

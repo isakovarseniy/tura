@@ -43,60 +43,62 @@ import domain.provider.DomainItemProviderAdapterFactory;
 public class DomainDiagramEditorPlugin extends AbstractUIPlugin {
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static final String ID = "org.tura.metamodel.diagram.application"; //$NON-NLS-1$
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	private LogHelper myLogHelper;
 
 	/**
-	* @generated
-	*/
-	public static final PreferencesHint DIAGRAM_PREFERENCES_HINT = new PreferencesHint(ID);
+	 * @generated
+	 */
+	public static final PreferencesHint DIAGRAM_PREFERENCES_HINT = new PreferencesHint(
+			ID);
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	private static DomainDiagramEditorPlugin instance;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	private ComposedAdapterFactory adapterFactory;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	private DomainDocumentProvider documentProvider;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	private ElementInitializers initializers;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public DomainDiagramEditorPlugin() {
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public void start(BundleContext context) throws Exception {
 		super.start(context);
 		instance = this;
 		myLogHelper = new LogHelper(this);
-		PreferencesHint.registerPreferenceStore(DIAGRAM_PREFERENCES_HINT, getPreferenceStore());
+		PreferencesHint.registerPreferenceStore(DIAGRAM_PREFERENCES_HINT,
+				getPreferenceStore());
 		adapterFactory = createAdapterFactory();
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public void stop(BundleContext context) throws Exception {
 		adapterFactory.dispose();
 		adapterFactory = null;
@@ -106,15 +108,15 @@ public class DomainDiagramEditorPlugin extends AbstractUIPlugin {
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static DomainDiagramEditorPlugin getInstance() {
 		return instance;
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	protected ComposedAdapterFactory createAdapterFactory() {
 		ArrayList<AdapterFactory> factories = new ArrayList<AdapterFactory>();
 		fillItemProviderFactories(factories);
@@ -122,8 +124,8 @@ public class DomainDiagramEditorPlugin extends AbstractUIPlugin {
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	protected void fillItemProviderFactories(List<AdapterFactory> factories) {
 		factories.add(new DomainItemProviderAdapterFactory());
 		factories.add(new ResourceItemProviderAdapterFactory());
@@ -131,19 +133,21 @@ public class DomainDiagramEditorPlugin extends AbstractUIPlugin {
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public AdapterFactory getItemProvidersAdapterFactory() {
 		return adapterFactory;
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public ImageDescriptor getItemImageDescriptor(Object item) {
-		IItemLabelProvider labelProvider = (IItemLabelProvider) adapterFactory.adapt(item, IItemLabelProvider.class);
+		IItemLabelProvider labelProvider = (IItemLabelProvider) adapterFactory
+				.adapt(item, IItemLabelProvider.class);
 		if (labelProvider != null) {
-			return ExtendedImageRegistry.getInstance().getImageDescriptor(labelProvider.getImage(item));
+			return ExtendedImageRegistry.getInstance().getImageDescriptor(
+					labelProvider.getImage(item));
 		}
 		return null;
 	}
@@ -172,8 +176,8 @@ public class DomainDiagramEditorPlugin extends AbstractUIPlugin {
 	public static ImageDescriptor findImageDescriptor(String path) {
 		final IPath p = new Path(path);
 		if (p.isAbsolute() && p.segmentCount() > 1) {
-			return AbstractUIPlugin.imageDescriptorFromPlugin(p.segment(0),
-					p.removeFirstSegments(1).makeAbsolute().toString());
+			return AbstractUIPlugin.imageDescriptorFromPlugin(p.segment(0), p
+					.removeFirstSegments(1).makeAbsolute().toString());
 		} else {
 			return getBundledImageDescriptor(p.makeAbsolute().toString());
 		}
@@ -206,8 +210,8 @@ public class DomainDiagramEditorPlugin extends AbstractUIPlugin {
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public DomainDocumentProvider getDocumentProvider() {
 		if (documentProvider == null) {
 			documentProvider = new DomainDocumentProvider();
@@ -216,50 +220,50 @@ public class DomainDiagramEditorPlugin extends AbstractUIPlugin {
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public ElementInitializers getElementInitializers() {
 		return initializers;
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public void setElementInitializers(ElementInitializers i) {
 		this.initializers = i;
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public void logError(String error) {
 		getLogHelper().logError(error, null);
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public void logError(String error, Throwable throwable) {
 		getLogHelper().logError(error, throwable);
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public void logInfo(String message) {
 		getLogHelper().logInfo(message, null);
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public void logInfo(String message, Throwable throwable) {
 		getLogHelper().logInfo(message, throwable);
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public LogHelper getLogHelper() {
 		return myLogHelper;
 	}

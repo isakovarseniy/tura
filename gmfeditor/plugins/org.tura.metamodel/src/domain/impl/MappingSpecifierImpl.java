@@ -33,12 +33,12 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  *   <li>{@link domain.impl.MappingSpecifierImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.impl.MappingSpecifierImpl#getSpecifierRef <em>Specifier Ref</em>}</li>
  *   <li>{@link domain.impl.MappingSpecifierImpl#getValueRef <em>Value Ref</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */

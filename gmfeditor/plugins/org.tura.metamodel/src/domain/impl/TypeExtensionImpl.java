@@ -31,12 +31,12 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  *   <li>{@link domain.impl.TypeExtensionImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.impl.TypeExtensionImpl#getSource <em>Source</em>}</li>
  *   <li>{@link domain.impl.TypeExtensionImpl#getTarget <em>Target</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */

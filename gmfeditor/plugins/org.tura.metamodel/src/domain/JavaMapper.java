@@ -22,7 +22,6 @@ package domain;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  *   <li>{@link domain.JavaMapper#getMappedToPackageName <em>Mapped To Package Name</em>}</li>
  *   <li>{@link domain.JavaMapper#getMappedToClassName <em>Mapped To Class Name</em>}</li>
@@ -32,6 +31,7 @@ package domain;
  *   <li>{@link domain.JavaMapper#getLibraryName <em>Library Name</em>}</li>
  *   <li>{@link domain.JavaMapper#getArtifactType <em>Artifact Type</em>}</li>
  * </ul>
+ * </p>
  *
  * @see domain.DomainPackage#getJavaMapper()
  * @model annotation="gmf.node label='fakePackageName,fakeTypeName' border.color='0,0,0' color='255,237,85'"

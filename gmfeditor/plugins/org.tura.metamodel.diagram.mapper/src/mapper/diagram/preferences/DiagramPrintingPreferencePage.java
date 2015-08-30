@@ -25,9 +25,10 @@ import mapper.diagram.part.DomainDiagramEditorPlugin;
 public class DiagramPrintingPreferencePage extends PrintingPreferencePage {
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public DiagramPrintingPreferencePage() {
-		setPreferenceStore(DomainDiagramEditorPlugin.getInstance().getPreferenceStore());
+		setPreferenceStore(DomainDiagramEditorPlugin.getInstance()
+				.getPreferenceStore());
 	}
 }

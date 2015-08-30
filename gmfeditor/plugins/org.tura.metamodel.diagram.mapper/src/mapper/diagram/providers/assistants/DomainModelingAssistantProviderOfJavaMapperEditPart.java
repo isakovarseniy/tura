@@ -20,6 +20,7 @@ import mapper.diagram.providers.DomainModelingAssistantProvider;
 /**
  * @generated
  */
-public class DomainModelingAssistantProviderOfJavaMapperEditPart extends DomainModelingAssistantProvider {
+public class DomainModelingAssistantProviderOfJavaMapperEditPart extends
+		DomainModelingAssistantProvider {
 
 }

@@ -11,8 +11,8 @@
  * http://www.eclipse.org/legal/epl-v10.html
  *******************************************************************************/
 /*
-* 
-*/
+ * 
+ */
 package infarastructure.diagram.edit.policies;
 
 import org.eclipse.gef.commands.Command;
@@ -28,17 +28,18 @@ public class SubsystemSubsystemInfrastructureLayerCompartmentItemSemanticEditPol
 		extends DomainBaseItemSemanticEditPolicy {
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public SubsystemSubsystemInfrastructureLayerCompartmentItemSemanticEditPolicy() {
 		super(DomainElementTypes.Subsystem_1203001);
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	protected Command getCreateCommand(CreateElementRequest req) {
-		if (DomainElementTypes.InfrastructureLayer_1203002 == req.getElementType()) {
+		if (DomainElementTypes.InfrastructureLayer_1203002 == req
+				.getElementType()) {
 			return getGEFWrapper(new InfrastructureLayerCreateCommand(req));
 		}
 		return super.getCreateCommand(req);

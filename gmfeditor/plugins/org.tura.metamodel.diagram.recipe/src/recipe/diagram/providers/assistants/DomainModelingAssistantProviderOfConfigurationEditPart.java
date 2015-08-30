@@ -29,13 +29,13 @@ import recipe.diagram.providers.DomainModelingAssistantProvider;
 /**
  * @generated
  */
-public class DomainModelingAssistantProviderOfConfigurationEditPart extends DomainModelingAssistantProvider {
+public class DomainModelingAssistantProviderOfConfigurationEditPart extends
+		DomainModelingAssistantProvider {
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	@Override
-
 	public List<IElementType> getTypesForPopupBar(IAdaptable host) {
 		List<IElementType> types = new ArrayList<IElementType>(1);
 		types.add(DomainElementTypes.Property_303005);
@@ -43,18 +43,18 @@ public class DomainModelingAssistantProviderOfConfigurationEditPart extends Doma
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	@Override
-
 	public List<IElementType> getRelTypesOnTarget(IAdaptable target) {
-		IGraphicalEditPart targetEditPart = (IGraphicalEditPart) target.getAdapter(IGraphicalEditPart.class);
+		IGraphicalEditPart targetEditPart = (IGraphicalEditPart) target
+				.getAdapter(IGraphicalEditPart.class);
 		return doGetRelTypesOnTarget((ConfigurationEditPart) targetEditPart);
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public List<IElementType> doGetRelTypesOnTarget(ConfigurationEditPart target) {
 		List<IElementType> types = new ArrayList<IElementType>(1);
 		types.add(DomainElementTypes.InfrastructureRecipeConfig_304006);
@@ -62,19 +62,22 @@ public class DomainModelingAssistantProviderOfConfigurationEditPart extends Doma
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	@Override
-
-	public List<IElementType> getTypesForSource(IAdaptable target, IElementType relationshipType) {
-		IGraphicalEditPart targetEditPart = (IGraphicalEditPart) target.getAdapter(IGraphicalEditPart.class);
-		return doGetTypesForSource((ConfigurationEditPart) targetEditPart, relationshipType);
+	public List<IElementType> getTypesForSource(IAdaptable target,
+			IElementType relationshipType) {
+		IGraphicalEditPart targetEditPart = (IGraphicalEditPart) target
+				.getAdapter(IGraphicalEditPart.class);
+		return doGetTypesForSource((ConfigurationEditPart) targetEditPart,
+				relationshipType);
 	}
 
 	/**
-	* @generated
-	*/
-	public List<IElementType> doGetTypesForSource(ConfigurationEditPart target, IElementType relationshipType) {
+	 * @generated
+	 */
+	public List<IElementType> doGetTypesForSource(ConfigurationEditPart target,
+			IElementType relationshipType) {
 		List<IElementType> types = new ArrayList<IElementType>();
 		if (relationshipType == DomainElementTypes.InfrastructureRecipeConfig_304006) {
 			types.add(DomainElementTypes.Infrastructure_302003);

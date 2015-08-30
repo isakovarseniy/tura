@@ -11,8 +11,8 @@
  * http://www.eclipse.org/legal/epl-v10.html
  *******************************************************************************/
 /*
-* 
-*/
+ * 
+ */
 package application.diagram.edit.policies;
 
 import org.eclipse.gef.commands.Command;
@@ -28,15 +28,15 @@ public class ApplicationStyleApplicationStyleStylesPackageCompartmentItemSemanti
 		extends DomainBaseItemSemanticEditPolicy {
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public ApplicationStyleApplicationStyleStylesPackageCompartmentItemSemanticEditPolicy() {
 		super(DomainElementTypes.ApplicationStyle_802005);
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	protected Command getCreateCommand(CreateElementRequest req) {
 		if (DomainElementTypes.StylesPackage_803004 == req.getElementType()) {
 			return getGEFWrapper(new StylesPackageCreateCommand(req));

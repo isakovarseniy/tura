@@ -27,13 +27,13 @@ import typedefinition.diagram.providers.DomainModelingAssistantProvider;
 /**
  * @generated
  */
-public class DomainModelingAssistantProviderOfTypeDefinitionEditPart extends DomainModelingAssistantProvider {
+public class DomainModelingAssistantProviderOfTypeDefinitionEditPart extends
+		DomainModelingAssistantProvider {
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	@Override
-
 	public List<IElementType> getTypesForPopupBar(IAdaptable host) {
 		List<IElementType> types = new ArrayList<IElementType>(4);
 		types.add(DomainElementTypes.Type_102002);

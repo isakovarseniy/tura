@@ -25,7 +25,6 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  *   <li>{@link domain.EnterpriseInfrastructure#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.EnterpriseInfrastructure#getParent <em>Parent</em>}</li>
@@ -33,6 +32,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link domain.EnterpriseInfrastructure#getInfrastructureConnections <em>Infrastructure Connections</em>}</li>
  *   <li>{@link domain.EnterpriseInfrastructure#getAny <em>Any</em>}</li>
  * </ul>
+ * </p>
  *
  * @see domain.DomainPackage#getEnterpriseInfrastructure()
  * @model

@@ -41,13 +41,13 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  *   <li>{@link domain.impl.DomainArtifactsImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.impl.DomainArtifactsImpl#getName <em>Name</em>}</li>
  *   <li>{@link domain.impl.DomainArtifactsImpl#getParent <em>Parent</em>}</li>
  *   <li>{@link domain.impl.DomainArtifactsImpl#getDomainArtifact <em>Domain Artifact</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */

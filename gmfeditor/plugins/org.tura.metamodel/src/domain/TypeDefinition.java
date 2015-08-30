@@ -25,13 +25,13 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  *   <li>{@link domain.TypeDefinition#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.TypeDefinition#getTypes <em>Types</em>}</li>
  *   <li>{@link domain.TypeDefinition#getParent <em>Parent</em>}</li>
  *   <li>{@link domain.TypeDefinition#getAny <em>Any</em>}</li>
  * </ul>
+ * </p>
  *
  * @see domain.DomainPackage#getTypeDefinition()
  * @model

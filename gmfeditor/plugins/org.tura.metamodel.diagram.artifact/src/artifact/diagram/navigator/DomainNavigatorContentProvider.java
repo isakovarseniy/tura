@@ -11,8 +11,8 @@
  * http://www.eclipse.org/legal/epl-v10.html
  *******************************************************************************/
 /*
-* 
-*/
+ * 
+ */
 package artifact.diagram.navigator;
 
 import java.util.ArrayList;
@@ -58,36 +58,37 @@ import artifact.diagram.part.DomainVisualIDRegistry;
 public class DomainNavigatorContentProvider implements ICommonContentProvider {
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	private static final Object[] EMPTY_ARRAY = new Object[0];
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	private Viewer myViewer;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	private AdapterFactoryEditingDomain myEditingDomain;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	private WorkspaceSynchronizer myWorkspaceSynchronizer;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	private Runnable myViewerRefreshRunnable;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	@SuppressWarnings({ "unchecked", "serial", "rawtypes" })
 	public DomainNavigatorContentProvider() {
-		TransactionalEditingDomain editingDomain = GMFEditingDomainFactory.INSTANCE.createEditingDomain();
+		TransactionalEditingDomain editingDomain = GMFEditingDomainFactory.INSTANCE
+				.createEditingDomain();
 		myEditingDomain = (AdapterFactoryEditingDomain) editingDomain;
 		myEditingDomain.setResourceToReadOnlyMap(new HashMap() {
 			public Object get(Object key) {
@@ -104,33 +105,35 @@ public class DomainNavigatorContentProvider implements ICommonContentProvider {
 				}
 			}
 		};
-		myWorkspaceSynchronizer = new WorkspaceSynchronizer(editingDomain, new WorkspaceSynchronizer.Delegate() {
-			public void dispose() {
-			}
+		myWorkspaceSynchronizer = new WorkspaceSynchronizer(editingDomain,
+				new WorkspaceSynchronizer.Delegate() {
+					public void dispose() {
+					}
 
-			public boolean handleResourceChanged(final Resource resource) {
-				unloadAllResources();
-				asyncRefresh();
-				return true;
-			}
+					public boolean handleResourceChanged(final Resource resource) {
+						unloadAllResources();
+						asyncRefresh();
+						return true;
+					}
 
-			public boolean handleResourceDeleted(Resource resource) {
-				unloadAllResources();
-				asyncRefresh();
-				return true;
-			}
+					public boolean handleResourceDeleted(Resource resource) {
+						unloadAllResources();
+						asyncRefresh();
+						return true;
+					}
 
-			public boolean handleResourceMoved(Resource resource, final URI newURI) {
-				unloadAllResources();
-				asyncRefresh();
-				return true;
-			}
-		});
+					public boolean handleResourceMoved(Resource resource,
+							final URI newURI) {
+						unloadAllResources();
+						asyncRefresh();
+						return true;
+					}
+				});
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public void dispose() {
 		myWorkspaceSynchronizer.dispose();
 		myWorkspaceSynchronizer = null;
@@ -142,40 +145,42 @@ public class DomainNavigatorContentProvider implements ICommonContentProvider {
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public void inputChanged(Viewer viewer, Object oldInput, Object newInput) {
 		myViewer = viewer;
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	void unloadAllResources() {
-		for (Resource nextResource : myEditingDomain.getResourceSet().getResources()) {
+		for (Resource nextResource : myEditingDomain.getResourceSet()
+				.getResources()) {
 			nextResource.unload();
 		}
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	void asyncRefresh() {
 		if (myViewer != null && !myViewer.getControl().isDisposed()) {
-			myViewer.getControl().getDisplay().asyncExec(myViewerRefreshRunnable);
+			myViewer.getControl().getDisplay()
+					.asyncExec(myViewerRefreshRunnable);
 		}
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public Object[] getElements(Object inputElement) {
 		return getChildren(inputElement);
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public void restoreState(IMemento aMemento) {
 	}
 
@@ -186,27 +191,32 @@ public class DomainNavigatorContentProvider implements ICommonContentProvider {
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public void init(ICommonContentExtensionSite aConfig) {
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public Object[] getChildren(Object parentElement) {
 		if (parentElement instanceof IFile) {
 			IFile file = (IFile) parentElement;
-			URI fileURI = URI.createPlatformResourceURI(file.getFullPath().toString(), true);
-			Resource resource = myEditingDomain.getResourceSet().getResource(fileURI, true);
+			URI fileURI = URI.createPlatformResourceURI(file.getFullPath()
+					.toString(), true);
+			Resource resource = myEditingDomain.getResourceSet().getResource(
+					fileURI, true);
 			ArrayList<DomainNavigatorItem> result = new ArrayList<DomainNavigatorItem>();
-			ArrayList<View> topViews = new ArrayList<View>(resource.getContents().size());
+			ArrayList<View> topViews = new ArrayList<View>(resource
+					.getContents().size());
 			for (EObject o : resource.getContents()) {
 				if (o instanceof View) {
 					topViews.add((View) o);
 				}
 			}
-			result.addAll(createNavigatorItems(selectViewsByType(topViews, ArtifactsEditPart.MODEL_ID), file, false));
+			result.addAll(createNavigatorItems(
+					selectViewsByType(topViews, ArtifactsEditPart.MODEL_ID),
+					file, false));
 			return result.toArray();
 		}
 
@@ -224,11 +234,12 @@ public class DomainNavigatorContentProvider implements ICommonContentProvider {
 		}
 
 		/*
-		* Due to plugin.xml restrictions this code will be called only for views representing
-		* shortcuts to this diagram elements created on other diagrams. 
-		*/
+		 * Due to plugin.xml restrictions this code will be called only for views representing
+		 * shortcuts to this diagram elements created on other diagrams. 
+		 */
 		if (parentElement instanceof IAdaptable) {
-			View view = (View) ((IAdaptable) parentElement).getAdapter(View.class);
+			View view = (View) ((IAdaptable) parentElement)
+					.getAdapter(View.class);
 			if (view != null) {
 				return getViewChildren(view, parentElement);
 			}
@@ -238,8 +249,8 @@ public class DomainNavigatorContentProvider implements ICommonContentProvider {
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	private Object[] getViewChildren(View view, Object parentElement) {
 		switch (DomainVisualIDRegistry.getVisualID(view)) {
 
@@ -250,7 +261,8 @@ public class DomainNavigatorContentProvider implements ICommonContentProvider {
 			Collection<View> connectedViews;
 			connectedViews = getChildrenByType(Collections.singleton(sv),
 					DomainVisualIDRegistry.getType(ArtifactEditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement, false));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
 			return result.toArray();
 		}
 
@@ -258,26 +270,41 @@ public class DomainNavigatorContentProvider implements ICommonContentProvider {
 			LinkedList<DomainAbstractNavigatorItem> result = new LinkedList<DomainAbstractNavigatorItem>();
 			Node sv = (Node) view;
 			Collection<View> connectedViews;
-			connectedViews = getChildrenByType(Collections.singleton(sv),
-					DomainVisualIDRegistry.getType(ArtifactArtifactConfigVariablesCompartmentEditPart.VISUAL_ID));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					DomainVisualIDRegistry
+							.getType(ArtifactArtifactConfigVariablesCompartmentEditPart.VISUAL_ID));
 			connectedViews = getChildrenByType(connectedViews,
-					DomainVisualIDRegistry.getType(ConfigVariableEditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement, false));
-			connectedViews = getChildrenByType(Collections.singleton(sv),
-					DomainVisualIDRegistry.getType(ArtifactArtifactModelQueryCompartmentEditPart.VISUAL_ID));
+					DomainVisualIDRegistry
+							.getType(ConfigVariableEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					DomainVisualIDRegistry
+							.getType(ArtifactArtifactModelQueryCompartmentEditPart.VISUAL_ID));
 			connectedViews = getChildrenByType(connectedViews,
-					DomainVisualIDRegistry.getType(ModelQueryEditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement, false));
-			connectedViews = getChildrenByType(Collections.singleton(sv),
-					DomainVisualIDRegistry.getType(ArtifactArtifactSpecifiersCompartmentEditPart.VISUAL_ID));
+					DomainVisualIDRegistry
+							.getType(ModelQueryEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					DomainVisualIDRegistry
+							.getType(ArtifactArtifactSpecifiersCompartmentEditPart.VISUAL_ID));
 			connectedViews = getChildrenByType(connectedViews,
 					DomainVisualIDRegistry.getType(SpecifierEditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement, false));
-			connectedViews = getChildrenByType(Collections.singleton(sv),
-					DomainVisualIDRegistry.getType(ArtifactArtifactHintsCompartmentEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					DomainVisualIDRegistry
+							.getType(ArtifactArtifactHintsCompartmentEditPart.VISUAL_ID));
 			connectedViews = getChildrenByType(connectedViews,
-					DomainVisualIDRegistry.getType(GenerationHintEditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement, false));
+					DomainVisualIDRegistry
+							.getType(GenerationHintEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
 			return result.toArray();
 		}
 		}
@@ -285,13 +312,15 @@ public class DomainNavigatorContentProvider implements ICommonContentProvider {
 	}
 
 	/**
-	* @generated
-	*/
-	private Collection<View> getLinksSourceByType(Collection<Edge> edges, String type) {
+	 * @generated
+	 */
+	private Collection<View> getLinksSourceByType(Collection<Edge> edges,
+			String type) {
 		LinkedList<View> result = new LinkedList<View>();
 		for (Edge nextEdge : edges) {
 			View nextEdgeSource = nextEdge.getSource();
-			if (type.equals(nextEdgeSource.getType()) && isOwnView(nextEdgeSource)) {
+			if (type.equals(nextEdgeSource.getType())
+					&& isOwnView(nextEdgeSource)) {
 				result.add(nextEdgeSource);
 			}
 		}
@@ -301,11 +330,13 @@ public class DomainNavigatorContentProvider implements ICommonContentProvider {
 	/**
 	 * @generated
 	 */
-	private Collection<View> getLinksTargetByType(Collection<Edge> edges, String type) {
+	private Collection<View> getLinksTargetByType(Collection<Edge> edges,
+			String type) {
 		LinkedList<View> result = new LinkedList<View>();
 		for (Edge nextEdge : edges) {
 			View nextEdgeTarget = nextEdge.getTarget();
-			if (type.equals(nextEdgeTarget.getType()) && isOwnView(nextEdgeTarget)) {
+			if (type.equals(nextEdgeTarget.getType())
+					&& isOwnView(nextEdgeTarget)) {
 				result.add(nextEdgeTarget);
 			}
 		}
@@ -315,7 +346,8 @@ public class DomainNavigatorContentProvider implements ICommonContentProvider {
 	/**
 	 * @generated
 	 */
-	private Collection<View> getOutgoingLinksByType(Collection<? extends View> nodes, String type) {
+	private Collection<View> getOutgoingLinksByType(
+			Collection<? extends View> nodes, String type) {
 		LinkedList<View> result = new LinkedList<View>();
 		for (View nextNode : nodes) {
 			result.addAll(selectViewsByType(nextNode.getSourceEdges(), type));
@@ -326,7 +358,8 @@ public class DomainNavigatorContentProvider implements ICommonContentProvider {
 	/**
 	 * @generated
 	 */
-	private Collection<View> getIncomingLinksByType(Collection<? extends View> nodes, String type) {
+	private Collection<View> getIncomingLinksByType(
+			Collection<? extends View> nodes, String type) {
 		LinkedList<View> result = new LinkedList<View>();
 		for (View nextNode : nodes) {
 			result.addAll(selectViewsByType(nextNode.getTargetEdges(), type));
@@ -337,7 +370,8 @@ public class DomainNavigatorContentProvider implements ICommonContentProvider {
 	/**
 	 * @generated
 	 */
-	private Collection<View> getChildrenByType(Collection<? extends View> nodes, String type) {
+	private Collection<View> getChildrenByType(
+			Collection<? extends View> nodes, String type) {
 		LinkedList<View> result = new LinkedList<View>();
 		for (View nextNode : nodes) {
 			result.addAll(selectViewsByType(nextNode.getChildren(), type));
@@ -348,7 +382,8 @@ public class DomainNavigatorContentProvider implements ICommonContentProvider {
 	/**
 	 * @generated
 	 */
-	private Collection<View> getDiagramLinksByType(Collection<Diagram> diagrams, String type) {
+	private Collection<View> getDiagramLinksByType(
+			Collection<Diagram> diagrams, String type) {
 		ArrayList<View> result = new ArrayList<View>();
 		for (Diagram nextDiagram : diagrams) {
 			result.addAll(selectViewsByType(nextDiagram.getEdges(), type));
@@ -360,7 +395,8 @@ public class DomainNavigatorContentProvider implements ICommonContentProvider {
 	/**
 	 * @generated
 	 */
-	private Collection<View> selectViewsByType(Collection<View> views, String type) {
+	private Collection<View> selectViewsByType(Collection<View> views,
+			String type) {
 		ArrayList<View> result = new ArrayList<View>();
 		for (View nextView : views) {
 			if (type.equals(nextView.getType()) && isOwnView(nextView)) {
@@ -374,15 +410,17 @@ public class DomainNavigatorContentProvider implements ICommonContentProvider {
 	 * @generated
 	 */
 	private boolean isOwnView(View view) {
-		return ArtifactsEditPart.MODEL_ID.equals(DomainVisualIDRegistry.getModelID(view));
+		return ArtifactsEditPart.MODEL_ID.equals(DomainVisualIDRegistry
+				.getModelID(view));
 	}
 
 	/**
 	 * @generated
 	 */
-	private Collection<DomainNavigatorItem> createNavigatorItems(Collection<View> views, Object parent,
-			boolean isLeafs) {
-		ArrayList<DomainNavigatorItem> result = new ArrayList<DomainNavigatorItem>(views.size());
+	private Collection<DomainNavigatorItem> createNavigatorItems(
+			Collection<View> views, Object parent, boolean isLeafs) {
+		ArrayList<DomainNavigatorItem> result = new ArrayList<DomainNavigatorItem>(
+				views.size());
 		for (View nextView : views) {
 			result.add(new DomainNavigatorItem(nextView, parent, isLeafs));
 		}
@@ -392,11 +430,13 @@ public class DomainNavigatorContentProvider implements ICommonContentProvider {
 	/**
 	 * @generated
 	 */
-	private Collection<DomainNavigatorItem> getForeignShortcuts(Diagram diagram, Object parent) {
+	private Collection<DomainNavigatorItem> getForeignShortcuts(
+			Diagram diagram, Object parent) {
 		LinkedList<View> result = new LinkedList<View>();
 		for (Iterator<View> it = diagram.getChildren().iterator(); it.hasNext();) {
 			View nextView = it.next();
-			if (!isOwnView(nextView) && nextView.getEAnnotation("Shortcut") != null) { //$NON-NLS-1$
+			if (!isOwnView(nextView)
+					&& nextView.getEAnnotation("Shortcut") != null) { //$NON-NLS-1$
 				result.add(nextView);
 			}
 		}
@@ -404,8 +444,8 @@ public class DomainNavigatorContentProvider implements ICommonContentProvider {
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public Object getParent(Object element) {
 		if (element instanceof DomainAbstractNavigatorItem) {
 			DomainAbstractNavigatorItem abstractNavigatorItem = (DomainAbstractNavigatorItem) element;
@@ -415,8 +455,8 @@ public class DomainNavigatorContentProvider implements ICommonContentProvider {
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public boolean hasChildren(Object element) {
 		return element instanceof IFile || getChildren(element).length > 0;
 	}

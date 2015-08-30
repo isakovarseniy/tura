@@ -22,13 +22,13 @@ package domain;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  *   <li>{@link domain.Parameter#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.Parameter#getName <em>Name</em>}</li>
  *   <li>{@link domain.Parameter#getOrder <em>Order</em>}</li>
  *   <li>{@link domain.Parameter#getParent <em>Parent</em>}</li>
  * </ul>
+ * </p>
  *
  * @see domain.DomainPackage#getParameter()
  * @model

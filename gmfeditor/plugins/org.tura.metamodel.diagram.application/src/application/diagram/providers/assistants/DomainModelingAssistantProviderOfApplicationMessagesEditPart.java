@@ -20,6 +20,7 @@ import application.diagram.providers.DomainModelingAssistantProvider;
 /**
  * @generated
  */
-public class DomainModelingAssistantProviderOfApplicationMessagesEditPart extends DomainModelingAssistantProvider {
+public class DomainModelingAssistantProviderOfApplicationMessagesEditPart
+		extends DomainModelingAssistantProvider {
 
 }

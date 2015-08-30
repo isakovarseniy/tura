@@ -24,10 +24,11 @@ import org.eclipse.gmf.tooling.runtime.part.DefaultModelElementSelectionPage;
 public class ModelElementSelectionPage extends DefaultModelElementSelectionPage {
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public ModelElementSelectionPage(String pageName) {
-		super(DomainDiagramEditorPlugin.getInstance().getItemProvidersAdapterFactory(), pageName);
+		super(DomainDiagramEditorPlugin.getInstance()
+				.getItemProvidersAdapterFactory(), pageName);
 	}
 
 	/**

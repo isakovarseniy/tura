@@ -11,8 +11,8 @@
  * http://www.eclipse.org/legal/epl-v10.html
  *******************************************************************************/
 /*
-* 
-*/
+ * 
+ */
 package application.diagram.part;
 
 import java.util.Collections;
@@ -58,15 +58,16 @@ import domain.StylesPackage;
 public class DomainDiagramUpdater {
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static boolean isShortcutOrphaned(View view) {
-		return !view.isSetElement() || view.getElement() == null || view.getElement().eIsProxy();
+		return !view.isSetElement() || view.getElement() == null
+				|| view.getElement().eIsProxy();
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static List<DomainNodeDescriptor> getSemanticChildren(View view) {
 		switch (DomainVisualIDRegistry.getVisualID(view)) {
 		case ApplicationEditPart.VISUAL_ID:
@@ -84,59 +85,72 @@ public class DomainDiagramUpdater {
 	}
 
 	/**
-	* @generated
-	*/
-	public static List<DomainNodeDescriptor> getApplication_801000SemanticChildren(View view) {
+	 * @generated
+	 */
+	public static List<DomainNodeDescriptor> getApplication_801000SemanticChildren(
+			View view) {
 		if (!view.isSetElement()) {
 			return Collections.emptyList();
 		}
 		Application modelElement = (Application) view.getElement();
 		LinkedList<DomainNodeDescriptor> result = new LinkedList<DomainNodeDescriptor>();
 		{
-			ApplicationRecipes childElement = modelElement.getApplicationRecipes();
-			int visualID = DomainVisualIDRegistry.getNodeVisualID(view, childElement);
+			ApplicationRecipes childElement = modelElement
+					.getApplicationRecipes();
+			int visualID = DomainVisualIDRegistry.getNodeVisualID(view,
+					childElement);
 			if (visualID == ApplicationRecipesEditPart.VISUAL_ID) {
 				result.add(new DomainNodeDescriptor(childElement, visualID));
 			}
 		}
 		{
-			ApplicationMappers childElement = modelElement.getApplicationMappers();
-			int visualID = DomainVisualIDRegistry.getNodeVisualID(view, childElement);
+			ApplicationMappers childElement = modelElement
+					.getApplicationMappers();
+			int visualID = DomainVisualIDRegistry.getNodeVisualID(view,
+					childElement);
 			if (visualID == ApplicationMappersEditPart.VISUAL_ID) {
 				result.add(new DomainNodeDescriptor(childElement, visualID));
 			}
 		}
 		{
-			ApplicationUILayer childElement = modelElement.getApplicationUILayer();
-			int visualID = DomainVisualIDRegistry.getNodeVisualID(view, childElement);
+			ApplicationUILayer childElement = modelElement
+					.getApplicationUILayer();
+			int visualID = DomainVisualIDRegistry.getNodeVisualID(view,
+					childElement);
 			if (visualID == ApplicationUILayerEditPart.VISUAL_ID) {
 				result.add(new DomainNodeDescriptor(childElement, visualID));
 			}
 		}
 		{
 			ApplicationStyle childElement = modelElement.getApplicationStyle();
-			int visualID = DomainVisualIDRegistry.getNodeVisualID(view, childElement);
+			int visualID = DomainVisualIDRegistry.getNodeVisualID(view,
+					childElement);
 			if (visualID == ApplicationStyleEditPart.VISUAL_ID) {
 				result.add(new DomainNodeDescriptor(childElement, visualID));
 			}
 		}
 		{
-			ApplicationInfrastructureLayer childElement = modelElement.getApplicationInfrastructureLayer();
-			int visualID = DomainVisualIDRegistry.getNodeVisualID(view, childElement);
+			ApplicationInfrastructureLayer childElement = modelElement
+					.getApplicationInfrastructureLayer();
+			int visualID = DomainVisualIDRegistry.getNodeVisualID(view,
+					childElement);
 			if (visualID == ApplicationInfrastructureLayerEditPart.VISUAL_ID) {
 				result.add(new DomainNodeDescriptor(childElement, visualID));
 			}
 		}
 		{
 			ApplicationRole childElement = modelElement.getApplicationRole();
-			int visualID = DomainVisualIDRegistry.getNodeVisualID(view, childElement);
+			int visualID = DomainVisualIDRegistry.getNodeVisualID(view,
+					childElement);
 			if (visualID == ApplicationRoleEditPart.VISUAL_ID) {
 				result.add(new DomainNodeDescriptor(childElement, visualID));
 			}
 		}
 		{
-			ApplicationMessages childElement = modelElement.getApplicationMessages();
-			int visualID = DomainVisualIDRegistry.getNodeVisualID(view, childElement);
+			ApplicationMessages childElement = modelElement
+					.getApplicationMessages();
+			int visualID = DomainVisualIDRegistry.getNodeVisualID(view,
+					childElement);
 			if (visualID == ApplicationMessagesEditPart.VISUAL_ID) {
 				result.add(new DomainNodeDescriptor(childElement, visualID));
 			}
@@ -145,8 +159,8 @@ public class DomainDiagramUpdater {
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static List<DomainNodeDescriptor> getApplicationRecipesApplicationRecipesRecipesCompartment_807001SemanticChildren(
 			View view) {
 		if (false == view.eContainer() instanceof View) {
@@ -156,11 +170,14 @@ public class DomainDiagramUpdater {
 		if (!containerView.isSetElement()) {
 			return Collections.emptyList();
 		}
-		ApplicationRecipes modelElement = (ApplicationRecipes) containerView.getElement();
+		ApplicationRecipes modelElement = (ApplicationRecipes) containerView
+				.getElement();
 		LinkedList<DomainNodeDescriptor> result = new LinkedList<DomainNodeDescriptor>();
-		for (Iterator<?> it = modelElement.getRecipes().iterator(); it.hasNext();) {
+		for (Iterator<?> it = modelElement.getRecipes().iterator(); it
+				.hasNext();) {
 			ApplicationRecipe childElement = (ApplicationRecipe) it.next();
-			int visualID = DomainVisualIDRegistry.getNodeVisualID(view, childElement);
+			int visualID = DomainVisualIDRegistry.getNodeVisualID(view,
+					childElement);
 			if (visualID == ApplicationRecipeEditPart.VISUAL_ID) {
 				result.add(new DomainNodeDescriptor(childElement, visualID));
 				continue;
@@ -170,8 +187,8 @@ public class DomainDiagramUpdater {
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static List<DomainNodeDescriptor> getApplicationMappersApplicationMappersMappersCompartment_807002SemanticChildren(
 			View view) {
 		if (false == view.eContainer() instanceof View) {
@@ -181,11 +198,14 @@ public class DomainDiagramUpdater {
 		if (!containerView.isSetElement()) {
 			return Collections.emptyList();
 		}
-		ApplicationMappers modelElement = (ApplicationMappers) containerView.getElement();
+		ApplicationMappers modelElement = (ApplicationMappers) containerView
+				.getElement();
 		LinkedList<DomainNodeDescriptor> result = new LinkedList<DomainNodeDescriptor>();
-		for (Iterator<?> it = modelElement.getMappers().iterator(); it.hasNext();) {
+		for (Iterator<?> it = modelElement.getMappers().iterator(); it
+				.hasNext();) {
 			ApplicationMapper childElement = (ApplicationMapper) it.next();
-			int visualID = DomainVisualIDRegistry.getNodeVisualID(view, childElement);
+			int visualID = DomainVisualIDRegistry.getNodeVisualID(view,
+					childElement);
 			if (visualID == ApplicationMapperEditPart.VISUAL_ID) {
 				result.add(new DomainNodeDescriptor(childElement, visualID));
 				continue;
@@ -195,8 +215,8 @@ public class DomainDiagramUpdater {
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static List<DomainNodeDescriptor> getApplicationUILayerApplicationUILayerApplicationUIPackagesCompartment_807003SemanticChildren(
 			View view) {
 		if (false == view.eContainer() instanceof View) {
@@ -206,11 +226,15 @@ public class DomainDiagramUpdater {
 		if (!containerView.isSetElement()) {
 			return Collections.emptyList();
 		}
-		ApplicationUILayer modelElement = (ApplicationUILayer) containerView.getElement();
+		ApplicationUILayer modelElement = (ApplicationUILayer) containerView
+				.getElement();
 		LinkedList<DomainNodeDescriptor> result = new LinkedList<DomainNodeDescriptor>();
-		for (Iterator<?> it = modelElement.getApplicationUIPackages().iterator(); it.hasNext();) {
-			ApplicationUIPackage childElement = (ApplicationUIPackage) it.next();
-			int visualID = DomainVisualIDRegistry.getNodeVisualID(view, childElement);
+		for (Iterator<?> it = modelElement.getApplicationUIPackages()
+				.iterator(); it.hasNext();) {
+			ApplicationUIPackage childElement = (ApplicationUIPackage) it
+					.next();
+			int visualID = DomainVisualIDRegistry.getNodeVisualID(view,
+					childElement);
 			if (visualID == ApplicationUIPackageEditPart.VISUAL_ID) {
 				result.add(new DomainNodeDescriptor(childElement, visualID));
 				continue;
@@ -220,8 +244,8 @@ public class DomainDiagramUpdater {
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static List<DomainNodeDescriptor> getApplicationStyleApplicationStyleStylesPackageCompartment_807004SemanticChildren(
 			View view) {
 		if (false == view.eContainer() instanceof View) {
@@ -231,11 +255,14 @@ public class DomainDiagramUpdater {
 		if (!containerView.isSetElement()) {
 			return Collections.emptyList();
 		}
-		ApplicationStyle modelElement = (ApplicationStyle) containerView.getElement();
+		ApplicationStyle modelElement = (ApplicationStyle) containerView
+				.getElement();
 		LinkedList<DomainNodeDescriptor> result = new LinkedList<DomainNodeDescriptor>();
-		for (Iterator<?> it = modelElement.getStylesPackage().iterator(); it.hasNext();) {
+		for (Iterator<?> it = modelElement.getStylesPackage().iterator(); it
+				.hasNext();) {
 			StylesPackage childElement = (StylesPackage) it.next();
-			int visualID = DomainVisualIDRegistry.getNodeVisualID(view, childElement);
+			int visualID = DomainVisualIDRegistry.getNodeVisualID(view,
+					childElement);
 			if (visualID == StylesPackageEditPart.VISUAL_ID) {
 				result.add(new DomainNodeDescriptor(childElement, visualID));
 				continue;
@@ -245,8 +272,8 @@ public class DomainDiagramUpdater {
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static List<DomainLinkDescriptor> getContainedLinks(View view) {
 		switch (DomainVisualIDRegistry.getVisualID(view)) {
 		case ApplicationEditPart.VISUAL_ID:
@@ -278,8 +305,8 @@ public class DomainDiagramUpdater {
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static List<DomainLinkDescriptor> getIncomingLinks(View view) {
 		switch (DomainVisualIDRegistry.getVisualID(view)) {
 		case ApplicationRecipesEditPart.VISUAL_ID:
@@ -309,8 +336,8 @@ public class DomainDiagramUpdater {
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static List<DomainLinkDescriptor> getOutgoingLinks(View view) {
 		switch (DomainVisualIDRegistry.getVisualID(view)) {
 		case ApplicationRecipesEditPart.VISUAL_ID:
@@ -342,277 +369,307 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getApplication_801000ContainedLinks(View view) {
+	public static List<DomainLinkDescriptor> getApplication_801000ContainedLinks(
+			View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getApplicationRecipes_802001ContainedLinks(View view) {
+	public static List<DomainLinkDescriptor> getApplicationRecipes_802001ContainedLinks(
+			View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getApplicationMappers_802002ContainedLinks(View view) {
+	public static List<DomainLinkDescriptor> getApplicationMappers_802002ContainedLinks(
+			View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getApplicationUILayer_802003ContainedLinks(View view) {
+	public static List<DomainLinkDescriptor> getApplicationUILayer_802003ContainedLinks(
+			View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getApplicationStyle_802005ContainedLinks(View view) {
+	public static List<DomainLinkDescriptor> getApplicationStyle_802005ContainedLinks(
+			View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getApplicationInfrastructureLayer_802004ContainedLinks(View view) {
+	public static List<DomainLinkDescriptor> getApplicationInfrastructureLayer_802004ContainedLinks(
+			View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getApplicationRole_802006ContainedLinks(View view) {
+	public static List<DomainLinkDescriptor> getApplicationRole_802006ContainedLinks(
+			View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getApplicationMessages_802007ContainedLinks(View view) {
+	public static List<DomainLinkDescriptor> getApplicationMessages_802007ContainedLinks(
+			View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getApplicationRecipe_803001ContainedLinks(View view) {
+	public static List<DomainLinkDescriptor> getApplicationRecipe_803001ContainedLinks(
+			View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getApplicationMapper_803002ContainedLinks(View view) {
+	public static List<DomainLinkDescriptor> getApplicationMapper_803002ContainedLinks(
+			View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getApplicationUIPackage_803003ContainedLinks(View view) {
+	public static List<DomainLinkDescriptor> getApplicationUIPackage_803003ContainedLinks(
+			View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getStylesPackage_803004ContainedLinks(View view) {
+	public static List<DomainLinkDescriptor> getStylesPackage_803004ContainedLinks(
+			View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getApplicationRecipes_802001IncomingLinks(View view) {
+	public static List<DomainLinkDescriptor> getApplicationRecipes_802001IncomingLinks(
+			View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getApplicationMappers_802002IncomingLinks(View view) {
+	public static List<DomainLinkDescriptor> getApplicationMappers_802002IncomingLinks(
+			View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getApplicationUILayer_802003IncomingLinks(View view) {
+	public static List<DomainLinkDescriptor> getApplicationUILayer_802003IncomingLinks(
+			View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getApplicationStyle_802005IncomingLinks(View view) {
+	public static List<DomainLinkDescriptor> getApplicationStyle_802005IncomingLinks(
+			View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getApplicationInfrastructureLayer_802004IncomingLinks(View view) {
+	public static List<DomainLinkDescriptor> getApplicationInfrastructureLayer_802004IncomingLinks(
+			View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getApplicationRole_802006IncomingLinks(View view) {
+	public static List<DomainLinkDescriptor> getApplicationRole_802006IncomingLinks(
+			View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getApplicationMessages_802007IncomingLinks(View view) {
+	public static List<DomainLinkDescriptor> getApplicationMessages_802007IncomingLinks(
+			View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getApplicationRecipe_803001IncomingLinks(View view) {
+	public static List<DomainLinkDescriptor> getApplicationRecipe_803001IncomingLinks(
+			View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getApplicationMapper_803002IncomingLinks(View view) {
+	public static List<DomainLinkDescriptor> getApplicationMapper_803002IncomingLinks(
+			View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getApplicationUIPackage_803003IncomingLinks(View view) {
+	public static List<DomainLinkDescriptor> getApplicationUIPackage_803003IncomingLinks(
+			View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getStylesPackage_803004IncomingLinks(View view) {
+	public static List<DomainLinkDescriptor> getStylesPackage_803004IncomingLinks(
+			View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getApplicationRecipes_802001OutgoingLinks(View view) {
+	public static List<DomainLinkDescriptor> getApplicationRecipes_802001OutgoingLinks(
+			View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getApplicationMappers_802002OutgoingLinks(View view) {
+	public static List<DomainLinkDescriptor> getApplicationMappers_802002OutgoingLinks(
+			View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getApplicationUILayer_802003OutgoingLinks(View view) {
+	public static List<DomainLinkDescriptor> getApplicationUILayer_802003OutgoingLinks(
+			View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getApplicationStyle_802005OutgoingLinks(View view) {
+	public static List<DomainLinkDescriptor> getApplicationStyle_802005OutgoingLinks(
+			View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getApplicationInfrastructureLayer_802004OutgoingLinks(View view) {
+	public static List<DomainLinkDescriptor> getApplicationInfrastructureLayer_802004OutgoingLinks(
+			View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getApplicationRole_802006OutgoingLinks(View view) {
+	public static List<DomainLinkDescriptor> getApplicationRole_802006OutgoingLinks(
+			View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getApplicationMessages_802007OutgoingLinks(View view) {
+	public static List<DomainLinkDescriptor> getApplicationMessages_802007OutgoingLinks(
+			View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getApplicationRecipe_803001OutgoingLinks(View view) {
+	public static List<DomainLinkDescriptor> getApplicationRecipe_803001OutgoingLinks(
+			View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getApplicationMapper_803002OutgoingLinks(View view) {
+	public static List<DomainLinkDescriptor> getApplicationMapper_803002OutgoingLinks(
+			View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getApplicationUIPackage_803003OutgoingLinks(View view) {
+	public static List<DomainLinkDescriptor> getApplicationUIPackage_803003OutgoingLinks(
+			View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getStylesPackage_803004OutgoingLinks(View view) {
+	public static List<DomainLinkDescriptor> getStylesPackage_803004OutgoingLinks(
+			View view) {
 		return Collections.emptyList();
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static final DiagramUpdater TYPED_INSTANCE = new DiagramUpdater() {
 		/**
-		* @generated
-		*/
+		 * @generated
+		 */
 		@Override
-
 		public List<DomainNodeDescriptor> getSemanticChildren(View view) {
 			return DomainDiagramUpdater.getSemanticChildren(view);
 		}
 
 		/**
-		* @generated
-		*/
+		 * @generated
+		 */
 		@Override
-
 		public List<DomainLinkDescriptor> getContainedLinks(View view) {
 			return DomainDiagramUpdater.getContainedLinks(view);
 		}
 
 		/**
-		* @generated
-		*/
+		 * @generated
+		 */
 		@Override
-
 		public List<DomainLinkDescriptor> getIncomingLinks(View view) {
 			return DomainDiagramUpdater.getIncomingLinks(view);
 		}
 
 		/**
-		* @generated
-		*/
+		 * @generated
+		 */
 		@Override
-
 		public List<DomainLinkDescriptor> getOutgoingLinks(View view) {
 			return DomainDiagramUpdater.getOutgoingLinks(view);
 		}

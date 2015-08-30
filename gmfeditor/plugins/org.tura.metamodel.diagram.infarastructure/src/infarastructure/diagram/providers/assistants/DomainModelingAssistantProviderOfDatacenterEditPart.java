@@ -20,6 +20,7 @@ import infarastructure.diagram.providers.DomainModelingAssistantProvider;
 /**
  * @generated
  */
-public class DomainModelingAssistantProviderOfDatacenterEditPart extends DomainModelingAssistantProvider {
+public class DomainModelingAssistantProviderOfDatacenterEditPart extends
+		DomainModelingAssistantProvider {
 
 }

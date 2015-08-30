@@ -51,12 +51,12 @@ public class TreeProviderAdapterFactory implements IAdapterFactory {
 	private FormVariablesProvider formVariablesProvider;
 	
 
-	@SuppressWarnings({ "rawtypes", "unchecked" })
+	@SuppressWarnings({ "rawtypes" })
 	public Class[] getAdapterList() {
 		return TYPES;
 	}
 
-	@SuppressWarnings({ "rawtypes", "unchecked" })
+	@SuppressWarnings({ "rawtypes" })
 	public Object getAdapter(Object adaptableObject, Class adapterType) {
 		if (adapterType == IWorkbenchAdapter.class
 				|| adapterType == IReturnTypeProvider.class) {

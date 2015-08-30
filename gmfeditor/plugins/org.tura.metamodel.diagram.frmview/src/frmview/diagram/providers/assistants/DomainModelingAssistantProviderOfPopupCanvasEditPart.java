@@ -29,21 +29,22 @@ import frmview.diagram.providers.DomainModelingAssistantProvider;
 /**
  * @generated
  */
-public class DomainModelingAssistantProviderOfPopupCanvasEditPart extends DomainModelingAssistantProvider {
+public class DomainModelingAssistantProviderOfPopupCanvasEditPart extends
+		DomainModelingAssistantProvider {
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	@Override
-
 	public List<IElementType> getRelTypesOnTarget(IAdaptable target) {
-		IGraphicalEditPart targetEditPart = (IGraphicalEditPart) target.getAdapter(IGraphicalEditPart.class);
+		IGraphicalEditPart targetEditPart = (IGraphicalEditPart) target
+				.getAdapter(IGraphicalEditPart.class);
 		return doGetRelTypesOnTarget((PopupCanvasEditPart) targetEditPart);
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public List<IElementType> doGetRelTypesOnTarget(PopupCanvasEditPart target) {
 		List<IElementType> types = new ArrayList<IElementType>(1);
 		types.add(DomainElementTypes.ViewInheritance_1304001);
@@ -51,19 +52,22 @@ public class DomainModelingAssistantProviderOfPopupCanvasEditPart extends Domain
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	@Override
-
-	public List<IElementType> getTypesForSource(IAdaptable target, IElementType relationshipType) {
-		IGraphicalEditPart targetEditPart = (IGraphicalEditPart) target.getAdapter(IGraphicalEditPart.class);
-		return doGetTypesForSource((PopupCanvasEditPart) targetEditPart, relationshipType);
+	public List<IElementType> getTypesForSource(IAdaptable target,
+			IElementType relationshipType) {
+		IGraphicalEditPart targetEditPart = (IGraphicalEditPart) target
+				.getAdapter(IGraphicalEditPart.class);
+		return doGetTypesForSource((PopupCanvasEditPart) targetEditPart,
+				relationshipType);
 	}
 
 	/**
-	* @generated
-	*/
-	public List<IElementType> doGetTypesForSource(PopupCanvasEditPart target, IElementType relationshipType) {
+	 * @generated
+	 */
+	public List<IElementType> doGetTypesForSource(PopupCanvasEditPart target,
+			IElementType relationshipType) {
 		List<IElementType> types = new ArrayList<IElementType>();
 		if (relationshipType == DomainElementTypes.ViewInheritance_1304001) {
 			types.add(DomainElementTypes.ViewPort_1303004);

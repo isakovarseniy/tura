@@ -47,142 +47,142 @@ import typedefinition.diagram.part.DomainDiagramEditorPlugin;
 public class DomainElementTypes {
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	private DomainElementTypes() {
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	private static Map<IElementType, ENamedElement> elements;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	private static DiagramElementTypeImages elementTypeImages = new DiagramElementTypeImages(
-			DomainDiagramEditorPlugin.getInstance().getItemProvidersAdapterFactory());
+			DomainDiagramEditorPlugin.getInstance()
+					.getItemProvidersAdapterFactory());
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	private static Set<IElementType> KNOWN_ELEMENT_TYPES;
 
 	/**
-	* @generated
-	*/
-	public static final IElementType TypeDefinition_101000 = getElementType(
-			"org.tura.metamodel.diagram.typedefinition.TypeDefinition_101000"); //$NON-NLS-1$
+	 * @generated
+	 */
+	public static final IElementType TypeDefinition_101000 = getElementType("org.tura.metamodel.diagram.typedefinition.TypeDefinition_101000"); //$NON-NLS-1$
 	/**
-	* @generated
-	*/
-	public static final IElementType Type_102002 = getElementType(
-			"org.tura.metamodel.diagram.typedefinition.Type_102002"); //$NON-NLS-1$
+	 * @generated
+	 */
+	public static final IElementType Type_102002 = getElementType("org.tura.metamodel.diagram.typedefinition.Type_102002"); //$NON-NLS-1$
 	/**
-	* @generated
-	*/
-	public static final IElementType TypeReference_102001 = getElementType(
-			"org.tura.metamodel.diagram.typedefinition.TypeReference_102001"); //$NON-NLS-1$
+	 * @generated
+	 */
+	public static final IElementType TypeReference_102001 = getElementType("org.tura.metamodel.diagram.typedefinition.TypeReference_102001"); //$NON-NLS-1$
 	/**
-	* @generated
-	*/
-	public static final IElementType Primitive_102004 = getElementType(
-			"org.tura.metamodel.diagram.typedefinition.Primitive_102004"); //$NON-NLS-1$
+	 * @generated
+	 */
+	public static final IElementType Primitive_102004 = getElementType("org.tura.metamodel.diagram.typedefinition.Primitive_102004"); //$NON-NLS-1$
 	/**
-	* @generated
-	*/
-	public static final IElementType Enumarator_102005 = getElementType(
-			"org.tura.metamodel.diagram.typedefinition.Enumarator_102005"); //$NON-NLS-1$
+	 * @generated
+	 */
+	public static final IElementType Enumarator_102005 = getElementType("org.tura.metamodel.diagram.typedefinition.Enumarator_102005"); //$NON-NLS-1$
 	/**
-	* @generated
-	*/
-	public static final IElementType Attribute_103001 = getElementType(
-			"org.tura.metamodel.diagram.typedefinition.Attribute_103001"); //$NON-NLS-1$
+	 * @generated
+	 */
+	public static final IElementType Attribute_103001 = getElementType("org.tura.metamodel.diagram.typedefinition.Attribute_103001"); //$NON-NLS-1$
 	/**
-	* @generated
-	*/
-	public static final IElementType Operation_103002 = getElementType(
-			"org.tura.metamodel.diagram.typedefinition.Operation_103002"); //$NON-NLS-1$
+	 * @generated
+	 */
+	public static final IElementType Operation_103002 = getElementType("org.tura.metamodel.diagram.typedefinition.Operation_103002"); //$NON-NLS-1$
 	/**
-	* @generated
-	*/
-	public static final IElementType EnumAttribute_103005 = getElementType(
-			"org.tura.metamodel.diagram.typedefinition.EnumAttribute_103005"); //$NON-NLS-1$
+	 * @generated
+	 */
+	public static final IElementType EnumAttribute_103005 = getElementType("org.tura.metamodel.diagram.typedefinition.EnumAttribute_103005"); //$NON-NLS-1$
 	/**
-	* @generated
-	*/
-	public static final IElementType TypeExtension_104001 = getElementType(
-			"org.tura.metamodel.diagram.typedefinition.TypeExtension_104001"); //$NON-NLS-1$
+	 * @generated
+	 */
+	public static final IElementType TypeExtension_104001 = getElementType("org.tura.metamodel.diagram.typedefinition.TypeExtension_104001"); //$NON-NLS-1$
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static ImageDescriptor getImageDescriptor(ENamedElement element) {
 		return elementTypeImages.getImageDescriptor(element);
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static Image getImage(ENamedElement element) {
 		return elementTypeImages.getImage(element);
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static ImageDescriptor getImageDescriptor(IAdaptable hint) {
 		return getImageDescriptor(getElement(hint));
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static Image getImage(IAdaptable hint) {
 		return getImage(getElement(hint));
 	}
 
 	/**
-	* Returns 'type' of the ecore object associated with the hint.
-	* 
-	* @generated
-	*/
+	 * Returns 'type' of the ecore object associated with the hint.
+	 * 
+	 * @generated
+	 */
 	public static ENamedElement getElement(IAdaptable hint) {
 		Object type = hint.getAdapter(IElementType.class);
 		if (elements == null) {
 			elements = new IdentityHashMap<IElementType, ENamedElement>();
 
-			elements.put(TypeDefinition_101000, DomainPackage.eINSTANCE.getTypeDefinition());
+			elements.put(TypeDefinition_101000,
+					DomainPackage.eINSTANCE.getTypeDefinition());
 
 			elements.put(Type_102002, DomainPackage.eINSTANCE.getType());
 
-			elements.put(TypeReference_102001, DomainPackage.eINSTANCE.getTypeReference());
+			elements.put(TypeReference_102001,
+					DomainPackage.eINSTANCE.getTypeReference());
 
-			elements.put(Primitive_102004, DomainPackage.eINSTANCE.getPrimitive());
+			elements.put(Primitive_102004,
+					DomainPackage.eINSTANCE.getPrimitive());
 
-			elements.put(Enumarator_102005, DomainPackage.eINSTANCE.getEnumarator());
+			elements.put(Enumarator_102005,
+					DomainPackage.eINSTANCE.getEnumarator());
 
-			elements.put(Attribute_103001, DomainPackage.eINSTANCE.getAttribute());
+			elements.put(Attribute_103001,
+					DomainPackage.eINSTANCE.getAttribute());
 
-			elements.put(Operation_103002, DomainPackage.eINSTANCE.getOperation());
+			elements.put(Operation_103002,
+					DomainPackage.eINSTANCE.getOperation());
 
-			elements.put(EnumAttribute_103005, DomainPackage.eINSTANCE.getEnumAttribute());
+			elements.put(EnumAttribute_103005,
+					DomainPackage.eINSTANCE.getEnumAttribute());
 
-			elements.put(TypeExtension_104001, DomainPackage.eINSTANCE.getTypeExtension());
+			elements.put(TypeExtension_104001,
+					DomainPackage.eINSTANCE.getTypeExtension());
 		}
 		return (ENamedElement) elements.get(type);
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	private static IElementType getElementType(String id) {
 		return ElementTypeRegistry.getInstance().getType(id);
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static boolean isKnownElementType(IElementType elementType) {
 		if (KNOWN_ELEMENT_TYPES == null) {
 			KNOWN_ELEMENT_TYPES = new HashSet<IElementType>();
@@ -200,8 +200,8 @@ public class DomainElementTypes {
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static IElementType getElementType(int visualID) {
 		switch (visualID) {
 		case TypeDefinitionEditPart.VISUAL_ID:
@@ -227,35 +227,37 @@ public class DomainElementTypes {
 	}
 
 	/**
-	* @generated
-	*/
-	public static final DiagramElementTypes TYPED_INSTANCE = new DiagramElementTypes(elementTypeImages) {
+	 * @generated
+	 */
+	public static final DiagramElementTypes TYPED_INSTANCE = new DiagramElementTypes(
+			elementTypeImages) {
 
 		/**
-		* @generated
-		*/
+		 * @generated
+		 */
 		@Override
-
 		public boolean isKnownElementType(IElementType elementType) {
-			return typedefinition.diagram.providers.DomainElementTypes.isKnownElementType(elementType);
+			return typedefinition.diagram.providers.DomainElementTypes
+					.isKnownElementType(elementType);
 		}
 
 		/**
-		* @generated
-		*/
+		 * @generated
+		 */
 		@Override
-
 		public IElementType getElementTypeForVisualId(int visualID) {
-			return typedefinition.diagram.providers.DomainElementTypes.getElementType(visualID);
+			return typedefinition.diagram.providers.DomainElementTypes
+					.getElementType(visualID);
 		}
 
 		/**
-		* @generated
-		*/
+		 * @generated
+		 */
 		@Override
-
-		public ENamedElement getDefiningNamedElement(IAdaptable elementTypeAdapter) {
-			return typedefinition.diagram.providers.DomainElementTypes.getElement(elementTypeAdapter);
+		public ENamedElement getDefiningNamedElement(
+				IAdaptable elementTypeAdapter) {
+			return typedefinition.diagram.providers.DomainElementTypes
+					.getElement(elementTypeAdapter);
 		}
 	};
 

@@ -66,65 +66,72 @@ import uipackage.diagram.part.Messages;
 public class OpenDiagramFormDataControlsEditPolicy extends OpenEditPolicy {
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	protected Command getOpenCommand(Request request) {
 		EditPart targetEditPart = getTargetEditPart(request);
 		if (false == targetEditPart.getModel() instanceof View) {
 			return null;
 		}
 		View view = (View) targetEditPart.getModel();
-		Style link = view.getStyle(NotationPackage.eINSTANCE.getHintedDiagramLinkStyle());
+		Style link = view.getStyle(NotationPackage.eINSTANCE
+				.getHintedDiagramLinkStyle());
 		if (false == link instanceof HintedDiagramLinkStyle) {
 			return null;
 		}
-		return new ICommandProxy(new OpenDiagramCommand((HintedDiagramLinkStyle) link));
+		return new ICommandProxy(new OpenDiagramCommand(
+				(HintedDiagramLinkStyle) link));
 	}
 
 	/**
-	* @generated
-	*/
-	private static class OpenDiagramCommand extends AbstractTransactionalCommand {
+	 * @generated
+	 */
+	private static class OpenDiagramCommand extends
+			AbstractTransactionalCommand {
 
 		/**
-		* @generated
-		*/
+		 * @generated
+		 */
 		private final HintedDiagramLinkStyle diagramFacet;
 
 		/**
-		* @generated
-		*/
+		 * @generated
+		 */
 		OpenDiagramCommand(HintedDiagramLinkStyle linkStyle) {
 			// editing domain is taken for original diagram, 
 			// if we open diagram from another file, we should use another editing domain
-			super(TransactionUtil.getEditingDomain(linkStyle), Messages.CommandName_OpenDiagram, null);
+			super(TransactionUtil.getEditingDomain(linkStyle),
+					Messages.CommandName_OpenDiagram, null);
 			diagramFacet = linkStyle;
 		}
 
 		// FIXME canExecute if  !(readOnly && getDiagramToOpen == null), i.e. open works on ro diagrams only when there's associated diagram already
 
 		/**
-		* @generated
-		*/
-		protected CommandResult doExecuteWithResult(IProgressMonitor monitor, IAdaptable info)
-				throws ExecutionException {
+		 * @generated
+		 */
+		protected CommandResult doExecuteWithResult(IProgressMonitor monitor,
+				IAdaptable info) throws ExecutionException {
 			try {
 				Diagram diagram = getDiagramToOpen();
 				if (diagram == null) {
 					diagram = intializeNewDiagram();
 				}
 				URI uri = EcoreUtil.getURI(diagram);
-				EObject obj = ((NodeImpl) (diagramFacet.eContainer())).basicGetElement();
+				EObject obj = ((NodeImpl) (diagramFacet.eContainer()))
+						.basicGetElement();
 				String editor = null;
 				try {
 					Method m = obj.getClass().getMethod("getName");
 					editor = (String) m.invoke(obj);
 				} catch (Exception e) {
-					editor = new Integer(diagram.eResource().getContents().indexOf(diagram)).toString();
+					editor = new Integer(diagram.eResource().getContents()
+							.indexOf(diagram)).toString();
 				}
 				String editorName = uri.lastSegment() + '#' + editor;
 				IEditorInput editorInput = new URIEditorInput(uri, editorName);
-				IWorkbenchPage page = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage();
+				IWorkbenchPage page = PlatformUI.getWorkbench()
+						.getActiveWorkbenchWindow().getActivePage();
 				page.openEditor(editorInput, getEditorID());
 				return CommandResult.newOKCommandResult();
 			} catch (Exception ex) {
@@ -133,15 +140,15 @@ public class OpenDiagramFormDataControlsEditPolicy extends OpenEditPolicy {
 		}
 
 		/**
-		* @generated
-		*/
+		 * @generated
+		 */
 		protected Diagram getDiagramToOpen() {
 			return diagramFacet.getDiagramLink();
 		}
 
 		/**
-		* @generated
-		*/
+		 * @generated
+		 */
 		protected Diagram intializeNewDiagram() throws ExecutionException {
 
 			FormDataControls
@@ -151,10 +158,12 @@ public class OpenDiagramFormDataControlsEditPolicy extends OpenEditPolicy {
 			) ((NodeImpl) (diagramFacet.eContainer())).basicGetElement();
 			if (sourceObject.getName() == null) {
 
-				MessageDialog dialog = new MessageDialog(Display.getCurrent().getActiveShell(), "Error", null,
-						"Name is undefined", MessageDialog.ERROR, new String[] { "ok" }, 0);
+				MessageDialog dialog = new MessageDialog(Display.getCurrent()
+						.getActiveShell(), "Error", null, "Name is undefined",
+						MessageDialog.ERROR, new String[] { "ok" }, 0);
 				dialog.open();
-				throw new ExecutionException("Can't create diagram of '" + getDiagramKind() + "' kind");
+				throw new ExecutionException("Can't create diagram of '"
+						+ getDiagramKind() + "' kind");
 
 			}
 
@@ -170,9 +179,11 @@ public class OpenDiagramFormDataControlsEditPolicy extends OpenEditPolicy {
 				obj.setUid(java.util.UUID.randomUUID().toString());
 			}
 
-			Diagram d = ViewService.createDiagram(obj, getDiagramKind(), getPreferencesHint());
+			Diagram d = ViewService.createDiagram(obj, getDiagramKind(),
+					getPreferencesHint());
 			if (d == null) {
-				throw new ExecutionException("Can't create diagram of '" + getDiagramKind() + "' kind");
+				throw new ExecutionException("Can't create diagram of '"
+						+ getDiagramKind() + "' kind");
 			}
 
 			try {
@@ -201,61 +212,70 @@ public class OpenDiagramFormDataControlsEditPolicy extends OpenEditPolicy {
 				}
 
 			} catch (Exception e) {
-				throw new ExecutionException("Can't create diagram of '" + getDiagramKind() + "' kind", e);
+				throw new ExecutionException("Can't create diagram of '"
+						+ getDiagramKind() + "' kind", e);
 
 			}
 
 			try {
 				new WorkspaceModifyOperation() {
 					protected void execute(IProgressMonitor monitor)
-							throws CoreException, InvocationTargetException, InterruptedException {
+							throws CoreException, InvocationTargetException,
+							InterruptedException {
 						try {
-							for (Iterator it = diagramFacet.eResource().getResourceSet().getResources().iterator(); it
+							for (Iterator it = diagramFacet.eResource()
+									.getResourceSet().getResources().iterator(); it
 									.hasNext();) {
 								Resource nextResource = (Resource) it.next();
-								if (nextResource.isLoaded() && !getEditingDomain().isReadOnly(nextResource)) {
-									nextResource.save(DomainDiagramEditorUtil.getSaveOptions());
+								if (nextResource.isLoaded()
+										&& !getEditingDomain().isReadOnly(
+												nextResource)) {
+									nextResource.save(DomainDiagramEditorUtil
+											.getSaveOptions());
 								}
 							}
 						} catch (IOException ex) {
-							throw new InvocationTargetException(ex, "Save operation failed");
+							throw new InvocationTargetException(ex,
+									"Save operation failed");
 						}
 					}
 				}.run(null);
 			} catch (InvocationTargetException e) {
-				throw new ExecutionException("Can't create diagram of '" + getDiagramKind() + "' kind", e);
+				throw new ExecutionException("Can't create diagram of '"
+						+ getDiagramKind() + "' kind", e);
 			} catch (InterruptedException e) {
-				throw new ExecutionException("Can't create diagram of '" + getDiagramKind() + "' kind", e);
+				throw new ExecutionException("Can't create diagram of '"
+						+ getDiagramKind() + "' kind", e);
 			}
 			return d;
 		}
 
 		/**
-		* @generated
-		*/
+		 * @generated
+		 */
 		protected EObject getDiagramDomainElement() {
 			// use same element as associated with EP
 			return ((View) diagramFacet.eContainer()).getElement();
 		}
 
 		/**
-		* @generated
-		*/
+		 * @generated
+		 */
 		protected PreferencesHint getPreferencesHint() {
 			// XXX prefhint from target diagram's editor?
 			return DomainDiagramEditorPlugin.DIAGRAM_PREFERENCES_HINT;
 		}
 
 		/**
-		* @generated
-		*/
+		 * @generated
+		 */
 		protected String getDiagramKind() {
 			return "Control";
 		}
 
 		/**
-		* @generated
-		*/
+		 * @generated
+		 */
 		protected String getEditorID() {
 			return "control.diagram.part.ControlDiagramEditorID";
 		}

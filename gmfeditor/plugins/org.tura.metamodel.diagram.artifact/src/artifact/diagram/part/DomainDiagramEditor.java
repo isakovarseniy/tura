@@ -11,8 +11,8 @@
  * http://www.eclipse.org/legal/epl-v10.html
  *******************************************************************************/
 /*
-* 
-*/
+ * 
+ */
 package artifact.diagram.part;
 
 import java.util.ArrayList;
@@ -80,40 +80,41 @@ import de.itemis.gmf.runtime.editingdomain.SharedEditingDomainUtil;
 /**
  * @generated
  */
-public class DomainDiagramEditor extends DiagramDocumentEditor implements IGotoMarker {
+public class DomainDiagramEditor extends DiagramDocumentEditor implements
+		IGotoMarker {
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static final String ID = "artifact.diagram.part.ArtifactDiagramEditorID"; //$NON-NLS-1$
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static final String CONTEXT_ID = "artifact.diagram.ui.diagramContext"; //$NON-NLS-1$
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	private LastClickPositionProvider myLastClickPositionProvider;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public DomainDiagramEditor() {
 		super(true);
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	protected String getContextID() {
 		return CONTEXT_ID;
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	protected PaletteRoot createPaletteRoot(PaletteRoot existingPaletteRoot) {
 		PaletteRoot root = super.createPaletteRoot(existingPaletteRoot);
 		new DomainPaletteFactory().fillPalette(root);
@@ -121,15 +122,15 @@ public class DomainDiagramEditor extends DiagramDocumentEditor implements IGotoM
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	protected PreferencesHint getPreferencesHint() {
 		return DomainDiagramEditorPlugin.DIAGRAM_PREFERENCES_HINT;
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public String getContributorId() {
 		return DomainDiagramEditorPlugin.ID;
 	}
@@ -150,20 +151,23 @@ public class DomainDiagramEditor extends DiagramDocumentEditor implements IGotoM
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	protected IDocumentProvider getDocumentProvider(IEditorInput input) {
-		if (input instanceof IFileEditorInput || input instanceof URIEditorInput) {
-			return DomainDiagramEditorPlugin.getInstance().getDocumentProvider();
+		if (input instanceof IFileEditorInput
+				|| input instanceof URIEditorInput) {
+			return DomainDiagramEditorPlugin.getInstance()
+					.getDocumentProvider();
 		}
 		return super.getDocumentProvider(input);
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public TransactionalEditingDomain getEditingDomain() {
-		IDocument document = getEditorInput() != null ? getDocumentProvider().getDocument(getEditorInput()) : null;
+		IDocument document = getEditorInput() != null ? getDocumentProvider()
+				.getDocument(getEditorInput()) : null;
 		if (document instanceof IDiagramDocument) {
 			return ((IDiagramDocument) document).getEditingDomain();
 		}
@@ -171,45 +175,48 @@ public class DomainDiagramEditor extends DiagramDocumentEditor implements IGotoM
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	protected void setDocumentProvider(IEditorInput input) {
-		if (input instanceof IFileEditorInput || input instanceof URIEditorInput) {
-			setDocumentProvider(DomainDiagramEditorPlugin.getInstance().getDocumentProvider());
+		if (input instanceof IFileEditorInput
+				|| input instanceof URIEditorInput) {
+			setDocumentProvider(DomainDiagramEditorPlugin.getInstance()
+					.getDocumentProvider());
 		} else {
 			super.setDocumentProvider(input);
 		}
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public void gotoMarker(IMarker marker) {
 		MarkerNavigationService.getInstance().gotoMarker(this, marker);
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public boolean isSaveAsAllowed() {
 		return true;
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public void doSaveAs() {
 		performSaveAs(new NullProgressMonitor());
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	protected void performSaveAs(IProgressMonitor progressMonitor) {
 		Shell shell = getSite().getShell();
 		IEditorInput input = getEditorInput();
 		SaveAsDialog dialog = new SaveAsDialog(shell);
-		IFile original = input instanceof IFileEditorInput ? ((IFileEditorInput) input).getFile() : null;
+		IFile original = input instanceof IFileEditorInput ? ((IFileEditorInput) input)
+				.getFile() : null;
 		if (original != null) {
 			dialog.setOriginalFile(original);
 		}
@@ -220,7 +227,9 @@ public class DomainDiagramEditor extends DiagramDocumentEditor implements IGotoM
 			return;
 		}
 		if (provider.isDeleted(input) && original != null) {
-			String message = NLS.bind(Messages.DomainDiagramEditor_SavingDeletedFile, original.getName());
+			String message = NLS.bind(
+					Messages.DomainDiagramEditor_SavingDeletedFile,
+					original.getName());
 			dialog.setErrorMessage(null);
 			dialog.setMessage(message, IMessageProvider.WARNING);
 		}
@@ -241,12 +250,15 @@ public class DomainDiagramEditor extends DiagramDocumentEditor implements IGotoM
 		IFile file = workspaceRoot.getFile(filePath);
 		final IEditorInput newInput = new FileEditorInput(file);
 		// Check if the editor is already open
-		IEditorMatchingStrategy matchingStrategy = getEditorDescriptor().getEditorMatchingStrategy();
-		IEditorReference[] editorRefs = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage()
+		IEditorMatchingStrategy matchingStrategy = getEditorDescriptor()
+				.getEditorMatchingStrategy();
+		IEditorReference[] editorRefs = PlatformUI.getWorkbench()
+				.getActiveWorkbenchWindow().getActivePage()
 				.getEditorReferences();
 		for (int i = 0; i < editorRefs.length; i++) {
 			if (matchingStrategy.matches(editorRefs[i], newInput)) {
-				MessageDialog.openWarning(shell, Messages.DomainDiagramEditor_SaveAsErrorTitle,
+				MessageDialog.openWarning(shell,
+						Messages.DomainDiagramEditor_SaveAsErrorTitle,
 						Messages.DomainDiagramEditor_SaveAsErrorMessage);
 				return;
 			}
@@ -254,14 +266,17 @@ public class DomainDiagramEditor extends DiagramDocumentEditor implements IGotoM
 		boolean success = false;
 		try {
 			provider.aboutToChange(newInput);
-			getDocumentProvider(newInput).saveDocument(progressMonitor, newInput,
+			getDocumentProvider(newInput).saveDocument(progressMonitor,
+					newInput,
 					getDocumentProvider().getDocument(getEditorInput()), true);
 			success = true;
 		} catch (CoreException x) {
 			IStatus status = x.getStatus();
 			if (status == null || status.getSeverity() != IStatus.CANCEL) {
-				ErrorDialog.openError(shell, Messages.DomainDiagramEditor_SaveErrorTitle,
-						Messages.DomainDiagramEditor_SaveErrorMessage, x.getStatus());
+				ErrorDialog.openError(shell,
+						Messages.DomainDiagramEditor_SaveErrorTitle,
+						Messages.DomainDiagramEditor_SaveErrorMessage,
+						x.getStatus());
 			}
 		} finally {
 			provider.changed(newInput);
@@ -275,15 +290,15 @@ public class DomainDiagramEditor extends DiagramDocumentEditor implements IGotoM
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public ShowInContext getShowInContext() {
 		return new ShowInContext(getEditorInput(), getNavigatorSelection());
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	private ISelection getNavigatorSelection() {
 		IDiagramDocument document = getDiagramDocument();
 		if (document == null) {
@@ -295,38 +310,43 @@ public class DomainDiagramEditor extends DiagramDocumentEditor implements IGotoM
 		}
 		IFile file = WorkspaceSynchronizer.getFile(diagram.eResource());
 		if (file != null) {
-			DomainNavigatorItem item = new DomainNavigatorItem(diagram, file, false);
+			DomainNavigatorItem item = new DomainNavigatorItem(diagram, file,
+					false);
 			return new StructuredSelection(item);
 		}
 		return StructuredSelection.EMPTY;
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	protected void configureGraphicalViewer() {
 		super.configureGraphicalViewer();
-		DiagramEditorContextMenuProvider provider = new DiagramEditorContextMenuProvider(this,
-				getDiagramGraphicalViewer());
+		DiagramEditorContextMenuProvider provider = new DiagramEditorContextMenuProvider(
+				this, getDiagramGraphicalViewer());
 		getDiagramGraphicalViewer().setContextMenu(provider);
-		getSite().registerContextMenu(ActionIds.DIAGRAM_EDITOR_CONTEXT_MENU, provider, getDiagramGraphicalViewer());
+		getSite().registerContextMenu(ActionIds.DIAGRAM_EDITOR_CONTEXT_MENU,
+				provider, getDiagramGraphicalViewer());
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	protected void initializeGraphicalViewer() {
 		super.initializeGraphicalViewer();
 		getDiagramGraphicalViewer().addDropTargetListener(
-				new DropTargetListener(getDiagramGraphicalViewer(), LocalSelectionTransfer.getTransfer()) {
+				new DropTargetListener(getDiagramGraphicalViewer(),
+						LocalSelectionTransfer.getTransfer()) {
 
 					protected Object getJavaObject(TransferData data) {
-						return LocalSelectionTransfer.getTransfer().nativeToJava(data);
+						return LocalSelectionTransfer.getTransfer()
+								.nativeToJava(data);
 					}
 
 				});
 		getDiagramGraphicalViewer().addDropTargetListener(
-				new DropTargetListener(getDiagramGraphicalViewer(), LocalTransfer.getInstance()) {
+				new DropTargetListener(getDiagramGraphicalViewer(),
+						LocalTransfer.getInstance()) {
 
 					protected Object getJavaObject(TransferData data) {
 						return LocalTransfer.getInstance().nativeToJava(data);
@@ -337,8 +357,8 @@ public class DomainDiagramEditor extends DiagramDocumentEditor implements IGotoM
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	protected void startupLastClickPositionProvider() {
 		if (myLastClickPositionProvider == null) {
 			myLastClickPositionProvider = new LastClickPositionProvider(this);
@@ -347,8 +367,8 @@ public class DomainDiagramEditor extends DiagramDocumentEditor implements IGotoM
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	protected void shutDownLastClickPositionProvider() {
 		if (myLastClickPositionProvider != null) {
 			myLastClickPositionProvider.detachFromService();
@@ -358,8 +378,8 @@ public class DomainDiagramEditor extends DiagramDocumentEditor implements IGotoM
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	@Override
 	public void dispose() {
 		shutDownLastClickPositionProvider();
@@ -367,20 +387,20 @@ public class DomainDiagramEditor extends DiagramDocumentEditor implements IGotoM
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	private abstract class DropTargetListener extends DiagramDropTargetListener {
 
 		/**
-		* @generated
-		*/
+		 * @generated
+		 */
 		public DropTargetListener(EditPartViewer viewer, Transfer xfer) {
 			super(viewer, xfer);
 		}
 
 		/**
-		* @generated
-		*/
+		 * @generated
+		 */
 		protected List getObjectsBeingDropped() {
 			TransferData data = getCurrentEvent().currentDataType;
 			HashSet<URI> uris = new HashSet<URI>();
@@ -391,11 +411,13 @@ public class DomainDiagramEditor extends DiagramDocumentEditor implements IGotoM
 				for (Iterator<?> it = selection.iterator(); it.hasNext();) {
 					Object nextSelectedObject = it.next();
 					if (nextSelectedObject instanceof DomainNavigatorItem) {
-						View view = ((DomainNavigatorItem) nextSelectedObject).getView();
+						View view = ((DomainNavigatorItem) nextSelectedObject)
+								.getView();
 						nextSelectedObject = view.getElement();
 					} else if (nextSelectedObject instanceof IAdaptable) {
 						IAdaptable adaptable = (IAdaptable) nextSelectedObject;
-						nextSelectedObject = adaptable.getAdapter(EObject.class);
+						nextSelectedObject = adaptable
+								.getAdapter(EObject.class);
 					}
 
 					if (nextSelectedObject instanceof EObject) {
@@ -407,25 +429,27 @@ public class DomainDiagramEditor extends DiagramDocumentEditor implements IGotoM
 
 			ArrayList<EObject> result = new ArrayList<EObject>(uris.size());
 			for (URI nextURI : uris) {
-				EObject modelObject = getEditingDomain().getResourceSet().getEObject(nextURI, true);
+				EObject modelObject = getEditingDomain().getResourceSet()
+						.getEObject(nextURI, true);
 				result.add(modelObject);
 			}
 			return result;
 		}
 
 		/**
-		* @generated
-		*/
+		 * @generated
+		 */
 		protected abstract Object getJavaObject(TransferData data);
 
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	protected TransactionalEditingDomain createEditingDomain() {
 		// ITEMIS CHANGE: Use shared editing domain
-		return SharedEditingDomainUtil.getSharedEditingDomain("org.tura.metamodel.diagram.artifact.EditingDomain");
+		return SharedEditingDomainUtil
+				.getSharedEditingDomain("org.tura.metamodel.diagram.artifact.EditingDomain");
 	}
 
 	// ITEMIS CHANGE: React to drop requests even if shortcuts are disabled

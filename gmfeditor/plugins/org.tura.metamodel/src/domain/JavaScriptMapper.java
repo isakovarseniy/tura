@@ -22,10 +22,10 @@ package domain;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  *   <li>{@link domain.JavaScriptMapper#getLibraryUrl <em>Library Url</em>}</li>
  * </ul>
+ * </p>
  *
  * @see domain.DomainPackage#getJavaScriptMapper()
  * @model annotation="gmf.node label='fakePackageName,fakeTypeName' border.color='0,0,0' color='47,180,155'"

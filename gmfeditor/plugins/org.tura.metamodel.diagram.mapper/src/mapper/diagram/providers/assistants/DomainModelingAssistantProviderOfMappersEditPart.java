@@ -27,13 +27,13 @@ import mapper.diagram.providers.DomainModelingAssistantProvider;
 /**
  * @generated
  */
-public class DomainModelingAssistantProviderOfMappersEditPart extends DomainModelingAssistantProvider {
+public class DomainModelingAssistantProviderOfMappersEditPart extends
+		DomainModelingAssistantProvider {
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	@Override
-
 	public List<IElementType> getTypesForPopupBar(IAdaptable host) {
 		List<IElementType> types = new ArrayList<IElementType>(4);
 		types.add(DomainElementTypes.JavaMapper_402001);

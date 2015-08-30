@@ -22,12 +22,12 @@ package domain;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  *   <li>{@link domain.OptionSelection#getOptionPointer <em>Option Pointer</em>}</li>
  *   <li>{@link domain.OptionSelection#getOptionCast <em>Option Cast</em>}</li>
  *   <li>{@link domain.OptionSelection#getOptionCastDataControl <em>Option Cast Data Control</em>}</li>
  * </ul>
+ * </p>
  *
  * @see domain.DomainPackage#getOptionSelection()
  * @model

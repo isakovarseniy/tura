@@ -33,27 +33,28 @@ import recipe.diagram.edit.policies.DomainBaseItemSemanticEditPolicy;
 public class InfrastructureRecipeConfigCreateCommand extends EditElementCommand {
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	private final EObject source;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	private final EObject target;
 
 	/**
-	* @generated
-	*/
-	public InfrastructureRecipeConfigCreateCommand(CreateRelationshipRequest request, EObject source, EObject target) {
+	 * @generated
+	 */
+	public InfrastructureRecipeConfigCreateCommand(
+			CreateRelationshipRequest request, EObject source, EObject target) {
 		super(request.getLabel(), null, request);
 		this.source = source;
 		this.target = target;
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public boolean canExecute() {
 		if (source == null && target == null) {
 			return false;
@@ -69,15 +70,18 @@ public class InfrastructureRecipeConfigCreateCommand extends EditElementCommand 
 		}
 		// target may be null here but it's possible to check constraint
 		return DomainBaseItemSemanticEditPolicy.getLinkConstraints()
-				.canCreateInfrastructureRecipeConfig_304006(getSource(), getTarget());
+				.canCreateInfrastructureRecipeConfig_304006(getSource(),
+						getTarget());
 	}
 
 	/**
-	* @generated
-	*/
-	protected CommandResult doExecuteWithResult(IProgressMonitor monitor, IAdaptable info) throws ExecutionException {
+	 * @generated
+	 */
+	protected CommandResult doExecuteWithResult(IProgressMonitor monitor,
+			IAdaptable info) throws ExecutionException {
 		if (!canExecute()) {
-			throw new ExecutionException("Invalid arguments in create link command"); //$NON-NLS-1$
+			throw new ExecutionException(
+					"Invalid arguments in create link command"); //$NON-NLS-1$
 		}
 
 		if (getSource() != null && getTarget() != null) {
@@ -88,22 +92,22 @@ public class InfrastructureRecipeConfigCreateCommand extends EditElementCommand 
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	protected void setElementToEdit(EObject element) {
 		throw new UnsupportedOperationException();
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	protected Infrastructure getSource() {
 		return (Infrastructure) source;
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	protected Configuration getTarget() {
 		return (Configuration) target;
 	}

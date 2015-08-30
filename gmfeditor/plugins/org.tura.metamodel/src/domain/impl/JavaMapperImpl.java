@@ -29,7 +29,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  *   <li>{@link domain.impl.JavaMapperImpl#getMappedToPackageName <em>Mapped To Package Name</em>}</li>
  *   <li>{@link domain.impl.JavaMapperImpl#getMappedToClassName <em>Mapped To Class Name</em>}</li>
@@ -39,6 +38,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *   <li>{@link domain.impl.JavaMapperImpl#getLibraryName <em>Library Name</em>}</li>
  *   <li>{@link domain.impl.JavaMapperImpl#getArtifactType <em>Artifact Type</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */

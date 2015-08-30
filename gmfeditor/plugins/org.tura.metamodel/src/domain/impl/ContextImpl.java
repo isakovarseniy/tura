@@ -37,10 +37,10 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  *   <li>{@link domain.impl.ContextImpl#getParameters <em>Parameters</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */

@@ -33,12 +33,12 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  *   <li>{@link domain.impl.ButtonImpl#getMultiLangLabel <em>Multi Lang Label</em>}</li>
  *   <li>{@link domain.impl.ButtonImpl#getLabel <em>Label</em>}</li>
  *   <li>{@link domain.impl.ButtonImpl#getIcon <em>Icon</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */

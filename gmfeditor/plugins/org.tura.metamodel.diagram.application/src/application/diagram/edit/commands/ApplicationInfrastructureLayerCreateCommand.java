@@ -34,21 +34,23 @@ import domain.DomainFactory;
 /**
  * @generated
  */
-public class ApplicationInfrastructureLayerCreateCommand extends EditElementCommand {
+public class ApplicationInfrastructureLayerCreateCommand extends
+		EditElementCommand {
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public ApplicationInfrastructureLayerCreateCommand(CreateElementRequest req) {
 		super(req.getLabel(), null, req);
 	}
 
 	/**
-	* FIXME: replace with setElementToEdit()
-	* @generated
-	*/
+	 * FIXME: replace with setElementToEdit()
+	 * @generated
+	 */
 	protected EObject getElementToEdit() {
-		EObject container = ((CreateElementRequest) getRequest()).getContainer();
+		EObject container = ((CreateElementRequest) getRequest())
+				.getContainer();
 		if (container instanceof View) {
 			container = ((View) container).getElement();
 		}
@@ -56,8 +58,8 @@ public class ApplicationInfrastructureLayerCreateCommand extends EditElementComm
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public boolean canExecute() {
 		Application container = (Application) getElementToEdit();
 		if (container.getApplicationInfrastructureLayer() != null) {
@@ -68,10 +70,12 @@ public class ApplicationInfrastructureLayerCreateCommand extends EditElementComm
 	}
 
 	/**
-	* @generated
-	*/
-	protected CommandResult doExecuteWithResult(IProgressMonitor monitor, IAdaptable info) throws ExecutionException {
-		ApplicationInfrastructureLayer newElement = DomainFactory.eINSTANCE.createApplicationInfrastructureLayer();
+	 * @generated
+	 */
+	protected CommandResult doExecuteWithResult(IProgressMonitor monitor,
+			IAdaptable info) throws ExecutionException {
+		ApplicationInfrastructureLayer newElement = DomainFactory.eINSTANCE
+				.createApplicationInfrastructureLayer();
 
 		Application owner = (Application) getElementToEdit();
 		owner.setApplicationInfrastructureLayer(newElement);
@@ -87,15 +91,20 @@ public class ApplicationInfrastructureLayerCreateCommand extends EditElementComm
 	}
 
 	/**
-	* @generated
-	*/
-	protected void doConfigure(ApplicationInfrastructureLayer newElement, IProgressMonitor monitor, IAdaptable info)
+	 * @generated
+	 */
+	protected void doConfigure(ApplicationInfrastructureLayer newElement,
+			IProgressMonitor monitor, IAdaptable info)
 			throws ExecutionException {
-		IElementType elementType = ((CreateElementRequest) getRequest()).getElementType();
-		ConfigureRequest configureRequest = new ConfigureRequest(getEditingDomain(), newElement, elementType);
-		configureRequest.setClientContext(((CreateElementRequest) getRequest()).getClientContext());
+		IElementType elementType = ((CreateElementRequest) getRequest())
+				.getElementType();
+		ConfigureRequest configureRequest = new ConfigureRequest(
+				getEditingDomain(), newElement, elementType);
+		configureRequest.setClientContext(((CreateElementRequest) getRequest())
+				.getClientContext());
 		configureRequest.addParameters(getRequest().getParameters());
-		ICommand configureCommand = elementType.getEditCommand(configureRequest);
+		ICommand configureCommand = elementType
+				.getEditCommand(configureRequest);
 		if (configureCommand != null && configureCommand.canExecute()) {
 			configureCommand.execute(monitor, info);
 		}

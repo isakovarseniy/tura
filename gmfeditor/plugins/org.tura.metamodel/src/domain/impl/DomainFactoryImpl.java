@@ -124,6 +124,7 @@ import domain.Order;
 import domain.OrderBy;
 import domain.Orderable;
 import domain.Orders;
+import domain.Orientation;
 import domain.OutputText;
 import domain.POSTCreateTrigger;
 import domain.POSTQueryTrigger;
@@ -437,6 +438,8 @@ public class DomainFactoryImpl extends EFactoryImpl implements DomainFactory {
 				return createComparatorFromString(eDataType, initialValue);
 			case DomainPackage.ORDER:
 				return createOrderFromString(eDataType, initialValue);
+			case DomainPackage.ORIENTATION:
+				return createOrientationFromString(eDataType, initialValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -456,6 +459,8 @@ public class DomainFactoryImpl extends EFactoryImpl implements DomainFactory {
 				return convertComparatorToString(eDataType, instanceValue);
 			case DomainPackage.ORDER:
 				return convertOrderToString(eDataType, instanceValue);
+			case DomainPackage.ORIENTATION:
+				return convertOrientationToString(eDataType, instanceValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -2248,6 +2253,26 @@ public class DomainFactoryImpl extends EFactoryImpl implements DomainFactory {
 	 * @generated
 	 */
 	public String convertOrderToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Orientation createOrientationFromString(EDataType eDataType, String initialValue) {
+		Orientation result = Orientation.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertOrientationToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 

@@ -11,8 +11,8 @@
  * http://www.eclipse.org/legal/epl-v10.html
  *******************************************************************************/
 /*
-* 
-*/
+ * 
+ */
 package typedefinition.diagram.navigator;
 
 import org.eclipse.core.runtime.IAdaptable;
@@ -58,25 +58,30 @@ import typedefinition.diagram.providers.DomainParserProvider;
 /**
  * @generated
  */
-public class DomainNavigatorLabelProvider extends LabelProvider
-		implements ICommonLabelProvider, ITreePathLabelProvider {
+public class DomainNavigatorLabelProvider extends LabelProvider implements
+		ICommonLabelProvider, ITreePathLabelProvider {
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	static {
-		DomainDiagramEditorPlugin.getInstance().getImageRegistry().put("Navigator?UnknownElement", //$NON-NLS-1$
-				ImageDescriptor.getMissingImageDescriptor());
-		DomainDiagramEditorPlugin.getInstance().getImageRegistry().put("Navigator?ImageNotFound", //$NON-NLS-1$
-				ImageDescriptor.getMissingImageDescriptor());
+		DomainDiagramEditorPlugin
+				.getInstance()
+				.getImageRegistry()
+				.put("Navigator?UnknownElement", ImageDescriptor.getMissingImageDescriptor()); //$NON-NLS-1$
+		DomainDiagramEditorPlugin
+				.getInstance()
+				.getImageRegistry()
+				.put("Navigator?ImageNotFound", ImageDescriptor.getMissingImageDescriptor()); //$NON-NLS-1$
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public void updateLabel(ViewerLabel label, TreePath elementPath) {
 		Object element = elementPath.getLastSegment();
-		if (element instanceof DomainNavigatorItem && !isOwnView(((DomainNavigatorItem) element).getView())) {
+		if (element instanceof DomainNavigatorItem
+				&& !isOwnView(((DomainNavigatorItem) element).getView())) {
 			return;
 		}
 		label.setText(getText(element));
@@ -84,12 +89,13 @@ public class DomainNavigatorLabelProvider extends LabelProvider
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public Image getImage(Object element) {
 		if (element instanceof DomainNavigatorGroup) {
 			DomainNavigatorGroup group = (DomainNavigatorGroup) element;
-			return DomainDiagramEditorPlugin.getInstance().getBundledImage(group.getIcon());
+			return DomainDiagramEditorPlugin.getInstance().getBundledImage(
+					group.getIcon());
 		}
 
 		if (element instanceof DomainNavigatorItem) {
@@ -112,48 +118,50 @@ public class DomainNavigatorLabelProvider extends LabelProvider
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public Image getImage(View view) {
 		switch (DomainVisualIDRegistry.getVisualID(view)) {
 		case TypeDefinitionEditPart.VISUAL_ID:
-			return getImage("Navigator?Diagram?http://tura.org/2013/v1/domain?TypeDefinition", //$NON-NLS-1$
-					DomainElementTypes.TypeDefinition_101000);
+			return getImage(
+					"Navigator?Diagram?http://tura.org/2013/v1/domain?TypeDefinition", DomainElementTypes.TypeDefinition_101000); //$NON-NLS-1$
 		case TypeReferenceEditPart.VISUAL_ID:
-			return getImage("Navigator?TopLevelNode?http://tura.org/2013/v1/domain?TypeReference", //$NON-NLS-1$
-					DomainElementTypes.TypeReference_102001);
+			return getImage(
+					"Navigator?TopLevelNode?http://tura.org/2013/v1/domain?TypeReference", DomainElementTypes.TypeReference_102001); //$NON-NLS-1$
 		case TypeEditPart.VISUAL_ID:
-			return getImage("Navigator?TopLevelNode?http://tura.org/2013/v1/domain?Type", //$NON-NLS-1$
-					DomainElementTypes.Type_102002);
+			return getImage(
+					"Navigator?TopLevelNode?http://tura.org/2013/v1/domain?Type", DomainElementTypes.Type_102002); //$NON-NLS-1$
 		case PrimitiveEditPart.VISUAL_ID:
-			return getImage("Navigator?TopLevelNode?http://tura.org/2013/v1/domain?Primitive", //$NON-NLS-1$
-					DomainElementTypes.Primitive_102004);
+			return getImage(
+					"Navigator?TopLevelNode?http://tura.org/2013/v1/domain?Primitive", DomainElementTypes.Primitive_102004); //$NON-NLS-1$
 		case EnumaratorEditPart.VISUAL_ID:
-			return getImage("Navigator?TopLevelNode?http://tura.org/2013/v1/domain?Enumarator", //$NON-NLS-1$
-					DomainElementTypes.Enumarator_102005);
+			return getImage(
+					"Navigator?TopLevelNode?http://tura.org/2013/v1/domain?Enumarator", DomainElementTypes.Enumarator_102005); //$NON-NLS-1$
 		case AttributeEditPart.VISUAL_ID:
-			return getImage("Navigator?Node?http://tura.org/2013/v1/domain?Attribute", //$NON-NLS-1$
-					DomainElementTypes.Attribute_103001);
+			return getImage(
+					"Navigator?Node?http://tura.org/2013/v1/domain?Attribute", DomainElementTypes.Attribute_103001); //$NON-NLS-1$
 		case OperationEditPart.VISUAL_ID:
-			return getImage("Navigator?Node?http://tura.org/2013/v1/domain?Operation", //$NON-NLS-1$
-					DomainElementTypes.Operation_103002);
+			return getImage(
+					"Navigator?Node?http://tura.org/2013/v1/domain?Operation", DomainElementTypes.Operation_103002); //$NON-NLS-1$
 		case EnumAttributeEditPart.VISUAL_ID:
-			return getImage("Navigator?Node?http://tura.org/2013/v1/domain?EnumAttribute", //$NON-NLS-1$
-					DomainElementTypes.EnumAttribute_103005);
+			return getImage(
+					"Navigator?Node?http://tura.org/2013/v1/domain?EnumAttribute", DomainElementTypes.EnumAttribute_103005); //$NON-NLS-1$
 		case TypeExtensionEditPart.VISUAL_ID:
-			return getImage("Navigator?Link?http://tura.org/2013/v1/domain?TypeExtension", //$NON-NLS-1$
-					DomainElementTypes.TypeExtension_104001);
+			return getImage(
+					"Navigator?Link?http://tura.org/2013/v1/domain?TypeExtension", DomainElementTypes.TypeExtension_104001); //$NON-NLS-1$
 		}
 		return getImage("Navigator?UnknownElement", null); //$NON-NLS-1$
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	private Image getImage(String key, IElementType elementType) {
-		ImageRegistry imageRegistry = DomainDiagramEditorPlugin.getInstance().getImageRegistry();
+		ImageRegistry imageRegistry = DomainDiagramEditorPlugin.getInstance()
+				.getImageRegistry();
 		Image image = imageRegistry.get(key);
-		if (image == null && elementType != null && DomainElementTypes.isKnownElementType(elementType)) {
+		if (image == null && elementType != null
+				&& DomainElementTypes.isKnownElementType(elementType)) {
 			image = DomainElementTypes.getImage(elementType);
 			imageRegistry.put(key, image);
 		}
@@ -166,8 +174,8 @@ public class DomainNavigatorLabelProvider extends LabelProvider
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public String getText(Object element) {
 		if (element instanceof DomainNavigatorGroup) {
 			DomainNavigatorGroup group = (DomainNavigatorGroup) element;
@@ -194,8 +202,8 @@ public class DomainNavigatorLabelProvider extends LabelProvider
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public String getText(View view) {
 		if (view.getElement() != null && view.getElement().eIsProxy()) {
 			return getUnresolvedDomainElementProxyText(view);
@@ -224,187 +232,218 @@ public class DomainNavigatorLabelProvider extends LabelProvider
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	private String getTypeDefinition_101000Text(View view) {
 		TypeDefinition domainModelElement = (TypeDefinition) view.getElement();
 		if (domainModelElement != null) {
 			return domainModelElement.getUid();
 		} else {
-			DomainDiagramEditorPlugin.getInstance().logError("No domain element for view with visualID = " + 101000); //$NON-NLS-1$
+			DomainDiagramEditorPlugin.getInstance().logError(
+					"No domain element for view with visualID = " + 101000); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	private String getTypeReference_102001Text(View view) {
-		IParser parser = DomainParserProvider.getParser(DomainElementTypes.TypeReference_102001,
-				view.getElement() != null ? view.getElement() : view,
-				DomainVisualIDRegistry.getType(TypeReferenceFakePackageNameFakeTypeEditPart.VISUAL_ID));
+		IParser parser = DomainParserProvider
+				.getParser(
+						DomainElementTypes.TypeReference_102001,
+						view.getElement() != null ? view.getElement() : view,
+						DomainVisualIDRegistry
+								.getType(TypeReferenceFakePackageNameFakeTypeEditPart.VISUAL_ID));
 		if (parser != null) {
-			return parser.getPrintString(new EObjectAdapter(view.getElement() != null ? view.getElement() : view),
+			return parser.getPrintString(new EObjectAdapter(
+					view.getElement() != null ? view.getElement() : view),
 					ParserOptions.NONE.intValue());
 		} else {
-			DomainDiagramEditorPlugin.getInstance().logError("Parser was not found for label " + 105001); //$NON-NLS-1$
+			DomainDiagramEditorPlugin.getInstance().logError(
+					"Parser was not found for label " + 105001); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	private String getType_102002Text(View view) {
-		IParser parser = DomainParserProvider.getParser(DomainElementTypes.Type_102002,
+		IParser parser = DomainParserProvider.getParser(
+				DomainElementTypes.Type_102002,
 				view.getElement() != null ? view.getElement() : view,
 				DomainVisualIDRegistry.getType(TypeNameEditPart.VISUAL_ID));
 		if (parser != null) {
-			return parser.getPrintString(new EObjectAdapter(view.getElement() != null ? view.getElement() : view),
+			return parser.getPrintString(new EObjectAdapter(
+					view.getElement() != null ? view.getElement() : view),
 					ParserOptions.NONE.intValue());
 		} else {
-			DomainDiagramEditorPlugin.getInstance().logError("Parser was not found for label " + 105006); //$NON-NLS-1$
+			DomainDiagramEditorPlugin.getInstance().logError(
+					"Parser was not found for label " + 105006); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	private String getPrimitive_102004Text(View view) {
-		IParser parser = DomainParserProvider.getParser(DomainElementTypes.Primitive_102004,
-				view.getElement() != null ? view.getElement() : view,
-				DomainVisualIDRegistry.getType(PrimitiveNameEditPart.VISUAL_ID));
+		IParser parser = DomainParserProvider
+				.getParser(DomainElementTypes.Primitive_102004, view
+						.getElement() != null ? view.getElement() : view,
+						DomainVisualIDRegistry
+								.getType(PrimitiveNameEditPart.VISUAL_ID));
 		if (parser != null) {
-			return parser.getPrintString(new EObjectAdapter(view.getElement() != null ? view.getElement() : view),
+			return parser.getPrintString(new EObjectAdapter(
+					view.getElement() != null ? view.getElement() : view),
 					ParserOptions.NONE.intValue());
 		} else {
-			DomainDiagramEditorPlugin.getInstance().logError("Parser was not found for label " + 105010); //$NON-NLS-1$
+			DomainDiagramEditorPlugin.getInstance().logError(
+					"Parser was not found for label " + 105010); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	private String getEnumarator_102005Text(View view) {
-		IParser parser = DomainParserProvider.getParser(DomainElementTypes.Enumarator_102005,
+		IParser parser = DomainParserProvider.getParser(
+				DomainElementTypes.Enumarator_102005,
 				view.getElement() != null ? view.getElement() : view,
-				DomainVisualIDRegistry.getType(EnumaratorNameEditPart.VISUAL_ID));
+				DomainVisualIDRegistry
+						.getType(EnumaratorNameEditPart.VISUAL_ID));
 		if (parser != null) {
-			return parser.getPrintString(new EObjectAdapter(view.getElement() != null ? view.getElement() : view),
+			return parser.getPrintString(new EObjectAdapter(
+					view.getElement() != null ? view.getElement() : view),
 					ParserOptions.NONE.intValue());
 		} else {
-			DomainDiagramEditorPlugin.getInstance().logError("Parser was not found for label " + 105011); //$NON-NLS-1$
+			DomainDiagramEditorPlugin.getInstance().logError(
+					"Parser was not found for label " + 105011); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	private String getAttribute_103001Text(View view) {
-		IParser parser = DomainParserProvider.getParser(DomainElementTypes.Attribute_103001,
-				view.getElement() != null ? view.getElement() : view,
-				DomainVisualIDRegistry.getType(AttributeNameEditPart.VISUAL_ID));
+		IParser parser = DomainParserProvider
+				.getParser(DomainElementTypes.Attribute_103001, view
+						.getElement() != null ? view.getElement() : view,
+						DomainVisualIDRegistry
+								.getType(AttributeNameEditPart.VISUAL_ID));
 		if (parser != null) {
-			return parser.getPrintString(new EObjectAdapter(view.getElement() != null ? view.getElement() : view),
+			return parser.getPrintString(new EObjectAdapter(
+					view.getElement() != null ? view.getElement() : view),
 					ParserOptions.NONE.intValue());
 		} else {
-			DomainDiagramEditorPlugin.getInstance().logError("Parser was not found for label " + 105002); //$NON-NLS-1$
+			DomainDiagramEditorPlugin.getInstance().logError(
+					"Parser was not found for label " + 105002); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	private String getOperation_103002Text(View view) {
-		IParser parser = DomainParserProvider.getParser(DomainElementTypes.Operation_103002,
-				view.getElement() != null ? view.getElement() : view,
-				DomainVisualIDRegistry.getType(OperationNameEditPart.VISUAL_ID));
+		IParser parser = DomainParserProvider
+				.getParser(DomainElementTypes.Operation_103002, view
+						.getElement() != null ? view.getElement() : view,
+						DomainVisualIDRegistry
+								.getType(OperationNameEditPart.VISUAL_ID));
 		if (parser != null) {
-			return parser.getPrintString(new EObjectAdapter(view.getElement() != null ? view.getElement() : view),
+			return parser.getPrintString(new EObjectAdapter(
+					view.getElement() != null ? view.getElement() : view),
 					ParserOptions.NONE.intValue());
 		} else {
-			DomainDiagramEditorPlugin.getInstance().logError("Parser was not found for label " + 105005); //$NON-NLS-1$
+			DomainDiagramEditorPlugin.getInstance().logError(
+					"Parser was not found for label " + 105005); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	private String getEnumAttribute_103005Text(View view) {
-		IParser parser = DomainParserProvider.getParser(DomainElementTypes.EnumAttribute_103005,
+		IParser parser = DomainParserProvider.getParser(
+				DomainElementTypes.EnumAttribute_103005,
 				view.getElement() != null ? view.getElement() : view,
-				DomainVisualIDRegistry.getType(EnumAttributeNameEditPart.VISUAL_ID));
+				DomainVisualIDRegistry
+						.getType(EnumAttributeNameEditPart.VISUAL_ID));
 		if (parser != null) {
-			return parser.getPrintString(new EObjectAdapter(view.getElement() != null ? view.getElement() : view),
+			return parser.getPrintString(new EObjectAdapter(
+					view.getElement() != null ? view.getElement() : view),
 					ParserOptions.NONE.intValue());
 		} else {
-			DomainDiagramEditorPlugin.getInstance().logError("Parser was not found for label " + 105007); //$NON-NLS-1$
+			DomainDiagramEditorPlugin.getInstance().logError(
+					"Parser was not found for label " + 105007); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	private String getTypeExtension_104001Text(View view) {
 		TypeExtension domainModelElement = (TypeExtension) view.getElement();
 		if (domainModelElement != null) {
 			return domainModelElement.getUid();
 		} else {
-			DomainDiagramEditorPlugin.getInstance().logError("No domain element for view with visualID = " + 104001); //$NON-NLS-1$
+			DomainDiagramEditorPlugin.getInstance().logError(
+					"No domain element for view with visualID = " + 104001); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	private String getUnknownElementText(View view) {
 		return "<UnknownElement Visual_ID = " + view.getType() + ">"; //$NON-NLS-1$  //$NON-NLS-2$
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	private String getUnresolvedDomainElementProxyText(View view) {
 		return "<Unresolved domain element Visual_ID = " + view.getType() + ">"; //$NON-NLS-1$  //$NON-NLS-2$
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public void init(ICommonContentExtensionSite aConfig) {
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public void restoreState(IMemento aMemento) {
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public void saveState(IMemento aMemento) {
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public String getDescription(Object anElement) {
 		return null;
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	private boolean isOwnView(View view) {
-		return TypeDefinitionEditPart.MODEL_ID.equals(DomainVisualIDRegistry.getModelID(view));
+		return TypeDefinitionEditPart.MODEL_ID.equals(DomainVisualIDRegistry
+				.getModelID(view));
 	}
 
 }

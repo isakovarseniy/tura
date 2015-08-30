@@ -20,6 +20,7 @@ import control.diagram.providers.DomainModelingAssistantProvider;
 /**
  * @generated
  */
-public class DomainModelingAssistantProviderOfDeleteTriggerEditPart extends DomainModelingAssistantProvider {
+public class DomainModelingAssistantProviderOfDeleteTriggerEditPart extends
+		DomainModelingAssistantProvider {
 
 }

@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
 Bundle-SymbolicName: org.tura.metamodel.diagram.uipackage; singleton:=true
-Bundle-Version: 4.0.0.qualifier
+Bundle-Version: 1.0.0.qualifier
 Bundle-ClassPath: .
 Bundle-Activator: uipackage.diagram.part.DomainDiagramEditorPlugin
 Bundle-Vendor: %providerName

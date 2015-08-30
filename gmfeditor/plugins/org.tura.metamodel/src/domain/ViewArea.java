@@ -22,12 +22,12 @@ package domain;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  *   <li>{@link domain.ViewArea#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.ViewArea#getName <em>Name</em>}</li>
  *   <li>{@link domain.ViewArea#getCanvasView <em>Canvas View</em>}</li>
  * </ul>
+ * </p>
  *
  * @see domain.DomainPackage#getViewArea()
  * @model annotation="gmf.node label='name' border.color='0,0,0' color='192,192,192'"

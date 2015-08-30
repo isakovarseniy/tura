@@ -11,8 +11,8 @@
  * http://www.eclipse.org/legal/epl-v10.html
  *******************************************************************************/
 /*
-* 
-*/
+ * 
+ */
 package recipe.diagram.part;
 
 import org.eclipse.core.runtime.Platform;
@@ -65,13 +65,13 @@ import recipe.diagram.edit.parts.RecipesEditPart;
 public class DomainVisualIDRegistry {
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	private static final String DEBUG_KEY = "org.tura.metamodel.diagram.recipe/debug/visualID"; //$NON-NLS-1$
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static int getVisualID(View view) {
 		if (view instanceof Diagram) {
 			if (RecipesEditPart.MODEL_ID.equals(view.getType())) {
@@ -80,12 +80,13 @@ public class DomainVisualIDRegistry {
 				return -1;
 			}
 		}
-		return recipe.diagram.part.DomainVisualIDRegistry.getVisualID(view.getType());
+		return recipe.diagram.part.DomainVisualIDRegistry.getVisualID(view
+				.getType());
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static String getModelID(View view) {
 		View diagram = view.getDiagram();
 		while (view != diagram) {
@@ -99,35 +100,38 @@ public class DomainVisualIDRegistry {
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static int getVisualID(String type) {
 		try {
 			return Integer.parseInt(type);
 		} catch (NumberFormatException e) {
-			if (Boolean.TRUE.toString().equalsIgnoreCase(Platform.getDebugOption(DEBUG_KEY))) {
-				DomainDiagramEditorPlugin.getInstance()
-						.logError("Unable to parse view type as a visualID number: " + type);
+			if (Boolean.TRUE.toString().equalsIgnoreCase(
+					Platform.getDebugOption(DEBUG_KEY))) {
+				DomainDiagramEditorPlugin.getInstance().logError(
+						"Unable to parse view type as a visualID number: "
+								+ type);
 			}
 		}
 		return -1;
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static String getType(int visualID) {
 		return Integer.toString(visualID);
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static int getDiagramVisualID(EObject domainElement) {
 		if (domainElement == null) {
 			return -1;
 		}
-		if (DomainPackage.eINSTANCE.getRecipes().isSuperTypeOf(domainElement.eClass())
+		if (DomainPackage.eINSTANCE.getRecipes().isSuperTypeOf(
+				domainElement.eClass())
 				&& isDiagram((Recipes) domainElement)) {
 			return RecipesEditPart.VISUAL_ID;
 		}
@@ -135,19 +139,22 @@ public class DomainVisualIDRegistry {
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static int getNodeVisualID(View containerView, EObject domainElement) {
 		if (domainElement == null) {
 			return -1;
 		}
-		String containerModelID = recipe.diagram.part.DomainVisualIDRegistry.getModelID(containerView);
-		if (!RecipesEditPart.MODEL_ID.equals(containerModelID) && !"domain".equals(containerModelID)) { //$NON-NLS-1$
+		String containerModelID = recipe.diagram.part.DomainVisualIDRegistry
+				.getModelID(containerView);
+		if (!RecipesEditPart.MODEL_ID.equals(containerModelID)
+				&& !"domain".equals(containerModelID)) { //$NON-NLS-1$
 			return -1;
 		}
 		int containerVisualID;
 		if (RecipesEditPart.MODEL_ID.equals(containerModelID)) {
-			containerVisualID = recipe.diagram.part.DomainVisualIDRegistry.getVisualID(containerView);
+			containerVisualID = recipe.diagram.part.DomainVisualIDRegistry
+					.getVisualID(containerView);
 		} else {
 			if (containerView instanceof Diagram) {
 				containerVisualID = RecipesEditPart.VISUAL_ID;
@@ -157,41 +164,50 @@ public class DomainVisualIDRegistry {
 		}
 		switch (containerVisualID) {
 		case RecipesEditPart.VISUAL_ID:
-			if (DomainPackage.eINSTANCE.getRecipe().isSuperTypeOf(domainElement.eClass())) {
+			if (DomainPackage.eINSTANCE.getRecipe().isSuperTypeOf(
+					domainElement.eClass())) {
 				return RecipeEditPart.VISUAL_ID;
 			}
-			if (DomainPackage.eINSTANCE.getConfiguration().isSuperTypeOf(domainElement.eClass())) {
+			if (DomainPackage.eINSTANCE.getConfiguration().isSuperTypeOf(
+					domainElement.eClass())) {
 				return ConfigurationEditPart.VISUAL_ID;
 			}
-			if (DomainPackage.eINSTANCE.getInfrastructure().isSuperTypeOf(domainElement.eClass())) {
+			if (DomainPackage.eINSTANCE.getInfrastructure().isSuperTypeOf(
+					domainElement.eClass())) {
 				return InfrastructureEditPart.VISUAL_ID;
 			}
-			if (DomainPackage.eINSTANCE.getDeploymentSequence().isSuperTypeOf(domainElement.eClass())) {
+			if (DomainPackage.eINSTANCE.getDeploymentSequence().isSuperTypeOf(
+					domainElement.eClass())) {
 				return DeploymentSequenceEditPart.VISUAL_ID;
 			}
 			break;
 		case RecipeRecipeIngredientsCompartmentEditPart.VISUAL_ID:
-			if (DomainPackage.eINSTANCE.getIngredient().isSuperTypeOf(domainElement.eClass())) {
+			if (DomainPackage.eINSTANCE.getIngredient().isSuperTypeOf(
+					domainElement.eClass())) {
 				return IngredientEditPart.VISUAL_ID;
 			}
 			break;
 		case IngredientIngredientComponentsCompartmentEditPart.VISUAL_ID:
-			if (DomainPackage.eINSTANCE.getJavaComponent().isSuperTypeOf(domainElement.eClass())) {
+			if (DomainPackage.eINSTANCE.getJavaComponent().isSuperTypeOf(
+					domainElement.eClass())) {
 				return JavaComponentEditPart.VISUAL_ID;
 			}
 			break;
 		case JavaComponentJavaComponentMappersCompartmentEditPart.VISUAL_ID:
-			if (DomainPackage.eINSTANCE.getModelMapper().isSuperTypeOf(domainElement.eClass())) {
+			if (DomainPackage.eINSTANCE.getModelMapper().isSuperTypeOf(
+					domainElement.eClass())) {
 				return ModelMapperEditPart.VISUAL_ID;
 			}
 			break;
 		case ModelMapperModelMapperQueriesCompartmentEditPart.VISUAL_ID:
-			if (DomainPackage.eINSTANCE.getQuery().isSuperTypeOf(domainElement.eClass())) {
+			if (DomainPackage.eINSTANCE.getQuery().isSuperTypeOf(
+					domainElement.eClass())) {
 				return QueryEditPart.VISUAL_ID;
 			}
 			break;
 		case ConfigurationConfigurationPropertiesCompartmentEditPart.VISUAL_ID:
-			if (DomainPackage.eINSTANCE.getProperty().isSuperTypeOf(domainElement.eClass())) {
+			if (DomainPackage.eINSTANCE.getProperty().isSuperTypeOf(
+					domainElement.eClass())) {
 				return PropertyEditPart.VISUAL_ID;
 			}
 			break;
@@ -200,16 +216,19 @@ public class DomainVisualIDRegistry {
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static boolean canCreateNode(View containerView, int nodeVisualID) {
-		String containerModelID = recipe.diagram.part.DomainVisualIDRegistry.getModelID(containerView);
-		if (!RecipesEditPart.MODEL_ID.equals(containerModelID) && !"domain".equals(containerModelID)) { //$NON-NLS-1$
+		String containerModelID = recipe.diagram.part.DomainVisualIDRegistry
+				.getModelID(containerView);
+		if (!RecipesEditPart.MODEL_ID.equals(containerModelID)
+				&& !"domain".equals(containerModelID)) { //$NON-NLS-1$
 			return false;
 		}
 		int containerVisualID;
 		if (RecipesEditPart.MODEL_ID.equals(containerModelID)) {
-			containerVisualID = recipe.diagram.part.DomainVisualIDRegistry.getVisualID(containerView);
+			containerVisualID = recipe.diagram.part.DomainVisualIDRegistry
+					.getVisualID(containerView);
 		} else {
 			if (containerView instanceof Diagram) {
 				containerVisualID = RecipesEditPart.VISUAL_ID;
@@ -337,8 +356,8 @@ public class DomainVisualIDRegistry {
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static int getLinkWithClassVisualID(EObject domainElement) {
 		if (domainElement == null) {
 			return -1;
@@ -347,19 +366,20 @@ public class DomainVisualIDRegistry {
 	}
 
 	/**
-	* User can change implementation of this method to handle some specific
-	* situations not covered by default logic.
-	* 
-	* @generated
-	*/
+	 * User can change implementation of this method to handle some specific
+	 * situations not covered by default logic.
+	 * 
+	 * @generated
+	 */
 	private static boolean isDiagram(Recipes element) {
 		return true;
 	}
 
 	/**
-	* @generated
-	*/
-	public static boolean checkNodeVisualID(View containerView, EObject domainElement, int candidate) {
+	 * @generated
+	 */
+	public static boolean checkNodeVisualID(View containerView,
+			EObject domainElement, int candidate) {
 		if (candidate == -1) {
 			//unrecognized id is always bad
 			return false;
@@ -369,8 +389,8 @@ public class DomainVisualIDRegistry {
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static boolean isCompartmentVisualID(int visualID) {
 		switch (visualID) {
 		case RecipeRecipeIngredientsCompartmentEditPart.VISUAL_ID:
@@ -386,8 +406,8 @@ public class DomainVisualIDRegistry {
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static boolean isSemanticLeafVisualID(int visualID) {
 		switch (visualID) {
 		case RecipesEditPart.VISUAL_ID:
@@ -404,62 +424,60 @@ public class DomainVisualIDRegistry {
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static final DiagramStructure TYPED_INSTANCE = new DiagramStructure() {
 		/**
-		* @generated
-		*/
+		 * @generated
+		 */
 		@Override
-
 		public int getVisualID(View view) {
 			return recipe.diagram.part.DomainVisualIDRegistry.getVisualID(view);
 		}
 
 		/**
-		* @generated
-		*/
+		 * @generated
+		 */
 		@Override
-
 		public String getModelID(View view) {
 			return recipe.diagram.part.DomainVisualIDRegistry.getModelID(view);
 		}
 
 		/**
-		* @generated
-		*/
+		 * @generated
+		 */
 		@Override
-
 		public int getNodeVisualID(View containerView, EObject domainElement) {
-			return recipe.diagram.part.DomainVisualIDRegistry.getNodeVisualID(containerView, domainElement);
+			return recipe.diagram.part.DomainVisualIDRegistry.getNodeVisualID(
+					containerView, domainElement);
 		}
 
 		/**
-		* @generated
-		*/
+		 * @generated
+		 */
 		@Override
-
-		public boolean checkNodeVisualID(View containerView, EObject domainElement, int candidate) {
-			return recipe.diagram.part.DomainVisualIDRegistry.checkNodeVisualID(containerView, domainElement,
-					candidate);
+		public boolean checkNodeVisualID(View containerView,
+				EObject domainElement, int candidate) {
+			return recipe.diagram.part.DomainVisualIDRegistry
+					.checkNodeVisualID(containerView, domainElement, candidate);
 		}
 
 		/**
-		* @generated
-		*/
+		 * @generated
+		 */
 		@Override
-
 		public boolean isCompartmentVisualID(int visualID) {
-			return recipe.diagram.part.DomainVisualIDRegistry.isCompartmentVisualID(visualID);
+			return recipe.diagram.part.DomainVisualIDRegistry
+					.isCompartmentVisualID(visualID);
 		}
 
 		/**
-		* @generated
-		*/
+		 * @generated
+		 */
 		@Override
-
 		public boolean isSemanticLeafVisualID(int visualID) {
-			return recipe.diagram.part.DomainVisualIDRegistry.isSemanticLeafVisualID(visualID);
+			return recipe.diagram.part.DomainVisualIDRegistry
+					.isSemanticLeafVisualID(visualID);
 		}
 	};
 

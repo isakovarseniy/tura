@@ -25,10 +25,10 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  *   <li>{@link domain.UsingMappers#getMappers <em>Mappers</em>}</li>
  * </ul>
+ * </p>
  *
  * @see domain.DomainPackage#getUsingMappers()
  * @model

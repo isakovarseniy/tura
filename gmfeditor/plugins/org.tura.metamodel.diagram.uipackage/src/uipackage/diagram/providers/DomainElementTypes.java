@@ -43,113 +43,114 @@ import uipackage.diagram.part.DomainDiagramEditorPlugin;
 public class DomainElementTypes {
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	private DomainElementTypes() {
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	private static Map<IElementType, ENamedElement> elements;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	private static DiagramElementTypeImages elementTypeImages = new DiagramElementTypeImages(
-			DomainDiagramEditorPlugin.getInstance().getItemProvidersAdapterFactory());
+			DomainDiagramEditorPlugin.getInstance()
+					.getItemProvidersAdapterFactory());
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	private static Set<IElementType> KNOWN_ELEMENT_TYPES;
 
 	/**
-	* @generated
-	*/
-	public static final IElementType UIPackage_1001000 = getElementType(
-			"org.tura.metamodel.diagram.uipackage.UIPackage_1001000"); //$NON-NLS-1$
+	 * @generated
+	 */
+	public static final IElementType UIPackage_1001000 = getElementType("org.tura.metamodel.diagram.uipackage.UIPackage_1001000"); //$NON-NLS-1$
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static final IElementType Form_1002002 = getElementType("org.tura.metamodel.diagram.uipackage.Form_1002002"); //$NON-NLS-1$
 	/**
-	* @generated
-	*/
-	public static final IElementType FormParameter_1003003 = getElementType(
-			"org.tura.metamodel.diagram.uipackage.FormParameter_1003003"); //$NON-NLS-1$
+	 * @generated
+	 */
+	public static final IElementType FormParameter_1003003 = getElementType("org.tura.metamodel.diagram.uipackage.FormParameter_1003003"); //$NON-NLS-1$
 	/**
-	* @generated
-	*/
-	public static final IElementType FormView_1003001 = getElementType(
-			"org.tura.metamodel.diagram.uipackage.FormView_1003001"); //$NON-NLS-1$
+	 * @generated
+	 */
+	public static final IElementType FormView_1003001 = getElementType("org.tura.metamodel.diagram.uipackage.FormView_1003001"); //$NON-NLS-1$
 	/**
-	* @generated
-	*/
-	public static final IElementType FormDataControls_1003002 = getElementType(
-			"org.tura.metamodel.diagram.uipackage.FormDataControls_1003002"); //$NON-NLS-1$
+	 * @generated
+	 */
+	public static final IElementType FormDataControls_1003002 = getElementType("org.tura.metamodel.diagram.uipackage.FormDataControls_1003002"); //$NON-NLS-1$
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static ImageDescriptor getImageDescriptor(ENamedElement element) {
 		return elementTypeImages.getImageDescriptor(element);
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static Image getImage(ENamedElement element) {
 		return elementTypeImages.getImage(element);
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static ImageDescriptor getImageDescriptor(IAdaptable hint) {
 		return getImageDescriptor(getElement(hint));
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static Image getImage(IAdaptable hint) {
 		return getImage(getElement(hint));
 	}
 
 	/**
-	* Returns 'type' of the ecore object associated with the hint.
-	* 
-	* @generated
-	*/
+	 * Returns 'type' of the ecore object associated with the hint.
+	 * 
+	 * @generated
+	 */
 	public static ENamedElement getElement(IAdaptable hint) {
 		Object type = hint.getAdapter(IElementType.class);
 		if (elements == null) {
 			elements = new IdentityHashMap<IElementType, ENamedElement>();
 
-			elements.put(UIPackage_1001000, DomainPackage.eINSTANCE.getUIPackage());
+			elements.put(UIPackage_1001000,
+					DomainPackage.eINSTANCE.getUIPackage());
 
 			elements.put(Form_1002002, DomainPackage.eINSTANCE.getForm());
 
-			elements.put(FormParameter_1003003, DomainPackage.eINSTANCE.getFormParameter());
+			elements.put(FormParameter_1003003,
+					DomainPackage.eINSTANCE.getFormParameter());
 
-			elements.put(FormView_1003001, DomainPackage.eINSTANCE.getFormView());
+			elements.put(FormView_1003001,
+					DomainPackage.eINSTANCE.getFormView());
 
-			elements.put(FormDataControls_1003002, DomainPackage.eINSTANCE.getFormDataControls());
+			elements.put(FormDataControls_1003002,
+					DomainPackage.eINSTANCE.getFormDataControls());
 		}
 		return (ENamedElement) elements.get(type);
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	private static IElementType getElementType(String id) {
 		return ElementTypeRegistry.getInstance().getType(id);
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static boolean isKnownElementType(IElementType elementType) {
 		if (KNOWN_ELEMENT_TYPES == null) {
 			KNOWN_ELEMENT_TYPES = new HashSet<IElementType>();
@@ -163,8 +164,8 @@ public class DomainElementTypes {
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static IElementType getElementType(int visualID) {
 		switch (visualID) {
 		case UIPackageEditPart.VISUAL_ID:
@@ -182,35 +183,37 @@ public class DomainElementTypes {
 	}
 
 	/**
-	* @generated
-	*/
-	public static final DiagramElementTypes TYPED_INSTANCE = new DiagramElementTypes(elementTypeImages) {
+	 * @generated
+	 */
+	public static final DiagramElementTypes TYPED_INSTANCE = new DiagramElementTypes(
+			elementTypeImages) {
 
 		/**
-		* @generated
-		*/
+		 * @generated
+		 */
 		@Override
-
 		public boolean isKnownElementType(IElementType elementType) {
-			return uipackage.diagram.providers.DomainElementTypes.isKnownElementType(elementType);
+			return uipackage.diagram.providers.DomainElementTypes
+					.isKnownElementType(elementType);
 		}
 
 		/**
-		* @generated
-		*/
+		 * @generated
+		 */
 		@Override
-
 		public IElementType getElementTypeForVisualId(int visualID) {
-			return uipackage.diagram.providers.DomainElementTypes.getElementType(visualID);
+			return uipackage.diagram.providers.DomainElementTypes
+					.getElementType(visualID);
 		}
 
 		/**
-		* @generated
-		*/
+		 * @generated
+		 */
 		@Override
-
-		public ENamedElement getDefiningNamedElement(IAdaptable elementTypeAdapter) {
-			return uipackage.diagram.providers.DomainElementTypes.getElement(elementTypeAdapter);
+		public ENamedElement getDefiningNamedElement(
+				IAdaptable elementTypeAdapter) {
+			return uipackage.diagram.providers.DomainElementTypes
+					.getElement(elementTypeAdapter);
 		}
 	};
 

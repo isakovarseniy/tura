@@ -23,12 +23,12 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  *   <li>{@link domain.Classifier#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.Classifier#getHint <em>Hint</em>}</li>
  *   <li>{@link domain.Classifier#getDetails <em>Details</em>}</li>
  * </ul>
+ * </p>
  *
  * @see domain.DomainPackage#getClassifier()
  * @model

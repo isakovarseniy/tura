@@ -20,6 +20,7 @@ import canvas.diagram.providers.DomainModelingAssistantProvider;
 /**
  * @generated
  */
-public class DomainModelingAssistantProviderOfDropDownSelection2EditPart extends DomainModelingAssistantProvider {
+public class DomainModelingAssistantProviderOfDropDownSelection2EditPart extends
+		DomainModelingAssistantProvider {
 
 }

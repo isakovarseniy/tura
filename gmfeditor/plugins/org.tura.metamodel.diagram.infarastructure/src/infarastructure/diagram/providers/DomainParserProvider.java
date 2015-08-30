@@ -44,19 +44,21 @@ import infarastructure.diagram.part.DomainVisualIDRegistry;
 /**
  * @generated
  */
-public class DomainParserProvider extends AbstractProvider implements IParserProvider {
+public class DomainParserProvider extends AbstractProvider implements
+		IParserProvider {
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	private IParser datacenterName_1205002Parser;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	private IParser getDatacenterName_1205002Parser() {
 		if (datacenterName_1205002Parser == null) {
-			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE.getDatacenter_Name() };
+			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE
+					.getDatacenter_Name() };
 			MessageFormatParser parser = new MessageFormatParser(features);
 			datacenterName_1205002Parser = parser;
 		}
@@ -64,16 +66,17 @@ public class DomainParserProvider extends AbstractProvider implements IParserPro
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	private IParser subsystemName_1205009Parser;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	private IParser getSubsystemName_1205009Parser() {
 		if (subsystemName_1205009Parser == null) {
-			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE.getSubsystem_Name() };
+			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE
+					.getSubsystem_Name() };
 			MessageFormatParser parser = new MessageFormatParser(features);
 			subsystemName_1205009Parser = parser;
 		}
@@ -81,16 +84,17 @@ public class DomainParserProvider extends AbstractProvider implements IParserPro
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	private IParser infrastructureLayerName_1205008Parser;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	private IParser getInfrastructureLayerName_1205008Parser() {
 		if (infrastructureLayerName_1205008Parser == null) {
-			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE.getInfrastructureLayer_Name() };
+			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE
+					.getInfrastructureLayer_Name() };
 			MessageFormatParser parser = new MessageFormatParser(features);
 			infrastructureLayerName_1205008Parser = parser;
 		}
@@ -98,16 +102,17 @@ public class DomainParserProvider extends AbstractProvider implements IParserPro
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	private IParser serverName_1205003Parser;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	private IParser getServerName_1205003Parser() {
 		if (serverName_1205003Parser == null) {
-			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE.getInfrastructureComponent_Name() };
+			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE
+					.getInfrastructureComponent_Name() };
 			MessageFormatParser parser = new MessageFormatParser(features);
 			serverName_1205003Parser = parser;
 		}
@@ -115,16 +120,17 @@ public class DomainParserProvider extends AbstractProvider implements IParserPro
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	private IParser routerName_1205004Parser;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	private IParser getRouterName_1205004Parser() {
 		if (routerName_1205004Parser == null) {
-			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE.getInfrastructureComponent_Name() };
+			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE
+					.getInfrastructureComponent_Name() };
 			MessageFormatParser parser = new MessageFormatParser(features);
 			routerName_1205004Parser = parser;
 		}
@@ -132,16 +138,17 @@ public class DomainParserProvider extends AbstractProvider implements IParserPro
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	private IParser hubName_1205005Parser;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	private IParser getHubName_1205005Parser() {
 		if (hubName_1205005Parser == null) {
-			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE.getInfrastructureComponent_Name() };
+			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE
+					.getInfrastructureComponent_Name() };
 			MessageFormatParser parser = new MessageFormatParser(features);
 			hubName_1205005Parser = parser;
 		}
@@ -149,16 +156,17 @@ public class DomainParserProvider extends AbstractProvider implements IParserPro
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	private IParser storageName_1205006Parser;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	private IParser getStorageName_1205006Parser() {
 		if (storageName_1205006Parser == null) {
-			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE.getInfrastructureComponent_Name() };
+			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE
+					.getInfrastructureComponent_Name() };
 			MessageFormatParser parser = new MessageFormatParser(features);
 			storageName_1205006Parser = parser;
 		}
@@ -166,16 +174,17 @@ public class DomainParserProvider extends AbstractProvider implements IParserPro
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	private IParser serverClasterName_1205007Parser;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	private IParser getServerClasterName_1205007Parser() {
 		if (serverClasterName_1205007Parser == null) {
-			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE.getInfrastructureComponent_Name() };
+			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE
+					.getInfrastructureComponent_Name() };
 			MessageFormatParser parser = new MessageFormatParser(features);
 			serverClasterName_1205007Parser = parser;
 		}
@@ -183,16 +192,17 @@ public class DomainParserProvider extends AbstractProvider implements IParserPro
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	private IParser serverName_1205010Parser;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	private IParser getServerName_1205010Parser() {
 		if (serverName_1205010Parser == null) {
-			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE.getInfrastructureComponent_Name() };
+			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE
+					.getInfrastructureComponent_Name() };
 			MessageFormatParser parser = new MessageFormatParser(features);
 			serverName_1205010Parser = parser;
 		}
@@ -200,8 +210,8 @@ public class DomainParserProvider extends AbstractProvider implements IParserPro
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	protected IParser getParser(int visualID) {
 		switch (visualID) {
 		case DatacenterNameEditPart.VISUAL_ID:
@@ -227,16 +237,18 @@ public class DomainParserProvider extends AbstractProvider implements IParserPro
 	}
 
 	/**
-	* Utility method that consults ParserService
-	* @generated
-	*/
-	public static IParser getParser(IElementType type, EObject object, String parserHint) {
-		return ParserService.getInstance().getParser(new HintAdapter(type, object, parserHint));
+	 * Utility method that consults ParserService
+	 * @generated
+	 */
+	public static IParser getParser(IElementType type, EObject object,
+			String parserHint) {
+		return ParserService.getInstance().getParser(
+				new HintAdapter(type, object, parserHint));
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public IParser getParser(IAdaptable hint) {
 		String vid = (String) hint.getAdapter(String.class);
 		if (vid != null) {
@@ -250,8 +262,8 @@ public class DomainParserProvider extends AbstractProvider implements IParserPro
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public boolean provides(IOperation operation) {
 		if (operation instanceof GetParserOperation) {
 			IAdaptable hint = ((GetParserOperation) operation).getHint();
@@ -264,18 +276,18 @@ public class DomainParserProvider extends AbstractProvider implements IParserPro
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	private static class HintAdapter extends ParserHintAdapter {
 
 		/**
-		* @generated
-		*/
+		 * @generated
+		 */
 		private final IElementType elementType;
 
 		/**
-		* @generated
-		*/
+		 * @generated
+		 */
 		public HintAdapter(IElementType type, EObject object, String parserHint) {
 			super(object, parserHint);
 			assert type != null;
@@ -283,8 +295,8 @@ public class DomainParserProvider extends AbstractProvider implements IParserPro
 		}
 
 		/**
-		* @generated
-		*/
+		 * @generated
+		 */
 		public Object getAdapter(Class adapter) {
 			if (IElementType.class.equals(adapter)) {
 				return elementType;

@@ -11,8 +11,8 @@
  * http://www.eclipse.org/legal/epl-v10.html
  *******************************************************************************/
 /*
-* 
-*/
+ * 
+ */
 package typedefinition.diagram.edit.policies;
 
 import org.eclipse.emf.ecore.EAnnotation;
@@ -28,21 +28,23 @@ import typedefinition.diagram.providers.DomainElementTypes;
 /**
  * @generated
  */
-public class AttributeItemSemanticEditPolicy extends DomainBaseItemSemanticEditPolicy {
+public class AttributeItemSemanticEditPolicy extends
+		DomainBaseItemSemanticEditPolicy {
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public AttributeItemSemanticEditPolicy() {
 		super(DomainElementTypes.Attribute_103001);
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	protected Command getDestroyElementCommand(DestroyElementRequest req) {
 		View view = (View) getHost().getModel();
-		CompositeTransactionalCommand cmd = new CompositeTransactionalCommand(getEditingDomain(), null);
+		CompositeTransactionalCommand cmd = new CompositeTransactionalCommand(
+				getEditingDomain(), null);
 		cmd.setTransactionNestingEnabled(false);
 		EAnnotation annotation = view.getEAnnotation("Shortcut"); //$NON-NLS-1$
 		if (annotation == null) {

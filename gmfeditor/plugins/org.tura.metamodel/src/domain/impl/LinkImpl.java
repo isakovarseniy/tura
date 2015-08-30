@@ -36,13 +36,13 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  *   <li>{@link domain.impl.LinkImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.impl.LinkImpl#getParent <em>Parent</em>}</li>
  *   <li>{@link domain.impl.LinkImpl#getMasterField <em>Master Field</em>}</li>
  *   <li>{@link domain.impl.LinkImpl#getDetailField <em>Detail Field</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */

@@ -11,8 +11,8 @@
  * http://www.eclipse.org/legal/epl-v10.html
  *******************************************************************************/
 /*
-* 
-*/
+ * 
+ */
 package message.diagram.edit.policies;
 
 import org.eclipse.gef.commands.Command;
@@ -28,15 +28,15 @@ public class MessageLibraryMessageLibraryMessagesCompartmentItemSemanticEditPoli
 		extends DomainBaseItemSemanticEditPolicy {
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public MessageLibraryMessageLibraryMessagesCompartmentItemSemanticEditPolicy() {
 		super(DomainElementTypes.MessageLibrary_1702001);
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	protected Command getCreateCommand(CreateElementRequest req) {
 		if (DomainElementTypes.Message_1703004 == req.getElementType()) {
 			return getGEFWrapper(new MessageCreateCommand(req));

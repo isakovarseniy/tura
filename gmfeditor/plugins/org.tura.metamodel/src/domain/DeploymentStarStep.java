@@ -23,12 +23,12 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  *   <li>{@link domain.DeploymentStarStep#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.DeploymentStarStep#getName <em>Name</em>}</li>
  *   <li>{@link domain.DeploymentStarStep#getFirstStep <em>First Step</em>}</li>
  * </ul>
+ * </p>
  *
  * @see domain.DomainPackage#getDeploymentStarStep()
  * @model annotation="gmf.node label='name' border.color='0,0,0' color='255,69,0'"

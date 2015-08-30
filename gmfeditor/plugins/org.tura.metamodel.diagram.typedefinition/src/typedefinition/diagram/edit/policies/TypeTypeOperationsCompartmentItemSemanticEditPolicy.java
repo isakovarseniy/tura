@@ -11,8 +11,8 @@
  * http://www.eclipse.org/legal/epl-v10.html
  *******************************************************************************/
 /*
-* 
-*/
+ * 
+ */
 package typedefinition.diagram.edit.policies;
 
 import org.eclipse.gef.commands.Command;
@@ -24,18 +24,19 @@ import typedefinition.diagram.providers.DomainElementTypes;
 /**
  * @generated
  */
-public class TypeTypeOperationsCompartmentItemSemanticEditPolicy extends DomainBaseItemSemanticEditPolicy {
+public class TypeTypeOperationsCompartmentItemSemanticEditPolicy extends
+		DomainBaseItemSemanticEditPolicy {
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public TypeTypeOperationsCompartmentItemSemanticEditPolicy() {
 		super(DomainElementTypes.Type_102002);
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	protected Command getCreateCommand(CreateElementRequest req) {
 		if (DomainElementTypes.Operation_103002 == req.getElementType()) {
 			return getGEFWrapper(new OperationCreateCommand(req));

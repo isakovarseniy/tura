@@ -11,8 +11,8 @@
  * http://www.eclipse.org/legal/epl-v10.html
  *******************************************************************************/
 /*
-* 
-*/
+ * 
+ */
 package artifact.diagram.edit.policies;
 
 import org.eclipse.gef.commands.Command;
@@ -24,18 +24,19 @@ import artifact.diagram.providers.DomainElementTypes;
 /**
  * @generated
  */
-public class ArtifactArtifactHintsCompartmentItemSemanticEditPolicy extends DomainBaseItemSemanticEditPolicy {
+public class ArtifactArtifactHintsCompartmentItemSemanticEditPolicy extends
+		DomainBaseItemSemanticEditPolicy {
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public ArtifactArtifactHintsCompartmentItemSemanticEditPolicy() {
 		super(DomainElementTypes.Artifact_702001);
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	protected Command getCreateCommand(CreateElementRequest req) {
 		if (DomainElementTypes.GenerationHint_703006 == req.getElementType()) {
 			return getGEFWrapper(new GenerationHintCreateCommand(req));

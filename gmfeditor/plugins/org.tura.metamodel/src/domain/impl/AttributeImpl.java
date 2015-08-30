@@ -42,7 +42,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  *   <li>{@link domain.impl.AttributeImpl#getClassifiers <em>Classifiers</em>}</li>
  *   <li>{@link domain.impl.AttributeImpl#getUid <em>Uid</em>}</li>
@@ -50,6 +49,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link domain.impl.AttributeImpl#isPk <em>Pk</em>}</li>
  *   <li>{@link domain.impl.AttributeImpl#getParent <em>Parent</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */

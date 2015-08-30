@@ -33,12 +33,12 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  *   <li>{@link domain.impl.TabPagesInheritanceImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.impl.TabPagesInheritanceImpl#getSource <em>Source</em>}</li>
  *   <li>{@link domain.impl.TabPagesInheritanceImpl#getTarget <em>Target</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */

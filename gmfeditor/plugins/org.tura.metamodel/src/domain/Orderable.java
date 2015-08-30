@@ -23,10 +23,10 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  *   <li>{@link domain.Orderable#getOrder <em>Order</em>}</li>
  * </ul>
+ * </p>
  *
  * @see domain.DomainPackage#getOrderable()
  * @model

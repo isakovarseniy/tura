@@ -33,27 +33,28 @@ import domain.Recipe;
 public class RecipeDeploymentCreateCommand extends EditElementCommand {
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	private final EObject source;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	private final EObject target;
 
 	/**
-	* @generated
-	*/
-	public RecipeDeploymentCreateCommand(CreateRelationshipRequest request, EObject source, EObject target) {
+	 * @generated
+	 */
+	public RecipeDeploymentCreateCommand(CreateRelationshipRequest request,
+			EObject source, EObject target) {
 		super(request.getLabel(), null, request);
 		this.source = source;
 		this.target = target;
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public boolean canExecute() {
 		if (source == null && target == null) {
 			return false;
@@ -68,16 +69,18 @@ public class RecipeDeploymentCreateCommand extends EditElementCommand {
 			return true; // link creation is in progress; source is not defined yet
 		}
 		// target may be null here but it's possible to check constraint
-		return DomainBaseItemSemanticEditPolicy.getLinkConstraints().canCreateRecipeDeployment_904013(getSource(),
-				getTarget());
+		return DomainBaseItemSemanticEditPolicy.getLinkConstraints()
+				.canCreateRecipeDeployment_904013(getSource(), getTarget());
 	}
 
 	/**
-	* @generated
-	*/
-	protected CommandResult doExecuteWithResult(IProgressMonitor monitor, IAdaptable info) throws ExecutionException {
+	 * @generated
+	 */
+	protected CommandResult doExecuteWithResult(IProgressMonitor monitor,
+			IAdaptable info) throws ExecutionException {
 		if (!canExecute()) {
-			throw new ExecutionException("Invalid arguments in create link command"); //$NON-NLS-1$
+			throw new ExecutionException(
+					"Invalid arguments in create link command"); //$NON-NLS-1$
 		}
 
 		if (getSource() != null && getTarget() != null) {
@@ -88,22 +91,22 @@ public class RecipeDeploymentCreateCommand extends EditElementCommand {
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	protected void setElementToEdit(EObject element) {
 		throw new UnsupportedOperationException();
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	protected Recipe getSource() {
 		return (Recipe) source;
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	protected DeploymentSequence getTarget() {
 		return (DeploymentSequence) target;
 	}

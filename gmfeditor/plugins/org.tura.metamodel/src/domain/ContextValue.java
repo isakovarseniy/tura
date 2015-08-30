@@ -25,13 +25,13 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  *   <li>{@link domain.ContextValue#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.ContextValue#isConstant <em>Constant</em>}</li>
  *   <li>{@link domain.ContextValue#getValue <em>Value</em>}</li>
  *   <li>{@link domain.ContextValue#getExpression <em>Expression</em>}</li>
  * </ul>
+ * </p>
  *
  * @see domain.DomainPackage#getContextValue()
  * @model

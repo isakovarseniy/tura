@@ -23,366 +23,366 @@ import org.eclipse.osgi.util.NLS;
 public class Messages extends NLS {
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	static {
 		NLS.initializeMessages("messages", Messages.class); //$NON-NLS-1$
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	private Messages() {
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static String DomainCreationWizardTitle;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static String DomainCreationWizard_DiagramModelFilePageTitle;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static String DomainCreationWizard_DiagramModelFilePageDescription;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static String DomainCreationWizard_DomainModelFilePageTitle;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static String DomainCreationWizard_DomainModelFilePageDescription;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static String DomainCreationWizardOpenEditorError;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static String DomainCreationWizardCreationError;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static String DomainCreationWizardPageExtensionError;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static String DomainDiagramEditorUtil_OpenModelResourceErrorDialogTitle;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static String DomainDiagramEditorUtil_OpenModelResourceErrorDialogMessage;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static String DomainDiagramEditorUtil_CreateDiagramProgressTask;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static String DomainDiagramEditorUtil_CreateDiagramCommandLabel;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static String DomainDocumentProvider_isModifiable;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static String DomainDocumentProvider_handleElementContentChanged;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static String DomainDocumentProvider_IncorrectInputError;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static String DomainDocumentProvider_NoDiagramInResourceError;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static String DomainDocumentProvider_DiagramLoadingError;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static String DomainDocumentProvider_UnsynchronizedFileSaveError;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static String DomainDocumentProvider_SaveDiagramTask;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static String DomainDocumentProvider_SaveNextResourceTask;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static String DomainDocumentProvider_SaveAsOperation;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static String InitDiagramFile_ResourceErrorDialogTitle;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static String InitDiagramFile_ResourceErrorDialogMessage;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static String InitDiagramFile_WizardTitle;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static String InitDiagramFile_OpenModelFileDialogTitle;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static String DomainNewDiagramFileWizard_CreationPageName;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static String DomainNewDiagramFileWizard_CreationPageTitle;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static String DomainNewDiagramFileWizard_CreationPageDescription;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static String DomainNewDiagramFileWizard_RootSelectionPageName;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static String DomainNewDiagramFileWizard_RootSelectionPageTitle;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static String DomainNewDiagramFileWizard_RootSelectionPageDescription;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static String DomainNewDiagramFileWizard_RootSelectionPageSelectionTitle;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static String DomainNewDiagramFileWizard_RootSelectionPageNoSelectionMessage;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static String DomainNewDiagramFileWizard_RootSelectionPageInvalidSelectionMessage;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static String DomainNewDiagramFileWizard_InitDiagramCommand;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static String DomainNewDiagramFileWizard_IncorrectRootError;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static String DomainDiagramEditor_SavingDeletedFile;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static String DomainDiagramEditor_SaveAsErrorTitle;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static String DomainDiagramEditor_SaveAsErrorMessage;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static String DomainDiagramEditor_SaveErrorTitle;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static String DomainDiagramEditor_SaveErrorMessage;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static String DomainElementChooserDialog_SelectModelElementTitle;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static String ModelElementSelectionPageMessage;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static String ValidateActionMessage;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static String Objects1Group_title;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static String ContinuousIintegration1CreationTool_title;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static String ContinuousIintegration1CreationTool_desc;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static String DomainApplication2CreationTool_title;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static String DomainApplication2CreationTool_desc;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static String DomainApplications3CreationTool_title;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static String DomainApplications3CreationTool_desc;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static String DomainArtifact4CreationTool_title;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static String DomainArtifact4CreationTool_desc;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static String DomainArtifacts5CreationTool_title;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static String DomainArtifacts5CreationTool_desc;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static String DomainTypes6CreationTool_title;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static String DomainTypes6CreationTool_desc;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static String EJBService7CreationTool_title;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static String EJBService7CreationTool_desc;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static String JPAService8CreationTool_title;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static String JPAService8CreationTool_desc;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static String ORMEntity9CreationTool_title;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static String ORMEntity9CreationTool_desc;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static String DomainArtifactsDomainArtifactsDomainArtifactCompartmentEditPart_title;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static String DomainApplicationsDomainApplicationsApplicationsCompartmentEditPart_title;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static String CommandName_OpenDiagram;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static String NavigatorActionProvider_OpenDiagramActionName;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static String MessageFormatParser_InvalidInputError;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static String DomainModelingAssistantProviderTitle;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static String DomainModelingAssistantProviderMessage;
 
 	//TODO: put accessor fields manually	

@@ -11,8 +11,8 @@
  * http://www.eclipse.org/legal/epl-v10.html
  *******************************************************************************/
 /*
-* 
-*/
+ * 
+ */
 package uipackage.diagram.edit.policies;
 
 import org.eclipse.gef.commands.Command;
@@ -24,18 +24,19 @@ import uipackage.diagram.providers.DomainElementTypes;
 /**
  * @generated
  */
-public class FormFormParametersCompartmentItemSemanticEditPolicy extends DomainBaseItemSemanticEditPolicy {
+public class FormFormParametersCompartmentItemSemanticEditPolicy extends
+		DomainBaseItemSemanticEditPolicy {
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public FormFormParametersCompartmentItemSemanticEditPolicy() {
 		super(DomainElementTypes.Form_1002002);
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	protected Command getCreateCommand(CreateElementRequest req) {
 		if (DomainElementTypes.FormParameter_1003003 == req.getElementType()) {
 			return getGEFWrapper(new FormParameterCreateCommand(req));

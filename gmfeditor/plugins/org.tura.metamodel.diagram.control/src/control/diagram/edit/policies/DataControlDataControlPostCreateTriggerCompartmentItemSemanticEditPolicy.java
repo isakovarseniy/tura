@@ -11,8 +11,8 @@
  * http://www.eclipse.org/legal/epl-v10.html
  *******************************************************************************/
 /*
-* 
-*/
+ * 
+ */
 package control.diagram.edit.policies;
 
 import org.eclipse.gef.commands.Command;
@@ -28,17 +28,18 @@ public class DataControlDataControlPostCreateTriggerCompartmentItemSemanticEditP
 		extends DomainBaseItemSemanticEditPolicy {
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public DataControlDataControlPostCreateTriggerCompartmentItemSemanticEditPolicy() {
 		super(DomainElementTypes.DataControl_1102002);
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	protected Command getCreateCommand(CreateElementRequest req) {
-		if (DomainElementTypes.POSTCreateTrigger_1103011 == req.getElementType()) {
+		if (DomainElementTypes.POSTCreateTrigger_1103011 == req
+				.getElementType()) {
 			return getGEFWrapper(new POSTCreateTriggerCreateCommand(req));
 		}
 		return super.getCreateCommand(req);

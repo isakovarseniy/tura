@@ -20,6 +20,7 @@ import style.diagram.providers.DomainModelingAssistantProvider;
 /**
  * @generated
  */
-public class DomainModelingAssistantProviderOfStyleSetEditPart extends DomainModelingAssistantProvider {
+public class DomainModelingAssistantProviderOfStyleSetEditPart extends
+		DomainModelingAssistantProvider {
 
 }

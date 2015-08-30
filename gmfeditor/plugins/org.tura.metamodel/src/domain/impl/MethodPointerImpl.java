@@ -31,11 +31,11 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  *   <li>{@link domain.impl.MethodPointerImpl#getMethodRef <em>Method Ref</em>}</li>
  *   <li>{@link domain.impl.MethodPointerImpl#getFakeMethod <em>Fake Method</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */

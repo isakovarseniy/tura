@@ -11,8 +11,8 @@
  * http://www.eclipse.org/legal/epl-v10.html
  *******************************************************************************/
 /*
-* 
-*/
+ * 
+ */
 package roles.diagram.part;
 
 import java.util.Collection;
@@ -45,15 +45,16 @@ import roles.diagram.providers.DomainElementTypes;
 public class DomainDiagramUpdater {
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static boolean isShortcutOrphaned(View view) {
-		return !view.isSetElement() || view.getElement() == null || view.getElement().eIsProxy();
+		return !view.isSetElement() || view.getElement() == null
+				|| view.getElement().eIsProxy();
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static List<DomainNodeDescriptor> getSemanticChildren(View view) {
 		switch (DomainVisualIDRegistry.getVisualID(view)) {
 		case RolesEditPart.VISUAL_ID:
@@ -63,9 +64,10 @@ public class DomainDiagramUpdater {
 	}
 
 	/**
-	* @generated
-	*/
-	public static List<DomainNodeDescriptor> getRoles_1401000SemanticChildren(View view) {
+	 * @generated
+	 */
+	public static List<DomainNodeDescriptor> getRoles_1401000SemanticChildren(
+			View view) {
 		if (!view.isSetElement()) {
 			return Collections.emptyList();
 		}
@@ -73,7 +75,8 @@ public class DomainDiagramUpdater {
 		LinkedList<DomainNodeDescriptor> result = new LinkedList<DomainNodeDescriptor>();
 		for (Iterator<?> it = modelElement.getRoles().iterator(); it.hasNext();) {
 			Role childElement = (Role) it.next();
-			int visualID = DomainVisualIDRegistry.getNodeVisualID(view, childElement);
+			int visualID = DomainVisualIDRegistry.getNodeVisualID(view,
+					childElement);
 			if (visualID == RoleEditPart.VISUAL_ID) {
 				result.add(new DomainNodeDescriptor(childElement, visualID));
 				continue;
@@ -81,7 +84,8 @@ public class DomainDiagramUpdater {
 		}
 		for (Iterator<?> it = modelElement.getGroups().iterator(); it.hasNext();) {
 			Group childElement = (Group) it.next();
-			int visualID = DomainVisualIDRegistry.getNodeVisualID(view, childElement);
+			int visualID = DomainVisualIDRegistry.getNodeVisualID(view,
+					childElement);
 			if (visualID == GroupEditPart.VISUAL_ID) {
 				result.add(new DomainNodeDescriptor(childElement, visualID));
 				continue;
@@ -91,8 +95,8 @@ public class DomainDiagramUpdater {
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static List<DomainLinkDescriptor> getContainedLinks(View view) {
 		switch (DomainVisualIDRegistry.getVisualID(view)) {
 		case RolesEditPart.VISUAL_ID:
@@ -106,8 +110,8 @@ public class DomainDiagramUpdater {
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static List<DomainLinkDescriptor> getIncomingLinks(View view) {
 		switch (DomainVisualIDRegistry.getVisualID(view)) {
 		case RoleEditPart.VISUAL_ID:
@@ -119,8 +123,8 @@ public class DomainDiagramUpdater {
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static List<DomainLinkDescriptor> getOutgoingLinks(View view) {
 		switch (DomainVisualIDRegistry.getVisualID(view)) {
 		case RoleEditPart.VISUAL_ID:
@@ -134,21 +138,24 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getRoles_1401000ContainedLinks(View view) {
+	public static List<DomainLinkDescriptor> getRoles_1401000ContainedLinks(
+			View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getRole_1402001ContainedLinks(View view) {
+	public static List<DomainLinkDescriptor> getRole_1402001ContainedLinks(
+			View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getGroup_1402002ContainedLinks(View view) {
+	public static List<DomainLinkDescriptor> getGroup_1402002ContainedLinks(
+			View view) {
 		Group modelElement = (Group) view.getElement();
 		LinkedList<DomainLinkDescriptor> result = new LinkedList<DomainLinkDescriptor>();
 		result.addAll(getOutgoingFeatureModelFacetLinks_Group_Group2Group_1404003(modelElement));
@@ -159,38 +166,44 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getRole_1402001IncomingLinks(View view) {
+	public static List<DomainLinkDescriptor> getRole_1402001IncomingLinks(
+			View view) {
 		Role modelElement = (Role) view.getElement();
 		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
 				.find(view.eResource().getResourceSet().getResources());
 		LinkedList<DomainLinkDescriptor> result = new LinkedList<DomainLinkDescriptor>();
-		result.addAll(getIncomingFeatureModelFacetLinks_Group_Group2Role_1404005(modelElement, crossReferences));
+		result.addAll(getIncomingFeatureModelFacetLinks_Group_Group2Role_1404005(
+				modelElement, crossReferences));
 		return result;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getGroup_1402002IncomingLinks(View view) {
+	public static List<DomainLinkDescriptor> getGroup_1402002IncomingLinks(
+			View view) {
 		Group modelElement = (Group) view.getElement();
 		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
 				.find(view.eResource().getResourceSet().getResources());
 		LinkedList<DomainLinkDescriptor> result = new LinkedList<DomainLinkDescriptor>();
-		result.addAll(getIncomingFeatureModelFacetLinks_Group_Group2Group_1404003(modelElement, crossReferences));
+		result.addAll(getIncomingFeatureModelFacetLinks_Group_Group2Group_1404003(
+				modelElement, crossReferences));
 		return result;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getRole_1402001OutgoingLinks(View view) {
+	public static List<DomainLinkDescriptor> getRole_1402001OutgoingLinks(
+			View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getGroup_1402002OutgoingLinks(View view) {
+	public static List<DomainLinkDescriptor> getGroup_1402002OutgoingLinks(
+			View view) {
 		Group modelElement = (Group) view.getElement();
 		LinkedList<DomainLinkDescriptor> result = new LinkedList<DomainLinkDescriptor>();
 		result.addAll(getOutgoingFeatureModelFacetLinks_Group_Group2Group_1404003(modelElement));
@@ -202,13 +215,17 @@ public class DomainDiagramUpdater {
 	 * @generated
 	 */
 	private static Collection<DomainLinkDescriptor> getIncomingFeatureModelFacetLinks_Group_Group2Group_1404003(
-			Group target, Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences) {
+			Group target,
+			Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences) {
 		LinkedList<DomainLinkDescriptor> result = new LinkedList<DomainLinkDescriptor>();
-		Collection<EStructuralFeature.Setting> settings = crossReferences.get(target);
+		Collection<EStructuralFeature.Setting> settings = crossReferences
+				.get(target);
 		for (EStructuralFeature.Setting setting : settings) {
-			if (setting.getEStructuralFeature() == DomainPackage.eINSTANCE.getGroup_Group2Group()) {
-				result.add(new DomainLinkDescriptor(setting.getEObject(), target,
-						DomainElementTypes.GroupGroup2Group_1404003, GroupGroup2GroupEditPart.VISUAL_ID));
+			if (setting.getEStructuralFeature() == DomainPackage.eINSTANCE
+					.getGroup_Group2Group()) {
+				result.add(new DomainLinkDescriptor(setting.getEObject(),
+						target, DomainElementTypes.GroupGroup2Group_1404003,
+						GroupGroup2GroupEditPart.VISUAL_ID));
 			}
 		}
 		return result;
@@ -218,82 +235,86 @@ public class DomainDiagramUpdater {
 	 * @generated
 	 */
 	private static Collection<DomainLinkDescriptor> getIncomingFeatureModelFacetLinks_Group_Group2Role_1404005(
-			Role target, Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences) {
+			Role target,
+			Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences) {
 		LinkedList<DomainLinkDescriptor> result = new LinkedList<DomainLinkDescriptor>();
-		Collection<EStructuralFeature.Setting> settings = crossReferences.get(target);
+		Collection<EStructuralFeature.Setting> settings = crossReferences
+				.get(target);
 		for (EStructuralFeature.Setting setting : settings) {
-			if (setting.getEStructuralFeature() == DomainPackage.eINSTANCE.getGroup_Group2Role()) {
-				result.add(new DomainLinkDescriptor(setting.getEObject(), target,
-						DomainElementTypes.GroupGroup2Role_1404005, GroupGroup2RoleEditPart.VISUAL_ID));
+			if (setting.getEStructuralFeature() == DomainPackage.eINSTANCE
+					.getGroup_Group2Role()) {
+				result.add(new DomainLinkDescriptor(setting.getEObject(),
+						target, DomainElementTypes.GroupGroup2Role_1404005,
+						GroupGroup2RoleEditPart.VISUAL_ID));
 			}
 		}
 		return result;
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	private static Collection<DomainLinkDescriptor> getOutgoingFeatureModelFacetLinks_Group_Group2Group_1404003(
 			Group source) {
 		LinkedList<DomainLinkDescriptor> result = new LinkedList<DomainLinkDescriptor>();
-		for (Iterator<?> destinations = source.getGroup2Group().iterator(); destinations.hasNext();) {
+		for (Iterator<?> destinations = source.getGroup2Group().iterator(); destinations
+				.hasNext();) {
 			Group destination = (Group) destinations.next();
-			result.add(new DomainLinkDescriptor(source, destination, DomainElementTypes.GroupGroup2Group_1404003,
+			result.add(new DomainLinkDescriptor(source, destination,
+					DomainElementTypes.GroupGroup2Group_1404003,
 					GroupGroup2GroupEditPart.VISUAL_ID));
 		}
 		return result;
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	private static Collection<DomainLinkDescriptor> getOutgoingFeatureModelFacetLinks_Group_Group2Role_1404005(
 			Group source) {
 		LinkedList<DomainLinkDescriptor> result = new LinkedList<DomainLinkDescriptor>();
-		for (Iterator<?> destinations = source.getGroup2Role().iterator(); destinations.hasNext();) {
+		for (Iterator<?> destinations = source.getGroup2Role().iterator(); destinations
+				.hasNext();) {
 			Role destination = (Role) destinations.next();
-			result.add(new DomainLinkDescriptor(source, destination, DomainElementTypes.GroupGroup2Role_1404005,
+			result.add(new DomainLinkDescriptor(source, destination,
+					DomainElementTypes.GroupGroup2Role_1404005,
 					GroupGroup2RoleEditPart.VISUAL_ID));
 		}
 		return result;
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static final DiagramUpdater TYPED_INSTANCE = new DiagramUpdater() {
 		/**
-		* @generated
-		*/
+		 * @generated
+		 */
 		@Override
-
 		public List<DomainNodeDescriptor> getSemanticChildren(View view) {
 			return DomainDiagramUpdater.getSemanticChildren(view);
 		}
 
 		/**
-		* @generated
-		*/
+		 * @generated
+		 */
 		@Override
-
 		public List<DomainLinkDescriptor> getContainedLinks(View view) {
 			return DomainDiagramUpdater.getContainedLinks(view);
 		}
 
 		/**
-		* @generated
-		*/
+		 * @generated
+		 */
 		@Override
-
 		public List<DomainLinkDescriptor> getIncomingLinks(View view) {
 			return DomainDiagramUpdater.getIncomingLinks(view);
 		}
 
 		/**
-		* @generated
-		*/
+		 * @generated
+		 */
 		@Override
-
 		public List<DomainLinkDescriptor> getOutgoingLinks(View view) {
 			return DomainDiagramUpdater.getOutgoingLinks(view);
 		}

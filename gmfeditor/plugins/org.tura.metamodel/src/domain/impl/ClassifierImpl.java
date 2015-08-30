@@ -32,12 +32,12 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  *   <li>{@link domain.impl.ClassifierImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.impl.ClassifierImpl#getHint <em>Hint</em>}</li>
  *   <li>{@link domain.impl.ClassifierImpl#getDetails <em>Details</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */

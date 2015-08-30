@@ -124,6 +124,7 @@ import domain.Order;
 import domain.OrderBy;
 import domain.Orderable;
 import domain.Orders;
+import domain.Orientation;
 import domain.OutputText;
 import domain.POSTCreateTrigger;
 import domain.POSTQueryTrigger;
@@ -1438,6 +1439,13 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 	 * @generated
 	 */
 	private EEnum orderEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum orientationEEnum = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -5402,6 +5410,15 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getTabCanvas_Orientation() {
+		return (EAttribute)tabCanvasEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getTabPage() {
 		return tabPageEClass;
 	}
@@ -6187,6 +6204,24 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 	 */
 	public EReference getDropDownSelection_Selection() {
 		return (EReference)dropDownSelectionEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getDropDownSelection_InitialOptionMessage() {
+		return (EReference)dropDownSelectionEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getDropDownSelection_InitialOptionValue() {
+		return (EAttribute)dropDownSelectionEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -7535,6 +7570,15 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EEnum getOrientation() {
+		return orientationEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public DomainFactory getDomainFactory() {
 		return (DomainFactory)getEFactoryInstance();
 	}
@@ -8091,6 +8135,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 		windowEClass = createEClass(WINDOW);
 
 		tabCanvasEClass = createEClass(TAB_CANVAS);
+		createEAttribute(tabCanvasEClass, TAB_CANVAS__ORIENTATION);
 
 		tabPageEClass = createEClass(TAB_PAGE);
 
@@ -8210,6 +8255,8 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 
 		dropDownSelectionEClass = createEClass(DROP_DOWN_SELECTION);
 		createEReference(dropDownSelectionEClass, DROP_DOWN_SELECTION__SELECTION);
+		createEReference(dropDownSelectionEClass, DROP_DOWN_SELECTION__INITIAL_OPTION_MESSAGE);
+		createEAttribute(dropDownSelectionEClass, DROP_DOWN_SELECTION__INITIAL_OPTION_VALUE);
 
 		imageEClass = createEClass(IMAGE);
 
@@ -8402,6 +8449,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 		platformLayersEEnum = createEEnum(PLATFORM_LAYERS);
 		comparatorEEnum = createEEnum(COMPARATOR);
 		orderEEnum = createEEnum(ORDER);
+		orientationEEnum = createEEnum(ORIENTATION);
 	}
 
 	/**
@@ -9096,6 +9144,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 		initEClass(windowEClass, Window.class, "Window", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(tabCanvasEClass, TabCanvas.class, "TabCanvas", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getTabCanvas_Orientation(), this.getOrientation(), "orientation", null, 0, 1, TabCanvas.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(tabPageEClass, TabPage.class, "TabPage", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -9215,6 +9264,8 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 
 		initEClass(dropDownSelectionEClass, DropDownSelection.class, "DropDownSelection", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getDropDownSelection_Selection(), this.getSelection(), null, "selection", null, 0, 1, DropDownSelection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDropDownSelection_InitialOptionMessage(), this.getContext(), null, "initialOptionMessage", null, 0, 1, DropDownSelection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDropDownSelection_InitialOptionValue(), ecorePackage.getEString(), "initialOptionValue", null, 0, 1, DropDownSelection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(imageEClass, Image.class, "Image", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -9419,6 +9470,12 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 		initEEnum(orderEEnum, Order.class, "Order");
 		addEEnumLiteral(orderEEnum, Order.ASC);
 		addEEnumLiteral(orderEEnum, Order.DESC);
+
+		initEEnum(orientationEEnum, Orientation.class, "Orientation");
+		addEEnumLiteral(orientationEEnum, Orientation.TOP);
+		addEEnumLiteral(orientationEEnum, Orientation.BOTTOM);
+		addEEnumLiteral(orientationEEnum, Orientation.LEFT);
+		addEEnumLiteral(orientationEEnum, Orientation.RIGHT);
 
 		// Create resource
 		createResource(eNS_URI);

@@ -23,12 +23,12 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  *   <li>{@link domain.QueryVariable#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.QueryVariable#getQueryParamRef <em>Query Param Ref</em>}</li>
  *   <li>{@link domain.QueryVariable#getValue <em>Value</em>}</li>
  * </ul>
+ * </p>
  *
  * @see domain.DomainPackage#getQueryVariable()
  * @model

@@ -11,8 +11,8 @@
  * http://www.eclipse.org/legal/epl-v10.html
  *******************************************************************************/
 /*
-* 
-*/
+ * 
+ */
 package frmview.diagram.edit.policies;
 
 import org.eclipse.gef.commands.Command;
@@ -29,15 +29,15 @@ public class PopupCanvasPopupCanvasViewElementCompartmentItemSemanticEditPolicy
 		extends DomainBaseItemSemanticEditPolicy {
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public PopupCanvasPopupCanvasViewElementCompartmentItemSemanticEditPolicy() {
 		super(DomainElementTypes.PopupCanvas_1302009);
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	protected Command getCreateCommand(CreateElementRequest req) {
 		if (DomainElementTypes.ViewPort_1303004 == req.getElementType()) {
 			return getGEFWrapper(new ViewPortCreateCommand(req));

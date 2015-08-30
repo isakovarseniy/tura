@@ -25,13 +25,13 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  *   <li>{@link domain.UIPackage#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.UIPackage#getParent <em>Parent</em>}</li>
  *   <li>{@link domain.UIPackage#getForms <em>Forms</em>}</li>
  *   <li>{@link domain.UIPackage#getAny <em>Any</em>}</li>
  * </ul>
+ * </p>
  *
  * @see domain.DomainPackage#getUIPackage()
  * @model

@@ -11,8 +11,8 @@
  * http://www.eclipse.org/legal/epl-v10.html
  *******************************************************************************/
 /*
-* 
-*/
+ * 
+ */
 package uipackage.diagram.navigator;
 
 import org.eclipse.jface.viewers.ViewerSorter;
@@ -25,18 +25,18 @@ import uipackage.diagram.part.DomainVisualIDRegistry;
 public class DomainNavigatorSorter extends ViewerSorter {
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	private static final int GROUP_CATEGORY = 1007005;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	private static final int SHORTCUTS_CATEGORY = 1007004;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public int category(Object element) {
 		if (element instanceof DomainNavigatorItem) {
 			DomainNavigatorItem item = (DomainNavigatorItem) element;

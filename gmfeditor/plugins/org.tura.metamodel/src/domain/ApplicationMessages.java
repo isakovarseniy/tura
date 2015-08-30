@@ -23,13 +23,13 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  *   <li>{@link domain.ApplicationMessages#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.ApplicationMessages#getName <em>Name</em>}</li>
  *   <li>{@link domain.ApplicationMessages#getParent <em>Parent</em>}</li>
  *   <li>{@link domain.ApplicationMessages#getMessages <em>Messages</em>}</li>
  * </ul>
+ * </p>
  *
  * @see domain.DomainPackage#getApplicationMessages()
  * @model annotation="gmf.node label='name' border.color='0,0,0' color='192,192,192'"

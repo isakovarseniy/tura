@@ -51,124 +51,114 @@ import recipe.diagram.part.DomainDiagramEditorPlugin;
 public class DomainElementTypes {
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	private DomainElementTypes() {
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	private static Map<IElementType, ENamedElement> elements;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	private static DiagramElementTypeImages elementTypeImages = new DiagramElementTypeImages(
-			DomainDiagramEditorPlugin.getInstance().getItemProvidersAdapterFactory());
+			DomainDiagramEditorPlugin.getInstance()
+					.getItemProvidersAdapterFactory());
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	private static Set<IElementType> KNOWN_ELEMENT_TYPES;
 
 	/**
-	* @generated
-	*/
-	public static final IElementType Recipes_301000 = getElementType(
-			"org.tura.metamodel.diagram.recipe.Recipes_301000"); //$NON-NLS-1$
+	 * @generated
+	 */
+	public static final IElementType Recipes_301000 = getElementType("org.tura.metamodel.diagram.recipe.Recipes_301000"); //$NON-NLS-1$
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static final IElementType Recipe_302001 = getElementType("org.tura.metamodel.diagram.recipe.Recipe_302001"); //$NON-NLS-1$
 	/**
-	* @generated
-	*/
-	public static final IElementType Configuration_302002 = getElementType(
-			"org.tura.metamodel.diagram.recipe.Configuration_302002"); //$NON-NLS-1$
+	 * @generated
+	 */
+	public static final IElementType Configuration_302002 = getElementType("org.tura.metamodel.diagram.recipe.Configuration_302002"); //$NON-NLS-1$
 	/**
-	* @generated
-	*/
-	public static final IElementType Infrastructure_302003 = getElementType(
-			"org.tura.metamodel.diagram.recipe.Infrastructure_302003"); //$NON-NLS-1$
+	 * @generated
+	 */
+	public static final IElementType Infrastructure_302003 = getElementType("org.tura.metamodel.diagram.recipe.Infrastructure_302003"); //$NON-NLS-1$
 	/**
-	* @generated
-	*/
-	public static final IElementType DeploymentSequence_302004 = getElementType(
-			"org.tura.metamodel.diagram.recipe.DeploymentSequence_302004"); //$NON-NLS-1$
+	 * @generated
+	 */
+	public static final IElementType DeploymentSequence_302004 = getElementType("org.tura.metamodel.diagram.recipe.DeploymentSequence_302004"); //$NON-NLS-1$
 	/**
-	* @generated
-	*/
-	public static final IElementType Ingredient_303001 = getElementType(
-			"org.tura.metamodel.diagram.recipe.Ingredient_303001"); //$NON-NLS-1$
+	 * @generated
+	 */
+	public static final IElementType Ingredient_303001 = getElementType("org.tura.metamodel.diagram.recipe.Ingredient_303001"); //$NON-NLS-1$
 	/**
-	* @generated
-	*/
-	public static final IElementType JavaComponent_303002 = getElementType(
-			"org.tura.metamodel.diagram.recipe.JavaComponent_303002"); //$NON-NLS-1$
+	 * @generated
+	 */
+	public static final IElementType JavaComponent_303002 = getElementType("org.tura.metamodel.diagram.recipe.JavaComponent_303002"); //$NON-NLS-1$
 	/**
-	* @generated
-	*/
-	public static final IElementType ModelMapper_303003 = getElementType(
-			"org.tura.metamodel.diagram.recipe.ModelMapper_303003"); //$NON-NLS-1$
+	 * @generated
+	 */
+	public static final IElementType ModelMapper_303003 = getElementType("org.tura.metamodel.diagram.recipe.ModelMapper_303003"); //$NON-NLS-1$
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static final IElementType Query_303004 = getElementType("org.tura.metamodel.diagram.recipe.Query_303004"); //$NON-NLS-1$
 	/**
-	* @generated
-	*/
-	public static final IElementType Property_303005 = getElementType(
-			"org.tura.metamodel.diagram.recipe.Property_303005"); //$NON-NLS-1$
+	 * @generated
+	 */
+	public static final IElementType Property_303005 = getElementType("org.tura.metamodel.diagram.recipe.Property_303005"); //$NON-NLS-1$
 	/**
-	* @generated
-	*/
-	public static final IElementType RecipeInfrastructures_304004 = getElementType(
-			"org.tura.metamodel.diagram.recipe.RecipeInfrastructures_304004"); //$NON-NLS-1$
+	 * @generated
+	 */
+	public static final IElementType RecipeInfrastructures_304004 = getElementType("org.tura.metamodel.diagram.recipe.RecipeInfrastructures_304004"); //$NON-NLS-1$
 	/**
-	* @generated
-	*/
-	public static final IElementType RecipeDeployment_304013 = getElementType(
-			"org.tura.metamodel.diagram.recipe.RecipeDeployment_304013"); //$NON-NLS-1$
+	 * @generated
+	 */
+	public static final IElementType RecipeDeployment_304013 = getElementType("org.tura.metamodel.diagram.recipe.RecipeDeployment_304013"); //$NON-NLS-1$
 	/**
-	* @generated
-	*/
-	public static final IElementType InfrastructureRecipeConfig_304006 = getElementType(
-			"org.tura.metamodel.diagram.recipe.InfrastructureRecipeConfig_304006"); //$NON-NLS-1$
+	 * @generated
+	 */
+	public static final IElementType InfrastructureRecipeConfig_304006 = getElementType("org.tura.metamodel.diagram.recipe.InfrastructureRecipeConfig_304006"); //$NON-NLS-1$
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static ImageDescriptor getImageDescriptor(ENamedElement element) {
 		return elementTypeImages.getImageDescriptor(element);
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static Image getImage(ENamedElement element) {
 		return elementTypeImages.getImage(element);
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static ImageDescriptor getImageDescriptor(IAdaptable hint) {
 		return getImageDescriptor(getElement(hint));
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static Image getImage(IAdaptable hint) {
 		return getImage(getElement(hint));
 	}
 
 	/**
-	* Returns 'type' of the ecore object associated with the hint.
-	* 
-	* @generated
-	*/
+	 * Returns 'type' of the ecore object associated with the hint.
+	 * 
+	 * @generated
+	 */
 	public static ENamedElement getElement(IAdaptable hint) {
 		Object type = hint.getAdapter(IElementType.class);
 		if (elements == null) {
@@ -178,41 +168,50 @@ public class DomainElementTypes {
 
 			elements.put(Recipe_302001, DomainPackage.eINSTANCE.getRecipe());
 
-			elements.put(Configuration_302002, DomainPackage.eINSTANCE.getConfiguration());
+			elements.put(Configuration_302002,
+					DomainPackage.eINSTANCE.getConfiguration());
 
-			elements.put(Infrastructure_302003, DomainPackage.eINSTANCE.getInfrastructure());
+			elements.put(Infrastructure_302003,
+					DomainPackage.eINSTANCE.getInfrastructure());
 
-			elements.put(DeploymentSequence_302004, DomainPackage.eINSTANCE.getDeploymentSequence());
+			elements.put(DeploymentSequence_302004,
+					DomainPackage.eINSTANCE.getDeploymentSequence());
 
-			elements.put(Ingredient_303001, DomainPackage.eINSTANCE.getIngredient());
+			elements.put(Ingredient_303001,
+					DomainPackage.eINSTANCE.getIngredient());
 
-			elements.put(JavaComponent_303002, DomainPackage.eINSTANCE.getJavaComponent());
+			elements.put(JavaComponent_303002,
+					DomainPackage.eINSTANCE.getJavaComponent());
 
-			elements.put(ModelMapper_303003, DomainPackage.eINSTANCE.getModelMapper());
+			elements.put(ModelMapper_303003,
+					DomainPackage.eINSTANCE.getModelMapper());
 
 			elements.put(Query_303004, DomainPackage.eINSTANCE.getQuery());
 
 			elements.put(Property_303005, DomainPackage.eINSTANCE.getProperty());
 
-			elements.put(RecipeInfrastructures_304004, DomainPackage.eINSTANCE.getRecipe_Infrastructures());
+			elements.put(RecipeInfrastructures_304004,
+					DomainPackage.eINSTANCE.getRecipe_Infrastructures());
 
-			elements.put(RecipeDeployment_304013, DomainPackage.eINSTANCE.getRecipe_Deployment());
+			elements.put(RecipeDeployment_304013,
+					DomainPackage.eINSTANCE.getRecipe_Deployment());
 
-			elements.put(InfrastructureRecipeConfig_304006, DomainPackage.eINSTANCE.getInfrastructure_RecipeConfig());
+			elements.put(InfrastructureRecipeConfig_304006,
+					DomainPackage.eINSTANCE.getInfrastructure_RecipeConfig());
 		}
 		return (ENamedElement) elements.get(type);
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	private static IElementType getElementType(String id) {
 		return ElementTypeRegistry.getInstance().getType(id);
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static boolean isKnownElementType(IElementType elementType) {
 		if (KNOWN_ELEMENT_TYPES == null) {
 			KNOWN_ELEMENT_TYPES = new HashSet<IElementType>();
@@ -234,8 +233,8 @@ public class DomainElementTypes {
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static IElementType getElementType(int visualID) {
 		switch (visualID) {
 		case RecipesEditPart.VISUAL_ID:
@@ -269,35 +268,37 @@ public class DomainElementTypes {
 	}
 
 	/**
-	* @generated
-	*/
-	public static final DiagramElementTypes TYPED_INSTANCE = new DiagramElementTypes(elementTypeImages) {
+	 * @generated
+	 */
+	public static final DiagramElementTypes TYPED_INSTANCE = new DiagramElementTypes(
+			elementTypeImages) {
 
 		/**
-		* @generated
-		*/
+		 * @generated
+		 */
 		@Override
-
 		public boolean isKnownElementType(IElementType elementType) {
-			return recipe.diagram.providers.DomainElementTypes.isKnownElementType(elementType);
+			return recipe.diagram.providers.DomainElementTypes
+					.isKnownElementType(elementType);
 		}
 
 		/**
-		* @generated
-		*/
+		 * @generated
+		 */
 		@Override
-
 		public IElementType getElementTypeForVisualId(int visualID) {
-			return recipe.diagram.providers.DomainElementTypes.getElementType(visualID);
+			return recipe.diagram.providers.DomainElementTypes
+					.getElementType(visualID);
 		}
 
 		/**
-		* @generated
-		*/
+		 * @generated
+		 */
 		@Override
-
-		public ENamedElement getDefiningNamedElement(IAdaptable elementTypeAdapter) {
-			return recipe.diagram.providers.DomainElementTypes.getElement(elementTypeAdapter);
+		public ENamedElement getDefiningNamedElement(
+				IAdaptable elementTypeAdapter) {
+			return recipe.diagram.providers.DomainElementTypes
+					.getElement(elementTypeAdapter);
 		}
 	};
 

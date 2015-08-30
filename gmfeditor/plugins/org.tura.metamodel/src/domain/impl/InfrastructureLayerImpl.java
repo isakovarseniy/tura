@@ -42,13 +42,13 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  *   <li>{@link domain.impl.InfrastructureLayerImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.impl.InfrastructureLayerImpl#getName <em>Name</em>}</li>
  *   <li>{@link domain.impl.InfrastructureLayerImpl#getParent <em>Parent</em>}</li>
  *   <li>{@link domain.impl.InfrastructureLayerImpl#getInfrastructureComponent <em>Infrastructure Component</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */

@@ -23,12 +23,12 @@ import org.eclipse.emf.common.util.EList;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  *   <li>{@link domain.Type#getAttributes <em>Attributes</em>}</li>
  *   <li>{@link domain.Type#getOperations <em>Operations</em>}</li>
  *   <li>{@link domain.Type#getExtension <em>Extension</em>}</li>
  * </ul>
+ * </p>
  *
  * @see domain.DomainPackage#getType()
  * @model annotation="gmf.node label='name' border.color='0,0,0' color='255,239,222'"

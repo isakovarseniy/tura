@@ -11,8 +11,8 @@
  * http://www.eclipse.org/legal/epl-v10.html
  *******************************************************************************/
 /*
-* 
-*/
+ * 
+ */
 package application.diagram.navigator;
 
 import org.eclipse.core.runtime.IAdapterFactory;
@@ -27,8 +27,8 @@ import org.eclipse.gmf.runtime.notation.View;
 public class DomainNavigatorItem extends DomainAbstractNavigatorItem {
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	static {
 		final Class[] supportedTypes = new Class[] { View.class, EObject.class };
 		Platform.getAdapterManager().registerAdapters(new IAdapterFactory() {
@@ -36,7 +36,8 @@ public class DomainNavigatorItem extends DomainAbstractNavigatorItem {
 			public Object getAdapter(Object adaptableObject, Class adapterType) {
 				if (adaptableObject instanceof application.diagram.navigator.DomainNavigatorItem
 						&& (adapterType == View.class || adapterType == EObject.class)) {
-					return ((application.diagram.navigator.DomainNavigatorItem) adaptableObject).getView();
+					return ((application.diagram.navigator.DomainNavigatorItem) adaptableObject)
+							.getView();
 				}
 				return null;
 			}
@@ -48,18 +49,18 @@ public class DomainNavigatorItem extends DomainAbstractNavigatorItem {
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	private View myView;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	private boolean myLeaf = false;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public DomainNavigatorItem(View view, Object parent, boolean isLeaf) {
 		super(parent);
 		myView = view;
@@ -67,33 +68,36 @@ public class DomainNavigatorItem extends DomainAbstractNavigatorItem {
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public View getView() {
 		return myView;
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public boolean isLeaf() {
 		return myLeaf;
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public boolean equals(Object obj) {
 		if (obj instanceof application.diagram.navigator.DomainNavigatorItem) {
-			return EcoreUtil.getURI(getView())
-					.equals(EcoreUtil.getURI(((application.diagram.navigator.DomainNavigatorItem) obj).getView()));
+			return EcoreUtil
+					.getURI(getView())
+					.equals(EcoreUtil
+							.getURI(((application.diagram.navigator.DomainNavigatorItem) obj)
+									.getView()));
 		}
 		return super.equals(obj);
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public int hashCode() {
 		return EcoreUtil.getURI(getView()).hashCode();
 	}

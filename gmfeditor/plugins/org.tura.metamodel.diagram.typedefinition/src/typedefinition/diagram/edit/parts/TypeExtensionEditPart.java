@@ -32,44 +32,46 @@ import typedefinition.diagram.edit.policies.TypeExtensionItemSemanticEditPolicy;
 /**
  * @generated
  */
-public class TypeExtensionEditPart extends ConnectionNodeEditPart implements ITreeBranchEditPart {
+public class TypeExtensionEditPart extends ConnectionNodeEditPart implements
+		ITreeBranchEditPart {
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static final int VISUAL_ID = 104001;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public TypeExtensionEditPart(View view) {
 		super(view);
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	protected void createDefaultEditPolicies() {
 		super.createDefaultEditPolicies();
-		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE, new TypeExtensionItemSemanticEditPolicy());
+		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
+				new TypeExtensionItemSemanticEditPolicy());
 	}
 
 	/**
-	* Creates figure for this edit part.
-	* 
-	* Body of this method does not depend on settings in generation model
-	* so you may safely remove <i>generated</i> tag and modify it.
-	* 
-	* @generated
-	*/
+	 * Creates figure for this edit part.
+	 * 
+	 * Body of this method does not depend on settings in generation model
+	 * so you may safely remove <i>generated</i> tag and modify it.
+	 * 
+	 * @generated
+	 */
 
 	protected Connection createConnectionFigure() {
 		return new TypeExtensionFigure();
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public TypeExtensionFigure getPrimaryShape() {
 		return (TypeExtensionFigure) getFigure();
 	}

@@ -44,129 +44,131 @@ import domain.DomainPackage;
 public class DomainElementTypes {
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	private DomainElementTypes() {
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	private static Map<IElementType, ENamedElement> elements;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	private static DiagramElementTypeImages elementTypeImages = new DiagramElementTypeImages(
-			DomainDiagramEditorPlugin.getInstance().getItemProvidersAdapterFactory());
+			DomainDiagramEditorPlugin.getInstance()
+					.getItemProvidersAdapterFactory());
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	private static Set<IElementType> KNOWN_ELEMENT_TYPES;
 
 	/**
-	* @generated
-	*/
-	public static final IElementType DeploymentComponents_901000 = getElementType(
-			"org.tura.metamodel.diagram.deployment.DeploymentComponents_901000"); //$NON-NLS-1$
+	 * @generated
+	 */
+	public static final IElementType DeploymentComponents_901000 = getElementType("org.tura.metamodel.diagram.deployment.DeploymentComponents_901000"); //$NON-NLS-1$
 	/**
-	* @generated
-	*/
-	public static final IElementType DeploymentComponent_902001 = getElementType(
-			"org.tura.metamodel.diagram.deployment.DeploymentComponent_902001"); //$NON-NLS-1$
+	 * @generated
+	 */
+	public static final IElementType DeploymentComponent_902001 = getElementType("org.tura.metamodel.diagram.deployment.DeploymentComponent_902001"); //$NON-NLS-1$
 	/**
-	* @generated
-	*/
-	public static final IElementType DeploymentStarStep_902002 = getElementType(
-			"org.tura.metamodel.diagram.deployment.DeploymentStarStep_902002"); //$NON-NLS-1$
+	 * @generated
+	 */
+	public static final IElementType DeploymentStarStep_902002 = getElementType("org.tura.metamodel.diagram.deployment.DeploymentStarStep_902002"); //$NON-NLS-1$
 	/**
-	* @generated
-	*/
-	public static final IElementType DeploymentComponentDeploymentComponentLink_904014 = getElementType(
-			"org.tura.metamodel.diagram.deployment.DeploymentComponentDeploymentComponentLink_904014"); //$NON-NLS-1$
+	 * @generated
+	 */
+	public static final IElementType DeploymentComponentDeploymentComponentLink_904014 = getElementType("org.tura.metamodel.diagram.deployment.DeploymentComponentDeploymentComponentLink_904014"); //$NON-NLS-1$
 	/**
-	* @generated
-	*/
-	public static final IElementType DeploymentStarStepFirstStep_904008 = getElementType(
-			"org.tura.metamodel.diagram.deployment.DeploymentStarStepFirstStep_904008"); //$NON-NLS-1$
+	 * @generated
+	 */
+	public static final IElementType DeploymentStarStepFirstStep_904008 = getElementType("org.tura.metamodel.diagram.deployment.DeploymentStarStepFirstStep_904008"); //$NON-NLS-1$
 	/**
-	* @generated
-	*/
-	public static final IElementType RecipeDeployment_904013 = getElementType(
-			"org.tura.metamodel.diagram.deployment.RecipeDeployment_904013"); //$NON-NLS-1$
+	 * @generated
+	 */
+	public static final IElementType RecipeDeployment_904013 = getElementType("org.tura.metamodel.diagram.deployment.RecipeDeployment_904013"); //$NON-NLS-1$
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static ImageDescriptor getImageDescriptor(ENamedElement element) {
 		return elementTypeImages.getImageDescriptor(element);
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static Image getImage(ENamedElement element) {
 		return elementTypeImages.getImage(element);
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static ImageDescriptor getImageDescriptor(IAdaptable hint) {
 		return getImageDescriptor(getElement(hint));
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static Image getImage(IAdaptable hint) {
 		return getImage(getElement(hint));
 	}
 
 	/**
-	* Returns 'type' of the ecore object associated with the hint.
-	* 
-	* @generated
-	*/
+	 * Returns 'type' of the ecore object associated with the hint.
+	 * 
+	 * @generated
+	 */
 	public static ENamedElement getElement(IAdaptable hint) {
 		Object type = hint.getAdapter(IElementType.class);
 		if (elements == null) {
 			elements = new IdentityHashMap<IElementType, ENamedElement>();
 
-			elements.put(DeploymentComponents_901000, DomainPackage.eINSTANCE.getDeploymentComponents());
+			elements.put(DeploymentComponents_901000,
+					DomainPackage.eINSTANCE.getDeploymentComponents());
 
-			elements.put(DeploymentComponent_902001, DomainPackage.eINSTANCE.getDeploymentComponent());
+			elements.put(DeploymentComponent_902001,
+					DomainPackage.eINSTANCE.getDeploymentComponent());
 
-			elements.put(DeploymentStarStep_902002, DomainPackage.eINSTANCE.getDeploymentStarStep());
+			elements.put(DeploymentStarStep_902002,
+					DomainPackage.eINSTANCE.getDeploymentStarStep());
 
 			elements.put(DeploymentComponentDeploymentComponentLink_904014,
-					DomainPackage.eINSTANCE.getDeploymentComponent_DeploymentComponentLink());
+					DomainPackage.eINSTANCE
+							.getDeploymentComponent_DeploymentComponentLink());
 
-			elements.put(DeploymentStarStepFirstStep_904008, DomainPackage.eINSTANCE.getDeploymentStarStep_FirstStep());
+			elements.put(DeploymentStarStepFirstStep_904008,
+					DomainPackage.eINSTANCE.getDeploymentStarStep_FirstStep());
 
-			elements.put(RecipeDeployment_904013, DomainPackage.eINSTANCE.getRecipe_Deployment());
+			elements.put(RecipeDeployment_904013,
+					DomainPackage.eINSTANCE.getRecipe_Deployment());
 		}
 		return (ENamedElement) elements.get(type);
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	private static IElementType getElementType(String id) {
 		return ElementTypeRegistry.getInstance().getType(id);
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static boolean isKnownElementType(IElementType elementType) {
 		if (KNOWN_ELEMENT_TYPES == null) {
 			KNOWN_ELEMENT_TYPES = new HashSet<IElementType>();
 			KNOWN_ELEMENT_TYPES.add(DeploymentComponents_901000);
 			KNOWN_ELEMENT_TYPES.add(DeploymentComponent_902001);
 			KNOWN_ELEMENT_TYPES.add(DeploymentStarStep_902002);
-			KNOWN_ELEMENT_TYPES.add(DeploymentComponentDeploymentComponentLink_904014);
+			KNOWN_ELEMENT_TYPES
+					.add(DeploymentComponentDeploymentComponentLink_904014);
 			KNOWN_ELEMENT_TYPES.add(DeploymentStarStepFirstStep_904008);
 			KNOWN_ELEMENT_TYPES.add(RecipeDeployment_904013);
 		}
@@ -174,8 +176,8 @@ public class DomainElementTypes {
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static IElementType getElementType(int visualID) {
 		switch (visualID) {
 		case DeploymentComponentsEditPart.VISUAL_ID:
@@ -195,35 +197,37 @@ public class DomainElementTypes {
 	}
 
 	/**
-	* @generated
-	*/
-	public static final DiagramElementTypes TYPED_INSTANCE = new DiagramElementTypes(elementTypeImages) {
+	 * @generated
+	 */
+	public static final DiagramElementTypes TYPED_INSTANCE = new DiagramElementTypes(
+			elementTypeImages) {
 
 		/**
-		* @generated
-		*/
+		 * @generated
+		 */
 		@Override
-
 		public boolean isKnownElementType(IElementType elementType) {
-			return deployment.diagram.providers.DomainElementTypes.isKnownElementType(elementType);
+			return deployment.diagram.providers.DomainElementTypes
+					.isKnownElementType(elementType);
 		}
 
 		/**
-		* @generated
-		*/
+		 * @generated
+		 */
 		@Override
-
 		public IElementType getElementTypeForVisualId(int visualID) {
-			return deployment.diagram.providers.DomainElementTypes.getElementType(visualID);
+			return deployment.diagram.providers.DomainElementTypes
+					.getElementType(visualID);
 		}
 
 		/**
-		* @generated
-		*/
+		 * @generated
+		 */
 		@Override
-
-		public ENamedElement getDefiningNamedElement(IAdaptable elementTypeAdapter) {
-			return deployment.diagram.providers.DomainElementTypes.getElement(elementTypeAdapter);
+		public ENamedElement getDefiningNamedElement(
+				IAdaptable elementTypeAdapter) {
+			return deployment.diagram.providers.DomainElementTypes
+					.getElement(elementTypeAdapter);
 		}
 	};
 

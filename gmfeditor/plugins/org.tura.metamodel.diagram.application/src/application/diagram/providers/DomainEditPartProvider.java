@@ -27,10 +27,12 @@ import application.diagram.part.DomainVisualIDRegistry;
 public class DomainEditPartProvider extends DefaultEditPartProvider {
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public DomainEditPartProvider() {
-		super(new DomainEditPartFactory(), DomainVisualIDRegistry.TYPED_INSTANCE, ApplicationEditPart.MODEL_ID);
+		super(new DomainEditPartFactory(),
+				DomainVisualIDRegistry.TYPED_INSTANCE,
+				ApplicationEditPart.MODEL_ID);
 	}
 
 }

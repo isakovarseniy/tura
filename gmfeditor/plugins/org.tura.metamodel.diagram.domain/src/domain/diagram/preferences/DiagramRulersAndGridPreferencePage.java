@@ -25,9 +25,10 @@ import domain.diagram.part.DomainDiagramEditorPlugin;
 public class DiagramRulersAndGridPreferencePage extends RulerGridPreferencePage {
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public DiagramRulersAndGridPreferencePage() {
-		setPreferenceStore(DomainDiagramEditorPlugin.getInstance().getPreferenceStore());
+		setPreferenceStore(DomainDiagramEditorPlugin.getInstance()
+				.getPreferenceStore());
 	}
 }

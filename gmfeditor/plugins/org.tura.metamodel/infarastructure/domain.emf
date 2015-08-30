@@ -862,8 +862,16 @@ class Canvas extends CanvasFrame,ViewPortHolder,DefaultCavas, MultiLangLabel,Cat
 class Window extends CanvasFrame,ViewPortHolder,MultiLangLabel,Categorized {
 }
 
+enum Orientation{
+	Top;
+	Bottom;
+	Left;
+	Right;
+}
+
 @gmf.node(label="name",border.color="0,0,0",color="192,192,192")
 class TabCanvas extends CanvasFrame,DefaultCavas,MultiLangLabel,Categorized {
+  attr Orientation orientation ;
 }
 
 @gmf.node(label="name",border.color="0,0,0",color="192,192,192")
@@ -1054,6 +1062,8 @@ class CheckBox extends InputElement {
 @gmf.node(figure="org.tura.metamodel.commons.figures.DropDownFigure",label.placement="none",tool.small.bundle="org.tura.metamodel.commons",tool.small.path="icons/dropdownselection.png")
 class DropDownSelection extends OptionSelection {
    val Selection selection;
+   val Context initialOptionMessage;
+   attr EString  initialOptionValue;
 }
 
 @gmf.node(figure="org.tura.metamodel.commons.figures.MetaImageFigure",label.placement="none",tool.small.bundle="org.tura.metamodel.commons",tool.small.path="icons/image.png")

@@ -32,13 +32,13 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  *   <li>{@link domain.impl.ExpressionPartImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.impl.ExpressionPartImpl#getObjRef <em>Obj Ref</em>}</li>
  *   <li>{@link domain.impl.ExpressionPartImpl#getOrder <em>Order</em>}</li>
  *   <li>{@link domain.impl.ExpressionPartImpl#getExpressionType <em>Expression Type</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */

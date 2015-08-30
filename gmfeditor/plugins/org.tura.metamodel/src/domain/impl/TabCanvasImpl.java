@@ -20,6 +20,7 @@ import domain.Context;
 import domain.DefaultCavas;
 import domain.DomainPackage;
 import domain.MultiLangLabel;
+import domain.Orientation;
 import domain.TabCanvas;
 
 import java.util.Collection;
@@ -43,12 +44,13 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  *   <li>{@link domain.impl.TabCanvasImpl#isDefaultCanvas <em>Default Canvas</em>}</li>
  *   <li>{@link domain.impl.TabCanvasImpl#getMultiLangLabel <em>Multi Lang Label</em>}</li>
  *   <li>{@link domain.impl.TabCanvasImpl#getClassifiers <em>Classifiers</em>}</li>
+ *   <li>{@link domain.impl.TabCanvasImpl#getOrientation <em>Orientation</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */
@@ -92,6 +94,26 @@ public class TabCanvasImpl extends CanvasFrameImpl implements TabCanvas {
 	 * @ordered
 	 */
 	protected EList<Classifier> classifiers;
+
+	/**
+	 * The default value of the '{@link #getOrientation() <em>Orientation</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getOrientation()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final Orientation ORIENTATION_EDEFAULT = Orientation.TOP;
+
+	/**
+	 * The cached value of the '{@link #getOrientation() <em>Orientation</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getOrientation()
+	 * @generated
+	 * @ordered
+	 */
+	protected Orientation orientation = ORIENTATION_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -193,6 +215,27 @@ public class TabCanvasImpl extends CanvasFrameImpl implements TabCanvas {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Orientation getOrientation() {
+		return orientation;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setOrientation(Orientation newOrientation) {
+		Orientation oldOrientation = orientation;
+		orientation = newOrientation == null ? ORIENTATION_EDEFAULT : newOrientation;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.TAB_CANVAS__ORIENTATION, oldOrientation, orientation));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -218,6 +261,8 @@ public class TabCanvasImpl extends CanvasFrameImpl implements TabCanvas {
 				return getMultiLangLabel();
 			case DomainPackage.TAB_CANVAS__CLASSIFIERS:
 				return getClassifiers();
+			case DomainPackage.TAB_CANVAS__ORIENTATION:
+				return getOrientation();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -241,6 +286,9 @@ public class TabCanvasImpl extends CanvasFrameImpl implements TabCanvas {
 				getClassifiers().clear();
 				getClassifiers().addAll((Collection<? extends Classifier>)newValue);
 				return;
+			case DomainPackage.TAB_CANVAS__ORIENTATION:
+				setOrientation((Orientation)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -262,6 +310,9 @@ public class TabCanvasImpl extends CanvasFrameImpl implements TabCanvas {
 			case DomainPackage.TAB_CANVAS__CLASSIFIERS:
 				getClassifiers().clear();
 				return;
+			case DomainPackage.TAB_CANVAS__ORIENTATION:
+				setOrientation(ORIENTATION_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -280,6 +331,8 @@ public class TabCanvasImpl extends CanvasFrameImpl implements TabCanvas {
 				return multiLangLabel != null;
 			case DomainPackage.TAB_CANVAS__CLASSIFIERS:
 				return classifiers != null && !classifiers.isEmpty();
+			case DomainPackage.TAB_CANVAS__ORIENTATION:
+				return orientation != ORIENTATION_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -352,6 +405,8 @@ public class TabCanvasImpl extends CanvasFrameImpl implements TabCanvas {
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (defaultCanvas: ");
 		result.append(defaultCanvas);
+		result.append(", orientation: ");
+		result.append(orientation);
 		result.append(')');
 		return result.toString();
 	}

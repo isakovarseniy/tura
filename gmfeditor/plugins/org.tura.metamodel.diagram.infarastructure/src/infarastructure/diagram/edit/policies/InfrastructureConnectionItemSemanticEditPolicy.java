@@ -11,8 +11,8 @@
  * http://www.eclipse.org/legal/epl-v10.html
  *******************************************************************************/
 /*
-* 
-*/
+ * 
+ */
 package infarastructure.diagram.edit.policies;
 
 import org.eclipse.gef.commands.Command;
@@ -24,18 +24,19 @@ import infarastructure.diagram.providers.DomainElementTypes;
 /**
  * @generated
  */
-public class InfrastructureConnectionItemSemanticEditPolicy extends DomainBaseItemSemanticEditPolicy {
+public class InfrastructureConnectionItemSemanticEditPolicy extends
+		DomainBaseItemSemanticEditPolicy {
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public InfrastructureConnectionItemSemanticEditPolicy() {
 		super(DomainElementTypes.InfrastructureConnection_1204009);
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	protected Command getDestroyElementCommand(DestroyElementRequest req) {
 		return getGEFWrapper(new DestroyElementCommand(req));
 	}

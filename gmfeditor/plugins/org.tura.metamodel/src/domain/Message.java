@@ -25,12 +25,12 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  *   <li>{@link domain.Message#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.Message#getName <em>Name</em>}</li>
  *   <li>{@link domain.Message#getTranslatioins <em>Translatioins</em>}</li>
  * </ul>
+ * </p>
  *
  * @see domain.DomainPackage#getMessage()
  * @model annotation="gmf.node label='name' border.color='0,0,0' color='255,237,85'"

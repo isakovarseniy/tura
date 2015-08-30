@@ -20,6 +20,7 @@ import typesrepository.diagram.providers.DomainModelingAssistantProvider;
 /**
  * @generated
  */
-public class DomainModelingAssistantProviderOfPackageEditPart extends DomainModelingAssistantProvider {
+public class DomainModelingAssistantProviderOfPackageEditPart extends
+		DomainModelingAssistantProvider {
 
 }

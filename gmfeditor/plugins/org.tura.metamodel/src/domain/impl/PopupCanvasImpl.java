@@ -46,7 +46,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  *   <li>{@link domain.impl.PopupCanvasImpl#getColumns <em>Columns</em>}</li>
  *   <li>{@link domain.impl.PopupCanvasImpl#getViewElement <em>View Element</em>}</li>
@@ -55,6 +54,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link domain.impl.PopupCanvasImpl#getClassifiers <em>Classifiers</em>}</li>
  *   <li>{@link domain.impl.PopupCanvasImpl#isModal <em>Modal</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */

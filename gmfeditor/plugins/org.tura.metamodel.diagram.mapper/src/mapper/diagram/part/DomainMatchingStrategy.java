@@ -11,8 +11,8 @@
  * http://www.eclipse.org/legal/epl-v10.html
  *******************************************************************************/
 /*
-* 
-*/
+ * 
+ */
 package mapper.diagram.part;
 
 import org.eclipse.emf.common.ui.URIEditorInput;
@@ -27,8 +27,8 @@ import org.eclipse.ui.PartInitException;
 public class DomainMatchingStrategy implements IEditorMatchingStrategy {
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public boolean matches(IEditorReference editorRef, IEditorInput input) {
 		IEditorInput editorInput;
 		try {
@@ -40,8 +40,10 @@ public class DomainMatchingStrategy implements IEditorMatchingStrategy {
 		if (editorInput.equals(input)) {
 			return true;
 		}
-		if (editorInput instanceof URIEditorInput && input instanceof URIEditorInput) {
-			return ((URIEditorInput) editorInput).getURI().equals(((URIEditorInput) input).getURI());
+		if (editorInput instanceof URIEditorInput
+				&& input instanceof URIEditorInput) {
+			return ((URIEditorInput) editorInput).getURI().equals(
+					((URIEditorInput) input).getURI());
 		}
 		return false;
 	}

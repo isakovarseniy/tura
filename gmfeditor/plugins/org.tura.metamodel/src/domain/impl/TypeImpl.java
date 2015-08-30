@@ -41,13 +41,13 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  *   <li>{@link domain.impl.TypeImpl#getClassifiers <em>Classifiers</em>}</li>
  *   <li>{@link domain.impl.TypeImpl#getAttributes <em>Attributes</em>}</li>
  *   <li>{@link domain.impl.TypeImpl#getOperations <em>Operations</em>}</li>
  *   <li>{@link domain.impl.TypeImpl#getExtension <em>Extension</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */

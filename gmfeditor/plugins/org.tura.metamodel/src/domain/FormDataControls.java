@@ -23,12 +23,12 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  *   <li>{@link domain.FormDataControls#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.FormDataControls#getName <em>Name</em>}</li>
  *   <li>{@link domain.FormDataControls#getFormControl <em>Form Control</em>}</li>
  * </ul>
+ * </p>
  *
  * @see domain.DomainPackage#getFormDataControls()
  * @model annotation="gmf.node label='name' border.color='0,0,0' color='241,238,203'"

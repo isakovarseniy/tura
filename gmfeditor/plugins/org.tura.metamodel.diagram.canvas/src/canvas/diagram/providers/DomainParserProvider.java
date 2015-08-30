@@ -45,19 +45,21 @@ import domain.DomainPackage;
 /**
  * @generated
  */
-public class DomainParserProvider extends AbstractProvider implements IParserProvider {
+public class DomainParserProvider extends AbstractProvider implements
+		IParserProvider {
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	private IParser tableLabel_1605004Parser;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	private IParser getTableLabel_1605004Parser() {
 		if (tableLabel_1605004Parser == null) {
-			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE.getTable_Label() };
+			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE
+					.getTable_Label() };
 			MessageFormatParser parser = new MessageFormatParser(features);
 			tableLabel_1605004Parser = parser;
 		}
@@ -65,16 +67,17 @@ public class DomainParserProvider extends AbstractProvider implements IParserPro
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	private IParser columnLabel_1605010Parser;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	private IParser getColumnLabel_1605010Parser() {
 		if (columnLabel_1605010Parser == null) {
-			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE.getColumn_Label() };
+			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE
+					.getColumn_Label() };
 			MessageFormatParser parser = new MessageFormatParser(features);
 			columnLabel_1605010Parser = parser;
 		}
@@ -82,16 +85,17 @@ public class DomainParserProvider extends AbstractProvider implements IParserPro
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	private IParser tableLabel_1605007Parser;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	private IParser getTableLabel_1605007Parser() {
 		if (tableLabel_1605007Parser == null) {
-			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE.getTable_Label() };
+			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE
+					.getTable_Label() };
 			MessageFormatParser parser = new MessageFormatParser(features);
 			tableLabel_1605007Parser = parser;
 		}
@@ -99,16 +103,17 @@ public class DomainParserProvider extends AbstractProvider implements IParserPro
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	private IParser treeLabel_1605008Parser;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	private IParser getTreeLabel_1605008Parser() {
 		if (treeLabel_1605008Parser == null) {
-			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE.getTree_Label() };
+			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE
+					.getTree_Label() };
 			MessageFormatParser parser = new MessageFormatParser(features);
 			treeLabel_1605008Parser = parser;
 		}
@@ -116,16 +121,17 @@ public class DomainParserProvider extends AbstractProvider implements IParserPro
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	private IParser columnLabel_1605012Parser;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	private IParser getColumnLabel_1605012Parser() {
 		if (columnLabel_1605012Parser == null) {
-			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE.getColumn_Label() };
+			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE
+					.getColumn_Label() };
 			MessageFormatParser parser = new MessageFormatParser(features);
 			columnLabel_1605012Parser = parser;
 		}
@@ -133,16 +139,17 @@ public class DomainParserProvider extends AbstractProvider implements IParserPro
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	private IParser treeLabel_1605005Parser;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	private IParser getTreeLabel_1605005Parser() {
 		if (treeLabel_1605005Parser == null) {
-			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE.getTree_Label() };
+			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE
+					.getTree_Label() };
 			MessageFormatParser parser = new MessageFormatParser(features);
 			treeLabel_1605005Parser = parser;
 		}
@@ -150,16 +157,17 @@ public class DomainParserProvider extends AbstractProvider implements IParserPro
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	private IParser labelLabel_1605001Parser;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	private IParser getLabelLabel_1605001Parser() {
 		if (labelLabel_1605001Parser == null) {
-			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE.getLabel_Label() };
+			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE
+					.getLabel_Label() };
 			MessageFormatParser parser = new MessageFormatParser(features);
 			labelLabel_1605001Parser = parser;
 		}
@@ -167,16 +175,17 @@ public class DomainParserProvider extends AbstractProvider implements IParserPro
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	private IParser buttonLabel_1605006Parser;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	private IParser getButtonLabel_1605006Parser() {
 		if (buttonLabel_1605006Parser == null) {
-			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE.getButton_Label() };
+			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE
+					.getButton_Label() };
 			MessageFormatParser parser = new MessageFormatParser(features);
 			buttonLabel_1605006Parser = parser;
 		}
@@ -184,16 +193,17 @@ public class DomainParserProvider extends AbstractProvider implements IParserPro
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	private IParser labelLabel_1605002Parser;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	private IParser getLabelLabel_1605002Parser() {
 		if (labelLabel_1605002Parser == null) {
-			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE.getLabel_Label() };
+			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE
+					.getLabel_Label() };
 			MessageFormatParser parser = new MessageFormatParser(features);
 			labelLabel_1605002Parser = parser;
 		}
@@ -201,16 +211,17 @@ public class DomainParserProvider extends AbstractProvider implements IParserPro
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	private IParser buttonLabel_1605009Parser;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	private IParser getButtonLabel_1605009Parser() {
 		if (buttonLabel_1605009Parser == null) {
-			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE.getButton_Label() };
+			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE
+					.getButton_Label() };
 			MessageFormatParser parser = new MessageFormatParser(features);
 			buttonLabel_1605009Parser = parser;
 		}
@@ -218,8 +229,8 @@ public class DomainParserProvider extends AbstractProvider implements IParserPro
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	protected IParser getParser(int visualID) {
 		switch (visualID) {
 		case TableLabelEditPart.VISUAL_ID:
@@ -247,16 +258,18 @@ public class DomainParserProvider extends AbstractProvider implements IParserPro
 	}
 
 	/**
-	* Utility method that consults ParserService
-	* @generated
-	*/
-	public static IParser getParser(IElementType type, EObject object, String parserHint) {
-		return ParserService.getInstance().getParser(new HintAdapter(type, object, parserHint));
+	 * Utility method that consults ParserService
+	 * @generated
+	 */
+	public static IParser getParser(IElementType type, EObject object,
+			String parserHint) {
+		return ParserService.getInstance().getParser(
+				new HintAdapter(type, object, parserHint));
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public IParser getParser(IAdaptable hint) {
 		String vid = (String) hint.getAdapter(String.class);
 		if (vid != null) {
@@ -270,8 +283,8 @@ public class DomainParserProvider extends AbstractProvider implements IParserPro
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public boolean provides(IOperation operation) {
 		if (operation instanceof GetParserOperation) {
 			IAdaptable hint = ((GetParserOperation) operation).getHint();
@@ -284,18 +297,18 @@ public class DomainParserProvider extends AbstractProvider implements IParserPro
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	private static class HintAdapter extends ParserHintAdapter {
 
 		/**
-		* @generated
-		*/
+		 * @generated
+		 */
 		private final IElementType elementType;
 
 		/**
-		* @generated
-		*/
+		 * @generated
+		 */
 		public HintAdapter(IElementType type, EObject object, String parserHint) {
 			super(object, parserHint);
 			assert type != null;
@@ -303,8 +316,8 @@ public class DomainParserProvider extends AbstractProvider implements IParserPro
 		}
 
 		/**
-		* @generated
-		*/
+		 * @generated
+		 */
 		public Object getAdapter(Class adapter) {
 			if (IElementType.class.equals(adapter)) {
 				return elementType;

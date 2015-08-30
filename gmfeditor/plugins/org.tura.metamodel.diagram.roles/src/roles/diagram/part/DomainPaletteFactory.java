@@ -33,19 +33,20 @@ import roles.diagram.providers.DomainElementTypes;
 public class DomainPaletteFactory {
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public void fillPalette(PaletteRoot paletteRoot) {
 		paletteRoot.add(createObjects1Group());
 		paletteRoot.add(createConnections2Group());
 	}
 
 	/**
-	* Creates "Objects" palette tool group
-	* @generated
-	*/
+	 * Creates "Objects" palette tool group
+	 * @generated
+	 */
 	private PaletteContainer createObjects1Group() {
-		PaletteDrawer paletteContainer = new PaletteDrawer(Messages.Objects1Group_title);
+		PaletteDrawer paletteContainer = new PaletteDrawer(
+				Messages.Objects1Group_title);
 		paletteContainer.setId("createObjects1Group"); //$NON-NLS-1$
 		paletteContainer.add(createGroup1CreationTool());
 		paletteContainer.add(createRole2CreationTool());
@@ -53,11 +54,12 @@ public class DomainPaletteFactory {
 	}
 
 	/**
-	* Creates "Connections" palette tool group
-	* @generated
-	*/
+	 * Creates "Connections" palette tool group
+	 * @generated
+	 */
 	private PaletteContainer createConnections2Group() {
-		PaletteDrawer paletteContainer = new PaletteDrawer(Messages.Connections2Group_title);
+		PaletteDrawer paletteContainer = new PaletteDrawer(
+				Messages.Connections2Group_title);
 		paletteContainer.setId("createConnections2Group"); //$NON-NLS-1$
 		paletteContainer.add(createGroup2Group1CreationTool());
 		paletteContainer.add(createGroup2Role2CreationTool());
@@ -65,52 +67,63 @@ public class DomainPaletteFactory {
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	private ToolEntry createGroup1CreationTool() {
-		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(Messages.Group1CreationTool_title,
-				Messages.Group1CreationTool_desc, Collections.singletonList(DomainElementTypes.Group_1402002));
+		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(
+				Messages.Group1CreationTool_title,
+				Messages.Group1CreationTool_desc,
+				Collections.singletonList(DomainElementTypes.Group_1402002));
 		entry.setId("createGroup1CreationTool"); //$NON-NLS-1$
-		entry.setSmallIcon(
-				DomainDiagramEditorPlugin.findImageDescriptor("/org.tura.metamodel.commons/icons/group.png")); //$NON-NLS-1$
+		entry.setSmallIcon(DomainDiagramEditorPlugin
+				.findImageDescriptor("/org.tura.metamodel.commons/icons/group.png")); //$NON-NLS-1$
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	private ToolEntry createRole2CreationTool() {
-		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(Messages.Role2CreationTool_title,
-				Messages.Role2CreationTool_desc, Collections.singletonList(DomainElementTypes.Role_1402001));
+		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(
+				Messages.Role2CreationTool_title,
+				Messages.Role2CreationTool_desc,
+				Collections.singletonList(DomainElementTypes.Role_1402001));
 		entry.setId("createRole2CreationTool"); //$NON-NLS-1$
-		entry.setSmallIcon(DomainDiagramEditorPlugin.findImageDescriptor("/org.tura.metamodel.commons/icons/role.png")); //$NON-NLS-1$
+		entry.setSmallIcon(DomainDiagramEditorPlugin
+				.findImageDescriptor("/org.tura.metamodel.commons/icons/role.png")); //$NON-NLS-1$
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	private ToolEntry createGroup2Group1CreationTool() {
-		DefaultLinkToolEntry entry = new DefaultLinkToolEntry(Messages.Group2Group1CreationTool_title,
+		DefaultLinkToolEntry entry = new DefaultLinkToolEntry(
+				Messages.Group2Group1CreationTool_title,
 				Messages.Group2Group1CreationTool_desc,
-				Collections.singletonList(DomainElementTypes.GroupGroup2Group_1404003));
+				Collections
+						.singletonList(DomainElementTypes.GroupGroup2Group_1404003));
 		entry.setId("createGroup2Group1CreationTool"); //$NON-NLS-1$
-		entry.setSmallIcon(DomainElementTypes.getImageDescriptor(DomainElementTypes.GroupGroup2Group_1404003));
+		entry.setSmallIcon(DomainElementTypes
+				.getImageDescriptor(DomainElementTypes.GroupGroup2Group_1404003));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	private ToolEntry createGroup2Role2CreationTool() {
-		DefaultLinkToolEntry entry = new DefaultLinkToolEntry(Messages.Group2Role2CreationTool_title,
+		DefaultLinkToolEntry entry = new DefaultLinkToolEntry(
+				Messages.Group2Role2CreationTool_title,
 				Messages.Group2Role2CreationTool_desc,
-				Collections.singletonList(DomainElementTypes.GroupGroup2Role_1404005));
+				Collections
+						.singletonList(DomainElementTypes.GroupGroup2Role_1404005));
 		entry.setId("createGroup2Role2CreationTool"); //$NON-NLS-1$
-		entry.setSmallIcon(DomainElementTypes.getImageDescriptor(DomainElementTypes.GroupGroup2Role_1404005));
+		entry.setSmallIcon(DomainElementTypes
+				.getImageDescriptor(DomainElementTypes.GroupGroup2Role_1404005));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}

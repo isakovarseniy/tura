@@ -27,13 +27,13 @@ import infarastructure.diagram.providers.DomainModelingAssistantProvider;
 /**
  * @generated
  */
-public class DomainModelingAssistantProviderOfEnterpriseInfrastructureEditPart extends DomainModelingAssistantProvider {
+public class DomainModelingAssistantProviderOfEnterpriseInfrastructureEditPart
+		extends DomainModelingAssistantProvider {
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	@Override
-
 	public List<IElementType> getTypesForPopupBar(IAdaptable host) {
 		List<IElementType> types = new ArrayList<IElementType>(1);
 		types.add(DomainElementTypes.Datacenter_1202002);

@@ -33,19 +33,20 @@ import typedefinition.diagram.providers.DomainElementTypes;
 public class DomainPaletteFactory {
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public void fillPalette(PaletteRoot paletteRoot) {
 		paletteRoot.add(createObjects1Group());
 		paletteRoot.add(createConnections2Group());
 	}
 
 	/**
-	* Creates "Objects" palette tool group
-	* @generated
-	*/
+	 * Creates "Objects" palette tool group
+	 * @generated
+	 */
 	private PaletteContainer createObjects1Group() {
-		PaletteDrawer paletteContainer = new PaletteDrawer(Messages.Objects1Group_title);
+		PaletteDrawer paletteContainer = new PaletteDrawer(
+				Messages.Objects1Group_title);
 		paletteContainer.setId("createObjects1Group"); //$NON-NLS-1$
 		paletteContainer.add(createAttribute1CreationTool());
 		paletteContainer.add(createEnumAttribute2CreationTool());
@@ -58,111 +59,136 @@ public class DomainPaletteFactory {
 	}
 
 	/**
-	* Creates "Connections" palette tool group
-	* @generated
-	*/
+	 * Creates "Connections" palette tool group
+	 * @generated
+	 */
 	private PaletteContainer createConnections2Group() {
-		PaletteDrawer paletteContainer = new PaletteDrawer(Messages.Connections2Group_title);
+		PaletteDrawer paletteContainer = new PaletteDrawer(
+				Messages.Connections2Group_title);
 		paletteContainer.setId("createConnections2Group"); //$NON-NLS-1$
 		paletteContainer.add(createTypeExtension1CreationTool());
 		return paletteContainer;
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	private ToolEntry createAttribute1CreationTool() {
-		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(Messages.Attribute1CreationTool_title,
-				Messages.Attribute1CreationTool_desc, Collections.singletonList(DomainElementTypes.Attribute_103001));
+		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(
+				Messages.Attribute1CreationTool_title,
+				Messages.Attribute1CreationTool_desc,
+				Collections.singletonList(DomainElementTypes.Attribute_103001));
 		entry.setId("createAttribute1CreationTool"); //$NON-NLS-1$
-		entry.setSmallIcon(DomainElementTypes.getImageDescriptor(DomainElementTypes.Attribute_103001));
+		entry.setSmallIcon(DomainElementTypes
+				.getImageDescriptor(DomainElementTypes.Attribute_103001));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	private ToolEntry createEnumAttribute2CreationTool() {
-		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(Messages.EnumAttribute2CreationTool_title,
+		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(
+				Messages.EnumAttribute2CreationTool_title,
 				Messages.EnumAttribute2CreationTool_desc,
-				Collections.singletonList(DomainElementTypes.EnumAttribute_103005));
+				Collections
+						.singletonList(DomainElementTypes.EnumAttribute_103005));
 		entry.setId("createEnumAttribute2CreationTool"); //$NON-NLS-1$
-		entry.setSmallIcon(DomainElementTypes.getImageDescriptor(DomainElementTypes.EnumAttribute_103005));
+		entry.setSmallIcon(DomainElementTypes
+				.getImageDescriptor(DomainElementTypes.EnumAttribute_103005));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	private ToolEntry createEnumarator3CreationTool() {
-		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(Messages.Enumarator3CreationTool_title,
-				Messages.Enumarator3CreationTool_desc, Collections.singletonList(DomainElementTypes.Enumarator_102005));
+		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(
+				Messages.Enumarator3CreationTool_title,
+				Messages.Enumarator3CreationTool_desc,
+				Collections.singletonList(DomainElementTypes.Enumarator_102005));
 		entry.setId("createEnumarator3CreationTool"); //$NON-NLS-1$
-		entry.setSmallIcon(DomainElementTypes.getImageDescriptor(DomainElementTypes.Enumarator_102005));
+		entry.setSmallIcon(DomainElementTypes
+				.getImageDescriptor(DomainElementTypes.Enumarator_102005));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	private ToolEntry createOperation4CreationTool() {
-		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(Messages.Operation4CreationTool_title,
-				Messages.Operation4CreationTool_desc, Collections.singletonList(DomainElementTypes.Operation_103002));
+		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(
+				Messages.Operation4CreationTool_title,
+				Messages.Operation4CreationTool_desc,
+				Collections.singletonList(DomainElementTypes.Operation_103002));
 		entry.setId("createOperation4CreationTool"); //$NON-NLS-1$
-		entry.setSmallIcon(DomainElementTypes.getImageDescriptor(DomainElementTypes.Operation_103002));
+		entry.setSmallIcon(DomainElementTypes
+				.getImageDescriptor(DomainElementTypes.Operation_103002));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	private ToolEntry createPrimitive5CreationTool() {
-		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(Messages.Primitive5CreationTool_title,
-				Messages.Primitive5CreationTool_desc, Collections.singletonList(DomainElementTypes.Primitive_102004));
+		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(
+				Messages.Primitive5CreationTool_title,
+				Messages.Primitive5CreationTool_desc,
+				Collections.singletonList(DomainElementTypes.Primitive_102004));
 		entry.setId("createPrimitive5CreationTool"); //$NON-NLS-1$
-		entry.setSmallIcon(DomainElementTypes.getImageDescriptor(DomainElementTypes.Primitive_102004));
+		entry.setSmallIcon(DomainElementTypes
+				.getImageDescriptor(DomainElementTypes.Primitive_102004));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	private ToolEntry createType6CreationTool() {
-		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(Messages.Type6CreationTool_title,
-				Messages.Type6CreationTool_desc, Collections.singletonList(DomainElementTypes.Type_102002));
+		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(
+				Messages.Type6CreationTool_title,
+				Messages.Type6CreationTool_desc,
+				Collections.singletonList(DomainElementTypes.Type_102002));
 		entry.setId("createType6CreationTool"); //$NON-NLS-1$
-		entry.setSmallIcon(DomainElementTypes.getImageDescriptor(DomainElementTypes.Type_102002));
+		entry.setSmallIcon(DomainElementTypes
+				.getImageDescriptor(DomainElementTypes.Type_102002));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	private ToolEntry createTypeReference7CreationTool() {
-		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(Messages.TypeReference7CreationTool_title,
+		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(
+				Messages.TypeReference7CreationTool_title,
 				Messages.TypeReference7CreationTool_desc,
-				Collections.singletonList(DomainElementTypes.TypeReference_102001));
+				Collections
+						.singletonList(DomainElementTypes.TypeReference_102001));
 		entry.setId("createTypeReference7CreationTool"); //$NON-NLS-1$
-		entry.setSmallIcon(DomainElementTypes.getImageDescriptor(DomainElementTypes.TypeReference_102001));
+		entry.setSmallIcon(DomainElementTypes
+				.getImageDescriptor(DomainElementTypes.TypeReference_102001));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	private ToolEntry createTypeExtension1CreationTool() {
-		DefaultLinkToolEntry entry = new DefaultLinkToolEntry(Messages.TypeExtension1CreationTool_title,
+		DefaultLinkToolEntry entry = new DefaultLinkToolEntry(
+				Messages.TypeExtension1CreationTool_title,
 				Messages.TypeExtension1CreationTool_desc,
-				Collections.singletonList(DomainElementTypes.TypeExtension_104001));
+				Collections
+						.singletonList(DomainElementTypes.TypeExtension_104001));
 		entry.setId("createTypeExtension1CreationTool"); //$NON-NLS-1$
-		entry.setSmallIcon(DomainElementTypes.getImageDescriptor(DomainElementTypes.TypeExtension_104001));
+		entry.setSmallIcon(DomainElementTypes
+				.getImageDescriptor(DomainElementTypes.TypeExtension_104001));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}

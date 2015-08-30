@@ -32,12 +32,12 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  *   <li>{@link domain.impl.DeploymentStarStepImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.impl.DeploymentStarStepImpl#getName <em>Name</em>}</li>
  *   <li>{@link domain.impl.DeploymentStarStepImpl#getFirstStep <em>First Step</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */

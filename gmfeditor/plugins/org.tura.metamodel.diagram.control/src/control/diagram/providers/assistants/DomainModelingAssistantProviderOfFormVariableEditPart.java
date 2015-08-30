@@ -20,6 +20,7 @@ import control.diagram.providers.DomainModelingAssistantProvider;
 /**
  * @generated
  */
-public class DomainModelingAssistantProviderOfFormVariableEditPart extends DomainModelingAssistantProvider {
+public class DomainModelingAssistantProviderOfFormVariableEditPart extends
+		DomainModelingAssistantProvider {
 
 }

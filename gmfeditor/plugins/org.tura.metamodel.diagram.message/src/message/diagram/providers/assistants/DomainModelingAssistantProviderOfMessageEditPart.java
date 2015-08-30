@@ -20,6 +20,7 @@ import message.diagram.providers.DomainModelingAssistantProvider;
 /**
  * @generated
  */
-public class DomainModelingAssistantProviderOfMessageEditPart extends DomainModelingAssistantProvider {
+public class DomainModelingAssistantProviderOfMessageEditPart extends
+		DomainModelingAssistantProvider {
 
 }

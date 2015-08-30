@@ -41,13 +41,13 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  *   <li>{@link domain.impl.ApplicationRecipesImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.impl.ApplicationRecipesImpl#getName <em>Name</em>}</li>
  *   <li>{@link domain.impl.ApplicationRecipesImpl#getParent <em>Parent</em>}</li>
  *   <li>{@link domain.impl.ApplicationRecipesImpl#getRecipes <em>Recipes</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */

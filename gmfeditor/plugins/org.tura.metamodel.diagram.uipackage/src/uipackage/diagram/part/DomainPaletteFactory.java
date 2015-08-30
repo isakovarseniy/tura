@@ -32,18 +32,19 @@ import uipackage.diagram.providers.DomainElementTypes;
 public class DomainPaletteFactory {
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public void fillPalette(PaletteRoot paletteRoot) {
 		paletteRoot.add(createObjects1Group());
 	}
 
 	/**
-	* Creates "Objects" palette tool group
-	* @generated
-	*/
+	 * Creates "Objects" palette tool group
+	 * @generated
+	 */
 	private PaletteContainer createObjects1Group() {
-		PaletteDrawer paletteContainer = new PaletteDrawer(Messages.Objects1Group_title);
+		PaletteDrawer paletteContainer = new PaletteDrawer(
+				Messages.Objects1Group_title);
 		paletteContainer.setId("createObjects1Group"); //$NON-NLS-1$
 		paletteContainer.add(createForm1CreationTool());
 		paletteContainer.add(createFormDataControls2CreationTool());
@@ -53,51 +54,63 @@ public class DomainPaletteFactory {
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	private ToolEntry createForm1CreationTool() {
-		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(Messages.Form1CreationTool_title,
-				Messages.Form1CreationTool_desc, Collections.singletonList(DomainElementTypes.Form_1002002));
+		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(
+				Messages.Form1CreationTool_title,
+				Messages.Form1CreationTool_desc,
+				Collections.singletonList(DomainElementTypes.Form_1002002));
 		entry.setId("createForm1CreationTool"); //$NON-NLS-1$
-		entry.setSmallIcon(DomainElementTypes.getImageDescriptor(DomainElementTypes.Form_1002002));
+		entry.setSmallIcon(DomainElementTypes
+				.getImageDescriptor(DomainElementTypes.Form_1002002));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	private ToolEntry createFormDataControls2CreationTool() {
-		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(Messages.FormDataControls2CreationTool_title,
+		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(
+				Messages.FormDataControls2CreationTool_title,
 				Messages.FormDataControls2CreationTool_desc,
-				Collections.singletonList(DomainElementTypes.FormDataControls_1003002));
+				Collections
+						.singletonList(DomainElementTypes.FormDataControls_1003002));
 		entry.setId("createFormDataControls2CreationTool"); //$NON-NLS-1$
-		entry.setSmallIcon(DomainElementTypes.getImageDescriptor(DomainElementTypes.FormDataControls_1003002));
+		entry.setSmallIcon(DomainElementTypes
+				.getImageDescriptor(DomainElementTypes.FormDataControls_1003002));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	private ToolEntry createFormParameter3CreationTool() {
-		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(Messages.FormParameter3CreationTool_title,
+		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(
+				Messages.FormParameter3CreationTool_title,
 				Messages.FormParameter3CreationTool_desc,
-				Collections.singletonList(DomainElementTypes.FormParameter_1003003));
+				Collections
+						.singletonList(DomainElementTypes.FormParameter_1003003));
 		entry.setId("createFormParameter3CreationTool"); //$NON-NLS-1$
-		entry.setSmallIcon(DomainElementTypes.getImageDescriptor(DomainElementTypes.FormParameter_1003003));
+		entry.setSmallIcon(DomainElementTypes
+				.getImageDescriptor(DomainElementTypes.FormParameter_1003003));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	private ToolEntry createFormView4CreationTool() {
-		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(Messages.FormView4CreationTool_title,
-				Messages.FormView4CreationTool_desc, Collections.singletonList(DomainElementTypes.FormView_1003001));
+		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(
+				Messages.FormView4CreationTool_title,
+				Messages.FormView4CreationTool_desc,
+				Collections.singletonList(DomainElementTypes.FormView_1003001));
 		entry.setId("createFormView4CreationTool"); //$NON-NLS-1$
-		entry.setSmallIcon(DomainElementTypes.getImageDescriptor(DomainElementTypes.FormView_1003001));
+		entry.setSmallIcon(DomainElementTypes
+				.getImageDescriptor(DomainElementTypes.FormView_1003001));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}

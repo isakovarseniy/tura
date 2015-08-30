@@ -21,6 +21,12 @@
       <genEnumLiterals ecoreEnumLiteral="domain.ecore#//Order/ASC"/>
       <genEnumLiterals ecoreEnumLiteral="domain.ecore#//Order/DESC"/>
     </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="domain.ecore#//Orientation">
+      <genEnumLiterals ecoreEnumLiteral="domain.ecore#//Orientation/Top"/>
+      <genEnumLiterals ecoreEnumLiteral="domain.ecore#//Orientation/Bottom"/>
+      <genEnumLiterals ecoreEnumLiteral="domain.ecore#//Orientation/Left"/>
+      <genEnumLiterals ecoreEnumLiteral="domain.ecore#//Orientation/Right"/>
+    </genEnums>
     <genClasses ecoreClass="domain.ecore#//Domain">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//Domain/uid"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//Domain/domainArtifacts"/>
@@ -543,7 +549,9 @@
     </genClasses>
     <genClasses ecoreClass="domain.ecore#//Canvas"/>
     <genClasses ecoreClass="domain.ecore#//Window"/>
-    <genClasses ecoreClass="domain.ecore#//TabCanvas"/>
+    <genClasses ecoreClass="domain.ecore#//TabCanvas">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//TabCanvas/orientation"/>
+    </genClasses>
     <genClasses ecoreClass="domain.ecore#//TabPage"/>
     <genClasses ecoreClass="domain.ecore#//ViewPort">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//ViewPort/uid"/>
@@ -655,6 +663,8 @@
     <genClasses ecoreClass="domain.ecore#//CheckBox"/>
     <genClasses ecoreClass="domain.ecore#//DropDownSelection">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//DropDownSelection/selection"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//DropDownSelection/initialOptionMessage"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//DropDownSelection/initialOptionValue"/>
     </genClasses>
     <genClasses ecoreClass="domain.ecore#//Image"/>
     <genClasses ecoreClass="domain.ecore#//Date"/>

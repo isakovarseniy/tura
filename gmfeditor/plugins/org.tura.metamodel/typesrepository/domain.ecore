@@ -1220,12 +1220,19 @@
       <details key="color" value="192,192,192"/>
     </eAnnotations>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="Orientation">
+    <eLiterals name="Top"/>
+    <eLiterals name="Bottom" value="1"/>
+    <eLiterals name="Left" value="2"/>
+    <eLiterals name="Right" value="3"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="TabCanvas" eSuperTypes="#//CanvasFrame #//DefaultCavas #//MultiLangLabel #//Categorized">
     <eAnnotations source="gmf.node">
       <details key="label" value="name"/>
       <details key="border.color" value="0,0,0"/>
       <details key="color" value="192,192,192"/>
     </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="orientation" eType="#//Orientation"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="TabPage" eSuperTypes="#//CanvasFrame #//ViewPortHolder #//MultiLangLabel #//Categorized #//Orderable">
     <eAnnotations source="gmf.node">
@@ -1459,6 +1466,9 @@
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="selection" eType="#//Selection"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="initialOptionMessage" eType="#//Context"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="initialOptionValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Image" eSuperTypes="#//InputElement">
     <eAnnotations source="gmf.node">

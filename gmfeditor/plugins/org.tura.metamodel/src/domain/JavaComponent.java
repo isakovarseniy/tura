@@ -22,13 +22,13 @@ package domain;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  *   <li>{@link domain.JavaComponent#getArtifactId <em>Artifact Id</em>}</li>
  *   <li>{@link domain.JavaComponent#getGroupId <em>Group Id</em>}</li>
  *   <li>{@link domain.JavaComponent#getVersion <em>Version</em>}</li>
  *   <li>{@link domain.JavaComponent#getBasePackage <em>Base Package</em>}</li>
  * </ul>
+ * </p>
  *
  * @see domain.DomainPackage#getJavaComponent()
  * @model annotation="gmf.node label='name' border.color='0,0,0' color='128,128,128'"

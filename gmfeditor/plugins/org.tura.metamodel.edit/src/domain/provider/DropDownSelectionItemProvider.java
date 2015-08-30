@@ -27,7 +27,9 @@ import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
 
+import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
@@ -58,8 +60,31 @@ public class DropDownSelectionItemProvider extends OptionSelectionItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addInitialOptionValuePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Initial Option Value feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addInitialOptionValuePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_DropDownSelection_initialOptionValue_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_DropDownSelection_initialOptionValue_feature", "_UI_DropDownSelection_type"),
+				 DomainPackage.Literals.DROP_DOWN_SELECTION__INITIAL_OPTION_VALUE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
@@ -75,6 +100,7 @@ public class DropDownSelectionItemProvider extends OptionSelectionItemProvider {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(DomainPackage.Literals.DROP_DOWN_SELECTION__SELECTION);
+			childrenFeatures.add(DomainPackage.Literals.DROP_DOWN_SELECTION__INITIAL_OPTION_MESSAGE);
 		}
 		return childrenFeatures;
 	}
@@ -130,7 +156,11 @@ public class DropDownSelectionItemProvider extends OptionSelectionItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(DropDownSelection.class)) {
+			case DomainPackage.DROP_DOWN_SELECTION__INITIAL_OPTION_VALUE:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
 			case DomainPackage.DROP_DOWN_SELECTION__SELECTION:
+			case DomainPackage.DROP_DOWN_SELECTION__INITIAL_OPTION_MESSAGE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -152,6 +182,11 @@ public class DropDownSelectionItemProvider extends OptionSelectionItemProvider {
 			(createChildParameter
 				(DomainPackage.Literals.DROP_DOWN_SELECTION__SELECTION,
 				 DomainFactory.eINSTANCE.createSelection()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.DROP_DOWN_SELECTION__INITIAL_OPTION_MESSAGE,
+				 DomainFactory.eINSTANCE.createContext()));
 	}
 
 	/**
@@ -169,7 +204,8 @@ public class DropDownSelectionItemProvider extends OptionSelectionItemProvider {
 			childFeature == DomainPackage.Literals.STYLE_ELEMENT__STYLE ||
 			childFeature == DomainPackage.Literals.UIELEMENT__ENABLED ||
 			childFeature == DomainPackage.Literals.UIELEMENT__REQUIRED ||
-			childFeature == DomainPackage.Literals.UIELEMENT__READ_ONLY;
+			childFeature == DomainPackage.Literals.UIELEMENT__READ_ONLY ||
+			childFeature == DomainPackage.Literals.DROP_DOWN_SELECTION__INITIAL_OPTION_MESSAGE;
 
 		if (qualify) {
 			return getString

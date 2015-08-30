@@ -11,8 +11,8 @@
  * http://www.eclipse.org/legal/epl-v10.html
  *******************************************************************************/
 /*
-* 
-*/
+ * 
+ */
 package canvas.diagram.edit.policies;
 
 import org.eclipse.emf.ecore.EAnnotation;
@@ -28,21 +28,23 @@ import canvas.diagram.providers.DomainElementTypes;
 /**
  * @generated
  */
-public class ImageItemSemanticEditPolicy extends DomainBaseItemSemanticEditPolicy {
+public class ImageItemSemanticEditPolicy extends
+		DomainBaseItemSemanticEditPolicy {
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public ImageItemSemanticEditPolicy() {
 		super(DomainElementTypes.Image_1603028);
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	protected Command getDestroyElementCommand(DestroyElementRequest req) {
 		View view = (View) getHost().getModel();
-		CompositeTransactionalCommand cmd = new CompositeTransactionalCommand(getEditingDomain(), null);
+		CompositeTransactionalCommand cmd = new CompositeTransactionalCommand(
+				getEditingDomain(), null);
 		cmd.setTransactionNestingEnabled(false);
 		EAnnotation annotation = view.getEAnnotation("Shortcut"); //$NON-NLS-1$
 		if (annotation == null) {

@@ -20,6 +20,7 @@ import canvas.diagram.providers.DomainModelingAssistantProvider;
 /**
  * @generated
  */
-public class DomainModelingAssistantProviderOfOutputText2EditPart extends DomainModelingAssistantProvider {
+public class DomainModelingAssistantProviderOfOutputText2EditPart extends
+		DomainModelingAssistantProvider {
 
 }

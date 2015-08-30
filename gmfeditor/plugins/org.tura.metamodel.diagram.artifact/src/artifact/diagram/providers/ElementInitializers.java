@@ -27,12 +27,14 @@ public class ElementInitializers {
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static ElementInitializers getInstance() {
-		ElementInitializers cached = DomainDiagramEditorPlugin.getInstance().getElementInitializers();
+		ElementInitializers cached = DomainDiagramEditorPlugin.getInstance()
+				.getElementInitializers();
 		if (cached == null) {
-			DomainDiagramEditorPlugin.getInstance().setElementInitializers(cached = new ElementInitializers());
+			DomainDiagramEditorPlugin.getInstance().setElementInitializers(
+					cached = new ElementInitializers());
 		}
 		return cached;
 	}

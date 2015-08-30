@@ -23,13 +23,13 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  *   <li>{@link domain.TypePointer#getPackageRef <em>Package Ref</em>}</li>
  *   <li>{@link domain.TypePointer#getTypeRef <em>Type Ref</em>}</li>
  *   <li>{@link domain.TypePointer#getFakePackageName <em>Fake Package Name</em>}</li>
  *   <li>{@link domain.TypePointer#getFakeTypeName <em>Fake Type Name</em>}</li>
  * </ul>
+ * </p>
  *
  * @see domain.DomainPackage#getTypePointer()
  * @model

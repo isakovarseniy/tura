@@ -11,8 +11,8 @@
  * http://www.eclipse.org/legal/epl-v10.html
  *******************************************************************************/
 /*
-* 
-*/
+ * 
+ */
 package mapper.diagram.edit.policies;
 
 import org.eclipse.emf.ecore.EAnnotation;
@@ -28,21 +28,23 @@ import mapper.diagram.providers.DomainElementTypes;
 /**
  * @generated
  */
-public class JavaMapperItemSemanticEditPolicy extends DomainBaseItemSemanticEditPolicy {
+public class JavaMapperItemSemanticEditPolicy extends
+		DomainBaseItemSemanticEditPolicy {
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public JavaMapperItemSemanticEditPolicy() {
 		super(DomainElementTypes.JavaMapper_402001);
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	protected Command getDestroyElementCommand(DestroyElementRequest req) {
 		View view = (View) getHost().getModel();
-		CompositeTransactionalCommand cmd = new CompositeTransactionalCommand(getEditingDomain(), null);
+		CompositeTransactionalCommand cmd = new CompositeTransactionalCommand(
+				getEditingDomain(), null);
 		cmd.setTransactionNestingEnabled(false);
 		EAnnotation annotation = view.getEAnnotation("Shortcut"); //$NON-NLS-1$
 		if (annotation == null) {

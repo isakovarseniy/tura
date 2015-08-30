@@ -64,195 +64,185 @@ import domain.DomainPackage;
 public class DomainElementTypes {
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	private DomainElementTypes() {
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	private static Map<IElementType, ENamedElement> elements;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	private static DiagramElementTypeImages elementTypeImages = new DiagramElementTypeImages(
-			DomainDiagramEditorPlugin.getInstance().getItemProvidersAdapterFactory());
+			DomainDiagramEditorPlugin.getInstance()
+					.getItemProvidersAdapterFactory());
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	private static Set<IElementType> KNOWN_ELEMENT_TYPES;
 
 	/**
-	* @generated
-	*/
-	public static final IElementType CanvasView_1601000 = getElementType(
-			"org.tura.metamodel.diagram.canvas.CanvasView_1601000"); //$NON-NLS-1$
+	 * @generated
+	 */
+	public static final IElementType CanvasView_1601000 = getElementType("org.tura.metamodel.diagram.canvas.CanvasView_1601000"); //$NON-NLS-1$
 	/**
-	* @generated
-	*/
-	public static final IElementType LayerHolder_1602003 = getElementType(
-			"org.tura.metamodel.diagram.canvas.LayerHolder_1602003"); //$NON-NLS-1$
+	 * @generated
+	 */
+	public static final IElementType LayerHolder_1602003 = getElementType("org.tura.metamodel.diagram.canvas.LayerHolder_1602003"); //$NON-NLS-1$
 	/**
-	* @generated
-	*/
-	public static final IElementType InputText_1603004 = getElementType(
-			"org.tura.metamodel.diagram.canvas.InputText_1603004"); //$NON-NLS-1$
+	 * @generated
+	 */
+	public static final IElementType InputText_1603004 = getElementType("org.tura.metamodel.diagram.canvas.InputText_1603004"); //$NON-NLS-1$
 	/**
-	* @generated
-	*/
-	public static final IElementType OutputText_1603006 = getElementType(
-			"org.tura.metamodel.diagram.canvas.OutputText_1603006"); //$NON-NLS-1$
+	 * @generated
+	 */
+	public static final IElementType OutputText_1603006 = getElementType("org.tura.metamodel.diagram.canvas.OutputText_1603006"); //$NON-NLS-1$
 	/**
-	* @generated
-	*/
-	public static final IElementType DropDownSelection_1603002 = getElementType(
-			"org.tura.metamodel.diagram.canvas.DropDownSelection_1603002"); //$NON-NLS-1$
+	 * @generated
+	 */
+	public static final IElementType DropDownSelection_1603002 = getElementType("org.tura.metamodel.diagram.canvas.DropDownSelection_1603002"); //$NON-NLS-1$
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static final IElementType Date_1603029 = getElementType("org.tura.metamodel.diagram.canvas.Date_1603029"); //$NON-NLS-1$
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static final IElementType Table_1603008 = getElementType("org.tura.metamodel.diagram.canvas.Table_1603008"); //$NON-NLS-1$
 	/**
-	* @generated
-	*/
-	public static final IElementType Column_1603024 = getElementType(
-			"org.tura.metamodel.diagram.canvas.Column_1603024"); //$NON-NLS-1$
+	 * @generated
+	 */
+	public static final IElementType Column_1603024 = getElementType("org.tura.metamodel.diagram.canvas.Column_1603024"); //$NON-NLS-1$
 	/**
-	* @generated
-	*/
-	public static final IElementType InputText_1603012 = getElementType(
-			"org.tura.metamodel.diagram.canvas.InputText_1603012"); //$NON-NLS-1$
+	 * @generated
+	 */
+	public static final IElementType InputText_1603012 = getElementType("org.tura.metamodel.diagram.canvas.InputText_1603012"); //$NON-NLS-1$
 	/**
-	* @generated
-	*/
-	public static final IElementType OutputText_1603014 = getElementType(
-			"org.tura.metamodel.diagram.canvas.OutputText_1603014"); //$NON-NLS-1$
+	 * @generated
+	 */
+	public static final IElementType OutputText_1603014 = getElementType("org.tura.metamodel.diagram.canvas.OutputText_1603014"); //$NON-NLS-1$
 	/**
-	* @generated
-	*/
-	public static final IElementType DropDownSelection_1603010 = getElementType(
-			"org.tura.metamodel.diagram.canvas.DropDownSelection_1603010"); //$NON-NLS-1$
+	 * @generated
+	 */
+	public static final IElementType DropDownSelection_1603010 = getElementType("org.tura.metamodel.diagram.canvas.DropDownSelection_1603010"); //$NON-NLS-1$
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static final IElementType Date_1603031 = getElementType("org.tura.metamodel.diagram.canvas.Date_1603031"); //$NON-NLS-1$
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static final IElementType Table_1603021 = getElementType("org.tura.metamodel.diagram.canvas.Table_1603021"); //$NON-NLS-1$
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static final IElementType Tree_1603022 = getElementType("org.tura.metamodel.diagram.canvas.Tree_1603022"); //$NON-NLS-1$
 	/**
-	* @generated
-	*/
-	public static final IElementType Column_1603026 = getElementType(
-			"org.tura.metamodel.diagram.canvas.Column_1603026"); //$NON-NLS-1$
+	 * @generated
+	 */
+	public static final IElementType Column_1603026 = getElementType("org.tura.metamodel.diagram.canvas.Column_1603026"); //$NON-NLS-1$
 	/**
-	* @generated
-	*/
-	public static final IElementType LayerHolder_1603020 = getElementType(
-			"org.tura.metamodel.diagram.canvas.LayerHolder_1603020"); //$NON-NLS-1$
+	 * @generated
+	 */
+	public static final IElementType LayerHolder_1603020 = getElementType("org.tura.metamodel.diagram.canvas.LayerHolder_1603020"); //$NON-NLS-1$
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static final IElementType Tree_1603016 = getElementType("org.tura.metamodel.diagram.canvas.Tree_1603016"); //$NON-NLS-1$
 	/**
-	* @generated
-	*/
-	public static final IElementType LayerHolder_1603019 = getElementType(
-			"org.tura.metamodel.diagram.canvas.LayerHolder_1603019"); //$NON-NLS-1$
+	 * @generated
+	 */
+	public static final IElementType LayerHolder_1603019 = getElementType("org.tura.metamodel.diagram.canvas.LayerHolder_1603019"); //$NON-NLS-1$
 	/**
-	* @generated
-	*/
-	public static final IElementType CheckBox_1603007 = getElementType(
-			"org.tura.metamodel.diagram.canvas.CheckBox_1603007"); //$NON-NLS-1$
+	 * @generated
+	 */
+	public static final IElementType CheckBox_1603007 = getElementType("org.tura.metamodel.diagram.canvas.CheckBox_1603007"); //$NON-NLS-1$
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static final IElementType Image_1603028 = getElementType("org.tura.metamodel.diagram.canvas.Image_1603028"); //$NON-NLS-1$
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static final IElementType Label_1603005 = getElementType("org.tura.metamodel.diagram.canvas.Label_1603005"); //$NON-NLS-1$
 	/**
-	* @generated
-	*/
-	public static final IElementType Button_1603017 = getElementType(
-			"org.tura.metamodel.diagram.canvas.Button_1603017"); //$NON-NLS-1$
+	 * @generated
+	 */
+	public static final IElementType Button_1603017 = getElementType("org.tura.metamodel.diagram.canvas.Button_1603017"); //$NON-NLS-1$
 	/**
-	* @generated
-	*/
-	public static final IElementType CheckBox_1603015 = getElementType(
-			"org.tura.metamodel.diagram.canvas.CheckBox_1603015"); //$NON-NLS-1$
+	 * @generated
+	 */
+	public static final IElementType CheckBox_1603015 = getElementType("org.tura.metamodel.diagram.canvas.CheckBox_1603015"); //$NON-NLS-1$
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static final IElementType Image_1603030 = getElementType("org.tura.metamodel.diagram.canvas.Image_1603030"); //$NON-NLS-1$
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static final IElementType Label_1603013 = getElementType("org.tura.metamodel.diagram.canvas.Label_1603013"); //$NON-NLS-1$
 	/**
-	* @generated
-	*/
-	public static final IElementType Button_1603023 = getElementType(
-			"org.tura.metamodel.diagram.canvas.Button_1603023"); //$NON-NLS-1$
+	 * @generated
+	 */
+	public static final IElementType Button_1603023 = getElementType("org.tura.metamodel.diagram.canvas.Button_1603023"); //$NON-NLS-1$
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static ImageDescriptor getImageDescriptor(ENamedElement element) {
 		return elementTypeImages.getImageDescriptor(element);
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static Image getImage(ENamedElement element) {
 		return elementTypeImages.getImage(element);
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static ImageDescriptor getImageDescriptor(IAdaptable hint) {
 		return getImageDescriptor(getElement(hint));
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static Image getImage(IAdaptable hint) {
 		return getImage(getElement(hint));
 	}
 
 	/**
-	* Returns 'type' of the ecore object associated with the hint.
-	* 
-	* @generated
-	*/
+	 * Returns 'type' of the ecore object associated with the hint.
+	 * 
+	 * @generated
+	 */
 	public static ENamedElement getElement(IAdaptable hint) {
 		Object type = hint.getAdapter(IElementType.class);
 		if (elements == null) {
 			elements = new IdentityHashMap<IElementType, ENamedElement>();
 
-			elements.put(CanvasView_1601000, DomainPackage.eINSTANCE.getCanvasView());
+			elements.put(CanvasView_1601000,
+					DomainPackage.eINSTANCE.getCanvasView());
 
-			elements.put(LayerHolder_1602003, DomainPackage.eINSTANCE.getLayerHolder());
+			elements.put(LayerHolder_1602003,
+					DomainPackage.eINSTANCE.getLayerHolder());
 
-			elements.put(InputText_1603004, DomainPackage.eINSTANCE.getInputText());
+			elements.put(InputText_1603004,
+					DomainPackage.eINSTANCE.getInputText());
 
-			elements.put(OutputText_1603006, DomainPackage.eINSTANCE.getOutputText());
+			elements.put(OutputText_1603006,
+					DomainPackage.eINSTANCE.getOutputText());
 
-			elements.put(DropDownSelection_1603002, DomainPackage.eINSTANCE.getDropDownSelection());
+			elements.put(DropDownSelection_1603002,
+					DomainPackage.eINSTANCE.getDropDownSelection());
 
 			elements.put(Date_1603029, DomainPackage.eINSTANCE.getDate());
 
@@ -260,11 +250,14 @@ public class DomainElementTypes {
 
 			elements.put(Column_1603024, DomainPackage.eINSTANCE.getColumn());
 
-			elements.put(InputText_1603012, DomainPackage.eINSTANCE.getInputText());
+			elements.put(InputText_1603012,
+					DomainPackage.eINSTANCE.getInputText());
 
-			elements.put(OutputText_1603014, DomainPackage.eINSTANCE.getOutputText());
+			elements.put(OutputText_1603014,
+					DomainPackage.eINSTANCE.getOutputText());
 
-			elements.put(DropDownSelection_1603010, DomainPackage.eINSTANCE.getDropDownSelection());
+			elements.put(DropDownSelection_1603010,
+					DomainPackage.eINSTANCE.getDropDownSelection());
 
 			elements.put(Date_1603031, DomainPackage.eINSTANCE.getDate());
 
@@ -274,13 +267,16 @@ public class DomainElementTypes {
 
 			elements.put(Column_1603026, DomainPackage.eINSTANCE.getColumn());
 
-			elements.put(LayerHolder_1603020, DomainPackage.eINSTANCE.getLayerHolder());
+			elements.put(LayerHolder_1603020,
+					DomainPackage.eINSTANCE.getLayerHolder());
 
 			elements.put(Tree_1603016, DomainPackage.eINSTANCE.getTree());
 
-			elements.put(LayerHolder_1603019, DomainPackage.eINSTANCE.getLayerHolder());
+			elements.put(LayerHolder_1603019,
+					DomainPackage.eINSTANCE.getLayerHolder());
 
-			elements.put(CheckBox_1603007, DomainPackage.eINSTANCE.getCheckBox());
+			elements.put(CheckBox_1603007,
+					DomainPackage.eINSTANCE.getCheckBox());
 
 			elements.put(Image_1603028, DomainPackage.eINSTANCE.getImage());
 
@@ -288,7 +284,8 @@ public class DomainElementTypes {
 
 			elements.put(Button_1603017, DomainPackage.eINSTANCE.getButton());
 
-			elements.put(CheckBox_1603015, DomainPackage.eINSTANCE.getCheckBox());
+			elements.put(CheckBox_1603015,
+					DomainPackage.eINSTANCE.getCheckBox());
 
 			elements.put(Image_1603030, DomainPackage.eINSTANCE.getImage());
 
@@ -300,15 +297,15 @@ public class DomainElementTypes {
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	private static IElementType getElementType(String id) {
 		return ElementTypeRegistry.getInstance().getType(id);
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static boolean isKnownElementType(IElementType elementType) {
 		if (KNOWN_ELEMENT_TYPES == null) {
 			KNOWN_ELEMENT_TYPES = new HashSet<IElementType>();
@@ -343,8 +340,8 @@ public class DomainElementTypes {
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static IElementType getElementType(int visualID) {
 		switch (visualID) {
 		case CanvasViewEditPart.VISUAL_ID:
@@ -404,35 +401,37 @@ public class DomainElementTypes {
 	}
 
 	/**
-	* @generated
-	*/
-	public static final DiagramElementTypes TYPED_INSTANCE = new DiagramElementTypes(elementTypeImages) {
+	 * @generated
+	 */
+	public static final DiagramElementTypes TYPED_INSTANCE = new DiagramElementTypes(
+			elementTypeImages) {
 
 		/**
-		* @generated
-		*/
+		 * @generated
+		 */
 		@Override
-
 		public boolean isKnownElementType(IElementType elementType) {
-			return canvas.diagram.providers.DomainElementTypes.isKnownElementType(elementType);
+			return canvas.diagram.providers.DomainElementTypes
+					.isKnownElementType(elementType);
 		}
 
 		/**
-		* @generated
-		*/
+		 * @generated
+		 */
 		@Override
-
 		public IElementType getElementTypeForVisualId(int visualID) {
-			return canvas.diagram.providers.DomainElementTypes.getElementType(visualID);
+			return canvas.diagram.providers.DomainElementTypes
+					.getElementType(visualID);
 		}
 
 		/**
-		* @generated
-		*/
+		 * @generated
+		 */
 		@Override
-
-		public ENamedElement getDefiningNamedElement(IAdaptable elementTypeAdapter) {
-			return canvas.diagram.providers.DomainElementTypes.getElement(elementTypeAdapter);
+		public ENamedElement getDefiningNamedElement(
+				IAdaptable elementTypeAdapter) {
+			return canvas.diagram.providers.DomainElementTypes
+					.getElement(elementTypeAdapter);
 		}
 	};
 

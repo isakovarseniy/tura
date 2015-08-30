@@ -30,8 +30,8 @@ import application.diagram.part.DomainVisualIDRegistry;
 public class DomainEditPartFactory implements EditPartFactory {
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public EditPart createEditPart(EditPart context, Object model) {
 		if (model instanceof View) {
 			View view = (View) model;
@@ -107,34 +107,40 @@ public class DomainEditPartFactory implements EditPartFactory {
 				return new StylesPackageNameEditPart(view);
 
 			case ApplicationRecipesApplicationRecipesRecipesCompartmentEditPart.VISUAL_ID:
-				return new ApplicationRecipesApplicationRecipesRecipesCompartmentEditPart(view);
+				return new ApplicationRecipesApplicationRecipesRecipesCompartmentEditPart(
+						view);
 
 			case ApplicationMappersApplicationMappersMappersCompartmentEditPart.VISUAL_ID:
-				return new ApplicationMappersApplicationMappersMappersCompartmentEditPart(view);
+				return new ApplicationMappersApplicationMappersMappersCompartmentEditPart(
+						view);
 
 			case ApplicationUILayerApplicationUILayerApplicationUIPackagesCompartmentEditPart.VISUAL_ID:
-				return new ApplicationUILayerApplicationUILayerApplicationUIPackagesCompartmentEditPart(view);
+				return new ApplicationUILayerApplicationUILayerApplicationUIPackagesCompartmentEditPart(
+						view);
 
 			case ApplicationStyleApplicationStyleStylesPackageCompartmentEditPart.VISUAL_ID:
-				return new ApplicationStyleApplicationStyleStylesPackageCompartmentEditPart(view);
+				return new ApplicationStyleApplicationStyleStylesPackageCompartmentEditPart(
+						view);
 			}
 		}
 		return createUnrecognizedEditPart(context, model);
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	private EditPart createUnrecognizedEditPart(EditPart context, Object model) {
 		// Handle creation of unrecognized child node EditParts here
 		return null;
 	}
 
 	/**
-	* @generated
-	*/
-	public static CellEditorLocator getTextCellEditorLocator(ITextAwareEditPart source) {
-		return CellEditorLocatorAccess.INSTANCE.getTextCellEditorLocator(source);
+	 * @generated
+	 */
+	public static CellEditorLocator getTextCellEditorLocator(
+			ITextAwareEditPart source) {
+		return CellEditorLocatorAccess.INSTANCE
+				.getTextCellEditorLocator(source);
 	}
 
 }

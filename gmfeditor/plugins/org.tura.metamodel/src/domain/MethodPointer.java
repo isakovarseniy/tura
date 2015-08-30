@@ -22,11 +22,11 @@ package domain;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  *   <li>{@link domain.MethodPointer#getMethodRef <em>Method Ref</em>}</li>
  *   <li>{@link domain.MethodPointer#getFakeMethod <em>Fake Method</em>}</li>
  * </ul>
+ * </p>
  *
  * @see domain.DomainPackage#getMethodPointer()
  * @model

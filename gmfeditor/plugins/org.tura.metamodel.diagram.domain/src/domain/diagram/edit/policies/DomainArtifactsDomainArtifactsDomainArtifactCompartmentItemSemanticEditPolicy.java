@@ -11,8 +11,8 @@
  * http://www.eclipse.org/legal/epl-v10.html
  *******************************************************************************/
 /*
-* 
-*/
+ * 
+ */
 package domain.diagram.edit.policies;
 
 import org.eclipse.gef.commands.Command;
@@ -32,15 +32,15 @@ public class DomainArtifactsDomainArtifactsDomainArtifactCompartmentItemSemantic
 		extends DomainBaseItemSemanticEditPolicy {
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public DomainArtifactsDomainArtifactsDomainArtifactCompartmentItemSemanticEditPolicy() {
 		super(DomainElementTypes.DomainArtifacts_502001);
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	protected Command getCreateCommand(CreateElementRequest req) {
 		if (DomainElementTypes.ORMEntity_503003 == req.getElementType()) {
 			return getGEFWrapper(new ORMEntityCreateCommand(req));
@@ -51,7 +51,8 @@ public class DomainArtifactsDomainArtifactsDomainArtifactCompartmentItemSemantic
 		if (DomainElementTypes.EJBService_503005 == req.getElementType()) {
 			return getGEFWrapper(new EJBServiceCreateCommand(req));
 		}
-		if (DomainElementTypes.ContinuousIintegration_503006 == req.getElementType()) {
+		if (DomainElementTypes.ContinuousIintegration_503006 == req
+				.getElementType()) {
 			return getGEFWrapper(new ContinuousIintegrationCreateCommand(req));
 		}
 		if (DomainElementTypes.DomainArtifact_503002 == req.getElementType()) {

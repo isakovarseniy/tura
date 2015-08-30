@@ -22,11 +22,11 @@ package domain;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  *   <li>{@link domain.Button#getLabel <em>Label</em>}</li>
  *   <li>{@link domain.Button#getIcon <em>Icon</em>}</li>
  * </ul>
+ * </p>
  *
  * @see domain.DomainPackage#getButton()
  * @model annotation="gmf.node figure='org.tura.metamodel.commons.figures.ButtonFigure' label='label' label.icon='false' tool.small.bundle='org.tura.metamodel.commons' tool.small.path='icons/button.png'"

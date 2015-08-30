@@ -11,8 +11,8 @@
  * http://www.eclipse.org/legal/epl-v10.html
  *******************************************************************************/
 /*
-* 
-*/
+ * 
+ */
 package canvas.diagram.edit.policies;
 
 import org.eclipse.gef.commands.Command;
@@ -34,18 +34,19 @@ import canvas.diagram.providers.DomainElementTypes;
 /**
  * @generated
  */
-public class LayerHolderLayerHolderChildrenCompartmentItemSemanticEditPolicy extends DomainBaseItemSemanticEditPolicy {
+public class LayerHolderLayerHolderChildrenCompartmentItemSemanticEditPolicy
+		extends DomainBaseItemSemanticEditPolicy {
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public LayerHolderLayerHolderChildrenCompartmentItemSemanticEditPolicy() {
 		super(DomainElementTypes.LayerHolder_1602003);
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	protected Command getCreateCommand(CreateElementRequest req) {
 		if (DomainElementTypes.InputText_1603004 == req.getElementType()) {
 			return getGEFWrapper(new InputTextCreateCommand(req));
@@ -53,7 +54,8 @@ public class LayerHolderLayerHolderChildrenCompartmentItemSemanticEditPolicy ext
 		if (DomainElementTypes.OutputText_1603006 == req.getElementType()) {
 			return getGEFWrapper(new OutputTextCreateCommand(req));
 		}
-		if (DomainElementTypes.DropDownSelection_1603002 == req.getElementType()) {
+		if (DomainElementTypes.DropDownSelection_1603002 == req
+				.getElementType()) {
 			return getGEFWrapper(new DropDownSelectionCreateCommand(req));
 		}
 		if (DomainElementTypes.Date_1603029 == req.getElementType()) {

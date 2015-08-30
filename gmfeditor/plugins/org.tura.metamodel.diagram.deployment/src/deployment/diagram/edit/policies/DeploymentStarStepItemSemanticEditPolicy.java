@@ -11,8 +11,8 @@
  * http://www.eclipse.org/legal/epl-v10.html
  *******************************************************************************/
 /*
-* 
-*/
+ * 
+ */
 package deployment.diagram.edit.policies;
 
 import java.util.Iterator;
@@ -39,26 +39,29 @@ import deployment.diagram.providers.DomainElementTypes;
 /**
  * @generated
  */
-public class DeploymentStarStepItemSemanticEditPolicy extends DomainBaseItemSemanticEditPolicy {
+public class DeploymentStarStepItemSemanticEditPolicy extends
+		DomainBaseItemSemanticEditPolicy {
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public DeploymentStarStepItemSemanticEditPolicy() {
 		super(DomainElementTypes.DeploymentStarStep_902002);
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	protected Command getDestroyElementCommand(DestroyElementRequest req) {
 		View view = (View) getHost().getModel();
-		CompositeTransactionalCommand cmd = new CompositeTransactionalCommand(getEditingDomain(), null);
+		CompositeTransactionalCommand cmd = new CompositeTransactionalCommand(
+				getEditingDomain(), null);
 		cmd.setTransactionNestingEnabled(false);
 		for (Iterator<?> it = view.getSourceEdges().iterator(); it.hasNext();) {
 			Edge outgoingLink = (Edge) it.next();
 			if (DomainVisualIDRegistry.getVisualID(outgoingLink) == DeploymentStarStepFirstStepEditPart.VISUAL_ID) {
-				DestroyReferenceRequest r = new DestroyReferenceRequest(outgoingLink.getSource().getElement(), null,
+				DestroyReferenceRequest r = new DestroyReferenceRequest(
+						outgoingLink.getSource().getElement(), null,
 						outgoingLink.getTarget().getElement(), false);
 				cmd.add(new DestroyReferenceCommand(r));
 				cmd.add(new DeleteCommand(getEditingDomain(), outgoingLink));
@@ -83,15 +86,19 @@ public class DeploymentStarStepItemSemanticEditPolicy extends DomainBaseItemSema
 	protected Command getCreateRelationshipCommand(CreateRelationshipRequest req) {
 		Command command = req.getTarget() == null ? getStartCreateRelationshipCommand(req)
 				: getCompleteCreateRelationshipCommand(req);
-		return command != null ? command : super.getCreateRelationshipCommand(req);
+		return command != null ? command : super
+				.getCreateRelationshipCommand(req);
 	}
 
 	/**
 	 * @generated
 	 */
-	protected Command getStartCreateRelationshipCommand(CreateRelationshipRequest req) {
-		if (DomainElementTypes.DeploymentStarStepFirstStep_904008 == req.getElementType()) {
-			return getGEFWrapper(new DeploymentStarStepFirstStepCreateCommand(req, req.getSource(), req.getTarget()));
+	protected Command getStartCreateRelationshipCommand(
+			CreateRelationshipRequest req) {
+		if (DomainElementTypes.DeploymentStarStepFirstStep_904008 == req
+				.getElementType()) {
+			return getGEFWrapper(new DeploymentStarStepFirstStepCreateCommand(
+					req, req.getSource(), req.getTarget()));
 		}
 		return null;
 	}
@@ -99,8 +106,10 @@ public class DeploymentStarStepItemSemanticEditPolicy extends DomainBaseItemSema
 	/**
 	 * @generated
 	 */
-	protected Command getCompleteCreateRelationshipCommand(CreateRelationshipRequest req) {
-		if (DomainElementTypes.DeploymentStarStepFirstStep_904008 == req.getElementType()) {
+	protected Command getCompleteCreateRelationshipCommand(
+			CreateRelationshipRequest req) {
+		if (DomainElementTypes.DeploymentStarStepFirstStep_904008 == req
+				.getElementType()) {
 			return null;
 		}
 		return null;
@@ -112,10 +121,12 @@ public class DeploymentStarStepItemSemanticEditPolicy extends DomainBaseItemSema
 	 * 
 	 * @generated
 	 */
-	protected Command getReorientReferenceRelationshipCommand(ReorientReferenceRelationshipRequest req) {
+	protected Command getReorientReferenceRelationshipCommand(
+			ReorientReferenceRelationshipRequest req) {
 		switch (getVisualID(req)) {
 		case DeploymentStarStepFirstStepEditPart.VISUAL_ID:
-			return getGEFWrapper(new DeploymentStarStepFirstStepReorientCommand(req));
+			return getGEFWrapper(new DeploymentStarStepFirstStepReorientCommand(
+					req));
 		}
 		return super.getReorientReferenceRelationshipCommand(req);
 	}

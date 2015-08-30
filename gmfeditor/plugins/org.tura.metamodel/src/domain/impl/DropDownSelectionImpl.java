@@ -14,6 +14,7 @@
  */
 package domain.impl;
 
+import domain.Context;
 import domain.DomainPackage;
 import domain.DropDownSelection;
 import domain.Selection;
@@ -32,10 +33,12 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  *   <li>{@link domain.impl.DropDownSelectionImpl#getSelection <em>Selection</em>}</li>
+ *   <li>{@link domain.impl.DropDownSelectionImpl#getInitialOptionMessage <em>Initial Option Message</em>}</li>
+ *   <li>{@link domain.impl.DropDownSelectionImpl#getInitialOptionValue <em>Initial Option Value</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */
@@ -49,6 +52,36 @@ public class DropDownSelectionImpl extends OptionSelectionImpl implements DropDo
 	 * @ordered
 	 */
 	protected Selection selection;
+
+	/**
+	 * The cached value of the '{@link #getInitialOptionMessage() <em>Initial Option Message</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getInitialOptionMessage()
+	 * @generated
+	 * @ordered
+	 */
+	protected Context initialOptionMessage;
+
+	/**
+	 * The default value of the '{@link #getInitialOptionValue() <em>Initial Option Value</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getInitialOptionValue()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String INITIAL_OPTION_VALUE_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getInitialOptionValue() <em>Initial Option Value</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getInitialOptionValue()
+	 * @generated
+	 * @ordered
+	 */
+	protected String initialOptionValue = INITIAL_OPTION_VALUE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -117,11 +150,77 @@ public class DropDownSelectionImpl extends OptionSelectionImpl implements DropDo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Context getInitialOptionMessage() {
+		return initialOptionMessage;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetInitialOptionMessage(Context newInitialOptionMessage, NotificationChain msgs) {
+		Context oldInitialOptionMessage = initialOptionMessage;
+		initialOptionMessage = newInitialOptionMessage;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DomainPackage.DROP_DOWN_SELECTION__INITIAL_OPTION_MESSAGE, oldInitialOptionMessage, newInitialOptionMessage);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setInitialOptionMessage(Context newInitialOptionMessage) {
+		if (newInitialOptionMessage != initialOptionMessage) {
+			NotificationChain msgs = null;
+			if (initialOptionMessage != null)
+				msgs = ((InternalEObject)initialOptionMessage).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DomainPackage.DROP_DOWN_SELECTION__INITIAL_OPTION_MESSAGE, null, msgs);
+			if (newInitialOptionMessage != null)
+				msgs = ((InternalEObject)newInitialOptionMessage).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - DomainPackage.DROP_DOWN_SELECTION__INITIAL_OPTION_MESSAGE, null, msgs);
+			msgs = basicSetInitialOptionMessage(newInitialOptionMessage, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.DROP_DOWN_SELECTION__INITIAL_OPTION_MESSAGE, newInitialOptionMessage, newInitialOptionMessage));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getInitialOptionValue() {
+		return initialOptionValue;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setInitialOptionValue(String newInitialOptionValue) {
+		String oldInitialOptionValue = initialOptionValue;
+		initialOptionValue = newInitialOptionValue;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.DROP_DOWN_SELECTION__INITIAL_OPTION_VALUE, oldInitialOptionValue, initialOptionValue));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case DomainPackage.DROP_DOWN_SELECTION__SELECTION:
 				return basicSetSelection(null, msgs);
+			case DomainPackage.DROP_DOWN_SELECTION__INITIAL_OPTION_MESSAGE:
+				return basicSetInitialOptionMessage(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -136,6 +235,10 @@ public class DropDownSelectionImpl extends OptionSelectionImpl implements DropDo
 		switch (featureID) {
 			case DomainPackage.DROP_DOWN_SELECTION__SELECTION:
 				return getSelection();
+			case DomainPackage.DROP_DOWN_SELECTION__INITIAL_OPTION_MESSAGE:
+				return getInitialOptionMessage();
+			case DomainPackage.DROP_DOWN_SELECTION__INITIAL_OPTION_VALUE:
+				return getInitialOptionValue();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -150,6 +253,12 @@ public class DropDownSelectionImpl extends OptionSelectionImpl implements DropDo
 		switch (featureID) {
 			case DomainPackage.DROP_DOWN_SELECTION__SELECTION:
 				setSelection((Selection)newValue);
+				return;
+			case DomainPackage.DROP_DOWN_SELECTION__INITIAL_OPTION_MESSAGE:
+				setInitialOptionMessage((Context)newValue);
+				return;
+			case DomainPackage.DROP_DOWN_SELECTION__INITIAL_OPTION_VALUE:
+				setInitialOptionValue((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -166,6 +275,12 @@ public class DropDownSelectionImpl extends OptionSelectionImpl implements DropDo
 			case DomainPackage.DROP_DOWN_SELECTION__SELECTION:
 				setSelection((Selection)null);
 				return;
+			case DomainPackage.DROP_DOWN_SELECTION__INITIAL_OPTION_MESSAGE:
+				setInitialOptionMessage((Context)null);
+				return;
+			case DomainPackage.DROP_DOWN_SELECTION__INITIAL_OPTION_VALUE:
+				setInitialOptionValue(INITIAL_OPTION_VALUE_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -180,8 +295,28 @@ public class DropDownSelectionImpl extends OptionSelectionImpl implements DropDo
 		switch (featureID) {
 			case DomainPackage.DROP_DOWN_SELECTION__SELECTION:
 				return selection != null;
+			case DomainPackage.DROP_DOWN_SELECTION__INITIAL_OPTION_MESSAGE:
+				return initialOptionMessage != null;
+			case DomainPackage.DROP_DOWN_SELECTION__INITIAL_OPTION_VALUE:
+				return INITIAL_OPTION_VALUE_EDEFAULT == null ? initialOptionValue != null : !INITIAL_OPTION_VALUE_EDEFAULT.equals(initialOptionValue);
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (initialOptionValue: ");
+		result.append(initialOptionValue);
+		result.append(')');
+		return result.toString();
 	}
 
 } //DropDownSelectionImpl

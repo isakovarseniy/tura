@@ -41,11 +41,11 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  *   <li>{@link domain.impl.StyleElementImpl#getStyle <em>Style</em>}</li>
  *   <li>{@link domain.impl.StyleElementImpl#getStyleClass <em>Style Class</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */

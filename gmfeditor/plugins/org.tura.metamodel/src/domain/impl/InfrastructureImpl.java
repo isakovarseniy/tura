@@ -34,13 +34,13 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  *   <li>{@link domain.impl.InfrastructureImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.impl.InfrastructureImpl#getRecipe <em>Recipe</em>}</li>
  *   <li>{@link domain.impl.InfrastructureImpl#getName <em>Name</em>}</li>
  *   <li>{@link domain.impl.InfrastructureImpl#getRecipeConfig <em>Recipe Config</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */

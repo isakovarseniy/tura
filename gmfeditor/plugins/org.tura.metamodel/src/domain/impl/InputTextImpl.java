@@ -30,10 +30,10 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  *   <li>{@link domain.impl.InputTextImpl#getFormat <em>Format</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */

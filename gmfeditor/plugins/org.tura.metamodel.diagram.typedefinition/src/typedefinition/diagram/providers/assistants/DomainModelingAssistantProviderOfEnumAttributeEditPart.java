@@ -20,6 +20,7 @@ import typedefinition.diagram.providers.DomainModelingAssistantProvider;
 /**
  * @generated
  */
-public class DomainModelingAssistantProviderOfEnumAttributeEditPart extends DomainModelingAssistantProvider {
+public class DomainModelingAssistantProviderOfEnumAttributeEditPart extends
+		DomainModelingAssistantProvider {
 
 }

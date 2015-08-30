@@ -11,8 +11,8 @@
  * http://www.eclipse.org/legal/epl-v10.html
  *******************************************************************************/
 /*
-* 
-*/
+ * 
+ */
 package roles.diagram.edit.policies;
 
 import org.eclipse.gef.commands.Command;
@@ -24,18 +24,19 @@ import roles.diagram.providers.DomainElementTypes;
 /**
  * @generated
  */
-public class GroupGroup2RoleItemSemanticEditPolicy extends DomainBaseItemSemanticEditPolicy {
+public class GroupGroup2RoleItemSemanticEditPolicy extends
+		DomainBaseItemSemanticEditPolicy {
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public GroupGroup2RoleItemSemanticEditPolicy() {
 		super(DomainElementTypes.GroupGroup2Role_1404005);
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	protected Command getDestroyReferenceCommand(DestroyReferenceRequest req) {
 		return getGEFWrapper(new DestroyReferenceCommand(req));
 	}

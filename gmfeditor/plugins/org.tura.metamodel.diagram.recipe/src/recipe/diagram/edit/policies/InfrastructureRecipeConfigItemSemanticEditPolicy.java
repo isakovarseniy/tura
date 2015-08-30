@@ -11,8 +11,8 @@
  * http://www.eclipse.org/legal/epl-v10.html
  *******************************************************************************/
 /*
-* 
-*/
+ * 
+ */
 package recipe.diagram.edit.policies;
 
 import org.eclipse.gef.commands.Command;
@@ -24,18 +24,19 @@ import recipe.diagram.providers.DomainElementTypes;
 /**
  * @generated
  */
-public class InfrastructureRecipeConfigItemSemanticEditPolicy extends DomainBaseItemSemanticEditPolicy {
+public class InfrastructureRecipeConfigItemSemanticEditPolicy extends
+		DomainBaseItemSemanticEditPolicy {
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public InfrastructureRecipeConfigItemSemanticEditPolicy() {
 		super(DomainElementTypes.InfrastructureRecipeConfig_304006);
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	protected Command getDestroyReferenceCommand(DestroyReferenceRequest req) {
 		return getGEFWrapper(new DestroyReferenceCommand(req));
 	}

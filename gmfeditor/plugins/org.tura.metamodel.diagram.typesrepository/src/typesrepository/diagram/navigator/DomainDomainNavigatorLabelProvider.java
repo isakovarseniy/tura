@@ -11,8 +11,8 @@
  * http://www.eclipse.org/legal/epl-v10.html
  *******************************************************************************/
 /*
-* 
-*/
+ * 
+ */
 package typesrepository.diagram.navigator;
 
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
@@ -30,68 +30,72 @@ import typesrepository.diagram.part.DomainDiagramEditorPlugin;
 public class DomainDomainNavigatorLabelProvider implements ICommonLabelProvider {
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	private AdapterFactoryLabelProvider myAdapterFactoryLabelProvider = new AdapterFactoryLabelProvider(
-			DomainDiagramEditorPlugin.getInstance().getItemProvidersAdapterFactory());
+			DomainDiagramEditorPlugin.getInstance()
+					.getItemProvidersAdapterFactory());
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public void init(ICommonContentExtensionSite aConfig) {
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public Image getImage(Object element) {
 		if (element instanceof DomainDomainNavigatorItem) {
-			return myAdapterFactoryLabelProvider.getImage(((DomainDomainNavigatorItem) element).getEObject());
+			return myAdapterFactoryLabelProvider
+					.getImage(((DomainDomainNavigatorItem) element)
+							.getEObject());
 		}
 		return null;
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public String getText(Object element) {
 		if (element instanceof DomainDomainNavigatorItem) {
-			return myAdapterFactoryLabelProvider.getText(((DomainDomainNavigatorItem) element).getEObject());
+			return myAdapterFactoryLabelProvider
+					.getText(((DomainDomainNavigatorItem) element).getEObject());
 		}
 		return null;
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public void addListener(ILabelProviderListener listener) {
 		myAdapterFactoryLabelProvider.addListener(listener);
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public void dispose() {
 		myAdapterFactoryLabelProvider.dispose();
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public boolean isLabelProperty(Object element, String property) {
 		return myAdapterFactoryLabelProvider.isLabelProperty(element, property);
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public void removeListener(ILabelProviderListener listener) {
 		myAdapterFactoryLabelProvider.removeListener(listener);
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public void restoreState(IMemento aMemento) {
 	}
 
@@ -102,8 +106,8 @@ public class DomainDomainNavigatorLabelProvider implements ICommonLabelProvider 
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public String getDescription(Object anElement) {
 		return null;
 	}

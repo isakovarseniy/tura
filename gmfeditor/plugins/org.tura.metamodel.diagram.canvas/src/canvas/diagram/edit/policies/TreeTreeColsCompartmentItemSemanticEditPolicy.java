@@ -11,8 +11,8 @@
  * http://www.eclipse.org/legal/epl-v10.html
  *******************************************************************************/
 /*
-* 
-*/
+ * 
+ */
 package canvas.diagram.edit.policies;
 
 import org.eclipse.gef.commands.Command;
@@ -24,18 +24,19 @@ import canvas.diagram.providers.DomainElementTypes;
 /**
  * @generated
  */
-public class TreeTreeColsCompartmentItemSemanticEditPolicy extends DomainBaseItemSemanticEditPolicy {
+public class TreeTreeColsCompartmentItemSemanticEditPolicy extends
+		DomainBaseItemSemanticEditPolicy {
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public TreeTreeColsCompartmentItemSemanticEditPolicy() {
 		super(DomainElementTypes.Tree_1603022);
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	protected Command getCreateCommand(CreateElementRequest req) {
 		if (DomainElementTypes.Column_1603026 == req.getElementType()) {
 			return getGEFWrapper(new Column2CreateCommand(req));

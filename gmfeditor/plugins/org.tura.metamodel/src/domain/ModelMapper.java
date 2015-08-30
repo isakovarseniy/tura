@@ -23,7 +23,6 @@ import org.eclipse.emf.common.util.EList;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  *   <li>{@link domain.ModelMapper#getName <em>Name</em>}</li>
  *   <li>{@link domain.ModelMapper#getArtifactRoot <em>Artifact Root</em>}</li>
@@ -32,6 +31,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link domain.ModelMapper#getQueries <em>Queries</em>}</li>
  *   <li>{@link domain.ModelMapper#getArtifactExecutionString <em>Artifact Execution String</em>}</li>
  * </ul>
+ * </p>
  *
  * @see domain.DomainPackage#getModelMapper()
  * @model annotation="gmf.node label='name' border.color='0,0,0' color='192,192,192'"

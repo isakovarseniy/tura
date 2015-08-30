@@ -25,13 +25,13 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  *   <li>{@link domain.Artifacts#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.Artifacts#getArtifacts <em>Artifacts</em>}</li>
  *   <li>{@link domain.Artifacts#getParent <em>Parent</em>}</li>
  *   <li>{@link domain.Artifacts#getAny <em>Any</em>}</li>
  * </ul>
+ * </p>
  *
  * @see domain.DomainPackage#getArtifacts()
  * @model

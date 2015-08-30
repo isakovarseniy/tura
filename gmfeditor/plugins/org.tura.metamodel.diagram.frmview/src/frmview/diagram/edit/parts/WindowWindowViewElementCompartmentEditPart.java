@@ -47,33 +47,35 @@ import frmview.diagram.providers.DomainElementTypes;
 /**
  * @generated
  */
-public class WindowWindowViewElementCompartmentEditPart extends ShapeCompartmentEditPart {
+public class WindowWindowViewElementCompartmentEditPart extends
+		ShapeCompartmentEditPart {
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static final int VISUAL_ID = 1307008;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public WindowWindowViewElementCompartmentEditPart(View view) {
 		super(view);
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public String getCompartmentName() {
 		return Messages.WindowWindowViewElementCompartmentEditPart_title;
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 
 	public IFigure createFigure() {
-		ResizableCompartmentFigure result = (ResizableCompartmentFigure) super.createFigure();
+		ResizableCompartmentFigure result = (ResizableCompartmentFigure) super
+				.createFigure();
 		result.setTitleVisibility(false);
 		HTMLLikeLayout layout = new HTMLLikeLayout();
 
@@ -93,15 +95,18 @@ public class WindowWindowViewElementCompartmentEditPart extends ShapeCompartment
 	protected void handleNotificationEvent(Notification event) {
 
 		if (event.getNotifier() == getModel()
-				&& EcorePackage.eINSTANCE.getEModelElement_EAnnotations().equals(event.getFeature())) {
+				&& EcorePackage.eINSTANCE.getEModelElement_EAnnotations()
+						.equals(event.getFeature())) {
 			handleMajorSemanticChange();
 		} else {
-			if (event.getNotifier() instanceof HTMLLayerHolder && event.getFeature() instanceof EAttribute) {
+			if (event.getNotifier() instanceof HTMLLayerHolder
+					&& event.getFeature() instanceof EAttribute) {
 				EAttribute eAttribute = (EAttribute) event.getFeature();
 
 				if (eAttribute.getName().equalsIgnoreCase("columns")) {
 					ResizableCompartmentFigure figure = (ResizableCompartmentFigure) getFigure();
-					HTMLLikeLayout layout = (HTMLLikeLayout) figure.getContentPane().getLayoutManager();
+					HTMLLikeLayout layout = (HTMLLikeLayout) figure
+							.getContentPane().getLayoutManager();
 					layout.setColumns(event.getNewIntValue());
 					figure.getContentPane().revalidate();
 					figure.getUpdateManager().performUpdate();
@@ -114,22 +119,26 @@ public class WindowWindowViewElementCompartmentEditPart extends ShapeCompartment
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	protected void createDefaultEditPolicies() {
 		super.createDefaultEditPolicies();
-		installEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE, new ResizableCompartmentEditPolicy());
+		installEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE,
+				new ResizableCompartmentEditPolicy());
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
 				new WindowWindowViewElementCompartmentItemSemanticEditPolicy());
 		installEditPolicy(EditPolicyRoles.CREATION_ROLE,
-				new CreationEditPolicyWithCustomReparent(DomainVisualIDRegistry.TYPED_INSTANCE));
-		installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE, new DragDropEditPolicy());
-		installEditPolicy(EditPolicyRoles.CANONICAL_ROLE, new WindowWindowViewElementCompartmentCanonicalEditPolicy());
+				new CreationEditPolicyWithCustomReparent(
+						DomainVisualIDRegistry.TYPED_INSTANCE));
+		installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE,
+				new DragDropEditPolicy());
+		installEditPolicy(EditPolicyRoles.CANONICAL_ROLE,
+				new WindowWindowViewElementCompartmentCanonicalEditPolicy());
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	protected void setRatio(Double ratio) {
 		if (getFigure().getParent().getLayoutManager() instanceof ConstrainedToolbarLayout) {
 			super.setRatio(ratio);
@@ -137,13 +146,15 @@ public class WindowWindowViewElementCompartmentEditPart extends ShapeCompartment
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public EditPart getTargetEditPart(Request request) {
 		if (request instanceof CreateViewAndElementRequest) {
-			CreateElementRequestAdapter adapter = ((CreateViewAndElementRequest) request).getViewAndElementDescriptor()
+			CreateElementRequestAdapter adapter = ((CreateViewAndElementRequest) request)
+					.getViewAndElementDescriptor()
 					.getCreateElementRequestAdapter();
-			IElementType type = (IElementType) adapter.getAdapter(IElementType.class);
+			IElementType type = (IElementType) adapter
+					.getAdapter(IElementType.class);
 			if (type == DomainElementTypes.ViewPort_1303004) {
 				return this;
 			}

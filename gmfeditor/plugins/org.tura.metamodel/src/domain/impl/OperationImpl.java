@@ -43,7 +43,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  *   <li>{@link domain.impl.OperationImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.impl.OperationImpl#getName <em>Name</em>}</li>
@@ -51,6 +50,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link domain.impl.OperationImpl#getParameters <em>Parameters</em>}</li>
  *   <li>{@link domain.impl.OperationImpl#getReturnValue <em>Return Value</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */

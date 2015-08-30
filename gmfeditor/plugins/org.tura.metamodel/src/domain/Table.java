@@ -23,12 +23,12 @@ import org.eclipse.emf.common.util.EList;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  *   <li>{@link domain.Table#getLabel <em>Label</em>}</li>
  *   <li>{@link domain.Table#getRowNumber <em>Row Number</em>}</li>
  *   <li>{@link domain.Table#getCols <em>Cols</em>}</li>
  * </ul>
+ * </p>
  *
  * @see domain.DomainPackage#getTable()
  * @model annotation="gmf.node label='label' tool.small.bundle='org.tura.metamodel.commons' tool.small.path='icons/table.png'"

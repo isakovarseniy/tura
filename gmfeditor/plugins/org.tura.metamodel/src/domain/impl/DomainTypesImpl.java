@@ -36,13 +36,13 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  *   <li>{@link domain.impl.DomainTypesImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.impl.DomainTypesImpl#getName <em>Name</em>}</li>
  *   <li>{@link domain.impl.DomainTypesImpl#getTypesrepository <em>Typesrepository</em>}</li>
  *   <li>{@link domain.impl.DomainTypesImpl#getParent <em>Parent</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */

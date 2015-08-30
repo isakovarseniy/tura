@@ -36,10 +36,10 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  *   <li>{@link domain.impl.ServerClasterImpl#getServers <em>Servers</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */

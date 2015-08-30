@@ -35,13 +35,13 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  *   <li>{@link domain.impl.ContextParameterImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.impl.ContextParameterImpl#getRefObj <em>Ref Obj</em>}</li>
  *   <li>{@link domain.impl.ContextParameterImpl#getOperation <em>Operation</em>}</li>
  *   <li>{@link domain.impl.ContextParameterImpl#getValue <em>Value</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */

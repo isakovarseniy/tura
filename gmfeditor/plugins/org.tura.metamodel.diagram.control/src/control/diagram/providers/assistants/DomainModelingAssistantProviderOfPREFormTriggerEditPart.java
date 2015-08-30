@@ -20,6 +20,7 @@ import control.diagram.providers.DomainModelingAssistantProvider;
 /**
  * @generated
  */
-public class DomainModelingAssistantProviderOfPREFormTriggerEditPart extends DomainModelingAssistantProvider {
+public class DomainModelingAssistantProviderOfPREFormTriggerEditPart extends
+		DomainModelingAssistantProvider {
 
 }

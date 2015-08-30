@@ -61,6 +61,7 @@ public class TabCanvasItemProvider extends CanvasFrameItemProvider {
 			super.getPropertyDescriptors(object);
 
 			addDefaultCanvasPropertyDescriptor(object);
+			addOrientationPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -83,6 +84,28 @@ public class TabCanvasItemProvider extends CanvasFrameItemProvider {
 				 false,
 				 false,
 				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Orientation feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addOrientationPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_TabCanvas_orientation_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_TabCanvas_orientation_feature", "_UI_TabCanvas_type"),
+				 DomainPackage.Literals.TAB_CANVAS__ORIENTATION,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -157,6 +180,7 @@ public class TabCanvasItemProvider extends CanvasFrameItemProvider {
 
 		switch (notification.getFeatureID(TabCanvas.class)) {
 			case DomainPackage.TAB_CANVAS__DEFAULT_CANVAS:
+			case DomainPackage.TAB_CANVAS__ORIENTATION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case DomainPackage.TAB_CANVAS__MULTI_LANG_LABEL:

@@ -11,8 +11,8 @@
  * http://www.eclipse.org/legal/epl-v10.html
  *******************************************************************************/
 /*
-* 
-*/
+ * 
+ */
 package frmview.diagram.edit.policies;
 
 import org.eclipse.gef.commands.Command;
@@ -24,18 +24,19 @@ import frmview.diagram.providers.DomainElementTypes;
 /**
  * @generated
  */
-public class ViewPortViewPortViewPortTriggerCompartmentItemSemanticEditPolicy extends DomainBaseItemSemanticEditPolicy {
+public class ViewPortViewPortViewPortTriggerCompartmentItemSemanticEditPolicy
+		extends DomainBaseItemSemanticEditPolicy {
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public ViewPortViewPortViewPortTriggerCompartmentItemSemanticEditPolicy() {
 		super(DomainElementTypes.ViewPort_1303004);
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	protected Command getCreateCommand(CreateElementRequest req) {
 		if (DomainElementTypes.ViewPortTrigger_1303002 == req.getElementType()) {
 			return getGEFWrapper(new ViewPortTriggerCreateCommand(req));

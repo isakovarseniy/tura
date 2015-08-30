@@ -27,10 +27,11 @@ import infarastructure.diagram.part.DomainVisualIDRegistry;
 public class DomainEditPartProvider extends DefaultEditPartProvider {
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public DomainEditPartProvider() {
-		super(new DomainEditPartFactory(), DomainVisualIDRegistry.TYPED_INSTANCE,
+		super(new DomainEditPartFactory(),
+				DomainVisualIDRegistry.TYPED_INSTANCE,
 				EnterpriseInfrastructureEditPart.MODEL_ID);
 	}
 

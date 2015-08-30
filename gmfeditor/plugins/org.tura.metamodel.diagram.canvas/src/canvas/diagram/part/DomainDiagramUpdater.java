@@ -11,8 +11,8 @@
  * http://www.eclipse.org/legal/epl-v10.html
  *******************************************************************************/
 /*
-* 
-*/
+ * 
+ */
 package canvas.diagram.part;
 
 import java.util.Collections;
@@ -71,15 +71,16 @@ import domain.Uielement;
 public class DomainDiagramUpdater {
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static boolean isShortcutOrphaned(View view) {
-		return !view.isSetElement() || view.getElement() == null || view.getElement().eIsProxy();
+		return !view.isSetElement() || view.getElement() == null
+				|| view.getElement().eIsProxy();
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static List<DomainNodeDescriptor> getSemanticChildren(View view) {
 		switch (DomainVisualIDRegistry.getVisualID(view)) {
 		case CanvasViewEditPart.VISUAL_ID:
@@ -107,9 +108,10 @@ public class DomainDiagramUpdater {
 	}
 
 	/**
-	* @generated
-	*/
-	public static List<DomainNodeDescriptor> getCanvasView_1601000SemanticChildren(View view) {
+	 * @generated
+	 */
+	public static List<DomainNodeDescriptor> getCanvasView_1601000SemanticChildren(
+			View view) {
 		if (!view.isSetElement()) {
 			return Collections.emptyList();
 		}
@@ -117,7 +119,8 @@ public class DomainDiagramUpdater {
 		LinkedList<DomainNodeDescriptor> result = new LinkedList<DomainNodeDescriptor>();
 		{
 			LayerHolder childElement = modelElement.getBaseCanvas();
-			int visualID = DomainVisualIDRegistry.getNodeVisualID(view, childElement);
+			int visualID = DomainVisualIDRegistry.getNodeVisualID(view,
+					childElement);
 			if (visualID == LayerHolderEditPart.VISUAL_ID) {
 				result.add(new DomainNodeDescriptor(childElement, visualID));
 			}
@@ -126,8 +129,8 @@ public class DomainDiagramUpdater {
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static List<DomainNodeDescriptor> getLayerHolderLayerHolderChildrenCompartment_1607007SemanticChildren(
 			View view) {
 		if (false == view.eContainer() instanceof View) {
@@ -139,9 +142,11 @@ public class DomainDiagramUpdater {
 		}
 		LayerHolder modelElement = (LayerHolder) containerView.getElement();
 		LinkedList<DomainNodeDescriptor> result = new LinkedList<DomainNodeDescriptor>();
-		for (Iterator<?> it = modelElement.getChildren().iterator(); it.hasNext();) {
+		for (Iterator<?> it = modelElement.getChildren().iterator(); it
+				.hasNext();) {
 			Uielement childElement = (Uielement) it.next();
-			int visualID = DomainVisualIDRegistry.getNodeVisualID(view, childElement);
+			int visualID = DomainVisualIDRegistry.getNodeVisualID(view,
+					childElement);
 			if (visualID == InputTextEditPart.VISUAL_ID) {
 				result.add(new DomainNodeDescriptor(childElement, visualID));
 				continue;
@@ -191,9 +196,10 @@ public class DomainDiagramUpdater {
 	}
 
 	/**
-	* @generated
-	*/
-	public static List<DomainNodeDescriptor> getTableTableColsCompartment_1607003SemanticChildren(View view) {
+	 * @generated
+	 */
+	public static List<DomainNodeDescriptor> getTableTableColsCompartment_1607003SemanticChildren(
+			View view) {
 		if (false == view.eContainer() instanceof View) {
 			return Collections.emptyList();
 		}
@@ -205,7 +211,8 @@ public class DomainDiagramUpdater {
 		LinkedList<DomainNodeDescriptor> result = new LinkedList<DomainNodeDescriptor>();
 		for (Iterator<?> it = modelElement.getCols().iterator(); it.hasNext();) {
 			Column childElement = (Column) it.next();
-			int visualID = DomainVisualIDRegistry.getNodeVisualID(view, childElement);
+			int visualID = DomainVisualIDRegistry.getNodeVisualID(view,
+					childElement);
 			if (visualID == ColumnEditPart.VISUAL_ID) {
 				result.add(new DomainNodeDescriptor(childElement, visualID));
 				continue;
@@ -215,9 +222,10 @@ public class DomainDiagramUpdater {
 	}
 
 	/**
-	* @generated
-	*/
-	public static List<DomainNodeDescriptor> getColumnColumnElementCompartment_1607011SemanticChildren(View view) {
+	 * @generated
+	 */
+	public static List<DomainNodeDescriptor> getColumnColumnElementCompartment_1607011SemanticChildren(
+			View view) {
 		if (false == view.eContainer() instanceof View) {
 			return Collections.emptyList();
 		}
@@ -229,7 +237,8 @@ public class DomainDiagramUpdater {
 		LinkedList<DomainNodeDescriptor> result = new LinkedList<DomainNodeDescriptor>();
 		{
 			Uielement childElement = modelElement.getElement();
-			int visualID = DomainVisualIDRegistry.getNodeVisualID(view, childElement);
+			int visualID = DomainVisualIDRegistry.getNodeVisualID(view,
+					childElement);
 			if (visualID == InputText2EditPart.VISUAL_ID) {
 				result.add(new DomainNodeDescriptor(childElement, visualID));
 			}
@@ -268,9 +277,10 @@ public class DomainDiagramUpdater {
 	}
 
 	/**
-	* @generated
-	*/
-	public static List<DomainNodeDescriptor> getTableTableColsCompartment_1607010SemanticChildren(View view) {
+	 * @generated
+	 */
+	public static List<DomainNodeDescriptor> getTableTableColsCompartment_1607010SemanticChildren(
+			View view) {
 		if (false == view.eContainer() instanceof View) {
 			return Collections.emptyList();
 		}
@@ -282,7 +292,8 @@ public class DomainDiagramUpdater {
 		LinkedList<DomainNodeDescriptor> result = new LinkedList<DomainNodeDescriptor>();
 		for (Iterator<?> it = modelElement.getCols().iterator(); it.hasNext();) {
 			Column childElement = (Column) it.next();
-			int visualID = DomainVisualIDRegistry.getNodeVisualID(view, childElement);
+			int visualID = DomainVisualIDRegistry.getNodeVisualID(view,
+					childElement);
 			if (visualID == ColumnEditPart.VISUAL_ID) {
 				result.add(new DomainNodeDescriptor(childElement, visualID));
 				continue;
@@ -292,9 +303,10 @@ public class DomainDiagramUpdater {
 	}
 
 	/**
-	* @generated
-	*/
-	public static List<DomainNodeDescriptor> getTreeTreeColsCompartment_1607014SemanticChildren(View view) {
+	 * @generated
+	 */
+	public static List<DomainNodeDescriptor> getTreeTreeColsCompartment_1607014SemanticChildren(
+			View view) {
 		if (false == view.eContainer() instanceof View) {
 			return Collections.emptyList();
 		}
@@ -306,7 +318,8 @@ public class DomainDiagramUpdater {
 		LinkedList<DomainNodeDescriptor> result = new LinkedList<DomainNodeDescriptor>();
 		for (Iterator<?> it = modelElement.getCols().iterator(); it.hasNext();) {
 			Column childElement = (Column) it.next();
-			int visualID = DomainVisualIDRegistry.getNodeVisualID(view, childElement);
+			int visualID = DomainVisualIDRegistry.getNodeVisualID(view,
+					childElement);
 			if (visualID == Column2EditPart.VISUAL_ID) {
 				result.add(new DomainNodeDescriptor(childElement, visualID));
 				continue;
@@ -316,9 +329,10 @@ public class DomainDiagramUpdater {
 	}
 
 	/**
-	* @generated
-	*/
-	public static List<DomainNodeDescriptor> getColumnColumnElementCompartment_1607015SemanticChildren(View view) {
+	 * @generated
+	 */
+	public static List<DomainNodeDescriptor> getColumnColumnElementCompartment_1607015SemanticChildren(
+			View view) {
 		if (false == view.eContainer() instanceof View) {
 			return Collections.emptyList();
 		}
@@ -330,7 +344,8 @@ public class DomainDiagramUpdater {
 		LinkedList<DomainNodeDescriptor> result = new LinkedList<DomainNodeDescriptor>();
 		{
 			Uielement childElement = modelElement.getElement();
-			int visualID = DomainVisualIDRegistry.getNodeVisualID(view, childElement);
+			int visualID = DomainVisualIDRegistry.getNodeVisualID(view,
+					childElement);
 			if (visualID == InputText2EditPart.VISUAL_ID) {
 				result.add(new DomainNodeDescriptor(childElement, visualID));
 			}
@@ -369,8 +384,8 @@ public class DomainDiagramUpdater {
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static List<DomainNodeDescriptor> getLayerHolderLayerHolderChildrenCompartment_1607009SemanticChildren(
 			View view) {
 		if (false == view.eContainer() instanceof View) {
@@ -382,9 +397,11 @@ public class DomainDiagramUpdater {
 		}
 		LayerHolder modelElement = (LayerHolder) containerView.getElement();
 		LinkedList<DomainNodeDescriptor> result = new LinkedList<DomainNodeDescriptor>();
-		for (Iterator<?> it = modelElement.getChildren().iterator(); it.hasNext();) {
+		for (Iterator<?> it = modelElement.getChildren().iterator(); it
+				.hasNext();) {
 			Uielement childElement = (Uielement) it.next();
-			int visualID = DomainVisualIDRegistry.getNodeVisualID(view, childElement);
+			int visualID = DomainVisualIDRegistry.getNodeVisualID(view,
+					childElement);
 			if (visualID == InputTextEditPart.VISUAL_ID) {
 				result.add(new DomainNodeDescriptor(childElement, visualID));
 				continue;
@@ -434,9 +451,10 @@ public class DomainDiagramUpdater {
 	}
 
 	/**
-	* @generated
-	*/
-	public static List<DomainNodeDescriptor> getTreeTreeColsCompartment_1607012SemanticChildren(View view) {
+	 * @generated
+	 */
+	public static List<DomainNodeDescriptor> getTreeTreeColsCompartment_1607012SemanticChildren(
+			View view) {
 		if (false == view.eContainer() instanceof View) {
 			return Collections.emptyList();
 		}
@@ -448,7 +466,8 @@ public class DomainDiagramUpdater {
 		LinkedList<DomainNodeDescriptor> result = new LinkedList<DomainNodeDescriptor>();
 		for (Iterator<?> it = modelElement.getCols().iterator(); it.hasNext();) {
 			Column childElement = (Column) it.next();
-			int visualID = DomainVisualIDRegistry.getNodeVisualID(view, childElement);
+			int visualID = DomainVisualIDRegistry.getNodeVisualID(view,
+					childElement);
 			if (visualID == Column2EditPart.VISUAL_ID) {
 				result.add(new DomainNodeDescriptor(childElement, visualID));
 				continue;
@@ -458,8 +477,8 @@ public class DomainDiagramUpdater {
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static List<DomainNodeDescriptor> getLayerHolderLayerHolderChildrenCompartment_1607008SemanticChildren(
 			View view) {
 		if (false == view.eContainer() instanceof View) {
@@ -471,9 +490,11 @@ public class DomainDiagramUpdater {
 		}
 		LayerHolder modelElement = (LayerHolder) containerView.getElement();
 		LinkedList<DomainNodeDescriptor> result = new LinkedList<DomainNodeDescriptor>();
-		for (Iterator<?> it = modelElement.getChildren().iterator(); it.hasNext();) {
+		for (Iterator<?> it = modelElement.getChildren().iterator(); it
+				.hasNext();) {
 			Uielement childElement = (Uielement) it.next();
-			int visualID = DomainVisualIDRegistry.getNodeVisualID(view, childElement);
+			int visualID = DomainVisualIDRegistry.getNodeVisualID(view,
+					childElement);
 			if (visualID == InputTextEditPart.VISUAL_ID) {
 				result.add(new DomainNodeDescriptor(childElement, visualID));
 				continue;
@@ -523,8 +544,8 @@ public class DomainDiagramUpdater {
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static List<DomainLinkDescriptor> getContainedLinks(View view) {
 		switch (DomainVisualIDRegistry.getVisualID(view)) {
 		case CanvasViewEditPart.VISUAL_ID:
@@ -584,8 +605,8 @@ public class DomainDiagramUpdater {
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static List<DomainLinkDescriptor> getIncomingLinks(View view) {
 		switch (DomainVisualIDRegistry.getVisualID(view)) {
 		case LayerHolderEditPart.VISUAL_ID:
@@ -643,8 +664,8 @@ public class DomainDiagramUpdater {
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static List<DomainLinkDescriptor> getOutgoingLinks(View view) {
 		switch (DomainVisualIDRegistry.getVisualID(view)) {
 		case LayerHolderEditPart.VISUAL_ID:
@@ -704,571 +725,643 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getCanvasView_1601000ContainedLinks(View view) {
+	public static List<DomainLinkDescriptor> getCanvasView_1601000ContainedLinks(
+			View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getLayerHolder_1602003ContainedLinks(View view) {
+	public static List<DomainLinkDescriptor> getLayerHolder_1602003ContainedLinks(
+			View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getInputText_1603004ContainedLinks(View view) {
+	public static List<DomainLinkDescriptor> getInputText_1603004ContainedLinks(
+			View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getOutputText_1603006ContainedLinks(View view) {
+	public static List<DomainLinkDescriptor> getOutputText_1603006ContainedLinks(
+			View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getDropDownSelection_1603002ContainedLinks(View view) {
+	public static List<DomainLinkDescriptor> getDropDownSelection_1603002ContainedLinks(
+			View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getDate_1603029ContainedLinks(View view) {
+	public static List<DomainLinkDescriptor> getDate_1603029ContainedLinks(
+			View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getTable_1603008ContainedLinks(View view) {
+	public static List<DomainLinkDescriptor> getTable_1603008ContainedLinks(
+			View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getColumn_1603024ContainedLinks(View view) {
+	public static List<DomainLinkDescriptor> getColumn_1603024ContainedLinks(
+			View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getInputText_1603012ContainedLinks(View view) {
+	public static List<DomainLinkDescriptor> getInputText_1603012ContainedLinks(
+			View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getOutputText_1603014ContainedLinks(View view) {
+	public static List<DomainLinkDescriptor> getOutputText_1603014ContainedLinks(
+			View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getDropDownSelection_1603010ContainedLinks(View view) {
+	public static List<DomainLinkDescriptor> getDropDownSelection_1603010ContainedLinks(
+			View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getDate_1603031ContainedLinks(View view) {
+	public static List<DomainLinkDescriptor> getDate_1603031ContainedLinks(
+			View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getTable_1603021ContainedLinks(View view) {
+	public static List<DomainLinkDescriptor> getTable_1603021ContainedLinks(
+			View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getTree_1603022ContainedLinks(View view) {
+	public static List<DomainLinkDescriptor> getTree_1603022ContainedLinks(
+			View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getColumn_1603026ContainedLinks(View view) {
+	public static List<DomainLinkDescriptor> getColumn_1603026ContainedLinks(
+			View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getLayerHolder_1603020ContainedLinks(View view) {
+	public static List<DomainLinkDescriptor> getLayerHolder_1603020ContainedLinks(
+			View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getTree_1603016ContainedLinks(View view) {
+	public static List<DomainLinkDescriptor> getTree_1603016ContainedLinks(
+			View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getLayerHolder_1603019ContainedLinks(View view) {
+	public static List<DomainLinkDescriptor> getLayerHolder_1603019ContainedLinks(
+			View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getCheckBox_1603007ContainedLinks(View view) {
+	public static List<DomainLinkDescriptor> getCheckBox_1603007ContainedLinks(
+			View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getImage_1603028ContainedLinks(View view) {
+	public static List<DomainLinkDescriptor> getImage_1603028ContainedLinks(
+			View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getLabel_1603005ContainedLinks(View view) {
+	public static List<DomainLinkDescriptor> getLabel_1603005ContainedLinks(
+			View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getButton_1603017ContainedLinks(View view) {
+	public static List<DomainLinkDescriptor> getButton_1603017ContainedLinks(
+			View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getCheckBox_1603015ContainedLinks(View view) {
+	public static List<DomainLinkDescriptor> getCheckBox_1603015ContainedLinks(
+			View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getImage_1603030ContainedLinks(View view) {
+	public static List<DomainLinkDescriptor> getImage_1603030ContainedLinks(
+			View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getLabel_1603013ContainedLinks(View view) {
+	public static List<DomainLinkDescriptor> getLabel_1603013ContainedLinks(
+			View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getButton_1603023ContainedLinks(View view) {
+	public static List<DomainLinkDescriptor> getButton_1603023ContainedLinks(
+			View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getLayerHolder_1602003IncomingLinks(View view) {
+	public static List<DomainLinkDescriptor> getLayerHolder_1602003IncomingLinks(
+			View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getInputText_1603004IncomingLinks(View view) {
+	public static List<DomainLinkDescriptor> getInputText_1603004IncomingLinks(
+			View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getOutputText_1603006IncomingLinks(View view) {
+	public static List<DomainLinkDescriptor> getOutputText_1603006IncomingLinks(
+			View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getDropDownSelection_1603002IncomingLinks(View view) {
+	public static List<DomainLinkDescriptor> getDropDownSelection_1603002IncomingLinks(
+			View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getDate_1603029IncomingLinks(View view) {
+	public static List<DomainLinkDescriptor> getDate_1603029IncomingLinks(
+			View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getTable_1603008IncomingLinks(View view) {
+	public static List<DomainLinkDescriptor> getTable_1603008IncomingLinks(
+			View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getColumn_1603024IncomingLinks(View view) {
+	public static List<DomainLinkDescriptor> getColumn_1603024IncomingLinks(
+			View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getInputText_1603012IncomingLinks(View view) {
+	public static List<DomainLinkDescriptor> getInputText_1603012IncomingLinks(
+			View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getOutputText_1603014IncomingLinks(View view) {
+	public static List<DomainLinkDescriptor> getOutputText_1603014IncomingLinks(
+			View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getDropDownSelection_1603010IncomingLinks(View view) {
+	public static List<DomainLinkDescriptor> getDropDownSelection_1603010IncomingLinks(
+			View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getDate_1603031IncomingLinks(View view) {
+	public static List<DomainLinkDescriptor> getDate_1603031IncomingLinks(
+			View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getTable_1603021IncomingLinks(View view) {
+	public static List<DomainLinkDescriptor> getTable_1603021IncomingLinks(
+			View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getTree_1603022IncomingLinks(View view) {
+	public static List<DomainLinkDescriptor> getTree_1603022IncomingLinks(
+			View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getColumn_1603026IncomingLinks(View view) {
+	public static List<DomainLinkDescriptor> getColumn_1603026IncomingLinks(
+			View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getLayerHolder_1603020IncomingLinks(View view) {
+	public static List<DomainLinkDescriptor> getLayerHolder_1603020IncomingLinks(
+			View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getTree_1603016IncomingLinks(View view) {
+	public static List<DomainLinkDescriptor> getTree_1603016IncomingLinks(
+			View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getLayerHolder_1603019IncomingLinks(View view) {
+	public static List<DomainLinkDescriptor> getLayerHolder_1603019IncomingLinks(
+			View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getCheckBox_1603007IncomingLinks(View view) {
+	public static List<DomainLinkDescriptor> getCheckBox_1603007IncomingLinks(
+			View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getImage_1603028IncomingLinks(View view) {
+	public static List<DomainLinkDescriptor> getImage_1603028IncomingLinks(
+			View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getLabel_1603005IncomingLinks(View view) {
+	public static List<DomainLinkDescriptor> getLabel_1603005IncomingLinks(
+			View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getButton_1603017IncomingLinks(View view) {
+	public static List<DomainLinkDescriptor> getButton_1603017IncomingLinks(
+			View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getCheckBox_1603015IncomingLinks(View view) {
+	public static List<DomainLinkDescriptor> getCheckBox_1603015IncomingLinks(
+			View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getImage_1603030IncomingLinks(View view) {
+	public static List<DomainLinkDescriptor> getImage_1603030IncomingLinks(
+			View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getLabel_1603013IncomingLinks(View view) {
+	public static List<DomainLinkDescriptor> getLabel_1603013IncomingLinks(
+			View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getButton_1603023IncomingLinks(View view) {
+	public static List<DomainLinkDescriptor> getButton_1603023IncomingLinks(
+			View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getLayerHolder_1602003OutgoingLinks(View view) {
+	public static List<DomainLinkDescriptor> getLayerHolder_1602003OutgoingLinks(
+			View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getInputText_1603004OutgoingLinks(View view) {
+	public static List<DomainLinkDescriptor> getInputText_1603004OutgoingLinks(
+			View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getOutputText_1603006OutgoingLinks(View view) {
+	public static List<DomainLinkDescriptor> getOutputText_1603006OutgoingLinks(
+			View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getDropDownSelection_1603002OutgoingLinks(View view) {
+	public static List<DomainLinkDescriptor> getDropDownSelection_1603002OutgoingLinks(
+			View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getDate_1603029OutgoingLinks(View view) {
+	public static List<DomainLinkDescriptor> getDate_1603029OutgoingLinks(
+			View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getTable_1603008OutgoingLinks(View view) {
+	public static List<DomainLinkDescriptor> getTable_1603008OutgoingLinks(
+			View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getColumn_1603024OutgoingLinks(View view) {
+	public static List<DomainLinkDescriptor> getColumn_1603024OutgoingLinks(
+			View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getInputText_1603012OutgoingLinks(View view) {
+	public static List<DomainLinkDescriptor> getInputText_1603012OutgoingLinks(
+			View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getOutputText_1603014OutgoingLinks(View view) {
+	public static List<DomainLinkDescriptor> getOutputText_1603014OutgoingLinks(
+			View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getDropDownSelection_1603010OutgoingLinks(View view) {
+	public static List<DomainLinkDescriptor> getDropDownSelection_1603010OutgoingLinks(
+			View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getDate_1603031OutgoingLinks(View view) {
+	public static List<DomainLinkDescriptor> getDate_1603031OutgoingLinks(
+			View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getTable_1603021OutgoingLinks(View view) {
+	public static List<DomainLinkDescriptor> getTable_1603021OutgoingLinks(
+			View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getTree_1603022OutgoingLinks(View view) {
+	public static List<DomainLinkDescriptor> getTree_1603022OutgoingLinks(
+			View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getColumn_1603026OutgoingLinks(View view) {
+	public static List<DomainLinkDescriptor> getColumn_1603026OutgoingLinks(
+			View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getLayerHolder_1603020OutgoingLinks(View view) {
+	public static List<DomainLinkDescriptor> getLayerHolder_1603020OutgoingLinks(
+			View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getTree_1603016OutgoingLinks(View view) {
+	public static List<DomainLinkDescriptor> getTree_1603016OutgoingLinks(
+			View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getLayerHolder_1603019OutgoingLinks(View view) {
+	public static List<DomainLinkDescriptor> getLayerHolder_1603019OutgoingLinks(
+			View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getCheckBox_1603007OutgoingLinks(View view) {
+	public static List<DomainLinkDescriptor> getCheckBox_1603007OutgoingLinks(
+			View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getImage_1603028OutgoingLinks(View view) {
+	public static List<DomainLinkDescriptor> getImage_1603028OutgoingLinks(
+			View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getLabel_1603005OutgoingLinks(View view) {
+	public static List<DomainLinkDescriptor> getLabel_1603005OutgoingLinks(
+			View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getButton_1603017OutgoingLinks(View view) {
+	public static List<DomainLinkDescriptor> getButton_1603017OutgoingLinks(
+			View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getCheckBox_1603015OutgoingLinks(View view) {
+	public static List<DomainLinkDescriptor> getCheckBox_1603015OutgoingLinks(
+			View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getImage_1603030OutgoingLinks(View view) {
+	public static List<DomainLinkDescriptor> getImage_1603030OutgoingLinks(
+			View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getLabel_1603013OutgoingLinks(View view) {
+	public static List<DomainLinkDescriptor> getLabel_1603013OutgoingLinks(
+			View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getButton_1603023OutgoingLinks(View view) {
+	public static List<DomainLinkDescriptor> getButton_1603023OutgoingLinks(
+			View view) {
 		return Collections.emptyList();
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static final DiagramUpdater TYPED_INSTANCE = new DiagramUpdater() {
 		/**
-		* @generated
-		*/
+		 * @generated
+		 */
 		@Override
-
 		public List<DomainNodeDescriptor> getSemanticChildren(View view) {
 			return DomainDiagramUpdater.getSemanticChildren(view);
 		}
 
 		/**
-		* @generated
-		*/
+		 * @generated
+		 */
 		@Override
-
 		public List<DomainLinkDescriptor> getContainedLinks(View view) {
 			return DomainDiagramUpdater.getContainedLinks(view);
 		}
 
 		/**
-		* @generated
-		*/
+		 * @generated
+		 */
 		@Override
-
 		public List<DomainLinkDescriptor> getIncomingLinks(View view) {
 			return DomainDiagramUpdater.getIncomingLinks(view);
 		}
 
 		/**
-		* @generated
-		*/
+		 * @generated
+		 */
 		@Override
-
 		public List<DomainLinkDescriptor> getOutgoingLinks(View view) {
 			return DomainDiagramUpdater.getOutgoingLinks(view);
 		}

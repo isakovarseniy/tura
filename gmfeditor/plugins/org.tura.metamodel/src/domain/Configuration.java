@@ -25,7 +25,6 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  *   <li>{@link domain.Configuration#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.Configuration#getName <em>Name</em>}</li>
@@ -34,6 +33,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link domain.Configuration#getConfigExtension <em>Config Extension</em>}</li>
  *   <li>{@link domain.Configuration#getParent <em>Parent</em>}</li>
  * </ul>
+ * </p>
  *
  * @see domain.DomainPackage#getConfiguration()
  * @model annotation="gmf.node label='name' border.color='0,0,0' color='255,239,222'"

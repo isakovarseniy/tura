@@ -43,86 +43,82 @@ import mapper.diagram.part.DomainDiagramEditorPlugin;
 public class DomainElementTypes {
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	private DomainElementTypes() {
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	private static Map<IElementType, ENamedElement> elements;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	private static DiagramElementTypeImages elementTypeImages = new DiagramElementTypeImages(
-			DomainDiagramEditorPlugin.getInstance().getItemProvidersAdapterFactory());
+			DomainDiagramEditorPlugin.getInstance()
+					.getItemProvidersAdapterFactory());
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	private static Set<IElementType> KNOWN_ELEMENT_TYPES;
 
 	/**
-	* @generated
-	*/
-	public static final IElementType Mappers_401000 = getElementType(
-			"org.tura.metamodel.diagram.mapper.Mappers_401000"); //$NON-NLS-1$
+	 * @generated
+	 */
+	public static final IElementType Mappers_401000 = getElementType("org.tura.metamodel.diagram.mapper.Mappers_401000"); //$NON-NLS-1$
 	/**
-	* @generated
-	*/
-	public static final IElementType JavaMapper_402001 = getElementType(
-			"org.tura.metamodel.diagram.mapper.JavaMapper_402001"); //$NON-NLS-1$
+	 * @generated
+	 */
+	public static final IElementType JavaMapper_402001 = getElementType("org.tura.metamodel.diagram.mapper.JavaMapper_402001"); //$NON-NLS-1$
 	/**
-	* @generated
-	*/
-	public static final IElementType JavaScriptMapper_402003 = getElementType(
-			"org.tura.metamodel.diagram.mapper.JavaScriptMapper_402003"); //$NON-NLS-1$
+	 * @generated
+	 */
+	public static final IElementType JavaScriptMapper_402003 = getElementType("org.tura.metamodel.diagram.mapper.JavaScriptMapper_402003"); //$NON-NLS-1$
 	/**
-	* @generated
-	*/
-	public static final IElementType CSSMapper_402004 = getElementType(
-			"org.tura.metamodel.diagram.mapper.CSSMapper_402004"); //$NON-NLS-1$
+	 * @generated
+	 */
+	public static final IElementType CSSMapper_402004 = getElementType("org.tura.metamodel.diagram.mapper.CSSMapper_402004"); //$NON-NLS-1$
 	/**
-	* @generated
-	*/
-	public static final IElementType RoleMapper_402005 = getElementType(
-			"org.tura.metamodel.diagram.mapper.RoleMapper_402005"); //$NON-NLS-1$
+	 * @generated
+	 */
+	public static final IElementType RoleMapper_402005 = getElementType("org.tura.metamodel.diagram.mapper.RoleMapper_402005"); //$NON-NLS-1$
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static ImageDescriptor getImageDescriptor(ENamedElement element) {
 		return elementTypeImages.getImageDescriptor(element);
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static Image getImage(ENamedElement element) {
 		return elementTypeImages.getImage(element);
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static ImageDescriptor getImageDescriptor(IAdaptable hint) {
 		return getImageDescriptor(getElement(hint));
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static Image getImage(IAdaptable hint) {
 		return getImage(getElement(hint));
 	}
 
 	/**
-	* Returns 'type' of the ecore object associated with the hint.
-	* 
-	* @generated
-	*/
+	 * Returns 'type' of the ecore object associated with the hint.
+	 * 
+	 * @generated
+	 */
 	public static ENamedElement getElement(IAdaptable hint) {
 		Object type = hint.getAdapter(IElementType.class);
 		if (elements == null) {
@@ -130,27 +126,31 @@ public class DomainElementTypes {
 
 			elements.put(Mappers_401000, DomainPackage.eINSTANCE.getMappers());
 
-			elements.put(JavaMapper_402001, DomainPackage.eINSTANCE.getJavaMapper());
+			elements.put(JavaMapper_402001,
+					DomainPackage.eINSTANCE.getJavaMapper());
 
-			elements.put(JavaScriptMapper_402003, DomainPackage.eINSTANCE.getJavaScriptMapper());
+			elements.put(JavaScriptMapper_402003,
+					DomainPackage.eINSTANCE.getJavaScriptMapper());
 
-			elements.put(CSSMapper_402004, DomainPackage.eINSTANCE.getCSSMapper());
+			elements.put(CSSMapper_402004,
+					DomainPackage.eINSTANCE.getCSSMapper());
 
-			elements.put(RoleMapper_402005, DomainPackage.eINSTANCE.getRoleMapper());
+			elements.put(RoleMapper_402005,
+					DomainPackage.eINSTANCE.getRoleMapper());
 		}
 		return (ENamedElement) elements.get(type);
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	private static IElementType getElementType(String id) {
 		return ElementTypeRegistry.getInstance().getType(id);
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static boolean isKnownElementType(IElementType elementType) {
 		if (KNOWN_ELEMENT_TYPES == null) {
 			KNOWN_ELEMENT_TYPES = new HashSet<IElementType>();
@@ -164,8 +164,8 @@ public class DomainElementTypes {
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static IElementType getElementType(int visualID) {
 		switch (visualID) {
 		case MappersEditPart.VISUAL_ID:
@@ -183,35 +183,37 @@ public class DomainElementTypes {
 	}
 
 	/**
-	* @generated
-	*/
-	public static final DiagramElementTypes TYPED_INSTANCE = new DiagramElementTypes(elementTypeImages) {
+	 * @generated
+	 */
+	public static final DiagramElementTypes TYPED_INSTANCE = new DiagramElementTypes(
+			elementTypeImages) {
 
 		/**
-		* @generated
-		*/
+		 * @generated
+		 */
 		@Override
-
 		public boolean isKnownElementType(IElementType elementType) {
-			return mapper.diagram.providers.DomainElementTypes.isKnownElementType(elementType);
+			return mapper.diagram.providers.DomainElementTypes
+					.isKnownElementType(elementType);
 		}
 
 		/**
-		* @generated
-		*/
+		 * @generated
+		 */
 		@Override
-
 		public IElementType getElementTypeForVisualId(int visualID) {
-			return mapper.diagram.providers.DomainElementTypes.getElementType(visualID);
+			return mapper.diagram.providers.DomainElementTypes
+					.getElementType(visualID);
 		}
 
 		/**
-		* @generated
-		*/
+		 * @generated
+		 */
 		@Override
-
-		public ENamedElement getDefiningNamedElement(IAdaptable elementTypeAdapter) {
-			return mapper.diagram.providers.DomainElementTypes.getElement(elementTypeAdapter);
+		public ENamedElement getDefiningNamedElement(
+				IAdaptable elementTypeAdapter) {
+			return mapper.diagram.providers.DomainElementTypes
+					.getElement(elementTypeAdapter);
 		}
 	};
 

@@ -32,13 +32,13 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  *   <li>{@link domain.impl.TypeReferenceImpl#getPackageRef <em>Package Ref</em>}</li>
  *   <li>{@link domain.impl.TypeReferenceImpl#getTypeRef <em>Type Ref</em>}</li>
  *   <li>{@link domain.impl.TypeReferenceImpl#getFakePackageName <em>Fake Package Name</em>}</li>
  *   <li>{@link domain.impl.TypeReferenceImpl#getFakeTypeName <em>Fake Type Name</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */

@@ -34,29 +34,30 @@ import recipe.diagram.edit.policies.DomainBaseItemSemanticEditPolicy;
 public class RecipeInfrastructuresReorientCommand extends EditElementCommand {
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	private final int reorientDirection;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	private final EObject referenceOwner;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	private final EObject oldEnd;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	private final EObject newEnd;
 
 	/**
-	* @generated
-	*/
-	public RecipeInfrastructuresReorientCommand(ReorientReferenceRelationshipRequest request) {
+	 * @generated
+	 */
+	public RecipeInfrastructuresReorientCommand(
+			ReorientReferenceRelationshipRequest request) {
 		super(request.getLabel(), null, request);
 		reorientDirection = request.getDirection();
 		referenceOwner = request.getReferenceOwner();
@@ -65,8 +66,8 @@ public class RecipeInfrastructuresReorientCommand extends EditElementCommand {
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public boolean canExecute() {
 		if (false == referenceOwner instanceof Recipe) {
 			return false;
@@ -81,33 +82,37 @@ public class RecipeInfrastructuresReorientCommand extends EditElementCommand {
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	protected boolean canReorientSource() {
 		if (!(oldEnd instanceof Infrastructure && newEnd instanceof Recipe)) {
 			return false;
 		}
 		return DomainBaseItemSemanticEditPolicy.getLinkConstraints()
-				.canExistRecipeInfrastructures_304004(getNewSource(), getOldTarget());
+				.canExistRecipeInfrastructures_304004(getNewSource(),
+						getOldTarget());
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	protected boolean canReorientTarget() {
 		if (!(oldEnd instanceof Infrastructure && newEnd instanceof Infrastructure)) {
 			return false;
 		}
 		return DomainBaseItemSemanticEditPolicy.getLinkConstraints()
-				.canExistRecipeInfrastructures_304004(getOldSource(), getNewTarget());
+				.canExistRecipeInfrastructures_304004(getOldSource(),
+						getNewTarget());
 	}
 
 	/**
-	* @generated
-	*/
-	protected CommandResult doExecuteWithResult(IProgressMonitor monitor, IAdaptable info) throws ExecutionException {
+	 * @generated
+	 */
+	protected CommandResult doExecuteWithResult(IProgressMonitor monitor,
+			IAdaptable info) throws ExecutionException {
 		if (!canExecute()) {
-			throw new ExecutionException("Invalid arguments in reorient link command"); //$NON-NLS-1$
+			throw new ExecutionException(
+					"Invalid arguments in reorient link command"); //$NON-NLS-1$
 		}
 		if (reorientDirection == ReorientRelationshipRequest.REORIENT_SOURCE) {
 			return reorientSource();
@@ -119,8 +124,8 @@ public class RecipeInfrastructuresReorientCommand extends EditElementCommand {
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	protected CommandResult reorientSource() throws ExecutionException {
 		getOldSource().getInfrastructures().remove(getOldTarget());
 		getNewSource().getInfrastructures().add(getOldTarget());
@@ -128,8 +133,8 @@ public class RecipeInfrastructuresReorientCommand extends EditElementCommand {
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	protected CommandResult reorientTarget() throws ExecutionException {
 		getOldSource().getInfrastructures().remove(getOldTarget());
 		getOldSource().getInfrastructures().add(getNewTarget());
@@ -137,29 +142,29 @@ public class RecipeInfrastructuresReorientCommand extends EditElementCommand {
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	protected Recipe getOldSource() {
 		return (Recipe) referenceOwner;
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	protected Recipe getNewSource() {
 		return (Recipe) newEnd;
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	protected Infrastructure getOldTarget() {
 		return (Infrastructure) oldEnd;
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	protected Infrastructure getNewTarget() {
 		return (Infrastructure) newEnd;
 	}

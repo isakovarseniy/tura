@@ -33,19 +33,20 @@ import recipe.diagram.providers.DomainElementTypes;
 public class DomainPaletteFactory {
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public void fillPalette(PaletteRoot paletteRoot) {
 		paletteRoot.add(createObjects1Group());
 		paletteRoot.add(createConnections2Group());
 	}
 
 	/**
-	* Creates "Objects" palette tool group
-	* @generated
-	*/
+	 * Creates "Objects" palette tool group
+	 * @generated
+	 */
 	private PaletteContainer createObjects1Group() {
-		PaletteDrawer paletteContainer = new PaletteDrawer(Messages.Objects1Group_title);
+		PaletteDrawer paletteContainer = new PaletteDrawer(
+				Messages.Objects1Group_title);
 		paletteContainer.setId("createObjects1Group"); //$NON-NLS-1$
 		paletteContainer.add(createConfiguration1CreationTool());
 		paletteContainer.add(createDeploymentSequence2CreationTool());
@@ -60,11 +61,12 @@ public class DomainPaletteFactory {
 	}
 
 	/**
-	* Creates "Connections" palette tool group
-	* @generated
-	*/
+	 * Creates "Connections" palette tool group
+	 * @generated
+	 */
 	private PaletteContainer createConnections2Group() {
-		PaletteDrawer paletteContainer = new PaletteDrawer(Messages.Connections2Group_title);
+		PaletteDrawer paletteContainer = new PaletteDrawer(
+				Messages.Connections2Group_title);
 		paletteContainer.setId("createConnections2Group"); //$NON-NLS-1$
 		paletteContainer.add(createDeployment1CreationTool());
 		paletteContainer.add(createInfrastructures2CreationTool());
@@ -73,153 +75,189 @@ public class DomainPaletteFactory {
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	private ToolEntry createConfiguration1CreationTool() {
-		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(Messages.Configuration1CreationTool_title,
+		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(
+				Messages.Configuration1CreationTool_title,
 				Messages.Configuration1CreationTool_desc,
-				Collections.singletonList(DomainElementTypes.Configuration_302002));
+				Collections
+						.singletonList(DomainElementTypes.Configuration_302002));
 		entry.setId("createConfiguration1CreationTool"); //$NON-NLS-1$
-		entry.setSmallIcon(DomainElementTypes.getImageDescriptor(DomainElementTypes.Configuration_302002));
+		entry.setSmallIcon(DomainElementTypes
+				.getImageDescriptor(DomainElementTypes.Configuration_302002));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	private ToolEntry createDeploymentSequence2CreationTool() {
-		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(Messages.DeploymentSequence2CreationTool_title,
+		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(
+				Messages.DeploymentSequence2CreationTool_title,
 				Messages.DeploymentSequence2CreationTool_desc,
-				Collections.singletonList(DomainElementTypes.DeploymentSequence_302004));
+				Collections
+						.singletonList(DomainElementTypes.DeploymentSequence_302004));
 		entry.setId("createDeploymentSequence2CreationTool"); //$NON-NLS-1$
-		entry.setSmallIcon(DomainElementTypes.getImageDescriptor(DomainElementTypes.DeploymentSequence_302004));
+		entry.setSmallIcon(DomainElementTypes
+				.getImageDescriptor(DomainElementTypes.DeploymentSequence_302004));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	private ToolEntry createInfrastructure3CreationTool() {
-		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(Messages.Infrastructure3CreationTool_title,
+		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(
+				Messages.Infrastructure3CreationTool_title,
 				Messages.Infrastructure3CreationTool_desc,
-				Collections.singletonList(DomainElementTypes.Infrastructure_302003));
+				Collections
+						.singletonList(DomainElementTypes.Infrastructure_302003));
 		entry.setId("createInfrastructure3CreationTool"); //$NON-NLS-1$
-		entry.setSmallIcon(DomainElementTypes.getImageDescriptor(DomainElementTypes.Infrastructure_302003));
+		entry.setSmallIcon(DomainElementTypes
+				.getImageDescriptor(DomainElementTypes.Infrastructure_302003));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	private ToolEntry createIngredient4CreationTool() {
-		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(Messages.Ingredient4CreationTool_title,
-				Messages.Ingredient4CreationTool_desc, Collections.singletonList(DomainElementTypes.Ingredient_303001));
+		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(
+				Messages.Ingredient4CreationTool_title,
+				Messages.Ingredient4CreationTool_desc,
+				Collections.singletonList(DomainElementTypes.Ingredient_303001));
 		entry.setId("createIngredient4CreationTool"); //$NON-NLS-1$
-		entry.setSmallIcon(DomainElementTypes.getImageDescriptor(DomainElementTypes.Ingredient_303001));
+		entry.setSmallIcon(DomainElementTypes
+				.getImageDescriptor(DomainElementTypes.Ingredient_303001));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	private ToolEntry createJavaComponent5CreationTool() {
-		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(Messages.JavaComponent5CreationTool_title,
+		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(
+				Messages.JavaComponent5CreationTool_title,
 				Messages.JavaComponent5CreationTool_desc,
-				Collections.singletonList(DomainElementTypes.JavaComponent_303002));
+				Collections
+						.singletonList(DomainElementTypes.JavaComponent_303002));
 		entry.setId("createJavaComponent5CreationTool"); //$NON-NLS-1$
-		entry.setSmallIcon(DomainElementTypes.getImageDescriptor(DomainElementTypes.JavaComponent_303002));
+		entry.setSmallIcon(DomainElementTypes
+				.getImageDescriptor(DomainElementTypes.JavaComponent_303002));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	private ToolEntry createModelMapper6CreationTool() {
-		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(Messages.ModelMapper6CreationTool_title,
+		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(
+				Messages.ModelMapper6CreationTool_title,
 				Messages.ModelMapper6CreationTool_desc,
-				Collections.singletonList(DomainElementTypes.ModelMapper_303003));
+				Collections
+						.singletonList(DomainElementTypes.ModelMapper_303003));
 		entry.setId("createModelMapper6CreationTool"); //$NON-NLS-1$
-		entry.setSmallIcon(DomainElementTypes.getImageDescriptor(DomainElementTypes.ModelMapper_303003));
+		entry.setSmallIcon(DomainElementTypes
+				.getImageDescriptor(DomainElementTypes.ModelMapper_303003));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	private ToolEntry createProperty7CreationTool() {
-		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(Messages.Property7CreationTool_title,
-				Messages.Property7CreationTool_desc, Collections.singletonList(DomainElementTypes.Property_303005));
+		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(
+				Messages.Property7CreationTool_title,
+				Messages.Property7CreationTool_desc,
+				Collections.singletonList(DomainElementTypes.Property_303005));
 		entry.setId("createProperty7CreationTool"); //$NON-NLS-1$
-		entry.setSmallIcon(DomainElementTypes.getImageDescriptor(DomainElementTypes.Property_303005));
+		entry.setSmallIcon(DomainElementTypes
+				.getImageDescriptor(DomainElementTypes.Property_303005));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	private ToolEntry createQuery8CreationTool() {
-		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(Messages.Query8CreationTool_title,
-				Messages.Query8CreationTool_desc, Collections.singletonList(DomainElementTypes.Query_303004));
+		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(
+				Messages.Query8CreationTool_title,
+				Messages.Query8CreationTool_desc,
+				Collections.singletonList(DomainElementTypes.Query_303004));
 		entry.setId("createQuery8CreationTool"); //$NON-NLS-1$
-		entry.setSmallIcon(DomainElementTypes.getImageDescriptor(DomainElementTypes.Query_303004));
+		entry.setSmallIcon(DomainElementTypes
+				.getImageDescriptor(DomainElementTypes.Query_303004));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	private ToolEntry createRecipe9CreationTool() {
-		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(Messages.Recipe9CreationTool_title,
-				Messages.Recipe9CreationTool_desc, Collections.singletonList(DomainElementTypes.Recipe_302001));
+		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(
+				Messages.Recipe9CreationTool_title,
+				Messages.Recipe9CreationTool_desc,
+				Collections.singletonList(DomainElementTypes.Recipe_302001));
 		entry.setId("createRecipe9CreationTool"); //$NON-NLS-1$
-		entry.setSmallIcon(DomainElementTypes.getImageDescriptor(DomainElementTypes.Recipe_302001));
+		entry.setSmallIcon(DomainElementTypes
+				.getImageDescriptor(DomainElementTypes.Recipe_302001));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	private ToolEntry createDeployment1CreationTool() {
-		DefaultLinkToolEntry entry = new DefaultLinkToolEntry(Messages.Deployment1CreationTool_title,
+		DefaultLinkToolEntry entry = new DefaultLinkToolEntry(
+				Messages.Deployment1CreationTool_title,
 				Messages.Deployment1CreationTool_desc,
-				Collections.singletonList(DomainElementTypes.RecipeDeployment_304013));
+				Collections
+						.singletonList(DomainElementTypes.RecipeDeployment_304013));
 		entry.setId("createDeployment1CreationTool"); //$NON-NLS-1$
-		entry.setSmallIcon(DomainElementTypes.getImageDescriptor(DomainElementTypes.RecipeDeployment_304013));
+		entry.setSmallIcon(DomainElementTypes
+				.getImageDescriptor(DomainElementTypes.RecipeDeployment_304013));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	private ToolEntry createInfrastructures2CreationTool() {
-		DefaultLinkToolEntry entry = new DefaultLinkToolEntry(Messages.Infrastructures2CreationTool_title,
+		DefaultLinkToolEntry entry = new DefaultLinkToolEntry(
+				Messages.Infrastructures2CreationTool_title,
 				Messages.Infrastructures2CreationTool_desc,
-				Collections.singletonList(DomainElementTypes.RecipeInfrastructures_304004));
+				Collections
+						.singletonList(DomainElementTypes.RecipeInfrastructures_304004));
 		entry.setId("createInfrastructures2CreationTool"); //$NON-NLS-1$
-		entry.setSmallIcon(DomainElementTypes.getImageDescriptor(DomainElementTypes.RecipeInfrastructures_304004));
+		entry.setSmallIcon(DomainElementTypes
+				.getImageDescriptor(DomainElementTypes.RecipeInfrastructures_304004));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	private ToolEntry createRecipeConfig3CreationTool() {
-		DefaultLinkToolEntry entry = new DefaultLinkToolEntry(Messages.RecipeConfig3CreationTool_title,
+		DefaultLinkToolEntry entry = new DefaultLinkToolEntry(
+				Messages.RecipeConfig3CreationTool_title,
 				Messages.RecipeConfig3CreationTool_desc,
-				Collections.singletonList(DomainElementTypes.InfrastructureRecipeConfig_304006));
+				Collections
+						.singletonList(DomainElementTypes.InfrastructureRecipeConfig_304006));
 		entry.setId("createRecipeConfig3CreationTool"); //$NON-NLS-1$
-		entry.setSmallIcon(DomainElementTypes.getImageDescriptor(DomainElementTypes.InfrastructureRecipeConfig_304006));
+		entry.setSmallIcon(DomainElementTypes
+				.getImageDescriptor(DomainElementTypes.InfrastructureRecipeConfig_304006));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}

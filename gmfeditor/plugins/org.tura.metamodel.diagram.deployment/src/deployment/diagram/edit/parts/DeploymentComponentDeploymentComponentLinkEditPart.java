@@ -30,46 +30,47 @@ import deployment.diagram.edit.policies.DeploymentComponentDeploymentComponentLi
 /**
  * @generated
  */
-public class DeploymentComponentDeploymentComponentLinkEditPart extends ConnectionNodeEditPart
-		implements ITreeBranchEditPart {
+public class DeploymentComponentDeploymentComponentLinkEditPart extends
+		ConnectionNodeEditPart implements ITreeBranchEditPart {
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static final int VISUAL_ID = 904014;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public DeploymentComponentDeploymentComponentLinkEditPart(View view) {
 		super(view);
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	protected void createDefaultEditPolicies() {
 		super.createDefaultEditPolicies();
-		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
+		installEditPolicy(
+				EditPolicyRoles.SEMANTIC_ROLE,
 				new DeploymentComponentDeploymentComponentLinkItemSemanticEditPolicy());
 	}
 
 	/**
-	* Creates figure for this edit part.
-	* 
-	* Body of this method does not depend on settings in generation model
-	* so you may safely remove <i>generated</i> tag and modify it.
-	* 
-	* @generated
-	*/
+	 * Creates figure for this edit part.
+	 * 
+	 * Body of this method does not depend on settings in generation model
+	 * so you may safely remove <i>generated</i> tag and modify it.
+	 * 
+	 * @generated
+	 */
 
 	protected Connection createConnectionFigure() {
 		return new DeploymentComponentDeploymentComponentLinkFigure();
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public DeploymentComponentDeploymentComponentLinkFigure getPrimaryShape() {
 		return (DeploymentComponentDeploymentComponentLinkFigure) getFigure();
 	}
@@ -77,7 +78,8 @@ public class DeploymentComponentDeploymentComponentLinkEditPart extends Connecti
 	/**
 	 * @generated
 	 */
-	public class DeploymentComponentDeploymentComponentLinkFigure extends PolylineConnectionEx {
+	public class DeploymentComponentDeploymentComponentLinkFigure extends
+			PolylineConnectionEx {
 
 		/**
 		 * @generated

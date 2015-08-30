@@ -56,7 +56,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  *   <li>{@link domain.impl.DataControlImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.impl.DataControlImpl#getName <em>Name</em>}</li>
@@ -77,6 +76,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link domain.impl.DataControlImpl#getDefaultSearch <em>Default Search</em>}</li>
  *   <li>{@link domain.impl.DataControlImpl#getDefaultOrderBy <em>Default Order By</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */

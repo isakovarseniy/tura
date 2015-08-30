@@ -30,32 +30,34 @@ import domain.DeploymentComponent;
 /**
  * @generated
  */
-public class DeploymentComponentDeploymentComponentLinkReorientCommand extends EditElementCommand {
+public class DeploymentComponentDeploymentComponentLinkReorientCommand extends
+		EditElementCommand {
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	private final int reorientDirection;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	private final EObject referenceOwner;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	private final EObject oldEnd;
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	private final EObject newEnd;
 
 	/**
-	* @generated
-	*/
-	public DeploymentComponentDeploymentComponentLinkReorientCommand(ReorientReferenceRelationshipRequest request) {
+	 * @generated
+	 */
+	public DeploymentComponentDeploymentComponentLinkReorientCommand(
+			ReorientReferenceRelationshipRequest request) {
 		super(request.getLabel(), null, request);
 		reorientDirection = request.getDirection();
 		referenceOwner = request.getReferenceOwner();
@@ -64,8 +66,8 @@ public class DeploymentComponentDeploymentComponentLinkReorientCommand extends E
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public boolean canExecute() {
 		if (false == referenceOwner instanceof DeploymentComponent) {
 			return false;
@@ -80,33 +82,37 @@ public class DeploymentComponentDeploymentComponentLinkReorientCommand extends E
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	protected boolean canReorientSource() {
 		if (!(oldEnd instanceof DeploymentComponent && newEnd instanceof DeploymentComponent)) {
 			return false;
 		}
 		return DomainBaseItemSemanticEditPolicy.getLinkConstraints()
-				.canExistDeploymentComponentDeploymentComponentLink_904014(getNewSource(), getOldTarget());
+				.canExistDeploymentComponentDeploymentComponentLink_904014(
+						getNewSource(), getOldTarget());
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	protected boolean canReorientTarget() {
 		if (!(oldEnd instanceof DeploymentComponent && newEnd instanceof DeploymentComponent)) {
 			return false;
 		}
 		return DomainBaseItemSemanticEditPolicy.getLinkConstraints()
-				.canExistDeploymentComponentDeploymentComponentLink_904014(getOldSource(), getNewTarget());
+				.canExistDeploymentComponentDeploymentComponentLink_904014(
+						getOldSource(), getNewTarget());
 	}
 
 	/**
-	* @generated
-	*/
-	protected CommandResult doExecuteWithResult(IProgressMonitor monitor, IAdaptable info) throws ExecutionException {
+	 * @generated
+	 */
+	protected CommandResult doExecuteWithResult(IProgressMonitor monitor,
+			IAdaptable info) throws ExecutionException {
 		if (!canExecute()) {
-			throw new ExecutionException("Invalid arguments in reorient link command"); //$NON-NLS-1$
+			throw new ExecutionException(
+					"Invalid arguments in reorient link command"); //$NON-NLS-1$
 		}
 		if (reorientDirection == ReorientRelationshipRequest.REORIENT_SOURCE) {
 			return reorientSource();
@@ -118,8 +124,8 @@ public class DeploymentComponentDeploymentComponentLinkReorientCommand extends E
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	protected CommandResult reorientSource() throws ExecutionException {
 		getOldSource().setDeploymentComponentLink(null);
 		getNewSource().setDeploymentComponentLink(getOldTarget());
@@ -127,37 +133,37 @@ public class DeploymentComponentDeploymentComponentLinkReorientCommand extends E
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	protected CommandResult reorientTarget() throws ExecutionException {
 		getOldSource().setDeploymentComponentLink(getNewTarget());
 		return CommandResult.newOKCommandResult(referenceOwner);
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	protected DeploymentComponent getOldSource() {
 		return (DeploymentComponent) referenceOwner;
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	protected DeploymentComponent getNewSource() {
 		return (DeploymentComponent) newEnd;
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	protected DeploymentComponent getOldTarget() {
 		return (DeploymentComponent) oldEnd;
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	protected DeploymentComponent getNewTarget() {
 		return (DeploymentComponent) newEnd;
 	}
