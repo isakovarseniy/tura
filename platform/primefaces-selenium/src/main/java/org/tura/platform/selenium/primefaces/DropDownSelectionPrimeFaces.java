@@ -21,32 +21,43 @@
  */
 package org.tura.platform.selenium.primefaces;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.tura.platform.selenium.DropDownSelection;
 
-public class DropDownSelectionPrimeFaces  implements DropDownSelection{
+public class DropDownSelectionPrimeFaces implements DropDownSelection {
 
-	private WebElement element;	
-	
-	public DropDownSelectionPrimeFaces(WebElement element) {
-		this.element=element;
-	}	
-	
+	private WebElement element;
+	private String id;
+	private WebDriver driver;
+
+	public DropDownSelectionPrimeFaces(WebElement element, String id, WebDriver driver) {
+		this.element = element;
+		this.id=id;
+		this.driver=driver;
+	}
+
 	@Override
 	public void click() {
-		element.click();
+		WebElement e = element.findElement(By
+				.cssSelector("label[class*='ui-selectonemenu-label']"));
+		e.click();
 	}
 
 	@Override
 	public String getValue() {
-		// TODO Auto-generated method stub
-		return null;
+		WebElement e = element.findElement(By
+				.cssSelector("label[class*='ui-selectonemenu-label']"));
+		return e.getText();
+
 	}
 
 	@Override
 	public void setValue(String value) {
-		// TODO Auto-generated method stub
-		
+		click();
+		WebElement el = driver.findElement(By.cssSelector("div[id*='"+ id+"_panel']"));
+		el.findElement(By.xpath("//div/ul/li[text()='" + value + "']")).click();
 	}
 
 }

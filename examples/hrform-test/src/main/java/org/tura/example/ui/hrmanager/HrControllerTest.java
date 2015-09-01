@@ -59,34 +59,38 @@ public class HrControllerTest {
 
 	@Test
 	public void t1_validateSwitchingSelectionCurrentRow() {
-		// Go to the Google Suggest home page
-		driver.get("http://localhost:8080/hrform-1.0/hrmanager/hrcontroller/HRController.xhtml?param1=qwerty2");
-		Helper helper = new Helper(driver);
+		try {
+			// Go to the Google Suggest home page
+			driver.get("http://localhost:8080/hrform-1.0/hrmanager/hrcontroller/HRController.xhtml?param1=qwerty2");
+			Helper helper = new Helper(driver);
 
-		HRControllerPageObject hrControllerPage = new HRControllerPageObject(
-				driver);
+			HRControllerPageObject hrControllerPage = new HRControllerPageObject(
+					driver);
 
-		Table t = hrControllerPage.getCompanies();
-		t.getRow(0).getCell(1);
-		helper.waitForJQueryAndPrimeFaces();
+			Table t = hrControllerPage.getCompanies();
+			t.getRow(0).getCell(1);
+			helper.waitForJQueryAndPrimeFaces();
 
-		Tree tree = hrControllerPage.getLocationTree();
-		TreeRow tr = (TreeRow) tree.getRow("0");
-		tr.open();
+			Tree tree = hrControllerPage.getLocationTree();
+			TreeRow tr = (TreeRow) tree.getRow("0");
+			tr.open();
 
-		WebElement el = tr.getCell(1);
-		assertEquals("Country 1", el.getText());
+			WebElement el = tr.getCell(1);
+			assertEquals("Country 1", el.getText());
 
-		t.getRow(1).getCell(1).click();
-		helper.waitForJQueryAndPrimeFaces();
+			t.getRow(1).getCell(1).click();
+			helper.waitForJQueryAndPrimeFaces();
 
-		tree = hrControllerPage.getLocationTree();
-		tr = (TreeRow) tree.getRow("0");
-		tr.open();
+			tree = hrControllerPage.getLocationTree();
+			tr = (TreeRow) tree.getRow("0");
+			tr.open();
 
-		el = tr.getCell(0);
-		assertEquals("Country 2", el.getText());
-
+			el = tr.getCell(0);
+			assertEquals("Country 2", el.getText());
+		} catch (Exception e) {
+			e.printStackTrace();
+			fail();
+		}
 	}
 
 	@Test

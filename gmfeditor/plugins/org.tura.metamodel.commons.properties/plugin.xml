@@ -735,6 +735,11 @@
              id="property.tab.domain.canvas.uielement.triggers"
              label="Triggers"/>    
              
+           <propertyTab
+             category="domain"
+             id="property.tab.domain.canvas.dropdown.inintoption"
+             label="Initial option message"/>     
+     
              
           </propertyTabs>
        </extension>
@@ -744,6 +749,17 @@
       <?gmfgen generated="true"?>   
  
       <propertySections contributorId="org.tura.metamodel.diagram.canvas">
+
+
+           <propertySection
+               tab="property.tab.domain.canvas.dropdown.inintoption"
+               class="org.tura.metamodel.commons.properties.selections.context.impl.InitialOptionMessagePropertySelection"
+               id="property.tab.domain.canvas.dropdown.inintoption">
+
+              <input type="canvas.diagram.edit.parts.DropDownSelectionEditPart"/>
+              <input type="canvas.diagram.edit.parts.DropDownSelection2EditPart"/>
+
+           </propertySection>
 
 
            <propertySection

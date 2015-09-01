@@ -1706,6 +1706,25 @@
       <element xmi:type="tura.domain:MessageLibrary" href="hr.domain#0cc922a6-a203-490f-a02e-15d8d1ad5e16"/>
       <layoutConstraint xmi:type="notation:Bounds" xmi:id="_BHmxJPc8EeSEGPx6vZxQsA" x="539" y="123"/>
     </children>
+    <children xmi:type="notation:Node" xmi:id="_j0MWMFA3EeWJBq6tODvRqg" type="1702001">
+      <children xmi:type="notation:DecorationNode" xmi:id="_j0MWNVA3EeWJBq6tODvRqg" type="1705002"/>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_j0M9QFA3EeWJBq6tODvRqg" type="1707001">
+        <children xmi:type="notation:Node" xmi:id="_lkSa0FA3EeWJBq6tODvRqg" type="1703004">
+          <children xmi:type="notation:DecorationNode" xmi:id="_lkTB4FA3EeWJBq6tODvRqg" type="1705005"/>
+          <styles xmi:type="notation:DescriptionStyle" xmi:id="_lkSa0VA3EeWJBq6tODvRqg"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_lkSa0lA3EeWJBq6tODvRqg" fontName=".Helvetica Neue DeskInterface"/>
+          <element xmi:type="tura.domain:Message" href="hr.domain#af8d602d-98f1-4904-9433-79afaed9becc"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_lkSa01A3EeWJBq6tODvRqg"/>
+        </children>
+        <styles xmi:type="notation:SortingStyle" xmi:id="_j0M9QVA3EeWJBq6tODvRqg"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_j0M9QlA3EeWJBq6tODvRqg"/>
+      </children>
+      <styles xmi:type="notation:DescriptionStyle" xmi:id="_j0MWMVA3EeWJBq6tODvRqg"/>
+      <styles xmi:type="notation:FontStyle" xmi:id="_j0MWMlA3EeWJBq6tODvRqg" fontName=".Helvetica Neue DeskInterface"/>
+      <styles xmi:type="notation:HintedDiagramLinkStyle" xmi:id="_j0MWM1A3EeWJBq6tODvRqg"/>
+      <element xmi:type="tura.domain:MessageLibrary" href="hr.domain#35165706-afd8-4c17-9235-7fb0e4e4511f"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_j0MWNFA3EeWJBq6tODvRqg" x="801" y="117"/>
+    </children>
     <styles xmi:type="notation:DiagramStyle" xmi:id="_veE0oatKEeSgxLZlz1KXmg"/>
     <element xmi:type="tura.domain:Messages" href="hr.domain#af03a493-0ca4-486c-945f-5bfc2fdf35bd"/>
   </notation:Diagram>
