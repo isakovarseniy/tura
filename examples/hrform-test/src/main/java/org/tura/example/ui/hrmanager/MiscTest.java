@@ -15,6 +15,7 @@ import org.openqa.selenium.chrome.ChromeDriverService;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.tura.example.ui.hrmanager.miscelements.pageobject.MiscElementsWindowPageObject;
+import org.tura.platform.selenium.CheckBox;
 import org.tura.platform.selenium.DropDownSelection;
 import org.tura.platform.selenium.primefaces.Helper;
 
@@ -73,6 +74,29 @@ public class MiscTest {
 			el.setValue("First Name 1");
 			helper.waitForJQueryAndPrimeFaces();
 			assertEquals("First Name 1", el.getValue());
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			fail();
+		}
+	}
+
+	
+	
+	@Test
+	public void t2_validateCheckBox() {
+		try {
+			driver.get("http://localhost:8080/hrform-1.0/hrmanager/miscelements/MiscElementsWindow.xhtml");
+
+			MiscElementsWindowPageObject miscPage = new MiscElementsWindowPageObject(
+					driver);
+			Helper helper = new Helper(driver);
+
+			CheckBox el = miscPage.getChkBox();
+			assertEquals(false, el.getValue());
+			el.setValue(true);
+			helper.waitForJQueryAndPrimeFaces();
+			assertEquals(true, el.getValue());
 
 		} catch (Exception e) {
 			e.printStackTrace();

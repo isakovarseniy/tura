@@ -4131,7 +4131,7 @@
           </multiLangLabel>
         </children>
       </children>
-      <children xsi:type="tura.domain:CheckBox" order="1" uid="5900430f-ad24-444f-85df-ee4605e84df6" sourcePointer="dae44fc8-6914-47cb-a0ca-8aa3f88744c6" valuePointer="799e091e-dc77-40ab-bc47-3d61a8b0bbec"/>
+      <children xsi:type="tura.domain:CheckBox" nickname="chkBox" order="1" uid="5900430f-ad24-444f-85df-ee4605e84df6" sourcePointer="dae44fc8-6914-47cb-a0ca-8aa3f88744c6" valuePointer="799e091e-dc77-40ab-bc47-3d61a8b0bbec"/>
       <children xsi:type="tura.domain:Image" order="2" uid="01e7d1d6-b9c7-4b54-84b1-92d0915f53f7" sourcePointer="dae44fc8-6914-47cb-a0ca-8aa3f88744c6" valuePointer="9f5df11c-7d23-4661-86a3-267c9b3fd5c9"/>
     </baseCanvas>
   </tura.domain:CanvasView>

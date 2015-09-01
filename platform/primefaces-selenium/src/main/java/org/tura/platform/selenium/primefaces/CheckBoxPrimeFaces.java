@@ -25,15 +25,14 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.tura.platform.selenium.CheckBox;
 
-public class CheckBoxPrimeFaces implements CheckBox{
+public class CheckBoxPrimeFaces implements CheckBox {
 
 	private WebElement element;
-	
+
 	public CheckBoxPrimeFaces(WebElement element) {
-		this.element=element;
+		this.element = element;
 	}
-	
-	
+
 	@Override
 	public void click() {
 		element.click();
@@ -41,10 +40,11 @@ public class CheckBoxPrimeFaces implements CheckBox{
 
 	@Override
 	public boolean getValue() {
-		WebElement e =   element.findElement(By.cssSelector("div[class='ui-state-active']"));
-		if (e == null)
+		try {
+			element.findElement(By.cssSelector("div[class*='ui-state-active']"));
+		} catch (Exception e) {
 			return false;
-
+		}
 		return true;
 	}
 
