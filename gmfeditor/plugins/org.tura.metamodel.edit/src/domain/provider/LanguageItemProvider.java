@@ -75,6 +75,7 @@ public class LanguageItemProvider
 			addUidPropertyDescriptor(object);
 			addLangPropertyDescriptor(object);
 			addCodePropertyDescriptor(object);
+			addDefaultLangPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -146,6 +147,28 @@ public class LanguageItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Default Lang feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addDefaultLangPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Language_defaultLang_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Language_defaultLang_feature", "_UI_Language_type"),
+				 DomainPackage.Literals.LANGUAGE__DEFAULT_LANG,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This returns Language.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -186,6 +209,7 @@ public class LanguageItemProvider
 			case DomainPackage.LANGUAGE__UID:
 			case DomainPackage.LANGUAGE__LANG:
 			case DomainPackage.LANGUAGE__CODE:
+			case DomainPackage.LANGUAGE__DEFAULT_LANG:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

@@ -2314,13 +2314,22 @@ public interface DomainPackage extends EPackage {
 	int LANGUAGE__CODE = 2;
 
 	/**
+	 * The feature id for the '<em><b>Default Lang</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LANGUAGE__DEFAULT_LANG = 3;
+
+	/**
 	 * The number of structural features of the '<em>Language</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int LANGUAGE_FEATURE_COUNT = 3;
+	int LANGUAGE_FEATURE_COUNT = 4;
 
 	/**
 	 * The meta object id for the '{@link domain.impl.RolesImpl <em>Roles</em>}' class.
@@ -14437,6 +14446,17 @@ public interface DomainPackage extends EPackage {
 	EAttribute getLanguage_Code();
 
 	/**
+	 * Returns the meta object for the attribute '{@link domain.Language#isDefaultLang <em>Default Lang</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Default Lang</em>'.
+	 * @see domain.Language#isDefaultLang()
+	 * @see #getLanguage()
+	 * @generated
+	 */
+	EAttribute getLanguage_DefaultLang();
+
+	/**
 	 * Returns the meta object for class '{@link domain.Roles <em>Roles</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -21286,6 +21306,14 @@ public interface DomainPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute LANGUAGE__CODE = eINSTANCE.getLanguage_Code();
+
+		/**
+		 * The meta object literal for the '<em><b>Default Lang</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute LANGUAGE__DEFAULT_LANG = eINSTANCE.getLanguage_DefaultLang();
 
 		/**
 		 * The meta object literal for the '{@link domain.impl.RolesImpl <em>Roles</em>}' class.

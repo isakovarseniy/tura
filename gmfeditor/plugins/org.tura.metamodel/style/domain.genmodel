@@ -236,6 +236,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//Language/uid"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//Language/lang"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//Language/code"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//Language/defaultLang"/>
     </genClasses>
     <genClasses ecoreClass="domain.ecore#//Roles">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//Roles/uid"/>

@@ -34,6 +34,7 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  *   <li>{@link domain.impl.LanguageImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.impl.LanguageImpl#getLang <em>Lang</em>}</li>
  *   <li>{@link domain.impl.LanguageImpl#getCode <em>Code</em>}</li>
+ *   <li>{@link domain.impl.LanguageImpl#isDefaultLang <em>Default Lang</em>}</li>
  * </ul>
  * </p>
  *
@@ -99,6 +100,26 @@ public class LanguageImpl extends EObjectImpl implements Language {
 	 * @ordered
 	 */
 	protected String code = CODE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #isDefaultLang() <em>Default Lang</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isDefaultLang()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean DEFAULT_LANG_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isDefaultLang() <em>Default Lang</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isDefaultLang()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean defaultLang = DEFAULT_LANG_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -187,6 +208,27 @@ public class LanguageImpl extends EObjectImpl implements Language {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean isDefaultLang() {
+		return defaultLang;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setDefaultLang(boolean newDefaultLang) {
+		boolean oldDefaultLang = defaultLang;
+		defaultLang = newDefaultLang;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.LANGUAGE__DEFAULT_LANG, oldDefaultLang, defaultLang));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -196,6 +238,8 @@ public class LanguageImpl extends EObjectImpl implements Language {
 				return getLang();
 			case DomainPackage.LANGUAGE__CODE:
 				return getCode();
+			case DomainPackage.LANGUAGE__DEFAULT_LANG:
+				return isDefaultLang();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -216,6 +260,9 @@ public class LanguageImpl extends EObjectImpl implements Language {
 				return;
 			case DomainPackage.LANGUAGE__CODE:
 				setCode((String)newValue);
+				return;
+			case DomainPackage.LANGUAGE__DEFAULT_LANG:
+				setDefaultLang((Boolean)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -238,6 +285,9 @@ public class LanguageImpl extends EObjectImpl implements Language {
 			case DomainPackage.LANGUAGE__CODE:
 				setCode(CODE_EDEFAULT);
 				return;
+			case DomainPackage.LANGUAGE__DEFAULT_LANG:
+				setDefaultLang(DEFAULT_LANG_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -256,6 +306,8 @@ public class LanguageImpl extends EObjectImpl implements Language {
 				return LANG_EDEFAULT == null ? lang != null : !LANG_EDEFAULT.equals(lang);
 			case DomainPackage.LANGUAGE__CODE:
 				return CODE_EDEFAULT == null ? code != null : !CODE_EDEFAULT.equals(code);
+			case DomainPackage.LANGUAGE__DEFAULT_LANG:
+				return defaultLang != DEFAULT_LANG_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -276,6 +328,8 @@ public class LanguageImpl extends EObjectImpl implements Language {
 		result.append(lang);
 		result.append(", code: ");
 		result.append(code);
+		result.append(", defaultLang: ");
+		result.append(defaultLang);
 		result.append(')');
 		return result.toString();
 	}

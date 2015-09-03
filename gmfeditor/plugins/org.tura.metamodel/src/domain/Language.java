@@ -27,6 +27,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link domain.Language#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.Language#getLang <em>Lang</em>}</li>
  *   <li>{@link domain.Language#getCode <em>Code</em>}</li>
+ *   <li>{@link domain.Language#isDefaultLang <em>Default Lang</em>}</li>
  * </ul>
  * </p>
  *
@@ -112,5 +113,31 @@ public interface Language extends EObject {
 	 * @generated
 	 */
 	void setCode(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Default Lang</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Default Lang</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Default Lang</em>' attribute.
+	 * @see #setDefaultLang(boolean)
+	 * @see domain.DomainPackage#getLanguage_DefaultLang()
+	 * @model
+	 * @generated
+	 */
+	boolean isDefaultLang();
+
+	/**
+	 * Sets the value of the '{@link domain.Language#isDefaultLang <em>Default Lang</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Default Lang</em>' attribute.
+	 * @see #isDefaultLang()
+	 * @generated
+	 */
+	void setDefaultLang(boolean value);
 
 } // Language

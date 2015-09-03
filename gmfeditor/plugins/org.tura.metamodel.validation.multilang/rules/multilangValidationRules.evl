@@ -1,3 +1,24 @@
+context domain::Language{
+    constraint DefaulLang {
+
+      check :  self.eContainer().languages->select(m|m.defaultLang).size()<>0
+      message : 'There is no default language'
+    }
+    
+    constraint MultipleDefaulLang {
+
+      check :  self.eContainer().languages->select(m|m.defaultLang).size()=1
+      message : 'Cannot be more then 1 default language'
+    }
+    
+    constraint Code {
+      check :  self.code.isDefined()
+      message : 'Code is not defined'
+    }    
+    
+}
+
+
  context domain::MessageLibrary {
 
   constraint HasName {
@@ -20,6 +41,22 @@
    
      guard : self.satisfies("HasName")
      check: self.libLanguages.isDefined() and self.libLanguages.size()>0
+     message : 'Library  ' + self.name + ' is not support any language'
+     
+  }
+
+   constraint SupportDefaultLang {
+     check{
+          var supported = false;
+          for ( lRef in  self.libLanguages){
+             if (lRef.lang.defaultLang ){
+                supported = true;
+                break;
+             }
+          }
+      return supported; 
+     
+     }
      message : 'Library  ' + self.name + ' is not support any language'
      
   }

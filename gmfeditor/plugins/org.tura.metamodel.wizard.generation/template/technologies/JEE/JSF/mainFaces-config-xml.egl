@@ -40,11 +40,24 @@ ${percent}${end}
         <locale-config>
 [%
        for ( lang in appMsg.languages){
+          if (lang.defaultLang){
+%]        
+           <default-locale>[%=lang.code%]</default-locale>
+[%
+          }   
+      }
+%]
+
+[%
+       for ( lang in appMsg.languages){
+          if (not lang.defaultLang){
 %]        
             <supported-locale>[%=lang.code%]</supported-locale>
 [%
-       }
+          } 
+      }
 %]
+
         </locale-config>
     </application>
 </faces-config>

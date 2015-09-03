@@ -3088,6 +3088,15 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getLanguage_DefaultLang() {
+		return (EAttribute)languageEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getRoles() {
 		return rolesEClass;
 	}
@@ -7815,6 +7824,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 		createEAttribute(languageEClass, LANGUAGE__UID);
 		createEAttribute(languageEClass, LANGUAGE__LANG);
 		createEAttribute(languageEClass, LANGUAGE__CODE);
+		createEAttribute(languageEClass, LANGUAGE__DEFAULT_LANG);
 
 		rolesEClass = createEClass(ROLES);
 		createEAttribute(rolesEClass, ROLES__UID);
@@ -8824,6 +8834,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 		initEAttribute(getLanguage_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, Language.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getLanguage_Lang(), ecorePackage.getEString(), "lang", null, 0, 1, Language.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getLanguage_Code(), ecorePackage.getEString(), "code", null, 0, 1, Language.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getLanguage_DefaultLang(), ecorePackage.getEBoolean(), "defaultLang", null, 0, 1, Language.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(rolesEClass, Roles.class, "Roles", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getRoles_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, Roles.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

@@ -2268,137 +2268,182 @@
   <tura.domain:Messages uid="af03a493-0ca4-486c-945f-5bfc2fdf35bd" parent="39c0cb8c-3370-4a8b-9dc8-f988c6c3a565">
     <messageLibraries uid="5772ddee-a83b-41c9-8f34-c442412e1013" name="HR Controller">
       <libLanguages uid="5f566f06-7d99-4d79-986d-b42bdfb2b6a0" lang="2160c4e8-6839-4e94-a225-162cc9210518"/>
+      <libLanguages uid="db7a4a4e-2ac3-4346-b382-9378d7ddc57f" lang="443736d3-5e1e-488c-9824-4b59435c8f2a"/>
       <messages uid="f994c763-7bfb-4952-b00f-b730b5d67043" name="MAIN_WINDOW_LABEL">
         <translatioins uid="037ed539-71f3-44b6-9a40-589108748410" translation="HR Controller form" lang="5f566f06-7d99-4d79-986d-b42bdfb2b6a0"/>
+        <translatioins uid="46feb0c2-8a79-4a59-8854-d932fa5b9d6a" translation="Форма управлениа персоналом" lang="db7a4a4e-2ac3-4346-b382-9378d7ddc57f"/>
       </messages>
       <messages uid="0970a383-857c-43fa-abf8-370b7eedc37b" name="EMPLOEE_DETAILS">
         <translatioins uid="43cda364-ea69-4b85-aee4-b533e90fa334" translation="Employee details" lang="5f566f06-7d99-4d79-986d-b42bdfb2b6a0"/>
+        <translatioins uid="5c667c50-565d-4fc0-a9f5-b588c51bf1b6" translation="Информация о работнике" lang="db7a4a4e-2ac3-4346-b382-9378d7ddc57f"/>
       </messages>
       <messages uid="54ebdd70-5fb8-472e-b6fc-ffe42c72d02a" name="EMPLOYEES_TAB">
         <translatioins uid="c28d3a59-1abd-4fea-9d50-00513cac6a44" translation="Employees" lang="5f566f06-7d99-4d79-986d-b42bdfb2b6a0"/>
+        <translatioins uid="8c0798dc-bcc3-4f21-b564-0bc2ee7bc7af" translation="Работник" lang="db7a4a4e-2ac3-4346-b382-9378d7ddc57f"/>
       </messages>
       <messages uid="058cc4a7-f21d-42fd-aab0-7960a6d5d264" name="FILES_TAB">
         <translatioins uid="1222f63a-d1c0-4f63-8587-4776598ccf4a" translation="Files" lang="5f566f06-7d99-4d79-986d-b42bdfb2b6a0"/>
+        <translatioins uid="0df7e3a9-66d3-4fee-bb57-40bed7f7535d" translation="Папки" lang="db7a4a4e-2ac3-4346-b382-9378d7ddc57f"/>
       </messages>
       <messages uid="50badfae-ddaf-4827-9504-56af80c2dfa8" name="DEPARTMENT_TABLE">
         <translatioins uid="81a507f5-0657-4aec-b69c-409094438d13" translation="Departments" lang="5f566f06-7d99-4d79-986d-b42bdfb2b6a0"/>
+        <translatioins uid="f785e665-541c-4661-9aa9-a963082e8fc6" translation="Департамент" lang="db7a4a4e-2ac3-4346-b382-9378d7ddc57f"/>
       </messages>
       <messages uid="e221741c-8996-4db6-9ece-346741336859" name="COMPANIES_TABLE">
         <translatioins uid="c5b2c34f-6bbc-4641-8eb3-1a8b06726dee" translation="Companies" lang="5f566f06-7d99-4d79-986d-b42bdfb2b6a0"/>
+        <translatioins uid="a258970c-4686-429e-812d-c650f325863f" translation="Компании" lang="db7a4a4e-2ac3-4346-b382-9378d7ddc57f"/>
       </messages>
       <messages uid="9e8ac4a5-5023-44f2-af6f-56c62c679fa3" name="LOCATIONS_TREE">
         <translatioins uid="340a3565-18e1-4102-8962-5e2e431c8a20" translation="Locations" lang="5f566f06-7d99-4d79-986d-b42bdfb2b6a0"/>
+        <translatioins uid="7ad87c92-30d0-4133-8716-69134d6df30a" translation="Место нахождения" lang="db7a4a4e-2ac3-4346-b382-9378d7ddc57f"/>
       </messages>
       <messages uid="e1e774e4-d7f9-4b12-8021-67b17f803772" name="COMPANIES_TABLE_COMPANY_NAME_COLUMN">
         <translatioins uid="5c94dfaa-8056-401b-9c84-ad8459174ce8" translation="Company name" lang="5f566f06-7d99-4d79-986d-b42bdfb2b6a0"/>
+        <translatioins uid="e0f21855-b2b1-443e-9c72-5366af149c4d" translation="Имя компании" lang="db7a4a4e-2ac3-4346-b382-9378d7ddc57f"/>
       </messages>
       <messages uid="152b0762-39a4-4995-ba49-efb5a3c75f07" name="COMPANIES_TABLE_DESCRIPTION_COLUMN">
         <translatioins uid="6d46a3da-9117-4196-9835-dc077c19e8a9" translation="Description" lang="5f566f06-7d99-4d79-986d-b42bdfb2b6a0"/>
+        <translatioins uid="dcc5beda-e18c-43b0-b2fa-7e801c6552c5" translation="Описание" lang="db7a4a4e-2ac3-4346-b382-9378d7ddc57f"/>
       </messages>
       <messages uid="62de9606-e73e-4b3e-a141-55f33ac9fc0c" name="DEPARTMENTS_TABLE_DEPARTMENT_NAME_COLUMN">
         <translatioins uid="38f43d2d-2032-4c61-8e93-b4e8e04ef3a7" translation="Department name" lang="5f566f06-7d99-4d79-986d-b42bdfb2b6a0"/>
+        <translatioins uid="b76c851d-4707-4545-9eb4-c244c4dfe618" translation="Департамент" lang="db7a4a4e-2ac3-4346-b382-9378d7ddc57f"/>
       </messages>
       <messages uid="6ed1145f-7e04-4f8e-9d07-c44035b4f397" name="DEPARTMENTS_TABLE_DEPARTMENT_DESCRIPTION_COLUMN">
         <translatioins uid="ff87d041-d70f-423b-ae9b-0c09c2403071" translation="Description" lang="5f566f06-7d99-4d79-986d-b42bdfb2b6a0"/>
+        <translatioins uid="a8a22ce5-20e1-4df1-ba37-afa539a45a5b" translation="Описание" lang="db7a4a4e-2ac3-4346-b382-9378d7ddc57f"/>
       </messages>
       <messages uid="2ee3ce29-6cd8-467b-88e2-01ef98298484" name="DEPARTMENTS_TABLE_ID_COLUMN">
         <translatioins uid="bc42b93d-3a8e-4a8b-a428-afdfa5420449" translation="Department ID" lang="5f566f06-7d99-4d79-986d-b42bdfb2b6a0"/>
+        <translatioins uid="71085cd5-3db6-4b8d-9281-cd531002ecdb" translation="Департамент #" lang="db7a4a4e-2ac3-4346-b382-9378d7ddc57f"/>
       </messages>
       <messages uid="73e98d4a-ba31-4dd4-b24b-10e39dcad1e7" name="EMP_TABLE">
         <translatioins uid="29bd0468-ef6f-4d54-97e1-4ff598712e06" translation="Employees" lang="5f566f06-7d99-4d79-986d-b42bdfb2b6a0"/>
+        <translatioins uid="98567bad-1852-40ae-b177-f75fe969188f" translation="Работники" lang="db7a4a4e-2ac3-4346-b382-9378d7ddc57f"/>
       </messages>
       <messages uid="58285e3d-5d29-4a89-bc44-cd9677b44383" name="EMP_TABLE_FIRSTNAME_COLUMN">
         <translatioins uid="144872c0-75ac-4f27-a689-163e949ea6a6" translation="First name" lang="5f566f06-7d99-4d79-986d-b42bdfb2b6a0"/>
+        <translatioins uid="65d73c14-a7ba-4794-a418-2d88528c357f" translation="Имя" lang="db7a4a4e-2ac3-4346-b382-9378d7ddc57f"/>
       </messages>
       <messages uid="61f3b61d-512a-485a-a0ce-58bba721eff5" name="EMP_TABLE_LASTNAME_COLUMN">
         <translatioins uid="7338afaa-a553-422b-9438-39aa1b43777c" translation="Last name" lang="5f566f06-7d99-4d79-986d-b42bdfb2b6a0"/>
+        <translatioins uid="99b31421-de1b-4d1f-837a-d9b3e277e5e8" translation="Фамилия" lang="db7a4a4e-2ac3-4346-b382-9378d7ddc57f"/>
       </messages>
       <messages uid="55cc996d-a1d2-485d-80db-1dfc40aaa7ca" name="EMP_TABLE_PHONE_COLUMN">
         <translatioins uid="e6b25fee-de7f-433a-bf94-43e95cee55bf" translation="Phone number" lang="5f566f06-7d99-4d79-986d-b42bdfb2b6a0"/>
+        <translatioins uid="28fa0858-acd8-4f2e-8e60-a6a7cd513eb6" translation="Телефон" lang="db7a4a4e-2ac3-4346-b382-9378d7ddc57f"/>
       </messages>
       <messages uid="6ab29a90-abf7-4ded-b0b8-6c23142c8e06" name="VEHICLE_TABLE">
         <translatioins uid="fccd4be4-a508-487f-b245-bacd7b289f0c" translation="Vehicle" lang="5f566f06-7d99-4d79-986d-b42bdfb2b6a0"/>
+        <translatioins uid="6ccfb6a5-d919-498a-b2cd-cd7a7387ca1b" translation="Автомобиль" lang="db7a4a4e-2ac3-4346-b382-9378d7ddc57f"/>
       </messages>
       <messages uid="a0b064e5-0a69-4d94-a25f-62bd23202007" name="VEHICLE_TABLE_MAKER_COLUMN">
         <translatioins uid="8004b358-5f63-4dd3-bb41-b647c92793fe" translation="Maker" lang="5f566f06-7d99-4d79-986d-b42bdfb2b6a0"/>
+        <translatioins uid="07436f63-f3ae-42a1-91ae-89f7ae30b8e1" translation="Марка" lang="db7a4a4e-2ac3-4346-b382-9378d7ddc57f"/>
       </messages>
       <messages uid="1b421159-6c22-41e5-8f3e-a2854142b632" name="VEHICALE_TABLE_PLATENUMBER_COLUMN">
         <translatioins uid="b17fe88d-b6b0-4bd8-bb5f-78e2f1f25742" translation="Plate number" lang="5f566f06-7d99-4d79-986d-b42bdfb2b6a0"/>
+        <translatioins uid="a0b094a9-30d8-498c-98d2-aab7130a6fa1" translation="Гос. номер" lang="db7a4a4e-2ac3-4346-b382-9378d7ddc57f"/>
       </messages>
       <messages uid="785af55a-35e6-42bf-9398-7b3d039bca11" name="FILES_TREE">
         <translatioins uid="a021d6e2-993b-40cd-ad18-f9af98e9fa4c" translation="Files" lang="5f566f06-7d99-4d79-986d-b42bdfb2b6a0"/>
+        <translatioins uid="68035451-e3cb-47ff-a8f9-c6c2749ea583" translation="Папки" lang="db7a4a4e-2ac3-4346-b382-9378d7ddc57f"/>
       </messages>
       <messages uid="d815aa25-8816-4a1a-afc5-933210c1360c" name="EMPLOYEES_TAB_SALARY">
         <translatioins uid="bc6dc12d-2919-4ae7-975a-b0444d2abe81" translation="Salary" lang="5f566f06-7d99-4d79-986d-b42bdfb2b6a0"/>
+        <translatioins uid="95e7d591-456b-4cd6-addb-21d600e51285" translation="Зарплата" lang="db7a4a4e-2ac3-4346-b382-9378d7ddc57f"/>
       </messages>
       <messages uid="219cd781-3efa-4047-a0a5-6690defc3f8b" name="EMPLOYEES_TAB_HIREDATE">
         <translatioins uid="809a6cd3-ac63-4409-bd60-000319d86f72" translation="Hire date" lang="5f566f06-7d99-4d79-986d-b42bdfb2b6a0"/>
+        <translatioins uid="9569a3f7-603f-4588-b6de-a753f97a6860" translation="Дата начала работы" lang="db7a4a4e-2ac3-4346-b382-9378d7ddc57f"/>
       </messages>
       <messages uid="c890adee-737d-40f3-bdad-f681bdea48dc" name="EMPLOYEES_TAB_MANAGER_ID">
         <translatioins uid="9aa58c40-ac5a-42b6-b948-8dd926569963" translation="Manager id" lang="5f566f06-7d99-4d79-986d-b42bdfb2b6a0"/>
+        <translatioins uid="1d2e75c3-03e8-4225-8ddf-7decd131f6fe" translation="Руководитель" lang="db7a4a4e-2ac3-4346-b382-9378d7ddc57f"/>
       </messages>
       <messages uid="e78a2519-b2a8-4082-867e-e2fedb2bfc97" name="ADD_BUTTON">
         <translatioins uid="28cf2e21-8926-4fc7-8553-d480d302ae29" translation="Add" lang="5f566f06-7d99-4d79-986d-b42bdfb2b6a0"/>
+        <translatioins uid="2c244e9a-e187-4db8-a748-b347c291baee" translation="Добавить" lang="db7a4a4e-2ac3-4346-b382-9378d7ddc57f"/>
       </messages>
       <messages uid="8a832c5c-aa0c-4eea-a10a-2203bea1beb0" name="REMOVE_BUTTON">
         <translatioins uid="fad574fd-9c6e-4755-a5f5-28c5cb9dfb6f" translation="Remove" lang="5f566f06-7d99-4d79-986d-b42bdfb2b6a0"/>
+        <translatioins uid="3139bedc-abc2-4e83-9c7f-8e477c9569dd" translation="Удалить" lang="db7a4a4e-2ac3-4346-b382-9378d7ddc57f"/>
       </messages>
       <messages uid="e554177a-bf1e-4c8b-a77a-88150ff896e2" name="COUNTRY_DETAILS">
         <translatioins uid="09ca9305-bc61-4139-bf2d-1d74615b9af7" translation="Country details" lang="5f566f06-7d99-4d79-986d-b42bdfb2b6a0"/>
+        <translatioins uid="c2f44f03-d866-4ff7-a82e-2862be15c2d3" translation="Страна" lang="db7a4a4e-2ac3-4346-b382-9378d7ddc57f"/>
       </messages>
       <messages uid="bc545138-dca4-4259-b5f2-ee07910a78ea" name="STATE_DETAILS">
         <translatioins uid="9024aaa4-e863-4833-8981-98b913d709a8" translation="State details" lang="5f566f06-7d99-4d79-986d-b42bdfb2b6a0"/>
+        <translatioins uid="82b3b7c0-2422-4de5-a56e-52e3b8c2b6b3" translation="Республика" lang="db7a4a4e-2ac3-4346-b382-9378d7ddc57f"/>
       </messages>
       <messages uid="b31effa8-4cd3-4a4a-947a-3a7b7f610a26" name="STATE_LABEL">
         <translatioins uid="6a2a6527-af51-4801-8100-15328342c2cc" translation="State" lang="5f566f06-7d99-4d79-986d-b42bdfb2b6a0"/>
+        <translatioins uid="c88b2521-6df2-47f2-9f28-1b51ed0522d5" translation="Республика" lang="db7a4a4e-2ac3-4346-b382-9378d7ddc57f"/>
       </messages>
       <messages uid="6bd17707-d4e9-4693-a61c-8793c83c1cec" name="CITY_DETAILS">
         <translatioins uid="e5a53802-a2af-4dc2-a25c-b6a2ca80d7c2" translation="City details" lang="5f566f06-7d99-4d79-986d-b42bdfb2b6a0"/>
+        <translatioins uid="010b0378-c402-402f-8573-66faac498223" translation="Город" lang="db7a4a4e-2ac3-4346-b382-9378d7ddc57f"/>
       </messages>
       <messages uid="4c96ed80-624f-4ecb-a07c-bed4931a389d" name="CITY_LABEL">
         <translatioins uid="e5e09b1e-b11a-4f4f-aac9-b7afd70d9b41" translation="City" lang="5f566f06-7d99-4d79-986d-b42bdfb2b6a0"/>
+        <translatioins uid="117689f7-6cbb-412d-ad48-ddb160a05512" translation="Город" lang="db7a4a4e-2ac3-4346-b382-9378d7ddc57f"/>
       </messages>
       <messages uid="3c9d5f18-58ea-4e9a-a877-c2535bf00f27" name="COMPANY_DETAILS">
         <translatioins uid="13d01eb8-d29d-4854-8959-a27d7b6ca424" translation="Company details" lang="5f566f06-7d99-4d79-986d-b42bdfb2b6a0"/>
+        <translatioins uid="42307311-aec6-4109-b3e1-5ec37574cb11" translation="Компания" lang="db7a4a4e-2ac3-4346-b382-9378d7ddc57f"/>
       </messages>
       <messages uid="6dcdd799-490e-4e4b-9a8b-319824c3df09" name="COMPANY_TABLE_VIEW_DETAILS">
         <translatioins uid="087d4a7f-eec0-4dbc-8e60-9a5209cd9bc9" translation="View company's details" lang="5f566f06-7d99-4d79-986d-b42bdfb2b6a0"/>
+        <translatioins uid="4a7bdf3e-34dc-471e-885e-f5d41bb58b5c" translation="Опицание компании" lang="db7a4a4e-2ac3-4346-b382-9378d7ddc57f"/>
       </messages>
       <messages uid="1a28eeca-a9e2-4de5-9d05-cc1d5660491a" name="SAVE_BUTTON">
         <translatioins uid="dc4c6b9f-b6f4-4aaf-a974-97b19f5850f3" translation="Save" lang="5f566f06-7d99-4d79-986d-b42bdfb2b6a0"/>
+        <translatioins uid="0e4c5f98-5c7f-4ad3-9769-ed53de4759c2" translation="Сохранить" lang="db7a4a4e-2ac3-4346-b382-9378d7ddc57f"/>
       </messages>
       <messages uid="05b18ec6-8d14-4eb6-82ca-6cc37735bd2a" name="RALLBACK_BUTTON">
         <translatioins uid="3e7189fd-5d9a-4220-a26b-174dfe6a9044" translation="RallBack" lang="5f566f06-7d99-4d79-986d-b42bdfb2b6a0"/>
+        <translatioins uid="77601c9b-fca9-4959-9d6a-c3ebf55789f4" translation="Отмена" lang="db7a4a4e-2ac3-4346-b382-9378d7ddc57f"/>
       </messages>
       <messages uid="20cb2233-dc66-4231-a174-6937e29ddcc1" name="ADD_CHILD_BUTTON">
         <translatioins uid="46be4e37-c079-4f1a-add7-198bf4b96120" translation="Add child" lang="5f566f06-7d99-4d79-986d-b42bdfb2b6a0"/>
+        <translatioins uid="0e3d8ef4-47d7-47c7-8205-db1e27551343" translation="Добавить" lang="db7a4a4e-2ac3-4346-b382-9378d7ddc57f"/>
       </messages>
       <messages uid="3ff359d1-cde6-4fe5-be1b-8bda76473dc6" name="SHOW_PARAMETER_BUTTON">
         <translatioins uid="d8d4ed37-574a-4413-a389-30975f10ca4a" translation="Show form parameter" lang="5f566f06-7d99-4d79-986d-b42bdfb2b6a0"/>
+        <translatioins uid="9ce85c8e-6d19-4b99-ba31-8184e47c0602" translation="Показать параметры формы" lang="db7a4a4e-2ac3-4346-b382-9378d7ddc57f"/>
       </messages>
       <messages uid="56e1bf95-de7b-466e-a335-b0fff00cde17" name="DETAILS">
         <translatioins uid="d52b6ef1-d829-49c2-90b4-5225bb5adde1" translation="Details:" lang="5f566f06-7d99-4d79-986d-b42bdfb2b6a0"/>
+        <translatioins uid="98ce71a2-7a09-48d9-8aa4-08500dab0475" translation="Детали:" lang="db7a4a4e-2ac3-4346-b382-9378d7ddc57f"/>
       </messages>
       <messages uid="3ad1a335-e4c5-442b-9ddd-948065a5119e" name="OK_BUTTON">
         <translatioins uid="377e66bf-848d-4f94-888d-0be1873e1923" translation="Ok" lang="5f566f06-7d99-4d79-986d-b42bdfb2b6a0"/>
+        <translatioins uid="d2b217aa-eb3d-41e9-b88f-c777e18d843c" translation="Продолжить" lang="db7a4a4e-2ac3-4346-b382-9378d7ddc57f"/>
       </messages>
       <messages uid="845c3816-162b-4156-90e5-fbe794c2d1a6" name="CANCEL_BUTTON">
         <translatioins uid="29cc2366-0307-4af9-892b-b25dd4051b4e" translation="Cancel" lang="5f566f06-7d99-4d79-986d-b42bdfb2b6a0"/>
+        <translatioins uid="1f854997-2e36-4186-b7ac-6f22d2208ca1" translation="Отменить" lang="db7a4a4e-2ac3-4346-b382-9378d7ddc57f"/>
       </messages>
     </messageLibraries>
     <messageLibraries uid="0cc922a6-a203-490f-a02e-15d8d1ad5e16" name="Tree 2 tree">
       <libLanguages uid="b08087aa-6302-4d3b-86f8-5e3238698876" lang="2160c4e8-6839-4e94-a225-162cc9210518"/>
+      <libLanguages uid="0d64924a-1d7e-4665-9d43-85b24187264a" lang="443736d3-5e1e-488c-9824-4b59435c8f2a"/>
       <messages uid="e1afc867-8537-4c8d-bcd7-c50f39e6807c" name="MAIN_WINDOW_LABEL">
         <translatioins uid="67caa4ea-9e8f-4f6e-b7fb-22c336957cae" translation="Tree 2 tree relation" lang="b08087aa-6302-4d3b-86f8-5e3238698876"/>
+        <translatioins uid="adf544bb-66e0-4e86-aeaf-d99973c6fffe" translation="Дерево 2 детево отношения" lang="0d64924a-1d7e-4665-9d43-85b24187264a"/>
       </messages>
     </messageLibraries>
     <messageLibraries uid="35165706-afd8-4c17-9235-7fb0e4e4511f" name="Misc">
       <libLanguages uid="f7c28876-7cca-4cfa-8704-789e1e7e6adf" lang="2160c4e8-6839-4e94-a225-162cc9210518"/>
+      <libLanguages uid="4f6d7000-d61f-42b4-ad82-2ab56639d804" lang="443736d3-5e1e-488c-9824-4b59435c8f2a"/>
       <messages uid="af8d602d-98f1-4904-9433-79afaed9becc" name="INITIAL_SELECTION_MESSAGE">
         <translatioins uid="3dd27e1e-2875-4f0e-a2f9-5fdf978c7541" translation="Select one" lang="f7c28876-7cca-4cfa-8704-789e1e7e6adf"/>
+        <translatioins uid="a887ead5-c87c-4b23-90c7-a6387bdf0d40" translation="Выберите значение" lang="4f6d7000-d61f-42b4-ad82-2ab56639d804"/>
       </messages>
     </messageLibraries>
-    <languages uid="2160c4e8-6839-4e94-a225-162cc9210518" lang="English" code="en"/>
+    <languages uid="2160c4e8-6839-4e94-a225-162cc9210518" lang="English" code="en" defaultLang="true"/>
+    <languages uid="443736d3-5e1e-488c-9824-4b59435c8f2a" lang="Russian" code="ru"/>
   </tura.domain:Messages>
   <tura.domain:CanvasView uid="86803f23-9d44-4ebc-81e9-9a63b4a770ac" parent="e018aa58-2660-4bba-a75d-1674147458e7">
     <baseCanvas uid="c5f8ac47-356e-4c17-84db-fcf0a5037ca7">

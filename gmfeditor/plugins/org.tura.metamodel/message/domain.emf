@@ -339,6 +339,7 @@ class Language{
     id attr EString uid;
    attr EString lang;
    attr EString code;
+   attr EBoolean defaultLang; 
 }
 
 
