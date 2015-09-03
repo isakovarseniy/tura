@@ -5203,40 +5203,12 @@
               <children xmi:type="notation:BasicCompartment" xmi:id="_CU424xIHEeW0xqwq_ZI05Q" type="1607008">
                 <children xmi:type="notation:Shape" xmi:id="_EkaCcBIHEeW0xqwq_ZI05Q" type="1603017" fontName=".Helvetica Neue DeskInterface">
                   <children xmi:type="notation:DecorationNode" xmi:id="_EkapgBIHEeW0xqwq_ZI05Q" type="1605006"/>
-                  <children xmi:type="notation:BasicCompartment" xmi:id="_EkapgRIHEeW0xqwq_ZI05Q" type="1607016">
-                    <children xmi:type="notation:Shape" xmi:id="_l-xm0BIPEeWVdfPq5m8MAQ" type="1603027" fontName=".Helvetica Neue DeskInterface">
-                      <children xmi:type="notation:DecorationNode" xmi:id="_l-yN4BIPEeWVdfPq5m8MAQ" type="1605013"/>
-                      <element xmi:type="tura.domain:ActionTrigger" href="hr.domain#409a1229-128d-43ca-8363-c1f55f052858"/>
-                      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_l-xm0RIPEeWVdfPq5m8MAQ"/>
-                    </children>
-                    <children xmi:type="notation:Shape" xmi:id="_r6FusBIPEeWVdfPq5m8MAQ" type="1603027" fontName=".Helvetica Neue DeskInterface">
-                      <children xmi:type="notation:DecorationNode" xmi:id="_r6GVwBIPEeWVdfPq5m8MAQ" type="1605013"/>
-                      <element xmi:type="tura.domain:ActionTrigger" href="hr.domain#cb96be69-8c7a-4c82-aa91-7a32a4f9d316"/>
-                      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_r6FusRIPEeWVdfPq5m8MAQ"/>
-                    </children>
-                    <styles xmi:type="notation:SortingStyle" xmi:id="_EkapghIHEeW0xqwq_ZI05Q"/>
-                    <styles xmi:type="notation:FilteringStyle" xmi:id="_EkbQkBIHEeW0xqwq_ZI05Q"/>
-                  </children>
                   <styles xmi:type="notation:HintedDiagramLinkStyle" xmi:id="_EkaCcRIHEeW0xqwq_ZI05Q"/>
                   <element xmi:type="tura.domain:Button" href="hr.domain#80f38c36-1479-42e3-8640-b78c8efd111f"/>
                   <layoutConstraint xmi:type="notation:Bounds" xmi:id="_EkaCchIHEeW0xqwq_ZI05Q" x="10" y="13"/>
                 </children>
                 <children xmi:type="notation:Shape" xmi:id="_GrEM8BIHEeW0xqwq_ZI05Q" type="1603017" fontName=".Helvetica Neue DeskInterface">
                   <children xmi:type="notation:DecorationNode" xmi:id="_GrE0AhIHEeW0xqwq_ZI05Q" type="1605006"/>
-                  <children xmi:type="notation:BasicCompartment" xmi:id="_GrE0AxIHEeW0xqwq_ZI05Q" type="1607016">
-                    <children xmi:type="notation:Shape" xmi:id="_wAduMBIPEeWVdfPq5m8MAQ" type="1603027" fontName=".Helvetica Neue DeskInterface">
-                      <children xmi:type="notation:DecorationNode" xmi:id="_wAduMhIPEeWVdfPq5m8MAQ" type="1605013"/>
-                      <element xmi:type="tura.domain:ActionTrigger" href="hr.domain#aa82c7a2-3212-459e-8ebc-c3aca50f5b7a"/>
-                      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_wAduMRIPEeWVdfPq5m8MAQ"/>
-                    </children>
-                    <children xmi:type="notation:Shape" xmi:id="_1glH0BIPEeWVdfPq5m8MAQ" type="1603027" fontName=".Helvetica Neue DeskInterface">
-                      <children xmi:type="notation:DecorationNode" xmi:id="_1glu4BIPEeWVdfPq5m8MAQ" type="1605013"/>
-                      <element xmi:type="tura.domain:ActionTrigger" href="hr.domain#c1ea48e2-bd50-4f6e-8c61-3f49f128cff2"/>
-                      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_1glH0RIPEeWVdfPq5m8MAQ"/>
-                    </children>
-                    <styles xmi:type="notation:SortingStyle" xmi:id="_GrE0BBIHEeW0xqwq_ZI05Q"/>
-                    <styles xmi:type="notation:FilteringStyle" xmi:id="_GrE0BRIHEeW0xqwq_ZI05Q"/>
-                  </children>
                   <styles xmi:type="notation:HintedDiagramLinkStyle" xmi:id="_GrE0ABIHEeW0xqwq_ZI05Q"/>
                   <element xmi:type="tura.domain:Button" href="hr.domain#20e5f690-a78c-4a85-8baf-bb6a51bfa642"/>
                   <layoutConstraint xmi:type="notation:Bounds" xmi:id="_GrE0ARIHEeW0xqwq_ZI05Q" x="139" y="27"/>
