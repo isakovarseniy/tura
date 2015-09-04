@@ -7,22 +7,21 @@ operation  message_library_generation(hash) {
      var application = library.eContainer().parent.parent.parent;
      
      for (  lang in library.libLanguages){
-%]
-[%=message_content(lang, library)%]
-[%     
-    util.saveFile( resourcePath+"/"+util.mergeAndCapitalize(application.name).toLowerCase(), util.mergeAndCapitalize(library.name)+"_"+lang.lang.code+".properties",out.toString());   
+     message_content(lang, library,resourcePath,application);
      }
  }
-
-
-operation  message_content(lang, library) {
+ 
+@template
+operation  message_content(lang, library,resourcePath,application) {
      var util = new Native('org.tura.metamodel.commons.Util');
       for (  message in library.messages){
+      
       var translation = message.translatioins->select(t|t.lang = lang)->collect(t|t.translation);
       if (translation.size() <> 0 ){
 %][%=message.name.replaceAll(" ","")%]=[%=translation.get(0)%]
 [%
         }     
       }
+    util.saveFile( resourcePath+"/"+util.mergeAndCapitalize(application.name).toLowerCase(), util.mergeAndCapitalize(library.name)+"_"+lang.lang.code+".properties",out.toString());   
  }
 %]
