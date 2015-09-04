@@ -21,9 +21,11 @@
  */
 package org.tura.platform.primefaces.lib;
 
+import java.util.Locale;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 
 import org.tura.platform.datacontrol.IDataControl;
@@ -45,10 +47,14 @@ public class SystemLibrary {
 	public void removeRow(IDataControl dc) {
 		try {
 			dc.removeObject();
-//			((DataControl<?>)dc).forceRefresh();
 		} catch (Exception e) {
 			logger.log(Level.INFO, e.getMessage(),e);
 		}
 	}
 
+	
+    public void changeLanguage(String language) {
+        FacesContext.getCurrentInstance().getViewRoot().setLocale(new Locale(language));
+    }	
+	
 }

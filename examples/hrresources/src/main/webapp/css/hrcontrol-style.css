@@ -82,6 +82,24 @@
     top: 15% !important;
 }
 
+.canada-flag-button {
+    background-image: url(/hrresources-2.0/images/flags/ca.png) !important;
+    width: 16px;
+    height: 11px;
+    margin-top: -2px !important;
+    margin-left: -10px !important;
+    top: 15% !important;
+}
+
+.russia-flag-button {
+    background-image: url(/hrresources-2.0/images/flags/ru.png) !important;
+    width: 16px;
+    height: 11px;
+    margin-top: -2px !important;
+    margin-left: -10px !important;
+    top: 15% !important;
+}
+
 
 .ui-panelgrid tr, .ui-panelgrid td{
   border:none;

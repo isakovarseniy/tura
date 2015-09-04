@@ -320,6 +320,10 @@
         <parameters packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="7de77bc8-f109-43e4-95fe-0f2ca7a9f1d0" uid="76475fdc-384e-4bef-afd5-a1b0a14a4162" name="Data control"/>
         <returnValue packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="90b18156-de6d-42d1-b350-925e44a0e4cc"/>
       </operations>
+      <operations uid="fe8d372c-7bc3-4a10-9e91-e23c2b0df887" name="Change Language">
+        <parameters packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="e370b9d1-a6fb-4a40-88e2-8845be441438" fakePackageName="Primitive package" fakeTypeName="String" uid="3e46d6f5-bc98-4778-ba99-150127ed8675" name="lang"/>
+        <returnValue packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="90b18156-de6d-42d1-b350-925e44a0e4cc"/>
+      </operations>
     </types>
     <types xsi:type="tura.domain:Type" uid="76fe6802-305f-4973-a750-b102d9559fc2" name="Data control">
       <attributes packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="2829901f-e985-4786-96ff-852230536694" fakePackageName="Primitive package" fakeTypeName="Integer" uid="bf4abed3-fabd-436e-906b-3c2a865e264e" name="start Index"/>
@@ -2663,7 +2667,22 @@
           </children>
         </children>
       </children>
-      <children xsi:type="tura.domain:LayerHolder" uid="ecbb80f7-e997-4adf-bb0b-9aa8a2e2b0a5" columns="2">
+      <children xsi:type="tura.domain:Label" order="3" uid="3782b85e-89bd-4bb0-8c6f-6139d5a672bc" label="Empty label">
+        <style/>
+      </children>
+      <children xsi:type="tura.domain:Label" order="4" uid="0d7589d8-f994-45c1-a37f-e9c3bd2c34e2" label="Details">
+        <style constant="true" value="display: inline-block;margin:0px 20px 20px 0px;font:20px arial, sans-serif;color: #0033CC;text-decoration: underline"/>
+        <multiLangLabel value="Messages.HR Controller.DETAILS">
+          <expression objRef="af03a493-0ca4-486c-945f-5bfc2fdf35bd" expressionType="MessagesImpl"/>
+          <expression objRef="5772ddee-a83b-41c9-8f34-c442412e1013" order="1" expressionType="MessageLibraryImpl"/>
+          <expression objRef="56e1bf95-de7b-466e-a335-b0fff00cde17" order="2" expressionType="MessageImpl"/>
+        </multiLangLabel>
+      </children>
+      <children xsi:type="tura.domain:Label" order="5" uid="f527a86c-8cdb-4a78-bf55-e7cfc3a78ad0" label="Empty label">
+        <style/>
+        <multiLangLabel/>
+      </children>
+      <children xsi:type="tura.domain:LayerHolder" order="1" uid="ecbb80f7-e997-4adf-bb0b-9aa8a2e2b0a5" columns="2">
         <style/>
         <styleClass/>
         <children xsi:type="tura.domain:Button" uid="1c158a9e-628f-43de-b721-5b4155baa65e" label="Save">
@@ -2691,28 +2710,48 @@
           </icon>
         </children>
       </children>
-      <children xsi:type="tura.domain:Label" order="1" uid="f2ae9ed4-8808-4dd9-9076-2cc2b3d9daab" label="HR controller form">
-        <style constant="true" value="font:35px arial, sans-serif;color: #0033CC;text-decoration: underline"/>
-        <multiLangLabel value="Messages.HR Controller.MAIN_WINDOW_LABEL">
-          <expression objRef="af03a493-0ca4-486c-945f-5bfc2fdf35bd" expressionType="MessagesImpl"/>
-          <expression objRef="5772ddee-a83b-41c9-8f34-c442412e1013" order="1" expressionType="MessageLibraryImpl"/>
-          <expression objRef="f994c763-7bfb-4952-b00f-b730b5d67043" order="2" expressionType="MessageImpl"/>
-        </multiLangLabel>
-      </children>
-      <children xsi:type="tura.domain:Label" order="3" uid="3782b85e-89bd-4bb0-8c6f-6139d5a672bc" label="Empty label">
-        <style/>
-      </children>
-      <children xsi:type="tura.domain:Label" order="4" uid="0d7589d8-f994-45c1-a37f-e9c3bd2c34e2" label="Details">
-        <style constant="true" value="display: inline-block;margin:0px 20px 20px 0px;font:20px arial, sans-serif;color: #0033CC;text-decoration: underline"/>
-        <multiLangLabel value="Messages.HR Controller.DETAILS">
-          <expression objRef="af03a493-0ca4-486c-945f-5bfc2fdf35bd" expressionType="MessagesImpl"/>
-          <expression objRef="5772ddee-a83b-41c9-8f34-c442412e1013" order="1" expressionType="MessageLibraryImpl"/>
-          <expression objRef="56e1bf95-de7b-466e-a335-b0fff00cde17" order="2" expressionType="MessageImpl"/>
-        </multiLangLabel>
-      </children>
-      <children xsi:type="tura.domain:Label" order="5" uid="f527a86c-8cdb-4a78-bf55-e7cfc3a78ad0" label="Empty label">
-        <style/>
-        <multiLangLabel/>
+      <children xsi:type="tura.domain:LayerHolder" uid="444aabc0-f948-4134-bbff-225bff8a2d36" columns="2">
+        <style constant="true" value="width:100%"/>
+        <children xsi:type="tura.domain:Label" uid="f2ae9ed4-8808-4dd9-9076-2cc2b3d9daab" label="HR controller form">
+          <style constant="true" value="font:35px arial, sans-serif;color: #0033CC;text-decoration: underline"/>
+          <multiLangLabel value="Messages.HR Controller.MAIN_WINDOW_LABEL">
+            <expression objRef="af03a493-0ca4-486c-945f-5bfc2fdf35bd" expressionType="MessagesImpl"/>
+            <expression objRef="5772ddee-a83b-41c9-8f34-c442412e1013" order="1" expressionType="MessageLibraryImpl"/>
+            <expression objRef="f994c763-7bfb-4952-b00f-b730b5d67043" order="2" expressionType="MessageImpl"/>
+          </multiLangLabel>
+        </children>
+        <children xsi:type="tura.domain:LayerHolder" nickname="" order="1" uid="f2fa5e68-d796-472a-9eb3-f20eacf7e6c5" columns="2">
+          <style/>
+          <children xsi:type="tura.domain:Button" uid="ed151a05-5f94-4ab8-827b-96de40759880" label="Canada">
+            <style constant="true" value="width:16px;height:11px"/>
+            <triggers packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="97a1a7c3-5e08-48b1-82d0-8a35fa5a13e9" fakePackageName="Base package" fakeTypeName="System library" methodRef="fe8d372c-7bc3-4a10-9e91-e23c2b0df887" fakeMethod="Change Language" uid="bb90cea4-d175-419f-84db-9db89f5299f7">
+              <parameters uid="0f388ce1-ee8a-450d-8388-11b8857eedff" refObj="3e46d6f5-bc98-4778-ba99-150127ed8675">
+                <value uid="cf9f0971-2364-44bf-87e0-fc7071ffbfa0" constant="true" value="en"/>
+              </parameters>
+            </triggers>
+            <multiLangLabel value=""/>
+            <icon value="Application styles.HR styles.HR Controller styles.canada-flag-button">
+              <expression objRef="c7379293-bc50-4b7e-8cc9-917bc2dd97aa" expressionType="ApplicationStyleImpl"/>
+              <expression objRef="a9b99a7f-03c7-4b89-82c2-b3e1f0f326d2" order="1" expressionType="StylesPackageImpl"/>
+              <expression objRef="bc917c9e-7594-4ff8-9157-a9e6cf5ac5f5" order="2" expressionType="StyleLibraryImpl"/>
+              <expression objRef="716f1cac-7c61-40f0-9c73-90ed00f568aa" order="3" expressionType="StyleSetImpl"/>
+            </icon>
+          </children>
+          <children xsi:type="tura.domain:Button" order="1" uid="df481ec2-53e2-40d2-b2ce-fbbb92314208" label="Russian">
+            <style constant="true" value="width:16px;height:11px"/>
+            <triggers packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="97a1a7c3-5e08-48b1-82d0-8a35fa5a13e9" fakePackageName="Base package" fakeTypeName="System library" methodRef="fe8d372c-7bc3-4a10-9e91-e23c2b0df887" fakeMethod="Change Language" uid="4fc27b94-23e7-425c-a46e-b9db48f26b28">
+              <parameters uid="b418256d-ab65-40f5-ab43-ec9ef3a1cf79" refObj="3e46d6f5-bc98-4778-ba99-150127ed8675">
+                <value uid="64dcc507-fccb-4a64-9f66-039df29fe7d0" constant="true" value="ru"/>
+              </parameters>
+            </triggers>
+            <icon value="Application styles.HR styles.HR Controller styles.russia-flag-button">
+              <expression objRef="c7379293-bc50-4b7e-8cc9-917bc2dd97aa" expressionType="ApplicationStyleImpl"/>
+              <expression objRef="a9b99a7f-03c7-4b89-82c2-b3e1f0f326d2" order="1" expressionType="StylesPackageImpl"/>
+              <expression objRef="bc917c9e-7594-4ff8-9157-a9e6cf5ac5f5" order="2" expressionType="StyleLibraryImpl"/>
+              <expression objRef="a3f24db7-b563-4a36-b4a4-a18d48ba110a" order="3" expressionType="StyleSetImpl"/>
+            </icon>
+          </children>
+        </children>
       </children>
     </baseCanvas>
   </tura.domain:CanvasView>
@@ -2927,6 +2966,8 @@
       <styles uid="4bca642a-e9fe-48ee-a0cd-fa6e45526a14" name="popup-details-button"/>
       <styles uid="994a474f-8f56-4999-bff1-f09ac116f07c" name="ok-button"/>
       <styles uid="23841287-145a-4d4b-87a6-9689c5c16059" name="cancel-button"/>
+      <styles uid="716f1cac-7c61-40f0-9c73-90ed00f568aa" name="canada-flag-button"/>
+      <styles uid="a3f24db7-b563-4a36-b4a4-a18d48ba110a" name="russia-flag-button"/>
     </libraries>
   </tura.domain:Styles>
   <tura.domain:Recipes uid="ea1699b1-79f1-4e4d-9342-3ba1cf05a54d" parent="643f117b-2ee8-49cd-b1ff-6123bc465259">
