@@ -432,6 +432,7 @@ public class Util {
 
 		final OutputStreamWriter writer = new OutputStreamWriter(out,
 				Charset.forName(charset));
+		
 		writer.write(in);
 		writer.flush();
 		writer.close();
