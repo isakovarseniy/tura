@@ -5,7 +5,9 @@ import static java.nio.file.StandardCopyOption.REPLACE_EXISTING;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.OutputStreamWriter;
 import java.io.StringWriter;
+import java.nio.charset.Charset;
 import java.nio.file.FileSystems;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -44,38 +46,38 @@ import freemarker.template.TemplateExceptionHandler;
 public class Util {
 
 	public static String beanFactoryName = "";
-	
-	public static void  setBeanFactoryName(String name){
+
+	public static void setBeanFactoryName(String name) {
 		beanFactoryName = name;
 	}
-	
-	public static String  getBeanFactoryName(){
+
+	public static String getBeanFactoryName() {
 		return beanFactoryName;
 	}
-	
-	public static String bracketRemover(String str){
-		if (str.length() < 2 )
+
+	public static String bracketRemover(String str) {
+		if (str.length() < 2)
 			return str;
 
-		if ("#{".equals(str.substring(0, 2))){
+		if ("#{".equals(str.substring(0, 2))) {
 			str = str.substring(2);
-			str = str.substring(0,str.length()-1);
+			str = str.substring(0, str.length() - 1);
 		}
 		return str;
 	}
-	
-	public static String apostropheRemover(String str){
-		if (str.length() < 1 )
+
+	public static String apostropheRemover(String str) {
+		if (str.length() < 1)
 			return str;
-			
-		if ("'".equals(str.substring(0, 1))){
+
+		if ("'".equals(str.substring(0, 1))) {
 			str = str.substring(1);
-			str = str.substring(0,str.length()-1);
+			str = str.substring(0, str.length() - 1);
 		}
 		return str;
-		
+
 	}
-	
+
 	public static domain.TypeElement getBase(domain.DataControl dc) {
 		if ((dc.getCreate().getMethodRef() == null
 				|| dc.getCreate().getMethodRef().getReturnValue() == null || dc
@@ -187,19 +189,20 @@ public class Util {
 			strQuery = strQuery.replaceAll("\\$\\{"
 					+ var.getQueryParamRef().getName() + "\\}", var.getValue());
 		}
-		
-		traceIfDebug("Query",strQuery);
+
+		traceIfDebug("Query", strQuery);
 		return executeQuery(strQuery, eobj);
 	}
 
-	public static void traceIfDebug(String type,String str){
+	public static void traceIfDebug(String type, String str) {
 		IEclipsePreferences pref = InstanceScope.INSTANCE
 				.getNode("org.tura.metamodel.commons.preferences");
 
 		if ("true".equals(pref.get(IPreferenceConstants.DEBUGING, "false"))) {
-			LogUtil.logInfo(type+" : " + str);
-		}		
+			LogUtil.logInfo(type + " : " + str);
+		}
 	}
+
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public static List<?> runQuery(domain.ModelMapper mapper, String queryName,
 			EObject eobj) throws Exception {
@@ -248,15 +251,14 @@ public class Util {
 		return StringUtils.uncapitalize(StringUtils.join(ls));
 	}
 
-	
 	public static String dashmergeAndUnCapitalize(String name) {
 		String[] ls = StringUtils.split(name, " ");
 		for (int i = 0; i < ls.length; i++) {
 			ls[i] = ls[i].toLowerCase();
 		}
-		return StringUtils.join(ls,'-');
-	}	
-	
+		return StringUtils.join(ls, '-');
+	}
+
 	public ArtificialContextValue createArtificialContextValue(
 			domain.DataControl dc, domain.DataControl root, Object obj)
 			throws Exception {
@@ -279,7 +281,6 @@ public class Util {
 		if (obj instanceof domain.Attribute)
 			return createTreeControlAccess(dc, (domain.Attribute) obj);
 
-		
 		throw new Exception("Method createTreeControlAccess for parameter "
 				+ obj.getClass().getName() + " is not implemented");
 	}
@@ -289,17 +290,15 @@ public class Util {
 		if (obj == null)
 			return createControlAccess(dc);
 		if (obj instanceof domain.Attribute)
-			return createControlAccess(dc,(domain.Attribute)obj);
-		
+			return createControlAccess(dc, (domain.Attribute) obj);
 
 		throw new Exception("Method createControlAccess for parameter "
 				+ obj.getClass().getName() + " is not implemented");
 	}
-	
-	
+
 	private ArtificialContextValue createTreeControlAccess(
-			domain.DataControl dc, domain.Attribute attr){
-		
+			domain.DataControl dc, domain.Attribute attr) {
+
 		ArtificialContextValue cv = createTreeControlAccess(dc);
 
 		cv.setValue(cv.getValue() + ".currentObject." + attr.getName());
@@ -318,12 +317,12 @@ public class Util {
 		ex.setOrder(5);
 		ex.setObjRef(attr);
 		ex.setExpressionType("AttributeImpl");
-		cv.getExpression().add(ex);		
+		cv.getExpression().add(ex);
 
 		return cv;
-	
+
 	}
-	
+
 	private ArtificialContextValue createTreeControlAccess(
 			domain.DataControl dc, domain.Link lnk) {
 		ArtificialContextValue cv = createTreeControlAccess(dc);
@@ -365,13 +364,12 @@ public class Util {
 		ex.setExpressionType("TreeDataControl");
 		cv.getExpression().add(ex);
 
-		 ex = new ArtificialExpressionPart();
-		 ex.setOrder(2);
-		 ex.setExpressionType("DataControlImpl");
-		 ex.setObjRef(dc);
-		 cv.getExpression().add(ex);
-		
-		
+		ex = new ArtificialExpressionPart();
+		ex.setOrder(2);
+		ex.setExpressionType("DataControlImpl");
+		ex.setObjRef(dc);
+		cv.getExpression().add(ex);
+
 		return cv;
 	}
 
@@ -393,8 +391,8 @@ public class Util {
 		return cv;
 	}
 
-	
-	private ArtificialContextValue createControlAccess(domain.DataControl dc, domain.Attribute attribute) {
+	private ArtificialContextValue createControlAccess(domain.DataControl dc,
+			domain.Attribute attribute) {
 		ArtificialContextValue cv = createControlAccess(dc);
 
 		cv.setValue(cv.getValue() + ".currentObject." + attribute.getName());
@@ -416,17 +414,27 @@ public class Util {
 		cv.getExpression().add(ex);
 
 		return cv;
-	}	
-	
+	}
 
 	public static void saveFile(String path, String fileName, String in)
 			throws IOException {
+		saveFile(path, fileName, in,"UTF-8");
+	}
+
+	public static void saveFile(String path, String fileName, String in,
+			String charset) throws IOException {
 
 		File f = new File(path);
 		f.mkdirs();
 
-		FileOutputStream out = new FileOutputStream(new File(f, fileName),false);
-		out.write(in.getBytes());
+		FileOutputStream out = new FileOutputStream(new File(f, fileName),
+				false);
+
+		final OutputStreamWriter writer = new OutputStreamWriter(out,
+				Charset.forName(charset));
+		writer.write(in);
+		writer.flush();
+		writer.close();
 		out.close();
 	}
 

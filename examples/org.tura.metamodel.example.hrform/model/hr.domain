@@ -1812,6 +1812,7 @@
       <hints uid="9dbccf03-d238-463d-9b0c-9dc5b1222d2e" name="converter"/>
       <hints uid="8974ceb5-7778-4c54-8301-8cef8a50894f" name="validator"/>
       <hints uid="78a78e86-e357-45e7-b1a3-25ec3b78e4ca" name="readOnlyConverter"/>
+      <hints uid="fedbcbbc-e4d4-420a-b9eb-dd3c4fd33b87" name="encoding" applyedClass=""/>
     </artifacts>
     <artifacts uid="297535b2-a50c-411c-9014-4d739432685b" name="Primefaces">
       <hints uid="21d9dc34-d2cb-4b87-ab39-94afefd6765c" name="row number selector"/>
@@ -2271,6 +2272,7 @@
   <tura.domain:TypeDefinition uid="c9574970-474a-403a-9224-f91bc2f8fe7a"/>
   <tura.domain:Messages uid="af03a493-0ca4-486c-945f-5bfc2fdf35bd" parent="39c0cb8c-3370-4a8b-9dc8-f988c6c3a565">
     <messageLibraries uid="5772ddee-a83b-41c9-8f34-c442412e1013" name="HR Controller">
+      <classifiers uid="9cb1ba34-2594-484a-ba99-c3e9f8f7b593" hint="fedbcbbc-e4d4-420a-b9eb-dd3c4fd33b87" details="UTF-16"/>
       <libLanguages uid="5f566f06-7d99-4d79-986d-b42bdfb2b6a0" lang="2160c4e8-6839-4e94-a225-162cc9210518"/>
       <libLanguages uid="db7a4a4e-2ac3-4346-b382-9378d7ddc57f" lang="443736d3-5e1e-488c-9824-4b59435c8f2a"/>
       <messages uid="f994c763-7bfb-4952-b00f-b730b5d67043" name="MAIN_WINDOW_LABEL">
@@ -2431,6 +2433,7 @@
       </messages>
     </messageLibraries>
     <messageLibraries uid="0cc922a6-a203-490f-a02e-15d8d1ad5e16" name="Tree 2 tree">
+      <classifiers uid="8cd88a2e-b729-4667-8042-7f1f971ffc97" hint="fedbcbbc-e4d4-420a-b9eb-dd3c4fd33b87" details="UTF-16"/>
       <libLanguages uid="b08087aa-6302-4d3b-86f8-5e3238698876" lang="2160c4e8-6839-4e94-a225-162cc9210518"/>
       <libLanguages uid="0d64924a-1d7e-4665-9d43-85b24187264a" lang="443736d3-5e1e-488c-9824-4b59435c8f2a"/>
       <messages uid="e1afc867-8537-4c8d-bcd7-c50f39e6807c" name="MAIN_WINDOW_LABEL">
@@ -2439,6 +2442,7 @@
       </messages>
     </messageLibraries>
     <messageLibraries uid="35165706-afd8-4c17-9235-7fb0e4e4511f" name="Misc">
+      <classifiers uid="b2d11d77-684b-4a65-aeeb-0cd6b4244282" hint="fedbcbbc-e4d4-420a-b9eb-dd3c4fd33b87" details="UTF-16"/>
       <libLanguages uid="f7c28876-7cca-4cfa-8704-789e1e7e6adf" lang="2160c4e8-6839-4e94-a225-162cc9210518"/>
       <libLanguages uid="4f6d7000-d61f-42b4-ad82-2ab56639d804" lang="443736d3-5e1e-488c-9824-4b59435c8f2a"/>
       <messages uid="af8d602d-98f1-4904-9433-79afaed9becc" name="INITIAL_SELECTION_MESSAGE">

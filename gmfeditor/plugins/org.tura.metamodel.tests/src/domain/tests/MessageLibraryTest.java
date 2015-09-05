@@ -27,16 +27,8 @@ import junit.textui.TestRunner;
  * <!-- end-user-doc -->
  * @generated
  */
-public class MessageLibraryTest extends TestCase
+public class MessageLibraryTest extends CategorizedTest
 {
-
-  /**
-	 * The fixture for this Message Library test case.
-	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-	 * @generated
-	 */
-  protected MessageLibrary fixture = null;
 
   /**
 	 * <!-- begin-user-doc -->
@@ -60,25 +52,15 @@ public class MessageLibraryTest extends TestCase
 	}
 
   /**
-	 * Sets the fixture for this Message Library test case.
-	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-	 * @generated
-	 */
-  protected void setFixture(MessageLibrary fixture)
-  {
-		this.fixture = fixture;
-	}
-
-  /**
 	 * Returns the fixture for this Message Library test case.
 	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
 	 * @generated
 	 */
-  protected MessageLibrary getFixture()
+  @Override
+		protected MessageLibrary getFixture()
   {
-		return fixture;
+		return (MessageLibrary)fixture;
 	}
 
   /**

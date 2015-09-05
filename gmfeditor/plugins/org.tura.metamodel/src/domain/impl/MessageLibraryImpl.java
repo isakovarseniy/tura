@@ -51,7 +51,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public class MessageLibraryImpl extends EObjectImpl implements MessageLibrary {
+public class MessageLibraryImpl extends CategorizedImpl implements MessageLibrary {
 	/**
 	 * The default value of the '{@link #getUid() <em>Uid</em>}' attribute.
 	 * <!-- begin-user-doc -->

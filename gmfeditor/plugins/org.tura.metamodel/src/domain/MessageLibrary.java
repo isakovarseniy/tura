@@ -37,7 +37,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model annotation="gmf.node label='name' border.color='0,0,0' color='255,237,85'"
  * @generated
  */
-public interface MessageLibrary extends EObject {
+public interface MessageLibrary extends Categorized {
 	/**
 	 * Returns the value of the '<em><b>Uid</b></em>' attribute.
 	 * <!-- begin-user-doc -->

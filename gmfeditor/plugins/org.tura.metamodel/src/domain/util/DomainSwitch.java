@@ -468,6 +468,7 @@ public class DomainSwitch<T> extends Switch<T> {
 			case DomainPackage.MESSAGE_LIBRARY: {
 				MessageLibrary messageLibrary = (MessageLibrary)theEObject;
 				T result = caseMessageLibrary(messageLibrary);
+				if (result == null) result = caseCategorized(messageLibrary);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}

@@ -517,6 +517,13 @@
              category="domain"
              id="property.tab.domain.messages.translation"
              label="Translation"/>
+
+          <propertyTab
+             category="domain"
+             id="property.tab.domain.messages.classifier"
+             label="Hint"/>
+                          
+             
       </propertyTabs>
      </extension>  
 
@@ -524,6 +531,17 @@
       <?gmfgen generated="true"?>   
  
       <propertySections contributorId="org.tura.metamodel.diagram.message">
+
+          <propertySection
+               tab="property.tab.domain.messages.classifier"
+               class="org.tura.metamodel.commons.properties.selections.grid.impl.CategorizedPropertySelection"
+               id="org.tura.metamodel.diagram.message.classifier">
+
+              <input type="message.diagram.edit.parts.MessageLibraryEditPart"/>
+              
+            </propertySection>        
+
+
 
             <propertySection
                tab="property.tab.domain.messages.lang"

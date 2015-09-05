@@ -2103,13 +2103,22 @@ public interface DomainPackage extends EPackage {
 	int MESSAGE_LIBRARY = 34;
 
 	/**
+	 * The feature id for the '<em><b>Classifiers</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MESSAGE_LIBRARY__CLASSIFIERS = CATEGORIZED__CLASSIFIERS;
+
+	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MESSAGE_LIBRARY__UID = 0;
+	int MESSAGE_LIBRARY__UID = CATEGORIZED_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2118,7 +2127,7 @@ public interface DomainPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MESSAGE_LIBRARY__NAME = 1;
+	int MESSAGE_LIBRARY__NAME = CATEGORIZED_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Lib Languages</b></em>' containment reference list.
@@ -2127,7 +2136,7 @@ public interface DomainPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MESSAGE_LIBRARY__LIB_LANGUAGES = 2;
+	int MESSAGE_LIBRARY__LIB_LANGUAGES = CATEGORIZED_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Messages</b></em>' containment reference list.
@@ -2136,7 +2145,7 @@ public interface DomainPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MESSAGE_LIBRARY__MESSAGES = 3;
+	int MESSAGE_LIBRARY__MESSAGES = CATEGORIZED_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of structural features of the '<em>Message Library</em>' class.
@@ -2145,7 +2154,7 @@ public interface DomainPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MESSAGE_LIBRARY_FEATURE_COUNT = 4;
+	int MESSAGE_LIBRARY_FEATURE_COUNT = CATEGORIZED_FEATURE_COUNT + 4;
 
 	/**
 	 * The meta object id for the '{@link domain.impl.LanguageRefImpl <em>Language Ref</em>}' class.

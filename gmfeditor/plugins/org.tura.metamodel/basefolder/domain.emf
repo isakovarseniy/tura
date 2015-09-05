@@ -300,7 +300,7 @@ class Messages{
 
 
 @gmf.node(label="name",border.color="0,0,0",color="255,237,85")
-class MessageLibrary{
+class MessageLibrary extends Categorized{
 
     id attr EString uid;
     attr EString name;

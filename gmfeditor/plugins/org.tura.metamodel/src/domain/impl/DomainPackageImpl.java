@@ -8501,6 +8501,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 		applicationRecipesEClass.getESuperTypes().add(this.getHTMLLayerHolder());
 		applicationMappersEClass.getESuperTypes().add(this.getHTMLLayerHolder());
 		methodPointerEClass.getESuperTypes().add(this.getTypePointer());
+		messageLibraryEClass.getESuperTypes().add(this.getCategorized());
 		typeMapperEClass.getESuperTypes().add(this.getMapper());
 		typeMapperEClass.getESuperTypes().add(this.getTypePointer());
 		javaMapperEClass.getESuperTypes().add(this.getTypeMapper());
