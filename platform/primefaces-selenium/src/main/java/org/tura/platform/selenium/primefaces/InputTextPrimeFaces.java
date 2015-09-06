@@ -21,6 +21,7 @@
  */
 package org.tura.platform.selenium.primefaces;
 
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.tura.platform.selenium.InputText;
 
@@ -28,14 +29,19 @@ public class InputTextPrimeFaces  implements InputText{
 
 	
 	private WebElement element;
+	private WebDriver driver;
 	
-	public InputTextPrimeFaces(WebElement element) {
+	public InputTextPrimeFaces(WebElement element, WebDriver driver) {
 		this.element=element;
-	}	
+		this.driver = driver;
+	}
 	
 	@Override
 	public void click() {
 		element.click();
+		Helper helper = new Helper(driver);
+		helper.waitForJQueryAndPrimeFaces();
+		
 	}
 
 	@Override

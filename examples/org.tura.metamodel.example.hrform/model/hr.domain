@@ -2148,6 +2148,7 @@
   </tura.domain:Recipes>
   <tura.domain:Views uid="2ddd76f4-bbd2-4337-8cae-45d77d9170ab" parent="22583c7e-b599-447f-a6e1-08123b25a1a5">
     <canvases xsi:type="tura.domain:Window" uid="7d1cb326-89e4-4280-9b72-567945d73b6f" name="HR Controller">
+      <style/>
       <viewElement xsi:type="tura.domain:ViewArea" uid="e018aa58-2660-4bba-a75d-1674147458e7" name="Company-department" canvasView="86803f23-9d44-4ebc-81e9-9a63b4a770ac">
         <style/>
       </viewElement>
@@ -2726,7 +2727,7 @@
         </children>
         <children xsi:type="tura.domain:LayerHolder" nickname="" order="1" uid="f2fa5e68-d796-472a-9eb3-f20eacf7e6c5" columns="2">
           <style constant="true" value="float:right;"/>
-          <children xsi:type="tura.domain:Button" uid="ed151a05-5f94-4ab8-827b-96de40759880" onEventRefreshArea="c5f8ac47-356e-4c17-84db-fcf0a5037ca7" label="Canada">
+          <children xsi:type="tura.domain:Button" nickname="engLang" uid="ed151a05-5f94-4ab8-827b-96de40759880" onEventRefreshArea="c5f8ac47-356e-4c17-84db-fcf0a5037ca7 ce2aedb4-2308-40d7-b9aa-c9819da6e0f4" label="Canada">
             <style constant="true" value="width:16px;height:11px"/>
             <triggers packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="97a1a7c3-5e08-48b1-82d0-8a35fa5a13e9" fakePackageName="Base package" fakeTypeName="System library" methodRef="fe8d372c-7bc3-4a10-9e91-e23c2b0df887" fakeMethod="Change Language" uid="bb90cea4-d175-419f-84db-9db89f5299f7">
               <parameters uid="0f388ce1-ee8a-450d-8388-11b8857eedff" refObj="3e46d6f5-bc98-4778-ba99-150127ed8675">
@@ -2741,7 +2742,7 @@
               <expression objRef="716f1cac-7c61-40f0-9c73-90ed00f568aa" order="3" expressionType="StyleSetImpl"/>
             </icon>
           </children>
-          <children xsi:type="tura.domain:Button" order="1" uid="df481ec2-53e2-40d2-b2ce-fbbb92314208" onEventRefreshArea="c5f8ac47-356e-4c17-84db-fcf0a5037ca7" label="Russian">
+          <children xsi:type="tura.domain:Button" nickname="rusLang" order="1" uid="df481ec2-53e2-40d2-b2ce-fbbb92314208" onEventRefreshArea="c5f8ac47-356e-4c17-84db-fcf0a5037ca7 ce2aedb4-2308-40d7-b9aa-c9819da6e0f4" label="Russian">
             <style constant="true" value="width:16px;height:11px"/>
             <triggers packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="97a1a7c3-5e08-48b1-82d0-8a35fa5a13e9" fakePackageName="Base package" fakeTypeName="System library" methodRef="fe8d372c-7bc3-4a10-9e91-e23c2b0df887" fakeMethod="Change Language" uid="4fc27b94-23e7-425c-a46e-b9db48f26b28">
               <parameters uid="b418256d-ab65-40f5-ab43-ec9ef3a1cf79" refObj="3e46d6f5-bc98-4778-ba99-150127ed8675">

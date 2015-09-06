@@ -21,15 +21,19 @@
  */
 package org.tura.platform.selenium.primefaces;
 
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.tura.platform.selenium.Label;
 
 public class LabelPrimeFaces implements Label{
 
 	private WebElement element;
+	@SuppressWarnings("unused")
+	private WebDriver driver;
 	
-	public LabelPrimeFaces(WebElement element){
+	public LabelPrimeFaces(WebElement element, WebDriver driver) {
 		this.element=element;
+		this.driver = driver;
 	}
 	
 	@Override

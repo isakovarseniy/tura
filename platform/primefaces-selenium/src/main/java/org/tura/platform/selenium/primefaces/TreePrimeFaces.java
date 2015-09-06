@@ -22,6 +22,7 @@
 package org.tura.platform.selenium.primefaces;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.tura.platform.selenium.Row;
 import org.tura.platform.selenium.Tree;
@@ -30,14 +31,16 @@ public class TreePrimeFaces implements Tree{
 
 	
 	private WebElement element;
+	private WebDriver driver;
 	
-	public TreePrimeFaces(WebElement element) {
+	public TreePrimeFaces(WebElement element , WebDriver driver) {
 		this.element=element;
+		this.driver = driver;
 	}	
 	
 	@Override
 	public Row getRow(Object key) {
-		return  new TreeRow (element.findElement(By.cssSelector("li[data-rowkey='" +key+"']")));
+		return  new TreeRow (element.findElement(By.cssSelector("li[data-rowkey='" +key+"']")),driver);
 	}
 
 }

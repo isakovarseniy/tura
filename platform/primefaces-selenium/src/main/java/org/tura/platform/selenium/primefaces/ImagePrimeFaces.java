@@ -21,20 +21,26 @@
  */
 package org.tura.platform.selenium.primefaces;
 
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.tura.platform.selenium.Image;
 
 public class ImagePrimeFaces implements Image{
 
 	private WebElement element;	
+	private WebDriver driver;
 	
-	public ImagePrimeFaces(WebElement element) {
+	public ImagePrimeFaces(WebElement element, WebDriver driver) {
 		this.element=element;
+		this.driver = driver;
 	}
 
 	@Override
 	public void click() {
 		element.click();
+		Helper helper = new Helper(driver);
+		helper.waitForJQueryAndPrimeFaces();
+		
 	}	
 	
 }

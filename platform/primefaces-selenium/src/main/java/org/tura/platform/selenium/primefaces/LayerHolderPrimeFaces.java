@@ -21,6 +21,7 @@
  */
 package org.tura.platform.selenium.primefaces;
 
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.tura.platform.selenium.LayerHolder;
 
@@ -28,9 +29,12 @@ public class LayerHolderPrimeFaces implements LayerHolder {
 
 	@SuppressWarnings("unused")
 	private WebElement element;
+	@SuppressWarnings("unused")
+	private WebDriver driver;
 	
-	public LayerHolderPrimeFaces(WebElement element) {
+	public LayerHolderPrimeFaces(WebElement element, WebDriver driver) {
 		this.element=element;
+		this.driver = driver;
 	}
 
 }

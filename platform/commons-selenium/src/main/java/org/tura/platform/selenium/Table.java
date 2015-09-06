@@ -26,4 +26,6 @@ public interface Table {
 	
 	public Row getRow ( int index );
 	
+	public Header getHeader();
+	
 }

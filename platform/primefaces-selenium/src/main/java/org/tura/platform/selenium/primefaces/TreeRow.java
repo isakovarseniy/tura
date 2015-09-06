@@ -22,15 +22,18 @@
 package org.tura.platform.selenium.primefaces;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.tura.platform.selenium.Row;
 
 public class TreeRow implements Row {
 
 	private WebElement element;	
+	private WebDriver driver;
 	
-	public TreeRow(WebElement element) {
+	public TreeRow(WebElement element, WebDriver driver) {
 		this.element=element;
+		this.driver = driver;
 	}
 
 	@Override
@@ -41,10 +44,15 @@ public class TreeRow implements Row {
 	@Override
 	public void click() {
 		element.click();
+		Helper helper = new Helper(driver);
+		helper.waitForJQueryAndPrimeFaces();
+		
 	}
 
 	public void open(){
 		getCell(0).findElement(By.cssSelector("span[class*='ui-tree-toggler']")).click();
+		Helper helper = new Helper(driver);
+		helper.waitForJQueryAndPrimeFaces();
 	}
 	
 	public void close(){

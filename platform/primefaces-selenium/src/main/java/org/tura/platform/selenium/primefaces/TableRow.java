@@ -24,15 +24,18 @@ package org.tura.platform.selenium.primefaces;
 import java.util.List;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.tura.platform.selenium.Row;
 
 public class TableRow implements Row {
 
 	private WebElement element;
+	private WebDriver driver;
 	
-	public TableRow(WebElement element) {
+	public TableRow(WebElement element, WebDriver driver) {
 		this.element=element;
+		this.driver=driver;
 	}
 
 	@Override
@@ -44,5 +47,8 @@ public class TableRow implements Row {
 	@Override
 	public void click() {
 		element.click();
+		Helper helper = new Helper(driver);
+		helper.waitForJQueryAndPrimeFaces();
+		
 	}
 }

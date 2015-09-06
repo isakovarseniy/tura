@@ -21,20 +21,26 @@
  */
 package org.tura.platform.selenium.primefaces;
 
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.tura.platform.selenium.Date;
 
 public class DatePrimeFaces implements Date{
 	
 	private WebElement element;
+	private WebDriver driver;
 	
-	public DatePrimeFaces(WebElement element) {
+	public DatePrimeFaces(WebElement element, WebDriver driver) {
 		this.element=element;
-	}	
+		this.driver = driver;
+	}
 	
 	@Override
 	public void click() {
 		element.click();
+		Helper helper = new Helper(driver);
+		helper.waitForJQueryAndPrimeFaces();
+		
 	}
 
 	@Override

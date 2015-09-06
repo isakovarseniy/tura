@@ -22,20 +22,26 @@
 package org.tura.platform.selenium.primefaces;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.tura.platform.selenium.CheckBox;
 
 public class CheckBoxPrimeFaces implements CheckBox {
 
 	private WebElement element;
+	private WebDriver driver;
 
-	public CheckBoxPrimeFaces(WebElement element) {
-		this.element = element;
+	public CheckBoxPrimeFaces(WebElement element, WebDriver driver) {
+		this.element=element;
+		this.driver = driver;
 	}
 
 	@Override
 	public void click() {
 		element.click();
+		Helper helper = new Helper(driver);
+		helper.waitForJQueryAndPrimeFaces();
+		
 	}
 
 	@Override

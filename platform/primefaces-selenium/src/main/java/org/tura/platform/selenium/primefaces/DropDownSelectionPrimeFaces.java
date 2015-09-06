@@ -43,6 +43,8 @@ public class DropDownSelectionPrimeFaces implements DropDownSelection {
 		WebElement e = element.findElement(By
 				.cssSelector("label[class*='ui-selectonemenu-label']"));
 		e.click();
+		Helper helper = new Helper(driver);
+		helper.waitForJQueryAndPrimeFaces();
 	}
 
 	@Override

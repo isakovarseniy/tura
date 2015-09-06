@@ -22,7 +22,9 @@
 package org.tura.platform.selenium.primefaces;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.tura.platform.selenium.Header;
 import org.tura.platform.selenium.Row;
 import org.tura.platform.selenium.Table;
 
@@ -30,14 +32,21 @@ public class TablePrimeFaces implements Table {
 
 	
 	private WebElement element;
+	private WebDriver driver;
 	
-	public TablePrimeFaces(WebElement element){
+	public TablePrimeFaces(WebElement element, WebDriver driver) {
 		this.element=element;
-	}	
+		this.driver = driver;
+	}
 	
 	@Override
 	public Row getRow(int index) {
-		return  new TableRow (element.findElement(By.cssSelector("tr[data-ri='" +index+"']")));
+		return  new TableRow (element.findElement(By.cssSelector("tr[data-ri='" +index+"']")),driver);
+	}
+
+	@Override
+	public Header getHeader() {
+		return  new TableHeader(element.findElement(By.cssSelector("tr[role='row']")),driver);
 	}
 
 }

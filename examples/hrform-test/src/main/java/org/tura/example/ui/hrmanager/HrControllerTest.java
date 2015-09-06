@@ -1,5 +1,8 @@
 package org.tura.example.ui.hrmanager;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.fail;
+
 import java.io.File;
 
 import org.junit.After;
@@ -15,10 +18,7 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 import org.tura.example.ui.hrmanager.hrcontroller.pageobject.HRControllerPageObject;
 import org.tura.platform.selenium.Table;
 import org.tura.platform.selenium.Tree;
-import org.tura.platform.selenium.primefaces.Helper;
 import org.tura.platform.selenium.primefaces.TreeRow;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.fail;
 
 public class HrControllerTest {
 
@@ -62,14 +62,12 @@ public class HrControllerTest {
 		try {
 			// Go to the Google Suggest home page
 			driver.get("http://localhost:8080/hrform-1.0/hrmanager/hrcontroller/HRController.xhtml?param1=qwerty2");
-			Helper helper = new Helper(driver);
 
 			HRControllerPageObject hrControllerPage = new HRControllerPageObject(
 					driver);
 
 			Table t = hrControllerPage.getCompanies();
 			t.getRow(0).getCell(1);
-			helper.waitForJQueryAndPrimeFaces();
 
 			Tree tree = hrControllerPage.getLocationTree();
 			TreeRow tr = (TreeRow) tree.getRow("0");
@@ -79,14 +77,16 @@ public class HrControllerTest {
 			assertEquals("Country 1", el.getText());
 
 			t.getRow(1).getCell(1).click();
-			helper.waitForJQueryAndPrimeFaces();
 
 			tree = hrControllerPage.getLocationTree();
 			tr = (TreeRow) tree.getRow("0");
 			tr.open();
 
+			tree = hrControllerPage.getLocationTree();
+			tr = (TreeRow) tree.getRow("0");
 			el = tr.getCell(0);
 			assertEquals("Country 2", el.getText());
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 			fail();
@@ -98,7 +98,6 @@ public class HrControllerTest {
 		try {
 			// Go to the Google Suggest home page
 			driver.get("http://localhost:8080/hrform-1.0/hrmanager/hrcontroller/HRController.xhtml?param1=qwerty2");
-			Helper helper = new Helper(driver);
 
 			HRControllerPageObject hrControllerPage = new HRControllerPageObject(
 					driver);
@@ -107,14 +106,11 @@ public class HrControllerTest {
 			Tree tree = hrControllerPage.getLocationTree();
 			TreeRow tr = (TreeRow) tree.getRow("0");
 			tr.open();
-			helper.waitForJQueryAndPrimeFaces();
 
 			tr = (TreeRow) tree.getRow("0_1");
 			tr.open();
-			helper.waitForJQueryAndPrimeFaces();
 
 			t.getRow(0).click();
-			helper.waitForJQueryAndPrimeFaces();
 
 			tree = hrControllerPage.getLocationTree();
 			tr = (TreeRow) tree.getRow("0_1");
@@ -124,4 +120,34 @@ public class HrControllerTest {
 			fail();
 		}
 	}
+	
+	@Test
+	public void t3_langSwitch() {
+		// Go to the Google Suggest home page
+		driver.get("http://localhost:8080/hrform-1.0/hrmanager/hrcontroller/HRController.xhtml?param1=qwerty2");
+
+		HRControllerPageObject hrControllerPage = new HRControllerPageObject(
+				driver);
+		Table t = hrControllerPage.getCompanies();
+		WebElement el = t.getHeader().getCell(0);
+
+		assertEquals("Company name", el.getText());
+		
+		hrControllerPage.getRusLang().click();
+		
+		t = hrControllerPage.getCompanies();
+		el = t.getHeader().getCell(0);
+
+		assertEquals("Имя компании", el.getText());
+
+		hrControllerPage.getEngLang().click();
+
+		t = hrControllerPage.getCompanies();
+		 el = t.getHeader().getCell(0);
+
+		assertEquals("Company name", el.getText());
+		
+		
+	}
+	
 }
