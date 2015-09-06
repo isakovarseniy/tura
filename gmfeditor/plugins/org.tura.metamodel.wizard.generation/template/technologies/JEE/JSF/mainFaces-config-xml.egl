@@ -31,7 +31,7 @@ ${percent}${end}
        for ( library in appMsg.messageLibraries){
 %]        
         <resource-bundle>
-            <base-name>[%=util.mergeAndCapitalize(application.name).toLowerCase()+"."+util.mergeAndCapitalize(library.name)%]</base-name>
+            <base-name>[%=component.basePackage%].commons.resourcebundle.[%=util.mergeAndCapitalize(library.name)%]Bundle</base-name>
             <var>[%=util.mergeAndCapitalize(library.name)%]</var>
         </resource-bundle>
 [%
