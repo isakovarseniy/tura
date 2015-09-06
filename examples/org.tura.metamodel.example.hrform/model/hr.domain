@@ -2725,7 +2725,7 @@
           </multiLangLabel>
         </children>
         <children xsi:type="tura.domain:LayerHolder" nickname="" order="1" uid="f2fa5e68-d796-472a-9eb3-f20eacf7e6c5" columns="2">
-          <style/>
+          <style constant="true" value="float:right;"/>
           <children xsi:type="tura.domain:Button" uid="ed151a05-5f94-4ab8-827b-96de40759880" onEventRefreshArea="c5f8ac47-356e-4c17-84db-fcf0a5037ca7" label="Canada">
             <style constant="true" value="width:16px;height:11px"/>
             <triggers packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="97a1a7c3-5e08-48b1-82d0-8a35fa5a13e9" fakePackageName="Base package" fakeTypeName="System library" methodRef="fe8d372c-7bc3-4a10-9e91-e23c2b0df887" fakeMethod="Change Language" uid="bb90cea4-d175-419f-84db-9db89f5299f7">
