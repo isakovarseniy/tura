@@ -17,7 +17,6 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 import org.tura.example.ui.hrmanager.miscelements.pageobject.MiscElementsWindowPageObject;
 import org.tura.platform.selenium.CheckBox;
 import org.tura.platform.selenium.DropDownSelection;
-import org.tura.platform.selenium.primefaces.Helper;
 
 public class MiscTest {
 
@@ -63,16 +62,16 @@ public class MiscTest {
 
 			MiscElementsWindowPageObject miscPage = new MiscElementsWindowPageObject(
 					driver);
-			Helper helper = new Helper(driver);
+//			Helper helper = new Helper(driver);
 
 			DropDownSelection el = miscPage.getDepartmentDropDown();
 			assertEquals("Select one", el.getValue());
 			el.setValue("Department 1");
-			helper.waitForJQueryAndPrimeFaces();
+//			helper.waitForJQueryAndPrimeFaces();
 
 			el = miscPage.getEmployeesDropDown();
 			el.setValue("First Name 1");
-			helper.waitForJQueryAndPrimeFaces();
+//			helper.waitForJQueryAndPrimeFaces();
 			assertEquals("First Name 1", el.getValue());
 
 		} catch (Exception e) {
@@ -90,12 +89,12 @@ public class MiscTest {
 
 			MiscElementsWindowPageObject miscPage = new MiscElementsWindowPageObject(
 					driver);
-			Helper helper = new Helper(driver);
+//			Helper helper = new Helper(driver);
 
 			CheckBox el = miscPage.getChkBox();
 			assertEquals(false, el.getValue());
 			el.setValue(true);
-			helper.waitForJQueryAndPrimeFaces();
+//			helper.waitForJQueryAndPrimeFaces();
 			assertEquals(true, el.getValue());
 
 		} catch (Exception e) {

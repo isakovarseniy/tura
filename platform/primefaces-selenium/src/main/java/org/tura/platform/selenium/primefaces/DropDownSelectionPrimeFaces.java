@@ -58,8 +58,10 @@ public class DropDownSelectionPrimeFaces implements DropDownSelection {
 	@Override
 	public void setValue(String value) {
 		click();
+		Helper helper = new Helper(driver);
 		WebElement el = driver.findElement(By.cssSelector("div[id*='"+ id+"_panel']"));
 		el.findElement(By.xpath("//div/ul/li[text()='" + value + "']")).click();
+		helper.waitForJQueryAndPrimeFaces();
 	}
 
 }
