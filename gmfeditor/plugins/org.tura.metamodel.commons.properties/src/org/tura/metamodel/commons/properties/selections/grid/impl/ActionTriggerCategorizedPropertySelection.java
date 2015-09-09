@@ -18,8 +18,8 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Event;
 import org.eclipse.swt.widgets.Listener;
 import org.eclipse.ui.views.properties.tabbed.TabbedPropertySheetPage;
+import org.tura.metamodel.commons.properties.ActionTriggerSelectionEvent;
 import org.tura.metamodel.commons.properties.selections.AbstractTuraPropertySection;
-import org.tura.metamodel.commons.properties.selections.grid.impl.ActioinTriggersPropertySelectioin.ActionTriggerSelectionEvent;
 
 import domain.ActioinTriggers;
 

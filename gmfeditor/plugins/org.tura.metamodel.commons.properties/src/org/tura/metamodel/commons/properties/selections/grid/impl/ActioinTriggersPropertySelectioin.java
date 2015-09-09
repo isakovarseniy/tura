@@ -28,8 +28,12 @@ import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Event;
+import org.eclipse.swt.widgets.Listener;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.ui.views.properties.tabbed.TabbedPropertySheetPage;
+import org.tura.metamodel.commons.properties.ActioinTriggersMethodNameSelectionEvent;
+import org.tura.metamodel.commons.properties.ActionTriggerSelectionEvent;
+import org.tura.metamodel.commons.properties.selections.AbstractTuraPropertySection;
 import org.tura.metamodel.commons.properties.selections.adapters.textdata.ActioinTriggerName;
 import org.tura.metamodel.commons.properties.selections.grid.GridColumn;
 import org.tura.metamodel.commons.properties.selections.grid.GridProperty;
@@ -40,6 +44,8 @@ import domain.ActionTrigger;
 public class ActioinTriggersPropertySelectioin extends GridProperty{
 
 	private List<GridColumn> columnList;
+	private SelectionListener listener = new SelectionListener(this);
+	
 	
 	@Override
 	public List<GridColumn> getColumns() {
@@ -73,6 +79,8 @@ public class ActioinTriggersPropertySelectioin extends GridProperty{
 				aTabbedPropertySheetPage.getControl().notifyListeners(SWT.Selection, new ActionTriggerSelectionEvent((ActionTrigger) el.getFirstElement()));
 			}
 		});
+
+		aTabbedPropertySheetPage.getControl().addListener(SWT.Selection, listener);
 		
 	}
 
@@ -118,23 +126,6 @@ public class ActioinTriggersPropertySelectioin extends GridProperty{
 		
 	}
 	
-	public class ActionTriggerSelectionEvent extends Event{
-		private  domain.ActionTrigger trigger;
-
-		public ActionTriggerSelectionEvent( domain.ActionTrigger trigger){
-			this.setTrigger(trigger);
-		}
-
-		public domain.ActionTrigger getTrigger() {
-			return trigger;
-		}
-
-		public void setTrigger(domain.ActionTrigger trigger) {
-			this.trigger = trigger;
-		}
-		
-	}
-	
 	class TriggerColumn extends GridTextColumn {
 
 		public TriggerColumn(Table table, GridProperty property, int col) {
@@ -155,4 +146,25 @@ public class ActioinTriggersPropertySelectioin extends GridProperty{
 		return getEObject();
 	}
 
+	private class SelectionListener implements Listener {
+		private AbstractTuraPropertySection property;
+
+		public SelectionListener(AbstractTuraPropertySection property) {
+			this.setProperty(property);
+		}
+
+		public void setProperty(AbstractTuraPropertySection property) {
+			this.property = property;
+		}
+
+		@Override
+		public void handleEvent(Event event) {
+			if (event instanceof ActioinTriggersMethodNameSelectionEvent) {
+				property.refresh();
+				
+			}
+		}
+	}
+		
+	
 }
