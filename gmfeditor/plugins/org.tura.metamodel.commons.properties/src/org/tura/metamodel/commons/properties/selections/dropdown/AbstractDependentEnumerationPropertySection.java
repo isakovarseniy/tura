@@ -26,6 +26,12 @@ public abstract class AbstractDependentEnumerationPropertySection extends Abstra
 	private AdapterImpl adapter;
 	private boolean isFirstTime = true;
 
+	public void setFirstTime() {
+		this.isFirstTime = true;
+		if (adapter != null)
+			getModel().eAdapters().remove(adapter);
+	}	
+	
 	public void refresh() {
 		if (isFirstTime && getModel() != null) {
 

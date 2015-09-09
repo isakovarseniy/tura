@@ -69,9 +69,8 @@ public class ActioinTriggersPropertySelectioin extends GridProperty{
 
 			@Override
 			public void selectionChanged(SelectionChangedEvent event) {
-				StructuredSelection qq = (StructuredSelection) event.getSelection();
-				aTabbedPropertySheetPage.getControl().notifyListeners(SWT.Selection, new ActionTriggerSelectionEvent((ActionTrigger) qq.getFirstElement()));
-				System.out.println();
+				StructuredSelection el = (StructuredSelection) event.getSelection();
+				aTabbedPropertySheetPage.getControl().notifyListeners(SWT.Selection, new ActionTriggerSelectionEvent((ActionTrigger) el.getFirstElement()));
 			}
 		});
 		

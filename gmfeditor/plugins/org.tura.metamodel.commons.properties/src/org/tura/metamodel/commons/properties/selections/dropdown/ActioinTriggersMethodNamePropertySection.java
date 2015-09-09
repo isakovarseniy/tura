@@ -68,6 +68,7 @@ public class ActioinTriggersMethodNamePropertySection extends MethodNameProperty
 		public void handleEvent(Event event) {
 			if (event instanceof ActionTriggerSelectionEvent) {
 				model = ((ActionTriggerSelectionEvent) event).getTrigger();
+				((ActioinTriggersMethodNamePropertySection)property).setFirstTime();
 				property.refresh();
 			}
 		}

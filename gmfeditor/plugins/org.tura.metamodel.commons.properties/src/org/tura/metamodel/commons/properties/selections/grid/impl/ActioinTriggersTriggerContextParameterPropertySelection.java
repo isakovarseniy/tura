@@ -32,6 +32,7 @@ public class ActioinTriggersTriggerContextParameterPropertySelection extends Tri
 	public void createControls(Composite parent, final TabbedPropertySheetPage aTabbedPropertySheetPage) {
 		super.createControls(parent, aTabbedPropertySheetPage);
 		aTabbedPropertySheetPage.getControl().addListener(SWT.Selection, listener);
+		
 	}
 
 	@Override
@@ -62,6 +63,9 @@ public class ActioinTriggersTriggerContextParameterPropertySelection extends Tri
 			if (event instanceof ActionTriggerSelectionEvent) {
 				model = ((ActionTriggerSelectionEvent) event).getTrigger();
 				property.refresh();
+				((ActioinTriggersTriggerContextParameterPropertySelection)property).ds.cleanList();
+				((ActioinTriggersTriggerContextParameterPropertySelection)property).setFirstTime();
+				
 			}
 		}
 	}

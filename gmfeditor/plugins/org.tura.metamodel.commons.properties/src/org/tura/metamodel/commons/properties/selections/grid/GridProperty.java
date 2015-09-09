@@ -17,6 +17,7 @@ import java.util.List;
 
 import org.eclipse.jface.viewers.CellEditor;
 import org.eclipse.jface.viewers.ISelection;
+import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.GridData;
@@ -119,12 +120,22 @@ public abstract class GridProperty extends AbstractTuraPropertySection {
 
 	public void addRow() {
 		ds.addRow();
-		((TabbedPropertyComposite)(getPropertySheetPage().getControl())).getTabComposite().layout(true,true);
+		int selection = ds.getRows().size();
+		if (selection != 0)
+		    tableViewer.setSelection(new StructuredSelection(tableViewer.getElementAt(selection-1)),true);
+
+		((TabbedPropertyComposite)(getPropertySheetPage().getControl())).getTabComposite().layout(true, true);
 	}
 
 	public void removeRow(Object row) {
 		ds.removeRow(row);
-		((TabbedPropertyComposite)(getPropertySheetPage().getControl())).getTabComposite().layout(true,true);
+		
+		int selection = ds.getRows().size();
+		if (selection != 0)
+		    tableViewer.setSelection(new StructuredSelection(tableViewer.getElementAt(selection-1)),true);
+		
+		((TabbedPropertyComposite) (getPropertySheetPage().getControl()))
+				.getTabComposite().layout(true, true);
 	}
 
 	public int getSorterID() {
@@ -135,8 +146,9 @@ public abstract class GridProperty extends AbstractTuraPropertySection {
 		try {
 			super.refresh();
 			tableViewer.setInput(ds);
-			((TabbedPropertyComposite)(getPropertySheetPage().getControl())).getTabComposite().layout(true,true);
-			
+			((TabbedPropertyComposite) (getPropertySheetPage().getControl()))
+					.getTabComposite().layout(true, true);
+
 		} catch (org.eclipse.swt.SWTException e) {
 		}
 	}
