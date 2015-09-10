@@ -46,7 +46,7 @@ public class InputTextPrimeFaces  implements InputText{
 
 	@Override
 	public String getValue() {
-		return element.getText();
+		return element.getAttribute("value");
 	}
 
 	@Override

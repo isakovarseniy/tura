@@ -54,7 +54,7 @@ operation  domain::InputText accessor(id,methodName)  {
      var util = new Native('org.tura.metamodel.commons.Util');
    %]
      public org.tura.platform.selenium.InputText get[%=util.mergeAndCapitalize(methodName)%](){
-       return new org.tura.platform.selenium.primefaces.InputTextPrimeFaces( webDriver.findElement(org.openqa.selenium.By.cssSelector("div[id$='[%=id%]']")),webDriver);
+       return new org.tura.platform.selenium.primefaces.InputTextPrimeFaces( webDriver.findElement(org.openqa.selenium.By.cssSelector("input[id$='[%=id%]']")),webDriver);
      }[%   
 }
 

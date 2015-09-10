@@ -9,17 +9,26 @@ import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
+import org.junit.FixMethodOrder;
 import org.junit.Test;
+import org.junit.runners.MethodSorters;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriverService;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.tura.example.ui.hrmanager.hrcontroller.pageobject.HRControllerPageObject;
+import org.tura.example.ui.hrmanager.hrcontroller.pageobject.PopUpCpmpanyDetailsPageObject;
+import org.tura.platform.selenium.Button;
+import org.tura.platform.selenium.InputText;
 import org.tura.platform.selenium.Table;
 import org.tura.platform.selenium.Tree;
+import org.tura.platform.selenium.primefaces.ButtonPrimeFaces;
+import org.tura.platform.selenium.primefaces.InputTextPrimeFaces;
 import org.tura.platform.selenium.primefaces.TreeRow;
 
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class HrControllerTest {
 
 	static WebDriver driver;
@@ -149,5 +158,63 @@ public class HrControllerTest {
 		
 		
 	}
+	
+	
+	@Test
+	public void t4_parallelModification() {
+		// Go to the Google Suggest home page
+		driver.get("http://localhost:8080/hrform-1.0/hrmanager/hrcontroller/HRController.xhtml?param1=qwerty2");
+
+		HRControllerPageObject hrControllerPage = new HRControllerPageObject(
+				driver);
+		Table t = hrControllerPage.getCompanies();
+
+		Button button =   new ButtonPrimeFaces( t.getRow(1).getCell(2).findElement(By.cssSelector("button")),driver);
+		button.click();
+
+		PopUpCpmpanyDetailsPageObject popUp = new PopUpCpmpanyDetailsPageObject(driver);
+		
+		popUp.getDesk().setValue("123");
+		popUp.getOk().click();
+		
+		t = hrControllerPage.getCompanies();
+		WebElement el =  t.getRow(1).getCell(1);		
+
+		assertEquals("123", el.getText());
+		
+		t = hrControllerPage.getCompanies();
+		t.getRow(1).getCell(1).click();
+		InputText inputText=   new InputTextPrimeFaces( t.getRow(1).getCell(1).findElement(By.cssSelector("input")),driver);
+		inputText.setValue("567");
+		
+		t = hrControllerPage.getCompanies();
+		button =   new ButtonPrimeFaces( t.getRow(1).getCell(2).findElement(By.cssSelector("button")),driver);
+		button.click();
+		
+		assertEquals( "567", popUp.getDesk().getValue());
+		
+		popUp.getDesk().setValue("891");
+		popUp.getOk().click();
+		
+		t = hrControllerPage.getCompanies();
+		el =  t.getRow(1).getCell(1);		
+
+		assertEquals("567891", el.getText());
+		
+	
+		t = hrControllerPage.getCompanies();
+		el =  t.getRow(1).getCell(0);		
+		assertEquals("Company B", el.getText());
+
+		
+		t = hrControllerPage.getCompanies();
+		el =  t.getRow(0).getCell(0);		
+		assertEquals("Company A", el.getText());
+		
+		t = hrControllerPage.getCompanies();
+		el =  t.getRow(0).getCell(1);		
+		assertEquals("", el.getText());
+		
+	}	
 	
 }

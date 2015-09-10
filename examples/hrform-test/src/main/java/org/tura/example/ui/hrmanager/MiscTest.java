@@ -9,7 +9,9 @@ import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
+import org.junit.FixMethodOrder;
 import org.junit.Test;
+import org.junit.runners.MethodSorters;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriverService;
 import org.openqa.selenium.remote.DesiredCapabilities;
@@ -18,6 +20,7 @@ import org.tura.example.ui.hrmanager.miscelements.pageobject.MiscElementsWindowP
 import org.tura.platform.selenium.CheckBox;
 import org.tura.platform.selenium.DropDownSelection;
 
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class MiscTest {
 
 	static WebDriver driver;
@@ -62,16 +65,13 @@ public class MiscTest {
 
 			MiscElementsWindowPageObject miscPage = new MiscElementsWindowPageObject(
 					driver);
-//			Helper helper = new Helper(driver);
 
 			DropDownSelection el = miscPage.getDepartmentDropDown();
 			assertEquals("Select one", el.getValue());
 			el.setValue("Department 1");
-//			helper.waitForJQueryAndPrimeFaces();
 
 			el = miscPage.getEmployeesDropDown();
 			el.setValue("First Name 1");
-//			helper.waitForJQueryAndPrimeFaces();
 			assertEquals("First Name 1", el.getValue());
 
 		} catch (Exception e) {
@@ -89,12 +89,10 @@ public class MiscTest {
 
 			MiscElementsWindowPageObject miscPage = new MiscElementsWindowPageObject(
 					driver);
-//			Helper helper = new Helper(driver);
 
 			CheckBox el = miscPage.getChkBox();
 			assertEquals(false, el.getValue());
 			el.setValue(true);
-//			helper.waitForJQueryAndPrimeFaces();
 			assertEquals(true, el.getValue());
 
 		} catch (Exception e) {
