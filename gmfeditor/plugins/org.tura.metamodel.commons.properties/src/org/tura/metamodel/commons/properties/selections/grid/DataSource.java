@@ -23,11 +23,23 @@ public abstract class DataSource {
 	protected List rowList;
 	@SuppressWarnings("rawtypes")
 	private Set changeListeners = new HashSet();
+	
+	private boolean renewed = false;
 
 	public List<?> getRows() {
-		if (rowList == null)
+		if (rowList == null){
 			rowList=queryRows();
+			renewed = true;
+		}
 		return rowList;
+	}
+	
+	public void reset(){
+		renewed = false;
+	}
+
+	public boolean isRenewed() {
+		return renewed;
 	}
 
 	public void notifyAddRow(Object row) {

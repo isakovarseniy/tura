@@ -2730,8 +2730,8 @@
           <children xsi:type="tura.domain:Button" nickname="engLang" uid="ed151a05-5f94-4ab8-827b-96de40759880" onEventRefreshArea="c5f8ac47-356e-4c17-84db-fcf0a5037ca7 ce2aedb4-2308-40d7-b9aa-c9819da6e0f4" label="Canada">
             <style constant="true" value="width:16px;height:11px"/>
             <triggers packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="97a1a7c3-5e08-48b1-82d0-8a35fa5a13e9" fakePackageName="Base package" fakeTypeName="System library" methodRef="fe8d372c-7bc3-4a10-9e91-e23c2b0df887" fakeMethod="Change Language" uid="bb90cea4-d175-419f-84db-9db89f5299f7">
-              <parameters uid="0f388ce1-ee8a-450d-8388-11b8857eedff" refObj="3e46d6f5-bc98-4778-ba99-150127ed8675">
-                <value uid="cf9f0971-2364-44bf-87e0-fc7071ffbfa0" constant="true" value="en"/>
+              <parameters uid="f82aebfe-ae7b-4d30-83e1-406cd282702a" refObj="3e46d6f5-bc98-4778-ba99-150127ed8675">
+                <value uid="f8a387be-93bf-407c-b89a-4973f38b29e3" constant="true" value="en"/>
               </parameters>
             </triggers>
             <multiLangLabel value=""/>
@@ -2745,8 +2745,8 @@
           <children xsi:type="tura.domain:Button" nickname="rusLang" order="1" uid="df481ec2-53e2-40d2-b2ce-fbbb92314208" onEventRefreshArea="c5f8ac47-356e-4c17-84db-fcf0a5037ca7 ce2aedb4-2308-40d7-b9aa-c9819da6e0f4" label="Russian">
             <style constant="true" value="width:16px;height:11px"/>
             <triggers packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="97a1a7c3-5e08-48b1-82d0-8a35fa5a13e9" fakePackageName="Base package" fakeTypeName="System library" methodRef="fe8d372c-7bc3-4a10-9e91-e23c2b0df887" fakeMethod="Change Language" uid="4fc27b94-23e7-425c-a46e-b9db48f26b28">
-              <parameters uid="b418256d-ab65-40f5-ab43-ec9ef3a1cf79" refObj="3e46d6f5-bc98-4778-ba99-150127ed8675">
-                <value uid="64dcc507-fccb-4a64-9f66-039df29fe7d0" constant="true" value="ru"/>
+              <parameters uid="b3f47aed-5e67-4b89-824d-5f829fba4615" refObj="3e46d6f5-bc98-4778-ba99-150127ed8675">
+                <value uid="1568af07-5576-4190-b181-5ab0cba2e81d" constant="true" value="ru"/>
               </parameters>
             </triggers>
             <icon value="Application styles.HR styles.HR Controller styles.russia-flag-button">

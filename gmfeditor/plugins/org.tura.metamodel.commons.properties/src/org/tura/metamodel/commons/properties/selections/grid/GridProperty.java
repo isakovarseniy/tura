@@ -146,6 +146,11 @@ public abstract class GridProperty extends AbstractTuraPropertySection {
 		try {
 			super.refresh();
 			tableViewer.setInput(ds);
+			if (ds.isRenewed()){
+				ds.reset();
+				if (ds.getRows().size() != 0)
+			        tableViewer.setSelection(new StructuredSelection(tableViewer.getElementAt(0)),true);
+			}
 			((TabbedPropertyComposite) (getPropertySheetPage().getControl()))
 					.getTabComposite().layout(true, true);
 
