@@ -21,9 +21,8 @@
  */
 package org.tura.example.ui.commons.producer;
 
-import org.hibernate.cfg.Configuration;
-
 import javax.enterprise.context.ApplicationScoped;
+import javax.enterprise.inject.Disposes;
 import javax.enterprise.inject.Produces;
 import javax.enterprise.inject.spi.InjectionPoint;
 
@@ -40,13 +39,17 @@ public class EntityManagerProducer {
         if (em != null) {
             return em;
         }
-        Configuration config = new Configuration();
-        config.addResource("META-INF/persistence.xml");
         EntityManagerFactory emf =
-            Persistence.createEntityManagerFactory("UIComponent",
-                config.getProperties());
+            Persistence.createEntityManagerFactory("UIComponent");
         em = emf.createEntityManager();
 
         return em;
+    }
+
+    public void destroyEntityManager(@Disposes
+    EntityManager entityManager) {
+        if (entityManager.isOpen()) {
+            entityManager.close();
+        }
     }
 }

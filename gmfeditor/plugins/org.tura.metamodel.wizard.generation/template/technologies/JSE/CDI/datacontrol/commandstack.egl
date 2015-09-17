@@ -15,34 +15,24 @@ public class CDICommandStack extends org.tura.platform.datacontrol.CommandStack 
 
 	private static final long serialVersionUID = 1L;
 
-	@javax.annotation.Resource
-	private javax.transaction.UserTransaction transaction;
-
+	@javax.inject.Inject
+	private javax.persistence.EntityManager em;
+     
 	@Override
 	public void beginTransaction() {
-		try {
-			transaction.begin();
-		} catch (Exception e) {
-			throw new RuntimeException(e);
-		}
+		em.getTransaction().begin();
 
 	}
 
 	@Override
 	public void commitTransaction() {
-		try {
-			transaction.commit();
-		} catch (Exception e) {
-			throw new RuntimeException(e);
-		}
+		em.getTransaction().commit();
+
 	}
 
 	@Override
 	public void rallbackTransaction() {
-		try {
-			transaction.rollback();
-		} catch (Exception e) {
-			throw new RuntimeException(e);
-		}
+		em.getTransaction().rollback();
 	}
+
 }

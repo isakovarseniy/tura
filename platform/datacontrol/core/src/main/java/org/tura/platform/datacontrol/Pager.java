@@ -261,7 +261,10 @@ public class Pager<T> extends Pool {
 				entities = (LazyList<T>) datacontrol.getSearchCommand()
 						.execute();
 				shifter.setActualRowNumber(entities.getActualRowNumber());
+				
 
+			}catch(Exception e){
+				throw new TuraException(e);
 			} finally {
 				datacontrol.getCommandStack().commitTransaction();
 			}

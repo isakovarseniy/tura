@@ -30,6 +30,7 @@ ${percent}${end}
          hash.put("resourcePath",resourcePath);
          hash.put("form",form);
          hash.put("uipackage",uipackage);
+         hash.put("configuration",configuration);
          
          
          util.setBeanFactoryName(util.mergeAndCapitalize(uipackage.name)+util.mergeAndCapitalize(form.name));

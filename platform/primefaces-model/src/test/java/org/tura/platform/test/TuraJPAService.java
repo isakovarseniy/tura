@@ -21,21 +21,18 @@
  */
 package org.tura.platform.test;
 
-import javax.enterprise.inject.Produces;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 
 import org.tura.platform.commons.jpa.TuraJPAEntityService;
 
-public class TuraJPAEntityServiceProduces {
-	@Inject
-	private EntityManager em;
+public class TuraJPAService extends TuraJPAEntityService {
 	
-	@Produces
-	public TuraJPAEntityService getTuraJPAEntityService(){
-		TuraJPAEntityService service = new TuraJPAEntityService();
-		service.setEntityManager(em);
-		return service;
+	private static final long serialVersionUID = 1L;
+
+	@Inject
+	public void setEntityManager(EntityManager em){
+		super.setEntityManager(em);
 	}
 
 }

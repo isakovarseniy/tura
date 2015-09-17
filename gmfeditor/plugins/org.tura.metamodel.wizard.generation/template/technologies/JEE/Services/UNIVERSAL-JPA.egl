@@ -22,7 +22,7 @@ operation  cdi_service_producer_generation(hash) {
     var producer : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.wizard.generation/template/technologies/JEE/Services/UNIVERSAL-JPA/cdiServiceProducer.egl",hash,TemplateFactory);
     producer.setFormatter(f);
     var buffer = producer.process();
-    util.saveFile(  javaPath+"/commons/producer/" , type.~class + "ServiceProducer.java",buffer);   
+    util.saveFile(  javaPath+"/commons/service/" , type.~class + "Service.java",buffer);   
 
   }
 %]

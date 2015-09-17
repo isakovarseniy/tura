@@ -176,6 +176,7 @@
       <configVariables uid="57dea534-b8f3-4546-8a63-cc15dfedcd94" name="jndi access string"/>
       <configVariables uid="6ef3c0da-e95b-40a7-8b52-bd0c185543c1" name="DataBase jdbc driver"/>
       <configVariables uid="2e8c1ce3-aade-4c15-a7cd-ea9f5de5bd8e" name="DataBase jdbc url"/>
+      <configVariables uid="485dd4e4-ed32-418d-a791-b071aa314ef1" name="persistence_unit"/>
       <modelQuery uid="33f876bb-d950-4b54-93cf-8a869ef321cd" name="Query type" query="domain::Package.allInstances()->select(r|r.oclAsType(domain::Package).name='${Package name}').oclAsType(domain::Package).typedefinition.types->select(r|(r.oclIsKindOf(domain::Type) and  r.oclAsType(domain::Type).name = '${Type name}')  or (r.oclIsKindOf(domain::Primitive) and  r.oclAsType(domain::Primitive).name = '${Type name}') or (r.oclIsKindOf(domain::Enumarator) and  r.oclAsType(domain::Enumarator).name = '${Type name}') )">
         <parameters uid="dfe0a7d4-62be-4cc4-8507-3cbc62f51c6f" name="Type name"/>
         <parameters uid="97d2c830-e4db-4e67-ad46-a90a530ce768" name="Package name"/>
@@ -198,6 +199,10 @@
       <specifiers uid="2222595d-7ccd-4df3-935d-d2a29eea6aa8" name="Connection">
         <options uid="06aae34f-e20e-4a7e-b520-cdc3a8a50e27" value="JNDI"/>
         <options uid="476181b3-5764-414e-b520-108688819ae4" value="JDBC"/>
+      </specifiers>
+      <specifiers uid="a248c600-a0c3-438b-bbe3-53db84f8e7fa" name="isJTA">
+        <options uid="304eaa63-d24c-40ae-a38f-db2f158d3439" value="YES"/>
+        <options uid="6ebc795f-a205-4623-a275-7be191dd4c47" value="NO"/>
       </specifiers>
     </artifacts>
     <artifacts uid="460e6fc2-30b8-4ce5-9790-8bfdec46386d" name="Build entity" template="platform:/plugin/org.tura.metamodel.wizard.generation/template/pit/ORM/mainEntityBuilder.egl">
@@ -894,25 +899,11 @@
             <specifiers specifierRef="fa03b96b-1a8b-4793-8223-9f5c558038e0" valueRef="0bd59747-b761-466a-8ff8-7a9da20a640f"/>
             <specifiers specifierRef="cb0c094e-83a1-475f-99c3-78f6e843d1b3" valueRef="90bbb0b6-0d4f-49a5-ba69-8a53f1c4423d"/>
           </mappers>
-        </components>
-        <components xsi:type="tura.domain:JavaComponent" columns="3" uid="fc35a68c-7e61-4da1-b56a-decec132af12" name="HR Services" componentRoot="/Users/arseniy/generatedCode/serviceLayer" artifactId="hr-services" groupId="org.tura.example.service" version="1.0" basePackage="org.tura.example.service">
-          <mappers uid="75884c21-6763-4a61-bf03-3b51f82a88c6" domainArtifactRef="bf6005f8-bcb9-4c2a-b3e5-49468794367a" artifactRef="a4797bb9-d8cf-43a1-a6ac-3192a7c6f597" name="EJB service generation">
-            <specifiers specifierRef="b846f3c1-80cc-449a-b68f-bbf718477dc2" valueRef="a0c38cb5-1b9c-45ae-8271-1bdd233ef8d4"/>
-            <queries uid="Get Employees query service1" name="Get type NA" queryRef="30ae1569-0fee-4c24-89d1-423d7b52f32a">
-              <variables queryParamRef="4c1c426f-0913-4efe-be67-778b0fcc920d" value="NA"/>
-              <variables queryParamRef="1f705cc8-d31c-41c7-9d25-8f87893304f5" value="NA"/>
-            </queries>
-            <queries uid="d157c17f-44cd-4203-80b7-0c11d4461a55" name="Get Package HR package" queryRef="150373a6-59e2-415e-9301-42fc1a8eda42">
-              <variables queryParamRef="ca1fdea8-49fc-4256-ad54-d022a80f8ede" value="Service"/>
-              <variables queryParamRef="b0da5698-b6af-421a-a6ca-2696eba1d624" value="HR package"/>
-              <variables queryParamRef="c53a1366-24d5-48d1-a41f-28eb1e2a8346" value="EJBService"/>
-              <variables queryParamRef="c297467c-1c9f-4e86-b4a7-c887f810fe97" value="Service"/>
-            </queries>
-          </mappers>
-          <mappers uid="ceedd54c-33a4-48a5-829e-47324468df3e" domainArtifactRef="edb48357-89bd-4570-aaf7-e49d7bb75e57" artifactRef="20d3f932-c6b8-40df-9001-b3c0daaf6c86" name="persistence.xml" artifactRoot="hr-services-ejb">
+          <mappers uid="ceedd54c-33a4-48a5-829e-47324468df3e" domainArtifactRef="edb48357-89bd-4570-aaf7-e49d7bb75e57" artifactRef="20d3f932-c6b8-40df-9001-b3c0daaf6c86" name="persistence.xml" artifactRoot="">
             <specifiers specifierRef="fe074bfa-3f0e-4b09-80fb-9b7b8f1bfdbc" valueRef="16fa5962-f152-410b-bb52-377d11325bd3"/>
             <specifiers specifierRef="47cfe2e3-f5e7-46df-9fe5-db299263318c" valueRef="9bbf2ac9-d963-4567-99b5-ae10b5f2dc1c"/>
             <specifiers specifierRef="2222595d-7ccd-4df3-935d-d2a29eea6aa8" valueRef="06aae34f-e20e-4a7e-b520-cdc3a8a50e27"/>
+            <specifiers specifierRef="a248c600-a0c3-438b-bbe3-53db84f8e7fa" valueRef="6ebc795f-a205-4623-a275-7be191dd4c47"/>
             <queries uid="b97aa8cc-3e3a-48e3-8a9c-a040928a860f" name="Get NA object" queryRef="33f876bb-d950-4b54-93cf-8a869ef321cd">
               <variables queryParamRef="97d2c830-e4db-4e67-ad46-a90a530ce768" value="NA"/>
               <variables queryParamRef="dfe0a7d4-62be-4cc4-8507-3cbc62f51c6f" value="NA"/>
@@ -928,6 +919,21 @@
               <variables queryParamRef="ef789342-0a88-4618-85e7-0fa2b01f1b36" value="Base package"/>
               <variables queryParamRef="87c1c616-79f3-452d-b88d-8761795f4bbc" value="entityObject"/>
               <variables queryParamRef="5cb28e0b-218c-487c-8697-1c4773f9c4e8" value="ORMEntity"/>
+            </queries>
+          </mappers>
+        </components>
+        <components xsi:type="tura.domain:JavaComponent" columns="3" uid="fc35a68c-7e61-4da1-b56a-decec132af12" name="HR Services" componentRoot="/Users/arseniy/generatedCode/serviceLayer" artifactId="hr-services" groupId="org.tura.example.service" version="1.0" basePackage="org.tura.example.service">
+          <mappers uid="75884c21-6763-4a61-bf03-3b51f82a88c6" domainArtifactRef="bf6005f8-bcb9-4c2a-b3e5-49468794367a" artifactRef="a4797bb9-d8cf-43a1-a6ac-3192a7c6f597" name="EJB service generation">
+            <specifiers specifierRef="b846f3c1-80cc-449a-b68f-bbf718477dc2" valueRef="a0c38cb5-1b9c-45ae-8271-1bdd233ef8d4"/>
+            <queries uid="Get Employees query service1" name="Get type NA" queryRef="30ae1569-0fee-4c24-89d1-423d7b52f32a">
+              <variables queryParamRef="4c1c426f-0913-4efe-be67-778b0fcc920d" value="NA"/>
+              <variables queryParamRef="1f705cc8-d31c-41c7-9d25-8f87893304f5" value="NA"/>
+            </queries>
+            <queries uid="d157c17f-44cd-4203-80b7-0c11d4461a55" name="Get Package HR package" queryRef="150373a6-59e2-415e-9301-42fc1a8eda42">
+              <variables queryParamRef="ca1fdea8-49fc-4256-ad54-d022a80f8ede" value="Service"/>
+              <variables queryParamRef="b0da5698-b6af-421a-a6ca-2696eba1d624" value="HR package"/>
+              <variables queryParamRef="c53a1366-24d5-48d1-a41f-28eb1e2a8346" value="EJBService"/>
+              <variables queryParamRef="c297467c-1c9f-4e86-b4a7-c887f810fe97" value="Service"/>
             </queries>
           </mappers>
           <mappers uid="719a29a5-f6fd-4501-9d0c-468cfce97eab" domainArtifactRef="bf6005f8-bcb9-4c2a-b3e5-49468794367a" artifactRef="93dc04cd-1d0a-415c-ae37-0563bbb92a41" name="Build generation">
@@ -1017,6 +1023,7 @@
       <properties uid="df7ce4ae-e76b-4623-8c2d-177831b8b929" confVarRef="0280c31d-3c59-47a6-95ad-161fe363fc3b" value="/Users/arseniy/tools/apache-maven-3.2.2"/>
       <properties uid="b948b91d-a8f1-4ac5-8a74-da7016c56409" confVarRef="2e8c1ce3-aade-4c15-a7cd-ea9f5de5bd8e" value="NA"/>
       <properties uid="2e38a4d1-9034-4778-9b09-ca3c42ec2a5b" confVarRef="6ef3c0da-e95b-40a7-8b52-bd0c185543c1" value="NA"/>
+      <properties uid="b462e561-4a5f-464c-8d31-b83700a16f36" confVarRef="485dd4e4-ed32-418d-a791-b071aa314ef1" value="HRObjects"/>
     </configurations>
     <infrastructures uid="080702f2-6a78-43d2-8987-c923fe681415" recipe="f89d43e4-5d8d-4437-ad00-188328a43ed0" name="Development" recipeConfig="7958c7b0-aaca-436d-aec4-20dcc6de9529"/>
     <deployment uid="f611d83d-edd3-42df-a8bd-78ba7e88b7d9" name="Deployment">
@@ -1736,6 +1743,7 @@
   </tura.domain:Controls>
   <tura.domain:Artifacts uid="e15bf32f-16b2-4b20-bceb-f9866c131ad9" parent="5945624b-20f3-47f9-9cb1-d0dc8df9491a">
     <artifacts uid="d597c2ba-7f76-4769-a0e5-f9828833760f" name="Data control" template="platform:/plugin/org.tura.metamodel.wizard.generation/template/pit/mvc/model/mainModel.egl">
+      <configVariables uid="58458ed2-82b2-44ec-be48-54161aff63e3" name="persistence_unit"/>
       <modelQuery uid="bba9824e-a43b-4c96-b926-fb63a606127a" name="Query form" query="domain::DomainApplication.allInstances()->select(r|r.oclAsType(domain::DomainApplication).name='${Application}').oclAsType(domain::DomainApplication).application.applicationUILayer.applicationUIPackages->select(r|r.oclAsType(domain::ApplicationUIPackage).name='${UIPackage}').uipackage.forms">
         <parameters uid="6dbc30b8-95cd-4776-90de-d7b5ce5df2f8" name="Application"/>
         <parameters uid="ee8b0895-06c0-4ed3-99cf-8998cdfaeaa7" name="UIPackage"/>
@@ -1957,27 +1965,6 @@
               <variables queryParamRef="6dbc30b8-95cd-4776-90de-d7b5ce5df2f8" value="HR application"/>
             </queries>
           </mappers>
-          <mappers uid="7ec14657-2969-4a40-81b4-ae03a7cef4a1" domainArtifactRef="edb48357-89bd-4570-aaf7-e49d7bb75e57" artifactRef="20d3f932-c6b8-40df-9001-b3c0daaf6c86" name="persistence.xml">
-            <specifiers specifierRef="fe074bfa-3f0e-4b09-80fb-9b7b8f1bfdbc" valueRef="16fa5962-f152-410b-bb52-377d11325bd3"/>
-            <specifiers specifierRef="47cfe2e3-f5e7-46df-9fe5-db299263318c" valueRef="9bbf2ac9-d963-4567-99b5-ae10b5f2dc1c"/>
-            <specifiers specifierRef="2222595d-7ccd-4df3-935d-d2a29eea6aa8" valueRef="476181b3-5764-414e-b520-108688819ae4"/>
-            <queries uid="bbfd9c35-7dbf-43ea-a72b-808aadf1bf7a" name="Get NA object" queryRef="33f876bb-d950-4b54-93cf-8a869ef321cd">
-              <variables queryParamRef="dfe0a7d4-62be-4cc4-8507-3cbc62f51c6f" value="NA"/>
-              <variables queryParamRef="97d2c830-e4db-4e67-ad46-a90a530ce768" value="NA"/>
-            </queries>
-            <queries uid="cb287391-c207-4ebc-bc8e-30940b1632e5" name="Get package Base package" queryRef="4d87c616-25ee-4815-9803-f6bf21be2840">
-              <variables queryParamRef="60329795-7cb7-4d67-97a7-f208accbe7a0" value="Entity"/>
-              <variables queryParamRef="5cb28e0b-218c-487c-8697-1c4773f9c4e8" value="ORMEntity"/>
-              <variables queryParamRef="ef789342-0a88-4618-85e7-0fa2b01f1b36" value="Base package"/>
-              <variables queryParamRef="87c1c616-79f3-452d-b88d-8761795f4bbc" value="entityObject"/>
-            </queries>
-            <queries uid="6e95f5a2-f9d1-4e88-9875-0c050ac1107a" name="Get package HR package" queryRef="4d87c616-25ee-4815-9803-f6bf21be2840">
-              <variables queryParamRef="ef789342-0a88-4618-85e7-0fa2b01f1b36" value="HR package"/>
-              <variables queryParamRef="87c1c616-79f3-452d-b88d-8761795f4bbc" value="entityObject"/>
-              <variables queryParamRef="5cb28e0b-218c-487c-8697-1c4773f9c4e8" value="ORMEntity"/>
-              <variables queryParamRef="60329795-7cb7-4d67-97a7-f208accbe7a0" value="Entity"/>
-            </queries>
-          </mappers>
           <mappers uid="8fba4b70-da2d-42cd-a054-3930d715e823" domainArtifactRef="5945624b-20f3-47f9-9cb1-d0dc8df9491a" artifactRef="53a25731-a3bd-4158-81d1-70a4cab4c22c" name="Service producers ">
             <specifiers specifierRef="3ee3d178-4bab-46e0-928e-508089f4dc2c" valueRef="6b0e89e5-8628-49a6-98bf-b125b206dd4d"/>
             <specifiers specifierRef="741c9449-5abe-40f7-8dc9-fd15fb1c9680" valueRef="3309af92-cc56-4e33-8068-81f23b432831"/>
@@ -2134,6 +2121,7 @@
       <properties uid="d97de117-00e1-4291-b455-7a25adf76d40" confVarRef="c1306333-7f7f-4da9-8b6e-f828d46cab5f" value="domain1"/>
       <properties uid="0d5e9fcf-7669-4838-9b0a-bc873254cdad" confVarRef="33fb6445-8890-4837-8905-d939a9338ff5" value="4848"/>
       <properties uid="739a8e89-55f4-4dec-8ae5-45b959dff04f" confVarRef="333ee7eb-2bb2-44d1-aae1-9025a4566164" value="2.47.1"/>
+      <properties uid="5c9ce1c4-6a72-44bc-9baf-d4db13e3aeff" confVarRef="58458ed2-82b2-44ec-be48-54161aff63e3" value="HRObjects"/>
     </configurations>
     <infrastructures uid="81bafabb-45d9-48af-9283-6ffc90afbda3" recipe="6cb40735-2e80-4221-9ab5-31d646aff979" name="Development" recipeConfig="a2357108-13c5-455e-824c-78102bd6bfe1"/>
     <deployment uid="de56ff3a-4261-47dc-9ee7-0f61390fee4e" name="Deployment">
@@ -2996,7 +2984,10 @@
         </components>
       </ingredients>
     </recipe>
-    <infrastructures uid="b1124955-833d-4a6d-a446-254b52411192" recipe="91ea9fb6-03c6-49dd-9548-62e08e1ceb5d" name="Development"/>
+    <configurations uid="551856d8-085b-4575-828a-d80f20753e90" infrastructure="b1124955-833d-4a6d-a446-254b52411192">
+      <properties uid="75af536f-014c-4177-962f-6aa3f0500283" confVarRef="58458ed2-82b2-44ec-be48-54161aff63e3" value="UIComponent"/>
+    </configurations>
+    <infrastructures uid="b1124955-833d-4a6d-a446-254b52411192" recipe="91ea9fb6-03c6-49dd-9548-62e08e1ceb5d" name="Development" recipeConfig="551856d8-085b-4575-828a-d80f20753e90"/>
   </tura.domain:Recipes>
   <tura.domain:CanvasView uid="02aa4f59-2533-427b-84dc-f428e20156de" parent="45f17fd5-a2c3-4249-9a91-f85b33e2f62b">
     <baseCanvas uid="eeba30df-13d3-4e8f-b1f6-541829be0a33">

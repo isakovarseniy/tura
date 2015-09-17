@@ -22,6 +22,7 @@ operation  datacontrolgeneration(hash) {
     var resourcePath = hash.get("resourcePath");
     var form = hash.get("form");    
     var uipackage = hash.get("uipackage");    
+
     
     var buffer;
     util.populateTechnologies(hash,model_mapper);
@@ -56,7 +57,7 @@ operation  datacontrolgeneration(hash) {
     buffer = beansxml.process();
     util.saveFile( resourcePath+"/META-INF/"  , "beans.xml",buffer);   
 
-    var commandstack : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.wizard.generation/template/technologies/JEE/CDI/datacontrol/commandstack.egl",hash,TemplateFactory);
+    var commandstack : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.wizard.generation/template/technologies/"+hash.get("Environment")+"/CDI/datacontrol/commandstack.egl",hash,TemplateFactory);
     commandstack.setFormatter(f);
     buffer = commandstack.process();
     util.saveFile( javaPath+"/"+util.mergeAndCapitalize(uipackage.name).toLowerCase()+"/"+util.mergeAndCapitalize(form.name).toLowerCase()+"/datacontrol/"  , "CDICommandStack.java",buffer);   
