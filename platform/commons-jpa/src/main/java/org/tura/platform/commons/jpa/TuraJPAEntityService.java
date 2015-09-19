@@ -44,11 +44,15 @@ public class TuraJPAEntityService  implements Serializable{
 		this.em = em;
 	}
 
+	public EntityManager getEntityManager() {
+		return this.em;
+	}
+	
 	public TuraObject create(String objectClass) throws Exception {
 		Class<?> clazz = (Class<?>) this.getClass().getClassLoader()
 				.loadClass(objectClass);
 		TuraObject obj = (TuraObject) clazz.newInstance();
-		obj.setObjId(this.getObjectID(em));
+		obj.setObjId(this.getObjectID(getEntityManager()));
 		return obj;
 
 	}
@@ -60,7 +64,7 @@ public class TuraJPAEntityService  implements Serializable{
 		Class<?> clazz = (Class<?>) this.getClass().getClassLoader()
 				.loadClass(objectClass);
 
-		Query query = em.createQuery(dslQuery.toSql(), clazz);
+		Query query = getEntityManager().createQuery(dslQuery.toSql(), clazz);
 		query.setFirstResult(startIndex);
 		query.setMaxResults(endIndex - startIndex);
 		for (String param : dslQuery.getParams().keySet()) {
@@ -72,31 +76,31 @@ public class TuraJPAEntityService  implements Serializable{
 		dslQuery.getColumns()[0] = c("count(*)");
 		dslQuery.getOrderBy().clear();
 
-		query = em.createQuery(dslQuery.toSql());
+		query = getEntityManager().createQuery(dslQuery.toSql());
 		for (String param : dslQuery.getParams().keySet()) {
 			query.setParameter(param, dslQuery.getParams().get(param));
 		}
 		long numResults = (long) query.getSingleResult();
 
 		for (Object obj : ls){
-			em.detach(obj);
+			getEntityManager().detach(obj);
 		}
 		return new LazyList(ls, numResults, startIndex);
 
 	}
 
 	public void update(TuraObject entity) {
-		em.merge(entity);
+		getEntityManager().merge(entity);
 
 	}
 
 	public void insert(TuraObject entity) {
-		em.persist(entity);
+		getEntityManager().persist(entity);
 	}
 
 	public void remove( TuraObject entity) throws ClassNotFoundException {
-		Object obj = em.find(entity.getClass(),entity.getObjId());
-		em.remove(obj);
+		Object obj = getEntityManager().find(entity.getClass(),entity.getObjId());
+		getEntityManager().remove(obj);
 	}
 
 	protected Long getObjectID(EntityManager em) {

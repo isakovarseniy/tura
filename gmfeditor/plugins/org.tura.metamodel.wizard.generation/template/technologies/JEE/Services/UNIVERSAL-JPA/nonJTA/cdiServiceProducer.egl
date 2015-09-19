@@ -11,9 +11,12 @@ public class  [%=type.~class%]Service extends org.tura.platform.commons.jpa.Tura
 
 	private static final long serialVersionUID = 1L;
 
-	@Override
     @javax.inject.Inject
-    public void setEntityManager(javax.persistence.EntityManager em){
-    	super.setEntityManager(em);
-    }
+    private org.tura.example.ui.commons.producer.EntityManagerHelper emHelper;
+
+
+    @Override
+	public javax.persistence.EntityManager getEntityManager() {
+		return emHelper.getEntityManager();
+	}
 }

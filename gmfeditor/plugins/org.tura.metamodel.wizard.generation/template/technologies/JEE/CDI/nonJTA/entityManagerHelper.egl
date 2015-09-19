@@ -1,0 +1,35 @@
+<#assign percent = "%" >
+<#assign start = "[" >
+<#assign end = "]" >
+${start}${percent} 
+import "platform:/plugin/org.tura.metamodel.wizard.generation/template/technologies/${Environment}.egl";
+${percent}${end}
+
+package  [%=component.basePackage%].commons.producer;  
+
+@javax.enterprise.inject.Alternative
+@javax.annotation.Priority(0)
+[%=commandstack_scope()%]
+public class EntityManagerHelper implements java.io.Serializable {
+
+	private static final long serialVersionUID = 1L;
+
+	@javax.inject.Inject
+	private javax.persistence.EntityManagerFactory emf;
+
+	private javax.persistence.EntityManager em;
+
+	public javax.persistence.EntityManager getEntityManager() {
+		if (em == null)
+			em = emf.createEntityManager();
+		return em;
+	}
+
+	public void destroyEntityManager() {
+
+		if (em.isOpen()) {
+			em.close();
+		}
+		em = null;
+	}
+}

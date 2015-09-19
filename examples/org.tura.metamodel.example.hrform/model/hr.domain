@@ -1756,6 +1756,10 @@
         <options uid="d04898e6-1e83-4bde-82fa-223a07623b92" value="JSE"/>
         <options uid="1b800057-4205-4852-ae56-f48caead1343" value="JEE"/>
       </specifiers>
+      <specifiers uid="f87ffc9d-81f0-476a-9c2a-348e65e60f5b" name="Transaction">
+        <options uid="eb8a0a12-2ebb-46f5-b0e9-4fb2199a2926" value="JTA"/>
+        <options uid="632c2ddb-644d-4a49-9385-9d89f1a2e1fa" value="nonJTA"/>
+      </specifiers>
     </artifacts>
     <artifacts uid="53a25731-a3bd-4158-81d1-70a4cab4c22c" name="Service producer" template="platform:/plugin/org.tura.metamodel.wizard.generation/template/pit/mvc/model/mainServiceProducer.egl">
       <modelQuery uid="273cc7dd-85f8-430f-ac43-cad73dc0e847" name="Query package of types" query="domain::Package.allInstances()->select(r|r.oclAsType(domain::Package).name='${Package name}').oclAsType(domain::Package).typedefinition.types->select(r|((r.oclIsKindOf(domain::Type ) ) )).oclAsType(domain::Categorized).classifiers->select(c|c.hint.name='${Hint}' and c.hint.oclAsType(ecore::EObject).eContainer().oclAsType(domain::Artifact).name = '${Artifact}' and  c.hint.oclAsType(ecore::EObject).eContainer().oclAsType(domain::Artifact).parent.oclAsType(domain::Artifacts).parent.oclAsType(domain::DomainArtifact).name = '${ArtifactLib}' )->collect(c|c.oclAsType(ecore::EObject).eContainer())">
@@ -1778,7 +1782,7 @@
       </specifiers>
       <specifiers uid="741c9449-5abe-40f7-8dc9-fd15fb1c9680" name="Service implementation">
         <options uid="6d9068b8-e721-46b5-beb1-fbca1b3f7935" value="JEE/Services/EJB-WS"/>
-        <options uid="3309af92-cc56-4e33-8068-81f23b432831" value="JEE/Services/UNIVERSAL-JPA"/>
+        <options uid="3309af92-cc56-4e33-8068-81f23b432831" value="JEE/Services/UNIVERSAL-JPA/nonJTA"/>
       </specifiers>
     </artifacts>
     <artifacts uid="91baf89f-60ba-4074-a47a-0c8d5f6b2877" name="View" template="platform:/plugin/org.tura.metamodel.wizard.generation/template/pit/mvc/view/mainView.egl">
@@ -1960,6 +1964,7 @@
           <mappers uid="5c3c0b94-aa71-4da9-923f-3460706b5394" domainArtifactRef="5945624b-20f3-47f9-9cb1-d0dc8df9491a" artifactRef="d597c2ba-7f76-4769-a0e5-f9828833760f" name="Process all datacontrol in ui package">
             <specifiers specifierRef="ef7f8f56-76ad-4842-8484-9e6bc1e2dc6a" valueRef="d746f08a-a1f0-4b81-907a-bf65ef936a8e"/>
             <specifiers specifierRef="6cf7c6cf-5261-4eef-af34-5c153e789430" valueRef="1b800057-4205-4852-ae56-f48caead1343"/>
+            <specifiers specifierRef="f87ffc9d-81f0-476a-9c2a-348e65e60f5b" valueRef="632c2ddb-644d-4a49-9385-9d89f1a2e1fa"/>
             <queries uid="7b568990-2c4b-41d7-b5d2-be3e0609ca79" name="Query form" queryRef="bba9824e-a43b-4c96-b926-fb63a606127a">
               <variables queryParamRef="ee8b0895-06c0-4ed3-99cf-8998cdfaeaa7" value="Hr manager"/>
               <variables queryParamRef="6dbc30b8-95cd-4776-90de-d7b5ce5df2f8" value="HR application"/>

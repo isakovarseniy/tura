@@ -1,0 +1,22 @@
+<#assign percent = "%" >
+<#assign start = "[" >
+<#assign end = "]" >
+${start}${percent} 
+import "platform:/plugin/org.tura.metamodel.wizard.generation/template/technologies/${Environment}.egl";
+${percent}${end}
+[%
+     var util = new Native('org.tura.metamodel.commons.Util');
+
+%]
+package  [%=component.basePackage%].commons.producer;  
+
+@javax.enterprise.inject.Alternative
+@javax.annotation.Priority(0)
+public class EntityManagerFactoryProducer  {
+
+	@javax.enterprise.inject.Produces
+	public javax.persistence.EntityManagerFactory getEntityManagerFactory(javax.enterprise.inject.spi.InjectionPoint injectionPoint) {
+		return  javax.persistence.Persistence.createEntityManagerFactory(
+				"[%=configuration.get("persistence_unit")%]");
+	}
+}

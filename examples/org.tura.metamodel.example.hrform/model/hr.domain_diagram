@@ -4397,6 +4397,27 @@
         <styles xmi:type="notation:FilteringStyle" xmi:id="_KV2GtrfgEeSgNOvTzdQqew"/>
       </children>
       <children xmi:type="notation:BasicCompartment" xmi:id="_KV2Gt7fgEeSgNOvTzdQqew" type="707003">
+        <children xmi:type="notation:Node" xmi:id="_7lABsF8ZEeWQFazjlFMXQQ" type="703003">
+          <children xmi:type="notation:DecorationNode" xmi:id="_7lABtF8ZEeWQFazjlFMXQQ" type="705003"/>
+          <styles xmi:type="notation:DescriptionStyle" xmi:id="_7lABsV8ZEeWQFazjlFMXQQ"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_7lABsl8ZEeWQFazjlFMXQQ" fontName=".Helvetica Neue DeskInterface"/>
+          <element xmi:type="tura.domain:Specifier" href="hr.domain#ef7f8f56-76ad-4842-8484-9e6bc1e2dc6a"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_7lABs18ZEeWQFazjlFMXQQ"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_7lABtV8ZEeWQFazjlFMXQQ" type="703003">
+          <children xmi:type="notation:DecorationNode" xmi:id="_7lAowF8ZEeWQFazjlFMXQQ" type="705003"/>
+          <styles xmi:type="notation:DescriptionStyle" xmi:id="_7lABtl8ZEeWQFazjlFMXQQ"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_7lABt18ZEeWQFazjlFMXQQ" fontName=".Helvetica Neue DeskInterface"/>
+          <element xmi:type="tura.domain:Specifier" href="hr.domain#6cf7c6cf-5261-4eef-af34-5c153e789430"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_7lABuF8ZEeWQFazjlFMXQQ"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_AS8-kF8aEeWQFazjlFMXQQ" type="703003">
+          <children xmi:type="notation:DecorationNode" xmi:id="_AS9loF8aEeWQFazjlFMXQQ" type="705003"/>
+          <styles xmi:type="notation:DescriptionStyle" xmi:id="_AS8-kV8aEeWQFazjlFMXQQ"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_AS8-kl8aEeWQFazjlFMXQQ" fontName=".Helvetica Neue DeskInterface"/>
+          <element xmi:type="tura.domain:Specifier" href="hr.domain#f87ffc9d-81f0-476a-9c2a-348e65e60f5b"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_AS8-k18aEeWQFazjlFMXQQ"/>
+        </children>
         <styles xmi:type="notation:SortingStyle" xmi:id="_KV2GuLfgEeSgNOvTzdQqew"/>
         <styles xmi:type="notation:FilteringStyle" xmi:id="_KV2GubfgEeSgNOvTzdQqew"/>
       </children>
