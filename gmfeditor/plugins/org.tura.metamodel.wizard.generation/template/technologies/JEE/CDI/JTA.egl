@@ -1,0 +1,29 @@
+[%
+     var util = new Native('org.tura.metamodel.commons.Util');
+     
+    var f = new Native("org.tura.metamodel.wizard.infrastructure.JavaFormatter"); 
+
+    var hash = new Native("java.util.HashMap"); 
+   
+    var javaPath = component.getComponentRoot+"/"+component.getArtifactId()+"/src/main/java/"+component.basePackage.replaceAll("\\.","\\/")+"/";  
+    var resourcePath =  component.getComponentRoot+"/"+component.getArtifactId()+"/src/main/resources/";
+    var uipackage = form.eContainer().parent;
+
+    hash.put("recipe",recipe);
+    hash.put("ingredient",ingredient);
+    hash.put("component",component);
+    hash.put("model_mapper",model_mapper);
+    hash.put("javaPath",javaPath);
+    hash.put("resourcePath",resourcePath);
+    hash.put("form",form);
+    hash.put("uipackage",uipackage);
+    hash.put("configuration",configuration);
+
+    util.populateTechnologies(hash,model_mapper);
+
+    var commandstack : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.wizard.generation/template/technologies/JEE/CDI/JTA/commandstack.egl",hash,TemplateFactory);
+    commandstack.setFormatter(f);
+    var buffer = commandstack.process();
+    util.saveFile( javaPath+"/"+util.mergeAndCapitalize(uipackage.name).toLowerCase()+"/"+util.mergeAndCapitalize(form.name).toLowerCase()+"/datacontrol/"  , "CDICommandStack.java",buffer);   
+
+%]

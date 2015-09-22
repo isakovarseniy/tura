@@ -1783,6 +1783,7 @@
       <specifiers uid="741c9449-5abe-40f7-8dc9-fd15fb1c9680" name="Service implementation">
         <options uid="6d9068b8-e721-46b5-beb1-fbca1b3f7935" value="JEE/Services/EJB-WS"/>
         <options uid="3309af92-cc56-4e33-8068-81f23b432831" value="JEE/Services/UNIVERSAL-JPA/nonJTA"/>
+        <options uid="735ed629-5923-4c43-bc52-5621f4ba32dd" value="JEE/Services/UNIVERSAL-JPA/JTA"/>
       </specifiers>
     </artifacts>
     <artifacts uid="91baf89f-60ba-4074-a47a-0c8d5f6b2877" name="View" template="platform:/plugin/org.tura.metamodel.wizard.generation/template/pit/mvc/view/mainView.egl">

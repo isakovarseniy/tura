@@ -1,0 +1,26 @@
+[%
+     var util = new Native('org.tura.metamodel.commons.Util');
+%]
+package  [%=component.basePackage%].commons.service;  
+
+
+@javax.enterprise.inject.Alternative
+@javax.annotation.Priority(0)
+@javax.enterprise.context.RequestScoped
+public class  [%=type.~class%]Service extends org.tura.platform.commons.jpa.TuraJPAEntityService{
+
+	private static final long serialVersionUID = 1L;
+
+    @javax.inject.Inject
+    private javax.persistence.EntityManagerFactory emf;
+
+
+   @Override
+    public javax.persistence.EntityManager getEntityManager() {
+	   javax.persistence.EntityManager em = emf.createEntityManager();
+	   em.joinTransaction();
+
+	   return em;
+	}
+
+}
