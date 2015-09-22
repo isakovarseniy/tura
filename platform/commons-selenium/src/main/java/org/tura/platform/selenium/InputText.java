@@ -25,7 +25,8 @@ public interface InputText {
 	
 	public void click();
 	public String getValue();
-	public void setValue( String value );
+	public void setValue( Object value );
+	
 	
 
 }

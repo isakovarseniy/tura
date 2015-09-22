@@ -13,6 +13,7 @@ import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriverService;
@@ -67,6 +68,30 @@ public class HrControllerTest {
 	}
 
 	@Test
+	public void t0_init() {
+		driver.get("http://localhost:8080/hrform-1.0/hrmanager/hrcontroller/HRController.xhtml?param1=qwerty2");
+
+		HRControllerPageObject hrControllerPage = new HRControllerPageObject(
+				driver);
+
+		Table t = hrControllerPage.getCompanies();
+		t.getRow(0).getCell(1).click();
+		InputText inputText = new InputTextPrimeFaces(t.getRow(0).getCell(1)
+				.findElement(By.cssSelector("input")), driver);
+		inputText.setValue(Keys.DELETE);
+
+		t.getRow(1).getCell(1).click();
+		inputText = new InputTextPrimeFaces(t.getRow(1).getCell(1)
+				.findElement(By.cssSelector("input")), driver);
+		inputText.setValue(Keys.DELETE);
+		inputText.setValue(Keys.RETURN);
+		
+		hrControllerPage.getSaveButton().click();
+		
+	}
+	
+	
+	@Test
 	public void t1_validateSwitchingSelectionCurrentRow() {
 		try {
 			// Go to the Google Suggest home page
@@ -95,7 +120,7 @@ public class HrControllerTest {
 			tr = (TreeRow) tree.getRow("0");
 			el = tr.getCell(0);
 			assertEquals("Country 2", el.getText());
-			
+
 		} catch (Exception e) {
 			e.printStackTrace();
 			fail();
@@ -129,7 +154,7 @@ public class HrControllerTest {
 			fail();
 		}
 	}
-	
+
 	@Test
 	public void t3_langSwitch() {
 		// Go to the Google Suggest home page
@@ -141,9 +166,9 @@ public class HrControllerTest {
 		WebElement el = t.getHeader().getCell(0);
 
 		assertEquals("Company name", el.getText());
-		
+
 		hrControllerPage.getRusLang().click();
-		
+
 		t = hrControllerPage.getCompanies();
 		el = t.getHeader().getCell(0);
 
@@ -152,14 +177,12 @@ public class HrControllerTest {
 		hrControllerPage.getEngLang().click();
 
 		t = hrControllerPage.getCompanies();
-		 el = t.getHeader().getCell(0);
+		el = t.getHeader().getCell(0);
 
 		assertEquals("Company name", el.getText());
-		
-		
+
 	}
-	
-	
+
 	@Test
 	public void t4_parallelModification() {
 		// Go to the Google Suggest home page
@@ -169,54 +192,56 @@ public class HrControllerTest {
 				driver);
 		Table t = hrControllerPage.getCompanies();
 
-		Button button =   new ButtonPrimeFaces( t.getRow(1).getCell(2).findElement(By.cssSelector("button")),driver);
+		Button button = new ButtonPrimeFaces(t.getRow(1).getCell(2)
+				.findElement(By.cssSelector("button")), driver);
 		button.click();
 
-		PopUpCpmpanyDetailsPageObject popUp = new PopUpCpmpanyDetailsPageObject(driver);
-		
+		PopUpCpmpanyDetailsPageObject popUp = new PopUpCpmpanyDetailsPageObject(
+				driver);
+
 		popUp.getDesk().setValue("123");
 		popUp.getOk().click();
-		
+
 		t = hrControllerPage.getCompanies();
-		WebElement el =  t.getRow(1).getCell(1);		
+		WebElement el = t.getRow(1).getCell(1);
 
 		assertEquals("123", el.getText());
-		
+
 		t = hrControllerPage.getCompanies();
 		t.getRow(1).getCell(1).click();
-		InputText inputText=   new InputTextPrimeFaces( t.getRow(1).getCell(1).findElement(By.cssSelector("input")),driver);
+		InputText inputText = new InputTextPrimeFaces(t.getRow(1).getCell(1)
+				.findElement(By.cssSelector("input")), driver);
 		inputText.setValue("567");
-		
+
 		t = hrControllerPage.getCompanies();
-		button =   new ButtonPrimeFaces( t.getRow(1).getCell(2).findElement(By.cssSelector("button")),driver);
+		button = new ButtonPrimeFaces(t.getRow(1).getCell(2)
+				.findElement(By.cssSelector("button")), driver);
 		button.click();
-		
-		assertEquals( "567", popUp.getDesk().getValue());
-		
+
+		assertEquals("567", popUp.getDesk().getValue());
+
 		popUp.getDesk().setValue("891");
 		popUp.getOk().click();
-		
+
 		t = hrControllerPage.getCompanies();
-		el =  t.getRow(1).getCell(1);		
+		el = t.getRow(1).getCell(1);
 
 		assertEquals("567891", el.getText());
-		
-	
+
 		t = hrControllerPage.getCompanies();
-		el =  t.getRow(1).getCell(0);		
+		el = t.getRow(1).getCell(0);
 		assertEquals("Company B", el.getText());
 
-		
 		t = hrControllerPage.getCompanies();
-		el =  t.getRow(0).getCell(0);		
+		el = t.getRow(0).getCell(0);
 		assertEquals("Company A", el.getText());
-		
+
 		t = hrControllerPage.getCompanies();
-		el =  t.getRow(0).getCell(1);		
+		el = t.getRow(0).getCell(1);
 		assertEquals("", el.getText());
-		
-	}	
-	
+
+	}
+
 	@Test
 	public void t5_parallelModification() {
 		// Go to the Google Suggest home page
@@ -225,42 +250,83 @@ public class HrControllerTest {
 		HRControllerPageObject hrControllerPage = new HRControllerPageObject(
 				driver);
 
-		PopUpCpmpanyDetailsPageObject popUp = new PopUpCpmpanyDetailsPageObject(driver);
-		
+		PopUpCpmpanyDetailsPageObject popUp = new PopUpCpmpanyDetailsPageObject(
+				driver);
+
 		Table t = hrControllerPage.getCompanies();
 		t.getRow(1).getCell(1).click();
-		InputText inputText=   new InputTextPrimeFaces( t.getRow(1).getCell(1).findElement(By.cssSelector("input")),driver);
+		InputText inputText = new InputTextPrimeFaces(t.getRow(1).getCell(1)
+				.findElement(By.cssSelector("input")), driver);
 		inputText.setValue("123");
-		
+
 		t = hrControllerPage.getCompanies();
-		Button button =   new ButtonPrimeFaces( t.getRow(1).getCell(2).findElement(By.cssSelector("button")),driver);
+		Button button = new ButtonPrimeFaces(t.getRow(1).getCell(2)
+				.findElement(By.cssSelector("button")), driver);
 		button.click();
-		
-		assertEquals( "123", popUp.getDesk().getValue());
-		
+
+		assertEquals("123", popUp.getDesk().getValue());
+
 		popUp.getDesk().setValue("891");
 		popUp.getOk().click();
-		
+
 		t = hrControllerPage.getCompanies();
-		WebElement el =  t.getRow(1).getCell(1);		
+		WebElement el = t.getRow(1).getCell(1);
 
 		assertEquals("123891", el.getText());
-		
+
 		t = hrControllerPage.getCompanies();
-		el =  t.getRow(1).getCell(0);		
+		el = t.getRow(1).getCell(0);
 		assertEquals("Company B", el.getText());
 
-		
 		t = hrControllerPage.getCompanies();
-		el =  t.getRow(0).getCell(0);		
+		el = t.getRow(0).getCell(0);
 		assertEquals("Company A", el.getText());
+
+		t = hrControllerPage.getCompanies();
+		el = t.getRow(0).getCell(1);
+		assertEquals("", el.getText());
+
+	}
+
+	@Test
+	public void t6_commitUpdate() {
+		// Go to the Google Suggest home page
+		driver.get("http://localhost:8080/hrform-1.0/hrmanager/hrcontroller/HRController.xhtml?param1=qwerty2");
+
+		HRControllerPageObject hrControllerPage = new HRControllerPageObject(
+				driver);
+
+		Table t = hrControllerPage.getCompanies();
+		t.getRow(0).getCell(1).click();
+		InputText inputText = new InputTextPrimeFaces(t.getRow(0).getCell(1)
+				.findElement(By.cssSelector("input")), driver);
+		inputText.setValue("t6_123");
+
+		t.getRow(1).getCell(1).click();
+		inputText = new InputTextPrimeFaces(t.getRow(1).getCell(1)
+				.findElement(By.cssSelector("input")), driver);
+		inputText.setValue("t6_456");
+		inputText.setValue(Keys.RETURN);
+
+		hrControllerPage.getSaveButton().click();
+
+		quitDriver();
+		createDriver();
+
+		driver.get("http://localhost:8080/hrform-1.0/hrmanager/hrcontroller/HRController.xhtml?param1=qwerty2");
+		hrControllerPage = new HRControllerPageObject(driver);
+
+		t = hrControllerPage.getCompanies();
+		WebElement el = t.getRow(0).getCell(1);
+		assertEquals("t6_123", el.getText());
+		
 		
 		t = hrControllerPage.getCompanies();
-		el =  t.getRow(0).getCell(1);		
-		assertEquals("", el.getText());
+		el = t.getRow(1).getCell(1);
+		assertEquals("t6_456", el.getText());
 		
 		
-	}	
-	
-	
+		
+	}
+
 }

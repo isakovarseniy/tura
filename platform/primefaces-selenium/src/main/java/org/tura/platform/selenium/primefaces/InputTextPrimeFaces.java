@@ -21,27 +21,27 @@
  */
 package org.tura.platform.selenium.primefaces;
 
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.tura.platform.selenium.InputText;
 
-public class InputTextPrimeFaces  implements InputText{
+public class InputTextPrimeFaces implements InputText {
 
-	
 	private WebElement element;
 	private WebDriver driver;
-	
+
 	public InputTextPrimeFaces(WebElement element, WebDriver driver) {
-		this.element=element;
+		this.element = element;
 		this.driver = driver;
 	}
-	
+
 	@Override
 	public void click() {
 		element.click();
 		Helper helper = new Helper(driver);
 		helper.waitForJQueryAndPrimeFaces();
-		
+
 	}
 
 	@Override
@@ -50,8 +50,11 @@ public class InputTextPrimeFaces  implements InputText{
 	}
 
 	@Override
-	public void setValue(String value) {
-		element.sendKeys(value);
+	public void setValue(Object value) {
+		if (value instanceof String)
+			element.sendKeys((String) value);
+		if (value instanceof Keys)
+			element.sendKeys((Keys) value);
 	}
 
 }
