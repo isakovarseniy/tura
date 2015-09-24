@@ -1,3 +1,24 @@
+/**
+ * Tura - application generation platform
+ *
+ * Copyright (c) 2012 - 2015, Arseniy Isakov
+ *
+ * This project includes software developed by Arseniy Isakov
+ * http://sourceforge.net/p/tura/wiki/Home/
+ *
+ * Licensed under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License. You may obtain a copy of the License at:
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on
+ * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied. See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
 package org.tura.example.ui.hrmanager;
 
 import static org.junit.Assert.assertEquals;
@@ -85,12 +106,11 @@ public class HrControllerTest {
 				.findElement(By.cssSelector("input")), driver);
 		inputText.setValue(Keys.DELETE);
 		inputText.setValue(Keys.RETURN);
-		
-		hrControllerPage.getSaveButton().click();
-		
+
+		hrControllerPage.getCommit().click();
+
 	}
-	
-	
+
 	@Test
 	public void t1_validateSwitchingSelectionCurrentRow() {
 		try {
@@ -308,7 +328,7 @@ public class HrControllerTest {
 		inputText.setValue("t6_456");
 		inputText.setValue(Keys.RETURN);
 
-		hrControllerPage.getSaveButton().click();
+		hrControllerPage.getCommit().click();
 
 		quitDriver();
 		createDriver();
@@ -319,12 +339,99 @@ public class HrControllerTest {
 		t = hrControllerPage.getCompanies();
 		WebElement el = t.getRow(0).getCell(1);
 		assertEquals("t6_123", el.getText());
-		
-		
+
 		t = hrControllerPage.getCompanies();
 		el = t.getRow(1).getCell(1);
 		assertEquals("t6_456", el.getText());
+
+	}
+
+	@Test
+	public void t7_checkSelectionWithRallback() {
+		// Go to the Google Suggest home page
+		driver.get("http://localhost:8080/hrform-1.0/hrmanager/hrcontroller/HRController.xhtml?param1=qwerty2");
+
+		HRControllerPageObject hrControllerPage = new HRControllerPageObject(
+				driver);
+
+		hrControllerPage.getAddCompany().click();
+		hrControllerPage.getRollback().click();
+
+		Tree tree = hrControllerPage.getLocationTree();
+		TreeRow tr = (TreeRow) tree.getRow("0");
+
+		WebElement el = tr.getCell(1);
+		assertEquals("Country 1", el.getText());
+
+		Table t = hrControllerPage.getCompanies();
+		t.getRow(1).getCell(1).click();
+
+		hrControllerPage.getAddCompany().click();
+		hrControllerPage.getRollback().click();
+
+		tree = hrControllerPage.getLocationTree();
+		tr = (TreeRow) tree.getRow("0");
+
+		el = tr.getCell(1);
+		assertEquals("Country 1", el.getText());
+
+		t = hrControllerPage.getCompanies();
+		assertEquals(true, t.getRow(0).isSelected());
+	}
+
+	@Test
+	public void t8_checkSelectionWithRemove() {
+		// Go to the Google Suggest home page
+		driver.get("http://localhost:8080/hrform-1.0/hrmanager/hrcontroller/HRController.xhtml?param1=qwerty2");
+
+		HRControllerPageObject hrControllerPage = new HRControllerPageObject(
+				driver);
+
+		hrControllerPage.getAddCompany().click();
+		hrControllerPage.getDelCompany().click();
+
+		Tree tree = hrControllerPage.getLocationTree();
+		TreeRow tr = (TreeRow) tree.getRow("0");
+
+		WebElement el = tr.getCell(1);
+		assertEquals("Country 1", el.getText());
+
+		Table t = hrControllerPage.getCompanies();
+		t.getRow(1).getCell(1).click();
+
+		hrControllerPage.getAddCompany().click();
+		hrControllerPage.getDelCompany().click();
+
+		tree = hrControllerPage.getLocationTree();
+		tr = (TreeRow) tree.getRow("0");
+
+		el = tr.getCell(1);
+		assertEquals("Country 2", el.getText());
+
+		t = hrControllerPage.getCompanies();
+		assertEquals(true, t.getRow(1).isSelected());
+	}
+
+	@Test
+	public void t9_removeRow() {
+		// Go to the Google Suggest home page
+		driver.get("http://localhost:8080/hrform-1.0/hrmanager/hrcontroller/HRController.xhtml?param1=qwerty2");
+
+		HRControllerPageObject hrControllerPage = new HRControllerPageObject(
+				driver);
+		Table t = hrControllerPage.getCompanies();
+		t.getRow(1).getCell(1).click();
+
+		hrControllerPage.getDelCompany().click();
+
+		t = hrControllerPage.getCompanies();
+		assertEquals(true, t.getRow(0).isSelected());
 		
+		Tree tree = hrControllerPage.getLocationTree();
+		TreeRow tr = (TreeRow) tree.getRow("0");
+
+		WebElement el = tr.getCell(1);
+		assertEquals("Country 1", el.getText());
 		
 		
 	}

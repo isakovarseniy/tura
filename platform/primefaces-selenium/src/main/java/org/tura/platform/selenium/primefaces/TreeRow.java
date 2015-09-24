@@ -58,5 +58,11 @@ public class TreeRow implements Row {
 	public void close(){
 		open();
 	}
+
+	@Override
+	public boolean isSelected() {
+		// TODO Auto-generated method stub
+		return false;
+	}
 	
 }

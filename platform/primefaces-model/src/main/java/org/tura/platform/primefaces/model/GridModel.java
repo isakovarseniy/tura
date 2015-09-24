@@ -26,6 +26,7 @@ import java.util.logging.Logger;
 import org.tura.platform.datacontrol.DataControl;
 import org.tura.platform.datacontrol.EventListener;
 import org.tura.platform.datacontrol.commons.TuraException;
+import org.tura.platform.datacontrol.event.ControlRallbackEvent;
 import org.tura.platform.datacontrol.event.Event;
 import org.tura.platform.datacontrol.event.MasterRowChangedEvent;
 import org.tura.platform.datacontrol.event.RowCreatedEvent;
@@ -38,8 +39,7 @@ public class GridModel {
 	private Logger logger;
 	private Boolean resetCurentPosition = false;
 	private Object[] array = new Object[] { 0, 0, null };
-	
-	
+
 	@SuppressWarnings("rawtypes")
 	public GridModel(DataControl dc, Logger logger) {
 		this.dc = dc;
@@ -50,26 +50,26 @@ public class GridModel {
 		lazyModel.setLogger(logger);
 
 		dc.addEventLiteners(new RecordListener());
-		
+
 	}
 
 	public LazyDataGridModel<?> getLazyModel() {
 		return lazyModel;
 	}
 
-	public Object getSelected(){
+	public Object getSelected() {
 		return array;
 	}
-	
-	public void  setSelected(Object value){
+
+	public void setSelected(Object value) {
 	}
 
-	
 	public void ajaxSelected(org.primefaces.event.SelectEvent event) {
 
 		array = (Object[]) event.getObject();
 		try {
-			if (!dc.getCurrentPosition().equals(array[0]) || resetCurentPosition ){
+			if (!dc.getCurrentPosition().equals(array[0])
+					|| resetCurentPosition) {
 				resetCurentPosition = false;
 				dc.setCurrentPosition(array[0]);
 			}
@@ -83,17 +83,24 @@ public class GridModel {
 		@SuppressWarnings("rawtypes")
 		@Override
 		public void handleEventListener(Event event) throws TuraException {
-			if (event instanceof MasterRowChangedEvent || event instanceof RowRemovedEvent) {
+			if (event instanceof MasterRowChangedEvent
+					|| event instanceof ControlRallbackEvent) {
 				lazyModel = new LazyDataGridModel();
-				array = new Object[] { 0, 0, null };				
+				array = new Object[] { 0, 0, null };
 				lazyModel.setDatacontrol((DataControl) event.getSource());
 				lazyModel.setLogger(logger);
 			}
-			if (event instanceof RowCreatedEvent || event instanceof RowRemovedEvent) {
+			if (event instanceof RowCreatedEvent) {
 				resetCurentPosition = true;
-			}			
+			}
+			if (event instanceof RowRemovedEvent) {
+				resetCurentPosition = true;
+				int max = ((DataControl) event.getSource()).getScroller()
+						.size();
+				if ((int) (array[0]) == max && max != 0)
+					array[0] = (int) (array[0]) - 1;
+			}
 		}
-
 	}
 
 }

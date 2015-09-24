@@ -32,16 +32,27 @@ public class TableRow implements Row {
 
 	private WebElement element;
 	private WebDriver driver;
-	
+
 	public TableRow(WebElement element, WebDriver driver) {
-		this.element=element;
-		this.driver=driver;
+		this.element = element;
+		this.driver = driver;
 	}
 
 	@Override
 	public WebElement getCell(int index) {
-		List<WebElement> ls =element.findElements(By.cssSelector("td[role='gridcell']"));
+		List<WebElement> ls = element.findElements(By
+				.cssSelector("td[role='gridcell']"));
 		return ls.get(index);
+	}
+
+	@Override
+	public boolean isSelected() {
+		String str = element.getAttribute("aria-selected");
+		if ("true".equals(str))
+			return true;
+		else
+			return false;
+
 	}
 
 	@Override
@@ -49,6 +60,6 @@ public class TableRow implements Row {
 		element.click();
 		Helper helper = new Helper(driver);
 		helper.waitForJQueryAndPrimeFaces();
-		
+
 	}
 }

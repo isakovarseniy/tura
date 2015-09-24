@@ -56,13 +56,13 @@ public class SingleDataControlTest {
 	private static Logger logger;
 
 	@BeforeClass
-	public static void beforeClass(){
+	public static void beforeClass() {
 		logger = Logger.getLogger("InfoLogging");
 		logger.setUseParentHandlers(false);
-//		ConsoleHandler handler = new ConsoleHandler();
-//		handler.setFormatter(new LogFormatter());
-//		logger.addHandler(handler);
-//		logger.setLevel(Level.INFO);
+		// ConsoleHandler handler = new ConsoleHandler();
+		// handler.setFormatter(new LogFormatter());
+		// logger.addHandler(handler);
+		// logger.setLevel(Level.INFO);
 
 		factory = new FactoryDC("SingleDataControl");
 		em = factory.getEntityManager();
@@ -75,7 +75,6 @@ public class SingleDataControlTest {
 
 	}
 
-	
 	@Test
 	public void t1_getObject() {
 		try {
@@ -85,7 +84,6 @@ public class SingleDataControlTest {
 			DepartmentsDAO row = dc.getCurrentObject();
 			assertEquals(row.getObjId(), new Long(10));
 
-			
 		} catch (Exception e) {
 			e.printStackTrace();
 			fail(e.getMessage());
@@ -122,8 +120,6 @@ public class SingleDataControlTest {
 			// Check last row
 			assertEquals(dc.getCurrentObject().getObjId(), id);
 			logger.info(dc.getCurrentObject().getObjId().toString());
-			
-			
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -141,8 +137,7 @@ public class SingleDataControlTest {
 					.op(Operator.GT, new Long(30));
 			DepartmentsDAO row = dc.getCurrentObject();
 			assertEquals(row.getObjId(), new Long(40));
-			
-			
+
 		} catch (Exception e) {
 			e.printStackTrace();
 			fail(e.getMessage());
@@ -159,8 +154,7 @@ public class SingleDataControlTest {
 			dc.getDefaultQuery().where(c("objId")).op(Operator.GT, "#{limit}");
 			DepartmentsDAO row = dc.getCurrentObject();
 			assertEquals(row.getObjId(), new Long(40));
-			
-			
+
 		} catch (Exception e) {
 			e.printStackTrace();
 			fail(e.getMessage());
@@ -175,20 +169,19 @@ public class SingleDataControlTest {
 			dc.getElResolver().setValue("departments", dc);
 			dc.setPageSize(5);
 			dc.getCurrentObject();
-			
+
 			int beforeRemove = dc.getScroller().size();
-			
+
 			for (int i = 0; i < 4; i++) {
 				dc.removeObject();
 			}
-			
+
 			int afterRemove = dc.getScroller().size();
-			
+
 			int diff = beforeRemove - afterRemove;
-			
-			assertEquals(diff, 4 );
-			
-			
+
+			assertEquals(diff, 4);
+
 			dc.getShifter().setLogger(logger);
 			dc.getShifter().print(ShiftConstants.SELECT_ORDERBY_ACTUALPOSITION);
 			dc.forceRefresh();
@@ -230,7 +223,6 @@ public class SingleDataControlTest {
 			// Check last row
 			assertEquals(dc.getCurrentObject().getObjId(), id);
 			logger.info(dc.getCurrentObject().getObjId().toString());
-			
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -260,7 +252,6 @@ public class SingleDataControlTest {
 			dc.forceRefresh();
 			row = dc.getCurrentObject();
 			assertEquals("qwerty", row.getDepartmentName());
-			
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -280,7 +271,6 @@ public class SingleDataControlTest {
 			DepartmentsDAO row = dc.getCurrentObject();
 			assertEquals(row.getObjId(), new Long(70));
 			assertEquals(row.getDepartmentName(), "test");
-			
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -303,19 +293,18 @@ public class SingleDataControlTest {
 			}
 
 			int beforeRemove = dc.getScroller().size();
-			
+
 			DepartmentsDAO d1 = dc.createObject();
 			assertEquals(d1.getDepartmentName(), "test");
 			DepartmentsDAO d2 = dc.createObject();
 			assertEquals(d2.getDepartmentName(), "test");
 
-			
 			int afterRemove = dc.getScroller().size();
-			
+
 			int diff = beforeRemove - afterRemove;
-			
-			assertEquals(diff, -2 );
-			
+
+			assertEquals(diff, -2);
+
 			d1.setDepartmentName("d1");
 			d2.setDepartmentName("d2");
 
@@ -383,7 +372,33 @@ public class SingleDataControlTest {
 			// Check last row
 			assertEquals(dc.getCurrentObject().getObjId(), id);
 			logger.info(dc.getCurrentObject().getObjId().toString());
-			
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			fail(e.getMessage());
+		}
+	}
+
+	@Test
+	public void t9_removeLastRow() {
+		try {
+			factory.initCommandStack();
+			DataControl<DepartmentsDAO> dc = factory.initDepartments("");
+			dc.getElResolver().setValue("departments", dc);
+			dc.setPageSize(5);
+			dc.getCurrentObject();
+
+			do {
+				DepartmentsDAO row = dc.getCurrentObject();
+				logger.info(row.getObjId().toString());
+				dc.nextObject();
+			} while (dc.hasNext());			
+
+			DepartmentsDAO row =  dc.getCurrentObject();
+			assertEquals(row.getObjId(), new Long(270L));
+			dc.removeObject();
+			row =  dc.getCurrentObject();
+			assertEquals(row.getObjId(), new Long(260L));
 			
 		} catch (Exception e) {
 			e.printStackTrace();
