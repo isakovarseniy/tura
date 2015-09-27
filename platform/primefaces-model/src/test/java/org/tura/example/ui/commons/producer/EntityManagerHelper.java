@@ -19,45 +19,40 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package org.tura.example.ui.hrmanager.tree2tree.datacontrol;
-
-import org.tura.example.ui.commons.producer.EntityManagerHelper;
-import org.tura.platform.datacontrol.CommandStack;
+package org.tura.example.ui.commons.producer;
 
 import java.io.Serializable;
 
+import javax.annotation.Priority;
+
 import javax.enterprise.context.ApplicationScoped;
+import javax.enterprise.inject.Alternative;
 
 import javax.inject.Inject;
-import javax.inject.Named;
 
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+
+@Alternative
+@Priority(0)
 @ApplicationScoped
-@Named("hrmanager.tree2tree")
-public class CDICommandStack extends CommandStack implements Serializable {
+public class EntityManagerHelper implements Serializable {
     private static final long serialVersionUID = 1L;
     @Inject
-    private EntityManagerHelper emHelper;
+    private EntityManagerFactory emf;
+    private EntityManager em;
 
-    @Override
-    public void beginTransaction() {
-        emHelper.getEntityManager().getTransaction().begin();
+    public EntityManager getEntityManager() {
+        if (em == null) {
+            em = emf.createEntityManager();
+        }
+        return em;
     }
 
-    @Override
-    public void commitTransaction() {
-        try {
-            emHelper.getEntityManager().getTransaction().commit();
-        } finally {
-            emHelper.destroyEntityManager();
+    public void destroyEntityManager() {
+        if (em.isOpen()) {
+            em.close();
         }
-    }
-
-    @Override
-    public void rallbackTransaction() {
-        try {
-            emHelper.getEntityManager().getTransaction().rollback();
-        } finally {
-            emHelper.destroyEntityManager();
-        }
+        em = null;
     }
 }

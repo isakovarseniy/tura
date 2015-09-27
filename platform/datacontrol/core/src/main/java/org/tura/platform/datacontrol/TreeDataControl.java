@@ -46,9 +46,10 @@ public abstract class TreeDataControl implements IDataControl, EventListener {
 	protected HashMap<String, Relation> children = new HashMap<String, Relation>();
 
 	private ArrayList<EventListener> eventLiteners = new ArrayList<>();
+	private HashMap<String, IDataControl>  treeControls = new HashMap<>();
+	
 
 	private Object currentObject;
-	private IDataControl currentControl;
 	private TreePath[] currentPosition;
 
 	protected boolean blocked = false;
@@ -61,15 +62,15 @@ public abstract class TreeDataControl implements IDataControl, EventListener {
 
 	public void setRoot(DataControl<?> root) {
 		this.root = root;
-		this.currentControl = root;
-//		root.setParent(treeRelation);
-		currentPosition = new TreePath[] { new TreePath(null,0) };
+//		this.currentControl = root;
+		// root.setParent(treeRelation);
+		currentPosition = new TreePath[] { new TreePath(null, 0) };
 	}
 
 	@Override
 	public void setParent(Relation parent) throws TuraException {
 		this.parent = parent;
-		treeRelation = new Relation(); 
+		treeRelation = new Relation();
 		treeRelation.setParent(this);
 		treeRelation.setChild(root);
 		treeRelation.getLinks().addAll(parent.getLinks());
@@ -101,7 +102,7 @@ public abstract class TreeDataControl implements IDataControl, EventListener {
 
 		blocked = false;
 		if (treeRelation != null)
-		   treeRelation.setMasterCurrentObject(newCurrentObject);
+			treeRelation.setMasterCurrentObject(newCurrentObject);
 		currentObject = null;
 		root.handleChangeMusterCurrentRecordNotification(newCurrentObject);
 
@@ -109,13 +110,13 @@ public abstract class TreeDataControl implements IDataControl, EventListener {
 		notifyChageRecordAll(getCurrentObject());
 	}
 
-	public IDataControl getCurrentControl() {
-		return currentControl;
-	}
+//	public IDataControl getCurrentControl() {
+//		return currentControl;
+//	}
 
-	public void setCurrentControl(IDataControl currentControl) {
-		this.currentControl = currentControl;
-	}
+//	public void setCurrentControl(IDataControl currentControl) {
+//		this.currentControl = currentControl;
+//	}
 
 	protected void notifyChageRecordAll(Object newCurrentObject)
 			throws TuraException {
@@ -152,10 +153,12 @@ public abstract class TreeDataControl implements IDataControl, EventListener {
 			return null;
 		Object obj = null;
 		try {
-			BeanWrapper w = ((BeanWrapper) Reflection.call(currentObject,
-					"getWrapper"));
-			DataControl<?> dc = w.getDatacontrol();
-
+			DataControl<?> dc = getRoot();
+			if (currentObject != null) {
+				BeanWrapper w = ((BeanWrapper) Reflection.call(currentObject,
+						"getWrapper"));
+				dc = w.getDatacontrol();
+			}
 			Relation rel = dc.getChild(relationName);
 			if (rel.getChild() == null)
 				dc.createChild(relationName);
@@ -179,9 +182,13 @@ public abstract class TreeDataControl implements IDataControl, EventListener {
 			return null;
 
 		try {
-			BeanWrapper w = ((BeanWrapper) Reflection.call(currentObject,
-					"getWrapper"));
-			DataControl<?> dc = w.getDatacontrol();
+			DataControl<?> dc = getRoot();
+			if (currentObject != null) {
+				BeanWrapper w = ((BeanWrapper) Reflection.call(currentObject,
+						"getWrapper"));
+				dc = w.getDatacontrol();
+			}
+
 			currentObject = dc.createObject();
 		} catch (Exception e) {
 			throw new TuraException(e);
@@ -217,7 +224,7 @@ public abstract class TreeDataControl implements IDataControl, EventListener {
 		if (blocked)
 			return;
 
-		setCurrentPosition(new TreePath[] { new TreePath(null,0) });
+		setCurrentPosition(new TreePath[] { new TreePath(null, 0) });
 
 		BeanWrapper w = ((BeanWrapper) Reflection.call(currentObject,
 				"getWrapper"));
@@ -244,8 +251,8 @@ public abstract class TreeDataControl implements IDataControl, EventListener {
 			obj = current.getCurrentObject();
 			if (obj != null) {
 				if (i + 1 < path.length) {
-					String relationName = path[i+1].getRelation();
-					if (current.getChild(relationName) != null ) {
+					String relationName = path[i + 1].getRelation();
+					if (current.getChild(relationName) != null) {
 						Relation rel = current.getChild(relationName);
 						if (rel.getChild() == null)
 							current.createChild(relationName);
@@ -330,5 +337,14 @@ public abstract class TreeDataControl implements IDataControl, EventListener {
 	public void handleEventListener(Event event) throws TuraException {
 		notifyLiteners(event);
 	}
+
+	public void addControl(DataControl<?> dc){
+		treeControls.put(dc.getId(), dc);
+	}
+	
+	public HashMap<String, IDataControl> getControls(){
+		return treeControls;
+	}
+
 
 }

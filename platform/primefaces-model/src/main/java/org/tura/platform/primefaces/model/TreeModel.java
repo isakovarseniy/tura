@@ -210,6 +210,7 @@ public class TreeModel {
 			if (event instanceof MasterRowChangedEvent
 					&& event.getSource() instanceof TreeDataControl) {
 				root = null;
+				selectedNode=null;
 			}
 			if (event instanceof ControlRallbackEvent
 					&& event.getSource() instanceof DataControl) {
@@ -220,20 +221,21 @@ public class TreeModel {
 				try {
 					TreeNode parent = null;
 
-					Object[] data = (Object[]) selectedNode.getData();
-					Object obj = data[1];
-					BeanWrapper w = ((BeanWrapper) Reflection.call(obj,
-							"getWrapper"));
-					DataControl<?> currentDc = w.getDatacontrol();
-
 					Object newRow = ((RowCreatedEvent) event).getRow();
-					w = ((BeanWrapper) Reflection.call(newRow, "getWrapper"));
+					BeanWrapper  w = ((BeanWrapper) Reflection.call(newRow, "getWrapper"));
 					DataControl<?> newDC = w.getDatacontrol();
 
 					if (selectedNode == null) {
 						parent = root;
 					} else {
 
+						Object[] data = (Object[]) selectedNode.getData();
+						Object obj = data[1];
+						w = ((BeanWrapper) Reflection.call(obj,
+								"getWrapper"));
+						DataControl<?> currentDc = w.getDatacontrol();
+
+						
 						if (currentDc.getId().equals(newDC.getId()))
 							parent = selectedNode.getParent();
 						else
@@ -251,6 +253,8 @@ public class TreeModel {
 					for (int i = 0; i < scroler.size(); i++) {
 						DefaultTreeNode leaf = new DefaultTreeNode(
 								new Object[] { new TreePath(relation,i), scroler.get(i) }, parent);
+						if (selectedNode == null)
+							selectedNode = leaf;
 						new DefaultTreeNode(new Fake(), leaf);
 					}
 

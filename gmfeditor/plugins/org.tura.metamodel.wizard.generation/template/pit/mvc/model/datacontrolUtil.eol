@@ -19,7 +19,7 @@ operation domain::Controls processRootElement(recipe:Recipe, ingredient :Ingredi
 operation domain::DataControl processDefaultQuery(recipe:Recipe, ingredient :Ingredient ) { 
 
       if ( self.defaultSearch<> null)
-            self.defaultSearch.processParameters(recipe,ingredient);
+            self.defaultSearch.processParameters(recipe,ingredient,self);
 }
 
 operation domain::DataControl processTriggers(recipe:Recipe, ingredient :Ingredient ) { 
@@ -27,12 +27,12 @@ operation domain::DataControl processTriggers(recipe:Recipe, ingredient :Ingredi
         var provider = new Native('java.util.HashMap');
         self.~provider=provider;
 
-        self.create.processTrigger(recipe,ingredient);
+        self.create.processTrigger(recipe,ingredient,self);
         var array = new Native('java.util.ArrayList');
         array.add("create");
         provider.put(self.create.typeRef.~fullName,array);   
 
-        self.insert.processTrigger(recipe,ingredient);
+        self.insert.processTrigger(recipe,ingredient,self);
         array = provider.get(self.insert.typeRef.~fullName);   
         if (array = null){
            array = new Native('java.util.ArrayList');
@@ -40,7 +40,7 @@ operation domain::DataControl processTriggers(recipe:Recipe, ingredient :Ingredi
          }
         array.add("insert");
         
-        self.update.processTrigger(recipe,ingredient);
+        self.update.processTrigger(recipe,ingredient,self);
         array = provider.get(self.update.typeRef.~fullName);   
         if (array = null){
            array = new Native('java.util.ArrayList');
@@ -48,7 +48,7 @@ operation domain::DataControl processTriggers(recipe:Recipe, ingredient :Ingredi
          }
         array.add("update");
 
-        self.remove.processTrigger(recipe,ingredient);
+        self.remove.processTrigger(recipe,ingredient,self);
         array = provider.get(self.remove.typeRef.~fullName);   
         if (array = null){
            array = new Native('java.util.ArrayList');
@@ -56,7 +56,7 @@ operation domain::DataControl processTriggers(recipe:Recipe, ingredient :Ingredi
          }
         array.add("delete");
 
-        self.search.processTrigger(recipe,ingredient);
+        self.search.processTrigger(recipe,ingredient,self);
         array = provider.get(self.search.typeRef.~fullName);   
         if (array = null){
            array = new Native('java.util.ArrayList');
@@ -66,17 +66,18 @@ operation domain::DataControl processTriggers(recipe:Recipe, ingredient :Ingredi
 }
 
 
-operation domain::Trigger processTrigger(recipe:Recipe, ingredient :Ingredient){
+operation domain::Trigger processTrigger(recipe:Recipe, ingredient :Ingredient,datacontrol: domain::DataControl){
         var util = new Native('org.tura.metamodel.commons.Util');
         if (self.typeRef.isDefined()){
           self.typeRef.mappingType2Java(recipe,ingredient);
-          self.processParameters(recipe,ingredient);
+          self.processParameters(recipe,ingredient,datacontrol);
         }
 }
 
-operation domain::ContextParameters processParameters(recipe:Recipe, ingredient :Ingredient){
+operation domain::ContextParameters processParameters(recipe:Recipe, ingredient :Ingredient,datacontrol: domain::DataControl){
         var util = new Native('org.tura.metamodel.commons.Util');
         for (parameter in self.parameters){
+            parameter.value.~sourceControl=datacontrol.findTreeRoot();
             parameter.~result =  buildExpression(parameter.value);
             parameter.refObj.typeRef.mappingType2Java(recipe,ingredient);
         }

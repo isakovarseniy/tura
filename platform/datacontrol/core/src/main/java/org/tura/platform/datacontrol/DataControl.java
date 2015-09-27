@@ -68,10 +68,9 @@ public abstract class DataControl<T> extends MetaInfoHolder implements
 
 	protected CommandStack commandStack;
 
-	@SuppressWarnings({ "unchecked" })
 	public DataControl() throws Exception {
 		this.pager = new Pager<T>(this);
-		this.scroller = (Scroller<T>) ScrollerWrapper.newInstance(new Scroller<T>(pager));
+		this.scroller = new Scroller<T>(pager);
 	}
 
 	public void addEventLiteners(EventListener listener) {
@@ -220,13 +219,6 @@ public abstract class DataControl<T> extends MetaInfoHolder implements
 		if (blocked)
 			return;
 
-		if (treeDataControl != null ){
-			TreePath[] treePosition =  (TreePath[]) treeDataControl.getCurrentPosition();
-			TreePath[] newTreePosition = new TreePath[treePosition.length+1];
-			System.arraycopy(treePosition, 0, newTreePosition, 0, treePosition.length);
-			newTreePosition[treePosition.length]= new TreePath(this.getParent().getName(), 0);
-			treeDataControl.setCurrentPosition(newTreePosition);
-		}
 		for (String relName : getRelationsName()) {
 			Relation rel = this.getChild(relName);
 
@@ -243,12 +235,6 @@ public abstract class DataControl<T> extends MetaInfoHolder implements
 		if (currentPosition == pager.actualListSize())
 			currentPosition--;
 		
-		if (treeDataControl != null ){
-			TreePath[] treePosition =  (TreePath[]) treeDataControl.getCurrentPosition();
-			TreePath[] newTreePosition = new TreePath[treePosition.length-1];
-			System.arraycopy(treePosition, 0, newTreePosition, 0, treePosition.length-1);
-			treeDataControl.setCurrentPosition(newTreePosition);
-		}		
 		notifyLiteners(event);
 		notifyChageRecordAll(getCurrentObject());
 	}
@@ -349,7 +335,8 @@ public abstract class DataControl<T> extends MetaInfoHolder implements
 		} catch (Exception e) {
 			throw new TuraException(e);
 		}
-		if (position < pager.listSize()) {
+		Object obj = pager.getObject(position);
+		if (obj != null) {
 			this.currentPosition = (int) crtPosition;
 			notifyLiteners(new RowChangedEvent(this));
 			notifyChageRecordAll(getCurrentObject());
@@ -410,6 +397,7 @@ public abstract class DataControl<T> extends MetaInfoHolder implements
 
 	public void setTreeContext(TreeDataControl tdc) {
 		treeDataControl = tdc;
+		treeDataControl.addControl(this);
 		this.addEventLiteners(treeDataControl);
 	}
 

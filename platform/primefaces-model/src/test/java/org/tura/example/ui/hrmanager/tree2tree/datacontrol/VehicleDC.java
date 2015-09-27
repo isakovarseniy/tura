@@ -28,7 +28,6 @@ import org.tura.platform.datacontrol.CommandStack;
 import org.tura.platform.datacontrol.DataControl;
 import org.tura.platform.datacontrol.DataControlFactory;
 import org.tura.platform.datacontrol.ELResolver;
-import org.tura.platform.datacontrol.IDataControl;
 import org.tura.platform.datacontrol.annotations.ArtificialField;
 import org.tura.platform.datacontrol.annotations.ArtificialFields;
 import org.tura.platform.datacontrol.annotations.Base;
@@ -63,10 +62,7 @@ import org.tura.platform.datacontrol.command.PreQueryTrigger;
 import org.tura.platform.datacontrol.command.PreUpdateTrigger;
 import org.tura.platform.datacontrol.command.SearchCommand;
 import org.tura.platform.datacontrol.command.UpdateCommand;
-import org.tura.platform.datacontrol.commons.TuraException;
-import org.tura.platform.datacontrol.event.Event;
 import org.tura.platform.datacontrol.metainfo.ArtificialProperty;
-import org.tura.platform.datacontrol.shift.ShiftControl;
 import org.tura.platform.persistence.TuraObject;
 
 import java.io.Serializable;
@@ -87,7 +83,6 @@ public class VehicleDC extends DataControl<VehicleDAO> implements Serializable {
     private transient Logger logger;
     @Inject
     private TuraJPAEntityService provider_0;
-    private IDataControl saveTreeContex;
 
     public VehicleDC() throws Exception {
         super();
@@ -99,18 +94,19 @@ public class VehicleDC extends DataControl<VehicleDAO> implements Serializable {
         try {
             setBaseClass(VehicleDAO.class);
 
+            this.createCommand.fixParameters("\\*\\*\\*\\*\\*\\*\\*", getId());
             this.createCommand.setProvider(provider_0);
             this.createCommand.setDatacontrol(this);
-
+            this.insertCommand.fixParameters("\\*\\*\\*\\*\\*\\*\\*", getId());
             this.insertCommand.setProvider(provider_0);
             this.insertCommand.setDatacontrol(this);
-
+            this.updateCommand.fixParameters("\\*\\*\\*\\*\\*\\*\\*", getId());
             this.updateCommand.setProvider(provider_0);
             this.updateCommand.setDatacontrol(this);
-
+            this.deleteCommand.fixParameters("\\*\\*\\*\\*\\*\\*\\*", getId());
             this.deleteCommand.setProvider(provider_0);
             this.deleteCommand.setDatacontrol(this);
-
+            this.searchCommand.fixParameters("\\*\\*\\*\\*\\*\\*\\*", getId());
             this.searchCommand.setProvider(provider_0);
             this.searchCommand.setDatacontrol(this);
             setArtificialInterface(IVehicleArtifitialFields.class);
@@ -172,7 +168,7 @@ public class VehicleDC extends DataControl<VehicleDAO> implements Serializable {
     @Inject
     public void setInsertCommand(
         @Insert(objectAction = "insert", parameters = @Parameters(value =  {
-        @Parameter(name = "obj", expression = "#{beanFactoryHrManagerTree2tree.treeRootDepartment.currentObject}", type = TuraObject.class)
+        @Parameter(name = "obj", expression = "#{beanFactoryHrManagerTree2tree.treeRootDepartment.controls['*******'].currentObject}", type = TuraObject.class)
 
     }
     )
@@ -185,7 +181,7 @@ public class VehicleDC extends DataControl<VehicleDAO> implements Serializable {
     @Inject
     public void setUpdateCommand(
         @Update(objectAction = "update", parameters = @Parameters(value =  {
-        @Parameter(name = "obj", expression = "#{beanFactoryHrManagerTree2tree.treeRootDepartment.currentObject}", type = TuraObject.class)
+        @Parameter(name = "obj", expression = "#{beanFactoryHrManagerTree2tree.treeRootDepartment.controls['*******'].currentObject}", type = TuraObject.class)
 
     }
     )
@@ -198,7 +194,7 @@ public class VehicleDC extends DataControl<VehicleDAO> implements Serializable {
     @Inject
     public void setDeleteCommand(
         @Delete(objectAction = "remove", parameters = @Parameters(value =  {
-        @Parameter(name = "obj", expression = "#{beanFactoryHrManagerTree2tree.treeRootDepartment.currentObject}", type = TuraObject.class)
+        @Parameter(name = "obj", expression = "#{beanFactoryHrManagerTree2tree.treeRootDepartment.controls['*******'].currentObject}", type = TuraObject.class)
 
     }
     )
@@ -211,9 +207,9 @@ public class VehicleDC extends DataControl<VehicleDAO> implements Serializable {
     @Inject
     public void setSearchCommand(
         @Search(objectAction = "find", parameters = @Parameters(value =  {
-        @Parameter(name = "search", expression = "#{beanFactoryHrManagerTree2tree.treeRootDepartment.currentControl.query}", type = SelectQuery.class)
-        , @Parameter(name = "startIndex", expression = "#{beanFactoryHrManagerTree2tree.treeRootDepartment.currentControl.startIndex}", type = Integer.class)
-        , @Parameter(name = "endIndex", expression = "#{beanFactoryHrManagerTree2tree.treeRootDepartment.currentControl.endIndex}", type = Integer.class)
+        @Parameter(name = "search", expression = "#{beanFactoryHrManagerTree2tree.treeRootDepartment.controls['*******'].query}", type = SelectQuery.class)
+        , @Parameter(name = "startIndex", expression = "#{beanFactoryHrManagerTree2tree.treeRootDepartment.controls['*******'].startIndex}", type = Integer.class)
+        , @Parameter(name = "endIndex", expression = "#{beanFactoryHrManagerTree2tree.treeRootDepartment.controls['*******'].endIndex}", type = Integer.class)
         , @Parameter(name = "className", value = "org.elsoft.platform.hr.objects.VehicleDAO", type = String.class)
 
     }
@@ -297,144 +293,5 @@ public class VehicleDC extends DataControl<VehicleDAO> implements Serializable {
     )
     SelectQuery selectQuery) {
         this.defaultQuery = selectQuery;
-    }
-
-    private void saveState() {
-        if (this.getTreeContext() != null) {
-            saveTreeContex = this.getTreeContext().getCurrentControl();
-            this.getTreeContext().setCurrentControl(this);
-        }
-    }
-
-    private void restoreState() {
-        if (saveTreeContex != null) {
-            this.getTreeContext().setCurrentControl(saveTreeContex);
-        }
-    }
-
-    private Object restoreState(Object obj) {
-        if (saveTreeContex != null) {
-            this.getTreeContext().setCurrentControl(saveTreeContex);
-        }
-        return obj;
-    }
-
-    @Override
-    public void forceRefresh() throws TuraException {
-        saveState();
-        super.forceRefresh();
-        restoreState();
-    }
-
-    @Override
-    public void handleChangeMusterCurrentRecordNotification(
-        Object newCurrentObject) throws TuraException {
-        saveState();
-        super.handleChangeMusterCurrentRecordNotification(newCurrentObject);
-        restoreState();
-    }
-
-    @Override
-    public void notifyLiteners(Event event) throws TuraException {
-        saveState();
-        super.notifyLiteners(event);
-        restoreState();
-    }
-
-    @Override
-    public VehicleDAO getCurrentObject() throws TuraException {
-        saveState();
-        return (VehicleDAO) restoreState(super.getCurrentObject());
-    }
-
-    @Override
-    public boolean hasNext() throws TuraException {
-        saveState();
-        return (boolean) restoreState(super.hasNext());
-    }
-
-    @Override
-    public void nextObject() throws TuraException {
-        saveState();
-        super.nextObject();
-        restoreState();
-    }
-
-    @Override
-    public boolean hasPrev() {
-        saveState();
-        return (boolean) restoreState(super.hasPrev());
-    }
-
-    @Override
-    public void prevObject() throws TuraException {
-        saveState();
-        super.prevObject();
-        restoreState();
-    }
-
-    @Override
-    public void removeObject() throws Exception {
-        saveState();
-        super.removeObject();
-        restoreState();
-    }
-
-    @Override
-    public String getObjectKey(Object object) throws TuraException {
-        saveState();
-        return (String) restoreState(super.getObjectKey(object));
-    }
-
-    @Override
-    public void removeAll() throws Exception {
-        saveState();
-        super.removeAll();
-        restoreState();
-    }
-
-    @Override
-    public VehicleDAO createObject() throws TuraException {
-        saveState();
-        return (VehicleDAO) restoreState(super.createObject());
-    }
-
-    @Override
-    public Integer getCurrentPosition() {
-        saveState();
-        return (Integer) restoreState(super.getCurrentPosition());
-    }
-
-    @Override
-    public boolean setCurrentPosition(Object crtPosition) throws TuraException {
-        saveState();
-        return (boolean) restoreState(super.setCurrentPosition(crtPosition));
-    }
-
-    @Override
-    public SelectQuery getQuery() {
-        saveState();
-        return (SelectQuery) restoreState(super.getQuery());
-    }
-
-    @Override
-    public void cleanShifter()
-        throws org.tura.platform.datacontrol.commons.TuraException {
-        saveState();
-        super.cleanShifter();
-        restoreState();
-    }
-
-    @Override
-    public ShiftControl getShifter() throws TuraException {
-        saveState();
-        return (ShiftControl) restoreState(super.getShifter());
-    }
-
-    @SuppressWarnings("unchecked")
-    @Override
-    public List<VehicleDAO> getScroller() {
-        saveState();
-        return (List<VehicleDAO>) restoreState(super.getScroller());
     }
 }

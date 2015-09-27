@@ -51,6 +51,15 @@ public abstract class Command {
 	public Command() {
 
 	}
+	
+	public void fixParameters(String pattern,String replacement){
+		for (CallParameter parameter : parameters){
+			String exp = parameter.getExpression();
+			if (exp != null && !exp.equals("")) {
+				parameter.setExpression(exp.replaceAll(pattern, replacement));
+			}			
+		}
+	}
 
 	public void setProvider(Object provider) {
 		this.provider = provider;

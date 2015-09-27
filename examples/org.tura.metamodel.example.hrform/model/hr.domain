@@ -2607,6 +2607,7 @@
           <children xsi:type="tura.domain:LayerHolder" order="1" uid="2bf0762f-87b6-4f24-8f59-8abb67706538">
             <children xsi:type="tura.domain:Button" uid="47e6bf87-614a-496f-8583-80003ebe457b" onEventRefreshArea="bee23d39-6e59-450f-b696-94cf4c907c86 ce2aedb4-2308-40d7-b9aa-c9819da6e0f4" label="Add">
               <style constant="true" value="width:30px;height:30px"/>
+              <classifiers uid="7ba4f08f-7208-44e6-a71f-c18605d88937" hint="af128f8b-b49a-4c04-b336-6d96bfe8b4e8" details="Add To Tree"/>
               <triggers packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="97a1a7c3-5e08-48b1-82d0-8a35fa5a13e9" fakePackageName="Base package" fakeTypeName="System library" methodRef="111886f3-7b14-4394-9454-3e2df8cd55e7" fakeMethod="Create row" uid="e2677971-a233-4d51-bff5-219d09df4220">
                 <parameters uid="b341f2c6-d812-4d17-9367-e71648651871" refObj="96c4a5f8-171b-412b-98b8-23f37e1c5d68">
                   <value uid="378d5065-acc6-415d-842d-0e2235d2e469" value="Tree data controls.TreeCountry.Country">
@@ -2646,6 +2647,7 @@
             </children>
             <children xsi:type="tura.domain:Button" order="1" uid="33530ac1-01b9-4f9a-ad4a-4153d107ee43" onEventRefreshArea="bee23d39-6e59-450f-b696-94cf4c907c86 ce2aedb4-2308-40d7-b9aa-c9819da6e0f4" label="Add child">
               <style constant="true" value="width:30px;height:30px"/>
+              <classifiers uid="93283155-5292-4ab4-b246-fc2993ab353d" hint="af128f8b-b49a-4c04-b336-6d96bfe8b4e8" details="Add Child To Tree"/>
               <triggers packageRef="e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="c4654ad8-156f-4706-bda2-791ed81fcdea" fakePackageName="HR package" fakeTypeName="Action executor" methodRef="8a9e6244-1bd4-4be0-89ed-4fd759f7ef2e" fakeMethod="createChildRow" uid="e83a3f73-7ef1-445f-b127-85f483954043">
                 <parameters uid="15c69adc-7a25-45f6-b3d1-31385b72ef88" refObj="a4b169f9-9766-4ccb-8d4a-536e7624eeb8">
                   <value uid="be147cda-bab6-4435-9151-923b058006a3" value="Tree data controls.TreeCountry.Country">
@@ -2684,7 +2686,7 @@
       <children xsi:type="tura.domain:LayerHolder" order="1" uid="ecbb80f7-e997-4adf-bb0b-9aa8a2e2b0a5" columns="2">
         <style/>
         <styleClass/>
-        <children xsi:type="tura.domain:Button" nickname="commit" uid="1c158a9e-628f-43de-b721-5b4155baa65e" label="Save">
+        <children xsi:type="tura.domain:Button" nickname="" uid="1c158a9e-628f-43de-b721-5b4155baa65e" label="Save">
           <style constant="true" value="width:30px;height:30px"/>
           <classifiers uid="07c09c50-4178-4b15-9774-1e91c5bcc211" hint="af128f8b-b49a-4c04-b336-6d96bfe8b4e8" details="Save Button"/>
           <triggers packageRef="e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="c4654ad8-156f-4706-bda2-791ed81fcdea" fakePackageName="HR package" fakeTypeName="Action executor" methodRef="bf119b85-c597-4642-8522-b51b95e9c7b8" fakeMethod="saveApplication" uid="e70804b0-feb5-44e1-b89b-515e1a171767"/>
@@ -2697,8 +2699,9 @@
             <expression objRef="dfce4889-a037-4bb0-9cd3-9b3232911ea6" order="3" expressionType="StyleSetImpl"/>
           </icon>
         </children>
-        <children xsi:type="tura.domain:Button" nickname="rollback" order="1" uid="6ac93981-fd61-4ab4-9ca6-7a3e39852932" onEventRefreshArea="92ea6c50-dc39-4ba0-bb76-b3ca2e161fe5 bee23d39-6e59-450f-b696-94cf4c907c86 ce2aedb4-2308-40d7-b9aa-c9819da6e0f4" label="Rallback">
+        <children xsi:type="tura.domain:Button" nickname="" order="1" uid="6ac93981-fd61-4ab4-9ca6-7a3e39852932" onEventRefreshArea="92ea6c50-dc39-4ba0-bb76-b3ca2e161fe5 bee23d39-6e59-450f-b696-94cf4c907c86 ce2aedb4-2308-40d7-b9aa-c9819da6e0f4" label="Rallback">
           <style constant="true" value="width:30px;height:30px"/>
+          <classifiers uid="3e155ada-a896-48b8-a371-2140506b3611" hint="af128f8b-b49a-4c04-b336-6d96bfe8b4e8" details="Rollback Button"/>
           <triggers packageRef="e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="c4654ad8-156f-4706-bda2-791ed81fcdea" fakePackageName="HR package" fakeTypeName="Action executor" methodRef="f199d2af-fd03-45f9-b34f-3cff9b9b4e56" fakeMethod="rallbackApplication" uid="da074ad4-f531-4d77-8a79-f6efa058189a"/>
           <multiLangLabel/>
           <icon value="Application styles.HR styles.HR Controller styles.rallback-button">

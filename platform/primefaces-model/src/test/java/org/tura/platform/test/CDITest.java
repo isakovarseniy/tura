@@ -41,10 +41,12 @@ import org.elsoft.platform.hr.objects.StateDAO;
 import org.elsoft.platform.hr.objects.StreetDAO;
 import org.jboss.weld.environment.se.Weld;
 import org.jboss.weld.environment.se.WeldContainer;
+import org.junit.After;
 import org.junit.Before;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
+import org.tura.example.ui.commons.producer.EntityManagerHelper;
 import org.tura.example.ui.hrmanager.hrcontroller.datacontrol.BeanFactory;
 import org.tura.example.ui.hrmanager.hrcontroller.datacontrol.CompanyDC;
 import org.tura.example.ui.hrmanager.hrcontroller.datacontrol.DepartmentDC;
@@ -74,7 +76,26 @@ public class CDITest {
 	private static Logger logger;
 	private static WeldContainer weld;
 	private ArrayList<String> delitedRows = new ArrayList<>();
-
+	
+	@After
+	public void after() {
+		EntityManagerHelper helper = weld.instance().select(EntityManagerHelper.class).get();
+		EntityManager em = helper.getEntityManager();
+		em.getTransaction().begin();
+		em.createNativeQuery("DROP SEQUENCE obj_id_gen").executeUpdate();
+		em.createNativeQuery("DROP TABLE  COMPANYDAO").executeUpdate();
+		em.createNativeQuery("DROP TABLE  CITYDAO").executeUpdate();
+		em.createNativeQuery("DROP TABLE  COUNTRYDAO").executeUpdate();
+		em.createNativeQuery("DROP TABLE  DEPARTMENTSDAO").executeUpdate();
+		em.createNativeQuery("DROP TABLE  EMPLOYEESDAO").executeUpdate();
+		em.createNativeQuery("DROP TABLE  FILEDAO").executeUpdate();
+		em.createNativeQuery("DROP TABLE  STATEDAO").executeUpdate();
+		em.createNativeQuery("DROP TABLE  STREETDAO").executeUpdate();
+		em.createNativeQuery("DROP TABLE  VEHICLEDAO").executeUpdate();
+		em.getTransaction().commit();
+		
+	}	
+	
 	@Before
 	public void before() {
 		logger = Logger.getLogger("InfoLogging");
@@ -85,8 +106,14 @@ public class CDITest {
 		logger.setLevel(Level.INFO);
 
 		weld = new Weld().initialize();
-		EntityManager em = weld.instance().select(EntityManager.class).get();
+		EntityManagerHelper helper = weld.instance().select(EntityManagerHelper.class).get();
+		EntityManager em = helper.getEntityManager();
 
+		em.getTransaction().begin();
+		em.createNativeQuery("DROP SEQUENCE obj_id_gen").executeUpdate();
+		em.createNativeQuery("CREATE SEQUENCE obj_id_gen START WITH 1000000")
+				.executeUpdate();
+		em.getTransaction().commit();
 		new CompanyInit(em).init();
 		new CountryInit(em).init();
 		new StateInit(em).init();
@@ -102,8 +129,68 @@ public class CDITest {
 
 	}
 
+	
 	@Test
-	public void a0_getCountryControl() {
+	public void a0_remove() {
+		try {
+
+			ArrayList<String> fact = new ArrayList<>();
+			fact.add("StreetDAO_3");
+			fact.add("StreetDAO_7");
+			fact.add("StreetDAO_11");
+			fact.add("StreetDAO_15");
+
+			fact.add("StreetDAO_4");
+			fact.add("StreetDAO_8");
+			fact.add("StreetDAO_12");
+			fact.add("StreetDAO_16");
+
+			fact.add("CityDAO_3");
+			fact.add("CityDAO_4");
+
+			fact.add("StateDAO_6");
+			fact.add("StateDAO_7");
+			fact.add("StateDAO_8");
+			fact.add("StateDAO_9");
+			fact.add("StateDAO_10");
+
+			fact.add("CountryDAO_2");
+
+			fact.add("CompanyDAO_2");
+
+			BeanFactory bf = weld.instance().select(BeanFactory.class).get();
+
+			RemoveObjectTracer tracer = new RemoveObjectTracer();
+
+			CompanyDC companyDC = bf.getCompany();
+			companyDC.addEventLiteners(tracer);
+
+			bf.getTreeRootCountry().addEventLiteners(tracer);
+
+			companyDC.nextObject();
+			companyDC.getCurrentObject();
+			companyDC.removeObject();
+
+			assertEquals(delitedRows.size() - fact.size(), 0);
+
+			for (String key : delitedRows) {
+				assertEquals(fact.contains(key), true);
+				fact.remove(key);
+			}
+			assertEquals(fact.size(), 0);
+
+			companyDC.getCommandStack().commitCommand();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			fail(e.getMessage());
+		}
+
+	}
+	
+	
+	@Test
+	public void a5_getCountryControl() {
 		try {
 			BeanFactory bf = weld.instance().select(BeanFactory.class).get();
 
@@ -253,61 +340,6 @@ public class CDITest {
 
 	}
 
-	@Test
-	public void a5_remove() {
-		try {
-
-			ArrayList<String> fact = new ArrayList<>();
-			fact.add("StreetDAO_3");
-			fact.add("StreetDAO_7");
-			fact.add("StreetDAO_11");
-			fact.add("StreetDAO_15");
-
-			fact.add("StreetDAO_4");
-			fact.add("StreetDAO_8");
-			fact.add("StreetDAO_12");
-			fact.add("StreetDAO_16");
-
-			fact.add("CityDAO_3");
-			fact.add("CityDAO_4");
-
-			fact.add("StateDAO_6");
-			fact.add("StateDAO_7");
-			fact.add("StateDAO_8");
-			fact.add("StateDAO_9");
-			fact.add("StateDAO_10");
-
-			fact.add("CountryDAO_2");
-
-			fact.add("CompanyDAO_2");
-
-			BeanFactory bf = weld.instance().select(BeanFactory.class).get();
-
-			RemoveObjectTracer tracer = new RemoveObjectTracer();
-
-			CompanyDC companyDC = bf.getCompany();
-			companyDC.addEventLiteners(tracer);
-
-			bf.getTreeRootCountry().addEventLiteners(tracer);
-
-			companyDC.nextObject();
-			companyDC.getCurrentObject();
-			companyDC.removeObject();
-
-			assertEquals(delitedRows.size() - fact.size(), 0);
-
-			for (String key : delitedRows) {
-				assertEquals(fact.contains(key), true);
-			}
-
-			companyDC.getCommandStack().commitCommand();
-
-		} catch (Exception e) {
-			e.printStackTrace();
-			fail(e.getMessage());
-		}
-
-	}
 
 	@Test
 	public void a6_tree_access() {
@@ -385,14 +417,75 @@ public class CDITest {
 			BeanFactory bf = weld.instance().select(BeanFactory.class).get();
 			CompanyDC companyDC = bf.getCompany();
 			companyDC.getCurrentObject();
-			GridModel model = new GridModel(companyDC , logger);
-			
-			LazyDataGridModel lazy =   model.getLazyModel();
+			GridModel model = new GridModel(companyDC, logger);
+
+			LazyDataGridModel lazy = model.getLazyModel();
 			List ls = lazy.load(0, 5, null, null);
 			companyDC.getCommandStack().rallbackCommand();
-		    ls = lazy.load(0, 5, null, null);
-		    if (ls == null || ls.size()==0)
+			ls = lazy.load(0, 5, null, null);
+			if (ls == null || ls.size() == 0)
 				fail("Result is empty");
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			fail(e.getMessage());
+		}
+	}
+
+	@Test
+	public void a9_addNewCompany() {
+		try {
+			BeanFactory bf = weld.instance().select(BeanFactory.class).get();
+			CompanyDC companyDC = bf.getCompany();
+			TreeRootCountryDC treeLocation = bf.getTreeRootCountry();
+
+			CompanyDAO company = companyDC.getCurrentObject();
+
+			company = companyDC.createObject();
+			company.setCompanyName("Company 3");
+			company.setDescription("Company 3 description");
+
+			treeLocation.createObject();
+
+			companyDC.removeObject();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			fail(e.getMessage());
+		}
+	}
+
+	@Test
+	public void a10_addNewCompany() {
+		try {
+			BeanFactory bf = weld.instance().select(BeanFactory.class).get();
+			CompanyDC companyDC = bf.getCompany();
+			TreeRootCountryDC treeLocation = bf.getTreeRootCountry();
+
+			CompanyDAO company = companyDC.getCurrentObject();
+
+			company = companyDC.createObject();
+			company.setCompanyName("Company 3");
+			company.setDescription("Company 3 description");
+
+			CountryDAO country = (CountryDAO) treeLocation.createObject();
+			country.setName("CNT1");
+
+			country = (CountryDAO) treeLocation.createObject();
+			country.setName("CNT2");
+
+			boolean isSet = treeLocation
+					.setCurrentPosition(new TreePath[] { new TreePath(null, 0) });
+			assertEquals(isSet, true);
+
+			isSet = treeLocation
+					.setCurrentPosition(new TreePath[] { new TreePath(null, 1) });
+			assertEquals(isSet, true);
+			
+			isSet = treeLocation
+					.setCurrentPosition(new TreePath[] { new TreePath(null, 10) });
+			assertEquals(isSet, false);
+			
 			
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -416,7 +509,6 @@ public class CDITest {
 									((RowRemovedEvent) event).getObj(),
 									"getObjId");
 					delitedRows.add(key);
-
 				}
 			} catch (Exception e) {
 				logger.log(Level.INFO, e.getMessage());

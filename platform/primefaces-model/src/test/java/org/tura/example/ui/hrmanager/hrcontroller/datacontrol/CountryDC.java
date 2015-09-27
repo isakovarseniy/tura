@@ -65,12 +65,9 @@ import org.tura.platform.datacontrol.command.PreQueryTrigger;
 import org.tura.platform.datacontrol.command.PreUpdateTrigger;
 import org.tura.platform.datacontrol.command.SearchCommand;
 import org.tura.platform.datacontrol.command.UpdateCommand;
-import org.tura.platform.datacontrol.commons.TuraException;
-import org.tura.platform.datacontrol.event.Event;
 import org.tura.platform.datacontrol.metainfo.ArtificialProperty;
 import org.tura.platform.datacontrol.metainfo.DependecyProperty;
 import org.tura.platform.datacontrol.metainfo.Relation;
-import org.tura.platform.datacontrol.shift.ShiftControl;
 import org.tura.platform.persistence.TuraObject;
 
 import java.io.Serializable;
@@ -95,7 +92,6 @@ public class CountryDC extends DataControl<CountryDAO> implements Serializable {
     private TuraJPAEntityService provider_0;
     @Inject
     private Instance<StateDC> stateproducer;
-    private IDataControl saveTreeContex;
 
     public CountryDC() throws Exception {
         super();
@@ -107,18 +103,19 @@ public class CountryDC extends DataControl<CountryDAO> implements Serializable {
         try {
             setBaseClass(CountryDAO.class);
 
+            this.createCommand.fixParameters("\\*\\*\\*\\*\\*\\*\\*", getId());
             this.createCommand.setProvider(provider_0);
             this.createCommand.setDatacontrol(this);
-
+            this.insertCommand.fixParameters("\\*\\*\\*\\*\\*\\*\\*", getId());
             this.insertCommand.setProvider(provider_0);
             this.insertCommand.setDatacontrol(this);
-
+            this.updateCommand.fixParameters("\\*\\*\\*\\*\\*\\*\\*", getId());
             this.updateCommand.setProvider(provider_0);
             this.updateCommand.setDatacontrol(this);
-
+            this.deleteCommand.fixParameters("\\*\\*\\*\\*\\*\\*\\*", getId());
             this.deleteCommand.setProvider(provider_0);
             this.deleteCommand.setDatacontrol(this);
-
+            this.searchCommand.fixParameters("\\*\\*\\*\\*\\*\\*\\*", getId());
             this.searchCommand.setProvider(provider_0);
             this.searchCommand.setDatacontrol(this);
             DataControlFactory.buildConnection(this);
@@ -177,7 +174,7 @@ public class CountryDC extends DataControl<CountryDAO> implements Serializable {
     @Inject
     public void setInsertCommand(
         @Insert(objectAction = "insert", parameters = @Parameters(value =  {
-        @Parameter(name = "obj", expression = "#{beanFactoryHrManagerHRController.treeRootCountry.currentObject}", type = TuraObject.class)
+        @Parameter(name = "obj", expression = "#{beanFactoryHrManagerHRController.treeRootCountry.controls['*******'].currentObject}", type = TuraObject.class)
 
     }
     )
@@ -190,7 +187,7 @@ public class CountryDC extends DataControl<CountryDAO> implements Serializable {
     @Inject
     public void setUpdateCommand(
         @Update(objectAction = "update", parameters = @Parameters(value =  {
-        @Parameter(name = "obj", expression = "#{beanFactoryHrManagerHRController.treeRootCountry.currentObject}", type = TuraObject.class)
+        @Parameter(name = "obj", expression = "#{beanFactoryHrManagerHRController.treeRootCountry.controls['*******'].currentObject}", type = TuraObject.class)
 
     }
     )
@@ -203,7 +200,7 @@ public class CountryDC extends DataControl<CountryDAO> implements Serializable {
     @Inject
     public void setDeleteCommand(
         @Delete(objectAction = "remove", parameters = @Parameters(value =  {
-        @Parameter(name = "obj", expression = "#{beanFactoryHrManagerHRController.treeRootCountry.currentObject}", type = TuraObject.class)
+        @Parameter(name = "obj", expression = "#{beanFactoryHrManagerHRController.treeRootCountry.controls['*******'].currentObject}", type = TuraObject.class)
 
     }
     )
@@ -216,9 +213,9 @@ public class CountryDC extends DataControl<CountryDAO> implements Serializable {
     @Inject
     public void setSearchCommand(
         @Search(objectAction = "find", parameters = @Parameters(value =  {
-        @Parameter(name = "search", expression = "#{beanFactoryHrManagerHRController.treeRootCountry.currentControl.query}", type = SelectQuery.class)
-        , @Parameter(name = "startIndex", expression = "#{beanFactoryHrManagerHRController.treeRootCountry.currentControl.startIndex}", type = Integer.class)
-        , @Parameter(name = "endIndex", expression = "#{beanFactoryHrManagerHRController.treeRootCountry.currentControl.endIndex}", type = Integer.class)
+        @Parameter(name = "search", expression = "#{beanFactoryHrManagerHRController.treeRootCountry.controls['*******'].query}", type = SelectQuery.class)
+        , @Parameter(name = "startIndex", expression = "#{beanFactoryHrManagerHRController.treeRootCountry.controls['*******'].startIndex}", type = Integer.class)
+        , @Parameter(name = "endIndex", expression = "#{beanFactoryHrManagerHRController.treeRootCountry.controls['*******'].endIndex}", type = Integer.class)
         , @Parameter(name = "className", value = "org.elsoft.platform.hr.objects.CountryDAO", type = String.class)
 
     }
@@ -337,144 +334,5 @@ public class CountryDC extends DataControl<CountryDAO> implements Serializable {
     )
     List<DependecyProperty> dependency) {
         this.dependency = dependency;
-    }
-
-    private void saveState() {
-        if (this.getTreeContext() != null) {
-            saveTreeContex = this.getTreeContext().getCurrentControl();
-            this.getTreeContext().setCurrentControl(this);
-        }
-    }
-
-    private void restoreState() {
-        if (saveTreeContex != null) {
-            this.getTreeContext().setCurrentControl(saveTreeContex);
-        }
-    }
-
-    private Object restoreState(Object obj) {
-        if (saveTreeContex != null) {
-            this.getTreeContext().setCurrentControl(saveTreeContex);
-        }
-        return obj;
-    }
-
-    @Override
-    public void forceRefresh() throws TuraException {
-        saveState();
-        super.forceRefresh();
-        restoreState();
-    }
-
-    @Override
-    public void handleChangeMusterCurrentRecordNotification(
-        Object newCurrentObject) throws TuraException {
-        saveState();
-        super.handleChangeMusterCurrentRecordNotification(newCurrentObject);
-        restoreState();
-    }
-
-    @Override
-    public void notifyLiteners(Event event) throws TuraException {
-        saveState();
-        super.notifyLiteners(event);
-        restoreState();
-    }
-
-    @Override
-    public CountryDAO getCurrentObject() throws TuraException {
-        saveState();
-        return (CountryDAO) restoreState(super.getCurrentObject());
-    }
-
-    @Override
-    public boolean hasNext() throws TuraException {
-        saveState();
-        return (boolean) restoreState(super.hasNext());
-    }
-
-    @Override
-    public void nextObject() throws TuraException {
-        saveState();
-        super.nextObject();
-        restoreState();
-    }
-
-    @Override
-    public boolean hasPrev() {
-        saveState();
-        return (boolean) restoreState(super.hasPrev());
-    }
-
-    @Override
-    public void prevObject() throws TuraException {
-        saveState();
-        super.prevObject();
-        restoreState();
-    }
-
-    @Override
-    public void removeObject() throws Exception {
-        saveState();
-        super.removeObject();
-        restoreState();
-    }
-
-    @Override
-    public String getObjectKey(Object object) throws TuraException {
-        saveState();
-        return (String) restoreState(super.getObjectKey(object));
-    }
-
-    @Override
-    public void removeAll() throws Exception {
-        saveState();
-        super.removeAll();
-        restoreState();
-    }
-
-    @Override
-    public CountryDAO createObject() throws TuraException {
-        saveState();
-        return (CountryDAO) restoreState(super.createObject());
-    }
-
-    @Override
-    public Integer getCurrentPosition() {
-        saveState();
-        return (Integer) restoreState(super.getCurrentPosition());
-    }
-
-    @Override
-    public boolean setCurrentPosition(Object crtPosition) throws TuraException {
-        saveState();
-        return (boolean) restoreState(super.setCurrentPosition(crtPosition));
-    }
-
-    @Override
-    public SelectQuery getQuery() {
-        saveState();
-        return (SelectQuery) restoreState(super.getQuery());
-    }
-
-    @Override
-    public void cleanShifter()
-        throws org.tura.platform.datacontrol.commons.TuraException {
-        saveState();
-        super.cleanShifter();
-        restoreState();
-    }
-
-    @Override
-    public ShiftControl getShifter() throws TuraException {
-        saveState();
-        return (ShiftControl) restoreState(super.getShifter());
-    }
-
-    @SuppressWarnings("unchecked")
-    @Override
-    public List<CountryDAO> getScroller() {
-        saveState();
-        return (List<CountryDAO>) restoreState(super.getScroller());
     }
 }

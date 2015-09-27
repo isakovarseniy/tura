@@ -107,7 +107,7 @@ public class HrControllerTest {
 		inputText.setValue(Keys.DELETE);
 		inputText.setValue(Keys.RETURN);
 
-		hrControllerPage.getCommit().click();
+		hrControllerPage.getSaveButton().click();
 
 	}
 
@@ -328,7 +328,7 @@ public class HrControllerTest {
 		inputText.setValue("t6_456");
 		inputText.setValue(Keys.RETURN);
 
-		hrControllerPage.getCommit().click();
+		hrControllerPage.getSaveButton().click();
 
 		quitDriver();
 		createDriver();
@@ -355,7 +355,7 @@ public class HrControllerTest {
 				driver);
 
 		hrControllerPage.getAddCompany().click();
-		hrControllerPage.getRollback().click();
+		hrControllerPage.getRollbackButton().click();
 
 		Tree tree = hrControllerPage.getLocationTree();
 		TreeRow tr = (TreeRow) tree.getRow("0");
@@ -367,7 +367,7 @@ public class HrControllerTest {
 		t.getRow(1).getCell(1).click();
 
 		hrControllerPage.getAddCompany().click();
-		hrControllerPage.getRollback().click();
+		hrControllerPage.getRollbackButton().click();
 
 		tree = hrControllerPage.getLocationTree();
 		tr = (TreeRow) tree.getRow("0");
@@ -426,14 +426,39 @@ public class HrControllerTest {
 
 		t = hrControllerPage.getCompanies();
 		assertEquals(true, t.getRow(0).isSelected());
-		
+
 		Tree tree = hrControllerPage.getLocationTree();
 		TreeRow tr = (TreeRow) tree.getRow("0");
 
 		WebElement el = tr.getCell(1);
 		assertEquals("Country 1", el.getText());
-		
-		
+
 	}
 
+	@Test
+	public void t10_addCompany() {
+		// Go to the Google Suggest home page
+		driver.get("http://localhost:8080/hrform-1.0/hrmanager/hrcontroller/HRController.xhtml?param1=qwerty2");
+
+		HRControllerPageObject hrControllerPage = new HRControllerPageObject(
+				driver);
+
+		hrControllerPage.getAddCompany().click();
+		Table t = hrControllerPage.getCompanies();
+		t.getRow(0).getCell(0).click();
+
+		InputText inputText = new InputTextPrimeFaces(t.getRow(0).getCell(0)
+				.findElement(By.cssSelector("input")), driver);
+		inputText.setValue("Company 3");
+		inputText.setValue(Keys.RETURN);
+		
+		t.getRow(0).getCell(1).click();
+		inputText = new InputTextPrimeFaces(t.getRow(0).getCell(1)
+				.findElement(By.cssSelector("input")), driver);
+		inputText.setValue("Company 3 description");
+		inputText.setValue(Keys.RETURN);		
+		
+		
+
+	}
 }

@@ -19,20 +19,28 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package org.tura.platform.test;
+package org.tura.example.ui.hrcontroller.triggers;
 
-import javax.inject.Inject;
-import javax.persistence.EntityManager;
+import javax.annotation.Priority;
+import javax.enterprise.inject.Alternative;
 
-import org.tura.platform.commons.jpa.TuraJPAEntityService;
+import org.elsoft.platform.hr.objects.CountryDAO;
+import org.tura.platform.datacontrol.DataControl;
+import org.tura.platform.datacontrol.annotations.PostCreate;
+import org.tura.platform.datacontrol.annotations.Selector;
+import org.tura.platform.datacontrol.command.PostCreateTrigger;
+import org.tura.platform.datacontrol.commons.TuraException;
 
-public class TuraJPAService extends TuraJPAEntityService {
-	
-	private static final long serialVersionUID = 1L;
+@Alternative
+@Priority(10)
+@Selector("hrmanager.hrcontroller")
+@PostCreate("country")
+public class CountryPostCreateTrigger implements PostCreateTrigger{
 
-	@Inject
-	public void setEntityManager(EntityManager em){
-		super.setEntityManager(em);
+	@Override
+	public void execute(DataControl<?> datacontrol, Object obj)
+			throws TuraException {
+		((CountryDAO)obj).setName("NA");
 	}
 
 }

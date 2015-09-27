@@ -21,35 +21,21 @@
  */
 package org.tura.example.ui.commons.producer;
 
-import javax.enterprise.context.ApplicationScoped;
-import javax.enterprise.inject.Disposes;
+import javax.annotation.Priority;
+
+import javax.enterprise.inject.Alternative;
 import javax.enterprise.inject.Produces;
 import javax.enterprise.inject.spi.InjectionPoint;
 
-import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
-@ApplicationScoped
-public class EntityManagerProducer {
-    private EntityManager em;
-
+@Alternative
+@Priority(0)
+public class EntityManagerFactoryProducer {
     @Produces
-    public EntityManager getEntityManager(InjectionPoint injectionPoint) {
-        if (em != null) {
-            return em;
-        }
-        EntityManagerFactory emf =
-            Persistence.createEntityManagerFactory("UIComponent");
-        em = emf.createEntityManager();
-
-        return em;
-    }
-
-    public void destroyEntityManager(@Disposes
-    EntityManager entityManager) {
-        if (entityManager.isOpen()) {
-            entityManager.close();
-        }
+    public EntityManagerFactory getEntityManagerFactory(
+        InjectionPoint injectionPoint) {
+        return Persistence.createEntityManagerFactory("UIComponent");
     }
 }

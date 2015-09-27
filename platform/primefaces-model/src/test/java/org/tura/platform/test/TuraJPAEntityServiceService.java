@@ -19,45 +19,27 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package org.tura.example.ui.hrmanager.tree2tree.datacontrol;
+package org.tura.platform.test;
+
+import javax.annotation.Priority;
+import javax.enterprise.context.ApplicationScoped;
+import javax.enterprise.inject.Alternative;
+import javax.inject.Inject;
+import javax.persistence.EntityManager;
 
 import org.tura.example.ui.commons.producer.EntityManagerHelper;
-import org.tura.platform.datacontrol.CommandStack;
+import org.tura.platform.commons.jpa.TuraJPAEntityService;
 
-import java.io.Serializable;
-
-import javax.enterprise.context.ApplicationScoped;
-
-import javax.inject.Inject;
-import javax.inject.Named;
-
+@Alternative
+@Priority(0)
 @ApplicationScoped
-@Named("hrmanager.tree2tree")
-public class CDICommandStack extends CommandStack implements Serializable {
+public class TuraJPAEntityServiceService extends TuraJPAEntityService {
     private static final long serialVersionUID = 1L;
     @Inject
     private EntityManagerHelper emHelper;
 
     @Override
-    public void beginTransaction() {
-        emHelper.getEntityManager().getTransaction().begin();
-    }
-
-    @Override
-    public void commitTransaction() {
-        try {
-            emHelper.getEntityManager().getTransaction().commit();
-        } finally {
-            emHelper.destroyEntityManager();
-        }
-    }
-
-    @Override
-    public void rallbackTransaction() {
-        try {
-            emHelper.getEntityManager().getTransaction().rollback();
-        } finally {
-            emHelper.destroyEntityManager();
-        }
+    public EntityManager getEntityManager() {
+        return emHelper.getEntityManager();
     }
 }

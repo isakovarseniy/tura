@@ -336,7 +336,7 @@ public class Pager<T> extends Pool {
 
 	public T remove(int i) throws TuraException {
 		try {
-			T obj = getEntity(i);
+			T obj = getObject(i);
 
 			datacontrol.getDeleteCommand().setObj(obj);
 
