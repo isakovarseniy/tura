@@ -25,6 +25,8 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.fail;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
@@ -33,6 +35,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
 
 import org.elsoft.platform.hr.objects.CompanyDAO;
 import org.elsoft.platform.hr.objects.CountryDAO;
@@ -43,6 +46,7 @@ import org.jboss.weld.environment.se.Weld;
 import org.jboss.weld.environment.se.WeldContainer;
 import org.junit.After;
 import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
@@ -74,39 +78,44 @@ import org.tura.platform.primefaces.model.LazyDataGridModel;
 public class CDITest {
 
 	private static Logger logger;
-	private static WeldContainer weld;
+	private  Weld w;
+	private  WeldContainer weld;
+
 	private ArrayList<String> delitedRows = new ArrayList<>();
-	
+
 	@After
 	public void after() {
-		EntityManagerHelper helper = weld.instance().select(EntityManagerHelper.class).get();
+		EntityManagerHelper helper = weld.instance()
+				.select(EntityManagerHelper.class).get();
 		EntityManager em = helper.getEntityManager();
-		em.getTransaction().begin();
-		em.createNativeQuery("DROP SEQUENCE obj_id_gen").executeUpdate();
-		em.createNativeQuery("DROP TABLE  COMPANYDAO").executeUpdate();
-		em.createNativeQuery("DROP TABLE  CITYDAO").executeUpdate();
-		em.createNativeQuery("DROP TABLE  COUNTRYDAO").executeUpdate();
-		em.createNativeQuery("DROP TABLE  DEPARTMENTSDAO").executeUpdate();
-		em.createNativeQuery("DROP TABLE  EMPLOYEESDAO").executeUpdate();
-		em.createNativeQuery("DROP TABLE  FILEDAO").executeUpdate();
-		em.createNativeQuery("DROP TABLE  STATEDAO").executeUpdate();
-		em.createNativeQuery("DROP TABLE  STREETDAO").executeUpdate();
-		em.createNativeQuery("DROP TABLE  VEHICLEDAO").executeUpdate();
-		em.getTransaction().commit();
-		
-	}	
-	
-	@Before
-	public void before() {
+		if (em.isOpen())
+			em.close();
+
+		EntityManagerFactory emf = weld.instance()
+				.select(EntityManagerFactory.class).get();
+		emf.close();
+
+		weld = null;
+		w.shutdown();
+	}
+
+	@BeforeClass
+	public static void beforeClass() {
 		logger = Logger.getLogger("InfoLogging");
 		logger.setUseParentHandlers(false);
 		ConsoleHandler handler = new ConsoleHandler();
 		handler.setFormatter(new LogFormatter());
 		logger.addHandler(handler);
-		logger.setLevel(Level.INFO);
+		logger.setLevel(Level.INFO);		
+	}
+	
+	@Before
+	public void before() {
+		w = new Weld();
+		weld = w.initialize();
 
-		weld = new Weld().initialize();
-		EntityManagerHelper helper = weld.instance().select(EntityManagerHelper.class).get();
+		EntityManagerHelper helper = weld.instance()
+				.select(EntityManagerHelper.class).get();
 		EntityManager em = helper.getEntityManager();
 
 		em.getTransaction().begin();
@@ -129,9 +138,8 @@ public class CDITest {
 
 	}
 
-	
 	@Test
-	public void a0_remove() {
+	public void a5_remove() {
 		try {
 
 			ArrayList<String> fact = new ArrayList<>();
@@ -187,10 +195,9 @@ public class CDITest {
 		}
 
 	}
-	
-	
+
 	@Test
-	public void a5_getCountryControl() {
+	public void a0_getCountryControl() {
 		try {
 			BeanFactory bf = weld.instance().select(BeanFactory.class).get();
 
@@ -340,7 +347,6 @@ public class CDITest {
 
 	}
 
-
 	@Test
 	public void a6_tree_access() {
 		try {
@@ -481,12 +487,11 @@ public class CDITest {
 			isSet = treeLocation
 					.setCurrentPosition(new TreePath[] { new TreePath(null, 1) });
 			assertEquals(isSet, true);
-			
+
 			isSet = treeLocation
 					.setCurrentPosition(new TreePath[] { new TreePath(null, 10) });
 			assertEquals(isSet, false);
-			
-			
+
 		} catch (Exception e) {
 			e.printStackTrace();
 			fail(e.getMessage());
