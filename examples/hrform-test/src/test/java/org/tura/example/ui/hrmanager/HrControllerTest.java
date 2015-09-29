@@ -40,14 +40,21 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriverService;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
+import org.tura.example.ui.hrmanager.hrcontroller.pageobject.CityDetailsPageObject;
+import org.tura.example.ui.hrmanager.hrcontroller.pageobject.CountryDetailsPageObject;
+import org.tura.example.ui.hrmanager.hrcontroller.pageobject.DepartmentsDetailsPageObject;
+import org.tura.example.ui.hrmanager.hrcontroller.pageobject.EmployeesPageObject;
 import org.tura.example.ui.hrmanager.hrcontroller.pageobject.HRControllerPageObject;
 import org.tura.example.ui.hrmanager.hrcontroller.pageobject.PopUpCpmpanyDetailsPageObject;
+import org.tura.example.ui.hrmanager.hrcontroller.pageobject.StateDetailsPageObject;
 import org.tura.platform.selenium.Button;
 import org.tura.platform.selenium.InputText;
 import org.tura.platform.selenium.Table;
 import org.tura.platform.selenium.Tree;
 import org.tura.platform.selenium.primefaces.ButtonPrimeFaces;
 import org.tura.platform.selenium.primefaces.InputTextPrimeFaces;
+import org.tura.platform.selenium.primefaces.SeleniumActionExecutor;
+import org.tura.platform.selenium.primefaces.TableRow;
 import org.tura.platform.selenium.primefaces.TreeRow;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
@@ -89,7 +96,7 @@ public class HrControllerTest {
 	}
 
 	@Test
-	public void t0_init() {
+	public void t000_init() {
 		driver.get("http://localhost:8080/hrform-1.0/hrmanager/hrcontroller/HRController.xhtml?param1=qwerty2");
 
 		HRControllerPageObject hrControllerPage = new HRControllerPageObject(
@@ -112,7 +119,7 @@ public class HrControllerTest {
 	}
 
 	@Test
-	public void t1_validateSwitchingSelectionCurrentRow() {
+	public void t001_validateSwitchingSelectionCurrentRow() {
 		try {
 			// Go to the Google Suggest home page
 			driver.get("http://localhost:8080/hrform-1.0/hrmanager/hrcontroller/HRController.xhtml?param1=qwerty2");
@@ -148,7 +155,7 @@ public class HrControllerTest {
 	}
 
 	@Test
-	public void t2_gridTwoClickBehavor() {
+	public void t002_gridTwoClickBehavor() {
 		try {
 			// Go to the Google Suggest home page
 			driver.get("http://localhost:8080/hrform-1.0/hrmanager/hrcontroller/HRController.xhtml?param1=qwerty2");
@@ -176,7 +183,7 @@ public class HrControllerTest {
 	}
 
 	@Test
-	public void t3_langSwitch() {
+	public void t003_langSwitch() {
 		// Go to the Google Suggest home page
 		driver.get("http://localhost:8080/hrform-1.0/hrmanager/hrcontroller/HRController.xhtml?param1=qwerty2");
 
@@ -204,7 +211,7 @@ public class HrControllerTest {
 	}
 
 	@Test
-	public void t4_parallelModification() {
+	public void t004_parallelModification() {
 		// Go to the Google Suggest home page
 		driver.get("http://localhost:8080/hrform-1.0/hrmanager/hrcontroller/HRController.xhtml?param1=qwerty2");
 
@@ -263,7 +270,7 @@ public class HrControllerTest {
 	}
 
 	@Test
-	public void t5_parallelModification() {
+	public void t005_parallelModification() {
 		// Go to the Google Suggest home page
 		driver.get("http://localhost:8080/hrform-1.0/hrmanager/hrcontroller/HRController.xhtml?param1=qwerty2");
 
@@ -309,7 +316,7 @@ public class HrControllerTest {
 	}
 
 	@Test
-	public void t6_commitUpdate() {
+	public void t006_commitUpdate() {
 		// Go to the Google Suggest home page
 		driver.get("http://localhost:8080/hrform-1.0/hrmanager/hrcontroller/HRController.xhtml?param1=qwerty2");
 
@@ -347,7 +354,7 @@ public class HrControllerTest {
 	}
 
 	@Test
-	public void t7_checkSelectionWithRallback() {
+	public void t007_checkSelectionWithRallback() {
 		// Go to the Google Suggest home page
 		driver.get("http://localhost:8080/hrform-1.0/hrmanager/hrcontroller/HRController.xhtml?param1=qwerty2");
 
@@ -380,7 +387,7 @@ public class HrControllerTest {
 	}
 
 	@Test
-	public void t8_checkSelectionWithRemove() {
+	public void t008_checkSelectionWithRemove() {
 		// Go to the Google Suggest home page
 		driver.get("http://localhost:8080/hrform-1.0/hrmanager/hrcontroller/HRController.xhtml?param1=qwerty2");
 
@@ -413,7 +420,7 @@ public class HrControllerTest {
 	}
 
 	@Test
-	public void t9_removeRow() {
+	public void t009_removeRow() {
 		// Go to the Google Suggest home page
 		driver.get("http://localhost:8080/hrform-1.0/hrmanager/hrcontroller/HRController.xhtml?param1=qwerty2");
 
@@ -436,7 +443,110 @@ public class HrControllerTest {
 	}
 
 	@Test
-	public void t10_addCompany() {
+	public void t010_genericTest() {
+		
+		// Go to the Google Suggest home page
+		driver.get("http://localhost:8080/hrform-1.0/hrmanager/hrcontroller/HRController.xhtml?param1=qwerty2");
+
+		HRControllerPageObject hrControllerPage = new HRControllerPageObject(
+				driver);
+
+		Tree tree = hrControllerPage.getLocationTree();
+		TreeRow tr = (TreeRow) tree.getRow("0");
+		tr.open();
+
+		WebElement el = tr.getCell(1);
+		assertEquals("Country 1", el.getText());
+		
+		CountryDetailsPageObject  countryDetails = new CountryDetailsPageObject(driver);
+		String value = countryDetails.getCompanyDetails().getValue();
+		assertEquals("Country 1", value);
+
+		new SeleniumActionExecutor(driver,"turace2aedb4_2308_40d7_b9aa_c9819da6e0f4"){
+			public void action(WebDriver driver){
+				HRControllerPageObject hrControllerPage = new HRControllerPageObject(
+						driver);
+				Tree tree = hrControllerPage.getLocationTree();
+				TreeRow tr = (TreeRow) tree.getRow("0_0");
+				tr.open();
+				tr.click();
+			}
+		}.run();		
+		
+		tree = hrControllerPage.getLocationTree();
+		tr = (TreeRow) tree.getRow("0_0");
+//		tr.open();
+//		tr.click();
+
+		 el = tr.getCell(1);
+		assertEquals("State 1", el.getText());
+		StateDetailsPageObject  stateDetails = new StateDetailsPageObject(driver);
+		assertEquals("State 1", stateDetails.getStateDeteails().getValue());
+		
+		
+		new SeleniumActionExecutor(driver,"turace2aedb4_2308_40d7_b9aa_c9819da6e0f4"){
+			public void action(WebDriver driver){
+				HRControllerPageObject hrControllerPage = new HRControllerPageObject(
+						driver);
+				Tree tree = hrControllerPage.getLocationTree();
+				TreeRow tr = (TreeRow) tree.getRow("0_0_0");
+				tr.open();
+				tr.click();
+			}
+		}.run();			
+		
+		tree = hrControllerPage.getLocationTree();
+		tr = (TreeRow) tree.getRow("0_0_0");
+//		tr.open();
+//		tr.click();
+
+		 el = tr.getCell(1);
+		assertEquals("City 1", el.getText());
+		CityDetailsPageObject  cityDetails = new CityDetailsPageObject(driver);
+		assertEquals("City 1", cityDetails.getCityDetails().getValue());
+		
+		
+		new SeleniumActionExecutor(driver,"turace2aedb4_2308_40d7_b9aa_c9819da6e0f4"){
+			public void action(WebDriver driver){
+				HRControllerPageObject hrControllerPage = new HRControllerPageObject(
+						driver);
+				Tree tree = hrControllerPage.getLocationTree();
+				TreeRow tr = (TreeRow) tree.getRow("0_0_0_0");
+				tr.open();
+				tr.click();
+			}
+		}.run();		
+		
+		
+		tree = hrControllerPage.getLocationTree();
+		tr = (TreeRow) tree.getRow("0_0_0_0");
+//		tr.open();
+//		tr.click();
+
+		 el = tr.getCell(1);
+		assertEquals("Street 1", el.getText());
+		
+		DepartmentsDetailsPageObject departmentsDetails = new DepartmentsDetailsPageObject(driver);
+		TableRow row =  (TableRow) departmentsDetails.getDepartmentTable().getRow(0);
+		assertEquals("Department 1", row.getCell(0).getText());
+		
+	
+		EmployeesPageObject employees = new EmployeesPageObject(driver);
+		row =  (TableRow) employees.getEmployeeTable().getRow(0);
+		assertEquals("First Name 1", row.getCell(0).getText());
+		
+		
+		row =  (TableRow) employees.getVehicleTable().getRow(0);
+		assertEquals("Honda", row.getCell(0).getText());
+		
+		
+		
+		
+	}
+	
+	
+	@Test
+	public void t011_addCompany() {
 		// Go to the Google Suggest home page
 		driver.get("http://localhost:8080/hrform-1.0/hrmanager/hrcontroller/HRController.xhtml?param1=qwerty2");
 

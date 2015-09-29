@@ -2765,6 +2765,7 @@
         <children xsi:type="tura.domain:LayerHolder" uid="d3042c35-6844-4ae1-b547-67e27906cb92" columns="2">
           <children xsi:type="tura.domain:Table" uid="ef04d378-387f-4d8b-9d9c-631f54604252" onEventRefreshArea="9f4fda7f-de98-41ad-85de-027aacc547ff 50f32416-d7ec-41a5-8d7e-405950accbfb" sourcePointer="0b115ae0-7710-49f2-bb74-45fa6af58c8e" columns="3" label="Employes" rowNumber="5">
             <style/>
+            <classifiers uid="c4bf09ad-0cc6-46ad-a34c-c18886e36088" hint="af128f8b-b49a-4c04-b336-6d96bfe8b4e8" details="Employee Table"/>
             <multiLangLabel value="Messages.HR Controller.EMP_TABLE">
               <expression objRef="af03a493-0ca4-486c-945f-5bfc2fdf35bd" expressionType="MessagesImpl"/>
               <expression objRef="5772ddee-a83b-41c9-8f34-c442412e1013" order="1" expressionType="MessageLibraryImpl"/>
@@ -2861,6 +2862,7 @@
       <children xsi:type="tura.domain:LayerHolder" order="1" uid="fffe0acc-5bf9-40dd-bd58-8c4bba5ad2b9" columns="2">
         <style constant="true"/>
         <children xsi:type="tura.domain:Table" uid="a623d141-e215-4d11-96f0-c4f0ed1df6db" sourcePointer="7787cfd3-a689-4089-8689-7c149a1a3a34" columns="2" label="Vehicle" rowNumber="5">
+          <classifiers uid="076df353-1714-45ef-8b37-05dcae9a4901" hint="af128f8b-b49a-4c04-b336-6d96bfe8b4e8" details="Vehicle Table"/>
           <multiLangLabel value="Messages.HR Controller.VEHICLE_TABLE">
             <expression objRef="af03a493-0ca4-486c-945f-5bfc2fdf35bd" expressionType="MessagesImpl"/>
             <expression objRef="5772ddee-a83b-41c9-8f34-c442412e1013" order="1" expressionType="MessageLibraryImpl"/>
@@ -2919,6 +2921,7 @@
         <style constant="true" value="font: 15px arial, sans-serif;"/>
         <children xsi:type="tura.domain:Tree" uid="f4a4f9dd-de14-42f5-b3bf-1b844653672f" sourcePointer="34ec885b-a2e1-4c4a-8987-f56c9e935e86">
           <style/>
+          <classifiers uid="f9041e62-54fd-48d5-96b9-19c4caace3d9" hint="af128f8b-b49a-4c04-b336-6d96bfe8b4e8" details="Content Table"/>
           <multiLangLabel value="Messages.HR Controller.FILES_TREE">
             <expression objRef="af03a493-0ca4-486c-945f-5bfc2fdf35bd" expressionType="MessagesImpl"/>
             <expression objRef="5772ddee-a83b-41c9-8f34-c442412e1013" order="1" expressionType="MessageLibraryImpl"/>
@@ -3021,6 +3024,7 @@
         </children>
         <children xsi:type="tura.domain:OutputText" order="1" uid="ad90930f-64e0-4353-b91f-f8dc66724f2b" sourcePointer="cd1cab1c-1781-4867-85b8-84d9f465f989" valuePointer="Cntr_7982905f-4f83-472f-8551-80e30e34934c" sourceCast="Cntr_52ffccb7-cea6-49de-ba4b-7437f1da3369" sourceCastDataControl="cd1cab1c-1781-4867-85b8-84d9f465f989">
           <style constant="true" value="margin:0px 0px 0px 20px;"/>
+          <classifiers uid="1ab788a7-6bba-4e22-a8fd-5e95b1b6ba6c" hint="af128f8b-b49a-4c04-b336-6d96bfe8b4e8" details="Company Details"/>
           <required/>
         </children>
       </children>
@@ -3047,6 +3051,7 @@
         </children>
         <children xsi:type="tura.domain:OutputText" order="1" uid="aa601f70-d2d0-4785-aa58-b69eb4d5edf3" sourcePointer="cd1cab1c-1781-4867-85b8-84d9f465f989" valuePointer="State_7982905f-4f83-472f-8551-80e30e34934c" sourceCast="State_52ffccb7-cea6-49de-ba4b-7437f1da3369" sourceCastDataControl="f77b6e6d-41a3-4fb5-8ab9-85b2b76191ec">
           <style constant="true" value="margin:0px 0px 0px 20px;"/>
+          <classifiers uid="855f47bb-95a5-4c1a-8983-3b13b3ca821f" hint="af128f8b-b49a-4c04-b336-6d96bfe8b4e8" details="State Deteails"/>
           <required/>
         </children>
       </children>
@@ -3073,6 +3078,7 @@
         </children>
         <children xsi:type="tura.domain:OutputText" order="1" uid="23292454-67e6-4816-8d7d-9ba13f5f9508" sourcePointer="cd1cab1c-1781-4867-85b8-84d9f465f989" valuePointer="Cntr_7982905f-4f83-472f-8551-80e30e34934c">
           <style constant="true" value="margin:0px 0px 0px 20px;"/>
+          <classifiers uid="28b7718d-400d-46b5-b895-a7142d678bef" hint="af128f8b-b49a-4c04-b336-6d96bfe8b4e8" details="City Details"/>
         </children>
       </children>
     </baseCanvas>
@@ -3118,6 +3124,7 @@
       <style constant="true" value="font: 15px arial, sans-serif;margin:0px 0px 20px 0px;width:50%"/>
       <children xsi:type="tura.domain:Table" uid="4764435e-ca02-4771-a456-6454cada2e94" onEventRefreshArea="4211cd6a-7dcd-46df-b7b2-9d49c374e0ce 50f32416-d7ec-41a5-8d7e-405950accbfb" sourcePointer="0feddc04-1241-40fa-a9f3-35089d2cf4c5" columns="3" label="Department" rowNumber="5">
         <style/>
+        <classifiers uid="b6695e81-f1f9-4700-9ca0-bcbf2ec1c5f5" hint="af128f8b-b49a-4c04-b336-6d96bfe8b4e8" details="Department Table"/>
         <multiLangLabel value="Messages.HR Controller.DEPARTMENT_TABLE">
           <expression objRef="af03a493-0ca4-486c-945f-5bfc2fdf35bd" expressionType="MessagesImpl"/>
           <expression objRef="5772ddee-a83b-41c9-8f34-c442412e1013" order="1" expressionType="MessageLibraryImpl"/>
