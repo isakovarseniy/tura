@@ -43,7 +43,7 @@ public class TreeRow implements Row {
 
 	@Override
 	public void click() {
-		element.click();
+		getCell(0).findElement(By.cssSelector("span[class*='ui-treenode-label']")).click();
 		Helper helper = new Helper(driver);
 		helper.waitForJQueryAndPrimeFaces();
 		

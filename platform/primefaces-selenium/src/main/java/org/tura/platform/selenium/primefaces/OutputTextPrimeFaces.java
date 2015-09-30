@@ -46,7 +46,7 @@ public class OutputTextPrimeFaces implements OutputText {
 
 	@Override
 	public String getValue() {
-		return element.getText();
+		return element.getAttribute("value");
 	}
 
 }

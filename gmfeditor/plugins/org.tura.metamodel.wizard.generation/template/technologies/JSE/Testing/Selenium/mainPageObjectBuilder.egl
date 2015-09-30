@@ -27,8 +27,12 @@
          if (form.view = null or form.view.view = null)
             return;   
 
+        var array = new Native("java.util.ArrayList"); 
          for (canvas in form.view.view.canvases){
               if (canvas.isKindOf(domain::ViewPortHolder)  and canvas.isKindOf(domain::CanvasFrame) ){
+                  array.add(canvas);
+                  if (canvas.viewElement <> null)
+                     array.addAll(canvas.viewElement);
                   var uiElementsList = queryHelper.findUIElementsForPage(canvas); 
                   hash.put("uiElementsList",uiElementsList);
                   hash.put("canvas",canvas);
@@ -38,6 +42,12 @@
                   util.saveFile( javaPath+"/"+util.mergeAndCapitalize(uipackage.name).toLowerCase()+"/"+util.mergeAndCapitalize(form.name).toLowerCase()+"/pageobject/"  ,  util.mergeAndCapitalize(canvas.name) +  "PageObject.java",buffer);  
               }
            }
+          hash.put("uiElementsList",array);
+          var pageobject : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.wizard.generation/template/technologies/JSE/Testing/Selenium/MainHolderPageObject.egl",hash,TemplateFactory);
+          pageobject.setFormatter(f);
+          var buffer = pageobject.process();
+          util.saveFile( javaPath+"/"+util.mergeAndCapitalize(uipackage.name).toLowerCase()+"/"+util.mergeAndCapitalize(form.name).toLowerCase()+"/pageobject/"  ,  "MainHolderPageObject.java",buffer);  
+
        }
      }  
 %]

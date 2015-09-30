@@ -31,11 +31,11 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public abstract class SeleniumActionExecutor {
 	
-	private String[] elements;
+	private By[] elements;
 	private WebDriver driver;
 	private ArrayList<WebElement> webElements = new ArrayList<>();
 	
-	public SeleniumActionExecutor( WebDriver driver, String ...elements){
+	public SeleniumActionExecutor( WebDriver driver, By ...elements){
 		this.elements = elements;
 		this.driver = driver;
 	}
@@ -44,8 +44,8 @@ public abstract class SeleniumActionExecutor {
 	public abstract void action(WebDriver driver);
 	
 	public void run(){
-		for ( String id :elements){
-			webElements.add( driver.findElement(By.cssSelector("table[id$='" + id +"']")));
+		for ( By id :elements){
+			webElements.add( driver.findElement(id));
 		}
 		action(driver);
         for (WebElement webElement : webElements){

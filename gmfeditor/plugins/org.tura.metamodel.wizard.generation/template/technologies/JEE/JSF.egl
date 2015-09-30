@@ -176,6 +176,12 @@ operation domain::CanvasFrame mkuid(){
 }
 
 @template
+operation domain::ViewArea mkuid(){
+%]tura[%=self.uid.replaceAll("\\-","_")%][%
+}
+
+
+@template
 operation domain::ActionTrigger mkuid(){
 %]tura[%=self.uid.replaceAll("\\-","_")%][%
 }

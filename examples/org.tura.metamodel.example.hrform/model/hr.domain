@@ -2143,7 +2143,7 @@
   <tura.domain:Views uid="2ddd76f4-bbd2-4337-8cae-45d77d9170ab" parent="22583c7e-b599-447f-a6e1-08123b25a1a5">
     <canvases xsi:type="tura.domain:Window" uid="7d1cb326-89e4-4280-9b72-567945d73b6f" name="HR Controller">
       <style/>
-      <viewElement xsi:type="tura.domain:ViewArea" uid="e018aa58-2660-4bba-a75d-1674147458e7" name="Company-department" canvasView="86803f23-9d44-4ebc-81e9-9a63b4a770ac">
+      <viewElement xsi:type="tura.domain:ViewArea" uid="e018aa58-2660-4bba-a75d-1674147458e7" name="Company department" canvasView="86803f23-9d44-4ebc-81e9-9a63b4a770ac">
         <style/>
       </viewElement>
       <viewElement xsi:type="tura.domain:ViewPort" nickname="details" uid="ce2aedb4-2308-40d7-b9aa-c9819da6e0f4" name="Details">
